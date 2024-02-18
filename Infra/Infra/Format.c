@@ -653,12 +653,6 @@ Int Format_ArgValueCountString(Int o, Int arg)
 
 Int Format_ArgValueCountChar(Int o, Int arg)
 {
-    FormatArg* oo;
-
-    oo = CastPointer(arg);
-
-
-
     Int a;
 
     a = 1;

@@ -19,7 +19,7 @@ typedef struct
     Int Base;
 
 
-    Int ArgCount;    
+    Int ArgList;
 }
 Format;
 
@@ -28,17 +28,6 @@ Format;
 
 
 Int Format_ArgCount(Int o, Int valueCount, Int fieldWidth, Int maxWidth);
-
-
-
-
-Int Format_IntDigitCount(Int o, Int value, Int varBase);
-
-
-
-
-Bool Format_VariableCountIntHexResult(Char* result, Int n, Int byteCount);
-
 
 
 
@@ -58,6 +47,20 @@ Int Format_ArgValueCountString(Int o, Int arg);
 
 
 Int Format_ArgValueCountChar(Int o, Int arg);
+
+
+
+
+Int Format_IntDigitCount(Int o, Int value, Int varBase);
+
+
+
+
+Bool Format_VariableCountIntHexResult(Char* result, Int n, Int byteCount);
+
+
+
+
 
 
 
