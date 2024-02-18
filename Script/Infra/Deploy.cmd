@@ -1,10 +1,9 @@
 @echo off
 
 
-SET Qt=..\..\Qt
 
 
-SET WinDeployQt=%Qt%\6.6.1\mingw_64\bin\windeployqt.exe
+SET WinDeployQt=%QtRoot%\6.6.1\mingw_64\bin\windeployqt.exe
 
 
 SET InfraDeployFold=.\Out\InfraDeploy
