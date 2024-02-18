@@ -7,7 +7,7 @@
     </PropertyGroup>
     
     <ItemGroup>
-        <None Include="../../Deploy/**/*">
+        <None Include="../../Out/InfraDeploy/**/*">
             <Link>Lib/%(RecursiveDir)/%(FileName)%(Extension)</Link>
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </None>
