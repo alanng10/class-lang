@@ -1040,7 +1040,7 @@ Int Format_IntDigitCount(Int o, Int value, Int varBase)
 
 
 
-    while (oa > 0)
+    while (0 < oa)
     {
         oa = oa / varBase;
 
