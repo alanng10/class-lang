@@ -666,7 +666,7 @@ Int Format_ArgValueCountChar(Int o, Int arg)
 
 
 
-Int Format_ArgResultBool(Int o, Int arg, Int result)
+Int Format_ArgResultString(Int o, Int arg, Int result)
 {
     FormatArg* oo;
 
