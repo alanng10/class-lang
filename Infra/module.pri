@@ -1,4 +1,4 @@
-QT += widgets multimedia network opengl openglwidgets
+QT += widgets multimedia network
 
 
 
