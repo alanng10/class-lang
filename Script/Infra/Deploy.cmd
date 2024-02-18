@@ -14,7 +14,7 @@ mkdir %InfraDeployFold% 1>NUL 2>NUL
 
 
 
-copy /Y .\Out\build-Infra-Windows-Release\release\Infra.dll %InfraDeployFold%
+copy /Y .\Out\Infra-Windows-Release\release\Infra.dll %InfraDeployFold%
 
 
 
