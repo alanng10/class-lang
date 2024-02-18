@@ -1,7 +1,7 @@
 .vscode/
+/Out
 bin/
 obj/
-/Out
 Actual
 *.pro.user
 *.vsix
