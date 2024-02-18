@@ -56,6 +56,17 @@ Int Format_IntDigitCount(Int o, Int value, Int varBase);
 
 
 
+typedef Int (*Format_ArgResultMaide)(Int o, Int arg);
+
+
+
+
+Int Format_ArgResultBool(Int o, Int arg);
+
+
+
+
+
 Bool Format_VariableCountIntHexResult(Char* result, Int n, Int byteCount);
 
 

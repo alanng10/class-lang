@@ -666,6 +666,149 @@ Int Format_ArgValueCountChar(Int o, Int arg)
 
 
 
+Int Format_ArgResultBool(Int o, Int arg, Int result)
+{
+    FormatArg* oo;
+
+    oo = CastPointer(arg);
+
+
+
+    Int valueCount;
+
+    valueCount = oo->ValueCount;
+
+
+    Int count;
+
+    count = oo->Count;
+
+
+    Int value;
+
+    value = oo->Value;
+
+
+    Int valueData;
+
+    valueData = String_GetData(value);
+
+
+
+    Bool align;
+
+    align = oo->Align;
+
+
+
+    Int fillCount;
+
+    fillCount = 0;
+
+
+    Int clampCount;
+
+    clampCount = 0;
+
+
+    if (valueCount < count)
+    {
+        fillCount = count - valueCount;
+    }
+
+
+    if (count < valueCount)
+    {
+        clampCount = valueCount - count;
+    }
+
+
+
+    Int fillChar;
+
+    fillChar = oo->FillChar;
+
+
+
+    Char fillCharU;
+
+    fillCharU = fillChar;
+
+
+
+    Char* uu;
+
+    uu = CastPointer(valueData);
+
+
+    Char* dest;
+
+    dest = CastPointer(result);
+
+
+
+    Int fillStart;
+
+    fillStart = 0;
+
+
+
+    if (align)
+    {
+        Int countA;
+
+        countA = valueCount;
+
+        countA = countA - clampCount;
+
+
+
+        Int i;
+
+        i = 0;
+
+
+        while (i < countA)
+        {
+            dest[i] = uu[i];
+
+
+            i = i + 1;
+        }
+
+
+
+        fillStart = countA;
+    }
+
+
+
+    Int countB;
+
+    countB = fillCount;
+
+
+    i = 0;
+
+
+    while (i < countB)
+    {
+        dest[fillStart + i] = fillCharU;
+
+
+        i = i + 1;
+    }
+
+
+
+
+    return true;
+}
+
+
+
+
+
 Bool Format_Result(Int this)
 {
     Format* m;
