@@ -5,7 +5,7 @@
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
         <OutputPath>../../Out</OutputPath>
     </PropertyGroup>
-    
+
     <ItemGroup>
         <None Include="../../Out/InfraDeploy/**/*">
             <Link>Lib/%(RecursiveDir)/%(FileName)%(Extension)</Link>
