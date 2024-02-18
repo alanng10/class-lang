@@ -1,0 +1,14 @@
+CastOperate
+{
+    Class : ClassName
+            {
+                Value : "I",
+            },
+    Any : ValueOperate
+          {
+              Value : IntValue
+                      {
+                          Value : 1,
+                      },
+          },
+},

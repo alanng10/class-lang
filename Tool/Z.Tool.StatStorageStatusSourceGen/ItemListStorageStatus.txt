@@ -1,0 +1,15 @@
+NoError
+ReadError
+WriteError
+FatalError
+ResourceError
+OpenError
+AbortError
+TimeOutError
+UnspecifiedError
+RemoveError
+RenameError
+PositionError
+ResizeError
+PermissionsError
+CopyError

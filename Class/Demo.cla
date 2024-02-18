@@ -1,0 +1,148 @@
+class F : N
+{
+    prudate Bool A()
+    {
+        this.D : new D;
+
+
+        this.D.Init();
+        
+        
+
+
+        this.D : a;
+
+
+
+
+
+        Kk kk;
+
+
+        kk : share Kk;
+
+
+        kk.H();
+        
+
+
+
+        Color c;
+
+
+
+        this.Color : c;
+
+
+
+
+        Int gg;
+
+
+
+        gg : gg + 1;
+
+
+
+
+        D a;
+
+
+
+
+        N n;
+
+
+        n : new F;
+
+
+
+
+        F f;
+        
+        
+        f : cast F(this.M);
+        
+
+
+
+
+        inf (this.Color = c)
+        {
+            
+        }
+
+
+
+        Int a;
+
+        a : 10;
+
+
+
+        Int count;
+
+        count : 12;
+
+
+        Int i;
+
+        i : 0;
+
+
+        while (i < count)
+        {
+            a : a * 2;
+
+
+            i : i + 1;
+        }
+
+
+
+
+        String kk;
+
+        kk : "sdfsfsfd\nsfdfsfsf";
+
+
+        # sdfsdf sf sf "ssdfsf " aaaa
+
+        return true;
+    }
+
+
+
+    #
+    # sldkfjslkdf jsl kfkj
+
+    private Color Color
+    {
+        get
+        {
+            return data;
+        }
+        set
+        {
+            inf (!(value = null))
+            {
+                data : value;
+            }
+        }
+    }
+
+
+
+
+    prudate D D
+    {
+        get
+        {
+            return data;
+        }
+        set
+        {
+            data : value;
+        }
+    }
+}

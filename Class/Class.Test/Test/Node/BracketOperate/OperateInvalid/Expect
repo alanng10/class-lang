@@ -1,0 +1,9 @@
+--------------------------------------------------
+Kind: OperateInvalid
+Range: (1, 1)
+Source: Code
+--------------------------------------------------
+BracketOperate
+{
+    Operate : null,
+},

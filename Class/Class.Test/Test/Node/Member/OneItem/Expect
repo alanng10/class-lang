@@ -1,0 +1,29 @@
+Member
+{
+    Value : [
+                Field
+                {
+                    Name : FieldName
+                           {
+                               Value : "Hh",
+                           },
+                    Class : ClassName
+                            {
+                                Value : "Gg",
+                            },
+                    Get : State
+                          {
+                              Value : [
+                                      ],
+                          },
+                    Set : State
+                          {
+                              Value : [
+                                      ],
+                          },
+                    Access : PrudateAccess
+                             {
+                             },
+                },
+            ],
+},

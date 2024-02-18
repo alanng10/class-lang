@@ -1,0 +1,4 @@
+Miter
+Bevel
+Round
+SvgMiter

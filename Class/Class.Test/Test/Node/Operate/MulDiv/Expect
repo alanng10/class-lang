@@ -1,0 +1,27 @@
+MulOperate
+{
+    Left : DivOperate
+           {
+               Left : ValueOperate
+                      {
+                          Value : IntValue
+                                  {
+                                      Value : 4,
+                                  },
+                      },
+               Right : ValueOperate
+                       {
+                           Value : IntValue
+                                   {
+                                       Value : 2,
+                                   },
+                       },
+           },
+    Right : ValueOperate
+            {
+                Value : IntValue
+                        {
+                            Value : 3,
+                        },
+            },
+},

@@ -1,0 +1,77 @@
+Member
+{
+    Value : [
+                Field
+                {
+                    Name : FieldName
+                           {
+                               Value : "Hh",
+                           },
+                    Class : ClassName
+                            {
+                                Value : "Bool",
+                            },
+                    Get : State
+                          {
+                              Value : [
+                                      ],
+                          },
+                    Set : State
+                          {
+                              Value : [
+                                      ],
+                          },
+                    Access : PrudateAccess
+                             {
+                             },
+                },
+                Field
+                {
+                    Name : FieldName
+                           {
+                               Value : "Kk",
+                           },
+                    Class : ClassName
+                            {
+                                Value : "Int",
+                            },
+                    Get : State
+                          {
+                              Value : [
+                                      ],
+                          },
+                    Set : State
+                          {
+                              Value : [
+                                      ],
+                          },
+                    Access : PrudateAccess
+                             {
+                             },
+                },
+                Mield
+                {
+                    Name : MieldName
+                           {
+                               Value : "Dy",
+                           },
+                    Class : ClassName
+                            {
+                                Value : "String",
+                            },
+                    Param : Param
+                            {
+                                Value : [
+                                        ],
+                            },
+                    Call : State
+                           {
+                               Value : [
+                                       ],
+                           },
+                    Access : PrudateAccess
+                             {
+                             },
+                },
+            ],
+},

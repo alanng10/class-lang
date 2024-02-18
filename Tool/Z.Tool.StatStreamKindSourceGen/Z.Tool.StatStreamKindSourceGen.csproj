@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net6.0</TargetFramework>
+        <OutputPath>../Out</OutputPath>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="../Z.Infra.StatSourceGen/Z.Infra.StatSourceGen.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Content Include="ItemListStreamKind.txt" CopyToOutputDirectory="PreserveNewest" />
+        <Content Include="MethodStreamKind.txt" CopyToOutputDirectory="PreserveNewest" />
+    </ItemGroup>
+
+</Project>

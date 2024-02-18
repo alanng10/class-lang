@@ -1,0 +1,7 @@
+NewOperate
+{
+    Class : ClassName
+            {
+                Value : "H",
+            },
+},

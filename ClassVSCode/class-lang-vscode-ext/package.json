@@ -1,0 +1,30 @@
+{
+  "name": "class-lang-vscode-ext",
+  "displayName": "Class Lang",
+  "description": "Class lang syntax highlighting",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://terralangclass.tracpath.com/git/class"
+  },
+  "publisher": "Alana",
+  "engines": {
+    "vscode": "^1.81.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "class",
+      "aliases": ["Class", "class"],
+      "extensions": [".cla"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "class",
+      "scopeName": "source.class",
+      "path": "./syntaxes/class.tmLanguage.json"
+    }]
+  }
+}

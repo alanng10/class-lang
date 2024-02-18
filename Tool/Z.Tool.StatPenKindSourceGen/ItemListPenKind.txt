@@ -1,0 +1,6 @@
+Solid
+Dash
+Dot
+DashDot
+DashDotDot
+CustomDash

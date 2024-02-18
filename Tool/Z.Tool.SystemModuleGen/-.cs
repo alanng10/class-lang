@@ -1,0 +1,13 @@
+global using Any = Avalon.Infra.Any;
+global using Data = Avalon.Infra.Data;
+global using Array = Avalon.List.Array;
+global using Stat = Class.Infra.Stat;
+global using Module = Class.Binary.Module;
+global using BinaryClass = Class.Binary.Class;
+global using Export = Class.Binary.Export;
+global using Base = Class.Binary.Base;
+global using Member = Class.Binary.Member;
+global using Method = Class.Binary.Method;
+global using State = Class.Binary.State;
+global using BinaryWrite = Class.Binary.Write;
+global using ModuleStore = Class.Infra.ModuleStore;

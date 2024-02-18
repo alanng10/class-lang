@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <OutputPath>../Out</OutputPath>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="../Z.Infra.ListsourceGen/Z.Infra.ListsourceGen.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Content Include="InitMethodStatItem.txt" CopyToOutputDirectory="PreserveNewest" />
+        <Content Include="AddMethodStatItem.txt" CopyToOutputDirectory="PreserveNewest" />
+    </ItemGroup>
+
+</Project>

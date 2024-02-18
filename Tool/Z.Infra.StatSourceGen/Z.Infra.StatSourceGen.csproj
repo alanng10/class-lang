@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <OutputPath>../Out</OutputPath>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="../../Avalon/Z.Infra.Infra/Z.Infra.Infra.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Content Include="ItemList.txt" CopyToOutputDirectory="PreserveNewest" />
+        <Content Include="Source.txt" CopyToOutputDirectory="PreserveNewest" />
+        <Content Include="ShareVar.txt" CopyToOutputDirectory="PreserveNewest" />
+        <Content Include="Method.txt" CopyToOutputDirectory="PreserveNewest" />
+    </ItemGroup>
+
+</Project>

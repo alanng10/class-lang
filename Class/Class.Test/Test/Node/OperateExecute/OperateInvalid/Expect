@@ -1,0 +1,9 @@
+--------------------------------------------------
+Kind: OperateInvalid
+Range: (0, 0)
+Source: Code
+--------------------------------------------------
+OperateExecute
+{
+    Operate : null,
+},

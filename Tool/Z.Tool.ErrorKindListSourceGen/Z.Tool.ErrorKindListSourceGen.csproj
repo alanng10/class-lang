@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net6.0</TargetFramework>
+        <OutputPath>../Out</OutputPath>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="../../Avalon/Z.Infra.ListSourceGen/Z.Infra.ListSourceGen.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Content Include="ItemListErrorKindNode.txt" CopyToOutputDirectory="PreserveNewest" />
+        <Content Include="ItemListErrorKindCheck.txt" CopyToOutputDirectory="PreserveNewest" />
+        <Content Include="AddMethodErrorKind.txt" CopyToOutputDirectory="PreserveNewest" />
+    </ItemGroup>
+
+</Project>

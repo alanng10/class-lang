@@ -1,0 +1,37 @@
+ClassCount
+Ident ClassName Per Class
+
+
+ImportCount
+Import : ModuleInt ModuleVer ClassIndex
+
+
+ExportCount
+ClassIndex Per Export
+
+
+
+
+Base : ClassIndex per Class
+
+
+
+MemberList Per Class
+
+FieldCount
+Field : Ident ClassIndex Access FieldName
+
+
+MethodCount
+Method : Ident ClassIndex Access MethodName
+            ParamCount 
+            ClassIndex VarName Per Param
+
+
+
+State Per Member Get, Set, orn Call
+
+
+OperateList:
+Operate Count
+Operate List

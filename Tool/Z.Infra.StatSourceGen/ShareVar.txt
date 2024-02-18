@@ -1,0 +1,2 @@
+Int Stat_Var_#ClassName##NamePrefix##ItemName##NamePostfix# = #ScopeName##ScopeSeparator##ValuePrefix##ItemValue##ValuePostfix##ValueOffset#;
+

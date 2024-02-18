@@ -1,0 +1,216 @@
+Class : Node
+    ClassName Name
+    ClassName Base
+    Part Member
+
+Part : Node
+    Array Value
+
+Comp : Node
+
+Field : Comp
+    ClassName Class
+    FieldName Name
+    Access Access
+    State Get
+    State Set
+
+Maide : Comp
+    ClassName Class
+    MieldName Name
+    Access Access
+    Param Param
+    State Call
+
+Param : Node
+    Array Value
+
+Var : Node
+    ClassName Class
+    VarName Name
+
+Access : Node
+
+PrudateAccess : Access
+
+ProbateAccess : Access
+
+PrecateAccess : Access
+
+PrivateAccess : Access
+
+State : Node
+    Array Value
+
+Execute : Node
+
+InfExecute : Execute
+    Operate Cond
+    State Then
+
+WhileExecute : Execute
+    Operate Cond
+    State Loop
+
+ReturnExecute : Execute
+    Operate Result
+
+DeclareExecute : Execute
+    Var Var
+
+AssignExecute : Execute
+    Target Target
+    Operate Value
+
+OperateExecute : Execute
+    Operate Operate
+
+Argue : Node
+    Array Value
+
+Target : Node
+
+VarTarget : Target
+    VarName Var
+
+SetTarget : Target
+    Operate This
+    FieldName Field
+
+Operate : Node
+
+GetOperate : Operate
+    Operate This
+    FieldName Field
+
+CallOperate : Operate
+    Operate This
+    MieldName Mield
+    Argue Argue
+
+ThisOperate : Operate
+
+BaseOperate : Operate
+
+NullOperate : Operate
+
+NewOperate : Operate
+    ClassName Class
+
+ShareOperate : Operate
+    ClassName Class
+
+CastOperate : Operate
+    ClassName Class
+    Operate Any
+
+VarOperate : Operate
+    VarName Var
+
+ValueOperate : Operate
+    Value Value
+
+BracketOperate : Operate
+    Operate Operate
+
+Value : Node
+
+BoolValue : Value
+    Bool Value
+
+IntValue : Value
+    Int Value
+
+IntHexValue : Value
+    Int Value
+
+IntSignValue : Value
+    Int Value
+
+IntSignHexValue : Value
+    Int Value
+
+StringValue : Value
+    String Value
+
+ClassName : Node
+    String Value
+
+FieldName : Node
+    String Value
+
+MieldName : Node
+    String Value
+
+VarName : Node
+    String Value
+
+EqualOperate : Operate
+    Operate Left
+    Operate Right
+
+AndOperate : Operate
+    Operate Left
+    Operate Right
+
+OrnOperate : Operate
+    Operate Left
+    Operate Right
+
+NotOperate : Operate
+    Operate Value
+
+AddOperate : Operate
+    Operate Left
+    Operate Right
+
+SubOperate : Operate
+    Operate Left
+    Operate Right
+
+MulOperate : Operate
+    Operate Left
+    Operate Right
+
+DivOperate : Operate
+    Operate Left
+    Operate Right
+
+LessOperate : Operate
+    Operate Left
+    Operate Right
+
+SignMulOperate : Operate
+    Operate Left
+    Operate Right
+
+SignDivOperate : Operate
+    Operate Left
+    Operate Right
+
+SignLessOperate : Operate
+    Operate Left
+    Operate Right
+
+BitAndOperate : Operate
+    Operate Left
+    Operate Right
+
+BitOrnOperate : Operate
+    Operate Left
+    Operate Right
+
+BitNotOperate : Operate
+    Operate Value
+
+BitLeftOperate : Operate
+    Operate Value
+    Operate Count
+
+BitRightOperate : Operate
+    Operate Value
+    Operate Count
+
+BitSignRightOperate : Operate
+    Operate Value
+    Operate Count

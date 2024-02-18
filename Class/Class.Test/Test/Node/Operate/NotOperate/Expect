@@ -1,0 +1,10 @@
+NotOperate
+{
+    Value : ValueOperate
+            {
+                Value : BoolValue
+                        {
+                            Value : true,
+                        },
+            },
+},

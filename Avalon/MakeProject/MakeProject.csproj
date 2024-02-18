@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <OutputPath>../Out</OutputPath>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="../Avalon.Intern/Avalon.Intern.csproj" />
+        <ProjectReference Include="../Avalon.Infra/Avalon.Infra.csproj" />
+        <ProjectReference Include="../Avalon.List/Avalon.List.csproj" />
+        <ProjectReference Include="../Avalon.Math/Avalon.Math.csproj" />
+        <ProjectReference Include="../Avalon.Text/Avalon.Text.csproj" />
+        <ProjectReference Include="../Avalon.Comp/Avalon.Comp.csproj" />
+        <ProjectReference Include="../Avalon.Event/Avalon.Event.csproj" />
+        <ProjectReference Include="../Avalon.Thread/Avalon.Thread.csproj" />
+        <ProjectReference Include="../Avalon.Stream/Avalon.Stream.csproj" />
+        <ProjectReference Include="../Avalon.Type/Avalon.Type.csproj" />
+        <ProjectReference Include="../Avalon.Time/Avalon.Time.csproj" />
+        <ProjectReference Include="../Avalon.Video/Avalon.Video.csproj" />
+        <ProjectReference Include="../Avalon.Audio/Avalon.Audio.csproj" />
+        <ProjectReference Include="../Avalon.Storage/Avalon.Storage.csproj" />
+        <ProjectReference Include="../Avalon.Network/Avalon.Network.csproj" />
+        <ProjectReference Include="../Avalon.Console/Avalon.Console.csproj" />
+        <ProjectReference Include="../Avalon.Media/Avalon.Media.csproj" />
+        <ProjectReference Include="../Avalon.Draw/Avalon.Draw.csproj" />
+        <ProjectReference Include="../Avalon.View/Avalon.View.csproj" />
+        <ProjectReference Include="../Avalon.Main/Avalon.Main.csproj" />
+        <ProjectReference Include="../Avalon.Exe/Avalon.Exe.csproj" />
+    </ItemGroup>
+
+</Project>

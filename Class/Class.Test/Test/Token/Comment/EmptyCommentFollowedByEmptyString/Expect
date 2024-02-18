@@ -1,0 +1,31 @@
+Code
+{
+    Token : [
+                Token
+                {
+                    Range : TextRange
+                            {
+                                Row : 1,
+                                Col : Range
+                                      {
+                                          Start : 0,
+                                          End : 2,
+                                      },
+                            },
+                },
+            ],
+    Comment : [
+                  Comment
+                  {
+                      Range : TextRange
+                              {
+                                  Row : 0,
+                                  Col : Range
+                                        {
+                                            Start : 0,
+                                            End : 1,
+                                        },
+                              },
+                  },
+              ],
+},

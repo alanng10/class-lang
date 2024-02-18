@@ -1,0 +1,15 @@
+global using InternIntern = Avalon.Intern.Intern;
+global using Extern = Avalon.Intern.Extern;
+global using NetworkCaseChangedMaide = Avalon.Intern.Extern.Network_CaseChanged_Maide;
+global using NetworkReadyReadMaide = Avalon.Intern.Extern.Network_ReadyRead_Maide;
+global using NetworkServerNewPeerMaide = Avalon.Intern.Extern.NetworkServer_NewPeer_Maide;
+global using MaideAddress = Avalon.Intern.MaideAddress;
+global using Handle = Avalon.Intern.Handle;
+global using InternInfra = Avalon.Intern.Infra;
+global using InternStream = Avalon.Intern.Stream;
+global using Any = Avalon.Infra.Any;
+global using State = Avalon.Infra.State;
+global using Data = Avalon.Infra.Data;
+global using Range = Avalon.Infra.DataRange;
+global using Array = Avalon.List.Array;
+global using StreamStream = Avalon.Stream.Stream;

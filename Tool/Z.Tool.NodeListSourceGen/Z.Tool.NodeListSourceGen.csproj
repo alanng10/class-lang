@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net6.0</TargetFramework>
+        <OutputPath>../Out</OutputPath>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="../../Avalon/Z.Infra.ListSourceGen/Z.Infra.ListSourceGen.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Content Include="NodeList.txt" CopyToOutputDirectory="PreserveNewest" />
+        <Content Include="AddMethodNodeKind.txt" CopyToOutputDirectory="PreserveNewest" />
+        <Content Include="NodeSource.txt" CopyToOutputDirectory="PreserveNewest" />
+        <Content Include="NodeStateSource.txt" CopyToOutputDirectory="PreserveNewest" />
+        <Content Include="CreateOperateStateSource.txt" CopyToOutputDirectory="PreserveNewest" />
+        <Content Include="NewStateSource.txt" CopyToOutputDirectory="PreserveNewest" />
+    </ItemGroup>
+
+</Project>

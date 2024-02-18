@@ -1,0 +1,16 @@
+--------------------------------------------------
+Kind: OperandInvalid
+Range: (5, 5)
+Source: Code
+--------------------------------------------------
+BitRightOperate
+{
+    Value : ValueOperate
+            {
+                Value : IntValue
+                        {
+                            Value : 10,
+                        },
+            },
+    Count : null,
+},

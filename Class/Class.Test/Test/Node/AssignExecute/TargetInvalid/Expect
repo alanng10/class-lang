@@ -1,0 +1,16 @@
+--------------------------------------------------
+Kind: TargetInvalid
+Range: (0, 0)
+Source: Code
+--------------------------------------------------
+AssignExecute
+{
+    Target : null,
+    Value : ValueOperate
+            {
+                Value : IntValue
+                        {
+                            Value : 1,
+                        },
+            },
+},

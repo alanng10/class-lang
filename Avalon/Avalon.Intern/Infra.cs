@@ -1,0 +1,434 @@
+namespace Avalon.Intern;
+
+
+
+
+
+
+public class Infra : object
+{
+    public static Infra This { get; } = ShareCreate();
+
+
+
+
+    private static Infra ShareCreate()
+    {
+        Infra share;
+
+
+        share = new Infra();
+
+
+        share.Init();
+
+
+
+        return share;
+    }
+
+
+
+
+
+    public virtual bool Init()
+    {
+        this.InternIntern = Intern.This;
+
+
+
+        return true;
+    }
+
+
+
+
+
+    protected virtual Intern InternIntern { get; set; }
+
+
+
+
+
+    public virtual ulong StringCreate(string a)
+    {
+        int k;
+
+        k = a.Length;
+
+
+
+        ulong count;
+
+        count = (ulong)k;
+
+
+
+
+        ulong byteCount;
+
+        byteCount = count * 2;
+
+
+
+
+        ulong data;
+
+        data = Extern.New(byteCount);
+
+
+
+
+        this.InternIntern.CopyString(data, a, 0, count);
+ 
+
+
+
+        ulong o;
+
+        o = Extern.String_New();
+
+
+        Extern.String_Init(o);
+
+
+        Extern.String_SetCount(o, count);
+
+
+        Extern.String_SetData(o, data);
+
+
+
+
+        return o;
+    }
+
+
+
+
+
+
+    public virtual ulong StringCreateText(char[] a, int index, int count)
+    {
+        ulong countA;
+
+        countA = (ulong)count;
+
+
+
+
+        ulong byteCount;
+
+        byteCount = countA * 2;
+
+
+
+
+        ulong data;
+
+        data = Extern.New(byteCount);
+
+
+
+        ulong indexA;
+
+        indexA = (ulong)index;
+
+
+
+        this.InternIntern.CopyText(data, a, indexA, countA);
+
+
+
+
+        ulong o;
+
+        o = Extern.String_New();
+
+
+        Extern.String_Init(o);
+
+
+        Extern.String_SetCount(o, countA);
+
+
+        Extern.String_SetData(o, data);
+
+
+
+
+        return o;
+    }
+
+
+
+
+
+    public virtual bool StringDelete(ulong o)
+    {
+        ulong data;
+
+        data = Extern.String_GetData(o);
+
+
+
+        Extern.String_Final(o);
+
+
+        Extern.String_Delete(o);
+
+
+
+        Extern.Delete(data);
+
+
+
+
+        return true;
+    }
+    
+
+
+
+
+
+    public virtual ulong StateCreate(MaideAddress maideAddress, ulong arg)
+    {
+        ulong a;
+
+
+        a = Extern.State_New();
+
+
+        Extern.State_Init(a);
+
+
+        Extern.State_SetMaide(a, maideAddress.Value);
+
+
+        Extern.State_SetArg(a, arg);
+
+
+
+        return a;
+    }
+
+
+
+
+
+    public virtual bool StateDelete(ulong o)
+    {
+        Extern.State_Final(o);
+
+
+        Extern.State_Delete(o);
+
+
+
+        return true;
+    }
+
+
+
+
+
+    public virtual ulong PosCreate(int left, int up)
+    {
+        ulong o;
+
+        o = Extern.Pos_New();
+
+
+        Extern.Pos_Init(o);
+
+
+
+        this.SetPos(o, left, up);
+
+
+
+
+        return o;
+    }
+
+
+
+
+
+    public virtual bool PosDelete(ulong o)
+    {
+        Extern.Pos_Final(o);
+
+
+        Extern.Pos_Delete(o);
+
+
+
+        return true;
+    }
+
+
+
+
+
+
+
+    public virtual ulong RectCreate()
+    {
+        ulong pos;
+
+        pos = Extern.Pos_New();
+
+        Extern.Pos_Init(pos);
+
+
+
+        ulong size;
+
+        size = Extern.Size_New();
+
+        Extern.Size_Init(size);
+
+
+
+        ulong rect;
+
+        rect = Extern.Rect_New();
+
+        Extern.Rect_Init(rect);
+
+        Extern.Rect_SetPos(rect, pos);
+
+        Extern.Rect_SetSize(rect, size);
+
+
+
+        return rect;
+    }
+
+
+
+
+    public virtual bool RectDelete(ulong rect)
+    {
+        ulong pos;
+
+        ulong size;
+
+        pos = Extern.Rect_GetPos(rect);
+
+        size = Extern.Rect_GetSize(rect);
+
+
+
+        Extern.Rect_Final(rect);
+
+        Extern.Rect_Delete(rect);
+
+
+
+        Extern.Size_Final(size);
+
+        Extern.Size_Delete(size);
+
+
+
+        Extern.Pos_Final(pos);
+
+        Extern.Pos_Delete(pos);
+
+
+
+        return true;
+    }
+
+
+
+
+    public virtual bool SetRectFromRectValue(ulong rect, int left, int up, int width, int height)
+    {
+        ulong pos;
+
+        pos = Extern.Rect_GetPos(rect);
+
+
+        this.SetPos(pos, left, up);
+
+
+
+        ulong size;
+
+        size = Extern.Rect_GetSize(rect);
+
+
+        this.SetSize(size, width, height);
+
+
+
+
+        return true;
+    }
+
+
+
+
+
+    public virtual bool SetPos(ulong pos, int left, int up)
+    {
+        long leftU;
+
+        long upU;
+
+
+        leftU = left;
+
+        upU = up;
+
+
+
+        ulong l;
+
+        ulong u;
+
+        l = (ulong)leftU;
+
+        u = (ulong)upU;
+
+
+
+
+        Extern.Pos_SetLeft(pos, l);
+
+        Extern.Pos_SetUp(pos, u);
+
+
+
+        return true;
+    }
+
+
+
+
+    public virtual bool SetSize(ulong size, int width, int height)
+    {
+        ulong w;
+
+        ulong h;
+
+        w = (ulong)width;
+
+        h = (ulong)height;
+
+
+
+
+        Extern.Size_SetWidth(size, w);
+
+        Extern.Size_SetHeight(size, h);
+
+
+
+        return true;
+    }
+}

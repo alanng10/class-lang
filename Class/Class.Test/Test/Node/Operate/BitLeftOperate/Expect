@@ -1,0 +1,17 @@
+BitLeftOperate
+{
+    Value : ValueOperate
+            {
+                Value : IntValue
+                        {
+                            Value : 10,
+                        },
+            },
+    Count : ValueOperate
+            {
+                Value : IntValue
+                        {
+                            Value : 20,
+                        },
+            },
+},

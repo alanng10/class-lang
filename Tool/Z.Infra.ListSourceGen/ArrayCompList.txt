@@ -1,0 +1,51 @@
+    protected virtual bool InitArray()
+    {
+        this.Array = new #ArrayClassName#();
+
+
+        this.Array.Count = this.ArrayCount;
+
+
+        this.Array.Init();
+
+
+
+        return true;
+    }
+
+
+
+
+
+    protected virtual #ArrayClassName# Array { get; set; }
+
+
+
+    protected virtual int ArrayCount
+    { 
+        get
+        {
+            return #ArrayCount#;
+        } 
+        set
+        {
+        }
+    }
+
+
+
+
+    public virtual int Count { get; set; }
+
+
+
+
+    public virtual #ItemClassName# Get(int index)
+    {
+        return (#ItemClassName#)this.Array.Get(index);
+    }
+
+
+
+    
+    protected virtual int Index { get; set; }

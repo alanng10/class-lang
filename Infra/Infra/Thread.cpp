@@ -1,0 +1,1044 @@
+#include "Thread.hpp"
+
+
+
+
+CppClassNew(Thread)
+
+
+
+
+
+#define CP(a) ((Thread*)(a))
+
+
+
+
+
+
+Int Thread_Init(Int o)
+{
+    Thread* m;
+
+    m = CP(o);
+
+
+
+
+
+    m->InternHandleSemaphore = new QSemaphore;
+
+
+
+
+    m->InternCaseMutex = new QMutex;
+
+
+
+
+
+    m->InternThread = new ThreadIntern;
+
+    m->InternThread->Thread = o;
+
+
+
+
+    m->Intern = m->InternThread;
+
+
+
+
+
+
+    Int share;
+
+    share = Infra_Share();
+
+
+
+    Int stat;
+
+    stat = Share_Stat(share);
+
+
+
+    m->Case = Stat_ThreadCaseReady(stat);
+
+
+
+
+    return true;
+}
+
+
+
+
+
+
+Int Thread_Final(Int o)
+{
+    Thread* m;
+
+    m = CP(o);
+
+
+
+
+    delete m->Intern;
+
+
+
+    delete m->InternCaseMutex;
+
+
+
+    delete m->InternHandleSemaphore;
+
+
+
+
+
+
+    Int share;
+
+    share = Infra_Share();
+
+
+
+    Int stat;
+
+    stat = Share_Stat(share);
+
+
+
+
+    Int readyCase;
+
+    readyCase = Stat_ThreadCaseReady(stat);
+
+
+    if (!(m->Case == readyCase))
+    {
+        Int handle;
+
+        handle = m->Handle;
+
+
+        Thread_OS_CloseHandle(handle);
+    }
+
+
+
+
+
+
+    return true;
+}
+
+
+
+
+
+
+
+Int Thread_InitMainThread(Int o)
+{
+    Thread* m;
+
+    m = CP(o);
+
+
+
+
+    m->InternCaseMutex = new QMutex;
+
+
+
+    m->Intern = QThread::currentThread();
+
+
+
+
+
+
+    Int share;
+
+    share = Infra_Share();
+
+
+
+    Int stat;
+
+    stat = Share_Stat(share);
+
+
+
+    Int executeCase;
+
+    executeCase = Stat_ThreadCaseExecute(stat);
+
+
+    m->Case = executeCase;
+
+
+
+
+    Qt::HANDLE uu;
+
+
+    uu = QThread::currentThreadId();
+
+
+
+
+    Int threadId;
+
+    threadId = CastInt(uu);
+
+
+
+
+    Int thread;
+
+    thread = o;
+
+
+
+
+
+    Int handle;
+
+    handle = Thread_OS_OpenHandle(threadId);
+
+
+
+
+    Thread_SetHandle(thread, handle);
+
+
+
+
+
+
+    Thread_StoreSetThread(thread);
+
+
+
+
+
+    Main_SetCurrentThreadSignalHandle();
+
+
+
+
+
+    return true;
+}
+
+
+
+
+
+
+Int Thread_FinalMainThread(Int o)
+{
+    Thread* m;
+
+    m = CP(o);
+
+
+
+
+    delete m->InternCaseMutex;
+
+
+
+
+
+
+    Int handle;
+
+    handle = m->Handle;
+
+
+    Thread_OS_CloseHandle(handle);
+
+
+
+
+
+    return true;
+}
+
+
+
+
+
+
+
+Int Thread_GetIdent(Int o)
+{
+    Thread* m;
+
+    m = CP(o);
+
+
+    return m->Ident;
+}
+
+
+
+
+
+Int Thread_SetIdent(Int o, Int value)
+{
+    Thread* m;
+
+    m = CP(o);
+
+
+    m->Ident = value;
+
+
+    return true;
+}
+
+
+
+
+
+
+Int Thread_GetExecuteState(Int o)
+{
+    Thread* m;
+
+    m = CP(o);
+
+
+    return m->ExecuteState;
+}
+
+
+
+
+
+Int Thread_SetExecuteState(Int o, Int value)
+{
+    Thread* m;
+
+    m = CP(o);
+
+
+    m->ExecuteState = value;
+
+
+    return true;
+}
+
+
+
+
+
+
+Int Thread_GetStatus(Int o)
+{
+    Thread* m;
+
+    m = CP(o);
+
+
+    return m->Status;
+}
+
+
+
+
+
+Int Thread_SetStatus(Int o, Int value)
+{
+    Thread* m;
+
+    m = CP(o);
+
+
+    m->Status = value;
+
+
+    return true;
+}
+
+
+
+
+
+
+Int Thread_GetCase(Int o)
+{
+    Thread* m;
+
+    m = CP(o);
+
+
+    return m->Case;
+}
+
+
+
+
+
+Int Thread_SetCase(Int o, Int value)
+{
+    Thread* m;
+
+    m = CP(o);
+
+
+    m->Case = value;
+
+
+    return true;
+}
+
+
+
+
+
+
+Int Thread_GetHandle(Int o)
+{
+    Thread* m;
+
+    m = CP(o);
+
+
+    return m->Handle;
+}
+
+
+
+
+
+Int Thread_SetHandle(Int o, Int value)
+{
+    Thread* m;
+
+    m = CP(o);
+
+
+    m->Handle = value;
+
+
+    return true;
+}
+
+
+
+
+
+
+Int Thread_GetInternCaseMutex(Int o)
+{
+    Thread* m;
+
+    m = CP(o);
+
+
+
+
+    QMutex* ua;
+
+    ua = m->InternCaseMutex;
+
+
+
+
+    Int oo;
+
+    oo = CastInt(ua);
+
+
+    return oo;
+}
+
+
+
+
+
+
+Int Thread_GetInternHandleSemaphore(Int o)
+{
+    Thread* m;
+
+    m = CP(o);
+
+
+
+
+    QSemaphore* ua;
+
+    ua = m->InternHandleSemaphore;
+
+
+
+
+    Int oo;
+
+    oo = CastInt(ua);
+
+
+    return oo;
+}
+
+
+
+
+
+
+
+Int Thread_Execute(Int o)
+{
+    Thread* m;
+
+    m = CP(o);
+
+
+
+
+    Int share;
+
+    share = Infra_Share();
+
+
+
+    Int stat;
+
+    stat = Share_Stat(share);
+
+
+
+
+    Int readyCase;
+
+    readyCase = Stat_ThreadCaseReady(stat);
+
+
+    if (!(m->Case == readyCase))
+    {
+        return true;
+    }
+
+
+
+
+    m->Intern->start();
+
+
+
+
+    m->InternHandleSemaphore->acquire();
+
+
+
+
+
+
+    return true;
+}
+
+
+
+
+
+
+Int Thread_Terminate(Int o)
+{
+    Thread* m;
+
+    m = CP(o);
+
+
+
+
+    Int share;
+
+    share = Infra_Share();
+
+
+
+    Int stat;
+
+    stat = Share_Stat(share);
+
+
+
+
+    Int executeCase;
+
+    executeCase = Stat_ThreadCaseExecute(stat);
+
+
+    Int pauseCase;
+
+    pauseCase = Stat_ThreadCasePause(stat);
+
+
+
+
+    m->InternCaseMutex->lock();
+
+
+
+
+    if ((m->Case == executeCase) | (m->Case == pauseCase))
+    {
+        m->Intern->terminate();
+
+
+
+
+
+        Int terminateCase;
+
+        terminateCase = Stat_ThreadCaseTerminate(stat);
+
+
+
+        m->Case = terminateCase;
+    }
+
+
+
+
+    m->InternCaseMutex->unlock();
+
+
+
+
+    return true;
+}
+
+
+
+
+
+
+Int Thread_Pause(Int o)
+{
+    Thread* m;
+
+    m = CP(o);
+
+
+
+
+    Int share;
+
+    share = Infra_Share();
+
+
+
+    Int stat;
+
+    stat = Share_Stat(share);
+
+
+
+
+    Int executeCase;
+
+    executeCase = Stat_ThreadCaseExecute(stat);
+
+
+
+
+    m->InternCaseMutex->lock();
+
+
+
+
+    if (m->Case == executeCase)
+    {
+        Thread_OS_Pause(m->Handle);
+
+
+
+
+        Int pauseCase;
+
+        pauseCase = Stat_ThreadCasePause(stat);
+
+
+
+        m->Case = pauseCase;
+    }
+
+
+
+
+    m->InternCaseMutex->unlock();
+
+
+
+
+    return true;
+}
+
+
+
+
+
+
+Int Thread_Resume(Int o)
+{
+    Thread* m;
+
+    m = CP(o);
+
+
+
+
+
+    Int share;
+
+    share = Infra_Share();
+
+
+
+    Int stat;
+
+    stat = Share_Stat(share);
+
+
+
+
+    Int pauseCase;
+
+    pauseCase = Stat_ThreadCasePause(stat);
+
+
+
+
+    m->InternCaseMutex->lock();
+
+
+
+
+    if (m->Case == pauseCase)
+    {
+        Thread_OS_Resume(m->Handle);
+
+
+
+
+        Int executeCase;
+
+        executeCase = Stat_ThreadCaseExecute(stat);
+
+
+
+        m->Case = executeCase;
+    }
+
+
+
+
+    m->InternCaseMutex->unlock();
+
+
+
+
+
+    return true;
+}
+
+
+
+
+
+
+Int Thread_Wait(Int o)
+{
+    Thread* m;
+
+    m = CP(o);
+
+
+
+    m->Intern->wait();
+
+
+
+
+    return true;
+}
+
+
+
+
+
+
+Int Thread_ExecuteEventLoop(Int o)
+{
+    Thread* m;
+
+    m = CP(o);
+
+
+
+
+    Bool b;
+
+    b = Thread_IsMainThread(o);
+
+
+    if (b)
+    {
+        Int oa;
+
+        oa = Main_ExecuteEventLoop();
+
+
+        return oa;
+    }
+
+
+
+
+    int u;
+
+
+    u = m->InternThread->ExecuteEventLoop();
+
+
+
+    Int oo;
+
+    oo = u;
+
+
+    return oo;
+}
+
+
+
+
+
+Int Thread_ExitEventLoop(Int o, Int code)
+{
+    Thread* m;
+
+    m = CP(o);
+
+
+
+
+    Bool b;
+
+    b = Thread_IsMainThread(o);
+
+
+
+    if (b)
+    {
+        Bool oa;
+
+        oa = Main_ExitEventLoop(code);
+
+
+        return oa;
+    }
+
+
+
+
+    int u;
+
+    u = code;
+
+
+
+    m->InternThread->exit(u);
+
+
+
+    return true;
+}
+
+
+
+
+
+Int Thread_IsMainThread(Int o)
+{
+    Thread* m;
+
+    m = CP(o);
+
+
+
+    Bool a;
+
+    a = (m->InternThread == null);
+
+
+
+    return a;
+}
+
+
+
+
+
+Int Thread_Sleep(Int time)
+{
+    unsigned long u;
+
+    u = time;
+
+
+
+
+    QThread::msleep(u);
+
+
+
+
+    return true;
+}
+
+
+
+
+
+
+Int Thread_CreateStore()
+{
+    QThreadStorage<ThreadStoreValue>* threadStorage;
+
+
+    threadStorage = new QThreadStorage<ThreadStoreValue>();
+
+
+
+    Int a;
+
+    a = CastInt(threadStorage);
+
+
+
+    return a;
+}
+
+
+
+
+
+
+Int Thread_DeleteStore(Int a)
+{
+    QThreadStorage<ThreadStoreValue>* threadStorage;
+
+
+
+    threadStorage = (QThreadStorage<ThreadStoreValue>*)a;
+
+
+
+
+    delete threadStorage;
+
+
+
+
+    return true;
+}
+
+
+
+
+
+Int Thread_StoreSetThread(Int thread)
+{
+    ThreadStoreValue o;
+
+    o = { };
+
+
+    o.Thread = thread;
+
+
+
+
+    Int share;
+
+    share = Infra_Share();
+
+
+
+
+    Int u;
+
+    u = Share_ThreadStorage(share);
+
+
+
+
+    QThreadStorage<ThreadStoreValue>* threadStorage;
+
+    threadStorage = (QThreadStorage<ThreadStoreValue>*)u;
+
+
+
+    threadStorage->setLocalData(o);
+
+
+
+
+    return true;
+}
+
+
+
+
+
+
+Int Thread_GetCurrentThread()
+{
+    Int share;
+
+    share = Infra_Share();
+
+
+
+
+    Int u;
+
+    u = Share_ThreadStorage(share);
+
+
+
+
+    QThreadStorage<ThreadStoreValue>* threadStorage;
+
+    threadStorage = (QThreadStorage<ThreadStoreValue>*)u;
+
+
+
+    ThreadStoreValue o;
+
+    o = threadStorage->localData();
+
+
+
+
+    Int a;
+
+
+    a = o.Thread;
+
+
+
+
+    return a;
+}

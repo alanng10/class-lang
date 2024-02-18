@@ -1,0 +1,54 @@
+namespace #Namespace#;
+
+
+
+
+
+#Export# class #ClassName# : #BaseClassName#
+{
+    public static #ClassName# This { get; } = ShareCreate();
+
+
+
+
+    private static #ClassName# ShareCreate()
+    {
+        #ClassName# share;
+
+
+        share = new #ClassName#();
+
+
+
+        Any a;
+
+
+        a = share;
+
+
+        a.Init();
+
+
+
+        return share;
+    }
+
+
+
+
+
+
+#InitMethod#
+
+
+
+#FieldList#
+
+
+
+#AddMethod#
+
+
+
+#ArrayCompList#
+}

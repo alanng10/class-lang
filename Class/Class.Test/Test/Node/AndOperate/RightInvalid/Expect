@@ -1,0 +1,16 @@
+--------------------------------------------------
+Kind: OperandInvalid
+Range: (2, 2)
+Source: Code
+--------------------------------------------------
+AndOperate
+{
+    Left : ValueOperate
+           {
+               Value : BoolValue
+                       {
+                           Value : true,
+                       },
+           },
+    Right : null,
+},

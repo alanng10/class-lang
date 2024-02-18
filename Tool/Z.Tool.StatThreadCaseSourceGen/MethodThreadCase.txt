@@ -1,0 +1,6 @@
+Int Stat_#ClassName##ItemName#(Int o)
+{
+    return #ItemIndex#;
+}
+
+

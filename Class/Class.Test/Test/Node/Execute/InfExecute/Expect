@@ -1,0 +1,15 @@
+InfExecute
+{
+    Cond : ValueOperate
+           {
+               Value : BoolValue
+                       {
+                           Value : true,
+                       },
+           },
+    Then : State
+           {
+               Value : [
+                       ],
+           },
+},

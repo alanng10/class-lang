@@ -1,0 +1,15 @@
+WhileExecute
+{
+    Cond : ValueOperate
+           {
+               Value : BoolValue
+                       {
+                           Value : true,
+                       },
+           },
+    Loop : State
+           {
+               Value : [
+                       ],
+           },
+},

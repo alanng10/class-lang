@@ -1,0 +1,14 @@
+DeclareExecute
+{
+    Var : Var
+          {
+              Class : ClassName
+                      {
+                          Value : "Oo",
+                      },
+              Name : VarName
+                     {
+                         Value : "gg",
+                     },
+          },
+},

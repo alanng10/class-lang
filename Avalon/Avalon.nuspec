@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+    <metadata>
+        <id>Avalon</id>
+        <version>1.0.0</version>
+        <description>C# Infra Module</description>
+        <authors>Alan Ng</authors>
+        <dependencies>
+            <group targetFramework="net6.0" />
+        </dependencies>
+        <contentFiles>
+            <files include="**\*" buildAction="None" copyToOutput="true" />
+        </contentFiles>
+    </metadata>
+    <files>
+        <file src="Out\net6.0\Avalon.*.dll" target="lib\net6.0" />
+        <file src="Out\net6.0\Lib\**\*" target="contentFiles\any\any\Lib" />
+    </files>
+</package>

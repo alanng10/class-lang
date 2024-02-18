@@ -1,0 +1,23 @@
+prudate Bool Hh
+{
+    get
+    {
+    }
+    set
+    {
+    }
+}
+
+prudate Int Kk
+{
+    get
+    {
+    }
+    set
+    {
+    }
+}
+
+prudate String Dy()
+{
+}

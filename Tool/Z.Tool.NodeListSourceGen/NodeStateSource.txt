@@ -1,0 +1,17 @@
+namespace Class.Node;
+
+
+
+
+
+public class #NodeKind#NodeState : NodeState
+{
+    public override bool Execute()
+    {
+        this.Result = this.Create.Execute#NodeKind#(this.Arg);
+
+
+
+        return true;
+    }
+}

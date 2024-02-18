@@ -1,0 +1,17 @@
+AssignExecute
+{
+    Target : VarTarget
+             {
+                 Var : VarName
+                       {
+                           Value : "i",
+                       },
+             },
+    Value : ValueOperate
+            {
+                Value : IntValue
+                        {
+                            Value : 1,
+                        },
+            },
+},

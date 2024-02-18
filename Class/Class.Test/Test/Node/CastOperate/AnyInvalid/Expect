@@ -1,0 +1,13 @@
+--------------------------------------------------
+Kind: AnyInvalid
+Range: (3, 3)
+Source: Code
+--------------------------------------------------
+CastOperate
+{
+    Class : ClassName
+            {
+                Value : "F",
+            },
+    Any : null,
+},

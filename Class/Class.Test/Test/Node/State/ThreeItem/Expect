@@ -1,0 +1,40 @@
+State
+{
+    Value : [
+                OperateExecute
+                {
+                    Operate : VarOperate
+                              {
+                                  Var : VarName
+                                        {
+                                            Value : "o",
+                                        },
+                              },
+                },
+                InfExecute
+                {
+                    Cond : VarOperate
+                           {
+                               Var : VarName
+                                     {
+                                         Value : "t",
+                                     },
+                           },
+                    Then : State
+                           {
+                               Value : [
+                                       ],
+                           },
+                },
+                ReturnExecute
+                {
+                    Result : VarOperate
+                             {
+                                 Var : VarName
+                                       {
+                                           Value : "n",
+                                       },
+                             },
+                },
+            ],
+},

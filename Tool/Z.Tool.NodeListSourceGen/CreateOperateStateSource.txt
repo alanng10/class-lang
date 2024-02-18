@@ -1,0 +1,23 @@
+namespace Class.Node;
+
+
+
+
+
+public class #NodeKind#CreateOperateState : CreateOperateState
+{
+    public override bool Execute()
+    {
+        #NodeKind# node;
+        
+        node = (#NodeKind#)this.Node;
+
+
+
+#FieldSetList#
+
+
+
+        return true;
+    }
+}

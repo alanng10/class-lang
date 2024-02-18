@@ -1,0 +1,9 @@
+prudate Int Gg
+{
+    get
+    {
+    }
+    set
+    {
+    }
+}

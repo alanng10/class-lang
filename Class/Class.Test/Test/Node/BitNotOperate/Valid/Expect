@@ -1,0 +1,10 @@
+BitNotOperate
+{
+    Value : ValueOperate
+            {
+                Value : IntValue
+                        {
+                            Value : 4,
+                        },
+            },
+},

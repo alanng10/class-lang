@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="../../Avalon/Avalon.Infra/Avalon.Infra.csproj" />
+        <ProjectReference Include="../../Avalon/Avalon.List/Avalon.List.csproj" />
+        <ProjectReference Include="../../Avalon/Avalon.Text/Avalon.Text.csproj" />
+        <ProjectReference Include="../Class.Binary/Class.Binary.csproj" />
+        <ProjectReference Include="../Class.Infra/Class.Infra.csproj" />
+    </ItemGroup>
+    
+</Project>

@@ -1,0 +1,16 @@
+--------------------------------------------------
+Kind: OperandInvalid
+Range: (2, 2)
+Source: Code
+--------------------------------------------------
+MulOperate
+{
+    Left : ValueOperate
+           {
+               Value : IntValue
+                       {
+                           Value : 1,
+                       },
+           },
+    Right : null,
+},

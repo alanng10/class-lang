@@ -1,0 +1,17 @@
+BitOrnOperate
+{
+    Left : ValueOperate
+           {
+               Value : IntValue
+                       {
+                           Value : 10,
+                       },
+           },
+    Right : ValueOperate
+            {
+                Value : IntValue
+                        {
+                            Value : 9,
+                        },
+            },
+},

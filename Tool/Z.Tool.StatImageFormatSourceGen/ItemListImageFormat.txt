@@ -1,0 +1,3 @@
+Bmp
+Jpg
+Png

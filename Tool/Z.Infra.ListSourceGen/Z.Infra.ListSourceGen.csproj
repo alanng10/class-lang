@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <OutputPath>../Out</OutputPath>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="../Z.Infra.Infra/Z.Infra.Infra.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Content Include="ItemList.txt" CopyToOutputDirectory="PreserveNewest" />
+        <Content Include="Class.txt" CopyToOutputDirectory="PreserveNewest" />
+        <Content Include="InitMethod.txt" CopyToOutputDirectory="PreserveNewest" />
+        <Content Include="AddMethod.txt" CopyToOutputDirectory="PreserveNewest" />
+        <Content Include="ArrayCompList.txt" CopyToOutputDirectory="PreserveNewest" />
+    </ItemGroup>
+
+</Project>

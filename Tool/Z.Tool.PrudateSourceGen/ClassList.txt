@@ -1,0 +1,534 @@
+String
+    Count
+    Data
+    Char(index)
+    Equal(other)
+    ConstantCreate(o) -
+    ConstantDelete(o) -
+
+Return
+    String
+    StringStart()
+    StringEnd()
+    StringCount()
+    StringResult(result)
+    StringList
+    StringListStart()
+    StringListEnd()
+    StringListCount()
+    StringListItem(index)
+
+Console
+    Write(text)
+    ErrWrite(text)
+    Read()
+
+Array
+    Count
+    GetItem(index)
+    SetItem(index, value)
+
+TextEncode
+    Kind
+    WriteBom
+    GetStringCountMax(count)
+    GetString(result, data)
+    GetDataCountMax(count)
+    GetData(result, fromString)
+
+Format
+    Base
+    ArgList
+    ExecuteCount()
+    ExecuteResult(result)
+    ExecuteArgCount(arg)
+    ExecuteArgResult(arg, result)
+
+FormatArg
+    Pos
+    Kind
+    Value
+    Align
+    FieldWidth
+    MaxWidth
+    Case
+    Base
+    Precision
+    FillChar
+    HasCount
+    ValueCount
+    Count
+
+Math
+    GetValue(significand, exponent)
+    GetValueTen(significand, exponentTen)
+    GetCompose(value, significand, exponent)
+    Add(a, b)
+    Sub(a, b)
+    Mul(a, b)
+    Div(a, b)
+    Less(a, b)
+    Abs(a)
+    Sin(a)
+    Cos(a)
+    Tan(a)
+    ASin(a)
+    ACos(a)
+    ATan(a)
+    ATan2(a, b)
+    SinH(a)
+    CosH(a)
+    TanH(a)
+    ASinH(a)
+    ACosH(a)
+    ATanH(a)
+    Exp(a)
+    ExpE(a)
+    Log(a)
+    LogE(a)
+    LogN(a)
+    Pow(a, exp)
+    Sqrt(a)
+    TGamma(a)
+    Ceil(a)
+    Floor(a)
+    Trunc(a)
+    Round(a)
+
+Random
+    Seed
+    Execute()
+
+Range
+    Start
+    End
+
+Rect
+    Pos
+    Size
+
+Pos
+    Left
+    Up
+
+Size
+    Width
+    Height
+
+Data
+    Count
+    Value
+
+Entry
+    Index
+    Value
+
+State
+    Maide
+    Arg
+
+Main -
+    Init() -
+    Final() -
+    SetIsCSharp(value) -
+    ExecuteEventLoop() -
+    ExitEventLoop(code) -
+    TerminateState -
+    Terminate(arg) --
+
+Frame
+    Title
+    Visible
+    GetVideoOut()
+    ResizeState
+    TypeState
+    MouseState
+    DrawState
+    WindowStat
+    GetSize()
+    SetFrameTitle()
+    Update(rect)
+    Close()
+    Resize(frame, arg) --
+    Type(frame, index, field, arg) --
+    Mouse(frame, eventInfo, arg) --
+    Draw(frame, arg) --
+
+Draw
+    Size
+    Out
+    Area
+    Start()
+    End()
+    FillPos
+    Brush
+    Pen
+    Font
+    Transform
+    Composite
+    SetDrawFillPos()
+    SetDrawArea()
+    Clear(color)
+    ExecuteLine(startPos, endPos)
+    ExecuteArc(rect, angleRange)
+    ExecuteChord(rect, angleRange)
+    ExecutePie(rect, angleRange)
+    ExecuteEllipse(rect)
+    ExecuteRect(rect)
+    ExecuteRoundRect(rect, horizRadius, vertRadius)
+    ExecutePolygon(pointListCount, pointListData)
+    ExecutePolyline(pointListCount, pointListData)
+    ExecuteImage(image, destRect, sourceRect)
+    ExecuteText(destRect, flag, text, boundRect)
+
+Brush
+    Kind
+    Color
+    Image
+    Gradient
+
+Pen
+    Kind
+    Width
+    Brush
+    Cap
+    Join
+
+PointData -
+    GetPoint(address, result) -
+    SetPoint(address, pos) -
+
+Image
+    Size
+    Data
+    GetRowByteCount()
+    GetVideoOut()
+    CreateData()
+
+Font
+    Family
+    Size
+    Weight
+    Italic
+    Underline
+    Overline
+    Strikeout
+
+Transform
+    Reset()
+    Offset(offsetLeft, offsetUp)
+    Scale(horizScale, vertScale)
+    Rotate(angle)
+    GetValue(row, col)
+    SetValue(row, col, value)
+    Multiply(other)
+    IsIdentity()
+    IsInvertible()
+    Invert(result)
+    Transpose(result)
+    Determinant()
+
+Gradient
+    Kind
+    Value
+    Stop
+    Spread
+
+GradientLinear
+    StartPos
+    EndPos
+
+GradientRadial
+    CenterPos
+    CenterRadius
+    FocusPos
+    FocusRadius
+
+GradientStop
+    Count
+    GetPoint(index, pos, color)
+    SetPoint(index, pos, color)
+
+ImageRead
+    Stream
+    Image
+    Execute()
+
+ImageWrite
+    Stream
+    Image
+    Format
+    Quality
+    Execute()
+
+Dialog
+    Kind
+    Value
+    Modal
+    Visible
+    Done(result)
+    FinishedState
+    Finished(dialog, result, arg) --
+
+DialogFile
+    Save
+    FileMode
+    Fold
+    SelectedFileList()
+    SelectFile(fileName)
+
+VideoOut
+    Size
+    Frame
+    Subtitle
+    SetVideoSubtitle()
+    FrameState
+    SizeState
+    Frame(videoOut, frame, arg) --
+    Size(videoOut, size, arg) --
+
+VideoFrame
+    Size
+    GetImage(image)
+
+AudioOut
+    Muted
+    Volume
+
+AudioEffect
+    Source
+    Volume
+    SetAudioSource()
+    Play()
+    Stop()
+
+Play
+    Source
+    SetPlaySource()
+    HasVideo()
+    HasAudio()
+    VideoOut
+    AudioOut
+    Time
+    Pos
+    Execute()
+    Pause()
+    Stop()
+
+Stream
+    Kind
+    GetCount()
+    SetCount(value)
+    GetPos()
+    SetPos(value)
+    HasCount()
+    HasPos()
+    CanRead()
+    CanWrite()
+    GetStatus()
+    Read(data, range)
+    Write(data, range)
+
+Memory
+    Stream
+    Open()
+    Close()
+
+Storage
+    Path
+    Mode
+    Stream
+    Status
+    Open()
+    Close()
+
+StorageArrange
+    Copy(path, destPath)
+    Rename(path, destPath)
+    Remove(path)
+    Exist(path)
+    Link(path, linkPath)
+    LinkTarget(path)
+    GetPermit(path)
+    SetPermit(path, value)
+    MoveToTrash(path, trashPath)
+    CreateFold(path, permit)
+    CreateFoldToPath(path)
+    RemoveFold(path)
+    RemoveFoldRecursive(path)
+    RenameFold(path, destPath)
+    EntryCount(foldPath)
+    AbsolutePath(path)
+    RelativePath(path, destPath)
+    CanonicalPath(path)
+    CleanPath(path)
+
+StorageWatch
+    AddPath(path)
+    AddPathList(pathList)
+    RemovePath(path)
+    RemovePathList(pathList)
+    FileList()
+    FoldList()
+    FileChangedState
+    FoldChangedState
+    FileChanged(storageWatch, path, arg) --
+    FoldChanged(storageWatch, path, arg) --
+
+Network
+    HostName
+    Port
+    Stream
+    ReadyCount
+    Status
+    Case
+    Open()
+    Close()
+    Abort()
+    CaseChangedState
+    CaseChanged(network, arg) --
+    ErrorState
+    Error(network, arg) --
+    ReadyReadState
+    ReadyRead(network, arg) --
+
+NetworkServer
+    Listen()
+    Close()
+    IsListen()
+    NextPendingPeer()
+    ClosePeer(network)
+    HasPendingPeer()
+    PauseAccept()
+    ResumeAccept()
+    Address
+    Port
+    Error
+    NewPeerState
+    NewPeer(networkServer, arg) --
+
+NetworkAddress
+    Kind
+    ValueA
+    ValueB
+    ValueC
+    Set()
+
+Thread
+    Ident
+    ExecuteState
+    Status
+    Case
+    Execute()
+    Terminate()
+    Pause()
+    Resume()
+    Wait()
+    ExecuteEventLoop()
+    ExitEventLoop(code)
+    IsMainThread()
+    Sleep(time) -
+    GetCurrentThread() -
+    Execute(thread, arg) --
+
+Mutex
+    Acquire()
+    Release()
+
+Semaphore
+    Count
+    InitCount
+    Acquire()
+    Release()
+
+Time
+    Year
+    Month
+    Day
+    Hour
+    Minute
+    Second
+    Millisecond
+    OffsetUtc
+    LocalTime
+    YearDay
+    WeekDay
+    YearDayCount
+    MonthDayCount
+    AddYear(offset)
+    AddMonth(offset)
+    AddDay(offset)
+    AddHour(offset)
+    AddMinute(offset)
+    AddSecond(offset)
+    AddMillisecond(offset)
+    MillisecondTo(other)
+    DayTo(other)
+    Current()
+    ToLocalTime()
+    ToOffsetUtc(offset)
+    Set(year, month, day, hour, minute, second, millisecond, hasOffset, offsetUtc)
+    LeapYear(year) -
+    ValidDate(year, month, day) -
+    ValidTime(hour, minute, second, millisecond) -
+
+Interval
+    Start()
+    Stop()
+    Time
+    SingleShot
+    Active
+    ElapseState
+    Elapse(interval, arg) --
+
+Post
+    Execute()
+    ExecuteState
+    Execute(post, arg) --
+
+Libray
+    File
+    SetLibraryFile()
+    Load()
+    Unload()
+    Loaded
+    GetAddress(name)
+
+Process
+    Program
+    Argue
+    WorkFold
+    Environment
+    Execute()
+    GetIdent()
+    Wait()
+    Terminate()
+    GetStatus()
+    GetExitKind()
+    ReadOut()
+    ReadErr()
+    StartedState
+    FinishedState
+    ReadOutState
+    ReadErrState
+    Started(process, arg) --
+    Finished(process, arg) --
+    ReadOut(process, arg) --
+    ReadErr(process, arg) --
+
+ProcessSemaphore
+    Name
+    InitCount
+    Create
+    Status
+    Acquire()
+    Release()
+
+Infra -
+    Share() -
+
+Share -
+    Stat()
+
+Stat -
+    PointDataCount()

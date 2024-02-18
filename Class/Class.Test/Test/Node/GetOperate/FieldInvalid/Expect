@@ -1,0 +1,16 @@
+--------------------------------------------------
+Kind: FieldInvalid
+Range: (2, 2)
+Source: Code
+--------------------------------------------------
+GetOperate
+{
+    This : VarOperate
+           {
+               Var : VarName
+                     {
+                         Value : "i",
+                     },
+           },
+    Field : null,
+},

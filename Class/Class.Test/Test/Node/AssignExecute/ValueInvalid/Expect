@@ -1,0 +1,16 @@
+--------------------------------------------------
+Kind: ValueInvalid
+Range: (2, 2)
+Source: Code
+--------------------------------------------------
+AssignExecute
+{
+    Target : VarTarget
+             {
+                 Var : VarName
+                       {
+                           Value : "i",
+                       },
+             },
+    Value : null,
+},

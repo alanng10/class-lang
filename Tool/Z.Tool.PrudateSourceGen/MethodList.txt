@@ -1,0 +1,4 @@
+New(count)
+Delete(any)
+Copy(dest, source, count)
+Exit(code)

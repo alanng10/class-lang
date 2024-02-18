@@ -1,0 +1,8 @@
+Utf8
+Utf16
+Utf16LE
+Utf16BE
+Utf32
+Utf32LE
+Utf32BE
+Latin1

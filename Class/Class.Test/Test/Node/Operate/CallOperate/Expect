@@ -1,0 +1,19 @@
+CallOperate
+{
+    This : VarOperate
+           {
+               Var : VarName
+                     {
+                         Value : "h",
+                     },
+           },
+    Mield : MieldName
+            {
+                Value : "Gg",
+            },
+    Argue : Argue
+            {
+                Value : [
+                        ],
+            },
+},

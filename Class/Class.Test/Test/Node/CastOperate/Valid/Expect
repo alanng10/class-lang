@@ -1,0 +1,14 @@
+CastOperate
+{
+    Class : ClassName
+            {
+                Value : "F",
+            },
+    Any : VarOperate
+          {
+              Var : VarName
+                    {
+                        Value : "i",
+                    },
+          },
+},

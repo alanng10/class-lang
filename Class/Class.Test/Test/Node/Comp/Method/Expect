@@ -1,0 +1,24 @@
+Mield
+{
+    Name : MieldName
+           {
+               Value : "Ff",
+           },
+    Class : ClassName
+            {
+                Value : "Int",
+            },
+    Param : Param
+            {
+                Value : [
+                        ],
+            },
+    Call : State
+           {
+               Value : [
+                       ],
+           },
+    Access : PrudateAccess
+             {
+             },
+},

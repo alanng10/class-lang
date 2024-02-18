@@ -1,0 +1,14 @@
+.vscode/
+bin/
+obj/
+/Out
+Actual
+*.pro.user
+*.vsix
+*.nupkg
+*.jpg
+*.png
+*.bmp
+*.wav
+*.m4a
+*.mp4

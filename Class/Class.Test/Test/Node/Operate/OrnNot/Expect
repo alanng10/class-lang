@@ -1,0 +1,20 @@
+OrnOperate
+{
+    Left : NotOperate
+           {
+               Value : ValueOperate
+                       {
+                           Value : BoolValue
+                                   {
+                                       Value : false,
+                                   },
+                       },
+           },
+    Right : ValueOperate
+            {
+                Value : BoolValue
+                        {
+                            Value : true,
+                        },
+            },
+},

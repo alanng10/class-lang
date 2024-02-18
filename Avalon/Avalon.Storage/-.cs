@@ -1,0 +1,14 @@
+global using InternIntern = Avalon.Intern.Intern;
+global using InternInfra = Avalon.Intern.Infra;
+global using Extern = Avalon.Intern.Extern;
+global using InternStream = Avalon.Intern.Stream;
+global using Any = Avalon.Infra.Any;
+global using InfraInfra = Avalon.Infra.Infra;
+global using Data = Avalon.Infra.Data;
+global using Range = Avalon.Infra.DataRange;
+global using TextEncode = Avalon.Text.Encode;
+global using TextEncodeKind = Avalon.Text.EncodeKind;
+global using TextEncodeKindList = Avalon.Text.EncodeKindList;
+global using TextSpan = Avalon.Text.Span;
+global using TextInfra = Avalon.Text.Infra;
+global using StreamStream = Avalon.Stream.Stream;

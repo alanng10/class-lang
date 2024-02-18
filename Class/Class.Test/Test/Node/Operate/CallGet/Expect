@@ -1,0 +1,26 @@
+CallOperate
+{
+    This : GetOperate
+           {
+               This : VarOperate
+                      {
+                          Var : VarName
+                                {
+                                    Value : "m",
+                                },
+                      },
+               Field : FieldName
+                       {
+                           Value : "H",
+                       },
+           },
+    Mield : MieldName
+            {
+                Value : "G",
+            },
+    Argue : Argue
+            {
+                Value : [
+                        ],
+            },
+},

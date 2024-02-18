@@ -1,0 +1,7 @@
+ShareOperate
+{
+    Class : ClassName
+            {
+                Value : "H",
+            },
+},

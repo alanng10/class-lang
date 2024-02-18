@@ -1,0 +1,7 @@
+ValueOperate
+{
+    Value : IntValue
+            {
+                Value : 1,
+            },
+},
