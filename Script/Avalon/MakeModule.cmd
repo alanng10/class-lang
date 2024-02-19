@@ -6,7 +6,7 @@ echo Make Module
 
 echo:
 
-    pushd MakeProject
+    pushd Avalon\MakeProject
     
 
     dotnet build -v quiet

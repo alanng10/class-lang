@@ -8,13 +8,13 @@ echo Make Demo
 echo:
 
 
-cd Demo
+pushd Avalon\Demo
 
 
 dotnet build
 
 
-cd ..
+popd
 
 
 echo:

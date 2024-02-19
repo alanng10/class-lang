@@ -7,6 +7,6 @@ echo Make Package
 
 echo:
 
-..\nuget pack Avalon.nuspec
+..\nuget pack Avalon\Avalon.nuspec
 
 echo:
