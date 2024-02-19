@@ -12,10 +12,7 @@ public class Write : Any
 
         
         
-        this.InfraConstant = InfraConstant.This;
-        
-        
-        this.InfraConvert = InfraConvert.This;
+        this.InfraInfra = InfraInfra.This;
 
 
         
@@ -60,10 +57,7 @@ public class Write : Any
     protected virtual AddWriteOperate AddOperate { get; set; }
 
 
-    protected virtual InfraConstant InfraConstant { get; set;  }
-    
-    
-    protected virtual InfraConvert InfraConvert { get; set;  }
+    protected virtual InfraInfra InfraInfra { get; set;  }
     
     
     
@@ -792,7 +786,7 @@ public class Write : Any
     {
         int oo;
 
-        oo = this.InfraConstant.ByteBitCount;
+        oo = this.InfraInfra.ByteBitCount;
         
         
         int shiftCount;
@@ -801,7 +795,7 @@ public class Write : Any
         
         int count;
 
-        count = this.InfraConstant.ULongByteCount;
+        count = this.InfraInfra.ULongByteCount;
 
         
         int i;
