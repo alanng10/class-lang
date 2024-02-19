@@ -107,7 +107,7 @@ class Demo : Any
 
 
 
-        this.ExecuteFormat();
+        // this.ExecuteFormat();
 
 
 
@@ -918,142 +918,142 @@ class Demo : Any
 
 
 
-    private bool ExecuteFormat()
-    {
-        MathCompose ca;
+    // private bool ExecuteFormat()
+    // {
+    //     MathCompose ca;
 
-        ca = new MathCompose();
+    //     ca = new MathCompose();
 
-        ca.Init();
-
-
-        ca.Significand = 0x3243F6A8885;
-
-        ca.Exponent = -40;
+    //     ca.Init();
 
 
+    //     ca.Significand = 0x3243F6A8885;
 
-        long pi;
+    //     ca.Exponent = -40;
+
+
+
+    //     long pi;
         
-        pi = this.Math.GetValue(ca);
+    //     pi = this.Math.GetValue(ca);
 
 
 
-        TextFormat format;
+    //     TextFormat format;
 
-        format = new TextFormat();
+    //     format = new TextFormat();
 
-        format.Init();
+    //     format.Init();
 
 
 
-        TextSpan o;
+    //     TextSpan o;
         
-        o = this.TextInfra.SpanCreateString("G H %2, %2 j%4 %1 h%3\n%3\n");
+    //     o = this.TextInfra.SpanCreateString("G H %2, %2 j%4 %1 h%3\n%3\n");
 
 
-        format.Base = o;
-
-
-
-        format.ExecuteStart();
-
-
-        format.ArgString("Ft", 0, ' ');
-
-
-        format.ArgLong(694, 4, 10, '0');
-
-
-        format.ArgULong(0xfe07, 6, 16, '0');
-
-
-        format.ArgFloat(pi, 10, 'g', 9, ' ');
+    //     format.Base = o;
 
 
 
-        int count;
-
-        count = format.ExecuteCount();
+    //     format.ExecuteStart();
 
 
-
-        TextSpan text;
-
-        text = this.TextInfra.SpanCreate(count);
+    //     format.ArgString("Ft", 0, ' ');
 
 
-        format.Text = text;
+    //     format.ArgLong(694, 4, 10, '0');
 
 
+    //     format.ArgULong(0xfe07, 6, 16, '0');
 
-        format.ExecuteResult();
+
+    //     format.ArgFloat(pi, 10, 'g', 9, ' ');
 
 
 
-        format.ExecuteEnd();
+    //     int count;
+
+    //     count = format.ExecuteCount();
 
 
 
+    //     TextSpan text;
+
+    //     text = this.TextInfra.SpanCreate(count);
+
+
+    //     format.Text = text;
 
 
 
-        string a;
+    //     format.ExecuteResult();
 
-        a = this.TextInfra.StringCreate(text);
+
+
+    //     format.ExecuteEnd();
 
 
 
 
-        this.Console.Write(a);
+
+
+    //     string a;
+
+    //     a = this.TextInfra.StringCreate(text);
 
 
 
-        format.Base = null;
+
+    //     this.Console.Write(a);
 
 
-        format.Text = null;
+
+    //     format.Base = null;
+
+
+    //     format.Text = null;
         
 
 
 
-        format.ExecuteLongStart(0x405da, 16);
+    //     format.ExecuteLongStart(0x405da, 16);
 
 
 
-        count = format.ExecuteCount();
+    //     count = format.ExecuteCount();
 
 
-        text = this.TextInfra.SpanCreate(count);
+    //     text = this.TextInfra.SpanCreate(count);
 
 
-        format.Text = text;
-
-
-
-        format.ExecuteResult();
-
-
-        format.ExecuteEnd();
+    //     format.Text = text;
 
 
 
-
-        a = this.TextInfra.StringCreate(text);
-
+    //     format.ExecuteResult();
 
 
-        this.Console.Write(a + "\n");
+    //     format.ExecuteEnd();
 
 
 
 
-        format.Final();
+    //     a = this.TextInfra.StringCreate(text);
 
 
 
-        return true;
-    }
+    //     this.Console.Write(a + "\n");
+
+
+
+
+    //     format.Final();
+
+
+
+    //     return true;
+    // }
 
 
 
