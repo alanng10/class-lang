@@ -41,6 +41,9 @@ public class Infra : Any
 
 
 
+        this.BrushInfra = BrushInfra.This;
+
+
 
         this.ColorCompMax = byte.MaxValue;
 
@@ -181,7 +184,7 @@ public class Infra : Any
     }
 
 
-
+    private BrushInfra BrushInfra { get; set; }
 
 
     public virtual int ColorCompMax
@@ -190,15 +193,10 @@ public class Infra : Any
     }
 
 
-
-
-
     public virtual Color WhiteColor
     {
         get; set;
     }
-
-
 
 
     public virtual Color BlackColor
@@ -273,9 +271,6 @@ public class Infra : Any
     }
 
 
-
-
-
     internal virtual bool SetColor(Color color, ulong internColor)
     {
         color.Blue = (int)((internColor >> (0 * 8)) & 0xff);
@@ -295,36 +290,10 @@ public class Infra : Any
     }
 
 
-
-
-
-
     internal virtual ulong InternColor(Color color)
     {
-        ulong k;
-
-        k = 0;
-
-
-
-        k = k | ((((ulong)color.Blue) & 0xff) << (0 * 8));
-
-
-        k = k | ((((ulong)color.Green) & 0xff) << (1 * 8));
-
-
-        k = k | ((((ulong)color.Red) & 0xff) << (2 * 8));
-
-
-        k = k | ((((ulong)color.Alpha) & 0xff) << (3 * 8));
-
-
-
-        return k;
+        return this.BrushInfra.InternColor(color);
     }
-
-
-
 
 
 

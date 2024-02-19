@@ -12,9 +12,9 @@ public class Brush : Any
 
 
 
-        Infra infra;
+        BrushInfra infra;
 
-        infra = Infra.This;
+        infra = BrushInfra.This;
 
 
 
@@ -113,4 +113,9 @@ public class Brush : Any
 
 
     internal virtual ulong Intern { get; set; }
+
+
+
+
+    
 }
