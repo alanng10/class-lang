@@ -6,12 +6,12 @@ namespace Class.Node;
 
 public class ErrorKindList : Any
 {
-    public static ErrorKindList This { get; } = CreateShare();
+    public static ErrorKindList This { get; } = ShareCreate();
 
 
 
 
-    private static ErrorKindList CreateShare()
+    private static ErrorKindList ShareCreate()
     {
         ErrorKindList share;
 
@@ -69,7 +69,7 @@ public class ErrorKindList : Any
         this.CallInvalid = this.AddItem("CallInvalid");
         this.OperateInvalid = this.AddItem("OperateInvalid");
         this.FieldInvalid = this.AddItem("FieldInvalid");
-        this.MieldInvalid = this.AddItem("MieldInvalid");
+        this.MaideInvalid = this.AddItem("MaideInvalid");
         this.VarInvalid = this.AddItem("VarInvalid");
         this.OperandInvalid = this.AddItem("OperandInvalid");
         this.TargetInvalid = this.AddItem("TargetInvalid");
@@ -105,7 +105,7 @@ public class ErrorKindList : Any
     public virtual ErrorKind CallInvalid { get; set; }
     public virtual ErrorKind OperateInvalid { get; set; }
     public virtual ErrorKind FieldInvalid { get; set; }
-    public virtual ErrorKind MieldInvalid { get; set; }
+    public virtual ErrorKind MaideInvalid { get; set; }
     public virtual ErrorKind VarInvalid { get; set; }
     public virtual ErrorKind OperandInvalid { get; set; }
     public virtual ErrorKind TargetInvalid { get; set; }
@@ -135,7 +135,7 @@ public class ErrorKindList : Any
 
 
 
-        this.Array.Set(this.Index, item);
+        this.Array.Set(item.Index, item);
 
 
         this.Index = this.Index + 1;

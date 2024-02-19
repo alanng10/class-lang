@@ -6,12 +6,12 @@ namespace Class.Check;
 
 public class ErrorKindList : Any
 {
-    public static ErrorKindList This { get; } = CreateShare();
+    public static ErrorKindList This { get; } = ShareCreate();
 
 
 
 
-    private static ErrorKindList CreateShare()
+    private static ErrorKindList ShareCreate()
     {
         ErrorKindList share;
 
@@ -67,7 +67,7 @@ public class ErrorKindList : Any
         this.OperandUnassignable = this.AddItem("OperandUnassignable");
         this.ThisUndefined = this.AddItem("ThisUndefined");
         this.FieldUndefined = this.AddItem("FieldUndefined");
-        this.MieldUndefined = this.AddItem("MieldUndefined");
+        this.MaideUndefined = this.AddItem("MaideUndefined");
         this.ArgueUnassignable = this.AddItem("ArgueUnassignable");
         this.AnyUndefined = this.AddItem("AnyUndefined");
         this.CondUndefined = this.AddItem("CondUndefined");
@@ -97,7 +97,7 @@ public class ErrorKindList : Any
     public virtual ErrorKind OperandUnassignable { get; set; }
     public virtual ErrorKind ThisUndefined { get; set; }
     public virtual ErrorKind FieldUndefined { get; set; }
-    public virtual ErrorKind MieldUndefined { get; set; }
+    public virtual ErrorKind MaideUndefined { get; set; }
     public virtual ErrorKind ArgueUnassignable { get; set; }
     public virtual ErrorKind AnyUndefined { get; set; }
     public virtual ErrorKind CondUndefined { get; set; }
@@ -123,7 +123,7 @@ public class ErrorKindList : Any
 
 
 
-        this.Array.Set(this.Index, item);
+        this.Array.Set(item.Index, item);
 
 
         this.Index = this.Index + 1;
