@@ -3,13 +3,7 @@
 
 
 
-call UpdateInfra
-
-echo:
-
-
-
-rmdir /S /Q .\Out
+rmdir /S /Q .\Out\net6.0
 
 echo:
 
