@@ -95,7 +95,6 @@ public class Format : Any
             count = this.InfraInfra.Count(range);
 
             this.InternBase = this.InternInfra.StringCreateText(this.Base.Data, range.Start, count);
-
         }
 
 
