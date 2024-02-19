@@ -89,14 +89,10 @@ public class Format : Any
         if (!(this.Base == null))
         {
             InfraRange range;
-
             range = this.Base.Range;
 
-
             int count;
-
             count = this.InfraInfra.Count(range);
-
 
             this.InternBase = this.InternInfra.StringCreateText(this.Base.Data, range.Start, count);
 
