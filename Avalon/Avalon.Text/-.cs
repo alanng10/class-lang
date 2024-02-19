@@ -6,6 +6,7 @@ global using InfraRange = Avalon.Infra.Range;
 global using InfraInfra = Avalon.Infra.Infra;
 global using InfraData = Avalon.Infra.Data;
 global using DataRange = Avalon.Infra.DataRange;
+global using ListList = Avalon.List.List;
 global using Array = Avalon.List.Array;
 global using SystemArray = System.Array;
 global using SpanChar = System.Span<char>;

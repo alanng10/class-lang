@@ -24,21 +24,6 @@ public class Format : Any
 
 
 
-        this.InternReturn = Extern.Return_New();
-
-
-        Extern.Return_Init(this.InternReturn);
-
-
-
-
-        this.InternArgString = Extern.String_New();
-
-
-        Extern.String_Init(this.InternArgString);
-
-
-
 
         this.InternText = Extern.String_New();
 
@@ -79,19 +64,6 @@ public class Format : Any
 
 
 
-        Extern.String_Final(this.InternArgString);
-
-
-        Extern.String_Delete(this.InternArgString);
-
-
-
-        Extern.Return_Final(this.InternReturn);
-
-
-        Extern.Return_Delete(this.InternReturn);
-
-
 
         return true;
     }
@@ -102,8 +74,7 @@ public class Format : Any
     public virtual Span Base { get; set; }
 
 
-    public virtual Span Text { get; set; }
-
+    public virtual FormatArgList ArgList { get; set; }
 
 
 
@@ -121,18 +92,10 @@ public class Format : Any
 
 
     private ulong InternText { get; set; }
-
+    
 
     private ulong InternBase { get; set; }
 
-
-    private ulong InternArgString { get; set; }
-
-
-    private ulong InternReturn { get; set; }
-
-
-    private ulong InternNumberResult { get; set; }
     
 
 
