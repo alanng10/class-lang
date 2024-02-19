@@ -25,23 +25,23 @@ echo:
 
 
 
-call MakeModule
+call Script\Avalon\MakeModule
 
 echo:
 
 
 
-call MakePackage
+call Script\Avalon\MakePackage
 
 echo:
 
 
-call PushPackage
+call Script\Avalon\PushPackage
 
 echo:
 
 
 
-call MakeDemo
+call Script\Avalon\MakeDemo
 
 echo:
