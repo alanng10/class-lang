@@ -55,12 +55,9 @@ public class Format : Any
 
     private InternIntern InternIntern { get; set; }
 
-
     private InternInfra InternInfra { get; set; }
 
-
     private InfraInfra InfraInfra { get; set; }
-
 
 
     private ulong Intern { get; set; }
