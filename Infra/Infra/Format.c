@@ -27,13 +27,18 @@ Format_ArgValueCountMaide Format_Var_ArgValueCountMaideList[KindCount] =
 
 Format_ArgResultMaide Format_Var_ArgResultMaideList[KindCount] =
 {
-    null,
+    &Format_ArgResultBool,
     &Format_ArgResultInt,
     &Format_ArgResultString,
     null,
     null,
 };
 
+
+
+const char* Format_Var_TrueString = "true";
+
+const char* Format_Var_FalseString = "false";
 
 
 
@@ -109,14 +114,6 @@ Int Format_SetArgList(Int o, Int value)
 
     return true;
 }
-
-
-
-
-
-
-
-
 
 
 
@@ -434,14 +431,11 @@ Int Format_ExecuteArgResult(Int o, Int arg, Int result)
 
 
 
-
-
-Int Format_ArgResultInt(Int o, Int arg, Int result)
+Int Format_ArgResultBool(Int o, Int arg, Int result)
 {
     FormatArg* oo;
 
     oo = CastPointer(arg);
-
 
 
     Int valueCount;
@@ -457,7 +451,6 @@ Int Format_ArgResultInt(Int o, Int arg, Int result)
     Int value;
 
     value = oo->Value;
-
 
 
     Bool alignLeft;
@@ -489,6 +482,12 @@ Int Format_ArgResultInt(Int o, Int arg, Int result)
 
 
 
+    Int varCase;
+
+    varCase = oo->Case;
+
+
+
     Int fillChar;
 
     fillChar = oo->FillChar;
@@ -501,10 +500,278 @@ Int Format_ArgResultInt(Int o, Int arg, Int result)
 
 
 
+    Bool valueBool;
+
+    valueBool = value;
+
+
+    const char* uu;
+
+    uu = Format_Var_FalseString;
+
+
+    if (valueBool)
+    {
+        uu = Format_Var_TrueString;
+    }
+
+
+
     Char* dest;
 
     dest = CastPointer(result);
 
+
+
+    Int fillStart;
+
+    fillStart = 0;
+
+
+
+    Int valueStart;
+
+    valueStart = 0;
+
+
+    Int valueIndex;
+
+    valueIndex = 0;
+
+
+
+    Int countA;
+
+    countA = valueCount;
+
+    countA = countA - clampCount;
+
+
+
+    if (alignLeft)
+    {
+        fillStart = countA;
+
+
+        valueStart = 0;
+
+        valueIndex = 0;
+    }
+
+
+
+    if (!alignLeft)
+    {
+        fillStart = 0;
+
+
+        valueStart = fillCount;
+
+
+        valueIndex = clampCount;
+    }
+
+
+    char ouc;
+
+    ouc = 0;
+
+
+    Char oc;
+
+    oc = 0;
+
+
+    Int index;
+
+    index = 0;
+
+
+    Int i;
+
+    i = 0;
+
+
+    while (i < countA)
+    {
+        index = i + valueIndex;
+
+
+        ouc = uu[index];
+
+
+        oc = ouc;
+
+
+        if (varCase == 1)
+        {
+            if (index == 0)
+            {
+                oc = ouc - 'a' + 'A';
+            }
+        }
+
+
+        if (varCase == 2)
+        {
+            oc = ouc - 'a' + 'A';
+        }
+
+
+        dest[i + valueStart] = oc;
+
+
+        i = i + 1;
+    }
+
+
+
+    Format_ResultFill(dest, fillStart, fillCount, fillCharU);
+
+
+
+    return true;
+}
+
+
+
+
+
+Int Format_ArgResultInt(Int o, Int arg, Int result)
+{
+    FormatArg* oo;
+
+    oo = CastPointer(arg);
+
+
+
+    Int valueCount;
+
+    valueCount = oo->ValueCount;
+
+
+    Int count;
+
+    count = oo->Count;
+
+
+    Int value;
+
+    value = oo->Value;
+
+
+
+    Bool alignLeft;
+
+    alignLeft = oo->AlignLeft;
+
+
+    Int varBase;
+
+    varBase = oo->Base;
+
+
+    Int varCase;
+
+    varCase = oo->Case;
+
+
+
+    Int fillCount;
+
+    fillCount = 0;
+
+
+    Int clampCount;
+
+    clampCount = 0;
+
+
+    if (valueCount < count)
+    {
+        fillCount = count - valueCount;
+    }
+
+
+    if (count < valueCount)
+    {
+        clampCount = valueCount - count;
+    }
+
+
+
+    Int valueWriteCount;
+
+    valueWriteCount = valueCount - clampCount;
+
+
+
+    Int fillChar;
+
+    fillChar = oo->FillChar;
+
+
+
+    Char fillCharU;
+
+    fillCharU = fillChar;
+
+
+
+    Int fillStart;
+
+    fillStart = 0;
+
+
+
+    Int valueStart;
+
+    valueStart = 0;
+
+
+    Int valueIndex;
+
+    valueIndex = 0;
+
+
+
+
+    if (alignLeft)
+    {
+        fillStart = valueWriteCount;
+
+
+        valueStart = 0;
+
+        valueIndex = 0;
+    }
+
+
+
+    if (!alignLeft)
+    {
+        fillStart = 0;
+
+
+        valueStart = fillCount;
+
+
+        valueIndex = clampCount;
+    }
+
+
+
+
+    Format_ResultInt(o, result, value, varBase, varCase, valueCount, valueWriteCount, valueStart, valueIndex);
+
+
+
+    Char* dest;
+
+    dest = CastPointer(result);
+
+
+    Format_ResultFill(dest, fillStart, fillCount, fillCharU);
 
 
     return true;
@@ -660,24 +927,7 @@ Int Format_ArgResultString(Int o, Int arg, Int result)
 
 
 
-
-
-    Int countB;
-
-    countB = fillCount;
-
-
-    i = 0;
-
-
-    while (i < countB)
-    {
-        dest[fillStart + i] = fillCharU;
-
-
-        i = i + 1;
-    }
-
+    Format_ResultFill(dest, fillStart, fillCount, fillCharU);
 
 
 
@@ -733,11 +983,6 @@ Int Format_ResultInt(Int o, Int result, Int value, Int varBase, Int varCase, Int
     digit = 0;
 
 
-    Int o;
-
-    o = 0;
-
-
     Int oa;
 
     oa = 0;
@@ -771,38 +1016,24 @@ Int Format_ResultInt(Int o, Int result, Int value, Int varBase, Int varCase, Int
     index = 0;
 
 
-
     Int count;
 
     count = valueCount;
-
 
 
     Int i;
 
     i = 0;
 
-
-
     while (i < count)
     {
         j = k / varBase;
 
 
-
-
-        o = k - j * varBase;
-
-
-
-
-        digit = o;
-
-
+        digit = k - j * varBase;
 
 
         index = count - 1 - i;
-
 
 
         if ((!(index < valueIndex)) && index < end)
@@ -817,10 +1048,7 @@ Int Format_ResultInt(Int o, Int result, Int value, Int varBase, Int varCase, Int
         }
 
 
-
-
         k = j;
-
 
 
         i = i + 1;

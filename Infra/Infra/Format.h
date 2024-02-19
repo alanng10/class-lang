@@ -60,9 +60,9 @@ typedef Int (*Format_ArgResultMaide)(Int o, Int arg, Int result);
 
 
 
+Int Format_ArgResultBool(Int o, Int arg, Int result);
 
 Int Format_ArgResultInt(Int o, Int arg, Int result);
-
 
 Int Format_ArgResultString(Int o, Int arg, Int result);
 
@@ -73,11 +73,12 @@ Int Format_ResultInt(Int o, Int result, Int value, Int varBase, Int varCase, Int
 
 
 
+
 #define Format_IntDigit(digitValue) \
 {\
     Bool b;\
 \
-    b = (u < 10);\
+    b = (digitValue < 10);\
 \
 \
     if (b)\
@@ -100,8 +101,22 @@ Int Format_ResultInt(Int o, Int result, Int value, Int varBase, Int varCase, Int
 
 
 
+#define Format_ResultFill(dest, fillStart, fillCount, fillCharU) \
+{\
+    Int countOA;\
+    countOA = fillCount;\
+\
+    Int iu;\
+    iu = 0;\
+\
+    while (iu < countOA)\
+    {\
+        dest[fillStart + iu] = fillCharU;\
+\
+        iu = iu + 1;\
+    }\
+}\
 
-//Bool Format_VariableCountIntHexResult(Char* result, Int n, Int byteCount);
 
 
 
