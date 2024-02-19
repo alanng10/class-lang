@@ -133,8 +133,11 @@ public class FormatArg : Any
         ulong fieldWidthU;
         fieldWidthU = (ulong)this.FieldWidth;
 
+        long maxWidthO;
+        maxWidthO = this.MaxWidth;
+
         ulong maxWidthU;
-        maxWidthU = (ulong)this.MaxWidth;
+        maxWidthU = (ulong)maxWidthO;
 
         ulong baseU;
         baseU = (ulong)this.Base;
