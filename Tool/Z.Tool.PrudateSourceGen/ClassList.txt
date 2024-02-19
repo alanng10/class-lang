@@ -48,7 +48,7 @@ FormatArg
     Pos
     Kind
     Value
-    Align
+    AlignLeft
     FieldWidth
     MaxWidth
     Case
