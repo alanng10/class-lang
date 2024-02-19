@@ -370,8 +370,8 @@ Infra_Api Int FormatArg_SetKind(Int o, Int value);
 Infra_Api Int FormatArg_GetValue(Int o);
 Infra_Api Int FormatArg_SetValue(Int o, Int value);
 
-Infra_Api Int FormatArg_GetAlign(Int o);
-Infra_Api Int FormatArg_SetAlign(Int o, Int value);
+Infra_Api Int FormatArg_GetAlignLeft(Int o);
+Infra_Api Int FormatArg_SetAlignLeft(Int o, Int value);
 
 Infra_Api Int FormatArg_GetFieldWidth(Int o);
 Infra_Api Int FormatArg_SetFieldWidth(Int o, Int value);
