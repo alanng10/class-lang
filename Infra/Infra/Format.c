@@ -18,9 +18,9 @@ Format_ArgValueCountMaide Format_Var_ArgValueCountMaideList[KindCount] =
 {
     &Format_ArgValueCountBool,
     &Format_ArgValueCountInt,
+    null,
     &Format_ArgValueCountString,
     &Format_ArgValueCountChar,
-    null,
 };
 
 
@@ -29,9 +29,9 @@ Format_ArgResultMaide Format_Var_ArgResultMaideList[KindCount] =
 {
     &Format_ArgResultBool,
     &Format_ArgResultInt,
+    null,
     &Format_ArgResultString,
-    null,
-    null,
+    &Format_ArgResultChar,
 };
 
 
@@ -1088,7 +1088,68 @@ Int Format_ResultString(Int o, Int result, Int value, Int varCase, Int valueWrit
 
 
 
+Int Format_ExecuteCount(Int o)
+{
+    Format* m;
+    m = CastPointer(o);
 
+    Int argList;
+    argList = m->ArgList;
+
+
+    Int count;
+    count = Array_GetCount(argList);
+
+    Int arg;
+    arg = null;
+
+    FormatArg* oa;
+    oa = null;
+
+    Int ka;
+    ka = 0;
+
+    Int k;
+    k = 0;
+
+    Bool b;
+    b = false;
+
+    Int i;
+    i = 0;
+
+    while (i < count)
+    {
+        arg = Array_GetItem(argList, i);
+
+        oa = CastPointer(arg);
+
+        b = oa->HasCount;
+
+        if (!b)
+        {
+            Format_ExecuteArgCount(o, arg);
+        }
+
+        ka = oa->Count;
+
+        k = k + ka;
+
+        i = i + 1;
+    }
+
+
+    Int oo;
+    oo = String_GetCount(m->Base);
+
+    k = k + oo;
+
+
+    Int a;
+    a = k;
+
+    return a;
+}
 
 
 //Int Format_GetResultString(Int this)
