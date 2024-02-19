@@ -42,17 +42,7 @@ public class StringInfra : Any
 
 
 
-
-        RangeInfra rangeInfra;
-
-        rangeInfra = RangeInfra.This;
-
-
-
-        this.RangeInfra = rangeInfra;
-
-
-
+        this.InfraInfra = InfraInfra.This;
 
 
         TextInfra textInfra;
@@ -120,7 +110,7 @@ public class StringInfra : Any
 
 
 
-    private RangeInfra RangeInfra { get; set; }
+    private InfraInfra InfraInfra { get; set; }
 
 
 
@@ -245,7 +235,7 @@ public class StringInfra : Any
 
 
 
-        kk = this.RangeInfra.Count(range.Col);
+        kk = this.InfraInfra.Count(range.Col);
 
 
 
@@ -475,7 +465,7 @@ public class StringInfra : Any
 
 
 
-        kk = this.RangeInfra.Count(range.Col);
+        kk = this.InfraInfra.Count(range.Col);
 
 
 
