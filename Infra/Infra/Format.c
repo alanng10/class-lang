@@ -43,74 +43,48 @@ const char* Format_Var_FalseString = "false";
 
 
 
-Bool Format_Init(Int this)
+Int Format_Init(Int this)
 {
     return true;
 }
 
-
-
-
-Bool Format_Final(Int this)
+Int Format_Final(Int this)
 {
     return true;
 }
 
-
-
-
-
-Int Format_GetBase(Int this)
+Int Format_GetBase(Int o)
 {
-    Format* m = CastPointer(this);
-
-
+    Format* m;
+    m = CastPointer(o);
 
     return m->Base;
 }
 
-
-
-
-Bool Format_SetBase(Int this, Int value)
+Int Format_SetBase(Int o, Int value)
 {
-    Format* m = CastPointer(this);
-
-
+    Format* m;
+    m = CastPointer(o);
 
     m->Base = value;
-
 
     return true;
 }
 
-
-
-
-
 Int Format_GetArgList(Int o)
 {
     Format* m;
-
     m = CastPointer(o);
-
-
 
     return m->ArgList;
 }
 
-
-
-
 Int Format_SetArgList(Int o, Int value)
 {
     Format* m;
-
     m = CastPointer(o);
 
-
     m->ArgList = value;
-
 
     return true;
 }
@@ -483,42 +457,16 @@ Int Format_ArgResultBool(Int o, Int arg, Int result)
 
 
     Int varCase;
-
     varCase = oo->Case;
 
-
-
     Int fillChar;
-
     fillChar = oo->FillChar;
 
-
-
     Char fillCharU;
-
     fillCharU = fillChar;
 
 
-
-    Bool valueBool;
-
-    valueBool = value;
-
-
-    const char* uu;
-
-    uu = Format_Var_FalseString;
-
-
-    if (valueBool)
-    {
-        uu = Format_Var_TrueString;
-    }
-
-
-
     Char* dest;
-
     dest = CastPointer(result);
 
 
@@ -540,90 +488,29 @@ Int Format_ArgResultBool(Int o, Int arg, Int result)
 
 
 
-    Int countA;
-
-    countA = valueCount;
-
-    countA = countA - clampCount;
-
-
+    Int valueWriteCount;
+    valueWriteCount = valueCount - clampCount;
 
     if (alignLeft)
     {
-        fillStart = countA;
-
+        fillStart = valueWriteCount;
 
         valueStart = 0;
 
         valueIndex = 0;
     }
 
-
-
     if (!alignLeft)
     {
         fillStart = 0;
 
-
         valueStart = fillCount;
-
 
         valueIndex = clampCount;
     }
 
 
-    char ouc;
-
-    ouc = 0;
-
-
-    Char oc;
-
-    oc = 0;
-
-
-    Int index;
-
-    index = 0;
-
-
-    Int i;
-
-    i = 0;
-
-
-    while (i < countA)
-    {
-        index = i + valueIndex;
-
-
-        ouc = uu[index];
-
-
-        oc = ouc;
-
-
-        if (varCase == 1)
-        {
-            if (index == 0)
-            {
-                oc = ouc - 'a' + 'A';
-            }
-        }
-
-
-        if (varCase == 2)
-        {
-            oc = ouc - 'a' + 'A';
-        }
-
-
-        dest[i + valueStart] = oc;
-
-
-        i = i + 1;
-    }
-
+    Format_ResultBool(o, result, value, varCase, valueWriteCount, valueStart, valueIndex);
 
 
     Format_ResultFill(dest, fillStart, fillCount, fillCharU);
@@ -666,17 +553,6 @@ Int Format_ArgResultInt(Int o, Int arg, Int result)
     alignLeft = oo->AlignLeft;
 
 
-    Int varBase;
-
-    varBase = oo->Base;
-
-
-    Int varCase;
-
-    varCase = oo->Case;
-
-
-
     Int fillCount;
 
     fillCount = 0;
@@ -698,63 +574,47 @@ Int Format_ArgResultInt(Int o, Int arg, Int result)
         clampCount = valueCount - count;
     }
 
+    Char* dest;
+    dest = CastPointer(result);
 
+    Int varBase;
+    varBase = oo->Base;
 
-    Int valueWriteCount;
-
-    valueWriteCount = valueCount - clampCount;
-
-
+    Int varCase;
+    varCase = oo->Case;
 
     Int fillChar;
-
     fillChar = oo->FillChar;
 
-
-
     Char fillCharU;
-
     fillCharU = fillChar;
 
-
-
     Int fillStart;
-
     fillStart = 0;
 
-
-
     Int valueStart;
-
     valueStart = 0;
 
-
     Int valueIndex;
-
     valueIndex = 0;
 
-
-
+    Int valueWriteCount;
+    valueWriteCount = valueCount - clampCount;
 
     if (alignLeft)
     {
         fillStart = valueWriteCount;
-
 
         valueStart = 0;
 
         valueIndex = 0;
     }
 
-
-
     if (!alignLeft)
     {
         fillStart = 0;
 
-
         valueStart = fillCount;
-
 
         valueIndex = clampCount;
     }
@@ -764,11 +624,6 @@ Int Format_ArgResultInt(Int o, Int arg, Int result)
 
     Format_ResultInt(o, result, value, varBase, varCase, valueCount, valueWriteCount, valueStart, valueIndex);
 
-
-
-    Char* dest;
-
-    dest = CastPointer(result);
 
 
     Format_ResultFill(dest, fillStart, fillCount, fillCharU);
@@ -837,94 +692,50 @@ Int Format_ArgResultString(Int o, Int arg, Int result)
         clampCount = valueCount - count;
     }
 
-
+    Int varCase;
+    varCase = oo->Case;
 
     Int fillChar;
-
     fillChar = oo->FillChar;
 
-
-
     Char fillCharU;
-
     fillCharU = fillChar;
 
-
-
-    Char* uu;
-
-    uu = CastPointer(valueData);
-
-
     Char* dest;
-
     dest = CastPointer(result);
 
-
-
     Int fillStart;
-
     fillStart = 0;
 
-
-
     Int valueStart;
-
     valueStart = 0;
 
-
     Int valueIndex;
-
     valueIndex = 0;
 
-
-
-    Int countA;
-
-    countA = valueCount;
-
-    countA = countA - clampCount;
-
-
+    Int valueWriteCount;
+    valueWriteCount = valueCount - clampCount;
 
     if (alignLeft)
     {
-        fillStart = countA;
-
+        fillStart = valueWriteCount;
 
         valueStart = 0;
 
         valueIndex = 0;
     }
 
-
-
     if (!alignLeft)
     {
         fillStart = 0;
 
-
         valueStart = fillCount;
-
 
         valueIndex = clampCount;
     }
 
 
-
-    Int i;
-
-    i = 0;
-
-
-    while (i < countA)
-    {
-        dest[i + valueStart] = uu[i + valueIndex];
-
-
-        i = i + 1;
-    }
-
+    Format_ResultString(o, result, valueData, varCase, valueWriteCount, valueStart, valueIndex);
 
 
     Format_ResultFill(dest, fillStart, fillCount, fillCharU);
@@ -935,11 +746,169 @@ Int Format_ArgResultString(Int o, Int arg, Int result)
 }
 
 
+Int Format_ArgResultChar(Int o, Int arg, Int result)
+{
+    FormatArg* oo;
+    oo = CastPointer(arg);
+
+    Int valueCount;
+    valueCount = oo->ValueCount;
+
+    Int count;
+    count = oo->Count;
+
+    Int value;
+    value = oo->Value;
+
+    Char valueChar;
+    valueChar = value;
+
+    Bool alignLeft;
+    alignLeft = oo->AlignLeft;
+
+    Int fillCount;
+    fillCount = 0;
+
+    Int clampCount;
+    clampCount = 0;
+
+    if (valueCount < count)
+    {
+        fillCount = count - valueCount;
+    }
+
+    if (count < valueCount)
+    {
+        clampCount = valueCount - count;
+    }
+
+    Int varCase;
+    varCase = oo->Case;
+
+    Int fillChar;
+    fillChar = oo->FillChar;
+
+    Char fillCharU;
+    fillCharU = fillChar;
+
+    Char* dest;
+    dest = CastPointer(result);
+
+    Int valueData;
+    valueData = CastInt(&valueChar);
+
+    Int fillStart;
+    fillStart = 0;
+
+    Int valueStart;
+    valueStart = 0;
+
+    Int valueIndex;
+    valueIndex = 0;
+
+    Int valueWriteCount;
+    valueWriteCount = valueCount - clampCount;
+
+    if (alignLeft)
+    {
+        fillStart = valueWriteCount;
+
+        valueStart = 0;
+
+        valueIndex = 0;
+    }
+
+    if (!alignLeft)
+    {
+        fillStart = 0;
+
+        valueStart = fillCount;
+
+        valueIndex = clampCount;
+    }
+
+
+    Format_ResultString(o, result, valueData, varCase, valueWriteCount, valueStart, valueIndex);
+
+
+    Format_ResultFill(dest, fillStart, fillCount, fillCharU);
+
+
+    return true;
+}
 
 
 
 
-Int Format_ResultInt(Int o, Int result, Int value, Int varBase, Int varCase, Int valueCount, Int writeCount, Int valueStart, Int valueIndex)
+Int Format_ResultBool(Int o, Int result, Int value, Int varCase, Int valueWriteCount, Int valueStart, Int valueIndex)
+{
+    Char* dest;
+    dest = CastPointer(result);
+
+
+    Bool valueBool;
+    valueBool = value;
+
+    const char* source;
+    source = Format_Var_FalseString;
+
+    if (valueBool)
+    {
+        source = Format_Var_TrueString;
+    }
+
+
+    char ouc;
+    ouc = 0;
+
+    Char oc;
+    oc = 0;
+
+    Int index;
+    index = 0;
+
+    Int count;
+    count = valueWriteCount;
+
+    Int i;
+    i = 0;
+
+    while (i < count)
+    {
+        index = i + valueIndex;
+
+
+        ouc = source[index];
+
+
+        oc = ouc;
+
+
+        if (varCase == 1)
+        {
+            if (index == 0)
+            {
+                oc = ouc - 'a' + 'A';
+            }
+        }
+
+
+        if (varCase == 2)
+        {
+            oc = ouc - 'a' + 'A';
+        }
+
+        dest[i + valueStart] = oc;
+
+        i = i + 1;
+    }
+
+    return true;
+}
+
+
+
+Int Format_ResultInt(Int o, Int result, Int value, Int varBase, Int varCase, Int valueCount, Int valueWriteCount, Int valueStart, Int valueIndex)
 {
     Char* dest;
 
@@ -950,7 +919,7 @@ Int Format_ResultInt(Int o, Int result, Int value, Int varBase, Int varCase, Int
 
     if (value == 0)
     {
-        if (!(writeCount == 0))
+        if (!(valueWriteCount == 0))
         {
             dest[valueStart] = '0';
         }
@@ -964,7 +933,7 @@ Int Format_ResultInt(Int o, Int result, Int value, Int varBase, Int varCase, Int
 
     Int end;
 
-    end = valueIndex + writeCount;
+    end = valueIndex + valueWriteCount;
 
 
 
@@ -1062,6 +1031,58 @@ Int Format_ResultInt(Int o, Int result, Int value, Int varBase, Int varCase, Int
 
 
 
+
+Int Format_ResultString(Int o, Int result, Int value, Int varCase, Int valueWriteCount, Int valueStart, Int valueIndex)
+{
+    Char* source;
+    source = CastPointer(value);
+
+
+    Char* dest;
+    dest = CastPointer(result);
+
+
+    Char ouc;
+    ouc = 0;
+
+    Char oc;
+    oc = 0;
+
+    Int count;
+    count = valueWriteCount;
+
+    Int i;
+    i = 0;
+
+    while (i < count)
+    {
+        ouc = source[i + valueIndex];
+
+        if (varCase == 1)
+        {
+            if (!((ouc < 'A') | ('Z' < ouc)))
+            {
+                oc = ouc - 'A' + 'a';
+            }
+        }
+
+        if (varCase == 2)
+        {
+            if (!((ouc < 'a') | ('z' < ouc)))
+            {
+                oc = ouc - 'a' + 'A';
+            }
+        }
+
+        dest[i + valueStart] = oc;
+
+
+        i = i + 1;
+    }
+
+
+    return true;
+}
 
 
 

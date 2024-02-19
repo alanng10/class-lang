@@ -66,11 +66,13 @@ Int Format_ArgResultInt(Int o, Int arg, Int result);
 
 Int Format_ArgResultString(Int o, Int arg, Int result);
 
+Int Format_ArgResultChar(Int o, Int arg, Int result);
 
+Int Format_ResultBool(Int o, Int result, Int value, Int varCase, Int valueWriteCount, Int valueStart, Int valueIndex);
 
-Int Format_ResultInt(Int o, Int result, Int value, Int varBase, Int varCase, Int valueCount, Int writeCount, Int valueStart, Int valueIndex);
+Int Format_ResultInt(Int o, Int result, Int value, Int varBase, Int varCase, Int valueCount, Int valueWriteCount, Int valueStart, Int valueIndex);
 
-
+Int Format_ResultString(Int o, Int result, Int value, Int varCase, Int valueWriteCount, Int valueStart, Int valueIndex);
 
 
 
