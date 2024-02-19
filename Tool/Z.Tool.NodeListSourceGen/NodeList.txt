@@ -17,7 +17,7 @@ Field : Comp
 
 Maide : Comp
     ClassName Class
-    MieldName Name
+    MaideName Name
     Access Access
     Param Param
     State Call
@@ -85,7 +85,7 @@ GetOperate : Operate
 
 CallOperate : Operate
     Operate This
-    MieldName Mield
+    MaideName Maide
     Argue Argue
 
 ThisOperate : Operate
@@ -139,7 +139,7 @@ ClassName : Node
 FieldName : Node
     String Value
 
-MieldName : Node
+MaideName : Node
     String Value
 
 VarName : Node
