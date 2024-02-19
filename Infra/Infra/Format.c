@@ -1058,6 +1058,8 @@ Int Format_ResultString(Int o, Int result, Int value, Int varCase, Int valueWrit
     {
         ouc = source[i + valueIndex];
 
+        oc = ouc;
+
         if (varCase == 1)
         {
             if (!((ouc < 'A') | ('Z' < ouc)))
