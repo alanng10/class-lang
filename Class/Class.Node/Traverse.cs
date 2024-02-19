@@ -217,7 +217,7 @@ public class Traverse : Any
         this.ExecuteClassName(maide.Class);
 
 
-        this.ExecuteMieldName(maide.Name);
+        this.ExecuteMaideName(maide.Name);
 
 
         this.ExecuteAccess(maide.Access);
@@ -804,9 +804,9 @@ public class Traverse : Any
 
 
 
-    public virtual bool ExecuteMieldName(MieldName mieldName)
+    public virtual bool ExecuteMaideName(MaideName maideName)
     {
-        if (mieldName == null)
+        if (maideName == null)
         {
             return true;
         }
@@ -814,7 +814,7 @@ public class Traverse : Any
 
 
 
-        this.ExecuteNode(mieldName);
+        this.ExecuteNode(maideName);
 
 
 
@@ -1417,7 +1417,7 @@ public class Traverse : Any
 
 
 
-        this.ExecuteMieldName(callOperate.Mield);
+        this.ExecuteMaideName(callOperate.Maide);
 
 
 
