@@ -19,4 +19,4 @@ dotnet build
 
 
 
-cd ..
+cd ../..
