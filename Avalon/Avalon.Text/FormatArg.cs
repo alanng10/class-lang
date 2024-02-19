@@ -65,8 +65,8 @@ public class FormatArg : Any
 
     public virtual int ValueCount { get; set; }
 
-    public virtual int Count { get; set; 
-    }
+    public virtual int Count { get; set; }
+    
     private InternInfra InternInfra { get; set; }
 
 
