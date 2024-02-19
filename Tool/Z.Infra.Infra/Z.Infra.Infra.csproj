@@ -6,7 +6,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <ProjectReference Include="../MakeProject/MakeProject.csproj" />
+        <ProjectReference Include="../../Avalon/MakeProject/MakeProject.csproj" />
     </ItemGroup>
 
 </Project>
