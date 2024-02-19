@@ -507,10 +507,6 @@ public class Intern : object
     }
 
 
-
-
-
-
     public virtual bool FormatResult(ulong format, char[] array, ulong index, ulong count, ulong text)
     {
         unsafe
