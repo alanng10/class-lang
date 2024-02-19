@@ -9,7 +9,7 @@ public class Maide : Comp
     public virtual ClassName Class { get; set; }
 
 
-    public virtual MieldName Name { get; set; }
+    public virtual MaideName Name { get; set; }
 
 
     public virtual Access Access { get; set; }

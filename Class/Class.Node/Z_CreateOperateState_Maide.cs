@@ -17,7 +17,7 @@ public class MaideCreateOperateState : CreateOperateState
         node.Class = (ClassName)this.Arg.Field00;
 
 
-        node.Name = (MieldName)this.Arg.Field01;
+        node.Name = (MaideName)this.Arg.Field01;
 
 
         node.Access = (Access)this.Arg.Field02;

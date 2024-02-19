@@ -102,7 +102,7 @@ public class NodeKindList : Any
         this.StringValue = this.AddItem("StringValue", new StringValue(), new StringValueNewState(), new StringValueNodeState(), new StringValueCreateOperateState());
         this.ClassName = this.AddItem("ClassName", new ClassName(), new ClassNameNewState(), new ClassNameNodeState(), new ClassNameCreateOperateState());
         this.FieldName = this.AddItem("FieldName", new FieldName(), new FieldNameNewState(), new FieldNameNodeState(), new FieldNameCreateOperateState());
-        this.MieldName = this.AddItem("MieldName", new MieldName(), new MieldNameNewState(), new MieldNameNodeState(), new MieldNameCreateOperateState());
+        this.MaideName = this.AddItem("MaideName", new MaideName(), new MaideNameNewState(), new MaideNameNodeState(), new MaideNameCreateOperateState());
         this.VarName = this.AddItem("VarName", new VarName(), new VarNameNewState(), new VarNameNodeState(), new VarNameCreateOperateState());
         this.EqualOperate = this.AddItem("EqualOperate", new EqualOperate(), new EqualOperateNewState(), new EqualOperateNodeState(), new EqualOperateCreateOperateState());
         this.AndOperate = this.AddItem("AndOperate", new AndOperate(), new AndOperateNewState(), new AndOperateNodeState(), new AndOperateCreateOperateState());
@@ -179,7 +179,7 @@ public class NodeKindList : Any
     public virtual NodeKind StringValue { get; set; }
     public virtual NodeKind ClassName { get; set; }
     public virtual NodeKind FieldName { get; set; }
-    public virtual NodeKind MieldName { get; set; }
+    public virtual NodeKind MaideName { get; set; }
     public virtual NodeKind VarName { get; set; }
     public virtual NodeKind EqualOperate { get; set; }
     public virtual NodeKind AndOperate { get; set; }

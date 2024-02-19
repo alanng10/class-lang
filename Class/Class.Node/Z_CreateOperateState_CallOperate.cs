@@ -17,7 +17,7 @@ public class CallOperateCreateOperateState : CreateOperateState
         node.This = (Operate)this.Arg.Field00;
 
 
-        node.Mield = (MieldName)this.Arg.Field01;
+        node.Maide = (MaideName)this.Arg.Field01;
 
 
         node.Argue = (Argue)this.Arg.Field02;
