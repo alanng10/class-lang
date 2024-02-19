@@ -8,8 +8,8 @@
 
     <ItemGroup>
         <ProjectReference Include="../Z.Infra.Infra/Z.Infra.Infra.csproj" />
-        <ProjectReference Include="../Class.Binary/Class.Binary.csproj" />
-        <ProjectReference Include="../Class.Infra/Class.Infra.csproj" />
+        <ProjectReference Include="../../Class/Class.Binary/Class.Binary.csproj" />
+        <ProjectReference Include="../../Class/Class.Infra/Class.Infra.csproj" />
     </ItemGroup>
 
 </Project>
