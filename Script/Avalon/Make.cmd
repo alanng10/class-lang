@@ -3,7 +3,13 @@
 
 echo Clean Module
 
-rmdir /S /Q .\Out\net6.0
+SET CSharpOut=.\Out\net6.0
+
+del /F /Q %CSharpOut%\Avalon.*
+
+del /F /Q %CSharpOut%\MakeProject.*
+
+rmdir /S /Q %CSharpOut%\Lib
 
 echo:
 
