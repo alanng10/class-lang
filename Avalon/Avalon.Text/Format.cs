@@ -158,4 +158,16 @@ public class Format : Any
 
         return true;
     }
+
+
+    public virtual int ExecuteArgCount(FormatArg arg)
+    {
+        ulong u;
+        u = Extern.Format_ExecuteArgCount(this.Intern, arg.Intern);
+
+        int a;
+        a = (int)u;
+
+        return a;
+    }
 }
