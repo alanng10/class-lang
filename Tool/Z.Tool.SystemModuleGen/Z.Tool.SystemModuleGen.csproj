@@ -7,7 +7,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <ProjectReference Include="../../Avalon/Z.Infra.Infra/Z.Infra.Infra.csproj" />
+        <ProjectReference Include="../Z.Infra.Infra/Z.Infra.Infra.csproj" />
         <ProjectReference Include="../Class.Binary/Class.Binary.csproj" />
         <ProjectReference Include="../Class.Infra/Class.Infra.csproj" />
     </ItemGroup>
