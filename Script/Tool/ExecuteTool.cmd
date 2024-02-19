@@ -11,18 +11,10 @@ SET ModuleName=Z.Tool.%ToolName%
 
 
 
-cd Out/net6.0
-
-
-
+pushd Out/net6.0
 
 dotnet %ModuleName%.dll
 
-
-
 echo Status: %errorlevel%
 
-
-
-
-cd ../..
+popd

@@ -11,7 +11,7 @@ SET ModuleName=Z.Tool.%ToolName%
 
 
 
-cd %ModuleName%
+cd Tool/%ModuleName%
 
 
 
