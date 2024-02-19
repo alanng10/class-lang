@@ -14,14 +14,14 @@ SOURCES += \
 
 win32 {
 
-LIBS += -L$$PWD/../../Out/Infra-Windows-Release/release/
+LIBS += -L$$PWD/../Infra-Windows-Release/release/
 
 }
 
 
 !win32 {
 
-LIBS += -L$$PWD/../../Out/Infra-Linux-Release/
+LIBS += -L$$PWD/../Infra-Linux-Release/
 
 }
 

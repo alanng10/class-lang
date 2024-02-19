@@ -56,46 +56,47 @@ Int Format_IntDigitCount(Int o, Int value, Int varBase);
 
 
 
-typedef Int (*Format_ArgResultMaide)(Int o, Int arg);
-
-
-
-
-Int Format_ArgResultBool(Int o, Int arg);
+typedef Int (*Format_ArgResultMaide)(Int o, Int arg, Int result);
 
 
 
 
 
-Bool Format_VariableCountIntHexResult(Char* result, Int n, Int byteCount);
+Int Format_ArgResultString(Int o, Int arg, Int result);
 
 
 
 
 
-
-
-
-
-Bool Format_ResultIndexArgs(Format* o, Int index, Int* argP, Char* result, Int* resultIndexP);
+//Bool Format_VariableCountIntHexResult(Char* result, Int n, Int byteCount);
 
 
 
 
 
 
-typedef Bool (*Format_ArgResultMethod)(Format* o, Int value, Int dest, Int* lengthP);
+
+
+
+//Bool Format_ResultIndexArgs(Format* o, Int index, Int* argP, Char* result, Int* resultIndexP);
 
 
 
 
 
-Bool Format_BoolArgResult(Format* o, Int value, Int dest, Int* lengthP);
+
+//typedef Bool (*Format_ArgResultMethod)(Format* o, Int value, Int dest, Int* lengthP);
 
 
 
-Bool Format_IntArgResult(Format* o, Int value, Int dest, Int* lengthP);
+
+
+//Bool Format_BoolArgResult(Format* o, Int value, Int dest, Int* lengthP);
 
 
 
-Bool Format_StringArgResult(Format* o, Int value, Int dest, Int* lengthP);
+//Bool Format_IntArgResult(Format* o, Int value, Int dest, Int* lengthP);
+
+
+
+//Bool Format_StringArgResult(Format* o, Int value, Int dest, Int* lengthP);
