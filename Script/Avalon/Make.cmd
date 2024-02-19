@@ -13,10 +13,6 @@ rmdir /S /Q .\Out\Demo
 echo:
 
 
-
-echo:
-
-
 echo:
 
 
