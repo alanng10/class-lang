@@ -1,39 +1,16 @@
 namespace Class.Node;
 
-
-
-
-
 public class Create : InfraCreate
 {
     public override bool Init()
     {
         base.Init();
 
-
-
-
-
-
-        this.RangeInfra = RangeInfra.This;
-
-
-
+        this.InfraInfra = InfraInfra.This;
         this.TextInfra = TextInfra.This;
-
-
-
         this.ListInfra = ListInfra.This;
-
-
-
         this.StringInfra = StringInfra.This;
-
-
-
-        this.NodeStat = Stat.This;
-
-
+        this.NodeInfra = Infra.This;
 
 
 
@@ -213,23 +190,15 @@ public class Create : InfraCreate
 
 
 
-    protected virtual RangeInfra RangeInfra { get; set; }
-
-
+    protected virtual InfraInfra InfraInfra { get; set; }
 
     protected virtual ListInfra ListInfra { get; set; }
 
-
-
     protected virtual TextInfra TextInfra { get; set; }
-
-
 
     protected virtual StringInfra StringInfra { get; set; }
 
-
-
-    protected virtual Stat NodeStat { get; set; }
+    protected virtual Infra NodeInfra { get; set; }
 
 
 
@@ -2140,7 +2109,7 @@ public class Create : InfraCreate
 
 
 
-        nameRange = this.ExecuteMieldNameRange(this.RangeD, this.Range(this.RangeA, classRange.End, end));
+        nameRange = this.ExecuteMaideNameRange(this.RangeD, this.Range(this.RangeA, classRange.End, end));
 
 
 
@@ -2381,7 +2350,7 @@ public class Create : InfraCreate
 
 
 
-        name = this.ExecuteMieldName(this.Range(this.RangeA, nameStart, nameEnd));
+        name = this.ExecuteMaideName(this.Range(this.RangeA, nameStart, nameEnd));
 
 
 
@@ -2736,7 +2705,7 @@ public class Create : InfraCreate
 
 
 
-    public virtual Node ExecuteMieldName(Range range)
+    public virtual Node ExecuteMaideName(Range range)
     {
         int start;
 
@@ -2767,7 +2736,7 @@ public class Create : InfraCreate
 
 
 
-        this.OperateArg.Kind = this.NodeKind.MieldName;
+        this.OperateArg.Kind = this.NodeKind.MaideName;
 
         this.OperateArg.Start = start;
 
@@ -3710,13 +3679,13 @@ public class Create : InfraCreate
 
         if (!signNegative)
         {
-            max = this.NodeStat.IntSignValuePositiveMax;
+            max = this.NodeInfra.IntSignValuePositiveMax;
         }
 
 
         if (signNegative)
         {
-            max = this.NodeStat.IntSignValueNegativeMax;
+            max = this.NodeInfra.IntSignValueNegativeMax;
         }
         
 
@@ -3743,7 +3712,7 @@ public class Create : InfraCreate
         if (signNegative)
         {
             value = -o;
-        }        
+        }
 
 
 
@@ -3870,13 +3839,13 @@ public class Create : InfraCreate
 
         if (!signNegative)
         {
-            max = this.NodeStat.IntSignValuePositiveMax;
+            max = this.NodeInfra.IntSignValuePositiveMax;
         }
 
 
         if (signNegative)
         {
-            max = this.NodeStat.IntSignValueNegativeMax;
+            max = this.NodeInfra.IntSignValueNegativeMax;
         }
 
 
@@ -5126,21 +5095,21 @@ public class Create : InfraCreate
 
 
 
-        Range mieldRange;
+        Range maideRange;
 
 
-        mieldRange = this.ExecuteMieldNameRange(this.RangeB, this.Range(this.RangeA, dot.Range.End, leftBracket.Range.Start));
+        maideRange = this.ExecuteMaideNameRange(this.RangeB, this.Range(this.RangeA, dot.Range.End, leftBracket.Range.Start));
 
 
 
-        if (mieldRange == null)
+        if (maideRange == null)
         {
             return null;
         }
 
 
 
-        if (!(mieldRange.End == leftBracket.Range.Start))
+        if (!(maideRange.End == leftBracket.Range.Start))
         {
             return null;
         }
@@ -5165,16 +5134,16 @@ public class Create : InfraCreate
 
 
 
-        int mieldStart;
+        int maideStart;
 
 
-        int mieldEnd;
+        int maideEnd;
 
 
-        mieldStart = mieldRange.Start;
+        maideStart = maideRange.Start;
 
 
-        mieldEnd = mieldRange.End;
+        maideEnd = maideRange.End;
 
 
 
@@ -5215,18 +5184,18 @@ public class Create : InfraCreate
 
 
 
-        Node mield;
+        Node maide;
 
 
 
-        mield = this.ExecuteMieldName(this.Range(this.RangeA, mieldStart, mieldEnd));
+        maide = this.ExecuteMaideName(this.Range(this.RangeA, maideStart, maideEnd));
 
 
 
 
-        if (mield == null)
+        if (maide == null)
         {
-            this.Error(this.ErrorKind.MieldInvalid, mieldStart, mieldEnd);
+            this.Error(this.ErrorKind.MaideInvalid, maideStart, maideEnd);
         }
 
 
@@ -5260,7 +5229,7 @@ public class Create : InfraCreate
 
         this.OperateArg.Field00 = varThis;
 
-        this.OperateArg.Field01 = mield;
+        this.OperateArg.Field01 = maide;
 
         this.OperateArg.Field02 = argue;
 
@@ -8094,7 +8063,7 @@ public class Create : InfraCreate
 
 
 
-    protected virtual Range ExecuteMieldNameRange(Range result, Range range)
+    protected virtual Range ExecuteMaideNameRange(Range result, Range range)
     {
         return this.ExecuteNameRange(result, range);
     }
@@ -8923,7 +8892,7 @@ public class Create : InfraCreate
 
         if (a == null)
         {
-            a = this.ExecuteMieldRange(result, this.Range(this.RangeA, start, end));
+            a = this.ExecuteMaideRange(result, this.Range(this.RangeA, start, end));
         }
 
 
@@ -9246,7 +9215,7 @@ public class Create : InfraCreate
 
 
 
-    protected virtual Range ExecuteMieldRange(Range result, Range range)
+    protected virtual Range ExecuteMaideRange(Range result, Range range)
     {
         int start;
 
@@ -9310,7 +9279,7 @@ public class Create : InfraCreate
 
 
 
-        nameRange = this.ExecuteMieldNameRange(this.RangeD, this.Range(this.RangeA, classRange.End, end));
+        nameRange = this.ExecuteMaideNameRange(this.RangeD, this.Range(this.RangeA, classRange.End, end));
 
 
 
@@ -10024,7 +9993,7 @@ public class Create : InfraCreate
 
     protected virtual int Count(Range range)
     {
-        return this.RangeInfra.Count(range);
+        return this.InfraInfra.Count(range);
     }
 
 
@@ -10287,7 +10256,7 @@ public class Create : InfraCreate
 
     protected virtual Range IndexRange(Range range, int index)
     {
-        this.RangeInfra.IndexRange(range, index);
+        this.InfraInfra.IndexRange(range, index);
 
 
         return range;
