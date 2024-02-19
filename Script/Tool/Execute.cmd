@@ -11,7 +11,7 @@ SET ModuleName=Z.Tool.%ToolName%
 
 
 
-pushd Out/net6.0
+pushd Out\net6.0
 
 dotnet %ModuleName%.dll
 
