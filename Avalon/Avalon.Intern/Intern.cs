@@ -511,7 +511,7 @@ public class Intern : object
 
 
 
-    public virtual bool ReturnStringResult(ulong returnA, char[] array, ulong index, ulong count, ulong text)
+    public virtual bool FormatResult(ulong format, char[] array, ulong index, ulong count, ulong text)
     {
         unsafe
         {
@@ -529,16 +529,12 @@ public class Intern : object
 
 
 
-
-
                 Extern.String_SetCount(text, count);
-
 
                 Extern.String_SetData(text, ua);
 
 
-
-                Extern.Return_StringResult(returnA, text);
+                Extern.Format_ExecuteResult(format, text);
             }
         }
 
@@ -546,33 +542,6 @@ public class Intern : object
         return true;
     }
 
-
-
-
-
-    public virtual bool FormatArgString(ulong format, string a, ulong fieldWidth, ulong fillChar, ulong text)
-    {
-        unsafe
-        {
-            fixed (char* p = a)
-            {
-                ulong u;
-
-                u = (ulong)p;
-
-
-
-                Extern.String_SetData(text, u);
-
-
-                Extern.Format_ArgString(format, text, fieldWidth, fillChar);
-            }
-        }
-
-
-
-        return true;
-    }
 
 
 

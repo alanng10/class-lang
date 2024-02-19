@@ -18,6 +18,11 @@ public class Format : Any
         this.InfraInfra = InfraInfra.This;
 
 
+        this.InternResult = Extern.String_New();
+
+        Extern.String_Init(this.InternResult);
+
+
         this.Intern = Extern.Format_New();
 
         Extern.Format_Init(this.Intern);
@@ -32,8 +37,10 @@ public class Format : Any
     public virtual bool Final()
     {
         Extern.Format_Final(this.Intern);
-
         Extern.Format_Delete(this.Intern);
+
+        Extern.String_Final(this.InternResult);
+        Extern.String_Delete(this.InternResult);
 
         if (!(this.InternBase == 0))
         {
@@ -61,6 +68,8 @@ public class Format : Any
 
 
     private ulong Intern { get; set; }
+
+    private ulong InternResult { get; set; }
 
     private ulong InternBase { get; set; }
 
@@ -100,7 +109,6 @@ public class Format : Any
     }
 
 
-
     public virtual bool SetArgList()
     {
         ulong u;
@@ -129,5 +137,29 @@ public class Format : Any
         a = (int)u;
 
         return a;
+    }
+
+
+    public virtual bool ExecuteResult(Span result)
+    {
+        InfraRange range;
+        range = result.Range;
+
+        int index;
+        index = range.Start;
+
+        int count;
+        count = this.InfraInfra.Count(range);
+
+        ulong indexU;
+        indexU = (ulong)index;
+
+        ulong countU;
+        countU = (ulong)count;
+
+
+        this.InternIntern.FormatResult(this.Intern, result.Data, indexU, countU, this.InternResult);
+
+        return true;
     }
 }
