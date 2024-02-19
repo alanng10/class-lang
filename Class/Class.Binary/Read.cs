@@ -11,10 +11,7 @@ public class Read : Any
 
 
         
-        this.InfraConstant = InfraConstant.This;
-
-
-        this.InfraConvert = InfraConvert.This;
+        this.InfraInfra = InfraInfra.This;
 
 
         this.OperateKindList = OperateKindList.This;
@@ -40,10 +37,7 @@ public class Read : Any
     
 
 
-    protected virtual InfraConstant InfraConstant { get; set;  }
-    
-    
-    protected virtual InfraConvert InfraConvert { get; set;  }
+    protected virtual InfraInfra InfraInfra { get; set;  }
 
     
     protected virtual OperateKindList OperateKindList { get; set; }
@@ -1352,7 +1346,7 @@ public class Read : Any
     {
         int end;
         
-        end = this.Index + this.InfraConstant.ULongByteCount;
+        end = this.Index + this.InfraInfra.ULongByteCount;
 
 
         if (this.Data.Count < end)
@@ -1364,7 +1358,7 @@ public class Read : Any
         
         ulong k;
         
-        k = this.InfraConvert.ByteListULong(this.Data.Value, this.Index);
+        k = this.InfraInfra.ByteListULong(this.Data.Value, this.Index);
 
 
 
