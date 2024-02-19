@@ -6,8 +6,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Avalon" Version="1.0.0" />
-        <!-- <ProjectReference Include="../MakeProject/MakeProject.csproj" /> -->
+        <ProjectReference Include="../MakeProject/MakeProject.csproj" />
     </ItemGroup>
 
 </Project>
