@@ -3,7 +3,7 @@
 
 
 
-for /d /r %%a in ("Z.Tool.*") do (
+for /d /r %%a in ("Tool\Z.Tool.*") do (
     
     pushd %%a
     
