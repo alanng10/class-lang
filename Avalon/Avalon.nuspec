@@ -13,7 +13,7 @@
         </contentFiles>
     </metadata>
     <files>
-        <file src="Out\net6.0\Avalon.*.dll" target="lib\net6.0" />
-        <file src="Out\net6.0\Lib\**\*" target="contentFiles\any\any\Lib" />
+        <file src="..\Out\net6.0\Avalon.*.dll" target="lib\net6.0" />
+        <file src="..\Out\net6.0\Lib\**\*" target="contentFiles\any\any\Lib" />
     </files>
 </package>
