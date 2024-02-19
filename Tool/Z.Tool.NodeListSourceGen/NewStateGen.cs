@@ -42,7 +42,7 @@ public class NewStateGen : Any
 
 
 
-        this.OutputFoldPath = "../../Class.Node";
+        this.OutputFoldPath = "../../Class/Class.Node";
 
 
 
