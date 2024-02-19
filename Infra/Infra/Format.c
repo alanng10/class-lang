@@ -438,6 +438,75 @@ Int Format_ExecuteArgResult(Int o, Int arg, Int result)
 
 Int Format_ArgResultInt(Int o, Int arg, Int result)
 {
+    FormatArg* oo;
+
+    oo = CastPointer(arg);
+
+
+
+    Int valueCount;
+
+    valueCount = oo->ValueCount;
+
+
+    Int count;
+
+    count = oo->Count;
+
+
+    Int value;
+
+    value = oo->Value;
+
+
+
+    Bool alignLeft;
+
+    alignLeft = oo->AlignLeft;
+
+
+
+    Int fillCount;
+
+    fillCount = 0;
+
+
+    Int clampCount;
+
+    clampCount = 0;
+
+
+    if (valueCount < count)
+    {
+        fillCount = count - valueCount;
+    }
+
+
+    if (count < valueCount)
+    {
+        clampCount = valueCount - count;
+    }
+
+
+
+    Int fillChar;
+
+    fillChar = oo->FillChar;
+
+
+
+    Char fillCharU;
+
+    fillCharU = fillChar;
+
+
+
+    Char* dest;
+
+    dest = CastPointer(result);
+
+
+
     return true;
 }
 
@@ -476,7 +545,7 @@ Int Format_ArgResultString(Int o, Int arg, Int result)
 
     Bool alignLeft;
 
-    alignLeft = oo->Align;
+    alignLeft = oo->AlignLeft;
 
 
 
@@ -556,10 +625,9 @@ Int Format_ArgResultString(Int o, Int arg, Int result)
         fillStart = countA;
 
 
-        valueIndex = 0;
-
-
         valueStart = 0;
+
+        valueIndex = 0;
     }
 
 
@@ -569,10 +637,10 @@ Int Format_ArgResultString(Int o, Int arg, Int result)
         fillStart = 0;
 
 
-        valueIndex = fillCount;
+        valueStart = fillCount;
 
 
-        valueStart = clampCount;
+        valueIndex = clampCount;
     }
 
 
@@ -584,7 +652,7 @@ Int Format_ArgResultString(Int o, Int arg, Int result)
 
     while (i < countA)
     {
-        dest[i + valueIndex] = uu[i + valueStart];
+        dest[i + valueStart] = uu[i + valueIndex];
 
 
         i = i + 1;
@@ -619,6 +687,150 @@ Int Format_ArgResultString(Int o, Int arg, Int result)
 
 
 
+
+
+Int Format_ResultInt(Int o, Int result, Int value, Int varBase, Int varCase, Int valueCount, Int writeCount, Int valueStart, Int valueIndex)
+{
+    Char* dest;
+
+    dest = CastPointer(result);
+
+
+
+
+    if (value == 0)
+    {
+        if (!(writeCount == 0))
+        {
+            dest[valueStart] = '0';
+        }
+
+
+        return true;
+    }
+
+
+
+
+    Int end;
+
+    end = valueIndex + writeCount;
+
+
+
+    Int k;
+
+    k = value;
+
+
+    Int j;
+
+    j = 0;
+
+
+    Int digit;
+
+    digit = 0;
+
+
+    Int o;
+
+    o = 0;
+
+
+    Int oa;
+
+    oa = 0;
+
+
+    Char c;
+
+    c = 0;
+
+
+
+    Bool upperCase;
+
+    upperCase = varCase;
+
+
+    Char letterDigitStart;
+
+    letterDigitStart = 'a';
+
+
+    if (upperCase)
+    {
+        letterDigitStart = 'A';
+    }
+
+
+
+    Int index;
+
+    index = 0;
+
+
+
+    Int count;
+
+    count = valueCount;
+
+
+
+    Int i;
+
+    i = 0;
+
+
+
+    while (i < count)
+    {
+        j = k / varBase;
+
+
+
+
+        o = k - j * varBase;
+
+
+
+
+        digit = o;
+
+
+
+
+        index = count - 1 - i;
+
+
+
+        if ((!(index < valueIndex)) && index < end)
+        {
+            Format_IntDigit(digit);
+
+
+            oa = index - valueIndex;
+
+
+            dest[valueStart + oa] = c;
+        }
+
+
+
+
+        k = j;
+
+
+
+        i = i + 1;
+    }
+
+
+
+
+    return true;
+}
 
 
 
@@ -1105,120 +1317,6 @@ Int Format_ArgResultString(Int o, Int arg, Int result)
 
 
 
-
-
-
-
-
-//Bool Format_Int(Int this, Int result, Int n, Int digitCount)
-//{
-//    Char* buffer = (Char*)result;
-
-
-
-
-//    if (n == 0)
-//    {
-//        buffer[0] = '0';
-
-
-
-//        return true;
-//    }
-
-
-
-
-
-
-//    Int k = n;
-
-
-
-
-//    Int j = 0;
-
-
-
-
-//    Byte digit = 0;
-
-
-
-//    Int o = 0;
-
-
-
-//    Char c = 0;
-
-
-
-//    Int index = 0;
-
-
-
-//    Int count = digitCount;
-
-
-
-//    Int i = 0;
-
-
-
-//    while (i < count)
-//    {
-//        j = k / 10;
-
-
-
-
-//        o = k - j * 10;
-
-
-
-
-//        digit = (Byte)o;
-
-
-
-
-//        index = count - 1 - i;
-
-
-
-
-
-//        c = digit + '0';
-
-
-
-
-//        buffer[index] = c;
-
-
-
-
-//        k = j;
-
-
-
-
-//        i++;
-//    }
-
-
-
-
-//    return true;
-//}
-
-
-
-
-
-
-
-
 //Int Format_IntHexCount(Int o)
 //{
 //    return Constant_IntByteCount() * Constant_ByteHexDigitCount();
@@ -1299,130 +1397,3 @@ Int Format_ArgResultString(Int o, Int arg, Int result)
 
 
 
-//Bool Format_VariableCountIntHexResult(Char* result, Int n, Int byteCount)
-//{
-//    Int count = byteCount * Constant_ByteHexDigitCount();
-
-
-
-
-
-//    Char* buffer = result;
-
-
-
-
-//    Char c = 0;
-
-
-
-
-//    Int shiftCount = 0;
-
-
-
-
-//    Int k = 0;
-
-
-
-
-//    Int index = 0;
-
-
-
-
-//    Int i = 0;
-
-
-
-
-//    while (i < count)
-//    {
-//        shiftCount = i * 4;
-
-
-
-
-
-//        k = n >> shiftCount;
-
-
-
-
-//        k = k & 0xf;
-
-
-
-        
-//        index = count - 1 - i;
-
-
-
-
-//        c = Format_IntHexDigit(k);
-        
-
-
-
-
-//        buffer[index] = c;
-
-
-
-
-
-//        i = i + 1;
-//    }
-
-
-
-
-//    return true;
-//}
-
-
-
-
-
-//Int Format_IntHexDigit(Int k)
-//{
-//    Char c;
-
-
-
-
-//    Byte u;
-
-
-//    u = (Byte)k;
-
-
-
-//    Bool b;
-
-//    b = (u < 10);
-
-
-//    if (b)
-//    {
-//        c = '0' + u;
-//    }
-
-
-//    if (!b)
-//    {
-//        Byte n;
-
-//        n = u - 10;
-
-
-
-//        c = 'a' + n;
-//    }
-
-
-
-
-//    return c;
-//}

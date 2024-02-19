@@ -22,7 +22,7 @@ typedef struct
     Int Value;
 
 
-    Int Align;
+    Int AlignLeft;
 
     Int FieldWidth;
 

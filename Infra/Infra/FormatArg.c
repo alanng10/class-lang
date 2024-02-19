@@ -34,7 +34,7 @@ Field(Kind)
 Field(Value)
 
 
-Field(Align)
+Field(AlignLeft)
 
 
 Field(FieldWidth)

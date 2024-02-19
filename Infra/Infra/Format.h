@@ -68,6 +68,37 @@ Int Format_ArgResultString(Int o, Int arg, Int result);
 
 
 
+Int Format_ResultInt(Int o, Int result, Int value, Int varBase, Int varCase, Int valueCount, Int writeCount, Int valueStart, Int valueIndex);
+
+
+
+
+#define Format_IntDigit(digitValue) \
+{\
+    Bool b;\
+\
+    b = (u < 10);\
+\
+\
+    if (b)\
+    {\
+        c = '0' + digitValue;\
+    }\
+\
+\
+    if (!b)\
+    {\
+        Int n;\
+\
+        n = digitValue - 10;\
+\
+        c = letterDigitStart + n;\
+    }\
+}\
+
+
+
+
 
 
 //Bool Format_VariableCountIntHexResult(Char* result, Int n, Int byteCount);
