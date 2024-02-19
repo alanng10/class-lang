@@ -2,7 +2,7 @@ namespace Class.Infra;
 
 
 
-public class Mield : Any
+public class Maide : Any
 {
     public virtual string Name { get; set; }
 
