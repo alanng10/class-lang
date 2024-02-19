@@ -42,7 +42,7 @@ public class NodeKindListGen : SourceGen
 
 
 
-        this.OutputFilePath = "../../Class.Node/NodeKindList.cs";
+        this.OutputFilePath = "../../Class/Class.Node/NodeKindList.cs";
 
 
 
