@@ -2,18 +2,13 @@
 
 
 
-cd Demo/bin/Debug/net6.0
+pushd Out\Demo\net6.0
 
 
-
-dotnet Demo.dll < ../../../../Input.txt
-
+dotnet Demo.dll < ../../../Avalon/Input.txt
 
 
 echo Status: %errorlevel%
 
 
-
-
-
-cd ../../../..
+popd
