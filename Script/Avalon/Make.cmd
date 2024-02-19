@@ -1,17 +1,16 @@
 @echo off
 
 
-
+echo Clean Module
 
 rmdir /S /Q .\Out\net6.0
 
 echo:
 
 
+echo Clean Demo
+
 rmdir /S /Q .\Out\Demo
-
-echo:
-
 
 echo:
 
