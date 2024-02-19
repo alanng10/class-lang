@@ -69,8 +69,6 @@ public class Format : Any
 
     
 
-
-
     public virtual bool SetBase()
     {
         if (!(this.InternBase == 0))
@@ -100,7 +98,6 @@ public class Format : Any
 
 
         Extern.Format_SetBase(this.Intern, this.InternBase);
-
 
         return true;
     }
