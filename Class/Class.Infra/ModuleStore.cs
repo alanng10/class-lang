@@ -10,7 +10,7 @@ public class ModuleStore : Any
 
         
         
-        this.InfraConstant = InfraConstant.This;
+        this.InfraInfra = InfraInfra.This;
 
 
 
@@ -35,7 +35,7 @@ public class ModuleStore : Any
     
     
     
-    protected virtual InfraConstant InfraConstant { get; set; }
+    protected virtual InfraInfra InfraInfra { get; set; }
 
 
 
@@ -89,7 +89,7 @@ public class ModuleStore : Any
         
         string rootPath;
             
-        rootPath = userFoldPath + this.InfraConstant.PathCombine + "Module";
+        rootPath = userFoldPath + this.InfraInfra.PathCombine + "Module";
 
 
         
@@ -156,7 +156,7 @@ public class ModuleStore : Any
         
         string filePath;
 
-        filePath = foldPath + this.InfraConstant.PathCombine + this.BinaryFileName;
+        filePath = foldPath + this.InfraInfra.PathCombine + this.BinaryFileName;
 
 
 
@@ -255,7 +255,7 @@ public class ModuleStore : Any
         
         string filePath;
 
-        filePath = foldPath + this.InfraConstant.PathCombine + this.BinaryFileName;
+        filePath = foldPath + this.InfraInfra.PathCombine + this.BinaryFileName;
 
 
         try
@@ -307,7 +307,7 @@ public class ModuleStore : Any
         
         string filePath;
 
-        filePath = foldPath + this.InfraConstant.PathCombine + this.BinaryFileName;
+        filePath = foldPath + this.InfraInfra.PathCombine + this.BinaryFileName;
 
 
 
@@ -345,11 +345,11 @@ public class ModuleStore : Any
         k = this.RootPath;
         
         
-        k = k + this.InfraConstant.PathCombine + this.IntHexString(varRef.Int.Group);
+        k = k + this.InfraInfra.PathCombine + this.IntHexString(varRef.Int.Group);
         
-        k = k + this.InfraConstant.PathCombine + this.IntHexString(varRef.Int.Value);
+        k = k + this.InfraInfra.PathCombine + this.IntHexString(varRef.Int.Value);
         
-        k = k + this.InfraConstant.PathCombine + this.IntHexString(varRef.Ver);
+        k = k + this.InfraInfra.PathCombine + this.IntHexString(varRef.Ver);
 
 
         return k;
