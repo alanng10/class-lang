@@ -59,6 +59,14 @@ public class FormatArg : Any
 
     public virtual int Case { get; set; }
 
+    public virtual char FillChar { get; set; }
+
+    public virtual bool HasCount { get; set; }
+
+    public virtual int ValueCount { get; set; }
+
+    public virtual int Count { get; set; 
+    }
     private InternInfra InternInfra { get; set; }
 
 
@@ -134,6 +142,18 @@ public class FormatArg : Any
         ulong caseU;
         caseU = (ulong)this.Case;
 
+        ulong fillCharU;
+        fillCharU = (ulong)this.FillChar;
+
+        ulong hasCountU;
+        hasCountU = (ulong)(this.HasCount ? 1 : 0);
+
+        ulong valueCountU;
+        valueCountU = (ulong)this.ValueCount;
+
+        ulong countU;
+        countU = (ulong)this.Count;
+
         Extern.FormatArg_SetPos(this.Intern, posU);
 
         Extern.FormatArg_SetKind(this.Intern, kindU);
@@ -149,6 +169,40 @@ public class FormatArg : Any
         Extern.FormatArg_SetBase(this.Intern, baseU);
 
         Extern.FormatArg_SetCase(this.Intern, caseU);
+
+        Extern.FormatArg_SetFillChar(this.Intern, fillCharU);
+
+        Extern.FormatArg_SetHasCount(this.Intern, hasCountU);
+
+        Extern.FormatArg_SetValueCount(this.Intern, valueCountU);
+
+        Extern.FormatArg_SetCount(this.Intern, countU);
+
+        return true;
+    }
+
+
+
+    public virtual bool GetCount()
+    {
+        ulong hasCountU;
+        ulong valueCountU;
+        ulong countU;
+
+
+        hasCountU = Extern.FormatArg_GetHasCount(this.Intern);
+
+        valueCountU = Extern.FormatArg_GetValueCount(this.Intern);
+
+        countU = Extern.FormatArg_GetCount(this.Intern);
+
+
+        this.HasCount = !(hasCountU == 0);
+
+        this.ValueCount = (int)valueCountU;
+
+        this.Count = (int)countU;
+
 
         return true;
     }
