@@ -28,7 +28,7 @@ Format_ArgValueCountMaide Format_Var_ArgValueCountMaideList[KindCount] =
 Format_ArgResultMaide Format_Var_ArgResultMaideList[KindCount] =
 {
     null,
-    null,
+    &Format_ArgResultInt,
     &Format_ArgResultString,
     null,
     null,
@@ -400,6 +400,51 @@ Int Format_IntDigitCount(Int o, Int value, Int varBase)
 
 
 
+Int Format_ExecuteArgResult(Int o, Int arg, Int result)
+{
+    FormatArg* oo;
+
+    oo = CastPointer(arg);
+
+
+
+    Int kind;
+
+    kind = oo->Kind;
+
+
+    Int resultData;
+
+    resultData = String_GetData(result);
+
+
+
+    Format_ArgResultMaide maide;
+
+    maide = Format_Var_ArgResultMaideList[kind];
+
+
+    maide(o, arg, resultData);
+
+
+
+    return true;
+}
+
+
+
+
+
+
+Int Format_ArgResultInt(Int o, Int arg, Int result)
+{
+    return true;
+}
+
+
+
+
+
 Int Format_ArgResultString(Int o, Int arg, Int result)
 {
     FormatArg* oo;
@@ -513,8 +558,10 @@ Int Format_ArgResultString(Int o, Int arg, Int result)
 
         valueIndex = 0;
 
+
         valueStart = 0;
     }
+
 
 
     if (!alignLeft)

@@ -61,6 +61,8 @@ typedef Int (*Format_ArgResultMaide)(Int o, Int arg, Int result);
 
 
 
+Int Format_ArgResultInt(Int o, Int arg, Int result);
+
 
 Int Format_ArgResultString(Int o, Int arg, Int result);
 

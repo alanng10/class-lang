@@ -799,12 +799,21 @@ Int ThreadExecute(Int thread, Int arg)
 
 
 
-    Int returnA;
+    Int formatArg;
 
-    returnA = Return_New();
+    formatArg = FormatArg_New();
 
 
-    Return_Init(returnA);
+    FormatArg_Init(formatArg);
+
+
+    FormatArg_SetKind(formatArg, 1);
+
+
+    FormatArg_SetValue(formatArg, ident);
+
+
+    FormatArg_SetBase(formatArg, 16);
 
 
 
@@ -820,26 +829,9 @@ Int ThreadExecute(Int thread, Int arg)
 
 
 
-    Int oo;
-
-    oo = Format_ExecuteInt(format, ident, 16);
-
-
-
-
-    Return_SetString(returnA, oo);
-
-
-
-    Return_StringStart(returnA);
-
-
-
-
     Int count;
 
-    count = Return_StringCount(returnA);
-
+    count = Format_ExecuteArgCount(format, formatArg);
 
 
 
@@ -878,11 +870,7 @@ Int ThreadExecute(Int thread, Int arg)
 
 
 
-    Return_StringResult(returnA, stringA);
-
-
-
-    Return_StringEnd(returnA);
+    Format_ExecuteArgResult(format, formatArg, stringA);
 
 
 
@@ -916,11 +904,11 @@ Int ThreadExecute(Int thread, Int arg)
 
 
 
-    Return_Final(returnA);
+    FormatArg_Final(formatArg);
 
 
 
-    Return_Delete(returnA);
+    FormatArg_Delete(formatArg);
 
 
 
