@@ -55,6 +55,9 @@ public class FormatArg : Any
 
     public virtual int MaxWidth { get; set; }
 
+    public virtual int Base { get; set; }
+
+    public virtual int Case { get; set; }
 
     private InternInfra InternInfra { get; set; }
 
@@ -125,6 +128,11 @@ public class FormatArg : Any
         ulong maxWidthU;
         maxWidthU = (ulong)this.MaxWidth;
 
+        ulong baseU;
+        baseU = (ulong)this.Base;
+
+        ulong caseU;
+        caseU = (ulong)this.Case;
 
         Extern.FormatArg_SetPos(this.Intern, posU);
 
@@ -137,6 +145,10 @@ public class FormatArg : Any
         Extern.FormatArg_SetFieldWidth(this.Intern, fieldWidthU);
 
         Extern.FormatArg_SetMaxWidth(this.Intern, maxWidthU);
+
+        Extern.FormatArg_SetBase(this.Intern, baseU);
+
+        Extern.FormatArg_SetCase(this.Intern, caseU);
 
         return true;
     }
