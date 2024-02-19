@@ -10,7 +10,7 @@ ParamInvalid
 CallInvalid
 OperateInvalid
 FieldInvalid
-MieldInvalid
+MaideInvalid
 VarInvalid
 OperandInvalid
 TargetInvalid

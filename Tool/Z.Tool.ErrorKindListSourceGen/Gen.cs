@@ -59,7 +59,7 @@ public class Gen : SourceGen
 
 
 
-        this.OutputFilePath = "../../../../Class." + name + "/ErrorKindList.cs";
+        this.OutputFilePath = "../../Class/Class." + name + "/ErrorKindList.cs";
 
 
 
