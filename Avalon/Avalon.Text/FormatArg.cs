@@ -49,6 +49,11 @@ public class FormatArg : Any
 
     public virtual string ValueString { get; set; }
 
+    public virtual bool AlignLeft { get; set; }
+
+    public virtual int FieldWidth { get; set; }
+
+    public virtual int MaxWidth { get; set; }
 
 
     private InternInfra InternInfra { get; set; }
@@ -111,12 +116,27 @@ public class FormatArg : Any
         }
 
 
+        ulong alignLeftU;
+        alignLeftU = (ulong)(this.AlignLeft ? 1 : 0);
+
+        ulong fieldWidthU;
+        fieldWidthU = (ulong)this.FieldWidth;
+
+        ulong maxWidthU;
+        maxWidthU = (ulong)this.MaxWidth;
+
 
         Extern.FormatArg_SetPos(this.Intern, posU);
 
         Extern.FormatArg_SetKind(this.Intern, kindU);
 
         Extern.FormatArg_SetValue(this.Intern, valueU);
+
+        Extern.FormatArg_SetAlign(this.Intern, alignLeftU);
+
+        Extern.FormatArg_SetFieldWidth(this.Intern, fieldWidthU);
+
+        Extern.FormatArg_SetMaxWidth(this.Intern, maxWidthU);
 
         return true;
     }
