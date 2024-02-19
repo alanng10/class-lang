@@ -518,30 +518,41 @@ public class Intern : object
             fixed (char* p = array)
             {
                 char* pa;
-
                 pa = p + index;
 
-
-
                 ulong ua;
-
                 ua = (ulong)pa;
 
-
-
                 Extern.String_SetCount(text, count);
-
                 Extern.String_SetData(text, ua);
-
 
                 Extern.Format_ExecuteResult(format, text);
             }
         }
-
-
         return true;
     }
 
+
+    public virtual bool FormatArgResult(ulong format, ulong arg, char[] array, ulong index, ulong count, ulong text)
+    {
+        unsafe
+        {
+            fixed (char* p = array)
+            {
+                char* pa;
+                pa = p + index;
+
+                ulong ua;
+                ua = (ulong)pa;
+
+                Extern.String_SetCount(text, count);
+                Extern.String_SetData(text, ua);
+
+                Extern.Format_ExecuteArgResult(format, arg, text);
+            }
+        }
+        return true;
+    }
 
 
 

@@ -170,4 +170,28 @@ public class Format : Any
 
         return a;
     }
+
+
+    public virtual bool ExecuteArgResult(FormatArg arg, Span result)
+    {
+        InfraRange range;
+        range = result.Range;
+
+        int index;
+        index = range.Start;
+
+        int count;
+        count = this.InfraInfra.Count(range);
+
+        ulong indexU;
+        indexU = (ulong)index;
+
+        ulong countU;
+        countU = (ulong)count;
+
+
+        this.InternIntern.FormatArgResult(this.Intern, arg.Intern, result.Data, indexU, countU, this.InternResult);
+
+        return true;
+    }
 }
