@@ -8,14 +8,10 @@ rmdir /S /Q .\Out\net6.0
 echo:
 
 
+rmdir /S /Q .\Out\Demo
 
-pushd Avalon\Demo
+echo:
 
-
-dotnet clean -v quiet
-
-
-popd
 
 
 echo:
