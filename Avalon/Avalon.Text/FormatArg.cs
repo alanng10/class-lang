@@ -132,7 +132,7 @@ public class FormatArg : Any
 
         Extern.FormatArg_SetValue(this.Intern, valueU);
 
-        Extern.FormatArg_SetAlign(this.Intern, alignLeftU);
+        Extern.FormatArg_SetAlignLeft(this.Intern, alignLeftU);
 
         Extern.FormatArg_SetFieldWidth(this.Intern, fieldWidthU);
 
