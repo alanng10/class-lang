@@ -189,8 +189,8 @@ public static class Extern
     [DllImport(InfraLib)] public extern static ulong FormatArg_GetValue(ulong o);
     [DllImport(InfraLib)] public extern static ulong FormatArg_SetValue(ulong o, ulong value);
 
-    [DllImport(InfraLib)] public extern static ulong FormatArg_GetAlign(ulong o);
-    [DllImport(InfraLib)] public extern static ulong FormatArg_SetAlign(ulong o, ulong value);
+    [DllImport(InfraLib)] public extern static ulong FormatArg_GetAlignLeft(ulong o);
+    [DllImport(InfraLib)] public extern static ulong FormatArg_SetAlignLeft(ulong o, ulong value);
 
     [DllImport(InfraLib)] public extern static ulong FormatArg_GetFieldWidth(ulong o);
     [DllImport(InfraLib)] public extern static ulong FormatArg_SetFieldWidth(ulong o, ulong value);
