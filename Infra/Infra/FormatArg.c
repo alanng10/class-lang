@@ -26,40 +26,17 @@ Int FormatArg_Final(Int o)
 
 
 Field(Pos)
-
-
 Field(Kind)
-
-
 Field(Value)
-
-
 Field(AlignLeft)
-
-
 Field(FieldWidth)
-
-
 Field(MaxWidth)
-
-
 Field(Case)
-
-
 Field(Base)
-
-
+Field(Sign)
 Field(Precision)
-
-
 Field(FillChar)
-
-
 Field(HasCount)
-
-
 Field(ValueCount)
-
-
 Field(Count)
 

@@ -18,7 +18,7 @@ Format_ArgValueCountMaide Format_Var_ArgValueCountMaideList[KindCount] =
 {
     &Format_ArgValueCountBool,
     &Format_ArgValueCountInt,
-    null,
+    &Format_ArgValueCountSInt,
     &Format_ArgValueCountString,
     &Format_ArgValueCountChar,
 };
@@ -211,6 +211,71 @@ Int Format_ArgValueCountInt(Int o, Int arg)
     return a;
 }
 
+
+
+
+Int Format_ArgValueCountSInt(Int o, Int arg)
+{
+    FormatArg* oo;
+    oo = CastPointer(arg);
+
+    Int value;
+    value = oo->Value;
+
+    Int base;
+    base = oo->Base;
+
+    Int sign;
+    sign = oo->Sign;
+
+    SInt valueA;
+    valueA = value;
+    valueA = valueA << 4;
+    valueA = valueA >> 4;
+
+    SInt oa;
+    oa = valueA;
+
+    Bool b;
+    b = (oa < 0);
+
+    Bool hasSign;
+    hasSign = false;
+
+    if (!b)
+    {
+        if (sign == 1)
+        {
+            hasSign = true;
+        }
+    }
+
+    if (b)
+    {
+        hasSign = true;
+    }
+
+    if (b)
+    {
+        oa = -oa;
+    }
+
+    Int ua;
+    ua = oa;
+
+    Int count;
+    count = Format_IntDigitCount(o, ua, base);
+
+    if (hasSign)
+    {
+        count = count + 1;
+    }
+
+    Int a;
+    a = count;
+
+    return a;
+}
 
 
 
@@ -567,6 +632,160 @@ Int Format_ArgResultInt(Int o, Int arg, Int result)
     return true;
 }
 
+Int Format_ArgResultSInt(Int o, Int arg, Int result)
+{
+    FormatArg* oo;
+
+    oo = CastPointer(arg);
+
+    Int valueCount;
+    valueCount = oo->ValueCount;
+
+    Int count;
+    count = oo->Count;
+
+    Int value;
+    value = oo->Value;
+
+    Bool alignLeft;
+    alignLeft = oo->AlignLeft;
+
+    Int fillCount;
+    fillCount = 0;
+
+    Int clampCount;
+    clampCount = 0;
+
+    if (valueCount < count)
+    {
+        fillCount = count - valueCount;
+    }
+
+    if (count < valueCount)
+    {
+        clampCount = valueCount - count;
+    }
+
+    Char* dest;
+    dest = CastPointer(result);
+
+    Int varBase;
+    varBase = oo->Base;
+
+    Int varCase;
+    varCase = oo->Case;
+
+    Int fillChar;
+    fillChar = oo->FillChar;
+
+    Char fillCharU;
+    fillCharU = fillChar;
+
+    Int fillStart;
+    fillStart = 0;
+
+    Int valueStart;
+    valueStart = 0;
+
+    Int valueIndex;
+    valueIndex = 0;
+
+
+    Int sign;
+    sign = oo->Sign;
+
+    SInt valueA;
+    valueA = value;
+    valueA = valueA << 4;
+    valueA = valueA >> 4;
+
+    SInt oa;
+    oa = valueA;
+
+    Bool b;
+    b = (oa < 0);
+
+    Bool hasSign;
+    hasSign = false;
+
+    if (!b)
+    {
+        if (sign == 1)
+        {
+            hasSign = true;
+        }
+    }
+
+    if (b)
+    {
+        hasSign = true;
+    }
+
+    if (b)
+    {
+        oa = -oa;
+    }
+
+    Int ua;
+    ua = oa;
+
+
+    Int unsignedWriteCount;
+    unsignedWriteCount = valueCount - clampCount;
+
+    if (alignLeft)
+    {
+        fillStart = valueCount - clampCount;
+
+        valueStart = 0;
+
+        valueIndex = 0;
+
+        if (hasSign)
+        {
+            valueStart = valueStart + 1;
+
+            if (0 < unsignedWriteCount)
+            {
+                unsignedWriteCount = unsignedWriteCount - 1;
+            }
+        }
+    }
+
+    if (!alignLeft)
+    {
+        fillStart = 0;
+
+        valueStart = fillCount;
+
+        valueIndex = clampCount;
+
+        if (hasSign)
+        {
+            if (clampCount == 0)
+            {
+                valueStart = valueStart + 1;
+            }
+
+            if (0 < clampCount)
+            {
+                valueStart = valueStart;
+
+                valueIndex = valueIndex - 1;
+            }
+        }
+    }
+
+
+    Format_ResultInt(o, result, ua, varBase, varCase, ub, unsignedValueWriteCount, valueStart, valueIndex);
+
+
+
+    Format_ResultFill(dest, fillStart, fillCount, fillCharU);
+
+
+    return true;
+}
 
 
 
