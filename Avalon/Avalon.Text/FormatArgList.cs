@@ -7,16 +7,12 @@ public class FormatArgList : Any
     {
         base.Init();
 
-
         ulong countU;
-
         countU = (ulong)this.Count;
-
 
         this.Intern = Extern.Array_New();
 
         Extern.Array_SetCount(this.Intern, countU);
-
         Extern.Array_Init(this.Intern);
 
         return true;
@@ -26,7 +22,6 @@ public class FormatArgList : Any
     public virtual bool Final()
     {
         Extern.Array_Final(this.Intern);
-
         Extern.Array_Delete(this.Intern);
 
         return true;
