@@ -3,7 +3,7 @@
 
 echo Clean Module
 
-SET CSharpOut=.\Out\net6.0
+set CSharpOut=.\Out\net6.0
 
 del /F /Q %CSharpOut%\Avalon.*
 
