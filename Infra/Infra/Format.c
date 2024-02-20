@@ -729,6 +729,13 @@ Int Format_ArgResultSInt(Int o, Int arg, Int result)
     Int ua;
     ua = oa;
 
+    Int ub;
+    ub = valueCount;
+
+    if (hasSign)
+    {
+        ub = ub - 1;
+    }
 
     Int unsignedWriteCount;
     unsignedWriteCount = valueCount - clampCount;
@@ -765,19 +772,22 @@ Int Format_ArgResultSInt(Int o, Int arg, Int result)
             if (clampCount == 0)
             {
                 valueStart = valueStart + 1;
+
+                if (0 < unsignedWriteCount)
+                {
+                    unsignedWriteCount = unsignedWriteCount - 1;
+                }
             }
 
             if (0 < clampCount)
             {
-                valueStart = valueStart;
-
                 valueIndex = valueIndex - 1;
             }
         }
     }
 
 
-    Format_ResultInt(o, result, ua, varBase, varCase, ub, unsignedValueWriteCount, valueStart, valueIndex);
+    Format_ResultInt(o, result, ua, varBase, varCase, ub, unsignedWriteCount, valueStart, valueIndex);
 
 
 
