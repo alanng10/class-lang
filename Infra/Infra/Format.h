@@ -7,7 +7,7 @@
 
 
 
-
+#include "Array.h"
 #include "FormatArg.h"
 
 
@@ -17,8 +17,6 @@
 typedef struct
 {
     Int Base;
-
-
     Int ArgList;
 }
 Format;
@@ -120,33 +118,3 @@ Int Format_ResultString(Int o, Int result, Int value, Int varCase, Int valueWrit
 }\
 
 
-
-
-
-
-
-
-
-
-//Bool Format_ResultIndexArgs(Format* o, Int index, Int* argP, Char* result, Int* resultIndexP);
-
-
-
-
-
-
-//typedef Bool (*Format_ArgResultMethod)(Format* o, Int value, Int dest, Int* lengthP);
-
-
-
-
-
-//Bool Format_BoolArgResult(Format* o, Int value, Int dest, Int* lengthP);
-
-
-
-//Bool Format_IntArgResult(Format* o, Int value, Int dest, Int* lengthP);
-
-
-
-//Bool Format_StringArgResult(Format* o, Int value, Int dest, Int* lengthP);

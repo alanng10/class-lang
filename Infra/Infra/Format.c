@@ -1152,560 +1152,139 @@ Int Format_ExecuteCount(Int o)
 }
 
 
-//Int Format_GetResultString(Int this)
-//{
-//    Format* m;
-    
-//    m = CastPointer(this);
 
 
-//    return m->ResultString;
-//}
 
+Int Format_ExecuteResult(Int o, Int result)
+{
+    Format* m;
+    m = CastPointer(o);
 
+    Int base;
+    base = m->Base;
 
+    Int baseCount;
+    baseCount = String_GetCount(base);
 
-//Bool Format_SetResultString(Int this, Int value)
-//{
-//    Format* m;
-    
-//    m = CastPointer(this);
+    Int baseData;
+    baseData = String_GetData(base);
 
+    Char* baseU;
+    baseU = CastPointer(baseData);
 
+    Int argList;
+    argList = m->ArgList;
 
-//    m->ResultString = value;
+    Array* argArray;
+    argArray = CastPointer(argList);
 
+    Int argCount;
+    argCount = argArray->Count;
 
-//    return true;
-//}
+    Int* argArrayItem;
+    argArrayItem = CastPointer(argArray->Item);
 
+    Int resultData;
+    resultData = String_GetData(result);
 
+    Char* resultU;
+    resultU = CastPointer(resultData);
 
+    Int count;
+    count = baseCount + 1;
 
+    Int resultIndex;
+    resultIndex = 0;
 
+    Int arg;
+    arg = null;
 
-//Int Format_ResultCount(Int this)
-//{
-//    Format* m;
-    
-//    m = CastPointer(this);
+    Int argIndex;
+    argIndex = 0;
 
+    FormatArg* oo;
+    oo = null;
 
+    Bool b;
+    b = false;
 
+    Int k;
+    k = 0;
 
-//    Int base;
+    Bool ba;
+    ba = false;
 
-//    base = m->Base;
+    Int kind;
+    kind = 0;
 
+    Int countA;
+    countA = 0;
 
+    Char* ua;
+    ua = null;
 
-//    Int baseCount;
+    Int oa;
+    oa = null;
 
-//    baseCount = String_GetCount(base);
+    Format_ArgResultMaide maide;
+    maide = null;
 
+    Int i;
+    i = 0;
 
+    while (i < count)
+    {
+        b = false;
 
+        while ((!b) & (argIndex < argCount))
+        {
+            arg = argArrayItem[argIndex];
 
-//    Int resultCount;
+            oo = CastPointer(arg);
 
-//    resultCount = baseCount;
+            k = oo->Pos;
 
+            ba = (i == k);
 
+            if (ba)
+            {
+                kind = oo->Kind;
 
+                countA = oo->Count;
 
-//    Int arg;
-    
-//    arg = 0;
+                ua = resultU + resultIndex;
 
+                oa = CastInt(ua);
 
+                maide = Format_Var_ArgResultMaideList[kind];
 
-//    Int k;
-    
-//    k = 0;
+                maide(o, arg, oa);
 
+                resultIndex = resultIndex + countA;
 
+                argIndex = argIndex + 1;
+            }
 
+            if (!ba)
+            {
+                b = true;
+            }
+        }
 
-//    Int count;
+        if (!(i == baseCount))
+        {
+            resultU[resultIndex] = baseU[i];
 
-//    count = m->ArgCount;
+            resultIndex = resultIndex + 1;
+        }
 
 
+        i = i + 1;
+    }
 
-//    Int i;
 
-//    i = 0;
 
-
-//    while (i < count)
-//    {
-//        arg = i;
-
-
-
-//        k = Format_ArgCount(m, arg);
-
-
-
-//        resultCount = resultCount + k;
-
-
-
-//        i = i + 1;
-//    }
-
-
-
-//    Int ret;
-    
-//    ret = resultCount;
-
-
-//    return ret;
-//}
-
-
-
-
-
-
-
-
-//Bool Format_Result(Int this)
-//{
-//    Format* m;
-    
-//    m = CastPointer(this);
-
-
-
-
-//    Int base;
-
-//    base = m->Base;
-
-
-
-//    Int baseCount;
-
-//    baseCount = String_GetCount(base);
-
-
-
-
-//    Int o;
-
-//    o = String_GetData(base);
-
-
-
-//    Char* baseChars;
-
-
-//    baseChars = (Char*)o;
-
-
-
-
-
-
-//    Int string;
-
-//    string = m->ResultString;
-
-
-
-
-//    o = String_GetData(string);
-
-
-
-
-
-//    Char* result;
-
-
-//    result = (Char*)o;
-
-
-
-
-//    Int resultIndex;
-
-//    resultIndex = 0;
-
-
-
-
-//    Int arg;
-
-//    arg = 0;
-
-
-
-//    Int i;
-
-//    i = 0;
-
-
-//    while (i < baseCount)
-//    {
-//        Format_ResultIndexArgs(m, i, &arg, result, &resultIndex);
-
-
-
-
-//        result[resultIndex] = baseChars[i];
-
-
-
-//        resultIndex = resultIndex + 1;
-
-
-
-//        i = i + 1;
-//    }
-
-
-
-//    Format_ResultIndexArgs(m, baseCount, &arg, result, &resultIndex);
-
-
-
-
-//    return true;
-//}
-
-
-
-
-
-//Bool Format_ResultIndexArgs(Format* this, Int index, Int* argP, Char* result, Int* resultIndexP)
-//{
-//    Int argCount = this->ArgCount;
-
-
-
-//    FormatArg* args = this->Args;
-
-
-
-//    Int arg = *argP;
-
-
-
-//    Int resultIndex = *resultIndexP;
-
-
-
-
-//    FormatArg* t = null;
-
-
-
-
-
-//    Bool f;
-
-//    f = false;
-
-
-//    while ((!f) & (arg < argCount))
-//    {
-//        t = args + arg;
-
-
-
-
-//        Int k;
-
-//        k = t->Index;
-
-
-
-//        Bool ba;
-
-//        ba = (index == k);
-
-
-//        if (ba)
-//        {
-//            Int kind;
-
-//            kind = t->Kind;
-
-
-//            Int value;
-
-//            value = t->Value;
-
-
-
-//            Int h;
-
-//            h = (Int)result;
-
-
-
-//            Int dest;
-
-//            dest = h + resultIndex;
-
-
-
-//            Int length = 0;
-
-
-
-
-//            Format_ArgResultMethod u = null;
-
-
-//            if (kind == 0)
-//            {
-//                u = Format_BoolArgResult;
-//            }
-
-
-
-//            if (kind == 1)
-//            {
-//                u = Format_IntArgResult;
-//            }
-
-
-//            if (kind == 2)
-//            {
-//                u = Format_StringArgResult;
-//            }
-
-
-
-
-//            u(this, value, dest, &length);
-
-
-
-
-//            resultIndex = resultIndex + length;
-
-
-//            arg = arg + 1;
-//        }
-
-
-//        if (!ba)
-//        {
-//            f = true;
-//        }
-//    }
-
-
-
-
-//    *argP = arg;
-
-
-
-//    *resultIndexP = resultIndex;
-
-
-
-
-//    return true;
-//}
-
-
-
-
-//Bool Format_BoolArgResult(Format* this, Int value, Int dest, Int* lengthP)
-//{
-//    Bool b;
-
-//    b = (Bool)value;
-
-
-
-//    Int sLength;
-
-//    Int sData;
-
-
-
-
-//    if (b)
-//    {
-//        sLength = 4;
-
-//        sData = CastInt("true");
-//    }
-
-
-
-//    if (!b)
-//    {
-//        sLength = 5;
-
-//        sData = CastInt("false");
-//    }
-
-
-
-//    Copy(dest, sData, sLength);
-
-
-
-
-//    *lengthP = sLength;
-
-
-
-//    return true;
-//}
-
-
-
-
-
-//Bool Format_IntArgResult(Format* this, Int value, Int dest, Int* countP)
-//{
-//    Int count;
-
-//    count = Format_IntCount(CastInt(this), value);
-
-
-
-
-//    Format_Int(CastInt(this), dest, value, count);
-
-
-
-
-//    *countP = count;
-
-
-
-//    return true;
-//}
-
-
-
-
-
-//Bool Format_StringArgResult(Format* this, Int value, Int dest, Int* lengthP)
-//{
-//    Int o = value;
-
-
-
-//    Int length = String_GetCount(o);
-
-
-
-//    Int data = String_GetData(o);
-
-
-
-
-//    Copy(dest, data, length);
-
-
-
-
-//    *lengthP = length;
-
-
-
-//    return true;
-//}
-
-
-
-
-
-
-
-
-
-
-
-//Int Format_IntHexCount(Int o)
-//{
-//    return Constant_IntByteCount() * Constant_ByteHexDigitCount();
-//}
-
-
-
-
-
-//Bool Format_IntHex(Int this, Int result, Int n)
-//{
-//    Char* p;
-
-//    p = (Char*)result;
-
-
-
-
-//    Int k = n;
-
-
-//    Int byteCount = Constant_IntByteCount();
-
-
-
-//    Bool t = Format_VariableCountIntHexResult(p, k, byteCount);
-
-
-
-//    Bool ret = t;
-
-
-//    return ret;
-//}
-
-
-
-
-
-//Int Format_Int32HexCount(Int this)
-//{
-//    return Constant_Int32ByteCount() * Constant_ByteHexDigitCount();
-//}
-
-
-
-
-
-//Bool Format_Int32Hex(Int this, Int result, Int n)
-//{
-//    Char* p = (Char*)result;
-
-
-
-
-//    Int k = n;
-
-
-
-//    Int byteCount = Constant_Int32ByteCount();
-
-
-
-
-//    Bool t = Format_VariableCountIntHexResult(p, k, byteCount);
-
-
-
-
-//    Bool ret = t;
-
-
-//    return ret;
-//}
-
-
-
-
+    return true;
+}
 
 
