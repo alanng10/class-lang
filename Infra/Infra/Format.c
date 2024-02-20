@@ -29,7 +29,7 @@ Format_ArgResultMaide Format_Var_ArgResultMaideList[KindCount] =
 {
     &Format_ArgResultBool,
     &Format_ArgResultInt,
-    null,
+    &Format_ArgResultSInt,
     &Format_ArgResultString,
     &Format_ArgResultChar,
 };
@@ -740,6 +740,12 @@ Int Format_ArgResultSInt(Int o, Int arg, Int result)
     Int unsignedWriteCount;
     unsignedWriteCount = valueCount - clampCount;
 
+    Bool ba;
+    ba = false;
+
+    Int signIndex;
+    signIndex = 0;
+
     if (alignLeft)
     {
         fillStart = valueCount - clampCount;
@@ -755,6 +761,12 @@ Int Format_ArgResultSInt(Int o, Int arg, Int result)
             if (0 < unsignedWriteCount)
             {
                 unsignedWriteCount = unsignedWriteCount - 1;
+            }
+
+            if (0 < count)
+            {
+                signIndex = 0;
+                ba = true;
             }
         }
     }
@@ -777,6 +789,9 @@ Int Format_ArgResultSInt(Int o, Int arg, Int result)
                 {
                     unsignedWriteCount = unsignedWriteCount - 1;
                 }
+
+                signIndex = fillCount;
+                ba = true;
             }
 
             if (0 < clampCount)
@@ -789,6 +804,19 @@ Int Format_ArgResultSInt(Int o, Int arg, Int result)
 
     Format_ResultInt(o, result, ua, varBase, varCase, ub, unsignedWriteCount, valueStart, valueIndex);
 
+
+    if (ba)
+    {
+        Char ooc;
+        ooc = '+';
+
+        if (b)
+        {
+            ooc = '-';
+        }
+
+        dest[signIndex] = ooc;
+    }
 
 
     Format_ResultFill(dest, fillStart, fillCount, fillCharU);
