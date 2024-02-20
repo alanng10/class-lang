@@ -2,10 +2,10 @@
 
 
 
-Set InfraOutFold=.\Out\Infra-Windows-Release\release
+set InfraOutFold=.\Out\Infra-Windows-Release\release
 
 
-SET InfraDeployFold=.\Out\InfraDeploy
+set InfraDeployFold=.\Out\InfraDeploy
 
 
 

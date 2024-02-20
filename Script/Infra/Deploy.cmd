@@ -3,13 +3,13 @@
 
 
 
-Set InfraOutFold=.\Out\Infra-Windows-Release\release
+set InfraOutFold=.\Out\Infra-Windows-Release\release
 
 
-SET InfraDeployFold=.\Out\InfraDeploy
+set InfraDeployFold=.\Out\InfraDeploy
 
 
-SET WinDeployQt=%QtRoot%\6.6.1\mingw_64\bin\windeployqt.exe
+set WinDeployQt=%QtRoot%\6.6.1\mingw_64\bin\windeployqt.exe
 
 
 
