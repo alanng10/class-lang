@@ -803,136 +803,69 @@ Int ThreadExecute(Int thread, Int arg)
 
     formatArg = FormatArg_New();
 
-
     FormatArg_Init(formatArg);
 
-
     FormatArg_SetKind(formatArg, 1);
-
-
     FormatArg_SetValue(formatArg, ident);
-
-
     FormatArg_SetBase(formatArg, 16);
 
+    SInt ooa;
+    ooa = -1;
 
+    Int oob;
+    oob = ooa;
 
+    FormatArg_SetMaxWidth(formatArg, oob);
 
     Int format;
 
     format = Format_New();
 
-
-
     Format_Init(format);
 
-
-
+    Format_ExecuteArgCount(format, formatArg);
 
     Int count;
-
-    count = Format_ExecuteArgCount(format, formatArg);
-
-
+    count = FormatArg_GetCount(formatArg);
 
     Int byteCount;
-
     byteCount = count * Constant_CharByteCount();
 
-
-
-
     Int uu;
-
     uu = New(byteCount);
 
-
-
-
     Int stringA;
-
-
     stringA = String_New();
-
-
 
     String_Init(stringA);
 
-
-
     String_SetCount(stringA, count);
-
-
 
     String_SetData(stringA, uu);
 
-
-
-
-
     Format_ExecuteArgResult(format, formatArg, stringA);
-
-
-
-
 
     Console_Write(Console, stringA);
 
-
-
-
     String_Final(stringA);
-
-
     String_Delete(stringA);
-
-
-
 
     Delete(uu);
 
-
-
-
-
     Format_Final(format);
-
-
-
     Format_Delete(format);
 
-
-
-
     FormatArg_Final(formatArg);
-
-
-
     FormatArg_Delete(formatArg);
-
-
-
-
 
     Int* paaa;
 
     paaa = null;
 
-
     *paaa = 1;
 
 
-
-
-
-
     ConsoleWriteConstant("DEMO Thread 2\n");
-
-
-
-
-
-
 
     return 0;
 }

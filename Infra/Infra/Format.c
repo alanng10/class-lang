@@ -89,98 +89,38 @@ Int Format_SetArgList(Int o, Int value)
     return true;
 }
 
-
-
-
 Int Format_ExecuteArgCount(Int o, Int arg)
 {
     FormatArg* oo;
-
     oo = CastPointer(arg);
 
-
-
     Int kind;
-
     kind = oo->Kind;
 
-
-
     Format_ArgValueCountMaide maide;
-
     maide = Format_Var_ArgValueCountMaideList[kind];
 
-
-
     Int valueCount;
-
     valueCount = maide(o, arg);
 
-
-
-
     Int fieldWidth;
-
     fieldWidth = oo->FieldWidth;
 
-
     Int maxWidth;
-
     maxWidth = oo->MaxWidth;
 
-
-
-
-    Int count;
-
-    count = Format_ArgCount(o, valueCount, fieldWidth, maxWidth);
-
-
-
-
-    oo->HasCount = true;
-
-
-    oo->ValueCount = valueCount;
-
-
-    oo->Count = count;
-
-
-
-
-    return true;
-}
-
-
-
-
-
-
-Int Format_ArgCount(Int o, Int valueCount, Int fieldWidth, Int maxWidth)
-{
     SInt u;
-
     u = maxWidth;
-
     u = u << 4;
-
     u = u >> 4;
 
-
-
     Int count;
-
     count = valueCount;
-
-
 
     if (count < fieldWidth)
     {
         count = fieldWidth;
     }
-
-
 
     if (!(u == -1))
     {
@@ -190,17 +130,12 @@ Int Format_ArgCount(Int o, Int valueCount, Int fieldWidth, Int maxWidth)
         }
     }
 
+    oo->HasCount = true;
+    oo->ValueCount = valueCount;
+    oo->Count = count;
 
-
-    Int a;
-
-    a = count;
-
-
-    return a;
+    return true;
 }
-
-
 
 
 

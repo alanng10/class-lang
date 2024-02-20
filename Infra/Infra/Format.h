@@ -24,26 +24,14 @@ Format;
 
 
 
-
-Int Format_ArgCount(Int o, Int valueCount, Int fieldWidth, Int maxWidth);
-
-
-
-
 typedef Int (*Format_ArgValueCountMaide)(Int o, Int arg);
 
 
 
 
 Int Format_ArgValueCountBool(Int o, Int arg);
-
-
 Int Format_ArgValueCountInt(Int o, Int arg);
-
-
 Int Format_ArgValueCountString(Int o, Int arg);
-
-
 Int Format_ArgValueCountChar(Int o, Int arg);
 
 
