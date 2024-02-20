@@ -385,6 +385,9 @@ Infra_Api Int FormatArg_SetCase(Int o, Int value);
 Infra_Api Int FormatArg_GetBase(Int o);
 Infra_Api Int FormatArg_SetBase(Int o, Int value);
 
+Infra_Api Int FormatArg_GetSign(Int o);
+Infra_Api Int FormatArg_SetSign(Int o, Int value);
+
 Infra_Api Int FormatArg_GetPrecision(Int o);
 Infra_Api Int FormatArg_SetPrecision(Int o, Int value);
 
