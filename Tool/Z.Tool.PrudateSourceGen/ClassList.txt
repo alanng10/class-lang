@@ -53,6 +53,7 @@ FormatArg
     MaxWidth
     Case
     Base
+    Sign
     Precision
     FillChar
     HasCount
