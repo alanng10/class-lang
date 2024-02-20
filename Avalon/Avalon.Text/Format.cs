@@ -1,9 +1,5 @@
 namespace Avalon.Text;
 
-
-
-
-
 public class Format : Any
 {
     public override bool Init()
@@ -30,10 +26,6 @@ public class Format : Any
         return true;
     }
 
-
-
-
-
     public virtual bool Final()
     {
         Extern.Format_Final(this.Intern);
@@ -51,14 +43,9 @@ public class Format : Any
     }
 
 
-
-
     public virtual Span Base { get; set; }
 
-
     public virtual FormatArgList ArgList { get; set; }
-
-
 
     private InternIntern InternIntern { get; set; }
 
@@ -66,14 +53,11 @@ public class Format : Any
 
     private InfraInfra InfraInfra { get; set; }
 
-
     private ulong Intern { get; set; }
 
     private ulong InternResult { get; set; }
 
     private ulong InternBase { get; set; }
-
-    
 
     public virtual bool SetBase()
     {
@@ -82,9 +66,7 @@ public class Format : Any
             this.InternInfra.StringDelete(this.InternBase);
         }
 
-
         this.InternBase = 0;
-
 
         if (!(this.Base == null))
         {
@@ -97,12 +79,10 @@ public class Format : Any
             this.InternBase = this.InternInfra.StringCreateText(this.Base.Data, range.Start, count);
         }
 
-
         Extern.Format_SetBase(this.Intern, this.InternBase);
 
         return true;
     }
-
 
     public virtual bool SetArgList()
     {
