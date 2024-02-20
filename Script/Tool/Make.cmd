@@ -2,21 +2,12 @@
 
 
 
-SET ToolName=%~1
+set ToolName=%~1
 
+set ModuleName=Z.Tool.%ToolName%
 
-SET ModuleName=Z.Tool.%ToolName%
-
-
-
-
-
-cd Tool/%ModuleName%
-
-
+pushd Tool/%ModuleName%
 
 dotnet build
 
-
-
-cd ../..
+popd

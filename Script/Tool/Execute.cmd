@@ -2,10 +2,10 @@
 
 
 
-SET ToolName=%~1
+set ToolName=%~1
 
 
-SET ModuleName=Z.Tool.%ToolName%
+set ModuleName=Z.Tool.%ToolName%
 
 
 
