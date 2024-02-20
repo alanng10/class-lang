@@ -6,7 +6,7 @@ set ToolName=%~1
 
 set ModuleName=Z.Tool.%ToolName%
 
-pushd Tool/%ModuleName%
+pushd Tool\%ModuleName%
 
 dotnet build
 
