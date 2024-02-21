@@ -1001,18 +1001,14 @@ class Demo : Any
         TextFormat format;
         format = new TextFormat();
         format.Init();
-        format.Base = varBase;
-        format.ArgList = argList;
-        format.SetBase();
-        format.SetArgList();
 
         int count;
-        count = format.ExecuteCount();
+        count = format.ExecuteCount(varBase, argList);
 
         TextSpan text;
         text = this.TextInfra.SpanCreate(count);
 
-        format.ExecuteResult(text);
+        format.ExecuteResult(varBase, argList, text);
 
         string a;
         a = this.TextInfra.StringCreate(text);
