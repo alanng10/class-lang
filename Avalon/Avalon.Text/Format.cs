@@ -116,21 +116,17 @@ public class Format : Any
     {
         InfraRange range;
         range = result.Range;
+        int resultIndex;
+        resultIndex = range.Start;
+        int resultCount;
+        resultCount = this.InfraInfra.Count(range);
 
-        int index;
-        index = range.Start;
+        ulong resultIndexU;
+        resultIndexU = (ulong)resultIndex;
+        ulong resultCountU;
+        resultCountU = (ulong)resultCount;
 
-        int count;
-        count = this.InfraInfra.Count(range);
-
-        ulong indexU;
-        indexU = (ulong)index;
-
-        ulong countU;
-        countU = (ulong)count;
-
-
-        this.InternIntern.FormatArgResult(this.Intern, arg.Intern, result.Data, indexU, countU, this.InternResult);
+        this.InternIntern.FormatArgResult(this.Intern, arg.Intern, result.Data, resultIndexU, resultCountU, this.InternResult);
 
         return true;
     }
