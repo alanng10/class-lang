@@ -1,9 +1,5 @@
 namespace Avalon.Console;
 
-
-
-
-
 public class Process : Any
 {
     public override bool Init()
