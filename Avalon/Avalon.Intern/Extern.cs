@@ -154,16 +154,9 @@ public static class Extern
     [DllImport(InfraLib)] public extern static ulong Format_Final(ulong o);
 
 
-    [DllImport(InfraLib)] public extern static ulong Format_GetBase(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Format_SetBase(ulong o, ulong value);
+    [DllImport(InfraLib)] public extern static ulong Format_ExecuteCount(ulong o, ulong varBase, ulong argList);
 
-    [DllImport(InfraLib)] public extern static ulong Format_GetArgList(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Format_SetArgList(ulong o, ulong value);
-
-
-    [DllImport(InfraLib)] public extern static ulong Format_ExecuteCount(ulong o);
-
-    [DllImport(InfraLib)] public extern static ulong Format_ExecuteResult(ulong o, ulong result);
+    [DllImport(InfraLib)] public extern static ulong Format_ExecuteResult(ulong o, ulong varBase, ulong argList, ulong result);
 
     [DllImport(InfraLib)] public extern static ulong Format_ExecuteArgCount(ulong o, ulong arg);
 
