@@ -115,89 +115,19 @@ Bool Storage_SetStream(Int o, Int value)
     return true;
 }
 
-
-
-
-
-
 Int Storage_GetStatus(Int o)
 {
     Storage* m;
-
     m = CP(o);
-
-
     return m->Status;
 }
 
-
-
-
-
-Int Storage_GetCount(Int o)
+Int Storage_SetStatus(Int o, Int value)
 {
-    Storage* m;
-
-    m = CP(o);
-
-
-
-
-    Int path;
-
-    path = m->Path;
-
-
-
-
-    QString fileName;
-
-
-
-    Int uu;
-
-    uu = CastInt(&fileName);
-
-
-
-    String_SetQString(uu, path);
-
-
-
-
-    QFile file;
-
-
-    file.setFileName(fileName);
-
-
-
-    qint64 ua;
-
-
-    ua = file.size();
-
-
-
-    Int oo;
-
-    oo = ua;
-
-
-
-
-
-    return oo;
+    return true;
 }
 
-
-
-
-
-
-
-
-Bool Storage_Open(Int o)
+Int Storage_Open(Int o)
 {
     Storage* m;
 
@@ -370,13 +300,7 @@ Bool Storage_Open(Int o)
     return true;
 }
 
-
-
-
-
-
-
-Bool Storage_Close(Int o)
+Int Storage_Close(Int o)
 {
     Storage* m;
 
