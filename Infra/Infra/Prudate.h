@@ -342,16 +342,9 @@ Infra_Api Int TextEncode_GetData(Int o, Int result, Int fromString);
 
 InfraApiNew(Format)
 
-Infra_Api Int Format_GetBase(Int o);
-Infra_Api Int Format_SetBase(Int o, Int value);
+Infra_Api Int Format_ExecuteCount(Int o, Int varBase, Int argList);
 
-Infra_Api Int Format_GetArgList(Int o);
-Infra_Api Int Format_SetArgList(Int o, Int value);
-
-
-Infra_Api Int Format_ExecuteCount(Int o);
-
-Infra_Api Int Format_ExecuteResult(Int o, Int result);
+Infra_Api Int Format_ExecuteResult(Int o, Int varBase, Int argList, Int result);
 
 Infra_Api Int Format_ExecuteArgCount(Int o, Int arg);
 
