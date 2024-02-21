@@ -1,9 +1,5 @@
 namespace Avalon.Infra;
 
-
-
-
-
 public class Data : Any
 {
     public virtual long Count
@@ -16,10 +12,6 @@ public class Data : Any
         {
         }
     }
-
-
-
-
 
     public virtual byte[] Value { get; set; }
 }
