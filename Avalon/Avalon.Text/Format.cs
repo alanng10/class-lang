@@ -14,13 +14,13 @@ public class Format : Any
         this.InfraInfra = InfraInfra.This;
 
 
-        this.InternResult = Extern.String_New();
+        this.InternBase = Extern.String_New();
+        Extern.String_Init(this.InternBase);
 
+        this.InternResult = Extern.String_New();
         Extern.String_Init(this.InternResult);
 
-
         this.Intern = Extern.Format_New();
-
         Extern.Format_Init(this.Intern);
 
         return true;
@@ -34,18 +34,11 @@ public class Format : Any
         Extern.String_Final(this.InternResult);
         Extern.String_Delete(this.InternResult);
 
-        if (!(this.InternBase == 0))
-        {
-            this.InternInfra.StringDelete(this.InternBase);
-        }
+        Extern.String_Final(this.InternBase);
+        Extern.String_Delete(this.InternBase);
 
         return true;
     }
-
-
-    public virtual Span Base { get; set; }
-
-    public virtual FormatArgList ArgList { get; set; }
 
     private InternIntern InternIntern { get; set; }
 
@@ -59,81 +52,53 @@ public class Format : Any
 
     private ulong InternBase { get; set; }
 
-    public virtual bool SetBase()
+
+    public virtual int ExecuteCount(Span varBase, FormatArgList argList)
     {
-        if (!(this.InternBase == 0))
-        {
-            this.InternInfra.StringDelete(this.InternBase);
-        }
+        InfraRange range;
+        range = varBase.Range;
+        int baseIndex;
+        baseIndex = range.Start;
+        int baseCount;
+        baseCount = this.InfraInfra.Count(range);
 
-        this.InternBase = 0;
-
-        if (!(this.Base == null))
-        {
-            InfraRange range;
-            range = this.Base.Range;
-
-            int count;
-            count = this.InfraInfra.Count(range);
-
-            this.InternBase = this.InternInfra.StringCreateText(this.Base.Data, range.Start, count);
-        }
-
-        Extern.Format_SetBase(this.Intern, this.InternBase);
-
-        return true;
-    }
-
-    public virtual bool SetArgList()
-    {
-        ulong u;
-
-        u = 0;
-
-        if (!(this.ArgList == null))
-        {
-            u = this.ArgList.Intern;
-        }
-
-        Extern.Format_SetArgList(this.Intern, u);
-
-        return true;
-    }
-
-
-    public virtual int ExecuteCount()
-    {
-        ulong u;
-
-        u = Extern.Format_ExecuteCount(this.Intern);
+        ulong baseIndexU;
+        baseIndexU = (ulong)baseIndex;
+        ulong baseCountU;
+        baseCountU = (ulong)baseCount;
 
         int a;
-        
-        a = (int)u;
-
+        a = this.InternIntern.FormatCount(this.Intern, varBase.Data, baseIndexU, baseCountU, this.InternBase, argList.Intern);
         return a;
     }
 
 
-    public virtual bool ExecuteResult(Span result)
+    public virtual bool ExecuteResult(Span varBase, FormatArgList argList, Span result)
     {
-        InfraRange range;
-        range = result.Range;
+        InfraRange baseRange;
+        baseRange = varBase.Range;
+        int baseIndex;
+        baseIndex = baseRange.Start;
+        int baseCount;
+        baseCount = this.InfraInfra.Count(baseRange);
+        InfraRange resultRange;
+        resultRange = result.Range;
+        int resultIndex;
+        resultIndex = resultRange.Start;
+        int resultCount;
+        resultCount = this.InfraInfra.Count(resultRange);
 
-        int index;
-        index = range.Start;
+        ulong baseIndexU;
+        baseIndexU = (ulong)baseIndex;
+        ulong baseCountU;
+        baseCountU = (ulong)baseCount;
+        ulong resultIndexU;
+        resultIndexU = (ulong)resultIndex;
+        ulong resultCountU;
+        resultCountU = (ulong)resultCount;
 
-        int count;
-        count = this.InfraInfra.Count(range);
-
-        ulong indexU;
-        indexU = (ulong)index;
-
-        ulong countU;
-        countU = (ulong)count;
-
-
-        this.InternIntern.FormatResult(this.Intern, result.Data, indexU, countU, this.InternResult);
+        this.InternIntern.FormatResult(this.Intern, varBase.Data, baseIndexU, baseCountU, this.InternBase, argList.Intern, 
+            result.Data, resultIndexU, resultCountU, this.InternResult);
 
         return true;
     }
