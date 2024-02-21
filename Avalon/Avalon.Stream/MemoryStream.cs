@@ -1,42 +1,20 @@
 namespace Avalon.Stream;
 
-
-
-
 class MemoryStream : Stream
 {
     public override bool Init()
     {
         base.Init();
-
-
-
-
         this.Intern = new InternStream();
-
-
         this.Intern.Init();
-
-
-
         return true;
     }
-
-
-
 
     public override bool Final()
     {
         this.Intern.Final();
-
-
-
         return true;
     }
-
-
-
-
 
     public override ulong Ident
     { 
@@ -50,15 +28,7 @@ class MemoryStream : Stream
         }
     }
 
-
-
-
-
     private InternStream Intern { get; set; }
-
-
-
-
 
     public override bool HasCount
     {
@@ -72,9 +42,6 @@ class MemoryStream : Stream
         }
     }
 
-
-
-
     public override bool HasPos
     {
         get
@@ -86,10 +53,6 @@ class MemoryStream : Stream
             this.Intern.HasPos = value;
         }
     }
-
-
-
-
 
     public override bool CanRead
     {
@@ -103,9 +66,6 @@ class MemoryStream : Stream
         }
     }
 
-
-
-
     public override bool CanWrite
     {
         get
@@ -118,10 +78,6 @@ class MemoryStream : Stream
         }
     }
     
-
-
-
-
     public override long Count
     {
         get
@@ -134,16 +90,10 @@ class MemoryStream : Stream
         }
     }
 
-
-
-
     public override bool SetCount(long value)
     {
         return this.Intern.SetCount(value);
     }
-
-
-
 
     public override long Pos
     {
@@ -157,17 +107,10 @@ class MemoryStream : Stream
         }
     }
 
-
-
-
     public override bool SetPos(long value)
     {
         return this.Intern.SetPos(value);
     }
-
-
-
-
 
     public override int Status
     {
@@ -181,19 +124,10 @@ class MemoryStream : Stream
         }
     }
 
-
-
-
-
-
     public override bool Read(Data data, Range range)
     {
         return this.Intern.Read(data.Value, data.Count, range.Start, range.End);
     }
-
-    
-
-
 
     public override bool Write(Data data, Range range)
     {
