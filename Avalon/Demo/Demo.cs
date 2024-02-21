@@ -958,24 +958,51 @@ class Demo : Any
         argC.FillChar = ' ';
         argC.Set();
 
+        TextFormatArg argD;
+        argD = new TextFormatArg();
+        argD.Init();
+        argD.Pos = 7;
+        argD.Kind = 2;
+        argD.ValueInt = -0x5bd9ea;
+        argD.AlignLeft = false;
+        argD.FieldWidth = 8;
+        argD.MaxWidth = 6;
+        argD.Base = 16;
+        argD.Case = 1;
+        argD.FillChar = ' ';
+        argD.Set();
+
+        TextFormatArg argE;
+        argE = new TextFormatArg();
+        argE.Init();
+        argE.Pos = 10;
+        argE.Kind = 3;
+        argE.ValueString = "F Hre a";
+        argE.AlignLeft = true;
+        argE.FieldWidth = 11;
+        argE.MaxWidth = 10;
+        argE.Case = 2;
+        argE.FillChar = '=';
+        argE.Set();
+
         TextFormatArgList argList;
         argList = new TextFormatArgList();
-        argList.Count = 3;
+        argList.Count = 5;
         argList.Init();
         argList.SetItem(0, argA);
         argList.SetItem(1, argB);
         argList.SetItem(2, argC);
+        argList.SetItem(3, argD);
+        argList.SetItem(4, argE);
+
+        TextSpan varBase;
+        varBase = this.TextInfra.SpanCreateString("G H , j h\n\n");
 
         TextFormat format;
         format = new TextFormat();
         format.Init();
-
-        TextSpan o;        
-        o = this.TextInfra.SpanCreateString("G H , j h\n\n");
-
-        format.Base = o;
+        format.Base = varBase;
         format.ArgList = argList;
-
         format.SetBase();
         format.SetArgList();
 
