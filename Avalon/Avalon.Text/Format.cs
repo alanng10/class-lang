@@ -103,14 +103,11 @@ public class Format : Any
         return true;
     }
 
-
     public virtual bool ExecuteArgCount(FormatArg arg)
     {
         Extern.Format_ExecuteArgCount(this.Intern, arg.Intern);
-
         return true;
     }
-
 
     public virtual bool ExecuteArgResult(FormatArg arg, Span result)
     {
