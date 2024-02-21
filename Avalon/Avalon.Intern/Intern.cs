@@ -506,34 +506,69 @@ public class Intern : object
         return a;
     }
 
-
-    public virtual bool FormatResult(ulong format, char[] array, ulong index, ulong count, ulong text)
+    public virtual int FormatCount(ulong format, char[] baseArray, ulong baseIndex, ulong baseCount, ulong varBase, ulong argList)
     {
+        ulong u;
+        u = 0;
         unsafe
         {
-            fixed (char* p = array)
+            fixed (char* p = baseArray)
             {
                 char* pa;
-                pa = p + index;
+                pa = p + baseIndex;
 
                 ulong ua;
                 ua = (ulong)pa;
 
-                Extern.String_SetCount(text, count);
-                Extern.String_SetData(text, ua);
+                Extern.String_SetCount(varBase, baseCount);
+                Extern.String_SetData(varBase, ua);
 
-                Extern.Format_ExecuteResult(format, text);
+                u = Extern.Format_ExecuteCount(format, varBase, argList);
+            }
+        }
+        int a;
+        a = (int)u;
+        return a;
+    }
+
+
+    public virtual bool FormatResult(ulong format, char[] baseArray, ulong baseIndex, ulong baseCount, ulong varBase, ulong argList, 
+        char[] resultArray, ulong resultIndex, ulong resultCount, ulong result)
+    {
+        unsafe
+        {
+            fixed (char* p = baseArray)
+            {
+                fixed (char* pu = resultArray)
+                {
+                    char* pa;
+                    pa = p + baseIndex;
+                    ulong ua;
+                    ua = (ulong)pa;
+
+                    char* pua;
+                    pua = pu + resultIndex;
+                    ulong uua;
+                    uua = (ulong)pua;
+
+                    Extern.String_SetCount(varBase, baseCount);
+                    Extern.String_SetData(varBase, ua);
+                    Extern.String_SetCount(result, resultCount);
+                    Extern.String_SetData(result, uua);
+
+                    Extern.Format_ExecuteResult(format, varBase, argList, result);
+                }
             }
         }
         return true;
     }
 
 
-    public virtual bool FormatArgResult(ulong format, ulong arg, char[] array, ulong index, ulong count, ulong text)
+    public virtual bool FormatArgResult(ulong format, ulong arg, char[] resultArray, ulong index, ulong count, ulong result)
     {
         unsafe
         {
-            fixed (char* p = array)
+            fixed (char* p = resultArray)
             {
                 char* pa;
                 pa = p + index;
@@ -541,10 +576,10 @@ public class Intern : object
                 ulong ua;
                 ua = (ulong)pa;
 
-                Extern.String_SetCount(text, count);
-                Extern.String_SetData(text, ua);
+                Extern.String_SetCount(result, count);
+                Extern.String_SetData(result, ua);
 
-                Extern.Format_ExecuteArgResult(format, arg, text);
+                Extern.Format_ExecuteArgResult(format, arg, result);
             }
         }
         return true;
