@@ -1,18 +1,11 @@
 namespace Avalon.Stream;
 
-
-
-
 public class Stream : Any
 {
     public virtual bool Final()
     {
         return true;
     }
-
-
-
-
 
     public virtual ulong Ident
     {
@@ -25,10 +18,6 @@ public class Stream : Any
         }
     }
 
-
-
-
-
     public virtual bool HasCount
     {
         get
@@ -39,9 +28,6 @@ public class Stream : Any
         {
         }
     }
-
-
-
 
     public virtual bool HasPos
     {
@@ -54,10 +40,6 @@ public class Stream : Any
         }
     }
 
-
-
-
-
     public virtual bool CanRead
     {
         get
@@ -68,9 +50,6 @@ public class Stream : Any
         {
         }
     }
-
-
-
 
     public virtual bool CanWrite
     {
@@ -83,10 +62,6 @@ public class Stream : Any
         }
     }
 
-
-
-
-
     public virtual long Count
     {
         get
@@ -98,16 +73,10 @@ public class Stream : Any
         }
     }
 
-
-
-
     public virtual bool SetCount(long value)
     {
         return true;
     }
-
-
-
 
     public virtual long Pos
     {
@@ -120,17 +89,10 @@ public class Stream : Any
         }
     }
 
-
-
-
     public virtual bool SetPos(long value)
     {
         return true;
     }
-
-
-
-
 
     public virtual int Status
     {
@@ -143,17 +105,10 @@ public class Stream : Any
         }
     }
 
-
-
-
     public virtual bool Read(Data data, Range range)
     {
         return true;
     }
-
-
-
-
 
     public virtual bool Write(Data data, Range range)
     {
