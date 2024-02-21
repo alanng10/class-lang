@@ -1021,6 +1021,8 @@ class Demo : Any
 
         format.Final();
         argList.Final();
+        argE.Final();
+        argD.Final();
         argC.Final();
         argB.Final();
         argA.Final();
