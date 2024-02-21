@@ -564,19 +564,19 @@ public class Intern : object
     }
 
 
-    public virtual bool FormatArgResult(ulong format, ulong arg, char[] resultArray, ulong index, ulong count, ulong result)
+    public virtual bool FormatArgResult(ulong format, ulong arg, char[] resultArray, ulong resultIndex, ulong resultCount, ulong result)
     {
         unsafe
         {
             fixed (char* p = resultArray)
             {
                 char* pa;
-                pa = p + index;
+                pa = p + resultIndex;
 
                 ulong ua;
                 ua = (ulong)pa;
 
-                Extern.String_SetCount(result, count);
+                Extern.String_SetCount(result, resultCount);
                 Extern.String_SetData(result, ua);
 
                 Extern.Format_ExecuteArgResult(format, arg, result);
