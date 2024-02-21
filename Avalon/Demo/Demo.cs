@@ -920,24 +920,6 @@ class Demo : Any
 
     private bool ExecuteFormat()
     {
-        MathCompose ca;
-
-        ca = new MathCompose();
-
-        ca.Init();
-
-
-        ca.Significand = 0x3243F6A8885;
-
-        ca.Exponent = -40;
-
-
-
-        long pi;
-        
-        pi = this.Math.GetValue(ca);
-
-
         TextFormatArg argA;
         argA = new TextFormatArg();
         argA.Init();
@@ -985,17 +967,11 @@ class Demo : Any
         argList.SetItem(2, argC);
 
         TextFormat format;
-
         format = new TextFormat();
-
         format.Init();
 
-
-
-        TextSpan o;
-        
+        TextSpan o;        
         o = this.TextInfra.SpanCreateString("G H , j h\n\n");
-
 
         format.Base = o;
         format.ArgList = argList;
@@ -1003,42 +979,24 @@ class Demo : Any
         format.SetBase();
         format.SetArgList();
 
-
         int count;
-
         count = format.ExecuteCount();
 
-
-
         TextSpan text;
-
         text = this.TextInfra.SpanCreate(count);
-
-
 
         format.ExecuteResult(text);
 
-
-
-
         string a;
-
         a = this.TextInfra.StringCreate(text);
-
 
         this.Console.Write(a);
 
-
-
-
         format.Final();
-
         argList.Final();
         argC.Final();
         argB.Final();
         argA.Final();
-
-
         return true;
     }
 
