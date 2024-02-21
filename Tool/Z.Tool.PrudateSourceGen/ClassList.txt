@@ -385,7 +385,7 @@ StorageEntry
     IsReadable
     IsHidden
     IsExecutable
-    Refresh()
+    Update()
 
 Network
     HostName
