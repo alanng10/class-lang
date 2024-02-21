@@ -1,3 +1,3 @@
 # Class
 
-Class programming language.
+This is the repo for Class programming language.
