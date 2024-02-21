@@ -6,13 +6,9 @@ public class Format : Any
     {
         base.Init();
 
-
         this.InternIntern = InternIntern.This;
-
         this.InternInfra = InternInfra.This;
-
         this.InfraInfra = InfraInfra.This;
-
 
         this.InternBase = Extern.String_New();
         Extern.String_Init(this.InternBase);
