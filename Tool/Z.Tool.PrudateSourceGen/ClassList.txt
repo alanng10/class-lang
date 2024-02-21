@@ -37,10 +37,8 @@ TextEncode
     GetData(result, fromString)
 
 Format
-    Base
-    ArgList
-    ExecuteCount()
-    ExecuteResult(result)
+    ExecuteCount(varBase, argList)
+    ExecuteResult(varBase, argList, result)
     ExecuteArgCount(arg)
     ExecuteArgResult(arg, result)
 
