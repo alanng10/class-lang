@@ -115,13 +115,13 @@ public class FormatArg : Any
         }
 
 
-        if (kind == 1)
+        if (kind == 1 | kind == 2 | kind == 4)
         {
             valueU = (ulong)this.ValueInt;
         }
 
 
-        if (kind == 2)
+        if (kind == 3)
         {
             this.InternString = this.InternInfra.StringCreate(this.ValueString);
 
