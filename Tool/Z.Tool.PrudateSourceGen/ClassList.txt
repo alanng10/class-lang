@@ -374,6 +374,20 @@ StorageWatch
     FileChanged(storageWatch, path, arg) --
     FoldChanged(storageWatch, path, arg) --
 
+StorageEntry
+    Path
+    Count
+    CreateTime(result)
+    LastModifyTime(result)
+    LastReadTime(result)
+    InfoChangeTime(result)
+    IsReadable
+    IsHidden
+    IsFold
+    IsFile
+    IsExecutable
+    Refresh()
+
 Network
     HostName
     Port
