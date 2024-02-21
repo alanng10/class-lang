@@ -1,18 +1,8 @@
 #include "Format.h"
 
-
-
-
-
 InfraClassNew(Format)
 
-
-
-
-
 #define KindCount 5
-
-
 
 Format_ArgValueCountMaide Format_Var_ArgValueCountMaideList[KindCount] =
 {
@@ -22,8 +12,6 @@ Format_ArgValueCountMaide Format_Var_ArgValueCountMaideList[KindCount] =
     &Format_ArgValueCountString,
     &Format_ArgValueCountChar,
 };
-
-
 
 Format_ArgResultMaide Format_Var_ArgResultMaideList[KindCount] =
 {
@@ -42,52 +30,17 @@ const char* Format_Var_FalseString = "false";
 
 
 
-
-Int Format_Init(Int this)
+Int Format_Init(Int o)
 {
     return true;
 }
 
-Int Format_Final(Int this)
+Int Format_Final(Int o)
 {
     return true;
 }
 
-Int Format_GetBase(Int o)
-{
-    Format* m;
-    m = CastPointer(o);
 
-    return m->Base;
-}
-
-Int Format_SetBase(Int o, Int value)
-{
-    Format* m;
-    m = CastPointer(o);
-
-    m->Base = value;
-
-    return true;
-}
-
-Int Format_GetArgList(Int o)
-{
-    Format* m;
-    m = CastPointer(o);
-
-    return m->ArgList;
-}
-
-Int Format_SetArgList(Int o, Int value)
-{
-    Format* m;
-    m = CastPointer(o);
-
-    m->ArgList = value;
-
-    return true;
-}
 
 Int Format_ExecuteArgCount(Int o, Int arg)
 {
@@ -1280,17 +1233,15 @@ Int Format_ResultString(Int o, Int result, Int value, Int varCase, Int valueWrit
 
 
 
-Int Format_ExecuteCount(Int o)
+Int Format_ExecuteCount(Int o, Int varBase, Int argList)
 {
-    Format* m;
-    m = CastPointer(o);
-
-    Int argList;
-    argList = m->ArgList;
-
+    Array* argArray;
+    argArray = CastPointer(argList);
 
     Int count;
-    count = Array_GetCount(argList);
+    count = argArray->Count;
+    Int* argArrayItem;
+    argArrayItem = CastPointer(argArray->Item);
 
     Int arg;
     arg = null;
@@ -1309,10 +1260,9 @@ Int Format_ExecuteCount(Int o)
 
     Int i;
     i = 0;
-
     while (i < count)
     {
-        arg = Array_GetItem(argList, i);
+        arg = argArrayItem[i];
 
         oa = CastPointer(arg);
 
@@ -1331,10 +1281,10 @@ Int Format_ExecuteCount(Int o)
     }
 
 
-    Int oo;
-    oo = String_GetCount(m->Base);
+    Int baseCount;
+    baseCount = String_GetCount(varBase);
 
-    k = k + oo;
+    k = k + baseCount;
 
 
     Int a;
@@ -1347,25 +1297,16 @@ Int Format_ExecuteCount(Int o)
 
 
 
-Int Format_ExecuteResult(Int o, Int result)
+Int Format_ExecuteResult(Int o, Int varBase, Int argList, Int result)
 {
-    Format* m;
-    m = CastPointer(o);
-
-    Int base;
-    base = m->Base;
-
     Int baseCount;
-    baseCount = String_GetCount(base);
+    baseCount = String_GetCount(varBase);
 
     Int baseData;
-    baseData = String_GetData(base);
+    baseData = String_GetData(varBase);
 
     Char* baseU;
     baseU = CastPointer(baseData);
-
-    Int argList;
-    argList = m->ArgList;
 
     Array* argArray;
     argArray = CastPointer(argList);

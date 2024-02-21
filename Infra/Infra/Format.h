@@ -8,8 +8,6 @@
 
 typedef struct
 {
-    Int Base;
-    Int ArgList;
 }
 Format;
 
