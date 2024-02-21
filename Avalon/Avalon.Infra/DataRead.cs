@@ -15,7 +15,6 @@ public class DataRead : Any
     }
 
     public virtual Data Data { get; set; }
-
     private InternIntern InternIntern { get; set; }
     protected virtual Infra InfraInfra { get; set; }
     protected virtual DataRange Range { get; set; }
@@ -23,10 +22,8 @@ public class DataRead : Any
     public virtual int ExecuteInt(long index)
     {
         this.SetRange(index, this.InfraInfra.IntByteCount);
-
         Data data;
         data = this.Data;
-
         if (!this.InfraInfra.CheckLongRange(data.Count, this.Range))
         {
             return 0;
@@ -40,10 +37,8 @@ public class DataRead : Any
     public virtual ulong ExecuteULong(long index)
     {
         this.SetRange(index, this.InfraInfra.ULongByteCount);
-
         Data data;
         data = this.Data;
-
         if (!this.InfraInfra.CheckLongRange(data.Count, this.Range))
         {
             return 0;
