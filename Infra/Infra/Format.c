@@ -1235,13 +1235,8 @@ Int Format_ResultString(Int o, Int result, Int value, Int varCase, Int valueWrit
 
 Int Format_ExecuteCount(Int o, Int varBase, Int argList)
 {
-    Array* argArray;
-    argArray = CastPointer(argList);
-
     Int count;
-    count = argArray->Count;
-    Int* argArrayItem;
-    argArrayItem = CastPointer(argArray->Item);
+    count = Array_GetCount(argList);
 
     Int arg;
     arg = null;
@@ -1262,7 +1257,7 @@ Int Format_ExecuteCount(Int o, Int varBase, Int argList)
     i = 0;
     while (i < count)
     {
-        arg = argArrayItem[i];
+        arg = Array_GetItem(argList, i);
 
         oa = CastPointer(arg);
 
@@ -1308,14 +1303,8 @@ Int Format_ExecuteResult(Int o, Int varBase, Int argList, Int result)
     Char* baseU;
     baseU = CastPointer(baseData);
 
-    Array* argArray;
-    argArray = CastPointer(argList);
-
     Int argCount;
-    argCount = argArray->Count;
-
-    Int* argArrayItem;
-    argArrayItem = CastPointer(argArray->Item);
+    argCount = Array_GetCount(argList);
 
     Int resultData;
     resultData = String_GetData(result);
@@ -1371,7 +1360,7 @@ Int Format_ExecuteResult(Int o, Int varBase, Int argList, Int result)
 
         while ((!b) & (argIndex < argCount))
         {
-            arg = argArrayItem[argIndex];
+            arg = Array_GetItem(argList, argIndex);
 
             oo = CastPointer(arg);
 

@@ -1,8 +1,6 @@
 #pragma once
 
 #include "Probate.h"
-
-#include "Array.h"
 #include "FormatArg.h"
 
 
@@ -11,9 +9,7 @@ typedef struct
 }
 Format;
 
-
 typedef Int (*Format_ArgValueCountMaide)(Int o, Int arg);
-
 
 Int Format_ArgValueCountBool(Int o, Int arg);
 Int Format_ArgValueCountInt(Int o, Int arg);
@@ -22,7 +18,6 @@ Int Format_ArgValueCountString(Int o, Int arg);
 Int Format_ArgValueCountChar(Int o, Int arg);
 
 Int Format_IntDigitCount(Int o, Int value, Int varBase);
-
 
 typedef Int (*Format_ArgResultMaide)(Int o, Int arg, Int result);
 
