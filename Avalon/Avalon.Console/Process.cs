@@ -271,197 +271,83 @@ public class Process : Any
         return true;
     }
 
-
-
-
-
-
-
-
     private ulong InternStringEntryListCreate(Table stringTable)
     {
         Iter iter;
-
-
         iter = stringTable.CreateIter();
-
-
-
         stringTable.SetIter(iter);
 
-
-
-
         int count;
-
         count = stringTable.Count;
-
-
-
         ulong countU;
-
         countU = (ulong)count;
 
-
-
         ulong a;
-
-
         a = Extern.Array_New();
-
-
         Extern.Array_SetCount(a, countU);
-
-
         Extern.Array_Init(a);
 
-
-
-
         int i;
-
         i = 0;
-
-
         while (i < count)
         {
             iter.Next();
 
-
-
-
             string index;
-
             string value;
-
-
             index = (string)(iter.Index);
-
             value = (string)(iter.Value);
-
-
-
             ulong indexU;
-
             indexU = this.InternInfra.StringCreate(index);
-
-
             ulong valueU;
-
             valueU = this.InternInfra.StringCreate(value);
 
-
-
             ulong entryU;
-
             entryU = Extern.Entry_New();
-
-
             Extern.Entry_Init(entryU);
-
-
             Extern.Entry_SetIndex(entryU, indexU);
-
-
             Extern.Entry_SetValue(entryU, valueU);
 
-
-
-
             ulong oa;
-
             oa = (ulong)i;
-
-
-
             Extern.Array_SetItem(a, oa, entryU);
-
-
 
             i = i + 1;
         }
-
-
-
-
         return a;
     }
-
-
-
-
 
     private bool InternStringEntryListDelete(ulong o)
     {
         ulong countU;
-
         countU = Extern.Array_GetCount(o);
 
-
-
         int count;
-
         count = (int)countU;
-
-
         int i;
-
         i = 0;
-
-
         while (i < count)
         {
             ulong oa;
-
             oa = (ulong)i;
-
-
-
             ulong entryU;
-
             entryU = Extern.Array_GetItem(o, oa);
-
-
-
             ulong indexU;
-
             indexU = Extern.Entry_GetIndex(entryU);
-
-
             ulong valueU;
-
             valueU = Extern.Entry_GetValue(entryU);
 
-
-
             Extern.Entry_Final(entryU);
-
-
             Extern.Entry_Delete(entryU);
 
-
-
             this.InternInfra.StringDelete(valueU);
-
-
             this.InternInfra.StringDelete(indexU);
-
-
 
             i = i + 1;
         }
 
-
-
-
         Extern.Array_Final(o);
-
-
         Extern.Array_Delete(o);
-
-
-
-
         return true;
     }
 }
