@@ -5,7 +5,6 @@ public class DataWrite : Any
     public override bool Init()
     {
         base.Init();
-
         this.InternIntern = InternIntern.This;
         this.InfraInfra = Infra.This;
         this.Range = new DataRange();

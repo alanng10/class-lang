@@ -5,10 +5,8 @@ public class DataRead : Any
     public override bool Init()
     {
         base.Init();
-        
         this.InternIntern = InternIntern.This;
         this.InfraInfra = Infra.This;
-
         this.Range = new DataRange();
         this.Range.Init();
         return true;

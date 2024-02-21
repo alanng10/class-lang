@@ -17,7 +17,6 @@ public class Infra : Any
     public override bool Init()
     {
         base.Init();
-
         this.ULongByteCount = sizeof(ulong);
         this.ByteBitCount = 8;
         this.IntByteCount = sizeof(int);
