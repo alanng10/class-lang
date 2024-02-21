@@ -107,7 +107,7 @@ class Demo : Any
 
 
 
-        // this.ExecuteFormat();
+        this.ExecuteFormat();
 
 
 
@@ -918,142 +918,129 @@ class Demo : Any
 
 
 
-    // private bool ExecuteFormat()
-    // {
-    //     MathCompose ca;
+    private bool ExecuteFormat()
+    {
+        MathCompose ca;
 
-    //     ca = new MathCompose();
+        ca = new MathCompose();
 
-    //     ca.Init();
-
-
-    //     ca.Significand = 0x3243F6A8885;
-
-    //     ca.Exponent = -40;
+        ca.Init();
 
 
+        ca.Significand = 0x3243F6A8885;
 
-    //     long pi;
+        ca.Exponent = -40;
+
+
+
+        long pi;
         
-    //     pi = this.Math.GetValue(ca);
+        pi = this.Math.GetValue(ca);
+
+
+        TextFormatArg argA;
+        argA = new TextFormatArg();
+        argA.Init();
+        argA.Pos = 3;
+        argA.Kind = 0;
+        argA.ValueBool = true;
+        argA.FieldWidth = 6;
+        argA.MaxWidth = -1;
+        argA.Case = 1;
+        argA.FillChar = ' ';
+        argA.Set();
+
+        TextFormatArg argB;
+        argB = new TextFormatArg();
+        argB.Init();
+        argB.Pos = 3;
+        argB.Kind = 1;
+        argB.ValueInt = 56712;
+        argB.AlignLeft = true;
+        argB.FieldWidth = 8;
+        argB.MaxWidth = 6;
+        argB.Base = 10;
+        argB.FillChar = ' ';
+        argB.Set();
+
+        TextFormatArg argC;
+        argC = new TextFormatArg();
+        argC.Init();
+        argC.Pos = 6;
+        argC.Kind = 2;
+        argC.ValueInt = -46842;
+        argC.AlignLeft = false;
+        argC.FieldWidth = 8;
+        argC.MaxWidth = 6;
+        argC.Base = 10;
+        argC.FillChar = ' ';
+        argC.Set();
+
+        TextFormatArgList argList;
+        argList = new TextFormatArgList();
+        argList.Count = 3;
+        argList.Init();
+        argList.SetItem(0, argA);
+        argList.SetItem(1, argB);
+        argList.SetItem(2, argC);
+
+        TextFormat format;
+
+        format = new TextFormat();
+
+        format.Init();
 
 
 
-    //     TextFormat format;
-
-    //     format = new TextFormat();
-
-    //     format.Init();
-
-
-
-    //     TextSpan o;
+        TextSpan o;
         
-    //     o = this.TextInfra.SpanCreateString("G H %2, %2 j%4 %1 h%3\n%3\n");
+        o = this.TextInfra.SpanCreateString("G H , j h\n\n");
 
 
-    //     format.Base = o;
+        format.Base = o;
+        format.ArgList = argList;
 
+        format.SetBase();
+        format.SetArgList();
 
 
-    //     format.ExecuteStart();
+        int count;
 
+        count = format.ExecuteCount();
 
-    //     format.ArgString("Ft", 0, ' ');
 
 
-    //     format.ArgLong(694, 4, 10, '0');
+        TextSpan text;
 
+        text = this.TextInfra.SpanCreate(count);
 
-    //     format.ArgULong(0xfe07, 6, 16, '0');
 
 
-    //     format.ArgFloat(pi, 10, 'g', 9, ' ');
+        format.ExecuteResult(text);
 
 
 
-    //     int count;
 
-    //     count = format.ExecuteCount();
+        string a;
 
+        a = this.TextInfra.StringCreate(text);
 
 
-    //     TextSpan text;
+        this.Console.Write(a);
 
-    //     text = this.TextInfra.SpanCreate(count);
 
 
-    //     format.Text = text;
 
+        format.Final();
 
+        argList.Final();
+        argC.Final();
+        argB.Final();
+        argA.Final();
 
-    //     format.ExecuteResult();
 
-
-
-    //     format.ExecuteEnd();
-
-
-
-
-
-
-    //     string a;
-
-    //     a = this.TextInfra.StringCreate(text);
-
-
-
-
-    //     this.Console.Write(a);
-
-
-
-    //     format.Base = null;
-
-
-    //     format.Text = null;
-        
-
-
-
-    //     format.ExecuteLongStart(0x405da, 16);
-
-
-
-    //     count = format.ExecuteCount();
-
-
-    //     text = this.TextInfra.SpanCreate(count);
-
-
-    //     format.Text = text;
-
-
-
-    //     format.ExecuteResult();
-
-
-    //     format.ExecuteEnd();
-
-
-
-
-    //     a = this.TextInfra.StringCreate(text);
-
-
-
-    //     this.Console.Write(a + "\n");
-
-
-
-
-    //     format.Final();
-
-
-
-    //     return true;
-    // }
+        return true;
+    }
 
 
 
