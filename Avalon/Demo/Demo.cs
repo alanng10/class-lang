@@ -972,6 +972,19 @@ class Demo : Any
         argD.FillChar = ' ';
         argD.Set();
 
+        TextFormatArg argDA;
+        argDA = new TextFormatArg();
+        argDA.Init();
+        argDA.Pos = 7;
+        argDA.Kind = 2;
+        argDA.ValueInt = 100;
+        argDA.AlignLeft = false;
+        argDA.FieldWidth = 4;
+        argDA.MaxWidth = -1;
+        argDA.Base = 10;
+        argDA.Sign = 1;
+        argDA.Set();
+
         TextFormatArg argE;
         argE = new TextFormatArg();
         argE.Init();
@@ -985,15 +998,29 @@ class Demo : Any
         argE.FillChar = '=';
         argE.Set();
 
+        TextFormatArg argF;
+        argF = new TextFormatArg();
+        argF.Init();
+        argF.Pos = 10;
+        argF.Kind = 4;
+        argF.ValueInt = 'H';
+        argF.AlignLeft = false;
+        argF.FieldWidth = 10;
+        argF.MaxWidth = -1;
+        argF.FillChar = 'O';
+        argF.Set();
+
         TextFormatArgList argList;
         argList = new TextFormatArgList();
-        argList.Count = 5;
+        argList.Count = 7;
         argList.Init();
         argList.SetItem(0, argA);
         argList.SetItem(1, argB);
         argList.SetItem(2, argC);
         argList.SetItem(3, argD);
-        argList.SetItem(4, argE);
+        argList.SetItem(4, argDA);
+        argList.SetItem(5, argE);
+        argList.SetItem(6, argF);
 
         TextSpan varBase;
         varBase = this.TextInfra.SpanCreateString("G H , j h\n\n");
@@ -1017,7 +1044,9 @@ class Demo : Any
 
         format.Final();
         argList.Final();
+        argF.Final();
         argE.Final();
+        argDA.Final();
         argD.Final();
         argC.Final();
         argB.Final();
