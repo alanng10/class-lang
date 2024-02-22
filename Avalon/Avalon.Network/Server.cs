@@ -96,9 +96,6 @@ public class Server : Any
         return a;
     }
 
-
-
-
     public virtual bool ClosePeer(Network network)
     {
         ulong u;
