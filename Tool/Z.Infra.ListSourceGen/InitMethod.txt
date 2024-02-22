@@ -1,27 +1,10 @@
     public override bool Init()
     {
         base.Init();
-
-
-
         this.InitArray();
-
-
-
         this.Count = this.Array.Count;
-
-
-
         this.Index = 0;
 
-
-
-
 #InitFieldList#
-
-
-
-
-
         return true;
     }
