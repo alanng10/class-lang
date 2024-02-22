@@ -108,5 +108,4 @@ public class BrushKindList : Any
     }
     
     protected virtual int Index { get; set; }
-
 }
