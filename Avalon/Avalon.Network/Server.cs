@@ -35,7 +35,7 @@ public class Server : Any
 
         MaideAddress oa;
 
-        oa = this.NetworkInfra.NetworkServerNewPeerMaideAddress;
+        oa = this.NetworkInfra.ServerNewPeerMaideAddress;
 
 
 
