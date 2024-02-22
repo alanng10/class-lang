@@ -88,5 +88,4 @@ public class AddressKindList : Any
     }
     
     protected virtual int Index { get; set; }
-
 }
