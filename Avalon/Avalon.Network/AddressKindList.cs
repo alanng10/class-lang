@@ -38,7 +38,6 @@ public class AddressKindList : Any
         return true;
     }
 
-
     public virtual AddressKind IPv6 { get; set; }
     public virtual AddressKind IPv4 { get; set; }
     public virtual AddressKind Broadcast { get; set; }
@@ -47,7 +46,6 @@ public class AddressKindList : Any
     public virtual AddressKind Any { get; set; }
     public virtual AddressKind AnyIPv6 { get; set; }
     public virtual AddressKind AnyIPv4 { get; set; }
-
 
     protected virtual AddressKind AddItem(ulong o)
     {
@@ -60,7 +58,6 @@ public class AddressKindList : Any
         this.Index = this.Index + 1;
         return item;
     }
-
 
     protected virtual bool InitArray()
     {
