@@ -17,8 +17,6 @@ namespace #Namespace#;
 #InitMethod#
 
 #FieldList#
-
 #AddMethod#
-
 #ArrayCompList#
 }
