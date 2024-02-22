@@ -1,5 +1,8 @@
 @echo off
 
 set InfraDemoProjectOutFold=.\Out\InfraDemo-Windows-Release
+set InfraDemoBinaryFold=%InfraDemoProjectOutFold%\release
 
-%InfraDemoProjectOutFold%\release\InfraDemo
+pushd %InfraDemoBinaryFold%
+InfraDemo
+popd
