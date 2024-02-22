@@ -48,7 +48,7 @@ public class Gen : SourceGen
 
     protected virtual string GetStatItemListFileName()
     {
-        return "../../../InfraTool/Z.Tool.Stat" + this.StatItemClassName + "SourceGen/ItemList" + this.StatItemClassName + ".txt";
+        return "../../Tool/Z.Tool.Stat" + this.StatItemClassName + "SourceGen/ItemList" + this.StatItemClassName + ".txt";
     }
 
 
@@ -56,7 +56,7 @@ public class Gen : SourceGen
 
     protected virtual string GetOutputFilePath()
     {
-        return "../../" + this.Namespace + "/" + this.ClassName + ".cs";
+        return "../../Avalon/" + this.Namespace + "/" + this.ClassName + ".cs";
     }
 
 
