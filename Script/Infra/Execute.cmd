@@ -8,6 +8,7 @@ pushd %InfraDemoProjectOutFold%
 
 setlocal
 set "PATH=%WorkingFold%\%InfraProjectOutFold%\release;%PATH%" && release\InfraDemo
+echo Status: %errorlevel%
 endlocal
 
 popd
