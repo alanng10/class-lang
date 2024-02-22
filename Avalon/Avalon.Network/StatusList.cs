@@ -116,5 +116,4 @@ public class StatusList : Any
     }
     
     protected virtual int Index { get; set; }
-
 }
