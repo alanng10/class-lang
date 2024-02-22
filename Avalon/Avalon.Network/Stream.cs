@@ -1,51 +1,24 @@
 namespace Avalon.Network;
 
-
-
-
 class Stream : StreamStream
 {
     public override bool Init()
     {
         base.Init();
-
-
-
-
         this.Intern = new InternStream();
-
-
         this.Intern.SetIntern = this.SetIntern;
-
-
         this.Intern.Init();
-
-
-
         return true;
     }
-
-
-
 
     public override bool Final()
     {
         this.Intern.Final();
-
-
-
         return true;
     }
 
-
-
-
     internal virtual ulong SetIntern { get; set; }
     
-
-
-
-
     public override ulong Ident
     { 
         get
@@ -58,15 +31,7 @@ class Stream : StreamStream
         }
     }
 
-
-
-
-
     private InternStream Intern { get; set; }
-
-
-
-
 
     public override bool HasCount
     {
@@ -80,9 +45,6 @@ class Stream : StreamStream
         }
     }
 
-
-
-
     public override bool HasPos
     {
         get
@@ -94,10 +56,6 @@ class Stream : StreamStream
             this.Intern.HasPos = value;
         }
     }
-
-
-
-
 
     public override bool CanRead
     {
@@ -111,9 +69,6 @@ class Stream : StreamStream
         }
     }
 
-
-
-
     public override bool CanWrite
     {
         get
@@ -126,10 +81,6 @@ class Stream : StreamStream
         }
     }
     
-
-
-
-
     public override long Count
     {
         get
@@ -142,16 +93,10 @@ class Stream : StreamStream
         }
     }
 
-
-
-
     public override bool SetCount(long value)
     {
         return this.Intern.SetCount(value);
     }
-
-
-
 
     public override long Pos
     {
@@ -165,17 +110,10 @@ class Stream : StreamStream
         }
     }
 
-
-
-
     public override bool SetPos(long value)
     {
         return this.Intern.SetPos(value);
     }
-
-
-
-
 
     public override int Status
     {
@@ -189,19 +127,10 @@ class Stream : StreamStream
         }
     }
 
-
-
-
-
-
     public override bool Read(Data data, Range range)
     {
         return this.Intern.Read(data.Value, data.Count, range.Start, range.End);
     }
-
-    
-
-
 
     public override bool Write(Data data, Range range)
     {
