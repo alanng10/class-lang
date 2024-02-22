@@ -1,24 +1,11 @@
     protected virtual #ItemClassName# AddItem(ulong o)
     {
         #ItemClassName# item;
-
         item = new #ItemClassName#();
-
         item.Init();
-
         item.Index = this.Index;
-
         item.Intern = o;
-
-
-
         this.Array.Set(item.Index, item);
-
-
-
         this.Index = this.Index + 1;
-
-
-
         return item;
     }

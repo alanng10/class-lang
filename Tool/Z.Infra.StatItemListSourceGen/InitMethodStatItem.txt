@@ -1,40 +1,15 @@
     public override bool Init()
     {
         base.Init();
-
-
-
         this.InitArray();
-
-
-
         this.Count = this.Array.Count;
-
-
-
         this.Index = 0;
 
-
-
-
         ulong share;
-
         share = Extern.Infra_Share();
-
-
-
         ulong stat;
-
         stat = Extern.Share_Stat(share);
 
-
-
-
 #InitFieldList#
-
-
-
-
-
         return true;
     }
