@@ -80,5 +80,4 @@ public class CaseList : Any
     }
     
     protected virtual int Index { get; set; }
-
 }
