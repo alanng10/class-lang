@@ -846,6 +846,7 @@ Int ThreadExecute(Int thread, Int arg)
     Format_ExecuteArgResult(format, formatArg, stringA);
 
     Console_Write(Console, stringA);
+    ConsoleWriteConstant("\n");
 
     String_Final(stringA);
     String_Delete(stringA);
