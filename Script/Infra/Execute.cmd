@@ -5,7 +5,7 @@ set InfraProjectOutFold=.\Out\Infra-Windows-Release
 
 pushd %InfraDemoProjectOutFold%
 
-setlocal 
+setlocal
 set "PATH=%WorkingFold%\%InfraProjectOutFold%\release;%PATH%" && release\InfraDemo
 endlocal
 
