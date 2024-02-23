@@ -1,55 +1,21 @@
 namespace Avalon.View;
 
-
-
-
-
-
-
 public class GridCol : Comp
 {
     public override bool Init()
     {
         base.Init();
-
-
-
-
-
         this.WidthField = this.CreateWidthField();
-
-
-
-
         this.Width = 0;
-
-        
-
-
-
         return true;
     }
-
-
-
-
-
-
 
     protected virtual Field CreateWidthField()
     {
         return this.ViewInfra.FieldCreate(this);
     }
 
-
-
-
-
-
     public virtual Field WidthField { get; set; }
-
-
-
 
     public virtual int Width
     {
@@ -64,21 +30,11 @@ public class GridCol : Comp
         }
     }
 
-
-
-
     protected virtual bool ChangeWidth(Change change)
     {
         this.Trigger(this.WidthField);
-
-
-
         return true;
     }
-
-
-
-
 
     public override bool Change(Field field, Change change)
     {
@@ -86,9 +42,6 @@ public class GridCol : Comp
         {
             this.ChangeWidth(change);
         }
-
-
-
         return true;
     }
 }
