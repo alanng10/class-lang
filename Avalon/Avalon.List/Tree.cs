@@ -247,63 +247,27 @@ class Tree : Any
         return true;
     }
 
-
-
-
-
-
     private TreeNode TreeInsert(object index, object value)
     {
         TreeNodeResult t;
-
-
-
         t = this.Node(index);
-
-
-
-
         if (t.HasNode)
         {
             return null;
         }
 
-
-
-
         TreeNode node;
-
-
-
         node = new TreeNode();
-
-
-
         node.Init();
-
-
-
         node.Index = index;
-
-
-
         node.Value = value;
-
-
-
         node.BalanceFactor = 0;
-
-
-
 
         if (t.ParentNode == null)
         {
             this.Root = node;
         }
         
-
-
-
         if (!(t.ParentNode == null))
         {
             if (t.ParentLeft)
@@ -311,41 +275,22 @@ class Tree : Any
                 t.ParentNode.LeftChild = node;
             }
 
-
             if (! t.ParentLeft)
             {
                 t.ParentNode.RightChild = node;
             }
 
-
-
             node.Parent = t.ParentNode;
         }
 
-
-
-
         TreeNode ret;
-
-
         ret = node;
-
-
-
         return ret;
     }
-
-
-
-
-
 
     private TreeNode RotateSingle(TreeNode X, TreeNode Z, int direction)
     {
         this.RotateTreeSingle(X, Z, direction);
-
-
-
 
         // 1st case, BF(Z) == 0,
         //   only happens with deletion, not insertion:
@@ -355,8 +300,6 @@ class Tree : Any
             
             X.BalanceFactor = - direction;   // t23 now higher
 
-
-
             Z.BalanceFactor = direction;   // t4 now lower than X
         }
         else
@@ -364,33 +307,17 @@ class Tree : Any
             // 2nd case happens with insertion or deletion:
             
             X.BalanceFactor = 0;
-            
-            
 
             Z.BalanceFactor = 0;
         }
 
-
-
         return Z; // return new root of rotated subtree
     }
-
-
-
-
-
 
     private TreeNode RotateDouble(TreeNode X, TreeNode Z, int direction)
     {
         TreeNode Y;
-
-
-
         Y = this.RotateTreeDouble(X, Z, direction);
-
-
-
-
 
         // 1st case, BF(Y) == 0,
         //   only happens with deletion, not insertion:
@@ -415,22 +342,11 @@ class Tree : Any
             }
         }
 
-
         Y.BalanceFactor = 0;
-
-
-
         return Y; // return new root of rotated subtree
     }
 
-
-
-
-    private static readonly int DirectionValue = 1;
-
-
-
-
+    private int DirectionValue = 1;
 
     private int Sign(int u)
     {
@@ -439,97 +355,55 @@ class Tree : Any
             return -DirectionValue;
         }
 
-
-
         if (0 < u)
         {
             return +DirectionValue;
         }
 
-
-
         return 0;
     }
-
-
-
-
-
 
     private TreeNode RotateTreeDouble(TreeNode X, TreeNode Z, int direction)
     {
         TreeNode Y;
-
-
         Y = null;
-
-
 
         // Z is by 2 higher than its sibling
 
-
         bool b;
-
-
         b = (direction == - DirectionValue);
-
-
 
         if (b)
         {
             Y = Z.LeftChild; // Inner child of Z
         }
 
-
         if (! b)
         {
             Y = Z.RightChild;
         }
         
-
-
-
         // Y is by 1 higher than sibling
-
-
 
         this.RotateTreeSingle(Z, Y, - direction);
 
-
-
-
         this.RotateTreeSingle(X, Y, direction);
 
-
-
-
-
         TreeNode ret;
-
-
         ret = Y;
-
-
 
         return ret;
     }
 
-
-
-
     private bool RotateTreeSingle(TreeNode X, TreeNode Z, int direction)
     {
         bool b;
-
-
         b = (direction ==  - DirectionValue);
-
 
         if (b)
         {
             this.RotateTreeLeft(X, Z);
         }
-
 
         if (! b)
         {
@@ -541,88 +415,47 @@ class Tree : Any
         return true;
     }
 
-
-
-
-
     private bool RotateTreeLeft(TreeNode X, TreeNode Z)
     {
         TreeNode t23;
 
-
-
         // Z is by 2 higher than its sibling
-
 
         t23 = Z.LeftChild; // Inner child of Z
 
-
         X.RightChild = t23;
-
-
 
         if (t23 != null)
         {
             t23.Parent = X;
         }
         
-
-
-
         Z.LeftChild = X;
 
-
-
-
         X.Parent = Z;
-
-
-
         return true;
     }
-
-
-
 
     private bool RotateTreeRight(TreeNode X, TreeNode Z)
     {
         TreeNode t23;
 
-
-
         // Z is by 2 higher than its sibling
-
 
         t23 = Z.RightChild; // Inner child of Z
 
-
         X.LeftChild = t23;
-
-
 
         if (t23 != null)
         {
             t23.Parent = X;
         }
         
-
-
-
         Z.RightChild = X;
 
-
-
-
         X.Parent = Z;
-
-
-
         return true;
     }
-
-
-
-
 
     private bool TreeRemove(TreeNode z)
     {
@@ -638,52 +471,26 @@ class Tree : Any
         {
             TreeNode y;
 
-
-
             y = this.Successor(z);
-
-
-
 
             if (y.Parent != z)
             {
                 this.SubtreeShift(y, y.RightChild);
 
-
-
                 y.RightChild = z.RightChild;
-
-
 
                 y.RightChild.Parent = y;
             }
 
-
-
-
             this.SubtreeShift(z, y);
 
-
-
-
             y.LeftChild = z.LeftChild;
-
-
-
 
             y.LeftChild.Parent = y;
         }
 
-
-
-
         return true;
     }
-
-
-
-
-
 
     private bool SubtreeShift(TreeNode u, TreeNode v)
     {
@@ -700,15 +507,11 @@ class Tree : Any
             u.Parent.RightChild = v;
         }
 
-
-
         if (v != null)
         {
             v.Parent = u.Parent;
         }
-
-
-
+        
         return true;
     }
 
