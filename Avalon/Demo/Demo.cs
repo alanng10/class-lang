@@ -644,7 +644,7 @@ class Demo : Any
     {
         DrawImage image;
 
-        image = this.DrawInfra.ImageCreatePath("Data/sun_and_cloud.jpg");
+        image = this.DrawInfra.ImageCreatePath("Data/image.jpg");
 
 
 
