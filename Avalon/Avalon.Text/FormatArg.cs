@@ -141,8 +141,14 @@ public class FormatArg : Any
         ulong maxWidthU;
         maxWidthU = (ulong)maxWidthO;
 
+        int varBase;
+        varBase = this.Base;
+        if (varBase < 2 | 32 < varBase)
+        {
+            varBase = 10;
+        }
         ulong baseU;
-        baseU = (ulong)this.Base;
+        baseU = (ulong)varBase;
 
         ulong caseU;
         caseU = (ulong)this.Case;
