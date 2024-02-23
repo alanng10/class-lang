@@ -6,4 +6,4 @@ pushd %InfraProjectOutFold%
 mingw32-make
 popd
 
-Script\Infra\UpdateDeploy
+call Script\Infra\UpdateDeploy
