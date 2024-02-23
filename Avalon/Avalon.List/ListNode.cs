@@ -1,6 +1,6 @@
 namespace Avalon.List;
 
-public class ListNode : Any
+class ListNode : Any
 {
     public ListNode Previous { get; set; }
     public ListNode Next { get; set; }
