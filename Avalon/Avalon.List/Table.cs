@@ -79,93 +79,33 @@ public class Table : List
         {
             return null;
         }
-
-
-
-
         Entry entry;
-
-
-
         entry = this.Entry(item);
-
-
-
-
-
         if (entry == null)
         {
             return null;
         }
 
-
-
-
-
-
         ListNode u;
-
-
-
         u = this.ListNode(entry.Index);
-
-
-
-
         if (!(u == null))
         {
             return null;
         }
 
-
-
-
-
         object o;
-
-
-
         o = this.List.Add(entry);
-
-
-
-
-
         ListNode node;
-
-
         node = (ListNode)o;
-
-
-
 
         this.Tree.Insert(entry.Index, node);
 
-
-
-
-
         this.Count = this.List.Count;
 
-
-
-
-
         object ret;
-
-
         ret = entry.Index;
-
-
         return ret;
     }
-
-
-
-
-
-
-
 
     public override object Insert(object index, object item)
     {
@@ -173,119 +113,45 @@ public class Table : List
         {
             return null;
         }
-
-
-
-
-        ListNode node;
-
-
-
-        
+        ListNode node;        
         node = this.ListNode(index);
-
-
-
-
         if (node == null)
         {
             return null;
         }
-
-
-
-
-
-
 
         if (item == null)
         {
             return null;
         }
 
-
-
-
         Entry entry;
-
-
-
         entry = this.Entry(item);
-
-
-
-
-
         if (entry == null)
         {
             return null;
         }
 
-
-
-
-
-
         ListNode u;
-
-
-
         u = this.ListNode(entry.Index);
-
-
-
-
         if (!(u == null))
         {
             return null;
         }
 
-
-
-
-
         object o;
-
-
-
         o = this.List.Insert(node, entry);
-
-
-
-
-
         ListNode oo;
-
-
         oo = (ListNode)o;
-
-
-
 
         this.Tree.Insert(entry.Index, oo);
 
-
-
-
-
         this.Count = this.List.Count;
 
-
-
-
-
         object ret;
-
-
         ret = entry.Index;
-
-
         return ret;
     }
-
-
-
-
 
     public override bool Remove(object index)
     {
@@ -293,80 +159,30 @@ public class Table : List
         {
             return false;
         }
-
-
-
-
         ListNode node;
-
-
-
-        
         node = this.ListNode(index);
-
-
-
-
         if (node == null)
         {
             return false;
         }
 
-
-
-
-
         this.List.Remove(node);
-
-
-
-
 
         this.Tree.Remove(index);
 
-
-
-
-
         this.Count = this.List.Count;
-
-
-
-
-
-
         return true;
     }
-
-
-
-
-
 
     public override bool Clear()
     {
         this.Tree.Clear();
 
-
-
-
         this.List.Clear();
 
-
-
-
         this.Count = this.List.Count;
-
-
-
-
         return true;
     }
-
-
-
-
-
 
     public override bool Contain(object index)
     {
@@ -375,133 +191,54 @@ public class Table : List
             return false;
         }
 
-
-
-
         ListNode node;
-
-
         node = this.ListNode(index);
-
-
-
         bool b;
-
-
         b = !(node == null);
 
-
-
-
         bool ret;
-
-
         ret = b;
-
-
         return ret;
     }
-
-
-
-
-
 
     public override Iter CreateIter()
     {
         TableIter aa;
-
-
         aa = new TableIter();
-        
-
         aa.Init();
-
-
-
         aa.ListIter = this.List.CreateIter();
-
-
-
-
         Iter a;
-
-
         a = aa;
-
-
         return a;
     }
-
-
-
-
-
 
     public override bool SetIter(Iter iter)
     {
         TableIter a;
-
-
         a = (TableIter)iter;
-
-
-
         this.List.SetIter(a.ListIter);
-
-
-
 
         return true;
     }
 
-
-
-
-
-
-
-
     private Entry Entry(object item)
     {
         bool b;
-
-
         b = item is Entry;
-
-
-
-
         if (!b)
         {
             return null;
         }
 
-
-
-
         Entry entry;
-
-
         entry = (Entry)item;
-
-
-
         if (entry.Index == null)
         {
             return null;
         }
 
-
-
-
-
         Entry ret;
-
-
         ret = entry;
-
-
         return ret;
     }
 }
