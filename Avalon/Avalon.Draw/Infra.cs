@@ -241,149 +241,63 @@ public class Infra : Any
         return true;
     }
 
-
-
-
-
-
     public virtual bool BoundArea(Rect bound, Rect area)
     {
         int left;
-
         left = area.Pos.Left;
-
-
-
         int up;
-
         up = area.Pos.Up;
-
-
-
-
         int width;
-
         width = area.Size.Width;
-
-
-
         int height;
-
         height = area.Size.Height;
-
-
-
-
         int right;
-
         right = left + width;
-
-
-
         int down;
-
         down = up + height;
 
-
-
-
-
         int boundRight;
-
         boundRight = bound.Pos.Left + bound.Size.Width;
-
-
-
         int boundDown;
-
         boundDown = bound.Pos.Up + bound.Size.Height;
-
-
-
-
 
         if (left < bound.Pos.Left)
         {
             left = bound.Pos.Left;
         }
-
-
-
         if (up < bound.Pos.Up)
         {
             up = bound.Pos.Up;
         }
-
-
-
-
-
         if (boundRight < right)
         {
             right = boundRight;
         }
-
-
-
         if (boundDown < down)
         {
             down = boundDown;
         }
 
-
-
-
         int w;
-
-
         w = this.BoundSub(right, left);
-
-
-
-
         int h;
-
-
         h = this.BoundSub(down, up);
 
-
-
-
-
         area.Pos.Left = left;
-
-
         area.Pos.Up = up;
-
-
         area.Size.Width = w;
-
-
         area.Size.Height = h;
-
-
-
-
         return true;
     }
-
-
-
-
 
     protected virtual int BoundSub(int left, int right)
     {
         int k;
-
         k = 0;
-
-
         if (!(left < right))
         {
             k = left - right;
         }
-
-
         return k;
     }
 }
