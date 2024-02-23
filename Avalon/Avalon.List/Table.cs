@@ -1,61 +1,22 @@
 namespace Avalon.List;
 
-
-
-
-
 public class Table : List
 {
     private Tree Tree { get; set; }
 
-
-
-
-
     public Compare Compare { get; set; }
 
-
-
-
-
     private List List { get; set; }
-
-
-
-
-
 
     public override bool Init()
     {
         this.Tree = new Tree();
-
-
-
         this.Tree.Compare = this.Compare;
-
-
-
         this.Tree.Init();
-
-
-
-
-
         this.List = new List();
-
-
-
         this.List.Init();
-
-
-
-
         return true;
     }
-
-
-
-
 
     public override object Get(object index)
     {
@@ -63,53 +24,19 @@ public class Table : List
         {
             return null;
         }
-
-
-
-
         ListNode node;
-
-
-
         node = this.ListNode(index);
-
-
-
-
-
         if (node == null)
         {
             return null;
         }
 
-
-
-
-
         Entry entry;
-
-
-
         entry = (Entry)node.Value;
-
-
-
-
-
         object ret;
-
-
-
         ret = entry.Value;
-
-
-
         return ret;
     }
-
-
-
-
 
     public override bool Set(object index, object value)
     {
@@ -117,90 +44,34 @@ public class Table : List
         {
             return true;
         }
-
-
-
-
-
         ListNode node;
-
-
-
         node = this.ListNode(index);
-
-
-
-
         if (node == null)
         {
             return true;
         }
 
-
-
-
-
         Entry entry;
-
-
-
         entry = (Entry)node.Value;
-
-
-
-
         entry.Value = value;
-        
-
-
-
         return true;
     }
-
-
-
-
 
     private ListNode ListNode(object index)
     {
         TreeNodeResult t;
-
-
         t = this.Tree.Node(index);
-
-
-
         if (!t.HasNode)
         {
             return null;
         }
 
-
-
-
         ListNode listNode;
-
-
-
         listNode = (ListNode)t.Node.Value;
-
-
-
-
         ListNode ret;
-
-
         ret = listNode;
-
-        
         return ret;
     }
-
-
-
-
-
-
 
     public override object Add(object item)
     {
