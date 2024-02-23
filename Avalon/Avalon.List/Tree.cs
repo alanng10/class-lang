@@ -1,48 +1,19 @@
 namespace Avalon.List;
 
-
-
-
-
 class Tree : Any
 {
     public override bool Init()
     {
         base.Init();
-
-
-
-
         this.NodeResult = new TreeNodeResult();
-
-
         this.NodeResult.Init();
-
-
-
-
-
         return true;
     }
 
-
-
-
     private TreeNode Root { get; set; }
-
-
-
     private TreeNodeResult NodeResult { get; set; }
 
-
-
     public Compare Compare { get; set; }
-
-
-
-
-
-
 
     public bool Insert(object index, object value)
     {
@@ -51,38 +22,16 @@ class Tree : Any
             return false;
         }
 
-
-
-
         TreeNode node;
-
-
-
         node = this.TreeInsert(index, value);
-
-
-
-
         if (node == null)
         {
             return false;
         }
 
-
-
-
         this.InsertRetrace(node);
-
-
-
-
         return true;
     }
-
-
-
-
-
 
     public bool Remove(object index)
     {
@@ -91,70 +40,27 @@ class Tree : Any
             return false;
         }
 
-
-
-
         TreeNodeResult t;
-
-
-
         t = this.Node(index);
-
-
-
-
         if (!t.HasNode)
         {
             return false;
         }
 
-
-
-
-
         TreeNode node;
-
-
-
         node = t.Node;
-
-
-
-
-
 
         this.TreeRemove(node);
 
-
-
-
-
         this.RemoveRetrace(node);
-
-
-
-
-
         return true;
     }
-
-
-
-
-
 
     public bool Clear()
     {
         this.Root = null;
-
-
-
-
         return true;
     }
-
-
-
 
     private bool InsertRetrace(TreeNode Z)
     {
