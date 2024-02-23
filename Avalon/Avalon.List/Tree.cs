@@ -511,12 +511,9 @@ class Tree : Any
         {
             v.Parent = u.Parent;
         }
-        
+
         return true;
     }
-
-
-
 
     private TreeNode Successor(TreeNode x)
     {
@@ -525,224 +522,102 @@ class Tree : Any
             return this.Minimum(x.RightChild);
         }
 
-
-
-
         TreeNode y;
 
-
-
         y = x.Parent;
-
-
-
 
         while (y != null && x == y.RightChild)
         {
             x = y;
 
-
-
             y = y.Parent;
         }
 
-
-
-
         return y;
     }
-
-
-
-
 
     private TreeNode Minimum(TreeNode x)
     {
         TreeNode t;
 
-
         t = x;
-
-
 
         while (t.LeftChild != null)
         {
             t = t.LeftChild;
         }
 
-
-
         return t;
     }
-
-
-
-
 
     public TreeNodeResult Node(object index)
     {
         TreeNode node;
-
-
-
         node = null;
 
-
-
-
         TreeNode parentNode;
-
-
-
         parentNode = null;
 
-
-
-
         bool parentLeft;
-
-
-
         parentLeft = false;
 
-
-
-
-
         bool b;
-
-
-
         b = false;
-
-
-
-
 
         int t;
 
-
-
         object o;
-
-
-
-
 
         TreeNode currentNode;
 
-
-
         currentNode = this.Root;
-
-
-
 
         while (!b & !(currentNode == null))
         {
             o = currentNode.Index;
 
-
-
-
             t = this.Compare.Execute(index, o);
-
-
-
 
             if (t == 0)
             {
                 node = currentNode;
 
-
                 b = true;
             }
-
-
-
 
             if (t < 0)
             {
                 parentNode = currentNode;
 
-
-
-
                 parentLeft = true;
-
-
-
 
                 currentNode = currentNode.LeftChild;
             }
-
-
-
 
             if (0 < t)
             {
                 parentNode = currentNode;
 
-
-
-
                 parentLeft = false;
-
-
-
 
                 currentNode = currentNode.RightChild;
             }
         }
 
-
-
-
-
-
         TreeNodeResult u;
-
-
 
         u = this.NodeResult;
 
-
-
         u.HasNode = b;
-
-
 
         u.Node = node;
 
-
-
         u.ParentNode = parentNode;
-
-
 
         u.ParentLeft = parentLeft;
 
-
-
-
-
         TreeNodeResult ret;
-
-
         ret = u;
-
-
-
         return ret;
     }
-
-
-
-
-
-
-
-
-
-
 }
