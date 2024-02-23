@@ -1,26 +1,13 @@
 namespace Avalon.List;
 
-
-
-
-
 public class TableIter : Iter
 {
     internal virtual Iter ListIter { get; set; }
-
-
-
-
 
     public override bool Next()
     {
         return this.ListIter.Next();
     }
-
-
-
-
-
 
     public override object Index
     {
@@ -33,11 +20,6 @@ public class TableIter : Iter
         }
     }
 
-
-
-
-
-
     public override object Value
     {
         get
@@ -49,20 +31,10 @@ public class TableIter : Iter
         }
     }
 
-
-
-
-
-
     private Entry Entry()
     {
-        Entry a;
-            
-            
+        Entry a;            
         a = (Entry)this.ListIter.Value;
-
-
-
         return a;
     }
 }
