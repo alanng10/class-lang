@@ -200,88 +200,37 @@ public class Infra : Any
         return image;
     }
 
-
-
-
-
-
-
     public virtual bool WriteImage(string path, Image image, ImageFormat format)
     {
         StorageStorage storage;
-
         storage = new StorageStorage();
-
         storage.Init();
-
-
-
-
         StorageMode mode;
-
         mode = new StorageMode();
-
         mode.Init();
-
         mode.Write = true;
-
-
-
-
         storage.Path = path;
-
         storage.Mode = mode;
-
-
         storage.Open();
 
-
-
         bool o;
-
         o = false;
-
-
         if (storage.Status == 0)
         {
             StreamStream stream;
-
             stream = storage.Stream;
 
-
-
             ImageWrite imageWrite;
-
             imageWrite = new ImageWrite();
-
             imageWrite.Init();
-
-
             imageWrite.Stream = stream;
-
             imageWrite.Format = format;
-
             imageWrite.Image = image;
-
-
-
             o = imageWrite.Execute();
-
-
-
             imageWrite.Final();
         }
-
-
-
         storage.Close();
-
-
         storage.Final();
-
-
-
-
         return o;
     }
 
