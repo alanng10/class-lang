@@ -234,22 +234,10 @@ public class Infra : Any
         return o;
     }
 
-
-
-
-
-
     public virtual bool VideoFrameGetImage(VideoFrame frame, Image image)
     {
         frame.GetVideo(image.Video);
-
-
-
         image.SetSize();
-
-
-
-
         return true;
     }
 
