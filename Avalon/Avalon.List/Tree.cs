@@ -65,34 +65,17 @@ class Tree : Any
     private bool InsertRetrace(TreeNode Z)
     {
         TreeNode X;
-
-
-
         TreeNode G;
-
-
-
         TreeNode N;
-
-
-
-
         int direction;
-
-
-
 
         for (X = Z.Parent; X != null; X = Z.Parent)
         {
             // Loop (possibly up to the root)
             // BF(X) has to be updated:
-            
-            
             if (Z == X.RightChild)
             {
                 // The right subtree increases
-
-
                 direction = -DirectionValue;
             }
             else
@@ -100,19 +83,12 @@ class Tree : Any
                 direction = +DirectionValue;
             }
 
-
-
-
             if (this.Sign(X.BalanceFactor) == - direction)
             {
                 // X is right-heavy
                 // ==> the temporary BF(X) == +2
                 // ==> rebalancing is required.
-
-
                 G = X.Parent; // Save parent of X around rotations
-
-
 
                 if (this.Sign(Z.BalanceFactor) == direction)    // Right Left Case  (see figure 3)
                 {
@@ -130,41 +106,20 @@ class Tree : Any
                 {
                     X.BalanceFactor = 0; // Z’s height increase is absorbed at X.
 
-
-
-
                     break; // Leave the loop
                 }
 
-
-
-
                 X.BalanceFactor = - direction;
 
-
-
                 Z = X; // Height(Z) increases by 1
-
-
-
-
                 continue;
             }
-
-
-
-
-
-
 
             // After a rotation adapt parent link:
             // N is the new root of the rotated subtree
             // Height does not change: Height(N) == old Height(X)
 
-
             N.Parent = G;
-
-
 
             if (G != null)
             {
@@ -182,49 +137,21 @@ class Tree : Any
                 this.Root = N; // N is the new root of the total tree
             }
 
-
-
             break;
-
-
             // There is no fall thru, only break; or continue;
-        
         }
 
-
-
         // Unless loop is left via break, the height of the total tree increases by 1.
-
-
-
         return true;
     }
-
-
-
-
 
     private bool RemoveRetrace(TreeNode N)
     {
         TreeNode X;
-
-
-
         TreeNode G;
-
-
-
         TreeNode Z;
-
-
-
         int direction;
-
-
-
         int b;
-
-
 
         for (X = N.Parent; X != null; X = G)
         { 
@@ -240,18 +167,13 @@ class Tree : Any
                 direction = + DirectionValue;
             }
 
-
-
-
             // the left subtree decreases
-
 
             if (this.Sign(X.BalanceFactor) == -direction)
             {
                 // X is right-heavy
                 // ==> the temporary BF(X) == +2
                 // ==> rebalancing is required.
-
 
                 if (direction == -DirectionValue)
                 {
@@ -263,11 +185,7 @@ class Tree : Any
                     Z = X.LeftChild; // Sibling of N (higher by 2)
                 }
 
-
-
                 b = Z.BalanceFactor;
-
-
 
                 if (this.Sign(b) == direction)                  // Right Left Case  (see figure 3)
                 {
@@ -280,7 +198,6 @@ class Tree : Any
                     N = this.RotateSingle(X, Z, direction);     // Single rotation Left(X)
                 }
 
-
                 // After rotation adapt parent link
             }
             else
@@ -291,31 +208,17 @@ class Tree : Any
                     break; // Leave the loop
                 }
 
-
-
                 N = X;
 
-
-
                 N.BalanceFactor = 0; // Height(N) decreases by 1
-
-
-
                 continue;
             }
-
-
-
-
 
             // After a rotation adapt parent link:
             // N is the new root of the rotated subtree
             
             N.Parent = G;
-            
-            
-            
-            
+
             if (G != null)
             {
                 if (X == G.LeftChild)
@@ -332,25 +235,15 @@ class Tree : Any
                 this.Root = N; // N is the new root of the total tree
             }
 
-
-
             if (b == 0)
             {
                 break; // Height does not change: Leave the loop
             }
 
-
             // Height(N) decreases by 1 (== old Height(X)-1)
         }
 
-
-
         // If (b != 0) the height of the total tree decreases by 1.
-
-
-
-
-
         return true;
     }
 
