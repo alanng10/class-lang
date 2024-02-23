@@ -1,144 +1,51 @@
 namespace Avalon.List;
 
-
-
-
-
 public class List : Any
 {
     protected virtual ListNode First { get; set; }
-
-
-
-
-
     protected virtual ListNode Last { get; set; }
-
-
-
-
-
-
     private ListNodeRef NodeRef { get; set; }
-
-
-
-
-
-
 
     public override bool Init()
     {
         base.Init();
-
-
-
-
         this.NodeRef = new ListNodeRef();
-
-
-
         this.NodeRef.Init();
-
-
-
-
         return true;
     }
-
-
-
-
-
 
     public virtual int Count
     {
         get; set;
     }
 
-
-
-
-
-
     public virtual object Add(object item)
     {
         ListNode node;
-
-
-
-
         node = new ListNode();
-
-
-
-
         node.Init();
-
-
-
-
         node.Ref = this.NodeRef;
-
-
-
-
         node.Value = item;
-
-
-
-
 
         if (!(this.Last == null))
         {
-
             node.Previous = this.Last;
-
-
-
-
             this.Last.Next = node;
         }
-
-
-
 
         if (this.First == null)
         {
             this.First = node;
         }
-
-
-
-
         
         this.Last = node;
 
-
-
-
-
         this.Count = this.Count + 1;
 
-
-
-
-
         object ret;
-
-
-
         ret = node;
-
-
-
         return ret;
     }
-
-
-
-
-
 
     public virtual object Insert(object index, object item)
     {
@@ -147,107 +54,39 @@ public class List : Any
             return null;
         }
 
-
-
-
-
         ListNode t;
-
-
-
-
         t = this.Node(index);
-
-
-
-
-
         if (t == null)
         {
             return null;
         }
 
-
-
-
-
         ListNode node;
-
-
-
-
         node = new ListNode();
-
-
-
-
         node.Init();
-
-
-
-
         node.Ref = this.NodeRef;
-
-
-
-
         node.Value = item;
-
-
-
-
 
         if (this.First == t)
         {
             this.First = node;
         }
 
-
-
-
-
         if (!(t.Previous == null))
         {
             t.Previous.Next = node;
-
-
-
             node.Previous = t.Previous;
         }
 
-
-
-
-
         node.Next = t;
-
-
-
         t.Previous = node;
-
-
-
-
 
         this.Count = this.Count + 1;
 
-
-
-
-
-
         object ret;
-
-
         ret = node;
-
-
         return ret;
     }
-
-
-
-
 
     public virtual bool Remove(object index)
     {
@@ -255,120 +94,50 @@ public class List : Any
         {
             return false;
         }
-
-
-
-
-
         ListNode node;
-
-
-
         node = this.Node(index);
-
-
-
-
         if (node == null)
         {
             return false;
         }
-
-
-
-
-
 
         if (this.First == node)
         {
             this.First = node.Next;
         }
 
-
-
-
-
         if (this.Last == node)
         {
             this.Last = node.Previous;
         }
-
-
-
-
-
 
         if (!(node.Next == null))
         {
             node.Next.Previous = node.Previous;
         }
 
-
-
-
-
         if (!(node.Previous == null))
         {
             node.Previous.Next = node.Next;
         }
 
-
-
-
-
-
         node.Ref = null;
 
-
-
-
-
         this.Count = this.Count - 1;
-
-
-
-
         return true;
     }
-
-
-
-
 
     public virtual bool Clear()
     {
         this.First = null;
-
-
-
-
         this.Last = null;
-
-
-
 
         this.Count = 0;
 
-
-
-
-
         this.NodeRef = new ListNodeRef();
-
-
-
         this.NodeRef.Init();
-
-
-
-
-
         return true;
     }
-
-
-
-
 
     public virtual bool Contain(object index)
     {
@@ -376,27 +145,12 @@ public class List : Any
         {
             return false;
         }
-
-
-
-
         ListNode node;
-
-
-
         node = this.Node(index);
-
-
-
-
         if (node == null)
         {
             return false;
         }
-
-
-
-
         return true;
     }
 
