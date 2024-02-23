@@ -2,8 +2,8 @@ namespace Avalon.List;
 
 public class List : Any
 {
-    protected virtual ListNode First { get; set; }
-    protected virtual ListNode Last { get; set; }
+    private ListNode First { get; set; }
+    private ListNode Last { get; set; }
     private ListNodeRef NodeRef { get; set; }
 
     public override bool Init()
