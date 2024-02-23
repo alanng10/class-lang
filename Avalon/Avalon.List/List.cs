@@ -154,62 +154,25 @@ public class List : Any
         return true;
     }
 
-
-
-
-
-
-
     public virtual object Get(object index)
     {
         if (index == null)
         {
             return null;
         }
-
-
-
-
-
         ListNode node;
-
-
-
         node = this.Node(index);
-
-
-
-
-
         if (node == null)
         {
             return null;
         }
 
-
-
-
-
         object t;
-
-
         t = node.Value;
-
-
-
-
         object ret;
-
-
         ret = t;
-
-
         return ret;
     }
-
-
-
-
 
     public virtual bool Set(object index, object value)
     {
@@ -217,131 +180,52 @@ public class List : Any
         {
             return true;
         }
-
-
-
-
-
         ListNode node;
-
-
-
         node = this.Node(index);
-
-
-
-
-
         if (node == null)
         {
             return true;
         }
-
-
-
-
-
-
         node.Value = value;
-
-
-
-
         return true;
     }
-
-
-
-
-
-
 
     public virtual Iter CreateIter()
     {
         Iter a;
-
         a = new Iter();
-        
         a.Init();
-
-
-
         return a;
     }
-
-
-
-
 
     public virtual bool SetIter(Iter iter)
     {
         iter.CurrentNode = null;
-
-
         iter.Node = this.First;
-
-
-
         return true;
     }
-
-
-
-
 
     private ListNode Node(object index)
     {
         bool b;
-
-
         b = (index is ListNode);
-
-
-
-
         if (!b)
         {
             return null;
         }
 
-
-
-
-
         ListNode node;
-
-
-
         node = (ListNode)index;
 
-
-
-
-
-
         bool bb;
-
-
         bb = (node.Ref == this.NodeRef);
-
-
-
-
         if (!bb)
         {
             return null;
         }
 
-
-
-
-
         ListNode ret;
-
-
         ret = node;
-
-
         return ret;
     }
 }
