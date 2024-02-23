@@ -1109,6 +1109,12 @@ Infra_Api Int StorageArrange_RenameFold(Int o, Int path, Int destPath);
 
 Infra_Api Int StorageArrange_EntryCount(Int o, Int foldPath);
 
+Infra_Api Int StorageArrange_EntryName(Int o, Int path);
+
+Infra_Api Int StorageArrange_BaseName(Int o, Int name);
+
+Infra_Api Int StorageArrange_Extension(Int o, Int name);
+
 Infra_Api Int StorageArrange_AbsolutePath(Int o, Int path);
 
 Infra_Api Int StorageArrange_RelativePath(Int o, Int path, Int destPath);
@@ -1144,6 +1150,39 @@ Infra_Api Int StorageWatch_FoldList(Int o);
 typedef Int (*StorageWatch_FileChanged_Maide)(Int storageWatch, Int path, Int arg);
 
 typedef Int (*StorageWatch_FoldChanged_Maide)(Int storageWatch, Int path, Int arg);
+
+
+
+InfraApiNew(StorageEntry)
+
+Infra_Api Int StorageEntry_GetPath(Int o);
+Infra_Api Int StorageEntry_SetPath(Int o, Int value);
+
+Infra_Api Int StorageEntry_GetKind(Int o);
+Infra_Api Int StorageEntry_SetKind(Int o, Int value);
+
+Infra_Api Int StorageEntry_GetCount(Int o);
+Infra_Api Int StorageEntry_SetCount(Int o, Int value);
+
+Infra_Api Int StorageEntry_GetIsReadable(Int o);
+Infra_Api Int StorageEntry_SetIsReadable(Int o, Int value);
+
+Infra_Api Int StorageEntry_GetIsHidden(Int o);
+Infra_Api Int StorageEntry_SetIsHidden(Int o, Int value);
+
+Infra_Api Int StorageEntry_GetIsExecutable(Int o);
+Infra_Api Int StorageEntry_SetIsExecutable(Int o, Int value);
+
+
+Infra_Api Int StorageEntry_CreateTime(Int o, Int result);
+
+Infra_Api Int StorageEntry_LastModifyTime(Int o, Int result);
+
+Infra_Api Int StorageEntry_LastReadTime(Int o, Int result);
+
+Infra_Api Int StorageEntry_InfoChangeTime(Int o, Int result);
+
+Infra_Api Int StorageEntry_Update(Int o);
 
 
 
