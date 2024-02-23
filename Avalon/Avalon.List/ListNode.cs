@@ -2,8 +2,8 @@ namespace Avalon.List;
 
 class ListNode : Any
 {
-    public ListNode Previous { get; set; }
-    public ListNode Next { get; set; }
-    public ListNodeRef Ref { get; set; }
-    public object Value { get; set; }
+    public virtual ListNode Previous { get; set; }
+    public virtual ListNode Next { get; set; }
+    public virtual ListNodeRef Ref { get; set; }
+    public virtual object Value { get; set; }
 }
