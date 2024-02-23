@@ -1,74 +1,29 @@
 namespace Avalon.Draw;
 
-
-
-
-
 public class TextAlignList : Any
 {
     public static TextAlignList This { get; } = ShareCreate();
 
-
-
-
     private static TextAlignList ShareCreate()
     {
         TextAlignList share;
-
-
         share = new TextAlignList();
-
-
-
         Any a;
-
-
         a = share;
-
-
         a.Init();
-
-
-
         return share;
     }
-
-
-
-
-
 
     public override bool Init()
     {
         base.Init();
-
-
-
         this.InitArray();
-
-
-
         this.Count = this.Array.Count;
-
-
-
         this.Index = 0;
-
-
-
-
         ulong share;
-
         share = Extern.Infra_Share();
-
-
-
         ulong stat;
-
         stat = Extern.Share_Stat(share);
-
-
-
 
         this.LeftUp = this.AddItem(Extern.Stat_TextAlignLeft(stat), Extern.Stat_TextAlignTop(stat));
         this.LeftDown = this.AddItem(Extern.Stat_TextAlignLeft(stat), Extern.Stat_TextAlignBottom(stat));
@@ -80,16 +35,8 @@ public class TextAlignList : Any
         this.CenterDown = this.AddItem(Extern.Stat_TextAlignHCenter(stat), Extern.Stat_TextAlignBottom(stat));
         this.CenterCenter = this.AddItem(Extern.Stat_TextAlignHCenter(stat), Extern.Stat_TextAlignVCenter(stat));
 
-
-
-
-
-
         return true;
     }
-
-
-
 
     public virtual TextAlign LeftUp { get; set; }
     public virtual TextAlign LeftDown { get; set; }
@@ -101,58 +48,27 @@ public class TextAlignList : Any
     public virtual TextAlign CenterDown { get; set; }
     public virtual TextAlign CenterCenter { get; set; }
 
-
-
-
     protected virtual TextAlign AddItem(ulong horzAlign, ulong vertAlign)
     {
         TextAlign item;
-
         item = new TextAlign();
-
         item.Init();
-
         item.Index = this.Index;
-
         item.Intern = horzAlign | vertAlign;
-
-
-
-        this.Array.Set(this.Index, item);
-
-
+        this.Array.Set(item.Index, item);
         this.Index = this.Index + 1;
-
-
-
         return item;
     }
-
-
-
 
     protected virtual bool InitArray()
     {
         this.Array = new Array();
-
-
         this.Array.Count = this.ArrayCount;
-
-
         this.Array.Init();
-
-
-
         return true;
     }
 
-
-
-
-
     protected virtual Array Array { get; set; }
-
-
 
     protected virtual int ArrayCount
     { 
@@ -165,22 +81,12 @@ public class TextAlignList : Any
         }
     }
 
-
-
-
     public virtual int Count { get; set; }
-
-
-
 
     public virtual TextAlign Get(int index)
     {
         return (TextAlign)this.Array.Get(index);
     }
-
-
-
     
     protected virtual int Index { get; set; }
-
 }
