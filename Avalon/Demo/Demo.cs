@@ -668,292 +668,122 @@ class Demo : Any
         return o;
     }
 
-
-
     private bool ExecuteStorageArrange()
     {
         StorageArrange arrange;
-
-
         arrange = new StorageArrange();
-
-
         arrange.Init();
 
-
-
-
         string path;
-
         path = "Data/DemoCopy.txt";
-
-
-
         string destPath;
-
         destPath = "Data/DemoCopy_Copy.txt";
-
-
-
-
         File.Delete(destPath);
 
-
-
-
-
         bool b;
-
-
         b = arrange.Copy(path, destPath);
-
-
-
         string k;
-
-
         k = "Success";
-
-
         if (!b)
         {
             k = "Error";
         }
-
-
 
         this.Console.Write("Copy " + path + " " + k + "\n");
 
-
-
-
-
-        string pathA;
-        
+        string pathA;        
         pathA = "Data/DemoRename.txt";
-
-
         string destPathA;
-
         destPathA = "Data/Rename/Demo_a.txt";
-
-
-
-
         Directory.CreateDirectory("Data/Rename");
-
-
-
         File.Delete(destPathA);
 
-
-
-
-
         b = arrange.Rename(pathA, destPathA);
-
-
-
-
         k = "Success";
-
-
         if (!b)
         {
             k = "Error";
         }
-
-
-
         this.Console.Write("Rename " + pathA + " " + k + "\n");
-
-
-
-
 
         File.Move(destPathA, pathA);
 
-
-
-
         arrange.Final();
-
-
-
         return true;
     }
-
-
-
-
 
     private DrawImage ThreadDrawImageCreate()
     {
         DrawImage a;
-
-
         a = this.DrawInfra.ImageCreateSize(this.DrawInfra.SizeCreate(250, 200));
-
-
         return a;
     }
-
-
-
 
     private bool ThreadDrawImageFinal(DrawImage a)
     {
         a.Final();
-
-
-
         return true;
     }
-
-
-
-
-
 
     private bool ExecuteDemoThread()
     {
         this.ExecuteDemoCurrentThread();
 
-
-
         ThreadSemaphore semaphore;
-
         semaphore = new ThreadSemaphore();
-
         semaphore.InitCount = 1;
-
         semaphore.Init();
-
-
         semaphore.Acquire();
-
-
 
         ThreadState state;
-
         state = new ThreadState();
-
         state.Init();
-
         state.Demo = this;
-
         state.Image = this.ThreadDrawImage;
-
         state.Semaphore = semaphore;
 
-
-
-
         ThreadThread thread;
-
         thread = new ThreadThread();
-
         thread.Init();
-
-
-
         thread.ExecuteState = state;
-
-
-
         thread.Execute();
 
-
-
-
         semaphore.Acquire();
-
-
 
         this.Console.Write("Demo.ExecuteDemoThread semaphore Acquire Success\n");
 
-
-
-
         thread.Wait();
 
-
-
-
         int aa;
-
         aa = thread.Status;
-
-
-
         this.Console.Write("Demo.ExecuteDemoThread Thread Status: 0h" + aa.ToString("x8") + "\n");
-
-
-
 
         thread.Final();
 
-
-
         semaphore.Final();
-
-
-
-
         return true;
     }
-
-
-
-
 
     internal bool ExecuteDemoCurrentThread()
     {
         ThreadCurrent current;
-
         current = new ThreadCurrent();
-
         current.Init();
 
-
-
-
         ThreadThread thread;
-
         thread = current.Thread;
 
-
-
         bool isMainThread;
-
         isMainThread = thread.MainThread;
 
-
-
-
         this.Console.Write("Current Thread is Main Thread: " + isMainThread.ToString() + "\n");
-
-
-
-
         return true;
     }
-
-
-
-
-
 
     private bool ExecuteDemoInterval()
     {
         this.ExecuteInterval(false, 4, 340, 0x4efd);
-
-
         this.ExecuteInterval(true, 0, 610, 0xf06e);
-
-
-
-
         return true;
     }
 
