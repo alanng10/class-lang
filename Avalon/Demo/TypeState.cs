@@ -1,254 +1,113 @@
 namespace Demo;
 
-
-
-
 class TypeState : State
 {
     public override bool Init()
     {
         base.Init();
-
-
-
         this.ViewInfra = ViewInfra.This;
-
-
-
         return true;
     }
 
-
-
-
     public Demo Demo { get; set; }
-
-
     public ViewInfra ViewInfra { get; set; }
-
-
-
     public int TitleIndex { get; set; }
-
-
-
 
     public override bool Execute()
     {
         ChangeArg aa;
-
         aa = (ChangeArg)this.Arg;
-
-
-
         bool o;
-
         o = aa.Field;
 
-
-
-
-
         ButtonList d;
-
         d = this.Demo.Frame.Type.Button;
 
-
-
-
         Button a;
-
         a = aa.Button;
-
-
-
 
         if (a == d.LetterB & o)
         {
             this.Demo.Frame.Close();
         }
 
-
-
         bool b;
-
         b = false;
     
-
-
         if (a == d.LetterI & o)
         {
             int k;
-
-
             k = this.Demo.ViewA.Pos.Up;
-
-
             k = k - 10;
-
-
             this.Demo.ViewA.Pos.Up = k;
-
-
             b = true;
         }
-
-
         if (a == d.LetterK & o)
         {
             int k;
-
-
             k = this.Demo.ViewA.Pos.Up;
-
-
             k = k + 10;
-
-
             this.Demo.ViewA.Pos.Up = k;
-
-
             b = true;
         }
-
-
-
-
         if (a == d.LetterJ & o)
         {
             int k;
-
-
             k = this.Demo.ViewA.Pos.Left;
-
-
             k = k - 10;
-
-
             this.Demo.ViewA.Pos.Left = k;
-
-
             b = true;
         }
-
-
         if (a == d.LetterL & o)
         {
             int k;
-
-
             k = this.Demo.ViewA.Pos.Left;
-
-
             k = k + 10;
-
-
             this.Demo.ViewA.Pos.Left = k;
-
-
             b = true;
         }
-
-
-
 
         if (a == d.LetterU & o)
         {
             bool bo;
-
-
             bo = this.Demo.ViewA.Visible;
-
-
             bo = !bo;
-
-
             this.Demo.ViewA.Visible = bo;
-
-
-
             b = true;
         }
-
-
-
 
         if (a == d.LetterF & o)
         {
             int k;
-
-
             k = this.Demo.ViewA.RotateValue;
-
-
             k = k + 1;
-
-
             this.Demo.ViewA.RotateValue = k;
-
-
             b = true;
         }
 
-
-
-
-
         bool ba;
-
         ba = false;
-
-
-
         if (a == d.LetterW & o)
         {
             int k;
-
-
             k = this.Demo.ViewC.Pos.Up;
-
-
             k = k - 10;
-
-
             this.Demo.ViewC.Pos.Up = k;
-
-
             ba = true;
         }
-
-
         if (a == d.LetterS & o)
         {
             int k;
-
-
             k = this.Demo.ViewC.Pos.Up;
-
-
             k = k + 10;
-
-
             this.Demo.ViewC.Pos.Up = k;
-
-
             ba = true;
         }
-
-
-
-
         if (a == d.LetterA & o)
         {
             int k;
-
-
             k = this.Demo.ViewC.Pos.Left;
-
-
             k = k - 10;
-
-
             this.Demo.ViewC.Pos.Left = k;
 
 
