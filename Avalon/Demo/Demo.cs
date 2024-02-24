@@ -254,62 +254,27 @@ class Demo : Any
     private DrawImage ImageCreate()
     {
         DrawImage image;
-
         image = this.DrawInfra.ImageCreatePath("Data/image.jpg");
-
-
-
         return image;
     }
-
-
-
 
     private bool ImageFinal(DrawImage image)
     {
         image.Final();
-
-
         return true;
     }
-
-
-
-
 
     private bool ExecuteConsole()
     {
         this.Console.Write("Console 水中\n");
-
-
-
-
         this.Console.Write("Input a: ");
-
-
         string a;
-
         a = this.Console.Read();
-
-
         this.Console.Write("a: " + a + "\n");
-
-
-
-
         this.Console.Write("Input aa: ");
-
-
         string aa;
-
         aa = this.Console.Read();
-
-
         this.Console.Write("aa: " + aa + "\n");
-
-
-
-
         return true;
     }
 
