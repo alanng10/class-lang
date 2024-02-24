@@ -201,6 +201,10 @@ Int Format_ArgValueCountSInt(Int o, Int arg)
         {
             hasSign = true;
         }
+        if ((!(oa == 0)) & (sign == 2))
+        {
+            hasSign = true;
+        }
     }
 
     if (b)
@@ -664,6 +668,10 @@ Int Format_ArgResultSInt(Int o, Int arg, Int result)
     if (!b)
     {
         if (sign == 1)
+        {
+            hasSign = true;
+        }
+        if ((!(oa == 0)) & (sign == 2))
         {
             hasSign = true;
         }
