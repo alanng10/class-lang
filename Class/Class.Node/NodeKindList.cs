@@ -1,61 +1,25 @@
 namespace Class.Node;
 
-
-
-
-
 public class NodeKindList : Any
 {
     public static NodeKindList This { get; } = ShareCreate();
 
-
-
-
     private static NodeKindList ShareCreate()
     {
         NodeKindList share;
-
-
         share = new NodeKindList();
-
-
-
         Any a;
-
-
         a = share;
-
-
         a.Init();
-
-
-
         return share;
     }
-
-
-
-
-
 
     public override bool Init()
     {
         base.Init();
-
-
-
         this.InitArray();
-
-
-
         this.Count = this.Array.Count;
-
-
-
         this.Index = 0;
-
-
-
 
         this.Class = this.AddItem("Class", new Class(), new ClassNewState(), new ClassNodeState(), new ClassCreateOperateState());
         this.Part = this.AddItem("Part", new Part(), new PartNewState(), new PartNodeState(), new PartCreateOperateState());
@@ -123,16 +87,8 @@ public class NodeKindList : Any
         this.BitRightOperate = this.AddItem("BitRightOperate", new BitRightOperate(), new BitRightOperateNewState(), new BitRightOperateNodeState(), new BitRightOperateCreateOperateState());
         this.BitSignRightOperate = this.AddItem("BitSignRightOperate", new BitSignRightOperate(), new BitSignRightOperateNewState(), new BitSignRightOperateNodeState(), new BitSignRightOperateCreateOperateState());
 
-
-
-
-
-
         return true;
     }
-
-
-
 
     public virtual NodeKind Class { get; set; }
     public virtual NodeKind Part { get; set; }
@@ -200,80 +156,36 @@ public class NodeKindList : Any
     public virtual NodeKind BitRightOperate { get; set; }
     public virtual NodeKind BitSignRightOperate { get; set; }
 
-
-
-
     protected virtual NodeKind AddItem(string name, Node node, InfraState newState, NodeState nodeState, CreateOperateState createOperateState)
     {
         node.Init();
-
-
         newState.Init();
-
-
         nodeState.Init();
-
-
         createOperateState.Init();
 
-
-
         NodeKind item;
-
         item = new NodeKind();
-
         item.Init();
-
         item.Index = this.Index;
-
         item.Name = name;
-
         item.Node = node;
-
         item.NewState = newState;
-
         item.NodeState = nodeState;
-
         item.CreateOperateState = createOperateState;
-
-
-
         this.Array.Set(item.Index, item);
-
-
-
         this.Index = this.Index + 1;
-
-
-
         return item;
     }
-
-
-
 
     protected virtual bool InitArray()
     {
         this.Array = new Array();
-
-
         this.Array.Count = this.ArrayCount;
-
-
         this.Array.Init();
-
-
-
         return true;
     }
 
-
-
-
-
     protected virtual Array Array { get; set; }
-
-
 
     protected virtual int ArrayCount
     { 
@@ -286,22 +198,12 @@ public class NodeKindList : Any
         }
     }
 
-
-
-
     public virtual int Count { get; set; }
-
-
-
 
     public virtual NodeKind Get(int index)
     {
         return (NodeKind)this.Array.Get(index);
     }
-
-
-
     
     protected virtual int Index { get; set; }
-
 }
