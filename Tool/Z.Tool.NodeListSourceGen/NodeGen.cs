@@ -126,91 +126,26 @@ public class NodeGen : Any
         return true;
     }
 
-
-
-
-
     protected virtual string GetFieldListString(Array fieldList)
     {
         StringBuilder sb;
-
         sb = new StringBuilder();
 
-
-
-
         int count;
-
         count = fieldList.Count;
-
-
-
-        bool b;
-
-
-        b = (count == 0);
-
-
-        if (b)
-        {
-            return sb.ToString();
-        }
-
-
-
         Field field;
-
-        field = (Field)fieldList.Get(0);
-
-
-
-        this.AppendField(sb, field);
-
-
-
-        count = count - 1;
-
-
-
         int i;
-
         i = 0;
-
-
         while (i < count)
         {
-            sb
-                .Append(this.ToolInfra.NewLine)
-                .Append(this.ToolInfra.NewLine)
-                ;
-
-
-
-            field = (Field)fieldList.Get(i + 1);
-
-
-
+            field = (Field)fieldList.Get(i);
             this.AppendField(sb, field);
-
-
-
             i = i + 1;
         }
-
-
-
-
         string k;
-
         k = sb.ToString();
-
-
-
         return k;
     }
-
-
-
 
     protected virtual bool AppendField(StringBuilder sb, Field field)
     {
