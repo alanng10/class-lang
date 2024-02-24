@@ -501,72 +501,29 @@ class Demo : Any
         return true;
     }
 
-
-
-
     private bool ExecuteTime()
     {
         Time time;
-
         time = new Time();
-
         time.Init();
-
-
-
-
+        
         this.ConsoleWriteTime("Demo.ExecuteTime time init ", time);
-
-
-
-
+        
         time.Current();
-
-
-
         this.ConsoleWriteTime("Demo.ExecuteTime time current ", time);
 
-
-
-
         time.ToOffsetUtc(2 * 60 * 60);
-
-
-
         this.ConsoleWriteTime("Demo.ExecuteTime time ToOffsetUtc ", time);
 
-
-
-
         time.AddMillisecond(200 * 1000);
-
-
-
         this.ConsoleWriteTime("Demo.ExecuteTime time AddMillisecond ", time);
 
-
-
-
         time.ToLocalTime();
-
-
-
         this.ConsoleWriteTime("Demo.ExecuteTime time ToLocalTime ", time);
 
-
-
-
-
         time.Final();
-
-
-
-
         return true;
     }
-
-
-
 
     private bool ConsoleWriteTime(string prefix, Time time)
     {
@@ -581,8 +538,6 @@ class Demo : Any
         "offsetUtc: " + time.OffsetUtc + ", " +
         "localTime: " + time.LocalTime.ToString().ToLower() +
         "\n");
-
-
         return true;
     }
 
