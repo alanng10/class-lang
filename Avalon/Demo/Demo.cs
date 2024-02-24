@@ -1050,167 +1050,77 @@ class Demo : Any
         return true;
     }
 
-
-
-
-
-
     private AudioEffect AudioEffectCreate()
     {
         AudioEffect a;
-
         a = new AudioEffect();
-
         a.Source = "file:Data/DemoSound.wav";
-
         a.Init();
-
-
         return a;
     }
-
-
-
 
     private bool AudioEffectFinal(AudioEffect a)
     {
         a.Final();
-
-
         return true;
     }
-
-
-
 
     private Play PlayCreate()
     {
         VideoFrame videoFrame;
-
         videoFrame = new VideoFrame();
-
         videoFrame.Init();
-
-
-
-
         VideoFrameState frameState;
-
         frameState = new VideoFrameState();
-
         frameState.Init();
-
         frameState.Demo = this;
 
-
-
-
         VideoOut videoOut;
-
         videoOut = new VideoOut();
-
         videoOut.Init();
-
         videoOut.Frame = videoFrame;
-
         videoOut.FrameState = frameState;
 
-
-
-        long scaleFactor;
-        
+        long scaleFactor;        
         scaleFactor = 1 << 20;
 
-
         long volume;
-
         volume = scaleFactor / 8;
 
-    
-        
         AudioOut audioOut;
-
         audioOut = new AudioOut();
-
         audioOut.Init();
-
         audioOut.Volume = volume;
 
-
-
         Play a;
-
         a = new Play();
-
         a.Init();
-
-
         a.Source = "file:Data/Video.mp4";
-
-
         a.SetSource();
-
-
         a.VideoOut = videoOut;
-
-
         a.AudioOut = audioOut;
-
-
         a.SetVideoOut();
-
-
         a.SetAudioOut();
-
-
-
         return a;
     }
-
-
-
 
     private bool PlayFinal(Play a)
     {
         VideoOut videoOut;
-
-
         videoOut = a.VideoOut;
-
-
-
         VideoFrame videoFrame;
-
         videoFrame = videoOut.Frame;
 
-
-
-
         AudioOut audioOut;
-
-
         audioOut = a.AudioOut;
-
-
-
 
         a.Final();
 
-
-
-
         audioOut.Final();
-
-
 
         videoOut.Final();
 
-
-
         videoFrame.Final();
-
-
-
         return true;
     }
 
