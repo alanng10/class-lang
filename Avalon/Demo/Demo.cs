@@ -1005,93 +1005,48 @@ class Demo : Any
         return true;
     }
 
-
-
-
     private bool GradientStopSetPoint(DrawGradientStop stop, DrawGradientStopPoint aa, int index, long pos, DrawColor color)
     {
         aa.Pos = pos;
-
         aa.Color = color;
-
-
         stop.SetPoint(index, aa);
-
-
         return true;
     }
-
-
 
     private DrawPen TextPenCreate()
     {
         DrawBrush aa;
-
         aa = new DrawBrush();
-
         aa.Kind = this.BrushKindList.Solid;
-
         aa.Color = this.DrawInfra.ColorCreate(0xff, 0, 0, 0xff);
-
         aa.Init();
 
-
-
         DrawPenKindList penKindList;
-
         penKindList = DrawPenKindList.This;
-
-
         DrawPenCapList penCapList;
-
         penCapList = DrawPenCapList.This;
-
-
         DrawPenJoinList penJoinList;
-
         penJoinList = DrawPenJoinList.This;
 
-
-
         DrawPen a;
-
         a = new DrawPen();
-
         a.Kind = penKindList.DashDotDot;
-
         a.Width = 14;
-
         a.Brush = aa;
-
         a.Cap = penCapList.Round;
-
         a.Join = penJoinList.Bevel;
-
-
         a.Init();
-
-
-
         return a;
     }
-
-
 
     private bool TextPenFinal(DrawPen a)
     {
         DrawBrush aa;
-
         aa = a.Brush;
-
-
 
         a.Final();
 
-
         aa.Final();
-
-
-
         return true;
     }
 
