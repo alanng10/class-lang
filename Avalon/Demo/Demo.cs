@@ -787,242 +787,108 @@ class Demo : Any
         return true;
     }
 
-
-
-
-
-
     private bool ExecuteInterval(bool singleshot, int elapseCount, long time, int exitCode)
     {
         ThreadThread thread;
-
-
         thread = new ThreadThread();
-
-
         thread.Init();
 
-
-
-
         ThreadIntervalState state;
-
         state = new ThreadIntervalState();
-
         state.Init();
-
         state.SingleShot = singleshot;
-
         state.ElapseCount = elapseCount;
-
         state.Time = time;
-
         state.ExitCode = exitCode;
-
-
-
 
         thread.ExecuteState = state;
 
-
-
-
         thread.Execute();
-
-
-
 
         thread.Wait();
 
-
-
         int o;
-
         o = thread.Status;
-
-
 
         thread.Final();
 
-
-
-
         this.Console.Write("Demo.ExecuteInterval Thread Status: 0h" + o.ToString("x8") + "\n");
-
-
-
         return true;
     }
-
-
-
-
-
 
     private bool ExecutePost()
     {
         PostState postState;
-
         postState = new PostState();
-
         postState.Init();
 
-
-
-
         ThreadSemaphore semaphore;
-
         semaphore = new ThreadSemaphore();
-
         semaphore.Init();
 
-
-
-
         ThreadPostState state;
-
         state = new ThreadPostState();
-
         state.Init();
-
-
         state.PostState = postState;
-
         state.Semaphore = semaphore;
 
-
-
-
         ThreadThread thread;
-
-
         thread = new ThreadThread();
-
-
         thread.Init();
-
-
-
-
         thread.ExecuteState = state;
-
-
-
-
         thread.Execute();
-
-
-
 
         semaphore.Acquire();
 
-
-
-
         state.Post.Execute();
-
-
-
 
         thread.Wait();
 
-
-
-
         int o;
-
         o = thread.Status;
-
-
-
 
         thread.Final();
 
-
-
-
         semaphore.Final();
 
-
-
-
-
         this.Console.Write("Demo.ExecuteDemoPost Thread Status: 0h" + o.ToString("x8") + "\n");
-
-
-
-
         return true;
     }
-
-
-
 
     private DrawBrush EllipseBrushCreate()
     {
         DrawBrush a;
-
         a = new DrawBrush();
-
         a.Kind = this.BrushKindList.DiagCross;
-
         a.Color = this.DrawInfra.ColorCreate(0xff, 0, 0xff, 0);
-
         a.Init();
-
-
-
         return a;
     }
-
-
 
     private bool EllipseBrushFinal(DrawBrush a)
     {
         a.Final();
-
-
         return true;
     }
-
-
-
 
     private DrawFont FontCreate()
     {
         DrawFont a;
-
         a = new DrawFont();
-
         a.Family = "Source Code Pro";
-
         a.Size = 20;
-
         a.Weight = 400;
-
         a.Italic = true;
-
         a.Underline = true;
-
         a.Overline = true;
-
         a.Strikeout = true;
-
-
         a.Init();
-
-
         return a;
     }
-
-
-
 
     private bool FontFinal(DrawFont a)
     {
         a.Final();
-
-
         return true;
     }
 
