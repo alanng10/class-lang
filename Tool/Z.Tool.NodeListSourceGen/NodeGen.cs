@@ -113,7 +113,7 @@ public class NodeGen : Any
 
         string outputFilePath;
 
-        outputFilePath = "../../Class/Class.Node/" + varClass.Name + ".cs";
+        outputFilePath = "../../Class/Class.Node/Z_Node_" + varClass.Name + ".cs";
 
 
 
