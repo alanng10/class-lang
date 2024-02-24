@@ -1124,30 +1124,17 @@ class Demo : Any
         return true;
     }
 
-
-
-
     private DrawImage PlayImageCreate()
     {
         DrawImage a;
-
         a = new DrawImage();
-
         a.Init();
-
-
         return a;
     }
-
-
-
 
     private bool PlayImageFinal(DrawImage a)
     {
         a.Final();
-
-
-
         return true;
     }
 }
