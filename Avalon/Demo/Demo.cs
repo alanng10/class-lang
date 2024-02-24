@@ -432,6 +432,20 @@ class Demo : Any
         argDA.Sign = 1;
         argDA.Set();
 
+        TextFormatArg argDB;
+        argDB = new TextFormatArg();
+        argDB.Init();
+        argDB.Pos = 8;
+        argDB.Kind = 2;
+        argDB.ValueInt = 0;
+        argDB.AlignLeft = false;
+        argDB.FieldWidth = 3;
+        argDB.MaxWidth = -1;
+        argDB.Base = 10;
+        argDB.Sign = 2;
+        argDB.FillChar = ':';
+        argDB.Set();
+
         TextFormatArg argE;
         argE = new TextFormatArg();
         argE.Init();
@@ -459,15 +473,16 @@ class Demo : Any
 
         TextFormatArgList argList;
         argList = new TextFormatArgList();
-        argList.Count = 7;
+        argList.Count = 8;
         argList.Init();
         argList.SetItem(0, argA);
         argList.SetItem(1, argB);
         argList.SetItem(2, argC);
         argList.SetItem(3, argD);
         argList.SetItem(4, argDA);
-        argList.SetItem(5, argE);
-        argList.SetItem(6, argF);
+        argList.SetItem(5, argDB);
+        argList.SetItem(6, argE);
+        argList.SetItem(7, argF);
 
         TextSpan varBase;
         varBase = this.TextInfra.SpanCreateString("G H , j h\n\n");
@@ -493,6 +508,7 @@ class Demo : Any
         argList.Final();
         argF.Final();
         argE.Final();
+        argDB.Final();
         argDA.Final();
         argD.Final();
         argC.Final();
