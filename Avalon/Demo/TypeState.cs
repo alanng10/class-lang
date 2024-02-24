@@ -113,165 +113,84 @@ class TypeState : State
 
             ba = true;
         }
-
-
         if (a == d.LetterD & o)
         {
             int k;
-
-
             k = this.Demo.ViewC.Pos.Left;
-
-
             k = k + 10;
-
-
             this.Demo.ViewC.Pos.Left = k;
-
-
             ba = true;
         }
-
-
-
-
 
         if (a == d.LetterH & o)
         {
             bool baa;
-
-
             baa = this.Demo.Play.AudioOut.Muted;
-            
-
             baa = !baa;
-            
-
             this.Demo.Play.AudioOut.Muted = baa;
         }
 
-
-
-
-
         long scaleFactor;
-
         scaleFactor = 1 << 20;
-
-
 
         if (a == d.LetterC & o)
         {
             long k;
-
             k = this.Demo.Play.AudioOut.Volume;
-
-
             long ao;
-            
             ao = scaleFactor / 16;
-
-
-
             k = k + ao;
-
-
-
             this.Demo.Play.AudioOut.Volume = k;
         }
-
-
 
         if (a == d.LetterV & o)
         {
             long k;
-
             k = this.Demo.Play.AudioOut.Volume;
-
-
             long ao;
-
             ao = scaleFactor / 16;
-
-
-
             k = k - ao;
-
-
             if (k < 0)
             {
                 k = 0;
             }
-
-
-
             this.Demo.Play.AudioOut.Volume = k;
         }
-
-
-
 
         if (a == d.LetterE & o)
         {
             this.Demo.Play.Execute();
         }
 
-
-
         if (a == d.LetterR & o)
         {
             this.Demo.Play.Pause();
         }
 
-
-
-
-
         if (a == d.LetterN & o)
         {
             string frameTitle;
-
             frameTitle = "Avalon Demo " + this.TitleIndex.ToString("x4");
 
-
-
             this.Demo.Frame.Title = frameTitle;
-
-
             this.Demo.Frame.SetTitle();
-
-
 
             this.TitleIndex = this.TitleIndex + 1;
         }
-
-
-
-
 
         if (b)
         {
             this.ViewInfra.AssignDrawRectValue(this.Demo.UpdateRect, this.Demo.ViewA.Area);
 
-
-
             this.Demo.Frame.Update(this.Demo.UpdateRect);
         }
-
-
 
         if (ba)
         {
             this.ViewInfra.AssignDrawRectValue(this.Demo.UpdateRect, this.Demo.ViewC.Area);
 
-
-
             this.Demo.Frame.Update(this.Demo.UpdateRect);
         }
-
-
-
-
         return true;
     }
 }
