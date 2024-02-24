@@ -620,112 +620,51 @@ class Demo : Any
         return true;
     }
 
-
-
-
-
-
     private bool WriteStringPos(string filePath, string text, long pos)
     {
         byte[] d;
-
-
         d = Encoding.UTF8.GetBytes(text);
 
-
-
         Data data;
-
         data = new Data();
-
         data.Init();
-
-
         data.Value = d;
-
-
-
         DataRange range;
-
         range = new DataRange();
-
         range.Init();
-
         range.Start = 0;
-
         range.End = data.Count;
 
-
-
-
         Storage storage;
-
         storage = new Storage();
-
         storage.Init();
-
-
         StorageMode mode;
-
         mode = new StorageMode();
-
         mode.Init();
-
         mode.Read = true;
-
         mode.Write = true;
-
-
-
-
         storage.Path = filePath;
-
         storage.Mode = mode;
-
-
         storage.Open();
 
-
-
         bool o;
-
         o = false;
-
-
         if (storage.Status == 0)
         {
             Stream stream;
-
             stream = storage.Stream;
-
-
-
             stream.SetPos(pos);
-
-
-
             if (stream.Status == 0)
             {
                 stream.Write(data, range);
-
-
-
                 if (stream.Status == 0)
                 {
                     o = true;
                 }
             }
         }
-
-
-
         storage.Close();
-
-
         storage.Final();
-
-
-
         return o;
     }
 
