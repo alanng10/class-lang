@@ -278,221 +278,92 @@ class Demo : Any
         return true;
     }
 
-
-
-
-
-
     private bool ExecuteMath()
     {
         MathCompose compose;
-
         compose = new MathCompose();
-
         compose.Init();
-
-
         this.MathCompose = compose;
 
-
-
         MathCompose ca;
-
         ca = new MathCompose();
-
         ca.Init();
 
-
-
-
         long aaaa;
-
         aaaa = this.Math.GetValueTen(3, 2);
-
-
         this.ConsoleWriteMathValue("Demo.ExecuteMath GetValueTen: ", aaaa);
 
-
-
-
         long aaab;
-
         aaab = this.Math.GetValueTen(5, -1);
-
-
         this.ConsoleWriteMathValue("Demo.ExecuteMath GetValueTen 2: ", aaab);
 
-
-
-
-
         long aa;
-
         aa = this.Math.Sin(0);
-
-
-
         this.ConsoleWriteMathValue("Demo.ExecuteMath Sin(0): ", aa);
 
-
-
-
         long aaa;
-
         aaa = this.Math.Cos(0);
-
-
-
         this.ConsoleWriteMathValue("Demo.ExecuteMath Cos(0): ", aaa);
 
-
-
-
-
         ca.Significand = 0x3243F6A8885;
-
         ca.Exponent = -40;
 
-
-
-
-
         long pi;
-
         pi = this.Math.GetValue(ca);
-
-
         this.ConsoleWriteMathValue("Demo.ExecuteMath pi: ", pi);
 
-
-
         long ab;
-
         ab = this.Math.Sin(pi);
-
-
-
         this.ConsoleWriteMathValue("Demo.ExecuteMath Sin(pi): ", ab);
-
-
-
 
         ca.Exponent = -41;
 
-
-
         long piHalf;
-
         piHalf = this.Math.GetValue(ca);
-
-
-
-
         this.ConsoleWriteMathValue("Demo.ExecuteMath piHalf: ", piHalf);
 
-
-
-
         long ac;
-
         ac = this.Math.Sin(piHalf);
-
-
         this.ConsoleWriteMathValue("Demo.ExecuteMath Sin(piHalf): ", ac);
 
-
-
-
         long ad;
-
         ad = this.Math.Tan(0);
-
-
         this.ConsoleWriteMathValue("Demo.ExecuteMath Tan(0): ", ad);
-
-
-
 
         ca.Exponent = -42;
 
-
         long piQuarter;
-
         piQuarter = this.Math.GetValue(ca);
-
-
-
         this.ConsoleWriteMathValue("Demo.ExecuteMath piQuarter: ", piQuarter);
 
-
-
         long ae;
-
         ae = this.Math.Tan(piQuarter);
-
-
         this.ConsoleWriteMathValue("Demo.ExecuteMath Tan(piQuarter): ", ae);
 
-
-
-
-
-
         long af;
-
         af = this.Math.ASin(0);
-
-
         this.ConsoleWriteMathValue("Demo.ExecuteMath ASin(0): ", af);
 
-
-
-
-
         long one;
-
         one = 1;
-
-
-
         long ag;
-
         ag = this.Math.ASin(one);
-
-
         this.ConsoleWriteMathValue("Demo.ExecuteMath ASin(one): ", ag);
-        
-
-
-
         return true;
     }
 
-
-
     private MathCompose MathCompose { get; set; }
-
-
-
 
     private bool ConsoleWriteMathValue(string prefix, long value)
     {
         this.Math.GetCompose(this.MathCompose, value);
-
-
-
+        
         this.Console.Write(prefix +
         "Significand: " + this.MathCompose.Significand.ToString("x") + ", " +
         "Exponent: " + this.MathCompose.Exponent +
         "\n");
-
-
         return true;
     }
-
-
-
-
 
     private bool ExecuteFormat()
     {
