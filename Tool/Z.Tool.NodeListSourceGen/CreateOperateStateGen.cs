@@ -150,79 +150,23 @@ public class CreateOperateStateGen : Any
     protected virtual string GetFieldSetListString(Array fieldList)
     {
         StringBuilder sb;
-
         sb = new StringBuilder();
 
-
-
         int count;
-
         count = fieldList.Count;
-
-
-
-        if (count == 0)
-        {
-            return sb.ToString();
-        }
-
-
-
-
         Field field;
-
-        field = (Field)fieldList.Get(0);
-
-
-
-        this.AppendFieldSet(sb, field, 0);
-
-
-
-        count = count - 1;
-
-
-
         int i;
-
         i = 0;
-
-
         while (i < count)
         {
-            int index;
+            field = (Field)fieldList.Get(i);
 
-            index = i + 1;
-
-
-
-            sb
-                .Append(this.ToolInfra.NewLine)
-                .Append(this.ToolInfra.NewLine)
-                ;
-
-
-
-            field = (Field)fieldList.Get(index);
-
-
-
-            this.AppendFieldSet(sb, field, index);
-
-
+            this.AppendFieldSet(sb, field, i);
 
             i = i + 1;
         }
-
-
-
-
         string k;
-
         k = sb.ToString();
-
-
-
         return k;
     }
 
