@@ -892,249 +892,116 @@ class Demo : Any
         return true;
     }
 
-
-
-
     private ViewC ViewCCreate()
     {
         DrawGradientKindList gradientKindList;
-
         gradientKindList = DrawGradientKindList.This;
 
-
-
-
-
         DrawGradientLinear gradientLinear;
-
         gradientLinear = new DrawGradientLinear();
-
         gradientLinear.StartPos = this.DrawInfra.PosCreate(300, 0);
-        
         gradientLinear.EndPos = this.DrawInfra.PosCreate(300, 400);
-
         gradientLinear.Init();
 
-
-
         DrawGradientStop gradientStop;
-
         gradientStop = new DrawGradientStop();
-
         gradientStop.Count = 3;
-
         gradientStop.Init();
 
-
         DrawGradientStopPoint aa;
-
         aa = new DrawGradientStopPoint();
-
         aa.Init();
 
-
         long scaleFactor;
-
         scaleFactor = this.DrawInfra.ScaleFactor;
 
-
-
         this.GradientStopSetPoint(gradientStop, aa, 0, 0, this.DrawInfra.ColorCreate(0xff, 0xff, 0, 0));
-
-
         this.GradientStopSetPoint(gradientStop, aa, 1, scaleFactor / 2, this.DrawInfra.ColorCreate(0xff, 0, 0xff, 0));
-
-
         this.GradientStopSetPoint(gradientStop, aa, 2, scaleFactor, this.DrawInfra.ColorCreate(0xff, 0, 0, 0xff));
 
-
-
         DrawGradientSpreadList spreadList;
-
         spreadList = DrawGradientSpreadList.This;
 
-
-
         DrawGradient gradient;
-
         gradient = new DrawGradient();
-
         gradient.Kind = gradientKindList.Linear;
-
         gradient.Linear = gradientLinear;
-
         gradient.Stop = gradientStop;
-
         gradient.Spread = spreadList.Pad;
-
-
         gradient.Init();
 
-
-
-
         DrawBrush brush;
-
         brush = new DrawBrush();
-
         brush.Kind = this.BrushKindList.LinearGradient;
-
         brush.Gradient = gradient;
-
         brush.Init();
 
-
-
-
         DrawBrush ellipseBrush;
-
         ellipseBrush = this.EllipseBrushCreate();
 
-
-
-
         DrawFont font;
-
         font = this.FontCreate();
 
-
-
         DrawPen textPen;
-
         textPen = this.TextPenCreate();
 
-
-
-
         DrawTextAlignList textAlignList;
-
         textAlignList = DrawTextAlignList.This;
 
-
-
         string oa;
-
         oa = "G L 的哈gd@行 o #";
 
-
-
         TextSpan text;
-
         text = this.TextInfra.SpanCreateString(oa);
 
-
-
-
-
         ViewC viewC;
-
         viewC = new ViewC();
-
         viewC.Init();
-
         viewC.Pos.Left = -300;
-
         viewC.Pos.Up = 0;
-
         viewC.Size.Width = 500;
-
         viewC.Size.Height = 400;
-
         viewC.Back = brush;
-
         viewC.EllipseBrush = ellipseBrush;
-
         viewC.EllipseRect = this.DrawInfra.RectCreate(0, 0, 100, 50);
-
-
         viewC.Font = font;
-
         viewC.Text = text;
-
         viewC.TextAlign = textAlignList.CenterUp;
-
         viewC.TextPen = textPen;
-
-
-
-
         return viewC;
     }
-
-
 
     private bool ViewCFinal(ViewC a)
     {
         DrawPen textPen;
-
         textPen = a.TextPen;
-
-
         DrawBrush ellipseBrush;
-
         ellipseBrush = a.EllipseBrush;
-
-
         DrawBrush brush;
-
         brush = a.Back;
-
-
         DrawGradient gradient;
-
         gradient = brush.Gradient;
-
-
         DrawGradientStop gradientStop;
-
         gradientStop = gradient.Stop;
-
-
-
         DrawGradientLinear gradientLinear;
-
         gradientLinear = gradient.Linear;
 
-
-
-
         DrawFont font;
-
         font = a.Font;
-
-
-
 
         this.TextPenFinal(textPen);
 
-
-
         this.FontFinal(font);
-
-
 
         this.EllipseBrushFinal(ellipseBrush);
 
-
-
-
         brush.Final();
-
-
 
         gradient.Final();
 
-
-
         gradientStop.Final();
 
-
-
         gradientLinear.Final();
-
-
-
-
         return true;
     }
 
