@@ -3,12 +3,20 @@ namespace Class.Infra;
 
 
 
-public class Stack : List
+public class Stack : Array
 {
+    protected virtual int ItemCount { get; set; }
+
     public virtual bool Push(object item)
     {
-        this.Add(item);
+        if (!(this.ItemCount < this.Count))
+        {
+            return true;
+        }
 
+        this.Set(this.ItemCount, item);
+
+        this.ItemCount = this.ItemCount + 1;
 
         return true;
     }
@@ -16,39 +24,29 @@ public class Stack : List
 
     public virtual bool Pop()
     {
-        if (this.Count == 0)
+        if (this.ItemCount == 0)
         {
             return true;
         }
 
+        this.ItemCount = this.ItemCount - 1;
 
-
-        object index;
-
-        index = this.Last;
-
-
-        this.Remove(index);
-
-
+        this.Set(this.ItemCount, null);
 
         return true;
     }
     
-
-
-
     public virtual object Top
     {
         get
         {
-            if (this.Count == 0)
+            if (this.ItemCount == 0)
             {
                 return null;
             }
 
 
-            return this.Last.Value;
+            return this.Get(this.ItemCount - 1);
         }
         set
         {
