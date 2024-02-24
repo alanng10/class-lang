@@ -1,45 +1,20 @@
     protected virtual #ItemClassName# AddItem(string name, Node node, InfraState newState, NodeState nodeState, CreateOperateState createOperateState)
     {
         node.Init();
-
-
         newState.Init();
-
-
         nodeState.Init();
-
-
         createOperateState.Init();
 
-
-
         #ItemClassName# item;
-
         item = new #ItemClassName#();
-
         item.Init();
-
         item.Index = this.Index;
-
         item.Name = name;
-
         item.Node = node;
-
         item.NewState = newState;
-
         item.NodeState = nodeState;
-
         item.CreateOperateState = createOperateState;
-
-
-
         this.Array.Set(item.Index, item);
-
-
-
         this.Index = this.Index + 1;
-
-
-
         return item;
     }

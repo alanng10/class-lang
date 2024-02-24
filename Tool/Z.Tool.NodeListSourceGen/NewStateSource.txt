@@ -1,17 +1,10 @@
 namespace Class.Node;
 
-
-
-
-
 public class #NodeKind#NewState : InfraState
 {
     public override bool Execute()
     {
         this.Result = new #NodeKind#();
-
-
-
         return true;
     }
 }
