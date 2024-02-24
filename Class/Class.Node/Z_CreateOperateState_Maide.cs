@@ -1,19 +1,11 @@
 namespace Class.Node;
 
-
-
-
-
 public class MaideCreateOperateState : CreateOperateState
 {
     public override bool Execute()
     {
         Maide node;
-        
         node = (Maide)this.Node;
-
-
-
         node.Class = (ClassName)this.Arg.Field00;
 
 
@@ -27,9 +19,6 @@ public class MaideCreateOperateState : CreateOperateState
 
 
         node.Call = (State)this.Arg.Field04;
-
-
-
 
         return true;
     }

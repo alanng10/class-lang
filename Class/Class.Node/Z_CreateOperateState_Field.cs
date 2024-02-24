@@ -1,19 +1,11 @@
 namespace Class.Node;
 
-
-
-
-
 public class FieldCreateOperateState : CreateOperateState
 {
     public override bool Execute()
     {
         Field node;
-        
         node = (Field)this.Node;
-
-
-
         node.Class = (ClassName)this.Arg.Field00;
 
 
@@ -27,9 +19,6 @@ public class FieldCreateOperateState : CreateOperateState
 
 
         node.Set = (State)this.Arg.Field04;
-
-
-
 
         return true;
     }

@@ -1,10 +1,6 @@
 namespace Class.Node;
 
-
-
-
-
-public class Argue : Node
+public class State : Node
 {
     public virtual Array Value { get; set; }
 }

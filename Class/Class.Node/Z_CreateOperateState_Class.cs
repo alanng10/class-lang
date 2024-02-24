@@ -1,19 +1,11 @@
 namespace Class.Node;
 
-
-
-
-
 public class ClassCreateOperateState : CreateOperateState
 {
     public override bool Execute()
     {
         Class node;
-        
         node = (Class)this.Node;
-
-
-
         node.Name = (ClassName)this.Arg.Field00;
 
 
@@ -21,9 +13,6 @@ public class ClassCreateOperateState : CreateOperateState
 
 
         node.Member = (Part)this.Arg.Field02;
-
-
-
 
         return true;
     }
