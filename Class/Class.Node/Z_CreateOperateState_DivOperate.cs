@@ -7,8 +7,6 @@ public class DivOperateCreateOperateState : CreateOperateState
         DivOperate node;
         node = (DivOperate)this.Node;
         node.Left = (Operate)this.Arg.Field00;
-
-
         node.Right = (Operate)this.Arg.Field01;
 
         return true;

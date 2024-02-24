@@ -7,8 +7,6 @@ public class LessOperateCreateOperateState : CreateOperateState
         LessOperate node;
         node = (LessOperate)this.Node;
         node.Left = (Operate)this.Arg.Field00;
-
-
         node.Right = (Operate)this.Arg.Field01;
 
         return true;
