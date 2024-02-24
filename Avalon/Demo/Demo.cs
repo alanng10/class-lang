@@ -1,644 +1,255 @@
 namespace Demo;
 
-
-
-
 class Demo : Any
 {
     public Frame Frame { get; set; }
-
-
-
-
     public View View { get; set; }
-
-
-
     public ViewA ViewA { get; set; }
-
-
-
     public ViewC ViewC { get; set; }
-
-
-
     public DrawRect UpdateRect { get; set; }
-
-
-
     public DrawImage ThreadDrawImage { get; set; }
-
-
-
-
     public AudioEffect AudioEffect { get; set; }
-
-
-
     public Play Play { get; set; }
-
-
-
     public DrawImage PlayImage { get; set; }
-
-
-
     public Console Console { get; set; }
 
-
-
     private Math Math { get; set; }
-
-
-
     private DrawInfra DrawInfra { get; set; }
-
-
     private TextInfra TextInfra { get; set; }
-
-
-
     private DrawBrushKindList BrushKindList { get; set; }
-
-
-
 
     public bool Execute()
     {
         Main main;
-
         main = new Main();
-
-
         main.Init();
 
-
-
-
         this.TextInfra = TextInfra.This;
-
-
-
         this.BrushKindList = DrawBrushKindList.This;
-
-
         this.DrawInfra = DrawInfra.This;
-
-
-
         this.Console = Console.This;
 
-
-
-
         this.Math = new Math();
-
-
         this.Math.Init();
 
-
-
-
         this.ExecuteConsole();
-
-
-
         this.ExecuteMath();
-
-
-
         this.ExecuteFormat();
-
-
-
-
         this.ExecuteTime();
-
-
-
         this.ExecuteStorage();
-
-
-
         this.ExecuteStorageArrange();
-
-
-
-
-
 
         this.ThreadDrawImage = this.ThreadDrawImageCreate();
 
-
-
-
         this.ExecuteDemoThread();
-
-
-
-
         this.ExecuteDemoInterval();
-
-
-
-
         this.ExecutePost();
 
-
-
-
-
         this.Frame = new Frame();
-
         this.Frame.Init();
-
-
         this.Frame.Title = "Avalon Demo";
-
-
         this.Frame.SetTitle();
 
-
-
-
         this.UpdateRect = new DrawRect();
-
         this.UpdateRect.Init();
-
         this.UpdateRect.Pos = new DrawPos();
-
         this.UpdateRect.Pos.Init();
-
         this.UpdateRect.Size = new DrawSize();
-
         this.UpdateRect.Size.Init();
-
-
         this.UpdateRect.Size.Width = this.Frame.Size.Width;
-
         this.UpdateRect.Size.Height = this.Frame.Size.Height;
 
-
-
-
         Type type;
-
         type = Type.This;
-
-
-
         TypeState state;
-
         state = new TypeState();
-
         state.Init();
-
         state.Demo = this;
-
-
-
         type.Change.State.AddState(state);
-
-
-
-
         this.Frame.Type = type;
 
-
-
-
-
-
         DrawPenKindList penKindList;
-
         penKindList = DrawPenKindList.This;
-
-
         DrawPenCapList penCapList;
-
         penCapList = DrawPenCapList.This;
-
-
         DrawPenJoinList penJoinList;
-
         penJoinList = DrawPenJoinList.This;
 
-
-
-
-
-
-
         DrawBrush brush;
-
         brush = new DrawBrush();
-
         brush.Kind = this.BrushKindList.Dense5;
-
         brush.Color = this.DrawInfra.ColorCreate(0xff, 0, 0xff, 0);
-
         brush.Init();
-
-
-
-
         View view;
-
         view = new View();
-
         view.Init();
-
         view.Pos.Left = 100;
-
         view.Pos.Up = 100;
-
         view.Size.Width = 1600;
-
         view.Size.Height = 900;
-
         view.Back = brush;
 
-
-
         DrawBrush brushA;
-
         brushA = new DrawBrush();
-
         brushA.Kind = this.BrushKindList.DiagCross;
-
         brushA.Color = this.DrawInfra.ColorCreate(0xff, 0, 0, 0xff);
-
         brushA.Init();
 
-
-
-
         DrawBrush penBrush;
-
         penBrush = new DrawBrush();
-
         penBrush.Kind = this.BrushKindList.Dense1;
-
         penBrush.Color = this.DrawInfra.ColorCreate(0xff, 0xff, 0, 0xff);
-
         penBrush.Init();
 
-
-
-
         DrawPen penA;
-
         penA = new DrawPen();
-
         penA.Kind = penKindList.DashDotDot;
-
         penA.Width = 11;
-
         penA.Brush = penBrush;
-
         penA.Cap = penCapList.Round;
-
         penA.Join = penJoinList.Bevel;
-
-
         penA.Init();
 
-
-
-
         ViewC viewC;
-
         viewC = this.ViewCCreate();
 
-
-
-
         DrawTransform viewATransform;
-
         viewATransform = new DrawTransform();
-
         viewATransform.Init();
 
-
-
-
         ViewA viewA;
-
         viewA = new ViewA();
-
         viewA.Init();
-
         viewA.Pos.Left = 0;
-
         viewA.Pos.Up = 0;
-
         viewA.Size.Width = 600;
-
         viewA.Size.Height = 400;
-
         viewA.Back = brushA;
-
         viewA.DrawPen = penA;
-
         viewA.Transform = viewATransform;
-
-
         viewA.Demo = this;
 
-
-
-
-
         Grid grid;
-
         grid = new Grid();
-
         grid.Init();
-
-
-
         GridCol colA;
-
         colA = new GridCol();
-
         colA.Init();
-
         colA.Width = 600;
-
-
         GridCol colB;
-
         colB = new GridCol();
-
         colB.Init();
-
         colB.Width = 600;
-
-
         GridRow rowA;
-
         rowA = new GridRow();
-
         rowA.Init();
-
         rowA.Height = 600;
-
-
-
         GridChild childA;
-
         childA = new GridChild();
-
         childA.Init();
-
         childA.View = viewA;
-
         childA.Rect.Size.Width = 1;
-
         childA.Rect.Size.Height = 1;
-
-
-
         GridChild childB;
-
         childB = new GridChild();
-
         childB.Init();
-
         childB.View = viewC;
-
         childB.Rect.Pos.Col = 1;
-
         childB.Rect.Size.Width = 1;
-
         childB.Rect.Size.Height = 1;
 
-
-
-
         grid.Pos.Left = 50;
-
         grid.Pos.Up = 50;
-
         grid.Size.Width = 1500;
-
         grid.Size.Height = 800;
-
-
         grid.Dest.Pos.Left = 0;
-
         grid.Dest.Pos.Up = 0;
-
-
         grid.Dest.Size.Width = 1500;
-
         grid.Dest.Size.Height = 800;
-
-
-
         grid.Row.Add(rowA);
-
         grid.Col.Add(colA);
-
         grid.Col.Add(colB);
-
-
         grid.Child.Add(childA);
-
         grid.Child.Add(childB);
-
-
 
         view.Child = grid;
 
-
-
-
         DrawImage image;
-
-
         image = this.ImageCreate();
 
-
-
-
         DrawRect sourceRect;
-
         sourceRect = this.DrawInfra.RectCreate(1880, 910, 400, 200);
 
-
-
-
         DrawTransform transformA;
-
         transformA = new DrawTransform();
-
         transformA.Init();
 
-
-
-
-
         DrawRect destRectA;
-
         destRectA = this.DrawInfra.RectCreate(0, 0, 200, 200);
 
-
-
-
         DrawRect sourceRectA;
-
         sourceRectA = this.DrawInfra.RectCreate(0, 0, 200, 200);
 
-
-
-
         ViewB viewB;
-
         viewB = new ViewB();
-
         viewB.Init();
-
         viewB.Pos.Left = 60;
-
         viewB.Pos.Up = 40;
-
         viewB.Size.Width = sourceRect.Size.Width;
-
         viewB.Size.Height = sourceRect.Size.Height;
-
         viewB.DrawImage = image;
-
         viewB.SourceRect = sourceRect;
-
         viewB.Transform = transformA;
-
-
-
         viewB.ThreadDrawImage = this.ThreadDrawImage;
-
         viewB.DestRectA = destRectA;
-
         viewB.SourceRectA = sourceRectA;
-
-
-
-
 
         viewA.Child = viewB;
 
-
-
-
         this.PlayImage = this.PlayImageCreate();
-
-
-
 
         this.Play = this.PlayCreate();
 
-
-
-
         this.AudioEffect = this.AudioEffectCreate();
 
-
-
-
         this.ViewA = viewA;
-
-
         this.View = view;
-
-
         this.ViewC = viewC;
 
-
         this.Frame.View = this.View;
-
-
-
         this.Frame.Visible = true;
-
-
-
 
         main.Execute();
 
-
-
-
-
         this.AudioEffectFinal(this.AudioEffect);
-
-
-
 
         this.PlayFinal(this.Play);
 
-
-
-
         this.PlayImageFinal(this.PlayImage);
-
-
-
 
         transformA.Final();
 
-
-
-
         this.ImageFinal(image);
-
-
 
         viewATransform.Final();
 
-
-
         this.ViewCFinal(viewC);
-
-
 
         penA.Final();
 
-
-
         penBrush.Final();
-
-
 
         brushA.Final();
 
-
-
         brush.Final();
-
-
-
 
         this.Frame.Final();
 
-
-
-
         this.ThreadDrawImageFinal(this.ThreadDrawImage);
 
-
-
-
         main.Final();
-
-
-
-
         return true;
     }
-
-
-
-
 
     private DrawImage ImageCreate()
     {
