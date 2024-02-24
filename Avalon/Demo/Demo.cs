@@ -541,190 +541,82 @@ class Demo : Any
         return true;
     }
 
-
-
-
     private bool ExecuteStorage()
     {
         StorageInfra infra;
-
         infra = StorageInfra.This;
-
-
-
         string k;
-
         k = infra.ReadText("Data/Demo.txt");
-
-
-
         this.Console.Write("Demo.txt text: \n");
-
-
         this.Console.Write(k);
-
-
         this.Console.Write("\n");
 
-
-
-
-
         string ou;
-
         ou = "Demo2.txt";
-
-
         File.Delete(ou);
 
-
-
-
         bool b;
-
         b = false;
-
-
-
         bool ba;
-
-
         ba = infra.WriteText(ou, "DEMO STORAGE WRITE AAA BBB");
-
-
-
         if (!ba)
         {
             this.Console.Write("Write " + ou + " 1 Error\n");
-
-
             b = true;
         }
-
-
 
         if (ba)
         {
             bool bb;
-
-
             bb = infra.WriteText(ou, "DEMO STORAGE WRITE 2 AAA");
-
-
-
             if (!bb)
             {
                 this.Console.Write("Write " + ou + " 2 Error\n");
-
-
                 b = true;
             }
         }
-
-
-
 
         if (!b)
         {
             k = infra.ReadText(ou);
 
-
-
-
             this.Console.Write(ou + " text: \n");
-
-
             this.Console.Write(k);
-
-
             this.Console.Write("\n");
         }
 
-
-
-
-
-
-
         string oua;
-
         oua = "Demo3.txt";
-
-
-
         File.Delete(oua);
 
-
-
         bool bo;
-
         bo = false;
-
-
-
         bool baa;
-
-
         baa = infra.WriteText(oua, "DEMO STORAGE WRITE DEMO ABCD");
-
-
-
         if (!baa)
         {
             this.Console.Write("Write " + oua + " 1 Error\n");
-
-
             bo = true;
         }
-
-
-
         if (baa)
         {
             string ka;
-
             ka = "OUHU";
-
-
-
-
             bool bab;
-
             bab = this.WriteStringPos(oua, ka, 19);
-
-
-
             if (!bab)
             {
                 this.Console.Write("Write " + oua + " 2 Error\n");
-
-
                 bo = true;
             }
         }
-
-
-
-
         if (!bo)
         {
             k = infra.ReadText(oua);
-
-
-
-
             this.Console.Write(oua + " text: \n");
-
-
             this.Console.Write(k);
-
-
             this.Console.Write("\n");
         }
-
-
-
-
         return true;
     }
 
