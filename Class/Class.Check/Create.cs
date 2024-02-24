@@ -438,13 +438,13 @@ public class Create : InfraCreate
 
 
 
-        varClass.Mield = new Table();
+        varClass.Maide = new Table();
 
 
-        varClass.Mield.Compare = compareB;
+        varClass.Maide.Compare = compareB;
 
 
-        varClass.Mield.Init();
+        varClass.Maide.Init();
 
 
         
@@ -634,7 +634,7 @@ public class Create : InfraCreate
         method.Parent = this.SystemClass.Any;
 
 
-        method.Index = this.SystemClass.Any.Mield.Count;
+        method.Index = this.SystemClass.Any.Maide.Count;
 
 
 
@@ -658,7 +658,7 @@ public class Create : InfraCreate
 
 
 
-        this.SystemClass.Any.Mield.Add(entry);
+        this.SystemClass.Any.Maide.Add(entry);
 
 
 

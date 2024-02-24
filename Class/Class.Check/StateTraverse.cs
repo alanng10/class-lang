@@ -59,7 +59,7 @@ public class StateTraverse : Traverse
         c.Field = null;
 
 
-        c.Mield = null;
+        c.Maide = null;
 
 
         c.Module = null;
@@ -2763,7 +2763,7 @@ public class StateTraverse : Traverse
         Mield method;
 
 
-        method = (Mield)varClass.Mield.Get(name);
+        method = (Mield)varClass.Maide.Get(name);
 
 
 

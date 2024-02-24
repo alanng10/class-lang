@@ -89,15 +89,15 @@ class ClassTraverse : Traverse
 
 
 
-        varClass.Mield = new Table();
+        varClass.Maide = new Table();
 
-        varClass.Mield.Compare = new StringCompare();
+        varClass.Maide.Compare = new StringCompare();
 
-        varClass.Mield.Compare.Init();
+        varClass.Maide.Compare.Init();
 
 
 
-        varClass.Mield.Init();
+        varClass.Maide.Init();
 
 
 

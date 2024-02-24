@@ -476,7 +476,7 @@ class MemberTraverse : Traverse
 
 
 
-        method.Index = this.CurrentClass.Mield.Count;
+        method.Index = this.CurrentClass.Maide.Count;
         
 
 
@@ -500,7 +500,7 @@ class MemberTraverse : Traverse
 
 
 
-        this.CurrentClass.Mield.Add(oo);
+        this.CurrentClass.Maide.Add(oo);
 
 
 
@@ -690,7 +690,7 @@ class MemberTraverse : Traverse
 
         bool bb;
 
-        bb = this.CurrentClass.Mield.Contain(name);
+        bb = this.CurrentClass.Maide.Contain(name);
 
 
 
