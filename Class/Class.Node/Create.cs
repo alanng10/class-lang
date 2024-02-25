@@ -39,11 +39,6 @@ public class Create : InfraCreate
 
         this.TextSpan = this.CreateTextSpan();
 
-        this.Math = new Math();
-        this.Math.Init();
-        this.MathCompose = new MathCompose();
-        this.MathCompose.Init();
-
         this.InitListItemState();
 
         this.InitNodeState();
@@ -95,9 +90,6 @@ public class Create : InfraCreate
     protected virtual Token TokenH { get; set; }
 
     protected virtual TextSpan TextSpan { get; set; }
-
-    protected virtual Math Math { get; set; }
-    protected virtual MathCompose MathCompose { get; set; }
 
     public virtual int NodeIndex { get; set; }
     public virtual Data KindData { get; set; }
