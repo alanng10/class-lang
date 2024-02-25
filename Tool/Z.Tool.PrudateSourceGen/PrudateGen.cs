@@ -222,10 +222,6 @@ class PrudateGen : Any
         if (varClass.HasNew)
         {
             this.AppendClassNew(sb, varClass);
-
-
-
-            sb.Append(this.NewLine);
         }
 
         
@@ -304,10 +300,6 @@ class PrudateGen : Any
 
 
 
-            sb.Append(this.NewLine);
-
-
-
             i = i + 1;
         }
 
@@ -340,11 +332,6 @@ class PrudateGen : Any
 
 
             this.AppendMethod(sb, varClass, method);
-
-
-
-            sb.Append(this.NewLine);
-
 
 
             i = i + 1;
