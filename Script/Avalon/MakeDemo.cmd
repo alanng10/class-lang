@@ -5,4 +5,3 @@ echo:
 pushd Avalon\Demo
 dotnet build
 popd
-echo:

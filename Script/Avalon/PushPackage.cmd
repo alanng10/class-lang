@@ -7,4 +7,3 @@ echo:
 ..\nuget locals all -clear
 echo:
 ..\nuget push Avalon.1.0.0.nupkg
-echo:
