@@ -32,6 +32,9 @@ public class SetCreateOperate : CreateOperate
         state.Arg = o;
         state.Execute();
 
+        state.Node = null;
+        state.Arg = null;
+
         this.Create.NodeInfo(node, o.Start, o.End);
 
         index = index + 1;

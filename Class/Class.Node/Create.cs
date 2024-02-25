@@ -378,59 +378,27 @@ public class Create : InfraCreate
         while (i < count)
         {
             byte oo;
-
             oo = this.KindData.Value[i];
-
-
             int oa;
-
             oa = oo;
-
-
             NodeKind kind;
-
             kind = this.NodeKind.Get(oa);
 
-
-
             InfraState newState;
-
             newState = kind.NewState;
-
-
             newState.Execute();
 
-
-
             object o;
-
             o = newState.Result;
-
-
             newState.Result = null;
 
-
-
             Node node;
-
             node = (Node)o;
-
-
             node.Init();
-
-
-
-
             this.NodeArray.Set(i, node);
-
-
-
 
             i = i + 1;
         }
-
-
-
         return true;
     }
 
