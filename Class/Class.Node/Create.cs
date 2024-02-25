@@ -50,280 +50,91 @@ public class Create : InfraCreate
         return true;
     }
 
-
-
-
-
-
     public virtual Source Source { get; set; }
-
-
-
-
     public virtual Array CodeArray { get; set; }
-
-
-
-
     public virtual string Task { get; set; }
-
-
-
-
     public virtual Result Result { get; set; }
 
-
-
-
     protected virtual KeywordList Keyword { get; set; }
-
-
-
-
     protected virtual DelimitList Delimit { get; set; }
-
-
-
-
     protected virtual ErrorKindList ErrorKind { get; set; }
-
-
-
-
     protected virtual NodeKindList NodeKind { get; set; }
-
-
-
-
     protected virtual InfraInfra InfraInfra { get; set; }
-
     protected virtual ListInfra ListInfra { get; set; }
-
     protected virtual TextInfra TextInfra { get; set; }
-
     protected virtual StringInfra StringInfra { get; set; }
-
     protected virtual Infra NodeInfra { get; set; }
-
-
-
 
     public virtual SourceItem SourceItem { get; set; }
 
-
-
-
     protected virtual Text SourceText { get; set; }
-
-
-
-
     protected virtual Code Code { get; set; }
-
-
-
-
     protected virtual Table NodeStateTable { get; set; }
-
-
-
-
     protected virtual NodeState NodeState { get; set; }
 
-
-
     protected virtual PartItemRangeState PartItemRangeState { get; set; }
-
-
-
     protected virtual StateItemRangeState StateItemRangeState { get; set; }
-
-
-
     protected virtual ParamItemRangeState ParamItemRangeState { get; set; }
-
-
-
     protected virtual ArgueItemRangeState ArgueItemRangeState { get; set; }
-
-
-
     protected virtual PartItemNodeState PartItemNodeState { get; set; }
-
-
-
     protected virtual StateItemNodeState StateItemNodeState { get; set; }
-
-
-
     protected virtual ParamItemNodeState ParamItemNodeState { get; set; }
-
-
-
     protected virtual ArgueItemNodeState ArgueItemNodeState { get; set; }
 
-
-
-
     protected virtual Range RangeA { get; set; }
-
-
     protected virtual Range RangeB { get; set; }
-
-
     protected virtual Range RangeC { get; set; }
-
-
     protected virtual Range RangeD { get; set; }
-
-
-
-
     protected virtual Token TokenA { get; set; }
-
-
     protected virtual Token TokenB { get; set; }
-
-
     protected virtual Token TokenC { get; set; }
-
-
     protected virtual Token TokenD { get; set; }
-
-
     protected virtual Token TokenE { get; set; }
-
-
     protected virtual Token TokenF { get; set; }
-
-
     protected virtual Token TokenG { get; set; }
-
-
     protected virtual Token TokenH { get; set; }
-
-
-
 
     protected virtual TextSpan TextSpan { get; set; }
 
-
-
     protected virtual Math Math { get; set; }
-
-
     protected virtual MathCompose MathCompose { get; set; }
 
-
-
-
     public virtual int NodeIndex { get; set; }
-
-
-
     public virtual Data KindData { get; set; }
-
-
-
     public virtual Array NodeArray { get; set; }
-
-
-
-
     public virtual int ListIndex { get; set; }
-
-
     public virtual Data ListData { get; set; }
-
-
     public virtual Array ListArray { get; set; }
-
-
-
-
     public virtual int ErrorIndex { get; set; }
-
-
-
     public virtual Array ErrorArray { get; set; }
 
-
-
-
     protected virtual CountCreateOperate CountOperate { get; set; }
-
-
     protected virtual KindCreateOperate KindOperate { get; set; }
-
-
     protected virtual SetCreateOperate SetOperate { get; set; }
 
-
-
-
     public virtual CreateOperate Operate { get; set; }
-
-
     public virtual CreateOperateArg OperateArg { get; set; }
-
-
-
 
     protected virtual DataRead DataRead { get; set; }
 
-
-
-
-
     protected virtual KeywordList CreateKeywordList()
     {
-        KeywordList a;
-
-        a = KeywordList.This;
-
-
-        return a;
+        return KeywordList.This;
     }
-
-
-
-
 
     protected virtual DelimitList CreateDelimitList()
     {
-        DelimitList a;
-
-        a = DelimitList.This;
-
-
-        return a;
+        return DelimitList.This;
     }
-
-
-
-
 
     protected virtual ErrorKindList CreateErrorKindList()
     {
-        ErrorKindList a;
-
-        a = ErrorKindList.This;
-
-
-        return a;
+        return ErrorKindList.This;
     }
-
-
-
 
     protected virtual NodeKindList CreateNodeKindList()
     {
-        NodeKindList a;
-
-        a = NodeKindList.This;
-
-
-        return a;
+        return NodeKindList.This;
     }
 
     protected virtual CountCreateOperate CreateCountCreateOperate()
@@ -361,59 +172,31 @@ public class Create : InfraCreate
         return a;
     }
 
-    private Range CreateRange()
+    protected virtual Range CreateRange()
     {
         Range a;
-
         a = new Range();
-
         a.Init();
-
-
         return a;
     }
 
-
-
-
-    private Token CreateToken()
+    protected virtual Token CreateToken()
     {
         Token a;
-
-
         a = new Token();
-
-
         a.Init();
-
-
-        a.Range = this.CreateRange();
-
-
-
+        a.Range = new Range();
+        a.Range.Init();
         return a;
     }
 
-
-
-
-
-
-    private TextSpan CreateTextSpan()
+    protected virtual TextSpan CreateTextSpan()
     {
         TextSpan a;
-
-
         a = new TextSpan();
-
-
         a.Init();
-
-
-        a.Range = this.CreateRange();
-
-
-
+        a.Range = new Range();
+        a.Range.Init();
         return a;
     }
 
@@ -439,33 +222,19 @@ public class Create : InfraCreate
         return true;
     }
 
-
-
-
-
     private bool SetRangeState(RangeState state)
     {
         state.Init();
-
         state.Create = this;
-
         state.Arg = new RangeStateArg();
-
         state.Arg.Init();
-
-
         return true;
     }
-
-
 
     private bool SetNodeState(NodeState state)
     {
         state.Init();
-
         state.Create = this;
-
-
         return true;
     }
 
