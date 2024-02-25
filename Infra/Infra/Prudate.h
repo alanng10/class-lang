@@ -1,32 +1,16 @@
 #pragma once
 
-
-
-
 #ifdef __WIN64__
-
 #define OS_Windows
-
 #endif
-
-
 
 #ifdef OS_Windows
-
 #define ExportApi __declspec(dllexport)
-
 #define ImportApi __declspec(dllimport)
-
 #else
-
 #define ExportApi __attribute__((visibility("default")))
-
 #define ImportApi __attribute__((visibility("default")))
-
 #endif
-
-
-
 
 #ifdef Infra_Module
 #define Infra_Api ExportApi
@@ -34,209 +18,78 @@
 #define Infra_Api ImportApi
 #endif
 
-
-
-
-
-
 typedef unsigned char Byte;
-
-
-
-
 typedef unsigned long long Bool;
-
-
-
-
 typedef unsigned long long Int;
-
-
-
-
-
 typedef unsigned short Char;
-
-
-
-
-
 typedef long long SInt;
-
-
-
-
 typedef unsigned int Int32;
-
-
-
 typedef int SInt32;
-
-
-
-
 typedef unsigned short Int16;
-
-
-
 typedef short SInt16;
 
-
-
-
-
-
-
-
-
-
 #define true (1)
-
-
-
 #define false (0)
 
-
-
-
-
 #ifndef null
-
 #define null (0)
-
 #else
-
 #error null is defined by another include
-
 #endif
 
-
-
-
-
-
 #define Constant_IntByteCount() (sizeof(Int))
-
-
-
 #define Constant_Int32ByteCount() (sizeof(Int32))
-
-
-
 #define Constant_CharByteCount() (sizeof(Char))
-
-
-
 #define Constant_ByteHexDigitCount() (2)
-
-
-
 #define Constant_HexDigitBitCount() (4)
 
-
-
-
 #define CastInt(o) ((Int)o)
-
-
 #define CastPointer(o) ((void*)o)
-
-
-
-
 
 #define InfraApiNew(c) \
 Infra_Api Int c##_New();\
-\
 Infra_Api Int c##_Delete(Int o);\
-\
 Infra_Api Int c##_Init(Int o);\
-\
 Infra_Api Int c##_Final(Int o);\
 
 
-
-
-
-
 #define ApiNew(m, c) \
-m##_Api \
-Int m##_##c##_New();\
-\
-m##_Api \
-Int m##_##c##_Delete(Int o);\
-\
-m##_Api \
-Int m##_##c##_Init(Int o);\
-\
-m##_Api \
-Int m##_##c##_Final(Int o);\
-
-
-
-
+m##_Api Int m##_##c##_New();\
+m##_Api Int m##_##c##_Delete(Int o);\
+m##_Api Int m##_##c##_Init(Int o);\
+m##_Api Int m##_##c##_Final(Int o);\
 
 
 #define InfraClassNew(c) \
 Int c##_New()\
 {\
-    Int count = sizeof(c);\
-\
-\
-    Int o = New(count);\
-\
-\
-    Int ret = o;\
-\
-\
-    return ret;\
+    Int count;
+    count = sizeof(c);\
+    Int o;
+    o = New(count);\
+    return o;\
 }\
-\
-\
 Int c##_Delete(Int o)\
 {\
-    Int k = o;\
-\
-\
-    Delete(k);\
-\
-\
+    Delete(o);\
     return true;\
 }\
-
-
-
 
 
 #define ClassNew(m, c) \
 Int m##_##c##_New()\
 {\
-    Int count = sizeof(c);\
-\
-\
-    Int o = New(count);\
-\
-\
-    Int ret = o;\
-\
-\
-    return ret;\
+    Int count;
+    count = sizeof(c);\
+    Int o;
+    o = New(count);\
+    return o;\
 }\
-\
-\
 Int m##_##c##_Delete(Int o)\
 {\
-    Int k = o;\
-\
-\
-    Delete(k);\
-\
-\
+    Delete(o);\
     return true;\
 }\
-
-
-
 
 
 Infra_Api Int New(Int count);
@@ -246,9 +99,6 @@ Infra_Api Int Delete(Int any);
 Infra_Api Int Copy(Int dest, Int source, Int count);
 
 Infra_Api Int Exit(Int code);
-
-
-
 
 
 
@@ -1861,7 +1711,6 @@ Infra_Api Int Stat_ImageFormatBmp(Int o);
 Infra_Api Int Stat_ImageFormatJpg(Int o);
 
 Infra_Api Int Stat_ImageFormatPng(Int o);
-
 
 
 
