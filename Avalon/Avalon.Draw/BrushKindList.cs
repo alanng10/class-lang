@@ -44,7 +44,6 @@ public class BrushKindList : Any
         this.RadialGradient = this.AddItem(Extern.Stat_BrushKindRadialGradient(stat));
         this.ConicalGradient = this.AddItem(Extern.Stat_BrushKindConicalGradient(stat));
         this.Texture = this.AddItem(Extern.Stat_BrushKindTexture(stat));
-
         return true;
     }
 
