@@ -32,7 +32,6 @@ public class PenKindList : Any
         this.DashDot = this.AddItem(Extern.Stat_PenKindDashDot(stat));
         this.DashDotDot = this.AddItem(Extern.Stat_PenKindDashDotDot(stat));
         this.CustomDash = this.AddItem(Extern.Stat_PenKindCustomDash(stat));
-
         return true;
     }
 

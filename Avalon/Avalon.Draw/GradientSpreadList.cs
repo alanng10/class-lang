@@ -29,7 +29,6 @@ public class GradientSpreadList : Any
         this.Pad = this.AddItem(Extern.Stat_GradientSpreadPad(stat));
         this.Reflect = this.AddItem(Extern.Stat_GradientSpreadReflect(stat));
         this.Repeat = this.AddItem(Extern.Stat_GradientSpreadRepeat(stat));
-
         return true;
     }
 

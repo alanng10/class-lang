@@ -29,7 +29,6 @@ public class GradientKindList : Any
         this.Linear = this.AddItem(Extern.Stat_GradientKindLinear(stat));
         this.Radial = this.AddItem(Extern.Stat_GradientKindRadial(stat));
         this.Conical = this.AddItem(Extern.Stat_GradientKindConical(stat));
-
         return true;
     }
 

@@ -30,7 +30,6 @@ public class PenJoinList : Any
         this.Bevel = this.AddItem(Extern.Stat_PenJoinBevel(stat));
         this.Round = this.AddItem(Extern.Stat_PenJoinRound(stat));
         this.SvgMiter = this.AddItem(Extern.Stat_PenJoinSvgMiter(stat));
-
         return true;
     }
 

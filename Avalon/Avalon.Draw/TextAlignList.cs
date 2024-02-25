@@ -34,7 +34,6 @@ public class TextAlignList : Any
         this.CenterUp = this.AddItem(Extern.Stat_TextAlignHCenter(stat), Extern.Stat_TextAlignTop(stat));
         this.CenterDown = this.AddItem(Extern.Stat_TextAlignHCenter(stat), Extern.Stat_TextAlignBottom(stat));
         this.CenterCenter = this.AddItem(Extern.Stat_TextAlignHCenter(stat), Extern.Stat_TextAlignVCenter(stat));
-
         return true;
     }
 

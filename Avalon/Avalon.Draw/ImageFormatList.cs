@@ -29,7 +29,6 @@ public class ImageFormatList : Any
         this.Bmp = this.AddItem(Extern.Stat_ImageFormatBmp(stat));
         this.Jpg = this.AddItem(Extern.Stat_ImageFormatJpg(stat));
         this.Png = this.AddItem(Extern.Stat_ImageFormatPng(stat));
-
         return true;
     }
 

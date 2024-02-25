@@ -29,7 +29,6 @@ public class PenCapList : Any
         this.Flat = this.AddItem(Extern.Stat_PenCapFlat(stat));
         this.Square = this.AddItem(Extern.Stat_PenCapSquare(stat));
         this.Round = this.AddItem(Extern.Stat_PenCapRound(stat));
-
         return true;
     }
 
