@@ -402,116 +402,51 @@ public class Create : InfraCreate
         return true;
     }
 
-
-
-
-
     protected virtual bool ExecuteListCreate()
     {
         this.DataRead.Data = this.ListData;
 
-
-
-
         int count;
-
         count = this.ListArray.Count;
-
-
-
         int i;
-
         i = 0;
-
-
         while (i < count)
         {
             long index;
-
             index = i * sizeof(int);
-
-
             int oa;
-
             oa = this.DataRead.ExecuteInt(index);
-
-
-
             Array array;
-
             array = new Array();
-
             array.Count = oa;
-
             array.Init();
-
-
-
             this.ListArray.Set(i, array);
-
-
-
-
             i = i + 1;
         }
-
-
-
         return true;
     }
-
-
-
 
     protected virtual bool ExecuteErrorCreate()
     {
         int count;
-
         count = this.ErrorArray.Count;
-
-
         int i;
-
         i = 0;
-
-
         while (i < count)
         {
             Error error;
-
             error = new Error();
-
             error.Init();
-
             error.Stage = this.Stage;
-
-
             Range range;
-
             range = new Range();
-
             range.Init();
-
-
-
             error.Range = range;
-
-
-
             this.ErrorArray.Set(i, error);
-
-
-
             i = i + 1;
         }
-
-
         return true;
     }
-
-
-
-
 
     protected virtual bool ExecuteStage()
     {
