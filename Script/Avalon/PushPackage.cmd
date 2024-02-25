@@ -1,6 +1,7 @@
 @echo off
 
 echo Push Package
+echo:
 ..\nuget delete Avalon 1.0.0 -NonInteractive
 echo:
 ..\nuget locals all -clear
