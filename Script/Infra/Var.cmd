@@ -4,7 +4,7 @@ set VarIsSet=0
 set WorkingFold=%cd%
 
 if "%QtRoot%" == "" (
-    set QtRoot=C:\Users\aaabb\Qt
+    set /p QtRoot=<Script\Infra\qtroot
     set VarIsSet=1
 )
 
