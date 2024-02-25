@@ -9284,15 +9284,7 @@ public class Create : InfraCreate
     public virtual bool NodeInfo(Node node, int start, int end)
     {
         node.Range = this.CreateRange();
-
-
-
-
         this.Range(node.Range, start, end);
-
-
-
-
         return true;
     }
 
