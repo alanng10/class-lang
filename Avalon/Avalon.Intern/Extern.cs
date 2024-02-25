@@ -1,26 +1,13 @@
 namespace Avalon.Intern;
 
-
-
-
 public static class Extern
 {
     const string InfraLib = ExternConstant.NameBefore + "Infra" + ExternConstant.NameAfter;
 
-
-
-
     [DllImport(InfraLib)] public extern static ulong New(ulong count);
-
     [DllImport(InfraLib)] public extern static ulong Delete(ulong any);
-
     [DllImport(InfraLib)] public extern static ulong Copy(ulong dest, ulong source, ulong count);
-
     [DllImport(InfraLib)] public extern static ulong Exit(ulong code);
-
-
-
-
 
     [DllImport(InfraLib)] public extern static ulong String_New();
     [DllImport(InfraLib)] public extern static ulong String_Delete(ulong o);
@@ -1103,7 +1090,5 @@ public static class Extern
     [DllImport(InfraLib)] public extern static ulong Stat_ImageFormatBmp(ulong o);
     [DllImport(InfraLib)] public extern static ulong Stat_ImageFormatJpg(ulong o);
     [DllImport(InfraLib)] public extern static ulong Stat_ImageFormatPng(ulong o);
-
-
 
 }
