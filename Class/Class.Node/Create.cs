@@ -11,137 +11,42 @@ public class Create : InfraCreate
         this.ListInfra = ListInfra.This;
         this.StringInfra = StringInfra.This;
         this.NodeInfra = Infra.This;
-
-
-
         this.Keyword = this.CreateKeywordList();
-
-
-
-
         this.Delimit = this.CreateDelimitList();
-
-
-
-
         this.ErrorKind = this.CreateErrorKindList();
-
-
-
-
         this.NodeKind = this.CreateNodeKindList();
 
-
-
-
-
-        this.CountOperate = new CountCreateOperate();
-
-        this.CountOperate.Create = this;
-
-        this.CountOperate.Init();
-
-
-
-        this.KindOperate = new KindCreateOperate();
-
-        this.KindOperate.Create = this;
-
-        this.KindOperate.Init();
-
-
-
-        this.SetOperate = new SetCreateOperate();
-
-        this.SetOperate.Create = this;
-
-        this.SetOperate.Init();
-
-
-
-        this.OperateArg = new CreateOperateArg();
-
-        this.OperateArg.Init();
-
-
+        this.CountOperate = this.CreateCountCreateOperate();
+        this.KindOperate = this.CreateKindCreateOperate();
+        this.SetOperate = this.CreateSetCreateOperate();
+        this.OperateArg = this.CreateCreateOperateArg();
 
         this.DataRead = new DataRead();
-
         this.DataRead.Init();
 
-
-
-
         this.RangeA = this.CreateRange();
-
-
         this.RangeB = this.CreateRange();
-
-
         this.RangeC = this.CreateRange();
-
-
         this.RangeD = this.CreateRange();
-
-
-
-
-
         this.TokenA = this.CreateToken();
-
-
         this.TokenB = this.CreateToken();
-
-
         this.TokenC = this.CreateToken();
-
-
         this.TokenD = this.CreateToken();
-
-
         this.TokenE = this.CreateToken();
-
-
         this.TokenF = this.CreateToken();
-
-
         this.TokenG = this.CreateToken();
-
-
         this.TokenH = this.CreateToken();
-
-
-
 
         this.TextSpan = this.CreateTextSpan();
 
-
-
-
         this.Math = new Math();
-
         this.Math.Init();
-        
-
         this.MathCompose = new MathCompose();
-
         this.MathCompose.Init();
-
-
-
 
         this.InitListItemState();
 
-
-
-
-
         this.InitNodeState();
-
-
-
-
-
         return true;
     }
 
@@ -421,9 +326,40 @@ public class Create : InfraCreate
         return a;
     }
 
+    protected virtual CountCreateOperate CreateCountCreateOperate()
+    {
+        CountCreateOperate a;
+        a = new CountCreateOperate();
+        a.Create = this;
+        a.Init();
+        return a;
+    }
 
+    protected virtual KindCreateOperate CreateKindCreateOperate()
+    {
+        KindCreateOperate a;
+        a = new KindCreateOperate();
+        a.Create = this;
+        a.Init();
+        return a;
+    }
 
+    protected virtual SetCreateOperate CreateSetCreateOperate()
+    {
+        SetCreateOperate a;
+        a = new SetCreateOperate();
+        a.Create = this;
+        a.Init();
+        return a;
+    }
 
+    protected virtual CreateOperateArg CreateCreateOperateArg()
+    {
+        CreateOperateArg a;
+        a = new CreateOperateArg();
+        a.Init();
+        return a;
+    }
 
     private Range CreateRange()
     {
@@ -481,63 +417,25 @@ public class Create : InfraCreate
         return a;
     }
 
-
-
-
-
     protected virtual bool InitListItemState()
     {
         this.PartItemRangeState = new PartItemRangeState();
-
         this.SetRangeState(this.PartItemRangeState);
-
-
-
         this.StateItemRangeState = new StateItemRangeState();
-
         this.SetRangeState(this.StateItemRangeState);
-
-
-
         this.ParamItemRangeState = new ParamItemRangeState();
-
         this.SetRangeState(this.ParamItemRangeState);
-
-
-
         this.ArgueItemRangeState = new ArgueItemRangeState();
-
         this.SetRangeState(this.ArgueItemRangeState);
 
-
-
-
         this.PartItemNodeState = new PartItemNodeState();
-
         this.SetNodeState(this.PartItemNodeState);
-
-
-
         this.StateItemNodeState = new StateItemNodeState();
-
         this.SetNodeState(this.StateItemNodeState);
-
-
-
         this.ParamItemNodeState = new ParamItemNodeState();
-
         this.SetNodeState(this.ParamItemNodeState);
-
-
-
         this.ArgueItemNodeState = new ArgueItemNodeState();
-
         this.SetNodeState(this.ArgueItemNodeState);
-
-
-
-
-
         return true;
     }
 
