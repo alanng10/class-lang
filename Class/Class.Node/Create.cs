@@ -451,54 +451,21 @@ public class Create : InfraCreate
     protected virtual bool ExecuteStage()
     {
         int count;
-
         count = this.CodeArray.Count;
-
-
-
         int i;
-
         i = 0;
-
-
-
         while (i < count)
         {
             this.Code = (Code)this.CodeArray.Get(i);
 
-
-
-
-
             this.SourceItem = (SourceItem)this.Source.Item.Get(i);
-
-
-
             this.SourceText = this.SourceItem.Text;
 
-
-
-
-
             Node root;
-
-
             root = this.ExecuteRoot();
-
-
-
-
             this.Result.Root.Set(i, root);
-
-
-
-
             i = i + 1;
         }
-
-
-
-
         return true;
     }
 
