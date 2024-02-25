@@ -86,7 +86,6 @@ public class NodeKindList : Any
         this.BitLeftOperate = this.AddItem("BitLeftOperate", new BitLeftOperate(), new BitLeftOperateNewState(), new BitLeftOperateNodeState(), new BitLeftOperateCreateOperateState());
         this.BitRightOperate = this.AddItem("BitRightOperate", new BitRightOperate(), new BitRightOperateNewState(), new BitRightOperateNodeState(), new BitRightOperateCreateOperateState());
         this.BitSignRightOperate = this.AddItem("BitSignRightOperate", new BitSignRightOperate(), new BitSignRightOperateNewState(), new BitSignRightOperateNodeState(), new BitSignRightOperateCreateOperateState());
-
         return true;
     }
 
