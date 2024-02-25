@@ -63,9 +63,9 @@ m##_Api Int m##_##c##_Final(Int o);\
 #define InfraClassNew(c) \
 Int c##_New()\
 {\
-    Int count;
+    Int count;\
     count = sizeof(c);\
-    Int o;
+    Int o;\
     o = New(count);\
     return o;\
 }\
@@ -79,9 +79,9 @@ Int c##_Delete(Int o)\
 #define ClassNew(m, c) \
 Int m##_##c##_New()\
 {\
-    Int count;
+    Int count;\
     count = sizeof(c);\
-    Int o;
+    Int o;\
     o = New(count);\
     return o;\
 }\
