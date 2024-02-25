@@ -50,7 +50,6 @@ public class CompositeList : Any
         this.SoftLight = this.AddItem(Extern.Stat_CompositeSoftLight(stat));
         this.Difference = this.AddItem(Extern.Stat_CompositeDifference(stat));
         this.Exclusion = this.AddItem(Extern.Stat_CompositeExclusion(stat));
-
         return true;
     }
 
