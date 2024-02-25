@@ -1,61 +1,25 @@
 namespace Class.Node;
 
-
-
-
-
 public class ErrorKindList : Any
 {
     public static ErrorKindList This { get; } = ShareCreate();
 
-
-
-
     private static ErrorKindList ShareCreate()
     {
         ErrorKindList share;
-
-
         share = new ErrorKindList();
-
-
-
         Any a;
-
-
         a = share;
-
-
         a.Init();
-
-
-
         return share;
     }
-
-
-
-
-
 
     public override bool Init()
     {
         base.Init();
-
-
-
         this.InitArray();
-
-
-
         this.Count = this.Array.Count;
-
-
-
         this.Index = 0;
-
-
-
 
         this.Invalid = this.AddItem("Invalid");
         this.NameInvalid = this.AddItem("NameInvalid");
@@ -81,17 +45,8 @@ public class ErrorKindList : Any
         this.CondInvalid = this.AddItem("CondInvalid");
         this.BodyInvalid = this.AddItem("BodyInvalid");
         this.ItemInvalid = this.AddItem("ItemInvalid");
-
-
-
-
-
-
         return true;
     }
-
-
-
 
     public virtual ErrorKind Invalid { get; set; }
     public virtual ErrorKind NameInvalid { get; set; }
@@ -118,58 +73,27 @@ public class ErrorKindList : Any
     public virtual ErrorKind BodyInvalid { get; set; }
     public virtual ErrorKind ItemInvalid { get; set; }
 
-
-
-
     protected virtual ErrorKind AddItem(string text)
     {
         ErrorKind item;
-
         item = new ErrorKind();
-
         item.Init();
-
         item.Index = this.Index;
-
         item.Text = text;
-
-
-
         this.Array.Set(item.Index, item);
-
-
         this.Index = this.Index + 1;
-
-
-
         return item;
     }
-
-
-
 
     protected virtual bool InitArray()
     {
         this.Array = new Array();
-
-
         this.Array.Count = this.ArrayCount;
-
-
         this.Array.Init();
-
-
-
         return true;
     }
 
-
-
-
-
     protected virtual Array Array { get; set; }
-
-
 
     protected virtual int ArrayCount
     { 
@@ -182,22 +106,12 @@ public class ErrorKindList : Any
         }
     }
 
-
-
-
     public virtual int Count { get; set; }
-
-
-
 
     public virtual ErrorKind Get(int index)
     {
         return (ErrorKind)this.Array.Get(index);
     }
-
-
-
     
     protected virtual int Index { get; set; }
-
 }
