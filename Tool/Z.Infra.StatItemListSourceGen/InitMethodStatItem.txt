@@ -10,6 +10,5 @@
         ulong stat;
         stat = Extern.Share_Stat(share);
 
-#InitFieldList#
-        return true;
+#InitFieldList#        return true;
     }
