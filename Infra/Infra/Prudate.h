@@ -114,7 +114,6 @@ Infra_Api Int String_Equal(Int o, Int other);
 Infra_Api Int String_ConstantCreate(Int o);
 Infra_Api Int String_ConstantDelete(Int o);
 
-
 InfraApiNew(Return)
 Infra_Api Int Return_GetString(Int o);
 Infra_Api Int Return_SetString(Int o, Int value);
@@ -130,12 +129,10 @@ Infra_Api Int Return_StringListEnd(Int o);
 Infra_Api Int Return_StringListCount(Int o);
 Infra_Api Int Return_StringListItem(Int o, Int index);
 
-
 InfraApiNew(Console)
 Infra_Api Int Console_Write(Int o, Int text);
 Infra_Api Int Console_ErrWrite(Int o, Int text);
 Infra_Api Int Console_Read(Int o);
-
 
 InfraApiNew(Array)
 Infra_Api Int Array_GetCount(Int o);
@@ -143,7 +140,6 @@ Infra_Api Int Array_SetCount(Int o, Int value);
 
 Infra_Api Int Array_GetItem(Int o, Int index);
 Infra_Api Int Array_SetItem(Int o, Int index, Int value);
-
 
 InfraApiNew(TextEncode)
 Infra_Api Int TextEncode_GetKind(Int o);
@@ -156,13 +152,11 @@ Infra_Api Int TextEncode_GetString(Int o, Int result, Int data);
 Infra_Api Int TextEncode_GetDataCountMax(Int o, Int count);
 Infra_Api Int TextEncode_GetData(Int o, Int result, Int fromString);
 
-
 InfraApiNew(Format)
 Infra_Api Int Format_ExecuteCount(Int o, Int varBase, Int argList);
 Infra_Api Int Format_ExecuteResult(Int o, Int varBase, Int argList, Int result);
 Infra_Api Int Format_ExecuteArgCount(Int o, Int arg);
 Infra_Api Int Format_ExecuteArgResult(Int o, Int arg, Int result);
-
 
 InfraApiNew(FormatArg)
 Infra_Api Int FormatArg_GetPos(Int o);
@@ -193,7 +187,6 @@ Infra_Api Int FormatArg_GetValueCount(Int o);
 Infra_Api Int FormatArg_SetValueCount(Int o, Int value);
 Infra_Api Int FormatArg_GetCount(Int o);
 Infra_Api Int FormatArg_SetCount(Int o, Int value);
-
 
 InfraApiNew(Math)
 Infra_Api Int Math_GetValue(Int o, Int significand, Int exponent);
@@ -231,13 +224,11 @@ Infra_Api Int Math_Floor(Int o, Int a);
 Infra_Api Int Math_Trunc(Int o, Int a);
 Infra_Api Int Math_Round(Int o, Int a);
 
-
 InfraApiNew(Random)
 Infra_Api Int Random_GetSeed(Int o);
 Infra_Api Int Random_SetSeed(Int o, Int value);
 
 Infra_Api Int Random_Execute(Int o);
-
 
 InfraApiNew(Range)
 Infra_Api Int Range_GetStart(Int o);
@@ -245,13 +236,11 @@ Infra_Api Int Range_SetStart(Int o, Int value);
 Infra_Api Int Range_GetEnd(Int o);
 Infra_Api Int Range_SetEnd(Int o, Int value);
 
-
 InfraApiNew(Rect)
 Infra_Api Int Rect_GetPos(Int o);
 Infra_Api Int Rect_SetPos(Int o, Int value);
 Infra_Api Int Rect_GetSize(Int o);
 Infra_Api Int Rect_SetSize(Int o, Int value);
-
 
 InfraApiNew(Pos)
 Infra_Api Int Pos_GetLeft(Int o);
@@ -259,13 +248,11 @@ Infra_Api Int Pos_SetLeft(Int o, Int value);
 Infra_Api Int Pos_GetUp(Int o);
 Infra_Api Int Pos_SetUp(Int o, Int value);
 
-
 InfraApiNew(Size)
 Infra_Api Int Size_GetWidth(Int o);
 Infra_Api Int Size_SetWidth(Int o, Int value);
 Infra_Api Int Size_GetHeight(Int o);
 Infra_Api Int Size_SetHeight(Int o, Int value);
-
 
 InfraApiNew(Data)
 Infra_Api Int Data_GetCount(Int o);
@@ -273,20 +260,17 @@ Infra_Api Int Data_SetCount(Int o, Int value);
 Infra_Api Int Data_GetValue(Int o);
 Infra_Api Int Data_SetValue(Int o, Int value);
 
-
 InfraApiNew(Entry)
 Infra_Api Int Entry_GetIndex(Int o);
 Infra_Api Int Entry_SetIndex(Int o, Int value);
 Infra_Api Int Entry_GetValue(Int o);
 Infra_Api Int Entry_SetValue(Int o, Int value);
 
-
 InfraApiNew(State)
 Infra_Api Int State_GetMaide(Int o);
 Infra_Api Int State_SetMaide(Int o, Int value);
 Infra_Api Int State_GetArg(Int o);
 Infra_Api Int State_SetArg(Int o, Int value);
-
 
 Infra_Api Int Main_GetTerminateState();
 Infra_Api Int Main_SetTerminateState(Int value);
@@ -298,8 +282,6 @@ Infra_Api Int Main_ExecuteEventLoop();
 Infra_Api Int Main_ExitEventLoop(Int code);
 
 typedef Int (*Main_Terminate_Maide)(Int arg);
-
-
 
 InfraApiNew(Frame)
 Infra_Api Int Frame_GetTitle(Int o);
@@ -324,14 +306,9 @@ Infra_Api Int Frame_Update(Int o, Int rect);
 Infra_Api Int Frame_Close(Int o);
 
 typedef Int (*Frame_Resize_Maide)(Int frame, Int arg);
-
 typedef Int (*Frame_Type_Maide)(Int frame, Int index, Int field, Int arg);
-
 typedef Int (*Frame_Mouse_Maide)(Int frame, Int eventInfo, Int arg);
-
 typedef Int (*Frame_Draw_Maide)(Int frame, Int arg);
-
-
 
 InfraApiNew(Draw)
 Infra_Api Int Draw_GetSize(Int o);
@@ -370,7 +347,6 @@ Infra_Api Int Draw_ExecutePolyline(Int o, Int pointListCount, Int pointListData)
 Infra_Api Int Draw_ExecuteImage(Int o, Int image, Int destRect, Int sourceRect);
 Infra_Api Int Draw_ExecuteText(Int o, Int destRect, Int flag, Int text, Int boundRect);
 
-
 InfraApiNew(Brush)
 Infra_Api Int Brush_GetKind(Int o);
 Infra_Api Int Brush_SetKind(Int o, Int value);
@@ -380,7 +356,6 @@ Infra_Api Int Brush_GetImage(Int o);
 Infra_Api Int Brush_SetImage(Int o, Int value);
 Infra_Api Int Brush_GetGradient(Int o);
 Infra_Api Int Brush_SetGradient(Int o, Int value);
-
 
 InfraApiNew(Pen)
 Infra_Api Int Pen_GetKind(Int o);
@@ -394,10 +369,8 @@ Infra_Api Int Pen_SetCap(Int o, Int value);
 Infra_Api Int Pen_GetJoin(Int o);
 Infra_Api Int Pen_SetJoin(Int o, Int value);
 
-
 Infra_Api Int PointData_GetPoint(Int address, Int result);
 Infra_Api Int PointData_SetPoint(Int address, Int pos);
-
 
 InfraApiNew(Image)
 Infra_Api Int Image_GetSize(Int o);
@@ -408,7 +381,6 @@ Infra_Api Int Image_SetData(Int o, Int value);
 Infra_Api Int Image_GetRowByteCount(Int o);
 Infra_Api Int Image_GetVideoOut(Int o);
 Infra_Api Int Image_CreateData(Int o);
-
 
 InfraApiNew(Font)
 Infra_Api Int Font_GetFamily(Int o);
@@ -426,7 +398,6 @@ Infra_Api Int Font_SetOverline(Int o, Int value);
 Infra_Api Int Font_GetStrikeout(Int o);
 Infra_Api Int Font_SetStrikeout(Int o, Int value);
 
-
 InfraApiNew(Transform)
 Infra_Api Int Transform_Reset(Int o);
 Infra_Api Int Transform_Offset(Int o, Int offsetLeft, Int offsetUp);
@@ -441,7 +412,6 @@ Infra_Api Int Transform_Invert(Int o, Int result);
 Infra_Api Int Transform_Transpose(Int o, Int result);
 Infra_Api Int Transform_Determinant(Int o);
 
-
 InfraApiNew(Gradient)
 Infra_Api Int Gradient_GetKind(Int o);
 Infra_Api Int Gradient_SetKind(Int o, Int value);
@@ -452,13 +422,11 @@ Infra_Api Int Gradient_SetStop(Int o, Int value);
 Infra_Api Int Gradient_GetSpread(Int o);
 Infra_Api Int Gradient_SetSpread(Int o, Int value);
 
-
 InfraApiNew(GradientLinear)
 Infra_Api Int GradientLinear_GetStartPos(Int o);
 Infra_Api Int GradientLinear_SetStartPos(Int o, Int value);
 Infra_Api Int GradientLinear_GetEndPos(Int o);
 Infra_Api Int GradientLinear_SetEndPos(Int o, Int value);
-
 
 InfraApiNew(GradientRadial)
 Infra_Api Int GradientRadial_GetCenterPos(Int o);
@@ -470,14 +438,12 @@ Infra_Api Int GradientRadial_SetFocusPos(Int o, Int value);
 Infra_Api Int GradientRadial_GetFocusRadius(Int o);
 Infra_Api Int GradientRadial_SetFocusRadius(Int o, Int value);
 
-
 InfraApiNew(GradientStop)
 Infra_Api Int GradientStop_GetCount(Int o);
 Infra_Api Int GradientStop_SetCount(Int o, Int value);
 
 Infra_Api Int GradientStop_GetPoint(Int o, Int index, Int pos, Int color);
 Infra_Api Int GradientStop_SetPoint(Int o, Int index, Int pos, Int color);
-
 
 InfraApiNew(ImageRead)
 Infra_Api Int ImageRead_GetStream(Int o);
@@ -486,7 +452,6 @@ Infra_Api Int ImageRead_GetImage(Int o);
 Infra_Api Int ImageRead_SetImage(Int o, Int value);
 
 Infra_Api Int ImageRead_Execute(Int o);
-
 
 InfraApiNew(ImageWrite)
 Infra_Api Int ImageWrite_GetStream(Int o);
@@ -499,7 +464,6 @@ Infra_Api Int ImageWrite_GetQuality(Int o);
 Infra_Api Int ImageWrite_SetQuality(Int o, Int value);
 
 Infra_Api Int ImageWrite_Execute(Int o);
-
 
 InfraApiNew(Dialog)
 Infra_Api Int Dialog_GetKind(Int o);
@@ -517,8 +481,6 @@ Infra_Api Int Dialog_Done(Int o, Int result);
 
 typedef Int (*Dialog_Finished_Maide)(Int dialog, Int result, Int arg);
 
-
-
 InfraApiNew(DialogFile)
 Infra_Api Int DialogFile_GetSave(Int o);
 Infra_Api Int DialogFile_SetSave(Int o, Int value);
@@ -529,7 +491,6 @@ Infra_Api Int DialogFile_SetFold(Int o, Int value);
 
 Infra_Api Int DialogFile_SelectedFileList(Int o);
 Infra_Api Int DialogFile_SelectFile(Int o, Int fileName);
-
 
 InfraApiNew(VideoOut)
 Infra_Api Int VideoOut_GetSize(Int o);
@@ -546,10 +507,7 @@ Infra_Api Int VideoOut_SetSizeState(Int o, Int value);
 Infra_Api Int VideoOut_SetVideoSubtitle(Int o);
 
 typedef Int (*VideoOut_Frame_Maide)(Int videoOut, Int frame, Int arg);
-
 typedef Int (*VideoOut_Size_Maide)(Int videoOut, Int size, Int arg);
-
-
 
 InfraApiNew(VideoFrame)
 Infra_Api Int VideoFrame_GetSize(Int o);
@@ -557,13 +515,11 @@ Infra_Api Int VideoFrame_SetSize(Int o, Int value);
 
 Infra_Api Int VideoFrame_GetImage(Int o, Int image);
 
-
 InfraApiNew(AudioOut)
 Infra_Api Int AudioOut_GetMuted(Int o);
 Infra_Api Int AudioOut_SetMuted(Int o, Int value);
 Infra_Api Int AudioOut_GetVolume(Int o);
 Infra_Api Int AudioOut_SetVolume(Int o, Int value);
-
 
 InfraApiNew(AudioEffect)
 Infra_Api Int AudioEffect_GetSource(Int o);
@@ -574,7 +530,6 @@ Infra_Api Int AudioEffect_SetVolume(Int o, Int value);
 Infra_Api Int AudioEffect_SetAudioSource(Int o);
 Infra_Api Int AudioEffect_Play(Int o);
 Infra_Api Int AudioEffect_Stop(Int o);
-
 
 InfraApiNew(Play)
 Infra_Api Int Play_GetSource(Int o);
@@ -595,7 +550,6 @@ Infra_Api Int Play_Execute(Int o);
 Infra_Api Int Play_Pause(Int o);
 Infra_Api Int Play_Stop(Int o);
 
-
 InfraApiNew(Stream)
 Infra_Api Int Stream_GetKind(Int o);
 Infra_Api Int Stream_SetKind(Int o, Int value);
@@ -612,14 +566,12 @@ Infra_Api Int Stream_GetStatus(Int o);
 Infra_Api Int Stream_Read(Int o, Int data, Int range);
 Infra_Api Int Stream_Write(Int o, Int data, Int range);
 
-
 InfraApiNew(Memory)
 Infra_Api Int Memory_GetStream(Int o);
 Infra_Api Int Memory_SetStream(Int o, Int value);
 
 Infra_Api Int Memory_Open(Int o);
 Infra_Api Int Memory_Close(Int o);
-
 
 InfraApiNew(Storage)
 Infra_Api Int Storage_GetPath(Int o);
@@ -633,7 +585,6 @@ Infra_Api Int Storage_SetStatus(Int o, Int value);
 
 Infra_Api Int Storage_Open(Int o);
 Infra_Api Int Storage_Close(Int o);
-
 
 InfraApiNew(StorageArrange)
 Infra_Api Int StorageArrange_Copy(Int o, Int path, Int destPath);
@@ -659,7 +610,6 @@ Infra_Api Int StorageArrange_RelativePath(Int o, Int path, Int destPath);
 Infra_Api Int StorageArrange_CanonicalPath(Int o, Int path);
 Infra_Api Int StorageArrange_CleanPath(Int o, Int path);
 
-
 InfraApiNew(StorageWatch)
 Infra_Api Int StorageWatch_GetFileChangedState(Int o);
 Infra_Api Int StorageWatch_SetFileChangedState(Int o, Int value);
@@ -674,10 +624,7 @@ Infra_Api Int StorageWatch_FileList(Int o);
 Infra_Api Int StorageWatch_FoldList(Int o);
 
 typedef Int (*StorageWatch_FileChanged_Maide)(Int storageWatch, Int path, Int arg);
-
 typedef Int (*StorageWatch_FoldChanged_Maide)(Int storageWatch, Int path, Int arg);
-
-
 
 InfraApiNew(StorageEntry)
 Infra_Api Int StorageEntry_GetPath(Int o);
@@ -698,7 +645,6 @@ Infra_Api Int StorageEntry_LastModifyTime(Int o, Int result);
 Infra_Api Int StorageEntry_LastReadTime(Int o, Int result);
 Infra_Api Int StorageEntry_InfoChangeTime(Int o, Int result);
 Infra_Api Int StorageEntry_Update(Int o);
-
 
 InfraApiNew(Network)
 Infra_Api Int Network_GetHostName(Int o);
@@ -725,12 +671,8 @@ Infra_Api Int Network_Close(Int o);
 Infra_Api Int Network_Abort(Int o);
 
 typedef Int (*Network_CaseChanged_Maide)(Int network, Int arg);
-
 typedef Int (*Network_Error_Maide)(Int network, Int arg);
-
 typedef Int (*Network_ReadyRead_Maide)(Int network, Int arg);
-
-
 
 InfraApiNew(NetworkServer)
 Infra_Api Int NetworkServer_GetAddress(Int o);
@@ -753,8 +695,6 @@ Infra_Api Int NetworkServer_ResumeAccept(Int o);
 
 typedef Int (*NetworkServer_NewPeer_Maide)(Int networkServer, Int arg);
 
-
-
 InfraApiNew(NetworkAddress)
 Infra_Api Int NetworkAddress_GetKind(Int o);
 Infra_Api Int NetworkAddress_SetKind(Int o, Int value);
@@ -766,7 +706,6 @@ Infra_Api Int NetworkAddress_GetValueC(Int o);
 Infra_Api Int NetworkAddress_SetValueC(Int o, Int value);
 
 Infra_Api Int NetworkAddress_Set(Int o);
-
 
 InfraApiNew(Thread)
 Infra_Api Int Thread_GetIdent(Int o);
@@ -792,12 +731,9 @@ Infra_Api Int Thread_GetCurrentThread();
 
 typedef Int (*Thread_Execute_Maide)(Int thread, Int arg);
 
-
-
 InfraApiNew(Mutex)
 Infra_Api Int Mutex_Acquire(Int o);
 Infra_Api Int Mutex_Release(Int o);
-
 
 InfraApiNew(Semaphore)
 Infra_Api Int Semaphore_GetCount(Int o);
@@ -807,7 +743,6 @@ Infra_Api Int Semaphore_SetInitCount(Int o, Int value);
 
 Infra_Api Int Semaphore_Acquire(Int o);
 Infra_Api Int Semaphore_Release(Int o);
-
 
 InfraApiNew(Time)
 Infra_Api Int Time_GetYear(Int o);
@@ -855,7 +790,6 @@ Infra_Api Int Time_LeapYear(Int year);
 Infra_Api Int Time_ValidDate(Int year, Int month, Int day);
 Infra_Api Int Time_ValidTime(Int hour, Int minute, Int second, Int millisecond);
 
-
 InfraApiNew(Interval)
 Infra_Api Int Interval_GetTime(Int o);
 Infra_Api Int Interval_SetTime(Int o, Int value);
@@ -871,8 +805,6 @@ Infra_Api Int Interval_Stop(Int o);
 
 typedef Int (*Interval_Elapse_Maide)(Int interval, Int arg);
 
-
-
 InfraApiNew(Post)
 Infra_Api Int Post_GetExecuteState(Int o);
 Infra_Api Int Post_SetExecuteState(Int o, Int value);
@@ -880,8 +812,6 @@ Infra_Api Int Post_SetExecuteState(Int o, Int value);
 Infra_Api Int Post_Execute(Int o);
 
 typedef Int (*Post_Execute_Maide)(Int post, Int arg);
-
-
 
 InfraApiNew(Libray)
 Infra_Api Int Libray_GetFile(Int o);
@@ -893,7 +823,6 @@ Infra_Api Int Libray_SetLibraryFile(Int o);
 Infra_Api Int Libray_Load(Int o);
 Infra_Api Int Libray_Unload(Int o);
 Infra_Api Int Libray_GetAddress(Int o, Int name);
-
 
 InfraApiNew(Process)
 Infra_Api Int Process_GetProgram(Int o);
@@ -923,14 +852,9 @@ Infra_Api Int Process_ReadOut(Int o);
 Infra_Api Int Process_ReadErr(Int o);
 
 typedef Int (*Process_Started_Maide)(Int process, Int arg);
-
 typedef Int (*Process_Finished_Maide)(Int process, Int arg);
-
 typedef Int (*Process_ReadOut_Maide)(Int process, Int arg);
-
 typedef Int (*Process_ReadErr_Maide)(Int process, Int arg);
-
-
 
 InfraApiNew(ProcessSemaphore)
 Infra_Api Int ProcessSemaphore_GetName(Int o);
@@ -945,12 +869,9 @@ Infra_Api Int ProcessSemaphore_SetStatus(Int o, Int value);
 Infra_Api Int ProcessSemaphore_Acquire(Int o);
 Infra_Api Int ProcessSemaphore_Release(Int o);
 
-
 Infra_Api Int Infra_Share();
 
-
 Infra_Api Int Share_Stat(Int o);
-
 
 Infra_Api Int Stat_PointDataCount(Int o);
 Infra_Api Int Stat_TextEncodeKindUtf8(Int o);
@@ -1100,5 +1021,4 @@ Infra_Api Int Stat_TextWrapWordWrap(Int o);
 Infra_Api Int Stat_ImageFormatBmp(Int o);
 Infra_Api Int Stat_ImageFormatJpg(Int o);
 Infra_Api Int Stat_ImageFormatPng(Int o);
-
 
