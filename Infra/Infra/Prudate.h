@@ -93,14 +93,9 @@ Int m##_##c##_Delete(Int o)\
 
 
 Infra_Api Int New(Int count);
-
 Infra_Api Int Delete(Int any);
-
 Infra_Api Int Copy(Int dest, Int source, Int count);
-
 Infra_Api Int Exit(Int code);
-
-
 
 InfraApiNew(String)
 Infra_Api Int String_GetCount(Int o);
