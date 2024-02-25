@@ -502,297 +502,115 @@ public class Create : InfraCreate
         return a;
     }
 
-
-
-
-
-
-
     public virtual Node ExecuteClass(Range range)
     {
         int start;
-
-
         int end;
-
-
         start = range.Start;
-
-
         end = range.End;
-
-
-
-
 
         if (start == end)
         {
             return null;
         }
 
-
-
-
         Token classToken;
-
-
         classToken = this.Token(this.TokenA, this.Keyword.Class.Text, this.IndexRange(this.RangeA, start));
-
-
-
-
         if (classToken == null)
         {
             return null;
         }
 
-
-
-
-
-
-
         Range nameRange;
-
-
         nameRange = this.ExecuteClassNameRange(this.RangeB, this.Range(this.RangeA, classToken.Range.End, end));
-
-
-
-
-
-
         if (nameRange == null)
         {
             return null;
         }
 
-
-
-
-
-
         if (nameRange.End == end)
         {
             return null;
         }
-
-
-
-
-
-
-
         Token colon;
-
-
         colon = this.Token(this.TokenB, this.Delimit.BaseSign.Text, this.IndexRange(this.RangeA, nameRange.End));
-
-
-
-
         if (colon == null)
         {
             return null;
         }
 
-
-
-
-
         Range baseRange;
-
-
         baseRange = this.ExecuteClassNameRange(this.RangeC, this.Range(this.RangeA, colon.Range.End, end));
-
-
-
-
-
         if (baseRange == null)
         {
             return null;
         }
 
-
-
-
-
-
         if (baseRange.End == end)
         {
             return null;
         }
-
-
-
-
-
-
         Token leftBrace;
-
-
         leftBrace = this.Token(this.TokenC, this.Delimit.LeftBrace.Text, this.IndexRange(this.RangeA, baseRange.End));
-
-
-
         if (leftBrace == null)
         {
             return null;
         }
 
-
-
-
-
         Token rightBrace;
-
-
         rightBrace = this.TokenMatchLeftBrace(this.TokenD, this.Range(this.RangeA, leftBrace.Range.End, end));
-
-
-
         if (rightBrace == null)
         {
             return null;
         }
-
-
-
 
         if (!(rightBrace.Range.End == end))
         {
             return null;
         }
 
-
-
-
-
-
-
-
         int nameStart;
-
-
         int nameEnd;
-
-
         nameStart = nameRange.Start;
-
-
         nameEnd = nameRange.End;
-
-
-
-
-
         int baseStart;
-
-
         int baseEnd;
-
-
         baseStart = baseRange.Start;
-
-
         baseEnd = baseRange.End;
-
-
-
-
-
         int memberStart;
-
-
         int memberEnd;
-
-
         memberStart = leftBrace.Range.End;
-
-
         memberEnd = rightBrace.Range.Start;
 
-
-
-
-
-
-
         Node name;
-
-
-
         name = this.ExecuteClassName(this.Range(this.RangeA, nameStart, nameEnd));
-
-
-
-
         if (name == null)
         {
             this.Error(this.ErrorKind.NameInvalid, nameStart, nameEnd);
         }
 
-
-
-
-
         Node varBase;
-
-
-
         varBase = this.ExecuteClassName(this.Range(this.RangeA, baseStart, baseEnd));
-
-
-
-
         if (varBase == null)
         {
             this.Error(this.ErrorKind.BaseInvalid, baseStart, baseEnd);
         }
 
-
-
-
-
         Node member;
-
-
-
         member = this.ExecutePart(this.Range(this.RangeA, memberStart, memberEnd));
-
-
-
         if (member == null)
         {
             this.Error(this.ErrorKind.MemberInvalid, memberStart, memberEnd);
         }
 
-
-
-
-
         this.OperateArg.Kind = this.NodeKind.Class;
-
         this.OperateArg.Start = start;
-
         this.OperateArg.End = end;
-
-
         this.OperateArg.Field00 = name;
-
         this.OperateArg.Field01 = varBase;
-
         this.OperateArg.Field02 = member;
-
-
-
         Node ret;
-
-
         ret = this.ExecuteCreateOperate();
-
-
         return ret;
     }
 
