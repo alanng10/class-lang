@@ -265,11 +265,6 @@ class PrudateGen : Any
 
 
 
-        sb.Append(this.NewLine);
-
-
-
-
         return true;
     }
 
