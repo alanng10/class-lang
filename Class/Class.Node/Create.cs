@@ -230,356 +230,151 @@ public class Create : InfraCreate
         return true;
     }
 
-
-
-
-
     protected virtual bool InitNodeState()
     {
         StringCompare compare;
-
         compare = new StringCompare();
-
         compare.Init();
 
-
-
-
         this.NodeStateTable = new Table();
-
         this.NodeStateTable.Compare = compare;
-
         this.NodeStateTable.Init();
 
-
-
-
-
-
         int count;
-
         count = this.NodeKind.Count;
-
-
         int i;
-
         i = 0;
-
-
         while (i < count)
         {
             NodeKind kind;
-
             kind = this.NodeKind.Get(i);
-
-
-
             this.AddNodeState(kind);
-
-
-
             i = i + 1;
         }
-
-
-
-
-
         return true;
     }
-
-
-
-
-
-
 
     protected virtual bool AddNodeState(NodeKind kind)
     {
         NodeState state;
-
         state = kind.NodeState;
-
-
-
-
         state.Create = this;
 
-
-
-
         Entry entry;
-
         entry = new Entry();
-
         entry.Init();
-
         entry.Index = kind.Name;
-
         entry.Value = state;
-
-
-
-
         this.NodeStateTable.Add(entry);
-
-
-
-
         return true;
     }
-
-
-
-
-
-
 
     public override bool Execute()
     {
         this.Result = new Result();
-
         this.Result.Init();
-
-
-
         Array rootArray;
-
         rootArray = new Array();
-
         rootArray.Count = this.CodeArray.Count;
-
         rootArray.Init();
-
-
-
         this.Result.Root = rootArray;
 
-
-
-
-
         this.NodeState = (NodeState)this.NodeStateTable.Get(this.Task);
-
-
-
         if (this.NodeState == null)
         {
             return true;
         }
 
-
-
-
-
         this.Operate = this.CountOperate;
 
-
         this.NodeIndex = 0;
-
-
         this.ListIndex = 0;
-
-
         this.ErrorIndex = 0;
-
 
         this.ExecuteStage();
 
-
-
-
         int nodeCount;
-
         nodeCount = this.NodeIndex;
-
-
-
         int listCount;
-
         listCount = this.ListIndex;
-
-
-
         int errorCount;
-
         errorCount = this.ErrorIndex;
 
-
-
         this.KindData = new Data();
-
         this.KindData.Init();
-
         this.KindData.Value = new byte[nodeCount];
 
-
-
         int oa;
-
         oa = listCount * sizeof(int);
-
-
         this.ListData = new Data();
-
         this.ListData.Init();
-
         this.ListData.Value = new byte[oa];
-
-
-
 
         this.Operate = this.KindOperate;
 
-
         this.NodeIndex = 0;
-
-
         this.ListIndex = 0;
-
-
         this.ErrorIndex = 0;
-
 
         this.ExecuteStage();
 
-
-
-
-
         this.NodeArray = new Array();
-
         this.NodeArray.Count = nodeCount;
-
         this.NodeArray.Init();
-
-
-
         this.ListArray = new Array();
-
         this.ListArray.Count = listCount;
-
         this.ListArray.Init();
-
-
-
         this.ErrorArray = new Array();
-
         this.ErrorArray.Count = errorCount;
-
         this.ErrorArray.Init();
 
-
-
         this.ExecuteNodeCreate();
-
-
         this.ExecuteListCreate();
-
-
         this.ExecuteErrorCreate();
-
-
-
 
         this.Operate = this.SetOperate;
 
-
         this.NodeIndex = 0;
-
-
         this.ListIndex = 0;
-
-
         this.ErrorIndex = 0;
-
 
         this.ExecuteStage();
 
-
-
-
         this.Result.Error = this.ErrorArray;
 
-
-
         this.KindData = null;
-
-
         this.ListData = null;
-
-
         this.NodeArray = null;
-
-
         this.ListArray = null;
-
-
         this.ErrorArray = null;
 
-
-
         this.OperateArgClear();
-
-
-
-
         return true;
     }
-
-
-
 
     protected virtual bool OperateArgClear()
     {
         CreateOperateArg a;
-
         a = this.OperateArg;
-
-
         a.Kind = null;
-
-
         a.Field00 = null;
-
         a.Field01 = null;
-
         a.Field02 = null;
-
         a.Field03 = null;
-
         a.Field04 = null;
-
-
         a.FieldBool = false;
-
         a.FieldInt = 0;
-
-
         a.Start = 0;
-
         a.End = 0;
-
-
         return true;
     }
-
-
-
-
 
     protected virtual bool ExecuteNodeCreate()
     {
         int count;
-
         count = this.NodeArray.Count;
-
-
         int i;
-
         i = 0;
-
-
         while (i < count)
         {
             byte oo;
