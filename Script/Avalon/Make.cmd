@@ -1,14 +1,8 @@
 @echo off
 
-echo Clean Module
-set CSharpOut=.\Out\net6.0
-del /F /Q %CSharpOut%\Avalon.*
-del /F /Q %CSharpOut%\MakeProject.*
-rmdir /S /Q %CSharpOut%\Lib
+call Script\Avalon\CleanModule
 echo:
-
-echo Clean Demo
-rmdir /S /Q .\Out\Demo
+call Script\Avalon\CleanDemo
 echo:
 call Script\Avalon\MakeModule
 echo:
