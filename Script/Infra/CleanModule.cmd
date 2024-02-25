@@ -3,4 +3,4 @@
 call Script\Infra\Var
 
 set InfraProjectOutFold=.\Out\Infra-Windows-Release
-rmdir /S /Q %InfraProjectOutFold%
+rmdir /S /Q %InfraProjectOutFold% 2>NUL
