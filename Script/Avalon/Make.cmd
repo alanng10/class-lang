@@ -11,4 +11,3 @@ echo:
 call Script\Avalon\PushPackage
 echo:
 call Script\Avalon\MakeDemo
-echo:
