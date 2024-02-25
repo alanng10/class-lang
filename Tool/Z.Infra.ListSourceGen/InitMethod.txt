@@ -5,6 +5,5 @@
         this.Count = this.Array.Count;
         this.Index = 0;
 
-#InitFieldList#
-        return true;
+#InitFieldList#        return true;
     }
