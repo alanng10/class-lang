@@ -491,13 +491,15 @@ public class Create : InfraCreate
 
         Node node;
         node = this.NodeState.Result;
+        this.NodeState.Arg = null;
+        this.NodeState.Result = null;
         if (node == null)
         {
             this.Error(this.ErrorKind.Invalid, rangeStart, rangeEnd);
         }
-        Node ret;
-        ret = node;
-        return ret;
+        Node a;
+        a = node;
+        return a;
     }
 
 
