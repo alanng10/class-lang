@@ -1,6 +1,5 @@
 @echo off 
 
-call Script\Infra\Var
 call Script\Infra\CleanModule
 call Script\Infra\CleanDemo
 call Script\Infra\CleanDeploy
