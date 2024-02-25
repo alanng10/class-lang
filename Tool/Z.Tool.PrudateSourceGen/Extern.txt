@@ -1,19 +1,9 @@
 namespace Avalon.Intern;
 
-
-
-
 public static class Extern
 {
     const string InfraLib = ExternConstant.NameBefore + "Infra" + ExternConstant.NameAfter;
 
-
-
-
 #MethodList#
 
-
-
-#ClassList#
-
-}
+#ClassList#}
