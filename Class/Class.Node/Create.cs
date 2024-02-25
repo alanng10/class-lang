@@ -9335,49 +9335,24 @@ public class Create : InfraCreate
         return true;
     }
 
-
-
-
-
-
-
     protected virtual Token Token(Token result, string value, Range range)
     {
         int start;
-
-
         int end;
-
-
         start = range.Start;
-
-
         end = range.End;
-
-
-
-
 
         if (!(start + 1 == end))
         {
             return null;
         }
 
-
-
         if (!this.IsText(value, start))
         {
             return null;
         }
 
-
-
-
-
         this.Range(result.Range, start, end);
-
-
-
         return result;
     }
 
