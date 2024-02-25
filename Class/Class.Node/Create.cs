@@ -469,88 +469,34 @@ public class Create : InfraCreate
         return true;
     }
 
-
-
-
-
     protected virtual Node ExecuteCreateOperate()
     {
         Node node;
-
         node = this.Operate.Execute();
-
-
-
         return node;
     }
-
-
-
-
 
     protected virtual Node ExecuteRoot()
     {
         Range range;
-
-
         range = this.RangeA;
-
-
-
-
         int rangeStart;
-
         rangeStart = 0;
-
-
-
         int rangeEnd;
-
-
         rangeEnd = this.Code.Token.Count;
-
-
-
-
-
         this.Range(range, rangeStart, rangeEnd);
 
-
-
-
-
-
         this.NodeState.Arg = range;
-
-
-
         this.NodeState.Execute();
 
-
-
-
-
         Node node;
-
-
         node = this.NodeState.Result;
-
-
-
-
         if (node == null)
         {
             this.Error(this.ErrorKind.Invalid, rangeStart, rangeEnd);
         }
-
-
-
-
         Node ret;
-
         ret = node;
-
-
         return ret;
     }
 
