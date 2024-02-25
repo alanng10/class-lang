@@ -7866,81 +7866,42 @@ public class Create : InfraCreate
     protected virtual Range ExecuteAccessRange(Range result, Range range)
     {
         int start;
-
-
         int end;
-
-
         start = range.Start;
-
-
         end = range.End;
-
-
-
-
 
         if (start == end)
         {
             return null;
         }
 
-
-
-
         int index;
-
         index = start;
 
-
-
-
         bool b;
-
-
         b = false;
-
-
-
         if (!b & this.IsText(this.Keyword.Prudate.Text, index))
         {
             b = true;
         }
-
-
         if (!b & this.IsText(this.Keyword.Probate.Text, index))
         {
             b = true;
         }
-
-
         if (!b & this.IsText(this.Keyword.Precate.Text, index))
         {
             b = true;
         }
-
-
         if (!b & this.IsText(this.Keyword.Private.Text, index))
         {
             b = true;
         }
 
-
-
-
         if (!b)
         {
             return null;
         }
-
-
-
-
         this.IndexRange(result, index);
-
-
-
-
         return result;
     }
 
