@@ -142,7 +142,7 @@ public class Gen : Any
 
         if (this.Export)
         {
-            aa = "public";
+            aa = "public ";
         }
 
 

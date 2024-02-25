@@ -1,6 +1,6 @@
 namespace #Namespace#;
 
-#Export# class #ClassName# : #BaseClassName#
+#Export#class #ClassName# : #BaseClassName#
 {
     public static #ClassName# This { get; } = ShareCreate();
 
