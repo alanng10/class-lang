@@ -9,6 +9,6 @@ if "%QtRoot%" == "" (
 )
 
 if "%VarIsSet%" == "1" (
-    call "%QtRoot%\6.6.1\mingw_64\bin\qtenv2.bat"
+    call "%QtRoot%\6.6.1\mingw_64\bin\qtenv2.bat"1>NUL
     cd "%WorkingFold%"
 )
