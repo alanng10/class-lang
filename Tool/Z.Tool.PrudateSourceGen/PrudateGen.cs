@@ -370,10 +370,6 @@ class PrudateGen : Any
 
 
 
-            sb.Append(this.NewLine);
-
-
-
             i = i + 1;
         }
 
