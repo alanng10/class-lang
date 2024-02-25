@@ -9316,47 +9316,22 @@ public class Create : InfraCreate
         return ret;
     }
 
-
-
-
-
     protected virtual Range Range(Range range, int start, int end)
     {
         range.Start = start;
-
         range.End = end;
-
-
-
         return range;
     }
-
-
-
-
-
 
     protected virtual Range IndexRange(Range range, int index)
     {
         this.InfraInfra.IndexRange(range, index);
-
-
         return range;
     }
-
-
-
-
-
-
-
 
     protected virtual bool Error(ErrorKind kind, int start, int end)
     {
         this.Operate.ExecuteError(kind, start, end);
-
-
-
         return true;
     }
 
