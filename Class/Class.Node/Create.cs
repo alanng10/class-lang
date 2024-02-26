@@ -649,7 +649,7 @@ public class Create : InfraCreate
         Range accessRange;
 
 
-        accessRange = this.ExecuteAccessRange(this.RangeB, this.Range(this.RangeA, start, end));
+        accessRange = this.ExecuteEmitRange(this.RangeB, this.Range(this.RangeA, start, end));
 
 
 
@@ -1012,14 +1012,14 @@ public class Create : InfraCreate
 
 
 
-        access = this.ExecuteAccess(this.Range(this.RangeA, accessStart, accessEnd));
+        access = this.ExecuteEmit(this.Range(this.RangeA, accessStart, accessEnd));
 
 
 
 
         if (access == null)
         {
-            this.Error(this.ErrorKind.AccessInvalid, accessStart, accessEnd);
+            this.Error(this.ErrorKind.EmitInvalid, accessStart, accessEnd);
         }
 
 
@@ -1156,7 +1156,7 @@ public class Create : InfraCreate
 
 
 
-        accessRange = this.ExecuteAccessRange(this.RangeB, this.Range(this.RangeA, start, end));
+        accessRange = this.ExecuteEmitRange(this.RangeB, this.Range(this.RangeA, start, end));
 
 
 
@@ -1404,14 +1404,14 @@ public class Create : InfraCreate
 
 
 
-        access = this.ExecuteAccess(this.Range(this.RangeA, accessStart, accessEnd));
+        access = this.ExecuteEmit(this.Range(this.RangeA, accessStart, accessEnd));
 
 
 
 
         if (access == null)
         {
-            this.Error(this.ErrorKind.AccessInvalid, accessStart, accessEnd);
+            this.Error(this.ErrorKind.EmitInvalid, accessStart, accessEnd);
         }
 
 
@@ -3070,7 +3070,7 @@ public class Create : InfraCreate
 
 
 
-    public virtual Node ExecuteAccess(Range range)
+    public virtual Node ExecuteEmit(Range range)
     {
         int start;
 
@@ -3099,7 +3099,7 @@ public class Create : InfraCreate
 
         if (a == null)
         {
-            a = this.ExecutePrudateAccess(this.Range(this.RangeA, start, end));
+            a = this.ExecutePrudateEmit(this.Range(this.RangeA, start, end));
         }
 
 
@@ -3108,7 +3108,7 @@ public class Create : InfraCreate
 
         if (a == null)
         {
-            a = this.ExecuteProbateAccess(this.Range(this.RangeA, start, end));
+            a = this.ExecuteProbateEmit(this.Range(this.RangeA, start, end));
         }
 
 
@@ -3117,7 +3117,7 @@ public class Create : InfraCreate
 
         if (a == null)
         {
-            a = this.ExecutePrecateAccess(this.Range(this.RangeA, start, end));
+            a = this.ExecutePrecateEmit(this.Range(this.RangeA, start, end));
         }
 
 
@@ -3126,7 +3126,7 @@ public class Create : InfraCreate
 
         if (a == null)
         {
-            a = this.ExecutePrivateAccess(this.Range(this.RangeA, start, end));
+            a = this.ExecutePrivateEmit(this.Range(this.RangeA, start, end));
         }
 
 
@@ -3141,36 +3141,36 @@ public class Create : InfraCreate
 
 
 
-    public virtual Node ExecutePrudateAccess(Range range)
+    public virtual Node ExecutePrudateEmit(Range range)
     {
-        return this.ExecuteOneWord(this.NodeKind.PrudateAccess, this.Keyword.Prudate, range);
+        return this.ExecuteOneWord(this.NodeKind.PrudateEmit, this.Keyword.Prudate, range);
     }
 
 
 
 
 
-    public virtual Node ExecuteProbateAccess(Range range)
+    public virtual Node ExecuteProbateEmit(Range range)
     {
-        return this.ExecuteOneWord(this.NodeKind.ProbateAccess, this.Keyword.Probate, range);
+        return this.ExecuteOneWord(this.NodeKind.ProbateEmit, this.Keyword.Probate, range);
     }
 
 
 
 
 
-    public virtual Node ExecutePrecateAccess(Range range)
+    public virtual Node ExecutePrecateEmit(Range range)
     {
-        return this.ExecuteOneWord(this.NodeKind.PrecateAccess, this.Keyword.Precate, range);
+        return this.ExecuteOneWord(this.NodeKind.PrecateEmit, this.Keyword.Precate, range);
     }
 
 
 
 
 
-    public virtual Node ExecutePrivateAccess(Range range)
+    public virtual Node ExecutePrivateEmit(Range range)
     {
-        return this.ExecuteOneWord(this.NodeKind.PrivateAccess, this.Keyword.Private, range);
+        return this.ExecuteOneWord(this.NodeKind.PrivateEmit, this.Keyword.Private, range);
     }
 
 
@@ -7863,7 +7863,7 @@ public class Create : InfraCreate
 
 
 
-    protected virtual Range ExecuteAccessRange(Range result, Range range)
+    protected virtual Range ExecuteEmitRange(Range result, Range range)
     {
         int start;
         int end;
@@ -7937,7 +7937,7 @@ public class Create : InfraCreate
         end = range.End;
 
         Range accessRange;
-        accessRange = this.ExecuteAccessRange(this.RangeB, this.Range(this.RangeA, start, end));
+        accessRange = this.ExecuteEmitRange(this.RangeB, this.Range(this.RangeA, start, end));
         if (accessRange == null)
         {
             return null;
@@ -8071,7 +8071,7 @@ public class Create : InfraCreate
 
 
 
-        accessRange = this.ExecuteAccessRange(this.RangeB, this.Range(this.RangeA, start, end));
+        accessRange = this.ExecuteEmitRange(this.RangeB, this.Range(this.RangeA, start, end));
 
 
 
