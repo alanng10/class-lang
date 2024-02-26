@@ -3,7 +3,7 @@ NameInvalid
 BaseInvalid
 MemberInvalid
 ClassInvalid
-AccessInvalid
+EmitInvalid
 GetInvalid
 SetInvalid
 ParamInvalid
