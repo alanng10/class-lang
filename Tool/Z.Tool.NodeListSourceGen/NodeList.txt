@@ -29,15 +29,15 @@ Var : Node
     ClassName Class
     VarName Name
 
-Access : Node
+Emit : Node
 
-PrudateAccess : Access
+PrudateEmit : Emit
 
-ProbateAccess : Access
+ProbateEmit : Emit
 
-PrecateAccess : Access
+PrecateEmit : Emit
 
-PrivateAccess : Access
+PrivateEmit : Emit
 
 State : Node
     Array Value
