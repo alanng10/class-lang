@@ -5056,236 +5056,92 @@ public class Create : InfraCreate
     protected virtual Node ExecuteWordDelimitTwoOperand(NodeKind kind, Keyword word, Delimit delimit, Range range)
     {
         int start;
-
-
         int end;
-
-
-
         start = range.Start;
-
-
         end = range.End;
-
-
-
-
 
         if (start == end)
         {
             return null;
         }
-
-
-
-
-
-
         Token wordToken;
-
-
         wordToken = this.Token(this.TokenA, word.Text, this.IndexRange(this.RangeA, start));
-
-
-
         if (wordToken == null)
         {
             return null;
         }
 
-
-
-
-
-
-
         if (wordToken.Range.End == end)
         {
             return null;
         }
-
-
-
-
-
         Token op;
-
-
-
         op = this.Token(this.TokenB, delimit.Text, this.IndexRange(this.RangeA, wordToken.Range.End));
-
-
-
-
         if (op == null)
         {
             return null;
         }
 
-
-
-
-
         if (op.Range.End == end)
         {
             return null;
         }
-
-
-
-
-
         Token leftBracket;
-
-
-
         leftBracket = this.Token(this.TokenC, this.Delimit.LeftBracket.Text, this.IndexRange(this.RangeA, op.Range.End));
-
-
-
-
         if (leftBracket == null)
         {
             return null;
         }
 
-
-
-
-
-
         Token rightBracket;
-
-
-
         rightBracket = this.TokenMatchLeftBracket(this.TokenD, this.Range(this.RangeA, leftBracket.Range.End, end));
-
-
-
-
         if (rightBracket == null)
         {
             return null;
         }
 
-
-
-
-
-
         Token comma;
-
-
         comma = this.TokenForward(this.TokenA, this.Delimit.PauseSign.Text, this.Range(this.RangeA, leftBracket.Range.End, rightBracket.Range.Start));
-
-
-
-
         if (comma == null)
         {
             return null;
         }
-
-
-
-
 
         if (!(rightBracket.Range.End == end))
         {
             return null;
         }
 
-
-
-
-
-
-
-
         int leftStart;
-
-
         int leftEnd;
-
-
         leftStart = leftBracket.Range.End;
-
-
         leftEnd = comma.Range.Start;
-
-
-
-
-
         int rightStart;
-
-
         int rightEnd;
-
-
         rightStart = comma.Range.End;
-
-
         rightEnd = rightBracket.Range.Start;
 
-
-
-
-
-
         Node left;
-
-
-
         left = this.ExecuteOperate(this.Range(this.RangeA, leftStart, leftEnd));
-
-
-
         if (left == null)
         {
             this.Error(this.ErrorKind.OperandInvalid, leftStart, leftEnd);
         }
 
-
-
-
         Node right;
-
-
-
         right = this.ExecuteOperate(this.Range(this.RangeA, rightStart, rightEnd));
-
-
-
-
         if (right == null)
         {
             this.Error(this.ErrorKind.OperandInvalid, rightStart, rightEnd);
         }
 
-
-
-
-
         this.OperateArg.Kind = kind;
-
         this.OperateArg.Start = start;
-
         this.OperateArg.End = end;
-
-
         this.OperateArg.Field00 = left;
-
         this.OperateArg.Field01 = right;
-
-
-
         Node ret;
-
-
         ret = this.ExecuteCreateOperate();
-
-
         return ret;
     }
 
