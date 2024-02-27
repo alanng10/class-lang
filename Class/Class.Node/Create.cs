@@ -4514,444 +4514,192 @@ public class Create : InfraCreate
         return ret;
     }
 
-
-
-
-
-
     public virtual Node ExecuteEqualOperate(Range range)
     {
         return this.ExecuteDelimitTwoOperand(this.NodeKind.EqualOperate, this.Delimit.EqualSign, range);
     }
-
-
-
-
 
     public virtual Node ExecuteAndOperate(Range range)
     {
         return this.ExecuteDelimitTwoOperand(this.NodeKind.AndOperate, this.Delimit.AndSign, range);
     }
 
-
-
-
-
-
     public virtual Node ExecuteOrnOperate(Range range)
     {
         return this.ExecuteDelimitTwoOperand(this.NodeKind.OrnOperate, this.Delimit.OrnSign, range);
     }
-
-
-
-
-
 
     public virtual Node ExecuteNotOperate(Range range)
     {
         return this.ExecuteDelimitOneOperand(this.NodeKind.NotOperate, this.Delimit.NotSign, range);
     }
 
-
-
-
-
-
-
     public virtual Node ExecuteAddOperate(Range range)
     {
         return this.ExecuteDelimitTwoOperand(this.NodeKind.AddOperate, this.Delimit.AddSign, range);
     }
-
-
-
-
-
 
     public virtual Node ExecuteSubOperate(Range range)
     {
         return this.ExecuteDelimitTwoOperand(this.NodeKind.SubOperate, this.Delimit.SubSign, range);
     }
 
-
-
-
-
-
-
     public virtual Node ExecuteMulOperate(Range range)
     {
         return this.ExecuteDelimitTwoOperand(this.NodeKind.MulOperate, this.Delimit.MulSign, range);
     }
-
-
-
-
-
 
     public virtual Node ExecuteDivOperate(Range range)
     {
         return this.ExecuteDelimitTwoOperand(this.NodeKind.DivOperate, this.Delimit.DivSign, range);
     }
 
-
-
-
-
-
     public virtual Node ExecuteLessOperate(Range range)
     {
         return this.ExecuteDelimitTwoOperand(this.NodeKind.LessOperate, this.Delimit.LessSign, range);
     }
-
-
-
-
-
 
     public virtual Node ExecuteSignMulOperate(Range range)
     {
         return this.ExecuteWordDelimitTwoOperand(this.NodeKind.SignMulOperate, this.Keyword.Sign, this.Delimit.MulSign, range);
     }
 
-
-
-
-
-
     public virtual Node ExecuteSignDivOperate(Range range)
     {
         return this.ExecuteWordDelimitTwoOperand(this.NodeKind.SignDivOperate, this.Keyword.Sign, this.Delimit.DivSign, range);
     }
-
-
-
-
-
-
 
     public virtual Node ExecuteSignLessOperate(Range range)
     {
         return this.ExecuteWordDelimitTwoOperand(this.NodeKind.SignLessOperate, this.Keyword.Sign, this.Delimit.LessSign, range);
     }
 
-
-
-
-
-
-
     public virtual Node ExecuteBitAndOperate(Range range)
     {
         return this.ExecuteWordDelimitTwoOperand(this.NodeKind.BitAndOperate, this.Keyword.Bit, this.Delimit.AndSign, range);
     }
-
-
-
-
-
 
     public virtual Node ExecuteBitOrnOperate(Range range)
     {
         return this.ExecuteWordDelimitTwoOperand(this.NodeKind.BitOrnOperate, this.Keyword.Bit, this.Delimit.OrnSign, range);
     }
 
-
-
-
-
-
     public virtual Node ExecuteBitNotOperate(Range range)
     {
         return this.ExecuteWordDelimitOneOperand(this.NodeKind.BitNotOperate, this.Keyword.Bit, this.Delimit.NotSign, range);
     }
-
-
-
-
-
 
     public virtual Node ExecuteBitLeftOperate(Range range)
     {
         return this.ExecuteWordDelimitTwoOperand(this.NodeKind.BitLeftOperate, this.Keyword.Bit, this.Delimit.LessSign, range);
     }
 
-
-
-
-
-
-
     public virtual Node ExecuteBitRightOperate(Range range)
     {
         return this.ExecuteWordDelimitTwoOperand(this.NodeKind.BitRightOperate, this.Keyword.Bit, this.Delimit.MoreSign, range);
     }
 
-
-
-
-
-
-
-
     public virtual Node ExecuteBitSignRightOperate(Range range)
     {
         int start;
-
-
         int end;
-
-
-
         start = range.Start;
-
-
         end = range.End;
-
-
-
-
 
         if (start == end)
         {
             return null;
         }
 
-
-
-
-
-
         Token wordToken;
-
-
         wordToken = this.Token(this.TokenA, this.Keyword.Bit.Text, this.IndexRange(this.RangeA, start));
-
-
-
         if (wordToken == null)
         {
             return null;
         }
 
-
-
-
-
-
-
         if (wordToken.Range.End == end)
         {
             return null;
         }
-
-
-
-
-
         Token op;
-
-
-
         op = this.Token(this.TokenB, this.Delimit.MoreSign.Text, this.IndexRange(this.RangeA, wordToken.Range.End));
-
-
-
-
         if (op == null)
         {
             return null;
         }
 
-
-
-
-
         if (op.Range.End == end)
         {
             return null;
         }
-
-
-
-
-
         Token opA;
-
-
         opA = this.Token(this.TokenC, this.Delimit.MoreSign.Text, this.IndexRange(this.RangeA, op.Range.End));
-
-
-
         if (opA == null)
         {
             return null;
         }
 
-
-
-
         if (opA.Range.End == end)
         {
             return null;
         }
-
-
-
-
-
         Token leftBracket;
-
-
-
         leftBracket = this.Token(this.TokenA, this.Delimit.LeftBracket.Text, this.IndexRange(this.RangeA, opA.Range.End));
-
-
-
-
         if (leftBracket == null)
         {
             return null;
         }
 
-
-
-
-
-
         Token rightBracket;
-
-
-
         rightBracket = this.TokenMatchLeftBracket(this.TokenB, this.Range(this.RangeA, leftBracket.Range.End, end));
-
-
-
-
         if (rightBracket == null)
         {
             return null;
         }
 
-
-
-
-
-
         Token comma;
-
-
         comma = this.TokenForward(this.TokenC, this.Delimit.PauseSign.Text, this.Range(this.RangeA, leftBracket.Range.End, rightBracket.Range.Start));
-
-
-
-
         if (comma == null)
         {
             return null;
         }
-
-
-
-
 
         if (!(rightBracket.Range.End == end))
         {
             return null;
         }
 
-
-
-
-
-
-
-
         int leftStart;
-
-
         int leftEnd;
-
-
         leftStart = leftBracket.Range.End;
-
-
         leftEnd = comma.Range.Start;
-
-
-
-
-
         int rightStart;
-
-
         int rightEnd;
-
-
         rightStart = comma.Range.End;
-
-
         rightEnd = rightBracket.Range.Start;
 
-
-
-
-
-
         Node left;
-
-
-
         left = this.ExecuteOperate(this.Range(this.RangeA, leftStart, leftEnd));
-
-
-
         if (left == null)
         {
             this.Error(this.ErrorKind.OperandInvalid, leftStart, leftEnd);
         }
 
-
-
-
         Node right;
-
-
-
         right = this.ExecuteOperate(this.Range(this.RangeA, rightStart, rightEnd));
-
-
-
-
         if (right == null)
         {
             this.Error(this.ErrorKind.OperandInvalid, rightStart, rightEnd);
         }
 
-
-
-
-
         this.OperateArg.Kind = this.NodeKind.BitSignRightOperate;
-
         this.OperateArg.Start = start;
-
         this.OperateArg.End = end;
-
-
         this.OperateArg.Field00 = left;
-
         this.OperateArg.Field01 = right;
-
-
-
         Node ret;
-
-
         ret = this.ExecuteCreateOperate();
-
-
         return ret;
     }
 
