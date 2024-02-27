@@ -513,7 +513,6 @@ public class Create : InfraCreate
         {
             return null;
         }
-
         Token classToken;
         classToken = this.Token(this.TokenA, this.Keyword.Class.Text, this.IndexRange(this.RangeA, start));
         if (classToken == null)
@@ -4096,7 +4095,6 @@ public class Create : InfraCreate
         {
             return null;
         }
-
         int lastIndex;
         lastIndex = end - 1;
         Token rightBracket;
@@ -4473,7 +4471,6 @@ public class Create : InfraCreate
         {
             return null;
         }
-
         Token leftBracket;
         leftBracket = this.Token(this.TokenA, this.Delimit.LeftBracket.Text, this.IndexRange(this.RangeA, start));
         if (leftBracket == null)
@@ -4610,7 +4607,6 @@ public class Create : InfraCreate
         {
             return null;
         }
-
         Token wordToken;
         wordToken = this.Token(this.TokenA, this.Keyword.Bit.Text, this.IndexRange(this.RangeA, start));
         if (wordToken == null)
