@@ -1265,166 +1265,62 @@ public class Create : InfraCreate
         return ret;
     }
 
-
-
-
-
-
     public virtual Node ExecuteVar(Range range)
     {
         int start;
-
-
         int end;
-
-
         start = range.Start;
-
-
         end = range.End;
 
-
-
-
-
         Range classRange;
-
-
         classRange = this.ExecuteClassNameRange(this.RangeB, this.Range(this.RangeA, start, end));
-
-
-
         if (classRange == null)
         {
             return null;
         }
 
-
-
-
-
         Range nameRange;
-
-
         nameRange = this.ExecuteVarNameRange(this.RangeC, this.Range(this.RangeA, classRange.End, end));
-
-
-
         if (nameRange == null)
         {
             return null;
         }
-
-
-
-
-
-
 
         if (!(nameRange.End == end))
         {
             return null;
         }
 
-
-
-
-
-
-
-
-
         int classStart;
-
-
         int classEnd;
-
-
         classStart = classRange.Start;
-
-
         classEnd = classRange.End;
-
-
-
-
-
         int nameStart;
-
-
         int nameEnd;
-
-
         nameStart = nameRange.Start;
-
-
         nameEnd = nameRange.End;
 
-
-
-
-
-
-
         Node varClass;
-
-
-
         varClass = this.ExecuteClassName(this.Range(this.RangeA, classStart, classEnd));
-
-
-
-
-
         if (varClass == null)
         {
             this.Error(this.ErrorKind.ClassInvalid, classStart, classEnd);
         }
 
-
-
-
-
-
-
         Node name;
-
-
-
         name = this.ExecuteVarName(this.Range(this.RangeA, nameStart, nameEnd));
-
-
-
-
-
         if (name == null)
         {
             this.Error(this.ErrorKind.NameInvalid, nameStart, nameEnd);
         }
 
-
-
-
-
         this.OperateArg.Kind = this.NodeKind.Var;
-
         this.OperateArg.Start = start;
-
         this.OperateArg.End = end;
-
-
         this.OperateArg.Field00 = varClass;
-
         this.OperateArg.Field01 = name;
-
-
-
         Node ret;
-
-
         ret = this.ExecuteCreateOperate();
-
-
         return ret;
     }
 
