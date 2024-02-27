@@ -1,61 +1,25 @@
 namespace Class.Binary;
 
-
-
-
-
 public class OperateKindList : Any
 {
-    public static OperateKindList This { get; } = CreateShare();
+    public static OperateKindList This { get; } = ShareCreate();
 
-
-
-
-    private static OperateKindList CreateShare()
+    private static OperateKindList ShareCreate()
     {
         OperateKindList share;
-
-
         share = new OperateKindList();
-
-
-
         Any a;
-
-
         a = share;
-
-
         a.Init();
-
-
-
         return share;
     }
-
-
-
-
-
 
     public override bool Init()
     {
         base.Init();
-
-
-
         this.InitArray();
-
-
-
         this.Count = this.Array.Count;
-
-
-
         this.Index = 0;
-
-
-
 
         this.Inf = this.AddItem(false, false);
         this.While = this.AddItem(false, false);
@@ -93,17 +57,8 @@ public class OperateKindList : Any
         this.BitNot = this.AddItem(false, false);
         this.BitLeft = this.AddItem(false, false);
         this.BitRight = this.AddItem(false, false);
-
-
-
-
-
-
         return true;
     }
-
-
-
 
     public virtual OperateKind Inf { get; set; }
     public virtual OperateKind While { get; set; }
@@ -142,60 +97,28 @@ public class OperateKindList : Any
     public virtual OperateKind BitLeft { get; set; }
     public virtual OperateKind BitRight { get; set; }
 
-
-
-
     protected virtual OperateKind AddItem(bool arg, bool anyArg)
     {
         OperateKind item;
-
         item = new OperateKind();
-
         item.Init();
-
         item.Index = this.Index;
-        
         item.Arg = arg;
-
         item.AnyArg = anyArg;
-
-
-
         this.Array.Set(item.Index, item);
-
-
         this.Index = this.Index + 1;
-
-
-
         return item;
     }
-
-
-
 
     protected virtual bool InitArray()
     {
         this.Array = new Array();
-
-
         this.Array.Count = this.ArrayCount;
-
-
         this.Array.Init();
-
-
-
         return true;
     }
 
-
-
-
-
     protected virtual Array Array { get; set; }
-
-
 
     protected virtual int ArrayCount
     { 
@@ -208,22 +131,12 @@ public class OperateKindList : Any
         }
     }
 
-
-
-
     public virtual int Count { get; set; }
-
-
-
 
     public virtual OperateKind Get(int index)
     {
         return (OperateKind)this.Array.Get(index);
     }
-
-
-
     
     protected virtual int Index { get; set; }
-
 }
