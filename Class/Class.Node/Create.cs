@@ -1324,59 +1324,26 @@ public class Create : InfraCreate
         return ret;
     }
 
-
-
-
-
-
     public virtual Node ExecuteClassName(Range range)
     {
         int start;
-
-
         int end;
-
-
         start = range.Start;
-
-
         end = range.End;
 
-
-
-
         string value;
-
-
         value = this.ExecuteNameValue(this.Range(this.RangeA, start, end));
-
-
         if (value == null)
         {
             return null;
         }
 
-
-
-
-
         this.OperateArg.Kind = this.NodeKind.ClassName;
-
         this.OperateArg.Start = start;
-
         this.OperateArg.End = end;
-
-
         this.OperateArg.Field00 = value;
-
-
-
         Node ret;
-
-
         ret = this.ExecuteCreateOperate();
-
-
         return ret;
     }
 
