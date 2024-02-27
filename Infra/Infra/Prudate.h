@@ -813,17 +813,6 @@ Infra_Api Int Post_Execute(Int o);
 
 typedef Int (*Post_Execute_Maide)(Int post, Int arg);
 
-InfraApiNew(Libray)
-Infra_Api Int Libray_GetFile(Int o);
-Infra_Api Int Libray_SetFile(Int o, Int value);
-Infra_Api Int Libray_GetLoaded(Int o);
-Infra_Api Int Libray_SetLoaded(Int o, Int value);
-
-Infra_Api Int Libray_SetLibraryFile(Int o);
-Infra_Api Int Libray_Load(Int o);
-Infra_Api Int Libray_Unload(Int o);
-Infra_Api Int Libray_GetAddress(Int o, Int name);
-
 InfraApiNew(Process)
 Infra_Api Int Process_GetProgram(Int o);
 Infra_Api Int Process_SetProgram(Int o, Int value);
