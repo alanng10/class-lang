@@ -645,16 +645,16 @@ public class Create : InfraCreate
 
 
 
-        Range accessRange;
+        Range emitRange;
 
 
-        accessRange = this.ExecuteEmitRange(this.RangeB, this.Range(this.RangeA, start, end));
+        emitRange = this.ExecuteEmitRange(this.RangeB, this.Range(this.RangeA, start, end));
 
 
 
 
 
-        if (accessRange == null)
+        if (emitRange == null)
         {
             return null;
         }
@@ -667,7 +667,7 @@ public class Create : InfraCreate
         Range classRange;
 
 
-        classRange = this.ExecuteClassNameRange(this.RangeC, this.Range(this.RangeA, accessRange.End, end));
+        classRange = this.ExecuteClassNameRange(this.RangeC, this.Range(this.RangeA, emitRange.End, end));
 
 
 
@@ -930,16 +930,16 @@ public class Create : InfraCreate
 
 
 
-        int accessStart;
+        int emitStart;
 
 
-        int accessEnd;
+        int emitEnd;
 
 
-        accessStart = accessRange.Start;
+        emitStart = emitRange.Start;
 
 
-        accessEnd = accessRange.End;
+        emitEnd = emitRange.End;
 
 
 
@@ -1007,18 +1007,18 @@ public class Create : InfraCreate
 
 
 
-        Node access;
+        Node emit;
 
 
 
-        access = this.ExecuteEmit(this.Range(this.RangeA, accessStart, accessEnd));
+        emit = this.ExecuteEmit(this.Range(this.RangeA, emitStart, emitEnd));
 
 
 
 
-        if (access == null)
+        if (emit == null)
         {
-            this.Error(this.ErrorKind.EmitInvalid, accessStart, accessEnd);
+            this.Error(this.ErrorKind.EmitInvalid, emitStart, emitEnd);
         }
 
 
@@ -1111,7 +1111,7 @@ public class Create : InfraCreate
 
         this.OperateArg.Field01 = name;
 
-        this.OperateArg.Field02 = access;
+        this.OperateArg.Field02 = emit;
 
         this.OperateArg.Field03 = varGet;
 
@@ -1151,18 +1151,18 @@ public class Create : InfraCreate
 
 
 
-        Range accessRange;
+        Range emitRange;
 
 
 
-        accessRange = this.ExecuteEmitRange(this.RangeB, this.Range(this.RangeA, start, end));
+        emitRange = this.ExecuteEmitRange(this.RangeB, this.Range(this.RangeA, start, end));
 
 
 
 
 
 
-        if (accessRange == null)
+        if (emitRange == null)
         {
             return null;
         }
@@ -1177,7 +1177,7 @@ public class Create : InfraCreate
 
 
 
-        classRange = this.ExecuteClassNameRange(this.RangeC, this.Range(this.RangeA, accessRange.End, end));
+        classRange = this.ExecuteClassNameRange(this.RangeC, this.Range(this.RangeA, emitRange.End, end));
 
 
 
@@ -1322,16 +1322,16 @@ public class Create : InfraCreate
 
 
 
-        int accessStart;
+        int emitStart;
 
 
-        int accessEnd;
+        int emitEnd;
 
 
-        accessStart = accessRange.Start;
+        emitStart = emitRange.Start;
 
 
-        accessEnd = accessRange.End;
+        emitEnd = emitRange.End;
 
 
 
@@ -1399,18 +1399,18 @@ public class Create : InfraCreate
 
 
 
-        Node access;
+        Node emit;
 
 
 
-        access = this.ExecuteEmit(this.Range(this.RangeA, accessStart, accessEnd));
+        emit = this.ExecuteEmit(this.Range(this.RangeA, emitStart, emitEnd));
 
 
 
 
-        if (access == null)
+        if (emit == null)
         {
-            this.Error(this.ErrorKind.EmitInvalid, accessStart, accessEnd);
+            this.Error(this.ErrorKind.EmitInvalid, emitStart, emitEnd);
         }
 
 
@@ -1500,7 +1500,7 @@ public class Create : InfraCreate
 
         this.OperateArg.Field01 = name;
 
-        this.OperateArg.Field02 = access;
+        this.OperateArg.Field02 = emit;
 
         this.OperateArg.Field03 = param;
 
@@ -6163,15 +6163,15 @@ public class Create : InfraCreate
         start = range.Start;
         end = range.End;
 
-        Range accessRange;
-        accessRange = this.ExecuteEmitRange(this.RangeB, this.Range(this.RangeA, start, end));
-        if (accessRange == null)
+        Range emitRange;
+        emitRange = this.ExecuteEmitRange(this.RangeB, this.Range(this.RangeA, start, end));
+        if (emitRange == null)
         {
             return null;
         }
 
         Range classRange;
-        classRange = this.ExecuteClassNameRange(this.RangeC, this.Range(this.RangeA, accessRange.End, end));
+        classRange = this.ExecuteClassNameRange(this.RangeC, this.Range(this.RangeA, emitRange.End, end));
         if (classRange == null)
         {
             return null;
@@ -6294,18 +6294,18 @@ public class Create : InfraCreate
 
 
 
-        Range accessRange;
+        Range emitRange;
 
 
 
-        accessRange = this.ExecuteEmitRange(this.RangeB, this.Range(this.RangeA, start, end));
+        emitRange = this.ExecuteEmitRange(this.RangeB, this.Range(this.RangeA, start, end));
 
 
 
 
 
 
-        if (accessRange == null)
+        if (emitRange == null)
         {
             return null;
         }
@@ -6320,7 +6320,7 @@ public class Create : InfraCreate
 
 
 
-        classRange = this.ExecuteClassNameRange(this.RangeC, this.Range(this.RangeA, accessRange.End, end));
+        classRange = this.ExecuteClassNameRange(this.RangeC, this.Range(this.RangeA, emitRange.End, end));
 
 
 
