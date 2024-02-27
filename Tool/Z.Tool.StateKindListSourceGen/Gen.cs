@@ -46,7 +46,7 @@ public class Gen : SourceGen
 
 
 
-        this.OutputFilePath = "../../../../Class.Library/StateKindList.cs";
+        this.OutputFilePath = "../../Class/Class.Library/StateKindList.cs";
 
 
 
