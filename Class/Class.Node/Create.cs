@@ -1505,111 +1505,45 @@ public class Create : InfraCreate
         return ret;
     }
 
-
-
-
-
-
-
     public virtual Node ExecuteIntValue(Range range)
     {
         int start;
-
-
         int end;
-
-
         start = range.Start;
-
-
         end = range.End;
-
-
-
-
-
 
         if (!(start + 1 == end))
         {
             return null;
         }
 
-
-
-
         TextRange aa;
-
-
-
         aa = this.TextRange(start);
-
-
-
 
         if (!this.IsIntValue(aa))
         {
             return null;
         }
 
-
-
-
-
         TextLine textLine;
-
-
         textLine = this.SourceText.GetLine(aa.Row);
-
-
-
-
         this.TextSpan.Data = textLine.Value;
-
-
-
 
         this.Range(this.TextSpan.Range, aa.Col.Start, aa.Col.End);
 
-
-
-
-
-
         long value;
-
-
-
         value = this.TextInfra.GetInt(this.TextSpan);
-
-
-
-
         if (value == -1)
         {
             return null;
         }
 
-
-
-
-
         this.OperateArg.Kind = this.NodeKind.IntValue;
-
         this.OperateArg.Start = start;
-
         this.OperateArg.End = end;
-
-
         this.OperateArg.FieldInt = value;
-
-
-
         Node ret;
-
-
         ret = this.ExecuteCreateOperate();
-
-
         return ret;
     }
 
