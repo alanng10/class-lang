@@ -5295,165 +5295,82 @@ public class Create : InfraCreate
         return array;
     }
 
-
-
-
-
-
-
     protected virtual Array ExecuteNodeListComma(RangeState rangeState, NodeState nodeState, Range range)
     {
         int start;
-
-
         int end;
-
-
-
         start = range.Start;
-
-
         end = range.End;
 
-
-
-
-
-
         int listIndex;
-
         listIndex = this.Operate.ExecuteListNew();
 
-
-
-
         int count;
-
         count = 0;
 
-
-
         bool hasNextItem;
-
         hasNextItem = false;
 
-
-
-
         int index;
-
         index = start;
-
-
         while (index < end)
         {
             rangeState.Arg.Result = this.RangeB;
-
-
             rangeState.Arg.Range = this.Range(this.RangeA, index, end);
-
-
 
             rangeState.Execute();
 
-
-
             Range itemRange;
-
             itemRange = rangeState.Result;
 
-
-
+            rangeState.Arg.Result = null;
+            rangeState.Arg.Range = null;
+            rangeState.Result = null;
 
             int aStart;
-
-
             int aEnd;
-
-
             aStart = 0;
-
-
             aEnd = 0;
 
-
-
-
             bool b;
-
-
             b = (itemRange == null);
-
-
-
             if (b)
             {
                 aStart = index;
-
-
                 aEnd = end;
 
-
-
                 index = aEnd;
-
-
 
                 hasNextItem = false;
             }
 
-
             if (!b)
             {
                 aStart = itemRange.Start;
-
-
                 aEnd = itemRange.End;
 
-
-
                 index = aEnd + 1;
-
-
 
                 hasNextItem = true;
             }
 
-
-
-
-
-
             nodeState.Arg = this.Range(this.RangeA, aStart, aEnd);
-
-
 
             nodeState.Execute();
 
-
-
-
             Node item;
-
-
             item = nodeState.Result;
 
-
-
-
+            nodeState.Arg = null;
+            nodeState.Result = null;
 
             bool ba;
-
             ba = (item == null);
-
-
 
             if (ba)
             {
                 this.Error(this.ErrorKind.ItemInvalid, aStart, aEnd);
             }
-
-
 
             this.Operate.ExecuteListSetItem(listIndex, count, item);
 
@@ -5461,37 +5378,19 @@ public class Create : InfraCreate
             count = count + 1;
         }
 
-
-
-
-
         if (hasNextItem)
         {
             this.Error(this.ErrorKind.ItemInvalid, index, index);
 
-
-
-
             this.Operate.ExecuteListSetItem(listIndex, count, null);
-
 
             count = count + 1;
         }
 
-
-
-
         this.Operate.ExecuteListCount(listIndex, count);
 
-
-
-
         Array array;
-
         array = this.Operate.ExecuteListGet(listIndex);
-
-
-
         return array;
     }
 
