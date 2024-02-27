@@ -1528,7 +1528,6 @@ public class Create : InfraCreate
         TextLine textLine;
         textLine = this.SourceText.GetLine(aa.Row);
         this.TextSpan.Data = textLine.Value;
-
         this.Range(this.TextSpan.Range, aa.Col.Start, aa.Col.End);
 
         long value;
@@ -1570,7 +1569,6 @@ public class Create : InfraCreate
         TextLine textLine;
         textLine = this.SourceText.GetLine(aa.Row);
         this.TextSpan.Data = textLine.Value;
-
         this.Range(this.TextSpan.Range, aa.Col.Start + 2, aa.Col.End);
 
         long value;
@@ -1589,323 +1587,144 @@ public class Create : InfraCreate
         return ret;
     }
 
-
-
-
-
-
     public virtual Node ExecuteIntSignValue(Range range)
     {
         int start;
-
-
         int end;
-
-
         start = range.Start;
-
-
         end = range.End;
-
-
-
-
-
 
         if (!(start + 1 == end))
         {
             return null;
         }
 
-
-
-
         TextRange aa;
-
-
-
         aa = this.TextRange(start);
-
-
-
-
         if (!this.IsIntSignValue(aa))
         {
             return null;
         }
 
-
-
-
-
         bool signNegative;
-
         signNegative = this.IsTokenSignNegative(aa, 2);
 
-
-
-
-
         TextLine textLine;
-
-
         textLine = this.SourceText.GetLine(aa.Row);
-
-
-
-
         this.TextSpan.Data = textLine.Value;
-
-
-
-
         this.Range(this.TextSpan.Range, aa.Col.Start + 3, aa.Col.End);
 
-
-
-
-
-
         long o;
-
-
-
         o = this.TextInfra.GetInt(this.TextSpan);
-
-
-
 
         if (o == -1)
         {
             return null;
         }
 
-
-
-
         long max;
-
         max = 0;
-
-
         if (!signNegative)
         {
             max = this.NodeInfra.IntSignValuePositiveMax;
         }
-
-
         if (signNegative)
         {
             max = this.NodeInfra.IntSignValueNegativeMax;
         }
-        
-
 
         if (max < o)
         {
             return null;
         }
 
-
-
         long value;
-
         value = 0;
-
-
         if (!signNegative)
         {
             value = o;
         }
-
-
-
         if (signNegative)
         {
             value = -o;
         }
 
-
-
-
         this.OperateArg.Kind = this.NodeKind.IntSignValue;
-
         this.OperateArg.Start = start;
-
         this.OperateArg.End = end;
-
-
         this.OperateArg.FieldInt = value;
-
-
-
         Node ret;
-
-
         ret = this.ExecuteCreateOperate();
-
-
         return ret;
     }
-
-
-
-
-
-
 
     public virtual Node ExecuteIntSignHexValue(Range range)
     {
         int start;
-
-
         int end;
-
-
         start = range.Start;
-
-
         end = range.End;
-
-
-
-
-
 
         if (!(start + 1 == end))
         {
             return null;
         }
 
-
-
-
         TextRange aa;
-
-
-
         aa = this.TextRange(start);
-
-
-
-
         if (!this.IsIntSignHexValue(aa))
         {
             return null;
         }
 
-
-
-
-
         bool signNegative;
-
         signNegative = this.IsTokenSignNegative(aa, 3);
 
-
-
-
-
         TextLine textLine;
-
-
         textLine = this.SourceText.GetLine(aa.Row);
-
-
-
-
         this.TextSpan.Data = textLine.Value;
-
-
-
-
         this.Range(this.TextSpan.Range, aa.Col.Start + 4, aa.Col.End);
 
-
-
-
-
-
         long o;
-
-
-
         o = this.TextInfra.GetIntHex(this.TextSpan);
-
-
-
-
         if (o == -1)
         {
             return null;
         }
 
-
-
-
         long max;
-
         max = 0;
-
-
         if (!signNegative)
         {
             max = this.NodeInfra.IntSignValuePositiveMax;
         }
-
-
         if (signNegative)
         {
             max = this.NodeInfra.IntSignValueNegativeMax;
         }
-
-
 
         if (max < o)
         {
             return null;
         }
 
-
-
-
         long value;
-
         value = 0;
-
-
         if (!signNegative)
         {
             value = o;
         }
-
-
-
         if (signNegative)
         {
             value = -o;
         }
 
-
-
-
         this.OperateArg.Kind = this.NodeKind.IntSignHexValue;
-
         this.OperateArg.Start = start;
-
         this.OperateArg.End = end;
-
-
         this.OperateArg.FieldInt = value;
-
-
-
         Node ret;
-
-
         ret = this.ExecuteCreateOperate();
-
-
         return ret;
     }
 
