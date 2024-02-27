@@ -1346,86 +1346,12 @@ public class Create : InfraCreate
 
     public virtual Node ExecutePart(Range range)
     {
-        int start;
-        int end;
-        start = range.Start;
-        end = range.End;
-
-        Array value;
-        value = this.ExecuteNodeList(this.PartItemRangeState, this.PartItemNodeState, this.Range(this.RangeA, start, end));
-        if (value == null)
-        {
-            return null;
-        }
-
-        this.OperateArg.Kind = this.NodeKind.Part;
-        this.OperateArg.Start = start;
-        this.OperateArg.End = end;
-        this.OperateArg.Field00 = value;
-        Node ret;
-        ret = this.ExecuteCreateOperate();
-        return ret;
+        return this.ExecuteList(this.NodeKind.Part, this.PartItemRangeState, this.PartItemNodeState, range);
     }
-
-
-
-
-
-
 
     public virtual Node ExecuteState(Range range)
     {
-        int start;
-
-
-        int end;
-
-
-        start = range.Start;
-
-
-        end = range.End;
-
-
-
-
-
-        Array value;
-
-
-
-        value = this.ExecuteNodeList(this.StateItemRangeState, this.StateItemNodeState, this.Range(this.RangeA, start, end));
-
-
-
-
-        if (value == null)
-        {
-            return null;
-        }
-
-
-
-
-
-        this.OperateArg.Kind = this.NodeKind.State;
-
-        this.OperateArg.Start = start;
-
-        this.OperateArg.End = end;
-
-
-        this.OperateArg.Field00 = value;
-
-
-
-        Node ret;
-
-
-        ret = this.ExecuteCreateOperate();
-
-
-        return ret;
+        return this.ExecuteList(this.NodeKind.State, this.StateItemRangeState, this.StateItemNodeState, range);
     }
 
 
@@ -4633,6 +4559,29 @@ public class Create : InfraCreate
         if (value == null)
         {
             this.Error(this.ErrorKind.OperandInvalid, valueStart, valueEnd);
+        }
+
+        this.OperateArg.Kind = kind;
+        this.OperateArg.Start = start;
+        this.OperateArg.End = end;
+        this.OperateArg.Field00 = value;
+        Node ret;
+        ret = this.ExecuteCreateOperate();
+        return ret;
+    }
+
+    protected virtual Node ExecuteList(NodeKind kind, RangeState rangeState, NodeState nodeState, Range range)
+    {
+        int start;
+        int end;
+        start = range.Start;
+        end = range.End;
+
+        Array value;
+        value = this.ExecuteNodeList(rangeState, nodeState, this.Range(this.RangeA, start, end));
+        if (value == null)
+        {
+            return null;
         }
 
         this.OperateArg.Kind = kind;
