@@ -98,6 +98,9 @@ Random
     Seed
     Execute()
 
+Sort
+    Execute(array, compareState)
+
 Range
     Start
     End
