@@ -4593,6 +4593,29 @@ public class Create : InfraCreate
         return ret;
     }
 
+    protected virtual Node ExecuteListComma(NodeKind kind, RangeState rangeState, NodeState nodeState, Range range)
+    {
+        int start;
+        int end;
+        start = range.Start;
+        end = range.End;
+
+        Array value;
+        value = this.ExecuteNodeListComma(rangeState, nodeState, this.Range(this.RangeA, start, end));
+        if (value == null)
+        {
+            return null;
+        }
+
+        this.OperateArg.Kind = kind;
+        this.OperateArg.Start = start;
+        this.OperateArg.End = end;
+        this.OperateArg.Field00 = value;
+        Node ret;
+        ret = this.ExecuteCreateOperate();
+        return ret;
+    }
+
     protected virtual Array ExecuteNodeList(RangeState rangeState, NodeState nodeState, Range range)
     {
         int start;
