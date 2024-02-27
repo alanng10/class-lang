@@ -4967,132 +4967,50 @@ public class Create : InfraCreate
         return ret;
     }
 
-
-
-
-
-
     protected virtual Node ExecuteDelimitTwoOperand(NodeKind kind, Delimit delimit, Range range)
     {
         int start;
-
-
         int end;
-
-
         start = range.Start;
-
-
         end = range.End;
 
-
-
-
-
-
         Token op;
-
-
-
         op = this.TokenForward(this.TokenA, delimit.Text, this.Range(this.RangeA, start, end));
-
-
-
-
         if (op == null)
         {
             return null;
         }
 
-
-
-
-
-
         int leftStart;
-
-
         int leftEnd;
-
-
         leftStart = start;
-
-
         leftEnd = op.Range.Start;
-
-
-
-
-
         int rightStart;
-
-
         int rightEnd;
-
-
         rightStart = op.Range.End;
-
-
         rightEnd = end;
 
-
-
-
-
-
         Node left;
-
-
-
         left = this.ExecuteOperate(this.Range(this.RangeA, leftStart, leftEnd));
-
-
-
         if (left == null)
         {
             this.Error(this.ErrorKind.OperandInvalid, leftStart, leftEnd);
         }
 
-
-
-
         Node right;
-
-
-
         right = this.ExecuteOperate(this.Range(this.RangeA, rightStart, rightEnd));
-
-
-
-
         if (right == null)
         {
             this.Error(this.ErrorKind.OperandInvalid, rightStart, rightEnd);
         }
 
-
-
-
-
         this.OperateArg.Kind = kind;
-
         this.OperateArg.Start = start;
-
         this.OperateArg.End = end;
-
-
         this.OperateArg.Field00 = left;
-
         this.OperateArg.Field01 = right;
-
-
-
         Node ret;
-
-
         ret = this.ExecuteCreateOperate();
-
-
         return ret;
     }
 
