@@ -1450,57 +1450,26 @@ public class Create : InfraCreate
         return a;
     }
 
-
-
-
-
-
     public virtual Node ExecuteBoolValue(Range range)
     {
         int start;
-
-
         int end;
-
-
         start = range.Start;
-
-
         end = range.End;
-
-
-
 
         if (!(start + 1 == end))
         {
             return null;
         }
 
-
-
-
-
         TextRange aa;
-
-
         aa = this.TextRange(start);
 
-
-
-
         bool value;
-
         value = false;
 
-
-
-
         bool b;
-
         b = false;
-
-
-
         if (!b)
         {
             if (this.TextInfra.Equal(this.SourceText, aa, this.Keyword.True.Text))
@@ -1511,8 +1480,6 @@ public class Create : InfraCreate
                 b = true;
             }
         }
-
-
         if (!b)
         {
             if (this.TextInfra.Equal(this.SourceText, aa, this.Keyword.False.Text))
@@ -1524,34 +1491,17 @@ public class Create : InfraCreate
             }
         }
 
-
-
         if (!b)
         {
             return null;
         }
 
-
-
-
-
         this.OperateArg.Kind = this.NodeKind.BoolValue;
-
         this.OperateArg.Start = start;
-
         this.OperateArg.End = end;
-
-
         this.OperateArg.FieldBool = value;
-
-
-
         Node ret;
-
-
         ret = this.ExecuteCreateOperate();
-
-
         return ret;
     }
 
