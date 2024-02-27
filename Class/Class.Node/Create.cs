@@ -1843,22 +1843,10 @@ public class Create : InfraCreate
         return a;
     }
 
-
-
-
-
-
-
     public virtual Node ExecuteInfExecute(Range range)
     {
         return this.ExecuteWordBracketBody(this.NodeKind.InfExecute, this.Keyword.Inf, range);
     }
-
-
-
-
-
-
 
     public virtual Node ExecuteWhileExecute(Range range)
     {
