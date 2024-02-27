@@ -4462,127 +4462,55 @@ public class Create : InfraCreate
         return ret;
     }
 
-
-
-
-
-
-
     public virtual Node ExecuteBracketOperate(Range range)
     {
         int start;
-
-
         int end;
-
-
         start = range.Start;
-
-
         end = range.End;
-
-
-
-
 
         if (start == end)
         {
             return null;
         }
 
-
-
-
         Token leftBracket;
-
-
         leftBracket = this.Token(this.TokenA, this.Delimit.LeftBracket.Text, this.IndexRange(this.RangeA, start));
-
-
-
-
         if (leftBracket == null)
         {
             return null;
         }
 
-
-
-
-
         Token rightBracket;
-
-
         rightBracket = this.TokenMatchLeftBracket(this.TokenB, this.Range(this.RangeA, leftBracket.Range.End, end));
-
-
-
         if (rightBracket == null)
         {
             return null;
         }
-
-
-
 
         if (!(rightBracket.Range.End == end))
         {
             return null;
         }
 
-
-
-
-
-
         int operateStart;
-
-
         int operateEnd;
-
-
         operateStart = leftBracket.Range.End;
-
-
         operateEnd = rightBracket.Range.Start;
 
-
-
-
-
-
         Node operate;
-
-
         operate = this.ExecuteOperate(this.Range(range, operateStart, operateEnd));
-
-
-
         if (operate == null)
         {
             this.Error(this.ErrorKind.OperateInvalid, operateStart, operateEnd);
         }
 
-
-
-
         this.OperateArg.Kind = this.NodeKind.BracketOperate;
-
         this.OperateArg.Start = start;
-
         this.OperateArg.End = end;
-
-
         this.OperateArg.Field00 = operate;
-
-
-
         Node ret;
-
-
         ret = this.ExecuteCreateOperate();
-
-
         return ret;
     }
 
