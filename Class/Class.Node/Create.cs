@@ -1810,79 +1810,36 @@ public class Create : InfraCreate
     public virtual Node ExecuteExecute(Range range)
     {
         int start;
-
-
         int end;
-
-
         start = range.Start;
-
-
         end = range.End;
 
-
-
-
-
         Node a;
-
-
         a = null;
-
-
-
-
-
         if (a == null)
         {
             a = this.ExecuteReturnExecute(this.Range(this.RangeA, start, end));
         }
-
-
-
-
         if (a == null)
         {
             a = this.ExecuteInfExecute(this.Range(this.RangeA, start, end));
         }
-
-
-
-
         if (a == null)
         {
             a = this.ExecuteWhileExecute(this.Range(this.RangeA, start, end));
         }
-
-
-
-
         if (a == null)
         {
             a = this.ExecuteDeclareExecute(this.Range(this.RangeA, start, end));
         }
-
-
-
-
         if (a == null)
         {
             a = this.ExecuteAssignExecute(this.Range(this.RangeA, start, end));
         }
-
-
-
-
         if (a == null)
         {
             a = this.ExecuteOperateExecute(this.Range(this.RangeA, start, end));
         }
-
-
-
-
-
-
         return a;
     }
 
