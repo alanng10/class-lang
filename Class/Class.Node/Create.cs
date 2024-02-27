@@ -1414,86 +1414,39 @@ public class Create : InfraCreate
         return this.ExecuteDotField(this.NodeKind.SetTarget, range);
     }
 
-
-
-
-
-
     public virtual Node ExecuteValue(Range range)
     {
         int start;
-
-
         int end;
-
-
         start = range.Start;
-
-
         end = range.End;
 
-
-
-
-
-
         Node a;
-
-
         a = null;
-
-
-
-
         if (a == null)
         {
             a = this.ExecuteBoolValue(this.Range(this.RangeA, start, end));
         }
-
-
-
-
         if (a == null)
         {
             a = this.ExecuteIntSignHexValue(this.Range(this.RangeA, start, end));
         }
-
-
-
-
         if (a == null)
         {
             a = this.ExecuteIntSignValue(this.Range(this.RangeA, start, end));
         }
-
-
-
-
         if (a == null)
         {
             a = this.ExecuteIntHexValue(this.Range(this.RangeA, start, end));
         }
-
-
-
-
         if (a == null)
         {
             a = this.ExecuteIntValue(this.Range(this.RangeA, start, end));
         }
-
-
-
-
         if (a == null)
         {
             a = this.ExecuteStringValue(this.Range(this.RangeA, start, end));
         }
-
-
-
-
-
         return a;
     }
 
