@@ -1759,74 +1759,31 @@ public class Create : InfraCreate
         return ret;
     }
 
-
-
-
-
-
     public virtual Node ExecuteEmit(Range range)
     {
         int start;
-
-
         int end;
-
-
         start = range.Start;
-
-
         end = range.End;
 
-
-
-
-
         Node a;
-
-
         a = null;
-
-
-
-
-
-
         if (a == null)
         {
             a = this.ExecutePrudateEmit(this.Range(this.RangeA, start, end));
         }
-
-
-
-
-
         if (a == null)
         {
             a = this.ExecuteProbateEmit(this.Range(this.RangeA, start, end));
         }
-
-
-
-
-
         if (a == null)
         {
             a = this.ExecutePrecateEmit(this.Range(this.RangeA, start, end));
         }
-
-
-
-
-
         if (a == null)
         {
             a = this.ExecutePrivateEmit(this.Range(this.RangeA, start, end));
         }
-
-
-
-
-
         return a;
     }
 
