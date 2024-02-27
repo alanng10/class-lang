@@ -225,6 +225,11 @@ Infra_Api Int Random_SetSeed(Int o, Int value);
 
 Infra_Api Int Random_Execute(Int o);
 
+InfraApiNew(Sort)
+Infra_Api Int Sort_Execute(Int o, Int array, Int compareState);
+
+typedef Int (*Sort_Compare_Maide)(Int sort, Int left, Int right, Int arg);
+
 InfraApiNew(Range)
 Infra_Api Int Range_GetStart(Int o);
 Infra_Api Int Range_SetStart(Int o, Int value);
