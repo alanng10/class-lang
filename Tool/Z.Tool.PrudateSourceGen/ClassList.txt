@@ -505,14 +505,6 @@ Post
     ExecuteState
     Execute(post, arg) --
 
-Libray
-    File
-    SetLibraryFile()
-    Load()
-    Unload()
-    Loaded
-    GetAddress(name)
-
 Process
     Program
     Argue
