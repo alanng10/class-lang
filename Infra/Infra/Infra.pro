@@ -31,7 +31,6 @@ HEADERS += \
     ImageWrite.hpp \
     Interval.hpp \
     IntervalIntern.hpp \
-    Library.hpp \
     Main.hpp \
     Math.hpp \
     Memory.hpp \
@@ -99,7 +98,6 @@ SOURCES += \
     ImageWrite.cpp \
     Interval.cpp \
     IntervalIntern.cpp \
-    Library.cpp \
     Main.cpp \
     Math.cpp \
     Memory.cpp \
