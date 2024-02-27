@@ -1127,392 +1127,141 @@ public class Create : InfraCreate
         return ret;
     }
 
-
-
-
-
-
-
-
     public virtual Node ExecuteMaide(Range range)
     {
         int start;
-
-
         int end;
-
-
         start = range.Start;
-
-
         end = range.End;
 
-
-
-
-
         Range emitRange;
-
-
-
         emitRange = this.ExecuteEmitRange(this.RangeB, this.Range(this.RangeA, start, end));
-
-
-
-
-
-
         if (emitRange == null)
         {
             return null;
         }
 
-
-
-
-
-
-
         Range classRange;
-
-
-
         classRange = this.ExecuteClassNameRange(this.RangeC, this.Range(this.RangeA, emitRange.End, end));
-
-
-
-
-
-
         if (classRange == null)
         {
             return null;
         }
 
-
-
-
-
-
         Range nameRange;
-
-
-
         nameRange = this.ExecuteMaideNameRange(this.RangeD, this.Range(this.RangeA, classRange.End, end));
-
-
-
-
-
-
         if (nameRange == null)
         {
             return null;
         }
 
-
-
-
-
-
-
         if (nameRange.End == end)
         {
             return null;
         }
-
-
-
-
-
-
         Token leftBracket;
-
-
-
         leftBracket = this.Token(this.TokenA, this.Delimit.LeftBracket.Text, this.IndexRange(this.RangeA, nameRange.End));
-
-
-
-
         if (leftBracket == null)
         {
             return null;
         }
 
-
-
-
-
         Token rightBracket;
-
-
-
         rightBracket = this.TokenMatchLeftBracket(this.TokenB, this.Range(this.RangeA, leftBracket.Range.End, end));
-
-
-
-
         if (rightBracket == null)
         {
             return null;
         }
 
-
-
-
-
-
         if (rightBracket.Range.End == end)
         {
             return null;
         }
-
-
-
-
-
-
         Token leftBrace;
-
-
-
         leftBrace = this.Token(this.TokenC, this.Delimit.LeftBrace.Text, this.IndexRange(this.RangeA, rightBracket.Range.End));
-
-
-
-
         if (leftBrace == null)
         {
             return null;
         }
 
-
-
-
-
         Token rightBrace;
-
-
-
         rightBrace = this.TokenMatchLeftBrace(this.TokenD, this.Range(this.RangeA, leftBrace.Range.End, end));
-
-
-
-
         if (rightBrace == null)
         {
             return null;
         }
-
-
-
-
 
         if (!(rightBrace.Range.End == end))
         {
             return null;
         }
 
-
-
-
-
-
-
-
-
         int emitStart;
-
-
         int emitEnd;
-
-
         emitStart = emitRange.Start;
-
-
         emitEnd = emitRange.End;
-
-
-
-
-
         int classStart;
-
-
         int classEnd;
-
-
         classStart = classRange.Start;
-
-
         classEnd = classRange.End;
-
-
-
-
-
         int nameStart;
-
-
         int nameEnd;
-
-
         nameStart = nameRange.Start;
-
-
         nameEnd = nameRange.End;
-
-
-
-
-
         int paramStart;
-
-
         int paramEnd;
-
-
         paramStart = leftBracket.Range.End;
-
-
         paramEnd = rightBracket.Range.Start;
-
-
-
-
-
         int callStart;
-
-
         int callEnd;
-
-
         callStart = leftBrace.Range.End;
-
-
         callEnd = rightBrace.Range.Start;
 
-
-
-
-
-
-
         Node emit;
-
-
-
         emit = this.ExecuteEmit(this.Range(this.RangeA, emitStart, emitEnd));
-
-
-
-
         if (emit == null)
         {
             this.Error(this.ErrorKind.EmitInvalid, emitStart, emitEnd);
         }
 
-
-
-
-
         Node varClass;
-
-
-
         varClass = this.ExecuteClassName(this.Range(this.RangeA, classStart, classEnd));
-
-
-
-
         if (varClass == null)
         {
             this.Error(this.ErrorKind.ClassInvalid, classStart, classEnd);
         }
 
-
-
-
-
         Node name;
-
-
-
         name = this.ExecuteMaideName(this.Range(this.RangeA, nameStart, nameEnd));
-
-
-
-
         if (name == null)
         {
             this.Error(this.ErrorKind.NameInvalid, nameStart, nameEnd);
         }
 
-
-
-
-
-
         Node param;
-
-
         param = this.ExecuteParam(this.Range(this.RangeA, paramStart, paramEnd));
-
-
-
-
         if (param == null)
         {
             this.Error(this.ErrorKind.ParamInvalid, paramStart, paramEnd);
         }
 
-
-
-
-
-
         Node call;
-
-
         call = this.ExecuteState(this.Range(this.RangeA, callStart, callEnd));
-
-
-
-
         if (call == null)
         {
             this.Error(this.ErrorKind.CallInvalid, callStart, callEnd);
         }
 
-
-
-
-
         this.OperateArg.Kind = this.NodeKind.Maide;
-
         this.OperateArg.Start = start;
-
         this.OperateArg.End = end;
-
-
         this.OperateArg.Field00 = varClass;
-
         this.OperateArg.Field01 = name;
-
         this.OperateArg.Field02 = emit;
-
         this.OperateArg.Field03 = param;
-
         this.OperateArg.Field04 = call;
-
-
         Node ret;
-
-
         ret = this.ExecuteCreateOperate();
-
-
         return ret;
     }
 
