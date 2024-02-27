@@ -627,7 +627,7 @@ public class Gen : Any
 
     protected virtual string GetOutputFilePath()
     {
-        return "../../../Infra/Stat_" + this.ClassName + ".cpp";
+        return "../../Infra/Infra/Stat_" + this.ClassName + ".cpp";
     }
 
 
