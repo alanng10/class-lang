@@ -1344,63 +1344,26 @@ public class Create : InfraCreate
         return this.ExecuteName(this.NodeKind.VarName, range);
     }
 
-
-
-
-
-
     public virtual Node ExecutePart(Range range)
     {
         int start;
-
-
         int end;
-
-
         start = range.Start;
-
-
         end = range.End;
 
-
-
-
-
         Array value;
-
-
-
         value = this.ExecuteNodeList(this.PartItemRangeState, this.PartItemNodeState, this.Range(this.RangeA, start, end));
-
-
-
-
         if (value == null)
         {
             return null;
         }
 
-
-
-
-
         this.OperateArg.Kind = this.NodeKind.Part;
-
         this.OperateArg.Start = start;
-
         this.OperateArg.End = end;
-
-
         this.OperateArg.Field00 = value;
-
-
-
         Node ret;
-
-
         ret = this.ExecuteCreateOperate();
-
-
         return ret;
     }
 
