@@ -613,517 +613,186 @@ public class Create : InfraCreate
         return ret;
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     public virtual Node ExecuteField(Range range)
     {
         int start;
-
-
         int end;
-
-
         start = range.Start;
-
-
         end = range.End;
 
-
-
-
-
         Range emitRange;
-
-
         emitRange = this.ExecuteEmitRange(this.RangeB, this.Range(this.RangeA, start, end));
-
-
-
-
-
         if (emitRange == null)
         {
             return null;
         }
 
-
-
-
-
-
         Range classRange;
-
-
         classRange = this.ExecuteClassNameRange(this.RangeC, this.Range(this.RangeA, emitRange.End, end));
-
-
-
-
-
-
         if (classRange == null)
         {
             return null;
         }
 
-
-
-
-
-
-
-
         Range nameRange;
-
-
         nameRange = this.ExecuteFieldNameRange(this.RangeD, this.Range(this.RangeA, classRange.End, end));
-
-
-
-
-
-
         if (nameRange == null)
         {
             return null;
         }
 
-
-
-
-
-
-
-
         if (nameRange.End == end)
         {
             return null;
         }
-
-
-
-
-
-
         Token leftBrace;
-
-
-
         leftBrace = this.Token(this.TokenA, this.Delimit.LeftBrace.Text, this.IndexRange(this.RangeA, nameRange.End));
-
-
-
-
-
         if (leftBrace == null)
         {
             return null;
         }
 
-
-
-
-
         Token rightBrace;
-
-
-
         rightBrace = this.TokenMatchLeftBrace(this.TokenB, this.Range(this.RangeA, leftBrace.Range.End, end));
-
-
-
-
-
         if (rightBrace == null)
         {
             return null;
         }
 
-
-
-
-
-
         if (leftBrace.Range.End == rightBrace.Range.Start)
         {
             return null;
         }
-
-
-
-
-
-
         Token getToken;
-
-
-
         getToken = this.Token(this.TokenC, this.Keyword.ItemGet.Text, this.IndexRange(this.RangeA, leftBrace.Range.End));
-
-
-
-
         if (getToken == null)
         {
             return null;
         }
 
-
-
-
-
         if (getToken.Range.End == rightBrace.Range.Start)
         {
             return null;
         }
-
-
-
-
-
         Token getLeftBrace;
-
-
-
         getLeftBrace = this.Token(this.TokenD, this.Delimit.LeftBrace.Text, this.IndexRange(this.RangeA, getToken.Range.End));
-
-
-
-
-
         if (getLeftBrace == null)
         {
             return null;
         }
 
-
-
-
-
-
         Token getRightBrace;
-
-
-
         getRightBrace = this.TokenMatchLeftBrace(this.TokenE, this.Range(this.RangeA, getLeftBrace.Range.End, rightBrace.Range.Start));
-
-
-
-
-
         if (getRightBrace == null)
         {
             return null;
         }
 
-
-
-
-
         if (getRightBrace.Range.End == rightBrace.Range.Start)
         {
             return null;
         }
-
-
-
-
-
         Token setToken;
-
-
-
         setToken = this.Token(this.TokenF, this.Keyword.Set.Text, this.IndexRange(this.RangeA, getRightBrace.Range.End));
-
-
-
-
-
         if (setToken == null)
         {
             return null;
         }
 
-
-
-
-
         if (setToken.Range.End == rightBrace.Range.Start)
         {
             return null;
         }
-
-
-
-
-
         Token setLeftBrace;
-
-
-
         setLeftBrace = this.Token(this.TokenG, this.Delimit.LeftBrace.Text, this.IndexRange(this.RangeA, setToken.Range.End));
-
-
-
-
-
         if (setLeftBrace == null)
         {
             return null;
         }
 
-
-
-
-
         Token setRightBrace;
-
-
-
         setRightBrace = this.TokenMatchLeftBrace(this.TokenH, this.Range(this.RangeA, setLeftBrace.Range.End, rightBrace.Range.Start));
-
-
-
-
-
         if (setRightBrace == null)
         {
             return null;
         }
-
-
-
-
 
         if (!(setRightBrace.Range.End == rightBrace.Range.Start))
         {
             return null;
         }
 
-
-
-
-
-
         if (!(rightBrace.Range.End == end))
         {
             return null;
         }
 
-
-
-
-
-
-
-
         int emitStart;
-
-
         int emitEnd;
-
-
         emitStart = emitRange.Start;
-
-
         emitEnd = emitRange.End;
-
-
-
-
-
         int classStart;
-
-
         int classEnd;
-
-
         classStart = classRange.Start;
-
-
         classEnd = classRange.End;
-
-
-
-
-
         int nameStart;
-
-
         int nameEnd;
-
-
         nameStart = nameRange.Start;
-
-
         nameEnd = nameRange.End;
-
-
-
-
-
         int getStart;
-
-
         int getEnd;
-
-
         getStart = getLeftBrace.Range.End;
-
-
         getEnd = getRightBrace.Range.Start;
-
-
-
-
-
         int setStart;
-
-
         int setEnd;
-
-
         setStart = setLeftBrace.Range.End;
-
-
         setEnd = setRightBrace.Range.Start;
 
-
-
-
-
-
-
         Node emit;
-
-
-
         emit = this.ExecuteEmit(this.Range(this.RangeA, emitStart, emitEnd));
-
-
-
-
         if (emit == null)
         {
             this.Error(this.ErrorKind.EmitInvalid, emitStart, emitEnd);
         }
 
-
-
-
-
         Node varClass;
-
-
-
         varClass = this.ExecuteClassName(this.Range(this.RangeA, classStart, classEnd));
-
-
-
-
         if (varClass == null)
         {
             this.Error(this.ErrorKind.ClassInvalid, classStart, classEnd);
         }
 
-
-
-
-
         Node name;
-
-
-
         name = this.ExecuteFieldName(this.Range(this.RangeA, nameStart, nameEnd));
-
-
-
-
         if (name == null)
         {
             this.Error(this.ErrorKind.NameInvalid, nameStart, nameEnd);
         }
 
-
-
-
-
         Node varGet;
-
-
-
         varGet = this.ExecuteState(this.Range(this.RangeA, getStart, getEnd));
-
-
-
-
-
         if (varGet == null)
         {
             this.Error(this.ErrorKind.GetInvalid, getStart, getEnd);
         }
 
-
-
-
-
-
         Node varSet;
-
-
-
         varSet = this.ExecuteState(this.Range(this.RangeA, setStart, setEnd));
-
-
-
-
-
         if (varSet == null)
         {
             this.Error(this.ErrorKind.SetInvalid, setStart, setEnd);
         }
 
-
-
-
-
         this.OperateArg.Kind = this.NodeKind.Field;
-
         this.OperateArg.Start = start;
-
         this.OperateArg.End = end;
-
-
         this.OperateArg.Field00 = varClass;
-
         this.OperateArg.Field01 = name;
-
         this.OperateArg.Field02 = emit;
-
         this.OperateArg.Field03 = varGet;
-
         this.OperateArg.Field04 = varSet;
-
-
         Node ret;
-
-
         ret = this.ExecuteCreateOperate();
-
-
         return ret;
     }
 
