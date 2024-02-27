@@ -5141,194 +5141,76 @@ public class Create : InfraCreate
         return ret;
     }
 
-
-
-
-
-
-
-
     protected virtual Node ExecuteWordDelimitOneOperand(NodeKind kind, Keyword word, Delimit delimit, Range range)
     {
         int start;
-
-
         int end;
-
-
-
         start = range.Start;
-
-
         end = range.End;
-
-
-
-
-
 
         if (start == end)
         {
             return null;
         }
-
-
-
-
-
-
         Token wordToken;
-
-
         wordToken = this.Token(this.TokenA, word.Text, this.IndexRange(this.RangeA, start));
-
-
-
         if (wordToken == null)
         {
             return null;
         }
 
-
-
-
-
-
-
         if (wordToken.Range.End == end)
         {
             return null;
         }
-
-
-
-
-
         Token op;
-
-
-
         op = this.Token(this.TokenB, delimit.Text, this.IndexRange(this.RangeA, wordToken.Range.End));
-
-
-
-
         if (op == null)
         {
             return null;
         }
 
-
-
-
-
         if (op.Range.End == end)
         {
             return null;
         }
-
-
-
-
-
         Token leftBracket;
-
-
-
         leftBracket = this.Token(this.TokenC, this.Delimit.LeftBracket.Text, this.IndexRange(this.RangeA, op.Range.End));
-
-
-
-
         if (leftBracket == null)
         {
             return null;
         }
 
-
-
-
-
-
         Token rightBracket;
-
-
-
         rightBracket = this.TokenMatchLeftBracket(this.TokenD, this.Range(this.RangeA, leftBracket.Range.End, end));
-
-
-
-
         if (rightBracket == null)
         {
             return null;
         }
-
-
-
-
-
 
         if (!(rightBracket.Range.End == end))
         {
             return null;
         }
 
-
-
-
-
-
-
         int valueStart;
-
-
         int valueEnd;
-
-
         valueStart = leftBracket.Range.End;
-
-
         valueEnd = rightBracket.Range.Start;
 
-
-
-
-
         Node value;
-
-
-
         value = this.ExecuteOperate(this.Range(this.RangeA, valueStart, valueEnd));
-
-
-
         if (value == null)
         {
             this.Error(this.ErrorKind.OperandInvalid, valueStart, valueEnd);
         }
 
-
-
-
-
         this.OperateArg.Kind = kind;
-
         this.OperateArg.Start = start;
-
         this.OperateArg.End = end;
-
-
         this.OperateArg.Field00 = value;
-
-
-
         Node ret;
-
-
         ret = this.ExecuteCreateOperate();
-
-
         return ret;
     }
 
