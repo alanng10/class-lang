@@ -1853,137 +1853,55 @@ public class Create : InfraCreate
         return this.ExecuteWordBracketBody(this.NodeKind.WhileExecute, this.Keyword.While, range);
     }
 
-
-
-
-
-
-
     public virtual Node ExecuteReturnExecute(Range range)
     {
         int start;
-
-
         int end;
-
-
         start = range.Start;
-
-
         end = range.End;
-
-
-
-
-
 
         if (start == end)
         {
             return null;
         }
-
-
-
-
         Token returnToken;
-
-
         returnToken = this.Token(this.TokenA, this.Keyword.Return.Text, this.IndexRange(this.RangeA, start));
-
-
-
         if (returnToken == null)
         {
             return null;
         }
 
-
-
-
-
         if (returnToken.Range.End == end)
         {
             return null;
         }
-
-
-
-
         int lastIndex;
-
-
         lastIndex = end - 1;
-
-
-
-
         Token semicolon;
-
-
         semicolon = this.Token(this.TokenB, this.Delimit.ExecuteSign.Text, this.IndexRange(this.RangeA, lastIndex));
-
-
-
         if (semicolon == null)
         {
             return null;
         }
 
-
-
-
-
-
         int resultStart;
-
-
         int resultEnd;
-
-
         resultStart = returnToken.Range.End;
-
-
         resultEnd = semicolon.Range.Start;
 
-
-
-
-
-
-
         Node result;
-
-
         result = this.ExecuteOperate(this.Range(this.RangeA, resultStart, resultEnd));
-
-
-
         if (result == null)
         {
             this.Error(this.ErrorKind.ResultInvalid, resultStart, resultEnd);
         }
 
-
-
-
-
         this.OperateArg.Kind = this.NodeKind.ReturnExecute;
-
         this.OperateArg.Start = start;
-
         this.OperateArg.End = end;
-
-
         this.OperateArg.Field00 = result;
-
-
-
         Node ret;
-
-
         ret = this.ExecuteCreateOperate();
-
-
         return ret;
     }
 
