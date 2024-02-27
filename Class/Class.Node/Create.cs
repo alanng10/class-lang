@@ -1404,21 +1404,10 @@ public class Create : InfraCreate
         return a;
     }
 
-
-
-
-
-
-
     public virtual Node ExecuteVarTarget(Range range)
     {
-        return this.ExecuteVarNameOnly(this.NodeKind.VarTarget, range);
+        return this.ExecuteVarNameResult(this.NodeKind.VarTarget, range);
     }
-
-
-
-
-
 
     public virtual Node ExecuteSetTarget(Range range)
     {
@@ -3565,7 +3554,7 @@ public class Create : InfraCreate
 
     public virtual Node ExecuteVarOperate(Range range)
     {
-        return this.ExecuteVarNameOnly(this.NodeKind.VarOperate, range);
+        return this.ExecuteVarNameResult(this.NodeKind.VarOperate, range);
     }
 
     public virtual Node ExecuteValueOperate(Range range)
@@ -4083,7 +4072,7 @@ public class Create : InfraCreate
         return ret;
     }
 
-    protected virtual Node ExecuteVarNameOnly(NodeKind kind, Range range)
+    protected virtual Node ExecuteVarNameResult(NodeKind kind, Range range)
     {
         int start;
         int end;
