@@ -881,20 +881,6 @@ public static class Extern
 
     public delegate ulong Post_Execute_Maide(ulong post, ulong arg);
 
-    [DllImport(InfraLib)] public extern static ulong Libray_New();
-    [DllImport(InfraLib)] public extern static ulong Libray_Delete(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Libray_Init(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Libray_Final(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Libray_GetFile(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Libray_SetFile(ulong o, ulong value);
-    [DllImport(InfraLib)] public extern static ulong Libray_GetLoaded(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Libray_SetLoaded(ulong o, ulong value);
-
-    [DllImport(InfraLib)] public extern static ulong Libray_SetLibraryFile(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Libray_Load(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Libray_Unload(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Libray_GetAddress(ulong o, ulong name);
-
     [DllImport(InfraLib)] public extern static ulong Process_New();
     [DllImport(InfraLib)] public extern static ulong Process_Delete(ulong o);
     [DllImport(InfraLib)] public extern static ulong Process_Init(ulong o);
