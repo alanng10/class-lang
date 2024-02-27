@@ -4817,104 +4817,54 @@ public class Create : InfraCreate
         return ret;
     }
 
-
-
-
-
-
-
     protected virtual Node ExecuteWordClass(NodeKind kind, Keyword keyword, Range range)
     {
         int start;
-
-
         int end;
-
-
         start = range.Start;
-
-
         end = range.End;
-
-
-
-
 
         if (start == end)
         {
             return null;
         }
-
-
-
-
         Token wordToken;
-
-
         wordToken = this.Token(this.TokenA, keyword.Text, this.IndexRange(this.RangeA, start));
-
-
-
         if (wordToken == null)
         {
             return null;
         }
 
+        Range classRange;
+        classRange = this.ExecuteClassNameRange(this.RangeB, this.Range(this.RangeA, wordToken.Range.End, end));
+        if (classRange == null)
+        {
+            return null;
+        }
 
-
-
-
-
-
+        if (!(classRange.End == end))
+        {
+            return null;
+        }
 
         int classStart;
-
-
         int classEnd;
-
-
-        classStart = wordToken.Range.End;
-
-
-        classEnd = end;
-
-
-
-
+        classStart = classRange.Start;
+        classEnd = classRange.End;
 
         Node varClass;
-
-
         varClass = this.ExecuteClassName(this.Range(this.RangeA, classStart, classEnd));
-
-
-
         if (varClass == null)
         {
             this.Error(this.ErrorKind.ClassInvalid, classStart, classEnd);
         }
 
-
-
-
-
         this.OperateArg.Kind = kind;
-
         this.OperateArg.Start = start;
-
         this.OperateArg.End = end;
-
-
         this.OperateArg.Field00 = varClass;
-
-
-
         Node ret;
-
-
         ret = this.ExecuteCreateOperate();
-
-
         return ret;
     }
 
