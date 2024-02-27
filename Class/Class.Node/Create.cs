@@ -1384,52 +1384,23 @@ public class Create : InfraCreate
         return a;
     }
 
-
-
-
-
     public virtual Node ExecuteTarget(Range range)
     {
         int start;
-
-
         int end;
-
-
         start = range.Start;
-
-
         end = range.End;
 
-
-
-
-
-
         Node a;
-
-
         a = null;
-
-
-
-
         if (a == null)
         {
             a = this.ExecuteVarTarget(this.Range(this.RangeA, start, end));
         }
-
-
-
-
         if (a == null)
         {
             a = this.ExecuteSetTarget(this.Range(this.RangeA, start, end));
         }
-
-
-
-
         return a;
     }
 
