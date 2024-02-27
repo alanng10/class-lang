@@ -1354,130 +1354,15 @@ public class Create : InfraCreate
         return this.ExecuteList(this.NodeKind.State, this.StateItemRangeState, this.StateItemNodeState, range);
     }
 
-
-
-
     public virtual Node ExecuteParam(Range range)
     {
-        int start;
-
-
-        int end;
-
-
-        start = range.Start;
-
-
-        end = range.End;
-
-
-
-
-
-        Array value;
-
-
-
-        value = this.ExecuteNodeListComma(this.ParamItemRangeState, this.ParamItemNodeState, this.Range(this.RangeA, start, end));
-
-
-
-
-        if (value == null)
-        {
-            return null;
-        }
-
-
-
-
-
-        this.OperateArg.Kind = this.NodeKind.Param;
-
-        this.OperateArg.Start = start;
-
-        this.OperateArg.End = end;
-
-
-        this.OperateArg.Field00 = value;
-
-
-
-        Node ret;
-
-
-        ret = this.ExecuteCreateOperate();
-
-
-        return ret;
+        return this.ExecuteListComma(this.NodeKind.Param, this.ParamItemRangeState, this.ParamItemNodeState, range);
     }
-
-
-
-
-
-
 
     public virtual Node ExecuteArgue(Range range)
     {
-        int start;
-
-
-        int end;
-
-
-        start = range.Start;
-
-
-        end = range.End;
-
-
-
-
-
-        Array value;
-
-
-
-        value = this.ExecuteNodeListComma(this.ArgueItemRangeState, this.ArgueItemNodeState, this.Range(this.RangeA, start, end));
-
-
-
-
-        if (value == null)
-        {
-            return null;
-        }
-
-
-
-
-
-        this.OperateArg.Kind = this.NodeKind.Argue;
-
-        this.OperateArg.Start = start;
-
-        this.OperateArg.End = end;
-
-
-        this.OperateArg.Field00 = value;
-
-
-
-        Node ret;
-
-
-        ret = this.ExecuteCreateOperate();
-
-
-        return ret;
+        return this.ExecuteListComma(this.NodeKind.Argue, this.ArgueItemRangeState, this.ArgueItemNodeState, range);
     }
-
-
-
-
-
-
 
     public virtual Node ExecuteComp(Range range)
     {
