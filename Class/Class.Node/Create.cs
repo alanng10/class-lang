@@ -1326,158 +1326,22 @@ public class Create : InfraCreate
 
     public virtual Node ExecuteClassName(Range range)
     {
-        int start;
-        int end;
-        start = range.Start;
-        end = range.End;
-
-        string value;
-        value = this.ExecuteNameValue(this.Range(this.RangeA, start, end));
-        if (value == null)
-        {
-            return null;
-        }
-
-        this.OperateArg.Kind = this.NodeKind.ClassName;
-        this.OperateArg.Start = start;
-        this.OperateArg.End = end;
-        this.OperateArg.Field00 = value;
-        Node ret;
-        ret = this.ExecuteCreateOperate();
-        return ret;
+        return this.ExecuteName(this.NodeKind.ClassName, range);
     }
 
     public virtual Node ExecuteFieldName(Range range)
     {
-        int start;
-        int end;
-        start = range.Start;
-        end = range.End;
-
-        string value;
-        value = this.ExecuteNameValue(this.Range(this.RangeA, start, end));
-        if (value == null)
-        {
-            return null;
-        }
-
-        this.OperateArg.Kind = this.NodeKind.FieldName;
-        this.OperateArg.Start = start;
-        this.OperateArg.End = end;
-        this.OperateArg.Field00 = value;
-        Node ret;
-        ret = this.ExecuteCreateOperate();
-        return ret;
+        return this.ExecuteName(this.NodeKind.FieldName, range);
     }
-
-
-
-
 
     public virtual Node ExecuteMaideName(Range range)
     {
-        int start;
-
-
-        int end;
-
-
-        start = range.Start;
-
-
-        end = range.End;
-
-
-
-
-        string value;
-
-
-        value = this.ExecuteNameValue(this.Range(this.RangeA, start, end));
-
-
-        if (value == null)
-        {
-            return null;
-        }
-
-
-
-
-
-        this.OperateArg.Kind = this.NodeKind.MaideName;
-
-        this.OperateArg.Start = start;
-
-        this.OperateArg.End = end;
-
-
-        this.OperateArg.Field00 = value;
-
-
-
-        Node ret;
-
-
-        ret = this.ExecuteCreateOperate();
-
-
-        return ret;
+        return this.ExecuteName(this.NodeKind.MaideName, range);
     }
-
-
-
-
 
     public virtual Node ExecuteVarName(Range range)
     {
-        int start;
-
-
-        int end;
-
-
-        start = range.Start;
-
-
-        end = range.End;
-
-
-
-
-        string value;
-
-
-        value = this.ExecuteNameValue(this.Range(this.RangeA, start, end));
-
-
-        if (value == null)
-        {
-            return null;
-        }
-
-
-
-
-
-        this.OperateArg.Kind = this.NodeKind.VarName;
-
-        this.OperateArg.Start = start;
-
-        this.OperateArg.End = end;
-
-
-        this.OperateArg.Field00 = value;
-
-
-
-        Node ret;
-
-
-        ret = this.ExecuteCreateOperate();
-
-
-        return ret;
+        return this.ExecuteName(this.NodeKind.VarName, range);
     }
 
 
@@ -4538,6 +4402,29 @@ public class Create : InfraCreate
         this.OperateArg.Start = start;
         this.OperateArg.End = end;
         this.OperateArg.Field00 = varVar;
+        Node ret;
+        ret = this.ExecuteCreateOperate();
+        return ret;
+    }
+
+    protected virtual Node ExecuteName(NodeKind kind, Range range)
+    {
+        int start;
+        int end;
+        start = range.Start;
+        end = range.End;
+
+        string value;
+        value = this.ExecuteNameValue(this.Range(this.RangeA, start, end));
+        if (value == null)
+        {
+            return null;
+        }
+
+        this.OperateArg.Kind = kind;
+        this.OperateArg.Start = start;
+        this.OperateArg.End = end;
+        this.OperateArg.Field00 = value;
         Node ret;
         ret = this.ExecuteCreateOperate();
         return ret;
