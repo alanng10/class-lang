@@ -5417,36 +5417,19 @@ public class Create : InfraCreate
     protected virtual Range ExecuteNameRange(Range result, Range range)
     {
         int start;
-
-
         int end;
-
-
-
         start = range.Start;
-
-
         end = range.End;
-
-
-
 
         if (start == end)
         {
             return null;
         }
 
-
-
-
         if (!this.IsName(this.TextRange(start)))
         {
             return null;
         }
-
-
-
-
         return this.IndexRange(result, start);
     }
 
