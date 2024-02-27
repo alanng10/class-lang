@@ -46,7 +46,7 @@ public class Gen : SourceGen
 
 
 
-        this.OutputFilePath = "../../Class.Binary/OperateKindList.cs";
+        this.OutputFilePath = "../../Class/Class.Binary/OperateKindList.cs";
 
 
 
