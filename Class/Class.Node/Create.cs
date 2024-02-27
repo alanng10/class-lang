@@ -4101,292 +4101,120 @@ public class Create : InfraCreate
     public virtual Node ExecuteCallOperate(Range range)
     {
         int start;
-
-
         int end;
-
-
         start = range.Start;
-
-
         end = range.End;
-
-
-
-
 
         if (start == end)
         {
             return null;
         }
 
-
-
-
         int lastIndex;
-
-
         lastIndex = end - 1;
-
-
-
-
         Token rightBracket;
-
-
-
         rightBracket = this.Token(this.TokenA, this.Delimit.RightBracket.Text, this.IndexRange(this.RangeA, lastIndex));
-
-
-
-
         if (rightBracket == null)
         {
             return null;
         }
 
-
-
-
         Token leftBracket;
-
-
-
         leftBracket = this.TokenMatchRightBracket(this.TokenB, this.Range(this.RangeA, start, rightBracket.Range.Start));
-
-
-
-
         if (leftBracket == null)
         {
             return null;
         }
 
-
-
-
-
         Token dot;
-
-
-
         dot = this.TokenBackward(this.TokenC, this.Delimit.StopSign.Text, this.Range(this.RangeA, start, leftBracket.Range.Start));
-
-
-
-
         if (dot == null)
         {
             return null;
         }
 
-
-
-
-
-
         Range maideRange;
-
-
         maideRange = this.ExecuteMaideNameRange(this.RangeB, this.Range(this.RangeA, dot.Range.End, leftBracket.Range.Start));
-
-
-
         if (maideRange == null)
         {
             return null;
         }
-
-
-
         if (!(maideRange.End == leftBracket.Range.Start))
         {
             return null;
         }
 
-
-
-
-
-
         int thisStart;
-
-
         int thisEnd;
-
-
         thisStart = start;
-
-
         thisEnd = dot.Range.Start;
 
-
-
-
-
         int maideStart;
-
-
         int maideEnd;
-
-
         maideStart = maideRange.Start;
-
-
         maideEnd = maideRange.End;
 
-
-
-
-
         int argueStart;
-
-
         int argueEnd;
-
-
         argueStart = leftBracket.Range.End;
-
-
         argueEnd = rightBracket.Range.Start;
 
-
-
-
-
-
-
         Node varThis;
-
-
-
         varThis = this.ExecuteOperate(this.Range(this.RangeA, thisStart, thisEnd));
-
-
-
-
         if (varThis == null)
         {
             this.Error(this.ErrorKind.ThisInvalid, thisStart, thisEnd);
         }
 
-
-
-
-
         Node maide;
-
-
-
         maide = this.ExecuteMaideName(this.Range(this.RangeA, maideStart, maideEnd));
-
-
-
-
         if (maide == null)
         {
             this.Error(this.ErrorKind.MaideInvalid, maideStart, maideEnd);
         }
 
-
-
-
-
         Node argue;
-
-
-
         argue = this.ExecuteArgue(this.Range(this.RangeA, argueStart, argueEnd));
-
-
-
-
         if (argue == null)
         {
             this.Error(this.ErrorKind.ArgueInvalid, argueStart, argueEnd);
         }
 
-
-
-
-
         this.OperateArg.Kind = this.NodeKind.CallOperate;
-
         this.OperateArg.Start = start;
-
         this.OperateArg.End = end;
-
-
         this.OperateArg.Field00 = varThis;
-
         this.OperateArg.Field01 = maide;
-
         this.OperateArg.Field02 = argue;
-
-
-
         Node ret;
-
-
         ret = this.ExecuteCreateOperate();
-
-
         return ret;
     }
-
-
-
-
-
 
     public virtual Node ExecuteThisOperate(Range range)
     {
         return this.ExecuteOneWord(this.NodeKind.ThisOperate, this.Keyword.ItemThis, range);
     }
 
-
-
-
-
     public virtual Node ExecuteBaseOperate(Range range)
     {
         return this.ExecuteOneWord(this.NodeKind.BaseOperate, this.Keyword.Base, range);
     }
-
-
-
-
 
     public virtual Node ExecuteNullOperate(Range range)
     {
         return this.ExecuteOneWord(this.NodeKind.NullOperate, this.Keyword.Null, range);
     }
 
-
-
-
-
     public virtual Node ExecuteNewOperate(Range range)
     {
         return this.ExecuteWordClass(this.NodeKind.NewOperate, this.Keyword.New, range);
     }
 
-
-
-
-
     public virtual Node ExecuteShareOperate(Range range)
     {
         return this.ExecuteWordClass(this.NodeKind.ShareOperate, this.Keyword.Share, range);
     }
-
-
-
-
-
-
-
-
 
     public virtual Node ExecuteCastOperate(Range range)
     {
@@ -4590,21 +4418,10 @@ public class Create : InfraCreate
         return ret;
     }
 
-
-
-
-
-
-
     public virtual Node ExecuteVarOperate(Range range)
     {
         return this.ExecuteVarNameOnly(this.NodeKind.VarOperate, range);
     }
-
-
-
-
-
 
     public virtual Node ExecuteValueOperate(Range range)
     {
