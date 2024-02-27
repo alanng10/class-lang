@@ -1367,49 +1367,20 @@ public class Create : InfraCreate
     public virtual Node ExecuteComp(Range range)
     {
         int start;
-
-
         int end;
-
-
         start = range.Start;
-
-
         end = range.End;
 
-
-
-
-
         Node a;
-
-
         a = null;
-
-
-
-
-
-
         if (a == null)
         {
             a = this.ExecuteField(this.Range(this.RangeA, start, end));
         }
-
-
-
-
-
         if (a == null)
         {
             a = this.ExecuteMaide(this.Range(this.RangeA, start, end));
         }
-
-
-
-
-
-
         return a;
     }
 
