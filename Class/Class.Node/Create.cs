@@ -1946,166 +1946,63 @@ public class Create : InfraCreate
         return ret;
     }
 
-
-
-
-
-
-
     public virtual Node ExecuteAssignExecute(Range range)
     {
         int start;
-
-
         int end;
-
-
         start = range.Start;
-
-
         end = range.End;
-
-
-
-
-
 
         if (start == end)
         {
             return null;
         }
-
-
-
-
-
         int lastIndex;
-
-
         lastIndex = end - 1;
-
-
-
-
         Token semicolon;
-
-
         semicolon = this.Token(this.TokenA, this.Delimit.ExecuteSign.Text, this.IndexRange(this.RangeA, lastIndex));
-
-
-
         if (semicolon == null)
         {
             return null;
         }
 
-
-
-
-
-
         Token colon;
-
-
-
         colon = this.TokenForward(this.TokenB, this.Delimit.BaseSign.Text, this.Range(this.RangeA, start, semicolon.Range.Start));
-
-
-
-
         if (colon == null)
         {
             return null;
         }
 
-
-
-
-
-
-
         int targetStart;
-
-
         int targetEnd;
-
-
         targetStart = start;
-
-
         targetEnd = colon.Range.Start;
-
-
-
-
-
-
         int valueStart;
-
-
         int valueEnd;
-
-
         valueStart = colon.Range.End;
-
-
         valueEnd = semicolon.Range.Start;
 
-
-
-
-
-
         Node target;
-
-
         target = this.ExecuteTarget(this.Range(this.RangeA, targetStart, targetEnd));
-
-
-
         if (target == null)
         {
             this.Error(this.ErrorKind.TargetInvalid, targetStart, targetEnd);
         }
 
-
-
-
         Node value;
-
-
         value = this.ExecuteOperate(this.Range(this.RangeA, valueStart, valueEnd));
-
-
-
         if (value == null)
         {
             this.Error(this.ErrorKind.ValueInvalid, valueStart, valueEnd);
         }
 
-
-
-
-
         this.OperateArg.Kind = this.NodeKind.AssignExecute;
-
         this.OperateArg.Start = start;
-
         this.OperateArg.End = end;
-
-
         this.OperateArg.Field00 = target;
-
         this.OperateArg.Field01 = value;
-
-
-
         Node ret;
-
-
         ret = this.ExecuteCreateOperate();
-
-
         return ret;
     }
 
