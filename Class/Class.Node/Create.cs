@@ -1787,37 +1787,20 @@ public class Create : InfraCreate
         return a;
     }
 
-
-
-
-
-
     public virtual Node ExecutePrudateEmit(Range range)
     {
         return this.ExecuteOneWord(this.NodeKind.PrudateEmit, this.Keyword.Prudate, range);
     }
-
-
-
-
 
     public virtual Node ExecuteProbateEmit(Range range)
     {
         return this.ExecuteOneWord(this.NodeKind.ProbateEmit, this.Keyword.Probate, range);
     }
 
-
-
-
-
     public virtual Node ExecutePrecateEmit(Range range)
     {
         return this.ExecuteOneWord(this.NodeKind.PrecateEmit, this.Keyword.Precate, range);
     }
-
-
-
-
 
     public virtual Node ExecutePrivateEmit(Range range)
     {
