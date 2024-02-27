@@ -2006,113 +2006,44 @@ public class Create : InfraCreate
         return ret;
     }
 
-
-
-
-
-
-
     public virtual Node ExecuteOperateExecute(Range range)
     {
         int start;
-
-
         int end;
-
-
         start = range.Start;
-
-
         end = range.End;
-
-
-
-
-
 
         if (start == end)
         {
             return null;
         }
-
-
-
-
-
         int lastIndex;
-
-
         lastIndex = end - 1;
-
-
-
-
         Token semicolon;
-
-
         semicolon = this.Token(this.TokenA, this.Delimit.ExecuteSign.Text, this.IndexRange(this.RangeA, lastIndex));
-
-
-
         if (semicolon == null)
         {
             return null;
         }
 
-
-
-
-
         int operateStart;
-
-
         int operateEnd;
-
-
         operateStart = start;
-
-
         operateEnd = semicolon.Range.Start;
 
-
-
-
-
         Node operate;
-
-
-
         operate = this.ExecuteOperate(this.Range(this.RangeA, operateStart, operateEnd));
-
-
-
-
         if (operate == null)
         {
             this.Error(this.ErrorKind.OperateInvalid, operateStart, operateEnd);
         }
 
-
-
-
-
         this.OperateArg.Kind = this.NodeKind.OperateExecute;
-
         this.OperateArg.Start = start;
-
         this.OperateArg.End = end;
-
-
         this.OperateArg.Field00 = operate;
-
-
-
         Node ret;
-
-
         ret = this.ExecuteCreateOperate();
-
-
         return ret;
     }
 
