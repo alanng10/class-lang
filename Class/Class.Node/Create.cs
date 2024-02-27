@@ -1728,80 +1728,34 @@ public class Create : InfraCreate
         return ret;
     }
 
-    
-
-
-
-
     public virtual Node ExecuteStringValue(Range range)
     {
         int start;
-
-
         int end;
-
-
         start = range.Start;
-
-
         end = range.End;
-
-
-
-
 
         if (!(start + 1 == end))
         {
             return null;
         }
 
-
-
-
         TextRange aa;
-
-
-
         aa = this.TextRange(start);
 
-
-
-
         string value;
-
-
-
         value = this.StringInfra.Value(this.SourceText, aa);
-
-
-
-
         if (value == null)
         {
             return null;
         }
 
-
-
-
-
         this.OperateArg.Kind = this.NodeKind.StringValue;
-
         this.OperateArg.Start = start;
-
         this.OperateArg.End = end;
-
-
         this.OperateArg.Field00 = value;
-
-
-
         Node ret;
-
-
         ret = this.ExecuteCreateOperate();
-
-
         return ret;
     }
 
