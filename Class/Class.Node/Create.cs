@@ -5014,109 +5014,42 @@ public class Create : InfraCreate
         return ret;
     }
 
-
-
-
-
-
-
-
     protected virtual Node ExecuteDelimitOneOperand(NodeKind kind, Delimit delimit, Range range)
     {
         int start;
-
-
         int end;
-
-
-
         start = range.Start;
-
-
         end = range.End;
-
-
-
-
-
 
         if (start == end)
         {
             return null;
         }
-
-
-
-
-
         Token op;
-
-
-
         op = this.Token(this.TokenA, delimit.Text, this.IndexRange(this.RangeA, start));
-
-
-
-
         if (op == null)
         {
             return null;
         }
 
-
-
-
-
         int valueStart;
-
-
         int valueEnd;
-
-
         valueStart = op.Range.End;
-
-
         valueEnd = end;
 
-
-
-
-
         Node value;
-
-
-
         value = this.ExecuteOperate(this.Range(this.RangeA, valueStart, valueEnd));
-
-
-
-
         if (value == null)
         {
             this.Error(this.ErrorKind.OperandInvalid, valueStart, valueEnd);
         }
 
-
-
-
-
         this.OperateArg.Kind = kind;
-
         this.OperateArg.Start = start;
-
         this.OperateArg.End = end;
-
-
         this.OperateArg.Field00 = value;
-
-
-
         Node ret;
-
-
         ret = this.ExecuteCreateOperate();
-
-
         return ret;
     }
 
