@@ -4080,23 +4080,10 @@ public class Create : InfraCreate
         return a;
     }
 
-
-
-
-
-
-
-
-
     public virtual Node ExecuteGetOperate(Range range)
     {
         return this.ExecuteDotField(this.NodeKind.GetOperate, range);
     }
-
-
-
-
-
 
     public virtual Node ExecuteCallOperate(Range range)
     {
