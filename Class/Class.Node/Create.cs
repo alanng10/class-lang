@@ -4927,103 +4927,43 @@ public class Create : InfraCreate
         return ret;
     }
 
-
-
-
-
-
-
     protected virtual Node ExecuteVarNameOnly(NodeKind kind, Range range)
     {
         int start;
-
-
         int end;
-
-
         start = range.Start;
-
-
         end = range.End;
 
-
-
-
-
         Range varRange;
-
-
         varRange = this.ExecuteVarNameRange(this.RangeB, this.Range(this.RangeA, start, end));
-
-
-
         if (varRange == null)
         {
             return null;
         }
-
-
-
 
         if (!(varRange.End == end))
         {
             return null;
         }
 
-
-
-
-
         int varStart;
-
-
         int varEnd;
-
-
         varStart = varRange.Start;
-
-
         varEnd = varRange.End;
 
-
-
-
-
         Node varVar;
-
-
-
         varVar = this.ExecuteVarName(this.Range(this.RangeA, varStart, varEnd));
-
-
-
-
         if (varVar == null)
         {
             return null;
         }
 
-
-
-
-
         this.OperateArg.Kind = kind;
-
         this.OperateArg.Start = start;
-
         this.OperateArg.End = end;
-
-
         this.OperateArg.Field00 = varVar;
-
-
-
         Node ret;
-
-
         ret = this.ExecuteCreateOperate();
-
-
         return ret;
     }
 
