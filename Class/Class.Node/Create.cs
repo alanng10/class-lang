@@ -5214,183 +5214,84 @@ public class Create : InfraCreate
         return ret;
     }
 
-
-
-
-
-
-
-
     protected virtual Array ExecuteNodeList(RangeState rangeState, NodeState nodeState, Range range)
     {
         int start;
-
-
         int end;
-
-
-
         start = range.Start;
-
-
         end = range.End;
 
-
-
-
-
-
         int listIndex;
-
         listIndex = this.Operate.ExecuteListNew();
 
-
-
-
         int count;
-
         count = 0;
-
-
-
         int index;
-
         index = start;
-
-
         while (index < end)
         {
             rangeState.Arg.Result = this.RangeB;
-
-
             rangeState.Arg.Range = this.Range(this.RangeA, index, end);
-
-
-
             rangeState.Execute();
 
-
-
             Range itemRange;
-
             itemRange = rangeState.Result;
 
-
-
-
+            rangeState.Arg.Result = null;
+            rangeState.Arg.Range = null;
+            rangeState.Result = null;
 
             bool b;
-
-
             b = (itemRange == null);
-
-
-
             if (b)
             {
                 int aStart;
-
                 int aEnd;
-
-
                 aStart = index;
-
                 aEnd = end;
-
-
-
-
                 this.Error(this.ErrorKind.ItemInvalid, aStart, aEnd);
 
-
-
                 this.Operate.ExecuteListSetItem(listIndex, count, null);
-
-
                 count = count + 1;
-
-
-
 
                 index = end;
             }
 
-
-
             if (!b)
             {
                 int itemStart;
-
-
                 int itemEnd;
-
-
-
                 itemStart = itemRange.Start;
-
-
                 itemEnd = itemRange.End;
-
-
 
                 index = itemEnd;
 
-
-
-
-
-
-
                 nodeState.Arg = this.Range(this.RangeA, itemStart, itemEnd);
-
-
-
                 nodeState.Execute();
 
-
-
-
                 Node item;
-
-
                 item = nodeState.Result;
 
-
+                nodeState.Arg = null;
+                nodeState.Result = null;
 
                 bool ba;
-
                 ba = (item == null);
-
-
-
                 if (ba)
                 {
                     this.Error(this.ErrorKind.ItemInvalid, itemStart, itemEnd);
                 }
 
-
-
                 this.Operate.ExecuteListSetItem(listIndex, count, item);
-
 
                 count = count + 1;
             }
         }
 
-
-
-
         this.Operate.ExecuteListCount(listIndex, count);
 
-
-
-
         Array array;
-
         array = this.Operate.ExecuteListGet(listIndex);
-
-
-
         return array;
     }
 
