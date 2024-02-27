@@ -4795,61 +4795,25 @@ public class Create : InfraCreate
         return ret;
     }
 
-
-
-
-
-
-
     protected virtual Node ExecuteOneWord(NodeKind kind, Keyword word, Range range)
     {
         int start;
-
-
         int end;
-
-
         start = range.Start;
-
-
         end = range.End;
 
-
-
-
         Token wordToken;
-
-
-
         wordToken = this.Token(this.TokenA, word.Text, this.Range(this.RangeA, start, end));
-
-
-
-
         if (wordToken == null)
         {
             return null;
         }
 
-
-
-
-
         this.OperateArg.Kind = kind;
-
         this.OperateArg.Start = start;
-
         this.OperateArg.End = end;
-
-
-
-
         Node ret;
-
-
         ret = this.ExecuteCreateOperate();
-
-
         return ret;
     }
 
