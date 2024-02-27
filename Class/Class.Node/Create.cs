@@ -4868,163 +4868,62 @@ public class Create : InfraCreate
         return ret;
     }
 
-
-
-
-
-
-
     protected virtual Node ExecuteDotField(NodeKind kind, Range range)
     {
         int start;
-
-
         int end;
-
-
         start = range.Start;
-
-
         end = range.End;
 
-
-
-
-
-
         Token dot;
-
-
-
         dot = this.TokenBackward(this.TokenA, this.Delimit.StopSign.Text, this.Range(this.RangeA, start, end));
-
-
-
-
         if (dot == null)
         {
             return null;
         }
 
-
-
-
-
-
         Range fieldRange;
-
-
         fieldRange = this.ExecuteFieldNameRange(this.RangeB, this.Range(this.RangeA, dot.Range.End, end));
-
-
-
         if (fieldRange == null)
         {
             return null;
         }
-
-
 
         if (!(fieldRange.End == end))
         {
             return null;
         }
 
-
-
-
-
-
         int thisStart;
-
-
         int thisEnd;
-
-
         thisStart = start;
-
-
         thisEnd = dot.Range.Start;
-
-
-
-
-
         int fieldStart;
-
-
         int fieldEnd;
-
-
         fieldStart = fieldRange.Start;
-
-
         fieldEnd = fieldRange.End;
 
-
-
-
-
-
         Node varThis;
-
-
-
-
         varThis = this.ExecuteOperate(this.Range(this.RangeA, thisStart, thisEnd));
-
-
-
-
-
         if (varThis == null)
         {
             this.Error(this.ErrorKind.ThisInvalid, thisStart, thisEnd);
         }
 
-
-
-
-
         Node field;
-
-
-
-
         field = this.ExecuteFieldName(this.Range(this.RangeA, fieldStart, fieldEnd));
-
-
-
-
-
         if (field == null)
         {
             this.Error(this.ErrorKind.FieldInvalid, fieldStart, fieldEnd);
         }
 
-
-
-
-
         this.OperateArg.Kind = kind;
-
         this.OperateArg.Start = start;
-
         this.OperateArg.End = end;
-
-
         this.OperateArg.Field00 = varThis;
-
         this.OperateArg.Field01 = field;
-
-
-
         Node ret;
-
-
         ret = this.ExecuteCreateOperate();
-
-
         return ret;
     }
 
