@@ -2047,283 +2047,153 @@ public class Create : InfraCreate
         return ret;
     }
 
-
-
-
-
-
-
-
-
     public virtual Node ExecuteOperate(Range range)
     {
         int start;
-
-
         int end;
-
-
         start = range.Start;
-
-
         end = range.End;
 
-
-
-
-
         Node a;
-
-
-
         a = null;
-
-
-
-
-
         if (a == null)
         {
             a = this.ExecuteThisOperate(this.Range(this.RangeA, start, end));
         }
-
-
-
         if (a == null)
         {
             a = this.ExecuteBaseOperate(this.Range(this.RangeA, start, end));
         }
-
-
-
         if (a == null)
         {
             a = this.ExecuteNullOperate(this.Range(this.RangeA, start, end));
         }
-
-
-
         if (a == null)
         {
             a = this.ExecuteNewOperate(this.Range(this.RangeA, start, end));
         }
-
-
-
         if (a == null)
         {
             a = this.ExecuteShareOperate(this.Range(this.RangeA, start, end));
         }
-
-
-
         if (a == null)
         {
             a = this.ExecuteCastOperate(this.Range(this.RangeA, start, end));
         }
-
-
-
         if (a == null)
         {
-            Token wordTokenA;
-
-
-            wordTokenA = this.Token(this.TokenA, this.Keyword.Sign.Text, this.IndexRange(this.RangeA, start));
-
-
-
-            if (!(wordTokenA == null))
+            if (!(start == end))
             {
-                if (a == null)
+                Token wordTokenA;
+                wordTokenA = this.Token(this.TokenA, this.Keyword.Sign.Text, this.IndexRange(this.RangeA, start));
+                if (!(wordTokenA == null))
                 {
-                    a = this.ExecuteSignMulOperate(this.Range(this.RangeA, start, end));
-                }
-
-
-
-                if (a == null)
-                {
-                    a = this.ExecuteSignDivOperate(this.Range(this.RangeA, start, end));
-                }
-
-
-
-                if (a == null)
-                {
-                    a = this.ExecuteSignLessOperate(this.Range(this.RangeA, start, end));
+                    if (a == null)
+                    {
+                        a = this.ExecuteSignMulOperate(this.Range(this.RangeA, start, end));
+                    }
+                    if (a == null)
+                    {
+                        a = this.ExecuteSignDivOperate(this.Range(this.RangeA, start, end));
+                    }
+                    if (a == null)
+                    {
+                        a = this.ExecuteSignLessOperate(this.Range(this.RangeA, start, end));
+                    }
                 }
             }
         }
-
-
-
-
-
-
         if (a == null)
         {
-            Token wordTokenC;
-
-
-            wordTokenC = this.Token(this.TokenA, this.Keyword.Bit.Text, this.IndexRange(this.RangeA, start));
-
-
-
-            if (!(wordTokenC == null))
+            if (!(start == end))
             {
-                if (a == null)
+                Token wordTokenB;
+                wordTokenB = this.Token(this.TokenA, this.Keyword.Bit.Text, this.IndexRange(this.RangeA, start));
+                if (!(wordTokenB == null))
                 {
-                    a = this.ExecuteBitAndOperate(this.Range(this.RangeA, start, end));
-                }
-
-
-
-                if (a == null)
-                {
-                    a = this.ExecuteBitOrnOperate(this.Range(this.RangeA, start, end));
-                }
-
-
-
-                if (a == null)
-                {
-                    a = this.ExecuteBitNotOperate(this.Range(this.RangeA, start, end));
-                }
-
-
-
-                if (a == null)
-                {
-                    a = this.ExecuteBitLeftOperate(this.Range(this.RangeA, start, end));
-                }
-
-
-
-                if (a == null)
-                {
-                    a = this.ExecuteBitRightOperate(this.Range(this.RangeA, start, end));
-                }
-
-
-
-                if (a == null)
-                {
-                    a = this.ExecuteBitSignRightOperate(this.Range(this.RangeA, start, end));
+                    if (a == null)
+                    {
+                        a = this.ExecuteBitAndOperate(this.Range(this.RangeA, start, end));
+                    }
+                    if (a == null)
+                    {
+                        a = this.ExecuteBitOrnOperate(this.Range(this.RangeA, start, end));
+                    }
+                    if (a == null)
+                    {
+                        a = this.ExecuteBitNotOperate(this.Range(this.RangeA, start, end));
+                    }
+                    if (a == null)
+                    {
+                        a = this.ExecuteBitLeftOperate(this.Range(this.RangeA, start, end));
+                    }
+                    if (a == null)
+                    {
+                        a = this.ExecuteBitRightOperate(this.Range(this.RangeA, start, end));
+                    }
+                    if (a == null)
+                    {
+                        a = this.ExecuteBitSignRightOperate(this.Range(this.RangeA, start, end));
+                    }
                 }
             }
         }
-        
-
-
-
         if (a == null)
         {
             a = this.ExecuteBracketOperate(this.Range(this.RangeA, start, end));
         }
-
-
-
         if (a == null)
         {
             a = this.ExecuteVarOperate(this.Range(this.RangeA, start, end));
         }
-
-
-
         if (a == null)
         {
             a = this.ExecuteValueOperate(this.Range(this.RangeA, start, end));
         }
-
-
-
         if (a == null)
         {
             a = this.ExecuteEqualOperate(this.Range(this.RangeA, start, end));
         }
-
-
-
         if (a == null)
         {
             a = this.ExecuteAndOperate(this.Range(this.RangeA, start, end));
         }
-
-
-
         if (a == null)
         {
             a = this.ExecuteOrnOperate(this.Range(this.RangeA, start, end));
         }
-
-
-
         if (a == null)
         {
             a = this.ExecuteNotOperate(this.Range(this.RangeA, start, end));
         }
-
-
-
-
         if (a == null)
         {
             a = this.ExecuteLessOperate(this.Range(this.RangeA, start, end));
         }
-
-
-
-
         if (a == null)
         {
             a = this.ExecuteAddOperate(this.Range(this.RangeA, start, end));
         }
-
-
-
-
         if (a == null)
         {
             a = this.ExecuteSubOperate(this.Range(this.RangeA, start, end));
         }
-
-
-
-
         if (a == null)
         {
             a = this.ExecuteMulOperate(this.Range(this.RangeA, start, end));
         }
-
-
-
-
         if (a == null)
         {
             a = this.ExecuteDivOperate(this.Range(this.RangeA, start, end));
         }
-
-
-
-
         if (a == null)
         {
             a = this.ExecuteCallOperate(this.Range(this.RangeA, start, end));
         }
-
-
-
-
         if (a == null)
         {
             a = this.ExecuteGetOperate(this.Range(this.RangeA, start, end));
         }
-
-
-
-
-
         return a;
     }
 
