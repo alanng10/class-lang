@@ -4703,227 +4703,95 @@ public class Create : InfraCreate
         return ret;
     }
 
-
-
-
-
-
     protected virtual Node ExecuteWordBracketBody(NodeKind kind, Keyword word, Range range)
     {
         int start;
-
-
         int end;
-
-
         start = range.Start;
-
-
         end = range.End;
-
-
-
-
-
 
         if (start == end)
         {
             return null;
         }
-
-
-
-
-
-
         Token wordToken;
-
-
         wordToken = this.Token(this.TokenA, word.Text, this.IndexRange(this.RangeA, start));
-
-
-
         if (wordToken == null)
         {
             return null;
         }
 
-
-
-
         if (wordToken.Range.End == end)
         {
             return null;
         }
-
-
-
-
         Token leftBracket;
-
-
-
         leftBracket = this.Token(this.TokenB, this.Delimit.LeftBracket.Text, this.IndexRange(this.RangeA, wordToken.Range.End));
-
-
-
         if (leftBracket == null)
         {
             return null;
         }
 
-
-
-
-
         Token rightBracket;
-
-
-
         rightBracket = this.TokenMatchLeftBracket(this.TokenC, this.Range(this.RangeA, leftBracket.Range.End, end));
-
-
-
-
         if (rightBracket == null)
         {
             return null;
         }
 
-
-
-
-
         if (rightBracket.Range.End == end)
         {
             return null;
         }
-
-
-
-
         Token leftBrace;
-
-
         leftBrace = this.Token(this.TokenD, this.Delimit.LeftBrace.Text, this.IndexRange(this.RangeA, rightBracket.Range.End));
-
-
-
         if (leftBrace == null)
         {
             return null;
         }
 
-
-
-
         Token rightBrace;
-
-
         rightBrace = this.TokenMatchLeftBrace(this.TokenA, this.Range(this.RangeA, leftBrace.Range.End, end));
-
-
-
         if (rightBrace == null)
         {
             return null;
         }
-
-
-
 
         if (!(rightBrace.Range.End == end))
         {
             return null;
         }
 
-
-
-
-
-
-
-
-
         int condStart;
-
-
         int condEnd;
-
-
         condStart = leftBracket.Range.End;
-
-
         condEnd = rightBracket.Range.Start;
-
-
-
-
-
         int bodyStart;
-
-
         int bodyEnd;
-
-
         bodyStart = leftBrace.Range.End;
-
-
         bodyEnd = rightBrace.Range.Start;
 
-
-
-
-
-
         Node cond;
-
-
         cond = this.ExecuteOperate(this.Range(this.RangeA, condStart, condEnd));
-
-
         if (cond == null)
         {
             this.Error(this.ErrorKind.CondInvalid, condStart, condEnd);
         }
 
-
-
-
         Node body;
-
-
         body = this.ExecuteState(this.Range(this.RangeA, bodyStart, bodyEnd));
-
-
         if (body == null)
         {
             this.Error(this.ErrorKind.BodyInvalid, bodyStart, bodyEnd);
         }
 
-
-
-
-
         this.OperateArg.Kind = kind;
-
         this.OperateArg.Start = start;
-
         this.OperateArg.End = end;
-
-
         this.OperateArg.Field00 = cond;
-
         this.OperateArg.Field01 = body;
-
-
-
         Node ret;
-
-
         ret = this.ExecuteCreateOperate();
-
-
         return ret;
     }
 
