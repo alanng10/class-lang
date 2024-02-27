@@ -5394,44 +5394,25 @@ public class Create : InfraCreate
         return array;
     }
 
-
-
-
-
-
-
     protected virtual Range ExecuteClassNameRange(Range result, Range range)
     {
         return this.ExecuteNameRange(result, range);
     }
-
-
-
 
     protected virtual Range ExecuteFieldNameRange(Range result, Range range)
     {
         return this.ExecuteNameRange(result, range);
     }
 
-
-
-
     protected virtual Range ExecuteMaideNameRange(Range result, Range range)
     {
         return this.ExecuteNameRange(result, range);
     }
 
-
-
-
     protected virtual Range ExecuteVarNameRange(Range result, Range range)
     {
         return this.ExecuteNameRange(result, range);
     }
-
-
-
-
 
     protected virtual Range ExecuteNameRange(Range result, Range range)
     {
