@@ -3677,10 +3677,10 @@ public class Create : InfraCreate
         array = line.Value;
         int start;
         start = aa.Col.Start;
-        int end;
-        end = aa.Col.End;
+        int count;
+        count = this.Count(aa.Col);
 
-        if (!this.IsIntChar(array, start, end))
+        if (!this.IsIntChar(array, start, count))
         {
             return false;
         }
@@ -3704,8 +3704,6 @@ public class Create : InfraCreate
         array = line.Value;
         int start;
         start = aa.Col.Start;
-        int end;
-        end = aa.Col.End;
 
         if (!(array[start] == '0'))
         {
@@ -3718,7 +3716,9 @@ public class Create : InfraCreate
 
         int startA;
         startA = start + 2;
-        if (!this.IsIntHexChar(array, startA, end))
+        int countA;
+        countA = count - 2;
+        if (!this.IsIntHexChar(array, startA, countA))
         {
             return false;
         }
@@ -3742,8 +3742,6 @@ public class Create : InfraCreate
         array = line.Value;
         int start;
         start = aa.Col.Start;
-        int end;
-        end = aa.Col.End;
 
         if (!(array[start] == '0'))
         {
@@ -3763,7 +3761,9 @@ public class Create : InfraCreate
 
         int startA;
         startA = start + 3;
-        if (!this.IsIntChar(array, startA, end))
+        int countA;
+        countA = count - 3;
+        if (!this.IsIntChar(array, startA, countA))
         {
             return false;
         }
@@ -3787,8 +3787,6 @@ public class Create : InfraCreate
         array = line.Value;
         int start;
         start = aa.Col.Start;
-        int end;
-        end = aa.Col.End;
 
         if (!(array[start] == '0'))
         {
@@ -3812,17 +3810,17 @@ public class Create : InfraCreate
 
         int startA;
         startA = start + 4;
-        if (!this.IsIntHexChar(array, startA, end))
+        int countA;
+        countA = count - 4;
+        if (!this.IsIntHexChar(array, startA, countA))
         {
             return false;
         }
         return true;
     }
 
-    protected virtual bool IsIntChar(char[] array, int start, int end)
+    protected virtual bool IsIntChar(char[] array, int start, int count)
     {
-        int count;
-        count = end - start;
         int index;
         char oc;
         int i;
@@ -3842,10 +3840,8 @@ public class Create : InfraCreate
         return true;
     }
 
-    protected virtual bool IsIntHexChar(char[] array, int start, int end)
+    protected virtual bool IsIntHexChar(char[] array, int start, int count)
     {
-        int count;
-        count = end - start;
         int index;
         char oc;
         int i;
