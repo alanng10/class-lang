@@ -5,153 +5,58 @@ public class Encode : Any
     public override bool Init()
     {
         base.Init();
-
-
-
         this.InternIntern = InternIntern.This;
-
-
-
         this.InfraInfra = InfraInfra.This;
 
-
-
-
         this.InternData = Extern.Data_New();
-
-
         Extern.Data_Init(this.InternData);
-
-
-
         this.InternString = Extern.String_New();
-
-
         Extern.String_Init(this.InternString);
 
-
-
-
         ulong ua;
-
         ua = this.Kind.Intern;
-
-
-
         bool ba;
-
         ba = this.WriteBom;
-
-
-
         ulong ub;
-
         ub = (ulong)(ba ? 1 : 0);
 
-
-
-
         this.Intern = Extern.TextEncode_New();
-
-
         Extern.TextEncode_SetKind(this.Intern, ua);
-
-
         Extern.TextEncode_SetWriteBom(this.Intern, ub);
-
-
         Extern.TextEncode_Init(this.Intern);
-        
-
-
-
         return true;
     }
-
-
-
-
 
     public virtual bool Final()
     {
         Extern.TextEncode_Final(this.Intern);
-
-
         Extern.TextEncode_Delete(this.Intern);
 
-
-
         Extern.String_Final(this.InternString);
-
-
         Extern.String_Delete(this.InternString);
 
-
-
         Extern.Data_Final(this.InternData);
-
-
         Extern.Data_Delete(this.InternData);
-
-
-
-
         return true;
     }
 
-
-
-
-
     public virtual EncodeKind Kind { get; set; }
-
-
-
     public virtual bool WriteBom { get; set; }
 
-
-
-
     private InternIntern InternIntern { get; set; }
-
-
-
     protected virtual InfraInfra InfraInfra { get; set; }
-
-
-
-
     private ulong Intern { get; set; }
-
-
     private ulong InternString { get; set; }
-
-
     private ulong InternData { get; set; }
-
-
-
-
 
     public virtual int GetTextCountMax(long dataCount)
     {
         ulong ua;
-
         ua = (ulong)dataCount;
-
-
-
         ulong u;
-        
         u = Extern.TextEncode_GetStringCountMax(this.Intern, ua);
-
-
-
         int a;
-
         a = (int)u;
-
-
         return a;
     }
 
