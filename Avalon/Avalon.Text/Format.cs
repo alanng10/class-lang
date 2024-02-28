@@ -5,7 +5,6 @@ public class Format : Any
     public override bool Init()
     {
         base.Init();
-
         this.InternIntern = InternIntern.This;
         this.InternInfra = InternInfra.This;
         this.InfraInfra = InfraInfra.This;
