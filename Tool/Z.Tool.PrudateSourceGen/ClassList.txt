@@ -99,7 +99,7 @@ Random
     Execute()
 
 Sort
-    Execute(array, compareState)
+    Execute(data, count, compareState)
     Compare(sort, left, right, arg) --
 
 Range
