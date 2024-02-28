@@ -621,7 +621,7 @@ public class Create : InfraCreate
         end = range.End;
 
         Range emitRange;
-        emitRange = this.ExecuteEmitRange(this.RangeB, this.Range(this.RangeA, start, end));
+        emitRange = this.ExecuteCountRange(this.RangeB, this.Range(this.RangeA, start, end));
         if (emitRange == null)
         {
             return null;
@@ -752,7 +752,7 @@ public class Create : InfraCreate
         count = this.ExecuteCount(this.Range(this.RangeA, emitStart, emitEnd));
         if (count == null)
         {
-            this.Error(this.ErrorKind.EmitInvalid, emitStart, emitEnd);
+            this.Error(this.ErrorKind.CountInvalid, emitStart, emitEnd);
         }
 
         Node varClass;
@@ -804,7 +804,7 @@ public class Create : InfraCreate
         end = range.End;
 
         Range emitRange;
-        emitRange = this.ExecuteEmitRange(this.RangeB, this.Range(this.RangeA, start, end));
+        emitRange = this.ExecuteCountRange(this.RangeB, this.Range(this.RangeA, start, end));
         if (emitRange == null)
         {
             return null;
@@ -890,7 +890,7 @@ public class Create : InfraCreate
         count = this.ExecuteCount(this.Range(this.RangeA, emitStart, emitEnd));
         if (count == null)
         {
-            this.Error(this.ErrorKind.EmitInvalid, emitStart, emitEnd);
+            this.Error(this.ErrorKind.CountInvalid, emitStart, emitEnd);
         }
 
         Node varClass;
@@ -3396,7 +3396,7 @@ public class Create : InfraCreate
         return result;
     }
 
-    protected virtual Range ExecuteEmitRange(Range result, Range range)
+    protected virtual Range ExecuteCountRange(Range result, Range range)
     {
         int start;
         int end;
@@ -3466,7 +3466,7 @@ public class Create : InfraCreate
         end = range.End;
 
         Range emitRange;
-        emitRange = this.ExecuteEmitRange(this.RangeB, this.Range(this.RangeA, start, end));
+        emitRange = this.ExecuteCountRange(this.RangeB, this.Range(this.RangeA, start, end));
         if (emitRange == null)
         {
             return null;
@@ -3579,7 +3579,7 @@ public class Create : InfraCreate
         end = range.End;
 
         Range emitRange;
-        emitRange = this.ExecuteEmitRange(this.RangeB, this.Range(this.RangeA, start, end));
+        emitRange = this.ExecuteCountRange(this.RangeB, this.Range(this.RangeA, start, end));
         if (emitRange == null)
         {
             return null;
