@@ -620,15 +620,15 @@ public class Create : InfraCreate
         start = range.Start;
         end = range.End;
 
-        Range emitRange;
-        emitRange = this.ExecuteCountRange(this.RangeB, this.Range(this.RangeA, start, end));
-        if (emitRange == null)
+        Range countRange;
+        countRange = this.ExecuteCountRange(this.RangeB, this.Range(this.RangeA, start, end));
+        if (countRange == null)
         {
             return null;
         }
 
         Range classRange;
-        classRange = this.ExecuteClassNameRange(this.RangeC, this.Range(this.RangeA, emitRange.End, end));
+        classRange = this.ExecuteClassNameRange(this.RangeC, this.Range(this.RangeA, countRange.End, end));
         if (classRange == null)
         {
             return null;
@@ -727,10 +727,10 @@ public class Create : InfraCreate
             return null;
         }
 
-        int emitStart;
-        int emitEnd;
-        emitStart = emitRange.Start;
-        emitEnd = emitRange.End;
+        int countStart;
+        int countEnd;
+        countStart = countRange.Start;
+        countEnd = countRange.End;
         int classStart;
         int classEnd;
         classStart = classRange.Start;
@@ -749,10 +749,10 @@ public class Create : InfraCreate
         setEnd = setRightBrace.Range.Start;
 
         Node count;
-        count = this.ExecuteCount(this.Range(this.RangeA, emitStart, emitEnd));
+        count = this.ExecuteCount(this.Range(this.RangeA, countStart, countEnd));
         if (count == null)
         {
-            this.Error(this.ErrorKind.CountInvalid, emitStart, emitEnd);
+            this.Error(this.ErrorKind.CountInvalid, countStart, countEnd);
         }
 
         Node varClass;
@@ -803,15 +803,15 @@ public class Create : InfraCreate
         start = range.Start;
         end = range.End;
 
-        Range emitRange;
-        emitRange = this.ExecuteCountRange(this.RangeB, this.Range(this.RangeA, start, end));
-        if (emitRange == null)
+        Range countRange;
+        countRange = this.ExecuteCountRange(this.RangeB, this.Range(this.RangeA, start, end));
+        if (countRange == null)
         {
             return null;
         }
 
         Range classRange;
-        classRange = this.ExecuteClassNameRange(this.RangeC, this.Range(this.RangeA, emitRange.End, end));
+        classRange = this.ExecuteClassNameRange(this.RangeC, this.Range(this.RangeA, countRange.End, end));
         if (classRange == null)
         {
             return null;
@@ -865,10 +865,10 @@ public class Create : InfraCreate
             return null;
         }
 
-        int emitStart;
-        int emitEnd;
-        emitStart = emitRange.Start;
-        emitEnd = emitRange.End;
+        int countStart;
+        int countEnd;
+        countStart = countRange.Start;
+        countEnd = countRange.End;
         int classStart;
         int classEnd;
         classStart = classRange.Start;
@@ -887,10 +887,10 @@ public class Create : InfraCreate
         callEnd = rightBrace.Range.Start;
 
         Node count;
-        count = this.ExecuteCount(this.Range(this.RangeA, emitStart, emitEnd));
+        count = this.ExecuteCount(this.Range(this.RangeA, countStart, countEnd));
         if (count == null)
         {
-            this.Error(this.ErrorKind.CountInvalid, emitStart, emitEnd);
+            this.Error(this.ErrorKind.CountInvalid, countStart, countEnd);
         }
 
         Node varClass;
@@ -3465,15 +3465,15 @@ public class Create : InfraCreate
         start = range.Start;
         end = range.End;
 
-        Range emitRange;
-        emitRange = this.ExecuteCountRange(this.RangeB, this.Range(this.RangeA, start, end));
-        if (emitRange == null)
+        Range countRange;
+        countRange = this.ExecuteCountRange(this.RangeB, this.Range(this.RangeA, start, end));
+        if (countRange == null)
         {
             return null;
         }
 
         Range classRange;
-        classRange = this.ExecuteClassNameRange(this.RangeC, this.Range(this.RangeA, emitRange.End, end));
+        classRange = this.ExecuteClassNameRange(this.RangeC, this.Range(this.RangeA, countRange.End, end));
         if (classRange == null)
         {
             return null;
@@ -3578,15 +3578,15 @@ public class Create : InfraCreate
         start = range.Start;
         end = range.End;
 
-        Range emitRange;
-        emitRange = this.ExecuteCountRange(this.RangeB, this.Range(this.RangeA, start, end));
-        if (emitRange == null)
+        Range countRange;
+        countRange = this.ExecuteCountRange(this.RangeB, this.Range(this.RangeA, start, end));
+        if (countRange == null)
         {
             return null;
         }
 
         Range classRange;
-        classRange = this.ExecuteClassNameRange(this.RangeC, this.Range(this.RangeA, emitRange.End, end));
+        classRange = this.ExecuteClassNameRange(this.RangeC, this.Range(this.RangeA, countRange.End, end));
         if (classRange == null)
         {
             return null;
