@@ -125,48 +125,42 @@ public class NodeKindListGen : SourceGen
         return true;
     }
 
-
-
-
-
-
+    protected override TableEntry GetItemEntry(string line)
+    {
+        string index;
+        index = line;
+        if (index == "Count")
+        {
+            index = "Item" + index;
+        }
+        TableEntry a;
+        a = new TableEntry();
+        a.Init();
+        a.Index = index;
+        a.Value = line;
+        return a;
+    }
 
     protected override bool AppendInitFieldAddItem(StringBuilder sb, string index, object value)
     {
+        string aa;
+        aa = value.ToString();
         string newState;
-
-        newState = index + "NewState";
-
-
-
+        newState = aa + "NewState";
         string nodeState;
-
-        nodeState = index + "NodeState";
-
-
-
+        nodeState = aa + "NodeState";
         string createOperateState;
-
-        createOperateState = index + "CreateOperateState";
-
-
-
-
+        createOperateState = aa + "CreateOperateState";
         sb
             .Append("AddItem")
             .Append("(")
-            .Append("\"").Append(index).Append("\"").Append(",").Append(" ")
-            .Append("new").Append(" ").Append(index).Append("(").Append(")").Append(",").Append(" ")
+            .Append("\"").Append(aa).Append("\"").Append(",").Append(" ")
+            .Append("new").Append(" ").Append(aa).Append("(").Append(")").Append(",").Append(" ")
             .Append("new").Append(" ").Append(newState).Append("(").Append(")").Append(",").Append(" ")
             .Append("new").Append(" ").Append(nodeState).Append("(").Append(")").Append(",").Append(" ")
             .Append("new").Append(" ").Append(createOperateState).Append("(").Append(")")
             .Append(")")
             ;
-
-
-
-
-
         return true;
     }
 }
