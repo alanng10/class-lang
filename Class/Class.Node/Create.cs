@@ -3952,52 +3952,24 @@ public class Create : InfraCreate
         return valid;
     }
 
-
-
-
-
-
-
-
     protected virtual bool IsKeyword(TextRange textRange)
     {
         int count;
-
         count = this.Keyword.Count;
-
-
         int i;
-
         i = 0;
-
-
         while (i < count)
         {
             Keyword a;
-
             a = this.Keyword.Get(i);
-
-
-
             string o;
-
             o = a.Text;
-
-
-
             if (this.TextInfra.Equal(this.SourceText, textRange, o))
             {
                 return true;
             }
-
-
-
-
             i = i + 1;
         }
-
-
-
         return false;
     }
 
