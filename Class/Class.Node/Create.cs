@@ -3980,31 +3980,14 @@ public class Create : InfraCreate
         return true;
     }
 
-
-
-
-
-
-
-
     protected virtual bool IsText(string value, int index)
     {
         TextRange aa;
-
         aa = this.TextRange(index);
-
-
-
         bool b;
-
         b = this.TextInfra.Equal(this.SourceText, aa, value);
-
-
-
         bool ret;
-
         ret = b;
-
         return ret;
     }
 
