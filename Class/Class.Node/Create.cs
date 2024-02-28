@@ -3770,107 +3770,52 @@ public class Create : InfraCreate
         return true;
     }
 
-
-
-
-
-
     protected virtual bool IsIntSignHexValue(TextRange aa)
     {
         int count;
-
-
         count = this.Count(aa.Col);
-
-
 
         if (count < 5)
         {
             return false;
         }
 
-
-
-
         TextLine line;
-
-
         line = this.SourceText.GetLine(aa.Row);
 
-
-
-
         char[] array;
-
-
         array = line.Value;
-
-
-
-
         int start;
-
         start = aa.Col.Start;
-
-
         int end;
-
         end = aa.Col.End;
-
-
-
 
         if (!(array[start] == '0'))
         {
             return false;
         }
-
-
-
         if (!(array[start + 1] == 's'))
         {
             return false;
         }
-
-
-
         if (!(array[start + 2] == 'h'))
         {
             return false;
         }
 
-
-
-
         char oa;
-
         oa = array[start + 3];
-
-
-
         if (!this.IsIntSignChar(oa))
         {
             return false;
         }
 
-
-
-
         int startA;
-
         startA = start + 4;
-
-
-
-
         if (!this.IsIntHexChar(array, startA, end))
         {
             return false;
         }
-
-
-
-
         return true;
     }
 
