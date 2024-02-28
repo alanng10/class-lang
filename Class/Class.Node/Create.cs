@@ -4027,12 +4027,6 @@ public class Create : InfraCreate
         return result;
     }
 
-
-
-
-
-
-
     protected virtual Token TokenForward(Token result, string value, Range range)
     {
         int start;
