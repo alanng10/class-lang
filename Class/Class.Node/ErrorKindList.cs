@@ -26,7 +26,7 @@ public class ErrorKindList : Any
         this.BaseInvalid = this.AddItem("BaseInvalid");
         this.MemberInvalid = this.AddItem("MemberInvalid");
         this.ClassInvalid = this.AddItem("ClassInvalid");
-        this.EmitInvalid = this.AddItem("EmitInvalid");
+        this.CountInvalid = this.AddItem("CountInvalid");
         this.GetInvalid = this.AddItem("GetInvalid");
         this.SetInvalid = this.AddItem("SetInvalid");
         this.ParamInvalid = this.AddItem("ParamInvalid");
@@ -53,7 +53,7 @@ public class ErrorKindList : Any
     public virtual ErrorKind BaseInvalid { get; set; }
     public virtual ErrorKind MemberInvalid { get; set; }
     public virtual ErrorKind ClassInvalid { get; set; }
-    public virtual ErrorKind EmitInvalid { get; set; }
+    public virtual ErrorKind CountInvalid { get; set; }
     public virtual ErrorKind GetInvalid { get; set; }
     public virtual ErrorKind SetInvalid { get; set; }
     public virtual ErrorKind ParamInvalid { get; set; }
