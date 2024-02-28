@@ -3175,242 +3175,100 @@ public class Create : InfraCreate
         return a;
     }
 
-
-
-
-
-
-
     protected virtual Range ExecuteReturnExecuteRange(Range result, Range range)
     {
         int start;
-
-
         int end;
-
-
         start = range.Start;
-
-
         end = range.End;
-
-
-
-
-
 
         if (start == end)
         {
             return null;
         }
-
-
-
-
         Token returnToken;
-
-
         returnToken = this.Token(this.TokenA, this.Keyword.Return.Text, this.IndexRange(this.RangeA, start));
-
-
-
         if (returnToken == null)
         {
             return null;
         }
 
-
-
-
-
-
         Token semicolon;
-
-
         semicolon = this.TokenForward(this.TokenB, this.Delimit.ExecuteSign.Text, this.Range(this.RangeA, returnToken.Range.End, end));
-
-
-
         if (semicolon == null)
         {
             return null;
         }
 
-
-
-
-
-
-
         this.Range(result, start, semicolon.Range.End);
-
-
-
-
-
-
-
         return result;
     }
-
-
-
-
-
-
 
     protected virtual Range ExecuteInfExecuteRange(Range result, Range range)
     {
         return this.ExecuteWordBracketRange(result, this.Keyword.Inf, range);
     }
 
-
-
-
-
     protected virtual Range ExecuteWhileExecuteRange(Range result, Range range)
     {
         return this.ExecuteWordBracketRange(result, this.Keyword.While, range);
     }
 
-
-
-
-
-
     protected virtual Range ExecuteWordBracketRange(Range result, Keyword word, Range range)
     {
         int start;
-
-
         int end;
-
-
         start = range.Start;
-
-
         end = range.End;
-
-
-
-
-
 
         if (start == end)
         {
             return null;
         }
-
-
-
-
-
-
         Token wordToken;
-
-
         wordToken = this.Token(this.TokenA, word.Text, this.IndexRange(this.RangeA, start));
-
-
-
         if (wordToken == null)
         {
             return null;
         }
 
-
-
-
         if (wordToken.Range.End == end)
         {
             return null;
         }
-
-
-
-
         Token leftBracket;
-
-
-
         leftBracket = this.Token(this.TokenB, this.Delimit.LeftBracket.Text, this.IndexRange(this.RangeA, wordToken.Range.End));
-
-
-
         if (leftBracket == null)
         {
             return null;
         }
 
-
-
-
-
         Token rightBracket;
-
-
-
         rightBracket = this.TokenMatchLeftBracket(this.TokenC, this.Range(this.RangeA, leftBracket.Range.End, end));
-
-
-
-
         if (rightBracket == null)
         {
             return null;
         }
 
-
-
-
-
         if (rightBracket.Range.End == end)
         {
             return null;
         }
-
-
-
-
         Token leftBrace;
-
-
         leftBrace = this.Token(this.TokenD, this.Delimit.LeftBrace.Text, this.IndexRange(this.RangeA, rightBracket.Range.End));
-
-
-
         if (leftBrace == null)
         {
             return null;
         }
 
-
-
-
         Token rightBrace;
-
-
         rightBrace = this.TokenMatchLeftBrace(this.TokenA, this.Range(this.RangeA, leftBrace.Range.End, end));
-
-
-
         if (rightBrace == null)
         {
             return null;
         }
 
-
-
-
-
-
         this.Range(result, start, rightBrace.Range.End);
-
-
-
-
-
-
         return result;
     }
 
