@@ -6,7 +6,6 @@ public class FormatArgList : Any
     public override bool Init()
     {
         base.Init();
-
         ulong countU;
         countU = (ulong)this.Count;
 
@@ -18,7 +17,6 @@ public class FormatArgList : Any
         return true;
     }
 
-
     public virtual bool Final()
     {
         Extern.Array_Final(this.Intern);
@@ -27,28 +25,17 @@ public class FormatArgList : Any
         return true;
     }
 
-
-
     public virtual int Count { get; set; }
 
-
-
     internal virtual ulong Intern { get; set; }
-
-
 
     public virtual bool SetItem(int index, FormatArg value)
     {
         ulong indexU;
-
         indexU = (ulong)index;
-
         ulong valueU;
-
         valueU = value.Intern;
-
         Extern.Array_SetItem(this.Intern, indexU, valueU);
-
         return true;
     }
 }
