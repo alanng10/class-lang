@@ -3369,70 +3369,30 @@ public class Create : InfraCreate
         return result;
     }
 
-
-
-
-
-
-
-
     public virtual Range ExecuteParamItemRange(Range result, Range range)
     {
         return this.ExecuteEndAtCommaRange(result, range);
     }
-
-
-
-
 
     public virtual Range ExecuteArgueItemRange(Range result, Range range)
     {
         return this.ExecuteEndAtCommaRange(result, range);
     }
 
-
-
-
-
     protected virtual Range ExecuteEndAtCommaRange(Range result, Range range)
     {
         int start;
-
-
         int end;
-
-
         start = range.Start;
-
-
         end = range.End;
 
-
-
-
-
         Token comma;
-
-
         comma = this.TokenForward(this.TokenA, this.Delimit.PauseSign.Text, this.Range(this.RangeA, start, end));
-
-
-
-
         if (comma == null)
         {
             return null;
         }
-
-
-
-
-
         this.Range(result, start, comma.Range.Start);
-
-
-
-
         return result;
     }
 
