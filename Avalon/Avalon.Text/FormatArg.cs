@@ -116,8 +116,6 @@ public class FormatArg : Any
         return true;
     }
 
-
-
     public virtual bool GetCount()
     {
         ulong hasCountU;
