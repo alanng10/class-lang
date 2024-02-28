@@ -3842,59 +3842,26 @@ public class Create : InfraCreate
         return true;
     }
 
-
-
-
-
     protected virtual bool IsIntHexChar(char[] array, int start, int end)
     {
         int count;
-
         count = end - start;
-
-
-
         int index;
-
-
-
         char oc;
-
-
-
         int i;
-
-
         i = 0;
-
-
         while (i < count)
         {
             index = start + i;
 
-
-
-
             oc = array[index];
-
-
-
-
 
             if (!(this.TextInfra.IsDigit(oc) | this.TextInfra.IsHexLetter(oc)))
             {
                 return false;
             }
-
-
-
-
             i = i + 1;
         }
-
-
-
-
         return true;
     }
 
