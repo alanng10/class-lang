@@ -184,74 +184,36 @@ public class Infra : Any
         return k;
     }
 
-
-
-
-
-
     public virtual long GetInt(Span span)
     {
         int count;
-
         count = this.InfraInfra.Count(span.Range);
 
-
-
-
         ReadOnlySpanChar spanU;
-
         spanU = new ReadOnlySpanChar(span.Data, span.Range.Start, count);
 
-
-
-
         ulong o;
-
-
-
         bool b;
-        
         b = ulong.TryParse(spanU, NumberStyle.None, CultureInfo.InvariantCulture, out o);
-
-
-
-
         if (!b)
         {
             return -1;
         }
 
-
-
-
         long k;
-
-
         k = (long)o;
-
-
-
-
         if (k < 0)
         {
             return -1;
         }
-
-
 
         if (!(k < this.InfraInfra.IntCapValue))
         {
             return -1;
         }
 
-
-
-
         long a;
-
         a = k;
-
-
         return a;
     }
 
