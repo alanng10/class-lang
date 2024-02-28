@@ -3973,12 +3973,6 @@ public class Create : InfraCreate
         return false;
     }
 
-
-
-
-
-
-
     public virtual bool NodeInfo(Node node, int start, int end)
     {
         node.Range = this.CreateRange();
