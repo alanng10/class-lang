@@ -1991,202 +1991,81 @@ public class Create : InfraCreate
     public virtual Node ExecuteCastOperate(Range range)
     {
         int start;
-
-
         int end;
-
-
         start = range.Start;
-
-
         end = range.End;
-
-
-
-
 
         if (start == end)
         {
             return null;
         }
-
-
-
-
-
         Token catToken;
-
-
         catToken = this.Token(this.TokenA, this.Keyword.Cast.Text, this.IndexRange(this.RangeA, start));
-
-
-
-
         if (catToken == null)
         {
             return null;
         }
 
-
-
-
-
-
         Range classRange;
-
-
         classRange = this.ExecuteClassNameRange(this.RangeB, this.Range(this.RangeA, catToken.Range.End, end));
-
-
-
         if (classRange == null)
         {
             return null;
         }
 
-
-
-
-
-
         if (classRange.End == end)
         {
             return null;
         }
-
-
-
-
-
         Token leftBracket;
-
-
         leftBracket = this.Token(this.TokenB, this.Delimit.LeftBracket.Text, this.IndexRange(this.RangeA, classRange.End));
-
-
-
-
         if (leftBracket == null)
         {
             return null;
         }
 
-
-
-
-
         Token rightBracket;
-
-
         rightBracket = this.TokenMatchLeftBracket(this.TokenC, this.Range(this.RangeA, leftBracket.Range.End, end));
-
-
-
         if (rightBracket == null)
         {
             return null;
         }
-
-
-
-
 
         if (!(rightBracket.Range.End == end))
         {
             return null;
         }
 
-
-
-
-
-
-
         int classStart;
-
-
         int classEnd;
-
-
         classStart = classRange.Start;
-
-
         classEnd = classRange.End;
-
-
-
-
-
-
         int anyStart;
-
-
         int anyEnd;
-
-
         anyStart = leftBracket.Range.End;
-
-
         anyEnd = rightBracket.Range.Start;
 
-
-
-
-
-
         Node varClass;
-
-
         varClass = this.ExecuteClassName(this.Range(this.RangeA, classStart, classEnd));
-
-
-
-
         if (varClass == null)
         {
             this.Error(this.ErrorKind.ClassInvalid, classStart, classEnd);
         }
 
-
-
-
-
         Node any;
-
-
         any = this.ExecuteOperate(this.Range(this.RangeA, anyStart, anyEnd));
-
-
-
-
         if (any == null)
         {
             this.Error(this.ErrorKind.AnyInvalid, anyStart, anyEnd);
         }
 
-
-
-
-
         this.OperateArg.Kind = this.NodeKind.CastOperate;
-
         this.OperateArg.Start = start;
-
         this.OperateArg.End = end;
-
-
         this.OperateArg.Field00 = varClass;
-
         this.OperateArg.Field01 = any;
-
-
-
         Node ret;
-
-
         ret = this.ExecuteCreateOperate();
-
-
         return ret;
     }
 
