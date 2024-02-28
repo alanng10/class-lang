@@ -3143,81 +3143,35 @@ public class Create : InfraCreate
     {
         int start;
         int end;
-
-
-
         start = range.Start;
-
-
         end = range.End;
 
-
-
-
         Range a;
-
-
         a = null;
-
-
-
-
-
         if (a == null)
         {
             a = this.ExecuteReturnExecuteRange(result, this.Range(this.RangeA, start, end));
         }
-
-
-
-
-
         if (a == null)
         {
             a = this.ExecuteInfExecuteRange(result, this.Range(this.RangeA, start, end));
         }
-
-
-
-
-
         if (a == null)
         {
             a = this.ExecuteWhileExecuteRange(result, this.Range(this.RangeA, start, end));
         }
-
-
-
-
-
         if (a == null)
         {
             a = this.ExecuteDeclareExecuteRange(result, this.Range(this.RangeA, start, end));
         }
-
-
-
-
-
         if (a == null)
         {
             a = this.ExecuteAssignExecuteRange(result, this.Range(this.RangeA, start, end));
         }
-
-
-
-
-
         if (a == null)
         {
             a = this.ExecuteOperateExecuteRange(result, this.Range(this.RangeA, start, end));
         }
-
-
-
-
-
-
         return a;
     }
 
