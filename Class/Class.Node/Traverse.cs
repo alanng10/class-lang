@@ -527,9 +527,9 @@ public class Traverse : Any
 
 
 
-    public virtual bool ExecuteCount(Count access)
+    public virtual bool ExecuteCount(Count count)
     {
-        if (access == null)
+        if (count == null)
         {
             return true;
         }
@@ -537,30 +537,30 @@ public class Traverse : Any
 
 
 
-        if (access is PrudateCount)
+        if (count is PrudateCount)
         {
-            this.ExecutePrudateCount((PrudateCount)access);
+            this.ExecutePrudateCount((PrudateCount)count);
         }
         
         
 
-        if (access is ProbateCount)
+        if (count is ProbateCount)
         {
-            this.ExecuteProbateCount((ProbateCount)access);
+            this.ExecuteProbateCount((ProbateCount)count);
         }
 
 
 
-        if (access is PrecateCount)
+        if (count is PrecateCount)
         {
-            this.ExecutePrecateCount((PrecateCount)access);
+            this.ExecutePrecateCount((PrecateCount)count);
         }
 
 
         
-        if (access is PrivateCount)
+        if (count is PrivateCount)
         {
-            this.ExecutePrivateCount((PrivateCount)access);
+            this.ExecutePrivateCount((PrivateCount)count);
         }
 
 
