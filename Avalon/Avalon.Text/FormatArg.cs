@@ -70,7 +70,6 @@ public class FormatArg : Any
         if (kind == 3)
         {
             this.InternString = this.InternInfra.StringCreate(this.ValueString);
-
             valueU = this.InternString;
         }
         ulong alignLeftU;
