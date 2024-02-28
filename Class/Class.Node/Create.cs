@@ -3139,17 +3139,9 @@ public class Create : InfraCreate
         return this.IndexRange(result, start);
     }
 
-
-
-
-
-
-
     public virtual Range ExecuteExecuteRange(Range result, Range range)
     {
         int start;
-
-
         int end;
 
 
