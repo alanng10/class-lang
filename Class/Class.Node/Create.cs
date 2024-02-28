@@ -3865,58 +3865,25 @@ public class Create : InfraCreate
         return true;
     }
 
-
-
-
-
-
     protected virtual bool IsIntSignChar(char oc)
     {
         return (oc == 'p') | (oc == 'n');
     }
 
-
-
-
-
-
     protected virtual bool IsTokenSignNegative(TextRange o, int index)
     {
         TextLine line;
-
-
         line = this.SourceText.GetLine(o.Row);
 
-
-
-
         char[] array;
-
-
         array = line.Value;
-
-
-
-
         int start;
-
-
         start = o.Col.Start;
 
-
-
         char oa;
-
         oa = array[start + index];
-
-
-
         bool a;
-
-        a = (oa == 'n');        
-
-
-
+        a = (oa == 'n');
         return a;
     }
 
