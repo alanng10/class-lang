@@ -2077,52 +2077,23 @@ public class Create : InfraCreate
     public virtual Node ExecuteValueOperate(Range range)
     {
         int start;
-
-
         int end;
-
-
         start = range.Start;
-
-
         end = range.End;
 
-
-
-
-
-
         Node value;
-
         value = this.ExecuteValue(this.Range(this.RangeA, start, end));
-
-
-
         if (value == null)
         {
             return null;
         }
 
-
-
-
         this.OperateArg.Kind = this.NodeKind.ValueOperate;
-
         this.OperateArg.Start = start;
-
         this.OperateArg.End = end;
-
-
         this.OperateArg.Field00 = value;
-
-
-
         Node ret;
-
-
         ret = this.ExecuteCreateOperate();
-
-
         return ret;
     }
 
