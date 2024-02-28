@@ -3668,52 +3668,22 @@ public class Create : InfraCreate
         return o;
     }
 
-
-
-
-
-
-
     protected virtual bool IsIntValue(TextRange aa)
     {
         TextLine line;
-
-
         line = this.SourceText.GetLine(aa.Row);
 
-
-
-
         char[] array;
-
-
         array = line.Value;
-
-
-
-
         int start;
-
-
         start = aa.Col.Start;
-
-
-
         int end;
-
         end = aa.Col.End;
-
-
-
 
         if (!this.IsIntChar(array, start, end))
         {
             return false;
         }
-
-
-
-
         return true;
     }
 
