@@ -217,26 +217,12 @@ public class Infra : Any
         return a;
     }
 
-
-
-
-
-
     public virtual int GetIndex(Span span, char oc)
     {
         InfraRange range;
-
         range = span.Range;
-
-
-
         int count;
-
         count = this.InfraInfra.Count(range);
-
-
-
-
         return SystemArray.IndexOf<char>(span.Data, oc, range.Start, count);
     }
 }
