@@ -11,14 +11,14 @@ Comp : Node
 Field : Comp
     ClassName Class
     FieldName Name
-    Access Access
+    Count Count
     State Get
     State Set
 
 Maide : Comp
     ClassName Class
     MaideName Name
-    Access Access
+    Count Count
     Param Param
     State Call
 
@@ -29,15 +29,15 @@ Var : Node
     ClassName Class
     VarName Name
 
-Emit : Node
+Count : Node
 
-PrudateEmit : Emit
+PrudateCount : Count
 
-ProbateEmit : Emit
+ProbateCount : Count
 
-PrecateEmit : Emit
+PrecateCount : Count
 
-PrivateEmit : Emit
+PrivateCount : Count
 
 State : Node
     Array Value
