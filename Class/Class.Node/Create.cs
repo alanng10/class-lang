@@ -3899,11 +3899,6 @@ public class Create : InfraCreate
         return this.InfraInfra.Count(range);
     }
 
-
-
-
-
-
     protected virtual bool IsName(TextRange textRange)
     {
         if (this.IsKeyword(textRange))
@@ -3911,131 +3906,49 @@ public class Create : InfraCreate
             return false;
         }
 
-
-
-
-
         TextLine line;
-
-
         line = this.SourceText.GetLine(textRange.Row);
 
-
-
-
         char[] array;
-
-
         array = line.Value;
-
-
-
-
         int start;
-
-
         start = textRange.Col.Start;
 
-
-
-
-
         int index;
-
-
         index = start;
-
-
-
-
         char oc;
-
-
-
-
         oc = array[index];
-
-
-
-
         if (!(this.TextInfra.IsUpperLetter(oc) | this.TextInfra.IsLowerLetter(oc)))
         {
             return false;
         }
 
-
-
-
-
-
-
         bool b;
-
-
         b = false;
 
-
-
-
         int count;
-
-
         count = this.Count(textRange.Col);
-
-
         count = count - 1;
 
-
-
-
-
-
-
         start = start + 1;
-
-
-
-
+        
         int i;
-
-
         i = 0;
-
-
-
         while (!b & i < count)
         {
             index = start + i;
 
-
-
             oc = array[index];
-
-
-
 
             if (!(this.TextInfra.IsUpperLetter(oc) | this.TextInfra.IsLowerLetter(oc) | this.TextInfra.IsDigit(oc) | oc == '_'))
             {
                 b = true;
             }
-
-
-
             i = i + 1;
         }
 
-
-
-
-
-
         bool valid;
-
-
         valid = !b;
-
-
-
         return valid;
     }
 
