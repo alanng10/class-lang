@@ -91,11 +91,6 @@ public class Encode : Any
         return a;
     }
 
-
-
-
-
-
     public virtual long GetData(InfraData data, long index, Span text)
     {
         if (!this.InfraInfra.CheckRange(text.Data.Length, text.Range))
@@ -103,39 +98,16 @@ public class Encode : Any
             return 0;
         }
 
-
-
         int textCount;
-
         textCount = this.InfraInfra.Count(text.Range);
-
-
-
         ulong ua;
-
         ua = (ulong)textCount;
-
-
-
-
         ulong textU;
-
-
         textU = this.InternString;
-
-
         Extern.String_SetCount(textU, ua);
 
-
-
-
         long a;
-
         a = this.InternIntern.TextEncodeGetData(this.Intern, data.Value, index, textU, text.Data, text.Range.Start);
-
-
-
-
         return a;
     }
 }
