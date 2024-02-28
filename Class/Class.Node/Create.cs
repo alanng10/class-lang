@@ -3344,66 +3344,28 @@ public class Create : InfraCreate
         return result;
     }
 
-
-
-
-
-
-
     protected virtual Range ExecuteVarRange(Range result, Range range)
     {
         int start;
-
-
         int end;
-
-
         start = range.Start;
-
-
         end = range.End;
 
-
-
-
         Range classRange;
-
-
         classRange = this.ExecuteClassNameRange(this.RangeB, this.Range(this.RangeA, start, end));
-
-
-
         if (classRange == null)
         {
             return null;
         }
 
-
-
-
-
         Range nameRange;
-
-
         nameRange = this.ExecuteVarNameRange(this.RangeC, this.Range(this.RangeA, classRange.End, end));
-
-
-
         if (nameRange == null)
         {
             return null;
         }
 
-
-
-
-
         this.Range(result, start, nameRange.End);
-
-
-
-
-
         return result;
     }
 
