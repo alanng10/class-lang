@@ -176,7 +176,7 @@ public class Frame : Comp
     {
         DrawDraw draw;
         draw = this.Draw;
-        
+
         this.ExecuteDrawStart(draw);
 
         this.ExecuteDrawBefore(draw);
@@ -189,8 +189,6 @@ public class Frame : Comp
         this.ExecuteDrawAfter(draw);
 
         this.ExecuteDrawEnd(draw);
-
-        draw.End();
         return true;
     }
 
