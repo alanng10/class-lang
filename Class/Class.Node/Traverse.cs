@@ -77,7 +77,7 @@ public class Traverse : Any
 
         this.ExecuteClassName(field.Class);
         this.ExecuteFieldName(field.Name);
-        this.ExecuteAccess(field.Access);
+        this.ExecuteCount(field.Count);
 
 
 
@@ -124,7 +124,7 @@ public class Traverse : Any
         this.ExecuteMaideName(maide.Name);
 
 
-        this.ExecuteAccess(maide.Access);
+        this.ExecuteCount(maide.Count);
 
 
         this.ExecuteParam(maide.Param);
@@ -527,7 +527,7 @@ public class Traverse : Any
 
 
 
-    public virtual bool ExecuteAccess(Access access)
+    public virtual bool ExecuteCount(Count access)
     {
         if (access == null)
         {
@@ -537,30 +537,30 @@ public class Traverse : Any
 
 
 
-        if (access is PrudateAccess)
+        if (access is PrudateCount)
         {
-            this.ExecutePrudateAccess((PrudateAccess)access);
+            this.ExecutePrudateCount((PrudateCount)access);
         }
         
         
 
-        if (access is ProbateAccess)
+        if (access is ProbateCount)
         {
-            this.ExecuteProbateAccess((ProbateAccess)access);
+            this.ExecuteProbateCount((ProbateCount)access);
         }
 
 
 
-        if (access is PrecateAccess)
+        if (access is PrecateCount)
         {
-            this.ExecutePrecateAccess((PrecateAccess)access);
+            this.ExecutePrecateCount((PrecateCount)access);
         }
 
 
         
-        if (access is PrivateAccess)
+        if (access is PrivateCount)
         {
-            this.ExecutePrivateAccess((PrivateAccess)access);
+            this.ExecutePrivateCount((PrivateCount)access);
         }
 
 
@@ -573,9 +573,9 @@ public class Traverse : Any
 
 
 
-    public virtual bool ExecutePrudateAccess(PrudateAccess prudateAccess)
+    public virtual bool ExecutePrudateCount(PrudateCount prudateCount)
     {
-        if (prudateAccess == null)
+        if (prudateCount == null)
         {
             return true;
         }
@@ -583,7 +583,7 @@ public class Traverse : Any
 
 
 
-        this.ExecuteNode(prudateAccess);
+        this.ExecuteNode(prudateCount);
 
 
 
@@ -596,9 +596,9 @@ public class Traverse : Any
 
 
 
-    public virtual bool ExecuteProbateAccess(ProbateAccess probateAccess)
+    public virtual bool ExecuteProbateCount(ProbateCount probateCount)
     {
-        if (probateAccess == null)
+        if (probateCount == null)
         {
             return true;
         }
@@ -606,7 +606,7 @@ public class Traverse : Any
 
 
 
-        this.ExecuteNode(probateAccess);
+        this.ExecuteNode(probateCount);
 
 
 
@@ -618,9 +618,9 @@ public class Traverse : Any
 
 
 
-    public virtual bool ExecutePrecateAccess(PrecateAccess precateAccess)
+    public virtual bool ExecutePrecateCount(PrecateCount precateCount)
     {
-        if (precateAccess == null)
+        if (precateCount == null)
         {
             return true;
         }
@@ -628,7 +628,7 @@ public class Traverse : Any
 
 
 
-        this.ExecuteNode(precateAccess);
+        this.ExecuteNode(precateCount);
 
 
 
@@ -640,9 +640,9 @@ public class Traverse : Any
 
 
 
-    public virtual bool ExecutePrivateAccess(PrivateAccess privateAccess)
+    public virtual bool ExecutePrivateCount(PrivateCount privateCount)
     {
-        if (privateAccess == null)
+        if (privateCount == null)
         {
             return true;
         }
@@ -650,7 +650,7 @@ public class Traverse : Any
 
 
 
-        this.ExecuteNode(privateAccess);
+        this.ExecuteNode(privateCount);
 
 
 
