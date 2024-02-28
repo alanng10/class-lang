@@ -125,134 +125,62 @@ public class Infra : Any
         return a;
     }
 
-
-
-
     public virtual bool GetIntHexText(Span span, long n)
     {
         ulong kk;
-
         kk = (ulong)n;
-        
-
-
-
+    
         int count;
-
         count = this.InfraInfra.Count(span.Range);
 
-
-
-
         SpanChar spanU;
-
         spanU = new SpanChar(span.Data, span.Range.Start, count);
 
-
-
-
-        
         ReadOnlySpanChar formatSpan;
-
         formatSpan = MemoryExtensions.AsSpan(this.IntHexFormat);
         
-
-
-
         int outU;
 
-
-
         bool b;
-
-
         b = kk.TryFormat(spanU, out outU, formatSpan, CultureInfo.InvariantCulture);
-
-
-
         if (!b)
         {
             return false;
         }
-
-
-
-
-
         return true;
     }
-
-
-
-
-
-
 
     public virtual long GetIntHex(Span span)
     {
         int count;
-
         count = this.InfraInfra.Count(span.Range);
-
-
-
         if (15 < count)
         {
             return -1;
         }
 
-
-
-
         ReadOnlySpanChar spanU;
-
         spanU = new ReadOnlySpanChar(span.Data, span.Range.Start, count);
 
-
-
         ulong o;
-
-
-
         bool b;
-
         b = ulong.TryParse(spanU, NumberStyle.AllowHexSpecifier, CultureInfo.InvariantCulture, out o);
-
-
-
-
         if (!b)
         {
             return -1;
         }
 
-
-
-
         long k;
-
-
         k = (long)o;
-
-
-
-
         if (k < 0)
         {
             return -1;
         }
 
-
-
         if (!(k < this.InfraInfra.IntCapValue))
         {
             return -1;
         }
-
-
-
-
-
         return k;
     }
 
