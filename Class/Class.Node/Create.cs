@@ -3887,19 +3887,10 @@ public class Create : InfraCreate
         return a;
     }
 
-
-
-
-
-
     protected virtual TextRange TextRange(int index)
     {
         TokenToken token;
-
-
         token = (TokenToken)this.Code.Token.Get(index);
-
-
         return token.Range;
     }
 
