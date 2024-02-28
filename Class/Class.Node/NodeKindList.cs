@@ -28,11 +28,11 @@ public class NodeKindList : Any
         this.Maide = this.AddItem("Maide", new Maide(), new MaideNewState(), new MaideNodeState(), new MaideCreateOperateState());
         this.Param = this.AddItem("Param", new Param(), new ParamNewState(), new ParamNodeState(), new ParamCreateOperateState());
         this.Var = this.AddItem("Var", new Var(), new VarNewState(), new VarNodeState(), new VarCreateOperateState());
-        this.Emit = this.AddItem("Emit", new Emit(), new EmitNewState(), new EmitNodeState(), new EmitCreateOperateState());
-        this.PrudateEmit = this.AddItem("PrudateEmit", new PrudateEmit(), new PrudateEmitNewState(), new PrudateEmitNodeState(), new PrudateEmitCreateOperateState());
-        this.ProbateEmit = this.AddItem("ProbateEmit", new ProbateEmit(), new ProbateEmitNewState(), new ProbateEmitNodeState(), new ProbateEmitCreateOperateState());
-        this.PrecateEmit = this.AddItem("PrecateEmit", new PrecateEmit(), new PrecateEmitNewState(), new PrecateEmitNodeState(), new PrecateEmitCreateOperateState());
-        this.PrivateEmit = this.AddItem("PrivateEmit", new PrivateEmit(), new PrivateEmitNewState(), new PrivateEmitNodeState(), new PrivateEmitCreateOperateState());
+        this.ItemCount = this.AddItem("Count", new Count(), new CountNewState(), new CountNodeState(), new CountCreateOperateState());
+        this.PrudateCount = this.AddItem("PrudateCount", new PrudateCount(), new PrudateCountNewState(), new PrudateCountNodeState(), new PrudateCountCreateOperateState());
+        this.ProbateCount = this.AddItem("ProbateCount", new ProbateCount(), new ProbateCountNewState(), new ProbateCountNodeState(), new ProbateCountCreateOperateState());
+        this.PrecateCount = this.AddItem("PrecateCount", new PrecateCount(), new PrecateCountNewState(), new PrecateCountNodeState(), new PrecateCountCreateOperateState());
+        this.PrivateCount = this.AddItem("PrivateCount", new PrivateCount(), new PrivateCountNewState(), new PrivateCountNodeState(), new PrivateCountCreateOperateState());
         this.State = this.AddItem("State", new State(), new StateNewState(), new StateNodeState(), new StateCreateOperateState());
         this.Execute = this.AddItem("Execute", new Execute(), new ExecuteNewState(), new ExecuteNodeState(), new ExecuteCreateOperateState());
         this.InfExecute = this.AddItem("InfExecute", new InfExecute(), new InfExecuteNewState(), new InfExecuteNodeState(), new InfExecuteCreateOperateState());
@@ -96,11 +96,11 @@ public class NodeKindList : Any
     public virtual NodeKind Maide { get; set; }
     public virtual NodeKind Param { get; set; }
     public virtual NodeKind Var { get; set; }
-    public virtual NodeKind Emit { get; set; }
-    public virtual NodeKind PrudateEmit { get; set; }
-    public virtual NodeKind ProbateEmit { get; set; }
-    public virtual NodeKind PrecateEmit { get; set; }
-    public virtual NodeKind PrivateEmit { get; set; }
+    public virtual NodeKind ItemCount { get; set; }
+    public virtual NodeKind PrudateCount { get; set; }
+    public virtual NodeKind ProbateCount { get; set; }
+    public virtual NodeKind PrecateCount { get; set; }
+    public virtual NodeKind PrivateCount { get; set; }
     public virtual NodeKind State { get; set; }
     public virtual NodeKind Execute { get; set; }
     public virtual NodeKind InfExecute { get; set; }

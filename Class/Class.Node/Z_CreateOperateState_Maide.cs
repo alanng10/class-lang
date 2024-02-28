@@ -8,7 +8,7 @@ public class MaideCreateOperateState : CreateOperateState
         node = (Maide)this.Node;
         node.Class = (ClassName)this.Arg.Field00;
         node.Name = (MaideName)this.Arg.Field01;
-        node.Access = (Access)this.Arg.Field02;
+        node.Count = (Count)this.Arg.Field02;
         node.Param = (Param)this.Arg.Field03;
         node.Call = (State)this.Arg.Field04;
 
