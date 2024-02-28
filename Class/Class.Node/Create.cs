@@ -3272,80 +3272,32 @@ public class Create : InfraCreate
         return result;
     }
 
-
-
-
-
-
     protected virtual Range ExecuteDeclareExecuteRange(Range result, Range range)
     {
         int start;
-
-
         int end;
-
-
         start = range.Start;
-
-
         end = range.End;
 
-
-
-
-
-
         Range varRange;
-
-
         varRange = this.ExecuteVarRange(this.RangeB, this.Range(this.RangeA, start, end));
-
-
-
-
         if (varRange == null)
         {
             return null;
         }
 
-
-
-
-
         if (varRange.End == end)
         {
             return null;
         }
-
-
-
-
-
         Token semicolon;
-
-
         semicolon = this.Token(this.TokenA, this.Delimit.ExecuteSign.Text, this.IndexRange(this.RangeA, varRange.End));
-
-
-
         if (semicolon == null)
         {
             return null;
         }
 
-
-
-
-
-
-
         this.Range(result, start, semicolon.Range.End);
-
-
-
-
-
-
         return result;
     }
 
