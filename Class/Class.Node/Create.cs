@@ -748,9 +748,9 @@ public class Create : InfraCreate
         setStart = setLeftBrace.Range.End;
         setEnd = setRightBrace.Range.Start;
 
-        Node emit;
-        emit = this.ExecuteEmit(this.Range(this.RangeA, emitStart, emitEnd));
-        if (emit == null)
+        Node count;
+        count = this.ExecuteCount(this.Range(this.RangeA, emitStart, emitEnd));
+        if (count == null)
         {
             this.Error(this.ErrorKind.EmitInvalid, emitStart, emitEnd);
         }
@@ -788,7 +788,7 @@ public class Create : InfraCreate
         this.OperateArg.End = end;
         this.OperateArg.Field00 = varClass;
         this.OperateArg.Field01 = name;
-        this.OperateArg.Field02 = emit;
+        this.OperateArg.Field02 = count;
         this.OperateArg.Field03 = varGet;
         this.OperateArg.Field04 = varSet;
         Node ret;
@@ -886,9 +886,9 @@ public class Create : InfraCreate
         callStart = leftBrace.Range.End;
         callEnd = rightBrace.Range.Start;
 
-        Node emit;
-        emit = this.ExecuteEmit(this.Range(this.RangeA, emitStart, emitEnd));
-        if (emit == null)
+        Node count;
+        count = this.ExecuteCount(this.Range(this.RangeA, emitStart, emitEnd));
+        if (count == null)
         {
             this.Error(this.ErrorKind.EmitInvalid, emitStart, emitEnd);
         }
@@ -926,7 +926,7 @@ public class Create : InfraCreate
         this.OperateArg.End = end;
         this.OperateArg.Field00 = varClass;
         this.OperateArg.Field01 = name;
-        this.OperateArg.Field02 = emit;
+        this.OperateArg.Field02 = count;
         this.OperateArg.Field03 = param;
         this.OperateArg.Field04 = call;
         Node ret;
@@ -1428,7 +1428,7 @@ public class Create : InfraCreate
         return ret;
     }
 
-    public virtual Node ExecuteEmit(Range range)
+    public virtual Node ExecuteCount(Range range)
     {
         int start;
         int end;
@@ -1439,41 +1439,41 @@ public class Create : InfraCreate
         a = null;
         if (a == null)
         {
-            a = this.ExecutePrudateEmit(this.Range(this.RangeA, start, end));
+            a = this.ExecutePrudateCount(this.Range(this.RangeA, start, end));
         }
         if (a == null)
         {
-            a = this.ExecuteProbateEmit(this.Range(this.RangeA, start, end));
+            a = this.ExecuteProbateCount(this.Range(this.RangeA, start, end));
         }
         if (a == null)
         {
-            a = this.ExecutePrecateEmit(this.Range(this.RangeA, start, end));
+            a = this.ExecutePrecateCount(this.Range(this.RangeA, start, end));
         }
         if (a == null)
         {
-            a = this.ExecutePrivateEmit(this.Range(this.RangeA, start, end));
+            a = this.ExecutePrivateCount(this.Range(this.RangeA, start, end));
         }
         return a;
     }
 
-    public virtual Node ExecutePrudateEmit(Range range)
+    public virtual Node ExecutePrudateCount(Range range)
     {
-        return this.ExecuteOneWord(this.NodeKind.PrudateEmit, this.Keyword.Prudate, range);
+        return this.ExecuteOneWord(this.NodeKind.PrudateCount, this.Keyword.Prudate, range);
     }
 
-    public virtual Node ExecuteProbateEmit(Range range)
+    public virtual Node ExecuteProbateCount(Range range)
     {
-        return this.ExecuteOneWord(this.NodeKind.ProbateEmit, this.Keyword.Probate, range);
+        return this.ExecuteOneWord(this.NodeKind.ProbateCount, this.Keyword.Probate, range);
     }
 
-    public virtual Node ExecutePrecateEmit(Range range)
+    public virtual Node ExecutePrecateCount(Range range)
     {
-        return this.ExecuteOneWord(this.NodeKind.PrecateEmit, this.Keyword.Precate, range);
+        return this.ExecuteOneWord(this.NodeKind.PrecateCount, this.Keyword.Precate, range);
     }
 
-    public virtual Node ExecutePrivateEmit(Range range)
+    public virtual Node ExecutePrivateCount(Range range)
     {
-        return this.ExecuteOneWord(this.NodeKind.PrivateEmit, this.Keyword.Private, range);
+        return this.ExecuteOneWord(this.NodeKind.PrivateCount, this.Keyword.Private, range);
     }
 
     public virtual Node ExecuteExecute(Range range)
