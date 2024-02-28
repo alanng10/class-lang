@@ -3894,11 +3894,6 @@ public class Create : InfraCreate
         return token.Range;
     }
 
-
-
-
-
-
     protected virtual int Count(Range range)
     {
         return this.InfraInfra.Count(range);
