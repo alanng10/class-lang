@@ -1,40 +1,19 @@
 namespace Class.Node;
 
-
-
-
-
 public class Traverse : Any
 {
     public override bool Init()
     {
         Array array;
-
         array = new Array();
-
         array.Count = 0;
-
         array.Init();
 
-
-
-
         this.Iter = array.CreateIter();
-
-
-
-
         return true;
     }
 
-
-
-
-    
     protected virtual Iter Iter { get; set; }
-
-
-
 
     public virtual bool ExecuteClass(Class varClass)
     {
@@ -42,35 +21,13 @@ public class Traverse : Any
         {
             return true;
         }
-
-
-
-
         this.ExecuteNode(varClass);
 
-
-
-
         this.ExecuteClassName(varClass.Name);
-
-
-
         this.ExecuteClassName(varClass.Base);
-
-
-
         this.ExecutePart(varClass.Member);
-
-
-
         return true;
     }
-
-
-
-
-
-
 
     public virtual bool ExecutePart(Part part)
     {
@@ -78,41 +35,19 @@ public class Traverse : Any
         {
             return true;
         }
-
-
-
         this.ExecuteNode(part);
 
-
-
         Iter iter;
-
         iter = this.Iter;
-
-
         part.Value.SetIter(iter);
-
-
-
         while (iter.Next())
         {
             Comp comp;
-
-
             comp = (Comp)iter.Value;
-
-
-
             this.ExecuteComp(comp);
         }
-
-
-
         return true;
     }
-
-
-
 
     public virtual bool ExecuteComp(Comp comp)
     {
@@ -121,29 +56,16 @@ public class Traverse : Any
             return true;
         }
 
-
-
-
         if (comp is Field)
         {
             this.ExecuteField((Field)comp);
         }
-        
-        
-
         if (comp is Maide)
         {
             this.ExecuteMaide((Maide)comp);
         }
-        
-
-
-
         return true;
     }
-
-
-
 
     public virtual bool ExecuteField(Field field)
     {
@@ -151,28 +73,10 @@ public class Traverse : Any
         {
             return true;
         }
-
-
-
-
         this.ExecuteNode(field);
 
-
-
-
-
-
-
         this.ExecuteClassName(field.Class);
-
-
-
-
         this.ExecuteFieldName(field.Name);
-
-
-
-
         this.ExecuteAccess(field.Access);
 
 
