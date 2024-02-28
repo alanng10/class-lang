@@ -1,10 +1,5 @@
 namespace Avalon.Text;
 
-
-
-
-
-
 public class Encode : Any
 {
     public override bool Init()
