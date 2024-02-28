@@ -176,7 +176,8 @@ public class Frame : Comp
     {
         DrawDraw draw;
         draw = this.Draw;
-        draw.Start();
+        
+        this.ExecuteDrawStart(draw);
 
         this.ExecuteDrawBefore(draw);
 
@@ -184,6 +185,10 @@ public class Frame : Comp
         {
             this.ExecuteDrawView(draw);
         }
+
+        this.ExecuteDrawAfter(draw);
+
+        this.ExecuteDrawEnd(draw);
 
         draw.End();
         return true;
@@ -203,6 +208,23 @@ public class Frame : Comp
     protected virtual bool ExecuteDrawBefore(DrawDraw draw)
     {
         draw.Clear(this.DrawInfra.WhiteColor);
+        return true;
+    }
+
+    protected virtual bool ExecuteDrawAfter(DrawDraw draw)
+    {
+        return true;
+    }
+
+    protected virtual bool ExecuteDrawStart(DrawDraw draw)
+    {
+        draw.Start();
+        return true;
+    }
+
+    protected virtual bool ExecuteDrawEnd(DrawDraw draw)
+    {
+        draw.End();
         return true;
     }
 
