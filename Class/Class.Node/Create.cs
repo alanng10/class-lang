@@ -3639,80 +3639,32 @@ public class Create : InfraCreate
         return result;
     }
 
-
-
-
-
-
-
     protected virtual string ExecuteNameValue(Range range)
     {
         int start;
-
-
         int end;
-
-
         start = range.Start;
-
-
         end = range.End;
-
-
-
 
         if (!((start + 1) == end))
         {
             return null;
         }
 
-
-
-
         TextRange aa;
-
         aa = this.TextRange(start);
 
-
-
-
-
         TextLine line;
-
-
         line = this.SourceText.GetLine(aa.Row);
-
-
-
-
         char[] array;
-
         array = line.Value;
-
-
-
-
         int index;
-
         index = aa.Col.Start;
-
-
-
         int count;
-
         count = this.Count(aa.Col);
 
-
-
-
-
         string o;
-
-
         o = new string(array, index, count);
-
-
-
         return o;
     }
 
