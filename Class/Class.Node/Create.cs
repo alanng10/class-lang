@@ -1999,15 +1999,15 @@ public class Create : InfraCreate
         {
             return null;
         }
-        Token catToken;
-        catToken = this.Token(this.TokenA, this.Keyword.Cast.Text, this.IndexRange(this.RangeA, start));
-        if (catToken == null)
+        Token castToken;
+        castToken = this.Token(this.TokenA, this.Keyword.Cast.Text, this.IndexRange(this.RangeA, start));
+        if (castToken == null)
         {
             return null;
         }
 
         Range classRange;
-        classRange = this.ExecuteClassNameRange(this.RangeB, this.Range(this.RangeA, catToken.Range.End, end));
+        classRange = this.ExecuteClassNameRange(this.RangeB, this.Range(this.RangeA, castToken.Range.End, end));
         if (classRange == null)
         {
             return null;
