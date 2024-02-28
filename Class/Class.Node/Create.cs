@@ -3301,71 +3301,28 @@ public class Create : InfraCreate
         return result;
     }
 
-
-
-
-
-
-
     protected virtual Range ExecuteAssignExecuteRange(Range result, Range range)
     {
         int start;
-
-
         int end;
-
-
         start = range.Start;
-
-
         end = range.End;
 
-
-
-
-
         Token semicolon;
-
-
         semicolon = this.TokenForward(this.TokenA, this.Delimit.ExecuteSign.Text, this.Range(this.RangeA, start, end));
-
-
-
         if (semicolon == null)
         {
             return null;
         }
 
-
-
-
-
-
         Token colon;
-
-
-
         colon = this.TokenForward(this.TokenB, this.Delimit.BaseSign.Text, this.Range(this.RangeA, start, semicolon.Range.Start));
-
-
-
-
         if (colon == null)
         {
             return null;
         }
 
-
-
-
-
-
         this.Range(result, start, semicolon.Range.End);
-
-
-
-
-
         return result;
     }
 
