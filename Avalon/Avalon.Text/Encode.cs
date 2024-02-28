@@ -60,11 +60,6 @@ public class Encode : Any
         return a;
     }
 
-
-
-
-
-
     public virtual int GetText(Span text, InfraData data, DataRange range)
     {
         if (!this.InfraInfra.CheckLongRange(data.Count, range))
@@ -72,66 +67,27 @@ public class Encode : Any
             return 0;
         }
 
-
-
         long dataCount;
-
         dataCount = this.InfraInfra.LongCount(range);
-
-
-
         ulong ua;
-
         ua = (ulong)dataCount;
-
-
-
-
         ulong dataU;
-
-
         dataU = this.InternData;
-
-
         Extern.Data_SetCount(dataU, ua);
 
-
-
-
         int a;
-
         a = this.InternIntern.TextEncodeGetString(this.Intern, text.Data, text.Range.Start, dataU, data.Value, range.Start);
-
-
-
-
         return a;
     }
-
-
-
-
-
 
     public virtual long GetDataCountMax(int textCount)
     {
         ulong ua;
-
         ua = (ulong)textCount;
-
-
-
         ulong u;
-
         u = Extern.TextEncode_GetDataCountMax(this.Intern, ua);
-
-
-
         long a;
-
         a = (long)u;
-
-
         return a;
     }
 
