@@ -633,6 +633,36 @@ class Demo : Any
             this.Console.Write(k);
             this.Console.Write("\n");
         }
+
+        string oub;
+        oub = "Demo4.txt";
+        File.Delete(oub);
+
+        bo = false;
+        bool bac;
+        bac = infra.WriteText(oub, "Demo Storage Set Count aaaadda");
+        if (!bac)
+        {
+            this.Console.Write("Write " + oub + " Error\n");
+            bo = true;
+        }
+        if (bac)
+        {
+            bool bd;
+            bd = infra.SetCount(oub, 22);
+            if (!bd)
+            {
+                this.Console.Write("Set Count " + oub + " Error\n");
+                bo = true;
+            }
+        }
+        if (!bo)
+        {
+            k = infra.ReadText(oub);
+            this.Console.Write(oub + " text: \n");
+            this.Console.Write(k);
+            this.Console.Write("\n");
+        }
         return true;
     }
 
