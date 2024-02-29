@@ -1000,6 +1000,13 @@ Int Network_ReadyRead(Int o)
     return true;
 }
 
+Int Stream_FlushNetwork(Int device)
+{
+    QIODevice* ua;
+    ua = (QIODevice*)device;
 
-
-
+    QTcpSocket* socket;
+    socket = (QTcpSocket*)ua;
+    socket->flush();
+    return true;
+}

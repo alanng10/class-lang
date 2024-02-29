@@ -62,7 +62,7 @@ Stream_Flush_Maide Stream_Flush_MaideArray[StreamKindCount] =
     null,
     null,
     &Stream_FlushStorage,
-    null,
+    &Stream_FlushNetwork,
 };
 
 
@@ -838,14 +838,16 @@ Bool Stream_Write(Int o, Int data, Int range)
     if (!b)
     {
         Int uoo;
-
         uoo = Stream_InternFlush(o);
-
-
 
         if (uoo == 1)
         {
             status = Stream_InternGetStatus(o);
+
+            if (status == StreamStatusNoMaide)
+            {
+                status = 330;
+            }
         }
     }
 
