@@ -4030,100 +4030,51 @@ public class Create : InfraCreate
     protected virtual Token TokenForward(Token result, string value, Range range)
     {
         int start;
-
-
         int end;
-
-
         start = range.Start;
-
-
         end = range.End;
 
-
-
-
-
         int i;
-
         i = start;
-
-
-
         int index;
-
         index = -1;
-
-
-
         bool varContinue;
-
         varContinue = i < end;
-
-
         while (varContinue)
         {
             int skipBracketIndex;
-
             skipBracketIndex = this.ForwardSkipBracket(i, this.Range(this.RangeA, start, end));
-
-
-
             bool b;
-
             b = (skipBracketIndex == -1);
-
-
             if (!b)
             {
                 i = skipBracketIndex;
             }
-
-
             if (b)
             {
                 bool ba;
-
                 ba = this.IsText(value, i);
-
-
                 if (ba)
                 {
                     index = i;
-
                     varContinue = false;
                 }
-
-
                 if (!ba)
                 {
                     i = i + 1;
                 }
             }
-
-
             if (!(i < end))
             {
                 varContinue = false;
             }
         }
-
-
-
-
         if (index == -1)
         {
             return null;
         }
 
-
-
-
-
         this.IndexRange(result.Range, index);
-
-
-
         return result;
     }
 
