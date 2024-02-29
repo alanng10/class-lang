@@ -4043,7 +4043,7 @@ public class Create : InfraCreate
         while (varContinue)
         {
             int skipBracketIndex;
-            skipBracketIndex = this.ForwardSkipBracket(i, this.Range(this.RangeA, start, end));
+            skipBracketIndex = this.ForwardSkipBracket(i, end);
             bool b;
             b = (skipBracketIndex == -1);
             if (!b)
@@ -4094,7 +4094,7 @@ public class Create : InfraCreate
         while (varContinue)
         {
             int skipBracketIndex;
-            skipBracketIndex = this.BackwardSkipBracket(i, this.Range(this.RangeA, start, end));
+            skipBracketIndex = this.BackwardSkipBracket(i, start);
             bool b;
             b = (skipBracketIndex == -1);
             if (!b)
@@ -4126,13 +4126,8 @@ public class Create : InfraCreate
         return result;
     }
 
-    protected virtual int ForwardSkipBracket(int index, Range range)
+    protected virtual int ForwardSkipBracket(int index, int end)
     {
-        int start;
-        int end;
-        start = range.Start;
-        end = range.End;
-
         int ret;
         ret = -1;
         TextRange aa;
@@ -4158,13 +4153,8 @@ public class Create : InfraCreate
         return ret;
     }
 
-    protected virtual int BackwardSkipBracket(int index, Range range)
+    protected virtual int BackwardSkipBracket(int index, int start)
     {
-        int start;
-        int end;
-        start = range.Start;
-        end = range.End;
-
         int ret;
         ret = -1;
         int t;
