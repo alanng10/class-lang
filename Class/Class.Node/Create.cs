@@ -4192,100 +4192,58 @@ public class Create : InfraCreate
         return ret;
     }
 
-
-
-
-
     protected virtual Token TokenMatchLeftBrace(Token result, Range range)
     {
         return this.TokenMatchLeftToken(result, this.Delimit.LeftBrace.Text, this.Delimit.RightBrace.Text, range);
     }
-
 
     protected virtual Token TokenMatchRightBrace(Token result, Range range)
     {
         return this.TokenMatchRightToken(result, this.Delimit.LeftBrace.Text, this.Delimit.RightBrace.Text, range);
     }
 
-
     protected virtual Token TokenMatchLeftBracket(Token result, Range range)
     {
         return this.TokenMatchLeftToken(result, this.Delimit.LeftBracket.Text, this.Delimit.RightBracket.Text, range);
     }
-
 
     protected virtual Token TokenMatchRightBracket(Token result, Range range)
     {
         return this.TokenMatchRightToken(result, this.Delimit.LeftBracket.Text, this.Delimit.RightBracket.Text, range);
     }
 
-
-
-
-
     protected virtual Token TokenMatchLeftToken(Token result, string leftToken, string rightToken, Range range)
     {
         int start;
-
-
         int end;
-
-
         start = range.Start;
-
-
         end = range.End;
 
-
-
-
         int openCount;
-
         openCount = 1;
-
-
         int index;
-
         index = -1;
-
-
         int i;
-
         i = start;
-
-
         bool varContinue;
-
         varContinue = (i < end);
-
-
-
         while (varContinue)
         {
             TextRange aa;
-
             aa = this.TextRange(i);
-
-
             if (this.TextInfra.Equal(this.SourceText, aa, rightToken))
             {
                 openCount = openCount - 1;
-
                 if (openCount == 0)
                 {
                     index = i;
-
                     varContinue = false;
                 }
             }
-
-
             if (this.TextInfra.Equal(this.SourceText, aa, leftToken))
             {
                 openCount = openCount + 1;
             }
-
-
             if (index == -1)
             {
                 i = i + 1;
@@ -4296,24 +4254,12 @@ public class Create : InfraCreate
                 }
             }
         }
-
-
-
-
         if (index == -1)
         {
             return null;
         }
 
-
-
-
-
         this.IndexRange(result.Range, index);
-
-
-
-
         return result;
     }
 
