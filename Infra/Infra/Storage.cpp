@@ -443,32 +443,3 @@ Bool Stream_FlushStorage(Int device)
 
     return bo;
 }
-
-Int Stream_GetStorageStatus(Int device)
-{
-    QIODevice* ua;
-
-    ua = (QIODevice*)device;
-
-
-
-    QFile* file;
-
-    file = (QFile*)ua;
-
-
-
-    QFileDevice::FileError ub;
-
-    ub = file->error();
-
-
-
-    Int o;
-
-    o = CastInt(ub);
-
-
-
-    return o;
-}
