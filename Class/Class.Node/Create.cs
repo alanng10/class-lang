@@ -4247,7 +4247,6 @@ public class Create : InfraCreate
             if (index == -1)
             {
                 i = i + 1;
-
                 if (!(i < end))
                 {
                     varContinue = false;
@@ -4263,101 +4262,55 @@ public class Create : InfraCreate
         return result;
     }
 
-
-
-
-
-
-
     protected virtual Token TokenMatchRightToken(Token result, string leftToken, string rightToken, Range range)
     {
         int start;
-
-
         int end;
-
-
         start = range.Start;
-
-
         end = range.End;
-
-
-
-
 
         int openCount;
         openCount = 1;
-
         int index;
         index = -1;
-
         int i;
         i = end;
-
-
         bool varContinue;
         varContinue = (i > start);
-
-
         while (varContinue)
         {
             int t;
             t = i - 1;
-
-
             TextRange aa;
-
             aa = this.TextRange(t);
-
-
             if (this.TextInfra.Equal(this.SourceText, aa, leftToken))
             {
                 openCount = openCount - 1;
-
                 if (openCount == 0)
                 {
                     index = t;
-
                     varContinue = false;
                 }
             }
-
-
             if (this.TextInfra.Equal(this.SourceText, aa, rightToken))
             {
                 openCount = openCount + 1;
             }
-
-
             if (index == -1)
             {
                 i = i - 1;
-
                 if (!(i > start))
                 {
                     varContinue = false;
                 }
             }
         }
-
-
-
-
         if (index == -1)
         {
             return null;
         }
 
-
-
-
-
         this.IndexRange(result.Range, index);
-
-
-
-
         return result;
     }
 }
