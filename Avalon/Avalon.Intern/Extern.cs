@@ -615,6 +615,7 @@ public static class Extern
     [DllImport(InfraLib)] public extern static ulong Storage_GetStatus(ulong o);
     [DllImport(InfraLib)] public extern static ulong Storage_SetStatus(ulong o, ulong value);
 
+    [DllImport(InfraLib)] public extern static ulong Storage_SetCount(ulong o, ulong value);
     [DllImport(InfraLib)] public extern static ulong Storage_Open(ulong o);
     [DllImport(InfraLib)] public extern static ulong Storage_Close(ulong o);
 
