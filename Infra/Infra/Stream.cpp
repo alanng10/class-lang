@@ -4,8 +4,6 @@ CppClassNew(Stream)
 
 #define StreamKindCount (4)
 
-#define StreamStatusNoMaide (0x10000)
-
 Bool Stream_HasPos_Array[StreamKindCount] =
 {
     false,
@@ -22,14 +20,6 @@ Bool Stream_HasCount_Array[StreamKindCount] =
     false,
 };
 
-Stream_SetCount_Maide Stream_SetCount_MaideArray[StreamKindCount] =
-{
-    null,
-    null,
-    &Stream_SetStorageCount,
-    null,
-};
-
 Stream_Flush_Maide Stream_Flush_MaideArray[StreamKindCount] =
 {
     null,
@@ -38,14 +28,6 @@ Stream_Flush_Maide Stream_Flush_MaideArray[StreamKindCount] =
     &Stream_FlushNetwork,
 };
 
-
-Stream_GetStatus_Maide Stream_GetStatus_MaideArray[StreamKindCount] =
-{
-    null,
-    null,
-    &Stream_GetStorageStatus,
-    null,
-};
 
 
 Bool Stream_Init(Int o)
@@ -209,77 +191,8 @@ Int Stream_GetCount(Int o)
 
 
 
-Bool Stream_SetCount(Int o, Int value)
+Int Stream_SetCount(Int o, Int value)
 {
-    Stream* m;
-
-    m = CP(o);
-
-
-
-    if (!(m->HasCount))
-    {
-        return true;
-    }
-
-
-
-
-    Int kind;
-
-    kind = m->Kind;
-
-
-
-    Int va;
-
-    va = m->Value;
-
-
-
-
-    Stream_SetCount_Maide maide;
-
-    maide = Stream_SetCount_MaideArray[kind];
-
-
-    if (maide == null)
-    {
-        return true;
-    }
-
-
-
-
-    Bool bo;
-
-    bo = maide(va, value);
-
-
-
-
-    Int status;
-
-    status = 0;
-
-
-
-
-    if (!bo)
-    {
-        status = Stream_InternGetStatus(o);
-    }
-
-
-
-
-
-    m->Status = status;
-
-
-
-
-
     return true;
 }
 
@@ -396,7 +309,7 @@ Bool Stream_SetPos(Int o, Int value)
 
     if (!bo)
     {
-        status = Stream_InternGetStatus(o);
+        status = 150;
     }
 
 
@@ -595,11 +508,6 @@ Int Stream_Read(Int o, Int data, Int range)
     return true;
 }
 
-
-
-
-
-
 Int Stream_Write(Int o, Int data, Int range)
 {
     Stream* m;
@@ -725,44 +633,10 @@ Int Stream_InternFlush(Int o)
     return aa;
 }
 
-Int Stream_InternGetStatus(Int o)
-{
-    Stream* m;
-    m = CP(o);
-
-    Int kind;
-    kind = m->Kind;
-    Int value;
-    value = m->Value;
-
-    Stream_GetStatus_Maide maide;
-    maide = Stream_GetStatus_MaideArray[kind];
-    if (maide == null)
-    {
-        return StreamStatusNoMaide;
-    }
-
-    Int status;
-    status = maide(value);
-    return status;
-}
-
-
-
-
-
-
-
-Bool Stream_CheckRange(Int dataCount, Int start, Int end)
+Int Stream_CheckRange(Int dataCount, Int start, Int end)
 {
     return ((!(dataCount < start)) & (!(dataCount < end)));
 }
-
-
-
-
-
-
 
 Int Stream_GetIntern(Int o)
 {

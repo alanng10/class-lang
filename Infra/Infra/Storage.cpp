@@ -373,47 +373,38 @@ Int Storage_Close(Int o)
 
 
 
-
-
-
-
-Bool Stream_SetStorageCount(Int device, Int value)
+Int Storage_SetCount(Int o, Int value)
 {
-    QIODevice* ua;
+    Storage* m;
+    m = CP(o);
 
-    ua = (QIODevice*)device;
+    Int openFile;
+    openFile = m->OpenFile;
 
-
+    QIODevice* oo;
+    oo = (QIODevice*)openFile;
 
     QFile* file;
-
-    file = (QFile*)ua;
-
-
-
+    file = (QFile*)oo;
 
     qint64 uo;
-
     uo = value;
 
-
-
     bool bu;
-
-
     bu = file->resize(uo);
 
-
-
-
-
     Bool bo;
-
     bo = bu;
 
+    QFileDevice::FileError ua;
+    ua = QFileDevice::NoError;
+    if (!bo)
+    {
+        ua = file->error();
+    }
 
-
-    return bo;
+    m->Status = CastInt(ua);
+    return true;
 }
 
 
