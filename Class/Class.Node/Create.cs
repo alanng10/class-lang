@@ -4126,147 +4126,69 @@ public class Create : InfraCreate
         return result;
     }
 
-
-
-
-
-
-
-
     protected virtual int ForwardSkipBracket(int index, Range range)
     {
         int start;
-
-
         int end;
-
-
         start = range.Start;
-
-
         end = range.End;
 
-
-
-
         int ret;
-
         ret = -1;
-
-
-
         TextRange aa;
-
         aa = this.TextRange(index);
-
-
-
         if (this.TextInfra.Equal(this.SourceText, aa, this.Delimit.LeftBracket.Text))
         {
             Token rightBracket;
-
             rightBracket = this.TokenMatchLeftBracket(this.TokenA, this.Range(this.RangeA, index + 1, end));
-
-
             if (!(rightBracket == null))
             {
                 ret = rightBracket.Range.End;
             }
         }
-
-
-
         if (this.TextInfra.Equal(this.SourceText, aa, this.Delimit.LeftBrace.Text))
         {
             Token rightBrace;
-
             rightBrace = this.TokenMatchLeftBrace(this.TokenA, this.Range(this.RangeA, index + 1, end));
-
-
             if (!(rightBrace == null))
             {
                 ret = rightBrace.Range.End;
             }
         }
-
-
-
-
-
-
         return ret;
     }
-
-
-
-
 
     protected virtual int BackwardSkipBracket(int index, Range range)
     {
         int start;
-
-
         int end;
-
-
         start = range.Start;
-
-
         end = range.End;
 
-
-
-
-
         int ret;
-
         ret = -1;
-
-
         int t;
         t = index - 1;
-
-
-
         TextRange aa;
-
         aa = this.TextRange(t);
-
-
-
         if (this.TextInfra.Equal(this.SourceText, aa, this.Delimit.RightBracket.Text))
         {
             Token leftBracket;
-
             leftBracket = this.TokenMatchRightBracket(this.TokenA, this.Range(this.RangeA, start, t));
-
-
             if (!(leftBracket == null))
             {
                 ret = leftBracket.Range.Start;
             }
         }
-
-
-
         if (this.TextInfra.Equal(this.SourceText, aa, this.Delimit.RightBrace.Text))
         {
             Token leftBrace;
-
             leftBrace = this.TokenMatchRightBrace(this.TokenA, this.Range(this.RangeA, start, t));
-
-
             if (!(leftBrace == null))
             {
                 ret = leftBrace.Range.Start;
             }
         }
-
-
-
-
-
-
         return ret;
     }
 
