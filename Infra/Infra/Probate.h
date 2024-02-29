@@ -25,6 +25,7 @@ Bool Stream_SetStorageCount(Int device, Int value);
 Bool Stream_FlushStorage(Int device);
 Int Stream_FlushNetwork(Int device);
 
+Int Stream_GetStorageStatus(Int device);
 
 Int Stream_GetValue(Int o);
 

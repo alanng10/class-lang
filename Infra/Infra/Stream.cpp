@@ -4,6 +4,8 @@ CppClassNew(Stream)
 
 #define StreamKindCount (4)
 
+#define StreamStatusNoMaide (0x10000)
+
 Bool Stream_HasPos_Array[StreamKindCount] =
 {
     false,
@@ -34,6 +36,15 @@ Stream_Flush_Maide Stream_Flush_MaideArray[StreamKindCount] =
     null,
     &Stream_FlushStorage,
     &Stream_FlushNetwork,
+};
+
+
+Stream_GetStatus_Maide Stream_GetStatus_MaideArray[StreamKindCount] =
+{
+    null,
+    null,
+    &Stream_GetStorageStatus,
+    null,
 };
 
 
@@ -713,6 +724,29 @@ Int Stream_InternFlush(Int o)
 
     return aa;
 }
+
+Int Stream_InternGetStatus(Int o)
+{
+    Stream* m;
+    m = CP(o);
+
+    Int kind;
+    kind = m->Kind;
+    Int value;
+    value = m->Value;
+
+    Stream_GetStatus_Maide maide;
+    maide = Stream_GetStatus_MaideArray[kind];
+    if (maide == null)
+    {
+        return StreamStatusNoMaide;
+    }
+
+    Int status;
+    status = maide(value);
+    return status;
+}
+
 
 
 
