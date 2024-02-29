@@ -86,6 +86,19 @@ public class Storage : Any
         return true;
     }
 
+    public virtual bool SetCount(long value)
+    {
+        if (this.Stream == null)
+        {
+            return true;
+        }
+
+        ulong u;
+        u = (ulong)value;
+        Extern.Storage_SetCount(this.Intern, u);
+        return true;
+    }
+
     protected virtual bool CheckMode(Mode mode)
     {
         if (!(mode.Read | mode.Write))
