@@ -583,6 +583,7 @@ Infra_Api Int Storage_SetStream(Int o, Int value);
 Infra_Api Int Storage_GetStatus(Int o);
 Infra_Api Int Storage_SetStatus(Int o, Int value);
 
+Infra_Api Int Storage_SetCount(Int o, Int value);
 Infra_Api Int Storage_Open(Int o);
 Infra_Api Int Storage_Close(Int o);
 
