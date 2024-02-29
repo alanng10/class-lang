@@ -185,12 +185,13 @@ public class Infra : Any
         mode = new Mode();
         mode.Init();
         mode.Read = true;
+        mode.Write = true;
         mode.Existing = true;
 
         storage.Path = filePath;
         storage.Mode = mode;
         storage.Open();
-        
+
         bool o;
         o = false;
         if (storage.Status == 0)
