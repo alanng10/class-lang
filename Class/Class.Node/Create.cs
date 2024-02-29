@@ -4078,97 +4078,51 @@ public class Create : InfraCreate
         return result;
     }
 
-
-
-
-
-
     protected virtual Token TokenBackward(Token result, string value, Range range)
     {
         int start;
-
-
         int end;
-
-
         start = range.Start;
-
-
         end = range.End;
-
-
-
-
 
         int i;
         i = end;
-
-
         int index;
         index = -1;
-
-
         bool varContinue;
         varContinue = (start < i);
-
-
         while (varContinue)
         {
             int skipBracketIndex;
-
             skipBracketIndex = this.BackwardSkipBracket(i, this.Range(this.RangeA, start, end));
-
-
             bool b;
-
             b = (skipBracketIndex == -1);
-
-
             if (!b)
             {
                 i = skipBracketIndex;
             }
-
-
             if (b)
             {
                 int j;
-
                 j = i - 1;
-
-
                 if (this.IsText(value, j))
                 {
                     index = j;
-
                     varContinue = false;
                 }
-
-
                 i = i - 1;
             }
-
-
             if (!(start < i))
             {
                 varContinue = false;
             }
         }
-
-
-
         if (index == -1)
         {
             return null;
         }
 
-
-
-
         this.IndexRange(result.Range, index);
-
-
-
         return result;
     }
 
