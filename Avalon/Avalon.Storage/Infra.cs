@@ -174,4 +174,35 @@ public class Infra : Any
         o = this.WriteData(filePath, data, range);
         return o;
     }
+
+    public virtual bool SetCount(string filePath, long value)
+    {
+        Storage storage;
+        storage = new Storage();
+        storage.Init();
+
+        Mode mode;
+        mode = new Mode();
+        mode.Init();
+        mode.Read = true;
+        mode.Existing = true;
+
+        storage.Path = filePath;
+        storage.Mode = mode;
+        storage.Open();
+        
+        bool o;
+        o = false;
+        if (storage.Status == 0)
+        {
+            storage.SetCount(value);
+            if (storage.Status == 0)
+            {
+                o = true;
+            }
+        }
+        storage.Close();
+        storage.Final();
+        return o;
+    }
 }
