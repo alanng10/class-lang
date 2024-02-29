@@ -1,27 +1,8 @@
 #include "Stream.hpp"
 
-
-
-
 CppClassNew(Stream)
 
-
-
-
-
-#define CP(a) ((Stream*)(a))
-
-
-
-
 #define StreamKindCount (4)
-
-
-#define StreamStatusNoMaide (0x10000)
-
-
-
-
 
 Bool Stream_HasPos_Array[StreamKindCount] =
 {
@@ -31,8 +12,6 @@ Bool Stream_HasPos_Array[StreamKindCount] =
     false,
 };
 
-
-
 Bool Stream_HasCount_Array[StreamKindCount] =
 {
     false,
@@ -40,10 +19,6 @@ Bool Stream_HasCount_Array[StreamKindCount] =
     true,
     false,
 };
-
-
-
-
 
 Stream_SetCount_Maide Stream_SetCount_MaideArray[StreamKindCount] =
 {
@@ -53,10 +28,6 @@ Stream_SetCount_Maide Stream_SetCount_MaideArray[StreamKindCount] =
     null,
 };
 
-
-
-
-
 Stream_Flush_Maide Stream_Flush_MaideArray[StreamKindCount] =
 {
     null,
@@ -64,22 +35,6 @@ Stream_Flush_Maide Stream_Flush_MaideArray[StreamKindCount] =
     &Stream_FlushStorage,
     &Stream_FlushNetwork,
 };
-
-
-
-
-Stream_GetStatus_Maide Stream_GetStatus_MaideArray[StreamKindCount] =
-{
-    null,
-    null,
-    &Stream_GetStorageStatus,
-    null,
-};
-
-
-
-
-
 
 
 Bool Stream_Init(Int o)
@@ -568,137 +523,64 @@ Int Stream_GetStatus(Int o)
 
 
 
-Bool Stream_Read(Int o, Int data, Int range)
+Int Stream_Read(Int o, Int data, Int range)
 {
     Stream* m;
-
     m = CP(o);
-
-
-
 
     if (!(m->CanRead))
     {
         return true;
     }
 
-
-
-
     Int dataValue;
-
     dataValue = Data_GetValue(data);
-
-
-
     Int dataCount;
-
     dataCount = Data_GetCount(data);
 
-
-
-
     Int start;
-
     Int end;
-
-
     start = Range_GetStart(range);
-
     end = Range_GetEnd(range);
-
-
-
 
     if (!Stream_CheckRange(dataCount, start, end))
     {
         m->Status = 100;
-
-
         return true;
     }
 
-
-
-
     Int count;
-
     count = end - start;
 
-
-
-
     Int aaa;
-
     aaa = dataValue + start;
 
-
-
-
     char* dataU;
-
     dataU = (char*)aaa;
 
-
-
     qint64 maxSize;
-
     maxSize = count;
 
-
-
     qint64 oo;
-
-
     oo = m->Intern->read(dataU, maxSize);
 
-
-
-
     Int status;
-
     status = 0;
 
-
-
     Bool b;
-
-
     b = false;
-
-
     if ((!b) & (oo < 0))
     {
-        status = Stream_InternGetStatus(o);
-
-
-        if (status == StreamStatusNoMaide)
-        {
-            status = 210;
-        }
-
-
-
+        status = 210;
         b = true;
     }
-
-
-
     if ((!b) & (!(oo == maxSize)))
     {
         status = 200;
-
-
         b = true;
     }
 
-
-
     m->Status = status;
-
-
-
-
     return true;
 }
 
@@ -707,133 +589,62 @@ Bool Stream_Read(Int o, Int data, Int range)
 
 
 
-Bool Stream_Write(Int o, Int data, Int range)
+Int Stream_Write(Int o, Int data, Int range)
 {
     Stream* m;
-
     m = CP(o);
-
-
-
 
     if (!(m->CanWrite))
     {
         return true;
     }
 
-
-
-
     Int dataValue;
-
     dataValue = Data_GetValue(data);
-
-
-
     Int dataCount;
-
     dataCount = Data_GetCount(data);
 
-
-
-
     Int start;
-
     Int end;
-
-
     start = Range_GetStart(range);
-
     end = Range_GetEnd(range);
-
-
-
 
     if (!Stream_CheckRange(dataCount, start, end))
     {
         m->Status = 100;
-
-
         return true;
     }
 
-
-
-
     Int count;
-
     count = end - start;
 
-
-
-
     Int aaa;
-
     aaa = dataValue + start;
 
-
-
-
     const char* dataU;
-
     dataU = (const char*)aaa;
 
-
-
     qint64 maxSize;
-
     maxSize = count;
 
-
-
     qint64 oo;
-
-
     oo = m->Intern->write(dataU, maxSize);
 
-
-
-
     Int status;
-
     status = 0;
 
-
-
     Bool b;
-
-
     b = false;
-
-
     if ((!b) & (oo < 0))
     {
-        status = Stream_InternGetStatus(o);
-
-
-        if (status == StreamStatusNoMaide)
-        {
-            status = 310;
-        }
-
-
-
+        status = 310;
         b = true;
     }
-
-
-
-
     if ((!b) & (!(oo == maxSize)))
     {
         status = 300;
-
-
         b = true;
     }
-
-
-
 
     if (!b)
     {
@@ -842,78 +653,13 @@ Bool Stream_Write(Int o, Int data, Int range)
 
         if (uoo == 1)
         {
-            status = Stream_InternGetStatus(o);
-
-            if (status == StreamStatusNoMaide)
-            {
-                status = 330;
-            }
+            status = 330;
         }
     }
 
-
-
-
     m->Status = status;
-
-
-
-
     return true;
 }
-
-
-
-
-
-
-
-Int Stream_InternGetStatus(Int o)
-{
-    Stream* m;
-
-    m = CP(o);
-
-
-
-    Int kind;
-
-    kind = m->Kind;
-
-
-    Int value;
-
-    value = m->Value;
-
-
-
-    Stream_GetStatus_Maide maide;
-
-    maide = Stream_GetStatus_MaideArray[kind];
-
-
-
-    if (maide == null)
-    {
-        return StreamStatusNoMaide;
-    }
-
-
-
-
-    Int status;
-
-    status = maide(value);
-
-
-    return status;
-}
-
-
-
-
-
-
 
 Int Stream_InternFlush(Int o)
 {

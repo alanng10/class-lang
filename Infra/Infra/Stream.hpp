@@ -45,6 +45,9 @@ struct Stream
 
 
 
+#define CP(a) ((Stream*)(a))
+
+
 
 
 typedef Bool (*Stream_SetCount_Maide)(Int device, Int value);
