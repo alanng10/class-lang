@@ -79,7 +79,7 @@ Int Image_SetReadIntern(Int o, Int value);
 
 
 
-Int Font_GetIntern(Int o);
+Int Font_Intern(Int o);
 
 
 
