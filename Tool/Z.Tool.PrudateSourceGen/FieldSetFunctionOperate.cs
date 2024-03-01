@@ -12,7 +12,7 @@ class FieldSetFunctionOperate : FunctionOperate
 
     public override bool ExecuteName(StringBuilder sb)
     {
-        sb.Append(this.Class.Name).Append(this.Gen.Combine).Append("Set").Append(this.Field.Name);
+        sb.Append(this.Class.Name).Append(this.Gen.Combine).Append(this.Field.Name).Append("Set");
 
 
 
