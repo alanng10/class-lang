@@ -1,14 +1,6 @@
 #include "Interval.hpp"
 
-
-
-
 CppClassNew(Interval)
-
-
-
-
-
 
 Int Interval_Init(Int o)
 {
@@ -33,9 +25,6 @@ Int Interval_Init(Int o)
     return true;
 }
 
-
-
-
 Int Interval_Final(Int o)
 {
     Interval* m;
@@ -51,73 +40,10 @@ Int Interval_Final(Int o)
     return true;
 }
 
+CppField(Interval, Time)
+CppField(Interval, SingleShot)
 
-
-
-
-Int Interval_GetTime(Int o)
-{
-    Interval* m;
-
-    m = CP(o);
-
-
-    return m->Time;
-}
-
-
-
-
-Int Interval_SetTime(Int o, Int value)
-{
-    Interval* m;
-
-    m = CP(o);
-
-
-    m->Time = value;
-
-
-    return true;
-}
-
-
-
-
-
-
-Int Interval_GetSingleShot(Int o)
-{
-    Interval* m;
-
-    m = CP(o);
-
-
-    return m->SingleShot;
-}
-
-
-
-
-Int Interval_SetSingleShot(Int o, Int value)
-{
-    Interval* m;
-
-    m = CP(o);
-
-
-    m->SingleShot = value;
-
-
-    return true;
-}
-
-
-
-
-
-
-Int Interval_GetActive(Int o)
+Int Interval_ActiveGet(Int o)
 {
     Interval* m;
 
@@ -139,47 +65,12 @@ Int Interval_GetActive(Int o)
     return b;
 }
 
-
-
-
-Int Interval_SetActive(Int o, Int value)
+Int Interval_ActiveSet(Int o, Int value)
 {
     return true;
 }
 
-
-
-
-
-Int Interval_GetElapseState(Int o)
-{
-    Interval* m;
-
-    m = CP(o);
-
-
-    return m->ElapseState;
-}
-
-
-
-
-Int Interval_SetElapseState(Int o, Int value)
-{
-    Interval* m;
-
-    m = CP(o);
-
-
-    m->ElapseState = value;
-
-
-    return true;
-}
-
-
-
-
+CppField(Interval, ElapseState)
 
 Int Interval_Start(Int o)
 {
@@ -274,12 +165,12 @@ Int Interval_Elapse(Int o)
 
     Int aa;
 
-    aa = State_GetMaide(state);
+    aa = State_MaideGet(state);
 
 
     Int arg;
 
-    arg = State_GetArg(state);
+    arg = State_ArgGet(state);
 
 
 
@@ -300,7 +191,3 @@ Int Interval_Elapse(Int o)
 
     return true;
 }
-
-
-
-
