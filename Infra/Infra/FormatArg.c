@@ -1,42 +1,28 @@
 #include "FormatArg.h"
 
-
-
-
 InfraClassNew(FormatArg)
-
-
-
-
 
 Int FormatArg_Init(Int o)
 {
     return true;
 }
 
-
-
-
 Int FormatArg_Final(Int o)
 {
     return true;
 }
 
-
-
-
-Field(Pos)
-Field(Kind)
-Field(Value)
-Field(AlignLeft)
-Field(FieldWidth)
-Field(MaxWidth)
-Field(Case)
-Field(Base)
-Field(Sign)
-Field(Precision)
-Field(FillChar)
-Field(HasCount)
-Field(ValueCount)
-Field(Count)
-
+Field(FormatArg, Pos)
+Field(FormatArg, Kind)
+Field(FormatArg, Value)
+Field(FormatArg, AlignLeft)
+Field(FormatArg, FieldWidth)
+Field(FormatArg, MaxWidth)
+Field(FormatArg, Case)
+Field(FormatArg, Base)
+Field(FormatArg, Sign)
+Field(FormatArg, Precision)
+Field(FormatArg, FillChar)
+Field(FormatArg, HasCount)
+Field(FormatArg, ValueCount)
+Field(FormatArg, Count)

@@ -20,20 +20,3 @@ typedef struct
     Int Count;
 }
 FormatArg;
-
-#define Field(name) \
-Int FormatArg_##name##Get(Int o)\
-{\
-    FormatArg* m;\
-    m = CastPointer(o);\
-    return m->name;\
-}\
-\
-Int FormatArg_##name##Set(Int o, Int value)\
-{\
-    FormatArg* m;\
-    m = CastPointer(o);\
-    m->name = value;\
-    return true;\
-}\
-

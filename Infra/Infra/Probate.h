@@ -311,3 +311,20 @@ Bool Stat_Final(Int o);
 Int Stat_TimeInit(Int o);
 
 
+
+#define Field(varClass, name) \
+Int varClass##_##name##Get(Int o)\
+{\
+    varClass* m;\
+    m = CastPointer(o);\
+    return m->name;\
+}\
+\
+Int varClass##_##name##Set(Int o, Int value)\
+{\
+    varClass* m;\
+    m = CastPointer(o);\
+    m->name = value;\
+    return true;\
+}\
+
