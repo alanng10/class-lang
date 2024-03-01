@@ -1,17 +1,8 @@
 #include "Image.hpp"
 
-
-
-
 CppClassNew(Image)
 
-
-
-
 QImage::Format Image_Var_Format = QImage::Format_ARGB32;
-
-
-
 
 Int Image_Init(Int o)
 {
@@ -35,11 +26,6 @@ Int Image_Init(Int o)
     return true;
 }
 
-
-
-
-
-
 Int Image_Final(Int o)
 {
     Image* m;
@@ -56,11 +42,6 @@ Int Image_Final(Int o)
 
     return true;
 }
-
-
-
-
-
 
 Int Image_CreateData(Int o)
 {
@@ -90,10 +71,10 @@ Int Image_CreateData(Int o)
     Int height;
 
 
-    width = Size_GetWidth(size);
+    width = Size_WidthGet(size);
 
 
-    height = Size_GetHeight(size);
+    height = Size_HeightGet(size);
 
 
 
@@ -116,7 +97,7 @@ Int Image_CreateData(Int o)
     Int dataValue;
 
 
-    dataValue = Data_GetValue(data);
+    dataValue = Data_ValueGet(data);
 
 
 
@@ -170,13 +151,6 @@ Int Image_CreateData(Int o)
 
     return true;
 }
-
-
-
-
-
-
-
 
 Int Image_SetReadIntern(Int o, Int value)
 {
@@ -241,10 +215,10 @@ Int Image_SetReadIntern(Int o, Int value)
     size = m->Size;
 
 
-    Size_SetWidth(size, width);
+    Size_WidthSet(size, width);
 
 
-    Size_SetHeight(size, height);
+    Size_HeightSet(size, height);
 
 
 
@@ -269,11 +243,11 @@ Int Image_SetReadIntern(Int o, Int value)
 
 
 
-    Data_SetCount(data, dataCount);
+    Data_CountSet(data, dataCount);
 
 
 
-    Data_SetValue(data, dataValue);
+    Data_ValueSet(data, dataValue);
 
 
 
@@ -282,77 +256,8 @@ Int Image_SetReadIntern(Int o, Int value)
     return true;
 }
 
-
-
-
-
-Int Image_GetSize(Int o)
-{
-    Image* m;
-
-    m = CP(o);
-
-
-
-    return m->Size;
-}
-
-
-
-
-
-Bool Image_SetSize(Int o, Int value)
-{
-    Image* m;
-
-    m = CP(o);
-
-
-
-    m->Size = value;
-
-
-    return true;
-}
-
-
-
-
-
-
-Int Image_GetData(Int o)
-{
-    Image* m;
-
-    m = CP(o);
-
-
-
-    return m->Data;
-}
-
-
-
-
-
-Bool Image_SetData(Int o, Int value)
-{
-    Image* m;
-
-    m = CP(o);
-
-
-
-    m->Data = value;
-
-
-    return true;
-}
-
-
-
-
-
+CppField(Image, Size)
+CppField(Image, Data)
 
 Int Image_GetVideoOut(Int o)
 {
@@ -364,11 +269,6 @@ Int Image_GetVideoOut(Int o)
 
     return m->VideoOut;
 }
-
-
-
-
-
 
 Int Image_GetRowByteCount(Int o)
 {
@@ -443,7 +343,7 @@ Int Image_SetVideoOut(Int o)
 
 
 
-Int Image_GetIntern(Int o)
+Int Image_Intern(Int o)
 {
     Image* m;
 

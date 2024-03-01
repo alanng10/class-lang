@@ -69,7 +69,7 @@ Int Pen_Intern(Int o);
 
 
 
-Int Image_GetIntern(Int o);
+Int Image_Intern(Int o);
 
 
 
