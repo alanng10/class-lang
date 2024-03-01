@@ -1,14 +1,6 @@
 #include "GradientLinear.hpp"
 
-
-
-
 CppClassNew(GradientLinear)
-
-
-
-
-
 
 Int GradientLinear_Init(Int o)
 {
@@ -37,9 +29,9 @@ Int GradientLinear_Init(Int o)
     Int startUp;
 
 
-    startLeft = Pos_GetLeft(startPos);
+    startLeft = Pos_LeftGet(startPos);
 
-    startUp = Pos_GetUp(startPos);
+    startUp = Pos_UpGet(startPos);
 
 
 
@@ -49,9 +41,9 @@ Int GradientLinear_Init(Int o)
     Int endUp;
 
 
-    endLeft = Pos_GetLeft(endPos);
+    endLeft = Pos_LeftGet(endPos);
 
-    endUp = Pos_GetUp(endPos);
+    endUp = Pos_UpGet(endPos);
 
 
 
@@ -83,11 +75,6 @@ Int GradientLinear_Init(Int o)
     return true;
 }
 
-
-
-
-
-
 Int GradientLinear_Final(Int o)
 {
     GradientLinear* m;
@@ -105,74 +92,10 @@ Int GradientLinear_Final(Int o)
     return true;
 }
 
+CppField(GradientLinear, StartPos)
+CppField(GradientLinear, EndPos)
 
-
-
-
-
-
-Int GradientLinear_GetStartPos(Int o)
-{
-    GradientLinear* m;
-
-    m = CP(o);
-
-
-    return m->StartPos;
-}
-
-
-
-
-Bool GradientLinear_SetStartPos(Int o, Int value)
-{
-    GradientLinear* m;
-
-    m = CP(o);
-
-
-    m->StartPos = value;
-
-
-    return true;
-}
-
-
-
-
-
-Int GradientLinear_GetEndPos(Int o)
-{
-    GradientLinear* m;
-
-    m = CP(o);
-
-
-    return m->EndPos;
-}
-
-
-
-
-Bool GradientLinear_SetEndPos(Int o, Int value)
-{
-    GradientLinear* m;
-
-    m = CP(o);
-
-
-    m->EndPos = value;
-
-
-    return true;
-}
-
-
-
-
-
-
-Int GradientLinear_GetIntern(Int o)
+Int GradientLinear_Intern(Int o)
 {
     GradientLinear* m;
 

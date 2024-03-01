@@ -90,7 +90,7 @@ Int Gradient_Intern(Int o);
 
 
 
-Int GradientLinear_GetIntern(Int o);
+Int GradientLinear_Intern(Int o);
 
 
 
