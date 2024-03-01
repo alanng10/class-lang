@@ -86,10 +86,7 @@ Int Font_Intern(Int o);
 
 Int Transform_Intern(Int o);
 
-
-
-
-Int Gradient_GetIntern(Int o);
+Int Gradient_Intern(Int o);
 
 
 

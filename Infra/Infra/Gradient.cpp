@@ -1,19 +1,8 @@
 #include "Gradient.hpp"
 
-
-
-
 CppClassNew(Gradient)
 
-
-
-
-
-
-
-
-
-Bool Gradient_Init(Int o)
+Int Gradient_Init(Int o)
 {
     Gradient* m;
 
@@ -156,140 +145,15 @@ Bool Gradient_Init(Int o)
     return true;
 }
 
-
-
-
-
-
-Bool Gradient_Final(Int o)
+Int Gradient_Final(Int o)
 {
     return true;
 }
 
-
-
-
-
-Int Gradient_GetKind(Int o)
-{
-    Gradient* m;
-
-    m = CP(o);
-
-
-    return m->Kind;
-}
-
-
-
-
-Bool Gradient_SetKind(Int o, Int value)
-{
-    Gradient* m;
-
-    m = CP(o);
-
-
-    m->Kind = value;
-
-
-    return true;
-}
-
-
-
-
-Int Gradient_GetValue(Int o)
-{
-    Gradient* m;
-
-    m = CP(o);
-
-
-    return m->Value;
-}
-
-
-
-
-Bool Gradient_SetValue(Int o, Int value)
-{
-    Gradient* m;
-
-    m = CP(o);
-
-
-    m->Value = value;
-
-
-    return true;
-}
-
-
-
-
-
-Int Gradient_GetStop(Int o)
-{
-    Gradient* m;
-
-    m = CP(o);
-
-
-    return m->Stop;
-}
-
-
-
-
-Bool Gradient_SetStop(Int o, Int value)
-{
-    Gradient* m;
-
-    m = CP(o);
-
-
-    m->Stop = value;
-
-
-    return true;
-}
-
-
-
-
-
-Int Gradient_GetSpread(Int o)
-{
-    Gradient* m;
-
-    m = CP(o);
-
-
-    return m->Spread;
-}
-
-
-
-
-Bool Gradient_SetSpread(Int o, Int value)
-{
-    Gradient* m;
-
-    m = CP(o);
-
-
-    m->Spread = value;
-
-
-    return true;
-}
-
-
-
-
-
-
+CppField(Gradient, Kind)
+CppField(Gradient, Value)
+CppField(Gradient, Stop)
+CppField(Gradient, Spread)
 
 Bool Gradient_SetInternStopPoint(Int result, Int pos, Int color)
 {
@@ -363,7 +227,7 @@ Bool Gradient_SetInternStop(Int result, Int stop)
 
     Int count;
 
-    count = GradientStop_GetCount(stop);
+    count = GradientStop_CountGet(stop);
 
 
 
@@ -450,7 +314,7 @@ Bool Gradient_SetInternStop(Int result, Int stop)
 
 
 
-Int Gradient_GetIntern(Int o)
+Int Gradient_Intern(Int o)
 {
     Gradient* m;
 
