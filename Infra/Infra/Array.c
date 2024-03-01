@@ -41,7 +41,7 @@ Int Array_CountSet(Int o, Int value)
     return true;
 }
 
-Int Array_ItemGet(Int o, Int index)
+Int Array_GetItem(Int o, Int index)
 {
     Array* m;
     m = CastPointer(o);
@@ -54,7 +54,7 @@ Int Array_ItemGet(Int o, Int index)
     return a;
 }
 
-Int Array_ItemSet(Int o, Int index, Int value)
+Int Array_SetItem(Int o, Int index, Int value)
 {
     Array* m;
     m = CastPointer(o);
