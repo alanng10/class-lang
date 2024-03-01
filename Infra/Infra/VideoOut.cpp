@@ -1,15 +1,6 @@
 #include "VideoOut.hpp"
 
-
-
-
 CppClassNew(VideoOut)
-
-
-
-
-
-
 
 Int VideoOut_Init(Int o)
 {
@@ -38,10 +29,6 @@ Int VideoOut_Init(Int o)
     return true;
 }
 
-
-
-
-
 Int VideoOut_Final(Int o)
 {
     VideoOut* m;
@@ -57,75 +44,8 @@ Int VideoOut_Final(Int o)
     return true;
 }
 
-
-
-
-
-
-
-
-Int VideoOut_GetFrame(Int o)
-{
-    VideoOut* m;
-
-    m = CP(o);
-
-
-    return m->Frame;
-}
-
-
-
-
-Int VideoOut_SetFrame(Int o, Int value)
-{
-    VideoOut* m;
-
-    m = CP(o);
-
-
-    m->Frame = value;
-
-
-    return true;
-}
-
-
-
-
-
-
-Int VideoOut_GetFrameState(Int o)
-{
-    VideoOut* m;
-
-    m = CP(o);
-
-
-    return m->FrameState;
-}
-
-
-
-
-Int VideoOut_SetFrameState(Int o, Int value)
-{
-    VideoOut* m;
-
-    m = CP(o);
-
-
-    m->FrameState = value;
-
-
-    return true;
-}
-
-
-
-
-
-
+CppField(VideoOut, Frame)
+CppField(VideoOut, FrameState)
 
 Int VideoOut_FrameChange(Int o)
 {
@@ -143,13 +63,13 @@ Int VideoOut_FrameChange(Int o)
 
     Int aa;
 
-    aa = State_GetMaide(state);
+    aa = State_MaideGet(state);
 
 
 
     Int arg;
 
-    arg = State_GetArg(state);
+    arg = State_ArgGet(state);
 
 
 
@@ -176,12 +96,7 @@ Int VideoOut_FrameChange(Int o)
     return true;
 }
 
-
-
-
-
-
-Int VideoOut_GetIntern(Int o)
+Int VideoOut_Intern(Int o)
 {
     VideoOut* m;
 
@@ -197,5 +112,3 @@ Int VideoOut_GetIntern(Int o)
 
     return u;
 }
-
-

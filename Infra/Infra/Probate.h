@@ -102,7 +102,7 @@ Int GradientRadial_GetIntern(Int o);
 
 
 
-Int VideoOut_GetIntern(Int o);
+Int VideoOut_Intern(Int o);
 
 
 
