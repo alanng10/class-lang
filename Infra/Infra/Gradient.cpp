@@ -69,7 +69,7 @@ Int Gradient_Init(Int o)
 
     if (kind == Stat_GradientKindLinear(stat))
     {
-        uo = GradientLinear_GetIntern(value);
+        uo = GradientLinear_Intern(value);
 
 
         QLinearGradient* ua;
@@ -83,7 +83,7 @@ Int Gradient_Init(Int o)
 
     if (kind == Stat_GradientKindRadial(stat))
     {
-        uo = GradientRadial_GetIntern(value);
+        uo = GradientRadial_Intern(value);
 
 
         QRadialGradient* ua;
