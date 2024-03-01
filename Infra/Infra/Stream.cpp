@@ -28,38 +28,19 @@ Stream_Flush_Maide Stream_Flush_MaideArray[StreamKindCount] =
     &Stream_FlushNetwork,
 };
 
-
-
-Bool Stream_Init(Int o)
+Int Stream_Init(Int o)
 {
     return true;
 }
 
-
-
-Bool Stream_Final(Int o)
+Int Stream_Final(Int o)
 {
     return true;
 }
 
+CppFieldGet(Stream, Kind)
 
-
-
-
-Int Stream_GetKind(Int o)
-{
-    Stream* m;
-
-    m = CP(o);
-
-
-    return m->Kind;
-}
-
-
-
-
-Bool Stream_SetKind(Int o, Int value)
+Int Stream_SetKind(Int o, Int value)
 {
     Stream* m;
 
