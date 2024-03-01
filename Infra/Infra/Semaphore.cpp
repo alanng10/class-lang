@@ -62,49 +62,9 @@ Bool Semaphore_Final(Int o)
     return true;
 }
 
+CppField(Semaphore, InitCount)
 
-
-
-
-
-
-Int Semaphore_GetInitCount(Int o)
-{
-    Semaphore* m;
-
-    m = CP(o);
-
-
-
-    return m->InitCount;
-}
-
-
-
-
-
-Int Semaphore_SetInitCount(Int o, Int value)
-{
-    Semaphore* m;
-
-    m = CP(o);
-
-
-
-    m->InitCount = value;
-
-
-
-    return true;
-}
-
-
-
-
-
-
-
-Int Semaphore_GetCount(Int o)
+Int Semaphore_CountGet(Int o)
 {
     Semaphore* m;
 
@@ -130,7 +90,7 @@ Int Semaphore_GetCount(Int o)
 
 
 
-Bool Semaphore_SetCount(Int o, Int value)
+Bool Semaphore_CountSet(Int o, Int value)
 {
     return true;
 }
@@ -172,6 +132,3 @@ Bool Semaphore_Release(Int o)
 
     return true;
 }
-
-
-
