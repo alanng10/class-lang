@@ -1,15 +1,6 @@
 #include "Time.hpp"
 
-
-
-
-
 CppClassNew(Time)
-
-
-
-
-
 
 Int Time_Init(Int o)
 {
@@ -57,10 +48,6 @@ Int Time_Init(Int o)
     return true;
 }
 
-
-
-
-
 Int Time_Final(Int o)
 {
     Time* m;
@@ -77,10 +64,6 @@ Int Time_Final(Int o)
 
     return true;
 }
-
-
-
-
 
 Int Time_Set(Int o, Int year, Int month, Int day, Int hour, Int minute, Int second, Int millisecond, Int hasOffset, Int offsetUtc)
 {
@@ -188,12 +171,7 @@ Int Time_Set(Int o, Int year, Int month, Int day, Int hour, Int minute, Int seco
     return true;
 }
 
-
-
-
-
-
-Int Time_GetYear(Int o)
+Int Time_YearGet(Int o)
 {
     Time* m;
 
@@ -221,19 +199,12 @@ Int Time_GetYear(Int o)
     return a;
 }
 
-
-
-
-
-Int Time_SetYear(Int o, Int value)
+Int Time_YearSet(Int o, Int value)
 {
     return true;
 }
 
-
-
-
-Int Time_GetMonth(Int o)
+Int Time_MonthGet(Int o)
 {
     Time* m;
 
@@ -261,18 +232,12 @@ Int Time_GetMonth(Int o)
     return a;
 }
 
-
-
-
-Int Time_SetMonth(Int o, Int value)
+Int Time_MonthSet(Int o, Int value)
 {
     return true;
 }
 
-
-
-
-Int Time_GetDay(Int o)
+Int Time_DayGet(Int o)
 {
     Time* m;
 
@@ -300,20 +265,12 @@ Int Time_GetDay(Int o)
     return a;
 }
 
-
-
-
-Int Time_SetDay(Int o, Int value)
+Int Time_DaySet(Int o, Int value)
 {
     return true;
 }
 
-
-
-
-
-
-Int Time_GetHour(Int o)
+Int Time_HourGet(Int o)
 {
     Time* m;
 
@@ -341,19 +298,12 @@ Int Time_GetHour(Int o)
     return a;
 }
 
-
-
-
-Int Time_SetHour(Int o, Int value)
+Int Time_HourSet(Int o, Int value)
 {
     return true;
 }
 
-
-
-
-
-Int Time_GetMinute(Int o)
+Int Time_MinuteGet(Int o)
 {
     Time* m;
 
@@ -381,19 +331,12 @@ Int Time_GetMinute(Int o)
     return a;
 }
 
-
-
-
-Int Time_SetMinute(Int o, Int value)
+Int Time_MinuteSet(Int o, Int value)
 {
     return true;
 }
 
-
-
-
-
-Int Time_GetSecond(Int o)
+Int Time_SecondGet(Int o)
 {
     Time* m;
 
@@ -421,19 +364,12 @@ Int Time_GetSecond(Int o)
     return a;
 }
 
-
-
-
-Int Time_SetSecond(Int o, Int value)
+Int Time_SecondSet(Int o, Int value)
 {
     return true;
 }
 
-
-
-
-
-Int Time_GetMillisecond(Int o)
+Int Time_MillisecondGet(Int o)
 {
     Time* m;
 
@@ -461,23 +397,12 @@ Int Time_GetMillisecond(Int o)
     return a;
 }
 
-
-
-
-
-Int Time_SetMillisecond(Int o, Int value)
+Int Time_MillisecondSet(Int o, Int value)
 {
     return true;
 }
 
-
-
-
-
-
-
-
-Int Time_GetOffsetUtc(Int o)
+Int Time_OffsetUtcGet(Int o)
 {
     Time* m;
 
@@ -500,21 +425,12 @@ Int Time_GetOffsetUtc(Int o)
     return a;
 }
 
-
-
-
-
-Int Time_SetOffsetUtc(Int o, Int value)
+Int Time_OffsetUtcSet(Int o, Int value)
 {
     return true;
 }
 
-
-
-
-
-
-Int Time_GetLocalTime(Int o)
+Int Time_LocalTimeGet(Int o)
 {
     Time* m;
 
@@ -538,21 +454,10 @@ Int Time_GetLocalTime(Int o)
     return a;
 }
 
-
-
-
-
-Int Time_SetLocalTime(Int o, Int value)
+Int Time_LocalTimeSet(Int o, Int value)
 {
     return true;
 }
-
-
-
-
-
-
-
 
 Int Time_Current(Int o)
 {
@@ -578,10 +483,6 @@ Int Time_Current(Int o)
     return true;
 }
 
-
-
-
-
 Int Time_ToLocalTime(Int o)
 {
     Time* m;
@@ -604,10 +505,6 @@ Int Time_ToLocalTime(Int o)
 
     return true;
 }
-
-
-
-
 
 Int Time_ToOffsetUtc(Int o, Int offset)
 {
@@ -640,14 +537,7 @@ Int Time_ToOffsetUtc(Int o, Int offset)
     return true;
 }
 
-
-
-
-
-
-
-
-Int Time_GetYearDay(Int o)
+Int Time_YearDayGet(Int o)
 {
     Time* m;
 
@@ -676,20 +566,12 @@ Int Time_GetYearDay(Int o)
     return a;
 }
 
-
-
-
-Int Time_SetYearDay(Int o, Int value)
+Int Time_YearDaySet(Int o, Int value)
 {
     return true;
 }
 
-
-
-
-
-
-Int Time_GetWeekDay(Int o)
+Int Time_WeekDayGet(Int o)
 {
     Time* m;
 
@@ -717,21 +599,12 @@ Int Time_GetWeekDay(Int o)
     return a;
 }
 
-
-
-
-Int Time_SetWeekDay(Int o, Int value)
+Int Time_WeekDaySet(Int o, Int value)
 {
     return true;
 }
 
-
-
-
-
-
-
-Int Time_GetYearDayCount(Int o)
+Int Time_YearDayCountGet(Int o)
 {
     Time* m;
 
@@ -759,21 +632,12 @@ Int Time_GetYearDayCount(Int o)
     return a;
 }
 
-
-
-
-
-Int Time_SetYearDayCount(Int o, Int value)
+Int Time_YearDayCountSet(Int o, Int value)
 {
     return true;
 }
 
-
-
-
-
-
-Int Time_GetMonthDayCount(Int o)
+Int Time_MonthDayCountGet(Int o)
 {
     Time* m;
 
@@ -801,20 +665,10 @@ Int Time_GetMonthDayCount(Int o)
     return a;
 }
 
-
-
-
-Int Time_SetMonthDayCount(Int o, Int value)
+Int Time_MonthDayCountSet(Int o, Int value)
 {
     return true;
 }
-
-
-
-
-
-
-
 
 Int Time_AddYear(Int o, Int offset)
 {
@@ -845,10 +699,6 @@ Int Time_AddYear(Int o, Int offset)
 
     return true;
 }
-
-
-
-
 
 Int Time_AddMonth(Int o, Int offset)
 {
@@ -881,10 +731,6 @@ Int Time_AddMonth(Int o, Int offset)
     return true;
 }
 
-
-
-
-
 Int Time_AddDay(Int o, Int offset)
 {
     Time* m;
@@ -916,11 +762,6 @@ Int Time_AddDay(Int o, Int offset)
     return true;
 }
 
-
-
-
-
-
 Int Time_AddHour(Int o, Int offset)
 {
     qint64 u;
@@ -938,11 +779,6 @@ Int Time_AddHour(Int o, Int offset)
 
     return Time_AddMillisecond(o, oa);
 }
-
-
-
-
-
 
 Int Time_AddMinute(Int o, Int offset)
 {
@@ -962,10 +798,6 @@ Int Time_AddMinute(Int o, Int offset)
     return Time_AddMillisecond(o, oa);
 }
 
-
-
-
-
 Int Time_AddSecond(Int o, Int offset)
 {
     qint64 u;
@@ -983,10 +815,6 @@ Int Time_AddSecond(Int o, Int offset)
 
     return Time_AddMillisecond(o, oa);
 }
-
-
-
-
 
 Int Time_AddMillisecond(Int o, Int offset)
 {
@@ -1017,12 +845,6 @@ Int Time_AddMillisecond(Int o, Int offset)
     return true;
 }
 
-
-
-
-
-
-
 Int Time_MillisecondTo(Int o, Int other)
 {
     Time* m;
@@ -1051,10 +873,6 @@ Int Time_MillisecondTo(Int o, Int other)
 
     return a;
 }
-
-
-
-
 
 Int Time_DayTo(Int o, Int other)
 {
@@ -1098,11 +916,6 @@ Int Time_DayTo(Int o, Int other)
     return a;
 }
 
-
-
-
-
-
 Int Time_LeapYear(Int year)
 {
     int yearU;
@@ -1126,11 +939,6 @@ Int Time_LeapYear(Int year)
 
     return a;
 }
-
-
-
-
-
 
 Int Time_ValidDate(Int year, Int month, Int day)
 {
@@ -1164,10 +972,6 @@ Int Time_ValidDate(Int year, Int month, Int day)
 
     return a;
 }
-
-
-
-
 
 Int Time_ValidTime(Int hour, Int minute, Int second, Int millisecond)
 {
@@ -1204,5 +1008,3 @@ Int Time_ValidTime(Int hour, Int minute, Int second, Int millisecond)
 
     return a;
 }
-
-
