@@ -4,7 +4,7 @@ CppClassNew(Stream)
 
 #define StreamKindCount (4)
 
-Bool Stream_HasPos_Array[StreamKindCount] =
+Int Stream_HasPos_Array[StreamKindCount] =
 {
     false,
     true,
@@ -12,7 +12,7 @@ Bool Stream_HasPos_Array[StreamKindCount] =
     false,
 };
 
-Bool Stream_HasCount_Array[StreamKindCount] =
+Int Stream_HasCount_Array[StreamKindCount] =
 {
     false,
     true,
