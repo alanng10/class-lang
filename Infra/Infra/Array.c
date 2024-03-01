@@ -26,20 +26,7 @@ Int Array_Final(Int o)
     return true;
 }
 
-Int Array_CountGet(Int o)
-{
-    Array* m;
-    m = CastPointer(o);
-    return m->Count;
-}
-
-Int Array_CountSet(Int o, Int value)
-{
-    Array* m;
-    m = CastPointer(o);
-    m->Count = value;
-    return true;
-}
+Field(Array, Count)
 
 Int Array_GetItem(Int o, Int index)
 {
