@@ -91,10 +91,7 @@ Int Gradient_Intern(Int o);
 
 
 Int GradientLinear_Intern(Int o);
-
-
-
-Int GradientRadial_GetIntern(Int o);
+Int GradientRadial_Intern(Int o);
 
 
 

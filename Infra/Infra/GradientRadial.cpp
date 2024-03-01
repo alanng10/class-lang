@@ -1,20 +1,8 @@
 #include "GradientRadial.hpp"
 
-
-
-
 CppClassNew(GradientRadial)
 
-
-
-
-
-
-
-
-
-
-Bool GradientRadial_Init(Int o)
+Int GradientRadial_Init(Int o)
 {
     GradientRadial* m;
 
@@ -55,9 +43,9 @@ Bool GradientRadial_Init(Int o)
     Int centerUp;
 
 
-    centerLeft = Pos_GetLeft(centerPos);
+    centerLeft = Pos_LeftGet(centerPos);
 
-    centerUp = Pos_GetUp(centerPos);
+    centerUp = Pos_UpGet(centerPos);
 
 
 
@@ -67,9 +55,9 @@ Bool GradientRadial_Init(Int o)
     Int focusUp;
 
 
-    focusLeft = Pos_GetLeft(focusPos);
+    focusLeft = Pos_LeftGet(focusPos);
 
-    focusUp = Pos_GetUp(focusPos);
+    focusUp = Pos_UpGet(focusPos);
 
 
 
@@ -110,12 +98,7 @@ Bool GradientRadial_Init(Int o)
     return true;
 }
 
-
-
-
-
-
-Bool GradientRadial_Final(Int o)
+Int GradientRadial_Final(Int o)
 {
     GradientRadial* m;
 
@@ -132,131 +115,12 @@ Bool GradientRadial_Final(Int o)
     return true;
 }
 
-
-
-
-
-
-
-Int GradientRadial_GetCenterPos(Int o)
-{
-    GradientRadial* m;
-
-    m = CP(o);
-
-
-    return m->CenterPos;
-}
-
-
-
-
-Bool GradientRadial_SetCenterPos(Int o, Int value)
-{
-    GradientRadial* m;
-
-    m = CP(o);
-
-
-    m->CenterPos = value;
-
-
-    return true;
-}
-
-
-
-
-Int GradientRadial_GetCenterRadius(Int o)
-{
-    GradientRadial* m;
-
-    m = CP(o);
-
-
-    return m->CenterRadius;
-}
-
-
-
-
-Bool GradientRadial_SetCenterRadius(Int o, Int value)
-{
-    GradientRadial* m;
-
-    m = CP(o);
-
-
-    m->CenterRadius = value;
-
-
-    return true;
-}
-
-
-
-
-
-Int GradientRadial_GetFocusPos(Int o)
-{
-    GradientRadial* m;
-
-    m = CP(o);
-
-
-    return m->FocusPos;
-}
-
-
-
-
-Bool GradientRadial_SetFocusPos(Int o, Int value)
-{
-    GradientRadial* m;
-
-    m = CP(o);
-
-
-    m->FocusPos = value;
-
-
-    return true;
-}
-
-
-
-
-Int GradientRadial_GetFocusRadius(Int o)
-{
-    GradientRadial* m;
-
-    m = CP(o);
-
-
-    return m->FocusRadius;
-}
-
-
-
-
-Bool GradientRadial_SetFocusRadius(Int o, Int value)
-{
-    GradientRadial* m;
-
-    m = CP(o);
-
-
-    m->FocusRadius = value;
-
-
-    return true;
-}
-
-
-
-
-
-Int GradientRadial_GetIntern(Int o)
+CppField(GradientRadial, CenterPos)
+CppField(GradientRadial, CenterRadius)
+CppField(GradientRadial, FocusPos)
+CppField(GradientRadial, FocusRadius)
+
+Int GradientRadial_Intern(Int o)
 {
     GradientRadial* m;
 
