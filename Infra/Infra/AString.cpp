@@ -1,94 +1,19 @@
 #include "AString.hpp"
 
-
-
 CppClassNew(String)
 
-
-
-
-
-
-Bool String_Init(Int o)
+Int String_Init(Int o)
 {
     return true;
 }
 
-
-
-
-Bool String_Final(Int o)
+Int String_Final(Int o)
 {
     return true;
 }
 
-
-
-
-
-Int String_GetCount(Int o)
-{
-    String* m;
-    
-    m = CP(o);
-
-
-    return m->Count;
-}
-
-
-
-
-Bool String_SetCount(Int o, Int value)
-{
-    String* m;
-    
-    m = CP(o);
-
-
-
-    m->Count = value;
-
-
-    return true;
-}
-
-
-
-
-
-
-Int String_GetData(Int o)
-{
-    String* m;
-    
-    m = CP(o);
-
-
-
-    return m->Data;
-}
-
-
-
-
-Bool String_SetData(Int o, Int value)
-{
-    String* m;
-    
-    m = CP(o);
-
-
-
-    m->Data = value;
-
-
-    return true;
-}
-
-
-
-
+CppField(String, Count)
+CppField(String, Data)
 
 Int String_Char(Int o, Int index)
 {
@@ -108,11 +33,7 @@ Int String_Char(Int o, Int index)
     return u[index];
 }
 
-
-
-
-
-Bool String_Equal(Int o, Int other)
+Int String_Equal(Int o, Int other)
 {
     String* m;
     
@@ -183,11 +104,6 @@ Bool String_Equal(Int o, Int other)
     return true;
 }
 
-
-
-
-
-
 Int String_ConstantCount(Int o)
 {
     Byte* p;
@@ -217,10 +133,6 @@ Int String_ConstantCount(Int o)
     return k;
 }
 
-
-
-
-
 Int String_ConstantCreate(Int o)
 {
     Int count;
@@ -247,7 +159,7 @@ Int String_ConstantCreate(Int o)
     encode = TextEncode_New();
 
 
-    TextEncode_SetKind(encode, Stat_TextEncodeKindUtf8(stat));
+    TextEncode_KindSet(encode, Stat_TextEncodeKindUtf8(stat));
 
 
     TextEncode_Init(encode);
@@ -284,10 +196,10 @@ Int String_ConstantCreate(Int o)
     Data_Init(data);
 
 
-    Data_SetCount(data, count);
+    Data_CountSet(data, count);
 
 
-    Data_SetValue(data, o);
+    Data_ValueSet(data, o);
 
 
 
@@ -324,10 +236,10 @@ Int String_ConstantCreate(Int o)
     String_Init(a);
 
 
-    String_SetCount(a, stringCount);
+    String_CountSet(a, stringCount);
 
 
-    String_SetData(a, stringData);
+    String_DataSet(a, stringData);
 
 
 
@@ -343,7 +255,7 @@ Int String_ConstantDelete(Int o)
 {
     Int data;
 
-    data = String_GetData(o);
+    data = String_DataGet(o);
 
 
 
@@ -371,12 +283,12 @@ Int String_SetQString(Int result, Int a)
 {
     Int count;
 
-    count = String_GetCount(a);
+    count = String_CountGet(a);
 
 
     Int data;
 
-    data = String_GetData(a);
+    data = String_DataGet(a);
 
 
 
@@ -419,43 +331,17 @@ Int String_SetQString(Int result, Int a)
 Int String_SetQStringRaw(Int result, Int a)
 {
     Int count;
-
-    count = String_GetCount(a);
-
-
+    count = String_CountGet(a);
     Int data;
-
-    data = String_GetData(a);
-
-
-
+    data = String_DataGet(a);
 
     const QChar* dataU;
-
     dataU = (const QChar*)data;
-
-
-
     qsizetype countU;
-
     countU = count;
 
-
-
-
-
-
     QString* u;
-
-
     u = (QString*)result;
-
-
     u->setRawData(dataU, countU);
-
-
-
-
-
     return true;
 }
