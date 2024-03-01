@@ -26,7 +26,7 @@ Bool Stream_SetCanWrite(Int o, Int value);
 
 
 
-Int Stream_GetIntern(Int o);
+Int Stream_Intern(Int o);
 
 
 

@@ -458,14 +458,14 @@ Int Stream_Read(Int o, Int data, Int range)
     }
 
     Int dataValue;
-    dataValue = Data_GetValue(data);
+    dataValue = Data_ValueGet(data);
     Int dataCount;
-    dataCount = Data_GetCount(data);
+    dataCount = Data_CountGet(data);
 
     Int start;
     Int end;
-    start = Range_GetStart(range);
-    end = Range_GetEnd(range);
+    start = Range_StartGet(range);
+    end = Range_EndGet(range);
 
     if (!Stream_CheckRange(dataCount, start, end))
     {
@@ -519,14 +519,14 @@ Int Stream_Write(Int o, Int data, Int range)
     }
 
     Int dataValue;
-    dataValue = Data_GetValue(data);
+    dataValue = Data_ValueGet(data);
     Int dataCount;
-    dataCount = Data_GetCount(data);
+    dataCount = Data_CountGet(data);
 
     Int start;
     Int end;
-    start = Range_GetStart(range);
-    end = Range_GetEnd(range);
+    start = Range_StartGet(range);
+    end = Range_EndGet(range);
 
     if (!Stream_CheckRange(dataCount, start, end))
     {
@@ -638,7 +638,7 @@ Int Stream_CheckRange(Int dataCount, Int start, Int end)
     return ((!(dataCount < start)) & (!(dataCount < end)));
 }
 
-Int Stream_GetIntern(Int o)
+Int Stream_Intern(Int o)
 {
     Stream* m;
 
