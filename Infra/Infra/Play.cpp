@@ -166,7 +166,7 @@ Int Play_VideoOutSet(Int o, Int value)
 
     Int oa;
 
-    oa = VideoOut_GetIntern(m->VideoOut);
+    oa = VideoOut_Intern(m->VideoOut);
 
 
 
