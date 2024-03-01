@@ -1,16 +1,6 @@
 #include "NetworkAddress.hpp"
 
-
-
-
-
 CppClassNew(NetworkAddress)
-
-
-
-
-
-
 
 Int NetworkAddress_Init(Int o)
 {
@@ -27,11 +17,6 @@ Int NetworkAddress_Init(Int o)
     return true;
 }
 
-
-
-
-
-
 Int NetworkAddress_Final(Int o)
 {
     NetworkAddress* m;
@@ -46,13 +31,6 @@ Int NetworkAddress_Final(Int o)
 
     return true;
 }
-
-
-
-
-
-
-
 
 Int NetworkAddress_Set(Int o)
 {
@@ -175,139 +153,10 @@ Int NetworkAddress_Set(Int o)
     return true;
 }
 
-
-
-
-
-
-Int NetworkAddress_GetKind(Int o)
-{
-    NetworkAddress* m;
-
-    m = CP(o);
-
-
-    return m->Kind;
-}
-
-
-
-
-
-Int NetworkAddress_SetKind(Int o, Int value)
-{
-    NetworkAddress* m;
-
-    m = CP(o);
-
-
-    m->Kind = value;
-
-
-    return true;
-}
-
-
-
-
-
-
-Int NetworkAddress_GetValueA(Int o)
-{
-    NetworkAddress* m;
-
-    m = CP(o);
-
-
-    return m->ValueA;
-}
-
-
-
-
-
-Int NetworkAddress_SetValueA(Int o, Int value)
-{
-    NetworkAddress* m;
-
-    m = CP(o);
-
-
-    m->ValueA = value;
-
-
-    return true;
-}
-
-
-
-
-
-
-
-Int NetworkAddress_GetValueB(Int o)
-{
-    NetworkAddress* m;
-
-    m = CP(o);
-
-
-    return m->ValueB;
-}
-
-
-
-
-
-Int NetworkAddress_SetValueB(Int o, Int value)
-{
-    NetworkAddress* m;
-
-    m = CP(o);
-
-
-    m->ValueB = value;
-
-
-    return true;
-}
-
-
-
-
-
-
-Int NetworkAddress_GetValueC(Int o)
-{
-    NetworkAddress* m;
-
-    m = CP(o);
-
-
-    return m->ValueC;
-}
-
-
-
-
-
-Int NetworkAddress_SetValueC(Int o, Int value)
-{
-    NetworkAddress* m;
-
-    m = CP(o);
-
-
-    m->ValueC = value;
-
-
-    return true;
-}
-
-
-
-
-
+CppField(NetworkAddress, Kind)
+CppField(NetworkAddress, ValueA)
+CppField(NetworkAddress, ValueB)
+CppField(NetworkAddress, ValueC)
 
 Int NetworkAddress_SetValue(Int o, Int pointer, Int index, Int value, Int count)
 {
@@ -338,12 +187,7 @@ Int NetworkAddress_SetValue(Int o, Int pointer, Int index, Int value, Int count)
     return true;
 }
 
-
-
-
-
-
-Int NetworkAddress_GetIntern(Int o)
+Int NetworkAddress_Intern(Int o)
 {
     NetworkAddress* m;
 

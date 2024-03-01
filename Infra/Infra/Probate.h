@@ -44,7 +44,7 @@ Int NetworkServer_NewPeer(Int o);
 
 
 
-Int NetworkAddress_GetIntern(Int o);
+Int NetworkAddress_Intern(Int o);
 
 
 
