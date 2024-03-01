@@ -1,16 +1,6 @@
 #include "Play.hpp"
 
-
-
-
 CppClassNew(Play)
-
-
-
-
-
-
-
 
 Int Play_Init(Int o)
 {
@@ -27,10 +17,6 @@ Int Play_Init(Int o)
     return true;
 }
 
-
-
-
-
 Int Play_Final(Int o)
 {
     Play* m;
@@ -46,41 +32,7 @@ Int Play_Final(Int o)
     return true;
 }
 
-
-
-
-
-
-Int Play_GetSource(Int o)
-{
-    Play* m;
-
-    m = CP(o);
-
-
-    return m->Source;
-}
-
-
-
-
-Int Play_SetSource(Int o, Int value)
-{
-    Play* m;
-
-    m = CP(o);
-
-
-    m->Source = value;
-
-
-    return true;
-}
-
-
-
-
-
+CppField(Play, Source)
 
 Int Play_SetPlaySource(Int o)
 {
@@ -186,27 +138,9 @@ Int Play_Stop(Int o)
     return true;
 }
 
+CppFieldGet(Play, VideoOut)
 
-
-
-
-
-
-Int Play_GetVideoOut(Int o)
-{
-    Play* m;
-
-    m = CP(o);
-
-
-    return m->VideoOut;
-}
-
-
-
-
-
-Int Play_SetVideoOut(Int o, Int value)
+Int Play_VideoOutSet(Int o, Int value)
 {
     Play* m;
 
@@ -259,25 +193,9 @@ Int Play_SetVideoOut(Int o, Int value)
     return true;
 }
 
+CppFieldGet(Play, AudioOut)
 
-
-
-
-Int Play_GetAudioOut(Int o)
-{
-    Play* m;
-
-    m = CP(o);
-
-
-    return m->AudioOut;
-}
-
-
-
-
-
-Int Play_SetAudioOut(Int o, Int value)
+Int Play_AudioOutSet(Int o, Int value)
 {
     Play* m;
 
@@ -319,11 +237,6 @@ Int Play_SetAudioOut(Int o, Int value)
     return true;
 }
 
-
-
-
-
-
 Int Play_HasVideo(Int o)
 {
     Play* m;
@@ -344,10 +257,6 @@ Int Play_HasVideo(Int o)
 
     return a;
 }
-
-
-
-
 
 Int Play_HasAudio(Int o)
 {
@@ -370,12 +279,7 @@ Int Play_HasAudio(Int o)
     return a;
 }
 
-
-
-
-
-
-Int Play_GetTime(Int o)
+Int Play_TimeGet(Int o)
 {
     Play* m;
 
@@ -396,21 +300,12 @@ Int Play_GetTime(Int o)
     return a;
 }
 
-
-
-
-
-Int Play_SetTime(Int o, Int value)
+Int Play_TimeSet(Int o, Int value)
 {
     return true;
 }
 
-
-
-
-
-
-Int Play_GetPos(Int o)
+Int Play_PosGet(Int o)
 {
     Play* m;
 
@@ -431,10 +326,7 @@ Int Play_GetPos(Int o)
     return a;
 }
 
-
-
-
-Int Play_SetPos(Int o, Int value)
+Int Play_PosSet(Int o, Int value)
 {
     Play* m;
 
@@ -453,7 +345,3 @@ Int Play_SetPos(Int o, Int value)
 
     return true;
 }
-
-
-
-
