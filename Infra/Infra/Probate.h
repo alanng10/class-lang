@@ -93,19 +93,10 @@ Int Gradient_Intern(Int o);
 Int GradientLinear_Intern(Int o);
 Int GradientRadial_Intern(Int o);
 
-
-
-
 Int VideoOut_Intern(Int o);
-
-
-
 Int VideoOut_FrameChange(Int o);
 
-
-
-
-Int VideoFrame_GetIntern(Int o);
+Int VideoFrame_Intern(Int o);
 
 
 

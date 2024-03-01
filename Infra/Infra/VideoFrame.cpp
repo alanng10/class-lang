@@ -45,38 +45,7 @@ Int VideoFrame_Final(Int o)
     return true;
 }
 
-
-
-
-
-
-
-Int VideoFrame_GetSize(Int o)
-{
-    VideoFrame* m;
-
-    m = CP(o);
-
-
-    return m->Size;
-}
-
-
-
-
-Int VideoFrame_SetSize(Int o, Int value)
-{
-    VideoFrame* m;
-
-    m = CP(o);
-
-
-    m->Size = value;
-
-
-    return true;
-}
-
+CppField(VideoFrame, Size)
 
 
 
@@ -129,12 +98,7 @@ Int VideoFrame_GetImage(Int o, Int image)
     return true;
 }
 
-
-
-
-
-
-Int VideoFrame_GetIntern(Int o)
+Int VideoFrame_Intern(Int o)
 {
     VideoFrame* m;
 
@@ -150,6 +114,3 @@ Int VideoFrame_GetIntern(Int o)
 
     return u;
 }
-
-
-
