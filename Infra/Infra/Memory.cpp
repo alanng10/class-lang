@@ -1,68 +1,20 @@
 #include "Memory.hpp"
 
-
-
-
-
-
 CppClassNew(Memory)
-
-
-
-
-
-
 
 Int Memory_Init(Int o)
 {
     return true;
 }
 
-
-
-
 Int Memory_Final(Int o)
 {
     return true;
 }
 
+CppField(Memory, Stream)
 
-
-
-
-
-Int Memory_GetStream(Int o)
-{
-    Memory* m;
-
-    m = CP(o);
-
-
-    return m->Stream;
-}
-
-
-
-
-Bool Memory_SetStream(Int o, Int value)
-{
-    Memory* m;
-
-    m = CP(o);
-
-
-    m->Stream = value;
-
-
-    return true;
-}
-
-
-
-
-
-
-Bool Memory_Open(Int o)
+Int Memory_Open(Int o)
 {
     Memory* m;
 
@@ -163,10 +115,10 @@ Bool Memory_Open(Int o)
 
 
 
-    Stream_SetCanRead(stream, canRead);
+    Stream_CanReadSet(stream, canRead);
 
 
-    Stream_SetCanWrite(stream, canWrite);
+    Stream_CanWriteSet(stream, canWrite);
 
 
 
@@ -175,15 +127,7 @@ Bool Memory_Open(Int o)
     return true;
 }
 
-
-
-
-
-
-
-
-
-Bool Memory_Close(Int o)
+Int Memory_Close(Int o)
 {
     Memory* m;
 
@@ -245,7 +189,3 @@ Bool Memory_Close(Int o)
 
     return true;
 }
-
-
-
-
