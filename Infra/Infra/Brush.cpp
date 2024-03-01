@@ -1,18 +1,8 @@
 #include "Brush.hpp"
 
-
-
-
 CppClassNew(Brush)
 
-
-
-
-
-
-
-
-Bool Brush_Init(Int o)
+Int Brush_Init(Int o)
 {
     Brush* m;
 
@@ -160,12 +150,7 @@ Bool Brush_Init(Int o)
     return true;
 }
 
-
-
-
-
-
-Bool Brush_Final(Int o)
+Int Brush_Final(Int o)
 {
     Brush* m;
 
@@ -181,134 +166,12 @@ Bool Brush_Final(Int o)
     return true;
 }
 
-
-
-
-
-
-
-Int Brush_GetKind(Int o)
-{
-    Brush* m;
-
-    m = CP(o);
-
-
-    return m->Kind;
-}
-
-
-
-
-Bool Brush_SetKind(Int o, Int value)
-{
-    Brush* m;
-
-    m = CP(o);
-
-
-    m->Kind = value;
-
-
-    return true;
-}
-
-
-
-
-
-Int Brush_GetColor(Int o)
-{
-    Brush* m;
-
-    m = CP(o);
-
-
-    return m->Color;
-}
-
-
-
-
-Bool Brush_SetColor(Int o, Int value)
-{
-    Brush* m;
-
-    m = CP(o);
-
-
-    m->Color = value;
-
-
-    return true;
-}
-
-
-
-
-
-
-Int Brush_GetImage(Int o)
-{
-    Brush* m;
-
-    m = CP(o);
-
-
-    return m->Image;
-}
-
-
-
-
-Bool Brush_SetImage(Int o, Int value)
-{
-    Brush* m;
-
-    m = CP(o);
-
-
-    m->Image = value;
-
-
-    return true;
-}
-
-
-
-
-
-Int Brush_GetGradient(Int o)
-{
-    Brush* m;
-
-    m = CP(o);
-
-
-    return m->Gradient;
-}
-
-
-
-
-Bool Brush_SetGradient(Int o, Int value)
-{
-    Brush* m;
-
-    m = CP(o);
-
-
-    m->Gradient = value;
-
-
-    return true;
-}
-
-
-
-
-
-Int Brush_GetIntern(Int o)
+CppField(Brush, Kind)
+CppField(Brush, Color)
+CppField(Brush, Image)
+CppField(Brush, Gradient)
+
+Int Brush_Intern(Int o)
 {
     Brush* m;
 

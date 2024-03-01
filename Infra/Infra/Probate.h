@@ -84,7 +84,7 @@ Int Draw_GetIntern(Int o);
 
 
 
-Int Brush_GetIntern(Int o);
+Int Brush_Intern(Int o);
 
 
 
