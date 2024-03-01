@@ -358,9 +358,6 @@ public class Draw : Any
         return true;
     }
 
-
-
-
     public virtual bool ExecuteText(TextSpan text, Rect destRect, TextAlign align, bool wordWarp)
     {
         int count;
