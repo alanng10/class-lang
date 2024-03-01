@@ -249,7 +249,7 @@ Int Transform_Multiply(Int o, Int other)
 
     Int otherU;
 
-    otherU = Transform_GetIntern(other);
+    otherU = Transform_Intern(other);
 
 
 
