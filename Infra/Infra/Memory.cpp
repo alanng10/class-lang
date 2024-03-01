@@ -155,10 +155,10 @@ Bool Memory_Open(Int o)
 
 
 
-    Stream_SetKind(stream, kind);
+    Stream_KindSet(stream, kind);
 
 
-    Stream_SetValue(stream, uo);
+    Stream_ValueSet(stream, uo);
 
 
 
@@ -202,7 +202,7 @@ Bool Memory_Close(Int o)
     Int value;
 
 
-    value = Stream_GetValue(stream);
+    value = Stream_ValueGet(stream);
 
 
 
@@ -233,11 +233,11 @@ Bool Memory_Close(Int o)
 
 
 
-    Stream_SetKind(stream, null);
+    Stream_KindSet(stream, null);
 
 
 
-    Stream_SetValue(stream, null);
+    Stream_ValueSet(stream, null);
 
 
 

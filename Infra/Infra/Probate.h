@@ -10,11 +10,11 @@ Int Stream_FlushStorage(Int device);
 Int Stream_FlushNetwork(Int device);
 
 
-Int Stream_GetValue(Int o);
+Int Stream_ValueGet(Int o);
 
 
 
-Bool Stream_SetValue(Int o, Int value);
+Bool Stream_ValueSet(Int o, Int value);
 
 
 
