@@ -84,25 +84,9 @@ Int Stream_SetKind(Int o, Int value)
     return true;
 }
 
+CppFieldGet(Stream, Value)
 
-
-
-
-Int Stream_GetValue(Int o)
-{
-    Stream* m;
-
-    m = CP(o);
-
-
-    return m->Value;
-}
-
-
-
-
-
-Bool Stream_SetValue(Int o, Int value)
+Int Stream_ValueSet(Int o, Int value)
 {
     Stream* m;
 
@@ -369,49 +353,8 @@ Int Stream_CanWrite(Int o)
     return m->CanWrite;
 }
 
-
-
-
-
-
-Int Stream_SetCanRead(Int o, Int value)
-{
-    Stream* m;
-
-    m = CP(o);
-
-
-
-    m->CanRead = value;
-
-
-
-    return true;
-}
-
-
-
-
-
-Int Stream_SetCanWrite(Int o, Int value)
-{
-    Stream* m;
-
-    m = CP(o);
-
-
-
-    m->CanWrite = value;
-
-
-
-    return true;
-}
-
-
-
-
-
+CppFieldSet(Stream, CanRead)
+CppFieldSet(Stream, CanWrite)
 
 Int Stream_GetStatus(Int o)
 {

@@ -5,27 +5,12 @@
 Int String_QStringSet(Int result, Int a);
 Int String_QStringSetRaw(Int result, Int a);
 
-
 Int Stream_FlushStorage(Int device);
 Int Stream_FlushNetwork(Int device);
-
-
 Int Stream_ValueGet(Int o);
-
-
-
-Bool Stream_ValueSet(Int o, Int value);
-
-
-
-Bool Stream_SetCanRead(Int o, Int value);
-
-
-
-Bool Stream_SetCanWrite(Int o, Int value);
-
-
-
+Int Stream_ValueSet(Int o, Int value);
+Int Stream_CanReadSet(Int o, Int value);
+Int Stream_CanWriteSet(Int o, Int value);
 Int Stream_Intern(Int o);
 
 
