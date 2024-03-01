@@ -61,7 +61,7 @@ Int Brush_Init(Int o)
         Int imageU;
 
 
-        imageU = Image_GetIntern(image);
+        imageU = Image_Intern(image);
 
 
 
@@ -87,7 +87,7 @@ Int Brush_Init(Int o)
     {
         Int gradientU;
 
-        gradientU = Gradient_GetIntern(gradient);
+        gradientU = Gradient_Intern(gradient);
 
 
 
