@@ -1,17 +1,8 @@
 #include "ImageRead.hpp"
 
-
-
-
 CppClassNew(ImageRead)
 
-
-
-
-
-
-
-Bool ImageRead_Init(Int o)
+Int ImageRead_Init(Int o)
 {
     ImageRead* m;
 
@@ -34,11 +25,7 @@ Bool ImageRead_Init(Int o)
     return true;
 }
 
-
-
-
-
-Bool ImageRead_Final(Int o)
+Int ImageRead_Final(Int o)
 {
     ImageRead* m;
 
@@ -53,81 +40,10 @@ Bool ImageRead_Final(Int o)
     return true;
 }
 
+CppField(ImageRead, Stream)
+CppField(ImageRead, Image)
 
-
-
-
-
-
-Int ImageRead_GetStream(Int o)
-{
-    ImageRead* m;
-
-    m = CP(o);
-
-
-    return m->Stream;
-}
-
-
-
-
-
-Bool ImageRead_SetStream(Int o, Int value)
-{
-    ImageRead* m;
-
-    m = CP(o);
-
-
-    m->Stream = value;
-
-
-    return true;
-}
-
-
-
-
-
-
-
-Int ImageRead_GetImage(Int o)
-{
-    ImageRead* m;
-
-    m = CP(o);
-
-
-    return m->Image;
-}
-
-
-
-
-
-Bool ImageRead_SetImage(Int o, Int value)
-{
-    ImageRead* m;
-
-    m = CP(o);
-
-
-    m->Image = value;
-
-
-    return true;
-}
-
-
-
-
-
-
-
-
-
-Bool ImageRead_Execute(Int o)
+Int ImageRead_Execute(Int o)
 {
     ImageRead* m;
 
@@ -152,7 +68,7 @@ Bool ImageRead_Execute(Int o)
 
     Int ua;
 
-    ua = Stream_GetIntern(stream);
+    ua = Stream_Intern(stream);
 
 
 
@@ -227,4 +143,3 @@ Bool ImageRead_Execute(Int o)
 
     return true;
 }
-
