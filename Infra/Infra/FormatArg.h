@@ -1,15 +1,6 @@
 #pragma once
 
-
-
-
-
 #include "Probate.h"
-
-
-
-
-
 
 typedef struct
 {
@@ -30,23 +21,19 @@ typedef struct
 }
 FormatArg;
 
-
-
-
 #define Field(name) \
-Int FormatArg_Get##name(Int o)\
+Int FormatArg_##name##Get(Int o)\
 {\
     FormatArg* m;\
     m = CastPointer(o);\
     return m->name;\
 }\
 \
-Int FormatArg_Set##name(Int o, Int value)\
+Int FormatArg_##name##Set(Int o, Int value)\
 {\
     FormatArg* m;\
     m = CastPointer(o);\
     m->name = value;\
     return true;\
 }\
-
 
