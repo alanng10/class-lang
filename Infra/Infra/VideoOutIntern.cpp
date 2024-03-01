@@ -30,13 +30,13 @@ void VideoOutIntern::FrameChangeHandle(const QVideoFrame& frame)
 
     Int aa;
 
-    aa = VideoOut_GetFrame(videoOut);
+    aa = VideoOut_FrameGet(videoOut);
 
 
 
     Int oo;
 
-    oo = VideoFrame_GetIntern(aa);
+    oo = VideoFrame_Intern(aa);
 
 
 
@@ -53,8 +53,3 @@ void VideoOutIntern::FrameChangeHandle(const QVideoFrame& frame)
 
     VideoOut_FrameChange(videoOut);
 }
-
-
-
-
-
