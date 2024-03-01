@@ -18,8 +18,8 @@ struct Stream
 
 #define CP(a) ((Stream*)(a))
 
-typedef Bool (*Stream_Flush_Maide)(Int device);
+typedef Int (*Stream_Flush_Maide)(Int device);
 
-Bool Stream_CheckRange(Int dataCount, Int start, Int end);
+Int Stream_CheckRange(Int dataCount, Int start, Int end);
 
 Int Stream_InternFlush(Int o);
