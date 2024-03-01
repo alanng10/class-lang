@@ -1,16 +1,6 @@
 #include "GradientStop.hpp"
 
-
-
-
-
-
 CppClassNew(GradientStop)
-
-
-
-
-
 
 Int GradientStop_Init(Int o)
 {
@@ -51,20 +41,16 @@ Int GradientStop_Init(Int o)
     Data_Init(m->Data);
 
 
-    Data_SetCount(m->Data, byteCount);
+    Data_CountSet(m->Data, byteCount);
 
 
-    Data_SetValue(m->Data, dataValue);
+    Data_ValueSet(m->Data, dataValue);
 
 
 
 
     return true;
 }
-
-
-
-
 
 Int GradientStop_Final(Int o)
 {
@@ -77,7 +63,7 @@ Int GradientStop_Final(Int o)
 
     Int dataValue;
 
-    dataValue = Data_GetValue(m->Data);
+    dataValue = Data_ValueGet(m->Data);
 
 
 
@@ -96,41 +82,7 @@ Int GradientStop_Final(Int o)
     return true;
 }
 
-
-
-
-
-
-Int GradientStop_GetCount(Int o)
-{
-    GradientStop* m;
-
-    m = CP(o);
-
-
-    return m->Count;
-}
-
-
-
-
-Int GradientStop_SetCount(Int o, Int value)
-{
-    GradientStop* m;
-
-    m = CP(o);
-
-
-    m->Count = value;
-
-
-    return true;
-}
-
-
-
-
-
+CppField(GradientStop, Count)
 
 Int GradientStop_GetPoint(Int o, Int index, Int pos, Int color)
 {
@@ -160,11 +112,6 @@ Int GradientStop_GetPoint(Int o, Int index, Int pos, Int color)
     return true;
 }
 
-
-
-
-
-
 Int GradientStop_SetPoint(Int o, Int index, Int pos, Int color)
 {
     GradientStopPoint* oa;
@@ -184,11 +131,6 @@ Int GradientStop_SetPoint(Int o, Int index, Int pos, Int color)
     return true;
 }
 
-
-
-
-
-
 GradientStopPoint* GradientStop_PointPointer(Int o, Int index)
 {
     GradientStop* m;
@@ -200,7 +142,7 @@ GradientStopPoint* GradientStop_PointPointer(Int o, Int index)
 
     Int dataValue;
 
-    dataValue = Data_GetValue(m->Data);
+    dataValue = Data_ValueGet(m->Data);
 
 
 
@@ -217,5 +159,3 @@ GradientStopPoint* GradientStop_PointPointer(Int o, Int index)
 
     return a;
 }
-
-
