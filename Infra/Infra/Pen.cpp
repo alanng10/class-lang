@@ -1,18 +1,8 @@
 #include "Pen.hpp"
 
-
-
-
 CppClassNew(Pen)
 
-
-
-
-
-
-
-
-Bool Pen_Init(Int o)
+Int Pen_Init(Int o)
 {
     Pen* m;
 
@@ -89,7 +79,7 @@ Bool Pen_Init(Int o)
 
     Int ua;
 
-    ua = Brush_GetIntern(brush);
+    ua = Brush_Intern(brush);
 
 
 
@@ -132,12 +122,7 @@ Bool Pen_Init(Int o)
     return true;
 }
 
-
-
-
-
-
-Bool Pen_Final(Int o)
+Int Pen_Final(Int o)
 {
     Pen* m;
 
@@ -153,174 +138,13 @@ Bool Pen_Final(Int o)
     return true;
 }
 
-
-
-
-
-
-
-Int Pen_GetKind(Int o)
-{
-    Pen* m;
-
-    m = CP(o);
-
-
-    return m->Kind;
-}
-
-
-
-
-
-Bool Pen_SetKind(Int o, Int value)
-{
-    Pen* m;
-
-    m = CP(o);
-
-
-    m->Kind = value;
-
-
-    return true;
-}
-
-
-
-
-
-
-
-Int Pen_GetWidth(Int o)
-{
-    Pen* m;
-
-    m = CP(o);
-
-
-    return m->Width;
-}
-
-
-
-
-
-Bool Pen_SetWidth(Int o, Int value)
-{
-    Pen* m;
-
-    m = CP(o);
-
-
-    m->Width = value;
-
-
-    return true;
-}
-
-
-
-
-
-
-Int Pen_GetBrush(Int o)
-{
-    Pen* m;
-
-    m = CP(o);
-
-
-    return m->Brush;
-}
-
-
-
-
-
-Bool Pen_SetBrush(Int o, Int value)
-{
-    Pen* m;
-
-    m = CP(o);
-
-
-    m->Brush = value;
-
-
-    return true;
-}
-
-
-
-
-
-
-
-Int Pen_GetCap(Int o)
-{
-    Pen* m;
-
-    m = CP(o);
-
-
-    return m->Cap;
-}
-
-
-
-
-
-Bool Pen_SetCap(Int o, Int value)
-{
-    Pen* m;
-
-    m = CP(o);
-
-
-    m->Cap = value;
-
-
-    return true;
-}
-
-
-
-
-
-Int Pen_GetJoin(Int o)
-{
-    Pen* m;
-
-    m = CP(o);
-
-
-    return m->Join;
-}
-
-
-
-
-
-Bool Pen_SetJoin(Int o, Int value)
-{
-    Pen* m;
-
-    m = CP(o);
-
-
-    m->Join = value;
-
-
-    return true;
-}
-
-
-
-
-
-
-Int Pen_GetIntern(Int o)
+CppField(Pen, Kind)
+CppField(Pen, Width)
+CppField(Pen, Brush)
+CppField(Pen, Cap)
+CppField(Pen, Join)
+
+Int Pen_Intern(Int o)
 {
     Pen* m;
 
@@ -336,5 +160,3 @@ Int Pen_GetIntern(Int o)
 
     return u;
 }
-
-

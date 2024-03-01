@@ -89,7 +89,7 @@ Int Brush_Intern(Int o);
 
 
 
-Int Pen_GetIntern(Int o);
+Int Pen_Intern(Int o);
 
 
 
