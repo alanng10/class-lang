@@ -70,4 +70,25 @@ Int c##_Delete(Int o)\
     a##U = a##_u;\
 
 
+#define CppFieldGet(varClass, name) \
+Int varClass##_##name##Get(Int o)\
+{\
+    varClass* m;\
+    m = (varClass*)o;\
+    return m->name;\
+}\
 
+
+#define CppFieldSet(varClass, name) \
+Int varClass##_##name##Set(Int o, Int value)\
+{\
+    varClass* m;\
+    m = (varClass*)o;\
+    m->name = value;\
+    return true;\
+}\
+
+
+#define CppField(varClass, name) \
+CppFieldGet(varClass, name)\
+CppFieldSet(varClass, name)
