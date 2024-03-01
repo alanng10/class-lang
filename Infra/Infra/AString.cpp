@@ -279,7 +279,7 @@ Int String_ConstantDelete(Int o)
 
 
 
-Int String_SetQString(Int result, Int a)
+Int String_QStringSet(Int result, Int a)
 {
     Int count;
 
@@ -328,7 +328,7 @@ Int String_SetQString(Int result, Int a)
 
 
 
-Int String_SetQStringRaw(Int result, Int a)
+Int String_QStringSetRaw(Int result, Int a)
 {
     Int count;
     count = String_CountGet(a);
