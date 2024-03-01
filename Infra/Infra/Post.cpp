@@ -54,43 +54,7 @@ Int Post_Final(Int o)
     return true;
 }
 
-
-
-
-
-
-
-
-Int Post_GetExecuteState(Int o)
-{
-    Post* m;
-
-    m = CP(o);
-
-
-    return m->ExecuteState;
-}
-
-
-
-
-Int Post_SetExecuteState(Int o, Int value)
-{
-    Post* m;
-
-    m = CP(o);
-
-
-    m->ExecuteState = value;
-
-
-    return true;
-}
-
-
-
-
-
+CppField(Post, ExecuteState)
 
 Int Post_Execute(Int o)
 {
@@ -135,12 +99,12 @@ Int Post_ExecuteHandle(Int o)
 
     Int aa;
 
-    aa = State_GetMaide(state);
+    aa = State_MaideGet(state);
 
 
     Int arg;
 
-    arg = State_GetArg(state);
+    arg = State_ArgGet(state);
 
 
 
