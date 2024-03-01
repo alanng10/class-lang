@@ -99,7 +99,7 @@ Int Font_GetIntern(Int o);
 
 
 
-Int Transform_GetIntern(Int o);
+Int Transform_Intern(Int o);
 
 
 

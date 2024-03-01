@@ -1,15 +1,6 @@
 #include "Transform.hpp"
 
-
-
-
 CppClassNew(Transform)
-
-
-
-
-
-
 
 Int Transform_Init(Int o)
 {
@@ -34,11 +25,6 @@ Int Transform_Init(Int o)
     return true;
 }
 
-
-
-
-
-
 Int Transform_Final(Int o)
 {
     Transform* m;
@@ -54,11 +40,7 @@ Int Transform_Final(Int o)
     return true;
 }
 
-
-
-
-
-Bool Transform_Reset(Int o)
+Int Transform_Reset(Int o)
 {
     Transform* m;
 
@@ -73,11 +55,7 @@ Bool Transform_Reset(Int o)
     return true;
 }
 
-
-
-
-
-Bool Transform_Offset(Int o, Int offsetLeft, Int offsetUp)
+Int Transform_Offset(Int o, Int offsetLeft, Int offsetUp)
 {
     Transform* m;
 
@@ -106,14 +84,7 @@ Bool Transform_Offset(Int o, Int offsetLeft, Int offsetUp)
     return true;
 }
 
-
-
-
-
-
-
-
-Bool Transform_Scale(Int o, Int horizScale, Int vertScale)
+Int Transform_Scale(Int o, Int horizScale, Int vertScale)
 {
     Transform* m;
 
@@ -147,7 +118,7 @@ Bool Transform_Scale(Int o, Int horizScale, Int vertScale)
 
 
 
-Bool Transform_Rotate(Int o, Int angle)
+Int Transform_Rotate(Int o, Int angle)
 {
     Transform* m;
 
@@ -267,13 +238,7 @@ Bool Transform_SetValue(Int o, Int row, Int col, Int value)
     return true;
 }
 
-
-
-
-
-
-
-Bool Transform_Multiply(Int o, Int other)
+Int Transform_Multiply(Int o, Int other)
 {
     Transform* m;
 
@@ -310,7 +275,7 @@ Bool Transform_Multiply(Int o, Int other)
 
 
 
-Bool Transform_IsIdentity(Int o)
+Int Transform_IsIdentity(Int o)
 {
     Transform* m;
 
@@ -337,7 +302,7 @@ Bool Transform_IsIdentity(Int o)
 
 
 
-Bool Transform_IsInvertible(Int o)
+Int Transform_IsInvertible(Int o)
 {
     Transform* m;
 
@@ -364,7 +329,7 @@ Bool Transform_IsInvertible(Int o)
 
 
 
-Bool Transform_Invert(Int o, Int result)
+Int Transform_Invert(Int o, Int result)
 {
     Transform* m;
 
@@ -414,12 +379,7 @@ Bool Transform_Invert(Int o, Int result)
     return true;
 }
 
-
-
-
-
-
-Bool Transform_Transpose(Int o, Int result)
+Int Transform_Transpose(Int o, Int result)
 {
     Transform* m;
 
@@ -490,13 +450,7 @@ Int Transform_Determinant(Int o)
     return oo;
 }
 
-
-
-
-
-
-
-Int Transform_GetIntern(Int o)
+Int Transform_Intern(Int o)
 {
     Transform* m;
 
