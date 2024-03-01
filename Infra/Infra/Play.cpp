@@ -53,7 +53,7 @@ Int Play_SetPlaySource(Int o)
 
 
 
-    String_SetQString(ua, m->Source);
+    String_QStringSet(ua, m->Source);
 
 
 
