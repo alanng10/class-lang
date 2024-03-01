@@ -312,14 +312,16 @@ Int Stat_TimeInit(Int o);
 
 
 
-#define Field(varClass, name) \
+#define FieldGet(varClass, name) \
 Int varClass##_##name##Get(Int o)\
 {\
     varClass* m;\
     m = CastPointer(o);\
     return m->name;\
 }\
-\
+
+
+#define FieldSet(varClass, name) \
 Int varClass##_##name##Set(Int o, Int value)\
 {\
     varClass* m;\
@@ -328,3 +330,7 @@ Int varClass##_##name##Set(Int o, Int value)\
     return true;\
 }\
 
+
+#define Field(varClass, name) \
+FieldGet(varClass, name)\
+FieldSet(varClass, name)
