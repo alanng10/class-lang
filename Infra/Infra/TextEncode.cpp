@@ -1,13 +1,6 @@
 #include "TextEncode.hpp"
 
-
-
-
 CppClassNew(TextEncode)
-
-
-
-
 
 Int TextEncode_Init(Int o)
 {
@@ -70,10 +63,6 @@ Int TextEncode_Init(Int o)
     return true;
 }
 
-
-
-
-
 Int TextEncode_Final(Int o)
 {
     TextEncode* m;
@@ -92,70 +81,8 @@ Int TextEncode_Final(Int o)
     return true;
 }
 
-
-
-
-
-
-Int TextEncode_GetKind(Int o)
-{
-    TextEncode* m;
-
-    m = CP(o);
-
-
-    return m->Kind;
-}
-
-
-
-
-Int TextEncode_SetKind(Int o, Int value)
-{
-    TextEncode* m;
-
-    m = CP(o);
-
-
-    m->Kind = value;
-
-
-    return true;
-}
-
-
-
-
-
-Int TextEncode_GetWriteBom(Int o)
-{
-    TextEncode* m;
-
-    m = CP(o);
-
-
-    return m->WriteBom;
-}
-
-
-
-
-Int TextEncode_SetWriteBom(Int o, Int value)
-{
-    TextEncode* m;
-
-    m = CP(o);
-
-
-    m->WriteBom = value;
-
-
-    return true;
-}
-
-
-
-
+CppField(TextEncode, Kind)
+CppField(TextEncode, WriteBom)
 
 Int TextEncode_GetStringCountMax(Int o, Int count)
 {
@@ -184,10 +111,6 @@ Int TextEncode_GetStringCountMax(Int o, Int count)
     return a;
 }
 
-
-
-
-
 Int TextEncode_GetString(Int o, Int result, Int data)
 {
     TextEncode* m;
@@ -206,13 +129,13 @@ Int TextEncode_GetString(Int o, Int result, Int data)
 
     Int dataCount;
 
-    dataCount = Data_GetCount(data);
+    dataCount = Data_CountGet(data);
 
 
 
     Int dataValue;
 
-    dataValue = Data_GetValue(data);
+    dataValue = Data_ValueGet(data);
 
 
 
@@ -312,12 +235,12 @@ Int TextEncode_GetData(Int o, Int result, Int fromString)
 
     Int fromCount;
 
-    fromCount = String_GetCount(fromString);
+    fromCount = String_CountGet(fromString);
 
 
     Int fromData;
 
-    fromData = String_GetData(fromString);
+    fromData = String_DataGet(fromString);
 
 
 
