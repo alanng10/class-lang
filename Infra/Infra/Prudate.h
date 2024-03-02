@@ -142,10 +142,10 @@ Infra_Api Int TextEncode_KindSet(Int o, Int value);
 Infra_Api Int TextEncode_WriteBomGet(Int o);
 Infra_Api Int TextEncode_WriteBomSet(Int o, Int value);
 
-Infra_Api Int TextEncode_GetStringCountMax(Int o, Int count);
-Infra_Api Int TextEncode_GetString(Int o, Int result, Int data);
-Infra_Api Int TextEncode_GetDataCountMax(Int o, Int count);
-Infra_Api Int TextEncode_GetData(Int o, Int result, Int fromString);
+Infra_Api Int TextEncode_StringCountMax(Int o, Int count);
+Infra_Api Int TextEncode_String(Int o, Int result, Int data);
+Infra_Api Int TextEncode_DataCountMax(Int o, Int count);
+Infra_Api Int TextEncode_Data(Int o, Int result, Int fromString);
 
 InfraApiNew(Format)
 Infra_Api Int Format_ExecuteCount(Int o, Int varBase, Int argList);
@@ -184,9 +184,9 @@ Infra_Api Int FormatArg_CountGet(Int o);
 Infra_Api Int FormatArg_CountSet(Int o, Int value);
 
 InfraApiNew(Math)
-Infra_Api Int Math_GetValue(Int o, Int significand, Int exponent);
-Infra_Api Int Math_GetValueTen(Int o, Int significand, Int exponentTen);
-Infra_Api Int Math_GetCompose(Int o, Int value, Int significand, Int exponent);
+Infra_Api Int Math_Value(Int o, Int significand, Int exponent);
+Infra_Api Int Math_ValueTen(Int o, Int significand, Int exponentTen);
+Infra_Api Int Math_Compose(Int o, Int value, Int significand, Int exponent);
 Infra_Api Int Math_Add(Int o, Int a, Int b);
 Infra_Api Int Math_Sub(Int o, Int a, Int b);
 Infra_Api Int Math_Mul(Int o, Int a, Int b);
@@ -277,7 +277,7 @@ Infra_Api Int Main_TerminateStateSet(Int value);
 
 Infra_Api Int Main_Init();
 Infra_Api Int Main_Final();
-Infra_Api Int Main_SetIsCSharp(Int value);
+Infra_Api Int Main_IsCSharpSet(Int value);
 Infra_Api Int Main_ExecuteEventLoop();
 Infra_Api Int Main_ExitEventLoop(Int code);
 
@@ -288,6 +288,8 @@ Infra_Api Int Frame_TitleGet(Int o);
 Infra_Api Int Frame_TitleSet(Int o, Int value);
 Infra_Api Int Frame_VisibleGet(Int o);
 Infra_Api Int Frame_VisibleSet(Int o, Int value);
+Infra_Api Int Frame_SizeGet(Int o);
+Infra_Api Int Frame_SizeSet(Int o, Int value);
 Infra_Api Int Frame_ResizeStateGet(Int o);
 Infra_Api Int Frame_ResizeStateSet(Int o, Int value);
 Infra_Api Int Frame_TypeStateGet(Int o);
@@ -296,12 +298,11 @@ Infra_Api Int Frame_MouseStateGet(Int o);
 Infra_Api Int Frame_MouseStateSet(Int o, Int value);
 Infra_Api Int Frame_DrawStateGet(Int o);
 Infra_Api Int Frame_DrawStateSet(Int o, Int value);
-Infra_Api Int Frame_WindowStatGet(Int o);
-Infra_Api Int Frame_WindowStatSet(Int o, Int value);
+Infra_Api Int Frame_WindowCaseGet(Int o);
+Infra_Api Int Frame_WindowCaseSet(Int o, Int value);
 
+Infra_Api Int Frame_TitleThisSet(Int o);
 Infra_Api Int Frame_VideoOut(Int o);
-Infra_Api Int Frame_SizeGet(Int o);
-Infra_Api Int Frame_SetFrameTitle(Int o);
 Infra_Api Int Frame_Update(Int o, Int rect);
 Infra_Api Int Frame_Close(Int o);
 
@@ -332,8 +333,8 @@ Infra_Api Int Draw_CompositeSet(Int o, Int value);
 
 Infra_Api Int Draw_Start(Int o);
 Infra_Api Int Draw_End(Int o);
-Infra_Api Int Draw_SetDrawFillPos(Int o);
-Infra_Api Int Draw_SetDrawArea(Int o);
+Infra_Api Int Draw_FillPosThisSet(Int o);
+Infra_Api Int Draw_AreaThisSet(Int o);
 Infra_Api Int Draw_Clear(Int o, Int color);
 Infra_Api Int Draw_ExecuteLine(Int o, Int startPos, Int endPos);
 Infra_Api Int Draw_ExecuteArc(Int o, Int rect, Int angleRange);
@@ -369,18 +370,19 @@ Infra_Api Int Pen_CapSet(Int o, Int value);
 Infra_Api Int Pen_JoinGet(Int o);
 Infra_Api Int Pen_JoinSet(Int o, Int value);
 
-Infra_Api Int PointData_GetPoint(Int address, Int result);
-Infra_Api Int PointData_SetPoint(Int address, Int pos);
+Infra_Api Int PointData_PointGet(Int address, Int result);
+Infra_Api Int PointData_PointSet(Int address, Int pos);
 
 InfraApiNew(Image)
 Infra_Api Int Image_SizeGet(Int o);
 Infra_Api Int Image_SizeSet(Int o, Int value);
 Infra_Api Int Image_DataGet(Int o);
 Infra_Api Int Image_DataSet(Int o, Int value);
+Infra_Api Int Image_RowByteCountGet(Int o);
+Infra_Api Int Image_RowByteCountSet(Int o, Int value);
 
-Infra_Api Int Image_GetRowByteCount(Int o);
-Infra_Api Int Image_GetVideoOut(Int o);
-Infra_Api Int Image_CreateData(Int o);
+Infra_Api Int Image_VideoOut(Int o);
+Infra_Api Int Image_DataCreate(Int o);
 
 InfraApiNew(Font)
 Infra_Api Int Font_FamilyGet(Int o);
@@ -403,8 +405,8 @@ Infra_Api Int Transform_Reset(Int o);
 Infra_Api Int Transform_Offset(Int o, Int offsetLeft, Int offsetUp);
 Infra_Api Int Transform_Scale(Int o, Int horizScale, Int vertScale);
 Infra_Api Int Transform_Rotate(Int o, Int angle);
-Infra_Api Int Transform_GetValue(Int o, Int row, Int col);
-Infra_Api Int Transform_SetValue(Int o, Int row, Int col, Int value);
+Infra_Api Int Transform_ValueGet(Int o, Int row, Int col);
+Infra_Api Int Transform_ValueSet(Int o, Int row, Int col, Int value);
 Infra_Api Int Transform_Multiply(Int o, Int other);
 Infra_Api Int Transform_IsIdentity(Int o);
 Infra_Api Int Transform_IsInvertible(Int o);
@@ -442,8 +444,8 @@ InfraApiNew(GradientStop)
 Infra_Api Int GradientStop_CountGet(Int o);
 Infra_Api Int GradientStop_CountSet(Int o, Int value);
 
-Infra_Api Int GradientStop_GetPoint(Int o, Int index, Int pos, Int color);
-Infra_Api Int GradientStop_SetPoint(Int o, Int index, Int pos, Int color);
+Infra_Api Int GradientStop_PointGet(Int o, Int index, Int pos, Int color);
+Infra_Api Int GradientStop_PointSet(Int o, Int index, Int pos, Int color);
 
 InfraApiNew(ImageRead)
 Infra_Api Int ImageRead_StreamGet(Int o);
@@ -504,7 +506,7 @@ Infra_Api Int VideoOut_FrameStateSet(Int o, Int value);
 Infra_Api Int VideoOut_SizeStateGet(Int o);
 Infra_Api Int VideoOut_SizeStateSet(Int o, Int value);
 
-Infra_Api Int VideoOut_SetVideoSubtitle(Int o);
+Infra_Api Int VideoOut_SubtitleThisSet(Int o);
 
 typedef Int (*VideoOut_Frame_Maide)(Int videoOut, Int frame, Int arg);
 typedef Int (*VideoOut_Size_Maide)(Int videoOut, Int size, Int arg);
@@ -513,7 +515,7 @@ InfraApiNew(VideoFrame)
 Infra_Api Int VideoFrame_SizeGet(Int o);
 Infra_Api Int VideoFrame_SizeSet(Int o, Int value);
 
-Infra_Api Int VideoFrame_GetImage(Int o, Int image);
+Infra_Api Int VideoFrame_Image(Int o, Int image);
 
 InfraApiNew(AudioOut)
 Infra_Api Int AudioOut_MutedGet(Int o);
@@ -527,7 +529,7 @@ Infra_Api Int AudioEffect_SourceSet(Int o, Int value);
 Infra_Api Int AudioEffect_VolumeGet(Int o);
 Infra_Api Int AudioEffect_VolumeSet(Int o, Int value);
 
-Infra_Api Int AudioEffect_SetAudioSource(Int o);
+Infra_Api Int AudioEffect_SourceThisSet(Int o);
 Infra_Api Int AudioEffect_Play(Int o);
 Infra_Api Int AudioEffect_Stop(Int o);
 
@@ -543,7 +545,7 @@ Infra_Api Int Play_TimeSet(Int o, Int value);
 Infra_Api Int Play_PosGet(Int o);
 Infra_Api Int Play_PosSet(Int o, Int value);
 
-Infra_Api Int Play_SetPlaySource(Int o);
+Infra_Api Int Play_SourceThisSet(Int o);
 Infra_Api Int Play_HasVideo(Int o);
 Infra_Api Int Play_HasAudio(Int o);
 Infra_Api Int Play_Execute(Int o);
@@ -553,16 +555,17 @@ Infra_Api Int Play_Stop(Int o);
 InfraApiNew(Stream)
 Infra_Api Int Stream_KindGet(Int o);
 Infra_Api Int Stream_KindSet(Int o, Int value);
+Infra_Api Int Stream_StatusGet(Int o);
+Infra_Api Int Stream_StatusSet(Int o, Int value);
 
-Infra_Api Int Stream_GetCount(Int o);
-Infra_Api Int Stream_SetCount(Int o, Int value);
-Infra_Api Int Stream_GetPos(Int o);
-Infra_Api Int Stream_SetPos(Int o, Int value);
+Infra_Api Int Stream_CountGet(Int o);
+Infra_Api Int Stream_CountSet(Int o, Int value);
+Infra_Api Int Stream_PosGet(Int o);
+Infra_Api Int Stream_PosSet(Int o, Int value);
 Infra_Api Int Stream_HasCount(Int o);
 Infra_Api Int Stream_HasPos(Int o);
 Infra_Api Int Stream_CanRead(Int o);
 Infra_Api Int Stream_CanWrite(Int o);
-Infra_Api Int Stream_GetStatus(Int o);
 Infra_Api Int Stream_Read(Int o, Int data, Int range);
 Infra_Api Int Stream_Write(Int o, Int data, Int range);
 
@@ -583,7 +586,7 @@ Infra_Api Int Storage_StreamSet(Int o, Int value);
 Infra_Api Int Storage_StatusGet(Int o);
 Infra_Api Int Storage_StatusSet(Int o, Int value);
 
-Infra_Api Int Storage_SetCount(Int o, Int value);
+Infra_Api Int Storage_CountSet(Int o, Int value);
 Infra_Api Int Storage_Open(Int o);
 Infra_Api Int Storage_Close(Int o);
 
@@ -594,14 +597,14 @@ Infra_Api Int StorageArrange_Remove(Int o, Int path);
 Infra_Api Int StorageArrange_Exist(Int o, Int path);
 Infra_Api Int StorageArrange_Link(Int o, Int path, Int linkPath);
 Infra_Api Int StorageArrange_LinkTarget(Int o, Int path);
-Infra_Api Int StorageArrange_GetPermit(Int o, Int path);
-Infra_Api Int StorageArrange_SetPermit(Int o, Int path, Int value);
+Infra_Api Int StorageArrange_PermitGet(Int o, Int path);
+Infra_Api Int StorageArrange_PermitSet(Int o, Int path, Int value);
 Infra_Api Int StorageArrange_MoveToTrash(Int o, Int path, Int trashPath);
-Infra_Api Int StorageArrange_CreateFold(Int o, Int path, Int permit);
-Infra_Api Int StorageArrange_CreateFoldToPath(Int o, Int path);
-Infra_Api Int StorageArrange_RemoveFold(Int o, Int path);
-Infra_Api Int StorageArrange_RemoveFoldRecursive(Int o, Int path);
-Infra_Api Int StorageArrange_RenameFold(Int o, Int path, Int destPath);
+Infra_Api Int StorageArrange_FoldCreate(Int o, Int path, Int permit);
+Infra_Api Int StorageArrange_FoldCreateToPath(Int o, Int path);
+Infra_Api Int StorageArrange_FoldRemove(Int o, Int path);
+Infra_Api Int StorageArrange_FoldRemoveRecursive(Int o, Int path);
+Infra_Api Int StorageArrange_FoldRename(Int o, Int path, Int destPath);
 Infra_Api Int StorageArrange_EntryCount(Int o, Int foldPath);
 Infra_Api Int StorageArrange_EntryName(Int o, Int path);
 Infra_Api Int StorageArrange_BaseName(Int o, Int name);
@@ -728,7 +731,7 @@ Infra_Api Int Thread_ExitEventLoop(Int o, Int code);
 Infra_Api Int Thread_IsMainThread(Int o);
 
 Infra_Api Int Thread_Sleep(Int time);
-Infra_Api Int Thread_GetCurrentThread();
+Infra_Api Int Thread_CurrentThread();
 
 typedef Int (*Thread_Execute_Maide)(Int thread, Int arg);
 
@@ -823,6 +826,12 @@ Infra_Api Int Process_WorkFoldGet(Int o);
 Infra_Api Int Process_WorkFoldSet(Int o, Int value);
 Infra_Api Int Process_EnvironmentGet(Int o);
 Infra_Api Int Process_EnvironmentSet(Int o, Int value);
+Infra_Api Int Process_IdentGet(Int o);
+Infra_Api Int Process_IdentSet(Int o, Int value);
+Infra_Api Int Process_StatusGet(Int o);
+Infra_Api Int Process_StatusSet(Int o, Int value);
+Infra_Api Int Process_ExitKindGet(Int o);
+Infra_Api Int Process_ExitKindSet(Int o, Int value);
 Infra_Api Int Process_StartedStateGet(Int o);
 Infra_Api Int Process_StartedStateSet(Int o, Int value);
 Infra_Api Int Process_FinishedStateGet(Int o);
@@ -833,11 +842,8 @@ Infra_Api Int Process_ReadErrStateGet(Int o);
 Infra_Api Int Process_ReadErrStateSet(Int o, Int value);
 
 Infra_Api Int Process_Execute(Int o);
-Infra_Api Int Process_GetIdent(Int o);
 Infra_Api Int Process_Wait(Int o);
 Infra_Api Int Process_Terminate(Int o);
-Infra_Api Int Process_GetStatus(Int o);
-Infra_Api Int Process_GetExitKind(Int o);
 Infra_Api Int Process_ReadOut(Int o);
 Infra_Api Int Process_ReadErr(Int o);
 
