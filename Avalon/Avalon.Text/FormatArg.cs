@@ -100,19 +100,19 @@ public class FormatArg : Any
         valueCountU = (ulong)this.ValueCount;
         ulong countU;
         countU = (ulong)this.Count;
-        Extern.FormatArg_SetPos(this.Intern, posU);
-        Extern.FormatArg_SetKind(this.Intern, kindU);
-        Extern.FormatArg_SetValue(this.Intern, valueU);
-        Extern.FormatArg_SetAlignLeft(this.Intern, alignLeftU);
-        Extern.FormatArg_SetFieldWidth(this.Intern, fieldWidthU);
-        Extern.FormatArg_SetMaxWidth(this.Intern, maxWidthU);
-        Extern.FormatArg_SetBase(this.Intern, baseU);
-        Extern.FormatArg_SetCase(this.Intern, caseU);
-        Extern.FormatArg_SetSign(this.Intern, signU);
-        Extern.FormatArg_SetFillChar(this.Intern, fillCharU);
-        Extern.FormatArg_SetHasCount(this.Intern, hasCountU);
-        Extern.FormatArg_SetValueCount(this.Intern, valueCountU);
-        Extern.FormatArg_SetCount(this.Intern, countU);
+        Extern.FormatArg_PosSet(this.Intern, posU);
+        Extern.FormatArg_KindSet(this.Intern, kindU);
+        Extern.FormatArg_ValueSet(this.Intern, valueU);
+        Extern.FormatArg_AlignLeftSet(this.Intern, alignLeftU);
+        Extern.FormatArg_FieldWidthSet(this.Intern, fieldWidthU);
+        Extern.FormatArg_MaxWidthSet(this.Intern, maxWidthU);
+        Extern.FormatArg_BaseSet(this.Intern, baseU);
+        Extern.FormatArg_CaseSet(this.Intern, caseU);
+        Extern.FormatArg_SignSet(this.Intern, signU);
+        Extern.FormatArg_FillCharSet(this.Intern, fillCharU);
+        Extern.FormatArg_HasCountSet(this.Intern, hasCountU);
+        Extern.FormatArg_ValueCountSet(this.Intern, valueCountU);
+        Extern.FormatArg_CountSet(this.Intern, countU);
         return true;
     }
 
@@ -121,9 +121,9 @@ public class FormatArg : Any
         ulong hasCountU;
         ulong valueCountU;
         ulong countU;
-        hasCountU = Extern.FormatArg_GetHasCount(this.Intern);
-        valueCountU = Extern.FormatArg_GetValueCount(this.Intern);
-        countU = Extern.FormatArg_GetCount(this.Intern);
+        hasCountU = Extern.FormatArg_HasCountGet(this.Intern);
+        valueCountU = Extern.FormatArg_ValueCountGet(this.Intern);
+        countU = Extern.FormatArg_CountGet(this.Intern);
         this.HasCount = !(hasCountU == 0);
         this.ValueCount = (int)valueCountU;
         this.Count = (int)countU;

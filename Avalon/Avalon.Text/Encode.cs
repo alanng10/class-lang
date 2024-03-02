@@ -21,8 +21,8 @@ public class Encode : Any
         ub = (ulong)(ba ? 1 : 0);
 
         this.Intern = Extern.TextEncode_New();
-        Extern.TextEncode_SetKind(this.Intern, ua);
-        Extern.TextEncode_SetWriteBom(this.Intern, ub);
+        Extern.TextEncode_KindSet(this.Intern, ua);
+        Extern.TextEncode_WriteBomSet(this.Intern, ub);
         Extern.TextEncode_Init(this.Intern);
         return true;
     }
@@ -73,7 +73,7 @@ public class Encode : Any
         ua = (ulong)dataCount;
         ulong dataU;
         dataU = this.InternData;
-        Extern.Data_SetCount(dataU, ua);
+        Extern.Data_CountSet(dataU, ua);
 
         int a;
         a = this.InternIntern.TextEncodeGetString(this.Intern, text.Data, text.Range.Start, dataU, data.Value, range.Start);
@@ -104,7 +104,7 @@ public class Encode : Any
         ua = (ulong)textCount;
         ulong textU;
         textU = this.InternString;
-        Extern.String_SetCount(textU, ua);
+        Extern.String_CountSet(textU, ua);
 
         long a;
         a = this.InternIntern.TextEncodeGetData(this.Intern, data.Value, index, textU, text.Data, text.Range.Start);

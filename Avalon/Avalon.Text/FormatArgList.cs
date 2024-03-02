@@ -11,7 +11,7 @@ public class FormatArgList : Any
 
         this.Intern = Extern.Array_New();
 
-        Extern.Array_SetCount(this.Intern, countU);
+        Extern.Array_CountSet(this.Intern, countU);
         Extern.Array_Init(this.Intern);
 
         return true;
