@@ -1,128 +1,22 @@
 #include "Network.hpp"
 
-
-
-
 CppClassNew(Network)
-
-
-
-
-
 
 Int Network_Init(Int o)
 {
     return true;
 }
 
-
-
-
 Int Network_Final(Int o)
 {
     return true;
 }
 
+CppField(Network, HostName)
+CppField(Network, Port)
+CppField(Network, Stream)
 
-
-
-
-Int Network_GetHostName(Int o)
-{
-    Network* m;
-
-    m = CP(o);
-
-
-    return m->HostName;
-}
-
-
-
-
-
-Int Network_SetHostName(Int o, Int value)
-{
-    Network* m;
-
-    m = CP(o);
-
-
-    m->HostName = value;
-
-
-    return true;
-}
-
-
-
-
-
-
-
-Int Network_GetPort(Int o)
-{
-    Network* m;
-
-    m = CP(o);
-
-
-    return m->Port;
-}
-
-
-
-
-Int Network_SetPort(Int o, Int value)
-{
-    Network* m;
-
-    m = CP(o);
-
-
-    m->Port = value;
-
-
-    return true;
-}
-
-
-
-
-
-
-Int Network_GetStream(Int o)
-{
-    Network* m;
-
-    m = CP(o);
-
-
-    return m->Stream;
-}
-
-
-
-
-Int Network_SetStream(Int o, Int value)
-{
-    Network* m;
-
-    m = CP(o);
-
-
-    m->Stream = value;
-
-
-    return true;
-}
-
-
-
-
-
-
-Int Network_GetStatus(Int o)
+Int Network_StatusGet(Int o)
 {
     Network* m;
 
@@ -171,23 +65,12 @@ Int Network_GetStatus(Int o)
     return a;
 }
 
-
-
-
-
-
-Int Network_SetStatus(Int o, Int value)
+Int Network_StatusSet(Int o, Int value)
 {
     return true;
 }
 
-
-
-
-
-
-
-Int Network_GetCase(Int o)
+Int Network_CaseGet(Int o)
 {
     Network* m;
 
@@ -235,19 +118,10 @@ Int Network_GetCase(Int o)
     return a;
 }
 
-
-
-
-
-
-Int Network_SetCase(Int o, Int value)
+Int Network_CaseSet(Int o, Int value)
 {
     return true;
 }
-
-
-
-
 
 Int Network_Open(Int o)
 {
@@ -282,7 +156,7 @@ Int Network_Open(Int o)
 
 
 
-    String_SetQString(uu, hostName);
+    String_QStringSet(uu, hostName);
 
 
 
@@ -351,11 +225,6 @@ Int Network_Open(Int o)
     return true;
 }
 
-
-
-
-
-
 Int Network_ConnectedOpen(Int o)
 {
     Network* m;
@@ -412,17 +281,17 @@ Int Network_ConnectedOpen(Int o)
 
 
 
-    Stream_SetKind(stream, kind);
+    Stream_KindSet(stream, kind);
 
 
-    Stream_SetValue(stream, socket);
+    Stream_ValueSet(stream, socket);
 
 
 
-    Stream_SetCanRead(stream, canRead);
+    Stream_CanReadSet(stream, canRead);
 
 
-    Stream_SetCanWrite(stream, canWrite);
+    Stream_CanWriteSet(stream, canWrite);
 
 
 
@@ -430,11 +299,6 @@ Int Network_ConnectedOpen(Int o)
 
     return true;
 }
-
-
-
-
-
 
 Int Network_Close(Int o)
 {
@@ -490,11 +354,11 @@ Int Network_Close(Int o)
 
 
 
-    Stream_SetKind(stream, null);
+    Stream_KindSet(stream, null);
 
 
 
-    Stream_SetValue(stream, null);
+    Stream_ValueSet(stream, null);
 
 
 
@@ -626,17 +490,17 @@ Int Network_ServerSet(Int o, Int socket)
 
 
 
-    Stream_SetKind(stream, kind);
+    Stream_KindSet(stream, kind);
 
 
-    Stream_SetValue(stream, streamValue);
+    Stream_ValueSet(stream, streamValue);
 
 
 
-    Stream_SetCanRead(stream, canRead);
+    Stream_CanReadSet(stream, canRead);
 
 
-    Stream_SetCanWrite(stream, canWrite);
+    Stream_CanWriteSet(stream, canWrite);
 
 
 
@@ -703,7 +567,7 @@ Int Network_GetOpenSocket(Int o)
 
 
 
-Int Network_GetReadyCount(Int o)
+Int Network_ReadyCountGet(Int o)
 {
     Network* m;
 
@@ -748,113 +612,14 @@ Int Network_GetReadyCount(Int o)
 
 
 
-Int Network_SetReadyCount(Int o, Int value)
+Int Network_ReadyCountSet(Int o, Int value)
 {
     return true;
 }
 
-
-
-
-
-
-Int Network_GetCaseChangedState(Int o)
-{
-    Network* m;
-
-    m = CP(o);
-
-
-    return m->CaseChangedState;
-}
-
-
-
-
-
-Int Network_SetCaseChangedState(Int o, Int value)
-{
-    Network* m;
-
-    m = CP(o);
-
-
-    m->CaseChangedState = value;
-
-
-    return true;
-}
-
-
-
-
-
-
-
-Int Network_GetErrorState(Int o)
-{
-    Network* m;
-
-    m = CP(o);
-
-
-    return m->ErrorState;
-}
-
-
-
-
-
-Int Network_SetErrorState(Int o, Int value)
-{
-    Network* m;
-
-    m = CP(o);
-
-
-    m->ErrorState = value;
-
-
-    return true;
-}
-
-
-
-
-
-
-Int Network_GetReadyReadState(Int o)
-{
-    Network* m;
-
-    m = CP(o);
-
-
-    return m->ReadyReadState;
-}
-
-
-
-
-
-Int Network_SetReadyReadState(Int o, Int value)
-{
-    Network* m;
-
-    m = CP(o);
-
-
-    m->ReadyReadState = value;
-
-
-    return true;
-}
-
-
-
-
-
-
+CppField(Network, CaseChangedState)
+CppField(Network, ErrorState)
+CppField(Network, ReadyReadState)
 
 Int Network_CaseChanged(Int o)
 {
@@ -873,13 +638,13 @@ Int Network_CaseChanged(Int o)
 
     Int aa;
 
-    aa = State_GetMaide(state);
+    aa = State_MaideGet(state);
 
 
 
     Int arg;
 
-    arg = State_GetArg(state);
+    arg = State_ArgGet(state);
 
 
 
@@ -901,10 +666,6 @@ Int Network_CaseChanged(Int o)
     return true;
 }
 
-
-
-
-
 Int Network_Error(Int o)
 {
     Network* m;
@@ -922,13 +683,13 @@ Int Network_Error(Int o)
 
     Int aa;
 
-    aa = State_GetMaide(state);
+    aa = State_MaideGet(state);
 
 
 
     Int arg;
 
-    arg = State_GetArg(state);
+    arg = State_ArgGet(state);
 
 
 
@@ -950,11 +711,6 @@ Int Network_Error(Int o)
     return true;
 }
 
-
-
-
-
-
 Int Network_ReadyRead(Int o)
 {
     Network* m;
@@ -972,13 +728,13 @@ Int Network_ReadyRead(Int o)
 
     Int aa;
 
-    aa = State_GetMaide(state);
+    aa = State_MaideGet(state);
 
 
 
     Int arg;
 
-    arg = State_GetArg(state);
+    arg = State_ArgGet(state);
 
 
 
