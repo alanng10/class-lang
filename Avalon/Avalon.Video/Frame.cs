@@ -24,11 +24,11 @@ public class Frame : Any
         Extern.VideoFrame_GetImage(this.Intern, video.Intern);
         
         ulong size;
-        size = Extern.Image_GetSize(video.Intern);
+        size = Extern.Image_SizeGet(video.Intern);
         ulong w;
         ulong h;
-        w = Extern.Size_GetWidth(size);
-        h = Extern.Size_GetHeight(size);
+        w = Extern.Size_WidthGet(size);
+        h = Extern.Size_HeightGet(size);
         int width;
         int height;
         width = (int)w;

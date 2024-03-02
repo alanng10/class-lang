@@ -20,7 +20,7 @@ public class Out : Any
 
         this.Intern = Extern.VideoOut_New();
         Extern.VideoOut_Init(this.Intern);
-        Extern.VideoOut_SetFrameState(this.Intern, this.InternFrameState);
+        Extern.VideoOut_FrameStateSet(this.Intern, this.InternFrameState);
         this.Ident = this.Intern;
         return true;
     }
@@ -53,7 +53,7 @@ public class Out : Any
             {
                 u = this.FrameData.Intern;
             }
-            Extern.VideoOut_SetFrame(this.Intern, u);
+            Extern.VideoOut_FrameSet(this.Intern, u);
         }
     }
 
