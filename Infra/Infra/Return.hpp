@@ -1,25 +1,14 @@
 #pragma once
 
-
-
 #include <QString>
 #include <QStringList>
 
-
 #include "Probate.hpp"
-
-
-
 
 struct Return
 {
-    QString* String;
-
-
-    QStringList* StringList;
+    Int String;
+    Int StringList;
 };
-
-
-
 
 #define CP(a) ((Return*)(a))

@@ -23,115 +23,25 @@ Int Return_Final(Int o)
     return true;
 }
 
-
-
-
-
-Int Return_StringGet(Int o)
-{
-    Return* m;
-
-    m = CP(o);
-
-
-
-    Int a;
-
-    a = CastInt(m->String);
-
-
-    return a;
-}
-
-
-
-
-
-Int Return_StringSet(Int o, Int value)
-{
-    Return* m;
-
-    m = CP(o);
-
-
-
-    m->String = (QString*)value;
-
-
-
-    return true;
-}
-
-
-
-
-
-Int Return_StringListGet(Int o)
-{
-    Return* m;
-
-    m = CP(o);
-
-
-
-    Int a;
-
-    a = CastInt(m->StringList);
-
-
-    return a;
-}
-
-
-
-
-
-Int Return_StringListSet(Int o, Int value)
-{
-    Return* m;
-
-    m = CP(o);
-
-
-
-    m->StringList = (QStringList*)value;
-
-
-
-    return true;
-}
-
-
-
-
-
+CppField(Return, String)
+CppField(Return, StringList)
 
 Int Return_StringStart(Int o)
 {
     return true;
 }
 
-
-
-
 Int Return_StringEnd(Int o)
 {
     Return* m;
-
     m = CP(o);
 
+    QString* u;
+    u = (QString*)(m->String);
 
-
-
-    delete m->String;
-
-
+    delete u;
 
     m->String = null;
-
-
-
-
     return true;
 }
 
@@ -143,43 +53,31 @@ Int Return_StringEnd(Int o)
 Int Return_StringCount(Int o)
 {
     Return* m;
-
     m = CP(o);
 
+    QString* u;
+    u = (QString*)(m->String);
 
-
-    qsizetype u;
-
-    u = m->String->length();
-
-
+    qsizetype ua;
+    ua = u->length();
 
     Int a;
-
-    a = u;
-
-
-
+    a = ua;
     return a;
 }
-
-
-
-
-
 
 Int Return_StringResult(Int o, Int result)
 {
     Return* m;
-
     m = CP(o);
 
-
+    QString* u;
+    u = (QString*)(m->String);
 
 
     const QChar* sourceU;
 
-    sourceU = m->String->constData();
+    sourceU = u->constData();
 
 
 
@@ -238,21 +136,14 @@ Int Return_StringListStart(Int o)
 Int Return_StringListEnd(Int o)
 {
     Return* m;
-
     m = CP(o);
 
+    QStringList* u;
+    u = (QStringList*)(m->StringList);
 
-
-
-    delete m->StringList;
-
-
+    delete u;
 
     m->StringList = null;
-
-
-
-
     return true;
 }
 
@@ -264,62 +155,37 @@ Int Return_StringListEnd(Int o)
 Int Return_StringListCount(Int o)
 {
     Return* m;
-
     m = CP(o);
 
+    QStringList* u;
+    u = (QStringList*)(m->StringList);
 
-
-    qsizetype u;
-
-    u = m->StringList->size();
-
-
+    qsizetype ua;
+    ua = u->size();
 
     Int a;
-
-    a = u;
-
-
+    a = ua;
     return a;
 }
-
-
-
-
 
 Int Return_StringListItem(Int o, Int index)
 {
     Return* m;
-
     m = CP(o);
 
+    QStringList* u;
+    u = (QStringList*)(m->StringList);
 
-
-    qsizetype u;
-
-    u = index;
-
-
-
+    qsizetype ua;
+    ua = index;
 
     QString aa;
-
-    aa = m->StringList->at(u);
-
-
+    aa = u->at(ua);
 
     QString* oa;
-
     oa = new QString(aa);
 
-
-
     Int a;
-
     a = CastInt(oa);
-
-
     return a;
 }
-
-
