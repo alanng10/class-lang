@@ -1265,7 +1265,7 @@ Int Format_ExecuteCount(Int o, Int varBase, Int argList)
     i = 0;
     while (i < count)
     {
-        arg = Array_GetItem(argList, i);
+        arg = Array_ItemGet(argList, i);
 
         oa = CastPointer(arg);
 
@@ -1368,7 +1368,7 @@ Int Format_ExecuteResult(Int o, Int varBase, Int argList, Int result)
 
         while ((!b) & (argIndex < argCount))
         {
-            arg = Array_GetItem(argList, argIndex);
+            arg = Array_ItemGet(argList, argIndex);
 
             oo = CastPointer(arg);
 
