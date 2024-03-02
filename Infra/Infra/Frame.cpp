@@ -1,20 +1,8 @@
 #include "Frame.hpp"
 
-
-
-
 CppClassNew(Frame)
 
-
-
-#define CP(a) ((Frame*)(a))
-
-
-
-
-
-
-Bool Frame_Init(Int o)
+Int Frame_Init(Int o)
 {
     Frame* m;
 
@@ -102,10 +90,10 @@ Bool Frame_Init(Int o)
 
 
 
-    Size_SetWidth(m->Size, width);
+    Size_WidthSet(m->Size, width);
 
 
-    Size_SetHeight(m->Size, height);
+    Size_HeightSet(m->Size, height);
 
 
 
@@ -120,7 +108,7 @@ Bool Frame_Init(Int o)
 
 
 
-Bool Frame_Final(Int o)
+Int Frame_Final(Int o)
 {
     Frame* m;
 
@@ -161,42 +149,7 @@ Int Frame_GetSize(Int o)
     return m->Size;
 }
 
-
-
-
-
-Int Frame_GetTitle(Int o)
-{
-    Frame* m;
-
-    m = CP(o);
-
-
-
-    return m->Title;
-}
-
-
-
-
-Bool Frame_SetTitle(Int o, Int value)
-{
-    Frame* m;
-
-    m = CP(o);
-
-
-
-    m->Title = value;
-
-
-    return true;
-}
-
-
-
-
-
+CppField(Frame, Title)
 
 Int Frame_SetFrameTitle(Int o)
 {
@@ -219,7 +172,7 @@ Int Frame_SetFrameTitle(Int o)
 
 
 
-    String_SetQString(ua, m->Title);
+    String_QStringSet(ua, m->Title);
 
 
 
@@ -235,13 +188,7 @@ Int Frame_SetFrameTitle(Int o)
     return true;
 }
 
-
-
-
-
-
-
-Bool Frame_GetVisible(Int o)
+Int Frame_VisibleGet(Int o)
 {
     Frame* m;
 
@@ -265,12 +212,7 @@ Bool Frame_GetVisible(Int o)
     return bo;
 }
 
-
-
-
-
-
-Bool Frame_SetVisible(Int o, Bool value)
+Int Frame_VisibleSet(Int o, Bool value)
 {
     Frame* m;
 
@@ -293,105 +235,9 @@ Bool Frame_SetVisible(Int o, Bool value)
     return true;
 }
 
-
-
-
-
-
-
-Int Frame_GetDrawState(Int o)
-{
-    Frame* m;
-
-    m = CP(o);
-
-
-    return m->DrawState;
-}
-
-
-
-
-
-Int Frame_SetDrawState(Int o, Int value)
-{
-    Frame* m;
-
-    m = CP(o);
-
-
-    m->DrawState = value;
-
-
-    return true;
-}
-
-
-
-
-
-
-Int Frame_GetTypeState(Int o)
-{
-    Frame* m;
-
-    m = CP(o);
-
-
-    return m->TypeState;
-}
-
-
-
-
-
-Bool Frame_SetTypeState(Int o, Int value)
-{
-    Frame* m;
-
-    m = CP(o);
-
-
-    m->TypeState = value;
-
-
-    return true;
-}
-
-
-
-
-
-Int Frame_GetMouseState(Int o)
-{
-    Frame* m;
-
-    m = CP(o);
-
-
-    return m->MouseState;
-}
-
-
-
-
-
-Int Frame_SetMouseState(Int o, Int value)
-{
-    Frame* m;
-
-    m = CP(o);
-
-
-    m->MouseState = value;
-
-
-    return true;
-}
-
-
-
-
+CppField(Frame, DrawState)
+CppField(Frame, TypeState)
+CppField(Frame, MouseState)
 
 Int Frame_GetMouseEvent(Int o)
 {
@@ -431,11 +277,7 @@ Int Frame_GetVideoOut(Int o)
     return uu;
 }
 
-
-
-
-
-Bool Frame_Update(Int o, Int rect)
+Int Frame_Update(Int o, Int rect)
 {
     Frame* m;
 
@@ -446,7 +288,7 @@ Bool Frame_Update(Int o, Int rect)
 
     Int pos;
 
-    pos = Rect_GetPos(rect);
+    pos = Rect_PosGet(rect);
 
 
     Int left;
@@ -454,15 +296,15 @@ Bool Frame_Update(Int o, Int rect)
     Int up;
 
 
-    left = Pos_GetLeft(pos);
+    left = Pos_LeftGet(pos);
 
-    up = Pos_GetUp(pos);
+    up = Pos_UpGet(pos);
 
 
 
     Int size;
 
-    size = Rect_GetSize(rect);
+    size = Rect_SizeGet(rect);
 
 
     Int width;
@@ -470,9 +312,9 @@ Bool Frame_Update(Int o, Int rect)
     Int height;
 
 
-    width = Size_GetWidth(size);
+    width = Size_WidthGet(size);
 
-    height = Size_GetHeight(size);
+    height = Size_HeightGet(size);
 
 
 
@@ -505,11 +347,7 @@ Bool Frame_Update(Int o, Int rect)
     return true;
 }
 
-
-
-
-
-Bool Frame_Close(Int o)
+Int Frame_Close(Int o)
 {
     Frame* m;
 
@@ -523,8 +361,3 @@ Bool Frame_Close(Int o)
 
     return true;
 }
-
-
-
-
-
