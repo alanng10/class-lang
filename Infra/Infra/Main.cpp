@@ -183,7 +183,7 @@ Int Main_ExitEventLoop(Int code)
 
 
 
-Int Main_GetTerminateState()
+Int Main_TerminateStateGet()
 {
     Main* m;
 
@@ -198,7 +198,7 @@ Int Main_GetTerminateState()
 
 
 
-Bool Main_SetTerminateState(Int value)
+Int Main_TerminateStateSet(Int value)
 {
     Main* m;
 
@@ -216,7 +216,7 @@ Bool Main_SetTerminateState(Int value)
 
 
 
-Bool Main_SetCurrentThreadSignalHandle()
+Int Main_SetCurrentThreadSignalHandle()
 {
     Main* m;
 
@@ -255,12 +255,12 @@ void Main_SignalHandle(int signo)
 
     Int a;
 
-    a = State_GetMaide(state);
+    a = State_MaideGet(state);
 
 
     Int arg;
 
-    arg = State_GetArg(state);
+    arg = State_ArgGet(state);
 
 
 
