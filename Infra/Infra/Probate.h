@@ -121,11 +121,8 @@ Int Math_GetValueFromInternValue(Int o, Int a);
 
 
 
-Int Thread_GetHandle(Int o);
-
-
-
-Bool Thread_SetHandle(Int o, Int value);
+Int Thread_HandleGet(Int o);
+Int Thread_HandleSet(Int o, Int value);
 
 
 

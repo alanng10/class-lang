@@ -214,7 +214,7 @@ Int Thread_InitMainThread(Int o)
 
 
 
-    Thread_SetHandle(thread, handle);
+    Thread_HandleSet(thread, handle);
 
 
 
@@ -271,171 +271,11 @@ Int Thread_FinalMainThread(Int o)
     return true;
 }
 
-
-
-
-
-
-
-Int Thread_GetIdent(Int o)
-{
-    Thread* m;
-
-    m = CP(o);
-
-
-    return m->Ident;
-}
-
-
-
-
-
-Int Thread_SetIdent(Int o, Int value)
-{
-    Thread* m;
-
-    m = CP(o);
-
-
-    m->Ident = value;
-
-
-    return true;
-}
-
-
-
-
-
-
-Int Thread_GetExecuteState(Int o)
-{
-    Thread* m;
-
-    m = CP(o);
-
-
-    return m->ExecuteState;
-}
-
-
-
-
-
-Int Thread_SetExecuteState(Int o, Int value)
-{
-    Thread* m;
-
-    m = CP(o);
-
-
-    m->ExecuteState = value;
-
-
-    return true;
-}
-
-
-
-
-
-
-Int Thread_GetStatus(Int o)
-{
-    Thread* m;
-
-    m = CP(o);
-
-
-    return m->Status;
-}
-
-
-
-
-
-Int Thread_SetStatus(Int o, Int value)
-{
-    Thread* m;
-
-    m = CP(o);
-
-
-    m->Status = value;
-
-
-    return true;
-}
-
-
-
-
-
-
-Int Thread_GetCase(Int o)
-{
-    Thread* m;
-
-    m = CP(o);
-
-
-    return m->Case;
-}
-
-
-
-
-
-Int Thread_SetCase(Int o, Int value)
-{
-    Thread* m;
-
-    m = CP(o);
-
-
-    m->Case = value;
-
-
-    return true;
-}
-
-
-
-
-
-
-Int Thread_GetHandle(Int o)
-{
-    Thread* m;
-
-    m = CP(o);
-
-
-    return m->Handle;
-}
-
-
-
-
-
-Int Thread_SetHandle(Int o, Int value)
-{
-    Thread* m;
-
-    m = CP(o);
-
-
-    m->Handle = value;
-
-
-    return true;
-}
-
-
-
-
-
+CppField(Thread, Ident)
+CppField(Thread, ExecuteState)
+CppField(Thread, Status)
+CppField(Thread, Case)
+CppField(Thread, Handle)
 
 Int Thread_GetInternCaseMutex(Int o)
 {
@@ -461,11 +301,6 @@ Int Thread_GetInternCaseMutex(Int o)
     return oo;
 }
 
-
-
-
-
-
 Int Thread_GetInternHandleSemaphore(Int o)
 {
     Thread* m;
@@ -489,12 +324,6 @@ Int Thread_GetInternHandleSemaphore(Int o)
 
     return oo;
 }
-
-
-
-
-
-
 
 Int Thread_Execute(Int o)
 {

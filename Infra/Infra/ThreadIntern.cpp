@@ -38,7 +38,7 @@ void ThreadIntern::run()
 
 
 
-    Thread_SetHandle(thread, handle);
+    Thread_HandleSet(thread, handle);
 
 
 
@@ -70,7 +70,7 @@ void ThreadIntern::run()
 
 
 
-    Thread_SetCase(thread, executeCase);
+    Thread_CaseSet(thread, executeCase);
 
 
 
@@ -112,18 +112,18 @@ void ThreadIntern::run()
 
     Int state;
 
-    state = Thread_GetExecuteState(thread);
+    state = Thread_ExecuteStateGet(thread);
 
 
 
     Int aa;
 
-    aa = State_GetMaide(state);
+    aa = State_MaideGet(state);
 
 
     Int ab;
 
-    ab = State_GetArg(state);
+    ab = State_ArgGet(state);
 
 
 
@@ -148,7 +148,7 @@ void ThreadIntern::run()
 
 
 
-    Thread_SetStatus(thread, status);
+    Thread_StatusSet(thread, status);
 
 
 
@@ -184,7 +184,7 @@ void ThreadIntern::run()
 
 
 
-    Thread_SetCase(thread, finishCase);
+    Thread_CaseSet(thread, finishCase);
 
 
 
