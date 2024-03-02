@@ -4,4 +4,4 @@ echo Clean Module
 set AvalonModuleOutFold=.\Out\net6.0
 del /F /Q %AvalonModuleOutFold%\Avalon.* 2>NUL
 del /F /Q %AvalonModuleOutFold%\MakeProject.* 2>NUL
-rmdir /S /Q %AvalonModuleOutFold%\Lib
+rmdir /S /Q %AvalonModuleOutFold%\Lib 2>NUL
