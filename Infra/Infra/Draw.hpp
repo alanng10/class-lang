@@ -33,15 +33,15 @@ struct Draw
 
 #define RectValue(prefix) \
 Int prefix##Pos;\
-prefix##Pos = Rect_GetPos(prefix##Rect);\
+prefix##Pos = Rect_PosGet(prefix##Rect);\
 Int prefix##Left;\
-prefix##Left = Pos_GetLeft(prefix##Pos);\
+prefix##Left = Pos_LeftGet(prefix##Pos);\
 Int prefix##Up;\
-prefix##Up = Pos_GetUp(prefix##Pos);\
+prefix##Up = Pos_UpGet(prefix##Pos);\
 Int prefix##Size;\
-prefix##Size = Rect_GetSize(prefix##Rect);\
+prefix##Size = Rect_SizeGet(prefix##Rect);\
 Int prefix##Width;\
-prefix##Width = Size_GetWidth(prefix##Size);\
+prefix##Width = Size_WidthGet(prefix##Size);\
 Int prefix##Height;\
-prefix##Height = Size_GetHeight(prefix##Size);\
+prefix##Height = Size_HeightGet(prefix##Size);\
 

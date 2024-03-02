@@ -1,16 +1,8 @@
 #include "Draw.hpp"
 
-
-
-
 CppClassNew(Draw)
 
-
-
-
-
-
-Bool Draw_Init(Int o)
+Int Draw_Init(Int o)
 {
     Draw* m;
 
@@ -69,14 +61,7 @@ Bool Draw_Init(Int o)
     return true;
 }
 
-
-
-
-
-
-
-
-Bool Draw_Final(Int o)
+Int Draw_Final(Int o)
 {
     Draw* m;
 
@@ -109,60 +94,10 @@ Bool Draw_Final(Int o)
     return true;
 }
 
+CppField(Draw, Size)
+CppFieldGet(Draw, Out)
 
-
-
-
-
-Int Draw_GetSize(Int o)
-{
-    Draw* m;
-
-    m = CP(o);
-
-
-
-    return m->Size;
-}
-
-
-
-
-
-Bool Draw_SetSize(Int o, Int value)
-{
-    Draw* m;
-
-    m = CP(o);
-
-
-
-    m->Size = value;
-
-
-    return true;
-}
-
-
-
-
-
-Int Draw_GetOut(Int o)
-{
-    Draw* m;
-
-    m = CP(o);
-
-
-
-    return m->Out;
-}
-
-
-
-
-
-Bool Draw_SetOut(Int o, Int value)
+Int Draw_OutSet(Int o, Int value)
 {
     Draw* m;
 
@@ -218,47 +153,9 @@ Bool Draw_SetOut(Int o, Int value)
     return true;
 }
 
+CppField(Draw, Area)
 
-
-
-
-
-Int Draw_GetArea(Int o)
-{
-    Draw* m;
-
-    m = CP(o);
-
-
-
-    return m->Area;
-}
-
-
-
-
-
-
-Bool Draw_SetArea(Int o, Int value)
-{
-    Draw* m;
-
-    m = CP(o);
-
-
-
-    m->Area = value;
-
-
-
-    return true;
-}
-
-
-
-
-
-Bool Draw_Start(Int o)
+Int Draw_Start(Int o)
 {
     Draw* m;
 
@@ -292,14 +189,7 @@ Bool Draw_Start(Int o)
     return true;
 }
 
-
-
-
-
-
-
-
-Bool Draw_End(Int o)
+Int Draw_End(Int o)
 {
     Draw* m;
 
@@ -315,28 +205,9 @@ Bool Draw_End(Int o)
     return true;
 }
 
+CppFieldGet(Draw, Brush)
 
-
-
-
-
-Int Draw_GetBrush(Int o)
-{
-    Draw* m;
-
-    m = CP(o);
-
-
-
-    return m->Brush;
-}
-
-
-
-
-
-
-Bool Draw_SetBrush(Int o, Int value)
+Int Draw_BrushSet(Int o, Int value)
 {
     Draw* m;
 
@@ -364,7 +235,7 @@ Bool Draw_SetBrush(Int o, Int value)
 
     Int u;
 
-    u = Brush_GetIntern(m->Brush);
+    u = Brush_Intern(m->Brush);
 
 
 
@@ -383,27 +254,9 @@ Bool Draw_SetBrush(Int o, Int value)
     return true;
 }
 
+CppFieldGet(Draw, Pen)
 
-
-
-
-
-Int Draw_GetPen(Int o)
-{
-    Draw* m;
-
-    m = CP(o);
-
-
-
-    return m->Pen;
-}
-
-
-
-
-
-Bool Draw_SetPen(Int o, Int value)
+Int Draw_PenSet(Int o, Int value)
 {
     Draw* m;
 
@@ -430,7 +283,7 @@ Bool Draw_SetPen(Int o, Int value)
 
     Int u;
 
-    u = Pen_GetIntern(m->Pen);
+    u = Pen_Intern(m->Pen);
 
 
 
@@ -449,27 +302,9 @@ Bool Draw_SetPen(Int o, Int value)
     return true;
 }
 
+CppFieldGet(Draw, Font)
 
-
-
-
-
-Int Draw_GetFont(Int o)
-{
-    Draw* m;
-
-    m = CP(o);
-
-
-
-    return m->Font;
-}
-
-
-
-
-
-Bool Draw_SetFont(Int o, Int value)
+Int Draw_FontSet(Int o, Int value)
 {
     Draw* m;
 
@@ -496,7 +331,7 @@ Bool Draw_SetFont(Int o, Int value)
 
     Int u;
 
-    u = Font_GetIntern(m->Font);
+    u = Font_Intern(m->Font);
 
 
 
@@ -515,29 +350,9 @@ Bool Draw_SetFont(Int o, Int value)
     return true;
 }
 
+CppFieldGet(Draw, Transform)
 
-
-
-
-
-
-Int Draw_GetTransform(Int o)
-{
-    Draw* m;
-
-    m = CP(o);
-
-
-
-    return m->Transform;
-}
-
-
-
-
-
-
-Bool Draw_SetTransform(Int o, Int value)
+Int Draw_TransformSet(Int o, Int value)
 {
     Draw* m;
 
@@ -565,7 +380,7 @@ Bool Draw_SetTransform(Int o, Int value)
 
     Int u;
 
-    u = Transform_GetIntern(m->Transform);
+    u = Transform_Intern(m->Transform);
 
 
 
@@ -586,67 +401,10 @@ Bool Draw_SetTransform(Int o, Int value)
     return true;
 }
 
+CppField(Draw, FillPos)
+CppFieldGet(Draw, Composite)
 
-
-
-
-
-
-Int Draw_GetFillPos(Int o)
-{
-    Draw* m;
-
-    m = CP(o);
-
-
-
-    return m->FillPos;
-}
-
-
-
-
-
-
-Bool Draw_SetFillPos(Int o, Int value)
-{
-    Draw* m;
-
-    m = CP(o);
-
-
-
-    m->FillPos = value;
-
-
-
-    return true;
-}
-
-
-
-
-
-
-
-
-Int Draw_GetComposite(Int o)
-{
-    Draw* m;
-
-    m = CP(o);
-
-
-
-    return m->Composite;
-}
-
-
-
-
-
-
-Bool Draw_SetComposite(Int o, Int value)
+Int Draw_SetComposite(Int o, Int value)
 {
     Draw* m;
 
@@ -704,12 +462,7 @@ Bool Draw_SetComposite(Int o, Int value)
     return true;
 }
 
-
-
-
-
-
-Bool Draw_SetDrawFillPos(Int o)
+Int Draw_SetDrawFillPos(Int o)
 {
     Draw* m;
 
@@ -723,9 +476,9 @@ Bool Draw_SetDrawFillPos(Int o)
     Int up;
 
 
-    left = Pos_GetLeft(m->FillPos);
+    left = Pos_LeftGet(m->FillPos);
 
-    up = Pos_GetUp(m->FillPos);
+    up = Pos_UpGet(m->FillPos);
 
 
 
@@ -756,7 +509,7 @@ Bool Draw_SetDrawFillPos(Int o)
 
 
 
-Bool Draw_SetDrawArea(Int o)
+Int Draw_SetDrawArea(Int o)
 {
     Draw* m;
 
@@ -841,10 +594,6 @@ Bool Draw_SetDrawArea(Int o)
     return true;
 }
 
-
-
-
-
 Int Draw_Clear(Int o, Int color)
 {
     Draw* m;
@@ -865,9 +614,9 @@ Int Draw_Clear(Int o, Int color)
     Int height;
 
 
-    width = Size_GetWidth(size);
+    width = Size_WidthGet(size);
 
-    height = Size_GetHeight(size);
+    height = Size_HeightGet(size);
 
 
 
@@ -918,7 +667,7 @@ Int Draw_Clear(Int o, Int color)
 
 
 
-Bool Draw_ExecuteLine(Int o, Int startPos, Int endPos)
+Int Draw_ExecuteLine(Int o, Int startPos, Int endPos)
 {
     Draw* m;
 
