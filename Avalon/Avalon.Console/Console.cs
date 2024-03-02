@@ -68,7 +68,7 @@ public class Console : Any
         ulong uu;
         uu = Extern.Console_Read(this.Intern);
 
-        Extern.Return_SetString(this.InternReturn, uu);
+        Extern.Return_StringSet(this.InternReturn, uu);
 
         Extern.Return_StringStart(this.InternReturn);
         ulong countU;
@@ -80,12 +80,12 @@ public class Console : Any
         ulong u;
         u = Extern.String_New();
         Extern.String_Init(u);
-        Extern.String_SetCount(u, countU);
-        Extern.String_SetData(u, data);
+        Extern.String_CountSet(u, countU);
+        Extern.String_DataSet(u, data);
         Extern.Return_StringResult(this.InternReturn, u);
         Extern.Return_StringEnd(this.InternReturn);
 
-        Extern.Return_SetString(this.InternReturn, 0);
+        Extern.Return_StringSet(this.InternReturn, 0);
 
         int count;
         count = (int)countU;
