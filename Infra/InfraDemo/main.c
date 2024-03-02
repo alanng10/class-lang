@@ -1222,7 +1222,7 @@ int main(int argc, char* argv[])
     semaphore = Semaphore_New();
 
 
-    Semaphore_SetInitCount(semaphore, semaphoreInitCount);
+    Semaphore_InitCountSet(semaphore, semaphoreInitCount);
 
 
     Semaphore_Init(semaphore);
@@ -1300,7 +1300,7 @@ int main(int argc, char* argv[])
     State_Init(threadOExecuteState);
 
 
-    State_SetMaide(threadOExecuteState, threadOu);
+    State_MaideSet(threadOExecuteState, threadOu);
 
 
 
@@ -1315,7 +1315,7 @@ int main(int argc, char* argv[])
 
 
 
-    Thread_SetExecuteState(threadO, threadOExecuteState);
+    Thread_ExecuteStateSet(threadO, threadOExecuteState);
 
 
 
@@ -1372,10 +1372,10 @@ int main(int argc, char* argv[])
 
 
 
-    Brush_SetKind(Brush, brushKind);
+    Brush_KindSet(Brush, brushKind);
 
 
-    Brush_SetColor(Brush, 0xff0000ff);
+    Brush_ColorSet(Brush, 0xff0000ff);
 
 
 
@@ -1403,10 +1403,10 @@ int main(int argc, char* argv[])
 
 
 
-    Brush_SetKind(penRectBrush, penRectBrushKind);
+    Brush_KindSet(penRectBrush, penRectBrushKind);
 
 
-    Brush_SetColor(penRectBrush, 0xff00ff00);
+    Brush_ColorSet(penRectBrush, 0xff00ff00);
 
 
     Brush_Init(penRectBrush);
@@ -1436,19 +1436,19 @@ int main(int argc, char* argv[])
     PenRect = Pen_New();
 
 
-    Pen_SetKind(PenRect, penRectKind);
+    Pen_KindSet(PenRect, penRectKind);
 
 
-    Pen_SetWidth(PenRect, 10);
+    Pen_WidthSet(PenRect, 10);
 
 
-    Pen_SetBrush(PenRect, penRectBrush);
+    Pen_BrushSet(PenRect, penRectBrush);
 
 
-    Pen_SetCap(PenRect, penRectCap);
+    Pen_CapSet(PenRect, penRectCap);
 
 
-    Pen_SetJoin(PenRect, penRectJoin);
+    Pen_JoinSet(PenRect, penRectJoin);
 
 
 
@@ -1473,10 +1473,10 @@ int main(int argc, char* argv[])
 
 
 
-    Brush_SetKind(penTextBrush, penTextBrushKind);
+    Brush_KindSet(penTextBrush, penTextBrushKind);
 
 
-    Brush_SetColor(penTextBrush, 0xff0000ff);
+    Brush_ColorSet(penTextBrush, 0xff0000ff);
 
 
     Brush_Init(penTextBrush);
@@ -1506,19 +1506,19 @@ int main(int argc, char* argv[])
     PenText = Pen_New();
 
 
-    Pen_SetKind(PenText, penTextKind);
+    Pen_KindSet(PenText, penTextKind);
 
 
-    Pen_SetWidth(PenText, 4);
+    Pen_WidthSet(PenText, 4);
 
 
-    Pen_SetBrush(PenText, penTextBrush);
+    Pen_BrushSet(PenText, penTextBrush);
 
 
-    Pen_SetCap(PenText, penTextCap);
+    Pen_CapSet(PenText, penTextCap);
 
 
-    Pen_SetJoin(PenText, penTextJoin);
+    Pen_JoinSet(PenText, penTextJoin);
 
 
     Pen_Init(PenText);
@@ -1552,10 +1552,10 @@ int main(int argc, char* argv[])
     Rect_Init(RectA);
 
 
-    Rect_SetPos(RectA, rectPosA);
+    Rect_PosSet(RectA, rectPosA);
 
 
-    Rect_SetSize(RectA, rectSizeA);
+    Rect_SizeSet(RectA, rectSizeA);
 
 
 
@@ -1585,10 +1585,10 @@ int main(int argc, char* argv[])
     Rect_Init(RectB);
 
 
-    Rect_SetPos(RectB, rectPosB);
+    Rect_PosSet(RectB, rectPosB);
 
 
-    Rect_SetSize(RectB, rectSizeB);
+    Rect_SizeSet(RectB, rectSizeB);
 
 
 
@@ -1648,10 +1648,10 @@ int main(int argc, char* argv[])
     Data_Init(PointListData);
 
 
-    Data_SetCount(PointListData, pointListDataCount);
+    Data_CountSet(PointListData, pointListDataCount);
 
 
-    Data_SetValue(PointListData, pointListDataValue);
+    Data_ValueSet(PointListData, pointListDataValue);
 
 
 
@@ -1712,25 +1712,25 @@ int main(int argc, char* argv[])
     Font = Font_New();
 
 
-    Font_SetFamily(Font, fontFamily);
+    Font_FamilySet(Font, fontFamily);
 
 
-    Font_SetSize(Font, 16);
+    Font_SizeSet(Font, 16);
 
 
-    Font_SetWeight(Font, 600);
+    Font_WeightSet(Font, 600);
 
 
-    Font_SetItalic(Font, true);
+    Font_ItalicSet(Font, true);
 
 
-    Font_SetUnderline(Font, true);
+    Font_UnderlineSet(Font, true);
 
 
-    Font_SetOverline(Font, true);
+    Font_OverlineSet(Font, true);
 
 
-    Font_SetStrikeout(Font, true);
+    Font_StrikeoutSet(Font, true);
 
 
 
@@ -1788,13 +1788,13 @@ int main(int argc, char* argv[])
 
 
 
-    Storage_SetPath(storage, imagePath);
+    Storage_PathSet(storage, imagePath);
 
 
-    Storage_SetMode(storage, storageMode);
+    Storage_ModeSet(storage, storageMode);
 
 
-    Storage_SetStream(storage, stream);
+    Storage_StreamSet(storage, stream);
 
 
 
@@ -1817,7 +1817,7 @@ int main(int argc, char* argv[])
 
 
 
-    ImageRead_SetStream(imageRead, stream);
+    ImageRead_StreamSet(imageRead, stream);
 
 
 
@@ -1850,10 +1850,10 @@ int main(int argc, char* argv[])
     Image = Image_New();
 
 
-    Image_SetSize(Image, imageSize);
+    Image_SizeSet(Image, imageSize);
 
 
-    Image_SetData(Image, imageData);
+    Image_DataSet(Image, imageData);
 
 
     Image_Init(Image);
@@ -1861,7 +1861,7 @@ int main(int argc, char* argv[])
 
 
 
-    ImageRead_SetImage(imageRead, Image);
+    ImageRead_ImageSet(imageRead, Image);
 
 
 
