@@ -142,13 +142,13 @@ Main -
 Frame
     Title
     Visible
-    GetVideoOut()
+    VideoOut()
     ResizeState
     TypeState
     MouseState
     DrawState
     WindowStat
-    GetSize()
+    SizeGet()
     SetFrameTitle()
     Update(rect)
     Close()
