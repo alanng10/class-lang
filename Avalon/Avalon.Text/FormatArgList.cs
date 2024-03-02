@@ -35,7 +35,7 @@ public class FormatArgList : Any
         indexU = (ulong)index;
         ulong valueU;
         valueU = value.Intern;
-        Extern.Array_SetItem(this.Intern, indexU, valueU);
+        Extern.Array_ItemSet(this.Intern, indexU, valueU);
         return true;
     }
 }
