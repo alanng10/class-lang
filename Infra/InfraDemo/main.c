@@ -334,9 +334,9 @@ Bool SetRect(Int rect, Int left, Int up, Int width, Int height)
     Int size;
 
 
-    pos = Rect_GetPos(rect);
+    pos = Rect_PosGet(rect);
 
-    size = Rect_GetSize(rect);
+    size = Rect_SizeGet(rect);
 
 
 
@@ -356,10 +356,10 @@ Bool SetRect(Int rect, Int left, Int up, Int width, Int height)
 
 Bool SetPos(Int pos, Int left, Int up)
 {
-    Pos_SetLeft(pos, left);
+    Pos_LeftSet(pos, left);
 
 
-    Pos_SetUp(pos, up);
+    Pos_UpSet(pos, up);
 
 
 
@@ -371,10 +371,10 @@ Bool SetPos(Int pos, Int left, Int up)
 
 Bool SetSize(Int size, Int width, Int height)
 {
-    Size_SetWidth(size, width);
+    Size_WidthSet(size, width);
 
 
-    Size_SetHeight(size, height);
+    Size_HeightSet(size, height);
 
 
 
@@ -386,10 +386,10 @@ Bool SetSize(Int size, Int width, Int height)
 
 Bool SetRange(Int range, Int start, Int end)
 {
-    Range_SetStart(range, start);
+    Range_StartSet(range, start);
 
 
-    Range_SetEnd(range, end);
+    Range_EndSet(range, end);
 
 
 
@@ -448,16 +448,16 @@ Bool DrawHandle(Int frame, Int arg)
 
     Int area;
 
-    area = Draw_GetArea(Draw);
+    area = Draw_AreaGet(Draw);
 
 
     Int areaPos;
 
-    areaPos = Rect_GetPos(area);
+    areaPos = Rect_PosGet(area);
 
     Int areaSize;
 
-    areaSize = Rect_GetSize(area);
+    areaSize = Rect_SizeGet(area);
 
 
     Int areaLeft;
@@ -469,28 +469,28 @@ Bool DrawHandle(Int frame, Int arg)
     Int areaHeight;
 
 
-    areaLeft = Pos_GetLeft(areaPos);
+    areaLeft = Pos_LeftGet(areaPos);
 
-    areaUp = Pos_GetUp(areaPos);
+    areaUp = Pos_UpGet(areaPos);
 
-    areaWidth = Size_GetWidth(areaSize);
+    areaWidth = Size_WidthGet(areaSize);
 
-    areaHeight = Size_GetHeight(areaSize);
+    areaHeight = Size_HeightGet(areaSize);
 
 
 
     Int aSize;
 
-    aSize = Draw_GetSize(Draw);
+    aSize = Draw_SizeGet(Draw);
 
 
     Int aWidth;
 
     Int aHeight;
 
-    aWidth = Size_GetWidth(aSize);
+    aWidth = Size_WidthGet(aSize);
 
-    aHeight = Size_GetHeight(aSize);
+    aHeight = Size_HeightGet(aSize);
 
 
 
@@ -517,12 +517,12 @@ Bool DrawHandle(Int frame, Int arg)
 
 
 
-    Draw_SetBrush(Draw, Brush);
+    Draw_BrushSet(Draw, Brush);
 
 
 
 
-    Draw_SetPen(Draw, PenRect);
+    Draw_PenSet(Draw, PenRect);
 
 
 
@@ -548,7 +548,7 @@ Bool DrawHandle(Int frame, Int arg)
 
 
 
-    Draw_SetPen(Draw, PenRect);
+    Draw_PenSet(Draw, PenRect);
 
 
 
@@ -578,7 +578,7 @@ Bool DrawHandle(Int frame, Int arg)
 
 
 
-    Draw_SetPen(Draw, null);
+    Draw_PenSet(Draw, null);
 
 
     SetRect(RectA, 500, 200, 100, 100);
@@ -593,7 +593,7 @@ Bool DrawHandle(Int frame, Int arg)
 
 
 
-    Draw_SetPen(Draw, PenRect);
+    Draw_PenSet(Draw, PenRect);
 
 
     SetRect(RectA, 130, 550, 150, 100);
@@ -610,7 +610,7 @@ Bool DrawHandle(Int frame, Int arg)
 
 
 
-    Draw_SetBrush(Draw, GradientBrush);
+    Draw_BrushSet(Draw, GradientBrush);
 
 
     SetRect(RectA, 1400, 200, 250, 110);
@@ -624,7 +624,7 @@ Bool DrawHandle(Int frame, Int arg)
 
 
 
-    Draw_SetBrush(Draw, ImageBrush);
+    Draw_BrushSet(Draw, ImageBrush);
 
 
 
@@ -632,7 +632,7 @@ Bool DrawHandle(Int frame, Int arg)
     Int fillPos;
 
 
-    fillPos = Draw_GetFillPos(Draw);
+    fillPos = Draw_FillPosGet(Draw);
 
 
     SetPos(fillPos, FillLeft, FillUp);
@@ -643,7 +643,7 @@ Bool DrawHandle(Int frame, Int arg)
 
 
 
-    Draw_SetPen(Draw, PenRect);
+    Draw_PenSet(Draw, PenRect);
 
 
 
@@ -666,7 +666,7 @@ Bool DrawHandle(Int frame, Int arg)
 
 
 
-    Draw_SetTransform(Draw, Transform);
+    Draw_TransformSet(Draw, Transform);
 
 
 
@@ -674,7 +674,7 @@ Bool DrawHandle(Int frame, Int arg)
 
 
 
-    Draw_SetTransform(Draw, null);
+    Draw_TransformSet(Draw, null);
 
 
     SetPos(fillPos, 0, 0);
@@ -692,13 +692,13 @@ Bool DrawHandle(Int frame, Int arg)
     Transform_Offset(Transform, 500 * scaleFactor, 100 * scaleFactor);
 
 
-    Draw_SetTransform(Draw, Transform);
+    Draw_TransformSet(Draw, Transform);
 
 
     Draw_ExecutePolyline(Draw, PointListCount, PointListData);
 
 
-    Draw_SetTransform(Draw, null);
+    Draw_TransformSet(Draw, null);
 
 
 
@@ -718,11 +718,11 @@ Bool DrawHandle(Int frame, Int arg)
 
 
 
-    Draw_SetBrush(Draw, null);
+    Draw_BrushSet(Draw, null);
 
 
 
-    Draw_SetPen(Draw, PenRect);
+    Draw_PenSet(Draw, PenRect);
 
 
 
@@ -736,12 +736,12 @@ Bool DrawHandle(Int frame, Int arg)
 
 
 
-    Draw_SetFont(Draw, Font);
+    Draw_FontSet(Draw, Font);
 
 
 
 
-    Draw_SetPen(Draw, PenText);
+    Draw_PenSet(Draw, PenText);
 
 
 
@@ -754,7 +754,7 @@ Bool DrawHandle(Int frame, Int arg)
 
 
 
-    Draw_SetFont(Draw, null);
+    Draw_FontSet(Draw, null);
 
 
 
@@ -795,7 +795,7 @@ Int ThreadExecute(Int thread, Int arg)
 
     Int ident;
 
-    ident = Thread_GetIdent(threadA);
+    ident = Thread_IdentGet(threadA);
 
 
 
@@ -900,7 +900,7 @@ Bool TerminateHandle()
 
     Int o;
 
-    o = Thread_GetIdent(thread);
+    o = Thread_IdentGet(thread);
 
 
 
@@ -1231,7 +1231,7 @@ int main(int argc, char* argv[])
 
     Int semaphoreCount;
 
-    semaphoreCount = Semaphore_GetCount(semaphore);
+    semaphoreCount = Semaphore_CountGet(semaphore);
 
 
 
@@ -1908,12 +1908,12 @@ int main(int argc, char* argv[])
 
     Int memoryDataValue;
 
-    memoryDataValue = String_GetData(stringOa);
+    memoryDataValue = String_DataGet(stringOa);
 
 
     Int memoryDataCount;
 
-    memoryDataCount = String_GetCount(stringOa) * Constant_CharByteCount();
+    memoryDataCount = String_CountGet(stringOa) * Constant_CharByteCount();
 
 
 
