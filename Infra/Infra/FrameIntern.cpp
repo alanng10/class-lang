@@ -13,18 +13,18 @@ void FrameIntern::paintEvent(QPaintEvent *ev)
 
     Int state;
 
-    state = Frame_GetDrawState(frame);
+    state = Frame_DrawStateGet(frame);
 
 
 
     Int aa;
 
-    aa = State_GetMaide(state);
+    aa = State_MaideGet(state);
 
 
     Int arg;
 
-    arg = State_GetArg(state);
+    arg = State_ArgGet(state);
 
 
 
@@ -106,18 +106,18 @@ Bool FrameIntern::TypeState(Bool press, QKeyEvent* ev)
 
     Int state;
 
-    state = Frame_GetTypeState(frame);
+    state = Frame_TypeStateGet(frame);
 
 
 
     Int aa;
 
-    aa = State_GetMaide(state);
+    aa = State_MaideGet(state);
 
 
     Int arg;
 
-    arg = State_GetArg(state);
+    arg = State_ArgGet(state);
 
 
 
