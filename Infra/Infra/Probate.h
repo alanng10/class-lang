@@ -100,7 +100,7 @@ Int VideoFrame_Intern(Int o);
 
 
 
-Int AudioOut_GetIntern(Int o);
+Int AudioOut_Intern(Int o);
 
 
 

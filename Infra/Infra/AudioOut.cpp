@@ -119,14 +119,7 @@ Int AudioOut_VolumeSet(Int o, Int value)
     return true;
 }
 
-
-
-
-
-
-
-
-Int AudioOut_GetIntern(Int o)
+Int AudioOut_Intern(Int o)
 {
     AudioOut* m;
 
@@ -142,5 +135,3 @@ Int AudioOut_GetIntern(Int o)
 
     return u;
 }
-
-
