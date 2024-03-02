@@ -34,7 +34,7 @@ public class Storage : Any
         get
         {
             ulong u;
-            u = Extern.Storage_GetStatus(this.Intern);
+            u = Extern.Storage_StatusGet(this.Intern);
             int o;
             o = (int)u;
             return o;
@@ -60,9 +60,9 @@ public class Storage : Any
         modeU = this.GetInternMode(this.Mode);
         this.DataStream = this.CreateStream();
 
-        Extern.Storage_SetPath(this.Intern, this.InternPath);
-        Extern.Storage_SetMode(this.Intern, modeU);
-        Extern.Storage_SetStream(this.Intern, this.DataStream.Ident);
+        Extern.Storage_PathSet(this.Intern, this.InternPath);
+        Extern.Storage_ModeSet(this.Intern, modeU);
+        Extern.Storage_StreamSet(this.Intern, this.DataStream.Ident);
         Extern.Storage_Open(this.Intern);
         if (this.Status == 0)
         {
@@ -74,9 +74,9 @@ public class Storage : Any
     public virtual bool Close()
     {
         Extern.Storage_Close(this.Intern);
-        Extern.Storage_SetStream(this.Intern, 0);
-        Extern.Storage_SetMode(this.Intern, 0);
-        Extern.Storage_SetPath(this.Intern, 0);
+        Extern.Storage_StreamSet(this.Intern, 0);
+        Extern.Storage_ModeSet(this.Intern, 0);
+        Extern.Storage_PathSet(this.Intern, 0);
 
         this.DataStream.Final();
         this.DataStream = null;
