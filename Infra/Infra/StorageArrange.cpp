@@ -41,7 +41,7 @@ Int StorageArrange_Copy(Int o, Int path, Int destPath)
 
 
 
-    String_SetQString(ua, path);
+    String_QStringSet(ua, path);
 
 
 
@@ -56,7 +56,7 @@ Int StorageArrange_Copy(Int o, Int path, Int destPath)
 
 
 
-    String_SetQString(ub, destPath);
+    String_QStringSet(ub, destPath);
 
 
 
@@ -98,7 +98,7 @@ Int StorageArrange_Rename(Int o, Int path, Int destPath)
 
 
 
-    String_SetQString(ua, path);
+    String_QStringSet(ua, path);
 
 
 
@@ -113,7 +113,7 @@ Int StorageArrange_Rename(Int o, Int path, Int destPath)
 
 
 
-    String_SetQString(ub, destPath);
+    String_QStringSet(ub, destPath);
 
 
 
@@ -154,7 +154,7 @@ Int StorageArrange_Remove(Int o, Int path)
 
 
 
-    String_SetQString(ua, path);
+    String_QStringSet(ua, path);
 
 
 
@@ -194,7 +194,7 @@ Int StorageArrange_Exist(Int o, Int path)
 
 
 
-    String_SetQString(ua, path);
+    String_QStringSet(ua, path);
 
 
 
@@ -233,7 +233,7 @@ Int StorageArrange_Link(Int o, Int path, Int linkPath)
 
 
 
-    String_SetQString(ua, path);
+    String_QStringSet(ua, path);
 
 
 
@@ -248,7 +248,7 @@ Int StorageArrange_Link(Int o, Int path, Int linkPath)
 
 
 
-    String_SetQString(ub, linkPath);
+    String_QStringSet(ub, linkPath);
 
 
 
@@ -289,7 +289,7 @@ Int StorageArrange_GetPermit(Int o, Int path)
 
 
 
-    String_SetQString(ua, path);
+    String_QStringSet(ua, path);
 
 
 
@@ -336,7 +336,7 @@ Int StorageArrange_SetPermit(Int o, Int path, Int value)
 
 
 
-    String_SetQString(ua, path);
+    String_QStringSet(ua, path);
 
 
 
@@ -392,7 +392,7 @@ Int StorageArrange_GetLinkTarget(Int o, Int path)
 
 
 
-    String_SetQString(ua, path);
+    String_QStringSet(ua, path);
 
 
 
@@ -439,7 +439,7 @@ Int StorageArrange_MoveToTrash(Int o, Int path, Int trashPath)
 
 
 
-    String_SetQString(ua, path);
+    String_QStringSet(ua, path);
 
 
 
@@ -485,6 +485,3 @@ Int StorageArrange_MoveToTrash(Int o, Int path, Int trashPath)
 
     return a;
 }
-
-
-
