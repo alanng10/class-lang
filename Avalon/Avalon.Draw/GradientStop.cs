@@ -16,7 +16,7 @@ public class GradientStop : Any
         ulong countU;
         countU = (ulong)count;
         this.Intern = Extern.GradientStop_New();
-        Extern.GradientStop_SetCount(this.Intern, countU);
+        Extern.GradientStop_CountSet(this.Intern, countU);
         Extern.GradientStop_Init(this.Intern);
         return true;
     }

@@ -15,8 +15,8 @@ public class GradientLinear : Any
         this.InternEndPos = this.InternInfra.PosCreate(pos.Left, pos.Up);
 
         this.Intern = Extern.GradientLinear_New();
-        Extern.GradientLinear_SetStartPos(this.Intern, this.InternStartPos);
-        Extern.GradientLinear_SetEndPos(this.Intern, this.InternEndPos);
+        Extern.GradientLinear_StartPosSet(this.Intern, this.InternStartPos);
+        Extern.GradientLinear_EndPosSet(this.Intern, this.InternEndPos);
         Extern.GradientLinear_Init(this.Intern);
         return true;
     }

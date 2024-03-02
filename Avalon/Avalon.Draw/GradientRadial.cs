@@ -20,10 +20,10 @@ public class GradientRadial : Any
         focusRadiusU = (ulong)(this.FocusRadius);
 
         this.Intern = Extern.GradientRadial_New();
-        Extern.GradientRadial_SetCenterPos(this.Intern, this.InternCenterPos);
-        Extern.GradientRadial_SetCenterRadius(this.Intern, centerRadiusU);
-        Extern.GradientRadial_SetFocusPos(this.Intern, this.InternFocusPos);
-        Extern.GradientRadial_SetFocusRadius(this.Intern, focusRadiusU);
+        Extern.GradientRadial_CenterPosSet(this.Intern, this.InternCenterPos);
+        Extern.GradientRadial_CenterRadiusSet(this.Intern, centerRadiusU);
+        Extern.GradientRadial_FocusPosSet(this.Intern, this.InternFocusPos);
+        Extern.GradientRadial_FocusRadiusSet(this.Intern, focusRadiusU);
         Extern.GradientRadial_Init(this.Intern);
         return true;
     }
