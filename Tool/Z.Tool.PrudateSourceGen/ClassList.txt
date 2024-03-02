@@ -149,7 +149,7 @@ Frame
     DrawState
     WindowCase
     Size
-    FrameTitleSet()
+    TitleThisSet()
     Update(rect)
     Close()
     Resize(frame, arg) --
@@ -169,8 +169,8 @@ Draw
     Font
     Transform
     Composite
-    DrawFillPosSet()
-    DrawAreaSet()
+    FillPosThisSet()
+    AreaThisSet()
     Clear(color)
     ExecuteLine(startPos, endPos)
     ExecuteArc(rect, angleRange)
