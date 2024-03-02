@@ -36,7 +36,7 @@ public class Frame : Comp
         this.SetTitle();
 
         ulong sizeU;
-        sizeU = Extern.Frame_GetSize(this.Intern);
+        sizeU = Extern.Frame_SizeGet(this.Intern);
         ulong w;
         w = Extern.Size_WidthGet(sizeU);
         ulong h;
@@ -54,7 +54,7 @@ public class Frame : Comp
         Extern.Frame_DrawStateSet(this.Intern, this.InternDrawState);
 
         ulong ouu;
-        ouu = Extern.Frame_GetVideoOut(this.Intern);
+        ouu = Extern.Frame_VideoOut(this.Intern);
 
         this.Draw = new DrawDraw();
         this.Draw.Init();
