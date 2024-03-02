@@ -204,9 +204,9 @@ PointData -
 Image
     Size
     Data
-    GetRowByteCount()
-    GetVideoOut()
-    CreateData()
+    RowByteCount
+    VideoOut()
+    DataCreate()
 
 Font
     Family
