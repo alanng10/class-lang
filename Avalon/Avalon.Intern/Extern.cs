@@ -57,8 +57,8 @@ public static class Extern
     [DllImport(InfraLib)] public extern static ulong Array_CountGet(ulong o);
     [DllImport(InfraLib)] public extern static ulong Array_CountSet(ulong o, ulong value);
 
-    [DllImport(InfraLib)] public extern static ulong Array_GetItem(ulong o, ulong index);
-    [DllImport(InfraLib)] public extern static ulong Array_SetItem(ulong o, ulong index, ulong value);
+    [DllImport(InfraLib)] public extern static ulong Array_ItemGet(ulong o, ulong index);
+    [DllImport(InfraLib)] public extern static ulong Array_ItemSet(ulong o, ulong index, ulong value);
 
     [DllImport(InfraLib)] public extern static ulong TextEncode_New();
     [DllImport(InfraLib)] public extern static ulong TextEncode_Delete(ulong o);
