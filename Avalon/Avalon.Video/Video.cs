@@ -16,8 +16,8 @@ public class Video : Any
         this.InternData = Extern.Data_New();
         Extern.Data_Init(this.InternData);
         this.Intern = Extern.Image_New();
-        Extern.Image_SetSize(this.Intern, this.InternSize);
-        Extern.Image_SetData(this.Intern, this.InternData);
+        Extern.Image_SizeSet(this.Intern, this.InternSize);
+        Extern.Image_DataSet(this.Intern, this.InternData);
         Extern.Image_Init(this.Intern);
         this.Ident = this.Intern;
         return true;
@@ -56,8 +56,8 @@ public class Video : Any
         ulong h;
         w = (ulong)width;
         h = (ulong)height;
-        Extern.Size_SetWidth(this.InternSize, w);
-        Extern.Size_SetHeight(this.InternSize, h);
+        Extern.Size_WidthSet(this.InternSize, w);
+        Extern.Size_HeightSet(this.InternSize, h);
 
         int aa;
         aa = this.VideoInfra.PixelByteCount;
@@ -67,8 +67,8 @@ public class Video : Any
         dataCount = w * h * uaa;
 
         this.InternDataValue = Extern.New(dataCount);
-        Extern.Data_SetCount(this.InternData, dataCount);
-        Extern.Data_SetValue(this.InternData, this.InternDataValue);
+        Extern.Data_CountSet(this.InternData, dataCount);
+        Extern.Data_ValueSet(this.InternData, this.InternDataValue);
         Extern.Image_CreateData(this.Intern);
         return true;
     }
@@ -79,7 +79,7 @@ public class Video : Any
     {
         get
         {
-            return Extern.Data_GetValue(this.InternData);
+            return Extern.Data_ValueGet(this.InternData);
         }
         set
         {
