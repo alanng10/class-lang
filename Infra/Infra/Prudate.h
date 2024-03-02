@@ -299,8 +299,8 @@ Infra_Api Int Frame_DrawStateSet(Int o, Int value);
 Infra_Api Int Frame_WindowStatGet(Int o);
 Infra_Api Int Frame_WindowStatSet(Int o, Int value);
 
-Infra_Api Int Frame_GetVideoOut(Int o);
-Infra_Api Int Frame_GetSize(Int o);
+Infra_Api Int Frame_VideoOut(Int o);
+Infra_Api Int Frame_SizeGet(Int o);
 Infra_Api Int Frame_SetFrameTitle(Int o);
 Infra_Api Int Frame_Update(Int o, Int rect);
 Infra_Api Int Frame_Close(Int o);
