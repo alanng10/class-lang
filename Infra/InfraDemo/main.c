@@ -2200,7 +2200,7 @@ int main(int argc, char* argv[])
     gradientStop = GradientStop_New();
 
 
-    GradientStop_SetCount(gradientStop, 3);
+    GradientStop_CountSet(gradientStop, 3);
 
 
     GradientStop_Init(gradientStop);
