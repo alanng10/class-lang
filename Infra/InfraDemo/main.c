@@ -238,7 +238,7 @@ Bool TypeHandle(Int frame, Int index, Int field, Int arg)
 
                 Int threadCase;
 
-                threadCase = Thread_GetCase(Thread);
+                threadCase = Thread_CaseGet(Thread);
 
 
                 Int executeCase;
@@ -258,7 +258,7 @@ Bool TypeHandle(Int frame, Int index, Int field, Int arg)
             {
                 Int threadCase;
 
-                threadCase = Thread_GetCase(Thread);
+                threadCase = Thread_CaseGet(Thread);
 
 
                 Int pauseCase;
@@ -805,9 +805,9 @@ Int ThreadExecute(Int thread, Int arg)
 
     FormatArg_Init(formatArg);
 
-    FormatArg_SetKind(formatArg, 1);
-    FormatArg_SetValue(formatArg, ident);
-    FormatArg_SetBase(formatArg, 16);
+    FormatArg_KindSet(formatArg, 1);
+    FormatArg_ValueSet(formatArg, ident);
+    FormatArg_BaseSet(formatArg, 16);
 
     SInt ooa;
     ooa = -1;
@@ -815,7 +815,7 @@ Int ThreadExecute(Int thread, Int arg)
     Int oob;
     oob = ooa;
 
-    FormatArg_SetMaxWidth(formatArg, oob);
+    FormatArg_MaxWidthSet(formatArg, oob);
 
     Int format;
 
@@ -839,9 +839,9 @@ Int ThreadExecute(Int thread, Int arg)
 
     String_Init(stringA);
 
-    String_SetCount(stringA, count);
+    String_CountSet(stringA, count);
 
-    String_SetData(stringA, uu);
+    String_DataSet(stringA, uu);
 
     Format_ExecuteArgResult(format, formatArg, stringA);
 
@@ -1020,10 +1020,10 @@ Int ThreadIntervalExecute(Int thread, Int arg)
     State_Init(intervalElapseState);
 
 
-    State_SetMaide(intervalElapseState, ua);
+    State_MaideSet(intervalElapseState, ua);
 
 
-    State_SetArg(intervalElapseState, ub);
+    State_ArgSet(intervalElapseState, ub);
 
 
 
@@ -1038,15 +1038,15 @@ Int ThreadIntervalExecute(Int thread, Int arg)
 
 
 
-    Interval_SetSingleShot(interval, false);
+    Interval_SingleShotSet(interval, false);
 
 
-    Interval_SetTime(interval, 100);
+    Interval_TimeSet(interval, 100);
 
 
 
 
-    Interval_SetElapseState(interval, intervalElapseState);
+    Interval_ElapseStateSet(interval, intervalElapseState);
 
 
 
@@ -1151,12 +1151,12 @@ int main(int argc, char* argv[])
     State_Init(terminateState);
 
 
-    State_SetMaide(terminateState, uaaa);
+    State_MaideSet(terminateState, uaaa);
 
 
 
 
-    Main_SetTerminateState(terminateState);
+    Main_TerminateStateSet(terminateState);
 
 
 
@@ -1168,7 +1168,7 @@ int main(int argc, char* argv[])
 
 
 
-    Thread_SetIdent(MainThread, 1024);
+    Thread_IdentSet(MainThread, 1024);
 
 
 
