@@ -24,7 +24,7 @@ public class Time : Any
         get
         {
             ulong u;
-            u = Extern.Time_GetYear(this.Intern);
+            u = Extern.Time_YearGet(this.Intern);
             int a;
             a = (int)u;
             return a;
@@ -39,7 +39,7 @@ public class Time : Any
         get
         {
             ulong u;
-            u = Extern.Time_GetMonth(this.Intern);
+            u = Extern.Time_MonthGet(this.Intern);
             int a;
             a = (int)u;
             return a;
@@ -54,7 +54,7 @@ public class Time : Any
         get
         {
             ulong u;
-            u = Extern.Time_GetDay(this.Intern);
+            u = Extern.Time_DayGet(this.Intern);
             int a;
             a = (int)u;
             return a;
@@ -69,7 +69,7 @@ public class Time : Any
         get
         {
             ulong u;
-            u = Extern.Time_GetHour(this.Intern);
+            u = Extern.Time_HourGet(this.Intern);
             int a;
             a = (int)u;
             return a;
@@ -84,7 +84,7 @@ public class Time : Any
         get
         {
             ulong u;
-            u = Extern.Time_GetMinute(this.Intern);
+            u = Extern.Time_MinuteGet(this.Intern);
             int a;
             a = (int)u;
             return a;
@@ -99,7 +99,7 @@ public class Time : Any
         get
         {
             ulong u;
-            u = Extern.Time_GetSecond(this.Intern);
+            u = Extern.Time_SecondGet(this.Intern);
             int a;
             a = (int)u;
             return a;
@@ -114,7 +114,7 @@ public class Time : Any
         get
         {
             ulong u;
-            u = Extern.Time_GetMillisecond(this.Intern);
+            u = Extern.Time_MillisecondGet(this.Intern);
             int a;
             a = (int)u;
             return a;
@@ -129,7 +129,7 @@ public class Time : Any
         get
         {
             ulong u;
-            u = Extern.Time_GetOffsetUtc(this.Intern);
+            u = Extern.Time_OffsetUtcGet(this.Intern);
             int a;
             a = (int)u;
             return a;
@@ -144,7 +144,7 @@ public class Time : Any
         get
         {
             ulong u;
-            u = Extern.Time_GetLocalTime(this.Intern);
+            u = Extern.Time_LocalTimeGet(this.Intern);
             bool a;
             a = (!(u == 0));
             return a;
@@ -159,7 +159,7 @@ public class Time : Any
         get
         {
             ulong u;
-            u = Extern.Time_GetYearDay(this.Intern);
+            u = Extern.Time_YearDayGet(this.Intern);
             int a;
             a = (int)u;
             return a;
@@ -174,7 +174,7 @@ public class Time : Any
         get
         {
             ulong u;
-            u = Extern.Time_GetWeekDay(this.Intern);
+            u = Extern.Time_WeekDayGet(this.Intern);
             int a;
             a = (int)u;
             return a;
@@ -189,7 +189,7 @@ public class Time : Any
         get
         {
             ulong u;
-            u = Extern.Time_GetYearDayCount(this.Intern);
+            u = Extern.Time_YearDayCountGet(this.Intern);
             int a;
             a = (int)u;
             return a;
@@ -204,7 +204,7 @@ public class Time : Any
         get
         {
             ulong u;
-            u = Extern.Time_GetMonthDayCount(this.Intern);
+            u = Extern.Time_MonthDayCountGet(this.Intern);
             int a;
             a = (int)u;
             return a;

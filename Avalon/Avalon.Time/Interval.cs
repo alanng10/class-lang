@@ -27,7 +27,7 @@ public class Interval : Any
 
         this.Intern = Extern.Interval_New();
         Extern.Interval_Init(this.Intern);
-        Extern.Interval_SetElapseState(this.Intern, this.InternElapseState);
+        Extern.Interval_ElapseStateSet(this.Intern, this.InternElapseState);
         return true;
     }
 
@@ -78,7 +78,7 @@ public class Interval : Any
         get
         {
             ulong u;
-            u = Extern.Interval_GetTime(this.Intern);
+            u = Extern.Interval_TimeGet(this.Intern);
             long o;
             o = (long)u;
             return o;
@@ -87,7 +87,7 @@ public class Interval : Any
         {
             ulong u;
             u = (ulong)value;
-            Extern.Interval_SetTime(this.Intern, u);
+            Extern.Interval_TimeSet(this.Intern, u);
         }
     }
 
@@ -96,7 +96,7 @@ public class Interval : Any
         get
         {
             ulong u;
-            u = Extern.Interval_GetSingleShot(this.Intern);
+            u = Extern.Interval_SingleShotGet(this.Intern);
             bool b;
             b = (!(u == 0));
             return b;
@@ -105,7 +105,7 @@ public class Interval : Any
         {
             ulong u;
             u = (ulong)(value ? 1 : 0);
-            Extern.Interval_SetSingleShot(this.Intern, u);
+            Extern.Interval_SingleShotSet(this.Intern, u);
         }
     }
 
