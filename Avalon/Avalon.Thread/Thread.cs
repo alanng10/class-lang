@@ -20,7 +20,7 @@ public class Thread : Any
 
         this.Intern = Extern.Thread_New();
         Extern.Thread_Init(this.Intern);
-        Extern.Thread_SetExecuteState(this.Intern, this.InternExecuteState);
+        Extern.Thread_ExecuteStateSet(this.Intern, this.InternExecuteState);
         return true;
     }
 
@@ -131,7 +131,7 @@ public class Thread : Any
         get
         {
             ulong u;
-            u = Extern.Thread_GetIdent(this.Intern);
+            u = Extern.Thread_IdentGet(this.Intern);
             long o;
             o = (long)u;
             return o;
@@ -140,7 +140,7 @@ public class Thread : Any
         {
             ulong u;
             u = (ulong)value;
-            Extern.Thread_SetIdent(this.Intern, u);
+            Extern.Thread_IdentSet(this.Intern, u);
         }
     }
 
@@ -149,7 +149,7 @@ public class Thread : Any
         get
         {
             ulong u;
-            u = Extern.Thread_GetStatus(this.Intern);
+            u = Extern.Thread_StatusGet(this.Intern);
             int o;
             o = (int)u;
             return o;

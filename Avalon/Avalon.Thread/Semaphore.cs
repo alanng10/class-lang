@@ -8,7 +8,7 @@ public class Semaphore : Any
         ulong ua;
         ua = (ulong)(this.InitCount);
         this.Intern = Extern.Semaphore_New();
-        Extern.Semaphore_SetInitCount(this.Intern, ua);
+        Extern.Semaphore_InitCountSet(this.Intern, ua);
         Extern.Semaphore_Init(this.Intern);
         return true;
     }
@@ -40,7 +40,7 @@ public class Semaphore : Any
         get
         {
             ulong u;
-            u = Extern.Semaphore_GetCount(this.Intern);
+            u = Extern.Semaphore_CountGet(this.Intern);
             int a;
             a = (int)u;
             return a;

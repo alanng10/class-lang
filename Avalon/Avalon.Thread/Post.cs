@@ -20,7 +20,7 @@ public class Post : Any
 
         this.Intern = Extern.Post_New();
         Extern.Post_Init(this.Intern);
-        Extern.Post_SetExecuteState(this.Intern, this.InternExecuteState);
+        Extern.Post_ExecuteStateSet(this.Intern, this.InternExecuteState);
         return true;
     }
 
