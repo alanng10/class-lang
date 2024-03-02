@@ -31,10 +31,10 @@ Array
 TextEncode
     Kind
     WriteBom
-    GetStringCountMax(count)
-    GetString(result, data)
-    GetDataCountMax(count)
-    GetData(result, fromString)
+    StringCountMax(count)
+    String(result, data)
+    DataCountMax(count)
+    Data(result, fromString)
 
 Format
     ExecuteCount(varBase, argList)
@@ -59,9 +59,9 @@ FormatArg
     Count
 
 Math
-    GetValue(significand, exponent)
-    GetValueTen(significand, exponentTen)
-    GetCompose(value, significand, exponent)
+    Value(significand, exponent)
+    ValueTen(significand, exponentTen)
+    Compose(value, significand, exponent)
     Add(a, b)
     Sub(a, b)
     Mul(a, b)
@@ -133,7 +133,7 @@ State
 Main -
     Init() -
     Final() -
-    SetIsCSharp(value) -
+    IsCSharpSet(value) -
     ExecuteEventLoop() -
     ExitEventLoop(code) -
     TerminateState -
@@ -142,14 +142,14 @@ Main -
 Frame
     Title
     Visible
+    Size
+    TitleThisSet()
     VideoOut()
     ResizeState
     TypeState
     MouseState
     DrawState
     WindowCase
-    Size
-    TitleThisSet()
     Update(rect)
     Close()
     Resize(frame, arg) --
@@ -198,8 +198,8 @@ Pen
     Join
 
 PointData -
-    GetPoint(address, result) -
-    SetPoint(address, pos) -
+    PointGet(address, result) -
+    PointSet(address, pos) -
 
 Image
     Size
@@ -222,8 +222,8 @@ Transform
     Offset(offsetLeft, offsetUp)
     Scale(horizScale, vertScale)
     Rotate(angle)
-    GetValue(row, col)
-    SetValue(row, col, value)
+    ValueGet(row, col)
+    ValueSet(row, col, value)
     Multiply(other)
     IsIdentity()
     IsInvertible()
@@ -249,8 +249,8 @@ GradientRadial
 
 GradientStop
     Count
-    GetPoint(index, pos, color)
-    SetPoint(index, pos, color)
+    PointGet(index, pos, color)
+    PointSet(index, pos, color)
 
 ImageRead
     Stream
@@ -284,7 +284,7 @@ VideoOut
     Size
     Frame
     Subtitle
-    SetVideoSubtitle()
+    SubtitleThisSet()
     FrameState
     SizeState
     Frame(videoOut, frame, arg) --
@@ -292,7 +292,7 @@ VideoOut
 
 VideoFrame
     Size
-    GetImage(image)
+    Image(image)
 
 AudioOut
     Muted
@@ -301,13 +301,13 @@ AudioOut
 AudioEffect
     Source
     Volume
-    SetAudioSource()
+    SourceThisSet()
     Play()
     Stop()
 
 Play
     Source
-    SetPlaySource()
+    SourceThisSet()
     HasVideo()
     HasAudio()
     VideoOut
@@ -320,15 +320,15 @@ Play
 
 Stream
     Kind
-    GetCount()
-    SetCount(value)
-    GetPos()
-    SetPos(value)
+    Status
+    CountGet()
+    CountSet(value)
+    PosGet()
+    PosSet(value)
     HasCount()
     HasPos()
     CanRead()
     CanWrite()
-    GetStatus()
     Read(data, range)
     Write(data, range)
 
@@ -342,7 +342,7 @@ Storage
     Mode
     Stream
     Status
-    SetCount(value)
+    CountSet(value)
     Open()
     Close()
 
@@ -353,14 +353,14 @@ StorageArrange
     Exist(path)
     Link(path, linkPath)
     LinkTarget(path)
-    GetPermit(path)
-    SetPermit(path, value)
+    PermitGet(path)
+    PermitSet(path, value)
     MoveToTrash(path, trashPath)
-    CreateFold(path, permit)
-    CreateFoldToPath(path)
-    RemoveFold(path)
-    RemoveFoldRecursive(path)
-    RenameFold(path, destPath)
+    FoldCreate(path, permit)
+    FoldCreateToPath(path)
+    FoldRemove(path)
+    FoldRemoveRecursive(path)
+    FoldRename(path, destPath)
     EntryCount(foldPath)
     EntryName(path)
     BaseName(name)
@@ -448,7 +448,7 @@ Thread
     ExitEventLoop(code)
     IsMainThread()
     Sleep(time) -
-    GetCurrentThread() -
+    CurrentThread() -
     Execute(thread, arg) --
 
 Mutex
@@ -512,11 +512,11 @@ Process
     WorkFold
     Environment
     Execute()
-    GetIdent()
+    Ident
     Wait()
     Terminate()
-    GetStatus()
-    GetExitKind()
+    Status
+    ExitKind
     ReadOut()
     ReadErr()
     StartedState
