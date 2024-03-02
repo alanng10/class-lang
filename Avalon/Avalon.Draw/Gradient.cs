@@ -26,10 +26,10 @@ public class Gradient : Any
         spreadU = this.Spread.Intern;
 
         this.Intern = Extern.Gradient_New();
-        Extern.Gradient_SetKind(this.Intern, kindU);
-        Extern.Gradient_SetValue(this.Intern, valueU);
-        Extern.Gradient_SetStop(this.Intern, stopU);
-        Extern.Gradient_SetSpread(this.Intern, spreadU);
+        Extern.Gradient_KindSet(this.Intern, kindU);
+        Extern.Gradient_ValueSet(this.Intern, valueU);
+        Extern.Gradient_StopSet(this.Intern, stopU);
+        Extern.Gradient_SpreadSet(this.Intern, spreadU);
         Extern.Gradient_Init(this.Intern);
         return true;
     }
