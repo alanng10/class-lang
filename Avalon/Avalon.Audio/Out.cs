@@ -27,7 +27,7 @@ public class Out : Any
         get
         {
             ulong u;
-            u = Extern.AudioOut_GetMuted(this.Intern);
+            u = Extern.AudioOut_MutedGet(this.Intern);
             bool a;
             a = !(u == 0);
             return a;
@@ -36,7 +36,7 @@ public class Out : Any
         {
             ulong u;
             u = (ulong)(value ? 1 : 0);
-            Extern.AudioOut_SetMuted(this.Intern, u);
+            Extern.AudioOut_MutedSet(this.Intern, u);
         }
     }
 
@@ -45,7 +45,7 @@ public class Out : Any
         get
         {
             ulong u;
-            u = Extern.AudioOut_GetVolume(this.Intern);
+            u = Extern.AudioOut_VolumeGet(this.Intern);
             long a;
             a = (long)u;
             return a;
@@ -54,7 +54,7 @@ public class Out : Any
         {
             ulong u;
             u = (ulong)value;
-            Extern.AudioOut_SetVolume(this.Intern, u);
+            Extern.AudioOut_VolumeSet(this.Intern, u);
         }
     }
 }

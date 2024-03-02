@@ -12,7 +12,7 @@ public class Effect : Any
 
         this.Intern = Extern.AudioEffect_New();
         Extern.AudioEffect_Init(this.Intern);
-        Extern.AudioEffect_SetSource(this.Intern, this.InternSource);
+        Extern.AudioEffect_SourceSet(this.Intern, this.InternSource);
         Extern.AudioEffect_SetAudioSource(this.Intern);
         return true;
     }
@@ -38,7 +38,7 @@ public class Effect : Any
         get
         {
             ulong u;
-            u = Extern.AudioEffect_GetVolume(this.Intern);
+            u = Extern.AudioEffect_VolumeGet(this.Intern);
             long a;
             a = (long)u;
             return a;
@@ -47,7 +47,7 @@ public class Effect : Any
         {
             ulong u;
             u = (ulong)value;
-            Extern.AudioEffect_SetVolume(this.Intern, u);
+            Extern.AudioEffect_VolumeSet(this.Intern, u);
         }
     }
 
