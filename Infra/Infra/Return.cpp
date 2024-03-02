@@ -27,7 +27,7 @@ Int Return_Final(Int o)
 
 
 
-Int Return_GetString(Int o)
+Int Return_StringGet(Int o)
 {
     Return* m;
 
@@ -47,7 +47,7 @@ Int Return_GetString(Int o)
 
 
 
-Int Return_SetString(Int o, Int value)
+Int Return_StringSet(Int o, Int value)
 {
     Return* m;
 
@@ -66,7 +66,7 @@ Int Return_SetString(Int o, Int value)
 
 
 
-Int Return_GetStringList(Int o)
+Int Return_StringListGet(Int o)
 {
     Return* m;
 
@@ -86,7 +86,7 @@ Int Return_GetStringList(Int o)
 
 
 
-Int Return_SetStringList(Int o, Int value)
+Int Return_StringListSet(Int o, Int value)
 {
     Return* m;
 
@@ -193,7 +193,7 @@ Int Return_StringResult(Int o, Int result)
 
     Int dest;
 
-    dest = String_GetData(result);
+    dest = String_DataGet(result);
 
 
 
