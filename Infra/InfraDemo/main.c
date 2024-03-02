@@ -2406,9 +2406,9 @@ int main(int argc, char* argv[])
     Rect_Init(area);
 
 
-    Rect_SetPos(area, areaPos);
+    Rect_PosSet(area, areaPos);
 
-    Rect_SetSize(area, areaSize);
+    Rect_SizeSet(area, areaSize);
 
 
 
@@ -2455,10 +2455,10 @@ int main(int argc, char* argv[])
     State_Init(frameDrawState);
 
 
-    State_SetMaide(frameDrawState, drawMaide);
+    State_MaideSet(frameDrawState, drawMaide);
 
 
-    State_SetArg(frameDrawState, Draw);
+    State_ArgSet(frameDrawState, Draw);
 
 
 
@@ -2485,7 +2485,7 @@ int main(int argc, char* argv[])
     State_Init(frameTypeState);
 
 
-    State_SetMaide(frameTypeState, typeMaide);
+    State_MaideSet(frameTypeState, typeMaide);
 
 
 
@@ -2504,11 +2504,11 @@ int main(int argc, char* argv[])
 
 
 
-    Frame_SetDrawState(frame, frameDrawState);
+    Frame_DrawStateSet(frame, frameDrawState);
 
 
 
-    Frame_SetTypeState(frame, frameTypeState);
+    Frame_TypeStateSet(frame, frameTypeState);
 
 
 
