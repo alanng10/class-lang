@@ -1,16 +1,8 @@
 #include "AudioEffect.hpp"
 
-
-
-
 CppClassNew(AudioEffect)
 
-
-
-
-
-
-Bool AudioEffect_Init(Int o)
+Int AudioEffect_Init(Int o)
 {
     AudioEffect* m;
 
@@ -36,12 +28,7 @@ Bool AudioEffect_Init(Int o)
     return true;
 }
 
-
-
-
-
-
-Bool AudioEffect_Final(Int o)
+Int AudioEffect_Final(Int o)
 {
     AudioEffect* m;
 
@@ -57,57 +44,10 @@ Bool AudioEffect_Final(Int o)
     return true;
 }
 
+CppField(AudioEffect, Source)
+CppFieldGet(AudioEffect, Volume)
 
-
-
-
-
-Int AudioEffect_GetSource(Int o)
-{
-    AudioEffect* m;
-
-    m = CP(o);
-
-
-    return m->Source;
-}
-
-
-
-Bool AudioEffect_SetSource(Int o, Int value)
-{
-    AudioEffect* m;
-
-    m = CP(o);
-
-
-    m->Source = value;
-
-
-    return true;
-}
-
-
-
-
-
-
-Int AudioEffect_GetVolume(Int o)
-{
-    AudioEffect* m;
-
-    m = CP(o);
-
-
-
-    return m->Volume;
-}
-
-
-
-
-
-Int AudioEffect_SetVolume(Int o, Int value)
+Int AudioEffect_VolumeSet(Int o, Int value)
 {
     AudioEffect* m;
 
@@ -163,12 +103,7 @@ Int AudioEffect_SetVolume(Int o, Int value)
     return true;
 }
 
-
-
-
-
-
-Bool AudioEffect_SetAudioSource(Int o)
+Int AudioEffect_SetAudioSource(Int o)
 {
     AudioEffect* m;
 
@@ -188,7 +123,7 @@ Bool AudioEffect_SetAudioSource(Int o)
 
 
 
-    String_SetQString(ua, m->Source);
+    String_QStringSet(ua, m->Source);
 
 
 
@@ -215,11 +150,7 @@ Bool AudioEffect_SetAudioSource(Int o)
     return true;
 }
 
-
-
-
-
-Bool AudioEffect_Play(Int o)
+Int AudioEffect_Play(Int o)
 {
     AudioEffect* m;
 
@@ -234,10 +165,7 @@ Bool AudioEffect_Play(Int o)
     return true;
 }
 
-
-
-
-Bool AudioEffect_Stop(Int o)
+Int AudioEffect_Stop(Int o)
 {
     AudioEffect* m;
 
@@ -251,5 +179,3 @@ Bool AudioEffect_Stop(Int o)
 
     return true;
 }
-
-
