@@ -24,8 +24,8 @@ public class Process : Any
 
         this.Intern = Extern.Process_New();
         Extern.Process_Init(this.Intern);
-        Extern.Process_SetStartedState(this.Intern, this.InternStartedState);
-        Extern.Process_SetFinishedState(this.Intern, this.InternFinishedState);
+        Extern.Process_StartedStateSet(this.Intern, this.InternStartedState);
+        Extern.Process_FinishedStateSet(this.Intern, this.InternFinishedState);
         return true;
     }
 
@@ -187,10 +187,10 @@ public class Process : Any
             environmentU = this.InternStringEntryListCreate(this.Environment);
         }
 
-        Extern.Process_SetProgram(this.Intern, programU);
-        Extern.Process_SetArgue(this.Intern, argueU);
-        Extern.Process_SetWorkFold(this.Intern, workFoldU);
-        Extern.Process_SetEnvironment(this.Intern, environmentU);
+        Extern.Process_ProgramSet(this.Intern, programU);
+        Extern.Process_ArgueSet(this.Intern, argueU);
+        Extern.Process_WorkFoldSet(this.Intern, workFoldU);
+        Extern.Process_EnvironmentSet(this.Intern, environmentU);
         Extern.Process_Execute(this.Intern);
 
         if (bb)
@@ -220,7 +220,7 @@ public class Process : Any
 
         ulong a;
         a = Extern.Array_New();
-        Extern.Array_SetCount(a, countU);
+        Extern.Array_CountSet(a, countU);
         Extern.Array_Init(a);
 
         int i;
@@ -247,7 +247,7 @@ public class Process : Any
     private bool InternStringListDelete(ulong o)
     {
         ulong countU;
-        countU = Extern.Array_GetCount(o);
+        countU = Extern.Array_CountGet(o);
         int count;
         count = (int)countU;
 
@@ -284,7 +284,7 @@ public class Process : Any
 
         ulong a;
         a = Extern.Array_New();
-        Extern.Array_SetCount(a, countU);
+        Extern.Array_CountSet(a, countU);
         Extern.Array_Init(a);
 
         int i;
@@ -305,8 +305,8 @@ public class Process : Any
             ulong entryU;
             entryU = Extern.Entry_New();
             Extern.Entry_Init(entryU);
-            Extern.Entry_SetIndex(entryU, indexU);
-            Extern.Entry_SetValue(entryU, valueU);
+            Extern.Entry_IndexSet(entryU, indexU);
+            Extern.Entry_ValueSet(entryU, valueU);
 
             ulong oa;
             oa = (ulong)i;
@@ -320,7 +320,7 @@ public class Process : Any
     private bool InternStringEntryListDelete(ulong o)
     {
         ulong countU;
-        countU = Extern.Array_GetCount(o);
+        countU = Extern.Array_CountGet(o);
 
         int count;
         count = (int)countU;
@@ -333,9 +333,9 @@ public class Process : Any
             ulong entryU;
             entryU = Extern.Array_GetItem(o, oa);
             ulong indexU;
-            indexU = Extern.Entry_GetIndex(entryU);
+            indexU = Extern.Entry_IndexGet(entryU);
             ulong valueU;
-            valueU = Extern.Entry_GetValue(entryU);
+            valueU = Extern.Entry_ValueGet(entryU);
 
             Extern.Entry_Final(entryU);
             Extern.Entry_Delete(entryU);
