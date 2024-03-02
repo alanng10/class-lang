@@ -1,12 +1,6 @@
 #include "ImageWrite.hpp"
 
-
-
-
 CppClassNew(ImageWrite)
-
-
-
 
 const char* ImageWrite_Var_Format[] =
 {
@@ -14,10 +8,6 @@ const char* ImageWrite_Var_Format[] =
     "JPG",
     "PNG",
 };
-
-
-
-
 
 Int ImageWrite_Init(Int o)
 {
@@ -47,10 +37,6 @@ Int ImageWrite_Init(Int o)
     return true;
 }
 
-
-
-
-
 Int ImageWrite_Final(Int o)
 {
     ImageWrite* m;
@@ -66,140 +52,10 @@ Int ImageWrite_Final(Int o)
     return true;
 }
 
-
-
-
-
-
-
-Int ImageWrite_GetStream(Int o)
-{
-    ImageWrite* m;
-
-    m = CP(o);
-
-
-    return m->Stream;
-}
-
-
-
-
-
-Int ImageWrite_SetStream(Int o, Int value)
-{
-    ImageWrite* m;
-
-    m = CP(o);
-
-
-    m->Stream = value;
-
-
-    return true;
-}
-
-
-
-
-
-
-Int ImageWrite_GetImage(Int o)
-{
-    ImageWrite* m;
-
-    m = CP(o);
-
-
-    return m->Image;
-}
-
-
-
-
-
-Int ImageWrite_SetImage(Int o, Int value)
-{
-    ImageWrite* m;
-
-    m = CP(o);
-
-
-    m->Image = value;
-
-
-    return true;
-}
-
-
-
-
-
-
-Int ImageWrite_GetFormat(Int o)
-{
-    ImageWrite* m;
-
-    m = CP(o);
-
-
-    return m->Format;
-}
-
-
-
-
-
-Int ImageWrite_SetFormat(Int o, Int value)
-{
-    ImageWrite* m;
-
-    m = CP(o);
-
-
-    m->Format = value;
-
-
-    return true;
-}
-
-
-
-
-
-
-
-Int ImageWrite_GetQuality(Int o)
-{
-    ImageWrite* m;
-
-    m = CP(o);
-
-
-    return m->Quality;
-}
-
-
-
-
-
-Int ImageWrite_SetQuality(Int o, Int value)
-{
-    ImageWrite* m;
-
-    m = CP(o);
-
-
-    m->Quality = value;
-
-
-    return true;
-}
-
-
-
-
-
+CppField(ImageWrite, Stream)
+CppField(ImageWrite, Image)
+CppField(ImageWrite, Format)
+CppField(ImageWrite, Quality)
 
 Int ImageWrite_Execute(Int o)
 {
@@ -225,13 +81,13 @@ Int ImageWrite_Execute(Int o)
 
     Int streamU;
 
-    streamU = Stream_GetIntern(m->Stream);
+    streamU = Stream_Intern(m->Stream);
 
 
 
     Int imageU;
 
-    imageU = Image_GetIntern(m->Image);
+    imageU = Image_Intern(m->Image);
 
 
 
