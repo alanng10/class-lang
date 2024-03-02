@@ -52,73 +52,8 @@ Int NetworkServer_Final(Int o)
     return true;
 }
 
-
-
-
-
-
-
-
-Int NetworkServer_GetAddress(Int o)
-{
-    NetworkServer* m;
-
-    m = CP(o);
-
-
-    return m->Address;
-}
-
-
-
-
-Int NetworkServer_SetAddress(Int o, Int value)
-{
-    NetworkServer* m;
-
-    m = CP(o);
-
-
-    m->Address = value;
-
-
-    return true;
-}
-
-
-
-
-
-Int NetworkServer_GetPort(Int o)
-{
-    NetworkServer* m;
-
-    m = CP(o);
-
-
-    return m->Port;
-}
-
-
-
-
-Int NetworkServer_SetPort(Int o, Int value)
-{
-    NetworkServer* m;
-
-    m = CP(o);
-
-
-    m->Port = value;
-
-
-    return true;
-}
-
-
-
-
-
+CppField(NetworkServer, Address)
+CppField(NetworkServer, Port)
 
 Int NetworkServer_Listen(Int o)
 {
@@ -131,7 +66,7 @@ Int NetworkServer_Listen(Int o)
 
     Int uu;
 
-    uu = NetworkAddress_GetIntern(m->Address);
+    uu = NetworkAddress_Intern(m->Address);
 
 
 
@@ -163,10 +98,6 @@ Int NetworkServer_Listen(Int o)
     return a;
 }
 
-
-
-
-
 Int NetworkServer_Close(Int o)
 {
     NetworkServer* m;
@@ -182,42 +113,7 @@ Int NetworkServer_Close(Int o)
     return true;
 }
 
-
-
-
-
-
-Int NetworkServer_GetNewPeerState(Int o)
-{
-    NetworkServer* m;
-
-    m = CP(o);
-
-
-    return m->NewPeerState;
-}
-
-
-
-
-Int NetworkServer_SetNewPeerState(Int o, Int value)
-{
-    NetworkServer* m;
-
-    m = CP(o);
-
-
-    m->NewPeerState = value;
-
-
-    return true;
-}
-
-
-
-
-
-
+CppField(NetworkServer, NewPeerState)
 
 Int NetworkServer_NextPendingPeer(Int o)
 {
@@ -251,7 +147,7 @@ Int NetworkServer_NextPendingPeer(Int o)
     Network_Init(network);
 
 
-    Network_SetStream(network, stream);
+    Network_StreamSet(network, stream);
 
 
 
@@ -269,17 +165,11 @@ Int NetworkServer_NextPendingPeer(Int o)
     return network;
 }
 
-
-
-
-
-
-
 Int NetworkServer_ClosePeer(Int o, Int network)
 {
     Int stream;
 
-    stream = Network_GetStream(network);
+    stream = Network_StreamGet(network);
 
 
 
@@ -305,11 +195,6 @@ Int NetworkServer_ClosePeer(Int o, Int network)
     return true;
 }
 
-
-
-
-
-
 Int NetworkServer_NewPeer(Int o)
 {
     NetworkServer* m;
@@ -326,12 +211,12 @@ Int NetworkServer_NewPeer(Int o)
 
     Int aa;
 
-    aa = State_GetMaide(state);
+    aa = State_MaideGet(state);
 
 
     Int arg;
 
-    arg = State_GetArg(state);
+    arg = State_ArgGet(state);
 
 
 
