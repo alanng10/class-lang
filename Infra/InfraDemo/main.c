@@ -1891,7 +1891,7 @@ int main(int argc, char* argv[])
 
 
 
-    Memory_SetStream(memory, stream);
+    Memory_StreamSet(memory, stream);
 
 
 
@@ -1925,10 +1925,10 @@ int main(int argc, char* argv[])
     Data_Init(dataA);
 
 
-    Data_SetCount(dataA, memoryDataCount);
+    Data_CountSet(dataA, memoryDataCount);
 
 
-    Data_SetValue(dataA, memoryDataValue);
+    Data_ValueSet(dataA, memoryDataValue);
 
 
 
@@ -1956,10 +1956,10 @@ int main(int argc, char* argv[])
 
 
 
-    Data_SetCount(dataA, memoryDataCount);
+    Data_CountSet(dataA, memoryDataCount);
 
 
-    Data_SetValue(dataA, dataValueA);
+    Data_ValueSet(dataA, dataValueA);
 
 
 
@@ -1987,10 +1987,10 @@ int main(int argc, char* argv[])
     String_Init(stringOb);
 
 
-    String_SetCount(stringOb, stringCountA);
+    String_CountSet(stringOb, stringCountA);
 
 
-    String_SetData(stringOb, dataValueA);
+    String_DataSet(stringOb, dataValueA);
 
 
 
@@ -2069,7 +2069,7 @@ int main(int argc, char* argv[])
 
 
 
-    State_SetMaide(threadAAExecuteState, uoaa);
+    State_MaideSet(threadAAExecuteState, uoaa);
 
 
 
@@ -2084,7 +2084,7 @@ int main(int argc, char* argv[])
 
 
 
-    Thread_SetExecuteState(threadAA, threadAAExecuteState);
+    Thread_ExecuteStateSet(threadAA, threadAAExecuteState);
 
 
 
@@ -2117,10 +2117,10 @@ int main(int argc, char* argv[])
     ImageBrush = Brush_New();
 
 
-    Brush_SetKind(ImageBrush, imageBrushKind);
+    Brush_KindSet(ImageBrush, imageBrushKind);
 
 
-    Brush_SetImage(ImageBrush, Image);
+    Brush_ImageSet(ImageBrush, Image);
 
 
     Brush_Init(ImageBrush);
@@ -2146,10 +2146,10 @@ int main(int argc, char* argv[])
     Pos_Init(gradientRadialCenterPos);
 
 
-    Pos_SetLeft(gradientRadialCenterPos, 1450);
+    Pos_LeftSet(gradientRadialCenterPos, 1450);
 
 
-    Pos_SetUp(gradientRadialCenterPos, 250);
+    Pos_UpSet(gradientRadialCenterPos, 250);
 
 
 
@@ -2163,10 +2163,10 @@ int main(int argc, char* argv[])
     Pos_Init(gradientRadialFocusPos);
 
 
-    Pos_SetLeft(gradientRadialFocusPos, 1500);
+    Pos_LeftSet(gradientRadialFocusPos, 1500);
 
 
-    Pos_SetUp(gradientRadialFocusPos, 250);
+    Pos_UpSet(gradientRadialFocusPos, 250);
 
 
 
@@ -2177,16 +2177,16 @@ int main(int argc, char* argv[])
     gradientRadial = GradientRadial_New();
 
 
-    GradientRadial_SetCenterPos(gradientRadial, gradientRadialCenterPos);
+    GradientRadial_CenterPosSet(gradientRadial, gradientRadialCenterPos);
 
 
-    GradientRadial_SetCenterRadius(gradientRadial, 100);
+    GradientRadial_CenterRadiusSet(gradientRadial, 100);
 
 
-    GradientRadial_SetFocusPos(gradientRadial, gradientRadialFocusPos);
+    GradientRadial_FocusPosSet(gradientRadial, gradientRadialFocusPos);
 
 
-    GradientRadial_SetFocusRadius(gradientRadial, 20);
+    GradientRadial_FocusRadiusSet(gradientRadial, 20);
 
 
     GradientRadial_Init(gradientRadial);
@@ -2231,16 +2231,16 @@ int main(int argc, char* argv[])
     gradient = Gradient_New();
 
 
-    Gradient_SetKind(gradient, gradientKind);
+    Gradient_KindSet(gradient, gradientKind);
 
 
-    Gradient_SetValue(gradient, gradientRadial);
+    Gradient_ValueSet(gradient, gradientRadial);
 
 
-    Gradient_SetStop(gradient, gradientStop);
+    Gradient_StopSet(gradient, gradientStop);
 
 
-    Gradient_SetSpread(gradient, Stat_GradientSpreadReflect(Stat));
+    Gradient_SpreadSet(gradient, Stat_GradientSpreadReflect(Stat));
 
 
     Gradient_Init(gradient);
@@ -2258,10 +2258,10 @@ int main(int argc, char* argv[])
     GradientBrush = Brush_New();
 
 
-    Brush_SetKind(GradientBrush, gradientBrushKind);
+    Brush_KindSet(GradientBrush, gradientBrushKind);
 
 
-    Brush_SetGradient(GradientBrush, gradient);
+    Brush_GradientSet(GradientBrush, gradient);
 
 
     Brush_Init(GradientBrush);
@@ -2303,7 +2303,7 @@ int main(int argc, char* argv[])
     State_Init(threadExecuteState);
 
 
-    State_SetMaide(threadExecuteState, threadMaideU);
+    State_MaideSet(threadExecuteState, threadMaideU);
 
 
 
@@ -2317,11 +2317,11 @@ int main(int argc, char* argv[])
 
 
 
-    Thread_SetExecuteState(Thread, threadExecuteState);
+    Thread_ExecuteStateSet(Thread, threadExecuteState);
 
 
 
-    Thread_SetIdent(Thread, 0x1000);
+    Thread_IdentSet(Thread, 0x1000);
 
 
 
@@ -2352,7 +2352,7 @@ int main(int argc, char* argv[])
 
 
 
-    Rect_SetPos(UpdateRect, updatePos);
+    Rect_PosSet(UpdateRect, updatePos);
 
 
 
@@ -2369,7 +2369,7 @@ int main(int argc, char* argv[])
     AudioEffect_Init(AudioEffect);
 
 
-    AudioEffect_SetSource(AudioEffect, soundUrlString);
+    AudioEffect_SourceSet(AudioEffect, soundUrlString);
 
 
 
