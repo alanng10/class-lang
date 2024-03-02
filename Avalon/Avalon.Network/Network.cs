@@ -35,13 +35,13 @@ public class Network : Any
             this.Intern = this.SetIntern;
 
             ulong streamU;
-            streamU = Extern.Network_GetStream(this.Intern);
+            streamU = Extern.Network_StreamGet(this.Intern);
             this.DataStream = this.StreamCreateIntern(streamU);
             this.Stream = this.DataStream;
         }
 
-        Extern.Network_SetCaseChangedState(this.Intern, this.InternCaseChangedState);
-        Extern.Network_SetReadyReadState(this.Intern, this.InternReadyReadState);
+        Extern.Network_CaseChangedStateSet(this.Intern, this.InternCaseChangedState);
+        Extern.Network_ReadyReadStateSet(this.Intern, this.InternReadyReadState);
         return true;
     }
 
@@ -93,7 +93,7 @@ public class Network : Any
         get
         {
             ulong u;
-            u = Extern.Network_GetStatus(this.Intern);
+            u = Extern.Network_StatusGet(this.Intern);
             int o;
             o = (int)u;
             Status a;
@@ -110,7 +110,7 @@ public class Network : Any
         get
         {
             ulong u;
-            u = Extern.Network_GetCase(this.Intern);
+            u = Extern.Network_CaseGet(this.Intern);
             if (u == 0)
             {
                 return null;
@@ -132,7 +132,7 @@ public class Network : Any
         get
         {
             ulong u;
-            u = Extern.Network_GetReadyCount(this.Intern);
+            u = Extern.Network_ReadyCountGet(this.Intern);
             long a;
             a = (long)u;
             return a;
@@ -160,9 +160,9 @@ public class Network : Any
         portU = (ulong)this.Port;
         this.DataStream = this.StreamCreate();
 
-        Extern.Network_SetHostName(this.Intern, this.InternHostName);
-        Extern.Network_SetPort(this.Intern, portU);
-        Extern.Network_SetStream(this.Intern, this.DataStream.Ident);
+        Extern.Network_HostNameSet(this.Intern, this.InternHostName);
+        Extern.Network_PortSet(this.Intern, portU);
+        Extern.Network_StreamSet(this.Intern, this.DataStream.Ident);
         Extern.Network_Open(this.Intern);
         return true;
     }
@@ -170,9 +170,9 @@ public class Network : Any
     public virtual bool Close()
     {   
         Extern.Network_Close(this.Intern);
-        Extern.Network_SetStream(this.Intern, 0);
-        Extern.Network_SetPort(this.Intern, 0);
-        Extern.Network_SetHostName(this.Intern, 0);
+        Extern.Network_StreamSet(this.Intern, 0);
+        Extern.Network_PortSet(this.Intern, 0);
+        Extern.Network_HostNameSet(this.Intern, 0);
 
         this.DataStream.Final();
         this.DataStream = null;
