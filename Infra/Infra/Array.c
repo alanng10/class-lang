@@ -28,7 +28,7 @@ Int Array_Final(Int o)
 
 Field(Array, Count)
 
-Int Array_GetItem(Int o, Int index)
+Int Array_ItemGet(Int o, Int index)
 {
     Array* m;
     m = CastPointer(o);
@@ -41,7 +41,7 @@ Int Array_GetItem(Int o, Int index)
     return a;
 }
 
-Int Array_SetItem(Int o, Int index, Int value)
+Int Array_ItemSet(Int o, Int index, Int value)
 {
     Array* m;
     m = CastPointer(o);
