@@ -147,9 +147,9 @@ Frame
     TypeState
     MouseState
     DrawState
-    WindowStat
-    SizeGet()
-    SetFrameTitle()
+    WindowCase
+    Size
+    FrameTitleSet()
     Update(rect)
     Close()
     Resize(frame, arg) --
