@@ -248,7 +248,7 @@ Int Format_ArgValueCountString(Int o, Int arg)
 
     Int a;
 
-    a = String_GetCount(oo->Value);
+    a = String_CountGet(oo->Value);
 
 
 
@@ -343,7 +343,7 @@ Int Format_ExecuteArgResult(Int o, Int arg, Int result)
 
     Int resultData;
 
-    resultData = String_GetData(result);
+    resultData = String_DataGet(result);
 
 
 
@@ -814,7 +814,7 @@ Int Format_ArgResultString(Int o, Int arg, Int result)
 
     Int valueData;
 
-    valueData = String_GetData(value);
+    valueData = String_DataGet(value);
 
 
 
@@ -1244,7 +1244,7 @@ Int Format_ResultString(Int o, Int result, Int value, Int varCase, Int valueWrit
 Int Format_ExecuteCount(Int o, Int varBase, Int argList)
 {
     Int count;
-    count = Array_GetCount(argList);
+    count = Array_CountGet(argList);
 
     Int arg;
     arg = null;
@@ -1285,7 +1285,7 @@ Int Format_ExecuteCount(Int o, Int varBase, Int argList)
 
 
     Int baseCount;
-    baseCount = String_GetCount(varBase);
+    baseCount = String_CountGet(varBase);
 
     k = k + baseCount;
 
@@ -1303,19 +1303,19 @@ Int Format_ExecuteCount(Int o, Int varBase, Int argList)
 Int Format_ExecuteResult(Int o, Int varBase, Int argList, Int result)
 {
     Int baseCount;
-    baseCount = String_GetCount(varBase);
+    baseCount = String_CountGet(varBase);
 
     Int baseData;
-    baseData = String_GetData(varBase);
+    baseData = String_DataGet(varBase);
 
     Char* baseU;
     baseU = CastPointer(baseData);
 
     Int argCount;
-    argCount = Array_GetCount(argList);
+    argCount = Array_CountGet(argList);
 
     Int resultData;
-    resultData = String_GetData(result);
+    resultData = String_DataGet(result);
 
     Char* resultU;
     resultU = CastPointer(resultData);
@@ -1416,5 +1416,3 @@ Int Format_ExecuteResult(Int o, Int varBase, Int argList, Int result)
 
     return true;
 }
-
-
