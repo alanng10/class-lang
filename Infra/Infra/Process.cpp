@@ -1,14 +1,6 @@
 #include "Process.hpp"
 
-
-
-
 CppClassNew(Process)
-
-
-
-
-
 
 Int Process_Init(Int o)
 {
@@ -32,9 +24,6 @@ Int Process_Init(Int o)
     return true;
 }
 
-
-
-
 Int Process_Final(Int o)
 {
     Process* m;
@@ -50,134 +39,10 @@ Int Process_Final(Int o)
     return true;
 }
 
-
-
-
-
-
-Int Process_GetProgram(Int o)
-{
-    Process* m;
-
-    m = CP(o);
-
-
-    return m->Program;
-}
-
-
-
-
-Int Process_SetProgram(Int o, Int value)
-{
-    Process* m;
-
-    m = CP(o);
-
-
-    m->Program = value;
-
-
-    return true;
-}
-
-
-
-
-
-Int Process_GetArgue(Int o)
-{
-    Process* m;
-
-    m = CP(o);
-
-
-    return m->Argue;
-}
-
-
-
-
-Int Process_SetArgue(Int o, Int value)
-{
-    Process* m;
-
-    m = CP(o);
-
-
-    m->Argue = value;
-
-
-    return true;
-}
-
-
-
-
-
-
-Int Process_GetWorkFold(Int o)
-{
-    Process* m;
-
-    m = CP(o);
-
-
-    return m->WorkFold;
-}
-
-
-
-
-Int Process_SetWorkFold(Int o, Int value)
-{
-    Process* m;
-
-    m = CP(o);
-
-
-    m->WorkFold = value;
-
-
-    return true;
-}
-
-
-
-
-
-
-
-Int Process_GetEnvironment(Int o)
-{
-    Process* m;
-
-    m = CP(o);
-
-
-    return m->Environment;
-}
-
-
-
-
-Int Process_SetEnvironment(Int o, Int value)
-{
-    Process* m;
-
-    m = CP(o);
-
-
-    m->Environment = value;
-
-
-    return true;
-}
-
-
-
-
-
+CppField(Process, Program)
+CppField(Process, Argue)
+CppField(Process, WorkFold)
+CppField(Process, Environment)
 
 Int Process_Execute(Int o)
 {
@@ -223,7 +88,7 @@ Int Process_Execute(Int o)
 
 
 
-    String_SetQString(ua, program);
+    String_QStringSet(ua, program);
 
 
 
@@ -269,7 +134,7 @@ Int Process_Execute(Int o)
 
 
 
-        String_SetQString(uc, workFold);
+        String_QStringSet(uc, workFold);
     }
 
 
@@ -327,11 +192,6 @@ Int Process_Execute(Int o)
 
     return true;
 }
-
-
-
-
-
 
 Int Process_GetIdent(Int o)
 {
@@ -447,75 +307,8 @@ Int Process_GetExitKind(Int o)
     return a;
 }
 
-
-
-
-
-
-
-Int Process_GetStartedState(Int o)
-{
-    Process* m;
-
-    m = CP(o);
-
-
-    return m->StartedState;
-}
-
-
-
-
-Int Process_SetStartedState(Int o, Int value)
-{
-    Process* m;
-
-    m = CP(o);
-
-
-    m->StartedState = value;
-
-
-    return true;
-}
-
-
-
-
-
-
-
-Int Process_GetFinishedState(Int o)
-{
-    Process* m;
-
-    m = CP(o);
-
-
-    return m->FinishedState;
-}
-
-
-
-
-Int Process_SetFinishedState(Int o, Int value)
-{
-    Process* m;
-
-    m = CP(o);
-
-
-    m->FinishedState = value;
-
-
-    return true;
-}
-
-
-
-
-
-
+CppField(Process, StartedState)
+CppField(Process, FinishedState)
 
 Int Process_Started(Int o)
 {
@@ -533,12 +326,12 @@ Int Process_Started(Int o)
 
     Int aa;
 
-    aa = State_GetMaide(state);
+    aa = State_MaideGet(state);
 
 
     Int arg;
 
-    arg = State_GetArg(state);
+    arg = State_ArgGet(state);
 
 
 
@@ -560,11 +353,6 @@ Int Process_Started(Int o)
     return true;
 }
 
-
-
-
-
-
 Int Process_Finished(Int o)
 {
     Process* m;
@@ -581,12 +369,12 @@ Int Process_Finished(Int o)
 
     Int aa;
 
-    aa = State_GetMaide(state);
+    aa = State_MaideGet(state);
 
 
     Int arg;
 
-    arg = State_GetArg(state);
+    arg = State_ArgGet(state);
 
 
 
@@ -608,11 +396,6 @@ Int Process_Finished(Int o)
     return true;
 }
 
-
-
-
-
-
 Int Process_InternSetArgue(Int result, Int argue)
 {
     QStringList* uu;
@@ -628,7 +411,7 @@ Int Process_InternSetArgue(Int result, Int argue)
 
     Int count;
 
-    count = Array_GetCount(argue);
+    count = Array_CountGet(argue);
 
 
 
@@ -668,7 +451,7 @@ Int Process_InternSetArgue(Int result, Int argue)
 
 
 
-        String_SetQString(ua, item);
+        String_QStringSet(ua, item);
 
 
 
@@ -701,7 +484,7 @@ Int Process_InternSetEnvironment(Int result, Int environment)
 
     Int count;
 
-    count = Array_GetCount(environment);
+    count = Array_CountGet(environment);
 
 
 
@@ -721,12 +504,12 @@ Int Process_InternSetEnvironment(Int result, Int environment)
 
         Int index;
 
-        index = Entry_GetIndex(entry);
+        index = Entry_IndexGet(entry);
 
 
         Int value;
 
-        value = Entry_GetValue(entry);
+        value = Entry_ValueGet(entry);
 
 
 
@@ -739,7 +522,7 @@ Int Process_InternSetEnvironment(Int result, Int environment)
         ua = CastInt(&indexU);
 
 
-        String_SetQString(ua, index);
+        String_QStringSet(ua, index);
 
 
 
@@ -752,7 +535,7 @@ Int Process_InternSetEnvironment(Int result, Int environment)
         ub = CastInt(&valueU);
 
 
-        String_SetQString(ub, value);
+        String_QStringSet(ub, value);
 
 
 
@@ -772,4 +555,3 @@ Int Process_InternSetEnvironment(Int result, Int environment)
 
     return true;
 }
-
