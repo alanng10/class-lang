@@ -265,8 +265,8 @@ public static class Extern
     [DllImport(InfraLib)] public extern static ulong Frame_WindowStatGet(ulong o);
     [DllImport(InfraLib)] public extern static ulong Frame_WindowStatSet(ulong o, ulong value);
 
-    [DllImport(InfraLib)] public extern static ulong Frame_GetVideoOut(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Frame_GetSize(ulong o);
+    [DllImport(InfraLib)] public extern static ulong Frame_VideoOut(ulong o);
+    [DllImport(InfraLib)] public extern static ulong Frame_SizeGet(ulong o);
     [DllImport(InfraLib)] public extern static ulong Frame_SetFrameTitle(ulong o);
     [DllImport(InfraLib)] public extern static ulong Frame_Update(ulong o, ulong rect);
     [DllImport(InfraLib)] public extern static ulong Frame_Close(ulong o);
