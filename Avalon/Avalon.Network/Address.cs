@@ -35,10 +35,10 @@ public class Address : Any
         valueBU = (ulong)this.ValueB;
         valueCU = (ulong)this.ValueC;
 
-        Extern.NetworkAddress_SetKind(this.Intern, kindU);
-        Extern.NetworkAddress_SetValueA(this.Intern, valueAU);
-        Extern.NetworkAddress_SetValueB(this.Intern, valueBU);
-        Extern.NetworkAddress_SetValueC(this.Intern, valueCU);
+        Extern.NetworkAddress_KindSet(this.Intern, kindU);
+        Extern.NetworkAddress_ValueASet(this.Intern, valueAU);
+        Extern.NetworkAddress_ValueBSet(this.Intern, valueBU);
+        Extern.NetworkAddress_ValueCSet(this.Intern, valueCU);
         Extern.NetworkAddress_Set(this.Intern);
         return true;
     }

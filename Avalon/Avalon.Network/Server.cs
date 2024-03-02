@@ -20,7 +20,7 @@ public class Server : Any
 
         this.Intern = Extern.NetworkServer_New();
         Extern.NetworkServer_Init(this.Intern);
-        Extern.NetworkServer_SetNewPeerState(this.Intern, this.InternNewPeerState);
+        Extern.NetworkServer_NewPeerStateSet(this.Intern, this.InternNewPeerState);
         return true;
     }
 
@@ -53,8 +53,8 @@ public class Server : Any
         ulong portU;
         portU = (ulong)this.Port;
 
-        Extern.NetworkServer_SetAddress(this.Intern, addressU);
-        Extern.NetworkServer_SetPort(this.Intern, portU);
+        Extern.NetworkServer_AddressSet(this.Intern, addressU);
+        Extern.NetworkServer_PortSet(this.Intern, portU);
 
         ulong u;
         u = Extern.NetworkServer_Listen(this.Intern);
