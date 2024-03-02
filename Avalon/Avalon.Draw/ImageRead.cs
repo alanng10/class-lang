@@ -26,14 +26,14 @@ public class ImageRead : Any
 
     public virtual bool Execute()
     {
-        Extern.ImageRead_SetStream(this.Intern, this.Stream.Ident);
-        Extern.ImageRead_SetImage(this.Intern, this.Image.Video.Ident);
+        Extern.ImageRead_StreamSet(this.Intern, this.Stream.Ident);
+        Extern.ImageRead_ImageSet(this.Intern, this.Image.Video.Ident);
 
         ulong u;        
         u = Extern.ImageRead_Execute(this.Intern);
 
-        Extern.ImageRead_SetImage(this.Intern, 0);
-        Extern.ImageRead_SetStream(this.Intern, 0);
+        Extern.ImageRead_ImageSet(this.Intern, 0);
+        Extern.ImageRead_StreamSet(this.Intern, 0);
         
         bool b;
         b = (!(u == 0));
@@ -50,11 +50,11 @@ public class ImageRead : Any
         VideoVideo video;
         video = this.Image.Video;
         ulong sizeU;
-        sizeU = Extern.Image_GetSize(video.Ident);
+        sizeU = Extern.Image_SizeGet(video.Ident);
         ulong w;
         ulong h;
-        w = Extern.Size_GetWidth(sizeU);
-        h = Extern.Size_GetHeight(sizeU);
+        w = Extern.Size_WidthGet(sizeU);
+        h = Extern.Size_HeightGet(sizeU);
         int width;
         int height;
         width = (int)w;
