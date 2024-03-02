@@ -169,8 +169,8 @@ Draw
     Font
     Transform
     Composite
-    SetDrawFillPos()
-    SetDrawArea()
+    DrawFillPosSet()
+    DrawAreaSet()
     Clear(color)
     ExecuteLine(startPos, endPos)
     ExecuteArc(rect, angleRange)
