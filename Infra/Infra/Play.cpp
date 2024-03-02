@@ -219,7 +219,7 @@ Int Play_AudioOutSet(Int o, Int value)
 
     Int u;
 
-    u = AudioOut_GetIntern(m->AudioOut);
+    u = AudioOut_Intern(m->AudioOut);
 
 
 
