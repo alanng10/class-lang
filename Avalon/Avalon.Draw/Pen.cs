@@ -17,11 +17,11 @@ public class Pen : Any
         joinU = this.Join.Intern;
 
         this.Intern = Extern.Pen_New();
-        Extern.Pen_SetKind(this.Intern, kindU);
-        Extern.Pen_SetWidth(this.Intern, widthU);
-        Extern.Pen_SetBrush(this.Intern, brushU);
-        Extern.Pen_SetCap(this.Intern, capU);
-        Extern.Pen_SetJoin(this.Intern, joinU);
+        Extern.Pen_KindSet(this.Intern, kindU);
+        Extern.Pen_WidthSet(this.Intern, widthU);
+        Extern.Pen_BrushSet(this.Intern, brushU);
+        Extern.Pen_CapSet(this.Intern, capU);
+        Extern.Pen_JoinSet(this.Intern, joinU);
         Extern.Pen_Init(this.Intern);
         return true;
     }
