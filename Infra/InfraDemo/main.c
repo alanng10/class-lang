@@ -826,7 +826,7 @@ Int ThreadExecute(Int thread, Int arg)
     Format_ExecuteArgCount(format, formatArg);
 
     Int count;
-    count = FormatArg_GetCount(formatArg);
+    count = FormatArg_CountGet(formatArg);
 
     Int byteCount;
     byteCount = count * Constant_CharByteCount();
