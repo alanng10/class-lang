@@ -132,23 +132,7 @@ Int Frame_Final(Int o)
     return true;
 }
 
-
-
-
-
-
-
-Int Frame_GetSize(Int o)
-{
-    Frame* m;
-
-    m = CP(o);
-
-
-
-    return m->Size;
-}
-
+CppFieldGet(Frame, Size)
 CppField(Frame, Title)
 
 Int Frame_SetFrameTitle(Int o)
@@ -253,7 +237,7 @@ Int Frame_GetMouseEvent(Int o)
 
 
 
-Int Frame_GetVideoOut(Int o)
+Int Frame_VideoOut(Int o)
 {
     Frame* m;
 

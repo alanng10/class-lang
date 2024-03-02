@@ -2516,13 +2516,13 @@ int main(int argc, char* argv[])
 
     Int frameSize;
 
-    frameSize = Frame_GetSize(frame);
+    frameSize = Frame_SizeGet(frame);
 
 
 
     Int videoOut;
 
-    videoOut = Frame_GetVideoOut(frame);
+    videoOut = Frame_VideoOut(frame);
 
 
 
