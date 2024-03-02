@@ -31,7 +31,7 @@ public class Memory : Any
         Stream stream;
         stream = this.CreateStream();
 
-        Extern.Memory_SetStream(this.Intern, stream.Ident);
+        Extern.Memory_StreamSet(this.Intern, stream.Ident);
         Extern.Memory_Open(this.Intern);
 
         this.Stream = stream;
@@ -41,7 +41,7 @@ public class Memory : Any
     public virtual bool Close()
     {
         Extern.Memory_Close(this.Intern);
-        Extern.Memory_SetStream(this.Intern, 0);
+        Extern.Memory_StreamSet(this.Intern, 0);
 
         this.Stream.Final();
         this.Stream = null;
