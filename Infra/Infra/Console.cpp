@@ -1,12 +1,6 @@
 #include "Console.hpp"
 
-
-
 CppClassNew(Console)
-
-
-
-
 
 Int Console_Init(Int o)
 {
@@ -26,7 +20,7 @@ Int Console_Init(Int o)
     m->Semaphore = Semaphore_New();
 
 
-    Semaphore_SetInitCount(m->Semaphore, initCount);
+    Semaphore_InitCountSet(m->Semaphore, initCount);
 
 
     Semaphore_Init(m->Semaphore);
@@ -36,10 +30,6 @@ Int Console_Init(Int o)
 
     return true;
 }
-
-
-
-
 
 Int Console_Final(Int o)
 {
@@ -60,13 +50,6 @@ Int Console_Final(Int o)
     return true;
 }
 
-
-
-
-
-
-
-
 Int Console_Write(Int o, Int text)
 {
     std::ostream* uu;
@@ -84,12 +67,6 @@ Int Console_Write(Int o, Int text)
     return Console_StreamWrite(o, text, ua);
 }
 
-
-
-
-
-
-
 Int Console_ErrWrite(Int o, Int text)
 {
     std::ostream* uu;
@@ -106,12 +83,6 @@ Int Console_ErrWrite(Int o, Int text)
 
     return Console_StreamWrite(o, text, ua);
 }
-
-
-
-
-
-
 
 Int Console_StreamWrite(Int o, Int text, Int stream)
 {
@@ -136,7 +107,7 @@ Int Console_StreamWrite(Int o, Int text, Int stream)
 
 
 
-    String_SetQStringRaw(ua, text);
+    String_QStringSetRaw(ua, text);
 
 
 
@@ -174,12 +145,6 @@ Int Console_StreamWrite(Int o, Int text, Int stream)
 
     return true;
 }
-
-
-
-
-
-
 
 Int Console_Read(Int o)
 {
@@ -232,8 +197,3 @@ Int Console_Read(Int o)
 
     return a;
 }
-
-
-
-
-
