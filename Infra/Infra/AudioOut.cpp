@@ -1,15 +1,6 @@
 #include "AudioOut.hpp"
 
-
-
-
 CppClassNew(AudioOut)
-
-
-
-
-
-
 
 Int AudioOut_Init(Int o)
 {
@@ -28,11 +19,6 @@ Int AudioOut_Init(Int o)
     return true;
 }
 
-
-
-
-
-
 Int AudioOut_Final(Int o)
 {
     AudioOut* m;
@@ -48,28 +34,9 @@ Int AudioOut_Final(Int o)
     return true;
 }
 
+CppFieldGet(AudioOut, Muted)
 
-
-
-
-
-Int AudioOut_GetMuted(Int o)
-{
-    AudioOut* m;
-
-    m = CP(o);
-
-
-
-    return m->Muted;
-}
-
-
-
-
-
-
-Int AudioOut_SetMuted(Int o, Int value)
+Int AudioOut_MutedSet(Int o, Int value)
 {
     AudioOut* m;
 
@@ -94,28 +61,9 @@ Int AudioOut_SetMuted(Int o, Int value)
     return true;
 }
 
+CppFieldGet(AudioOut, Volume)
 
-
-
-
-
-
-Int AudioOut_GetVolume(Int o)
-{
-    AudioOut* m;
-
-    m = CP(o);
-
-
-
-    return m->Volume;
-}
-
-
-
-
-
-Int AudioOut_SetVolume(Int o, Int value)
+Int AudioOut_VolumeSet(Int o, Int value)
 {
     AudioOut* m;
 
