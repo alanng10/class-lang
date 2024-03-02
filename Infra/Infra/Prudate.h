@@ -133,8 +133,8 @@ InfraApiNew(Array)
 Infra_Api Int Array_CountGet(Int o);
 Infra_Api Int Array_CountSet(Int o, Int value);
 
-Infra_Api Int Array_GetItem(Int o, Int index);
-Infra_Api Int Array_SetItem(Int o, Int index, Int value);
+Infra_Api Int Array_ItemGet(Int o, Int index);
+Infra_Api Int Array_ItemSet(Int o, Int index, Int value);
 
 InfraApiNew(TextEncode)
 Infra_Api Int TextEncode_KindGet(Int o);
