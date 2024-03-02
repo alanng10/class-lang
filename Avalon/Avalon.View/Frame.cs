@@ -38,9 +38,9 @@ public class Frame : Comp
         ulong sizeU;
         sizeU = Extern.Frame_GetSize(this.Intern);
         ulong w;
-        w = Extern.Size_GetWidth(sizeU);
+        w = Extern.Size_WidthGet(sizeU);
         ulong h;
-        h = Extern.Size_GetHeight(sizeU);
+        h = Extern.Size_HeightGet(sizeU);
         int width;
         width = (int)w;
         int height;
@@ -50,8 +50,8 @@ public class Frame : Comp
         this.Size.Width = width;
         this.Size.Height = height;
 
-        Extern.Frame_SetTypeState(this.Intern, this.InternTypeState);
-        Extern.Frame_SetDrawState(this.Intern, this.InternDrawState);
+        Extern.Frame_TypeStateSet(this.Intern, this.InternTypeState);
+        Extern.Frame_DrawStateSet(this.Intern, this.InternDrawState);
 
         ulong ouu;
         ouu = Extern.Frame_GetVideoOut(this.Intern);
@@ -107,9 +107,9 @@ public class Frame : Comp
     {
         this.InternTitle = this.InternInfra.StringCreate(this.Title);
 
-        Extern.Frame_SetTitle(this.Intern, this.InternTitle);
+        Extern.Frame_TitleSet(this.Intern, this.InternTitle);
         Extern.Frame_SetFrameTitle(this.Intern);
-        Extern.Frame_SetTitle(this.Intern, 0);
+        Extern.Frame_TitleSet(this.Intern, 0);
 
         this.InternInfra.StringDelete(this.InternTitle);
         return true;
@@ -251,7 +251,7 @@ public class Frame : Comp
     private bool GetVisible()
     {
         ulong u;
-        u = Extern.Frame_GetVisible(this.Intern);
+        u = Extern.Frame_VisibleGet(this.Intern);
         bool a;
         a = (!(u == 0));
         return a;
@@ -261,7 +261,7 @@ public class Frame : Comp
     {
         ulong u;
         u = (ulong)(value ? 1 : 0);
-        Extern.Frame_SetVisible(this.Intern, u);
+        Extern.Frame_VisibleSet(this.Intern, u);
         return true;
     }
 
