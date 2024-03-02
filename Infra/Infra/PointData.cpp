@@ -40,10 +40,10 @@ Bool PointData_GetPoint(Int address, Int result)
 
 
 
-    Pos_SetLeft(result, left);
+    Pos_LeftSet(result, left);
 
 
-    Pos_SetUp(result, up);
+    Pos_UpSet(result, up);
 
 
 
@@ -62,9 +62,9 @@ Bool PointData_SetPoint(Int address, Int pos)
     Int up;
 
 
-    left = Pos_GetLeft(pos);
+    left = Pos_LeftGet(pos);
 
-    up = Pos_GetUp(pos);
+    up = Pos_UpGet(pos);
 
 
 
