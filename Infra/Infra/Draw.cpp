@@ -663,10 +663,6 @@ Int Draw_Clear(Int o, Int color)
     return true;
 }
 
-
-
-
-
 Int Draw_ExecuteLine(Int o, Int startPos, Int endPos)
 {
     Draw* m;
@@ -681,9 +677,9 @@ Int Draw_ExecuteLine(Int o, Int startPos, Int endPos)
     Int startUp;
 
 
-    startLeft = Pos_GetLeft(startPos);
+    startLeft = Pos_LeftGet(startPos);
 
-    startUp = Pos_GetUp(startPos);
+    startUp = Pos_UpGet(startPos);
 
 
 
@@ -693,9 +689,9 @@ Int Draw_ExecuteLine(Int o, Int startPos, Int endPos)
     Int endUp;
 
 
-    endLeft = Pos_GetLeft(endPos);
+    endLeft = Pos_LeftGet(endPos);
 
-    endUp = Pos_GetUp(endPos);
+    endUp = Pos_UpGet(endPos);
 
 
 
@@ -730,14 +726,7 @@ Int Draw_ExecuteLine(Int o, Int startPos, Int endPos)
     return true;
 }
 
-
-
-
-
-
-
-
-Bool Draw_ExecuteArc(Int o, Int rect, Int angleRange)
+Int Draw_ExecuteArc(Int o, Int rect, Int angleRange)
 {
     Draw* m;
 
@@ -783,9 +772,9 @@ Bool Draw_ExecuteArc(Int o, Int rect, Int angleRange)
     Int angleEnd;
 
 
-    angleStart = Range_GetStart(angleRange);
+    angleStart = Range_StartGet(angleRange);
 
-    angleEnd = Range_GetEnd(angleRange);
+    angleEnd = Range_EndGet(angleRange);
 
 
 
@@ -811,13 +800,7 @@ Bool Draw_ExecuteArc(Int o, Int rect, Int angleRange)
     return true;
 }
 
-
-
-
-
-
-
-Bool Draw_ExecuteChord(Int o, Int rect, Int angleRange)
+Int Draw_ExecuteChord(Int o, Int rect, Int angleRange)
 {
     Draw* m;
 
@@ -864,9 +847,9 @@ Bool Draw_ExecuteChord(Int o, Int rect, Int angleRange)
     Int angleEnd;
 
 
-    angleStart = Range_GetStart(angleRange);
+    angleStart = Range_StartGet(angleRange);
 
-    angleEnd = Range_GetEnd(angleRange);
+    angleEnd = Range_EndGet(angleRange);
 
 
 
@@ -898,7 +881,7 @@ Bool Draw_ExecuteChord(Int o, Int rect, Int angleRange)
 
 
 
-Bool Draw_ExecutePie(Int o, Int rect, Int angleRange)
+Int Draw_ExecutePie(Int o, Int rect, Int angleRange)
 {
     Draw* m;
 
@@ -945,9 +928,9 @@ Bool Draw_ExecutePie(Int o, Int rect, Int angleRange)
     Int angleEnd;
 
 
-    angleStart = Range_GetStart(angleRange);
+    angleStart = Range_StartGet(angleRange);
 
-    angleEnd = Range_GetEnd(angleRange);
+    angleEnd = Range_EndGet(angleRange);
 
 
 
@@ -972,13 +955,7 @@ Bool Draw_ExecutePie(Int o, Int rect, Int angleRange)
     return true;
 }
 
-
-
-
-
-
-
-Bool Draw_ExecuteEllipse(Int o, Int rect)
+Int Draw_ExecuteEllipse(Int o, Int rect)
 {
     Draw* m;
 
@@ -1031,12 +1008,7 @@ Bool Draw_ExecuteEllipse(Int o, Int rect)
     return true;
 }
 
-
-
-
-
-
-Bool Draw_ExecuteRect(Int o, Int rect)
+Int Draw_ExecuteRect(Int o, Int rect)
 {
     Draw* m;
 
@@ -1084,13 +1056,7 @@ Bool Draw_ExecuteRect(Int o, Int rect)
     return true;
 }
 
-
-
-
-
-
-
-Bool Draw_ExecuteRoundRect(Int o, Int rect, Int horizRadius, Int vertRadius)
+Int Draw_ExecuteRoundRect(Int o, Int rect, Int horizRadius, Int vertRadius)
 {
     Draw* m;
 
@@ -1166,12 +1132,7 @@ Bool Draw_ExecuteRoundRect(Int o, Int rect, Int horizRadius, Int vertRadius)
     return true;
 }
 
-
-
-
-
-
-Bool Draw_ExecutePolygon(Int o, Int pointListCount, Int pointListData)
+Int Draw_ExecutePolygon(Int o, Int pointListCount, Int pointListData)
 {
     Draw* m;
 
@@ -1189,7 +1150,7 @@ Bool Draw_ExecutePolygon(Int o, Int pointListCount, Int pointListData)
 
     Int dataValue;
 
-    dataValue = Data_GetValue(pointListData);
+    dataValue = Data_ValueGet(pointListData);
 
 
 
@@ -1209,13 +1170,7 @@ Bool Draw_ExecutePolygon(Int o, Int pointListCount, Int pointListData)
     return true;
 }
 
-
-
-
-
-
-
-Bool Draw_ExecutePolyline(Int o, Int pointListCount, Int pointListData)
+Int Draw_ExecutePolyline(Int o, Int pointListCount, Int pointListData)
 {
     Draw* m;
 
@@ -1233,7 +1188,7 @@ Bool Draw_ExecutePolyline(Int o, Int pointListCount, Int pointListData)
 
     Int dataValue;
 
-    dataValue = Data_GetValue(pointListData);
+    dataValue = Data_ValueGet(pointListData);
 
 
 
@@ -1253,12 +1208,7 @@ Bool Draw_ExecutePolyline(Int o, Int pointListCount, Int pointListData)
     return true;
 }
 
-
-
-
-
-
-Bool Draw_ExecuteImage(Int o, Int image, Int destRect, Int sourceRect)
+Int Draw_ExecuteImage(Int o, Int image, Int destRect, Int sourceRect)
 {
     Draw* m;
 
@@ -1270,7 +1220,7 @@ Bool Draw_ExecuteImage(Int o, Int image, Int destRect, Int sourceRect)
 
     Int ua;
 
-    ua = Image_GetIntern(image);
+    ua = Image_Intern(image);
 
 
 
@@ -1355,12 +1305,7 @@ Bool Draw_ExecuteImage(Int o, Int image, Int destRect, Int sourceRect)
     return true;
 }
 
-
-
-
-
-
-Bool Draw_ExecuteText(Int o, Int destRect, Int flag, Int text, Int boundRect)
+Int Draw_ExecuteText(Int o, Int destRect, Int flag, Int text, Int boundRect)
 {
     Draw* m;
 
@@ -1411,7 +1356,7 @@ Bool Draw_ExecuteText(Int o, Int destRect, Int flag, Int text, Int boundRect)
 
 
 
-    String_SetQStringRaw(ua, text);
+    String_QStringSetRaw(ua, text);
 
 
 
@@ -1488,22 +1433,22 @@ Bool Draw_ExecuteText(Int o, Int destRect, Int flag, Int text, Int boundRect)
 
     Int boundPos;
 
-    boundPos = Rect_GetPos(boundRect);
+    boundPos = Rect_PosGet(boundRect);
 
     Int boundSize;
 
-    boundSize = Rect_GetSize(boundRect);
+    boundSize = Rect_SizeGet(boundRect);
 
 
 
-    Pos_SetLeft(boundPos, boundLeft);
+    Pos_LeftSet(boundPos, boundLeft);
 
-    Pos_SetUp(boundPos, boundUp);
+    Pos_UpSet(boundPos, boundUp);
 
 
-    Size_SetWidth(boundSize, boundWidth);
+    Size_WidthSet(boundSize, boundWidth);
 
-    Size_SetHeight(boundSize, boundHeight);
+    Size_HeightSet(boundSize, boundHeight);
 
 
 
@@ -1511,15 +1456,7 @@ Bool Draw_ExecuteText(Int o, Int destRect, Int flag, Int text, Int boundRect)
     return true;
 }
 
-
-
-
-
-
-
-
-
-Int Draw_GetIntern(Int o)
+Int Draw_Intern(Int o)
 {
     Draw* m;
 
@@ -1535,9 +1472,3 @@ Int Draw_GetIntern(Int o)
 
     return u;
 }
-
-
-
-
-
-

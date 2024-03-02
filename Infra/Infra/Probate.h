@@ -54,10 +54,7 @@ Int Frame_GetMouseEvent(Int o);
 
 
 
-Int Draw_GetIntern(Int o);
-
-
-
+Int Draw_Intern(Int o);
 
 Int Brush_Intern(Int o);
 
