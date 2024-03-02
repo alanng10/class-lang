@@ -40,7 +40,7 @@ Int Stream_Final(Int o)
 
 CppFieldGet(Stream, Kind)
 
-Int Stream_SetKind(Int o, Int value)
+Int Stream_KindSet(Int o, Int value)
 {
     Stream* m;
 
