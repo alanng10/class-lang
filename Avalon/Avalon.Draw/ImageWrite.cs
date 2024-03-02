@@ -25,16 +25,16 @@ public class ImageWrite : Any
 
     public virtual bool Execute()
     {
-        Extern.ImageWrite_SetStream(this.Intern, this.Stream.Ident);
-        Extern.ImageWrite_SetFormat(this.Intern, this.Format.Intern);
-        Extern.ImageWrite_SetImage(this.Intern, this.Image.Video.Ident);
+        Extern.ImageWrite_StreamSet(this.Intern, this.Stream.Ident);
+        Extern.ImageWrite_FormatSet(this.Intern, this.Format.Intern);
+        Extern.ImageWrite_ImageSet(this.Intern, this.Image.Video.Ident);
 
         ulong u;
         u = Extern.ImageWrite_Execute(this.Intern);
 
-        Extern.ImageWrite_SetImage(this.Intern, 0);
-        Extern.ImageWrite_SetFormat(this.Intern, 0);
-        Extern.ImageWrite_SetStream(this.Intern, 0);
+        Extern.ImageWrite_ImageSet(this.Intern, 0);
+        Extern.ImageWrite_FormatSet(this.Intern, 0);
+        Extern.ImageWrite_StreamSet(this.Intern, 0);
 
         bool b;
         b = (!(u == 0));
