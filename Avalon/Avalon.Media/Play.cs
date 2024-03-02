@@ -30,9 +30,9 @@ public class Play : Any
         ulong u;        
         u = this.InternInfra.StringCreate(this.Source);
 
-        Extern.Play_SetSource(this.Intern, u);
+        Extern.Play_SourceSet(this.Intern, u);
         Extern.Play_SetPlaySource(this.Intern);
-        Extern.Play_SetSource(this.Intern, 0);
+        Extern.Play_SourceSet(this.Intern, 0);
 
         this.InternInfra.StringDelete(u);
         return true;
@@ -66,7 +66,7 @@ public class Play : Any
         {
             u = this.AudioOut.Ident;
         }
-        Extern.Play_SetAudioOut(this.Intern, u);
+        Extern.Play_AudioOutSet(this.Intern, u);
         return true;
     }
 
@@ -80,7 +80,7 @@ public class Play : Any
         {
             u = this.VideoOut.Ident;
         }
-        Extern.Play_SetVideoOut(this.Intern, u);
+        Extern.Play_VideoOutSet(this.Intern, u);
         return true;
     }
 }
