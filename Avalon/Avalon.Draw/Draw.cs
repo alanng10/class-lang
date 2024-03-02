@@ -36,8 +36,8 @@ public class Draw : Any
 
         this.InternText = Extern.String_New();
         Extern.String_Init(this.InternText);
-        Extern.String_SetCount(this.InternText, 0);
-        Extern.String_SetData(this.InternText, this.InternTextData);
+        Extern.String_CountSet(this.InternText, 0);
+        Extern.String_DataSet(this.InternText, this.InternTextData);
 
         this.InternRectA = this.InternInfra.RectCreate();
         this.InternRectB = this.InternInfra.RectCreate();
@@ -52,9 +52,9 @@ public class Draw : Any
 
         this.Intern = Extern.Draw_New();
         Extern.Draw_Init(this.Intern);
-        Extern.Draw_SetSize(this.Intern, this.InternSize);
-        Extern.Draw_SetArea(this.Intern, this.InternArea);
-        Extern.Draw_SetFillPos(this.Intern, this.InternFillPos);
+        Extern.Draw_SizeSet(this.Intern, this.InternSize);
+        Extern.Draw_AreaSet(this.Intern, this.InternArea);
+        Extern.Draw_FillPosSet(this.Intern, this.InternFillPos);
         return true;
     }
 
@@ -106,7 +106,7 @@ public class Draw : Any
             {
                 uu = this.BrushData.Intern;
             }
-            Extern.Draw_SetBrush(this.Intern, uu);
+            Extern.Draw_BrushSet(this.Intern, uu);
         }
     }
 
@@ -128,7 +128,7 @@ public class Draw : Any
             {
                 uu = this.PenData.Intern;
             }
-            Extern.Draw_SetPen(this.Intern, uu);
+            Extern.Draw_PenSet(this.Intern, uu);
         }
     }
 
@@ -150,7 +150,7 @@ public class Draw : Any
             {
                 u = this.FontData.Intern;
             }
-            Extern.Draw_SetFont(this.Intern, u);
+            Extern.Draw_FontSet(this.Intern, u);
         }
     }
 
@@ -172,7 +172,7 @@ public class Draw : Any
             {
                 uu = this.CompositeData.Intern;
             }
-            Extern.Draw_SetComposite(this.Intern, uu);
+            Extern.Draw_CompositeSet(this.Intern, uu);
         }
     }
 
@@ -200,7 +200,7 @@ public class Draw : Any
 
     public virtual bool Start()
     {
-        Extern.Draw_SetOut(this.Intern, this.Out);
+        Extern.Draw_OutSet(this.Intern, this.Out);
         Extern.Draw_Start(this.Intern);
 
         Rect area;
@@ -240,8 +240,8 @@ public class Draw : Any
         ulong h;
         w = (ulong)(this.Size.Width);
         h = (ulong)(this.Size.Height);
-        Extern.Size_SetWidth(this.InternSize, w);
-        Extern.Size_SetHeight(this.InternSize, h);
+        Extern.Size_WidthSet(this.InternSize, w);
+        Extern.Size_HeightSet(this.InternSize, h);
         return true;
     }
 
@@ -290,7 +290,7 @@ public class Draw : Any
             this.WorldTransform.Multiply(this.TransformA);
         }
 
-        Extern.Draw_SetTransform(this.Intern, this.WorldTransform.Intern);
+        Extern.Draw_TransformSet(this.Intern, this.WorldTransform.Intern);
         return true;
     }
 
@@ -374,7 +374,7 @@ public class Draw : Any
 
         this.InternIntern.CopyText(this.InternTextData, text.Data, indexU, countU);
 
-        Extern.String_SetCount(this.InternText, countU);
+        Extern.String_CountSet(this.InternText, countU);
 
         this.SetInternRectFromRect(this.InternRectA, destRect);
 
