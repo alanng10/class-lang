@@ -2526,30 +2526,30 @@ int main(int argc, char* argv[])
 
 
 
-    Draw_SetSize(Draw, frameSize);
+    Draw_SizeSet(Draw, frameSize);
 
 
 
-    Draw_SetOut(Draw, videoOut);
+    Draw_OutSet(Draw, videoOut);
 
 
 
-    Draw_SetArea(Draw, area);
+    Draw_AreaSet(Draw, area);
 
 
 
-    Draw_SetFillPos(Draw, fillPos);
-
-
-
-
-    Rect_SetSize(UpdateRect, frameSize);
+    Draw_FillPosSet(Draw, fillPos);
 
 
 
 
+    Rect_SizeSet(UpdateRect, frameSize);
 
-    Frame_SetTitle(frame, frameTitle);
+
+
+
+
+    Frame_TitleSet(frame, frameTitle);
 
 
 
@@ -2558,7 +2558,7 @@ int main(int argc, char* argv[])
 
 
 
-    Frame_SetVisible(frame, true);
+    Frame_VisibleSet(frame, true);
 
 
 
@@ -3022,7 +3022,7 @@ int main(int argc, char* argv[])
 
     int u;
 
-    u = (int)o;
+    u = o;
 
 
     return u;
