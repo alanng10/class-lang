@@ -1,128 +1,24 @@
 #include "Storage.hpp"
 
-
-
-
 CppClassNew(Storage)
-
-
-
-
-
 
 Bool Storage_Init(Int o)
 {
     return true;
 }
 
-
-
-
 Bool Storage_Final(Int o)
 {
     return true;
 }
 
+CppField(Storage, Path)
+CppField(Storage, Mode)
+CppField(Storage, Stream)
 
+CppFieldGet(Storage, Status)
 
-
-
-Int Storage_GetPath(Int o)
-{
-    Storage* m;
-
-    m = CP(o);
-
-
-    return m->Path;
-}
-
-
-
-
-
-Bool Storage_SetPath(Int o, Int value)
-{
-    Storage* m;
-
-    m = CP(o);
-
-
-    m->Path = value;
-
-
-    return true;
-}
-
-
-
-
-Int Storage_GetMode(Int o)
-{
-    Storage* m;
-
-    m = CP(o);
-
-
-    return m->Mode;
-}
-
-
-
-
-
-Bool Storage_SetMode(Int o, Int value)
-{
-    Storage* m;
-
-    m = CP(o);
-
-
-    m->Mode = value;
-
-
-    return true;
-}
-
-
-
-
-
-
-Int Storage_GetStream(Int o)
-{
-    Storage* m;
-
-    m = CP(o);
-
-
-    return m->Stream;
-}
-
-
-
-
-Bool Storage_SetStream(Int o, Int value)
-{
-    Storage* m;
-
-    m = CP(o);
-
-
-    m->Stream = value;
-
-
-    return true;
-}
-
-Int Storage_GetStatus(Int o)
-{
-    Storage* m;
-    m = CP(o);
-    return m->Status;
-}
-
-Int Storage_SetStatus(Int o, Int value)
+Int Storage_StatusSet(Int o, Int value)
 {
     return true;
 }
@@ -166,7 +62,7 @@ Int Storage_Open(Int o)
 
 
 
-    String_SetQString(uu, path);
+    String_QStringSet(uu, path);
 
 
 
@@ -270,17 +166,17 @@ Int Storage_Open(Int o)
 
 
 
-        Stream_SetKind(stream, kind);
+        Stream_KindSet(stream, kind);
 
 
-        Stream_SetValue(stream, uo);
+        Stream_ValueSet(stream, uo);
 
 
 
-        Stream_SetCanRead(stream, canRead);
+        Stream_CanReadSet(stream, canRead);
 
 
-        Stream_SetCanWrite(stream, canWrite);
+        Stream_CanWriteSet(stream, canWrite);
     }
 
 
@@ -349,11 +245,11 @@ Int Storage_Close(Int o)
 
 
 
-    Stream_SetKind(stream, null);
+    Stream_KindSet(stream, null);
 
 
 
-    Stream_SetValue(stream, null);
+    Stream_ValueSet(stream, null);
 
 
 
@@ -407,12 +303,7 @@ Int Storage_SetCount(Int o, Int value)
     return true;
 }
 
-
-
-
-
-
-Bool Stream_FlushStorage(Int device)
+Int Stream_FlushStorage(Int device)
 {
     QIODevice* ua;
 
