@@ -24,13 +24,13 @@ public class Font : Any
         strikeoutU = (ulong)(this.Strikeout ? 1 : 0);
 
         this.Intern = Extern.Font_New();
-        Extern.Font_SetFamily(this.Intern, this.InternFamily);
-        Extern.Font_SetSize(this.Intern, sizeU);
-        Extern.Font_SetWeight(this.Intern, weightU);
-        Extern.Font_SetItalic(this.Intern, italicU);
-        Extern.Font_SetUnderline(this.Intern, underlineU);
-        Extern.Font_SetOverline(this.Intern, overlineU);
-        Extern.Font_SetStrikeout(this.Intern, strikeoutU);
+        Extern.Font_FamilySet(this.Intern, this.InternFamily);
+        Extern.Font_SizeSet(this.Intern, sizeU);
+        Extern.Font_WeightSet(this.Intern, weightU);
+        Extern.Font_ItalicSet(this.Intern, italicU);
+        Extern.Font_UnderlineSet(this.Intern, underlineU);
+        Extern.Font_OverlineSet(this.Intern, overlineU);
+        Extern.Font_StrikeoutSet(this.Intern, strikeoutU);
         Extern.Font_Init(this.Intern);
         return true;
     }

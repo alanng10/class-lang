@@ -28,10 +28,10 @@ public class Brush : Any
             gradientU = this.Gradient.Intern;
         }
         this.Intern = Extern.Brush_New();
-        Extern.Brush_SetKind(this.Intern, kindU);
-        Extern.Brush_SetColor(this.Intern, colorU);
-        Extern.Brush_SetImage(this.Intern, imageU);
-        Extern.Brush_SetGradient(this.Intern, gradientU);
+        Extern.Brush_KindSet(this.Intern, kindU);
+        Extern.Brush_ColorSet(this.Intern, colorU);
+        Extern.Brush_ImageSet(this.Intern, imageU);
+        Extern.Brush_GradientSet(this.Intern, gradientU);
         Extern.Brush_Init(this.Intern);
         return true;
     }
