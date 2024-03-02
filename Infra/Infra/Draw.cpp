@@ -404,7 +404,7 @@ Int Draw_TransformSet(Int o, Int value)
 CppField(Draw, FillPos)
 CppFieldGet(Draw, Composite)
 
-Int Draw_SetComposite(Int o, Int value)
+Int Draw_CompositeSet(Int o, Int value)
 {
     Draw* m;
 
