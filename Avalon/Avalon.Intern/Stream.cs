@@ -412,7 +412,7 @@ public class Stream : object
 
 
 
-        Extern.Data_SetCount(this.InternData, countU);
+        Extern.Data_CountSet(this.InternData, countU);
 
 
 
@@ -436,10 +436,10 @@ public class Stream : object
 
 
 
-        Extern.Range_SetStart(this.InternRange, startU);
+        Extern.Range_StartSet(this.InternRange, startU);
 
 
-        Extern.Range_SetEnd(this.InternRange, endU);
+        Extern.Range_EndSet(this.InternRange, endU);
 
 
 

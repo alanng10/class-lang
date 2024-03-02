@@ -92,10 +92,10 @@ public class Infra : object
         Extern.String_Init(o);
 
 
-        Extern.String_SetCount(o, count);
+        Extern.String_CountSet(o, count);
 
 
-        Extern.String_SetData(o, data);
+        Extern.String_DataSet(o, data);
 
 
 
@@ -149,10 +149,10 @@ public class Infra : object
         Extern.String_Init(o);
 
 
-        Extern.String_SetCount(o, countA);
+        Extern.String_CountSet(o, countA);
 
 
-        Extern.String_SetData(o, data);
+        Extern.String_DataSet(o, data);
 
 
 
@@ -168,7 +168,7 @@ public class Infra : object
     {
         ulong data;
 
-        data = Extern.String_GetData(o);
+        data = Extern.String_DataGet(o);
 
 
 
@@ -203,10 +203,10 @@ public class Infra : object
         Extern.State_Init(a);
 
 
-        Extern.State_SetMaide(a, maideAddress.Value);
+        Extern.State_MaideSet(a, maideAddress.Value);
 
 
-        Extern.State_SetArg(a, arg);
+        Extern.State_ArgSet(a, arg);
 
 
 
@@ -298,9 +298,9 @@ public class Infra : object
 
         Extern.Rect_Init(rect);
 
-        Extern.Rect_SetPos(rect, pos);
+        Extern.Rect_PosSet(rect, pos);
 
-        Extern.Rect_SetSize(rect, size);
+        Extern.Rect_SizeSet(rect, size);
 
 
 
@@ -316,9 +316,9 @@ public class Infra : object
 
         ulong size;
 
-        pos = Extern.Rect_GetPos(rect);
+        pos = Extern.Rect_PosGet(rect);
 
-        size = Extern.Rect_GetSize(rect);
+        size = Extern.Rect_SizeGet(rect);
 
 
 
@@ -350,7 +350,7 @@ public class Infra : object
     {
         ulong pos;
 
-        pos = Extern.Rect_GetPos(rect);
+        pos = Extern.Rect_PosGet(rect);
 
 
         this.SetPos(pos, left, up);
@@ -359,7 +359,7 @@ public class Infra : object
 
         ulong size;
 
-        size = Extern.Rect_GetSize(rect);
+        size = Extern.Rect_SizeGet(rect);
 
 
         this.SetSize(size, width, height);
@@ -398,9 +398,9 @@ public class Infra : object
 
 
 
-        Extern.Pos_SetLeft(pos, l);
+        Extern.Pos_LeftSet(pos, l);
 
-        Extern.Pos_SetUp(pos, u);
+        Extern.Pos_UpSet(pos, u);
 
 
 
@@ -423,9 +423,9 @@ public class Infra : object
 
 
 
-        Extern.Size_SetWidth(size, w);
+        Extern.Size_WidthSet(size, w);
 
-        Extern.Size_SetHeight(size, h);
+        Extern.Size_HeightSet(size, h);
 
 
 

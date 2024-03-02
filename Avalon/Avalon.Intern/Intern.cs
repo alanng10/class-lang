@@ -167,7 +167,7 @@ public class Intern : object
 
 
 
-                Extern.Data_SetValue(data, dataValue);
+                Extern.Data_ValueSet(data, dataValue);
 
 
 
@@ -175,7 +175,7 @@ public class Intern : object
 
 
 
-                Extern.Data_SetValue(data, 0);
+                Extern.Data_ValueSet(data, 0);
             }
         }
 
@@ -206,7 +206,7 @@ public class Intern : object
 
 
 
-                Extern.Data_SetValue(data, dataValue);
+                Extern.Data_ValueSet(data, dataValue);
 
 
 
@@ -214,7 +214,7 @@ public class Intern : object
 
 
 
-                Extern.Data_SetValue(data, 0);
+                Extern.Data_ValueSet(data, 0);
             }
         }
 
@@ -426,7 +426,7 @@ public class Intern : object
 
 
 
-                    Extern.Data_SetValue(data, oau);
+                    Extern.Data_ValueSet(data, oau);
 
 
 
@@ -486,7 +486,7 @@ public class Intern : object
 
 
 
-                    Extern.String_SetData(fromText, oau);
+                    Extern.String_DataSet(fromText, oau);
 
 
 
@@ -520,8 +520,8 @@ public class Intern : object
                 ulong ua;
                 ua = (ulong)pa;
 
-                Extern.String_SetCount(varBase, baseCount);
-                Extern.String_SetData(varBase, ua);
+                Extern.String_CountSet(varBase, baseCount);
+                Extern.String_DataSet(varBase, ua);
 
                 u = Extern.Format_ExecuteCount(format, varBase, argList);
             }
@@ -551,10 +551,10 @@ public class Intern : object
                     ulong uua;
                     uua = (ulong)pua;
 
-                    Extern.String_SetCount(varBase, baseCount);
-                    Extern.String_SetData(varBase, ua);
-                    Extern.String_SetCount(result, resultCount);
-                    Extern.String_SetData(result, uua);
+                    Extern.String_CountSet(varBase, baseCount);
+                    Extern.String_DataSet(varBase, ua);
+                    Extern.String_CountSet(result, resultCount);
+                    Extern.String_DataSet(result, uua);
 
                     Extern.Format_ExecuteResult(format, varBase, argList, result);
                 }
@@ -576,8 +576,8 @@ public class Intern : object
                 ulong ua;
                 ua = (ulong)pa;
 
-                Extern.String_SetCount(result, resultCount);
-                Extern.String_SetData(result, ua);
+                Extern.String_CountSet(result, resultCount);
+                Extern.String_DataSet(result, ua);
 
                 Extern.Format_ExecuteArgResult(format, arg, result);
             }
