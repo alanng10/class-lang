@@ -237,7 +237,7 @@ public class Process : Any
 
             ulong oa;
             oa = (ulong)i;
-            Extern.Array_SetItem(a, oa, u);
+            Extern.Array_ItemSet(a, oa, u);
 
             i = i + 1;
         }
@@ -259,7 +259,7 @@ public class Process : Any
             oa = (ulong)i;
 
             ulong u;
-            u = Extern.Array_GetItem(o, oa);
+            u = Extern.Array_ItemGet(o, oa);
 
             this.InternInfra.StringDelete(u);
 
@@ -310,7 +310,7 @@ public class Process : Any
 
             ulong oa;
             oa = (ulong)i;
-            Extern.Array_SetItem(a, oa, entryU);
+            Extern.Array_ItemSet(a, oa, entryU);
 
             i = i + 1;
         }
@@ -331,7 +331,7 @@ public class Process : Any
             ulong oa;
             oa = (ulong)i;
             ulong entryU;
-            entryU = Extern.Array_GetItem(o, oa);
+            entryU = Extern.Array_ItemGet(o, oa);
             ulong indexU;
             indexU = Extern.Entry_IndexGet(entryU);
             ulong valueU;
