@@ -437,7 +437,7 @@ Int Process_InternSetArgue(Int result, Int argue)
 
     while (i < count)
     {
-        item = Array_GetItem(argue, i);
+        item = Array_ItemGet(argue, i);
 
 
 
@@ -497,7 +497,7 @@ Int Process_InternSetEnvironment(Int result, Int environment)
     {
         Int entry;
 
-        entry = Array_GetItem(environment, i);
+        entry = Array_ItemGet(environment, i);
 
 
 
