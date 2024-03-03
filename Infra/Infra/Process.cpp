@@ -193,7 +193,7 @@ Int Process_Execute(Int o)
     return true;
 }
 
-Int Process_GetIdent(Int o)
+Int Process_IdentGet(Int o)
 {
     Process* m;
 
@@ -215,7 +215,10 @@ Int Process_GetIdent(Int o)
     return a;
 }
 
-
+Int Process_IdentSet(Int o, Int value)
+{
+    return true;
+}
 
 
 
@@ -259,7 +262,7 @@ Int Process_Terminate(Int o)
 
 
 
-Int Process_GetStatus(Int o)
+Int Process_StatusGet(Int o)
 {
     Process* m;
 
@@ -281,11 +284,12 @@ Int Process_GetStatus(Int o)
     return a;
 }
 
+Int Process_StatusSet(Int o, Int value)
+{
+    return true;
+}
 
-
-
-
-Int Process_GetExitKind(Int o)
+Int Process_ExitKindGet(Int o)
 {
     Process* m;
 
@@ -305,6 +309,11 @@ Int Process_GetExitKind(Int o)
 
 
     return a;
+}
+
+Int Process_ExitKindSet(Int o, Int value)
+{
+    return true;
 }
 
 CppField(Process, StartedState)
