@@ -33,7 +33,7 @@ public class Frame : Comp
         this.Intern = Extern.Frame_New();
         Extern.Frame_Init(this.Intern);
 
-        this.SetTitle();
+        this.TitleSet();
 
         ulong sizeU;
         sizeU = Extern.Frame_SizeGet(this.Intern);
@@ -103,7 +103,7 @@ public class Frame : Comp
         return this.ViewInfra.FieldCreate(this);
     }
 
-    public virtual bool SetTitle()
+    public virtual bool TitleSet()
     {
         this.InternTitle = this.InternInfra.StringCreate(this.Title);
 
