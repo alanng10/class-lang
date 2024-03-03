@@ -41,6 +41,7 @@ HEADERS += \
     NetworkServer.hpp \
     NetworkServerIntern.hpp \
     Pen.hpp \
+    Phore.hpp \
     Play.hpp \
     PointData.hpp \
     Pos.h \
@@ -54,7 +55,6 @@ HEADERS += \
     Range.h \
     Rect.h \
     Return.hpp \
-    Semaphore.hpp \
     Share.hpp \
     Size.h \
     Stat.hpp \
@@ -107,6 +107,7 @@ SOURCES += \
     NetworkServer.cpp \
     NetworkServerIntern.cpp \
     Pen.cpp \
+    Phore.cpp \
     Play.cpp \
     PointData.cpp \
     Pos.c \
@@ -117,7 +118,6 @@ SOURCES += \
     Range.c \
     Rect.c \
     Return.cpp \
-    Semaphore.cpp \
     Share.cpp \
     Size.c \
     Stat.cpp \
