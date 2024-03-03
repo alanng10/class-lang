@@ -24,7 +24,7 @@ public class Math : Any
     private ulong Intern { get; set; }
     private InternMathCompose InternMathCompose { get; set; }
 
-    public virtual long GetValue(Compose compose)
+    public virtual long Value(Compose compose)
     {
         long aa;
         aa = compose.Significand;
@@ -37,13 +37,13 @@ public class Math : Any
         ub = (ulong)ab;
 
         ulong u;
-        u = Extern.Math_GetValue(this.Intern, ua, ub);
+        u = Extern.Math_Value(this.Intern, ua, ub);
         long a;
         a = (long)u;
         return a;
     }
 
-    public virtual long GetValueTen(long significand, long exponentTen)
+    public virtual long ValueTen(long significand, long exponentTen)
     {
         ulong ua;
         ulong ub;
@@ -51,17 +51,17 @@ public class Math : Any
         ub = (ulong)exponentTen;
 
         ulong u;
-        u = Extern.Math_GetValueTen(this.Intern, ua, ub);
+        u = Extern.Math_ValueTen(this.Intern, ua, ub);
         long a;
         a = (long)u;
         return a;
     }
     
-    public virtual bool GetCompose(Compose result, long value)
+    public virtual bool Compose(Compose result, long value)
     {
         InternMathCompose u;
         u = this.InternMathCompose;
-        this.InternIntern.MathGetCompose(this.Intern, u, value);
+        this.InternIntern.MathCompose(this.Intern, u, value);
 
         long s;
         long e;
