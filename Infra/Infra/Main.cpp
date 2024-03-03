@@ -124,7 +124,7 @@ Int Main_Final()
 
 
 
-Bool Main_SetIsCSharp(Bool value)
+Bool Main_IsCSharpSet(Bool value)
 {
     Main* m;
 
