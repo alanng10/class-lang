@@ -169,7 +169,7 @@ Int String_ConstantCreate(Int o)
 
     Int k;
 
-    k = TextEncode_GetStringCountMax(encode, count);
+    k = TextEncode_StringCountMax(encode, count);
 
 
 
@@ -206,7 +206,7 @@ Int String_ConstantCreate(Int o)
 
     Int stringCount;
 
-    stringCount = TextEncode_GetString(encode, stringData, data);
+    stringCount = TextEncode_String(encode, stringData, data);
 
 
 
