@@ -832,7 +832,7 @@ Int Thread_StoreSetThread(Int thread)
 
 
 
-Int Thread_GetCurrentThread()
+Int Thread_CurrentThread()
 {
     Int share;
 
