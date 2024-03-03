@@ -84,7 +84,7 @@ Int GradientStop_Final(Int o)
 
 CppField(GradientStop, Count)
 
-Int GradientStop_GetPoint(Int o, Int index, Int pos, Int color)
+Int GradientStop_PointGet(Int o, Int index, Int pos, Int color)
 {
     GradientStopPoint* oa;
 
@@ -112,7 +112,7 @@ Int GradientStop_GetPoint(Int o, Int index, Int pos, Int color)
     return true;
 }
 
-Int GradientStop_SetPoint(Int o, Int index, Int pos, Int color)
+Int GradientStop_PointSet(Int o, Int index, Int pos, Int color)
 {
     GradientStopPoint* oa;
 
