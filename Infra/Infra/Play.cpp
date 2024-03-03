@@ -34,7 +34,7 @@ Int Play_Final(Int o)
 
 CppField(Play, Source)
 
-Int Play_SetPlaySource(Int o)
+Int Play_SourceThisSet(Int o)
 {
     Play* m;
 
