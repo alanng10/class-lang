@@ -276,7 +276,7 @@ Int StorageArrange_Link(Int o, Int path, Int linkPath)
 
 
 
-Int StorageArrange_GetPermit(Int o, Int path)
+Int StorageArrange_PermitGet(Int o, Int path)
 {
     QString pathU;
 
@@ -323,7 +323,7 @@ Int StorageArrange_GetPermit(Int o, Int path)
 
 
 
-Int StorageArrange_SetPermit(Int o, Int path, Int value)
+Int StorageArrange_PermitSet(Int o, Int path, Int value)
 {
     QString pathU;
 
@@ -379,7 +379,7 @@ Int StorageArrange_SetPermit(Int o, Int path, Int value)
 
 
 
-Int StorageArrange_GetLinkTarget(Int o, Int path)
+Int StorageArrange_LinkTarget(Int o, Int path)
 {
     QString pathU;
 
