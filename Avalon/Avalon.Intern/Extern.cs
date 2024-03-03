@@ -585,7 +585,6 @@ public static class Extern
     [DllImport(InfraLib)] public extern static ulong Stream_StatusSet(ulong o, ulong value);
 
     [DllImport(InfraLib)] public extern static ulong Stream_CountGet(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Stream_CountSet(ulong o, ulong value);
     [DllImport(InfraLib)] public extern static ulong Stream_PosGet(ulong o);
     [DllImport(InfraLib)] public extern static ulong Stream_PosSet(ulong o, ulong value);
     [DllImport(InfraLib)] public extern static ulong Stream_HasCount(ulong o);

@@ -46,7 +46,6 @@ public class StatusList : Any
         this.SslInternalError = this.AddItem();
         this.SslInvalidUserDataError = this.AddItem();
         this.TemporaryError = this.AddItem();
-
         return true;
     }
 

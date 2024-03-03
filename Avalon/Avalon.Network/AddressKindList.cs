@@ -34,7 +34,6 @@ public class AddressKindList : Any
         this.Any = this.AddItem(Extern.Stat_NetworkAddressKindAny(stat));
         this.AnyIPv6 = this.AddItem(Extern.Stat_NetworkAddressKindAnyIPv6(stat));
         this.AnyIPv4 = this.AddItem(Extern.Stat_NetworkAddressKindAnyIPv4(stat));
-
         return true;
     }
 

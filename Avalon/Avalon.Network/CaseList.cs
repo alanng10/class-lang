@@ -28,7 +28,6 @@ public class CaseList : Any
         this.Bound = this.AddItem();
         this.Listening = this.AddItem();
         this.Closing = this.AddItem();
-
         return true;
     }
 
