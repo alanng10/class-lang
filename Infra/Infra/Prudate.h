@@ -734,14 +734,14 @@ Infra_Api Int Thread_CurrentThread();
 
 typedef Int (*Thread_Execute_Maide)(Int thread, Int arg);
 
-InfraApiNew(Semaphore)
-Infra_Api Int Semaphore_CountGet(Int o);
-Infra_Api Int Semaphore_CountSet(Int o, Int value);
-Infra_Api Int Semaphore_InitCountGet(Int o);
-Infra_Api Int Semaphore_InitCountSet(Int o, Int value);
+InfraApiNew(Phore)
+Infra_Api Int Phore_CountGet(Int o);
+Infra_Api Int Phore_CountSet(Int o, Int value);
+Infra_Api Int Phore_InitCountGet(Int o);
+Infra_Api Int Phore_InitCountSet(Int o, Int value);
 
-Infra_Api Int Semaphore_Acquire(Int o);
-Infra_Api Int Semaphore_Release(Int o);
+Infra_Api Int Phore_Acquire(Int o);
+Infra_Api Int Phore_Release(Int o);
 
 InfraApiNew(Time)
 Infra_Api Int Time_YearGet(Int o);
@@ -847,18 +847,18 @@ typedef Int (*Process_Finished_Maide)(Int process, Int arg);
 typedef Int (*Process_ReadOut_Maide)(Int process, Int arg);
 typedef Int (*Process_ReadErr_Maide)(Int process, Int arg);
 
-InfraApiNew(ProcessSemaphore)
-Infra_Api Int ProcessSemaphore_NameGet(Int o);
-Infra_Api Int ProcessSemaphore_NameSet(Int o, Int value);
-Infra_Api Int ProcessSemaphore_InitCountGet(Int o);
-Infra_Api Int ProcessSemaphore_InitCountSet(Int o, Int value);
-Infra_Api Int ProcessSemaphore_CreateGet(Int o);
-Infra_Api Int ProcessSemaphore_CreateSet(Int o, Int value);
-Infra_Api Int ProcessSemaphore_StatusGet(Int o);
-Infra_Api Int ProcessSemaphore_StatusSet(Int o, Int value);
+InfraApiNew(ProcessPhore)
+Infra_Api Int ProcessPhore_NameGet(Int o);
+Infra_Api Int ProcessPhore_NameSet(Int o, Int value);
+Infra_Api Int ProcessPhore_InitCountGet(Int o);
+Infra_Api Int ProcessPhore_InitCountSet(Int o, Int value);
+Infra_Api Int ProcessPhore_CreateGet(Int o);
+Infra_Api Int ProcessPhore_CreateSet(Int o, Int value);
+Infra_Api Int ProcessPhore_StatusGet(Int o);
+Infra_Api Int ProcessPhore_StatusSet(Int o, Int value);
 
-Infra_Api Int ProcessSemaphore_Acquire(Int o);
-Infra_Api Int ProcessSemaphore_Release(Int o);
+Infra_Api Int ProcessPhore_Acquire(Int o);
+Infra_Api Int ProcessPhore_Release(Int o);
 
 Infra_Api Int Infra_Share();
 
