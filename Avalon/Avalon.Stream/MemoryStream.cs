@@ -16,6 +16,8 @@ class MemoryStream : Stream
         return true;
     }
 
+    private InternStream Intern { get; set; }
+
     public override ulong Ident
     { 
         get
@@ -27,8 +29,6 @@ class MemoryStream : Stream
             this.Intern.Ident = value;
         }
     }
-
-    private InternStream Intern { get; set; }
 
     public override bool HasCount
     {
