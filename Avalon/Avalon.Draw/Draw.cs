@@ -248,7 +248,7 @@ public class Draw : Any
     public virtual bool SetArea()
     {
         this.SetInternRectFromRect(this.InternArea, this.Area);
-        Extern.Draw_SetDrawArea(this.Intern);
+        Extern.Draw_AreaThisSet(this.Intern);
         return true;
     }
 
@@ -260,7 +260,7 @@ public class Draw : Any
         up = this.FillPos.Up;
         this.InternInfra.SetPos(this.InternFillPos, left, up);
 
-        Extern.Draw_SetDrawFillPos(this.Intern);
+        Extern.Draw_FillPosThisSet(this.Intern);
         return true;
     }
 
