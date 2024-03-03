@@ -120,7 +120,7 @@ public class Infra : Any
         encode.Init();
 
         int ka;
-        ka = encode.GetTextCountMax(data.Count);
+        ka = encode.TextCountMax(data.Count);
 
         TextSpan span;        
         span = this.TextInfra.SpanCreate(ka);
@@ -129,7 +129,7 @@ public class Infra : Any
         range.Init();
         range.End = data.Count;
         int kb;
-        kb = encode.GetText(span, data, range);
+        kb = encode.Text(span, data, range);
 
         encode.Final();
 
@@ -152,7 +152,7 @@ public class Infra : Any
         int kk;
         kk = this.InfraInfra.Count(span.Range);
         long ka;
-        ka = encode.GetDataCountMax(kk);
+        ka = encode.DataCountMax(kk);
 
         Data data;
         data = new Data();
@@ -160,7 +160,7 @@ public class Infra : Any
         data.Value = new byte[ka];
 
         long kb;
-        kb = encode.GetData(data, 0, span);
+        kb = encode.Data(data, 0, span);
 
         encode.Final();
 
