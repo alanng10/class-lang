@@ -1,6 +1,6 @@
-namespace Avalon.Exe;
+namespace Avalon.Entry;
 
-public class Exe : Any
+public class Entry : Any
 {
     public virtual int Execute()
     {
@@ -12,7 +12,7 @@ public class Exe : Any
         get; set;
     }
 
-    public virtual bool SetArg(string[] arg)
+    public virtual bool ArgSet(string[] arg)
     {
         int count;
         count = arg.Length;
