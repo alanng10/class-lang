@@ -4,7 +4,7 @@
 
 
 
-Bool PointData_GetPoint(Int address, Int result)
+Int PointData_PointGet(Int address, Int result)
 {
     QPoint* u;
 
@@ -55,7 +55,7 @@ Bool PointData_GetPoint(Int address, Int result)
 
 
 
-Bool PointData_SetPoint(Int address, Int pos)
+Int PointData_PointSet(Int address, Int pos)
 {
     Int left;
 
@@ -100,5 +100,3 @@ Bool PointData_SetPoint(Int address, Int pos)
 
     return true;
 }
-
-
