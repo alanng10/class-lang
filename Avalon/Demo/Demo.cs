@@ -291,11 +291,11 @@ class Demo : Any
 
         long aaaa;
         aaaa = this.Math.ValueTen(3, 2);
-        this.ConsoleWriteMathValue("Demo.ExecuteMath GetValueTen: ", aaaa);
+        this.ConsoleWriteMathValue("Demo.ExecuteMath ValueTen: ", aaaa);
 
         long aaab;
         aaab = this.Math.ValueTen(5, -1);
-        this.ConsoleWriteMathValue("Demo.ExecuteMath GetValueTen 2: ", aaab);
+        this.ConsoleWriteMathValue("Demo.ExecuteMath ValueTen 2: ", aaab);
 
         long aa;
         aa = this.Math.Sin(0);
