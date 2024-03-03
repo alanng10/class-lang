@@ -9,7 +9,7 @@ public class Main : Any
 
         ulong ua;
         ua = 1;
-        Extern.Main_SetIsCSharp(ua);
+        Extern.Main_IsCSharpSet(ua);
         Extern.Main_Init();
 
         ThreadThread a;
