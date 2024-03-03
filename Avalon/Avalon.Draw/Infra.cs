@@ -147,7 +147,7 @@ public class Infra : Any
         video = a.Video;
         video.Size.Width = size.Width;
         video.Size.Height = size.Height;
-        video.CreateData();
+        video.DataCreate();
         a.SetSize();
         return a; 
     }
@@ -200,7 +200,7 @@ public class Infra : Any
         return image;
     }
 
-    public virtual bool WriteImage(string path, Image image, ImageFormat format)
+    public virtual bool ImageWrite(string path, Image image, ImageFormat format)
     {
         StorageStorage storage;
         storage = new StorageStorage();
@@ -234,9 +234,9 @@ public class Infra : Any
         return o;
     }
 
-    public virtual bool VideoFrameGetImage(VideoFrame frame, Image image)
+    public virtual bool VideoFrameImage(VideoFrame frame, Image image)
     {
-        frame.GetVideo(image.Video);
+        frame.Video(image.Video);
         image.SetSize();
         return true;
     }
