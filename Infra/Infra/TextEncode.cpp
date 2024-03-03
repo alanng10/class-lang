@@ -84,7 +84,7 @@ Int TextEncode_Final(Int o)
 CppField(TextEncode, Kind)
 CppField(TextEncode, WriteBom)
 
-Int TextEncode_GetStringCountMax(Int o, Int count)
+Int TextEncode_StringCountMax(Int o, Int count)
 {
     TextEncode* m;
 
@@ -111,7 +111,7 @@ Int TextEncode_GetStringCountMax(Int o, Int count)
     return a;
 }
 
-Int TextEncode_GetString(Int o, Int result, Int data)
+Int TextEncode_String(Int o, Int result, Int data)
 {
     TextEncode* m;
 
@@ -185,7 +185,7 @@ Int TextEncode_GetString(Int o, Int result, Int data)
 
 
 
-Int TextEncode_GetDataCountMax(Int o, Int count)
+Int TextEncode_DataCountMax(Int o, Int count)
 {
     TextEncode* m;
 
@@ -216,7 +216,7 @@ Int TextEncode_GetDataCountMax(Int o, Int count)
 
 
 
-Int TextEncode_GetData(Int o, Int result, Int fromString)
+Int TextEncode_Data(Int o, Int result, Int fromString)
 {
     TextEncode* m;
 
@@ -285,5 +285,3 @@ Int TextEncode_GetData(Int o, Int result, Int fromString)
 
     return count;
 }
-
-
