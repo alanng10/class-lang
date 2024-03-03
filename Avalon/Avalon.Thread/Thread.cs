@@ -30,7 +30,7 @@ public class Thread : Any
         this.InternInfra = InternInfra.This;
         this.ThreadInfra = Infra.This;
 
-        this.Intern = Extern.Thread_GetCurrentThread();
+        this.Intern = Extern.Thread_CurrentThread();
 
         InternIntern.ThisThread = this;
         return true;
