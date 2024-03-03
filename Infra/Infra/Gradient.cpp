@@ -273,7 +273,7 @@ Bool Gradient_SetInternStop(Int result, Int stop)
 
 
 
-        GradientStop_GetPoint(stop, i, posU, colorU);
+        GradientStop_PointGet(stop, i, posU, colorU);
 
 
 
