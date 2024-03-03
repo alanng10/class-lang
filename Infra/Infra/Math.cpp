@@ -93,7 +93,7 @@ Int Math_GetInternValue(Int o, Int a)
 
 
 
-    Math_GetCompose(o, a, uoa, uob);
+    Math_Compose(o, a, uoa, uob);
 
 
 
@@ -301,7 +301,7 @@ Int Math_GetValueFromCompose(Int o, Int significand, Int exponent)
 
 
 
-Int Math_GetCompose(Int o, Int value, Int significand, Int exponent)
+Int Math_Compose(Int o, Int value, Int significand, Int exponent)
 {
     SInt aa;
 
@@ -365,7 +365,7 @@ Int Math_GetCompose(Int o, Int value, Int significand, Int exponent)
 
 
 
-Int Math_GetValue(Int o, Int significand, Int exponent)
+Int Math_Value(Int o, Int significand, Int exponent)
 {
     SInt aa;
 
@@ -419,7 +419,7 @@ Int Math_GetValue(Int o, Int significand, Int exponent)
 
 
 
-Int Math_GetValueTen(Int o, Int significand, Int exponentTen)
+Int Math_ValueTen(Int o, Int significand, Int exponentTen)
 {
     SInt aa;
 
