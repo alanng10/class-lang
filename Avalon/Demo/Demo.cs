@@ -48,7 +48,7 @@ class Demo : Any
         this.Frame = new Frame();
         this.Frame.Init();
         this.Frame.Title = "Avalon Demo";
-        this.Frame.SetTitle();
+        this.Frame.TitleSet();
 
         this.UpdateRect = new DrawRect();
         this.UpdateRect.Init();
@@ -290,11 +290,11 @@ class Demo : Any
         ca.Init();
 
         long aaaa;
-        aaaa = this.Math.GetValueTen(3, 2);
+        aaaa = this.Math.ValueTen(3, 2);
         this.ConsoleWriteMathValue("Demo.ExecuteMath GetValueTen: ", aaaa);
 
         long aaab;
-        aaab = this.Math.GetValueTen(5, -1);
+        aaab = this.Math.ValueTen(5, -1);
         this.ConsoleWriteMathValue("Demo.ExecuteMath GetValueTen 2: ", aaab);
 
         long aa;
@@ -309,7 +309,7 @@ class Demo : Any
         ca.Exponent = -40;
 
         long pi;
-        pi = this.Math.GetValue(ca);
+        pi = this.Math.Value(ca);
         this.ConsoleWriteMathValue("Demo.ExecuteMath pi: ", pi);
 
         long ab;
@@ -319,7 +319,7 @@ class Demo : Any
         ca.Exponent = -41;
 
         long piHalf;
-        piHalf = this.Math.GetValue(ca);
+        piHalf = this.Math.Value(ca);
         this.ConsoleWriteMathValue("Demo.ExecuteMath piHalf: ", piHalf);
 
         long ac;
@@ -333,7 +333,7 @@ class Demo : Any
         ca.Exponent = -42;
 
         long piQuarter;
-        piQuarter = this.Math.GetValue(ca);
+        piQuarter = this.Math.Value(ca);
         this.ConsoleWriteMathValue("Demo.ExecuteMath piQuarter: ", piQuarter);
 
         long ae;
@@ -356,7 +356,7 @@ class Demo : Any
 
     private bool ConsoleWriteMathValue(string prefix, long value)
     {
-        this.Math.GetCompose(this.MathCompose, value);
+        this.Math.Compose(this.MathCompose, value);
         
         this.Console.Write(prefix +
         "Significand: " + this.MathCompose.Significand.ToString("x") + ", " +
@@ -562,7 +562,7 @@ class Demo : Any
         StorageInfra infra;
         infra = StorageInfra.This;
         string k;
-        k = infra.ReadText("Data/Demo.txt");
+        k = infra.TextRead("Data/Demo.txt");
         this.Console.Write("Demo.txt text: \n");
         this.Console.Write(k);
         this.Console.Write("\n");
@@ -574,7 +574,7 @@ class Demo : Any
         bool b;
         b = false;
         bool ba;
-        ba = infra.WriteText(ou, "DEMO STORAGE WRITE AAA BBB");
+        ba = infra.TextWrite(ou, "DEMO STORAGE WRITE AAA BBB");
         if (!ba)
         {
             this.Console.Write("Write " + ou + " 1 Error\n");
@@ -584,7 +584,7 @@ class Demo : Any
         if (ba)
         {
             bool bb;
-            bb = infra.WriteText(ou, "DEMO STORAGE WRITE 2 AAA");
+            bb = infra.TextWrite(ou, "DEMO STORAGE WRITE 2 AAA");
             if (!bb)
             {
                 this.Console.Write("Write " + ou + " 2 Error\n");
@@ -594,7 +594,7 @@ class Demo : Any
 
         if (!b)
         {
-            k = infra.ReadText(ou);
+            k = infra.TextRead(ou);
 
             this.Console.Write(ou + " text: \n");
             this.Console.Write(k);
@@ -608,7 +608,7 @@ class Demo : Any
         bool bo;
         bo = false;
         bool baa;
-        baa = infra.WriteText(oua, "DEMO STORAGE WRITE DEMO ABCD");
+        baa = infra.TextWrite(oua, "DEMO STORAGE WRITE DEMO ABCD");
         if (!baa)
         {
             this.Console.Write("Write " + oua + " 1 Error\n");
@@ -628,7 +628,7 @@ class Demo : Any
         }
         if (!bo)
         {
-            k = infra.ReadText(oua);
+            k = infra.TextRead(oua);
             this.Console.Write(oua + " text: \n");
             this.Console.Write(k);
             this.Console.Write("\n");
@@ -640,7 +640,7 @@ class Demo : Any
 
         bo = false;
         bool bac;
-        bac = infra.WriteText(oub, "Demo Storage Set Count aaaadda");
+        bac = infra.TextWrite(oub, "Demo Storage Set Count aaaadda");
         if (!bac)
         {
             this.Console.Write("Write " + oub + " Error\n");
@@ -649,7 +649,7 @@ class Demo : Any
         if (bac)
         {
             bool bd;
-            bd = infra.SetCount(oub, 22);
+            bd = infra.CountSet(oub, 22);
             if (!bd)
             {
                 this.Console.Write("Set Count " + oub + " Error\n");
@@ -658,7 +658,7 @@ class Demo : Any
         }
         if (!bo)
         {
-            k = infra.ReadText(oub);
+            k = infra.TextRead(oub);
             this.Console.Write(oub + " text: \n");
             this.Console.Write(k);
             this.Console.Write("\n");
@@ -699,7 +699,7 @@ class Demo : Any
         {
             Stream stream;
             stream = storage.Stream;
-            stream.SetPos(pos);
+            stream.PosSet(pos);
             if (stream.Status == 0)
             {
                 stream.Write(data, range);
@@ -1142,11 +1142,11 @@ class Demo : Any
         a = new Play();
         a.Init();
         a.Source = "file:Data/Video.mp4";
-        a.SetSource();
+        a.SourceSet();
         a.VideoOut = videoOut;
         a.AudioOut = audioOut;
-        a.SetVideoOut();
-        a.SetAudioOut();
+        a.VideoOutSet();
+        a.AudioOutSet();
         return a;
     }
 
