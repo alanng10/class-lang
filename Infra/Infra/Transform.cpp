@@ -145,7 +145,7 @@ Int Transform_Rotate(Int o, Int angle)
 
 
 
-Int Transform_GetValue(Int o, Int row, Int col)
+Int Transform_ValueGet(Int o, Int row, Int col)
 {
     Transform* m;
 
@@ -201,7 +201,7 @@ Int Transform_GetValue(Int o, Int row, Int col)
 
 
 
-Bool Transform_SetValue(Int o, Int row, Int col, Int value)
+Bool Transform_ValueSet(Int o, Int row, Int col, Int value)
 {
     Transform* m;
 
