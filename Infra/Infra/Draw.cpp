@@ -462,7 +462,7 @@ Int Draw_CompositeSet(Int o, Int value)
     return true;
 }
 
-Int Draw_SetDrawFillPos(Int o)
+Int Draw_FillPosThisSet(Int o)
 {
     Draw* m;
 
@@ -509,7 +509,7 @@ Int Draw_SetDrawFillPos(Int o)
 
 
 
-Int Draw_SetDrawArea(Int o)
+Int Draw_AreaThisSet(Int o)
 {
     Draw* m;
 
