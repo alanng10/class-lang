@@ -52,7 +52,7 @@ CppField(VideoFrame, Size)
 
 
 
-Int VideoFrame_GetImage(Int o, Int image)
+Int VideoFrame_Image(Int o, Int image)
 {
     VideoFrame* m;
 
