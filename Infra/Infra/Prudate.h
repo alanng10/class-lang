@@ -734,10 +734,6 @@ Infra_Api Int Thread_CurrentThread();
 
 typedef Int (*Thread_Execute_Maide)(Int thread, Int arg);
 
-InfraApiNew(Mutex)
-Infra_Api Int Mutex_Acquire(Int o);
-Infra_Api Int Mutex_Release(Int o);
-
 InfraApiNew(Semaphore)
 Infra_Api Int Semaphore_CountGet(Int o);
 Infra_Api Int Semaphore_CountSet(Int o, Int value);
