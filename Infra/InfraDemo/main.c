@@ -1204,50 +1204,50 @@ int main(int argc, char* argv[])
 
 
 
-    stringAa = String_ConstantCreate(CastInt("Semaphore Init Count Success\n"));
+    stringAa = String_ConstantCreate(CastInt("Phore Init Count Success\n"));
 
-    stringAb = String_ConstantCreate(CastInt("Semaphore Init Count Error\n"));
-
-
-
-
-    Int semaphoreInitCount;
-
-    semaphoreInitCount = 467;
-
-
-
-    Int semaphore;
-
-    semaphore = Semaphore_New();
-
-
-    Semaphore_InitCountSet(semaphore, semaphoreInitCount);
-
-
-    Semaphore_Init(semaphore);
-
-
-
-    Int semaphoreCount;
-
-    semaphoreCount = Semaphore_CountGet(semaphore);
+    stringAb = String_ConstantCreate(CastInt("Phore Init Count Error\n"));
 
 
 
 
-    Semaphore_Final(semaphore);
+    Int phoreInitCount;
 
-
-    Semaphore_Delete(semaphore);
-
-
+    phoreInitCount = 467;
 
 
 
-    Bool semaphoreB;
+    Int phore;
 
-    semaphoreB = (semaphoreCount == semaphoreInitCount);
+    phore = Phore_New();
+
+
+    Phore_InitCountSet(phore, phoreInitCount);
+
+
+    Phore_Init(phore);
+
+
+
+    Int phoreCount;
+
+    phoreCount = Phore_CountGet(phore);
+
+
+
+
+    Phore_Final(phore);
+
+
+    Phore_Delete(phore);
+
+
+
+
+
+    Bool phoreB;
+
+    phoreB = (phoreCount == phoreInitCount);
 
 
     Int stringAc;
@@ -1255,7 +1255,7 @@ int main(int argc, char* argv[])
     stringAc = stringAa;
 
 
-    if (!semaphoreB)
+    if (!phoreB)
     {
         stringAc = stringAb;
     }
