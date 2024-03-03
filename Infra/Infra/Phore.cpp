@@ -1,18 +1,18 @@
-#include "Semaphore.hpp"
+#include "Phore.hpp"
 
 
 
 
-CppClassNew(Semaphore)
+CppClassNew(Phore)
 
 
 
 
 
 
-Bool Semaphore_Init(Int o)
+Int Phore_Init(Int o)
 {
-    Semaphore* m;
+    Phore* m;
 
     m = CP(o);
 
@@ -34,10 +34,6 @@ Bool Semaphore_Init(Int o)
 
 
     m->Intern = new QSemaphore(ua);
-
-
-
-
     return true;
 }
 
@@ -46,9 +42,9 @@ Bool Semaphore_Init(Int o)
 
 
 
-Bool Semaphore_Final(Int o)
+Int Phore_Final(Int o)
 {
-    Semaphore* m;
+    Phore* m;
 
     m = CP(o);
 
@@ -62,11 +58,11 @@ Bool Semaphore_Final(Int o)
     return true;
 }
 
-CppField(Semaphore, InitCount)
+CppField(Phore, InitCount)
 
-Int Semaphore_CountGet(Int o)
+Int Phore_CountGet(Int o)
 {
-    Semaphore* m;
+    Phore* m;
 
     m = CP(o);
 
@@ -90,7 +86,7 @@ Int Semaphore_CountGet(Int o)
 
 
 
-Bool Semaphore_CountSet(Int o, Int value)
+Int Phore_CountSet(Int o, Int value)
 {
     return true;
 }
@@ -99,9 +95,9 @@ Bool Semaphore_CountSet(Int o, Int value)
 
 
 
-Bool Semaphore_Acquire(Int o)
+Int Phore_Acquire(Int o)
 {
-    Semaphore* m;
+    Phore* m;
 
     m = CP(o);
 
@@ -118,9 +114,9 @@ Bool Semaphore_Acquire(Int o)
 
 
 
-Bool Semaphore_Release(Int o)
+Int Phore_Release(Int o)
 {
-    Semaphore* m;
+    Phore* m;
 
     m = CP(o);
 

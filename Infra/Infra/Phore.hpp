@@ -1,31 +1,13 @@
 #pragma once
 
-
-
-
-
 #include <QSemaphore>
-
-
-
 
 #include "Probate.hpp"
 
-
-
-
-
-struct Semaphore
+struct Phore
 {
     Int InitCount;
-
-
     QSemaphore* Intern;
 };
 
-
-
-
-
-
-#define CP(a) ((Semaphore*)(a))
+#define CP(a) ((Phore*)(a))
