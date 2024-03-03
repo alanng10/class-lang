@@ -201,22 +201,22 @@ public class Table : List
         return ret;
     }
 
-    public override Iter CreateIter()
+    public override Iter IterCreate()
     {
         TableIter aa;
         aa = new TableIter();
         aa.Init();
-        aa.ListIter = this.List.CreateIter();
+        aa.ListIter = this.List.IterCreate();
         Iter a;
         a = aa;
         return a;
     }
 
-    public override bool SetIter(Iter iter)
+    public override bool IterSet(Iter iter)
     {
         TableIter a;
         a = (TableIter)iter;
-        this.List.SetIter(a.ListIter);
+        this.List.IterSet(a.ListIter);
 
         return true;
     }

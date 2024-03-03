@@ -460,10 +460,10 @@ class Read : Any
     {
         Iter iter;
 
-        iter = list.CreateIter();
+        iter = list.IterCreate();
 
 
-        list.SetIter(iter);
+        list.IterSet(iter);
         
 
 

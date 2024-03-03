@@ -9,7 +9,7 @@ public class Event : Any
         state = new StateTable();
         state.Init();
         this.State = state;
-        this.StateIter = this.State.CreateIter();
+        this.StateIter = this.State.IterCreate();
         return true;
     }
     
@@ -20,7 +20,7 @@ public class Event : Any
     {
         Iter iter;
         iter = this.StateIter;
-        this.State.SetIter(iter);
+        this.State.IterSet(iter);
         while (iter.Next())
         {
             State state;

@@ -179,10 +179,10 @@ public class ReadList : Any
 
         Iter iter;
 
-        iter = this.List.CreateIter();
+        iter = this.List.IterCreate();
 
 
-        this.List.SetIter(iter);
+        this.List.IterSet(iter);
 
 
 

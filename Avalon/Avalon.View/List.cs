@@ -29,7 +29,7 @@ public class List : Comp
         
 
 
-        this.ItemIter = this.ItemTable.CreateIter();
+        this.ItemIter = this.ItemTable.IterCreate();
 
 
 
@@ -205,7 +205,7 @@ public class List : Comp
 
 
 
-        this.ItemTable.SetIter(iter);
+        this.ItemTable.IterSet(iter);
 
 
 
@@ -365,7 +365,7 @@ public class List : Comp
         iter.Init();
 
 
-        iter.Iter = this.ItemTable.CreateIter();
+        iter.Iter = this.ItemTable.IterCreate();
 
 
 
@@ -391,7 +391,7 @@ public class List : Comp
 
 
 
-        this.ItemTable.SetIter(a.Iter);
+        this.ItemTable.IterSet(a.Iter);
 
 
 

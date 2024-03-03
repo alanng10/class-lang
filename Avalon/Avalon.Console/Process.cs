@@ -211,8 +211,8 @@ public class Process : Any
     private ulong InternStringListCreate(ListList stringList)
     {
         Iter iter;
-        iter = stringList.CreateIter();
-        stringList.SetIter(iter);
+        iter = stringList.IterCreate();
+        stringList.IterSet(iter);
         int count;
         count = stringList.Count;
         ulong countU;
@@ -274,8 +274,8 @@ public class Process : Any
     private ulong InternStringEntryListCreate(Table stringTable)
     {
         Iter iter;
-        iter = stringTable.CreateIter();
-        stringTable.SetIter(iter);
+        iter = stringTable.IterCreate();
+        stringTable.IterSet(iter);
 
         int count;
         count = stringTable.Count;

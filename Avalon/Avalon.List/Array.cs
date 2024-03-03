@@ -118,7 +118,7 @@ public class Array : List
         return true;
     }
 
-    public override Iter CreateIter()
+    public override Iter IterCreate()
     {
         Iter a;
         a = new ArrayIter();
@@ -126,7 +126,7 @@ public class Array : List
         return a;
     }
 
-    public override bool SetIter(Iter iter)
+    public override bool IterSet(Iter iter)
     {
         ArrayIter a;
         a = (ArrayIter)iter;

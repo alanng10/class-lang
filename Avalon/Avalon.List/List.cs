@@ -190,7 +190,7 @@ public class List : Any
         return true;
     }
 
-    public virtual Iter CreateIter()
+    public virtual Iter IterCreate()
     {
         Iter a;
         a = new Iter();
@@ -198,7 +198,7 @@ public class List : Any
         return a;
     }
 
-    public virtual bool SetIter(Iter iter)
+    public virtual bool IterSet(Iter iter)
     {
         iter.CurrentNode = null;
         iter.Node = this.First;

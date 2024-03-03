@@ -267,10 +267,10 @@ public class Gen : Any
 
         Iter iter;
 
-        iter = this.LineArray.CreateIter();
+        iter = this.LineArray.IterCreate();
 
 
-        this.LineArray.SetIter(iter);
+        this.LineArray.IterSet(iter);
 
 
 
@@ -372,11 +372,11 @@ public class Gen : Any
 
         Iter iter;
 
-        iter = this.ItemTable.CreateIter();
+        iter = this.ItemTable.IterCreate();
 
 
 
-        this.ItemTable.SetIter(iter);
+        this.ItemTable.IterSet(iter);
 
 
 
@@ -473,10 +473,10 @@ public class Gen : Any
 
         Iter iter;
 
-        iter = this.ItemTable.CreateIter();
+        iter = this.ItemTable.IterCreate();
 
 
-        this.ItemTable.SetIter(iter);
+        this.ItemTable.IterSet(iter);
 
 
 

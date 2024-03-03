@@ -22,8 +22,8 @@ public class Infra : Any
         a.Init();
         
         Iter iter;
-        iter = list.CreateIter();
-        list.SetIter(iter);
+        iter = list.IterCreate();
+        list.IterSet(iter);
 
         int count;
         count = a.Count;
