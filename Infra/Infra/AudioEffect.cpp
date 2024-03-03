@@ -103,7 +103,7 @@ Int AudioEffect_VolumeSet(Int o, Int value)
     return true;
 }
 
-Int AudioEffect_SetAudioSource(Int o)
+Int AudioEffect_SourceThisSet(Int o)
 {
     AudioEffect* m;
 
