@@ -787,17 +787,17 @@ public static class Extern
 
     public delegate ulong Thread_Execute_Maide(ulong thread, ulong arg);
 
-    [DllImport(InfraLib)] public extern static ulong Semaphore_New();
-    [DllImport(InfraLib)] public extern static ulong Semaphore_Delete(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Semaphore_Init(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Semaphore_Final(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Semaphore_CountGet(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Semaphore_CountSet(ulong o, ulong value);
-    [DllImport(InfraLib)] public extern static ulong Semaphore_InitCountGet(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Semaphore_InitCountSet(ulong o, ulong value);
+    [DllImport(InfraLib)] public extern static ulong Phore_New();
+    [DllImport(InfraLib)] public extern static ulong Phore_Delete(ulong o);
+    [DllImport(InfraLib)] public extern static ulong Phore_Init(ulong o);
+    [DllImport(InfraLib)] public extern static ulong Phore_Final(ulong o);
+    [DllImport(InfraLib)] public extern static ulong Phore_CountGet(ulong o);
+    [DllImport(InfraLib)] public extern static ulong Phore_CountSet(ulong o, ulong value);
+    [DllImport(InfraLib)] public extern static ulong Phore_InitCountGet(ulong o);
+    [DllImport(InfraLib)] public extern static ulong Phore_InitCountSet(ulong o, ulong value);
 
-    [DllImport(InfraLib)] public extern static ulong Semaphore_Acquire(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Semaphore_Release(ulong o);
+    [DllImport(InfraLib)] public extern static ulong Phore_Acquire(ulong o);
+    [DllImport(InfraLib)] public extern static ulong Phore_Release(ulong o);
 
     [DllImport(InfraLib)] public extern static ulong Time_New();
     [DllImport(InfraLib)] public extern static ulong Time_Delete(ulong o);
@@ -915,21 +915,21 @@ public static class Extern
     public delegate ulong Process_ReadOut_Maide(ulong process, ulong arg);
     public delegate ulong Process_ReadErr_Maide(ulong process, ulong arg);
 
-    [DllImport(InfraLib)] public extern static ulong ProcessSemaphore_New();
-    [DllImport(InfraLib)] public extern static ulong ProcessSemaphore_Delete(ulong o);
-    [DllImport(InfraLib)] public extern static ulong ProcessSemaphore_Init(ulong o);
-    [DllImport(InfraLib)] public extern static ulong ProcessSemaphore_Final(ulong o);
-    [DllImport(InfraLib)] public extern static ulong ProcessSemaphore_NameGet(ulong o);
-    [DllImport(InfraLib)] public extern static ulong ProcessSemaphore_NameSet(ulong o, ulong value);
-    [DllImport(InfraLib)] public extern static ulong ProcessSemaphore_InitCountGet(ulong o);
-    [DllImport(InfraLib)] public extern static ulong ProcessSemaphore_InitCountSet(ulong o, ulong value);
-    [DllImport(InfraLib)] public extern static ulong ProcessSemaphore_CreateGet(ulong o);
-    [DllImport(InfraLib)] public extern static ulong ProcessSemaphore_CreateSet(ulong o, ulong value);
-    [DllImport(InfraLib)] public extern static ulong ProcessSemaphore_StatusGet(ulong o);
-    [DllImport(InfraLib)] public extern static ulong ProcessSemaphore_StatusSet(ulong o, ulong value);
+    [DllImport(InfraLib)] public extern static ulong ProcessPhore_New();
+    [DllImport(InfraLib)] public extern static ulong ProcessPhore_Delete(ulong o);
+    [DllImport(InfraLib)] public extern static ulong ProcessPhore_Init(ulong o);
+    [DllImport(InfraLib)] public extern static ulong ProcessPhore_Final(ulong o);
+    [DllImport(InfraLib)] public extern static ulong ProcessPhore_NameGet(ulong o);
+    [DllImport(InfraLib)] public extern static ulong ProcessPhore_NameSet(ulong o, ulong value);
+    [DllImport(InfraLib)] public extern static ulong ProcessPhore_InitCountGet(ulong o);
+    [DllImport(InfraLib)] public extern static ulong ProcessPhore_InitCountSet(ulong o, ulong value);
+    [DllImport(InfraLib)] public extern static ulong ProcessPhore_CreateGet(ulong o);
+    [DllImport(InfraLib)] public extern static ulong ProcessPhore_CreateSet(ulong o, ulong value);
+    [DllImport(InfraLib)] public extern static ulong ProcessPhore_StatusGet(ulong o);
+    [DllImport(InfraLib)] public extern static ulong ProcessPhore_StatusSet(ulong o, ulong value);
 
-    [DllImport(InfraLib)] public extern static ulong ProcessSemaphore_Acquire(ulong o);
-    [DllImport(InfraLib)] public extern static ulong ProcessSemaphore_Release(ulong o);
+    [DllImport(InfraLib)] public extern static ulong ProcessPhore_Acquire(ulong o);
+    [DllImport(InfraLib)] public extern static ulong ProcessPhore_Release(ulong o);
 
     [DllImport(InfraLib)] public extern static ulong Infra_Share();
 
