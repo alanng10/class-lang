@@ -4,7 +4,7 @@ class ThreadState : ThreadExecuteState
 {
     public Demo Demo { get; set; }
     public DrawImage Image { get; set; }
-    public ThreadSemaphore Semaphore { get; set; }
+    public ThreadPhore Phore { get; set; }
 
     public override bool Execute()
     {
@@ -47,7 +47,7 @@ class ThreadState : ThreadExecuteState
 
         console.Write("ThreadState.Execute ThreadCurrent Wait END\n");
 
-        this.Semaphore.Release();
+        this.Phore.Release();
         
         this.Draw();
 

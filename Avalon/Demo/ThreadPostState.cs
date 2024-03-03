@@ -3,7 +3,7 @@ namespace Demo;
 class ThreadPostState : ThreadExecuteState
 {
     public State PostState { get; set; }
-    public ThreadSemaphore Semaphore { get; set; }
+    public ThreadPhore Phore { get; set; }
     public ThreadPost Post { get; set; }
 
     public override bool Execute()
@@ -22,7 +22,7 @@ class ThreadPostState : ThreadExecuteState
 
         this.Post = post;
 
-        this.Semaphore.Release();
+        this.Phore.Release();
 
         int o;
         o = thread.ExecuteEventLoop();

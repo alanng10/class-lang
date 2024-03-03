@@ -775,18 +775,18 @@ class Demo : Any
     {
         this.ExecuteDemoCurrentThread();
 
-        ThreadSemaphore semaphore;
-        semaphore = new ThreadSemaphore();
-        semaphore.InitCount = 1;
-        semaphore.Init();
-        semaphore.Acquire();
+        ThreadPhore phore;
+        phore = new ThreadPhore();
+        phore.InitCount = 1;
+        phore.Init();
+        phore.Acquire();
 
         ThreadState state;
         state = new ThreadState();
         state.Init();
         state.Demo = this;
         state.Image = this.ThreadDrawImage;
-        state.Semaphore = semaphore;
+        state.Phore = phore;
 
         ThreadThread thread;
         thread = new ThreadThread();
@@ -794,9 +794,9 @@ class Demo : Any
         thread.ExecuteState = state;
         thread.Execute();
 
-        semaphore.Acquire();
+        phore.Acquire();
 
-        this.Console.Write("Demo.ExecuteDemoThread semaphore Acquire Success\n");
+        this.Console.Write("Demo.ExecuteDemoThread phore Acquire Success\n");
 
         thread.Wait();
 
@@ -806,7 +806,7 @@ class Demo : Any
 
         thread.Final();
 
-        semaphore.Final();
+        phore.Final();
         return true;
     }
 
@@ -868,15 +868,15 @@ class Demo : Any
         postState = new PostState();
         postState.Init();
 
-        ThreadSemaphore semaphore;
-        semaphore = new ThreadSemaphore();
-        semaphore.Init();
+        ThreadPhore phore;
+        phore = new ThreadPhore();
+        phore.Init();
 
         ThreadPostState state;
         state = new ThreadPostState();
         state.Init();
         state.PostState = postState;
-        state.Semaphore = semaphore;
+        state.Phore = phore;
 
         ThreadThread thread;
         thread = new ThreadThread();
@@ -884,7 +884,7 @@ class Demo : Any
         thread.ExecuteState = state;
         thread.Execute();
 
-        semaphore.Acquire();
+        phore.Acquire();
 
         state.Post.Execute();
 
@@ -895,7 +895,7 @@ class Demo : Any
 
         thread.Final();
 
-        semaphore.Final();
+        phore.Final();
 
         this.Console.Write("Demo.ExecuteDemoPost Thread Status: 0h" + o.ToString("x8") + "\n");
         return true;
