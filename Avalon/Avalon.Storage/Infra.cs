@@ -175,7 +175,7 @@ public class Infra : Any
         return o;
     }
 
-    public virtual bool SetCount(string filePath, long value)
+    public virtual bool CountSet(string filePath, long value)
     {
         Storage storage;
         storage = new Storage();
@@ -196,7 +196,7 @@ public class Infra : Any
         o = false;
         if (storage.Status == 0)
         {
-            storage.SetCount(value);
+            storage.CountSet(value);
             if (storage.Status == 0)
             {
                 o = true;
