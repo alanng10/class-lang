@@ -21,20 +21,20 @@ public class Transform : Any
         return true;
     }
 
-    public virtual long GetValue(int row, int col)
+    public virtual long ValueGet(int row, int col)
     {
         ulong r;
         ulong c;
         r = (ulong)row;
         c = (ulong)col;
         ulong u;
-        u = Extern.Transform_GetValue(this.Intern, r, c);
+        u = Extern.Transform_ValueGet(this.Intern, r, c);
         long a;
         a = (long)u;
         return a;
     }
 
-    public virtual bool SetValue(int row, int col, long value)
+    public virtual bool ValueSet(int row, int col, long value)
     {
         ulong r;
         ulong c;
@@ -42,7 +42,7 @@ public class Transform : Any
         c = (ulong)col;
         ulong u;
         u = (ulong)value;
-        Extern.Transform_SetValue(this.Intern, r, c, u);
+        Extern.Transform_ValueSet(this.Intern, r, c, u);
         return true;
     }
 
