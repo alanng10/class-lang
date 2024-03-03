@@ -35,7 +35,6 @@ HEADERS += \
     Math.hpp \
     Memory.hpp \
     Method.hpp \
-    Mutex.hpp \
     Network.hpp \
     NetworkAddress.hpp \
     NetworkHandle.hpp \
@@ -102,7 +101,6 @@ SOURCES += \
     Math.cpp \
     Memory.cpp \
     Method.cpp \
-    Mutex.cpp \
     Network.cpp \
     NetworkAddress.cpp \
     NetworkHandle.cpp \
