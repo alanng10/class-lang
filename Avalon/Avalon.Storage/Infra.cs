@@ -27,7 +27,7 @@ public class Infra : Any
     protected virtual TextInfra TextInfra { get; set; }
     protected virtual TextEncodeKindList TextEncodeKindList { get; set; }
 
-    public virtual Data ReadData(string filePath)
+    public virtual Data DataRead(string filePath)
     {
         Storage storage;
         storage = new Storage();
@@ -74,7 +74,7 @@ public class Infra : Any
         return o;
     }
 
-    public virtual bool WriteData(string filePath, Data data, Range range)
+    public virtual bool DataWrite(string filePath, Data data, Range range)
     {
         Storage storage;
         storage = new Storage();
@@ -106,10 +106,10 @@ public class Infra : Any
         return o;
     }
 
-    public virtual string ReadText(string filePath)
+    public virtual string TextRead(string filePath)
     {
         Data data;
-        data = this.ReadData(filePath);
+        data = this.DataRead(filePath);
         if (data == null)
         {
             return null;
@@ -140,7 +140,7 @@ public class Infra : Any
         return a;
     }
 
-    public virtual bool WriteText(string filePath, string text)
+    public virtual bool TextWrite(string filePath, string text)
     {
         TextEncode encode;
         encode = new TextEncode();
@@ -171,7 +171,7 @@ public class Infra : Any
         range.Init();
         range.End = count;
         bool o;
-        o = this.WriteData(filePath, data, range);
+        o = this.DataWrite(filePath, data, range);
         return o;
     }
 
