@@ -391,7 +391,7 @@ public class Intern : object
 
 
 
-    public virtual int TextEncodeGetString(ulong intern, char[] result, int resultIndex, ulong data, byte[] dataValue, long dataIndex)
+    public virtual int TextEncodeString(ulong intern, char[] result, int resultIndex, ulong data, byte[] dataValue, long dataIndex)
     {
         ulong k;
 
@@ -431,7 +431,7 @@ public class Intern : object
 
 
 
-                    k = Extern.TextEncode_GetString(intern, ou, data);
+                    k = Extern.TextEncode_String(intern, ou, data);
                 }
             }
         }
@@ -451,7 +451,7 @@ public class Intern : object
 
 
 
-    public virtual long TextEncodeGetData(ulong intern, byte[] result, long resultIndex, ulong fromText, char[] fromTextData, int fromTextIndex)
+    public virtual long TextEncodeData(ulong intern, byte[] result, long resultIndex, ulong fromText, char[] fromTextData, int fromTextIndex)
     {
         ulong k;
 
@@ -491,7 +491,7 @@ public class Intern : object
 
 
 
-                    k = Extern.TextEncode_GetData(intern, ou, fromText);
+                    k = Extern.TextEncode_Data(intern, ou, fromText);
                 }
             }
         }
@@ -589,7 +589,7 @@ public class Intern : object
 
 
 
-    public virtual bool MathGetCompose(ulong math, MathCompose compose, long value)
+    public virtual bool MathCompose(ulong math, MathCompose compose, long value)
     {
         ulong u;
 
@@ -628,7 +628,7 @@ public class Intern : object
             ub = (ulong)pb;
 
 
-            Extern.Math_GetCompose(math, u, ua, ub);
+            Extern.Math_Compose(math, u, ua, ub);
 
 
 
@@ -647,7 +647,7 @@ public class Intern : object
 
 
 
-    public virtual bool DrawGradientStopGetPoint(ulong intern, ulong index, DrawGradientStopPoint result)
+    public virtual bool DrawGradientStopPointGet(ulong intern, ulong index, DrawGradientStopPoint result)
     {
         unsafe
         {
@@ -678,7 +678,7 @@ public class Intern : object
 
 
 
-            Extern.GradientStop_GetPoint(intern, index, ua, ub);
+            Extern.GradientStop_PointGet(intern, index, ua, ub);
 
 
 

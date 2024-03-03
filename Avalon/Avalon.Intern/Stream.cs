@@ -238,7 +238,7 @@ public class Stream : object
         {
             ulong ou;
             
-            ou = Extern.Stream_GetCount(this.Intern);
+            ou = Extern.Stream_CountGet(this.Intern);
 
 
 
@@ -253,24 +253,6 @@ public class Stream : object
         set
         {
         }
-    }
-
-
-
-
-    public virtual bool SetCount(long value)
-    {
-        ulong u;
-
-        u = (ulong)value;
-
-
-
-        Extern.Stream_SetCount(this.Intern, u);
-    
-
-
-        return true;
     }
 
 
@@ -283,7 +265,7 @@ public class Stream : object
         {
             ulong ou;
 
-            ou = Extern.Stream_GetPos(this.Intern);
+            ou = Extern.Stream_PosGet(this.Intern);
 
 
 
@@ -303,7 +285,7 @@ public class Stream : object
 
 
 
-    public virtual bool SetPos(long value)
+    public virtual bool PosSet(long value)
     {
         ulong u;
 
@@ -311,7 +293,7 @@ public class Stream : object
 
 
 
-        Extern.Stream_SetPos(this.Intern, u);
+        Extern.Stream_PosSet(this.Intern, u);
 
 
 
@@ -328,7 +310,7 @@ public class Stream : object
         {
             ulong u;
 
-            u = Extern.Stream_GetStatus(this.Intern);
+            u = Extern.Stream_StatusGet(this.Intern);
 
 
             int o;
