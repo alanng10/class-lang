@@ -173,7 +173,7 @@ class TypeState : State
             frameTitle = "Avalon Demo " + this.TitleIndex.ToString("x4");
 
             this.Demo.Frame.Title = frameTitle;
-            this.Demo.Frame.SetTitle();
+            this.Demo.Frame.TitleSet();
 
             this.TitleIndex = this.TitleIndex + 1;
         }

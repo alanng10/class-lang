@@ -18,7 +18,7 @@ class ThreadState : ThreadExecuteState
         infra = StorageInfra.This;
 
         string a;
-        a = infra.ReadText("Data/ThreadRead.txt");
+        a = infra.TextRead("Data/ThreadRead.txt");
         console.Write("ThreadRead.txt text: \n" + a + "\n");
 
         string writeFilePath;
@@ -26,14 +26,14 @@ class ThreadState : ThreadExecuteState
         File.Delete(writeFilePath);
 
         bool b;        
-        b = infra.WriteText(writeFilePath, "阿 了 水 GR 8 &\nEu #@ ?\n卡");
+        b = infra.TextWrite(writeFilePath, "阿 了 水 GR 8 &\nEu #@ ?\n卡");
         if (!b)
         {
             console.Write("ThreadWrite.txt write error\n");
         }
         if (b)
         {
-            a = infra.ReadText(writeFilePath);
+            a = infra.TextRead(writeFilePath);
             console.Write("ThreadWrite.txt text: \n" + a + "\n");
         }
 
