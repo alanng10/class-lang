@@ -322,7 +322,6 @@ Stream
     Kind
     Status
     CountGet()
-    CountSet(value)
     PosGet()
     PosSet(value)
     HasCount()
