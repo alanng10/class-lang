@@ -8,7 +8,7 @@
 
 struct Console
 {
-    Int Semaphore;
+    Int Phore;
 };
 
 #define CP(a) ((Console*)(a))

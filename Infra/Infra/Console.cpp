@@ -17,13 +17,13 @@ Int Console_Init(Int o)
 
 
 
-    m->Semaphore = Semaphore_New();
+    m->Phore = Phore_New();
 
 
-    Semaphore_InitCountSet(m->Semaphore, initCount);
+    Phore_InitCountSet(m->Phore, initCount);
 
 
-    Semaphore_Init(m->Semaphore);
+    Phore_Init(m->Phore);
 
 
 
@@ -39,10 +39,10 @@ Int Console_Final(Int o)
 
 
 
-    Semaphore_Final(m->Semaphore);
+    Phore_Final(m->Phore);
 
 
-    Semaphore_Delete(m->Semaphore);
+    Phore_Delete(m->Phore);
 
 
 
@@ -93,7 +93,7 @@ Int Console_StreamWrite(Int o, Int text, Int stream)
 
 
 
-    Semaphore_Acquire(m->Semaphore);
+    Phore_Acquire(m->Phore);
 
 
 
@@ -137,7 +137,7 @@ Int Console_StreamWrite(Int o, Int text, Int stream)
 
 
 
-    Semaphore_Release(m->Semaphore);
+    Phore_Release(m->Phore);
 
 
 
@@ -155,7 +155,7 @@ Int Console_Read(Int o)
 
 
 
-    Semaphore_Acquire(m->Semaphore);
+    Phore_Acquire(m->Phore);
 
 
 
@@ -189,7 +189,7 @@ Int Console_Read(Int o)
 
 
 
-    Semaphore_Release(m->Semaphore);
+    Phore_Release(m->Phore);
 
 
 
