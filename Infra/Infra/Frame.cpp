@@ -133,9 +133,15 @@ Int Frame_Final(Int o)
 }
 
 CppFieldGet(Frame, Size)
+
+Int Frame_SizeSet(Int o, Int value)
+{
+    return true;
+}
+
 CppField(Frame, Title)
 
-Int Frame_SetFrameTitle(Int o)
+Int Frame_TitleThisSet(Int o)
 {
     Frame* m;
 
