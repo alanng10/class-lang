@@ -559,7 +559,6 @@ Infra_Api Int Stream_StatusGet(Int o);
 Infra_Api Int Stream_StatusSet(Int o, Int value);
 
 Infra_Api Int Stream_CountGet(Int o);
-Infra_Api Int Stream_CountSet(Int o, Int value);
 Infra_Api Int Stream_PosGet(Int o);
 Infra_Api Int Stream_PosSet(Int o, Int value);
 Infra_Api Int Stream_HasCount(Int o);
