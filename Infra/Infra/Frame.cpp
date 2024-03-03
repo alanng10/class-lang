@@ -225,6 +225,16 @@ Int Frame_VisibleSet(Int o, Bool value)
     return true;
 }
 
+Int Frame_WindowCaseGet(Int o)
+{
+    return true;
+}
+
+Int Frame_WindowCaseSet(Int o, Int value)
+{
+    return true;
+}
+
 CppField(Frame, DrawState)
 CppField(Frame, TypeState)
 CppField(Frame, MouseState)
