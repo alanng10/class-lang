@@ -1,22 +1,22 @@
 namespace Avalon.Thread;
 
-public class Semaphore : Any
+public class Phore : Any
 {
     public override bool Init()
     {
         base.Init();
         ulong ua;
         ua = (ulong)(this.InitCount);
-        this.Intern = Extern.Semaphore_New();
-        Extern.Semaphore_InitCountSet(this.Intern, ua);
-        Extern.Semaphore_Init(this.Intern);
+        this.Intern = Extern.Phore_New();
+        Extern.Phore_InitCountSet(this.Intern, ua);
+        Extern.Phore_Init(this.Intern);
         return true;
     }
 
     public virtual bool Final()
     {
-        Extern.Semaphore_Final(this.Intern);
-        Extern.Semaphore_Delete(this.Intern);
+        Extern.Phore_Final(this.Intern);
+        Extern.Phore_Delete(this.Intern);
         return true;
     }
 
@@ -25,13 +25,13 @@ public class Semaphore : Any
 
     public virtual bool Acquire()
     {
-        Extern.Semaphore_Acquire(this.Intern);
+        Extern.Phore_Acquire(this.Intern);
         return true;
     }
 
     public virtual bool Release()
     {
-        Extern.Semaphore_Release(this.Intern);
+        Extern.Phore_Release(this.Intern);
         return true;
     }
 
@@ -40,7 +40,7 @@ public class Semaphore : Any
         get
         {
             ulong u;
-            u = Extern.Semaphore_CountGet(this.Intern);
+            u = Extern.Phore_CountGet(this.Intern);
             int a;
             a = (int)u;
             return a;
