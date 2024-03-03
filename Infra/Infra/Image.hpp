@@ -14,4 +14,4 @@ struct Image
 
 #define CP(a) ((Image*)(a))
 
-Int Image_SetVideoOut(Int o);
+Int Image_VideoOutSet(Int o);

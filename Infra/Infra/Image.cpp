@@ -18,7 +18,7 @@ Int Image_Init(Int o)
 
 
 
-    Image_SetVideoOut(o);
+    Image_VideoOutSet(o);
 
 
 
@@ -43,7 +43,7 @@ Int Image_Final(Int o)
     return true;
 }
 
-Int Image_CreateData(Int o)
+Int Image_DataCreate(Int o)
 {
     Image* m;
 
@@ -259,7 +259,7 @@ Int Image_SetReadIntern(Int o, Int value)
 CppField(Image, Size)
 CppField(Image, Data)
 
-Int Image_GetVideoOut(Int o)
+Int Image_VideoOut(Int o)
 {
     Image* m;
 
@@ -270,7 +270,7 @@ Int Image_GetVideoOut(Int o)
     return m->VideoOut;
 }
 
-Int Image_GetRowByteCount(Int o)
+Int Image_RowByteCountGet(Int o)
 {
     Image* m;
 
@@ -292,13 +292,16 @@ Int Image_GetRowByteCount(Int o)
     return a;
 }
 
+Int Image_RowByteCountSet(Int o, Int value)
+{
+    return true;
+}
 
 
 
 
 
-
-Int Image_SetVideoOut(Int o)
+Int Image_VideoOutSet(Int o)
 {
     Image* m;
 
