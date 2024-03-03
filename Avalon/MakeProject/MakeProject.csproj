@@ -26,7 +26,7 @@
         <ProjectReference Include="../Avalon.Draw/Avalon.Draw.csproj" />
         <ProjectReference Include="../Avalon.View/Avalon.View.csproj" />
         <ProjectReference Include="../Avalon.Main/Avalon.Main.csproj" />
-        <ProjectReference Include="../Avalon.Exe/Avalon.Exe.csproj" />
+        <ProjectReference Include="../Avalon.Entry/Avalon.Entry.csproj" />
     </ItemGroup>
 
 </Project>
