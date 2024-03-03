@@ -110,7 +110,7 @@ public class Process : Any
         get
         {
             ulong u;
-            u = Extern.Process_GetIdent(this.Intern);
+            u = Extern.Process_IdentGet(this.Intern);
             int a;
             a = (int)u;
             return a;
@@ -125,7 +125,7 @@ public class Process : Any
         get
         {
             ulong u;
-            u = Extern.Process_GetStatus(this.Intern);
+            u = Extern.Process_StatusGet(this.Intern);
             int a;
             a = (int)u;
             return a;
@@ -140,7 +140,7 @@ public class Process : Any
         get
         {
             ulong u;
-            u = Extern.Process_GetExitKind(this.Intern);
+            u = Extern.Process_ExitKindGet(this.Intern);
             int a;
             a = (int)u;
             return a;
