@@ -450,7 +450,7 @@ Thread
     CurrentThread() -
     Execute(thread, arg) --
 
-Semaphore
+Phore
     Count
     InitCount
     Acquire()
@@ -523,7 +523,7 @@ Process
     ReadOut(process, arg) --
     ReadErr(process, arg) --
 
-ProcessSemaphore
+ProcessPhore
     Name
     InitCount
     Create
