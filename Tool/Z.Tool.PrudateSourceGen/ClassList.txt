@@ -450,10 +450,6 @@ Thread
     CurrentThread() -
     Execute(thread, arg) --
 
-Mutex
-    Acquire()
-    Release()
-
 Semaphore
     Count
     InitCount
