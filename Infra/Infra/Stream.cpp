@@ -115,7 +115,7 @@ Int Stream_ValueSet(Int o, Int value)
 
 
 
-Int Stream_GetCount(Int o)
+Int Stream_CountGet(Int o)
 {
     Stream* m;
 
@@ -156,17 +156,7 @@ Int Stream_GetCount(Int o)
 
 
 
-Int Stream_SetCount(Int o, Int value)
-{
-    return true;
-}
-
-
-
-
-
-
-Int Stream_GetPos(Int o)
+Int Stream_PosGet(Int o)
 {
     Stream* m;
 
@@ -209,7 +199,7 @@ Int Stream_GetPos(Int o)
 
 
 
-Bool Stream_SetPos(Int o, Int value)
+Bool Stream_PosSet(Int o, Int value)
 {
     Stream* m;
 
@@ -228,7 +218,7 @@ Bool Stream_SetPos(Int o, Int value)
 
     Int count;
 
-    count = Stream_GetCount(o);
+    count = Stream_CountGet(o);
 
 
 
