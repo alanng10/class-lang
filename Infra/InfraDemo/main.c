@@ -511,7 +511,7 @@ Bool DrawHandle(Int frame, Int arg)
 
 
 
-    Draw_SetDrawArea(Draw);
+    Draw_AreaThisSet(Draw);
 
 
 
@@ -638,7 +638,7 @@ Bool DrawHandle(Int frame, Int arg)
     SetPos(fillPos, FillLeft, FillUp);
 
 
-    Draw_SetDrawFillPos(Draw);
+    Draw_FillPosThisSet(Draw);
 
 
 
@@ -680,7 +680,7 @@ Bool DrawHandle(Int frame, Int arg)
     SetPos(fillPos, 0, 0);
 
 
-    Draw_SetDrawFillPos(Draw);
+    Draw_FillPosThisSet(Draw);
 
 
 
@@ -788,7 +788,7 @@ Int ThreadExecute(Int thread, Int arg)
 
     Int threadA;
 
-    threadA = Thread_GetCurrentThread();
+    threadA = Thread_CurrentThread();
 
 
 
@@ -894,7 +894,7 @@ Bool TerminateHandle()
 {
     Int thread;
 
-    thread = Thread_GetCurrentThread();
+    thread = Thread_CurrentThread();
 
 
 
@@ -1164,7 +1164,7 @@ int main(int argc, char* argv[])
 
 
 
-    MainThread = Thread_GetCurrentThread();
+    MainThread = Thread_CurrentThread();
 
 
 
@@ -1689,7 +1689,7 @@ int main(int argc, char* argv[])
         SetPos(PosA, uuua, uuub);
 
 
-        PointData_SetPoint(pointListDataValue + iia * pointDataCount, PosA);
+        PointData_PointSet(pointListDataValue + iia * pointDataCount, PosA);
 
 
 
@@ -1967,7 +1967,7 @@ int main(int argc, char* argv[])
 
 
 
-    Stream_SetPos(stream, 5 * Constant_CharByteCount());
+    Stream_PosSet(stream, 5 * Constant_CharByteCount());
 
 
 
