@@ -269,7 +269,7 @@ Int Storage_Close(Int o)
 
 
 
-Int Storage_SetCount(Int o, Int value)
+Int Storage_CountSet(Int o, Int value)
 {
     Storage* m;
     m = CP(o);
