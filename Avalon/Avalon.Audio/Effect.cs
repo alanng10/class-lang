@@ -13,7 +13,7 @@ public class Effect : Any
         this.Intern = Extern.AudioEffect_New();
         Extern.AudioEffect_Init(this.Intern);
         Extern.AudioEffect_SourceSet(this.Intern, this.InternSource);
-        Extern.AudioEffect_SetAudioSource(this.Intern);
+        Extern.AudioEffect_SourceThisSet(this.Intern);
         return true;
     }
 
