@@ -1,6 +1,6 @@
 namespace Demo;
 
-class Exe : ExeExe
+class Entry : EntryEntry
 {
     public override int Execute()
     {
@@ -14,11 +14,11 @@ class Exe : ExeExe
     [STAThread]
     static int Main(string[] arg)
     {
-        Exe exe;
-        exe = new Exe();
-        exe.Init();
+        Entry entry;
+        entry = new Entry();
+        entry.Init();
         int o;
-        o = exe.Execute();
+        o = entry.Execute();
         return o;
     }
 }
