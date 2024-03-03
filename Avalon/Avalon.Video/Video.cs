@@ -41,7 +41,7 @@ public class Video : Any
         return true;
     }
 
-    public virtual bool CreateData()
+    public virtual bool DataCreate()
     {
         if (!(this.InternDataValue == 0))
         {
@@ -69,7 +69,7 @@ public class Video : Any
         this.InternDataValue = Extern.New(dataCount);
         Extern.Data_CountSet(this.InternData, dataCount);
         Extern.Data_ValueSet(this.InternData, this.InternDataValue);
-        Extern.Image_CreateData(this.Intern);
+        Extern.Image_DataCreate(this.Intern);
         return true;
     }
 
@@ -91,7 +91,7 @@ public class Video : Any
         get
         {
             ulong u;
-            u = Extern.Image_GetRowByteCount(this.Intern);
+            u = Extern.Image_RowByteCountGet(this.Intern);
             int a;
             a = (int)u;
             return a;
@@ -105,7 +105,7 @@ public class Video : Any
     {
         get
         {
-            return Extern.Image_GetVideoOut(this.Intern);
+            return Extern.Image_VideoOut(this.Intern);
         }
         set
         {

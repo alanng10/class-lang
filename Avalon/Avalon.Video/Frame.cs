@@ -19,9 +19,9 @@ public class Frame : Any
 
     internal virtual ulong Intern { get; set; }
 
-    public virtual bool GetVideo(Video video)
+    public virtual bool Video(Video video)
     {
-        Extern.VideoFrame_GetImage(this.Intern, video.Intern);
+        Extern.VideoFrame_Image(this.Intern, video.Intern);
         
         ulong size;
         size = Extern.Image_SizeGet(video.Intern);
