@@ -73,11 +73,6 @@ public class Stream : Any
         }
     }
 
-    public virtual bool SetCount(long value)
-    {
-        return true;
-    }
-
     public virtual long Pos
     {
         get
@@ -89,7 +84,7 @@ public class Stream : Any
         }
     }
 
-    public virtual bool SetPos(long value)
+    public virtual bool PosSet(long value)
     {
         return true;
     }

@@ -90,11 +90,6 @@ class MemoryStream : Stream
         }
     }
 
-    public override bool SetCount(long value)
-    {
-        return this.Intern.SetCount(value);
-    }
-
     public override long Pos
     {
         get
@@ -107,9 +102,9 @@ class MemoryStream : Stream
         }
     }
 
-    public override bool SetPos(long value)
+    public override bool PosSet(long value)
     {
-        return this.Intern.SetPos(value);
+        return this.Intern.PosSet(value);
     }
 
     public override int Status
