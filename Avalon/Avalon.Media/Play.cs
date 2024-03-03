@@ -25,13 +25,13 @@ public class Play : Any
     private InternInfra InternInfra { get; set; }
     private ulong Intern { get; set; }
 
-    public virtual bool SetSource()
+    public virtual bool SourceSet()
     {
         ulong u;        
         u = this.InternInfra.StringCreate(this.Source);
 
         Extern.Play_SourceSet(this.Intern, u);
-        Extern.Play_SetPlaySource(this.Intern);
+        Extern.Play_SourceThisSet(this.Intern);
         Extern.Play_SourceSet(this.Intern, 0);
 
         this.InternInfra.StringDelete(u);
@@ -58,7 +58,7 @@ public class Play : Any
 
     public virtual AudioOut AudioOut { get; set; }
 
-    public virtual bool SetAudioOut()
+    public virtual bool AudioOutSet()
     {
         ulong u;
         u = 0;
@@ -72,7 +72,7 @@ public class Play : Any
 
     public virtual VideoOut VideoOut { get; set; }
 
-    public virtual bool SetVideoOut()
+    public virtual bool VideoOutSet()
     {
         ulong u;
         u = 0;
