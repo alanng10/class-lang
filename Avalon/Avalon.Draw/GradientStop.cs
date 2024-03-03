@@ -43,7 +43,7 @@ public class GradientStop : Any
         indexU = (ulong)index;
         posU = (ulong)(point.Pos);
         colorU = this.DrawInfra.InternColor(point.Color);
-        Extern.GradientStop_SetPoint(this.Intern, indexU, posU, colorU);
+        Extern.GradientStop_PointSet(this.Intern, indexU, posU, colorU);
         return true;
     }
 
@@ -54,7 +54,7 @@ public class GradientStop : Any
 
         ulong indexU;
         indexU = (ulong)index;
-        this.InternIntern.DrawGradientStopGetPoint(this.Intern, indexU, u);
+        this.InternIntern.DrawGradientStopPointGet(this.Intern, indexU, u);
 
         ulong ua;
         ua = u.Pos;
