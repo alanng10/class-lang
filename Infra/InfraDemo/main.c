@@ -2207,13 +2207,13 @@ int main(int argc, char* argv[])
 
 
 
-    GradientStop_SetPoint(gradientStop, 0, 0, 0xffff0000);
+    GradientStop_PointSet(gradientStop, 0, 0, 0xffff0000);
 
 
-    GradientStop_SetPoint(gradientStop, 1, scaleFactor / 2, 0xff00ff00);
+    GradientStop_PointSet(gradientStop, 1, scaleFactor / 2, 0xff00ff00);
 
 
-    GradientStop_SetPoint(gradientStop, 2, scaleFactor, 0xff0000ff);
+    GradientStop_PointSet(gradientStop, 2, scaleFactor, 0xff0000ff);
 
 
 
@@ -2373,7 +2373,7 @@ int main(int argc, char* argv[])
 
 
 
-    AudioEffect_SetAudioSource(AudioEffect);
+    AudioEffect_SourceThisSet(AudioEffect);
 
 
 
@@ -2553,7 +2553,7 @@ int main(int argc, char* argv[])
 
 
 
-    Frame_SetFrameTitle(frame);
+    Frame_TitleThisSet(frame);
 
 
 
