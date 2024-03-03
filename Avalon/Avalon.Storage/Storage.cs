@@ -86,7 +86,7 @@ public class Storage : Any
         return true;
     }
 
-    public virtual bool SetCount(long value)
+    public virtual bool CountSet(long value)
     {
         if (this.Stream == null)
         {
@@ -95,7 +95,7 @@ public class Storage : Any
 
         ulong u;
         u = (ulong)value;
-        Extern.Storage_SetCount(this.Intern, u);
+        Extern.Storage_CountSet(this.Intern, u);
         return true;
     }
 
