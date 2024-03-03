@@ -108,7 +108,7 @@ public class Frame : Comp
         this.InternTitle = this.InternInfra.StringCreate(this.Title);
 
         Extern.Frame_TitleSet(this.Intern, this.InternTitle);
-        Extern.Frame_SetFrameTitle(this.Intern);
+        Extern.Frame_TitleThisSet(this.Intern);
         Extern.Frame_TitleSet(this.Intern, 0);
 
         this.InternInfra.StringDelete(this.InternTitle);
