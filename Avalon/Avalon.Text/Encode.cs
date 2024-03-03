@@ -49,18 +49,18 @@ public class Encode : Any
     private ulong InternString { get; set; }
     private ulong InternData { get; set; }
 
-    public virtual int GetTextCountMax(long dataCount)
+    public virtual int TextCountMax(long dataCount)
     {
         ulong ua;
         ua = (ulong)dataCount;
         ulong u;
-        u = Extern.TextEncode_GetStringCountMax(this.Intern, ua);
+        u = Extern.TextEncode_StringCountMax(this.Intern, ua);
         int a;
         a = (int)u;
         return a;
     }
 
-    public virtual int GetText(Span text, InfraData data, DataRange range)
+    public virtual int Text(Span text, InfraData data, DataRange range)
     {
         if (!this.InfraInfra.CheckLongRange(data.Count, range))
         {
@@ -76,22 +76,22 @@ public class Encode : Any
         Extern.Data_CountSet(dataU, ua);
 
         int a;
-        a = this.InternIntern.TextEncodeGetString(this.Intern, text.Data, text.Range.Start, dataU, data.Value, range.Start);
+        a = this.InternIntern.TextEncodeString(this.Intern, text.Data, text.Range.Start, dataU, data.Value, range.Start);
         return a;
     }
 
-    public virtual long GetDataCountMax(int textCount)
+    public virtual long DataCountMax(int textCount)
     {
         ulong ua;
         ua = (ulong)textCount;
         ulong u;
-        u = Extern.TextEncode_GetDataCountMax(this.Intern, ua);
+        u = Extern.TextEncode_DataCountMax(this.Intern, ua);
         long a;
         a = (long)u;
         return a;
     }
 
-    public virtual long GetData(InfraData data, long index, Span text)
+    public virtual long Data(InfraData data, long index, Span text)
     {
         if (!this.InfraInfra.CheckRange(text.Data.Length, text.Range))
         {
@@ -107,7 +107,7 @@ public class Encode : Any
         Extern.String_CountSet(textU, ua);
 
         long a;
-        a = this.InternIntern.TextEncodeGetData(this.Intern, data.Value, index, textU, text.Data, text.Range.Start);
+        a = this.InternIntern.TextEncodeData(this.Intern, data.Value, index, textU, text.Data, text.Range.Start);
         return a;
     }
 }
