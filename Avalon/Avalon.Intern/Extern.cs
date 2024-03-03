@@ -787,13 +787,6 @@ public static class Extern
 
     public delegate ulong Thread_Execute_Maide(ulong thread, ulong arg);
 
-    [DllImport(InfraLib)] public extern static ulong Mutex_New();
-    [DllImport(InfraLib)] public extern static ulong Mutex_Delete(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Mutex_Init(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Mutex_Final(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Mutex_Acquire(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Mutex_Release(ulong o);
-
     [DllImport(InfraLib)] public extern static ulong Semaphore_New();
     [DllImport(InfraLib)] public extern static ulong Semaphore_Delete(ulong o);
     [DllImport(InfraLib)] public extern static ulong Semaphore_Init(ulong o);
