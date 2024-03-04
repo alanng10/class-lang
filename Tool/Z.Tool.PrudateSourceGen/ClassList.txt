@@ -523,14 +523,6 @@ Process
     ReadOut(process, arg) --
     ReadErr(process, arg) --
 
-ProcessPhore
-    Name
-    InitCount
-    Create
-    Status
-    Acquire()
-    Release()
-
 Infra -
     Share() -
 
