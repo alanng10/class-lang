@@ -847,19 +847,6 @@ typedef Int (*Process_Finished_Maide)(Int process, Int arg);
 typedef Int (*Process_ReadOut_Maide)(Int process, Int arg);
 typedef Int (*Process_ReadErr_Maide)(Int process, Int arg);
 
-InfraApiNew(ProcessPhore)
-Infra_Api Int ProcessPhore_NameGet(Int o);
-Infra_Api Int ProcessPhore_NameSet(Int o, Int value);
-Infra_Api Int ProcessPhore_InitCountGet(Int o);
-Infra_Api Int ProcessPhore_InitCountSet(Int o, Int value);
-Infra_Api Int ProcessPhore_CreateGet(Int o);
-Infra_Api Int ProcessPhore_CreateSet(Int o, Int value);
-Infra_Api Int ProcessPhore_StatusGet(Int o);
-Infra_Api Int ProcessPhore_StatusSet(Int o, Int value);
-
-Infra_Api Int ProcessPhore_Acquire(Int o);
-Infra_Api Int ProcessPhore_Release(Int o);
-
 Infra_Api Int Infra_Share();
 
 Infra_Api Int Share_Stat(Int o);
