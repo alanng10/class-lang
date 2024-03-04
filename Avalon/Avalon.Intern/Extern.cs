@@ -915,22 +915,6 @@ public static class Extern
     public delegate ulong Process_ReadOut_Maide(ulong process, ulong arg);
     public delegate ulong Process_ReadErr_Maide(ulong process, ulong arg);
 
-    [DllImport(InfraLib)] public extern static ulong ProcessPhore_New();
-    [DllImport(InfraLib)] public extern static ulong ProcessPhore_Delete(ulong o);
-    [DllImport(InfraLib)] public extern static ulong ProcessPhore_Init(ulong o);
-    [DllImport(InfraLib)] public extern static ulong ProcessPhore_Final(ulong o);
-    [DllImport(InfraLib)] public extern static ulong ProcessPhore_NameGet(ulong o);
-    [DllImport(InfraLib)] public extern static ulong ProcessPhore_NameSet(ulong o, ulong value);
-    [DllImport(InfraLib)] public extern static ulong ProcessPhore_InitCountGet(ulong o);
-    [DllImport(InfraLib)] public extern static ulong ProcessPhore_InitCountSet(ulong o, ulong value);
-    [DllImport(InfraLib)] public extern static ulong ProcessPhore_CreateGet(ulong o);
-    [DllImport(InfraLib)] public extern static ulong ProcessPhore_CreateSet(ulong o, ulong value);
-    [DllImport(InfraLib)] public extern static ulong ProcessPhore_StatusGet(ulong o);
-    [DllImport(InfraLib)] public extern static ulong ProcessPhore_StatusSet(ulong o, ulong value);
-
-    [DllImport(InfraLib)] public extern static ulong ProcessPhore_Acquire(ulong o);
-    [DllImport(InfraLib)] public extern static ulong ProcessPhore_Release(ulong o);
-
     [DllImport(InfraLib)] public extern static ulong Infra_Share();
 
     [DllImport(InfraLib)] public extern static ulong Share_Stat(ulong o);
