@@ -3,7 +3,7 @@ namespace Class.Test;
 
 
 
-class TestUnit : Any
+class Unit : Any
 {
     public Set Set { get; set; }
 

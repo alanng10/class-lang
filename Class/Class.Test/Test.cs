@@ -243,7 +243,7 @@ public class Test : Any
     private Set FoldSet { get; set; }
 
 
-    private TestUnit TestUnit { get; set; }
+    private Unit TestUnit { get; set; }
 
 
     private int PassCount { get; set; }
@@ -487,10 +487,10 @@ public class Test : Any
 
 
 
-                TestUnit testUnit;
+                Unit testUnit;
 
 
-                testUnit = new TestUnit();
+                testUnit = new Unit();
 
 
                 testUnit.Set = this.FoldSet;
@@ -552,7 +552,7 @@ public class Test : Any
 
         while (iter.Next())
         {
-            this.TestUnit = (TestUnit)iter.Value;
+            this.TestUnit = (Unit)iter.Value;
 
 
 
