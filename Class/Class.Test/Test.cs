@@ -36,7 +36,7 @@ public class Test : Any
 
 
 
-        this.Spaces = new string(' ', 4);
+        this.ResultSpace = new string(' ', 4);
 
 
         
@@ -243,7 +243,7 @@ public class Test : Any
 
 
 
-    private string Spaces { get; set; }
+    private string ResultSpace { get; set; }
 
 
 
@@ -752,7 +752,7 @@ public class Test : Any
 
 
 
-        s = p + this.Spaces + a + this.Spaces + u + this.Spaces + k + " " + j;
+        s = p + this.ResultSpace + a + this.ResultSpace + u + this.ResultSpace + k + " " + j;
 
 
 
