@@ -755,46 +755,18 @@ public class Traverse : Any
         return true;
     }
 
-
-
-
-
-
     public virtual bool ExecuteCastOperate(CastOperate castOperate)
     {
         if (castOperate == null)
         {
             return true;
         }
-
-
-
-
-
         this.ExecuteNode(castOperate);
 
-
-
-
-
         this.ExecuteClassName(castOperate.Class);
-
-
-
-
         this.ExecuteOperate(castOperate.Any);
-
-
-
-
-
         return true;
     }
-
-
-
-
-
 
     public virtual bool ExecuteBracketOperate(BracketOperate bracketOperate)
     {
@@ -802,26 +774,11 @@ public class Traverse : Any
         {
             return true;
         }
-
-
-
-
         this.ExecuteNode(bracketOperate);
 
-            
-
-
         this.ExecuteOperate(bracketOperate.Operate);
-
-
-
         return true;
     }
-
-
-
-
-
 
     public virtual bool ExecuteEqualOperate(EqualOperate equalOperate)
     {
@@ -829,36 +786,12 @@ public class Traverse : Any
         {
             return true;
         }
-
-
-
-
-
         this.ExecuteNode(equalOperate);
 
-
-
-
-
         this.ExecuteOperate(equalOperate.Left);
-
-
-
-
-
         this.ExecuteOperate(equalOperate.Right);
-
-
-
-
-
         return true;
     }
-
-
-
-
-
 
     public virtual bool ExecuteAndOperate(AndOperate andOperate)
     {
@@ -866,26 +799,10 @@ public class Traverse : Any
         {
             return true;
         }
-
-
-
-
         this.ExecuteNode(andOperate);
 
-
-
-
-
         this.ExecuteOperate(andOperate.Left);
-
-
-
-
         this.ExecuteOperate(andOperate.Right);
-
-
-
-
         return true;
     }
 
