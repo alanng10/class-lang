@@ -568,7 +568,7 @@ class ObjectString : Any
 
 
 
-        this.SpaceCount = this.SpaceCount + (fieldName.Length + 1 + 1 + 1);
+        this.SpaceCount = this.SpaceCount + fieldName.Length + 3;
 
 
 
@@ -577,7 +577,7 @@ class ObjectString : Any
 
 
 
-        this.SpaceCount = this.SpaceCount + IndentSize;
+        this.SpaceCount = this.SpaceCount + this.IndentSize;
 
 
 
@@ -592,19 +592,14 @@ class ObjectString : Any
 
             o = iter.Value;
 
-
-
             this.AppendSpace();
-
-
-
             this.ExecuteObject(o);
         }
 
 
 
 
-        this.SpaceCount = this.SpaceCount - IndentSize;
+        this.SpaceCount = this.SpaceCount - this.IndentSize;
 
 
 
