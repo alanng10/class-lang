@@ -232,7 +232,7 @@ public class Test : Any
     private string TestFold { get; set; }
 
 
-    private List FoldUnits { get; set; }
+    private List UnitList { get; set; }
 
 
 
@@ -348,11 +348,11 @@ public class Test : Any
 
     private bool AddFoldSetUnits()
     {
-        this.FoldUnits = new List();
+        this.UnitList = new List();
 
 
 
-        this.FoldUnits.Init();
+        this.UnitList.Init();
 
 
 
@@ -511,7 +511,7 @@ public class Test : Any
 
 
 
-                this.FoldUnits.Add(testUnit);
+                this.UnitList.Add(testUnit);
             }
         }
 
@@ -543,10 +543,10 @@ public class Test : Any
 
         Iter iter;
 
-        iter = this.FoldUnits.IterCreate();
+        iter = this.UnitList.IterCreate();
         
 
-        this.FoldUnits.IterSet(iter);
+        this.UnitList.IterSet(iter);
 
 
 
