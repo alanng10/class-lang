@@ -282,6 +282,11 @@ public class Create : InfraCreate
         this.NodeState = (NodeState)this.NodeStateTable.Get(this.Task);
         if (this.NodeState == null)
         {
+            Array ooa;
+            ooa = new Array();
+            ooa.Count = 0;
+            ooa.Init();
+            this.Result.Error = ooa;
             return true;
         }
 
