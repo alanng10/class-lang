@@ -851,123 +851,46 @@ public class Test : Any
     private Task CreateTask()
     {
         Task task;
-
-
         task = new Task();
-
-
         task.Init();
-
-
-
-
-        TaskKind kind;
-
-
-        kind = this.Unit.Set.TaskKind;
-
-
-
-
-
-        task.Kind = kind;
-
-
-
-        
+        task.Kind = this.Unit.Set.TaskKind;
 
         bool ba;
-
-
         ba = this.Set.AddKindAfterTaskArg;
-
-
-
         if (ba)
         {
             task.Node = this.Unit.Kind;
         }
-
-
-
         if (!ba)
         {
-            if (!(task.Kind == TaskKindList.This.Token))
-            {
-                task.Node = "Class";
-            }
+            task.Node = "Class";
         }
-
-
-
-
 
         if (this.Set.AddPathAfterTaskArg)
         {
             task.Check = this.Unit.Path;
         }
 
-
-
-
         task.Print = true;
 
-
-
-
-
         string source;
-
-
-
-        source = this.SourceFold;
-
-
-
-
-        bool setSourceFold;
-
-
-
-        setSourceFold = this.Set.SourceFold;
-
-
-
-
-        if (setSourceFold)
+        source = null;
+        bool b;
+        b = this.Set.SourceFold;
+        if (b)
         {
             source = "Source";
         }
-
-
-
-
-        if (!setSourceFold)
+        if (!b)
         {
             source = "Code";
         }
-
-
-
         task.Source = source;
-
-
-
-
 
         task.Out = this.Writer;
 
-
-        
-
-
-
         Task ret;
-        
-
         ret = task;
-        
-        
         return ret;
     }
 
