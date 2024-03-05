@@ -806,41 +806,18 @@ public class Traverse : Any
         return true;
     }
 
-
-
-
-
     public virtual bool ExecuteOrnOperate(OrnOperate ornOperate)
     {
         if (ornOperate == null)
         {
             return true;
         }
-
-
-
-
         this.ExecuteNode(ornOperate);
 
-
-
-
         this.ExecuteOperate(ornOperate.Left);
-
-
-
-
         this.ExecuteOperate(ornOperate.Right);
-
-
-
-
         return true;
     }
-
-
-
-
 
     public virtual bool ExecuteNotOperate(NotOperate notOperate)
     {
@@ -848,26 +825,11 @@ public class Traverse : Any
         {
             return true;
         }
-
-
-
-
         this.ExecuteNode(notOperate);
 
-
-
-
         this.ExecuteOperate(notOperate.Value);
-
-
-
-
         return true;
     }
-
-
-
-
 
     public virtual bool ExecuteAddOperate(AddOperate addOperate)
     {
@@ -875,32 +837,12 @@ public class Traverse : Any
         {
             return true;
         }
-
-
-
-
         this.ExecuteNode(addOperate);
 
-
-
-
         this.ExecuteOperate(addOperate.Left);
-
-
-
-
         this.ExecuteOperate(addOperate.Right);
-
-
-
-
         return true;
     }
-
-
-
-
-
 
     public virtual bool ExecuteSubOperate(SubOperate subOperate)
     {
@@ -908,32 +850,12 @@ public class Traverse : Any
         {
             return true;
         }
-
-
-
-
         this.ExecuteNode(subOperate);
 
-
-
-
         this.ExecuteOperate(subOperate.Left);
-
-
-
-
         this.ExecuteOperate(subOperate.Right);
-
-
-
-
         return true;
     }
-
-
-
-
-
 
     public virtual bool ExecuteMulOperate(MulOperate mulOperate)
     {
@@ -941,26 +863,10 @@ public class Traverse : Any
         {
             return true;
         }
-
-
-
-
-
         this.ExecuteNode(mulOperate);
 
-
-
-
         this.ExecuteOperate(mulOperate.Left);
-
-
-
-
         this.ExecuteOperate(mulOperate.Right);
-
-
-
-
         return true;
     }
 
