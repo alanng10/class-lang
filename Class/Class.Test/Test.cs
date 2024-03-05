@@ -529,7 +529,7 @@ public class Test : Any
 
 
 
-            this.WriteFoldResult();
+            this.WriteUnitResult();
 
 
 
@@ -659,7 +659,7 @@ public class Test : Any
 
 
 
-    private bool WriteFoldResult()
+    private bool WriteUnitResult()
     {
         this.WriteResult(this.UnitPass, this.Unit.Set.Name, this.Unit.Kind, this.Unit.Name);
 
