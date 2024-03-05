@@ -1942,9 +1942,12 @@ public class Create : InfraCreate
         {
             b = true;
         }
-        if (!b & !(maideRange.End == maideEnd))
+        if (!b)
         {
-            b = true;
+            if (!(maideRange.End == maideEnd))
+            {
+                b = true;
+            }
         }
 
         if (!b)
