@@ -166,7 +166,7 @@ public class Test : Any
 
 
 
-        set.Kind = kind;
+        set.TaskKind = kind;
 
 
 
@@ -887,7 +887,7 @@ public class Test : Any
         TaskKind kind;
 
 
-        kind = this.TestUnit.Set.Kind;
+        kind = this.TestUnit.Set.TaskKind;
 
 
 

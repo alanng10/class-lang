@@ -4,7 +4,7 @@ class Set
 {
     public virtual string Name { get; set; }
 
-    public virtual TaskKind Kind { get; set; }
+    public virtual TaskKind TaskKind { get; set; }
 
     public virtual bool AddKindAfterTaskArg { get; set; }
 
