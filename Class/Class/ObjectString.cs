@@ -5,11 +5,11 @@ namespace Class;
 
 class ObjectString : Any
 {
-    private char CharSpace;
+    private char CharSpace { get; set; }
 
 
 
-    private int IndentSize;
+    private int IndentSize { get; set; }
 
 
 
@@ -206,7 +206,7 @@ class ObjectString : Any
 
             return true;
         }
-        else if (varObject is int)
+        if (varObject is int)
         {
             int k;
 
@@ -217,7 +217,7 @@ class ObjectString : Any
 
             return true;
         }
-        else if (varObject is ulong)
+        if (varObject is ulong)
         {
             ulong k;
 
@@ -229,7 +229,7 @@ class ObjectString : Any
 
             return true;
         }
-        else if (varObject is long)
+        if (varObject is long)
         {
             long k;
 
@@ -241,7 +241,7 @@ class ObjectString : Any
 
             return true;
         }
-        else if (varObject is string)
+        if (varObject is string)
         {
             string s;
             
@@ -284,7 +284,7 @@ class ObjectString : Any
         this.AppendSpaces().Append("{").AppendLine();
 
 
-        this.SpaceCount = this.SpaceCount + IndentSize;
+        this.SpaceCount = this.SpaceCount + this.IndentSize;
 
             
 
