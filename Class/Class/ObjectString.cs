@@ -299,7 +299,7 @@ class ObjectString : Any
 
 
 
-        this.SpaceCount = this.SpaceCount - IndentSize;
+        this.SpaceCount = this.SpaceCount - this.IndentSize;
 
 
         this.AppendSpace().Append("}").Append(",").AppendLine();
