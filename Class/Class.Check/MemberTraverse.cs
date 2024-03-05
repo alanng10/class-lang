@@ -505,7 +505,7 @@ class MemberTraverse : Traverse
 
 
 
-        this.Check(nodeMield).Method = method;
+        this.Check(nodeMield).Maide = method;
 
 
 
