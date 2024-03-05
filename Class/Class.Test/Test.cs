@@ -523,40 +523,23 @@ public class Test : Any
         {
             this.Unit = (Unit)iter.Value;
 
-
-
             this.ExecuteUnit();
-
-
 
             this.WriteUnitResult();
 
-
-
             this.Unit = null;
 
-
-
             this.UnitIndex = this.UnitIndex + 1;
+
+            if (this.UnitPass)
+            {
+                this.PassCount = this.PassCount + 1;
+            }
         }
 
-
-
-
         this.WriteTotalResult();
-
-
-
-
         return true;
     }
-
-
-
-
-
-
-
 
     private bool ExecuteUnit()
     {
@@ -694,9 +677,6 @@ public class Test : Any
         if (b)
         {
             a = "Pass";
-
-
-            this.PassCount = this.PassCount + 1;
         }
         
 
