@@ -1,10 +1,5 @@
 @echo off
 
-
-
-
-cd Class.Test.Exe
-
+pushd Class\Class.Test.Exe
 dotnet build
-
-cd ..
+popd
