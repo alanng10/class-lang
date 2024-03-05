@@ -49,11 +49,11 @@ public class Test : Any
 
 
 
-        string newCurrentDirectory = this.DataCurrentDirectory();
+        string oo = this.ProjectRootDirectory();
 
 
 
-        Directory.SetCurrentDirectory(newCurrentDirectory);
+        Directory.SetCurrentDirectory(oo);
 
 
 
@@ -106,7 +106,7 @@ public class Test : Any
 
     protected virtual TaskKindList TaskKindList { get; set; }
 
-    protected virtual string DataCurrentDirectory()
+    protected virtual string ProjectRootDirectory()
     {
         return "../../Class/Class.Test";
     }
