@@ -1910,17 +1910,6 @@ public class Create : InfraCreate
             return null;
         }
 
-        Range maideRange;
-        maideRange = this.ExecuteMaideNameRange(this.RangeB, this.Range(this.RangeA, dot.Range.End, leftBracket.Range.Start));
-        if (maideRange == null)
-        {
-            return null;
-        }
-        if (!(maideRange.End == leftBracket.Range.Start))
-        {
-            return null;
-        }
-
         int thisStart;
         int thisEnd;
         thisStart = start;
@@ -1928,8 +1917,8 @@ public class Create : InfraCreate
 
         int maideStart;
         int maideEnd;
-        maideStart = maideRange.Start;
-        maideEnd = maideRange.End;
+        maideStart = dot.Range.End;
+        maideEnd = leftBracket.Range.Start;
 
         int argueStart;
         int argueEnd;
@@ -1944,8 +1933,29 @@ public class Create : InfraCreate
         }
 
         Node maide;
-        maide = this.ExecuteMaideName(this.Range(this.RangeA, maideStart, maideEnd));
-        if (maide == null)
+        maide = null;
+        bool b;
+        b = false;
+        Range maideRange;
+        maideRange = this.ExecuteMaideNameRange(this.RangeB, this.Range(this.RangeA, maideStart, maideEnd));
+        if (maideRange == null)
+        {
+            b = true;
+        }
+        if (!b & !(maideRange.End == maideEnd))
+        {
+            b = true;
+        }
+
+        if (!b)
+        {
+            maide = this.ExecuteMaideName(this.Range(this.RangeA, maideStart, maideEnd));
+            if (maide == null)
+            {
+                b = true;
+            }
+        }
+        if (b)
         {
             this.Error(this.ErrorKind.MaideInvalid, maideStart, maideEnd);
         }
