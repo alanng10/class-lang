@@ -182,40 +182,16 @@ public class Traverse : Any
         return true;
     }
 
-
-
-
-
-
     public virtual bool ExecuteSetTarget(SetTarget setTarget)
     {
         if (setTarget == null)
         {
             return true;
         }
-
-
-
-
-
         this.ExecuteNode(setTarget);
 
-
-
-
-
         this.ExecuteOperate(setTarget.This);
-
-
-
-
-
         this.ExecuteFieldName(setTarget.Field);
-
-
-
-
-
         return true;
     }
 
