@@ -661,7 +661,7 @@ public class Test : Any
 
     private bool WriteUnitResult()
     {
-        this.WriteResult(this.UnitPass, this.Unit.Set.Name, this.Unit.Kind, this.Unit.Name);
+        this.WriteResultLine(this.UnitPass, this.Unit.Set.Name, this.Unit.Kind, this.Unit.Name);
 
 
 
@@ -673,7 +673,7 @@ public class Test : Any
 
 
 
-    private bool WriteResult(bool pass, string set, string kind, string unit)
+    private bool WriteResultLine(bool pass, string set, string kind, string unit)
     {
         string a;
 
