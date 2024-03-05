@@ -173,9 +173,7 @@ class ObjectString : Any
         }
 
 
-            
-            
-            
+
         if (varObject is bool)
         {
             bool k;
