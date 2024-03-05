@@ -237,7 +237,7 @@ public class Test : Any
     private Table FoldSetMap { get; set; }
 
 
-    private Set FoldSet { get; set; }
+    private Set Set { get; set; }
 
 
     private Unit TestUnit { get; set; }
@@ -315,7 +315,7 @@ public class Test : Any
 
         while (iter.Next())
         {
-            this.FoldSet = (Set)iter.Value;
+            this.Set = (Set)iter.Value;
 
 
 
@@ -328,7 +328,7 @@ public class Test : Any
 
 
 
-            this.FoldSet = null;
+            this.Set = null;
         }
 
 
@@ -353,7 +353,7 @@ public class Test : Any
 
         string set;
 
-        set = this.FoldSet.Name;
+        set = this.Set.Name;
 
         
         
@@ -462,7 +462,7 @@ public class Test : Any
 
 
 
-                if (this.FoldSet.AddPathAfterTaskArg)
+                if (this.Set.AddPathAfterTaskArg)
                 {
                     string pathFile;
 
@@ -485,7 +485,7 @@ public class Test : Any
                 testUnit = new Unit();
 
 
-                testUnit.Set = this.FoldSet;
+                testUnit.Set = this.Set;
 
 
                 testUnit.Kind = kind;
@@ -518,7 +518,7 @@ public class Test : Any
 
     private bool ExecuteFoldSet()
     {
-        this.WriteHeader(this.FoldSet.Name);
+        this.WriteHeader(this.Set.Name);
 
 
 
@@ -902,7 +902,7 @@ public class Test : Any
         bool ba;
 
 
-        ba = this.FoldSet.AddKindAfterTaskArg;
+        ba = this.Set.AddKindAfterTaskArg;
 
 
 
@@ -925,7 +925,7 @@ public class Test : Any
 
 
 
-        if (this.FoldSet.AddPathAfterTaskArg)
+        if (this.Set.AddPathAfterTaskArg)
         {
             task.Check = this.TestUnit.Path;
         }
@@ -952,7 +952,7 @@ public class Test : Any
 
 
 
-        setSourceFold = this.FoldSet.SourceFold;
+        setSourceFold = this.Set.SourceFold;
 
 
 
