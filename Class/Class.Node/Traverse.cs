@@ -112,56 +112,25 @@ public class Traverse : Any
         return true;
     }
 
-
-
-
-
     public virtual bool ExecuteParam(Param param)
     {
         if (param == null)
         {
             return true;
         }
-
-
-
-
         this.ExecuteNode(param);
 
-
-
-
-
         Iter iter;
-
         iter = this.Iter;
-
-
         param.Value.IterSet(iter);
-
-
-
         while (iter.Next())
         {
             Var varVar;
-
-
             varVar = (Var)iter.Value;
-
-
-
             this.ExecuteVar(varVar);
         }
-
-
-
-
         return true;
     }
-
-
-
-
 
     public virtual bool ExecuteArgue(Argue argue)
     {
@@ -169,42 +138,17 @@ public class Traverse : Any
         {
             return true;
         }
-
-
-
-
-
         this.ExecuteNode(argue);
 
-
-
-
-
         Iter iter;
-
         iter = this.Iter;
-
-
         argue.Value.IterSet(iter);
-
-
-
         while (iter.Next())
         {
             Operate operate;
-
-
             operate = (Operate)iter.Value;
-
-
-
             this.ExecuteOperate(operate);
         }
-
-
-
-
-
         return true;
     }
 
