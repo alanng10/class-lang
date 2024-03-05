@@ -289,7 +289,7 @@ class MemberTraverse : Traverse
 
 
 
-        MieldName name;
+        MaideName name;
 
         name = nodeMield.Name;
 

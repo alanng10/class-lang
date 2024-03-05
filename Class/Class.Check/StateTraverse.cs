@@ -1778,7 +1778,7 @@ public class StateTraverse : Traverse
 
 
 
-        MieldName nodeMethod;
+        MaideName nodeMethod;
 
         nodeMethod = callOperate.Maide;
 
