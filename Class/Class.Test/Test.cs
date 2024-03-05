@@ -560,7 +560,10 @@ public class Test : Any
 
     private bool ExecuteTestUnit()
     {
-        this.UnitFold = this.DataFold + "/" + this.Unit.Set.Name + "/" + this.Unit.Kind + "/" + this.Unit.Name;
+        char oc;
+        oc = this.InfraInfra.PathCombine;
+
+        this.UnitFold = this.DataFold + oc + this.Unit.Set.Name + oc + this.Unit.Kind + oc + this.Unit.Name;
 
 
 
