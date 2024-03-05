@@ -266,9 +266,9 @@ public class Test : Any
     
 
 
-    public int Execute()
+    public virtual int Execute()
     {
-        this.ExecuteSets();
+        this.ExecuteSetList();
 
 
 
@@ -279,7 +279,7 @@ public class Test : Any
 
 
 
-    private bool ExecuteSets()
+    protected virtual bool ExecuteSetList()
     {
         Iter iter;
 
