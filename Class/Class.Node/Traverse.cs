@@ -195,11 +195,6 @@ public class Traverse : Any
         return true;
     }
 
-
-
-
-
-
     public virtual bool ExecuteValue(Value value)
     {
         if (value == null)
@@ -207,40 +202,30 @@ public class Traverse : Any
             return true;
         }
 
-
-
-
         if (value is BoolValue)
         {
             this.ExecuteBoolValue((BoolValue)value);
         }
-
-
-
-
         if (value is IntValue)
         {
             this.ExecuteIntValue((IntValue)value);
         }
-
-
-
         if (value is IntHexValue)
         {
             this.ExecuteIntHexValue((IntHexValue)value);
         }
-
-
-
-
+        if (value is IntSignValue)
+        {
+            this.ExecuteIntSignValue((IntSignValue)value);
+        }
+        if (value is IntSignHexValue)
+        {
+            this.ExecuteIntSignHexValue((IntSignHexValue)value);
+        }
         if (value is StringValue)
         {
             this.ExecuteStringValue((StringValue)value);
         }
-
-
-
-
         return true;
     }
 
@@ -312,8 +297,25 @@ public class Traverse : Any
         return true;
     }
 
+    public virtual bool ExecuteIntSignValue(IntSignValue intSignValue)
+    {
+        if (intSignValue == null)
+        {
+            return true;
+        }
+        this.ExecuteNode(intSignValue);
+        return true;
+    }
 
-
+    public virtual bool ExecuteIntSignHexValue(IntSignHexValue intSignHexValue)
+    {
+        if (intSignHexValue == null)
+        {
+            return true;
+        }
+        this.ExecuteNode(intSignHexValue);
+        return true;
+    }
 
 
 
