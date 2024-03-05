@@ -173,7 +173,7 @@ public class CheckString : Any
 
 
 
-        this.AppendMethod(this.Check.Method);
+        this.AppendMethod(this.Check.Maide);
 
 
         this.AppendLine();
@@ -360,7 +360,7 @@ public class CheckString : Any
 
 
 
-    protected bool AppendMethod(CheckMethod method)
+    protected bool AppendMethod(CheckMaide method)
     {
         if (this.Null(method))
         {

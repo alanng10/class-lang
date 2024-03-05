@@ -13,7 +13,7 @@ public class Check : Any
 
 
 
-    public virtual Maide Method { get; set; }
+    public virtual Maide Maide { get; set; }
 
 
 
