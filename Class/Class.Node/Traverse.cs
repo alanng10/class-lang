@@ -973,41 +973,18 @@ public class Traverse : Any
         return true;
     }
 
-
-
-
-
     public virtual bool ExecuteBitLeftOperate(BitLeftOperate bitLeftOperate)
     {
         if (bitLeftOperate == null)
         {
             return true;
         }
-
-
-
-
         this.ExecuteNode(bitLeftOperate);
 
-
-
-
         this.ExecuteOperate(bitLeftOperate.Value);
-
-
-
-
         this.ExecuteOperate(bitLeftOperate.Count);
-
-
-
-
         return true;
     }
-
-
-
-
 
     public virtual bool ExecuteBitRightOperate(BitRightOperate bitRightOperate)
     {
@@ -1015,35 +992,12 @@ public class Traverse : Any
         {
             return true;
         }
-
-
-
-
         this.ExecuteNode(bitRightOperate);
 
-
-
-
         this.ExecuteOperate(bitRightOperate.Value);
-
-
-
-
         this.ExecuteOperate(bitRightOperate.Count);
-
-
-
-
         return true;
     }
-
-
-
-
-
-
-
-
 
     protected virtual bool ExecuteNode(Node node)
     {
