@@ -290,7 +290,7 @@ class ObjectString : Any
 
 
 
-        this.Propertys(objectType, varObject);
+        this.PropertyList(objectType, varObject);
         
 
 
@@ -314,7 +314,7 @@ class ObjectString : Any
 
 
 
-    private bool Propertys(Type objectType, object varObject)
+    private bool PropertyList(Type objectType, object varObject)
     {
         IEnumerablePropertyInfo propertyInfos;
 
