@@ -456,31 +456,31 @@ public class Test : Any
 
 
 
-                Unit testUnit;
+                Unit a;
 
 
-                testUnit = new Unit();
+                a = new Unit();
 
 
-                testUnit.Set = this.Set;
+                a.Set = this.Set;
 
 
-                testUnit.Kind = kind;
+                a.Kind = kind;
 
 
-                testUnit.Name = unit;
+                a.Name = unit;
 
 
-                testUnit.Expect = expect;
-
-
-
-                testUnit.Path = path;
+                a.Expect = expect;
 
 
 
+                a.Path = path;
 
-                this.UnitList.Add(testUnit);
+
+
+
+                this.UnitList.Add(a);
             }
         }
 
