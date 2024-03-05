@@ -694,12 +694,12 @@ public class Test : Any
 
 
 
-        s = p + this.ResultSpace + a + this.ResultSpace + u + this.ResultSpace + k + " " + j;
+        s = p + this.ResultSpace + a + this.ResultSpace + u + this.ResultSpace + k + " " + j + "\n";
 
 
 
 
-        Console.WriteLine(s);
+        Console.Write(s);
 
 
 
