@@ -476,20 +476,21 @@ class ObjectString : Any
         this.AppendSpace().Append(fieldName).Append(" ").Append(":").Append(" ");
 
 
+        bool b;
+        b = false;
 
-
-        if ((this.IsType(resultType, typeof(IEnumerable))) && !resultType.Equals(typeof(string)))
+        if (!b & this.IsType(resultType, typeof(IEnumerable)) & !resultType.Equals(typeof(string)))
         {
             int lastSpaceCount = this.SpaceCount;
 
 
-            this.SpaceCount = this.SpaceCount + (fieldName.Length + 1 + 1 + 1);
+            this.SpaceCount = this.SpaceCount + fieldName.Length + 3;
 
 
             this.Append("[").AppendLine();
 
 
-            this.SpaceCount = this.SpaceCount + IndentSize;
+            this.SpaceCount = this.SpaceCount + this.IndentSize;
 
 
             IEnumerable objects;
@@ -512,7 +513,7 @@ class ObjectString : Any
             }
 
 
-            this.SpaceCount = this.SpaceCount - IndentSize;
+            this.SpaceCount = this.SpaceCount - this.IndentSize;
 
 
             this.AppendSpace().Append("]").Append(",").AppendLine();
@@ -520,10 +521,9 @@ class ObjectString : Any
 
             this.SpaceCount = lastSpaceCount;
 
-
-
+            b = true;
         }
-        else if (this.IsType(resultType, typeof(List)))
+        if (!b & this.IsType(resultType, typeof(List)))
         {
             List list;
             list = (List)fieldGetValue;
@@ -534,28 +534,23 @@ class ObjectString : Any
 
 
             this.ExecuteList(fieldName, list, iter);
+
+            b = true;
         }
-        else
+        if (!b)
         {
             int lastSpaceCount = this.SpaceCount;
 
 
-            this.SpaceCount = this.SpaceCount + (fieldName.Length + 1 + 1 + 1);
+            this.SpaceCount = this.SpaceCount + fieldName.Length + 3;
 
-
-
-            object n = fieldGetValue;
-
-
+            object n;
+            n = fieldGetValue;
             this.ExecuteObject(n);
 
 
             this.SpaceCount = lastSpaceCount;
         }
-
-
-
-
         return true;
     }
 
