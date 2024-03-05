@@ -249,7 +249,7 @@ public class CheckString : Any
 
 
 
-        this.AppendMethod(this.Check.CallMethod);
+        this.AppendMethod(this.Check.CallMaide);
 
 
         this.AppendLine();

@@ -477,7 +477,7 @@ public class StateTraverse : Traverse
         Maide method;
 
 
-        method = this.Check(nodeMethod).Method;
+        method = this.Check(nodeMethod).Maide;
 
 
 
@@ -1894,7 +1894,7 @@ public class StateTraverse : Traverse
 
 
 
-        this.Check(callOperate).CallMethod = method;
+        this.Check(callOperate).CallMaide = method;
 
 
 

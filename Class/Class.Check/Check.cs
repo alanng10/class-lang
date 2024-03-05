@@ -49,5 +49,5 @@ public class Check : Any
 
 
 
-    public virtual Maide CallMethod { get; set; }
+    public virtual Maide CallMaide { get; set; }
 }
