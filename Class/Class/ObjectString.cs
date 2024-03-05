@@ -281,7 +281,7 @@ class ObjectString : Any
         this.Append(objectTypeName).AppendLine();
             
 
-        this.AppendSpaces().Append("{").AppendLine();
+        this.AppendSpace().Append("{").AppendLine();
 
 
         this.SpaceCount = this.SpaceCount + this.IndentSize;
@@ -302,7 +302,7 @@ class ObjectString : Any
         this.SpaceCount = this.SpaceCount - IndentSize;
 
 
-        this.AppendSpaces().Append("}").Append(",").AppendLine();
+        this.AppendSpace().Append("}").Append(",").AppendLine();
 
 
 
@@ -476,7 +476,7 @@ class ObjectString : Any
 
     private bool Field(string fieldName, Type resultType, object fieldGetValue)
     {
-        this.AppendSpaces().Append(fieldName).Append(" ").Append(":").Append(" ");
+        this.AppendSpace().Append(fieldName).Append(" ").Append(":").Append(" ");
 
 
 
@@ -508,7 +508,7 @@ class ObjectString : Any
                 o = enumerator.Current;
 
 
-                this.AppendSpaces();
+                this.AppendSpace();
 
 
                 this.ExecuteObject(o);
@@ -518,7 +518,7 @@ class ObjectString : Any
             this.SpaceCount = this.SpaceCount - IndentSize;
 
 
-            this.AppendSpaces().Append("]").Append(",").AppendLine();
+            this.AppendSpace().Append("]").Append(",").AppendLine();
 
 
             this.SpaceCount = lastSpaceCount;
@@ -602,7 +602,7 @@ class ObjectString : Any
 
 
 
-            this.AppendSpaces();
+            this.AppendSpace();
 
 
 
@@ -617,7 +617,7 @@ class ObjectString : Any
 
 
 
-        this.AppendSpaces().Append("]").Append(",").AppendLine();
+        this.AppendSpace().Append("]").Append(",").AppendLine();
 
 
 
@@ -714,7 +714,7 @@ class ObjectString : Any
 
 
 
-    private ObjectString AppendSpaces()
+    private ObjectString AppendSpace()
     {
         return this.Append(CharSpace, this.SpaceCount);
     }
