@@ -29,7 +29,7 @@ public class Test : Any
 
 
 
-        this.DataFold = "Test";
+        this.DataFold = ".";
 
 
 
