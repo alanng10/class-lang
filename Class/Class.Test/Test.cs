@@ -1,8 +1,5 @@
 namespace Class.Test;
 
-
-
-
 public class Test : Any
 {
     public override bool Init()
@@ -11,6 +8,7 @@ public class Test : Any
 
 
         this.InfraInfra = InfraInfra.This;
+        this.TaskKindList = TaskKindList.This;
 
 
 
@@ -106,39 +104,18 @@ public class Test : Any
 
     protected virtual InfraInfra InfraInfra { get; set; }
 
-
-
-
+    protected virtual TaskKindList TaskKindList { get; set; }
 
     protected virtual string CurrentDirectory()
     {
-        return "../../../../Class.Test";
+        return "../../Class/Class.Test";
     }
-
-
-
-
 
     protected virtual bool AddSets()
     {
-        TaskKindList kindList;
+        this.AddSet("Token", this.TaskKindList.Token, false, false, false);
 
-
-        kindList = TaskKindList.This;
-
-
-
-
-        this.AddSet("Token", kindList.Token, false, false, false);
-
-
-
-        this.AddSet("Node", kindList.Node, true, false, false);
-        
-
-
-
-
+        this.AddSet("Node", this.TaskKindList.Node, true, false, false);
         return true;
     }
 
@@ -147,7 +124,7 @@ public class Test : Any
 
 
 
-    protected bool AddSet(string name, TaskKind kind, bool addKindAfterTaskArg, bool addPathAfterTaskArg, bool sourceFold)
+    protected bool AddSet(string name, TaskKind taskKind, bool addKindAfterTaskArg, bool addPathAfterTaskArg, bool sourceFold)
     {
         Set set;
 
@@ -166,7 +143,7 @@ public class Test : Any
 
 
 
-        set.TaskKind = kind;
+        set.TaskKind = taskKind;
 
 
 
