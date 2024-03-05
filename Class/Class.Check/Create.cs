@@ -99,7 +99,7 @@ public class Create : InfraCreate
 
 
 
-    public virtual AccessList Access { get; set; }
+    public virtual CountList Access { get; set; }
 
 
 
@@ -288,9 +288,9 @@ public class Create : InfraCreate
 
 
 
-    protected virtual AccessList CreateAccessList()
+    protected virtual CountList CreateAccessList()
     {
-        return AccessList.This;
+        return CountList.This;
     }
 
 
@@ -468,12 +468,12 @@ public class Create : InfraCreate
 
 
 
-    protected virtual Mield CreateMethod(InfraClass varClass, string name, Access access)
+    protected virtual Maide CreateMethod(InfraClass varClass, string name, Count access)
     {
-        Mield method;
+        Maide method;
 
 
-        method = new Mield();
+        method = new Maide();
 
 
         method.Init();
@@ -485,7 +485,7 @@ public class Create : InfraCreate
         method.Name = name;
 
 
-        method.Access = access;
+        method.Count = access;
 
 
 
@@ -547,7 +547,7 @@ public class Create : InfraCreate
 
 
 
-        Mield ret;
+        Maide ret;
 
 
         ret = method;
@@ -625,7 +625,7 @@ public class Create : InfraCreate
 
     protected bool AddAnyClassMethod(string name)
     {
-        Mield method;
+        Maide method;
 
 
         method = this.CreateMethod(this.SystemClass.Bool, name, this.Access.Prudate);
@@ -937,14 +937,10 @@ public class Create : InfraCreate
     {
         Iter iter;
 
-
-        iter = new TableIter();
-
-        iter.Init();
+        iter = this.BaseTable.IterCreate();
 
 
-
-        this.BaseTable.SetIter(iter);
+        this.BaseTable.IterSet(iter);
 
 
 
@@ -1344,25 +1340,21 @@ public class Create : InfraCreate
     {
         Iter rootIter;
 
-        rootIter = new ArrayIter();
-
-        rootIter.Init();
+        rootIter = this.RootArray.IterCreate();
 
 
-        this.RootArray.SetIter(rootIter);
+        this.RootArray.IterSet(rootIter);
 
 
 
 
         Iter sourceItemIter;
 
-        sourceItemIter = new ArrayIter();
-
-        sourceItemIter.Init();
+        sourceItemIter = this.Source.Item.IterCreate();
 
 
 
-        this.Source.Item.SetIter(sourceItemIter);
+        this.Source.Item.IterSet(sourceItemIter);
 
 
 

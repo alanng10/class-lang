@@ -13,7 +13,7 @@ public class Check : Any
 
 
 
-    public virtual Mield Method { get; set; }
+    public virtual Maide Method { get; set; }
 
 
 
@@ -49,5 +49,5 @@ public class Check : Any
 
 
 
-    public virtual Mield CallMethod { get; set; }
+    public virtual Maide CallMethod { get; set; }
 }
