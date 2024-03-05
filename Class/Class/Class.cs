@@ -276,7 +276,7 @@ public class Class : Any
 
 
 
-        this.WriteErrors();
+        this.WriteAllError();
 
 
 
@@ -437,7 +437,7 @@ public class Class : Any
 
 
 
-    private bool WriteErrors()
+    private bool WriteAllError()
     {
         if (!this.ErrorWrite)
         {
