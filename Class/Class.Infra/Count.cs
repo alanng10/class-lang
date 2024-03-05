@@ -1,10 +1,6 @@
 namespace Class.Infra;
 
-
-
-
-
-public class Access : Any
+public class Count : Any
 {
     public virtual int Index { get; set; }
 }
