@@ -922,40 +922,18 @@ public class Traverse : Any
         return true;
     }
 
-
-
-
-
-
     public virtual bool ExecuteSignLessOperate(SignLessOperate signLessOperate)
     {
         if (signLessOperate == null)
         {
             return true;
         }
-
-
-
         this.ExecuteNode(signLessOperate);
 
-
-
         this.ExecuteOperate(signLessOperate.Left);
-
-
         this.ExecuteOperate(signLessOperate.Right);
-
-
-
-
         return true;
     }
-
-
-
-
-
-
 
     public virtual bool ExecuteBitAndOperate(BitAndOperate bitAndOperate)
     {
@@ -963,32 +941,12 @@ public class Traverse : Any
         {
             return true;
         }
-
-
-
-
         this.ExecuteNode(bitAndOperate);
 
-
-
-
-
         this.ExecuteOperate(bitAndOperate.Left);
-
-
-
-
         this.ExecuteOperate(bitAndOperate.Right);
-
-
-
-
         return true;
     }
-
-
-
-
 
     public virtual bool ExecuteBitOrnOperate(BitOrnOperate bitOrnOperate)
     {
@@ -996,31 +954,12 @@ public class Traverse : Any
         {
             return true;
         }
-
-
-
-
         this.ExecuteNode(bitOrnOperate);
 
-
-
-
         this.ExecuteOperate(bitOrnOperate.Left);
-
-
-
-
         this.ExecuteOperate(bitOrnOperate.Right);
-
-
-
-
         return true;
     }
-
-
-
-
 
     public virtual bool ExecuteBitNotOperate(BitNotOperate bitNotOperate)
     {
@@ -1028,20 +967,9 @@ public class Traverse : Any
         {
             return true;
         }
-
-
-
-
         this.ExecuteNode(bitNotOperate);
 
-
-
-
         this.ExecuteOperate(bitNotOperate.Value);
-
-
-
-
         return true;
     }
 
