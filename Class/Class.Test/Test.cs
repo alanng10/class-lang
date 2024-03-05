@@ -676,7 +676,7 @@ public class Test : Any
         int number;
 
 
-        number = (this.UnitIndex + 1);
+        number = this.UnitIndex + 1;
 
 
 
