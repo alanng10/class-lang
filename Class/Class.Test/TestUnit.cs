@@ -11,7 +11,7 @@ class TestUnit : Any
     public string Kind { get; set; }
 
 
-    public string Unit { get; set; }
+    public string Name { get; set; }
 
 
 

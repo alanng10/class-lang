@@ -499,7 +499,7 @@ public class Test : Any
                 testUnit.Kind = kind;
 
 
-                testUnit.Unit = unit;
+                testUnit.Name = unit;
 
 
                 testUnit.Expect = expect;
@@ -591,7 +591,7 @@ public class Test : Any
 
     private bool ExecuteTestUnit()
     {
-        this.UnitFold = this.TestFold + "/" + this.TestUnit.Set.Name + "/" + this.TestUnit.Kind + "/" + this.TestUnit.Unit;
+        this.UnitFold = this.TestFold + "/" + this.TestUnit.Set.Name + "/" + this.TestUnit.Kind + "/" + this.TestUnit.Name;
 
 
 
@@ -689,7 +689,7 @@ public class Test : Any
 
     private bool WriteFoldResult()
     {
-        this.WriteResult(this.UnitPass, this.TestUnit.Set.Name, this.TestUnit.Kind, this.TestUnit.Unit);
+        this.WriteResult(this.UnitPass, this.TestUnit.Set.Name, this.TestUnit.Kind, this.TestUnit.Name);
 
 
 
