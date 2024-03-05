@@ -650,47 +650,18 @@ public class Traverse : Any
         return true;
     }
 
-
-
-
-
-
     public virtual bool ExecuteGetOperate(GetOperate getOperate)
     {
         if (getOperate == null)
         {
             return true;
         }
-
-
-
-
-
         this.ExecuteNode(getOperate);
 
-
-
-
-
         this.ExecuteOperate(getOperate.This);
-
-
-
-
-
         this.ExecuteFieldName(getOperate.Field);
-
-
-
-
-
         return true;
     }
-
-
-
-
-
 
     public virtual bool ExecuteCallOperate(CallOperate callOperate)
     {
@@ -698,41 +669,13 @@ public class Traverse : Any
         {
             return true;
         }
-
-
-
-
-
         this.ExecuteNode(callOperate);
 
-
-
-
-
         this.ExecuteOperate(callOperate.This);
-
-
-
-
         this.ExecuteMaideName(callOperate.Maide);
-
-
-
-
         this.ExecuteArgue(callOperate.Argue);
-
-
-
-
-
         return true;
     }
-
-
-
-
-
-
 
     public virtual bool ExecuteThisOperate(ThisOperate thisOperate)
     {
@@ -740,21 +683,9 @@ public class Traverse : Any
         {
             return true;
         }
-
-
-
-
         this.ExecuteNode(thisOperate);
-
-
-
-
         return true;
     }
-
-
-
-
 
     public virtual bool ExecuteBaseOperate(BaseOperate baseOperate)
     {
@@ -762,22 +693,9 @@ public class Traverse : Any
         {
             return true;
         }
-
-
-
-
         this.ExecuteNode(baseOperate);
-
-
-
-
         return true;
     }
-
-
-
-
-
 
     public virtual bool ExecuteNullOperate(NullOperate nullOperate)
     {
@@ -785,25 +703,9 @@ public class Traverse : Any
         {
             return true;
         }
-
-
-
-
-
         this.ExecuteNode(nullOperate);
-
-
-
-
-
         return true;
     }
-
-
-
-
-
-
 
     public virtual bool ExecuteVarOperate(VarOperate varOperate)
     {
@@ -811,31 +713,11 @@ public class Traverse : Any
         {
             return true;
         }
-
-
-
-
-
         this.ExecuteNode(varOperate);
 
-
-
-
-
         this.ExecuteVarName(varOperate.Var);
-
-
-
-
-
         return true;
     }
-
-
-
-
-
-
 
     public virtual bool ExecuteValueOperate(ValueOperate valueOperate)
     {
@@ -843,29 +725,11 @@ public class Traverse : Any
         {
             return true;
         }
-
-
-
-
-
         this.ExecuteNode(valueOperate);
 
-
-
-
-
         this.ExecuteValue(valueOperate.Value);
-
-
-
-
-
         return true;
     }
-
-
-
-
 
     public virtual bool ExecuteNewOperate(NewOperate newOperate)
     {
@@ -873,19 +737,9 @@ public class Traverse : Any
         {
             return true;
         }
-
-
-
-
         this.ExecuteNode(newOperate);
 
-        
-
-
         this.ExecuteClassName(newOperate.Class);
-
-
-
         return true;
     }
 
