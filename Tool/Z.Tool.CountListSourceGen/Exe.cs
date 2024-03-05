@@ -1,4 +1,4 @@
-namespace Z.Tool.AccessListSourceGen;
+namespace Z.Tool.CountListSourceGen;
 
 
 

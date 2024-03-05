@@ -1,4 +1,4 @@
-namespace Z.Tool.AccessListSourceGen;
+namespace Z.Tool.CountListSourceGen;
 
 
 
@@ -18,13 +18,13 @@ public class Gen : SourceGen
         this.Namespace = "Class.Infra";
 
 
-        this.ClassName = "AccessList";
+        this.ClassName = "CountList";
 
 
         this.BaseClassName = "Any";
 
 
-        this.ItemClassName = "Access";
+        this.ItemClassName = "Count";
 
 
         this.ArrayClassName = "Array";
@@ -38,15 +38,15 @@ public class Gen : SourceGen
 
 
 
-        this.ItemListFileName = "ItemListAccess.txt";
+        this.ItemListFileName = "ItemListCount.txt";
 
 
 
-        this.AddMethodFileName = "AddMethodAccess.txt";
+        this.AddMethodFileName = "AddMethodCount.txt";
 
 
 
-        this.OutputFilePath = "../../Class/Class.Infra/AccessList.cs";
+        this.OutputFilePath = "../../Class/Class.Infra/CountList.cs";
 
 
 
