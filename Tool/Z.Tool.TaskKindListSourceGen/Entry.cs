@@ -3,7 +3,7 @@ namespace Z.Tool.TaskKindListSourceGen;
 
 
 
-class Exe : Any
+class Entry : Any
 {
     static int Main()
     {
