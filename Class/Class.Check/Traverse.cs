@@ -22,7 +22,7 @@ public class Traverse : NodeTraverse
 
 
 
-        this.Access = this.Create.Access;
+        this.Count = this.Create.Access;
 
 
 
@@ -51,7 +51,7 @@ public class Traverse : NodeTraverse
 
 
 
-    protected AccessList Access { get; set; }
+    protected CountList Count { get; set; }
 
 
 
@@ -89,9 +89,9 @@ public class Traverse : NodeTraverse
 
 
 
-    protected Access GetAccess(NodeAccess nodeAccess)
+    protected Count GetAccess(NodeCount nodeCount)
     {
-        Access t;
+        Count t;
 
 
         t = null;
@@ -99,33 +99,33 @@ public class Traverse : NodeTraverse
 
 
 
-        if (nodeAccess is PrudateAccess)
+        if (nodeCount is PrudateAccess)
         {
-            t = this.Access.Prudate;
+            t = this.Count.Prudate;
         }
 
 
-        if (nodeAccess is ProbateAccess)
+        if (nodeCount is ProbateAccess)
         {
-            t = this.Access.Probate;
+            t = this.Count.Probate;
         }
 
 
-        if (nodeAccess is PrecateAccess)
+        if (nodeCount is PrecateAccess)
         {
-            t = this.Access.Precate;
+            t = this.Count.Precate;
         }
 
 
-        if (nodeAccess is PrivateAccess)
+        if (nodeCount is PrivateAccess)
         {
-            t = this.Access.Private;
+            t = this.Count.Private;
         }
 
 
 
 
-        Access ret;
+        Count ret;
 
 
         ret = t;
