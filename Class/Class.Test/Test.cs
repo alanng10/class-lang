@@ -49,7 +49,7 @@ public class Test : Any
 
 
 
-        string oo = this.ProjectRootDirectory();
+        string oo = this.DataRootDirectory();
 
 
 
@@ -106,9 +106,9 @@ public class Test : Any
 
     protected virtual TaskKindList TaskKindList { get; set; }
 
-    protected virtual string ProjectRootDirectory()
+    protected virtual string DataRootDirectory()
     {
-        return "../../Class/Class.Test";
+        return "../../Class/Class.Test/Test";
     }
 
     protected virtual bool AddSets()
