@@ -12,7 +12,7 @@ public class Maide : Any
 
 
 
-    public virtual Access Access { get; set; }
+    public virtual Count Count { get; set; }
 
 
 
