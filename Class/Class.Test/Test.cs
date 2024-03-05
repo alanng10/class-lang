@@ -82,15 +82,15 @@ public class Test : Any
 
 
 
-        this.FoldSetMap = new Table();
+        this.SetMap = new Table();
 
 
 
-        this.FoldSetMap.Compare = compare;
+        this.SetMap.Compare = compare;
 
 
 
-        this.FoldSetMap.Init();
+        this.SetMap.Init();
 
 
 
@@ -209,7 +209,7 @@ public class Test : Any
 
 
 
-        this.FoldSetMap.Add(pair);
+        this.SetMap.Add(pair);
 
 
 
@@ -234,7 +234,7 @@ public class Test : Any
 
 
 
-    private Table FoldSetMap { get; set; }
+    private Table SetMap { get; set; }
 
 
     private Set Set { get; set; }
@@ -306,10 +306,10 @@ public class Test : Any
     {
         Iter iter;
 
-        iter = this.FoldSetMap.IterCreate();
+        iter = this.SetMap.IterCreate();
 
 
-        this.FoldSetMap.IterSet(iter);
+        this.SetMap.IterSet(iter);
 
 
 
