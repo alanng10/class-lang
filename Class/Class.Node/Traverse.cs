@@ -743,29 +743,15 @@ public class Traverse : Any
         return true;
     }
 
-
-
-
-
     public virtual bool ExecuteShareOperate(ShareOperate shareOperate)
     {
         if (shareOperate == null)
         {
             return true;
         }
-
-
-
-
         this.ExecuteNode(shareOperate);
 
-            
-
-
         this.ExecuteClassName(shareOperate.Class);
-
-
-
         return true;
     }
 
