@@ -714,35 +714,24 @@ public class Test : Any
 
     private bool WriteTotalResult()
     {
-        string t;
-
-
+        string o;
+        o = null;
 
         int unitCount;
-
-
-
         unitCount = this.UnitIndex;
         
-
-
-
-        if (this.PassCount == unitCount)
+        bool b;
+        b = (this.PassCount == unitCount);
+        if (b)
         {
-            t = "All";
+            o = "All";
         }
-        else
+        if (!b)
         {
-            t = this.PassCount.ToString();
+            o = this.PassCount.ToString();
         }
 
-
-
-        Console.WriteLine(t + " " + "Pass");
-
-
-
-
+        Console.Write(o + " " + "Pass" + "\n");
         return true;
     }
 
