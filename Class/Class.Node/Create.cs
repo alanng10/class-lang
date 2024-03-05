@@ -2544,26 +2544,14 @@ public class Create : InfraCreate
             return null;
         }
 
-        Range fieldRange;
-        fieldRange = this.ExecuteFieldNameRange(this.RangeB, this.Range(this.RangeA, dot.Range.End, end));
-        if (fieldRange == null)
-        {
-            return null;
-        }
-
-        if (!(fieldRange.End == end))
-        {
-            return null;
-        }
-
         int thisStart;
         int thisEnd;
         thisStart = start;
         thisEnd = dot.Range.Start;
         int fieldStart;
         int fieldEnd;
-        fieldStart = fieldRange.Start;
-        fieldEnd = fieldRange.End;
+        fieldStart = dot.Range.End;
+        fieldEnd = end;
 
         Node varThis;
         varThis = this.ExecuteOperate(this.Range(this.RangeA, thisStart, thisEnd));
@@ -2573,8 +2561,31 @@ public class Create : InfraCreate
         }
 
         Node field;
-        field = this.ExecuteFieldName(this.Range(this.RangeA, fieldStart, fieldEnd));
-        if (field == null)
+        field = null;
+        bool b;
+        b = false;
+        Range fieldRange;
+        fieldRange = this.ExecuteFieldNameRange(this.RangeB, this.Range(this.RangeA, fieldStart, fieldEnd));
+        if (fieldRange == null)
+        {
+            b = true;
+        }
+        if (!b)
+        {
+            if (!(fieldRange.End == fieldEnd))
+            {
+                b = true;
+            }
+        }
+        if (!b)
+        {
+            field = this.ExecuteFieldName(this.Range(this.RangeA, fieldStart, fieldEnd));
+            if (field == null)
+            {
+                b = true;
+            }
+        }
+        if (b)
         {
             this.Error(this.ErrorKind.FieldInvalid, fieldStart, fieldEnd);
         }
