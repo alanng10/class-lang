@@ -290,7 +290,7 @@ public class Create : Any
 
 
 
-    public bool ExecuteToken()
+    public virtual bool ExecuteToken()
     {
         this.Token.Source = this.Source;
 
@@ -310,7 +310,7 @@ public class Create : Any
 
 
 
-    public bool ExecuteNode()
+    public virtual bool ExecuteNode()
     {
         this.Node.Source = this.Source;
 
@@ -338,7 +338,7 @@ public class Create : Any
 
 
 
-    public bool ExecuteCheck()
+    public virtual bool ExecuteCheck()
     {
         this.Check.Source = this.Source;
 
@@ -365,7 +365,7 @@ public class Create : Any
 
 
 
-    public bool ExecuteModule()
+    public virtual bool ExecuteModule()
     {
         return true;
     }
