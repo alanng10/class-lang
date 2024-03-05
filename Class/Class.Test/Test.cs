@@ -217,7 +217,7 @@ public class Test : Any
     private Set Set { get; set; }
 
 
-    private Unit TestUnit { get; set; }
+    private Unit Unit { get; set; }
 
 
     private int PassCount { get; set; }
@@ -521,7 +521,7 @@ public class Test : Any
 
         while (iter.Next())
         {
-            this.TestUnit = (Unit)iter.Value;
+            this.Unit = (Unit)iter.Value;
 
 
 
@@ -533,7 +533,7 @@ public class Test : Any
 
 
 
-            this.TestUnit = null;
+            this.Unit = null;
 
 
 
@@ -560,7 +560,7 @@ public class Test : Any
 
     private bool ExecuteTestUnit()
     {
-        this.UnitFold = this.TestFold + "/" + this.TestUnit.Set.Name + "/" + this.TestUnit.Kind + "/" + this.TestUnit.Name;
+        this.UnitFold = this.TestFold + "/" + this.Unit.Set.Name + "/" + this.Unit.Kind + "/" + this.Unit.Name;
 
 
 
@@ -621,7 +621,7 @@ public class Test : Any
 
 
 
-        this.TestUnit.Actual = actual;
+        this.Unit.Actual = actual;
 
 
 
@@ -629,7 +629,7 @@ public class Test : Any
 
         bool pass;
 
-        pass = (this.TestUnit.Actual == this.TestUnit.Expect);
+        pass = (this.Unit.Actual == this.Unit.Expect);
 
 
 
@@ -658,7 +658,7 @@ public class Test : Any
 
     private bool WriteFoldResult()
     {
-        this.WriteResult(this.UnitPass, this.TestUnit.Set.Name, this.TestUnit.Kind, this.TestUnit.Name);
+        this.WriteResult(this.UnitPass, this.Unit.Set.Name, this.Unit.Kind, this.Unit.Name);
 
 
 
@@ -864,7 +864,7 @@ public class Test : Any
         TaskKind kind;
 
 
-        kind = this.TestUnit.Set.TaskKind;
+        kind = this.Unit.Set.TaskKind;
 
 
 
@@ -885,7 +885,7 @@ public class Test : Any
 
         if (ba)
         {
-            task.Node = this.TestUnit.Kind;
+            task.Node = this.Unit.Kind;
         }
 
 
@@ -904,7 +904,7 @@ public class Test : Any
 
         if (this.Set.AddPathAfterTaskArg)
         {
-            task.Check = this.TestUnit.Path;
+            task.Check = this.Unit.Path;
         }
 
 
