@@ -9,7 +9,7 @@ public class Traverse : Any
         array.Count = 0;
         array.Init();
 
-        this.Iter = array.CreateIter();
+        this.Iter = array.IterCreate();
         return true;
     }
 
@@ -39,7 +39,7 @@ public class Traverse : Any
 
         Iter iter;
         iter = this.Iter;
-        part.Value.SetIter(iter);
+        part.Value.IterSet(iter);
         while (iter.Next())
         {
             Comp comp;
@@ -78,29 +78,10 @@ public class Traverse : Any
         this.ExecuteClassName(field.Class);
         this.ExecuteFieldName(field.Name);
         this.ExecuteCount(field.Count);
-
-
-
-
         this.ExecuteState(field.Get);
-
-
-
-
         this.ExecuteState(field.Set);
-
-
-
-
-
         return true;
     }
-
-
-
-
-
-
 
     public virtual bool ExecuteMaide(Maide maide)
     {
@@ -108,40 +89,15 @@ public class Traverse : Any
         {
             return true;
         }
-
-
-
-
         this.ExecuteNode(maide);
 
-
-
-
-
         this.ExecuteClassName(maide.Class);
-
-
         this.ExecuteMaideName(maide.Name);
-
-
         this.ExecuteCount(maide.Count);
-
-
         this.ExecuteParam(maide.Param);
-
-
         this.ExecuteState(maide.Call);
-
-
-
-
         return true;
     }
-
-
-
-
-
 
     public virtual bool ExecuteVar(Var varVar)
     {
@@ -149,28 +105,10 @@ public class Traverse : Any
         {
             return true;
         }
-
-
-
-
-
         this.ExecuteNode(varVar);
 
-
-
-
-
         this.ExecuteClassName(varVar.Class);
-
-
-
-
         this.ExecuteVarName(varVar.Name);
-
-
-
-
-
         return true;
     }
 
@@ -199,7 +137,7 @@ public class Traverse : Any
         iter = this.Iter;
 
 
-        param.Value.SetIter(iter);
+        param.Value.IterSet(iter);
 
 
 
@@ -247,7 +185,7 @@ public class Traverse : Any
         iter = this.Iter;
 
 
-        argue.Value.SetIter(iter);
+        argue.Value.IterSet(iter);
 
 
 
@@ -777,7 +715,7 @@ public class Traverse : Any
         iter = this.Iter;
 
 
-        state.Value.SetIter(iter);
+        state.Value.IterSet(iter);
 
 
 
