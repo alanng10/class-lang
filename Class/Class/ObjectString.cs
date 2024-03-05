@@ -316,10 +316,10 @@ class ObjectString : Any
 
     private bool PropertyList(Type objectType, object varObject)
     {
-        IEnumerablePropertyInfo propertyInfos;
+        IEnumerablePropertyInfo propertyInfoList;
 
 
-        propertyInfos = objectType.GetProperties(BindingFlags.Public | BindingFlags.Instance);
+        propertyInfoList = objectType.GetProperties(BindingFlags.Public | BindingFlags.Instance);
 
 
 
@@ -329,7 +329,7 @@ class ObjectString : Any
 
 
 
-        foreach (PropertyInfo propertyInfo in propertyInfos)
+        foreach (PropertyInfo propertyInfo in propertyInfoList)
         {
             if (!dictionary.ContainsKey(propertyInfo.Name))
             {
@@ -339,12 +339,12 @@ class ObjectString : Any
 
 
 
-        propertyInfos = dictionary.Values;
+        propertyInfoList = dictionary.Values;
 
 
 
 
-        foreach (PropertyInfo propertyInfo in propertyInfos)
+        foreach (PropertyInfo propertyInfo in propertyInfoList)
         {
             string fieldName;
                 
