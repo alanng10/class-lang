@@ -1,2 +1,1 @@
-global using ExeExe = Avalon.Exe.Exe;
-global using TestTest = Class.Test.Test;
+global using TestEntry = Class.Test.Entry;

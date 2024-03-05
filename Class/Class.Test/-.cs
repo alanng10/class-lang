@@ -8,6 +8,7 @@ global using Iter = Avalon.List.Iter;
 global using ArrayIter = Avalon.List.ArrayIter;
 global using TableIter = Avalon.List.TableIter;
 global using TableEntry = Avalon.List.Entry;
+global using EntryEntry = Avalon.Entry.Entry;
 global using ClassClass = Class.Class;
 global using SystemArray = System.Array;
 global using IEnumerator = System.Collections.IEnumerator;
