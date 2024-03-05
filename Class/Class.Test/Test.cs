@@ -106,8 +106,6 @@ public class Test : Any
 
     protected virtual TaskKindList TaskKindList { get; set; }
 
-    private string SourceFold { get; set; }
-
     protected virtual string LanguageName { get; set; }
 
     private string DataFold { get; set; }
