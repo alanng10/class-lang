@@ -557,7 +557,7 @@ public class Test : Any
         string actualFile;
         
 
-        actualFile = this.UnitFold + this.InfraInfra.PathCombine + "Actual";
+        actualFile = this.UnitFold + oc + "Actual";
 
 
 
