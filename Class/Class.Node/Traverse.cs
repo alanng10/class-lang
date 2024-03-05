@@ -279,33 +279,15 @@ public class Traverse : Any
         return true;
     }
 
-
-
-
     public virtual bool ExecuteStringValue(StringValue stringValue)
     {
         if (stringValue == null)
         {
             return true;
         }
-
-
-
-
-
         this.ExecuteNode(stringValue);
-
-
-
-
-
         return true;
     }
-
-
-
-
-
 
     public virtual bool ExecuteCount(Count count)
     {
@@ -314,44 +296,24 @@ public class Traverse : Any
             return true;
         }
 
-
-
-
         if (count is PrudateCount)
         {
             this.ExecutePrudateCount((PrudateCount)count);
         }
-        
-        
-
         if (count is ProbateCount)
         {
             this.ExecuteProbateCount((ProbateCount)count);
         }
-
-
-
         if (count is PrecateCount)
         {
             this.ExecutePrecateCount((PrecateCount)count);
         }
-
-
-        
         if (count is PrivateCount)
         {
             this.ExecutePrivateCount((PrivateCount)count);
         }
-
-
-
-
         return true;
     }
-
-
-
-
 
     public virtual bool ExecutePrudateCount(PrudateCount prudateCount)
     {
@@ -359,22 +321,9 @@ public class Traverse : Any
         {
             return true;
         }
-
-
-
-
         this.ExecuteNode(prudateCount);
-
-
-
-
         return true;
     }
-
-
-
-
-
 
     public virtual bool ExecuteProbateCount(ProbateCount probateCount)
     {
@@ -382,21 +331,9 @@ public class Traverse : Any
         {
             return true;
         }
-
-
-
-
         this.ExecuteNode(probateCount);
-
-
-
-
         return true;
     }
-
-
-
-
 
     public virtual bool ExecutePrecateCount(PrecateCount precateCount)
     {
@@ -404,21 +341,9 @@ public class Traverse : Any
         {
             return true;
         }
-
-
-
-
         this.ExecuteNode(precateCount);
-
-
-
-
         return true;
     }
-
-
-
-
 
     public virtual bool ExecutePrivateCount(PrivateCount privateCount)
     {
@@ -426,15 +351,7 @@ public class Traverse : Any
         {
             return true;
         }
-
-
-
-
         this.ExecuteNode(privateCount);
-
-
-
-
         return true;
     }
 
