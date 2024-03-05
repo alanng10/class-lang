@@ -301,7 +301,7 @@ public class Test : Any
 
 
 
-            this.ExecuteFoldSet();
+            this.ExecuteSet();
 
 
 
@@ -493,7 +493,7 @@ public class Test : Any
 
 
 
-    private bool ExecuteFoldSet()
+    private bool ExecuteSet()
     {
         this.WriteHeader(this.Set.Name);
 
