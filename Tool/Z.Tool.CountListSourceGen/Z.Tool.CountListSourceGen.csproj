@@ -11,8 +11,8 @@
     </ItemGroup>
 
     <ItemGroup>
-        <Content Include="ItemListAccess.txt" CopyToOutputDirectory="PreserveNewest" />
-        <Content Include="AddMethodAccess.txt" CopyToOutputDirectory="PreserveNewest" />
+        <Content Include="ItemListCount.txt" CopyToOutputDirectory="PreserveNewest" />
+        <Content Include="AddMethodCount.txt" CopyToOutputDirectory="PreserveNewest" />
     </ItemGroup>
 
 </Project>
