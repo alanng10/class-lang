@@ -364,25 +364,22 @@ class ObjectString : Any
 
 
 
-
+            bool b;
+            b = false;
             bool objectIsNode;
-
             objectIsNode = this.IsType(objectType, this.NodeType);
-
-
-
-
             if (objectIsNode)
             {
                 if (fieldName == "Range" | fieldName == "Id")
                 {
-                    continue;
+                    b = true;
                 }
             }
 
-
-
-            this.Field(fieldName, resultType, fieldGetValue);
+            if (!b)
+            {
+                this.Field(fieldName, resultType, fieldGetValue);
+            }
         }
 
 
