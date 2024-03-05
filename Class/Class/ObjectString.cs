@@ -370,7 +370,7 @@ class ObjectString : Any
             objectIsNode = this.IsType(objectType, this.NodeType);
             if (objectIsNode)
             {
-                if (fieldName == "Range" | fieldName == "Id")
+                if (fieldName == "Range" | fieldName == "NodeAny")
                 {
                     b = true;
                 }
