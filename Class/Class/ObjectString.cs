@@ -528,18 +528,6 @@ class ObjectString : Any
 
 
         }
-        else if (this.IsType(resultType, typeof(Array)))
-        {
-            List list;
-            list = (List)fieldGetValue;
-
-            Iter iter;
-
-            iter = list.IterCreate();
-
-
-            this.ExecuteList(fieldName, list, iter);
-        }
         else if (this.IsType(resultType, typeof(List)))
         {
             List list;
