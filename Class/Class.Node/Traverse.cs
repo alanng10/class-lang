@@ -152,14 +152,6 @@ public class Traverse : Any
         return true;
     }
 
-
-
-
-
-
-
-
-
     public virtual bool ExecuteTarget(Target target)
     {
         if (target == null)
@@ -167,29 +159,14 @@ public class Traverse : Any
             return true;
         }
 
-
-
-
-
-
         if (target is VarTarget)
         {
             this.ExecuteVarTarget((VarTarget)target);
         }
-
-
-
-
-
         if (target is SetTarget)
         {
             this.ExecuteSetTarget((SetTarget)target);
         }
-
-
-
-
-
         return true;
     }
 
