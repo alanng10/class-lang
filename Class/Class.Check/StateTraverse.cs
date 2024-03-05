@@ -444,7 +444,7 @@ public class StateTraverse : Traverse
         
 
 
-    public override bool ExecuteMield(NodeMield nodeMethod)
+    public override bool ExecuteMaide(NodeMield nodeMethod)
     {
         if (nodeMethod == null)
         {
@@ -474,7 +474,7 @@ public class StateTraverse : Traverse
 
 
 
-        Mield method;
+        Maide method;
 
 
         method = this.Check(nodeMethod).Method;
@@ -1780,7 +1780,7 @@ public class StateTraverse : Traverse
 
         MieldName nodeMethod;
 
-        nodeMethod = callOperate.Mield;
+        nodeMethod = callOperate.Maide;
 
 
 
@@ -1838,7 +1838,7 @@ public class StateTraverse : Traverse
 
 
 
-        Mield method;
+        Maide method;
 
 
         method = null;
@@ -1857,7 +1857,7 @@ public class StateTraverse : Traverse
 
             if (method == null)
             {
-                this.Error(this.ErrorKind.MieldUndefined, callOperate);
+                this.Error(this.ErrorKind.MaideUndefined, callOperate);
             }
         }
 
@@ -2652,7 +2652,7 @@ public class StateTraverse : Traverse
 
 
 
-    private bool CheckAccces(InfraClass varClass, Access access)
+    private bool CheckAccces(InfraClass varClass, Count access)
     {
         if (this.CurrentClass == varClass)
         {
@@ -2661,14 +2661,14 @@ public class StateTraverse : Traverse
 
 
 
-        if (access == this.Access.Prudate)
+        if (access == this.Count.Prudate)
         {
             return true;
         }
 
 
 
-        if (access == this.Access.Probate)
+        if (access == this.Count.Probate)
         {
             bool b;
 
@@ -2685,14 +2685,14 @@ public class StateTraverse : Traverse
 
 
  
-        if (access == this.Access.Precate)
+        if (access == this.Count.Precate)
         {
             return true;
         }
 
 
 
-        if (access == this.Access.Private)
+        if (access == this.Count.Private)
         {
             return false;
         }
@@ -2718,7 +2718,7 @@ public class StateTraverse : Traverse
 
         if (!(field == null))
         {
-            if (!this.CheckAccces(varClass, field.Access))
+            if (!this.CheckAccces(varClass, field.Count))
             {
                 return null;
             }
@@ -2758,18 +2758,18 @@ public class StateTraverse : Traverse
 
 
 
-    protected Mield Method(InfraClass varClass, string name)
+    protected Maide Method(InfraClass varClass, string name)
     {
-        Mield method;
+        Maide method;
 
 
-        method = (Mield)varClass.Maide.Get(name);
+        method = (Maide)varClass.Maide.Get(name);
 
 
 
         if (!(method == null))
         {
-            if (!this.CheckAccces(varClass, method.Access))
+            if (!this.CheckAccces(varClass, method.Count))
             {
                 return null;
             }
@@ -2809,7 +2809,7 @@ public class StateTraverse : Traverse
 
 
 
-    protected bool ArguesMatch(Mield method, Argue argue)
+    protected bool ArguesMatch(Maide method, Argue argue)
     {
         int count;
 
@@ -2840,24 +2840,18 @@ public class StateTraverse : Traverse
 
         Iter varIter;
 
-        varIter = new TableIter();
+        varIter = method.Param.IterCreate();
 
-        varIter.Init();
-
-
-        method.Param.SetIter(varIter);
+        method.Param.IterSet(varIter);
 
 
 
 
         Iter argueItemIter;
 
-        argueItemIter = new Iter();
+        argueItemIter = argue.Value.IterCreate();
 
-        argueItemIter.Init();
-
-
-        argue.Value.SetIter(argueItemIter);
+        argue.Value.IterSet(argueItemIter);
 
 
 
@@ -2982,12 +2976,9 @@ public class StateTraverse : Traverse
     {
         Iter iter;
 
-        iter = new Iter();
+        iter = this.VarStack.IterCreate();
 
-        iter.Init();
-
-
-        this.VarStack.SetIter(iter);
+        this.VarStack.IterSet(iter);
 
 
 
