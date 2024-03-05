@@ -12,7 +12,7 @@ public class Test : Any
 
 
 
-        this.LangName = this.LanguageName();
+        this.LanguageName = this.LanguageNameCreate();
 
 
 
@@ -196,7 +196,7 @@ public class Test : Any
 
 
 
-    private string LangName { get; set; }
+    protected virtual string LanguageName { get; set; }
 
 
 
@@ -646,7 +646,7 @@ public class Test : Any
 
 
 
-    protected virtual string LanguageName()
+    protected virtual string LanguageNameCreate()
     {
         return "Class";
     }
@@ -813,7 +813,7 @@ public class Test : Any
         string s;
 
 
-        s = this.LangName.ToUpper();
+        s = this.LanguageName.ToUpper();
 
 
 
