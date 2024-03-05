@@ -29,7 +29,7 @@ public class Test : Any
 
 
 
-        this.TestFold = "Test";
+        this.DataFold = "Test";
 
 
 
@@ -203,7 +203,7 @@ public class Test : Any
 
 
 
-    private string TestFold { get; set; }
+    private string DataFold { get; set; }
 
 
     private List UnitList { get; set; }
@@ -337,7 +337,7 @@ public class Test : Any
 
         string setFold;
             
-        setFold = this.TestFold + this.InfraInfra.PathCombine + set;
+        setFold = this.DataFold + this.InfraInfra.PathCombine + set;
 
 
 
@@ -560,7 +560,7 @@ public class Test : Any
 
     private bool ExecuteTestUnit()
     {
-        this.UnitFold = this.TestFold + "/" + this.Unit.Set.Name + "/" + this.Unit.Kind + "/" + this.Unit.Name;
+        this.UnitFold = this.DataFold + "/" + this.Unit.Set.Name + "/" + this.Unit.Kind + "/" + this.Unit.Name;
 
 
 
