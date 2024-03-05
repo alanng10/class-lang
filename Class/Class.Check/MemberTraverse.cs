@@ -278,7 +278,7 @@ class MemberTraverse : Traverse
 
 
 
-    public override bool ExecuteMaide(NodeMield nodeMield)
+    public override bool ExecuteMaide(NodeMaide nodeMield)
     {
         if (nodeMield == null)
         {
