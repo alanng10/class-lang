@@ -170,34 +170,15 @@ public class Traverse : Any
         return true;
     }
 
-
-
-
-
-
-
-
-
     public virtual bool ExecuteVarTarget(VarTarget varTarget)
     {
         if (varTarget == null)
         {
             return true;
         }
-
-
-
-
         this.ExecuteNode(varTarget);
 
-
-
-
         this.ExecuteVarName(varTarget.Var);
-
-
-
-
         return true;
     }
 
