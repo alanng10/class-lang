@@ -106,6 +106,38 @@ public class Test : Any
 
     protected virtual TaskKindList TaskKindList { get; set; }
 
+    private string SourceFold { get; set; }
+
+    protected virtual string LanguageName { get; set; }
+
+    private string DataFold { get; set; }
+
+    private List UnitList { get; set; }
+
+    private Table SetMap { get; set; }
+
+    private Set Set { get; set; }
+
+    private Unit Unit { get; set; }
+
+    private int PassCount { get; set; }
+
+    private ClassClass Class { get; set; }
+
+    private string UnitFold { get; set; }
+
+    private Exception Error { get; set; }
+
+    private StringWriter Writer { get; set; }
+
+    private string OriginalCurrentDirectory { get; set; }
+
+    private string ResultSpace { get; set; }
+
+    private int UnitIndex { get; set; }
+
+    private bool UnitPass { get; set; }
+
     protected virtual string DataRootDirectory()
     {
         return "../../Class/Class.Test/Test";
@@ -192,79 +224,6 @@ public class Test : Any
 
         return true;
     }
-
-
-
-
-    protected virtual string LanguageName { get; set; }
-
-
-
-
-
-
-    private string DataFold { get; set; }
-
-
-    private List UnitList { get; set; }
-
-
-
-
-    private Table SetMap { get; set; }
-
-
-    private Set Set { get; set; }
-
-
-    private Unit Unit { get; set; }
-
-
-    private int PassCount { get; set; }
-
-
-    private ClassClass Class { get; set; }
-
-
-    private string UnitFold { get; set; }
-
-
-    private Exception Error { get; set; }
-
-
-    private StringWriter Writer { get; set; }
-
-
-
-
-    private string OriginalCurrentDirectory { get; set; }
-
-
-
-
-
-    private string ResultSpace { get; set; }
-
-
-
-
-
-
-    private int UnitIndex { get; set; }
-
-
-
-
-
-
-    private bool UnitPass { get; set; }
-
-
-
-
-
-    
-
 
     public virtual int Execute()
     {
@@ -815,21 +774,6 @@ public class Test : Any
 
         return true;
     }
-
-
-
-
-
-
-
-    private string SourceFold { get; set; }
-
-
-
-
-
-
-
 
     private Task CreateTask()
     {
