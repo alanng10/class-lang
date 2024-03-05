@@ -229,33 +229,15 @@ public class Traverse : Any
         return true;
     }
 
-
-
-
-
-
     public virtual bool ExecuteBoolValue(BoolValue boolValue)
     {
         if (boolValue == null)
         {
             return true;
         }
-
-
-
-
         this.ExecuteNode(boolValue);
-
-
-
-
         return true;
     }
-
-
-
-
-
 
     public virtual bool ExecuteIntValue(IntValue intValue)
     {
@@ -263,21 +245,9 @@ public class Traverse : Any
         {
             return true;
         }
-
-
-
-
         this.ExecuteNode(intValue);
-
-
-
-
         return true;
     }
-
-
-
-
 
     public virtual bool ExecuteIntHexValue(IntHexValue intHexValue)
     {
@@ -285,15 +255,7 @@ public class Traverse : Any
         {
             return true;
         }
-
-
-
-
         this.ExecuteNode(intHexValue);
-
-
-
-
         return true;
     }
 
