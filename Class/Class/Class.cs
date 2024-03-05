@@ -673,13 +673,11 @@ public class Class : Any
 
         Iter sourceItemIter;
 
-        sourceItemIter = new ArrayIter();
-
-        sourceItemIter.Init();
+        sourceItemIter = this.Source.Item.IterCreate();
 
 
 
-        this.Source.Item.SetIter(sourceItemIter);
+        this.Source.Item.IterSet(sourceItemIter);
 
 
 
@@ -687,13 +685,10 @@ public class Class : Any
 
         Iter rootIter;
 
-        rootIter = new ArrayIter();
-
-        rootIter.Init();
+        rootIter = this.Result.Node.Root.IterCreate();
 
 
-
-        this.Result.Node.Root.SetIter(rootIter);
+        this.Result.Node.Root.IterSet(rootIter);
 
 
 
@@ -779,26 +774,20 @@ public class Class : Any
 
         Iter sourceItemIter;
 
-        sourceItemIter = new ArrayIter();
-
-        sourceItemIter.Init();
+        sourceItemIter = this.Source.Item.IterCreate();
 
 
-
-        this.Source.Item.SetIter(sourceItemIter);
+        this.Source.Item.IterSet(sourceItemIter);
 
 
 
 
         Iter codeIter;
 
-        codeIter = new ArrayIter();
-
-        codeIter.Init();
+        codeIter = this.Result.Token.Code.IterCreate();
 
 
-
-        this.Result.Token.Code.SetIter(codeIter);
+        this.Result.Token.Code.IterSet(codeIter);
 
 
 

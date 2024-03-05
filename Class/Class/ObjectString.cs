@@ -26,7 +26,7 @@ class ObjectString : Any
 
 
 
-    private RangeInfra RangeInfra { get; set; }
+    private InfraInfra InfraInfra { get; set; }
 
 
 
@@ -77,7 +77,7 @@ class ObjectString : Any
 
 
 
-        this.RangeInfra = RangeInfra.This;
+        this.InfraInfra = InfraInfra.This;
 
 
 
@@ -530,25 +530,27 @@ class ObjectString : Any
         }
         else if (this.IsType(resultType, typeof(Array)))
         {
+            List list;
+            list = (List)fieldGetValue;
+
             Iter iter;
 
-            iter = new ArrayIter();
-
-            iter.Init();
+            iter = list.IterCreate();
 
 
-            this.ExecuteList(fieldName, fieldGetValue, iter);
+            this.ExecuteList(fieldName, list, iter);
         }
         else if (this.IsType(resultType, typeof(List)))
         {
+            List list;
+            list = (List)fieldGetValue;
+
             Iter iter;
 
-            iter = new Iter();
-
-            iter.Init();
+            iter = list.IterCreate();
 
 
-            this.ExecuteList(fieldName, fieldGetValue, iter);
+            this.ExecuteList(fieldName, list, iter);
         }
         else
         {
@@ -578,7 +580,7 @@ class ObjectString : Any
 
 
 
-    protected virtual bool ExecuteList(string fieldName, object fieldGetValue, Iter iter)
+    protected virtual bool ExecuteList(string fieldName, List list, Iter iter)
     {
         int lastSpaceCount;
 
@@ -602,16 +604,7 @@ class ObjectString : Any
 
 
 
-        List list;
-
-
-
-        list = (List)fieldGetValue;
-
-
-
-
-        list.SetIter(iter);
+        list.IterSet(iter);
 
 
 

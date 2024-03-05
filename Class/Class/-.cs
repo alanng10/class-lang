@@ -1,6 +1,6 @@
 global using Any = Avalon.Infra.Any;
 global using Range = Avalon.Infra.Range;
-global using RangeInfra = Avalon.Infra.RangeInfra;
+global using InfraInfra = Avalon.Infra.Infra;
 global using StringComparer = Avalon.Infra.StringComparer;
 global using List = Avalon.List.List;
 global using Iter = Avalon.List.Iter;
@@ -31,7 +31,7 @@ global using CheckResult = Class.Check.Result;
 global using CheckCheck = Class.Check.Check;
 global using CheckModule = Class.Infra.Module;
 global using CheckField = Class.Infra.Field;
-global using CheckMethod = Class.Infra.Mield;
+global using CheckMaide = Class.Infra.Maide;
 global using CheckVar = Class.Infra.Var;
 global using ModuleCreate = Class.Module.Create;
 global using ModuleResult = Class.Module.Result;
