@@ -314,12 +314,10 @@ public class Test : Any
     {
         Iter iter;
 
-        iter = new TableIter();
-
-        iter.Init();
+        iter = this.FoldSetMap.IterCreate();
 
 
-        this.FoldSetMap.SetIter(iter);
+        this.FoldSetMap.IterSet(iter);
 
 
 
@@ -384,12 +382,10 @@ public class Test : Any
 
         Iter kindIter;
 
-        kindIter = new ArrayIter();
-
-        kindIter.Init();
+        kindIter = kindList.IterCreate();
 
 
-        kindList.SetIter(kindIter);
+        kindList.IterSet(kindIter);
 
     
 
@@ -420,12 +416,10 @@ public class Test : Any
 
             Iter unitIter;
 
-            unitIter = new ArrayIter();
-
-            unitIter.Init();
+            unitIter = unitList.IterCreate();
 
 
-            unitList.SetIter(unitIter);
+            unitList.IterSet(unitIter);
 
 
 
@@ -549,12 +543,10 @@ public class Test : Any
 
         Iter iter;
 
-        iter = new Iter();
-
-        iter.Init();
+        iter = this.FoldUnits.IterCreate();
         
 
-        this.FoldUnits.SetIter(iter);
+        this.FoldUnits.IterSet(iter);
 
 
 
