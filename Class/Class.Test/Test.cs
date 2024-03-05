@@ -10,6 +10,8 @@ public class Test : Any
         base.Init();
 
 
+        this.InfraInfra = InfraInfra.This;
+
 
 
         this.LangName = this.LanguageName();
@@ -37,11 +39,6 @@ public class Test : Any
 
 
         this.Spaces = new string(' ', 4);
-
-
-
-
-        this.PathSeparator = "/";
 
 
         
@@ -107,7 +104,7 @@ public class Test : Any
         return true;
     }
 
-
+    protected virtual InfraInfra InfraInfra { get; set; }
 
 
 
@@ -274,11 +271,6 @@ public class Test : Any
 
 
 
-    private string PathSeparator { get; set; }
-
-
-
-
 
 
     private int UnitIndex { get; set; }
@@ -368,7 +360,7 @@ public class Test : Any
 
         string setFold;
             
-        setFold = this.TestFold + PathSeparator + set;
+        setFold = this.TestFold + this.InfraInfra.PathCombine + set;
 
 
 
@@ -401,7 +393,7 @@ public class Test : Any
             string kindFold;
 
 
-            kindFold = setFold + this.PathSeparator + kind;
+            kindFold = setFold + this.InfraInfra.PathCombine + kind;
 
 
 
@@ -437,7 +429,7 @@ public class Test : Any
                 string unitFold;
                 
 
-                unitFold = kindFold + this.PathSeparator + unit;
+                unitFold = kindFold + this.InfraInfra.PathCombine + unit;
 
 
 
@@ -445,7 +437,7 @@ public class Test : Any
                 string expectFile;
                 
                 
-                expectFile = unitFold + this.PathSeparator + "Expect";
+                expectFile = unitFold + this.InfraInfra.PathCombine + "Expect";
 
 
                 
@@ -475,7 +467,7 @@ public class Test : Any
                     string pathFile;
 
 
-                    pathFile = unitFold + PathSeparator + "Path";
+                    pathFile = unitFold + this.InfraInfra.PathCombine + "Path";
 
 
 
