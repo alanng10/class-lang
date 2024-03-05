@@ -94,7 +94,7 @@ public class Test : Any
 
 
 
-        this.AddSets();
+        this.AddSetList();
 
 
 
@@ -143,7 +143,7 @@ public class Test : Any
         return "../../Class/Class.Test/Test";
     }
 
-    protected virtual bool AddSets()
+    protected virtual bool AddSetList()
     {
         this.AddSet("Token", this.TaskKindList.Token, false, false, false);
 
