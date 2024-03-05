@@ -76,9 +76,9 @@ class MemberTraverse : Traverse
 
 
 
-        NodeAccess nodeAccess;
+        NodeCount nodeAccess;
 
-        nodeAccess = nodeField.Access;
+        nodeAccess = nodeField.Count;
 
 
 
@@ -155,7 +155,7 @@ class MemberTraverse : Traverse
 
 
 
-        Access access;
+        Count access;
 
 
 
@@ -221,7 +221,7 @@ class MemberTraverse : Traverse
         field.Class = varClass;
 
 
-        field.Access = access;
+        field.Count = access;
 
 
         field.Get = varGet;
@@ -278,7 +278,7 @@ class MemberTraverse : Traverse
 
 
 
-    public override bool ExecuteMield(NodeMield nodeMield)
+    public override bool ExecuteMaide(NodeMield nodeMield)
     {
         if (nodeMield == null)
         {
@@ -303,9 +303,9 @@ class MemberTraverse : Traverse
 
 
 
-        NodeAccess nodeAccess;
+        NodeCount nodeAccess;
 
-        nodeAccess = nodeMield.Access;
+        nodeAccess = nodeMield.Count;
 
 
 
@@ -384,7 +384,7 @@ class MemberTraverse : Traverse
 
 
 
-        Access access;
+        Count access;
 
 
 
@@ -445,10 +445,10 @@ class MemberTraverse : Traverse
 
 
 
-        Mield method;
+        Maide method;
 
 
-        method = new Mield();
+        method = new Maide();
 
 
         method.Init();
@@ -460,7 +460,7 @@ class MemberTraverse : Traverse
         method.Class = varClass;
 
 
-        method.Access = access;
+        method.Count = access;
 
 
         method.Param = this.ParamVars;
