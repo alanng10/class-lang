@@ -613,39 +613,39 @@ public class Traverse : Any
         }
         if (operate is SignMulOperate)
         {
-
+            this.ExecuteSignMulOperate((SignMulOperate)operate);
         }
         if (operate is SignDivOperate)
         {
-
+            this.ExecuteSignDivOperate((SignDivOperate)operate);
         }
         if (operate is SignLessOperate)
         {
-
+            this.ExecuteSignLessOperate((SignLessOperate)operate);
         }
         if (operate is BitAndOperate)
         {
-            
+            this.ExecuteBitAndOperate((BitAndOperate)operate);
         }
         if (operate is BitOrnOperate)
         {
-
+            this.ExecuteBitOrnOperate((BitOrnOperate)operate);
         }
         if (operate is BitNotOperate)
         {
-
+            this.ExecuteBitNotOperate((BitNotOperate)operate);
         }
         if (operate is BitLeftOperate)
         {
-
+            this.ExecuteBitLeftOperate((BitLeftOperate)operate);
         }
         if (operate is BitRightOperate)
         {
-
+            this.ExecuteBitRightOperate((BitRightOperate)operate);
         }
         if (operate is BitSignRightOperate)
         {
-
+            this.ExecuteBitSignRightOperate((BitSignRightOperate)operate);
         }
         return true;
     }
@@ -996,6 +996,19 @@ public class Traverse : Any
 
         this.ExecuteOperate(bitRightOperate.Value);
         this.ExecuteOperate(bitRightOperate.Count);
+        return true;
+    }
+
+    public virtual bool ExecuteBitSignRightOperate(BitSignRightOperate bitSignRightOperate)
+    {
+        if (bitSignRightOperate == null)
+        {
+            return true;
+        }
+        this.ExecuteNode(bitSignRightOperate);
+
+        this.ExecuteOperate(bitSignRightOperate.Value);
+        this.ExecuteOperate(bitSignRightOperate.Count);
         return true;
     }
 
