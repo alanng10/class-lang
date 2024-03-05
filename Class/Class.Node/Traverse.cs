@@ -355,32 +355,15 @@ public class Traverse : Any
         return true;
     }
 
-
-
-
-
-
-
     public virtual bool ExecuteClassName(ClassName className)
     {
         if (className == null)
         {
             return true;
         }
-
-
-
         this.ExecuteNode(className);
-
-
-
         return true;
     }
-
-
-
-
-
 
     public virtual bool ExecuteFieldName(FieldName fieldName)
     {
@@ -388,22 +371,9 @@ public class Traverse : Any
         {
             return true;
         }
-
-
-
-
         this.ExecuteNode(fieldName);
-
-
-
-
         return true;
     }
-
-
-
-
-
 
     public virtual bool ExecuteMaideName(MaideName maideName)
     {
@@ -411,22 +381,9 @@ public class Traverse : Any
         {
             return true;
         }
-
-
-
-
         this.ExecuteNode(maideName);
-
-
-
-
         return true;
     }
-
-
-
-
-
 
     public virtual bool ExecuteVarName(VarName varName)
     {
@@ -434,22 +391,9 @@ public class Traverse : Any
         {
             return true;
         }
-
-
-
-
         this.ExecuteNode(varName);
-
-
-
-
         return true;
     }
-
-
-
-
-
 
     public virtual bool ExecuteState(State state)
     {
@@ -457,49 +401,19 @@ public class Traverse : Any
         {
             return true;
         }
-
-
-
-
-
         this.ExecuteNode(state);
 
-
-
-
-
-
         Iter iter;
-
         iter = this.Iter;
-
-
         state.Value.IterSet(iter);
-
-
-
         while (iter.Next())
         {
             Execute execute;
-
-
             execute = (Execute)iter.Value;
-
-
-
             this.ExecuteExecute(execute);
         }
-
-
-
-
         return true;
     }
-
-
-
-
-
 
     public virtual bool ExecuteExecute(Execute execute)
     {
@@ -508,62 +422,32 @@ public class Traverse : Any
             return true;
         }
 
-
-
-
         if (execute is ReturnExecute)
         {
             this.ExecuteReturnExecute((ReturnExecute)execute);
         }
-
-
-
         if (execute is InfExecute)
         {
             this.ExecuteInfExecute((InfExecute)execute);
         }
-
-
-
         if (execute is WhileExecute)
         {
             this.ExecuteWhileExecute((WhileExecute)execute);
         }
-
-
-
-
         if (execute is DeclareExecute)
         {
             this.ExecuteDeclareExecute((DeclareExecute)execute);
         }
-
-
-
-
         if (execute is AssignExecute)
         {
             this.ExecuteAssignExecute((AssignExecute)execute);
         }
-
-
-
-
         if (execute is OperateExecute)
         {
             this.ExecuteOperateExecute((OperateExecute)execute);
         }
-
-
-
         return true;
     }
-
-
-
-
-
-
 
     public virtual bool ExecuteInfExecute(InfExecute infExecute)
     {
@@ -571,36 +455,12 @@ public class Traverse : Any
         {
             return true;
         }
-
-
-
-
-
         this.ExecuteNode(infExecute);
 
-
-
-
-
         this.ExecuteOperate(infExecute.Cond);
-
-
-
-
-
         this.ExecuteState(infExecute.Then);
-
-
-
-
-
         return true;
     }
-
-
-
-
-
 
     public virtual bool ExecuteWhileExecute(WhileExecute whileExecute)
     {
@@ -608,29 +468,10 @@ public class Traverse : Any
         {
             return true;
         }
-
-
-
-
-
         this.ExecuteNode(whileExecute);
 
-
-
-
-
         this.ExecuteOperate(whileExecute.Cond);
-
-
-
-
-
         this.ExecuteState(whileExecute.Loop);
-
-
-
-
-
         return true;
     }
 
