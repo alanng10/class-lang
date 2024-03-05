@@ -475,43 +475,17 @@ public class Traverse : Any
         return true;
     }
 
-
-
-
-
-
-
     public virtual bool ExecuteReturnExecute(ReturnExecute returnExecute)
     {
         if (returnExecute == null)
         {
             return true;
         }
-
-
-
-
-
         this.ExecuteNode(returnExecute);
 
-
-
-
-
         this.ExecuteOperate(returnExecute.Result);
-
-
-
-
-
         return true;
     }
-
-
-
-
-
-
 
     public virtual bool ExecuteDeclareExecute(DeclareExecute declareExecute)
     {
@@ -519,27 +493,11 @@ public class Traverse : Any
         {
             return true;
         }
-
-
-
-
         this.ExecuteNode(declareExecute);
 
-
-
-
         this.ExecuteVar(declareExecute.Var);
-
-
-
-
         return true;
     }
-
-
-
-
-
 
     public virtual bool ExecuteAssignExecute(AssignExecute assignExecute)
     {
@@ -547,35 +505,12 @@ public class Traverse : Any
         {
             return true;
         }
-
-
-
-
-
         this.ExecuteNode(assignExecute);
 
-
-
-
-
         this.ExecuteTarget(assignExecute.Target);
-
-
-
-
         this.ExecuteOperate(assignExecute.Value);
-
-
-
-
         return true;
     }
-
-
-
-
-
-
 
     public virtual bool ExecuteOperateExecute(OperateExecute operateExecute)
     {
@@ -583,27 +518,11 @@ public class Traverse : Any
         {
             return true;
         }
-
-
-
-
         this.ExecuteNode(operateExecute);
 
-
-
-
         this.ExecuteOperate(operateExecute.Operate);
-
-
-
-
         return true;
     }
-
-
-
-
-
 
     public virtual bool ExecuteOperate(Operate operate)
     {
@@ -612,186 +531,122 @@ public class Traverse : Any
             return true;
         }
 
-
-
-
-
         if (operate is GetOperate)
         {
             this.ExecuteGetOperate((GetOperate)operate);
         }
-
-
-
         if (operate is CallOperate)
         {
             this.ExecuteCallOperate((CallOperate)operate);
         }
-
-
-
         if (operate is VarOperate)
         {
             this.ExecuteVarOperate((VarOperate)operate);
         }
-
-
-
         if (operate is ValueOperate)
         {
             this.ExecuteValueOperate((ValueOperate)operate);
         }
-
-
-
         if (operate is ThisOperate)
         {
             this.ExecuteThisOperate((ThisOperate)operate);
         }
-
-
-
         if (operate is BaseOperate)
         {
             this.ExecuteBaseOperate((BaseOperate)operate);
         }
-
-
-
         if (operate is NullOperate)
         {
             this.ExecuteNullOperate((NullOperate)operate);
         }
-
-
-
         if (operate is NewOperate)
         {
             this.ExecuteNewOperate((NewOperate)operate);
         }
-
-
-
         if (operate is ShareOperate)
         {
             this.ExecuteShareOperate((ShareOperate)operate);
         }
-
-
-
         if (operate is CastOperate)
         {
             this.ExecuteCastOperate((CastOperate)operate);
         }
-
-
-
         if (operate is BracketOperate)
         {
             this.ExecuteBracketOperate((BracketOperate)operate);
         }
-
-
-
-        if (operate is AndOperate)
-        {
-            this.ExecuteAndOperate((AndOperate)operate);
-        }
-
-
-
-        if (operate is OrnOperate)
-        {
-            this.ExecuteOrnOperate((OrnOperate)operate);
-        }
-
-
-
-        if (operate is NotOperate)
-        {
-            this.ExecuteNotOperate((NotOperate)operate);
-        }
-
-
-
-        if (operate is AddOperate)
-        {
-            this.ExecuteAddOperate((AddOperate)operate);
-        }
-
-
-
-        if (operate is SubOperate)
-        {
-            this.ExecuteSubOperate((SubOperate)operate);
-        }
-
-
-
-        if (operate is MulOperate)
-        {
-            this.ExecuteMulOperate((MulOperate)operate);
-        }
-
-
-
-        if (operate is DivOperate)
-        {
-            this.ExecuteDivOperate((DivOperate)operate);
-        }
-
-
-
-        if (operate is LessOperate)
-        {
-            this.ExecuteLessOperate((LessOperate)operate);
-        }
-
-
-
-        if (operate is BitAndOperate)
-        {
-            
-        }
-
-
-
-        if (operate is BitOrnOperate)
-        {
-
-        }
-
-
-
-        if (operate is BitNotOperate)
-        {
-
-        }
-
-
-
-        if (operate is BitLeftOperate)
-        {
-
-        }
-
-
-
-        if (operate is BitRightOperate)
-        {
-
-        }
-
-
-
         if (operate is EqualOperate)
         {
             this.ExecuteEqualOperate((EqualOperate)operate);
         }
-        
+        if (operate is AndOperate)
+        {
+            this.ExecuteAndOperate((AndOperate)operate);
+        }
+        if (operate is OrnOperate)
+        {
+            this.ExecuteOrnOperate((OrnOperate)operate);
+        }
+        if (operate is NotOperate)
+        {
+            this.ExecuteNotOperate((NotOperate)operate);
+        }
+        if (operate is AddOperate)
+        {
+            this.ExecuteAddOperate((AddOperate)operate);
+        }
+        if (operate is SubOperate)
+        {
+            this.ExecuteSubOperate((SubOperate)operate);
+        }
+        if (operate is MulOperate)
+        {
+            this.ExecuteMulOperate((MulOperate)operate);
+        }
+        if (operate is DivOperate)
+        {
+            this.ExecuteDivOperate((DivOperate)operate);
+        }
+        if (operate is LessOperate)
+        {
+            this.ExecuteLessOperate((LessOperate)operate);
+        }
+        if (operate is SignMulOperate)
+        {
 
+        }
+        if (operate is SignDivOperate)
+        {
 
+        }
+        if (operate is SignLessOperate)
+        {
 
+        }
+        if (operate is BitAndOperate)
+        {
+            
+        }
+        if (operate is BitOrnOperate)
+        {
+
+        }
+        if (operate is BitNotOperate)
+        {
+
+        }
+        if (operate is BitLeftOperate)
+        {
+
+        }
+        if (operate is BitRightOperate)
+        {
+
+        }
+        if (operate is BitSignRightOperate)
+        {
+
+        }
         return true;
     }
 
