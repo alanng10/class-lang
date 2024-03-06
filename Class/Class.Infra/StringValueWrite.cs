@@ -222,7 +222,7 @@ public class StringValueWrite : Any
                     indexA = start + j;
                     u = data[indexA];
 
-                    escapeValue = '\0';                    
+                    escapeValue = (char)0;                    
                     if (u == quote)
                     {
                         escapeValue = u;
