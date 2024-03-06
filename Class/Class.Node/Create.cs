@@ -3526,26 +3526,8 @@ public class Create : InfraCreate
             return null;
         }
 
-        Range classRange;
-        classRange = this.ExecuteNameRange(this.RangeC, this.Range(this.RangeA, countRange.End, end));
-        if (classRange == null)
-        {
-            return null;
-        }
-
-        Range nameRange;
-        nameRange = this.ExecuteNameRange(this.RangeD, this.Range(this.RangeA, classRange.End, end));
-        if (nameRange == null)
-        {
-            return null;
-        }
-
-        if (nameRange.End == end)
-        {
-            return null;
-        }
         Token leftBracket;
-        leftBracket = this.Token(this.TokenA, this.Delimit.LeftBracket.Text, this.IndexRange(this.RangeA, nameRange.End));
+        leftBracket = this.TokenForward(this.TokenA, this.Delimit.LeftBracket.Text, this.Range(this.RangeA, countRange.End, end));
         if (leftBracket == null)
         {
             return null;
