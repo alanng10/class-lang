@@ -1,69 +1,27 @@
 namespace Class.Infra;
 
-
-
-
 public class StringInfra : Any
 {
-    public static StringInfra This { get; } = CreateGlobal();
+    public static StringInfra This { get; } = ShareCreate();
 
-
-
-
-    private static StringInfra CreateGlobal()
+    private static StringInfra ShareCreate()
     {
-        StringInfra global;
-
-
-        global = new StringInfra();
-
-
+        StringInfra share;
+        share = new StringInfra();
 
         Any a;
-
-
-        a = global;
-
-
+        a = share;
         a.Init();
-
-
-
-        return global;
+        return share;
     }
-
-
-
-
 
     public override bool Init()
     {
         base.Init();
-
-
-
+        
         this.InfraInfra = InfraInfra.This;
-
-
-        TextInfra textInfra;
-
-        textInfra = TextInfra.This;
-
-
-
-        this.TextInfra = textInfra;
-
-
-
-
-
-        Stat stat;
-
-        stat = Stat.This;
-
-
-
-        this.Stat = stat;
+        this.TextInfra = TextInfra.This;
+        this.Stat = Stat.This;
 
 
 
