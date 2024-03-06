@@ -9,12 +9,12 @@ public class Create : InfraCreate
         this.InfraInfra = InfraInfra.This;
         this.TextInfra = TextInfra.This;
         this.ListInfra = ListInfra.This;
-        this.StringInfra = StringInfra.This;
         this.NodeInfra = Infra.This;
         this.Keyword = this.CreateKeywordList();
         this.Delimit = this.CreateDelimitList();
         this.ErrorKind = this.CreateErrorKindList();
         this.NodeKind = this.CreateNodeKindList();
+        this.StringValueWrite = this.StringValueWriteCreate();
 
         this.CountOperate = this.CreateCountCreateOperate();
         this.KindOperate = this.CreateKindCreateOperate();
@@ -57,11 +57,11 @@ public class Create : InfraCreate
     protected virtual InfraInfra InfraInfra { get; set; }
     protected virtual ListInfra ListInfra { get; set; }
     protected virtual TextInfra TextInfra { get; set; }
-    protected virtual StringInfra StringInfra { get; set; }
     protected virtual Infra NodeInfra { get; set; }
 
     public virtual SourceItem SourceItem { get; set; }
 
+    protected virtual StringValueWrite StringValueWrite { get; set; }
     protected virtual Text SourceText { get; set; }
     protected virtual Code Code { get; set; }
     protected virtual Table NodeStateTable { get; set; }
@@ -127,6 +127,14 @@ public class Create : InfraCreate
     protected virtual NodeKindList CreateNodeKindList()
     {
         return NodeKindList.This;
+    }
+
+    protected virtual StringValueWrite StringValueWriteCreate()
+    {
+        StringValueWrite a;
+        a = new StringValueWrite();
+        a.Init();
+        return a;
     }
 
     protected virtual CountCreateOperate CreateCountCreateOperate()
@@ -1407,7 +1415,7 @@ public class Create : InfraCreate
         aa = this.TextRange(start);
 
         string value;
-        value = this.StringInfra.Value(this.SourceText, aa);
+        value = this.StringValueWrite.Value(this.SourceText, aa);
         if (value == null)
         {
             return null;

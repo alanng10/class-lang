@@ -161,7 +161,7 @@ public class StringValueWrite : Any
         return true;
     }
 
-    protected virtual bool ExecuteValueString(Text text, TextRange range)
+    public virtual bool ExecuteValueString(Text text, TextRange range)
     {
         int kk;
         kk = this.InfraInfra.Count(range.Col);
