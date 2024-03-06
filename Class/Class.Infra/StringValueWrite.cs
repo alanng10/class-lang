@@ -36,10 +36,10 @@ public class StringValueWrite : Any
     public virtual char[] Array { get; set; }
     public virtual int Index { get; set; }
 
-    public virtual string Value(Text text, TextRange range)
+    public virtual string Value(TextSpan textSpan)
     {
         bool b;
-        b = this.CheckValueString(text, range);
+        b = this.CheckValueString(textSpan);
         if (!b)
         {
             return null;
@@ -47,7 +47,7 @@ public class StringValueWrite : Any
 
         this.WriteOperate = this.CountWriteOperate;
         this.Index = 0;
-        this.ExecuteValueString(text, range);
+        this.ExecuteValueString(textSpan);
 
         int count;
         count = this.Index;
@@ -55,7 +55,7 @@ public class StringValueWrite : Any
 
         this.WriteOperate = this.AddWriteOperate;
         this.Index = 0;
-        this.ExecuteValueString(text, range);
+        this.ExecuteValueString(textSpan);
 
         string a;
         a = new string(this.Array);
@@ -65,38 +65,52 @@ public class StringValueWrite : Any
         return a;
     }
 
-    public virtual bool CheckValueString(Text text, TextRange range)
+    public virtual bool CheckValueString(TextSpan textSpan)
     {
+        Range range;
+        range = textSpan.Range;
         int kk;
-        kk = this.InfraInfra.Count(range.Col);
+        kk = this.InfraInfra.Count(range);
         if (kk < 2)
         {
             return false;
         }
 
-        
-        this.TextPos.Row = range.Row;
-        this.TextPos.Col = range.Col.Start;
+        char[] data;
+        data = textSpan.Data;
+        int rangeStart;
+        rangeStart = range.Start;
+        int rangeEnd;
+        rangeEnd = range.End;
+
+        char quote;
+        quote = this.Stat.Quote[0];
 
         char oc;
-        oc = this.TextInfra.GetChar(text, this.TextPos);
-        if (!(oc == this.Stat.Quote[0]))
+        oc = data[rangeStart];
+        if (!(oc == quote))
+        {
+            return false;
+        }
+        oc = data[rangeEnd - 1];
+        if (!(oc == quote))
         {
             return false;
         }
 
-        this.TextPos.Col = range.Col.End - 1;
-        oc = this.TextInfra.GetChar(text, this.TextPos);
-        if (!(oc == this.Stat.Quote[0]))
-        {
-            return false;
-        }
+        char backSlash;
+        backSlash = this.Stat.BackSlash[0];
+        char tab;
+        tab = this.Stat.Tab[0];
+        char newLine;
+        newLine = this.Stat.NewLine[0];
 
         int count;
         count = kk - 2;
         int start;
-        start = range.Col.Start + 1;
+        start = rangeStart + 1;
         int index;
+        int indexA;
         char c;
         bool b;
         bool bb;
@@ -108,11 +122,10 @@ public class StringValueWrite : Any
         while (i < count)
         {
             index = start + i;
-            this.TextPos.Col = index;
 
-            c = this.TextInfra.GetChar(text, this.TextPos);
+            c = data[index];
 
-            b = (c == this.Stat.BackSlash[0]);
+            b = (c == backSlash);
             if (b)
             {
                 j = i + 1;
@@ -121,12 +134,12 @@ public class StringValueWrite : Any
                 {
                     return false;
                 }
-                this.TextPos.Col = start + j;
+                indexA = start + j;
 
-                u = this.TextInfra.GetChar(text, this.TextPos);
+                u = data[indexA];
 
                 bba = false;                
-                if (u == this.Stat.Quote[0])
+                if (u == quote)
                 {
                     bba = true;
                 }
@@ -138,7 +151,7 @@ public class StringValueWrite : Any
                 {
                     bba = true;
                 }
-                if (u == this.Stat.BackSlash[0])
+                if (u == backSlash)
                 {
                     bba = true;
                 }
@@ -150,7 +163,7 @@ public class StringValueWrite : Any
             }
             if (!b)
             {
-                bb = (c == this.Stat.Quote[0]);
+                bb = (c == quote);
                 if (bb)
                 {
                     return false;
@@ -161,18 +174,29 @@ public class StringValueWrite : Any
         return true;
     }
 
-    public virtual bool ExecuteValueString(Text text, TextRange range)
+    public virtual bool ExecuteValueString(TextSpan textSpan)
     {
+        char[] data;
+        data = textSpan.Data;
+        Range range;
+        range = textSpan.Range;
         int kk;
-        kk = this.InfraInfra.Count(range.Col);
+        kk = this.InfraInfra.Count(range);
 
-        this.TextPos.Row = range.Row;
-
+        char backSlash;
+        backSlash = this.Stat.BackSlash[0];
+        char quote;
+        quote = this.Stat.Quote[0];
+        char tab;
+        tab = this.Stat.Tab[0];
+        char newLine;
+        newLine = this.Stat.NewLine[0];
         int count;
         count = kk - 2;
         int start;
-        start = range.Col.Start + 1;
+        start = range.Start + 1;
         int index;
+        int indexA;
         char c;
         bool b;
         bool bb;
@@ -185,11 +209,9 @@ public class StringValueWrite : Any
         {
             index = start + i;
 
-            this.TextPos.Col = index;
+            c = data[index];
 
-            c = this.TextInfra.GetChar(text, this.TextPos);
-
-            b = (c == this.Stat.BackSlash[0]);
+            b = (c == backSlash);
             if (b)
             {
                 j = i + 1;
@@ -197,23 +219,23 @@ public class StringValueWrite : Any
                 bb = (j < count);
                 if (bb)
                 {
-                    this.TextPos.Col = start + j;
-                    u = this.TextInfra.GetChar(text, this.TextPos);
+                    indexA = start + j;
+                    u = data[indexA];
 
-                    escapeValue = char.MinValue;                    
-                    if (u == this.Stat.Quote[0])
+                    escapeValue = '\0';                    
+                    if (u == quote)
                     {
                         escapeValue = u;
                     }
                     if (u == 't')
                     {
-                        escapeValue = this.Stat.Tab[0];
+                        escapeValue = tab;
                     }
                     if (u == 'n')
                     {
-                        escapeValue = this.Stat.NewLine[0];
+                        escapeValue = newLine;
                     }
-                    if (u == this.Stat.BackSlash[0])
+                    if (u == backSlash)
                     {
                         escapeValue = u;
                     }

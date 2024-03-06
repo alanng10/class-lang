@@ -6,6 +6,7 @@ global using List = Avalon.List.List;
 global using Array = Avalon.List.Array;
 global using Table = Avalon.List.Table;
 global using Text = Avalon.Text.Text;
+global using TextSpan = Avalon.Text.Span;
 global using TextPos = Avalon.Text.Pos;
 global using TextRange = Avalon.Text.Range;
 global using TextInfra = Avalon.Text.Infra;
