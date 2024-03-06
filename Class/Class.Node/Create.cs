@@ -2496,25 +2496,8 @@ public class Create : InfraCreate
         start = range.Start;
         end = range.End;
 
-        Range varRange;
-        varRange = this.ExecuteNameRange(this.RangeB, this.Range(this.RangeA, start, end));
-        if (varRange == null)
-        {
-            return null;
-        }
-
-        if (!(varRange.End == end))
-        {
-            return null;
-        }
-
-        int varStart;
-        int varEnd;
-        varStart = varRange.Start;
-        varEnd = varRange.End;
-
         Node varVar;
-        varVar = this.ExecuteNameNode(this.NodeKind.VarName, this.Range(this.RangeA, varStart, varEnd));
+        varVar = this.ExecuteNameResult(this.NodeKind.VarName, this.Range(this.RangeA, start, end));
         if (varVar == null)
         {
             return null;
