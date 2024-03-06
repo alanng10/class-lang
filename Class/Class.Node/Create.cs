@@ -3995,24 +3995,24 @@ public class Create : InfraCreate
         varContinue = i < end;
         while (varContinue)
         {
-            int skipBracketIndex;
-            skipBracketIndex = this.ForwardSkipBracket(i, end);
-            bool b;
-            b = (skipBracketIndex == -1);
-            if (!b)
+            bool ba;
+            ba = this.IsText(value, i);
+            if (ba)
             {
-                i = skipBracketIndex;
+                index = i;
+                varContinue = false;
             }
-            if (b)
+            if (!ba)
             {
-                bool ba;
-                ba = this.IsText(value, i);
-                if (ba)
+                int skipBracketIndex;
+                skipBracketIndex = this.ForwardSkipBracket(i, end);
+                bool b;
+                b = (skipBracketIndex == -1);
+                if (!b)
                 {
-                    index = i;
-                    varContinue = false;
+                    i = skipBracketIndex;
                 }
-                if (!ba)
+                if (b)
                 {
                     i = i + 1;
                 }
