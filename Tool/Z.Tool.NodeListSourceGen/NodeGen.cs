@@ -214,16 +214,6 @@ public class NodeGen : Any
 
             b = true;
         }
-
-        if (!b & k == "CharArray")
-        {
-            k = "char[]";
-
-
-            b = true;
-        }
-
-
         return k;
     }
 }
