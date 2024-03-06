@@ -14,7 +14,16 @@ public class Infra : Any
         return share;
     }
 
-    public virtual Array CreateArray(List list)
+    public virtual Array ArrayCreate(int count)
+    {
+        Array a;
+        a = new Array();
+        a.Count = count;
+        a.Init();
+        return a;
+    }
+
+    public virtual Array ArrayCreateList(List list)
     {
         Array a;
         a = new Array();
