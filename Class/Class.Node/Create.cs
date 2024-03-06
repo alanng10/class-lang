@@ -3413,26 +3413,8 @@ public class Create : InfraCreate
             return null;
         }
 
-        Range classRange;
-        classRange = this.ExecuteNameRange(this.RangeC, this.Range(this.RangeA, countRange.End, end));
-        if (classRange == null)
-        {
-            return null;
-        }
-
-        Range nameRange;
-        nameRange = this.ExecuteNameRange(this.RangeD, this.Range(this.RangeA, classRange.End, end));
-        if (nameRange == null)
-        {
-            return null;
-        }
-
-        if (nameRange.End == end)
-        {
-            return null;
-        }
         Token leftBrace;
-        leftBrace = this.Token(this.TokenA, this.Delimit.LeftBrace.Text, this.IndexRange(this.RangeA, nameRange.End));
+        leftBrace = this.TokenForward(this.TokenA, this.Delimit.LeftBrace.Text, this.Range(this.RangeA, countRange.End, end));
         if (leftBrace == null)
         {
             return null;
