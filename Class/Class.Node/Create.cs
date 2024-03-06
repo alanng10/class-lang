@@ -743,17 +743,17 @@ public class Create : InfraCreate
         }
 
         Node varClass;
-        varClass = this.ExecuteClassNameResult(this.Range(this.RangeA, classStart, classEnd));
+        varClass = this.ExecuteNameResult(this.NodeKind.ClassName, this.Range(this.RangeA, classStart, classEnd));
         if (varClass == null)
         {
-            this.Error(this.ErrorKind.ClassInvalid, start, end);
+            this.Error(this.ErrorKind.ClassInvalid, classStart, classEnd);
         }
 
         Node name;
-        name = this.ExecuteFieldNameResult(this.Range(this.RangeA, nameStart, nameEnd));
+        name = this.ExecuteNameResult(this.NodeKind.FieldName, this.Range(this.RangeA, nameStart, nameEnd));
         if (name == null)
         {
-            this.Error(this.ErrorKind.NameInvalid, start, end);
+            this.Error(this.ErrorKind.NameInvalid, nameStart, nameEnd);
         }
 
         Node varGet;
@@ -1915,7 +1915,11 @@ public class Create : InfraCreate
         }
 
         Node maide;
-        maide = this.ExecuteMaideNameResult(this.ErrorKind.MaideInvalid, this.Range(this.RangeA, maideStart, maideEnd));
+        maide = this.ExecuteNameResult(this.NodeKind.MaideName, this.Range(this.RangeA, maideStart, maideEnd));
+        if (maide == null)
+        {
+            this.Error(this.ErrorKind.MaideInvalid, maideStart, maideEnd);
+        }
 
         Node argue;
         argue = this.ExecuteArgue(this.Range(this.RangeA, argueStart, argueEnd));
@@ -2515,10 +2519,10 @@ public class Create : InfraCreate
         }
 
         Node field;
-        field = this.ExecuteFieldNameResult(this.Range(this.RangeA, fieldStart, fieldEnd));
+        field = this.ExecuteNameResult(this.NodeKind.FieldName, this.Range(this.RangeA, fieldStart, fieldEnd));
         if (field == null)
         {
-            this.Error(this.ErrorKind.FieldInvalid, thisStart, thisEnd);
+            this.Error(this.ErrorKind.FieldInvalid, fieldStart, fieldEnd);
         }
 
         this.OperateArg.Kind = kind;
@@ -2571,7 +2575,7 @@ public class Create : InfraCreate
         return ret;
     }
 
-    protected virtual Node ExecuteClassNameResult(Range range)
+    protected virtual Node ExecuteNameResult(NodeKind kind, Range range)
     {
         int start;
         int end;
@@ -2583,7 +2587,7 @@ public class Create : InfraCreate
         bool b;
         b = false;
         Range aRange;
-        aRange = this.ExecuteClassNameRange(this.RangeB, this.Range(this.RangeA, start, end));
+        aRange = this.ExecuteNameRange(this.RangeB, this.Range(this.RangeA, start, end));
         if (aRange == null)
         {
             b = true;
@@ -2598,81 +2602,7 @@ public class Create : InfraCreate
 
         if (!b)
         {
-            node = this.ExecuteClassName(this.Range(this.RangeA, start, end));
-            if (node == null)
-            {
-                b = true;
-            }
-        }
-
-        return node;
-    }
-
-    protected virtual Node ExecuteFieldNameResult(Range range)
-    {
-        int start;
-        int end;
-        start = range.Start;
-        end = range.End;
-
-        Node node;
-        node = null;
-        bool b;
-        b = false;
-        Range aRange;
-        aRange = this.ExecuteFieldNameRange(this.RangeB, this.Range(this.RangeA, start, end));
-        if (aRange == null)
-        {
-            b = true;
-        }
-        if (!b)
-        {
-            if (!(aRange.End == end))
-            {
-                b = true;
-            }
-        }
-
-        if (!b)
-        {
-            node = this.ExecuteFieldName(this.Range(this.RangeA, start, end));
-            if (node == null)
-            {
-                b = true;
-            }
-        }
-
-        return node;
-    }
-
-    protected virtual Node ExecuteMaideNameResult(ErrorKind errorKind, Range range)
-    {
-        int start;
-        int end;
-        start = range.Start;
-        end = range.End;
-
-        Node node;
-        node = null;
-        bool b;
-        b = false;
-        Range aRange;
-        aRange = this.ExecuteMaideNameRange(this.RangeB, this.Range(this.RangeA, start, end));
-        if (aRange == null)
-        {
-            b = true;
-        }
-        if (!b)
-        {
-            if (!(aRange.End == end))
-            {
-                b = true;
-            }
-        }
-
-        if (!b)
-        {
-            node = this.ExecuteMaideName(this.Range(this.RangeA, start, end));
+            node = this.ExecuteName(kind, this.Range(this.RangeA, start, end));
             if (node == null)
             {
                 b = true;
