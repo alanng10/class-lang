@@ -134,16 +134,16 @@ StringValue : Value
     CharArray Value
 
 ClassName : Node
-    String Value
+    CharArray Value
 
 FieldName : Node
-    String Value
+    CharArray Value
 
 MaideName : Node
-    String Value
+    CharArray Value
 
 VarName : Node
-    String Value
+    CharArray Value
 
 EqualOperate : Operate
     Operate Left

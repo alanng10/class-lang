@@ -200,9 +200,6 @@ public class NodeGen : Any
 
             b = true;
         }
-
-
-
         if (!b & k == "Int")
         {
             k = "long";
@@ -210,12 +207,17 @@ public class NodeGen : Any
 
             b = true;
         }
-
-
-
         if (!b & k == "String")
         {
             k = "string";
+
+
+            b = true;
+        }
+
+        if (!b & k == "CharArray")
+        {
+            k = "char[]";
 
 
             b = true;
