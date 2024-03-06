@@ -99,6 +99,9 @@ public class Create : InfraCreate
     public virtual Array ListArray { get; set; }
     public virtual int ErrorIndex { get; set; }
     public virtual Array ErrorArray { get; set; }
+    public virtual int NameValueIndex { get; set; }
+    public virtual Data NameValueData { get; set; }
+    public virtual Array NameValueArray { get; set; }
     public virtual int StringValueIndex { get; set; }
     public virtual Data StringValueData { get; set; }
     public virtual Array StringValueArray { get; set; }
@@ -285,11 +288,11 @@ public class Create : InfraCreate
         this.NodeState = (NodeState)this.NodeStateTable.Get(this.Task);
         if (this.NodeState == null)
         {
-            Array ooa;
-            ooa = new Array();
-            ooa.Count = 0;
-            ooa.Init();
-            this.Result.Error = ooa;
+            Array ooo;
+            ooo = new Array();
+            ooo.Count = 0;
+            ooo.Init();
+            this.Result.Error = ooo;
             return true;
         }
 
@@ -298,6 +301,7 @@ public class Create : InfraCreate
         this.NodeIndex = 0;
         this.ListIndex = 0;
         this.ErrorIndex = 0;
+        this.NameValueIndex = 0;
         this.StringValueIndex = 0;
 
         this.ExecuteStage();
@@ -308,6 +312,8 @@ public class Create : InfraCreate
         listCount = this.ListIndex;
         int errorCount;
         errorCount = this.ErrorIndex;
+        int nameValueCount;
+        nameValueCount = this.NameValueIndex;
         int stringValueCount;
         stringValueCount = this.StringValueIndex;
 
@@ -315,23 +321,30 @@ public class Create : InfraCreate
         this.KindData.Init();
         this.KindData.Value = new byte[nodeCount];
 
-        int oa;
-        oa = listCount * sizeof(int);
+        int ooa;
+        ooa = listCount * sizeof(int);
         this.ListData = new Data();
         this.ListData.Init();
-        this.ListData.Value = new byte[oa];
+        this.ListData.Value = new byte[ooa];
 
         int oob;
-        oob = stringValueCount * sizeof(int);
+        oob = nameValueCount * sizeof(int);
+        this.NameValueData = new Data();
+        this.NameValueData.Init();
+        this.NameValueData.Value = new byte[oob];
+
+        int ooc;
+        ooc = stringValueCount * sizeof(int);
         this.StringValueData = new Data();
         this.StringValueData.Init();
-        this.StringValueData.Value = new byte[oob];
+        this.StringValueData.Value = new byte[ooc];
         
         this.Operate = this.KindOperate;
 
         this.NodeIndex = 0;
         this.ListIndex = 0;
         this.ErrorIndex = 0;
+        this.NameValueIndex = 0;
         this.StringValueIndex = 0;
 
         this.ExecuteStage();
@@ -359,6 +372,7 @@ public class Create : InfraCreate
         this.NodeIndex = 0;
         this.ListIndex = 0;
         this.ErrorIndex = 0;
+        this.NameValueIndex = 0;
         this.StringValueIndex = 0;
 
         this.ExecuteStage();

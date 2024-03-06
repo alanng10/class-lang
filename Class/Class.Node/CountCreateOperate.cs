@@ -5,13 +5,17 @@ public class CountCreateOperate : CreateOperate
     public override bool Init()
     {
         base.Init();
+        this.TextInfra = TextInfra.This;
         this.List = new Array();
         this.List.Count = 0;
         this.List.Init();
+        this.TextSpan = this.TextInfra.SpanCreate(0);
         return true;
     }
 
+    protected virtual TextInfra TextInfra { get; set; }
     protected virtual Array List { get; set; }
+    protected virtual TextSpan TextSpan { get; set; }
 
     public override Node Execute()
     {
@@ -66,5 +70,10 @@ public class CountCreateOperate : CreateOperate
 
         this.Create.StringValueIndex = index;
         return true;
+    }
+
+    public override TextSpan ExecuteNameValue(char[] array, int index, int count)
+    {
+        return this.TextSpan;
     }
 }
