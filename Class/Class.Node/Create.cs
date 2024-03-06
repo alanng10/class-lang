@@ -478,8 +478,6 @@ public class Create : InfraCreate
     {
         this.DataRead.Data = this.StringValueCountData;
 
-        int charCount;
-        charCount = 0;
         int count;
         count = this.StringValueArray.Count;
         int i;
@@ -492,12 +490,11 @@ public class Create : InfraCreate
             int oa;
             oa = this.DataRead.ExecuteInt(index);
 
-            string oo;
-            oo = new string(this.StringValueData, charCount, oa);
-            
+            char[] oo;
+            oo = new char[oa];
+
             this.StringValueArray.Set(i, oo);
 
-            charCount = charCount + oa;
             i = i + 1;
         }
         return true;
