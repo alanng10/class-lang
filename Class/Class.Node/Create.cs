@@ -61,7 +61,6 @@ public class Create : InfraCreate
 
     public virtual SourceItem SourceItem { get; set; }
 
-    protected virtual StringValueWrite StringValueWrite { get; set; }
     protected virtual Text SourceText { get; set; }
     protected virtual Code Code { get; set; }
     protected virtual Table NodeStateTable { get; set; }
@@ -109,6 +108,8 @@ public class Create : InfraCreate
     protected virtual CountCreateOperate CountOperate { get; set; }
     protected virtual KindCreateOperate KindOperate { get; set; }
     protected virtual SetCreateOperate SetOperate { get; set; }
+
+    public virtual StringValueWrite StringValueWrite { get; set; }
 
     public virtual CreateOperate Operate { get; set; }
     public virtual CreateOperateArg OperateArg { get; set; }

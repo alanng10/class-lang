@@ -87,4 +87,28 @@ public class KindCreateOperate : CreateOperate
         this.Create.NameValueIndex = index;
         return this.TextSpan;
     }
+
+    public override TextSpan ExecuteStringValue(TextSpan span)
+    {
+        int index;
+        index = this.Create.StringValueIndex;
+
+        StringValueWrite write;
+        write = this.Create.StringValueWrite;
+        write.WriteOperate = write.CountWriteOperate;
+        write.Index = 0;
+        write.ExecuteValueString(span);
+        int count;
+        count = write.Index;
+        this.DataWrite.Data = this.Create.NameValueData;
+        long oa;
+        oa = index * sizeof(int);
+        this.DataWrite.ExecuteInt(oa, count);
+        this.DataWrite.Data = null;
+
+        index = index + 1;
+
+        this.Create.StringValueIndex = index;
+        return this.TextSpan;
+    }
 }

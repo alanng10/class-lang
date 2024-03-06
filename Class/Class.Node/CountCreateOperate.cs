@@ -61,18 +61,7 @@ public class CountCreateOperate : CreateOperate
         return true;
     }
 
-    public override bool ExecuteStringValue()
-    {
-        int index;
-        index = this.Create.StringValueIndex;
-
-        index = index + 1;
-
-        this.Create.StringValueIndex = index;
-        return true;
-    }
-
-    public override TextSpan ExecuteNameValue(char[] array, int start, int count)
+    public override TextSpan ExecuteNameValue(TextSpan span)
     {
         int index;
         index = this.Create.NameValueIndex;
@@ -80,6 +69,17 @@ public class CountCreateOperate : CreateOperate
         index = index + 1;
 
         this.Create.NameValueIndex = index;
+        return this.TextSpan;
+    }
+
+    public override TextSpan ExecuteStringValue(TextSpan span)
+    {
+        int index;
+        index = this.Create.StringValueIndex;
+
+        index = index + 1;
+
+        this.Create.StringValueIndex = index;
         return this.TextSpan;
     }
 }
