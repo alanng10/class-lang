@@ -2444,31 +2444,8 @@ public class Create : InfraCreate
         classEnd = end;
 
         Node varClass;
-        varClass = null;
-        bool b;
-        b = false;
-        Range classRange;
-        classRange = this.ExecuteNameRange(this.RangeB, this.Range(this.RangeA, classStart, classEnd));
-        if (classRange == null)
-        {
-            b = true;
-        }
-        if (!b)
-        {
-            if (!(classRange.End == classEnd))
-            {
-                b = true;
-            }
-        }
-        if (!b)
-        {
-            varClass = this.ExecuteClassName(this.Range(this.RangeA, classStart, classEnd));
-            if (varClass == null)
-            {
-                b = true;
-            }
-        }
-        if (b)
+        varClass = this.ExecuteNameResult(this.NodeKind.ClassName, this.Range(this.RangeA, classStart, classEnd));
+        if (varClass == null)
         {
             this.Error(this.ErrorKind.ClassInvalid, classStart, classEnd);
         }
