@@ -4046,24 +4046,29 @@ public class Create : InfraCreate
         varContinue = (start < i);
         while (varContinue)
         {
-            int skipBracketIndex;
-            skipBracketIndex = this.BackwardSkipBracket(i, start);
+            int j;
+            j = i - 1;
             bool b;
-            b = (skipBracketIndex == -1);
-            if (!b)
-            {
-                i = skipBracketIndex;
-            }
+            b = this.IsText(value, j);
             if (b)
             {
-                int j;
-                j = i - 1;
-                if (this.IsText(value, j))
+                index = j;
+                varContinue = false;
+            }
+            if (!b)
+            {
+                int skipBracketIndex;
+                skipBracketIndex = this.BackwardSkipBracket(i, start);
+                bool ba;
+                ba = (skipBracketIndex == -1);
+                if (!ba)
                 {
-                    index = j;
-                    varContinue = false;
+                    i = skipBracketIndex;
                 }
-                i = i - 1;
+                if (ba)
+                {
+                    i = i - 1;
+                }
             }
             if (!(start < i))
             {
