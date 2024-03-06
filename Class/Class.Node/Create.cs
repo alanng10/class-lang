@@ -2568,10 +2568,6 @@ public class Create : InfraCreate
         if (!b)
         {
             node = this.ExecuteName(kind, this.Range(this.RangeA, start, end));
-            if (node == null)
-            {
-                b = true;
-            }
         }
 
         return node;
