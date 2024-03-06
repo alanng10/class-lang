@@ -100,7 +100,10 @@ public class Create : InfraCreate
     public virtual int ErrorIndex { get; set; }
     public virtual Array ErrorArray { get; set; }
     public virtual int StringValueIndex { get; set; }
-    public virtual Data StringValueData { get; set; }
+    public virtual int StringValueCharIndex { get; set; }
+    public virtual Data StringValueCountData { get; set; }
+    public virtual char[] StringValueData { get; set; }
+    public virtual Array StringValueArray { get; set; }
     
     protected virtual CountCreateOperate CountOperate { get; set; }
     protected virtual KindCreateOperate KindOperate { get; set; }
@@ -298,6 +301,7 @@ public class Create : InfraCreate
         this.ListIndex = 0;
         this.ErrorIndex = 0;
         this.StringValueIndex = 0;
+        this.StringValueCharIndex = 0;
 
         this.ExecuteStage();
 
@@ -309,6 +313,8 @@ public class Create : InfraCreate
         errorCount = this.ErrorIndex;
         int stringValueCount;
         stringValueCount = this.StringValueIndex;
+        int stringValueCharCount;
+        stringValueCharCount = this.StringValueCharIndex;
 
         this.KindData = new Data();
         this.KindData.Init();
@@ -321,11 +327,13 @@ public class Create : InfraCreate
         this.ListData.Value = new byte[oa];
 
         int oob;
-        oob = stringValueCount * sizeof(char);
-        this.StringValueData = new Data();
-        this.StringValueData.Init();
-        this.StringValueData.Value = new byte[oob];
+        oob = stringValueCount * sizeof(int);
+        this.StringValueCountData = new Data();
+        this.StringValueCountData.Init();
+        this.StringValueCountData.Value = new byte[oob];
 
+        this.StringValueData = new char[stringValueCharCount];
+        
         this.Operate = this.KindOperate;
 
         this.NodeIndex = 0;
@@ -461,6 +469,35 @@ public class Create : InfraCreate
             range.Init();
             error.Range = range;
             this.ErrorArray.Set(i, error);
+            i = i + 1;
+        }
+        return true;
+    }
+
+    protected virtual bool ExecuteStringValueCreate()
+    {
+        this.DataRead.Data = this.StringValueCountData;
+
+        int charCount;
+        charCount = 0;
+        int count;
+        count = this.StringValueArray.Count;
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            long index;
+            index = i * sizeof(int);
+
+            int oa;
+            oa = this.DataRead.ExecuteInt(index);
+
+            string oo;
+            oo = new string(this.StringValueData, charCount, oa);
+            
+            this.StringValueArray.Set(i, oo);
+
+            charCount = charCount + oa;
             i = i + 1;
         }
         return true;
