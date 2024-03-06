@@ -479,6 +479,28 @@ public class Create : InfraCreate
         return true;
     }
 
+    protected virtual bool ExecuteNameValueCreate()
+    {
+        this.DataRead.Data = this.NameValueData;
+
+        int count;
+        count = this.NameValueArray.Count;
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            long index;
+            index = i * sizeof(int);
+            int oa;
+            oa = this.DataRead.ExecuteInt(index);
+            TextSpan oo;
+            oo = this.TextInfra.SpanCreate(oa);
+            this.NameValueArray.Set(i, oo);
+            i = i + 1;
+        }
+        return true;
+    }
+
     protected virtual bool ExecuteStringValueCreate()
     {
         this.DataRead.Data = this.StringValueData;
@@ -493,8 +515,8 @@ public class Create : InfraCreate
             index = i * sizeof(int);
             int oa;
             oa = this.DataRead.ExecuteInt(index);
-            char[] oo;
-            oo = new char[oa];
+            TextSpan oo;
+            oo = this.TextInfra.SpanCreate(oa);
             this.StringValueArray.Set(i, oo);
             i = i + 1;
         }
