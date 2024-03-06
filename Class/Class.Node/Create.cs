@@ -67,14 +67,14 @@ public class Create : InfraCreate
     protected virtual Table NodeStateTable { get; set; }
     protected virtual NodeState NodeState { get; set; }
 
-    protected virtual PartItemRangeState PartItemRangeState { get; set; }
-    protected virtual StateItemRangeState StateItemRangeState { get; set; }
-    protected virtual ParamItemRangeState ParamItemRangeState { get; set; }
-    protected virtual ArgueItemRangeState ArgueItemRangeState { get; set; }
-    protected virtual PartItemNodeState PartItemNodeState { get; set; }
-    protected virtual StateItemNodeState StateItemNodeState { get; set; }
-    protected virtual ParamItemNodeState ParamItemNodeState { get; set; }
-    protected virtual ArgueItemNodeState ArgueItemNodeState { get; set; }
+    protected virtual RangeState PartItemRangeState { get; set; }
+    protected virtual RangeState StateItemRangeState { get; set; }
+    protected virtual RangeState ParamItemRangeState { get; set; }
+    protected virtual RangeState ArgueItemRangeState { get; set; }
+    protected virtual NodeState PartItemNodeState { get; set; }
+    protected virtual NodeState StateItemNodeState { get; set; }
+    protected virtual NodeState ParamItemNodeState { get; set; }
+    protected virtual NodeState ArgueItemNodeState { get; set; }
 
     protected virtual Range RangeA { get; set; }
     protected virtual Range RangeB { get; set; }
@@ -194,40 +194,32 @@ public class Create : InfraCreate
 
     protected virtual bool InitListItemState()
     {
-        this.PartItemRangeState = new PartItemRangeState();
-        this.RangeStateSet(this.PartItemRangeState);
-        this.StateItemRangeState = new StateItemRangeState();
-        this.RangeStateSet(this.StateItemRangeState);
-        this.ParamItemRangeState = new ParamItemRangeState();
-        this.RangeStateSet(this.ParamItemRangeState);
-        this.ArgueItemRangeState = new ArgueItemRangeState();
-        this.RangeStateSet(this.ArgueItemRangeState);
+        this.PartItemRangeState = this.RangeStateSet(new PartItemRangeState());
+        this.StateItemRangeState = this.RangeStateSet(new StateItemRangeState());
+        this.ParamItemRangeState = this.RangeStateSet(new ParamItemRangeState());
+        this.ArgueItemRangeState = this.RangeStateSet(new ArgueItemRangeState());
 
-        this.PartItemNodeState = new PartItemNodeState();
-        this.NodeStateSet(this.PartItemNodeState);
-        this.StateItemNodeState = new StateItemNodeState();
-        this.NodeStateSet(this.StateItemNodeState);
-        this.ParamItemNodeState = new ParamItemNodeState();
-        this.NodeStateSet(this.ParamItemNodeState);
-        this.ArgueItemNodeState = new ArgueItemNodeState();
-        this.NodeStateSet(this.ArgueItemNodeState);
+        this.PartItemNodeState = this.NodeStateSet(new PartItemNodeState());
+        this.StateItemNodeState = this.NodeStateSet(new StateItemNodeState());
+        this.ParamItemNodeState = this.NodeStateSet(new ParamItemNodeState());
+        this.ArgueItemNodeState = this.NodeStateSet(new ArgueItemNodeState());
         return true;
     }
 
-    private bool RangeStateSet(RangeState state)
+    private RangeState RangeStateSet(RangeState state)
     {
         state.Init();
         state.Create = this;
         state.Arg = new RangeStateArg();
         state.Arg.Init();
-        return true;
+        return state;
     }
 
-    private bool NodeStateSet(NodeState state)
+    private NodeState NodeStateSet(NodeState state)
     {
         state.Init();
         state.Create = this;
-        return true;
+        return state;
     }
 
     protected virtual bool InitNodeState()
