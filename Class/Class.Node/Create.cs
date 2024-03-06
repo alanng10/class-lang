@@ -2531,7 +2531,7 @@ public class Create : InfraCreate
         varEnd = varRange.End;
 
         Node varVar;
-        varVar = this.ExecuteVarName(this.Range(this.RangeA, varStart, varEnd));
+        varVar = this.ExecuteName(this.NodeKind.VarName, this.Range(this.RangeA, varStart, varEnd));
         if (varVar == null)
         {
             return null;
@@ -2570,7 +2570,6 @@ public class Create : InfraCreate
                 b = true;
             }
         }
-
         if (!b)
         {
             node = this.ExecuteName(kind, this.Range(this.RangeA, start, end));
