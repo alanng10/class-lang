@@ -2,5 +2,5 @@ namespace Class.Node;
 
 public class MaideName : Node
 {
-    public virtual string Value { get; set; }
+    public virtual TextSpan Value { get; set; }
 }

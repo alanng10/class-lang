@@ -6,7 +6,7 @@ public class VarNameCreateOperateState : CreateOperateState
     {
         VarName node;
         node = (VarName)this.Node;
-        node.Value = (string)this.Arg.Field00;
+        node.Value = (TextSpan)this.Arg.Field00;
 
         return true;
     }
