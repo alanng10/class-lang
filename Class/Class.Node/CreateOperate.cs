@@ -39,7 +39,7 @@ public class CreateOperate : Any
         return true;
     }
 
-    public virtual TextSpan ExecuteNameValue(char[] array, int index, int count)
+    public virtual TextSpan ExecuteNameValue(TextSpan span)
     {
         return null;
     }

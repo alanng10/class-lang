@@ -5,6 +5,7 @@ public class KindCreateOperate : CreateOperate
     public override bool Init()
     {
         base.Init();
+        this.InfraInfra = InfraInfra.This;
         this.ListInfra = ListInfra.This;
         this.TextInfra = TextInfra.This;
         this.DataWrite = new DataWrite();
@@ -14,6 +15,7 @@ public class KindCreateOperate : CreateOperate
         return true;
     }
 
+    protected virtual InfraInfra InfraInfra { get; set; }
     protected virtual ListInfra ListInfra { get; set; }
     protected virtual TextInfra TextInfra { get; set; }
     protected virtual DataWrite DataWrite { get; set; }
@@ -67,11 +69,13 @@ public class KindCreateOperate : CreateOperate
         return true;
     }
 
-    public override TextSpan ExecuteNameValue(char[] array, int start, int count)
+    public override TextSpan ExecuteNameValue(TextSpan span)
     {
         int index;
         index = this.Create.NameValueIndex;
 
+        int count;
+        count = this.InfraInfra.Count(span.Range);
         this.DataWrite.Data = this.Create.NameValueData;
         long oa;
         oa = index * sizeof(int);

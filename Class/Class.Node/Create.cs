@@ -3580,15 +3580,11 @@ public class Create : InfraCreate
 
         TextLine line;
         line = this.SourceText.GetLine(aa.Row);
-        char[] array;
-        array = line.Value;
-        int index;
-        index = aa.Col.Start;
-        int count;
-        count = this.Count(aa.Col);
+        this.TextSpan.Data = line.Value;
+        this.Range(this.TextSpan.Range, aa.Col.Start, aa.Col.End);
 
         TextSpan a;
-        a = this.Operate.ExecuteNameValue(array, index, count);
+        a = this.Operate.ExecuteNameValue(this.TextSpan);
         return a;
     }
 

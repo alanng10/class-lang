@@ -5,11 +5,13 @@ public class SetCreateOperate : CreateOperate
     public override bool Init()
     {
         base.Init();
+        this.InfraInfra = InfraInfra.This;
         this.DataRead = new DataRead();
         this.DataRead.Init();
         return true;
     }
 
+    protected virtual InfraInfra InfraInfra { get; set; }
     protected virtual DataRead DataRead { get; set; }
 
     public override Node Execute()
@@ -89,11 +91,19 @@ public class SetCreateOperate : CreateOperate
         return true;
     }
 
-    public override TextSpan ExecuteNameValue(char[] array, int start, int count)
+    public override TextSpan ExecuteNameValue(TextSpan span)
     {
         int index;
         index = this.Create.NameValueIndex;
 
+        Range range;
+        range = span.Range;
+        char[] array;
+        array = span.Data;
+        int start;
+        start = range.Start;
+        int count;
+        count = this.InfraInfra.Count(range);
         TextSpan a;
         a = (TextSpan)this.Create.NameValueArray.Get(index);
         char[] oa;
@@ -107,7 +117,6 @@ public class SetCreateOperate : CreateOperate
         }
 
         index = index + 1;
-
         this.Create.NameValueIndex = index;
         return a;
     }
