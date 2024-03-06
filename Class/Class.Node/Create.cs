@@ -1964,14 +1964,8 @@ public class Create : InfraCreate
             return null;
         }
 
-        int leftBracketIndex;
-        leftBracketIndex = castToken.Range.End + 1;
-        if (!(leftBracketIndex < end))
-        {
-            return null;
-        }
         Token leftBracket;
-        leftBracket = this.Token(this.TokenB, this.Delimit.LeftBracket.Text, this.IndexRange(this.RangeA, leftBracketIndex));
+        leftBracket = this.TokenForward(this.TokenB, this.Delimit.LeftBracket.Text, this.Range(this.RangeA, castToken.Range.End, end));
         if (leftBracket == null)
         {
             return null;
@@ -1992,7 +1986,7 @@ public class Create : InfraCreate
         int classStart;
         int classEnd;
         classStart = castToken.Range.End;
-        classEnd = leftBracketIndex;
+        classEnd = leftBracket.Range.Start;
         int anyStart;
         int anyEnd;
         anyStart = leftBracket.Range.End;
