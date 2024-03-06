@@ -3451,69 +3451,6 @@ public class Create : InfraCreate
             return null;
         }
 
-        if (leftBrace.Range.End == rightBrace.Range.Start)
-        {
-            return null;
-        }
-        Token getToken;
-        getToken = this.Token(this.TokenC, this.Keyword.ItemGet.Text, this.IndexRange(this.RangeA, leftBrace.Range.End));
-        if (getToken == null)
-        {
-            return null;
-        }
-
-        if (getToken.Range.End == rightBrace.Range.Start)
-        {
-            return null;
-        }
-        Token getLeftBrace;
-        getLeftBrace = this.Token(this.TokenD, this.Delimit.LeftBrace.Text, this.IndexRange(this.RangeA, getToken.Range.End));
-        if (getLeftBrace == null)
-        {
-            return null;
-        }
-
-        Token getRightBrace;
-        getRightBrace = this.TokenMatchLeftBrace(this.TokenE, this.Range(this.RangeA, getLeftBrace.Range.End, rightBrace.Range.Start));
-        if (getRightBrace == null)
-        {
-            return null;
-        }
-
-        if (getRightBrace.Range.End == rightBrace.Range.Start)
-        {
-            return null;
-        }
-        Token setToken;
-        setToken = this.Token(this.TokenF, this.Keyword.Set.Text, this.IndexRange(this.RangeA, getRightBrace.Range.End));
-        if (setToken == null)
-        {
-            return null;
-        }
-
-        if (setToken.Range.End == rightBrace.Range.Start)
-        {
-            return null;
-        }
-        Token setLeftBrace;
-        setLeftBrace = this.Token(this.TokenG, this.Delimit.LeftBrace.Text, this.IndexRange(this.RangeA, setToken.Range.End));
-        if (setLeftBrace == null)
-        {
-            return null;
-        }
-
-        Token setRightBrace;
-        setRightBrace = this.TokenMatchLeftBrace(this.TokenH, this.Range(this.RangeA, setLeftBrace.Range.End, rightBrace.Range.Start));
-        if (setRightBrace == null)
-        {
-            return null;
-        }
-
-        if (!(setRightBrace.Range.End == rightBrace.Range.Start))
-        {
-            return null;
-        }
-
         this.Range(result, start, rightBrace.Range.End);
         return result;
     }
