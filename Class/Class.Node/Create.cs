@@ -3582,14 +3582,12 @@ public class Create : InfraCreate
 
         TextRange aa;
         aa = this.TextRange(start);
-
-        TextLine line;
-        line = this.SourceText.GetLine(aa.Row);
-        this.TextSpan.Data = line.Value;
-        this.Range(this.TextSpan.Range, aa.Col.Start, aa.Col.End);
+        TextSpan textSpan;
+        textSpan = this.TextSpan;
+        this.TextSpanGet(textSpan, aa);
 
         TextSpan a;
-        a = this.Operate.ExecuteNameValue(this.TextSpan);
+        a = this.Operate.ExecuteNameValue(textSpan);
         return a;
     }
 
