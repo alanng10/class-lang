@@ -34,7 +34,12 @@ public class CreateOperate : Any
         return true;
     }
 
-    public virtual TextSpan ExecuteTextSpan(char[] array, int start, int end)
+    public virtual bool ExecuteStringValue()
+    {
+        return true;
+    }
+
+    public virtual TextSpan ExecuteNameValue(char[] array, int start, int end)
     {
         return null;
     }
