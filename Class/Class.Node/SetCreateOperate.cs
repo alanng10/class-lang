@@ -135,8 +135,8 @@ public class SetCreateOperate : CreateOperate
         write.Array = a.Data;
         write.ExecuteValueString(span);
         write.Array = null;
-        index = index + 1;
 
+        index = index + 1;
         this.Create.StringValueIndex = index;
         return a;
     }
