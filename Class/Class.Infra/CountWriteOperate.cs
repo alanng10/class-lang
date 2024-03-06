@@ -1,32 +1,15 @@
 namespace Class.Infra;
 
-
-
-
-
-class CountWriteOperate : WriteOperate
+public class CountWriteOperate : WriteOperate
 {
-    public virtual StringInfra Infra { get; set; }
-
-
+    public virtual StringValueWrite Write { get; set; }
 
     public override bool ExecuteChar(char oc)
     {
         int index;
-
-
-        index = this.Infra.Index;
-
-
-
+        index = this.Write.Index;
         index = index + 1;
-
-
-
-        this.Infra.Index = index;
-
-
-
+        this.Write.Index = index;
         return true;
     }
 }

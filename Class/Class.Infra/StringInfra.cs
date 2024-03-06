@@ -1,20 +1,7 @@
 namespace Class.Infra;
 
-public class StringInfra : Any
+public class StringValueWrite : Any
 {
-    public static StringInfra This { get; } = ShareCreate();
-
-    private static StringInfra ShareCreate()
-    {
-        StringInfra share;
-        share = new StringInfra();
-
-        Any a;
-        a = share;
-        a.Init();
-        return share;
-    }
-
     public override bool Init()
     {
         base.Init();
@@ -23,287 +10,100 @@ public class StringInfra : Any
         this.TextInfra = TextInfra.This;
         this.Stat = Stat.This;
 
-
-
-
-
-
-
         this.CountWriteOperate = new CountWriteOperate();
-
-
-        this.CountWriteOperate.Infra = this;
-
-
+        this.CountWriteOperate.Write = this;
         this.CountWriteOperate.Init();
-
-
-
-
-
         this.AddWriteOperate = new AddWriteOperate();
-
-
-        this.AddWriteOperate.Infra = this;
-
-
+        this.AddWriteOperate.Write = this;
         this.AddWriteOperate.Init();
 
-
-
-
         this.TextPos = new TextPos();
-
-
         this.TextPos.Init();
-
-
-
-
         return true;
     }
 
+    protected virtual InfraInfra InfraInfra { get; set; }
+    protected virtual TextInfra TextInfra { get; set; }
+    protected virtual Stat Stat { get; set; }
 
+    protected virtual TextPos TextPos { get; set; }
 
+    public virtual CountWriteOperate CountWriteOperate { get; set; }
+    public virtual AddWriteOperate AddWriteOperate { get; set; }
 
+    public virtual WriteOperate WriteOperate { get; set; }
 
-
-    private InfraInfra InfraInfra { get; set; }
-
-
-
-    private TextInfra TextInfra { get; set; }
-
-
-
-    private Stat Stat { get; set; }
-
-
-
-
-    private TextPos TextPos { get; set; }
-
-
-
-
-
-    private CountWriteOperate CountWriteOperate { get; set; }
-
-
-
-    private AddWriteOperate AddWriteOperate { get; set; }
-
-
-
-
-
+    public virtual char[] Array { get; set; }
+    public virtual int Index { get; set; }
 
     public virtual string Value(Text text, TextRange range)
     {
         bool b;
-
-
         b = this.CheckValueString(text, range);
-
-
         if (!b)
         {
             return null;
         }
 
-
-
-
-
         this.WriteOperate = this.CountWriteOperate;
-
-
-
         this.Index = 0;
-
-
-
         this.ExecuteValueString(text, range);
-
-
-
 
         int count;
-
-
         count = this.Index;
-
-
-
         this.Array = new char[count];
 
-
-
-
-
         this.WriteOperate = this.AddWriteOperate;
-
-
-
         this.Index = 0;
-
-
-
         this.ExecuteValueString(text, range);
 
-
-
-
-        string k;
-
-        k = new string(this.Array);
-
-
-
-
+        string a;
+        a = new string(this.Array);
 
         this.Array = null;
-
-
-
         this.WriteOperate = null;
-
-
-
-
-
-        string ret;
-
-        ret = k;
-
-
-        return ret;
+        return a;
     }
 
-
-
-
-
-
-
-
-    private bool CheckValueString(Text text, TextRange range)
+    public virtual bool CheckValueString(Text text, TextRange range)
     {
         int kk;
-
-
-
         kk = this.InfraInfra.Count(range.Col);
-
-
-
-
         if (kk < 2)
         {
             return false;
         }
 
-
-
-
         this.TextPos.Row = range.Row;
-
         this.TextPos.Col = range.Col.Start;
 
-
-
-
         char oc;
-
-
         oc = this.TextInfra.GetChar(text, this.TextPos);
-
-
         if (!(oc == this.Stat.Quote[0]))
         {
             return false;
         }
-
-
-
-
 
         this.TextPos.Col = range.Col.End - 1;
-
-
-
         oc = this.TextInfra.GetChar(text, this.TextPos);
-
-
         if (!(oc == this.Stat.Quote[0]))
         {
             return false;
         }
 
-
-
-
-
         int count;
-
-
         count = kk - 2;
-
-
-
-
         int start;
-
-
-
         start = range.Col.Start + 1;
-
-
-
-
         int index;
-
-
-
-
         char c;
-
-
-
-
         bool b;
-
-
-
         bool bb;
-
-
-
-
         bool bba;
-
-
-
         int j;
-
-
-
-
         char u;
-
-
-
-
-
         int i;
-
-
         i = 0;
-
-
-
-
-
         while (i < count)
         {
             index = start + i;
@@ -591,40 +391,11 @@ public class StringInfra : Any
         return true;
     }
 
-
-
-
-
-
-    private bool ExecuteValueChar(char oc)
+    protected virtual bool ExecuteValueChar(char oc)
     {
         this.WriteOperate.ExecuteChar(oc);
-
-
-
         return true;
     }
-
-
-
-
-
-
-    private WriteOperate WriteOperate { get; set; }
-
-
-
-
-    internal virtual char[] Array { get; set; }
-
-
-
-    internal virtual int Index { get; set; }
-
-
-
-
-
 
     public virtual string EscapeString(string a)
     {

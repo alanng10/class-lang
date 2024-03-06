@@ -1,10 +1,6 @@
 namespace Class.Infra;
 
-
-
-
-
-class WriteOperate : Any
+public class WriteOperate : Any
 {
     public virtual bool ExecuteChar(char oc)
     {
