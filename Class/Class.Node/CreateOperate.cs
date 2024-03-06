@@ -34,8 +34,8 @@ public class CreateOperate : Any
         return true;
     }
 
-    public virtual bool ExecuteStringValue()
+    public virtual TextSpan ExecuteTextSpan(char[] array, int start, int end)
     {
-        return true;
+        return null;
     }
 }

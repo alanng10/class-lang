@@ -2622,7 +2622,7 @@ public class Create : InfraCreate
         start = range.Start;
         end = range.End;
 
-        string value;
+        TextSpan value;
         value = this.ExecuteNameValue(this.Range(this.RangeA, start, end));
         if (value == null)
         {
@@ -3535,7 +3535,7 @@ public class Create : InfraCreate
         return result;
     }
 
-    protected virtual string ExecuteNameValue(Range range)
+    protected virtual TextSpan ExecuteNameValue(Range range)
     {
         int start;
         int end;
@@ -3554,14 +3554,14 @@ public class Create : InfraCreate
         line = this.SourceText.GetLine(aa.Row);
         char[] array;
         array = line.Value;
-        int index;
-        index = aa.Col.Start;
-        int count;
-        count = this.Count(aa.Col);
+        int spanStart;
+        spanStart = aa.Col.Start;
+        int spanEnd;
+        spanEnd = aa.Col.End;
 
-        string o;
-        o = new string(array, index, count);
-        return o;
+        TextSpan a;
+        a = this.Operate.ExecuteTextSpan(array, spanStart, spanEnd);
+        return a;
     }
 
     protected virtual bool IsIntValue(TextRange aa)
