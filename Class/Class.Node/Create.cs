@@ -1483,8 +1483,19 @@ public class Create : InfraCreate
 
         TextRange aa;
         aa = this.TextRange(start);
+        TextLine textLine;
+        textLine = this.SourceText.GetLine(aa.Row);
+        TextSpan textSpan;
+        textSpan = this.TextSpan;
+        textSpan.Data = textLine.Value;
+        this.Range(textSpan.Range, aa.Col.Start, aa.Col.End);
 
-        
+        bool b;
+        b = this.StringValueWrite.CheckValueString(textSpan);
+        if (!b)
+        {
+            return null;
+        }
 
         TextSpan value;
         value = null;
