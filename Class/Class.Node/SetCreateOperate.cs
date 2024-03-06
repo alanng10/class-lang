@@ -88,4 +88,26 @@ public class SetCreateOperate : CreateOperate
         this.Create.ErrorIndex = index;
         return true;
     }
+
+    public override TextSpan ExecuteNameValue(char[] array, int start, int count)
+    {
+        int index;
+        index = this.Create.NameValueIndex;
+
+        TextSpan a;
+        a = (TextSpan)this.Create.NameValueArray.Get(index);
+        
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            a.Data[i] = array[start + i];
+            i = i + 1;
+        }
+
+        index = index + 1;
+
+        this.Create.NameValueIndex = index;
+        return a;
+    }
 }
