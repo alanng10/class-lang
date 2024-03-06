@@ -321,23 +321,9 @@ public class Create : InfraCreate
         this.KindData.Init();
         this.KindData.Value = new byte[nodeCount];
 
-        int ooa;
-        ooa = listCount * sizeof(int);
-        this.ListData = new Data();
-        this.ListData.Init();
-        this.ListData.Value = new byte[ooa];
-
-        int oob;
-        oob = nameValueCount * sizeof(int);
-        this.NameValueData = new Data();
-        this.NameValueData.Init();
-        this.NameValueData.Value = new byte[oob];
-
-        int ooc;
-        ooc = stringValueCount * sizeof(int);
-        this.StringValueData = new Data();
-        this.StringValueData.Init();
-        this.StringValueData.Value = new byte[ooc];
+        this.ListData = this.CountDataCreate(listCount);
+        this.NameValueData = this.CountDataCreate(nameValueCount);
+        this.StringValueData = this.CountDataCreate(stringValueCount);
         
         this.Operate = this.KindOperate;
 
@@ -406,6 +392,17 @@ public class Create : InfraCreate
         a.Start = 0;
         a.End = 0;
         return true;
+    }
+
+    protected virtual Data CountDataCreate(int count)
+    {
+        int o;
+        o = count * sizeof(int);
+        Data a;
+        a = new Data();
+        a.Init();
+        a.Value = new byte[o];
+        return a;
     }
 
     protected virtual bool ExecuteNodeCreate()
