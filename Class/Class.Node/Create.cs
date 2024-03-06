@@ -1484,12 +1484,9 @@ public class Create : InfraCreate
 
         TextRange aa;
         aa = this.TextRange(start);
-        TextLine textLine;
-        textLine = this.SourceText.GetLine(aa.Row);
         TextSpan textSpan;
         textSpan = this.TextSpan;
-        textSpan.Data = textLine.Value;
-        this.Range(textSpan.Range, aa.Col.Start, aa.Col.End);
+        this.TextSpanGet(this.TextSpan, aa);
 
         bool b;
         b = this.StringValueWrite.CheckValueString(textSpan);
@@ -3821,6 +3818,17 @@ public class Create : InfraCreate
     protected virtual int Count(Range range)
     {
         return this.InfraInfra.Count(range);
+    }
+
+    protected virtual bool TextSpanGet(TextSpan textSpan, TextRange textRange)
+    {
+        TextLine textLine;
+        textLine = this.SourceText.GetLine(textRange.Row);
+        Range range;
+        range = textRange.Col;
+        textSpan.Data = textLine.Value;
+        this.Range(textSpan.Range, range.Start, range.End);
+        return true;
     }
 
     protected virtual bool IsName(TextRange textRange)
