@@ -526,7 +526,7 @@ public class Create : InfraCreate
         }
 
         Range nameRange;
-        nameRange = this.ExecuteClassNameRange(this.RangeB, this.Range(this.RangeA, classToken.Range.End, end));
+        nameRange = this.ExecuteNameRange(this.RangeB, this.Range(this.RangeA, classToken.Range.End, end));
         if (nameRange == null)
         {
             return null;
@@ -544,7 +544,7 @@ public class Create : InfraCreate
         }
 
         Range baseRange;
-        baseRange = this.ExecuteClassNameRange(this.RangeC, this.Range(this.RangeA, colon.Range.End, end));
+        baseRange = this.ExecuteNameRange(this.RangeC, this.Range(this.RangeA, colon.Range.End, end));
         if (baseRange == null)
         {
             return null;
@@ -923,14 +923,14 @@ public class Create : InfraCreate
         end = range.End;
 
         Range classRange;
-        classRange = this.ExecuteClassNameRange(this.RangeB, this.Range(this.RangeA, start, end));
+        classRange = this.ExecuteNameRange(this.RangeB, this.Range(this.RangeA, start, end));
         if (classRange == null)
         {
             return null;
         }
 
         Range nameRange;
-        nameRange = this.ExecuteVarNameRange(this.RangeC, this.Range(this.RangeA, classRange.End, end));
+        nameRange = this.ExecuteNameRange(this.RangeC, this.Range(this.RangeA, classRange.End, end));
         if (nameRange == null)
         {
             return null;
@@ -1977,7 +1977,7 @@ public class Create : InfraCreate
         }
 
         Range classRange;
-        classRange = this.ExecuteClassNameRange(this.RangeB, this.Range(this.RangeA, castToken.Range.End, end));
+        classRange = this.ExecuteNameRange(this.RangeB, this.Range(this.RangeA, castToken.Range.End, end));
         if (classRange == null)
         {
             return null;
@@ -2448,7 +2448,7 @@ public class Create : InfraCreate
         bool b;
         b = false;
         Range classRange;
-        classRange = this.ExecuteClassNameRange(this.RangeB, this.Range(this.RangeA, classStart, classEnd));
+        classRange = this.ExecuteNameRange(this.RangeB, this.Range(this.RangeA, classStart, classEnd));
         if (classRange == null)
         {
             b = true;
@@ -2537,7 +2537,7 @@ public class Create : InfraCreate
         end = range.End;
 
         Range varRange;
-        varRange = this.ExecuteVarNameRange(this.RangeB, this.Range(this.RangeA, start, end));
+        varRange = this.ExecuteNameRange(this.RangeB, this.Range(this.RangeA, start, end));
         if (varRange == null)
         {
             return null;
@@ -3106,26 +3106,6 @@ public class Create : InfraCreate
         return array;
     }
 
-    protected virtual Range ExecuteClassNameRange(Range result, Range range)
-    {
-        return this.ExecuteNameRange(result, range);
-    }
-
-    protected virtual Range ExecuteFieldNameRange(Range result, Range range)
-    {
-        return this.ExecuteNameRange(result, range);
-    }
-
-    protected virtual Range ExecuteMaideNameRange(Range result, Range range)
-    {
-        return this.ExecuteNameRange(result, range);
-    }
-
-    protected virtual Range ExecuteVarNameRange(Range result, Range range)
-    {
-        return this.ExecuteNameRange(result, range);
-    }
-
     protected virtual Range ExecuteNameRange(Range result, Range range)
     {
         int start;
@@ -3358,14 +3338,14 @@ public class Create : InfraCreate
         end = range.End;
 
         Range classRange;
-        classRange = this.ExecuteClassNameRange(this.RangeB, this.Range(this.RangeA, start, end));
+        classRange = this.ExecuteNameRange(this.RangeB, this.Range(this.RangeA, start, end));
         if (classRange == null)
         {
             return null;
         }
 
         Range nameRange;
-        nameRange = this.ExecuteVarNameRange(this.RangeC, this.Range(this.RangeA, classRange.End, end));
+        nameRange = this.ExecuteNameRange(this.RangeC, this.Range(this.RangeA, classRange.End, end));
         if (nameRange == null)
         {
             return null;
@@ -3479,14 +3459,14 @@ public class Create : InfraCreate
         }
 
         Range classRange;
-        classRange = this.ExecuteClassNameRange(this.RangeC, this.Range(this.RangeA, countRange.End, end));
+        classRange = this.ExecuteNameRange(this.RangeC, this.Range(this.RangeA, countRange.End, end));
         if (classRange == null)
         {
             return null;
         }
 
         Range nameRange;
-        nameRange = this.ExecuteFieldNameRange(this.RangeD, this.Range(this.RangeA, classRange.End, end));
+        nameRange = this.ExecuteNameRange(this.RangeD, this.Range(this.RangeA, classRange.End, end));
         if (nameRange == null)
         {
             return null;
@@ -3592,14 +3572,14 @@ public class Create : InfraCreate
         }
 
         Range classRange;
-        classRange = this.ExecuteClassNameRange(this.RangeC, this.Range(this.RangeA, countRange.End, end));
+        classRange = this.ExecuteNameRange(this.RangeC, this.Range(this.RangeA, countRange.End, end));
         if (classRange == null)
         {
             return null;
         }
 
         Range nameRange;
-        nameRange = this.ExecuteMaideNameRange(this.RangeD, this.Range(this.RangeA, classRange.End, end));
+        nameRange = this.ExecuteNameRange(this.RangeD, this.Range(this.RangeA, classRange.End, end));
         if (nameRange == null)
         {
             return null;
