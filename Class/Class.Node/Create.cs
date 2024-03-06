@@ -939,14 +939,14 @@ public class Create : InfraCreate
         nameEnd = nameRange.End;
 
         Node varClass;
-        varClass = this.ExecuteName(this.NodeKind.ClassName, this.Range(this.RangeA, classStart, classEnd));
+        varClass = this.ExecuteNameNode(this.NodeKind.ClassName, this.Range(this.RangeA, classStart, classEnd));
         if (varClass == null)
         {
             this.Error(this.ErrorKind.ClassInvalid, classStart, classEnd);
         }
 
         Node name;
-        name = this.ExecuteName(this.NodeKind.VarName, this.Range(this.RangeA, nameStart, nameEnd));
+        name = this.ExecuteNameNode(this.NodeKind.VarName, this.Range(this.RangeA, nameStart, nameEnd));
         if (name == null)
         {
             this.Error(this.ErrorKind.NameInvalid, nameStart, nameEnd);
@@ -964,22 +964,22 @@ public class Create : InfraCreate
 
     public virtual Node ExecuteClassName(Range range)
     {
-        return this.ExecuteName(this.NodeKind.ClassName, range);
+        return this.ExecuteNameNode(this.NodeKind.ClassName, range);
     }
 
     public virtual Node ExecuteFieldName(Range range)
     {
-        return this.ExecuteName(this.NodeKind.FieldName, range);
+        return this.ExecuteNameNode(this.NodeKind.FieldName, range);
     }
 
     public virtual Node ExecuteMaideName(Range range)
     {
-        return this.ExecuteName(this.NodeKind.MaideName, range);
+        return this.ExecuteNameNode(this.NodeKind.MaideName, range);
     }
 
     public virtual Node ExecuteVarName(Range range)
     {
-        return this.ExecuteName(this.NodeKind.VarName, range);
+        return this.ExecuteNameNode(this.NodeKind.VarName, range);
     }
 
     public virtual Node ExecutePart(Range range)
@@ -2514,7 +2514,7 @@ public class Create : InfraCreate
         varEnd = varRange.End;
 
         Node varVar;
-        varVar = this.ExecuteName(this.NodeKind.VarName, this.Range(this.RangeA, varStart, varEnd));
+        varVar = this.ExecuteNameNode(this.NodeKind.VarName, this.Range(this.RangeA, varStart, varEnd));
         if (varVar == null)
         {
             return null;
@@ -2555,13 +2555,13 @@ public class Create : InfraCreate
         }
         if (!b)
         {
-            node = this.ExecuteName(kind, this.Range(this.RangeA, start, end));
+            node = this.ExecuteNameNode(kind, this.Range(this.RangeA, start, end));
         }
 
         return node;
     }
 
-    protected virtual Node ExecuteName(NodeKind kind, Range range)
+    protected virtual Node ExecuteNameNode(NodeKind kind, Range range)
     {
         int start;
         int end;
