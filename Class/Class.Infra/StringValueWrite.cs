@@ -74,6 +74,7 @@ public class StringValueWrite : Any
             return false;
         }
 
+        
         this.TextPos.Row = range.Row;
         this.TextPos.Col = range.Col.Start;
 
@@ -107,108 +108,56 @@ public class StringValueWrite : Any
         while (i < count)
         {
             index = start + i;
-
-
-
             this.TextPos.Col = index;
-
-
 
             c = this.TextInfra.GetChar(text, this.TextPos);
 
-
-
             b = (c == this.Stat.BackSlash[0]);
-            
-            
-
             if (b)
             {
                 j = i + 1;
-
-
-
                 bb = (j < count);
-
-
-
                 if (!bb)
                 {
                     return false;
                 }
-
-
-                
                 this.TextPos.Col = start + j;
-
-
-
 
                 u = this.TextInfra.GetChar(text, this.TextPos);
 
-
-
-
-                bba = false;
-
-                
+                bba = false;                
                 if (u == this.Stat.Quote[0])
                 {
                     bba = true;
                 }
-                
                 if (u == 't')
                 {
                     bba = true;
                 }
-                
                 if (u == 'n')
                 {
                     bba = true;
                 }
-                
                 if (u == this.Stat.BackSlash[0])
                 {
                     bba = true;
                 }
-
-                
-
                 if (!bba)
                 {
                     return false;
                 }
-
-
-
-
                 i = i + 1;
             }
-
-
-
-
             if (!b)
             {
                 bb = (c == this.Stat.Quote[0]);
-
-
-
                 if (bb)
                 {
                     return false;
                 }                
             }
-
-
-
-
             i = i + 1;
         }
-
-
-
-
         return true;
     }
 
