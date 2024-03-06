@@ -743,14 +743,14 @@ public class Create : InfraCreate
         }
 
         Node varClass;
-        varClass = this.ExecuteNameResult(this.NodeKind.ClassName, this.Range(this.RangeA, classStart, classEnd));
+        varClass = this.ExecuteName(this.NodeKind.ClassName, this.Range(this.RangeA, classStart, classEnd));
         if (varClass == null)
         {
             this.Error(this.ErrorKind.ClassInvalid, classStart, classEnd);
         }
 
         Node name;
-        name = this.ExecuteNameResult(this.NodeKind.FieldName, this.Range(this.RangeA, nameStart, nameEnd));
+        name = this.ExecuteName(this.NodeKind.FieldName, this.Range(this.RangeA, nameStart, nameEnd));
         if (name == null)
         {
             this.Error(this.ErrorKind.NameInvalid, nameStart, nameEnd);
@@ -863,14 +863,14 @@ public class Create : InfraCreate
         }
 
         Node varClass;
-        varClass = this.ExecuteNameResult(this.NodeKind.ClassName, this.Range(this.RangeA, classStart, classEnd));
+        varClass = this.ExecuteName(this.NodeKind.ClassName, this.Range(this.RangeA, classStart, classEnd));
         if (varClass == null)
         {
             this.Error(this.ErrorKind.ClassInvalid, classStart, classEnd);
         }
 
         Node name;
-        name = this.ExecuteNameResult(this.NodeKind.MaideName, this.Range(this.RangeA, nameStart, nameEnd));
+        name = this.ExecuteName(this.NodeKind.MaideName, this.Range(this.RangeA, nameStart, nameEnd));
         if (name == null)
         {
             this.Error(this.ErrorKind.NameInvalid, nameStart, nameEnd);
@@ -1897,7 +1897,7 @@ public class Create : InfraCreate
         }
 
         Node maide;
-        maide = this.ExecuteNameResult(this.NodeKind.MaideName, this.Range(this.RangeA, maideStart, maideEnd));
+        maide = this.ExecuteName(this.NodeKind.MaideName, this.Range(this.RangeA, maideStart, maideEnd));
         if (maide == null)
         {
             this.Error(this.ErrorKind.MaideInvalid, maideStart, maideEnd);
@@ -1999,7 +1999,7 @@ public class Create : InfraCreate
         anyEnd = rightBracket.Range.Start;
 
         Node varClass;
-        varClass = this.ExecuteNameResult(this.NodeKind.ClassName, this.Range(this.RangeA, classStart, classEnd));
+        varClass = this.ExecuteName(this.NodeKind.ClassName, this.Range(this.RangeA, classStart, classEnd));
         if (varClass == null)
         {
             this.Error(this.ErrorKind.ClassInvalid, classStart, classEnd);
@@ -2427,7 +2427,7 @@ public class Create : InfraCreate
         classEnd = end;
 
         Node varClass;
-        varClass = this.ExecuteNameResult(this.NodeKind.ClassName, this.Range(this.RangeA, classStart, classEnd));
+        varClass = this.ExecuteName(this.NodeKind.ClassName, this.Range(this.RangeA, classStart, classEnd));
         if (varClass == null)
         {
             this.Error(this.ErrorKind.ClassInvalid, classStart, classEnd);
@@ -2473,7 +2473,7 @@ public class Create : InfraCreate
         }
 
         Node field;
-        field = this.ExecuteNameResult(this.NodeKind.FieldName, this.Range(this.RangeA, fieldStart, fieldEnd));
+        field = this.ExecuteName(this.NodeKind.FieldName, this.Range(this.RangeA, fieldStart, fieldEnd));
         if (field == null)
         {
             this.Error(this.ErrorKind.FieldInvalid, fieldStart, fieldEnd);
@@ -2497,7 +2497,7 @@ public class Create : InfraCreate
         end = range.End;
 
         Node varVar;
-        varVar = this.ExecuteNameResult(this.NodeKind.VarName, this.Range(this.RangeA, start, end));
+        varVar = this.ExecuteName(this.NodeKind.VarName, this.Range(this.RangeA, start, end));
         if (varVar == null)
         {
             return null;
@@ -2512,7 +2512,7 @@ public class Create : InfraCreate
         return ret;
     }
 
-    protected virtual Node ExecuteNameResult(NodeKind kind, Range range)
+    protected virtual Node ExecuteName(NodeKind kind, Range range)
     {
         int start;
         int end;
