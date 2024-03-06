@@ -939,14 +939,14 @@ public class Create : InfraCreate
         nameEnd = nameRange.End;
 
         Node varClass;
-        varClass = this.ExecuteClassName(this.Range(this.RangeA, classStart, classEnd));
+        varClass = this.ExecuteName(this.NodeKind.ClassName, this.Range(this.RangeA, classStart, classEnd));
         if (varClass == null)
         {
             this.Error(this.ErrorKind.ClassInvalid, classStart, classEnd);
         }
 
         Node name;
-        name = this.ExecuteVarName(this.Range(this.RangeA, nameStart, nameEnd));
+        name = this.ExecuteName(this.NodeKind.VarName, this.Range(this.RangeA, nameStart, nameEnd));
         if (name == null)
         {
             this.Error(this.ErrorKind.NameInvalid, nameStart, nameEnd);
