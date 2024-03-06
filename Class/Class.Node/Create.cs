@@ -638,69 +638,6 @@ public class Create : InfraCreate
             return null;
         }
 
-        if (leftBrace.Range.End == rightBrace.Range.Start)
-        {
-            return null;
-        }
-        Token getToken;
-        getToken = this.Token(this.TokenC, this.Keyword.ItemGet.Text, this.IndexRange(this.RangeA, leftBrace.Range.End));
-        if (getToken == null)
-        {
-            return null;
-        }
-
-        if (getToken.Range.End == rightBrace.Range.Start)
-        {
-            return null;
-        }
-        Token getLeftBrace;
-        getLeftBrace = this.Token(this.TokenD, this.Delimit.LeftBrace.Text, this.IndexRange(this.RangeA, getToken.Range.End));
-        if (getLeftBrace == null)
-        {
-            return null;
-        }
-
-        Token getRightBrace;
-        getRightBrace = this.TokenMatchLeftBrace(this.TokenE, this.Range(this.RangeA, getLeftBrace.Range.End, rightBrace.Range.Start));
-        if (getRightBrace == null)
-        {
-            return null;
-        }
-
-        if (getRightBrace.Range.End == rightBrace.Range.Start)
-        {
-            return null;
-        }
-        Token setToken;
-        setToken = this.Token(this.TokenF, this.Keyword.Set.Text, this.IndexRange(this.RangeA, getRightBrace.Range.End));
-        if (setToken == null)
-        {
-            return null;
-        }
-
-        if (setToken.Range.End == rightBrace.Range.Start)
-        {
-            return null;
-        }
-        Token setLeftBrace;
-        setLeftBrace = this.Token(this.TokenG, this.Delimit.LeftBrace.Text, this.IndexRange(this.RangeA, setToken.Range.End));
-        if (setLeftBrace == null)
-        {
-            return null;
-        }
-
-        Token setRightBrace;
-        setRightBrace = this.TokenMatchLeftBrace(this.TokenH, this.Range(this.RangeA, setLeftBrace.Range.End, rightBrace.Range.Start));
-        if (setRightBrace == null)
-        {
-            return null;
-        }
-
-        if (!(setRightBrace.Range.End == rightBrace.Range.Start))
-        {
-            return null;
-        }
-
         if (!(rightBrace.Range.End == end))
         {
             return null;
@@ -718,14 +655,10 @@ public class Create : InfraCreate
         int nameEnd;
         nameStart = classEnd;
         nameEnd = leftBrace.Range.Start;
-        int getStart;
-        int getEnd;
-        getStart = getLeftBrace.Range.End;
-        getEnd = getRightBrace.Range.Start;
-        int setStart;
-        int setEnd;
-        setStart = setLeftBrace.Range.End;
-        setEnd = setRightBrace.Range.Start;
+        int oStart;
+        int oEnd;
+        oStart = leftBrace.Range.End;
+        oEnd = rightBrace.Range.Start;
 
         Node count;
         count = this.ExecuteCount(this.Range(this.RangeA, countStart, countEnd));
@@ -748,18 +681,140 @@ public class Create : InfraCreate
             this.Error(this.ErrorKind.NameInvalid, nameStart, nameEnd);
         }
 
-        Node varGet;
-        varGet = this.ExecuteState(this.Range(this.RangeA, getStart, getEnd));
-        if (varGet == null)
+        bool b;
+        b = false;
+        if (!b)
         {
-            this.Error(this.ErrorKind.GetInvalid, getStart, getEnd);
+            if (leftBrace.Range.End == rightBrace.Range.Start)
+            {
+                b = true;
+            }
+        }
+        Token getToken;
+        getToken = null;
+        if (!b)
+        {
+            getToken = this.Token(this.TokenC, this.Keyword.ItemGet.Text, this.IndexRange(this.RangeA, leftBrace.Range.End));
+            if (getToken == null)
+            {
+                b = true;
+            }
         }
 
+        if (!b)
+        {
+            if (getToken.Range.End == rightBrace.Range.Start)
+            {
+                b = true;
+            }
+        }
+        Token getLeftBrace;
+        getLeftBrace = null;
+        if (!b)
+        {
+            getLeftBrace = this.Token(this.TokenD, this.Delimit.LeftBrace.Text, this.IndexRange(this.RangeA, getToken.Range.End));
+            if (getLeftBrace == null)
+            {
+                b = true;
+            }
+        }
+
+        Token getRightBrace;
+        getRightBrace = null;
+        if (!b)
+        {
+            getRightBrace = this.TokenMatchLeftBrace(this.TokenE, this.Range(this.RangeA, getLeftBrace.Range.End, rightBrace.Range.Start));
+            if (getRightBrace == null)
+            {
+                b = true;
+            }
+        }
+
+        if (!b)
+        {
+            if (getRightBrace.Range.End == rightBrace.Range.Start)
+            {
+                b = true;
+            }
+        }
+        Token setToken;
+        setToken = null;
+        if (!b)
+        {
+            setToken = this.Token(this.TokenF, this.Keyword.Set.Text, this.IndexRange(this.RangeA, getRightBrace.Range.End));
+            if (setToken == null)
+            {
+                b = true;
+            }
+        }
+
+        if (!b)
+        {
+            if (setToken.Range.End == rightBrace.Range.Start)
+            {
+                b = true;
+            }
+        }
+        Token setLeftBrace;
+        setLeftBrace = null;
+        if (!b)
+        {
+            setLeftBrace = this.Token(this.TokenG, this.Delimit.LeftBrace.Text, this.IndexRange(this.RangeA, setToken.Range.End));
+            if (setLeftBrace == null)
+            {
+                b = true;
+            }
+        }
+
+        Token setRightBrace;
+        setRightBrace = null;
+        if (!b)
+        {
+            setRightBrace = this.TokenMatchLeftBrace(this.TokenH, this.Range(this.RangeA, setLeftBrace.Range.End, rightBrace.Range.Start));
+            if (setRightBrace == null)
+            {
+                b = true;
+            }
+        }
+
+        if (!b)
+        {
+            if (!(setRightBrace.Range.End == rightBrace.Range.Start))
+            {
+                b = true;
+            }
+        }
+
+        Node varGet;
+        varGet = null;
+
         Node varSet;
-        varSet = this.ExecuteState(this.Range(this.RangeA, setStart, setEnd));
+        varSet = null;
+        
+        if (!b)
+        {
+            int getStart;
+            int getEnd;
+            getStart = getLeftBrace.Range.End;
+            getEnd = getRightBrace.Range.Start;
+            int setStart;
+            int setEnd;
+            setStart = setLeftBrace.Range.End;
+            setEnd = setRightBrace.Range.Start;
+            
+            varGet = this.ExecuteState(this.Range(this.RangeA, getStart, getEnd));
+
+            varSet = this.ExecuteState(this.Range(this.RangeA, setStart, setEnd));
+        }
+        
+        if (varGet == null)
+        {
+            this.Error(this.ErrorKind.GetInvalid, oStart, oEnd);
+        }
+
         if (varSet == null)
         {
-            this.Error(this.ErrorKind.SetInvalid, setStart, setEnd);
+            this.Error(this.ErrorKind.SetInvalid, oStart, oEnd);
         }
 
         this.OperateArg.Kind = this.NodeKind.Field;
