@@ -99,8 +99,9 @@ public class Create : InfraCreate
     public virtual Array ListArray { get; set; }
     public virtual int ErrorIndex { get; set; }
     public virtual Array ErrorArray { get; set; }
-    public virtual int StringValueIndex { get; set; }
-
+    public virtual int StringValueCharIndex { get; set; }
+    public virtual Data StringValueData { get; set; }
+    
     protected virtual CountCreateOperate CountOperate { get; set; }
     protected virtual KindCreateOperate KindOperate { get; set; }
     protected virtual SetCreateOperate SetOperate { get; set; }
@@ -296,7 +297,7 @@ public class Create : InfraCreate
         this.NodeIndex = 0;
         this.ListIndex = 0;
         this.ErrorIndex = 0;
-        this.StringValueIndex = 0;
+        this.StringValueCharIndex = 0;
 
         this.ExecuteStage();
 
@@ -307,7 +308,7 @@ public class Create : InfraCreate
         int errorCount;
         errorCount = this.ErrorIndex;
         int stringValueCount;
-        stringValueCount = this.StringValueIndex;
+        stringValueCount = this.StringValueCharIndex;
 
         this.KindData = new Data();
         this.KindData.Init();
@@ -319,12 +320,18 @@ public class Create : InfraCreate
         this.ListData.Init();
         this.ListData.Value = new byte[oa];
 
+        int oob;
+        oob = stringValueCount * sizeof(char);
+        this.StringValueData = new Data();
+        this.StringValueData.Init();
+        this.StringValueData.Value = new byte[oob];
+
         this.Operate = this.KindOperate;
 
         this.NodeIndex = 0;
         this.ListIndex = 0;
         this.ErrorIndex = 0;
-        this.StringValueIndex = 0;
+        this.StringValueCharIndex = 0;
 
         this.ExecuteStage();
 
@@ -347,6 +354,7 @@ public class Create : InfraCreate
         this.NodeIndex = 0;
         this.ListIndex = 0;
         this.ErrorIndex = 0;
+        this.StringValueCharIndex = 0;
 
         this.ExecuteStage();
 
