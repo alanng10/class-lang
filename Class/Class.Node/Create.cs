@@ -1499,11 +1499,7 @@ public class Create : InfraCreate
         }
 
         TextSpan value;
-        value = null;
-        if (value == null)
-        {
-            return null;
-        }
+        value = this.Operate.ExecuteStringValue(textSpan);
 
         this.OperateArg.Kind = this.NodeKind.StringValue;
         this.OperateArg.Start = start;
