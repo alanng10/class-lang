@@ -100,9 +100,7 @@ public class Create : InfraCreate
     public virtual int ErrorIndex { get; set; }
     public virtual Array ErrorArray { get; set; }
     public virtual int StringValueIndex { get; set; }
-    public virtual int StringValueCharIndex { get; set; }
-    public virtual Data StringValueCountData { get; set; }
-    public virtual char[] StringValueData { get; set; }
+    public virtual Data StringValueData { get; set; }
     public virtual Array StringValueArray { get; set; }
     
     protected virtual CountCreateOperate CountOperate { get; set; }
@@ -301,7 +299,6 @@ public class Create : InfraCreate
         this.ListIndex = 0;
         this.ErrorIndex = 0;
         this.StringValueIndex = 0;
-        this.StringValueCharIndex = 0;
 
         this.ExecuteStage();
 
@@ -313,8 +310,6 @@ public class Create : InfraCreate
         errorCount = this.ErrorIndex;
         int stringValueCount;
         stringValueCount = this.StringValueIndex;
-        int stringValueCharCount;
-        stringValueCharCount = this.StringValueCharIndex;
 
         this.KindData = new Data();
         this.KindData.Init();
@@ -328,11 +323,9 @@ public class Create : InfraCreate
 
         int oob;
         oob = stringValueCount * sizeof(int);
-        this.StringValueCountData = new Data();
-        this.StringValueCountData.Init();
-        this.StringValueCountData.Value = new byte[oob];
-
-        this.StringValueData = new char[stringValueCharCount];
+        this.StringValueData = new Data();
+        this.StringValueData.Init();
+        this.StringValueData.Value = new byte[oob];
         
         this.Operate = this.KindOperate;
 
@@ -352,10 +345,14 @@ public class Create : InfraCreate
         this.ErrorArray = new Array();
         this.ErrorArray.Count = errorCount;
         this.ErrorArray.Init();
+        this.StringValueArray = new Array();
+        this.StringValueArray.Count = stringValueCount;
+        this.StringValueArray.Init();
 
         this.ExecuteNodeCreate();
         this.ExecuteListCreate();
         this.ExecuteErrorCreate();
+        this.ExecuteStringValueCreate();
 
         this.Operate = this.SetOperate;
 
@@ -369,10 +366,12 @@ public class Create : InfraCreate
         this.Result.Error = this.ErrorArray;
 
         this.KindData = null;
-        this.ListData = null;
         this.NodeArray = null;
+        this.ListData = null;
         this.ListArray = null;
         this.ErrorArray = null;
+        this.StringValueData = null;
+        this.StringValueArray = null;
 
         this.OperateArgClear();
         return true;
@@ -476,7 +475,7 @@ public class Create : InfraCreate
 
     protected virtual bool ExecuteStringValueCreate()
     {
-        this.DataRead.Data = this.StringValueCountData;
+        this.DataRead.Data = this.StringValueData;
 
         int count;
         count = this.StringValueArray.Count;
@@ -486,15 +485,11 @@ public class Create : InfraCreate
         {
             long index;
             index = i * sizeof(int);
-
             int oa;
             oa = this.DataRead.ExecuteInt(index);
-
             char[] oo;
             oo = new char[oa];
-
             this.StringValueArray.Set(i, oo);
-
             i = i + 1;
         }
         return true;
