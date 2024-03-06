@@ -72,8 +72,14 @@ public class CountCreateOperate : CreateOperate
         return true;
     }
 
-    public override TextSpan ExecuteNameValue(char[] array, int index, int count)
+    public override TextSpan ExecuteNameValue(char[] array, int start, int count)
     {
+        int index;
+        index = this.Create.NameValueIndex;
+
+        index = index + 1;
+
+        this.Create.NameValueIndex = index;
         return this.TextSpan;
     }
 }
