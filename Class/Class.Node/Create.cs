@@ -964,22 +964,22 @@ public class Create : InfraCreate
 
     public virtual Node ExecuteClassName(Range range)
     {
-        return this.ExecuteNameNode(this.NodeKind.ClassName, range);
+        return this.ExecuteName(this.NodeKind.ClassName, range);
     }
 
     public virtual Node ExecuteFieldName(Range range)
     {
-        return this.ExecuteNameNode(this.NodeKind.FieldName, range);
+        return this.ExecuteName(this.NodeKind.FieldName, range);
     }
 
     public virtual Node ExecuteMaideName(Range range)
     {
-        return this.ExecuteNameNode(this.NodeKind.MaideName, range);
+        return this.ExecuteName(this.NodeKind.MaideName, range);
     }
 
     public virtual Node ExecuteVarName(Range range)
     {
-        return this.ExecuteNameNode(this.NodeKind.VarName, range);
+        return this.ExecuteName(this.NodeKind.VarName, range);
     }
 
     public virtual Node ExecutePart(Range range)
