@@ -2866,7 +2866,7 @@ public class Create : InfraCreate
         end = range.End;
 
         Array value;
-        value = this.ExecuteNodeListComma(rangeState, nodeState, this.Range(this.RangeA, start, end));
+        value = this.ExecuteListValueComma(rangeState, nodeState, this.Range(this.RangeA, start, end));
         if (value == null)
         {
             return null;
@@ -2962,7 +2962,7 @@ public class Create : InfraCreate
         return array;
     }
 
-    protected virtual Array ExecuteNodeListComma(RangeState rangeState, NodeState nodeState, Range range)
+    protected virtual Array ExecuteListValueComma(RangeState rangeState, NodeState nodeState, Range range)
     {
         int start;
         int end;
