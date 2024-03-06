@@ -517,37 +517,15 @@ public class Create : InfraCreate
             return null;
         }
 
-        Range nameRange;
-        nameRange = this.ExecuteNameRange(this.RangeB, this.Range(this.RangeA, classToken.Range.End, end));
-        if (nameRange == null)
-        {
-            return null;
-        }
-
-        if (nameRange.End == end)
-        {
-            return null;
-        }
         Token colon;
-        colon = this.Token(this.TokenB, this.Delimit.BaseSign.Text, this.IndexRange(this.RangeA, nameRange.End));
+        colon = this.TokenForward(this.TokenB, this.Delimit.BaseSign.Text, this.Range(this.RangeA, classToken.Range.End, end));
         if (colon == null)
         {
             return null;
         }
 
-        Range baseRange;
-        baseRange = this.ExecuteNameRange(this.RangeC, this.Range(this.RangeA, colon.Range.End, end));
-        if (baseRange == null)
-        {
-            return null;
-        }
-
-        if (baseRange.End == end)
-        {
-            return null;
-        }
         Token leftBrace;
-        leftBrace = this.Token(this.TokenC, this.Delimit.LeftBrace.Text, this.IndexRange(this.RangeA, baseRange.End));
+        leftBrace = this.TokenForward(this.TokenC, this.Delimit.LeftBrace.Text, this.Range(this.RangeA, colon.Range.End, end));
         if (leftBrace == null)
         {
             return null;
@@ -567,26 +545,26 @@ public class Create : InfraCreate
 
         int nameStart;
         int nameEnd;
-        nameStart = nameRange.Start;
-        nameEnd = nameRange.End;
+        nameStart = classToken.Range.End;
+        nameEnd = colon.Range.Start;
         int baseStart;
         int baseEnd;
-        baseStart = baseRange.Start;
-        baseEnd = baseRange.End;
+        baseStart = colon.Range.End;
+        baseEnd = leftBrace.Range.Start;
         int memberStart;
         int memberEnd;
         memberStart = leftBrace.Range.End;
         memberEnd = rightBrace.Range.Start;
 
         Node name;
-        name = this.ExecuteClassName(this.Range(this.RangeA, nameStart, nameEnd));
+        name = this.ExecuteName(this.NodeKind.ClassName, this.Range(this.RangeA, nameStart, nameEnd));
         if (name == null)
         {
             this.Error(this.ErrorKind.NameInvalid, nameStart, nameEnd);
         }
 
         Node varBase;
-        varBase = this.ExecuteClassName(this.Range(this.RangeA, baseStart, baseEnd));
+        varBase = this.ExecuteName(this.NodeKind.ClassName, this.Range(this.RangeA, baseStart, baseEnd));
         if (varBase == null)
         {
             this.Error(this.ErrorKind.BaseInvalid, baseStart, baseEnd);
