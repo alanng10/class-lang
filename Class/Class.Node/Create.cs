@@ -301,9 +301,9 @@ public class Create : InfraCreate
 
         this.NodeIndex = 0;
         this.ListIndex = 0;
-        this.ErrorIndex = 0;
         this.NameValueIndex = 0;
         this.StringValueIndex = 0;
+        this.ErrorIndex = 0;
 
         this.ExecuteStage();
 
@@ -311,12 +311,12 @@ public class Create : InfraCreate
         nodeCount = this.NodeIndex;
         int listCount;
         listCount = this.ListIndex;
-        int errorCount;
-        errorCount = this.ErrorIndex;
         int nameValueCount;
         nameValueCount = this.NameValueIndex;
         int stringValueCount;
         stringValueCount = this.StringValueIndex;
+        int errorCount;
+        errorCount = this.ErrorIndex;
 
         this.KindData = new Data();
         this.KindData.Init();
@@ -330,30 +330,31 @@ public class Create : InfraCreate
 
         this.NodeIndex = 0;
         this.ListIndex = 0;
-        this.ErrorIndex = 0;
         this.NameValueIndex = 0;
         this.StringValueIndex = 0;
+        this.ErrorIndex = 0;
 
         this.ExecuteStage();
 
         this.NodeArray = this.ListInfra.ArrayCreate(nodeCount);
         this.ListArray = this.ListInfra.ArrayCreate(listCount);
-        this.ErrorArray = this.ListInfra.ArrayCreate(errorCount);
         this.NameValueArray = this.ListInfra.ArrayCreate(nameValueCount);
         this.StringValueArray = this.ListInfra.ArrayCreate(stringValueCount);
+        this.ErrorArray = this.ListInfra.ArrayCreate(errorCount);
 
         this.ExecuteNodeCreate();
         this.ExecuteListCreate();
-        this.ExecuteErrorCreate();
+        this.ExecuteNameValueCreate();
         this.ExecuteStringValueCreate();
+        this.ExecuteErrorCreate();
 
         this.Operate = this.SetOperate;
 
         this.NodeIndex = 0;
         this.ListIndex = 0;
-        this.ErrorIndex = 0;
         this.NameValueIndex = 0;
         this.StringValueIndex = 0;
+        this.ErrorIndex = 0;
 
         this.ExecuteStage();
 
@@ -363,11 +364,11 @@ public class Create : InfraCreate
         this.NodeArray = null;
         this.ListData = null;
         this.ListArray = null;
-        this.ErrorArray = null;
         this.NameValueData = null;
         this.NameValueArray = null;
         this.StringValueData = null;
         this.StringValueArray = null;
+        this.ErrorArray = null;
 
         this.OperateArgClear();
         return true;
