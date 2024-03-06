@@ -75,7 +75,7 @@ csharp_prefer_braces=true:suggestion
 
 
 
-[*.{cs,csproj,cla,md,cmd,txt}]
+[*.{cs,csproj,pro,c,h,cpp,hpp,cla,md,cmd,txt}]
 end_of_line = lf
 
 charset = utf-8
