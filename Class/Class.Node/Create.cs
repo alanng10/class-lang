@@ -1427,6 +1427,8 @@ public class Create : InfraCreate
         TextRange aa;
         aa = this.TextRange(start);
 
+        
+
         string value;
         value = this.StringValueWrite.Value(this.SourceText, aa);
         if (value == null)

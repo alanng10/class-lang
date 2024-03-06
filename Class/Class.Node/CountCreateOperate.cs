@@ -56,4 +56,15 @@ public class CountCreateOperate : CreateOperate
         this.Create.ErrorIndex = index;
         return true;
     }
+
+    public override bool ExecuteStringValue()
+    {
+        int index;
+        index = this.Create.StringValueIndex;
+
+        index = index + 1;
+
+        this.Create.StringValueIndex = index;
+        return true;
+    }
 }
