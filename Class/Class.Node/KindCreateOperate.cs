@@ -5,17 +5,20 @@ public class KindCreateOperate : CreateOperate
     public override bool Init()
     {
         base.Init();
+        this.ListInfra = ListInfra.This;
+        this.TextInfra = TextInfra.This;
         this.DataWrite = new DataWrite();
         this.DataWrite.Init();
-        this.List = new Array();
-        this.List.Count = 0;
-        this.List.Init();
+        this.List = this.ListInfra.ArrayCreate(0);
+        this.TextSpan = this.TextInfra.SpanCreate(0);
         return true;
     }
 
+    protected virtual ListInfra ListInfra { get; set; }
+    protected virtual TextInfra TextInfra { get; set; }
     protected virtual DataWrite DataWrite { get; set; }
-
     protected virtual Array List { get; set; }
+    protected virtual TextSpan TextSpan { get; set; }
 
     public override Node Execute()
     {
@@ -60,6 +63,24 @@ public class KindCreateOperate : CreateOperate
         oa = index * sizeof(int);
 
         this.DataWrite.ExecuteInt(oa, count);
+        this.DataWrite.Data = null;
         return true;
+    }
+
+    public override TextSpan ExecuteNameValue(char[] array, int start, int count)
+    {
+        int index;
+        index = this.Create.NameValueIndex;
+
+        this.DataWrite.Data = this.Create.NameValueData;
+        long oa;
+        oa = index * sizeof(int);
+        this.DataWrite.ExecuteInt(oa, count);
+        this.DataWrite.Data = null;
+
+        index = index + 1;
+
+        this.Create.NameValueIndex = index;
+        return this.TextSpan;
     }
 }

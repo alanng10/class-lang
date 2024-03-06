@@ -5,14 +5,14 @@ public class CountCreateOperate : CreateOperate
     public override bool Init()
     {
         base.Init();
+        this.ListInfra = ListInfra.This;
         this.TextInfra = TextInfra.This;
-        this.List = new Array();
-        this.List.Count = 0;
-        this.List.Init();
+        this.List = this.ListInfra.ArrayCreate(0);
         this.TextSpan = this.TextInfra.SpanCreate(0);
         return true;
     }
 
+    protected virtual ListInfra ListInfra { get; set; }
     protected virtual TextInfra TextInfra { get; set; }
     protected virtual Array List { get; set; }
     protected virtual TextSpan TextSpan { get; set; }
