@@ -1976,19 +1976,14 @@ public class Create : InfraCreate
             return null;
         }
 
-        Range classRange;
-        classRange = this.ExecuteNameRange(this.RangeB, this.Range(this.RangeA, castToken.Range.End, end));
-        if (classRange == null)
-        {
-            return null;
-        }
-
-        if (classRange.End == end)
+        int leftBracketIndex;
+        leftBracketIndex = castToken.Range.End + 1;
+        if (!(leftBracketIndex < end))
         {
             return null;
         }
         Token leftBracket;
-        leftBracket = this.Token(this.TokenB, this.Delimit.LeftBracket.Text, this.IndexRange(this.RangeA, classRange.End));
+        leftBracket = this.Token(this.TokenB, this.Delimit.LeftBracket.Text, this.IndexRange(this.RangeA, leftBracketIndex));
         if (leftBracket == null)
         {
             return null;
@@ -2008,15 +2003,15 @@ public class Create : InfraCreate
 
         int classStart;
         int classEnd;
-        classStart = classRange.Start;
-        classEnd = classRange.End;
+        classStart = castToken.Range.End;
+        classEnd = leftBracketIndex;
         int anyStart;
         int anyEnd;
         anyStart = leftBracket.Range.End;
         anyEnd = rightBracket.Range.Start;
 
         Node varClass;
-        varClass = this.ExecuteClassName(this.Range(this.RangeA, classStart, classEnd));
+        varClass = this.ExecuteNameResult(this.NodeKind.ClassName, this.Range(this.RangeA, classStart, classEnd));
         if (varClass == null)
         {
             this.Error(this.ErrorKind.ClassInvalid, classStart, classEnd);
