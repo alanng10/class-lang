@@ -632,14 +632,8 @@ public class Create : InfraCreate
             return null;
         }
 
-        int leftBraceIndex;
-        leftBraceIndex = countRange.End + 2;
-        if (!(leftBraceIndex < end))
-        {
-            return null;
-        }
         Token leftBrace;
-        leftBrace = this.Token(this.TokenA, this.Delimit.LeftBrace.Text, this.IndexRange(this.RangeA, leftBraceIndex));
+        leftBrace = this.TokenForward(this.TokenA, this.Delimit.LeftBrace.Text, this.Range(this.RangeA, countRange.End, end));
         if (leftBrace == null)
         {
             return null;
