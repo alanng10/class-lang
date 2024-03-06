@@ -120,4 +120,24 @@ public class SetCreateOperate : CreateOperate
         this.Create.NameValueIndex = index;
         return a;
     }
+
+    public override TextSpan ExecuteStringValue(TextSpan span)
+    {
+        int index;
+        index = this.Create.StringValueIndex;
+
+        TextSpan a;
+        a = (TextSpan)this.Create.StringValueArray.Get(index);
+        StringValueWrite write;
+        write = this.Create.StringValueWrite;
+        write.WriteOperate = write.AddWriteOperate;
+        write.Index = 0;
+        write.Array = a.Data;
+        write.ExecuteValueString(span);
+        write.Array = null;
+        index = index + 1;
+
+        this.Create.StringValueIndex = index;
+        return a;
+    }
 }
