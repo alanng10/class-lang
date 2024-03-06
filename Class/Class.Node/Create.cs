@@ -2843,7 +2843,7 @@ public class Create : InfraCreate
         end = range.End;
 
         Array value;
-        value = this.ExecuteNodeList(rangeState, nodeState, this.Range(this.RangeA, start, end));
+        value = this.ExecuteListValue(rangeState, nodeState, this.Range(this.RangeA, start, end));
         if (value == null)
         {
             return null;
@@ -2881,7 +2881,7 @@ public class Create : InfraCreate
         return ret;
     }
 
-    protected virtual Array ExecuteNodeList(RangeState rangeState, NodeState nodeState, Range range)
+    protected virtual Array ExecuteListValue(RangeState rangeState, NodeState nodeState, Range range)
     {
         int start;
         int end;
