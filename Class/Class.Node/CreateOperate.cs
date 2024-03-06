@@ -33,4 +33,14 @@ public class CreateOperate : Any
     {
         return true;
     }
+
+    public virtual bool ExecuteStringValueNew()
+    {
+        return true;
+    }
+
+    public virtual bool ExecuteStringValueCount()
+    {
+        return true;
+    }
 }
