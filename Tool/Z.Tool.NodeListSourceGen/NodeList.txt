@@ -131,7 +131,7 @@ IntSignHexValue : Value
     Int Value
 
 StringValue : Value
-    String Value
+    CharArray Value
 
 ClassName : Node
     String Value
