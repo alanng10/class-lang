@@ -803,26 +803,14 @@ public class Create : InfraCreate
             return null;
         }
 
-        Range classRange;
-        classRange = this.ExecuteClassNameRange(this.RangeC, this.Range(this.RangeA, countRange.End, end));
-        if (classRange == null)
-        {
-            return null;
-        }
-
-        Range nameRange;
-        nameRange = this.ExecuteMaideNameRange(this.RangeD, this.Range(this.RangeA, classRange.End, end));
-        if (nameRange == null)
-        {
-            return null;
-        }
-
-        if (nameRange.End == end)
+        int leftBracketIndex;
+        leftBracketIndex = countRange.End + 2;
+        if (!(leftBracketIndex < end))
         {
             return null;
         }
         Token leftBracket;
-        leftBracket = this.Token(this.TokenA, this.Delimit.LeftBracket.Text, this.IndexRange(this.RangeA, nameRange.End));
+        leftBracket = this.Token(this.TokenA, this.Delimit.LeftBracket.Text, this.IndexRange(this.RangeA, leftBracketIndex));
         if (leftBracket == null)
         {
             return null;
@@ -864,12 +852,12 @@ public class Create : InfraCreate
         countEnd = countRange.End;
         int classStart;
         int classEnd;
-        classStart = classRange.Start;
-        classEnd = classRange.End;
+        classStart = countEnd;
+        classEnd = classStart + 1;
         int nameStart;
         int nameEnd;
-        nameStart = nameRange.Start;
-        nameEnd = nameRange.End;
+        nameStart = classEnd;
+        nameEnd = nameStart + 1;
         int paramStart;
         int paramEnd;
         paramStart = leftBracket.Range.End;
@@ -887,14 +875,14 @@ public class Create : InfraCreate
         }
 
         Node varClass;
-        varClass = this.ExecuteClassName(this.Range(this.RangeA, classStart, classEnd));
+        varClass = this.ExecuteNameResult(this.NodeKind.ClassName, this.Range(this.RangeA, classStart, classEnd));
         if (varClass == null)
         {
             this.Error(this.ErrorKind.ClassInvalid, classStart, classEnd);
         }
 
         Node name;
-        name = this.ExecuteMaideName(this.Range(this.RangeA, nameStart, nameEnd));
+        name = this.ExecuteNameResult(this.NodeKind.MaideName, this.Range(this.RangeA, nameStart, nameEnd));
         if (name == null)
         {
             this.Error(this.ErrorKind.NameInvalid, nameStart, nameEnd);
