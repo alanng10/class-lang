@@ -1459,7 +1459,7 @@ public class Create : InfraCreate
         
 
         TextSpan value;
-        value = this.Operate.ExecuteTextSpan(null, -1, -1);
+        value = null;
         if (value == null)
         {
             return null;
@@ -3554,13 +3554,13 @@ public class Create : InfraCreate
         line = this.SourceText.GetLine(aa.Row);
         char[] array;
         array = line.Value;
-        int spanStart;
-        spanStart = aa.Col.Start;
-        int spanEnd;
-        spanEnd = aa.Col.End;
+        int index;
+        index = aa.Col.Start;
+        int count;
+        count = this.Count(aa.Col);
 
         TextSpan a;
-        a = this.Operate.ExecuteTextSpan(array, spanStart, spanEnd);
+        a = this.Operate.ExecuteNameValue(array, index, count);
         return a;
     }
 
