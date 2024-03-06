@@ -1458,8 +1458,8 @@ public class Create : InfraCreate
 
         
 
-        string value;
-        value = this.StringValueWrite.Value(this.SourceText, aa);
+        TextSpan value;
+        value = this.Operate.ExecuteTextSpan(null, -1, -1);
         if (value == null)
         {
             return null;
