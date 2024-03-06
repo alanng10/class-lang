@@ -96,12 +96,13 @@ public class SetCreateOperate : CreateOperate
 
         TextSpan a;
         a = (TextSpan)this.Create.NameValueArray.Get(index);
-        
+        char[] oa;
+        oa = a.Data;
         int i;
         i = 0;
         while (i < count)
         {
-            a.Data[i] = array[start + i];
+            oa[i] = array[start + i];
             i = i + 1;
         }
 
