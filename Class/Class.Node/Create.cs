@@ -335,18 +335,11 @@ public class Create : InfraCreate
 
         this.ExecuteStage();
 
-        this.NodeArray = new Array();
-        this.NodeArray.Count = nodeCount;
-        this.NodeArray.Init();
-        this.ListArray = new Array();
-        this.ListArray.Count = listCount;
-        this.ListArray.Init();
-        this.ErrorArray = new Array();
-        this.ErrorArray.Count = errorCount;
-        this.ErrorArray.Init();
-        this.StringValueArray = new Array();
-        this.StringValueArray.Count = stringValueCount;
-        this.StringValueArray.Init();
+        this.NodeArray = this.ListInfra.ArrayCreate(nodeCount);
+        this.ListArray = this.ListInfra.ArrayCreate(listCount);
+        this.ErrorArray = this.ListInfra.ArrayCreate(errorCount);
+        this.NameValueArray = this.ListInfra.ArrayCreate(nameValueCount);
+        this.StringValueArray = this.ListInfra.ArrayCreate(stringValueCount);
 
         this.ExecuteNodeCreate();
         this.ExecuteListCreate();
@@ -370,6 +363,8 @@ public class Create : InfraCreate
         this.ListData = null;
         this.ListArray = null;
         this.ErrorArray = null;
+        this.NameValueData = null;
+        this.NameValueArray = null;
         this.StringValueData = null;
         this.StringValueArray = null;
 
