@@ -100,7 +100,7 @@ public class KindCreateOperate : CreateOperate
         write.ExecuteValueString(span);
         int count;
         count = write.Index;
-        this.DataWrite.Data = this.Create.NameValueData;
+        this.DataWrite.Data = this.Create.StringValueData;
         long oa;
         oa = index * sizeof(int);
         this.DataWrite.ExecuteInt(oa, count);
