@@ -1486,7 +1486,7 @@ public class Create : InfraCreate
         aa = this.TextRange(start);
         TextSpan textSpan;
         textSpan = this.TextSpan;
-        this.TextSpanGet(this.TextSpan, aa);
+        this.TextSpanGet(textSpan, aa);
 
         bool b;
         b = this.StringValueWrite.CheckValueString(textSpan);
