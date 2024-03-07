@@ -683,7 +683,7 @@ public class Create : InfraCreate
         }
 
         Token leftBrace;
-        leftBrace = this.TokenForward(this.TokenA, this.Delimit.LeftBrace.Text, this.Range(this.RangeA, countRange.End, end));
+        leftBrace = this.TokenForwardNoSkip(this.TokenA, this.Delimit.LeftBrace.Text, this.Range(this.RangeA, countRange.End, end));
         if (leftBrace == null)
         {
             return null;
@@ -3958,6 +3958,62 @@ public class Create : InfraCreate
         }
 
         this.Range(result.Range, start, end);
+        return result;
+    }
+
+    protected virtual Token TokenForwardNoSkip(Token result, string value, Range range)
+    {
+        int start;
+        int end;
+        start = range.Start;
+        end = range.End;
+        string leftBracket;
+        string rightBracket;
+        leftBracket = this.Delimit.LeftBracket.Text;
+        rightBracket = this.Delimit.RightBracket.Text;
+        string leftBrace;
+        string rightBrace;
+        leftBrace = this.Delimit.LeftBrace.Text;
+        rightBrace = this.Delimit.RightBrace.Text;
+        int i;
+        i = start;
+        int index;
+        index = -1;
+        bool varContinue;
+        varContinue = i < end;
+        while (varContinue)
+        {
+            bool b;
+            b = this.IsText(value, i);
+            if (b)
+            {
+                index = i;
+                varContinue = false;
+            }
+            if (!b)
+            {
+                bool ba;
+                ba = (this.IsText(leftBracket, i) | this.IsText(rightBracket, i) | this.IsText(leftBrace, i) | this.IsText(rightBrace, i));
+                if (ba)
+                {
+                    varContinue = false;
+                }
+                if (!ba)
+                {
+                    i = i + 1;
+                }
+            }
+            if (!(i < end))
+            {
+                varContinue = false;
+            }
+        }
+        if (index == -1)
+        {
+            return null;
+        }
+
+        this.IndexRange(result.Range, index);
         return result;
     }
 
