@@ -1,12 +1,15 @@
 Maide
 {
+    Class : ClassName
+            {
+                Value : "Int",
+            },
     Name : MaideName
            {
                Value : "Ff",
            },
-    Class : ClassName
+    Count : PrudateCount
             {
-                Value : "Int",
             },
     Param : Param
             {
@@ -18,7 +21,4 @@ Maide
                Value : [
                        ],
            },
-    Access : PrudateCount
-             {
-             },
 },
