@@ -743,7 +743,7 @@ public class Create : InfraCreate
         b = false;
         if (!b)
         {
-            if (leftBrace.Range.End == rightBrace.Range.Start)
+            if (oStart == oEnd)
             {
                 b = true;
             }
@@ -752,7 +752,7 @@ public class Create : InfraCreate
         getToken = null;
         if (!b)
         {
-            getToken = this.Token(this.TokenC, this.Keyword.ItemGet.Text, this.IndexRange(this.RangeA, leftBrace.Range.End));
+            getToken = this.Token(this.TokenC, this.Keyword.ItemGet.Text, this.IndexRange(this.RangeA, oStart));
             if (getToken == null)
             {
                 b = true;
@@ -761,7 +761,7 @@ public class Create : InfraCreate
 
         if (!b)
         {
-            if (getToken.Range.End == rightBrace.Range.Start)
+            if (getToken.Range.End == oEnd)
             {
                 b = true;
             }
@@ -781,7 +781,7 @@ public class Create : InfraCreate
         getRightBrace = null;
         if (!b)
         {
-            getRightBrace = this.TokenMatchLeftBrace(this.TokenE, this.Range(this.RangeA, getLeftBrace.Range.End, rightBrace.Range.Start));
+            getRightBrace = this.TokenMatchLeftBrace(this.TokenE, this.Range(this.RangeA, getLeftBrace.Range.End, oEnd));
             if (getRightBrace == null)
             {
                 b = true;
@@ -790,7 +790,7 @@ public class Create : InfraCreate
 
         if (!b)
         {
-            if (getRightBrace.Range.End == rightBrace.Range.Start)
+            if (getRightBrace.Range.End == oEnd)
             {
                 b = true;
             }
@@ -808,7 +808,7 @@ public class Create : InfraCreate
 
         if (!b)
         {
-            if (setToken.Range.End == rightBrace.Range.Start)
+            if (setToken.Range.End == oEnd)
             {
                 b = true;
             }
@@ -828,7 +828,7 @@ public class Create : InfraCreate
         setRightBrace = null;
         if (!b)
         {
-            setRightBrace = this.TokenMatchLeftBrace(this.TokenH, this.Range(this.RangeA, setLeftBrace.Range.End, rightBrace.Range.Start));
+            setRightBrace = this.TokenMatchLeftBrace(this.TokenH, this.Range(this.RangeA, setLeftBrace.Range.End, oEnd));
             if (setRightBrace == null)
             {
                 b = true;
@@ -837,7 +837,7 @@ public class Create : InfraCreate
 
         if (!b)
         {
-            if (!(setRightBrace.Range.End == rightBrace.Range.Start))
+            if (!(setRightBrace.Range.End == oEnd))
             {
                 b = true;
             }
@@ -848,7 +848,6 @@ public class Create : InfraCreate
 
         Node varSet;
         varSet = null;
-        
         if (!b)
         {
             int getStart;
