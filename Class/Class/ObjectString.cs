@@ -256,6 +256,18 @@ class ObjectString : Any
 
             return true;
         }
+        if (varObject is TextSpan)
+        {
+            TextSpan oo;
+            oo = (TextSpan)varObject;
+
+            string oooa;
+            oooa = this.TextInfra.StringCreate(oo);
+            oooa = this.EscapeString(oooa);
+
+            this.Append("\"").Append(oooa).Append("\"").Append(",").AppendLine();
+            return true;
+        }
 
 
 
