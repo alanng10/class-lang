@@ -1,39 +1,18 @@
-Member
+Part
 {
     Value : [
                 Field
                 {
-                    Name : FieldName
-                           {
-                               Value : "Hh",
-                           },
                     Class : ClassName
                             {
                                 Value : "Bool",
                             },
-                    Get : State
-                          {
-                              Value : [
-                                      ],
-                          },
-                    Set : State
-                          {
-                              Value : [
-                                      ],
-                          },
-                    Access : PrudateCount
-                             {
-                             },
-                },
-                Field
-                {
                     Name : FieldName
                            {
-                               Value : "Kk",
+                               Value : "Hh",
                            },
-                    Class : ClassName
+                    Count : PrudateCount
                             {
-                                Value : "Int",
                             },
                     Get : State
                           {
@@ -45,19 +24,43 @@ Member
                               Value : [
                                       ],
                           },
-                    Access : PrudateCount
-                             {
-                             },
+                },
+                Field
+                {
+                    Class : ClassName
+                            {
+                                Value : "Int",
+                            },
+                    Name : FieldName
+                           {
+                               Value : "Kk",
+                           },
+                    Count : PrudateCount
+                            {
+                            },
+                    Get : State
+                          {
+                              Value : [
+                                      ],
+                          },
+                    Set : State
+                          {
+                              Value : [
+                                      ],
+                          },
                 },
                 Maide
                 {
+                    Class : ClassName
+                            {
+                                Value : "String",
+                            },
                     Name : MaideName
                            {
                                Value : "Dy",
                            },
-                    Class : ClassName
+                    Count : PrudateCount
                             {
-                                Value : "String",
                             },
                     Param : Param
                             {
@@ -69,9 +72,6 @@ Member
                                Value : [
                                        ],
                            },
-                    Access : PrudateCount
-                             {
-                             },
                 },
             ],
 },
