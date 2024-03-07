@@ -2075,7 +2075,7 @@ public class Create : InfraCreate
         }
 
         Token leftBracket;
-        leftBracket = this.TokenForward(this.TokenB, this.Delimit.LeftBracket.Text, this.Range(this.RangeA, castToken.Range.End, end));
+        leftBracket = this.TokenForwardNoSkip(this.TokenB, this.Delimit.LeftBracket.Text, this.Range(this.RangeA, castToken.Range.End, end));
         if (leftBracket == null)
         {
             return null;
