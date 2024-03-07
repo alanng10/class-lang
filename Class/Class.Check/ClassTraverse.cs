@@ -6,6 +6,16 @@ namespace Class.Check;
 
 class ClassTraverse : Traverse
 {
+    public override bool Init()
+    {
+        base.Init();
+        this.TextInfra = TextInfra.This;
+        return true;
+    }
+
+
+    protected virtual TextInfra TextInfra { get; set; }
+
     public override bool ExecuteClass(NodeClass nodeClass)
     {
         if (nodeClass == null)
@@ -24,7 +34,7 @@ class ClassTraverse : Traverse
 
 
 
-        string className;
+        TextSpan className;
 
 
         className = name.Value;
