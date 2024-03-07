@@ -31,7 +31,7 @@ public class SystemClass : Any
     public override bool Init()
     {
         base.Init();
-
+        this.TextInfra = TextInfra.This;
 
 
         
