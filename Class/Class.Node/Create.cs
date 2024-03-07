@@ -605,7 +605,7 @@ public class Create : InfraCreate
         }
 
         Token leftBrace;
-        leftBrace = this.TokenForward(this.TokenC, this.Delimit.LeftBrace.Text, this.Range(this.RangeA, colon.Range.End, end));
+        leftBrace = this.TokenForwardNoSkip(this.TokenC, this.Delimit.LeftBrace.Text, this.Range(this.RangeA, colon.Range.End, end));
         if (leftBrace == null)
         {
             return null;
