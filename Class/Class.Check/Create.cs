@@ -10,12 +10,8 @@ public class Create : InfraCreate
     public override bool Init()
     {
         base.Init();
-
-
-
-
         this.ListInfra = ListInfra.This;
-
+        this.TextInfra = TextInfra.This;
 
 
 
@@ -110,7 +106,7 @@ public class Create : InfraCreate
 
 
     protected virtual ListInfra ListInfra { get; set; }
-
+    protected virtual TextInfra TextInfra { get; set; }
 
 
 
@@ -137,7 +133,7 @@ public class Create : InfraCreate
 
 
 
-        this.Result.Error = this.ListInfra.CreateArray(this.ErrorList);
+        this.Result.Error = this.ListInfra.ArrayCreateList(this.ErrorList);
 
 
 
@@ -404,7 +400,7 @@ public class Create : InfraCreate
 
 
 
-        varClass.Name = "Any";
+        varClass.Name = this.TextInfra.SpanCreateString("Any");
 
 
 
@@ -817,7 +813,7 @@ public class Create : InfraCreate
 
 
 
-        string baseName;
+        TextSpan baseName;
 
 
         
@@ -1196,7 +1192,7 @@ public class Create : InfraCreate
 
 
 
-    public InfraClass Class(string name)
+    public InfraClass Class(TextSpan name)
     {
         InfraClass varClass;
 
