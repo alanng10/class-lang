@@ -1,15 +1,18 @@
-Member
+Part
 {
     Value : [
                 Field
                 {
+                    Class : ClassName
+                            {
+                                Value : "Gg",
+                            },
                     Name : FieldName
                            {
                                Value : "Hh",
                            },
-                    Class : ClassName
+                    Count : PrudateCount
                             {
-                                Value : "Gg",
                             },
                     Get : State
                           {
@@ -21,9 +24,6 @@ Member
                               Value : [
                                       ],
                           },
-                    Access : PrudateCount
-                             {
-                             },
                 },
             ],
 },
