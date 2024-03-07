@@ -902,7 +902,7 @@ public class Create : InfraCreate
         }
 
         Token leftBracket;
-        leftBracket = this.TokenForward(this.TokenA, this.Delimit.LeftBracket.Text, this.Range(this.RangeA, countRange.End, end));
+        leftBracket = this.TokenForwardNoSkip(this.TokenA, this.Delimit.LeftBracket.Text, this.Range(this.RangeA, countRange.End, end));
         if (leftBracket == null)
         {
             return null;
@@ -3533,7 +3533,7 @@ public class Create : InfraCreate
         }
 
         Token leftBracket;
-        leftBracket = this.TokenForward(this.TokenA, this.Delimit.LeftBracket.Text, this.Range(this.RangeA, countRange.End, end));
+        leftBracket = this.TokenForwardNoSkip(this.TokenA, this.Delimit.LeftBracket.Text, this.Range(this.RangeA, countRange.End, end));
         if (leftBracket == null)
         {
             return null;
