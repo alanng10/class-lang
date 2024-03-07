@@ -3,7 +3,7 @@ Kind: ItemInvalid
 Range: (0, 1)
 Source: Code
 --------------------------------------------------
-Member
+Part
 {
     Value : [
                 null,
