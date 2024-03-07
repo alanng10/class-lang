@@ -58,10 +58,7 @@ public class SystemClass : Any
         return true;
     }
 
-
-
-
-
+    protected virtual TextInfra TextInfra { get; set; }
 
     private InfraClass NewClass(string name)
     {
@@ -74,7 +71,7 @@ public class SystemClass : Any
         c.Init();
 
 
-        c.Name = name;
+        c.Name = this.TextInfra.SpanCreateString(name);
 
 
 
