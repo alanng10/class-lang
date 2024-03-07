@@ -326,7 +326,7 @@ class MemberTraverse : Traverse
 
 
 
-        string methodName;
+        TextSpan methodName;
 
 
 
@@ -336,7 +336,7 @@ class MemberTraverse : Traverse
 
 
 
-        string className;
+        TextSpan className;
 
 
         
@@ -538,21 +538,21 @@ class MemberTraverse : Traverse
         ClassName nodeClass;
 
         nodeClass = nodeVar.Class;
-            
 
 
 
 
-        string varName;
+
+        TextSpan varName;
 
 
         varName = name.Value;
-            
 
 
 
 
-        string className;
+
+        TextSpan className;
 
 
         className = null;
