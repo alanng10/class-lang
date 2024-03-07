@@ -4,7 +4,7 @@ namespace Class.Infra;
 
 public class Field : Any
 {
-    public virtual string Name { get; set; }
+    public virtual TextSpan Name { get; set; }
 
 
 
