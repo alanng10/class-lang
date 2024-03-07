@@ -478,7 +478,7 @@ public class Create : InfraCreate
         method.Class = varClass;
 
 
-        method.Name = name;
+        method.Name = this.TextInfra.SpanCreateString(name);
 
 
         method.Count = access;
