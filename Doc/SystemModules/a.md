@@ -9,4 +9,4 @@ A frame is a window in Windows and Ubuntu.
 
 The system modules classes have execute certainty enough to be used in any module that needs high execute certainty.
 
-The system modules classes have abstract enough so that they are suitable to be used without additional wrapping. 
+The system modules classes have abstract enough for their purposes so that they are suitable to be used for their purposes without additional wrapping. 
