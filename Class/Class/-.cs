@@ -9,6 +9,7 @@ global using ArrayIter = Avalon.List.ArrayIter;
 global using TableIter = Avalon.List.TableIter;
 global using TableEntry = Avalon.List.Entry;
 global using Text = Avalon.Text.Text;
+global using TextSpan = Avalon.Text.Span;
 global using TextRange = Avalon.Text.Range;
 global using TextPos = Avalon.Text.Pos;
 global using TextLine = Avalon.Text.Line;

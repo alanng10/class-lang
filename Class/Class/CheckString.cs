@@ -5,6 +5,14 @@ namespace Class;
 
 public class CheckString : Any
 {
+    public override bool Init()
+    {
+        base.Init();
+        this.InfraInfra = InfraInfra.This;
+        return true;
+    }
+
+
     private StringBuilder Builder { get; set; }
 
 
@@ -22,7 +30,7 @@ public class CheckString : Any
 
     public string Path { get; set; }
 
-
+    protected virtual InfraInfra InfraInfra { get; set; }
 
 
 
@@ -306,7 +314,7 @@ public class CheckString : Any
 
 
 
-        this.Append(varClass.Name);
+        this.AppendTextSpan(varClass.Name);
 
 
 
@@ -349,7 +357,7 @@ public class CheckString : Any
 
 
 
-        this.Append(field.Name);
+        this.AppendTextSpan(field.Name);
 
 
 
@@ -394,7 +402,7 @@ public class CheckString : Any
 
 
 
-        this.Append(method.Name);
+        this.AppendTextSpan(method.Name);
 
 
 
@@ -419,7 +427,7 @@ public class CheckString : Any
 
 
 
-        this.Append(varVar.Name);
+        this.AppendTextSpan(varVar.Name);
 
 
 
@@ -444,6 +452,14 @@ public class CheckString : Any
         this.Builder.Append("<Null>");
 
 
+        return true;
+    }
+
+    protected bool AppendTextSpan(TextSpan a)
+    {
+        int count;
+        count = this.InfraInfra.Count(a.Range);
+        this.Builder.Append(a.Data, a.Range.Start, count);
         return true;
     }
 
