@@ -3477,11 +3477,11 @@ public class Create : InfraCreate
         a = null;
         if (a == null)
         {
-            a = this.ExecuteMaideRange(result, this.Range(this.RangeA, start, end));
+            a = this.ExecuteFieldRange(result, this.Range(this.RangeA, start, end));
         }
         if (a == null)
         {
-            a = this.ExecuteFieldRange(result, this.Range(this.RangeA, start, end));
+            a = this.ExecuteMaideRange(result, this.Range(this.RangeA, start, end));
         }
         return a;
     }
