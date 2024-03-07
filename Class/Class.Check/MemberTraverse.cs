@@ -99,7 +99,7 @@ class MemberTraverse : Traverse
 
 
 
-        string fieldName;
+        TextSpan fieldName;
 
 
         fieldName = name.Value;
@@ -108,7 +108,7 @@ class MemberTraverse : Traverse
 
 
 
-        string className;
+        TextSpan className;
 
         
         className = nodeClass.Value;
@@ -678,7 +678,7 @@ class MemberTraverse : Traverse
 
 
 
-    private bool IsMemberNameDefined(string name)
+    private bool IsMemberNameDefined(TextSpan name)
     {
         bool ba;
 
