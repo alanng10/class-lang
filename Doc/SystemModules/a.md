@@ -19,4 +19,4 @@ The models include entities that have unbounded ranges of purposes.
 The system module with module name System.Draw has drawing classes to draw 2D primitives. The classes can draw model diagrams including 2D view of anything in model. They can draw model diagrams that are maps.
 Class language elements and system modules classes can be used to view, store, and transfer model diagrams.
 Modules can output info by storing and transferring models in text and models in diagram.
-Models in text and in diagram are sufficient ways to represent info effectively.
+Models in text and in diagram are sufficient ways to represent info effectively. One of the reason they are effective is that they can be presented in video without using 3D visual. Users have no need to interpret 3D visual that way.
