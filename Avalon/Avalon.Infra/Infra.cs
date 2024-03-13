@@ -54,6 +54,10 @@ public class Infra : Any
         {
             return false;
         }
+        if (countA < 0)
+        {
+            return false;
+        }
         if (count < index + countA)
         {
             return false;
@@ -68,6 +72,10 @@ public class Infra : Any
         index = range.Index;
         countA = range.Count;
         if (index < 0)
+        {
+            return false;
+        }
+        if (countA < 0)
         {
             return false;
         }
