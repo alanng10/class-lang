@@ -3603,7 +3603,7 @@ public class Create : InfraCreate
         int start;
         start = aa.Col.Index;
         int count;
-        count = this.InfraCount(aa.Col);
+        count = aa.Col.Count;
 
         if (!this.IsIntChar(array, start, count))
         {
@@ -3615,7 +3615,7 @@ public class Create : InfraCreate
     protected virtual bool IsIntHexValue(TextRange aa)
     {
         int count;
-        count = this.InfraCount(aa.Col);
+        count = aa.Col.Count;
 
         if (count < 3)
         {
@@ -3628,7 +3628,7 @@ public class Create : InfraCreate
         char[] array;
         array = line.Value;
         int start;
-        start = aa.Col.Start;
+        start = aa.Col.Index;
 
         if (!(array[start] == '0'))
         {
