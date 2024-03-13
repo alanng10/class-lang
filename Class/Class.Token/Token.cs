@@ -6,5 +6,5 @@ namespace Class.Token;
 
 public class Token : Any
 {
-    public virtual Range Range { get; set; }
+    public virtual TextRange Range { get; set; }
 }

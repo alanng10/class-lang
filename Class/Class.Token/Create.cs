@@ -61,7 +61,7 @@ public class Create : InfraCreate
 
 
 
-        this.Range = new Range();
+        this.Range = new TextRange();
 
 
         this.Range.Init();
@@ -156,7 +156,7 @@ public class Create : InfraCreate
 
 
 
-    public virtual Range Range { get; set; }
+    public virtual TextRange Range { get; set; }
 
 
 
@@ -730,7 +730,7 @@ public class Create : InfraCreate
             token.Init();
 
 
-            token.Range = new Range();
+            token.Range = new TextRange();
 
             token.Range.Init();
 
@@ -779,7 +779,7 @@ public class Create : InfraCreate
             comment.Init();
 
 
-            comment.Range = new Range();
+            comment.Range = new TextRange();
 
             comment.Range.Init();
 
@@ -861,7 +861,7 @@ public class Create : InfraCreate
 
 
 
-    protected virtual bool SetRangeNull(Range range)
+    protected virtual bool SetRangeNull(TextRange range)
     {
         range.Row = this.IntNull;
 

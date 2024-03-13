@@ -7,5 +7,5 @@ namespace Class.Token;
 
 public class Comment : Any
 {
-    public virtual Range Range { get; set; }
+    public virtual TextRange Range { get; set; }
 }
