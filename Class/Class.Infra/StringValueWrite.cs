@@ -67,7 +67,7 @@ public class StringValueWrite : Any
 
     public virtual bool CheckValueString(TextSpan textSpan)
     {
-        Range range;
+        InfraRange range;
         range = textSpan.Range;
         int kk;
         kk = this.InfraInfra.Count(range);
@@ -178,7 +178,7 @@ public class StringValueWrite : Any
     {
         char[] data;
         data = textSpan.Data;
-        Range range;
+        InfraRange range;
         range = textSpan.Range;
         int kk;
         kk = this.InfraInfra.Count(range);
