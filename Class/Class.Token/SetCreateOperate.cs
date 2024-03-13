@@ -59,10 +59,10 @@ public class SetCreateOperate : CreateOperate
 
 
 
-        aa.Start = ab.Start;
+        aa.Index = ab.Index;
         
         
-        aa.End = ab.End;
+        aa.Count = ab.Count;
 
 
 
@@ -132,10 +132,10 @@ public class SetCreateOperate : CreateOperate
 
 
 
-        aa.Start = ab.Start;
+        aa.Index = ab.Index;
 
 
-        aa.End = ab.End;
+        aa.Count = ab.Count;
 
 
 
