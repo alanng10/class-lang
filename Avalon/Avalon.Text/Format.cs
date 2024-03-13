@@ -53,9 +53,9 @@ public class Format : Any
         InfraRange range;
         range = varBase.Range;
         int baseIndex;
-        baseIndex = range.Start;
+        baseIndex = range.Index;
         int baseCount;
-        baseCount = this.InfraInfra.Count(range);
+        baseCount = range.Count;
 
         ulong baseIndexU;
         baseIndexU = (ulong)baseIndex;
@@ -73,15 +73,15 @@ public class Format : Any
         InfraRange baseRange;
         baseRange = varBase.Range;
         int baseIndex;
-        baseIndex = baseRange.Start;
+        baseIndex = baseRange.Index;
         int baseCount;
-        baseCount = this.InfraInfra.Count(baseRange);
+        baseCount = baseRange.Count;
         InfraRange resultRange;
         resultRange = result.Range;
         int resultIndex;
-        resultIndex = resultRange.Start;
+        resultIndex = resultRange.Index;
         int resultCount;
-        resultCount = this.InfraInfra.Count(resultRange);
+        resultCount = resultRange.Count;
 
         ulong baseIndexU;
         baseIndexU = (ulong)baseIndex;
@@ -109,9 +109,9 @@ public class Format : Any
         InfraRange range;
         range = result.Range;
         int resultIndex;
-        resultIndex = range.Start;
+        resultIndex = range.Index;
         int resultCount;
-        resultCount = this.InfraInfra.Count(range);
+        resultCount = range.Count;
 
         ulong resultIndexU;
         resultIndexU = (ulong)resultIndex;
