@@ -70,7 +70,7 @@ public class StringValueWrite : Any
         InfraRange range;
         range = textSpan.Range;
         int kk;
-        kk = this.InfraInfra.Count(range);
+        kk = range.Count;
         if (kk < 2)
         {
             return false;
@@ -79,9 +79,9 @@ public class StringValueWrite : Any
         char[] data;
         data = textSpan.Data;
         int rangeStart;
-        rangeStart = range.Start;
+        rangeStart = range.Index;
         int rangeEnd;
-        rangeEnd = range.End;
+        rangeEnd = range.Index + range.Count;
 
         char quote;
         quote = this.Stat.Quote[0];
@@ -181,7 +181,7 @@ public class StringValueWrite : Any
         InfraRange range;
         range = textSpan.Range;
         int kk;
-        kk = this.InfraInfra.Count(range);
+        kk = range.Count;
 
         char backSlash;
         backSlash = this.Stat.BackSlash[0];
@@ -194,7 +194,7 @@ public class StringValueWrite : Any
         int count;
         count = kk - 2;
         int start;
-        start = range.Start + 1;
+        start = range.Index + 1;
         int index;
         int indexA;
         char c;
