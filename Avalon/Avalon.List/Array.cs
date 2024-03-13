@@ -106,9 +106,9 @@ public class Array : List
     public virtual bool Sort(Range range, Compare compare)
     {
         int index;
-        index = range.Start;
+        index = range.Index;
         int count;
-        count = this.InfraInfra.Count(range);
+        count = range.Count;
 
         this.Comparer.CompareAny = compare;
 
