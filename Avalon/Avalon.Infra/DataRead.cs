@@ -51,8 +51,8 @@ public class DataRead : Any
     {
         DataRange range;
         range = this.Range;
-        range.Start = index;
-        range.End = index + count;
+        range.Index = index;
+        range.Count = count;
         return true;
     }
 }
