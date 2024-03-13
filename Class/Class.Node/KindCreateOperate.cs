@@ -75,7 +75,7 @@ public class KindCreateOperate : CreateOperate
         index = this.Create.NameValueIndex;
 
         int count;
-        count = this.InfraInfra.Count(span.Range);
+        count = span.Range.Count;
         this.DataWrite.Data = this.Create.NameValueData;
         long oa;
         oa = index * sizeof(int);
