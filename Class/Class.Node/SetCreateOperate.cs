@@ -96,7 +96,7 @@ public class SetCreateOperate : CreateOperate
         int index;
         index = this.Create.NameValueIndex;
 
-        Range range;
+        InfraRange range;
         range = span.Range;
         char[] array;
         array = span.Data;

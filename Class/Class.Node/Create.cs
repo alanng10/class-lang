@@ -9,6 +9,7 @@ public class Create : InfraCreate
         this.InfraInfra = InfraInfra.This;
         this.TextInfra = TextInfra.This;
         this.ListInfra = ListInfra.This;
+        this.ClassInfra = ClassInfra.This;
         this.NodeInfra = Infra.This;
         this.Keyword = this.CreateKeywordList();
         this.Delimit = this.CreateDelimitList();
@@ -57,6 +58,7 @@ public class Create : InfraCreate
     protected virtual InfraInfra InfraInfra { get; set; }
     protected virtual ListInfra ListInfra { get; set; }
     protected virtual TextInfra TextInfra { get; set; }
+    protected virtual ClassInfra ClassInfra { get; set; }
     protected virtual Infra NodeInfra { get; set; }
 
     public virtual SourceItem SourceItem { get; set; }
@@ -202,7 +204,7 @@ public class Create : InfraCreate
         TextSpan a;
         a = new TextSpan();
         a.Init();
-        a.Range = new Range();
+        a.Range = new InfraRange();
         a.Range.Init();
         return a;
     }
@@ -1270,7 +1272,7 @@ public class Create : InfraCreate
         TextLine textLine;
         textLine = this.SourceText.GetLine(aa.Row);
         this.TextSpan.Data = textLine.Value;
-        this.Range(this.TextSpan.Range, aa.Col.Start, aa.Col.End);
+        this.InfraRange(this.TextSpan.Range, aa.Col.Start, aa.Col.End);
 
         long value;
         value = this.TextInfra.GetInt(this.TextSpan);
@@ -1311,7 +1313,7 @@ public class Create : InfraCreate
         TextLine textLine;
         textLine = this.SourceText.GetLine(aa.Row);
         this.TextSpan.Data = textLine.Value;
-        this.Range(this.TextSpan.Range, aa.Col.Start + 2, aa.Col.End);
+        this.InfraRange(this.TextSpan.Range, aa.Col.Start + 2, aa.Col.End);
 
         long value;
         value = this.TextInfra.GetIntHex(this.TextSpan);
@@ -1354,7 +1356,7 @@ public class Create : InfraCreate
         TextLine textLine;
         textLine = this.SourceText.GetLine(aa.Row);
         this.TextSpan.Data = textLine.Value;
-        this.Range(this.TextSpan.Range, aa.Col.Start + 3, aa.Col.End);
+        this.InfraRange(this.TextSpan.Range, aa.Col.Start + 3, aa.Col.End);
 
         long o;
         o = this.TextInfra.GetInt(this.TextSpan);
@@ -1425,7 +1427,7 @@ public class Create : InfraCreate
         TextLine textLine;
         textLine = this.SourceText.GetLine(aa.Row);
         this.TextSpan.Data = textLine.Value;
-        this.Range(this.TextSpan.Range, aa.Col.Start + 4, aa.Col.End);
+        this.InfraRange(this.TextSpan.Range, aa.Col.Start + 4, aa.Col.End);
 
         long o;
         o = this.TextInfra.GetIntHex(this.TextSpan);
@@ -3601,7 +3603,7 @@ public class Create : InfraCreate
         int start;
         start = aa.Col.Start;
         int count;
-        count = this.Count(aa.Col);
+        count = this.InfraCount(aa.Col);
 
         if (!this.IsIntChar(array, start, count))
         {
@@ -3613,7 +3615,7 @@ public class Create : InfraCreate
     protected virtual bool IsIntHexValue(TextRange aa)
     {
         int count;
-        count = this.Count(aa.Col);
+        count = this.InfraCount(aa.Col);
 
         if (count < 3)
         {
@@ -3651,7 +3653,7 @@ public class Create : InfraCreate
     protected virtual bool IsIntSignValue(TextRange aa)
     {
         int count;
-        count = this.Count(aa.Col);
+        count = this.InfraCount(aa.Col);
 
         if (count < 4)
         {
@@ -3696,7 +3698,7 @@ public class Create : InfraCreate
     protected virtual bool IsIntSignHexValue(TextRange aa)
     {
         int count;
-        count = this.Count(aa.Col);
+        count = this.InfraCount(aa.Col);
 
         if (count < 5)
         {
@@ -3815,6 +3817,11 @@ public class Create : InfraCreate
 
     protected virtual int Count(Range range)
     {
+        return this.ClassInfra.Count(range);
+    }
+
+    protected virtual int InfraCount(InfraRange range)
+    {
         return this.InfraInfra.Count(range);
     }
 
@@ -3822,10 +3829,10 @@ public class Create : InfraCreate
     {
         TextLine textLine;
         textLine = this.SourceText.GetLine(textRange.Row);
-        Range range;
+        InfraRange range;
         range = textRange.Col;
         textSpan.Data = textLine.Value;
-        this.Range(textSpan.Range, range.Start, range.End);
+        this.InfraRange(textSpan.Range, range.Start, range.End);
         return true;
     }
 
@@ -3857,7 +3864,7 @@ public class Create : InfraCreate
         b = false;
 
         int count;
-        count = this.Count(textRange.Col);
+        count = this.InfraCount(textRange.Col);
         count = count - 1;
 
         start = start + 1;
@@ -3921,6 +3928,13 @@ public class Create : InfraCreate
         return ret;
     }
 
+    protected virtual InfraRange InfraRange(InfraRange range, int start, int end)
+    {
+        range.Start = start;
+        range.End = end;
+        return range;
+    }
+
     protected virtual Range Range(Range range, int start, int end)
     {
         range.Start = start;
@@ -3930,7 +3944,7 @@ public class Create : InfraCreate
 
     protected virtual Range IndexRange(Range range, int index)
     {
-        this.InfraInfra.IndexRange(range, index);
+        this.ClassInfra.IndexRange(range, index);
         return range;
     }
 
