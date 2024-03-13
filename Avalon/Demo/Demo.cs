@@ -678,8 +678,8 @@ class Demo : Any
         DataRange range;
         range = new DataRange();
         range.Init();
-        range.Start = 0;
-        range.End = data.Count;
+        range.Index = 0;
+        range.Count = data.Count;
 
         Storage storage;
         storage = new Storage();
