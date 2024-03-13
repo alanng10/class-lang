@@ -3601,7 +3601,7 @@ public class Create : InfraCreate
         char[] array;
         array = line.Value;
         int start;
-        start = aa.Col.Start;
+        start = aa.Col.Index;
         int count;
         count = this.InfraCount(aa.Col);
 
@@ -3820,11 +3820,6 @@ public class Create : InfraCreate
         return this.ClassInfra.Count(range);
     }
 
-    protected virtual int InfraCount(InfraRange range)
-    {
-        return this.InfraInfra.Count(range);
-    }
-
     protected virtual bool TextSpanGet(TextSpan textSpan, TextRange textRange)
     {
         TextLine textLine;
@@ -3849,7 +3844,7 @@ public class Create : InfraCreate
         char[] array;
         array = line.Value;
         int start;
-        start = textRange.Col.Start;
+        start = textRange.Col.Index;
 
         int index;
         index = start;
@@ -3864,7 +3859,7 @@ public class Create : InfraCreate
         b = false;
 
         int count;
-        count = this.InfraCount(textRange.Col);
+        count = textRange.Col.Count;
         count = count - 1;
 
         start = start + 1;
