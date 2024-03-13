@@ -531,7 +531,7 @@ public class Create : InfraCreate
 
                     this.Range.Row = row;
 
-                    this.Range.Col.Start = col;
+                    this.Range.Col.Index = col;
 
 
 
@@ -611,7 +611,7 @@ public class Create : InfraCreate
 
 
                     
-                    this.Range.Col.End = cc;
+                    this.Range.Col.Count = this.InfraInfra.Count(this.Range.Col.Index, cc);
 
                     
 
@@ -619,7 +619,7 @@ public class Create : InfraCreate
                     this.AddToken();
 
 
-                    col = this.Range.Col.End;
+                    col = cc;
 
 
                     this.Reset();
@@ -639,7 +639,7 @@ public class Create : InfraCreate
                         this.Range.Row = row;
 
 
-                        this.Range.Col.Start = col;
+                        this.Range.Col.Index = col;
                     }
 
 
@@ -662,10 +662,10 @@ public class Create : InfraCreate
                     this.Range.Row = row;
 
 
-                    this.Range.Col.Start = col;
+                    this.Range.Col.Index = col;
 
 
-                    this.Range.Col.End = this.Range.Col.Start + 1;
+                    this.Range.Col.Count = 1;
                     
                     
 
@@ -673,7 +673,7 @@ public class Create : InfraCreate
 
 
 
-                    col = this.Range.Col.End;
+                    col = col + 1;
 
 
 
