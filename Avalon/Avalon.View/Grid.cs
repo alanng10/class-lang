@@ -412,13 +412,13 @@ public class Grid : View
         GridSize size;
         size = rect.Size;
 
-        this.RangeA.Start = pos.Col;
-        this.RangeA.End = pos.Col + size.Width;
+        this.RangeA.Index = pos.Col;
+        this.RangeA.Count = size.Width;
         bool ba;
         ba = this.InfraInfra.CheckRange(this.Col.Count, this.RangeA);
 
-        this.RangeA.Start = pos.Row;
-        this.RangeA.End = pos.Row + size.Height;
+        this.RangeA.Index = pos.Row;
+        this.RangeA.Count = pos.Row + size.Height;
         bool bb;
         bb = this.InfraInfra.CheckRange(this.Row.Count, this.RangeA);
 
