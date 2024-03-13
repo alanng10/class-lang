@@ -3653,7 +3653,7 @@ public class Create : InfraCreate
     protected virtual bool IsIntSignValue(TextRange aa)
     {
         int count;
-        count = this.InfraCount(aa.Col);
+        count = aa.Col.Count;
 
         if (count < 4)
         {
@@ -3666,7 +3666,7 @@ public class Create : InfraCreate
         char[] array;
         array = line.Value;
         int start;
-        start = aa.Col.Start;
+        start = aa.Col.Index;
 
         if (!(array[start] == '0'))
         {
@@ -3698,7 +3698,7 @@ public class Create : InfraCreate
     protected virtual bool IsIntSignHexValue(TextRange aa)
     {
         int count;
-        count = this.InfraCount(aa.Col);
+        count = aa.Col.Count;
 
         if (count < 5)
         {
@@ -3711,7 +3711,7 @@ public class Create : InfraCreate
         char[] array;
         array = line.Value;
         int start;
-        start = aa.Col.Start;
+        start = aa.Col.Index;
 
         if (!(array[start] == '0'))
         {
@@ -3799,7 +3799,7 @@ public class Create : InfraCreate
         char[] array;
         array = line.Value;
         int start;
-        start = o.Col.Start;
+        start = o.Col.Index;
 
         char oa;
         oa = array[start + index];
@@ -3827,7 +3827,8 @@ public class Create : InfraCreate
         InfraRange range;
         range = textRange.Col;
         textSpan.Data = textLine.Value;
-        this.InfraRange(textSpan.Range, range.Start, range.End);
+        textSpan.Range.Index = range.Index;
+        textSpan.Range.Count = range.Count;
         return true;
     }
 
