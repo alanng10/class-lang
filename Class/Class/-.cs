@@ -1,5 +1,5 @@
 global using Any = Avalon.Infra.Any;
-global using Range = Avalon.Infra.Range;
+global using InfraRange = Avalon.Infra.Range;
 global using InfraInfra = Avalon.Infra.Infra;
 global using StringComparer = Avalon.Infra.StringComparer;
 global using List = Avalon.List.List;
@@ -19,6 +19,7 @@ global using SourceItem = Class.Infra.SourceItem;
 global using InfraClass = Class.Infra.Class;
 global using Error = Class.Infra.Error;
 global using ErrorKind = Class.Infra.ErrorKind;
+global using Range = Class.Infra.Range;
 global using TokenCreate = Class.Token.Create;
 global using Code = Class.Token.Code;
 global using TokenToken = Class.Token.Token;
