@@ -68,7 +68,7 @@ public class Encode : Any
         }
 
         long dataCount;
-        dataCount = this.InfraInfra.LongCount(range);
+        dataCount = range.Count;
         ulong ua;
         ua = (ulong)dataCount;
         ulong dataU;
@@ -76,7 +76,7 @@ public class Encode : Any
         Extern.Data_CountSet(dataU, ua);
 
         int a;
-        a = this.InternIntern.TextEncodeString(this.Intern, text.Data, text.Range.Start, dataU, data.Value, range.Start);
+        a = this.InternIntern.TextEncodeString(this.Intern, text.Data, text.Range.Index, dataU, data.Value, range.Index);
         return a;
     }
 
@@ -99,7 +99,7 @@ public class Encode : Any
         }
 
         int textCount;
-        textCount = this.InfraInfra.Count(text.Range);
+        textCount = text.Range.Count;
         ulong ua;
         ua = (ulong)textCount;
         ulong textU;
@@ -107,7 +107,7 @@ public class Encode : Any
         Extern.String_CountSet(textU, ua);
 
         long a;
-        a = this.InternIntern.TextEncodeData(this.Intern, data.Value, index, textU, text.Data, text.Range.Start);
+        a = this.InternIntern.TextEncodeData(this.Intern, data.Value, index, textU, text.Data, text.Range.Index);
         return a;
     }
 }
