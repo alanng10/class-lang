@@ -101,9 +101,9 @@ public class SetCreateOperate : CreateOperate
         char[] array;
         array = span.Data;
         int start;
-        start = range.Start;
+        start = range.Index;
         int count;
-        count = this.InfraInfra.Count(range);
+        count = range.Count;
         TextSpan a;
         a = (TextSpan)this.Create.NameValueArray.Get(index);
         char[] oa;
