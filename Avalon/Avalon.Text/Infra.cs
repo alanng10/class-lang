@@ -62,7 +62,7 @@ public class Infra : Any
         line = text.GetLine(range.Row);
 
         int k;
-        k = this.InfraInfra.Count(range.Col);
+        k = range.Col.Count;
         int count;
         count = k;
         if (!(count == o.Length))
@@ -77,7 +77,7 @@ public class Infra : Any
         i = 0;
         while (i < count)
         {
-            index = range.Col.Start + i;
+            index = range.Col.Index + i;
 
             oca = line.Value[index];
             ocb = o[i];
@@ -98,7 +98,7 @@ public class Infra : Any
         span.Data = new char[count];
         span.Range = new InfraRange();
         span.Range.Init();
-        span.Range.End = count;
+        span.Range.Count = count;
         return span;
     }
 
@@ -110,7 +110,7 @@ public class Infra : Any
         span.Data = a.ToCharArray();
         span.Range = new InfraRange();
         span.Range.Init();
-        span.Range.End = span.Data.Length;
+        span.Range.Count = span.Data.Length;
         return span;
     }
 
@@ -118,10 +118,8 @@ public class Infra : Any
     {
         InfraRange range;
         range = o.Range;
-        int count;
-        count = this.InfraInfra.Count(range);
         string a;
-        a = new string(o.Data, range.Start, count);
+        a = new string(o.Data, range.Index, range.Count);
         return a;
     }
 
@@ -131,10 +129,10 @@ public class Infra : Any
         kk = (ulong)n;
     
         int count;
-        count = this.InfraInfra.Count(span.Range);
+        count = span.Range.Count;
 
         SpanChar spanU;
-        spanU = new SpanChar(span.Data, span.Range.Start, count);
+        spanU = new SpanChar(span.Data, span.Range.Index, count);
 
         ReadOnlySpanChar formatSpan;
         formatSpan = MemoryExtensions.AsSpan(this.IntHexFormat);
@@ -153,14 +151,14 @@ public class Infra : Any
     public virtual long GetIntHex(Span span)
     {
         int count;
-        count = this.InfraInfra.Count(span.Range);
+        count = span.Range.Count;
         if (15 < count)
         {
             return -1;
         }
 
         ReadOnlySpanChar spanU;
-        spanU = new ReadOnlySpanChar(span.Data, span.Range.Start, count);
+        spanU = new ReadOnlySpanChar(span.Data, span.Range.Index, count);
 
         ulong o;
         bool b;
@@ -187,10 +185,10 @@ public class Infra : Any
     public virtual long GetInt(Span span)
     {
         int count;
-        count = this.InfraInfra.Count(span.Range);
+        count = span.Range.Count;
 
         ReadOnlySpanChar spanU;
-        spanU = new ReadOnlySpanChar(span.Data, span.Range.Start, count);
+        spanU = new ReadOnlySpanChar(span.Data, span.Range.Index, count);
 
         ulong o;
         bool b;
