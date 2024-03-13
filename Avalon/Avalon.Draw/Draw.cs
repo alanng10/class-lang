@@ -361,7 +361,7 @@ public class Draw : Any
     public virtual bool ExecuteText(TextSpan text, Rect destRect, TextAlign align, bool wordWarp)
     {
         int count;
-        count = this.InfraInfra.Count(text.Range);
+        count = text.Range.Count;
         if (this.TextCount < count)
         {
             return true;
@@ -370,7 +370,7 @@ public class Draw : Any
         countU = (ulong)count;
 
         ulong indexU;
-        indexU = (ulong)(text.Range.Start);
+        indexU = (ulong)(text.Range.Index);
 
         this.InternIntern.CopyText(this.InternTextData, text.Data, indexU, countU);
 
