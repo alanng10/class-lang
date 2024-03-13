@@ -39,36 +39,22 @@ public class Infra : Any
 
     public virtual bool IndexRange(Range range, int index)
     {
-        range.Start = index;        
-        range.End = index + 1;
+        range.Index = index;        
+        range.Count = 1;
         return true;
-    }
-
-    public virtual int Count(Range range)
-    {
-        return range.End - range.Start;
-    }
-
-    public virtual long LongCount(DataRange range)
-    {
-        return range.End - range.Start;
     }
 
     public virtual bool CheckRange(int count, Range range)
     {
-        int start;
-        int end;
-        start = range.Start;
-        end = range.End;
-        if (start < 0)
+        int index;
+        int countA;
+        index = range.Index;
+        countA = range.Count;
+        if (index < 0)
         {
             return false;
         }
-        if (end < start)
-        {
-            return false;
-        }
-        if (count < end)
+        if (count < index + countA)
         {
             return false;
         }
@@ -77,19 +63,15 @@ public class Infra : Any
 
     public virtual bool CheckLongRange(long count, DataRange range)
     {
-        long start;
-        long end;
-        start = range.Start;
-        end = range.End;
-        if (start < 0)
+        long index;
+        long countA;
+        index = range.Index;
+        countA = range.Count;
+        if (index < 0)
         {
             return false;
         }
-        if (end < start)
-        {
-            return false;
-        }
-        if (count < end)
+        if (count < index + countA)
         {
             return false;
         }
