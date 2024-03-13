@@ -1356,7 +1356,8 @@ public class Create : InfraCreate
         TextLine textLine;
         textLine = this.SourceText.GetLine(aa.Row);
         this.TextSpan.Data = textLine.Value;
-        this.InfraRange(this.TextSpan.Range, aa.Col.Start + 3, aa.Col.End);
+        this.TextSpan.Range.Index = aa.Col.Index + 3;
+        this.TextSpan.Range.Count = aa.Col.Count - 3;
 
         long o;
         o = this.TextInfra.GetInt(this.TextSpan);
