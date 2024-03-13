@@ -60,8 +60,8 @@ public class Infra : Any
             Range range;
             range = new Range();
             range.Init();
-            range.Start = 0;
-            range.End = count;
+            range.Index = 0;
+            range.Count = count;
 
             stream.Read(data, range);
             if (stream.Status == 0)
@@ -127,7 +127,7 @@ public class Infra : Any
         Range range;
         range = new Range();
         range.Init();
-        range.End = data.Count;
+        range.Count = data.Count;
         int kb;
         kb = encode.Text(span, data, range);
 
@@ -136,7 +136,7 @@ public class Infra : Any
         int count;
         count = kb;
         string a;
-        a = new string(span.Data, span.Range.Start, count);
+        a = new string(span.Data, span.Range.Index, count);
         return a;
     }
 
@@ -150,7 +150,7 @@ public class Infra : Any
         TextSpan span;
         span = this.TextInfra.SpanCreateString(text);
         int kk;
-        kk = this.InfraInfra.Count(span.Range);
+        kk = span.Range.Count;
         long ka;
         ka = encode.DataCountMax(kk);
 
@@ -169,7 +169,7 @@ public class Infra : Any
         Range range;
         range = new Range();
         range.Init();
-        range.End = count;
+        range.Count = count;
         bool o;
         o = this.DataWrite(filePath, data, range);
         return o;
