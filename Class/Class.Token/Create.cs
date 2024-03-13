@@ -481,10 +481,10 @@ public class Create : InfraCreate
                     this.Range.Row = row;
 
 
-                    this.Range.Col.Start = col;
+                    this.Range.Col.Index = col;
 
 
-                    this.Range.Col.End = colCount;
+                    this.Range.Col.Count = this.InfraInfra.Count(col, colCount);
 
 
 
@@ -492,7 +492,7 @@ public class Create : InfraCreate
 
 
 
-                    col = this.Range.Col.End;
+                    col = colCount;
 
 
 
@@ -836,14 +836,11 @@ public class Create : InfraCreate
     {
         if (!this.NullRange())
         {
-            this.Range.Col.End = col;
-
-
-
+            int count;
+            count = this.InfraInfra.Count(this.Range.Col.Index, col);
+            this.Range.Col.Count = count;
             this.AddToken();
         }
-
-
         return true;
     }
 
