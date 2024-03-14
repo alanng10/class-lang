@@ -1272,7 +1272,8 @@ public class Create : InfraCreate
         TextLine textLine;
         textLine = this.SourceText.GetLine(aa.Row);
         this.TextSpan.Data = textLine.Value;
-        this.InfraRange(this.TextSpan.Range, aa.Col.Start, aa.Col.End);
+        this.TextSpan.Range.Index = aa.Col.Index;
+        this.TextSpan.Range.Count = aa.Col.Count;
 
         long value;
         value = this.TextInfra.GetInt(this.TextSpan);
@@ -1313,7 +1314,8 @@ public class Create : InfraCreate
         TextLine textLine;
         textLine = this.SourceText.GetLine(aa.Row);
         this.TextSpan.Data = textLine.Value;
-        this.InfraRange(this.TextSpan.Range, aa.Col.Start + 2, aa.Col.End);
+        this.TextSpan.Range.Index = aa.Col.Index + 2;
+        this.TextSpan.Range.Count = aa.Col.Count - 2;
 
         long value;
         value = this.TextInfra.GetIntHex(this.TextSpan);
