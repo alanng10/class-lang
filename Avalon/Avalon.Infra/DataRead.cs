@@ -64,11 +64,11 @@ public class DataRead : Any
         }
 
         ulong a;
-        a = this.ReadByteList(index, count);
+        a = this.ByteListRead(index, count);
         return a;
     }
 
-    protected virtual ulong ReadByteList(long index, int count)
+    protected virtual ulong ByteListRead(long index, int count)
     {
         ulong a;
         a = 0;

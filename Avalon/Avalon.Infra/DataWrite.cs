@@ -60,11 +60,11 @@ public class DataWrite : Any
             return true;
         }
 
-        this.WriteByteList(index, count, value);
+        this.ByteListWrite(index, count, value);
         return true;
     }
 
-    protected virtual bool WriteByteList(long index, int count, ulong value)
+    protected virtual bool ByteListWrite(long index, int count, ulong value)
     {
         ulong o;
         o = 0;
