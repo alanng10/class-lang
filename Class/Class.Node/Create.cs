@@ -598,7 +598,7 @@ public class Create : InfraCreate
         }
 
         Token colon;
-        colon = this.TokenForward(this.TokenB, this.Delimit.BaseSign.Text, this.Range(this.RangeA, classToken.Range.End, end));
+        colon = this.TokenForwardNoSkip(this.TokenB, this.Delimit.BaseSign.Text, this.Range(this.RangeA, classToken.Range.End, end));
         if (colon == null)
         {
             return null;
