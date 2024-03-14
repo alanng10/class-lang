@@ -37,11 +37,6 @@ public class Infra : Any
     public virtual char NewLine { get; set; }
     public virtual char PathCombine { get; set; }
 
-    public virtual int Count(int start, int end)
-    {
-        return end - start;
-    }
-
     public virtual bool IndexRange(Range range, int index)
     {
         range.Index = index;        
