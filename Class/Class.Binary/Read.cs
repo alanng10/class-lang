@@ -17,6 +17,9 @@ public class Read : Any
         this.OperateKindList = OperateKindList.This;
         
         
+        this.DataRead = new DataRead();
+        this.DataRead.Init();
+        
         
         return true;
     }
@@ -38,10 +41,9 @@ public class Read : Any
 
 
     protected virtual InfraInfra InfraInfra { get; set;  }
-
-    
     protected virtual OperateKindList OperateKindList { get; set; }
-    
+
+    protected virtual DataRead DataRead { get; set; }
 
 
     
@@ -54,6 +56,9 @@ public class Read : Any
 
     protected virtual Module ExecuteModule()
     {
+        this.DataRead.Data = this.Data;
+
+
         Array varClass;
         
         varClass = this.ExecuteClassArray();
@@ -1358,7 +1363,7 @@ public class Read : Any
         
         ulong k;
         
-        k = this.InfraInfra.ByteListULong(this.Data.Value, this.Index);
+        k = this.DataRead.ExecuteULong(this.Index);
 
 
 
