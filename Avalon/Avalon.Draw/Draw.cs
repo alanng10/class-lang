@@ -7,7 +7,6 @@ public class Draw : Any
         base.Init();
         this.InternIntern = InternIntern.This;
         this.InternInfra = InternInfra.This;
-        this.InfraInfra = InfraInfra.This;
         this.DrawInfra = Infra.This;
         this.Size = new Size();
         this.Size.Init();
@@ -187,7 +186,6 @@ public class Draw : Any
 
     private InternIntern InternIntern { get; set; }
     private InternInfra InternInfra { get; set; }
-    protected virtual InfraInfra InfraInfra { get; set; }
     protected virtual Infra DrawInfra { get; set; }
     private ulong Intern { get; set; }
     private ulong InternFillPos { get; set; }
