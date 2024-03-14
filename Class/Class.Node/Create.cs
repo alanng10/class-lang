@@ -3928,13 +3928,6 @@ public class Create : InfraCreate
         return ret;
     }
 
-    protected virtual InfraRange InfraRange(InfraRange range, int start, int end)
-    {
-        range.Start = start;
-        range.End = end;
-        return range;
-    }
-
     protected virtual Range Range(Range range, int start, int end)
     {
         range.Start = start;
