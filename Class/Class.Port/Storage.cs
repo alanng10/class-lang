@@ -4,7 +4,7 @@ namespace Class.Port;
 
 
 
-public class File : Any
+public class Storage : Any
 {
     public virtual string Path { get; set; }
 
