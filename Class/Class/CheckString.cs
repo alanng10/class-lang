@@ -457,9 +457,7 @@ public class CheckString : Any
 
     protected bool AppendTextSpan(TextSpan a)
     {
-        int count;
-        count = this.InfraInfra.Count(a.Range);
-        this.Builder.Append(a.Data, a.Range.Start, count);
+        this.Builder.Append(a.Data, a.Range.Index, a.Range.Count);
         return true;
     }
 
