@@ -87,39 +87,4 @@ public class Infra : Any
         }
         return true;
     }
-
-    public virtual ulong ByteListULong(byte[] u, int start)
-    {
-        int m;
-        m = this.ByteBitCount;
-        int ua;
-        ua = this.ULongByteCount;
-
-        byte ob;
-        int index;
-        ulong k;
-        ulong h;
-        h = 0;
-        int shiftCount;
-
-        int count;
-        count = ua;
-        int i;
-        i = 0;
-        while (i < count)
-        {
-            shiftCount = i * m;
-            index = start + i;
-
-            ob = u[index];
-            k = ob;
-            k = k << shiftCount;
-            h = h | k;
-
-            i = i + 1;
-        }
-        ulong ret;
-        ret = h;
-        return ret;
-    }
 }
