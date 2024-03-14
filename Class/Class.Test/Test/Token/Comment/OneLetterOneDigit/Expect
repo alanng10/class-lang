@@ -10,8 +10,8 @@ Code
                                   Row : 0,
                                   Col : Range
                                         {
-                                            Start : 0,
-                                            End : 3,
+                                            Index : 0,
+                                            Count : 3,
                                         },
                               },
                   },
