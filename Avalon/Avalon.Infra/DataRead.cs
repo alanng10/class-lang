@@ -19,32 +19,29 @@ public class DataRead : Any
 
     public virtual int ExecuteInt(long index)
     {
-        this.SetRange(index, this.InfraInfra.IntByteCount);
-        Data data;
-        data = this.Data;
-        if (!this.InfraInfra.CheckLongRange(data.Count, this.Range))
-        {
-            return 0;
-        }
-
-        int o;
-        o = this.InternIntern.DataReadInt(data.Value, index);
-        return o;
+        ulong o;
+        o = this.ExecuteByteList(index, this.InfraInfra.IntByteCount);
+        int a;
+        a = (int)o;
+        return a;
     }
 
     public virtual ulong ExecuteULong(long index)
     {
-        this.SetRange(index, this.InfraInfra.ULongByteCount);
-        Data data;
-        data = this.Data;
-        if (!this.InfraInfra.CheckLongRange(data.Count, this.Range))
-        {
-            return 0;
-        }
-
         ulong o;
-        o = this.InternIntern.DataReadULong(data.Value, index);
-        return o;
+        o = this.ExecuteByteList(index, this.InfraInfra.ULongByteCount);
+        ulong a;
+        a = o;
+        return a;
+    }
+
+    public virtual ushort ExecuteUShort(long index)
+    {
+        ulong o;
+        o = this.ExecuteByteList(index, this.InfraInfra.UShortByteCount);
+        ushort a;
+        a = (ushort)o;
+        return a;
     }
 
     protected virtual bool SetRange(long index, int count)
@@ -54,5 +51,52 @@ public class DataRead : Any
         range.Index = index;
         range.Count = count;
         return true;
+    }
+
+    protected virtual ulong ExecuteByteList(long index, int count)
+    {
+        this.SetRange(index, count);
+        Data data;
+        data = this.Data;
+        if (!this.InfraInfra.CheckLongRange(data.Count, this.Range))
+        {
+            return 0;
+        }
+
+        ulong a;
+        a = this.ReadByteList(index, count);
+        return a;
+    }
+
+    protected virtual ulong ReadByteList(long index, int count)
+    {
+        ulong a;
+        a = 0;
+
+        ulong o;
+        o = 0;
+        int shiftCount;
+        shiftCount = 0;
+        byte[] array;
+        array = this.Data.Value;
+        byte ob;
+        ob = 0;
+
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            ob = array[index + i];
+
+            shiftCount = count * 8;
+
+            o = ob;
+            o = o << shiftCount;
+
+            a = a | o;
+
+            i = i + 1;
+        }
+        return a;
     }
 }

@@ -17,9 +17,10 @@ public class Infra : Any
     public override bool Init()
     {
         base.Init();
-        this.ULongByteCount = sizeof(ulong);
         this.ByteBitCount = 8;
+        this.ULongByteCount = sizeof(ulong);
         this.IntByteCount = sizeof(int);
+        this.UShortByteCount = sizeof(ushort);
 
         long o;
         o = 1;
@@ -30,9 +31,10 @@ public class Infra : Any
         return true;
     }
 
-    public virtual int ULongByteCount { get; set; }
     public virtual int ByteBitCount { get; set; }
+    public virtual int ULongByteCount { get; set; }
     public virtual int IntByteCount { get; set; }
+    public virtual int UShortByteCount { get; set; }
     public virtual long IntCapValue { get; set; }
     public virtual char NewLine { get; set; }
     public virtual char PathCombine { get; set; }
