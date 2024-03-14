@@ -13,17 +13,8 @@ public class Create : InfraCreate
 
 
         this.InfraInfra = InfraInfra.This;
-
-
-
-
-        TextInfra textInfra;
-
-        textInfra = TextInfra.This;
-
-
-
-        this.TextInfra = textInfra;
+        this.TextInfra = TextInfra.This;
+        this.ClassInfra = ClassInfra.This;
 
 
 
@@ -106,6 +97,7 @@ public class Create : InfraCreate
 
 
     protected virtual TextInfra TextInfra { get; set; }
+    protected virtual ClassInfra ClassInfra { get; set; }
 
 
 
@@ -484,7 +476,7 @@ public class Create : InfraCreate
                     this.Range.Col.Index = col;
 
 
-                    this.Range.Col.Count = this.InfraInfra.Count(col, colCount);
+                    this.Range.Col.Count = this.ClassInfra.Count(col, colCount);
 
 
 
@@ -611,7 +603,7 @@ public class Create : InfraCreate
 
 
                     
-                    this.Range.Col.Count = this.InfraInfra.Count(this.Range.Col.Index, cc);
+                    this.Range.Col.Count = this.ClassInfra.Count(this.Range.Col.Index, cc);
 
                     
 
@@ -837,7 +829,7 @@ public class Create : InfraCreate
         if (!this.NullRange())
         {
             int count;
-            count = this.InfraInfra.Count(this.Range.Col.Index, col);
+            count = this.ClassInfra.Count(this.Range.Col.Index, col);
             this.Range.Col.Count = count;
             this.AddToken();
         }

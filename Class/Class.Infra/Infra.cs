@@ -21,9 +21,9 @@ public class Infra : Any
         return true;
     }
 
-    public virtual int Count(Range range)
+    public virtual int Count(int start, int end)
     {
-        return range.End - range.Start;
+        return end - start;
     }
 
     public virtual bool CheckRange(int count, Range range)

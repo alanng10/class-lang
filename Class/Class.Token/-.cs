@@ -8,6 +8,7 @@ global using TextInfra = Avalon.Text.Infra;
 global using TextRange = Avalon.Text.Range;
 global using Line = Avalon.Text.Line;
 global using Pos = Avalon.Text.Pos;
+global using ClassInfra = Class.Infra.Infra;
 global using InfraCreate = Class.Infra.Create;
 global using Source = Class.Infra.Source;
 global using SourceItem = Class.Infra.SourceItem;
