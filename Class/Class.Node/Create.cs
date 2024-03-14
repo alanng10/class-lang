@@ -3821,7 +3821,7 @@ public class Create : InfraCreate
 
     protected virtual int Count(Range range)
     {
-        return this.ClassInfra.Count(range);
+        return this.ClassInfra.Count(range.Start, range.End);
     }
 
     protected virtual bool TextSpanGet(TextSpan textSpan, TextRange textRange)
