@@ -79,7 +79,7 @@ public class DataWrite : Any
         i = 0;
         while (i < count)
         {
-            shiftCount = count * 8;
+            shiftCount = i * 8;
 
             o = value >> shiftCount;
 

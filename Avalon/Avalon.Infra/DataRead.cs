@@ -88,7 +88,7 @@ public class DataRead : Any
         {
             ob = array[index + i];
 
-            shiftCount = count * 8;
+            shiftCount = i * 8;
 
             o = ob;
             o = o << shiftCount;
