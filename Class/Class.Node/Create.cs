@@ -6,7 +6,6 @@ public class Create : InfraCreate
     {
         base.Init();
 
-        this.InfraInfra = InfraInfra.This;
         this.TextInfra = TextInfra.This;
         this.ListInfra = ListInfra.This;
         this.ClassInfra = ClassInfra.This;
@@ -55,7 +54,6 @@ public class Create : InfraCreate
     protected virtual DelimitList Delimit { get; set; }
     protected virtual ErrorKindList ErrorKind { get; set; }
     protected virtual NodeKindList NodeKind { get; set; }
-    protected virtual InfraInfra InfraInfra { get; set; }
     protected virtual ListInfra ListInfra { get; set; }
     protected virtual TextInfra TextInfra { get; set; }
     protected virtual ClassInfra ClassInfra { get; set; }
