@@ -8,8 +8,8 @@ Code
                                 Row : 0,
                                 Col : Range
                                       {
-                                          Start : 0,
-                                          End : 1,
+                                          Index : 0,
+                                          Count : 1,
                                       },
                             },
                 },
@@ -20,8 +20,8 @@ Code
                                 Row : 0,
                                 Col : Range
                                       {
-                                          Start : 1,
-                                          End : 3,
+                                          Index : 1,
+                                          Count : 2,
                                       },
                             },
                 },
