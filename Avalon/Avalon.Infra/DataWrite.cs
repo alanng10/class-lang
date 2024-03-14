@@ -19,29 +19,25 @@ public class DataWrite : Any
 
     public virtual bool ExecuteInt(long index, int value)
     {
-        this.SetRange(index, this.InfraInfra.IntByteCount);
-        Data data;
-        data = this.Data;
-        if (!this.InfraInfra.CheckLongRange(data.Count, this.Range))
-        {
-            return true;
-        }
-
-        this.InternIntern.DataWriteInt(data.Value, index, value);
+        ulong o;
+        o = (ulong)value;
+        this.ExecuteByteList(index, this.InfraInfra.IntByteCount, o);
         return true;
     }
 
     public virtual bool ExecuteULong(long index, ulong value)
     {
-        this.SetRange(index, this.InfraInfra.ULongByteCount);
-        Data data;
-        data = this.Data;
-        if (!this.InfraInfra.CheckLongRange(data.Count, this.Range))
-        {
-            return true;
-        }
+        ulong o;
+        o = value;
+        this.ExecuteByteList(index, this.InfraInfra.ULongByteCount, o);
+        return true;
+    }
 
-        this.InternIntern.DataWriteULong(data.Value, index, value);
+    public virtual bool ExecuteUShort(long index, ushort value)
+    {
+        ulong o;
+        o = (ulong)value;
+        this.ExecuteByteList(index, this.InfraInfra.UShortByteCount, o);
         return true;
     }
 
@@ -51,6 +47,20 @@ public class DataWrite : Any
         range = this.Range;
         range.Index = index;
         range.Count = count;
+        return true;
+    }
+
+    protected virtual bool ExecuteByteList(long index, int count, ulong value)
+    {
+        this.SetRange(index, count);
+        Data data;
+        data = this.Data;
+        if (!this.InfraInfra.CheckLongRange(data.Count, this.Range))
+        {
+            return true;
+        }
+
+        this.WriteByteList(index, count, value);
         return true;
     }
 
