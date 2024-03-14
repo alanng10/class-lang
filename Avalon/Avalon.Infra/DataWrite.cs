@@ -53,4 +53,32 @@ public class DataWrite : Any
         range.Count = count;
         return true;
     }
+
+    protected virtual bool WriteByteList(long index, int count, ulong value)
+    {
+        ulong o;
+        o = 0;
+        int shiftCount;
+        shiftCount = 0;
+        byte[] array;
+        array = this.Data.Value;
+        byte ob;
+        ob = 0;
+
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            shiftCount = count * 8;
+
+            o = value >> shiftCount;
+
+            ob = (byte)o;
+
+            array[index + i] = ob;
+
+            i = i + 1;
+        }
+        return true;
+    }
 }
