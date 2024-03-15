@@ -7,7 +7,6 @@ public class NewOperateCreateOperateState : CreateOperateState
         NewOperate node;
         node = (NewOperate)this.Node;
         node.Class = (ClassName)this.Arg.Field00;
-
         return true;
     }
 }

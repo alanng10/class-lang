@@ -7,7 +7,6 @@ public class PartCreateOperateState : CreateOperateState
         Part node;
         node = (Part)this.Node;
         node.Value = (Array)this.Arg.Field00;
-
         return true;
     }
 }

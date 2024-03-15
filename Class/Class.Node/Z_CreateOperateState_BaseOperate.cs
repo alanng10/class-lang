@@ -6,7 +6,6 @@ public class BaseOperateCreateOperateState : CreateOperateState
     {
         BaseOperate node;
         node = (BaseOperate)this.Node;
-
         return true;
     }
 }

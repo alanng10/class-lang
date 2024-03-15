@@ -7,7 +7,6 @@ public class NotOperateCreateOperateState : CreateOperateState
         NotOperate node;
         node = (NotOperate)this.Node;
         node.Value = (Operate)this.Arg.Field00;
-
         return true;
     }
 }

@@ -7,7 +7,6 @@ public class ShareOperateCreateOperateState : CreateOperateState
         ShareOperate node;
         node = (ShareOperate)this.Node;
         node.Class = (ClassName)this.Arg.Field00;
-
         return true;
     }
 }

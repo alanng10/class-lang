@@ -6,7 +6,6 @@ public class PrudateCountCreateOperateState : CreateOperateState
     {
         PrudateCount node;
         node = (PrudateCount)this.Node;
-
         return true;
     }
 }

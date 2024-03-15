@@ -6,7 +6,6 @@ public class PrecateCountCreateOperateState : CreateOperateState
     {
         PrecateCount node;
         node = (PrecateCount)this.Node;
-
         return true;
     }
 }

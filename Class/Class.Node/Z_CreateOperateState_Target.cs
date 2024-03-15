@@ -6,7 +6,6 @@ public class TargetCreateOperateState : CreateOperateState
     {
         Target node;
         node = (Target)this.Node;
-
         return true;
     }
 }

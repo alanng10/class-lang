@@ -6,7 +6,6 @@ public class CountCreateOperateState : CreateOperateState
     {
         Count node;
         node = (Count)this.Node;
-
         return true;
     }
 }

@@ -7,7 +7,6 @@ public class OperateExecuteCreateOperateState : CreateOperateState
         OperateExecute node;
         node = (OperateExecute)this.Node;
         node.Operate = (Operate)this.Arg.Field00;
-
         return true;
     }
 }

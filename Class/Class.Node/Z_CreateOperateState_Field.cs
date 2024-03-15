@@ -11,7 +11,6 @@ public class FieldCreateOperateState : CreateOperateState
         node.Count = (Count)this.Arg.Field02;
         node.Get = (State)this.Arg.Field03;
         node.Set = (State)this.Arg.Field04;
-
         return true;
     }
 }

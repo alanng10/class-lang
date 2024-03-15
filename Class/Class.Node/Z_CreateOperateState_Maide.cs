@@ -11,7 +11,6 @@ public class MaideCreateOperateState : CreateOperateState
         node.Count = (Count)this.Arg.Field02;
         node.Param = (Param)this.Arg.Field03;
         node.Call = (State)this.Arg.Field04;
-
         return true;
     }
 }

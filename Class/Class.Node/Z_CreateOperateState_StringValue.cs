@@ -7,7 +7,6 @@ public class StringValueCreateOperateState : CreateOperateState
         StringValue node;
         node = (StringValue)this.Node;
         node.Value = (TextSpan)this.Arg.Field00;
-
         return true;
     }
 }

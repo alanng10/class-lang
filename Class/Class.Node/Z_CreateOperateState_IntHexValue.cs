@@ -7,7 +7,6 @@ public class IntHexValueCreateOperateState : CreateOperateState
         IntHexValue node;
         node = (IntHexValue)this.Node;
         node.Value = this.Arg.FieldInt;
-
         return true;
     }
 }

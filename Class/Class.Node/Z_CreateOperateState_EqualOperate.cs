@@ -8,7 +8,6 @@ public class EqualOperateCreateOperateState : CreateOperateState
         node = (EqualOperate)this.Node;
         node.Left = (Operate)this.Arg.Field00;
         node.Right = (Operate)this.Arg.Field01;
-
         return true;
     }
 }

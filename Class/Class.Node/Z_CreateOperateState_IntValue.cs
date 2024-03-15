@@ -7,7 +7,6 @@ public class IntValueCreateOperateState : CreateOperateState
         IntValue node;
         node = (IntValue)this.Node;
         node.Value = this.Arg.FieldInt;
-
         return true;
     }
 }

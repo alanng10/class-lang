@@ -7,7 +7,6 @@ public class ParamCreateOperateState : CreateOperateState
         Param node;
         node = (Param)this.Node;
         node.Value = (Array)this.Arg.Field00;
-
         return true;
     }
 }

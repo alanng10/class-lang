@@ -7,7 +7,6 @@ public class StateCreateOperateState : CreateOperateState
         State node;
         node = (State)this.Node;
         node.Value = (Array)this.Arg.Field00;
-
         return true;
     }
 }

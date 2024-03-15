@@ -7,7 +7,6 @@ public class BoolValueCreateOperateState : CreateOperateState
         BoolValue node;
         node = (BoolValue)this.Node;
         node.Value = this.Arg.FieldBool;
-
         return true;
     }
 }

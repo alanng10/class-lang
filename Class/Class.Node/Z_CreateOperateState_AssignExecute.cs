@@ -8,7 +8,6 @@ public class AssignExecuteCreateOperateState : CreateOperateState
         node = (AssignExecute)this.Node;
         node.Target = (Target)this.Arg.Field00;
         node.Value = (Operate)this.Arg.Field01;
-
         return true;
     }
 }

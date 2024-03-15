@@ -7,7 +7,6 @@ public class MaideNameCreateOperateState : CreateOperateState
         MaideName node;
         node = (MaideName)this.Node;
         node.Value = (TextSpan)this.Arg.Field00;
-
         return true;
     }
 }

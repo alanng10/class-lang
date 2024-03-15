@@ -8,7 +8,6 @@ public class GetOperateCreateOperateState : CreateOperateState
         node = (GetOperate)this.Node;
         node.This = (Operate)this.Arg.Field00;
         node.Field = (FieldName)this.Arg.Field01;
-
         return true;
     }
 }

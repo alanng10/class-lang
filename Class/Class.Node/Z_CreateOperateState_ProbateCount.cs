@@ -6,7 +6,6 @@ public class ProbateCountCreateOperateState : CreateOperateState
     {
         ProbateCount node;
         node = (ProbateCount)this.Node;
-
         return true;
     }
 }

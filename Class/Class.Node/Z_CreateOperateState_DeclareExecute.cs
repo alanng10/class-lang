@@ -7,7 +7,6 @@ public class DeclareExecuteCreateOperateState : CreateOperateState
         DeclareExecute node;
         node = (DeclareExecute)this.Node;
         node.Var = (Var)this.Arg.Field00;
-
         return true;
     }
 }

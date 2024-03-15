@@ -8,7 +8,6 @@ public class CastOperateCreateOperateState : CreateOperateState
         node = (CastOperate)this.Node;
         node.Class = (ClassName)this.Arg.Field00;
         node.Any = (Operate)this.Arg.Field01;
-
         return true;
     }
 }

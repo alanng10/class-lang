@@ -6,7 +6,6 @@ public class CompCreateOperateState : CreateOperateState
     {
         Comp node;
         node = (Comp)this.Node;
-
         return true;
     }
 }

@@ -8,7 +8,6 @@ public class OrnOperateCreateOperateState : CreateOperateState
         node = (OrnOperate)this.Node;
         node.Left = (Operate)this.Arg.Field00;
         node.Right = (Operate)this.Arg.Field01;
-
         return true;
     }
 }

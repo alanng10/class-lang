@@ -7,7 +7,6 @@ public class BracketOperateCreateOperateState : CreateOperateState
         BracketOperate node;
         node = (BracketOperate)this.Node;
         node.Operate = (Operate)this.Arg.Field00;
-
         return true;
     }
 }

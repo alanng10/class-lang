@@ -8,7 +8,6 @@ public class SetTargetCreateOperateState : CreateOperateState
         node = (SetTarget)this.Node;
         node.This = (Operate)this.Arg.Field00;
         node.Field = (FieldName)this.Arg.Field01;
-
         return true;
     }
 }

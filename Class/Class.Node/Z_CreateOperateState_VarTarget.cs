@@ -7,7 +7,6 @@ public class VarTargetCreateOperateState : CreateOperateState
         VarTarget node;
         node = (VarTarget)this.Node;
         node.Var = (VarName)this.Arg.Field00;
-
         return true;
     }
 }

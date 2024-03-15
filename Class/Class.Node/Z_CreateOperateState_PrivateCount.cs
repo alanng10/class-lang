@@ -6,7 +6,6 @@ public class PrivateCountCreateOperateState : CreateOperateState
     {
         PrivateCount node;
         node = (PrivateCount)this.Node;
-
         return true;
     }
 }
