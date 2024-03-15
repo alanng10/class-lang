@@ -20,7 +20,7 @@ A class can be any abstract.
 
 Class is high level programming language.
 Class does not need manual memory management when the user develops in the language.
-Class uses auto memory management, that deletes Any that are unused, when making new any when memory usage is high.
+Class uses auto memory management, that is same in C#.
 
 
 
@@ -31,10 +31,10 @@ All classes are checked when they are used, and when the variables are assigned.
 
 
 Class outputs module binary when compiling.
-It also translates the module binary into machine code library module.
-The machine code library module is loaded and executed when the user uses the execution runner to execute the module.
+The module binary is a C# assembly binary.
+The module binary is executed on .NET runtime.
 
 
 
-Module and other modules that it depends, their associated files and folders, including the machine code library modules,
+Module and other modules that it depends, their associated files and folders,
 are copied to a folder, and ready to be executed, when the module is deployed.
