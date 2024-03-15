@@ -144,7 +144,7 @@ class Read : Any
 
 
 
-        this.ClassArray = this.ListInfra.CreateArray(this.ClassList);
+        this.ClassArray = this.ListInfra.ArrayCreateList(this.ClassList);
 
 
 
@@ -259,7 +259,7 @@ class Read : Any
 
 
 
-        this.Class.Field = this.ListInfra.CreateArray(this.FieldList);
+        this.Class.Field = this.ListInfra.ArrayCreateList(this.FieldList);
 
 
 
