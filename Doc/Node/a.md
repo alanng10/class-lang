@@ -1,6 +1,6 @@
 # Node
 
-Modules made by Class have classes that have class names in their abstract. They also can have field names, maide names and var names in their abstract.
+Modules made by Class have module names in their abstract. They also can have class names, field names, maide names and var names in their abstract.
 The names can be any node names.
 Node names are names that are words that cover exactly the ranges of the purposes of the entities the names refer to.
 
