@@ -8,3 +8,4 @@ Node names are sufficient for any abstract.
 Abstract is to be referred by names. Names in abstract only need to cover exactly all the purposes of the entities they refer to.
 The purposes of the entities are what the entities are.
 Abstract is best represented by names that have meanings that are what the entities are.
+If the names have additional meanings than what the entities are, the names do not have the meanings that are what the entities are.
