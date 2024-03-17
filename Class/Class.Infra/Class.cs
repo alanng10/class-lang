@@ -2,7 +2,7 @@ namespace Class.Infra;
 
 public class Class : Any
 {
-    public virtual TextSpan Name { get; set; }
+    public virtual string Name { get; set; }
 
     public virtual Class Base { get; set; }
 

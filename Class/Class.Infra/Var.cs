@@ -4,7 +4,7 @@ namespace Class.Infra;
 
 public class Var
 {
-    public TextSpan Name { get; set; }
+    public string Name { get; set; }
 
 
 
