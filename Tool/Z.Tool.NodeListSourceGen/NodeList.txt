@@ -131,19 +131,19 @@ IntSignHexValue : Value
     Int Value
 
 StringValue : Value
-    TextSpan Value
+    String Value
 
 ClassName : Node
-    TextSpan Value
+    String Value
 
 FieldName : Node
-    TextSpan Value
+    String Value
 
 MaideName : Node
-    TextSpan Value
+    String Value
 
 VarName : Node
-    TextSpan Value
+    String Value
 
 EqualOperate : Operate
     Operate Left
