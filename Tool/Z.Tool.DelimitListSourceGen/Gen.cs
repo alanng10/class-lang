@@ -46,7 +46,7 @@ public class Gen : SourceGen
 
 
 
-        this.OutputFilePath = "../../Class.Infra/DelimitList.cs";
+        this.OutputFilePath = "../../Class/Class.Infra/DelimitList.cs";
 
 
 
