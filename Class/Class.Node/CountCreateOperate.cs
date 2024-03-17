@@ -65,9 +65,13 @@ public class CountCreateOperate : CreateOperate
     {
         int index;
         index = this.Create.NameValueIndex;
+        int indexA;
+        indexA = this.Create.NameValueTotalCount;
 
-        index = index + text.Range.Count;
+        index = index + 1;
+        indexA = indexA + text.Range.Count;
 
+        this.Create.NameValueTotalCount = indexA;
         this.Create.NameValueIndex = index;
         return this.String;
     }
