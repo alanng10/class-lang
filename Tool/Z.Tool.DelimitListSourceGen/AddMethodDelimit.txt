@@ -1,23 +1,11 @@
     protected virtual #ItemClassName# AddItem(string text)
     {
         #ItemClassName# item;
-
         item = new #ItemClassName#();
-
         item.Init();
-
         item.Index = this.Index;
-
         item.Text = text;
-
-
-
         this.Array.Set(item.Index, item);
-
-
         this.Index = this.Index + 1;
-
-
-
         return item;
     }
