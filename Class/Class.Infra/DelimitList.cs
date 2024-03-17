@@ -1,61 +1,25 @@
 namespace Class.Infra;
 
-
-
-
-
 public class DelimitList : Any
 {
-    public static DelimitList This { get; } = CreateShare();
+    public static DelimitList This { get; } = ShareCreate();
 
-
-
-
-    private static DelimitList CreateShare()
+    private static DelimitList ShareCreate()
     {
         DelimitList share;
-
-
         share = new DelimitList();
-
-
-
         Any a;
-
-
         a = share;
-
-
         a.Init();
-
-
-
         return share;
     }
-
-
-
-
-
 
     public override bool Init()
     {
         base.Init();
-
-
-
         this.InitArray();
-
-
-
         this.Count = this.Array.Count;
-
-
-
         this.Index = 0;
-
-
-
 
         this.StopSign = this.AddItem(".");
         this.PauseSign = this.AddItem(",");
@@ -76,17 +40,8 @@ public class DelimitList : Any
         this.RightBracket = this.AddItem(")");
         this.LeftBrace = this.AddItem("{");
         this.RightBrace = this.AddItem("}");
-
-
-
-
-
-
         return true;
     }
-
-
-
 
     public virtual Delimit StopSign { get; set; }
     public virtual Delimit PauseSign { get; set; }
@@ -108,58 +63,27 @@ public class DelimitList : Any
     public virtual Delimit LeftBrace { get; set; }
     public virtual Delimit RightBrace { get; set; }
 
-
-
-
     protected virtual Delimit AddItem(string text)
     {
         Delimit item;
-
         item = new Delimit();
-
         item.Init();
-
         item.Index = this.Index;
-
         item.Text = text;
-
-
-
         this.Array.Set(item.Index, item);
-
-
         this.Index = this.Index + 1;
-
-
-
         return item;
     }
-
-
-
 
     protected virtual bool InitArray()
     {
         this.Array = new Array();
-
-
         this.Array.Count = this.ArrayCount;
-
-
         this.Array.Init();
-
-
-
         return true;
     }
 
-
-
-
-
     protected virtual Array Array { get; set; }
-
-
 
     protected virtual int ArrayCount
     { 
@@ -172,22 +96,12 @@ public class DelimitList : Any
         }
     }
 
-
-
-
     public virtual int Count { get; set; }
-
-
-
 
     public virtual Delimit Get(int index)
     {
         return (Delimit)this.Array.Get(index);
     }
-
-
-
     
     protected virtual int Index { get; set; }
-
 }
