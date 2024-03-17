@@ -39,7 +39,7 @@ public class CreateOperate : Any
         return null;
     }
 
-    public virtual string ExecuteStringValue()
+    public virtual string ExecuteStringValue(TextSpan text)
     {
         return null;
     }

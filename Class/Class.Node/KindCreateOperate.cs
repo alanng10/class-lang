@@ -73,6 +73,8 @@ public class KindCreateOperate : CreateOperate
     {
         int index;
         index = this.Create.NameValueIndex;
+        int indexA;
+        indexA = this.Create.NameValueTotalIndex;
 
         int count;
         count = text.Range.Count;
@@ -82,13 +84,30 @@ public class KindCreateOperate : CreateOperate
         this.DataWrite.ExecuteInt(oa, count);
         this.DataWrite.Data = null;
 
-        index = index + 1;
+        char[] source;
+        source = text.Data;
+        int sourceIndex;
+        sourceIndex = text.Range.Index;
+        char[] dest;
+        dest = this.Create.NameValueText;
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            dest[indexA + i] = source[sourceIndex + i];
 
+            i = i + 1;
+        }
+
+        index = index + 1;
+        indexA = indexA + count;
+
+        this.Create.NameValueTotalIndex = indexA;
         this.Create.NameValueIndex = index;
         return this.String;
     }
 
-    public override string ExecuteStringValue()
+    public override string ExecuteStringValue(TextSpan text)
     {
         int index;
         index = this.Create.StringValueIndex;
@@ -97,7 +116,7 @@ public class KindCreateOperate : CreateOperate
         write = this.Create.StringValueWrite;
         write.WriteOperate = write.CountWriteOperate;
         write.Index = 0;
-        write.ExecuteValueString(span);
+        write.ExecuteValueString(text);
         int count;
         count = write.Index;
         this.DataWrite.Data = this.Create.StringValueData;
@@ -109,6 +128,6 @@ public class KindCreateOperate : CreateOperate
         index = index + 1;
 
         this.Create.StringValueIndex = index;
-        return this.TextSpan;
+        return this.String;
     }
 }

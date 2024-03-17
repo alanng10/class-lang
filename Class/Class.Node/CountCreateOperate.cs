@@ -66,17 +66,17 @@ public class CountCreateOperate : CreateOperate
         int index;
         index = this.Create.NameValueIndex;
         int indexA;
-        indexA = this.Create.NameValueTotalCount;
+        indexA = this.Create.NameValueTotalIndex;
 
         index = index + 1;
         indexA = indexA + text.Range.Count;
 
-        this.Create.NameValueTotalCount = indexA;
+        this.Create.NameValueTotalIndex = indexA;
         this.Create.NameValueIndex = index;
         return this.String;
     }
 
-    public override string ExecuteStringValue()
+    public override string ExecuteStringValue(TextSpan text)
     {
         int index;
         index = this.Create.StringValueIndex;

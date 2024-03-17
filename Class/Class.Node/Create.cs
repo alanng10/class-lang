@@ -99,7 +99,7 @@ public class Create : InfraCreate
     public virtual int ErrorIndex { get; set; }
     public virtual Array ErrorArray { get; set; }
     public virtual int NameValueIndex { get; set; }
-    public virtual int NameValueTotalCount { get; set; }
+    public virtual int NameValueTotalIndex { get; set; }
     public virtual char[] NameValueText { get; set; }
     public virtual Data NameValueData { get; set; }
     public virtual Array NameValueArray { get; set; }
@@ -304,6 +304,7 @@ public class Create : InfraCreate
         this.NodeIndex = 0;
         this.ListIndex = 0;
         this.NameValueIndex = 0;
+        this.NameValueTotalIndex = 0;
         this.StringValueIndex = 0;
         this.ErrorIndex = 0;
 
@@ -316,7 +317,7 @@ public class Create : InfraCreate
         int nameValueCount;
         nameValueCount = this.NameValueIndex;
         int nameValueTotalCount;
-        nameValueTotalCount = this.NameValueTotalCount;
+        nameValueTotalCount = this.NameValueTotalIndex;
         int stringValueCount;
         stringValueCount = this.StringValueIndex;
         int errorCount;
@@ -336,6 +337,7 @@ public class Create : InfraCreate
         this.NodeIndex = 0;
         this.ListIndex = 0;
         this.NameValueIndex = 0;
+        this.NameValueTotalIndex = 0;
         this.StringValueIndex = 0;
         this.ErrorIndex = 0;
 
@@ -1508,7 +1510,7 @@ public class Create : InfraCreate
             return null;
         }
 
-        TextSpan value;
+        string value;
         value = this.Operate.ExecuteStringValue(textSpan);
 
         this.OperateArg.Kind = this.NodeKind.StringValue;
@@ -2668,7 +2670,7 @@ public class Create : InfraCreate
         start = range.Start;
         end = range.End;
 
-        TextSpan value;
+        string value;
         value = this.ExecuteNameValue(this.Range(this.RangeA, start, end));
         if (value == null)
         {
