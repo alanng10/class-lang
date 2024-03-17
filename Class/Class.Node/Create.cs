@@ -104,6 +104,8 @@ public class Create : InfraCreate
     public virtual Data NameValueData { get; set; }
     public virtual Array NameValueArray { get; set; }
     public virtual int StringValueIndex { get; set; }
+    public virtual int StringValueTotalIndex { get; set; }
+    public virtual char[] StringValueText { get; set; }
     public virtual Data StringValueData { get; set; }
     public virtual Array StringValueArray { get; set; }
     
