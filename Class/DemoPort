@@ -1,9 +1,9 @@
-Demo.AaaBbb.GLa:Latest
+Demo.AaaBbb.GLa:1.0.0
 
 Import
 Any System.Infra:Any
 List System.List:List
-Hh G.H.A:Latest:H
+Hh G.H.A:1.0.0:H
 
 Export
 Ghhh
