@@ -6,7 +6,7 @@ public class FieldNameCreateOperateState : CreateOperateState
     {
         FieldName node;
         node = (FieldName)this.Node;
-        node.Value = (TextSpan)this.Arg.Field00;
+        node.Value = (string)this.Arg.Field00;
         return true;
     }
 }
