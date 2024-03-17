@@ -34,12 +34,12 @@ public class CreateOperate : Any
         return true;
     }
 
-    public virtual TextSpan ExecuteNameValue(TextSpan span)
+    public virtual string ExecuteNameValue(TextSpan text)
     {
         return null;
     }
 
-    public virtual TextSpan ExecuteStringValue(TextSpan span)
+    public virtual string ExecuteStringValue()
     {
         return null;
     }

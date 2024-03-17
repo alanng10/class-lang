@@ -8,14 +8,14 @@ public class CountCreateOperate : CreateOperate
         this.ListInfra = ListInfra.This;
         this.TextInfra = TextInfra.This;
         this.List = this.ListInfra.ArrayCreate(0);
-        this.TextSpan = this.TextInfra.SpanCreate(0);
+        this.String = "";
         return true;
     }
 
     protected virtual ListInfra ListInfra { get; set; }
     protected virtual TextInfra TextInfra { get; set; }
     protected virtual Array List { get; set; }
-    protected virtual TextSpan TextSpan { get; set; }
+    protected virtual string String { get; set; }
 
     public override Node Execute()
     {
@@ -61,18 +61,18 @@ public class CountCreateOperate : CreateOperate
         return true;
     }
 
-    public override TextSpan ExecuteNameValue(TextSpan span)
+    public override string ExecuteNameValue(TextSpan text)
     {
         int index;
         index = this.Create.NameValueIndex;
 
-        index = index + 1;
+        index = index + text.Range.Count;
 
         this.Create.NameValueIndex = index;
-        return this.TextSpan;
+        return this.String;
     }
 
-    public override TextSpan ExecuteStringValue(TextSpan span)
+    public override string ExecuteStringValue()
     {
         int index;
         index = this.Create.StringValueIndex;
@@ -80,6 +80,6 @@ public class CountCreateOperate : CreateOperate
         index = index + 1;
 
         this.Create.StringValueIndex = index;
-        return this.TextSpan;
+        return this.String;
     }
 }

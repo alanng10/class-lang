@@ -99,6 +99,8 @@ public class Create : InfraCreate
     public virtual int ErrorIndex { get; set; }
     public virtual Array ErrorArray { get; set; }
     public virtual int NameValueIndex { get; set; }
+    public virtual int NameValueTotalCount { get; set; }
+    public virtual char[] NameValueText { get; set; }
     public virtual Data NameValueData { get; set; }
     public virtual Array NameValueArray { get; set; }
     public virtual int StringValueIndex { get; set; }
@@ -313,6 +315,8 @@ public class Create : InfraCreate
         listCount = this.ListIndex;
         int nameValueCount;
         nameValueCount = this.NameValueIndex;
+        int nameValueTotalCount;
+        nameValueTotalCount = this.NameValueTotalCount;
         int stringValueCount;
         stringValueCount = this.StringValueIndex;
         int errorCount;
@@ -324,6 +328,7 @@ public class Create : InfraCreate
 
         this.ListData = this.CountDataCreate(listCount);
         this.NameValueData = this.CountDataCreate(nameValueCount);
+        this.NameValueText = new char[nameValueTotalCount];
         this.StringValueData = this.CountDataCreate(stringValueCount);
         
         this.Operate = this.KindOperate;
@@ -485,6 +490,9 @@ public class Create : InfraCreate
     {
         this.DataRead.Data = this.NameValueData;
 
+        int total;
+        total = 0;
+
         int count;
         count = this.NameValueArray.Count;
         int i;
@@ -495,9 +503,10 @@ public class Create : InfraCreate
             index = i * sizeof(int);
             int oa;
             oa = this.DataRead.ExecuteInt(index);
-            TextSpan oo;
-            oo = this.TextInfra.SpanCreate(oa);
+            string oo;
+            oo = new string(this.NameValueText, total, oa);
             this.NameValueArray.Set(i, oo);
+            total = total + oa;
             i = i + 1;
         }
         return true;
@@ -3572,7 +3581,7 @@ public class Create : InfraCreate
         return result;
     }
 
-    protected virtual TextSpan ExecuteNameValue(Range range)
+    protected virtual string ExecuteNameValue(Range range)
     {
         int start;
         int end;
@@ -3590,7 +3599,7 @@ public class Create : InfraCreate
         textSpan = this.TextSpan;
         this.TextSpanGet(textSpan, aa);
 
-        TextSpan a;
+        string a;
         a = this.Operate.ExecuteNameValue(textSpan);
         return a;
     }

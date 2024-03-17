@@ -11,7 +11,7 @@ public class KindCreateOperate : CreateOperate
         this.DataWrite = new DataWrite();
         this.DataWrite.Init();
         this.List = this.ListInfra.ArrayCreate(0);
-        this.TextSpan = this.TextInfra.SpanCreate(0);
+        this.String = "";
         return true;
     }
 
@@ -20,7 +20,7 @@ public class KindCreateOperate : CreateOperate
     protected virtual TextInfra TextInfra { get; set; }
     protected virtual DataWrite DataWrite { get; set; }
     protected virtual Array List { get; set; }
-    protected virtual TextSpan TextSpan { get; set; }
+    protected virtual string String { get; set; }
 
     public override Node Execute()
     {
@@ -69,13 +69,13 @@ public class KindCreateOperate : CreateOperate
         return true;
     }
 
-    public override TextSpan ExecuteNameValue(TextSpan span)
+    public override string ExecuteNameValue(TextSpan text)
     {
         int index;
         index = this.Create.NameValueIndex;
 
         int count;
-        count = span.Range.Count;
+        count = text.Range.Count;
         this.DataWrite.Data = this.Create.NameValueData;
         long oa;
         oa = index * sizeof(int);
@@ -85,10 +85,10 @@ public class KindCreateOperate : CreateOperate
         index = index + 1;
 
         this.Create.NameValueIndex = index;
-        return this.TextSpan;
+        return this.String;
     }
 
-    public override TextSpan ExecuteStringValue(TextSpan span)
+    public override string ExecuteStringValue()
     {
         int index;
         index = this.Create.StringValueIndex;
