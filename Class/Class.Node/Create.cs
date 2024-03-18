@@ -1922,6 +1922,25 @@ public class Create : InfraCreate
         }
         if (a == null)
         {
+            if (!(start == end))
+            {
+                Token wordTokenC;
+                wordTokenC = this.Token(this.TokenA, this.Keyword.Base.Text, this.IndexRange(this.RangeA, start));
+                if (!(wordTokenC == null))
+                {
+                    if (a == null)
+                    {
+                        a = this.ExecuteBaseCallOperate(this.Range(this.RangeA, start, end));
+                    }
+                    if (a == null)
+                    {
+                        a = this.ExecuteBaseGetOperate(this.Range(this.RangeA, start, end));
+                    }
+                }
+            }
+        }
+        if (a == null)
+        {
             a = this.ExecuteBracketOperate(this.Range(this.RangeA, start, end));
         }
         if (a == null)
@@ -1967,10 +1986,6 @@ public class Create : InfraCreate
         if (a == null)
         {
             a = this.ExecuteDivOperate(this.Range(this.RangeA, start, end));
-        }
-        if (a == null)
-        {
-            a = this.ExecuteBaseGetOperate(this.Range(this.RangeA, start, end));
         }
         if (a == null)
         {
