@@ -117,28 +117,24 @@ public class KindCreateOperate : CreateOperate
         write.ExecuteValueString(text);
         int count;
         count = write.Index;
+
+        write.WriteOperate = write.AddWriteOperate;
+        write.Index = indexA;
+        write.Array = this.Create.StringValueText;
+        write.ExecuteValueString(text);
+        write.Array = null;
+
         this.DataWrite.Data = this.Create.StringValueData;
         long oa;
         oa = index * sizeof(int);
         this.DataWrite.ExecuteInt(oa, count);
         this.DataWrite.Data = null;
 
-        char[] source;
-        source = text.Data;
-        int sourceIndex;
-        sourceIndex = text.Range.Index;
-        char[] dest;
-        dest = this.Create.StringValueText;
-        int destIndex;
-        destIndex = indexA;
-
-        this.CopyText(dest, destIndex, source, sourceIndex, count);
-
         index = index + 1;
         indexA = indexA + count;
 
-        this.Create.NameValueTotalIndex = indexA;
-        this.Create.NameValueIndex = index;
+        this.Create.StringValueTotalIndex = indexA;
+        this.Create.StringValueIndex = index;
         return this.String;
     }
 

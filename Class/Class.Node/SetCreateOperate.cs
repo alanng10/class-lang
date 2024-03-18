@@ -91,52 +91,38 @@ public class SetCreateOperate : CreateOperate
         return true;
     }
 
-    public override TextSpan ExecuteNameValue(TextSpan span)
+    public override string ExecuteNameValue(TextSpan text)
     {
         int index;
         index = this.Create.NameValueIndex;
+        int indexA;
+        indexA = this.Create.NameValueTotalIndex;
 
-        InfraRange range;
-        range = span.Range;
-        char[] array;
-        array = span.Data;
-        int start;
-        start = range.Index;
-        int count;
-        count = range.Count;
-        TextSpan a;
-        a = (TextSpan)this.Create.NameValueArray.Get(index);
-        char[] oa;
-        oa = a.Data;
-        int i;
-        i = 0;
-        while (i < count)
-        {
-            oa[i] = array[start + i];
-            i = i + 1;
-        }
+        string a;
+        a = (string)this.Create.NameValueArray.Get(index);
 
         index = index + 1;
+        indexA = indexA + a.Length;
+
+        this.Create.NameValueTotalIndex = indexA;
         this.Create.NameValueIndex = index;
         return a;
     }
 
-    public override TextSpan ExecuteStringValue(TextSpan span)
+    public override string ExecuteStringValue(TextSpan text)
     {
         int index;
         index = this.Create.StringValueIndex;
+        int indexA;
+        indexA = this.Create.StringValueTotalIndex;
 
-        TextSpan a;
-        a = (TextSpan)this.Create.StringValueArray.Get(index);
-        StringValueWrite write;
-        write = this.Create.StringValueWrite;
-        write.WriteOperate = write.AddWriteOperate;
-        write.Index = 0;
-        write.Array = a.Data;
-        write.ExecuteValueString(span);
-        write.Array = null;
+        string a;
+        a = (string)this.Create.StringValueArray.Get(index);
 
         index = index + 1;
+        indexA = indexA + a.Length;
+
+        this.Create.StringValueTotalIndex = indexA;
         this.Create.StringValueIndex = index;
         return a;
     }
