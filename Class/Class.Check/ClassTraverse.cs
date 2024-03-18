@@ -34,7 +34,7 @@ class ClassTraverse : Traverse
 
 
 
-        TextSpan className;
+        string className;
 
 
         className = name.Value;
@@ -55,7 +55,7 @@ class ClassTraverse : Traverse
 
 
         
-        if (! (map.Get(className) == null))
+        if (!(map.Get(className) == null))
         {
             this.Error(this.ErrorKind.NameUnavailable, nodeClass);
 
