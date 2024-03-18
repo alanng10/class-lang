@@ -118,17 +118,17 @@ public class KindCreateOperate : CreateOperate
         int count;
         count = write.Index;
 
-        write.WriteOperate = write.AddWriteOperate;
-        write.Index = indexA;
-        write.Array = this.Create.StringValueText;
-        write.ExecuteValueString(text);
-        write.Array = null;
-
         this.DataWrite.Data = this.Create.StringValueData;
         long oa;
         oa = index * sizeof(int);
         this.DataWrite.ExecuteInt(oa, count);
         this.DataWrite.Data = null;
+        
+        write.WriteOperate = write.AddWriteOperate;
+        write.Index = indexA;
+        write.Array = this.Create.StringValueText;
+        write.ExecuteValueString(text);
+        write.Array = null;
 
         index = index + 1;
         indexA = indexA + count;
