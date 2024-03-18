@@ -499,7 +499,6 @@ public class Create : InfraCreate
     protected virtual bool ExecuteNameValueCreate()
     {
         this.DataRead.Data = this.NameValueData;
-
         int total;
         total = 0;
 
@@ -519,13 +518,13 @@ public class Create : InfraCreate
             total = total + oa;
             i = i + 1;
         }
+        this.DataRead.Data = null;
         return true;
     }
 
     protected virtual bool ExecuteStringValueCreate()
     {
         this.DataRead.Data = this.StringValueData;
-
         int total;
         total = 0;
 
@@ -545,6 +544,7 @@ public class Create : InfraCreate
             total = total + oa;
             i = i + 1;
         }
+        this.DataRead.Data = null;
         return true;
     }
 
