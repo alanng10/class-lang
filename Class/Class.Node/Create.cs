@@ -4172,7 +4172,7 @@ public class Create : InfraCreate
         int index;
         index = -1;
         bool varContinue;
-        varContinue = i < end;
+        varContinue = (i < end);
         while (varContinue)
         {
             bool b;
@@ -4209,6 +4209,64 @@ public class Create : InfraCreate
         return result;
     }
 
+    protected virtual Token TokenBackwardNoSkip(Token result, string value, Range range)
+    {
+        int start;
+        int end;
+        start = range.Start;
+        end = range.End;
+        string leftBracket;
+        string rightBracket;
+        leftBracket = this.Delimit.LeftBracket.Text;
+        rightBracket = this.Delimit.RightBracket.Text;
+        string leftBrace;
+        string rightBrace;
+        leftBrace = this.Delimit.LeftBrace.Text;
+        rightBrace = this.Delimit.RightBrace.Text;
+        int i;
+        i = end;
+        int index;
+        index = -1;
+        bool varContinue;
+        varContinue = (start < i);
+        while (varContinue)
+        {
+            int j;
+            j = i - 1;
+            bool b;
+            b = this.IsText(value, j);
+            if (b)
+            {
+                index = j;
+                varContinue = false;
+            }
+            if (!b)
+            {
+                bool ba;
+                ba = (this.IsText(leftBracket, j) | this.IsText(rightBracket, j) | this.IsText(leftBrace, j) | this.IsText(rightBrace, j));
+                if (ba)
+                {
+                    varContinue = false;
+                }
+                if (!ba)
+                {
+                    i = i - 1;
+                }
+            }
+            if (!(start < i))
+            {
+                varContinue = false;
+            }
+        }
+        if (index == -1)
+        {
+            return null;
+        }
+
+        this.IndexRange(result.Range, index);
+        return result;
+    }
+
     protected virtual Token TokenForward(Token result, string value, Range range)
     {
         int start;
@@ -4221,7 +4279,7 @@ public class Create : InfraCreate
         int index;
         index = -1;
         bool varContinue;
-        varContinue = i < end;
+        varContinue = (i < end);
         while (varContinue)
         {
             bool b;
