@@ -31,7 +31,6 @@ public class SystemClass : Any
     public override bool Init()
     {
         base.Init();
-        this.TextInfra = TextInfra.This;
 
 
         
@@ -58,8 +57,6 @@ public class SystemClass : Any
         return true;
     }
 
-    protected virtual TextInfra TextInfra { get; set; }
-
     private InfraClass NewClass(string name)
     {
         InfraClass c;
@@ -71,7 +68,7 @@ public class SystemClass : Any
         c.Init();
 
 
-        c.Name = this.TextInfra.SpanCreateString(name);
+        c.Name = name;
 
 
 
