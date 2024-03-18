@@ -308,6 +308,7 @@ public class Create : InfraCreate
         this.NameValueIndex = 0;
         this.NameValueTotalIndex = 0;
         this.StringValueIndex = 0;
+        this.StringValueTotalIndex = 0;
         this.ErrorIndex = 0;
 
         this.ExecuteStage();
@@ -322,6 +323,8 @@ public class Create : InfraCreate
         nameValueTotalCount = this.NameValueTotalIndex;
         int stringValueCount;
         stringValueCount = this.StringValueIndex;
+        int stringValueTotalCount;
+        stringValueTotalCount = this.StringValueTotalIndex;
         int errorCount;
         errorCount = this.ErrorIndex;
 
@@ -333,6 +336,7 @@ public class Create : InfraCreate
         this.NameValueData = this.CountDataCreate(nameValueCount);
         this.NameValueText = new char[nameValueTotalCount];
         this.StringValueData = this.CountDataCreate(stringValueCount);
+        this.StringValueText = new char[stringValueTotalCount];
         
         this.Operate = this.KindOperate;
 
@@ -341,6 +345,7 @@ public class Create : InfraCreate
         this.NameValueIndex = 0;
         this.NameValueTotalIndex = 0;
         this.StringValueIndex = 0;
+        this.StringValueTotalIndex = 0;
         this.ErrorIndex = 0;
 
         this.ExecuteStage();
@@ -363,6 +368,7 @@ public class Create : InfraCreate
         this.ListIndex = 0;
         this.NameValueIndex = 0;
         this.StringValueIndex = 0;
+        this.StringValueTotalIndex = 0;
         this.ErrorIndex = 0;
 
         this.ExecuteStage();
@@ -520,6 +526,9 @@ public class Create : InfraCreate
     {
         this.DataRead.Data = this.StringValueData;
 
+        int total;
+        total = 0;
+
         int count;
         count = this.StringValueArray.Count;
         int i;
@@ -530,9 +539,10 @@ public class Create : InfraCreate
             index = i * sizeof(int);
             int oa;
             oa = this.DataRead.ExecuteInt(index);
-            TextSpan oo;
-            oo = this.TextInfra.SpanCreate(oa);
+            string oo;
+            oo = new string(this.StringValueText, total, oa);
             this.StringValueArray.Set(i, oo);
+            total = total + oa;
             i = i + 1;
         }
         return true;
