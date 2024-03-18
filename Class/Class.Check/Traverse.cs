@@ -75,7 +75,7 @@ public class Traverse : NodeTraverse
 
 
 
-    protected InfraClass Class(TextSpan name)
+    protected InfraClass Class(string name)
     {
         InfraClass ret;
 
