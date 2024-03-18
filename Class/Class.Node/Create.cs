@@ -1183,7 +1183,7 @@ public class Create : InfraCreate
 
     public virtual Node ExecuteBaseSetTarget(Range range)
     {
-        return this.ExecuteBaseDotField(this.NodeKind.BaseSetTarget, range);
+        return this.ExecuteWordDotField(this.NodeKind.BaseSetTarget, this.Keyword.Base, range);
     }
 
     public virtual Node ExecuteValue(Range range)
@@ -1986,7 +1986,7 @@ public class Create : InfraCreate
 
     public virtual Node ExecuteBaseGetOperate(Range range)
     {
-        return this.ExecuteBaseDotField(this.NodeKind.BaseGetOperate, range);
+        return this.ExecuteWordDotField(this.NodeKind.BaseGetOperate, this.Keyword.Base, range);
     }
 
     public virtual Node ExecuteCallOperate(Range range)
@@ -2627,7 +2627,7 @@ public class Create : InfraCreate
         return ret;
     }
 
-    protected virtual Node ExecuteBaseDotField(NodeKind kind, Range range)
+    protected virtual Node ExecuteWordDotField(NodeKind kind, Keyword word, Range range)
     {
         int start;
         int end;
@@ -2638,19 +2638,19 @@ public class Create : InfraCreate
         {
             return null;
         }
-        Token baseToken;
-        baseToken = this.Token(this.TokenA, this.Keyword.Base.Text, this.IndexRange(this.RangeA, start));
-        if (baseToken == null)
+        Token wordToken;
+        wordToken = this.Token(this.TokenA, word.Text, this.IndexRange(this.RangeA, start));
+        if (wordToken == null)
         {
             return null;
         }
 
-        if (baseToken.Range.End == end)
+        if (wordToken.Range.End == end)
         {
             return null;
         }
         Token dot;
-        dot = this.Token(this.TokenB, this.Delimit.StopSign.Text, this.IndexRange(this.RangeA, baseToken.Range.End));
+        dot = this.Token(this.TokenB, this.Delimit.StopSign.Text, this.IndexRange(this.RangeA, wordToken.Range.End));
         if (dot == null)
         {
             return null;
