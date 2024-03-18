@@ -238,14 +238,10 @@ public class Create : InfraCreate
 
 
         this.Module = new Module();
-
-
-
         this.Module.Init();
-
-
-
-        this.Module.Name = this.TaskModule;
+        this.Module.Ref = new ModuleRef();
+        this.Module.Ref.Init();
+        this.Module.Ref.Name = this.TaskModule;
 
 
 
@@ -400,7 +396,7 @@ public class Create : InfraCreate
 
 
 
-        varClass.Name = this.TextInfra.SpanCreateString("Any");
+        varClass.Name = "Any";
 
 
 
@@ -478,7 +474,7 @@ public class Create : InfraCreate
         method.Class = varClass;
 
 
-        method.Name = this.TextInfra.SpanCreateString(name);
+        method.Name = name;
 
 
         method.Count = access;
@@ -813,7 +809,7 @@ public class Create : InfraCreate
 
 
 
-        TextSpan baseName;
+        string baseName;
 
 
         
@@ -1192,7 +1188,7 @@ public class Create : InfraCreate
 
 
 
-    public InfraClass Class(TextSpan name)
+    public InfraClass Class(string name)
     {
         InfraClass varClass;
 
