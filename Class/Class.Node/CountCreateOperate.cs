@@ -82,9 +82,17 @@ public class CountCreateOperate : CreateOperate
         index = this.Create.StringValueIndex;
         int indexA;
         indexA = this.Create.StringValueTotalIndex;
-
+        
+        StringValueWrite write;
+        write = this.Create.StringValueWrite;
+        write.WriteOperate = write.CountWriteOperate;
+        write.Index = 0;
+        write.ExecuteValueString(text);
+        int count;
+        count = write.Index;
+        
         index = index + 1;
-        indexA = indexA + text.Range.Count;
+        indexA = indexA + count;
 
         this.Create.StringValueTotalIndex = indexA;
         this.Create.StringValueIndex = index;
