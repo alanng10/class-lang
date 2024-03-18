@@ -190,6 +190,8 @@ public class StringValueWrite : Any
         tab = this.ClassInfra.Tab[0];
         char newLine;
         newLine = this.ClassInfra.NewLine[0];
+        char uuu;
+        uuu = (char)0;
         int count;
         count = kk - 2;
         int start;
@@ -221,7 +223,7 @@ public class StringValueWrite : Any
                     indexA = start + j;
                     u = data[indexA];
 
-                    escapeValue = (char)0;                    
+                    escapeValue = uuu;                    
                     if (u == quote)
                     {
                         escapeValue = u;
