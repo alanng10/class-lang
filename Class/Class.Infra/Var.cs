@@ -2,7 +2,7 @@ namespace Class.Infra;
 
 
 
-public class Var
+public class Var : Any
 {
     public string Name { get; set; }
 
