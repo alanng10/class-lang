@@ -2525,7 +2525,7 @@ public class Create : InfraCreate
         end = range.End;
 
         Token dot;
-        dot = this.TokenBackward(this.TokenA, this.Delimit.StopSign.Text, this.Range(this.RangeA, start, end));
+        dot = this.TokenBackwardNoSkip(this.TokenA, this.Delimit.StopSign.Text, this.Range(this.RangeA, start, end));
         if (dot == null)
         {
             return null;
@@ -2592,7 +2592,7 @@ public class Create : InfraCreate
         }
 
         Token dot;
-        dot = this.TokenBackward(this.TokenC, this.Delimit.StopSign.Text, this.Range(this.RangeA, start, leftBracket.Range.Start));
+        dot = this.TokenBackwardNoSkip(this.TokenC, this.Delimit.StopSign.Text, this.Range(this.RangeA, start, leftBracket.Range.Start));
         if (dot == null)
         {
             return null;
@@ -2653,7 +2653,7 @@ public class Create : InfraCreate
         end = range.End;
 
         Token dot;
-        dot = this.TokenBackward(this.TokenA, this.Delimit.StopSign.Text, this.Range(this.RangeA, start, end));
+        dot = this.TokenBackwardNoSkip(this.TokenA, this.Delimit.StopSign.Text, this.Range(this.RangeA, start, end));
         if (dot == null)
         {
             return null;
@@ -2726,7 +2726,7 @@ public class Create : InfraCreate
         }
 
         Token dot;
-        dot = this.TokenBackward(this.TokenC, this.Delimit.StopSign.Text, this.Range(this.RangeA, start, leftBracket.Range.Start));
+        dot = this.TokenBackwardNoSkip(this.TokenC, this.Delimit.StopSign.Text, this.Range(this.RangeA, start, leftBracket.Range.Start));
         if (dot == null)
         {
             return null;
