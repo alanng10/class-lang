@@ -781,41 +781,6 @@ public class StateTraverse : Traverse
 
 
 
-
-    public override bool ExecuteBaseOperate(BaseOperate baseOperate)
-    {
-        if (baseOperate == null)
-        {
-            return true;
-        }
-
-
-
-
-        InfraClass baseClass;
-
-
-
-        baseClass = this.CurrentClass.Base;
-
-
-
-
-        this.Check(baseOperate).OperateClass = baseClass;
-
-
-
-
-        return true;
-    }
-
-
-
-
-
-
-
-
     public override bool ExecuteAssignExecute(AssignExecute assignExecute)
     {
         if (assignExecute == null)
