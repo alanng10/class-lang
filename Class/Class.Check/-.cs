@@ -52,7 +52,6 @@ global using AssignExecute = Class.Node.AssignExecute;
 global using OperateExecute = Class.Node.OperateExecute;
 global using Operate = Class.Node.Operate;
 global using ThisOperate = Class.Node.ThisOperate;
-global using BaseOperate = Class.Node.BaseOperate;
 global using NewOperate = Class.Node.NewOperate;
 global using ShareOperate = Class.Node.ShareOperate;
 global using BracketOperate = Class.Node.BracketOperate;
