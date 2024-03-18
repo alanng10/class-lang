@@ -8,7 +8,7 @@ public class StringValueWrite : Any
         
         this.InfraInfra = InfraInfra.This;
         this.TextInfra = TextInfra.This;
-        this.Stat = Stat.This;
+        this.ClassInfra = Infra.This;
 
         this.CountWriteOperate = new CountWriteOperate();
         this.CountWriteOperate.Write = this;
@@ -24,8 +24,7 @@ public class StringValueWrite : Any
 
     protected virtual InfraInfra InfraInfra { get; set; }
     protected virtual TextInfra TextInfra { get; set; }
-    protected virtual Stat Stat { get; set; }
-
+    protected virtual Infra ClassInfra { get; set; }
     protected virtual TextPos TextPos { get; set; }
 
     public virtual CountWriteOperate CountWriteOperate { get; set; }
@@ -84,7 +83,7 @@ public class StringValueWrite : Any
         rangeEnd = range.Index + range.Count;
 
         char quote;
-        quote = this.Stat.Quote[0];
+        quote = this.ClassInfra.Quote[0];
 
         char oc;
         oc = data[rangeStart];
@@ -99,11 +98,11 @@ public class StringValueWrite : Any
         }
 
         char backSlash;
-        backSlash = this.Stat.BackSlash[0];
+        backSlash = this.ClassInfra.BackSlash[0];
         char tab;
-        tab = this.Stat.Tab[0];
+        tab = this.ClassInfra.Tab[0];
         char newLine;
-        newLine = this.Stat.NewLine[0];
+        newLine = this.ClassInfra.NewLine[0];
 
         int count;
         count = kk - 2;
@@ -184,13 +183,13 @@ public class StringValueWrite : Any
         kk = range.Count;
 
         char backSlash;
-        backSlash = this.Stat.BackSlash[0];
+        backSlash = this.ClassInfra.BackSlash[0];
         char quote;
-        quote = this.Stat.Quote[0];
+        quote = this.ClassInfra.Quote[0];
         char tab;
-        tab = this.Stat.Tab[0];
+        tab = this.ClassInfra.Tab[0];
         char newLine;
-        newLine = this.Stat.NewLine[0];
+        newLine = this.ClassInfra.NewLine[0];
         int count;
         count = kk - 2;
         int start;
