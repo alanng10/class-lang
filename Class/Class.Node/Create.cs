@@ -2663,24 +2663,27 @@ public class Create : InfraCreate
         start = range.Start;
         end = range.End;
 
-        if (start == end)
+        Token dot;
+        dot = this.TokenBackward(this.TokenA, this.Delimit.StopSign.Text, this.Range(this.RangeA, start, end));
+        if (dot == null)
         {
             return null;
         }
+
+        if (dot.Range.Start == start)
+        {
+            return null;
+        }
+        int wordIndex;
+        wordIndex = dot.Range.Start - 1;
         Token wordToken;
-        wordToken = this.Token(this.TokenA, word.Text, this.IndexRange(this.RangeA, start));
+        wordToken = this.Token(this.TokenB, word.Text, this.IndexRange(this.RangeA, wordIndex));
         if (wordToken == null)
         {
             return null;
         }
 
-        if (wordToken.Range.End == end)
-        {
-            return null;
-        }
-        Token dot;
-        dot = this.Token(this.TokenB, this.Delimit.StopSign.Text, this.IndexRange(this.RangeA, wordToken.Range.End));
-        if (dot == null)
+        if (!(wordToken.Range.Start == start))
         {
             return null;
         }
