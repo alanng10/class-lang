@@ -1166,6 +1166,10 @@ public class Create : InfraCreate
         }
         if (a == null)
         {
+            a = this.ExecuteBaseSetTarget(this.Range(this.RangeA, start, end));
+        }
+        if (a == null)
+        {
             a = this.ExecuteSetTarget(this.Range(this.RangeA, start, end));
         }
         return a;
