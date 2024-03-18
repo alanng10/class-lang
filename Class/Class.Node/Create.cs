@@ -1181,6 +1181,11 @@ public class Create : InfraCreate
         return this.ExecuteDotField(this.NodeKind.SetTarget, range);
     }
 
+    public virtual Node ExecuteBaseSetTarget(Range range)
+    {
+        return this.ExecuteBaseDotField(this.NodeKind.BaseSetTarget, range);
+    }
+
     public virtual Node ExecuteValue(Range range)
     {
         int start;
@@ -1839,10 +1844,6 @@ public class Create : InfraCreate
         }
         if (a == null)
         {
-            a = this.ExecuteBaseOperate(this.Range(this.RangeA, start, end));
-        }
-        if (a == null)
-        {
             a = this.ExecuteNullOperate(this.Range(this.RangeA, start, end));
         }
         if (a == null)
@@ -1965,6 +1966,10 @@ public class Create : InfraCreate
         }
         if (a == null)
         {
+            a = this.ExecuteBaseGetOperate(this.Range(this.RangeA, start, end));
+        }
+        if (a == null)
+        {
             a = this.ExecuteCallOperate(this.Range(this.RangeA, start, end));
         }
         if (a == null)
@@ -1977,6 +1982,11 @@ public class Create : InfraCreate
     public virtual Node ExecuteGetOperate(Range range)
     {
         return this.ExecuteDotField(this.NodeKind.GetOperate, range);
+    }
+
+    public virtual Node ExecuteBaseGetOperate(Range range)
+    {
+        return this.ExecuteBaseDotField(this.NodeKind.BaseGetOperate, range);
     }
 
     public virtual Node ExecuteCallOperate(Range range)
@@ -2063,11 +2073,6 @@ public class Create : InfraCreate
     public virtual Node ExecuteThisOperate(Range range)
     {
         return this.ExecuteOneWord(this.NodeKind.ThisOperate, this.Keyword.ItemThis, range);
-    }
-
-    public virtual Node ExecuteBaseOperate(Range range)
-    {
-        return this.ExecuteOneWord(this.NodeKind.BaseOperate, this.Keyword.Base, range);
     }
 
     public virtual Node ExecuteNullOperate(Range range)
@@ -2617,6 +2622,56 @@ public class Create : InfraCreate
         this.OperateArg.End = end;
         this.OperateArg.Field00 = varThis;
         this.OperateArg.Field01 = field;
+        Node ret;
+        ret = this.ExecuteCreateOperate();
+        return ret;
+    }
+
+    protected virtual Node ExecuteBaseDotField(NodeKind kind, Range range)
+    {
+        int start;
+        int end;
+        start = range.Start;
+        end = range.End;
+
+        if (start == end)
+        {
+            return null;
+        }
+        Token baseToken;
+        baseToken = this.Token(this.TokenA, this.Keyword.Base.Text, this.IndexRange(this.RangeA, start));
+        if (baseToken == null)
+        {
+            return null;
+        }
+
+        if (baseToken.Range.End == end)
+        {
+            return null;
+        }
+        Token dot;
+        dot = this.Token(this.TokenB, this.Delimit.StopSign.Text, this.IndexRange(this.RangeA, baseToken.Range.End));
+        if (dot == null)
+        {
+            return null;
+        }
+
+        int fieldStart;
+        int fieldEnd;
+        fieldStart = dot.Range.End;
+        fieldEnd = end;
+
+        Node field;
+        field = this.ExecuteName(this.NodeKind.FieldName, this.Range(this.RangeA, fieldStart, fieldEnd));
+        if (field == null)
+        {
+            this.Error(this.ErrorKind.FieldInvalid, fieldStart, fieldEnd);
+        }
+
+        this.OperateArg.Kind = kind;
+        this.OperateArg.Start = start;
+        this.OperateArg.End = end;
+        this.OperateArg.Field00 = field;
         Node ret;
         ret = this.ExecuteCreateOperate();
         return ret;
