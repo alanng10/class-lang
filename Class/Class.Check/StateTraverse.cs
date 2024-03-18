@@ -2712,7 +2712,7 @@ public class StateTraverse : Traverse
 
 
 
-    private Field Field(InfraClass varClass, string name)
+    protected virtual Field Field(InfraClass varClass, string name)
     {
         Field field;
 
@@ -2763,7 +2763,7 @@ public class StateTraverse : Traverse
 
 
 
-    protected Maide Method(InfraClass varClass, string name)
+    protected virtual Maide Method(InfraClass varClass, string name)
     {
         Maide method;
 
