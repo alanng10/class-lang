@@ -90,14 +90,10 @@ public class KindCreateOperate : CreateOperate
         sourceIndex = text.Range.Index;
         char[] dest;
         dest = this.Create.NameValueText;
-        int i;
-        i = 0;
-        while (i < count)
-        {
-            dest[indexA + i] = source[sourceIndex + i];
+        int destIndex;
+        destIndex = indexA;
 
-            i = i + 1;
-        }
+        this.CopyText(dest, destIndex, source, sourceIndex, count);
 
         index = index + 1;
         indexA = indexA + count;
@@ -111,6 +107,8 @@ public class KindCreateOperate : CreateOperate
     {
         int index;
         index = this.Create.StringValueIndex;
+        int indexA;
+        indexA = this.Create.StringValueTotalIndex;
 
         StringValueWrite write;
         write = this.Create.StringValueWrite;
@@ -125,9 +123,36 @@ public class KindCreateOperate : CreateOperate
         this.DataWrite.ExecuteInt(oa, count);
         this.DataWrite.Data = null;
 
-        index = index + 1;
+        char[] source;
+        source = text.Data;
+        int sourceIndex;
+        sourceIndex = text.Range.Index;
+        char[] dest;
+        dest = this.Create.StringValueText;
+        int destIndex;
+        destIndex = indexA;
 
-        this.Create.StringValueIndex = index;
+        this.CopyText(dest, destIndex, source, sourceIndex, count);
+
+        index = index + 1;
+        indexA = indexA + count;
+
+        this.Create.NameValueTotalIndex = indexA;
+        this.Create.NameValueIndex = index;
         return this.String;
+    }
+
+
+    protected virtual bool CopyText(char[] dest, int destIndex, char[] source, int sourceIndex, int count)
+    {
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            dest[destIndex + i] = source[sourceIndex + i];
+
+            i = i + 1;
+        }
+        return true;
     }
 }
