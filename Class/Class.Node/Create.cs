@@ -1988,11 +1988,6 @@ public class Create : InfraCreate
         return this.ExecuteDotField(this.NodeKind.GetOperate, range);
     }
 
-    public virtual Node ExecuteBaseGetOperate(Range range)
-    {
-        return this.ExecuteWordDotField(this.NodeKind.BaseGetOperate, this.Keyword.Base, range);
-    }
-
     public virtual Node ExecuteCallOperate(Range range)
     {
         int start;
@@ -2072,6 +2067,16 @@ public class Create : InfraCreate
         Node ret;
         ret = this.ExecuteCreateOperate();
         return ret;
+    }
+
+    public virtual Node ExecuteBaseGetOperate(Range range)
+    {
+        return this.ExecuteWordDotField(this.NodeKind.BaseGetOperate, this.Keyword.Base, range);
+    }
+
+    public virtual Node ExecuteBaseCallOperate(Range range)
+    {
+        return this.ExecuteWordDotMaideCall(this.NodeKind.BaseCallOperate, this.Keyword.Base, range);
     }
 
     public virtual Node ExecuteThisOperate(Range range)
@@ -2676,6 +2681,88 @@ public class Create : InfraCreate
         this.OperateArg.Start = start;
         this.OperateArg.End = end;
         this.OperateArg.Field00 = field;
+        Node ret;
+        ret = this.ExecuteCreateOperate();
+        return ret;
+    }
+
+    protected virtual Node ExecuteWordDotMaideCall(NodeKind kind, Keyword word, Range range)
+    {
+        int start;
+        int end;
+        start = range.Start;
+        end = range.End;
+
+        if (start == end)
+        {
+            return null;
+        }
+        Token wordToken;
+        wordToken = this.Token(this.TokenA, word.Text, this.IndexRange(this.RangeA, start));
+        if (wordToken == null)
+        {
+            return null;
+        }
+
+        if (wordToken.Range.End == end)
+        {
+            return null;
+        }
+        Token dot;
+        dot = this.Token(this.TokenB, this.Delimit.StopSign.Text, this.IndexRange(this.RangeA, wordToken.Range.End));
+        if (dot == null)
+        {
+            return null;
+        }
+        
+        Token leftBracket;
+        leftBracket = this.TokenForwardNoSkip(this.TokenC, this.Delimit.LeftBracket.Text, this.Range(this.RangeA, dot.Range.End, end));
+        if (leftBracket == null)
+        {
+            return null;
+        }
+
+        Token rightBracket;
+        rightBracket = this.TokenMatchLeftBracket(this.TokenD, this.Range(this.RangeA, leftBracket.Range.End, end));
+        if (rightBracket == null)
+        {
+            return null;
+        }
+
+        if (!(rightBracket.Range.End == end))
+        {
+            return null;
+        }
+
+        int maideStart;
+        int maideEnd;
+        maideStart = dot.Range.End;
+        maideEnd = leftBracket.Range.Start;
+
+        int argueStart;
+        int argueEnd;
+        argueStart = leftBracket.Range.End;
+        argueEnd = rightBracket.Range.Start;
+
+        Node maide;
+        maide = this.ExecuteName(this.NodeKind.FieldName, this.Range(this.RangeA, maideStart, maideEnd));
+        if (maide == null)
+        {
+            this.Error(this.ErrorKind.MaideInvalid, maideStart, maideEnd);
+        }
+
+        Node argue;
+        argue = this.ExecuteArgue(this.Range(this.RangeA, argueStart, argueEnd));
+        if (argue == null)
+        {
+            this.Error(this.ErrorKind.ArgueInvalid, argueStart, argueEnd);
+        }
+
+        this.OperateArg.Kind = kind;
+        this.OperateArg.Start = start;
+        this.OperateArg.End = end;
+        this.OperateArg.Field00 = maide;
+        this.OperateArg.Field01 = argue;
         Node ret;
         ret = this.ExecuteCreateOperate();
         return ret;
