@@ -1990,83 +1990,7 @@ public class Create : InfraCreate
 
     public virtual Node ExecuteCallOperate(Range range)
     {
-        int start;
-        int end;
-        start = range.Start;
-        end = range.End;
-
-        if (start == end)
-        {
-            return null;
-        }
-        int lastIndex;
-        lastIndex = end - 1;
-        Token rightBracket;
-        rightBracket = this.Token(this.TokenA, this.Delimit.RightBracket.Text, this.IndexRange(this.RangeA, lastIndex));
-        if (rightBracket == null)
-        {
-            return null;
-        }
-
-        Token leftBracket;
-        leftBracket = this.TokenMatchRightBracket(this.TokenB, this.Range(this.RangeA, start, rightBracket.Range.Start));
-        if (leftBracket == null)
-        {
-            return null;
-        }
-
-        Token dot;
-        dot = this.TokenBackward(this.TokenC, this.Delimit.StopSign.Text, this.Range(this.RangeA, start, leftBracket.Range.Start));
-        if (dot == null)
-        {
-            return null;
-        }
-
-        int thisStart;
-        int thisEnd;
-        thisStart = start;
-        thisEnd = dot.Range.Start;
-
-        int maideStart;
-        int maideEnd;
-        maideStart = dot.Range.End;
-        maideEnd = leftBracket.Range.Start;
-
-        int argueStart;
-        int argueEnd;
-        argueStart = leftBracket.Range.End;
-        argueEnd = rightBracket.Range.Start;
-
-        Node varThis;
-        varThis = this.ExecuteOperate(this.Range(this.RangeA, thisStart, thisEnd));
-        if (varThis == null)
-        {
-            this.Error(this.ErrorKind.ThisInvalid, thisStart, thisEnd);
-        }
-
-        Node maide;
-        maide = this.ExecuteName(this.NodeKind.MaideName, this.Range(this.RangeA, maideStart, maideEnd));
-        if (maide == null)
-        {
-            this.Error(this.ErrorKind.MaideInvalid, maideStart, maideEnd);
-        }
-
-        Node argue;
-        argue = this.ExecuteArgue(this.Range(this.RangeA, argueStart, argueEnd));
-        if (argue == null)
-        {
-            this.Error(this.ErrorKind.ArgueInvalid, argueStart, argueEnd);
-        }
-
-        this.OperateArg.Kind = this.NodeKind.CallOperate;
-        this.OperateArg.Start = start;
-        this.OperateArg.End = end;
-        this.OperateArg.Field00 = varThis;
-        this.OperateArg.Field01 = maide;
-        this.OperateArg.Field02 = argue;
-        Node ret;
-        ret = this.ExecuteCreateOperate();
-        return ret;
+        return this.ExecuteDotMaideCall(this.NodeKind.CallOperate, range);
     }
 
     public virtual Node ExecuteBaseGetOperate(Range range)
@@ -2631,6 +2555,87 @@ public class Create : InfraCreate
         this.OperateArg.End = end;
         this.OperateArg.Field00 = varThis;
         this.OperateArg.Field01 = field;
+        Node ret;
+        ret = this.ExecuteCreateOperate();
+        return ret;
+    }
+
+    protected virtual Node ExecuteDotMaideCall(NodeKind kind, Range range)
+    {
+        int start;
+        int end;
+        start = range.Start;
+        end = range.End;
+
+        if (start == end)
+        {
+            return null;
+        }
+        int lastIndex;
+        lastIndex = end - 1;
+        Token rightBracket;
+        rightBracket = this.Token(this.TokenA, this.Delimit.RightBracket.Text, this.IndexRange(this.RangeA, lastIndex));
+        if (rightBracket == null)
+        {
+            return null;
+        }
+
+        Token leftBracket;
+        leftBracket = this.TokenMatchRightBracket(this.TokenB, this.Range(this.RangeA, start, rightBracket.Range.Start));
+        if (leftBracket == null)
+        {
+            return null;
+        }
+
+        Token dot;
+        dot = this.TokenBackward(this.TokenC, this.Delimit.StopSign.Text, this.Range(this.RangeA, start, leftBracket.Range.Start));
+        if (dot == null)
+        {
+            return null;
+        }
+
+        int thisStart;
+        int thisEnd;
+        thisStart = start;
+        thisEnd = dot.Range.Start;
+
+        int maideStart;
+        int maideEnd;
+        maideStart = dot.Range.End;
+        maideEnd = leftBracket.Range.Start;
+
+        int argueStart;
+        int argueEnd;
+        argueStart = leftBracket.Range.End;
+        argueEnd = rightBracket.Range.Start;
+
+        Node varThis;
+        varThis = this.ExecuteOperate(this.Range(this.RangeA, thisStart, thisEnd));
+        if (varThis == null)
+        {
+            this.Error(this.ErrorKind.ThisInvalid, thisStart, thisEnd);
+        }
+
+        Node maide;
+        maide = this.ExecuteName(this.NodeKind.MaideName, this.Range(this.RangeA, maideStart, maideEnd));
+        if (maide == null)
+        {
+            this.Error(this.ErrorKind.MaideInvalid, maideStart, maideEnd);
+        }
+
+        Node argue;
+        argue = this.ExecuteArgue(this.Range(this.RangeA, argueStart, argueEnd));
+        if (argue == null)
+        {
+            this.Error(this.ErrorKind.ArgueInvalid, argueStart, argueEnd);
+        }
+
+        this.OperateArg.Kind = kind;
+        this.OperateArg.Start = start;
+        this.OperateArg.End = end;
+        this.OperateArg.Field00 = varThis;
+        this.OperateArg.Field01 = maide;
+        this.OperateArg.Field02 = argue;
         Node ret;
         ret = this.ExecuteCreateOperate();
         return ret;
