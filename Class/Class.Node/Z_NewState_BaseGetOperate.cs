@@ -1,10 +1,10 @@
 namespace Class.Node;
 
-public class BaseOperateNewState : InfraState
+public class BaseGetOperateNewState : InfraState
 {
     public override bool Execute()
     {
-        this.Result = new BaseOperate();
+        this.Result = new BaseGetOperate();
         return true;
     }
 }

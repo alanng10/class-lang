@@ -45,11 +45,13 @@ public class NodeKindList : Any
         this.Target = this.AddItem("Target", new Target(), new TargetNewState(), new TargetNodeState(), new TargetCreateOperateState());
         this.VarTarget = this.AddItem("VarTarget", new VarTarget(), new VarTargetNewState(), new VarTargetNodeState(), new VarTargetCreateOperateState());
         this.SetTarget = this.AddItem("SetTarget", new SetTarget(), new SetTargetNewState(), new SetTargetNodeState(), new SetTargetCreateOperateState());
+        this.BaseSetTarget = this.AddItem("BaseSetTarget", new BaseSetTarget(), new BaseSetTargetNewState(), new BaseSetTargetNodeState(), new BaseSetTargetCreateOperateState());
         this.Operate = this.AddItem("Operate", new Operate(), new OperateNewState(), new OperateNodeState(), new OperateCreateOperateState());
         this.GetOperate = this.AddItem("GetOperate", new GetOperate(), new GetOperateNewState(), new GetOperateNodeState(), new GetOperateCreateOperateState());
         this.CallOperate = this.AddItem("CallOperate", new CallOperate(), new CallOperateNewState(), new CallOperateNodeState(), new CallOperateCreateOperateState());
+        this.BaseGetOperate = this.AddItem("BaseGetOperate", new BaseGetOperate(), new BaseGetOperateNewState(), new BaseGetOperateNodeState(), new BaseGetOperateCreateOperateState());
+        this.BaseCallOperate = this.AddItem("BaseCallOperate", new BaseCallOperate(), new BaseCallOperateNewState(), new BaseCallOperateNodeState(), new BaseCallOperateCreateOperateState());
         this.ThisOperate = this.AddItem("ThisOperate", new ThisOperate(), new ThisOperateNewState(), new ThisOperateNodeState(), new ThisOperateCreateOperateState());
-        this.BaseOperate = this.AddItem("BaseOperate", new BaseOperate(), new BaseOperateNewState(), new BaseOperateNodeState(), new BaseOperateCreateOperateState());
         this.NullOperate = this.AddItem("NullOperate", new NullOperate(), new NullOperateNewState(), new NullOperateNodeState(), new NullOperateCreateOperateState());
         this.NewOperate = this.AddItem("NewOperate", new NewOperate(), new NewOperateNewState(), new NewOperateNodeState(), new NewOperateCreateOperateState());
         this.ShareOperate = this.AddItem("ShareOperate", new ShareOperate(), new ShareOperateNewState(), new ShareOperateNodeState(), new ShareOperateCreateOperateState());
@@ -113,11 +115,13 @@ public class NodeKindList : Any
     public virtual NodeKind Target { get; set; }
     public virtual NodeKind VarTarget { get; set; }
     public virtual NodeKind SetTarget { get; set; }
+    public virtual NodeKind BaseSetTarget { get; set; }
     public virtual NodeKind Operate { get; set; }
     public virtual NodeKind GetOperate { get; set; }
     public virtual NodeKind CallOperate { get; set; }
+    public virtual NodeKind BaseGetOperate { get; set; }
+    public virtual NodeKind BaseCallOperate { get; set; }
     public virtual NodeKind ThisOperate { get; set; }
-    public virtual NodeKind BaseOperate { get; set; }
     public virtual NodeKind NullOperate { get; set; }
     public virtual NodeKind NewOperate { get; set; }
     public virtual NodeKind ShareOperate { get; set; }
@@ -190,7 +194,7 @@ public class NodeKindList : Any
     { 
         get
         {
-            return 65;
+            return 67;
         } 
         set
         {
