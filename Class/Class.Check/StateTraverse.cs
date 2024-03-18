@@ -261,8 +261,10 @@ public class StateTraverse : Traverse
 
         dataVar = new Var();
 
+        dataVar.Init();
 
-        dataVar.Name = this.TextInfra.SpanCreateString("data");
+
+        dataVar.Name = "data";
 
 
         dataVar.Class = field.Class;
