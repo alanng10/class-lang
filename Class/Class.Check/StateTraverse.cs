@@ -370,8 +370,10 @@ public class StateTraverse : Traverse
 
         dataVar = new Var();
 
+        dataVar.Init();
 
-        dataVar.Name = this.TextInfra.SpanCreateString("data");
+
+        dataVar.Name = "data";
 
 
         dataVar.Class = field.Class;
@@ -386,8 +388,9 @@ public class StateTraverse : Traverse
 
         valueVar = new Var();
 
+        valueVar.Init();
 
-        valueVar.Name = this.TextInfra.SpanCreateString("value");
+        valueVar.Name = "value";
 
 
         valueVar.Class = field.Class;
