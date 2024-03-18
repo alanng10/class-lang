@@ -77,6 +77,9 @@ SetTarget : Target
     Operate This
     FieldName Field
 
+BaseSetTarget : Target
+    FieldName Field
+
 Operate : Node
 
 GetOperate : Operate
@@ -88,9 +91,14 @@ CallOperate : Operate
     MaideName Maide
     Argue Argue
 
-ThisOperate : Operate
+BaseGetOperate : Operate
+    FieldName Field
 
-BaseOperate : Operate
+BaseCallOperate : Operate
+    MaideName Maide
+    Argue Argue
+
+ThisOperate : Operate
 
 NullOperate : Operate
 
