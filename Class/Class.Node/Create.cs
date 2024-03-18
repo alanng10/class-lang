@@ -1974,11 +1974,11 @@ public class Create : InfraCreate
         }
         if (a == null)
         {
-            a = this.ExecuteBaseGetOperate(this.Range(this.RangeA, start, end));
+            a = this.ExecuteCallOperate(this.Range(this.RangeA, start, end));
         }
         if (a == null)
         {
-            a = this.ExecuteCallOperate(this.Range(this.RangeA, start, end));
+            a = this.ExecuteBaseGetOperate(this.Range(this.RangeA, start, end));
         }
         if (a == null)
         {
