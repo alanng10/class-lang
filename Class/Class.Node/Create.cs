@@ -380,8 +380,10 @@ public class Create : InfraCreate
         this.ListData = null;
         this.ListArray = null;
         this.NameValueData = null;
+        this.NameValueText = null;
         this.NameValueArray = null;
         this.StringValueData = null;
+        this.StringValueText = null;
         this.StringValueArray = null;
         this.ErrorArray = null;
 
