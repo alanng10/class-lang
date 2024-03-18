@@ -167,6 +167,10 @@ public class Traverse : Any
         {
             this.ExecuteSetTarget((SetTarget)target);
         }
+        if (target is BaseSetTarget)
+        {
+            this.ExecuteBaseSetTarget((BaseSetTarget)target);
+        }
         return true;
     }
 
@@ -192,6 +196,18 @@ public class Traverse : Any
 
         this.ExecuteOperate(setTarget.This);
         this.ExecuteFieldName(setTarget.Field);
+        return true;
+    }
+
+    public virtual bool ExecuteBaseSetTarget(BaseSetTarget baseSetTarget)
+    {
+        if (baseSetTarget == null)
+        {
+            return true;
+        }
+        this.ExecuteNode(baseSetTarget);
+
+        this.ExecuteFieldName(baseSetTarget.Field);
         return true;
     }
 
@@ -539,6 +555,10 @@ public class Traverse : Any
         {
             this.ExecuteCallOperate((CallOperate)operate);
         }
+        if (operate is BaseGetOperate)
+        {
+            this.ExecuteBaseGetOperate((BaseGetOperate)operate);
+        }
         if (operate is VarOperate)
         {
             this.ExecuteVarOperate((VarOperate)operate);
@@ -550,10 +570,6 @@ public class Traverse : Any
         if (operate is ThisOperate)
         {
             this.ExecuteThisOperate((ThisOperate)operate);
-        }
-        if (operate is BaseOperate)
-        {
-            this.ExecuteBaseOperate((BaseOperate)operate);
         }
         if (operate is NullOperate)
         {
@@ -677,6 +693,18 @@ public class Traverse : Any
         return true;
     }
 
+    public virtual bool ExecuteBaseGetOperate(BaseGetOperate baseGetOperate)
+    {
+        if (baseGetOperate == null)
+        {
+            return true;
+        }
+        this.ExecuteNode(baseGetOperate);
+
+        this.ExecuteFieldName(baseGetOperate.Field);
+        return true;
+    }
+
     public virtual bool ExecuteThisOperate(ThisOperate thisOperate)
     {
         if (thisOperate == null)
@@ -684,16 +712,6 @@ public class Traverse : Any
             return true;
         }
         this.ExecuteNode(thisOperate);
-        return true;
-    }
-
-    public virtual bool ExecuteBaseOperate(BaseOperate baseOperate)
-    {
-        if (baseOperate == null)
-        {
-            return true;
-        }
-        this.ExecuteNode(baseOperate);
         return true;
     }
 
