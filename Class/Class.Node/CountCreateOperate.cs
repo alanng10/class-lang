@@ -80,9 +80,13 @@ public class CountCreateOperate : CreateOperate
     {
         int index;
         index = this.Create.StringValueIndex;
+        int indexA;
+        indexA = this.Create.StringValueTotalIndex;
 
         index = index + 1;
+        indexA = indexA + text.Range.Count;
 
+        this.Create.StringValueTotalIndex = indexA;
         this.Create.StringValueIndex = index;
         return this.String;
     }
