@@ -595,7 +595,7 @@ public class StateTraverse : Traverse
 
 
 
-        TextSpan varName;
+        string varName;
 
 
         varName = name.Value;
@@ -604,7 +604,7 @@ public class StateTraverse : Traverse
 
 
 
-        TextSpan className;
+        string className;
 
 
         className = null;
@@ -928,7 +928,7 @@ public class StateTraverse : Traverse
 
 
 
-        TextSpan className;
+        string className;
 
 
         className = null;
@@ -1006,7 +1006,7 @@ public class StateTraverse : Traverse
 
 
 
-        TextSpan className;
+        string className;
 
 
         className = null;
@@ -1819,7 +1819,7 @@ public class StateTraverse : Traverse
 
 
 
-        TextSpan methodName;
+        string methodName;
 
 
         methodName = null;
@@ -1975,7 +1975,7 @@ public class StateTraverse : Traverse
 
 
 
-        TextSpan className;
+        string className;
 
         className = null;
 
@@ -2453,7 +2453,7 @@ public class StateTraverse : Traverse
 
     protected virtual InfraClass ExecuteVarNameNode(NodeNode node, VarName name)
     {
-        TextSpan varName;
+        string varName;
 
 
         varName = name.Value;
@@ -2519,7 +2519,7 @@ public class StateTraverse : Traverse
 
 
 
-        TextSpan fieldName;
+        string fieldName;
 
 
         fieldName = null;
@@ -2712,7 +2712,7 @@ public class StateTraverse : Traverse
 
 
 
-    private Field Field(InfraClass varClass, TextSpan name)
+    private Field Field(InfraClass varClass, string name)
     {
         Field field;
 
@@ -2763,7 +2763,7 @@ public class StateTraverse : Traverse
 
 
 
-    protected Maide Method(InfraClass varClass, TextSpan name)
+    protected Maide Method(InfraClass varClass, string name)
     {
         Maide method;
 
@@ -2977,7 +2977,7 @@ public class StateTraverse : Traverse
 
 
 
-    protected virtual Var VarStackVar(TextSpan name)
+    protected virtual Var VarStackVar(string name)
     {
         Iter iter;
 
