@@ -1922,25 +1922,6 @@ public class Create : InfraCreate
         }
         if (a == null)
         {
-            if (!(start == end))
-            {
-                Token wordTokenC;
-                wordTokenC = this.Token(this.TokenA, this.Keyword.Base.Text, this.IndexRange(this.RangeA, start));
-                if (!(wordTokenC == null))
-                {
-                    if (a == null)
-                    {
-                        a = this.ExecuteBaseCallOperate(this.Range(this.RangeA, start, end));
-                    }
-                    if (a == null)
-                    {
-                        a = this.ExecuteBaseGetOperate(this.Range(this.RangeA, start, end));
-                    }
-                }
-            }
-        }
-        if (a == null)
-        {
             a = this.ExecuteBracketOperate(this.Range(this.RangeA, start, end));
         }
         if (a == null)
@@ -1986,6 +1967,14 @@ public class Create : InfraCreate
         if (a == null)
         {
             a = this.ExecuteDivOperate(this.Range(this.RangeA, start, end));
+        }
+        if (a == null)
+        {
+            a = this.ExecuteBaseCallOperate(this.Range(this.RangeA, start, end));
+        }
+        if (a == null)
+        {
+            a = this.ExecuteBaseGetOperate(this.Range(this.RangeA, start, end));
         }
         if (a == null)
         {
@@ -2720,39 +2709,43 @@ public class Create : InfraCreate
         {
             return null;
         }
-        Token wordToken;
-        wordToken = this.Token(this.TokenA, word.Text, this.IndexRange(this.RangeA, start));
-        if (wordToken == null)
-        {
-            return null;
-        }
-
-        if (wordToken.Range.End == end)
-        {
-            return null;
-        }
-        Token dot;
-        dot = this.Token(this.TokenB, this.Delimit.StopSign.Text, this.IndexRange(this.RangeA, wordToken.Range.End));
-        if (dot == null)
-        {
-            return null;
-        }
-        
-        Token leftBracket;
-        leftBracket = this.TokenForwardNoSkip(this.TokenC, this.Delimit.LeftBracket.Text, this.Range(this.RangeA, dot.Range.End, end));
-        if (leftBracket == null)
-        {
-            return null;
-        }
-
+        int lastIndex;
+        lastIndex = end - 1;
         Token rightBracket;
-        rightBracket = this.TokenMatchLeftBracket(this.TokenD, this.Range(this.RangeA, leftBracket.Range.End, end));
+        rightBracket = this.Token(this.TokenA, this.Delimit.RightBracket.Text, this.IndexRange(this.RangeA, lastIndex));
         if (rightBracket == null)
         {
             return null;
         }
 
-        if (!(rightBracket.Range.End == end))
+        Token leftBracket;
+        leftBracket = this.TokenMatchRightBracket(this.TokenB, this.Range(this.RangeA, start, rightBracket.Range.Start));
+        if (leftBracket == null)
+        {
+            return null;
+        }
+
+        Token dot;
+        dot = this.TokenBackward(this.TokenC, this.Delimit.StopSign.Text, this.Range(this.RangeA, start, leftBracket.Range.Start));
+        if (dot == null)
+        {
+            return null;
+        }
+
+        if (dot.Range.Start == start)
+        {
+            return null;
+        }
+        int wordIndex;
+        wordIndex = dot.Range.Start - 1;
+        Token wordToken;
+        wordToken = this.Token(this.TokenD, word.Text, this.IndexRange(this.RangeA, wordIndex));
+        if (wordToken == null)
+        {
+            return null;
+        }
+
+        if (!(wordToken.Range.Start == start))
         {
             return null;
         }
@@ -2768,7 +2761,7 @@ public class Create : InfraCreate
         argueEnd = rightBracket.Range.Start;
 
         Node maide;
-        maide = this.ExecuteName(this.NodeKind.FieldName, this.Range(this.RangeA, maideStart, maideEnd));
+        maide = this.ExecuteName(this.NodeKind.MaideName, this.Range(this.RangeA, maideStart, maideEnd));
         if (maide == null)
         {
             this.Error(this.ErrorKind.MaideInvalid, maideStart, maideEnd);
