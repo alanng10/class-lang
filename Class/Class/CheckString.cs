@@ -314,7 +314,7 @@ public class CheckString : Any
 
 
 
-        this.AppendTextSpan(varClass.Name);
+        this.Append(varClass.Name);
 
 
 
@@ -357,7 +357,7 @@ public class CheckString : Any
 
 
 
-        this.AppendTextSpan(field.Name);
+        this.Append(field.Name);
 
 
 
@@ -402,7 +402,7 @@ public class CheckString : Any
 
 
 
-        this.AppendTextSpan(method.Name);
+        this.Append(method.Name);
 
 
 
@@ -427,7 +427,7 @@ public class CheckString : Any
 
 
 
-        this.AppendTextSpan(varVar.Name);
+        this.Append(varVar.Name);
 
 
 
@@ -454,13 +454,6 @@ public class CheckString : Any
 
         return true;
     }
-
-    protected bool AppendTextSpan(TextSpan a)
-    {
-        this.Builder.Append(a.Data, a.Range.Index, a.Range.Count);
-        return true;
-    }
-
 
 
     protected bool Append(string s)
