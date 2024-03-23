@@ -29,7 +29,7 @@ public class DataWrite : Any
     {
         ulong o;
         o = (ulong)value;
-        this.ExecuteByteList(index, this.InfraInfra.ULongByteCount, o);
+        this.ExecuteByteList(index, this.InfraInfra.IntByteCount, o);
         return true;
     }
 

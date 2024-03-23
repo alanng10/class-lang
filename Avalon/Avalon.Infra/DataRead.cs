@@ -29,7 +29,7 @@ public class DataRead : Any
     public virtual long ExecuteInt(long index)
     {
         ulong o;
-        o = this.ExecuteByteList(index, this.InfraInfra.ULongByteCount);
+        o = this.ExecuteByteList(index, this.InfraInfra.IntByteCount);
         long a;
         a = (long)o;
         return a;
