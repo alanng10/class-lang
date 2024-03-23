@@ -11,7 +11,7 @@ public class Data : Any
 
     public virtual long Count { get; set; }
 
-    private byte[] Value { get; set; }
+    public virtual byte[] Value { get; set; }
 
     public virtual int Get(long index)
     {
