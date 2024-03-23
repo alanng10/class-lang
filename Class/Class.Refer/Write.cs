@@ -50,4 +50,18 @@ public class Write : Any
     {
         return true;
     }
+
+
+    protected virtual bool ExecuteInt(long value)
+    {
+        
+
+        return true;
+    }
+
+    protected virtual bool ExecuteByte(int value)
+    {
+        this.Operate.Execute(value);
+        return true;
+    }
 }
