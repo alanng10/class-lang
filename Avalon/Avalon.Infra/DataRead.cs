@@ -17,7 +17,7 @@ public class DataRead : Any
     protected virtual Infra InfraInfra { get; set; }
     protected virtual DataRange Range { get; set; }
 
-    public virtual int ExecuteInt(long index)
+    public virtual int ExecuteMid(long index)
     {
         ulong o;
         o = this.ExecuteByteList(index, this.InfraInfra.IntByteCount);

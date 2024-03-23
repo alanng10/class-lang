@@ -463,7 +463,7 @@ public class Create : InfraCreate
             long index;
             index = i * sizeof(int);
             int oa;
-            oa = this.DataRead.ExecuteInt(index);
+            oa = this.DataRead.ExecuteMid(index);
             Array array;
             array = new Array();
             array.Count = oa;
@@ -511,7 +511,7 @@ public class Create : InfraCreate
             long index;
             index = i * sizeof(int);
             int oa;
-            oa = this.DataRead.ExecuteInt(index);
+            oa = this.DataRead.ExecuteMid(index);
             string oo;
             oo = new string(this.NameValueText, total, oa);
             this.NameValueArray.Set(i, oo);
@@ -537,7 +537,7 @@ public class Create : InfraCreate
             long index;
             index = i * sizeof(int);
             int oa;
-            oa = this.DataRead.ExecuteInt(index);
+            oa = this.DataRead.ExecuteMid(index);
             string oo;
             oo = new string(this.StringValueText, total, oa);
             this.StringValueArray.Set(i, oo);

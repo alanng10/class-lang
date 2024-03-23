@@ -460,7 +460,7 @@ public class Grid : View
             int byteIndex;
             byteIndex = this.IntByteIndex(index);
 
-            u = this.DataRead.ExecuteInt(byteIndex);
+            u = this.DataRead.ExecuteMid(byteIndex);
         }
         int ret;
         ret = u;
