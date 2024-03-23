@@ -35,12 +35,12 @@ public class DataRead : Any
         return a;
     }
 
-    public virtual ushort ExecuteUShort(long index)
+    public virtual short ExecuteShort(long index)
     {
         ulong o;
         o = this.ExecuteByteList(index, this.InfraInfra.UShortByteCount);
-        ushort a;
-        a = (ushort)o;
+        short a;
+        a = (short)o;
         return a;
     }
 
