@@ -25,10 +25,10 @@ public class DataWrite : Any
         return true;
     }
 
-    public virtual bool ExecuteInt(long index, ulong value)
+    public virtual bool ExecuteInt(long index, long value)
     {
         ulong o;
-        o = value;
+        o = (ulong)value;
         this.ExecuteByteList(index, this.InfraInfra.ULongByteCount, o);
         return true;
     }
