@@ -33,7 +33,7 @@ public class DataWrite : Any
         return true;
     }
 
-    public virtual bool ExecuteUShort(long index, ushort value)
+    public virtual bool ExecuteShort(long index, short value)
     {
         ulong o;
         o = (ulong)value;
