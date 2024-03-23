@@ -38,7 +38,7 @@ public class SetWriteOperate : WriteOperate
         ulong o;
         o = (ulong)value;
         this.DataWrite.Data = data;
-        this.DataWrite.ExecuteULong(index, o);
+        this.DataWrite.ExecuteInt(index, o);
         this.DataWrite.Data = null;
         index = index + count;
         this.Write.Index = index;

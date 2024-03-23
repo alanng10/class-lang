@@ -25,7 +25,7 @@ public class DataWrite : Any
         return true;
     }
 
-    public virtual bool ExecuteULong(long index, ulong value)
+    public virtual bool ExecuteInt(long index, ulong value)
     {
         ulong o;
         o = value;
