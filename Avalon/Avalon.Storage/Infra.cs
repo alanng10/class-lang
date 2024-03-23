@@ -154,8 +154,8 @@ public class Infra : Any
 
         Data data;
         data = new Data();
+        data.Count = ka;
         data.Init();
-        data.Value = new byte[ka];
 
         long kb;
         kb = encode.Data(data, 0, span);
