@@ -26,12 +26,12 @@ public class DataRead : Any
         return a;
     }
 
-    public virtual ulong ExecuteULong(long index)
+    public virtual long ExecuteInt(long index)
     {
         ulong o;
         o = this.ExecuteByteList(index, this.InfraInfra.ULongByteCount);
-        ulong a;
-        a = o;
+        long a;
+        a = (long)o;
         return a;
     }
 
