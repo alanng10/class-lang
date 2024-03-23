@@ -54,14 +54,13 @@ public class Write : Any
 
     protected virtual bool ExecuteInt(long value)
     {
-        
-
+        this.Operate.ExecuteInt(value);
         return true;
     }
 
     protected virtual bool ExecuteByte(int value)
     {
-        this.Operate.Execute(value);
+        this.Operate.ExecuteByte(value);
         return true;
     }
 }
