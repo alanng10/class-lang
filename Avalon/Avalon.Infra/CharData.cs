@@ -11,7 +11,7 @@ public class CharData : Any
 
     public virtual int Count { get; set; }
 
-    private char[] Value { get; set; }
+    public virtual char[] Value { get; set; }
 
     public virtual int Get(int index)
     {
