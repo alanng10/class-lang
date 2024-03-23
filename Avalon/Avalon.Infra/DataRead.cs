@@ -77,8 +77,8 @@ public class DataRead : Any
         o = 0;
         int shiftCount;
         shiftCount = 0;
-        byte[] array;
-        array = this.Data.Value;
+        Data data;
+        data = this.Data;
         byte ob;
         ob = 0;
 
@@ -86,7 +86,7 @@ public class DataRead : Any
         i = 0;
         while (i < count)
         {
-            ob = array[index + i];
+            ob = (byte)data.Get(index + i);
 
             shiftCount = i * 8;
 
