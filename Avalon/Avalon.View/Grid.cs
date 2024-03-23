@@ -271,6 +271,8 @@ public class Grid : View
             data.Count = oa;
             data.Init();
             this.ChildPosList = data;
+            this.DataRead.Data = this.ChildPosList;
+            this.DataWrite.Data = this.ChildPosList;
         }
         
         this.SetChildLeftArray();
