@@ -37,7 +37,7 @@ public class DataWrite : Any
     {
         ulong o;
         o = (ulong)value;
-        this.ExecuteByteList(index, this.InfraInfra.UShortByteCount, o);
+        this.ExecuteByteList(index, this.InfraInfra.ShortByteCount, o);
         return true;
     }
 

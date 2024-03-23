@@ -20,7 +20,7 @@ public class Infra : Any
         this.ByteBitCount = 8;
         this.IntByteCount = sizeof(long);
         this.MidByteCount = sizeof(int);
-        this.UShortByteCount = sizeof(ushort);
+        this.ShortByteCount = sizeof(short);
 
         long o;
         o = 1;
@@ -34,7 +34,7 @@ public class Infra : Any
     public virtual int ByteBitCount { get; set; }
     public virtual int IntByteCount { get; set; }
     public virtual int MidByteCount { get; set; }
-    public virtual int UShortByteCount { get; set; }
+    public virtual int ShortByteCount { get; set; }
     public virtual long IntCapValue { get; set; }
     public virtual char NewLine { get; set; }
     public virtual char PathCombine { get; set; }

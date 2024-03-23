@@ -38,7 +38,7 @@ public class DataRead : Any
     public virtual short ExecuteShort(long index)
     {
         ulong o;
-        o = this.ExecuteByteList(index, this.InfraInfra.UShortByteCount);
+        o = this.ExecuteByteList(index, this.InfraInfra.ShortByteCount);
         short a;
         a = (short)o;
         return a;
