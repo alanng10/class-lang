@@ -2,6 +2,8 @@ namespace Class.Refer;
 
 public class CountWriteOperate : WriteOperate
 {
+    public virtual Write Write { get; set; }
+
     public override bool Execute(int value)
     {
         int index;
