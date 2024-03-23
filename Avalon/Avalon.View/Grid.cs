@@ -111,8 +111,8 @@ public class Grid : View
     {
         Data a;
         a = new Data();
+        a.Count = 0;
         a.Init();
-        a.Value = new byte[0];
         return a;
     }
 
@@ -266,7 +266,11 @@ public class Grid : View
         ob = (int)oo;
         if (ob < oa)
         {
-            this.ChildPosList.Value = new byte[oa];
+            Data data;
+            data = new Data();
+            data.Count = oa;
+            data.Init();
+            this.ChildPosList = data;
         }
         
         this.SetChildLeftArray();

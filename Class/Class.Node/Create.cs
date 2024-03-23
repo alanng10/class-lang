@@ -329,8 +329,8 @@ public class Create : InfraCreate
         errorCount = this.ErrorIndex;
 
         this.KindData = new Data();
+        this.KindData.Count = nodeCount;
         this.KindData.Init();
-        this.KindData.Value = new byte[nodeCount];
 
         this.ListData = this.CountDataCreate(listCount);
         this.NameValueData = this.CountDataCreate(nameValueCount);
@@ -414,8 +414,8 @@ public class Create : InfraCreate
         o = count * sizeof(int);
         Data a;
         a = new Data();
+        a.Count = o;
         a.Init();
-        a.Value = new byte[o];
         return a;
     }
 
@@ -427,10 +427,8 @@ public class Create : InfraCreate
         i = 0;
         while (i < count)
         {
-            byte oo;
-            oo = this.KindData.Value[i];
             int oa;
-            oa = oo;
+            oa = this.KindData.Get(i);
             NodeKind kind;
             kind = this.NodeKind.Get(oa);
 

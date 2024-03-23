@@ -27,7 +27,7 @@ public class KindCreateOperate : CreateOperate
         int index;
         index = this.Create.NodeIndex;
 
-        this.Create.KindData.Value[index] = (byte)(this.Create.OperateArg.Kind.Index);
+        this.Create.KindData.Set(index, this.Create.OperateArg.Kind.Index);
 
         index = index + 1;
 

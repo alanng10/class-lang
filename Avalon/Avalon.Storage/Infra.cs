@@ -51,12 +51,10 @@ public class Infra : Any
 
             long count;
             count = stream.Count;
-            byte[] d;
-            d = new byte[count];
             Data data;
             data = new Data();
+            data.Count = count;
             data.Init();
-            data.Value = d;
             Range range;
             range = new Range();
             range.Init();
