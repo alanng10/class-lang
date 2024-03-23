@@ -20,7 +20,7 @@ public class DataRead : Any
     public virtual int ExecuteMid(long index)
     {
         ulong o;
-        o = this.ExecuteByteList(index, this.InfraInfra.IntByteCount);
+        o = this.ExecuteByteList(index, this.InfraInfra.MidByteCount);
         int a;
         a = (int)o;
         return a;

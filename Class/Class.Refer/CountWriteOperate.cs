@@ -25,7 +25,7 @@ public class CountWriteOperate : WriteOperate
     {
         int index;
         index = this.Write.Index;
-        index = index + this.InfraInfra.IntByteCount;
+        index = index + this.InfraInfra.MidByteCount;
         this.Write.Index = index;
         return true;
     }
