@@ -2,16 +2,38 @@ namespace Avalon.Infra;
 
 public class Data : Any
 {
-    public virtual long Count
+    public override bool Init()
     {
-        get
-        {
-            return this.Value.LongLength;
-        }
-        set
-        {
-        }
+        base.Init();
+        this.Value = new byte[this.Count];
+        return true;
     }
 
-    public virtual byte[] Value { get; set; }
+    public virtual long Count { get; set; }
+
+    private byte[] Value { get; set; }
+
+    public virtual int Get(long index)
+    {
+        if (!this.Contain(index))
+        {
+            return -1;
+        }
+        return this.Value[index];
+    }
+
+    public virtual bool Set(long index, int value)
+    {
+        if (!this.Contain(index))
+        {
+            return false;
+        }
+        this.Value[index] = (byte)value;
+        return true;
+    }
+
+    public virtual bool Contain(long index)
+    {
+        return ((!(index < 0)) | index < this.Count);
+    }
 }
