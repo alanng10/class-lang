@@ -35,10 +35,8 @@ public class SetWriteOperate : WriteOperate
         data = this.Write.Data;
         int count;
         count = this.InfraInfra.MidByteCount;
-        ulong o;
-        o = (ulong)value;
         this.DataWrite.Data = data;
-        this.DataWrite.ExecuteInt(index, o);
+        this.DataWrite.ExecuteInt(index, value);
         this.DataWrite.Data = null;
         index = index + count;
         this.Write.Index = index;
