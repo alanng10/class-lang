@@ -17,7 +17,7 @@ public class DataWrite : Any
     protected virtual Infra InfraInfra { get; set; }
     protected virtual DataRange Range { get; set; }
 
-    public virtual bool ExecuteInt(long index, int value)
+    public virtual bool ExecuteMid(long index, int value)
     {
         ulong o;
         o = (ulong)value;

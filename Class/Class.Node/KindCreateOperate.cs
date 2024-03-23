@@ -64,7 +64,7 @@ public class KindCreateOperate : CreateOperate
         long oa;
         oa = index * sizeof(int);
 
-        this.DataWrite.ExecuteInt(oa, count);
+        this.DataWrite.ExecuteMid(oa, count);
         this.DataWrite.Data = null;
         return true;
     }
@@ -81,7 +81,7 @@ public class KindCreateOperate : CreateOperate
         this.DataWrite.Data = this.Create.NameValueData;
         long oa;
         oa = index * sizeof(int);
-        this.DataWrite.ExecuteInt(oa, count);
+        this.DataWrite.ExecuteMid(oa, count);
         this.DataWrite.Data = null;
 
         char[] source;
@@ -121,7 +121,7 @@ public class KindCreateOperate : CreateOperate
         this.DataWrite.Data = this.Create.StringValueData;
         long oa;
         oa = index * sizeof(int);
-        this.DataWrite.ExecuteInt(oa, count);
+        this.DataWrite.ExecuteMid(oa, count);
         this.DataWrite.Data = null;
         
         write.WriteOperate = write.AddWriteOperate;

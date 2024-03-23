@@ -489,7 +489,7 @@ public class Grid : View
             index = start + i;
             int byteIndex;
             byteIndex = this.IntByteIndex(index);
-            this.DataWrite.ExecuteInt(byteIndex, left);
+            this.DataWrite.ExecuteMid(byteIndex, left);
             i = i + 1;
         }
         return true;
@@ -517,7 +517,7 @@ public class Grid : View
             index = start + i;
             int byteIndex;
             byteIndex = this.IntByteIndex(index);
-            this.DataWrite.ExecuteInt(byteIndex, up);
+            this.DataWrite.ExecuteMid(byteIndex, up);
             i = i + 1;
         }
         return true;
