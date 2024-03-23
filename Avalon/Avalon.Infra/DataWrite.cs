@@ -70,8 +70,8 @@ public class DataWrite : Any
         o = 0;
         int shiftCount;
         shiftCount = 0;
-        byte[] array;
-        array = this.Data.Value;
+        Data data;
+        data = this.Data;
         byte ob;
         ob = 0;
 
@@ -85,7 +85,7 @@ public class DataWrite : Any
 
             ob = (byte)o;
 
-            array[index + i] = ob;
+            data.Set(index + i, ob);
 
             i = i + 1;
         }
