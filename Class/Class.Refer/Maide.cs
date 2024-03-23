@@ -1,6 +1,6 @@
 namespace Class.Refer;
 
-public class Field : Any
+public class Maide : Any
 {
     public virtual int Class { get; set; }
 
