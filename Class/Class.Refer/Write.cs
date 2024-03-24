@@ -52,6 +52,30 @@ public class Write : Any
     }
 
 
+    protected virtual bool ExecuteName(string value)
+    {
+        int count;
+        count = value.Length;
+        this.ExecuteCount(count);
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            char oc;
+            oc = value[i];
+            byte ob;
+            ob = (byte)oc;
+            this.ExecuteByte(ob);
+            i = i + 1;
+        }
+        return true;
+    }
+
+    protected virtual bool ExecuteCount(int value)
+    {
+        return this.ExecuteInt(value);
+    }
+
     protected virtual bool ExecuteInt(long value)
     {
         this.Operate.ExecuteInt(value);
