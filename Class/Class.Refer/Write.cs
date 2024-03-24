@@ -57,6 +57,23 @@ public class Write : Any
         return true;
     }
 
+    protected virtual bool ExecuteClassArray(Array array)
+    {
+        int count;
+        count = array.Count;
+        this.ExecuteCount(count);
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            Class varClass;
+            varClass = (Class)array.Get(i);
+            this.ExecuteClass(varClass);
+            i = i + 1;
+        }
+        return true;
+    }
+
     protected virtual bool ExecuteClass(Class varClass)
     {
         this.ExecuteName(varClass.Name);
