@@ -204,6 +204,10 @@ public class Write : Any
 
     protected virtual bool ExecuteField(Field field)
     {
+        this.ExecuteIndex(field.Class);
+        this.ExecuteByte(field.SystemClass);
+        this.ExecuteByte(field.Count);
+        this.ExecuteName(field.Name);
         return true;
     }
 
@@ -226,6 +230,10 @@ public class Write : Any
 
     protected virtual bool ExecuteMaide(Maide maide)
     {
+        this.ExecuteIndex(maide.Class);
+        this.ExecuteByte(maide.SystemClass);
+        this.ExecuteByte(maide.Count);
+        this.ExecuteName(maide.Name);
         return true;
     }
 
@@ -236,7 +244,12 @@ public class Write : Any
         return true;
     }
 
-    protected virtual bool ExecuteName(string value)
+    protected virtual bool ExecuteName(string name)
+    {
+        return this.ExecuteString(name);
+    }
+
+    protected virtual bool ExecuteString(string value)
     {
         int count;
         count = value.Length;
