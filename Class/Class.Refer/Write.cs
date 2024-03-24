@@ -178,6 +178,57 @@ public class Write : Any
         return true;
     }
 
+    protected virtual bool ExecutePart(Part part)
+    {
+        this.ExecuteFieldArray(part.Field);
+        this.ExecuteMaideArray(part.Maide);
+        return true;
+    }
+
+    protected virtual bool ExecuteFieldArray(Array array)
+    {
+        int count;
+        count = array.Count;
+        this.ExecuteCount(count);
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            Field field;
+            field = (Field)array.Get(i);
+            this.ExecuteField(field);
+            i = i + 1;
+        }
+        return true;
+    }
+
+    protected virtual bool ExecuteField(Field field)
+    {
+        return true;
+    }
+
+    protected virtual bool ExecuteMaideArray(Array array)
+    {
+        int count;
+        count = array.Count;
+        this.ExecuteCount(count);
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            Maide maide;
+            maide = (Maide)array.Get(i);
+            this.ExecuteMaide(maide);
+            i = i + 1;
+        }
+        return true;
+    }
+
+    protected virtual bool ExecuteMaide(Maide maide)
+    {
+        return true;
+    }
+
     protected virtual bool ExecuteModuleRef(ModuleRef varRef)
     {
         this.ExecuteName(varRef.Name);
