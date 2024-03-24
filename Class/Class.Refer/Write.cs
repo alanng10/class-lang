@@ -80,6 +80,36 @@ public class Write : Any
         return true;
     }
 
+    protected virtual bool ExecuteImport(Import import)
+    {
+        this.ExecuteModuleRef(import.Module);
+        this.ExecuteImportClassArray(import.Class);
+        return true;
+    }
+
+    protected virtual bool ExecuteImportClassArray(Array array)
+    {
+        int count;
+        count = array.Count;
+        this.ExecuteCount(count);
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            ImportClass importClass;
+            importClass = (ImportClass)array.Get(i);
+            this.ExecuteImportClass(importClass);
+            i = i + 1;
+        }
+        return true;
+    }
+
+    protected virtual bool ExecuteImportClass(ImportClass importClass)
+    {
+        this.ExecuteIndex(importClass.Class);
+        return true;
+    }
+
     protected virtual bool ExecuteModuleRef(ModuleRef varRef)
     {
         this.ExecuteName(varRef.Name);
@@ -107,6 +137,11 @@ public class Write : Any
     }
 
     protected virtual bool ExecuteCount(int value)
+    {
+        return this.ExecuteInt(value);
+    }
+
+    protected virtual bool ExecuteIndex(int value)
     {
         return this.ExecuteInt(value);
     }
