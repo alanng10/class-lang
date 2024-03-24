@@ -51,6 +51,12 @@ public class Write : Any
         return true;
     }
 
+    protected virtual bool ExecuteModuleRef(ModuleRef varRef)
+    {
+        this.ExecuteName(varRef.Name);
+        this.ExecuteInt(varRef.Ver);
+        return true;
+    }
 
     protected virtual bool ExecuteName(string value)
     {
