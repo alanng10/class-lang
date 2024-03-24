@@ -234,6 +234,24 @@ public class Write : Any
         this.ExecuteByte(maide.SystemClass);
         this.ExecuteByte(maide.Count);
         this.ExecuteName(maide.Name);
+        this.ExecuteVarArray(maide.Param);
+        return true;
+    }
+
+    protected virtual bool ExecuteVarArray(Array array)
+    {
+        int count;
+        count = array.Count;
+        this.ExecuteCount(count);
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            Var varVar;
+            varVar = (Var)array.Get(i);
+            this.ExecuteVar(varVar);
+            i = i + 1;
+        }
         return true;
     }
 
