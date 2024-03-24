@@ -48,12 +48,16 @@ public class Write : Any
 
     protected virtual bool ExecuteStage()
     {
+        this.ExecuteRefer(this.Refer);
         return true;
     }
 
     protected virtual bool ExecuteRefer(Refer refer)
     {
         this.ExecuteModuleRef(refer.Ref);
+        this.ExecuteClassArray(refer.Class);
+        this.ExecuteImportArray(refer.Import);
+        this.ExecuteExportArray(refer.Export);
         return true;
     }
 
