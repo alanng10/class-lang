@@ -57,6 +57,12 @@ public class Write : Any
         return true;
     }
 
+    protected virtual bool ExecuteClass(Class varClass)
+    {
+        this.ExecuteName(varClass.Name);
+        return true;
+    }
+
     protected virtual bool ExecuteModuleRef(ModuleRef varRef)
     {
         this.ExecuteName(varRef.Name);
