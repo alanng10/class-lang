@@ -237,6 +237,14 @@ public class Write : Any
         return true;
     }
 
+    protected virtual bool ExecuteVar(Var varVar)
+    {
+        this.ExecuteIndex(varVar.Class);
+        this.ExecuteByte(varVar.SystemClass);
+        this.ExecuteName(varVar.Name);
+        return true;
+    }
+
     protected virtual bool ExecuteModuleRef(ModuleRef varRef)
     {
         this.ExecuteName(varRef.Name);
