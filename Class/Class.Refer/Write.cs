@@ -80,6 +80,23 @@ public class Write : Any
         return true;
     }
 
+    protected virtual bool ExecuteImportArray(Array array)
+    {
+        int count;
+        count = array.Count;
+        this.ExecuteCount(count);
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            Import import;
+            import = (Import)array.Get(i);
+            this.ExecuteImport(import);
+            i = i + 1;
+        }
+        return true;
+    }
+
     protected virtual bool ExecuteImport(Import import)
     {
         this.ExecuteModuleRef(import.Module);
