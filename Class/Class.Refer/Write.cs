@@ -127,6 +127,29 @@ public class Write : Any
         return true;
     }
 
+    protected virtual bool ExecuteExportArray(Array array)
+    {
+        int count;
+        count = array.Count;
+        this.ExecuteCount(count);
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            Export export;
+            export = (Export)array.Get(i);
+            this.ExecuteExport(export);
+            i = i + 1;
+        }
+        return true;
+    }
+
+    protected virtual bool ExecuteExport(Export export)
+    {
+        this.ExecuteIndex(export.Class);
+        return true;
+    }
+
     protected virtual bool ExecuteModuleRef(ModuleRef varRef)
     {
         this.ExecuteName(varRef.Name);
