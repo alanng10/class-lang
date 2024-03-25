@@ -13,6 +13,7 @@ public class Gen : Any
 
     protected virtual Assembly Assembly { get; set; }
     protected virtual Array DotNetTypeArray { get; set; }
+    protected virtual Table Import { get; set; }
 
     public virtual int Execute()
     {
@@ -24,7 +25,9 @@ public class Gen : Any
 
     protected virtual bool ExecuteAssembly()
     {
-        this.DotNetTypeArray = this.DotNetTypeList(this.Assembly);
+        this.DotNetTypeList();
+
+        this.ImportTable();
 
         int count;
         count = this.DotNetTypeArray.Count;
@@ -72,13 +75,15 @@ public class Gen : Any
         return true;
     }
 
-    protected virtual Table ImportTable()
+    protected virtual bool ImportTable()
     {
         Table table;
         table = new Table();
         table.Compare = new StringCompare();
         table.Compare.Init();
         table.Init();
+
+        this.Import = table;
 
         Array array;
         array = this.DotNetTypeArray;
@@ -98,7 +103,7 @@ public class Gen : Any
             SystemType baseType;
             baseType = type.BaseType;
 
-            this.AddTypeToImportTable(table, baseType);
+            this.AddTypeToImportTable(baseType);
 
             int countA;
             int iA;
@@ -109,7 +114,7 @@ public class Gen : Any
             {
                 PropertyInfo property;
                 property = (PropertyInfo)a.Property.Get(iA);
-                this.AddTypeToImportTable(table, property.PropertyType);
+                this.AddTypeToImportTable(property.PropertyType);
                 iA = iA + 1;
             }
 
@@ -119,21 +124,24 @@ public class Gen : Any
             {
                 MethodInfo method;
                 method = (MethodInfo)a.Method.Get(iA);
-                this.AddTypeToImportTable(table, method.ReturnType);
+                this.AddTypeToImportTable(method.ReturnType);
                 iA = iA + 1;
             }
 
             i = i + 1;
         }
-        return table;
+        return true;
     }
 
-    protected virtual bool AddTypeToImportTable(Table table, SystemType type)
+    protected virtual bool AddTypeToImportTable(SystemType type)
     {
         if (type.Assembly == this.Assembly)
         {
             return true;
         }
+
+        Table table;
+        table = this.Import;
         
         string assemblyName;
         assemblyName = type.Assembly.GetName().Name;
@@ -172,8 +180,11 @@ public class Gen : Any
         return true;
     }
 
-    protected virtual Array DotNetTypeList(Assembly o)
+    protected virtual bool DotNetTypeList()
     {
+        Assembly o;
+        o = this.Assembly;
+
         ListList list;
         list = new ListList();
         list.Init();
@@ -264,7 +275,9 @@ public class Gen : Any
 
         Array array;
         array = this.ListInfra.ArrayCreateList(list);
-        return array;
+
+        this.DotNetTypeArray = array;
+        return true;
     }
 
     protected virtual string CountString(MethodInfo method)
