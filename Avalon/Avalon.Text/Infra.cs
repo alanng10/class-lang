@@ -94,11 +94,14 @@ public class Infra : Any
 
     public virtual Span SpanCreate(int count)
     {
+        int oa;
+        oa = this.InfraInfra.ShortByteCount;
+
         Span span;
         span = new Span();
         span.Init();
         span.Data = new InfraData();
-        span.Data.Count = count;
+        span.Data.Count = count * oa;
         span.Data.Init();
         span.Range = new InfraRange();
         span.Range.Init();
@@ -149,20 +152,16 @@ public class Infra : Any
         return span;
     }
 
-    public virtual string StringCreate(Span o)
+    public virtual string StringCreate(Span span)
     {
-        int arrayCount;
-        arrayCount = (int)o.Data.Count;
-
-        InfraRange range;
-        range = o.Range;
-        if (!this.InfraInfra.CheckRange(arrayCount, range))
+        if (!this.CheckSpan(span))
         {
             return null;
         }
-        
+        InfraRange range;
+        range = span.Range;
         string a;
-        a = this.InternIntern.StringCreateData(o.Data.Value, range.Index, range.Count);
+        a = this.InternIntern.StringCreateData(span.Data.Value, range.Index, range.Count);
         return a;
     }
 
