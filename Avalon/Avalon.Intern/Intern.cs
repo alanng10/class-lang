@@ -31,19 +31,16 @@ public class Intern : object
 
     public virtual bool Init()
     {
+        this.IntHexFormat = "x15";
         return true;
     }
 
-
-
-
-
+    protected virtual string IntHexFormat { get; set; }
 
 
 
     [SystemThreadStatic]
     public static object ThisThread = null;
-
 
 
 
@@ -243,12 +240,12 @@ public class Intern : object
         return a;
     }
 
-    public virtual string StringCreateData(byte[] dataValue, int index, int count)
+    public virtual string StringCreateData(byte[] data, int index, int count)
     {
         string a;
         unsafe
         {
-            fixed (byte* p = dataValue)
+            fixed (byte* p = data)
             {
                 char* pa;
                 pa = (char*)p;
@@ -259,6 +256,35 @@ public class Intern : object
         return a;
     }
 
+
+    public virtual bool IntHexText(byte[] data, int index, int count, ulong n)
+    {
+        bool b;
+        unsafe
+        {
+            fixed (byte* p = data)
+            {
+                char* pa;
+                pa = (char*)p;
+                pa = pa + index;
+                
+                SpanChar spanU;
+                spanU = new SpanChar(pa, count);
+
+                ReadOnlySpanChar formatSpan;
+                formatSpan = MemoryExtensions.AsSpan(this.IntHexFormat);
+
+                int outU;
+
+                b = n.TryFormat(spanU, out outU, formatSpan, CultureInfo.InvariantCulture);
+            }
+        }
+        if (!b)
+        {
+            return false;
+        }
+        return true;
+    }
 
 
 

@@ -1,5 +1,10 @@
 global using SystemDelegate = System.Delegate;
 global using SystemIntPtr = System.IntPtr;
+global using SpanChar = System.Span<char>;
+global using ReadOnlySpanChar = System.ReadOnlySpan<char>;
+global using MemoryExtensions = System.MemoryExtensions;
+global using CultureInfo = System.Globalization.CultureInfo;
+global using NumberStyle = System.Globalization.NumberStyles;
 global using SystemThreadStaticAttribute = System.ThreadStaticAttribute;
 global using SystemGCHandle = System.Runtime.InteropServices.GCHandle;
 global using Marshal = System.Runtime.InteropServices.Marshal;

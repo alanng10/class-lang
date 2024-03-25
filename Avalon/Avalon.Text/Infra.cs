@@ -19,7 +19,7 @@ public class Infra : Any
         base.Init();
         this.InternIntern = InternIntern.This;
         this.InfraInfra = InfraInfra.This;
-        this.IntHexFormat = "x15";
+        
         this.IntHexDigitCount = 15;
         return true;
     }
@@ -168,26 +168,21 @@ public class Infra : Any
 
     public virtual bool GetIntHexText(Span span, long n)
     {
-        ulong kk;
-        kk = (ulong)n;
-    
-        int count;
-        count = span.Range.Count;
+        int arrayCount;
+        arrayCount = (int)span.Data.Count;
 
-        SpanChar spanU;
-        spanU = new SpanChar(span.Data, span.Range.Index, count);
-
-        ReadOnlySpanChar formatSpan;
-        formatSpan = MemoryExtensions.AsSpan(this.IntHexFormat);
-        
-        int outU;
-
-        bool b;
-        b = kk.TryFormat(spanU, out outU, formatSpan, CultureInfo.InvariantCulture);
-        if (!b)
+        InfraRange range;
+        range = span.Range;
+        if (!this.InfraInfra.CheckRange(arrayCount, range))
         {
             return false;
         }
+
+        ulong kk;
+        kk = (ulong)n;
+
+        bool b;
+        b = this.InternIntern.IntHexText(span.Data.Value, range.Index, range.Count, kk);
         return true;
     }
 
