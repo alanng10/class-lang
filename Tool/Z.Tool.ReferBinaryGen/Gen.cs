@@ -11,18 +11,20 @@ public class Gen : Any
 
     protected virtual ListInfra ListInfra { get; set; }
 
+    protected virtual Assembly Assembly { get; set; }
     protected virtual Array DotNetTypeArray { get; set; }
 
     public virtual int Execute()
     {
-        this.ExecuteAssembly(typeof(Any).Assembly);
+        this.Assembly = typeof(Any).Assembly;
+        this.ExecuteAssembly();
 
         return 0;
     }
 
-    protected virtual bool ExecuteAssembly(Assembly o)
+    protected virtual bool ExecuteAssembly()
     {
-        this.DotNetTypeArray = this.DotNetTypeList(o);
+        this.DotNetTypeArray = this.DotNetTypeList(this.Assembly);
 
         int count;
         count = this.DotNetTypeArray.Count;
@@ -67,6 +69,104 @@ public class Gen : Any
             i = i + 1;
         }
 
+        return true;
+    }
+
+    protected virtual Table ImportTable()
+    {
+        Table table;
+        table = new Table();
+        table.Compare = new AssemblyCompare();
+        table.Compare.Init();
+        table.Init();
+
+        Array array;
+        array = this.DotNetTypeArray;
+
+        int count;
+        count = array.Count;
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            DotNetType a;
+            a = (DotNetType)array.Get(i);
+            
+            SystemType type;
+            type = a.Type;
+
+            SystemType baseType;
+            baseType = type.BaseType;
+
+            this.AddTypeToImportTable(table, baseType);
+
+            int countA;
+            int iA;
+
+            countA = a.Property.Count;
+            iA = 0;
+            while (iA < countA)
+            {
+                PropertyInfo property;
+                property = (PropertyInfo)a.Property.Get(iA);
+                this.AddTypeToImportTable(table, property.PropertyType);
+                iA = iA + 1;
+            }
+
+            countA = a.Method.Count;
+            iA = 0;
+            while (iA < countA)
+            {
+                MethodInfo method;
+                method = (MethodInfo)a.Method.Get(iA);
+                this.AddTypeToImportTable(table, method.ReturnType);
+                iA = iA + 1;
+            }
+
+            i = i + 1;
+        }
+        return table;
+    }
+
+    protected virtual bool AddTypeToImportTable(Table table, SystemType type)
+    {
+        if (type.Assembly == this.Assembly)
+        {
+            return true;
+        }
+        
+        if (!table.Contain(type.Assembly))
+        {
+            Table typeTable;
+            typeTable = new Table();
+            typeTable.Compare = new StringCompare();
+            typeTable.Compare.Init();
+            typeTable.Init();
+
+            ListEntry oa;
+            oa = new ListEntry();
+            oa.Init();
+            oa.Index = type.Assembly;
+            oa.Value = typeTable;
+            table.Add(oa);
+        }
+        Table oo;
+        oo = (Table)table.Get(type.Assembly);
+
+        string name;
+        name = type.Name;
+
+        if (oo.Contain(name))
+        {
+            return true;
+        }
+        
+        ListEntry ob;
+        ob = new ListEntry();
+        ob.Init();
+        ob.Index = name;
+        ob.Value = type;
+        oo.Add(ob);
         return true;
     }
 

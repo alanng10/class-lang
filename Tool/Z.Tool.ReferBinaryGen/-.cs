@@ -5,6 +5,7 @@ global using EntryEntry = Avalon.Entry.Entry;
 global using ListList = Avalon.List.List;
 global using Array = Avalon.List.Array;
 global using Table = Avalon.List.Table;
+global using ListEntry = Avalon.List.Entry;
 global using ListInfra = Avalon.List.Infra;
 global using SystemType = System.Type;
 global using PropertyInfo = System.Reflection.PropertyInfo;
