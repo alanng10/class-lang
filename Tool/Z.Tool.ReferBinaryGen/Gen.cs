@@ -41,20 +41,47 @@ public class Gen : Any
 
             global::System.Console.Write("Export Class: " + type.Name + ", Base: " + baseType.Name + "(" + baseType.Assembly.GetName().Name + ")" + "\n");
 
+            MethodInfo[] methodArray;
+            methodArray = type.GetMethods(BindingFlag.Instance | BindingFlag.Public | BindingFlag.NonPublic | BindingFlag.DeclaredOnly | BindingFlag.ExactBinding);
+
+            int countA;
+            countA = methodArray.Length;
+            int iA;
+            iA = 0;
+            while (iA < countA)
+            {
+                MethodInfo method;
+                method = methodArray[iA];
+                
+                global::System.Console.Write("Method: " + method.Name + ", Count: " + this.CountString(method) + "\n");
+
+                iA = iA + 1;
+            }
+
             i = i + 1;
         }
 
-        i = 0;
-        while (i < count)
-        {
-            SystemType type;
-            type = typeArray[i];
-
-            type.GetMethods(BindingFlag.Instance | BindingFlag.Public | BindingFlag.NonPublic | BindingFlag.DeclaredOnly | BindingFlag.ExactBinding);
-
-            i = i + 1;
-        }
-        
         return true;
+    }
+
+    protected virtual string CountString(MethodInfo method)
+    {
+        if (method.IsPublic)
+        {
+            return "Prudate";
+        }
+        if (method.IsAssembly)
+        {
+            return "Probate";
+        }
+        if (method.IsFamily)
+        {
+            return "Precate";
+        }
+        if (method.IsPrivate)
+        {
+            return "Private";
+        }
+        return null;
     }
 }
