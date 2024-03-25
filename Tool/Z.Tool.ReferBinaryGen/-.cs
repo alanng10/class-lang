@@ -1,5 +1,5 @@
 global using Any = Avalon.Infra.Any;
-global using Compare = Avalon.Infra.Compare;
+global using Data = Avalon.Infra.Data;
 global using StringCompare = Avalon.Infra.Compare;
 global using EntryEntry = Avalon.Entry.Entry;
 global using ListList = Avalon.List.List;

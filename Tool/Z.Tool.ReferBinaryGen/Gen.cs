@@ -190,7 +190,7 @@ public class Gen : Any
 
                 if (!property.IsSpecialName & property.CanRead & property.CanWrite)
                 {
-                    if (this.IsInAbstract(property.GetMethod))
+                    if (this.IsInAbstract(property.GetMethod) & !((type == typeof(Data)) & (property.Name == "Value")))
                     {
                         propertyList.Add(property);
                     }
