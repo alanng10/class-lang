@@ -11,6 +11,8 @@ public class Gen : Any
 
     protected virtual ListInfra ListInfra { get; set; }
 
+    protected virtual Array DotNetTypeArray { get; set; }
+
     public virtual int Execute()
     {
         this.ExecuteAssembly(typeof(Any).Assembly);
@@ -20,17 +22,16 @@ public class Gen : Any
 
     protected virtual bool ExecuteAssembly(Assembly o)
     {
-        Array array;
-        array = this.DotNetTypeList(o);
+        this.DotNetTypeArray = this.DotNetTypeList(o);
 
         int count;
-        count = array.Count;
+        count = this.DotNetTypeArray.Count;
         int i;
         i = 0;
         while (i < count)
         {
             DotNetType a;
-            a = (DotNetType)array.Get(i);
+            a = (DotNetType)this.DotNetTypeArray.Get(i);
 
             SystemType type;
             type = a.Type;
