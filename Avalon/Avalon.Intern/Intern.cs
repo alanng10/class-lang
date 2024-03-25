@@ -440,16 +440,17 @@ public class Intern : object
         return a;
     }
 
-    public virtual int FormatCount(ulong format, char[] baseArray, ulong baseIndex, ulong baseCount, ulong varBase, ulong argList)
+    public virtual int FormatCount(ulong format, byte[] baseArray, ulong baseIndex, ulong baseCount, ulong varBase, ulong argList)
     {
         ulong u;
         u = 0;
         unsafe
         {
-            fixed (char* p = baseArray)
+            fixed (byte* p = baseArray)
             {
                 char* pa;
-                pa = p + baseIndex;
+                pa = (char*)p;
+                pa = pa + baseIndex;
 
                 ulong ua;
                 ua = (ulong)pa;
