@@ -69,15 +69,17 @@ public class Intern : object
 
 
 
-    public virtual bool CopyText(ulong dest, char[] source, ulong index, ulong count)
+    public virtual bool CopyText(ulong dest, byte[] source, ulong index, ulong count)
     {
         unsafe
         {
-            fixed (char* p = source)
+            fixed (byte* p = source)
             {
                 char* pa;
 
-                pa = p + index;
+                pa = (char*)p;
+
+                pa = pa + index;
 
 
 
