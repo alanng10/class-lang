@@ -117,7 +117,10 @@ public class Gen : Any
 
                 if (!property.IsSpecialName & property.CanRead & property.CanWrite)
                 {
-                    propertyList.Add(property);
+                    if (this.IsInAbstract(property.GetMethod))
+                    {
+                        propertyList.Add(property);
+                    }
                 }
 
                 iA = iA + 1;
@@ -137,7 +140,7 @@ public class Gen : Any
                 MethodInfo method;
                 method = methodArrayA[iA];
 
-                if (!method.IsSpecialName)
+                if (!method.IsSpecialName & this.IsInAbstract(method))
                 {
                     methodList.Add(method);
                 }
@@ -180,5 +183,10 @@ public class Gen : Any
             return "Private";
         }
         return null;
+    }
+
+    protected virtual bool IsInAbstract(MethodInfo method)
+    {
+        return method.IsPublic | method.IsFamily;
     }
 }
