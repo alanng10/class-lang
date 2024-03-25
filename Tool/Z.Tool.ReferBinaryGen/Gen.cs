@@ -31,13 +31,26 @@ public class Gen : Any
             baseType = type.BaseType;
             if (!(baseType == null))
             {
-                if (!(baseType.Assembly == o))
+                Assembly oo;
+                oo = baseType.Assembly;
+                if (!(oo == o))
                 {
                     list.Add(baseType);
                 }
             }
 
-            global::System.Console.Write("Export Class: " + type.Name + "\n");
+            global::System.Console.Write("Export Class: " + type.Name + ", Base: " + baseType.Name + "(" + baseType.Assembly.GetName().Name + ")" + "\n");
+
+            i = i + 1;
+        }
+
+        i = 0;
+        while (i < count)
+        {
+            SystemType type;
+            type = typeArray[i];
+
+            type.GetMethods(BindingFlag.Instance | BindingFlag.Public | BindingFlag.NonPublic | BindingFlag.DeclaredOnly | BindingFlag.ExactBinding);
 
             i = i + 1;
         }
