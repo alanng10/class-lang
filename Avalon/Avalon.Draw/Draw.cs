@@ -370,7 +370,7 @@ public class Draw : Any
         ulong indexU;
         indexU = (ulong)(text.Range.Index);
 
-        this.InternIntern.CopyText(this.InternTextData, text.Data, indexU, countU);
+        this.InternIntern.CopyText(this.InternTextData, text.Data.Value, indexU, countU);
 
         Extern.String_CountSet(this.InternText, countU);
 
