@@ -18,12 +18,21 @@ public class Write : Any
     public virtual Data Data { get; set; }
     public virtual int Index { get; set; }
 
+    protected virtual bool SystemClass { get; set; }
     protected virtual CountWriteOperate CountOperate { get; set; }
     protected virtual SetWriteOperate SetOperate { get; set; }
     protected virtual WriteOperate Operate { get; set; }
 
     public virtual bool Execute()
     {
+        this.SystemClass = false;
+        string name;
+        name = this.Refer.Ref.Name;
+        if (name.StartsWith("System.") | name.StartsWith("Class."))
+        {
+            this.SystemClass = true;
+        }
+
         this.Operate = this.CountOperate;
         this.Index = 0;
 
@@ -223,7 +232,7 @@ public class Write : Any
     protected virtual bool ExecuteField(Field field)
     {
         this.ExecuteIndex(field.Class);
-        this.ExecuteByte(field.SystemClass);
+        this.ExecuteSystemClass(field.SystemClass);
         this.ExecuteByte(field.Count);
         this.ExecuteName(field.Name);
         return true;
@@ -249,7 +258,7 @@ public class Write : Any
     protected virtual bool ExecuteMaide(Maide maide)
     {
         this.ExecuteIndex(maide.Class);
-        this.ExecuteByte(maide.SystemClass);
+        this.ExecuteSystemClass(maide.SystemClass);
         this.ExecuteByte(maide.Count);
         this.ExecuteName(maide.Name);
         this.ExecuteVarArray(maide.Param);
@@ -276,7 +285,7 @@ public class Write : Any
     protected virtual bool ExecuteVar(Var varVar)
     {
         this.ExecuteIndex(varVar.Class);
-        this.ExecuteByte(varVar.SystemClass);
+        this.ExecuteSystemClass(varVar.SystemClass);
         this.ExecuteName(varVar.Name);
         return true;
     }
@@ -285,6 +294,15 @@ public class Write : Any
     {
         this.ExecuteName(varRef.Name);
         this.ExecuteInt(varRef.Ver);
+        return true;
+    }
+
+    protected virtual bool ExecuteSystemClass(int value)
+    {
+        if (this.SystemClass)
+        {
+            this.ExecuteByte(value);
+        }
         return true;
     }
 
