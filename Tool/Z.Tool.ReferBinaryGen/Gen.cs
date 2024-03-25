@@ -256,7 +256,7 @@ public class Gen : Any
             SystemType baseType;
             baseType = type.BaseType;
 
-            global::System.Console.Write("Export Class: " + type.Name + ", Base: " + baseType.Name + "(" + baseType.Assembly.GetName().Name + ")" + "\n");
+            global::System.Console.Write("Class: " + type.Name + ", Base: " + baseType.Name + "(" + baseType.Assembly.GetName().Name + ")" + "\n");
 
             int countA;
             int iA;
