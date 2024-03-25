@@ -247,20 +247,22 @@ public class Intern : object
 
 
 
-    public virtual int TextEncodeString(ulong intern, char[] result, int resultIndex, ulong data, byte[] dataValue, long dataIndex)
+    public virtual int TextEncodeString(ulong intern, byte[] result, int resultIndex, ulong data, byte[] dataValue, long dataIndex)
     {
         ulong k;
 
 
         unsafe
         {
-            fixed (char* p = result)
+            fixed (byte* p = result)
             {
                 fixed (byte* pa = dataValue)
                 {
                     char* pu;
 
-                    pu = p + resultIndex;
+                    pu = (char*)p;
+
+                    pu = pu + resultIndex;
 
 
 
@@ -307,7 +309,7 @@ public class Intern : object
 
 
 
-    public virtual long TextEncodeData(ulong intern, byte[] result, long resultIndex, ulong fromText, char[] fromTextData, int fromTextIndex)
+    public virtual long TextEncodeData(ulong intern, byte[] result, long resultIndex, ulong fromText, byte[] fromTextData, int fromTextIndex)
     {
         ulong k;
 
@@ -316,7 +318,7 @@ public class Intern : object
         {
             fixed (byte* p = result)
             {
-                fixed (char* pa = fromTextData)
+                fixed (byte* pa = fromTextData)
                 {
                     byte* pu;
 
@@ -326,7 +328,9 @@ public class Intern : object
 
                     char* pau;
 
-                    pau = pa + fromTextIndex;
+                    pau = (char*)pa;
+
+                    pau = pau + fromTextIndex;
 
 
 

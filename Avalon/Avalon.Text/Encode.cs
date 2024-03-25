@@ -76,7 +76,7 @@ public class Encode : Any
         Extern.Data_CountSet(dataU, ua);
 
         int a;
-        a = this.InternIntern.TextEncodeString(this.Intern, text.Data, text.Range.Index, dataU, data.Value, range.Index);
+        a = this.InternIntern.TextEncodeString(this.Intern, text.Data.Value, text.Range.Index, dataU, data.Value, range.Index);
         return a;
     }
 
@@ -93,7 +93,7 @@ public class Encode : Any
 
     public virtual long Data(InfraData data, long index, Span text)
     {
-        if (!this.InfraInfra.CheckRange(text.Data.Length, text.Range))
+        if (!this.InfraInfra.CheckRange((int)text.Data.Count, text.Range))
         {
             return 0;
         }
@@ -107,7 +107,7 @@ public class Encode : Any
         Extern.String_CountSet(textU, ua);
 
         long a;
-        a = this.InternIntern.TextEncodeData(this.Intern, data.Value, index, textU, text.Data, text.Range.Index);
+        a = this.InternIntern.TextEncodeData(this.Intern, data.Value, index, textU, text.Data.Value, text.Range.Index);
         return a;
     }
 }
