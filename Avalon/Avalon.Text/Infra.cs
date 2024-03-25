@@ -17,12 +17,14 @@ public class Infra : Any
     public override bool Init()
     {
         base.Init();
+        this.InternIntern = InternIntern.This;
         this.InfraInfra = InfraInfra.This;
         this.IntHexFormat = "x15";
         this.IntHexDigitCount = 15;
         return true;
     }
 
+    private InternIntern InternIntern { get; set; }
     protected virtual InfraInfra InfraInfra { get; set; }
 
     private string IntHexFormat { get; set; }
@@ -149,10 +151,18 @@ public class Infra : Any
 
     public virtual string StringCreate(Span o)
     {
+        int arrayCount;
+        arrayCount = (int)o.Data.Count;
+
         InfraRange range;
         range = o.Range;
+        if (!this.InfraInfra.CheckRange(arrayCount, range))
+        {
+            return null;
+        }
+        
         string a;
-        a = new string(o.Data, range.Index, range.Count);
+        a = this.InternIntern.StringCreateData(o.Data.Value, range.Index, range.Count);
         return a;
     }
 

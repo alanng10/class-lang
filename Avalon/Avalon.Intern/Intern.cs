@@ -243,6 +243,21 @@ public class Intern : object
         return a;
     }
 
+    public virtual string StringCreateData(byte[] dataValue, int index, int count)
+    {
+        string a;
+        unsafe
+        {
+            fixed (byte* p = dataValue)
+            {
+                char* pa;
+                pa = (char*)p;
+
+                a = new string(pa, index, count);
+            }
+        }
+        return a;
+    }
 
 
 
