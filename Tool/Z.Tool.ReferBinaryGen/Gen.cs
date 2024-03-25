@@ -76,7 +76,7 @@ public class Gen : Any
     {
         Table table;
         table = new Table();
-        table.Compare = new AssemblyCompare();
+        table.Compare = new StringCompare();
         table.Compare.Init();
         table.Init();
 
@@ -135,7 +135,9 @@ public class Gen : Any
             return true;
         }
         
-        if (!table.Contain(type.Assembly))
+        string assemblyName;
+        assemblyName = type.Assembly.GetName().Name;
+        if (!table.Contain(assemblyName))
         {
             Table typeTable;
             typeTable = new Table();
@@ -146,12 +148,12 @@ public class Gen : Any
             ListEntry oa;
             oa = new ListEntry();
             oa.Init();
-            oa.Index = type.Assembly;
+            oa.Index = assemblyName;
             oa.Value = typeTable;
             table.Add(oa);
         }
         Table oo;
-        oo = (Table)table.Get(type.Assembly);
+        oo = (Table)table.Get(assemblyName);
 
         string name;
         name = type.Name;
