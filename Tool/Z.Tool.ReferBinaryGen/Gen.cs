@@ -29,48 +29,7 @@ public class Gen : Any
 
         this.ImportTable();
 
-        int count;
-        count = this.DotNetTypeArray.Count;
-        int i;
-        i = 0;
-        while (i < count)
-        {
-            DotNetType a;
-            a = (DotNetType)this.DotNetTypeArray.Get(i);
-
-            SystemType type;
-            type = a.Type;
-
-            SystemType baseType;
-            baseType = type.BaseType;
-
-            global::System.Console.Write("Export Class: " + type.Name + ", Base: " + baseType.Name + "(" + baseType.Assembly.GetName().Name + ")" + "\n");
-
-            int countA;
-            int iA;
-            
-            countA = a.Property.Count;
-            iA = 0;
-            while (iA < countA)
-            {
-                PropertyInfo property;
-                property = (PropertyInfo)a.Property.Get(iA);
-                global::System.Console.Write("Property: " + property.Name + ", Count: " + this.CountString(property.GetMethod) + ", ResultType: " + property.PropertyType.Name + "\n");
-                iA = iA + 1;
-            }
-
-            countA = a.Method.Count;
-            iA = 0;
-            while (iA < countA)
-            {
-                MethodInfo method;
-                method = (MethodInfo)a.Method.Get(iA);
-                global::System.Console.Write("Method: " + method.Name + ", Count: " + this.CountString(method) + ", ResultType: " + method.ReturnType.Name + "\n");
-                iA = iA + 1;
-            }
-
-            i = i + 1;
-        }
+        this.ConsoleWrite();
 
         return true;
     }
@@ -277,6 +236,53 @@ public class Gen : Any
         array = this.ListInfra.ArrayCreateList(list);
 
         this.DotNetTypeArray = array;
+        return true;
+    }
+
+    protected virtual bool ConsoleWrite()
+    {
+        int count;
+        count = this.DotNetTypeArray.Count;
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            DotNetType a;
+            a = (DotNetType)this.DotNetTypeArray.Get(i);
+
+            SystemType type;
+            type = a.Type;
+
+            SystemType baseType;
+            baseType = type.BaseType;
+
+            global::System.Console.Write("Export Class: " + type.Name + ", Base: " + baseType.Name + "(" + baseType.Assembly.GetName().Name + ")" + "\n");
+
+            int countA;
+            int iA;
+
+            countA = a.Property.Count;
+            iA = 0;
+            while (iA < countA)
+            {
+                PropertyInfo property;
+                property = (PropertyInfo)a.Property.Get(iA);
+                global::System.Console.Write("Property: " + property.Name + ", Count: " + this.CountString(property.GetMethod) + ", ResultType: " + property.PropertyType.Name + "\n");
+                iA = iA + 1;
+            }
+
+            countA = a.Method.Count;
+            iA = 0;
+            while (iA < countA)
+            {
+                MethodInfo method;
+                method = (MethodInfo)a.Method.Get(iA);
+                global::System.Console.Write("Method: " + method.Name + ", Count: " + this.CountString(method) + ", ResultType: " + method.ReturnType.Name + "\n");
+                iA = iA + 1;
+            }
+
+            i = i + 1;
+        }
         return true;
     }
 
