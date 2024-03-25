@@ -9,7 +9,7 @@ public class RefCompare : Compare
         return true;
     }
 
-    protected virtual ReferenceEqualityComparer Comparer { get; set; }
+    private ReferenceEqualityComparer Comparer { get; set; }
 
     public override int Execute(object left, object right)
     {
