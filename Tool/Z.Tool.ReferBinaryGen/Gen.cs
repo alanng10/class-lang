@@ -29,15 +29,6 @@ public class Gen : Any
 
             SystemType baseType;
             baseType = type.BaseType;
-            if (!(baseType == null))
-            {
-                Assembly oo;
-                oo = baseType.Assembly;
-                if (!(oo == o))
-                {
-                    list.Add(baseType);
-                }
-            }
 
             global::System.Console.Write("Export Class: " + type.Name + ", Base: " + baseType.Name + "(" + baseType.Assembly.GetName().Name + ")" + "\n");
 

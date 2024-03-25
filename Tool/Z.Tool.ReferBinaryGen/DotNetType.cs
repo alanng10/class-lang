@@ -4,7 +4,7 @@ class DotNetType : Any
 {
     public virtual SystemType Type { get; set; }
 
-    public virtual PropertyInfo[] Property { get; set; }
+    public virtual Array Property { get; set; }
 
-    public virtual MethodInfo[] Method { get; set; }
+    public virtual Array Method { get; set; }
 }
