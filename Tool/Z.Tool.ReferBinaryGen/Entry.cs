@@ -1,4 +1,4 @@
-namespace Z.Tool.ReferGen;
+namespace Z.Tool.ReferBinaryGen;
 
 class Entry : EntryEntry
 {
