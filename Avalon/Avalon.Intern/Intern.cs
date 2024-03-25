@@ -467,22 +467,24 @@ public class Intern : object
     }
 
 
-    public virtual bool FormatResult(ulong format, char[] baseArray, ulong baseIndex, ulong baseCount, ulong varBase, ulong argList, 
-        char[] resultArray, ulong resultIndex, ulong resultCount, ulong result)
+    public virtual bool FormatResult(ulong format, byte[] baseArray, ulong baseIndex, ulong baseCount, ulong varBase, ulong argList, 
+        byte[] resultArray, ulong resultIndex, ulong resultCount, ulong result)
     {
         unsafe
         {
-            fixed (char* p = baseArray)
+            fixed (byte* p = baseArray)
             {
-                fixed (char* pu = resultArray)
+                fixed (byte* pu = resultArray)
                 {
                     char* pa;
-                    pa = p + baseIndex;
+                    pa = (char*)p;
+                    pa = pa + baseIndex;
                     ulong ua;
                     ua = (ulong)pa;
 
                     char* pua;
-                    pua = pu + resultIndex;
+                    pua = (char*)pu;
+                    pua = pua + resultIndex;
                     ulong uua;
                     uua = (ulong)pua;
 
