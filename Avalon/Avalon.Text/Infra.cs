@@ -95,7 +95,9 @@ public class Infra : Any
         Span span;
         span = new Span();
         span.Init();
-        span.Data = new char[count];
+        span.Data = new InfraData();
+        span.Data.Count = count;
+        span.Data.Init();
         span.Range = new InfraRange();
         span.Range.Init();
         span.Range.Count = count;
@@ -104,13 +106,44 @@ public class Infra : Any
 
     public virtual Span SpanCreateString(string a)
     {
+        int count;
+        count = a.Length;
+
+        int oa;
+        oa = this.InfraInfra.ShortByteCount;
+
+        InfraData data;
+        data = new InfraData();
+        data.Count = count * oa;
+        data.Init();
+
+        DataWrite write;
+        write = new DataWrite();
+        write.Init();
+        write.Data = data;
+
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            char oc;
+            oc = a[i];
+            short oo;
+            oo = (short)oc;
+            long index;
+            index = i * oa;
+            
+            write.ExecuteShort(index, oo);
+            i = i + 1;
+        }
+
         Span span;
         span = new Span();
         span.Init();
-        span.Data = a.ToCharArray();
+        span.Data = data;
         span.Range = new InfraRange();
         span.Range.Init();
-        span.Range.Count = span.Data.Length;
+        span.Range.Count = count;
         return span;
     }
 
@@ -188,7 +221,7 @@ public class Infra : Any
         count = span.Range.Count;
 
         ReadOnlySpanChar spanU;
-        spanU = new ReadOnlySpanChar(span.Data, span.Range.Index, count);
+        spanU = new ReadOnlySpanChar(span.Data.Value, span.Range.Index, count);
 
         ulong o;
         bool b;
