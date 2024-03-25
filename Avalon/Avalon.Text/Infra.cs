@@ -166,7 +166,7 @@ public class Infra : Any
         return a;
     }
 
-    public virtual bool GetIntHexText(Span span, long n)
+    public virtual bool CheckSpan(Span span)
     {
         int arrayCount;
         arrayCount = (int)span.Data.Count;
@@ -177,6 +177,17 @@ public class Infra : Any
         {
             return false;
         }
+        return true;
+    }
+
+    public virtual bool GetIntHexText(Span span, long n)
+    {
+        if (!this.CheckSpan(span))
+        {
+            return false;
+        }
+        InfraRange range;
+        range = span.Range;
 
         ulong kk;
         kk = (ulong)n;
@@ -188,30 +199,21 @@ public class Infra : Any
 
     public virtual long GetIntHex(Span span)
     {
+        if (!this.CheckSpan(span))
+        {
+            return -1;
+        }
+        InfraRange range;
+        range = span.Range;
         int count;
-        count = span.Range.Count;
+        count = range.Count;
         if (15 < count)
         {
             return -1;
         }
 
-        ReadOnlySpanChar spanU;
-        spanU = new ReadOnlySpanChar(span.Data, span.Range.Index, count);
-
-        ulong o;
-        bool b;
-        b = ulong.TryParse(spanU, NumberStyle.AllowHexSpecifier, CultureInfo.InvariantCulture, out o);
-        if (!b)
-        {
-            return -1;
-        }
-
         long k;
-        k = (long)o;
-        if (k < 0)
-        {
-            return -1;
-        }
+        k = this.InternIntern.IntHex(span.Data.Value, range.Index, count);
 
         if (!(k < this.InfraInfra.IntCapValue))
         {

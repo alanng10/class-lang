@@ -63,7 +63,7 @@ public class Format : Any
         baseCountU = (ulong)baseCount;
 
         int a;
-        a = this.InternIntern.FormatCount(this.Intern, varBase.Data, baseIndexU, baseCountU, this.InternBase, argList.Intern);
+        a = this.InternIntern.FormatCount(this.Intern, varBase.Data.Value, baseIndexU, baseCountU, this.InternBase, argList.Intern);
         return a;
     }
 
@@ -92,8 +92,8 @@ public class Format : Any
         ulong resultCountU;
         resultCountU = (ulong)resultCount;
 
-        this.InternIntern.FormatResult(this.Intern, varBase.Data, baseIndexU, baseCountU, this.InternBase, argList.Intern, 
-            result.Data, resultIndexU, resultCountU, this.InternResult);
+        this.InternIntern.FormatResult(this.Intern, varBase.Data.Value, baseIndexU, baseCountU, this.InternBase, argList.Intern, 
+            result.Data.Value, resultIndexU, resultCountU, this.InternResult);
 
         return true;
     }
@@ -118,7 +118,7 @@ public class Format : Any
         ulong resultCountU;
         resultCountU = (ulong)resultCount;
 
-        this.InternIntern.FormatArgResult(this.Intern, arg.Intern, result.Data, resultIndexU, resultCountU, this.InternResult);
+        this.InternIntern.FormatArgResult(this.Intern, arg.Intern, result.Data.Value, resultIndexU, resultCountU, this.InternResult);
 
         return true;
     }
