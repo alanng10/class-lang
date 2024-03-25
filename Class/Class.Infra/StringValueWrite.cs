@@ -19,6 +19,9 @@ public class StringValueWrite : Any
 
         this.TextPos = new TextPos();
         this.TextPos.Init();
+
+        this.DataRead = new DataRead();
+        this.DataRead.Init();
         return true;
     }
 
@@ -26,7 +29,7 @@ public class StringValueWrite : Any
     protected virtual TextInfra TextInfra { get; set; }
     protected virtual Infra ClassInfra { get; set; }
     protected virtual TextPos TextPos { get; set; }
-
+    protected virtual DataRead DataRead { get; set; }
     public virtual CountWriteOperate CountWriteOperate { get; set; }
     public virtual AddWriteOperate AddWriteOperate { get; set; }
 
@@ -75,23 +78,25 @@ public class StringValueWrite : Any
             return false;
         }
 
-        char[] data;
+        Data data;
         data = textSpan.Data;
         int rangeStart;
         rangeStart = range.Index;
         int rangeEnd;
         rangeEnd = range.Index + range.Count;
 
+        this.DataRead.Data = data;
+
         char quote;
         quote = this.ClassInfra.Quote[0];
 
         char oc;
-        oc = data[rangeStart];
+        oc = this.CharRead(rangeStart);
         if (!(oc == quote))
         {
             return false;
         }
-        oc = data[rangeEnd - 1];
+        oc = this.CharRead(rangeEnd - 1);
         if (!(oc == quote))
         {
             return false;
@@ -122,7 +127,7 @@ public class StringValueWrite : Any
         {
             index = start + i;
 
-            c = data[index];
+            c = this.CharRead(index);
 
             b = (c == backSlash);
             if (b)
@@ -135,7 +140,7 @@ public class StringValueWrite : Any
                 }
                 indexA = start + j;
 
-                u = data[indexA];
+                u = this.CharRead(indexA);
 
                 bba = false;                
                 if (u == quote)
@@ -175,12 +180,14 @@ public class StringValueWrite : Any
 
     public virtual bool ExecuteValueString(TextSpan textSpan)
     {
-        char[] data;
+        Data data;
         data = textSpan.Data;
         InfraRange range;
         range = textSpan.Range;
         int kk;
         kk = range.Count;
+
+        this.DataRead.Data = data;
 
         char backSlash;
         backSlash = this.ClassInfra.BackSlash[0];
@@ -210,7 +217,7 @@ public class StringValueWrite : Any
         {
             index = start + i;
 
-            c = data[index];
+            c = this.CharRead(index);
 
             b = (c == backSlash);
             if (b)
@@ -221,7 +228,7 @@ public class StringValueWrite : Any
                 if (bb)
                 {
                     indexA = start + j;
-                    u = data[indexA];
+                    u = this.CharRead(indexA);
 
                     escapeValue = uuu;                    
                     if (u == quote)
@@ -257,6 +264,19 @@ public class StringValueWrite : Any
     {
         this.WriteOperate.ExecuteChar(oc);
         return true;
+    }
+
+    protected virtual char CharRead(int index)
+    {
+        int oa;
+        oa = this.InfraInfra.ShortByteCount;
+        long dataIndex;
+        dataIndex = index * oa;
+        short oo;
+        oo = this.DataRead.ExecuteShort(dataIndex);
+        char a;
+        a = (char)oo;
+        return a;
     }
 
     public virtual string EscapeString(string a)
