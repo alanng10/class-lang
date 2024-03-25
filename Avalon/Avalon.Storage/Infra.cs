@@ -133,8 +133,11 @@ public class Infra : Any
 
         int count;
         count = kb;
+
+        span.Range.Count = count;
+
         string a;
-        a = new string(span.Data, span.Range.Index, count);
+        a = this.TextInfra.StringCreate(span);
         return a;
     }
 
