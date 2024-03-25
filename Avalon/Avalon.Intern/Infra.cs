@@ -108,7 +108,7 @@ public class Infra : object
 
 
 
-    public virtual ulong StringCreateText(char[] a, int index, int count)
+    public virtual ulong StringCreateText(byte[] a, int index, int count)
     {
         ulong countA;
 
