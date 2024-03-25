@@ -17,22 +17,14 @@ public class Write : Any
     public virtual Refer Refer { get; set; }
     public virtual Data Data { get; set; }
     public virtual int Index { get; set; }
-
-    protected virtual bool SystemClass { get; set; }
+    public virtual bool SystemClass { get; set; }
+    
     protected virtual CountWriteOperate CountOperate { get; set; }
     protected virtual SetWriteOperate SetOperate { get; set; }
     protected virtual WriteOperate Operate { get; set; }
 
     public virtual bool Execute()
     {
-        this.SystemClass = false;
-        string name;
-        name = this.Refer.Ref.Name;
-        if (name.StartsWith("System.") | name.StartsWith("Class."))
-        {
-            this.SystemClass = true;
-        }
-
         this.Operate = this.CountOperate;
         this.Index = 0;
 
