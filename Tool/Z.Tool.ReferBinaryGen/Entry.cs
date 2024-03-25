@@ -14,11 +14,11 @@ class Entry : EntryEntry
 
     static int Main()
     {
-        Exe exe;
-        exe = new Exe();
-        exe.Init();
+        Entry entry;
+        entry = new Entry();
+        entry.Init();
         int o;
-        o = exe.Execute();
+        o = entry.Execute();
         return o;
     }
 }
