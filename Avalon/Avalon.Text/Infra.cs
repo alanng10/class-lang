@@ -224,26 +224,15 @@ public class Infra : Any
 
     public virtual long GetInt(Span span)
     {
-        int count;
-        count = span.Range.Count;
-
-        ReadOnlySpanChar spanU;
-        spanU = new ReadOnlySpanChar(span.Data.Value, span.Range.Index, count);
-
-        ulong o;
-        bool b;
-        b = ulong.TryParse(spanU, NumberStyle.None, CultureInfo.InvariantCulture, out o);
-        if (!b)
+        if (!this.CheckSpan(span))
         {
             return -1;
         }
-
+        InfraRange range;
+        range = span.Range;
+        
         long k;
-        k = (long)o;
-        if (k < 0)
-        {
-            return -1;
-        }
+        k = this.InternIntern.IntFromText(span.Data.Value, range.Index, range.Count);
 
         if (!(k < this.InfraInfra.IntCapValue))
         {

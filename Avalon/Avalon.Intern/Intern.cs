@@ -320,6 +320,40 @@ public class Intern : object
         return a;
     }
 
+    public virtual long IntFromText(byte[] data, int index, int count)
+    {
+        long a;
+        unsafe
+        {
+            fixed (byte* p = data)
+            {
+                char* pa;
+                pa = (char*)p;
+                pa = pa + index;
+
+                ReadOnlySpanChar spanU;
+                spanU = new ReadOnlySpanChar(pa, count);
+
+                ulong o;
+                bool b;
+                b = ulong.TryParse(spanU, NumberStyle.None, CultureInfo.InvariantCulture, out o);
+                if (!b)
+                {
+                    return -1;
+                }
+
+                long k;
+                k = (long)o;
+                if (k < 0)
+                {
+                    return -1;
+                }
+                a = k;
+            }
+        }
+        return a;
+    }
+
 
     public virtual int TextEncodeString(ulong intern, byte[] result, int resultIndex, ulong data, byte[] dataValue, long dataIndex)
     {

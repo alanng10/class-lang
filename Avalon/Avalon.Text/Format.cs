@@ -124,13 +124,4 @@ public class Format : Any
 
         return true;
     }
-
-    public virtual long ExecuteInt(Span span, int intBase)
-    {
-        if (!this.TextInfra.CheckSpan(span))
-        {
-            return -1;
-        }
-        return -1;
-    }
 }
