@@ -52,8 +52,11 @@ public class Gen : Any
             {
                 MethodInfo method;
                 method = methodArray[iA];
-                
-                global::System.Console.Write("Method: " + method.Name + ", Count: " + this.CountString(method) + "\n");
+
+                if (method.IsSpecialName)
+                {
+                    global::System.Console.Write("Method: " + method.Name + ", Count: " + this.CountString(method) + "\n");
+                }
 
                 iA = iA + 1;
             }
