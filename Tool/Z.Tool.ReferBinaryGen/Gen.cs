@@ -2,6 +2,15 @@ namespace Z.Tool.ReferBinaryGen;
 
 public class Gen : Any
 {
+    public override bool Init()
+    {
+        base.Init();
+        this.ListInfra = ListInfra.This;
+        return true;
+    }
+
+    protected virtual ListInfra ListInfra { get; set; }
+
     public virtual int Execute()
     {
         this.ExecuteAssembly(typeof(Any).Assembly);
@@ -10,6 +19,57 @@ public class Gen : Any
     }
 
     protected virtual bool ExecuteAssembly(Assembly o)
+    {
+        Array array;
+        array = this.DotNetTypeList(o);
+
+        int count;
+        count = array.Count;
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            DotNetType a;
+            a = (DotNetType)array.Get(i);
+
+            SystemType type;
+            type = a.Type;
+
+            SystemType baseType;
+            baseType = type.BaseType;
+
+            global::System.Console.Write("Export Class: " + type.Name + ", Base: " + baseType.Name + "(" + baseType.Assembly.GetName().Name + ")" + "\n");
+
+            int countA;
+            int iA;
+            
+            countA = a.Property.Count;
+            iA = 0;
+            while (iA < countA)
+            {
+                PropertyInfo property;
+                property = (PropertyInfo)a.Property.Get(iA);
+                global::System.Console.Write("Property: " + property.Name + ", Count: " + this.CountString(property.GetMethod) + ", ResultType: " + property.PropertyType.Name + "\n");
+                iA = iA + 1;
+            }
+
+            countA = a.Method.Count;
+            iA = 0;
+            while (iA < countA)
+            {
+                MethodInfo method;
+                method = (MethodInfo)a.Method.Get(iA);
+                global::System.Console.Write("Method: " + method.Name + ", Count: " + this.CountString(method) + ", ResultType: " + method.ReturnType.Name + "\n");
+                iA = iA + 1;
+            }
+
+            i = i + 1;
+        }
+
+        return true;
+    }
+
+    protected virtual Array DotNetTypeList(Assembly o)
     {
         ListList list;
         list = new ListList();
@@ -24,38 +84,81 @@ public class Gen : Any
         i = 0;
         while (i < count)
         {
+            DotNetType a;
+            a = new DotNetType();
+            a.Init();
+
             SystemType type;
             type = typeArray[i];
 
             SystemType baseType;
             baseType = type.BaseType;
 
-            global::System.Console.Write("Export Class: " + type.Name + ", Base: " + baseType.Name + "(" + baseType.Assembly.GetName().Name + ")" + "\n");
+            a.Type = type;
 
-            MethodInfo[] methodArray;
-            methodArray = type.GetMethods(BindingFlag.Instance | BindingFlag.Public | BindingFlag.NonPublic | BindingFlag.DeclaredOnly | BindingFlag.ExactBinding);
+            PropertyInfo[] propertyArrayA;
+            propertyArrayA = type.GetProperties(BindingFlag.Instance | BindingFlag.Public | BindingFlag.NonPublic | BindingFlag.DeclaredOnly | BindingFlag.ExactBinding);
+
+            MethodInfo[] methodArrayA;
+            methodArrayA = type.GetMethods(BindingFlag.Instance | BindingFlag.Public | BindingFlag.NonPublic | BindingFlag.DeclaredOnly | BindingFlag.ExactBinding);
 
             int countA;
-            countA = methodArray.Length;
             int iA;
+            ListList propertyList;
+            propertyList = new ListList();
+            propertyList.Init();
+
+            countA = propertyArrayA.Length;
             iA = 0;
             while (iA < countA)
             {
-                MethodInfo method;
-                method = methodArray[iA];
+                PropertyInfo property;
+                property = propertyArrayA[iA];
 
-                if (!method.IsSpecialName)
+                if (!property.IsSpecialName & property.CanRead & property.CanWrite)
                 {
-                    global::System.Console.Write("Method: " + method.Name + ", Count: " + this.CountString(method) + "\n");
+                    propertyList.Add(property);
                 }
 
                 iA = iA + 1;
             }
 
+            Array propertyArray;
+            propertyArray = this.ListInfra.ArrayCreateList(propertyList);
+
+            ListList methodList;
+            methodList = new ListList();
+            methodList.Init();
+
+            countA = methodArrayA.Length;
+            iA = 0;
+            while (iA < countA)
+            {
+                MethodInfo method;
+                method = methodArrayA[iA];
+
+                if (!method.IsSpecialName)
+                {
+                    methodList.Add(method);
+                }
+
+                iA = iA + 1;
+            }
+
+            Array methodArray;
+            methodArray = this.ListInfra.ArrayCreateList(methodList);
+
+            a.Property = propertyArray;
+            a.Method = methodArray;
+
+            list.Add(a);
+
             i = i + 1;
         }
 
-        return true;
+        Array array;
+        array = this.ListInfra.ArrayCreateList(list);
+        return array;
     }
 
     protected virtual string CountString(MethodInfo method)
