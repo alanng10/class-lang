@@ -8,7 +8,8 @@ public class Format : Any
         this.InternIntern = InternIntern.This;
         this.InternInfra = InternInfra.This;
         this.InfraInfra = InfraInfra.This;
-
+        this.TextInfra = Infra.This;
+        
         this.InternBase = Extern.String_New();
         Extern.String_Init(this.InternBase);
 
@@ -39,7 +40,8 @@ public class Format : Any
 
     private InternInfra InternInfra { get; set; }
 
-    private InfraInfra InfraInfra { get; set; }
+    protected virtual InfraInfra InfraInfra { get; set; }
+    protected virtual Infra TextInfra { get; set; }
 
     private ulong Intern { get; set; }
 
@@ -121,5 +123,14 @@ public class Format : Any
         this.InternIntern.FormatArgResult(this.Intern, arg.Intern, result.Data.Value, resultIndexU, resultCountU, this.InternResult);
 
         return true;
+    }
+
+    public virtual long ExecuteInt(Span span, int intBase)
+    {
+        if (!this.TextInfra.CheckSpan(span))
+        {
+            return -1;
+        }
+        return -1;
     }
 }
