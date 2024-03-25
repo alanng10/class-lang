@@ -501,14 +501,15 @@ public class Intern : object
     }
 
 
-    public virtual bool FormatArgResult(ulong format, ulong arg, char[] resultArray, ulong resultIndex, ulong resultCount, ulong result)
+    public virtual bool FormatArgResult(ulong format, ulong arg, byte[] resultArray, ulong resultIndex, ulong resultCount, ulong result)
     {
         unsafe
         {
-            fixed (char* p = resultArray)
+            fixed (byte* p = resultArray)
             {
                 char* pa;
-                pa = p + resultIndex;
+                pa = (char*)p;
+                pa = pa + resultIndex;
 
                 ulong ua;
                 ua = (ulong)pa;
