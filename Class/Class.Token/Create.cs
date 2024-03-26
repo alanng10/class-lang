@@ -435,7 +435,8 @@ public class Create : InfraCreate
 
             line = this.SourceText.GetLine(row);
 
-
+            Data data;
+            data = line.Data;
 
 
             int colCount;
@@ -460,7 +461,7 @@ public class Create : InfraCreate
 
                 char c;
 
-                c = line.Value[col];
+                c = this.TextInfra.Char(data, col);
 
 
 
@@ -559,7 +560,7 @@ public class Create : InfraCreate
 
                     while (!b & cc < colCount)
                     {
-                        oc = line.Value[cc];
+                        oc = this.TextInfra.Char(data, cc);
 
 
 
