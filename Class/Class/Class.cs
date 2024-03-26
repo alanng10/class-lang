@@ -6,93 +6,11 @@ namespace Class;
 
 public class Class : Any
 {
-    public Source Source { get; set; }
-
-
-
-
-
-
-
-    public string ModuleName { get; set; }
-
-
-
-
-
-    public bool ErrorWrite { get; set; }
-
-
-
-
-
-    public Task Task { get; set; }
-
-
-
-
-
-
-    public Result Result { get; set; }
-
-
-
-
-
-
-    internal Result SystemResult { get; set; }
-
-
-
-
-
-
-    public TaskKindList TaskKind { get; set; }
-
-
-
-
-
-
-    private TextWriter Out { get; set; }
-
-
-
-
-
-
-    public Create Create { get; set; }
-
-
-
-
-
-
-
-
-    private ErrorString ErrorString { get; set; }
-
-
-
-
-
-
-    public string SourceFold { get; set; }
-
-
-
-
-
-
-
     public override bool Init()
     {
         base.Init();
 
-
-
-
-
+        this.InfraInfra = InfraInfra.This;
         this.TaskKind = TaskKindList.This;
 
 
@@ -133,6 +51,48 @@ public class Class : Any
 
         return true;
     }
+
+
+    public Source Source { get; set; }
+
+    public string ModuleName { get; set; }
+
+
+    public bool ErrorWrite { get; set; }
+
+
+    public Task Task { get; set; }
+
+
+    public Result Result { get; set; }
+
+
+    internal Result SystemResult { get; set; }
+
+
+    public TaskKindList TaskKind { get; set; }
+
+
+
+    private TextWriter Out { get; set; }
+
+
+
+    public Create Create { get; set; }
+
+
+
+
+    private ErrorString ErrorString { get; set; }
+
+
+
+
+    public string SourceFold { get; set; }
+
+
+    protected virtual InfraInfra InfraInfra { get; set; }
+
 
 
 
@@ -1264,7 +1224,7 @@ public class Class : Any
         line.Count = s.Length;
 
 
-        line.Value = s.ToCharArray();
+        line.Data = this.InfraInfra.DataCreateString(s);
 
 
 
