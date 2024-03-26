@@ -55,21 +55,20 @@ public class Infra : Any
     {
         Line line;
         line = text.GetLine(pos.Row);
-        return this.LineChar(line, pos.Col);
-    }
-
-    public virtual char LineChar(Line line, int index)
-    {
+        int index;
+        index = pos.Col;
         if (!(index < line.Count))
         {
             return (char)0;
         }
-        
+        return this.Char(line.Data, pos.Col);
+    }
+
+    public virtual char Char(Data data, int index)
+    {
         int oa;
         oa = this.InfraInfra.ShortByteCount;
 
-        Data data;
-        data = line.Data;
         int oo;
         oo = index * oa;
 
@@ -92,8 +91,16 @@ public class Infra : Any
         Line line;
         line = text.GetLine(range.Row);
 
+        InfraRange col;
+        col = range.Col;
+
+        if (!this.InfraInfra.CheckRange(line.Count, col))
+        {
+            return false;
+        }
+
         int k;
-        k = range.Col.Count;
+        k = col.Count;
         int count;
         count = k;
         if (!(count == o.Length))
@@ -108,9 +115,9 @@ public class Infra : Any
         i = 0;
         while (i < count)
         {
-            index = range.Col.Index + i;
+            index = col.Index + i;
 
-            oca = this.LineChar(line, index);
+            oca = this.Char(line.Data, index);
             ocb = o[i];
             if (!(oca == ocb))
             {
