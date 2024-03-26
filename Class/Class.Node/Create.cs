@@ -6,6 +6,7 @@ public class Create : InfraCreate
     {
         base.Init();
 
+        this.InfraInfra = InfraInfra.This;
         this.TextInfra = TextInfra.This;
         this.ListInfra = ListInfra.This;
         this.ClassInfra = ClassInfra.This;
@@ -54,6 +55,7 @@ public class Create : InfraCreate
     protected virtual DelimitList Delimit { get; set; }
     protected virtual ErrorKindList ErrorKind { get; set; }
     protected virtual NodeKindList NodeKind { get; set; }
+    protected virtual InfraInfra InfraInfra { get; set; }
     protected virtual ListInfra ListInfra { get; set; }
     protected virtual TextInfra TextInfra { get; set; }
     protected virtual ClassInfra ClassInfra { get; set; }
@@ -100,12 +102,12 @@ public class Create : InfraCreate
     public virtual Array ErrorArray { get; set; }
     public virtual int NameValueIndex { get; set; }
     public virtual int NameValueTotalIndex { get; set; }
-    public virtual char[] NameValueText { get; set; }
+    public virtual Data NameValueText { get; set; }
     public virtual Data NameValueData { get; set; }
     public virtual Array NameValueArray { get; set; }
     public virtual int StringValueIndex { get; set; }
     public virtual int StringValueTotalIndex { get; set; }
-    public virtual char[] StringValueText { get; set; }
+    public virtual Data StringValueText { get; set; }
     public virtual Data StringValueData { get; set; }
     public virtual Array StringValueArray { get; set; }
     
@@ -332,11 +334,12 @@ public class Create : InfraCreate
         this.KindData.Count = nodeCount;
         this.KindData.Init();
 
+        
         this.ListData = this.CountDataCreate(listCount);
         this.NameValueData = this.CountDataCreate(nameValueCount);
-        this.NameValueText = new char[nameValueTotalCount];
+        this.NameValueText = this.TextDataCreate(nameValueTotalCount);
         this.StringValueData = this.CountDataCreate(stringValueCount);
-        this.StringValueText = new char[stringValueTotalCount];
+        this.StringValueText = this.TextDataCreate(stringValueTotalCount);
         
         this.Operate = this.KindOperate;
 
@@ -412,6 +415,17 @@ public class Create : InfraCreate
     {
         int o;
         o = count * sizeof(int);
+        Data a;
+        a = new Data();
+        a.Count = o;
+        a.Init();
+        return a;
+    }
+
+    protected virtual Data TextDataCreate(int count)
+    {
+        int o;
+        o = count * this.InfraInfra.ShortByteCount;
         Data a;
         a = new Data();
         a.Count = o;
@@ -499,6 +513,12 @@ public class Create : InfraCreate
     protected virtual bool ExecuteNameValueCreate()
     {
         this.DataRead.Data = this.NameValueData;
+
+        TextSpan span;
+        span = this.TextSpan;
+        span.Data = this.NameValueText;
+        span.Range.Index = 0;
+        span.Range.Count = 0;
         int total;
         total = 0;
 
@@ -512,8 +532,10 @@ public class Create : InfraCreate
             index = i * sizeof(int);
             int oa;
             oa = this.DataRead.ExecuteMid(index);
+            span.Range.Index = total;
+            span.Range.Count = oa;
             string oo;
-            oo = new string(this.NameValueText, total, oa);
+            oo = this.TextInfra.StringCreate(span);
             this.NameValueArray.Set(i, oo);
             total = total + oa;
             i = i + 1;
@@ -525,6 +547,12 @@ public class Create : InfraCreate
     protected virtual bool ExecuteStringValueCreate()
     {
         this.DataRead.Data = this.StringValueData;
+
+        TextSpan span;
+        span = this.TextSpan;
+        span.Data = this.StringValueText;
+        span.Range.Index = 0;
+        span.Range.Count = 0;
         int total;
         total = 0;
 
@@ -538,8 +566,10 @@ public class Create : InfraCreate
             index = i * sizeof(int);
             int oa;
             oa = this.DataRead.ExecuteMid(index);
+            span.Range.Index = total;
+            span.Range.Count = oa;
             string oo;
-            oo = new string(this.StringValueText, total, oa);
+            oo = this.TextInfra.StringCreate(span);
             this.StringValueArray.Set(i, oo);
             total = total + oa;
             i = i + 1;
@@ -1301,7 +1331,7 @@ public class Create : InfraCreate
 
         TextLine textLine;
         textLine = this.SourceText.GetLine(aa.Row);
-        this.TextSpan.Data = textLine.Value;
+        this.TextSpan.Data = textLine.Data;
         this.TextSpan.Range.Index = aa.Col.Index;
         this.TextSpan.Range.Count = aa.Col.Count;
 
@@ -1343,7 +1373,7 @@ public class Create : InfraCreate
 
         TextLine textLine;
         textLine = this.SourceText.GetLine(aa.Row);
-        this.TextSpan.Data = textLine.Value;
+        this.TextSpan.Data = textLine.Data;
         this.TextSpan.Range.Index = aa.Col.Index + 2;
         this.TextSpan.Range.Count = aa.Col.Count - 2;
 
@@ -1387,7 +1417,7 @@ public class Create : InfraCreate
 
         TextLine textLine;
         textLine = this.SourceText.GetLine(aa.Row);
-        this.TextSpan.Data = textLine.Value;
+        this.TextSpan.Data = textLine.Data;
         this.TextSpan.Range.Index = aa.Col.Index + 3;
         this.TextSpan.Range.Count = aa.Col.Count - 3;
 
@@ -1459,7 +1489,7 @@ public class Create : InfraCreate
 
         TextLine textLine;
         textLine = this.SourceText.GetLine(aa.Row);
-        this.TextSpan.Data = textLine.Value;
+        this.TextSpan.Data = textLine.Data;
         this.TextSpan.Range.Index = aa.Col.Index + 4;
         this.TextSpan.Range.Count = aa.Col.Count - 4;
 
@@ -3952,17 +3982,23 @@ public class Create : InfraCreate
         return true;
     }
 
-    protected virtual bool IsIntHexChar(char[] array, int start, int count)
+    protected virtual bool IsIntHexChar(TextSpan span)
     {
+        Data data;
+        data = span.Data;
         int index;
         char oc;
+        int start;
+        start = span.Range.Index;
+        int count;
+        count = span.Range.Count;
         int i;
         i = 0;
         while (i < count)
         {
             index = start + i;
 
-            oc = array[index];
+            oc = this.TextInfra.Char(data, index);
 
             if (!(this.TextInfra.IsDigit(oc) | this.TextInfra.IsHexLetter(oc)))
             {
@@ -3983,13 +4019,13 @@ public class Create : InfraCreate
         TextLine line;
         line = this.SourceText.GetLine(o.Row);
 
-        char[] array;
-        array = line.Value;
+        Data data;
+        data = line.Data;
         int start;
         start = o.Col.Index;
 
         char oa;
-        oa = array[start + index];
+        oa = this.TextInfra.Char(data, start + index);
         bool a;
         a = (oa == 'n');
         return a;
