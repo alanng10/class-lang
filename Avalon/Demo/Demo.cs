@@ -254,7 +254,7 @@ class Demo : Any
     private DrawImage ImageCreate()
     {
         DrawImage image;
-        image = this.DrawInfra.ImageCreatePath("Data/image.jpg");
+        image = this.DrawInfra.ImageCreatePath("DemoData/image.jpg");
         return image;
     }
 
@@ -562,7 +562,7 @@ class Demo : Any
         StorageInfra infra;
         infra = StorageInfra.This;
         string k;
-        k = infra.TextRead("Data/Demo.txt");
+        k = infra.TextRead("DemoData/Demo.txt");
         this.Console.Write("Demo.txt text: \n");
         this.Console.Write(k);
         this.Console.Write("\n");
@@ -721,9 +721,9 @@ class Demo : Any
         arrange.Init();
 
         string path;
-        path = "Data/DemoCopy.txt";
+        path = "DemoData/DemoCopy.txt";
         string destPath;
-        destPath = "Data/DemoCopy_Copy.txt";
+        destPath = "DemoData/DemoCopy_Copy.txt";
         File.Delete(destPath);
 
         bool b;
@@ -738,10 +738,10 @@ class Demo : Any
         this.Console.Write("Copy " + path + " " + k + "\n");
 
         string pathA;        
-        pathA = "Data/DemoRename.txt";
+        pathA = "DemoData/DemoRename.txt";
         string destPathA;
-        destPathA = "Data/Rename/Demo_a.txt";
-        Directory.CreateDirectory("Data/Rename");
+        destPathA = "DemoData/Rename/Demo_a.txt";
+        Directory.CreateDirectory("DemoData/Rename");
         File.Delete(destPathA);
 
         b = arrange.Rename(pathA, destPathA);
@@ -1100,7 +1100,7 @@ class Demo : Any
     {
         AudioEffect a;
         a = new AudioEffect();
-        a.Source = "file:Data/DemoSound.wav";
+        a.Source = "file:DemoData/DemoSound.wav";
         a.Init();
         return a;
     }
@@ -1141,7 +1141,7 @@ class Demo : Any
         Play a;
         a = new Play();
         a.Init();
-        a.Source = "file:Data/Video.mp4";
+        a.Source = "file:DemoData/Video.mp4";
         a.SourceSet();
         a.VideoOut = videoOut;
         a.AudioOut = audioOut;
