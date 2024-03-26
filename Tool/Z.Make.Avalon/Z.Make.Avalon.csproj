@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <OutputPath>../../Out</OutputPath>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="../Z.Tool.BrushKindListSourceGen/Z.Tool.BrushKindListSourceGen.csproj" />
+        <ProjectReference Include="../Z.Tool.CompositeListSourceGen/Z.Tool.CompositeListSourceGen.csproj" />
+        <ProjectReference Include="../Z.Tool.GradientKindListSourceGen/Z.Tool.GradientKindListSourceGen.csproj" />
+        <ProjectReference Include="../Z.Tool.GradientSpreadListSourceGen/Z.Tool.GradientSpreadListSourceGen.csproj" />
+        <ProjectReference Include="../Z.Tool.ImageFormatListSourceGen/Z.Tool.ImageFormatListSourceGen.csproj" />
+        <ProjectReference Include="../Z.Tool.NetworkAddressKindListSourceGen/Z.Tool.NetworkAddressKindListSourceGen.csproj" />
+        <ProjectReference Include="../Z.Tool.NetworkCaseListSourceGen/Z.Tool.NetworkCaseListSourceGen.csproj" />
+        <ProjectReference Include="../Z.Tool.NetworkStatusListSourceGen/Z.Tool.NetworkStatusListSourceGen.csproj" />
+    </ItemGroup>
+
+</Project>
