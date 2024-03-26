@@ -17,6 +17,8 @@
         <ProjectReference Include="../Z.Tool.PenCapListSourceGen/Z.Tool.PenCapListSourceGen.csproj" />
         <ProjectReference Include="../Z.Tool.PenJoinListSourceGen/Z.Tool.PenJoinListSourceGen.csproj" />
         <ProjectReference Include="../Z.Tool.PenKindListSourceGen/Z.Tool.PenKindListSourceGen.csproj" />
+        <ProjectReference Include="../Z.Tool.TextAlignListSourceGen/Z.Tool.TextAlignListSourceGen.csproj" />
+        <ProjectReference Include="../Z.Tool.TextEncodeKindListSourceGen/Z.Tool.TextEncodeKindListSourceGen.csproj" />
     </ItemGroup>
 
 </Project>
