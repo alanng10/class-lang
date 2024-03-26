@@ -3875,22 +3875,22 @@ public class Create : InfraCreate
         TextLine line;
         line = this.SourceText.GetLine(aa.Row);
 
-        char[] array;
-        array = line.Value;
+        Data data;
+        data = line.Data;
         int start;
         start = aa.Col.Index;
 
-        if (!(array[start] == '0'))
+        if (!(this.TextInfra.Char(data, start) == '0'))
         {
             return false;
         }
-        if (!(array[start + 1] == 's'))
+        if (!(this.TextInfra.Char(data, start + 1) == 's'))
         {
             return false;
         }
 
         char oa;
-        oa = array[start + 2];
+        oa = this.TextInfra.Char(data, start + 2);
         if (!this.IsIntSignChar(oa))
         {
             return false;
@@ -3900,7 +3900,10 @@ public class Create : InfraCreate
         startA = start + 3;
         int countA;
         countA = count - 3;
-        if (!this.IsIntChar(array, startA, countA))
+        this.TextSpan.Data = data;
+        this.TextSpan.Range.Index = startA;
+        this.TextSpan.Range.Count = countA;
+        if (!this.IsIntChar(this.TextSpan))
         {
             return false;
         }
