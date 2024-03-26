@@ -53,15 +53,25 @@ public class Infra : Any
 
     public virtual char GetChar(Text text, Pos pos)
     {
+        Line line;
+        line = text.GetLine(pos.Row);
+        return this.LineChar(line, pos.Col);
+    }
+
+    public virtual char LineChar(Line line, int index)
+    {
+        if (!(index < line.Count))
+        {
+            return (char)0;
+        }
+        
         int oa;
         oa = this.InfraInfra.ShortByteCount;
 
-        Line line;
-        line = text.GetLine(pos.Row);
         Data data;
         data = line.Data;
         int oo;
-        oo = pos.Col * oa;
+        oo = index * oa;
 
         int oaa;
         oaa = data.Get(oo);
@@ -72,9 +82,43 @@ public class Infra : Any
         o = o | (oab << 8);
         short ob;
         ob = (short)o;
-        char oc;        
+        char oc;
         oc = (char)ob;
         return oc;
+    }
+
+    public virtual bool Equal(Text text, Range range, string o)
+    {
+        Line line;
+        line = text.GetLine(range.Row);
+
+        int k;
+        k = range.Col.Count;
+        int count;
+        count = k;
+        if (!(count == o.Length))
+        {
+            return false;
+        }
+
+        int index;
+        char oca;
+        char ocb;
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            index = range.Col.Index + i;
+
+            oca = this.LineChar(line, index);
+            ocb = o[i];
+            if (!(oca == ocb))
+            {
+                return false;
+            }
+            i = i + 1;
+        }
+        return true;
     }
 
     public virtual Span SpanCreate(int count)
