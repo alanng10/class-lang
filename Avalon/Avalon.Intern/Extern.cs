@@ -176,10 +176,10 @@ public static class Extern
     [DllImport(InfraLib)] public extern static ulong Range_Delete(ulong o);
     [DllImport(InfraLib)] public extern static ulong Range_Init(ulong o);
     [DllImport(InfraLib)] public extern static ulong Range_Final(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Range_StartGet(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Range_StartSet(ulong o, ulong value);
-    [DllImport(InfraLib)] public extern static ulong Range_EndGet(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Range_EndSet(ulong o, ulong value);
+    [DllImport(InfraLib)] public extern static ulong Range_IndexGet(ulong o);
+    [DllImport(InfraLib)] public extern static ulong Range_IndexSet(ulong o, ulong value);
+    [DllImport(InfraLib)] public extern static ulong Range_CountGet(ulong o);
+    [DllImport(InfraLib)] public extern static ulong Range_CountSet(ulong o, ulong value);
 
     [DllImport(InfraLib)] public extern static ulong Rect_New();
     [DllImport(InfraLib)] public extern static ulong Rect_Delete(ulong o);
