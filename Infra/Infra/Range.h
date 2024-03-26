@@ -4,7 +4,7 @@
 
 typedef struct
 {
-    Int Start;
-    Int End;
+    Int Index;
+    Int Count;
 }
 Range;

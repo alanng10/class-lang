@@ -12,5 +12,5 @@ Int Range_Final(Int o)
     return true;
 }
 
-Field(Range, Start)
-Field(Range, End)
+Field(Range, Index)
+Field(Range, Count)
