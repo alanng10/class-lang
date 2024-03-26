@@ -5,12 +5,12 @@ public class AddWriteOperate : WriteOperate
     public override bool Init()
     {
         base.Init();
-        this.InfraInfra = InfraInfra.This;
+        this.TextInfra = TextInfra.This;
         return true;
     }
 
     public virtual StringValueWrite Write { get; set; }
-    protected virtual InfraInfra InfraInfra { get; set; }
+    protected virtual TextInfra TextInfra { get; set; }
 
     public override bool ExecuteChar(char oc)
     {
@@ -19,7 +19,7 @@ public class AddWriteOperate : WriteOperate
 
         Data data;
         data = this.Write.Data;
-        this.InfraInfra.CharSet(data, index, oc);
+        this.TextInfra.CharSet(data, index, oc);
         
         index = index + 1;
 

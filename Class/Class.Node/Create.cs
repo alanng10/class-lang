@@ -3839,11 +3839,11 @@ public class Create : InfraCreate
         int start;
         start = aa.Col.Index;
 
-        if (!(this.InfraInfra.CharGet(data, start) == '0'))
+        if (!(this.TextInfra.CharGet(data, start) == '0'))
         {
             return false;
         }
-        if (!(this.InfraInfra.CharGet(data, start + 1) == 'h'))
+        if (!(this.TextInfra.CharGet(data, start + 1) == 'h'))
         {
             return false;
         }
@@ -3880,17 +3880,17 @@ public class Create : InfraCreate
         int start;
         start = aa.Col.Index;
 
-        if (!(this.InfraInfra.CharGet(data, start) == '0'))
+        if (!(this.TextInfra.CharGet(data, start) == '0'))
         {
             return false;
         }
-        if (!(this.InfraInfra.CharGet(data, start + 1) == 's'))
+        if (!(this.TextInfra.CharGet(data, start + 1) == 's'))
         {
             return false;
         }
 
         char oa;
-        oa = this.InfraInfra.CharGet(data, start + 2);
+        oa = this.TextInfra.CharGet(data, start + 2);
         if (!this.IsIntSignChar(oa))
         {
             return false;
@@ -3928,21 +3928,21 @@ public class Create : InfraCreate
         int start;
         start = aa.Col.Index;
 
-        if (!(this.InfraInfra.CharGet(data, start) == '0'))
+        if (!(this.TextInfra.CharGet(data, start) == '0'))
         {
             return false;
         }
-        if (!(this.InfraInfra.CharGet(data, start + 1) == 's'))
+        if (!(this.TextInfra.CharGet(data, start + 1) == 's'))
         {
             return false;
         }
-        if (!(this.InfraInfra.CharGet(data, start + 2) == 'h'))
+        if (!(this.TextInfra.CharGet(data, start + 2) == 'h'))
         {
             return false;
         }
 
         char oa;
-        oa = this.InfraInfra.CharGet(data, start + 3);
+        oa = this.TextInfra.CharGet(data, start + 3);
         if (!this.IsIntSignChar(oa))
         {
             return false;
@@ -3978,7 +3978,7 @@ public class Create : InfraCreate
         {
             index = start + i;
 
-            oc = this.InfraInfra.CharGet(data, index);
+            oc = this.TextInfra.CharGet(data, index);
 
             if (!(this.TextInfra.IsDigit(oc)))
             {
@@ -4005,7 +4005,7 @@ public class Create : InfraCreate
         {
             index = start + i;
 
-            oc = this.InfraInfra.CharGet(data, index);
+            oc = this.TextInfra.CharGet(data, index);
 
             if (!(this.TextInfra.IsDigit(oc) | this.TextInfra.IsHexLetter(oc)))
             {
@@ -4032,7 +4032,7 @@ public class Create : InfraCreate
         start = o.Col.Index;
 
         char oa;
-        oa = this.InfraInfra.CharGet(data, start + index);
+        oa = this.TextInfra.CharGet(data, start + index);
         bool a;
         a = (oa == 'n');
         return a;
@@ -4080,7 +4080,7 @@ public class Create : InfraCreate
         int index;
         index = start;
         char oc;
-        oc = this.InfraInfra.CharGet(data, index);
+        oc = this.TextInfra.CharGet(data, index);
         if (!(this.TextInfra.IsUpperLetter(oc) | this.TextInfra.IsLowerLetter(oc)))
         {
             return false;
@@ -4101,7 +4101,7 @@ public class Create : InfraCreate
         {
             index = start + i;
 
-            oc = this.InfraInfra.CharGet(data, index);
+            oc = this.TextInfra.CharGet(data, index);
 
             if (!(this.TextInfra.IsUpperLetter(oc) | this.TextInfra.IsLowerLetter(oc) | this.TextInfra.IsDigit(oc) | oc == '_'))
             {
