@@ -18,11 +18,11 @@ class ThreadState : ThreadExecuteState
         infra = StorageInfra.This;
 
         string a;
-        a = infra.TextRead("Data/ThreadRead.txt");
+        a = infra.TextRead("DemoData/ThreadRead.txt");
         console.Write("ThreadRead.txt text: \n" + a + "\n");
 
         string writeFilePath;
-        writeFilePath = "Data/ThreadWrite.txt";
+        writeFilePath = "DemoData/ThreadWrite.txt";
         File.Delete(writeFilePath);
 
         bool b;        
