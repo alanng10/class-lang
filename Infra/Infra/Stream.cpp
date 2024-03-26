@@ -367,22 +367,19 @@ Int Stream_Read(Int o, Int data, Int range)
     Int dataCount;
     dataCount = Data_CountGet(data);
 
-    Int start;
-    Int end;
-    start = Range_StartGet(range);
-    end = Range_EndGet(range);
+    Int index;
+    Int count;
+    index = Range_IndexGet(range);
+    count = Range_CountGet(range);
 
-    if (!Stream_CheckRange(dataCount, start, end))
+    if (!Stream_CheckRange(dataCount, index, count))
     {
         m->Status = 100;
         return true;
     }
 
-    Int count;
-    count = end - start;
-
     Int aaa;
-    aaa = dataValue + start;
+    aaa = dataValue + index;
 
     char* dataU;
     dataU = (char*)aaa;
@@ -428,22 +425,19 @@ Int Stream_Write(Int o, Int data, Int range)
     Int dataCount;
     dataCount = Data_CountGet(data);
 
-    Int start;
-    Int end;
-    start = Range_StartGet(range);
-    end = Range_EndGet(range);
+    Int index;
+    Int count;
+    index = Range_IndexGet(range);
+    count = Range_CountGet(range);
 
-    if (!Stream_CheckRange(dataCount, start, end))
+    if (!Stream_CheckRange(dataCount, index, count))
     {
         m->Status = 100;
         return true;
     }
 
-    Int count;
-    count = end - start;
-
     Int aaa;
-    aaa = dataValue + start;
+    aaa = dataValue + index;
 
     const char* dataU;
     dataU = (const char*)aaa;
@@ -538,9 +532,9 @@ Int Stream_InternFlush(Int o)
     return aa;
 }
 
-Int Stream_CheckRange(Int dataCount, Int start, Int end)
+Int Stream_CheckRange(Int dataCount, Int index, Int count)
 {
-    return ((!(dataCount < start)) & (!(dataCount < end)));
+    return ((!(dataCount < index)) & (!(dataCount < index + count)));
 }
 
 Int Stream_Intern(Int o)
