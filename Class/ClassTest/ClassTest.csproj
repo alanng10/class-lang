@@ -6,9 +6,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <ProjectReference Include="../Class.Infra/Class.Infra.csproj" />
-        <ProjectReference Include="../Class.Module/Class.Module.csproj" />
-        <ProjectReference Include="../Class/Class.csproj" />
+        <ProjectReference Include="../Class.Console/Class.Console.csproj" />
     </ItemGroup>
 
 </Project>
