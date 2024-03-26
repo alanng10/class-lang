@@ -1,5 +1,5 @@
 @echo off
 
-pushd Class\ClassTestExe
-dotnet build
-popd
+call Script\Class\CleanModule
+echo:
+call Script\Class\MakeModule
