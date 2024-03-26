@@ -84,11 +84,11 @@ public class KindCreateOperate : CreateOperate
         this.DataWrite.ExecuteMid(oa, count);
         this.DataWrite.Data = null;
 
-        char[] source;
+        Data source;
         source = text.Data;
         int sourceIndex;
         sourceIndex = text.Range.Index;
-        char[] dest;
+        Data dest;
         dest = this.Create.NameValueText;
         int destIndex;
         destIndex = indexA;
@@ -126,9 +126,9 @@ public class KindCreateOperate : CreateOperate
         
         write.WriteOperate = write.AddWriteOperate;
         write.Index = indexA;
-        write.Array = this.Create.StringValueText;
+        write.Data = this.Create.StringValueText;
         write.ExecuteValueString(text);
-        write.Array = null;
+        write.Data = null;
 
         index = index + 1;
         indexA = indexA + count;
@@ -139,14 +139,17 @@ public class KindCreateOperate : CreateOperate
     }
 
 
-    protected virtual bool CopyText(char[] dest, int destIndex, char[] source, int sourceIndex, int count)
+    protected virtual bool CopyText(Data dest, int destIndex, Data source, int sourceIndex, int count)
     {
+        char oc;
         int i;
         i = 0;
         while (i < count)
         {
-            dest[destIndex + i] = source[sourceIndex + i];
+            oc = this.TextInfra.Char(source, sourceIndex + i);
 
+            this.TextInfra.CharSet(dest, destIndex + i, oc);
+            
             i = i + 1;
         }
         return true;
