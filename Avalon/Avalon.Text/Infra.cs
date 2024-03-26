@@ -86,6 +86,27 @@ public class Infra : Any
         return oc;
     }
 
+    public virtual bool CharSet(Data data, int index, char value)
+    {
+        int oa;
+        oa = this.InfraInfra.ShortByteCount;
+
+        int oo;
+        oo = index * oa;
+
+        int ob;
+        ob = (int)value;
+
+        int oaa;
+        int oab;
+        oaa = ob & 0xff;
+        oab = (ob >> 8) & 0xff;
+
+        data.Set(oo, oaa);
+        data.Set(oo + 1, oab);
+        return true;
+    }
+
     public virtual bool Equal(Text text, Range range, string o)
     {
         Line line;
