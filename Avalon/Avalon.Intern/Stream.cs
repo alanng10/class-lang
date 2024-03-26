@@ -330,7 +330,7 @@ public class Stream : object
 
 
 
-    public virtual bool Read(byte[] data, long dataCount, long start, long end)
+    public virtual bool Read(byte[] data, long dataCount, long index, long count)
     {
         if (!this.CanRead)
         {
@@ -343,7 +343,7 @@ public class Stream : object
         this.SetInternDataCount(dataCount);
 
 
-        this.SetInternRange(start, end);
+        this.SetInternRange(index, count);
 
 
 
@@ -358,7 +358,7 @@ public class Stream : object
 
 
 
-    public virtual bool Write(byte[] data, long dataCount, long start, long end)
+    public virtual bool Write(byte[] data, long dataCount, long index, long count)
     {
         if (!this.CanWrite)
         {
@@ -371,7 +371,7 @@ public class Stream : object
         this.SetInternDataCount(dataCount);
 
 
-        this.SetInternRange(start, end);
+        this.SetInternRange(index, count);
 
 
 
@@ -405,23 +405,23 @@ public class Stream : object
 
 
 
-    private bool SetInternRange(long start, long end)
+    private bool SetInternRange(long index, long count)
     {
-        ulong startU;
+        ulong indexU;
 
-        ulong endU;
-
-
-        startU = (ulong)start;
-
-        endU = (ulong)end;
+        ulong countU;
 
 
+        indexU = (ulong)index;
 
-        Extern.Range_StartSet(this.InternRange, startU);
+        countU = (ulong)count;
 
 
-        Extern.Range_EndSet(this.InternRange, endU);
+
+        Extern.Range_IndexSet(this.InternRange, indexU);
+
+
+        Extern.Range_CountSet(this.InternRange, countU);
 
 
 
