@@ -53,7 +53,7 @@ Bool SetPos(Int pos, Int left, Int up);
 
 Bool SetSize(Int size, Int width, Int height);
 
-Bool SetRange(Int range, Int start, Int end);
+Bool SetRange(Int range, Int index, Int count);
 
 
 

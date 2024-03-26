@@ -384,12 +384,12 @@ Bool SetSize(Int size, Int width, Int height)
 
 
 
-Bool SetRange(Int range, Int start, Int end)
+Bool SetRange(Int range, Int index, Int count)
 {
-    Range_StartSet(range, start);
+    Range_IndexSet(range, index);
 
 
-    Range_EndSet(range, end);
+    Range_CountSet(range, count);
 
 
 
@@ -555,7 +555,7 @@ Bool DrawHandle(Int frame, Int arg)
     SetRect(RectA, 500, 350, 100, 100);
 
 
-    SetRange(RangeA, 100 * 16, 100 * 16);
+    SetRange(RangeA, 100 * 16, 120 * 16);
 
 
 
@@ -567,7 +567,7 @@ Bool DrawHandle(Int frame, Int arg)
     SetRect(RectA, 500, 550, 100, 100);
 
 
-    SetRange(RangeA, 120 * 16, 280 * 16);
+    SetRange(RangeA, 120 * 16, 160 * 16);
 
 
     Draw_ExecuteChord(Draw, RectA, RangeA);
@@ -584,7 +584,7 @@ Bool DrawHandle(Int frame, Int arg)
     SetRect(RectA, 500, 200, 100, 100);
 
 
-    SetRange(RangeA, 10 * 16, 90 * 16);
+    SetRange(RangeA, 10 * 16, 80 * 16);
 
 
     Draw_ExecutePie(Draw, RectA, RangeA);
