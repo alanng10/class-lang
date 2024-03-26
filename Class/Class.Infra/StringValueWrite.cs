@@ -35,7 +35,7 @@ public class StringValueWrite : Any
 
     public virtual WriteOperate WriteOperate { get; set; }
 
-    public virtual char[] Array { get; set; }
+    public virtual Data Data { get; set; }
     public virtual int Index { get; set; }
 
     public virtual string Value(TextSpan textSpan)
@@ -53,16 +53,27 @@ public class StringValueWrite : Any
 
         int count;
         count = this.Index;
-        this.Array = new char[count];
+        this.Data = new Data();
+        this.Data.Count = count * this.InfraInfra.ShortByteCount;
+        this.Data.Init();
 
         this.WriteOperate = this.AddWriteOperate;
         this.Index = 0;
         this.ExecuteValueString(textSpan);
 
+        TextSpan oa;
+        oa = new TextSpan();
+        oa.Init();
+        oa.Range = new InfraRange();
+        oa.Range.Init();
+        oa.Data = this.Data;
+        oa.Range.Index = 0;
+        oa.Range.Count = count;
+        
         string a;
-        a = new string(this.Array);
+        a = this.TextInfra.StringCreate(oa);
 
-        this.Array = null;
+        this.Data = null;
         this.WriteOperate = null;
         return a;
     }
