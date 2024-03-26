@@ -1,4 +1,4 @@
-namespace Z.Tool.BrushKindListSourceGen;
+namespace Z.Tool.Avalon.BrushKindList;
 
 public class Gen : SourceGen
 {

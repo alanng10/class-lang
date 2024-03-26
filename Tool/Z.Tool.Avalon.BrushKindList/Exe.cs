@@ -1,4 +1,4 @@
-namespace Z.Tool.BrushKindListSourceGen;
+namespace Z.Tool.Avalon.BrushKindList;
 
 class Exe : ExeExe
 {
