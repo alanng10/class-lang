@@ -13,7 +13,7 @@ for /d %%a in ("Avalon.*.-") do (
 )
 popd
 
-copy /Y %AvalonModuleOutFold%\Avalon.*.dll %DeployFold%
+copy /Y %AvalonModuleOutFold%\Avalon.*.dll %DeployFold% 1>NUL 2>NUL
 
 mkdir %DeployFold%\%AvalonInternData% 1>NUL 2>NUL
-xcopy /S /E %AvalonModuleOutFold%\%AvalonInternData% %DeployFold%\%AvalonInternData%
+xcopy /S /E %AvalonModuleOutFold%\%AvalonInternData% %DeployFold%\%AvalonInternData% 1>NUL 2>NUL
