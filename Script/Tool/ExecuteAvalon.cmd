@@ -1,8 +1,9 @@
 @echo off
 
-for /d /r %%a in ("Tool\Z.Tool.Avalon.*") do (
+pushd Tool
+for /d %%a in ("Z.Tool.Avalon.*") do (
 
-    pushd Out\net6.0
+    pushd ..\Out\net6.0
     echo Execute "%%~nxa"
     echo:
     dotnet %%~nxa.dll
@@ -10,3 +11,4 @@ for /d /r %%a in ("Tool\Z.Tool.Avalon.*") do (
     echo:
     popd
 )
+popd
