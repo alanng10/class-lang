@@ -103,8 +103,8 @@ Sort
     Compare(sort, left, right, arg) --
 
 Range
-    Start
-    End
+    Index
+    Count
 
 Rect
     Pos
