@@ -817,12 +817,6 @@ Int Draw_ExecuteChord(Int o, Int rect, Int angleRange)
     return true;
 }
 
-
-
-
-
-
-
 Int Draw_ExecutePie(Int o, Int rect, Int angleRange)
 {
     Draw* m;
@@ -866,34 +860,17 @@ Int Draw_ExecutePie(Int o, Int rect, Int angleRange)
 
 
     Int angleStart;
-
+    Int angleCount;
     Int angleEnd;
-
-
-    angleStart = Range_StartGet(angleRange);
-
-    angleEnd = Range_EndGet(angleRange);
-
-
-
+    angleStart = Range_IndexGet(angleRange);
+    angleCount = Range_CountGet(angleRange);
+    angleEnd = angleStart + angleCount;
     int startA;
-
     int spanA;
-
-
     startA = (int)angleStart;
-
     spanA = (int)angleEnd;
 
-
-
-
     m->Intern->drawPie(l, u, w, h, startA, spanA);
-
-
-
-
-
     return true;
 }
 
