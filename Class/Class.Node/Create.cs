@@ -3812,17 +3812,9 @@ public class Create : InfraCreate
 
     protected virtual bool IsIntValue(TextRange aa)
     {
-        TextLine line;
-        line = this.SourceText.GetLine(aa.Row);
+        this.TextSpanGet(this.TextSpan, aa);
 
-        char[] array;
-        array = line.Value;
-        int start;
-        start = aa.Col.Index;
-        int count;
-        count = aa.Col.Count;
-
-        if (!this.IsIntChar(array, start, count))
+        if (!this.IsIntChar(this.TextSpan))
         {
             return false;
         }
@@ -3842,16 +3834,16 @@ public class Create : InfraCreate
         TextLine line;
         line = this.SourceText.GetLine(aa.Row);
 
-        char[] array;
-        array = line.Value;
+        Data data;
+        data = line.Data;
         int start;
         start = aa.Col.Index;
 
-        if (!(array[start] == '0'))
+        if (!(this.TextInfra.Char(data, start) == '0'))
         {
             return false;
         }
-        if (!(array[start + 1] == 'h'))
+        if (!(this.TextInfra.Char(data, start + 1) == 'h'))
         {
             return false;
         }
@@ -3860,7 +3852,10 @@ public class Create : InfraCreate
         startA = start + 2;
         int countA;
         countA = count - 2;
-        if (!this.IsIntHexChar(array, startA, countA))
+        this.TextSpan.Data = data;
+        this.TextSpan.Range.Index = startA;
+        this.TextSpan.Range.Count = countA;
+        if (!this.IsIntHexChar(this.TextSpan))
         {
             return false;
         }
@@ -3925,26 +3920,26 @@ public class Create : InfraCreate
         TextLine line;
         line = this.SourceText.GetLine(aa.Row);
 
-        char[] array;
-        array = line.Value;
+        Data data;
+        data = line.Data;
         int start;
         start = aa.Col.Index;
 
-        if (!(array[start] == '0'))
+        if (!(this.TextInfra.Char(data, start) == '0'))
         {
             return false;
         }
-        if (!(array[start + 1] == 's'))
+        if (!(this.TextInfra.Char(data, start + 1) == 's'))
         {
             return false;
         }
-        if (!(array[start + 2] == 'h'))
+        if (!(this.TextInfra.Char(data, start + 2) == 'h'))
         {
             return false;
         }
 
         char oa;
-        oa = array[start + 3];
+        oa = this.TextInfra.Char(data, start + 3);
         if (!this.IsIntSignChar(oa))
         {
             return false;
@@ -3954,15 +3949,24 @@ public class Create : InfraCreate
         startA = start + 4;
         int countA;
         countA = count - 4;
-        if (!this.IsIntHexChar(array, startA, countA))
+        this.TextSpan.Data = data;
+        this.TextSpan.Range.Index = startA;
+        this.TextSpan.Range.Count = countA;
+        if (!this.IsIntHexChar(this.TextSpan))
         {
             return false;
         }
         return true;
     }
 
-    protected virtual bool IsIntChar(char[] array, int start, int count)
+    protected virtual bool IsIntChar(TextSpan span)
     {
+        Data data;
+        data = span.Data;
+        int start;
+        start = span.Range.Index;
+        int count;
+        count = span.Range.Count;
         int index;
         char oc;
         int i;
@@ -3971,7 +3975,7 @@ public class Create : InfraCreate
         {
             index = start + i;
 
-            oc = array[index];
+            oc = this.TextInfra.Char(data, index);
 
             if (!(this.TextInfra.IsDigit(oc)))
             {
@@ -3986,12 +3990,12 @@ public class Create : InfraCreate
     {
         Data data;
         data = span.Data;
-        int index;
-        char oc;
         int start;
         start = span.Range.Index;
         int count;
         count = span.Range.Count;
+        int index;
+        char oc;
         int i;
         i = 0;
         while (i < count)
@@ -4049,7 +4053,7 @@ public class Create : InfraCreate
         textLine = this.SourceText.GetLine(textRange.Row);
         InfraRange range;
         range = textRange.Col;
-        textSpan.Data = textLine.Value;
+        textSpan.Data = textLine.Data;
         textSpan.Range.Index = range.Index;
         textSpan.Range.Count = range.Count;
         return true;
@@ -4065,15 +4069,15 @@ public class Create : InfraCreate
         TextLine line;
         line = this.SourceText.GetLine(textRange.Row);
 
-        char[] array;
-        array = line.Value;
+        Data data;
+        data = line.Data;
         int start;
         start = textRange.Col.Index;
 
         int index;
         index = start;
         char oc;
-        oc = array[index];
+        oc = this.TextInfra.Char(data, index);
         if (!(this.TextInfra.IsUpperLetter(oc) | this.TextInfra.IsLowerLetter(oc)))
         {
             return false;
@@ -4094,7 +4098,7 @@ public class Create : InfraCreate
         {
             index = start + i;
 
-            oc = array[index];
+            oc = this.TextInfra.Char(data, index);
 
             if (!(this.TextInfra.IsUpperLetter(oc) | this.TextInfra.IsLowerLetter(oc) | this.TextInfra.IsDigit(oc) | oc == '_'))
             {
