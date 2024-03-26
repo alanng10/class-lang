@@ -61,50 +61,7 @@ public class Infra : Any
         {
             return (char)0;
         }
-        return this.Char(line.Data, pos.Col);
-    }
-
-    public virtual char Char(Data data, int index)
-    {
-        int oa;
-        oa = this.InfraInfra.ShortByteCount;
-
-        int oo;
-        oo = index * oa;
-
-        int oaa;
-        oaa = data.Get(oo);
-        int oab;
-        oab = data.Get(oo + 1);
-        int o;
-        o = oaa;
-        o = o | (oab << 8);
-        short ob;
-        ob = (short)o;
-        char oc;
-        oc = (char)ob;
-        return oc;
-    }
-
-    public virtual bool CharSet(Data data, int index, char value)
-    {
-        int oa;
-        oa = this.InfraInfra.ShortByteCount;
-
-        int oo;
-        oo = index * oa;
-
-        int ob;
-        ob = (int)value;
-
-        int oaa;
-        int oab;
-        oaa = ob & 0xff;
-        oab = (ob >> 8) & 0xff;
-
-        data.Set(oo, oaa);
-        data.Set(oo + 1, oab);
-        return true;
+        return this.InfraInfra.Char(line.Data, pos.Col);
     }
 
     public virtual bool Equal(Text text, Range range, string o)
@@ -138,7 +95,7 @@ public class Infra : Any
         {
             index = col.Index + i;
 
-            oca = this.Char(line.Data, index);
+            oca = this.InfraInfra.Char(line.Data, index);
             ocb = o[i];
             if (!(oca == ocb))
             {
@@ -168,37 +125,11 @@ public class Infra : Any
 
     public virtual Span SpanCreateString(string a)
     {
+        Data data;
+        data = this.InfraInfra.DataCreateString(a);
+
         int count;
         count = a.Length;
-
-        int oa;
-        oa = this.InfraInfra.ShortByteCount;
-
-        Data data;
-        data = new Data();
-        data.Count = count * oa;
-        data.Init();
-
-        DataWrite write;
-        write = new DataWrite();
-        write.Init();
-        write.Data = data;
-
-        int i;
-        i = 0;
-        while (i < count)
-        {
-            char oc;
-            oc = a[i];
-            short oo;
-            oo = (short)oc;
-            long index;
-            index = i * oa;
-            
-            write.ExecuteShort(index, oo);
-            i = i + 1;
-        }
-
         Span span;
         span = new Span();
         span.Init();
