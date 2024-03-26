@@ -6,19 +6,19 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <ProjectReference Include="../Z.Tool.BrushKindListSourceGen/Z.Tool.BrushKindListSourceGen.csproj" />
-        <ProjectReference Include="../Z.Tool.CompositeListSourceGen/Z.Tool.CompositeListSourceGen.csproj" />
-        <ProjectReference Include="../Z.Tool.GradientKindListSourceGen/Z.Tool.GradientKindListSourceGen.csproj" />
-        <ProjectReference Include="../Z.Tool.GradientSpreadListSourceGen/Z.Tool.GradientSpreadListSourceGen.csproj" />
-        <ProjectReference Include="../Z.Tool.ImageFormatListSourceGen/Z.Tool.ImageFormatListSourceGen.csproj" />
-        <ProjectReference Include="../Z.Tool.NetworkAddressKindListSourceGen/Z.Tool.NetworkAddressKindListSourceGen.csproj" />
-        <ProjectReference Include="../Z.Tool.NetworkCaseListSourceGen/Z.Tool.NetworkCaseListSourceGen.csproj" />
-        <ProjectReference Include="../Z.Tool.NetworkStatusListSourceGen/Z.Tool.NetworkStatusListSourceGen.csproj" />
-        <ProjectReference Include="../Z.Tool.PenCapListSourceGen/Z.Tool.PenCapListSourceGen.csproj" />
-        <ProjectReference Include="../Z.Tool.PenJoinListSourceGen/Z.Tool.PenJoinListSourceGen.csproj" />
-        <ProjectReference Include="../Z.Tool.PenKindListSourceGen/Z.Tool.PenKindListSourceGen.csproj" />
-        <ProjectReference Include="../Z.Tool.TextAlignListSourceGen/Z.Tool.TextAlignListSourceGen.csproj" />
-        <ProjectReference Include="../Z.Tool.TextEncodeKindListSourceGen/Z.Tool.TextEncodeKindListSourceGen.csproj" />
+        <ProjectReference Include="../Z.Tool.Avalon.BrushKindList/Z.Tool.Avalon.BrushKindList.csproj" />
+        <ProjectReference Include="../Z.Tool.Avalon.CompositeList/Z.Tool.Avalon.CompositeList.csproj" />
+        <ProjectReference Include="../Z.Tool.Avalon.GradientKindList/Z.Tool.Avalon.GradientKindList.csproj" />
+        <ProjectReference Include="../Z.Tool.Avalon.GradientSpreadList/Z.Tool.Avalon.GradientSpreadList.csproj" />
+        <ProjectReference Include="../Z.Tool.Avalon.ImageFormatList/Z.Tool.Avalon.ImageFormatList.csproj" />
+        <ProjectReference Include="../Z.Tool.Avalon.NetworkAddressKindList/Z.Tool.Avalon.NetworkAddressKindList.csproj" />
+        <ProjectReference Include="../Z.Tool.Avalon.NetworkCaseList/Z.Tool.Avalon.NetworkCaseList.csproj" />
+        <ProjectReference Include="../Z.Tool.Avalon.NetworkStatusList/Z.Tool.Avalon.NetworkStatusList.csproj" />
+        <ProjectReference Include="../Z.Tool.Avalon.PenCapList/Z.Tool.Avalon.PenCapList.csproj" />
+        <ProjectReference Include="../Z.Tool.Avalon.PenJoinList/Z.Tool.Avalon.PenJoinList.csproj" />
+        <ProjectReference Include="../Z.Tool.Avalon.PenKindList/Z.Tool.Avalon.PenKindList.csproj" />
+        <ProjectReference Include="../Z.Tool.Avalon.TextAlignList/Z.Tool.Avalon.TextAlignList.csproj" />
+        <ProjectReference Include="../Z.Tool.Avalon.TextEncodeKindList/Z.Tool.Avalon.TextEncodeKindList.csproj" />
     </ItemGroup>
 
 </Project>
