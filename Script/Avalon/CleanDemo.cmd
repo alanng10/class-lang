@@ -1,4 +1,6 @@
 @echo off
 
 echo Clean Demo
-rmdir /S /Q .\Out\Demo 2>NUL
+set AvalonModuleOutFold=.\Out\net6.0
+del /F /Q %AvalonModuleOutFold%\Demo.* 2>NUL
+rmdir /S /Q %AvalonModuleOutFold%\DemoData 2>NUL
