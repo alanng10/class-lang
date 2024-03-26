@@ -1,6 +1,5 @@
 @echo off
 
-set ModuleName=Z.Make.Avalon
-pushd Tool\%ModuleName%
+pushd Tool\Z.Make.Avalon
 dotnet build
 popd
