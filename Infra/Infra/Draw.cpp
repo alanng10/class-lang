@@ -729,74 +729,34 @@ Int Draw_ExecuteLine(Int o, Int startPos, Int endPos)
 Int Draw_ExecuteArc(Int o, Int rect, Int angleRange)
 {
     Draw* m;
-
     m = CP(o);
 
-
-
-
     Int aRect;
-
     aRect = rect;
-
-
-
     RectValue(a);
 
-
-
-
     int l;
-
     int u;
-
     int w;
-
     int h;
-
-
-
     l = (int)aLeft;
-
     u = (int)aUp;
-
     w = (int)aWidth;
-
     h = (int)aHeight;
 
-
-
-
     Int angleStart;
-
+    Int angleCount;
     Int angleEnd;
-
-
-    angleStart = Range_StartGet(angleRange);
-
-    angleEnd = Range_EndGet(angleRange);
-
-
-
+    angleStart = Range_IndexGet(angleRange);
+    angleCount = Range_CountGet(angleRange);
+    angleEnd = angleStart + angleCount;
 
     int startA;
-
     int spanA;
-
-
     startA = (int)angleStart;
-
     spanA = (int)angleEnd;
 
-
-
-
     m->Intern->drawArc(l, u, w, h, startA, spanA);
-
-
-
-
-
     return true;
 }
 
@@ -843,35 +803,17 @@ Int Draw_ExecuteChord(Int o, Int rect, Int angleRange)
 
 
     Int angleStart;
-
+    Int angleCount;
     Int angleEnd;
-
-
-    angleStart = Range_StartGet(angleRange);
-
-    angleEnd = Range_EndGet(angleRange);
-
-
-
-
+    angleStart = Range_IndexGet(angleRange);
+    angleCount = Range_CountGet(angleRange);
+    angleEnd = angleStart + angleCount;
     int startA;
-
     int spanA;
-
-
     startA = (int)angleStart;
-
     spanA = (int)angleEnd;
 
-
-
-
     m->Intern->drawChord(l, u, w, h, startA, spanA);
-
-
-
-
-
     return true;
 }
 
