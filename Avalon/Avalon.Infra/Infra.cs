@@ -88,7 +88,7 @@ public class Infra : Any
         return true;
     }
 
-    public virtual char Char(Data data, int index)
+    public virtual char CharGet(Data data, int index)
     {
         int oa;
         oa = this.ShortByteCount;

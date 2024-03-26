@@ -146,7 +146,7 @@ public class KindCreateOperate : CreateOperate
         i = 0;
         while (i < count)
         {
-            oc = this.InfraInfra.Char(source, sourceIndex + i);
+            oc = this.InfraInfra.CharGet(source, sourceIndex + i);
 
             this.InfraInfra.CharSet(dest, destIndex + i, oc);
             
