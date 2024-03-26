@@ -53,43 +53,28 @@ public class Infra : Any
 
     public virtual char GetChar(Text text, Pos pos)
     {
-        char oc;        
-        oc = text.GetLine(pos.Row).Value[pos.Col];
-        return oc;
-    }
+        int oa;
+        oa = this.InfraInfra.ShortByteCount;
 
-    public virtual bool Equal(Text text, Range range, string o)
-    {
         Line line;
-        line = text.GetLine(range.Row);
+        line = text.GetLine(pos.Row);
+        Data data;
+        data = line.Data;
+        int oo;
+        oo = pos.Col * oa;
 
-        int k;
-        k = range.Col.Count;
-        int count;
-        count = k;
-        if (!(count == o.Length))
-        {
-            return false;
-        }
-
-        int index;
-        char oca;
-        char ocb;
-        int i;
-        i = 0;
-        while (i < count)
-        {
-            index = range.Col.Index + i;
-
-            oca = line.Value[index];
-            ocb = o[i];
-            if (!(oca == ocb))
-            {
-                return false;
-            }
-            i = i + 1;
-        }
-        return true;
+        int oaa;
+        oaa = data.Get(oo);
+        int oab;
+        oab = data.Get(oo + 1);
+        int o;
+        o = oaa;
+        o = o | (oab << 8);
+        short ob;
+        ob = (short)o;
+        char oc;        
+        oc = (char)ob;
+        return oc;
     }
 
     public virtual Span SpanCreate(int count)
@@ -100,7 +85,7 @@ public class Infra : Any
         Span span;
         span = new Span();
         span.Init();
-        span.Data = new InfraData();
+        span.Data = new Data();
         span.Data.Count = count * oa;
         span.Data.Init();
         span.Range = new InfraRange();
@@ -117,8 +102,8 @@ public class Infra : Any
         int oa;
         oa = this.InfraInfra.ShortByteCount;
 
-        InfraData data;
-        data = new InfraData();
+        Data data;
+        data = new Data();
         data.Count = count * oa;
         data.Init();
 

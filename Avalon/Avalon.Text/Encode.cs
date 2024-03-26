@@ -60,7 +60,7 @@ public class Encode : Any
         return a;
     }
 
-    public virtual int Text(Span text, InfraData data, DataRange range)
+    public virtual int Text(Span text, Data data, DataRange range)
     {
         if (!this.InfraInfra.CheckLongRange(data.Count, range))
         {
@@ -91,7 +91,7 @@ public class Encode : Any
         return a;
     }
 
-    public virtual long Data(InfraData data, long index, Span text)
+    public virtual long Data(Data data, long index, Span text)
     {
         if (!this.InfraInfra.CheckRange((int)text.Data.Count, text.Range))
         {
