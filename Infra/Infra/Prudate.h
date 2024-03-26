@@ -231,10 +231,10 @@ Infra_Api Int Sort_Execute(Int o, Int data, Int count, Int compareState);
 typedef Int (*Sort_Compare_Maide)(Int sort, Int left, Int right, Int arg);
 
 InfraApiNew(Range)
-Infra_Api Int Range_StartGet(Int o);
-Infra_Api Int Range_StartSet(Int o, Int value);
-Infra_Api Int Range_EndGet(Int o);
-Infra_Api Int Range_EndSet(Int o, Int value);
+Infra_Api Int Range_IndexGet(Int o);
+Infra_Api Int Range_IndexSet(Int o, Int value);
+Infra_Api Int Range_CountGet(Int o);
+Infra_Api Int Range_CountSet(Int o, Int value);
 
 InfraApiNew(Rect)
 Infra_Api Int Rect_PosGet(Int o);
