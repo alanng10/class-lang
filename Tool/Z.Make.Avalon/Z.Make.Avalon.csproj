@@ -14,6 +14,9 @@
         <ProjectReference Include="../Z.Tool.NetworkAddressKindListSourceGen/Z.Tool.NetworkAddressKindListSourceGen.csproj" />
         <ProjectReference Include="../Z.Tool.NetworkCaseListSourceGen/Z.Tool.NetworkCaseListSourceGen.csproj" />
         <ProjectReference Include="../Z.Tool.NetworkStatusListSourceGen/Z.Tool.NetworkStatusListSourceGen.csproj" />
+        <ProjectReference Include="../Z.Tool.PenCapListSourceGen/Z.Tool.PenCapListSourceGen.csproj" />
+        <ProjectReference Include="../Z.Tool.PenJoinListSourceGen/Z.Tool.PenJoinListSourceGen.csproj" />
+        <ProjectReference Include="../Z.Tool.PenKindListSourceGen/Z.Tool.PenKindListSourceGen.csproj" />
     </ItemGroup>
 
 </Project>
