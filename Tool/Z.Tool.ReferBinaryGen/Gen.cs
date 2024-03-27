@@ -226,6 +226,9 @@ public class Gen : Any
             SystemType baseType;
             baseType = type.BaseType;
 
+            a.Index = i;
+            a.Name = type.Name;
+
             a.Type = type;
 
             PropertyInfo[] propertyArrayA;
@@ -289,7 +292,7 @@ public class Gen : Any
             ListEntry ea;
             ea = new ListEntry();
             ea.Init();
-            ea.Index = a.Type.Name;
+            ea.Index = a.Name;
             ea.Value = a;
 
             table.Add(ea);
