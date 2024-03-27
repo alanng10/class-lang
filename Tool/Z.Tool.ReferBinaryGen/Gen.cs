@@ -582,7 +582,7 @@ public class Gen : Any
                 }
                 maide.Param = varArray;
 
-                maideList.Add(method);
+                maideList.Add(maide);
             }
 
             i = i + 1;
