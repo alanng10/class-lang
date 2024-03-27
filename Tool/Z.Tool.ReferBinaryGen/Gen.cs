@@ -435,9 +435,6 @@ public class Gen : Any
         a = new Class();
         a.Init();
 
-        SystemType baseType;
-        baseType = type.BaseType;
-
         a.Index = this.Module.Class.Count;
         a.Name = type.Name;
         a.Module = this.Module;
