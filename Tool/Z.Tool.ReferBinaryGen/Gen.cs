@@ -32,10 +32,11 @@ public class Gen : Any
 
     protected virtual ListInfra ListInfra { get; set; }
 
-    protected virtual Assembly Assembly { get; set; }
     protected virtual Table ModuleTable { get; set; }
     protected virtual Module Module { get; set; }
     protected virtual Table DotNetBuiltInTypeTable { get; set; }
+    protected virtual Class AnyClass { get; set; }
+    protected virtual bool IsAvalonInfra { get; set; }
 
     public virtual int Execute()
     {
@@ -73,12 +74,11 @@ public class Gen : Any
 
     protected virtual bool ExecuteModule(Assembly assembly)
     {
-        this.Assembly = assembly;
-
         Module module;
         module = new Module();
         module.Init();
-        module.Name = this.Assembly.GetName().Name;
+        module.Name = assembly.GetName().Name;
+        module.Assembly = assembly;
         this.Module = module;
 
         ListEntry entry;
@@ -87,6 +87,8 @@ public class Gen : Any
         entry.Index = module.Name;
         entry.Value = module;
         this.ModuleTable.Add(entry);
+
+        this.IsAvalonInfra = (this.Module.Name == "Avalon.Infra");
 
         this.SetClass();
 
@@ -181,7 +183,7 @@ public class Gen : Any
             assembly = type.Assembly;
         }
 
-        if (assembly == this.Assembly)
+        if (assembly == this.Module.Assembly)
         {
             return true;
         }
@@ -237,9 +239,6 @@ public class Gen : Any
 
     protected virtual bool SetClass()
     {
-        Assembly o;
-        o = this.Assembly;
-
         Table table;
         table = new Table();
         table.Compare = new StringCompare();
@@ -248,9 +247,18 @@ public class Gen : Any
         
         this.Module.Class = table;
 
+        this.AddClassList();
 
+        this.AddBaseList();
+
+
+        return true;
+    }
+
+    protected virtual bool AddClassList()
+    {
         SystemType[] typeArray;
-        typeArray = o.GetExportedTypes();
+        typeArray = this.Module.Assembly.GetExportedTypes();
 
         SystemType anyType;
         anyType = null;
@@ -267,11 +275,7 @@ public class Gen : Any
 
             this.AddClass(anyType);
 
-            Class aa;
-            aa = (Class)this.Module.Class.Get("Any");
-            aa.Base = aa;
-
-            this.AddInfraBuiltInTypeList();
+            this.AddInfraBuiltInClassList();
         }
 
         int count;
@@ -290,32 +294,65 @@ public class Gen : Any
 
             i = i + 1;
         }
+        return true;
+    }
+
+    protected virtual bool AddBaseList()
+    {
+        if (this.IsAvalonInfra)
+        {
+            Class anyClass;
+            anyClass = this.ModuleClassGet(this.Module, "Any");
+            this.AnyClass = anyClass;
+
+            anyClass.Base = anyClass;
+
+            this.ClassBaseSetAny("Bool");
+            this.ClassBaseSetAny("Int");
+            this.ClassBaseSetAny("String");
+        }
 
         Iter iter;
-        iter = table.IterCreate();
-        table.IterSet(iter);
+        iter = this.Module.Class.IterCreate();
+        this.Module.Class.IterSet(iter);
         while (iter.Next())
         {
             Class a;
             a = (Class)iter.Value;
-            
+
             if (a.Base == null)
             {
                 SystemType oa;
                 oa = a.Type.BaseType;
 
-                string moduleName;
-                moduleName = oa.Assembly.GetName().Name;
-                string name;
-                name = oa.Name;
+                Class ob;
+                ob = this.ClassGetType(oa);
+                a.Base = ob;
+            }
+        }
+        return true;
+    }
 
-                Module module;
-                module = (Module)this.ModuleTable.Get(moduleName);
+    protected virtual bool AddPartList()
+    {
+        if (this.IsAvalonInfra)
+        {
+            this.ClassPartSetEmpty("Bool");
+            this.ClassPartSetEmpty("Int");
+            this.ClassPartSetEmpty("String");
+        }
 
-                Class baseClass;
-                baseClass = (Class)module.Class.Get(name);
+        Iter iter;
+        iter = this.Module.Class.IterCreate();
+        this.Module.Class.IterSet(iter);
+        while (iter.Next())
+        {
+            Class a;
+            a = (Class)iter.Value;
 
-                a.Base = baseClass;
+            if (a.Field == null)
+            {
+                this.AddPart(a);
             }
         }
 
@@ -530,6 +567,11 @@ public class Gen : Any
         return (Module)this.ModuleTable.Get(module);
     }
 
+    protected virtual Class ModuleClassGet(Module module, string name)
+    {
+        return (Class)module.Class.Get(name);
+    }
+
     protected virtual Class ClassGetType(SystemType type)
     {
         string module;
@@ -556,35 +598,46 @@ public class Gen : Any
         Module o;
         o = this.ModuleGet(module);
         Class oa;
-        oa = (Class)o.Class.Get(name);
+        oa = this.ModuleClassGet(o, name);
         return oa;
     }
 
-    protected virtual bool AddInfraBuiltInTypeList()
+    protected virtual bool ClassBaseSetAny(string name)
     {
-        this.AddBuiltInType("Bool");
-        this.AddBuiltInType("Int");
-        this.AddBuiltInType("String");
+        Class a;
+        a = this.ModuleClassGet(this.Module, name);
+        a.Base = this.AnyClass;
         return true;
     }
 
-    protected virtual bool AddBuiltInType(string name)
+    protected virtual bool ClassPartSetEmpty(string name)
+    {
+        Class a;
+        a = this.ModuleClassGet(this.Module, name);
+        a.Field = this.ListInfra.ArrayCreate(0);
+        a.Maide = this.ListInfra.ArrayCreate(0);
+        return true;
+    }
+
+    protected virtual bool AddInfraBuiltInClassList()
+    {
+        this.AddBuiltInClass("Bool");
+        this.AddBuiltInClass("Int");
+        this.AddBuiltInClass("String");
+        return true;
+    }
+
+    protected virtual bool AddBuiltInClass(string name)
     {
         int index;
         index = this.Module.Class.Count;
-
-        Class baseClass;
-        baseClass = (Class)this.Module.Class.Get("Any");
 
         Class a;
         a = new Class();
         a.Init();
         a.Index = index;
         a.Name = name;
-        a.Base = baseClass;
         a.Module = this.Module;
-        a.Field = this.ListInfra.ArrayCreate(0);
-        a.Maide = this.ListInfra.ArrayCreate(0);
 
         ListEntry entry;
         entry = new ListEntry();
