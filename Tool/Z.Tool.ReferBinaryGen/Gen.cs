@@ -498,6 +498,7 @@ public class Gen : Any
                 {
                     Field field;
                     field = new Field();
+                    field.Init();
                     field.Name = property.Name;
                     field.Class = this.ClassGetType(property.PropertyType);
                     field.Count = this.CountGet(property.GetMethod);
@@ -607,7 +608,7 @@ public class Gen : Any
         a = this.ClassGet(module, varClass);
         if (a == null)
         {
-            global::System.Console.Write("ClassGetType no class, type: " + varClass + "(" + module + ")" + "\n");
+            global::System.Console.Error.Write("ClassGetType no class, type: " + varClass + "(" + module + ")" + "\n");
             global::System.Environment.Exit(100);
         }
         return a;
@@ -617,6 +618,11 @@ public class Gen : Any
     {
         Module o;
         o = this.ModuleGet(module);
+        if (o == null)
+        {
+            global::System.Console.Error.Write("ClassGet no module, module name: " + module + "\n");
+            global::System.Environment.Exit(102);
+        }
         Class oa;
         oa = this.ModuleClassGet(o, name);
         return oa;
