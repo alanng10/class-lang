@@ -58,6 +58,7 @@ class ReferGen : Any
         refer.Class = this.ExecuteClassArray();
         refer.Import = this.ExecuteImportArray();
         refer.Base = this.ExecuteBaseArray();
+        refer.Part = this.ExecutePartArray();
 
         return refer;
     }
