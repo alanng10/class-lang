@@ -12,10 +12,13 @@ public class Entry : Any
         get; set;
     }
 
-    public virtual bool ArgSet(string[] arg)
+    public virtual bool ArgSet(object arg)
     {
+        string[] ua;
+        ua = (string[])arg;
+
         int count;
-        count = arg.Length;
+        count = ua.Length;
         Array array;
         array = new Array();
         array.Count = count;
@@ -25,7 +28,7 @@ public class Entry : Any
         while (i < count)
         {
             string a;
-            a = arg[i];
+            a = ua[i];
 
             array.Set(i, a);
             i = i + 1;
