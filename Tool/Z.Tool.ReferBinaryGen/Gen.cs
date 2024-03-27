@@ -97,121 +97,6 @@ public class Gen : Any
         return true;
     }
 
-    protected virtual bool SetImportList()
-    {
-        Table table;
-        table = new Table();
-        table.Compare = new StringCompare();
-        table.Compare.Init();
-        table.Init();
-
-        this.Module.Import = table;
-
-        Table classTable;
-        classTable = this.Module.Class;
-
-        Iter iter;
-        iter = classTable.IterCreate();
-        classTable.IterSet(iter);
-        while (iter.Next())
-        {
-            Class a;
-            a = (Class)iter.Value;
-            
-            this.AddClassToImportTable(a.Base);
-            
-
-            int countA;
-            int iA;
-
-            countA = a.Field.Count;
-            iA = 0;
-            while (iA < countA)
-            {
-                Field field;
-                field = (Field)a.Field.Get(iA);
-                this.AddClassToImportTable(field.Class);
-                iA = iA + 1;
-            }
-
-            countA = a.Maide.Count;
-            iA = 0;
-            while (iA < countA)
-            {
-                Maide maide;
-                maide = (Maide)a.Maide.Get(iA);
-                this.AddClassToImportTable(maide.Class);
-
-                Array varArray;
-                varArray = maide.Param;
-
-                int countAa;
-                countAa = varArray.Count;
-                int iAa;
-                iAa = 0;
-                while (iAa < countAa)
-                {
-                    Var varVar;
-                    varVar = (Var)varArray.Get(iAa);
-
-                    this.AddClassToImportTable(varVar.Class);
-
-                    iAa = iAa + 1;
-                }
-
-                iA = iA + 1;
-            }
-        }
-        return true;
-    }
-
-    protected virtual bool AddClassToImportTable(Class varClass)
-    {
-        if (varClass.Module == this.Module)
-        {
-            return true;
-        }
-
-        Table table;
-        table = this.Module.Import;
-        
-        string moduleName;
-        moduleName = varClass.Module.Name;
-        if (!table.Contain(moduleName))
-        {
-            Table classTable;
-            classTable = new Table();
-            classTable.Compare = new StringCompare();
-            classTable.Compare.Init();
-            classTable.Init();
-
-            ListEntry oa;
-            oa = new ListEntry();
-            oa.Init();
-            oa.Index = moduleName;
-            oa.Value = classTable;
-            table.Add(oa);
-        }
-        Table oo;
-        oo = (Table)table.Get(moduleName);
-
-        string name;
-        name = varClass.Name;
-
-        if (oo.Contain(name))
-        {
-            return true;
-        }
-        
-        ListEntry ob;
-        ob = new ListEntry();
-        ob.Init();
-        ob.Index = name;
-        ob.Value = name;
-        oo.Add(ob);
-        return true;
-    }
-
     protected virtual bool SetClassList()
     {
         Table table;
@@ -227,8 +112,6 @@ public class Gen : Any
         this.AddBaseList();
 
         this.AddPartList();
-
-
         return true;
     }
 
@@ -333,6 +216,121 @@ public class Gen : Any
             }
         }
 
+        return true;
+    }
+
+    protected virtual bool SetImportList()
+    {
+        Table table;
+        table = new Table();
+        table.Compare = new StringCompare();
+        table.Compare.Init();
+        table.Init();
+
+        this.Module.Import = table;
+
+        Table classTable;
+        classTable = this.Module.Class;
+
+        Iter iter;
+        iter = classTable.IterCreate();
+        classTable.IterSet(iter);
+        while (iter.Next())
+        {
+            Class a;
+            a = (Class)iter.Value;
+
+            this.AddClassToImportTable(a.Base);
+
+
+            int countA;
+            int iA;
+
+            countA = a.Field.Count;
+            iA = 0;
+            while (iA < countA)
+            {
+                Field field;
+                field = (Field)a.Field.Get(iA);
+                this.AddClassToImportTable(field.Class);
+                iA = iA + 1;
+            }
+
+            countA = a.Maide.Count;
+            iA = 0;
+            while (iA < countA)
+            {
+                Maide maide;
+                maide = (Maide)a.Maide.Get(iA);
+                this.AddClassToImportTable(maide.Class);
+
+                Array varArray;
+                varArray = maide.Param;
+
+                int countAa;
+                countAa = varArray.Count;
+                int iAa;
+                iAa = 0;
+                while (iAa < countAa)
+                {
+                    Var varVar;
+                    varVar = (Var)varArray.Get(iAa);
+
+                    this.AddClassToImportTable(varVar.Class);
+
+                    iAa = iAa + 1;
+                }
+
+                iA = iA + 1;
+            }
+        }
+        return true;
+    }
+
+    protected virtual bool AddClassToImportTable(Class varClass)
+    {
+        if (varClass.Module == this.Module)
+        {
+            return true;
+        }
+
+        Table table;
+        table = this.Module.Import;
+
+        string moduleName;
+        moduleName = varClass.Module.Name;
+        if (!table.Contain(moduleName))
+        {
+            Table classTable;
+            classTable = new Table();
+            classTable.Compare = new StringCompare();
+            classTable.Compare.Init();
+            classTable.Init();
+
+            ListEntry oa;
+            oa = new ListEntry();
+            oa.Init();
+            oa.Index = moduleName;
+            oa.Value = classTable;
+            table.Add(oa);
+        }
+        Table oo;
+        oo = (Table)table.Get(moduleName);
+
+        string name;
+        name = varClass.Name;
+
+        if (oo.Contain(name))
+        {
+            return true;
+        }
+
+        ListEntry ob;
+        ob = new ListEntry();
+        ob.Init();
+        ob.Index = name;
+        ob.Value = name;
+        oo.Add(ob);
         return true;
     }
 
