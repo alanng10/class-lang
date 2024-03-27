@@ -20,6 +20,9 @@ public class Gen : Any
         this.Assembly = typeof(Any).Assembly;
         this.ExecuteAssembly();
 
+        this.Assembly = typeof(ListList).Assembly;
+        this.ExecuteAssembly();
+
         return 0;
     }
 
@@ -241,6 +244,10 @@ public class Gen : Any
 
     protected virtual bool ConsoleWrite()
     {
+        global::System.Console.Write("--------------\n");
+        global::System.Console.Write(this.Assembly.GetName().Name + "\n");
+        global::System.Console.Write("--------------\n");
+
         int count;
         count = this.DotNetTypeArray.Count;
         int i;
