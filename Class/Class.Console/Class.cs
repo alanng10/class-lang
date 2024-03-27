@@ -840,147 +840,104 @@ public class Class : Any
 
 
 
-
-
-    private string[] GetFiles(string folderPath)
+    private Array GetFileList(string foldPath)
     {
         string[] u;
-        
-        
-        u = Directory.GetFiles(folderPath);
-
-
-
+        u = Directory.GetFiles(foldPath);
 
         int count;
-
         count = u.Length;
-
-
         int i;
-
         i = 0;
-
-
         while (i < count)
         {
-            string k;
-
-
-            k = u[i];
-
-
-            k = Path.GetFileName(k);
-
-
-            u[i] = k;
-
-
-
+            string path;
+            path = u[i];
+            string name;
+            name = Path.GetFileName(path);
+            u[i] = name;
             i = i + 1;
         }
 
+        Array array;
+        array = new Array();
+        array.Count = u.Length;
+        array.Init();
 
+        count = array.Count;
+        i = 0;
+        while (i < count)
+        {
+            string k;
+            k = u[i];
+            array.Set(i, k);
+            i = i + 1;
+        }
 
+        InfraRange range;
+        range = new InfraRange();
+        range.Init();
+        range.Count = count;
 
-        StringComparer comparer;
+        StringCompare compare;
+        compare = new StringCompare();
+        compare.Init();
 
-
-        comparer = new StringComparer();
-
-
-        comparer.Init();
-
-
-
-
-        SystemArray.Sort<string>(u, comparer);
-
-
-
-
-        string[] ret;
-
-
-        ret = u;
-
-
-
-        return ret;
+        array.Sort(range, compare);
+        return array;
     }
-
 
 
 
     private Array GetClassFiles(string foldPath)
     {
-        string[] u;
+        Array fileArray;
+        fileArray = this.GetFileList(foldPath);
 
 
-
-        u = this.GetFiles(foldPath);
-
-
-
-        if (u.Length < 1)
-        {
-            return null;
-        }
-
-
-
-
-        Array t;
-
-
-        t = new Array();
-
-
-        t.Count = u.Length - 1;
-
-
-        t.Init();
-
-
-
+        int classFileCount;
+        classFileCount = 0;
 
         int count;
-
-        count = t.Count;
-
-
-
+        count = fileArray.Count;
         int i;
-
         i = 0;
-
-
         while (i < count)
         {
-            string a;
+            string name;
+            name = (string)fileArray.Get(i);
 
-            a = u[i + 1];
-
-
-            t.Set(i, a);
-
-
+            if (name.EndsWith(".cla"))
+            {
+                classFileCount = classFileCount + 1;
+            }
 
             i = i + 1;
         }
 
+        int oa;
+        oa = 0;
 
-        
+        Array a;
+        a = new Array();
+        a.Count = classFileCount;
+        a.Init();
 
+        i = 0;
+        while (i < count)
+        {
+            string name;
+            name = (string)fileArray.Get(i);
 
+            if (name.EndsWith(".cla"))
+            {
+                a.Set(oa, name);
+                oa = oa + 1;
+            }
 
-        Array ret;
-
-
-        ret = t;
-
-
-        return ret;
+            i = i + 1;
+        }
+        return a;
     }
 
 
