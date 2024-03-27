@@ -53,7 +53,6 @@ public class Gen : Any
         this.ModuleTable.Compare.Init();
         this.ModuleTable.Init();
 
-
         this.ExecuteModule(typeof(Any).Assembly);
         this.ExecuteModule(typeof(ListList).Assembly);
         this.ExecuteModule(typeof(Math).Assembly);
