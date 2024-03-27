@@ -118,10 +118,8 @@ public class Gen : Any
             Class a;
             a = (Class)iter.Value;
             
-            if (!(a.Type == null))
-            {
-                this.AddTypeToImportTable(a.Type.BaseType);
-            }
+            this.AddClassToImportTable(a.Base);
+            
 
             int countA;
             int iA;
@@ -130,9 +128,9 @@ public class Gen : Any
             iA = 0;
             while (iA < countA)
             {
-                PropertyInfo property;
-                property = (PropertyInfo)a.Field.Get(iA);
-                this.AddTypeToImportTable(property.PropertyType);
+                Field field;
+                field = (Field)a.Field.Get(iA);
+                this.AddClassToImportTable(field.Class);
                 iA = iA + 1;
             }
 
@@ -140,23 +138,23 @@ public class Gen : Any
             iA = 0;
             while (iA < countA)
             {
-                MethodInfo method;
-                method = (MethodInfo)a.Maide.Get(iA);
-                this.AddTypeToImportTable(method.ReturnType);
+                Maide maide;
+                maide = (Maide)a.Maide.Get(iA);
+                this.AddClassToImportTable(maide.Class);
 
-                ParameterInfo[] ooo;
-                ooo = method.GetParameters();
+                Array varArray;
+                varArray = maide.Param;
 
                 int countAa;
-                countAa = ooo.Length;
+                countAa = varArray.Count;
                 int iAa;
                 iAa = 0;
                 while (iAa < countAa)
                 {
-                    ParameterInfo ooa;
-                    ooa = ooo[iAa];
+                    Var varVar;
+                    varVar = (Var)varArray.Get(iAa);
 
-                    this.AddTypeToImportTable(ooa.ParameterType);
+                    this.AddClassToImportTable(varVar.Class);
 
                     iAa = iAa + 1;
                 }
@@ -167,23 +165,9 @@ public class Gen : Any
         return true;
     }
 
-    protected virtual bool AddTypeToImportTable(SystemType type)
+    protected virtual bool AddClassToImportTable(Class varClass)
     {
-        Assembly assembly;
-        assembly = null;
-
-        bool b;
-        b = this.IsDotNetBuiltInType(type);
-        if (b)
-        {
-            assembly = typeof(Any).Assembly;
-        }
-        if (!b)
-        {
-            assembly = type.Assembly;
-        }
-
-        if (assembly == this.Module.Assembly)
+        if (varClass.Module == this.Module)
         {
             return true;
         }
@@ -192,36 +176,27 @@ public class Gen : Any
         table = this.Module.Import;
         
         string moduleName;
-        moduleName = assembly.GetName().Name;
+        moduleName = varClass.Module.Name;
         if (!table.Contain(moduleName))
         {
-            Table typeTable;
-            typeTable = new Table();
-            typeTable.Compare = new StringCompare();
-            typeTable.Compare.Init();
-            typeTable.Init();
+            Table classTable;
+            classTable = new Table();
+            classTable.Compare = new StringCompare();
+            classTable.Compare.Init();
+            classTable.Init();
 
             ListEntry oa;
             oa = new ListEntry();
             oa.Init();
             oa.Index = moduleName;
-            oa.Value = typeTable;
+            oa.Value = classTable;
             table.Add(oa);
         }
         Table oo;
         oo = (Table)table.Get(moduleName);
 
         string name;
-        name = null;
-
-        if (b)
-        {
-            name = (string)this.DotNetBuiltInTypeTable.Get(type);
-        }
-        if (!b)
-        {
-            name = type.Name;
-        }
+        name = varClass.Name;
 
         if (oo.Contain(name))
         {
@@ -627,7 +602,14 @@ public class Gen : Any
             module = type.Assembly.GetName().Name;
             varClass = type.Name;
         }
-        return this.ClassGet(module, varClass);
+        Class a;
+        a = this.ClassGet(module, varClass);
+        if (a == null)
+        {
+            global::System.Console.Write("ClassGetType no class, type: " + varClass + "(" + module + ")" + "\n");
+            global::System.Environment.Exit(100);
+        }
+        return a;
     }
 
     protected virtual Class ClassGet(string module, string name)
