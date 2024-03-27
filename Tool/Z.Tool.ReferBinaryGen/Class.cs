@@ -1,6 +1,6 @@
 namespace Z.Tool.ReferBinaryGen;
 
-class DotNetType : Any
+public class Class : Any
 {
     public virtual SystemType Type { get; set; }
 

@@ -33,12 +33,18 @@ public class Gen : Any
     protected virtual ListInfra ListInfra { get; set; }
 
     protected virtual Assembly Assembly { get; set; }
-    protected virtual Array DotNetTypeArray { get; set; }
-    protected virtual Table Import { get; set; }
+    protected virtual Table ModuleTable { get; set; }
+    protected virtual Module Module { get; set; }
     protected virtual Table DotNetBuiltInTypeTable { get; set; }
 
     public virtual int Execute()
     {
+        this.ModuleTable = new Table();
+        this.ModuleTable.Compare = new StringCompare();
+        this.ModuleTable.Compare.Init();
+        this.ModuleTable.Init();
+
+
         this.Assembly = typeof(Any).Assembly;
         this.ExecuteAssembly();
 
@@ -50,7 +56,11 @@ public class Gen : Any
 
     protected virtual bool ExecuteAssembly()
     {
-        this.DotNetTypeList();
+        Module module;
+        module = new Module();
+        module.Init();
+
+        this.AddClass();
 
         this.ImportTable();
 
@@ -191,14 +201,16 @@ public class Gen : Any
         return true;
     }
 
-    protected virtual bool DotNetTypeList()
+    protected virtual bool AddClass()
     {
         Assembly o;
         o = this.Assembly;
 
-        ListList list;
-        list = new ListList();
-        list.Init();
+        Table table;
+        table = new Table();
+        table.Compare = new StringCompare();
+        table.Compare.Init();
+        table.Init();
 
         SystemType[] typeArray;
         typeArray = o.GetExportedTypes();
@@ -209,8 +221,8 @@ public class Gen : Any
         i = 0;
         while (i < count)
         {
-            DotNetType a;
-            a = new DotNetType();
+            Class a;
+            a = new Class();
             a.Init();
 
             SystemType type;
@@ -279,32 +291,46 @@ public class Gen : Any
             a.Property = propertyArray;
             a.Method = methodArray;
 
-            list.Add(a);
+            ListEntry ea;
+            ea = new ListEntry();
+            ea.Init();
+            ea.Index = a.Type.Name;
+            ea.Value = a;
+
+            table.Add(ea);
 
             i = i + 1;
         }
 
-        Array array;
-        array = this.ListInfra.ArrayCreateList(list);
+        ListEntry entry;
+        entry = new ListEntry();
+        entry.Init();
+        entry.Index = o.GetName().Name;
+        entry.Value = table;
 
-        this.DotNetTypeArray = array;
+        this.Table.Add(entry);
+
         return true;
     }
 
     protected virtual bool ConsoleWrite()
     {
+        string assemblyName;
+        assemblyName = this.Assembly.GetName().Name;
+        
         global::System.Console.Write("--------------\n");
-        global::System.Console.Write(this.Assembly.GetName().Name + "\n");
+        global::System.Console.Write(assemblyName + "\n");
         global::System.Console.Write("--------------\n");
 
-        int count;
-        count = this.DotNetTypeArray.Count;
-        int i;
-        i = 0;
-        while (i < count)
+        Table table;
+        table = (Table)this.ClassTable.Get(assemblyName);
+        Iter iter;
+        iter = table.IterCreate();
+        table.IterSet(iter);
+        while (iter.Next())
         {
-            DotNetType a;
-            a = (DotNetType)this.DotNetTypeArray.Get(i);
+            Class a;
+            a = (Class)iter.Value;
 
             SystemType type;
             type = a.Type;
@@ -336,33 +362,30 @@ public class Gen : Any
                 global::System.Console.Write("    Maide: " + method.Name + ", Count: " + this.CountString(method) + ", ResultType: " + method.ReturnType.Name + "\n");
                 iA = iA + 1;
             }
-
-            i = i + 1;
         }
 
         global::System.Console.Write("--------\n");
 
-        Iter iter;
         iter = this.Import.IterCreate();
         this.Import.IterSet(iter);
 
         while (iter.Next())
         {
-            string assemblyName;
-            assemblyName = (string)iter.Index;
+            string oa;
+            oa = (string)iter.Index;
 
-            global::System.Console.Write(assemblyName + "\n");
-            if (assemblyName.StartsWith("System."))
+            global::System.Console.Write(oa + "\n");
+            if (oa.StartsWith("System."))
             {
                 global::System.Console.Error.Write("Is DotNet BCL\n");
             }
 
-            Table table;
-            table = (Table)iter.Value;
+            Table ob;
+            ob = (Table)iter.Value;
 
             Iter iterA;
-            iterA = table.IterCreate();
-            table.IterSet(iterA);
+            iterA = ob.IterCreate();
+            ob.IterSet(iterA);
             while (iterA.Next())
             {
                 string typeName;
