@@ -80,6 +80,13 @@ public class Gen : Any
         module.Name = this.Assembly.GetName().Name;
         this.Module = module;
 
+        ListEntry entry;
+        entry = new ListEntry();
+        entry.Init();
+        entry.Index = module.Name;
+        entry.Value = module;
+        this.ModuleTable.Add(entry);
+
         this.SetClass();
 
         this.SetImport();
