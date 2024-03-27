@@ -75,6 +75,7 @@ public class Gen : Any
         this.ExecuteModule(typeof(Main).Assembly);
         this.ExecuteModule(typeof(EntryEntry).Assembly);
         this.ExecuteModule(typeof(ClassClass).Assembly);
+        this.ExecuteModule(typeof(Refer).Assembly);
 
         this.ConsoleWrite();
 
