@@ -364,7 +364,7 @@ public class Gen : Any
             global::System.Console.Write("--------------\n");
 
             Table table;
-            table = (Table)this.Module.Class;
+            table = module.Class;
             Iter iterA;
             iterA = table.IterCreate();
             table.IterSet(iterA);
@@ -407,8 +407,8 @@ public class Gen : Any
 
             global::System.Console.Write("--------\n");
 
-            iterA = this.Module.Import.IterCreate();
-            this.Module.Import.IterSet(iterA);
+            iterA = module.Import.IterCreate();
+            module.Import.IterSet(iterA);
 
             while (iterA.Next())
             {
