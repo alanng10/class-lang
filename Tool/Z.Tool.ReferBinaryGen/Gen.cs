@@ -90,14 +90,14 @@ public class Gen : Any
 
         this.IsAvalonInfra = (this.Module.Name == "Avalon.Infra");
 
-        this.SetClass();
+        this.SetClassList();
 
-        this.SetImport();
+        this.SetImportList();
 
         return true;
     }
 
-    protected virtual bool SetImport()
+    protected virtual bool SetImportList()
     {
         Table table;
         table = new Table();
@@ -237,7 +237,7 @@ public class Gen : Any
         return true;
     }
 
-    protected virtual bool SetClass()
+    protected virtual bool SetClassList()
     {
         Table table;
         table = new Table();
