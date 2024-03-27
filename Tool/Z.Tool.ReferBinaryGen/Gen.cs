@@ -437,7 +437,7 @@ public class Gen : Any
                 if (!oa.StartsWith("Avalon."))
                 {
                     global::System.Console.Error.Write("Import module is not Avalon Module\n");
-                    global::System.Environment.Exit(101);
+                    global::System.Environment.Exit(105);
                 }
             }
         }
@@ -578,12 +578,26 @@ public class Gen : Any
 
     protected virtual Module ModuleGet(string module)
     {
-        return (Module)this.ModuleTable.Get(module);
+        Module a;
+        a = (Module)this.ModuleTable.Get(module);
+        if (a == null)
+        {
+            global::System.Console.Error.Write("ModuleGet no module, module: " + module + "\n");
+            global::System.Environment.Exit(100);
+        }
+        return a;
     }
 
     protected virtual Class ModuleClassGet(Module module, string name)
     {
-        return (Class)module.Class.Get(name);
+        Class a;
+        a = (Class)module.Class.Get(name);
+        if (a == null)
+        {
+            global::System.Console.Error.Write("ModuleClassGet no class, class: " + name + "(" + module.Name + ")" + "\n");
+            global::System.Environment.Exit(101);
+        }
+        return a;
     }
 
     protected virtual Class ClassGetType(SystemType type)
@@ -606,11 +620,6 @@ public class Gen : Any
         }
         Class a;
         a = this.ClassGet(module, varClass);
-        if (a == null)
-        {
-            global::System.Console.Error.Write("ClassGetType no class, type: " + varClass + "(" + module + ")" + "\n");
-            global::System.Environment.Exit(100);
-        }
         return a;
     }
 
@@ -618,11 +627,6 @@ public class Gen : Any
     {
         Module o;
         o = this.ModuleGet(module);
-        if (o == null)
-        {
-            global::System.Console.Error.Write("ClassGet no module, module name: " + module + ", current module: " + this.Module.Name + "\n");
-            global::System.Environment.Exit(102);
-        }
         Class oa;
         oa = this.ModuleClassGet(o, name);
         return oa;
