@@ -890,23 +890,6 @@ public class Test : Any
 
 
 
-        StringComparer comparer;
-
-
-        comparer = new StringComparer();
-
-
-        comparer.Init();
-
-
-
-
-        SystemArray.Sort<string>(u, comparer);
-
-
-
-
-
         Array array;
 
         array = new Array();
@@ -940,6 +923,16 @@ public class Test : Any
         }
 
 
+        Range range;
+        range = new Range();
+        range.Init();
+        range.Count = count;
+
+        StringCompare compare;
+        compare = new StringCompare();
+        compare.Init();
+
+        array.Sort(range, compare);
 
 
         return array;

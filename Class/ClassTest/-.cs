@@ -1,7 +1,7 @@
 global using Any = Avalon.Infra.Any;
 global using InfraInfra = Avalon.Infra.Infra;
+global using Range = Avalon.Infra.Range;
 global using StringCompare = Avalon.Infra.StringCompare;
-global using StringComparer = Avalon.Infra.StringComparer;
 global using List = Avalon.List.List;
 global using Table = Avalon.List.Table;
 global using Array = Avalon.List.Array;
