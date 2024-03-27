@@ -6,6 +6,7 @@ public class Gen : Any
     {
         base.Init();
         this.ListInfra = ListInfra.This;
+        this.StorageInfra = StorageInfra.This;
         this.CountList = CountList.This;
 
         Table table;
@@ -38,6 +39,7 @@ public class Gen : Any
     }
 
     protected virtual ListInfra ListInfra { get; set; }
+    protected virtual StorageInfra StorageInfra { get; set; }
     protected virtual CountList CountList { get; set; }
     protected virtual Table ModuleTable { get; set; }
     protected virtual Module Module { get; set; }
@@ -89,6 +91,8 @@ public class Gen : Any
         referGen.Execute();
 
         this.ReferTable = referGen.ReferTable;
+
+        this.ExecuteReferWrite();
 
         return 0;
     }
@@ -553,6 +557,37 @@ public class Gen : Any
                     global::System.Environment.Exit(105);
                 }
             }
+        }
+        return true;
+    }
+
+    protected virtual bool ExecuteReferWrite()
+    {
+        ReferWrite write;
+        write = new ReferWrite();
+        write.Init();
+        write.SystemClass = true;
+
+        Iter iter;
+        iter = this.ReferTable.IterCreate();
+        this.ReferTable.IterSet(iter);
+        while (iter.Next())
+        {
+            Refer refer;
+            refer = (Refer)iter.Value;
+
+            write.Refer = refer;
+            write.Execute();
+
+            Data data;
+            data = write.Data;
+            write.Data = null;
+
+            string name;
+            name = refer.Ref.Name;
+
+            string path;
+            path = "../Deploy/" + name + ".ref";
         }
         return true;
     }
