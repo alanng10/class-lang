@@ -144,6 +144,24 @@ public class Gen : Any
                 MethodInfo method;
                 method = (MethodInfo)a.Method.Get(iA);
                 this.AddTypeToImportTable(method.ReturnType);
+
+                ParameterInfo[] ooo;
+                ooo = method.GetParameters();
+
+                int countAa;
+                countAa = ooo.Length;
+                int iAa;
+                iAa = 0;
+                while (iAa < countAa)
+                {
+                    ParameterInfo ooa;
+                    ooa = ooo[iAa];
+
+                    this.AddTypeToImportTable(ooa.ParameterType);
+
+                    iAa = iAa + 1;
+                }
+
                 iA = iA + 1;
             }
         }

@@ -29,5 +29,6 @@ global using EntryEntry = Avalon.Entry.Entry;
 global using SystemType = System.Type;
 global using PropertyInfo = System.Reflection.PropertyInfo;
 global using MethodInfo = System.Reflection.MethodInfo;
+global using ParameterInfo = System.Reflection.ParameterInfo;
 global using Assembly = System.Reflection.Assembly;
 global using BindingFlag = System.Reflection.BindingFlags;
