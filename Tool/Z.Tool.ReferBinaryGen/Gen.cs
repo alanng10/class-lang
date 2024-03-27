@@ -588,6 +588,8 @@ public class Gen : Any
 
             string path;
             path = "../Deploy/" + name + ".ref";
+
+            this.StorageInfra.DataWrite(path, data);
         }
         return true;
     }
