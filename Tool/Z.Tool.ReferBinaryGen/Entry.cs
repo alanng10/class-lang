@@ -9,6 +9,7 @@ class Entry : EntryEntry
         gen.Init();
         int o;
         o = gen.Execute();
+        gen.Final();
         return o;
     }
 

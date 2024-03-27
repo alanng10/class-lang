@@ -5,6 +5,10 @@ public class Gen : Any
     public override bool Init()
     {
         base.Init();
+
+        this.Main = new Main();
+        this.Main.Init();
+
         this.ListInfra = ListInfra.This;
         this.StorageInfra = StorageInfra.This;
         this.CountList = CountList.This;
@@ -38,6 +42,12 @@ public class Gen : Any
         return true;
     }
 
+    public virtual bool Final()
+    {
+        this.Main.Final();
+        return true;
+    }
+
     protected virtual ListInfra ListInfra { get; set; }
     protected virtual StorageInfra StorageInfra { get; set; }
     protected virtual CountList CountList { get; set; }
@@ -49,6 +59,7 @@ public class Gen : Any
     protected virtual ClassClass AnyClass { get; set; }
     protected virtual bool IsAvalonInfra { get; set; }
     protected virtual int Index { get; set; }
+    protected virtual Main Main { get; set; }
 
     public virtual int Execute()
     {
