@@ -10,22 +10,9 @@ public class Class : Any
 
     public virtual Table Maide { get; set; }
 
-
-
     public virtual Module Module { get; set; }
 
-
-
-
-    public virtual SourceItem Source { get; set; }
-
-
-
-
-    public virtual int Ident { get; set; }
-
-
-
-
     public virtual int Index { get; set; }
+
+    public virtual object Any { get; set; }
 }
