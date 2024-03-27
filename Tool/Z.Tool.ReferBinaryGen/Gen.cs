@@ -422,6 +422,11 @@ public class Gen : Any
                     global::System.Console.Error.Write("Is DotNet BCL\n");
                     return true;
                 }
+                if (!oa.StartsWith("Avalon."))
+                {
+                    global::System.Console.Error.Write("Is Not Avalon Module\n");
+                    return true;
+                }
             }
         }
         return true;
