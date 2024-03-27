@@ -7,24 +7,26 @@ public class Gen : Any
         base.Init();
         this.ListInfra = ListInfra.This;
 
-        ListList list;
-        list = new ListList();
-        list.Init();
-        list.Add(typeof(object));
-        list.Add(typeof(bool));
-        list.Add(typeof(int));
-        list.Add(typeof(uint));
-        list.Add(typeof(long));
-        list.Add(typeof(ulong));
-        list.Add(typeof(short));
-        list.Add(typeof(ushort));
-        list.Add(typeof(byte));
-        list.Add(typeof(sbyte));
-        list.Add(typeof(char));
-        list.Add(typeof(string));
+        Table table;
+        table = new Table();
+        table.Compare = new RefCompare();
+        table.Compare.Init();
+        table.Init();
 
-        this.DotNetBuiltInTypeArray = this.ListInfra.ArrayCreateList(list);
+        this.DotNetBuiltInTypeTable = table;
 
+        this.AddDotNetBuiltInType(typeof(object), "Any");
+        this.AddDotNetBuiltInType(typeof(bool), "Bool");
+        this.AddDotNetBuiltInType(typeof(int), "Int");
+        this.AddDotNetBuiltInType(typeof(uint), "Int");
+        this.AddDotNetBuiltInType(typeof(long), "Int");
+        this.AddDotNetBuiltInType(typeof(ulong), "Int");
+        this.AddDotNetBuiltInType(typeof(short), "Int");
+        this.AddDotNetBuiltInType(typeof(ushort), "Int");
+        this.AddDotNetBuiltInType(typeof(byte), "Int");
+        this.AddDotNetBuiltInType(typeof(sbyte), "Int");
+        this.AddDotNetBuiltInType(typeof(char), "Int");
+        this.AddDotNetBuiltInType(typeof(string), "String");
         return true;
     }
 
@@ -33,7 +35,7 @@ public class Gen : Any
     protected virtual Assembly Assembly { get; set; }
     protected virtual Array DotNetTypeArray { get; set; }
     protected virtual Table Import { get; set; }
-    protected virtual Array DotNetBuiltInTypeArray { get; set; }
+    protected virtual Table DotNetBuiltInTypeTable { get; set; }
 
     public virtual int Execute()
     {
@@ -358,26 +360,20 @@ public class Gen : Any
         return true;
     }
 
-    protected bool IsDotNetBuiltInType(SystemType type)
+    protected virtual bool AddDotNetBuiltInType(SystemType type, string name)
     {
-        Array array;
-        array = this.DotNetBuiltInTypeArray;
-        int count;
-        count = array.Count;
-        int i;
-        i = 0;
-        while (i < count)
-        {
-            SystemType a;
-            a = (SystemType)array.Get(i);
+        ListEntry entry;
+        entry = new ListEntry();
+        entry.Init();
+        entry.Index = type;
+        entry.Value = name;
+        this.DotNetBuiltInTypeTable.Add(entry);
+        return true;
+    }
 
-            if (a == type)
-            {
-                return true;
-            }
-
-            i = i + 1;
-        }
+    protected virtual bool IsDotNetBuiltInType(SystemType type)
+    {
+        
         return false;
     }
 
