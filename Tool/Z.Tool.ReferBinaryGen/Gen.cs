@@ -416,11 +416,6 @@ public class Gen : Any
                 oa = (string)iterA.Index;
 
                 global::System.Console.Write(oa + "\n");
-                if (oa.StartsWith("System."))
-                {
-                    global::System.Console.Error.Write("Is DotNet BCL\n");
-                    return true;
-                }
 
                 Table ob;
                 ob = (Table)iterA.Value;
@@ -433,6 +428,12 @@ public class Gen : Any
                     string typeName;
                     typeName = (string)iterB.Index;
                     global::System.Console.Write("    " + typeName + "\n");
+                }
+
+                if (oa.StartsWith("System."))
+                {
+                    global::System.Console.Error.Write("Is DotNet BCL\n");
+                    return true;
                 }
             }
         }
