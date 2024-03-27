@@ -11,8 +11,8 @@
         <ProjectReference Include="../Avalon.List/Avalon.List.csproj" />
         <ProjectReference Include="../Avalon.Math/Avalon.Math.csproj" />
         <ProjectReference Include="../Avalon.Text/Avalon.Text.csproj" />
-        <ProjectReference Include="../Avalon.Comp/Avalon.Comp.csproj" />
         <ProjectReference Include="../Avalon.Event/Avalon.Event.csproj" />
+        <ProjectReference Include="../Avalon.Comp/Avalon.Comp.csproj" />
         <ProjectReference Include="../Avalon.Thread/Avalon.Thread.csproj" />
         <ProjectReference Include="../Avalon.Stream/Avalon.Stream.csproj" />
         <ProjectReference Include="../Avalon.Type/Avalon.Type.csproj" />
