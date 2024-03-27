@@ -290,6 +290,34 @@ public class Gen : Any
             i = i + 1;
         }
 
+        Iter iter;
+        iter = table.IterCreate();
+        table.IterSet(iter);
+        while (iter.Next())
+        {
+            Class a;
+            a = (Class)iter.Value;
+            
+            if (a.Base == null)
+            {
+                SystemType oa;
+                oa = a.Type.BaseType;
+
+                string moduleName;
+                moduleName = oa.Assembly.GetName().Name;
+                string name;
+                name = oa.Name;
+
+                Module module;
+                module = (Module)this.ModuleTable.Get(moduleName);
+
+                Class baseClass;
+                baseClass = (Class)module.Class.Get(name);
+
+                a.Base = baseClass;
+            }
+        }
+
         return true;
     }
 
@@ -396,6 +424,7 @@ public class Gen : Any
 
         a.Index = this.Module.Class.Count;
         a.Name = type.Name;
+        a.Module = this.Module;
 
         a.Type = type;
 
@@ -491,6 +520,8 @@ public class Gen : Any
         a.Name = name;
         a.Base = baseClass;
         a.Module = this.Module;
+        a.Property = this.ListInfra.ArrayCreate(0);
+        a.Method = this.ListInfra.ArrayCreate(0);
 
         ListEntry entry;
         entry = new ListEntry();
