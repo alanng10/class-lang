@@ -434,18 +434,18 @@ public class Gen : Any
         MethodInfo[] methodArrayA;
         methodArrayA = type.GetMethods(BindingFlag.Instance | BindingFlag.Public | BindingFlag.NonPublic | BindingFlag.DeclaredOnly | BindingFlag.ExactBinding);
 
-        int countA;
-        int iA;
+        int count;
+        int i;
         ListList propertyList;
         propertyList = new ListList();
         propertyList.Init();
 
-        countA = propertyArrayA.Length;
-        iA = 0;
-        while (iA < countA)
+        count = propertyArrayA.Length;
+        i = 0;
+        while (i < count)
         {
             PropertyInfo property;
-            property = propertyArrayA[iA];
+            property = propertyArrayA[i];
 
             if (!property.IsSpecialName & property.CanRead & property.CanWrite)
             {
@@ -455,7 +455,7 @@ public class Gen : Any
                 }
             }
 
-            iA = iA + 1;
+            i = i + 1;
         }
 
         Array propertyArray;
@@ -465,19 +465,19 @@ public class Gen : Any
         methodList = new ListList();
         methodList.Init();
 
-        countA = methodArrayA.Length;
-        iA = 0;
-        while (iA < countA)
+        count = methodArrayA.Length;
+        i = 0;
+        while (i < count)
         {
             MethodInfo method;
-            method = methodArrayA[iA];
+            method = methodArrayA[i];
 
             if (!method.IsSpecialName & this.IsInAbstract(method))
             {
                 methodList.Add(method);
             }
 
-            iA = iA + 1;
+            i = i + 1;
         }
 
         Array methodArray;
