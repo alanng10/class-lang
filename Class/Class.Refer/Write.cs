@@ -58,7 +58,6 @@ public class Write : Any
         this.ExecuteModuleRef(refer.Ref);
         this.ExecuteClassArray(refer.Class);
         this.ExecuteImportArray(refer.Import);
-        this.ExecuteExportArray(refer.Export);
         this.ExecuteBaseArray(refer.Base);
         this.ExecutePartArray(refer.Part);
         return true;
@@ -131,29 +130,6 @@ public class Write : Any
     protected virtual bool ExecuteImportClass(ImportClass importClass)
     {
         this.ExecuteIndex(importClass.Class);
-        return true;
-    }
-
-    protected virtual bool ExecuteExportArray(Array array)
-    {
-        int count;
-        count = array.Count;
-        this.ExecuteCount(count);
-        int i;
-        i = 0;
-        while (i < count)
-        {
-            Export export;
-            export = (Export)array.Get(i);
-            this.ExecuteExport(export);
-            i = i + 1;
-        }
-        return true;
-    }
-
-    protected virtual bool ExecuteExport(Export export)
-    {
-        this.ExecuteIndex(export.Class);
         return true;
     }
 
