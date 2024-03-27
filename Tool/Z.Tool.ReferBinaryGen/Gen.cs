@@ -350,12 +350,6 @@ public class Gen : Any
                 Class a;
                 a = (Class)iterA.Value;
 
-                SystemType type;
-                type = a.Type;
-
-                SystemType baseType;
-                baseType = type.BaseType;
-
                 global::System.Console.Write("Class: " + a.Name + ", Base: " + a.Base.Name + "(" + a.Base.Module.Name + ")" + "\n");
 
                 int countA;
