@@ -444,7 +444,10 @@ public class Gen : Any
             return true;
         }
 
-        this.ListInfra.TableAdd(oo, name, name);
+        ClassClass oa;
+        oa = this.ClassGet(moduleName, name);
+
+        this.ListInfra.TableAdd(oo, name, oa);
         return true;
     }
 
