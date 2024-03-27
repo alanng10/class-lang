@@ -74,6 +74,7 @@ public class Gen : Any
         this.ExecuteModule(typeof(View).Assembly);
         this.ExecuteModule(typeof(Main).Assembly);
         this.ExecuteModule(typeof(EntryEntry).Assembly);
+        this.ExecuteModule(typeof(ClassClass).Assembly);
 
         this.ConsoleWrite();
 
@@ -536,9 +537,9 @@ public class Gen : Any
                     global::System.Console.Write("    " + className + "\n");
                 }
 
-                if (!oa.StartsWith("Avalon."))
+                if (!(oa.StartsWith("Avalon.") | oa.StartsWith("Class.")))
                 {
-                    global::System.Console.Error.Write("Import module is not Avalon Module\n");
+                    global::System.Console.Error.Write("Import module is not Avalon Module or Class Compiler Module\n");
                     global::System.Environment.Exit(105);
                 }
             }
