@@ -96,7 +96,7 @@ public class Gen : Any
         module.Any = assembly;
         this.Module = module;
 
-        this.TableAdd(this.ModuleTable, module.Ref.Name, module);
+        this.ListInfra.TableAdd(this.ModuleTable, module.Ref.Name, module);
 
         this.IsAvalonInfra = (this.Module.Ref.Name == "Avalon.Infra");
 
@@ -246,7 +246,7 @@ public class Gen : Any
 
         a.Any = type;
 
-        this.TableAdd(this.Module.Class, a.Name, a);
+        this.ListInfra.TableAdd(this.Module.Class, a.Name, a);
 
         return true;
     }
@@ -285,7 +285,7 @@ public class Gen : Any
                     field.Class = this.ClassGetType(property.PropertyType);
                     field.Count = this.CountGet(property.GetMethod);
                     field.Any = property;
-                    this.TableAdd(fieldTable, field.Name, field);
+                    this.ListInfra.TableAdd(fieldTable, field.Name, field);
                 }
             }
 
@@ -333,13 +333,13 @@ public class Gen : Any
                     varVar.Class = this.ClassGetType(parameter.ParameterType);
                     varVar.Any = parameter;
 
-                    this.TableAdd(varTable, varVar.Name, varVar);
+                    this.ListInfra.TableAdd(varTable, varVar.Name, varVar);
 
                     iA = iA + 1;
                 }
                 maide.Param = varTable;
 
-                this.TableAdd(maideTable, maide.Name, maide);
+                this.ListInfra.TableAdd(maideTable, maide.Name, maide);
             }
 
             i = i + 1;
@@ -431,7 +431,7 @@ public class Gen : Any
             classTable.Compare.Init();
             classTable.Init();
 
-            this.TableAdd(table, moduleName, classTable);
+            this.ListInfra.TableAdd(table, moduleName, classTable);
         }
         Table oo;
         oo = (Table)table.Get(moduleName);
@@ -444,7 +444,7 @@ public class Gen : Any
             return true;
         }
 
-        this.TableAdd(oo, name, name);
+        this.ListInfra.TableAdd(oo, name, name);
         return true;
     }
 
@@ -626,17 +626,6 @@ public class Gen : Any
         return a;
     }
 
-    protected virtual bool TableAdd(Table table, object index, object value)
-    {
-        ListEntry entry;
-        entry = new ListEntry();
-        entry.Init();
-        entry.Index = index;
-        entry.Value = value;
-        table.Add(entry);
-        return true;
-    }
-
     protected virtual bool AddInfraBuiltInClassList()
     {
         this.AddBuiltInClass("Bool");
@@ -657,7 +646,7 @@ public class Gen : Any
         a.Name = name;
         a.Module = this.Module;
 
-        this.TableAdd(this.Module.Class, a.Name, a);
+        this.ListInfra.TableAdd(this.Module.Class, a.Name, a);
         return true;
     }
 
@@ -684,7 +673,7 @@ public class Gen : Any
 
     protected virtual bool AddDotNetBuiltInType(SystemType type, string name)
     {
-        this.TableAdd(this.DotNetBuiltInTypeTable, type, name);
+        this.ListInfra.TableAdd(this.DotNetBuiltInTypeTable, type, name);
         return true;
     }
 
