@@ -465,6 +465,7 @@ public class Gen : Any
         a.Init();
         a.Index = index;
         a.Name = name;
+        a.Module = this.Module;
 
         ListEntry entry;
         entry = new ListEntry();
