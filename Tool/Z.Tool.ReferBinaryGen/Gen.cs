@@ -251,16 +251,27 @@ public class Gen : Any
         
         this.Module.Class = table;
 
-        if (this.Module.Name == "Avalon.Infra")
-        {
-            this.AddInfraBuiltInTypeList();
-        }
-
-        int start;
-        start = table.Count;
 
         SystemType[] typeArray;
         typeArray = o.GetExportedTypes();
+
+        SystemType anyType;
+        anyType = null;
+        bool b;
+        b = (this.Module.Name == "Avalon.Infra");
+        if (b)
+        {
+            anyType = this.AnyType(typeArray);
+
+            if (anyType == null)
+            {
+                global::System.Console.Error.Write("Any class not found\n");
+            }
+
+            this.AddClass(anyType);
+
+            this.AddInfraBuiltInTypeList();
+        }
 
         int count;
         count = typeArray.Length;
@@ -268,86 +279,13 @@ public class Gen : Any
         i = 0;
         while (i < count)
         {
-            Class a;
-            a = new Class();
-            a.Init();
-
             SystemType type;
             type = typeArray[i];
 
-            SystemType baseType;
-            baseType = type.BaseType;
-
-            a.Index = i + start;
-            a.Name = type.Name;
-
-            a.Type = type;
-
-            PropertyInfo[] propertyArrayA;
-            propertyArrayA = type.GetProperties(BindingFlag.Instance | BindingFlag.Public | BindingFlag.NonPublic | BindingFlag.DeclaredOnly | BindingFlag.ExactBinding);
-
-            MethodInfo[] methodArrayA;
-            methodArrayA = type.GetMethods(BindingFlag.Instance | BindingFlag.Public | BindingFlag.NonPublic | BindingFlag.DeclaredOnly | BindingFlag.ExactBinding);
-
-            int countA;
-            int iA;
-            ListList propertyList;
-            propertyList = new ListList();
-            propertyList.Init();
-
-            countA = propertyArrayA.Length;
-            iA = 0;
-            while (iA < countA)
+            if (!(b & (type == anyType)))
             {
-                PropertyInfo property;
-                property = propertyArrayA[iA];
-
-                if (!property.IsSpecialName & property.CanRead & property.CanWrite)
-                {
-                    if (this.IsInAbstract(property.GetMethod) & !((type == typeof(Data)) & (property.Name == "Value")))
-                    {
-                        propertyList.Add(property);
-                    }
-                }
-
-                iA = iA + 1;
+                this.AddClass(type);
             }
-
-            Array propertyArray;
-            propertyArray = this.ListInfra.ArrayCreateList(propertyList);
-
-            ListList methodList;
-            methodList = new ListList();
-            methodList.Init();
-
-            countA = methodArrayA.Length;
-            iA = 0;
-            while (iA < countA)
-            {
-                MethodInfo method;
-                method = methodArrayA[iA];
-
-                if (!method.IsSpecialName & this.IsInAbstract(method))
-                {
-                    methodList.Add(method);
-                }
-
-                iA = iA + 1;
-            }
-
-            Array methodArray;
-            methodArray = this.ListInfra.ArrayCreateList(methodList);
-
-            a.Property = propertyArray;
-            a.Method = methodArray;
-
-            ListEntry ea;
-            ea = new ListEntry();
-            ea.Init();
-            ea.Index = a.Name;
-            ea.Value = a;
-
-            table.Add(ea);
 
             i = i + 1;
         }
@@ -447,6 +385,89 @@ public class Gen : Any
         return true;
     }
 
+    protected virtual bool AddClass(SystemType type)
+    {
+        Class a;
+        a = new Class();
+        a.Init();
+
+        SystemType baseType;
+        baseType = type.BaseType;
+
+        a.Index = this.Module.Class.Count;
+        a.Name = type.Name;
+
+        a.Type = type;
+
+        PropertyInfo[] propertyArrayA;
+        propertyArrayA = type.GetProperties(BindingFlag.Instance | BindingFlag.Public | BindingFlag.NonPublic | BindingFlag.DeclaredOnly | BindingFlag.ExactBinding);
+
+        MethodInfo[] methodArrayA;
+        methodArrayA = type.GetMethods(BindingFlag.Instance | BindingFlag.Public | BindingFlag.NonPublic | BindingFlag.DeclaredOnly | BindingFlag.ExactBinding);
+
+        int countA;
+        int iA;
+        ListList propertyList;
+        propertyList = new ListList();
+        propertyList.Init();
+
+        countA = propertyArrayA.Length;
+        iA = 0;
+        while (iA < countA)
+        {
+            PropertyInfo property;
+            property = propertyArrayA[iA];
+
+            if (!property.IsSpecialName & property.CanRead & property.CanWrite)
+            {
+                if (this.IsInAbstract(property.GetMethod) & !((type == typeof(Data)) & (property.Name == "Value")))
+                {
+                    propertyList.Add(property);
+                }
+            }
+
+            iA = iA + 1;
+        }
+
+        Array propertyArray;
+        propertyArray = this.ListInfra.ArrayCreateList(propertyList);
+
+        ListList methodList;
+        methodList = new ListList();
+        methodList.Init();
+
+        countA = methodArrayA.Length;
+        iA = 0;
+        while (iA < countA)
+        {
+            MethodInfo method;
+            method = methodArrayA[iA];
+
+            if (!method.IsSpecialName & this.IsInAbstract(method))
+            {
+                methodList.Add(method);
+            }
+
+            iA = iA + 1;
+        }
+
+        Array methodArray;
+        methodArray = this.ListInfra.ArrayCreateList(methodList);
+
+        a.Property = propertyArray;
+        a.Method = methodArray;
+
+        ListEntry ea;
+        ea = new ListEntry();
+        ea.Init();
+        ea.Index = a.Name;
+        ea.Value = a;
+
+        this.Module.Class.Add(ea);
+
+        return true;
+    }
+
     protected virtual bool AddInfraBuiltInTypeList()
     {
         this.AddBuiltInType("Bool");
@@ -460,11 +481,15 @@ public class Gen : Any
         int index;
         index = this.Module.Class.Count;
 
+        Class baseClass;
+        baseClass = (Class)this.Module.Class.Get("Any");
+
         Class a;
         a = new Class();
         a.Init();
         a.Index = index;
         a.Name = name;
+        a.Base = baseClass;
         a.Module = this.Module;
 
         ListEntry entry;
@@ -475,6 +500,27 @@ public class Gen : Any
 
         this.Module.Class.Add(entry);
         return true;
+    }
+
+    protected virtual SystemType AnyType(SystemType[] typeArray)
+    {
+        int count;
+        count = typeArray.Length;
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            SystemType type;
+            type = typeArray[i];
+
+            if (type.Name == "Any")
+            {
+                return type;
+            }
+
+            i = i + 1;
+        }
+        return null;
     }
 
     protected virtual bool AddDotNetBuiltInType(SystemType type, string name)
