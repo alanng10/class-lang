@@ -384,21 +384,7 @@ class ReferGen : Any
         a = (BuiltInType)this.DotNetBuiltInTypeTable.Get(type);
         return a;
     }
-
-    protected virtual Module ModuleGet(string module)
-    {
-        Module a;
-        a = (Module)this.ModuleTable.Get(module);
-        return a;
-    }
-
-    protected virtual ClassClass ModuleClassGet(Module module, string name)
-    {
-        ClassClass a;
-        a = (ClassClass)module.Class.Get(name);
-        return a;
-    }
-
+    
     protected virtual ModuleRef ModuleRefCreate(string name)
     {
         ModuleRef a;
