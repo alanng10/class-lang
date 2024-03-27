@@ -490,9 +490,8 @@ public class Gen : Any
 
         int count;
         int i;
-        ListList fieldList;
-        fieldList = new ListList();
-        fieldList.Init();
+        Table fieldTable;
+        fieldTable = this.TableCreate();
 
         count = propertyArrayA.Length;
         i = 0;
@@ -512,19 +511,15 @@ public class Gen : Any
                     field.Class = this.ClassGetType(property.PropertyType);
                     field.Count = this.CountGet(property.GetMethod);
                     field.Any = property;
-                    fieldList.Add(field);
+                    this.TableAdd(fieldTable, field.Name, field);
                 }
             }
 
             i = i + 1;
         }
 
-        Array fieldArray;
-        fieldArray = this.ListInfra.ArrayCreateList(fieldList);
-
-        ListList maideList;
-        maideList = new ListList();
-        maideList.Init();
+        Table maideTable;
+        maideTable = this.TableCreate();
 
         count = methodArrayA.Length;
         i = 0;
@@ -548,8 +543,8 @@ public class Gen : Any
                 int countA;
                 countA = parameterArray.Length;
 
-                Array varArray;
-                varArray = this.ListInfra.ArrayCreate(countA);
+                Table varTable;
+                varTable = this.TableCreate();
 
                 int iA;
                 iA = 0;
@@ -562,25 +557,22 @@ public class Gen : Any
                     varVar.Init();
                     varVar.Name = parameter.Name;
                     varVar.Class = this.ClassGetType(parameter.ParameterType);
-                    varVar.Parameter = parameter;
+                    varVar.Any = parameter;
 
-                    varArray.Set(iA, varVar);
+                    this.TableAdd(varTable, varVar.Name, varVar);
 
                     iA = iA + 1;
                 }
-                maide.Param = varArray;
+                maide.Param = varTable;
 
-                maideList.Add(maide);
+                this.TableAdd(maideTable, maide.Name, maide);
             }
 
             i = i + 1;
         }
 
-        Array maideArray;
-        maideArray = this.ListInfra.ArrayCreateList(maideList);
-
-        varClass.Field = fieldArray;
-        varClass.Maide = maideArray;
+        varClass.Field = fieldTable;
+        varClass.Maide = maideTable;
 
         return true;
     }
@@ -653,12 +645,12 @@ public class Gen : Any
     {
         ClassClass a;
         a = this.ModuleClassGet(this.Module, name);
-        a.Field = this.TableCreateEmpty();
-        a.Maide = this.TableCreateEmpty();
+        a.Field = this.TableCreate();
+        a.Maide = this.TableCreate();
         return true;
     }
 
-    protected virtual Table TableCreateEmpty()
+    protected virtual Table TableCreate()
     {
         Table a;
         a = new Table();
@@ -666,6 +658,17 @@ public class Gen : Any
         a.Compare.Init();
         a.Init();
         return a;
+    }
+
+    protected virtual bool TableAdd(Table table, object index, object value)
+    {
+        ListEntry entry;
+        entry = new ListEntry();
+        entry.Init();
+        entry.Index = index;
+        entry.Value = value;
+        table.Add(entry);
+        return true;
     }
 
     protected virtual bool AddInfraBuiltInClassList()

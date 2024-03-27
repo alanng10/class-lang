@@ -31,6 +31,7 @@ global using ModuleRef = Class.Infra.ModuleRef;
 global using ClassClass = Class.Infra.Class;
 global using Field = Class.Infra.Field;
 global using Maide = Class.Infra.Maide;
+global using Var = Class.Infra.Var;
 global using Count = Class.Infra.Count;
 global using CountList = Class.Infra.CountList;
 global using SystemType = System.Type;
