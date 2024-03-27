@@ -581,7 +581,9 @@ public class Gen : Any
         if (b)
         {
             module = "Avalon.Infra";
-            varClass = (string)this.DotNetBuiltInTypeTable.Get(type);
+            BuiltInType oa;
+            oa = (BuiltInType)this.DotNetBuiltInTypeTable.Get(type);
+            varClass = oa.Name;
         }
         if (!b)
         {
