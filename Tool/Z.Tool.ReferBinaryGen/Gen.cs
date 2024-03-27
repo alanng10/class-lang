@@ -59,17 +59,19 @@ public class Gen : Any
         Module module;
         module = new Module();
         module.Init();
+        module.Name = this.Assembly.GetName().Name;
+        this.Module = module;
 
-        this.AddClass();
+        this.SetClass();
 
-        this.ImportTable();
+        this.SetImport();
 
         this.ConsoleWrite();
 
         return true;
     }
 
-    protected virtual bool ImportTable()
+    protected virtual bool SetImport()
     {
         Table table;
         table = new Table();
@@ -77,19 +79,18 @@ public class Gen : Any
         table.Compare.Init();
         table.Init();
 
-        this.Import = table;
+        this.Module.Import = table;
 
-        Array array;
-        array = this.DotNetTypeArray;
+        Table classTable;
+        classTable = this.Module.Class;
 
-        int count;
-        count = array.Count;
-        int i;
-        i = 0;
-        while (i < count)
+        Iter iter;
+        iter = classTable.IterCreate();
+        classTable.IterSet(iter);
+        while (iter.Next())
         {
-            DotNetType a;
-            a = (DotNetType)array.Get(i);
+            Class a;
+            a = (Class)iter.Value;
             
             SystemType type;
             type = a.Type;
@@ -121,8 +122,6 @@ public class Gen : Any
                 this.AddTypeToImportTable(method.ReturnType);
                 iA = iA + 1;
             }
-
-            i = i + 1;
         }
         return true;
     }
@@ -149,7 +148,7 @@ public class Gen : Any
         }
 
         Table table;
-        table = this.Import;
+        table = this.Module.Import;
         
         string assemblyName;
         assemblyName = assembly.GetName().Name;
@@ -173,18 +172,14 @@ public class Gen : Any
 
         string name;
         name = null;
-        SystemType aa;
-        aa = null;
 
         if (b)
         {
             name = (string)this.DotNetBuiltInTypeTable.Get(type);
-            aa = null;
         }
         if (!b)
         {
             name = type.Name;
-            aa = type;
         }
 
         if (oo.Contain(name))
@@ -196,12 +191,12 @@ public class Gen : Any
         ob = new ListEntry();
         ob.Init();
         ob.Index = name;
-        ob.Value = aa;
+        ob.Value = name;
         oo.Add(ob);
         return true;
     }
 
-    protected virtual bool AddClass()
+    protected virtual bool SetClass()
     {
         Assembly o;
         o = this.Assembly;
@@ -302,13 +297,8 @@ public class Gen : Any
             i = i + 1;
         }
 
-        ListEntry entry;
-        entry = new ListEntry();
-        entry.Init();
-        entry.Index = o.GetName().Name;
-        entry.Value = table;
 
-        this.Table.Add(entry);
+        this.Module.Class = table;
 
         return true;
     }
@@ -323,7 +313,7 @@ public class Gen : Any
         global::System.Console.Write("--------------\n");
 
         Table table;
-        table = (Table)this.ClassTable.Get(assemblyName);
+        table = (Table)this.Module.Class;
         Iter iter;
         iter = table.IterCreate();
         table.IterSet(iter);
@@ -366,8 +356,8 @@ public class Gen : Any
 
         global::System.Console.Write("--------\n");
 
-        iter = this.Import.IterCreate();
-        this.Import.IterSet(iter);
+        iter = this.Module.Import.IterCreate();
+        this.Module.Import.IterSet(iter);
 
         while (iter.Next())
         {
