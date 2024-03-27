@@ -488,7 +488,7 @@ public class Gen : Any
             MethodInfo method;
             method = methodArrayA[i];
 
-            if (!method.IsSpecialName & this.IsInAbstract(method))
+            if (!method.IsSpecialName & this.IsInAbstract(method) & !((type == typeof(EntryEntry)) & (method.Name == "ArgSet")))
             {
                 methodList.Add(method);
             }
