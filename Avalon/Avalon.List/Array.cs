@@ -37,37 +37,9 @@ public class Array : List
         return false;
     }
 
-    public override bool Contain(object index)
-    {
-        int u;
-        u = this.IntIndex(index);
-        if (u == -1)
-        {
-            return false;
-        }
-
-        int intIndex;
-        intIndex = u;
-        return this.Contain(intIndex);
-    }
-
     public virtual bool Contain(int index)
     {
         return !(index < 0) & (index < this.Count);
-    }
-
-    public override object Get(object index)
-    {
-        int u;
-        u = this.IntIndex(index);
-        if (u == -1)
-        {
-            return null;
-        }
-
-        int intIndex;
-        intIndex = u;
-        return this.Get(intIndex);
     }
 
     public virtual object Get(int index)
@@ -77,20 +49,6 @@ public class Array : List
             return null;
         }
         return this.Value[index];
-    }
-
-    public override bool Set(object index, object value)
-    {
-        int u;
-        u = this.IntIndex(index);
-        if (u == -1)
-        {
-            return false;
-        }
-
-        int intIndex;
-        intIndex = u;
-        return this.Set(intIndex, value);
     }
 
     public virtual bool Set(int index, object value)
