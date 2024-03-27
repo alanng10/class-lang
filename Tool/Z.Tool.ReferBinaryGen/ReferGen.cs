@@ -89,6 +89,7 @@ class ReferGen : Any
             array.Set(i, a);
 
             this.ClassIndexAdd(oa);
+            i = i + 1;
         }
 
         return array;
@@ -129,6 +130,7 @@ class ReferGen : Any
             a.Class = aa;
 
             array.Set(i, a);
+            i = i + 1;
         }
 
         return array;
@@ -157,10 +159,46 @@ class ReferGen : Any
             a.Init();
             a.Class = oa.Index;
             array.Set(i, a);
-            i = i + 1;
-            
             this.ClassIndexAdd(oa);
+            i = i + 1;
         }
+        return array;
+    }
+
+    protected virtual Array ExecuteBaseArray()
+    {
+        Array array;
+        array = this.ListInfra.ArrayCreate(this.Module.Class.Count);
+
+        Iter iter;
+        iter = this.Module.Class.IterCreate();
+        this.Module.Class.IterSet(iter);
+
+        int count;
+        count = array.Count;
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            iter.Next();
+            ClassClass oa;
+            oa = (ClassClass)iter.Value;
+
+            ClassClass ob;
+            ob = oa.Base;
+
+            int aa;
+            aa = this.ClassIndexGet(ob);
+
+            ReferBase a;
+            a = new ReferBase();
+            a.Init();
+            a.Class = aa;
+
+            array.Set(i, a);
+            i = i + 1;
+        }
+
         return array;
     }
 
@@ -172,6 +210,13 @@ class ReferGen : Any
         a.Value = this.ClassIndexTable.Count;
         this.ListInfra.TableAdd(this.ClassIndexTable, varClass, a);
         return true;
+    }
+
+    protected virtual int ClassIndexGet(ClassClass varClass)
+    {
+        ClassIndex a;
+        a = (ClassIndex)this.ClassIndexTable.Get(varClass);
+        return a.Value;
     }
 
     protected virtual Module ModuleGet(string module)

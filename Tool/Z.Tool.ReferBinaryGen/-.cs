@@ -38,6 +38,7 @@ global using Refer = Class.Refer.Refer;
 global using ReferClass = Class.Refer.Class;
 global using ReferImport = Class.Refer.Import;
 global using ReferImportClass = Class.Refer.ImportClass;
+global using ReferBase = Class.Refer.Base;
 global using SystemType = System.Type;
 global using PropertyInfo = System.Reflection.PropertyInfo;
 global using MethodInfo = System.Reflection.MethodInfo;
