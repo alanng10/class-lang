@@ -6,6 +6,7 @@ public class Gen : Any
     {
         base.Init();
         this.ListInfra = ListInfra.This;
+        this.CountList = CountList.This;
 
         Table table;
         table = new Table();
@@ -37,7 +38,7 @@ public class Gen : Any
     }
 
     protected virtual ListInfra ListInfra { get; set; }
-
+    protected virtual CountList CountList { get; set; }
     protected virtual Table ModuleTable { get; set; }
     protected virtual Module Module { get; set; }
     protected virtual Table DotNetBuiltInTypeTable { get; set; }
@@ -540,7 +541,7 @@ public class Gen : Any
                 maide.Name = method.Name;
                 maide.Class = this.ClassGetType(method.ReturnType);
                 maide.Count = this.CountGet(method);
-                maide.Method = method;
+                maide.Any = method;
 
                 ParameterInfo[] parameterArray;
                 parameterArray = method.GetParameters();
@@ -734,25 +735,25 @@ public class Gen : Any
         return this.DotNetBuiltInTypeTable.Contain(type);
     }
 
-    protected virtual int CountGet(MethodInfo method)
+    protected virtual Count CountGet(MethodInfo method)
     {
-        int a;
-        a = -1;
+        Count a;
+        a = null;
         if (method.IsPublic)
         {
-            a = 0;
+            a = this.CountList.Prudate;
         }
         if (method.IsAssembly)
         {
-            a = 1;
+            a = this.CountList.Probate;
         }
         if (method.IsFamily)
         {
-            a = 2;
+            a = this.CountList.Precate;
         }
         if (method.IsPrivate)
         {
-            a = 3;
+            a = this.CountList.Private;
         }
         return a;
     }
