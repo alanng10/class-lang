@@ -45,17 +45,17 @@ public class Gen : Any
         this.ModuleTable.Init();
 
 
-        this.Assembly = typeof(Any).Assembly;
-        this.ExecuteAssembly();
-
-        this.Assembly = typeof(ListList).Assembly;
-        this.ExecuteAssembly();
+        this.ExecuteModule(typeof(Any).Assembly);
+        this.ExecuteModule(typeof(ListList).Assembly);
+        this.ExecuteModule(typeof(Math).Assembly);
 
         return 0;
     }
 
-    protected virtual bool ExecuteAssembly()
+    protected virtual bool ExecuteModule(Assembly assembly)
     {
+        this.Assembly = assembly;
+
         Module module;
         module = new Module();
         module.Init();
