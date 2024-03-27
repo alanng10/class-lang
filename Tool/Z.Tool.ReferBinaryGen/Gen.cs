@@ -49,6 +49,23 @@ public class Gen : Any
         this.ExecuteModule(typeof(ListList).Assembly);
         this.ExecuteModule(typeof(Math).Assembly);
         this.ExecuteModule(typeof(Text).Assembly);
+        this.ExecuteModule(typeof(Comp).Assembly);
+        this.ExecuteModule(typeof(Event).Assembly);
+        this.ExecuteModule(typeof(Thread).Assembly);
+        this.ExecuteModule(typeof(Stream).Assembly);
+        this.ExecuteModule(typeof(Type).Assembly);
+        this.ExecuteModule(typeof(Time).Assembly);
+        this.ExecuteModule(typeof(Video).Assembly);
+        this.ExecuteModule(typeof(Effect).Assembly);
+        this.ExecuteModule(typeof(Storage).Assembly);
+        this.ExecuteModule(typeof(Network).Assembly);
+        this.ExecuteModule(typeof(Console).Assembly);
+        this.ExecuteModule(typeof(Play).Assembly);
+        this.ExecuteModule(typeof(Draw).Assembly);
+        this.ExecuteModule(typeof(View).Assembly);
+        this.ExecuteModule(typeof(Main).Assembly);
+        this.ExecuteModule(typeof(EntryEntry).Assembly);
+
 
         return 0;
     }
