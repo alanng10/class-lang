@@ -308,7 +308,7 @@ public class Gen : Any
             {
                 PropertyInfo property;
                 property = (PropertyInfo)a.Property.Get(iA);
-                global::System.Console.Write("Field: " + property.Name + ", Count: " + this.CountString(property.GetMethod) + ", ResultType: " + property.PropertyType.Name + "\n");
+                global::System.Console.Write("    Field: " + property.Name + ", Count: " + this.CountString(property.GetMethod) + ", ResultType: " + property.PropertyType.Name + "\n");
                 iA = iA + 1;
             }
 
@@ -318,7 +318,7 @@ public class Gen : Any
             {
                 MethodInfo method;
                 method = (MethodInfo)a.Method.Get(iA);
-                global::System.Console.Write("Maide: " + method.Name + ", Count: " + this.CountString(method) + ", ResultType: " + method.ReturnType.Name + "\n");
+                global::System.Console.Write("    Maide: " + method.Name + ", Count: " + this.CountString(method) + ", ResultType: " + method.ReturnType.Name + "\n");
                 iA = iA + 1;
             }
 
@@ -341,7 +341,7 @@ public class Gen : Any
             {
                 global::System.Console.Error.Write("Is DotNet BCL\n");
             }
-            
+
             Table table;
             table = (Table)iter.Value;
 
