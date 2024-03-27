@@ -257,6 +257,7 @@ class ReferGen : Any
             a = new ReferField();
             a.Init();
             a.Class = this.ClassIndexGet(oa.Class);
+            a.SystemClass = 0;
             a.Count = oa.Count.Index;
             a.Name = oa.Name;
 
@@ -290,7 +291,41 @@ class ReferGen : Any
             a = new ReferMaide();
             a.Init();
             a.Class = this.ClassIndexGet(oa.Class);
+            a.SystemClass = 0;
             a.Count = oa.Count.Index;
+            a.Name = oa.Name;
+
+            array.Set(i, a);
+            i = i + 1;
+        }
+
+        return array;
+    }
+
+    protected virtual Array ExecuteVarArray(Table varTable)
+    {
+        Array array;
+        array = this.ListInfra.ArrayCreate(varTable.Count);
+
+        Iter iter;
+        iter = varTable.IterCreate();
+        varTable.IterSet(iter);
+
+        int count;
+        count = array.Count;
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            iter.Next();
+            Var oa;
+            oa = (Var)iter.Value;
+
+            ReferVar a;
+            a = new ReferVar();
+            a.Init();
+            a.Class = this.ClassIndexGet(oa.Class);
+            a.SystemClass = 0;
             a.Name = oa.Name;
 
             array.Set(i, a);
