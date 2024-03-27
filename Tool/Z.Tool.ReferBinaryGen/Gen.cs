@@ -237,6 +237,123 @@ public class Gen : Any
         return true;
     }
 
+    protected virtual bool AddClass(SystemType type)
+    {
+        ClassClass a;
+        a = new ClassClass();
+        a.Init();
+
+        a.Index = this.Module.Class.Count;
+        a.Name = type.Name;
+        a.Module = this.Module;
+
+        a.Any = type;
+
+        this.TableAdd(this.Module.Class, a.Name, a);
+
+        return true;
+    }
+
+    protected virtual bool AddPart(ClassClass varClass)
+    {
+        SystemType type;
+        type = (SystemType)varClass.Any;
+
+        PropertyInfo[] propertyArrayA;
+        propertyArrayA = type.GetProperties(BindingFlag.Instance | BindingFlag.Public | BindingFlag.NonPublic | BindingFlag.DeclaredOnly | BindingFlag.ExactBinding);
+
+        MethodInfo[] methodArrayA;
+        methodArrayA = type.GetMethods(BindingFlag.Instance | BindingFlag.Public | BindingFlag.NonPublic | BindingFlag.DeclaredOnly | BindingFlag.ExactBinding);
+
+        int count;
+        int i;
+        Table fieldTable;
+        fieldTable = this.TableCreate();
+
+        count = propertyArrayA.Length;
+        i = 0;
+        while (i < count)
+        {
+            PropertyInfo property;
+            property = propertyArrayA[i];
+
+            if (!property.IsSpecialName & property.CanRead & property.CanWrite)
+            {
+                if (this.IsInAbstract(property.GetMethod) & !((type == typeof(Data)) & (property.Name == "Value")))
+                {
+                    Field field;
+                    field = new Field();
+                    field.Init();
+                    field.Name = property.Name;
+                    field.Class = this.ClassGetType(property.PropertyType);
+                    field.Count = this.CountGet(property.GetMethod);
+                    field.Any = property;
+                    this.TableAdd(fieldTable, field.Name, field);
+                }
+            }
+
+            i = i + 1;
+        }
+
+        Table maideTable;
+        maideTable = this.TableCreate();
+
+        count = methodArrayA.Length;
+        i = 0;
+        while (i < count)
+        {
+            MethodInfo method;
+            method = methodArrayA[i];
+
+            if (!method.IsSpecialName & this.IsInAbstract(method) & !((type == typeof(EntryEntry)) & (method.Name == "ArgSet")))
+            {
+                Maide maide;
+                maide = new Maide();
+                maide.Init();
+                maide.Name = method.Name;
+                maide.Class = this.ClassGetType(method.ReturnType);
+                maide.Count = this.CountGet(method);
+                maide.Any = method;
+
+                ParameterInfo[] parameterArray;
+                parameterArray = method.GetParameters();
+                int countA;
+                countA = parameterArray.Length;
+
+                Table varTable;
+                varTable = this.TableCreate();
+
+                int iA;
+                iA = 0;
+                while (iA < countA)
+                {
+                    ParameterInfo parameter;
+                    parameter = parameterArray[iA];
+                    Var varVar;
+                    varVar = new Var();
+                    varVar.Init();
+                    varVar.Name = parameter.Name;
+                    varVar.Class = this.ClassGetType(parameter.ParameterType);
+                    varVar.Any = parameter;
+
+                    this.TableAdd(varTable, varVar.Name, varVar);
+
+                    iA = iA + 1;
+                }
+                maide.Param = varTable;
+
+                this.TableAdd(maideTable, maide.Name, maide);
+            }
+
+            i = i + 1;
+        }
+
+        varClass.Field = fieldTable;
+        varClass.Maide = maideTable;
+
+        return true;
+    }
+
     protected virtual bool SetImportList()
     {
         Table table;
@@ -261,45 +378,37 @@ public class Gen : Any
             this.AddClassToImportTable(a.Base);
 
 
-            int countA;
-            int iA;
-
-            countA = a.Field.Count;
-            iA = 0;
-            while (iA < countA)
+            Iter iterA;
+            iterA = a.Field.IterCreate();
+            a.Field.IterSet(iterA);
+            while (iterA.Next())
             {
                 Field field;
-                field = (Field)a.Field.Get(iA);
+                field = (Field)iterA.Value;
                 this.AddClassToImportTable(field.Class);
-                iA = iA + 1;
             }
 
-            countA = a.Maide.Count;
-            iA = 0;
-            while (iA < countA)
+            iterA = a.Maide.IterCreate();
+            a.Maide.IterSet(iterA);
+            while (iterA.Next())
             {
                 Maide maide;
-                maide = (Maide)a.Maide.Get(iA);
+                maide = (Maide)iterA.Value;
                 this.AddClassToImportTable(maide.Class);
 
-                Array varArray;
-                varArray = maide.Param;
+                Table varTable;
+                varTable = maide.Param;
 
-                int countAa;
-                countAa = varArray.Count;
-                int iAa;
-                iAa = 0;
-                while (iAa < countAa)
+                Iter iterAa;
+                iterAa = varTable.IterCreate();
+                varTable.IterSet(iterAa);
+                while (iterAa.Next())
                 {
                     Var varVar;
-                    varVar = (Var)varArray.Get(iAa);
+                    varVar = (Var)iterAa.Value;
 
                     this.AddClassToImportTable(varVar.Class);
-
-                    iAa = iAa + 1;
                 }
-
-                iA = iA + 1;
             }
         }
         return true;
@@ -325,12 +434,7 @@ public class Gen : Any
             classTable.Compare.Init();
             classTable.Init();
 
-            ListEntry oa;
-            oa = new ListEntry();
-            oa.Init();
-            oa.Index = moduleName;
-            oa.Value = classTable;
-            table.Add(oa);
+            this.TableAdd(table, moduleName, classTable);
         }
         Table oo;
         oo = (Table)table.Get(moduleName);
@@ -343,12 +447,7 @@ public class Gen : Any
             return true;
         }
 
-        ListEntry ob;
-        ob = new ListEntry();
-        ob.Init();
-        ob.Index = name;
-        ob.Value = name;
-        oo.Add(ob);
+        this.TableAdd(oo, name, name);
         return true;
     }
 
@@ -451,129 +550,6 @@ public class Gen : Any
                 }
             }
         }
-        return true;
-    }
-
-    protected virtual bool AddClass(SystemType type)
-    {
-        ClassClass a;
-        a = new ClassClass();
-        a.Init();
-
-        a.Index = this.Module.Class.Count;
-        a.Name = type.Name;
-        a.Module = this.Module;
-
-        a.Any = type;
-
-        ListEntry ea;
-        ea = new ListEntry();
-        ea.Init();
-        ea.Index = a.Name;
-        ea.Value = a;
-
-        this.Module.Class.Add(ea);
-
-        return true;
-    }
-
-    protected virtual bool AddPart(ClassClass varClass)
-    {
-        SystemType type;
-        type = (SystemType)varClass.Any;
-
-        PropertyInfo[] propertyArrayA;
-        propertyArrayA = type.GetProperties(BindingFlag.Instance | BindingFlag.Public | BindingFlag.NonPublic | BindingFlag.DeclaredOnly | BindingFlag.ExactBinding);
-
-        MethodInfo[] methodArrayA;
-        methodArrayA = type.GetMethods(BindingFlag.Instance | BindingFlag.Public | BindingFlag.NonPublic | BindingFlag.DeclaredOnly | BindingFlag.ExactBinding);
-
-        int count;
-        int i;
-        Table fieldTable;
-        fieldTable = this.TableCreate();
-
-        count = propertyArrayA.Length;
-        i = 0;
-        while (i < count)
-        {
-            PropertyInfo property;
-            property = propertyArrayA[i];
-
-            if (!property.IsSpecialName & property.CanRead & property.CanWrite)
-            {
-                if (this.IsInAbstract(property.GetMethod) & !((type == typeof(Data)) & (property.Name == "Value")))
-                {
-                    Field field;
-                    field = new Field();
-                    field.Init();
-                    field.Name = property.Name;
-                    field.Class = this.ClassGetType(property.PropertyType);
-                    field.Count = this.CountGet(property.GetMethod);
-                    field.Any = property;
-                    this.TableAdd(fieldTable, field.Name, field);
-                }
-            }
-
-            i = i + 1;
-        }
-
-        Table maideTable;
-        maideTable = this.TableCreate();
-
-        count = methodArrayA.Length;
-        i = 0;
-        while (i < count)
-        {
-            MethodInfo method;
-            method = methodArrayA[i];
-
-            if (!method.IsSpecialName & this.IsInAbstract(method) & !((type == typeof(EntryEntry)) & (method.Name == "ArgSet")))
-            {
-                Maide maide;
-                maide = new Maide();
-                maide.Init();
-                maide.Name = method.Name;
-                maide.Class = this.ClassGetType(method.ReturnType);
-                maide.Count = this.CountGet(method);
-                maide.Any = method;
-
-                ParameterInfo[] parameterArray;
-                parameterArray = method.GetParameters();
-                int countA;
-                countA = parameterArray.Length;
-
-                Table varTable;
-                varTable = this.TableCreate();
-
-                int iA;
-                iA = 0;
-                while (iA < countA)
-                {
-                    ParameterInfo parameter;
-                    parameter = parameterArray[iA];
-                    Var varVar;
-                    varVar = new Var();
-                    varVar.Init();
-                    varVar.Name = parameter.Name;
-                    varVar.Class = this.ClassGetType(parameter.ParameterType);
-                    varVar.Any = parameter;
-
-                    this.TableAdd(varTable, varVar.Name, varVar);
-
-                    iA = iA + 1;
-                }
-                maide.Param = varTable;
-
-                this.TableAdd(maideTable, maide.Name, maide);
-            }
-
-            i = i + 1;
-        }
-
-        varClass.Field = fieldTable;
-        varClass.Maide = maideTable;
-
         return true;
     }
 
