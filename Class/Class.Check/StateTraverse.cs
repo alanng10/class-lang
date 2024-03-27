@@ -65,9 +65,6 @@ public class StateTraverse : Traverse
         c.Module = null;
 
 
-        c.Source = null;
-
-
 
 
 
@@ -673,7 +670,7 @@ public class StateTraverse : Traverse
         varVar.Class = varClass;
 
 
-        varVar.Node = nodeVar;
+        varVar.Any = nodeVar;
 
 
 

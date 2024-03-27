@@ -233,7 +233,7 @@ class MemberTraverse : Traverse
         field.Parent = this.CurrentClass;
 
 
-        field.Node = nodeField;
+        field.Any = nodeField;
 
 
 
@@ -472,7 +472,7 @@ class MemberTraverse : Traverse
         method.Parent = this.CurrentClass;
 
 
-        method.Node = nodeMield;
+        method.Any = nodeMield;
 
 
 
@@ -621,7 +621,7 @@ class MemberTraverse : Traverse
         varVar.Class = varClass;
 
 
-        varVar.Node = nodeVar;
+        varVar.Any = nodeVar;
 
 
 
