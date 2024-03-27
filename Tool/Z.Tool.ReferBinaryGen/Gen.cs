@@ -401,6 +401,7 @@ public class Gen : Any
                 if (oa.StartsWith("System."))
                 {
                     global::System.Console.Error.Write("Is DotNet BCL\n");
+                    return true;
                 }
 
                 Table ob;
