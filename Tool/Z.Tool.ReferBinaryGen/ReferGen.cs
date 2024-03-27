@@ -263,7 +263,40 @@ class ReferGen : Any
             array.Set(i, a);
             i = i + 1;
         }
-        
+
+        return array;
+    }
+
+    protected virtual Array ExecuteMaideArray(ClassClass varClass)
+    {
+        Array array;
+        array = this.ListInfra.ArrayCreate(varClass.Maide.Count);
+
+        Iter iter;
+        iter = varClass.Maide.IterCreate();
+        varClass.Maide.IterSet(iter);
+
+        int count;
+        count = array.Count;
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            iter.Next();
+            Maide oa;
+            oa = (Maide)iter.Value;
+
+            ReferMaide a;
+            a = new ReferMaide();
+            a.Init();
+            a.Class = this.ClassIndexGet(oa.Class);
+            a.Count = oa.Count.Index;
+            a.Name = oa.Name;
+
+            array.Set(i, a);
+            i = i + 1;
+        }
+
         return array;
     }
 
