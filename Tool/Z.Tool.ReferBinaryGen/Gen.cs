@@ -27,6 +27,12 @@ public class Gen : Any
         this.AddDotNetBuiltInType(typeof(sbyte), "Int");
         this.AddDotNetBuiltInType(typeof(char), "Int");
         this.AddDotNetBuiltInType(typeof(string), "String");
+
+        this.CountArray = this.ListInfra.ArrayCreate(4);
+        this.SetCountString("Prudate");
+        this.SetCountString("Probate");
+        this.SetCountString("Precate");
+        this.SetCountString("Private");
         return true;
     }
 
@@ -35,8 +41,10 @@ public class Gen : Any
     protected virtual Table ModuleTable { get; set; }
     protected virtual Module Module { get; set; }
     protected virtual Table DotNetBuiltInTypeTable { get; set; }
+    protected virtual Array CountArray { get; set; }
     protected virtual Class AnyClass { get; set; }
     protected virtual bool IsAvalonInfra { get; set; }
+    protected virtual int Index { get; set; }
 
     public virtual int Execute()
     {
@@ -368,9 +376,9 @@ public class Gen : Any
                 iA = 0;
                 while (iA < countA)
                 {
-                    PropertyInfo property;
-                    property = (PropertyInfo)a.Field.Get(iA);
-                    global::System.Console.Write("    Field: " + property.Name + ", Count: " + this.CountString(property.GetMethod) + ", ResultType: " + property.PropertyType.Name + "\n");
+                    Field field;
+                    field = (Field)a.Field.Get(iA);
+                    global::System.Console.Write("    Field: " + field.Name + ", Count: " + this.CountString(field.Count) + ", Class: " + field.Class.Name + "(" + field.Class.Module.Name + ")" + "\n");
                     iA = iA + 1;
                 }
 
@@ -378,21 +386,21 @@ public class Gen : Any
                 iA = 0;
                 while (iA < countA)
                 {
-                    MethodInfo method;
-                    method = (MethodInfo)a.Maide.Get(iA);
-                    global::System.Console.Write("    Maide: " + method.Name + ", Count: " + this.CountString(method) + ", ResultType: " + method.ReturnType.Name + "\n");
+                    Maide maide;
+                    maide = (Maide)a.Maide.Get(iA);
+                    global::System.Console.Write("    Maide: " + maide.Name + ", Count: " + this.CountString(maide.Count) + ", Class: " + maide.Class.Name + "(" + maide.Class.Module.Name + ")" + "\n");
                     
-                    ParameterInfo[] parameterArray;
-                    parameterArray = method.GetParameters();
+                    Array varArray;
+                    varArray = maide.Param;
                     int countAa;
-                    countAa = parameterArray.Length;
+                    countAa = varArray.Count;
                     int iAa;
                     iAa = 0;
                     while (iAa < countAa)
                     {
-                        ParameterInfo parameter;
-                        parameter = parameterArray[iAa];
-                        global::System.Console.Write("        Var: " + parameter.Name + ", Type: " + parameter.ParameterType.Name + "\n");
+                        Var varVar;
+                        varVar = (Var)varArray.Get(iAa);
+                        global::System.Console.Write("        Var: " + varVar.Name + ", Class: " + varVar.Class.Name + "(" + varVar.Class.Module.Name + ")" + "\n");
 
                         iAa = iAa + 1;
                     }
@@ -421,20 +429,15 @@ public class Gen : Any
                 ob.IterSet(iterB);
                 while (iterB.Next())
                 {
-                    string typeName;
-                    typeName = (string)iterB.Index;
-                    global::System.Console.Write("    " + typeName + "\n");
+                    string className;
+                    className = (string)iterB.Index;
+                    global::System.Console.Write("    " + className + "\n");
                 }
 
-                if (oa.StartsWith("System."))
-                {
-                    global::System.Console.Error.Write("Is DotNet BCL\n");
-                    return true;
-                }
                 if (!oa.StartsWith("Avalon."))
                 {
-                    global::System.Console.Error.Write("Is Not Avalon Module\n");
-                    return true;
+                    global::System.Console.Error.Write("Import module is not Avalon Module\n");
+                    global::System.Environment.Exit(102);
                 }
             }
         }
@@ -726,25 +729,19 @@ public class Gen : Any
         return a;
     }
 
-    protected virtual string CountString(MethodInfo method)
+    protected virtual string CountString(int value)
     {
-        if (method.IsPublic)
-        {
-            return "Prudate";
-        }
-        if (method.IsAssembly)
-        {
-            return "Probate";
-        }
-        if (method.IsFamily)
-        {
-            return "Precate";
-        }
-        if (method.IsPrivate)
-        {
-            return "Private";
-        }
-        return null;
+        return (string)this.CountArray.Get(value);
+    }
+
+    protected virtual bool SetCountString(string o)
+    {
+        int index;
+        index = this.Index;
+        this.CountArray.Set(index, o);
+        index = index + 1;
+        this.Index = index;
+        return true;
     }
 
     protected virtual bool IsInAbstract(MethodInfo method)
