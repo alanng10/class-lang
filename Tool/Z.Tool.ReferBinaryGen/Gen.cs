@@ -372,6 +372,22 @@ public class Gen : Any
                     MethodInfo method;
                     method = (MethodInfo)a.Method.Get(iA);
                     global::System.Console.Write("    Maide: " + method.Name + ", Count: " + this.CountString(method) + ", ResultType: " + method.ReturnType.Name + "\n");
+                    
+                    ParameterInfo[] parameterArray;
+                    parameterArray = method.GetParameters();
+                    int countAa;
+                    countAa = parameterArray.Length;
+                    int iAa;
+                    iAa = 0;
+                    while (iAa < countAa)
+                    {
+                        ParameterInfo parameter;
+                        parameter = parameterArray[iAa];
+                        global::System.Console.Write("        Var: " + parameter.Name + ", Type: " + parameter.ParameterType.Name + "\n");
+
+                        iAa = iAa + 1;
+                    }
+
                     iA = iA + 1;
                 }
             }
