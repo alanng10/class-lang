@@ -42,6 +42,7 @@ public class Gen : Any
     protected virtual Table ModuleTable { get; set; }
     protected virtual Module Module { get; set; }
     protected virtual Table DotNetBuiltInTypeTable { get; set; }
+    protected virtual Table ReferTable { get; set; }
     protected virtual Array CountArray { get; set; }
     protected virtual ClassClass AnyClass { get; set; }
     protected virtual bool IsAvalonInfra { get; set; }
@@ -78,6 +79,16 @@ public class Gen : Any
         this.ExecuteModule(typeof(Refer).Assembly);
 
         this.ConsoleWrite();
+
+        ReferGen referGen;
+        referGen = new ReferGen();
+        referGen.Init();
+        referGen.ModuleTable = this.ModuleTable;
+        referGen.DotNetBuiltInTypeTable = this.DotNetBuiltInTypeTable;
+
+        referGen.Execute();
+
+        this.ReferTable = referGen.ReferTable;
 
         return 0;
     }
