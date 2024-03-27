@@ -115,7 +115,7 @@ class ReferGen : Any
             a.Module = oa;
 
             Array aa;
-            aa = this.ExecuteImportClassArray(name, table);
+            aa = this.ExecuteImportClassArray(table);
 
             a.Class = aa;
 
@@ -125,12 +125,32 @@ class ReferGen : Any
         return array;
     }
 
-    protected virtual Array ExecuteImportClassArray(string moduleName, Table classTable)
+    protected virtual Array ExecuteImportClassArray(Table classTable)
     {
-        Module module;
-        module = this.ModuleGet(moduleName);
+        Array array;
+        array = this.ListInfra.ArrayCreate(classTable.Count);
 
-        return null;
+        Iter iter;
+        iter = classTable.IterCreate();
+        classTable.IterSet(iter);
+        int count;
+        count = array.Count;
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            iter.Next();
+            ClassClass oa;
+            oa = (ClassClass)iter.Value;
+    
+            ReferImportClass a;
+            a = new ReferImportClass();
+            a.Init();
+            a.Class = oa.Index;
+            array.Set(i, a);
+            i = i + 1;
+        }
+        return array;
     }
 
     protected virtual Module ModuleGet(string module)
