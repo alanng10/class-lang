@@ -66,6 +66,7 @@ public class Gen : Any
         this.ExecuteModule(typeof(Main).Assembly);
         this.ExecuteModule(typeof(EntryEntry).Assembly);
 
+        this.ConsoleWrite();
 
         return 0;
     }
@@ -90,8 +91,6 @@ public class Gen : Any
         this.SetClass();
 
         this.SetImport();
-
-        this.ConsoleWrite();
 
         return true;
     }
@@ -333,82 +332,89 @@ public class Gen : Any
 
     protected virtual bool ConsoleWrite()
     {
-        string assemblyName;
-        assemblyName = this.Assembly.GetName().Name;
-        
-        global::System.Console.Write("--------------\n");
-        global::System.Console.Write(assemblyName + "\n");
-        global::System.Console.Write("--------------\n");
-
-        Table table;
-        table = (Table)this.Module.Class;
         Iter iter;
-        iter = table.IterCreate();
-        table.IterSet(iter);
-        while (iter.Next())
-        {
-            Class a;
-            a = (Class)iter.Value;
-
-            SystemType type;
-            type = a.Type;
-
-            SystemType baseType;
-            baseType = type.BaseType;
-
-            global::System.Console.Write("Class: " + type.Name + ", Base: " + baseType.Name + "(" + baseType.Assembly.GetName().Name + ")" + "\n");
-
-            int countA;
-            int iA;
-
-            countA = a.Property.Count;
-            iA = 0;
-            while (iA < countA)
-            {
-                PropertyInfo property;
-                property = (PropertyInfo)a.Property.Get(iA);
-                global::System.Console.Write("    Field: " + property.Name + ", Count: " + this.CountString(property.GetMethod) + ", ResultType: " + property.PropertyType.Name + "\n");
-                iA = iA + 1;
-            }
-
-            countA = a.Method.Count;
-            iA = 0;
-            while (iA < countA)
-            {
-                MethodInfo method;
-                method = (MethodInfo)a.Method.Get(iA);
-                global::System.Console.Write("    Maide: " + method.Name + ", Count: " + this.CountString(method) + ", ResultType: " + method.ReturnType.Name + "\n");
-                iA = iA + 1;
-            }
-        }
-
-        global::System.Console.Write("--------\n");
-
-        iter = this.Module.Import.IterCreate();
-        this.Module.Import.IterSet(iter);
+        iter = this.ModuleTable.IterCreate();
+        this.ModuleTable.IterSet(iter);
 
         while (iter.Next())
         {
-            string oa;
-            oa = (string)iter.Index;
+            Module module;
+            module = (Module)iter.Value;
+            
+            global::System.Console.Write("--------------\n");
+            global::System.Console.Write(module.Name + "\n");
+            global::System.Console.Write("--------------\n");
 
-            global::System.Console.Write(oa + "\n");
-            if (oa.StartsWith("System."))
-            {
-                global::System.Console.Error.Write("Is DotNet BCL\n");
-            }
-
-            Table ob;
-            ob = (Table)iter.Value;
-
+            Table table;
+            table = (Table)this.Module.Class;
             Iter iterA;
-            iterA = ob.IterCreate();
-            ob.IterSet(iterA);
+            iterA = table.IterCreate();
+            table.IterSet(iterA);
             while (iterA.Next())
             {
-                string typeName;
-                typeName = (string)iterA.Index;
-                global::System.Console.Write("    " + typeName + "\n");
+                Class a;
+                a = (Class)iterA.Value;
+
+                SystemType type;
+                type = a.Type;
+
+                SystemType baseType;
+                baseType = type.BaseType;
+
+                global::System.Console.Write("Class: " + type.Name + ", Base: " + baseType.Name + "(" + baseType.Assembly.GetName().Name + ")" + "\n");
+
+                int countA;
+                int iA;
+
+                countA = a.Property.Count;
+                iA = 0;
+                while (iA < countA)
+                {
+                    PropertyInfo property;
+                    property = (PropertyInfo)a.Property.Get(iA);
+                    global::System.Console.Write("    Field: " + property.Name + ", Count: " + this.CountString(property.GetMethod) + ", ResultType: " + property.PropertyType.Name + "\n");
+                    iA = iA + 1;
+                }
+
+                countA = a.Method.Count;
+                iA = 0;
+                while (iA < countA)
+                {
+                    MethodInfo method;
+                    method = (MethodInfo)a.Method.Get(iA);
+                    global::System.Console.Write("    Maide: " + method.Name + ", Count: " + this.CountString(method) + ", ResultType: " + method.ReturnType.Name + "\n");
+                    iA = iA + 1;
+                }
+            }
+
+            global::System.Console.Write("--------\n");
+
+            iterA = this.Module.Import.IterCreate();
+            this.Module.Import.IterSet(iterA);
+
+            while (iterA.Next())
+            {
+                string oa;
+                oa = (string)iterA.Index;
+
+                global::System.Console.Write(oa + "\n");
+                if (oa.StartsWith("System."))
+                {
+                    global::System.Console.Error.Write("Is DotNet BCL\n");
+                }
+
+                Table ob;
+                ob = (Table)iterA.Value;
+
+                Iter iterB;
+                iterB = ob.IterCreate();
+                ob.IterSet(iterB);
+                while (iterB.Next())
+                {
+                    string typeName;
+                    typeName = (string)iterB.Index;
+                    global::System.Console.Write("    " + typeName + "\n");
+                }
             }
         }
         return true;
