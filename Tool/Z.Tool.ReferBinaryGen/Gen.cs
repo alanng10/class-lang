@@ -42,7 +42,7 @@ public class Gen : Any
     protected virtual Module Module { get; set; }
     protected virtual Table DotNetBuiltInTypeTable { get; set; }
     protected virtual Array CountArray { get; set; }
-    protected virtual Class AnyClass { get; set; }
+    protected virtual ClassClass AnyClass { get; set; }
     protected virtual bool IsAvalonInfra { get; set; }
     protected virtual int Index { get; set; }
 
@@ -176,7 +176,7 @@ public class Gen : Any
     {
         if (this.IsAvalonInfra)
         {
-            Class anyClass;
+            ClassClass anyClass;
             anyClass = this.ModuleClassGet(this.Module, "Any");
             this.AnyClass = anyClass;
 
@@ -192,17 +192,19 @@ public class Gen : Any
         this.Module.Class.IterSet(iter);
         while (iter.Next())
         {
-            Class a;
-            a = (Class)iter.Value;
+            ClassClass a;
+            a = (ClassClass)iter.Value;
 
             if (a.Base == null)
             {
                 SystemType oa;
-                oa = a.Type.BaseType;
+                oa = (SystemType)a.Any;
+                SystemType ob;
+                ob = oa.BaseType;
 
-                Class ob;
-                ob = this.ClassGetType(oa);
-                a.Base = ob;
+                ClassClass oc;
+                oc = this.ClassGetType(ob);
+                a.Base = oc;
             }
         }
         return true;
@@ -222,8 +224,8 @@ public class Gen : Any
         this.Module.Class.IterSet(iter);
         while (iter.Next())
         {
-            Class a;
-            a = (Class)iter.Value;
+            ClassClass a;
+            a = (ClassClass)iter.Value;
 
             if (a.Field == null)
             {
@@ -252,8 +254,8 @@ public class Gen : Any
         classTable.IterSet(iter);
         while (iter.Next())
         {
-            Class a;
-            a = (Class)iter.Value;
+            ClassClass a;
+            a = (ClassClass)iter.Value;
 
             this.AddClassToImportTable(a.Base);
 
@@ -302,7 +304,7 @@ public class Gen : Any
         return true;
     }
 
-    protected virtual bool AddClassToImportTable(Class varClass)
+    protected virtual bool AddClassToImportTable(ClassClass varClass)
     {
         if (varClass.Module == this.Module)
         {
@@ -371,8 +373,8 @@ public class Gen : Any
             table.IterSet(iterA);
             while (iterA.Next())
             {
-                Class a;
-                a = (Class)iterA.Value;
+                ClassClass a;
+                a = (ClassClass)iterA.Value;
 
                 global::System.Console.Write("Class: " + a.Name + ", Base: " + a.Base.Name + "(" + a.Base.Module.Ref.Name + ")" + "\n");
 
@@ -385,7 +387,7 @@ public class Gen : Any
                 {
                     Field field;
                     field = (Field)a.Field.Get(iA);
-                    global::System.Console.Write("    Field: " + field.Name + ", Count: " + this.CountString(field.Count) + ", Class: " + field.Class.Name + "(" + field.Class.Module.Ref.Name + ")" + "\n");
+                    global::System.Console.Write("    Field: " + field.Name + ", Count: " + this.CountString(field.Count.Index) + ", Class: " + field.Class.Name + "(" + field.Class.Module.Ref.Name + ")" + "\n");
                     iA = iA + 1;
                 }
 
@@ -453,16 +455,15 @@ public class Gen : Any
 
     protected virtual bool AddClass(SystemType type)
     {
-        Class a;
-        a = new Class();
+        ClassClass a;
+        a = new ClassClass();
         a.Init();
 
         a.Index = this.Module.Class.Count;
         a.Name = type.Name;
         a.Module = this.Module;
 
-        a.Type = type;
-
+        a.Any = type;
 
         ListEntry ea;
         ea = new ListEntry();
@@ -475,10 +476,10 @@ public class Gen : Any
         return true;
     }
 
-    protected virtual bool AddPart(Class varClass)
+    protected virtual bool AddPart(ClassClass varClass)
     {
         SystemType type;
-        type = varClass.Type;
+        type = (SystemType)varClass.Any;
 
         PropertyInfo[] propertyArrayA;
         propertyArrayA = type.GetProperties(BindingFlag.Instance | BindingFlag.Public | BindingFlag.NonPublic | BindingFlag.DeclaredOnly | BindingFlag.ExactBinding);
@@ -509,7 +510,7 @@ public class Gen : Any
                     field.Name = property.Name;
                     field.Class = this.ClassGetType(property.PropertyType);
                     field.Count = this.CountGet(property.GetMethod);
-                    field.Property = property;
+                    field.Any = property;
                     fieldList.Add(field);
                 }
             }
@@ -595,10 +596,10 @@ public class Gen : Any
         return a;
     }
 
-    protected virtual Class ModuleClassGet(Module module, string name)
+    protected virtual ClassClass ModuleClassGet(Module module, string name)
     {
-        Class a;
-        a = (Class)module.Class.Get(name);
+        ClassClass a;
+        a = (ClassClass)module.Class.Get(name);
         if (a == null)
         {
             global::System.Console.Error.Write("ModuleClassGet no class, class: " + name + "(" + module.Ref.Name + ")" + "\n");
@@ -607,7 +608,7 @@ public class Gen : Any
         return a;
     }
 
-    protected virtual Class ClassGetType(SystemType type)
+    protected virtual ClassClass ClassGetType(SystemType type)
     {
         string module;
         string varClass;
@@ -625,23 +626,23 @@ public class Gen : Any
             module = type.Assembly.GetName().Name;
             varClass = type.Name;
         }
-        Class a;
+        ClassClass a;
         a = this.ClassGet(module, varClass);
         return a;
     }
 
-    protected virtual Class ClassGet(string module, string name)
+    protected virtual ClassClass ClassGet(string module, string name)
     {
         Module o;
         o = this.ModuleGet(module);
-        Class oa;
+        ClassClass oa;
         oa = this.ModuleClassGet(o, name);
         return oa;
     }
 
     protected virtual bool ClassBaseSetAny(string name)
     {
-        Class a;
+        ClassClass a;
         a = this.ModuleClassGet(this.Module, name);
         a.Base = this.AnyClass;
         return true;
@@ -649,11 +650,21 @@ public class Gen : Any
 
     protected virtual bool ClassPartSetEmpty(string name)
     {
-        Class a;
+        ClassClass a;
         a = this.ModuleClassGet(this.Module, name);
-        a.Field = this.ListInfra.ArrayCreate(0);
-        a.Maide = this.ListInfra.ArrayCreate(0);
+        a.Field = this.TableCreateEmpty();
+        a.Maide = this.TableCreateEmpty();
         return true;
+    }
+
+    protected virtual Table TableCreateEmpty()
+    {
+        Table a;
+        a = new Table();
+        a.Compare = new StringCompare();
+        a.Compare.Init();
+        a.Init();
+        return a;
     }
 
     protected virtual bool AddInfraBuiltInClassList()
@@ -669,8 +680,8 @@ public class Gen : Any
         int index;
         index = this.Module.Class.Count;
 
-        Class a;
-        a = new Class();
+        ClassClass a;
+        a = new ClassClass();
         a.Init();
         a.Index = index;
         a.Name = name;
