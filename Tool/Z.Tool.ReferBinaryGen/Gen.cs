@@ -283,6 +283,33 @@ public class Gen : Any
 
             i = i + 1;
         }
+
+        global::System.Console.Write("--------\n");
+
+        Iter iter;
+        iter = this.Import.IterCreate();
+        this.Import.IterSet(iter);
+
+        while (iter.Next())
+        {
+            string assemblyName;
+            assemblyName = (string)iter.Index;
+
+            global::System.Console.Write(assemblyName + "\n");
+
+            Table table;
+            table = (Table)iter.Value;
+
+            Iter iterA;
+            iterA = table.IterCreate();
+            table.IterSet(iterA);
+            while (iterA.Next())
+            {
+                string typeName;
+                typeName = (string)iterA.Index;
+                global::System.Console.Write("    " + typeName + "\n");
+            }
+        }
         return true;
     }
 
