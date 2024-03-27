@@ -116,13 +116,7 @@ public class Gen : Any
             Class a;
             a = (Class)iter.Value;
             
-            SystemType type;
-            type = a.Type;
-
-            SystemType baseType;
-            baseType = type.BaseType;
-
-            this.AddTypeToImportTable(baseType);
+            //this.AddTypeToImportTable(baseType);
 
             int countA;
             int iA;
