@@ -441,6 +441,23 @@ public class Gen : Any
 
         a.Type = type;
 
+
+        ListEntry ea;
+        ea = new ListEntry();
+        ea.Init();
+        ea.Index = a.Name;
+        ea.Value = a;
+
+        this.Module.Class.Add(ea);
+
+        return true;
+    }
+
+    protected virtual bool AddPart(Class varClass)
+    {
+        SystemType type;
+        type = varClass.Type;
+
         PropertyInfo[] propertyArrayA;
         propertyArrayA = type.GetProperties(BindingFlag.Instance | BindingFlag.Public | BindingFlag.NonPublic | BindingFlag.DeclaredOnly | BindingFlag.ExactBinding);
 
@@ -449,9 +466,9 @@ public class Gen : Any
 
         int count;
         int i;
-        ListList propertyList;
-        propertyList = new ListList();
-        propertyList.Init();
+        ListList fieldList;
+        fieldList = new ListList();
+        fieldList.Init();
 
         count = propertyArrayA.Length;
         i = 0;
@@ -464,15 +481,21 @@ public class Gen : Any
             {
                 if (this.IsInAbstract(property.GetMethod) & !((type == typeof(Data)) & (property.Name == "Value")))
                 {
-                    propertyList.Add(property);
+                    Field field;
+                    field = new Field();
+                    field.Name = property.Name;
+                    field.Class = this.ClassGetType(property.PropertyType);
+                    field.Count = this.CountGet(property.GetMethod);
+                    field.Property = property;
+                    fieldList.Add(field);
                 }
             }
 
             i = i + 1;
         }
 
-        Array propertyArray;
-        propertyArray = this.ListInfra.ArrayCreateList(propertyList);
+        Array fieldArray;
+        fieldArray = this.ListInfra.ArrayCreateList(fieldList);
 
         ListList methodList;
         methodList = new ListList();
@@ -496,18 +519,45 @@ public class Gen : Any
         Array methodArray;
         methodArray = this.ListInfra.ArrayCreateList(methodList);
 
-        a.Field = propertyArray;
-        a.Maide = methodArray;
-
-        ListEntry ea;
-        ea = new ListEntry();
-        ea.Init();
-        ea.Index = a.Name;
-        ea.Value = a;
-
-        this.Module.Class.Add(ea);
+        varClass.Field = fieldArray;
+        varClass.Maide = methodArray;
 
         return true;
+    }
+
+    protected virtual Module ModuleGet(string module)
+    {
+        return (Module)this.ModuleTable.Get(module);
+    }
+
+    protected virtual Class ClassGetType(SystemType type)
+    {
+        string module;
+        string varClass;
+        module = null;
+        varClass = null;
+        bool b;
+        b = this.IsDotNetBuiltInType(type);
+        if (b)
+        {
+            module = "Avalon.Infra";
+            varClass = (string)this.DotNetBuiltInTypeTable.Get(type);
+        }
+        if (!b)
+        {
+            module = type.Assembly.GetName().Name;
+            varClass = type.Name;
+        }
+        return this.ClassGet(module, varClass);
+    }
+
+    protected virtual Class ClassGet(string module, string name)
+    {
+        Module o;
+        o = this.ModuleGet(module);
+        Class oa;
+        oa = (Class)o.Class.Get(name);
+        return oa;
     }
 
     protected virtual bool AddInfraBuiltInTypeList()
@@ -581,6 +631,29 @@ public class Gen : Any
     protected virtual bool IsDotNetBuiltInType(SystemType type)
     {
         return this.DotNetBuiltInTypeTable.Contain(type);
+    }
+
+    protected virtual int CountGet(MethodInfo method)
+    {
+        int a;
+        a = -1;
+        if (method.IsPublic)
+        {
+            a = 0;
+        }
+        if (method.IsAssembly)
+        {
+            a = 1;
+        }
+        if (method.IsFamily)
+        {
+            a = 2;
+        }
+        if (method.IsPrivate)
+        {
+            a = 3;
+        }
+        return a;
     }
 
     protected virtual string CountString(MethodInfo method)
