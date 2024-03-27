@@ -16,18 +16,18 @@ public class Gen : Any
 
         this.DotNetBuiltInTypeTable = table;
 
-        this.AddDotNetBuiltInType(typeof(object), "Any");
-        this.AddDotNetBuiltInType(typeof(bool), "Bool");
-        this.AddDotNetBuiltInType(typeof(int), "Int");
-        this.AddDotNetBuiltInType(typeof(uint), "Int");
-        this.AddDotNetBuiltInType(typeof(long), "Int");
-        this.AddDotNetBuiltInType(typeof(ulong), "Int");
-        this.AddDotNetBuiltInType(typeof(short), "Int");
-        this.AddDotNetBuiltInType(typeof(ushort), "Int");
-        this.AddDotNetBuiltInType(typeof(byte), "Int");
-        this.AddDotNetBuiltInType(typeof(sbyte), "Int");
-        this.AddDotNetBuiltInType(typeof(char), "Int");
-        this.AddDotNetBuiltInType(typeof(string), "String");
+        this.AddDotNetBuiltInType(typeof(object), "Any", 0);
+        this.AddDotNetBuiltInType(typeof(bool), "Bool", 0);
+        this.AddDotNetBuiltInType(typeof(long), "Int", 1);
+        this.AddDotNetBuiltInType(typeof(ulong), "Int", 2);
+        this.AddDotNetBuiltInType(typeof(int), "Int", 3);
+        this.AddDotNetBuiltInType(typeof(uint), "Int", 4);
+        this.AddDotNetBuiltInType(typeof(short), "Int", 5);
+        this.AddDotNetBuiltInType(typeof(ushort), "Int", 6);
+        this.AddDotNetBuiltInType(typeof(sbyte), "Int", 7);
+        this.AddDotNetBuiltInType(typeof(byte), "Int", 8);
+        this.AddDotNetBuiltInType(typeof(char), "Int", 9);
+        this.AddDotNetBuiltInType(typeof(string), "String", 0);
 
         this.CountArray = this.ListInfra.ArrayCreate(4);
         this.SetCountString("Prudate");
@@ -674,9 +674,15 @@ public class Gen : Any
         return null;
     }
 
-    protected virtual bool AddDotNetBuiltInType(SystemType type, string name)
+    protected virtual bool AddDotNetBuiltInType(SystemType type, string name, int systemClass)
     {
-        this.ListInfra.TableAdd(this.DotNetBuiltInTypeTable, type, name);
+        BuiltInType a;
+        a = new BuiltInType();
+        a.Init();
+        a.Type = type;
+        a.Name = name;
+        a.SystemClass = systemClass;
+        this.ListInfra.TableAdd(this.DotNetBuiltInTypeTable, type, a);
         return true;
     }
 
