@@ -478,43 +478,36 @@ public class Gen : Any
 
                 global::System.Console.Write("Class: " + a.Name + ", Base: " + a.Base.Name + "(" + a.Base.Module.Ref.Name + ")" + "\n");
 
-                int countA;
-                int iA;
-
-                countA = a.Field.Count;
-                iA = 0;
-                while (iA < countA)
+                Iter iterB;
+                iterB = a.Field.IterCreate();
+                a.Field.IterSet(iterB);
+                while (iterB.Next())
                 {
                     Field field;
-                    field = (Field)a.Field.Get(iA);
+                    field = (Field)iterB.Value;
                     global::System.Console.Write("    Field: " + field.Name + ", Count: " + this.CountString(field.Count.Index) + ", Class: " + field.Class.Name + "(" + field.Class.Module.Ref.Name + ")" + "\n");
-                    iA = iA + 1;
                 }
 
-                countA = a.Maide.Count;
-                iA = 0;
-                while (iA < countA)
+                iterB = a.Maide.IterCreate();
+                a.Maide.IterSet(iterB);
+                while (iterB.Next())
                 {
                     Maide maide;
-                    maide = (Maide)a.Maide.Get(iA);
-                    global::System.Console.Write("    Maide: " + maide.Name + ", Count: " + this.CountString(maide.Count) + ", Class: " + maide.Class.Name + "(" + maide.Class.Module.Ref.Name + ")" + "\n");
-                    
-                    Array varArray;
-                    varArray = maide.Param;
-                    int countAa;
-                    countAa = varArray.Count;
-                    int iAa;
-                    iAa = 0;
-                    while (iAa < countAa)
+                    maide = (Maide)iterB.Value;
+                    global::System.Console.Write("    Maide: " + maide.Name + ", Count: " + this.CountString(maide.Count.Index) + ", Class: " + maide.Class.Name + "(" + maide.Class.Module.Ref.Name + ")" + "\n");
+
+
+                    Table varTable;
+                    varTable = maide.Param;
+                    Iter iterBa;
+                    iterBa = varTable.IterCreate();
+                    varTable.IterSet(iterBa);
+                    while (iterBa.Next())
                     {
                         Var varVar;
-                        varVar = (Var)varArray.Get(iAa);
+                        varVar = (Var)iterBa.Value;
                         global::System.Console.Write("        Var: " + varVar.Name + ", Class: " + varVar.Class.Name + "(" + varVar.Class.Module.Ref.Name + ")" + "\n");
-
-                        iAa = iAa + 1;
                     }
-
-                    iA = iA + 1;
                 }
             }
 
