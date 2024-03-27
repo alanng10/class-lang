@@ -14,6 +14,7 @@ class ReferGen : Any
 
     protected virtual ListInfra ListInfra { get; set; }
     protected virtual Module Module { get; set; }
+    protected virtual Table ClassIndexTable { get; set; }
 
     public virtual bool Execute()
     {
@@ -41,6 +42,11 @@ class ReferGen : Any
     {
         this.Module = module;
 
+        this.ClassIndexTable = new Table();
+        this.ClassIndexTable.Compare = new RefCompare();
+        this.ClassIndexTable.Compare.Init();
+        this.ClassIndexTable.Init();
+
         ModuleRef oa;
         oa = this.ModuleRefCreate(module.Ref.Name);
 
@@ -51,6 +57,7 @@ class ReferGen : Any
 
         refer.Class = this.ExecuteClassArray();
         refer.Import = this.ExecuteImportArray();
+
 
         return refer;
     }
@@ -71,15 +78,17 @@ class ReferGen : Any
         while (i < count)
         {
             iter.Next();
-            string name;
-            name = (string)iter.Index;
+            ClassClass oa;
+            oa = (ClassClass)iter.Value;
 
             ReferClass a;
             a = new ReferClass();
             a.Init();
-            a.Name = name;
+            a.Name = oa.Name;
             
             array.Set(i, a);
+
+            this.ClassIndexAdd(oa);
         }
 
         return array;
@@ -149,8 +158,20 @@ class ReferGen : Any
             a.Class = oa.Index;
             array.Set(i, a);
             i = i + 1;
+            
+            this.ClassIndexAdd(oa);
         }
         return array;
+    }
+
+    protected virtual bool ClassIndexAdd(ClassClass varClass)
+    {
+        ClassIndex a;
+        a = new ClassIndex();
+        a.Init();
+        a.Value = this.ClassIndexTable.Count;
+        this.ListInfra.TableAdd(this.ClassIndexTable, varClass, a);
+        return true;
     }
 
     protected virtual Module ModuleGet(string module)
