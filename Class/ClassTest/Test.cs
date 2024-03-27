@@ -138,7 +138,7 @@ public class Test : Any
 
     protected virtual string DataRootDirectory()
     {
-        return "../../Class/Class.Test/Test";
+        return "../../Class/ClassTest/Test";
     }
 
     protected virtual bool AddSetList()
