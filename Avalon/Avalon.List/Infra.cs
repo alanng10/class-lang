@@ -48,4 +48,15 @@ public class Infra : Any
         }
         return a;
     }
+
+    public virtual bool TableAdd(Table table, object index, object value)
+    {
+        Entry entry;
+        entry = new Entry();
+        entry.Init();
+        entry.Index = index;
+        entry.Value = value;
+        table.Add(entry);
+        return true;
+    }
 }
