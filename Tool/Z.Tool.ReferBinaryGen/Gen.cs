@@ -81,21 +81,26 @@ public class Gen : Any
 
     protected virtual bool ExecuteModule(Assembly assembly)
     {
+        ModuleRef oa;
+        oa = new ModuleRef();
+        oa.Init();
+        oa.Name = assembly.GetName().Name;
+
         Module module;
         module = new Module();
         module.Init();
-        module.Name = assembly.GetName().Name;
-        module.Assembly = assembly;
+        module.Ref = oa;
+        module.Any = assembly;
         this.Module = module;
 
         ListEntry entry;
         entry = new ListEntry();
         entry.Init();
-        entry.Index = module.Name;
+        entry.Index = module.Ref.Name;
         entry.Value = module;
         this.ModuleTable.Add(entry);
 
-        this.IsAvalonInfra = (this.Module.Name == "Avalon.Infra");
+        this.IsAvalonInfra = (this.Module.Ref.Name == "Avalon.Infra");
 
         this.SetClassList();
 
@@ -124,8 +129,10 @@ public class Gen : Any
 
     protected virtual bool AddClassList()
     {
+        Assembly assembly;
+        assembly = (Assembly)this.Module.Any;
         SystemType[] typeArray;
-        typeArray = this.Module.Assembly.GetExportedTypes();
+        typeArray = assembly.GetExportedTypes();
 
         SystemType anyType;
         anyType = null;
@@ -306,7 +313,7 @@ public class Gen : Any
         table = this.Module.Import;
 
         string moduleName;
-        moduleName = varClass.Module.Name;
+        moduleName = varClass.Module.Ref.Name;
         if (!table.Contain(moduleName))
         {
             Table classTable;
@@ -354,7 +361,7 @@ public class Gen : Any
             module = (Module)iter.Value;
             
             global::System.Console.Write("--------------\n");
-            global::System.Console.Write(module.Name + "\n");
+            global::System.Console.Write(module.Ref.Name + "\n");
             global::System.Console.Write("--------------\n");
 
             Table table;
@@ -367,7 +374,7 @@ public class Gen : Any
                 Class a;
                 a = (Class)iterA.Value;
 
-                global::System.Console.Write("Class: " + a.Name + ", Base: " + a.Base.Name + "(" + a.Base.Module.Name + ")" + "\n");
+                global::System.Console.Write("Class: " + a.Name + ", Base: " + a.Base.Name + "(" + a.Base.Module.Ref.Name + ")" + "\n");
 
                 int countA;
                 int iA;
@@ -378,7 +385,7 @@ public class Gen : Any
                 {
                     Field field;
                     field = (Field)a.Field.Get(iA);
-                    global::System.Console.Write("    Field: " + field.Name + ", Count: " + this.CountString(field.Count) + ", Class: " + field.Class.Name + "(" + field.Class.Module.Name + ")" + "\n");
+                    global::System.Console.Write("    Field: " + field.Name + ", Count: " + this.CountString(field.Count) + ", Class: " + field.Class.Name + "(" + field.Class.Module.Ref.Name + ")" + "\n");
                     iA = iA + 1;
                 }
 
@@ -388,7 +395,7 @@ public class Gen : Any
                 {
                     Maide maide;
                     maide = (Maide)a.Maide.Get(iA);
-                    global::System.Console.Write("    Maide: " + maide.Name + ", Count: " + this.CountString(maide.Count) + ", Class: " + maide.Class.Name + "(" + maide.Class.Module.Name + ")" + "\n");
+                    global::System.Console.Write("    Maide: " + maide.Name + ", Count: " + this.CountString(maide.Count) + ", Class: " + maide.Class.Name + "(" + maide.Class.Module.Ref.Name + ")" + "\n");
                     
                     Array varArray;
                     varArray = maide.Param;
@@ -400,7 +407,7 @@ public class Gen : Any
                     {
                         Var varVar;
                         varVar = (Var)varArray.Get(iAa);
-                        global::System.Console.Write("        Var: " + varVar.Name + ", Class: " + varVar.Class.Name + "(" + varVar.Class.Module.Name + ")" + "\n");
+                        global::System.Console.Write("        Var: " + varVar.Name + ", Class: " + varVar.Class.Name + "(" + varVar.Class.Module.Ref.Name + ")" + "\n");
 
                         iAa = iAa + 1;
                     }
@@ -594,7 +601,7 @@ public class Gen : Any
         a = (Class)module.Class.Get(name);
         if (a == null)
         {
-            global::System.Console.Error.Write("ModuleClassGet no class, class: " + name + "(" + module.Name + ")" + "\n");
+            global::System.Console.Error.Write("ModuleClassGet no class, class: " + name + "(" + module.Ref.Name + ")" + "\n");
             global::System.Environment.Exit(101);
         }
         return a;
