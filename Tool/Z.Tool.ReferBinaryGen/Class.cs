@@ -12,7 +12,7 @@ public class Class : Any
 
     public virtual SystemType Type { get; set; }
 
-    public virtual Array Property { get; set; }
+    public virtual Array Field { get; set; }
 
-    public virtual Array Method { get; set; }
+    public virtual Array Maide { get; set; }
 }

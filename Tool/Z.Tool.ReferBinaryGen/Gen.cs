@@ -124,22 +124,22 @@ public class Gen : Any
             int countA;
             int iA;
 
-            countA = a.Property.Count;
+            countA = a.Field.Count;
             iA = 0;
             while (iA < countA)
             {
                 PropertyInfo property;
-                property = (PropertyInfo)a.Property.Get(iA);
+                property = (PropertyInfo)a.Field.Get(iA);
                 this.AddTypeToImportTable(property.PropertyType);
                 iA = iA + 1;
             }
 
-            countA = a.Method.Count;
+            countA = a.Maide.Count;
             iA = 0;
             while (iA < countA)
             {
                 MethodInfo method;
-                method = (MethodInfo)a.Method.Get(iA);
+                method = (MethodInfo)a.Maide.Get(iA);
                 this.AddTypeToImportTable(method.ReturnType);
 
                 ParameterInfo[] ooo;
@@ -352,22 +352,22 @@ public class Gen : Any
                 int countA;
                 int iA;
 
-                countA = a.Property.Count;
+                countA = a.Field.Count;
                 iA = 0;
                 while (iA < countA)
                 {
                     PropertyInfo property;
-                    property = (PropertyInfo)a.Property.Get(iA);
+                    property = (PropertyInfo)a.Field.Get(iA);
                     global::System.Console.Write("    Field: " + property.Name + ", Count: " + this.CountString(property.GetMethod) + ", ResultType: " + property.PropertyType.Name + "\n");
                     iA = iA + 1;
                 }
 
-                countA = a.Method.Count;
+                countA = a.Maide.Count;
                 iA = 0;
                 while (iA < countA)
                 {
                     MethodInfo method;
-                    method = (MethodInfo)a.Method.Get(iA);
+                    method = (MethodInfo)a.Maide.Get(iA);
                     global::System.Console.Write("    Maide: " + method.Name + ", Count: " + this.CountString(method) + ", ResultType: " + method.ReturnType.Name + "\n");
                     
                     ParameterInfo[] parameterArray;
@@ -499,8 +499,8 @@ public class Gen : Any
         Array methodArray;
         methodArray = this.ListInfra.ArrayCreateList(methodList);
 
-        a.Property = propertyArray;
-        a.Method = methodArray;
+        a.Field = propertyArray;
+        a.Maide = methodArray;
 
         ListEntry ea;
         ea = new ListEntry();
@@ -536,8 +536,8 @@ public class Gen : Any
         a.Name = name;
         a.Base = baseClass;
         a.Module = this.Module;
-        a.Property = this.ListInfra.ArrayCreate(0);
-        a.Method = this.ListInfra.ArrayCreate(0);
+        a.Field = this.ListInfra.ArrayCreate(0);
+        a.Maide = this.ListInfra.ArrayCreate(0);
 
         ListEntry entry;
         entry = new ListEntry();
