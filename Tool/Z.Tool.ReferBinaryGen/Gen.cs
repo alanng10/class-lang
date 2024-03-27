@@ -162,7 +162,20 @@ public class Gen : Any
         oo = (Table)table.Get(assemblyName);
 
         string name;
-        name = type.Name;
+        name = null;
+        SystemType aa;
+        aa = null;
+
+        if (b)
+        {
+            name = (string)this.DotNetBuiltInTypeTable.Get(type);
+            aa = null;
+        }
+        if (!b)
+        {
+            name = type.Name;
+            aa = type;
+        }
 
         if (oo.Contain(name))
         {
@@ -173,7 +186,7 @@ public class Gen : Any
         ob = new ListEntry();
         ob.Init();
         ob.Index = name;
-        ob.Value = type;
+        ob.Value = aa;
         oo.Add(ob);
         return true;
     }
@@ -373,8 +386,7 @@ public class Gen : Any
 
     protected virtual bool IsDotNetBuiltInType(SystemType type)
     {
-        
-        return false;
+        return this.DotNetBuiltInTypeTable.Contain(type);
     }
 
     protected virtual string CountString(MethodInfo method)
