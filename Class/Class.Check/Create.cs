@@ -244,14 +244,13 @@ public class Create : InfraCreate
         this.Module.Ref.Name = this.TaskModule;
 
 
+        Table classTable;
+        classTable = new Table();
+        classTable.Compare = new StringCompare();
+        classTable.Compare.Init();
+        classTable.Init();
 
-        this.Module.Class = new Array();
-
-
-        this.Module.Class.Count = this.Source.Item.Count;
-
-
-        this.Module.Class.Init();
+        this.Module.Class = classTable;
 
 
 
@@ -437,11 +436,6 @@ public class Create : InfraCreate
 
 
         varClass.Maide.Init();
-
-
-        
-
-        varClass.Source = null;
 
 
 
@@ -841,7 +835,7 @@ public class Create : InfraCreate
 
         if (varBase == null)
         {
-            this.Error(this.ErrorKind.BaseUndefined, nodeClass, varClass.Source);
+            this.Error(this.ErrorKind.BaseUndefined, nodeClass, this.SourceItemGet(varClass.Index));
 
 
             b = true;
@@ -854,7 +848,7 @@ public class Create : InfraCreate
         {
             if (!this.CheckBase(varBase))
             {
-                this.Error(this.ErrorKind.BaseUndefined, nodeClass, varClass.Source);
+                this.Error(this.ErrorKind.BaseUndefined, nodeClass, this.SourceItemGet(varClass.Index));
 
 
                 b = true;
@@ -955,7 +949,7 @@ public class Create : InfraCreate
 
             if (!b)
             {
-                this.Error(this.ErrorKind.BaseUndefined, null, varClass.Source);
+                this.Error(this.ErrorKind.BaseUndefined, null, this.SourceItemGet(varClass.Index));
             }
 
 
@@ -1133,7 +1127,10 @@ public class Create : InfraCreate
     }
 
 
-
+    protected virtual SourceItem SourceItemGet(int index)
+    {
+        return (SourceItem)this.Source.Item.Get(index);
+    }
 
 
 
