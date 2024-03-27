@@ -131,7 +131,7 @@ public class Gen : Any
         SystemType anyType;
         anyType = null;
         bool b;
-        b = (this.Module.Name == "Avalon.Infra");
+        b = this.IsAvalonInfra;
         if (b)
         {
             anyType = this.AnyType(typeArray);
@@ -139,6 +139,7 @@ public class Gen : Any
             if (anyType == null)
             {
                 global::System.Console.Error.Write("Any class not found\n");
+                global::System.Environment.Exit(103);
             }
 
             this.AddClass(anyType);
