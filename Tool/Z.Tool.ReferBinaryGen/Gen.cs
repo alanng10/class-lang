@@ -48,6 +48,7 @@ public class Gen : Any
         this.ExecuteModule(typeof(Any).Assembly);
         this.ExecuteModule(typeof(ListList).Assembly);
         this.ExecuteModule(typeof(Math).Assembly);
+        this.ExecuteModule(typeof(Text).Assembly);
 
         return 0;
     }
