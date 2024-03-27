@@ -127,8 +127,24 @@ class ReferGen : Any
 
     protected virtual Array ExecuteImportClassArray(string moduleName, Table classTable)
     {
-        
+        Module module;
+        module = this.ModuleGet(moduleName);
+
         return null;
+    }
+
+    protected virtual Module ModuleGet(string module)
+    {
+        Module a;
+        a = (Module)this.ModuleTable.Get(module);
+        return a;
+    }
+
+    protected virtual ClassClass ModuleClassGet(Module module, string name)
+    {
+        ClassClass a;
+        a = (ClassClass)module.Class.Get(name);
+        return a;
     }
 
     protected virtual ModuleRef ModuleRefCreate(string name)
