@@ -72,7 +72,16 @@ public class Infra : Any
         return o;
     }
 
-    public virtual bool DataWrite(string filePath, Data data, Range range)
+    public virtual bool DataWrite(string filePath, Data data)
+    {
+        Range range;
+        range = new Range();
+        range.Init();
+        range.Count = data.Count;
+        return this.DataWriteRange(filePath, data, range);
+    }
+
+    public virtual bool DataWriteRange(string filePath, Data data, Range range)
     {
         Storage storage;
         storage = new Storage();
@@ -172,7 +181,7 @@ public class Infra : Any
         range.Init();
         range.Count = count;
         bool o;
-        o = this.DataWrite(filePath, data, range);
+        o = this.DataWriteRange(filePath, data, range);
         return o;
     }
 
