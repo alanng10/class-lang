@@ -58,8 +58,8 @@ public class Gen : Any
         this.ExecuteModule(typeof(ListList).Assembly);
         this.ExecuteModule(typeof(Math).Assembly);
         this.ExecuteModule(typeof(Text).Assembly);
-        this.ExecuteModule(typeof(Comp).Assembly);
         this.ExecuteModule(typeof(Event).Assembly);
+        this.ExecuteModule(typeof(Comp).Assembly);
         this.ExecuteModule(typeof(Thread).Assembly);
         this.ExecuteModule(typeof(Stream).Assembly);
         this.ExecuteModule(typeof(Type).Assembly);
@@ -620,7 +620,7 @@ public class Gen : Any
         o = this.ModuleGet(module);
         if (o == null)
         {
-            global::System.Console.Error.Write("ClassGet no module, module name: " + module + "\n");
+            global::System.Console.Error.Write("ClassGet no module, module name: " + module + ", current module: " + this.Module.Name + "\n");
             global::System.Environment.Exit(102);
         }
         Class oa;
