@@ -251,6 +251,8 @@ public class Gen : Any
 
         this.AddBaseList();
 
+        this.AddPartList();
+
 
         return true;
     }
