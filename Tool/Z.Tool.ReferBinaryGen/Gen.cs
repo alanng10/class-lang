@@ -248,6 +248,16 @@ public class Gen : Any
         table.Compare = new StringCompare();
         table.Compare.Init();
         table.Init();
+        
+        this.Module.Class = table;
+
+        if (this.Module.Name == "Avalon.Infra")
+        {
+            this.AddInfraBuiltInTypeList();
+        }
+
+        int start;
+        start = table.Count;
 
         SystemType[] typeArray;
         typeArray = o.GetExportedTypes();
@@ -268,7 +278,7 @@ public class Gen : Any
             SystemType baseType;
             baseType = type.BaseType;
 
-            a.Index = i;
+            a.Index = i + start;
             a.Name = type.Name;
 
             a.Type = type;
@@ -341,9 +351,6 @@ public class Gen : Any
 
             i = i + 1;
         }
-
-
-        this.Module.Class = table;
 
         return true;
     }
@@ -437,6 +444,35 @@ public class Gen : Any
                 }
             }
         }
+        return true;
+    }
+
+    protected virtual bool AddInfraBuiltInTypeList()
+    {
+        this.AddBuiltInType("Bool");
+        this.AddBuiltInType("Int");
+        this.AddBuiltInType("String");
+        return true;
+    }
+
+    protected virtual bool AddBuiltInType(string name)
+    {
+        int index;
+        index = this.Module.Class.Count;
+
+        Class a;
+        a = new Class();
+        a.Init();
+        a.Index = index;
+        a.Name = name;
+
+        ListEntry entry;
+        entry = new ListEntry();
+        entry.Init();
+        entry.Index = a.Name;
+        entry.Value = a;
+
+        this.Module.Class.Add(entry);
         return true;
     }
 

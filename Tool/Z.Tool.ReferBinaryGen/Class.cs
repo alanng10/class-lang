@@ -6,6 +6,8 @@ public class Class : Any
 
     public virtual string Name { get; set; }
 
+    public virtual Module Module { get; set; }
+
     public virtual SystemType Type { get; set; }
 
     public virtual Array Property { get; set; }
