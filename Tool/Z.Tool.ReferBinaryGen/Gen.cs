@@ -270,6 +270,10 @@ public class Gen : Any
 
             this.AddClass(anyType);
 
+            Class aa;
+            aa = (Class)this.Module.Class.Get("Any");
+            aa.Base = aa;
+
             this.AddInfraBuiltInTypeList();
         }
 
