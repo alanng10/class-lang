@@ -10,6 +10,7 @@ public class Gen : Any
         ListList list;
         list = new ListList();
         list.Init();
+        list.Add(typeof(object));
         list.Add(typeof(bool));
         list.Add(typeof(int));
         list.Add(typeof(uint));
@@ -120,7 +121,7 @@ public class Gen : Any
         assembly = null;
 
         bool b;
-        b = this.DotNetBuiltInTypeArray.Contain(type);
+        b = this.IsDotNetBuiltInType(type);
         if (b)
         {
             assembly = typeof(Any).Assembly;
@@ -336,7 +337,11 @@ public class Gen : Any
             assemblyName = (string)iter.Index;
 
             global::System.Console.Write(assemblyName + "\n");
-
+            if (assemblyName.StartsWith("System."))
+            {
+                global::System.Console.Error.Write("Is DotNet BCL\n");
+            }
+            
             Table table;
             table = (Table)iter.Value;
 
@@ -351,6 +356,29 @@ public class Gen : Any
             }
         }
         return true;
+    }
+
+    protected bool IsDotNetBuiltInType(SystemType type)
+    {
+        Array array;
+        array = this.DotNetBuiltInTypeArray;
+        int count;
+        count = array.Count;
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            SystemType a;
+            a = (SystemType)array.Get(i);
+
+            if (a == type)
+            {
+                return true;
+            }
+
+            i = i + 1;
+        }
+        return false;
     }
 
     protected virtual string CountString(MethodInfo method)
