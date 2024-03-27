@@ -534,9 +534,9 @@ public class Gen : Any
         Array fieldArray;
         fieldArray = this.ListInfra.ArrayCreateList(fieldList);
 
-        ListList methodList;
-        methodList = new ListList();
-        methodList.Init();
+        ListList maideList;
+        maideList = new ListList();
+        maideList.Init();
 
         count = methodArrayA.Length;
         i = 0;
@@ -547,17 +547,52 @@ public class Gen : Any
 
             if (!method.IsSpecialName & this.IsInAbstract(method) & !((type == typeof(EntryEntry)) & (method.Name == "ArgSet")))
             {
-                methodList.Add(method);
+                Maide maide;
+                maide = new Maide();
+                maide.Init();
+                maide.Name = method.Name;
+                maide.Class = this.ClassGetType(method.ReturnType);
+                maide.Count = this.CountGet(method);
+                maide.Method = method;
+
+                ParameterInfo[] parameterArray;
+                parameterArray = method.GetParameters();
+                int countA;
+                countA = parameterArray.Length;
+
+                Array varArray;
+                varArray = this.ListInfra.ArrayCreate(countA);
+
+                int iA;
+                iA = 0;
+                while (iA < countA)
+                {
+                    ParameterInfo parameter;
+                    parameter = parameterArray[iA];
+                    Var varVar;
+                    varVar = new Var();
+                    varVar.Init();
+                    varVar.Name = parameter.Name;
+                    varVar.Class = this.ClassGetType(parameter.ParameterType);
+                    varVar.Parameter = parameter;
+
+                    varArray.Set(iA, varVar);
+
+                    iA = iA + 1;
+                }
+                maide.Param = varArray;
+
+                maideList.Add(method);
             }
 
             i = i + 1;
         }
 
-        Array methodArray;
-        methodArray = this.ListInfra.ArrayCreateList(methodList);
+        Array maideArray;
+        maideArray = this.ListInfra.ArrayCreateList(maideList);
 
         varClass.Field = fieldArray;
-        varClass.Maide = methodArray;
+        varClass.Maide = maideArray;
 
         return true;
     }

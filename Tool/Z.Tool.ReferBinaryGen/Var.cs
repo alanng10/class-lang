@@ -6,5 +6,5 @@ class Var : Any
 
     public virtual Class Class { get; set; }
 
-    public virtual ParameterInfo ParameterInfo { get; set; }
+    public virtual ParameterInfo Parameter { get; set; }
 }
