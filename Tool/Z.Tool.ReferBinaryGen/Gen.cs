@@ -116,7 +116,11 @@ public class Gen : Any
             Class a;
             a = (Class)iter.Value;
             
-            //this.AddTypeToImportTable(baseType);
+            if (!(a.Type == null))
+            {
+                this.AddTypeToImportTable(a.Type.BaseType);
+            }
+            
 
             int countA;
             int iA;
