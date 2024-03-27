@@ -192,9 +192,9 @@ public class Gen : Any
         Table table;
         table = this.Module.Import;
         
-        string assemblyName;
-        assemblyName = assembly.GetName().Name;
-        if (!table.Contain(assemblyName))
+        string moduleName;
+        moduleName = assembly.GetName().Name;
+        if (!table.Contain(moduleName))
         {
             Table typeTable;
             typeTable = new Table();
@@ -205,12 +205,12 @@ public class Gen : Any
             ListEntry oa;
             oa = new ListEntry();
             oa.Init();
-            oa.Index = assemblyName;
+            oa.Index = moduleName;
             oa.Value = typeTable;
             table.Add(oa);
         }
         Table oo;
-        oo = (Table)table.Get(assemblyName);
+        oo = (Table)table.Get(moduleName);
 
         string name;
         name = null;
