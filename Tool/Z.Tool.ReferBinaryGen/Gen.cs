@@ -6,6 +6,24 @@ public class Gen : Any
     {
         base.Init();
         this.ListInfra = ListInfra.This;
+
+        ListList list;
+        list = new ListList();
+        list.Init();
+        list.Add(typeof(bool));
+        list.Add(typeof(int));
+        list.Add(typeof(uint));
+        list.Add(typeof(long));
+        list.Add(typeof(ulong));
+        list.Add(typeof(short));
+        list.Add(typeof(ushort));
+        list.Add(typeof(byte));
+        list.Add(typeof(sbyte));
+        list.Add(typeof(char));
+        list.Add(typeof(string));
+
+        this.DotNetBuiltInTypeArray = this.ListInfra.ArrayCreateList(list);
+
         return true;
     }
 
@@ -14,6 +32,7 @@ public class Gen : Any
     protected virtual Assembly Assembly { get; set; }
     protected virtual Array DotNetTypeArray { get; set; }
     protected virtual Table Import { get; set; }
+    protected virtual Array DotNetBuiltInTypeArray { get; set; }
 
     public virtual int Execute()
     {
@@ -97,7 +116,21 @@ public class Gen : Any
 
     protected virtual bool AddTypeToImportTable(SystemType type)
     {
-        if (type.Assembly == this.Assembly)
+        Assembly assembly;
+        assembly = null;
+
+        bool b;
+        b = this.DotNetBuiltInTypeArray.Contain(type);
+        if (b)
+        {
+            assembly = typeof(Any).Assembly;
+        }
+        if (!b)
+        {
+            assembly = type.Assembly;
+        }
+
+        if (assembly == this.Assembly)
         {
             return true;
         }
@@ -106,7 +139,7 @@ public class Gen : Any
         table = this.Import;
         
         string assemblyName;
-        assemblyName = type.Assembly.GetName().Name;
+        assemblyName = assembly.GetName().Name;
         if (!table.Contain(assemblyName))
         {
             Table typeTable;
