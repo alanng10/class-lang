@@ -96,12 +96,7 @@ public class Gen : Any
         module.Any = assembly;
         this.Module = module;
 
-        ListEntry entry;
-        entry = new ListEntry();
-        entry.Init();
-        entry.Index = module.Ref.Name;
-        entry.Value = module;
-        this.ModuleTable.Add(entry);
+        this.TableAdd(this.ModuleTable, module.Ref.Name, module);
 
         this.IsAvalonInfra = (this.Module.Ref.Name == "Avalon.Infra");
 
@@ -662,13 +657,7 @@ public class Gen : Any
         a.Name = name;
         a.Module = this.Module;
 
-        ListEntry entry;
-        entry = new ListEntry();
-        entry.Init();
-        entry.Index = a.Name;
-        entry.Value = a;
-
-        this.Module.Class.Add(entry);
+        this.TableAdd(this.Module.Class, a.Name, a);
         return true;
     }
 
@@ -695,12 +684,7 @@ public class Gen : Any
 
     protected virtual bool AddDotNetBuiltInType(SystemType type, string name)
     {
-        ListEntry entry;
-        entry = new ListEntry();
-        entry.Init();
-        entry.Index = type;
-        entry.Value = name;
-        this.DotNetBuiltInTypeTable.Add(entry);
+        this.TableAdd(this.DotNetBuiltInTypeTable, type, name);
         return true;
     }
 
