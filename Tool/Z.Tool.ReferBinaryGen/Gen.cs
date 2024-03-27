@@ -437,7 +437,7 @@ public class Gen : Any
                 if (!oa.StartsWith("Avalon."))
                 {
                     global::System.Console.Error.Write("Import module is not Avalon Module\n");
-                    global::System.Environment.Exit(102);
+                    global::System.Environment.Exit(101);
                 }
             }
         }
