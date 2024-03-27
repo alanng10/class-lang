@@ -202,6 +202,71 @@ class ReferGen : Any
         return array;
     }
 
+    protected virtual Array ExecutePartArray()
+    {
+        Array array;
+        array = this.ListInfra.ArrayCreate(this.Module.Class.Count);
+
+        Iter iter;
+        iter = this.Module.Class.IterCreate();
+        this.Module.Class.IterSet(iter);
+
+        int count;
+        count = array.Count;
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            iter.Next();
+            ClassClass oa;
+            oa = (ClassClass)iter.Value;
+
+            ReferPart a;
+            a = new ReferPart();
+            a.Init();
+            a.Field = this.ExecuteFieldArray(oa);
+            a.Maide = this.ExecuteMaideArray(oa);
+
+            array.Set(i, a);
+            i = i + 1;
+        }
+
+        return array;
+    }
+
+    protected virtual Array ExecuteFieldArray(ClassClass varClass)
+    {
+        Array array;
+        array = this.ListInfra.ArrayCreate(varClass.Field.Count);
+
+        Iter iter;
+        iter = varClass.Field.IterCreate();
+        varClass.Field.IterSet(iter);
+
+        int count;
+        count = array.Count;
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            iter.Next();
+            Field oa;
+            oa = (Field)iter.Value;
+
+            ReferField a;
+            a = new ReferField();
+            a.Init();
+            a.Class = this.ClassIndexGet(oa.Class);
+            a.Count = oa.Count.Index;
+            a.Name = oa.Name;
+
+            array.Set(i, a);
+            i = i + 1;
+        }
+        
+        return array;
+    }
+
     protected virtual bool ClassIndexAdd(ClassClass varClass)
     {
         ClassIndex a;
