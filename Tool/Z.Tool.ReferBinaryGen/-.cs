@@ -35,6 +35,7 @@ global using Var = Class.Infra.Var;
 global using Count = Class.Infra.Count;
 global using CountList = Class.Infra.CountList;
 global using Refer = Class.Refer.Refer;
+global using ReferClass = Class.Refer.Class;
 global using SystemType = System.Type;
 global using PropertyInfo = System.Reflection.PropertyInfo;
 global using MethodInfo = System.Reflection.MethodInfo;
