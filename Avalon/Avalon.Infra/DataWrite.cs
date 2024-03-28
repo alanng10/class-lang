@@ -21,7 +21,7 @@ public class DataWrite : Any
     {
         ulong o;
         o = (ulong)value;
-        this.ExecuteByteList(index, this.InfraInfra.MidByteCount, o);
+        this.ExecuteByteList(index, sizeof(int), o);
         return true;
     }
 
@@ -29,7 +29,7 @@ public class DataWrite : Any
     {
         ulong o;
         o = (ulong)value;
-        this.ExecuteByteList(index, this.InfraInfra.IntByteCount, o);
+        this.ExecuteByteList(index, sizeof(long), o);
         return true;
     }
 
@@ -37,7 +37,7 @@ public class DataWrite : Any
     {
         ulong o;
         o = (ulong)value;
-        this.ExecuteByteList(index, this.InfraInfra.ShortByteCount, o);
+        this.ExecuteByteList(index, sizeof(short), o);
         return true;
     }
 
