@@ -1,7 +1,5 @@
 namespace ClassExe;
 
-
-
 class Entry
 {
     [STAThread]
