@@ -7,8 +7,8 @@ class Entry
     {
         ClassEntry entry;
         entry = new ClassEntry();
-        entry.Init();
         entry.ArgSet(arg);
+        entry.Init();
         int o;
         o = entry.Execute();
         return o;
