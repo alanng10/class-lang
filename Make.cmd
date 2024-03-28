@@ -14,4 +14,4 @@ echo Make Class
 call Script\Class\MakeModule
 echo Make Ref
 call Script\Tool\Make ReferBinaryGen
-Call Script\Tool\Execute ReferBinaryGen
+call Script\Tool\Execute ReferBinaryGen
