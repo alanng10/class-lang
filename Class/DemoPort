@@ -1,5 +1,8 @@
 Demo.AaaBbb.GLa:1.0.0
 
+Entry
+Fa
+
 Import
 System.Infra
     Any Any
@@ -18,6 +21,3 @@ Lo
 Storage
 "Data/Ff/ff.txt" "../../O.txt"
 "G/H" "../../K"
-
-Entry
-Lo
