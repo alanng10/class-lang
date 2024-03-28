@@ -266,15 +266,15 @@ class Demo : Any
 
     private bool ExecuteConsole()
     {
-        this.Console.Write("Console 水中\n");
-        this.Console.Write("Input a: ");
+        this.Console.Out.Write("Console 水中\n");
+        this.Console.Out.Write("Input a: ");
         string a;
-        a = this.Console.Read();
-        this.Console.Write("a: " + a + "\n");
-        this.Console.Write("Input aa: ");
+        a = this.Console.In.Read();
+        this.Console.Out.Write("a: " + a + "\n");
+        this.Console.Out.Write("Input aa: ");
         string aa;
-        aa = this.Console.Read();
-        this.Console.Write("aa: " + aa + "\n");
+        aa = this.Console.In.Read();
+        this.Console.Out.Write("aa: " + aa + "\n");
         return true;
     }
 
@@ -358,7 +358,7 @@ class Demo : Any
     {
         this.Math.Compose(this.MathCompose, value);
         
-        this.Console.Write(prefix +
+        this.Console.Out.Write(prefix +
         "Significand: " + this.MathCompose.Significand.ToString("x") + ", " +
         "Exponent: " + this.MathCompose.Exponent +
         "\n");
@@ -502,7 +502,7 @@ class Demo : Any
         string a;
         a = this.TextInfra.StringCreate(text);
 
-        this.Console.Write(a);
+        this.Console.Out.Write(a);
 
         format.Final();
         argList.Final();
@@ -543,7 +543,7 @@ class Demo : Any
 
     private bool ConsoleWriteTime(string prefix, Time time)
     {
-        this.Console.Write(prefix +
+        this.Console.Out.Write(prefix +
         "year: " + time.Year + ", " +
         "month: " + time.Month + ", " +
         "day: " + time.Day + ", " +
@@ -563,9 +563,9 @@ class Demo : Any
         infra = StorageInfra.This;
         string k;
         k = infra.TextRead("DemoData/Demo.txt");
-        this.Console.Write("Demo.txt text: \n");
-        this.Console.Write(k);
-        this.Console.Write("\n");
+        this.Console.Out.Write("Demo.txt text: \n");
+        this.Console.Out.Write(k);
+        this.Console.Out.Write("\n");
 
         string ou;
         ou = "Demo2.txt";
@@ -577,7 +577,7 @@ class Demo : Any
         ba = infra.TextWrite(ou, "DEMO STORAGE WRITE AAA BBB");
         if (!ba)
         {
-            this.Console.Write("Write " + ou + " 1 Error\n");
+            this.Console.Out.Write("Write " + ou + " 1 Error\n");
             b = true;
         }
 
@@ -587,7 +587,7 @@ class Demo : Any
             bb = infra.TextWrite(ou, "DEMO STORAGE WRITE 2 AAA");
             if (!bb)
             {
-                this.Console.Write("Write " + ou + " 2 Error\n");
+                this.Console.Out.Write("Write " + ou + " 2 Error\n");
                 b = true;
             }
         }
@@ -596,9 +596,9 @@ class Demo : Any
         {
             k = infra.TextRead(ou);
 
-            this.Console.Write(ou + " text: \n");
-            this.Console.Write(k);
-            this.Console.Write("\n");
+            this.Console.Out.Write(ou + " text: \n");
+            this.Console.Out.Write(k);
+            this.Console.Out.Write("\n");
         }
 
         string oua;
@@ -611,7 +611,7 @@ class Demo : Any
         baa = infra.TextWrite(oua, "DEMO STORAGE WRITE DEMO ABCD");
         if (!baa)
         {
-            this.Console.Write("Write " + oua + " 1 Error\n");
+            this.Console.Out.Write("Write " + oua + " 1 Error\n");
             bo = true;
         }
         if (baa)
@@ -622,16 +622,16 @@ class Demo : Any
             bab = this.WriteStringPos(oua, ka, 19);
             if (!bab)
             {
-                this.Console.Write("Write " + oua + " 2 Error\n");
+                this.Console.Out.Write("Write " + oua + " 2 Error\n");
                 bo = true;
             }
         }
         if (!bo)
         {
             k = infra.TextRead(oua);
-            this.Console.Write(oua + " text: \n");
-            this.Console.Write(k);
-            this.Console.Write("\n");
+            this.Console.Out.Write(oua + " text: \n");
+            this.Console.Out.Write(k);
+            this.Console.Out.Write("\n");
         }
 
         string oub;
@@ -643,7 +643,7 @@ class Demo : Any
         bac = infra.TextWrite(oub, "Demo Storage Set Count aaaadda");
         if (!bac)
         {
-            this.Console.Write("Write " + oub + " Error\n");
+            this.Console.Out.Write("Write " + oub + " Error\n");
             bo = true;
         }
         if (bac)
@@ -652,16 +652,16 @@ class Demo : Any
             bd = infra.CountSet(oub, 22);
             if (!bd)
             {
-                this.Console.Write("Set Count " + oub + " Error\n");
+                this.Console.Out.Write("Set Count " + oub + " Error\n");
                 bo = true;
             }
         }
         if (!bo)
         {
             k = infra.TextRead(oub);
-            this.Console.Write(oub + " text: \n");
-            this.Console.Write(k);
-            this.Console.Write("\n");
+            this.Console.Out.Write(oub + " text: \n");
+            this.Console.Out.Write(k);
+            this.Console.Out.Write("\n");
         }
         return true;
     }
@@ -735,7 +735,7 @@ class Demo : Any
             k = "Error";
         }
 
-        this.Console.Write("Copy " + path + " " + k + "\n");
+        this.Console.Out.Write("Copy " + path + " " + k + "\n");
 
         string pathA;        
         pathA = "DemoData/DemoRename.txt";
@@ -750,7 +750,7 @@ class Demo : Any
         {
             k = "Error";
         }
-        this.Console.Write("Rename " + pathA + " " + k + "\n");
+        this.Console.Out.Write("Rename " + pathA + " " + k + "\n");
 
         File.Move(destPathA, pathA);
 
@@ -796,13 +796,13 @@ class Demo : Any
 
         phore.Acquire();
 
-        this.Console.Write("Demo.ExecuteDemoThread phore Acquire Success\n");
+        this.Console.Out.Write("Demo.ExecuteDemoThread phore Acquire Success\n");
 
         thread.Wait();
 
         int aa;
         aa = thread.Status;
-        this.Console.Write("Demo.ExecuteDemoThread Thread Status: 0h" + aa.ToString("x8") + "\n");
+        this.Console.Out.Write("Demo.ExecuteDemoThread Thread Status: 0h" + aa.ToString("x8") + "\n");
 
         thread.Final();
 
@@ -822,7 +822,7 @@ class Demo : Any
         bool isMainThread;
         isMainThread = thread.MainThread;
 
-        this.Console.Write("Current Thread is Main Thread: " + isMainThread.ToString() + "\n");
+        this.Console.Out.Write("Current Thread is Main Thread: " + isMainThread.ToString() + "\n");
         return true;
     }
 
@@ -858,7 +858,7 @@ class Demo : Any
 
         thread.Final();
 
-        this.Console.Write("Demo.ExecuteInterval Thread Status: 0h" + o.ToString("x8") + "\n");
+        this.Console.Out.Write("Demo.ExecuteInterval Thread Status: 0h" + o.ToString("x8") + "\n");
         return true;
     }
 
@@ -897,7 +897,7 @@ class Demo : Any
 
         phore.Final();
 
-        this.Console.Write("Demo.ExecuteDemoPost Thread Status: 0h" + o.ToString("x8") + "\n");
+        this.Console.Out.Write("Demo.ExecuteDemoPost Thread Status: 0h" + o.ToString("x8") + "\n");
         return true;
     }
 
