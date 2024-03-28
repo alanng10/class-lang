@@ -2,6 +2,18 @@ namespace Avalon.Console;
 
 public class Console : Any
 {
+    public static Console This { get; } = ShareCreate();
+
+    private static Console ShareCreate()
+    {
+        Console share;
+        share = new Console();
+        Any a;
+        a = share;
+        a.Init();
+        return share;
+    }
+
     public override bool Init()
     {
         base.Init();
