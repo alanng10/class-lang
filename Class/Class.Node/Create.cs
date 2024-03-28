@@ -425,7 +425,7 @@ public class Create : InfraCreate
     protected virtual Data TextDataCreate(int count)
     {
         int o;
-        o = count * this.InfraInfra.ShortByteCount;
+        o = count * sizeof(short);
         Data a;
         a = new Data();
         a.Count = o;
