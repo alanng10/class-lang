@@ -11,4 +11,6 @@ public class Refer : Any
     public virtual Array Base { get; set; }
 
     public virtual Array Part { get; set; }
+
+    public virtual int Entry { get; set; }
 }
