@@ -1,7 +1,7 @@
 @echo off
 
-echo Make Module
+echo Make Test
 echo:
-pushd Class\ClassExe
+pushd Class\ClassTestExe
 dotnet build -v quiet
 popd
