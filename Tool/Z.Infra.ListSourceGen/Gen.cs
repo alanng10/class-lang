@@ -17,7 +17,7 @@ public class Gen : Any
 
 
 
-        this.ClassFileName = "Class.txt";
+        this.ClassFileName = "DClass.txt";
 
 
         this.InitMethodFileName = "InitMethod.txt";
