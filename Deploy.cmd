@@ -11,6 +11,8 @@ copy /Y %DotNetModuleOutFold%\Avalon.*.ref %DeployFold% 1>NUL 2>NUL
 copy /Y %DotNetModuleOutFold%\Class.*.dll %DeployFold% 1>NUL 2>NUL
 copy /Y %DotNetModuleOutFold%\Class.*.ref %DeployFold% 1>NUL 2>NUL
 copy /Y %DotNetModuleOutFold%\ClassExe.dll %DeployFold% 1>NUL 2>NUL
+copy /Y %DotNetModuleOutFold%\ClassExe.deps.json %DeployFold% 1>NUL 2>NUL
+copy /Y %DotNetModuleOutFold%\ClassExe.runtimeconfig.json %DeployFold% 1>NUL 2>NUL
 copy /Y %DotNetModuleOutFold%\Class.exe %DeployFold% 1>NUL 2>NUL
 
 pushd %DotNetModuleOutFold%
