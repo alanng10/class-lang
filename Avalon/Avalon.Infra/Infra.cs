@@ -88,21 +88,12 @@ public class Infra : Any
         return true;
     }
 
-    public virtual char CharGet(Data data, int start, int index)
+    public virtual char CharGet(Data data, int index)
     {
-        int oa;
-        oa = this.ShortByteCount;
-
-        int oo;
-        oo = index * oa;
-
-        int ood;
-        ood = start + oo;
-
         int oaa;
-        oaa = data.Get(ood);
         int oab;
-        oab = data.Get(ood + 1);
+        oaa = data.Get(index);
+        oab = data.Get(index + 1);
         int o;
         o = oaa;
         o = o | (oab << 8);
@@ -113,17 +104,8 @@ public class Infra : Any
         return oc;
     }
 
-    public virtual bool CharSet(Data data, int start, int index, char value)
+    public virtual bool CharSet(Data data, int index, char value)
     {
-        int oa;
-        oa = this.ShortByteCount;
-
-        int oo;
-        oo = index * oa;
-
-        int ood;
-        ood = start + oo;
-
         int ob;
         ob = (int)value;
 
@@ -132,8 +114,8 @@ public class Infra : Any
         oaa = ob & 0xff;
         oab = (ob >> 8) & 0xff;
 
-        data.Set(ood, oaa);
-        data.Set(ood + 1, oab);
+        data.Set(index, oaa);
+        data.Set(index + 1, oab);
         return true;
     }
 
