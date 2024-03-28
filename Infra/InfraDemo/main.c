@@ -2359,7 +2359,7 @@ int main(int argc, char* argv[])
 
     Int soundUrlString;
 
-    soundUrlString = String_ConstantCreate(CastInt("file:../DemoSound.wav"));
+    soundUrlString = String_ConstantCreate(CastInt("file:../../DemoSound.wav"));
 
 
 
