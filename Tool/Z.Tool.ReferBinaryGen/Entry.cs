@@ -13,6 +13,7 @@ class Entry : EntryEntry
         return o;
     }
 
+    [STAThread]
     static int Main()
     {
         Entry entry;

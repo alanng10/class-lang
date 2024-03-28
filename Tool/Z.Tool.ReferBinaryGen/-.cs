@@ -51,6 +51,7 @@ global using Check = Class.Check.Check;
 global using ModuleResult = Class.Module.Result;
 global using Task = Class.Task;
 global using SystemType = System.Type;
+global using STAThreadAttribute = System.STAThreadAttribute;
 global using PropertyInfo = System.Reflection.PropertyInfo;
 global using MethodInfo = System.Reflection.MethodInfo;
 global using ParameterInfo = System.Reflection.ParameterInfo;
