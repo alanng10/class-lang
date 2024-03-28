@@ -119,7 +119,7 @@ public class Infra : Any
     public virtual Span SpanCreate(int count)
     {
         int oa;
-        oa = this.InfraInfra.ShortByteCount;
+        oa = sizeof(char);
 
         Span span;
         span = new Span();
