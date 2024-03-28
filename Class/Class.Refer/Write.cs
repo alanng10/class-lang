@@ -60,6 +60,7 @@ public class Write : Any
         this.ExecuteImportArray(refer.Import);
         this.ExecuteBaseArray(refer.Base);
         this.ExecutePartArray(refer.Part);
+        this.ExecuteEntry(refer.Entry);
         return true;
     }
 
@@ -255,6 +256,12 @@ public class Write : Any
         this.ExecuteIndex(varVar.Class);
         this.ExecuteSystemClass(varVar.SystemClass);
         this.ExecuteName(varVar.Name);
+        return true;
+    }
+
+    protected virtual bool ExecuteEntry(int entry)
+    {
+        this.ExecuteIndex(entry);
         return true;
     }
 
