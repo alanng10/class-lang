@@ -1,23 +1,24 @@
 @echo off
 
+call Script\CleanDeploy
+
 set DotNetModuleOutFold=.\Out\net6.0
-set DeployFold=.\Out\Deploy
+set DeployFold=.\Out\Class
+set DeployModuleFold=%DeployFold%\Module
+mkdir %DeployModuleFold% 1>NUL 2>NUL
 
-rmdir /S /Q %DeployFold% 2>NUL
-mkdir %DeployFold% 1>NUL 2>NUL
-
-copy /Y %DotNetModuleOutFold%\Avalon.*.dll %DeployFold% 1>NUL 2>NUL
-copy /Y %DotNetModuleOutFold%\Avalon.*.ref %DeployFold% 1>NUL 2>NUL
-copy /Y %DotNetModuleOutFold%\Class.*.dll %DeployFold% 1>NUL 2>NUL
-copy /Y %DotNetModuleOutFold%\Class.*.ref %DeployFold% 1>NUL 2>NUL
-copy /Y %DotNetModuleOutFold%\ClassExe.dll %DeployFold% 1>NUL 2>NUL
-copy /Y %DotNetModuleOutFold%\ClassExe.deps.json %DeployFold% 1>NUL 2>NUL
-copy /Y %DotNetModuleOutFold%\ClassExe.runtimeconfig.json %DeployFold% 1>NUL 2>NUL
-copy /Y %DotNetModuleOutFold%\Class.exe %DeployFold% 1>NUL 2>NUL
+copy /Y %DotNetModuleOutFold%\Avalon.*.dll %DeployModuleFold% 1>NUL 2>NUL
+copy /Y %DotNetModuleOutFold%\Avalon.*.ref %DeployModuleFold% 1>NUL 2>NUL
+copy /Y %DotNetModuleOutFold%\Class.*.dll %DeployModuleFold% 1>NUL 2>NUL
+copy /Y %DotNetModuleOutFold%\Class.*.ref %DeployModuleFold% 1>NUL 2>NUL
+copy /Y %DotNetModuleOutFold%\ClassExe.dll %DeployModuleFold% 1>NUL 2>NUL
+copy /Y %DotNetModuleOutFold%\ClassExe.deps.json %DeployModuleFold% 1>NUL 2>NUL
+copy /Y %DotNetModuleOutFold%\ClassExe.runtimeconfig.json %DeployModuleFold% 1>NUL 2>NUL
+copy /Y %DotNetModuleOutFold%\Class.exe %DeployModuleFold% 1>NUL 2>NUL
 
 pushd %DotNetModuleOutFold%
 for /d %%a in ("*.-") do ( 
-    mkdir "..\..\%DeployFold%\%%~nxa" 1>NUL 2>NUL
-    xcopy /S /E ".\%%~nxa" "..\..\%DeployFold%\%%~nxa" 1>NUL 2>NUL
+    mkdir "..\..\%DeployModuleFold%\%%~nxa" 1>NUL 2>NUL
+    xcopy /S /E ".\%%~nxa" "..\..\%DeployModuleFold%\%%~nxa" 1>NUL 2>NUL
 )
 popd
