@@ -10,3 +10,5 @@ echo:
 echo Make Avalon
 call Script\Avalon\MakeModule
 echo:
+echo Make Class
+call Script\Class\MakeModule
