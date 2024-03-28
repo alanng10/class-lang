@@ -10,3 +10,4 @@ global using State = Avalon.Infra.State;
 global using ListList = Avalon.List.List;
 global using Table = Avalon.List.Table;
 global using Iter = Avalon.List.Iter;
+global using StringBuilder = System.Text.StringBuilder;
