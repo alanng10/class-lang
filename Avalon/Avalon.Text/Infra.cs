@@ -61,7 +61,7 @@ public class Infra : Any
         {
             return (char)0;
         }
-        return this.InfraInfra.CharGet(line.Data, 0, index);
+        return this.CharGet(line.Data, index);
     }
 
     public virtual bool Equal(Text text, Range range, string o)
@@ -95,7 +95,7 @@ public class Infra : Any
         {
             index = col.Index + i;
 
-            oca = this.InfraInfra.CharGet(line.Data, 0, index);
+            oca = this.CharGet(line.Data, index);
             ocb = o[i];
             if (!(oca == ocb))
             {
