@@ -12,6 +12,6 @@ call Script\Avalon\MakeModule
 echo:
 echo Make Class
 call Script\Class\MakeModule
-echo Make Ref
+echo Make Refer
 call Script\Tool\Make ReferBinaryGen
 call Script\Tool\Execute ReferBinaryGen
