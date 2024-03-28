@@ -106,6 +106,16 @@ public class Infra : Any
         return true;
     }
 
+    public virtual char CharGet(Data data, int index)
+    {
+        return this.InfraInfra.CharGet(data, 0, index);
+    }
+
+    public virtual bool CharSet(Data data, int index, char value)
+    {
+        return this.InfraInfra.CharSet(data, 0, index, value);
+    }
+
     public virtual Span SpanCreate(int count)
     {
         int oa;
