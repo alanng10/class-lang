@@ -259,7 +259,7 @@ public class Grid : View
         count = this.Col.Count + this.Row.Count;
 
         int oa;
-        oa = count * this.InfraInfra.MidByteCount;
+        oa = count * sizeof(int);
         long oo;
         oo = this.ChildPosList.Count;
         int ob;
@@ -545,6 +545,6 @@ public class Grid : View
 
     protected virtual int IntByteIndex(int index)
     {
-        return index * this.InfraInfra.MidByteCount;
+        return index * sizeof(int);
     }
 }
