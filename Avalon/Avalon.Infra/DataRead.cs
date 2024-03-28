@@ -20,7 +20,7 @@ public class DataRead : Any
     public virtual int ExecuteMid(long index)
     {
         ulong o;
-        o = this.ExecuteByteList(index, this.InfraInfra.MidByteCount);
+        o = this.ExecuteByteList(index, sizeof(int));
         int a;
         a = (int)o;
         return a;
@@ -29,7 +29,7 @@ public class DataRead : Any
     public virtual long ExecuteInt(long index)
     {
         ulong o;
-        o = this.ExecuteByteList(index, this.InfraInfra.IntByteCount);
+        o = this.ExecuteByteList(index, sizeof(long));
         long a;
         a = (long)o;
         return a;
@@ -38,7 +38,7 @@ public class DataRead : Any
     public virtual short ExecuteShort(long index)
     {
         ulong o;
-        o = this.ExecuteByteList(index, this.InfraInfra.ShortByteCount);
+        o = this.ExecuteByteList(index, sizeof(short));
         short a;
         a = (short)o;
         return a;
