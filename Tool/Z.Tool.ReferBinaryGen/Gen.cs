@@ -97,7 +97,7 @@ public class Gen : Any
         this.ExecuteModule(typeof(ModuleResult).Assembly);
         this.ExecuteModule(typeof(Task).Assembly);
 
-        this.ConsoleWrite();
+        //this.ConsoleWrite();
 
         ReferGen referGen;
         referGen = new ReferGen();
