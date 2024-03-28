@@ -34,7 +34,7 @@ public class SetWriteOperate : WriteOperate
         Data data;
         data = this.Write.Data;
         int count;
-        count = this.InfraInfra.MidByteCount;
+        count = sizeof(long);
         this.DataWrite.Data = data;
         this.DataWrite.ExecuteInt(index, value);
         this.DataWrite.Data = null;
