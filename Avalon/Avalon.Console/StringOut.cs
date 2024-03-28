@@ -9,7 +9,7 @@ public class StringOut : Out
         return true;
     }
 
-    protected virtual StringBuilder Sb { get; set; }
+    private StringBuilder Sb { get; set; }
 
     public override bool Write(string o)
     {
