@@ -461,7 +461,7 @@ public class Create : InfraCreate
 
                 char c;
 
-                c = this.TextInfra.CharGet(data, col);
+                c = this.InfraInfra.CharGet(data, 0, col);
 
 
 
@@ -560,7 +560,7 @@ public class Create : InfraCreate
 
                     while (!b & cc < colCount)
                     {
-                        oc = this.TextInfra.CharGet(data, cc);
+                        oc = this.InfraInfra.CharGet(data, 0, cc);
 
 
 
