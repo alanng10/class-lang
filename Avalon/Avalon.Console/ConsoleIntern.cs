@@ -1,19 +1,7 @@
 namespace Avalon.Console;
 
-class Console : Any
+class ConsoleIntern : Any
 {
-    public static Console This { get; } = ShareCreate();
-
-    private static Console ShareCreate()
-    {
-        Console share;
-        share = new Console();
-        Any a;
-        a = share;
-        a.Init();
-        return share;
-    }
-
     public override bool Init()
     {
         base.Init();
@@ -41,7 +29,24 @@ class Console : Any
     private ulong Intern { get; set; }
     private ulong InternReturn { get; set; }
 
-    public virtual bool Write(string a)
+
+    public virtual bool Write(int stream, string a)
+    {
+        bool b;
+        b = (stream == 0);
+        if (b)
+        {
+            this.OutWrite(a);
+        }
+        if (!b)
+        {
+            this.ErrWrite(a);
+        }
+        return true;
+    }
+
+
+    public virtual bool OutWrite(string a)
     {
         ulong uo;
         uo = this.InternInfra.StringCreate(a);
