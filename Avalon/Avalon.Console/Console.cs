@@ -1,6 +1,6 @@
 namespace Avalon.Console;
 
-public class Console : Any
+class Console : Any
 {
     public static Console This { get; } = ShareCreate();
 
