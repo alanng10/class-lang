@@ -54,7 +54,7 @@ public class StringValueWrite : Any
         int count;
         count = this.Index;
         this.Data = new Data();
-        this.Data.Count = count * this.InfraInfra.ShortByteCount;
+        this.Data.Count = count * sizeof(short);
         this.Data.Init();
 
         this.WriteOperate = this.AddWriteOperate;
@@ -280,7 +280,7 @@ public class StringValueWrite : Any
     protected virtual char CharRead(int index)
     {
         int oa;
-        oa = this.InfraInfra.ShortByteCount;
+        oa = sizeof(short);
         long dataIndex;
         dataIndex = index * oa;
         short oo;
