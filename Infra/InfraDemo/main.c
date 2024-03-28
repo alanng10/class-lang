@@ -1752,7 +1752,7 @@ int main(int argc, char* argv[])
     Int imagePath;
 
 
-    imagePath = String_ConstantCreate(CastInt("../../MyDocuments.png"));
+    imagePath = String_ConstantCreate(CastInt("../../DemoImage.png"));
 
 
 
