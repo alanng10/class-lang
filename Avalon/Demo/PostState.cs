@@ -14,7 +14,7 @@ public class PostState : State
 
         Console console;
         console = Console.This;
-        console.Write("PostState.Execute Aaa\n");
+        console.Out.Write("PostState.Execute Aaa\n");
         return true;
     }
 }

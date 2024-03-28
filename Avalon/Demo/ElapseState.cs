@@ -13,11 +13,11 @@ class ElapseState : State
     {
         Console console;
         console = Console.This;
-        console.Write("ElapseState.Execute START\n");
+        console.Out.Write("ElapseState.Execute START\n");
 
         this.Count = this.Count + 1;
 
-        console.Write("Elapse Count: " + this.Count + "\n");
+        console.Out.Write("Elapse Count: " + this.Count + "\n");
          
         if (!(this.Count < this.ElapseCount))
         {
@@ -25,13 +25,13 @@ class ElapseState : State
             {
                 this.Interval.Stop();
 
-                console.Write("ElapseState.Execute Interval Stop\n");
+                console.Out.Write("ElapseState.Execute Interval Stop\n");
             }
 
             this.Thread.ExitEventLoop(this.ExitCode);
         }
 
-        console.Write("ElapseState.Execute END\n");
+        console.Out.Write("ElapseState.Execute END\n");
 
         return true;
     }

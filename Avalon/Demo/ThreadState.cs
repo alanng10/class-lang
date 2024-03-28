@@ -10,7 +10,7 @@ class ThreadState : ThreadExecuteState
     {
         Console console;
         console = Console.This;
-        console.Write("ThreadState.Execute START\n");
+        console.Out.Write("ThreadState.Execute START\n");
 
         this.Demo.ExecuteDemoCurrentThread();
 
@@ -19,7 +19,7 @@ class ThreadState : ThreadExecuteState
 
         string a;
         a = infra.TextRead("DemoData/ThreadRead.txt");
-        console.Write("ThreadRead.txt text: \n" + a + "\n");
+        console.Out.Write("ThreadRead.txt text: \n" + a + "\n");
 
         string writeFilePath;
         writeFilePath = "DemoData/ThreadWrite.txt";
@@ -29,23 +29,23 @@ class ThreadState : ThreadExecuteState
         b = infra.TextWrite(writeFilePath, "阿 了 水 GR 8 &\nEu #@ ?\n卡");
         if (!b)
         {
-            console.Write("ThreadWrite.txt write error\n");
+            console.Out.Write("ThreadWrite.txt write error\n");
         }
         if (b)
         {
             a = infra.TextRead(writeFilePath);
-            console.Write("ThreadWrite.txt text: \n" + a + "\n");
+            console.Out.Write("ThreadWrite.txt text: \n" + a + "\n");
         }
 
         ThreadCurrent current;
         current = new ThreadCurrent();
         current.Init();
 
-        console.Write("ThreadState.Execute ThreadCurrent Wait START\n");
+        console.Out.Write("ThreadState.Execute ThreadCurrent Wait START\n");
 
         current.Wait(2 * 1000);
 
-        console.Write("ThreadState.Execute ThreadCurrent Wait END\n");
+        console.Out.Write("ThreadState.Execute ThreadCurrent Wait END\n");
 
         this.Phore.Release();
         
@@ -53,7 +53,7 @@ class ThreadState : ThreadExecuteState
 
         this.Result = 0x10000;
 
-        console.Write("ThreadState.Execute END\n");
+        console.Out.Write("ThreadState.Execute END\n");
         return true;
     }
 
