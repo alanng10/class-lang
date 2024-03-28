@@ -90,6 +90,12 @@ public class Gen : Any
         this.ExecuteModule(typeof(EntryEntry).Assembly);
         this.ExecuteModule(typeof(ClassClass).Assembly);
         this.ExecuteModule(typeof(Refer).Assembly);
+        this.ExecuteModule(typeof(Port).Assembly);
+        this.ExecuteModule(typeof(Token).Assembly);
+        this.ExecuteModule(typeof(Node).Assembly);
+        this.ExecuteModule(typeof(Check).Assembly);
+        this.ExecuteModule(typeof(ModuleResult).Assembly);
+        this.ExecuteModule(typeof(Task).Assembly);
 
         this.ConsoleWrite();
 
