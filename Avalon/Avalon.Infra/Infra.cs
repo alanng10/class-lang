@@ -87,4 +87,89 @@ public class Infra : Any
         }
         return true;
     }
+
+    public virtual char CharGet(Data data, int start, int index)
+    {
+        int oa;
+        oa = this.ShortByteCount;
+
+        int oo;
+        oo = index * oa;
+
+        int ood;
+        ood = start + oo;
+
+        int oaa;
+        oaa = data.Get(ood);
+        int oab;
+        oab = data.Get(ood + 1);
+        int o;
+        o = oaa;
+        o = o | (oab << 8);
+        short ob;
+        ob = (short)o;
+        char oc;
+        oc = (char)ob;
+        return oc;
+    }
+
+    public virtual bool CharSet(Data data, int start, int index, char value)
+    {
+        int oa;
+        oa = this.ShortByteCount;
+
+        int oo;
+        oo = index * oa;
+
+        int ood;
+        ood = start + oo;
+
+        int ob;
+        ob = (int)value;
+
+        int oaa;
+        int oab;
+        oaa = ob & 0xff;
+        oab = (ob >> 8) & 0xff;
+
+        data.Set(ood, oaa);
+        data.Set(ood + 1, oab);
+        return true;
+    }
+
+    public virtual Data DataCreateString(string a)
+    {
+        int count;
+        count = a.Length;
+
+        int oa;
+        oa = this.ShortByteCount;
+
+        Data data;
+        data = new Data();
+        data.Count = count * oa;
+        data.Init();
+
+        DataWrite write;
+        write = new DataWrite();
+        write.Init();
+        write.Data = data;
+
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            char oc;
+            oc = a[i];
+            short oo;
+            oo = (short)oc;
+            long index;
+            index = i * oa;
+
+            write.ExecuteShort(index, oo);
+            i = i + 1;
+        }
+
+        return data;
+    }
 }
