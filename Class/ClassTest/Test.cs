@@ -126,7 +126,7 @@ public class Test : Any
 
     private Exception Error { get; set; }
 
-    private StringWriter Writer { get; set; }
+    private StringOut Out { get; set; }
 
     private string OriginalCurrentDirectory { get; set; }
 
@@ -507,8 +507,8 @@ public class Test : Any
 
 
 
-        this.Writer = new StringWriter();
-
+        this.Out = new StringOut();
+        this.Out.Init();
 
 
 
@@ -547,7 +547,7 @@ public class Test : Any
         string actual;
         
 
-        actual = this.Writer.ToString();
+        actual = this.Out.Result();
 
 
 
@@ -801,7 +801,7 @@ public class Test : Any
         }
         task.Source = source;
 
-        task.Out = this.Writer;
+        task.Out = this.Out;
 
         Task ret;
         ret = task;
