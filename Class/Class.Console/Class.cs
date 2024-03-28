@@ -74,7 +74,7 @@ public class Class : Any
 
 
 
-    private TextWriter Out { get; set; }
+    private Out Out { get; set; }
 
 
 
