@@ -7,7 +7,9 @@ rmdir /S /Q %DeployFold% 2>NUL
 mkdir %DeployFold% 1>NUL 2>NUL
 
 copy /Y %DotNetModuleOutFold%\Avalon.*.dll %DeployFold% 1>NUL 2>NUL
+copy /Y %DotNetModuleOutFold%\Avalon.*.ref %DeployFold% 1>NUL 2>NUL
 copy /Y %DotNetModuleOutFold%\Class.*.dll %DeployFold% 1>NUL 2>NUL
+copy /Y %DotNetModuleOutFold%\Class.*.ref %DeployFold% 1>NUL 2>NUL
 
 pushd %DotNetModuleOutFold%
 for /d %%a in ("*.-") do ( 
