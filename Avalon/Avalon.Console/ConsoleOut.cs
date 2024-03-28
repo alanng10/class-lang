@@ -1,6 +1,6 @@
 namespace Avalon.Console;
 
-public class ConsoleOut : Out
+class ConsoleOut : Out
 {
     internal virtual ConsoleIntern Intern { get; set; }
 
