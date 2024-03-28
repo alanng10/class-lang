@@ -33,5 +33,5 @@ public class Task : Any
 
 
 
-    public TextWriter Out { get; set; }
+    public Out Out { get; set; }
 }
