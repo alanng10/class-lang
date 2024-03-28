@@ -697,7 +697,7 @@ public class Test : Any
 
 
 
-        Console.Write(s);
+        SystemConsole.Write(s);
 
 
 
@@ -729,7 +729,7 @@ public class Test : Any
             o = this.PassCount.ToString();
         }
 
-        Console.Write(o + " " + "Pass" + "\n");
+        SystemConsole.Write(o + " " + "Pass" + "\n");
         return true;
     }
 
@@ -755,7 +755,7 @@ public class Test : Any
 
 
 
-        Console.Write("==============================" + " " + s + " " + k + " " + "TEST" + " " + "===============================" + "\n");
+        SystemConsole.Write("==============================" + " " + s + " " + k + " " + "TEST" + " " + "===============================" + "\n");
 
 
 
