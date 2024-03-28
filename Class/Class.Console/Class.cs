@@ -10,7 +10,7 @@ public class Class : Any
     {
         base.Init();
 
-        this.TextInfra = TextInfra.This;
+        this.InfraInfra = InfraInfra.This;
         this.TaskKind = TaskKindList.This;
 
 
@@ -91,7 +91,7 @@ public class Class : Any
     public string SourceFold { get; set; }
 
 
-    protected virtual TextInfra TextInfra { get; set; }
+    protected virtual InfraInfra InfraInfra { get; set; }
 
 
 
@@ -1181,7 +1181,7 @@ public class Class : Any
         line.Count = s.Length;
 
 
-        line.Data = this.TextInfra.DataCreateString(s);
+        line.Data = this.InfraInfra.DataCreateString(s);
 
 
 
