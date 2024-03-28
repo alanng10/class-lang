@@ -946,7 +946,7 @@ public class Class : Any
 
     private bool Error(string message)
     {
-        this.Out.WriteLine(message);
+        this.Out.Write(message + "\n");
 
 
 
