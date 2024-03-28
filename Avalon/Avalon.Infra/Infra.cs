@@ -17,10 +17,6 @@ public class Infra : Any
     public override bool Init()
     {
         base.Init();
-        this.ByteBitCount = 8;
-        this.IntByteCount = sizeof(long);
-        this.MidByteCount = sizeof(int);
-        this.ShortByteCount = sizeof(short);
 
         long o;
         o = 1;
@@ -31,10 +27,6 @@ public class Infra : Any
         return true;
     }
 
-    public virtual int ByteBitCount { get; set; }
-    public virtual int IntByteCount { get; set; }
-    public virtual int MidByteCount { get; set; }
-    public virtual int ShortByteCount { get; set; }
     public virtual long IntCapValue { get; set; }
     public virtual char NewLine { get; set; }
     public virtual char PathCombine { get; set; }
@@ -125,7 +117,7 @@ public class Infra : Any
         count = a.Length;
 
         int oa;
-        oa = this.ShortByteCount;
+        oa = sizeof(short);
 
         Data data;
         data = new Data();
