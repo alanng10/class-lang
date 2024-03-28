@@ -598,7 +598,7 @@ public class Gen : Any
             name = refer.Ref.Name;
 
             string path;
-            path = "../Deploy/" + name + ".ref";
+            path = name + ".ref";
 
             this.StorageInfra.DataWrite(path, data);
         }
