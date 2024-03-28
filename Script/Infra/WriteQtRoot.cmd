@@ -1,1 +1,0 @@
-echo|set /p Dummy="C:\Users\aaabb\Qt" >Script\Infra\QtRootWindows.txt
