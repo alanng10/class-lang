@@ -7,8 +7,6 @@ class ConsoleIntern : Any
         base.Init();
         this.InternIntern = InternIntern.This;
         this.InternInfra = InternInfra.This;
-        this.InternReturn = Extern.Return_New();
-        Extern.Return_Init(this.InternReturn);
         this.Intern = Extern.Console_New();
         Extern.Console_Init(this.Intern);
         return true;
@@ -18,17 +16,12 @@ class ConsoleIntern : Any
     {
         Extern.Console_Final(this.Intern);
         Extern.Console_Delete(this.Intern);
-
-        Extern.Return_Final(this.InternReturn);
-        Extern.Return_Delete(this.InternReturn);
         return true;
     }
 
     private InternIntern InternIntern { get; set; }
     private InternInfra InternInfra { get; set; }
     private ulong Intern { get; set; }
-    private ulong InternReturn { get; set; }
-
 
     public virtual bool Write(int stream, string a)
     {
@@ -73,11 +66,15 @@ class ConsoleIntern : Any
         ulong uu;
         uu = Extern.Console_Read(this.Intern);
 
-        Extern.Return_StringSet(this.InternReturn, uu);
+        ulong internReturn;
+        internReturn = Extern.Return_New();
+        Extern.Return_Init(internReturn);
 
-        Extern.Return_StringStart(this.InternReturn);
+        Extern.Return_StringSet(internReturn, uu);
+
+        Extern.Return_StringStart(internReturn);
         ulong countU;
-        countU = Extern.Return_StringCount(this.InternReturn);
+        countU = Extern.Return_StringCount(internReturn);
         ulong byteCount;
         byteCount = countU * 2;
         ulong data;
@@ -87,10 +84,13 @@ class ConsoleIntern : Any
         Extern.String_Init(u);
         Extern.String_CountSet(u, countU);
         Extern.String_DataSet(u, data);
-        Extern.Return_StringResult(this.InternReturn, u);
-        Extern.Return_StringEnd(this.InternReturn);
+        Extern.Return_StringResult(internReturn, u);
+        Extern.Return_StringEnd(internReturn);
 
-        Extern.Return_StringSet(this.InternReturn, 0);
+        Extern.Return_StringSet(internReturn, 0);
+
+        Extern.Return_Final(internReturn);
+        Extern.Return_Delete(internReturn);
 
         int count;
         count = (int)countU;
