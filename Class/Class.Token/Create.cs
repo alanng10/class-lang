@@ -520,9 +520,31 @@ public class Create : InfraCreate
         return true;
     }
 
+    protected virtual bool ExecuteCodeArraySet()
+    {
+        int count;
+        count = this.CodeArray.Count;
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            Code code;
+            code = (Code)this.CodeArray.Get(i);
+
+            CodeCount codeCount;
+            codeCount = (CodeCount)this.CodeCountArray.Get(i);
+
+            code.Token = this.ListInfra.ArrayCreate(codeCount.Token);
+            code.Comment = this.ListInfra.ArrayCreate(codeCount.Comment);
 
 
+            i = i + 1;
+        }
 
+        return true;
+    }
+
+    
 
 
     protected virtual bool AddToken()
