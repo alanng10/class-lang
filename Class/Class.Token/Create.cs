@@ -19,13 +19,6 @@ public class Create : InfraCreate
 
 
 
-
-        this.IntNull = -1;
-
-
-
-
-
         this.CountCreateOperate = new CountCreateOperate();
 
 
@@ -128,15 +121,7 @@ public class Create : InfraCreate
 
     protected virtual Text SourceText { get; set; }
 
-
-
-
-
     public virtual Code Code { get; set; }
-
-
-
-
     public virtual SourceItem SourceItem { get; set; }
 
 
@@ -146,29 +131,9 @@ public class Create : InfraCreate
 
 
 
-
-
     public virtual TextRange Range { get; set; }
-
-
-
-
-
-
-
     public virtual int TokenIndex { get; set; }
-
-
-
     public virtual int CommentIndex { get; set; }
-
-
-
-
-    
-
-    protected virtual int IntNull { get; set; }
-
 
 
 
@@ -844,7 +809,7 @@ public class Create : InfraCreate
 
     protected virtual bool NullRange()
     {
-        return this.Range.Row == this.IntNull;
+        return this.Range.Row == -1;
     }
 
 
@@ -853,7 +818,7 @@ public class Create : InfraCreate
 
     protected virtual bool SetRangeNull(TextRange range)
     {
-        range.Row = this.IntNull;
+        range.Row = -1;
 
 
         return true;
