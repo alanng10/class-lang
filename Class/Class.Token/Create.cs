@@ -483,14 +483,14 @@ public class Create : InfraCreate
         i = 0;
         while (i < count)
         {
-            Token token;
-            token = new Token();
-            token.Init();
-            token.Range = new TextRange();
-            token.Range.Init();
-            token.Range.Col = new InfraRange();
-            token.Range.Col.Init();
-            array.Set(i, token);
+            Token a;
+            a = new Token();
+            a.Init();
+            a.Range = new TextRange();
+            a.Range.Init();
+            a.Range.Col = new InfraRange();
+            a.Range.Col.Init();
+            array.Set(i, a);
             
             i = i + 1;
         }
@@ -508,14 +508,14 @@ public class Create : InfraCreate
         i = 0;
         while (i < count)
         {
-            Comment comment;
-            comment = new Comment();
-            comment.Init();
-            comment.Range = new TextRange();
-            comment.Range.Init();
-            comment.Range.Col = new InfraRange();
-            comment.Range.Col.Init();
-            array.Set(i, comment);
+            Comment a;
+            a = new Comment();
+            a.Init();
+            a.Range = new TextRange();
+            a.Range.Init();
+            a.Range.Col = new InfraRange();
+            a.Range.Col.Init();
+            array.Set(i, a);
 
             i = i + 1;
         }
