@@ -123,232 +123,106 @@ public class Create : InfraCreate
         return true;
     }
 
-
     protected virtual bool ExecuteCode(Code code)
     {
         this.Code = code;
 
-
         this.SourceText = this.SourceItem.Text;
-
-
-
 
         this.Reset();
 
-
-
-
-
         int row;
-
         row = 0;
-
-
         int col;
-
         col = 0;
 
-
-
-
         int count;
-
         count = this.SourceText.Count;
-
-
-
-
         while (row < count)
         {
             Line line;
-
             line = this.SourceText.GetLine(row);
-
             Data data;
             data = line.Data;
 
-
             int colCount;
-
-
             colCount = line.Count;
-
-
-
             col = 0;
-
-
-
             while (col < colCount)
             {
                 bool isValid;
-
-
                 isValid = false;
 
-
-
                 char c;
-
                 c = this.TextInfra.CharGet(data, col);
-
-
-
                 if (c == '#')
                 {
                     this.EndToken(col);
-
-
-
                     this.Range.Row = row;
-
-
                     this.Range.Col.Index = col;
-
-
                     this.Range.Col.Count = this.ClassInfra.Count(col, colCount);
-
-
-
                     this.AddComment();
 
-
-
                     col = colCount;
-
-
-
                     this.Reset();
-
-
-
 
                     isValid = true;
                 }
-
-
 
                 if (c == ' ')
                 {
                     this.EndToken(col);
 
-
                     col = col + 1;
 
-
                     this.Reset();
-
-
 
                     isValid = true;
                 }
 
-
-
                 if (c == '\"')
                 {
                     this.EndToken(col);
-                    
-
-
                     this.Range.Row = row;
-
                     this.Range.Col.Index = col;
 
-
-
-
                     int cc;
-
                     cc = col + 1;
-
-
-                    
-
                     bool ba;
-
-
                     bool bb;
-
-
-
                     bool b;
-
                     b = false;
-
-
-
                     int uu;
-
-
-                    
                     char oc;
-                    
-
-                    
-
                     while (!b & cc < colCount)
                     {
                         oc = this.TextInfra.CharGet(data, cc);
-
-
-
                         ba = (oc == '\"');
-
-
-
                         if (ba)
                         {
                             b = true;
                         }
 
-
-
-
-                        
                         if (!b)
                         {
                             bb = (oc == '\\');
-
-
-
                             if (bb)
                             {
                                 uu = cc + 1;
-
-
-
                                 if (uu < colCount)
                                 {
                                     cc = cc + 1;
                                 }
                             }
                         }
-                        
-
-
                         cc = cc + 1;
                     }
-                    
-
-
-                    
                     this.Range.Col.Count = this.ClassInfra.Count(this.Range.Col.Index, cc);
-
-                    
-
-
                     this.AddToken();
-
 
                     col = cc;
 
-
                     this.Reset();
-
-
-
 
                     isValid = true;
                 }
@@ -360,69 +234,37 @@ public class Create : InfraCreate
                     if (this.NullRange())
                     {
                         this.Range.Row = row;
-
-
                         this.Range.Col.Index = col;
                     }
 
-
-
                     col = col + 1;
-
-
 
                     isValid = true;
                 }
-
-
 
                 if (!isValid)
                 {
                     this.EndToken(col);
 
-
-
                     this.Range.Row = row;
-
-
                     this.Range.Col.Index = col;
-
-
                     this.Range.Col.Count = 1;
                     
-                    
-
                     this.AddToken();
 
-
-
                     col = col + 1;
-
-
 
                     this.Reset();
                 }
             }
 
-
-
-
             this.EndToken(col);
 
-
-
             this.Reset();
-
-
-
 
             row = row + 1;
         }
         
-
-
-
-
         return true;
     }
 
