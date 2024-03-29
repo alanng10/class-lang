@@ -1,0 +1,17 @@
+BitSignRightOperate
+{
+    Value : ValueOperate
+            {
+                Value : IntValue
+                        {
+                            Value : 1024,
+                        },
+            },
+    Count : ValueOperate
+            {
+                Value : IntValue
+                        {
+                            Value : 8,
+                        },
+            },
+},
