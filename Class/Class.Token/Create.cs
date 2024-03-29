@@ -7,138 +7,41 @@ public class Create : InfraCreate
     public override bool Init()
     {
         base.Init();
-
-
-
-
-
         this.InfraInfra = InfraInfra.This;
         this.TextInfra = TextInfra.This;
         this.ClassInfra = ClassInfra.This;
 
-
-
-
         this.CountCreateOperate = new CountCreateOperate();
-
-
         this.CountCreateOperate.Create = this;
-
-
         this.CountCreateOperate.Init();
-
-
-
-
-
-
         this.SetCreateOperate = new SetCreateOperate();
-
-
         this.SetCreateOperate.Create = this;
-
-
         this.SetCreateOperate.Init();
 
-
-
-
-
-
         this.Range = new TextRange();
-
-
         this.Range.Init();
-
-
         this.Range.Col = new InfraRange();
-
-
         this.Range.Col.Init();
-
-
-
-
-
-
         return true;
     }
 
-
-
-
-
-
     public virtual Source Source { get; set; }
-
-
-
-
-
-
     public virtual Result Result { get; set; }
 
-
-
-
-
-
-
-    public virtual InfraInfra InfraInfra { get; set; }
-
-
-
-
+    protected virtual InfraInfra InfraInfra { get; set; }
     protected virtual TextInfra TextInfra { get; set; }
     protected virtual ClassInfra ClassInfra { get; set; }
-
-
-
-
-
-
     protected virtual CountCreateOperate CountCreateOperate { get; set; }
-
-
-
-
     protected virtual SetCreateOperate SetCreateOperate { get; set; }
-
-
-
-
-
-
+    protected virtual CreateOperate CreateOperate { get; set; }
     protected virtual Array CodeArray { get; set; }
-
-
-
-
-    protected virtual List ErrorList { get; set; }
-
-
-
-
     protected virtual Text SourceText { get; set; }
 
     public virtual Code Code { get; set; }
     public virtual SourceItem SourceItem { get; set; }
-
-
-
-
-    protected virtual CreateOperate CreateOperate { get; set; }
-
-
-
     public virtual TextRange Range { get; set; }
     public virtual int TokenIndex { get; set; }
     public virtual int CommentIndex { get; set; }
-
-
-
-
-
 
     public override bool Execute()
     {
