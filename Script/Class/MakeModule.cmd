@@ -7,6 +7,6 @@ pushd Class\ClassExe
 dotnet build -v quiet
 popd
 pushd %DotNetModuleOutFold%
-del /F /Q Class.exe 2>NUL
-rename ClassExe.exe Class.exe
+del /F /Q class.exe 2>NUL
+rename ClassExe.exe class.exe
 popd
