@@ -570,8 +570,6 @@ public class Create : InfraCreate
     protected virtual bool AddComment()
     {
         this.CreateOperate.ExecuteComment();
-
-
         return true;
     }
 
