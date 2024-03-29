@@ -1,7 +1,5 @@
 @echo off
 
-call Script\CleanDeploy
-
 set DotNetModuleOutFold=.\Out\net6.0
 set DeployFold=.\Out\Class
 set DeployModuleFold=%DeployFold%\Module

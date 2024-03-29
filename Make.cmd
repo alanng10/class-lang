@@ -16,3 +16,6 @@ echo:
 echo Make Refer
 call Script\Tool\Make ReferBinaryGen 1>NUL
 call Script\Tool\Execute ReferBinaryGen
+echo:
+echo Make Deploy
+call Script\Deploy
