@@ -37,6 +37,7 @@ public class Create : InfraCreate
     protected virtual SetCreateOperate SetCreateOperate { get; set; }
     protected virtual CreateOperate CreateOperate { get; set; }
     protected virtual Array CodeArray { get; set; }
+    protected virtual Array CodeCountArray { get; set; }
     protected virtual Text SourceText { get; set; }
 
     public virtual Code Code { get; set; }
@@ -52,14 +53,12 @@ public class Create : InfraCreate
         this.Result = new Result();
         this.Result.Init();
 
-        
-        
         this.CodeArray = this.CodeArrayCreate();
 
         this.Result.Code = this.CodeArray;
-
         this.Result.Error = this.ListInfra.ArrayCreate(0);
 
+        this.CodeCountArray = this.CodeCountArrayCreate();
 
         this.CreateOperate = this.CountCreateOperate;
 
@@ -107,7 +106,15 @@ public class Create : InfraCreate
 
             this.SourceItem = (SourceItem)this.Source.Item.Get(i);
 
+            this.CodeTokenIndex = 0;
+            this.CodeCommentIndex = 0;
+
             this.ExecuteCode(code);
+
+            CodeCount codeCount;
+            codeCount = (CodeCount)this.CodeCountArray.Get(i);
+            codeCount.Token = this.CodeTokenIndex;
+            codeCount.Comment = this.CodeCommentIndex;
 
             i = i + 1;
         }
@@ -431,6 +438,29 @@ public class Create : InfraCreate
         {
             Code code;
             code = new Code();
+            code.Init();
+
+            array.Set(i, code);
+
+            i = i + 1;
+        }
+
+        return array;
+    }
+
+    protected virtual Array CodeCountArrayCreate()
+    {
+        Array array;
+        array = this.ListInfra.ArrayCreate(this.CodeArray.Count);
+
+        int count;
+        count = array.Count;
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            CodeCount code;
+            code = new CodeCount();
             code.Init();
 
             array.Set(i, code);
