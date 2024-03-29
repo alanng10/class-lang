@@ -227,8 +227,6 @@ public class Create : InfraCreate
                     isValid = true;
                 }
 
-                    
-
                 if (this.TextInfra.IsUpperLetter(c) | this.TextInfra.IsLowerLetter(c) | this.TextInfra.IsDigit(c) | c == '_')
                 {
                     if (this.NullRange())
