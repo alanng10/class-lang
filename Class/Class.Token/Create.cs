@@ -460,11 +460,11 @@ public class Create : InfraCreate
         i = 0;
         while (i < count)
         {
-            CodeCount code;
-            code = new CodeCount();
-            code.Init();
+            CodeCount a;
+            a = new CodeCount();
+            a.Init();
 
-            array.Set(i, code);
+            array.Set(i, a);
 
             i = i + 1;
         }
