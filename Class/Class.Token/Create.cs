@@ -8,6 +8,7 @@ public class Create : InfraCreate
     {
         base.Init();
         this.InfraInfra = InfraInfra.This;
+        this.ListInfra = ListInfra.This;
         this.TextInfra = TextInfra.This;
         this.ClassInfra = ClassInfra.This;
 
@@ -29,6 +30,7 @@ public class Create : InfraCreate
     public virtual Result Result { get; set; }
 
     protected virtual InfraInfra InfraInfra { get; set; }
+    protected virtual ListInfra ListInfra { get; set; }
     protected virtual TextInfra TextInfra { get; set; }
     protected virtual ClassInfra ClassInfra { get; set; }
     protected virtual CountCreateOperate CountCreateOperate { get; set; }
@@ -42,231 +44,83 @@ public class Create : InfraCreate
     public virtual TextRange Range { get; set; }
     public virtual int TokenIndex { get; set; }
     public virtual int CommentIndex { get; set; }
+    public virtual int CodeTokenIndex { get; set; }
+    public virtual int CodeCommentIndex { get; set; }
 
     public override bool Execute()
     {
         this.Result = new Result();
-
-
-
         this.Result.Init();
 
-
-
-
-
-        Array codeArray;
-        
-
-
-        codeArray = new Array();
-
-
-
-        codeArray.Count = this.Source.Item.Count;
-
-
-
-        codeArray.Init();
-
-
-
-
-        this.CodeArray = codeArray;
-
-
-
-
-
         
         
-        Array a;
-        
-        a = new Array();
-
-        a.Count = 0;
-
-        a.Init();
-
-
-
+        this.CodeArray = this.CodeArrayCreate();
 
         this.Result.Code = this.CodeArray;
 
+        this.Result.Error = this.ListInfra.ArrayCreate(0);
 
 
-        this.Result.Error = a;
+        this.CreateOperate = this.CountCreateOperate;
 
+        this.TokenIndex = 0;
+        this.CommentIndex = 0;
 
+        this.ExecuteStage();
 
+        int tokenCount;
+        int commentCount;
+        tokenCount = this.TokenIndex;
+        commentCount = this.CommentIndex;
 
+        Array tokenArray;
+        tokenArray = this.ListInfra.ArrayCreate(tokenCount);
 
+        Array commentArray;
+        commentArray = this.ListInfra.ArrayCreate(commentCount);
 
-        this.ExecuteCodeArray();
+        this.SetTokenArray(tokenArray);
+        this.SetCommentArray(commentArray);
 
+        this.CreateOperate = this.SetCreateOperate;
 
-
+        this.TokenIndex = 0;
+        this.CommentIndex = 0;
+        
+        this.ExecuteStage();
 
         return true;
     }
 
 
-
-
-
-
-
-    protected virtual bool ExecuteCodeArray()
+    protected virtual bool ExecuteStage()
     {
         int count;
-
-
         count = this.CodeArray.Count;
 
-
-
         int i;
-
-
         i = 0;
-
-
         while (i < count)
         {
             Code code;
-
-
-            code = new Code();
-
-
-
-            code.Init();
-
-
-
-
-            this.CodeArray.Set(i, code);
-
-
-
-            this.Code = code;
-
-
-
+            code = (Code)this.CodeArray.Get(i);
 
             this.SourceItem = (SourceItem)this.Source.Item.Get(i);
-            
 
-        
-
-
-
-
-
-            this.CreateOperate = this.CountCreateOperate;
-
-
-
-            this.TokenIndex = 0;
-
-
-            this.CommentIndex = 0;
-
-
-
-
-            this.ExecuteCode();
-            
-
-
-
-
-
-            Array tokenArray;
-
-
-            tokenArray = new Array();
-
-
-            tokenArray.Count = this.TokenIndex;
-
-
-            tokenArray.Init();
-
-
-
-
-
-            Array commentArray;
-
-
-            commentArray = new Array();
-
-
-            commentArray.Count = this.CommentIndex;
-
-
-            commentArray.Init();
-
-
-
-
-
-            this.SetTokenArray(tokenArray);
-
-
-
-            this.SetCommentArray(commentArray);
-
-
-
-
-
-            this.Code.Token = tokenArray;
-
-
-            this.Code.Comment = commentArray;
-
-
-
-
-
-
-            this.CreateOperate = this.SetCreateOperate;
-
-
-
-
-            this.TokenIndex = 0;
-
-
-            this.CommentIndex = 0;
-
-
-
-
-
-            this.ExecuteCode();
-
-
-
-
-
+            this.ExecuteCode(code);
 
             i = i + 1;
         }
 
-
-
         return true;
     }
 
 
-
-
-
-    protected virtual bool ExecuteCode()
+    protected virtual bool ExecuteCode(Code code)
     {
+        this.Code = code;
+
+
         this.SourceText = this.SourceItem.Text;
 
 
@@ -564,10 +418,28 @@ public class Create : InfraCreate
         return true;
     }
 
+    protected virtual Array CodeArrayCreate()
+    {
+        Array array;
+        array = this.ListInfra.ArrayCreate(this.Source.Item.Count);
 
+        int count;
+        count = array.Count;
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            Code code;
+            code = new Code();
+            code.Init();
 
+            array.Set(i, code);
 
+            i = i + 1;
+        }
 
+        return array;
+    }
 
     protected virtual bool SetTokenArray(Array array)
     {
