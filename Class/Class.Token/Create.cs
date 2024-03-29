@@ -134,7 +134,7 @@ public class Create : InfraCreate
 
 
 
-        this.SetRangeNull(this.Range);
+        this.Reset();
 
 
 
@@ -561,21 +561,11 @@ public class Create : InfraCreate
         return true;
     }
 
-    
-
-
     protected virtual bool AddToken()
     {
         this.CreateOperate.ExecuteToken();
-
-
-
         return true;
     }
-
-
-
-
 
     protected virtual bool AddComment()
     {
@@ -584,11 +574,6 @@ public class Create : InfraCreate
 
         return true;
     }
-    
-
-
-
-
 
     protected virtual bool EndToken(int col)
     {
@@ -602,38 +587,14 @@ public class Create : InfraCreate
         return true;
     }
 
-
-
-
-
-
     protected virtual bool NullRange()
     {
         return this.Range.Row == -1;
     }
 
-
-
-
-
-    protected virtual bool SetRangeNull(TextRange range)
-    {
-        range.Row = -1;
-
-
-        return true;
-    }
-
-
-
-
     protected virtual bool Reset()
     {
-        this.SetRangeNull(this.Range);
-        
-
-
-
+        this.Range.Row = -1;
         return true;
     }
 }
