@@ -128,17 +128,28 @@ public class Create : InfraCreate
 
         this.Reset();
 
+        TextInfra textInfra;
+        textInfra = this.TextInfra;
+        ClassInfra classInfra;
+        classInfra = this.ClassInfra;
+
+        Text sourceText;
+        sourceText = this.SourceText;
+
+        TextRange range;
+        range = this.Range;
+
         int row;
         row = 0;
         int col;
         col = 0;
 
         int count;
-        count = this.SourceText.Count;
+        count = sourceText.Count;
         while (row < count)
         {
             Line line;
-            line = this.SourceText.GetLine(row);
+            line = sourceText.GetLine(row);
             Data data;
             data = line.Data;
 
@@ -151,13 +162,13 @@ public class Create : InfraCreate
                 isValid = false;
 
                 char c;
-                c = this.TextInfra.CharGet(data, col);
+                c = textInfra.CharGet(data, col);
                 if (c == '#')
                 {
                     this.EndToken(col);
-                    this.Range.Row = row;
-                    this.Range.Col.Index = col;
-                    this.Range.Col.Count = this.ClassInfra.Count(col, colCount);
+                    range.Row = row;
+                    range.Col.Index = col;
+                    range.Col.Count = classInfra.Count(col, colCount);
                     this.AddComment();
 
                     col = colCount;
@@ -180,8 +191,8 @@ public class Create : InfraCreate
                 if (c == '\"')
                 {
                     this.EndToken(col);
-                    this.Range.Row = row;
-                    this.Range.Col.Index = col;
+                    range.Row = row;
+                    range.Col.Index = col;
 
                     int cc;
                     cc = col + 1;
@@ -193,7 +204,7 @@ public class Create : InfraCreate
                     char oc;
                     while (!b & cc < colCount)
                     {
-                        oc = this.TextInfra.CharGet(data, cc);
+                        oc = textInfra.CharGet(data, cc);
                         ba = (oc == '\"');
                         if (ba)
                         {
@@ -214,7 +225,7 @@ public class Create : InfraCreate
                         }
                         cc = cc + 1;
                     }
-                    this.Range.Col.Count = this.ClassInfra.Count(this.Range.Col.Index, cc);
+                    range.Col.Count = classInfra.Count(col, cc);
                     this.AddToken();
 
                     col = cc;
@@ -224,12 +235,12 @@ public class Create : InfraCreate
                     isValid = true;
                 }
 
-                if (this.TextInfra.IsUpperLetter(c) | this.TextInfra.IsLowerLetter(c) | this.TextInfra.IsDigit(c) | c == '_')
+                if (textInfra.IsUpperLetter(c) | textInfra.IsLowerLetter(c) | textInfra.IsDigit(c) | c == '_')
                 {
                     if (this.NullRange())
                     {
-                        this.Range.Row = row;
-                        this.Range.Col.Index = col;
+                        range.Row = row;
+                        range.Col.Index = col;
                     }
 
                     col = col + 1;
@@ -241,9 +252,9 @@ public class Create : InfraCreate
                 {
                     this.EndToken(col);
 
-                    this.Range.Row = row;
-                    this.Range.Col.Index = col;
-                    this.Range.Col.Count = 1;
+                    range.Row = row;
+                    range.Col.Index = col;
+                    range.Col.Count = 1;
                     
                     this.AddToken();
 
