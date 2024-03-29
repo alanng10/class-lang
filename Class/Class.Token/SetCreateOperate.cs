@@ -1,160 +1,60 @@
 namespace Class.Token;
 
-
-
-
-
-
 public class SetCreateOperate : CreateOperate
 {
     public virtual Create Create { get; set; }
 
-
-
-
-
-
-
-
     public override bool ExecuteToken()
     {
         int index;
-
-
+        int codeIndex;
         index = this.Create.TokenIndex;
-
-
-
-
-        
-
+        codeIndex = this.Create.CodeTokenIndex;
 
         Token token;
-
-
-
-        token = (Token)this.Create.Code.Token.Get(index);
-
-        
-        
-        
-
+        token = (Token)this.Create.TokenArray.Get(index);
         token.Range.Row = this.Create.Range.Row;
 
-
-
-
         InfraRange aa;
-
-
         aa = token.Range.Col; 
-        
-
-
-
         InfraRange ab;
-        
-
         ab = this.Create.Range.Col;
-
-
-
+        
         aa.Index = ab.Index;
-        
-        
         aa.Count = ab.Count;
 
-
-
-
-
-
-
         index = index + 1;
+        codeIndex = codeIndex + 1;
 
-
-
-
-
+        this.Create.CodeTokenIndex = codeIndex;
         this.Create.TokenIndex = index;
-
-
-
-
-
-
         return true;
     }
-
-
-
 
     public override bool ExecuteComment()
     {
         int index;
-
-
+        int codeIndex;
         index = this.Create.CommentIndex;
-
-
-
-
-        
-
+        codeIndex = this.Create.CodeCommentIndex;
 
         Comment comment;
-
-
-
-        comment = (Comment)this.Create.Code.Comment.Get(index);
-
-        
-        
-        
-
+        comment = (Comment)this.Create.CommentArray.Get(index);
         comment.Range.Row = this.Create.Range.Row;
 
-
-
-
         InfraRange aa;
-
-
         aa = comment.Range.Col;
-        
-
-
-
         InfraRange ab;
-        
-        
         ab = this.Create.Range.Col;
 
-
-
         aa.Index = ab.Index;
-
-
         aa.Count = ab.Count;
 
-
-
-
-
-
         index = index + 1;
+        codeIndex = codeIndex + 1;
 
-
-
-
-
+        this.Create.CodeCommentIndex = codeIndex;
         this.Create.CommentIndex = index;
-
-
-
-
-
-
         return true;
     }
 }
