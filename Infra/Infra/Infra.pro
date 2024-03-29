@@ -166,16 +166,3 @@ SOURCES += \
     Console_Windows.c
 
 }
-
-
-!win32 {
-
-HEADERS += \
-    Thread_Unix.h \
-    Console_Unix.h
-
-SOURCES += \
-    Thread_Unix.c \
-    Console_Unix.c
-
-}
