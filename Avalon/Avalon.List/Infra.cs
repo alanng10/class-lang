@@ -49,6 +49,21 @@ public class Infra : Any
         return a;
     }
 
+    public virtual bool ArrayCopy(Array dest, int destIndex, Array source, int sourceIndex, int count)
+    {
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            object o;
+            o = source.Get(sourceIndex + i);
+            dest.Set(destIndex + i, o);
+
+            i = i + 1;
+        }
+        return true;
+    }
+
     public virtual bool TableAdd(Table table, object index, object value)
     {
         Entry entry;

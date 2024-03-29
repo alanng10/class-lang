@@ -80,6 +80,8 @@ public class Create : InfraCreate
         this.ExecuteTokenCreate();
         this.ExecuteCommentCreate();
 
+        this.ExecuteCodeArraySet();
+
         this.CreateOperate = this.SetCreateOperate;
 
         this.TokenIndex = 0;
@@ -522,6 +524,11 @@ public class Create : InfraCreate
 
     protected virtual bool ExecuteCodeArraySet()
     {
+        int totalToken;
+        int totalComment;
+        totalToken = 0;
+        totalComment = 0;
+
         int count;
         count = this.CodeArray.Count;
         int i;
@@ -534,9 +541,19 @@ public class Create : InfraCreate
             CodeCount codeCount;
             codeCount = (CodeCount)this.CodeCountArray.Get(i);
 
-            code.Token = this.ListInfra.ArrayCreate(codeCount.Token);
-            code.Comment = this.ListInfra.ArrayCreate(codeCount.Comment);
+            int tokenCount;
+            int commentCount;
+            tokenCount = codeCount.Token;
+            commentCount = codeCount.Comment;
 
+            code.Token = this.ListInfra.ArrayCreate(tokenCount);
+            code.Comment = this.ListInfra.ArrayCreate(commentCount);
+
+            this.ListInfra.ArrayCopy(code.Token, 0, this.TokenArray, totalToken, tokenCount);
+            this.ListInfra.ArrayCopy(code.Comment, 0, this.CommentArray, totalComment, commentCount);
+
+            totalToken = totalToken + tokenCount;
+            totalComment = totalComment + commentCount;
 
             i = i + 1;
         }
