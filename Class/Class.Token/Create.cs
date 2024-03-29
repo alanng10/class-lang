@@ -47,6 +47,8 @@ public class Create : InfraCreate
     public virtual int CommentIndex { get; set; }
     public virtual int CodeTokenIndex { get; set; }
     public virtual int CodeCommentIndex { get; set; }
+    public virtual Array TokenArray { get; set; }
+    public virtual Array CommentArray { get; set; }
 
     public override bool Execute()
     {
@@ -72,14 +74,11 @@ public class Create : InfraCreate
         tokenCount = this.TokenIndex;
         commentCount = this.CommentIndex;
 
-        Array tokenArray;
-        tokenArray = this.ListInfra.ArrayCreate(tokenCount);
+        this.TokenArray = this.ListInfra.ArrayCreate(tokenCount);
+        this.CommentArray = this.ListInfra.ArrayCreate(commentCount);
 
-        Array commentArray;
-        commentArray = this.ListInfra.ArrayCreate(commentCount);
-
-        this.SetTokenArray(tokenArray);
-        this.SetCommentArray(commentArray);
+        this.ExecuteTokenCreate();
+        this.ExecuteCommentCreate();
 
         this.CreateOperate = this.SetCreateOperate;
 
@@ -471,96 +470,53 @@ public class Create : InfraCreate
         return array;
     }
 
-    protected virtual bool SetTokenArray(Array array)
+    protected virtual bool ExecuteTokenCreate()
     {
+        Array array;
+        array = this.TokenArray;
+
         int count;
-
         count = array.Count;
-
-
-
         int i;
-
         i = 0;
-
-
         while (i < count)
         {
             Token token;
-
             token = new Token();
-
             token.Init();
-
-
             token.Range = new TextRange();
-
             token.Range.Init();
-
-
             token.Range.Col = new InfraRange();
-
             token.Range.Col.Init();
-
-
-
             array.Set(i, token);
-
-
-
+            
             i = i + 1;
         }
-
-
         return true;
     }
 
-
-
-
-
-
-    protected virtual bool SetCommentArray(Array array)
+    protected virtual bool ExecuteCommentCreate()
     {
+        Array array;
+        array = this.CommentArray;
+
         int count;
-
         count = array.Count;
-
-
-
         int i;
-
         i = 0;
-
-
         while (i < count)
         {
             Comment comment;
-
             comment = new Comment();
-
             comment.Init();
-
-
             comment.Range = new TextRange();
-
             comment.Range.Init();
-
-
             comment.Range.Col = new InfraRange();
-
             comment.Range.Col.Init();
-
-
-
             array.Set(i, comment);
-
-
 
             i = i + 1;
         }
-
-
         return true;
     }
 
