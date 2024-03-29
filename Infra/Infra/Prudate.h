@@ -8,8 +8,6 @@
 #define ExportApi __declspec(dllexport)
 #define ImportApi __declspec(dllimport)
 #else
-#define ExportApi __attribute__((visibility("default")))
-#define ImportApi __attribute__((visibility("default")))
 #endif
 
 #ifdef Infra_Module
