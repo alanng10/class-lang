@@ -10,7 +10,6 @@ public class Create : InfraCreate
         this.TextInfra = TextInfra.This;
         this.ListInfra = ListInfra.This;
         this.ClassInfra = ClassInfra.This;
-        this.NodeInfra = Infra.This;
         this.Keyword = this.CreateKeywordList();
         this.Delimit = this.CreateDelimitList();
         this.ErrorKind = this.CreateErrorKindList();
@@ -59,7 +58,6 @@ public class Create : InfraCreate
     protected virtual ListInfra ListInfra { get; set; }
     protected virtual TextInfra TextInfra { get; set; }
     protected virtual ClassInfra ClassInfra { get; set; }
-    protected virtual Infra NodeInfra { get; set; }
 
     public virtual SourceItem SourceItem { get; set; }
 
@@ -1433,11 +1431,11 @@ public class Create : InfraCreate
         max = 0;
         if (!signNegative)
         {
-            max = this.NodeInfra.IntSignValuePositiveMax;
+            max = this.ClassInfra.IntSignValuePositiveMax;
         }
         if (signNegative)
         {
-            max = this.NodeInfra.IntSignValueNegativeMax;
+            max = this.ClassInfra.IntSignValueNegativeMax;
         }
 
         if (max < o)
@@ -1504,11 +1502,11 @@ public class Create : InfraCreate
         max = 0;
         if (!signNegative)
         {
-            max = this.NodeInfra.IntSignValuePositiveMax;
+            max = this.ClassInfra.IntSignValuePositiveMax;
         }
         if (signNegative)
         {
-            max = this.NodeInfra.IntSignValueNegativeMax;
+            max = this.ClassInfra.IntSignValueNegativeMax;
         }
 
         if (max < o)

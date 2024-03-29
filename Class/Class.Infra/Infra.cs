@@ -17,10 +17,13 @@ public class Infra : Any
     public override bool Init()
     {
         base.Init();
+        this.InfraInfra = InfraInfra.This;
         this.Quote = "\"";
         this.BackSlash = "\\";
         this.Tab = "\t";
         this.NewLine = "\n";
+        this.IntSignValueNegativeMax = this.InfraInfra.IntCapValue / 2;
+        this.IntSignValuePositiveMax = this.IntSignValueNegativeMax - 1;
         return true;
     }
 
@@ -28,6 +31,10 @@ public class Infra : Any
     public virtual string BackSlash { get; set; }
     public virtual string Tab { get; set; }
     public virtual string NewLine { get; set; }
+    public virtual long IntSignValuePositiveMax { get; set; }
+    public virtual long IntSignValueNegativeMax { get; set; }
+
+    protected virtual InfraInfra InfraInfra { get; set; }
 
     public virtual bool IndexRange(Range range, int index)
     {
