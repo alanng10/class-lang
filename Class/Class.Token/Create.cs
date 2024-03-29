@@ -1,7 +1,5 @@
 namespace Class.Token;
 
-
-
 public class Create : InfraCreate
 {
     public override bool Init()
@@ -91,7 +89,6 @@ public class Create : InfraCreate
 
         return true;
     }
-
 
     protected virtual bool ExecuteStage()
     {
