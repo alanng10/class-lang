@@ -51,7 +51,7 @@ public class Infra : Any
         return !((o < 'A') | ('Z' < o));
     }
 
-    public virtual char GetChar(Text text, Pos pos)
+    public virtual char TextCharGet(Text text, Pos pos)
     {
         Line line;
         line = text.GetLine(pos.Row);
