@@ -177,23 +177,6 @@ public class Infra : Any
         return true;
     }
 
-    public virtual bool GetIntHexText(Span span, long n)
-    {
-        if (!this.CheckSpan(span))
-        {
-            return false;
-        }
-        InfraRange range;
-        range = span.Range;
-
-        ulong kk;
-        kk = (ulong)n;
-
-        bool b;
-        b = this.InternIntern.IntHexText(span.Data.Value, range.Index, range.Count, kk);
-        return true;
-    }
-
     public virtual long GetIntHex(Span span)
     {
         if (!this.CheckSpan(span))
