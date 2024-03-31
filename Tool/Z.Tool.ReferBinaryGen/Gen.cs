@@ -68,34 +68,34 @@ public class Gen : Any
         this.ModuleTable.Compare.Init();
         this.ModuleTable.Init();
 
-        this.ExecuteModule(typeof(Any).Assembly);
-        this.ExecuteModule(typeof(ListList).Assembly);
-        this.ExecuteModule(typeof(Math).Assembly);
-        this.ExecuteModule(typeof(Text).Assembly);
-        this.ExecuteModule(typeof(Event).Assembly);
-        this.ExecuteModule(typeof(Comp).Assembly);
-        this.ExecuteModule(typeof(Thread).Assembly);
-        this.ExecuteModule(typeof(Stream).Assembly);
-        this.ExecuteModule(typeof(Type).Assembly);
-        this.ExecuteModule(typeof(Time).Assembly);
-        this.ExecuteModule(typeof(Video).Assembly);
-        this.ExecuteModule(typeof(Effect).Assembly);
-        this.ExecuteModule(typeof(Storage).Assembly);
-        this.ExecuteModule(typeof(Network).Assembly);
-        this.ExecuteModule(typeof(Console).Assembly);
-        this.ExecuteModule(typeof(Play).Assembly);
-        this.ExecuteModule(typeof(Draw).Assembly);
-        this.ExecuteModule(typeof(View).Assembly);
-        this.ExecuteModule(typeof(Main).Assembly);
-        this.ExecuteModule(typeof(EntryEntry).Assembly);
-        this.ExecuteModule(typeof(ClassClass).Assembly);
-        this.ExecuteModule(typeof(Refer).Assembly);
-        this.ExecuteModule(typeof(Port).Assembly);
-        this.ExecuteModule(typeof(Token).Assembly);
-        this.ExecuteModule(typeof(Node).Assembly);
-        this.ExecuteModule(typeof(Check).Assembly);
-        this.ExecuteModule(typeof(ModuleResult).Assembly);
-        this.ExecuteModule(typeof(Task).Assembly);
+        this.ExecuteTypeModule(typeof(Any));
+        this.ExecuteTypeModule(typeof(ListList));
+        this.ExecuteTypeModule(typeof(Math));
+        this.ExecuteTypeModule(typeof(Text));
+        this.ExecuteTypeModule(typeof(Event));
+        this.ExecuteTypeModule(typeof(Comp));
+        this.ExecuteTypeModule(typeof(Thread));
+        this.ExecuteTypeModule(typeof(Stream));
+        this.ExecuteTypeModule(typeof(Type));
+        this.ExecuteTypeModule(typeof(Time));
+        this.ExecuteTypeModule(typeof(Video));
+        this.ExecuteTypeModule(typeof(Effect));
+        this.ExecuteTypeModule(typeof(Storage));
+        this.ExecuteTypeModule(typeof(Network));
+        this.ExecuteTypeModule(typeof(Console));
+        this.ExecuteTypeModule(typeof(Play));
+        this.ExecuteTypeModule(typeof(Draw));
+        this.ExecuteTypeModule(typeof(View));
+        this.ExecuteTypeModule(typeof(Main));
+        this.ExecuteTypeModule(typeof(EntryEntry));
+        this.ExecuteTypeModule(typeof(ClassClass));
+        this.ExecuteTypeModule(typeof(Refer));
+        this.ExecuteTypeModule(typeof(Port));
+        this.ExecuteTypeModule(typeof(Token));
+        this.ExecuteTypeModule(typeof(Node));
+        this.ExecuteTypeModule(typeof(Check));
+        this.ExecuteTypeModule(typeof(ModuleResult));
+        this.ExecuteTypeModule(typeof(Task));
 
         //this.ConsoleWrite();
 
@@ -112,6 +112,11 @@ public class Gen : Any
         this.ExecuteReferWrite();
 
         return 0;
+    }
+
+    protected virtual bool ExecuteTypeModule(SystemType type)
+    {
+        return this.ExecuteModule(type.Assembly);
     }
 
     protected virtual bool ExecuteModule(Assembly assembly)
