@@ -630,7 +630,6 @@ public static class Extern
     [DllImport(InfraLib)] public extern static ulong StorageArrange_Rename(ulong o, ulong path, ulong destPath);
     [DllImport(InfraLib)] public extern static ulong StorageArrange_Remove(ulong o, ulong path);
     [DllImport(InfraLib)] public extern static ulong StorageArrange_Exist(ulong o, ulong path);
-    [DllImport(InfraLib)] public extern static ulong StorageArrange_Link(ulong o, ulong path, ulong linkPath);
     [DllImport(InfraLib)] public extern static ulong StorageArrange_LinkTarget(ulong o, ulong path);
     [DllImport(InfraLib)] public extern static ulong StorageArrange_PermitGet(ulong o, ulong path);
     [DllImport(InfraLib)] public extern static ulong StorageArrange_PermitSet(ulong o, ulong path, ulong value);
