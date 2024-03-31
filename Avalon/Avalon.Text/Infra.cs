@@ -19,17 +19,11 @@ public class Infra : Any
         base.Init();
         this.InternIntern = InternIntern.This;
         this.InfraInfra = InfraInfra.This;
-        
-        this.IntHexDigitCount = 15;
         return true;
     }
 
     private InternIntern InternIntern { get; set; }
     protected virtual InfraInfra InfraInfra { get; set; }
-
-    private string IntHexFormat { get; set; }
-
-    public virtual int IntHexDigitCount { get; set; }
 
     public virtual bool IsDigit(char o)
     {
