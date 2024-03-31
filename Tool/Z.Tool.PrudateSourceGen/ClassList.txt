@@ -41,6 +41,7 @@ Format
     ExecuteResult(varBase, argList, result)
     ExecuteArgCount(arg)
     ExecuteArgResult(arg, result)
+    ExecuteInt(text, range, varBase)
 
 FormatArg
     Pos
