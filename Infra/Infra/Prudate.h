@@ -150,6 +150,7 @@ Infra_Api Int Format_ExecuteCount(Int o, Int varBase, Int argList);
 Infra_Api Int Format_ExecuteResult(Int o, Int varBase, Int argList, Int result);
 Infra_Api Int Format_ExecuteArgCount(Int o, Int arg);
 Infra_Api Int Format_ExecuteArgResult(Int o, Int arg, Int result);
+Infra_Api Int Format_ExecuteInt(Int o, Int text, Int range, Int varBase);
 
 InfraApiNew(FormatArg)
 Infra_Api Int FormatArg_PosGet(Int o);
