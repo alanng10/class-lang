@@ -82,6 +82,7 @@ public static class Extern
     [DllImport(InfraLib)] public extern static ulong Format_ExecuteResult(ulong o, ulong varBase, ulong argList, ulong result);
     [DllImport(InfraLib)] public extern static ulong Format_ExecuteArgCount(ulong o, ulong arg);
     [DllImport(InfraLib)] public extern static ulong Format_ExecuteArgResult(ulong o, ulong arg, ulong result);
+    [DllImport(InfraLib)] public extern static ulong Format_ExecuteInt(ulong o, ulong text, ulong range, ulong varBase);
 
     [DllImport(InfraLib)] public extern static ulong FormatArg_New();
     [DllImport(InfraLib)] public extern static ulong FormatArg_Delete(ulong o);
