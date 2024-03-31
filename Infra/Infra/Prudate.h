@@ -593,7 +593,6 @@ Infra_Api Int StorageArrange_Copy(Int o, Int path, Int destPath);
 Infra_Api Int StorageArrange_Rename(Int o, Int path, Int destPath);
 Infra_Api Int StorageArrange_Remove(Int o, Int path);
 Infra_Api Int StorageArrange_Exist(Int o, Int path);
-Infra_Api Int StorageArrange_Link(Int o, Int path, Int linkPath);
 Infra_Api Int StorageArrange_LinkTarget(Int o, Int path);
 Infra_Api Int StorageArrange_PermitGet(Int o, Int path);
 Infra_Api Int StorageArrange_PermitSet(Int o, Int path, Int value);
