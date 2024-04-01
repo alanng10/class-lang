@@ -374,7 +374,6 @@ StorageEntry
     CreateTime(result)
     LastModifyTime(result)
     LastReadTime(result)
-    InfoChangeTime(result)
     IsReadable
     IsHidden
     IsExecutable
