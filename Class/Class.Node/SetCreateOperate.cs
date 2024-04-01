@@ -6,13 +6,10 @@ public class SetCreateOperate : CreateOperate
     {
         base.Init();
         this.InfraInfra = InfraInfra.This;
-        this.DataRead = new DataRead();
-        this.DataRead.Init();
         return true;
     }
 
     protected virtual InfraInfra InfraInfra { get; set; }
-    protected virtual DataRead DataRead { get; set; }
 
     public override Node Execute()
     {
