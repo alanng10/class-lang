@@ -367,18 +367,6 @@ StorageArrange
     CanonicalPath(path)
     CleanPath(path)
 
-StorageWatch
-    AddPath(path)
-    AddPathList(pathList)
-    RemovePath(path)
-    RemovePathList(pathList)
-    FileList()
-    FoldList()
-    FileChangedState
-    FoldChangedState
-    FileChanged(storageWatch, path, arg) --
-    FoldChanged(storageWatch, path, arg) --
-
 StorageEntry
     Path
     Kind
