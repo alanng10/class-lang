@@ -96,18 +96,51 @@ public class Infra : Any
         return oc;
     }
 
+    public virtual bool IntSet(Data data, long index, long value)
+    {
+        return this.ByteLisSet(data, index, sizeof(long), value);
+    }
+
+    public virtual bool MidSet(Data data, long index, int value)
+    {
+        return this.ByteLisSet(data, index, sizeof(int), value);
+    }
+
+    public virtual bool ShortSet(Data data, long index, short value)
+    {
+        return this.ByteLisSet(data, index, sizeof(short), value);
+    }
+
     public virtual bool CharSet(Data data, int index, char value)
     {
-        int ob;
-        ob = (int)value;
+        return this.ShortSet(data, index, (short)value);
+    }
 
-        int oaa;
-        int oab;
-        oaa = ob & 0xff;
-        oab = (ob >> 8) & 0xff;
+    public virtual bool ByteLisSet(Data data, long index, int count, long value)
+    {
+        ulong oo;
+        oo = (ulong)value;
+        ulong o;
+        o = 0;
+        int shiftCount;
+        shiftCount = 0;
+        byte ob;
+        ob = 0;
 
-        data.Set(index, oaa);
-        data.Set(index + 1, oab);
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            shiftCount = i * 8;
+
+            o = oo >> shiftCount;
+
+            ob = (byte)o;
+
+            data.Set(index + i, ob);
+
+            i = i + 1;
+        }
         return true;
     }
 
