@@ -265,22 +265,6 @@ ImageWrite
     Quality
     Execute()
 
-Dialog
-    Kind
-    Value
-    Modal
-    Visible
-    Done(result)
-    FinishedState
-    Finished(dialog, result, arg) --
-
-DialogFile
-    Save
-    FileMode
-    Fold
-    SelectedFileList()
-    SelectFile(fileName)
-
 VideoOut
     Size
     Frame
