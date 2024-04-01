@@ -466,33 +466,6 @@ Infra_Api Int ImageWrite_QualitySet(Int o, Int value);
 
 Infra_Api Int ImageWrite_Execute(Int o);
 
-InfraApiNew(Dialog)
-Infra_Api Int Dialog_KindGet(Int o);
-Infra_Api Int Dialog_KindSet(Int o, Int value);
-Infra_Api Int Dialog_ValueGet(Int o);
-Infra_Api Int Dialog_ValueSet(Int o, Int value);
-Infra_Api Int Dialog_ModalGet(Int o);
-Infra_Api Int Dialog_ModalSet(Int o, Int value);
-Infra_Api Int Dialog_VisibleGet(Int o);
-Infra_Api Int Dialog_VisibleSet(Int o, Int value);
-Infra_Api Int Dialog_FinishedStateGet(Int o);
-Infra_Api Int Dialog_FinishedStateSet(Int o, Int value);
-
-Infra_Api Int Dialog_Done(Int o, Int result);
-
-typedef Int (*Dialog_Finished_Maide)(Int dialog, Int result, Int arg);
-
-InfraApiNew(DialogFile)
-Infra_Api Int DialogFile_SaveGet(Int o);
-Infra_Api Int DialogFile_SaveSet(Int o, Int value);
-Infra_Api Int DialogFile_FileModeGet(Int o);
-Infra_Api Int DialogFile_FileModeSet(Int o, Int value);
-Infra_Api Int DialogFile_FoldGet(Int o);
-Infra_Api Int DialogFile_FoldSet(Int o, Int value);
-
-Infra_Api Int DialogFile_SelectedFileList(Int o);
-Infra_Api Int DialogFile_SelectFile(Int o, Int fileName);
-
 InfraApiNew(VideoOut)
 Infra_Api Int VideoOut_SizeGet(Int o);
 Infra_Api Int VideoOut_SizeSet(Int o, Int value);
