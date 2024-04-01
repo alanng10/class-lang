@@ -609,22 +609,6 @@ Infra_Api Int StorageArrange_RelativePath(Int o, Int path, Int destPath);
 Infra_Api Int StorageArrange_CanonicalPath(Int o, Int path);
 Infra_Api Int StorageArrange_CleanPath(Int o, Int path);
 
-InfraApiNew(StorageWatch)
-Infra_Api Int StorageWatch_FileChangedStateGet(Int o);
-Infra_Api Int StorageWatch_FileChangedStateSet(Int o, Int value);
-Infra_Api Int StorageWatch_FoldChangedStateGet(Int o);
-Infra_Api Int StorageWatch_FoldChangedStateSet(Int o, Int value);
-
-Infra_Api Int StorageWatch_AddPath(Int o, Int path);
-Infra_Api Int StorageWatch_AddPathList(Int o, Int pathList);
-Infra_Api Int StorageWatch_RemovePath(Int o, Int path);
-Infra_Api Int StorageWatch_RemovePathList(Int o, Int pathList);
-Infra_Api Int StorageWatch_FileList(Int o);
-Infra_Api Int StorageWatch_FoldList(Int o);
-
-typedef Int (*StorageWatch_FileChanged_Maide)(Int storageWatch, Int path, Int arg);
-typedef Int (*StorageWatch_FoldChanged_Maide)(Int storageWatch, Int path, Int arg);
-
 InfraApiNew(StorageEntry)
 Infra_Api Int StorageEntry_PathGet(Int o);
 Infra_Api Int StorageEntry_PathSet(Int o, Int value);
@@ -642,7 +626,6 @@ Infra_Api Int StorageEntry_IsExecutableSet(Int o, Int value);
 Infra_Api Int StorageEntry_CreateTime(Int o, Int result);
 Infra_Api Int StorageEntry_LastModifyTime(Int o, Int result);
 Infra_Api Int StorageEntry_LastReadTime(Int o, Int result);
-Infra_Api Int StorageEntry_InfoChangeTime(Int o, Int result);
 Infra_Api Int StorageEntry_Update(Int o);
 
 InfraApiNew(Network)
