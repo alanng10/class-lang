@@ -162,7 +162,7 @@ public class Create : InfraCreate
                 isValid = false;
 
                 char c;
-                c = textInfra.CharGet(data, col);
+                c = textInfra.DataCharGet(data, col);
                 if (c == '#')
                 {
                     this.EndToken(col);
@@ -204,7 +204,7 @@ public class Create : InfraCreate
                     char oc;
                     while (!b & cc < colCount)
                     {
-                        oc = textInfra.CharGet(data, cc);
+                        oc = textInfra.DataCharGet(data, cc);
                         ba = (oc == '\"');
                         if (ba)
                         {
