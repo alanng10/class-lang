@@ -8,8 +8,6 @@ public class KindCreateOperate : CreateOperate
         this.InfraInfra = InfraInfra.This;
         this.ListInfra = ListInfra.This;
         this.TextInfra = TextInfra.This;
-        this.DataWrite = new DataWrite();
-        this.DataWrite.Init();
         this.List = this.ListInfra.ArrayCreate(0);
         this.String = "";
         return true;
@@ -18,7 +16,6 @@ public class KindCreateOperate : CreateOperate
     protected virtual InfraInfra InfraInfra { get; set; }
     protected virtual ListInfra ListInfra { get; set; }
     protected virtual TextInfra TextInfra { get; set; }
-    protected virtual DataWrite DataWrite { get; set; }
     protected virtual Array List { get; set; }
     protected virtual string String { get; set; }
 
@@ -59,13 +56,9 @@ public class KindCreateOperate : CreateOperate
 
     public override bool ExecuteListCount(int index, int count)
     {
-        this.DataWrite.Data = this.Create.ListData;
-
         long oa;
         oa = index * sizeof(int);
-
-        this.DataWrite.ExecuteMid(oa, count);
-        this.DataWrite.Data = null;
+        this.InfraInfra.DataMidSet(this.Create.ListData, oa, count);
         return true;
     }
 
@@ -78,11 +71,9 @@ public class KindCreateOperate : CreateOperate
 
         int count;
         count = text.Range.Count;
-        this.DataWrite.Data = this.Create.NameValueData;
         long oa;
         oa = index * sizeof(int);
-        this.DataWrite.ExecuteMid(oa, count);
-        this.DataWrite.Data = null;
+        this.InfraInfra.DataMidSet(this.Create.NameValueData, oa, count);
 
         Data source;
         source = text.Data;
@@ -118,11 +109,9 @@ public class KindCreateOperate : CreateOperate
         int count;
         count = write.Index;
 
-        this.DataWrite.Data = this.Create.StringValueData;
         long oa;
         oa = index * sizeof(int);
-        this.DataWrite.ExecuteMid(oa, count);
-        this.DataWrite.Data = null;
+        this.InfraInfra.DataMidSet(this.Create.StringValueData, oa, count);
         
         write.WriteOperate = write.AddWriteOperate;
         write.Index = indexA;

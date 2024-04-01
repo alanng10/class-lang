@@ -1,8 +1,6 @@
 global using Any = Avalon.Infra.Any;
 global using InfraRange = Avalon.Infra.Range;
 global using Data = Avalon.Infra.Data;
-global using DataRead = Avalon.Infra.DataRead;
-global using DataWrite = Avalon.Infra.DataWrite;
 global using InfraInfra = Avalon.Infra.Infra;
 global using InfraState = Avalon.Infra.State;
 global using StringCompare = Avalon.Infra.StringCompare;
