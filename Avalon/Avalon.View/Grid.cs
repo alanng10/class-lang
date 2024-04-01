@@ -15,7 +15,7 @@ public class Grid : View
         this.Child = this.CreateChild();
         this.Dest = this.CreateDest();
         this.RangeA = this.CreateRangeA();
-        this.ChildPosList = this.CreateChildPosList();
+        this.ChildPosData = this.CreateChildPosList();
         this.RowIter = this.Row.CreateIter();
         this.ColIter = this.Col.CreateIter();
         this.ChildIter = this.Child.CreateIter();
@@ -32,7 +32,7 @@ public class Grid : View
     protected virtual Iter ChildIter { get; set; }
     protected virtual InfraInfra InfraInfra { get; set; }
     protected virtual InfraRange RangeA { get; set; }
-    protected virtual Data ChildPosList { get; set; }
+    protected virtual Data ChildPosData { get; set; }
 
     protected virtual DrawRect StackGridChildListRect { get; set; }
     protected virtual DrawPos StackGridChildListPos { get; set; }
@@ -253,7 +253,7 @@ public class Grid : View
         int oa;
         oa = count * sizeof(int);
         long oo;
-        oo = this.ChildPosList.Count;
+        oo = this.ChildPosData.Count;
         int ob;
         ob = (int)oo;
         if (ob < oa)
@@ -262,7 +262,7 @@ public class Grid : View
             data = new Data();
             data.Count = oa;
             data.Init();
-            this.ChildPosList = data;
+            this.ChildPosData = data;
         }
         
         this.SetChildLeftArray();
@@ -450,7 +450,7 @@ public class Grid : View
             int byteIndex;
             byteIndex = this.IntByteIndex(index);
 
-            u = this.InfraInfra.DataMidGet(this.ChildPosList, byteIndex);
+            u = this.InfraInfra.DataMidGet(this.ChildPosData, byteIndex);
         }
         int ret;
         ret = u;
@@ -479,7 +479,7 @@ public class Grid : View
             index = start + i;
             int byteIndex;
             byteIndex = this.IntByteIndex(index);
-            this.InfraInfra.DataMidSet(this.ChildPosList, byteIndex, left);
+            this.InfraInfra.DataMidSet(this.ChildPosData, byteIndex, left);
             i = i + 1;
         }
         return true;
@@ -507,7 +507,7 @@ public class Grid : View
             index = start + i;
             int byteIndex;
             byteIndex = this.IntByteIndex(index);
-            this.InfraInfra.DataMidSet(this.ChildPosList, byteIndex, up);
+            this.InfraInfra.DataMidSet(this.ChildPosData, byteIndex, up);
             i = i + 1;
         }
         return true;
