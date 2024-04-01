@@ -19,9 +19,6 @@ public class StringValueWrite : Any
 
         this.TextPos = new TextPos();
         this.TextPos.Init();
-
-        this.DataRead = new DataRead();
-        this.DataRead.Init();
         return true;
     }
 
@@ -29,7 +26,6 @@ public class StringValueWrite : Any
     protected virtual TextInfra TextInfra { get; set; }
     protected virtual Infra ClassInfra { get; set; }
     protected virtual TextPos TextPos { get; set; }
-    protected virtual DataRead DataRead { get; set; }
     public virtual CountWriteOperate CountWriteOperate { get; set; }
     public virtual AddWriteOperate AddWriteOperate { get; set; }
 
@@ -96,18 +92,19 @@ public class StringValueWrite : Any
         int rangeEnd;
         rangeEnd = range.Index + range.Count;
 
-        this.DataRead.Data = data;
-
         char quote;
         quote = this.ClassInfra.Quote[0];
 
+        TextInfra textInfra;
+        textInfra = this.TextInfra;
+
         char oc;
-        oc = this.CharRead(rangeStart);
+        oc = textInfra.DataCharGet(data, rangeStart);
         if (!(oc == quote))
         {
             return false;
         }
-        oc = this.CharRead(rangeEnd - 1);
+        oc = textInfra.DataCharGet(data, rangeEnd - 1);
         if (!(oc == quote))
         {
             return false;
@@ -138,7 +135,7 @@ public class StringValueWrite : Any
         {
             index = start + i;
 
-            c = this.CharRead(index);
+            c = textInfra.DataCharGet(data, index);
 
             b = (c == backSlash);
             if (b)
@@ -151,7 +148,7 @@ public class StringValueWrite : Any
                 }
                 indexA = start + j;
 
-                u = this.CharRead(indexA);
+                u = textInfra.DataCharGet(data, indexA);
 
                 bba = false;                
                 if (u == quote)
@@ -198,16 +195,19 @@ public class StringValueWrite : Any
         int kk;
         kk = range.Count;
 
-        this.DataRead.Data = data;
+        TextInfra textInfra;
+        textInfra = this.TextInfra;
+        Infra classInfra;
+        classInfra = this.ClassInfra;
 
         char backSlash;
-        backSlash = this.ClassInfra.BackSlash[0];
+        backSlash = classInfra.BackSlash[0];
         char quote;
-        quote = this.ClassInfra.Quote[0];
+        quote = classInfra.Quote[0];
         char tab;
-        tab = this.ClassInfra.Tab[0];
+        tab = classInfra.Tab[0];
         char newLine;
-        newLine = this.ClassInfra.NewLine[0];
+        newLine = classInfra.NewLine[0];
         char uuu;
         uuu = (char)0;
         int count;
@@ -228,7 +228,7 @@ public class StringValueWrite : Any
         {
             index = start + i;
 
-            c = this.CharRead(index);
+            c = textInfra.DataCharGet(data, index);
 
             b = (c == backSlash);
             if (b)
@@ -239,7 +239,7 @@ public class StringValueWrite : Any
                 if (bb)
                 {
                     indexA = start + j;
-                    u = this.CharRead(indexA);
+                    u = textInfra.DataCharGet(data, indexA);
 
                     escapeValue = uuu;                    
                     if (u == quote)
@@ -275,19 +275,6 @@ public class StringValueWrite : Any
     {
         this.WriteOperate.ExecuteChar(oc);
         return true;
-    }
-
-    protected virtual char CharRead(int index)
-    {
-        int oa;
-        oa = sizeof(short);
-        long dataIndex;
-        dataIndex = index * oa;
-        short oo;
-        oo = this.DataRead.ExecuteShort(dataIndex);
-        char a;
-        a = (char)oo;
-        return a;
     }
 
     public virtual string EscapeString(string a)
