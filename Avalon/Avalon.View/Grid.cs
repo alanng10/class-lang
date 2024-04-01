@@ -24,13 +24,6 @@ public class Grid : View
         this.StackGridChildListPos = this.CreateStackGridChildListPos();
         this.StackGridChildRect = this.CreateStackGridChildRect();
         this.StackGridChildPos = this.CreateStackGridChildPos();
-
-        this.DataRead = new DataRead();
-        this.DataRead.Init();
-        this.DataRead.Data = this.ChildPosList;
-        this.DataWrite = new DataWrite();
-        this.DataWrite.Init();
-        this.DataWrite.Data = this.ChildPosList;
         return true;
     }
 
@@ -38,9 +31,8 @@ public class Grid : View
     protected virtual Iter ColIter { get; set; }
     protected virtual Iter ChildIter { get; set; }
     protected virtual InfraInfra InfraInfra { get; set; }
-    protected virtual DataRead DataRead { get; set; }
-    protected virtual DataWrite DataWrite { get; set; }
     protected virtual InfraRange RangeA { get; set; }
+    protected virtual Data ChildPosList { get; set; }
 
     protected virtual DrawRect StackGridChildListRect { get; set; }
     protected virtual DrawPos StackGridChildListPos { get; set; }
@@ -271,8 +263,6 @@ public class Grid : View
             data.Count = oa;
             data.Init();
             this.ChildPosList = data;
-            this.DataRead.Data = this.ChildPosList;
-            this.DataWrite.Data = this.ChildPosList;
         }
         
         this.SetChildLeftArray();
@@ -460,7 +450,7 @@ public class Grid : View
             int byteIndex;
             byteIndex = this.IntByteIndex(index);
 
-            u = this.DataRead.ExecuteMid(byteIndex);
+            u = this.InfraInfra.DataMidGet(this.ChildPosList, byteIndex);
         }
         int ret;
         ret = u;
@@ -489,7 +479,7 @@ public class Grid : View
             index = start + i;
             int byteIndex;
             byteIndex = this.IntByteIndex(index);
-            this.DataWrite.ExecuteMid(byteIndex, left);
+            this.InfraInfra.DataMidSet(this.ChildPosList, byteIndex, left);
             i = i + 1;
         }
         return true;
@@ -517,13 +507,11 @@ public class Grid : View
             index = start + i;
             int byteIndex;
             byteIndex = this.IntByteIndex(index);
-            this.DataWrite.ExecuteMid(byteIndex, up);
+            this.InfraInfra.DataMidSet(this.ChildPosList, byteIndex, up);
             i = i + 1;
         }
         return true;
     }
-
-    protected virtual Data ChildPosList { get; set; }
 
     public override bool Change(Field field, Change change)
     {
