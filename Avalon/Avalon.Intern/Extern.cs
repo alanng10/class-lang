@@ -646,25 +646,6 @@ public static class Extern
     [DllImport(InfraLib)] public extern static ulong StorageArrange_CanonicalPath(ulong o, ulong path);
     [DllImport(InfraLib)] public extern static ulong StorageArrange_CleanPath(ulong o, ulong path);
 
-    [DllImport(InfraLib)] public extern static ulong StorageWatch_New();
-    [DllImport(InfraLib)] public extern static ulong StorageWatch_Delete(ulong o);
-    [DllImport(InfraLib)] public extern static ulong StorageWatch_Init(ulong o);
-    [DllImport(InfraLib)] public extern static ulong StorageWatch_Final(ulong o);
-    [DllImport(InfraLib)] public extern static ulong StorageWatch_FileChangedStateGet(ulong o);
-    [DllImport(InfraLib)] public extern static ulong StorageWatch_FileChangedStateSet(ulong o, ulong value);
-    [DllImport(InfraLib)] public extern static ulong StorageWatch_FoldChangedStateGet(ulong o);
-    [DllImport(InfraLib)] public extern static ulong StorageWatch_FoldChangedStateSet(ulong o, ulong value);
-
-    [DllImport(InfraLib)] public extern static ulong StorageWatch_AddPath(ulong o, ulong path);
-    [DllImport(InfraLib)] public extern static ulong StorageWatch_AddPathList(ulong o, ulong pathList);
-    [DllImport(InfraLib)] public extern static ulong StorageWatch_RemovePath(ulong o, ulong path);
-    [DllImport(InfraLib)] public extern static ulong StorageWatch_RemovePathList(ulong o, ulong pathList);
-    [DllImport(InfraLib)] public extern static ulong StorageWatch_FileList(ulong o);
-    [DllImport(InfraLib)] public extern static ulong StorageWatch_FoldList(ulong o);
-
-    public delegate ulong StorageWatch_FileChanged_Maide(ulong storageWatch, ulong path, ulong arg);
-    public delegate ulong StorageWatch_FoldChanged_Maide(ulong storageWatch, ulong path, ulong arg);
-
     [DllImport(InfraLib)] public extern static ulong StorageEntry_New();
     [DllImport(InfraLib)] public extern static ulong StorageEntry_Delete(ulong o);
     [DllImport(InfraLib)] public extern static ulong StorageEntry_Init(ulong o);
@@ -685,7 +666,6 @@ public static class Extern
     [DllImport(InfraLib)] public extern static ulong StorageEntry_CreateTime(ulong o, ulong result);
     [DllImport(InfraLib)] public extern static ulong StorageEntry_LastModifyTime(ulong o, ulong result);
     [DllImport(InfraLib)] public extern static ulong StorageEntry_LastReadTime(ulong o, ulong result);
-    [DllImport(InfraLib)] public extern static ulong StorageEntry_InfoChangeTime(ulong o, ulong result);
     [DllImport(InfraLib)] public extern static ulong StorageEntry_Update(ulong o);
 
     [DllImport(InfraLib)] public extern static ulong Network_New();
