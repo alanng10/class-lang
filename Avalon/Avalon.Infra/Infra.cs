@@ -96,27 +96,27 @@ public class Infra : Any
         return oc;
     }
 
-    public virtual bool IntSet(Data data, long index, long value)
+    public virtual bool DataIntSet(Data data, long index, long value)
     {
-        return this.ByteListSet(data, index, sizeof(long), value);
+        return this.DataByteListSet(data, index, sizeof(long), value);
     }
 
-    public virtual bool MidSet(Data data, long index, int value)
+    public virtual bool DataMidSet(Data data, long index, int value)
     {
-        return this.ByteListSet(data, index, sizeof(int), value);
+        return this.DataByteListSet(data, index, sizeof(int), value);
     }
 
-    public virtual bool ShortSet(Data data, long index, short value)
+    public virtual bool DataShortSet(Data data, long index, short value)
     {
-        return this.ByteListSet(data, index, sizeof(short), value);
+        return this.DataByteListSet(data, index, sizeof(short), value);
     }
 
-    public virtual bool CharSet(Data data, int index, char value)
+    public virtual bool DataCharSet(Data data, long index, char value)
     {
-        return this.ShortSet(data, index, (short)value);
+        return this.DataShortSet(data, index, (short)value);
     }
 
-    public virtual long ByteListGet(Data data, long index, int count)
+    public virtual long DataByteListGet(Data data, long index, int count)
     {
         ulong oo;
         oo = 0;
@@ -148,7 +148,7 @@ public class Infra : Any
         return a;
     }
 
-    public virtual bool ByteListSet(Data data, long index, int count, long value)
+    public virtual bool DataByteListSet(Data data, long index, int count, long value)
     {
         ulong oo;
         oo = (ulong)value;
@@ -195,12 +195,10 @@ public class Infra : Any
         {
             char oc;
             oc = a[i];
-            short oo;
-            oo = (short)oc;
             long index;
             index = i * oa;
 
-            this.ShortSet(data, index, oo);
+            this.DataCharSet(data, index, oc);
             i = i + 1;
         }
 
