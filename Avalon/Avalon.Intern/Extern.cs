@@ -257,25 +257,17 @@ public static class Extern
     [DllImport(InfraLib)] public extern static ulong Frame_VisibleSet(ulong o, ulong value);
     [DllImport(InfraLib)] public extern static ulong Frame_SizeGet(ulong o);
     [DllImport(InfraLib)] public extern static ulong Frame_SizeSet(ulong o, ulong value);
-    [DllImport(InfraLib)] public extern static ulong Frame_ResizeStateGet(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Frame_ResizeStateSet(ulong o, ulong value);
     [DllImport(InfraLib)] public extern static ulong Frame_TypeStateGet(ulong o);
     [DllImport(InfraLib)] public extern static ulong Frame_TypeStateSet(ulong o, ulong value);
-    [DllImport(InfraLib)] public extern static ulong Frame_MouseStateGet(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Frame_MouseStateSet(ulong o, ulong value);
     [DllImport(InfraLib)] public extern static ulong Frame_DrawStateGet(ulong o);
     [DllImport(InfraLib)] public extern static ulong Frame_DrawStateSet(ulong o, ulong value);
-    [DllImport(InfraLib)] public extern static ulong Frame_WindowCaseGet(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Frame_WindowCaseSet(ulong o, ulong value);
 
     [DllImport(InfraLib)] public extern static ulong Frame_TitleThisSet(ulong o);
     [DllImport(InfraLib)] public extern static ulong Frame_VideoOut(ulong o);
     [DllImport(InfraLib)] public extern static ulong Frame_Update(ulong o, ulong rect);
     [DllImport(InfraLib)] public extern static ulong Frame_Close(ulong o);
 
-    public delegate ulong Frame_Resize_Maide(ulong frame, ulong arg);
     public delegate ulong Frame_Type_Maide(ulong frame, ulong index, ulong field, ulong arg);
-    public delegate ulong Frame_Mouse_Maide(ulong frame, ulong eventInfo, ulong arg);
     public delegate ulong Frame_Draw_Maide(ulong frame, ulong arg);
 
     [DllImport(InfraLib)] public extern static ulong Draw_New();
