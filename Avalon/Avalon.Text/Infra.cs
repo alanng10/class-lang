@@ -55,7 +55,7 @@ public class Infra : Any
         {
             return (char)0;
         }
-        return this.CharGet(line.Data, index);
+        return this.DataCharGet(line.Data, index);
     }
 
     public virtual bool Equal(Text text, Range range, string o)
@@ -89,7 +89,7 @@ public class Infra : Any
         {
             index = col.Index + i;
 
-            oca = this.CharGet(line.Data, index);
+            oca = this.DataCharGet(line.Data, index);
             ocb = o[i];
             if (!(oca == ocb))
             {
@@ -100,14 +100,14 @@ public class Infra : Any
         return true;
     }
 
-    public virtual char CharGet(Data data, int index)
+    public virtual char DataCharGet(Data data, int index)
     {
-        return this.InfraInfra.CharGet(data, index * 2);
+        return this.InfraInfra.DataCharGet(data, index * 2);
     }
 
-    public virtual bool CharSet(Data data, int index, char value)
+    public virtual bool DataCharSet(Data data, int index, char value)
     {
-        return this.InfraInfra.CharSet(data, index * 2, value);
+        return this.InfraInfra.DataCharSet(data, index * 2, value);
     }
 
     public virtual Span SpanCreate(int count)
