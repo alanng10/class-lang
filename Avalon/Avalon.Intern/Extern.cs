@@ -470,39 +470,6 @@ public static class Extern
 
     [DllImport(InfraLib)] public extern static ulong ImageWrite_Execute(ulong o);
 
-    [DllImport(InfraLib)] public extern static ulong Dialog_New();
-    [DllImport(InfraLib)] public extern static ulong Dialog_Delete(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Dialog_Init(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Dialog_Final(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Dialog_KindGet(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Dialog_KindSet(ulong o, ulong value);
-    [DllImport(InfraLib)] public extern static ulong Dialog_ValueGet(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Dialog_ValueSet(ulong o, ulong value);
-    [DllImport(InfraLib)] public extern static ulong Dialog_ModalGet(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Dialog_ModalSet(ulong o, ulong value);
-    [DllImport(InfraLib)] public extern static ulong Dialog_VisibleGet(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Dialog_VisibleSet(ulong o, ulong value);
-    [DllImport(InfraLib)] public extern static ulong Dialog_FinishedStateGet(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Dialog_FinishedStateSet(ulong o, ulong value);
-
-    [DllImport(InfraLib)] public extern static ulong Dialog_Done(ulong o, ulong result);
-
-    public delegate ulong Dialog_Finished_Maide(ulong dialog, ulong result, ulong arg);
-
-    [DllImport(InfraLib)] public extern static ulong DialogFile_New();
-    [DllImport(InfraLib)] public extern static ulong DialogFile_Delete(ulong o);
-    [DllImport(InfraLib)] public extern static ulong DialogFile_Init(ulong o);
-    [DllImport(InfraLib)] public extern static ulong DialogFile_Final(ulong o);
-    [DllImport(InfraLib)] public extern static ulong DialogFile_SaveGet(ulong o);
-    [DllImport(InfraLib)] public extern static ulong DialogFile_SaveSet(ulong o, ulong value);
-    [DllImport(InfraLib)] public extern static ulong DialogFile_FileModeGet(ulong o);
-    [DllImport(InfraLib)] public extern static ulong DialogFile_FileModeSet(ulong o, ulong value);
-    [DllImport(InfraLib)] public extern static ulong DialogFile_FoldGet(ulong o);
-    [DllImport(InfraLib)] public extern static ulong DialogFile_FoldSet(ulong o, ulong value);
-
-    [DllImport(InfraLib)] public extern static ulong DialogFile_SelectedFileList(ulong o);
-    [DllImport(InfraLib)] public extern static ulong DialogFile_SelectFile(ulong o, ulong fileName);
-
     [DllImport(InfraLib)] public extern static ulong VideoOut_New();
     [DllImport(InfraLib)] public extern static ulong VideoOut_Delete(ulong o);
     [DllImport(InfraLib)] public extern static ulong VideoOut_Init(ulong o);
