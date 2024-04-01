@@ -540,7 +540,8 @@ public class Create : InfraCreate
 
     protected virtual bool ExecuteStringValueCreate()
     {
-        this.DataRead.Data = this.StringValueData;
+        Data data;
+        data = this.StringValueData;
 
         TextSpan span;
         span = this.TextSpan;
@@ -559,7 +560,7 @@ public class Create : InfraCreate
             long index;
             index = i * sizeof(int);
             int oa;
-            oa = this.DataRead.ExecuteMid(index);
+            oa = this.InfraInfra.DataMidGet(data, index);
             span.Range.Index = total;
             span.Range.Count = oa;
             string oo;
@@ -568,7 +569,6 @@ public class Create : InfraCreate
             total = total + oa;
             i = i + 1;
         }
-        this.DataRead.Data = null;
         return true;
     }
 
