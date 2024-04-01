@@ -80,20 +80,24 @@ public class Infra : Any
         return true;
     }
 
-    public virtual char CharGet(Data data, int index)
+    public virtual long DataIntGet(Data data, long index)
     {
-        int oaa;
-        int oab;
-        oaa = data.Get(index);
-        oab = data.Get(index + 1);
-        int o;
-        o = oaa;
-        o = o | (oab << 8);
-        short ob;
-        ob = (short)o;
-        char oc;
-        oc = (char)ob;
-        return oc;
+        return this.DataByteListGet(data, index, sizeof(long));
+    }
+
+    public virtual int DataMidGet(Data data, long index)
+    {
+        return (int)this.DataByteListGet(data, index, sizeof(int));
+    }
+
+    public virtual short DataShortGet(Data data, long index)
+    {
+        return (short)this.DataByteListGet(data, index, sizeof(short));
+    }
+
+    public virtual char DataCharGet(Data data, long index)
+    {
+        return (char)this.DataShortGet(data, index);
     }
 
     public virtual bool DataIntSet(Data data, long index, long value)
