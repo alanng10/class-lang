@@ -19,7 +19,7 @@ public class AddWriteOperate : WriteOperate
 
         Data data;
         data = this.Write.Data;
-        this.TextInfra.CharSet(data, index, oc);
+        this.TextInfra.DataCharSet(data, index, oc);
         
         index = index + 1;
 
