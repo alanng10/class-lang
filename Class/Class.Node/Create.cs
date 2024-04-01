@@ -21,9 +21,6 @@ public class Create : InfraCreate
         this.SetOperate = this.CreateSetCreateOperate();
         this.OperateArg = this.CreateCreateOperateArg();
 
-        this.DataRead = new DataRead();
-        this.DataRead.Init();
-
         this.RangeA = this.CreateRange();
         this.RangeB = this.CreateRange();
         this.RangeC = this.CreateRange();
@@ -117,8 +114,6 @@ public class Create : InfraCreate
 
     public virtual CreateOperate Operate { get; set; }
     public virtual CreateOperateArg OperateArg { get; set; }
-
-    protected virtual DataRead DataRead { get; set; }
 
     protected virtual KeywordList CreateKeywordList()
     {
@@ -464,7 +459,8 @@ public class Create : InfraCreate
 
     protected virtual bool ExecuteListCreate()
     {
-        this.DataRead.Data = this.ListData;
+        Data data;
+        data = this.ListData;
 
         int count;
         count = this.ListArray.Count;
@@ -475,7 +471,7 @@ public class Create : InfraCreate
             long index;
             index = i * sizeof(int);
             int oa;
-            oa = this.DataRead.ExecuteMid(index);
+            oa = this.InfraInfra.DataMidGet(data, index);
             Array array;
             array = new Array();
             array.Count = oa;
@@ -510,7 +506,8 @@ public class Create : InfraCreate
 
     protected virtual bool ExecuteNameValueCreate()
     {
-        this.DataRead.Data = this.NameValueData;
+        Data data;
+        data = this.NameValueData;
 
         TextSpan span;
         span = this.TextSpan;
@@ -529,7 +526,7 @@ public class Create : InfraCreate
             long index;
             index = i * sizeof(int);
             int oa;
-            oa = this.DataRead.ExecuteMid(index);
+            oa = this.InfraInfra.DataMidGet(data, index);
             span.Range.Index = total;
             span.Range.Count = oa;
             string oo;
@@ -538,7 +535,6 @@ public class Create : InfraCreate
             total = total + oa;
             i = i + 1;
         }
-        this.DataRead.Data = null;
         return true;
     }
 
