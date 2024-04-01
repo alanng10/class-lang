@@ -6,14 +6,11 @@ public class SetWriteOperate : WriteOperate
     {
         base.Init();
         this.InfraInfra = InfraInfra.This;
-        this.DataWrite = new DataWrite();
-        this.DataWrite.Init();
         return true;
     }
 
     public virtual Write Write { get; set; }
     protected virtual InfraInfra InfraInfra { get; set; }
-    protected virtual DataWrite DataWrite { get; set; }
 
     public override bool ExecuteByte(int value)
     {
@@ -35,9 +32,7 @@ public class SetWriteOperate : WriteOperate
         data = this.Write.Data;
         int count;
         count = sizeof(long);
-        this.DataWrite.Data = data;
-        this.DataWrite.ExecuteInt(index, value);
-        this.DataWrite.Data = null;
+        this.InfraInfra.DataIntSet(data, index, value);
         index = index + count;
         this.Write.Index = index;
         return true;
