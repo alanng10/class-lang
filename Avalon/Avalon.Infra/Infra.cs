@@ -98,17 +98,17 @@ public class Infra : Any
 
     public virtual bool IntSet(Data data, long index, long value)
     {
-        return this.ByteLisSet(data, index, sizeof(long), value);
+        return this.ByteListSet(data, index, sizeof(long), value);
     }
 
     public virtual bool MidSet(Data data, long index, int value)
     {
-        return this.ByteLisSet(data, index, sizeof(int), value);
+        return this.ByteListSet(data, index, sizeof(int), value);
     }
 
     public virtual bool ShortSet(Data data, long index, short value)
     {
-        return this.ByteLisSet(data, index, sizeof(short), value);
+        return this.ByteListSet(data, index, sizeof(short), value);
     }
 
     public virtual bool CharSet(Data data, int index, char value)
@@ -148,7 +148,7 @@ public class Infra : Any
         return a;
     }
 
-    public virtual bool ByteLisSet(Data data, long index, int count, long value)
+    public virtual bool ByteListSet(Data data, long index, int count, long value)
     {
         ulong oo;
         oo = (ulong)value;
