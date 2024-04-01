@@ -116,6 +116,38 @@ public class Infra : Any
         return this.ShortSet(data, index, (short)value);
     }
 
+    public virtual long ByteListGet(Data data, long index, int count)
+    {
+        ulong oo;
+        oo = 0;
+
+        ulong o;
+        o = 0;
+        int shiftCount;
+        shiftCount = 0;
+        byte ob;
+        ob = 0;
+
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            ob = (byte)data.Get(index + i);
+
+            shiftCount = i * 8;
+
+            o = ob;
+            o = o << shiftCount;
+
+            oo = oo | o;
+
+            i = i + 1;
+        }
+        long a;
+        a = (long)oo;
+        return a;
+    }
+
     public virtual bool ByteLisSet(Data data, long index, int count, long value)
     {
         ulong oo;
@@ -157,11 +189,6 @@ public class Infra : Any
         data.Count = count * oa;
         data.Init();
 
-        DataWrite write;
-        write = new DataWrite();
-        write.Init();
-        write.Data = data;
-
         int i;
         i = 0;
         while (i < count)
@@ -173,7 +200,7 @@ public class Infra : Any
             long index;
             index = i * oa;
 
-            write.ExecuteShort(index, oo);
+            this.ShortSet(data, index, oo);
             i = i + 1;
         }
 
