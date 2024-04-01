@@ -135,9 +135,9 @@ public class KindCreateOperate : CreateOperate
         i = 0;
         while (i < count)
         {
-            oc = this.TextInfra.CharGet(source, sourceIndex + i);
+            oc = this.TextInfra.DataCharGet(source, sourceIndex + i);
 
-            this.TextInfra.CharSet(dest, destIndex + i, oc);
+            this.TextInfra.DataCharSet(dest, destIndex + i, oc);
             
             i = i + 1;
         }
