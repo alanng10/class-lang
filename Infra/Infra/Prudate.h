@@ -289,25 +289,17 @@ Infra_Api Int Frame_VisibleGet(Int o);
 Infra_Api Int Frame_VisibleSet(Int o, Int value);
 Infra_Api Int Frame_SizeGet(Int o);
 Infra_Api Int Frame_SizeSet(Int o, Int value);
-Infra_Api Int Frame_ResizeStateGet(Int o);
-Infra_Api Int Frame_ResizeStateSet(Int o, Int value);
 Infra_Api Int Frame_TypeStateGet(Int o);
 Infra_Api Int Frame_TypeStateSet(Int o, Int value);
-Infra_Api Int Frame_MouseStateGet(Int o);
-Infra_Api Int Frame_MouseStateSet(Int o, Int value);
 Infra_Api Int Frame_DrawStateGet(Int o);
 Infra_Api Int Frame_DrawStateSet(Int o, Int value);
-Infra_Api Int Frame_WindowCaseGet(Int o);
-Infra_Api Int Frame_WindowCaseSet(Int o, Int value);
 
 Infra_Api Int Frame_TitleThisSet(Int o);
 Infra_Api Int Frame_VideoOut(Int o);
 Infra_Api Int Frame_Update(Int o, Int rect);
 Infra_Api Int Frame_Close(Int o);
 
-typedef Int (*Frame_Resize_Maide)(Int frame, Int arg);
 typedef Int (*Frame_Type_Maide)(Int frame, Int index, Int field, Int arg);
-typedef Int (*Frame_Mouse_Maide)(Int frame, Int eventInfo, Int arg);
 typedef Int (*Frame_Draw_Maide)(Int frame, Int arg);
 
 InfraApiNew(Draw)
