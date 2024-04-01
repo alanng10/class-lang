@@ -8,5 +8,3 @@ mkdir %InfraProjectOutFold% 1>NUL 2>NUL
 pushd %InfraProjectOutFold%
 mingw32-make
 popd
-
-call Script\Infra\UpdateDeploy
