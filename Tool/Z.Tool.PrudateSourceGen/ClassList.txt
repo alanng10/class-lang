@@ -146,16 +146,11 @@ Frame
     Size
     TitleThisSet()
     VideoOut()
-    ResizeState
     TypeState
-    MouseState
     DrawState
-    WindowCase
     Update(rect)
     Close()
-    Resize(frame, arg) --
     Type(frame, index, field, arg) --
-    Mouse(frame, eventInfo, arg) --
     Draw(frame, arg) --
 
 Draw
