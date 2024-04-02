@@ -72,51 +72,51 @@ public class ButtonList : Any
         this.Slash = this.AddSignKey('/', '?');
         this.BackSlash = this.AddSignKey('\\', '|');
 
-        this.Escape = this.AddControlKey();
-        this.Tab = this.AddControlKey();
+        this.Escape = this.AddControlButton();
+        this.Tab = this.AddControlButton();
         this.ControlIndex = 0x03;
-        this.BackSpace = this.AddControlKey();
-        this.Enter = this.AddControlKey();
+        this.BackSpace = this.AddControlButton();
+        this.Enter = this.AddControlButton();
         this.ControlIndex = 0x06;
-        this.Insert = this.AddControlKey();
-        this.Delete = this.AddControlKey();
-        this.Pause = this.AddControlKey();
-        this.Print = this.AddControlKey();
+        this.Insert = this.AddControlButton();
+        this.Delete = this.AddControlButton();
+        this.Pause = this.AddControlButton();
+        this.Print = this.AddControlButton();
         this.ControlIndex = 0x0a;
-        this.SysReq = this.AddControlKey();
-        this.Clear = this.AddControlKey();
+        this.SysReq = this.AddControlButton();
+        this.Clear = this.AddControlButton();
         this.ControlIndex = 0x10;
-        this.Home = this.AddControlKey();
-        this.End = this.AddControlKey();
-        this.Left = this.AddControlKey();
-        this.Up = this.AddControlKey();
-        this.Right = this.AddControlKey();
-        this.Down = this.AddControlKey();
-        this.PageUp = this.AddControlKey();
-        this.PageDown = this.AddControlKey();
+        this.Home = this.AddControlButton();
+        this.End = this.AddControlButton();
+        this.Left = this.AddControlButton();
+        this.Up = this.AddControlButton();
+        this.Right = this.AddControlButton();
+        this.Down = this.AddControlButton();
+        this.PageUp = this.AddControlButton();
+        this.PageDown = this.AddControlButton();
 
         this.ControlIndex = 0x20;
-        this.Shift = this.AddControlKey();
-        this.Control = this.AddControlKey();
-        this.Meta = this.AddControlKey();
-        this.Alt = this.AddControlKey();
-        this.CapsLock = this.AddControlKey();
-        this.NumLock = this.AddControlKey();
-        this.ScrollLock = this.AddControlKey();
+        this.Shift = this.AddControlButton();
+        this.Control = this.AddControlButton();
+        this.Meta = this.AddControlButton();
+        this.Alt = this.AddControlButton();
+        this.CapsLock = this.AddControlButton();
+        this.NumLock = this.AddControlButton();
+        this.ScrollLock = this.AddControlButton();
 
         this.ControlIndex = 0x30;
-        this.F1 = this.AddControlKey();
-        this.F2 = this.AddControlKey();
-        this.F3 = this.AddControlKey();
-        this.F4 = this.AddControlKey();
-        this.F5 = this.AddControlKey();
-        this.F6 = this.AddControlKey();
-        this.F7 = this.AddControlKey();
-        this.F8 = this.AddControlKey();
-        this.F9 = this.AddControlKey();
-        this.F10 = this.AddControlKey();
-        this.F11 = this.AddControlKey();
-        this.F12 = this.AddControlKey();
+        this.F1 = this.AddControlButton();
+        this.F2 = this.AddControlButton();
+        this.F3 = this.AddControlButton();
+        this.F4 = this.AddControlButton();
+        this.F5 = this.AddControlButton();
+        this.F6 = this.AddControlButton();
+        this.F7 = this.AddControlButton();
+        this.F8 = this.AddControlButton();
+        this.F9 = this.AddControlButton();
+        this.F10 = this.AddControlButton();
+        this.F11 = this.AddControlButton();
+        this.F12 = this.AddControlButton();
         return true;
     }
 
@@ -355,15 +355,16 @@ public class ButtonList : Any
         return a;
     }
 
-    protected virtual Button AddControlKey()
+    protected virtual Button AddControlButton()
     {
         int index;
         index = this.ControlIndex + this.ControlStart;
-
-        Button key;
-        key = this.AddKey(index);
+        char oc;
+        oc = (char)0;
+        Button a;
+        a = this.AddButton(index, oc);
         this.ControlIndex = this.ControlIndex + 1;
-        return key;
+        return a;
     }
 
     protected virtual Button AddButton(int index, char varChar)
