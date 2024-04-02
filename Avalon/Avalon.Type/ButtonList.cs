@@ -116,6 +116,7 @@ public class ButtonList : Any
         this.ControlIndex = 0x20;
         this.Shift = this.AddControlButton();
         this.Control = this.AddControlButton();
+        this.ControlIndex = 0x23;
         this.Alt = this.AddControlButton();
         this.CapsLock = this.AddControlButton();
         this.NumLock = this.AddControlButton();
