@@ -72,7 +72,6 @@ public class ButtonList : Any
         this.SignAsterisk = this.AddSignButton('*');
         this.SignLeftBracket = this.AddSignButton('(');
         this.SignRightBracket = this.AddSignButton(')');
-
         this.SignDash = this.AddSignButton('-');
         this.SignUnderscore = this.AddSignButton('_');
         this.SignEqual = this.AddSignButton('=');
