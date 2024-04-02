@@ -4,7 +4,6 @@ global using Extern = Avalon.Intern.Extern;
 global using FrameTypeMaide = Avalon.Intern.Extern.Frame_Type_Maide;
 global using FrameDrawMaide = Avalon.Intern.Extern.Frame_Draw_Maide;
 global using MaideAddress = Avalon.Intern.MaideAddress;
-global using KeyCodeList = Avalon.Intern.KeyCodeList;
 global using Handle = Avalon.Intern.Handle;
 global using Any = Avalon.Infra.Any;
 global using State = Avalon.Infra.State;

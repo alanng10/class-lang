@@ -7,7 +7,6 @@ public class Frame : Comp
         base.Init();
         this.InternIntern = InternIntern.This;
         this.InternInfra = InternInfra.This;
-        this.KeyCodeList = KeyCodeList.This;
         this.DrawInfra = DrawInfra.This;
 
         this.ViewField = this.CreateViewField();
@@ -88,7 +87,6 @@ public class Frame : Comp
 
     private InternIntern InternIntern { get; set; }
     private InternInfra InternInfra { get; set; }
-    private KeyCodeList KeyCodeList { get; set; }
     protected virtual DrawInfra DrawInfra { get; set; }
     protected virtual DrawDraw Draw { get; set; }
     private ulong Intern { get; set; }
@@ -138,12 +136,7 @@ public class Frame : Comp
         b = (!(value == 0));
 
         int indexB;
-        indexB = this.KeyCodeList.IndexFromInternIndex(indexA);
-        indexB = this.KeyCodeList.Get(indexB);
-        if (indexB < 0)
-        {
-            return true;
-        }
+        indexB = this.InternIntern.TypeIndexFromInternIndex(indexA);
 
         this.TypeChange(indexB, b);
         return true;
