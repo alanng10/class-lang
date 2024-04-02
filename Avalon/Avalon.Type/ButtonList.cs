@@ -297,28 +297,18 @@ public class ButtonList : Any
         }
     }
 
-    protected virtual Button AddLetterKey()
+    protected virtual Button AddLetterButton()
     {
         int index;
         index = this.LetterIndex + 'A';
-        Button key;
-        key = this.AddKey(index);
+        
+        char oc;
+        oc = (char)index;
+        Button a;
+        a = this.AddButton(index, oc);
 
-        ButtonChar oo;
-        oo = new ButtonChar();
-        oo.Init();
-
-        int ub;
-        ub = this.LetterIndex + 'a';
-        char defaultChar;
-        defaultChar = (char)ub;
-        char shiftChar;
-        shiftChar = (char)index;
-        oo.Default = defaultChar;
-        oo.Shift = shiftChar;
-        key.Char = oo;
         this.LetterIndex = this.LetterIndex + 1;
-        return key;
+        return a;
     }
 
     protected virtual Button AddDigitKey(char shiftChar)
@@ -368,16 +358,15 @@ public class ButtonList : Any
         return key;
     }
 
-    protected virtual Button AddKey(int index)
+    protected virtual Button AddButton(int index, char varChar)
     {
-        Button key;
-        key = new Button();
-        key.Init();
-        key.Index = index;
-        this.Array.Set(key.Index, key);
-        Button ret;
-        ret = key;
-        return ret;
+        Button a;
+        a = new Button();
+        a.Init();
+        a.Index = index;
+        a.Char = varChar;
+        this.Array.Set(a.Index, a);
+        return a;
     }
 
     public virtual Button Get(int index)
