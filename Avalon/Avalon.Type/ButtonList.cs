@@ -184,9 +184,13 @@ public class ButtonList : Any
     public virtual Button SignSingleQuote { get; set; }
     public virtual Button SignDoubleQuote { get; set; }
     public virtual Button SignComma { get; set; }
-    public virtual Button Dot { get; set; }
-    public virtual Button Slash { get; set; }
-    public virtual Button BackSlash { get; set; }
+    public virtual Button SignLessThan { get; set; }
+    public virtual Button SignDot { get; set; }
+    public virtual Button SignMoreThan { get; set; }
+    public virtual Button SignSlash { get; set; }
+    public virtual Button SignQuestion { get; set; }
+    public virtual Button SignBackSlash { get; set; }
+    public virtual Button SignVerticalBar { get; set; }
 
     public virtual Button Escape { get; set; }
     public virtual Button Tab { get; set; }
