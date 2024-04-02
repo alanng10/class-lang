@@ -166,13 +166,24 @@ public class ButtonList : Any
     public virtual Button SignHash { get; set; }
     public virtual Button SignDollar { get; set; }
     public virtual Button SignPercent { get; set; }
-    public virtual Button Dash { get; set; }
-    public virtual Button EqualSign { get; set; }
-    public virtual Button LeftSquare { get; set; }
-    public virtual Button RightSquare { get; set; }
-    public virtual Button SemiColon { get; set; }
-    public virtual Button SingleQuote { get; set; }
-    public virtual Button Comma { get; set; }
+    public virtual Button SignCaret { get; set; }
+    public virtual Button SignAmpersand { get; set; }
+    public virtual Button SignAsterisk { get; set; }
+    public virtual Button SignLeftBracket { get; set; }
+    public virtual Button SignRightBracket { get; set; }
+    public virtual Button SignDash { get; set; }
+    public virtual Button SignUnderscore { get; set; }
+    public virtual Button SignEqual { get; set; }
+    public virtual Button SignPlus { get; set; }
+    public virtual Button SignLeftSquare { get; set; }
+    public virtual Button SignLeftBrace { get; set; }
+    public virtual Button SignRightSquare { get; set; }
+    public virtual Button SignRightBrace { get; set; }
+    public virtual Button SignSemiColon { get; set; }
+    public virtual Button SignColon { get; set; }
+    public virtual Button SignSingleQuote { get; set; }
+    public virtual Button SignDoubleQuote { get; set; }
+    public virtual Button SignComma { get; set; }
     public virtual Button Dot { get; set; }
     public virtual Button Slash { get; set; }
     public virtual Button BackSlash { get; set; }
