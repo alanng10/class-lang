@@ -59,8 +59,8 @@ public class ButtonList : Any
         this.Digit8 = this.AddDigitButton();//'*');
         this.Digit9 = this.AddDigitButton();//'(');
         
-        this.Space = this.AddSignKey(' ', ' ');
-        this.BackTick = this.AddSignKey('`', '~');
+        this.Space = this.AddSignButton(' ');
+        this.BackTick = this.AddSignButton('`');, '~');
         this.Dash = this.AddSignKey('-', '_');
         this.EqualSign = this.AddSignKey('=', '+');
         this.LeftSquare = this.AddSignKey('[', '{');
@@ -158,8 +158,14 @@ public class ButtonList : Any
     public virtual Button Digit8 { get; set; }
     public virtual Button Digit9 { get; set; }
 
-    public virtual Button Space { get; set; }
-    public virtual Button BackTick { get; set; }
+    public virtual Button SignSpace { get; set; }
+    public virtual Button SignBackTick { get; set; }
+    public virtual Button SignTilde { get; set; }
+    public virtual Button SignExclamate { get; set; }
+    public virtual Button SignAt { get; set; }
+    public virtual Button SignHash { get; set; }
+    public virtual Button SignDollar { get; set; }
+    public virtual Button SignPercent { get; set; }
     public virtual Button Dash { get; set; }
     public virtual Button EqualSign { get; set; }
     public virtual Button LeftSquare { get; set; }
@@ -325,20 +331,13 @@ public class ButtonList : Any
         return a;
     }
 
-    protected virtual Button AddSignKey(char defaultChar, char shiftChar)
+    protected virtual Button AddSignButton(char varChar)
     {
         int index;
-        index = defaultChar;
-        Button key;
-        key = this.AddKey(index);
-
-        ButtonChar oo;
-        oo = new ButtonChar();
-        oo.Init();
-        oo.Default = defaultChar;
-        oo.Shift = shiftChar;
-        key.Char = oo;
-        return key;
+        index = varChar;
+        Button a;
+        a = this.AddButton(index, varChar);
+        return a;
     }
 
     protected virtual Button AddControlKey()
