@@ -217,8 +217,6 @@ public class ButtonList : Any
     public virtual Button Delete { get; set; }
     public virtual Button Pause { get; set; }
     public virtual Button Print { get; set; }
-    public virtual Button SysReq { get; set; }
-    public virtual Button Clear { get; set; }
     public virtual Button Home { get; set; }
     public virtual Button End { get; set; }
     public virtual Button Left { get; set; }
@@ -229,7 +227,6 @@ public class ButtonList : Any
     public virtual Button PageDown { get; set; }
     public virtual Button Shift { get; set; }
     public virtual Button Control { get; set; }
-    public virtual Button Meta { get; set; }
     public virtual Button Alt { get; set; }
     public virtual Button CapsLock { get; set; }
     public virtual Button NumLock { get; set; }
