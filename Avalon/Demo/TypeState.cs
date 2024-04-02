@@ -6,11 +6,13 @@ class TypeState : State
     {
         base.Init();
         this.ViewInfra = ViewInfra.This;
+        this.Console = Console.This;
         return true;
     }
 
     public Demo Demo { get; set; }
-    public ViewInfra ViewInfra { get; set; }
+    protected virtual ViewInfra ViewInfra { get; set; }
+    protected virtual Console Console { get; set; }
     public int TitleIndex { get; set; }
 
     public override bool Execute()
@@ -29,6 +31,11 @@ class TypeState : State
         if (a == d.LetterB & o)
         {
             this.Demo.Frame.Close();
+        }
+
+        if (a == d.SignPercent & o)
+        {
+            this.Console.Out.Write("Type Button Sign Percent Pressed\n");
         }
 
         bool b;
