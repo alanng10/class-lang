@@ -48,16 +48,16 @@ public class ButtonList : Any
         this.LetterY = this.AddLetterButton();
         this.LetterZ = this.AddLetterButton();
 
-        this.Digit0 = this.AddDigitKey(')');
-        this.Digit1 = this.AddDigitKey('!');
-        this.Digit2 = this.AddDigitKey('@');
-        this.Digit3 = this.AddDigitKey('#');
-        this.Digit4 = this.AddDigitKey('$');
-        this.Digit5 = this.AddDigitKey('%');
-        this.Digit6 = this.AddDigitKey('^');
-        this.Digit7 = this.AddDigitKey('&');
-        this.Digit8 = this.AddDigitKey('*');
-        this.Digit9 = this.AddDigitKey('(');
+        this.Digit0 = this.AddDigitButton();//')');
+        this.Digit1 = this.AddDigitButton();//'!');
+        this.Digit2 = this.AddDigitButton();//'@');
+        this.Digit3 = this.AddDigitButton();//'#');
+        this.Digit4 = this.AddDigitButton();//'$');
+        this.Digit5 = this.AddDigitButton();//'%');
+        this.Digit6 = this.AddDigitButton();//'^');
+        this.Digit7 = this.AddDigitButton();//'&');
+        this.Digit8 = this.AddDigitButton();//'*');
+        this.Digit9 = this.AddDigitButton();//'(');
         
         this.Space = this.AddSignKey(' ', ' ');
         this.BackTick = this.AddSignKey('`', '~');
@@ -311,24 +311,18 @@ public class ButtonList : Any
         return a;
     }
 
-    protected virtual Button AddDigitKey(char shiftChar)
+    protected virtual Button AddDigitButton()
     {
         int index;
         index = this.DigitIndex + '0';
-        Button key;
-        key = this.AddKey(index);
 
-        ButtonChar oo;
-        oo = new ButtonChar();
-        oo.Init();
+        char oc;
+        oc = (char)index;
+        Button a;
+        a = this.AddButton(index, oc);
 
-        char defaultChar;
-        defaultChar = (char)index;
-        oo.Default = defaultChar;
-        oo.Shift = shiftChar;
-        key.Char = oo;
         this.DigitIndex = this.DigitIndex + 1;
-        return key;
+        return a;
     }
 
     protected virtual Button AddSignKey(char defaultChar, char shiftChar)
