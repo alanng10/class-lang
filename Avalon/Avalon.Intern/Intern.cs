@@ -749,32 +749,35 @@ public class Intern : object
         return true;
     }
 
+    public virtual int TypeIndexFromInternIndex(int u)
+    {
+        int a;
+        a = u;
 
+        int ua;
+        ua = 0x80;
 
+        int uu;
+        uu = 0x01000000;
 
+        if (!(a < uu))
+        {
+            a = a - uu;
+            a = a + ua;
+        }
+        return a;
+    }
 
     public virtual object HandleTarget(ulong o)
     {
         SystemIntPtr u;
-
         u = (SystemIntPtr)o;
 
-
-
-
         SystemGCHandle uu;
-
         uu = SystemGCHandle.FromIntPtr(u);
 
-
-
-
-
         object a;
-
         a = uu.Target;
-
-
         return a;
     }
 }
