@@ -59,11 +59,15 @@ public class ButtonList : Any
         this.Digit8 = this.AddDigitButton();//'*');
         this.Digit9 = this.AddDigitButton();//'(');
         
-        this.Space = this.AddSignButton(' ');
-        this.BackTick = this.AddSignButton('`');, '~');
-        this.Dash = this.AddSignKey('-', '_');
-        this.EqualSign = this.AddSignKey('=', '+');
-        this.LeftSquare = this.AddSignKey('[', '{');
+        this.SignSpace = this.AddSignButton(' ');
+        this.SignBackTick = this.AddSignButton('`');
+        this.SignTilde = this.AddSignButton('~');
+        this.SignDash = this.AddSignButton('-');
+        this.SignUnderscore = this.AddSignButton('_');
+        this.SignEqual = this.AddSignButton('=');
+        this.SignPlus = this.AddSignButton('+');
+        this.SignLeftSquare = this.AddSignButton('[');
+        this.SignLeftBrace = this.AddSignButton('{');
         this.RightSquare = this.AddSignKey(']', '}');
         this.SemiColon = this.AddSignKey(';', ':');
         this.SingleQuote = this.AddSignKey('\'', '"');
