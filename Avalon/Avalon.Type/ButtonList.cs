@@ -374,10 +374,8 @@ public class ButtonList : Any
     {
         int index;
         index = this.ControlIndex + this.ControlStart;
-        int oa;
-        oa = -1;
         char oc;
-        oc = (char)oa;
+        oc = (char)0;
         Button a;
         a = this.AddButton(index, oc);
         this.ControlIndex = this.ControlIndex + 1;
