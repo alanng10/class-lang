@@ -315,6 +315,12 @@ public class Gen : Any
             {
                 if (this.IsInAbstract(property.GetMethod) & !((type == typeof(Data)) & (property.Name == "Value")))
                 {
+                    if (!property.GetMethod.IsVirtual)
+                    {
+                        global::System.Console.Error.Write("Class " + varClass.Name + "(" + varClass.Module.Ref.Name + ") field " + property.Name + " is not virtual\n");
+                        global::System.Environment.Exit(106);
+                    }
+
                     Field field;
                     field = new Field();
                     field.Init();
