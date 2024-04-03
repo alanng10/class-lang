@@ -398,24 +398,24 @@ public class ButtonList : Any
         return (Button)this.Array.Get(index);
     }
 
-    public bool IsLetterKey(int index)
+    public virtual bool IsLetterButton(int index)
     {
         return !(index < 'A') & !('Z' < index);
     }
 
-    public bool IsDigitKey(int index)
+    public virtual bool IsDigitButton(int index)
     {
         return !(index < '0') & !('9' < index);
     }
 
-    public virtual Button LetterKey(int letterIndex)
+    public virtual Button LetterButton(int letterIndex)
     {
         int start;
         start = 'A';
         return this.IndexKey(letterIndex, start);
     }
 
-    public virtual Button DigitKey(int digitIndex)
+    public virtual Button DigitButton(int digitIndex)
     {
         int start;
         start = '0';
