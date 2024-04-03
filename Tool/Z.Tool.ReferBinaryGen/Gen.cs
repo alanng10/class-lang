@@ -315,7 +315,7 @@ public class Gen : Any
             {
                 if (!property.CanRead)
                 {
-                    global::System.Console.Error.Write("Class " + varClass.Name + "(" + varClass.Module.Ref.Name + ") field " + property.Name + " has no get\n");
+                    global::System.Console.Error.Write("Type " + varClass.Name + "(" + varClass.Module.Ref.Name + ") property " + property.Name + " has no get\n");
                     global::System.Environment.Exit(108);
                 }
                 if (this.IsInAbstract(property.GetMethod) & !((type == typeof(Data)) & (property.Name == "Value")))
