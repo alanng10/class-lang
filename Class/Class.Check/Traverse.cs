@@ -39,25 +39,25 @@ public class Traverse : NodeTraverse
 
 
 
-    protected Refer Refer { get; set; }
+    protected virtual Refer Refer { get; set; }
 
 
 
 
 
-    protected ErrorKindList ErrorKind { get; set; }
+    protected virtual ErrorKindList ErrorKind { get; set; }
 
 
 
 
 
-    protected CountList Count { get; set; }
+    protected virtual CountList Count { get; set; }
 
 
 
 
 
-    public SourceItem SourceItem { get; set; }
+    public virtual SourceItem SourceItem { get; set; }
 
 
 
@@ -75,7 +75,7 @@ public class Traverse : NodeTraverse
 
 
 
-    protected InfraClass Class(string name)
+    protected virtual InfraClass Class(string name)
     {
         InfraClass ret;
 
@@ -89,7 +89,7 @@ public class Traverse : NodeTraverse
 
 
 
-    protected Count GetAccess(NodeCount nodeCount)
+    protected virtual Count GetAccess(NodeCount nodeCount)
     {
         Count t;
 
@@ -139,7 +139,7 @@ public class Traverse : NodeTraverse
 
 
 
-    protected bool UniqueError(ErrorKind kind, NodeNode node, bool hasAdded)
+    protected virtual bool UniqueError(ErrorKind kind, NodeNode node, bool hasAdded)
     {
         if (!hasAdded)
         {
@@ -158,7 +158,7 @@ public class Traverse : NodeTraverse
 
 
 
-    protected bool Error(ErrorKind kind, NodeNode node)
+    protected virtual bool Error(ErrorKind kind, NodeNode node)
     {
         this.Create.Error(kind, node, this.SourceItem);
 
