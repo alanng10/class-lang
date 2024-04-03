@@ -5,20 +5,20 @@ namespace Class.Console;
 
 public class Result : Any
 {
-    public TokenResult Token { get; set; }
+    public virtual TokenResult Token { get; set; }
 
 
 
 
-    public NodeResult Node { get; set; }
+    public virtual NodeResult Node { get; set; }
 
 
 
 
-    public CheckResult Check { get; set; }
+    public virtual CheckResult Check { get; set; }
 
 
 
 
-    public ModuleResult Module { get; set; }
+    public virtual ModuleResult Module { get; set; }
 }
