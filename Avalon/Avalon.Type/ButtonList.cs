@@ -93,48 +93,48 @@ public class ButtonList : Any
         this.SignBackSlash = this.AddSignButton('\\');
         this.SignVerticalBar = this.AddSignButton('|');
 
-        this.Escape = this.AddControlButton();
-        this.Tab = this.AddControlButton();
+        this.ControlEscape = this.AddControlButton();
+        this.ControlTab = this.AddControlButton();
         this.ControlIndex = 0x03;
-        this.BackSpace = this.AddControlButton();
-        this.Enter = this.AddControlButton();
+        this.ControlBackSpace = this.AddControlButton();
+        this.ControlEnter = this.AddControlButton();
         this.ControlIndex = 0x06;
-        this.Insert = this.AddControlButton();
-        this.Delete = this.AddControlButton();
-        this.Pause = this.AddControlButton();
-        this.Print = this.AddControlButton();
+        this.ControlInsert = this.AddControlButton();
+        this.ControlDelete = this.AddControlButton();
+        this.ControlPause = this.AddControlButton();
+        this.ControlPrint = this.AddControlButton();
         this.ControlIndex = 0x10;
-        this.Home = this.AddControlButton();
-        this.End = this.AddControlButton();
-        this.Left = this.AddControlButton();
-        this.Up = this.AddControlButton();
-        this.Right = this.AddControlButton();
-        this.Down = this.AddControlButton();
-        this.PageUp = this.AddControlButton();
-        this.PageDown = this.AddControlButton();
+        this.ControlHome = this.AddControlButton();
+        this.ControlEnd = this.AddControlButton();
+        this.ControlLeft = this.AddControlButton();
+        this.ControlUp = this.AddControlButton();
+        this.ControlRight = this.AddControlButton();
+        this.ControlDown = this.AddControlButton();
+        this.ControlPageUp = this.AddControlButton();
+        this.ControlPageDown = this.AddControlButton();
 
         this.ControlIndex = 0x20;
-        this.Shift = this.AddControlButton();
-        this.Control = this.AddControlButton();
+        this.ControlShift = this.AddControlButton();
+        this.ControlControl = this.AddControlButton();
         this.ControlIndex = 0x23;
-        this.Alt = this.AddControlButton();
-        this.CapsLock = this.AddControlButton();
-        this.NumLock = this.AddControlButton();
-        this.ScrollLock = this.AddControlButton();
+        this.ControlAlt = this.AddControlButton();
+        this.ControlCapsLock = this.AddControlButton();
+        this.ControlNumLock = this.AddControlButton();
+        this.ControlScrollLock = this.AddControlButton();
 
         this.ControlIndex = 0x30;
-        this.F1 = this.AddControlButton();
-        this.F2 = this.AddControlButton();
-        this.F3 = this.AddControlButton();
-        this.F4 = this.AddControlButton();
-        this.F5 = this.AddControlButton();
-        this.F6 = this.AddControlButton();
-        this.F7 = this.AddControlButton();
-        this.F8 = this.AddControlButton();
-        this.F9 = this.AddControlButton();
-        this.F10 = this.AddControlButton();
-        this.F11 = this.AddControlButton();
-        this.F12 = this.AddControlButton();
+        this.ControlF1 = this.AddControlButton();
+        this.ControlF2 = this.AddControlButton();
+        this.ControlF3 = this.AddControlButton();
+        this.ControlF4 = this.AddControlButton();
+        this.ControlF5 = this.AddControlButton();
+        this.ControlF6 = this.AddControlButton();
+        this.ControlF7 = this.AddControlButton();
+        this.ControlF8 = this.AddControlButton();
+        this.ControlF9 = this.AddControlButton();
+        this.ControlF10 = this.AddControlButton();
+        this.ControlF11 = this.AddControlButton();
+        this.ControlF12 = this.AddControlButton();
         return true;
     }
 
@@ -210,40 +210,40 @@ public class ButtonList : Any
     public virtual Button SignBackSlash { get; set; }
     public virtual Button SignVerticalBar { get; set; }
 
-    public virtual Button Escape { get; set; }
-    public virtual Button Tab { get; set; }
-    public virtual Button BackSpace { get; set; }
-    public virtual Button Enter { get; set; }
-    public virtual Button Insert { get; set; }
-    public virtual Button Delete { get; set; }
-    public virtual Button Pause { get; set; }
-    public virtual Button Print { get; set; }
-    public virtual Button Home { get; set; }
-    public virtual Button End { get; set; }
-    public virtual Button Left { get; set; }
-    public virtual Button Up { get; set; }
-    public virtual Button Right { get; set; }
-    public virtual Button Down { get; set; }
-    public virtual Button PageUp { get; set; }
-    public virtual Button PageDown { get; set; }
-    public virtual Button Shift { get; set; }
-    public virtual Button Control { get; set; }
-    public virtual Button Alt { get; set; }
-    public virtual Button CapsLock { get; set; }
-    public virtual Button NumLock { get; set; }
-    public virtual Button ScrollLock { get; set; }
-    public virtual Button F1 { get; set; }
-    public virtual Button F2 { get; set; }
-    public virtual Button F3 { get; set; }
-    public virtual Button F4 { get; set; }
-    public virtual Button F5 { get; set; }
-    public virtual Button F6 { get; set; }
-    public virtual Button F7 { get; set; }
-    public virtual Button F8 { get; set; }
-    public virtual Button F9 { get; set; }
-    public virtual Button F10 { get; set; }
-    public virtual Button F11 { get; set; }
-    public virtual Button F12 { get; set; }
+    public virtual Button ControlEscape { get; set; }
+    public virtual Button ControlTab { get; set; }
+    public virtual Button ControlBackSpace { get; set; }
+    public virtual Button ControlEnter { get; set; }
+    public virtual Button ControlInsert { get; set; }
+    public virtual Button ControlDelete { get; set; }
+    public virtual Button ControlPause { get; set; }
+    public virtual Button ControlPrint { get; set; }
+    public virtual Button ControlHome { get; set; }
+    public virtual Button ControlEnd { get; set; }
+    public virtual Button ControlLeft { get; set; }
+    public virtual Button ControlUp { get; set; }
+    public virtual Button ControlRight { get; set; }
+    public virtual Button ControlDown { get; set; }
+    public virtual Button ControlPageUp { get; set; }
+    public virtual Button ControlPageDown { get; set; }
+    public virtual Button ControlShift { get; set; }
+    public virtual Button ControlControl { get; set; }
+    public virtual Button ControlAlt { get; set; }
+    public virtual Button ControlCapsLock { get; set; }
+    public virtual Button ControlNumLock { get; set; }
+    public virtual Button ControlScrollLock { get; set; }
+    public virtual Button ControlF1 { get; set; }
+    public virtual Button ControlF2 { get; set; }
+    public virtual Button ControlF3 { get; set; }
+    public virtual Button ControlF4 { get; set; }
+    public virtual Button ControlF5 { get; set; }
+    public virtual Button ControlF6 { get; set; }
+    public virtual Button ControlF7 { get; set; }
+    public virtual Button ControlF8 { get; set; }
+    public virtual Button ControlF9 { get; set; }
+    public virtual Button ControlF10 { get; set; }
+    public virtual Button ControlF11 { get; set; }
+    public virtual Button ControlF12 { get; set; }
 
     public virtual Button LeftUp
     {
