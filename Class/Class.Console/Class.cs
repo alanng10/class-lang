@@ -53,24 +53,24 @@ public class Class : Any
     }
 
 
-    public Source Source { get; set; }
+    public virtual Source Source { get; set; }
 
-    public string ModuleName { get; set; }
-
-
-    public bool ErrorWrite { get; set; }
+    public virtual string ModuleName { get; set; }
 
 
-    public Task Task { get; set; }
+    public virtual bool ErrorWrite { get; set; }
 
 
-    public Result Result { get; set; }
+    public virtual Task Task { get; set; }
+
+
+    public virtual Result Result { get; set; }
 
 
     internal Result SystemResult { get; set; }
 
 
-    public TaskKindList TaskKind { get; set; }
+    public virtual TaskKindList TaskKind { get; set; }
 
 
 
@@ -78,7 +78,7 @@ public class Class : Any
 
 
 
-    public Create Create { get; set; }
+    public virtual Create Create { get; set; }
 
 
 
@@ -88,7 +88,7 @@ public class Class : Any
 
 
 
-    public string SourceFold { get; set; }
+    public virtual string SourceFold { get; set; }
 
 
     protected virtual InfraInfra InfraInfra { get; set; }
@@ -100,7 +100,7 @@ public class Class : Any
 
 
 
-    public bool Execute()
+    public virtual bool Execute()
     {
         this.Out = this.Task.Out;
 
@@ -320,7 +320,7 @@ public class Class : Any
 
 
 
-    public bool ExecuteCreate()
+    public virtual bool ExecuteCreate()
     {
         this.Create.Execute();
 
