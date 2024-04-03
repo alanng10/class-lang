@@ -609,7 +609,7 @@ public class Create : InfraCreate
 
 
 
-    protected bool AddAnyClassMethod(string name)
+    protected virtual bool AddAnyClassMethod(string name)
     {
         Maide method;
 
@@ -1135,7 +1135,7 @@ public class Create : InfraCreate
 
 
 
-    public bool Error(ErrorKind kind, NodeNode node, SourceItem sourceItem)
+    public virtual bool Error(ErrorKind kind, NodeNode node, SourceItem sourceItem)
     {
         Error error;
 
@@ -1185,7 +1185,7 @@ public class Create : InfraCreate
 
 
 
-    public InfraClass Class(string name)
+    public virtual InfraClass Class(string name)
     {
         InfraClass varClass;
 
