@@ -412,17 +412,17 @@ public class ButtonList : Any
     {
         int start;
         start = 'A';
-        return this.IndexKey(letterIndex, start);
+        return this.IndexButton(letterIndex, start);
     }
 
     public virtual Button DigitButton(int digitIndex)
     {
         int start;
         start = '0';
-        return this.IndexKey(digitIndex, start);
+        return this.IndexButton(digitIndex, start);
     }
 
-    protected virtual Button IndexKey(int index, int start)
+    protected virtual Button IndexButton(int index, int start)
     {
         int k;
         k = start + index;
