@@ -347,6 +347,12 @@ public class Gen : Any
 
             if (!method.IsSpecialName & this.IsInAbstract(method) & !((type == typeof(EntryEntry)) & (method.Name == "ArgSet")))
             {
+                if (!method.IsVirtual)
+                {
+                    global::System.Console.Error.Write("Class " + varClass.Name + "(" + varClass.Module.Ref.Name + ") maide " + method.Name + " is not virtual\n");
+                    global::System.Environment.Exit(107);
+                }
+
                 Maide maide;
                 maide = new Maide();
                 maide.Init();
