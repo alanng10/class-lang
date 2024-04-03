@@ -5,20 +5,19 @@ namespace Class.Check;
 
 public class VarStack : Stack
 {
-    public bool Push(Table item)
+    public virtual bool Push(Table item)
     {
         return base.Push(item);
     }
 
 
 
-    public new Table Top
+    public new virtual Table Top
     {
         get
         {
             return (Table)base.Top;
         }
-
         set
         {
         }
