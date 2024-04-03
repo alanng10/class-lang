@@ -18,17 +18,17 @@ public class CheckString : Any
 
 
 
-    public CheckResult CheckResult { get; set; }
+    public virtual CheckResult CheckResult { get; set; }
 
 
 
 
-    public NodeResult NodeResult { get; set; }
+    public virtual NodeResult NodeResult { get; set; }
 
 
 
 
-    public string Path { get; set; }
+    public virtual string Path { get; set; }
 
     protected virtual InfraInfra InfraInfra { get; set; }
 
@@ -36,7 +36,7 @@ public class CheckString : Any
 
 
 
-    public bool Execute()
+    public virtual bool Execute()
     {
         this.Builder = new StringBuilder();
         
@@ -158,7 +158,7 @@ public class CheckString : Any
 
 
 
-    protected CheckCheck Check { get; set; }
+    protected virtual CheckCheck Check { get; set; }
 
 
 
@@ -271,7 +271,7 @@ public class CheckString : Any
 
 
 
-    protected bool AppendClass(InfraClass varClass)
+    protected virtual bool AppendClass(InfraClass varClass)
     {
         if (this.Null(varClass))
         {
@@ -323,7 +323,7 @@ public class CheckString : Any
 
 
 
-    protected bool AppendField(CheckField field)
+    protected virtual bool AppendField(CheckField field)
     {
         if (this.Null(field))
         {
@@ -368,7 +368,7 @@ public class CheckString : Any
 
 
 
-    protected bool AppendMethod(CheckMaide method)
+    protected virtual bool AppendMethod(CheckMaide method)
     {
         if (this.Null(method))
         {
@@ -413,7 +413,7 @@ public class CheckString : Any
 
 
 
-    protected bool AppendVar(CheckVar varVar)
+    protected virtual bool AppendVar(CheckVar varVar)
     {
         if (this.Null(varVar))
         {
@@ -437,7 +437,7 @@ public class CheckString : Any
 
 
 
-    protected bool AppendLine()
+    protected virtual bool AppendLine()
     {
         this.Append("\n");
 
@@ -447,7 +447,7 @@ public class CheckString : Any
 
 
 
-    protected bool AppendNull()
+    protected virtual bool AppendNull()
     {
         this.Builder.Append("<Null>");
 
@@ -456,7 +456,7 @@ public class CheckString : Any
     }
 
 
-    protected bool Append(string s)
+    protected virtual bool Append(string s)
     {
         this.Builder.Append(s);
 
@@ -468,7 +468,7 @@ public class CheckString : Any
 
 
 
-    protected bool Null(object o)
+    protected virtual bool Null(object o)
     {
         return o == null;
     }
@@ -477,7 +477,7 @@ public class CheckString : Any
 
 
 
-    public string Result()
+    public virtual string Result()
     {
         string ret;
 
