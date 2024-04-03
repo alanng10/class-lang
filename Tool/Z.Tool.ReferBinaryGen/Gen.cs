@@ -313,16 +313,21 @@ public class Gen : Any
 
             if (!property.IsSpecialName)
             {
-                if (!property.CanRead)
+                MethodInfo ooo;
+                ooo = null;
+                if ((ooo == null) & property.CanRead)
                 {
-                    global::System.Console.Error.Write("Type " + varClass.Name + "(" + varClass.Module.Ref.Name + ") property " + property.Name + " has no get\n");
-                    global::System.Environment.Exit(108);
+                    ooo = property.GetMethod;
                 }
-                if (this.IsInAbstract(property.GetMethod) & !((type == typeof(Data)) & (property.Name == "Value")))
+                if ((ooo == null) & property.CanWrite)
                 {
-                    if (!property.CanWrite)
+                    ooo = property.SetMethod;
+                }
+                if (this.IsInAbstract(ooo) & !((type == typeof(Data)) & (property.Name == "Value")))
+                {
+                    if (!(property.CanWrite & property.CanRead))
                     {
-                        global::System.Console.Error.Write("Class " + varClass.Name + "(" + varClass.Module.Ref.Name + ") field " + property.Name + " has no set\n");
+                        global::System.Console.Error.Write("Class " + varClass.Name + "(" + varClass.Module.Ref.Name + ") field " + property.Name + " does not have both get and set\n");
                         global::System.Environment.Exit(109);
                     }
 
