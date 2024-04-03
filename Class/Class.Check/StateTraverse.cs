@@ -80,30 +80,30 @@ public class StateTraverse : Traverse
 
 
 
-    public InfraClass CurrentClass { get; set; }
+    public virtual InfraClass CurrentClass { get; set; }
 
 
 
 
-    public InfraClass CurrentResultClass { get; set; }
-
-
-
-
-
-    public SystemClass System { get; set; }
+    public virtual InfraClass CurrentResultClass { get; set; }
 
 
 
 
 
-    public Table StateVars { get; set; }
+    public virtual SystemClass System { get; set; }
 
 
 
 
-        
-    public VarStack VarStack { get; set; }
+
+    public virtual Table StateVars { get; set; }
+
+
+
+
+
+    public virtual VarStack VarStack { get; set; }
 
 
     protected virtual TextInfra TextInfra { get; set; }
