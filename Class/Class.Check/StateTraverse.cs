@@ -99,16 +99,11 @@ public class StateTraverse : Traverse
 
     public virtual Table StateVars { get; set; }
 
-
-
-
-
     public virtual VarStack VarStack { get; set; }
-
 
     protected virtual TextInfra TextInfra { get; set; }
 
-
+    public virtual InfraClass NullClass { get; set; }
 
 
     public override bool ExecuteClass(NodeClass varClass)
@@ -2978,12 +2973,4 @@ public class StateTraverse : Traverse
 
         return null;
     }
-
-
-
-
-
-
-
-    public InfraClass NullClass { get; set; }
 }
