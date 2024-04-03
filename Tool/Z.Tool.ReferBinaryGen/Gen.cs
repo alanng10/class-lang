@@ -311,10 +311,21 @@ public class Gen : Any
             PropertyInfo property;
             property = propertyArrayA[i];
 
-            if (!property.IsSpecialName & property.CanRead & property.CanWrite)
+            if (!property.IsSpecialName)
             {
+                if (!property.CanRead)
+                {
+                    global::System.Console.Error.Write("Class " + varClass.Name + "(" + varClass.Module.Ref.Name + ") field " + property.Name + " has no get\n");
+                    global::System.Environment.Exit(108);
+                }
                 if (this.IsInAbstract(property.GetMethod) & !((type == typeof(Data)) & (property.Name == "Value")))
                 {
+                    if (!property.CanWrite)
+                    {
+                        global::System.Console.Error.Write("Class " + varClass.Name + "(" + varClass.Module.Ref.Name + ") field " + property.Name + " has no set\n");
+                        global::System.Environment.Exit(109);
+                    }
+
                     if (!property.GetMethod.IsVirtual)
                     {
                         global::System.Console.Error.Write("Class " + varClass.Name + "(" + varClass.Module.Ref.Name + ") field " + property.Name + " is not virtual\n");
