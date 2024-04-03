@@ -6,22 +6,22 @@ namespace Class.Check;
 
 public class SystemClass : Any
 {
-    public InfraClass Any { get; set; }
+    public virtual InfraClass Any { get; set; }
 
 
 
 
-    public InfraClass Bool { get; set; }
+    public virtual InfraClass Bool { get; set; }
 
 
 
 
-    public InfraClass Int { get; set; }
+    public virtual InfraClass Int { get; set; }
 
 
 
 
-    public InfraClass String { get; set; }
+    public virtual InfraClass String { get; set; }
 
 
 
