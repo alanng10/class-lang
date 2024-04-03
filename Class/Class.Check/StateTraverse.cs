@@ -2557,7 +2557,7 @@ public class StateTraverse : Traverse
 
 
 
-    protected bool CheckClass(InfraClass varClass, InfraClass requiredClass)
+    protected virtual bool CheckClass(InfraClass varClass, InfraClass requiredClass)
     {
         InfraClass currentClass;
 
@@ -2771,7 +2771,7 @@ public class StateTraverse : Traverse
 
 
 
-    protected bool ArguesMatch(Maide method, Argue argue)
+    protected virtual bool ArguesMatch(Maide method, Argue argue)
     {
         int count;
 
