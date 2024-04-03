@@ -4,7 +4,7 @@ public class Table : List
 {
     private Tree Tree { get; set; }
 
-    public Compare Compare { get; set; }
+    public virtual Compare Compare { get; set; }
 
     private List List { get; set; }
 
