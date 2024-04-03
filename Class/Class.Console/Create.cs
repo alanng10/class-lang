@@ -5,37 +5,37 @@ namespace Class.Console;
 
 public class Create : Any
 {
-    public Class Class { get; set; }
-        
-        
-
-
-    public Result Result { get; set; }
+    public virtual Class Class { get; set; }
 
 
 
 
-    public Source Source { get; set; }
+    public virtual Result Result { get; set; }
 
 
 
 
-    public TokenCreate Token { get; set; }
+    public virtual Source Source { get; set; }
 
 
 
 
-    public NodeCreate Node { get; set; }
+    public virtual TokenCreate Token { get; set; }
 
 
 
 
-    public CheckCreate Check { get; set; }
+    public virtual NodeCreate Node { get; set; }
 
 
 
 
-    public ModuleCreate Module { get; set; }
+    public virtual CheckCreate Check { get; set; }
+
+
+
+
+    public virtual ModuleCreate Module { get; set; }
 
 
 
@@ -214,7 +214,7 @@ public class Create : Any
 
 
 
-    public bool Execute()
+    public virtual bool Execute()
     {
         this.Result = new Result();
 
