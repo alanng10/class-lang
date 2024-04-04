@@ -13,6 +13,11 @@ public class Read : Any
     public virtual int Index { get; set; }
     protected virtual InfraInfra InfraInfra { get; set; }
 
+    protected virtual string ExecuteString()
+    {
+        return null;
+    }
+
     protected virtual long ExecuteInt()
     {
         int index;
