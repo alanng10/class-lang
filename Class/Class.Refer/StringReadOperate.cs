@@ -1,11 +1,12 @@
 namespace Class.Refer;
 
-public class CountReadOperate : Any
+public class StringReadOperate : Any
 {
     public override bool Init()
     {
         base.Init();
         this.ListInfra = ListInfra.This;
+        this.TextInfra = TextInfra.This;
         this.String = "";
         this.Array = this.ListInfra.ArrayCreate(0);
         this.Field = new Field();
@@ -15,6 +16,7 @@ public class CountReadOperate : Any
 
     public virtual Read Read { get; set; }
     protected virtual ListInfra ListInfra { get; set; }
+    protected virtual TextInfra TextInfra { get; set; }
     protected virtual string String { get; set; }
     protected virtual Array Array { get; set; }
     protected virtual Field Field { get; set; }
@@ -29,12 +31,42 @@ public class CountReadOperate : Any
         {
             return null;
         }
+
+        TextInfra textInfra;
+        textInfra = this.TextInfra;
+
+        int index;
+        index = read.Index;
+
+        Data data;
+        data = read.Data;
+        Data stringData;
+        stringData = read.StringData;
+
+        int oo;
+        oo = 0;
+        byte ooa;
+        ooa = 0;
+        char oob;
+        oob = (char)0;
+        int oa;
+        oa = read.StringDataIndex;
+        int count;
+        count = o;
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            oo = data.Get(index + i);
+            ooa = (byte)oo;
+            oob = (char)ooa;
+            textInfra.DataCharSet(stringData, oa + i, oob);
+            i = i + 1;
+        }
         
-
-
-        read.Index = read.Index + o;
+        read.Index = index + count;
         read.StringIndex = read.StringIndex + 1;
-        read.StringDataIndex = read.StringDataIndex + o;
+        read.StringDataIndex = oa + count;
         return this.String;
     }
 
