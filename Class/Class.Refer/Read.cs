@@ -11,14 +11,53 @@ public class Read : Any
 
     public virtual Data Data { get; set; }
     public virtual int Index { get; set; }
+    public virtual Refer Refer { get; set; }
     protected virtual InfraInfra InfraInfra { get; set; }
+    protected virtual ReadOperate Operate { get; set; }
+    public virtual int ArrayIndex { get; set; }
 
-    protected virtual string ExecuteString()
+    public virtual bool Execute()
     {
-        return null;
+        return true;
     }
 
-    protected virtual long ExecuteInt()
+    protected virtual Array ExecuteFieldArray()
+    {
+        Array array;
+        array = this.Operate.ExecuteArray();
+        int count;
+        count = array.Count;
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            Field field;
+            field = this.Operate.ExecuteField();
+            if (!(field == null))
+            {
+                this.Operate.ExecuteArrayItemSet(array, i, field);
+            }
+            i = i + 1;
+        }
+        return array;
+    }
+
+    public virtual string ExecuteString()
+    {
+        return this.Operate.ExecuteString();
+    }
+
+    public virtual int ExecuteCount()
+    {
+        return (int)this.ExecuteInt();
+    }
+
+    public virtual int ExecuteIndex()
+    {
+        return (int)this.ExecuteInt();
+    }
+
+    public virtual long ExecuteInt()
     {
         int index;
         index = this.Index;
@@ -40,7 +79,7 @@ public class Read : Any
         return a;
     }
 
-    protected virtual int ExecuteByte()
+    public virtual int ExecuteByte()
     {
         int index;
         index = this.Index;
