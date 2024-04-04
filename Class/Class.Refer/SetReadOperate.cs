@@ -45,6 +45,7 @@ public class SetReadOperate : Any
 
     public virtual bool ExecuteArrayItemSet(Array array, int index, object value)
     {
+        array.Set(index, value);
         return true;
     }
 
