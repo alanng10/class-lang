@@ -135,7 +135,7 @@ IntHexValue : Value
 IntSignValue : Value
     Int Value
 
-IntSignHexValue : Value
+IntHexSignValue : Value
     Int Value
 
 StringValue : Value
