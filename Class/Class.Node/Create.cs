@@ -1227,15 +1227,15 @@ public class Create : InfraCreate
         }
         if (a == null)
         {
-            a = this.ExecuteIntSignHexValue(this.Range(this.RangeA, start, end));
-        }
-        if (a == null)
-        {
-            a = this.ExecuteIntSignValue(this.Range(this.RangeA, start, end));
+            a = this.ExecuteIntHexSignValue(this.Range(this.RangeA, start, end));
         }
         if (a == null)
         {
             a = this.ExecuteIntHexValue(this.Range(this.RangeA, start, end));
+        }
+        if (a == null)
+        {
+            a = this.ExecuteIntSignValue(this.Range(this.RangeA, start, end));
         }
         if (a == null)
         {
@@ -1459,7 +1459,7 @@ public class Create : InfraCreate
         return ret;
     }
 
-    public virtual Node ExecuteIntSignHexValue(Range range)
+    public virtual Node ExecuteIntHexSignValue(Range range)
     {
         int start;
         int end;
@@ -1473,7 +1473,7 @@ public class Create : InfraCreate
 
         TextRange aa;
         aa = this.TextRange(start);
-        if (!this.IsIntSignHexValue(aa))
+        if (!this.IsIntHexSignValue(aa))
         {
             return null;
         }
@@ -1521,7 +1521,7 @@ public class Create : InfraCreate
             value = -o;
         }
 
-        this.OperateArg.Kind = this.NodeKind.IntSignHexValue;
+        this.OperateArg.Kind = this.NodeKind.IntHexSignValue;
         this.OperateArg.Start = start;
         this.OperateArg.End = end;
         this.OperateArg.FieldInt = value;
@@ -3904,7 +3904,7 @@ public class Create : InfraCreate
         return true;
     }
 
-    protected virtual bool IsIntSignHexValue(TextRange aa)
+    protected virtual bool IsIntHexSignValue(TextRange aa)
     {
         int count;
         count = aa.Col.Count;
@@ -3926,11 +3926,11 @@ public class Create : InfraCreate
         {
             return false;
         }
-        if (!(this.TextInfra.DataCharGet(data, start + 1) == 's'))
+        if (!(this.TextInfra.DataCharGet(data, start + 1) == 'h'))
         {
             return false;
         }
-        if (!(this.TextInfra.DataCharGet(data, start + 2) == 'h'))
+        if (!(this.TextInfra.DataCharGet(data, start + 2) == 's'))
         {
             return false;
         }
