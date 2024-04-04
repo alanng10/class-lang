@@ -559,6 +559,10 @@ public class Traverse : Any
         {
             this.ExecuteBaseGetOperate((BaseGetOperate)operate);
         }
+        if (operate is BaseCallOperate)
+        {
+            this.ExecuteBaseCallOperate((BaseCallOperate)operate);
+        }
         if (operate is VarOperate)
         {
             this.ExecuteVarOperate((VarOperate)operate);
@@ -702,6 +706,19 @@ public class Traverse : Any
         this.ExecuteNode(baseGetOperate);
 
         this.ExecuteFieldName(baseGetOperate.Field);
+        return true;
+    }
+
+    public virtual bool ExecuteBaseCallOperate(BaseCallOperate baseCallOperate)
+    {
+        if (baseCallOperate == null)
+        {
+            return true;
+        }
+        this.ExecuteNode(baseCallOperate);
+
+        this.ExecuteMaideName(baseCallOperate.Maide);
+        this.ExecuteArgue(baseCallOperate.Argue);
         return true;
     }
 
