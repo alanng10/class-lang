@@ -1,10 +1,10 @@
 namespace Class.Refer;
 
-public class SetReadOperate : Any
+public class SetReadOperate : ReadOperate
 {
     public virtual Read Read { get; set; }
 
-    public virtual string ExecuteString()
+    public override string ExecuteString()
     {
         Read read;
         read = this.Read;
@@ -26,7 +26,7 @@ public class SetReadOperate : Any
         return a;
     }
 
-    public virtual Array ExecuteArray()
+    public override Array ExecuteArray()
     {
         int o;
         o = this.Read.ExecuteCount();
@@ -43,13 +43,13 @@ public class SetReadOperate : Any
         return a;
     }
 
-    public virtual bool ExecuteArrayItemSet(Array array, int index, object value)
+    public override bool ExecuteArrayItemSet(Array array, int index, object value)
     {
         array.Set(index, value);
         return true;
     }
 
-    public virtual Field ExecuteField()
+    public override Field ExecuteField()
     {
         return null;
     }

@@ -1,6 +1,6 @@
 namespace Class.Refer;
 
-public class StringReadOperate : Any
+public class StringReadOperate : ReadOperate
 {
     public override bool Init()
     {
@@ -21,7 +21,7 @@ public class StringReadOperate : Any
     protected virtual Array Array { get; set; }
     protected virtual Field Field { get; set; }
 
-    public virtual string ExecuteString()
+    public override string ExecuteString()
     {
         Read read;
         read = this.Read;
@@ -70,7 +70,7 @@ public class StringReadOperate : Any
         return this.String;
     }
 
-    public virtual Array ExecuteArray()
+    public override Array ExecuteArray()
     {
         int o;
         o = this.Read.ExecuteCount();
@@ -82,12 +82,12 @@ public class StringReadOperate : Any
         return this.Array;
     }
 
-    public virtual bool ExecuteArrayItemSet(Array array, int index, object value)
+    public override bool ExecuteArrayItemSet(Array array, int index, object value)
     {
         return true;
     }
 
-    public virtual Field ExecuteField()
+    public override Field ExecuteField()
     {
         this.Read.FieldIndex = this.Read.FieldIndex + 1;
         return this.Field;
