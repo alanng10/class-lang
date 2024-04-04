@@ -30,8 +30,6 @@ public class CountReadOperate : Any
             return null;
         }
         
-
-
         read.Index = read.Index + o;
         read.StringIndex = read.StringIndex + 1;
         read.StringDataIndex = read.StringDataIndex + o;
