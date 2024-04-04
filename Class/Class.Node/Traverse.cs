@@ -226,17 +226,17 @@ public class Traverse : Any
         {
             this.ExecuteIntValue((IntValue)value);
         }
-        if (value is IntHexValue)
-        {
-            this.ExecuteIntHexValue((IntHexValue)value);
-        }
         if (value is IntSignValue)
         {
             this.ExecuteIntSignValue((IntSignValue)value);
         }
-        if (value is IntSignHexValue)
+        if (value is IntHexValue)
         {
-            this.ExecuteIntSignHexValue((IntSignHexValue)value);
+            this.ExecuteIntHexValue((IntHexValue)value);
+        }
+        if (value is IntHexSignValue)
+        {
+            this.ExecuteIntHexSignValue((IntHexSignValue)value);
         }
         if (value is StringValue)
         {
@@ -285,13 +285,13 @@ public class Traverse : Any
         return true;
     }
 
-    public virtual bool ExecuteIntSignHexValue(IntSignHexValue intSignHexValue)
+    public virtual bool ExecuteIntHexSignValue(IntHexSignValue intHexSignValue)
     {
-        if (intSignHexValue == null)
+        if (intHexSignValue == null)
         {
             return true;
         }
-        this.ExecuteNode(intSignHexValue);
+        this.ExecuteNode(intHexSignValue);
         return true;
     }
 
