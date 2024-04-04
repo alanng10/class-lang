@@ -64,7 +64,7 @@ public class NodeKindList : Any
         this.IntValue = this.AddItem("IntValue", new IntValue(), new IntValueNewState(), new IntValueNodeState(), new IntValueCreateOperateState());
         this.IntHexValue = this.AddItem("IntHexValue", new IntHexValue(), new IntHexValueNewState(), new IntHexValueNodeState(), new IntHexValueCreateOperateState());
         this.IntSignValue = this.AddItem("IntSignValue", new IntSignValue(), new IntSignValueNewState(), new IntSignValueNodeState(), new IntSignValueCreateOperateState());
-        this.IntSignHexValue = this.AddItem("IntSignHexValue", new IntSignHexValue(), new IntSignHexValueNewState(), new IntSignHexValueNodeState(), new IntSignHexValueCreateOperateState());
+        this.IntHexSignValue = this.AddItem("IntHexSignValue", new IntHexSignValue(), new IntHexSignValueNewState(), new IntHexSignValueNodeState(), new IntHexSignValueCreateOperateState());
         this.StringValue = this.AddItem("StringValue", new StringValue(), new StringValueNewState(), new StringValueNodeState(), new StringValueCreateOperateState());
         this.ClassName = this.AddItem("ClassName", new ClassName(), new ClassNameNewState(), new ClassNameNodeState(), new ClassNameCreateOperateState());
         this.FieldName = this.AddItem("FieldName", new FieldName(), new FieldNameNewState(), new FieldNameNodeState(), new FieldNameCreateOperateState());
@@ -134,7 +134,7 @@ public class NodeKindList : Any
     public virtual NodeKind IntValue { get; set; }
     public virtual NodeKind IntHexValue { get; set; }
     public virtual NodeKind IntSignValue { get; set; }
-    public virtual NodeKind IntSignHexValue { get; set; }
+    public virtual NodeKind IntHexSignValue { get; set; }
     public virtual NodeKind StringValue { get; set; }
     public virtual NodeKind ClassName { get; set; }
     public virtual NodeKind FieldName { get; set; }
