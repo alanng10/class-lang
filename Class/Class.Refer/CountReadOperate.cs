@@ -7,6 +7,8 @@ public class CountReadOperate : Any
         base.Init();
         this.String = "";
         this.Array = this.ListInfra.ArrayCreate(0);
+        this.Field = new Field();
+        this.Field.Init();
         return true;
     }
 
@@ -14,6 +16,7 @@ public class CountReadOperate : Any
     protected virtual ListInfra ListInfra { get; set; }
     protected virtual string String { get; set; }
     protected virtual Array Array { get; set; }
+    protected virtual Field Field { get; set; }
 
     public virtual string ExecuteString()
     {
