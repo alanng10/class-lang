@@ -18,6 +18,7 @@ public class Read : Any
     protected virtual InfraInfra InfraInfra { get; set; }
     protected virtual ReadOperate Operate { get; set; }
     protected virtual CountReadOperate CountOperate { get; set; }
+    protected virtual Range Range { get; set; }
     public virtual int StringIndex { get; set; }
     public virtual int StringDataIndex { get; set; }
     public virtual Data StringData { get; set; }
@@ -76,19 +77,15 @@ public class Read : Any
     {
         int index;
         index = this.Index;
-        Data data;
-        data = this.Data;
-        int dataCount;
-        dataCount = (int)data.Count;
         int count;
         count = sizeof(long);
-        if (!((index < dataCount) & !(dataCount < (index + count))))
+        if (!this.CheckCount(count))
         {
             return -1;
         }
 
         long a;
-        a = this.InfraInfra.DataIntGet(data, index);
+        a = this.InfraInfra.DataIntGet(this.Data, index);
         index = index + count;
         this.Index = index;
         return a;
@@ -98,17 +95,26 @@ public class Read : Any
     {
         int index;
         index = this.Index;
-        Data data;
-        data = this.Data;
-        if (!(index < data.Count))
+        if (!(this.CheckCount(1)))
         {
             return -1;
         }
 
         int a;
-        a = data.Get(index);
+        a = this.Data.Get(index);
         index = index + 1;
         this.Index = index;
         return a;
+    }
+
+    public virtual bool CheckCount(int count)
+    {
+        Range range;
+        range = this.Range;
+        range.Index = this.Index;
+        range.Count = count;
+        int dataCount;
+        dataCount = (int)this.Data.Count;
+        return this.InfraInfra.CheckRange(dataCount, range);
     }
 }
