@@ -23,6 +23,7 @@ public class Read : Any
     public virtual Data StringData { get; set; }
     public virtual Array StringArray { get; set; }
     public virtual int ArrayIndex { get; set; }
+    public virtual Array ArrayArray { get; set; }
     public virtual int FieldIndex { get; set; }
 
     public virtual bool Execute()

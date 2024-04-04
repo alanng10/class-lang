@@ -28,7 +28,19 @@ public class SetReadOperate : Any
 
     public virtual Array ExecuteArray()
     {
-        return null;
+        int o;
+        o = this.Read.ExecuteCount();
+        if (o == -1)
+        {
+            return null;
+        }
+
+        int oa;
+        oa = this.Read.ArrayIndex;
+        Array a;
+        a = (Array)this.Read.ArrayArray.Get(oa);
+        this.Read.ArrayIndex = oa + 1;
+        return a;
     }
 
     public virtual bool ExecuteArrayItemSet(Array array, int index, object value)
