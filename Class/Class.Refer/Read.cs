@@ -6,6 +6,9 @@ public class Read : Any
     {
         base.Init();
         this.InfraInfra = InfraInfra.This;
+        this.CountOperate = new CountReadOperate();
+        this.CountOperate.Read = this;
+        this.CountOperate.Init();
         return true;
     }
 
@@ -14,12 +17,18 @@ public class Read : Any
     public virtual Refer Refer { get; set; }
     protected virtual InfraInfra InfraInfra { get; set; }
     protected virtual ReadOperate Operate { get; set; }
+    protected virtual CountReadOperate CountOperate { get; set; }
     public virtual int StringIndex { get; set; }
     public virtual int StringDataIndex { get; set; }
     public virtual int ArrayIndex { get; set; }
     public virtual int FieldIndex { get; set; }
 
     public virtual bool Execute()
+    {
+        return true;
+    }
+
+    public virtual bool ExecuteStage()
     {
         return true;
     }
