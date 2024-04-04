@@ -2183,7 +2183,7 @@ public class Create : InfraCreate
         operateEnd = rightBracket.Range.Start;
 
         Node operate;
-        operate = this.ExecuteOperate(this.Range(range, operateStart, operateEnd));
+        operate = this.ExecuteOperate(this.Range(this.RangeA, operateStart, operateEnd));
         if (operate == null)
         {
             this.Error(this.ErrorKind.OperateInvalid, operateStart, operateEnd);
