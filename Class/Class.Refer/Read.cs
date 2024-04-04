@@ -17,6 +17,7 @@ public class Read : Any
     public virtual int StringIndex { get; set; }
     public virtual int StringDataIndex { get; set; }
     public virtual int ArrayIndex { get; set; }
+    public virtual int FieldIndex { get; set; }
 
     public virtual bool Execute()
     {

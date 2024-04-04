@@ -53,6 +53,7 @@ public class CountReadOperate : Any
 
     public virtual Field ExecuteField()
     {
-        return null;
+        this.Read.FieldIndex = this.Read.FieldIndex + 1;
+        return this.Field;
     }
 }
