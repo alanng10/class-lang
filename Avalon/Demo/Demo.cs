@@ -376,7 +376,7 @@ class Demo : Any
         long oa;
         oa = random.Execute();
 
-        this.Console.Out.Write("Demo.ExecuteRandom oa: " + oa + "\n");
+        this.Console.Out.Write("Demo.ExecuteRandom oa: 0h" + oa.ToString("x15") + "\n");
 
         random.Final();
         return true;
