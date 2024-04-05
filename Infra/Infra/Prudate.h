@@ -224,11 +224,6 @@ Infra_Api Int Random_SeedSet(Int o, Int value);
 
 Infra_Api Int Random_Execute(Int o);
 
-InfraApiNew(Sort)
-Infra_Api Int Sort_Execute(Int o, Int data, Int count, Int compareState);
-
-typedef Int (*Sort_Compare_Maide)(Int sort, Int left, Int right, Int arg);
-
 InfraApiNew(Range)
 Infra_Api Int Range_IndexGet(Int o);
 Infra_Api Int Range_IndexSet(Int o, Int value);
