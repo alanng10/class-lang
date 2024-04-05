@@ -50,6 +50,7 @@ HEADERS += \
     Process.hpp \
     ProcessIntern.hpp \
     Prudate.h \
+    Random.hpp \
     Range.h \
     Rect.h \
     Return.hpp \
@@ -112,6 +113,7 @@ SOURCES += \
     PostIntern.cpp \
     Process.cpp \
     ProcessIntern.cpp \
+    Random.cpp \
     Range.c \
     Rect.c \
     Return.cpp \
