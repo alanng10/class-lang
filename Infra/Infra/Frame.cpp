@@ -40,32 +40,15 @@ Int Frame_Init(Int o)
     return true;
 }
 
-
-
-
-
-
 Int Frame_Final(Int o)
 {
     Frame* m;
-
     m = CP(o);
-
-
-
 
     delete m->Intern;
 
-
-
-
     Size_Final(m->Size);
-
-
     Size_Delete(m->Size);
-
-
-
     return true;
 }
 
@@ -81,94 +64,39 @@ CppField(Frame, Title)
 Int Frame_TitleThisSet(Int o)
 {
     Frame* m;
-
     m = CP(o);
 
-
-
-
-
     QString titleU;
-
-
-
     Int ua;
-
     ua = CastInt(&titleU);
-
-
-
 
     String_QStringSet(ua, m->Title);
 
-
-
-
-
-
     m->Intern->setWindowTitle(titleU);
-
-
-
-
-
     return true;
 }
 
 Int Frame_VisibleGet(Int o)
 {
     Frame* m;
-
     m = CP(o);
 
-
-
-
     bool bu;
-
     bu = m->Intern->isVisible();
 
-
-
     Bool bo;
-
     bo = bu;
-
-
-
     return bo;
 }
 
-Int Frame_VisibleSet(Int o, Bool value)
+Int Frame_VisibleSet(Int o, Int value)
 {
     Frame* m;
-
     m = CP(o);
 
-
-
-
     bool b;
-
-
     b = !(value == 0);
-
-
-
     m->Intern->setVisible(b);
-
-
-
-    return true;
-}
-
-Int Frame_WindowCaseGet(Int o)
-{
-    return true;
-}
-
-Int Frame_WindowCaseSet(Int o, Int value)
-{
     return true;
 }
 
@@ -178,25 +106,14 @@ CppField(Frame, TypeState)
 Int Frame_VideoOut(Int o)
 {
     Frame* m;
-
     m = CP(o);
 
-
-
-
     QPaintDevice* u;
-
     u = m->Intern;
 
-
-
-
-    Int uu;
-
-    uu = CastInt(u);
-
-
-    return uu;
+    Int a;
+    a = CastInt(u);
+    return a;
 }
 
 Int Frame_Update(Int o, Int rect)
