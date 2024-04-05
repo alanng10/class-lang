@@ -119,84 +119,37 @@ Int Frame_VideoOut(Int o)
 Int Frame_Update(Int o, Int rect)
 {
     Frame* m;
-
     m = CP(o);
 
-
-
-
     Int pos;
-
     pos = Rect_PosGet(rect);
-
-
     Int left;
-
     Int up;
-
-
     left = Pos_LeftGet(pos);
-
     up = Pos_UpGet(pos);
-
-
-
     Int size;
-
     size = Rect_SizeGet(rect);
-
-
     Int width;
-
     Int height;
-
-
     width = Size_WidthGet(size);
-
     height = Size_HeightGet(size);
 
-
-
     int l;
-
     int u;
-
     int w;
-
     int h;
-
-
-
     l = left;
-
     u = up;
-
     w = width;
-
     h = height;
-
-
-
-
     m->Intern->update(l, u, w, h);
-
-
-
-
     return true;
 }
 
 Int Frame_Close(Int o)
 {
     Frame* m;
-
     m = CP(o);
-
-
-
     m->Intern->close();
-
-
-
     return true;
 }
