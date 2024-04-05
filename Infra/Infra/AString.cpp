@@ -18,74 +18,35 @@ CppField(String, Data)
 Int String_Char(Int o, Int index)
 {
     String* m;
-    
     m = CP(o);
-
-
-
-
     Char* u;
-
     u = (Char*)(m->Data);
-
-
-
     return u[index];
 }
 
 Int String_Equal(Int o, Int other)
 {
     String* m;
-    
     m = CP(o);
-
-
-
     String* d;
-    
     d = (String*)(other);
 
-
-
-
-    Bool ba;
-    
+    Bool ba;    
     ba = (m->Count == d->Count);
-
-
-
     if (!ba)
     {
         return false;
     }
 
-
-
-
-    Char* mf;
-    
+    Char* mf;    
     mf = (Char*)(m->Data);
-
-
-
     Char* df;
-    
     df = (Char*)(d->Data);
 
-
-
-
     Int count;
-    
     count = m->Count;
-
-
-
     Int i;
-    
     i = 0;
-
-
     while (i < count)
     {
         if (!(mf[i] == df[i]))
