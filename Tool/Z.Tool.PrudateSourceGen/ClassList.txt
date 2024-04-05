@@ -99,10 +99,6 @@ Random
     Seed
     Execute()
 
-Sort
-    Execute(data, count, compareState)
-    Compare(sort, left, right, arg) --
-
 Range
     Index
     Count
