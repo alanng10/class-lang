@@ -17,6 +17,7 @@ class Demo : Any
     private DrawInfra DrawInfra { get; set; }
     private TextInfra TextInfra { get; set; }
     private DrawBrushKindList BrushKindList { get; set; }
+    private MathCompose MathCompose { get; set; }
 
     public bool Execute()
     {
@@ -34,6 +35,7 @@ class Demo : Any
 
         this.ExecuteConsole();
         this.ExecuteMath();
+        this.ExecuteRandom();
         this.ExecuteFormat();
         this.ExecuteTime();
         this.ExecuteStorage();
@@ -352,8 +354,6 @@ class Demo : Any
         return true;
     }
 
-    private MathCompose MathCompose { get; set; }
-
     private bool ConsoleWriteMathValue(string prefix, long value)
     {
         this.Math.Compose(this.MathCompose, value);
@@ -362,6 +362,23 @@ class Demo : Any
         "Significand: " + this.MathCompose.Significand.ToString("x") + ", " +
         "Exponent: " + this.MathCompose.Exponent +
         "\n");
+        return true;
+    }
+
+    private bool ExecuteRandom()
+    {
+        Random random;
+        random = new Random();
+        random.Init();
+
+        random.Seed = 36719;
+
+        long oa;
+        oa = random.Execute();
+
+        this.Console.Out.Write("Demo.ExecuteRandom oa: " + oa + "\n");
+
+        random.Final();
         return true;
     }
 
@@ -514,23 +531,6 @@ class Demo : Any
         argC.Final();
         argB.Final();
         argA.Final();
-        return true;
-    }
-
-    private bool ExecuteRandom()
-    {
-        Random random;
-        random = new Random();
-        random.Init();
-
-        random.Seed = 36719;
-
-        long oa;
-        oa = random.Execute();
-
-        this.Console.Out.Write("Demo.ExecuteRandom oa: " + oa + "\n");
-
-        random.Final();
         return true;
     }
 
