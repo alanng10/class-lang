@@ -9,7 +9,7 @@ extern "C"
 Int varClass##_New()\
 {\
     Int o;\
-    o = (Int)(new varClass());\
+    o = CastInt(new varClass());\
     return o;\
 }\
 Int varClass##_Delete(Int o)\
