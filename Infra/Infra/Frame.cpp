@@ -5,49 +5,19 @@ CppClassNew(Frame)
 Int Frame_Init(Int o)
 {
     Frame* m;
-
     m = CP(o);
 
-
-
-
-
-
     Int size;
-
-
     size = Size_New();
-
-
     Size_Init(size);
-
-
-
     m->Size = size;
 
-
-
-
-
     FrameIntern* a;
-
-    a = new FrameIntern();
-
-
+    a = new FrameIntern;
     a->Frame = o;
-
-
-
-
+    a->Init();
     a->setWindowState(Qt::WindowFullScreen);
-
-
-
     a->setCursor(Qt::BlankCursor);
-
-
-
-
     m->Intern = a;
 
 

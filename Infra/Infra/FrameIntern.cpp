@@ -1,5 +1,10 @@
 #include "FrameIntern.hpp"
 
+Bool FrameIntern::Init()
+{
+    return true;
+}
+
 void FrameIntern::paintEvent(QPaintEvent *ev)
 {
     Int frame;

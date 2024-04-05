@@ -12,6 +12,7 @@ class FrameIntern : public QWidget
 
 public:
     Int Frame;
+    Bool Init();
 
 protected:
     void paintEvent(QPaintEvent* ev) override;
