@@ -6,5 +6,5 @@ set InfraProjectOutFold=.\Out\Infra-Windows-Release
 
 mkdir %InfraProjectOutFold% 1>NUL 2>NUL
 pushd %InfraProjectOutFold%
-mingw32-make
+mingw32-make 1>NUL
 popd
