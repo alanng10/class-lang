@@ -20,56 +20,23 @@ Int Frame_Init(Int o)
     a->setCursor(Qt::BlankCursor);
     m->Intern = a;
 
-
-
-
-
     QScreen* screen;
-
     screen = m->Intern->screen();
 
-
-
     QSize ua;
-
     ua = screen->size();
 
-
-
     int w;
-
     int h;
-
-
     w = ua.width();
-
     h = ua.height();
 
-
-
-
     Int width;
-
     Int height;
-
-
     width = w;
-
     height = h;
-
-
-
-
     Size_WidthSet(m->Size, width);
-
-
     Size_HeightSet(m->Size, height);
-
-
-
-
-
-
     return true;
 }
 
