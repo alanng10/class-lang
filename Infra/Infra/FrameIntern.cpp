@@ -1,8 +1,5 @@
 #include "FrameIntern.hpp"
 
-
-
-
 void FrameIntern::paintEvent(QPaintEvent *ev)
 {
     Int frame;
@@ -41,53 +38,15 @@ void FrameIntern::paintEvent(QPaintEvent *ev)
     }
 }
 
-
-
-
-
 void FrameIntern::keyPressEvent(QKeyEvent* ev)
 {
     this->TypeState(true, ev);
 }
 
-
-
-
 void FrameIntern::keyReleaseEvent(QKeyEvent* ev)
 {
     this->TypeState(false, ev);
 }
-
-
-
-
-
-void FrameIntern::mousePressEvent(QMouseEvent* ev)
-{
-    this->MouseHandle(1, ev);
-}
-
-
-void FrameIntern::mouseReleaseEvent(QMouseEvent* ev)
-{
-    this->MouseHandle(2, ev);
-}
-
-
-void FrameIntern::mouseDoubleClickEvent(QMouseEvent* ev)
-{
-    this->MouseHandle(3, ev);
-}
-
-
-void FrameIntern::mouseMoveEvent(QMouseEvent* ev)
-{
-    this->MouseHandle(4, ev);
-}
-
-
-
-
 
 Bool FrameIntern::TypeState(Bool press, QKeyEvent* ev)
 {
@@ -146,23 +105,6 @@ Bool FrameIntern::TypeState(Bool press, QKeyEvent* ev)
     {
         maide(frame, index, field, arg);
     }
-
-
-
-
-    return true;
-}
-
-
-
-
-
-
-
-Bool FrameIntern::MouseHandle(Int kind, QMouseEvent* ev)
-{
-
-
 
 
 

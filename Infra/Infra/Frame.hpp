@@ -9,9 +9,7 @@ struct Frame
     Int Title;
     Int Size;
     Int TypeState;
-    Int MouseState;
     Int DrawState;
-    Int MouseEvent;
     FrameIntern* Intern;
 };
 

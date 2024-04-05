@@ -237,21 +237,6 @@ Int Frame_WindowCaseSet(Int o, Int value)
 
 CppField(Frame, DrawState)
 CppField(Frame, TypeState)
-CppField(Frame, MouseState)
-
-Int Frame_GetMouseEvent(Int o)
-{
-    Frame* m;
-
-    m = CP(o);
-
-
-    return m->MouseEvent;
-}
-
-
-
-
 
 Int Frame_VideoOut(Int o)
 {
