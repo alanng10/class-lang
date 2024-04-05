@@ -230,14 +230,10 @@ Int GetValueFromInternValue(Int a)
 
     SInt k;
     k = u;
-
-    Int oa;
-    oa = 1;
-    oa = oa << 52;
-    oa = oa - 1;
+    k = k << 12;
+    k = k >> 12;
 
     Int o;
     o = k;
-    o = o & oa;
     return o;
 }
