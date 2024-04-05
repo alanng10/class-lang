@@ -305,9 +305,7 @@ public class Draw : Any
         long offsetLeft;
         long offsetUp;
         offsetLeft = leftL * scaleFactor;
-        offsetLeft = offsetLeft & 0xfffffffffffff;
         offsetUp = upL * scaleFactor;
-        offsetUp = offsetUp & 0xfffffffffffff;
 
         this.WorldTransform.Offset(offsetLeft, offsetUp);
         return true;

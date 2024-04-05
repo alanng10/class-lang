@@ -57,12 +57,10 @@ class ViewA : View
         long ooa;
         ooa = left;
         ooa = ooa * scaleFactor;
-        ooa = ooa & 0xfffffffffffff;
 
         long oob;
         oob = up;
         oob = oob * scaleFactor;
-        oob = oob & 0xfffffffffffff;
 
         int oa;
         oa = this.RotateValue * 10;
@@ -73,7 +71,6 @@ class ViewA : View
 
         long angle;
         angle = oa * scaleFactor;
-        angle = angle & 0xfffffffffffff;
 
         this.Transform.Reset();
 
