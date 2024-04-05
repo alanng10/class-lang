@@ -5,6 +5,7 @@ global using DataRange = Avalon.Infra.DataRange;
 global using State = Avalon.Infra.State;
 global using Math = Avalon.Math.Math;
 global using MathCompose = Avalon.Math.Compose;
+global using Random = Avalon.Math.Random;
 global using TextSpan = Avalon.Text.Span;
 global using TextFormat = Avalon.Text.Format;
 global using TextFormatArg = Avalon.Text.FormatArg;

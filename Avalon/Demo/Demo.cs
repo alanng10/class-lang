@@ -517,6 +517,23 @@ class Demo : Any
         return true;
     }
 
+    private bool ExecuteRandom()
+    {
+        Random random;
+        random = new Random();
+        random.Init();
+
+        random.Seed = 36719;
+
+        long oa;
+        oa = random.Execute();
+
+        this.Console.Out.Write("Demo.ExecuteRandom oa: " + oa + "\n");
+
+        random.Final();
+        return true;
+    }
+
     private bool ExecuteTime()
     {
         Time time;
