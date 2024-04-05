@@ -219,47 +219,25 @@ Int GetInternValue(Int a)
 Int GetValueFromInternValue(Int a)
 {
     qreal au;
-
     au = CastIntToDouble(a);
 
-
-
-
     Int ka;
-
-
     ka = (1 << 20);
 
-
-
     qreal u;
-
     u = au;
-
     u = u * ka;
 
-
-
-
     SInt k;
-
-
     k = u;
 
-
-    k = k << 12;
-
-
-    k = k >> 12;
-
-
-
+    Int oa;
+    oa = 1;
+    oa = oa << 52;
+    oa = oa - 1;
 
     Int o;
-
     o = k;
-
-
+    o = o & oa;
     return o;
 }
-
