@@ -7,148 +7,62 @@ QImage::Format Image_Var_Format = QImage::Format_ARGB32;
 Int Image_Init(Int o)
 {
     Image* m;
-
     m = CP(o);
 
-
-
-
-
     m->Intern = new QImage(0, 0, Image_Var_Format);
-
-
-
     Image_VideoOutSet(o);
-
-
-
-
     return true;
 }
 
 Int Image_Final(Int o)
 {
     Image* m;
-
     m = CP(o);
 
-
-
-
     delete m->Intern;
-
-
-
-
     return true;
 }
 
 Int Image_DataCreate(Int o)
 {
     Image* m;
-
     m = CP(o);
 
-
-
-
     Int size;
-
     size = m->Size;
-
-
-
     Int data;
-
     data = m->Data;
 
-
-
-
     Int width;
-
-
     Int height;
-
-
     width = Size_WidthGet(size);
-
-
     height = Size_HeightGet(size);
-
-
-
-
     int widthU;
-
-
     int heightU;
-
-
     widthU = width;
-
-
     heightU = height;
 
-
-
-
-
     Int dataValue;
-
-
     dataValue = Data_ValueGet(data);
-
-
-
     uchar* dataValueU;
-
     dataValueU = (uchar*)dataValue;
 
-
-
-
-
     Int pixelByteCount;
-
     pixelByteCount = 4;
 
-
-
-
     Int stride;
-
     stride = width * pixelByteCount;
 
-
-
-
     qsizetype bytePerLine;
-
     bytePerLine = stride;
 
-
-
-
     QImage::Format format;
-
     format = Image_Var_Format;
 
-
-
-
-
     QImage u;
-
     u = QImage(dataValueU, widthU, heightU, bytePerLine, format);
 
-
-
     (*(m->Intern)) = u;
-
-
-
-
     return true;
 }
 
