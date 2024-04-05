@@ -165,14 +165,6 @@ public static class Extern
 
     [DllImport(InfraLib)] public extern static ulong Random_Execute(ulong o);
 
-    [DllImport(InfraLib)] public extern static ulong Sort_New();
-    [DllImport(InfraLib)] public extern static ulong Sort_Delete(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Sort_Init(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Sort_Final(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Sort_Execute(ulong o, ulong data, ulong count, ulong compareState);
-
-    public delegate ulong Sort_Compare_Maide(ulong sort, ulong left, ulong right, ulong arg);
-
     [DllImport(InfraLib)] public extern static ulong Range_New();
     [DllImport(InfraLib)] public extern static ulong Range_Delete(ulong o);
     [DllImport(InfraLib)] public extern static ulong Range_Init(ulong o);
