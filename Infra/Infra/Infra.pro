@@ -13,8 +13,6 @@ HEADERS += \
     Brush.hpp \
     Console.hpp \
     Data.h \
-    Dialog.hpp \
-    DialogFile.hpp \
     Draw.hpp \
     Entry.h \
     Font.hpp \
@@ -80,7 +78,6 @@ SOURCES += \
     Brush.cpp \
     Console.cpp \
     Data.c \
-    DialogFile.cpp \
     Draw.cpp \
     Entry.c \
     Font.cpp \
