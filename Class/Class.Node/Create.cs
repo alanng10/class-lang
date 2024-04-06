@@ -1340,7 +1340,7 @@ public class Create : InfraCreate
         this.TextSpan.Range.Count = aa.Col.Count;
 
         long value;
-        value = this.TextInfra.GetInt(this.TextSpan);
+        value = this.TextIntParse.Execute(this.TextSpan, 10, false);
         if (value == -1)
         {
             return null;
@@ -1426,7 +1426,7 @@ public class Create : InfraCreate
         this.TextSpan.Range.Count = aa.Col.Count - 3;
 
         long o;
-        o = this.TextInfra.GetInt(this.TextSpan);
+        o = this.TextIntParse.Execute(this.TextSpan, 10, false);
 
         if (o == -1)
         {
