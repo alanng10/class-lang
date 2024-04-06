@@ -35,8 +35,8 @@ public class Console : Any
         ob.Stream = 1;
         this.Err = ob;
 
-        ConsoleIne oc;
-        oc = new ConsoleIne();
+        ConsoleInn oc;
+        oc = new ConsoleInn();
         oc.Init();
         oc.Intern = this.Intern;
         this.Inn = oc;
