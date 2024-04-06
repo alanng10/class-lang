@@ -3,5 +3,5 @@
 echo Make Demo
 echo:
 pushd Avalon\Demo
-dotnet build
+dotnet build -v quiet
 popd
