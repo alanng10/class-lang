@@ -120,152 +120,69 @@ Int Stream_PosGet(Int o)
     return a;
 }
 
-
-
-
-
-
-Bool Stream_PosSet(Int o, Int value)
+Int Stream_PosSet(Int o, Int value)
 {
     Stream* m;
-
     m = CP(o);
-
-
-
 
     if (!(m->HasPos))
     {
         return true;
     }
 
-
-
-
     Int count;
-
     count = Stream_CountGet(o);
-
-
 
     if (count < value)
     {
         return true;
     }
 
-
-
-
-
     qint64 ua;
-
     ua = value;
 
-
-
-
-
     bool bu;
-
-
     bu = m->Intern->seek(ua);
 
-
-
-
     Bool bo;
-
     bo = bu;
 
-
-
-
     Int status;
-
-
     status = 0;
-
-
-
-
     if (!bo)
     {
         status = 150;
     }
 
-
-
-
-
     m->Status = status;
-
-
-
-
-
     return true;
 }
 
-
-
-
-
-Bool Stream_HasPos(Int o)
+Int Stream_HasPos(Int o)
 {
     Stream* m;
-
     m = CP(o);
-
-
-
     return m->HasPos;
 }
 
-
-
-
-
-Bool Stream_HasCount(Int o)
+Int Stream_HasCount(Int o)
 {
     Stream* m;
-
     m = CP(o);
-
-
-
     return m->HasCount;
 }
-
-
-
-
-
 
 Int Stream_CanRead(Int o)
 {
     Stream* m;
-
     m = CP(o);
-
-
-
     return m->CanRead;
 }
-
-
-
-
-
-
 
 Int Stream_CanWrite(Int o)
 {
     Stream* m;
-
     m = CP(o);
-
-
-
     return m->CanWrite;
 }
 
@@ -408,54 +325,28 @@ Int Stream_Write(Int o, Int data, Int range)
 Int Stream_InternFlush(Int o)
 {
     Stream* m;
-
     m = CP(o);
-
-
-
-
     Int kind;
-
     kind = m->Kind;
-
-
     Int value;
-
     value = m->Value;
 
-
-
-
     Stream_Flush_Maide maide;
-
     maide = Stream_Flush_MaideArray[kind];
-
-
 
     if (maide == null)
     {
         return 2;
     }
 
-
-
-
     Bool b;
-
     b = maide(value);
-
-
 
     b = (!b);
 
-
-
-    Int aa;
-
-    aa = b;
-
-
-    return aa;
+    Int a;
+    a = b;
+    return a;
 }
 
 Int Stream_CheckRange(Int dataCount, Int index, Int count)
@@ -466,16 +357,9 @@ Int Stream_CheckRange(Int dataCount, Int index, Int count)
 Int Stream_Intern(Int o)
 {
     Stream* m;
-
     m = CP(o);
 
-
-
-    Int u;
-
-    u = CastInt(m->Intern);
-
-
-
-    return u;
+    Int a;
+    a = CastInt(m->Intern);
+    return a;
 }
