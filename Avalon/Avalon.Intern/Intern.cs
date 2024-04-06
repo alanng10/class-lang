@@ -1,73 +1,33 @@
 namespace Avalon.Intern;
 
-
-
-
-
-
 public class Intern : object
 {
     public static Intern This { get; } = ShareCreate();
 
-
-
-
     private static Intern ShareCreate()
     {
         Intern share;
-
         share = new Intern();
-
-
         share.Init();
-
-
         return share;
     }
 
-
-
-
-
     public virtual bool Init()
     {
-        this.IntHexFormat = "x15";
         return true;
     }
-
-    protected virtual string IntHexFormat { get; set; }
-
-
 
     [SystemThreadStatic]
     public static object ThisThread = null;
 
-
-
-
-
-
     public virtual ulong MaidePointer(SystemDelegate d)
     {
         SystemIntPtr u;
-
         u = Marshal.GetFunctionPointerForDelegate(d);
-
-
-
         ulong a;
-
         a = (ulong)u;
-
-
-
         return a;
     }
-
-
-
-
-
 
     public virtual bool CopyText(ulong dest, byte[] source, ulong index, ulong count)
     {
@@ -76,39 +36,18 @@ public class Intern : object
             fixed (byte* p = source)
             {
                 char* pa;
-
                 pa = (char*)p;
-
                 pa = pa + index;
-
-
-
                 ulong u;
-
                 u = (ulong)pa;
 
-
-
                 ulong oa;
-
-                oa = count * 2;
-
-
-
+                oa = count * sizeof(char);
                 Extern.Copy(dest, u, oa);
             }
         }
-
-
-
         return true;
     }
-
-
-
-
-
-
 
     public virtual bool CopyString(ulong dest, string source, ulong index, ulong count)
     {
@@ -117,29 +56,15 @@ public class Intern : object
             fixed (char* p = source)
             {
                 char* pa;
-
                 pa = p + index;
-
-
-
                 ulong u;
-
                 u = (ulong)pa;
 
-
-
                 ulong oa;
-
-                oa = count * 2;
-
-
-
+                oa = count * sizeof(char);
                 Extern.Copy(dest, u, oa);
             }
         }
-
-
-
         return true;
     }
 
