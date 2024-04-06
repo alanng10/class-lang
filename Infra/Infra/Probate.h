@@ -78,7 +78,7 @@ Int Post_ExecuteHandle(Int o);
 Int Process_Started(Int o);
 Int Process_Finished(Int o);
 
-Int Main_SetCurrentThreadSignalHandle();
+Int Main_CurrentThreadSignalHandleSet();
 
 Int Console_OS_Init();
 
