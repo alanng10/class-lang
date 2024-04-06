@@ -16,6 +16,7 @@ global using TextLine = Avalon.Text.Line;
 global using TextRange = Avalon.Text.Range;
 global using TextPos = Avalon.Text.Pos;
 global using TextSpan = Avalon.Text.Span;
+global using TextIntParse = Avalon.Text.IntParse;
 global using TextInfra = Avalon.Text.Infra;
 global using Math = Avalon.Math.Math;
 global using MathCompose = Avalon.Math.Compose;

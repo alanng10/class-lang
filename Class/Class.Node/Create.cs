@@ -35,6 +35,7 @@ public class Create : InfraCreate
         this.TokenH = this.CreateToken();
 
         this.TextSpan = this.CreateTextSpan();
+        this.TextIntParse = this.CreateTextIntParse();
 
         this.InitListItemState();
 
@@ -86,6 +87,7 @@ public class Create : InfraCreate
     protected virtual Token TokenH { get; set; }
 
     protected virtual TextSpan TextSpan { get; set; }
+    protected virtual TextIntParse TextIntParse { get; set; }
 
     public virtual int NodeIndex { get; set; }
     public virtual Data KindData { get; set; }
@@ -203,6 +205,14 @@ public class Create : InfraCreate
         a.Init();
         a.Range = new InfraRange();
         a.Range.Init();
+        return a;
+    }
+
+    protected virtual TextIntParse CreateTextIntParse()
+    {
+        TextIntParse a;
+        a = new TextIntParse();
+        a.Init();
         return a;
     }
 
@@ -1372,7 +1382,7 @@ public class Create : InfraCreate
         this.TextSpan.Range.Count = aa.Col.Count - 2;
 
         long value;
-        value = this.TextInfra.GetIntHex(this.TextSpan);
+        value = this.TextIntParse.Execute(this.TextSpan, 16, false);
         if (value == -1)
         {
             return null;
@@ -1488,7 +1498,7 @@ public class Create : InfraCreate
         this.TextSpan.Range.Count = aa.Col.Count - 4;
 
         long o;
-        o = this.TextInfra.GetIntHex(this.TextSpan);
+        o = this.TextIntParse.Execute(this.TextSpan, 16, false);
         if (o == -1)
         {
             return null;
