@@ -170,26 +170,4 @@ public class Infra : Any
         }
         return true;
     }
-
-    public virtual long GetInt(Span span)
-    {
-        if (!this.CheckSpan(span))
-        {
-            return -1;
-        }
-        InfraRange range;
-        range = span.Range;
-        
-        long k;
-        k = this.InternIntern.IntFromText(span.Data.Value, range.Index, range.Count);
-
-        if (!(k < this.InfraInfra.IntCapValue))
-        {
-            return -1;
-        }
-
-        long a;
-        a = k;
-        return a;
-    }
 }
