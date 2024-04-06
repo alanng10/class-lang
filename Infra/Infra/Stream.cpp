@@ -95,46 +95,29 @@ Int Stream_CountGet(Int o)
     return a;
 }
 
-
-
-
-
 Int Stream_PosGet(Int o)
 {
     Stream* m;
-
     m = CP(o);
-
-
-
 
     if (!(m->HasPos))
     {
-        return 0;
+        SInt oo;
+        oo = -1;
+        Int ooa;
+        ooa = oo;
+        return ooa;
     }
 
-
-
-
     QIODevice* ua;
-
     ua = m->Intern;
 
-
-
     qint64 ub;
-
     ub = ua->pos();
 
-
-
-    Int oa;
-
-    oa = CastInt(ub);
-
-
-
-    return oa;
+    Int a;
+    a = ub;
+    return a;
 }
 
 
