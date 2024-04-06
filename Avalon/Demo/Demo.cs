@@ -272,11 +272,11 @@ class Demo : Any
         this.Console.Out.Write("Console 水中\n");
         this.Console.Out.Write("Input a: ");
         string a;
-        a = this.Console.In.Read();
+        a = this.Console.Ion.Read();
         this.Console.Out.Write("a: " + a + "\n");
         this.Console.Out.Write("Input aa: ");
         string aa;
-        aa = this.Console.In.Read();
+        aa = this.Console.Ion.Read();
         this.Console.Out.Write("aa: " + aa + "\n");
         return true;
     }

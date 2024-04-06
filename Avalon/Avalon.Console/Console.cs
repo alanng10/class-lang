@@ -35,11 +35,11 @@ public class Console : Any
         ob.Stream = 1;
         this.Err = ob;
 
-        ConsoleIn oc;
-        oc = new ConsoleIn();
+        ConsoleIon oc;
+        oc = new ConsoleIon();
         oc.Init();
         oc.Intern = this.Intern;
-        this.In = oc;
+        this.Ion = oc;
 
         return true;
     }
@@ -56,5 +56,5 @@ public class Console : Any
 
     public virtual Out Err { get; set; }
 
-    public virtual Ion In { get; set; }
+    public virtual Ion Ion { get; set; }
 }
