@@ -258,36 +258,6 @@ public class Intern : object
         return a;
     }
 
-
-    public virtual bool IntHexText(byte[] data, int index, int count, ulong n)
-    {
-        bool b;
-        unsafe
-        {
-            fixed (byte* p = data)
-            {
-                char* pa;
-                pa = (char*)p;
-                pa = pa + index;
-                
-                SpanChar spanU;
-                spanU = new SpanChar(pa, count);
-
-                ReadOnlySpanChar formatSpan;
-                formatSpan = MemoryExtensions.AsSpan(this.IntHexFormat);
-
-                int outU;
-
-                b = n.TryFormat(spanU, out outU, formatSpan, CultureInfo.InvariantCulture);
-            }
-        }
-        if (!b)
-        {
-            return false;
-        }
-        return true;
-    }
-
     public virtual int TextEncodeString(ulong intern, byte[] result, int resultIndex, ulong data, byte[] dataValue, long dataIndex)
     {
         ulong k;
