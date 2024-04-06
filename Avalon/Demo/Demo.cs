@@ -554,6 +554,10 @@ class Demo : Any
         ooo = this.TextInfra.SpanCreateString("0000000000009294ef0d");
         ooa = a.Execute(ooo, 16, false);
         this.Console.Out.Write("Demo.ExecuteIntParse ooa: 0h" + ooa.ToString("x15") + "\n");
+
+        ooo = this.TextInfra.SpanCreateString("1000000000000000");
+        ooa = a.Execute(ooo, 16, true);
+        this.Console.Out.Write("Demo.ExecuteIntParse ooa: 0h" + ooa.ToString("x16") + "\n");
         return true;
     }
 
