@@ -39,7 +39,7 @@ public class Console : Any
         oc = new ConsoleIne();
         oc.Init();
         oc.Intern = this.Intern;
-        this.Ine = oc;
+        this.Inn = oc;
 
         return true;
     }
@@ -56,5 +56,5 @@ public class Console : Any
 
     public virtual Out Err { get; set; }
 
-    public virtual Ine Ine { get; set; }
+    public virtual Inn Inn { get; set; }
 }

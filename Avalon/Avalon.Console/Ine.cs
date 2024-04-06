@@ -1,6 +1,6 @@
 namespace Avalon.Console;
 
-public class Ine : Any
+public class Inn : Any
 {
     public virtual string Read()
     {
