@@ -43,44 +43,15 @@ CppFieldGet(Stream, Kind)
 Int Stream_KindSet(Int o, Int value)
 {
     Stream* m;
-
     m = CP(o);
-
-
-
     Int kind;
-
     kind = value;
-
-
-
     m->Kind = kind;
 
-
-
-
-
-
     m->HasPos = Stream_HasPos_Array[kind];
-
-
-
-
     m->HasCount = Stream_HasCount_Array[kind];
-
-
-
-
     m->CanRead = false;
-
-
-
     m->CanWrite = false;
-
-
-
-
-
     return true;
 }
 
@@ -89,67 +60,39 @@ CppFieldGet(Stream, Value)
 Int Stream_ValueSet(Int o, Int value)
 {
     Stream* m;
-
     m = CP(o);
-
-
-
 
     m->Value = value;
 
-
-
     m->Status = 0;
 
-
-
     m->Intern = (QIODevice*)(m->Value);
-
-
-
-
     return true;
 }
-
-
-
-
 
 Int Stream_CountGet(Int o)
 {
     Stream* m;
-
     m = CP(o);
-
-
-
 
     if (!(m->HasCount))
     {
-        return 0;
+        SInt oo;
+        oo = -1;
+        Int ooa;
+        ooa = oo;
+        return ooa;
     }
 
-
-
     QIODevice* ua;
-
     ua = m->Intern;
 
-
-
     qint64 ub;
-
     ub = ua->size();
 
-
-
-    Int oa;
-
-    oa = CastInt(ub);
-
-
-
-    return oa;
+    Int a;
+    a = ub;
+    return a;
 }
 
 
