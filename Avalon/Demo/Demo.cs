@@ -37,6 +37,7 @@ class Demo : Any
         this.ExecuteMath();
         this.ExecuteRandom();
         this.ExecuteFormat();
+        this.ExecuteIntParse();
         this.ExecuteTime();
         this.ExecuteStorage();
         this.ExecuteStorageArrange();
@@ -531,6 +532,28 @@ class Demo : Any
         argC.Final();
         argB.Final();
         argA.Final();
+        return true;
+    }
+
+    private bool ExecuteIntParse()
+    {
+        TextIntParse a;
+        a = new TextIntParse();
+        a.Init();
+
+        TextSpan ooo;
+        ooo = this.TextInfra.SpanCreateString("43695");
+        long ooa;
+        ooa = a.Execute(ooo, 10, false);
+        this.Console.Out.Write("Demo.ExecuteIntParse ooa: " + ooa.ToString() + "\n");
+
+        ooo = this.TextInfra.SpanCreateString("9E532F");
+        ooa = a.Execute(ooo, 16, true);
+        this.Console.Out.Write("Demo.ExecuteIntParse ooa: 0h" + ooa.ToString("x15") + "\n");
+
+        ooo = this.TextInfra.SpanCreateString("0000000000009294ef0d");
+        ooa = a.Execute(ooo, 16, false);
+        this.Console.Out.Write("Demo.ExecuteIntParse ooa: 0h" + ooa.ToString("x15") + "\n");
         return true;
     }
 

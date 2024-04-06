@@ -10,6 +10,7 @@ global using TextSpan = Avalon.Text.Span;
 global using TextFormat = Avalon.Text.Format;
 global using TextFormatArg = Avalon.Text.FormatArg;
 global using TextFormatArgList = Avalon.Text.FormatArgList;
+global using TextIntParse = Avalon.Text.IntParse;
 global using TextInfra = Avalon.Text.Infra;
 global using ThreadThread = Avalon.Thread.Thread;
 global using ThreadPost = Avalon.Thread.Post;
