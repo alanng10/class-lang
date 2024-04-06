@@ -1,6 +1,6 @@
 namespace Avalon.Console;
 
-public class StringIn : Ion
+public class StringIon : Ion
 {
     public virtual string String { get; set; }
 
