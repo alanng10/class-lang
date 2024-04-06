@@ -56,5 +56,5 @@ public class Console : Any
 
     public virtual Out Err { get; set; }
 
-    public virtual In In { get; set; }
+    public virtual Ion In { get; set; }
 }
