@@ -105,7 +105,7 @@ void ThreadIntern::run()
 
 
 
-    Main_SetCurrentThreadSignalHandle();
+    Main_CurrentThreadSignalHandleSet();
 
 
 

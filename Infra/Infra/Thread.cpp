@@ -227,7 +227,7 @@ Int Thread_InitMainThread(Int o)
 
 
 
-    Main_SetCurrentThreadSignalHandle();
+    Main_CurrentThreadSignalHandleSet();
 
 
 
