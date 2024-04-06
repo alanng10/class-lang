@@ -351,7 +351,7 @@ Int Stream_InternFlush(Int o)
 
 Int Stream_CheckRange(Int dataCount, Int index, Int count)
 {
-    return ((!(dataCount < index)) & (!(dataCount < index + count)));
+    return (!(dataCount < (index + count)));
 }
 
 Int Stream_Intern(Int o)
