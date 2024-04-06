@@ -9,6 +9,8 @@ Int Random_Init(Int o)
 
     m->Intern = new QRandomGenerator;
 
+    Random_SeedSet(o, 1);
+
     return true;
 }
 
