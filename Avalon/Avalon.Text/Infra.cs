@@ -171,31 +171,6 @@ public class Infra : Any
         return true;
     }
 
-    public virtual long GetIntHex(Span span)
-    {
-        if (!this.CheckSpan(span))
-        {
-            return -1;
-        }
-        InfraRange range;
-        range = span.Range;
-        int count;
-        count = range.Count;
-        if (15 < count)
-        {
-            return -1;
-        }
-
-        long k;
-        k = this.InternIntern.IntHex(span.Data.Value, range.Index, count);
-
-        if (!(k < this.InfraInfra.IntCapValue))
-        {
-            return -1;
-        }
-        return k;
-    }
-
     public virtual long GetInt(Span span)
     {
         if (!this.CheckSpan(span))
