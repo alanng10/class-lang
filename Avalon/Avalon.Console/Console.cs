@@ -44,6 +44,12 @@ public class Console : Any
         return true;
     }
 
+    public virtual bool Final()
+    {
+        this.Intern.Final();
+        return true;
+    }
+
     private ConsoleIntern Intern { get; set; }
 
     public virtual Out Out { get; set; }
