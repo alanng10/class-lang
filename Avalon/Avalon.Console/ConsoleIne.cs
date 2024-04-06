@@ -1,6 +1,6 @@
 namespace Avalon.Console;
 
-class ConsoleIon : Ine
+class ConsoleIne : Ine
 {
     internal virtual ConsoleIntern Intern { get; set; }
 
