@@ -24,3 +24,4 @@ additional 2 executable files and executable related files are parts of the modu
 The module execution is started with the execution of 1 of the executable files.
 1 executable file is for execution with console input and output in a command prompt.
 Another executable file is for execution without console input and output and without command prompt.
+The executable files are executed with working directory that is the directory that contain the C# assembly binary of the module.
