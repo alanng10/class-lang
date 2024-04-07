@@ -8,6 +8,7 @@
 
     <ItemGroup>
         <ProjectReference Include="../Z.Infra.Infra/Z.Infra.Infra.csproj" />
+        <ProjectReference Include="../Z.Infra.Class/Z.Infra.Class.csproj" />  
         <ProjectReference Include="../../Class/Class.Console/Class.Console.csproj" />
     </ItemGroup>
 
