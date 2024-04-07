@@ -8,4 +8,4 @@ Second part is minor version that is a 2 decimal digits integer number.
 Third part is revision that is a 2 decimal digits integer number.
 All parts are separated by dot sign.
 A version is displayed with the second part and the third part both in 2 decimal digits.
-If the parts has integer number less than 10, a leading 0 is displayed in the parts.
+If the parts have integer number less than 10, a leading 0 is displayed in the parts.
