@@ -567,39 +567,7 @@ public class Gen : Any
                 ClassClass a;
                 a = (ClassClass)iterA.Value;
 
-                global::System.Console.Write("Class: " + a.Name + ", Base: " + a.Base.Name + "(" + a.Base.Module.Ref.Name + ")" + "\n");
-
-                Iter iterB;
-                iterB = a.Field.IterCreate();
-                a.Field.IterSet(iterB);
-                while (iterB.Next())
-                {
-                    Field field;
-                    field = (Field)iterB.Value;
-                    global::System.Console.Write("    Field: " + field.Name + ", Count: " + this.CountString(field.Count.Index) + ", Class: " + field.Class.Name + "(" + field.Class.Module.Ref.Name + ")" + "\n");
-                }
-
-                iterB = a.Maide.IterCreate();
-                a.Maide.IterSet(iterB);
-                while (iterB.Next())
-                {
-                    Maide maide;
-                    maide = (Maide)iterB.Value;
-                    global::System.Console.Write("    Maide: " + maide.Name + ", Count: " + this.CountString(maide.Count.Index) + ", Class: " + maide.Class.Name + "(" + maide.Class.Module.Ref.Name + ")" + "\n");
-
-
-                    Table varTable;
-                    varTable = maide.Param;
-                    Iter iterBa;
-                    iterBa = varTable.IterCreate();
-                    varTable.IterSet(iterBa);
-                    while (iterBa.Next())
-                    {
-                        Var varVar;
-                        varVar = (Var)iterBa.Value;
-                        global::System.Console.Write("        Var: " + varVar.Name + ", Class: " + varVar.Class.Name + "(" + varVar.Class.Module.Ref.Name + ")" + "\n");
-                    }
-                }
+                this.ConsoleWriteClass(a);
             }
 
             global::System.Console.Write("--------\n");
@@ -632,6 +600,44 @@ public class Gen : Any
                     global::System.Console.Error.Write("Import module is not Avalon Module or Class Compiler Module\n");
                     global::System.Environment.Exit(105);
                 }
+            }
+        }
+        return true;
+    }
+
+    protected virtual bool ConsoleWriteClass(ClassClass a)
+    {
+        global::System.Console.Write("Class: " + a.Name + ", Base: " + a.Base.Name + "(" + a.Base.Module.Ref.Name + ")" + "\n");
+
+        Iter iterB;
+        iterB = a.Field.IterCreate();
+        a.Field.IterSet(iterB);
+        while (iterB.Next())
+        {
+            Field field;
+            field = (Field)iterB.Value;
+            global::System.Console.Write("    Field: " + field.Name + ", Count: " + this.CountString(field.Count.Index) + ", Class: " + field.Class.Name + "(" + field.Class.Module.Ref.Name + ")" + "\n");
+        }
+
+        iterB = a.Maide.IterCreate();
+        a.Maide.IterSet(iterB);
+        while (iterB.Next())
+        {
+            Maide maide;
+            maide = (Maide)iterB.Value;
+            global::System.Console.Write("    Maide: " + maide.Name + ", Count: " + this.CountString(maide.Count.Index) + ", Class: " + maide.Class.Name + "(" + maide.Class.Module.Ref.Name + ")" + "\n");
+
+
+            Table varTable;
+            varTable = maide.Param;
+            Iter iterBa;
+            iterBa = varTable.IterCreate();
+            varTable.IterSet(iterBa);
+            while (iterBa.Next())
+            {
+                Var varVar;
+                varVar = (Var)iterBa.Value;
+                global::System.Console.Write("        Var: " + varVar.Name + ", Class: " + varVar.Class.Name + "(" + varVar.Class.Module.Ref.Name + ")" + "\n");
             }
         }
         return true;
