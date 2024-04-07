@@ -380,7 +380,7 @@ public class Gen : Any
                 Table varTable;
                 varTable = this.TableCreate();
 
-                if (!((type == typeof(ModuleInfo)) & (maide.Name == "RefString")))
+                if (!((type == typeof(ModuleInfo)) & (maide.Name == "_RefString")))
                 {
                     ParameterInfo[] parameterArray;
                     parameterArray = method.GetParameters();
