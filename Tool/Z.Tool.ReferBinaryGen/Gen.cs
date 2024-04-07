@@ -381,13 +381,19 @@ public class Gen : Any
                     global::System.Environment.Exit(107);
                 }
 
+                Info of;
+                of = new Info();
+                of.Init();
+                of.Method = method;
+                of.SystemClass = this.SystemClassGet(method.ReturnType);
+
                 Maide maide;
                 maide = new Maide();
                 maide.Init();
                 maide.Name = method.Name;
                 maide.Class = this.ClassGetType(method.ReturnType);
                 maide.Count = this.CountGet(method);
-                maide.Any = method;
+                maide.Any = of;
 
                 Table varTable;
                 varTable = this.TableCreate();
@@ -403,12 +409,19 @@ public class Gen : Any
                 {
                     ParameterInfo parameter;
                     parameter = parameterArray[iA];
+
+                    Info og;
+                    og = new Info();
+                    og.Init();
+                    og.Parameter = parameter;
+                    og.SystemClass = this.SystemClassGet(parameter.ParameterType);
+
                     Var varVar;
                     varVar = new Var();
                     varVar.Init();
                     varVar.Name = parameter.Name;
                     varVar.Class = this.ClassGetType(parameter.ParameterType);
-                    varVar.Any = parameter;
+                    varVar.Any = og;
 
                     this.ListInfra.TableAdd(varTable, varVar.Name, varVar);
 
@@ -770,6 +783,11 @@ public class Gen : Any
                     global::System.Environment.Exit(111);
                 }
 
+                Info oe;
+                oe = new Info();
+                oe.Init();
+                oe.SystemClass = this.SystemClassGet(method.ReturnType);
+
                 if (!isMaide)
                 {
                     Field field;
@@ -778,6 +796,7 @@ public class Gen : Any
                     field.Name = compName;
                     field.Class = this.ClassGetType(method.ReturnType);
                     field.Count = this.CountGet(method);
+                    field.Any = oe;
 
                     this.ListInfra.TableAdd(fieldTable, field.Name, field);
                 }
@@ -790,6 +809,7 @@ public class Gen : Any
                     maide.Name = compName;
                     maide.Class = this.ClassGetType(method.ReturnType);
                     maide.Count = this.CountGet(method);
+                    maide.Any = oe;
 
                     Table varTable;
                     varTable = this.TableCreate();
@@ -804,12 +824,18 @@ public class Gen : Any
                         {
                             ParameterInfo parameter;
                             parameter = parameterArray[1 + iA];
+
+                            Info og;
+                            og = new Info();
+                            og.Init();
+                            og.SystemClass = this.SystemClassGet(parameter.ParameterType);
+
                             Var varVar;
                             varVar = new Var();
                             varVar.Init();
                             varVar.Name = parameter.Name;
                             varVar.Class = this.ClassGetType(parameter.ParameterType);
-                            varVar.Any = parameter;
+                            varVar.Any = og;
 
                             this.ListInfra.TableAdd(varTable, varVar.Name, varVar);
 
