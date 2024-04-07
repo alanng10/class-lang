@@ -255,14 +255,14 @@ class ReferGen : Any
             Field oa;
             oa = (Field)iter.Value;
 
-            PropertyInfo property;
-            property = (PropertyInfo)oa.Any;
+            Info oe;
+            oe = (Info)oa.Any;
 
             ReferField a;
             a = new ReferField();
             a.Init();
             a.Class = this.ClassIndexGet(oa.Class);
-            a.SystemClass = this.SystemClassGet(property.PropertyType);
+            a.SystemClass = oe.SystemClass;
             a.Count = oa.Count.Index;
             a.Name = oa.Name;
 
@@ -292,14 +292,14 @@ class ReferGen : Any
             Maide oa;
             oa = (Maide)iter.Value;
 
-            MethodInfo method;
-            method = (MethodInfo)oa.Any;
+            Info oe;
+            oe = (Info)oa.Any;
 
             ReferMaide a;
             a = new ReferMaide();
             a.Init();
             a.Class = this.ClassIndexGet(oa.Class);
-            a.SystemClass = this.SystemClassGet(method.ReturnType);
+            a.SystemClass = oe.SystemClass;
             a.Count = oa.Count.Index;
             a.Name = oa.Name;
 
@@ -333,14 +333,14 @@ class ReferGen : Any
             Var oa;
             oa = (Var)iter.Value;
 
-            ParameterInfo parameter;
-            parameter = (ParameterInfo)oa.Any;
+            Info oe;
+            oe = (Info)oa.Any;
 
             ReferVar a;
             a = new ReferVar();
             a.Init();
             a.Class = this.ClassIndexGet(oa.Class);
-            a.SystemClass = this.SystemClassGet(parameter.ParameterType);
+            a.SystemClass = oe.SystemClass;
             a.Name = oa.Name;
 
             array.Set(i, a);
@@ -365,24 +365,6 @@ class ReferGen : Any
         ClassIndex a;
         a = (ClassIndex)this.ClassIndexTable.Get(varClass);
         return a.Value;
-    }
-
-    protected virtual int SystemClassGet(SystemType type)
-    {
-        BuiltInType a;
-        a = this.BuitInTypeGet(type);
-        if (a == null)
-        {
-            return 0;
-        }
-        return a.SystemClass;
-    }
-
-    protected virtual BuiltInType BuitInTypeGet(SystemType type)
-    {
-        BuiltInType a;
-        a = (BuiltInType)this.DotNetBuiltInTypeTable.Get(type);
-        return a;
     }
     
     protected virtual ModuleRef ModuleRefCreate(string name)
