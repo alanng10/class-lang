@@ -99,10 +99,7 @@ Int Time_YearGet(Int o)
     return a;
 }
 
-Int Time_YearSet(Int o, Int value)
-{
-    return true;
-}
+FieldDefaultSet(Time, Year)
 
 Int Time_MonthGet(Int o)
 {
@@ -117,10 +114,7 @@ Int Time_MonthGet(Int o)
     return a;
 }
 
-Int Time_MonthSet(Int o, Int value)
-{
-    return true;
-}
+FieldDefaultSet(Time, Month)
 
 Int Time_DayGet(Int o)
 {
@@ -135,10 +129,7 @@ Int Time_DayGet(Int o)
     return a;
 }
 
-Int Time_DaySet(Int o, Int value)
-{
-    return true;
-}
+FieldDefaultSet(Time, Day)
 
 Int Time_HourGet(Int o)
 {
@@ -153,10 +144,7 @@ Int Time_HourGet(Int o)
     return a;
 }
 
-Int Time_HourSet(Int o, Int value)
-{
-    return true;
-}
+FieldDefaultSet(Time, Hour)
 
 Int Time_MinuteGet(Int o)
 {
@@ -171,10 +159,7 @@ Int Time_MinuteGet(Int o)
     return a;
 }
 
-Int Time_MinuteSet(Int o, Int value)
-{
-    return true;
-}
+FieldDefaultSet(Time, Minute)
 
 Int Time_SecondGet(Int o)
 {
@@ -189,10 +174,7 @@ Int Time_SecondGet(Int o)
     return a;
 }
 
-Int Time_SecondSet(Int o, Int value)
-{
-    return true;
-}
+FieldDefaultSet(Time, Second)
 
 Int Time_MillisecondGet(Int o)
 {
@@ -207,10 +189,7 @@ Int Time_MillisecondGet(Int o)
     return a;
 }
 
-Int Time_MillisecondSet(Int o, Int value)
-{
-    return true;
-}
+FieldDefaultSet(Time, Millisecond)
 
 Int Time_OffsetUtcGet(Int o)
 {
