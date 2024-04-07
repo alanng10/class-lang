@@ -51,7 +51,7 @@ Int VideoFrame_Intern(Int o);
 Int AudioOut_Intern(Int o);
 
 Int InternValueGet(Int a);
-Int GetValueFromInternValue(Int a);
+Int ValueGetFromInternValue(Int a);
 
 Int Math_GetInternValue(Int o, Int a);
 Int Math_GetValueFromInternValue(Int o, Int a);

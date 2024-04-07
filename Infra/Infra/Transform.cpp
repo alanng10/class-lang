@@ -183,7 +183,7 @@ Int Transform_ValueGet(Int o, Int row, Int col)
 
     Int k;
 
-    k = GetValueFromInternValue(uu);
+    k = ValueGetFromInternValue(uu);
 
 
 
@@ -438,7 +438,7 @@ Int Transform_Determinant(Int o)
 
     Int k;
 
-    k = GetValueFromInternValue(uu);
+    k = ValueGetFromInternValue(uu);
 
 
 

@@ -92,7 +92,7 @@ Int InternValueGet(Int o)
     return a;
 }
 
-Int GetValueFromInternValue(Int o)
+Int ValueGetFromInternValue(Int o)
 {
     qreal au;
     au = CastIntToDouble(o);
