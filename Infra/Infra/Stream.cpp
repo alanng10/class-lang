@@ -189,11 +189,7 @@ Int Stream_CanWrite(Int o)
 CppFieldSet(Stream, CanRead)
 CppFieldSet(Stream, CanWrite)
 CppFieldGet(Stream, Status)
-
-Int Stream_StatusSet(Int o, Int value)
-{
-    return true;
-}
+FieldDefaultSet(Stream, Status)
 
 Int Stream_Read(Int o, Int data, Int range)
 {
