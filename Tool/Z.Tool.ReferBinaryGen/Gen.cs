@@ -255,7 +255,7 @@ public class Gen : Any
         {
             this.ClassPartSetEmpty("Bool");
             this.ClassPartSetEmpty("Int");
-            this.ClassPartSetEmpty("String");
+            this.ClassPartSetString("String");
 
             this.ClassPartSetEmpty("ModuleInfo");
         }
@@ -707,6 +707,15 @@ public class Gen : Any
         ClassClass oa;
         oa = this.ModuleClassGet(o, name);
         return oa;
+    }
+
+    protected virtual bool ClassPartSetString(string name)
+    {
+        ClassClass a;
+        a = this.ModuleClassGet(this.Module, name);
+        a.Field = this.TableCreate();
+        a.Maide = this.TableCreate();
+        return true;
     }
 
     protected virtual bool ClassBaseSetAny(string name)
