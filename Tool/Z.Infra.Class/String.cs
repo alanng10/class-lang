@@ -18,7 +18,7 @@ public class String : Any
 
     public virtual int C_Char(string o, int index)
     {
-        if (!(index < 0) & (index < o.Length))
+        if (!(!(index < 0) & (index < o.Length)))
         {
             return -1;
         }
