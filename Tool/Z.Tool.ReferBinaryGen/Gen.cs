@@ -186,6 +186,8 @@ public class Gen : Any
             this.AddClass(anyType);
 
             this.AddInfraBuiltInClassList();
+
+            this.AddClassWithName("ModuleInfo");
         }
 
         int count;
@@ -220,6 +222,8 @@ public class Gen : Any
             this.ClassBaseSetAny("Bool");
             this.ClassBaseSetAny("Int");
             this.ClassBaseSetAny("String");
+
+            this.ClassBaseSetAny("ModuleInfo");
         }
 
         Iter iter;
@@ -252,6 +256,8 @@ public class Gen : Any
             this.ClassPartSetEmpty("Bool");
             this.ClassPartSetEmpty("Int");
             this.ClassPartSetEmpty("String");
+
+            this.ClassPartSetEmpty("ModuleInfo");
         }
 
         Iter iter;
@@ -380,30 +386,27 @@ public class Gen : Any
                 Table varTable;
                 varTable = this.TableCreate();
 
-                if (!((type == typeof(ModuleInfo)) & (maide.Name == "RefString")))
+                ParameterInfo[] parameterArray;
+                parameterArray = method.GetParameters();
+                int countA;
+                countA = parameterArray.Length;
+
+                int iA;
+                iA = 0;
+                while (iA < countA)
                 {
-                    ParameterInfo[] parameterArray;
-                    parameterArray = method.GetParameters();
-                    int countA;
-                    countA = parameterArray.Length;
+                    ParameterInfo parameter;
+                    parameter = parameterArray[iA];
+                    Var varVar;
+                    varVar = new Var();
+                    varVar.Init();
+                    varVar.Name = parameter.Name;
+                    varVar.Class = this.ClassGetType(parameter.ParameterType);
+                    varVar.Any = parameter;
 
-                    int iA;
-                    iA = 0;
-                    while (iA < countA)
-                    {
-                        ParameterInfo parameter;
-                        parameter = parameterArray[iA];
-                        Var varVar;
-                        varVar = new Var();
-                        varVar.Init();
-                        varVar.Name = parameter.Name;
-                        varVar.Class = this.ClassGetType(parameter.ParameterType);
-                        varVar.Any = parameter;
+                    this.ListInfra.TableAdd(varTable, varVar.Name, varVar);
 
-                        this.ListInfra.TableAdd(varTable, varVar.Name, varVar);
-
-                        iA = iA + 1;
-                    }
+                    iA = iA + 1;
                 }
 
                 maide.Param = varTable;
