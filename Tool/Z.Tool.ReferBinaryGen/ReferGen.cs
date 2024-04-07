@@ -11,7 +11,6 @@ class ReferGen : Any
 
     public virtual Table ModuleTable { get; set; }
     public virtual Table ReferTable { get; set; }
-    public virtual Table DotNetBuiltInTypeTable { get; set; }
 
     protected virtual ListInfra ListInfra { get; set; }
     protected virtual Module Module { get; set; }

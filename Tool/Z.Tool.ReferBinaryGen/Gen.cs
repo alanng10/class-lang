@@ -103,7 +103,6 @@ public class Gen : Any
         referGen = new ReferGen();
         referGen.Init();
         referGen.ModuleTable = this.ModuleTable;
-        referGen.DotNetBuiltInTypeTable = this.DotNetBuiltInTypeTable;
 
         referGen.Execute();
 
@@ -349,7 +348,13 @@ public class Gen : Any
                     field.Name = property.Name;
                     field.Class = this.ClassGetType(property.PropertyType);
                     field.Count = this.CountGet(property.GetMethod);
-                    field.Any = property;
+
+                    Info oe;
+                    oe = new Info();
+                    oe.Init();
+                    oe.Property = property;
+                    oe.SystemClass = this.SystemClassGet(property.PropertyType);
+                    field.Any = oe;
                     this.ListInfra.TableAdd(fieldTable, field.Name, field);
                 }
             }
@@ -895,6 +900,25 @@ public class Gen : Any
             i = i + 1;
         }
         return null;
+    }
+
+
+    protected virtual int SystemClassGet(SystemType type)
+    {
+        BuiltInType a;
+        a = this.BuitInTypeGet(type);
+        if (a == null)
+        {
+            return 0;
+        }
+        return a.SystemClass;
+    }
+
+    protected virtual BuiltInType BuitInTypeGet(SystemType type)
+    {
+        BuiltInType a;
+        a = (BuiltInType)this.DotNetBuiltInTypeTable.Get(type);
+        return a;
     }
 
     protected virtual bool AddDotNetBuiltInType(SystemType type, string name, int systemClass)
