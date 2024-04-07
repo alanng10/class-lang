@@ -5,197 +5,97 @@ CppClassNew(Time)
 Int Time_Init(Int o)
 {
     Time* m;
-
     m = CP(o);
 
-
-
-    m->Intern = new QDateTime();
-
-
-
+    m->Intern = new QDateTime;
 
     Int share;
-
     share = Infra_Share();
-
-
-
     Int stat;
-
     stat = Share_Stat(share);
 
-
-
     Int timeInit;
-
     timeInit = Stat_TimeInit(stat);
 
-
-
     QDateTime* u;
-
     u = (QDateTime*)timeInit;
 
-
-
-
     (*(m->Intern)) = (*u);
-
-
-
-
     return true;
 }
 
 Int Time_Final(Int o)
 {
     Time* m;
-
     m = CP(o);
-
-
-
-
     delete m->Intern;
-
-
-
-
     return true;
 }
 
 Int Time_Set(Int o, Int year, Int month, Int day, Int hour, Int minute, Int second, Int millisecond, Int hasOffset, Int offsetUtc)
 {
     Time* m;
-
     m = CP(o);
 
-
-
-
     Bool b;
-
     b = hasOffset;
 
-
-
-
     QDateTime dtO;
-
-
 
     if (!b)
     {
         dtO = dtO.toLocalTime();
     }
-
-
     if (b)
     {
         int offsetUtcU;
-
         offsetUtcU = offsetUtc;
-
 
         dtO = dtO.toOffsetFromUtc(offsetUtcU);
     }
 
-
-
-
-
     int yearU;
-
     int monthU;
-
     int dayU;
-
-
     yearU = year;
-
     monthU = month;
-
     dayU = day;
-
 
     QDate dateO(yearU, monthU, dayU);
 
-
-
     int hourU;
-
     int minuteU;
-
     int secondU;
-
     int millisecondU;
-
-
     hourU = hour;
-
     minuteU = minute;
-
     secondU = second;
-
     millisecondU = millisecond;
-
-
 
     QTime timeO(hourU, minuteU, secondU, millisecondU);
 
-
-
-
     dtO.setDate(dateO);
-
-
     dtO.setTime(timeO);
-
-
-
 
     if (!dtO.isValid())
     {
         return true;
     }
 
-
-
-
     (*(m->Intern)) = dtO;
-
-
-
-
     return true;
 }
 
 Int Time_YearGet(Int o)
 {
     Time* m;
-
     m = CP(o);
-
-
-
     QDate date;
-
     date = m->Intern->date();
-
-
-
     int u;
-
     u = date.year();
-
-
-
     Int a;
-
     a = u;
-
-
     return a;
 }
 
@@ -207,28 +107,13 @@ Int Time_YearSet(Int o, Int value)
 Int Time_MonthGet(Int o)
 {
     Time* m;
-
     m = CP(o);
-
-
-
     QDate date;
-
     date = m->Intern->date();
-
-
-
     int u;
-
     u = date.month();
-
-
-
     Int a;
-
     a = u;
-
-
     return a;
 }
 
@@ -240,28 +125,13 @@ Int Time_MonthSet(Int o, Int value)
 Int Time_DayGet(Int o)
 {
     Time* m;
-
     m = CP(o);
-
-
-
     QDate date;
-
     date = m->Intern->date();
-
-
-
     int u;
-
     u = date.day();
-
-
-
     Int a;
-
     a = u;
-
-
     return a;
 }
 
@@ -273,28 +143,13 @@ Int Time_DaySet(Int o, Int value)
 Int Time_HourGet(Int o)
 {
     Time* m;
-
     m = CP(o);
-
-
-
     QTime time;
-
     time = m->Intern->time();
-
-
-
     int u;
-
     u = time.hour();
-
-
-
     Int a;
-
     a = u;
-
-
     return a;
 }
 
@@ -306,28 +161,13 @@ Int Time_HourSet(Int o, Int value)
 Int Time_MinuteGet(Int o)
 {
     Time* m;
-
     m = CP(o);
-
-
-
     QTime time;
-
     time = m->Intern->time();
-
-
-
     int u;
-
     u = time.minute();
-
-
-
     Int a;
-
     a = u;
-
-
     return a;
 }
 
@@ -339,28 +179,13 @@ Int Time_MinuteSet(Int o, Int value)
 Int Time_SecondGet(Int o)
 {
     Time* m;
-
     m = CP(o);
-
-
-
     QTime time;
-
     time = m->Intern->time();
-
-
-
     int u;
-
     u = time.second();
-
-
-
     Int a;
-
     a = u;
-
-
     return a;
 }
 
@@ -372,28 +197,13 @@ Int Time_SecondSet(Int o, Int value)
 Int Time_MillisecondGet(Int o)
 {
     Time* m;
-
     m = CP(o);
-
-
-
     QTime time;
-
     time = m->Intern->time();
-
-
-
     int u;
-
     u = time.msec();
-
-
-
     Int a;
-
     a = u;
-
-
     return a;
 }
 
@@ -405,23 +215,11 @@ Int Time_MillisecondSet(Int o, Int value)
 Int Time_OffsetUtcGet(Int o)
 {
     Time* m;
-
     m = CP(o);
-
-
-
-
     int u;
-
     u = m->Intern->offsetFromUtc();
-
-
-
     Int a;
-
     a = u;
-
-
     return a;
 }
 
@@ -433,24 +231,11 @@ Int Time_OffsetUtcSet(Int o, Int value)
 Int Time_LocalTimeGet(Int o)
 {
     Time* m;
-
     m = CP(o);
-
-
-
-
     Qt::TimeSpec timeSpec;
-
     timeSpec = m->Intern->timeSpec();
-
-
-
     Bool a;
-
     a = (timeSpec == Qt::LocalTime);
-
-
-
     return a;
 }
 
@@ -462,107 +247,45 @@ Int Time_LocalTimeSet(Int o, Int value)
 Int Time_Current(Int o)
 {
     Time* m;
-
     m = CP(o);
-
-
-
-
     QDateTime u;
-
     u = QDateTime::currentDateTime();
-
-
-
-
     (*(m->Intern)) = u;
-
-
-
-
     return true;
 }
 
 Int Time_ToLocalTime(Int o)
 {
     Time* m;
-
     m = CP(o);
-
-
-
-
     QDateTime u;
-
     u = m->Intern->toLocalTime();
-
-
-
     (*(m->Intern)) = u;
-
-
-
-
     return true;
 }
 
 Int Time_ToOffsetUtc(Int o, Int offset)
 {
     Time* m;
-
     m = CP(o);
-
-
-
-
     int ua;
-
     ua = offset;
-
-
-
-
     QDateTime u;
-
     u = m->Intern->toOffsetFromUtc(ua);
-
-
-
-
     (*(m->Intern)) = u;
-
-
-
-
     return true;
 }
 
 Int Time_YearDayGet(Int o)
 {
     Time* m;
-
     m = CP(o);
-
-
-
-
     QDate date;
-
     date = m->Intern->date();
-
-
-
     int u;
-
     u = date.dayOfYear();
-
-
-
     Int a;
-
     a = u;
-
-
     return a;
 }
 
@@ -574,28 +297,13 @@ Int Time_YearDaySet(Int o, Int value)
 Int Time_WeekDayGet(Int o)
 {
     Time* m;
-
     m = CP(o);
-
-
-
     QDate date;
-
     date = m->Intern->date();
-
-
-
     int u;
-
     u = date.dayOfWeek();
-
-
-
     Int a;
-
     a = u;
-
-
     return a;
 }
 
@@ -607,28 +315,13 @@ Int Time_WeekDaySet(Int o, Int value)
 Int Time_YearDayCountGet(Int o)
 {
     Time* m;
-
     m = CP(o);
-
-
-
     QDate date;
-
     date = m->Intern->date();
-
-
-
     int u;
-
     u = date.daysInYear();
-
-
-
     Int a;
-
     a = u;
-
-
     return a;
 }
 
