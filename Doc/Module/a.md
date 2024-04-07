@@ -13,7 +13,7 @@ If the parts have integer number less than 10, a leading 0 is displayed in the p
 Module ref is displayed with the module name, then a hypen, then the version.
 
 A module associated files and directories, 
-have exactly 1 module binary file that is a C# assembly binary, 
+have 1 module binary file that is a C# assembly binary, 
 1 refer binary file that is the exported declaration of the module,
 1 data directory that contain all the module associated data files and directories.
 These 2 files and 1 directory have names that are the displayed module ref of the module, followed with a dot sign and a extension name.
