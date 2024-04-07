@@ -377,31 +377,35 @@ public class Gen : Any
                 maide.Count = this.CountGet(method);
                 maide.Any = method;
 
-                ParameterInfo[] parameterArray;
-                parameterArray = method.GetParameters();
-                int countA;
-                countA = parameterArray.Length;
-
                 Table varTable;
                 varTable = this.TableCreate();
 
-                int iA;
-                iA = 0;
-                while (iA < countA)
+                if (!((type == typeof(ModuleInfo)) & (maide.Name == "RefString")))
                 {
-                    ParameterInfo parameter;
-                    parameter = parameterArray[iA];
-                    Var varVar;
-                    varVar = new Var();
-                    varVar.Init();
-                    varVar.Name = parameter.Name;
-                    varVar.Class = this.ClassGetType(parameter.ParameterType);
-                    varVar.Any = parameter;
+                    ParameterInfo[] parameterArray;
+                    parameterArray = method.GetParameters();
+                    int countA;
+                    countA = parameterArray.Length;
 
-                    this.ListInfra.TableAdd(varTable, varVar.Name, varVar);
+                    int iA;
+                    iA = 0;
+                    while (iA < countA)
+                    {
+                        ParameterInfo parameter;
+                        parameter = parameterArray[iA];
+                        Var varVar;
+                        varVar = new Var();
+                        varVar.Init();
+                        varVar.Name = parameter.Name;
+                        varVar.Class = this.ClassGetType(parameter.ParameterType);
+                        varVar.Any = parameter;
 
-                    iA = iA + 1;
+                        this.ListInfra.TableAdd(varTable, varVar.Name, varVar);
+
+                        iA = iA + 1;
+                    }
                 }
+
                 maide.Param = varTable;
 
                 this.ListInfra.TableAdd(maideTable, maide.Name, maide);
