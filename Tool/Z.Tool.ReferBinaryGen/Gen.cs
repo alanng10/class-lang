@@ -97,9 +97,9 @@ public class Gen : Any
         this.ExecuteTypeModule(typeof(ModuleResult));
         this.ExecuteTypeModule(typeof(Task));
 
-        ClassClass oa;
-        oa = this.ClassGet("Avalon.Infra", "String");
-        this.ConsoleWriteClass(oa);
+        this.ConsoleWriteClass(this.ClassGet("Avalon.Infra", "String"));
+        this.ConsoleWriteClass(this.ClassGet("Avalon.Infra", "ModuleInfo"));
+
         //this.ConsoleWrite();
 
         ReferGen referGen;
