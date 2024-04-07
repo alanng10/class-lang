@@ -361,7 +361,10 @@ public class Gen : Any
             MethodInfo method;
             method = methodArrayA[i];
 
-            if (!method.IsSpecialName & this.IsInAbstract(method) & !((type == typeof(EntryEntry)) & (method.Name == "ArgSet")))
+            if (!method.IsSpecialName & this.IsInAbstract(method) & 
+                !((type == typeof(EntryEntry)) & (method.Name == "ArgSet")) & 
+                !((type == typeof(ModuleInfo)) & (method.Name == "_RefString"))
+                )
             {
                 if (!method.IsVirtual)
                 {
@@ -380,30 +383,27 @@ public class Gen : Any
                 Table varTable;
                 varTable = this.TableCreate();
 
-                if (!((type == typeof(ModuleInfo)) & (maide.Name == "_RefString")))
+                ParameterInfo[] parameterArray;
+                parameterArray = method.GetParameters();
+                int countA;
+                countA = parameterArray.Length;
+
+                int iA;
+                iA = 0;
+                while (iA < countA)
                 {
-                    ParameterInfo[] parameterArray;
-                    parameterArray = method.GetParameters();
-                    int countA;
-                    countA = parameterArray.Length;
+                    ParameterInfo parameter;
+                    parameter = parameterArray[iA];
+                    Var varVar;
+                    varVar = new Var();
+                    varVar.Init();
+                    varVar.Name = parameter.Name;
+                    varVar.Class = this.ClassGetType(parameter.ParameterType);
+                    varVar.Any = parameter;
 
-                    int iA;
-                    iA = 0;
-                    while (iA < countA)
-                    {
-                        ParameterInfo parameter;
-                        parameter = parameterArray[iA];
-                        Var varVar;
-                        varVar = new Var();
-                        varVar.Init();
-                        varVar.Name = parameter.Name;
-                        varVar.Class = this.ClassGetType(parameter.ParameterType);
-                        varVar.Any = parameter;
+                    this.ListInfra.TableAdd(varTable, varVar.Name, varVar);
 
-                        this.ListInfra.TableAdd(varTable, varVar.Name, varVar);
-
-                        iA = iA + 1;
-                    }
+                    iA = iA + 1;
                 }
 
                 maide.Param = varTable;
