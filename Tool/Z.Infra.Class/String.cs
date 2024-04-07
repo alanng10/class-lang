@@ -34,8 +34,51 @@ public class String : Any
         return o.Substring(range.Index, range.Count);
     }
 
-    public virtual bool C_Equal(string o, string other)
+    public virtual bool C_Equal(string o, string other, Range range)
     {
-        return o == other;
+        int index;
+        int count;
+        index = 0;
+        count = 0;
+        bool b;
+        b = (range == null);
+        if (b)
+        {
+            index = 0;
+            count = o.Length;  
+        }
+        if (!b)
+        {
+            if (!this.InfraInfra.CheckRange(o.Length, range))
+            {
+                return false;
+            }
+            index = range.Index;
+            count = range.Count;
+        }
+
+        if (!(count == other.Length))
+        {
+            return false;
+        }
+
+        char oca;
+        char ocb;
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            oca = o[index + i];
+            ocb = other[i];
+
+            if (!(oca == ocb))
+            {
+                return false;
+            }
+
+            i = i + 1;
+        }
+
+        return true;
     }
 }
