@@ -29,7 +29,7 @@ public class String : Any
         return a;
     }
 
-    public virtual string C_SubString(string o, Range range)
+    public virtual string C_Substring(string o, Range range)
     {
         if (!this.InfraInfra.CheckRange(o.Length, range))
         {
