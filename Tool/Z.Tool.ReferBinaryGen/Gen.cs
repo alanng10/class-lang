@@ -151,7 +151,7 @@ public class Gen : Any
         table.Compare = new StringCompare();
         table.Compare.Init();
         table.Init();
-        
+
         this.Module.Class = table;
 
         this.AddClassList();
@@ -361,10 +361,7 @@ public class Gen : Any
             MethodInfo method;
             method = methodArrayA[i];
 
-            if (!method.IsSpecialName & this.IsInAbstract(method) & 
-                !((type == typeof(EntryEntry)) & (method.Name == "ArgSet")) & 
-                !((type == typeof(ModuleInfo)) & (method.Name == "_RefString"))
-                )
+            if (!method.IsSpecialName & this.IsInAbstract(method) & !((type == typeof(EntryEntry)) & (method.Name == "ArgSet")))
             {
                 if (!method.IsVirtual)
                 {
@@ -383,27 +380,30 @@ public class Gen : Any
                 Table varTable;
                 varTable = this.TableCreate();
 
-                ParameterInfo[] parameterArray;
-                parameterArray = method.GetParameters();
-                int countA;
-                countA = parameterArray.Length;
-
-                int iA;
-                iA = 0;
-                while (iA < countA)
+                if (!((type == typeof(ModuleInfo)) & (maide.Name == "RefString")))
                 {
-                    ParameterInfo parameter;
-                    parameter = parameterArray[iA];
-                    Var varVar;
-                    varVar = new Var();
-                    varVar.Init();
-                    varVar.Name = parameter.Name;
-                    varVar.Class = this.ClassGetType(parameter.ParameterType);
-                    varVar.Any = parameter;
+                    ParameterInfo[] parameterArray;
+                    parameterArray = method.GetParameters();
+                    int countA;
+                    countA = parameterArray.Length;
 
-                    this.ListInfra.TableAdd(varTable, varVar.Name, varVar);
+                    int iA;
+                    iA = 0;
+                    while (iA < countA)
+                    {
+                        ParameterInfo parameter;
+                        parameter = parameterArray[iA];
+                        Var varVar;
+                        varVar = new Var();
+                        varVar.Init();
+                        varVar.Name = parameter.Name;
+                        varVar.Class = this.ClassGetType(parameter.ParameterType);
+                        varVar.Any = parameter;
 
-                    iA = iA + 1;
+                        this.ListInfra.TableAdd(varTable, varVar.Name, varVar);
+
+                        iA = iA + 1;
+                    }
                 }
 
                 maide.Param = varTable;
@@ -530,7 +530,7 @@ public class Gen : Any
         {
             Module module;
             module = (Module)iter.Value;
-            
+
             global::System.Console.Write("--------------\n");
             global::System.Console.Write(module.Ref.Name + "\n");
             global::System.Console.Write("--------------\n");
