@@ -118,3 +118,18 @@ Int varClass##_##name##Set(Int o, Int value)\
 #define Field(varClass, name) \
 FieldGet(varClass, name)\
 FieldSet(varClass, name)
+
+
+#define FieldDefaultGet(varClass, name) \
+Int varClass##_##name##Get(Int o)\
+{\
+    return true;\
+}\
+
+
+#define FieldDefaultSet(varClass, name) \
+Int varClass##_##name##Set(Int o, Int value)\
+{\
+    return true;\
+}\
+
