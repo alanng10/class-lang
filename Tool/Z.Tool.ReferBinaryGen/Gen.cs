@@ -801,91 +801,88 @@ public class Gen : Any
                 string name;
                 name = method.Name;
 
-                if (!(name.StartsWith("G_") | name.StartsWith("C_")))
+                if (name.StartsWith("G_") | name.StartsWith("C_"))
                 {
-                    global::System.Console.Error.Write("Class " + varClass.Name + "(" + varClass.Module.Ref.Name + ") Z method " + method.Name + " has invalid prefix \n");
-                    global::System.Environment.Exit(110);
-                }
+                    bool isMaide;
+                    isMaide = name.StartsWith("C_");
+                    string compName;
+                    compName = name.Substring(2);
 
-                bool isMaide;
-                isMaide = name.StartsWith("C_");
-                string compName;
-                compName = name.Substring(2);
+                    ParameterInfo[] parameterArray;
+                    parameterArray = method.GetParameters();
+                    int countA;
+                    countA = parameterArray.Length;
 
-                ParameterInfo[] parameterArray;
-                parameterArray = method.GetParameters();
-                int countA;
-                countA = parameterArray.Length;
-
-                if (countA < 1)
-                {
-                    global::System.Console.Error.Write("Class " + varClass.Name + "(" + varClass.Module.Ref.Name + ") Z method " + method.Name + " has no parameter\n");
-                    global::System.Environment.Exit(111);
-                }
-
-                Info oe;
-                oe = new Info();
-                oe.Init();
-                oe.SystemClass = this.SystemClassGet(method.ReturnType);
-
-                if (!isMaide)
-                {
-                    Field field;
-                    field = new Field();
-                    field.Init();
-                    field.Name = compName;
-                    field.Class = this.ClassGetType(method.ReturnType);
-                    field.Count = this.CountGet(method);
-                    field.Any = oe;
-
-                    this.ListInfra.TableAdd(fieldTable, field.Name, field);
-                }
-
-                if (isMaide)
-                {
-                    Maide maide;
-                    maide = new Maide();
-                    maide.Init();
-                    maide.Name = compName;
-                    maide.Class = this.ClassGetType(method.ReturnType);
-                    maide.Count = this.CountGet(method);
-                    maide.Any = oe;
-
-                    Table varTable;
-                    varTable = this.TableCreate();
-
-                    if (!((type == typeof(ZModuleInfo)) & (maide.Name == "RefString")))
+                    if (countA < 1)
                     {
-                        countA = countA - 1;
-                        
-                        int iA;
-                        iA = 0;
-                        while (iA < countA)
-                        {
-                            ParameterInfo parameter;
-                            parameter = parameterArray[1 + iA];
-
-                            Info og;
-                            og = new Info();
-                            og.Init();
-                            og.SystemClass = this.SystemClassGet(parameter.ParameterType);
-
-                            Var varVar;
-                            varVar = new Var();
-                            varVar.Init();
-                            varVar.Name = parameter.Name;
-                            varVar.Class = this.ClassGetType(parameter.ParameterType);
-                            varVar.Any = og;
-
-                            this.ListInfra.TableAdd(varTable, varVar.Name, varVar);
-
-                            iA = iA + 1;
-                        }
+                        global::System.Console.Error.Write("Class " + varClass.Name + "(" + varClass.Module.Ref.Name + ") Z method " + method.Name + " has no parameter\n");
+                        global::System.Environment.Exit(111);
                     }
 
-                    maide.Param = varTable;
+                    Info oe;
+                    oe = new Info();
+                    oe.Init();
+                    oe.SystemClass = this.SystemClassGet(method.ReturnType);
 
-                    this.ListInfra.TableAdd(maideTable, maide.Name, maide);
+                    if (!isMaide)
+                    {
+                        Field field;
+                        field = new Field();
+                        field.Init();
+                        field.Name = compName;
+                        field.Class = this.ClassGetType(method.ReturnType);
+                        field.Count = this.CountGet(method);
+                        field.Any = oe;
+
+                        this.ListInfra.TableAdd(fieldTable, field.Name, field);
+                    }
+
+                    if (isMaide)
+                    {
+                        Maide maide;
+                        maide = new Maide();
+                        maide.Init();
+                        maide.Name = compName;
+                        maide.Class = this.ClassGetType(method.ReturnType);
+                        maide.Count = this.CountGet(method);
+                        maide.Any = oe;
+
+                        Table varTable;
+                        varTable = this.TableCreate();
+
+                        if (!((type == typeof(ZModuleInfo)) & (maide.Name == "RefString")))
+                        {
+                            countA = countA - 1;
+                            
+                            int iA;
+                            iA = 0;
+                            while (iA < countA)
+                            {
+                                ParameterInfo parameter;
+                                parameter = parameterArray[1 + iA];
+
+                                Info og;
+                                og = new Info();
+                                og.Init();
+                                og.SystemClass = this.SystemClassGet(parameter.ParameterType);
+
+                                Var varVar;
+                                varVar = new Var();
+                                varVar.Init();
+                                varVar.Name = parameter.Name;
+                                varVar.Class = this.ClassGetType(parameter.ParameterType);
+                                varVar.Any = og;
+
+                                this.ListInfra.TableAdd(varTable, varVar.Name, varVar);
+
+                                iA = iA + 1;
+                            }
+                        }
+
+                        maide.Param = varTable;
+
+                        this.ListInfra.TableAdd(maideTable, maide.Name, maide);
+                    }
                 }
             }
 
