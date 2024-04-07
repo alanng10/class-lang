@@ -151,10 +151,7 @@ Int Play_TimeGet(Int o)
     return a;
 }
 
-Int Play_TimeSet(Int o, Int value)
-{
-    return true;
-}
+FieldDefaultSet(Play, Time)
 
 Int Play_PosGet(Int o)
 {
