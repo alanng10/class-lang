@@ -735,13 +735,13 @@ public class Gen : Any
 
     protected virtual bool AddInfraBuiltInClassList()
     {
-        this.AddBuiltInClass("Bool");
-        this.AddBuiltInClass("Int");
-        this.AddBuiltInClass("String");
+        this.AddClassWithName("Bool");
+        this.AddClassWithName("Int");
+        this.AddClassWithName("String");
         return true;
     }
 
-    protected virtual bool AddBuiltInClass(string name)
+    protected virtual bool AddClassWithName(string name)
     {
         int index;
         index = this.Module.Class.Count;
