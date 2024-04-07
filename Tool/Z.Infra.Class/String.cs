@@ -70,15 +70,12 @@ public class String : Any
         {
             oca = o[index + i];
             ocb = other[i];
-
             if (!(oca == ocb))
             {
                 return false;
             }
-
             i = i + 1;
         }
-
         return true;
     }
 }
