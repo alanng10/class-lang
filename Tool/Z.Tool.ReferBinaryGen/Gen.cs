@@ -255,9 +255,9 @@ public class Gen : Any
         {
             this.ClassPartSetEmpty("Bool");
             this.ClassPartSetEmpty("Int");
-            this.ClassPartSetString("String");
+            this.ClassPartSetNameZ("String", typeof(ZString));
 
-            this.ClassPartSetEmpty("ModuleInfo");
+            this.ClassPartSetNameZ("ModuleInfo", typeof(ZModuleInfo));
         }
 
         Iter iter;
@@ -709,11 +709,11 @@ public class Gen : Any
         return oa;
     }
 
-    protected virtual bool ClassPartSetString(string name)
+    protected virtual bool ClassPartSetNameZ(string name, SystemType zType)
     {
         ClassClass a;
         a = this.ModuleClassGet(this.Module, name);
-        this.ClassPartSetZ(a, typeof(ZString));
+        this.ClassPartSetZ(a, zType);
         return true;
     }
 
