@@ -228,6 +228,17 @@ public class Gen : Any
             this.ClassBaseSetAny("ModuleInfo");
         }
 
+        Module oo;
+        oo = this.ModuleGet("Avalon.Infra");
+        ClassClass boolClass;
+        boolClass = this.ModuleClassGet(oo, "Bool");
+        ClassClass intClass;
+        intClass = this.ModuleClassGet(oo, "Int");
+        ClassClass stringClass;
+        stringClass = this.ModuleClassGet(oo, "String");
+        ClassClass moduleInfoClass;
+        moduleInfoClass = this.ModuleClassGet(oo, "ModuleInfo");
+
         Iter iter;
         iter = this.Module.Class.IterCreate();
         this.Module.Class.IterSet(iter);
@@ -245,6 +256,13 @@ public class Gen : Any
 
                 ClassClass oc;
                 oc = this.ClassGetType(ob);
+                
+                if (oc == boolClass | oc == intClass | oc == stringClass | oc == moduleInfoClass)
+                {
+                    global::System.Console.Write("Class " + oc.Name + "(" + oc.Module.Ref.Name + ")" + " cannot be derived\n");
+                    global::System.Environment.Exit(104);
+                }
+
                 a.Base = oc;
             }
         }
