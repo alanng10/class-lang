@@ -35,6 +35,7 @@ public class Gen : Any
         this.AddDotNetBuiltInType(typeof(string), "String", 0);
 
         this.CountArray = this.ListInfra.ArrayCreate(4);
+        this.Array = this.CountArray;
         this.SetCountString("Prudate");
         this.SetCountString("Probate");
         this.SetCountString("Precate");
@@ -58,8 +59,10 @@ public class Gen : Any
     protected virtual Array CountArray { get; set; }
     protected virtual ClassClass AnyClass { get; set; }
     protected virtual bool IsAvalonInfra { get; set; }
+    protected virtual Array Array { get; set; }
     protected virtual int Index { get; set; }
     protected virtual Main Main { get; set; }
+    protected virtual Array SealedClassArray { get; set; }
 
     public virtual int Execute()
     {
@@ -226,18 +229,28 @@ public class Gen : Any
             this.ClassBaseSetAny("String");
 
             this.ClassBaseSetAny("ModuleInfo");
+
+            this.SealedClassArray = this.ListInfra.ArrayCreate(4);
+
+            Module oo;
+            oo = this.Module;
+            ClassClass boolClass;
+            boolClass = this.ModuleClassGet(oo, "Bool");
+            ClassClass intClass;
+            intClass = this.ModuleClassGet(oo, "Int");
+            ClassClass stringClass;
+            stringClass = this.ModuleClassGet(oo, "String");
+            ClassClass moduleInfoClass;
+            moduleInfoClass = this.ModuleClassGet(oo, "ModuleInfo");
+
+            this.Array = this.SealedClassArray;
+            this.Index = 0;
+            this.ArraySetItem(boolClass);
+            this.ArraySetItem(intClass);
+            this.ArraySetItem(stringClass);
+            this.ArraySetItem(moduleInfoClass);
         }
 
-        Module oo;
-        oo = this.ModuleGet("Avalon.Infra");
-        ClassClass boolClass;
-        boolClass = this.ModuleClassGet(oo, "Bool");
-        ClassClass intClass;
-        intClass = this.ModuleClassGet(oo, "Int");
-        ClassClass stringClass;
-        stringClass = this.ModuleClassGet(oo, "String");
-        ClassClass moduleInfoClass;
-        moduleInfoClass = this.ModuleClassGet(oo, "ModuleInfo");
 
         Iter iter;
         iter = this.Module.Class.IterCreate();
@@ -257,7 +270,7 @@ public class Gen : Any
                 ClassClass oc;
                 oc = this.ClassGetType(ob);
                 
-                if (oc == boolClass | oc == intClass | oc == stringClass | oc == moduleInfoClass)
+                if (this.ArrayContainItem(this.SealedClassArray, oc))
                 {
                     global::System.Console.Write("Class " + oc.Name + "(" + oc.Module.Ref.Name + ")" + " cannot be derived\n");
                     global::System.Environment.Exit(104);
@@ -1022,9 +1035,33 @@ public class Gen : Any
 
     protected virtual bool SetCountString(string o)
     {
+        this.ArraySetItem(o);
+        return true;
+    }
+
+    protected virtual bool ArrayContainItem(Array array, object value)
+    {
+        int count;
+        count = array.Count;
+
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            if (array.Get(i) == value)
+            {
+                return true;
+            }
+            i = i + 1;
+        }
+        return false;
+    }
+
+    protected virtual bool ArraySetItem(object value)
+    {
         int index;
         index = this.Index;
-        this.CountArray.Set(index, o);
+        this.Array.Set(index, value);
         index = index + 1;
         this.Index = index;
         return true;
