@@ -34,6 +34,6 @@ public class Data : Any
 
     public virtual bool Contain(long index)
     {
-        return ((!(index < 0)) | index < this.Count);
+        return ((!(index < 0)) & (index < this.Count));
     }
 }
