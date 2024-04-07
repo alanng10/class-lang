@@ -22,7 +22,11 @@ public class String : Any
         {
             return -1;
         }
-        return o[index];
+        char oc;
+        oc = o[index];
+        int a;
+        a = oc;
+        return a;
     }
 
     public virtual string C_SubString(string o, Range range)
