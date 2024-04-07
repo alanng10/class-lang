@@ -5,8 +5,4 @@
         <OutputPath>../../Out</OutputPath>
     </PropertyGroup>
 
-    <ItemGroup>
-        <ProjectReference Include="../../Avalon/MakeProject/MakeProject.csproj" />
-    </ItemGroup>
-
 </Project>
