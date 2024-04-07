@@ -779,7 +779,7 @@ public class Gen : Any
     protected virtual bool ClassPartSetZ(ClassClass varClass, SystemType type)
     {
         MethodInfo[] methodArrayA;
-        methodArrayA = type.GetMethods(BindingFlag.Static | BindingFlag.Public | BindingFlag.DeclaredOnly | BindingFlag.ExactBinding);
+        methodArrayA = type.GetMethods(BindingFlag.Instance | BindingFlag.Public | BindingFlag.DeclaredOnly | BindingFlag.ExactBinding);
 
         int count;
         int i;
