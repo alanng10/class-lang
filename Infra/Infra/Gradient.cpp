@@ -83,7 +83,7 @@ CppField(Gradient, Spread)
 Int Gradient_InternStopPointSet(Int result, Int pos, Int color)
 {
     Int posUu;
-    posUu = GetInternValue(pos);
+    posUu = InternValueGet(pos);
     qreal posU;
     posU = CastIntToDouble(posUu);
 

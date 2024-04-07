@@ -1019,7 +1019,7 @@ Int Draw_ExecuteRoundRect(Int o, Int rect, Int horizRadius, Int vertRadius)
 
     Int ua;
 
-    ua = GetInternValue(horizRadius);
+    ua = InternValueGet(horizRadius);
 
 
 
@@ -1032,7 +1032,7 @@ Int Draw_ExecuteRoundRect(Int o, Int rect, Int horizRadius, Int vertRadius)
 
     Int ub;
 
-    ub = GetInternValue(vertRadius);
+    ub = InternValueGet(vertRadius);
 
 
 

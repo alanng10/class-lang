@@ -95,7 +95,7 @@ Int AudioOut_VolumeSet(Int o, Int value)
 
     Int ua;
 
-    ua = GetInternValue(m->Volume);
+    ua = InternValueGet(m->Volume);
 
 
 
