@@ -10,7 +10,7 @@ The version is displayed with all parts integer numbers separated by dot sign.
 The version is displayed with the second part and the third part both in 2 decimal digits.
 If the parts have integer number less than 10, a leading 0 is displayed in the parts.
 
-Module ref is displayed with the module name, then a hypen, then the version.
+Module ref is displayed with the module name, then a hypen sign, then the version.
 
 A module associated files and directories, 
 have 1 module binary file that is a C# assembly binary, 
