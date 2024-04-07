@@ -97,6 +97,9 @@ public class Gen : Any
         this.ExecuteTypeModule(typeof(ModuleResult));
         this.ExecuteTypeModule(typeof(Task));
 
+        ClassClass oa;
+        oa = this.ClassGet("Avalon.Infra", "String");
+        this.ConsoleWriteClass(oa);
         //this.ConsoleWrite();
 
         ReferGen referGen;
@@ -607,7 +610,7 @@ public class Gen : Any
 
     protected virtual bool ConsoleWriteClass(ClassClass a)
     {
-        global::System.Console.Write("Class: " + a.Name + ", Base: " + a.Base.Name + "(" + a.Base.Module.Ref.Name + ")" + "\n");
+        global::System.Console.Write("Class: Name: " + a.Name + ", Base: " + a.Base.Name + "(" + a.Base.Module.Ref.Name + ")" + "\n");
 
         Iter iterB;
         iterB = a.Field.IterCreate();
@@ -616,7 +619,7 @@ public class Gen : Any
         {
             Field field;
             field = (Field)iterB.Value;
-            global::System.Console.Write("    Field: " + field.Name + ", Count: " + this.CountString(field.Count.Index) + ", Class: " + field.Class.Name + "(" + field.Class.Module.Ref.Name + ")" + "\n");
+            global::System.Console.Write("    Field: Name: " + field.Name + ", Count: " + this.CountString(field.Count.Index) + ", Class: " + field.Class.Name + "(" + field.Class.Module.Ref.Name + ")" + "\n");
         }
 
         iterB = a.Maide.IterCreate();
@@ -625,7 +628,7 @@ public class Gen : Any
         {
             Maide maide;
             maide = (Maide)iterB.Value;
-            global::System.Console.Write("    Maide: " + maide.Name + ", Count: " + this.CountString(maide.Count.Index) + ", Class: " + maide.Class.Name + "(" + maide.Class.Module.Ref.Name + ")" + "\n");
+            global::System.Console.Write("    Maide: Name: " + maide.Name + ", Count: " + this.CountString(maide.Count.Index) + ", Class: " + maide.Class.Name + "(" + maide.Class.Module.Ref.Name + ")" + "\n");
 
 
             Table varTable;
@@ -637,7 +640,7 @@ public class Gen : Any
             {
                 Var varVar;
                 varVar = (Var)iterBa.Value;
-                global::System.Console.Write("        Var: " + varVar.Name + ", Class: " + varVar.Class.Name + "(" + varVar.Class.Module.Ref.Name + ")" + "\n");
+                global::System.Console.Write("        Var: Name: " + varVar.Name + ", Class: " + varVar.Class.Name + "(" + varVar.Class.Module.Ref.Name + ")" + "\n");
             }
         }
         return true;
