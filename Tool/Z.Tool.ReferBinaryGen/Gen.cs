@@ -192,7 +192,7 @@ public class Gen : Any
 
             this.AddInfraBuiltInClassList();
 
-            this.AddClassWithName("ModuleInfo");
+            this.AddClass(typeof(ZModuleInfo));
         }
 
         int count;
@@ -289,8 +289,6 @@ public class Gen : Any
             this.ClassPartSetEmpty("Bool");
             this.ClassPartSetEmpty("Int");
             this.ClassPartSetNameZ("String", typeof(ZString));
-
-            this.ClassPartSetNameZ("ModuleInfo", typeof(ZModuleInfo));
         }
 
         Iter iter;
@@ -432,34 +430,37 @@ public class Gen : Any
                 Table varTable;
                 varTable = this.TableCreate();
 
-                ParameterInfo[] parameterArray;
-                parameterArray = method.GetParameters();
-                int countA;
-                countA = parameterArray.Length;
-
-                int iA;
-                iA = 0;
-                while (iA < countA)
+                if (!((type == typeof(ZModuleInfo)) & (maide.Name == "RefString")))
                 {
-                    ParameterInfo parameter;
-                    parameter = parameterArray[iA];
+                    ParameterInfo[] parameterArray;
+                    parameterArray = method.GetParameters();
+                    int countA;
+                    countA = parameterArray.Length;
 
-                    Info og;
-                    og = new Info();
-                    og.Init();
-                    og.Parameter = parameter;
-                    og.SystemClass = this.SystemClassGet(parameter.ParameterType);
+                    int iA;
+                    iA = 0;
+                    while (iA < countA)
+                    {
+                        ParameterInfo parameter;
+                        parameter = parameterArray[iA];
 
-                    Var varVar;
-                    varVar = new Var();
-                    varVar.Init();
-                    varVar.Name = parameter.Name;
-                    varVar.Class = this.ClassGetType(parameter.ParameterType);
-                    varVar.Any = og;
+                        Info og;
+                        og = new Info();
+                        og.Init();
+                        og.Parameter = parameter;
+                        og.SystemClass = this.SystemClassGet(parameter.ParameterType);
 
-                    this.ListInfra.TableAdd(varTable, varVar.Name, varVar);
+                        Var varVar;
+                        varVar = new Var();
+                        varVar.Init();
+                        varVar.Name = parameter.Name;
+                        varVar.Class = this.ClassGetType(parameter.ParameterType);
+                        varVar.Any = og;
 
-                    iA = iA + 1;
+                        this.ListInfra.TableAdd(varTable, varVar.Name, varVar);
+
+                        iA = iA + 1;
+                    }
                 }
 
                 maide.Param = varTable;
