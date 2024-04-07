@@ -19,3 +19,4 @@ have exactly 1 module binary file that is a C# assembly binary,
 
 If the module has entry for starting execution with the module, 
 additional executable file and executable related files are parts of the module associated files.
+The module execution is started with the execution of the executable file.
