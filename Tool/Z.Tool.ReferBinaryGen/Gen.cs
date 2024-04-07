@@ -788,24 +788,27 @@ public class Gen : Any
                     Table varTable;
                     varTable = this.TableCreate();
 
-                    countA = countA - 1;
-
-                    int iA;
-                    iA = 0;
-                    while (iA < countA)
+                    if (!((type == typeof(ZModuleInfo)) & (maide.Name == "RefString")))
                     {
-                        ParameterInfo parameter;
-                        parameter = parameterArray[1 + iA];
-                        Var varVar;
-                        varVar = new Var();
-                        varVar.Init();
-                        varVar.Name = parameter.Name;
-                        varVar.Class = this.ClassGetType(parameter.ParameterType);
-                        varVar.Any = parameter;
+                        countA = countA - 1;
+                        
+                        int iA;
+                        iA = 0;
+                        while (iA < countA)
+                        {
+                            ParameterInfo parameter;
+                            parameter = parameterArray[1 + iA];
+                            Var varVar;
+                            varVar = new Var();
+                            varVar.Init();
+                            varVar.Name = parameter.Name;
+                            varVar.Class = this.ClassGetType(parameter.ParameterType);
+                            varVar.Any = parameter;
 
-                        this.ListInfra.TableAdd(varTable, varVar.Name, varVar);
+                            this.ListInfra.TableAdd(varTable, varVar.Name, varVar);
 
-                        iA = iA + 1;
+                            iA = iA + 1;
+                        }
                     }
 
                     maide.Param = varTable;
