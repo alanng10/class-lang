@@ -16,4 +16,9 @@ public class String
 
         return o[index];
     }
+
+    public static string C_SubString(string o, Range range)
+    {
+        return o.Substring(range.Index, range.Count);
+    }
 }

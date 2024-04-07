@@ -5,4 +5,8 @@
         <OutputPath>../../Out</OutputPath>
     </PropertyGroup>
 
+    <ItemGroup>
+        <ProjectReference Include="../../Avalon/Avalon.Infra/Avalon.Infra.csproj" />
+    </ItemGroup>
+
 </Project>
