@@ -1,8 +1,8 @@
 namespace Z.Infra.Class;
 
-public class ModuleInfo
+public class ModuleInfo : Any
 {
-    public virtual string C_RefString(object o, [CallerFilePath] string filePath = null)
+    public virtual string RefString([CallerFilePath] string filePath = null)
     {
         return null;
     }
