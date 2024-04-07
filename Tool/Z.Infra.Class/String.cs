@@ -33,4 +33,9 @@ public class String : Any
         }
         return o.Substring(range.Index, range.Count);
     }
+
+    public virtual bool C_Equal(string o, string other)
+    {
+        return o == other;
+    }
 }
