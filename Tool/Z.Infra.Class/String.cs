@@ -2,12 +2,12 @@ namespace Z.Infra.Class;
 
 public class String
 {
-    public static int Count(string o)
+    public static int G_Count(string o)
     {
         return o.Length;
     }
 
-    public static int Char(string o, int index)
+    public static int C_Char(string o, int index)
     {
         if (index < 0 | !(index < o.Length))
         {
