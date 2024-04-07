@@ -342,19 +342,20 @@ public class Gen : Any
                         global::System.Environment.Exit(106);
                     }
 
+                    Info oe;
+                    oe = new Info();
+                    oe.Init();
+                    oe.Property = property;
+                    oe.SystemClass = this.SystemClassGet(property.PropertyType);
+
                     Field field;
                     field = new Field();
                     field.Init();
                     field.Name = property.Name;
                     field.Class = this.ClassGetType(property.PropertyType);
                     field.Count = this.CountGet(property.GetMethod);
-
-                    Info oe;
-                    oe = new Info();
-                    oe.Init();
-                    oe.Property = property;
-                    oe.SystemClass = this.SystemClassGet(property.PropertyType);
                     field.Any = oe;
+                    
                     this.ListInfra.TableAdd(fieldTable, field.Name, field);
                 }
             }
