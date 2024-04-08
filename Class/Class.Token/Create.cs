@@ -10,12 +10,12 @@ public class Create : InfraCreate
         this.TextInfra = TextInfra.This;
         this.ClassInfra = ClassInfra.This;
 
-        this.CountCreateOperate = new CountCreateOperate();
-        this.CountCreateOperate.Create = this;
-        this.CountCreateOperate.Init();
-        this.SetCreateOperate = new SetCreateOperate();
-        this.SetCreateOperate.Create = this;
-        this.SetCreateOperate.Init();
+        this.CountOperate = new CountCreateOperate();
+        this.CountOperate.Create = this;
+        this.CountOperate.Init();
+        this.SetOperate = new SetCreateOperate();
+        this.SetOperate.Create = this;
+        this.SetOperate.Init();
 
         this.Range = new TextRange();
         this.Range.Init();
@@ -31,22 +31,20 @@ public class Create : InfraCreate
     protected virtual ListInfra ListInfra { get; set; }
     protected virtual TextInfra TextInfra { get; set; }
     protected virtual ClassInfra ClassInfra { get; set; }
-    protected virtual CountCreateOperate CountCreateOperate { get; set; }
-    protected virtual SetCreateOperate SetCreateOperate { get; set; }
-    protected virtual CreateOperate CreateOperate { get; set; }
+    protected virtual CountCreateOperate CountOperate { get; set; }
+    protected virtual SetCreateOperate SetOperate { get; set; }
+    protected virtual CreateOperate Operate { get; set; }
     protected virtual Array CodeArray { get; set; }
-    protected virtual Array CodeCountArray { get; set; }
     protected virtual Text SourceText { get; set; }
 
     public virtual Code Code { get; set; }
     public virtual SourceItem SourceItem { get; set; }
     public virtual TextRange Range { get; set; }
     public virtual int TokenIndex { get; set; }
-    public virtual int CommentIndex { get; set; }
-    public virtual int CodeTokenIndex { get; set; }
-    public virtual int CodeCommentIndex { get; set; }
     public virtual Array TokenArray { get; set; }
+    public virtual int CommentIndex { get; set; }
     public virtual Array CommentArray { get; set; }
+    public virtual Data CodeCountData { get; set; }
 
     public override bool Execute()
     {
@@ -58,29 +56,25 @@ public class Create : InfraCreate
         this.Result.Code = this.CodeArray;
         this.Result.Error = this.ListInfra.ArrayCreate(0);
 
-        this.CodeCountArray = this.CodeCountArrayCreate();
+        this.CodeCountData = new Data();
+        this.CodeCountData.Count = this.CodeArray.Count * 2 * sizeof(uint);
+        this.CodeCountData.Init();
 
-        this.CreateOperate = this.CountCreateOperate;
+        this.Operate = this.CountOperate;
 
         this.TokenIndex = 0;
         this.CommentIndex = 0;
 
         this.ExecuteStage();
 
-        int tokenCount;
-        int commentCount;
-        tokenCount = this.TokenIndex;
-        commentCount = this.CommentIndex;
-
-        this.TokenArray = this.ListInfra.ArrayCreate(tokenCount);
-        this.CommentArray = this.ListInfra.ArrayCreate(commentCount);
+        this.TokenArray = this.ListInfra.ArrayCreate(this.TokenIndex);
+        this.CommentArray = this.ListInfra.ArrayCreate(this.CommentIndex);
 
         this.ExecuteTokenCreate();
         this.ExecuteCommentCreate();
-
         this.ExecuteCodeArraySet();
 
-        this.CreateOperate = this.SetCreateOperate;
+        this.Operate = this.SetOperate;
 
         this.TokenIndex = 0;
         this.CommentIndex = 0;
@@ -104,15 +98,11 @@ public class Create : InfraCreate
 
             this.SourceItem = (SourceItem)this.Source.Item.Get(i);
 
-            this.CodeTokenIndex = 0;
-            this.CodeCommentIndex = 0;
+            this.Operate.ExecuteCodeStart(i);
 
             this.ExecuteCode(code);
 
-            CodeCount codeCount;
-            codeCount = (CodeCount)this.CodeCountArray.Get(i);
-            codeCount.Token = this.CodeTokenIndex;
-            codeCount.Comment = this.CodeCommentIndex;
+            this.Operate.ExecuteCodeEnd(i);
 
             i = i + 1;
         }
@@ -372,33 +362,48 @@ public class Create : InfraCreate
 
     protected virtual bool ExecuteCodeArraySet()
     {
+        InfraInfra infraInfra;
+        infraInfra = this.InfraInfra;
+        ListInfra listInfra;
+        listInfra = this.ListInfra;
+        Array codeArray;
+        codeArray = this.CodeArray;
+        Data codeCountData;
+        codeCountData = this.CodeCountData;
+
+        int oa;
+        oa = sizeof(uint);
+
         int totalToken;
         int totalComment;
         totalToken = 0;
         totalComment = 0;
 
         int count;
-        count = this.CodeArray.Count;
+        count = codeArray.Count;
         int i;
         i = 0;
         while (i < count)
         {
             Code code;
-            code = (Code)this.CodeArray.Get(i);
+            code = (Code)codeArray.Get(i);
 
-            CodeCount codeCount;
-            codeCount = (CodeCount)this.CodeCountArray.Get(i);
-
+            long ob;
+            ob = i * 2;
+            long oe;
+            oe = ob * oa;
+            long of;
+            of = (ob + 1) * oa;
             int tokenCount;
             int commentCount;
-            tokenCount = codeCount.Token;
-            commentCount = codeCount.Comment;
+            tokenCount = (int)infraInfra.DataMidGet(codeCountData, oe);
+            commentCount = (int)infraInfra.DataMidGet(codeCountData, of);
 
-            code.Token = this.ListInfra.ArrayCreate(tokenCount);
-            code.Comment = this.ListInfra.ArrayCreate(commentCount);
+            code.Token = listInfra.ArrayCreate(tokenCount);
+            code.Comment = listInfra.ArrayCreate(commentCount);
 
-            this.ListInfra.ArrayCopy(code.Token, 0, this.TokenArray, totalToken, tokenCount);
-            this.ListInfra.ArrayCopy(code.Comment, 0, this.CommentArray, totalComment, commentCount);
+            listInfra.ArrayCopy(code.Token, 0, this.TokenArray, totalToken, tokenCount);
+            listInfra.ArrayCopy(code.Comment, 0, this.CommentArray, totalComment, commentCount);
 
             totalToken = totalToken + tokenCount;
             totalComment = totalComment + commentCount;
@@ -411,13 +416,13 @@ public class Create : InfraCreate
 
     protected virtual bool AddToken()
     {
-        this.CreateOperate.ExecuteToken();
+        this.Operate.ExecuteToken();
         return true;
     }
 
     protected virtual bool AddComment()
     {
-        this.CreateOperate.ExecuteComment();
+        this.Operate.ExecuteComment();
         return true;
     }
 
