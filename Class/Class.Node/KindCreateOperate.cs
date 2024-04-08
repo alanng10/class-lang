@@ -57,7 +57,7 @@ public class KindCreateOperate : CreateOperate
     public override bool ExecuteListCount(int index, int count)
     {
         long oa;
-        oa = index * sizeof(int);
+        oa = index * sizeof(uint);
         uint u;
         u = (uint)count;
         this.InfraInfra.DataMidSet(this.Create.ListData, oa, u);
@@ -76,7 +76,7 @@ public class KindCreateOperate : CreateOperate
         uint u;
         u = (uint)count;
         long oa;
-        oa = index * sizeof(int);
+        oa = index * sizeof(uint);
         this.InfraInfra.DataMidSet(this.Create.NameValueData, oa, u);
 
         Data source;
@@ -115,7 +115,7 @@ public class KindCreateOperate : CreateOperate
         uint u;
         u = (uint)count;
         long oa;
-        oa = index * sizeof(int);
+        oa = index * sizeof(uint);
         this.InfraInfra.DataMidSet(this.Create.StringValueData, oa, u);
         
         write.WriteOperate = write.AddWriteOperate;
