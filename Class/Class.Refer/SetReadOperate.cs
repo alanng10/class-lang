@@ -15,7 +15,7 @@ public class SetReadOperate : ReadOperate
 
         read.Index = read.Index + count;
         read.StringIndex = oa + 1;
-        read.StringDataIndex = read.StringDataIndex + count;
+        read.StringTextIndex = read.StringTextIndex + count;
         return a;
     }
 
