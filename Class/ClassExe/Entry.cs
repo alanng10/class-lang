@@ -5,7 +5,7 @@ class Entry
     [STAThread]
     static int Main(string[] arg)
     {
-        ClassEntry entry;
+        EntryEntry entry;
         entry = new ClassEntry();
         entry.ArgSet(arg);
         entry.Init();

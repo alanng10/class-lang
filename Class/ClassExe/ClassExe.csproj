@@ -7,6 +7,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <ProjectReference Include="../../Avalon/Avalon.Entry/Avalon.Entry.csproj" />
         <ProjectReference Include="../Class.Console/Class.Console.csproj" />
     </ItemGroup>
 
