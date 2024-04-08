@@ -80,19 +80,19 @@ public class Infra : Any
         return true;
     }
 
-    public virtual long DataIntGet(Data data, long index)
+    public virtual ulong DataIntGet(Data data, long index)
     {
-        return this.DataByteListGet(data, index, sizeof(long));
+        return this.DataByteListGet(data, index, sizeof(ulong));
     }
 
-    public virtual int DataMidGet(Data data, long index)
+    public virtual uint DataMidGet(Data data, long index)
     {
-        return (int)this.DataByteListGet(data, index, sizeof(int));
+        return (uint)this.DataByteListGet(data, index, sizeof(uint));
     }
 
-    public virtual short DataShortGet(Data data, long index)
+    public virtual ushort DataShortGet(Data data, long index)
     {
-        return (short)this.DataByteListGet(data, index, sizeof(short));
+        return (ushort)this.DataByteListGet(data, index, sizeof(ushort));
     }
 
     public virtual char DataCharGet(Data data, long index)
@@ -100,27 +100,27 @@ public class Infra : Any
         return (char)this.DataShortGet(data, index);
     }
 
-    public virtual bool DataIntSet(Data data, long index, long value)
+    public virtual bool DataIntSet(Data data, long index, ulong value)
     {
-        return this.DataByteListSet(data, index, sizeof(long), value);
+        return this.DataByteListSet(data, index, sizeof(ulong), value);
     }
 
-    public virtual bool DataMidSet(Data data, long index, int value)
+    public virtual bool DataMidSet(Data data, long index, uint value)
     {
-        return this.DataByteListSet(data, index, sizeof(int), value);
+        return this.DataByteListSet(data, index, sizeof(uint), value);
     }
 
-    public virtual bool DataShortSet(Data data, long index, short value)
+    public virtual bool DataShortSet(Data data, long index, ushort value)
     {
-        return this.DataByteListSet(data, index, sizeof(short), value);
+        return this.DataByteListSet(data, index, sizeof(ushort), value);
     }
 
     public virtual bool DataCharSet(Data data, long index, char value)
     {
-        return this.DataShortSet(data, index, (short)value);
+        return this.DataShortSet(data, index, (ushort)value);
     }
 
-    public virtual long DataByteListGet(Data data, long index, int count)
+    public virtual ulong DataByteListGet(Data data, long index, int count)
     {
         ulong oo;
         oo = 0;
@@ -147,16 +147,26 @@ public class Infra : Any
 
             i = i + 1;
         }
-        long a;
-        a = (long)oo;
-        a = a & (this.IntCapValue - 1);
+        long d;
+        d = (this.IntCapValue - 1);
+        ulong da;
+        da = (ulong)d;
+        ulong a;
+        a = oo;
+        a = a & da;
         return a;
     }
 
-    public virtual bool DataByteListSet(Data data, long index, int count, long value)
+    public virtual bool DataByteListSet(Data data, long index, int count, ulong value)
     {
+        long d;
+        d = (this.IntCapValue - 1);
+        ulong da;
+        da = (ulong)d;
         ulong oo;
-        oo = (ulong)value;
+        oo = value;
+        oo = oo & da;
+
         ulong o;
         o = 0;
         int shiftCount;
