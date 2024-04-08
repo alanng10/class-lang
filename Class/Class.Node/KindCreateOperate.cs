@@ -58,7 +58,9 @@ public class KindCreateOperate : CreateOperate
     {
         long oa;
         oa = index * sizeof(int);
-        this.InfraInfra.DataMidSet(this.Create.ListData, oa, count);
+        uint u;
+        u = (uint)count;
+        this.InfraInfra.DataMidSet(this.Create.ListData, oa, u);
         return true;
     }
 
@@ -71,9 +73,11 @@ public class KindCreateOperate : CreateOperate
 
         int count;
         count = text.Range.Count;
+        uint u;
+        u = (uint)count;
         long oa;
         oa = index * sizeof(int);
-        this.InfraInfra.DataMidSet(this.Create.NameValueData, oa, count);
+        this.InfraInfra.DataMidSet(this.Create.NameValueData, oa, u);
 
         Data source;
         source = text.Data;
@@ -108,10 +112,11 @@ public class KindCreateOperate : CreateOperate
         write.ExecuteValueString(text);
         int count;
         count = write.Index;
-
+        uint u;
+        u = (uint)count;
         long oa;
         oa = index * sizeof(int);
-        this.InfraInfra.DataMidSet(this.Create.StringValueData, oa, count);
+        this.InfraInfra.DataMidSet(this.Create.StringValueData, oa, u);
         
         write.WriteOperate = write.AddWriteOperate;
         write.Index = indexA;
