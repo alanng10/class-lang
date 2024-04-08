@@ -287,29 +287,6 @@ public class Create : InfraCreate
         return array;
     }
 
-    protected virtual Array CodeCountArrayCreate()
-    {
-        Array array;
-        array = this.ListInfra.ArrayCreate(this.CodeArray.Count);
-
-        int count;
-        count = array.Count;
-        int i;
-        i = 0;
-        while (i < count)
-        {
-            CodeCount a;
-            a = new CodeCount();
-            a.Init();
-
-            array.Set(i, a);
-
-            i = i + 1;
-        }
-
-        return array;
-    }
-
     protected virtual bool ExecuteTokenCreate()
     {
         Array array;
