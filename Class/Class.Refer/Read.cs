@@ -7,6 +7,7 @@ public class Read : Any
         base.Init();
         this.InfraInfra = InfraInfra.This;
         this.ListInfra = ListInfra.This;
+        this.TextInfra = TextInfra.This;
         this.CountOperate = new CountReadOperate();
         this.CountOperate.Read = this;
         this.CountOperate.Init();
@@ -25,6 +26,7 @@ public class Read : Any
     public virtual bool SystemClass { get; set; }
     protected virtual InfraInfra InfraInfra { get; set; }
     protected virtual ListInfra ListInfra { get; set; }
+    protected virtual TextInfra TextInfra { get; set; }
     protected virtual ReadOperate Operate { get; set; }
     protected virtual CountReadOperate CountOperate { get; set; }
     protected virtual StringReadOperate StringOperate { get; set; }
@@ -83,12 +85,56 @@ public class Read : Any
         this.ArrayArray = this.ListInfra.ArrayCreate(arrayCount);
         this.FieldArray = this.ListInfra.ArrayCreate(fieldCount);
 
+        this.ExecuteStringCreate();
 
         return true;
     }
 
-    public virtual bool ExecuteStage()
+    protected virtual bool ExecuteStage()
     {
+        return true;
+    }
+
+    protected virtual bool ExecuteStringCreate()
+    {
+        InfraInfra infraInfra;
+        infraInfra = this.InfraInfra;
+        TextInfra textInfra;
+        textInfra = this.TextInfra;
+
+        Array array;
+        array = this.StringArray;
+
+        Data countData;
+        countData = this.StringCountData;
+
+        TextSpan span;
+        span = new TextSpan();
+        span.Init();
+        span.Range = new Range();
+        span.Range.Init();
+        span.Data = this.StringTextData;
+        int total;
+        total = 0;
+
+        int count;
+        count = array.Count;
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            long index;
+            index = i * sizeof(int);
+            int oa;
+            oa = infraInfra.DataMidGet(countData, index);
+            span.Range.Index = total;
+            span.Range.Count = oa;
+            string oo;
+            oo = textInfra.StringCreate(span);
+            array.Set(i, oo);
+            total = total + oa;
+            i = i + 1;
+        }
         return true;
     }
 
