@@ -149,6 +149,7 @@ public class Infra : Any
         }
         long a;
         a = (long)oo;
+        a = a & (this.IntCapValue - 1);
         return a;
     }
 
