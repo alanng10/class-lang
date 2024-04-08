@@ -18,14 +18,28 @@ public class SetReadOperate : ReadOperate
 
     public override Maide ExecuteMaide()
     {
-        return null;
+        Read read;
+        read = this.Read;
+        int index;
+        index = read.MaideIndex;
+        Maide a;
+        a = (Maide)read.MaideArray.Get(index);
+        read.MaideIndex = index + 1;
+        return a;
     }
 
     public override Var ExecuteVar()
     {
-        return null;
+        Read read;
+        read = this.Read;
+        int index;
+        index = read.VarIndex;
+        Var a;
+        a = (Var)read.VarArray.Get(index);
+        read.VarIndex = index + 1;
+        return a;
     }
-    
+
     public override string ExecuteString(int count)
     {
         Read read;
