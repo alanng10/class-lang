@@ -273,7 +273,7 @@ public class Read : Any
         return a;
     }
 
-    public virtual Array ExecuteArray()
+    protected virtual Array ExecuteArray()
     {
         int o;
         o = this.ExecuteCount();
@@ -286,7 +286,7 @@ public class Read : Any
         return this.Operate.ExecuteArray(count);
     }
 
-    public virtual string ExecuteString()
+    protected virtual string ExecuteString()
     {
         int o;
         o = this.ExecuteCount();
@@ -343,7 +343,7 @@ public class Read : Any
         return a;
     }
 
-    public virtual bool CheckCount(int count)
+    protected virtual bool CheckCount(int count)
     {
         Range range;
         range = this.Range;
