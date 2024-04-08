@@ -75,11 +75,17 @@ public class Read : Any
         arg.StringArray = this.ListInfra.ArrayCreate(arg.StringIndex);
         arg.ArrayArray = this.ListInfra.ArrayCreate(arg.ArrayIndex);
 
-        this.ExecuteStringCreate();
-        this.ExecuteArrayCreate();
+        this.ExecuteReferCreate();
+        this.ExecuteClassCreate();
+        this.ExecuteImportCreate();
+        this.ExecutePartCreate();
         this.ExecuteFieldCreate();
         this.ExecuteMaideCreate();
         this.ExecuteVarCreate();
+        this.ExecuteClassIndexCreate();
+        this.ExecuteModuleRefCreate();
+        this.ExecuteStringCreate();
+        this.ExecuteArrayCreate();
 
         this.Operate = this.SetOperate;
 
@@ -322,6 +328,46 @@ public class Read : Any
         {
             Var o;
             o = new Var();
+            o.Init();
+            array.Set(i, o);
+            i = i + 1;
+        }
+        return true;
+    }
+
+    protected virtual bool ExecuteClassIndexCreate()
+    {
+        Array array;
+        array = this.Arg.ClassIndexArray;
+
+        int count;
+        count = array.Count;
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            ClassIndex o;
+            o = new ClassIndex();
+            o.Init();
+            array.Set(i, o);
+            i = i + 1;
+        }
+        return true;
+    }
+
+    protected virtual bool ExecuteModuleRefCreate()
+    {
+        Array array;
+        array = this.Arg.ModuleRefArray;
+
+        int count;
+        count = array.Count;
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            ModuleRef o;
+            o = new ModuleRef();
             o.Init();
             array.Set(i, o);
             i = i + 1;
