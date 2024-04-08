@@ -21,18 +21,18 @@ public class Gen : Any
 
         this.DotNetBuiltInTypeTable = table;
 
-        this.AddDotNetBuiltInType(typeof(object), "Any", 0);
-        this.AddDotNetBuiltInType(typeof(bool), "Bool", 1);
-        this.AddDotNetBuiltInType(typeof(ulong), "Int", 2);
-        this.AddDotNetBuiltInType(typeof(long), "Int", 3);
-        this.AddDotNetBuiltInType(typeof(uint), "Int", 4);
-        this.AddDotNetBuiltInType(typeof(int), "Int", 5);
-        this.AddDotNetBuiltInType(typeof(ushort), "Int", 6);
-        this.AddDotNetBuiltInType(typeof(short), "Int", 7);
-        this.AddDotNetBuiltInType(typeof(byte), "Int", 8);
-        this.AddDotNetBuiltInType(typeof(sbyte), "Int", 9);
-        this.AddDotNetBuiltInType(typeof(char), "Int", 10);
-        this.AddDotNetBuiltInType(typeof(string), "String", 11);
+        this.AddDotNetBuiltInType(typeof(object), "Any", 1);
+        this.AddDotNetBuiltInType(typeof(bool), "Bool", 2);
+        this.AddDotNetBuiltInType(typeof(ulong), "Int", 3);
+        this.AddDotNetBuiltInType(typeof(long), "Int", 4);
+        this.AddDotNetBuiltInType(typeof(uint), "Int", 5);
+        this.AddDotNetBuiltInType(typeof(int), "Int", 6);
+        this.AddDotNetBuiltInType(typeof(ushort), "Int", 7);
+        this.AddDotNetBuiltInType(typeof(short), "Int", 8);
+        this.AddDotNetBuiltInType(typeof(byte), "Int", 9);
+        this.AddDotNetBuiltInType(typeof(sbyte), "Int", 10);
+        this.AddDotNetBuiltInType(typeof(char), "Int", 11);
+        this.AddDotNetBuiltInType(typeof(string), "String", 12);
 
         this.CountArray = this.ListInfra.ArrayCreate(4);
         this.Array = this.CountArray;
