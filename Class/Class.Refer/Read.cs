@@ -51,22 +51,21 @@ public class Read : Any
     {
         this.Operate = this.CountOperate;
 
-        this.Index = 0;
-        this.StringIndex = 0;
-        this.StringTextIndex = 0;
-        this.ArrayIndex = 0;
-        this.FieldIndex = 0;
-
+        this.ResetStageIndex();
         this.ExecuteStage();
 
         int stringCount;
         int stringTextCount;
         int arrayCount;
         int fieldCount;
+        int maideCount;
+        int varCount;
         stringCount = this.StringIndex;
         stringTextCount = this.StringTextIndex;
         arrayCount = this.ArrayIndex;
         fieldCount = this.FieldIndex;
+        maideCount = this.MaideIndex;
+        varCount = this.VarIndex;
 
         this.StringCountData = new Data();
         this.StringCountData.Count = stringCount * sizeof(int);
@@ -82,36 +81,42 @@ public class Read : Any
 
         this.Operate = this.StringOperate;
 
-        this.Index = 0;
-        this.StringIndex = 0;
-        this.StringTextIndex = 0;
-        this.ArrayIndex = 0;
-        this.FieldIndex = 0;
-
+        this.ResetStageIndex();
         this.ExecuteStage();
 
         this.StringArray = this.ListInfra.ArrayCreate(stringCount);
         this.ArrayArray = this.ListInfra.ArrayCreate(arrayCount);
         this.FieldArray = this.ListInfra.ArrayCreate(fieldCount);
+        this.MaideArray = this.ListInfra.ArrayCreate(maideCount);
+        this.VarArray = this.ListInfra.ArrayCreate(varCount);
 
         this.ExecuteStringCreate();
         this.ExecuteArrayCreate();
         this.ExecuteFieldCreate();
+        this.ExecuteMaideCreate();
+        this.ExecuteVarCreate();
 
         this.Operate = this.SetOperate;
 
-        this.Index = 0;
-        this.StringIndex = 0;
-        this.StringTextIndex = 0;
-        this.ArrayIndex = 0;
-        this.FieldIndex = 0;
-
+        this.ResetStageIndex();
         this.ExecuteStage();
         return true;
     }
 
     protected virtual bool ExecuteStage()
     {
+        return true;
+    }
+
+    protected virtual bool ResetStageIndex()
+    {
+        this.Index = 0;
+        this.StringIndex = 0;
+        this.StringTextIndex = 0;
+        this.ArrayIndex = 0;
+        this.FieldIndex = 0;
+        this.MaideIndex = 0;
+        this.VarIndex = 0;
         return true;
     }
 
@@ -207,7 +212,46 @@ public class Read : Any
         }
         return true;
     }
-    
+
+    protected virtual bool ExecuteMaideCreate()
+    {
+        Array array;
+        array = this.MaideArray;
+
+        int count;
+        count = array.Count;
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            Maide o;
+            o = new Maide();
+            o.Init();
+            array.Set(i, o);
+            i = i + 1;
+        }
+        return true;
+    }
+
+    protected virtual bool ExecuteVarCreate()
+    {
+        Array array;
+        array = this.VarArray;
+
+        int count;
+        count = array.Count;
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            Var o;
+            o = new Var();
+            o.Init();
+            array.Set(i, o);
+            i = i + 1;
+        }
+        return true;
+    }
 
     protected virtual Array ExecuteFieldArray()
     {
