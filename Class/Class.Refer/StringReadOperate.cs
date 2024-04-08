@@ -25,12 +25,6 @@ public class StringReadOperate : ReadOperate
     {
         Read read;
         read = this.Read;
-        int o;
-        o = read.ExecuteCount();
-        if (o == -1)
-        {
-            return null;
-        }
 
         TextInfra textInfra;
         textInfra = this.TextInfra;
@@ -51,8 +45,6 @@ public class StringReadOperate : ReadOperate
         oob = (char)0;
         int oa;
         oa = read.StringDataIndex;
-        int count;
-        count = o;
         int i;
         i = 0;
         while (i < count)
@@ -72,12 +64,6 @@ public class StringReadOperate : ReadOperate
 
     public override Array ExecuteArray(int count)
     {
-        int o;
-        o = this.Read.ExecuteCount();
-        if (o == -1)
-        {
-            return null;
-        }
         this.Read.ArrayIndex = this.Read.ArrayIndex + 1;
         return this.Array;
     }
