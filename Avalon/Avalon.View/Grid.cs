@@ -450,7 +450,9 @@ public class Grid : View
             int byteIndex;
             byteIndex = this.IntByteIndex(index);
 
-            u = this.InfraInfra.DataMidGet(this.ChildPosData, byteIndex);
+            uint uu;
+            uu = this.InfraInfra.DataMidGet(this.ChildPosData, byteIndex);
+            u = (int)uu;
         }
         int ret;
         ret = u;
@@ -479,7 +481,9 @@ public class Grid : View
             index = start + i;
             int byteIndex;
             byteIndex = this.IntByteIndex(index);
-            this.InfraInfra.DataMidSet(this.ChildPosData, byteIndex, left);
+            uint u;
+            u = (uint)left;
+            this.InfraInfra.DataMidSet(this.ChildPosData, byteIndex, u);
             i = i + 1;
         }
         return true;
@@ -507,7 +511,9 @@ public class Grid : View
             index = start + i;
             int byteIndex;
             byteIndex = this.IntByteIndex(index);
-            this.InfraInfra.DataMidSet(this.ChildPosData, byteIndex, up);
+            uint u;
+            u = (uint)up;
+            this.InfraInfra.DataMidSet(this.ChildPosData, byteIndex, u);
             i = i + 1;
         }
         return true;
