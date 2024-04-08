@@ -6,64 +6,64 @@ public class SetReadOperate : ReadOperate
 
     public override Field ExecuteField()
     {
-        Read read;
-        read = this.Read;
+        ReadArg arg;
+        arg = this.Read.Arg;
         int index;
-        index = read.FieldIndex;
+        index = arg.FieldIndex;
         Field a;
-        a = (Field)read.FieldArray.Get(index);
-        read.FieldIndex = index + 1;
+        a = (Field)arg.FieldArray.Get(index);
+        arg.FieldIndex = index + 1;
         return a;
     }
 
     public override Maide ExecuteMaide()
     {
-        Read read;
-        read = this.Read;
+        ReadArg arg;
+        arg = this.Read.Arg;
         int index;
-        index = read.MaideIndex;
+        index = arg.MaideIndex;
         Maide a;
-        a = (Maide)read.MaideArray.Get(index);
-        read.MaideIndex = index + 1;
+        a = (Maide)arg.FieldArray.Get(index);
+        arg.MaideIndex = index + 1;
         return a;
     }
 
     public override Var ExecuteVar()
     {
-        Read read;
-        read = this.Read;
+        ReadArg arg;
+        arg = this.Read.Arg;
         int index;
-        index = read.VarIndex;
+        index = arg.VarIndex;
         Var a;
-        a = (Var)read.VarArray.Get(index);
-        read.VarIndex = index + 1;
+        a = (Var)arg.VarArray.Get(index);
+        arg.VarIndex = index + 1;
         return a;
     }
 
     public override string ExecuteString(int count)
     {
-        Read read;
-        read = this.Read;
+        ReadArg arg;
+        arg = this.Read.Arg;
         int oa;
-        oa = read.StringIndex;
+        oa = arg.StringIndex;
         string a;
-        a = (string)read.StringArray.Get(oa);
+        a = (string)arg.StringArray.Get(oa);
 
-        read.Index = read.Index + count;
-        read.StringIndex = oa + 1;
-        read.StringTextIndex = read.StringTextIndex + count;
+        arg.Index = arg.Index + count;
+        arg.StringIndex = oa + 1;
+        arg.StringTextIndex = arg.StringTextIndex + count;
         return a;
     }
 
     public override Array ExecuteArray(int count)
     {
-        Read read;
-        read = this.Read;
+        ReadArg arg;
+        arg = this.Read.Arg;
         int index;
-        index = read.ArrayIndex;
+        index = arg.ArrayIndex;
         Array a;
-        a = (Array)read.ArrayArray.Get(index);
-        read.ArrayIndex = index + 1;
+        a = (Array)arg.ArrayArray.Get(index);
+        arg.ArrayIndex = index + 1;
         return a;
     }
 
