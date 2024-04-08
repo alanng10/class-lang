@@ -33,6 +33,38 @@ public class CountReadOperate : ReadOperate
     protected virtual string String { get; set; }
     protected virtual Array Array { get; set; }
 
+    public override Refer ExecuteRefer()
+    {
+        ReadArg arg;
+        arg = this.Read.Arg;
+        arg.ReferIndex = arg.ReferIndex + 1;
+        return this.Refer;
+    }
+
+    public override Class ExecuteClass()
+    {
+        ReadArg arg;
+        arg = this.Read.Arg;
+        arg.ClassIndex = arg.ClassIndex + 1;
+        return this.Class;
+    }
+
+    public override Import ExecuteImport()
+    {
+        ReadArg arg;
+        arg = this.Read.Arg;
+        arg.ImportIndex = arg.ImportIndex + 1;
+        return this.Import;
+    }
+
+    public override Part ExecutePart()
+    {
+        ReadArg arg;
+        arg = this.Read.Arg;
+        arg.PartIndex = arg.PartIndex + 1;
+        return this.Part;
+    }
+
     public override Field ExecuteField()
     {
         ReadArg arg;
