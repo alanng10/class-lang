@@ -38,6 +38,7 @@ public class Read : Any
     public virtual Data StringTextData { get; set; }
     public virtual Array StringArray { get; set; }
     public virtual int ArrayIndex { get; set; }
+    public virtual Data ArrayCountData { get; set; }
     public virtual Array ArrayArray { get; set; }
     public virtual int FieldIndex { get; set; }
     public virtual Array FieldArray { get; set; }
@@ -71,6 +72,10 @@ public class Read : Any
         this.StringTextData.Count = stringTextCount * sizeof(char);
         this.StringTextData.Init();
 
+        this.ArrayCountData = new Data();
+        this.ArrayCountData.Count = stringCount * sizeof(int);
+        this.ArrayCountData.Init();
+
         this.Operate = this.StringOperate;
 
         this.Index = 0;
@@ -86,6 +91,7 @@ public class Read : Any
         this.FieldArray = this.ListInfra.ArrayCreate(fieldCount);
 
         this.ExecuteStringCreate();
+        this.ExecuteArrayCreate();
 
         return true;
     }
@@ -133,6 +139,36 @@ public class Read : Any
             oo = textInfra.StringCreate(span);
             array.Set(i, oo);
             total = total + oa;
+            i = i + 1;
+        }
+        return true;
+    }
+
+    protected virtual bool ExecuteArrayCreate()
+    {
+        InfraInfra infraInfra;
+        infraInfra = this.InfraInfra;
+        ListInfra listInfra;
+        listInfra = this.ListInfra;
+
+        Array array;
+        array = this.ArrayArray;
+        Data countData;
+        countData = this.ArrayCountData;
+
+        int count;
+        count = array.Count;
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            long index;
+            index = i * sizeof(int);
+            int oa;
+            oa = infraInfra.DataMidGet(countData, index);
+            Array o;
+            o = listInfra.ArrayCreate(oa);
+            array.Set(i, o);
             i = i + 1;
         }
         return true;
