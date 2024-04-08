@@ -31,7 +31,7 @@ public class Read : Any
     protected virtual SetReadOperate SetOperate { get; set; }
     protected virtual Range Range { get; set; }
     public virtual int StringIndex { get; set; }
-    public virtual Data StringData { get; set; }
+    public virtual Data StringCountData { get; set; }
     public virtual int StringTextIndex { get; set; }
     public virtual Data StringTextData { get; set; }
     public virtual Array StringArray { get; set; }
@@ -61,9 +61,9 @@ public class Read : Any
         arrayCount = this.ArrayIndex;
         fieldCount = this.FieldIndex;
 
-        this.StringData = new Data();
-        this.StringData.Count = stringCount * sizeof(int);
-        this.StringData.Init();
+        this.StringCountData = new Data();
+        this.StringCountData.Count = stringCount * sizeof(int);
+        this.StringCountData.Init();
 
         this.StringTextData = new Data();
         this.StringTextData.Count = stringTextCount * sizeof(char);

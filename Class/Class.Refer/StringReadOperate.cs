@@ -5,6 +5,7 @@ public class StringReadOperate : ReadOperate
     public override bool Init()
     {
         base.Init();
+        this.InfraInfra = InfraInfra.This;
         this.ListInfra = ListInfra.This;
         this.TextInfra = TextInfra.This;
         this.String = "";
@@ -15,6 +16,7 @@ public class StringReadOperate : ReadOperate
     }
 
     public virtual Read Read { get; set; }
+    protected virtual InfraInfra InfraInfra { get; set; }
     protected virtual ListInfra ListInfra { get; set; }
     protected virtual TextInfra TextInfra { get; set; }
     protected virtual string String { get; set; }
@@ -31,11 +33,17 @@ public class StringReadOperate : ReadOperate
 
         int index;
         index = read.Index;
+        int stringIndex;
+        stringIndex = read.StringIndex;
+
+        long oe;
+        oe = stringIndex * sizeof(int);
+        this.InfraInfra.DataMidSet(read.StringCountData, oe, count);
 
         Data data;
         data = read.Data;
-        Data stringData;
-        stringData = read.StringData;
+        Data stringTextData;
+        stringTextData = read.StringTextData;
 
         int oo;
         oo = 0;
@@ -44,7 +52,7 @@ public class StringReadOperate : ReadOperate
         char oob;
         oob = (char)0;
         int oa;
-        oa = read.StringDataIndex;
+        oa = read.StringTextIndex;
         int i;
         i = 0;
         while (i < count)
@@ -52,13 +60,13 @@ public class StringReadOperate : ReadOperate
             oo = data.Get(index + i);
             ooa = (byte)oo;
             oob = (char)ooa;
-            textInfra.DataCharSet(stringData, oa + i, oob);
+            textInfra.DataCharSet(stringTextData, oa + i, oob);
             i = i + 1;
         }
         
         read.Index = index + count;
-        read.StringIndex = read.StringIndex + 1;
-        read.StringDataIndex = oa + count;
+        read.StringIndex = stringIndex + 1;
+        read.StringTextIndex = oa + count;
         return this.String;
     }
 
