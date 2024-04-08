@@ -2,6 +2,26 @@ namespace Class.Refer;
 
 public class ReadOperate : Any
 {
+    public virtual Refer ExecuteRefer()
+    {
+        return null;
+    }
+
+    public virtual Class ExecuteClass()
+    {
+        return null;
+    }
+
+    public virtual Import ExecuteImport()
+    {
+        return null;
+    }
+
+    public virtual Part ExecutePart()
+    {
+        return null;
+    }
+
     public virtual Field ExecuteField()
     {
         return null;
@@ -13,6 +33,16 @@ public class ReadOperate : Any
     }
 
     public virtual Var ExecuteVar()
+    {
+        return null;
+    }
+
+    public virtual ClassIndex ExecuteClassIndex()
+    {
+        return null;
+    }
+
+    public virtual ModuleRef ExecuteModuleRef()
     {
         return null;
     }

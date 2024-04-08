@@ -40,6 +40,8 @@ public class Read : Any
     public virtual int ArrayIndex { get; set; }
     public virtual Data ArrayCountData { get; set; }
     public virtual Array ArrayArray { get; set; }
+    public virtual int ImportIndex { get; set; }
+    public virtual Array ImportArray { get; set; }
     public virtual int FieldIndex { get; set; }
     public virtual Array FieldArray { get; set; }
     public virtual int MaideIndex { get; set; }
