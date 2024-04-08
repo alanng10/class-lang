@@ -99,10 +99,11 @@ public class Read : Any
         {
             Field field;
             field = this.ExecuteField();
-            if (!(field == null))
+            if (field == null)
             {
-                this.Operate.ExecuteArrayItemSet(array, i, field);
+                return null;
             }
+            this.Operate.ExecuteArrayItemSet(array, i, field);
             i = i + 1;
         }
         return array;
