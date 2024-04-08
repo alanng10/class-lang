@@ -20,19 +20,12 @@ public class CountReadOperate : ReadOperate
     protected virtual Field Field { get; set; }
 
     public override string ExecuteString(int count)
-    {
+    {        
         Read read;
         read = this.Read;
-        int o;
-        o = read.ExecuteCount();
-        if (o == -1)
-        {
-            return null;
-        }
-        
-        read.Index = read.Index + o;
+        read.Index = read.Index + count;
         read.StringIndex = read.StringIndex + 1;
-        read.StringDataIndex = read.StringDataIndex + o;
+        read.StringDataIndex = read.StringDataIndex + count;
         return this.String;
     }
 
