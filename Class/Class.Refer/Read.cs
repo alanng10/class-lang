@@ -122,12 +122,18 @@ public class Read : Any
     protected virtual bool ResetStageIndex()
     {
         this.Index = 0;
-        this.StringIndex = 0;
-        this.StringTextIndex = 0;
-        this.ArrayIndex = 0;
+        this.ReferIndex = 0;
+        this.ClassIndex = 0;
+        this.ImportIndex = 0;
+        this.PartIndex = 0;
         this.FieldIndex = 0;
         this.MaideIndex = 0;
         this.VarIndex = 0;
+        this.ClassIndexIndex = 0;
+        this.ModuleRefIndex = 0;
+        this.StringIndex = 0;
+        this.StringTextIndex = 0;
+        this.ArrayIndex = 0;
         return true;
     }
 
