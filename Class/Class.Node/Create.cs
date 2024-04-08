@@ -479,9 +479,11 @@ public class Create : InfraCreate
         while (i < count)
         {
             long index;
-            index = i * sizeof(int);
+            index = i * sizeof(uint);
+            uint u;
+            u = this.InfraInfra.DataMidGet(data, index);
             int oa;
-            oa = this.InfraInfra.DataMidGet(data, index);
+            oa = (int)u;
             Array array;
             array = new Array();
             array.Count = oa;
