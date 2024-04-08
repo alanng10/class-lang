@@ -536,9 +536,11 @@ public class Create : InfraCreate
         while (i < count)
         {
             long index;
-            index = i * sizeof(int);
+            index = i * sizeof(uint);
+            uint u;
+            u = this.InfraInfra.DataMidGet(data, index);
             int oa;
-            oa = this.InfraInfra.DataMidGet(data, index);
+            oa = (int)u;
             span.Range.Index = total;
             span.Range.Count = oa;
             string oo;
@@ -570,9 +572,11 @@ public class Create : InfraCreate
         while (i < count)
         {
             long index;
-            index = i * sizeof(int);
+            index = i * sizeof(uint);
+            uint u;
+            u = this.InfraInfra.DataMidGet(data, index);
             int oa;
-            oa = this.InfraInfra.DataMidGet(data, index);
+            oa = (int)u;
             span.Range.Index = total;
             span.Range.Count = oa;
             string oo;
