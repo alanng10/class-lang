@@ -8,21 +8,14 @@ public class SetReadOperate : ReadOperate
     {
         Read read;
         read = this.Read;
-        int o;
-        o = read.ExecuteCount();
-        if (o == -1)
-        {
-            return null;
-        }
-
         int oa;
         oa = read.StringIndex;
         string a;
         a = (string)read.StringArray.Get(oa);
 
-        read.Index = read.Index + o;
+        read.Index = read.Index + count;
         read.StringIndex = oa + 1;
-        read.StringDataIndex = read.StringDataIndex + o;
+        read.StringDataIndex = read.StringDataIndex + count;
         return a;
     }
 
