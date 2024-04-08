@@ -1,6 +1,6 @@
 Demo.AaaBbb.GLa:1.00.00
 
-Import
+[Import]
 System.Infra
     Any Any
 System.List
@@ -11,13 +11,13 @@ G.H.A:1.30.51
 K.A.R:35.04.16
     D I
 
-Export
+[Export]
 Ghhh
 Lo
 
-Storage
+[Storage]
 "Data/Ff/ff.txt" "../../O.txt"
 "G/H" "../../K"
 
-Entry
+[Entry]
 Fa
