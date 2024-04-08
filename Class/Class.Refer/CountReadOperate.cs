@@ -6,8 +6,12 @@ public class CountReadOperate : ReadOperate
     {
         base.Init();
         this.ListInfra = ListInfra.This;
-        this.String = "";
-        this.Array = this.ListInfra.ArrayCreate(0);
+        this.Refer = new Refer();
+        this.Refer.Init();
+        this.Class = new Class();
+        this.Class.Init();
+        this.Import = new Import();
+        this.Import.Init();
         this.Part = new Part();
         this.Part.Init();
         this.Field = new Field();
@@ -16,6 +20,12 @@ public class CountReadOperate : ReadOperate
         this.Maide.Init();
         this.Var = new Var();
         this.Var.Init();
+        this.ClassIndex = new ClassIndex();
+        this.ClassIndex.Init();
+        this.ModuleRef = new ModuleRef();
+        this.ModuleRef.Init();
+        this.String = "";
+        this.Array = this.ListInfra.ArrayCreate(0);
         return true;
     }
 
@@ -87,6 +97,22 @@ public class CountReadOperate : ReadOperate
         arg = this.Read.Arg;
         arg.VarIndex = arg.VarIndex + 1;
         return this.Var;
+    }
+
+    public override ClassIndex ExecuteClassIndex()
+    {
+        ReadArg arg;
+        arg = this.Read.Arg;
+        arg.ClassIndexIndex = arg.ClassIndexIndex + 1;
+        return this.ClassIndex;
+    }
+
+    public override ModuleRef ExecuteModuleRef()
+    {
+        ReadArg arg;
+        arg = this.Read.Arg;
+        arg.ModuleRefIndex = arg.ModuleRefIndex + 1;
+        return this.ModuleRef;
     }
 
     public override string ExecuteString(int count)
