@@ -7,9 +7,7 @@ public class SetCreateOperate : CreateOperate
     public override bool ExecuteToken()
     {
         int index;
-        int codeIndex;
         index = this.Create.TokenIndex;
-        codeIndex = this.Create.CodeTokenIndex;
 
         Token token;
         token = (Token)this.Create.TokenArray.Get(index);
@@ -24,9 +22,7 @@ public class SetCreateOperate : CreateOperate
         aa.Count = ab.Count;
 
         index = index + 1;
-        codeIndex = codeIndex + 1;
 
-        this.Create.CodeTokenIndex = codeIndex;
         this.Create.TokenIndex = index;
         return true;
     }
@@ -34,9 +30,7 @@ public class SetCreateOperate : CreateOperate
     public override bool ExecuteComment()
     {
         int index;
-        int codeIndex;
         index = this.Create.CommentIndex;
-        codeIndex = this.Create.CodeCommentIndex;
 
         Comment comment;
         comment = (Comment)this.Create.CommentArray.Get(index);
@@ -51,9 +45,7 @@ public class SetCreateOperate : CreateOperate
         aa.Count = ab.Count;
 
         index = index + 1;
-        codeIndex = codeIndex + 1;
 
-        this.Create.CodeCommentIndex = codeIndex;
         this.Create.CommentIndex = index;
         return true;
     }
