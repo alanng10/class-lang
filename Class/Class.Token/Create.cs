@@ -81,6 +81,9 @@ public class Create : InfraCreate
         
         this.ExecuteStage();
 
+        this.TokenArray = null;
+        this.CommentArray = null;
+        this.CodeCountData = null;
         return true;
     }
 
