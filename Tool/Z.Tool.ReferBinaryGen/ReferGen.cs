@@ -155,10 +155,10 @@ class ReferGen : Any
             ClassClass oa;
             oa = (ClassClass)iter.Value;
     
-            ReferImportClass a;
-            a = new ReferImportClass();
+            ReferClassIndex a;
+            a = new ReferClassIndex();
             a.Init();
-            a.Class = oa.Index;
+            a.Value = oa.Index;
             array.Set(i, a);
             this.ClassIndexAdd(oa);
             i = i + 1;
@@ -191,10 +191,10 @@ class ReferGen : Any
             int aa;
             aa = this.ClassIndexGet(ob);
 
-            ReferBase a;
-            a = new ReferBase();
+            ReferClassIndex a;
+            a = new ReferClassIndex();
             a.Init();
-            a.Class = aa;
+            a.Value = aa;
 
             array.Set(i, a);
             i = i + 1;
