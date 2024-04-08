@@ -652,7 +652,7 @@ public class Gen : Any
         {
             Field field;
             field = (Field)iterB.Value;
-            global::System.Console.Write("    Field: Name: " + field.Name + ", Count: " + this.CountString(field.Count.Index) + ", Class: " + field.Class.Name + "(" + field.Class.Module.Ref.Name + ")" + "\n");
+            global::System.Console.Write("    Field: Name: " + field.Name + ", Count: " + this.CountString(field.Count.Index) + ", Class: " + field.Class.Name + "(" + field.Class.Module.Ref.Name + ")" + ", SystemClass: " + ((Info)(field.Any)).SystemClass + "\n");
         }
 
         iterB = a.Maide.IterCreate();
@@ -661,7 +661,7 @@ public class Gen : Any
         {
             Maide maide;
             maide = (Maide)iterB.Value;
-            global::System.Console.Write("    Maide: Name: " + maide.Name + ", Count: " + this.CountString(maide.Count.Index) + ", Class: " + maide.Class.Name + "(" + maide.Class.Module.Ref.Name + ")" + "\n");
+            global::System.Console.Write("    Maide: Name: " + maide.Name + ", Count: " + this.CountString(maide.Count.Index) + ", Class: " + maide.Class.Name + "(" + maide.Class.Module.Ref.Name + ")" + ", SystemClass: " + ((Info)(maide.Any)).SystemClass + "\n");
 
 
             Table varTable;
@@ -673,7 +673,7 @@ public class Gen : Any
             {
                 Var varVar;
                 varVar = (Var)iterBa.Value;
-                global::System.Console.Write("        Var: Name: " + varVar.Name + ", Class: " + varVar.Class.Name + "(" + varVar.Class.Module.Ref.Name + ")" + "\n");
+                global::System.Console.Write("        Var: Name: " + varVar.Name + ", Class: " + varVar.Class.Name + "(" + varVar.Class.Module.Ref.Name + ")" + ", SystemClass: " + ((Info)(varVar.Any)).SystemClass + "\n");
             }
         }
         return true;
