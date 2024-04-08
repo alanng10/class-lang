@@ -27,35 +27,43 @@ public class CountReadOperate : ReadOperate
 
     public override Field ExecuteField()
     {
-        this.Read.FieldIndex = this.Read.FieldIndex + 1;
+        ReadArg arg;
+        arg = this.Read.Arg;
+        arg.FieldIndex = arg.FieldIndex + 1;
         return this.Field;
     }
 
     public override Maide ExecuteMaide()
     {
-        this.Read.MaideIndex = this.Read.MaideIndex + 1;
+        ReadArg arg;
+        arg = this.Read.Arg;
+        arg.MaideIndex = arg.MaideIndex + 1;
         return this.Maide;
     }
 
     public override Var ExecuteVar()
     {
-        this.Read.VarIndex = this.Read.VarIndex + 1;
+        ReadArg arg;
+        arg = this.Read.Arg;
+        arg.VarIndex = arg.VarIndex + 1;
         return this.Var;
     }
 
     public override string ExecuteString(int count)
-    {        
-        Read read;
-        read = this.Read;
-        read.Index = read.Index + count;
-        read.StringIndex = read.StringIndex + 1;
-        read.StringTextIndex = read.StringTextIndex + count;
+    {
+        ReadArg arg;
+        arg = this.Read.Arg;
+        arg.Index = arg.Index + count;
+        arg.StringIndex = arg.StringIndex + 1;
+        arg.StringTextIndex = arg.StringTextIndex + count;
         return this.String;
     }
 
     public override Array ExecuteArray(int count)
     {
-        this.Read.ArrayIndex = this.Read.ArrayIndex + 1;
+        ReadArg arg;
+        arg = this.Read.Arg;
+        arg.ArrayIndex = arg.ArrayIndex + 1;
         return this.Array;
     }
 
