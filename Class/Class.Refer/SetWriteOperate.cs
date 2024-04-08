@@ -31,8 +31,10 @@ public class SetWriteOperate : WriteOperate
         Data data;
         data = this.Write.Data;
         int count;
-        count = sizeof(long);
-        this.InfraInfra.DataIntSet(data, index, value);
+        count = sizeof(ulong);
+        ulong u;
+        u = (ulong)value;
+        this.InfraInfra.DataIntSet(data, index, u);
         index = index + count;
         this.Write.Index = index;
         return true;
