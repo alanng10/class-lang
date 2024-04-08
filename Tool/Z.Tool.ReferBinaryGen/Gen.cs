@@ -23,14 +23,14 @@ public class Gen : Any
 
         this.AddDotNetBuiltInType(typeof(object), "Any", 0);
         this.AddDotNetBuiltInType(typeof(bool), "Bool", 0);
-        this.AddDotNetBuiltInType(typeof(long), "Int", 1);
-        this.AddDotNetBuiltInType(typeof(ulong), "Int", 2);
-        this.AddDotNetBuiltInType(typeof(int), "Int", 3);
-        this.AddDotNetBuiltInType(typeof(uint), "Int", 4);
-        this.AddDotNetBuiltInType(typeof(short), "Int", 5);
-        this.AddDotNetBuiltInType(typeof(ushort), "Int", 6);
-        this.AddDotNetBuiltInType(typeof(sbyte), "Int", 7);
-        this.AddDotNetBuiltInType(typeof(byte), "Int", 8);
+        this.AddDotNetBuiltInType(typeof(ulong), "Int", 1);
+        this.AddDotNetBuiltInType(typeof(long), "Int", 2);
+        this.AddDotNetBuiltInType(typeof(uint), "Int", 3);
+        this.AddDotNetBuiltInType(typeof(int), "Int", 4);
+        this.AddDotNetBuiltInType(typeof(ushort), "Int", 5);
+        this.AddDotNetBuiltInType(typeof(short), "Int", 6);
+        this.AddDotNetBuiltInType(typeof(byte), "Int", 7);
+        this.AddDotNetBuiltInType(typeof(sbyte), "Int", 8);
         this.AddDotNetBuiltInType(typeof(char), "Int", 9);
         this.AddDotNetBuiltInType(typeof(string), "String", 0);
 
