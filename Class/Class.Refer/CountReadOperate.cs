@@ -25,7 +25,7 @@ public class CountReadOperate : ReadOperate
         read = this.Read;
         read.Index = read.Index + count;
         read.StringIndex = read.StringIndex + 1;
-        read.StringDataIndex = read.StringDataIndex + count;
+        read.StringTextIndex = read.StringTextIndex + count;
         return this.String;
     }
 

@@ -31,8 +31,9 @@ public class Read : Any
     protected virtual SetReadOperate SetOperate { get; set; }
     protected virtual Range Range { get; set; }
     public virtual int StringIndex { get; set; }
-    public virtual int StringDataIndex { get; set; }
     public virtual Data StringData { get; set; }
+    public virtual int StringTextIndex { get; set; }
+    public virtual Data StringTextData { get; set; }
     public virtual Array StringArray { get; set; }
     public virtual int ArrayIndex { get; set; }
     public virtual Array ArrayArray { get; set; }
@@ -45,30 +46,34 @@ public class Read : Any
 
         this.Index = 0;
         this.StringIndex = 0;
-        this.StringDataIndex = 0;
+        this.StringTextIndex = 0;
         this.ArrayIndex = 0;
         this.FieldIndex = 0;
 
         this.ExecuteStage();
 
         int stringCount;
-        int stringDataCount;
+        int stringTextCount;
         int arrayCount;
         int fieldCount;
         stringCount = this.StringIndex;
-        stringDataCount = this.StringDataIndex;
+        stringTextCount = this.StringTextIndex;
         arrayCount = this.ArrayIndex;
         fieldCount = this.FieldIndex;
 
         this.StringData = new Data();
-        this.StringData.Count = stringDataCount * sizeof(char);
+        this.StringData.Count = stringCount * sizeof(int);
         this.StringData.Init();
+
+        this.StringTextData = new Data();
+        this.StringTextData.Count = stringTextCount * sizeof(char);
+        this.StringTextData.Init();
 
         this.Operate = this.StringOperate;
 
         this.Index = 0;
         this.StringIndex = 0;
-        this.StringDataIndex = 0;
+        this.StringTextIndex = 0;
         this.ArrayIndex = 0;
         this.FieldIndex = 0;
 
