@@ -6,7 +6,7 @@ class Entry
     static int Main(string[] arg)
     {
         EntryEntry entry;
-        entry = new ClassEntry();
+        entry = new ModuleEntry();
         entry.ArgSet(arg);
         entry.Init();
         int o;
