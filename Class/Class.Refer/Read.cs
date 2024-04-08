@@ -92,7 +92,17 @@ public class Read : Any
 
         this.ExecuteStringCreate();
         this.ExecuteArrayCreate();
+        this.ExecuteFieldCreate();
 
+        this.Operate = this.SetOperate;
+
+        this.Index = 0;
+        this.StringIndex = 0;
+        this.StringTextIndex = 0;
+        this.ArrayIndex = 0;
+        this.FieldIndex = 0;
+
+        this.ExecuteStage();
         return true;
     }
 
@@ -173,6 +183,27 @@ public class Read : Any
         }
         return true;
     }
+
+    protected virtual bool ExecuteFieldCreate()
+    {
+        Array array;
+        array = this.FieldArray;
+
+        int count;
+        count = array.Count;
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            Field o;
+            o = new Field();
+            o.Init();
+            array.Set(i, o);
+            i = i + 1;
+        }
+        return true;
+    }
+    
 
     protected virtual Array ExecuteFieldArray()
     {
