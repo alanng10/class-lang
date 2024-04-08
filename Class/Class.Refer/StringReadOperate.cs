@@ -23,6 +23,22 @@ public class StringReadOperate : ReadOperate
     protected virtual Array Array { get; set; }
     protected virtual Field Field { get; set; }
 
+    public override Field ExecuteField()
+    {
+        this.Read.FieldIndex = this.Read.FieldIndex + 1;
+        return this.Field;
+    }
+
+    public override Maide ExecuteMaide()
+    {
+        return null;
+    }
+
+    public override Var ExecuteVar()
+    {
+        return null;
+    }
+
     public override string ExecuteString(int count)
     {
         Read read;
@@ -89,11 +105,5 @@ public class StringReadOperate : ReadOperate
     public override bool ExecuteArrayItemSet(Array array, int index, object value)
     {
         return true;
-    }
-
-    public override Field ExecuteField()
-    {
-        this.Read.FieldIndex = this.Read.FieldIndex + 1;
-        return this.Field;
     }
 }

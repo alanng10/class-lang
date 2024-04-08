@@ -4,6 +4,28 @@ public class SetReadOperate : ReadOperate
 {
     public virtual Read Read { get; set; }
 
+    public override Field ExecuteField()
+    {
+        Read read;
+        read = this.Read;
+        int index;
+        index = read.FieldIndex;
+        Field a;
+        a = (Field)read.FieldArray.Get(index);
+        read.FieldIndex = index + 1;
+        return a;
+    }
+
+    public override Maide ExecuteMaide()
+    {
+        return null;
+    }
+
+    public override Var ExecuteVar()
+    {
+        return null;
+    }
+    
     public override string ExecuteString(int count)
     {
         Read read;
@@ -35,17 +57,5 @@ public class SetReadOperate : ReadOperate
     {
         array.Set(index, value);
         return true;
-    }
-
-    public override Field ExecuteField()
-    {
-        Read read;
-        read = this.Read;
-        int index;
-        index = read.FieldIndex;
-        Field a;
-        a = (Field)read.FieldArray.Get(index);
-        read.FieldIndex = index + 1;
-        return a;
     }
 }
