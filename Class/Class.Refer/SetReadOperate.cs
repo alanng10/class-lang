@@ -21,11 +21,13 @@ public class SetReadOperate : ReadOperate
 
     public override Array ExecuteArray(int count)
     {
-        int oa;
-        oa = this.Read.ArrayIndex;
+        Read read;
+        read = this.Read;
+        int index;
+        index = read.ArrayIndex;
         Array a;
-        a = (Array)this.Read.ArrayArray.Get(oa);
-        this.Read.ArrayIndex = oa + 1;
+        a = (Array)read.ArrayArray.Get(index);
+        read.ArrayIndex = index + 1;
         return a;
     }
 
@@ -37,6 +39,13 @@ public class SetReadOperate : ReadOperate
 
     public override Field ExecuteField()
     {
-        return null;
+        Read read;
+        read = this.Read;
+        int index;
+        index = read.FieldIndex;
+        Field a;
+        a = (Field)read.FieldArray.Get(index);
+        read.FieldIndex = index + 1;
+        return a;
     }
 }
