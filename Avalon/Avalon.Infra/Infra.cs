@@ -197,7 +197,7 @@ public class Infra : Any
         count = a.Length;
 
         int oa;
-        oa = sizeof(short);
+        oa = sizeof(char);
 
         Data data;
         data = new Data();
