@@ -102,6 +102,7 @@ public class Gen : Any
 
         this.ConsoleWriteClass(this.ClassGet("Avalon.Infra", "String"));
         this.ConsoleWriteClass(this.ClassGet("Avalon.Infra", "ModuleInfo"));
+        this.ConsoleWriteClass(this.ClassGet("Avalon.Infra", "Infra"));
 
         //this.ConsoleWrite();
 
