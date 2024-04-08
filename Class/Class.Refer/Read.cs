@@ -94,11 +94,6 @@ public class Read : Any
         return true;
     }
 
-    protected virtual bool ExecuteStage()
-    {
-        return true;
-    }
-
     protected virtual bool ResetStageIndex()
     {
         ReadArg a;
@@ -375,6 +370,18 @@ public class Read : Any
         return true;
     }
 
+
+    protected virtual bool ExecuteStage()
+    {
+        this.Refer = this.ExecuteRefer();
+        return true;
+    }
+
+    protected virtual Refer ExecuteRefer()
+    {
+        return null;
+    }
+
     protected virtual Array ExecuteFieldArray()
     {
         Array array;
@@ -436,6 +443,52 @@ public class Read : Any
 
         Field a;
         a = this.Operate.ExecuteField();
+        a.Class = varClass;
+        a.SystemClass = systemClass;
+        a.Count = count;
+        a.Name = name;
+        return a;
+    }
+
+    protected virtual Maide ExecuteMaide()
+    {
+        int u;
+        u = this.ExecuteIndex();
+        if (u < 0)
+        {
+            return null;
+        }
+        int varClass;
+        varClass = u;
+        int systemClass;
+        systemClass = 0;
+        if (this.SystemClass)
+        {
+            u = this.ExecuteIndex();
+            if (u < 0)
+            {
+                return null;
+            }
+            systemClass = u;
+        }
+
+        u = this.ExecuteByte();
+        if (u < 0)
+        {
+            return null;
+        }
+        int count;
+        count = u;
+
+        string name;
+        name = this.ExecuteString();
+        if (name == null)
+        {
+            return null;
+        }
+
+        Maide a;
+        a = this.Operate.ExecuteMaide();
         a.Class = varClass;
         a.SystemClass = systemClass;
         a.Count = count;
