@@ -35,7 +35,6 @@ public class Create : InfraCreate
     protected virtual SetCreateOperate SetOperate { get; set; }
     protected virtual CreateOperate Operate { get; set; }
     protected virtual Array CodeArray { get; set; }
-    protected virtual Text SourceText { get; set; }
 
     public virtual Code Code { get; set; }
     public virtual SourceItem SourceItem { get; set; }
@@ -117,8 +116,6 @@ public class Create : InfraCreate
     {
         this.Code = code;
 
-        this.SourceText = this.SourceItem.Text;
-
         this.Reset();
 
         TextInfra textInfra;
@@ -127,7 +124,7 @@ public class Create : InfraCreate
         classInfra = this.ClassInfra;
 
         Text sourceText;
-        sourceText = this.SourceText;
+        sourceText = this.SourceItem.Text;
 
         TextRange range;
         range = this.Range;
