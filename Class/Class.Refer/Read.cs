@@ -90,7 +90,7 @@ public class Read : Any
     protected virtual Array ExecuteFieldArray()
     {
         Array array;
-        array = this.Operate.ExecuteArray();
+        array = this.ExecuteArray();
         int count;
         count = array.Count;
         int i;
@@ -162,12 +162,22 @@ public class Read : Any
         {
             return null;
         }
-        return this.Operate.ExecuteArray(o);
+        int count;
+        count = o;
+        return this.Operate.ExecuteArray(count);
     }
 
     public virtual string ExecuteString()
     {
-        return this.Operate.ExecuteString();
+        int o;
+        o = this.ExecuteCount();
+        if (o == -1)
+        {
+            return null;
+        }
+        int count;
+        count = o;
+        return this.Operate.ExecuteString(count);
     }
 
     public virtual int ExecuteCount()
