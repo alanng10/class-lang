@@ -72,7 +72,17 @@ public class StringReadOperate : ReadOperate
 
     public override Array ExecuteArray(int count)
     {
-        this.Read.ArrayIndex = this.Read.ArrayIndex + 1;
+        Read read;
+        read = this.Read;
+
+        int arrayIndex;
+        arrayIndex = read.ArrayIndex;
+
+        long oe;
+        oe = arrayIndex * sizeof(int);
+        this.InfraInfra.DataMidSet(read.ArrayCountData, oe, count);
+
+        this.Read.ArrayIndex = arrayIndex + 1;
         return this.Array;
     }
 
