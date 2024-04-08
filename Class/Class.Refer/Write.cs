@@ -107,11 +107,11 @@ public class Write : Any
     protected virtual bool ExecuteImport(Import import)
     {
         this.ExecuteModuleRef(import.Module);
-        this.ExecuteImportClassArray(import.Class);
+        this.ExecuteClassIndexArray(import.Class);
         return true;
     }
 
-    protected virtual bool ExecuteImportClassArray(Array array)
+    protected virtual bool ExecuteClassIndexArray(Array array)
     {
         int count;
         count = array.Count;
@@ -120,41 +120,23 @@ public class Write : Any
         i = 0;
         while (i < count)
         {
-            ImportClass importClass;
-            importClass = (ImportClass)array.Get(i);
-            this.ExecuteImportClass(importClass);
+            ClassIndex classIndex;
+            classIndex = (ClassIndex)array.Get(i);
+            this.ExecuteClassIndex(classIndex);
             i = i + 1;
         }
         return true;
     }
 
-    protected virtual bool ExecuteImportClass(ImportClass importClass)
+    protected virtual bool ExecuteClassIndex(ClassIndex classIndex)
     {
-        this.ExecuteIndex(importClass.Class);
+        this.ExecuteIndex(classIndex.Value);
         return true;
     }
 
     protected virtual bool ExecuteBaseArray(Array array)
     {
-        int count;
-        count = array.Count;
-        this.ExecuteCount(count);
-        int i;
-        i = 0;
-        while (i < count)
-        {
-            Base varBase;
-            varBase = (Base)array.Get(i);
-            this.ExecuteBase(varBase);
-            i = i + 1;
-        }
-        return true;
-    }
-
-    protected virtual bool ExecuteBase(Base varBase)
-    {
-        this.ExecuteIndex(varBase.Class);
-        return true;
+        return this.ExecuteClassIndexArray(array);
     }
 
     protected virtual bool ExecutePartArray(Array array)
