@@ -19,7 +19,7 @@ public class CountReadOperate : ReadOperate
     protected virtual Array Array { get; set; }
     protected virtual Field Field { get; set; }
 
-    public override string ExecuteString()
+    public override string ExecuteString(int count)
     {
         Read read;
         read = this.Read;
@@ -36,14 +36,8 @@ public class CountReadOperate : ReadOperate
         return this.String;
     }
 
-    public override Array ExecuteArray()
+    public override Array ExecuteArray(int count)
     {
-        int o;
-        o = this.Read.ExecuteCount();
-        if (o == -1)
-        {
-            return null;
-        }
         this.Read.ArrayIndex = this.Read.ArrayIndex + 1;
         return this.Array;
     }

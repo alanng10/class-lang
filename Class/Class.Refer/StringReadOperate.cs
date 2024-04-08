@@ -21,7 +21,7 @@ public class StringReadOperate : ReadOperate
     protected virtual Array Array { get; set; }
     protected virtual Field Field { get; set; }
 
-    public override string ExecuteString()
+    public override string ExecuteString(int count)
     {
         Read read;
         read = this.Read;
@@ -70,7 +70,7 @@ public class StringReadOperate : ReadOperate
         return this.String;
     }
 
-    public override Array ExecuteArray()
+    public override Array ExecuteArray(int count)
     {
         int o;
         o = this.Read.ExecuteCount();

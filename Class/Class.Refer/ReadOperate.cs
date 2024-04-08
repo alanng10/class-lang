@@ -2,12 +2,12 @@ namespace Class.Refer;
 
 public class ReadOperate : Any
 {
-    public virtual string ExecuteString()
+    public virtual string ExecuteString(int count)
     {
         return null;
     }
 
-    public virtual Array ExecuteArray()
+    public virtual Array ExecuteArray(int count)
     {
         return null;
     }

@@ -4,7 +4,7 @@ public class SetReadOperate : ReadOperate
 {
     public virtual Read Read { get; set; }
 
-    public override string ExecuteString()
+    public override string ExecuteString(int count)
     {
         Read read;
         read = this.Read;
@@ -26,15 +26,8 @@ public class SetReadOperate : ReadOperate
         return a;
     }
 
-    public override Array ExecuteArray()
+    public override Array ExecuteArray(int count)
     {
-        int o;
-        o = this.Read.ExecuteCount();
-        if (o == -1)
-        {
-            return null;
-        }
-
         int oa;
         oa = this.Read.ArrayIndex;
         Array a;

@@ -154,6 +154,17 @@ public class Read : Any
         return a;
     }
 
+    public virtual Array ExecuteArray()
+    {
+        int o;
+        o = this.ExecuteCount();
+        if (o == -1)
+        {
+            return null;
+        }
+        return this.Operate.ExecuteArray(o);
+    }
+
     public virtual string ExecuteString()
     {
         return this.Operate.ExecuteString();
