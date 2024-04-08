@@ -144,9 +144,11 @@ public class Read : Any
         while (i < count)
         {
             long index;
-            index = i * sizeof(int);
+            index = i * sizeof(uint);
+            uint u;
+            u = infraInfra.DataMidGet(countData, index);
             int oa;
-            oa = infraInfra.DataMidGet(countData, index);
+            oa = (int)u;
             span.Range.Index = total;
             span.Range.Count = oa;
             string oo;
@@ -179,9 +181,11 @@ public class Read : Any
         while (i < count)
         {
             long index;
-            index = i * sizeof(int);
+            index = i * sizeof(uint);
+            uint u;
+            u = infraInfra.DataMidGet(countData, index);
             int oa;
-            oa = infraInfra.DataMidGet(countData, index);
+            oa = (int)u;
             Array o;
             o = listInfra.ArrayCreate(oa);
             array.Set(i, o);
@@ -535,7 +539,7 @@ public class Read : Any
     public virtual long ExecuteInt()
     {
         int count;
-        count = sizeof(long);
+        count = sizeof(ulong);
         if (!this.CheckCount(count))
         {
             return -1;
@@ -546,8 +550,10 @@ public class Read : Any
         arg = this.Arg;
         int index;
         index = arg.Index;
+        ulong u;
+        u = infraInfra.DataIntGet(this.Data, index);
         long a;
-        a = infraInfra.DataIntGet(this.Data, index);
+        a = (long)u;
         index = index + count;
         arg.Index = index;
         return a;
