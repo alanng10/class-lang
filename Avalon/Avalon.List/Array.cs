@@ -93,18 +93,4 @@ public class Array : List
         a.CurrentIndex = -1;
         return true;
     }
-
-    private int IntIndex(object index)
-    {
-        if (!(index is int))
-        {
-            return -1;
-        }
-
-        int t;
-        t = (int)index;
-        int ret;
-        ret = t;
-        return ret;
-    }
 }
