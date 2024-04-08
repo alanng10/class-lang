@@ -8,6 +8,8 @@ public class CountReadOperate : ReadOperate
         this.ListInfra = ListInfra.This;
         this.String = "";
         this.Array = this.ListInfra.ArrayCreate(0);
+        this.Part = new Part();
+        this.Part.Init();
         this.Field = new Field();
         this.Field.Init();
         this.Maide = new Maide();
@@ -19,11 +21,17 @@ public class CountReadOperate : ReadOperate
 
     public virtual Read Read { get; set; }
     protected virtual ListInfra ListInfra { get; set; }
-    protected virtual string String { get; set; }
-    protected virtual Array Array { get; set; }
+    protected virtual Refer Refer { get; set; }
+    protected virtual Class Class { get; set; }
+    protected virtual Import Import { get; set; }
+    protected virtual Part Part { get; set; }
     protected virtual Field Field { get; set; }
     protected virtual Maide Maide { get; set; }
     protected virtual Var Var { get; set; }
+    protected virtual ClassIndex ClassIndex { get; set; }
+    protected virtual ModuleRef ModuleRef { get; set; }
+    protected virtual string String { get; set; }
+    protected virtual Array Array { get; set; }
 
     public override Field ExecuteField()
     {
