@@ -17,13 +17,16 @@ public class Read : Any
         this.SetOperate = new SetReadOperate();
         this.SetOperate.Read = this;
         this.SetOperate.Init();
+
+        this.Arg = new ReadArg();
+        this.Arg.Init();
         return true;
     }
 
     public virtual Data Data { get; set; }
-    public virtual int Index { get; set; }
     public virtual Refer Refer { get; set; }
     public virtual bool SystemClass { get; set; }
+    public virtual ReadArg Arg { get; set; }
     protected virtual InfraInfra InfraInfra { get; set; }
     protected virtual ListInfra ListInfra { get; set; }
     protected virtual TextInfra TextInfra { get; set; }
@@ -32,74 +35,45 @@ public class Read : Any
     protected virtual StringReadOperate StringOperate { get; set; }
     protected virtual SetReadOperate SetOperate { get; set; }
     protected virtual Range Range { get; set; }
-    public virtual int ReferIndex { get; set; }
-    public virtual int ClassIndex { get; set; }
-    public virtual Array ClassArray { get; set; }
-    public virtual int ImportIndex { get; set; }
-    public virtual Array ImportArray { get; set; }
-    public virtual int PartIndex { get; set; }
-    public virtual Array PartArray { get; set; }
-    public virtual int FieldIndex { get; set; }
-    public virtual Array FieldArray { get; set; }
-    public virtual int MaideIndex { get; set; }
-    public virtual Array MaideArray { get; set; }
-    public virtual int VarIndex { get; set; }
-    public virtual Array VarArray { get; set; }
-    public virtual int ClassIndexIndex { get; set; }
-    public virtual Array ClassIndexArray { get; set; }
-    public virtual int ModuleRefIndex { get; set; }
-    public virtual Array ModuleRefArray { get; set; }
-    public virtual int StringIndex { get; set; }
-    public virtual Data StringCountData { get; set; }
-    public virtual int StringTextIndex { get; set; }
-    public virtual Data StringTextData { get; set; }
-    public virtual Array StringArray { get; set; }
-    public virtual int ArrayIndex { get; set; }
-    public virtual Data ArrayCountData { get; set; }
-    public virtual Array ArrayArray { get; set; }
 
     public virtual bool Execute()
     {
+        ReadArg arg;
+        arg = this.Arg;
+
         this.Operate = this.CountOperate;
 
         this.ResetStageIndex();
         this.ExecuteStage();
 
-        int stringCount;
-        int stringTextCount;
-        int arrayCount;
-        int fieldCount;
-        int maideCount;
-        int varCount;
-        stringCount = this.StringIndex;
-        stringTextCount = this.StringTextIndex;
-        arrayCount = this.ArrayIndex;
-        fieldCount = this.FieldIndex;
-        maideCount = this.MaideIndex;
-        varCount = this.VarIndex;
+        arg.StringCountData = new Data();
+        arg.StringCountData.Count = arg.StringIndex * sizeof(int);
+        arg.StringCountData.Init();
 
-        this.StringCountData = new Data();
-        this.StringCountData.Count = stringCount * sizeof(int);
-        this.StringCountData.Init();
+        arg.StringTextData = new Data();
+        arg.StringTextData.Count = arg.StringTextIndex * sizeof(char);
+        arg.StringTextData.Init();
 
-        this.StringTextData = new Data();
-        this.StringTextData.Count = stringTextCount * sizeof(char);
-        this.StringTextData.Init();
-
-        this.ArrayCountData = new Data();
-        this.ArrayCountData.Count = stringCount * sizeof(int);
-        this.ArrayCountData.Init();
+        arg.ArrayCountData = new Data();
+        arg.ArrayCountData.Count = arg.ArrayIndex * sizeof(int);
+        arg.ArrayCountData.Init();
 
         this.Operate = this.StringOperate;
 
         this.ResetStageIndex();
         this.ExecuteStage();
 
-        this.StringArray = this.ListInfra.ArrayCreate(stringCount);
-        this.ArrayArray = this.ListInfra.ArrayCreate(arrayCount);
-        this.FieldArray = this.ListInfra.ArrayCreate(fieldCount);
-        this.MaideArray = this.ListInfra.ArrayCreate(maideCount);
-        this.VarArray = this.ListInfra.ArrayCreate(varCount);
+        arg.ReferArray = this.ListInfra.ArrayCreate(arg.ReferIndex);
+        arg.ClassArray = this.ListInfra.ArrayCreate(arg.ClassIndex);
+        arg.ImportArray = this.ListInfra.ArrayCreate(arg.ImportIndex);
+        arg.PartArray = this.ListInfra.ArrayCreate(arg.PartIndex);
+        arg.FieldArray = this.ListInfra.ArrayCreate(arg.FieldIndex);
+        arg.MaideArray = this.ListInfra.ArrayCreate(arg.MaideIndex);
+        arg.VarArray = this.ListInfra.ArrayCreate(arg.VarIndex);
+        arg.ClassIndexArray = this.ListInfra.ArrayCreate(arg.ClassIndexIndex);
+        arg.ModuleRefArray = this.ListInfra.ArrayCreate(arg.ModuleRefIndex);
+        arg.StringArray = this.ListInfra.ArrayCreate(arg.StringIndex);
+        arg.ArrayArray = this.ListInfra.ArrayCreate(arg.ArrayIndex);
 
         this.ExecuteStringCreate();
         this.ExecuteArrayCreate();
@@ -121,19 +95,21 @@ public class Read : Any
 
     protected virtual bool ResetStageIndex()
     {
-        this.Index = 0;
-        this.ReferIndex = 0;
-        this.ClassIndex = 0;
-        this.ImportIndex = 0;
-        this.PartIndex = 0;
-        this.FieldIndex = 0;
-        this.MaideIndex = 0;
-        this.VarIndex = 0;
-        this.ClassIndexIndex = 0;
-        this.ModuleRefIndex = 0;
-        this.StringIndex = 0;
-        this.StringTextIndex = 0;
-        this.ArrayIndex = 0;
+        ReadArg a;
+        a = this.Arg;
+        a.Index = 0;
+        a.ReferIndex = 0;
+        a.ClassIndex = 0;
+        a.ImportIndex = 0;
+        a.PartIndex = 0;
+        a.FieldIndex = 0;
+        a.MaideIndex = 0;
+        a.VarIndex = 0;
+        a.ClassIndexIndex = 0;
+        a.ModuleRefIndex = 0;
+        a.StringIndex = 0;
+        a.StringTextIndex = 0;
+        a.ArrayIndex = 0;
         return true;
     }
 
@@ -144,18 +120,19 @@ public class Read : Any
         TextInfra textInfra;
         textInfra = this.TextInfra;
 
+        ReadArg arg;
+        arg = this.Arg;
         Array array;
-        array = this.StringArray;
-
+        array = arg.StringArray;
         Data countData;
-        countData = this.StringCountData;
+        countData = arg.StringCountData;
 
         TextSpan span;
         span = new TextSpan();
         span.Init();
         span.Range = new Range();
         span.Range.Init();
-        span.Data = this.StringTextData;
+        span.Data = arg.StringTextData;
         int total;
         total = 0;
 
@@ -187,10 +164,12 @@ public class Read : Any
         ListInfra listInfra;
         listInfra = this.ListInfra;
 
+        ReadArg arg;
+        arg = this.Arg;
         Array array;
-        array = this.ArrayArray;
+        array = arg.ArrayArray;
         Data countData;
-        countData = this.ArrayCountData;
+        countData = arg.ArrayCountData;
 
         int count;
         count = array.Count;
@@ -210,10 +189,90 @@ public class Read : Any
         return true;
     }
 
+    protected virtual bool ExecuteReferCreate()
+    {
+        Array array;
+        array = this.Arg.ReferArray;
+
+        int count;
+        count = array.Count;
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            Refer o;
+            o = new Refer();
+            o.Init();
+            array.Set(i, o);
+            i = i + 1;
+        }
+        return true;
+    }
+
+    protected virtual bool ExecuteClassCreate()
+    {
+        Array array;
+        array = this.Arg.ClassArray;
+
+        int count;
+        count = array.Count;
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            Class o;
+            o = new Class();
+            o.Init();
+            array.Set(i, o);
+            i = i + 1;
+        }
+        return true;
+    }
+
+    protected virtual bool ExecuteImportCreate()
+    {
+        Array array;
+        array = this.Arg.ImportArray;
+
+        int count;
+        count = array.Count;
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            Import o;
+            o = new Import();
+            o.Init();
+            array.Set(i, o);
+            i = i + 1;
+        }
+        return true;
+    }
+
+    protected virtual bool ExecutePartCreate()
+    {
+        Array array;
+        array = this.Arg.PartArray;
+
+        int count;
+        count = array.Count;
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            Part o;
+            o = new Part();
+            o.Init();
+            array.Set(i, o);
+            i = i + 1;
+        }
+        return true;
+    }
+
     protected virtual bool ExecuteFieldCreate()
     {
         Array array;
-        array = this.FieldArray;
+        array = this.Arg.FieldArray;
 
         int count;
         count = array.Count;
@@ -233,7 +292,7 @@ public class Read : Any
     protected virtual bool ExecuteMaideCreate()
     {
         Array array;
-        array = this.MaideArray;
+        array = this.Arg.MaideArray;
 
         int count;
         count = array.Count;
@@ -253,7 +312,7 @@ public class Read : Any
     protected virtual bool ExecuteVarCreate()
     {
         Array array;
-        array = this.VarArray;
+        array = this.Arg.VarArray;
 
         int count;
         count = array.Count;
@@ -376,35 +435,39 @@ public class Read : Any
 
     public virtual long ExecuteInt()
     {
-        int index;
-        index = this.Index;
         int count;
         count = sizeof(long);
         if (!this.CheckCount(count))
         {
             return -1;
         }
-
+        InfraInfra infraInfra;
+        infraInfra = this.InfraInfra;
+        ReadArg arg;
+        arg = this.Arg;
+        int index;
+        index = arg.Index;
         long a;
-        a = this.InfraInfra.DataIntGet(this.Data, index);
+        a = infraInfra.DataIntGet(this.Data, index);
         index = index + count;
-        this.Index = index;
+        arg.Index = index;
         return a;
     }
 
     public virtual int ExecuteByte()
     {
-        int index;
-        index = this.Index;
         if (!(this.CheckCount(1)))
         {
             return -1;
         }
-
+        ReadArg arg;
+        arg = this.Arg;
+        int index;
+        index = arg.Index;
         int a;
         a = this.Data.Get(index);
         index = index + 1;
-        this.Index = index;
+        arg.Index = index;
         return a;
     }
 
@@ -412,7 +475,7 @@ public class Read : Any
     {
         Range range;
         range = this.Range;
-        range.Index = this.Index;
+        range.Index = this.Arg.Index;
         range.Count = count;
         int dataCount;
         dataCount = (int)this.Data.Count;
