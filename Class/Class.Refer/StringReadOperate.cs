@@ -12,6 +12,10 @@ public class StringReadOperate : ReadOperate
         this.Array = this.ListInfra.ArrayCreate(0);
         this.Field = new Field();
         this.Field.Init();
+        this.Maide = new Maide();
+        this.Maide.Init();
+        this.Var = new Var();
+        this.Var.Init();
         return true;
     }
 
@@ -22,6 +26,8 @@ public class StringReadOperate : ReadOperate
     protected virtual string String { get; set; }
     protected virtual Array Array { get; set; }
     protected virtual Field Field { get; set; }
+    protected virtual Maide Maide { get; set; }
+    protected virtual Var Var { get; set; }
 
     public override Field ExecuteField()
     {
@@ -31,12 +37,14 @@ public class StringReadOperate : ReadOperate
 
     public override Maide ExecuteMaide()
     {
-        return null;
+        this.Read.MaideIndex = this.Read.MaideIndex + 1;
+        return this.Maide;
     }
 
     public override Var ExecuteVar()
     {
-        return null;
+        this.Read.VarIndex = this.Read.VarIndex + 1;
+        return this.Var;
     }
 
     public override string ExecuteString(int count)

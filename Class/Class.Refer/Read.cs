@@ -42,6 +42,10 @@ public class Read : Any
     public virtual Array ArrayArray { get; set; }
     public virtual int FieldIndex { get; set; }
     public virtual Array FieldArray { get; set; }
+    public virtual int MaideIndex { get; set; }
+    public virtual Array MaideArray { get; set; }
+    public virtual int VarIndex { get; set; }
+    public virtual Array VarArray { get; set; }
 
     public virtual bool Execute()
     {
