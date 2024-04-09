@@ -4,6 +4,54 @@ public class SetReadOperate : ReadOperate
 {
     public virtual Read Read { get; set; }
 
+    public override Refer ExecuteRefer()
+    {
+        ReadArg arg;
+        arg = this.Read.Arg;
+        int index;
+        index = arg.ReferIndex;
+        Refer a;
+        a = (Refer)arg.ReferArray.Get(index);
+        arg.ReferIndex = index + 1;
+        return a;
+    }
+
+    public override Class ExecuteClass()
+    {
+        ReadArg arg;
+        arg = this.Read.Arg;
+        int index;
+        index = arg.ClassIndex;
+        Class a;
+        a = (Class)arg.ClassArray.Get(index);
+        arg.ClassIndex = index + 1;
+        return a;
+    }
+
+    public override Import ExecuteImport()
+    {
+        ReadArg arg;
+        arg = this.Read.Arg;
+        int index;
+        index = arg.ImportIndex;
+        Import a;
+        a = (Import)arg.ImportArray.Get(index);
+        arg.ImportIndex = index + 1;
+        return a;
+    }
+
+    public override Part ExecutePart()
+    {
+        ReadArg arg;
+        arg = this.Read.Arg;
+        int index;
+        index = arg.PartIndex;
+        Part a;
+        a = (Part)arg.PartArray.Get(index);
+        arg.PartIndex = index + 1;
+        return a;
+    }
+
     public override Field ExecuteField()
     {
         ReadArg arg;
