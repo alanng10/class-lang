@@ -98,7 +98,6 @@ public class ModuleCreate : Any
             i = i + 1;
         }
 
-
         Array classArray;
         classArray = this.ListInfra.ArrayCreate(classTable.Count);
 
@@ -203,7 +202,6 @@ public class ModuleCreate : Any
             i = i + 1;
         }
 
-
         Array importArray;
         importArray = this.ListInfra.ArrayCreate(importTotal);
 
@@ -232,7 +230,6 @@ public class ModuleCreate : Any
         }
 
         this.ImportArray = importArray;
-
         return true;
     }
 
