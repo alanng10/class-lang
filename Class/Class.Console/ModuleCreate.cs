@@ -87,19 +87,25 @@ public class ModuleCreate : Any
             ModuleRef moduleRef;
             moduleRef = o.Module;
 
+            ClassModule module;
+            module = this.ModuleGet(moduleRef);
+
             ReferRefer oo;
             oo = (ReferRefer)this.ReferTable.Get(moduleRef);
 
-            if (!importTable.Contain(moduleRef))
+            if (importTable.Contain(moduleRef))
             {
-                Table ol;
-                ol = new Table();
-                ol.Compare = new StringCompare();
-                ol.Compare.Init();
-                ol.Init();
-
-                this.ListInfra.TableAdd(importTable, moduleRef, ol);
+                global::System.Console.Error.Write("Class.Console:ModuleCreate.AddImportList import module ref duplicate\n");
+                global::System.Environment.Exit(120);
             }
+
+            Table ol;
+            ol = new Table();
+            ol.Compare = new StringCompare();
+            ol.Compare.Init();
+            ol.Init();
+            this.ListInfra.TableAdd(importTable, moduleRef, ol);
+            
             Table classTable;
             classTable = (Table)importTable.Get(moduleRef);
 
@@ -121,12 +127,15 @@ public class ModuleCreate : Any
                 className = of.Name;
     
                 ClassClass varClass;
-                varClass = this.ClassGet(moduleRef, className);
+                varClass = this.ModuleClassGet(module, className);
 
-                if (!classTable.Contain(className))
+                if (classTable.Contain(className))
                 {
-                    this.ListInfra.TableAdd(classTable, className, varClass);
+                    global::System.Console.Error.Write("Class.Console:ModuleCreate.AddImportList import class name duplicate\n");
+                    global::System.Environment.Exit(121);
                 }
+
+                this.ListInfra.TableAdd(classTable, className, varClass);
 
                 iA = iA + 1;
             }
@@ -137,12 +146,26 @@ public class ModuleCreate : Any
         return true;
     }
 
-    protected virtual ClassClass ClassGet(ModuleRef moduleRef, string className)
+    protected virtual ClassModule ModuleGet(ModuleRef moduleRef)
     {
-        ClassModule module;
-        module = (ClassModule)this.ModuleTable.Get(moduleRef);
+        ClassModule a;
+        a = (ClassModule)this.ModuleTable.Get(moduleRef);
+        return a;
+    }
+
+    protected virtual ClassClass ModuleClassGet(ClassModule module, string className)
+    {
         ClassClass a;
         a = (ClassClass)module.Class.Get(className);
+        return a;
+    }
+
+    protected virtual ClassClass ClassGet(ModuleRef moduleRef, string className)
+    {
+        ClassModule ae;
+        ae = this.ModuleGet(moduleRef);
+        ClassClass a;
+        a = this.ModuleClassGet(ae, className);
         return a;
     }
 
