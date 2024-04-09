@@ -11,13 +11,17 @@ public class ModuleCreate : Any
 
     public virtual Table ModuleTable { get; set; }
     public virtual Table ReferTable { get; set; }
-    public virtual ReferRefer Refer { get; set; }
+    public virtual ModuleRef ModuleRef { get; set; }
     public virtual ClassModule Module { get; set; }
     protected virtual ListInfra ListInfra { get; set; }
+    protected virtual ReferRefer Refer { get; set; }
+    protected virtual Array ClassArray { get; set; }
+    protected virtual Array ImportArray { get; set; }
+
     public virtual bool Execute()
     {
         ModuleRef o;
-        o = this.Refer.Ref;
+        o = this.ModuleRef;
         if (this.ModuleTable.Contain(o))
         {
             return false;
@@ -29,15 +33,24 @@ public class ModuleCreate : Any
         a.Ref = this.ModuleRefCreate(o.Name, o.Ver);
         this.Module = a;
 
+        ReferRefer refer;
+        refer = (ReferRefer)this.ReferTable.Get(this.Module.Ref);
+        this.Refer = refer;
+
         this.AddClassList();
 
         this.AddImportList();
+
+
 
         return true;
     }
 
     protected virtual bool AddClassList()
     {
+        Table classTable;
+        classTable = this.Module.Class;
+
         Array array;
         array = this.Refer.Class;
         int count;
@@ -55,27 +68,52 @@ public class ModuleCreate : Any
             ClassClass a;
             a = new ClassClass();
             a.Init();
-            a.Index = this.Module.Class.Count;
+            a.Index = classTable.Count;
             a.Name = name;
             a.Module = this.Module;
 
-            this.ListInfra.TableAdd(this.Module.Class, a.Name, a); 
+            this.ListInfra.TableAdd(classTable, a.Name, a); 
 
             i = i + 1;
         }
+
+
+        Array classArray;
+        classArray = this.ListInfra.ArrayCreate(classTable.Count);
+
+        Iter iter;
+        iter = classTable.IterCreate();
+        classTable.IterSet(iter);
+
+        count = classArray.Count;
+        i = 0;
+        while (i < count)
+        {
+            iter.Next();
+            ClassClass oa;
+            oa = (ClassClass)iter.Value;
+
+            classArray.Set(i, oa);
+            i = i + 1;
+        }
+
+        this.ClassArray = classArray;
         return true;
     }
     
     protected virtual bool AddImportList()
     {
-        Array array;
-        array = this.Refer.Import;
-
         Table importTable;
         importTable = new Table();
         importTable.Compare = new ModuleRefCompare();
         importTable.Compare.Init();
         importTable.Init();
+        
+        int importTotal;
+        importTotal = 0;
+
+        Array array;
+        array = this.Refer.Import;
 
         int count;
         count = array.Count;
@@ -141,10 +179,66 @@ public class ModuleCreate : Any
 
                 iA = iA + 1;
             }
+
+            importTotal = importTotal + countA;
+
             i = i + 1;
         }
 
         this.Module.Import = importTable;
+
+
+        Array importArray;
+        importArray = this.ListInfra.ArrayCreate(importTotal);
+
+        int oi;
+        oi = 0;
+        Iter iter;
+        iter = importTable.IterCreate();
+        importTable.IterSet(iter);
+        while (iter.Next())
+        {
+            Table ooo;
+            ooo = (Table)iter.Value;
+
+            Iter iterA;
+            iterA = ooo.IterCreate();
+            ooo.IterSet(iterA);
+            while(iterA.Next())
+            {
+                ClassClass ooa;
+                ooa = (ClassClass)iterA.Value;
+
+                importArray.Set(oi, ooa);
+
+                oi = oi + 1;
+            }
+        }
+
+        this.ImportArray = importArray;
+
+        return true;
+    }
+
+    protected virtual bool AddBaseList()
+    {
+        Array array;
+        array = this.Refer.Base;
+
+        
+        int count;
+        count = array.Count;
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            ReferClassIndex a;
+            a = (ReferClassIndex)array.Get(i);
+
+            
+
+            i = i + 1;
+        }
         return true;
     }
 
