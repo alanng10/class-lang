@@ -607,7 +607,21 @@ public class Read : Any
         return a;
     }
 
-    
+    protected virtual ClassIndex ExecuteClassIndex()
+    {
+        int u;
+        u = this.ExecuteIndex();
+        if (u == -1)
+        {
+            return null;
+        }
+        int value;
+        value = u;
+        ClassIndex a;
+        a = this.Operate.ExecuteClassIndex();
+        a.Value = value;
+        return a;
+    }
 
     protected virtual Array ExecuteArray()
     {
