@@ -58,6 +58,8 @@ public class ModuleCreate : Any
 
         this.AddImportList();
 
+        this.AddBaseList();
+
         this.Refer = null;
         this.ClassArray = null;
         this.ImportArray = null;
@@ -239,6 +241,9 @@ public class ModuleCreate : Any
         Array array;
         array = this.Refer.Base;
 
+        Iter iter;
+        iter = this.Module.Class.IterCreate();
+        this.Module.Class.IterSet(iter);
         
         int count;
         count = array.Count;
@@ -246,11 +251,18 @@ public class ModuleCreate : Any
         i = 0;
         while (i < count)
         {
+            iter.Next();
+
+            ClassClass varClass;
+            varClass = (ClassClass)iter.Value;
+
             ReferClassIndex a;
             a = (ReferClassIndex)array.Get(i);
 
-            
-            
+            ClassClass baseClass;
+            baseClass = this.ClassGetIndex(a.Value);
+
+            varClass.Base = baseClass;            
 
             i = i + 1;
         }
