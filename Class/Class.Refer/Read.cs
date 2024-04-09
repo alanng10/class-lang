@@ -374,7 +374,6 @@ public class Read : Any
         return true;
     }
 
-
     protected virtual bool ExecuteStage()
     {
         this.Refer = this.ExecuteRefer();
@@ -383,9 +382,23 @@ public class Read : Any
 
     protected virtual Refer ExecuteRefer()
     {
+        ModuleRef varRef;
+        varRef = this.ExecuteModuleRef();
+        if (varRef == null)
+        {
+            return null;
+        }
+
         Array varClass;
         varClass = this.ExecuteClassArray();
         if (varClass == null)
+        {
+            return null;
+        }
+
+        Array import;
+        import = this.ExecuteImportArray();
+        if (import == null)
         {
             return null;
         }
@@ -397,10 +410,30 @@ public class Read : Any
             return null;
         }
 
+        Array part;
+        part = this.ExecutePartArray();
+        if (part == null)
+        {
+            return null;
+        }
+
+        int u;
+        u = this.ExecuteIndex();
+        if (u == -1)
+        {
+            return null;
+        }
+        int entry;
+        entry = u;
+
         Refer a;
         a = this.Operate.ExecuteRefer();
+        a.Ref = varRef;
         a.Class = varClass;
+        a.Import = import;
         a.Base = varBase;
+        a.Part = part;
+        a.Entry = entry;
         return a;
     }
 
@@ -446,9 +479,91 @@ public class Read : Any
         return a;
     }
 
+    protected virtual Array ExecuteImportArray()
+    {
+        Array array;
+        array = this.ExecuteArray();
+        if (array == null)
+        {
+            return null;
+        }
+
+        int count;
+        count = array.Count;
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            Import a;
+            a = this.ExecuteImport();
+            if (a == null)
+            {
+                return null;
+            }
+            this.Operate.ExecuteArrayItemSet(array, i, a);
+            i = i + 1;
+        }
+        return array;
+    }
+
+    protected virtual Import ExecuteImport()
+    {
+        ModuleRef module;
+        module = this.ExecuteModuleRef();
+        if (module == null)
+        {
+            return null;
+        }
+
+        Array varClass;
+        varClass = this.ExecuteImportClassArray();
+        if (varClass == null)
+        {
+            return null;
+        }
+
+        Import a;
+        a = this.Operate.ExecuteImport();
+        a.Module = module;
+        a.Class = varClass;
+        return a;
+    }
+
+    protected virtual Array ExecuteImportClassArray()
+    {
+        return this.ExecuteClassIndexArray();
+    }
+
     protected virtual Array ExecuteBaseArray()
     {
         return this.ExecuteClassIndexArray();
+    }
+
+    protected virtual Array ExecutePartArray()
+    {
+        Array array;
+        array = this.ExecuteArray();
+        if (array == null)
+        {
+            return null;
+        }
+
+        int count;
+        count = array.Count;
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            Part a;
+            a = this.ExecutePart();
+            if (a == null)
+            {
+                return null;
+            }
+            this.Operate.ExecuteArrayItemSet(array, i, a);
+            i = i + 1;
+        }
+        return array;
     }
 
     protected virtual Part ExecutePart()
@@ -660,6 +775,31 @@ public class Read : Any
         ClassIndex a;
         a = this.Operate.ExecuteClassIndex();
         a.Value = value;
+        return a;
+    }
+
+    protected virtual ModuleRef ExecuteModuleRef()
+    {
+        string name;
+        name = this.ExecuteString();
+        if (name == null)
+        {
+            return null;
+        }
+
+        long u;
+        u = this.ExecuteInt();
+        if (u == -1)
+        {
+            return null;
+        }
+        long ver;
+        ver = u;
+
+        ModuleRef a;
+        a = this.Operate.ExecuteModuleRef();
+        a.Name = name;
+        a.Ver = ver;
         return a;
     }
 
