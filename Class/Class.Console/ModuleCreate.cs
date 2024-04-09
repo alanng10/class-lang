@@ -31,6 +31,8 @@ public class ModuleCreate : Any
 
         this.AddClassList();
 
+        this.AddImportList();
+
         return true;
     }
 
@@ -125,7 +127,7 @@ public class ModuleCreate : Any
 
                 string className;
                 className = of.Name;
-    
+
                 ClassClass varClass;
                 varClass = this.ModuleClassGet(module, className);
 
