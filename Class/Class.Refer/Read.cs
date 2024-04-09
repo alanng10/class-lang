@@ -629,17 +629,14 @@ public class Read : Any
         }
         int varClass;
         varClass = u;
-        int systemClass;
-        systemClass = 0;
-        if (this.SystemClass)
+
+        u = this.ExecuteSystemClass();
+        if (u == -1)
         {
-            u = this.ExecuteByte();
-            if (u == -1)
-            {
-                return null;
-            }
-            systemClass = u;
+            return null;
         }
+        int systemClass;
+        systemClass = u;
 
         u = this.ExecuteByte();
         if (u == -1)
@@ -702,17 +699,14 @@ public class Read : Any
         }
         int varClass;
         varClass = u;
-        int systemClass;
-        systemClass = 0;
-        if (this.SystemClass)
+
+        u = this.ExecuteSystemClass();
+        if (u == -1)
         {
-            u = this.ExecuteByte();
-            if (u == -1)
-            {
-                return null;
-            }
-            systemClass = u;
+            return null;
         }
+        int systemClass;
+        systemClass = u;
 
         u = this.ExecuteByte();
         if (u == -1)
@@ -734,6 +728,44 @@ public class Read : Any
         a.Class = varClass;
         a.SystemClass = systemClass;
         a.Count = count;
+        a.Name = name;
+        return a;
+    }
+
+    protected virtual Var ExecuteVar()
+    {
+        int u;
+        u = this.ExecuteIndex();
+        if (u == -1)
+        {
+            return null;
+        }
+        int varClass;
+        varClass = u;
+        
+        int systemClass;
+        systemClass = 0;
+        if (this.SystemClass)
+        {
+            u = this.ExecuteByte();
+            if (u == -1)
+            {
+                return null;
+            }
+            systemClass = u;
+        }
+
+        string name;
+        name = this.ExecuteString();
+        if (name == null)
+        {
+            return null;
+        }
+
+        Var a;
+        a = this.Operate.ExecuteVar();
+        a.Class = varClass;
+        a.SystemClass = systemClass;
         a.Name = name;
         return a;
     }
@@ -830,6 +862,23 @@ public class Read : Any
         int count;
         count = o;
         return this.Operate.ExecuteString(count);
+    }
+
+    protected virtual int ExecuteSystemClass()
+    {
+        int a;
+        a = 0;
+        if (this.SystemClass)
+        {
+            int u;
+            u = this.ExecuteByte();
+            if (u == -1)
+            {
+                return -1;
+            }
+            a = u;
+        }
+        return a;
     }
 
     public virtual int ExecuteCount()
