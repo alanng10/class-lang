@@ -88,6 +88,30 @@ public class SetReadOperate : ReadOperate
         return a;
     }
 
+    public override ClassIndex ExecuteClassIndex()
+    {
+        ReadArg arg;
+        arg = this.Read.Arg;
+        int index;
+        index = arg.ClassIndexIndex;
+        ClassIndex a;
+        a = (ClassIndex)arg.ClassIndexArray.Get(index);
+        arg.ClassIndexIndex = index + 1;
+        return a;
+    }
+
+    public override ModuleRef ExecuteModuleRef()
+    {
+        ReadArg arg;
+        arg = this.Read.Arg;
+        int index;
+        index = arg.ModuleRefIndex;
+        ModuleRef a;
+        a = (ModuleRef)arg.ModuleRefArray.Get(index);
+        arg.ModuleRefIndex = index + 1;
+        return a;
+    }
+
     public override string ExecuteString(int count)
     {
         ReadArg arg;
