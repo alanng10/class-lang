@@ -723,13 +723,48 @@ public class Read : Any
             return null;
         }
 
+        Array param;
+        param = this.ExecuteVarArray();
+        if (param == null)
+        {
+            return null;
+        }
+
         Maide a;
         a = this.Operate.ExecuteMaide();
         a.Class = varClass;
         a.SystemClass = systemClass;
         a.Count = count;
         a.Name = name;
+        a.Param = param;
         return a;
+    }
+
+    protected virtual Array ExecuteVarArray()
+    {
+        Array array;
+        array = this.ExecuteArray();
+        if (array == null)
+        {
+            return null;
+        }
+
+        int count;
+        count = array.Count;
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            Var a;
+            a = this.ExecuteVar();
+            if (a == null)
+            {
+                return null;
+            }
+            this.Operate.ExecuteArrayItemSet(array, i, a);
+            i = i + 1;
+        }
+        return array;
     }
 
     protected virtual Var ExecuteVar()
@@ -742,18 +777,14 @@ public class Read : Any
         }
         int varClass;
         varClass = u;
-        
-        int systemClass;
-        systemClass = 0;
-        if (this.SystemClass)
+
+        u = this.ExecuteSystemClass();
+        if (u == -1)
         {
-            u = this.ExecuteByte();
-            if (u == -1)
-            {
-                return null;
-            }
-            systemClass = u;
+            return null;
         }
+        int systemClass;
+        systemClass = u;
 
         string name;
         name = this.ExecuteString();
