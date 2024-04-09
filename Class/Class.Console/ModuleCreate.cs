@@ -10,10 +10,10 @@ public class ModuleCreate : Any
     }
 
     public virtual Table ModuleTable { get; set; }
+    public virtual Table ReferTable { get; set; }
     public virtual ReferRefer Refer { get; set; }
     public virtual ClassModule Module { get; set; }
     protected virtual ListInfra ListInfra { get; set; }
-
     public virtual bool Execute()
     {
         ModuleRef o;
@@ -29,13 +29,121 @@ public class ModuleCreate : Any
         a.Ref = this.ModuleRefCreate(o.Name, o.Ver);
         this.Module = a;
 
+        this.AddClassList();
 
         return true;
     }
 
     protected virtual bool AddClassList()
     {
+        Array array;
+        array = this.Refer.Class;
+        int count;
+        count = array.Count;
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            ReferClass o;
+            o = (ReferClass)array.Get(i);
+
+            string name;
+            name = o.Name;
+
+            ClassClass a;
+            a = new ClassClass();
+            a.Init();
+            a.Index = this.Module.Class.Count;
+            a.Name = name;
+            a.Module = this.Module;
+
+            this.ListInfra.TableAdd(this.Module.Class, a.Name, a); 
+
+            i = i + 1;
+        }
         return true;
+    }
+    
+    protected virtual bool AddImportList()
+    {
+        Array array;
+        array = this.Refer.Import;
+
+        Table importTable;
+        importTable = new Table();
+        importTable.Compare = new ModuleRefCompare();
+        importTable.Compare.Init();
+        importTable.Init();
+
+        int count;
+        count = array.Count;
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            ReferImport o;
+            o = (ReferImport)array.Get(i);
+
+            ModuleRef moduleRef;
+            moduleRef = o.Module;
+
+            ReferRefer oo;
+            oo = (ReferRefer)this.ReferTable.Get(moduleRef);
+
+            if (!importTable.Contain(moduleRef))
+            {
+                Table ol;
+                ol = new Table();
+                ol.Compare = new StringCompare();
+                ol.Compare.Init();
+                ol.Init();
+
+                this.ListInfra.TableAdd(importTable, moduleRef, ol);
+            }
+            Table classTable;
+            classTable = (Table)importTable.Get(moduleRef);
+
+            Array oa;
+            oa = o.Class;
+            int countA;
+            countA = oa.Count;
+            int iA;
+            iA = 0;
+            while (iA < countA)
+            {
+                ReferClassIndex oe;
+                oe = (ReferClassIndex)oa.Get(iA);
+
+                ReferClass of;
+                of = (ReferClass)oo.Class.Get(oe.Value);
+
+                string className;
+                className = of.Name;
+    
+                ClassClass varClass;
+                varClass = this.ClassGet(moduleRef, className);
+
+                if (!classTable.Contain(className))
+                {
+                    this.ListInfra.TableAdd(classTable, className, varClass);
+                }
+
+                iA = iA + 1;
+            }
+            i = i + 1;
+        }
+
+        this.Module.Import = importTable;
+        return true;
+    }
+
+    protected virtual ClassClass ClassGet(ModuleRef moduleRef, string className)
+    {
+        ClassModule module;
+        module = (ClassModule)this.ModuleTable.Get(moduleRef);
+        ClassClass a;
+        a = (ClassClass)module.Class.Get(className);
+        return a;
     }
 
     protected virtual ModuleRef ModuleRefCreate(string name, long ver)
