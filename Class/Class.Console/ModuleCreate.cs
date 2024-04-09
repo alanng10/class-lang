@@ -58,7 +58,9 @@ public class ModuleCreate : Any
 
         this.AddImportList();
 
-
+        this.Refer = null;
+        this.ClassArray = null;
+        this.ImportArray = null;
 
         return true;
     }
