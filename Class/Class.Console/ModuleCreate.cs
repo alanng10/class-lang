@@ -37,7 +37,7 @@ public class ModuleCreate : Any
         aa.Compare = new StringCompare();
         aa.Compare.Init();
         aa.Init();
-        
+
         a.Class = aa;
 
         Table ab;
@@ -121,10 +121,7 @@ public class ModuleCreate : Any
     protected virtual bool AddImportList()
     {
         Table importTable;
-        importTable = new Table();
-        importTable.Compare = new ModuleRefCompare();
-        importTable.Compare.Init();
-        importTable.Init();
+        importTable = this.Module.Import;
         
         int importTotal;
         importTotal = 0;
@@ -144,12 +141,6 @@ public class ModuleCreate : Any
             ModuleRef moduleRef;
             moduleRef = o.Module;
 
-            ClassModule module;
-            module = this.ModuleGet(moduleRef);
-
-            ReferRefer oo;
-            oo = (ReferRefer)this.ReferTable.Get(moduleRef);
-
             if (importTable.Contain(moduleRef))
             {
                 global::System.Console.Error.Write("Class.Console:ModuleCreate.AddImportList import module ref duplicate\n");
@@ -165,6 +156,12 @@ public class ModuleCreate : Any
             
             Table classTable;
             classTable = (Table)importTable.Get(moduleRef);
+
+            ClassModule module;
+            module = this.ModuleGet(moduleRef);
+
+            ReferRefer oo;
+            oo = (ReferRefer)this.ReferTable.Get(moduleRef);
 
             Array oa;
             oa = o.Class;
@@ -201,8 +198,6 @@ public class ModuleCreate : Any
 
             i = i + 1;
         }
-
-        this.Module.Import = importTable;
 
 
         Array importArray;
