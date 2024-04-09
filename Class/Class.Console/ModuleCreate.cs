@@ -150,6 +150,11 @@ public class ModuleCreate : Any
     {
         ClassModule a;
         a = (ClassModule)this.ModuleTable.Get(moduleRef);
+        if (a == null)
+        {
+            global::System.Console.Error.Write("Class.Console:ModuleCreate.ModuleGet module not found, module: " + moduleRef.Name + "\n");
+            global::System.Environment.Exit(122);
+        }
         return a;
     }
 
@@ -157,6 +162,11 @@ public class ModuleCreate : Any
     {
         ClassClass a;
         a = (ClassClass)module.Class.Get(className);
+        if (a == null)
+        {
+            global::System.Console.Error.Write("Class.Console:ModuleCreate.ModuleClassGet module class not found, class: " + className + ", module: " + module.Ref.Name + "\n");
+            global::System.Environment.Exit(123);
+        }
         return a;
     }
 
