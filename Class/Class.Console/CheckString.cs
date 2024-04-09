@@ -271,7 +271,7 @@ public class CheckString : Any
 
 
 
-    protected virtual bool AppendClass(InfraClass varClass)
+    protected virtual bool AppendClass(ClassClass varClass)
     {
         if (this.Null(varClass))
         {
@@ -338,7 +338,7 @@ public class CheckString : Any
 
 
 
-        InfraClass varClass;
+        ClassClass varClass;
 
 
 
@@ -383,7 +383,7 @@ public class CheckString : Any
 
 
 
-        InfraClass varClass;
+        ClassClass varClass;
 
 
 
