@@ -39,7 +39,8 @@ public class Read : Any
     public virtual bool Execute()
     {
         ReadArg arg;
-        arg = this.Arg;
+        arg = new ReadArg();
+        this.Arg = arg;
 
         this.Operate = this.CountOperate;
 
@@ -91,6 +92,8 @@ public class Read : Any
 
         this.ResetStageIndex();
         this.ExecuteStage();
+
+        this.Arg = null;
         return true;
     }
 
