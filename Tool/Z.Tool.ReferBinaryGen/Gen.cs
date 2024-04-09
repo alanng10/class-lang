@@ -552,29 +552,26 @@ public class Gen : Any
         moduleName = varClass.Module.Ref.Name;
         if (!table.Contain(moduleName))
         {
-            Table classTable;
-            classTable = new Table();
-            classTable.Compare = new StringCompare();
-            classTable.Compare.Init();
-            classTable.Init();
+            Table oa;
+            oa = new Table();
+            oa.Compare = new StringCompare();
+            oa.Compare.Init();
+            oa.Init();
 
-            this.ListInfra.TableAdd(table, moduleName, classTable);
+            this.ListInfra.TableAdd(table, moduleName, oa);
         }
-        Table oo;
-        oo = (Table)table.Get(moduleName);
+        Table classTable;
+        classTable = (Table)table.Get(moduleName);
 
         string name;
         name = varClass.Name;
 
-        if (oo.Contain(name))
+        if (classTable.Contain(name))
         {
             return true;
         }
 
-        ClassClass oa;
-        oa = this.ClassGet(moduleName, name);
-
-        this.ListInfra.TableAdd(oo, name, oa);
+        this.ListInfra.TableAdd(classTable, name, varClass);
         return true;
     }
 
