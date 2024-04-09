@@ -31,6 +31,23 @@ public class ModuleCreate : Any
         a = new ClassModule();
         a.Init();
         a.Ref = this.ModuleRefCreate(o.Name, o.Ver);
+
+        Table aa;
+        aa = new Table();
+        aa.Compare = new StringCompare();
+        aa.Compare.Init();
+        aa.Init();
+        
+        a.Class = aa;
+
+        Table ab;
+        ab = new Table();
+        ab.Compare = new ModuleRefCompare();
+        ab.Compare.Init();
+        ab.Init();
+
+        a.Import = ab;
+
         this.Module = a;
 
         ReferRefer refer;
