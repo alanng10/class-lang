@@ -14,7 +14,7 @@ echo Make Class
 call Script\Class\MakeModule
 echo:
 echo Make Refer
-call Script\Tool\Make ReferBinaryGen 1>NUL
+call Script\Tool\Make ReferBinaryGen
 call Script\Tool\Execute ReferBinaryGen
 echo:
 echo Make Deploy
