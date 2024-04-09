@@ -383,7 +383,59 @@ public class Read : Any
 
     protected virtual Refer ExecuteRefer()
     {
-        return null;
+        Array varClass;
+        varClass = this.ExecuteClassArray();
+        if (varClass == null)
+        {
+            return null;
+        }
+
+        Refer a;
+        a = this.Operate.ExecuteRefer();
+        a.Class = varClass;
+        return a;
+    }
+
+    protected virtual Array ExecuteClassArray()
+    {
+        Array array;
+        array = this.ExecuteArray();
+        if (array == null)
+        {
+            return null;
+        }
+
+        int count;
+        count = array.Count;
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            Class a;
+            a = this.ExecuteClass();
+            if (a == null)
+            {
+                return null;
+            }
+            this.Operate.ExecuteArrayItemSet(array, i, a);
+            i = i + 1;
+        }
+        return array;
+    }
+
+    protected virtual Class ExecuteClass()
+    {
+        string name;
+        name = this.ExecuteString();
+        if (name == null)
+        {
+            return null;
+        }
+
+        Class a;
+        a = this.Operate.ExecuteClass();
+        a.Name = name;
+        return a;
     }
 
     protected virtual Part ExecutePart()
@@ -394,7 +446,7 @@ public class Read : Any
         {
             return null;
         }
-        
+
         Array maide;
         maide = this.ExecuteMaideArray();
         if (maide == null)
@@ -554,6 +606,8 @@ public class Read : Any
         a.Name = name;
         return a;
     }
+
+    
 
     protected virtual Array ExecuteArray()
     {
