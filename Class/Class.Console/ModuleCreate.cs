@@ -250,10 +250,39 @@ public class ModuleCreate : Any
             a = (ReferClassIndex)array.Get(i);
 
             
+            
 
             i = i + 1;
         }
         return true;
+    }
+
+    protected virtual ClassClass ClassGetIndex(int index)
+    {
+        Array classArray;
+        classArray = this.ClassArray;
+
+        ClassClass a;
+        a = null;
+        bool b;
+        b = (index < classArray.Count);
+        if (b)
+        {
+            a = (ClassClass)classArray.Get(index);
+        }
+        if (!b)
+        {
+            int oa;
+            oa = index - classArray.Count;
+            a = (ClassClass)this.ImportArray.Get(oa);
+        }
+
+        if (a == null)
+        {
+            global::System.Console.Error.Write("Class.Console:ModuleCreate.ClassGetIndex class none, index: " + index + "\n");
+            global::System.Environment.Exit(125);
+        }
+        return a;
     }
 
     protected virtual ClassModule ModuleGet(ModuleRef moduleRef)
