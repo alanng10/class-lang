@@ -386,23 +386,51 @@ public class Read : Any
         return null;
     }
 
+    protected virtual Part ExecutePart()
+    {
+        Array field;
+        field = this.ExecuteFieldArray();
+        if (field == null)
+        {
+            return null;
+        }
+        
+        Array maide;
+        maide = this.ExecuteMaideArray();
+        if (maide == null)
+        {
+            return null;
+        }
+
+        Part a;
+        a = this.Operate.ExecutePart();
+        a.Field = field;
+        a.Maide = maide;
+        return a;
+    }
+
     protected virtual Array ExecuteFieldArray()
     {
         Array array;
         array = this.ExecuteArray();
+        if (array == null)
+        {
+            return null;
+        }
+
         int count;
         count = array.Count;
         int i;
         i = 0;
         while (i < count)
         {
-            Field field;
-            field = this.ExecuteField();
-            if (field == null)
+            Field a;
+            a = this.ExecuteField();
+            if (a == null)
             {
                 return null;
             }
-            this.Operate.ExecuteArrayItemSet(array, i, field);
+            this.Operate.ExecuteArrayItemSet(array, i, a);
             i = i + 1;
         }
         return array;
@@ -412,7 +440,7 @@ public class Read : Any
     {
         int u;
         u = this.ExecuteIndex();
-        if (u < 0)
+        if (u == -1)
         {
             return null;
         }
@@ -422,8 +450,8 @@ public class Read : Any
         systemClass = 0;
         if (this.SystemClass)
         {
-            u = this.ExecuteIndex();
-            if (u < 0)
+            u = this.ExecuteByte();
+            if (u == -1)
             {
                 return null;
             }
@@ -431,7 +459,7 @@ public class Read : Any
         }
 
         u = this.ExecuteByte();
-        if (u < 0)
+        if (u == -1)
         {
             return null;
         }
@@ -454,11 +482,38 @@ public class Read : Any
         return a;
     }
 
+    protected virtual Array ExecuteMaideArray()
+    {
+        Array array;
+        array = this.ExecuteArray();
+        if (array == null)
+        {
+            return null;
+        }
+
+        int count;
+        count = array.Count;
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            Maide a;
+            a = this.ExecuteMaide();
+            if (a == null)
+            {
+                return null;
+            }
+            this.Operate.ExecuteArrayItemSet(array, i, a);
+            i = i + 1;
+        }
+        return array;
+    }
+
     protected virtual Maide ExecuteMaide()
     {
         int u;
         u = this.ExecuteIndex();
-        if (u < 0)
+        if (u == -1)
         {
             return null;
         }
@@ -468,8 +523,8 @@ public class Read : Any
         systemClass = 0;
         if (this.SystemClass)
         {
-            u = this.ExecuteIndex();
-            if (u < 0)
+            u = this.ExecuteByte();
+            if (u == -1)
             {
                 return null;
             }
@@ -477,7 +532,7 @@ public class Read : Any
         }
 
         u = this.ExecuteByte();
-        if (u < 0)
+        if (u == -1)
         {
             return null;
         }
