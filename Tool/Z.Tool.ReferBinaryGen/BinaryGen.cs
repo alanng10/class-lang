@@ -10,7 +10,7 @@ class BinaryGen : Any
     }
 
     public virtual Table ModuleTable { get; set; }
-    public virtual Table ReferTable { get; set; }
+    public virtual Table BinaryTable { get; set; }
 
     protected virtual ListInfra ListInfra { get; set; }
     protected virtual Module Module { get; set; }
@@ -18,10 +18,10 @@ class BinaryGen : Any
 
     public virtual bool Execute()
     {
-        this.ReferTable = new Table();
-        this.ReferTable.Compare = new StringCompare();
-        this.ReferTable.Compare.Init();
-        this.ReferTable.Init();
+        this.BinaryTable = new Table();
+        this.BinaryTable.Compare = new StringCompare();
+        this.BinaryTable.Compare.Init();
+        this.BinaryTable.Init();
 
         Iter iter;
         iter = this.ModuleTable.IterCreate();
@@ -30,15 +30,15 @@ class BinaryGen : Any
         {
             Module module;
             module = (Module)iter.Value;
-            Refer refer;
+            Binary refer;
             refer = this.ExecuteModule(module);
-            this.ListInfra.TableAdd(this.ReferTable, refer.Ref.Name, refer);
+            this.ListInfra.TableAdd(this.BinaryTable, refer.Ref.Name, refer);
         }
 
         return true;
     }
 
-    protected virtual Refer ExecuteModule(Module module)
+    protected virtual Binary ExecuteModule(Module module)
     {
         this.Module = module;
 
@@ -50,8 +50,8 @@ class BinaryGen : Any
         ModuleRef oa;
         oa = this.ModuleRefCreate(module.Ref.Name);
 
-        Refer refer;
-        refer = new Refer();
+        Binary refer;
+        refer = new Binary();
         refer.Init();
         refer.Ref = oa;
 
@@ -82,8 +82,8 @@ class BinaryGen : Any
             ClassClass oa;
             oa = (ClassClass)iter.Value;
 
-            ReferClass a;
-            a = new ReferClass();
+            BinaryClass a;
+            a = new BinaryClass();
             a.Init();
             a.Name = oa.Name;
             
@@ -120,8 +120,8 @@ class BinaryGen : Any
             ModuleRef oa;
             oa = this.ModuleRefCreate(name);
 
-            ReferImport a;
-            a = new ReferImport();
+            BinaryImport a;
+            a = new BinaryImport();
             a.Init();
             a.Module = oa;
 
@@ -155,8 +155,8 @@ class BinaryGen : Any
             ClassClass oa;
             oa = (ClassClass)iter.Value;
     
-            ReferClassIndex a;
-            a = new ReferClassIndex();
+            BinaryClassIndex a;
+            a = new BinaryClassIndex();
             a.Init();
             a.Value = oa.Index;
             array.Set(i, a);
@@ -191,8 +191,8 @@ class BinaryGen : Any
             int aa;
             aa = this.ClassIndexGet(ob);
 
-            ReferClassIndex a;
-            a = new ReferClassIndex();
+            BinaryClassIndex a;
+            a = new BinaryClassIndex();
             a.Init();
             a.Value = aa;
 
@@ -222,8 +222,8 @@ class BinaryGen : Any
             ClassClass oa;
             oa = (ClassClass)iter.Value;
 
-            ReferPart a;
-            a = new ReferPart();
+            BinaryPart a;
+            a = new BinaryPart();
             a.Init();
             a.Field = this.ExecuteFieldArray(oa);
             a.Maide = this.ExecuteMaideArray(oa);
@@ -257,8 +257,8 @@ class BinaryGen : Any
             Info oe;
             oe = (Info)oa.Any;
 
-            ReferField a;
-            a = new ReferField();
+            BinaryField a;
+            a = new BinaryField();
             a.Init();
             a.Class = this.ClassIndexGet(oa.Class);
             a.SystemClass = oe.SystemClass;
@@ -294,8 +294,8 @@ class BinaryGen : Any
             Info oe;
             oe = (Info)oa.Any;
 
-            ReferMaide a;
-            a = new ReferMaide();
+            BinaryMaide a;
+            a = new BinaryMaide();
             a.Init();
             a.Class = this.ClassIndexGet(oa.Class);
             a.SystemClass = oe.SystemClass;
@@ -335,8 +335,8 @@ class BinaryGen : Any
             Info oe;
             oe = (Info)oa.Any;
 
-            ReferVar a;
-            a = new ReferVar();
+            BinaryVar a;
+            a = new BinaryVar();
             a.Init();
             a.Class = this.ClassIndexGet(oa.Class);
             a.SystemClass = oe.SystemClass;

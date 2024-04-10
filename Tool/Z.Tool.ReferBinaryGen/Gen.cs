@@ -55,7 +55,7 @@ public class Gen : Any
     protected virtual Table ModuleTable { get; set; }
     protected virtual Module Module { get; set; }
     protected virtual Table DotNetBuiltInTypeTable { get; set; }
-    protected virtual Table ReferTable { get; set; }
+    protected virtual Table BinaryTable { get; set; }
     protected virtual Array CountArray { get; set; }
     protected virtual ClassClass AnyClass { get; set; }
     protected virtual bool IsAvalonInfra { get; set; }
@@ -92,7 +92,7 @@ public class Gen : Any
         this.ExecuteTypeModule(typeof(Main));
         this.ExecuteTypeModule(typeof(EntryEntry));
         this.ExecuteTypeModule(typeof(ClassClass));
-        this.ExecuteTypeModule(typeof(Refer));
+        this.ExecuteTypeModule(typeof(Binary));
         this.ExecuteTypeModule(typeof(Port));
         this.ExecuteTypeModule(typeof(Token));
         this.ExecuteTypeModule(typeof(Node));
@@ -113,7 +113,7 @@ public class Gen : Any
 
         binaryGen.Execute();
 
-        this.ReferTable = binaryGen.ReferTable;
+        this.BinaryTable = binaryGen.BinaryTable;
 
         this.ExecuteBinaryWrite();
 
@@ -678,18 +678,18 @@ public class Gen : Any
 
     protected virtual bool ExecuteBinaryWrite()
     {
-        ReferWrite write;
-        write = new ReferWrite();
+        BinaryWrite write;
+        write = new BinaryWrite();
         write.Init();
         write.SystemClass = true;
 
         Iter iter;
-        iter = this.ReferTable.IterCreate();
-        this.ReferTable.IterSet(iter);
+        iter = this.BinaryTable.IterCreate();
+        this.BinaryTable.IterSet(iter);
         while (iter.Next())
         {
-            Refer refer;
-            refer = (Refer)iter.Value;
+            Binary refer;
+            refer = (Binary)iter.Value;
 
             write.Refer = refer;
             write.Execute();
