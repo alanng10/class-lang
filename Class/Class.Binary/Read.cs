@@ -24,7 +24,7 @@ public class Read : Any
     }
 
     public virtual Data Data { get; set; }
-    public virtual Refer Refer { get; set; }
+    public virtual Binary Refer { get; set; }
     public virtual bool SystemClass { get; set; }
     public virtual ReadArg Arg { get; set; }
     protected virtual InfraInfra InfraInfra { get; set; }
@@ -208,8 +208,8 @@ public class Read : Any
         i = 0;
         while (i < count)
         {
-            Refer o;
-            o = new Refer();
+            Binary o;
+            o = new Binary();
             o.Init();
             array.Set(i, o);
             i = i + 1;
@@ -383,7 +383,7 @@ public class Read : Any
         return true;
     }
 
-    protected virtual Refer ExecuteRefer()
+    protected virtual Binary ExecuteRefer()
     {
         ModuleRef varRef;
         varRef = this.ExecuteModuleRef();
@@ -429,7 +429,7 @@ public class Read : Any
         int entry;
         entry = u;
 
-        Refer a;
+        Binary a;
         a = this.Operate.ExecuteRefer();
         a.Ref = varRef;
         a.Class = varClass;

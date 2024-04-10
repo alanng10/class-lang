@@ -1,6 +1,6 @@
 namespace Class.Binary;
 
-public class Refer : Any
+public class Binary : Any
 {
     public virtual ModuleRef Ref { get; set; }
 

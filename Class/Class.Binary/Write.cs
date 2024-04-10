@@ -14,7 +14,7 @@ public class Write : Any
         return true;
     }
 
-    public virtual Refer Refer { get; set; }
+    public virtual Binary Refer { get; set; }
     public virtual Data Data { get; set; }
     public virtual int Index { get; set; }
     public virtual bool SystemClass { get; set; }
@@ -53,7 +53,7 @@ public class Write : Any
         return true;
     }
 
-    protected virtual bool ExecuteRefer(Refer refer)
+    protected virtual bool ExecuteRefer(Binary refer)
     {
         this.ExecuteModuleRef(refer.Ref);
         this.ExecuteClassArray(refer.Class);
