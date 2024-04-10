@@ -6,6 +6,7 @@ public class ModuleCreate : Any
     {
         base.Init();
         this.ListInfra = ListInfra.This;
+        this.CountList = CountList.This;
         return true;
     }
 
@@ -14,6 +15,7 @@ public class ModuleCreate : Any
     public virtual ModuleRef ModuleRef { get; set; }
     public virtual ClassModule Module { get; set; }
     protected virtual ListInfra ListInfra { get; set; }
+    protected virtual CountList CountList { get; set; }
     protected virtual ReferRefer Refer { get; set; }
     protected virtual Array ClassArray { get; set; }
     protected virtual Array ImportArray { get; set; }
@@ -32,33 +34,19 @@ public class ModuleCreate : Any
         a.Init();
         a.Ref = this.ModuleRefCreate(o.Name, o.Ver);
 
-        Table aa;
-        aa = new Table();
-        aa.Compare = new StringCompare();
-        aa.Compare.Init();
-        aa.Init();
-
-        a.Class = aa;
-
-        Table ab;
-        ab = new Table();
-        ab.Compare = new ModuleRefCompare();
-        ab.Compare.Init();
-        ab.Init();
-
-        a.Import = ab;
-
         this.Module = a;
 
         ReferRefer refer;
         refer = (ReferRefer)this.ReferTable.Get(this.Module.Ref);
         this.Refer = refer;
 
-        this.AddClassList();
+        this.SetClassList();
 
-        this.AddImportList();
+        this.SetImportList();
 
-        this.AddBaseList();
+        this.SetBaseList();
+
+        this.SetPartList();
 
         this.Refer = null;
         this.ClassArray = null;
@@ -67,10 +55,12 @@ public class ModuleCreate : Any
         return true;
     }
 
-    protected virtual bool AddClassList()
+    protected virtual bool SetClassList()
     {
         Table classTable;
-        classTable = this.Module.Class;
+        classTable = this.TableCreateStringCompare();
+        
+        this.Module.Class = classTable;
 
         Array array;
         array = this.Refer.Class;
@@ -121,10 +111,15 @@ public class ModuleCreate : Any
         return true;
     }
     
-    protected virtual bool AddImportList()
+    protected virtual bool SetImportList()
     {
         Table importTable;
-        importTable = this.Module.Import;
+        importTable = new Table();
+        importTable.Compare = new ModuleRefCompare();
+        importTable.Compare.Init();
+        importTable.Init();
+
+        this.Module.Import = importTable;
         
         int importTotal;
         importTotal = 0;
@@ -233,7 +228,7 @@ public class ModuleCreate : Any
         return true;
     }
 
-    protected virtual bool AddBaseList()
+    protected virtual bool SetBaseList()
     {
         Array array;
         array = this.Refer.Base;
@@ -260,6 +255,105 @@ public class ModuleCreate : Any
             baseClass = this.ClassGetIndex(a.Value);
 
             varClass.Base = baseClass;            
+
+            i = i + 1;
+        }
+        return true;
+    }
+
+    protected virtual bool SetPartList()
+    {
+        Array array;
+        array = this.Refer.Part;
+
+        Iter iter;
+        iter = this.Module.Class.IterCreate();
+        this.Module.Class.IterSet(iter);
+
+        int count;
+        count = array.Count;
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            iter.Next();
+
+            ClassClass varClass;
+            varClass = (ClassClass)iter.Value;
+
+            ReferPart a;
+            a = (ReferPart)array.Get(i);
+
+            this.SetPart(varClass, a);
+
+            i = i + 1;
+        }
+        return true;
+    }
+
+    protected virtual bool SetPart(ClassClass varClass, ReferPart part)
+    {
+        this.SetPartField(varClass, part.Field);
+        this.SetPartMaide(varClass, part.Maide);
+        return true;
+    }
+
+    protected virtual bool SetPartField(ClassClass varClass, Array referField)
+    {
+        Table fieldTable;
+        fieldTable = this.TableCreateStringCompare();
+        varClass.Field = fieldTable;
+
+        int count;
+        count = referField.Count;
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            ReferField ua;
+            ua = (ReferField)referField.Get(i);
+
+            Field a;
+            a = new Field();
+            a.Init();
+            a.Index = fieldTable.Count;
+            a.Name = ua.Name;
+            a.Class = this.ClassGetIndex(ua.Class);
+            a.Count = this.CountList.Get(ua.Count);
+            a.Parent = varClass;
+
+            this.ListInfra.TableAdd(fieldTable, a.Name, a);
+
+            i = i + 1;
+        }
+        return true;
+    }
+
+    protected virtual bool SetPartMaide(ClassClass varClass, Array referMaide)
+    {
+        Table maideTable;
+        maideTable = this.TableCreateStringCompare();
+        varClass.Maide = maideTable;
+
+        int count;
+        count = referMaide.Count;
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            ReferMaide ua;
+            ua = (ReferMaide)referMaide.Get(i);
+
+            Maide a;
+            a = new Maide();
+            a.Init();
+            a.Index = maideTable.Count;
+            a.Name = ua.Name;
+            a.Class = this.ClassGetIndex(ua.Class);
+            a.Count = this.CountList.Get(ua.Count);
+            a.Parent = varClass;
+
+            this.ListInfra.TableAdd(maideTable, a.Name, a);
 
             i = i + 1;
         }
@@ -324,6 +418,16 @@ public class ModuleCreate : Any
         ae = this.ModuleGet(moduleRef);
         ClassClass a;
         a = this.ModuleClassGet(ae, className);
+        return a;
+    }
+
+    protected virtual Table TableCreateStringCompare()
+    {
+        Table a;
+        a = new Table();
+        a.Compare = new StringCompare();
+        a.Compare.Init();
+        a.Init();
         return a;
     }
 
