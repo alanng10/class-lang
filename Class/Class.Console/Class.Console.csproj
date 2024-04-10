@@ -11,7 +11,7 @@
         <ProjectReference Include="../Class.Refer/Class.Refer.csproj" />
         <ProjectReference Include="../Class.Token/Class.Token.csproj" />
         <ProjectReference Include="../Class.Node/Class.Node.csproj" />
-        <ProjectReference Include="../Class.Check/Class.Check.csproj" />
+        <ProjectReference Include="../Class.Define/Class.Check.csproj" />
         <ProjectReference Include="../Class.Module/Class.Module.csproj" />
     </ItemGroup>
 
