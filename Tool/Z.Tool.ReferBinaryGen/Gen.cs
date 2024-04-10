@@ -106,16 +106,16 @@ public class Gen : Any
 
         //this.ConsoleWrite();
 
-        ReferGen referGen;
-        referGen = new ReferGen();
-        referGen.Init();
-        referGen.ModuleTable = this.ModuleTable;
+        BinaryGen binaryGen;
+        binaryGen = new BinaryGen();
+        binaryGen.Init();
+        binaryGen.ModuleTable = this.ModuleTable;
 
-        referGen.Execute();
+        binaryGen.Execute();
 
-        this.ReferTable = referGen.ReferTable;
+        this.ReferTable = binaryGen.ReferTable;
 
-        this.ExecuteReferWrite();
+        this.ExecuteBinaryWrite();
 
         return 0;
     }
@@ -676,7 +676,7 @@ public class Gen : Any
         return true;
     }
 
-    protected virtual bool ExecuteReferWrite()
+    protected virtual bool ExecuteBinaryWrite()
     {
         ReferWrite write;
         write = new ReferWrite();

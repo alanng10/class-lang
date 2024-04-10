@@ -1,6 +1,6 @@
 namespace Z.Tool.ReferBinaryGen;
 
-class ReferGen : Any
+class BinaryGen : Any
 {
     public override bool Init()
     {
