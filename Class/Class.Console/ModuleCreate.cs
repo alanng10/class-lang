@@ -353,7 +353,37 @@ public class ModuleCreate : Any
             a.Count = this.CountList.Get(ua.Count);
             a.Parent = varClass;
 
+            this.SetPartParam(a, ua.Param);
+
             this.ListInfra.TableAdd(maideTable, a.Name, a);
+
+            i = i + 1;
+        }
+        return true;
+    }
+
+    protected virtual bool SetPartParam(Maide maide, Array referVar)
+    {
+        Table varTable;
+        varTable = this.TableCreateStringCompare();
+        maide.Param = varTable;
+
+        int count;
+        count = referVar.Count;
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            ReferVar ua;
+            ua = (ReferVar)referVar.Get(i);
+
+            Var a;
+            a = new Var();
+            a.Init();
+            a.Name = ua.Name;
+            a.Class = this.ClassGetIndex(ua.Class);
+            
+            this.ListInfra.TableAdd(varTable, a.Name, a);
 
             i = i + 1;
         }
