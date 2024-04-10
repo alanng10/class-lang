@@ -1,4 +1,4 @@
-namespace Class.Refer;
+namespace Class.Binary;
 
 public class Import : Any
 {
