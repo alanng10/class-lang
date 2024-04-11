@@ -68,4 +68,34 @@ public class Infra : Any
         }
         return true;
     }
+
+    public virtual Table TableCreateStringCompare()
+    {
+        Table a;
+        a = new Table();
+        a.Compare = new StringCompare();
+        a.Compare.Init();
+        a.Init();
+        return a;
+    }
+
+    public virtual Table TableCreateModuleRefCompare()
+    {
+        Table a;
+        a = new Table();
+        a.Compare = new ModuleRefCompare();
+        a.Compare.Init();
+        a.Init();
+        return a;
+    }
+
+    public virtual ModuleRef ModuleRefCreate(string name, long ver)
+    {
+        ModuleRef a;
+        a = new ModuleRef();
+        a.Init();
+        a.Name = name;
+        a.Ver = ver;
+        return a;
+    }
 }

@@ -6,6 +6,7 @@ public class ModuleCreate : Any
     {
         base.Init();
         this.ListInfra = ListInfra.This;
+        this.ClassInfra = ClassInfra.This;
         this.CountList = CountList.This;
         return true;
     }
@@ -15,6 +16,7 @@ public class ModuleCreate : Any
     public virtual ModuleRef ModuleRef { get; set; }
     public virtual ClassModule Module { get; set; }
     protected virtual ListInfra ListInfra { get; set; }
+    protected virtual ClassInfra ClassInfra { get; set; }
     protected virtual CountList CountList { get; set; }
     protected virtual BinaryBinary Binary { get; set; }
     protected virtual Array ClassArray { get; set; }
@@ -32,7 +34,7 @@ public class ModuleCreate : Any
         ClassModule a;
         a = new ClassModule();
         a.Init();
-        a.Ref = this.ModuleRefCreate(o.Name, o.Ver);
+        a.Ref = this.ClassInfra.ModuleRefCreate(o.Name, o.Ver);
 
         this.Module = a;
 
@@ -58,7 +60,7 @@ public class ModuleCreate : Any
     protected virtual bool SetClassList()
     {
         Table classTable;
-        classTable = this.TableCreateStringCompare();
+        classTable = this.ClassInfra.TableCreateStringCompare();
         
         this.Module.Class = classTable;
 
@@ -114,10 +116,7 @@ public class ModuleCreate : Any
     protected virtual bool SetImportList()
     {
         Table importTable;
-        importTable = new Table();
-        importTable.Compare = new ModuleRefCompare();
-        importTable.Compare.Init();
-        importTable.Init();
+        importTable = this.ClassInfra.TableCreateModuleRefCompare();
 
         this.Module.Import = importTable;
         
@@ -301,7 +300,7 @@ public class ModuleCreate : Any
     protected virtual bool SetPartField(ClassClass varClass, Array binaryField)
     {
         Table fieldTable;
-        fieldTable = this.TableCreateStringCompare();
+        fieldTable = this.ClassInfra.TableCreateStringCompare();
         varClass.Field = fieldTable;
 
         int count;
@@ -332,7 +331,7 @@ public class ModuleCreate : Any
     protected virtual bool SetPartMaide(ClassClass varClass, Array binaryMaide)
     {
         Table maideTable;
-        maideTable = this.TableCreateStringCompare();
+        maideTable = this.ClassInfra.TableCreateStringCompare();
         varClass.Maide = maideTable;
 
         int count;
@@ -365,7 +364,7 @@ public class ModuleCreate : Any
     protected virtual bool SetPartParam(Maide maide, Array binaryVar)
     {
         Table varTable;
-        varTable = this.TableCreateStringCompare();
+        varTable = this.ClassInfra.TableCreateStringCompare();
         maide.Param = varTable;
 
         int count;
@@ -448,26 +447,6 @@ public class ModuleCreate : Any
         ae = this.ModuleGet(moduleRef);
         ClassClass a;
         a = this.ModuleClassGet(ae, className);
-        return a;
-    }
-
-    protected virtual Table TableCreateStringCompare()
-    {
-        Table a;
-        a = new Table();
-        a.Compare = new StringCompare();
-        a.Compare.Init();
-        a.Init();
-        return a;
-    }
-
-    protected virtual ModuleRef ModuleRefCreate(string name, long ver)
-    {
-        ModuleRef a;
-        a = new ModuleRef();
-        a.Init();
-        a.Name = name;
-        a.Ver = ver;
         return a;
     }
 }
