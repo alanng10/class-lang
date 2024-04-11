@@ -51,7 +51,7 @@ public class StringReadOperate : ReadOperate
     {
         ReadArg arg;
         arg = this.Read.Arg;
-        arg.ReferIndex = arg.ReferIndex + 1;
+        arg.BinaryIndex = arg.BinaryIndex + 1;
         return this.Refer;
     }
 

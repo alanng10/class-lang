@@ -64,7 +64,7 @@ public class Read : Any
         this.ResetStageIndex();
         this.ExecuteStage();
 
-        arg.ReferArray = this.ListInfra.ArrayCreate(arg.ReferIndex);
+        arg.ReferArray = this.ListInfra.ArrayCreate(arg.BinaryIndex);
         arg.ClassArray = this.ListInfra.ArrayCreate(arg.ClassIndex);
         arg.ImportArray = this.ListInfra.ArrayCreate(arg.ImportIndex);
         arg.PartArray = this.ListInfra.ArrayCreate(arg.PartIndex);
@@ -102,7 +102,7 @@ public class Read : Any
         ReadArg a;
         a = this.Arg;
         a.Index = 0;
-        a.ReferIndex = 0;
+        a.BinaryIndex = 0;
         a.ClassIndex = 0;
         a.ImportIndex = 0;
         a.PartIndex = 0;

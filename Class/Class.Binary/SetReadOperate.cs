@@ -9,10 +9,10 @@ public class SetReadOperate : ReadOperate
         ReadArg arg;
         arg = this.Read.Arg;
         int index;
-        index = arg.ReferIndex;
+        index = arg.BinaryIndex;
         Binary a;
         a = (Binary)arg.ReferArray.Get(index);
-        arg.ReferIndex = index + 1;
+        arg.BinaryIndex = index + 1;
         return a;
     }
 

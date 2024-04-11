@@ -3,7 +3,7 @@ namespace Class.Binary;
 public class ReadArg : Any
 {
     public virtual int Index { get; set; }
-    public virtual int ReferIndex { get; set; }
+    public virtual int BinaryIndex { get; set; }
     public virtual Array ReferArray { get; set; }
     public virtual int ClassIndex { get; set; }
     public virtual Array ClassArray { get; set; }
