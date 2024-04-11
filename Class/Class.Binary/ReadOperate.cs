@@ -2,7 +2,7 @@ namespace Class.Binary;
 
 public class ReadOperate : Any
 {
-    public virtual Refer ExecuteRefer()
+    public virtual Binary ExecuteRefer()
     {
         return null;
     }

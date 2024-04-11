@@ -6,7 +6,7 @@ public class CountReadOperate : ReadOperate
     {
         base.Init();
         this.ListInfra = ListInfra.This;
-        this.Refer = new Refer();
+        this.Refer = new Binary();
         this.Refer.Init();
         this.Class = new Class();
         this.Class.Init();
@@ -31,7 +31,7 @@ public class CountReadOperate : ReadOperate
 
     public virtual Read Read { get; set; }
     protected virtual ListInfra ListInfra { get; set; }
-    protected virtual Refer Refer { get; set; }
+    protected virtual Binary Refer { get; set; }
     protected virtual Class Class { get; set; }
     protected virtual Import Import { get; set; }
     protected virtual Part Part { get; set; }
@@ -43,7 +43,7 @@ public class CountReadOperate : ReadOperate
     protected virtual string String { get; set; }
     protected virtual Array Array { get; set; }
 
-    public override Refer ExecuteRefer()
+    public override Binary ExecuteRefer()
     {
         ReadArg arg;
         arg = this.Read.Arg;

@@ -4,14 +4,14 @@ public class SetReadOperate : ReadOperate
 {
     public virtual Read Read { get; set; }
 
-    public override Refer ExecuteRefer()
+    public override Binary ExecuteRefer()
     {
         ReadArg arg;
         arg = this.Read.Arg;
         int index;
         index = arg.ReferIndex;
-        Refer a;
-        a = (Refer)arg.ReferArray.Get(index);
+        Binary a;
+        a = (Binary)arg.ReferArray.Get(index);
         arg.ReferIndex = index + 1;
         return a;
     }
