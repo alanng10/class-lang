@@ -24,7 +24,7 @@ public class Read : Any
     }
 
     public virtual Data Data { get; set; }
-    public virtual Binary Refer { get; set; }
+    public virtual Binary Binary { get; set; }
     public virtual bool SystemClass { get; set; }
     public virtual ReadArg Arg { get; set; }
     protected virtual InfraInfra InfraInfra { get; set; }
@@ -379,7 +379,7 @@ public class Read : Any
 
     protected virtual bool ExecuteStage()
     {
-        this.Refer = this.ExecuteRefer();
+        this.Binary = this.ExecuteRefer();
         return true;
     }
 
