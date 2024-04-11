@@ -14,7 +14,7 @@ public class Write : Any
         return true;
     }
 
-    public virtual Binary Refer { get; set; }
+    public virtual Binary Binary { get; set; }
     public virtual Data Data { get; set; }
     public virtual int Index { get; set; }
     public virtual bool SystemClass { get; set; }
@@ -49,7 +49,7 @@ public class Write : Any
 
     protected virtual bool ExecuteStage()
     {
-        this.ExecuteBinary(this.Refer);
+        this.ExecuteBinary(this.Binary);
         return true;
     }
 

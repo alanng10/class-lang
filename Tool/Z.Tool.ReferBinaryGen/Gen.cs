@@ -691,7 +691,7 @@ public class Gen : Any
             Binary refer;
             refer = (Binary)iter.Value;
 
-            write.Refer = refer;
+            write.Binary = refer;
             write.Execute();
 
             Data data;
