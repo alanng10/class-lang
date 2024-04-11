@@ -14,6 +14,8 @@ public class Gen : Any
         this.ClassInfra = ClassInfra.This;
         this.CountList = CountList.This;
 
+        this.ModuleRef = this.ClassInfra.ModuleRefCreate(null, 0);
+
         Table table;
         table = new Table();
         table.Compare = new RefCompare();
@@ -57,6 +59,7 @@ public class Gen : Any
     protected virtual Table ModuleTable { get; set; }
     protected virtual Module Module { get; set; }
     protected virtual Table DotNetBuiltInTypeTable { get; set; }
+    protected virtual ModuleRef ModuleRef { get; set; }
     protected virtual Table BinaryTable { get; set; }
     protected virtual Array CountArray { get; set; }
     protected virtual ClassClass AnyClass { get; set; }
@@ -68,7 +71,7 @@ public class Gen : Any
 
     public virtual int Execute()
     {
-        this.ModuleTable = this.ClassInfra.TableCreateStringCompare();
+        this.ModuleTable = this.ClassInfra.TableCreateModuleRefCompare();
 
         this.ExecuteTypeModule(typeof(Any));
         this.ExecuteTypeModule(typeof(ListList));
@@ -99,9 +102,12 @@ public class Gen : Any
         this.ExecuteTypeModule(typeof(ModuleResult));
         this.ExecuteTypeModule(typeof(Task));
 
-        this.ConsoleWriteClass(this.ClassGet("Avalon.Infra", "String"));
-        this.ConsoleWriteClass(this.ClassGet("Avalon.Infra", "ModuleInfo"));
-        this.ConsoleWriteClass(this.ClassGet("Avalon.Infra", "Infra"));
+        this.ModuleRef.Name = "Avalon.Infra";
+        Module module;
+        module = this.ModuleGet(this.ModuleRef);
+        this.ConsoleWriteClass(this.ModuleClassGet(module, "String"));
+        this.ConsoleWriteClass(this.ModuleClassGet(module, "ModuleInfo"));
+        this.ConsoleWriteClass(this.ModuleClassGet(module, "Infra"));
 
         //this.ConsoleWrite();
 
@@ -138,7 +144,7 @@ public class Gen : Any
         module.Any = assembly;
         this.Module = module;
 
-        this.ListInfra.TableAdd(this.ModuleTable, module.Ref.Name, module);
+        this.ListInfra.TableAdd(this.ModuleTable, module.Ref, module);
 
         this.IsAvalonInfra = (this.Module.Ref.Name == "Avalon.Infra");
 
@@ -699,13 +705,13 @@ public class Gen : Any
         return true;
     }
 
-    protected virtual Module ModuleGet(string module)
+    protected virtual Module ModuleGet(ModuleRef module)
     {
         Module a;
         a = (Module)this.ModuleTable.Get(module);
         if (a == null)
         {
-            global::System.Console.Error.Write("ModuleGet no module, module: " + module + "\n");
+            global::System.Console.Error.Write("ModuleGet no module, module: " + module.Name + "\n");
             global::System.Environment.Exit(100);
         }
         return a;
@@ -743,12 +749,13 @@ public class Gen : Any
             module = type.Assembly.GetName().Name;
             varClass = type.Name;
         }
+        this.ModuleRef.Name = module;
         ClassClass a;
-        a = this.ClassGet(module, varClass);
+        a = this.ClassGet(this.ModuleRef, varClass);
         return a;
     }
 
-    protected virtual ClassClass ClassGet(string module, string name)
+    protected virtual ClassClass ClassGet(ModuleRef module, string name)
     {
         Module o;
         o = this.ModuleGet(module);
