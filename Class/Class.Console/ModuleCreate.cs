@@ -11,12 +11,12 @@ public class ModuleCreate : Any
     }
 
     public virtual Table ModuleTable { get; set; }
-    public virtual Table ReferTable { get; set; }
+    public virtual Table BinaryTable { get; set; }
     public virtual ModuleRef ModuleRef { get; set; }
     public virtual ClassModule Module { get; set; }
     protected virtual ListInfra ListInfra { get; set; }
     protected virtual CountList CountList { get; set; }
-    protected virtual ReferRefer Refer { get; set; }
+    protected virtual BinaryBinary Binary { get; set; }
     protected virtual Array ClassArray { get; set; }
     protected virtual Array ImportArray { get; set; }
 
@@ -36,9 +36,9 @@ public class ModuleCreate : Any
 
         this.Module = a;
 
-        ReferRefer refer;
-        refer = (ReferRefer)this.ReferTable.Get(this.Module.Ref);
-        this.Refer = refer;
+        BinaryBinary refer;
+        refer = (BinaryBinary)this.BinaryTable.Get(this.Module.Ref);
+        this.Binary = refer;
 
         this.SetClassList();
 
@@ -48,7 +48,7 @@ public class ModuleCreate : Any
 
         this.SetPartList();
 
-        this.Refer = null;
+        this.Binary = null;
         this.ClassArray = null;
         this.ImportArray = null;
 
@@ -63,15 +63,15 @@ public class ModuleCreate : Any
         this.Module.Class = classTable;
 
         Array array;
-        array = this.Refer.Class;
+        array = this.Binary.Class;
         int count;
         count = array.Count;
         int i;
         i = 0;
         while (i < count)
         {
-            ReferClass o;
-            o = (ReferClass)array.Get(i);
+            BinaryClass o;
+            o = (BinaryClass)array.Get(i);
 
             string name;
             name = o.Name;
@@ -125,7 +125,7 @@ public class ModuleCreate : Any
         importTotal = 0;
 
         Array array;
-        array = this.Refer.Import;
+        array = this.Binary.Import;
 
         int count;
         count = array.Count;
@@ -133,8 +133,8 @@ public class ModuleCreate : Any
         i = 0;
         while (i < count)
         {
-            ReferImport o;
-            o = (ReferImport)array.Get(i);
+            BinaryImport o;
+            o = (BinaryImport)array.Get(i);
 
             ModuleRef moduleRef;
             moduleRef = o.Module;
@@ -158,8 +158,8 @@ public class ModuleCreate : Any
             ClassModule module;
             module = this.ModuleGet(moduleRef);
 
-            ReferRefer oo;
-            oo = (ReferRefer)this.ReferTable.Get(moduleRef);
+            BinaryBinary oo;
+            oo = (BinaryBinary)this.BinaryTable.Get(moduleRef);
 
             Array oa;
             oa = o.Class;
@@ -169,11 +169,11 @@ public class ModuleCreate : Any
             iA = 0;
             while (iA < countA)
             {
-                ReferClassIndex oe;
-                oe = (ReferClassIndex)oa.Get(iA);
+                BinaryClassIndex oe;
+                oe = (BinaryClassIndex)oa.Get(iA);
 
-                ReferClass of;
-                of = (ReferClass)oo.Class.Get(oe.Value);
+                BinaryClass of;
+                of = (BinaryClass)oo.Class.Get(oe.Value);
 
                 string className;
                 className = of.Name;
@@ -231,7 +231,7 @@ public class ModuleCreate : Any
     protected virtual bool SetBaseList()
     {
         Array array;
-        array = this.Refer.Base;
+        array = this.Binary.Base;
 
         Iter iter;
         iter = this.Module.Class.IterCreate();
@@ -248,8 +248,8 @@ public class ModuleCreate : Any
             ClassClass varClass;
             varClass = (ClassClass)iter.Value;
 
-            ReferClassIndex a;
-            a = (ReferClassIndex)array.Get(i);
+            BinaryClassIndex a;
+            a = (BinaryClassIndex)array.Get(i);
 
             ClassClass baseClass;
             baseClass = this.ClassGetIndex(a.Value);
@@ -264,7 +264,7 @@ public class ModuleCreate : Any
     protected virtual bool SetPartList()
     {
         Array array;
-        array = this.Refer.Part;
+        array = this.Binary.Part;
 
         Iter iter;
         iter = this.Module.Class.IterCreate();
@@ -281,8 +281,8 @@ public class ModuleCreate : Any
             ClassClass varClass;
             varClass = (ClassClass)iter.Value;
 
-            ReferPart a;
-            a = (ReferPart)array.Get(i);
+            BinaryPart a;
+            a = (BinaryPart)array.Get(i);
 
             this.SetPart(varClass, a);
 
@@ -291,7 +291,7 @@ public class ModuleCreate : Any
         return true;
     }
 
-    protected virtual bool SetPart(ClassClass varClass, ReferPart part)
+    protected virtual bool SetPart(ClassClass varClass, BinaryPart part)
     {
         this.SetPartField(varClass, part.Field);
         this.SetPartMaide(varClass, part.Maide);
@@ -310,8 +310,8 @@ public class ModuleCreate : Any
         i = 0;
         while (i < count)
         {
-            ReferField ua;
-            ua = (ReferField)referField.Get(i);
+            BinaryField ua;
+            ua = (BinaryField)referField.Get(i);
 
             Field a;
             a = new Field();
@@ -341,8 +341,8 @@ public class ModuleCreate : Any
         i = 0;
         while (i < count)
         {
-            ReferMaide ua;
-            ua = (ReferMaide)referMaide.Get(i);
+            BinaryMaide ua;
+            ua = (BinaryMaide)referMaide.Get(i);
 
             Maide a;
             a = new Maide();
@@ -374,8 +374,8 @@ public class ModuleCreate : Any
         i = 0;
         while (i < count)
         {
-            ReferVar ua;
-            ua = (ReferVar)referVar.Get(i);
+            BinaryVar ua;
+            ua = (BinaryVar)referVar.Get(i);
 
             Var a;
             a = new Var();
