@@ -48,6 +48,11 @@ public class IntParse : Any
         i = 0;
         while (i < count)
         {
+            if (!(h < capValue))
+            {
+                return -1;
+            }
+            
             index = start + count - 1 - i;
             oc = textInfra.DataCharGet(data, index);
             
@@ -67,11 +72,6 @@ public class IntParse : Any
             }
 
             h = h * varBase;
-
-            if (!(h < capValue))
-            {
-                return -1;
-            }
 
             i = i + 1;
         }
