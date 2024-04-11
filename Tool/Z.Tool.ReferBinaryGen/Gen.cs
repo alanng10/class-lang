@@ -483,7 +483,7 @@ public class Gen : Any
     protected virtual bool SetImportList()
     {
         Table table;
-        table = this.ClassInfra.TableCreateStringCompare();
+        table = this.ClassInfra.TableCreateModuleRefCompare();
 
         this.Module.Import = table;
 
@@ -547,17 +547,17 @@ public class Gen : Any
         Table table;
         table = this.Module.Import;
 
-        string moduleName;
-        moduleName = varClass.Module.Ref.Name;
-        if (!table.Contain(moduleName))
+        ModuleRef moduleRef;
+        moduleRef = varClass.Module.Ref;
+        if (!table.Contain(moduleRef))
         {
             Table oa;
             oa = this.ClassInfra.TableCreateStringCompare();
 
-            this.ListInfra.TableAdd(table, moduleName, oa);
+            this.ListInfra.TableAdd(table, moduleRef, oa);
         }
         Table classTable;
-        classTable = (Table)table.Get(moduleName);
+        classTable = (Table)table.Get(moduleRef);
 
         string name;
         name = varClass.Name;
@@ -606,10 +606,13 @@ public class Gen : Any
 
             while (iterA.Next())
             {
-                string oa;
-                oa = (string)iterA.Index;
+                ModuleRef oa;
+                oa = (ModuleRef)iterA.Index;
 
-                global::System.Console.Write(oa + "\n");
+                string oaa;
+                oaa = oa.Name;
+
+                global::System.Console.Write(oaa + "\n");
 
                 Table ob;
                 ob = (Table)iterA.Value;
@@ -624,7 +627,7 @@ public class Gen : Any
                     global::System.Console.Write("    " + className + "\n");
                 }
 
-                if (!(oa.StartsWith("Avalon.") | oa.StartsWith("Class.")))
+                if (!(oaa.StartsWith("Avalon.") | oaa.StartsWith("Class.")))
                 {
                     global::System.Console.Error.Write("Import module is not Avalon Module or Class Compiler Module\n");
                     global::System.Environment.Exit(105);
