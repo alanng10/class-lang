@@ -11,6 +11,7 @@ public class Gen : Any
 
         this.ListInfra = ListInfra.This;
         this.StorageInfra = StorageInfra.This;
+        this.ClassInfra = ClassInfra.This;
         this.CountList = CountList.This;
 
         Table table;
@@ -51,6 +52,7 @@ public class Gen : Any
 
     protected virtual ListInfra ListInfra { get; set; }
     protected virtual StorageInfra StorageInfra { get; set; }
+    protected virtual ClassInfra ClassInfra { get; set; }
     protected virtual CountList CountList { get; set; }
     protected virtual Table ModuleTable { get; set; }
     protected virtual Module Module { get; set; }
@@ -340,7 +342,7 @@ public class Gen : Any
         int count;
         int i;
         Table fieldTable;
-        fieldTable = this.TableCreate();
+        fieldTable = this.ClassInfra.TableCreateStringCompare();
 
         count = propertyArrayA.Length;
         i = 0;
@@ -397,7 +399,7 @@ public class Gen : Any
         }
 
         Table maideTable;
-        maideTable = this.TableCreate();
+        maideTable = this.ClassInfra.TableCreateStringCompare();
 
         count = methodArrayA.Length;
         i = 0;
@@ -429,7 +431,7 @@ public class Gen : Any
                 maide.Any = of;
 
                 Table varTable;
-                varTable = this.TableCreate();
+                varTable = this.ClassInfra.TableCreateStringCompare();
 
                 if (!((type == typeof(ZModuleInfo)) & (maide.Name == "RefString")))
                 {
@@ -783,10 +785,10 @@ public class Gen : Any
         int count;
         int i;
         Table fieldTable;
-        fieldTable = this.TableCreate();
+        fieldTable = this.ClassInfra.TableCreateStringCompare();
 
         Table maideTable;
-        maideTable = this.TableCreate();
+        maideTable = this.ClassInfra.TableCreateStringCompare();
 
         count = methodArrayA.Length;
         i = 0;
@@ -847,7 +849,7 @@ public class Gen : Any
                         maide.Any = oe;
 
                         Table varTable;
-                        varTable = this.TableCreate();
+                        varTable = this.ClassInfra.TableCreateStringCompare();
 
                         countA = countA - 1;
                         
@@ -902,19 +904,9 @@ public class Gen : Any
     {
         ClassClass a;
         a = this.ModuleClassGet(this.Module, name);
-        a.Field = this.TableCreate();
-        a.Maide = this.TableCreate();
+        a.Field = this.ClassInfra.TableCreateStringCompare();
+        a.Maide = this.ClassInfra.TableCreateStringCompare();
         return true;
-    }
-
-    protected virtual Table TableCreate()
-    {
-        Table a;
-        a = new Table();
-        a.Compare = new StringCompare();
-        a.Compare.Init();
-        a.Init();
-        return a;
     }
 
     protected virtual bool AddInfraBuiltInClassList()
