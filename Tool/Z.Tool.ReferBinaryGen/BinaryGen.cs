@@ -20,7 +20,7 @@ class BinaryGen : Any
 
     public virtual bool Execute()
     {
-        this.BinaryTable = this.ClassInfra.TableCreateStringCompare();
+        this.BinaryTable = this.ClassInfra.TableCreateModuleRefCompare();
 
         Iter iter;
         iter = this.ModuleTable.IterCreate();
@@ -31,7 +31,7 @@ class BinaryGen : Any
             module = (Module)iter.Value;
             Binary binary;
             binary = this.ExecuteModule(module);
-            this.ListInfra.TableAdd(this.BinaryTable, binary.Ref.Name, binary);
+            this.ListInfra.TableAdd(this.BinaryTable, binary.Ref, binary);
         }
 
         return true;

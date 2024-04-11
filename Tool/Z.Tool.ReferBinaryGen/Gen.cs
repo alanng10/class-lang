@@ -687,10 +687,10 @@ public class Gen : Any
         this.BinaryTable.IterSet(iter);
         while (iter.Next())
         {
-            Binary refer;
-            refer = (Binary)iter.Value;
+            Binary binary;
+            binary = (Binary)iter.Value;
 
-            write.Binary = refer;
+            write.Binary = binary;
             write.Execute();
 
             Data data;
@@ -698,7 +698,7 @@ public class Gen : Any
             write.Data = null;
 
             string name;
-            name = refer.Ref.Name;
+            name = binary.Ref.Name;
 
             string path;
             path = name + ".ref";
