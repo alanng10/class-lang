@@ -47,7 +47,7 @@ class BinaryGen : Any
         this.ClassIndexTable.Init();
 
         ModuleRef oa;
-        oa = this.ModuleRefCreate(module.Ref.Name);
+        oa = this.ClassInfra.ModuleRefCreate(module.Ref.Name, module.Ref.Ver);
 
         Binary binary;
         binary = new Binary();
@@ -111,13 +111,14 @@ class BinaryGen : Any
         while (i < count)
         {
             iter.Next();
-            string name;
-            name = (string)iter.Index;
+            ModuleRef moduleRef;
+            moduleRef = (ModuleRef)iter.Index;
+
             Table table;
             table = (Table)iter.Value;
 
             ModuleRef oa;
-            oa = this.ModuleRefCreate(name);
+            oa = this.ClassInfra.ModuleRefCreate(moduleRef.Name, moduleRef.Ver);
 
             BinaryImport a;
             a = new BinaryImport();
@@ -363,14 +364,5 @@ class BinaryGen : Any
         ClassIndex a;
         a = (ClassIndex)this.ClassIndexTable.Get(varClass);
         return a.Value;
-    }
-    
-    protected virtual ModuleRef ModuleRefCreate(string name)
-    {
-        ModuleRef a;
-        a = new ModuleRef();
-        a.Init();
-        a.Name = name;
-        return a;
     }
 }
