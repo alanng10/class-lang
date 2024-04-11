@@ -68,6 +68,11 @@ public class IntParse : Any
 
             h = h * varBase;
 
+            if (!(h < capValue))
+            {
+                return -1;
+            }
+
             i = i + 1;
         }
 
