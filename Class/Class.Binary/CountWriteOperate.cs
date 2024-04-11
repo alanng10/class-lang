@@ -17,7 +17,7 @@ public class CountWriteOperate : WriteOperate
     {
         int index;
         index = this.Write.Index;
-        index = index + sizeof(long);
+        index = index + sizeof(ulong);
         this.Write.Index = index;
         return true;
     }
