@@ -49,18 +49,18 @@ public class Write : Any
 
     protected virtual bool ExecuteStage()
     {
-        this.ExecuteRefer(this.Refer);
+        this.ExecuteBinary(this.Refer);
         return true;
     }
 
-    protected virtual bool ExecuteRefer(Binary refer)
+    protected virtual bool ExecuteBinary(Binary binary)
     {
-        this.ExecuteModuleRef(refer.Ref);
-        this.ExecuteClassArray(refer.Class);
-        this.ExecuteImportArray(refer.Import);
-        this.ExecuteBaseArray(refer.Base);
-        this.ExecutePartArray(refer.Part);
-        this.ExecuteEntry(refer.Entry);
+        this.ExecuteModuleRef(binary.Ref);
+        this.ExecuteClassArray(binary.Class);
+        this.ExecuteImportArray(binary.Import);
+        this.ExecuteBaseArray(binary.Base);
+        this.ExecutePartArray(binary.Part);
+        this.ExecuteEntry(binary.Entry);
         return true;
     }
 
