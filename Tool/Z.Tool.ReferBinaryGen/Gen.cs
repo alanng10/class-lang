@@ -68,10 +68,7 @@ public class Gen : Any
 
     public virtual int Execute()
     {
-        this.ModuleTable = new Table();
-        this.ModuleTable.Compare = new StringCompare();
-        this.ModuleTable.Compare.Init();
-        this.ModuleTable.Init();
+        this.ModuleTable = this.ClassInfra.TableCreateStringCompare();
 
         this.ExecuteTypeModule(typeof(Any));
         this.ExecuteTypeModule(typeof(ListList));
@@ -155,10 +152,7 @@ public class Gen : Any
     protected virtual bool SetClassList()
     {
         Table table;
-        table = new Table();
-        table.Compare = new StringCompare();
-        table.Compare.Init();
-        table.Init();
+        table = this.ClassInfra.TableCreateStringCompare();
 
         this.Module.Class = table;
 
@@ -483,10 +477,7 @@ public class Gen : Any
     protected virtual bool SetImportList()
     {
         Table table;
-        table = new Table();
-        table.Compare = new StringCompare();
-        table.Compare.Init();
-        table.Init();
+        table = this.ClassInfra.TableCreateStringCompare();
 
         this.Module.Import = table;
 
@@ -555,10 +546,7 @@ public class Gen : Any
         if (!table.Contain(moduleName))
         {
             Table oa;
-            oa = new Table();
-            oa.Compare = new StringCompare();
-            oa.Compare.Init();
-            oa.Init();
+            oa = this.ClassInfra.TableCreateStringCompare();
 
             this.ListInfra.TableAdd(table, moduleName, oa);
         }
