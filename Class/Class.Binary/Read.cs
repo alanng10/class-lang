@@ -379,11 +379,11 @@ public class Read : Any
 
     protected virtual bool ExecuteStage()
     {
-        this.Binary = this.ExecuteRefer();
+        this.Binary = this.ExecuteBinary();
         return true;
     }
 
-    protected virtual Binary ExecuteRefer()
+    protected virtual Binary ExecuteBinary()
     {
         ModuleRef varRef;
         varRef = this.ExecuteModuleRef();
