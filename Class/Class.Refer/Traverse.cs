@@ -39,7 +39,7 @@ public class Traverse : NodeTraverse
 
 
 
-    protected virtual Refer Refer { get; set; }
+    protected virtual ClassRefer Refer { get; set; }
 
 
 
