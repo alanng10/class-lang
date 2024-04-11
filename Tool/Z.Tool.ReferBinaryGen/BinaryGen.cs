@@ -6,6 +6,7 @@ class BinaryGen : Any
     {
         base.Init();
         this.ListInfra = ListInfra.This;
+        this.ClassInfra = ClassInfra.This;
         return true;
     }
 
@@ -13,15 +14,13 @@ class BinaryGen : Any
     public virtual Table BinaryTable { get; set; }
 
     protected virtual ListInfra ListInfra { get; set; }
+    protected virtual ClassInfra ClassInfra { get; set; }
     protected virtual Module Module { get; set; }
     protected virtual Table ClassIndexTable { get; set; }
 
     public virtual bool Execute()
     {
-        this.BinaryTable = new Table();
-        this.BinaryTable.Compare = new StringCompare();
-        this.BinaryTable.Compare.Init();
-        this.BinaryTable.Init();
+        this.BinaryTable = this.ClassInfra.TableCreateStringCompare();
 
         Iter iter;
         iter = this.ModuleTable.IterCreate();
