@@ -76,7 +76,7 @@ public class Read : Any
         arg.StringArray = this.ListInfra.ArrayCreate(arg.StringIndex);
         arg.ArrayArray = this.ListInfra.ArrayCreate(arg.ArrayIndex);
 
-        this.ExecuteReferCreate();
+        this.ExecuteBinaryCreate();
         this.ExecuteClassCreate();
         this.ExecuteImportCreate();
         this.ExecutePartCreate();
@@ -197,7 +197,7 @@ public class Read : Any
         return true;
     }
 
-    protected virtual bool ExecuteReferCreate()
+    protected virtual bool ExecuteBinaryCreate()
     {
         Array array;
         array = this.Arg.BinaryArray;
