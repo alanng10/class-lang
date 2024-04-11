@@ -11,7 +11,7 @@ public class SetReadOperate : ReadOperate
         int index;
         index = arg.BinaryIndex;
         Binary a;
-        a = (Binary)arg.ReferArray.Get(index);
+        a = (Binary)arg.BinaryArray.Get(index);
         arg.BinaryIndex = index + 1;
         return a;
     }

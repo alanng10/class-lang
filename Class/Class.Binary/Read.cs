@@ -64,7 +64,7 @@ public class Read : Any
         this.ResetStageIndex();
         this.ExecuteStage();
 
-        arg.ReferArray = this.ListInfra.ArrayCreate(arg.BinaryIndex);
+        arg.BinaryArray = this.ListInfra.ArrayCreate(arg.BinaryIndex);
         arg.ClassArray = this.ListInfra.ArrayCreate(arg.ClassIndex);
         arg.ImportArray = this.ListInfra.ArrayCreate(arg.ImportIndex);
         arg.PartArray = this.ListInfra.ArrayCreate(arg.PartIndex);
@@ -200,7 +200,7 @@ public class Read : Any
     protected virtual bool ExecuteReferCreate()
     {
         Array array;
-        array = this.Arg.ReferArray;
+        array = this.Arg.BinaryArray;
 
         int count;
         count = array.Count;
