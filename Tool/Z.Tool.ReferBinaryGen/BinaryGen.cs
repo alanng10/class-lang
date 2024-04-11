@@ -30,9 +30,9 @@ class BinaryGen : Any
         {
             Module module;
             module = (Module)iter.Value;
-            Binary refer;
-            refer = this.ExecuteModule(module);
-            this.ListInfra.TableAdd(this.BinaryTable, refer.Ref.Name, refer);
+            Binary binary;
+            binary = this.ExecuteModule(module);
+            this.ListInfra.TableAdd(this.BinaryTable, binary.Ref.Name, binary);
         }
 
         return true;
@@ -50,17 +50,17 @@ class BinaryGen : Any
         ModuleRef oa;
         oa = this.ModuleRefCreate(module.Ref.Name);
 
-        Binary refer;
-        refer = new Binary();
-        refer.Init();
-        refer.Ref = oa;
+        Binary binary;
+        binary = new Binary();
+        binary.Init();
+        binary.Ref = oa;
 
-        refer.Class = this.ExecuteClassArray();
-        refer.Import = this.ExecuteImportArray();
-        refer.Base = this.ExecuteBaseArray();
-        refer.Part = this.ExecutePartArray();
+        binary.Class = this.ExecuteClassArray();
+        binary.Import = this.ExecuteImportArray();
+        binary.Base = this.ExecuteBaseArray();
+        binary.Part = this.ExecutePartArray();
 
-        return refer;
+        return binary;
     }
 
     protected virtual Array ExecuteClassArray()
