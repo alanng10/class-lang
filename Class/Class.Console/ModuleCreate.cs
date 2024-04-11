@@ -36,9 +36,9 @@ public class ModuleCreate : Any
 
         this.Module = a;
 
-        BinaryBinary refer;
-        refer = (BinaryBinary)this.BinaryTable.Get(this.Module.Ref);
-        this.Binary = refer;
+        BinaryBinary binary;
+        binary = (BinaryBinary)this.BinaryTable.Get(this.Module.Ref);
+        this.Binary = binary;
 
         this.SetClassList();
 
@@ -298,20 +298,20 @@ public class ModuleCreate : Any
         return true;
     }
 
-    protected virtual bool SetPartField(ClassClass varClass, Array referField)
+    protected virtual bool SetPartField(ClassClass varClass, Array binaryField)
     {
         Table fieldTable;
         fieldTable = this.TableCreateStringCompare();
         varClass.Field = fieldTable;
 
         int count;
-        count = referField.Count;
+        count = binaryField.Count;
         int i;
         i = 0;
         while (i < count)
         {
             BinaryField ua;
-            ua = (BinaryField)referField.Get(i);
+            ua = (BinaryField)binaryField.Get(i);
 
             Field a;
             a = new Field();
@@ -329,20 +329,20 @@ public class ModuleCreate : Any
         return true;
     }
 
-    protected virtual bool SetPartMaide(ClassClass varClass, Array referMaide)
+    protected virtual bool SetPartMaide(ClassClass varClass, Array binaryMaide)
     {
         Table maideTable;
         maideTable = this.TableCreateStringCompare();
         varClass.Maide = maideTable;
 
         int count;
-        count = referMaide.Count;
+        count = binaryMaide.Count;
         int i;
         i = 0;
         while (i < count)
         {
             BinaryMaide ua;
-            ua = (BinaryMaide)referMaide.Get(i);
+            ua = (BinaryMaide)binaryMaide.Get(i);
 
             Maide a;
             a = new Maide();
@@ -362,20 +362,20 @@ public class ModuleCreate : Any
         return true;
     }
 
-    protected virtual bool SetPartParam(Maide maide, Array referVar)
+    protected virtual bool SetPartParam(Maide maide, Array binaryVar)
     {
         Table varTable;
         varTable = this.TableCreateStringCompare();
         maide.Param = varTable;
 
         int count;
-        count = referVar.Count;
+        count = binaryVar.Count;
         int i;
         i = 0;
         while (i < count)
         {
             BinaryVar ua;
-            ua = (BinaryVar)referVar.Get(i);
+            ua = (BinaryVar)binaryVar.Get(i);
 
             Var a;
             a = new Var();
