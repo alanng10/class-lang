@@ -43,7 +43,7 @@ public class CountReadOperate : ReadOperate
     protected virtual string String { get; set; }
     protected virtual Array Array { get; set; }
 
-    public override Binary ExecuteRefer()
+    public override Binary ExecuteBinary()
     {
         ReadArg arg;
         arg = this.Read.Arg;

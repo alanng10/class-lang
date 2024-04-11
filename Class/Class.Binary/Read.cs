@@ -430,7 +430,7 @@ public class Read : Any
         entry = u;
 
         Binary a;
-        a = this.Operate.ExecuteRefer();
+        a = this.Operate.ExecuteBinary();
         a.Ref = varRef;
         a.Class = varClass;
         a.Import = import;

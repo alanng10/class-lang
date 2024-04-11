@@ -4,7 +4,7 @@ public class SetReadOperate : ReadOperate
 {
     public virtual Read Read { get; set; }
 
-    public override Binary ExecuteRefer()
+    public override Binary ExecuteBinary()
     {
         ReadArg arg;
         arg = this.Read.Arg;
