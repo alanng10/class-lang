@@ -20,18 +20,22 @@ public class IntParse : Any
             return -1;
         }
 
-        long capValue;
-        capValue = this.InfraInfra.IntCapValue;
+        ulong capValue;
+        capValue = (ulong)this.InfraInfra.IntCapValue;
         Infra textInfra;
         textInfra = this.TextInfra;
-        long m;
+        ulong m;
         m = 0;
-        long h;
+        ulong h;
         h = 1;
-        long oo;
+        ulong oo;
         oo = 0;
+        ulong oe;
+        oe = (ulong)varBase;
         int digitValue;
         digitValue = 0;
+        ulong d;
+        d = 0;
         Data data;
         data = span.Data;
         InfraRange range;
@@ -62,7 +66,9 @@ public class IntParse : Any
                 return -1;
             }
 
-            oo = h * digitValue;
+            d = (ulong)digitValue;
+
+            oo = h * d;
             
             m = m + oo;
 
@@ -71,13 +77,13 @@ public class IntParse : Any
                 return -1;
             }
 
-            h = h * varBase;
+            h = h * oe;
 
             i = i + 1;
         }
 
         long a;
-        a = m;
+        a = (long)m;
         return a;
     }
 
