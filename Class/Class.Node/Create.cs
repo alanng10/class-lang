@@ -4094,7 +4094,7 @@ public class Create : InfraCreate
         index = start;
         char oc;
         oc = textInfra.DataCharGet(data, index);
-        if (!(textInfra.IsUpperLetter(oc) | textInfra.IsLowerLetter(oc)))
+        if (!(textInfra.IsLetter(oc, true) | textInfra.IsLetter(oc, false)))
         {
             return false;
         }
@@ -4116,7 +4116,7 @@ public class Create : InfraCreate
 
             oc = textInfra.DataCharGet(data, index);
 
-            if (!(textInfra.IsUpperLetter(oc) | textInfra.IsLowerLetter(oc) | textInfra.IsDigit(oc) | oc == '_'))
+            if (!(textInfra.IsLetter(oc, true) | textInfra.IsLetter(oc, false) | textInfra.IsDigit(oc) | oc == '_'))
             {
                 b = true;
             }
