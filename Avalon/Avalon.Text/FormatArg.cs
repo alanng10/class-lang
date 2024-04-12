@@ -82,7 +82,7 @@ public class FormatArg : Any
         maxWidthU = (ulong)maxWidthO;
         int varBase;
         varBase = this.Base;
-        if (varBase < 2 | 32 < varBase)
+        if (varBase < 2 | 16 < varBase)
         {
             varBase = 10;
         }
