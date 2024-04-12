@@ -15,7 +15,7 @@ public class IntParse : Any
 
     public virtual long Execute(Span span, int varBase, bool upperCase)
     {
-        if (varBase < 2 | 32 < varBase)
+        if (varBase < 2 | 16 < varBase)
         {
             return -1;
         }
