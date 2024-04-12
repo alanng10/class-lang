@@ -129,23 +129,7 @@ public class IntParse : Any
             return ooa;
         }
 
-        bool ba;
-        ba = false;
-        if (upperCase)
-        {
-            if (textInfra.IsUpperLetter(oc))
-            {
-                ba = true;
-            }
-        }
-        if (!upperCase)
-        {
-            if (textInfra.IsLowerLetter(oc))
-            {
-                ba = true;
-            }
-        }
-        if (!ba)
+        if (!textInfra.IsLetter(oc, upperCase))
         {
             return -1;
         }

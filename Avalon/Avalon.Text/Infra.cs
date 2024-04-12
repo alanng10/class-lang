@@ -35,14 +35,18 @@ public class Infra : Any
         return !((o < 'a') | ('f' < o));
     }
 
-    public virtual bool IsLowerLetter(char o)
+    public virtual bool IsLetter(char o, bool upperCase)
     {
-        return !((o < 'a') | ('z' < o));
-    }
-
-    public virtual bool IsUpperLetter(char o)
-    {
-        return !((o < 'A') | ('Z' < o));
+        char first;
+        first = 'a';
+        char last;
+        last = 'z';
+        if (upperCase)
+        {
+            first = 'A';
+            last = 'Z';
+        }
+        return !((o < first) | (last < o));
     }
 
     public virtual char TextCharGet(Text text, Pos pos)
