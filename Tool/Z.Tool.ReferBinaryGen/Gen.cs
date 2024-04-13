@@ -755,7 +755,9 @@ public class Gen : Any
         }
         if (!b)
         {
-            module = type.Assembly.GetName().Name;
+            string assemblyName;
+            assemblyName = type.Assembly.GetName().Name;
+            module = this.ClassModuleName(assemblyName);
             varClass = type.Name;
         }
         this.ModuleRef.Name = module;
