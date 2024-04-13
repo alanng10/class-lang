@@ -4130,17 +4130,23 @@ public class Create : InfraCreate
 
     protected virtual bool IsKeyword(TextRange textRange)
     {
+        TextInfra textInfra;
+        textInfra = this.TextInfra;
+        KeywordList keyword;
+        keyword = this.Keyword;
+        Text sourceText;
+        sourceText = this.SourceText;
         int count;
-        count = this.Keyword.Count;
+        count = keyword.Count;
         int i;
         i = 0;
         while (i < count)
         {
             Keyword a;
-            a = this.Keyword.Get(i);
+            a = keyword.Get(i);
             string o;
             o = a.Text;
-            if (this.TextInfra.Equal(this.SourceText, textRange, o))
+            if (textInfra.Equal(sourceText, textRange, o))
             {
                 return true;
             }
