@@ -102,7 +102,7 @@ public class Gen : Any
         this.ExecuteTypeModule(typeof(ModuleResult));
         this.ExecuteTypeModule(typeof(Task));
 
-        this.ModuleRef.Name = "Avalon.Infra";
+        this.ModuleRef.Name = "System.Infra";
         Module module;
         module = this.ModuleGet(this.ModuleRef);
         this.ConsoleWriteClass(this.ModuleClassGet(module, "String"));
@@ -132,10 +132,16 @@ public class Gen : Any
 
     protected virtual bool ExecuteModule(Assembly assembly)
     {
+        string assemblyName;
+        assemblyName = assembly.GetName().Name;
+
+        string moduleName;
+        moduleName = this.ClassModuleName(assemblyName);
+
         ModuleRef oa;
         oa = new ModuleRef();
         oa.Init();
-        oa.Name = assembly.GetName().Name;
+        oa.Name = moduleName;
 
         Module module;
         module = new Module();
@@ -146,7 +152,7 @@ public class Gen : Any
 
         this.ListInfra.TableAdd(this.ModuleTable, module.Ref, module);
 
-        this.IsAvalonInfra = (this.Module.Ref.Name == "Avalon.Infra");
+        this.IsAvalonInfra = (this.Module.Ref.Name == "System.Infra");
 
         this.SetClassList();
 
@@ -627,9 +633,9 @@ public class Gen : Any
                     global::System.Console.Write("    " + className + "\n");
                 }
 
-                if (!(oaa.StartsWith("Avalon.") | oaa.StartsWith("Class.")))
+                if (!(oaa.StartsWith("System.") | oaa.StartsWith("Class.")))
                 {
-                    global::System.Console.Error.Write("Import module is not Avalon Module or Class Compiler Module\n");
+                    global::System.Console.Error.Write("Import module is not System Module or Class Compiler Module\n");
                     global::System.Environment.Exit(105);
                 }
             }
@@ -742,7 +748,7 @@ public class Gen : Any
         b = this.IsDotNetBuiltInType(type);
         if (b)
         {
-            module = "Avalon.Infra";
+            module = "System.Infra";
             BuiltInType oa;
             oa = (BuiltInType)this.DotNetBuiltInTypeTable.Get(type);
             varClass = oa.Name;
@@ -952,7 +958,6 @@ public class Gen : Any
         return null;
     }
 
-
     protected virtual int SystemClassGet(SystemType type)
     {
         BuiltInType a;
@@ -962,6 +967,24 @@ public class Gen : Any
             return 0;
         }
         return a.SystemClass;
+    }
+
+    protected virtual string ClassModuleName(string assemblyName)
+    {
+        string oe;
+        oe = "Avalon.";
+
+        if (assemblyName.StartsWith(oe))
+        {
+            string of;
+            of = assemblyName.Substring(oe.Length);
+
+            string a;
+            a = "System." + of;
+            return a;
+        }
+
+        return assemblyName;
     }
 
     protected virtual BuiltInType BuitInTypeGet(SystemType type)
