@@ -105,8 +105,6 @@ public static class Extern
     [DllImport(InfraLib)] public extern static ulong FormatArg_BaseSet(ulong o, ulong value);
     [DllImport(InfraLib)] public extern static ulong FormatArg_SignGet(ulong o);
     [DllImport(InfraLib)] public extern static ulong FormatArg_SignSet(ulong o, ulong value);
-    [DllImport(InfraLib)] public extern static ulong FormatArg_PrecisionGet(ulong o);
-    [DllImport(InfraLib)] public extern static ulong FormatArg_PrecisionSet(ulong o, ulong value);
     [DllImport(InfraLib)] public extern static ulong FormatArg_FillCharGet(ulong o);
     [DllImport(InfraLib)] public extern static ulong FormatArg_FillCharSet(ulong o, ulong value);
     [DllImport(InfraLib)] public extern static ulong FormatArg_HasCountGet(ulong o);
