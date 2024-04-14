@@ -52,7 +52,6 @@ FormatArg
     Case
     Base
     Sign
-    Precision
     FillChar
     HasCount
     ValueCount
