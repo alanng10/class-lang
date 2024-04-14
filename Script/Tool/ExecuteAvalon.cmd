@@ -3,7 +3,7 @@
 pushd Tool
 for /d %%a in ("Z.Tool.Avalon.*") do (
 
-    pushd ..\Out\net6.0
+    pushd ..\Out\net8.0
     echo Execute "%%~nxa"
     echo:
     dotnet %%~nxa.dll

@@ -2,7 +2,7 @@
 
 echo Make Module
 echo:
-set DotNetModuleOutFold=.\Out\net6.0
+set DotNetModuleOutFold=.\Out\net8.0
 pushd Class\ClassExe
 dotnet build -v quiet
 popd
