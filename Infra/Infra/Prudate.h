@@ -170,8 +170,6 @@ Infra_Api Int FormatArg_BaseGet(Int o);
 Infra_Api Int FormatArg_BaseSet(Int o, Int value);
 Infra_Api Int FormatArg_SignGet(Int o);
 Infra_Api Int FormatArg_SignSet(Int o, Int value);
-Infra_Api Int FormatArg_PrecisionGet(Int o);
-Infra_Api Int FormatArg_PrecisionSet(Int o, Int value);
 Infra_Api Int FormatArg_FillCharGet(Int o);
 Infra_Api Int FormatArg_FillCharSet(Int o, Int value);
 Infra_Api Int FormatArg_HasCountGet(Int o);
