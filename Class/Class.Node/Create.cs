@@ -337,7 +337,6 @@ public class Create : InfraCreate
         this.KindData.Count = nodeCount;
         this.KindData.Init();
 
-        
         this.ListData = this.CountDataCreate(listCount);
         this.NameValueData = this.CountDataCreate(nameValueCount);
         this.NameValueText = this.TextDataCreate(nameValueTotalCount);
