@@ -307,54 +307,29 @@ Int Format_ArgResultBool(Int o, Int arg, Int result)
     return true;
 }
 
-
-
-
-
 Int Format_ArgResultInt(Int o, Int arg, Int result)
 {
     FormatArg* oo;
-
     oo = CastPointer(arg);
-
-
-
     Int valueCount;
-
     valueCount = oo->ValueCount;
-
-
     Int count;
-
     count = oo->Count;
-
-
     Int value;
-
     value = oo->Value;
 
-
-
     Bool alignLeft;
-
     alignLeft = oo->AlignLeft;
 
-
     Int fillCount;
-
     fillCount = 0;
-
-
     Int clampCount;
-
     clampCount = 0;
-
 
     if (valueCount < count)
     {
         fillCount = count - valueCount;
     }
-
 
     if (count < valueCount)
     {
@@ -366,10 +341,8 @@ Int Format_ArgResultInt(Int o, Int arg, Int result)
 
     Int varBase;
     varBase = oo->Base;
-
     Int varCase;
     varCase = oo->Case;
-
     Int fillChar;
     fillChar = oo->FillChar;
 
@@ -378,10 +351,8 @@ Int Format_ArgResultInt(Int o, Int arg, Int result)
 
     Int fillStart;
     fillStart = 0;
-
     Int valueStart;
     valueStart = 0;
-
     Int valueIndex;
     valueIndex = 0;
 
@@ -391,31 +362,20 @@ Int Format_ArgResultInt(Int o, Int arg, Int result)
     if (alignLeft)
     {
         fillStart = valueWriteCount;
-
         valueStart = 0;
-
         valueIndex = 0;
     }
 
     if (!alignLeft)
     {
         fillStart = 0;
-
         valueStart = fillCount;
-
         valueIndex = clampCount;
     }
 
-
-
-
     Format_ResultInt(o, result, value, varBase, varCase, valueCount, valueWriteCount, valueStart, valueIndex);
 
-
-
     Format_ResultFill(dest, fillStart, fillCount, fillCharU);
-
-
     return true;
 }
 
