@@ -485,173 +485,69 @@ Int Draw_ExecuteRoundRect(Int o, Int rect, Int horizRadius, Int vertRadius)
 Int Draw_ExecutePolygon(Int o, Int pointListCount, Int pointListData)
 {
     Draw* m;
-
     m = CP(o);
-
-
-
-
     int countU;
-
     countU = pointListCount;
 
-
-
-
     Int dataValue;
-
     dataValue = Data_ValueGet(pointListData);
-
-
-
-
     QPoint* u;
-
     u = (QPoint*)dataValue;
 
-
-
-
     m->Intern->drawConvexPolygon(u, countU);
-
-
-
-
     return true;
 }
 
 Int Draw_ExecutePolyline(Int o, Int pointListCount, Int pointListData)
 {
     Draw* m;
-
     m = CP(o);
-
-
-
-
     int countU;
-
     countU = pointListCount;
 
-
-
-
     Int dataValue;
-
     dataValue = Data_ValueGet(pointListData);
-
-
-
-
     QPoint* u;
-
     u = (QPoint*)dataValue;
 
-
-
-
     m->Intern->drawPolyline(u, countU);
-
-
-
-
     return true;
 }
 
 Int Draw_ExecuteImage(Int o, Int image, Int destRect, Int sourceRect)
 {
     Draw* m;
-
     m = CP(o);
-
-
-
-
-
     Int ua;
-
     ua = Image_Intern(image);
-
-
-
     QImage* ub;
-
     ub = (QImage*)ua;
 
-
-
-
-
-
     RectValue(dest);
-
-
-
     RectValue(source);
 
-
-
-
-
-
     int dl;
-
     int du;
-
     int dw;
-
     int dh;
-
-
-
     dl = (int)destLeft;
-
     du = (int)destUp;
-
     dw = (int)destWidth;
-
     dh = (int)destHeight;
 
-
-
-
     int sl;
-
     int su;
-
     int sw;
-
     int sh;
-
-
-
     sl = (int)sourceLeft;
-
     su = (int)sourceUp;
-
     sw = (int)sourceWidth;
-
     sh = (int)sourceHeight;
 
-
-
-
-
     QRect destRectA(dl, du, dw, dh);
-
-
-
     QRect sourceRectA(sl, su, sw, sh);
 
-
-
-
     m->Intern->drawImage(destRectA, *ub, sourceRectA);
-
-
-
-
-
     return true;
 }
 
