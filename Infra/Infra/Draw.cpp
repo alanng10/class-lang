@@ -93,47 +93,19 @@ CppFieldGet(Draw, Brush)
 Int Draw_BrushSet(Int o, Int value)
 {
     Draw* m;
-
     m = CP(o);
-
-
-
-
     m->Brush = value;
-
-
-
-
     if (m->Brush == null)
     {
         m->Intern->setBrush(Qt::NoBrush);
-
-
         return true;
     }
 
-
-
-
-
     Int u;
-
     u = Brush_Intern(m->Brush);
-
-
-
     QBrush* uu;
-
     uu = (QBrush*)u;
-
-
-
-
     m->Intern->setBrush(*uu);
-
-
-
-
     return true;
 }
 
@@ -142,46 +114,19 @@ CppFieldGet(Draw, Pen)
 Int Draw_PenSet(Int o, Int value)
 {
     Draw* m;
-
     m = CP(o);
-
-
-
-
     m->Pen = value;
-
-
-
-
     if (m->Pen == null)
     {
         m->Intern->setPen(Qt::NoPen);
-
-
         return true;
     }
 
-
-
-
     Int u;
-
     u = Pen_Intern(m->Pen);
-
-
-
     QPen* uu;
-
     uu = (QPen*)u;
-
-
-
-
     m->Intern->setPen(*uu);
-
-
-
-
     return true;
 }
 
@@ -190,46 +135,19 @@ CppFieldGet(Draw, Font)
 Int Draw_FontSet(Int o, Int value)
 {
     Draw* m;
-
     m = CP(o);
-
-
-
-
     m->Font = value;
-
-
-
-
     if (m->Font == null)
     {
         m->Intern->setFont(*(m->InternDefaultFont));
-
-
         return true;
     }
 
-
-
-
     Int u;
-
     u = Font_Intern(m->Font);
-
-
-
     QFont* uu;
-
     uu = (QFont*)u;
-
-
-
-
     m->Intern->setFont(*uu);
-
-
-
-
     return true;
 }
 
