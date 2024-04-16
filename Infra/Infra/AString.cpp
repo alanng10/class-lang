@@ -132,59 +132,23 @@ Int String_ConstantDelete(Int o)
     return true;
 }
 
-
-
-
-
-
 Int String_QStringSet(Int result, Int a)
 {
     Int count;
-
     count = String_CountGet(a);
-
-
     Int data;
-
     data = String_DataGet(a);
 
-
-
-
     const QChar* dataU;
-
     dataU = (const QChar*)data;
-
-
-
     qsizetype countU;
-
     countU = count;
 
-
-
-
-
     QString* u;
-
-
     u = (QString*)result;
-
-
     *u = QString(dataU, countU);
-
-
-
-
-
     return true;
 }
-
-
-
-
-
-
 
 Int String_QStringSetRaw(Int result, Int a)
 {
