@@ -53,185 +53,82 @@ Int String_Equal(Int o, Int other)
         {
             return false;
         }
-
-
-
         i = i + 1;
     }
-
-
-
-
     return true;
 }
 
 Int String_ConstantCount(Int o)
 {
     Byte* p;
-
     p = (Byte*)o;
 
-
-
-
     Int k;
-
     k = 0;
-
-
-
     while (!((*p) == '\0'))
     {
         k = k + 1;
-
-
         p = p + 1;
     }
-
-
-
-
     return k;
 }
 
 Int String_ConstantCreate(Int o)
 {
     Int count;
-
     count = String_ConstantCount(o);
 
-
-
     Int share;
-
     share = Infra_Share();
-
-
-
     Int stat;
-
     stat = Share_Stat(share);
 
-
-
-
     Int encode;
-
     encode = TextEncode_New();
-
-
     TextEncode_KindSet(encode, Stat_TextEncodeKindUtf8(stat));
-
-
     TextEncode_Init(encode);
 
-
-
-
     Int k;
-
     k = TextEncode_StringCountMax(encode, count);
 
-
-
-
     Int byteCount;
-
     byteCount = k * Constant_CharByteCount();
 
-
-
     Int stringData;
-
     stringData = New(byteCount);
 
-
-
-
     Int data;
-
-
     data = Data_New();
-
-
     Data_Init(data);
-
-
     Data_CountSet(data, count);
-
-
     Data_ValueSet(data, o);
 
-
-
-
     Int stringCount;
-
     stringCount = TextEncode_String(encode, stringData, data);
 
-
-
     Data_Final(data);
-
-
     Data_Delete(data);
 
-
-
-
     TextEncode_Final(encode);
-
-
     TextEncode_Delete(encode);
 
-
-
-
-
     Int a;
-
-
     a = String_New();
-
-
     String_Init(a);
-
-
     String_CountSet(a, stringCount);
-
-
     String_DataSet(a, stringData);
-
-
-
-
     return a;
 }
-
-
-
-
 
 Int String_ConstantDelete(Int o)
 {
     Int data;
-
     data = String_DataGet(o);
 
-
-
     String_Final(o);
-
-
     String_Delete(o);
 
-
-
     Delete(data);
-
-
-
-
     return true;
 }
 
