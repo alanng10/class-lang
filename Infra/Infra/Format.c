@@ -222,127 +222,67 @@ Int Format_IntDigitCount(Int o, Int value, Int varBase)
     return a;
 }
 
-
-
-
-
-
 Int Format_ExecuteArgResult(Int o, Int arg, Int result)
 {
     FormatArg* oo;
-
     oo = CastPointer(arg);
-
-
-
     Int kind;
-
     kind = oo->Kind;
-
-
     Int resultData;
-
     resultData = String_DataGet(result);
 
-
-
     Format_ArgResultMaide maide;
-
     maide = Format_Var_ArgResultMaideList[kind];
 
-
     maide(o, arg, resultData);
-
-
-
     return true;
 }
-
-
-
 
 Int Format_ArgResultBool(Int o, Int arg, Int result)
 {
     FormatArg* oo;
-
     oo = CastPointer(arg);
-
-
     Int valueCount;
-
     valueCount = oo->ValueCount;
-
-
     Int count;
-
     count = oo->Count;
-
-
     Int value;
-
     value = oo->Value;
-
-
     Bool alignLeft;
-
     alignLeft = oo->AlignLeft;
 
-
-
     Int fillCount;
-
     fillCount = 0;
-
-
     Int clampCount;
-
     clampCount = 0;
-
 
     if (valueCount < count)
     {
         fillCount = count - valueCount;
     }
 
-
     if (count < valueCount)
     {
         clampCount = valueCount - count;
     }
 
-
-
     Int varCase;
     varCase = oo->Case;
-
     Int fillChar;
     fillChar = oo->FillChar;
 
     Char fillCharU;
     fillCharU = fillChar;
 
-
     Char* dest;
     dest = CastPointer(result);
 
-
-
     Int fillStart;
-
     fillStart = 0;
-
-
-
     Int valueStart;
-
     valueStart = 0;
-
-
     Int valueIndex;
-
     valueIndex = 0;
-
-
 
     Int valueWriteCount;
     valueWriteCount = valueCount - clampCount;
@@ -350,29 +290,20 @@ Int Format_ArgResultBool(Int o, Int arg, Int result)
     if (alignLeft)
     {
         fillStart = valueWriteCount;
-
         valueStart = 0;
-
         valueIndex = 0;
     }
 
     if (!alignLeft)
     {
         fillStart = 0;
-
         valueStart = fillCount;
-
         valueIndex = clampCount;
     }
 
-
     Format_ResultBool(o, result, value, varCase, valueWriteCount, valueStart, valueIndex);
 
-
     Format_ResultFill(dest, fillStart, fillCount, fillCharU);
-
-
-
     return true;
 }
 
