@@ -554,151 +554,62 @@ Int Draw_ExecuteImage(Int o, Int image, Int destRect, Int sourceRect)
 Int Draw_ExecuteText(Int o, Int destRect, Int flag, Int text, Int boundRect)
 {
     Draw* m;
-
     m = CP(o);
-
-
-
-
-
-
     RectValue(dest);
 
-
-
-
     int l;
-
     int u;
-
     int w;
-
     int h;
-
-
-
     l = (int)destLeft;
-
     u = (int)destUp;
-
     w = (int)destWidth;
-
     h = (int)destHeight;
 
-
-
     int flagU;
-
     flagU = (int)flag;
 
-
-
-
-
-
     Int ua;
-
     ua = CastInt(m->InternText);
-
-
-
     String_QStringSetRaw(ua, text);
-
-
-
-
-
 
     QRect boundRectA;
 
-
-
-
     m->Intern->drawText(l, u, w, h, flagU, *(m->InternText), &boundRectA);
-
-
-
 
     m->InternText->setRawData(null, 0);
 
-
-
-
-
     int boundL;
-
     int boundU;
-
     int boundW;
-
     int boundH;
-
-
-
     boundL = boundRectA.left();
-
     boundU = boundRectA.top();
-
     boundW = boundRectA.width();
-
     boundH = boundRectA.height();
 
-
-
     SInt boundSL;
-
     SInt boundSU;
-
-
     boundSL = boundL;
-
     boundSU = boundU;
 
-
-
     Int boundLeft;
-
     Int boundUp;
-
     Int boundWidth;
-
     Int boundHeight;
-
-
-
     boundLeft = boundSL;
-
     boundUp = boundSU;
-
     boundWidth = boundW;
-
     boundHeight = boundH;
 
-
-
-
     Int boundPos;
-
     boundPos = Rect_PosGet(boundRect);
-
     Int boundSize;
-
     boundSize = Rect_SizeGet(boundRect);
-
-
-
     Pos_LeftSet(boundPos, boundLeft);
-
     Pos_UpSet(boundPos, boundUp);
-
-
     Size_WidthSet(boundSize, boundWidth);
-
     Size_HeightSet(boundSize, boundHeight);
-
-
-
-
     return true;
 }
 
