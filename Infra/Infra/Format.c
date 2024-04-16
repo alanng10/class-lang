@@ -827,31 +827,21 @@ Int Format_ResultInt(Int o, Int result, Int value, Int varBase, Int varCase, Int
     return true;
 }
 
-
-
-
 Int Format_ResultString(Int o, Int result, Int value, Int varCase, Int valueWriteCount, Int valueStart, Int valueIndex)
 {
     Char* source;
     source = CastPointer(value);
-
-
     Char* dest;
     dest = CastPointer(result);
 
-
     Char ouc;
     ouc = 0;
-
     Char oc;
     oc = 0;
-
     Int count;
     count = valueWriteCount;
-
     Int i;
     i = 0;
-
     while (i < count)
     {
         ouc = source[i + valueIndex];
@@ -865,7 +855,6 @@ Int Format_ResultString(Int o, Int result, Int value, Int varCase, Int valueWrit
                 oc = ouc - 'A' + 'a';
             }
         }
-
         if (varCase == 2)
         {
             if (!((ouc < 'a') | ('z' < ouc)))
@@ -876,36 +865,25 @@ Int Format_ResultString(Int o, Int result, Int value, Int varCase, Int valueWrit
 
         dest[i + valueStart] = oc;
 
-
         i = i + 1;
     }
-
-
     return true;
 }
-
-
 
 Int Format_ExecuteCount(Int o, Int varBase, Int argList)
 {
     Int count;
     count = Array_CountGet(argList);
-
     Int arg;
     arg = null;
-
     FormatArg* oa;
     oa = null;
-
     Int ka;
     ka = 0;
-
     Int k;
     k = 0;
-
     Bool b;
     b = false;
-
     Int i;
     i = 0;
     while (i < count)
@@ -928,22 +906,15 @@ Int Format_ExecuteCount(Int o, Int varBase, Int argList)
         i = i + 1;
     }
 
-
     Int baseCount;
     baseCount = String_CountGet(varBase);
 
     k = k + baseCount;
 
-
     Int a;
     a = k;
-
     return a;
 }
-
-
-
-
 
 Int Format_ExecuteResult(Int o, Int varBase, Int argList, Int result)
 {
