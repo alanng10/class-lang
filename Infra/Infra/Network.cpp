@@ -19,56 +19,27 @@ CppField(Network, Stream)
 Int Network_StatusGet(Int o)
 {
     Network* m;
-
     m = CP(o);
-
-
-
     Int socket;
-
     socket = m->OpenSocket;
-
-
-
     QIODevice* uu;
-
     uu = (QIODevice*)socket;
-
-
-
     QTcpSocket* u;
-
     u = (QTcpSocket*)uu;
 
-
-
-
     QAbstractSocket::SocketError error;
-
     error = u->error();
 
-
-
     int ua;
-
     ua = error;
-
     ua = ua + 2;
 
-
-
     Int a;
-
     a = ua;
-
-
     return a;
 }
 
-Int Network_StatusSet(Int o, Int value)
-{
-    return true;
-}
+FieldDefaultSet(Network, Status)
 
 Int Network_CaseGet(Int o)
 {
