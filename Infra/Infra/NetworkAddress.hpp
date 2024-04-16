@@ -15,4 +15,4 @@ struct NetworkAddress
 
 #define CP(a) ((NetworkAddress*)(a))
 
-Int NetworkAddress_SetValue(Int o, Int pointer, Int index, Int value, Int count);
+Int NetworkAddress_ValueSet(Int o, Int pointer, Int index, Int value, Int count);

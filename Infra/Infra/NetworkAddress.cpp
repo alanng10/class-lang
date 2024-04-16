@@ -96,13 +96,13 @@ Int NetworkAddress_Set(Int o)
 
 
 
-        NetworkAddress_SetValue(o, uu, 0, m->ValueA, 6);
+        NetworkAddress_ValueSet(o, uu, 0, m->ValueA, 6);
 
 
-        NetworkAddress_SetValue(o, uu, 6, m->ValueB, 6);
+        NetworkAddress_ValueSet(o, uu, 6, m->ValueB, 6);
 
 
-        NetworkAddress_SetValue(o, uu, 12, m->ValueC, 4);
+        NetworkAddress_ValueSet(o, uu, 12, m->ValueC, 4);
 
 
 
@@ -158,7 +158,7 @@ CppField(NetworkAddress, ValueA)
 CppField(NetworkAddress, ValueB)
 CppField(NetworkAddress, ValueC)
 
-Int NetworkAddress_SetValue(Int o, Int pointer, Int index, Int value, Int count)
+Int NetworkAddress_ValueSet(Int o, Int pointer, Int index, Int value, Int count)
 {
     Int* sourceU;
 
