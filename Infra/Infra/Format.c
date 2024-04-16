@@ -920,10 +920,8 @@ Int Format_ExecuteResult(Int o, Int varBase, Int argList, Int result)
 {
     Int baseCount;
     baseCount = String_CountGet(varBase);
-
     Int baseData;
     baseData = String_DataGet(varBase);
-
     Char* baseU;
     baseU = CastPointer(baseData);
 
@@ -932,52 +930,37 @@ Int Format_ExecuteResult(Int o, Int varBase, Int argList, Int result)
 
     Int resultData;
     resultData = String_DataGet(result);
-
     Char* resultU;
     resultU = CastPointer(resultData);
 
     Int count;
     count = baseCount + 1;
-
     Int resultIndex;
     resultIndex = 0;
-
     Int arg;
     arg = null;
-
     Int argIndex;
     argIndex = 0;
-
     FormatArg* oo;
     oo = null;
-
     Bool b;
     b = false;
-
     Int k;
     k = 0;
-
     Bool ba;
     ba = false;
-
     Int kind;
     kind = 0;
-
     Int countA;
     countA = 0;
-
     Char* ua;
     ua = null;
-
     Int oa;
     oa = null;
-
     Format_ArgResultMaide maide;
     maide = null;
-
     Int i;
     i = 0;
-
     while (i < count)
     {
         b = false;
@@ -995,22 +978,18 @@ Int Format_ExecuteResult(Int o, Int varBase, Int argList, Int result)
             if (ba)
             {
                 kind = oo->Kind;
-
                 countA = oo->Count;
 
                 ua = resultU + resultIndex;
-
                 oa = CastInt(ua);
 
                 maide = Format_Var_ArgResultMaideList[kind];
-
                 maide(o, arg, oa);
 
                 resultIndex = resultIndex + countA;
 
                 argIndex = argIndex + 1;
             }
-
             if (!ba)
             {
                 b = true;
@@ -1024,11 +1003,7 @@ Int Format_ExecuteResult(Int o, Int varBase, Int argList, Int result)
             resultIndex = resultIndex + 1;
         }
 
-
         i = i + 1;
     }
-
-
-
     return true;
 }
