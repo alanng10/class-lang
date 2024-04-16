@@ -1,220 +1,92 @@
 #include "Math.hpp"
 
-
-
-
 CppClassNew(Math)
-
-
-
-
-
-
 
 Int Math_Init(Int o)
 {
     return true;
 }
 
-
-
-
 Int Math_Final(Int o)
 {
     return true;
 }
 
-
-
-
-
-
 MathMethod(Sin, sin)
-
-
 MathMethod(Cos, cos)
-
-
 MathMethod(Tan, tan)
-
-
 MathMethod(ASin, asin)
-
-
 MathMethod(ACos, acos)
-
-
 MathMethod(ATan, atan)
-
-
-
 MathMethod(SinH, sinh)
-
-
 MathMethod(CosH, cosh)
-
-
 MathMethod(TanH, tanh)
-
-
 MathMethod(ASinH, asinh)
-
-
 MathMethod(ACosH, acosh)
-
-
 MathMethod(ATanH, atanh)
-
-
-
-
-
-
 
 Int Math_GetInternValue(Int o, Int a)
 {
     Int aa;
-
     Int ab;
-
     aa = 0;
-
     ab = 0;
-
-
-
     Int uoa;
-
     Int uob;
-
     uoa = CastInt(&aa);
-
     uob = CastInt(&ab);
-
-
 
     Math_Compose(o, a, uoa, uob);
 
-
-
     SInt oaa;
-
     SInt oab;
-
-
     oaa = aa;
-
     oab = ab;
 
-
-
-
     double uaa;
-
     uaa = oaa;
-
-
     int uab;
-
     uab = oab;
 
-
-
-
     double ou;
-
     ou = std::ldexp(uaa, uab);
 
-
-
-
-
-    Int u;
-
-
-    u = CastDoubleToInt(ou);
-
-
-
-    return u;
+    Int a;
+    a = CastDoubleToInt(ou);
+    return a;
 }
-
-
-
-
-
-
 
 Int Math_GetValueFromInternValue(Int o, Int a)
 {
     double ou;
-
     ou = CastIntToDouble(a);
 
-
-
     int exp;
-
     exp = 0;
 
-
-
     double uu;
-
     uu = std::frexp(ou, &exp);
 
-
-
-
-
     double uua;
-
     uua = std::ldexp(uu, 49);
 
-
-
     int expa;
-
     expa = exp - 49;
 
-
-
-
-
-
-
     SInt aa;
-
     aa = uua;
 
-
-
     SInt ab;
-
     ab = expa;
 
-
-
     Int oa;
-
     Int ob;
-
-
     oa = aa;
-
     ob = ab;
 
-
-
-
-    Int k;
-
-    k = Math_GetValueFromCompose(o, oa, ob);
-
-
-
-
-    return k;
+    Int a;
+    a = Math_GetValueFromCompose(o, oa, ob);
+    return a;
 }
 
 
