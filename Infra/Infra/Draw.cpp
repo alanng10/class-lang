@@ -207,132 +207,56 @@ Int Draw_CompositeSet(Int o, Int value)
 Int Draw_FillPosThisSet(Int o)
 {
     Draw* m;
-
     m = CP(o);
-
-
-
-
     Int left;
-
     Int up;
-
-
     left = Pos_LeftGet(m->FillPos);
-
     up = Pos_UpGet(m->FillPos);
 
-
-
-
     int leftU;
-
     int upU;
-
-
-
     leftU = left;
-
     upU = up;
-
-
-
-
     m->Intern->setBrushOrigin(leftU, upU);
-
-
-
-
     return true;
 }
-
-
-
-
-
 
 Int Draw_AreaThisSet(Int o)
 {
     Draw* m;
-
     m = CP(o);
-
-
-
-
-
     Int aRect;
-
     aRect = m->Area;
-
-
-
-
     RectValue(a);
 
-
-
-
-
     int l;
-
     int u;
-
     int w;
-
     int h;
-
-
-
     l = aLeft;
-
     u = aUp;
-
     w = aWidth;
-
     h = aHeight;
-
-
-
     if (l < 0)
     {
         l = 0;
     }
-
-
     if (u < 0)
     {
         u = 0;
     }
-
-
     if (w < 0)
     {
         w = 0;
     }
-
-
     if (h < 0)
     {
         h = 0;
     }
 
-
-
-
     m->Intern->setWorldMatrixEnabled(false);
-
-
-
     m->Intern->setClipRect(l, u, w, h, Qt::ReplaceClip);
-
-
-
     m->Intern->setWorldMatrixEnabled(true);
-
-
-
-
     return true;
 }
 
