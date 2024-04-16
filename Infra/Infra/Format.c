@@ -382,15 +382,11 @@ Int Format_ArgResultInt(Int o, Int arg, Int result)
 Int Format_ArgResultSInt(Int o, Int arg, Int result)
 {
     FormatArg* oo;
-
     oo = CastPointer(arg);
-
     Int valueCount;
     valueCount = oo->ValueCount;
-
     Int count;
     count = oo->Count;
-
     Int value;
     value = oo->Value;
 
@@ -399,7 +395,6 @@ Int Format_ArgResultSInt(Int o, Int arg, Int result)
 
     Int fillCount;
     fillCount = 0;
-
     Int clampCount;
     clampCount = 0;
 
@@ -418,10 +413,8 @@ Int Format_ArgResultSInt(Int o, Int arg, Int result)
 
     Int varBase;
     varBase = oo->Base;
-
     Int varCase;
     varCase = oo->Case;
-
     Int fillChar;
     fillChar = oo->FillChar;
 
@@ -430,13 +423,10 @@ Int Format_ArgResultSInt(Int o, Int arg, Int result)
 
     Int fillStart;
     fillStart = 0;
-
     Int valueStart;
     valueStart = 0;
-
     Int valueIndex;
     valueIndex = 0;
-
 
     Int sign;
     sign = oo->Sign;
@@ -552,9 +542,7 @@ Int Format_ArgResultSInt(Int o, Int arg, Int result)
         }
     }
 
-
     Format_ResultInt(o, result, ua, varBase, varCase, ub, unsignedWriteCount, valueStart, valueIndex);
-
 
     if (ba)
     {
@@ -569,10 +557,7 @@ Int Format_ArgResultSInt(Int o, Int arg, Int result)
         dest[signIndex] = ooc;
     }
 
-
     Format_ResultFill(dest, fillStart, fillCount, fillCharU);
-
-
     return true;
 }
 
