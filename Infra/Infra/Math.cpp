@@ -152,123 +152,54 @@ Int Math_Compose(Int o, Int value, Int significand, Int exponent)
     return true;
 }
 
-
-
-
-
-
-
 Int Math_Value(Int o, Int significand, Int exponent)
 {
     SInt aa;
-
     aa = significand;
-
     aa = aa << 4;
-
     aa = aa >> 4;
-
-
-
     SInt ab;
-
     ab = exponent;
-
     ab = ab << 4;
-
     ab = ab >> 4;
 
-
-
-
-
     double uaa;
-
     uaa = aa;
-
-
     int uab;
-
     uab = ab;
 
-
-
-
     double oo;
-
     oo = std::ldexp(uaa, uab);
-
-
-
-
-
 
     End
 }
-
-
-
-
-
 
 
 Int Math_ValueTen(Int o, Int significand, Int exponentTen)
 {
     SInt aa;
-
     aa = significand;
-
     aa = aa << 4;
-
     aa = aa >> 4;
-
-
-
     SInt ab;
-
     ab = exponentTen;
-
     ab = ab << 4;
-
     ab = ab >> 4;
 
-
-
-
     double uua;
-
     uua = 10;
-
-
-
     double au;
-
     au = ab;
 
-
-
     double uu;
-
     uu = std::pow(uua, au);
 
-
-
     double u;
-
     u = aa;
-
     u = u * uu;
 
-
-
-
     double oo;
-
     oo = u;
-
-
-
 
     End
 }
-
