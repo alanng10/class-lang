@@ -178,58 +178,29 @@ CppFieldGet(Draw, Composite)
 Int Draw_CompositeSet(Int o, Int value)
 {
     Draw* m;
-
     m = CP(o);
-
-
-
-
     m->Composite = value;
-
-
-
     if (m->Composite == null)
     {
         m->Intern->setCompositionMode(QPainter::CompositionMode_SourceOver);
-
-
         return true;
     }
 
-
-
-
     Int k;
-
     k = m->Composite - 1;
-
-
-
     QPainter::CompositionMode u;
-
     u = (QPainter::CompositionMode)k;
-
-
-
 
     if (!(m->OutAlpha))
     {
         if (!((u < QPainter::CompositionMode_Source) | (QPainter::CompositionMode_DestinationAtop < u)))
         {
             m->Intern->setCompositionMode(QPainter::CompositionMode_SourceOver);
-
-
             return true;
         }
     }
 
-
-
     m->Intern->setCompositionMode(u);
-
-
-
-
     return true;
 }
 
