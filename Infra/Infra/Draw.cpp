@@ -263,132 +263,53 @@ Int Draw_AreaThisSet(Int o)
 Int Draw_Clear(Int o, Int color)
 {
     Draw* m;
-
     m = CP(o);
-
-
-
-
     Int size;
-
     size = m->Size;
-
-
-
     Int width;
-
     Int height;
-
-
     width = Size_WidthGet(size);
-
     height = Size_HeightGet(size);
 
-
-
     int w;
-
     int h;
-
-
     w = width;
-
     h = height;
 
-
-
-
-
     Int32 uu;
-
     uu = (Int32)color;
-
-
-
     QRgb kk;
-
     kk = uu;
-
-
-
     QColor colorU;
-
     colorU = QColor(kk);
 
-
-
-
-
     m->Intern->fillRect(0, 0, w, h, colorU);
-
-
-
-
-
-
     return true;
 }
 
 Int Draw_ExecuteLine(Int o, Int startPos, Int endPos)
 {
     Draw* m;
-
     m = CP(o);
 
-
-
-
     Int startLeft;
-
     Int startUp;
-
-
     startLeft = Pos_LeftGet(startPos);
-
     startUp = Pos_UpGet(startPos);
-
-
-
-
     Int endLeft;
-
     Int endUp;
-
-
     endLeft = Pos_LeftGet(endPos);
-
     endUp = Pos_UpGet(endPos);
 
-
-
-
-
     int sl;
-
     int su;
-
     int el;
-
     int eu;
-
-
-
     sl = (int)startLeft;
-
     su = (int)startUp;
-
     el = (int)endLeft;
-
     eu = (int)endUp;
-
-
-
-
     m->Intern->drawLine(sl, su, el, eu);
-
-
-
-
     return true;
 }
 
