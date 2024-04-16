@@ -5,92 +5,34 @@ CppClassNew(Draw)
 Int Draw_Init(Int o)
 {
     Draw* m;
-
     m = CP(o);
 
-
-
-
-
-
-    m->InternIdentityTransform = new QTransform();
-
-
-
-
-
+    m->InternIdentityTransform = new QTransform;
 
     QString* uu;
-
-    uu = new QString();
-
-
+    uu = new QString;
     uu->setRawData(null, 0);
-
-
-
     m->InternText = uu;
 
-
-
-
-
     QFont* ua;
-
     ua = new QFont(QApplication::font());
-
-
-
     m->InternDefaultFont = ua;
 
-
-
-
-
     QPainter* u;
-
-    u = new QPainter();
-
-
-
+    u = new QPainter;
     m->Intern = u;
-
-
-
-
     return true;
 }
 
 Int Draw_Final(Int o)
 {
     Draw* m;
-
     m = CP(o);
 
-
-
-
     delete m->Intern;
-
-
-
-
     delete m->InternDefaultFont;
-
-
-
-
     delete m->InternText;
-
-
-
-
     delete m->InternIdentityTransform;
-
-
-
-
-
     return true;
 }
 
@@ -100,56 +42,26 @@ CppFieldGet(Draw, Out)
 Int Draw_OutSet(Int o, Int value)
 {
     Draw* m;
-
     m = CP(o);
 
-
-
-
     Int oa;
-
     oa = value;
 
-
-
     Int alphaFlag;
-
     alphaFlag = 1;
-
     alphaFlag = alphaFlag << 59;
 
-
-
-
     Bool b;
-
     b = !((oa & alphaFlag) == 0);
 
-
-
-
     Int ob;
-
     ob = alphaFlag;
-
     ob = ~ob;
-
-
-
 
     oa = oa & ob;
 
-
-
     m->OutAlpha = b;
-
-
-
     m->Out = oa;
-
-
-
-
     return true;
 }
 
@@ -158,50 +70,21 @@ CppField(Draw, Area)
 Int Draw_Start(Int o)
 {
     Draw* m;
-
     m = CP(o);
-
-
-
-
-
     Int out;
-
     out = m->Out;
 
-
-
-
-
     QPaintDevice* uu;
-
-
     uu = (QPaintDevice*)(out);
-
-
-
     m->Intern->begin(uu);
-
-
-
-
-
     return true;
 }
 
 Int Draw_End(Int o)
 {
     Draw* m;
-
     m = CP(o);
-
-
-
     m->Intern->end();
-
-
-
-
     return true;
 }
 
