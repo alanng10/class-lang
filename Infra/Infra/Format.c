@@ -761,16 +761,10 @@ Int Format_ResultBool(Int o, Int result, Int value, Int varCase, Int valueWriteC
     return true;
 }
 
-
-
 Int Format_ResultInt(Int o, Int result, Int value, Int varBase, Int varCase, Int valueCount, Int valueWriteCount, Int valueStart, Int valueIndex)
 {
     Char* dest;
-
     dest = CastPointer(result);
-
-
-
 
     if (value == 0)
     {
@@ -778,109 +772,58 @@ Int Format_ResultInt(Int o, Int result, Int value, Int varBase, Int varCase, Int
         {
             dest[valueStart] = '0';
         }
-
-
         return true;
     }
 
-
-
-
     Int end;
-
     end = valueIndex + valueWriteCount;
 
-
-
     Int k;
-
     k = value;
-
-
     Int j;
-
     j = 0;
-
-
     Int digit;
-
     digit = 0;
-
-
     Int oa;
-
     oa = 0;
-
-
     Char c;
-
     c = 0;
-
-
-
     Bool upperCase;
-
     upperCase = varCase;
-
-
     Char letterDigitStart;
-
     letterDigitStart = 'a';
-
-
     if (upperCase)
     {
         letterDigitStart = 'A';
     }
 
-
-
     Int index;
-
     index = 0;
-
-
     Int count;
-
     count = valueCount;
-
-
     Int i;
-
     i = 0;
-
     while (i < count)
     {
         j = k / varBase;
 
-
         digit = k - j * varBase;
 
-
         index = count - 1 - i;
-
 
         if ((!(index < valueIndex)) && index < end)
         {
             Format_IntDigit(digit);
 
-
             oa = index - valueIndex;
-
 
             dest[valueStart + oa] = c;
         }
 
-
         k = j;
-
 
         i = i + 1;
     }
-
-
-
-
     return true;
 }
 
