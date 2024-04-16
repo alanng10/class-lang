@@ -13,7 +13,6 @@ typedef struct
     Int Case;
     Int Base;
     Int Sign;
-    Int Precision;
     Int FillChar;
     Int HasCount;
     Int ValueCount;
