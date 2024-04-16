@@ -709,14 +709,10 @@ Int Format_ArgResultChar(Int o, Int arg, Int result)
     return true;
 }
 
-
-
-
 Int Format_ResultBool(Int o, Int result, Int value, Int varCase, Int valueWriteCount, Int valueStart, Int valueIndex)
 {
     Char* dest;
     dest = CastPointer(result);
-
 
     Bool valueBool;
     valueBool = value;
@@ -729,32 +725,22 @@ Int Format_ResultBool(Int o, Int result, Int value, Int varCase, Int valueWriteC
         source = Format_Var_TrueString;
     }
 
-
     char ouc;
     ouc = 0;
-
     Char oc;
     oc = 0;
-
     Int index;
     index = 0;
-
     Int count;
     count = valueWriteCount;
-
     Int i;
     i = 0;
-
     while (i < count)
     {
         index = i + valueIndex;
 
-
         ouc = source[index];
-
-
         oc = ouc;
-
 
         if (varCase == 1)
         {
@@ -763,8 +749,6 @@ Int Format_ResultBool(Int o, Int result, Int value, Int varCase, Int valueWriteC
                 oc = ouc - 'a' + 'A';
             }
         }
-
-
         if (varCase == 2)
         {
             oc = ouc - 'a' + 'A';
@@ -774,7 +758,6 @@ Int Format_ResultBool(Int o, Int result, Int value, Int varCase, Int valueWriteC
 
         i = i + 1;
     }
-
     return true;
 }
 
