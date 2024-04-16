@@ -44,306 +44,117 @@ FieldDefaultSet(Network, Status)
 Int Network_CaseGet(Int o)
 {
     Network* m;
-
     m = CP(o);
-
-
-
     Int socket;
-
     socket = m->OpenSocket;
-
-
-
     QIODevice* uu;
-
     uu = (QIODevice*)socket;
-
-
-
     QTcpSocket* u;
-
     u = (QTcpSocket*)uu;
 
-
-
     QAbstractSocket::SocketState state;
-
     state = u->state();
 
-
-
     Int oo;
-
     oo = state;
-
     oo = oo + 1;
 
-
-
     Int a;
-
     a = oo;
-
-
     return a;
 }
 
-Int Network_CaseSet(Int o, Int value)
-{
-    return true;
-}
+FieldDefaultSet(Network, Case)
 
 Int Network_Open(Int o)
 {
     Network* m;
-
     m = CP(o);
-
-
-
     Int hostName;
-
     hostName = m->HostName;
-
-
-
     Int port;
-
     port = m->Port;
 
-
-
-
-
     QString hostNameU;
-
-
-
     Int uu;
-
     uu = CastInt(&hostNameU);
-
-
-
-
     String_QStringSet(uu, hostName);
 
-
-
-
     quint16 portU;
-
     portU = port;
 
-
-
-
-
     QTcpSocket* socket;
-
-
     socket = new QTcpSocket;
-
-
-
-
+    
     QIODevice* ua;
-
     ua = socket;
-
-
-
-
     Int oa;
-
     oa = CastInt(ua);
-
-
-
-
     m->OpenSocket = oa;
 
-
-
-
-
     NetworkHandle* handle;
-
     handle = new NetworkHandle;
-
-
     handle->Network = o;
-
-
     handle->Init();
-
-
-
-
     m->Handle = handle;
 
-
-
-
-
     socket->connectToHost(hostNameU, portU);
-
-
-
-
-
     return true;
 }
 
 Int Network_ConnectedOpen(Int o)
 {
     Network* m;
-
     m = CP(o);
-
-
-
-
     Int stream;
-
     stream = m->Stream;
-
-
-
     Int socket;
-
     socket = m->OpenSocket;
 
-
-
-
     Int share;
-
-
     share = Infra_Share();
-
-
-
     Int stat;
-
     stat = Share_Stat(share);
-
-
-
-
     Int kind;
-
     kind = Stat_StreamKindNetwork(stat);
 
-
-
-
     Bool canRead;
-
     canRead = true;
-
-
-
     Bool canWrite;
-
     canWrite = true;
 
-
-
-
     Stream_KindSet(stream, kind);
-
-
     Stream_ValueSet(stream, socket);
-
-
-
     Stream_CanReadSet(stream, canRead);
-
-
     Stream_CanWriteSet(stream, canWrite);
-
-
-
-
-
     return true;
 }
 
 Int Network_Close(Int o)
 {
     Network* m;
-
     m = CP(o);
-
-
-
-
     Int stream;
-
     stream = m->Stream;
-
-
-
-
     Int openSocket;
-
     openSocket = m->OpenSocket;
 
-
-
-
     QIODevice* oo;
-
-
     oo = (QIODevice*)openSocket;
 
-
-
-
     QTcpSocket* socket;
-
-
     socket = (QTcpSocket*)oo;
-
-
-
     socket->close();
-
-
-
 
     delete socket;
 
-
-
-
     delete m->Handle;
 
-
-
-
-
     Stream_KindSet(stream, null);
-
-
-
     Stream_ValueSet(stream, null);
 
-
-
-
     m->OpenSocket = null;
-
-
-
     m->Handle = null;
-
-
-
-
-
     return true;
 }
 
