@@ -22,13 +22,8 @@ Format_ArgResultMaide Format_Var_ArgResultMaideList[KindCount] =
     &Format_ArgResultChar,
 };
 
-
-
 const char* Format_Var_TrueString = "true";
-
 const char* Format_Var_FalseString = "false";
-
-
 
 Int Format_Init(Int o)
 {
@@ -39,8 +34,6 @@ Int Format_Final(Int o)
 {
     return true;
 }
-
-
 
 Int Format_ExecuteArgCount(Int o, Int arg)
 {
@@ -90,82 +83,42 @@ Int Format_ExecuteArgCount(Int o, Int arg)
     return true;
 }
 
-
-
 Int Format_ArgValueCountBool(Int o, Int arg)
 {
     FormatArg* oo;
-
     oo = CastPointer(arg);
 
-
-
     Bool b;
-
     b = oo->Value;
 
-
-
     Int count;
-
     count = 5;
-
-
     if (b)
     {
         count = 4;
     }
 
-
-
-
     Int a;
-
     a = count;
-
-
     return a;
 }
-
-
-
-
-
 
 Int Format_ArgValueCountInt(Int o, Int arg)
 {
     FormatArg* oo;
-
     oo = CastPointer(arg);
-
-
     Int value;
-
     value = oo->Value;
-
-
     Int base;
-
     base = oo->Base;
 
-
-
     Int count;
-
     count = Format_IntDigitCount(o, value, base);
 
-
-
     Int a;
-
     a = count;
-
-
     return a;
 }
-
-
-
 
 Int Format_ArgValueCountSInt(Int o, Int arg)
 {
@@ -174,10 +127,8 @@ Int Format_ArgValueCountSInt(Int o, Int arg)
 
     Int value;
     value = oo->Value;
-
     Int base;
     base = oo->Base;
-
     Int sign;
     sign = oo->Sign;
 
@@ -206,7 +157,6 @@ Int Format_ArgValueCountSInt(Int o, Int arg)
             hasSign = true;
         }
     }
-
     if (b)
     {
         hasSign = true;
@@ -230,96 +180,45 @@ Int Format_ArgValueCountSInt(Int o, Int arg)
 
     Int a;
     a = count;
-
     return a;
 }
-
-
-
-
 
 Int Format_ArgValueCountString(Int o, Int arg)
 {
     FormatArg* oo;
-
     oo = CastPointer(arg);
-
-
-
     Int a;
-
     a = String_CountGet(oo->Value);
-
-
-
     return a;
 }
-
-
-
-
-
 
 Int Format_ArgValueCountChar(Int o, Int arg)
 {
     Int a;
-
     a = 1;
-
-
-
     return a;
 }
-
-
-
-
-
-
-
 
 Int Format_IntDigitCount(Int o, Int value, Int varBase)
 {
     Int digitCount;
-
     digitCount = 0;
 
-
-
-
     Int oa;
-
     oa = value;
-
-
-
-
     while (0 < oa)
     {
         oa = oa / varBase;
-
-
-
         digitCount = digitCount + 1;
     }
-
-
-
-
 
     if (digitCount == 0)
     {
         digitCount = 1;
     }
 
-
-
     Int a;
-
     a = digitCount;
-
-
-
     return a;
 }
 
