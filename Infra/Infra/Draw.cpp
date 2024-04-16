@@ -616,16 +616,8 @@ Int Draw_ExecuteText(Int o, Int destRect, Int flag, Int text, Int boundRect)
 Int Draw_Intern(Int o)
 {
     Draw* m;
-
     m = CP(o);
-
-
-
-    Int u;
-
-    u = CastInt(m->Intern);
-
-
-
-    return u;
+    Int a;
+    a = CastInt(m->Intern);
+    return a;
 }
