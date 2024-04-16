@@ -561,59 +561,32 @@ Int Format_ArgResultSInt(Int o, Int arg, Int result)
     return true;
 }
 
-
-
-
 Int Format_ArgResultString(Int o, Int arg, Int result)
 {
     FormatArg* oo;
-
     oo = CastPointer(arg);
-
-
-
     Int valueCount;
-
     valueCount = oo->ValueCount;
-
-
     Int count;
-
     count = oo->Count;
-
-
     Int value;
-
     value = oo->Value;
 
-
     Int valueData;
-
     valueData = String_DataGet(value);
 
-
-
     Bool alignLeft;
-
     alignLeft = oo->AlignLeft;
 
-
-
     Int fillCount;
-
     fillCount = 0;
-
-
     Int clampCount;
-
     clampCount = 0;
-
 
     if (valueCount < count)
     {
         fillCount = count - valueCount;
     }
-
 
     if (count < valueCount)
     {
@@ -622,7 +595,6 @@ Int Format_ArgResultString(Int o, Int arg, Int result)
 
     Int varCase;
     varCase = oo->Case;
-
     Int fillChar;
     fillChar = oo->FillChar;
 
@@ -634,10 +606,8 @@ Int Format_ArgResultString(Int o, Int arg, Int result)
 
     Int fillStart;
     fillStart = 0;
-
     Int valueStart;
     valueStart = 0;
-
     Int valueIndex;
     valueIndex = 0;
 
@@ -647,47 +617,33 @@ Int Format_ArgResultString(Int o, Int arg, Int result)
     if (alignLeft)
     {
         fillStart = valueWriteCount;
-
         valueStart = 0;
-
         valueIndex = 0;
     }
 
     if (!alignLeft)
     {
         fillStart = 0;
-
         valueStart = fillCount;
-
         valueIndex = clampCount;
     }
 
-
     Format_ResultString(o, result, valueData, varCase, valueWriteCount, valueStart, valueIndex);
 
-
     Format_ResultFill(dest, fillStart, fillCount, fillCharU);
-
-
-
     return true;
 }
-
 
 Int Format_ArgResultChar(Int o, Int arg, Int result)
 {
     FormatArg* oo;
     oo = CastPointer(arg);
-
     Int valueCount;
     valueCount = oo->ValueCount;
-
     Int count;
     count = oo->Count;
-
     Int value;
     value = oo->Value;
-
     Char valueChar;
     valueChar = value;
 
@@ -696,7 +652,6 @@ Int Format_ArgResultChar(Int o, Int arg, Int result)
 
     Int fillCount;
     fillCount = 0;
-
     Int clampCount;
     clampCount = 0;
 
@@ -712,7 +667,6 @@ Int Format_ArgResultChar(Int o, Int arg, Int result)
 
     Int varCase;
     varCase = oo->Case;
-
     Int fillChar;
     fillChar = oo->FillChar;
 
@@ -727,10 +681,8 @@ Int Format_ArgResultChar(Int o, Int arg, Int result)
 
     Int fillStart;
     fillStart = 0;
-
     Int valueStart;
     valueStart = 0;
-
     Int valueIndex;
     valueIndex = 0;
 
@@ -740,28 +692,20 @@ Int Format_ArgResultChar(Int o, Int arg, Int result)
     if (alignLeft)
     {
         fillStart = valueWriteCount;
-
         valueStart = 0;
-
         valueIndex = 0;
     }
 
     if (!alignLeft)
     {
         fillStart = 0;
-
         valueStart = fillCount;
-
         valueIndex = clampCount;
     }
 
-
     Format_ResultString(o, result, valueData, varCase, valueWriteCount, valueStart, valueIndex);
 
-
     Format_ResultFill(dest, fillStart, fillCount, fillCharU);
-
-
     return true;
 }
 
