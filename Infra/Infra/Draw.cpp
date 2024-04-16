@@ -291,7 +291,6 @@ Int Draw_ExecuteLine(Int o, Int startPos, Int endPos)
 {
     Draw* m;
     m = CP(o);
-
     Int startLeft;
     Int startUp;
     startLeft = Pos_LeftGet(startPos);
