@@ -25,7 +25,7 @@ MathMethod(ASinH, asinh)
 MathMethod(ACosH, acosh)
 MathMethod(ATanH, atanh)
 
-Int Math_GetInternValue(Int o, Int a)
+Int Math_GetInternValue(Int o, Int value)
 {
     Int aa;
     Int ab;
@@ -36,7 +36,7 @@ Int Math_GetInternValue(Int o, Int a)
     uoa = CastInt(&aa);
     uob = CastInt(&ab);
 
-    Math_Compose(o, a, uoa, uob);
+    Math_Compose(o, value, uoa, uob);
 
     SInt oaa;
     SInt oab;
@@ -56,10 +56,10 @@ Int Math_GetInternValue(Int o, Int a)
     return a;
 }
 
-Int Math_GetValueFromInternValue(Int o, Int a)
+Int Math_GetValueFromInternValue(Int o, Int u)
 {
     double ou;
-    ou = CastIntToDouble(a);
+    ou = CastIntToDouble(u);
 
     int exp;
     exp = 0;
