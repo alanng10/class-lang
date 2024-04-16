@@ -412,53 +412,21 @@ Int Draw_ExecutePie(Int o, Int rect, Int angleRange)
 Int Draw_ExecuteEllipse(Int o, Int rect)
 {
     Draw* m;
-
     m = CP(o);
-
-
-
-
-
     Int aRect;
-
     aRect = rect;
-
-
-
     RectValue(a);
 
-
-
-
     int l;
-
     int u;
-
     int w;
-
     int h;
-
-
-
     l = (int)aLeft;
-
     u = (int)aUp;
-
     w = (int)aWidth;
-
     h = (int)aHeight;
 
-
-
-
-
-
     m->Intern->drawEllipse(l, u, w, h);
-
-
-
-
-
     return true;
 }
 
