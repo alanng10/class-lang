@@ -129,10 +129,7 @@ Int Image_RowByteCountGet(Int o)
     return a;
 }
 
-Int Image_RowByteCountSet(Int o, Int value)
-{
-    return true;
-}
+FieldDefaultSet(Image, RowByteCount);
 
 Int Image_VideoOutSet(Int o)
 {
