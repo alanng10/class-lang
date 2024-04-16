@@ -316,7 +316,6 @@ Int Draw_ExecuteArc(Int o, Int rect, Int angleRange)
 {
     Draw* m;
     m = CP(o);
-
     Int aRect;
     aRect = rect;
     RectValue(a);
