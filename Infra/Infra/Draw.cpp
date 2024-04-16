@@ -348,44 +348,19 @@ Int Draw_ExecuteArc(Int o, Int rect, Int angleRange)
 Int Draw_ExecuteChord(Int o, Int rect, Int angleRange)
 {
     Draw* m;
-
     m = CP(o);
-
-
-
-
-
     Int aRect;
-
     aRect = rect;
-
-
-
     RectValue(a);
 
-
-
-
     int l;
-
     int u;
-
     int w;
-
     int h;
-
-
-
     l = (int)aLeft;
-
     u = (int)aUp;
-
     w = (int)aWidth;
-
     h = (int)aHeight;
-
-
-
 
     Int angleStart;
     Int angleCount;
@@ -405,44 +380,19 @@ Int Draw_ExecuteChord(Int o, Int rect, Int angleRange)
 Int Draw_ExecutePie(Int o, Int rect, Int angleRange)
 {
     Draw* m;
-
     m = CP(o);
-
-
-
-
-
     Int aRect;
-
     aRect = rect;
-
-
-
     RectValue(a);
 
-
-
-
     int l;
-
     int u;
-
     int w;
-
     int h;
-
-
-
     l = (int)aLeft;
-
     u = (int)aUp;
-
     w = (int)aWidth;
-
     h = (int)aHeight;
-
-
-
 
     Int angleStart;
     Int angleCount;
