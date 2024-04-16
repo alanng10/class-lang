@@ -433,48 +433,21 @@ Int Draw_ExecuteEllipse(Int o, Int rect)
 Int Draw_ExecuteRect(Int o, Int rect)
 {
     Draw* m;
-
     m = CP(o);
-
-
-
-
     Int aRect;
-
     aRect = rect;
-
-
-
     RectValue(a);
 
-
-
-
     int l;
-
     int u;
-
     int w;
-
     int h;
-
-
-
     l = (int)aLeft;
-
     u = (int)aUp;
-
     w = (int)aWidth;
-
     h = (int)aHeight;
 
-
-
     m->Intern->drawRect(l, u, w, h);
-
-
-
-
     return true;
 }
 
