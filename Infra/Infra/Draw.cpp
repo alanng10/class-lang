@@ -156,49 +156,19 @@ CppFieldGet(Draw, Transform)
 Int Draw_TransformSet(Int o, Int value)
 {
     Draw* m;
-
     m = CP(o);
-
-
-
-
     m->Transform = value;
-
-
-
-
     if (m->Transform == null)
     {
         m->Intern->setWorldTransform((*(m->InternIdentityTransform)), false);
-
-
         return true;
     }
 
-
-
-
-
     Int u;
-
     u = Transform_Intern(m->Transform);
-
-
-
     QTransform* uu;
-
-
     uu = (QTransform*)u;
-
-
-
-
-
     m->Intern->setWorldTransform(*uu, false);
-
-
-
-
     return true;
 }
 
