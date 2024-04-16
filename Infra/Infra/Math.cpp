@@ -89,145 +89,66 @@ Int Math_GetValueFromInternValue(Int o, Int a)
     return a;
 }
 
-
-
-
-
-
 Int Math_GetValueFromCompose(Int o, Int significand, Int exponent)
 {
     SInt aa;
-
     aa = significand;
-
     aa = aa << 4;
-
     aa = aa >> 4;
 
-
-
     SInt ab;
-
     ab = exponent;
-
     ab = ab << 4;
-
     ab = ab >> 4;
 
-
-
-
     Int ka;
-
     ka = 1;
-
     ka = ka << 50;
-
-
     Int kaa;
-
     kaa = ka - 1;
 
-
-
     Int kb;
-
     kb = 1;
-
     kb = kb << 10;
-
-
     Int kab;
-
     kab = kb - 1;
 
-
-
     Int ku;
-
     ku = ab;
-
     ku = ku & kab;
-
     ku = ku << 50;
 
-
-
-
     Int k;
-
     k = aa;
-
-
     k = k & kaa;
-
     k = k | ku;
-
-
-
-
     return k;
 }
-
-
-
-
 
 Int Math_Compose(Int o, Int value, Int significand, Int exponent)
 {
     SInt aa;
-
     aa = value;
-
     aa = aa << 14;
-
     aa = aa >> 14;
 
-
-
-
-
     SInt ab;
-
     ab = value;
-
     ab = ab << 4;
-
     ab = ab >> 54;
 
-
-
-
     Int oa;
-
     Int ob;
-
-
     oa = aa;
-
     ob = ab;
 
-
-
-
     Int* ua;
-
     ua = (Int*)significand;
-
-
     Int* ub;
-
     ub = (Int*)exponent;
 
-
-
     *ua = oa;
-
-
     *ub = ob;
-
-
-
     return true;
 }
 
