@@ -142,86 +142,40 @@ CppField(Process, FinishedState)
 Int Process_Started(Int o)
 {
     Process* m;
-
     m = CP(o);
-
-
-
     Int state;
-
     state = m->StartedState;
-
-
-
     Int aa;
-
     aa = State_MaideGet(state);
-
-
     Int arg;
-
     arg = State_ArgGet(state);
 
-
-
-
     Process_Started_Maide maide;
-
     maide = (Process_Started_Maide)aa;
-
-
-
     if (!(maide == null))
     {
         maide(o, arg);
     }
-
-
-
-
     return true;
 }
 
 Int Process_Finished(Int o)
 {
     Process* m;
-
     m = CP(o);
-
-
-
     Int state;
-
     state = m->FinishedState;
-
-
-
     Int aa;
-
     aa = State_MaideGet(state);
-
-
     Int arg;
-
     arg = State_ArgGet(state);
 
-
-
-
     Process_Finished_Maide maide;
-
     maide = (Process_Finished_Maide)aa;
-
-
-
     if (!(maide == null))
     {
         maide(o, arg);
     }
-
-
-
-
     return true;
 }
 
