@@ -182,159 +182,68 @@ Int Process_Finished(Int o)
 Int Process_InternSetArgue(Int result, Int argue)
 {
     QStringList* uu;
-
     uu = (QStringList*)result;
-
-
-
     *uu = QStringList();
 
-
-
-
     Int count;
-
     count = Array_CountGet(argue);
 
-
-
     qsizetype countU;
-
     countU = count;
-
 
     uu->reserve(countU);
 
-
-
     Int item;
-
     item = null;
-
-
-
     Int i;
-
     i = 0;
-
-
     while (i < count)
     {
         item = Array_ItemGet(argue, i);
 
-
-
         QString aa;
-
-
-
         Int ua;
-
         ua = CastInt(&aa);
-
-
-
         String_QStringSet(ua, item);
 
-
-
         uu->append(aa);
-
-
-
-
         i = i + 1;
     }
-
-
-
     return true;
 }
-
-
-
-
-
 
 Int Process_InternSetEnvironment(Int result, Int environment)
 {
     QProcessEnvironment* uu;
-
     uu = (QProcessEnvironment*)result;
 
-
-
-
     Int count;
-
     count = Array_CountGet(environment);
 
-
-
     Int i;
-
     i = 0;
-
-
     while (i < count)
     {
         Int entry;
-
         entry = Array_ItemGet(environment, i);
 
-
-
-
         Int index;
-
         index = Entry_IndexGet(entry);
-
-
         Int value;
-
         value = Entry_ValueGet(entry);
 
-
-
-
         QString indexU;
-
-
         Int ua;
-
         ua = CastInt(&indexU);
-
-
         String_QStringSet(ua, index);
 
-
-
-
         QString valueU;
-
-
         Int ub;
-
         ub = CastInt(&valueU);
-
-
         String_QStringSet(ub, value);
 
-
-
-
-
         uu->insert(indexU, valueU);
-
-
-
-
-
         i = i + 1;
     }
-
-
-
-
     return true;
 }
