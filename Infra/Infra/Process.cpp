@@ -5,37 +5,19 @@ CppClassNew(Process)
 Int Process_Init(Int o)
 {
     Process* m;
-
     m = CP(o);
-
-
-
     m->Intern = new ProcessIntern;
-
-
     m->Intern->Process = o;
-
-
     m->Intern->Init();
-
-
-
-
     return true;
 }
 
 Int Process_Final(Int o)
 {
     Process* m;
-
     m = CP(o);
 
-
-
     delete m->Intern;
-
-
-
     return true;
 }
 
@@ -47,275 +29,113 @@ CppField(Process, Environment)
 Int Process_Execute(Int o)
 {
     Process* m;
-
     m = CP(o);
-
-
-
-
     Int program;
-
     program = m->Program;
-
-
-
     Int argue;
-
     argue = m->Argue;
-
-
-
     Int workFold;
-
     workFold = m->WorkFold;
-
-
-
     Int environment;
-
     environment = m->Environment;
 
-
-
-
-
     QString programU;
-
-
     Int ua;
-
     ua = CastInt(&programU);
-
-
-
     String_QStringSet(ua, program);
 
-
-
-
-
     QStringList argueU;
-
-
     Int ub;
-
     ub = CastInt(&argueU);
-
-
-
     Process_InternSetArgue(ub, argue);
 
-
-
-
-
     QString workFoldU;
-
-
-
     Bool ba;
-
     ba = (workFold == null);
-
-
-
     if (ba)
     {
         workFoldU = "";
     }
-
-
-
     if (!ba)
     {
         Int uc;
-
         uc = CastInt(&workFoldU);
-
-
-
         String_QStringSet(uc, workFold);
     }
 
-
-
-
-
     QProcessEnvironment environmentU;
-
-
     environmentU = QProcessEnvironment::systemEnvironment();
-
-
-
     Bool bb;
-
     bb = (environment == null);
-
-
     if (!bb)
     {
         Int ud;
-
         ud = CastInt(&environmentU);
-
-
-
         Process_InternSetEnvironment(ud, environment);
     }
 
-
-
-
-
     m->Intern->setProgram(programU);
-
-
-
     m->Intern->setArguments(argueU);
-
-
-
     m->Intern->setWorkingDirectory(workFoldU);
-
-
-
     m->Intern->setProcessEnvironment(environmentU);
-
-
-
-
     m->Intern->start();
-
-
-
-
     return true;
 }
 
 Int Process_IdentGet(Int o)
 {
     Process* m;
-
     m = CP(o);
-
-
-
     qint64 u;
-
     u = m->Intern->processId();
-
-
-
     Int a;
-
     a = u;
-
-
     return a;
 }
 
-Int Process_IdentSet(Int o, Int value)
-{
-    return true;
-}
-
-
-
+FieldDefaultSet(Process, Ident)
 
 Int Process_Wait(Int o)
 {
     Process* m;
-
     m = CP(o);
-
-
-
     m->Intern->waitForFinished();
-
-
-
     return true;
 }
-
-
-
-
 
 Int Process_Terminate(Int o)
 {
     Process* m;
-
     m = CP(o);
-
-
-
     m->Intern->kill();
-
-
-
     return true;
 }
-
-
-
-
-
 
 Int Process_StatusGet(Int o)
 {
     Process* m;
-
     m = CP(o);
-
-
-
     int u;
-
     u = m->Intern->exitCode();
-
-
-
     Int a;
-
     a = u;
-
-
     return a;
 }
 
-Int Process_StatusSet(Int o, Int value)
-{
-    return true;
-}
+FieldDefaultSet(Process, Status)
 
 Int Process_ExitKindGet(Int o)
 {
     Process* m;
-
     m = CP(o);
-
-
-
     QProcess::ExitStatus u;
-
     u = m->Intern->exitStatus();
-
-
-
     Int a;
-
     a = u;
-
-
     return a;
 }
 
-Int Process_ExitKindSet(Int o, Int value)
-{
-    return true;
-}
-
+FieldDefaultSet(Process, ExitKind)
 CppField(Process, StartedState)
 CppField(Process, FinishedState)
 
