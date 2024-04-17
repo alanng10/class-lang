@@ -1,22 +1,11 @@
 #include "Return.hpp"
 
-
-
-
 CppClassNew(Return)
-
-
-
-
-
 
 Int Return_Init(Int o)
 {
     return true;
 }
-
-
-
 
 Int Return_Final(Int o)
 {
@@ -45,11 +34,6 @@ Int Return_StringEnd(Int o)
     return true;
 }
 
-
-
-
-
-
 Int Return_StringCount(Int o)
 {
     Return* m;
@@ -74,64 +58,28 @@ Int Return_StringResult(Int o, Int result)
     QString* u;
     u = (QString*)(m->String);
 
-
     const QChar* sourceU;
-
     sourceU = u->constData();
 
-
-
-
     Int source;
-
     source = CastInt(sourceU);
 
-
-
-
     Int dest;
-
     dest = String_DataGet(result);
 
-
-
     Int oa;
-
     oa = Return_StringCount(o);
-
-
-
     Int count;
-
     count = oa * Constant_CharByteCount();
 
-
-
-
     Copy(dest, source, count);
-
-
-
-
-
     return true;
 }
-
-
-
-
-
-
-
 
 Int Return_StringListStart(Int o)
 {
     return true;
 }
-
-
-
-
 
 Int Return_StringListEnd(Int o)
 {
@@ -146,11 +94,6 @@ Int Return_StringListEnd(Int o)
     m->StringList = null;
     return true;
 }
-
-
-
-
-
 
 Int Return_StringListCount(Int o)
 {
