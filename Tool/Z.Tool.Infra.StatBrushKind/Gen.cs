@@ -1,4 +1,4 @@
-namespace Z.Tool.StatBrushKindSourceGen;
+namespace Z.Tool.Infra.StatBrushKind;
 
 
 
