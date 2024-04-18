@@ -2,5 +2,3 @@ Int Stat_#ClassName##ItemName#(Int o)
 {
     return Stat_Var_#ClassName##NamePrefix##ItemName##NamePostfix#;
 }
-
-

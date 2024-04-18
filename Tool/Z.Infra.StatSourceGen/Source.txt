@@ -1,11 +1,4 @@
 #include "Stat.hpp"
 
-
-
-
 #ShareVarList#
-
-
-
-
 #MethodList#
