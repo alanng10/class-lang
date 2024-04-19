@@ -15,6 +15,7 @@ public class Class : Any
         this.ErrorWrite = true;
 
         this.BinaryRead = this.CreateBinaryRead();
+        this.ModuleCreate = this.CreateModuleCreate();
 
         this.ErrorString = new ErrorString();
         this.ErrorString.Class = this;
@@ -22,7 +23,11 @@ public class Class : Any
 
         this.Create = this.CreateCreate();
 
+        this.ModuleTable = this.ClassInfra.TableCreateModuleRefCompare();
+        this.BinaryTable = this.ClassInfra.TableCreateModuleRefCompare();
 
+        this.ModuleCreate.ModuleTable = this.ModuleTable;
+        this.ModuleCreate.BinaryTable = this.BinaryTable;
 
         this.InitSystem();
 
@@ -69,12 +74,10 @@ public class Class : Any
     protected virtual Table ModuleTable { get; set; }
     protected virtual Table BinaryTable { get; set; }
     protected virtual BinaryRead BinaryRead { get; set; }
+    protected virtual ModuleCreate ModuleCreate { get; set; }
 
     protected virtual bool InitSystem()
     {
-        this.ModuleTable = this.ClassInfra.TableCreateModuleRefCompare();
-        this.BinaryTable = this.ClassInfra.TableCreateModuleRefCompare();
-
         this.InitBinary("System.Infra");
         this.InitBinary("System.List");
         this.InitBinary("System.Math");
@@ -104,6 +107,8 @@ public class Class : Any
         this.InitBinary("Class.Module");
         this.InitBinary("Class.Console");
 
+        this.InitModuleList();
+
         return true;
     }
 
@@ -132,6 +137,30 @@ public class Class : Any
         return true;
     }
 
+    protected virtual bool InitModuleList()
+    {
+        Iter iter;
+        iter = this.BinaryTable.IterCreate();
+        this.BinaryTable.IterSet(iter);
+
+        while (iter.Next())
+        {
+            ModuleRef moduleRef;
+            moduleRef = (ModuleRef)iter.Index;
+
+            this.ModuleCreate.ModuleRef = moduleRef;
+            this.ModuleCreate.Execute();
+
+            ClassModule a;
+            a = this.ModuleCreate.Module;
+
+            this.ModuleCreate.Module = null;
+
+            this.ListInfra.TableAdd(this.ModuleTable, a.Ref, a);
+        }
+        return true;
+    }
+
     protected virtual BinaryRead CreateBinaryRead()
     {
         BinaryRead a;
@@ -140,6 +169,13 @@ public class Class : Any
         return a;
     }
 
+    protected virtual ModuleCreate CreateModuleCreate()
+    {
+        ModuleCreate a;
+        a = new ModuleCreate();
+        a.Init();
+        return a;
+    }
 
     public virtual bool Execute()
     {
