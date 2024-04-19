@@ -47,7 +47,7 @@ class BinaryGen : Any
         this.ClassIndexTable.Init();
 
         ModuleRef oa;
-        oa = this.ClassInfra.ModuleRefCreate(module.Ref.Name, module.Ref.Ver);
+        oa = this.ClassInfra.ModuleRefCreate(module.Ref.Name, module.Ref.Version);
 
         Binary binary;
         binary = new Binary();
@@ -118,7 +118,7 @@ class BinaryGen : Any
             table = (Table)iter.Value;
 
             ModuleRef oa;
-            oa = this.ClassInfra.ModuleRefCreate(moduleRef.Name, moduleRef.Ver);
+            oa = this.ClassInfra.ModuleRefCreate(moduleRef.Name, moduleRef.Version);
 
             BinaryImport a;
             a = new BinaryImport();
