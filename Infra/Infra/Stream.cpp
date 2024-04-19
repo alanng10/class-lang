@@ -354,7 +354,6 @@ Int Stream_Intern(Int o)
 {
     Stream* m;
     m = CP(o);
-
     Int a;
     a = CastInt(m->Intern);
     return a;
