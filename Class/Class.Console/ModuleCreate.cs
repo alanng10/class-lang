@@ -34,7 +34,7 @@ public class ModuleCreate : Any
         ClassModule a;
         a = new ClassModule();
         a.Init();
-        a.Ref = this.ClassInfra.ModuleRefCreate(o.Name, o.Ver);
+        a.Ref = this.ClassInfra.ModuleRefCreate(o.Name, o.Version);
 
         this.Module = a;
 

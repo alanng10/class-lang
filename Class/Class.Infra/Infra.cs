@@ -95,7 +95,7 @@ public class Infra : Any
         a = new ModuleRef();
         a.Init();
         a.Name = name;
-        a.Ver = ver;
+        a.Version = ver;
         return a;
     }
 }

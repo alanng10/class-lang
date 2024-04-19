@@ -865,7 +865,7 @@ public class Read : Any
         ModuleRef a;
         a = this.Operate.ExecuteModuleRef();
         a.Name = name;
-        a.Ver = ver;
+        a.Version = ver;
         return a;
     }
 

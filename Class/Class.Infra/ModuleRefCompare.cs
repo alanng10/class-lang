@@ -33,6 +33,6 @@ public class ModuleRefCompare : Compare
             return a;
         }
 
-        return leftA.Ver.CompareTo(rightA.Ver);
+        return leftA.Version.CompareTo(rightA.Version);
     }
 }
