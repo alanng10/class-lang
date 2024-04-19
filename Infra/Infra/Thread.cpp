@@ -260,11 +260,8 @@ Int Thread_ExecuteEventLoop(Int o)
         return oa;
     }
 
-    int u;
-    u = m->InternThread->ExecuteEventLoop();
-
     Int a;
-    a = u;
+    a = m->InternThread->ExecuteEventLoop();
     return a;
 }
 
