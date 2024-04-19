@@ -48,7 +48,7 @@ public class Read : Any
         this.ExecuteStage();
 
         arg.StringCountData = new Data();
-        arg.StringCountData.Count = arg.StringIndex * sizeof(int);
+        arg.StringCountData.Count = arg.StringIndex * sizeof(uint);
         arg.StringCountData.Init();
 
         arg.StringTextData = new Data();
@@ -56,7 +56,7 @@ public class Read : Any
         arg.StringTextData.Init();
 
         arg.ArrayCountData = new Data();
-        arg.ArrayCountData.Count = arg.ArrayIndex * sizeof(int);
+        arg.ArrayCountData.Count = arg.ArrayIndex * sizeof(uint);
         arg.ArrayCountData.Init();
 
         this.Operate = this.StringOperate;
