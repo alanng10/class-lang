@@ -8,6 +8,8 @@ public class Maide : Any
 
     public virtual Class Class { get; set; }
 
+    public virtual SystemClass SystemClass { get; set; }
+
     public virtual Count Count { get; set; }
 
     public virtual Table Param { get; set; }
