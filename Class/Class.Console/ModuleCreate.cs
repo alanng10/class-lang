@@ -21,6 +21,7 @@ public class ModuleCreate : Any
     protected virtual BinaryBinary Binary { get; set; }
     protected virtual Array ClassArray { get; set; }
     protected virtual Array ImportArray { get; set; }
+    protected virtual bool HasSystemClass { get; set; }
 
     public virtual bool Execute()
     {
@@ -41,6 +42,10 @@ public class ModuleCreate : Any
         BinaryBinary binary;
         binary = (BinaryBinary)this.BinaryTable.Get(this.Module.Ref);
         this.Binary = binary;
+
+        string moduleName;
+        moduleName = this.Module.Ref.Name;
+        this.HasSystemClass = moduleName.StartsWith("System.") | moduleName.StartsWith("Class.");
 
         this.SetClassList();
 
@@ -315,6 +320,7 @@ public class ModuleCreate : Any
             a.Index = fieldTable.Count;
             a.Name = ua.Name;
             a.Class = this.ClassGetIndex(ua.Class);
+            a.SystemClass = this.SystemClassCreate(ua.SystemClass);
             a.Count = this.CountList.Get(ua.Count);
             a.Parent = varClass;
 
@@ -346,6 +352,7 @@ public class ModuleCreate : Any
             a.Index = maideTable.Count;
             a.Name = ua.Name;
             a.Class = this.ClassGetIndex(ua.Class);
+            a.SystemClass = this.SystemClassCreate(ua.SystemClass);
             a.Count = this.CountList.Get(ua.Count);
             a.Parent = varClass;
 
@@ -378,12 +385,34 @@ public class ModuleCreate : Any
             a.Init();
             a.Name = ua.Name;
             a.Class = this.ClassGetIndex(ua.Class);
+            a.SystemClass = this.SystemClassCreate(ua.SystemClass);
             
             this.ListInfra.TableAdd(varTable, a.Name, a);
 
             i = i + 1;
         }
         return true;
+    }
+
+    protected virtual SystemClass SystemClassCreate(int binaryValue)
+    {
+        if (!this.HasSystemClass)
+        {
+            return null;
+        }
+
+        bool b;
+        b = !((binaryValue & 0x80) == 0);
+
+        int e;
+        e = binaryValue & 0x7f;
+
+        SystemClass a;
+        a = new SystemClass();
+        a.Init();
+        a.Value = e;
+        a.HasNull = b;
+        return a;
     }
 
     protected virtual ClassClass ClassGetIndex(int index)
