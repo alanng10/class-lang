@@ -174,14 +174,14 @@ public class ModuleCreate : Any
                 string className;
                 className = of.Name;
 
-                ClassClass varClass;
-                varClass = this.ModuleClassGet(module, className);
-
                 if (classTable.Contain(className))
                 {
                     global::System.Console.Error.Write("Class.Console:ModuleCreate.SetImportList import class name duplicate\n");
                     global::System.Environment.Exit(121);
                 }
+
+                ClassClass varClass;
+                varClass = this.ModuleClassGet(module, className);
 
                 this.ListInfra.TableAdd(classTable, className, varClass);
 
