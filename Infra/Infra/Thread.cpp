@@ -211,361 +211,152 @@ Int Thread_Pause(Int o)
     return true;
 }
 
-
-
-
-
-
 Int Thread_Resume(Int o)
 {
     Thread* m;
-
     m = CP(o);
-
-
-
-
-
     Int share;
-
     share = Infra_Share();
-
-
-
     Int stat;
-
     stat = Share_Stat(share);
 
-
-
-
     Int pauseCase;
-
     pauseCase = Stat_ThreadCasePause(stat);
 
-
-
-
     m->InternCaseMutex->lock();
-
-
-
 
     if (m->Case == pauseCase)
     {
         Thread_OS_Resume(m->Handle);
 
-
-
-
         Int executeCase;
-
         executeCase = Stat_ThreadCaseExecute(stat);
-
-
-
         m->Case = executeCase;
     }
 
-
-
-
     m->InternCaseMutex->unlock();
-
-
-
-
-
     return true;
 }
-
-
-
-
-
 
 Int Thread_Wait(Int o)
 {
     Thread* m;
-
     m = CP(o);
-
-
-
     m->Intern->wait();
-
-
-
-
     return true;
 }
-
-
-
-
-
 
 Int Thread_ExecuteEventLoop(Int o)
 {
     Thread* m;
-
     m = CP(o);
 
-
-
-
     Bool b;
-
     b = Thread_IsMainThread(o);
-
-
     if (b)
     {
         Int oa;
-
         oa = Main_ExecuteEventLoop();
-
-
         return oa;
     }
 
-
-
-
     int u;
-
-
     u = m->InternThread->ExecuteEventLoop();
 
-
-
-    Int oo;
-
-    oo = u;
-
-
-    return oo;
+    Int a;
+    a = u;
+    return a;
 }
-
-
-
-
 
 Int Thread_ExitEventLoop(Int o, Int code)
 {
     Thread* m;
-
     m = CP(o);
 
-
-
-
     Bool b;
-
     b = Thread_IsMainThread(o);
-
-
-
     if (b)
     {
         Bool oa;
-
         oa = Main_ExitEventLoop(code);
-
-
         return oa;
     }
 
-
-
-
     int u;
-
     u = code;
 
-
-
     m->InternThread->exit(u);
-
-
-
     return true;
 }
-
-
-
-
 
 Int Thread_IsMainThread(Int o)
 {
     Thread* m;
-
     m = CP(o);
-
-
-
     Bool a;
-
     a = (m->InternThread == null);
-
-
-
     return a;
 }
-
-
-
-
 
 Int Thread_Sleep(Int time)
 {
     unsigned long u;
-
     u = time;
 
-
-
-
     QThread::msleep(u);
-
-
-
-
     return true;
 }
-
-
-
-
-
 
 Int Thread_CreateStore()
 {
     QThreadStorage<ThreadStoreValue>* threadStorage;
-
-
     threadStorage = new QThreadStorage<ThreadStoreValue>();
-
-
-
     Int a;
-
     a = CastInt(threadStorage);
-
-
-
     return a;
 }
-
-
-
-
-
 
 Int Thread_DeleteStore(Int a)
 {
     QThreadStorage<ThreadStoreValue>* threadStorage;
-
-
-
     threadStorage = (QThreadStorage<ThreadStoreValue>*)a;
 
-
-
-
     delete threadStorage;
-
-
-
-
     return true;
 }
-
-
-
-
 
 Int Thread_StoreSetThread(Int thread)
 {
     ThreadStoreValue o;
-
     o = { };
-
-
     o.Thread = thread;
 
-
-
-
     Int share;
-
     share = Infra_Share();
-
-
-
-
     Int u;
-
     u = Share_ThreadStorage(share);
 
-
-
-
     QThreadStorage<ThreadStoreValue>* threadStorage;
-
     threadStorage = (QThreadStorage<ThreadStoreValue>*)u;
-
-
-
     threadStorage->setLocalData(o);
-
-
-
-
     return true;
 }
-
-
-
-
-
 
 Int Thread_CurrentThread()
 {
     Int share;
-
     share = Infra_Share();
 
-
-
-
     Int u;
-
     u = Share_ThreadStorage(share);
 
-
-
-
     QThreadStorage<ThreadStoreValue>* threadStorage;
-
     threadStorage = (QThreadStorage<ThreadStoreValue>*)u;
 
-
-
     ThreadStoreValue o;
-
     o = threadStorage->localData();
 
-
-
-
     Int a;
-
-
     a = o.Thread;
-
-
-
-
     return a;
 }
