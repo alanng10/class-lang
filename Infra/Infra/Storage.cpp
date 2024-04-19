@@ -17,11 +17,7 @@ CppField(Storage, Mode)
 CppField(Storage, Stream)
 
 CppFieldGet(Storage, Status)
-
-Int Storage_StatusSet(Int o, Int value)
-{
-    return true;
-}
+FieldDefaultSet(Storage, Status)
 
 Int Storage_Open(Int o)
 {
@@ -119,8 +115,6 @@ Int Storage_Close(Int o)
     m->Status = 0;
     return true;
 }
-
-
 
 Int Storage_CountSet(Int o, Int value)
 {
