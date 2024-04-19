@@ -25,7 +25,8 @@ class ThreadIntern : public QThread
 
 
 public:
-
+    Bool Init();
+    
     Int Thread;
 
 

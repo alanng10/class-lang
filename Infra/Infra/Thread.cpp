@@ -1,138 +1,53 @@
 #include "Thread.hpp"
 
-
-
-
 CppClassNew(Thread)
-
-
-
-
-
-#define CP(a) ((Thread*)(a))
-
-
-
-
-
 
 Int Thread_Init(Int o)
 {
     Thread* m;
-
     m = CP(o);
-
-
-
-
 
     m->InternHandleSemaphore = new QSemaphore;
 
-
-
-
     m->InternCaseMutex = new QMutex;
 
-
-
-
-
     m->InternThread = new ThreadIntern;
-
     m->InternThread->Thread = o;
-
-
-
+    m->InternThread->Init();
 
     m->Intern = m->InternThread;
 
-
-
-
-
-
     Int share;
-
     share = Infra_Share();
-
-
-
     Int stat;
-
     stat = Share_Stat(share);
 
-
-
     m->Case = Stat_ThreadCaseReady(stat);
-
-
-
-
     return true;
 }
-
-
-
-
-
 
 Int Thread_Final(Int o)
 {
     Thread* m;
-
     m = CP(o);
 
-
-
-
     delete m->Intern;
-
-
-
     delete m->InternCaseMutex;
-
-
-
     delete m->InternHandleSemaphore;
 
-
-
-
-
-
     Int share;
-
     share = Infra_Share();
-
-
-
     Int stat;
-
     stat = Share_Stat(share);
 
-
-
-
     Int readyCase;
-
     readyCase = Stat_ThreadCaseReady(stat);
-
-
     if (!(m->Case == readyCase))
     {
         Int handle;
-
         handle = m->Handle;
-
-
         Thread_OS_CloseHandle(handle);
     }
-
-
-
-
-
-
     return true;
 }
 

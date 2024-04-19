@@ -25,3 +25,5 @@ struct ThreadStoreValue
 {
     Int Thread;
 };
+
+#define CP(a) ((Thread*)(a))

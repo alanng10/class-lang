@@ -1,6 +1,9 @@
 #include "ThreadIntern.hpp"
 
-
+Bool ThreadIntern::Init()
+{
+    return true;
+}
 
 
 
