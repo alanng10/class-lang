@@ -285,7 +285,6 @@ public class StringValueWrite : Any
         k = k.Replace("\"", "\\\"");
         k = k.Replace("\t", "\\t");
         k = k.Replace("\n", "\\n");
-        k = k.Replace("\r", "\\r");
         string ret;
         ret = k;
         return ret;
