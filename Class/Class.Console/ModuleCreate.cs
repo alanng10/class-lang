@@ -140,15 +140,12 @@ public class ModuleCreate : Any
 
             if (importTable.Contain(moduleRef))
             {
-                global::System.Console.Error.Write("Class.Console:ModuleCreate.AddImportList import module ref duplicate\n");
+                global::System.Console.Error.Write("Class.Console:ModuleCreate.SetImportList import module ref duplicate\n");
                 global::System.Environment.Exit(120);
             }
 
             Table ol;
-            ol = new Table();
-            ol.Compare = new StringCompare();
-            ol.Compare.Init();
-            ol.Init();
+            ol = this.ClassInfra.TableCreateStringCompare();
             this.ListInfra.TableAdd(importTable, moduleRef, ol);
             
             Table classTable;
@@ -182,7 +179,7 @@ public class ModuleCreate : Any
 
                 if (classTable.Contain(className))
                 {
-                    global::System.Console.Error.Write("Class.Console:ModuleCreate.AddImportList import class name duplicate\n");
+                    global::System.Console.Error.Write("Class.Console:ModuleCreate.SetImportList import class name duplicate\n");
                     global::System.Environment.Exit(121);
                 }
 
