@@ -51,138 +51,54 @@ Int Thread_Final(Int o)
     return true;
 }
 
-
-
-
-
-
-
 Int Thread_InitMainThread(Int o)
 {
     Thread* m;
-
     m = CP(o);
-
-
-
 
     m->InternCaseMutex = new QMutex;
 
-
-
     m->Intern = QThread::currentThread();
 
-
-
-
-
-
     Int share;
-
     share = Infra_Share();
-
-
-
     Int stat;
-
     stat = Share_Stat(share);
 
-
-
     Int executeCase;
-
     executeCase = Stat_ThreadCaseExecute(stat);
-
-
     m->Case = executeCase;
 
-
-
-
     Qt::HANDLE uu;
-
-
     uu = QThread::currentThreadId();
-
-
-
-
+    
     Int threadId;
-
     threadId = CastInt(uu);
 
-
-
-
     Int thread;
-
     thread = o;
 
-
-
-
-
     Int handle;
-
     handle = Thread_OS_OpenHandle(threadId);
-
-
-
 
     Thread_HandleSet(thread, handle);
 
-
-
-
-
-
     Thread_StoreSetThread(thread);
 
-
-
-
-
     Main_CurrentThreadSignalHandleSet();
-
-
-
-
-
     return true;
 }
-
-
-
-
-
 
 Int Thread_FinalMainThread(Int o)
 {
     Thread* m;
-
     m = CP(o);
-
-
-
 
     delete m->InternCaseMutex;
 
-
-
-
-
-
     Int handle;
-
     handle = m->Handle;
-
-
     Thread_OS_CloseHandle(handle);
-
-
-
-
-
     return true;
 }
 
