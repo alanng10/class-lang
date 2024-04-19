@@ -1,9 +1,5 @@
 namespace Class.Console;
 
-
-
-
-
 public class Class : Any
 {
     public override bool Init()
@@ -11,43 +7,24 @@ public class Class : Any
         base.Init();
 
         this.InfraInfra = InfraInfra.This;
+        this.ListInfra = ListInfra.This;
+        this.StorageInfra = StorageInfra.This;
+        this.ClassInfra = ClassInfra.This;
         this.TaskKind = TaskKindList.This;
-
-
-
-
 
         this.ErrorWrite = true;
 
-
-
+        this.BinaryRead = this.CreateBinaryRead();
 
         this.ErrorString = new ErrorString();
-
-
-
         this.ErrorString.Class = this;
-
-
-
         this.ErrorString.Init();
-
-
-
-
 
         this.Create = this.CreateCreate();
 
 
 
-
-
         this.InitSystem();
-
-
-
-
-
 
         return true;
     }
@@ -67,14 +44,11 @@ public class Class : Any
     public virtual Result Result { get; set; }
 
 
-    internal Result SystemResult { get; set; }
-
-
     public virtual TaskKindList TaskKind { get; set; }
 
 
 
-    private Out Out { get; set; }
+    protected virtual Out Out { get; set; }
 
 
 
@@ -85,19 +59,86 @@ public class Class : Any
 
     private ErrorString ErrorString { get; set; }
 
-
-
-
     public virtual string SourceFold { get; set; }
 
 
     protected virtual InfraInfra InfraInfra { get; set; }
+    protected virtual ListInfra ListInfra { get; set; }
+    protected virtual StorageInfra StorageInfra { get; set; }
+    protected virtual ClassInfra ClassInfra { get; set; }
+    protected virtual Table ModuleTable { get; set; }
+    protected virtual Table BinaryTable { get; set; }
+    protected virtual BinaryRead BinaryRead { get; set; }
 
+    protected virtual bool InitSystem()
+    {
+        this.ModuleTable = this.ClassInfra.TableCreateModuleRefCompare();
+        this.BinaryTable = this.ClassInfra.TableCreateModuleRefCompare();
 
+        this.InitBinary("System.Infra");
+        this.InitBinary("System.List");
+        this.InitBinary("System.Math");
+        this.InitBinary("System.Text");
+        this.InitBinary("System.Event");
+        this.InitBinary("System.Comp");
+        this.InitBinary("System.Thread");
+        this.InitBinary("System.Stream");
+        this.InitBinary("System.Type");
+        this.InitBinary("System.Time");
+        this.InitBinary("System.Video");
+        this.InitBinary("System.Audio");
+        this.InitBinary("System.Storage");
+        this.InitBinary("System.Network");
+        this.InitBinary("System.Console");
+        this.InitBinary("System.Media");
+        this.InitBinary("System.Draw");
+        this.InitBinary("System.View");
+        this.InitBinary("System.Main");
+        this.InitBinary("System.Entry");
+        this.InitBinary("Class.Infra");
+        this.InitBinary("Class.Binary");
+        this.InitBinary("Class.Port");
+        this.InitBinary("Class.Token");
+        this.InitBinary("Class.Node");
+        this.InitBinary("Class.Refer");
+        this.InitBinary("Class.Module");
+        this.InitBinary("Class.Console");
 
+        return true;
+    }
 
+    protected virtual bool InitBinary(string moduleName)
+    {
+        string filePath;
+        filePath = moduleName + ".ref";
 
+        Data data;
+        data = this.StorageInfra.DataRead(filePath);
 
+        BinaryRead read;
+        read = this.BinaryRead;
+
+        read.Data = data;
+        read.SystemClass = true;
+
+        read.Execute();
+
+        BinaryBinary binary;
+        binary = read.Binary;
+
+        read.Binary = null;
+
+        this.ListInfra.TableAdd(this.BinaryTable, binary.Ref, binary);
+        return true;
+    }
+
+    protected virtual BinaryRead CreateBinaryRead()
+    {
+        BinaryRead a;
+        a = new BinaryRead();
+        a.Init();
+        return a;
+    }
 
 
     public virtual bool Execute()
@@ -296,18 +337,6 @@ public class Class : Any
 
 
     protected virtual bool ReadPort()
-    {
-        return true;
-    }
-
-
-
-
-
-
-
-
-    private bool InitSystem()
     {
         return true;
     }
