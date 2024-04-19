@@ -111,236 +111,103 @@ CppField(Thread, Handle)
 Int Thread_GetInternCaseMutex(Int o)
 {
     Thread* m;
-
     m = CP(o);
-
-
-
-
     QMutex* ua;
-
     ua = m->InternCaseMutex;
-
-
-
-
-    Int oo;
-
-    oo = CastInt(ua);
-
-
-    return oo;
+    Int a;
+    a = CastInt(ua);
+    return a;
 }
 
 Int Thread_GetInternHandleSemaphore(Int o)
 {
     Thread* m;
-
     m = CP(o);
-
-
-
-
     QSemaphore* ua;
-
     ua = m->InternHandleSemaphore;
-
-
-
-
-    Int oo;
-
-    oo = CastInt(ua);
-
-
-    return oo;
+    Int a;
+    a = CastInt(ua);
+    return a;
 }
 
 Int Thread_Execute(Int o)
 {
     Thread* m;
-
     m = CP(o);
-
-
-
-
     Int share;
-
     share = Infra_Share();
-
-
-
     Int stat;
-
     stat = Share_Stat(share);
 
-
-
-
     Int readyCase;
-
     readyCase = Stat_ThreadCaseReady(stat);
-
-
     if (!(m->Case == readyCase))
     {
         return true;
     }
 
-
-
-
     m->Intern->start();
 
-
-
-
     m->InternHandleSemaphore->acquire();
-
-
-
-
-
-
     return true;
 }
-
-
-
-
-
 
 Int Thread_Terminate(Int o)
 {
     Thread* m;
-
     m = CP(o);
 
-
-
-
     Int share;
-
     share = Infra_Share();
-
-
-
     Int stat;
-
     stat = Share_Stat(share);
 
-
-
-
     Int executeCase;
-
     executeCase = Stat_ThreadCaseExecute(stat);
-
-
     Int pauseCase;
-
     pauseCase = Stat_ThreadCasePause(stat);
 
-
-
-
     m->InternCaseMutex->lock();
-
-
-
 
     if ((m->Case == executeCase) | (m->Case == pauseCase))
     {
         m->Intern->terminate();
 
-
-
-
-
         Int terminateCase;
-
         terminateCase = Stat_ThreadCaseTerminate(stat);
-
-
 
         m->Case = terminateCase;
     }
 
-
-
-
     m->InternCaseMutex->unlock();
-
-
-
-
     return true;
 }
-
-
-
-
-
 
 Int Thread_Pause(Int o)
 {
     Thread* m;
-
     m = CP(o);
 
-
-
-
     Int share;
-
     share = Infra_Share();
-
-
-
     Int stat;
-
     stat = Share_Stat(share);
 
-
-
-
     Int executeCase;
-
     executeCase = Stat_ThreadCaseExecute(stat);
 
-
-
-
     m->InternCaseMutex->lock();
-
-
-
 
     if (m->Case == executeCase)
     {
         Thread_OS_Pause(m->Handle);
 
-
-
-
         Int pauseCase;
-
         pauseCase = Stat_ThreadCasePause(stat);
-
-
-
         m->Case = pauseCase;
     }
 
-
-
-
     m->InternCaseMutex->unlock();
-
-
-
-
     return true;
 }
 
