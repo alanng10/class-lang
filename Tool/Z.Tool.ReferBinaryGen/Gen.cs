@@ -102,12 +102,12 @@ public class Gen : Any
         this.ExecuteTypeModule(typeof(ModuleResult));
         this.ExecuteTypeModule(typeof(Task));
 
-        this.ModuleRef.Name = "System.Infra";
-        Module module;
-        module = this.ModuleGet(this.ModuleRef);
-        this.ConsoleWriteClass(this.ModuleClassGet(module, "String"));
-        this.ConsoleWriteClass(this.ModuleClassGet(module, "ModuleInfo"));
-        this.ConsoleWriteClass(this.ModuleClassGet(module, "Infra"));
+        // this.ModuleRef.Name = "System.Infra";
+        // Module module;
+        // module = this.ModuleGet(this.ModuleRef);
+        // this.ConsoleWriteClass(this.ModuleClassGet(module, "String"));
+        // this.ConsoleWriteClass(this.ModuleClassGet(module, "ModuleInfo"));
+        // this.ConsoleWriteClass(this.ModuleClassGet(module, "Infra"));
 
         //this.ConsoleWrite();
 
