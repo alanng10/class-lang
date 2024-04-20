@@ -18,6 +18,9 @@ public class Read : Any
         this.SetOperate.Read = this;
         this.SetOperate.Init();
 
+        this.Range = new Range();
+        this.Range.Init();
+
         this.Arg = new ReadArg();
         this.Arg.Init();
         return true;

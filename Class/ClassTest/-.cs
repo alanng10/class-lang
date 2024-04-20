@@ -10,6 +10,7 @@ global using ArrayIter = Avalon.List.ArrayIter;
 global using TableIter = Avalon.List.TableIter;
 global using TableEntry = Avalon.List.Entry;
 global using StringOut = Avalon.Console.StringOut;
+global using Main = Avalon.Main.Main;
 global using EntryEntry = Avalon.Entry.Entry;
 global using ClassClass = Class.Console.Class;
 global using Task = Class.Console.Task;

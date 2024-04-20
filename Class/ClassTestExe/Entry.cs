@@ -4,6 +4,7 @@ namespace Class.Test.Exe;
 
 class Entry
 {
+    [STAThread]
     static int Main()
     {
         TestEntry entry;
