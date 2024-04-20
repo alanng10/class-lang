@@ -131,6 +131,12 @@ public class Class : Any
         BinaryBinary binary;
         binary = read.Binary;
 
+        if (binary == null)
+        {
+            global::System.Console.Error.Write("Class.Console:Class.InitBinary binary is null\n");
+            global::System.Environment.Exit(1000);
+        }
+
         read.Binary = null;
 
         this.ListInfra.TableAdd(this.BinaryTable, binary.Ref, binary);
