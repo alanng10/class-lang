@@ -524,14 +524,14 @@ public class ModuleCreate : Any
         if (!(v == null))
         {
             bool be;
-            be = !(v.Virtual == null);
+            be = (v.Virtual == null);
             if (be)
             {
-                k = v.Virtual;
+                k = v;
             }
             if (!be)
             {
-                k = v;
+                k = v.Virtual;
             }
         }
 
