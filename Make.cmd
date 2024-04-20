@@ -13,7 +13,7 @@ echo:
 echo Make Class
 call Script\Class\MakeModule
 echo:
-echo Make Refer
+echo Make Binary
 call Script\Tool\Make ReferBinaryGen
 call Script\Tool\Execute ReferBinaryGen
 echo:
