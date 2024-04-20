@@ -12,6 +12,8 @@ public class Field : Any
 
     public virtual Count Count { get; set; }
 
+    public virtual Field Virtual { get; set; }
+
     public virtual Table Get { get; set; }
 
     public virtual Table Set { get; set; }

@@ -12,6 +12,8 @@ public class Maide : Any
 
     public virtual Count Count { get; set; }
 
+    public virtual Maide Virtual { get; set; }
+
     public virtual Table Param { get; set; }
 
     public virtual Table Call { get; set; }
