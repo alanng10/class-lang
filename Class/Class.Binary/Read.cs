@@ -862,13 +862,13 @@ public class Read : Any
         {
             return null;
         }
-        long ver;
-        ver = u;
+        long version;
+        version = u;
 
         ModuleRef a;
         a = this.Operate.ExecuteModuleRef();
         a.Name = name;
-        a.Version = ver;
+        a.Version = version;
         return a;
     }
 
