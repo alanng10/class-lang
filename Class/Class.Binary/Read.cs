@@ -423,14 +423,12 @@ public class Read : Any
             return null;
         }
 
-        int u;
-        u = this.ExecuteIndex();
-        if (u == -1)
+        ClassIndex entry;
+        entry = this.ExecuteEntry();
+        if (entry == null)
         {
             return null;
         }
-        int entry;
-        entry = u;
 
         Binary a;
         a = this.Operate.ExecuteBinary();
@@ -445,15 +443,22 @@ public class Read : Any
 
     protected virtual Array ExecuteClassArray()
     {
+        int o;
+        o = this.ExecuteCount();
+        if (o == -1)
+        {
+            return null;
+        }
+        int count;
+        count = o;
+
         Array array;
-        array = this.ExecuteArray();
+        array = this.ExecuteArray(count);
         if (array == null)
         {
             return null;
         }
 
-        int count;
-        count = array.Count;
         int i;
         i = 0;
         while (i < count)
@@ -487,15 +492,22 @@ public class Read : Any
 
     protected virtual Array ExecuteImportArray()
     {
+        int o;
+        o = this.ExecuteCount();
+        if (o == -1)
+        {
+            return null;
+        }
+        int count;
+        count = o;
+
         Array array;
-        array = this.ExecuteArray();
+        array = this.ExecuteArray(count);
         if (array == null)
         {
             return null;
         }
 
-        int count;
-        count = array.Count;
         int i;
         i = 0;
         while (i < count)
@@ -547,15 +559,22 @@ public class Read : Any
 
     protected virtual Array ExecutePartArray()
     {
+        int o;
+        o = this.ExecuteCount();
+        if (o == -1)
+        {
+            return null;
+        }
+        int count;
+        count = o;
+
         Array array;
-        array = this.ExecuteArray();
+        array = this.ExecuteArray(count);
         if (array == null)
         {
             return null;
         }
 
-        int count;
-        count = array.Count;
         int i;
         i = 0;
         while (i < count)
@@ -597,15 +616,22 @@ public class Read : Any
 
     protected virtual Array ExecuteFieldArray()
     {
+        int o;
+        o = this.ExecuteCount();
+        if (o == -1)
+        {
+            return null;
+        }
+        int count;
+        count = o;
+
         Array array;
-        array = this.ExecuteArray();
+        array = this.ExecuteArray(count);
         if (array == null)
         {
             return null;
         }
 
-        int count;
-        count = array.Count;
         int i;
         i = 0;
         while (i < count)
@@ -667,15 +693,22 @@ public class Read : Any
 
     protected virtual Array ExecuteMaideArray()
     {
+        int o;
+        o = this.ExecuteCount();
+        if (o == -1)
+        {
+            return null;
+        }
+        int count;
+        count = o;
+
         Array array;
-        array = this.ExecuteArray();
+        array = this.ExecuteArray(count);
         if (array == null)
         {
             return null;
         }
 
-        int count;
-        count = array.Count;
         int i;
         i = 0;
         while (i < count)
@@ -745,15 +778,22 @@ public class Read : Any
 
     protected virtual Array ExecuteVarArray()
     {
+        int o;
+        o = this.ExecuteCount();
+        if (o == -1)
+        {
+            return null;
+        }
+        int count;
+        count = o;
+
         Array array;
-        array = this.ExecuteArray();
+        array = this.ExecuteArray(count);
         if (array == null)
         {
             return null;
         }
 
-        int count;
-        count = array.Count;
         int i;
         i = 0;
         while (i < count)
@@ -806,15 +846,22 @@ public class Read : Any
 
     protected virtual Array ExecuteClassIndexArray()
     {
+        int o;
+        o = this.ExecuteCount();
+        if (o == -1)
+        {
+            return null;
+        }
+        int count;
+        count = o;
+
         Array array;
-        array = this.ExecuteArray();
+        array = this.ExecuteArray(count);
         if (array == null)
         {
             return null;
         }
 
-        int count;
-        count = array.Count;
         int i;
         i = 0;
         while (i < count)
@@ -829,6 +876,23 @@ public class Read : Any
             i = i + 1;
         }
         return array;
+    }
+
+    protected virtual ClassIndex ExecuteEntry()
+    {
+        long u;
+        u = this.ExecuteInt();
+        if (u == -1)
+        {
+            return null;
+        }
+
+        int value;
+        value = (int)u;
+        ClassIndex a;
+        a = this.Operate.ExecuteClassIndex();
+        a.Value = value;
+        return a;
     }
 
     protected virtual ClassIndex ExecuteClassIndex()
@@ -872,16 +936,8 @@ public class Read : Any
         return a;
     }
 
-    protected virtual Array ExecuteArray()
+    protected virtual Array ExecuteArray(int count)
     {
-        int o;
-        o = this.ExecuteCount();
-        if (o == -1)
-        {
-            return null;
-        }
-        int count;
-        count = o;
         return this.Operate.ExecuteArray(count);
     }
 
@@ -895,7 +951,9 @@ public class Read : Any
         }
         int count;
         count = o;
-        return this.Operate.ExecuteString(count);
+        string a;
+        a = this.Operate.ExecuteString(count);
+        return a;
     }
 
     protected virtual int ExecuteSystemClass()
