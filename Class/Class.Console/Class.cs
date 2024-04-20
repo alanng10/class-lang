@@ -120,6 +120,12 @@ public class Class : Any
         Data data;
         data = this.StorageInfra.DataRead(filePath);
 
+        if (data == null)
+        {
+            global::System.Console.Error.Write("Class.Console:Class.InitBinary data is null, module name: " + moduleName + "\n");
+            global::System.Environment.Exit(1001);
+        }
+
         BinaryRead read;
         read = this.BinaryRead;
 
