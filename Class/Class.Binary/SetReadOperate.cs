@@ -71,7 +71,7 @@ public class SetReadOperate : ReadOperate
         int index;
         index = arg.MaideIndex;
         Maide a;
-        a = (Maide)arg.FieldArray.Get(index);
+        a = (Maide)arg.MaideArray.Get(index);
         arg.MaideIndex = index + 1;
         return a;
     }
@@ -120,7 +120,7 @@ public class SetReadOperate : ReadOperate
         oa = arg.StringIndex;
         string a;
         a = (string)arg.StringArray.Get(oa);
-
+        
         arg.Index = arg.Index + count;
         arg.StringIndex = oa + 1;
         arg.StringTextIndex = arg.StringTextIndex + count;
