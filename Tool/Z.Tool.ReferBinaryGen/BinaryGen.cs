@@ -58,6 +58,7 @@ class BinaryGen : Any
         binary.Import = this.ExecuteImportArray();
         binary.Base = this.ExecuteBaseArray();
         binary.Part = this.ExecutePartArray();
+        binary.Entry = null;
 
         return binary;
     }
