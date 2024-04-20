@@ -8,6 +8,7 @@ public class ModuleCreate : Any
         this.ListInfra = ListInfra.This;
         this.ClassInfra = ClassInfra.This;
         this.CountList = CountList.This;
+        this.ModuleRefA = this.ClassInfra.ModuleRefCreate(null, 0);
         return true;
     }
 
@@ -22,6 +23,9 @@ public class ModuleCreate : Any
     protected virtual Array ClassArray { get; set; }
     protected virtual Array ImportArray { get; set; }
     protected virtual bool HasSystemClass { get; set; }
+    protected virtual Data ClassFlagData { get; set; }
+    protected virtual ClassClass AnyClass { get; set; }
+    protected virtual ModuleRef ModuleRefA { get; set; }
 
     public virtual bool Execute()
     {
@@ -54,6 +58,8 @@ public class ModuleCreate : Any
         this.SetBaseList();
 
         this.SetPartList();
+
+        this.SetVirtualList();
 
         this.Binary = null;
         this.ClassArray = null;
@@ -391,6 +397,129 @@ public class ModuleCreate : Any
 
             i = i + 1;
         }
+        return true;
+    }
+
+    protected virtual bool SetVirtualList()
+    {
+        this.ModuleRefA.Name = "System.Infra";
+        this.AnyClass = this.ClassGet(this.ModuleRefA, "Any");
+        
+        Array array;
+        array = this.ClassArray;
+
+        int count;
+        count = array.Count;
+        Data data;
+        data = new Data();
+        data.Count = count;
+        data.Init();
+        this.ClassFlagData = data;
+
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            ClassClass a;
+            a = (ClassClass)array.Get(i);
+            
+            this.SetVirtualClass(a);
+
+            i = i + 1;
+        }
+
+        return true;
+    }
+
+    protected virtual bool SetVirtualClass(ClassClass varClass)
+    {
+        int u;
+        u = this.ClassFlagData.Get(varClass.Index);
+
+        if (!(u == 0))
+        {
+            return true;
+        }
+
+        if (!(varClass == this.AnyClass))
+        {
+            if (varClass.Base.Module == this.Module)
+            {
+                this.SetVirtualClass(varClass.Base);
+            }
+        }
+
+        this.SetVirtualFieldTable(varClass.Field);
+
+
+
+        this.ClassFlagData.Set(varClass.Index, 1);
+
+        return true;
+    }
+
+    protected virtual bool SetVirtualFieldTable(Table fieldTable)
+    {
+        Iter iter;
+        iter = fieldTable.IterCreate();
+        fieldTable.IterSet(iter);
+
+        while (iter.Next())
+        {
+            Field a;
+            a = (Field)iter.Value;
+            this.SetVirtualField(a);
+        }
+        return true;
+    }
+
+    protected virtual bool SetVirtualField(Field field)
+    {
+        string name;
+        name = field.Name;
+
+        ClassClass f;
+        f = field.Parent;
+        Field v;
+        v = null;
+        bool b;
+        b = false;
+        ClassClass a;
+        a = f.Base;
+        while (!b & !(a == null))
+        {
+            bool ba;
+            ba = a.Field.Contain(name);
+            bool bb;
+            bb = a.Maide.Contain(name);
+            if (bb)
+            {
+                b = true;
+            }
+            if (ba)
+            {
+                Field o;
+                o = (Field)a.Field.Get(name);
+                if (o.Class == field.Class & o.Count == field.Count)
+                {
+                    v = o;
+                }
+                b = true;
+            }
+
+            bool bc;
+            bc = (a == this.AnyClass);
+            if (bc)
+            {
+                a = null;
+            }
+            if (!bc)
+            {
+                a = a.Base;
+            }
+        }
+
+        field.Virtual = v;
         return true;
     }
 
