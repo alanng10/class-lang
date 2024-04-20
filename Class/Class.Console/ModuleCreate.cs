@@ -520,11 +520,21 @@ public class ModuleCreate : Any
         }
 
         Field k;
-        k = v;
-        if (!(v.Virtual == null))
+        k = null;
+        if (!(v == null))
         {
-            k = v.Virtual;
+            bool be;
+            be = !(v.Virtual == null);
+            if (be)
+            {
+                k = v.Virtual;
+            }
+            if (!be)
+            {
+                k = v;
+            }
         }
+
         field.Virtual = k;
         return true;
     }
