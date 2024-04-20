@@ -519,7 +519,13 @@ public class ModuleCreate : Any
             }
         }
 
-        field.Virtual = v;
+        Field k;
+        k = v;
+        if (!(v.Virtual == null))
+        {
+            k = v.Virtual;
+        }
+        field.Virtual = k;
         return true;
     }
 
