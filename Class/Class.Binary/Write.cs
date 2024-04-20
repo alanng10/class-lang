@@ -243,11 +243,6 @@ public class Write : Any
 
     protected virtual bool ExecuteEntry(ClassIndex classIndex)
     {
-        if (classIndex == null)
-        {
-            this.ExecuteInt(-1);
-            return true;
-        }
         this.ExecuteClassIndex(classIndex);
         return true;
     }
