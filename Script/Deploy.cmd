@@ -6,7 +6,7 @@ set DeployModuleFold=%DeployFold%\Module
 mkdir %DeployModuleFold% 1>NUL 2>NUL
 
 copy /Y %DotNetModuleOutFold%\Avalon.*.dll %DeployModuleFold% 1>NUL 2>NUL
-copy /Y %DotNetModuleOutFold%\Avalon.*.ref %DeployModuleFold% 1>NUL 2>NUL
+copy /Y %DotNetModuleOutFold%\System.*.ref %DeployModuleFold% 1>NUL 2>NUL
 copy /Y %DotNetModuleOutFold%\Class.*.dll %DeployModuleFold% 1>NUL 2>NUL
 copy /Y %DotNetModuleOutFold%\Class.*.ref %DeployModuleFold% 1>NUL 2>NUL
 copy /Y %DotNetModuleOutFold%\ClassExe.dll %DeployModuleFold% 1>NUL 2>NUL
