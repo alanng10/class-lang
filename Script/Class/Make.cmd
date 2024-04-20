@@ -9,5 +9,6 @@ echo:
 call Script\Class\MakeTest
 echo:
 echo Make Binary
+echo:
 call Script\Tool\Make ReferBinaryGen
 call Script\Tool\Execute ReferBinaryGen
