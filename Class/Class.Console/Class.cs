@@ -133,7 +133,7 @@ public class Class : Any
 
         if (binary == null)
         {
-            global::System.Console.Error.Write("Class.Console:Class.InitBinary binary is null\n");
+            global::System.Console.Error.Write("Class.Console:Class.InitBinary binary is null, module name: " + moduleName + "\n");
             global::System.Environment.Exit(1000);
         }
 
