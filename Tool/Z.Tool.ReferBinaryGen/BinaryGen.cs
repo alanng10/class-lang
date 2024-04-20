@@ -58,7 +58,7 @@ class BinaryGen : Any
         binary.Import = this.ExecuteImportArray();
         binary.Base = this.ExecuteBaseArray();
         binary.Part = this.ExecutePartArray();
-        binary.Entry = null;
+        binary.Entry = this.ExecuteEntry();
 
         return binary;
     }
@@ -348,6 +348,15 @@ class BinaryGen : Any
         }
 
         return array;
+    }
+
+    protected virtual BinaryClassIndex ExecuteEntry()
+    {
+        BinaryClassIndex a;
+        a = new BinaryClassIndex();
+        a.Init();
+        a.Value = -1;
+        return a;
     }
 
     protected virtual bool ClassIndexAdd(ClassClass varClass)
