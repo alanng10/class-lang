@@ -675,6 +675,15 @@ public class Read : Any
         int count;
         count = u;
 
+        long uu;
+        uu = this.ExecuteInt();
+        if (uu == -1)
+        {
+            return null;
+        }
+        int varVirtual;
+        varVirtual = (int)uu;
+
         string name;
         name = this.ExecuteString();
         if (name == null)
@@ -687,6 +696,7 @@ public class Read : Any
         a.Class = varClass;
         a.SystemClass = systemClass;
         a.Count = count;
+        a.Virtual = varVirtual;
         a.Name = name;
         return a;
     }
@@ -752,6 +762,15 @@ public class Read : Any
         int count;
         count = u;
 
+        long uu;
+        uu = this.ExecuteInt();
+        if (uu == -1)
+        {
+            return null;
+        }
+        int varVirtual;
+        varVirtual = (int)uu;
+
         string name;
         name = this.ExecuteString();
         if (name == null)
@@ -771,6 +790,7 @@ public class Read : Any
         a.Class = varClass;
         a.SystemClass = systemClass;
         a.Count = count;
+        a.Virtual = varVirtual;
         a.Name = name;
         a.Param = param;
         return a;
