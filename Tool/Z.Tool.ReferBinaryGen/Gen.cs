@@ -436,7 +436,7 @@ public class Gen : Any
                 if (this.ClassMemberHasDefine(varClass, method.Name))
                 {
                     global::System.Console.Error.Write("Class " + varClass.Name + "(" + varClass.Module.Ref.Name + ") member name " + method.Name + " has define\n");
-                    global::System.Environment.Exit(110);
+                    global::System.Environment.Exit(111);
                 }
 
                 Info of;
