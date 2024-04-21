@@ -103,9 +103,8 @@ public class Gen : Any
         this.ExecuteTypeModule(typeof(ModuleResult));
         this.ExecuteTypeModule(typeof(Task));
 
-        this.ModuleRef.Name = "System.Infra";
         Module module;
-        module = this.ModuleGet(this.ModuleRef);
+        module = this.ModuleGet("System.Infra");
         this.ConsoleWriteClass(this.ModuleClassGet(module, "String"));
         this.ConsoleWriteClass(this.ModuleClassGet(module, "ModuleInfo"));
         this.ConsoleWriteClass(this.ModuleClassGet(module, "Infra"));
@@ -802,13 +801,14 @@ public class Gen : Any
         return true;
     }
 
-    protected virtual Module ModuleGet(ModuleRef module)
+    protected virtual Module ModuleGet(string name)
     {
+        this.ModuleRef.Name = name;
         Module a;
-        a = (Module)this.ModuleTable.Get(module);
+        a = (Module)this.ModuleTable.Get(this.ModuleRef);
         if (a == null)
         {
-            global::System.Console.Error.Write("ModuleGet no module, module: " + module.Name + "\n");
+            global::System.Console.Error.Write("ModuleGet no module, module: " + name + "\n");
             global::System.Environment.Exit(100);
         }
         return a;
@@ -855,9 +855,8 @@ public class Gen : Any
 
     protected virtual ClassClass ClassGet(string moduleName, string className)
     {
-        this.ModuleRef.Name = moduleName;
         Module o;
-        o = this.ModuleGet(this.ModuleRef);
+        o = this.ModuleGet(moduleName);
         ClassClass oa;
         oa = this.ModuleClassGet(o, className);
         return oa;
