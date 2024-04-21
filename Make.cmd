@@ -14,6 +14,7 @@ echo Make Class
 call Script\Class\MakeModule
 echo:
 echo Make Binary
+echo:
 call Script\Tool\Make ReferBinaryGen
 call Script\Tool\Execute ReferBinaryGen
 echo:
