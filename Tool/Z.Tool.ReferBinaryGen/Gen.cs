@@ -535,6 +535,10 @@ public class Gen : Any
                 Field field;
                 field = (Field)iterA.Value;
                 this.AddClassToImportTable(field.Class);
+                if (!(field.Virtual == null))
+                {
+                    this.AddClassToImportTable(field.Virtual.Class);
+                }
             }
 
             iterA = a.Maide.IterCreate();
@@ -544,6 +548,10 @@ public class Gen : Any
                 Maide maide;
                 maide = (Maide)iterA.Value;
                 this.AddClassToImportTable(maide.Class);
+                if (!(maide.Virtual == null))
+                {
+                    this.AddClassToImportTable(maide.Virtual.Class);
+                }
 
                 Table varTable;
                 varTable = maide.Param;
