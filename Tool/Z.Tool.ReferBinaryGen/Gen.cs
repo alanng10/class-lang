@@ -63,6 +63,7 @@ public class Gen : Any
     protected virtual Table BinaryTable { get; set; }
     protected virtual Array CountArray { get; set; }
     protected virtual ClassClass AnyClass { get; set; }
+    protected virtual ClassClass StringClass { get; set; }
     protected virtual bool IsAvalonInfra { get; set; }
     protected virtual Array Array { get; set; }
     protected virtual int Index { get; set; }
@@ -158,6 +159,7 @@ public class Gen : Any
 
         this.SetImportList();
 
+        this.SetVirtualList();
         return true;
     }
 
@@ -202,6 +204,9 @@ public class Gen : Any
             this.AddInfraBuiltInClassList();
 
             this.AddClass(typeof(ZModuleInfo));
+
+            this.AnyClass = this.ModuleClassGet(this.Module, "Any");
+            this.StringClass = this.ModuleClassGet(this.Module, "String");
         }
 
         int count;
@@ -227,11 +232,7 @@ public class Gen : Any
     {
         if (this.IsAvalonInfra)
         {
-            ClassClass anyClass;
-            anyClass = this.ModuleClassGet(this.Module, "Any");
-            this.AnyClass = anyClass;
-
-            anyClass.Base = anyClass;
+            this.AnyClass.Base = this.AnyClass;
 
             this.ClassBaseSetAny("Bool");
             this.ClassBaseSetAny("Int");
@@ -383,15 +384,6 @@ public class Gen : Any
                         global::System.Environment.Exit(106);
                     }
 
-                    Field aa;
-                    aa = null;
-                    ClassClass ac;
-                    ac = this.VirtualDefineClass(property.GetMethod);
-                    if (!(ac == null))
-                    {
-                        aa = (Field)ac.Field.Get(property.Name);
-                    }
-
                     Info oe;
                     oe = new Info();
                     oe.Init();
@@ -404,7 +396,6 @@ public class Gen : Any
                     field.Name = property.Name;
                     field.Class = this.ClassGetType(property.PropertyType);
                     field.Count = this.CountGet(property.GetMethod);
-                    field.Virtual = aa;
                     field.Any = oe;
                     
                     this.ListInfra.TableAdd(fieldTable, field.Name, field);
@@ -432,15 +423,6 @@ public class Gen : Any
                     global::System.Environment.Exit(107);
                 }
 
-                Maide fa;
-                fa = null;
-                ClassClass fc;
-                fc = this.VirtualDefineClass(method);
-                if (!(fc == null))
-                {
-                    fa = (Maide)fc.Maide.Get(method.Name);
-                }
-
                 Info of;
                 of = new Info();
                 of.Init();
@@ -453,7 +435,6 @@ public class Gen : Any
                 maide.Name = method.Name;
                 maide.Class = this.ClassGetType(method.ReturnType);
                 maide.Count = this.CountGet(method);
-                maide.Virtual = fa;
                 maide.Any = of;
 
                 Table varTable;
@@ -602,6 +583,75 @@ public class Gen : Any
         }
 
         this.ListInfra.TableAdd(classTable, name, varClass);
+        return true;
+    }
+
+    protected virtual bool SetVirtualList()
+    {
+        Iter iter;
+        iter = this.Module.Class.IterCreate();
+        this.Module.Class.IterSet(iter);
+
+        while (iter.Next())
+        {
+            ClassClass a;
+            a = (ClassClass)iter.Value;
+
+            if (!(a == this.StringClass))
+            {
+                Iter iterA;
+                iterA = a.Field.IterCreate();
+                a.Field.IterSet(iterA);
+                while (iterA.Next())
+                {
+                    Field field;
+                    field = (Field)iterA.Value;
+
+                    Info aaa;
+                    aaa = (Info)field.Any;
+
+                    PropertyInfo property;
+                    property = aaa.Property;
+
+                    Field aa;
+                    aa = null;
+                    ClassClass ac;
+                    ac = this.VirtualDefineClass(property.GetMethod);
+                    if (!(ac == null))
+                    {
+                        aa = (Field)ac.Field.Get(field.Name);
+                    }
+                    
+                    field.Virtual = aa;
+                }
+
+                iterA = a.Maide.IterCreate();
+                a.Maide.IterSet(iterA);
+                while (iterA.Next())
+                {
+                    Maide maide;
+                    maide = (Maide)iterA.Value;
+
+                    Info faa;
+                    faa = (Info)maide.Any;
+
+                    MethodInfo method;
+                    method = faa.Method;
+
+                    Maide fa;
+                    fa = null;
+                    ClassClass fc;
+                    fc = this.VirtualDefineClass(method);
+                    if (!(fc == null))
+                    {
+                        fa = (Maide)fc.Maide.Get(maide.Name);
+                    }
+
+                    maide.Virtual = fa;
+                }
+            }
+        }
+
         return true;
     }
 
