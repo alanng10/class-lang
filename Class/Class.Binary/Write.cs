@@ -186,6 +186,7 @@ public class Write : Any
         this.ExecuteSystemClass(field.SystemClass);
         this.ExecuteByte(field.Count);
         this.ExecuteName(field.Name);
+        this.ExecuteIndex(field.Virtual);
         return true;
     }
 
@@ -213,6 +214,7 @@ public class Write : Any
         this.ExecuteByte(maide.Count);
         this.ExecuteName(maide.Name);
         this.ExecuteVarArray(maide.Param);
+        this.ExecuteIndex(maide.Virtual);
         return true;
     }
 
