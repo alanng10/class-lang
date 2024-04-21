@@ -682,7 +682,11 @@ public class Gen : Any
         {
             Field field;
             field = (Field)iterB.Value;
-            global::System.Console.Write("    Field: Name: " + field.Name + ", Count: " + this.CountString(field.Count.Index) + ", Class: " + field.Class.Name + "(" + field.Class.Module.Ref.Name + ")" + ", SystemClass: " + ((Info)(field.Any)).SystemClass + "\n");
+            global::System.Console.Write("    Field: Name: " + field.Name + ", Count: " + this.CountString(field.Count.Index) + 
+            ", Class: " + field.Class.Name + "(" + field.Class.Module.Ref.Name + ")" + 
+            ", SystemClass: " + ((Info)(field.Any)).SystemClass +
+            ", Virtual: " + ((field.Virtual == null) ? "null" : (field.Virtual.Class.Name + "(" + field.Virtual.Class.Module.Ref.Name + ")")) +
+            "\n");
         }
 
         iterB = a.Maide.IterCreate();
@@ -691,7 +695,11 @@ public class Gen : Any
         {
             Maide maide;
             maide = (Maide)iterB.Value;
-            global::System.Console.Write("    Maide: Name: " + maide.Name + ", Count: " + this.CountString(maide.Count.Index) + ", Class: " + maide.Class.Name + "(" + maide.Class.Module.Ref.Name + ")" + ", SystemClass: " + ((Info)(maide.Any)).SystemClass + "\n");
+            global::System.Console.Write("    Maide: Name: " + maide.Name + ", Count: " + this.CountString(maide.Count.Index) + 
+            ", Class: " + maide.Class.Name + "(" + maide.Class.Module.Ref.Name + ")" + 
+            ", SystemClass: " + ((Info)(maide.Any)).SystemClass +
+            ", Virtual: " + ((maide.Virtual == null) ? "null" : (maide.Virtual.Class.Name + "(" + maide.Virtual.Class.Module.Ref.Name + ")")) +
+            "\n");
 
 
             Table varTable;
