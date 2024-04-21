@@ -383,6 +383,15 @@ public class Gen : Any
                         global::System.Environment.Exit(106);
                     }
 
+                    Field aa;
+                    aa = null;
+                    ClassClass ac;
+                    ac = this.VirtualDefineClass(property.GetMethod);
+                    if (!(ac == null))
+                    {
+                        aa = (Field)ac.Field.Get(property.Name);
+                    }
+
                     Info oe;
                     oe = new Info();
                     oe.Init();
@@ -395,6 +404,7 @@ public class Gen : Any
                     field.Name = property.Name;
                     field.Class = this.ClassGetType(property.PropertyType);
                     field.Count = this.CountGet(property.GetMethod);
+                    field.Virtual = aa;
                     field.Any = oe;
                     
                     this.ListInfra.TableAdd(fieldTable, field.Name, field);
@@ -987,6 +997,23 @@ public class Gen : Any
         }
 
         return assemblyName;
+    }
+
+    protected virtual ClassClass VirtualDefineClass(MethodInfo method)
+    {
+        MethodInfo ua;
+        ua = method.GetBaseDefinition();
+
+        if (method.Equals(ua))
+        {
+            return null;
+        }
+
+        SystemType u;
+        u = ua.DeclaringType;        
+        ClassClass a;
+        a = this.ClassGetType(u);
+        return a;
     }
 
     protected virtual BuiltInType BuitInTypeGet(SystemType type)
