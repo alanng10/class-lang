@@ -432,6 +432,15 @@ public class Gen : Any
                     global::System.Environment.Exit(107);
                 }
 
+                Maide fa;
+                fa = null;
+                ClassClass fc;
+                fc = this.VirtualDefineClass(method);
+                if (!(fc == null))
+                {
+                    fa = (Maide)fc.Maide.Get(method.Name);
+                }
+
                 Info of;
                 of = new Info();
                 of.Init();
@@ -444,6 +453,7 @@ public class Gen : Any
                 maide.Name = method.Name;
                 maide.Class = this.ClassGetType(method.ReturnType);
                 maide.Count = this.CountGet(method);
+                maide.Virtual = fa;
                 maide.Any = of;
 
                 Table varTable;
