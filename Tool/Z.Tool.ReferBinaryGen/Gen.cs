@@ -346,10 +346,16 @@ public class Gen : Any
         MethodInfo[] methodArrayA;
         methodArrayA = type.GetMethods(BindingFlag.Instance | BindingFlag.Public | BindingFlag.NonPublic | BindingFlag.DeclaredOnly | BindingFlag.ExactBinding);
 
+        Table fieldTable;
+        Table maideTable;
+        fieldTable = this.ClassInfra.TableCreateStringCompare();
+        maideTable = this.ClassInfra.TableCreateStringCompare();
+
+        varClass.Field = fieldTable;
+        varClass.Maide = maideTable;
+        
         int count;
         int i;
-        Table fieldTable;
-        fieldTable = this.ClassInfra.TableCreateStringCompare();
 
         count = propertyArrayA.Length;
         i = 0;
@@ -384,6 +390,12 @@ public class Gen : Any
                         global::System.Environment.Exit(106);
                     }
 
+                    if (this.ClassMemberHasDefine(varClass, property.Name))
+                    {
+                        global::System.Console.Error.Write("Class " + varClass.Name + "(" + varClass.Module.Ref.Name + ") member name " + property.Name + " has define\n");
+                        global::System.Environment.Exit(110);
+                    }
+
                     Info oe;
                     oe = new Info();
                     oe.Init();
@@ -406,9 +418,6 @@ public class Gen : Any
             i = i + 1;
         }
 
-        Table maideTable;
-        maideTable = this.ClassInfra.TableCreateStringCompare();
-
         count = methodArrayA.Length;
         i = 0;
         while (i < count)
@@ -422,6 +431,12 @@ public class Gen : Any
                 {
                     global::System.Console.Error.Write("Class " + varClass.Name + "(" + varClass.Module.Ref.Name + ") maide " + method.Name + " is not virtual\n");
                     global::System.Environment.Exit(107);
+                }
+
+                if (this.ClassMemberHasDefine(varClass, method.Name))
+                {
+                    global::System.Console.Error.Write("Class " + varClass.Name + "(" + varClass.Module.Ref.Name + ") member name " + method.Name + " has define\n");
+                    global::System.Environment.Exit(110);
                 }
 
                 Info of;
@@ -482,10 +497,6 @@ public class Gen : Any
 
             i = i + 1;
         }
-
-        varClass.Field = fieldTable;
-        varClass.Maide = maideTable;
-
         return true;
     }
 
@@ -799,6 +810,17 @@ public class Gen : Any
             this.StorageInfra.DataWrite(path, data);
         }
         return true;
+    }
+
+    protected virtual bool ClassMemberHasDefine(ClassClass varClass, string name)
+    {
+        bool ba;
+        ba = varClass.Field.Contain(name);
+        bool bb;
+        bb = varClass.Maide.Contain(name);
+        bool b;
+        b = ba | bb;
+        return b;
     }
 
     protected virtual Module ModuleGet(string name)
