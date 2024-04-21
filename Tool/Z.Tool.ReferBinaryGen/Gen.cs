@@ -701,7 +701,6 @@ public class Gen : Any
             ", Virtual: " + ((maide.Virtual == null) ? "null" : (maide.Virtual.Class.Name + "(" + maide.Virtual.Class.Module.Ref.Name + ")")) +
             "\n");
 
-
             Table varTable;
             varTable = maide.Param;
             Iter iterBa;
