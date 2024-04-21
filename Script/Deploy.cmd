@@ -17,6 +17,6 @@ copy /Y %DotNetModuleOutFold%\class.exe %DeployModuleFold% 1>NUL 2>NUL
 pushd %DotNetModuleOutFold%
 for /d %%a in ("*.data") do ( 
     mkdir "..\..\%DeployModuleFold%\%%~nxa" 1>NUL 2>NUL
-    xcopy /S /E ".\%%~nxa" "..\..\%DeployModuleFold%\%%~nxa" 1>NUL 2>NUL
+    xcopy /S /E /Y ".\%%~nxa" "..\..\%DeployModuleFold%\%%~nxa" 1>NUL 2>NUL
 )
 popd
