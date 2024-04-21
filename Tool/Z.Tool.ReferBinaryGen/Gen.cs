@@ -396,6 +396,7 @@ public class Gen : Any
                     field.Name = property.Name;
                     field.Class = this.ClassGetType(property.PropertyType);
                     field.Count = this.CountGet(property.GetMethod);
+                    field.Parent = varClass;
                     field.Any = oe;
                     
                     this.ListInfra.TableAdd(fieldTable, field.Name, field);
@@ -435,6 +436,7 @@ public class Gen : Any
                 maide.Name = method.Name;
                 maide.Class = this.ClassGetType(method.ReturnType);
                 maide.Count = this.CountGet(method);
+                maide.Parent = varClass;
                 maide.Any = of;
 
                 Table varTable;
