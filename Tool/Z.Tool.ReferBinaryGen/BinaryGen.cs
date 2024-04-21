@@ -262,7 +262,7 @@ class BinaryGen : Any
             of = -1;
             if (!(oa.Virtual == null))
             {
-                of = this.ClassIndexGet(oa.Virtual.Class);
+                of = this.ClassIndexGet(oa.Virtual.Parent);
             }
 
             BinaryField a;
@@ -307,7 +307,7 @@ class BinaryGen : Any
             of = -1;
             if (!(oa.Virtual == null))
             {
-                of = this.ClassIndexGet(oa.Virtual.Class);
+                of = this.ClassIndexGet(oa.Virtual.Parent);
             }
 
             BinaryMaide a;
