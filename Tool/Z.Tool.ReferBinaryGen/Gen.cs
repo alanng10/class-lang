@@ -760,18 +760,18 @@ public class Gen : Any
             module = this.ClassModuleName(assemblyName);
             varClass = type.Name;
         }
-        this.ModuleRef.Name = module;
         ClassClass a;
-        a = this.ClassGet(this.ModuleRef, varClass);
+        a = this.ClassGet(module, varClass);
         return a;
     }
 
-    protected virtual ClassClass ClassGet(ModuleRef module, string name)
+    protected virtual ClassClass ClassGet(string moduleName, string className)
     {
+        this.ModuleRef.Name = moduleName;
         Module o;
-        o = this.ModuleGet(module);
+        o = this.ModuleGet(this.ModuleRef);
         ClassClass oa;
-        oa = this.ModuleClassGet(o, name);
+        oa = this.ModuleClassGet(o, className);
         return oa;
     }
 
