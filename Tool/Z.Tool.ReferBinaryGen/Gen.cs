@@ -108,7 +108,7 @@ public class Gen : Any
         this.ConsoleWriteClass(this.ModuleClassGet(module, "String"));
         this.ConsoleWriteClass(this.ModuleClassGet(module, "ModuleInfo"));
         this.ConsoleWriteClass(this.ModuleClassGet(module, "Infra"));
-        this.ConsoleWriteClass(this.ClassGet("Class.Node", "AddOperate"));
+        this.ConsoleWriteClass(this.ClassGet("Class.Node", "SetCreateOperate"));
 
         //this.ConsoleWrite();
 
