@@ -11,4 +11,6 @@ public class Maide : Any
     public virtual string Name { get; set; }
 
     public virtual Array Param { get; set; }
+
+    public virtual int Virtual { get; set; }
 }
