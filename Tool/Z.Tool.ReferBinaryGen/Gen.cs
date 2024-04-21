@@ -103,12 +103,12 @@ public class Gen : Any
         this.ExecuteTypeModule(typeof(ModuleResult));
         this.ExecuteTypeModule(typeof(Task));
 
-        // this.ModuleRef.Name = "System.Infra";
-        // Module module;
-        // module = this.ModuleGet(this.ModuleRef);
-        // this.ConsoleWriteClass(this.ModuleClassGet(module, "String"));
-        // this.ConsoleWriteClass(this.ModuleClassGet(module, "ModuleInfo"));
-        // this.ConsoleWriteClass(this.ModuleClassGet(module, "Infra"));
+        this.ModuleRef.Name = "System.Infra";
+        Module module;
+        module = this.ModuleGet(this.ModuleRef);
+        this.ConsoleWriteClass(this.ModuleClassGet(module, "String"));
+        this.ConsoleWriteClass(this.ModuleClassGet(module, "ModuleInfo"));
+        this.ConsoleWriteClass(this.ModuleClassGet(module, "Infra"));
 
         //this.ConsoleWrite();
 
@@ -735,7 +735,7 @@ public class Gen : Any
             global::System.Console.Write("    Field: Name: " + field.Name + ", Count: " + this.CountString(field.Count.Index) + 
             ", Class: " + field.Class.Name + "(" + field.Class.Module.Ref.Name + ")" + 
             ", SystemClass: " + ((Info)(field.Any)).SystemClass +
-            ", Virtual: " + ((field.Virtual == null) ? "null" : (field.Virtual.Class.Name + "(" + field.Virtual.Class.Module.Ref.Name + ")")) +
+            ", Virtual: " + ((field.Virtual == null) ? "null" : (field.Virtual.Parent.Name + "(" + field.Virtual.Parent.Module.Ref.Name + ")")) +
             "\n");
         }
 
@@ -748,7 +748,7 @@ public class Gen : Any
             global::System.Console.Write("    Maide: Name: " + maide.Name + ", Count: " + this.CountString(maide.Count.Index) + 
             ", Class: " + maide.Class.Name + "(" + maide.Class.Module.Ref.Name + ")" + 
             ", SystemClass: " + ((Info)(maide.Any)).SystemClass +
-            ", Virtual: " + ((maide.Virtual == null) ? "null" : (maide.Virtual.Class.Name + "(" + maide.Virtual.Class.Module.Ref.Name + ")")) +
+            ", Virtual: " + ((maide.Virtual == null) ? "null" : (maide.Virtual.Parent.Name + "(" + maide.Virtual.Parent.Module.Ref.Name + ")")) +
             "\n");
 
             Table varTable;
