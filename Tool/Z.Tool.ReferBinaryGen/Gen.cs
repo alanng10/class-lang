@@ -948,8 +948,8 @@ public class Gen : Any
                         field.Name = compName;
                         field.Class = this.ClassGetType(method.ReturnType);
                         field.Count = this.CountGet(method);
-                        field.Any = oe;
                         field.Parent = varClass;
+                        field.Any = oe;
 
                         this.ListInfra.TableAdd(fieldTable, field.Name, field);
                     }
@@ -962,8 +962,8 @@ public class Gen : Any
                         maide.Name = compName;
                         maide.Class = this.ClassGetType(method.ReturnType);
                         maide.Count = this.CountGet(method);
-                        maide.Any = oe;
                         maide.Parent = varClass;
+                        maide.Any = oe;
 
                         Table varTable;
                         varTable = this.ClassInfra.TableCreateStringCompare();
