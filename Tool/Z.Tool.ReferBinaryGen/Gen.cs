@@ -457,7 +457,7 @@ public class Gen : Any
                 Table varTable;
                 varTable = this.ClassInfra.TableCreateStringCompare();
 
-                if (!((type == typeof(ZModuleInfo)) & (maide.Name == "RefString")))
+                if (!((type == typeof(ZModuleInfo)) & ((maide.Name == "Name") | (maide.Name == "Version"))))
                 {
                     ParameterInfo[] parameterArray;
                     parameterArray = method.GetParameters();
