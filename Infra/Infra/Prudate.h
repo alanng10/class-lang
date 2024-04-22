@@ -719,7 +719,7 @@ Infra_Api Int Time_DayTo(Int o, Int other);
 Infra_Api Int Time_Current(Int o);
 Infra_Api Int Time_ToLocalTime(Int o);
 Infra_Api Int Time_ToOffsetUtc(Int o, Int offset);
-Infra_Api Int Time_Set(Int o, Int year, Int month, Int day, Int hour, Int minute, Int second, Int millisecond, Int hasOffset, Int offsetUtc);
+Infra_Api Int Time_Set(Int o, Int year, Int month, Int day, Int hour, Int minute, Int second, Int millisecond, Int isLocalTime, Int offsetUtc);
 
 Infra_Api Int Time_LeapYear(Int year);
 Infra_Api Int Time_ValidDate(Int year, Int month, Int day);
