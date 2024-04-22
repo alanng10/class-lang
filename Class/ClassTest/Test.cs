@@ -59,7 +59,7 @@ public class Test : Any
 
 
 
-        this.OriginalCurrentDirectory = Directory.GetCurrentDirectory();
+        this.InitialCurrentDirectory = Directory.GetCurrentDirectory();
 
 
 
@@ -128,7 +128,7 @@ public class Test : Any
 
     private StringOut Out { get; set; }
 
-    private string OriginalCurrentDirectory { get; set; }
+    private string InitialCurrentDirectory { get; set; }
 
     private string ResultSpace { get; set; }
 
@@ -538,7 +538,7 @@ public class Test : Any
 
 
 
-        Directory.SetCurrentDirectory(this.OriginalCurrentDirectory);
+        Directory.SetCurrentDirectory(this.InitialCurrentDirectory);
 
 
 
