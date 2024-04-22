@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <OutputPath>../../Out</OutputPath>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="../Z.Tool.Class.CountList/Z.Tool.Class.CountList.csproj" />
+        <ProjectReference Include="../Z.Tool.Class.DelimitList/Z.Tool.Class.DelimitList.csproj" />
+        <ProjectReference Include="../Z.Tool.Class.ErrorKindList/Z.Tool.Class.ErrorKindList.csproj" />
+        <ProjectReference Include="../Z.Tool.Class.KeywordList/Z.Tool.Class.KeywordList.csproj" />
+        <ProjectReference Include="../Z.Tool.Class.NodeList/Z.Tool.Class.NodeList.csproj" />
+        <ProjectReference Include="../Z.Tool.Class.TaskKindList/Z.Tool.Class.TaskKindList.csproj" />
+    </ItemGroup>
+
+</Project>
