@@ -42,6 +42,7 @@ public class Console : Any
 
     public virtual bool ErrorWrite { get; set; }
 
+    public virtual Array Arg { get; set; }
 
     public virtual Task Task { get; set; }
 
@@ -189,7 +190,7 @@ public class Console : Any
         return a;
     }
 
-    public virtual bool Execute()
+    public virtual int Execute()
     {
         this.Out = this.Task.Out;
 
@@ -278,7 +279,7 @@ public class Console : Any
 
 
 
-                return false;
+                return 100;
             }
 
 
@@ -296,7 +297,7 @@ public class Console : Any
                 this.Error("Port Invalid");
 
 
-                return false;
+                return 100;
             }
 
 
@@ -378,7 +379,7 @@ public class Console : Any
 
 
 
-        return true;
+        return 0;
     }
 
 
