@@ -1,6 +1,6 @@
 namespace Class.Console;
 
-public class Class : Any
+public class Console : Any
 {
     public override bool Init()
     {

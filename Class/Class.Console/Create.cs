@@ -5,7 +5,7 @@ namespace Class.Console;
 
 public class Create : Any
 {
-    public virtual Class Class { get; set; }
+    public virtual Console Class { get; set; }
 
 
 

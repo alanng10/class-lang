@@ -5,7 +5,7 @@ namespace Class.Console;
 
 class ErrorString : Any
 {
-    public Class Class { get; set; }
+    public Console Class { get; set; }
 
 
 

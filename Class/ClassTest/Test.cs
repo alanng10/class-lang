@@ -120,7 +120,7 @@ public class Test : Any
 
     private int PassCount { get; set; }
 
-    private ClassClass Class { get; set; }
+    private ClassConsole Class { get; set; }
 
     private string UnitFold { get; set; }
 
@@ -814,29 +814,20 @@ public class Test : Any
 
 
 
-    protected virtual ClassClass CreateClass()
+    protected virtual ClassConsole CreateClass()
     {
-        ClassClass t;
+        ClassConsole a;
 
 
 
-        t = new ClassClass();
+        a = new ClassConsole();
 
 
 
-        t.Init();
+        a.Init();
 
 
-
-
-
-        ClassClass ret;
-
-
-        ret = t;
-
-
-        return ret;
+        return a;
     }
 
 
