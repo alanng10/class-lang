@@ -354,7 +354,7 @@ public class Time : Any
         return a;
     }
 
-    public virtual bool Set(int year, int month, int day, int hour, int minute, int second, int millisecond, bool hasOffset, int offsetUtc)
+    public virtual bool Set(int year, int month, int day, int hour, int minute, int second, int millisecond, bool isLocalTime, int offsetUtc)
     {
         ulong yearU;
         ulong monthU;
@@ -363,7 +363,7 @@ public class Time : Any
         ulong minuteU;
         ulong secondU;
         ulong millisecondU;
-        ulong hasOffsetU;
+        ulong isLocalTimeU;
         ulong offsetUtcU;
         yearU = (ulong)year;
         monthU = (ulong)month;
@@ -372,10 +372,10 @@ public class Time : Any
         minuteU = (ulong)minute;
         secondU = (ulong)second;
         millisecondU = (ulong)millisecond;
-        hasOffsetU = (ulong)(hasOffset ? 1 : 0);
+        isLocalTimeU = (ulong)(isLocalTime ? 1 : 0);
         offsetUtcU = (ulong)offsetUtc;
 
-        Extern.Time_Set(this.Intern, yearU, monthU, dayU, hourU, minuteU, secondU, millisecondU, hasOffsetU, offsetUtcU);
+        Extern.Time_Set(this.Intern, yearU, monthU, dayU, hourU, minuteU, secondU, millisecondU, isLocalTimeU, offsetUtcU);
         return true;
     }
 }
