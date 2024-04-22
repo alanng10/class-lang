@@ -236,9 +236,8 @@ public class ModuleCreate : Any
         Array array;
         array = this.Binary.Base;
 
-        Iter iter;
-        iter = this.Module.Class.IterCreate();
-        this.Module.Class.IterSet(iter);
+        Array classArray;
+        classArray = this.ClassArray;
         
         int count;
         count = array.Count;
@@ -246,10 +245,8 @@ public class ModuleCreate : Any
         i = 0;
         while (i < count)
         {
-            iter.Next();
-
             ClassClass varClass;
-            varClass = (ClassClass)iter.Value;
+            varClass = (ClassClass)classArray.Get(i);
 
             BinaryClassIndex a;
             a = (BinaryClassIndex)array.Get(i);
