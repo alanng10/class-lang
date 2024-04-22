@@ -8,7 +8,7 @@
 
     <ItemGroup>
         <None Include="../../Out/InfraDeploy/**/*">
-            <Link>Avalon.Intern.data/%(RecursiveDir)/%(FileName)%(Extension)</Link>
+            <Link>Avalon.Intern.data/Lib/%(RecursiveDir)/%(FileName)%(Extension)</Link>
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </None>
     </ItemGroup>

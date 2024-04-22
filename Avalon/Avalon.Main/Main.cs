@@ -5,7 +5,7 @@ public class Main : Any
     public override bool Init()
     {
         base.Init();
-        Environment.SetEnvironmentVariable("QT_PLUGIN_PATH", "Avalon.Intern.data");
+        Environment.SetEnvironmentVariable("QT_PLUGIN_PATH", "Avalon.Intern.data/Lib");
 
         ulong ua;
         ua = 1;
