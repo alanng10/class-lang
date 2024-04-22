@@ -326,13 +326,6 @@ public class ModuleCreate : Any
             a.Count = this.CountList.Get(ua.Count);
             a.Parent = varClass;
 
-            Info ae;
-            ae = new Info();
-            ae.Init();
-            ae.Virtual = this.VirtualDefineClass(ua.Virtual);
-
-            a.Any = ae;
-
             this.ListInfra.TableAdd(fieldTable, a.Name, a);
 
             i = i + 1;
@@ -364,13 +357,6 @@ public class ModuleCreate : Any
             a.SystemClass = this.SystemClassCreate(ua.SystemClass);
             a.Count = this.CountList.Get(ua.Count);
             a.Parent = varClass;
-
-            Info ae;
-            ae = new Info();
-            ae.Init();
-            ae.Virtual = this.VirtualDefineClass(ua.Virtual);
-
-            a.Any = ae;
 
             this.SetPartParam(a, ua.Param);
 
@@ -412,22 +398,42 @@ public class ModuleCreate : Any
 
     protected virtual bool SetVirtualList()
     {
+        Array array;
+        array = this.Binary.Part;
+
         Iter iter;
         iter = this.Module.Class.IterCreate();
         this.Module.Class.IterSet(iter);
 
-        while (iter.Next())
+        int count;
+        count = array.Count;
+        int i;
+        i = 0;
+        while (i < count)
         {
-            ClassClass a;
-            a = (ClassClass)iter.Value;
+            iter.Next();
 
-            this.SetVirtualField(a);
-            this.SetVirtualMaide(a);
+            ClassClass varClass;
+            varClass = (ClassClass)iter.Value;
+
+            BinaryPart a;
+            a = (BinaryPart)array.Get(i);
+
+            this.SetVirtual(varClass, a);
+
+            i = i + 1;
         }
         return true;
     }
 
-    protected virtual bool SetVirtualField(ClassClass varClass)
+    protected virtual bool SetVirtual(ClassClass varClass, BinaryPart part)
+    {
+        this.SetVirtualField(varClass, part.Field);
+        this.SetVirtualMaide(varClass, part.Maide);
+        return true;
+    }
+
+    protected virtual bool SetVirtualField(ClassClass varClass, Array binaryField)
     {
         Iter iter;
         iter = varClass.Field.IterCreate();
@@ -438,14 +444,16 @@ public class ModuleCreate : Any
             Field a;
             a = (Field)iter.Value;
 
-            Info ae;
-            ae = (Info)a.Any;
+            BinaryField ae;
+            ae = (BinaryField)binaryField.Get(a.Index);
 
             Field aa;
             aa = null;
-            if (!(ae.Virtual == null))
+            ClassClass af;
+            af = this.VirtualDefineClass(ae.Virtual);
+            if (!(af == null))
             {
-                aa = (Field)ae.Virtual.Field.Get(a.Name);
+                aa = (Field)af.Field.Get(a.Name);
             }
 
             a.Virtual = aa;
@@ -453,7 +461,7 @@ public class ModuleCreate : Any
         return true;
     }
 
-    protected virtual bool SetVirtualMaide(ClassClass varClass)
+    protected virtual bool SetVirtualMaide(ClassClass varClass, Array binaryMaide)
     {
         Iter iter;
         iter = varClass.Maide.IterCreate();
@@ -464,14 +472,16 @@ public class ModuleCreate : Any
             Maide a;
             a = (Maide)iter.Value;
 
-            Info ae;
-            ae = (Info)a.Any;
+            BinaryMaide ae;
+            ae = (BinaryMaide)binaryMaide.Get(a.Index);
 
             Maide aa;
             aa = null;
-            if (!(ae.Virtual == null))
+            ClassClass af;
+            af = this.VirtualDefineClass(ae.Virtual);
+            if (!(af == null))
             {
-                aa = (Maide)ae.Virtual.Maide.Get(a.Name);
+                aa = (Maide)af.Maide.Get(a.Name);
             }
 
             a.Virtual = aa;
