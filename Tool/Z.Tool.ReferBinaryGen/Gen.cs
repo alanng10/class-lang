@@ -531,7 +531,7 @@ public class Gen : Any
                 this.AddClassToImportTable(field.Class);
                 if (!(field.Virtual == null))
                 {
-                    this.AddClassToImportTable(field.Virtual.Class);
+                    this.AddClassToImportTable(field.Virtual.Parent);
                 }
             }
 
@@ -544,7 +544,7 @@ public class Gen : Any
                 this.AddClassToImportTable(maide.Class);
                 if (!(maide.Virtual == null))
                 {
-                    this.AddClassToImportTable(maide.Virtual.Class);
+                    this.AddClassToImportTable(maide.Virtual.Parent);
                 }
 
                 Table varTable;
