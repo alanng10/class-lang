@@ -324,6 +324,17 @@ public class ModuleCreate : Any
             a.Count = this.CountList.Get(ua.Count);
             a.Parent = varClass;
 
+            Field aa;
+            aa = null;
+            ClassClass ab;
+            ab = this.VirtualDefineClass(ua.Virtual);
+            if (!(ab == null))
+            {
+                aa = (Field)ab.Field.Get(a.Name);
+            }
+
+            a.Virtual = aa;
+
             this.ListInfra.TableAdd(fieldTable, a.Name, a);
 
             i = i + 1;
@@ -392,6 +403,18 @@ public class ModuleCreate : Any
             i = i + 1;
         }
         return true;
+    }
+
+    protected virtual ClassClass VirtualDefineClass(int classIndex)
+    {
+        if (classIndex == -1)
+        {
+            return null;
+        }
+
+        ClassClass a;
+        a = this.ClassGetIndex(classIndex);
+        return a;
     }
 
     protected virtual SystemClass SystemClassCreate(int binaryValue)
