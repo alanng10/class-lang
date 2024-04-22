@@ -768,7 +768,7 @@ public static class Extern
     [DllImport(InfraLib)] public extern static ulong Time_Current(ulong o);
     [DllImport(InfraLib)] public extern static ulong Time_ToLocalTime(ulong o);
     [DllImport(InfraLib)] public extern static ulong Time_ToOffsetUtc(ulong o, ulong offset);
-    [DllImport(InfraLib)] public extern static ulong Time_Set(ulong o, ulong year, ulong month, ulong day, ulong hour, ulong minute, ulong second, ulong millisecond, ulong hasOffset, ulong offsetUtc);
+    [DllImport(InfraLib)] public extern static ulong Time_Set(ulong o, ulong year, ulong month, ulong day, ulong hour, ulong minute, ulong second, ulong millisecond, ulong isLocalTime, ulong offsetUtc);
 
     [DllImport(InfraLib)] public extern static ulong Time_LeapYear(ulong year);
     [DllImport(InfraLib)] public extern static ulong Time_ValidDate(ulong year, ulong month, ulong day);
