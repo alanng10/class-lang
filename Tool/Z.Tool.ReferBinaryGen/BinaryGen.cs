@@ -60,6 +60,9 @@ class BinaryGen : Any
         binary.Part = this.ExecutePartArray();
         binary.Entry = this.ExecuteEntry();
 
+        this.Module = null;
+        this.ClassIndexTable = null;
+
         return binary;
     }
 
