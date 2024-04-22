@@ -135,6 +135,11 @@ public class Gen : Any
     {
         string assemblyName;
         assemblyName = assembly.GetName().Name;
+        if (assemblyName.StartsWith("System.") | assemblyName == "System")
+        {
+            global::System.Console.Error.Write("ExecuteModule assemblyName is BCL assembly name: " + assemblyName + "\n");
+            global::System.Environment.Exit(141);
+        }
 
         string moduleName;
         moduleName = this.ClassModuleName(assemblyName);
@@ -867,6 +872,11 @@ public class Gen : Any
         {
             string assemblyName;
             assemblyName = type.Assembly.GetName().Name;
+            if (assemblyName.StartsWith("System.") | assemblyName == "System")
+            {
+                global::System.Console.Error.Write("ClassGetType assemblyName is BCL assembly name: " + assemblyName + "\n");
+                global::System.Environment.Exit(140);
+            }
             module = this.ClassModuleName(assemblyName);
             varClass = type.Name;
         }
