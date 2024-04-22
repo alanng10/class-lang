@@ -32,21 +32,21 @@ Int Time_Final(Int o)
     return true;
 }
 
-Int Time_Set(Int o, Int year, Int month, Int day, Int hour, Int minute, Int second, Int millisecond, Int hasOffset, Int offsetUtc)
+Int Time_Set(Int o, Int year, Int month, Int day, Int hour, Int minute, Int second, Int millisecond, Int isLocalTime, Int offsetUtc)
 {
     Time* m;
     m = CP(o);
 
     Bool b;
-    b = hasOffset;
+    b = isLocalTime;
 
     QDateTime dtO;
 
-    if (!b)
+    if (b)
     {
         dtO = dtO.toLocalTime();
     }
-    if (b)
+    if (!b)
     {
         int offsetUtcU;
         offsetUtcU = offsetUtc;
