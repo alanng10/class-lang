@@ -367,6 +367,17 @@ public class ModuleCreate : Any
             a.Count = this.CountList.Get(ua.Count);
             a.Parent = varClass;
 
+            Maide aa;
+            aa = null;
+            ClassClass ab;
+            ab = this.VirtualDefineClass(ua.Virtual);
+            if (!(ab == null))
+            {
+                aa = (Maide)ab.Maide.Get(a.Name);
+            }
+
+            a.Virtual = aa;
+
             this.SetPartParam(a, ua.Param);
 
             this.ListInfra.TableAdd(maideTable, a.Name, a);
