@@ -42,7 +42,7 @@ public class Test : Any
         
 
         
-        this.Class = this.CreateClass();
+        this.Console = this.CreateConsole();
 
 
 
@@ -120,7 +120,7 @@ public class Test : Any
 
     private int PassCount { get; set; }
 
-    private ClassConsole Class { get; set; }
+    private ClassConsole Console { get; set; }
 
     private string UnitFold { get; set; }
 
@@ -529,11 +529,11 @@ public class Test : Any
 
 
 
-        this.Class.Task = task;
+        this.Console.Task = task;
     
 
 
-        this.Class.Execute();
+        this.Console.Execute();
 
 
 
@@ -814,7 +814,7 @@ public class Test : Any
 
 
 
-    protected virtual ClassConsole CreateClass()
+    protected virtual ClassConsole CreateConsole()
     {
         ClassConsole a;
 
