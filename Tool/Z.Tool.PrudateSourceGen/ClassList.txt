@@ -440,7 +440,7 @@ Time
     Current()
     ToLocalTime()
     ToOffsetUtc(offset)
-    Set(year, month, day, hour, minute, second, millisecond, hasOffset, offsetUtc)
+    Set(year, month, day, hour, minute, second, millisecond, isLocalTime, offsetUtc)
     LeapYear(year) -
     ValidDate(year, month, day) -
     ValidTime(hour, minute, second, millisecond) -
