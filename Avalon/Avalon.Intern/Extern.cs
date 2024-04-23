@@ -825,21 +825,13 @@ public static class Extern
     [DllImport(InfraLib)] public extern static ulong Process_StartedStateSet(ulong o, ulong value);
     [DllImport(InfraLib)] public extern static ulong Process_FinishedStateGet(ulong o);
     [DllImport(InfraLib)] public extern static ulong Process_FinishedStateSet(ulong o, ulong value);
-    [DllImport(InfraLib)] public extern static ulong Process_ReadOutStateGet(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Process_ReadOutStateSet(ulong o, ulong value);
-    [DllImport(InfraLib)] public extern static ulong Process_ReadErrStateGet(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Process_ReadErrStateSet(ulong o, ulong value);
 
     [DllImport(InfraLib)] public extern static ulong Process_Execute(ulong o);
     [DllImport(InfraLib)] public extern static ulong Process_Wait(ulong o);
     [DllImport(InfraLib)] public extern static ulong Process_Terminate(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Process_ReadOut(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Process_ReadErr(ulong o);
 
     public delegate ulong Process_Started_Maide(ulong process, ulong arg);
     public delegate ulong Process_Finished_Maide(ulong process, ulong arg);
-    public delegate ulong Process_ReadOut_Maide(ulong process, ulong arg);
-    public delegate ulong Process_ReadErr_Maide(ulong process, ulong arg);
 
     [DllImport(InfraLib)] public extern static ulong Infra_Share();
 
