@@ -4474,9 +4474,12 @@ public class Create : InfraCreate
         ret = -1;
         int t;
         t = index - 1;
-        TextRange aa;
-        aa = this.TextRange(t);
-        if (this.TextInfra.Equal(this.SourceText, aa, this.Delimit.RightBracket.Text))
+        TokenToken aa;
+        aa = this.TokenToken(t);
+        TextSpan text;
+        text = this.TextSpan;
+        this.TextSpanGet(text, aa);
+        if (this.ClassInfra.Equal(text, this.Delimit.RightBracket.Text))
         {
             Token leftBracket;
             leftBracket = this.TokenMatchRightBracket(this.TokenA, this.Range(this.RangeA, start, t));
@@ -4485,7 +4488,7 @@ public class Create : InfraCreate
                 ret = leftBracket.Range.Start;
             }
         }
-        if (this.TextInfra.Equal(this.SourceText, aa, this.Delimit.RightBrace.Text))
+        if (this.ClassInfra.Equal(text, this.Delimit.RightBrace.Text))
         {
             Token leftBrace;
             leftBrace = this.TokenMatchRightBrace(this.TokenA, this.Range(this.RangeA, start, t));
