@@ -13,5 +13,5 @@ public class SourceItem : Any
 
 
 
-    public virtual Text Text { get; set; }
+    public virtual Array Text { get; set; }
 }
