@@ -11,12 +11,12 @@ public class SetCreateOperate : CreateOperate
 
         Token token;
         token = (Token)this.Create.TokenArray.Get(index);
-        token.Range.Row = this.Create.Range.Row;
+        token.Row = this.Create.Row;
 
         InfraRange aa;
-        aa = token.Range.Col; 
+        aa = token.Range; 
         InfraRange ab;
-        ab = this.Create.Range.Col;
+        ab = this.Create.Range;
         
         aa.Index = ab.Index;
         aa.Count = ab.Count;
@@ -34,12 +34,12 @@ public class SetCreateOperate : CreateOperate
 
         Comment comment;
         comment = (Comment)this.Create.CommentArray.Get(index);
-        comment.Range.Row = this.Create.Range.Row;
+        comment.Row = this.Create.Row;
 
         InfraRange aa;
-        aa = comment.Range.Col;
+        aa = comment.Range;
         InfraRange ab;
-        ab = this.Create.Range.Col;
+        ab = this.Create.Range;
 
         aa.Index = ab.Index;
         aa.Count = ab.Count;
