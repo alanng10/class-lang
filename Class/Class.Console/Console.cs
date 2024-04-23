@@ -710,19 +710,6 @@ public class Console : Any
 
 
 
-
-        Iter sourceItemIter;
-
-        sourceItemIter = this.Source.Item.IterCreate();
-
-
-
-        this.Source.Item.IterSet(sourceItemIter);
-
-
-
-
-
         Iter rootIter;
 
         rootIter = this.Result.Node.Root.IterCreate();
@@ -733,36 +720,12 @@ public class Console : Any
 
 
 
-        while (sourceItemIter.Next() & rootIter.Next())
+        while (rootIter.Next())
         {
-            SourceItem sourceItem;
-
-
-            sourceItem = (SourceItem)sourceItemIter.Value;
-
-
-
-
-
             NodeNode root;
 
 
             root = (NodeNode)rootIter.Value;
-
-
-
-            
-
-            Array sourceText;
-
-
-            sourceText = sourceItem.Text;
-
-
-
-
-
-            objectString.Source = sourceText;
 
 
 
@@ -834,33 +797,11 @@ public class Console : Any
         
         while (sourceItemIter.Next() & codeIter.Next())
         {
-            SourceItem sourceItem;
-
-
-            sourceItem = (SourceItem)sourceItemIter.Value;
-
-
-
             Code code;
 
 
 
             code = (Code)codeIter.Value;
-
-
-
-
-
-            Array sourceText;
-
-
-            sourceText = sourceItem.Text;
-
-
-
-            
-
-            objectString.Source = sourceText;
 
 
 

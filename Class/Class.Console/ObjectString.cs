@@ -22,10 +22,6 @@ class ObjectString : Any
 
 
 
-    public Text Source { get; set; }
-
-
-
     private InfraInfra InfraInfra { get; set; }
 
 
@@ -101,17 +97,6 @@ class ObjectString : Any
 
 
         this.CommentType = typeof(Comment);
-
-
-
-
-        this.TextRangeType = typeof(TextRange);
-
-
-
-        this.TextPosType = typeof(TextPos);
-
-
 
 
         this.CharSpace = ' ';
