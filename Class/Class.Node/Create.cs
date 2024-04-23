@@ -4059,13 +4059,13 @@ public class Create : InfraCreate
         return this.ClassInfra.Count(range.Start, range.End);
     }
 
-    protected virtual bool TextSpanGet(TextSpan textSpan, TextRange textRange)
+    protected virtual bool TextSpanGet(TextSpan textSpan, TokenToken token)
     {
-        TextLine textLine;
-        textLine = this.SourceText.GetLine(textRange.Row);
+        TextSpan line;
+        line = (TextSpan)this.SourceText.Get(token.Row);
         InfraRange range;
-        range = textRange.Col;
-        textSpan.Data = textLine.Data;
+        range = token.Range;
+        textSpan.Data = line.Data;
         textSpan.Range.Index = range.Index;
         textSpan.Range.Count = range.Count;
         return true;
@@ -4133,13 +4133,9 @@ public class Create : InfraCreate
         classInfra = this.ClassInfra;
         KeywordList keyword;
         keyword = this.Keyword;
-        TextSpan text;
-        text = (TextSpan)this.SourceText.Get(token.Row);
         TextSpan textSpan;
         textSpan = this.TextSpan;
-        textSpan.Data = text.Data;
-        textSpan.Range.Index = token.Range.Index;
-        textSpan.Range.Count = token.Range.Count;
+        this.TextSpanGet(textSpan, token);
         int count;
         count = keyword.Count;
         int i;
