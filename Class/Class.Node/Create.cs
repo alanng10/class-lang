@@ -3871,7 +3871,7 @@ public class Create : InfraCreate
         return true;
     }
 
-    protected virtual bool IsIntSignValue(TextRange aa)
+    protected virtual bool IsIntSignValue(TokenToken aa)
     {
         int count;
         count = aa.Col.Count;
@@ -3881,13 +3881,13 @@ public class Create : InfraCreate
             return false;
         }
 
-        TextLine line;
-        line = this.SourceText.GetLine(aa.Row);
+        TextSpan line;
+        line = (TextSpan)this.SourceText.Get(aa.Row);
 
         Data data;
         data = line.Data;
         int start;
-        start = aa.Col.Index;
+        start = aa.Range.Index;
 
         if (!(this.TextInfra.DataCharGet(data, start) == '0'))
         {
