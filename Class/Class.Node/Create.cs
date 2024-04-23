@@ -59,7 +59,7 @@ public class Create : InfraCreate
 
     public virtual SourceItem SourceItem { get; set; }
 
-    protected virtual Text SourceText { get; set; }
+    protected virtual Array SourceText { get; set; }
     protected virtual Code Code { get; set; }
     protected virtual Table NodeStateTable { get; set; }
     protected virtual NodeState NodeState { get; set; }
@@ -3388,7 +3388,7 @@ public class Create : InfraCreate
             return null;
         }
 
-        if (!this.IsName(this.TextRange(start)))
+        if (!this.IsName(this.TokenToken(start)))
         {
             return null;
         }
@@ -4047,11 +4047,11 @@ public class Create : InfraCreate
         return a;
     }
 
-    protected virtual TextRange TextRange(int index)
+    protected virtual TokenToken TokenToken(int index)
     {
         TokenToken token;
         token = (TokenToken)this.Code.Token.Get(index);
-        return token.Range;
+        return token;
     }
 
     protected virtual int Count(Range range)
@@ -4071,9 +4071,9 @@ public class Create : InfraCreate
         return true;
     }
 
-    protected virtual bool IsName(TextRange textRange)
+    protected virtual bool IsName(TokenToken tokenToken)
     {
-        if (this.IsKeyword(textRange))
+        if (this.IsKeyword(tokenToken))
         {
             return false;
         }
@@ -4127,14 +4127,19 @@ public class Create : InfraCreate
         return valid;
     }
 
-    protected virtual bool IsKeyword(TextRange textRange)
+    protected virtual bool IsKeyword(TokenToken token)
     {
-        TextInfra textInfra;
-        textInfra = this.TextInfra;
+        ClassInfra classInfra;
+        classInfra = this.ClassInfra;
         KeywordList keyword;
         keyword = this.Keyword;
-        Text sourceText;
-        sourceText = this.SourceText;
+        TextSpan text;
+        text = (TextSpan)this.SourceText.Get(token.Row);
+        TextSpan textSpan;
+        textSpan = this.TextSpan;
+        textSpan.Data = text.Data;
+        textSpan.Range.Index = token.Range.Index;
+        textSpan.Range.Count = token.Range.Count;
         int count;
         count = keyword.Count;
         int i;
@@ -4145,7 +4150,7 @@ public class Create : InfraCreate
             a = keyword.Get(i);
             string o;
             o = a.Text;
-            if (textInfra.Equal(sourceText, textRange, o))
+            if (classInfra.Equal(textSpan, o))
             {
                 return true;
             }
