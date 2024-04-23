@@ -47,16 +47,6 @@ class ObjectString : Any
 
 
 
-    private Type TextRangeType { get; set; }
-
-
-
-
-    private Type TextPosType { get; set; }
-
-
-
-
     private string TrueString { get; set; }
 
 
@@ -264,14 +254,6 @@ class ObjectString : Any
         string objectTypeName;
         
         objectTypeName = objectType.Name;
-
-
-
-        if (this.IsType(objectType, this.TextRangeType))
-        {
-            objectTypeName = "TextRange";
-        }
-
 
 
 
