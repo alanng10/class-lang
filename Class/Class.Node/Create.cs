@@ -1275,8 +1275,11 @@ public class Create : InfraCreate
             return null;
         }
 
-        TextRange aa;
-        aa = this.TextRange(start);
+        TokenToken aa;
+        aa = this.TokenToken(start);
+        TextSpan text;
+        text = this.TextSpan;
+        this.TextSpanGet(text, aa);
 
         bool value;
         value = false;
@@ -1285,7 +1288,7 @@ public class Create : InfraCreate
         b = false;
         if (!b)
         {
-            if (this.TextInfra.Equal(this.SourceText, aa, this.Keyword.True.Text))
+            if (this.ClassInfra.Equal(text, this.Keyword.True.Text))
             {
                 value = true;
 
@@ -1295,7 +1298,7 @@ public class Create : InfraCreate
         }
         if (!b)
         {
-            if (this.TextInfra.Equal(this.SourceText, aa, this.Keyword.False.Text))
+            if (this.ClassInfra.Equal(text, this.Keyword.False.Text))
             {
                 value = false;
 
