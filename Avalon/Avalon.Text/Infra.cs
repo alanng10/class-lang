@@ -49,61 +49,6 @@ public class Infra : Any
         return !((o < first) | (last < o));
     }
 
-    public virtual char TextCharGet(Text text, Pos pos)
-    {
-        Line line;
-        line = text.GetLine(pos.Row);
-        int index;
-        index = pos.Col;
-        if (!(index < line.Count))
-        {
-            return (char)0;
-        }
-        return this.DataCharGet(line.Data, index);
-    }
-
-    public virtual bool Equal(Text text, Range range, string o)
-    {
-        Line line;
-        line = text.GetLine(range.Row);
-
-        InfraRange col;
-        col = range.Col;
-
-        if (!this.InfraInfra.CheckRange(line.Count, col))
-        {
-            return false;
-        }
-
-        int k;
-        k = col.Count;
-        int count;
-        count = k;
-        if (!(count == o.Length))
-        {
-            return false;
-        }
-
-        int index;
-        char oca;
-        char ocb;
-        int i;
-        i = 0;
-        while (i < count)
-        {
-            index = col.Index + i;
-
-            oca = this.DataCharGet(line.Data, index);
-            ocb = o[i];
-            if (!(oca == ocb))
-            {
-                return false;
-            }
-            i = i + 1;
-        }
-        return true;
-    }
-
     public virtual char DataCharGet(Data data, int index)
     {
         return this.InfraInfra.DataCharGet(data, index * 2);
