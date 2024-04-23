@@ -3808,8 +3808,8 @@ public class Create : InfraCreate
             return null;
         }
 
-        TextRange aa;
-        aa = this.TextRange(start);
+        TokenToken aa;
+        aa = this.TokenToken(start);
         TextSpan textSpan;
         textSpan = this.TextSpan;
         this.TextSpanGet(textSpan, aa);
@@ -3819,7 +3819,7 @@ public class Create : InfraCreate
         return a;
     }
 
-    protected virtual bool IsIntValue(TextRange aa)
+    protected virtual bool IsIntValue(TokenToken aa)
     {
         this.TextSpanGet(this.TextSpan, aa);
 
@@ -3830,23 +3830,23 @@ public class Create : InfraCreate
         return true;
     }
 
-    protected virtual bool IsIntHexValue(TextRange aa)
+    protected virtual bool IsIntHexValue(TokenToken aa)
     {
         int count;
-        count = aa.Col.Count;
+        count = aa.Range.Count;
 
         if (count < 3)
         {
             return false;
         }
 
-        TextLine line;
-        line = this.SourceText.GetLine(aa.Row);
+        TextSpan line;
+        line = (TextSpan)this.SourceText.Get(aa.Row);
 
         Data data;
         data = line.Data;
         int start;
-        start = aa.Col.Index;
+        start = aa.Range.Index;
 
         if (!(this.TextInfra.DataCharGet(data, start) == '0'))
         {
