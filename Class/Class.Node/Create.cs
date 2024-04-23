@@ -1564,8 +1564,8 @@ public class Create : InfraCreate
             return null;
         }
 
-        TextRange aa;
-        aa = this.TextRange(start);
+        TokenToken aa;
+        aa = this.TokenToken(start);
         TextSpan textSpan;
         textSpan = this.TextSpan;
         this.TextSpanGet(textSpan, aa);
