@@ -17,10 +17,9 @@ public class Create : InfraCreate
         this.SetOperate.Create = this;
         this.SetOperate.Init();
 
-        this.Range = new TextRange();
+
+        this.Range = new InfraRange();
         this.Range.Init();
-        this.Range.Col = new InfraRange();
-        this.Range.Col.Init();
         return true;
     }
 
@@ -38,7 +37,8 @@ public class Create : InfraCreate
 
     public virtual Code Code { get; set; }
     public virtual SourceItem SourceItem { get; set; }
-    public virtual TextRange Range { get; set; }
+    public virtual int Row { get; set; }
+    public virtual InfraRange Range { get; set; }
     public virtual int TokenIndex { get; set; }
     public virtual Array TokenArray { get; set; }
     public virtual int CommentIndex { get; set; }
@@ -123,10 +123,10 @@ public class Create : InfraCreate
         ClassInfra classInfra;
         classInfra = this.ClassInfra;
 
-        Text sourceText;
+        Array sourceText;
         sourceText = this.SourceItem.Text;
 
-        TextRange range;
+        InfraRange range;
         range = this.Range;
 
         int row;
@@ -138,13 +138,13 @@ public class Create : InfraCreate
         count = sourceText.Count;
         while (row < count)
         {
-            Line line;
-            line = sourceText.GetLine(row);
+            TextSpan line;
+            line = (TextSpan)sourceText.Get(row);
             Data data;
             data = line.Data;
 
             int colCount;
-            colCount = line.Count;
+            colCount = line.Range.Count;
             col = 0;
             while (col < colCount)
             {
@@ -156,9 +156,9 @@ public class Create : InfraCreate
                 if (c == '#')
                 {
                     this.EndToken(col);
-                    range.Row = row;
-                    range.Col.Index = col;
-                    range.Col.Count = classInfra.Count(col, colCount);
+                    this.Row = row;
+                    range.Index = col;
+                    range.Count = classInfra.Count(col, colCount);
                     this.AddComment();
 
                     col = colCount;
@@ -181,8 +181,8 @@ public class Create : InfraCreate
                 if (c == '\"')
                 {
                     this.EndToken(col);
-                    range.Row = row;
-                    range.Col.Index = col;
+                    this.Row = row;
+                    range.Index = col;
 
                     int cc;
                     cc = col + 1;
@@ -215,7 +215,7 @@ public class Create : InfraCreate
                         }
                         cc = cc + 1;
                     }
-                    range.Col.Count = classInfra.Count(col, cc);
+                    range.Count = classInfra.Count(col, cc);
                     this.AddToken();
 
                     col = cc;
@@ -229,8 +229,8 @@ public class Create : InfraCreate
                 {
                     if (this.NullRange())
                     {
-                        range.Row = row;
-                        range.Col.Index = col;
+                        this.Row = row;
+                        range.Index = col;
                     }
 
                     col = col + 1;
@@ -242,9 +242,9 @@ public class Create : InfraCreate
                 {
                     this.EndToken(col);
 
-                    range.Row = row;
-                    range.Col.Index = col;
-                    range.Col.Count = 1;
+                    this.Row = row;
+                    range.Index = col;
+                    range.Count = 1;
                     
                     this.AddToken();
 
@@ -301,10 +301,8 @@ public class Create : InfraCreate
             Token a;
             a = new Token();
             a.Init();
-            a.Range = new TextRange();
+            a.Range = new InfraRange();
             a.Range.Init();
-            a.Range.Col = new InfraRange();
-            a.Range.Col.Init();
             array.Set(i, a);
             
             i = i + 1;
@@ -326,10 +324,8 @@ public class Create : InfraCreate
             Comment a;
             a = new Comment();
             a.Init();
-            a.Range = new TextRange();
+            a.Range = new InfraRange();
             a.Range.Init();
-            a.Range.Col = new InfraRange();
-            a.Range.Col.Init();
             array.Set(i, a);
 
             i = i + 1;
@@ -408,8 +404,8 @@ public class Create : InfraCreate
         if (!this.NullRange())
         {
             int count;
-            count = this.ClassInfra.Count(this.Range.Col.Index, col);
-            this.Range.Col.Count = count;
+            count = this.ClassInfra.Count(this.Range.Index, col);
+            this.Range.Count = count;
             this.AddToken();
         }
         return true;
@@ -417,12 +413,12 @@ public class Create : InfraCreate
 
     protected virtual bool NullRange()
     {
-        return this.Range.Row == -1;
+        return this.Row == -1;
     }
 
     protected virtual bool Reset()
     {
-        this.Range.Row = -1;
+        this.Row = -1;
         return true;
     }
 }
