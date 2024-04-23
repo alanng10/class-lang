@@ -3874,7 +3874,7 @@ public class Create : InfraCreate
     protected virtual bool IsIntSignValue(TokenToken aa)
     {
         int count;
-        count = aa.Col.Count;
+        count = aa.Range.Count;
 
         if (count < 4)
         {
