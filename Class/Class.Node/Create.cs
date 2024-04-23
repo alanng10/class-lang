@@ -1491,8 +1491,8 @@ public class Create : InfraCreate
             return null;
         }
 
-        TextRange aa;
-        aa = this.TextRange(start);
+        TokenToken aa;
+        aa = this.TokenToken(start);
         if (!this.IsIntHexSignValue(aa))
         {
             return null;
@@ -1501,14 +1501,16 @@ public class Create : InfraCreate
         bool signNegative;
         signNegative = this.IsTokenSignNegative(aa, 3);
 
-        TextLine textLine;
-        textLine = this.SourceText.GetLine(aa.Row);
-        this.TextSpan.Data = textLine.Data;
-        this.TextSpan.Range.Index = aa.Col.Index + 4;
-        this.TextSpan.Range.Count = aa.Col.Count - 4;
+        TextSpan line;
+        line = (TextSpan)this.SourceText.Get(aa.Row);
+        TextSpan text;
+        text = this.TextSpan;
+        text.Data = line.Data;
+        text.Range.Index = aa.Range.Index + 4;
+        text.Range.Count = aa.Range.Count - 4;
 
         long o;
-        o = this.TextIntParse.Execute(this.TextSpan, 16, false);
+        o = this.TextIntParse.Execute(text, 16, false);
         if (o == -1)
         {
             return null;
