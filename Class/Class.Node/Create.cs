@@ -4030,15 +4030,15 @@ public class Create : InfraCreate
         return (oc == 'p') | (oc == 'n');
     }
 
-    protected virtual bool IsTokenSignNegative(TextRange o, int index)
+    protected virtual bool IsTokenSignNegative(TokenToken o, int index)
     {
-        TextLine line;
-        line = this.SourceText.GetLine(o.Row);
+        TextSpan line;
+        line = (TextSpan)this.SourceText.Get(o.Row);
 
         Data data;
         data = line.Data;
         int start;
-        start = o.Col.Index;
+        start = o.Range.Index;
 
         char oa;
         oa = this.TextInfra.DataCharGet(data, start + index);
