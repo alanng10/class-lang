@@ -18,6 +18,7 @@ public class Infra : Any
     {
         base.Init();
         this.InfraInfra = InfraInfra.This;
+        this.TextInfra = TextInfra.This;
         this.Quote = "\"";
         this.BackSlash = "\\";
         this.Tab = "\t";
@@ -35,6 +36,7 @@ public class Infra : Any
     public virtual long IntSignValueNegativeMax { get; set; }
 
     protected virtual InfraInfra InfraInfra { get; set; }
+    protected virtual TextInfra TextInfra { get; set; }
 
     public virtual bool IndexRange(Range range, int index)
     {
@@ -65,6 +67,42 @@ public class Infra : Any
         if (count < end)
         {
             return false;
+        }
+        return true;
+    }
+
+    public virtual bool Equal(TextSpan text, string o)
+    {
+        if (!this.TextInfra.CheckSpan(text))
+        {
+            return false;
+        }
+
+        int count;
+        count = text.Range.Count;
+        if (!(count == o.Length))
+        {
+            return false;
+        }
+
+        int start;
+        start = text.Range.Index;
+        int index;
+        char oca;
+        char ocb;
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            index = start + i;
+
+            oca = this.TextInfra.DataCharGet(text.Data, index);
+            ocb = o[i];
+            if (!(oca == ocb))
+            {
+                return false;
+            }
+            i = i + 1;
         }
         return true;
     }
