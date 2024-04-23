@@ -1333,22 +1333,20 @@ public class Create : InfraCreate
             return null;
         }
 
-        TextRange aa;
-        aa = this.TextRange(start);
+        TokenToken aa;
+        aa = this.TokenToken(start);
 
         if (!this.IsIntValue(aa))
         {
             return null;
         }
 
-        TextLine textLine;
-        textLine = this.SourceText.GetLine(aa.Row);
-        this.TextSpan.Data = textLine.Data;
-        this.TextSpan.Range.Index = aa.Col.Index;
-        this.TextSpan.Range.Count = aa.Col.Count;
-
+        TextSpan text;
+        text = this.TextSpan;
+        this.TextSpanGet(text, aa);
+        
         long value;
-        value = this.TextIntParse.Execute(this.TextSpan, 10, false);
+        value = this.TextIntParse.Execute(text, 10, false);
         if (value == -1)
         {
             return null;
