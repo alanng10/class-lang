@@ -4530,6 +4530,9 @@ public class Create : InfraCreate
         start = range.Start;
         end = range.End;
 
+        TextSpan text;
+        text = this.TextSpan;
+
         int openCount;
         openCount = 1;
         int index;
@@ -4540,9 +4543,10 @@ public class Create : InfraCreate
         varContinue = (i < end);
         while (varContinue)
         {
-            TextRange aa;
-            aa = this.TextRange(i);
-            if (this.TextInfra.Equal(this.SourceText, aa, rightToken))
+            TokenToken aa;
+            aa = this.TokenToken(i);
+            this.TextSpanGet(text, aa);
+            if (this.ClassInfra.Equal(text, rightToken))
             {
                 openCount = openCount - 1;
                 if (openCount == 0)
@@ -4551,7 +4555,7 @@ public class Create : InfraCreate
                     varContinue = false;
                 }
             }
-            if (this.TextInfra.Equal(this.SourceText, aa, leftToken))
+            if (this.ClassInfra.Equal(text, leftToken))
             {
                 openCount = openCount + 1;
             }
