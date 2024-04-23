@@ -1373,22 +1373,24 @@ public class Create : InfraCreate
             return null;
         }
 
-        TextRange aa;
-        aa = this.TextRange(start);
+        TokenToken aa;
+        aa = this.TokenToken(start);
 
         if (!this.IsIntHexValue(aa))
         {
             return null;
         }
 
-        TextLine textLine;
-        textLine = this.SourceText.GetLine(aa.Row);
-        this.TextSpan.Data = textLine.Data;
-        this.TextSpan.Range.Index = aa.Col.Index + 2;
-        this.TextSpan.Range.Count = aa.Col.Count - 2;
+        TextSpan line;
+        line = (TextSpan)this.SourceText.Get(aa.Row);
+        TextSpan text;
+        text = this.TextSpan;
+        text.Data = line.Data;
+        text.Range.Index = aa.Range.Index + 2;
+        text.Range.Count = aa.Range.Count - 2;
 
         long value;
-        value = this.TextIntParse.Execute(this.TextSpan, 16, false);
+        value = this.TextIntParse.Execute(text, 16, false);
         if (value == -1)
         {
             return null;
