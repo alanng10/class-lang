@@ -767,21 +767,13 @@ Infra_Api Int Process_StartedStateGet(Int o);
 Infra_Api Int Process_StartedStateSet(Int o, Int value);
 Infra_Api Int Process_FinishedStateGet(Int o);
 Infra_Api Int Process_FinishedStateSet(Int o, Int value);
-Infra_Api Int Process_ReadOutStateGet(Int o);
-Infra_Api Int Process_ReadOutStateSet(Int o, Int value);
-Infra_Api Int Process_ReadErrStateGet(Int o);
-Infra_Api Int Process_ReadErrStateSet(Int o, Int value);
 
 Infra_Api Int Process_Execute(Int o);
 Infra_Api Int Process_Wait(Int o);
 Infra_Api Int Process_Terminate(Int o);
-Infra_Api Int Process_ReadOut(Int o);
-Infra_Api Int Process_ReadErr(Int o);
 
 typedef Int (*Process_Started_Maide)(Int process, Int arg);
 typedef Int (*Process_Finished_Maide)(Int process, Int arg);
-typedef Int (*Process_ReadOut_Maide)(Int process, Int arg);
-typedef Int (*Process_ReadErr_Maide)(Int process, Int arg);
 
 Infra_Api Int Infra_Share();
 
