@@ -16,16 +16,12 @@ public class StringValueWrite : Any
         this.AddWriteOperate = new AddWriteOperate();
         this.AddWriteOperate.Write = this;
         this.AddWriteOperate.Init();
-
-        this.TextPos = new TextPos();
-        this.TextPos.Init();
         return true;
     }
 
     protected virtual InfraInfra InfraInfra { get; set; }
     protected virtual TextInfra TextInfra { get; set; }
     protected virtual Infra ClassInfra { get; set; }
-    protected virtual TextPos TextPos { get; set; }
     public virtual CountWriteOperate CountWriteOperate { get; set; }
     public virtual AddWriteOperate AddWriteOperate { get; set; }
 
