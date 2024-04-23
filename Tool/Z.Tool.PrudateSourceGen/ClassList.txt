@@ -470,16 +470,10 @@ Process
     Terminate()
     Status
     ExitKind
-    ReadOut()
-    ReadErr()
     StartedState
     FinishedState
-    ReadOutState
-    ReadErrState
     Started(process, arg) --
     Finished(process, arg) --
-    ReadOut(process, arg) --
-    ReadErr(process, arg) --
 
 Infra -
     Share() -
