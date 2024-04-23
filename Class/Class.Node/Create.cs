@@ -4164,13 +4164,16 @@ public class Create : InfraCreate
 
     protected virtual bool IsText(string value, int index)
     {
-        TextRange aa;
-        aa = this.TextRange(index);
+        TokenToken aa;
+        aa = this.TokenToken(index);
+        TextSpan text;
+        text = this.TextSpan;
+        this.TextSpanGet(text, aa);
         bool b;
-        b = this.TextInfra.Equal(this.SourceText, aa, value);
-        bool ret;
-        ret = b;
-        return ret;
+        b = this.ClassInfra.Equal(text, value);
+        bool a;
+        a = b;
+        return a;
     }
 
     protected virtual Range Range(Range range, int start, int end)
