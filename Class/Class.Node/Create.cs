@@ -4071,9 +4071,9 @@ public class Create : InfraCreate
         return true;
     }
 
-    protected virtual bool IsName(TokenToken tokenToken)
+    protected virtual bool IsName(TokenToken token)
     {
-        if (this.IsKeyword(tokenToken))
+        if (this.IsKeyword(token))
         {
             return false;
         }
@@ -4081,13 +4081,13 @@ public class Create : InfraCreate
         TextInfra textInfra;
         textInfra = this.TextInfra;
 
-        TextLine line;
-        line = this.SourceText.GetLine(textRange.Row);
+        TextSpan line;
+        line = (TextSpan)this.SourceText.Get(token.Row);
 
         Data data;
         data = line.Data;
         int start;
-        start = textRange.Col.Index;
+        start = token.Range.Index;
 
         int index;
         index = start;
@@ -4102,7 +4102,7 @@ public class Create : InfraCreate
         b = false;
 
         int count;
-        count = textRange.Col.Count;
+        count = token.Range.Count;
         count = count - 1;
 
         start = start + 1;
@@ -4122,9 +4122,9 @@ public class Create : InfraCreate
             i = i + 1;
         }
 
-        bool valid;
-        valid = !b;
-        return valid;
+        bool a;
+        a = !b;
+        return a;
     }
 
     protected virtual bool IsKeyword(TokenToken token)
