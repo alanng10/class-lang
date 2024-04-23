@@ -8,6 +8,7 @@ public class Console : Any
 
         this.InfraInfra = InfraInfra.This;
         this.ListInfra = ListInfra.This;
+        this.TextInfra = TextInfra.This;
         this.StorageInfra = StorageInfra.This;
         this.ClassInfra = ClassInfra.This;
         this.TaskKind = TaskKindList.This;
@@ -70,6 +71,7 @@ public class Console : Any
 
     protected virtual InfraInfra InfraInfra { get; set; }
     protected virtual ListInfra ListInfra { get; set; }
+    protected virtual TextInfra TextInfra { get; set; }
     protected virtual StorageInfra StorageInfra { get; set; }
     protected virtual ClassInfra ClassInfra { get; set; }
     protected virtual Table ModuleTable { get; set; }
@@ -751,7 +753,7 @@ public class Console : Any
 
             
 
-            Text sourceText;
+            Array sourceText;
 
 
             sourceText = sourceItem.Text;
@@ -849,7 +851,7 @@ public class Console : Any
 
 
 
-            Text sourceText;
+            Array sourceText;
 
 
             sourceText = sourceItem.Text;
@@ -1158,7 +1160,7 @@ public class Console : Any
 
             
 
-            Text text;
+            Array text;
 
 
             text = this.CreateText(array);
@@ -1183,11 +1185,11 @@ public class Console : Any
 
 
 
-    private Text CreateText(string[] array)
+    private Array CreateText(string[] array)
     {
-        Text text;
+        Array text;
 
-        text = new Text();
+        text = new Array();
 
         text.Count = array.Length;
 
@@ -1216,7 +1218,7 @@ public class Console : Any
 
 
 
-            TextLine line;
+            TextSpan line;
 
             line = this.CreateTextLine(s);
 
@@ -1232,7 +1234,7 @@ public class Console : Any
 
 
 
-        Text ret;
+        Array ret;
 
         ret = text;
 
@@ -1245,31 +1247,11 @@ public class Console : Any
 
 
 
-    private TextLine CreateTextLine(string s)
+    private TextSpan CreateTextLine(string s)
     {
-        TextLine line;
-
-
-        line = new TextLine();
-
-
-        line.Init();
-
-
-        line.Count = s.Length;
-
-
-        line.Data = this.InfraInfra.DataCreateString(s);
-
-
-
-        TextLine ret;
-
-
-        ret = line;
-
-
-        return ret;
+        TextSpan a;
+        a = this.TextInfra.SpanCreateString(s);
+        return a;
     }
 
 
