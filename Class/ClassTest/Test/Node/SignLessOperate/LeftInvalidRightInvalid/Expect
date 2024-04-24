@@ -1,14 +1,14 @@
 --------------------------------------------------
 Kind: OperandInvalid
-Range: (0, 0)
+Range: (3, 3)
 Source: Code
 --------------------------------------------------
 --------------------------------------------------
 Kind: OperandInvalid
-Range: (1, 1)
+Range: (4, 4)
 Source: Code
 --------------------------------------------------
-LessOperate
+SignLessOperate
 {
     Left : null,
     Right : null,

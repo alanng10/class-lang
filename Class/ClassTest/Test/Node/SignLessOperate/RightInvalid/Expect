@@ -1,9 +1,9 @@
 --------------------------------------------------
 Kind: OperandInvalid
-Range: (2, 2)
+Range: (5, 5)
 Source: Code
 --------------------------------------------------
-LessOperate
+SignLessOperate
 {
     Left : ValueOperate
            {
