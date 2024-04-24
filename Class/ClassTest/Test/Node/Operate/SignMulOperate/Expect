@@ -1,0 +1,17 @@
+SignMulOperate
+{
+    Left : ValueOperate
+           {
+               Value : IntValue
+                       {
+                           Value : 1,
+                       },
+           },
+    Right : ValueOperate
+            {
+                Value : IntValue
+                        {
+                            Value : 1,
+                        },
+            },
+},
