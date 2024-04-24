@@ -4,6 +4,7 @@
         <OutputType>Exe</OutputType>
         <TargetFramework>net8.0</TargetFramework>
         <OutputPath>../../Out</OutputPath>
+        <AssemblyName>Class.Console-ExeCon</AssemblyName>
     </PropertyGroup>
 
     <ItemGroup>
