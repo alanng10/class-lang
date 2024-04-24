@@ -3,14 +3,11 @@ Code
     Token : [
                 Token
                 {
-                    Range : TextRange
+                    Row : 0,
+                    Range : Range
                             {
-                                Row : 0,
-                                Col : Range
-                                      {
-                                          Index : 1,
-                                          Count : 2,
-                                      },
+                                Index : 1,
+                                Count : 2,
                             },
                 },
             ],
