@@ -3,26 +3,20 @@ Code
     Token : [
                 Token
                 {
-                    Range : TextRange
+                    Row : 0,
+                    Range : Range
                             {
-                                Row : 0,
-                                Col : Range
-                                      {
-                                          Index : 0,
-                                          Count : 2,
-                                      },
+                                Index : 0,
+                                Count : 2,
                             },
                 },
                 Token
                 {
-                    Range : TextRange
+                    Row : 0,
+                    Range : Range
                             {
-                                Row : 0,
-                                Col : Range
-                                      {
-                                          Index : 2,
-                                          Count : 1,
-                                      },
+                                Index : 2,
+                                Count : 1,
                             },
                 },
             ],
