@@ -8,5 +8,5 @@ dotnet build -v quiet
 popd
 pushd %DotNetModuleOutFold%
 del /F /Q class.exe 2>NUL
-rename ClassExe.exe class.exe
+rename Class.Console-ExeCon.exe class.exe
 popd
