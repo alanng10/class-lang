@@ -5,26 +5,20 @@ Code
     Comment : [
                   Comment
                   {
-                      Range : TextRange
+                      Row : 0,
+                      Range : Range
                               {
-                                  Row : 0,
-                                  Col : Range
-                                        {
-                                            Index : 0,
-                                            Count : 2,
-                                        },
+                                  Index : 0,
+                                  Count : 2,
                               },
                   },
                   Comment
                   {
-                      Range : TextRange
+                      Row : 1,
+                      Range : Range
                               {
-                                  Row : 1,
-                                  Col : Range
-                                        {
-                                            Index : 0,
-                                            Count : 2,
-                                        },
+                                  Index : 0,
+                                  Count : 2,
                               },
                   },
               ],
