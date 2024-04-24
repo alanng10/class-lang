@@ -371,10 +371,23 @@ class BinaryGen : Any
 
     protected virtual BinaryClassIndex ExecuteEntry()
     {
+        ClassClass entryClass;
+        entryClass = null;
+        if (this.Module.Ref.Name == "Class.Console")
+        {
+            entryClass = (ClassClass)this.Module.Class.Get("Entry");
+        }
+
+        int e;
+        e = -1;
+        if (!(entryClass == null))
+        {
+            e = this.ClassIndexGet(entryClass);
+        }
         BinaryClassIndex a;
         a = new BinaryClassIndex();
         a.Init();
-        a.Value = -1;
+        a.Value = e;
         return a;
     }
 
