@@ -5,14 +5,11 @@ Code
     Comment : [
                   Comment
                   {
-                      Range : TextRange
+                      Row : 0,
+                      Range : Range
                               {
-                                  Row : 0,
-                                  Col : Range
-                                        {
-                                            Index : 0,
-                                            Count : 3,
-                                        },
+                                  Index : 0,
+                                  Count : 3,
                               },
                   },
               ],
