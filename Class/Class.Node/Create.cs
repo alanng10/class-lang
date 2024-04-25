@@ -4066,15 +4066,15 @@ public class Create : InfraCreate
         return this.ClassInfra.Count(range.Start, range.End);
     }
 
-    protected virtual bool TextSpanGet(Text textSpan, TokenToken token)
+    protected virtual bool TextSpanGet(Text text, TokenToken token)
     {
         Text line;
         line = (Text)this.SourceText.Get(token.Row);
         InfraRange range;
         range = token.Range;
-        textSpan.Data = line.Data;
-        textSpan.Range.Index = range.Index;
-        textSpan.Range.Count = range.Count;
+        text.Data = line.Data;
+        text.Range.Index = range.Index;
+        text.Range.Count = range.Count;
         return true;
     }
 
