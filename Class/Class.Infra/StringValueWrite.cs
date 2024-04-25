@@ -30,10 +30,10 @@ public class StringValueWrite : Any
     public virtual Data Data { get; set; }
     public virtual int Index { get; set; }
 
-    public virtual string Value(Text textSpan)
+    public virtual string Value(Text text)
     {
         bool b;
-        b = this.CheckValueString(textSpan);
+        b = this.CheckValueString(text);
         if (!b)
         {
             return null;
@@ -41,7 +41,7 @@ public class StringValueWrite : Any
 
         this.WriteOperate = this.CountWriteOperate;
         this.Index = 0;
-        this.ExecuteValueString(textSpan);
+        this.ExecuteValueString(text);
 
         int count;
         count = this.Index;
@@ -51,7 +51,7 @@ public class StringValueWrite : Any
 
         this.WriteOperate = this.AddWriteOperate;
         this.Index = 0;
-        this.ExecuteValueString(textSpan);
+        this.ExecuteValueString(text);
 
         Text oa;
         oa = new Text();
@@ -70,10 +70,10 @@ public class StringValueWrite : Any
         return a;
     }
 
-    public virtual bool CheckValueString(Text textSpan)
+    public virtual bool CheckValueString(Text text)
     {
         InfraRange range;
-        range = textSpan.Range;
+        range = text.Range;
         int kk;
         kk = range.Count;
         if (kk < 2)
@@ -82,7 +82,7 @@ public class StringValueWrite : Any
         }
 
         Data data;
-        data = textSpan.Data;
+        data = text.Data;
         int rangeStart;
         rangeStart = range.Index;
         int rangeEnd;
@@ -182,12 +182,12 @@ public class StringValueWrite : Any
         return true;
     }
 
-    public virtual bool ExecuteValueString(Text textSpan)
+    public virtual bool ExecuteValueString(Text text)
     {
         Data data;
-        data = textSpan.Data;
+        data = text.Data;
         InfraRange range;
-        range = textSpan.Range;
+        range = text.Range;
         int kk;
         kk = range.Count;
 
