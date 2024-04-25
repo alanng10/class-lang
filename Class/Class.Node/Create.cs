@@ -1566,19 +1566,19 @@ public class Create : InfraCreate
 
         TokenToken aa;
         aa = this.TokenToken(start);
-        Text textSpan;
-        textSpan = this.Text;
-        this.TextGet(textSpan, aa);
+        Text text;
+        text = this.Text;
+        this.TextGet(text, aa);
 
         bool b;
-        b = this.StringValueWrite.CheckValueString(textSpan);
+        b = this.StringValueWrite.CheckValueString(text);
         if (!b)
         {
             return null;
         }
 
         string value;
-        value = this.Operate.ExecuteStringValue(textSpan);
+        value = this.Operate.ExecuteStringValue(text);
 
         this.OperateArg.Kind = this.NodeKind.StringValue;
         this.OperateArg.Start = start;
