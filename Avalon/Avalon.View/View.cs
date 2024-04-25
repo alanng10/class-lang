@@ -150,16 +150,7 @@ public class View : Comp
         return true;
     }
 
-
-
-
-
-
-
     public virtual Field SizeField { get; set; }
-
-
-
 
     public virtual Size Size
     {
@@ -167,36 +158,19 @@ public class View : Comp
         {
             return (Size)this.SizeField.Get();
         }
-
         set
         {
             this.SizeField.Set(value);
         }
     }
 
-
-
-
-
     protected virtual bool ChangeSize(Change change)
     {
         this.Trigger(this.SizeField);
-
-
-
         return true;
     }
 
-
-
-
-
-
-
     public virtual Field BackField { get; set; }
-
-
-
 
     public virtual DrawBrush Back
     {
@@ -204,34 +178,19 @@ public class View : Comp
         {
             return (DrawBrush)this.BackField.GetAny();
         }
-
         set
         {
             this.BackField.SetAny(value);
         }
     }
 
-
-
-
-
     protected virtual bool ChangeBack(Change change)
     {
         this.Trigger(this.BackField);
-
-
-
         return true;
     }
 
-
-
-
-
     public virtual Field VisibleField { get; set; }
-
-
-
 
     public virtual bool Visible
     {
@@ -239,35 +198,19 @@ public class View : Comp
         {
             return this.VisibleField.GetBool();
         }
-
         set
         {
             this.VisibleField.SetBool(value);
         }
     }
 
-
-
-
-
     protected virtual bool ChangeVisible(Change change)
     {
         this.Trigger(this.VisibleField);
-
-
-
         return true;
     }
 
-
-
-
-
-
     public virtual Field ChildField { get; set; }
-
-
-
 
     public virtual View Child
     {
@@ -275,33 +218,17 @@ public class View : Comp
         {
             return (View)this.ChildField.Get();
         }
-
         set
         {
             this.ChildField.Set(value);
         }
     }
 
-
-
-
-
     protected virtual bool ChangeChild(Change change)
     {
         this.Trigger(this.ChildField);
-
-
-
         return true;
     }
-
-
-
-
-
-
-
-
 
     public override bool Change(Field field, Change change)
     {
@@ -309,281 +236,128 @@ public class View : Comp
         {
             this.ChangeSize(change);
         }
-
-
-
         if (this.PosField == field)
         {
             this.ChangePos(change);
         }
-
-
-
         if (this.BackField == field)
         {
             this.ChangeBack(change);
         }
-
-
-
         if (this.VisibleField == field)
         {
             this.ChangeVisible(change);
         }
-
-
-
         if (this.ChildField == field)
         {
             this.ChangeChild(change);
         }
-
-
-
         return true;
     }
-
-
-
-
 
     protected virtual bool CheckDraw()
     {
         return this.Visible;
     }
 
-
-
-
-
-
-
     public virtual bool ExecuteDraw(DrawDraw draw)
     {
         this.ViewInfra.AssignDrawRectValue(this.Area, draw.Area);
-
-
-
 
         if (!this.CheckDraw())
         {
             return true;
         }
         
-
-
-
-
         this.ExecuteDrawThis(draw);
-
-
-
-
 
         if (!this.CheckDrawChild())
         {
             return true;
         }
 
-
-
         this.ExecuteDrawChild(draw);
-
-
-
-
-
         return true;
     }
-
-
-
-
-
-
 
     protected virtual bool ExecuteDrawThis(DrawDraw draw)
     {
         int left;
-
         left = this.Pos.Left;
-
-
         int up;
-
         up = this.Pos.Up;
-
-
-
         int width;
-
         width = this.Size.Width;
-
-
         int height;
-
         height = this.Size.Height;
 
-
-
-
         this.DrawRectA.Pos.Left = left;
-
         this.DrawRectA.Pos.Up = up;
-
         this.DrawRectA.Size.Width = width;
-
         this.DrawRectA.Size.Height = height;
 
-
-
         DrawRect rect;
-
         rect = this.DrawRectA;
-
-
         DrawBrush brush;
-
         brush = this.Back;
-
-
-
         draw.Brush = brush;
         
-
-
-
-
         draw.FillPos.Left = left;
-
         draw.FillPos.Up = up;
-
-
         draw.SetFillPos();
-
-
-
-
 
         draw.ExecuteRect(rect);
         
+        draw.FillPos.Left = 0;
+        draw.FillPos.Up = 0;
+        draw.SetFillPos();
 
-
-
-
-
+        draw.Brush = null;
         return true;
     }
-
-
-
-
-
-
-
 
     protected virtual bool CheckDrawChild()
     {
         return !(this.Child == null);
     }
 
-
-
-
-
-
     protected virtual bool ExecuteDrawChild(DrawDraw draw)
     {
-        int left;
-        
+        int left;        
         left = this.Pos.Left;
-
-
         left = left + draw.Pos.Left;
-
-
-
         int up;
-
         up = this.Pos.Up;
-
-
         up = up + draw.Pos.Up;
 
-
-
-
         int width;
-
         width = this.Size.Width;
-
-
-
         int height;
-
         height = this.Size.Height;
 
-
-
-
         this.DrawRectA.Pos.Left = left;
-
         this.DrawRectA.Pos.Up = up;
-
         this.DrawRectA.Size.Width = width;
-
         this.DrawRectA.Size.Height = height;
-
-
-
 
         this.SetChildArea(this.DrawRectA);
 
-
-
-
-
         this.ViewInfra.StackPushChild(draw, this.StackRect, this.StackPos, this.DrawRectA, this.DrawPosA);
-
-
-
-
 
         this.ExecuteChildDraw(draw);
 
-
-
-
-
         this.ViewInfra.StackPopChild(draw, this.StackRect, this.StackPos);
-
-
-
-
-
         return true;
     }
-
-
-
-
-
 
     protected virtual bool SetChildArea(DrawRect thisRect)
     {
         return true;
     }
 
-
-
-
-
     protected virtual bool ExecuteChildDraw(DrawDraw draw)
     {
         this.Child.ExecuteDraw(draw);
-
-
-
         return true;
     }
 }
