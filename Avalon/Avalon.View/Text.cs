@@ -430,9 +430,9 @@ public class Text : View
 
     protected override bool ExecuteChildDraw(DrawDraw draw)
     {
-        TextText span;
+        TextText text;
 
-        span = this.Value;
+        text = this.Value;
 
 
 
@@ -493,7 +493,7 @@ public class Text : View
 
 
 
-        draw.ExecuteText(span, dest, align, false);
+        draw.ExecuteText(text, dest, align, false);
 
 
 
