@@ -138,7 +138,7 @@ public class List : Comp
         return true;
     }
 
-    public virtual Iter CreateIter()
+    public virtual Iter IterCreate()
     {
         ListIter iter;
         iter = new ListIter();

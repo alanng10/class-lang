@@ -16,9 +16,9 @@ public class Grid : View
         this.Dest = this.CreateDest();
         this.RangeA = this.CreateRangeA();
         this.ChildPosData = this.CreateChildPosList();
-        this.RowIter = this.Row.CreateIter();
-        this.ColIter = this.Col.CreateIter();
-        this.ChildIter = this.Child.CreateIter();
+        this.RowIter = this.Row.IterCreate();
+        this.ColIter = this.Col.IterCreate();
+        this.ChildIter = this.Child.IterCreate();
 
         this.StackGridChildListRect = this.CreateStackGridChildListRect();
         this.StackGridChildListPos = this.CreateStackGridChildListPos();
