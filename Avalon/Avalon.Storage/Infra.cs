@@ -129,24 +129,24 @@ public class Infra : Any
         int ka;
         ka = encode.TextCountMax(data.Count);
 
-        TextText span;        
-        span = this.TextInfra.TextCreate(ka);
+        TextText text;
+        text = this.TextInfra.TextCreate(ka);
         Range range;
         range = new Range();
         range.Init();
         range.Count = data.Count;
         int kb;
-        kb = encode.Text(span, data, range);
+        kb = encode.Text(text, data, range);
 
         encode.Final();
 
         int count;
         count = kb;
 
-        span.Range.Count = count;
+        text.Range.Count = count;
 
         string a;
-        a = this.TextInfra.StringCreate(span);
+        a = this.TextInfra.StringCreate(text);
         return a;
     }
 
@@ -157,10 +157,10 @@ public class Infra : Any
         encode.Kind = this.TextEncodeKindList.Utf8;
         encode.Init();
 
-        TextText span;
-        span = this.TextInfra.TextCreateString(text);
+        TextText o;
+        o = this.TextInfra.TextCreateString(text);
         int kk;
-        kk = span.Range.Count;
+        kk = o.Range.Count;
         long ka;
         ka = encode.DataCountMax(kk);
 
@@ -170,7 +170,7 @@ public class Infra : Any
         data.Init();
 
         long kb;
-        kb = encode.Data(data, 0, span);
+        kb = encode.Data(data, 0, o);
 
         encode.Final();
 
@@ -180,9 +180,9 @@ public class Infra : Any
         range = new Range();
         range.Init();
         range.Count = count;
-        bool o;
-        o = this.DataWriteRange(filePath, data, range);
-        return o;
+        bool a;
+        a = this.DataWriteRange(filePath, data, range);
+        return a;
     }
 
     public virtual bool CountSet(string filePath, long value)
