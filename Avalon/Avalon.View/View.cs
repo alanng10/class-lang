@@ -1,372 +1,136 @@
 namespace Avalon.View;
 
-
-
-
 public class View : Comp
 {
     public override bool Init()
     {
         base.Init();
-
-
-
-
-
-
         this.DrawInfra = DrawInfra.This;
 
-
-
-
-
         this.PosField = this.CreatePosField();
-
-
-
-
-
-
         this.SizeField = this.CreateSizeField();
-
-
-
-
-
-
         this.BackField = this.CreateBackField();
-
-
-
-
-
-
         this.VisibleField = this.CreateVisibleField();
-
-
-
-
-
-
         this.ChildField = this.CreateChildField();
 
-
-
-
-
-
-
-
-
-
-
         this.Pos = this.CreatePos();
-
-        
-
-
-
-
         this.Size = this.CreateSize();
-
-
-
-
-
-
         this.Back = this.CreateBack();
-
-
-
-
-
         this.Visible = true;
-
-
-
-
-
 
         this.Area = this.CreateArea();
 
-
-
-
         this.DrawRectA = this.CreateDrawRect();
-
         this.DrawRectB = this.CreateDrawRect();
-
         this.DrawRectC = this.CreateDrawRect();
-
         this.DrawRectD = this.CreateDrawRect();
-
-
 
         this.DrawPosA = this.CreateDrawPos();
 
-
-
         this.StackRect = this.CreateStackRect();
-
-
-
         this.StackPos = this.CreateStackPos();
-
-
-
-
-
         return true;
     }
 
-
-
-
-
-
-    protected virtual DrawInfra DrawInfra { get; set; }
-
-
-
-
     public virtual DrawRect Area { get; set; }
 
-
-
-
-
+    protected virtual DrawInfra DrawInfra { get; set; }
     protected virtual DrawRect DrawRectA { get; set; }
-
-
     protected virtual DrawRect DrawRectB { get; set; }
-
-
     protected virtual DrawRect DrawRectC { get; set; }
-
-
     protected virtual DrawRect DrawRectD { get; set; }
-
-
-
     protected virtual DrawPos DrawPosA { get; set; }
-
-
-
     protected virtual DrawRect StackRect { get; set; }
-
-
-
     protected virtual DrawPos StackPos { get; set; }
-
-
-
-
-
-
 
     protected virtual Field CreatePosField()
     {
         return this.ViewInfra.FieldCreate(this);
     }
 
-
-
-
-
-
     protected virtual Field CreateSizeField()
     {
         return this.ViewInfra.FieldCreate(this);
     }
-
-
-
-
-
-
 
     protected virtual Field CreateBackField()
     {
         return this.ViewInfra.FieldCreate(this);
     }
     
-
-
-
-
-
-
     protected virtual Field CreateVisibleField()
     {
         return this.ViewInfra.FieldCreate(this);
     }
-
-
-
-
-
-
 
     protected virtual Field CreateChildField()
     {
         return this.ViewInfra.FieldCreate(this);
     }
 
-
-
-
-
-
-
     protected virtual Pos CreatePos()
     {
         Pos a;
-
-
         a = new Pos();
-
-
         a.Init();
-
-
         a.Left = 0;
-
-
         a.Up = 0;
-
-
-
-
         return a;
     }
-
-
-
-
-
-
 
     protected virtual Size CreateSize()
     {
         Size a;
-
-
         a = new Size();
-
-
         a.Init();
-
-
         a.Width = 0;
-
-
         a.Height = 0;
-
-
-
-
         return a;
     }
-
-
-
-
-
 
     protected virtual DrawBrush CreateBack()
     {
         DrawBrush a;
-
-
         a = this.DrawInfra.WhiteBrush;
-
-
-
         return a;
     }
-
-
-
-
 
     protected virtual DrawRect CreateArea()
     {
         DrawRect rect;
-
         rect = this.DrawInfra.RectCreate(0, 0, 0, 0);
-
-
-
         return rect;
     }
-
-
-
-
 
     protected virtual DrawRect CreateDrawRect()
     {
         DrawRect rect;
-
         rect = this.DrawInfra.RectCreate(0, 0, 0, 0);
-
-
-
         return rect;
     }
-
-
-
 
     protected virtual DrawPos CreateDrawPos()
     {
         DrawPos pos;
-
         pos = this.DrawInfra.PosCreate(0, 0);
-
-
         return pos;
     }
-
-
-
-
-
 
     protected virtual DrawRect CreateStackRect()
     {
         DrawRect rect;
-
         rect = this.DrawInfra.RectCreate(0, 0, 0, 0);
-
-
-
         return rect;
     }
-
-
-
-
 
     protected virtual DrawPos CreateStackPos()
     {
         DrawPos pos;
-
         pos = this.DrawInfra.PosCreate(0, 0);
-
-
         return pos;
     }
 
-
-
-
-
-
     public virtual Field PosField { get; set; }
-
-
-
 
     public virtual Pos Pos
     {
@@ -374,23 +138,15 @@ public class View : Comp
         {
             return (Pos)this.PosField.Get();
         }
-
         set
         {
             this.PosField.Set(value);
         }
     }
 
-
-
-
-
     protected virtual bool ChangePos(Change change)
     {
         this.Trigger(this.PosField);
-
-
-
         return true;
     }
 
