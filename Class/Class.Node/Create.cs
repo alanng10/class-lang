@@ -556,11 +556,11 @@ public class Create : InfraCreate
         Data data;
         data = this.StringValueData;
 
-        Text span;
-        span = this.Text;
-        span.Data = this.StringValueText;
-        span.Range.Index = 0;
-        span.Range.Count = 0;
+        Text text;
+        text = this.Text;
+        text.Data = this.StringValueText;
+        text.Range.Index = 0;
+        text.Range.Count = 0;
         int total;
         total = 0;
 
@@ -576,10 +576,10 @@ public class Create : InfraCreate
             u = this.InfraInfra.DataMidGet(data, index);
             int oa;
             oa = (int)u;
-            span.Range.Index = total;
-            span.Range.Count = oa;
+            text.Range.Index = total;
+            text.Range.Count = oa;
             string oo;
-            oo = this.TextInfra.StringCreate(span);
+            oo = this.TextInfra.StringCreate(text);
             this.StringValueArray.Set(i, oo);
             total = total + oa;
             i = i + 1;
