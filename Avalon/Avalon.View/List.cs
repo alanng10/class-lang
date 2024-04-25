@@ -149,7 +149,7 @@ public class List : Comp
         return a;
     }
 
-    public virtual bool SetIter(Iter iter)
+    public virtual bool IterSet(Iter iter)
     {
         ListIter a;
         a = (ListIter)iter;

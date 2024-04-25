@@ -318,7 +318,7 @@ public class Grid : View
     {
         Iter iter;
         iter = this.ChildIter;
-        this.Child.SetIter(iter);
+        this.Child.IterSet(iter);
         while (iter.Next())
         {
             GridChild child;
@@ -465,7 +465,7 @@ public class Grid : View
         start = 0;
         Iter iter;
         iter = this.ColIter;
-        this.Col.SetIter(iter);
+        this.Col.IterSet(iter);
         int left;
         left = 0;
 
@@ -495,7 +495,7 @@ public class Grid : View
         start = this.Col.Count;
         Iter iter;
         iter = this.RowIter;
-        this.Row.SetIter(iter);
+        this.Row.IterSet(iter);
         int up;
         up = 0;
 
