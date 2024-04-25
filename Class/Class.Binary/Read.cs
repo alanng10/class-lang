@@ -134,12 +134,12 @@ public class Read : Any
         Data countData;
         countData = arg.StringCountData;
 
-        Text span;
-        span = new Text();
-        span.Init();
-        span.Range = new Range();
-        span.Range.Init();
-        span.Data = arg.StringTextData;
+        Text text;
+        text = new Text();
+        text.Init();
+        text.Range = new Range();
+        text.Range.Init();
+        text.Data = arg.StringTextData;
         int total;
         total = 0;
 
@@ -155,10 +155,10 @@ public class Read : Any
             u = infraInfra.DataMidGet(countData, index);
             int oa;
             oa = (int)u;
-            span.Range.Index = total;
-            span.Range.Count = oa;
+            text.Range.Index = total;
+            text.Range.Count = oa;
             string oo;
-            oo = textInfra.StringCreate(span);
+            oo = textInfra.StringCreate(text);
             array.Set(i, oo);
             total = total + oa;
             i = i + 1;
