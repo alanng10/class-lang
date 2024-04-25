@@ -34,7 +34,7 @@ public class Create : InfraCreate
         this.TokenG = this.CreateToken();
         this.TokenH = this.CreateToken();
 
-        this.Text = this.CreateTextSpan();
+        this.Text = this.CreateText();
         this.TextIntParse = this.CreateTextIntParse();
 
         this.InitListItemState();
@@ -198,7 +198,7 @@ public class Create : InfraCreate
         return a;
     }
 
-    protected virtual Text CreateTextSpan()
+    protected virtual Text CreateText()
     {
         Text a;
         a = new Text();
