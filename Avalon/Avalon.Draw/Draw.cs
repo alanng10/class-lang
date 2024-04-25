@@ -356,7 +356,7 @@ public class Draw : Any
         return true;
     }
 
-    public virtual bool ExecuteText(TextSpan text, Rect destRect, TextAlign align, bool wordWarp)
+    public virtual bool ExecuteText(TextText text, Rect destRect, TextAlign align, bool wordWarp)
     {
         int count;
         count = text.Range.Count;
