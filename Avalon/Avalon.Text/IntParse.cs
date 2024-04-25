@@ -13,7 +13,7 @@ public class IntParse : Any
     protected virtual InfraInfra InfraInfra { get; set; }
     protected virtual Infra TextInfra { get; set; }
 
-    public virtual long Execute(Text span, int varBase, bool upperCase)
+    public virtual long Execute(Text text, int varBase, bool upperCase)
     {
         if (varBase < 2 | 16 < varBase)
         {
@@ -37,9 +37,9 @@ public class IntParse : Any
         ulong d;
         d = 0;
         Data data;
-        data = span.Data;
+        data = text.Data;
         InfraRange range;
-        range = span.Range;
+        range = text.Range;
         int count;
         count = range.Count;
         int index;
