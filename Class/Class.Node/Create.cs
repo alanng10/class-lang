@@ -3978,14 +3978,14 @@ public class Create : InfraCreate
         return true;
     }
 
-    protected virtual bool IsIntChar(Text span)
+    protected virtual bool IsIntChar(Text text)
     {
         Data data;
-        data = span.Data;
+        data = text.Data;
         int start;
-        start = span.Range.Index;
+        start = text.Range.Index;
         int count;
-        count = span.Range.Count;
+        count = text.Range.Count;
         int index;
         char oc;
         int i;
