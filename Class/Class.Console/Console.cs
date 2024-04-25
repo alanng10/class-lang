@@ -1159,7 +1159,7 @@ public class Console : Any
 
 
 
-            TextSpan line;
+            Text line;
 
             line = this.CreateTextLine(s);
 
@@ -1188,9 +1188,9 @@ public class Console : Any
 
 
 
-    private TextSpan CreateTextLine(string s)
+    private Text CreateTextLine(string s)
     {
-        TextSpan a;
+        Text a;
         a = this.TextInfra.SpanCreateString(s);
         return a;
     }

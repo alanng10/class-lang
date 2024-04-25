@@ -138,8 +138,8 @@ public class Create : InfraCreate
         count = sourceText.Count;
         while (row < count)
         {
-            TextSpan line;
-            line = (TextSpan)sourceText.Get(row);
+            Text line;
+            line = (Text)sourceText.Get(row);
             Data data;
             data = line.Data;
 

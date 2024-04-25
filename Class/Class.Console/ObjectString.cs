@@ -231,10 +231,10 @@ class ObjectString : Any
 
             return true;
         }
-        if (varObject is TextSpan)
+        if (varObject is Text)
         {
-            TextSpan oo;
-            oo = (TextSpan)varObject;
+            Text oo;
+            oo = (Text)varObject;
 
             string oooa;
             oooa = this.TextInfra.StringCreate(oo);

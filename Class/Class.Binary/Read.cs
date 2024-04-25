@@ -134,8 +134,8 @@ public class Read : Any
         Data countData;
         countData = arg.StringCountData;
 
-        TextSpan span;
-        span = new TextSpan();
+        Text span;
+        span = new Text();
         span.Init();
         span.Range = new Range();
         span.Range.Init();

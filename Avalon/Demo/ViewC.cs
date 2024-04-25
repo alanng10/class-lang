@@ -6,7 +6,7 @@ class ViewC : View
     public DrawBrush EllipseBrush { get; set; }
     public DrawFont Font { get; set; }
     public DrawTextAlign TextAlign { get; set; }
-    public TextSpan Text { get; set; }
+    public Text Text { get; set; }
     public DrawPen TextPen { get; set; }
 
     protected override bool ExecuteDrawThis(DrawDraw draw)

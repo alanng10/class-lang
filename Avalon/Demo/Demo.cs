@@ -502,7 +502,7 @@ class Demo : Any
         argList.SetItem(6, argE);
         argList.SetItem(7, argF);
 
-        TextSpan varBase;
+        Text varBase;
         varBase = this.TextInfra.SpanCreateString("G H , j h\n\n");
 
         TextFormat format;
@@ -512,7 +512,7 @@ class Demo : Any
         int count;
         count = format.ExecuteCount(varBase, argList);
 
-        TextSpan text;
+        Text text;
         text = this.TextInfra.SpanCreate(count);
 
         format.ExecuteResult(varBase, argList, text);
@@ -541,7 +541,7 @@ class Demo : Any
         a = new TextIntParse();
         a.Init();
 
-        TextSpan ooo;
+        Text ooo;
         ooo = this.TextInfra.SpanCreateString("43695");
         long ooa;
         ooa = a.Execute(ooo, 10, false);
@@ -1041,7 +1041,7 @@ class Demo : Any
         string oa;
         oa = "G L 的哈gd@行 o #";
 
-        TextSpan text;
+        Text text;
         text = this.TextInfra.SpanCreateString(oa);
 
         ViewC viewC;

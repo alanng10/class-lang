@@ -6,5 +6,5 @@ global using StringCompare = Avalon.Infra.StringCompare;
 global using InfraInfra = Avalon.Infra.Infra;
 global using Array = Avalon.List.Array;
 global using Table = Avalon.List.Table;
-global using TextSpan = Avalon.Text.Span;
+global using TextSpan = Avalon.Text.Text;
 global using TextInfra = Avalon.Text.Infra;

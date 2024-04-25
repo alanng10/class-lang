@@ -30,7 +30,7 @@ public class StringValueWrite : Any
     public virtual Data Data { get; set; }
     public virtual int Index { get; set; }
 
-    public virtual string Value(TextSpan textSpan)
+    public virtual string Value(Text textSpan)
     {
         bool b;
         b = this.CheckValueString(textSpan);
@@ -53,8 +53,8 @@ public class StringValueWrite : Any
         this.Index = 0;
         this.ExecuteValueString(textSpan);
 
-        TextSpan oa;
-        oa = new TextSpan();
+        Text oa;
+        oa = new Text();
         oa.Init();
         oa.Range = new InfraRange();
         oa.Range.Init();
@@ -70,7 +70,7 @@ public class StringValueWrite : Any
         return a;
     }
 
-    public virtual bool CheckValueString(TextSpan textSpan)
+    public virtual bool CheckValueString(Text textSpan)
     {
         InfraRange range;
         range = textSpan.Range;
@@ -182,7 +182,7 @@ public class StringValueWrite : Any
         return true;
     }
 
-    public virtual bool ExecuteValueString(TextSpan textSpan)
+    public virtual bool ExecuteValueString(Text textSpan)
     {
         Data data;
         data = textSpan.Data;

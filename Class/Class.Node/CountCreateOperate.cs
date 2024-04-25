@@ -61,7 +61,7 @@ public class CountCreateOperate : CreateOperate
         return true;
     }
 
-    public override string ExecuteNameValue(TextSpan text)
+    public override string ExecuteNameValue(Text text)
     {
         int index;
         index = this.Create.NameValueIndex;
@@ -76,7 +76,7 @@ public class CountCreateOperate : CreateOperate
         return this.String;
     }
 
-    public override string ExecuteStringValue(TextSpan text)
+    public override string ExecuteStringValue(Text text)
     {
         int index;
         index = this.Create.StringValueIndex;

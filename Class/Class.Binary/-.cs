@@ -4,6 +4,6 @@ global using Range = Avalon.Infra.Range;
 global using InfraInfra = Avalon.Infra.Infra;
 global using Array = Avalon.List.Array;
 global using ListInfra = Avalon.List.Infra;
-global using TextSpan = Avalon.Text.Span;
+global using TextSpan = Avalon.Text.Text;
 global using TextInfra = Avalon.Text.Infra;
 global using ModuleRef = Class.Infra.ModuleRef;
