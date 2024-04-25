@@ -127,7 +127,7 @@ public class Text : View
 
 
 
-    protected virtual TextSpan CreateValue()
+    protected virtual TextText CreateValue()
     {
         return this.TextInfra.SpanCreateString("");
     }
@@ -188,11 +188,11 @@ public class Text : View
 
 
 
-    public virtual TextSpan Value
+    public virtual TextText Value
     {
         get
         {
-            return (TextSpan)this.ValueField.GetAny();
+            return (TextText)this.ValueField.GetAny();
         }
 
         set
@@ -430,7 +430,7 @@ public class Text : View
 
     protected override bool ExecuteChildDraw(DrawDraw draw)
     {
-        TextSpan span;
+        TextText span;
 
         span = this.Value;
 
