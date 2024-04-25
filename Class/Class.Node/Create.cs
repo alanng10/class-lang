@@ -1279,7 +1279,7 @@ public class Create : InfraCreate
         aa = this.TokenToken(start);
         Text text;
         text = this.Text;
-        this.TextSpanGet(text, aa);
+        this.TextGet(text, aa);
 
         bool value;
         value = false;
@@ -1343,7 +1343,7 @@ public class Create : InfraCreate
 
         Text text;
         text = this.Text;
-        this.TextSpanGet(text, aa);
+        this.TextGet(text, aa);
         
         long value;
         value = this.TextIntParse.Execute(text, 10, false);
@@ -1568,7 +1568,7 @@ public class Create : InfraCreate
         aa = this.TokenToken(start);
         Text textSpan;
         textSpan = this.Text;
-        this.TextSpanGet(textSpan, aa);
+        this.TextGet(textSpan, aa);
 
         bool b;
         b = this.StringValueWrite.CheckValueString(textSpan);
@@ -3819,7 +3819,7 @@ public class Create : InfraCreate
         aa = this.TokenToken(start);
         Text textSpan;
         textSpan = this.Text;
-        this.TextSpanGet(textSpan, aa);
+        this.TextGet(textSpan, aa);
 
         string a;
         a = this.Operate.ExecuteNameValue(textSpan);
@@ -3828,7 +3828,7 @@ public class Create : InfraCreate
 
     protected virtual bool IsIntValue(TokenToken aa)
     {
-        this.TextSpanGet(this.Text, aa);
+        this.TextGet(this.Text, aa);
 
         if (!this.IsIntChar(this.Text))
         {
@@ -4066,7 +4066,7 @@ public class Create : InfraCreate
         return this.ClassInfra.Count(range.Start, range.End);
     }
 
-    protected virtual bool TextSpanGet(Text text, TokenToken token)
+    protected virtual bool TextGet(Text text, TokenToken token)
     {
         Text line;
         line = (Text)this.SourceText.Get(token.Row);
@@ -4142,7 +4142,7 @@ public class Create : InfraCreate
         keyword = this.Keyword;
         Text textSpan;
         textSpan = this.Text;
-        this.TextSpanGet(textSpan, token);
+        this.TextGet(textSpan, token);
         int count;
         count = keyword.Count;
         int i;
@@ -4175,7 +4175,7 @@ public class Create : InfraCreate
         aa = this.TokenToken(index);
         Text text;
         text = this.Text;
-        this.TextSpanGet(text, aa);
+        this.TextGet(text, aa);
         bool b;
         b = this.ClassInfra.Equal(text, value);
         bool a;
@@ -4449,7 +4449,7 @@ public class Create : InfraCreate
         aa = this.TokenToken(index);
         Text text;
         text = this.Text;
-        this.TextSpanGet(text, aa);
+        this.TextGet(text, aa);
         if (this.ClassInfra.Equal(text, this.Delimit.LeftBracket.Text))
         {
             Token rightBracket;
@@ -4481,7 +4481,7 @@ public class Create : InfraCreate
         aa = this.TokenToken(t);
         Text text;
         text = this.Text;
-        this.TextSpanGet(text, aa);
+        this.TextGet(text, aa);
         if (this.ClassInfra.Equal(text, this.Delimit.RightBracket.Text))
         {
             Token leftBracket;
@@ -4545,7 +4545,7 @@ public class Create : InfraCreate
         {
             TokenToken aa;
             aa = this.TokenToken(i);
-            this.TextSpanGet(text, aa);
+            this.TextGet(text, aa);
             if (this.ClassInfra.Equal(text, rightToken))
             {
                 openCount = openCount - 1;
@@ -4601,7 +4601,7 @@ public class Create : InfraCreate
             t = i - 1;
             TokenToken aa;
             aa = this.TokenToken(t);
-            this.TextSpanGet(text, aa);
+            this.TextGet(text, aa);
             if (this.ClassInfra.Equal(text, leftToken))
             {
                 openCount = openCount - 1;
