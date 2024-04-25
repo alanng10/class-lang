@@ -59,13 +59,13 @@ public class Infra : Any
         return this.InfraInfra.DataCharSet(data, index * 2, value);
     }
 
-    public virtual Span SpanCreate(int count)
+    public virtual Text SpanCreate(int count)
     {
         int oa;
         oa = sizeof(char);
 
-        Span span;
-        span = new Span();
+        Text span;
+        span = new Text();
         span.Init();
         span.Data = new Data();
         span.Data.Count = count * oa;
@@ -76,15 +76,15 @@ public class Infra : Any
         return span;
     }
 
-    public virtual Span SpanCreateString(string a)
+    public virtual Text SpanCreateString(string a)
     {
         Data data;
         data = this.InfraInfra.DataCreateString(a);
 
         int count;
         count = a.Length;
-        Span span;
-        span = new Span();
+        Text span;
+        span = new Text();
         span.Init();
         span.Data = data;
         span.Range = new InfraRange();
@@ -93,7 +93,7 @@ public class Infra : Any
         return span;
     }
 
-    public virtual string StringCreate(Span span)
+    public virtual string StringCreate(Text span)
     {
         if (!this.CheckSpan(span))
         {
@@ -106,7 +106,7 @@ public class Infra : Any
         return a;
     }
 
-    public virtual bool CheckSpan(Span span)
+    public virtual bool CheckSpan(Text span)
     {
         int arrayCount;
         arrayCount = (int)span.Data.Count;

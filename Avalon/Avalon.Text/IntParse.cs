@@ -13,7 +13,7 @@ public class IntParse : Any
     protected virtual InfraInfra InfraInfra { get; set; }
     protected virtual Infra TextInfra { get; set; }
 
-    public virtual long Execute(Span span, int varBase, bool upperCase)
+    public virtual long Execute(Text span, int varBase, bool upperCase)
     {
         if (varBase < 2 | 16 < varBase)
         {

@@ -50,7 +50,7 @@ public class Format : Any
     private ulong InternBase { get; set; }
 
 
-    public virtual int ExecuteCount(Span varBase, FormatArgList argList)
+    public virtual int ExecuteCount(Text varBase, FormatArgList argList)
     {
         InfraRange range;
         range = varBase.Range;
@@ -70,7 +70,7 @@ public class Format : Any
     }
 
 
-    public virtual bool ExecuteResult(Span varBase, FormatArgList argList, Span result)
+    public virtual bool ExecuteResult(Text varBase, FormatArgList argList, Text result)
     {
         InfraRange baseRange;
         baseRange = varBase.Range;
@@ -106,7 +106,7 @@ public class Format : Any
         return true;
     }
 
-    public virtual bool ExecuteArgResult(FormatArg arg, Span result)
+    public virtual bool ExecuteArgResult(FormatArg arg, Text result)
     {
         InfraRange range;
         range = result.Range;
