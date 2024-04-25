@@ -129,7 +129,7 @@ public class Text : View
 
     protected virtual TextText CreateValue()
     {
-        return this.TextInfra.SpanCreateString("");
+        return this.TextInfra.TextCreateString("");
     }
 
 

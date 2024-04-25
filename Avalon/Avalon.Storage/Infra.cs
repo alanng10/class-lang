@@ -158,7 +158,7 @@ public class Infra : Any
         encode.Init();
 
         TextText span;
-        span = this.TextInfra.SpanCreateString(text);
+        span = this.TextInfra.TextCreateString(text);
         int kk;
         kk = span.Range.Count;
         long ka;

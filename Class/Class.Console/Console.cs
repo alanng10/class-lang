@@ -1191,7 +1191,7 @@ public class Console : Any
     private Text CreateTextLine(string s)
     {
         Text a;
-        a = this.TextInfra.SpanCreateString(s);
+        a = this.TextInfra.TextCreateString(s);
         return a;
     }
 

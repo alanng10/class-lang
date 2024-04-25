@@ -503,7 +503,7 @@ class Demo : Any
         argList.SetItem(7, argF);
 
         Text varBase;
-        varBase = this.TextInfra.SpanCreateString("G H , j h\n\n");
+        varBase = this.TextInfra.TextCreateString("G H , j h\n\n");
 
         TextFormat format;
         format = new TextFormat();
@@ -542,20 +542,20 @@ class Demo : Any
         a.Init();
 
         Text ooo;
-        ooo = this.TextInfra.SpanCreateString("43695");
+        ooo = this.TextInfra.TextCreateString("43695");
         long ooa;
         ooa = a.Execute(ooo, 10, false);
         this.Console.Out.Write("Demo.ExecuteIntParse ooa: " + ooa.ToString() + "\n");
 
-        ooo = this.TextInfra.SpanCreateString("9E532F");
+        ooo = this.TextInfra.TextCreateString("9E532F");
         ooa = a.Execute(ooo, 16, true);
         this.Console.Out.Write("Demo.ExecuteIntParse ooa: 0h" + ooa.ToString("x15") + "\n");
 
-        ooo = this.TextInfra.SpanCreateString("0000000000009294ef0d");
+        ooo = this.TextInfra.TextCreateString("0000000000009294ef0d");
         ooa = a.Execute(ooo, 16, false);
         this.Console.Out.Write("Demo.ExecuteIntParse ooa: 0h" + ooa.ToString("x16") + "\n");
 
-        ooo = this.TextInfra.SpanCreateString("1000000000000000");
+        ooo = this.TextInfra.TextCreateString("1000000000000000");
         ooa = a.Execute(ooo, 16, true);
         this.Console.Out.Write("Demo.ExecuteIntParse ooa: 0h" + ooa.ToString("x16") + "\n");
         return true;
@@ -1042,7 +1042,7 @@ class Demo : Any
         oa = "G L 的哈gd@行 o #";
 
         Text text;
-        text = this.TextInfra.SpanCreateString(oa);
+        text = this.TextInfra.TextCreateString(oa);
 
         ViewC viewC;
         viewC = new ViewC();

@@ -76,7 +76,7 @@ public class Infra : Any
         return span;
     }
 
-    public virtual Text SpanCreateString(string a)
+    public virtual Text TextCreateString(string a)
     {
         Data data;
         data = this.InfraInfra.DataCreateString(a);
