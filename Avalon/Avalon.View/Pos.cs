@@ -1,57 +1,24 @@
 namespace Avalon.View;
 
-
-
-
-
-
 public class Pos : Comp
 {
     public override bool Init()
     {
         base.Init();
-
-
-
-
-
-
         this.LeftField = this.CreateLeftField();
-
-
-
-
         this.UpField = this.CreateUpField();
-
-
-
-
-
         return true;
     }
-
-
-
-
-
 
     protected virtual Field CreateLeftField()
     {
         return this.ViewInfra.FieldCreate(this);
     }
 
-
-
-
     protected virtual Field CreateUpField()
     {
         return this.ViewInfra.FieldCreate(this);
     }
-
-
-
-
-
 
     public override bool Change(Field field, Change change)
     {
@@ -59,32 +26,14 @@ public class Pos : Comp
         {
             this.ChangeLeft(change);
         }
-
-
-
-
-
         if (this.UpField == field)
         {
             this.ChangeUp(change);
         }
-
-
-
-
-
         return true;
     }
 
-
-
-
-
-
     public virtual Field LeftField { get; set; }
-
-
-
 
     public virtual int Left
     {
@@ -99,28 +48,13 @@ public class Pos : Comp
         }
     }
 
-
-
-
     protected virtual bool ChangeLeft(Change change)
     {
         this.Trigger(this.LeftField);
-
-
-
         return true;
     }
 
-
-
-
-
-
-
     public virtual Field UpField { get; set; }
-
-
-
 
     public virtual int Up
     {
@@ -135,15 +69,9 @@ public class Pos : Comp
         }
     }
 
-
-
-
     protected virtual bool ChangeUp(Change change)
     {
         this.Trigger(this.UpField);
-
-
-
         return true;
     }
 }
