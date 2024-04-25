@@ -129,7 +129,7 @@ public class Infra : Any
         int ka;
         ka = encode.TextCountMax(data.Count);
 
-        TextSpan span;        
+        TextText span;        
         span = this.TextInfra.SpanCreate(ka);
         Range range;
         range = new Range();
@@ -157,7 +157,7 @@ public class Infra : Any
         encode.Kind = this.TextEncodeKindList.Utf8;
         encode.Init();
 
-        TextSpan span;
+        TextText span;
         span = this.TextInfra.SpanCreateString(text);
         int kk;
         kk = span.Range.Count;
