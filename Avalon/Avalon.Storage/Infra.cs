@@ -130,7 +130,7 @@ public class Infra : Any
         ka = encode.TextCountMax(data.Count);
 
         TextText span;        
-        span = this.TextInfra.SpanCreate(ka);
+        span = this.TextInfra.TextCreate(ka);
         Range range;
         range = new Range();
         range.Init();

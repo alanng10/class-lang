@@ -513,7 +513,7 @@ class Demo : Any
         count = format.ExecuteCount(varBase, argList);
 
         Text text;
-        text = this.TextInfra.SpanCreate(count);
+        text = this.TextInfra.TextCreate(count);
 
         format.ExecuteResult(varBase, argList, text);
 

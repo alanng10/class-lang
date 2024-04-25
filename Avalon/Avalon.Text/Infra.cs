@@ -59,7 +59,7 @@ public class Infra : Any
         return this.InfraInfra.DataCharSet(data, index * 2, value);
     }
 
-    public virtual Text SpanCreate(int count)
+    public virtual Text TextCreate(int count)
     {
         int oa;
         oa = sizeof(char);
