@@ -1,7 +1,7 @@
 {
   "name": "class-lang-vscode-ext",
   "displayName": "Class Lang",
-  "description": "Class lang syntax highlighting",
+  "description": "Class programming language support",
   "version": "1.0.0",
   "repository": {
     "type": "git",
