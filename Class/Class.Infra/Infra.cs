@@ -73,7 +73,7 @@ public class Infra : Any
 
     public virtual bool Equal(Text text, string o)
     {
-        if (!this.TextInfra.CheckSpan(text))
+        if (!this.TextInfra.CheckRange(text))
         {
             return false;
         }

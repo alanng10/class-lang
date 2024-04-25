@@ -95,7 +95,7 @@ public class Infra : Any
 
     public virtual string StringCreate(Text span)
     {
-        if (!this.CheckSpan(span))
+        if (!this.CheckRange(span))
         {
             return null;
         }
@@ -106,7 +106,7 @@ public class Infra : Any
         return a;
     }
 
-    public virtual bool CheckSpan(Text span)
+    public virtual bool CheckRange(Text span)
     {
         int arrayCount;
         arrayCount = (int)span.Data.Count;
