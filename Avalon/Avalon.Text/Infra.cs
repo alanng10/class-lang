@@ -64,55 +64,55 @@ public class Infra : Any
         int oa;
         oa = sizeof(char);
 
-        Text span;
-        span = new Text();
-        span.Init();
-        span.Data = new Data();
-        span.Data.Count = count * oa;
-        span.Data.Init();
-        span.Range = new InfraRange();
-        span.Range.Init();
-        span.Range.Count = count;
-        return span;
+        Text a;
+        a = new Text();
+        a.Init();
+        a.Data = new Data();
+        a.Data.Count = count * oa;
+        a.Data.Init();
+        a.Range = new InfraRange();
+        a.Range.Init();
+        a.Range.Count = count;
+        return a;
     }
 
-    public virtual Text TextCreateString(string a)
+    public virtual Text TextCreateString(string o)
     {
         Data data;
-        data = this.InfraInfra.DataCreateString(a);
+        data = this.InfraInfra.DataCreateString(o);
 
         int count;
-        count = a.Length;
-        Text span;
-        span = new Text();
-        span.Init();
-        span.Data = data;
-        span.Range = new InfraRange();
-        span.Range.Init();
-        span.Range.Count = count;
-        return span;
+        count = o.Length;
+        Text a;
+        a = new Text();
+        a.Init();
+        a.Data = data;
+        a.Range = new InfraRange();
+        a.Range.Init();
+        a.Range.Count = count;
+        return a;
     }
 
-    public virtual string StringCreate(Text span)
+    public virtual string StringCreate(Text text)
     {
-        if (!this.CheckRange(span))
+        if (!this.CheckRange(text))
         {
             return null;
         }
         InfraRange range;
-        range = span.Range;
+        range = text.Range;
         string a;
-        a = this.InternIntern.StringCreateData(span.Data.Value, range.Index, range.Count);
+        a = this.InternIntern.StringCreateData(text.Data.Value, range.Index, range.Count);
         return a;
     }
 
-    public virtual bool CheckRange(Text span)
+    public virtual bool CheckRange(Text text)
     {
         int arrayCount;
-        arrayCount = (int)span.Data.Count;
+        arrayCount = (int)text.Data.Count;
 
         InfraRange range;
-        range = span.Range;
+        range = text.Range;
         if (!this.InfraInfra.CheckRange(arrayCount, range))
         {
             return false;
