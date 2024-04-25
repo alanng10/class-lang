@@ -3817,12 +3817,12 @@ public class Create : InfraCreate
 
         TokenToken aa;
         aa = this.TokenToken(start);
-        Text textSpan;
-        textSpan = this.Text;
-        this.TextGet(textSpan, aa);
+        Text text;
+        text = this.Text;
+        this.TextGet(text, aa);
 
         string a;
-        a = this.Operate.ExecuteNameValue(textSpan);
+        a = this.Operate.ExecuteNameValue(text);
         return a;
     }
 
