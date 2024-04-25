@@ -120,43 +120,21 @@ public class Infra : Any
         return true;
     }
 
-
-
-
-
-
-
-
     public virtual GridCol GridColCreate(int width)
     {
         GridCol a;
-
         a = new GridCol();
-
         a.Init();
-
-
         a.Width = width;
-
-
         return a;
     }
-
-
-
 
     public virtual GridRow GridRowCreate(int height)
     {
         GridRow a;
-
         a = new GridRow();
-
         a.Init();
-
-
         a.Height = height;
-
-
         return a;
     }
 }
