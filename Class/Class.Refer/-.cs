@@ -11,7 +11,6 @@ global using Iter = Avalon.List.Iter;
 global using TableIter = Avalon.List.TableIter;
 global using ArrayIter = Avalon.List.ArrayIter;
 global using ListInfra = Avalon.List.Infra;
-global using TextSpan = Avalon.Text.Text;
 global using TextInfra = Avalon.Text.Infra;
 global using InfraCreate = Class.Infra.Create;
 global using Source = Class.Infra.Source;
