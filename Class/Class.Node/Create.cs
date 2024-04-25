@@ -4140,9 +4140,9 @@ public class Create : InfraCreate
         classInfra = this.ClassInfra;
         KeywordList keyword;
         keyword = this.Keyword;
-        Text textSpan;
-        textSpan = this.Text;
-        this.TextGet(textSpan, token);
+        Text text;
+        text = this.Text;
+        this.TextGet(text, token);
         int count;
         count = keyword.Count;
         int i;
@@ -4153,7 +4153,7 @@ public class Create : InfraCreate
             a = keyword.Get(i);
             string o;
             o = a.Text;
-            if (classInfra.Equal(textSpan, o))
+            if (classInfra.Equal(text, o))
             {
                 return true;
             }
