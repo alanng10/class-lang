@@ -1,4 +1,4 @@
-namespace Z.Tool.NetworkAddressKindListSourceGen;
+namespace Z.Tool.Avalon.NetworkAddressKindList;
 
 public class Gen : SourceGen
 {
