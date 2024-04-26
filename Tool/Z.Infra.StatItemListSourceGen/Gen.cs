@@ -48,7 +48,7 @@ public class Gen : SourceGen
 
     protected virtual string GetStatItemListFileName()
     {
-        return "../../Tool/Z.Tool.Stat" + this.StatItemClassName + "SourceGen/ItemList" + this.StatItemClassName + ".txt";
+        return "../../Tool/Z.Tool.Infra.Stat" + this.StatItemClassName + "/ItemList" + this.StatItemClassName + ".txt";
     }
 
 
