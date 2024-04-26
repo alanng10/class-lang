@@ -118,7 +118,7 @@ public class NodeGen : Any
 
 
 
-        this.ToolInfra.WriteTextFile(outputFilePath, k);
+        this.ToolInfra.StorageTextWrite(outputFilePath, k);
 
 
 

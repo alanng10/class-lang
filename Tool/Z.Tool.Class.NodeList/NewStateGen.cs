@@ -92,7 +92,7 @@ public class NewStateGen : Any
 
 
 
-            this.ToolInfra.WriteTextFile(path, k);
+            this.ToolInfra.StorageTextWrite(path, k);
 
 
 

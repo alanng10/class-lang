@@ -129,7 +129,7 @@ public class CreateOperateStateGen : Any
 
 
 
-            this.ToolInfra.WriteTextFile(path, k);
+            this.ToolInfra.StorageTextWrite(path, k);
 
 
 

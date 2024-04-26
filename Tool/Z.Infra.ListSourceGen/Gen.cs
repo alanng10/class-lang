@@ -216,7 +216,7 @@ public class Gen : Any
 
 
 
-        this.ToolInfra.WriteTextFile(this.OutputFilePath, ka);
+        this.ToolInfra.StorageTextWrite(this.OutputFilePath, ka);
 
 
 

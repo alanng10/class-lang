@@ -53,11 +53,7 @@ public class Infra : Any
         return a;
     }
 
-
-
-
-
-    public virtual bool WriteTextFile(string filePath, string text)
+    public virtual bool StorageTextWrite(string filePath, string text)
     {
         bool a;
         a = this.StorageInfra.TextWrite(filePath, text);

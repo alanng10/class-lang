@@ -92,7 +92,7 @@ public class NodeStateGen : Any
 
 
 
-            this.ToolInfra.WriteTextFile(path, k);
+            this.ToolInfra.StorageTextWrite(path, k);
 
 
 

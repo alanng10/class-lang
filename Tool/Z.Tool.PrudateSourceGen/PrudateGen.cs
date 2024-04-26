@@ -113,7 +113,7 @@ class PrudateGen : Any
 
 
 
-        infra.WriteTextFile(this.OutputFilePath, k);
+        infra.StorageTextWrite(this.OutputFilePath, k);
 
 
 
