@@ -1,4 +1,4 @@
-namespace Z.Tool.Infra.CountList;
+namespace Z.Tool.Class.CountList;
 
 
 
