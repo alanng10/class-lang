@@ -52,7 +52,7 @@ public class Format : Any
 
     public virtual int ExecuteCount(Text varBase, FormatArgList argList)
     {
-        InfraRange range;
+        Range range;
         range = varBase.Range;
         int baseIndex;
         baseIndex = range.Index;
@@ -72,13 +72,13 @@ public class Format : Any
 
     public virtual bool ExecuteResult(Text varBase, FormatArgList argList, Text result)
     {
-        InfraRange baseRange;
+        Range baseRange;
         baseRange = varBase.Range;
         int baseIndex;
         baseIndex = baseRange.Index;
         int baseCount;
         baseCount = baseRange.Count;
-        InfraRange resultRange;
+        Range resultRange;
         resultRange = result.Range;
         int resultIndex;
         resultIndex = resultRange.Index;
@@ -108,7 +108,7 @@ public class Format : Any
 
     public virtual bool ExecuteArgResult(FormatArg arg, Text result)
     {
-        InfraRange range;
+        Range range;
         range = result.Range;
         int resultIndex;
         resultIndex = range.Index;

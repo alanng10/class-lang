@@ -38,7 +38,7 @@ public class IntParse : Any
         d = 0;
         Data data;
         data = text.Data;
-        InfraRange range;
+        Range range;
         range = text.Range;
         int count;
         count = range.Count;
