@@ -1,4 +1,4 @@
-namespace Z.Tool.GradientSpreadListSourceGen;
+namespace Z.Tool.Avalon.GradientSpreadList;
 
 public class Gen : SourceGen
 {
