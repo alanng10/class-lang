@@ -160,7 +160,7 @@ public class Test : Any
                 expectFile = unitFold + this.InfraInfra.PathCombine + "Expect";
 
                 string expect;                
-                expect = File.ReadAllText(expectFile);
+                expect = this.StorageInfra.TextRead(expectFile);
 
                 string path;
                 path = null;
