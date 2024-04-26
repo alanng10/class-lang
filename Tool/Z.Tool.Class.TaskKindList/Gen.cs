@@ -1,4 +1,4 @@
-namespace Z.Tool.TaskKindListSourceGen;
+namespace Z.Tool.Class.TaskKindList;
 
 
 

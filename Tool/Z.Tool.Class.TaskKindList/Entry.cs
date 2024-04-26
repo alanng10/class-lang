@@ -1,25 +1,31 @@
-namespace Z.Tool.TaskKindListSourceGen;
+namespace Z.Tool.Class.TaskKindList;
 
-
-
-
-class Entry : Any
+class Entry : EntryEntry
 {
-    static int Main()
+    public override int Execute()
     {
+        Main main;
+        main = new Main();
+        main.Init();
+
         Gen gen;
-
         gen = new Gen();
-
         gen.Init();
-
-
-
         int o;
-
         o = gen.Execute();
 
+        main.Final();
+        return o;
+    }
 
+    [STAThread]
+    static int Main()
+    {
+        EntryEntry a;
+        a = new Entry();
+        a.Init();
+        int o;
+        o = a.Execute();
         return o;
     }
 }
