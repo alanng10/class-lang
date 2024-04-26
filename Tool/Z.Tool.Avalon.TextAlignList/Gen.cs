@@ -54,16 +54,16 @@ public class Gen : SourceGen
         ia = 0;
         while (ia < countA)
         {
-            Entry aa;
-            aa = (Entry)horzAlign.Get(ia);
+            AlignEntry aa;
+            aa = (AlignEntry)horzAlign.Get(ia);
             int countB;
             countB = vertAlign.Count;
             int ib;
             ib = 0;
             while (ib < countB)
             {
-                Entry ab;
-                ab = (Entry)vertAlign.Get(ib);
+                AlignEntry ab;
+                ab = (AlignEntry)vertAlign.Get(ib);
 
                 string index;
                 index = aa.Name + ab.Name;
@@ -88,10 +88,10 @@ public class Gen : SourceGen
         return true;
     }
 
-    protected virtual Entry CreateEntry(string name, string intern)
+    protected virtual AlignEntry CreateEntry(string name, string intern)
     {
-        Entry a;
-        a = new Entry();
+        AlignEntry a;
+        a = new AlignEntry();
         a.Init();
         a.Name = name;
         a.Intern = intern;
@@ -103,7 +103,7 @@ public class Gen : SourceGen
 
     protected virtual bool AddAlign(string name, string intern)
     {
-        Entry entry;
+        AlignEntry entry;
         entry = this.CreateEntry(name, intern);
         this.AlignArray.Set(this.Index, entry);
         this.Index = this.Index + 1;
