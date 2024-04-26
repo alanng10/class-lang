@@ -1,4 +1,4 @@
-namespace Z.Tool.DelimitListSourceGen;
+namespace Z.Tool.Class.DelimitList;
 
 
 
