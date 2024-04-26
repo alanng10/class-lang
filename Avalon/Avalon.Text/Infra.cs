@@ -70,7 +70,7 @@ public class Infra : Any
         a.Data = new Data();
         a.Data.Count = count * oa;
         a.Data.Init();
-        a.Range = new InfraRange();
+        a.Range = new Range();
         a.Range.Init();
         a.Range.Count = count;
         return a;
@@ -87,7 +87,7 @@ public class Infra : Any
         a = new Text();
         a.Init();
         a.Data = data;
-        a.Range = new InfraRange();
+        a.Range = new Range();
         a.Range.Init();
         a.Range.Count = count;
         return a;
@@ -99,7 +99,7 @@ public class Infra : Any
         {
             return null;
         }
-        InfraRange range;
+        Range range;
         range = text.Range;
         string a;
         a = this.InternIntern.StringCreateData(text.Data.Value, range.Index, range.Count);
@@ -111,7 +111,7 @@ public class Infra : Any
         int arrayCount;
         arrayCount = (int)text.Data.Count;
 
-        InfraRange range;
+        Range range;
         range = text.Range;
         if (!this.InfraInfra.CheckRange(arrayCount, range))
         {
