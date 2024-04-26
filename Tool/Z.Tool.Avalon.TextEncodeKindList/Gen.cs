@@ -1,4 +1,4 @@
-namespace Z.Tool.TextEncodeKindListSourceGen;
+namespace Z.Tool.Avalon.TextEncodeKindList;
 
 
 
