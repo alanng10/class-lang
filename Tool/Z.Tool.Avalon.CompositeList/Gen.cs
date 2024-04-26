@@ -1,4 +1,4 @@
-namespace Z.Tool.CompositeListSourceGen;
+namespace Z.Tool.Avalon.CompositeList;
 
 public class Gen : SourceGen
 {
