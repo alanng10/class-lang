@@ -50,7 +50,7 @@ public class NewStateGen : Any
 
         string kk;
 
-        kk = this.ToolInfra.ReadTextFile(this.NewStateSourceFileName);
+        kk = this.ToolInfra.StorageTextRead(this.NewStateSourceFileName);
 
 
 

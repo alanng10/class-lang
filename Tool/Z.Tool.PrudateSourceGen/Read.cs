@@ -95,7 +95,7 @@ class Read : Any
 
         string ka;
 
-        ka = infra.ReadTextFile("ClassList.txt");
+        ka = infra.StorageTextRead("ClassList.txt");
 
 
 
@@ -823,7 +823,7 @@ class Read : Any
 
         string ka;
 
-        ka = infra.ReadTextFile("MethodList.txt");
+        ka = infra.StorageTextRead("MethodList.txt");
 
 
 

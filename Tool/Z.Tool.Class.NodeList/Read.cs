@@ -84,7 +84,7 @@ class Read : Any
 
         string ka;
 
-        ka = infra.ReadTextFile("NodeList.txt");
+        ka = infra.StorageTextRead("NodeList.txt");
 
 
 

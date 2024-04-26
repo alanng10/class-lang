@@ -59,7 +59,7 @@ public class CreateOperateStateGen : Any
 
         string kk;
 
-        kk = this.ToolInfra.ReadTextFile(this.SourceFileName);
+        kk = this.ToolInfra.StorageTextRead(this.SourceFileName);
 
 
 

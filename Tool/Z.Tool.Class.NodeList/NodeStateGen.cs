@@ -50,7 +50,7 @@ public class NodeStateGen : Any
 
         string kk;
 
-        kk = this.ToolInfra.ReadTextFile(this.NodeStateSourceFileName);
+        kk = this.ToolInfra.StorageTextRead(this.NodeStateSourceFileName);
 
 
 

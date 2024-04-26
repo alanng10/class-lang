@@ -160,7 +160,7 @@ public class Gen : Any
 
         string sourceText;
 
-        sourceText = this.ToolInfra.ReadTextFile(this.SourceFileName);
+        sourceText = this.ToolInfra.StorageTextRead(this.SourceFileName);
 
 
 
@@ -226,7 +226,7 @@ public class Gen : Any
         string a;
 
 
-        a = this.ToolInfra.ReadTextFile(this.ItemListFileName);
+        a = this.ToolInfra.StorageTextRead(this.ItemListFileName);
 
 
 
@@ -320,7 +320,7 @@ public class Gen : Any
     {
         string methodText;
 
-        methodText = this.ToolInfra.ReadTextFile(this.MethodFileName);
+        methodText = this.ToolInfra.StorageTextRead(this.MethodFileName);
 
 
 
@@ -427,7 +427,7 @@ public class Gen : Any
     {
         string shareVarText;
 
-        shareVarText = this.ToolInfra.ReadTextFile(this.ShareVarFileName);
+        shareVarText = this.ToolInfra.StorageTextRead(this.ShareVarFileName);
 
 
 

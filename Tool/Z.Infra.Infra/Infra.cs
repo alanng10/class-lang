@@ -41,7 +41,7 @@ public class Infra : Any
         return true;
     }
 
-    public virtual string ReadTextFile(string filePath)
+    public virtual string StorageTextRead(string filePath)
     {
         string a;
         a = this.StorageInfra.TextRead(filePath);

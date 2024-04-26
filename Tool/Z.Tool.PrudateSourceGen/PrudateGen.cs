@@ -88,7 +88,7 @@ class PrudateGen : Any
 
         string ka;
 
-        ka = infra.ReadTextFile(this.PrudateFileName);
+        ka = infra.StorageTextRead(this.PrudateFileName);
 
 
         StringBuilder sb;

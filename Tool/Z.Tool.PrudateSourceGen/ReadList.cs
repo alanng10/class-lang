@@ -249,7 +249,7 @@ public class ReadList : Any
 
         string k;
         
-        k = this.ToolInfra.ReadTextFile(listFilePath);
+        k = this.ToolInfra.StorageTextRead(listFilePath);
 
 
 

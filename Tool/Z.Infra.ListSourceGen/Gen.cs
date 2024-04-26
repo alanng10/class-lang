@@ -114,7 +114,7 @@ public class Gen : Any
 
         string a;
 
-        a = this.ToolInfra.ReadTextFile(this.ClassFileName);
+        a = this.ToolInfra.StorageTextRead(this.ClassFileName);
 
 
 
@@ -235,7 +235,7 @@ public class Gen : Any
         string a;
 
 
-        a = this.ToolInfra.ReadTextFile(this.ItemListFileName);
+        a = this.ToolInfra.StorageTextRead(this.ItemListFileName);
 
 
 
@@ -325,7 +325,7 @@ public class Gen : Any
     {
         string a;
 
-        a = this.ToolInfra.ReadTextFile(this.InitMethodFileName);
+        a = this.ToolInfra.StorageTextRead(this.InitMethodFileName);
 
 
 
@@ -538,7 +538,7 @@ public class Gen : Any
     {
         string a;
 
-        a = this.ToolInfra.ReadTextFile(this.AddMethodFileName);
+        a = this.ToolInfra.StorageTextRead(this.AddMethodFileName);
 
 
 
@@ -582,7 +582,7 @@ public class Gen : Any
     {
         string a;
 
-        a = this.ToolInfra.ReadTextFile(this.ArrayCompListFileName);
+        a = this.ToolInfra.StorageTextRead(this.ArrayCompListFileName);
 
 
 
