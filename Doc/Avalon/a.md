@@ -1,10 +1,8 @@
 # Avalon
 
-
-
 Avalon is Class Library list for C#.
-Avalon has infra class and effect element class for C#.
-
+Avalon has infra classes and effect element classes for C#.
+Avalon is used as System modules for Class. Class modules use interfaces declared in Avalon modules refer binaries to get, set or call Avalon classes.
 
 
 
