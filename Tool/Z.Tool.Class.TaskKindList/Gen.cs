@@ -15,7 +15,7 @@ public class Gen : SourceGen
 
 
 
-        this.Namespace = "Class";
+        this.Namespace = "Class.Console";
 
 
         this.ClassName = "TaskKindList";
