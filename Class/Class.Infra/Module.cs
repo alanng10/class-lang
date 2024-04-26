@@ -8,5 +8,7 @@ public class Module : Any
 
     public virtual Table Import { get; set; }
 
+    public virtual Class Entry { get; set; }
+
     public virtual object Any { get; set; }
 }
