@@ -12,7 +12,6 @@ OrnSign |
 NotSign !
 LessSign <
 MoreSign >
-ExpoSign ^
 LeftBracket (
 RightBracket )
 LeftBrace {
