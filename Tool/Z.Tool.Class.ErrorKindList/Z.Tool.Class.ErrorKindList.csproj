@@ -12,7 +12,7 @@
 
     <ItemGroup>
         <Content Include="ItemListErrorKindNode.txt" CopyToOutputDirectory="PreserveNewest" />
-        <Content Include="ItemListErrorKindCheck.txt" CopyToOutputDirectory="PreserveNewest" />
+        <Content Include="ItemListErrorKindRefer.txt" CopyToOutputDirectory="PreserveNewest" />
         <Content Include="AddMethodErrorKind.txt" CopyToOutputDirectory="PreserveNewest" />
     </ItemGroup>
 

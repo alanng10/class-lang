@@ -5,7 +5,7 @@ public class Gen : SourceGen
     public override int Execute()
     {
         this.ExecuteOne("Node");
-        this.ExecuteOne("Check");
+        this.ExecuteOne("Refer");
         return 0;
     }
 
