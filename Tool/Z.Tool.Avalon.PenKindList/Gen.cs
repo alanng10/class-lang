@@ -1,4 +1,4 @@
-namespace Z.Tool.PenKindListSourceGen;
+namespace Z.Tool.Avalon.PenKindList;
 
 public class Gen : SourceGen
 {
