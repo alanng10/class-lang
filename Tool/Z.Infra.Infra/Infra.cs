@@ -65,113 +65,49 @@ public class Infra : Any
         return a;
     }
 
-
-
-
-
     public virtual Array SplitLineList(string text)
     {
         string[] a;
-
-
         a = text.Split('\n', StringSplitOption.None);
 
-
-
-
-
         Array array;
-
         array = new Array();
-
         array.Count = a.Length;
-
         array.Init();
 
-
-
-
-
         int count;
-
         count = array.Count;
-
-
-
         int i;
-
         i = 0;
-
-
         while (i < count)
         {
             string aa;
-
-
             aa = a[i];
-
-
-
-
             array.Set(i, aa);
-
-
-
             i = i + 1;
         }
-
-
-
-
         return array;
     }
-
-
-
-
-
 
     public virtual bool GetBool(string a)
     {
         bool b;
-
-
         b = false;
-
-
-
         if (!(a == "false"))
         {
             b = true;
         }
-
-
-
         return b;
     }
-
-
-
-
 
     public virtual string GetBoolString(bool a)
     {
         string u;
-
-
         u = "false";
-
-
-
-
         if (a)
         {
             u = "true";
         }
-
-
-
-
         return u;
     }
 }
