@@ -1,4 +1,4 @@
-namespace Z.Tool.NetworkStatusListSourceGen;
+namespace Z.Tool.Avalon.NetworkStatusList;
 
 public class Gen : SourceGen
 {
