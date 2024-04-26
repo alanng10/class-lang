@@ -1,4 +1,4 @@
-namespace Z.Tool.PenJoinListSourceGen;
+namespace Z.Tool.Avalon.PenJoinList;
 
 public class Gen : SourceGen
 {
