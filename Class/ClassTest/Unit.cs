@@ -1,27 +1,11 @@
 namespace Class.Test;
 
-
-
-
 class Unit : Any
 {
-    public Set Set { get; set; }
-
-
-    public string Kind { get; set; }
-
-
-    public string Name { get; set; }
-
-
-
-    public string Expect { get; set; }
-
-
-    public string Actual { get; set; }
-
-
-
-
-    public string Path { get; set; }
+    public virtual Set Set { get; set; }
+    public virtual string Kind { get; set; }
+    public virtual string Name { get; set; }
+    public virtual string Expect { get; set; }
+    public virtual string Actual { get; set; }
+    public virtual string Path { get; set; }
 }
