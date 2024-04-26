@@ -1,228 +1,78 @@
 namespace Z.Infra.ListSourceGen;
 
-
-
-
-
-
 public class Gen : Any
 {
     public override bool Init()
     {
         base.Init();
-
-
-
         this.ToolInfra = ToolInfra.This;
 
-
-
         this.ClassFileName = "DClass.txt";
-
-
         this.InitMethodFileName = "InitMethod.txt";
-
-
         this.AddMethodFileName = "AddMethod.txt";
-
-
         this.ArrayCompListFileName = "ArrayCompList.txt";
-
-
         this.ItemListFileName = "ItemList.txt";
-
-
-
-
-
         return true;
     }
 
-
-
-
-
-
     public virtual string Namespace { get; set; }
-
-
     public virtual string ClassName { get; set; }
-
-
     public virtual string BaseClassName { get; set; }
-
-
-
     public virtual bool Export { get; set; }
-
-
-
-
     public virtual string ItemClassName { get; set; }
-
-
     public virtual string ArrayClassName { get; set; }
-
-
-
-
     public virtual string ClassFileName { get; set; }
-
-
     public virtual string InitMethodFileName { get; set; }
-
-
     public virtual string AddMethodFileName { get; set; }
-
-
     public virtual string ArrayCompListFileName { get; set; }
-
-
     public virtual string ItemListFileName { get; set; }
-
-
-
-
-
     public virtual string OutputFilePath { get; set; }
-
-
-
     protected virtual ToolInfra ToolInfra { get; set; }
-
-
-
     protected virtual Array LineArray { get; set; }
-
-
-
-
     protected virtual Table ItemTable { get; set; }
-
-
-
-
-
 
     public virtual int Execute()
     {
         this.ExecuteItemList();
 
-
-
-
-
         string a;
-
         a = this.ToolInfra.StorageTextRead(this.ClassFileName);
 
-
-
-        StringBuilder sb;
-        
+        StringBuilder sb;        
         sb = new StringBuilder(a);
-
-
-
         sb.Replace("#Namespace#", this.Namespace);
-
-
         sb.Replace("#ClassName#", this.ClassName);
-
-
         sb.Replace("#BaseClassName#", this.BaseClassName);
 
-
-
-
         string aa;
-
         aa = "";
-
-
         if (this.Export)
         {
             aa = "public ";
         }
 
-
-
         sb.Replace("#Export#", aa);
 
-
-
-
-
-
         string initMethodText;
-
-
         initMethodText = this.GetInitMethod();
-
-
-
         sb.Replace("#InitMethod#", initMethodText);
 
-
-
-
-
         string fieldListText;
-
-
         fieldListText = this.GetFieldList();
-
-
-
         sb.Replace("#FieldList#", fieldListText);
 
-
-
-
-
         string addMethodText;
-
-
         addMethodText = this.GetAddMethod();
-
-
-
         sb.Replace("#AddMethod#", addMethodText);
 
-
-
-        
-
-
-
         string arrayCompListText;
-
-
         arrayCompListText = this.GetArrayCompList();
-
-
-
         sb.Replace("#ArrayCompList#", arrayCompListText);
 
-
-
-
-
         string ka;
-
         ka = sb.ToString();
 
-
-
-
-
         this.ToolInfra.StorageTextWrite(this.OutputFilePath, ka);
-
-
-
-
-
-
         return 0;
     }
 
