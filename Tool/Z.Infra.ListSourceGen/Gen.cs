@@ -178,175 +178,73 @@ public class Gen : Any
     protected virtual string GetFieldList()
     {
         StringBuilder sb;
-
         sb = new StringBuilder();
 
-
-
-
         Iter iter;
-
         iter = this.ItemTable.IterCreate();
-
-
         this.ItemTable.IterSet(iter);
-
-
-
-
         while (iter.Next())
         {
             string item;
-
             item = (string)iter.Index;
-
-
-
             this.AppendField(sb, item);
         }
 
-
-
-
         string a;
-
         a = sb.ToString();
-
-
-
         return a;
     }
-
-
-
-
 
     protected virtual bool AppendField(StringBuilder sb, string item)
     {
         this.ToolInfra.AppendIndent(sb, 1);
 
-
-
-
-
-
         sb.Append("public").Append(" ").Append("virtual").Append(" ")
             .Append(this.ItemClassName).Append(" ").Append(item).Append(" ")
             .Append("{").Append(" ").Append("get").Append(";").Append(" ").Append("set").Append(";").Append(" ").Append("}")
             .Append(this.ToolInfra.NewLine);
-
-
-
-
         return true;
     }
 
-
-
-
-
-
-
     protected virtual string GetAddMethod()
     {
-        string a;
-
-        a = this.ToolInfra.StorageTextRead(this.AddMethodFileName);
-
-
-
+        string e;
+        e = this.ToolInfra.StorageTextRead(this.AddMethodFileName);
 
         StringBuilder sb;
-
-        sb = new StringBuilder(a);
-
-
-
-
+        sb = new StringBuilder(e);
         sb.Replace("#ItemClassName#", this.ItemClassName);
-
-
         sb.Replace("#ArrayClassName#", this.ArrayClassName);
-
-
         sb.Replace("#ClassName#", this.ClassName);
-
-
         sb.Replace("#BaseClassName#", this.BaseClassName);
 
-
-
-
-        string aaa;
-
-        aaa = sb.ToString();
-
-
-
-        return aaa;
+        string a;
+        a = sb.ToString();
+        return a;
     }
-
-
-
-
-
 
     protected virtual string GetArrayCompList()
     {
-        string a;
-
-        a = this.ToolInfra.StorageTextRead(this.ArrayCompListFileName);
-
-
-
+        string e;
+        e = this.ToolInfra.StorageTextRead(this.ArrayCompListFileName);
 
         StringBuilder sb;
-
-        sb = new StringBuilder(a);
-
-
-
-
+        sb = new StringBuilder(e);
         sb.Replace("#ItemClassName#", this.ItemClassName);
-
-
         sb.Replace("#ArrayClassName#", this.ArrayClassName);
-
-
         sb.Replace("#ClassName#", this.ClassName);
-
-
         sb.Replace("#BaseClassName#", this.BaseClassName);
 
-
-
-
         int count;
-
         count = this.ItemTable.Count;
 
-
-
-
         string aaa;
-
         aaa = count.ToString();
-
-
-
 
         sb.Replace("#ArrayCount#", aaa);
 
-
-
-
-
-        string aa;
-
-        aa = sb.ToString();
-
-
-
-        return aa;
+        string a;
+        a = sb.ToString();
+        return a;
     }
 }
