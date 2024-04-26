@@ -76,241 +76,104 @@ public class Gen : Any
         return 0;
     }
 
-
-
-
-
     protected virtual bool ExecuteItemList()
     {
         string a;
-
-
         a = this.ToolInfra.StorageTextRead(this.ItemListFileName);
 
-
-
-        
         this.LineArray = this.ToolInfra.SplitLineList(a);
 
-        
-
-
-
         StringCompare compare;
-
         compare = new StringCompare();
-
         compare.Init();
 
-
-
-
         this.ItemTable = new Table();
-
         this.ItemTable.Compare = compare;
-
         this.ItemTable.Init();
 
-
-
-
-
         Iter iter;
-
         iter = this.LineArray.IterCreate();
-
-
         this.LineArray.IterSet(iter);
-
-
-
-
         while (iter.Next())
         {
             string line;
-
             line = (string)iter.Value;
 
-
             TableEntry entry;
-
             entry = this.GetItemEntry(line);
-
-
 
             this.ItemTable.Add(entry);
         }
-
-
-
         return true;
     }
-
-
-
-
-
 
     protected virtual TableEntry GetItemEntry(string line)
     {
         TableEntry a;
-
         a = new TableEntry();
-
         a.Init();
-
         a.Index = line;
-
         a.Value = line;
-
-
-
         return a;
     }
 
-
-
-
     protected virtual string GetInitMethod()
     {
-        string a;
-
-        a = this.ToolInfra.StorageTextRead(this.InitMethodFileName);
-
-
-
+        string e;
+        e = this.ToolInfra.StorageTextRead(this.InitMethodFileName);
 
         StringBuilder sb;
-
-        sb = new StringBuilder(a);
-
-
-
+        sb = new StringBuilder(e);
 
         string aa;
-
         aa = this.GetInitFieldList();
-
-
-
 
         sb.Replace("#InitFieldList#", aa);
 
-
-
-
-        string aaa;
-
-        aaa = sb.ToString();
-
-
-
-        return aaa;
+        string a;
+        a = sb.ToString();
+        return a;
     }
-
-
-
-
 
     protected virtual string GetInitFieldList()
     {
         StringBuilder sb;
-
         sb = new StringBuilder();
 
-
-
         Iter iter;
-
         iter = this.ItemTable.IterCreate();
-
-
-
         this.ItemTable.IterSet(iter);
-
-
-
-
         while (iter.Next())
         {
             string index;
-
             index = (string)iter.Index;
-
-
-
-
             object value;
-
             value = iter.Value;
-
-
-
-
             this.AppendInitField(sb, index, value);
         }
 
-
-
-
         string a;
-
         a = sb.ToString();
-
-
-
         return a;
     }
-
-
-
-
-
 
     protected virtual bool AppendInitField(StringBuilder sb, string index, object value)
     {
         this.ToolInfra.AppendIndent(sb, 2);
 
-
-
-
-
         sb.Append("this").Append(".").Append(index).Append(" ").Append("=").Append(" ").Append("this").Append(".");
-
-
-
 
         this.AppendInitFieldAddItem(sb, index, value);
 
-
-
-
         sb.Append(";").Append(this.ToolInfra.NewLine);
-        
-
-
-
-
         return true;
     }
-
-
-
-
-
 
     protected virtual bool AppendInitFieldAddItem(StringBuilder sb, string index, object value)
     {
         sb.Append("AddItem").Append("(").Append(")");
-
-
         return true;
     }
-
-
-
-
-
 
     protected virtual string GetFieldList()
     {
