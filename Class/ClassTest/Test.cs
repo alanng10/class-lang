@@ -53,8 +53,6 @@ public class Test : Any
 
     private string UnitFold { get; set; }
 
-    private Exception Error { get; set; }
-
     private StringOut Out { get; set; }
 
     private string InitialCurrentDirectory { get; set; }
