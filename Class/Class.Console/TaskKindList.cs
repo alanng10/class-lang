@@ -1,4 +1,4 @@
-namespace Class.Console;
+namespace Class;
 
 public class TaskKindList : Any
 {
@@ -24,7 +24,7 @@ public class TaskKindList : Any
         this.Port = this.AddItem();
         this.Token = this.AddItem();
         this.Node = this.AddItem();
-        this.Check = this.AddItem();
+        this.Refer = this.AddItem();
         this.Module = this.AddItem();
         return true;
     }
@@ -32,7 +32,7 @@ public class TaskKindList : Any
     public virtual TaskKind Port { get; set; }
     public virtual TaskKind Token { get; set; }
     public virtual TaskKind Node { get; set; }
-    public virtual TaskKind Check { get; set; }
+    public virtual TaskKind Refer { get; set; }
     public virtual TaskKind Module { get; set; }
 
     protected virtual TaskKind AddItem()
