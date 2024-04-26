@@ -165,6 +165,8 @@ public class Gen : Any
         this.SetImportList();
 
         this.SetVirtualList();
+
+        this.SetEntry();
         return true;
     }
 
@@ -670,6 +672,36 @@ public class Gen : Any
             }
         }
 
+        return true;
+    }
+
+    protected virtual bool SetEntry()
+    {
+        if (this.Module.Ref.Name.StartsWith("System."))
+        {
+            return true;
+        }
+
+        ClassClass f;
+        f = this.ClassGet("System.Entry", "Entry");
+        
+        Iter iter;
+        iter = this.Module.Class.IterCreate();
+        this.Module.Class.IterSet(iter);
+
+        bool b;
+        b = false;
+        while (!b & iter.Next())
+        {
+            ClassClass a;
+            a = (ClassClass)iter.Value;
+
+            if (a.Base == f)
+            {
+                this.Module.Entry = a;
+                b = true;
+            }
+        }
         return true;
     }
 
