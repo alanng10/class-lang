@@ -7,6 +7,7 @@ public class Test : Any
         base.Init();
         this.InfraInfra = InfraInfra.This;
         this.ListInfra = ListInfra.This;
+        this.SystemConsole = ConsoleConsole.This;
         this.ClassInfra = ClassInfra.This;
         this.TaskKindList = TaskKindList.This;
 
