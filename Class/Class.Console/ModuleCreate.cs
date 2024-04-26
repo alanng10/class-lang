@@ -57,6 +57,8 @@ public class ModuleCreate : Any
 
         this.SetVirtualList();
 
+        this.SetEntry();
+
         this.Binary = null;
         this.ClassArray = null;
         this.ImportArray = null;
@@ -477,6 +479,15 @@ public class ModuleCreate : Any
 
             a.Virtual = aa;
         }
+        return true;
+    }
+    
+    protected virtual bool SetEntry()
+    {
+        int f;
+        f = this.Binary.Entry.Value;
+
+        this.Module.Entry = this.ClassGetIndex(f);
         return true;
     }
 
