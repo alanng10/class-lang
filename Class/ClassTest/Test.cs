@@ -31,7 +31,7 @@ public class Test : Any
     protected virtual InfraInfra InfraInfra { get; set; }
     protected virtual ListInfra ListInfra { get; set; }
     protected virtual ClassInfra ClassInfra { get; set; }
-
+    protected virtual ConsoleConsole SystemConsole { get; set; }
     protected virtual TaskKindList TaskKindList { get; set; }
 
     protected virtual string LanguageName { get; set; }
@@ -297,7 +297,7 @@ public class Test : Any
         string s;
         s = p + this.ResultSpace + a + this.ResultSpace + u + this.ResultSpace + k + " " + j + "\n";
 
-        SystemConsole.Write(s);
+        SystemConsole.Out.Write(s);
         return true;
     }
 
@@ -320,7 +320,7 @@ public class Test : Any
             o = this.PassCount.ToString();
         }
 
-        SystemConsole.Write(o + " " + "Pass" + "\n");
+        SystemConsole.Out.Write(o + " " + "Pass" + "\n");
         return true;
     }
 
@@ -332,7 +332,7 @@ public class Test : Any
         string k;
         k = setName.ToUpper();
 
-        SystemConsole.Write("==============================" + " " + s + " " + k + " " + "TEST" + " " + "===============================" + "\n");
+        SystemConsole.Out.Write("==============================" + " " + s + " " + k + " " + "TEST" + " " + "===============================" + "\n");
         return true;
     }
 
