@@ -1,4 +1,4 @@
-namespace Z.Tool.NodeListSourceGen;
+namespace Z.Tool.Class.NodeList;
 
 
 
