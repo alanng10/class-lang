@@ -243,7 +243,7 @@ public class Test : Any
         string actualFile;
         actualFile = this.UnitFold + oc + "Actual";
 
-        File.WriteAllText(actualFile, actual);
+        this.StorageInfra.TextWrite(actualFile, actual);
 
         this.Unit.Actual = actual;
 
