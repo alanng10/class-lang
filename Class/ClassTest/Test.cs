@@ -7,6 +7,7 @@ public class Test : Any
         base.Init();
         this.InfraInfra = InfraInfra.This;
         this.ListInfra = ListInfra.This;
+        this.StorageInfra = StorageInfra.This;
         this.SystemConsole = ConsoleConsole.This;
         this.ClassInfra = ClassInfra.This;
         this.TaskKindList = TaskKindList.This;
@@ -31,6 +32,7 @@ public class Test : Any
 
     protected virtual InfraInfra InfraInfra { get; set; }
     protected virtual ListInfra ListInfra { get; set; }
+    protected virtual StorageInfra StorageInfra { get; set; }
     protected virtual ClassInfra ClassInfra { get; set; }
     protected virtual ConsoleConsole SystemConsole { get; set; }
     protected virtual TaskKindList TaskKindList { get; set; }
