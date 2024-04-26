@@ -324,32 +324,15 @@ public class Test : Any
         return true;
     }
 
-
-
-
-
     private bool WriteHeader(string setName)
     {
         string s;
-
-
         s = this.LanguageName.ToUpper();
 
-
-
-
         string k;
-
-
         k = setName.ToUpper();
 
-
-
-
         SystemConsole.Write("==============================" + " " + s + " " + k + " " + "TEST" + " " + "===============================" + "\n");
-
-
-
         return true;
     }
 
