@@ -1,4 +1,4 @@
-namespace Z.Tool.NetworkCaseListSourceGen;
+namespace Z.Tool.Avalon.NetworkCaseList;
 
 
 
