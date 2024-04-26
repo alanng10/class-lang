@@ -130,178 +130,70 @@ public class Test : Any
         Array kindList;
         kindList = this.GetFoldList(setFold);
 
-
-
         Iter kindIter;
-
         kindIter = kindList.IterCreate();
-
-
         kindList.IterSet(kindIter);
-
-    
-
         while (kindIter.Next())
         {
             string kind;
-
             kind = (string)kindIter.Value;
 
-
-
-
             string kindFold;
-
-
             kindFold = setFold + this.InfraInfra.PathCombine + kind;
 
-
-
-
-            Array unitList;
-            
+            Array unitList;            
             unitList = this.GetFoldList(kindFold);
 
-
-
-
-
             Iter unitIter;
-
             unitIter = unitList.IterCreate();
-
-
             unitList.IterSet(unitIter);
-
-
-
-
             while (unitIter.Next())
             {
                 string unit;
-
-
                 unit = (string)unitIter.Value;
 
-
-
-
                 string unitFold;
-                
-
                 unitFold = kindFold + this.InfraInfra.PathCombine + unit;
 
-
-
-
-                string expectFile;
-                
-                
+                string expectFile;                
                 expectFile = unitFold + this.InfraInfra.PathCombine + "Expect";
 
-
-                
-
-
-                string expect;
-                
-                
-                
+                string expect;                
                 expect = File.ReadAllText(expectFile);
 
-
-
-
-
-
                 string path;
-
-
-
                 path = null;
-
-
-
                 if (this.Set.AddPathAfterTaskArg)
                 {
                     string pathFile;
-
-
                     pathFile = unitFold + this.InfraInfra.PathCombine + "Path";
-
-
-
-
                     path = File.ReadAllText(pathFile);
                 }
                 
-
-
-
-
                 Unit a;
-
-
                 a = new Unit();
-
-
+                a.Init();
                 a.Set = this.Set;
-
-
                 a.Kind = kind;
-
-
                 a.Name = unit;
-
-
                 a.Expect = expect;
-
-
-
                 a.Path = path;
-
-
-
-
                 this.UnitList.Add(a);
             }
         }
-
-
-
-
         return true;
     }
-
-
-
 
     private bool ExecuteSet()
     {
         this.WriteHeader(this.Set.Name);
 
-
-
-
-
         this.PassCount = 0;
-
-
-
         this.UnitIndex = 0;
 
-
-
-
         Iter iter;
-
         iter = this.UnitList.IterCreate();
-        
-
         this.UnitList.IterSet(iter);
-
-
-
         while (iter.Next())
         {
             this.Unit = (Unit)iter.Value;
@@ -331,210 +223,83 @@ public class Test : Any
 
         this.UnitFold = this.DataFold + oc + this.Unit.Set.Name + oc + this.Unit.Kind + oc + this.Unit.Name;
 
-
-
         this.Out = new StringOut();
         this.Out.Init();
 
-
-
-
         Directory.SetCurrentDirectory(this.UnitFold);
 
-
-
-
-
-
-
         Task task;
-
-
-
         task = this.CreateTask();
-
-
-
         this.Console.Task = task;
     
-
-
         this.Console.Execute();
-
-
-
 
         Directory.SetCurrentDirectory(this.InitialCurrentDirectory);
 
-
-
-
-
         string actual;
-        
-
         actual = this.Out.Result();
 
-
-
-
         string actualFile;
-        
-
         actualFile = this.UnitFold + oc + "Actual";
-
-
-
 
         File.WriteAllText(actualFile, actual);
 
-
-
         this.Unit.Actual = actual;
 
-
-
-
-
         bool pass;
-
         pass = (this.Unit.Actual == this.Unit.Expect);
-
-
-
-
         this.UnitPass = pass;
-
-
-
-
         return true;
     }
-
-
-
-
 
     protected virtual string CreateLanguageName()
     {
         return "Class";
     }
 
-
-
-
-
-
     private bool WriteUnitResult()
     {
         this.WriteResultLine(this.UnitPass, this.Unit.Set.Name, this.Unit.Kind, this.Unit.Name);
-
-
-
         return true;
     }
-
-
-
-
-
 
     private bool WriteResultLine(bool pass, string set, string kind, string unit)
     {
         string a;
-
-
-
         a = null;
 
-
-
-
         bool b;
-
-
         b = pass;
-
-
-
         if (b)
         {
             a = "Pass";
         }
-        
-
-
         if (!b)
         {
             a = "Fail";
         }
 
-
-
-
-
-
         string u;
-
         u = string.Format("{0,-8}", set);
 
-
-
-
         string k;
-
         k = string.Format("{0,-24}", kind);
 
-
-
-
         string j;
-
-
         j = unit;
 
-
-
-
-
         int number;
-
-
         number = this.UnitIndex + 1;
 
-
-
-
         string p;
-
-
         p = number.ToString("D3");
 
-
-
-
-
         string s;
-
-
-
         s = p + this.ResultSpace + a + this.ResultSpace + u + this.ResultSpace + k + " " + j + "\n";
 
-
-
-
         SystemConsole.Write(s);
-
-
-
-
         return true;
     }
-
-
-
-
-
 
     private bool WriteTotalResult()
     {
@@ -639,8 +404,6 @@ public class Test : Any
         ClassConsole a;
         a = new ClassConsole();
         a.Init();
-
-
         return a;
     }
 
