@@ -1,4 +1,4 @@
-namespace Z.Tool.KeywordListSourceGen;
+namespace Z.Tool.Class.KeywordList;
 
 
 
