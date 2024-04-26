@@ -486,8 +486,15 @@ public class ModuleCreate : Any
     {
         int f;
         f = this.Binary.Entry.Value;
+        
+        ClassClass a;
+        a = null;
+        if (!(f == -1))
+        {
+            a = this.ClassGetIndex(f);
+        }
 
-        this.Module.Entry = this.ClassGetIndex(f);
+        this.Module.Entry = a;
         return true;
     }
 
