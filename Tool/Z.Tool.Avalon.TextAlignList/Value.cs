@@ -1,4 +1,4 @@
-namespace Z.Tool.TextAlignListSourceGen;
+namespace Z.Tool.Avalon.TextAlignList;
 
 class Value : Any
 {
