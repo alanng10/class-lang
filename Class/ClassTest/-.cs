@@ -19,4 +19,3 @@ global using TaskKind = Class.Console.TaskKind;
 global using TaskKindList = Class.Console.TaskKindList;
 global using Directory = System.IO.Directory;
 global using Path = System.IO.Path;
-global using File = System.IO.File;
