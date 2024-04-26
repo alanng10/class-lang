@@ -1,104 +1,55 @@
 namespace Z.Infra.Infra;
 
-
-
-
 public class Infra : Any
 {
     public static Infra This { get; } = ShareCreate();
 
-
-
-
     private static Infra ShareCreate()
     {
         Infra share;
-
-
         share = new Infra();
-
-
-
         Any a;
-
-
         a = share;
-
-
         a.Init();
-
-
-
         return share;
     }
-
-
-
-
 
     public override bool Init()
     {
         base.Init();
-
-
-
+        this.StorageInfra = StorageInfra.This;
+        this.Console = Console.This;
         this.NewLine = "\n";
-
-
-
-
         return true;
     }
 
-
-
-
-
     public virtual string NewLine { get; set; }
-
-
-
-
-
+    protected virtual StorageInfra StorageInfra { get; set; }
+    protected virtual Console Console { get; set; }
 
     public virtual bool AppendIndent(StringBuilder sb, int indent)
     {
         int count;
-
         count = indent;
-
-
-
         int i;
-
         i = 0;
-
-
         while (i < count)
         {
             sb.Append("    ");
-
-
-
             i = i + 1;
         }
-
-
         return true;
     }
-
-
-
-
-
 
     public virtual string ReadTextFile(string filePath)
     {
         string a;
+        a = this.StorageInfra.TextRead(filePath);
 
-        a = File.ReadAllText(filePath);
-
-
+        if (a == null)
+        {
+            this.Console.Err.Write("Text File Read Error path: " + filePath + "\n");
+        }
         return a;
     }
 
@@ -108,10 +59,14 @@ public class Infra : Any
 
     public virtual bool WriteTextFile(string filePath, string text)
     {
-        File.WriteAllText(filePath, text);
+        bool a;
+        a = this.StorageInfra.TextWrite(filePath, text);
 
-
-        return true;
+        if (!a)
+        {
+            this.Console.Err.Write("Text File Write Error path: " + filePath + "\n");
+        }
+        return a;
     }
 
 
