@@ -1,4 +1,4 @@
-namespace Class;
+namespace Class.Console;
 
 public class TaskKindList : Any
 {
