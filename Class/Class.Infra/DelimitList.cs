@@ -35,7 +35,6 @@ public class DelimitList : Any
         this.NotSign = this.AddItem("!");
         this.LessSign = this.AddItem("<");
         this.MoreSign = this.AddItem(">");
-        this.ExpoSign = this.AddItem("^");
         this.LeftBracket = this.AddItem("(");
         this.RightBracket = this.AddItem(")");
         this.LeftBrace = this.AddItem("{");
@@ -57,7 +56,6 @@ public class DelimitList : Any
     public virtual Delimit NotSign { get; set; }
     public virtual Delimit LessSign { get; set; }
     public virtual Delimit MoreSign { get; set; }
-    public virtual Delimit ExpoSign { get; set; }
     public virtual Delimit LeftBracket { get; set; }
     public virtual Delimit RightBracket { get; set; }
     public virtual Delimit LeftBrace { get; set; }
@@ -89,7 +87,7 @@ public class DelimitList : Any
     { 
         get
         {
-            return 19;
+            return 18;
         } 
         set
         {
