@@ -168,7 +168,7 @@ public class Test : Any
                 {
                     string pathFile;
                     pathFile = unitFold + this.InfraInfra.PathCombine + "Path";
-                    path = File.ReadAllText(pathFile);
+                    path = this.StorageInfra.TextRead(pathFile);
                 }
                 
                 Unit a;
