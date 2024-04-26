@@ -1,6 +1,6 @@
 namespace Class.Test;
 
-class Set
+class Set : Any
 {
     public virtual string Name { get; set; }
 

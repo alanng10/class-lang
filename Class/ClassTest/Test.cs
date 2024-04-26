@@ -5,104 +5,32 @@ public class Test : Any
     public override bool Init()
     {
         base.Init();
-
-
         this.InfraInfra = InfraInfra.This;
+        this.ListInfra = ListInfra.This;
+        this.ClassInfra = ClassInfra.This;
         this.TaskKindList = TaskKindList.This;
 
-
-
-        this.LanguageName = this.LanguageNameCreate();
-
-
-
-
-        this.UnitIndex = 0;
-
-
-
-
-        this.PassCount = 0;
-
-
-
-
-
+        this.LanguageName = this.CreateLanguageName();
 
         this.DataFold = ".";
 
-
-
-
-
-
         this.ResultSpace = new string(' ', 4);
-
-
-        
-
         
         this.Console = this.CreateConsole();
 
-
-
-
-
-
         string oo = this.DataRootDirectory();
-
-
-
         Directory.SetCurrentDirectory(oo);
-
-
-
-
-
         this.InitialCurrentDirectory = Directory.GetCurrentDirectory();
 
-
-
-
-
-
-
-
-        StringCompare compare;
-
-
-        compare = new StringCompare();
-
-
-        compare.Init();
-
-
-
-
-
-        this.SetMap = new Table();
-
-
-
-        this.SetMap.Compare = compare;
-
-
-
-        this.SetMap.Init();
-
-
-
-
+        this.SetMap = this.ClassInfra.TableCreateStringCompare();
 
         this.AddSetList();
-
-
-
-
         return true;
     }
 
     protected virtual InfraInfra InfraInfra { get; set; }
+    protected virtual ListInfra ListInfra { get; set; }
+    protected virtual ClassInfra ClassInfra { get; set; }
 
     protected virtual TaskKindList TaskKindList { get; set; }
 
@@ -149,159 +77,57 @@ public class Test : Any
         return true;
     }
 
-
-
-
-
-
-    protected bool AddSet(string name, TaskKind taskKind, bool addKindAfterTaskArg, bool addPathAfterTaskArg, bool sourceFold)
+    protected virtual bool AddSet(string name, TaskKind taskKind, bool addKindAfterTaskArg, bool addPathAfterTaskArg, bool sourceFold)
     {
         Set set;
-
-
-
-
         set = new Set();
-
-
-
-
-
+        set.Init();
         set.Name = name;
-
-
-
-
-
         set.TaskKind = taskKind;
-
-
-
-
-
-
         set.AddKindAfterTaskArg = addKindAfterTaskArg;
-
-
-
-
-
         set.AddPathAfterTaskArg = addPathAfterTaskArg;
-
-
-
-
-
         set.SourceFold = sourceFold;
 
-
-
-
-
-
-        TableEntry pair;
-
-
-        pair = new TableEntry();
-
-
-        pair.Init();
-
-
-        pair.Index = set.Name;
-
-
-        pair.Value = set;
-
-
-
-
-        this.SetMap.Add(pair);
-
-
-
+        this.ListInfra.TableAdd(this.SetMap, set.Name, set);
         return true;
     }
 
     public virtual int Execute()
     {
         this.ExecuteSetList();
-
-
-
         return 0;
     }
-
-    
-
-
 
     protected virtual bool ExecuteSetList()
     {
         Iter iter;
-
         iter = this.SetMap.IterCreate();
-
-
         this.SetMap.IterSet(iter);
-
-
-
         while (iter.Next())
         {
             this.Set = (Set)iter.Value;
 
-
-
-
             this.AddSetUnitList();
-
-
 
             this.ExecuteSet();
 
-
-
             this.Set = null;
         }
-
-
-
         return true;
     }
-
-
 
     private bool AddSetUnitList()
     {
         this.UnitList = new List();
-
-
-
         this.UnitList.Init();
 
-
-
-
-
-
         string set;
-
         set = this.Set.Name;
 
-        
-        
-
-        string setFold;
-            
+        string setFold;            
         setFold = this.DataFold + this.InfraInfra.PathCombine + set;
 
-
-
-
-
         Array kindList;
-
         kindList = this.GetFoldList(setFold);
 
 
@@ -589,7 +415,7 @@ public class Test : Any
 
 
 
-    protected virtual string LanguageNameCreate()
+    protected virtual string CreateLanguageName()
     {
         return "Class";
     }
@@ -808,111 +634,49 @@ public class Test : Any
         return ret;
     }
 
-
-
-
-
-
-
     protected virtual ClassConsole CreateConsole()
     {
         ClassConsole a;
-
-
-
         a = new ClassConsole();
-
-
-
         a.Init();
 
 
         return a;
     }
 
-
-
-
-
-
-
     private Array GetFoldList(string foldPath)
     {
-        string[] u;
-            
-            
+        string[] u; 
         u = Directory.GetDirectories(foldPath);
 
-
-
-
         int count;
-
         count = u.Length;
-
-
         int i;
-
         i = 0;
-
-
         while (i < count)
         {
             string path;
-
             path = u[i];
 
-
-
             string name;
-
             name = Path.GetFileName(path);
 
-
-
             u[i] = name;
-
-
-
             i = i + 1;
         }
 
-
-
-
-
         Array array;
-
-        array = new Array();
-
-        array.Count = u.Length;
-
-        array.Init();
-
-
-
-
-        count = array.Count;
-
-
+        array = this.ListInfra.ArrayCreate(count);
 
         i = 0;
-
-
-
         while (i < count)
         {
             string k;
-
             k = u[i];
 
-
             array.Set(i, k);
-
-
             i = i + 1;
         }
-
 
         Range range;
         range = new Range();
@@ -924,8 +688,6 @@ public class Test : Any
         compare.Init();
 
         array.Sort(range, compare);
-
-
         return array;
     }
 }
