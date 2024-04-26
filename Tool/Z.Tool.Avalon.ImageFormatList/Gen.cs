@@ -1,4 +1,4 @@
-namespace Z.Tool.ImageFormatListSourceGen;
+namespace Z.Tool.Avalon.ImageFormatList;
 
 public class Gen : SourceGen
 {
