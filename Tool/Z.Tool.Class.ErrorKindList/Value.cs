@@ -1,4 +1,4 @@
-namespace Z.Tool.ErrorKindListSourceGen;
+namespace Z.Tool.Class.ErrorKindList;
 
 class Value : Any
 {

@@ -1,4 +1,4 @@
-namespace Z.Tool.ErrorKindListSourceGen;
+namespace Z.Tool.Class.ErrorKindList;
 
 public class Gen : SourceGen
 {
