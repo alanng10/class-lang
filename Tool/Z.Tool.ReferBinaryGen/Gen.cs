@@ -1101,7 +1101,7 @@ public class Gen : Any
         {
             return 0;
         }
-        return a.SystemClass;
+        return a.SystemInfo;
     }
 
     protected virtual string ClassModuleName(string assemblyName)
@@ -1155,7 +1155,7 @@ public class Gen : Any
         a.Init();
         a.Type = type;
         a.Name = name;
-        a.SystemClass = systemClass;
+        a.SystemInfo = systemClass;
         this.ListInfra.TableAdd(this.DotNetBuiltInTypeTable, type, a);
         return true;
     }
