@@ -34,6 +34,7 @@ global using Var = Class.Infra.Var;
 global using Count = Class.Infra.Count;
 global using CountList = Class.Infra.CountList;
 global using ClassInfra = Class.Infra.Infra;
+global using SystemInfo = Class.Infra.SystemInfo;
 global using Binary = Class.Binary.Binary;
 global using BinaryClass = Class.Binary.Class;
 global using BinaryImport = Class.Binary.Import;
