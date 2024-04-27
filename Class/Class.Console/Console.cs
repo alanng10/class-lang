@@ -78,7 +78,7 @@ public class Console : Any
     protected virtual Table ModuleTable { get; set; }
     protected virtual Table BinaryTable { get; set; }
     protected virtual BinaryRead BinaryRead { get; set; }
-    protected virtual ModuleCreateBinary ModuleCreateBinary { get; set; }
+    protected virtual ModuleLoad ModuleCreateBinary { get; set; }
 
     protected virtual bool InitSystem()
     {
@@ -184,10 +184,10 @@ public class Console : Any
         return a;
     }
 
-    protected virtual ModuleCreateBinary CreateModuleCreateBinary()
+    protected virtual ModuleLoad CreateModuleCreateBinary()
     {
-        ModuleCreateBinary a;
-        a = new ModuleCreateBinary();
+        ModuleLoad a;
+        a = new ModuleLoad();
         a.Init();
         return a;
     }
