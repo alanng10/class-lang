@@ -16,7 +16,7 @@ public class Console : Any
         this.ErrorWrite = true;
 
         this.BinaryRead = this.CreateBinaryRead();
-        this.ModuleCreate = this.CreateModuleCreate();
+        this.ModuleCreateBinary = this.CreateModuleCreateBinary();
 
         this.ErrorString = new ErrorString();
         this.ErrorString.Class = this;
@@ -27,8 +27,8 @@ public class Console : Any
         this.ModuleTable = this.ClassInfra.TableCreateModuleRefCompare();
         this.BinaryTable = this.ClassInfra.TableCreateModuleRefCompare();
 
-        this.ModuleCreate.ModuleTable = this.ModuleTable;
-        this.ModuleCreate.BinaryTable = this.BinaryTable;
+        this.ModuleCreateBinary.ModuleTable = this.ModuleTable;
+        this.ModuleCreateBinary.BinaryTable = this.BinaryTable;
 
         this.InitSystem();
 
@@ -77,7 +77,7 @@ public class Console : Any
     protected virtual Table ModuleTable { get; set; }
     protected virtual Table BinaryTable { get; set; }
     protected virtual BinaryRead BinaryRead { get; set; }
-    protected virtual ModuleCreate ModuleCreate { get; set; }
+    protected virtual ModuleCreateBinary ModuleCreateBinary { get; set; }
 
     protected virtual bool InitSystem()
     {
@@ -163,13 +163,13 @@ public class Console : Any
             ModuleRef moduleRef;
             moduleRef = (ModuleRef)iter.Index;
 
-            this.ModuleCreate.ModuleRef = moduleRef;
-            this.ModuleCreate.Execute();
+            this.ModuleCreateBinary.ModuleRef = moduleRef;
+            this.ModuleCreateBinary.Execute();
 
             ClassModule a;
-            a = this.ModuleCreate.Module;
+            a = this.ModuleCreateBinary.Module;
 
-            this.ModuleCreate.Module = null;
+            this.ModuleCreateBinary.Module = null;
 
             this.ListInfra.TableAdd(this.ModuleTable, a.Ref, a);
         }
@@ -184,10 +184,10 @@ public class Console : Any
         return a;
     }
 
-    protected virtual ModuleCreate CreateModuleCreate()
+    protected virtual ModuleCreateBinary CreateModuleCreateBinary()
     {
-        ModuleCreate a;
-        a = new ModuleCreate();
+        ModuleCreateBinary a;
+        a = new ModuleCreateBinary();
         a.Init();
         return a;
     }
@@ -367,13 +367,6 @@ public class Console : Any
             if (t == k.Refer)
             {
                 this.PrintCheckResult();
-            }
-
-
-
-            if (t == k.Module)
-            {
-                this.PrintModuleResult();
             }
         }
 
@@ -590,46 +583,6 @@ public class Console : Any
         return true;
     }
 
-
-
-
-
-    private bool PrintModuleResult()
-    {
-        ModuleString moduleString;
-
-
-
-        moduleString = new ModuleString();
-
-
-
-
-        moduleString.Init();
-
-
-
-
-        moduleString.Execute(this.Result.Module);
-
-
-
-
-        string s;
-        
-        
-        s = moduleString.Result();
-
-
-
-
-        this.Out.Write(s);
-
-
-
-
-        return true;
-    }
 
 
 

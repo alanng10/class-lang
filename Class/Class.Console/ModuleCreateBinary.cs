@@ -1,6 +1,6 @@
 namespace Class.Console;
 
-public class ModuleCreate : Any
+public class ModuleCreateBinary : Any
 {
     public override bool Init()
     {

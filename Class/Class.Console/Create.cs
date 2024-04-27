@@ -30,7 +30,7 @@ public class Create : Any
 
 
 
-    public virtual ReferCreate Refer { get; set; }
+    public virtual ModuleCreate Refer { get; set; }
 
 
 
@@ -59,7 +59,7 @@ public class Create : Any
 
 
 
-        this.Refer = this.CreateRefer();
+        this.Refer = this.CreateModule();
 
 
         return true;
@@ -132,10 +132,10 @@ public class Create : Any
 
 
 
-    protected virtual ReferCreate CreateRefer()
+    protected virtual ModuleCreate CreateModule()
     {
-        ReferCreate a;
-        a = new ReferCreate();
+        ModuleCreate a;
+        a = new ModuleCreate();
         a.Init();
         return a;
     }
