@@ -607,6 +607,10 @@ public class Traverse : Any
         {
             this.ExecuteNotOperate((NotOperate)operate);
         }
+        if (operate is LessOperate)
+        {
+            this.ExecuteLessOperate((LessOperate)operate);
+        }
         if (operate is AddOperate)
         {
             this.ExecuteAddOperate((AddOperate)operate);
@@ -623,9 +627,9 @@ public class Traverse : Any
         {
             this.ExecuteDivOperate((DivOperate)operate);
         }
-        if (operate is LessOperate)
+        if (operate is SignLessOperate)
         {
-            this.ExecuteLessOperate((LessOperate)operate);
+            this.ExecuteSignLessOperate((SignLessOperate)operate);
         }
         if (operate is SignMulOperate)
         {
@@ -634,10 +638,6 @@ public class Traverse : Any
         if (operate is SignDivOperate)
         {
             this.ExecuteSignDivOperate((SignDivOperate)operate);
-        }
-        if (operate is SignLessOperate)
-        {
-            this.ExecuteSignLessOperate((SignLessOperate)operate);
         }
         if (operate is BitAndOperate)
         {
