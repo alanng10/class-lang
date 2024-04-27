@@ -360,20 +360,16 @@ class BinaryGen : Any
         return array;
     }
 
-    protected virtual BinaryClassIndex ExecuteEntry()
+    protected virtual int ExecuteEntry()
     {
         ClassClass entryClass;
         entryClass = this.Module.Entry;
-        int e;
-        e = -1;
+        int a;
+        a = -1;
         if (!(entryClass == null))
         {
-            e = this.ClassIndexGet(entryClass);
+            a = this.ClassIndexGet(entryClass);
         }
-        BinaryClassIndex a;
-        a = new BinaryClassIndex();
-        a.Init();
-        a.Value = e;
         return a;
     }
 
