@@ -241,7 +241,12 @@ public class Test : Any
         Directory.SetCurrentDirectory(this.InitialCurrentDirectory);
 
         string actual;
-        actual = this.Out.Result();
+        string actualOut;
+        string actualErr;
+
+        actualOut = this.Out.Result();
+        actualErr = this.Err.Result();
+        actual = actualErr + actualOut;
 
         string actualFile;
         actualFile = this.UnitFold + oc + "Actual";
