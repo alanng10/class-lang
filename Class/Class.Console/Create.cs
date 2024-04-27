@@ -14,12 +14,6 @@ public class Create : Any
 
 
 
-
-    public virtual Source Source { get; set; }
-
-
-
-
     public virtual TokenCreate Token { get; set; }
 
 
@@ -149,14 +143,8 @@ public class Create : Any
     public virtual bool Execute()
     {
         this.Result = new Result();
-
-
         this.Result.Init();
         
-
-
-
-        this.Source = this.Class.Source;
 
 
 
@@ -210,7 +198,7 @@ public class Create : Any
 
     public virtual bool ExecuteToken()
     {
-        this.Token.Source = this.Source;
+        this.Token.Source = this.Class.Source;
 
         
 
@@ -230,7 +218,7 @@ public class Create : Any
 
     public virtual bool ExecuteNode()
     {
-        this.Node.Source = this.Source;
+        this.Node.Source = this.Class.Source;
 
 
 
@@ -258,7 +246,7 @@ public class Create : Any
 
     public virtual bool ExecuteModule()
     {
-        this.Module.Source = this.Source;
+        this.Module.Source = this.Class.Source;
 
 
         this.Module.Execute();

@@ -36,7 +36,7 @@ public class Console : Any
     }
 
 
-    public virtual Source Source { get; set; }
+    public virtual Array Source { get; set; }
 
     public virtual string ModuleName { get; set; }
 
@@ -729,10 +729,10 @@ public class Console : Any
 
         Iter sourceItemIter;
 
-        sourceItemIter = this.Source.Item.IterCreate();
+        sourceItemIter = this.Source.IterCreate();
 
 
-        this.Source.Item.IterSet(sourceItemIter);
+        this.Source.IterSet(sourceItemIter);
 
 
 
@@ -985,19 +985,7 @@ public class Console : Any
             i = i + 1;
         }
 
-
-
-
-        this.Source = new Source();
-
-
-        this.Source.Init();
-
-
-        this.Source.Item = t;
-
-
-
+        this.Source = t;
         return true;
     }
 
@@ -1008,7 +996,7 @@ public class Console : Any
     {
         int count;
 
-        count = this.Source.Item.Count;
+        count = this.Source.Count;
 
 
         int i;
@@ -1021,7 +1009,7 @@ public class Console : Any
             SourceItem item;
 
 
-            item = (SourceItem)this.Source.Item.Get(i);
+            item = (SourceItem)this.Source.Get(i);
 
 
 
