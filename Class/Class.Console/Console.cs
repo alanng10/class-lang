@@ -832,22 +832,22 @@ public class Console : Any
 
     protected virtual ReferString CreateCheckString()
     {
-        ReferString checkString;
+        ReferString a;
         
         
         
         
-        checkString = new ReferString();
+        a = new ReferString();
 
 
 
 
-        checkString.Init();
+        a.Init();
 
 
 
 
-        return checkString;
+        return a;
     }
 
 
