@@ -9,7 +9,7 @@ public class Result : Any
 
 
 
-    public virtual ClassRefer Refer { get; set; }
+    public virtual Refer Refer { get; set; }
 
 
 
