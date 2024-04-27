@@ -71,7 +71,7 @@ public class ModuleString : Any
 
 
 
-        this.NodeCheckString();
+        this.NodeInfoString();
 
 
 
@@ -163,7 +163,7 @@ public class ModuleString : Any
 
 
 
-    protected virtual bool NodeCheckString()
+    protected virtual bool NodeInfoString()
     {
         this.AppendClass(this.Info.Class);
 
