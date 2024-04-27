@@ -6,22 +6,22 @@ namespace Class.Refer;
 
 public class SystemClass : Any
 {
-    public virtual InfraClass Any { get; set; }
+    public virtual ClassClass Any { get; set; }
 
 
 
 
-    public virtual InfraClass Bool { get; set; }
+    public virtual ClassClass Bool { get; set; }
 
 
 
 
-    public virtual InfraClass Int { get; set; }
+    public virtual ClassClass Int { get; set; }
 
 
 
 
-    public virtual InfraClass String { get; set; }
+    public virtual ClassClass String { get; set; }
 
 
 
@@ -57,12 +57,12 @@ public class SystemClass : Any
         return true;
     }
 
-    private InfraClass NewClass(string name)
+    private ClassClass NewClass(string name)
     {
-        InfraClass c;
+        ClassClass c;
 
 
-        c = new InfraClass();
+        c = new ClassClass();
 
 
         c.Init();
@@ -74,7 +74,7 @@ public class SystemClass : Any
 
 
 
-        InfraClass ret;
+        ClassClass ret;
 
 
         ret = c;

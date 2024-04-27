@@ -5,7 +5,7 @@ namespace Class.Refer;
 
 public class Info : Any
 {
-    public virtual InfraClass Class { get; set; }
+    public virtual ClassClass Class { get; set; }
 
 
 
@@ -21,23 +21,23 @@ public class Info : Any
 
 
 
-    public virtual InfraClass OperateClass { get; set; }
+    public virtual ClassClass OperateClass { get; set; }
 
 
 
-    public virtual InfraClass NewClass { get; set; }
+    public virtual ClassClass NewClass { get; set; }
 
 
 
-    public virtual InfraClass TargetClass { get; set; }
+    public virtual ClassClass TargetClass { get; set; }
 
 
 
-    public virtual InfraClass CastClass { get; set; }
+    public virtual ClassClass CastClass { get; set; }
 
 
 
-    public virtual InfraClass ShareClass { get; set; }
+    public virtual ClassClass ShareClass { get; set; }
 
 
 
