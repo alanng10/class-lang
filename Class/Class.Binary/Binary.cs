@@ -12,5 +12,5 @@ public class Binary : Any
 
     public virtual Array Part { get; set; }
 
-    public virtual ClassIndex Entry { get; set; }
+    public virtual int Entry { get; set; }
 }
