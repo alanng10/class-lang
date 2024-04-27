@@ -359,7 +359,7 @@ class BinaryGen : Any
             a = new BinaryVar();
             a.Init();
             a.Class = this.ClassIndexGet(oa.Class);
-            a.SystemClass = oe.SystemClass;
+            a.SystemInfo = oe.SystemClass;
             a.Name = oa.Name;
 
             array.Set(i, a);

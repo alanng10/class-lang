@@ -382,7 +382,7 @@ public class ModuleCreateBinary : Any
             a.Init();
             a.Name = ua.Name;
             a.Class = this.ClassGetIndex(ua.Class);
-            a.SystemClass = this.SystemInfoCreate(ua.SystemClass);
+            a.SystemClass = this.SystemInfoCreate(ua.SystemInfo);
             
             this.ListInfra.TableAdd(varTable, a.Name, a);
 

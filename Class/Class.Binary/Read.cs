@@ -859,7 +859,7 @@ public class Read : Any
         Var a;
         a = this.Operate.ExecuteVar();
         a.Class = varClass;
-        a.SystemClass = systemClass;
+        a.SystemInfo = systemClass;
         a.Name = name;
         return a;
     }

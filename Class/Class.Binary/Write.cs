@@ -238,7 +238,7 @@ public class Write : Any
     protected virtual bool ExecuteVar(Var varVar)
     {
         this.ExecuteIndex(varVar.Class);
-        this.ExecuteSystemClass(varVar.SystemClass);
+        this.ExecuteSystemClass(varVar.SystemInfo);
         this.ExecuteName(varVar.Name);
         return true;
     }
