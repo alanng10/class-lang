@@ -349,7 +349,7 @@ public class ModuleCreateBinary : Any
             a.Index = maideTable.Count;
             a.Name = ua.Name;
             a.Class = this.ClassGetIndex(ua.Class);
-            a.SystemClass = this.SystemInfoCreate(ua.SystemInfo);
+            a.SystemInfo = this.SystemInfoCreate(ua.SystemInfo);
             a.Count = this.CountList.Get(ua.Count);
             a.Parent = varClass;
 
