@@ -436,9 +436,6 @@ public class Console : Any
         return true;
     }
 
-
-
-
     protected virtual ModuleString CreateModuleString()
     {
         ModuleString a;
@@ -447,16 +444,10 @@ public class Console : Any
         return a;
     }
 
-
-
-
-
     private bool GetPort(string filePath)
     {
         return true;
     }
-
-
 
     protected virtual Array GetFileList(string foldPath)
     {
