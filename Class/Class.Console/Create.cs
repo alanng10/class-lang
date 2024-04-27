@@ -30,7 +30,7 @@ public class Create : Any
 
 
 
-    public virtual CheckCreate Check { get; set; }
+    public virtual ReferCreate Refer { get; set; }
 
 
 
@@ -65,7 +65,7 @@ public class Create : Any
 
 
 
-        this.Check = this.CreateCheck();
+        this.Refer = this.CreateCheck();
 
 
 
@@ -149,32 +149,12 @@ public class Create : Any
 
 
 
-    protected virtual CheckCreate CreateCheck()
+    protected virtual ReferCreate CreateCheck()
     {
-        CheckCreate create;
-
-
-
-
-        create = new CheckCreate();
-
-
-
-
-        create.Init();
-
-
-
-
-
-        CheckCreate ret;
-
-
-        ret = create;
-
-
-
-        return ret;
+        ReferCreate a;
+        a = new ReferCreate();
+        a.Init();
+        return a;
     }
 
 
@@ -340,21 +320,21 @@ public class Create : Any
 
     public virtual bool ExecuteCheck()
     {
-        this.Check.Source = this.Source;
+        this.Refer.Source = this.Source;
 
 
 
-        this.Check.TaskModule = this.Class.ModuleName;
+        this.Refer.TaskModule = this.Class.ModuleName;
 
 
 
 
 
-        this.Check.Execute();
+        this.Refer.Execute();
 
 
 
-        this.Result.Check = this.Check.Result;
+        this.Result.Check = this.Refer.Result;
 
 
 
