@@ -406,7 +406,7 @@ public class Gen : Any
                     oe = new Info();
                     oe.Init();
                     oe.Property = property;
-                    oe.SystemClass = this.SystemClassGet(property.PropertyType);
+                    oe.SystemClass = this.SystemInfoGet(property.PropertyType);
 
                     Field field;
                     field = new Field();
@@ -449,7 +449,7 @@ public class Gen : Any
                 of = new Info();
                 of.Init();
                 of.Method = method;
-                of.SystemClass = this.SystemClassGet(method.ReturnType);
+                of.SystemClass = this.SystemInfoGet(method.ReturnType);
 
                 Maide maide;
                 maide = new Maide();
@@ -481,7 +481,7 @@ public class Gen : Any
                         og = new Info();
                         og.Init();
                         og.Parameter = parameter;
-                        og.SystemClass = this.SystemClassGet(parameter.ParameterType);
+                        og.SystemClass = this.SystemInfoGet(parameter.ParameterType);
 
                         Var varVar;
                         varVar = new Var();
@@ -960,7 +960,7 @@ public class Gen : Any
                     Info oe;
                     oe = new Info();
                     oe.Init();
-                    oe.SystemClass = this.SystemClassGet(method.ReturnType);
+                    oe.SystemClass = this.SystemInfoGet(method.ReturnType);
 
                     if (!isMaide)
                     {
@@ -1002,7 +1002,7 @@ public class Gen : Any
                             Info og;
                             og = new Info();
                             og.Init();
-                            og.SystemClass = this.SystemClassGet(parameter.ParameterType);
+                            og.SystemClass = this.SystemInfoGet(parameter.ParameterType);
 
                             Var varVar;
                             varVar = new Var();
@@ -1093,7 +1093,7 @@ public class Gen : Any
         return null;
     }
 
-    protected virtual int SystemClassGet(SystemType type)
+    protected virtual int SystemInfoGet(SystemType type)
     {
         BuiltInType a;
         a = this.BuitInTypeGet(type);
