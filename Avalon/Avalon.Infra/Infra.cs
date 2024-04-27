@@ -191,10 +191,15 @@ public class Infra : Any
         return true;
     }
 
-    public virtual Data DataCreateString(string a)
+    public virtual Data DataCreateString(string a, Range range)
     {
+        if (!this.CheckRange(a.Length, range))
+        {
+            return null;
+        }
+
         int count;
-        count = a.Length;
+        count = range.Count;
 
         int oa;
         oa = sizeof(char);
@@ -204,12 +209,15 @@ public class Infra : Any
         data.Count = count * oa;
         data.Init();
 
+        int start;
+        start = range.Index;
+
         int i;
         i = 0;
         while (i < count)
         {
             char oc;
-            oc = a[i];
+            oc = a[start + i];
             long index;
             index = i * oa;
 
