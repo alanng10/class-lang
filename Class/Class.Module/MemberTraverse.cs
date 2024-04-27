@@ -193,6 +193,8 @@ public class MemberTraverse : Traverse
         a.Index = this.ThisClass.Maide.Count;
         a.Any = nodeMaide;
 
+        this.ParamVar = null;
+
         this.ListInfra.TableAdd(this.ThisClass.Maide, a.Name, a);
 
         this.Info(nodeMaide).Maide = a;
