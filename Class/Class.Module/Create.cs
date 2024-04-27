@@ -208,13 +208,15 @@ public class Create : InfraCreate
         return true;
     }
 
-
-
-
-
-
     protected virtual bool CheckBase(ClassClass varClass)
     {
+        SystemClass d;
+        d = this.SystemClass;
+
+        if (varClass == d.Bool | varClass == d.Int | varClass == d.String | varClass == d.ModuleInfo)
+        {
+            return false;
+        }
         return true;
     }
 
