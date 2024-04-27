@@ -503,7 +503,7 @@ class Demo : Any
         argList.SetItem(7, argF);
 
         Text varBase;
-        varBase = this.TextCreateString("G H , j h\n\n");
+        varBase = this.TextInfra.TextCreateString("G H , j h\n\n", null);
 
         TextFormat format;
         format = new TextFormat();
@@ -535,15 +535,6 @@ class Demo : Any
         return true;
     }
 
-    private Text TextCreateString(string o)
-    {
-        Range range;
-        range = new Range();
-        range.Init();
-        range.Count = o.Length;
-        return this.TextInfra.TextCreateString(o, range);
-    }
-
     private bool ExecuteIntParse()
     {
         TextIntParse a;
@@ -551,20 +542,20 @@ class Demo : Any
         a.Init();
 
         Text ooo;
-        ooo = this.TextCreateString("43695");
+        ooo = this.TextInfra.TextCreateString("43695", null);
         long ooa;
         ooa = a.Execute(ooo, 10, false);
         this.Console.Out.Write("Demo.ExecuteIntParse ooa: " + ooa.ToString() + "\n");
 
-        ooo = this.TextCreateString("9E532F");
+        ooo = this.TextInfra.TextCreateString("9E532F", null);
         ooa = a.Execute(ooo, 16, true);
         this.Console.Out.Write("Demo.ExecuteIntParse ooa: 0h" + ooa.ToString("x15") + "\n");
 
-        ooo = this.TextCreateString("0000000000009294ef0d");
+        ooo = this.TextInfra.TextCreateString("0000000000009294ef0d", null);
         ooa = a.Execute(ooo, 16, false);
         this.Console.Out.Write("Demo.ExecuteIntParse ooa: 0h" + ooa.ToString("x16") + "\n");
 
-        ooo = this.TextCreateString("1000000000000000");
+        ooo = this.TextInfra.TextCreateString("1000000000000000", null);
         ooa = a.Execute(ooo, 16, true);
         this.Console.Out.Write("Demo.ExecuteIntParse ooa: 0h" + ooa.ToString("x16") + "\n");
         return true;
@@ -1051,7 +1042,7 @@ class Demo : Any
         oa = "G L 的哈gd@行 o #";
 
         Text text;
-        text = this.TextCreateString(oa);
+        text = this.TextInfra.TextCreateString(oa, null);
 
         ViewC viewC;
         viewC = new ViewC();
