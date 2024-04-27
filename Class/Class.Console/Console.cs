@@ -56,6 +56,7 @@ public class Console : Any
 
 
     protected virtual Out Out { get; set; }
+    protected virtual Out Err { get; set; }
 
 
 
@@ -194,6 +195,7 @@ public class Console : Any
     public virtual int Execute()
     {
         this.Out = this.Task.Out;
+        this.Err = this.Task.Err;
 
 
 
@@ -574,7 +576,7 @@ public class Console : Any
         t = this.ErrorString.String(error);
 
 
-        this.Out.Write(t);
+        this.Err.Write(t);
 
 
 
