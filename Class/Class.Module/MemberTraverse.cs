@@ -67,7 +67,7 @@ public class MemberTraverse : Traverse
 
         if (!(fieldName == null))
         {
-            if (this.MemberNameDefined(fieldName))
+            if (this.Create.MemberNameDefined(this.ThisClass, fieldName))
             {
                 this.Error(this.ErrorKind.NameUnavailable, nodeField);
                 return true;
@@ -149,7 +149,7 @@ public class MemberTraverse : Traverse
         
         if (!(maideName == null))
         {
-            if (this.MemberNameDefined(maideName))
+            if (this.Create.MemberNameDefined(this.ThisClass, maideName))
             {
                 this.Error(this.ErrorKind.NameUnavailable, nodeMaide);
                 return true;
@@ -267,18 +267,6 @@ public class MemberTraverse : Traverse
         {
             a = this.Count.Private;
         }
-        return a;
-    }
-
-    protected virtual bool MemberNameDefined(string name)
-    {
-        bool ba;
-        ba = this.ThisClass.Field.Contain(name);
-        bool bb;
-        bb = this.ThisClass.Maide.Contain(name);
-
-        bool a;
-        a = ba | bb;
         return a;
     }
 }

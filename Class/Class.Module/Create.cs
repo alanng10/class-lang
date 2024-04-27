@@ -47,6 +47,7 @@ public class Create : InfraCreate
         this.ExecuteClass();
         this.ExecuteBase();
         this.ExecuteMember();
+        this.ExecuteVirtual();
         this.ExecuteState();
 
         this.Result.Module = this.Module;
@@ -315,6 +316,49 @@ public class Create : InfraCreate
         return a;
     }
 
+    protected virtual bool ExecuteVirtual()
+    {
+        Iter iter;
+        iter = this.Module.Class.IterCreate();
+        this.Module.Class.IterSet(iter);
+        while (iter.Next())
+        {
+            ClassClass a;
+            a = (ClassClass)iter.Value;
+            this.ExecuteVirtualClass(a);
+        }
+        return true;
+    }
+
+    protected virtual bool ExecuteVirtualClass(ClassClass varClass)
+    {
+        this.ExecuteVirtualField(varClass.Field);
+        return true;
+    }
+
+    protected virtual bool ExecuteVirtualField(Table field)
+    {
+        Iter iter;
+        iter = field.IterCreate();
+        field.IterSet(iter);
+        while (iter.Next())
+        {
+            Field a;
+            a = (Field)iter.Value;
+        }
+        return true;
+    }
+
+    protected virtual Field VirtualField(Field a)
+    {
+        ClassClass varClass;
+        varClass = a.Parent;
+
+        ClassClass thisClass;
+        thisClass = varClass.Base;
+        return null;
+    }
+
     protected virtual bool ExecuteState()
     {
         Traverse traverse;
@@ -370,6 +414,18 @@ public class Create : InfraCreate
     {
         ClassClass a;
         a = (ClassClass)this.ClassTable.Get(name);
+        return a;
+    }
+
+    public virtual bool MemberNameDefined(ClassClass varClass, string name)
+    {
+        bool ba;
+        ba = varClass.Field.Contain(name);
+        bool bb;
+        bb = varClass.Maide.Contain(name);
+
+        bool a;
+        a = ba | bb;
         return a;
     }
 
