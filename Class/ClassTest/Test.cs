@@ -365,7 +365,7 @@ public class Test : Any
 
         if (this.Set.AddPathAfterTaskArg)
         {
-            task.Check = this.Unit.Path;
+            task.Path = this.Unit.Path;
         }
 
         task.Print = true;
