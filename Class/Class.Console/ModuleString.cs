@@ -65,7 +65,7 @@ public class ModuleString : Any
 
 
 
-        this.Check = (ModuleInfo)this.Node.NodeAny;
+        this.Info = (ModuleInfo)this.Node.NodeAny;
 
 
 
@@ -158,14 +158,14 @@ public class ModuleString : Any
 
 
 
-    protected virtual ModuleInfo Check { get; set; }
+    protected virtual ModuleInfo Info { get; set; }
 
 
 
 
     protected virtual bool NodeCheckString()
     {
-        this.AppendClass(this.Check.Class);
+        this.AppendClass(this.Info.Class);
 
 
         this.AppendLine();
@@ -173,7 +173,7 @@ public class ModuleString : Any
 
 
 
-        this.AppendField(this.Check.Field);
+        this.AppendField(this.Info.Field);
 
 
         this.AppendLine();
@@ -181,7 +181,7 @@ public class ModuleString : Any
 
 
 
-        this.AppendMethod(this.Check.Maide);
+        this.AppendMethod(this.Info.Maide);
 
 
         this.AppendLine();
@@ -189,17 +189,7 @@ public class ModuleString : Any
 
 
 
-        this.AppendVar(this.Check.Var);
-
-
-        this.AppendLine();
-
-
-
-
-
-
-        this.AppendClass(this.Check.OperateClass);
+        this.AppendVar(this.Info.Var);
 
 
         this.AppendLine();
@@ -208,23 +198,8 @@ public class ModuleString : Any
 
 
 
-        this.AppendClass(this.Check.NewClass);
 
-
-        this.AppendLine();
-
-
-
-
-        this.AppendClass(this.Check.TargetClass);
-
-
-        this.AppendLine();
-
-
-
-
-        this.AppendClass(this.Check.CastClass);
+        this.AppendClass(this.Info.OperateClass);
 
 
         this.AppendLine();
@@ -233,7 +208,7 @@ public class ModuleString : Any
 
 
 
-        this.AppendClass(this.Check.ShareClass);
+        this.AppendClass(this.Info.NewClass);
 
 
         this.AppendLine();
@@ -241,7 +216,7 @@ public class ModuleString : Any
 
 
 
-        this.AppendField(this.Check.GetField);
+        this.AppendClass(this.Info.TargetClass);
 
 
         this.AppendLine();
@@ -249,7 +224,7 @@ public class ModuleString : Any
 
 
 
-        this.AppendField(this.Check.SetField);
+        this.AppendClass(this.Info.CastClass);
 
 
         this.AppendLine();
@@ -257,7 +232,32 @@ public class ModuleString : Any
 
 
 
-        this.AppendMethod(this.Check.CallMaide);
+
+        this.AppendClass(this.Info.ShareClass);
+
+
+        this.AppendLine();
+
+
+
+
+        this.AppendField(this.Info.GetField);
+
+
+        this.AppendLine();
+
+
+
+
+        this.AppendField(this.Info.SetField);
+
+
+        this.AppendLine();
+
+
+
+
+        this.AppendMethod(this.Info.CallMaide);
 
 
         this.AppendLine();
