@@ -137,6 +137,8 @@ public class Create : InfraCreate
         this.SetBaseTable();
         
         this.AddBaseList();
+
+        this.BaseTable = null;
         return true;
     }
 
@@ -229,6 +231,9 @@ public class Create : InfraCreate
 
     protected virtual bool AddBaseList()
     {
+        ClassClass anyClass;
+        anyClass = this.SystemClass.Any;
+
         Iter iter;
         iter = this.BaseTable.IterCreate();
         this.BaseTable.IterSet(iter);
@@ -241,190 +246,56 @@ public class Create : InfraCreate
             bool b;
             b = this.CheckClassDependency(varClass);
 
-
-
+            ClassClass a;
+            a = null;
+            
             if (!b)
             {
                 NodeClass nodeClass;
                 nodeClass = (NodeClass)varClass.Any;
 
                 this.Error(this.ErrorKind.BaseUndefined, nodeClass, this.SourceGet(varClass.Index));
+
+                a = anyClass;
             }
-
-
-
-
-            ClassClass t;
-
-
-
-            t = this.SystemClass.Any;
-
-
-
-
             if (b)
             {
-                t = (ClassClass)iter.Value;
+                a = (ClassClass)iter.Value;
             }
-
-
-
-
-            varClass.Base = t;
+            varClass.Base = a;
         }
-
-
-
-
         return true;
     }
 
-
-
-
-
-
-    private bool CheckClassDependency(ClassClass varClass)
+    protected virtual bool CheckClassDependency(ClassClass varClass)
     {
+        ClassModule module;
+        module = this.Module;
+
         Table table;
-
-
-
         table = new Table();
-
-
-
         table.Compare = new RefCompare();
-
-
-
         table.Compare.Init();
-
-
-
         table.Init();
 
+        this.ListInfra.TableAdd(table, varClass, varClass);
 
+        ClassClass a;
+        a = (ClassClass)this.BaseTable.Get(varClass);
 
-
-
-
-        TableEntry t;
-
-
-
-        t = new TableEntry();
-
-
-        t.Init();
-
-
-        t.Index = varClass;
-
-
-
-        t.Value = varClass;
-
-
-
-
-
-        table.Add(t);
-
-
-
-
-
-
-        ClassClass currentClass;
-
-
-
-
-        currentClass = (ClassClass)this.BaseTable.Get(varClass);
-
-
-
-
-
-        while (this.ThisModule(currentClass))
+        while (a.Module == module)
         {
-            if (this.SystemAny(currentClass))
-            {
-                return true;
-            }
-
-
-
-
-
-
-            if (table.Contain(currentClass))
+            if (table.Contain(a))
             {
                 return false;
             }
 
+            this.ListInfra.TableAdd(table, a, a);
 
-
-
-
-
-            TableEntry oo;
-
-
-
-            oo = new TableEntry();
-
-
-
-            oo.Init();
-
-
-
-            oo.Index = currentClass;
-
-
-
-            oo.Value = currentClass;
-
-
-
-
-
-            table.Add(oo);
-
-
-
-
-
-            currentClass = (ClassClass)this.BaseTable.Get(currentClass);
+            a = (ClassClass)this.BaseTable.Get(a);
         }
-
-
-
-
         return true;
     }
-
-
-
-
-
-    private bool ThisModule(ClassClass varClass)
-    {
-        return true;
-    }
-
-
-
-
-
-    private bool SystemAny(ClassClass varClass)
-    {
-        return (varClass == this.SystemClass.Any);
-    }
-
 
     protected virtual Source SourceGet(int index)
     {
