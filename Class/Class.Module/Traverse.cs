@@ -53,36 +53,19 @@ public class Traverse : NodeTraverse
         return a;
     }
 
-
-
-
-
-
     protected virtual bool UniqueError(ErrorKind kind, NodeNode node, bool hasAdded)
     {
         if (!hasAdded)
         {
             this.Error(kind, node);
-
-
             hasAdded = true;
         }
-
-
-
         return hasAdded;
     }
-
-
-
-
 
     protected virtual bool Error(ErrorKind kind, NodeNode node)
     {
         this.Create.Error(kind, node, this.Source);
-
-
-
         return true;
     }
 }
