@@ -44,10 +44,10 @@ public class StateTraverse : Traverse
 
     private bool InitNullClass()
     {
-        InfraClass c;
+        ClassClass c;
 
 
-        c = new InfraClass();
+        c = new ClassClass();
 
 
         c.Name = null;
@@ -80,12 +80,12 @@ public class StateTraverse : Traverse
 
 
 
-    public virtual InfraClass CurrentClass { get; set; }
+    public virtual ClassClass CurrentClass { get; set; }
 
 
 
 
-    public virtual InfraClass CurrentResultClass { get; set; }
+    public virtual ClassClass CurrentResultClass { get; set; }
 
 
 
@@ -103,7 +103,7 @@ public class StateTraverse : Traverse
 
     protected virtual TextInfra TextInfra { get; set; }
 
-    public virtual InfraClass NullClass { get; set; }
+    public virtual ClassClass NullClass { get; set; }
 
 
     public override bool ExecuteClass(NodeClass varClass)
@@ -625,7 +625,7 @@ public class StateTraverse : Traverse
 
 
 
-        InfraClass varClass;
+        ClassClass varClass;
 
 
         varClass = null;
@@ -802,7 +802,7 @@ public class StateTraverse : Traverse
 
 
 
-        InfraClass targetClass;
+        ClassClass targetClass;
 
 
         targetClass = null;
@@ -816,7 +816,7 @@ public class StateTraverse : Traverse
 
 
 
-        InfraClass valueClass;
+        ClassClass valueClass;
 
 
         valueClass = null;
@@ -901,7 +901,7 @@ public class StateTraverse : Traverse
 
 
 
-        InfraClass varClass;
+        ClassClass varClass;
 
 
 
@@ -979,7 +979,7 @@ public class StateTraverse : Traverse
 
 
 
-        InfraClass varClass;
+        ClassClass varClass;
 
 
 
@@ -1048,7 +1048,7 @@ public class StateTraverse : Traverse
 
 
 
-        InfraClass operateClass;
+        ClassClass operateClass;
 
         operateClass = null;
 
@@ -1190,7 +1190,7 @@ public class StateTraverse : Traverse
 
 
 
-        InfraClass valueClass;
+        ClassClass valueClass;
 
         valueClass = null;
 
@@ -1491,7 +1491,7 @@ public class StateTraverse : Traverse
 
 
 
-        InfraClass leftClass;
+        ClassClass leftClass;
 
         leftClass = null;
 
@@ -1505,7 +1505,7 @@ public class StateTraverse : Traverse
 
 
 
-        InfraClass rightClass;
+        ClassClass rightClass;
 
         rightClass = null;
 
@@ -1566,9 +1566,9 @@ public class StateTraverse : Traverse
 
 
 
-    protected virtual bool ExecuteTwoOperandOperate(Operate operate, Operate left, Operate right, InfraClass resultClass, InfraClass operandClass)
+    protected virtual bool ExecuteTwoOperandOperate(Operate operate, Operate left, Operate right, ClassClass resultClass, ClassClass operandClass)
     {
-        InfraClass leftClass;
+        ClassClass leftClass;
 
         leftClass = null;
 
@@ -1584,7 +1584,7 @@ public class StateTraverse : Traverse
 
 
 
-        InfraClass rightClass;
+        ClassClass rightClass;
 
         rightClass = null;
 
@@ -1702,7 +1702,7 @@ public class StateTraverse : Traverse
 
 
 
-        InfraClass fieldClass;
+        ClassClass fieldClass;
 
 
         fieldClass = this.ExecuteThisFieldNode(getOperate, varThis, nodeField);
@@ -1761,7 +1761,7 @@ public class StateTraverse : Traverse
 
 
 
-        InfraClass thisClass;
+        ClassClass thisClass;
 
 
         thisClass = null;
@@ -1840,7 +1840,7 @@ public class StateTraverse : Traverse
 
 
 
-        InfraClass operateClass;
+        ClassClass operateClass;
 
 
         operateClass = null;
@@ -1910,7 +1910,7 @@ public class StateTraverse : Traverse
 
 
 
-        InfraClass anyClass;
+        ClassClass anyClass;
 
 
         anyClass = null;
@@ -1946,7 +1946,7 @@ public class StateTraverse : Traverse
 
 
 
-        InfraClass varClass;
+        ClassClass varClass;
 
         varClass = null;
 
@@ -2097,7 +2097,7 @@ public class StateTraverse : Traverse
 
 
 
-        InfraClass resultClass;
+        ClassClass resultClass;
 
 
         resultClass = null;
@@ -2145,7 +2145,7 @@ public class StateTraverse : Traverse
 
     protected virtual bool ExecuteCondBodyExecute(Execute execute, Operate cond)
     {
-        InfraClass condClass;
+        ClassClass condClass;
 
 
         condClass = null;
@@ -2230,7 +2230,7 @@ public class StateTraverse : Traverse
 
 
 
-        InfraClass varClass;
+        ClassClass varClass;
 
 
         varClass = this.ExecuteVarNameNode(varOperate, name);
@@ -2276,7 +2276,7 @@ public class StateTraverse : Traverse
 
 
 
-        InfraClass valueClass;
+        ClassClass valueClass;
 
 
         valueClass = null;
@@ -2335,7 +2335,7 @@ public class StateTraverse : Traverse
 
 
 
-        InfraClass varClass;
+        ClassClass varClass;
 
 
         varClass = this.ExecuteVarNameNode(varTarget, name);
@@ -2386,7 +2386,7 @@ public class StateTraverse : Traverse
 
 
 
-        InfraClass fieldClass;
+        ClassClass fieldClass;
 
 
         fieldClass = this.ExecuteThisFieldNode(setTarget, varThis, nodeField);
@@ -2408,7 +2408,7 @@ public class StateTraverse : Traverse
 
 
 
-    protected virtual InfraClass ExecuteVarNameNode(NodeNode node, VarName name)
+    protected virtual ClassClass ExecuteVarNameNode(NodeNode node, VarName name)
     {
         string varName;
 
@@ -2434,7 +2434,7 @@ public class StateTraverse : Traverse
 
 
 
-        InfraClass varClass;
+        ClassClass varClass;
 
         varClass = null;
 
@@ -2459,9 +2459,9 @@ public class StateTraverse : Traverse
 
 
 
-    protected virtual InfraClass ExecuteThisFieldNode(NodeNode node, Operate varThis, FieldName nodeField)
+    protected virtual ClassClass ExecuteThisFieldNode(NodeNode node, Operate varThis, FieldName nodeField)
     {
-        InfraClass thisClass;
+        ClassClass thisClass;
 
 
         thisClass = null;
@@ -2527,7 +2527,7 @@ public class StateTraverse : Traverse
 
 
 
-        InfraClass fieldClass;
+        ClassClass fieldClass;
 
 
         fieldClass = null;
@@ -2557,9 +2557,9 @@ public class StateTraverse : Traverse
 
 
 
-    protected virtual bool CheckClass(InfraClass varClass, InfraClass requiredClass)
+    protected virtual bool CheckClass(ClassClass varClass, ClassClass requiredClass)
     {
-        InfraClass currentClass;
+        ClassClass currentClass;
 
 
 
@@ -2614,7 +2614,7 @@ public class StateTraverse : Traverse
 
 
 
-    private bool CheckAccces(InfraClass varClass, Count access)
+    private bool CheckAccces(ClassClass varClass, Count access)
     {
         if (this.CurrentClass == varClass)
         {
@@ -2669,7 +2669,7 @@ public class StateTraverse : Traverse
 
 
 
-    protected virtual Field Field(InfraClass varClass, string name)
+    protected virtual Field Field(ClassClass varClass, string name)
     {
         Field field;
 
@@ -2692,7 +2692,7 @@ public class StateTraverse : Traverse
 
 
 
-        InfraClass baseClass;
+        ClassClass baseClass;
 
 
         baseClass = varClass.Base;
@@ -2720,7 +2720,7 @@ public class StateTraverse : Traverse
 
 
 
-    protected virtual Maide Method(InfraClass varClass, string name)
+    protected virtual Maide Method(ClassClass varClass, string name)
     {
         Maide method;
 
@@ -2743,7 +2743,7 @@ public class StateTraverse : Traverse
 
 
 
-        InfraClass baseClass;
+        ClassClass baseClass;
 
 
         baseClass = varClass.Base;
@@ -2859,7 +2859,7 @@ public class StateTraverse : Traverse
 
 
 
-            InfraClass varClass;
+            ClassClass varClass;
 
 
             varClass = varVar.Class;
@@ -2867,7 +2867,7 @@ public class StateTraverse : Traverse
 
 
 
-            InfraClass operateClass;
+            ClassClass operateClass;
 
 
             operateClass = this.Check(operate).OperateClass;
