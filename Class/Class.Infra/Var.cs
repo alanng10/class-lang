@@ -6,7 +6,7 @@ public class Var : Any
 
     public virtual Class Class { get; set; }
 
-    public virtual SystemInfo SystemClass { get; set; }
+    public virtual SystemInfo SystemInfo { get; set; }
 
     public virtual object Any { get; set; }
 }
