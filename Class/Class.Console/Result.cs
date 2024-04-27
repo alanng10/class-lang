@@ -15,7 +15,7 @@ public class Result : Any
 
 
 
-    public virtual CheckResult Check { get; set; }
+    public virtual ReferResult Check { get; set; }
 
 
 
