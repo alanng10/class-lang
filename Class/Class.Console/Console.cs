@@ -197,122 +197,57 @@ public class Console : Any
         this.Out = this.Task.Out;
         this.Err = this.Task.Err;
 
+        TaskKindList kindList;
+        kindList = this.TaskKind;
+        TaskKind kind;
+        kind = this.Task.Kind;
 
-
-
-        bool taskModule;
-
-
-
-        taskModule = (this.Task.Kind == this.TaskKind.Module);
-
-
-
-
+        bool b;
+        b = (kind == kindList.Console | kind == kindList.Module);
 
         Array fileArray;
-
-
-
         fileArray = null;
 
-
-
-
-        if (!taskModule)
+        if (!b)
         {
             string file;
-
-
             file = this.Task.Source;
 
-
-
             string fileName;
-
-
             fileName = Path.GetFileName(file);
 
-
-
             this.SourceFold = Path.GetDirectoryName(file);
-
 
             if (this.SourceFold.Length == 0)
             {
                 this.SourceFold = ".";
             }
 
-
-
-
             fileArray = new Array();
-
-
             fileArray.Count = 1;
-
-
             fileArray.Init();
-
-
-
             fileArray.Set(0, fileName);
-
-
-
-            
-
-
-
-            this.ModuleName = "Module";
         }
 
-
-
-
-        if (taskModule)
+        if (b)
         {
             this.SourceFold = this.Task.Source;
-
-
 
             if (this.SourceFold == null)
             {
                 this.Error("Source Fold Invalid");
-
-
-
                 return 100;
             }
 
-
-
-
-
-
-            bool ba;
-                
+            bool ba;                
             ba = this.ReadPort();
-                
-
             if (!ba)
             {
                 this.Error("Port Invalid");
-
-
-                return 100;
+                return 101;
             }
-
-
-
-
-
             fileArray = this.GetClassFiles(this.SourceFold);
         }
-
-
-
-
 
         this.SetSource(fileArray);
                 
@@ -385,14 +320,6 @@ public class Console : Any
     {
         return true;
     }
-
-
-
-
-
-
-
-
 
     public virtual bool ExecuteCreate()
     {
@@ -613,16 +540,14 @@ public class Console : Any
         return array;
     }
 
-
-
-    private Array GetClassFiles(string foldPath)
+    protected virtual Array GetClassFiles(string foldPath)
     {
         Array fileArray;
         fileArray = this.GetFileList(foldPath);
 
-
-        int classFileCount;
-        classFileCount = 0;
+        List list;
+        list = new List();
+        list.Init();
 
         int count;
         count = fileArray.Count;
@@ -635,47 +560,20 @@ public class Console : Any
 
             if (name.EndsWith(".cla"))
             {
-                classFileCount = classFileCount + 1;
+                list.Add(name);
             }
 
             i = i + 1;
         }
-
-        int oa;
-        oa = 0;
 
         Array a;
-        a = new Array();
-        a.Count = classFileCount;
-        a.Init();
-
-        i = 0;
-        while (i < count)
-        {
-            string name;
-            name = (string)fileArray.Get(i);
-
-            if (name.EndsWith(".cla"))
-            {
-                a.Set(oa, name);
-                oa = oa + 1;
-            }
-
-            i = i + 1;
-        }
+        a = this.ListInfra.ArrayCreateList(list);
         return a;
     }
 
-
-
-
-
-    private bool Error(string message)
+    protected virtual bool Error(string message)
     {
-        this.Out.Write(message + "\n");
-
-
-
+        this.Err.Write(message + "\n");
         return true;
     }
 
