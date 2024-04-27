@@ -639,7 +639,7 @@ public class Console : Any
 
     private bool PrintCheckResult()
     {
-        CheckString checkString;
+        ReferString checkString;
 
 
 
@@ -830,14 +830,14 @@ public class Console : Any
 
 
 
-    protected virtual CheckString CreateCheckString()
+    protected virtual ReferString CreateCheckString()
     {
-        CheckString checkString;
+        ReferString checkString;
         
         
         
         
-        checkString = new CheckString();
+        checkString = new ReferString();
 
 
 
