@@ -85,13 +85,26 @@ public class Infra : Any
             return null;
         }
 
+        int count;
+        count = 0;
+        bool b;
+        b = (range == null);
+        if (b)
+        {
+            count = o.Length;
+        }
+        if (!b)
+        {
+            count = range.Count;
+        }
+
         Text a;
         a = new Text();
         a.Init();
         a.Data = data;
         a.Range = new Range();
         a.Range.Init();
-        a.Range.Count = range.Count;
+        a.Range.Count = count;
         return a;
     }
 
