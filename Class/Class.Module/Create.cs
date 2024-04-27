@@ -297,32 +297,6 @@ public class Create : InfraCreate
         return true;
     }
 
-    protected virtual Source SourceGet(int index)
-    {
-        return (Source)this.Source.Get(index);
-    }
-
-    public virtual bool Error(ErrorKind kind, NodeNode node, Source source)
-    {
-        Error a;
-        a = new Error();
-        a.Init();
-        a.Stage = this.Stage;
-        a.Kind = kind;
-        a.Range = node.Range;
-        a.Source = source;
-
-        this.ErrorList.Add(a);
-        return true;
-    }
-
-    public virtual ClassClass Class(string name)
-    {
-        ClassClass a;
-        a = (ClassClass)this.Module.Class.Get(name);
-        return a;
-    }
-
     protected virtual bool ExecuteMember()
     {
         Traverse traverse;
@@ -388,6 +362,32 @@ public class Create : InfraCreate
 
         traverse.Source = source;
         traverse.ExecuteClass(nodeClass);
+        return true;
+    }
+
+    public virtual ClassClass Class(string name)
+    {
+        ClassClass a;
+        a = (ClassClass)this.Module.Class.Get(name);
+        return a;
+    }
+
+    protected virtual Source SourceGet(int index)
+    {
+        return (Source)this.Source.Get(index);
+    }
+
+    public virtual bool Error(ErrorKind kind, NodeNode node, Source source)
+    {
+        Error a;
+        a = new Error();
+        a.Init();
+        a.Stage = this.Stage;
+        a.Kind = kind;
+        a.Range = node.Range;
+        a.Source = source;
+
+        this.ErrorList.Add(a);
         return true;
     }
 }
