@@ -76,20 +76,22 @@ public class Infra : Any
         return a;
     }
 
-    public virtual Text TextCreateString(string o)
+    public virtual Text TextCreateString(string o, Range range)
     {
         Data data;
-        data = this.InfraInfra.DataCreateString(o);
+        data = this.InfraInfra.DataCreateString(o, range);
+        if (data == null)
+        {
+            return null;
+        }
 
-        int count;
-        count = o.Length;
         Text a;
         a = new Text();
         a.Init();
         a.Data = data;
         a.Range = new Range();
         a.Range.Init();
-        a.Range.Count = count;
+        a.Range.Count = range.Count;
         return a;
     }
 
