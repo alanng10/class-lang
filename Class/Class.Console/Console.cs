@@ -509,9 +509,9 @@ public class Console : Any
 
         if (kindModule | this.Kind(this.TaskKind.Refer))
         {
-            if (!(this.Result.Refer == null))
+            if (!(this.Result.Module == null))
             {
-                this.WriteErrorList(this.Result.Refer.Error);
+                this.WriteErrorList(this.Result.Module.Error);
             }
         }
 
@@ -609,7 +609,7 @@ public class Console : Any
 
 
 
-        checkString.CheckResult = this.Result.Refer;
+        checkString.CheckResult = this.Result.Module;
 
 
 
