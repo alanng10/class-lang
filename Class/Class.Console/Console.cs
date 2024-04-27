@@ -363,7 +363,7 @@ public class Console : Any
 
 
 
-            if (t == k.Refer)
+            if (t == k.Module)
             {
                 this.PrintCheckResult();
             }
@@ -506,7 +506,7 @@ public class Console : Any
 
 
 
-        if (kindModule | this.Kind(this.TaskKind.Refer))
+        if (kindModule)
         {
             if (!(this.Result.Module == null))
             {
