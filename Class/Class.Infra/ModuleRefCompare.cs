@@ -24,7 +24,6 @@ public class ModuleRefCompare : Compare
         leftA = (ModuleRef)left;
         rightA = (ModuleRef)right;
 
-
         int a;
         a = this.StringCompare.Execute(leftA.Name, rightA.Name);
 
