@@ -99,21 +99,21 @@ public class MemberTraverse : Traverse
         Table varSet;
         varSet = this.ClassInfra.TableCreateStringCompare();
 
-        Field field;
-        field = new Field();
-        field.Init();
-        field.Name = fieldName;
-        field.Class = varClass;
-        field.Count = count;
-        field.Get = varGet;
-        field.Set = varSet;
-        field.Parent = this.ThisClass;
-        field.Index = this.ThisClass.Field.Count;
-        field.Any = nodeField;
+        Field a;
+        a = new Field();
+        a.Init();
+        a.Name = fieldName;
+        a.Class = varClass;
+        a.Count = count;
+        a.Get = varGet;
+        a.Set = varSet;
+        a.Parent = this.ThisClass;
+        a.Index = this.ThisClass.Field.Count;
+        a.Any = nodeField;
 
-        this.ListInfra.TableAdd(this.ThisClass.Field, field.Name, field);
+        this.ListInfra.TableAdd(this.ThisClass.Field, a.Name, a);
 
-        this.Info(nodeField).Field = field;
+        this.Info(nodeField).Field = a;
         return true;
     }
 
@@ -126,227 +126,81 @@ public class MemberTraverse : Traverse
 
         MaideName name;
         name = nodeMaide.Name;
-
         ClassName nodeClass;
-
         nodeClass = nodeMaide.Class;
-
-
-
-
-        NodeCount nodeAccess;
-
-        nodeAccess = nodeMaide.Count;
-
-
-
-
+        NodeCount nodeCount;
+        nodeCount = nodeMaide.Count;
         Param param;
-
         param = nodeMaide.Param;
-
-
-
-
         State call;
-
         call = nodeMaide.Call;
 
-
-
-
-
-
-        string methodName;
-
-
-
-        methodName = name.Value;
-
-
-
-
+        string maideName;
+        maideName = null;
+        if (!(name == null))
+        {
+            maideName = name.Value;
+        }
 
         string className;
-
-
-        
-        className = nodeClass.Value;
-        
-
-
-
-
-        
-        if (this.MemberNameDefined(methodName))
+        className = null;
+        if (!(nodeClass == null))
         {
-            this.Error(this.ErrorKind.NameUnavailable, nodeMaide);
-
-
-
-            return true;
+            className = nodeClass.Value;
         }
-
-
-
-
+        
+        if (!(maideName == null))
+        {
+            if (this.MemberNameDefined(maideName))
+            {
+                this.Error(this.ErrorKind.NameUnavailable, nodeMaide);
+                return true;
+            }
+        }
 
         ClassClass varClass;
+        varClass = null;
 
-
-
-        
-        varClass = this.Class(className);
-        
-
-
-
-
-        if (varClass == null)
+        if (!(className == null))
         {
-            this.Error(this.ErrorKind.ClassUndefined, nodeMaide);
+            varClass = this.Class(className);
 
-
-
-            return true;
+            if (varClass == null)
+            {
+                this.Error(this.ErrorKind.ClassUndefined, nodeMaide);
+                return true;
+            }
         }
-
-
-
-
-
-        Count access;
-
-
-
-        access = this.GetCount(nodeAccess);
-
-
-
-
-
+        
+        Count count;
+        count = this.GetCount(nodeCount);
 
         Table o;
+        o = this.ClassInfra.TableCreateStringCompare();
 
-
-        o = new Table();
-
-
-        o.Compare = new StringCompare();
-
-
-        o.Compare.Init();
-
-
-        o.Init();
-
-
-
-
-
-        Table u;
-
-
-        u = new Table();
-
-
-        u.Compare = new StringCompare();
-
-
-        u.Compare.Init();
-
-
-        u.Init();
-
-
-
-
-
+        Table callVar;
+        callVar = this.ClassInfra.TableCreateStringCompare();
 
         this.ParamVars = o;
-
-
-
-
-
         this.ExecuteParam(param);
 
+        Maide a;
+        a = new Maide();
+        a.Init();
+        a.Name = maideName;
+        a.Class = varClass;
+        a.Count = count;
+        a.Param = this.ParamVars;
+        a.Call = callVar;
+        a.Parent = this.ThisClass;
+        a.Index = this.ThisClass.Maide.Count;
+        a.Any = nodeMaide;
 
+        this.ListInfra.TableAdd(this.ThisClass.Maide, a.Name, a);
 
-
-
-
-        Maide method;
-
-
-        method = new Maide();
-
-
-        method.Init();
-
-
-        method.Name = methodName;
-
-
-        method.Class = varClass;
-
-
-        method.Count = access;
-
-
-        method.Param = this.ParamVars;
-
-
-        method.Call = u;
-
-
-        method.Parent = this.ThisClass;
-
-
-        method.Any = nodeMaide;
-
-
-
-        method.Index = this.ThisClass.Maide.Count;
-        
-
-
-
-
-
-        TableEntry oo;
-
-
-        oo = new TableEntry();
-
-
-        oo.Init();
-
-
-        oo.Index = methodName;
-
-
-        oo.Value = method;
-
-
-
-
-        this.ThisClass.Maide.Add(oo);
-
-
-
-
-        this.Info(nodeMaide).Maide = method;
-
-
-
-
+        this.Info(nodeMaide).Maide = a;
         return true;
     }
-
-
-
-
 
     public override bool ExecuteVar(NodeVar nodeVar)
     {
@@ -355,120 +209,42 @@ public class MemberTraverse : Traverse
             return true;
         }
 
-
-
-
-
         VarName name;
-
         name = nodeVar.Name;
-
-
-
-
         ClassName nodeClass;
-
         nodeClass = nodeVar.Class;
 
-
-
-
-
         string varName;
-
-
         varName = name.Value;
 
-
-
-
-
         string className;
+        className = nodeClass.Value;
 
-
-        className = null;
-
-
-
-        if (!(nodeClass == null))
-        {
-            className = nodeClass.Value;
-        }
-
-
-
-
-
-
-        if (!(this.ParamVars.Get(varName) == null))
+        if (this.ParamVars.Contain(varName))
         {
             this.Error(this.ErrorKind.NameUnavailable, nodeVar);
-
-
             return true;
         }
 
-
-
-
-
         ClassClass varClass;
-
-
-        varClass = null;
-
-
-
-
-        if (!(className == null))
-        {
-            varClass = this.Class(className);
-        }
-
-        
-
+        varClass = this.Class(className);
 
         if (varClass == null)
         {
             this.Error(this.ErrorKind.ClassUndefined, nodeVar);
-
-
             return true;
         }
 
+        Var a;
+        a = new Var();
+        a.Init();
+        a.Name = varName;
+        a.Class = varClass;
+        a.Any = nodeVar;
 
+        this.ListInfra.TableAdd(this.ParamVars, a.Name, a);
 
-
-
-        Var varVar;
-
-
-        varVar = new Var();
-
-
-        varVar.Name = varName;
-
-
-        varVar.Class = varClass;
-
-
-        varVar.Any = nodeVar;
-
-
-
-
-
-        this.VarMapAdd(this.ParamVars, varVar);
-        
-
-
-
-
-        this.Info(nodeVar).Var = varVar;
-
-
-
-
+        this.Info(nodeVar).Var = a;
         return true;
     }
 
@@ -495,42 +271,6 @@ public class MemberTraverse : Traverse
         }
         return a;
     }
-
-
-
-
-    private bool VarMapAdd(Table map, Var varVar)
-    {
-        TableEntry o;
-
-
-        o = new TableEntry();
-
-
-        o.Init();
-
-
-        o.Index = varVar.Name;
-
-
-        o.Value = varVar;
-
-
-
-
-        map.Add(o);
-
-
-
-        return true;
-    }
-
-
-
-
-
-
-
 
     protected virtual bool MemberNameDefined(string name)
     {
