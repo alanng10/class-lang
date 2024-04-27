@@ -1,10 +1,5 @@
 namespace Class.Module;
 
-
-
-
-
-
 public class Create : InfraCreate
 {
     public override bool Init()
@@ -13,13 +8,7 @@ public class Create : InfraCreate
         this.ListInfra = ListInfra.This;
         this.TextInfra = TextInfra.This;
 
-
-
         this.ErrorKind = this.CreateErrorKindList();
-
-
-
-
         this.Access = this.CreateAccessList();
 
 
