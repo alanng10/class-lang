@@ -677,58 +677,13 @@ public class Gen : Any
 
     protected virtual bool SetEntry()
     {
-        if (this.Module.Ref.Name.StartsWith("System."))
+        if (!(this.Module.Ref.Name == "Class.Console"))
         {
             return true;
         }
-
-        ClassClass f;
-        f = this.ClassGet("System.Entry", "Entry");
         
-        Iter iter;
-        iter = this.Module.Class.IterCreate();
-        this.Module.Class.IterSet(iter);
-
-        bool b;
-        b = false;
-        while (!b & iter.Next())
-        {
-            ClassClass a;
-            a = (ClassClass)iter.Value;
-
-            if (this.IsClass(a, f))
-            {
-                this.Module.Entry = a;
-                b = true;
-            }
-        }
+        this.Module.Entry = this.ModuleClassGet(this.Module, "Entry");
         return true;
-    }
-
-    protected virtual bool IsClass(ClassClass varClass, ClassClass requiredClass)
-    {
-        ClassClass anyClass;
-        anyClass = this.AnyClass;
-
-        ClassClass a;
-        a = varClass.Base;
-
-        while (!(a == null))
-        {
-            if (a == requiredClass)
-            {
-                return true;
-            }
-
-            ClassClass d;
-            d = null;
-            if (!(a == anyClass))
-            {
-                d = a.Base;
-            }
-            a = d;
-        }
-        return false;
     }
 
     protected virtual bool ConsoleWrite()
