@@ -16,7 +16,7 @@ public class Console : Any
         this.ErrorWrite = true;
 
         this.BinaryRead = this.CreateBinaryRead();
-        this.ModuleCreateBinary = this.CreateModuleCreateBinary();
+        this.ModuleLoad = this.CreateModuleLoad();
 
         this.ErrorString = new ErrorString();
         this.ErrorString.Class = this;
@@ -27,8 +27,8 @@ public class Console : Any
         this.ModuleTable = this.ClassInfra.TableCreateModuleRefCompare();
         this.BinaryTable = this.ClassInfra.TableCreateModuleRefCompare();
 
-        this.ModuleCreateBinary.ModuleTable = this.ModuleTable;
-        this.ModuleCreateBinary.BinaryTable = this.BinaryTable;
+        this.ModuleLoad.ModuleTable = this.ModuleTable;
+        this.ModuleLoad.BinaryTable = this.BinaryTable;
 
         this.InitSystem();
 
@@ -78,7 +78,7 @@ public class Console : Any
     protected virtual Table ModuleTable { get; set; }
     protected virtual Table BinaryTable { get; set; }
     protected virtual BinaryRead BinaryRead { get; set; }
-    protected virtual ModuleLoad ModuleCreateBinary { get; set; }
+    protected virtual ModuleLoad ModuleLoad { get; set; }
 
     protected virtual bool InitSystem()
     {
@@ -163,13 +163,13 @@ public class Console : Any
             ModuleRef moduleRef;
             moduleRef = (ModuleRef)iter.Index;
 
-            this.ModuleCreateBinary.ModuleRef = moduleRef;
-            this.ModuleCreateBinary.Execute();
+            this.ModuleLoad.ModuleRef = moduleRef;
+            this.ModuleLoad.Execute();
 
             ClassModule a;
-            a = this.ModuleCreateBinary.Module;
+            a = this.ModuleLoad.Module;
 
-            this.ModuleCreateBinary.Module = null;
+            this.ModuleLoad.Module = null;
 
             this.ListInfra.TableAdd(this.ModuleTable, a.Ref, a);
         }
@@ -184,7 +184,7 @@ public class Console : Any
         return a;
     }
 
-    protected virtual ModuleLoad CreateModuleCreateBinary()
+    protected virtual ModuleLoad CreateModuleLoad()
     {
         ModuleLoad a;
         a = new ModuleLoad();
