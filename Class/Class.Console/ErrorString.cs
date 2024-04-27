@@ -206,7 +206,7 @@ class ErrorString : Any
 
     private string SourceString(Error error)
     {
-        SourceItem a;
+        Source a;
 
 
         a = error.Source;

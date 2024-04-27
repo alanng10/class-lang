@@ -960,10 +960,10 @@ public class Console : Any
 
 
 
-            SourceItem item;
+            Source item;
 
 
-            item = new SourceItem();
+            item = new Source();
 
 
             item.Init();
@@ -1006,10 +1006,10 @@ public class Console : Any
         
         while (i < count)
         {
-            SourceItem item;
+            Source item;
 
 
-            item = (SourceItem)this.Source.Get(i);
+            item = (Source)this.Source.Get(i);
 
 
 
