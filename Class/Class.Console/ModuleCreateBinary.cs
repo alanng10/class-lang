@@ -148,7 +148,7 @@ public class ModuleCreateBinary : Any
 
             if (importTable.Contain(moduleRef))
             {
-                global::System.Console.Error.Write("Class.Console:ModuleCreate.SetImportList import module ref duplicate\n");
+                global::System.Console.Error.Write("Class.Console:ModuleCreateBinary.SetImportList import module ref duplicate\n");
                 global::System.Environment.Exit(120);
             }
 
@@ -184,7 +184,7 @@ public class ModuleCreateBinary : Any
 
                 if (classTable.Contain(className))
                 {
-                    global::System.Console.Error.Write("Class.Console:ModuleCreate.SetImportList import class name duplicate\n");
+                    global::System.Console.Error.Write("Class.Console:ModuleCreateBinary.SetImportList import class name duplicate\n");
                     global::System.Environment.Exit(121);
                 }
 
@@ -552,7 +552,7 @@ public class ModuleCreateBinary : Any
 
         if (a == null)
         {
-            global::System.Console.Error.Write("Class.Console:ModuleCreate.ClassGetIndex class none, index: " + index + "\n");
+            global::System.Console.Error.Write("Class.Console:ModuleCreateBinary.ClassGetIndex class none, index: " + index + "\n");
             global::System.Environment.Exit(125);
         }
         return a;
@@ -564,7 +564,7 @@ public class ModuleCreateBinary : Any
         a = (ClassModule)this.ModuleTable.Get(moduleRef);
         if (a == null)
         {
-            global::System.Console.Error.Write("Class.Console:ModuleCreate.ModuleGet module not found, module: " + moduleRef.Name + "\n");
+            global::System.Console.Error.Write("Class.Console:ModuleCreateBinary.ModuleGet module not found, module: " + moduleRef.Name + "\n");
             global::System.Environment.Exit(122);
         }
         return a;
@@ -576,7 +576,7 @@ public class ModuleCreateBinary : Any
         a = (ClassClass)module.Class.Get(className);
         if (a == null)
         {
-            global::System.Console.Error.Write("Class.Console:ModuleCreate.ModuleClassGet module class not found, class: " + className + ", module: " + module.Ref.Name + "\n");
+            global::System.Console.Error.Write("Class.Console:ModuleCreateBinary.ModuleClassGet module class not found, class: " + className + ", module: " + module.Ref.Name + "\n");
             global::System.Environment.Exit(123);
         }
         return a;
