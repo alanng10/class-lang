@@ -35,12 +35,6 @@ public class Create : Any
 
 
 
-    public virtual ModuleCreate Module { get; set; }
-
-
-
-
-
     public override bool Init()
     {
         base.Init();
@@ -66,17 +60,6 @@ public class Create : Any
 
 
         this.Refer = this.CreateRefer();
-
-
-
-
-
-
-
-        this.Module = this.CreateModule();
-
-
-
 
 
         return true;
@@ -161,37 +144,6 @@ public class Create : Any
 
 
 
-    protected virtual ModuleCreate CreateModule()
-    {
-        ModuleCreate create;
-
-
-
-
-        create = new ModuleCreate();
-
-
-
-
-        create.Init();
-
-
-
-
-
-        ModuleCreate ret;
-
-
-        ret = create;
-
-
-
-        return ret;
-    }
-
-
-
-
 
 
     public virtual bool Execute()
@@ -224,8 +176,7 @@ public class Create : Any
         
 
 
-        if (kind == kindList.Module |
-            kind == kindList.Refer |
+        if (kind == kindList.Refer |
             kind == kindList.Node |
             kind == kindList.Token
         )
@@ -236,8 +187,7 @@ public class Create : Any
 
 
 
-        if (kind == kindList.Module |
-            kind == kindList.Refer |
+        if (kind == kindList.Refer |
             kind == kindList.Node
         )
         {
@@ -247,22 +197,10 @@ public class Create : Any
         
 
 
-        if (kind == kindList.Module |
-            kind == kindList.Refer
-        )
+        if (kind == kindList.Refer)
         {
             this.ExecuteRefer();
         }
-
-
-
-
-        if (kind == kindList.Module)
-        {
-            this.ExecuteModule();
-        }
-
-
 
         return true;
     }
@@ -338,15 +276,6 @@ public class Create : Any
 
 
 
-        return true;
-    }
-
-
-
-
-
-    public virtual bool ExecuteModule()
-    {
         return true;
     }
 }
