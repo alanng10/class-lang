@@ -323,7 +323,7 @@ public class ReferString : Any
 
 
 
-    protected virtual bool AppendField(CheckField field)
+    protected virtual bool AppendField(Field field)
     {
         if (this.Null(field))
         {
@@ -368,7 +368,7 @@ public class ReferString : Any
 
 
 
-    protected virtual bool AppendMethod(CheckMaide method)
+    protected virtual bool AppendMethod(Maide method)
     {
         if (this.Null(method))
         {
@@ -413,7 +413,7 @@ public class ReferString : Any
 
 
 
-    protected virtual bool AppendVar(CheckVar varVar)
+    protected virtual bool AppendVar(Var varVar)
     {
         if (this.Null(varVar))
         {
