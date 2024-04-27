@@ -18,7 +18,7 @@ public class ReferString : Any
 
 
 
-    public virtual ReferResult CheckResult { get; set; }
+    public virtual ModuleResult CheckResult { get; set; }
 
 
 
@@ -65,7 +65,7 @@ public class ReferString : Any
 
 
 
-        this.Check = (ReferInfo)this.CheckResult.Check.Get(this.Node);
+        this.Check = (ModuleInfo)this.CheckResult.Check.Get(this.Node);
 
 
 
@@ -158,7 +158,7 @@ public class ReferString : Any
 
 
 
-    protected virtual ReferInfo Check { get; set; }
+    protected virtual ModuleInfo Check { get; set; }
 
 
 
