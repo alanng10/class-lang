@@ -26,6 +26,7 @@ public class Create : InfraCreate
     protected virtual ListInfra ListInfra { get; set; }
     protected virtual TextInfra TextInfra { get; set; }
     protected virtual List ErrorList { get; set; }
+    protected virtual Table BaseTable { get; set; }
 
     public override bool Execute()
     {
@@ -69,7 +70,7 @@ public class Create : InfraCreate
     {
         Traverse traverse;
         traverse = this.InitTraverse();
-        this.Traverse(traverse);
+        this.ExecuteTraverse(traverse);
         return true;
     }
 
@@ -82,95 +83,31 @@ public class Create : InfraCreate
         return a;
     }
 
-
-
-
-
-
-
-
-
-
-    private bool ExecuteClass()
+    protected virtual bool ExecuteClass()
     {
         Traverse traverse;
-
-
-
-
         traverse = this.ClassTraverse();
-
-
-
-
-        this.Traverse(traverse);
-
-
-
-
-
+        this.ExecuteTraverse(traverse);
         return true;
     }
-
-
-
-
-
-
-    protected virtual bool ExecuteBase()
-    {
-        this.SetBaseTable();
-
-
-
-
-        
-        this.AddBases();
-
-
-
-
-
-        return true;
-    }
-
-
-
-
 
     protected virtual Traverse ClassTraverse()
     {
         ClassTraverse traverse;
-
-
-
         traverse = new ClassTraverse();
-
-
-
         traverse.Create = this;
-
-
-
         traverse.Init();
-
-
-
         return traverse;
     }
 
+    protected virtual bool ExecuteBase()
+    {
+        this.SetBaseTable();
+        
+        this.AddBases();
 
-
-
-
-
-
-
-    private Table BaseTable { get; set; }
-
-
-
-
+        return true;
+    }
 
     private bool SetBaseTable()
     {
@@ -672,190 +609,68 @@ public class Create : InfraCreate
     protected virtual bool ExecuteMember()
     {
         Traverse traverse;
-
-
-
-
         traverse = this.MemberTraverse();
-
-
-
-
-        this.Traverse(traverse);
-
-
-
-
+        this.ExecuteTraverse(traverse);
         return true;
     }
-
-
-
-
 
     protected virtual Traverse MemberTraverse()
     {
         MemberTraverse traverse;
-
-
-
-
         traverse = new MemberTraverse();
-
-
-
-
         traverse.Create = this;
-
-
-
-
         traverse.Init();
-
-
-
-
-
         return traverse;
     }
 
-
-
-
-
-
-
-    private bool ExecuteState()
+    protected virtual bool ExecuteState()
     {
         Traverse traverse;
-
-
-
         traverse = this.StateTraverse();
-
-
-
-
-        this.Traverse(traverse);
-
-
-
-
+        this.ExecuteTraverse(traverse);
         return true;
     }
-
-
-
-
-
 
     protected virtual Traverse StateTraverse()
     {
         StateTraverse traverse;
-
-
         traverse = new StateTraverse();
-
-
-
         traverse.Create = this;
-
-
-
         traverse.Init();
-
-
-
         return traverse;
     }
 
-
-
-
-
-    private bool Traverse(Traverse traverse)
+    protected virtual bool ExecuteTraverse(Traverse traverse)
     {
-        Iter rootIter;
-
-        rootIter = this.RootNode.IterCreate();
-
-
-        this.RootNode.IterSet(rootIter);
-
-
-
-
-        Iter sourceItemIter;
-
-        sourceItemIter = this.Source.IterCreate();
-
-
-
-        this.Source.IterSet(sourceItemIter);
-
-
-
-
-        
-        while (rootIter.Next() & sourceItemIter.Next())
+        int count;
+        count = this.Source.Count;
+        int i;
+        i = 0;
+        while (i < count)
         {
             NodeNode root;
+            root = (NodeNode)this.RootNode.Get(i);
 
-
-            root = (NodeNode)rootIter.Value;
-
-
-
-
-            Source sourceItem;
-
-
-            sourceItem = (Source)sourceItemIter.Value;
-
-
-
-
+            Source source;
+            source = (Source)this.Source.Get(i);
             
-            this.TreeTraverse(traverse, root, sourceItem);
+            this.TreeTraverse(traverse, root, source);
         }
-
-
-
-
         return true;
     }
 
-
-
-
-
-    private bool TreeTraverse(Traverse traverse, NodeNode root, Source sourceItem)
+    protected virtual bool TreeTraverse(Traverse traverse, NodeNode root, Source source)
     {
         if (root == null)
         {
             return true;
         }
 
-
-
-
         NodeClass nodeClass;
-
-
-
         nodeClass = (NodeClass)root;
 
-
-
-        traverse.SourceItem = sourceItem;
-
-
-
+        traverse.SourceItem = source;
         traverse.ExecuteClass(nodeClass);
-
-
-
-
         return true;
     }
 }
