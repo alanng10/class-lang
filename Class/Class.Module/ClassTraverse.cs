@@ -115,7 +115,7 @@ class ClassTraverse : Traverse
 
 
 
-        varClass.Index = this.SourceItem.Index;
+        varClass.Index = this.Source.Index;
 
 
 

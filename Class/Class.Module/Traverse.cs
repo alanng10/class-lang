@@ -57,7 +57,7 @@ public class Traverse : NodeTraverse
 
 
 
-    public virtual Source SourceItem { get; set; }
+    public virtual Source Source { get; set; }
 
 
 
@@ -160,7 +160,7 @@ public class Traverse : NodeTraverse
 
     protected virtual bool Error(ErrorKind kind, NodeNode node)
     {
-        this.Create.Error(kind, node, this.SourceItem);
+        this.Create.Error(kind, node, this.Source);
 
 
 

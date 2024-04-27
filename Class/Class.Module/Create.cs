@@ -669,7 +669,7 @@ public class Create : InfraCreate
         NodeClass nodeClass;
         nodeClass = (NodeClass)root;
 
-        traverse.SourceItem = source;
+        traverse.Source = source;
         traverse.ExecuteClass(nodeClass);
         return true;
     }
