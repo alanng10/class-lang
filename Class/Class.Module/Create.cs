@@ -23,6 +23,7 @@ public class Create : InfraCreate
     public virtual Array RootNode { get; set; }
     public virtual ClassModule Module { get; set; }
     public virtual Table ModuleTable { get; set; }
+    public virtual Table ClassTable { get; set; }
     public virtual Result Result { get; set; }
     public virtual SystemClass SystemClass { get; set; }
     public virtual ErrorKindList ErrorKind { get; set; }
@@ -368,7 +369,7 @@ public class Create : InfraCreate
     public virtual ClassClass Class(string name)
     {
         ClassClass a;
-        a = (ClassClass)this.Module.Class.Get(name);
+        a = (ClassClass)this.ClassTable.Get(name);
         return a;
     }
 
