@@ -11,19 +11,8 @@ public class Create : InfraCreate
         this.ErrorKind = this.CreateErrorKindList();
         this.Access = this.CreateAccessList();
 
-
-
-
-
         this.SystemClass = new SystemClass();
-
-
-
         this.SystemClass.Init();
-
-
-
-
         return true;
     }
 
@@ -48,12 +37,6 @@ public class Create : InfraCreate
 
 
     public virtual Table SystemModule { get; set; }
-
-
-
-
-    public virtual Table Check { get; set; }
-
 
 
     public virtual ClassModule Module { get; set; }
@@ -131,32 +114,7 @@ public class Create : InfraCreate
     private bool ExecuteInit()
     {
         this.Result = new Result();
-
-
         this.Result.Init();
-
-
-
-
-
-        RefCompare compare;
-
-        compare = new RefCompare();
-
-        compare.Init();
-
-
-
-        this.Check = new Table();
-
-        this.Check.Compare = compare;
-
-        this.Check.Init();
-
-
-
-
-        this.Check.Init();
 
 
 
@@ -173,12 +131,6 @@ public class Create : InfraCreate
 
 
         this.ErrorList = error;
-
-
-
-
-
-        this.Result.Check = this.Check;
 
 
 
@@ -261,27 +213,12 @@ public class Create : InfraCreate
 
 
 
-    public virtual Info CreateCheck()
+    public virtual Info CreateInfo()
     {
-        Info check;
-
-
-
-        check = new Info();
-
-
-
-        check.Init();
-
-
-
-
-        Info ret;
-
-        ret = check;
-
-
-        return ret;
+        Info a;
+        a = new Info();
+        a.Init();
+        return a;
     }
 
 
