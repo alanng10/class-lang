@@ -9,7 +9,7 @@ public class Create : InfraCreate
         this.TextInfra = TextInfra.This;
 
         this.ErrorKind = this.CreateErrorKindList();
-        this.Access = this.CreateCountList();
+        this.Count = this.CreateCountList();
 
         this.SystemClass = new SystemClass();
         this.SystemClass.Init();
@@ -61,7 +61,7 @@ public class Create : InfraCreate
 
 
 
-    public virtual CountList Access { get; set; }
+    public virtual CountList Count { get; set; }
 
 
 
@@ -524,7 +524,7 @@ public class Create : InfraCreate
         Maide method;
 
 
-        method = this.CreateMethod(this.SystemClass.Bool, name, this.Access.Prudate);
+        method = this.CreateMethod(this.SystemClass.Bool, name, this.Count.Prudate);
 
 
         method.Parent = this.SystemClass.Any;

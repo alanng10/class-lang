@@ -22,7 +22,7 @@ public class Traverse : NodeTraverse
 
 
 
-        this.Count = this.Create.Access;
+        this.Count = this.Create.Count;
 
 
 
