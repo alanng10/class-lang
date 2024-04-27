@@ -15,7 +15,6 @@ global using TextInfra = Avalon.Text.Infra;
 global using InfraCreate = Class.Infra.Create;
 global using Source = Class.Infra.Source;
 global using SourceItem = Class.Infra.SourceItem;
-global using ClassRefer = Class.Infra.Refer;
 global using Stack = Class.Infra.Stack;
 global using InfraClass = Class.Infra.Class;
 global using Field = Class.Infra.Field;

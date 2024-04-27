@@ -68,7 +68,7 @@ public class Create : InfraCreate
 
 
 
-    public virtual ClassRefer Refer { get; set; }
+    public virtual Refer Refer { get; set; }
 
 
 
@@ -180,7 +180,7 @@ public class Create : InfraCreate
 
 
 
-        this.Refer = new ClassRefer();
+        this.Refer = new Refer();
 
 
 
@@ -1191,7 +1191,7 @@ public class Create : InfraCreate
 
 
         
-        varClass = (InfraClass)this.Refer.Class.Get(name);
+        varClass = (InfraClass)this.Refer.Module.Class.Get(name);
 
 
 
