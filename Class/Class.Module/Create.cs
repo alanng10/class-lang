@@ -170,11 +170,19 @@ public class Create : InfraCreate
         nodeBase = nodeClass.Base;
 
         string baseName;
-        baseName = nodeBase.Value;
+        baseName = null;
+        if (!(nodeBase == null))
+        {
+            baseName = nodeBase.Value;
+        }
 
         ClassClass varBase;
-        varBase = this.Class(baseName);
-        
+        varBase = null;
+        if (!(baseName == null))
+        {
+            varBase = this.Class(baseName);
+        }
+
         bool b;
         b = false;
 
@@ -219,43 +227,28 @@ public class Create : InfraCreate
         return true;
     }
 
-
-
-
-
-
-
-    private bool AddBaseList()
+    protected virtual bool AddBaseList()
     {
         Iter iter;
-
         iter = this.BaseTable.IterCreate();
-
-
         this.BaseTable.IterSet(iter);
-
-
 
         while (iter.Next())
         {
             ClassClass varClass;
-
-
             varClass = (ClassClass)iter.Index;
 
-
-
-
             bool b;
-
-
             b = this.CheckClassDependency(varClass);
 
 
 
             if (!b)
             {
-                this.Error(this.ErrorKind.BaseUndefined, null, this.SourceGet(varClass.Index));
+                NodeClass nodeClass;
+                nodeClass = (NodeClass)varClass.Any;
+
+                this.Error(this.ErrorKind.BaseUndefined, nodeClass, this.SourceGet(varClass.Index));
             }
 
 
