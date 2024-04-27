@@ -49,7 +49,7 @@ class ClassTraverse : Traverse
 
 
 
-        map = this.Create.Refer.Class;
+        map = this.Create.Refer.Module.Class;
 
 
 
@@ -72,11 +72,11 @@ class ClassTraverse : Traverse
 
 
 
-        InfraClass varClass;
+        ClassClass varClass;
 
 
 
-        varClass = new InfraClass();
+        varClass = new ClassClass();
 
 
 
