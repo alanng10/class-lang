@@ -99,7 +99,7 @@ public class Gen : Any
         this.ExecuteTypeModule(typeof(Port));
         this.ExecuteTypeModule(typeof(Token));
         this.ExecuteTypeModule(typeof(Node));
-        this.ExecuteTypeModule(typeof(Check));
+        this.ExecuteTypeModule(typeof(ReferInfo));
         this.ExecuteTypeModule(typeof(ModuleResult));
         this.ExecuteTypeModule(typeof(Task));
 
