@@ -3,7 +3,7 @@ namespace Class.Console;
 
 
 
-public class CheckString : Any
+public class ReferString : Any
 {
     public override bool Init()
     {
@@ -18,7 +18,7 @@ public class CheckString : Any
 
 
 
-    public virtual CheckResult CheckResult { get; set; }
+    public virtual ReferResult CheckResult { get; set; }
 
 
 
@@ -65,7 +65,7 @@ public class CheckString : Any
 
 
 
-        this.Check = (CheckCheck)this.CheckResult.Check.Get(this.Node);
+        this.Check = (ReferCheck)this.CheckResult.Check.Get(this.Node);
 
 
 
@@ -158,7 +158,7 @@ public class CheckString : Any
 
 
 
-    protected virtual CheckCheck Check { get; set; }
+    protected virtual ReferCheck Check { get; set; }
 
 
 
