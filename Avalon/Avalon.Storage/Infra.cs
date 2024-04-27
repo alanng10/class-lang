@@ -55,8 +55,8 @@ public class Infra : Any
             data = new Data();
             data.Count = count;
             data.Init();
-            Range range;
-            range = new Range();
+            DataRange range;
+            range = new DataRange();
             range.Init();
             range.Index = 0;
             range.Count = count;
@@ -74,14 +74,14 @@ public class Infra : Any
 
     public virtual bool DataWrite(string filePath, Data data)
     {
-        Range range;
-        range = new Range();
+        DataRange range;
+        range = new DataRange();
         range.Init();
         range.Count = data.Count;
         return this.DataWriteRange(filePath, data, range);
     }
 
-    public virtual bool DataWriteRange(string filePath, Data data, Range range)
+    public virtual bool DataWriteRange(string filePath, Data data, DataRange range)
     {
         Storage storage;
         storage = new Storage();
@@ -131,8 +131,8 @@ public class Infra : Any
 
         TextText text;
         text = this.TextInfra.TextCreate(ka);
-        Range range;
-        range = new Range();
+        DataRange range;
+        range = new DataRange();
         range.Init();
         range.Count = data.Count;
         int kb;
@@ -157,8 +157,12 @@ public class Infra : Any
         encode.Kind = this.TextEncodeKindList.Utf8;
         encode.Init();
 
+        Range ua;
+        ua = new Range();
+        ua.Init();
+        ua.Count = text.Length;
         TextText o;
-        o = this.TextInfra.TextCreateString(text);
+        o = this.TextInfra.TextCreateString(text, ua);
         int kk;
         kk = o.Range.Count;
         long ka;
@@ -176,8 +180,8 @@ public class Infra : Any
 
         long count;
         count = kb;
-        Range range;
-        range = new Range();
+        DataRange range;
+        range = new DataRange();
         range.Init();
         range.Count = count;
         bool a;
