@@ -6,13 +6,11 @@ public class ClassTraverse : Traverse
     {
         base.Init();
         this.ListInfra = ListInfra.This;
-        this.TextInfra = TextInfra.This;
         this.ClassInfra = ClassInfra.This;
         return true;
     }
 
     protected virtual ListInfra ListInfra { get; set; }
-    protected virtual TextInfra TextInfra { get; set; }
     protected virtual ClassInfra ClassInfra { get; set; }
 
     public override bool ExecuteClass(NodeClass nodeClass)
