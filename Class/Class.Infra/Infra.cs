@@ -142,15 +142,18 @@ public class Infra : Any
         TextInfra textInfra;
         textInfra = this.TextInfra;
 
+        char newLine;
+        newLine = this.NewLine[0];
+
         int count;
         count = 0;
 
         int oo;
-        oo = o.IndexOf('\n', 0);
+        oo = o.IndexOf(newLine, 0);
         while (!(oo < 0))
         {
             count = count + 1;
-            oo = o.IndexOf('\n', oo + 1);
+            oo = o.IndexOf(newLine, oo + 1);
         }
 
         Array text;
@@ -165,7 +168,7 @@ public class Infra : Any
         int index;
         index = 0;
 
-        oo = o.IndexOf('\n', index);
+        oo = o.IndexOf(newLine, index);
         int i;
         i = 0;
         while (i < count)
@@ -182,7 +185,7 @@ public class Infra : Any
 
             index = oo + 1;
 
-            oo = o.IndexOf('\n', index);
+            oo = o.IndexOf(newLine, index);
 
             i = i + 1;
         }
