@@ -444,58 +444,19 @@ public class Create : InfraCreate
         return (Source)this.Source.Get(index);
     }
 
-
-
-
-    public virtual bool Error(ErrorKind kind, NodeNode node, Source sourceItem)
+    public virtual bool Error(ErrorKind kind, NodeNode node, Source source)
     {
-        Error error;
+        Error a;
+        a = new Error();
+        a.Init();
+        a.Stage = this.Stage;
+        a.Kind = kind;
+        a.Range = node.Range;
+        a.Source = source;
 
-
-
-
-        error = new Error();
-
-
-
-        
-        error.Init();
-
-
-
-
-        error.Stage = this.Stage;
-
-
-
-
-        error.Kind = kind;
-
-
-
-
-        error.Range = node.Range;
-
-
-
-
-        error.Source = sourceItem;
-
-
-
-
-        this.ErrorList.Add(error);
-
-
-
-
+        this.ErrorList.Add(a);
         return true;
     }
-
-
-
-
-
 
     public virtual ClassClass Class(string name)
     {
@@ -503,10 +464,6 @@ public class Create : InfraCreate
         a = (ClassClass)this.Module.Class.Get(name);
         return a;
     }
-
-
-
-
 
     protected virtual bool ExecuteMember()
     {
