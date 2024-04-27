@@ -193,13 +193,27 @@ public class Infra : Any
 
     public virtual Data DataCreateString(string a, Range range)
     {
-        if (!this.CheckRange(a.Length, range))
-        {
-            return null;
-        }
-
+        int start;
         int count;
-        count = range.Count;
+        start = 0;
+        count = 0;
+        
+        bool b;
+        b = (range == null);
+        if (b)
+        {
+            start = 0;
+            count = a.Length;
+        }
+        if (!b)
+        {
+            if (!this.CheckRange(a.Length, range))
+            {
+                return null;
+            }
+            start = range.Index;
+            count = range.Count;
+        }
 
         int oa;
         oa = sizeof(char);
@@ -208,9 +222,6 @@ public class Infra : Any
         data = new Data();
         data.Count = count * oa;
         data.Init();
-
-        int start;
-        start = range.Index;
 
         int i;
         i = 0;
