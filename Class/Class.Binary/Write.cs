@@ -60,7 +60,7 @@ public class Write : Any
         this.ExecuteImportArray(binary.Import);
         this.ExecuteBaseArray(binary.Base);
         this.ExecutePartArray(binary.Part);
-        this.ExecuteEntry(binary.Entry);
+        this.ExecuteIndex(binary.Entry);
         return true;
     }
 
@@ -240,12 +240,6 @@ public class Write : Any
         this.ExecuteIndex(varVar.Class);
         this.ExecuteSystemInfo(varVar.SystemInfo);
         this.ExecuteName(varVar.Name);
-        return true;
-    }
-
-    protected virtual bool ExecuteEntry(ClassIndex classIndex)
-    {
-        this.ExecuteClassIndex(classIndex);
         return true;
     }
 

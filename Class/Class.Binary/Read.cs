@@ -423,12 +423,14 @@ public class Read : Any
             return null;
         }
 
-        ClassIndex entry;
-        entry = this.ExecuteEntry();
-        if (entry == null)
+        long u;
+        u = this.ExecuteInt();
+        if (u == -1)
         {
             return null;
         }
+        int entry;
+        entry = (int)u;
 
         Binary a;
         a = this.Operate.ExecuteBinary();
@@ -896,23 +898,6 @@ public class Read : Any
             i = i + 1;
         }
         return array;
-    }
-
-    protected virtual ClassIndex ExecuteEntry()
-    {
-        long u;
-        u = this.ExecuteInt();
-        if (u == -1)
-        {
-            return null;
-        }
-
-        int value;
-        value = (int)u;
-        ClassIndex a;
-        a = this.Operate.ExecuteClassIndex();
-        a.Value = value;
-        return a;
     }
 
     protected virtual ClassIndex ExecuteClassIndex()
