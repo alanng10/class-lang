@@ -1,8 +1,5 @@
 namespace Class.Module;
 
-
-
-
 public class InitTraverse : Traverse
 {
     protected override bool ExecuteNode(NodeNode node)
