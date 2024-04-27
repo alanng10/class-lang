@@ -3,7 +3,7 @@ namespace Class.Console;
 
 
 
-public class ReferString : Any
+public class ModuleString : Any
 {
     public override bool Init()
     {

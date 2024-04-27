@@ -591,7 +591,7 @@ public class Console : Any
 
     private bool PrintCheckResult()
     {
-        ReferString checkString;
+        ModuleString checkString;
 
 
 
@@ -782,23 +782,11 @@ public class Console : Any
 
 
 
-    protected virtual ReferString CreateCheckString()
+    protected virtual ModuleString CreateCheckString()
     {
-        ReferString a;
-        
-        
-        
-        
-        a = new ReferString();
-
-
-
-
+        ModuleString a;
+        a = new ModuleString();
         a.Init();
-
-
-
-
         return a;
     }
 
