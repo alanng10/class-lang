@@ -1,20 +1,19 @@
 namespace Class.Module;
 
-
-
-
-
 class ClassTraverse : Traverse
 {
     public override bool Init()
     {
         base.Init();
+        this.ListInfra = ListInfra.This;
         this.TextInfra = TextInfra.This;
+        this.ClassInfra = ClassInfra.This;
         return true;
     }
 
-
+    protected virtual ListInfra ListInfra { get; set; }
     protected virtual TextInfra TextInfra { get; set; }
+    protected virtual ClassInfra ClassInfra { get; set; }
 
     public override bool ExecuteClass(NodeClass nodeClass)
     {
@@ -23,140 +22,44 @@ class ClassTraverse : Traverse
             return true;
         }
         
-
-
-
         ClassName name;
-            
-
         name = nodeClass.Name;
 
-
-
-
         string className;
-
-
-        className = name.Value;
-
-
-
-
-
-
-
-        Table map;
-
-
-
-        map = this.Create.Module.Class;
-
-
-
-
-        
-        if (!(map.Get(className) == null))
+        className = null;
+        if (!(name == null))
         {
-            this.Error(this.ErrorKind.NameUnavailable, nodeClass);
-
-
+            className = name.Value;
+        }
+        
+        if (className == null)
+        {
             return true;
         }
 
+        Table table;
+        table = this.Create.Module.Class;
 
+        if (table.Contain(className))
+        {
+            this.Error(this.ErrorKind.NameUnavailable, nodeClass);
+            return true;
+        }
 
+        ClassClass a;
+        a = new ClassClass();
+        a.Init();
+        a.Name = className;
+        a.Base = null;
+        a.Field = this.ClassInfra.TableCreateStringCompare();
+        a.Maide = this.ClassInfra.TableCreateStringCompare();
+        a.Module = this.Create.Module;
+        a.Index = this.Source.Index;
 
-
-
-
-
-
-
-        ClassClass varClass;
-
-
-
-        varClass = new ClassClass();
-
-
-
-        varClass.Name = className;
-
-
-
-        varClass.Base = null;
-
-
-
-        varClass.Field = new Table();
-
-        varClass.Field.Compare = new StringCompare();
-
-        varClass.Field.Compare.Init();
-
-
-        varClass.Field.Init();
-
-
-
-        varClass.Maide = new Table();
-
-        varClass.Maide.Compare = new StringCompare();
-
-        varClass.Maide.Compare.Init();
-
-
-
-        varClass.Maide.Init();
-
-
-
-        varClass.Module = null;
-
-
-
-        varClass.Index = this.Source.Index;
-
-
-
-
-
-
-
-        TableEntry kk;
-
-
-        kk = new TableEntry();
-
-
-        kk.Init();
-
-
-        kk.Index = className;
-
-
-        kk.Value = varClass;
-
-
-
-        map.Add(kk);
-
-
-
-
-
-
-        this.Create.Module.Class.Set(varClass.Index, varClass);
         
+        this.ListInfra.TableAdd(table, a.Name, a);
 
-
-
-
-        this.Info(nodeClass).Class = varClass;
-
-
-
-
+        this.Info(nodeClass).Class = a;
         return true;
     }
 }
