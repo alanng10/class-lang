@@ -261,13 +261,6 @@ public class Create : Any
         this.Module.Source = this.Source;
 
 
-
-        this.Module.TaskModule = this.Class.ModuleName;
-
-
-
-
-
         this.Module.Execute();
 
 
