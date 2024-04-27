@@ -47,7 +47,6 @@ global using Port = Class.Port.Port;
 global using Token = Class.Token.Token;
 global using Node = Class.Node.Node;
 global using ReferResult = Class.Refer.Result;
-global using ModuleResult = Class.Module.Result;
 global using Task = Class.Console.Task;
 global using ZString = Z.Infra.Class.String;
 global using ZModuleInfo = Z.Infra.Class.ModuleInfo;

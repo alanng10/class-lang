@@ -100,7 +100,6 @@ public class Gen : Any
         this.ExecuteTypeModule(typeof(Token));
         this.ExecuteTypeModule(typeof(Node));
         this.ExecuteTypeModule(typeof(ReferResult));
-        this.ExecuteTypeModule(typeof(ModuleResult));
         this.ExecuteTypeModule(typeof(Task));
 
         Module module;
