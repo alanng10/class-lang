@@ -1,4 +1,4 @@
-namespace Class.Refer;
+namespace Class.Module;
 
 public class ErrorKindList : Any
 {
