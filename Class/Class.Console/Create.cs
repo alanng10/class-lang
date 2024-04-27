@@ -65,7 +65,7 @@ public class Create : Any
 
 
 
-        this.Refer = this.CreateCheck();
+        this.Refer = this.CreateRefer();
 
 
 
@@ -149,7 +149,7 @@ public class Create : Any
 
 
 
-    protected virtual ReferCreate CreateCheck()
+    protected virtual ReferCreate CreateRefer()
     {
         ReferCreate a;
         a = new ReferCreate();
