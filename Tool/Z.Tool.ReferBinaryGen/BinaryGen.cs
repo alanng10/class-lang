@@ -317,7 +317,7 @@ class BinaryGen : Any
             a = new BinaryMaide();
             a.Init();
             a.Class = this.ClassIndexGet(oa.Class);
-            a.SystemClass = oe.SystemClass;
+            a.SystemInfo = oe.SystemClass;
             a.Count = oa.Count.Index;
             a.Virtual = of;
             a.Name = oa.Name;

@@ -210,7 +210,7 @@ public class Write : Any
     protected virtual bool ExecuteMaide(Maide maide)
     {
         this.ExecuteIndex(maide.Class);
-        this.ExecuteSystemClass(maide.SystemClass);
+        this.ExecuteSystemClass(maide.SystemInfo);
         this.ExecuteByte(maide.Count);
         this.ExecuteIndex(maide.Virtual);
         this.ExecuteName(maide.Name);

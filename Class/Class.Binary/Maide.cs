@@ -4,7 +4,7 @@ public class Maide : Any
 {
     public virtual int Class { get; set; }
 
-    public virtual int SystemClass { get; set; }
+    public virtual int SystemInfo { get; set; }
 
     public virtual int Count { get; set; }
 

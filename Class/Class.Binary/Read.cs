@@ -788,7 +788,7 @@ public class Read : Any
         Maide a;
         a = this.Operate.ExecuteMaide();
         a.Class = varClass;
-        a.SystemClass = systemClass;
+        a.SystemInfo = systemClass;
         a.Count = count;
         a.Virtual = varVirtual;
         a.Name = name;
