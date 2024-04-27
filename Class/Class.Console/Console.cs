@@ -240,7 +240,7 @@ public class Console : Any
                 return 100;
             }
 
-            bool ba;                
+            bool ba;
             ba = this.ReadPort();
             if (!ba)
             {
