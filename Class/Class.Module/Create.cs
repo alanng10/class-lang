@@ -9,7 +9,7 @@ public class Create : InfraCreate
         this.TextInfra = TextInfra.This;
 
         this.ErrorKind = this.CreateErrorKindList();
-        this.Access = this.CreateAccessList();
+        this.Access = this.CreateCountList();
 
         this.SystemClass = new SystemClass();
         this.SystemClass.Init();
@@ -204,7 +204,7 @@ public class Create : InfraCreate
 
 
 
-    protected virtual CountList CreateAccessList()
+    protected virtual CountList CreateCountList()
     {
         return CountList.This;
     }
