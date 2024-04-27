@@ -288,13 +288,13 @@ public class Create : InfraCreate
 
 
 
-    public virtual Check CreateCheck()
+    public virtual Info CreateCheck()
     {
-        Check check;
+        Info check;
 
 
 
-        check = new Check();
+        check = new Info();
 
 
 
@@ -303,7 +303,7 @@ public class Create : InfraCreate
 
 
 
-        Check ret;
+        Info ret;
 
         ret = check;
 

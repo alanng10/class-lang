@@ -7,7 +7,7 @@ public class InitTraverse : Traverse
 {
     protected override bool ExecuteNode(NodeNode node)
     {
-        Check check;
+        Info check;
 
 
 

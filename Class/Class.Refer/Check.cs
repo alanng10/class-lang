@@ -3,7 +3,7 @@ namespace Class.Refer;
 
 
 
-public class Check : Any
+public class Info : Any
 {
     public virtual InfraClass Class { get; set; }
 

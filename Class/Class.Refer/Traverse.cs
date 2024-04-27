@@ -39,7 +39,7 @@ public class Traverse : NodeTraverse
 
 
 
-    protected virtual ClassRefer Refer { get; set; }
+    protected virtual Refer Refer { get; set; }
 
 
 
@@ -67,9 +67,9 @@ public class Traverse : NodeTraverse
 
 
 
-    protected virtual Check Check(NodeNode node)
+    protected virtual Info Check(NodeNode node)
     {
-        return (Check)this.Create.Check.Get(node);
+        return (Info)this.Create.Check.Get(node);
     }
 
 
