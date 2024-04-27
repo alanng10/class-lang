@@ -581,28 +581,28 @@ public class Console : Any
         return true;
     }
 
-    protected virtual bool SetSource(Array fileArray)
+    protected virtual bool SetSource(Array array)
     {
         int count;
-        count = fileArray.Count;
+        count = array.Count;
         int i;
         i = 0;
         while (i < count)
         {
-            string fileName;
-            fileName = (string)fileArray.Get(i);
+            string name;
+            name = (string)array.Get(i);
 
             Source a;
             a = new Source();
             a.Init();
             a.Index = i;
-            a.Name = fileName;
+            a.Name = name;
 
-            fileArray.Set(i, a);
+            array.Set(i, a);
             i = i + 1;
         }
 
-        this.Source = fileArray;
+        this.Source = array;
         return true;
     }
 
@@ -626,15 +626,11 @@ public class Console : Any
             Array text;
             text = this.CreateText(array);
             a.Text = text;
+
             i = i + 1;
         }
         return true;
     }
-
-
-
-
-
 
     private Array CreateText(string[] array)
     {
