@@ -584,80 +584,27 @@ public class Console : Any
         return true;
     }
 
-
-
-
-
-
-
-
-
-
-    private bool PrintTokenResult()
+    protected virtual bool PrintTokenResult()
     {
         ObjectString objectString;
-
-
-
         objectString = new ObjectString();
-
-
-
         objectString.Init();
 
-
-
-
-
-        Iter sourceItemIter;
-
-        sourceItemIter = this.Source.IterCreate();
-
-
-        this.Source.IterSet(sourceItemIter);
-
-
-
-
         Iter codeIter;
-
         codeIter = this.Result.Token.Code.IterCreate();
-
-
         this.Result.Token.Code.IterSet(codeIter);
-
-
-
-        
-        while (sourceItemIter.Next() & codeIter.Next())
+        while (codeIter.Next())
         {
             Code code;
-
-
-
             code = (Code)codeIter.Value;
-
-
-
+            
             objectString.Execute(code);
             
+            string a;
+            a = objectString.Result();
 
-
-
-            string s;
-            
-
-            s = objectString.Result();
-
-
-
-
-            this.Out.Write(s);
+            this.Out.Write(a);
         }
-
-
-
-
         return true;
     }
 
