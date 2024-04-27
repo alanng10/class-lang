@@ -317,7 +317,7 @@ public class ModuleCreateBinary : Any
             a.Index = fieldTable.Count;
             a.Name = ua.Name;
             a.Class = this.ClassGetIndex(ua.Class);
-            a.SystemClass = this.SystemClassCreate(ua.SystemClass);
+            a.SystemClass = this.SystemInfoCreate(ua.SystemClass);
             a.Count = this.CountList.Get(ua.Count);
             a.Parent = varClass;
 
@@ -349,7 +349,7 @@ public class ModuleCreateBinary : Any
             a.Index = maideTable.Count;
             a.Name = ua.Name;
             a.Class = this.ClassGetIndex(ua.Class);
-            a.SystemClass = this.SystemClassCreate(ua.SystemClass);
+            a.SystemClass = this.SystemInfoCreate(ua.SystemClass);
             a.Count = this.CountList.Get(ua.Count);
             a.Parent = varClass;
 
@@ -382,7 +382,7 @@ public class ModuleCreateBinary : Any
             a.Init();
             a.Name = ua.Name;
             a.Class = this.ClassGetIndex(ua.Class);
-            a.SystemClass = this.SystemClassCreate(ua.SystemClass);
+            a.SystemClass = this.SystemInfoCreate(ua.SystemClass);
             
             this.ListInfra.TableAdd(varTable, a.Name, a);
 
@@ -509,7 +509,7 @@ public class ModuleCreateBinary : Any
         return a;
     }
 
-    protected virtual SystemInfo SystemClassCreate(int binaryValue)
+    protected virtual SystemInfo SystemInfoCreate(int binaryValue)
     {
         if (!this.HasSystemClass)
         {
