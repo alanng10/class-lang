@@ -25,6 +25,7 @@ public class TaskKindList : Any
         this.Token = this.AddItem();
         this.Node = this.AddItem();
         this.Module = this.AddItem();
+        this.Console = this.AddItem();
         return true;
     }
 
@@ -32,6 +33,7 @@ public class TaskKindList : Any
     public virtual TaskKind Token { get; set; }
     public virtual TaskKind Node { get; set; }
     public virtual TaskKind Module { get; set; }
+    public virtual TaskKind Console { get; set; }
 
     protected virtual TaskKind AddItem()
     {
@@ -58,7 +60,7 @@ public class TaskKindList : Any
     { 
         get
         {
-            return 4;
+            return 5;
         } 
         set
         {
