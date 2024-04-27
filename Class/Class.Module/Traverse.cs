@@ -69,7 +69,7 @@ public class Traverse : NodeTraverse
 
     protected virtual Info Check(NodeNode node)
     {
-        return (Info)this.Create.Check.Get(node);
+        return (Info)node.NodeAny;
     }
 
 
