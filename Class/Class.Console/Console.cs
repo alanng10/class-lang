@@ -501,13 +501,6 @@ public class Console : Any
         return true;
     }
 
-
-
-
-
-
-
-
     protected virtual bool PrintModuleResult()
     {
         ModuleString a;
