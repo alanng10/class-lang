@@ -7,26 +7,32 @@ public class Create : InfraCreate
         base.Init();
         this.ListInfra = ListInfra.This;
         this.TextInfra = TextInfra.This;
+        this.ClassInfra = ClassInfra.This;
 
         this.ErrorKind = this.CreateErrorKindList();
         this.Count = this.CreateCountList();
 
         this.SystemClass = new SystemClass();
         this.SystemClass.Init();
+
+        this.ModuleRef = this.ClassInfra.ModuleRefCreate(null, 0);
         return true;
     }
 
     public virtual Array Source { get; set; }
     public virtual Array RootNode { get; set; }
     public virtual ClassModule Module { get; set; }
+    public virtual Table ModuleTable { get; set; }
     public virtual Result Result { get; set; }
     public virtual SystemClass SystemClass { get; set; }
     public virtual ErrorKindList ErrorKind { get; set; }
     public virtual CountList Count { get; set; }
     protected virtual ListInfra ListInfra { get; set; }
     protected virtual TextInfra TextInfra { get; set; }
+    protected virtual ClassInfra ClassInfra { get; set; }
     protected virtual List ErrorList { get; set; }
     protected virtual Table BaseTable { get; set; }
+    protected virtual ModuleRef ModuleRef { get; set; }
 
     public override bool Execute()
     {
@@ -46,6 +52,32 @@ public class Create : InfraCreate
         this.Result.Error = this.ListInfra.ArrayCreateList(this.ErrorList);
         this.ErrorList = null;
         return true;
+    }
+
+    protected virtual bool SystemClassSet()
+    {
+        ClassModule d;
+        d = this.ModuleGet("System.Infra");
+
+        this.SystemClass.Any = this.ModuleClassGet(d, "Any");
+        this.SystemClass.Bool = this.ModuleClassGet(d, "Bool");
+        this.SystemClass.Int = this.ModuleClassGet(d, "Int");
+        this.SystemClass.String = this.ModuleClassGet(d, "String");
+        this.SystemClass.ModuleInfo = this.ModuleClassGet(d, "ModuleInfo");
+        return true;
+    }
+
+    protected virtual ClassModule ModuleGet(string moduleName)
+    {
+        this.ModuleRef.Name = moduleName;
+        ClassModule a;
+        a = (ClassModule)this.ModuleTable.Get(this.ModuleRef);
+        return a;
+    }
+
+    protected virtual ClassClass ModuleClassGet(ClassModule module, string className)
+    {
+        return (ClassClass)module.Class.Get(className);
     }
 
     protected virtual ErrorKindList CreateErrorKindList()
