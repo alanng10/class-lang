@@ -484,7 +484,7 @@ public class ModuleCreateBinary : Any
     protected virtual bool SetEntry()
     {
         int f;
-        f = this.Binary.Entry.Value;
+        f = this.Binary.Entry;
         
         ClassClass a;
         a = null;
