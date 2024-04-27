@@ -4,12 +4,8 @@ public class Traverse : Any
 {
     public override bool Init()
     {
-        Array array;
-        array = new Array();
-        array.Count = 0;
-        array.Init();
-
-        this.Iter = array.IterCreate();
+        this.Iter = new ArrayIter();
+        this.Iter.Init();
         return true;
     }
 
