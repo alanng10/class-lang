@@ -1,137 +1,56 @@
 namespace Class.Module;
 
-
-
-
-
 public class Traverse : NodeTraverse
 {
     public override bool Init()
     {
         base.Init();
-
-
-
-
-        this.Module = this.Create.Module;
-
-
-
-
-        this.ErrorKind = this.Create.ErrorKind;
-
-
-
         this.Count = this.Create.Count;
-
-
-
-
+        this.ErrorKind = this.Create.ErrorKind;
+        this.Module = this.Create.Module;
         return true;
     }
 
-
-
-
-
     public virtual Create Create { get; set; }
-
-
-
-
-    protected virtual ClassModule Module { get; set; }
-
-
-
-
-
-    protected virtual ErrorKindList ErrorKind { get; set; }
-
-
-
-
-
-    protected virtual CountList Count { get; set; }
-
-
-
-
-
     public virtual Source Source { get; set; }
-
-
-
-
-
-
-
-
+    protected virtual CountList Count { get; set; }
+    protected virtual ErrorKindList ErrorKind { get; set; }
+    protected virtual ClassModule Module { get; set; }
 
     protected virtual Info Info(NodeNode node)
     {
         return (Info)node.NodeAny;
     }
 
-
-
-
     protected virtual ClassClass Class(string name)
     {
-        ClassClass ret;
-
-
-        ret = this.Create.Class(name);
-
-
-        return ret;
+        ClassClass a;
+        a = (ClassClass)this.Module.Class.Get(name);
+        return a;
     }
 
-
-
-
-    protected virtual Count GetAccess(NodeCount nodeCount)
+    protected virtual Count GetCount(NodeCount nodeCount)
     {
-        Count t;
+        Count a;
+        a = null;
 
-
-        t = null;
-
-
-
-
-        if (nodeCount is PrudateAccess)
+        if ((a == null) & (nodeCount is PrudateAccess))
         {
-            t = this.Count.Prudate;
+            a = this.Count.Prudate;
         }
-
-
-        if (nodeCount is ProbateAccess)
+        if ((a == null) & (nodeCount is ProbateAccess))
         {
-            t = this.Count.Probate;
+            a = this.Count.Probate;
         }
-
-
-        if (nodeCount is PrecateAccess)
+        if ((a == null) & (nodeCount is PrecateAccess))
         {
-            t = this.Count.Precate;
+            a = this.Count.Precate;
         }
-
-
-        if (nodeCount is PrivateAccess)
+        if ((a == null) & (nodeCount is PrivateAccess))
         {
-            t = this.Count.Private;
+            a = this.Count.Private;
         }
-
-
-
-
-        Count ret;
-
-
-        ret = t;
-
-
-        return ret;
+        return a;
     }
 
 

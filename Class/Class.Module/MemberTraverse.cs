@@ -159,7 +159,7 @@ class MemberTraverse : Traverse
 
 
 
-        access = this.GetAccess(nodeAccess);
+        access = this.GetCount(nodeAccess);
 
 
 
@@ -388,7 +388,7 @@ class MemberTraverse : Traverse
 
 
 
-        access = this.GetAccess(nodeAccess);
+        access = this.GetCount(nodeAccess);
 
 
 
