@@ -471,24 +471,17 @@ public class Console : Any
 
 
 
-    private bool WriteAllError()
+    protected virtual bool WriteAllError()
     {
         if (!this.ErrorWrite)
         {
             return true;
         }
 
+        bool kindConsole;
+        kindConsole = this.Kind(this.TaskKind.Console);
 
-
-
-        bool kindModule;
-
-
-        kindModule = this.Kind(this.TaskKind.Module);
-
-
-
-        if (kindModule | this.Kind(this.TaskKind.Token))
+        if (kindConsole | this.Kind(this.TaskKind.Token))
         {
             if (!(this.Result.Token == null))
             {
@@ -496,9 +489,7 @@ public class Console : Any
             }
         }
 
-
-
-        if (kindModule | this.Kind(this.TaskKind.Node))
+        if (kindConsole | this.Kind(this.TaskKind.Node))
         {
             if (!(this.Result.Node == null))
             {
@@ -506,18 +497,13 @@ public class Console : Any
             }
         }
 
-
-
-        if (kindModule)
+        if (kindConsole | this.Kind(this.TaskKind.Module))
         {
             if (!(this.Result.Module == null))
             {
                 this.WriteErrorList(this.Result.Module.Error);
             }
         }
-
-
-
         return true;
     }
 
