@@ -365,7 +365,7 @@ public class Console : Any
 
             if (t == k.Module)
             {
-                this.PrintCheckResult();
+                this.PrintModuleResult();
             }
         }
 
@@ -589,56 +589,19 @@ public class Console : Any
 
 
 
-    private bool PrintCheckResult()
+    protected virtual bool PrintModuleResult()
     {
-        ModuleString checkString;
+        ModuleString a;
+        a = this.CreateModuleString();
+        a.Path = this.Task.Check;
+        a.CheckResult = this.Result.Module;
+        a.NodeResult = this.Result.Node;
+        a.Execute();
 
+        string e;
+        e = a.Result();
 
-
-
-        checkString = this.CreateCheckString();
-
-
-
-
-
-        checkString.Path = this.Task.Check;
-
-
-
-
-
-        checkString.CheckResult = this.Result.Module;
-
-
-
-
-
-        checkString.NodeResult = this.Result.Node;
-
-
-
-
-
-        checkString.Execute();
-
-
-
-
-
-        string s;
-
-
-        s = checkString.Result();
-
-
-
-
-        this.Out.Write(s);
-
-
-
-
+        this.Out.Write(e);
         return true;
     }
 
@@ -782,7 +745,7 @@ public class Console : Any
 
 
 
-    protected virtual ModuleString CreateCheckString()
+    protected virtual ModuleString CreateModuleString()
     {
         ModuleString a;
         a = new ModuleString();
