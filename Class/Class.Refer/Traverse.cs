@@ -75,9 +75,9 @@ public class Traverse : NodeTraverse
 
 
 
-    protected virtual InfraClass Class(string name)
+    protected virtual ClassClass Class(string name)
     {
-        InfraClass ret;
+        ClassClass ret;
 
 
         ret = this.Create.Class(name);
