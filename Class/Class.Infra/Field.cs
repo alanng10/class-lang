@@ -8,7 +8,7 @@ public class Field : Any
 
     public virtual Class Class { get; set; }
 
-    public virtual SystemInfo SystemClass { get; set; }
+    public virtual SystemInfo SystemInfo { get; set; }
 
     public virtual Count Count { get; set; }
 
