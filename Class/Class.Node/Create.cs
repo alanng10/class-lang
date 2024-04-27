@@ -57,7 +57,7 @@ public class Create : InfraCreate
     protected virtual TextInfra TextInfra { get; set; }
     protected virtual ClassInfra ClassInfra { get; set; }
 
-    public virtual SourceItem SourceItem { get; set; }
+    public virtual Source SourceItem { get; set; }
 
     protected virtual Array SourceText { get; set; }
     protected virtual Code Code { get; set; }
@@ -597,7 +597,7 @@ public class Create : InfraCreate
         {
             this.Code = (Code)this.CodeArray.Get(i);
 
-            this.SourceItem = (SourceItem)this.Source.Get(i);
+            this.SourceItem = (Source)this.Source.Get(i);
             this.SourceText = this.SourceItem.Text;
 
             Node root;
