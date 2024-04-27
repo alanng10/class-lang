@@ -13,8 +13,7 @@ public class MemberTraverse : Traverse
     public virtual ClassClass ThisClass { get; set; }
     protected virtual ListInfra ListInfra { get; set; }
     protected virtual ClassInfra ClassInfra { get; set; }
-
-    private Table ParamVars { get; set; }
+    protected virtual Table ParamVar { get; set; }
 
     public override bool ExecuteClass(NodeClass nodeClass)
     {
@@ -175,13 +174,11 @@ public class MemberTraverse : Traverse
         Count count;
         count = this.GetCount(nodeCount);
 
-        Table o;
-        o = this.ClassInfra.TableCreateStringCompare();
+        this.ParamVar = this.ClassInfra.TableCreateStringCompare();
 
         Table callVar;
         callVar = this.ClassInfra.TableCreateStringCompare();
-
-        this.ParamVars = o;
+        
         this.ExecuteParam(param);
 
         Maide a;
@@ -190,7 +187,7 @@ public class MemberTraverse : Traverse
         a.Name = maideName;
         a.Class = varClass;
         a.Count = count;
-        a.Param = this.ParamVars;
+        a.Param = this.ParamVar;
         a.Call = callVar;
         a.Parent = this.ThisClass;
         a.Index = this.ThisClass.Maide.Count;
@@ -220,7 +217,7 @@ public class MemberTraverse : Traverse
         string className;
         className = nodeClass.Value;
 
-        if (this.ParamVars.Contain(varName))
+        if (this.ParamVar.Contain(varName))
         {
             this.Error(this.ErrorKind.NameUnavailable, nodeVar);
             return true;
@@ -242,7 +239,7 @@ public class MemberTraverse : Traverse
         a.Class = varClass;
         a.Any = nodeVar;
 
-        this.ListInfra.TableAdd(this.ParamVars, a.Name, a);
+        this.ListInfra.TableAdd(this.ParamVar, a.Name, a);
 
         this.Info(nodeVar).Var = a;
         return true;
