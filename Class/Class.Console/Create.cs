@@ -176,7 +176,7 @@ public class Create : Any
         
 
 
-        if (kind == kindList.Refer |
+        if (kind == kindList.Module |
             kind == kindList.Node |
             kind == kindList.Token
         )
@@ -187,7 +187,7 @@ public class Create : Any
 
 
 
-        if (kind == kindList.Refer |
+        if (kind == kindList.Module |
             kind == kindList.Node
         )
         {
@@ -197,7 +197,7 @@ public class Create : Any
         
 
 
-        if (kind == kindList.Refer)
+        if (kind == kindList.Module)
         {
             this.ExecuteModule();
         }
