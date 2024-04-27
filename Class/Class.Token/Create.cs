@@ -36,7 +36,7 @@ public class Create : InfraCreate
     protected virtual Array CodeArray { get; set; }
 
     public virtual Code Code { get; set; }
-    public virtual SourceItem SourceItem { get; set; }
+    public virtual Source SourceItem { get; set; }
     public virtual int Row { get; set; }
     public virtual InfraRange Range { get; set; }
     public virtual int TokenIndex { get; set; }
@@ -98,7 +98,7 @@ public class Create : InfraCreate
             Code code;
             code = (Code)this.CodeArray.Get(i);
 
-            this.SourceItem = (SourceItem)this.Source.Get(i);
+            this.SourceItem = (Source)this.Source.Get(i);
 
             this.Operate.ExecuteCodeStart(i);
 
