@@ -229,7 +229,7 @@ public class Create : Any
 
 
 
-        this.Node.CodeArray = this.Result.Token.Code;
+        this.Node.Code = this.Result.Token.Code;
 
 
 

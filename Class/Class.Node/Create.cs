@@ -44,7 +44,7 @@ public class Create : InfraCreate
     }
 
     public virtual Array Source { get; set; }
-    public virtual Array CodeArray { get; set; }
+    public virtual Array Code { get; set; }
     public virtual string Task { get; set; }
     public virtual Result Result { get; set; }
 
@@ -291,7 +291,7 @@ public class Create : InfraCreate
         this.Result.Init();
         Array rootArray;
         rootArray = new Array();
-        rootArray.Count = this.CodeArray.Count;
+        rootArray.Count = this.Code.Count;
         rootArray.Init();
         this.Result.Root = rootArray;
 
@@ -590,12 +590,12 @@ public class Create : InfraCreate
     protected virtual bool ExecuteStage()
     {
         int count;
-        count = this.CodeArray.Count;
+        count = this.Code.Count;
         int i;
         i = 0;
         while (i < count)
         {
-            this.CodeItem = (Code)this.CodeArray.Get(i);
+            this.CodeItem = (Code)this.Code.Get(i);
 
             this.SourceItem = (Source)this.Source.Get(i);
             this.SourceText = this.SourceItem.Text;
