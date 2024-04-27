@@ -16,202 +16,46 @@ public class Create : InfraCreate
         return true;
     }
 
-
-
-
-
     public virtual Source Source { get; set; }
-
-
-
-
-    public virtual string TaskModule { get; set; }
-
-
-
-
     public virtual Array RootArray { get; set; }
-
-
-
-
-
-    public virtual Table SystemModule { get; set; }
-
-
     public virtual ClassModule Module { get; set; }
-
-
-
-
     public virtual Result Result { get; set; }
-
-
-
-
-
     public virtual SystemClass SystemClass { get; set; }
-
-
-
-
-
     public virtual ErrorKindList ErrorKind { get; set; }
-
-
-
-
     public virtual CountList Count { get; set; }
-
-
-
-
-    protected virtual List ErrorList { get; set; }
-
-
-
-
     protected virtual ListInfra ListInfra { get; set; }
     protected virtual TextInfra TextInfra { get; set; }
-
-
-
-
-
-
+    protected virtual List ErrorList { get; set; }
 
     public override bool Execute()
-    {
-        this.ExecuteInit();
-
-
-
-        this.ExecuteClass();
-
-
-
-        this.ExecuteMember();
-
-
-
-        this.ExecuteState();
-
-
-
-
-        this.Result.Error = this.ListInfra.ArrayCreateList(this.ErrorList);
-
-
-
-        return true;
-    }
-
-
-
-
-
-
-    private bool ExecuteInit()
     {
         this.Result = new Result();
         this.Result.Init();
 
+        this.ErrorList = new List();
+        this.ErrorList.Init();
 
-
-
-
-
-        List error;
-
-
-        error = new List();
-
-
-        error.Init();
-
-
-        this.ErrorList = error;
-
-
-
+        this.ExecuteInit();
+        this.ExecuteClass();
+        this.ExecuteBase();
+        this.ExecuteMember();
+        this.ExecuteState();
 
         this.Result.Module = this.Module;
-
-
-
-
-
-
-
-
-        Traverse traverse;
-
-
-
-
-        traverse = this.InitTraverse();
-
-
-
-
-        this.Traverse(traverse);
-
-
-
-
-
-
-
-        this.Module = new ClassModule();
-        this.Module.Init();
-        this.Module.Ref = new ModuleRef();
-        this.Module.Ref.Init();
-        this.Module.Ref.Name = this.TaskModule;
-
-
-        Table classTable;
-        classTable = new Table();
-        classTable.Compare = new StringCompare();
-        classTable.Compare.Init();
-        classTable.Init();
-
-        this.Module.Class = classTable;
-
-
-
-
-
-
-
-        this.InitRefer();
-
-
-
-
-
+        this.Result.Error = this.ListInfra.ArrayCreateList(this.ErrorList);
+        this.ErrorList = null;
         return true;
     }
-
-
-
-
 
     protected virtual ErrorKindList CreateErrorKindList()
     {
         return ErrorKindList.This;
     }
 
-
-
-
     protected virtual CountList CreateCountList()
     {
         return CountList.This;
     }
-
-
-
-
 
     public virtual Info CreateInfo()
     {
@@ -221,236 +65,24 @@ public class Create : InfraCreate
         return a;
     }
 
-
-
-
+    protected virtual bool ExecuteInit()
+    {
+        Traverse traverse;
+        traverse = this.InitTraverse();
+        this.Traverse(traverse);
+        return true;
+    }
 
     protected virtual Traverse InitTraverse()
     {
-        InitTraverse traverse;
-
-
-
-
-        traverse = new InitTraverse();
-
-
-
-
-
-        traverse.Create = this;
-
-
-
-
-
-        traverse.Init();
-
-
-
-
-
-        return traverse;
+        InitTraverse a;
+        a = new InitTraverse();
+        a.Create = this;
+        a.Init();
+        return a;
     }
 
 
-
-
-
-
-
-    private bool InitRefer()
-    {
-        
-
-
-
-
-
-        return true;
-    }
-
-
-
-
-
-
-
-
-
-
-
-    private bool AddSystemClass(ClassClass varClass)
-    {
-        
-
-
-
-        return true;
-    }
-
-
-
-
-
-
-
-    protected virtual ClassClass CreateAnyClass()
-    {
-        ClassClass varClass;
-
-
-
-        varClass = new ClassClass();
-
-
-
-        varClass.Name = "Any";
-
-
-
-        varClass.Base = varClass;
-
-
-
-        StringCompare compareA;
-
-        compareA = new StringCompare();
-
-        compareA.Init();
-
-
-
-        varClass.Field = new Table();
-
-
-        varClass.Field.Compare = compareA;
-
-
-        varClass.Field.Init();
-
-
-
-        StringCompare compareB;
-
-        compareB = new StringCompare();
-
-        compareB.Init();
-
-
-
-        varClass.Maide = new Table();
-
-
-        varClass.Maide.Compare = compareB;
-
-
-        varClass.Maide.Init();
-
-
-
-
-
-        ClassClass ret;
-
-
-        ret = varClass;
-
-
-        return ret;
-    }
-
-
-
-
-
-    protected virtual Maide CreateMethod(ClassClass varClass, string name, Count access)
-    {
-        Maide method;
-
-
-        method = new Maide();
-
-
-        method.Init();
-
-
-        method.Class = varClass;
-
-
-        method.Name = name;
-
-
-        method.Count = access;
-
-
-
-
-
-
-        StringCompare compareA;
-
-        compareA = new StringCompare();
-
-        compareA.Init();
-
-
-
-
-        Table param;
-
-
-        param = new Table();
-
-
-        param.Compare = compareA;
-
-
-        param.Init();
-
-
-
-
-        method.Param = param;
-
-
-
-
-        StringCompare compareB;
-
-        compareB = new StringCompare();
-
-        compareB.Init();
-
-
-
-        Table call;
-
-
-        call = new Table();
-
-
-        call.Compare = compareB;
-
-
-        call.Init();
-
-
-
-        method.Call = call;
-        
-
-
-
-
-        Maide ret;
-
-
-        ret = method;
-
-
-        return ret;
-    }
 
 
 
@@ -477,88 +109,6 @@ public class Create : InfraCreate
 
 
 
-
-        this.SetSystemModule();
-
-
-
-
-
-        this.SetAnyClass();
-
-
-
-
-
-
-        this.ExecuteClassBases();
-        
-
-
-
-
-
-        return true;
-    }
-
-
-
-
-
-    protected virtual bool SetAnyClass()
-    {
-        this.AddAnyClassMethod("Init");
-
-
-
-
-        return true;
-    }
-
-
-
-
-
-    protected virtual bool AddAnyClassMethod(string name)
-    {
-        Maide method;
-
-
-        method = this.CreateMethod(this.SystemClass.Bool, name, this.Count.Prudate);
-
-
-        method.Parent = this.SystemClass.Any;
-
-
-        method.Index = this.SystemClass.Any.Maide.Count;
-
-
-
-
-
-        TableEntry entry;
-
-
-        entry = new TableEntry();
-
-
-        entry.Init();
-
-
-        entry.Index = method.Name;
-
-
-        entry.Value = method;
-
-
-
-
-
-        this.SystemClass.Any.Maide.Add(entry);
-
-
-
-
         return true;
     }
 
@@ -567,7 +117,7 @@ public class Create : InfraCreate
 
 
 
-    protected virtual bool ExecuteClassBases()
+    protected virtual bool ExecuteBase()
     {
         this.SetBaseTable();
 
@@ -1217,18 +767,6 @@ public class Create : InfraCreate
 
 
         return traverse;
-    }
-
-
-
-
-
-
-    private bool SetSystemModule()
-    {
-
-
-        return true;
     }
 
 
