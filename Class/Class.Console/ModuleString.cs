@@ -65,7 +65,7 @@ public class ModuleString : Any
 
 
 
-        this.Check = (ModuleInfo)this.CheckResult.Check.Get(this.Node);
+        this.Check = (ModuleInfo)this.Node.NodeAny;
 
 
 
