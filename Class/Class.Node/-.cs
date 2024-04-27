@@ -17,7 +17,6 @@ global using TextInfra = Avalon.Text.Infra;
 global using InfraCreate = Class.Infra.Create;
 global using ClassInfra = Class.Infra.Infra;
 global using Range = Class.Infra.Range;
-global using Source = Class.Infra.Source;
 global using SourceItem = Class.Infra.SourceItem;
 global using Keyword = Class.Infra.Keyword;
 global using Delimit = Class.Infra.Delimit;

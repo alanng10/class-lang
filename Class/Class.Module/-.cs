@@ -13,7 +13,6 @@ global using ArrayIter = Avalon.List.ArrayIter;
 global using ListInfra = Avalon.List.Infra;
 global using TextInfra = Avalon.Text.Infra;
 global using InfraCreate = Class.Infra.Create;
-global using Source = Class.Infra.Source;
 global using SourceItem = Class.Infra.SourceItem;
 global using Stack = Class.Infra.Stack;
 global using ClassClass = Class.Infra.Class;
