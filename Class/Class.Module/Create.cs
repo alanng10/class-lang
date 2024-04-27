@@ -125,11 +125,11 @@ public class Create : InfraCreate
 
     protected virtual Traverse ClassTraverse()
     {
-        ClassTraverse traverse;
-        traverse = new ClassTraverse();
-        traverse.Create = this;
-        traverse.Init();
-        return traverse;
+        ClassTraverse a;
+        a = new ClassTraverse();
+        a.Create = this;
+        a.Init();
+        return a;
     }
 
     protected virtual bool ExecuteBase()
@@ -333,11 +333,11 @@ public class Create : InfraCreate
 
     protected virtual Traverse MemberTraverse()
     {
-        MemberTraverse traverse;
-        traverse = new MemberTraverse();
-        traverse.Create = this;
-        traverse.Init();
-        return traverse;
+        MemberTraverse a;
+        a = new MemberTraverse();
+        a.Create = this;
+        a.Init();
+        return a;
     }
 
     protected virtual bool ExecuteState()
@@ -350,11 +350,11 @@ public class Create : InfraCreate
 
     protected virtual Traverse StateTraverse()
     {
-        StateTraverse traverse;
-        traverse = new StateTraverse();
-        traverse.Create = this;
-        traverse.Init();
-        return traverse;
+        StateTraverse a;
+        a = new StateTraverse();
+        a.Create = this;
+        a.Init();
+        return a;
     }
 
     protected virtual bool ExecuteTraverse(Traverse traverse)
