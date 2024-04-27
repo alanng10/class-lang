@@ -164,7 +164,8 @@ public class Create : Any
         
 
 
-        if (kind == kindList.Module |
+        if (kind == kindList.Console | 
+            kind == kindList.Module |
             kind == kindList.Node |
             kind == kindList.Token
         )
@@ -175,7 +176,8 @@ public class Create : Any
 
 
 
-        if (kind == kindList.Module |
+        if (kind == kindList.Console |
+            kind == kindList.Module |
             kind == kindList.Node
         )
         {
@@ -185,7 +187,8 @@ public class Create : Any
         
 
 
-        if (kind == kindList.Module)
+        if (kind == kindList.Console |
+            kind == kindList.Module)
         {
             this.ExecuteModule();
         }
