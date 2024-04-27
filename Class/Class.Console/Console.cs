@@ -205,9 +205,10 @@ public class Console : Any
         bool b;
         b = (kind == kindList.Console | kind == kindList.Module);
 
-        Array fileArray;
-        fileArray = null;
-
+        bool hasFileExtension;
+        hasFileExtension = false;
+        Array sourceNameList;
+        sourceNameList = null;
         if (!b)
         {
             string file;
@@ -223,10 +224,10 @@ public class Console : Any
                 this.SourceFold = ".";
             }
 
-            fileArray = new Array();
-            fileArray.Count = 1;
-            fileArray.Init();
-            fileArray.Set(0, fileName);
+            sourceNameList = new Array();
+            sourceNameList.Count = 1;
+            sourceNameList.Init();
+            sourceNameList.Set(0, fileName);
         }
 
         if (b)
@@ -246,70 +247,34 @@ public class Console : Any
                 this.Error("Port Invalid");
                 return 101;
             }
-            fileArray = this.GetClassFiles(this.SourceFold);
+
+            hasFileExtension = true;
+            sourceNameList = this.GetSourceNameList(this.SourceFold);
         }
 
-        this.SetSource(fileArray);
-                
+        this.SetSource(sourceNameList);
 
-
-
-        this.ReadSourceText();
-
-
-
+        this.ReadSourceText(hasFileExtension);
 
         this.ExecuteCreate();
 
-
-
-
         this.WriteAllError();
-
-
-
 
         if (this.Task.Print)
         {
-            TaskKind t;
-
-
-            t = this.Task.Kind;
-
-
-
-            TaskKindList k;
-
-
-            k = this.TaskKind;
-
-
-
-
-            if (t == k.Token)
+            if (kind == kindList.Token)
             {
                 this.PrintTokenResult();
             }
-
-
-
-            if (t == k.Node)
+            if (kind == kindList.Node)
             {
                 this.PrintNodeResult();
             }
-
-
-
-            if (t == k.Module)
+            if (kind == kindList.Module)
             {
                 this.PrintModuleResult();
             }
         }
-
-
-
-
-
         return 0;
     }
 
@@ -540,7 +505,7 @@ public class Console : Any
         return array;
     }
 
-    protected virtual Array GetClassFiles(string foldPath)
+    protected virtual Array GetSourceNameList(string foldPath)
     {
         Array fileArray;
         fileArray = this.GetFileList(foldPath);
@@ -558,12 +523,14 @@ public class Console : Any
         i = 0;
         while (i < count)
         {
-            string name;
-            name = (string)fileArray.Get(i);
+            string fileName;
+            fileName = (string)fileArray.Get(i);
 
-            if (name.EndsWith(o))
+            if (fileName.EndsWith(o))
             {
-                name = name.Substring(0, name.Length - o.Length);
+                string name;
+                name = fileName.Substring(0, fileName.Length - o.Length);
+
                 list.Add(name);
             }
 
@@ -573,12 +540,6 @@ public class Console : Any
         Array a;
         a = this.ListInfra.ArrayCreateList(list);
         return a;
-    }
-
-    protected virtual bool Error(string message)
-    {
-        this.Err.Write(message + "\n");
-        return true;
     }
 
     protected virtual bool SetSource(Array array)
@@ -606,7 +567,7 @@ public class Console : Any
         return true;
     }
 
-    protected virtual bool ReadSourceText()
+    protected virtual bool ReadSourceText(bool hasFileExtension)
     {
         int count;
         count = this.Source.Count;
@@ -617,8 +578,15 @@ public class Console : Any
             Source a;
             a = (Source)this.Source.Get(i);
 
+            string k;
+            k = "";
+            if (hasFileExtension)
+            {
+                k = ".cla";
+            }
+
             string filePath;
-            filePath = this.SourceFold + "/" + a.Name + ".cla";
+            filePath = this.SourceFold + "/" + a.Name + k;
 
             string[] array;
             array = File.ReadAllLines(filePath);
@@ -702,6 +670,11 @@ public class Console : Any
     }
 
 
+    protected virtual bool Error(string message)
+    {
+        this.Err.Write(message + "\n");
+        return true;
+    }
 
 
 
