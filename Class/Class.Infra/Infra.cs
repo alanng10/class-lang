@@ -139,6 +139,9 @@ public class Infra : Any
 
     public virtual Array TextCreate(string o)
     {
+        TextInfra textInfra;
+        textInfra = this.TextInfra;
+
         int count;
         count = 0;
 
@@ -174,7 +177,7 @@ public class Infra : Any
             range.Count = k;
 
             Text line;
-            line = this.TextInfra.TextCreateString(o, range);
+            line = textInfra.TextCreateString(o, range);
             text.Set(i, line);
 
             index = oo + 1;
@@ -191,7 +194,7 @@ public class Infra : Any
         range.Count = ka;
 
         Text lastLine;
-        lastLine = this.TextInfra.TextCreateString(o, range);
+        lastLine = textInfra.TextCreateString(o, range);
         text.Set(count, lastLine);
 
         return text;
