@@ -21,7 +21,7 @@ public class ModuleCreateBinary : Any
     protected virtual BinaryBinary Binary { get; set; }
     protected virtual Array ClassArray { get; set; }
     protected virtual Array ImportArray { get; set; }
-    protected virtual bool HasSystemClass { get; set; }
+    protected virtual bool HasSystemInfo { get; set; }
 
     public virtual bool Execute()
     {
@@ -45,7 +45,7 @@ public class ModuleCreateBinary : Any
 
         string moduleName;
         moduleName = this.Module.Ref.Name;
-        this.HasSystemClass = moduleName.StartsWith("System.") | moduleName.StartsWith("Class.");
+        this.HasSystemInfo = moduleName.StartsWith("System.") | moduleName.StartsWith("Class.");
 
         this.SetClassList();
 
@@ -511,7 +511,7 @@ public class ModuleCreateBinary : Any
 
     protected virtual SystemInfo SystemInfoCreate(int binaryValue)
     {
-        if (!this.HasSystemClass)
+        if (!this.HasSystemInfo)
         {
             return null;
         }
