@@ -157,12 +157,8 @@ public class Infra : Any
         encode.Kind = this.TextEncodeKindList.Utf8;
         encode.Init();
 
-        Range ua;
-        ua = new Range();
-        ua.Init();
-        ua.Count = text.Length;
         TextText o;
-        o = this.TextInfra.TextCreateString(text, ua);
+        o = this.TextInfra.TextCreateString(text, null);
         int kk;
         kk = o.Range.Count;
         long ka;
