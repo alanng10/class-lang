@@ -4,11 +4,6 @@ namespace Class.Module;
 
 public class Result : Any
 {
-    public virtual Table Check { get; set; }
-
-
-
-
     public virtual ClassModule Module { get; set; }
 
 
