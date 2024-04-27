@@ -591,48 +591,47 @@ public class Console : Any
         return true;
     }
 
-    private Array CreateText(string[] array)
+    private Array CreateText(string o)
     {
+        int count;
+        count = 0;
+
+        int oo;
+        oo = o.IndexOf('\n');
+        while (!(oo < 0))
+        {
+            count = count + 1;
+            oo = o.IndexOf('\n', oo + 1);
+        }
+
+        count = count + 1;
+
         Array text;
-
         text = new Array();
-
-        text.Count = array.Length;
-
+        text.Count = count;
         text.Init();
 
+        int index;
+        index = 0;
 
-
-
-        int count;
-
-        count = text.Count;
-
-
-
+        oo = o.IndexOf('\n');
         int i;
-
         i = 0;
-
-
-
         while (i < count)
         {
-            string s;
-
-            s = array[i];
-
-
+            int k;
+            k = oo - index;
 
             Text line;
-
-            line = this.CreateTextLine(s);
-
+            line = this.TextInfra.TextCreate(k);
 
 
             text.Set(i, line);
 
 
+            index = oo;
+
+            oo = o.IndexOf('\n', index + 1);
 
             i = i + 1;
         }
