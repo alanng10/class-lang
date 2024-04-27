@@ -251,7 +251,7 @@ public class Create : Any
             kind == kindList.Refer
         )
         {
-            this.ExecuteCheck();
+            this.ExecuteRefer();
         }
 
 
@@ -318,7 +318,7 @@ public class Create : Any
 
 
 
-    public virtual bool ExecuteCheck()
+    public virtual bool ExecuteRefer()
     {
         this.Refer.Source = this.Source;
 
