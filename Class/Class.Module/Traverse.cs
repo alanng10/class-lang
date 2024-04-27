@@ -29,30 +29,6 @@ public class Traverse : NodeTraverse
         return a;
     }
 
-    protected virtual Count GetCount(NodeCount nodeCount)
-    {
-        Count a;
-        a = null;
-
-        if ((a == null) & (nodeCount is PrudateAccess))
-        {
-            a = this.Count.Prudate;
-        }
-        if ((a == null) & (nodeCount is ProbateAccess))
-        {
-            a = this.Count.Probate;
-        }
-        if ((a == null) & (nodeCount is PrecateAccess))
-        {
-            a = this.Count.Precate;
-        }
-        if ((a == null) & (nodeCount is PrivateAccess))
-        {
-            a = this.Count.Private;
-        }
-        return a;
-    }
-
     protected virtual bool UniqueError(ErrorKind kind, NodeNode node, bool hasAdded)
     {
         if (!hasAdded)
