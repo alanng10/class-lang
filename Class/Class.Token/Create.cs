@@ -23,7 +23,7 @@ public class Create : InfraCreate
         return true;
     }
 
-    public virtual Source Source { get; set; }
+    public virtual Array Source { get; set; }
     public virtual Result Result { get; set; }
 
     protected virtual InfraInfra InfraInfra { get; set; }
@@ -98,7 +98,7 @@ public class Create : InfraCreate
             Code code;
             code = (Code)this.CodeArray.Get(i);
 
-            this.SourceItem = (SourceItem)this.Source.Item.Get(i);
+            this.SourceItem = (SourceItem)this.Source.Get(i);
 
             this.Operate.ExecuteCodeStart(i);
 
@@ -267,7 +267,7 @@ public class Create : InfraCreate
     protected virtual Array CodeArrayCreate()
     {
         Array array;
-        array = this.ListInfra.ArrayCreate(this.Source.Item.Count);
+        array = this.ListInfra.ArrayCreate(this.Source.Count);
 
         int count;
         count = array.Count;

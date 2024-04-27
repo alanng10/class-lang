@@ -16,7 +16,7 @@ public class Create : InfraCreate
         return true;
     }
 
-    public virtual Source Source { get; set; }
+    public virtual Array Source { get; set; }
     public virtual Array RootArray { get; set; }
     public virtual ClassModule Module { get; set; }
     public virtual Result Result { get; set; }
@@ -589,7 +589,7 @@ public class Create : InfraCreate
 
     protected virtual SourceItem SourceItemGet(int index)
     {
-        return (SourceItem)this.Source.Item.Get(index);
+        return (SourceItem)this.Source.Get(index);
     }
 
 
@@ -787,11 +787,11 @@ public class Create : InfraCreate
 
         Iter sourceItemIter;
 
-        sourceItemIter = this.Source.Item.IterCreate();
+        sourceItemIter = this.Source.IterCreate();
 
 
 
-        this.Source.Item.IterSet(sourceItemIter);
+        this.Source.IterSet(sourceItemIter);
 
 
 

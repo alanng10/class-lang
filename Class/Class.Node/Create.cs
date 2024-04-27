@@ -43,7 +43,7 @@ public class Create : InfraCreate
         return true;
     }
 
-    public virtual Source Source { get; set; }
+    public virtual Array Source { get; set; }
     public virtual Array CodeArray { get; set; }
     public virtual string Task { get; set; }
     public virtual Result Result { get; set; }
@@ -597,7 +597,7 @@ public class Create : InfraCreate
         {
             this.Code = (Code)this.CodeArray.Get(i);
 
-            this.SourceItem = (SourceItem)this.Source.Item.Get(i);
+            this.SourceItem = (SourceItem)this.Source.Get(i);
             this.SourceText = this.SourceItem.Text;
 
             Node root;
