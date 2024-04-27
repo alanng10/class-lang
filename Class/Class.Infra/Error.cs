@@ -22,5 +22,5 @@ public class Error : Any
 
 
 
-    public virtual SourceItem Source { get; set; }
+    public virtual Source Source { get; set; }
 }
