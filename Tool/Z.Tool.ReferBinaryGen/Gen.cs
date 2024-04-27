@@ -406,7 +406,6 @@ public class Gen : Any
                     oe = new Info();
                     oe.Init();
                     oe.Property = property;
-                    oe.SystemInfo = this.SystemInfoGet(property.PropertyType);
 
                     Field field;
                     field = new Field();
@@ -415,6 +414,7 @@ public class Gen : Any
                     field.Class = this.ClassGetType(property.PropertyType);
                     field.Count = this.CountGet(property.GetMethod);
                     field.Parent = varClass;
+                    field.SystemInfo = this.SystemInfoCreate(property.PropertyType);
                     field.Any = oe;
                     
                     this.ListInfra.TableAdd(fieldTable, field.Name, field);
@@ -449,7 +449,6 @@ public class Gen : Any
                 of = new Info();
                 of.Init();
                 of.Method = method;
-                of.SystemInfo = this.SystemInfoGet(method.ReturnType);
 
                 Maide maide;
                 maide = new Maide();
@@ -458,6 +457,7 @@ public class Gen : Any
                 maide.Class = this.ClassGetType(method.ReturnType);
                 maide.Count = this.CountGet(method);
                 maide.Parent = varClass;
+                maide.SystemInfo = this.SystemInfoCreate(method.ReturnType);
                 maide.Any = of;
 
                 Table varTable;
@@ -481,13 +481,13 @@ public class Gen : Any
                         og = new Info();
                         og.Init();
                         og.Parameter = parameter;
-                        og.SystemInfo = this.SystemInfoGet(parameter.ParameterType);
 
                         Var varVar;
                         varVar = new Var();
                         varVar.Init();
                         varVar.Name = parameter.Name;
                         varVar.Class = this.ClassGetType(parameter.ParameterType);
+                        varVar.SystemInfo = this.SystemInfoCreate(parameter.ParameterType);
                         varVar.Any = og;
 
                         this.ListInfra.TableAdd(varTable, varVar.Name, varVar);
@@ -957,10 +957,8 @@ public class Gen : Any
                         global::System.Environment.Exit(111);
                     }
 
-                    Info oe;
-                    oe = new Info();
-                    oe.Init();
-                    oe.SystemInfo = this.SystemInfoGet(method.ReturnType);
+                    SystemInfo ae;
+                    ae = this.SystemInfoCreate(method.ReturnType);
 
                     if (!isMaide)
                     {
@@ -971,7 +969,7 @@ public class Gen : Any
                         field.Class = this.ClassGetType(method.ReturnType);
                         field.Count = this.CountGet(method);
                         field.Parent = varClass;
-                        field.Any = oe;
+                        field.SystemInfo = ae;
 
                         this.ListInfra.TableAdd(fieldTable, field.Name, field);
                     }
@@ -985,7 +983,7 @@ public class Gen : Any
                         maide.Class = this.ClassGetType(method.ReturnType);
                         maide.Count = this.CountGet(method);
                         maide.Parent = varClass;
-                        maide.Any = oe;
+                        maide.SystemInfo = ae;
 
                         Table varTable;
                         varTable = this.ClassInfra.TableCreateStringCompare();
@@ -999,17 +997,15 @@ public class Gen : Any
                             ParameterInfo parameter;
                             parameter = parameterArray[1 + iA];
 
-                            Info og;
-                            og = new Info();
-                            og.Init();
-                            og.SystemInfo = this.SystemInfoGet(parameter.ParameterType);
+                            SystemInfo af;
+                            af = this.SystemInfoCreate(parameter.ParameterType);
 
                             Var varVar;
                             varVar = new Var();
                             varVar.Init();
                             varVar.Name = parameter.Name;
                             varVar.Class = this.ClassGetType(parameter.ParameterType);
-                            varVar.Any = og;
+                            varVar.SystemInfo = af;
 
                             this.ListInfra.TableAdd(varTable, varVar.Name, varVar);
 
@@ -1093,15 +1089,19 @@ public class Gen : Any
         return null;
     }
 
-    protected virtual int SystemInfoGet(SystemType type)
+    protected virtual SystemInfo SystemInfoCreate(SystemType type)
     {
-        BuiltInType a;
-        a = this.BuitInTypeGet(type);
-        if (a == null)
+        SystemInfo a;
+        a = new SystemInfo();
+        a.Init();
+
+        BuiltInType f;
+        f = this.BuitInTypeGet(type);
+        if (!(f == null))
         {
-            return 0;
+            a.Value = f.SystemInfo;
         }
-        return a.SystemInfo;
+        return a;
     }
 
     protected virtual string ClassModuleName(string assemblyName)
