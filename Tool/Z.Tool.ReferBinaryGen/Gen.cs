@@ -764,7 +764,7 @@ public class Gen : Any
             field = (Field)iterB.Value;
             global::System.Console.Write("    Field: Name: " + field.Name + ", Count: " + this.CountString(field.Count.Index) + 
             ", Class: " + field.Class.Name + "(" + field.Class.Module.Ref.Name + ")" + 
-            ", SystemInfo: " + ((Info)(field.Any)).SystemInfo +
+            ", SystemInfo: " + field.SystemInfo.Value +
             ", Virtual: " + ((field.Virtual == null) ? "null" : (field.Virtual.Parent.Name + "(" + field.Virtual.Parent.Module.Ref.Name + ")")) +
             "\n");
         }
@@ -777,7 +777,7 @@ public class Gen : Any
             maide = (Maide)iterB.Value;
             global::System.Console.Write("    Maide: Name: " + maide.Name + ", Count: " + this.CountString(maide.Count.Index) + 
             ", Class: " + maide.Class.Name + "(" + maide.Class.Module.Ref.Name + ")" + 
-            ", SystemInfo: " + ((Info)(maide.Any)).SystemInfo +
+            ", SystemInfo: " + maide.SystemInfo.Value +
             ", Virtual: " + ((maide.Virtual == null) ? "null" : (maide.Virtual.Parent.Name + "(" + maide.Virtual.Parent.Module.Ref.Name + ")")) +
             "\n");
 
@@ -790,7 +790,7 @@ public class Gen : Any
             {
                 Var varVar;
                 varVar = (Var)iterBa.Value;
-                global::System.Console.Write("        Var: Name: " + varVar.Name + ", Class: " + varVar.Class.Name + "(" + varVar.Class.Module.Ref.Name + ")" + ", SystemInfo: " + ((Info)(varVar.Any)).SystemInfo + "\n");
+                global::System.Console.Write("        Var: Name: " + varVar.Name + ", Class: " + varVar.Class.Name + "(" + varVar.Class.Module.Ref.Name + ")" + ", SystemInfo: " + varVar.SystemInfo.Value + "\n");
             }
         }
         return true;
