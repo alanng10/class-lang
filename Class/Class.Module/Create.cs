@@ -587,15 +587,15 @@ public class Create : InfraCreate
     }
 
 
-    protected virtual SourceItem SourceItemGet(int index)
+    protected virtual Source SourceItemGet(int index)
     {
-        return (SourceItem)this.Source.Get(index);
+        return (Source)this.Source.Get(index);
     }
 
 
 
 
-    public virtual bool Error(ErrorKind kind, NodeNode node, SourceItem sourceItem)
+    public virtual bool Error(ErrorKind kind, NodeNode node, Source sourceItem)
     {
         Error error;
 
@@ -807,10 +807,10 @@ public class Create : InfraCreate
 
 
 
-            SourceItem sourceItem;
+            Source sourceItem;
 
 
-            sourceItem = (SourceItem)sourceItemIter.Value;
+            sourceItem = (Source)sourceItemIter.Value;
 
 
 
@@ -829,7 +829,7 @@ public class Create : InfraCreate
 
 
 
-    private bool TreeTraverse(Traverse traverse, NodeNode root, SourceItem sourceItem)
+    private bool TreeTraverse(Traverse traverse, NodeNode root, Source sourceItem)
     {
         if (root == null)
         {

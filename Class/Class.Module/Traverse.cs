@@ -57,7 +57,7 @@ public class Traverse : NodeTraverse
 
 
 
-    public virtual SourceItem SourceItem { get; set; }
+    public virtual Source SourceItem { get; set; }
 
 
 
