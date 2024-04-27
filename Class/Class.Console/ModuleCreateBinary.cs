@@ -62,7 +62,6 @@ public class ModuleCreateBinary : Any
         this.Binary = null;
         this.ClassArray = null;
         this.ImportArray = null;
-
         return true;
     }
 
