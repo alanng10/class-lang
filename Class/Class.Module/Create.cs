@@ -109,132 +109,47 @@ public class Create : InfraCreate
         return true;
     }
 
-    private bool SetBaseTable()
+    protected virtual bool SetBaseTable()
     {
         RefCompare compare;
-
-
         compare = new RefCompare();
-
-
         compare.Init();
-
-
-
-
         this.BaseTable = new Table();
-
-
-
         this.BaseTable.Compare = compare;
-
-
-
         this.BaseTable.Init();
 
-
-
-
-
-
-        int count;
-
-        count = this.Module.Class.Count;
-
-
-        int i;
-
-        i = 0;
-
-
-
-        while (i < count)
+        Iter iter;
+        iter = this.Module.Class.IterCreate();
+        this.Module.Class.IterSet(iter);
+        while (iter.Next())
         {
             ClassClass varClass;
-
-
-
-            varClass = (ClassClass)this.Module.Class.Get(i);
-
-
-
-
-
-
+            varClass = (ClassClass)iter.Value;
             this.BaseMapAdd(varClass);
         }
-
-
-
-
         return true;
     }
 
-
-
-
-
-
-
-
-    private bool BaseMapAdd(ClassClass varClass)
+    protected virtual bool BaseMapAdd(ClassClass varClass)
     {
         NodeClass nodeClass;
-
-
-
-        nodeClass = null;
-
-
-
-
+        nodeClass = (NodeClass)varClass.Any;
 
         ClassName nodeBase;
-
-
-
         nodeBase = nodeClass.Base;
 
-
-
-
-
-
         string baseName;
-
-
-        
-
         baseName = nodeBase.Value;
 
-
-
-
-
         ClassClass varBase;
-
-
-        
-
         varBase = this.Class(baseName);
         
-
-
-
-
         bool b;
-
-
         b = false;
-
-
-
 
         if (varBase == null)
         {
-            this.Error(this.ErrorKind.BaseUndefined, nodeClass, this.SourceItemGet(varClass.Index));
-
-
+            this.Error(this.ErrorKind.BaseUndefined, nodeClass, this.SourceGet(varClass.Index));
             b = true;
         }
 
@@ -245,7 +160,7 @@ public class Create : InfraCreate
         {
             if (!this.CheckBase(varBase))
             {
-                this.Error(this.ErrorKind.BaseUndefined, nodeClass, this.SourceItemGet(varClass.Index));
+                this.Error(this.ErrorKind.BaseUndefined, nodeClass, this.SourceGet(varClass.Index));
 
 
                 b = true;
@@ -346,7 +261,7 @@ public class Create : InfraCreate
 
             if (!b)
             {
-                this.Error(this.ErrorKind.BaseUndefined, null, this.SourceItemGet(varClass.Index));
+                this.Error(this.ErrorKind.BaseUndefined, null, this.SourceGet(varClass.Index));
             }
 
 
@@ -524,7 +439,7 @@ public class Create : InfraCreate
     }
 
 
-    protected virtual Source SourceItemGet(int index)
+    protected virtual Source SourceGet(int index)
     {
         return (Source)this.Source.Get(index);
     }
@@ -584,22 +499,9 @@ public class Create : InfraCreate
 
     public virtual ClassClass Class(string name)
     {
-        ClassClass varClass;
-
-
-        
-        varClass = (ClassClass)this.Module.Class.Get(name);
-
-
-
-
-        ClassClass ret;
-
-
-        ret = varClass;
-
-
-        return ret;
+        ClassClass a;
+        a = (ClassClass)this.Module.Class.Get(name);
+        return a;
     }
 
 
