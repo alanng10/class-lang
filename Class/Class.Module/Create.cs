@@ -136,8 +136,7 @@ public class Create : InfraCreate
     {
         this.SetBaseTable();
         
-        this.AddBases();
-
+        this.AddBaseList();
         return true;
     }
 
@@ -226,7 +225,7 @@ public class Create : InfraCreate
 
 
 
-    private bool AddBases()
+    private bool AddBaseList()
     {
         Iter iter;
 
