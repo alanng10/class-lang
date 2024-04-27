@@ -509,7 +509,7 @@ public class ModuleCreateBinary : Any
         return a;
     }
 
-    protected virtual SystemClass SystemClassCreate(int binaryValue)
+    protected virtual SystemInfo SystemClassCreate(int binaryValue)
     {
         if (!this.HasSystemClass)
         {
@@ -522,8 +522,8 @@ public class ModuleCreateBinary : Any
         int e;
         e = binaryValue & 0x7f;
 
-        SystemClass a;
-        a = new SystemClass();
+        SystemInfo a;
+        a = new SystemInfo();
         a.Init();
         a.Value = e;
         a.HasNull = b;
