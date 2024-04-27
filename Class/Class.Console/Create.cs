@@ -1,93 +1,28 @@
 namespace Class.Console;
 
-
-
-
 public class Create : Any
 {
     public virtual Console Class { get; set; }
-
-
-
-
     public virtual Result Result { get; set; }
-
-
-
     public virtual TokenCreate Token { get; set; }
-
-
-
-
     public virtual NodeCreate Node { get; set; }
-
-
-
-
     public virtual ModuleCreate Module { get; set; }
-
-
-
 
     public override bool Init()
     {
         base.Init();
-
-
-
-
-
         this.Token = this.CreateToken();
-
-
-
-
-
-
-
         this.Node = this.CreateNode();
-
-
-
-
-
-
-
         this.Module = this.CreateModule();
-
-
         return true;
     }
 
-
-
-
     protected virtual TokenCreate CreateToken()
     {
-        TokenCreate create;
-
-
-
-
-        create = new TokenCreate();
-
-
-
-
-        create.Init();
-
-
-
-
-
-        TokenCreate ret;
-
-
-        ret = create;
-
-
-
-        return ret;
+        TokenCreate a;
+        a = new TokenCreate();
+        a.Init();
+        return a;
     }
 
 
