@@ -17,7 +17,7 @@ public class Create : InfraCreate
     }
 
     public virtual Array Source { get; set; }
-    public virtual Array RootArray { get; set; }
+    public virtual Array RootNode { get; set; }
     public virtual ClassModule Module { get; set; }
     public virtual Result Result { get; set; }
     public virtual SystemClass SystemClass { get; set; }
@@ -777,10 +777,10 @@ public class Create : InfraCreate
     {
         Iter rootIter;
 
-        rootIter = this.RootArray.IterCreate();
+        rootIter = this.RootNode.IterCreate();
 
 
-        this.RootArray.IterSet(rootIter);
+        this.RootNode.IterSet(rootIter);
 
 
 

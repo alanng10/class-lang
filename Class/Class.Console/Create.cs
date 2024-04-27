@@ -106,12 +106,12 @@ public class Create : Any
     public virtual bool ExecuteModule()
     {
         this.Module.Source = this.Class.Source;
-        this.Module.RootArray = this.Result.Node.Root;
+        this.Module.RootNode = this.Result.Node.Root;
         this.Module.Execute();
         this.Result.Module = this.Module.Result;
 
         this.Module.Source = null;
-        this.Module.RootArray = null;
+        this.Module.RootNode = null;
         this.Module.Result = null;
         return true;
     }
