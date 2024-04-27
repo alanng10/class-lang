@@ -25,7 +25,7 @@ public class Traverse : NodeTraverse
     protected virtual ClassClass Class(string name)
     {
         ClassClass a;
-        a = (ClassClass)this.Module.Class.Get(name);
+        a = this.Create.Class(name);
         return a;
     }
 

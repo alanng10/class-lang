@@ -1,21 +1,10 @@
 namespace Class.Module;
 
-
-
-
-class MemberTraverse : Traverse
+public class MemberTraverse : Traverse
 {
-    private ClassClass CurrentClass { get; set; }
-
-
-
-
+    public virtual ClassClass ThisClass { get; set; }
 
     private Table ParamVars { get; set; }
-
-
-
-
 
     public override bool ExecuteClass(NodeClass nodeClass)
     {
@@ -24,33 +13,16 @@ class MemberTraverse : Traverse
             return true;
         }
 
+        this.ThisClass = this.Info(nodeClass).Class;
 
-
-
-        this.CurrentClass = this.Info(nodeClass).Class;
-
-
-
-
-        if (this.CurrentClass == null)
+        if (this.ThisClass == null)
         {
             return true;
         }
 
-
-
-
         base.ExecuteClass(nodeClass);
-
-
-
-
         return true;
     }
-
-
-
-
 
     public override bool ExecuteField(NodeField nodeField)
     {
@@ -60,76 +32,39 @@ class MemberTraverse : Traverse
         }
 
 
-
-
         FieldName name;
-
         name = nodeField.Name;
-
-
-
-
         ClassName nodeClass;
-            
         nodeClass = nodeField.Class;
-
-
-
-
-        NodeCount nodeAccess;
-
-        nodeAccess = nodeField.Count;
-
-
-
-
+        NodeCount nodeCount;
+        nodeCount = nodeField.Count;
         State nodeGet;
-
         nodeGet = nodeField.Get;
-
-
-
-
         State nodeSet;
-
         nodeSet = nodeField.Set;
 
-
-
-
-
-
         string fieldName;
-
-
-        fieldName = name.Value;
-
-
-
-
-
-        string className;
-
-        
-        className = nodeClass.Value;
-               
-
-
-
-
-
-
-        if (this.IsMemberNameDefined(fieldName))
+        fieldName = null;
+        if (!(name == null))
         {
-            this.Error(this.ErrorKind.NameUnavailable, nodeField);
-
-
-            return true;
+            fieldName = name.Value;
+        }
+        
+        string className;
+        className = null;
+        if (!(nodeClass == null))
+        {
+            className = nodeClass.Value;
         }
 
-
-
-
+        if (!(fieldName == null))
+        {
+            if (this.MemberNameDefined(fieldName))
+            {
+                this.Error(this.ErrorKind.NameUnavailable, nodeField);
+                return true;
+            }
+        }
 
 
         ClassClass varClass;
@@ -155,11 +90,11 @@ class MemberTraverse : Traverse
 
 
 
-        Count access;
+        Count count;
 
 
 
-        access = this.GetCount(nodeAccess);
+        count = this.GetCount(nodeCount);
 
 
 
@@ -221,7 +156,7 @@ class MemberTraverse : Traverse
         field.Class = varClass;
 
 
-        field.Count = access;
+        field.Count = count;
 
 
         field.Get = varGet;
@@ -230,7 +165,7 @@ class MemberTraverse : Traverse
         field.Set = varSet;
 
 
-        field.Parent = this.CurrentClass;
+        field.Parent = this.ThisClass;
 
 
         field.Any = nodeField;
@@ -238,7 +173,7 @@ class MemberTraverse : Traverse
 
 
 
-        field.Index = this.CurrentClass.Field.Count;
+        field.Index = this.ThisClass.Field.Count;
 
 
 
@@ -260,7 +195,7 @@ class MemberTraverse : Traverse
 
 
 
-        this.CurrentClass.Field.Add(oo);
+        this.ThisClass.Field.Add(oo);
 
 
 
@@ -347,7 +282,7 @@ class MemberTraverse : Traverse
 
 
         
-        if (this.IsMemberNameDefined(methodName))
+        if (this.MemberNameDefined(methodName))
         {
             this.Error(this.ErrorKind.NameUnavailable, nodeMield);
 
@@ -469,14 +404,14 @@ class MemberTraverse : Traverse
         method.Call = u;
 
 
-        method.Parent = this.CurrentClass;
+        method.Parent = this.ThisClass;
 
 
         method.Any = nodeMield;
 
 
 
-        method.Index = this.CurrentClass.Maide.Count;
+        method.Index = this.ThisClass.Maide.Count;
         
 
 
@@ -500,7 +435,7 @@ class MemberTraverse : Traverse
 
 
 
-        this.CurrentClass.Maide.Add(oo);
+        this.ThisClass.Maide.Add(oo);
 
 
 
@@ -701,37 +636,15 @@ class MemberTraverse : Traverse
 
 
 
-    private bool IsMemberNameDefined(string name)
+    protected virtual bool MemberNameDefined(string name)
     {
         bool ba;
-
-
-        ba = this.CurrentClass.Field.Contain(name);
-
-
-
-
+        ba = this.ThisClass.Field.Contain(name);
         bool bb;
+        bb = this.ThisClass.Maide.Contain(name);
 
-        bb = this.CurrentClass.Maide.Contain(name);
-
-
-
-
-        bool t;
-
-
-        t = ba | bb;
-
-
-
-
-        bool ret;
-
-
-        ret = t;
-
-
-        return ret;
+        bool a;
+        a = ba | bb;
+        return a;
     }
 }
