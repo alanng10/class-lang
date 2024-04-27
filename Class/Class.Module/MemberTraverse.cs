@@ -5,11 +5,13 @@ public class MemberTraverse : Traverse
     public override bool Init()
     {
         base.Init();
+        this.ListInfra = ListInfra.This;
         this.ClassInfra = ClassInfra.This;
         return true;
     }
 
     public virtual ClassClass ThisClass { get; set; }
+    protected virtual ListInfra ListInfra { get; set; }
     protected virtual ClassInfra ClassInfra { get; set; }
 
     private Table ParamVars { get; set; }
@@ -109,34 +111,9 @@ public class MemberTraverse : Traverse
         field.Index = this.ThisClass.Field.Count;
         field.Any = nodeField;
 
-
-        TableEntry oo;
-
-
-        oo = new TableEntry();
-
-
-        oo.Init();
-
-
-        oo.Index = fieldName;
-
-
-        oo.Value = field;
-
-
-
-        this.ThisClass.Field.Add(oo);
-
-
-
-
+        this.ListInfra.TableAdd(this.ThisClass.Field, field.Name, field);
 
         this.Info(nodeField).Field = field;
-
-
-
-
         return true;
     }
 
