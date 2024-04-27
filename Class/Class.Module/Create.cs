@@ -345,18 +345,89 @@ public class Create : InfraCreate
         {
             Field a;
             a = (Field)iter.Value;
+            a.Virtual = this.VirtualField(a);
         }
         return true;
     }
 
     protected virtual Field VirtualField(Field a)
     {
+        if (a.Count == this.Count.Private)
+        {
+            return null;
+        }
+
+        bool ba;
+        ba = (a.Count == this.Count.Probate);
+
+        string name;
+        name = a.Name;
+
+        ClassClass anyClass;
+        anyClass = this.SystemClass.Any;
+
+        bool b;
+        b = false;
+
+        Field d;
+        d = null;
+
         ClassClass varClass;
         varClass = a.Parent;
 
         ClassClass thisClass;
         thisClass = varClass.Base;
-        return null;
+        while (!b & !(thisClass == null))
+        {
+            if (thisClass.Maide.Contain(name))
+            {
+                return null;
+            }
+
+            if (thisClass.Field.Contain(name))
+            {
+                Field o;
+                o = (Field)thisClass.Field.Get(name);
+
+                if (a.Class == o.Class & a.Count == o.Count)
+                {
+                    if (ba)
+                    {
+                        if (a.Parent.Module == o.Parent.Module)
+                        {
+                            d = o;
+                            b = true;         
+                        }
+                    }
+                    if (!ba)
+                    {
+                        d = o;
+                        b = true;
+                    }
+                }
+            }
+
+            ClassClass aa;
+            aa = null;
+            if (!(thisClass == anyClass))
+            {
+                aa = thisClass.Base;
+            }
+            thisClass = aa;
+        }
+
+        if (!b)
+        {
+            return null;
+        }
+
+        Field h;
+        h = d;
+        if (!(d.Virtual == null))
+        {
+            h = d.Virtual;
+        }
+        return h;
     }
 
     protected virtual bool ExecuteState()
