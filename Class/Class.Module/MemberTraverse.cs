@@ -2,7 +2,15 @@ namespace Class.Module;
 
 public class MemberTraverse : Traverse
 {
+    public override bool Init()
+    {
+        base.Init();
+        this.ClassInfra = ClassInfra.This;
+        return true;
+    }
+
     public virtual ClassClass ThisClass { get; set; }
+    protected virtual ClassInfra ClassInfra { get; set; }
 
     private Table ParamVars { get; set; }
 
@@ -66,117 +74,40 @@ public class MemberTraverse : Traverse
             }
         }
 
-
         ClassClass varClass;
+        varClass = null;
 
-
-
-        
-        varClass = this.Class(className);
-        
-
-
-
-
-        if (varClass == null)
+        if (!(className == null))
         {
-            this.Error(this.ErrorKind.ClassUndefined, nodeField);
+            varClass = this.Class(className);
 
-
-            return true;
+            if (varClass == null)
+            {
+                this.Error(this.ErrorKind.ClassUndefined, nodeField);
+                return true;
+            }
         }
-
-
-
-
-
+        
         Count count;
-
-
-
         count = this.GetCount(nodeCount);
 
-
-
-
-
-
-
         Table varGet;
-
-
-        varGet = new Table();
-
-
-        varGet.Compare = new StringCompare();
-
-
-        varGet.Compare.Init();
-
-
-        varGet.Init();
+        varGet = this.ClassInfra.TableCreateStringCompare();
         
-
-
-
-
-
         Table varSet;
-
-
-        varSet = new Table();
-
-
-        varSet.Compare = new StringCompare();
-
-
-        varSet.Compare.Init();
-
-
-        varSet.Init();
-
-
-
-
-
-
+        varSet = this.ClassInfra.TableCreateStringCompare();
 
         Field field;
-            
-
         field = new Field();
-
-
         field.Init();
-            
-
         field.Name = fieldName;
-            
-
         field.Class = varClass;
-
-
         field.Count = count;
-
-
         field.Get = varGet;
-
-
         field.Set = varSet;
-
-
         field.Parent = this.ThisClass;
-
-
-        field.Any = nodeField;
-
-
-
-
         field.Index = this.ThisClass.Field.Count;
-
-
-
+        field.Any = nodeField;
 
 
         TableEntry oo;
