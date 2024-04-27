@@ -696,13 +696,39 @@ public class Gen : Any
             ClassClass a;
             a = (ClassClass)iter.Value;
 
-            if (a.Base == f)
+            if (this.IsClass(a, f))
             {
                 this.Module.Entry = a;
                 b = true;
             }
         }
         return true;
+    }
+
+    protected virtual bool IsClass(ClassClass varClass, ClassClass requiredClass)
+    {
+        ClassClass anyClass;
+        anyClass = this.AnyClass;
+
+        ClassClass a;
+        a = varClass.Base;
+
+        while (!(a == null))
+        {
+            if (a == requiredClass)
+            {
+                return true;
+            }
+
+            ClassClass d;
+            d = null;
+            if (!(a == anyClass))
+            {
+                d = a.Base;
+            }
+            a = d;
+        }
+        return false;
     }
 
     protected virtual bool ConsoleWrite()
