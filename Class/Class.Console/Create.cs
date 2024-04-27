@@ -334,7 +334,7 @@ public class Create : Any
 
 
 
-        this.Result.Check = this.Refer.Result;
+        this.Result.Refer = this.Refer.Result;
 
 
 
