@@ -60,7 +60,7 @@ public class Create : InfraCreate
     public virtual Source SourceItem { get; set; }
 
     protected virtual Array SourceText { get; set; }
-    protected virtual Code Code { get; set; }
+    protected virtual Code CodeItem { get; set; }
     protected virtual Table NodeStateTable { get; set; }
     protected virtual NodeState NodeState { get; set; }
 
@@ -595,7 +595,7 @@ public class Create : InfraCreate
         i = 0;
         while (i < count)
         {
-            this.Code = (Code)this.CodeArray.Get(i);
+            this.CodeItem = (Code)this.CodeArray.Get(i);
 
             this.SourceItem = (Source)this.Source.Get(i);
             this.SourceText = this.SourceItem.Text;
@@ -622,7 +622,7 @@ public class Create : InfraCreate
         int rangeStart;
         rangeStart = 0;
         int rangeEnd;
-        rangeEnd = this.Code.Token.Count;
+        rangeEnd = this.CodeItem.Token.Count;
         this.Range(range, rangeStart, rangeEnd);
 
         this.NodeState.Arg = range;
@@ -4057,7 +4057,7 @@ public class Create : InfraCreate
     protected virtual TokenToken TokenToken(int index)
     {
         TokenToken token;
-        token = (TokenToken)this.Code.Token.Get(index);
+        token = (TokenToken)this.CodeItem.Token.Get(index);
         return token;
     }
 
