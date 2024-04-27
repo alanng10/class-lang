@@ -50,10 +50,7 @@ public class Text : View
 
     protected virtual TextText CreateValue()
     {
-        InfraRange range;
-        range = new InfraRange();
-        range.Init();
-        return this.TextInfra.TextCreateString("", range);
+        return this.TextInfra.TextCreateString("", null);
     }
 
     protected virtual DrawPen CreateFore()
