@@ -5,7 +5,7 @@ namespace Class.Refer;
 
 class MemberTraverse : Traverse
 {
-    private InfraClass CurrentClass { get; set; }
+    private ClassClass CurrentClass { get; set; }
 
 
 
@@ -132,7 +132,7 @@ class MemberTraverse : Traverse
 
 
 
-        InfraClass varClass;
+        ClassClass varClass;
 
 
 
@@ -360,7 +360,7 @@ class MemberTraverse : Traverse
 
 
 
-        InfraClass varClass;
+        ClassClass varClass;
 
 
 
@@ -581,7 +581,7 @@ class MemberTraverse : Traverse
 
 
 
-        InfraClass varClass;
+        ClassClass varClass;
 
 
         varClass = null;
