@@ -8,5 +8,5 @@ class Info : Any
 
     public virtual ParameterInfo Parameter { get; set; }
 
-    public virtual int SystemClass { get; set; }
+    public virtual int SystemInfo { get; set; }
 }

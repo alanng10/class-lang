@@ -406,7 +406,7 @@ public class Gen : Any
                     oe = new Info();
                     oe.Init();
                     oe.Property = property;
-                    oe.SystemClass = this.SystemInfoGet(property.PropertyType);
+                    oe.SystemInfo = this.SystemInfoGet(property.PropertyType);
 
                     Field field;
                     field = new Field();
@@ -449,7 +449,7 @@ public class Gen : Any
                 of = new Info();
                 of.Init();
                 of.Method = method;
-                of.SystemClass = this.SystemInfoGet(method.ReturnType);
+                of.SystemInfo = this.SystemInfoGet(method.ReturnType);
 
                 Maide maide;
                 maide = new Maide();
@@ -481,7 +481,7 @@ public class Gen : Any
                         og = new Info();
                         og.Init();
                         og.Parameter = parameter;
-                        og.SystemClass = this.SystemInfoGet(parameter.ParameterType);
+                        og.SystemInfo = this.SystemInfoGet(parameter.ParameterType);
 
                         Var varVar;
                         varVar = new Var();
@@ -764,7 +764,7 @@ public class Gen : Any
             field = (Field)iterB.Value;
             global::System.Console.Write("    Field: Name: " + field.Name + ", Count: " + this.CountString(field.Count.Index) + 
             ", Class: " + field.Class.Name + "(" + field.Class.Module.Ref.Name + ")" + 
-            ", SystemClass: " + ((Info)(field.Any)).SystemClass +
+            ", SystemClass: " + ((Info)(field.Any)).SystemInfo +
             ", Virtual: " + ((field.Virtual == null) ? "null" : (field.Virtual.Parent.Name + "(" + field.Virtual.Parent.Module.Ref.Name + ")")) +
             "\n");
         }
@@ -777,7 +777,7 @@ public class Gen : Any
             maide = (Maide)iterB.Value;
             global::System.Console.Write("    Maide: Name: " + maide.Name + ", Count: " + this.CountString(maide.Count.Index) + 
             ", Class: " + maide.Class.Name + "(" + maide.Class.Module.Ref.Name + ")" + 
-            ", SystemClass: " + ((Info)(maide.Any)).SystemClass +
+            ", SystemClass: " + ((Info)(maide.Any)).SystemInfo +
             ", Virtual: " + ((maide.Virtual == null) ? "null" : (maide.Virtual.Parent.Name + "(" + maide.Virtual.Parent.Module.Ref.Name + ")")) +
             "\n");
 
@@ -790,7 +790,7 @@ public class Gen : Any
             {
                 Var varVar;
                 varVar = (Var)iterBa.Value;
-                global::System.Console.Write("        Var: Name: " + varVar.Name + ", Class: " + varVar.Class.Name + "(" + varVar.Class.Module.Ref.Name + ")" + ", SystemClass: " + ((Info)(varVar.Any)).SystemClass + "\n");
+                global::System.Console.Write("        Var: Name: " + varVar.Name + ", Class: " + varVar.Class.Name + "(" + varVar.Class.Module.Ref.Name + ")" + ", SystemClass: " + ((Info)(varVar.Any)).SystemInfo + "\n");
             }
         }
         return true;
@@ -960,7 +960,7 @@ public class Gen : Any
                     Info oe;
                     oe = new Info();
                     oe.Init();
-                    oe.SystemClass = this.SystemInfoGet(method.ReturnType);
+                    oe.SystemInfo = this.SystemInfoGet(method.ReturnType);
 
                     if (!isMaide)
                     {
@@ -1002,7 +1002,7 @@ public class Gen : Any
                             Info og;
                             og = new Info();
                             og.Init();
-                            og.SystemClass = this.SystemInfoGet(parameter.ParameterType);
+                            og.SystemInfo = this.SystemInfoGet(parameter.ParameterType);
 
                             Var varVar;
                             varVar = new Var();
