@@ -136,4 +136,56 @@ public class Infra : Any
         a.Version = ver;
         return a;
     }
+
+    public virtual Array TextCreate(string o)
+    {
+        int count;
+        count = 0;
+
+        int oo;
+        oo = o.IndexOf('\n');
+        while (!(oo < 0))
+        {
+            count = count + 1;
+            oo = o.IndexOf('\n', oo + 1);
+        }
+
+        count = count + 1;
+
+        Array text;
+        text = new Array();
+        text.Count = count;
+        text.Init();
+
+        InfraRange range;
+        range = new InfraRange();
+        range.Init();
+
+        int index;
+        index = 0;
+
+        oo = o.IndexOf('\n');
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            int k;
+            k = oo - index;
+
+            range.Index = index;
+            range.Count = k;
+
+            Text line;
+            line = this.TextInfra.TextCreateString(o, range);
+            text.Set(i, line);
+
+            index = oo + 1;
+
+            oo = o.IndexOf('\n', index);
+
+            i = i + 1;
+        }
+
+        return text;
+    }
 }

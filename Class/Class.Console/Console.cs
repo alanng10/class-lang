@@ -579,11 +579,11 @@ public class Console : Any
             string filePath;
             filePath = this.SourceFold + "/" + a.Name + k;
 
-            string[] array;
-            array = File.ReadAllLines(filePath);
+            string h;
+            h = this.StorageInfra.TextRead(filePath);
 
             Array text;
-            text = this.CreateText(array);
+            text = this.ClassInfra.TextCreate(h);
             a.Text = text;
 
             i = i + 1;
@@ -591,83 +591,11 @@ public class Console : Any
         return true;
     }
 
-    private Array CreateText(string o)
-    {
-        int count;
-        count = 0;
-
-        int oo;
-        oo = o.IndexOf('\n');
-        while (!(oo < 0))
-        {
-            count = count + 1;
-            oo = o.IndexOf('\n', oo + 1);
-        }
-
-        count = count + 1;
-
-        Array text;
-        text = new Array();
-        text.Count = count;
-        text.Init();
-
-        int index;
-        index = 0;
-
-        oo = o.IndexOf('\n');
-        int i;
-        i = 0;
-        while (i < count)
-        {
-            int k;
-            k = oo - index;
-
-            Text line;
-            line = this.TextInfra.TextCreate(k);
-
-
-            text.Set(i, line);
-
-
-            index = oo;
-
-            oo = o.IndexOf('\n', index + 1);
-
-            i = i + 1;
-        }
-
-
-
-
-        Array ret;
-
-        ret = text;
-
-
-        return ret;
-    }
-
-
-
-
-
-
-    private Text CreateTextLine(string s)
-    {
-        Text a;
-        a = this.TextInfra.TextCreateString(s);
-        return a;
-    }
-
-
     protected virtual bool Error(string message)
     {
         this.Err.Write(message + "\n");
         return true;
     }
-
-
-
 
     private bool CheckPortFile(string portFile)
     {
