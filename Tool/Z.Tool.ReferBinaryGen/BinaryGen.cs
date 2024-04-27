@@ -258,9 +258,6 @@ class BinaryGen : Any
             Field oa;
             oa = (Field)iter.Value;
 
-            Info oe;
-            oe = (Info)oa.Any;
-
             int of;
             of = -1;
             if (!(oa.Virtual == null))
@@ -272,7 +269,7 @@ class BinaryGen : Any
             a = new BinaryField();
             a.Init();
             a.Class = this.ClassIndexGet(oa.Class);
-            a.SystemInfo = oe.SystemInfo;
+            a.SystemInfo = oa.SystemInfo.Value;
             a.Count = oa.Count.Index;
             a.Virtual = of;
             a.Name = oa.Name;
@@ -303,9 +300,6 @@ class BinaryGen : Any
             Maide oa;
             oa = (Maide)iter.Value;
 
-            Info oe;
-            oe = (Info)oa.Any;
-
             int of;
             of = -1;
             if (!(oa.Virtual == null))
@@ -317,7 +311,7 @@ class BinaryGen : Any
             a = new BinaryMaide();
             a.Init();
             a.Class = this.ClassIndexGet(oa.Class);
-            a.SystemInfo = oe.SystemInfo;
+            a.SystemInfo = oa.SystemInfo.Value;
             a.Count = oa.Count.Index;
             a.Virtual = of;
             a.Name = oa.Name;
@@ -352,14 +346,11 @@ class BinaryGen : Any
             Var oa;
             oa = (Var)iter.Value;
 
-            Info oe;
-            oe = (Info)oa.Any;
-
             BinaryVar a;
             a = new BinaryVar();
             a.Init();
             a.Class = this.ClassIndexGet(oa.Class);
-            a.SystemInfo = oe.SystemInfo;
+            a.SystemInfo = oa.SystemInfo.Value;
             a.Name = oa.Name;
 
             array.Set(i, a);
