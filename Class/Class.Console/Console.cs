@@ -549,6 +549,9 @@ public class Console : Any
         list = new List();
         list.Init();
 
+        string o;
+        o = ".cla";
+
         int count;
         count = fileArray.Count;
         int i;
@@ -558,8 +561,9 @@ public class Console : Any
             string name;
             name = (string)fileArray.Get(i);
 
-            if (name.EndsWith(".cla"))
+            if (name.EndsWith(o))
             {
+                name = name.Substring(0, name.Length - o.Length);
                 list.Add(name);
             }
 
@@ -577,138 +581,53 @@ public class Console : Any
         return true;
     }
 
-
-
-
-
-
-
-    private bool SetSource(Array fileArray)
+    protected virtual bool SetSource(Array fileArray)
     {
-        Array t;
-
-
-        t = new Array();
-
-
-
-        t.Count = fileArray.Count;
-
-
-
-        t.Init();
-
-
-
-
         int count;
-
-        count = t.Count;
-
-
-
+        count = fileArray.Count;
         int i;
-
         i = 0;
-
-
-
         while (i < count)
         {
             string fileName;
-
-
             fileName = (string)fileArray.Get(i);
 
+            Source a;
+            a = new Source();
+            a.Init();
+            a.Index = i;
+            a.Name = fileName;
 
-
-
-            Source item;
-
-
-            item = new Source();
-
-
-            item.Init();
-
-
-            item.Index = i;
-
-
-            item.Name = fileName;
-
-
-
-
-            t.Set(item.Index, item);
-
-
-
-
+            fileArray.Set(i, a);
             i = i + 1;
         }
 
-        this.Source = t;
+        this.Source = fileArray;
         return true;
     }
-
-
-
 
     protected virtual bool ReadSourceText()
     {
         int count;
-
         count = this.Source.Count;
-
-
         int i;
-
         i = 0;
-
-        
         while (i < count)
         {
-            Source item;
-
-
-            item = (Source)this.Source.Get(i);
-
-
-
+            Source a;
+            a = (Source)this.Source.Get(i);
 
             string filePath;
-
-            filePath = this.SourceFold + "/" + item.Name;
-
-
-
+            filePath = this.SourceFold + "/" + a.Name + ".cla";
 
             string[] array;
-
-
             array = File.ReadAllLines(filePath);
 
-
-            
-
             Array text;
-
-
             text = this.CreateText(array);
-            
-
-
-
-            item.Text = text;
-
-
-
-
+            a.Text = text;
             i = i + 1;
         }
-
-
         return true;
     }
 
