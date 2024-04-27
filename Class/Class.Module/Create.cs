@@ -147,71 +147,32 @@ public class Create : InfraCreate
         bool b;
         b = false;
 
-        if (varBase == null)
+        bool ba;
+        ba = (varBase == null); 
+        if (ba)
         {
             this.Error(this.ErrorKind.BaseUndefined, nodeClass, this.SourceGet(varClass.Index));
             b = true;
         }
 
-
-
-
-        if (!(varBase == null))
+        if (!ba)
         {
             if (!this.CheckBase(varBase))
             {
                 this.Error(this.ErrorKind.BaseUndefined, nodeClass, this.SourceGet(varClass.Index));
-
-
                 b = true;
             }
         }
 
-
-
-
-
-
-
-        ClassClass t;
-
-
-
-        t = varBase;
-
-
-
+        ClassClass a;
+        a = varBase;
 
         if (b)
         {
-            t = this.SystemClass.Any;
+            a = this.SystemClass.Any;
         }
         
-
-
-
-
-        TableEntry o;
-
-
-        o = new TableEntry();
-
-
-        o.Init();
-
-
-        o.Index = varClass;
-
-
-        o.Value = t;
-
-
-
-
-        this.BaseTable.Add(o);
-
-
-
+        this.ListInfra.TableAdd(this.BaseTable, varClass, a);
         return true;
     }
 
