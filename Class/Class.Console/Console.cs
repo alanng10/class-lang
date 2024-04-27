@@ -426,50 +426,14 @@ public class Console : Any
         return true;
     }
 
-
-
-
-
-
     protected virtual Create CreateCreate()
     {
-        Create create;
-
-
-
-
-        create = new Create();
-
-
-
-
-        create.Class = this;
-
-
-
-
-        create.Init();
-
-
-
-
-
-
-        Create ret;
-
-
-
-        ret = create;
-
-
-
-        return ret;
+        Create a;
+        a = new Create();
+        a.Class = this;
+        a.Init();
+        return a;
     }
-
-
-
-
-
 
     protected virtual bool WriteAllError()
     {
@@ -478,10 +442,16 @@ public class Console : Any
             return true;
         }
 
-        bool kindConsole;
-        kindConsole = this.Kind(this.TaskKind.Console);
+        TaskKindList kindList;
+        kindList = this.TaskKind;
 
-        if (kindConsole | this.Kind(this.TaskKind.Token))
+        TaskKind kind;
+        kind = this.Task.Kind;
+
+        bool kindConsole;
+        kindConsole = (kind == kindList.Console);
+
+        if (kindConsole | (kind == kindList.Token))
         {
             if (!(this.Result.Token == null))
             {
@@ -489,7 +459,7 @@ public class Console : Any
             }
         }
 
-        if (kindConsole | this.Kind(this.TaskKind.Node))
+        if (kindConsole | (kind == kindList.Node))
         {
             if (!(this.Result.Node == null))
             {
@@ -497,7 +467,7 @@ public class Console : Any
             }
         }
 
-        if (kindConsole | this.Kind(this.TaskKind.Module))
+        if (kindConsole | (kind == kindList.Module))
         {
             if (!(this.Result.Module == null))
             {
@@ -507,66 +477,27 @@ public class Console : Any
         return true;
     }
 
-
-
-
-    private bool Kind(TaskKind kind)
-    {
-        return this.Task.Kind == kind;
-    }
-
-
-
-
-
-    private bool WriteErrorList(Array errorList)
+    protected virtual bool WriteErrorList(Array errorList)
     {
         int count;
-
         count = errorList.Count;
-
-
         int i;
-
         i = 0;
-
         while (i < count)
         {
-            Error error;
-
-
-            error = (Error)errorList.Get(i);
-
-
-
-
-            this.WriteError(error);
-
-
-
+            Error a;
+            a = (Error)errorList.Get(i);
+            this.WriteError(a);
             i = i + 1;
         }
-
-
-
         return true;
     }
 
-
-
-
-    private bool WriteError(Error error)
+    protected virtual bool WriteError(Error error)
     {
-        string t;
-
-        t = this.ErrorString.String(error);
-
-
-        this.Err.Write(t);
-
-
-
-
+        string a;
+        a = this.ErrorString.String(error);
+        this.Err.Write(a);
         return true;
     }
 
