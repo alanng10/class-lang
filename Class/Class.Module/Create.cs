@@ -67,13 +67,7 @@ public class Create : InfraCreate
 
 
 
-
-    public virtual Refer Refer { get; set; }
-
-
-
-
-    public virtual Module Module { get; set; }
+    public virtual ClassModule Module { get; set; }
 
 
 
@@ -180,16 +174,6 @@ public class Create : InfraCreate
 
 
 
-        this.Refer = new Refer();
-
-
-
-        this.Refer.Init();
-
-
-
-
-
         List error;
 
 
@@ -210,7 +194,7 @@ public class Create : InfraCreate
 
 
 
-        this.Result.Refer = this.Refer;
+        this.Result.Module = this.Module;
 
 
 
@@ -237,7 +221,7 @@ public class Create : InfraCreate
 
 
 
-        this.Module = new Module();
+        this.Module = new ClassModule();
         this.Module.Init();
         this.Module.Ref = new ModuleRef();
         this.Module.Ref.Init();
@@ -1191,7 +1175,7 @@ public class Create : InfraCreate
 
 
         
-        varClass = (ClassClass)this.Refer.Module.Class.Get(name);
+        varClass = (ClassClass)this.Module.Class.Get(name);
 
 
 
