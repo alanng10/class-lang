@@ -27,7 +27,7 @@ class MemberTraverse : Traverse
 
 
 
-        this.CurrentClass = this.Check(nodeClass).Class;
+        this.CurrentClass = this.Info(nodeClass).Class;
 
 
 
@@ -266,7 +266,7 @@ class MemberTraverse : Traverse
 
 
 
-        this.Check(nodeField).Field = field;
+        this.Info(nodeField).Field = field;
 
 
 
@@ -505,7 +505,7 @@ class MemberTraverse : Traverse
 
 
 
-        this.Check(nodeMield).Maide = method;
+        this.Info(nodeMield).Maide = method;
 
 
 
@@ -633,7 +633,7 @@ class MemberTraverse : Traverse
 
 
 
-        this.Check(nodeVar).Var = varVar;
+        this.Info(nodeVar).Var = varVar;
 
 
 

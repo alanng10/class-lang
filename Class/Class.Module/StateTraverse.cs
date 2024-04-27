@@ -117,7 +117,7 @@ public class StateTraverse : Traverse
 
 
 
-        this.CurrentClass = this.Check(varClass).Class;
+        this.CurrentClass = this.Info(varClass).Class;
 
 
 
@@ -171,7 +171,7 @@ public class StateTraverse : Traverse
         Field field;
 
 
-        field = this.Check(nodeField).Field;
+        field = this.Info(nodeField).Field;
 
 
 
@@ -474,7 +474,7 @@ public class StateTraverse : Traverse
         Maide method;
 
 
-        method = this.Check(nodeMethod).Maide;
+        method = this.Info(nodeMethod).Maide;
 
 
 
@@ -684,7 +684,7 @@ public class StateTraverse : Traverse
 
 
 
-        this.Check(nodeVar).Var = varVar;
+        this.Info(nodeVar).Var = varVar;
 
 
 
@@ -762,7 +762,7 @@ public class StateTraverse : Traverse
 
 
 
-        this.Check(thisOperate).OperateClass = this.CurrentClass;
+        this.Info(thisOperate).OperateClass = this.CurrentClass;
 
 
 
@@ -810,7 +810,7 @@ public class StateTraverse : Traverse
 
         if (!(target == null))
         {
-            targetClass = this.Check(target).TargetClass;
+            targetClass = this.Info(target).TargetClass;
         }
 
 
@@ -824,7 +824,7 @@ public class StateTraverse : Traverse
 
         if (!(value == null))
         {
-            valueClass = this.Check(value).OperateClass;
+            valueClass = this.Info(value).OperateClass;
         }
 
 
@@ -928,11 +928,11 @@ public class StateTraverse : Traverse
 
 
 
-        this.Check(newOperate).NewClass = varClass;
+        this.Info(newOperate).NewClass = varClass;
 
 
 
-        this.Check(newOperate).OperateClass = varClass;
+        this.Info(newOperate).OperateClass = varClass;
 
 
 
@@ -1006,11 +1006,11 @@ public class StateTraverse : Traverse
 
 
 
-        this.Check(shareOperate).ShareClass = varClass;
+        this.Info(shareOperate).ShareClass = varClass;
 
 
 
-        this.Check(shareOperate).OperateClass = varClass;
+        this.Info(shareOperate).OperateClass = varClass;
 
 
 
@@ -1056,14 +1056,14 @@ public class StateTraverse : Traverse
 
         if (!(operate == null))
         {
-            operateClass = this.Check(operate).OperateClass;
+            operateClass = this.Info(operate).OperateClass;
         }
 
 
 
             
 
-        this.Check(bracketOperate).OperateClass = operateClass;
+        this.Info(bracketOperate).OperateClass = operateClass;
 
 
 
@@ -1198,7 +1198,7 @@ public class StateTraverse : Traverse
 
         if (!(value == null))
         {
-            valueClass = this.Check(value).OperateClass;
+            valueClass = this.Info(value).OperateClass;
         }
 
 
@@ -1224,7 +1224,7 @@ public class StateTraverse : Traverse
 
             
 
-        this.Check(notOperate).OperateClass = this.System.Bool;
+        this.Info(notOperate).OperateClass = this.System.Bool;
 
 
 
@@ -1499,7 +1499,7 @@ public class StateTraverse : Traverse
 
         if (!(left == null))
         {
-            leftClass = this.Check(left).OperateClass;
+            leftClass = this.Info(left).OperateClass;
         }
 
 
@@ -1513,7 +1513,7 @@ public class StateTraverse : Traverse
 
         if (!(right == null))
         {
-            rightClass = this.Check(right).OperateClass;
+            rightClass = this.Info(right).OperateClass;
         }
 
 
@@ -1551,7 +1551,7 @@ public class StateTraverse : Traverse
         
 
 
-        this.Check(equalOperate).OperateClass = this.System.Bool;
+        this.Info(equalOperate).OperateClass = this.System.Bool;
 
 
 
@@ -1577,7 +1577,7 @@ public class StateTraverse : Traverse
 
         if (!(left == null))
         {
-            leftClass = this.Check(left).OperateClass;
+            leftClass = this.Info(left).OperateClass;
         }
 
 
@@ -1593,7 +1593,7 @@ public class StateTraverse : Traverse
 
         if (!(right == null))
         {
-            rightClass = this.Check(right).OperateClass;
+            rightClass = this.Info(right).OperateClass;
         }
 
 
@@ -1658,7 +1658,7 @@ public class StateTraverse : Traverse
 
 
 
-        this.Check(operate).OperateClass = resultClass;
+        this.Info(operate).OperateClass = resultClass;
 
 
 
@@ -1710,7 +1710,7 @@ public class StateTraverse : Traverse
 
 
 
-        this.Check(getOperate).OperateClass = fieldClass;
+        this.Info(getOperate).OperateClass = fieldClass;
 
 
 
@@ -1770,7 +1770,7 @@ public class StateTraverse : Traverse
             
         if (!(varThis == null))
         {
-            thisClass = this.Check(varThis).OperateClass;
+            thisClass = this.Info(varThis).OperateClass;
         }
 
 
@@ -1856,11 +1856,11 @@ public class StateTraverse : Traverse
 
 
 
-        this.Check(callOperate).CallMaide = method;
+        this.Info(callOperate).CallMaide = method;
 
 
 
-        this.Check(callOperate).OperateClass = operateClass;
+        this.Info(callOperate).OperateClass = operateClass;
 
 
 
@@ -1919,7 +1919,7 @@ public class StateTraverse : Traverse
 
         if (!(any == null))
         {
-            anyClass = this.Check(any).OperateClass;
+            anyClass = this.Info(any).OperateClass;
         }
 
 
@@ -1967,11 +1967,11 @@ public class StateTraverse : Traverse
 
 
 
-        this.Check(castOperate).CastClass = varClass;
+        this.Info(castOperate).CastClass = varClass;
 
 
 
-        this.Check(castOperate).OperateClass = varClass;
+        this.Info(castOperate).OperateClass = varClass;
 
 
 
@@ -2107,7 +2107,7 @@ public class StateTraverse : Traverse
 
         if (!(result == null))
         {
-            resultClass = this.Check(result).OperateClass;
+            resultClass = this.Info(result).OperateClass;
         }
 
 
@@ -2154,7 +2154,7 @@ public class StateTraverse : Traverse
 
         if (!(cond == null))
         {
-            condClass = this.Check(cond).OperateClass;
+            condClass = this.Info(cond).OperateClass;
         }
 
 
@@ -2199,7 +2199,7 @@ public class StateTraverse : Traverse
         
 
 
-        this.Check(nullOperate).OperateClass = this.NullClass;
+        this.Info(nullOperate).OperateClass = this.NullClass;
 
 
 
@@ -2238,7 +2238,7 @@ public class StateTraverse : Traverse
 
 
 
-        this.Check(varOperate).OperateClass = varClass;
+        this.Info(varOperate).OperateClass = varClass;
 
 
 
@@ -2305,7 +2305,7 @@ public class StateTraverse : Traverse
 
 
 
-        this.Check(valueOperate).OperateClass = valueClass;
+        this.Info(valueOperate).OperateClass = valueClass;
 
 
 
@@ -2343,7 +2343,7 @@ public class StateTraverse : Traverse
 
 
 
-        this.Check(varTarget).TargetClass = varClass;
+        this.Info(varTarget).TargetClass = varClass;
 
 
 
@@ -2394,7 +2394,7 @@ public class StateTraverse : Traverse
 
 
 
-        this.Check(setTarget).TargetClass = fieldClass;
+        this.Info(setTarget).TargetClass = fieldClass;
 
 
 
@@ -2447,7 +2447,7 @@ public class StateTraverse : Traverse
 
 
 
-        this.Check(node).Var = varVar;
+        this.Info(node).Var = varVar;
 
 
 
@@ -2470,7 +2470,7 @@ public class StateTraverse : Traverse
 
         if (!(varThis == null))
         {
-            thisClass = this.Check(varThis).OperateClass;
+            thisClass = this.Info(varThis).OperateClass;
         }
 
 
@@ -2543,7 +2543,7 @@ public class StateTraverse : Traverse
 
 
 
-        this.Check(node).GetField = field;
+        this.Info(node).GetField = field;
 
 
 
@@ -2870,7 +2870,7 @@ public class StateTraverse : Traverse
             ClassClass operateClass;
 
 
-            operateClass = this.Check(operate).OperateClass;
+            operateClass = this.Info(operate).OperateClass;
 
 
 

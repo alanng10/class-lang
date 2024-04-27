@@ -67,7 +67,7 @@ public class Traverse : NodeTraverse
 
 
 
-    protected virtual Info Check(NodeNode node)
+    protected virtual Info Info(NodeNode node)
     {
         return (Info)node.NodeAny;
     }

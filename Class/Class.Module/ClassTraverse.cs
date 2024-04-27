@@ -152,7 +152,7 @@ class ClassTraverse : Traverse
 
 
 
-        this.Check(nodeClass).Class = varClass;
+        this.Info(nodeClass).Class = varClass;
 
 
 
