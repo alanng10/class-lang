@@ -13,7 +13,7 @@ public class Traverse : NodeTraverse
 
 
 
-        this.Refer = this.Create.Refer;
+        this.Module = this.Create.Module;
 
 
 
@@ -39,7 +39,7 @@ public class Traverse : NodeTraverse
 
 
 
-    protected virtual Refer Refer { get; set; }
+    protected virtual ClassModule Module { get; set; }
 
 
 

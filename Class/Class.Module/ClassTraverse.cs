@@ -49,7 +49,7 @@ class ClassTraverse : Traverse
 
 
 
-        map = this.Create.Refer.Module.Class;
+        map = this.Create.Module.Class;
 
 
 
