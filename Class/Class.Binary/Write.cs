@@ -183,7 +183,7 @@ public class Write : Any
     protected virtual bool ExecuteField(Field field)
     {
         this.ExecuteIndex(field.Class);
-        this.ExecuteSystemClass(field.SystemClass);
+        this.ExecuteSystemClass(field.SystemInfo);
         this.ExecuteByte(field.Count);
         this.ExecuteIndex(field.Virtual);
         this.ExecuteName(field.Name);

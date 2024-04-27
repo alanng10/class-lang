@@ -694,7 +694,7 @@ public class Read : Any
         Field a;
         a = this.Operate.ExecuteField();
         a.Class = varClass;
-        a.SystemClass = systemClass;
+        a.SystemInfo = systemClass;
         a.Count = count;
         a.Virtual = varVirtual;
         a.Name = name;
