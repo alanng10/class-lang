@@ -801,7 +801,7 @@ public class Console : Any
 
 
 
-    private Array GetFileList(string foldPath)
+    protected virtual Array GetFileList(string foldPath)
     {
         string[] u;
         u = Directory.GetFiles(foldPath);
