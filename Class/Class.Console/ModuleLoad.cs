@@ -146,18 +146,12 @@ public class ModuleLoad : Any
             ModuleRef moduleRef;
             moduleRef = o.Module;
 
-            if (importTable.Contain(moduleRef))
-            {
-                global::System.Console.Error.Write("Class.Console:ModuleLoad.SetImportList import module ref duplicate\n");
-                global::System.Environment.Exit(120);
-            }
-
             Table ol;
             ol = this.ClassInfra.TableCreateStringCompare();
             this.ListInfra.TableAdd(importTable, moduleRef, ol);
             
             Table classTable;
-            classTable = (Table)importTable.Get(moduleRef);
+            classTable = ol;
 
             ClassModule module;
             module = this.ModuleGet(moduleRef);
@@ -181,12 +175,6 @@ public class ModuleLoad : Any
 
                 string className;
                 className = of.Name;
-
-                if (classTable.Contain(className))
-                {
-                    global::System.Console.Error.Write("Class.Console:ModuleLoad.SetImportList import class name duplicate\n");
-                    global::System.Environment.Exit(121);
-                }
 
                 ClassClass varClass;
                 varClass = this.ModuleClassGet(module, className);
@@ -549,12 +537,6 @@ public class ModuleLoad : Any
             oa = index - classArray.Count;
             a = (ClassClass)this.ImportArray.Get(oa);
         }
-
-        if (a == null)
-        {
-            global::System.Console.Error.Write("Class.Console:ModuleLoad.ClassGetIndex class none, index: " + index + "\n");
-            global::System.Environment.Exit(125);
-        }
         return a;
     }
 
@@ -562,11 +544,6 @@ public class ModuleLoad : Any
     {
         ClassModule a;
         a = (ClassModule)this.ModuleTable.Get(moduleRef);
-        if (a == null)
-        {
-            global::System.Console.Error.Write("Class.Console:ModuleLoad.ModuleGet module not found, module: " + moduleRef.Name + "\n");
-            global::System.Environment.Exit(122);
-        }
         return a;
     }
 
@@ -574,11 +551,6 @@ public class ModuleLoad : Any
     {
         ClassClass a;
         a = (ClassClass)module.Class.Get(className);
-        if (a == null)
-        {
-            global::System.Console.Error.Write("Class.Console:ModuleLoad.ModuleClassGet module class not found, class: " + className + ", module: " + module.Ref.Name + "\n");
-            global::System.Environment.Exit(123);
-        }
         return a;
     }
 
