@@ -168,11 +168,12 @@ public class Infra : Any
         int index;
         index = 0;
 
-        oo = o.IndexOf(newLine, index);
         int i;
         i = 0;
         while (i < count)
         {
+            oo = o.IndexOf(newLine, index);
+
             int k;
             k = oo - index;
 
@@ -184,8 +185,6 @@ public class Infra : Any
             text.Set(i, line);
 
             index = oo + 1;
-
-            oo = o.IndexOf(newLine, index);
 
             i = i + 1;
         }
