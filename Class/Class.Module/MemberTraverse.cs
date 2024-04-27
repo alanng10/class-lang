@@ -117,52 +117,40 @@ public class MemberTraverse : Traverse
         return true;
     }
 
-
-
-
-
-    public override bool ExecuteMaide(NodeMaide nodeMield)
+    public override bool ExecuteMaide(NodeMaide nodeMaide)
     {
-        if (nodeMield == null)
+        if (nodeMaide == null)
         {
             return true;
         }
 
-
-
-
-
         MaideName name;
-
-        name = nodeMield.Name;
-
-
-
+        name = nodeMaide.Name;
 
         ClassName nodeClass;
 
-        nodeClass = nodeMield.Class;
+        nodeClass = nodeMaide.Class;
 
 
 
 
         NodeCount nodeAccess;
 
-        nodeAccess = nodeMield.Count;
+        nodeAccess = nodeMaide.Count;
 
 
 
 
         Param param;
 
-        param = nodeMield.Param;
+        param = nodeMaide.Param;
 
 
 
 
         State call;
 
-        call = nodeMield.Call;
+        call = nodeMaide.Call;
 
 
 
@@ -192,7 +180,7 @@ public class MemberTraverse : Traverse
         
         if (this.MemberNameDefined(methodName))
         {
-            this.Error(this.ErrorKind.NameUnavailable, nodeMield);
+            this.Error(this.ErrorKind.NameUnavailable, nodeMaide);
 
 
 
@@ -216,7 +204,7 @@ public class MemberTraverse : Traverse
 
         if (varClass == null)
         {
-            this.Error(this.ErrorKind.ClassUndefined, nodeMield);
+            this.Error(this.ErrorKind.ClassUndefined, nodeMaide);
 
 
 
@@ -315,7 +303,7 @@ public class MemberTraverse : Traverse
         method.Parent = this.ThisClass;
 
 
-        method.Any = nodeMield;
+        method.Any = nodeMaide;
 
 
 
@@ -348,7 +336,7 @@ public class MemberTraverse : Traverse
 
 
 
-        this.Info(nodeMield).Maide = method;
+        this.Info(nodeMaide).Maide = method;
 
 
 
