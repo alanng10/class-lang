@@ -150,11 +150,9 @@ public class Infra : Any
             oo = o.IndexOf('\n', oo + 1);
         }
 
-        count = count + 1;
-
         Array text;
         text = new Array();
-        text.Count = count;
+        text.Count = count + 1;
         text.Init();
 
         InfraRange range;
@@ -185,6 +183,16 @@ public class Infra : Any
 
             i = i + 1;
         }
+
+        int ka;
+        ka = o.Length - index;
+
+        range.Index = index;
+        range.Count = ka;
+
+        Text lastLine;
+        lastLine = this.TextInfra.TextCreateString(o, range);
+        text.Set(count, lastLine);
 
         return text;
     }
