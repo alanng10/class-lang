@@ -370,7 +370,7 @@ public class Create : InfraCreate
 
 
 
-    private bool AddSystemClass(InfraClass varClass)
+    private bool AddSystemClass(ClassClass varClass)
     {
         
 
@@ -385,13 +385,13 @@ public class Create : InfraCreate
 
 
 
-    protected virtual InfraClass CreateAnyClass()
+    protected virtual ClassClass CreateAnyClass()
     {
-        InfraClass varClass;
+        ClassClass varClass;
 
 
 
-        varClass = new InfraClass();
+        varClass = new ClassClass();
 
 
 
@@ -441,7 +441,7 @@ public class Create : InfraCreate
 
 
 
-        InfraClass ret;
+        ClassClass ret;
 
 
         ret = varClass;
@@ -454,7 +454,7 @@ public class Create : InfraCreate
 
 
 
-    protected virtual Maide CreateMethod(InfraClass varClass, string name, Count access)
+    protected virtual Maide CreateMethod(ClassClass varClass, string name, Count access)
     {
         Maide method;
 
@@ -753,11 +753,11 @@ public class Create : InfraCreate
 
         while (i < count)
         {
-            InfraClass varClass;
+            ClassClass varClass;
 
 
 
-            varClass = (InfraClass)this.Module.Class.Get(i);
+            varClass = (ClassClass)this.Module.Class.Get(i);
 
 
 
@@ -780,7 +780,7 @@ public class Create : InfraCreate
 
 
 
-    private bool BaseMapAdd(InfraClass varClass)
+    private bool BaseMapAdd(ClassClass varClass)
     {
         NodeClass nodeClass;
 
@@ -814,7 +814,7 @@ public class Create : InfraCreate
 
 
 
-        InfraClass varBase;
+        ClassClass varBase;
 
 
         
@@ -861,7 +861,7 @@ public class Create : InfraCreate
 
 
 
-        InfraClass t;
+        ClassClass t;
 
 
 
@@ -908,7 +908,7 @@ public class Create : InfraCreate
 
 
 
-    protected virtual bool CheckBase(InfraClass varClass)
+    protected virtual bool CheckBase(ClassClass varClass)
     {
         return true;
     }
@@ -932,10 +932,10 @@ public class Create : InfraCreate
 
         while (iter.Next())
         {
-            InfraClass varClass;
+            ClassClass varClass;
 
 
-            varClass = (InfraClass)iter.Index;
+            varClass = (ClassClass)iter.Index;
 
 
 
@@ -955,7 +955,7 @@ public class Create : InfraCreate
 
 
 
-            InfraClass t;
+            ClassClass t;
 
 
 
@@ -966,7 +966,7 @@ public class Create : InfraCreate
 
             if (b)
             {
-                t = (InfraClass)iter.Value;
+                t = (ClassClass)iter.Value;
             }
 
 
@@ -986,7 +986,7 @@ public class Create : InfraCreate
 
 
 
-    private bool CheckClassDependency(InfraClass varClass)
+    private bool CheckClassDependency(ClassClass varClass)
     {
         Table table;
 
@@ -1038,12 +1038,12 @@ public class Create : InfraCreate
 
 
 
-        InfraClass currentClass;
+        ClassClass currentClass;
 
 
 
 
-        currentClass = (InfraClass)this.BaseTable.Get(varClass);
+        currentClass = (ClassClass)this.BaseTable.Get(varClass);
 
 
 
@@ -1099,7 +1099,7 @@ public class Create : InfraCreate
 
 
 
-            currentClass = (InfraClass)this.BaseTable.Get(currentClass);
+            currentClass = (ClassClass)this.BaseTable.Get(currentClass);
         }
 
 
@@ -1112,7 +1112,7 @@ public class Create : InfraCreate
 
 
 
-    private bool ThisModule(InfraClass varClass)
+    private bool ThisModule(ClassClass varClass)
     {
         return true;
     }
@@ -1121,7 +1121,7 @@ public class Create : InfraCreate
 
 
 
-    private bool SystemAny(InfraClass varClass)
+    private bool SystemAny(ClassClass varClass)
     {
         return (varClass == this.SystemClass.Any);
     }
@@ -1185,18 +1185,18 @@ public class Create : InfraCreate
 
 
 
-    public virtual InfraClass Class(string name)
+    public virtual ClassClass Class(string name)
     {
-        InfraClass varClass;
+        ClassClass varClass;
 
 
         
-        varClass = (InfraClass)this.Refer.Module.Class.Get(name);
+        varClass = (ClassClass)this.Refer.Module.Class.Get(name);
 
 
 
 
-        InfraClass ret;
+        ClassClass ret;
 
 
         ret = varClass;
