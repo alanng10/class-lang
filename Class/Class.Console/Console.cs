@@ -106,7 +106,6 @@ public class Console : Any
         this.InitBinary("Class.Port");
         this.InitBinary("Class.Token");
         this.InitBinary("Class.Node");
-        this.InitBinary("Class.Refer");
         this.InitBinary("Class.Module");
         this.InitBinary("Class.Console");
 
