@@ -1,6 +1,6 @@
 namespace Class.Module;
 
-class ClassTraverse : Traverse
+public class ClassTraverse : Traverse
 {
     public override bool Init()
     {
