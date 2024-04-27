@@ -56,6 +56,7 @@ public class Test : Any
     private string UnitFold { get; set; }
 
     private StringOut Out { get; set; }
+    private StringOut Err { get; set; }
 
     private string InitialCurrentDirectory { get; set; }
 
@@ -226,6 +227,8 @@ public class Test : Any
 
         this.Out = new StringOut();
         this.Out.Init();
+        this.Err = new StringOut();
+        this.Err.Init();
 
         Directory.SetCurrentDirectory(this.UnitFold);
 
@@ -377,6 +380,7 @@ public class Test : Any
         task.Source = source;
 
         task.Out = this.Out;
+        task.Err = this.Err;
 
         Task ret;
         ret = task;
