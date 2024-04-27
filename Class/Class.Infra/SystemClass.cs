@@ -1,6 +1,6 @@
 namespace Class.Infra;
 
-public class SystemClass : Any
+public class SystemInfo : Any
 {
     public virtual int Value { get; set; }
 
