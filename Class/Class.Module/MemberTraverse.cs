@@ -40,7 +40,6 @@ public class MemberTraverse : Traverse
             return true;
         }
 
-
         FieldName name;
         name = nodeField.Name;
         ClassName nodeClass;
