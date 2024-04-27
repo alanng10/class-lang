@@ -143,7 +143,7 @@ public class Infra : Any
         count = 0;
 
         int oo;
-        oo = o.IndexOf('\n');
+        oo = o.IndexOf('\n', 0);
         while (!(oo < 0))
         {
             count = count + 1;
@@ -162,7 +162,7 @@ public class Infra : Any
         int index;
         index = 0;
 
-        oo = o.IndexOf('\n');
+        oo = o.IndexOf('\n', index);
         int i;
         i = 0;
         while (i < count)
