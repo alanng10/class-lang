@@ -524,63 +524,28 @@ public class Console : Any
         return true;
     }
 
-
-
-
-
-
-    private bool PrintNodeResult()
+    protected virtual bool PrintNodeResult()
     {
         ObjectString objectString;
-
-
-
         objectString = new ObjectString();
-
-
-
         objectString.Init();
 
-
-
-
         Iter rootIter;
-
         rootIter = this.Result.Node.Root.IterCreate();
-
-
         this.Result.Node.Root.IterSet(rootIter);
-
-
-
 
         while (rootIter.Next())
         {
             NodeNode root;
-
-
             root = (NodeNode)rootIter.Value;
-
-
 
             objectString.Execute(root);
 
+            string a;
+            a = objectString.Result();
 
-
-
-            string s;
-                
-
-            s = objectString.Result();
-
-
-
-
-            this.Out.Write(s);
+            this.Out.Write(a);
         }
-
-
-
         return true;
     }
 
