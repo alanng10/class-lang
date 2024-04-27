@@ -25,41 +25,13 @@ public class Create : Any
         return a;
     }
 
-
-
-
-
     protected virtual NodeCreate CreateNode()
     {
-        NodeCreate create;
-
-
-
-
-        create = new NodeCreate();
-
-
-
-
-        create.Init();
-
-
-
-
-
-        NodeCreate ret;
-
-
-        ret = create;
-
-
-
-        return ret;
+        NodeCreate a;
+        a = new NodeCreate();
+        a.Init();
+        return a;
     }
-
-
-
-
 
     protected virtual ModuleCreate CreateModule()
     {
@@ -69,36 +41,16 @@ public class Create : Any
         return a;
     }
 
-
-
-
-
-
-
     public virtual bool Execute()
     {
         this.Result = new Result();
         this.Result.Init();
-        
-
-
-
-
-        TaskKind kind;
-
-
-        kind = this.Class.Task.Kind;
-
-
 
         TaskKindList kindList;
-
-
         kindList = this.Class.TaskKind;
-
-        
-
-
+        TaskKind kind;
+        kind = this.Class.Task.Kind;
+    
         if (kind == kindList.Console | 
             kind == kindList.Module |
             kind == kindList.Node |
@@ -108,9 +60,6 @@ public class Create : Any
             this.ExecuteToken();
         }
 
-
-
-
         if (kind == kindList.Console |
             kind == kindList.Module |
             kind == kindList.Node
@@ -118,9 +67,6 @@ public class Create : Any
         {
             this.ExecuteNode();
         }
-
-        
-
 
         if (kind == kindList.Console |
             kind == kindList.Module)
@@ -131,70 +77,42 @@ public class Create : Any
         return true;
     }
 
-
-
-
     public virtual bool ExecuteToken()
     {
         this.Token.Source = this.Class.Source;
-
-        
-
         this.Token.Execute();
-
-
-
         this.Result.Token = this.Token.Result;
 
-
-
+        this.Token.Source = null;
+        this.Token.Result = null;
         return true;
     }
-
-
-
 
     public virtual bool ExecuteNode()
     {
         this.Node.Source = this.Class.Source;
-
-
-
         this.Node.Task = this.Class.Task.Node;
-
-
-
         this.Node.Code = this.Result.Token.Code;
-
-
-
         this.Node.Execute();
-
-
-
         this.Result.Node = this.Node.Result;
 
-
-
+        this.Node.Source = null;
+        this.Node.Task = null;
+        this.Node.Code = null;
+        this.Node.Result = null;
         return true;
     }
-
-
-
 
     public virtual bool ExecuteModule()
     {
         this.Module.Source = this.Class.Source;
-
-
+        this.Module.RootArray = this.Result.Node.Root;
         this.Module.Execute();
-
-
-
         this.Result.Module = this.Module.Result;
 
-
-
+        this.Module.Source = null;
+        this.Module.RootArray = null;
+        this.Module.Result = null;
         return true;
     }
 }

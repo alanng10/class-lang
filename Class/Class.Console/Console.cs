@@ -398,31 +398,9 @@ public class Console : Any
     {
         this.Create.Execute();
 
-
-
-
-
         this.Result = this.Create.Result;
 
-
-
-
-        return true;
-    }
-
-
-
-
-
-
-    private bool CreateFoldIfNotExist(string foldPath)
-    {
-        if (!Directory.Exists(foldPath))
-        {
-            Directory.CreateDirectory(foldPath);
-        }
-
-
+        this.Create.Result = null;
         return true;
     }
 
