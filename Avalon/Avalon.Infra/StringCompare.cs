@@ -4,11 +4,7 @@ public class StringCompare : Compare
 {
     public override int Execute(object left, object right)
     {
-        if (left == null)
-        {
-            return 0;
-        }
-        if (right == null)
+        if (left == null | right == null)
         {
             return 0;
         }
