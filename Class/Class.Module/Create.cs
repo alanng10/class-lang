@@ -137,7 +137,7 @@ public class Create : InfraCreate
     protected virtual bool ExecuteBase()
     {
         this.SetBaseTable();
-        
+
         this.AddBaseList();
 
         this.BaseTable = null;
@@ -191,7 +191,7 @@ public class Create : InfraCreate
         b = false;
 
         bool ba;
-        ba = (varBase == null); 
+        ba = (varBase == null);
         if (ba)
         {
             this.Error(this.ErrorKind.BaseUndefined, nodeClass, this.SourceGet(varClass.Index));
@@ -214,7 +214,7 @@ public class Create : InfraCreate
         {
             a = this.SystemClass.Any;
         }
-        
+
         this.ListInfra.TableAdd(this.BaseTable, varClass, a);
         return true;
     }
@@ -250,7 +250,7 @@ public class Create : InfraCreate
 
             ClassClass a;
             a = null;
-            
+
             if (!b)
             {
                 NodeClass nodeClass;
@@ -347,10 +347,10 @@ public class Create : InfraCreate
             Field a;
             a = (Field)iter.Value;
             a.Virtual = this.VirtualField(a);
-            
+
             if (!(a.Virtual == null))
             {
-                a.SystemInfo = a.Virtual.SystemInfo;
+                this.SystemInfoAssignValue(a.SystemInfo, a.Virtual.SystemInfo);
             }
         }
         return true;
@@ -453,9 +453,9 @@ public class Create : InfraCreate
 
             if (!(a.Virtual == null))
             {
-                a.SystemInfo = a.Virtual.SystemInfo;
+                this.SystemInfoAssignValue(a.SystemInfo, a.Virtual.SystemInfo);
 
-                this.VarSystemInfoAssign(a.Param, a.Virtual.Param);
+                this.VarSystemInfoAssignValue(a.Param, a.Virtual.Param);
             }
         }
         return true;
@@ -548,7 +548,7 @@ public class Create : InfraCreate
         return h;
     }
 
-    protected virtual bool VarSystemInfoAssign(Table varA, Table varB)
+    protected virtual bool VarSystemInfoAssignValue(Table varA, Table varB)
     {
         Iter iterA;
         iterA = varA.IterCreate();
@@ -572,10 +572,17 @@ public class Create : InfraCreate
             aa = (Var)iterA.Value;
             ab = (Var)iterB.Value;
 
-            aa.SystemInfo = ab.SystemInfo;
+            this.SystemInfoAssignValue(aa.SystemInfo, ab.SystemInfo);
 
             i = i + 1;
         }
+        return true;
+    }
+
+    protected virtual bool SystemInfoAssignValue(SystemInfo a, SystemInfo b)
+    {
+        a.Value = b.Value;
+        a.HasNull = b.HasNull;
         return true;
     }
 
@@ -651,7 +658,7 @@ public class Create : InfraCreate
 
             Source source;
             source = (Source)this.Source.Get(i);
-            
+
             this.TreeTraverse(traverse, root, source);
         }
         return true;
