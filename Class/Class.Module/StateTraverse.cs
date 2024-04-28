@@ -398,14 +398,20 @@ public class StateTraverse : Traverse
 
         base.ExecuteSetTarget(setTarget);
 
-        ClassClass fieldClass;
-        fieldClass = this.ExecuteThisFieldNode(setTarget, varThis, nodeField);
+        Field field;
+        field = this.ExecuteThisFieldNode(setTarget, varThis, nodeField);
 
+        ClassClass fieldClass;
+        fieldClass = null;
+        if (!(field == null))
+        {
+            fieldClass = field.Class;
+        }
+
+        this.Info(setTarget).SetField = field;
         this.Info(setTarget).TargetClass = fieldClass;
         return true;
     }
-
-
 
     public override bool ExecuteGetOperate(GetOperate getOperate)
     {
@@ -414,44 +420,25 @@ public class StateTraverse : Traverse
             return true;
         }
 
-
-
-
-
         Operate varThis;
-
         varThis = getOperate.This;
-
-
-
-
         FieldName nodeField;
-
         nodeField = getOperate.Field;
-
-
-
-
 
         base.ExecuteGetOperate(getOperate);
 
-
-
+        Field field;
+        field = this.ExecuteThisFieldNode(getOperate, varThis, nodeField);
 
         ClassClass fieldClass;
+        fieldClass = null;
+        if (!(field == null))
+        {
+            fieldClass = field.Class;
+        }
 
-
-        fieldClass = this.ExecuteThisFieldNode(getOperate, varThis, nodeField);
-
-
-
-
+        this.Info(getOperate).GetField = field;
         this.Info(getOperate).OperateClass = fieldClass;
-
-
-
-
-
         return true;
     }
 
@@ -1697,7 +1684,7 @@ public class StateTraverse : Traverse
         return a;
     }
 
-    protected virtual ClassClass ExecuteThisFieldNode(NodeNode node, Operate varThis, FieldName nodeField)
+    protected virtual Field ExecuteThisFieldNode(NodeNode node, Operate varThis, FieldName nodeField)
     {
         ClassClass thisClass;
         thisClass = null;
@@ -1732,16 +1719,7 @@ public class StateTraverse : Traverse
             }
         }
 
-        ClassClass fieldClass;
-        fieldClass = null;
-        if (!(field == null))
-        {
-            fieldClass = field.Class;
-        }
-
-        this.Info(node).GetField = field;
-
-        return fieldClass;
+        return field;
     }
 
 
