@@ -5,18 +5,21 @@ public class StateTraverse : Traverse
     public override bool Init()
     {
         base.Init();
+        this.ListInfra = ListInfra.This;
         this.TextInfra = TextInfra.This;
+        this.ClassInfra = ClassInfra.This;
 
         this.VarStack = new Stack();
         this.VarStack.Init();
 
         this.System = this.Create.SystemClass;
         this.NullClass = this.Create.NullClass;
-
         return true;
     }
 
+    protected virtual ListInfra ListInfra { get; set; }
     protected virtual TextInfra TextInfra { get; set; }
+    protected virtual ClassInfra ClassInfra { get; set; }
     protected virtual SystemClass System { get; set; }
     protected virtual ClassClass NullClass { get; set; }
     protected virtual ClassClass ThisClass { get; set; }
@@ -50,156 +53,51 @@ public class StateTraverse : Traverse
         }
 
         State nodeGet;
-
         nodeGet = nodeField.Get;
-
-
-
-
         State nodeSet;
-
         nodeSet = nodeField.Set;
 
-
-
-
-
         Field field;
-
-
         field = this.Info(nodeField).Field;
-
-
-
-
         if (field == null)
         {
             return true;
         }
 
-
-
-
-
         this.FieldGet(field, nodeGet);
-            
-
-
-
-
         this.FieldSet(field, nodeSet);
-
-
-
-
         return true;
     }
 
-
-
-
-
-    private bool FieldGet(Field field, State nodeGet)
+    protected bool FieldGet(Field field, State nodeGet)
     {
         if (nodeGet == null)
         {
             return true;
         }
 
-
-
-
-
-
-        
-
         this.ThisResultClass = field.Class;
-
-
-
-
-
 
         this.StateVars = field.Get;
 
-
-
-
-
-        Table o;
-
-
-        o = new Table();
-
-
-        o.Compare = new StringCompare();
-
-
-        o.Compare.Init();
-
-
-        o.Init();
-
-
-
-
-
         Var dataVar;
-
-
         dataVar = new Var();
-
         dataVar.Init();
-
-
         dataVar.Name = "data";
-
-
         dataVar.Class = field.Class;
 
-
-
-
-
-
-        this.VarMapAdd(o, dataVar);
-
-
-
-
-
-
+        Table o;
+        o = this.ClassInfra.TableCreateStringCompare();
+        this.ListInfra.TableAdd(o, dataVar.Name, dataVar);
 
         this.VarStack.Push(o);
 
-
-
-
         this.ExecuteState(nodeGet);
-
-
-
 
         this.VarStack.Pop();
 
-
-
-
-
-
-
-
-
         this.StateVars = null;
-
-
-
-
         this.ThisResultClass = null;
-
-
-
-
         return true;
     }
 
@@ -599,44 +497,14 @@ public class StateTraverse : Traverse
             return true;
         }
 
+        Table h;
+        h = this.ClassInfra.TableCreateStringCompare();
 
-
-
-
-        Table oo;
-
-
-        oo = new Table();
-
-
-        oo.Compare = new StringCompare();
-
-
-        oo.Compare.Init();
-
-
-
-        oo.Init();
-
-
-
-
-
-        this.VarStack.Push(oo);
-
-
-
+        this.VarStack.Push(h);
 
         base.ExecuteState(state);
 
-
-
-
         this.VarStack.Pop();
-
-
-
-
         return true;
     }
 

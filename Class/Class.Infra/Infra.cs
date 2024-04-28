@@ -201,4 +201,11 @@ public class Infra : Any
 
         return text;
     }
+
+    public virtual bool SystemInfoAssignValue(SystemInfo a, SystemInfo b)
+    {
+        a.Value = b.Value;
+        a.HasNull = b.HasNull;
+        return true;
+    }
 }
