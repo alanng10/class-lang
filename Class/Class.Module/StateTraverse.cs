@@ -364,8 +364,6 @@ public class StateTraverse : Traverse
         return true;
     }
 
-
-
     public override bool ExecuteVarTarget(VarTarget varTarget)
     {
         if (varTarget == null)
@@ -373,30 +371,16 @@ public class StateTraverse : Traverse
             return true;
         }
 
-
-
-
         VarName name;
-
-
         name = varTarget.Var;
 
-
-
+        string varName;
+        varName = name.Value;
 
         ClassClass varClass;
-
-
-        varClass = this.ExecuteVarNameNode(varTarget, name);
-
-
-
+        varClass = this.ExecuteVarNameNode(varTarget, varName);
 
         this.Info(varTarget).TargetClass = varClass;
-
-
-
-
         return true;
     }
 
@@ -1639,30 +1623,16 @@ public class StateTraverse : Traverse
             return true;
         }
 
-
-
-
         VarName name;
-
-
         name = varOperate.Var;
 
-
-
+        string varName;
+        varName = name.Value;
 
         ClassClass varClass;
-
-
-        varClass = this.ExecuteVarNameNode(varOperate, name);
-
-
-
+        varClass = this.ExecuteVarNameNode(varOperate, varName);
 
         this.Info(varOperate).OperateClass = varClass;
-
-
-
-
         return true;
     }
 
@@ -1742,51 +1712,25 @@ public class StateTraverse : Traverse
 
 
 
-    protected virtual ClassClass ExecuteVarNameNode(NodeNode node, VarName name)
+    protected virtual ClassClass ExecuteVarNameNode(NodeNode node, string name)
     {
-        string varName;
-
-
-        varName = name.Value;
-
-
-
-
         Var varVar;
-
-
-        varVar = this.VarStackVar(varName);
-
-
-
-
+        varVar = this.VarStackVar(name);
         if (varVar == null)
         {
             this.Error(this.ErrorKind.VarUndefined, node);
         }
 
-
-
-
-        ClassClass varClass;
-
-        varClass = null;
-
-
+        ClassClass a;
+        a = null;
         if (!(varVar == null))
         {
-            varClass = varVar.Class;
+            a = varVar.Class;
         }
-
-
-
 
         this.Info(node).Var = varVar;
 
-
-
-
-        return varClass;
+        return a;
     }
 
 
