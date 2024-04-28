@@ -10,10 +10,9 @@ class Tree : Any
         return true;
     }
 
+    public virtual Compare Compare { get; set; }
     private TreeNode Root { get; set; }
     private TreeNodeResult NodeResult { get; set; }
-
-    public Compare Compare { get; set; }
 
     public bool Insert(object index, object value)
     {
