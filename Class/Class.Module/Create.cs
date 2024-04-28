@@ -518,6 +518,48 @@ public class Create : InfraCreate
         return h;
     }
 
+    protected virtual bool VarSameClass(Table varA, Table varB)
+    {
+        if (!(varA.Count == varB.Count))
+        {
+            return false;
+        }
+
+        Iter iterA;
+        iterA = varA.IterCreate();
+        varA.IterSet(iterA);
+
+        Iter iterB;
+        iterB = varB.IterCreate();
+        varB.IterSet(iterB);
+
+        int count;
+        count = varA.Count;
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            iterA.Next();
+            iterB.Next();
+
+            Var aa;
+            Var ab;
+            aa = (Var)iterA.Value;
+            ab = (Var)iterB.Value;
+
+            bool b;
+            b = (aa.Class == ab.Class);
+            if (!b)
+            {
+                return false;
+            }
+
+            i = i + 1;
+        }
+
+        return true;
+    }
+
     protected virtual bool ExecuteState()
     {
         Traverse traverse;
