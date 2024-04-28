@@ -38,30 +38,51 @@ public class String : Any
         return o.Substring(range.Index, range.Count);
     }
 
-    public virtual bool C_Equal(string o, string other, Range range)
+    public virtual bool C_Equal(string o, Range range, string other, Range otherRange)
     {
-        int index;
-        int count;
-        index = 0;
-        count = 0;
-        bool b;
-        b = (range == null);
-        if (b)
+        int thisIndex;
+        int thisCount;
+        thisIndex = 0;
+        thisCount = 0;
+        bool ba;
+        ba = (range == null);
+        if (ba)
         {
-            index = 0;
-            count = o.Length;  
+            thisIndex = 0;
+            thisCount = o.Length;
         }
-        if (!b)
+        if (!ba)
         {
             if (!this.InfraInfra.CheckRange(o.Length, range))
             {
                 return false;
             }
-            index = range.Index;
-            count = range.Count;
+            thisIndex = range.Index;
+            thisCount = range.Count;
         }
 
-        if (!(count == other.Length))
+        int otherIndex;
+        int otherCount;
+        otherIndex = 0;
+        otherCount = 0;
+        bool bb;
+        bb = (otherRange == null);
+        if (bb)
+        {
+            otherIndex = 0;
+            otherCount = other.Length;
+        }
+        if (!bb)
+        {
+            if (!this.InfraInfra.CheckRange(other.Length, otherRange))
+            {
+                return false;
+            }
+            otherIndex = otherRange.Index;
+            otherCount = otherRange.Count;
+        }
+
+        if (!(thisCount == otherCount))
         {
             return false;
         }
@@ -70,10 +91,10 @@ public class String : Any
         char ocb;
         int i;
         i = 0;
-        while (i < count)
+        while (i < thisCount)
         {
-            oca = o[index + i];
-            ocb = other[i];
+            oca = o[thisIndex + i];
+            ocb = other[otherIndex + i];
             if (!(oca == ocb))
             {
                 return false;
