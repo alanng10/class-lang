@@ -10,13 +10,11 @@ public class StringCompare : Compare
         }
 
         string leftString;
-        leftString = (string)left;
         string rightString;
+        leftString = (string)left;
         rightString = (string)right;
-        int t;
-        t = string.CompareOrdinal(leftString, rightString);
-        int ret;
-        ret = t;
-        return ret;
+        int a;
+        a = string.CompareOrdinal(leftString, rightString);
+        return a;
     }
 }
