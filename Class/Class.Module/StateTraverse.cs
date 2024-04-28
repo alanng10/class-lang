@@ -1900,19 +1900,17 @@ public class StateTraverse : Traverse
             return false;
         }
 
-
-
         if (count == this.Count.Private)
         {
-            if (this.ThisClass == varClass)
+            if (triggerClass == varClass)
             {
-                return true;
+                if (this.ThisClass == triggerClass)
+                {
+                    return true;
+                }
             }
             return false;
         }
-
-
-
         return true;
     }
 
