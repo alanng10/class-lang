@@ -1761,13 +1761,6 @@ public class StateTraverse : Traverse
         return a;
     }
 
-
-
-
-
-
-
-
     protected virtual Field Field(ClassClass varClass, string name)
     {
         ClassClass anyClass;
@@ -1820,7 +1813,7 @@ public class StateTraverse : Traverse
         {
             return null;
         }
-        
+
         return d;
     }
 
