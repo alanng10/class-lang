@@ -381,41 +381,46 @@ public class Create : InfraCreate
         {
             if (thisClass.Maide.Contain(name))
             {
-                return null;
+                b = true;
             }
 
-            Field o;
-            o = (Field)thisClass.Field.Get(name);
-            if (!(o == null))
+            if (!b)
             {
-                if (a.Class == o.Class & a.Count == o.Count)
+                Field o;
+                o = (Field)thisClass.Field.Get(name);
+                if (!(o == null))
                 {
-                    if (ba)
+                    if ((a.Class == o.Class & a.Count == o.Count))
                     {
-                        if (a.Parent.Module == o.Parent.Module)
+                        if (ba)
+                        {
+                            if (a.Parent.Module == o.Parent.Module)
+                            {
+                                d = o;
+                            }
+                        }
+                        if (!ba)
                         {
                             d = o;
-                            b = true;
                         }
                     }
-                    if (!ba)
-                    {
-                        d = o;
-                        b = true;
-                    }
+                    b = true;
                 }
             }
 
-            ClassClass aa;
-            aa = null;
-            if (!(thisClass == anyClass))
+            if (!b)
             {
-                aa = thisClass.Base;
+                ClassClass aa;
+                aa = null;
+                if (!(thisClass == anyClass))
+                {
+                    aa = thisClass.Base;
+                }
+                thisClass = aa;
             }
-            thisClass = aa;
         }
 
-        if (!b)
+        if (d == null)
         {
             return null;
         }
