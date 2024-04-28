@@ -10,43 +10,19 @@ public class StateTraverse : Traverse
         this.VarStack = new Stack();
         this.VarStack.Init();
 
-
-
-
-
         this.System = this.Create.SystemClass;
-
-
-
+        this.NullClass = this.Create.NullClass;
 
         return true;
     }
 
-    public virtual ClassClass CurrentClass { get; set; }
-
-
-
-
-    public virtual ClassClass CurrentResultClass { get; set; }
-
-
-
-
-
-    public virtual SystemClass System { get; set; }
-
-
-
-
-
-    public virtual Table StateVars { get; set; }
-
-    public virtual Stack VarStack { get; set; }
-
     protected virtual TextInfra TextInfra { get; set; }
-
-    public virtual ClassClass NullClass { get; set; }
-
+    protected virtual SystemClass System { get; set; }
+    protected virtual ClassClass NullClass { get; set; }
+    protected virtual ClassClass ThisClass { get; set; }
+    protected virtual ClassClass ThisResultClass { get; set; }
+    protected virtual Table StateVars { get; set; }
+    protected virtual Stack VarStack { get; set; }
 
     public override bool ExecuteClass(NodeClass varClass)
     {
@@ -55,35 +31,16 @@ public class StateTraverse : Traverse
             return true;
         }
 
+        this.ThisClass = this.Info(varClass).Class;
 
-
-
-
-        this.CurrentClass = this.Info(varClass).Class;
-
-
-
-
-        if (this.CurrentClass == null)
+        if (this.ThisClass == null)
         {
             return true;
         }
 
-
-
-
-
         base.ExecuteClass(varClass);
-
-
-
-
         return true;
     }
-
-
-
-
 
     public override bool ExecuteField(NodeField nodeField)
     {
@@ -91,9 +48,6 @@ public class StateTraverse : Traverse
         {
             return true;
         }
-
-
-
 
         State nodeGet;
 
@@ -159,7 +113,7 @@ public class StateTraverse : Traverse
 
         
 
-        this.CurrentResultClass = field.Class;
+        this.ThisResultClass = field.Class;
 
 
 
@@ -241,7 +195,7 @@ public class StateTraverse : Traverse
 
 
 
-        this.CurrentResultClass = null;
+        this.ThisResultClass = null;
 
 
 
@@ -266,7 +220,7 @@ public class StateTraverse : Traverse
 
 
 
-        this.CurrentResultClass = this.System.Bool;
+        this.ThisResultClass = this.System.Bool;
 
 
 
@@ -370,7 +324,7 @@ public class StateTraverse : Traverse
 
 
 
-        this.CurrentResultClass = null;
+        this.ThisResultClass = null;
 
 
 
@@ -430,7 +384,7 @@ public class StateTraverse : Traverse
 
 
 
-        this.CurrentResultClass = method.Class;
+        this.ThisResultClass = method.Class;
 
 
 
@@ -490,7 +444,7 @@ public class StateTraverse : Traverse
 
 
 
-        this.CurrentResultClass = null;
+        this.ThisResultClass = null;
 
 
 
@@ -704,7 +658,7 @@ public class StateTraverse : Traverse
 
 
 
-        this.Info(thisOperate).OperateClass = this.CurrentClass;
+        this.Info(thisOperate).OperateClass = this.ThisClass;
 
 
 
@@ -2067,7 +2021,7 @@ public class StateTraverse : Traverse
 
         if (!(resultClass == null))
         {
-            if (!this.CheckClass(resultClass, this.CurrentResultClass))
+            if (!this.CheckClass(resultClass, this.ThisResultClass))
             {
                 this.Error(this.ErrorKind.ResultUnassignable, returnExecute);
             }
@@ -2558,7 +2512,7 @@ public class StateTraverse : Traverse
 
     private bool CheckAccces(ClassClass varClass, Count access)
     {
-        if (this.CurrentClass == varClass)
+        if (this.ThisClass == varClass)
         {
             return true;
         }
