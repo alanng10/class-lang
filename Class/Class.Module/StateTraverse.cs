@@ -264,43 +264,21 @@ public class StateTraverse : Traverse
         return true;
     }
 
-    public override bool ExecuteWhileExecute(WhileExecute loopExecute)
+    public override bool ExecuteWhileExecute(WhileExecute whileExecute)
     {
-        if (loopExecute == null)
+        if (whileExecute == null)
         {
             return true;
         }
 
-
-
-
-
         Operate cond;
-
-        cond = loopExecute.Cond;
-
-
-
+        cond = whileExecute.Cond;
         State loop;
+        loop = whileExecute.Loop;
 
-        loop = loopExecute.Loop;
+        base.ExecuteWhileExecute(whileExecute);
 
-
-
-
-
-        base.ExecuteWhileExecute(loopExecute);
-
-
-
-
-
-        this.ExecuteCondBodyExecute(loopExecute, cond);
-
-
-
-
-
+        this.ExecuteCondBodyExecute(whileExecute, cond);
         return true;
     }
 
