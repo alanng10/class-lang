@@ -2169,31 +2169,16 @@ public class StateTraverse : Traverse
     protected virtual Var VarStackVar(string name)
     {
         Iter iter;
-
         iter = this.VarStack.IterCreate();
-
         this.VarStack.IterSet(iter);
-
-
 
         while (iter.Next())
         {
             Table varTable;
-
-
             varTable = (Table)iter.Value;
 
-
-
-
             Var varVar;
-
-
-
             varVar = (Var)varTable.Get(name);
-
-
-
             if (!(varVar == null))
             {
                 return varVar;
