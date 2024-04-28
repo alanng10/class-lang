@@ -1816,8 +1816,12 @@ public class StateTraverse : Traverse
             return null;
         }
 
-
-        return null;
+        if (!this.CheckCount(varClass, d.Parent, d.Count))
+        {
+            return null;
+        }
+        
+        return d;
     }
 
 
