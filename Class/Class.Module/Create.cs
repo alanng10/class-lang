@@ -333,6 +333,7 @@ public class Create : InfraCreate
     protected virtual bool ExecuteVirtualClass(ClassClass varClass)
     {
         this.ExecuteVirtualField(varClass.Field);
+        this.ExecuteVirtualMaide(varClass.Maide);
         return true;
     }
 
@@ -346,6 +347,11 @@ public class Create : InfraCreate
             Field a;
             a = (Field)iter.Value;
             a.Virtual = this.VirtualField(a);
+            
+            if (!(a.Virtual == null))
+            {
+                this.SystemInfoAssignValue(a.SystemInfo, a.Virtual.SystemInfo);
+            }
         }
         return true;
     }
@@ -434,6 +440,25 @@ public class Create : InfraCreate
         return h;
     }
 
+    protected virtual bool ExecuteVirtualMaide(Table maide)
+    {
+        Iter iter;
+        iter = maide.IterCreate();
+        maide.IterSet(iter);
+        while (iter.Next())
+        {
+            Maide a;
+            a = (Maide)iter.Value;
+            a.Virtual = this.VirtualMaide(a);
+
+            if (!(a.Virtual == null))
+            {
+                this.SystemInfoAssignValue(a.SystemInfo, a.Virtual.SystemInfo);
+            }
+        }
+        return true;
+    }
+
     protected virtual Maide VirtualMaide(Maide a)
     {
         if (a.Count == this.Count.Private)
@@ -519,6 +544,13 @@ public class Create : InfraCreate
             h = d.Virtual;
         }
         return h;
+    }
+
+    protected virtual bool SystemInfoAssignValue(SystemInfo a, SystemInfo b)
+    {
+        a.Value = b.Value;
+        a.HasNull = b.HasNull;
+        return true;
     }
 
     protected virtual bool VarSameClass(Table varA, Table varB)
