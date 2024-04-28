@@ -2184,10 +2184,6 @@ public class StateTraverse : Traverse
                 return varVar;
             }
         }
-
-
-
-
         return null;
     }
 }
