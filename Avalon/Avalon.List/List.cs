@@ -2,10 +2,6 @@ namespace Avalon.List;
 
 public class List : Any
 {
-    private ListNode First { get; set; }
-    private ListNode Last { get; set; }
-    private ListNodeRef NodeRef { get; set; }
-
     public override bool Init()
     {
         base.Init();
@@ -14,10 +10,11 @@ public class List : Any
         return true;
     }
 
-    public virtual int Count
-    {
-        get; set;
-    }
+    public virtual int Count { get { return __D_Count; } set { __D_Count = value; } }
+    protected int __D_Count;
+    private ListNode First { get; set; }
+    private ListNode Last { get; set; }
+    private ListNodeRef NodeRef { get; set; }
 
     public virtual object Add(object item)
     {
