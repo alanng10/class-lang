@@ -19,7 +19,6 @@
       "id": "class",
       "aliases": ["Class", "class"],
       "extensions": [".cla"],
-      "filenames": ["Class.Port", "Class.Fold"],
       "configuration": "./language-configuration.json"
     }],
     "grammars": [{
