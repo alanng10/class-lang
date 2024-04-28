@@ -13,18 +13,14 @@ public class RefCompare : Compare
 
     public override int Execute(object left, object right)
     {
-        if (left == null)
-        {
-            return 0;
-        }
-        if (right == null)
+        if (left == null | right == null)
         {
             return 0;
         }
 
         int lu;
-        lu = this.Comparer.GetHashCode(left);
         int ru;
+        lu = this.Comparer.GetHashCode(left);
         ru = this.Comparer.GetHashCode(right);
         int k;
         k = lu.CompareTo(ru);
