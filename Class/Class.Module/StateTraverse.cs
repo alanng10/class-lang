@@ -323,85 +323,44 @@ public class StateTraverse : Traverse
             return true;
         }
 
-
-
-
-        Target target;
-            
+        Target target;            
         target = assignExecute.Target;
-            
-            
-            
         Operate value;
-            
         value = assignExecute.Value;
-
-
-
-
 
         base.ExecuteAssignExecute(assignExecute);
 
-
-
-
         ClassClass targetClass;
-
-
         targetClass = null;
-
-
         if (!(target == null))
         {
             targetClass = this.Info(target).TargetClass;
         }
 
-
-
-
         ClassClass valueClass;
-
-
         valueClass = null;
-
-
         if (!(value == null))
         {
             valueClass = this.Info(value).OperateClass;
         }
-
-
-
 
         if (targetClass == null)
         {
             this.Error(this.ErrorKind.TargetUndefined, assignExecute);
         }
 
-
-
         if (valueClass == null)
         {
             this.Error(this.ErrorKind.ValueUndefined, assignExecute);
         }
 
-
-
-
-
         if (!(targetClass == null) & !(valueClass == null))
         {
-            if (! this.CheckClass(valueClass, targetClass))
+            if (!this.CheckClass(valueClass, targetClass))
             {
                 this.Error(this.ErrorKind.ValueUnassignable, assignExecute);
             }
         }
-
-
-
-
-
-
         return true;
     }
 
