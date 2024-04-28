@@ -36,6 +36,12 @@
                 "settings":{
                     "foreground": "#000000"
                 }
+            },
+            {
+                "scope": "section.classport",
+                "settings": {
+                    "foreground": "#008888"
+                }
             }
         ]
     }
