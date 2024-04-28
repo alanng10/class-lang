@@ -101,132 +101,43 @@ public class StateTraverse : Traverse
         return true;
     }
 
-
-
-
-
-
-    private bool FieldSet(Field field, State nodeSet)
+    protected virtual bool FieldSet(Field field, State nodeSet)
     {
         if (nodeSet == null)
         {
             return true;
         }
 
-
-
-
-
-
         this.ThisResultClass = this.System.Bool;
-
-
-
-
 
         this.StateVar = field.Set;
 
-
-
-
-
-
-
-
-        Table o;
-
-
-        o = new Table();
-
-
-        o.Compare = new StringCompare();
-
-
-        o.Compare.Init();
-
-
-        o.Init();
-
-
-
-
-
         Var dataVar;
-
-
         dataVar = new Var();
-
         dataVar.Init();
-
-
         dataVar.Name = "data";
-
-
         dataVar.Class = field.Class;
 
-
-
-
-
-
         Var valueVar;
-
-
         valueVar = new Var();
-
         valueVar.Init();
-
         valueVar.Name = "value";
-
-
         valueVar.Class = field.Class;
 
+        Table o;
+        o = this.ClassInfra.TableCreateStringCompare();
 
-
-
-
-        this.VarMapAdd(o, dataVar);
-
-
-
-
-        this.VarMapAdd(o, valueVar);
-
-
-
-
-
-
-
+        this.ListInfra.TableAdd(o, dataVar.Name, dataVar);
+        this.ListInfra.TableAdd(o, valueVar.Name, valueVar);
 
         this.VarStack.Push(o);
 
-
-
-
         this.ExecuteState(nodeSet);
-
-
-
 
         this.VarStack.Pop();
 
-
-
-
-
-
         this.StateVar = null;
-
-
-
-
-
         this.ThisResultClass = null;
-
-
-
-
         return true;
     }
 
