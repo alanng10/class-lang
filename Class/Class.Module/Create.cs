@@ -476,16 +476,19 @@ public class Create : InfraCreate
                 {
                     if ((a.Class == o.Class & a.Count == o.Count))
                     {
-                        if (ba)
+                        if (this.VarSameClass(a.Param, o.Param))
                         {
-                            if (a.Parent.Module == o.Parent.Module)
+                            if (ba)
+                            {
+                                if (a.Parent.Module == o.Parent.Module)
+                                {
+                                    d = o;
+                                }
+                            }
+                            if (!ba)
                             {
                                 d = o;
                             }
-                        }
-                        if (!ba)
-                        {
-                            d = o;
                         }
                     }
                     b = true;
