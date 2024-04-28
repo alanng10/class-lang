@@ -2540,10 +2540,22 @@ public class Create : InfraCreate
             return null;
         }
 
+        Range classRange;
+        classRange = this.ExecuteNameRange(this.RangeB, this.Range(this.RangeA, wordToken.Range.End, end));
+        if (classRange == null)
+        {
+            return null;
+        }
+
+        if (!(classRange.End == end))
+        {
+            return null;
+        }
+
         int classStart;
         int classEnd;
-        classStart = wordToken.Range.End;
-        classEnd = end;
+        classStart = classRange.Start;
+        classEnd = classRange.End;
 
         Node varClass;
         varClass = this.ExecuteName(this.NodeKind.ClassName, this.Range(this.RangeA, classStart, classEnd));
