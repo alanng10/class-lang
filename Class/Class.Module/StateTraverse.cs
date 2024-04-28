@@ -436,6 +436,205 @@ public class StateTraverse : Traverse
         return true;
     }
 
+
+
+    public override bool ExecuteGetOperate(GetOperate getOperate)
+    {
+        if (getOperate == null)
+        {
+            return true;
+        }
+
+
+
+
+
+        Operate varThis;
+
+        varThis = getOperate.This;
+
+
+
+
+        FieldName nodeField;
+
+        nodeField = getOperate.Field;
+
+
+
+
+
+        base.ExecuteGetOperate(getOperate);
+
+
+
+
+        ClassClass fieldClass;
+
+
+        fieldClass = this.ExecuteThisFieldNode(getOperate, varThis, nodeField);
+
+
+
+
+        this.Info(getOperate).OperateClass = fieldClass;
+
+
+
+
+
+        return true;
+    }
+
+
+
+
+    public override bool ExecuteCallOperate(CallOperate callOperate)
+    {
+        if (callOperate == null)
+        {
+            return true;
+        }
+
+
+
+
+
+        Operate varThis;
+
+        varThis = callOperate.This;
+
+
+
+
+        MaideName nodeMethod;
+
+        nodeMethod = callOperate.Maide;
+
+
+
+
+        Argue argue;
+
+        argue = callOperate.Argue;
+
+
+
+
+
+        base.ExecuteCallOperate(callOperate);
+
+
+
+
+
+        ClassClass thisClass;
+
+
+        thisClass = null;
+
+
+
+        if (!(varThis == null))
+        {
+            thisClass = this.Info(varThis).OperateClass;
+        }
+
+
+
+
+        string methodName;
+
+
+        methodName = null;
+
+
+
+        if (!(nodeMethod == null))
+        {
+            methodName = nodeMethod.Value;
+        }
+
+
+
+
+        if (thisClass == null)
+        {
+            this.Error(this.ErrorKind.ThisUndefined, callOperate);
+        }
+
+
+
+
+
+        Maide method;
+
+
+        method = null;
+
+
+
+
+        if (!(thisClass == null))
+        {
+            if (!(methodName == null))
+            {
+                method = this.Method(thisClass, methodName);
+            }
+
+
+
+            if (method == null)
+            {
+                this.Error(this.ErrorKind.MaideUndefined, callOperate);
+            }
+        }
+
+
+
+
+
+
+        if (!(method == null))
+        {
+            if (!this.ArguesMatch(method, argue))
+            {
+                this.Error(this.ErrorKind.ArgueUnassignable, callOperate);
+            }
+        }
+
+
+
+
+
+        ClassClass operateClass;
+
+
+        operateClass = null;
+
+
+
+
+        if (!(method == null))
+        {
+            operateClass = method.Class;
+        }
+
+
+
+
+        this.Info(callOperate).CallMaide = method;
+
+
+
+        this.Info(callOperate).OperateClass = operateClass;
+
+
+
+
+        return true;
+    }
+
     public override bool ExecuteThisOperate(ThisOperate thisOperate)
     {
         if (thisOperate == null)
@@ -448,6 +647,16 @@ public class StateTraverse : Traverse
     }
 
 
+    public override bool ExecuteNullOperate(NullOperate nullOperate)
+    {
+        if (nullOperate == null)
+        {
+            return true;
+        }
+
+        this.Info(nullOperate).OperateClass = this.NullClass;
+        return true;
+    }
 
 
     public override bool ExecuteNewOperate(NewOperate newOperate)
@@ -603,6 +812,96 @@ public class StateTraverse : Traverse
     }
 
 
+
+
+
+
+    public override bool ExecuteVarOperate(VarOperate varOperate)
+    {
+        if (varOperate == null)
+        {
+            return true;
+        }
+
+        VarName name;
+        name = varOperate.Var;
+
+        string varName;
+        varName = name.Value;
+
+        ClassClass varClass;
+        varClass = this.ExecuteVarNameNode(varOperate, varName);
+
+        this.Info(varOperate).OperateClass = varClass;
+        return true;
+    }
+
+
+
+
+
+    public override bool ExecuteValueOperate(ValueOperate valueOperate)
+    {
+        if (valueOperate == null)
+        {
+            return true;
+        }
+
+
+
+
+
+        Value value;
+
+
+        value = valueOperate.Value;
+
+
+
+
+
+        base.ExecuteValueOperate(valueOperate);
+
+
+
+
+
+        ClassClass valueClass;
+
+
+        valueClass = null;
+
+
+
+
+        if (!(value == null))
+        {
+            if (value is BoolValue)
+            {
+                valueClass = this.System.Bool;
+            }
+
+            if (value is IntValue)
+            {
+                valueClass = this.System.Int;
+            }
+
+            if (value is StringValue)
+            {
+                valueClass = this.System.String;
+            }
+        }
+
+
+
+
+        this.Info(valueOperate).OperateClass = valueClass;
+
+
+
+
+        return true;
+    }
 
 
 
@@ -1255,203 +1554,6 @@ public class StateTraverse : Traverse
 
 
 
-    public override bool ExecuteGetOperate(GetOperate getOperate)
-    {
-        if (getOperate == null)
-        {
-            return true;
-        }
-
-
-
-
-
-        Operate varThis;
-
-        varThis = getOperate.This;
-
-
-
-
-        FieldName nodeField;
-
-        nodeField = getOperate.Field;
-
-
-
-
-
-        base.ExecuteGetOperate(getOperate);
-
-
-
-
-        ClassClass fieldClass;
-
-
-        fieldClass = this.ExecuteThisFieldNode(getOperate, varThis, nodeField);
-
-
-
-
-        this.Info(getOperate).OperateClass = fieldClass;
-
-
-
-
-
-        return true;
-    }
-
-
-
-
-    public override bool ExecuteCallOperate(CallOperate callOperate)
-    {
-        if (callOperate == null)
-        {
-            return true;
-        }
-
-
-
-
-
-        Operate varThis;
-
-        varThis = callOperate.This;
-
-
-
-
-        MaideName nodeMethod;
-
-        nodeMethod = callOperate.Maide;
-
-
-
-
-        Argue argue;
-
-        argue = callOperate.Argue;
-
-
-
-
-
-        base.ExecuteCallOperate(callOperate);
-
-
-
-
-
-        ClassClass thisClass;
-
-
-        thisClass = null;
-
-
-            
-        if (!(varThis == null))
-        {
-            thisClass = this.Info(varThis).OperateClass;
-        }
-
-
-
-
-        string methodName;
-
-
-        methodName = null;
-
-
-
-        if (!(nodeMethod == null))
-        {
-            methodName = nodeMethod.Value;
-        }
-
-
-
-
-        if (thisClass == null)
-        {
-            this.Error(this.ErrorKind.ThisUndefined, callOperate);
-        }
-
-
-
-
-
-        Maide method;
-
-
-        method = null;
-
-
-
-
-        if (!(thisClass == null))
-        {
-            if (!(methodName == null))
-            {
-                method = this.Method(thisClass, methodName);
-            }
-
-
-
-            if (method == null)
-            {
-                this.Error(this.ErrorKind.MaideUndefined, callOperate);
-            }
-        }
-
-
-
-
-
-
-        if (!(method == null))
-        {
-            if (!this.ArguesMatch(method, argue))
-            {
-                this.Error(this.ErrorKind.ArgueUnassignable, callOperate);
-            }
-        }
-
-
-
-
-
-        ClassClass operateClass;
-
-
-        operateClass = null;
-
-
-
-
-        if (!(method == null))
-        {
-            operateClass = method.Class;
-        }
-
-
-
-
-        this.Info(callOperate).CallMaide = method;
-
-
-
-        this.Info(callOperate).OperateClass = operateClass;
-
-
-
-
-        return true;
-    }
-
 
 
 
@@ -1563,6 +1665,17 @@ public class StateTraverse : Traverse
         return true;
     }
 
+
+
+
+
+
+
+
+
+
+
+
     protected virtual bool ExecuteCondBodyExecute(Execute execute, Operate cond)
     {
         ClassClass condClass;
@@ -1587,124 +1700,6 @@ public class StateTraverse : Traverse
         }
         return true;
     }
-
-
-
-
-
-
-    public override bool ExecuteNullOperate(NullOperate nullOperate)
-    {
-        if (nullOperate == null)
-        {
-            return true;
-        }
-
-        
-
-
-        this.Info(nullOperate).OperateClass = this.NullClass;
-
-
-
-
-        return true;
-    }
-
-
-
-
-
-
-    public override bool ExecuteVarOperate(VarOperate varOperate)
-    {
-        if (varOperate == null)
-        {
-            return true;
-        }
-
-        VarName name;
-        name = varOperate.Var;
-
-        string varName;
-        varName = name.Value;
-
-        ClassClass varClass;
-        varClass = this.ExecuteVarNameNode(varOperate, varName);
-
-        this.Info(varOperate).OperateClass = varClass;
-        return true;
-    }
-
-
-
-
-
-    public override bool ExecuteValueOperate(ValueOperate valueOperate)
-    {
-        if (valueOperate == null)
-        {
-            return true;
-        }
-
-
-
-
-
-        Value value;
-        
-
-        value = valueOperate.Value;
-
-
-
-
-
-        base.ExecuteValueOperate(valueOperate);
-
-
-
-
-
-        ClassClass valueClass;
-
-
-        valueClass = null;
-
-
-
-
-        if (!(value == null))
-        {
-            if (value is BoolValue)
-            {
-                valueClass = this.System.Bool;
-            }
-
-            if (value is IntValue)
-            {
-                valueClass = this.System.Int;
-            }
-
-            if (value is StringValue)
-            {
-                valueClass = this.System.String;
-            }
-        }
-
-
-
-
-        this.Info(valueOperate).OperateClass = valueClass;
-
-
-
-
-        return true;
-    }
-
-
-
 
 
 
