@@ -1076,6 +1076,11 @@ public class Create : InfraCreate
         start = range.Start;
         end = range.End;
 
+        if (!(start + 2 == end))
+        {
+            return null;
+        }
+
         Range classRange;
         classRange = this.ExecuteNameRange(this.RangeB, this.Range(this.RangeA, start, end));
         if (classRange == null)
@@ -2529,18 +2534,14 @@ public class Create : InfraCreate
         start = range.Start;
         end = range.End;
 
-        if (start == end)
-        {
-            return null;
-        }
-        Token wordToken;
-        wordToken = this.Token(this.TokenA, keyword.Text, this.IndexRange(this.RangeA, start));
-        if (wordToken == null)
+        if (!(start + 2 == end))
         {
             return null;
         }
 
-        if (!((wordToken.Range.End + 1) == end))
+        Token wordToken;
+        wordToken = this.Token(this.TokenA, keyword.Text, this.IndexRange(this.RangeA, start));
+        if (wordToken == null)
         {
             return null;
         }
