@@ -350,7 +350,7 @@ public class Create : InfraCreate
             
             if (!(a.Virtual == null))
             {
-                this.SystemInfoAssignValue(a.SystemInfo, a.Virtual.SystemInfo);
+                a.SystemInfo = a.Virtual.SystemInfo;
             }
         }
         return true;
@@ -453,9 +453,9 @@ public class Create : InfraCreate
 
             if (!(a.Virtual == null))
             {
-                this.SystemInfoAssignValue(a.SystemInfo, a.Virtual.SystemInfo);
+                a.SystemInfo = a.Virtual.SystemInfo;
 
-                this.VarSystemInfoAssignValue(a.Param, a.Virtual.Param);
+                this.VarSystemInfoAssign(a.Param, a.Virtual.Param);
             }
         }
         return true;
@@ -548,7 +548,7 @@ public class Create : InfraCreate
         return h;
     }
 
-    protected virtual bool VarSystemInfoAssignValue(Table varA, Table varB)
+    protected virtual bool VarSystemInfoAssign(Table varA, Table varB)
     {
         Iter iterA;
         iterA = varA.IterCreate();
@@ -572,17 +572,10 @@ public class Create : InfraCreate
             aa = (Var)iterA.Value;
             ab = (Var)iterB.Value;
 
-            this.SystemInfoAssignValue(aa.SystemInfo, ab.SystemInfo);
+            aa.SystemInfo = ab.SystemInfo;
 
             i = i + 1;
         }
-        return true;
-    }
-
-    protected virtual bool SystemInfoAssignValue(SystemInfo a, SystemInfo b)
-    {
-        a.Value = b.Value;
-        a.HasNull = b.HasNull;
         return true;
     }
 
