@@ -384,11 +384,10 @@ public class Create : InfraCreate
                 return null;
             }
 
-            if (thisClass.Field.Contain(name))
+            Field o;
+            o = (Field)thisClass.Field.Get(name);
+            if (!(o == null))
             {
-                Field o;
-                o = (Field)thisClass.Field.Get(name);
-
                 if (a.Class == o.Class & a.Count == o.Count)
                 {
                     if (ba)
@@ -396,7 +395,7 @@ public class Create : InfraCreate
                         if (a.Parent.Module == o.Parent.Module)
                         {
                             d = o;
-                            b = true;         
+                            b = true;
                         }
                     }
                     if (!ba)
