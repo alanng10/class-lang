@@ -1765,58 +1765,6 @@ public class StateTraverse : Traverse
 
 
 
-    protected virtual bool CheckCount(ClassClass varClass, Count count)
-    {
-        if (this.ThisClass == varClass)
-        {
-            return true;
-        }
-
-
-
-        if (count == this.Count.Prudate)
-        {
-            return true;
-        }
-
-
-
-        if (count == this.Count.Probate)
-        {
-            bool b;
-
-            b = false;
-
-            if (b)
-            {
-                return true;
-            }
-
-
-            return false;
-        }
-
-
- 
-        if (count == this.Count.Precate)
-        {
-            return true;
-        }
-
-
-
-        if (count == this.Count.Private)
-        {
-            return false;
-        }
-
-
-
-        return true;
-    }
-
-
-
 
 
 
@@ -1835,22 +1783,32 @@ public class StateTraverse : Traverse
         b = false;
         while (!b & !(thisClass == null))
         {
-            Field a;
-            a = (Field)thisClass.Field.Get(name);
-
-            if (!(a == null))
+            if (thisClass.Maide.Contain(name))
             {
-                d = a;
                 b = true;
             }
-
-            ClassClass aa;
-            aa = null;
-            if (!(thisClass == anyClass))
+            
+            if (!b)
             {
-                aa = thisClass.Base;
+                Field a;
+                a = (Field)thisClass.Field.Get(name);
+                if (!(a == null))
+                {
+                    d = a;
+                    b = true;
+                }
             }
-            thisClass = aa;
+
+            if (!b)
+            {
+                ClassClass aa;
+                aa = null;
+                if (!(thisClass == anyClass))
+                {
+                    aa = thisClass.Base;
+                }
+                thisClass = aa;
+            }
         }
 
         if (d == null)
@@ -1877,7 +1835,7 @@ public class StateTraverse : Traverse
 
         if (!(method == null))
         {
-            if (!this.CheckCount(varClass, method.Count))
+            if (!this.CheckCount(null, varClass, method.Count))
             {
                 return null;
             }
@@ -1914,6 +1872,49 @@ public class StateTraverse : Traverse
     }
 
 
+
+
+
+    protected virtual bool CheckCount(ClassClass triggerClass, ClassClass varClass, Count count)
+    {
+        if (count == this.Count.Prudate)
+        {
+            return true;
+        }
+
+        if (count == this.Count.Probate)
+        {
+            if (this.Module == varClass.Module)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        if (count == this.Count.Precate)
+        {
+            if (this.ThisClass == triggerClass)
+            {
+                return true;
+            }
+            return false;
+        }
+
+
+
+        if (count == this.Count.Private)
+        {
+            if (this.ThisClass == varClass)
+            {
+                return true;
+            }
+            return false;
+        }
+
+
+
+        return true;
+    }
 
 
 
