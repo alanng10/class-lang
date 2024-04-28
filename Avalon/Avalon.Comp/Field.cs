@@ -58,28 +58,14 @@ public class Field : Any
         return true;
     }
 
-    protected virtual string StringValue { get; set; }
+    protected virtual object AnyValue { get; set; }
 
-    public virtual string GetString()
-    {
-        return this.StringValue;
-    }
-
-    public virtual bool SetString(string value)
-    {
-        this.StringValue = value;
-        this.SetChange();
-        return true;
-    }
-
-    protected virtual Any AnyValue { get; set; }
-
-    public virtual Any GetAny()
+    public virtual object GetAny()
     {
         return this.AnyValue;
     }
 
-    public virtual bool SetAny(Any value)
+    public virtual bool SetAny(object value)
     {
         this.AnyValue = value;
         this.SetChange();
