@@ -2558,7 +2558,7 @@ public class Create : InfraCreate
         classEnd = classRange.End;
 
         Node varClass;
-        varClass = this.ExecuteName(this.NodeKind.ClassName, this.Range(this.RangeA, classStart, classEnd));
+        varClass = this.ExecuteNameNode(this.NodeKind.ClassName, this.Range(this.RangeA, classStart, classEnd));
         if (varClass == null)
         {
             this.Error(this.ErrorKind.ClassInvalid, classStart, classEnd);
