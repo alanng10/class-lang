@@ -1,6 +1,8 @@
 @echo off
 
-pushd VSCode\class-lang-vscode-ext
-vsce package
-echo Status: %errorlevel%
+set VSCodeExtFold=VSCode\class-lang-vscode-ext
+copy /Y .\LICENSE %VSCodeExtFold%\LICENSE.txt 1>NUL 2>NUL
+
+pushd %VSCodeExtFold%
+cmd /C "vsce package"
 popd
