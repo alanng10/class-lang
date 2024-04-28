@@ -2,12 +2,6 @@ namespace Avalon.List;
 
 public class Table : List
 {
-    private Tree Tree { get; set; }
-
-    public virtual Compare Compare { get; set; }
-
-    private List List { get; set; }
-
     public override bool Init()
     {
         this.Tree = new Tree();
@@ -17,6 +11,11 @@ public class Table : List
         this.List.Init();
         return true;
     }
+
+    public virtual Compare Compare { get { return __D_Compare; } set { __D_Compare = value; } }
+    protected Compare __D_Compare;
+    private Tree Tree { get; set; }
+    private List List { get; set; }
 
     public override object Get(object index)
     {
