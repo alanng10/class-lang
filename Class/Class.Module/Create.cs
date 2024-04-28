@@ -434,6 +434,90 @@ public class Create : InfraCreate
         return h;
     }
 
+    protected virtual Maide VirtualMaide(Maide a)
+    {
+        if (a.Count == this.Count.Private)
+        {
+            return null;
+        }
+
+        bool ba;
+        ba = (a.Count == this.Count.Probate);
+
+        string name;
+        name = a.Name;
+
+        ClassClass anyClass;
+        anyClass = this.SystemClass.Any;
+
+        bool b;
+        b = false;
+
+        Maide d;
+        d = null;
+
+        ClassClass varClass;
+        varClass = a.Parent;
+
+        ClassClass thisClass;
+        thisClass = varClass.Base;
+        while (!b & !(thisClass == null))
+        {
+            if (thisClass.Field.Contain(name))
+            {
+                b = true;
+            }
+
+            if (!b)
+            {
+                Maide o;
+                o = (Maide)thisClass.Maide.Get(name);
+                if (!(o == null))
+                {
+                    if ((a.Class == o.Class & a.Count == o.Count))
+                    {
+                        if (ba)
+                        {
+                            if (a.Parent.Module == o.Parent.Module)
+                            {
+                                d = o;
+                            }
+                        }
+                        if (!ba)
+                        {
+                            d = o;
+                        }
+                    }
+                    b = true;
+                }
+            }
+
+            if (!b)
+            {
+                ClassClass aa;
+                aa = null;
+                if (!(thisClass == anyClass))
+                {
+                    aa = thisClass.Base;
+                }
+                thisClass = aa;
+            }
+        }
+
+        if (d == null)
+        {
+            return null;
+        }
+
+        Maide h;
+        h = d;
+        if (!(d.Virtual == null))
+        {
+            h = d.Virtual;
+        }
+        return h;
+    }
+
     protected virtual bool ExecuteState()
     {
         Traverse traverse;
