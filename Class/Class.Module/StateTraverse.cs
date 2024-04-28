@@ -384,10 +384,6 @@ public class StateTraverse : Traverse
         return true;
     }
 
-
-
-
-
     public override bool ExecuteSetTarget(SetTarget setTarget)
     {
         if (setTarget == null)
@@ -395,44 +391,17 @@ public class StateTraverse : Traverse
             return true;
         }
 
-
-
-
-
         Operate varThis;
-
         varThis = setTarget.This;
-
-
-
-
         FieldName nodeField;
-
         nodeField = setTarget.Field;
-
-
-
-
 
         base.ExecuteSetTarget(setTarget);
 
-
-
-
         ClassClass fieldClass;
-
-
         fieldClass = this.ExecuteThisFieldNode(setTarget, varThis, nodeField);
 
-
-
-
         this.Info(setTarget).TargetClass = fieldClass;
-
-
-
-
-
         return true;
     }
 
@@ -1728,99 +1697,49 @@ public class StateTraverse : Traverse
         return a;
     }
 
-
-
-
-
     protected virtual ClassClass ExecuteThisFieldNode(NodeNode node, Operate varThis, FieldName nodeField)
     {
         ClassClass thisClass;
-
-
         thisClass = null;
-
-
-
         if (!(varThis == null))
         {
             thisClass = this.Info(varThis).OperateClass;
         }
 
-
-
-
         string fieldName;
-
-
         fieldName = null;
-
-
-
         if (!(nodeField == null))
         {
             fieldName = nodeField.Value;
         }
-
-
-
 
         if (thisClass == null)
         {
             this.Error(this.ErrorKind.ThisUndefined, node);
         }
 
-
-
-
-
         Field field;
-
-
         field = null;
-
-
-
-
         if (!(thisClass == null))
         {
             if (!(fieldName == null))
             {
                 field = this.Field(thisClass, fieldName);
             }
-
-
-
             if (field == null)
             {
                 this.Error(this.ErrorKind.FieldUndefined, node);
             }
         }
 
-
-
-
-
         ClassClass fieldClass;
-
-
         fieldClass = null;
-
-
-
-
         if (!(field == null))
         {
             fieldClass = field.Class;
         }
 
-
-
-
         this.Info(node).GetField = field;
-
-
-
-
 
         return fieldClass;
     }
