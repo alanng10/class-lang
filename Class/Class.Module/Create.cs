@@ -657,9 +657,10 @@ public class Create : InfraCreate
             root = (NodeNode)this.RootNode.Get(i);
 
             Source source;
-            source = (Source)this.Source.Get(i);
+            source = this.SourceGet(i);
 
             this.TreeTraverse(traverse, root, source);
+            i = i + 1;
         }
         return true;
     }
