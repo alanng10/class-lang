@@ -12,7 +12,8 @@ public class Array : List
         return true;
     }
 
-    protected virtual InfraInfra InfraInfra { get; set; }
+    protected virtual InfraInfra InfraInfra { get { return __D_InfraInfra; } set { __D_InfraInfra = value; } }
+    protected InfraInfra __D_InfraInfra;
 
     private object[] Value { get; set; }
     private Comparer Comparer { get; set; }
