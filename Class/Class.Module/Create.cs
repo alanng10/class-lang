@@ -454,6 +454,8 @@ public class Create : InfraCreate
             if (!(a.Virtual == null))
             {
                 this.SystemInfoAssignValue(a.SystemInfo, a.Virtual.SystemInfo);
+
+                this.VarSystemInfoAssignValue(a.Param, a.Virtual.Param);
             }
         }
         return true;
@@ -544,6 +546,37 @@ public class Create : InfraCreate
             h = d.Virtual;
         }
         return h;
+    }
+
+    protected virtual bool VarSystemInfoAssignValue(Table varA, Table varB)
+    {
+        Iter iterA;
+        iterA = varA.IterCreate();
+        varA.IterSet(iterA);
+
+        Iter iterB;
+        iterB = varB.IterCreate();
+        varB.IterSet(iterB);
+
+        int count;
+        count = varA.Count;
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            iterA.Next();
+            iterB.Next();
+
+            Var aa;
+            Var ab;
+            aa = (Var)iterA.Value;
+            ab = (Var)iterB.Value;
+
+            this.SystemInfoAssignValue(aa.SystemInfo, ab.SystemInfo);
+
+            i = i + 1;
+        }
+        return true;
     }
 
     protected virtual bool SystemInfoAssignValue(SystemInfo a, SystemInfo b)
