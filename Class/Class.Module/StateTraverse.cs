@@ -1765,7 +1765,7 @@ public class StateTraverse : Traverse
 
 
 
-    private bool CheckAccces(ClassClass varClass, Count access)
+    protected virtual bool CheckCount(ClassClass varClass, Count count)
     {
         if (this.ThisClass == varClass)
         {
@@ -1774,14 +1774,14 @@ public class StateTraverse : Traverse
 
 
 
-        if (access == this.Count.Prudate)
+        if (count == this.Count.Prudate)
         {
             return true;
         }
 
 
 
-        if (access == this.Count.Probate)
+        if (count == this.Count.Probate)
         {
             bool b;
 
@@ -1798,14 +1798,14 @@ public class StateTraverse : Traverse
 
 
  
-        if (access == this.Count.Precate)
+        if (count == this.Count.Precate)
         {
             return true;
         }
 
 
 
-        if (access == this.Count.Private)
+        if (count == this.Count.Private)
         {
             return false;
         }
@@ -1822,46 +1822,41 @@ public class StateTraverse : Traverse
 
     protected virtual Field Field(ClassClass varClass, string name)
     {
-        Field field;
+        ClassClass anyClass;
+        anyClass = this.System.Any;
 
+        ClassClass thisClass;
+        thisClass = varClass;
 
-        field = (Field)varClass.Field.Get(name);
+        Field d;
+        d = null;
 
-
-
-        if (!(field == null))
+        bool b;
+        b = false;
+        while (!b & !(thisClass == null))
         {
-            if (!this.CheckAccces(varClass, field.Count))
+            Field a;
+            a = (Field)thisClass.Field.Get(name);
+
+            if (!(a == null))
             {
-                return null;
+                d = a;
+                b = true;
             }
 
-
-            return field;
-        }
-
-
-
-
-        ClassClass baseClass;
-
-
-        baseClass = varClass.Base;
-
-
-
-        if (!(baseClass == null))
-        {
-            field = this.Field(baseClass, name);
-
-
-
-            if (!(field == null))
+            ClassClass aa;
+            aa = null;
+            if (!(thisClass == anyClass))
             {
-                return field;
+                aa = thisClass.Base;
             }
+            thisClass = aa;
         }
 
+        if (d == null)
+        {
+            return null;
+        }
 
 
         return null;
@@ -1882,7 +1877,7 @@ public class StateTraverse : Traverse
 
         if (!(method == null))
         {
-            if (!this.CheckAccces(varClass, method.Count))
+            if (!this.CheckCount(varClass, method.Count))
             {
                 return null;
             }
