@@ -191,102 +191,40 @@ public class StateTraverse : Traverse
         name = nodeVar.Name;
         ClassName nodeClass;
         nodeClass = nodeVar.Class;
-            
-
-
-
 
         string varName;
-
-
         varName = name.Value;
-
-
-
-
-
         string className;
-
-
-        className = null;
-
-
-
-        if (!(nodeClass == null))
-        {
-            className = nodeClass.Value;
-        }
-
-
-
-
-
+        className = nodeClass.Value;
 
         if (this.StateVar.Contain(varName))
         {
             this.Error(this.ErrorKind.NameUnavailable, nodeVar);
-
-
             return true;
         }
 
-
-
-
-
         ClassClass varClass;
-
-
-        varClass = null;
-
-
-
-
-        if (!(className == null))
-        {
-            varClass = this.Class(className);
-        }
-
-        
-
-
+        varClass = this.Class(className);
         if (varClass == null)
         {
             this.Error(this.ErrorKind.ClassUndefined, nodeVar);
-
-
             return true;
         }
 
-
-
-
-
-        Var varVar;
-
-
-        varVar = new Var();
-
-
-        varVar.Name = varName;
-
-
-        varVar.Class = varClass;
-
-
-        varVar.Any = nodeVar;
-
-
-
-
+        Var a;
+        a = new Var();
+        a.Init();
+        a.Name = varName;
+        a.Class = varClass;
+        a.Any = nodeVar;
 
         Table oo;
         oo = (Table)this.VarStack.Top;
 
-        this.ListInfra.TableAdd(oo, varVar.Name, varVar);
-        this.ListInfra.TableAdd(this.StateVar, varVar.Name, varVar);
+        this.ListInfra.TableAdd(oo, a.Name, a);
+        this.ListInfra.TableAdd(this.StateVar, a.Name, a);
 
-        this.Info(nodeVar).Var = varVar;
+        this.Info(nodeVar).Var = a;
         return true;
     }
 
