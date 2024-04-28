@@ -9,8 +9,8 @@ public class Data : Any
         return true;
     }
 
-    public virtual long Count { get; set; }
-
+    public virtual long Count { get { return __D_Count; } set { __D_Count = value; } }
+    protected long __D_Count;
     public virtual byte[] Value { get; set; }
 
     public virtual int Get(long index)
