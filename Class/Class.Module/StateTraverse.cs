@@ -141,130 +141,44 @@ public class StateTraverse : Traverse
         return true;
     }
 
-
-
-        
-
-
-    public override bool ExecuteMaide(NodeMaide nodeMethod)
+    public override bool ExecuteMaide(NodeMaide nodeMaide)
     {
-        if (nodeMethod == null)
+        if (nodeMaide == null)
         {
             return true;
         }
 
-
-
-
-
-        Param varParams;
-
-
-        varParams = nodeMethod.Param;
-
-
-
-
-
+        Param param;
+        param = nodeMaide.Param;
         State call;
+        call = nodeMaide.Call;
 
-
-        call = nodeMethod.Call;
-
-
-
-
-
-
-        Maide method;
-
-
-        method = this.Info(nodeMethod).Maide;
-
-
-
-
-        if (method == null)
+        Maide maide;
+        maide = this.Info(nodeMaide).Maide;
+        if (maide == null)
         {
             return true;
         }
 
-
-
-
-
-        this.ThisResultClass = method.Class;
-
-
-
-
-
-        this.StateVar = method.Call;
-
-
-
-
-
-
+        this.ThisResultClass = maide.Class;
 
         Table o;
+        o = this.ClassInfra.TableCreateStringCompare();
 
+        this.VarTableAdd(o, maide.Param);
 
-        o = new Table();
+        this.StateVar = o;
 
-
-        o.Compare = new StringCompare();
-
-
-        o.Compare.Init();
-
-
-        o.Init();
-
-
-
-
-
-
-
-        this.VarStack.Push(o);
-
-
-
-
+        this.VarStack.Push(maide.Param);
 
         this.ExecuteState(call);
 
-
-
-
-
         this.VarStack.Pop();
 
-
-
-
-
-
-
         this.StateVar = null;
-
-
-
-
-
         this.ThisResultClass = null;
-
-
-
-
-
         return true;
     }
-
-
-
-
 
     public override bool ExecuteVar(NodeVar nodeVar)
     {
@@ -273,19 +187,9 @@ public class StateTraverse : Traverse
             return true;
         }
 
-
-
-
-
         VarName name;
-
         name = nodeVar.Name;
-
-
-
-
         ClassName nodeClass;
-
         nodeClass = nodeVar.Class;
             
 
@@ -376,24 +280,13 @@ public class StateTraverse : Traverse
 
 
 
+        Table oo;
+        oo = (Table)this.VarStack.Top;
 
-        this.VarMapAdd((Table)this.VarStack.Top, varVar);
-
-
-
-
-
-        this.VarMapAdd(this.StateVar, varVar);
-        
-
-
-
+        this.ListInfra.TableAdd(oo, varVar.Name, varVar);
+        this.ListInfra.TableAdd(this.StateVar, varVar.Name, varVar);
 
         this.Info(nodeVar).Var = varVar;
-
-
-
-
         return true;
     }
 
@@ -2572,42 +2465,20 @@ public class StateTraverse : Traverse
         return true;
     }
 
-
-
-
-
-    private bool VarMapAdd(Table map, Var varVar)
+    protected virtual bool VarTableAdd(Table varTable, Table other)
     {
-        TableEntry pair;
+        Iter iter;
+        iter = other.IterCreate();
+        other.IterSet(iter);
+        while (iter.Next())
+        {
+            Var a;
+            a = (Var)iter.Value;
 
-
-        pair = new TableEntry();
-
-
-        pair.Init();
-
-
-        pair.Index = varVar.Name;
-
-
-        pair.Value = varVar;
-
-
-
-
-        map.Add(pair);
-
-
-
+            this.ListInfra.TableAdd(varTable, a.Name, a);
+        }
         return true;
     }
-
-
-
-
-
-
-
 
     protected virtual Var VarStackVar(string name)
     {
