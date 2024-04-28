@@ -243,13 +243,18 @@ public class MemberTraverse : Traverse
             return true;
         }
 
+        SystemInfo e;
+        e = new SystemInfo();
+        e.Init();
+
         Var a;
         a = new Var();
         a.Init();
         a.Name = varName;
         a.Class = varClass;
         a.Any = nodeVar;
-
+        a.SystemInfo = e;
+        
         this.ListInfra.TableAdd(this.ParamVar, a.Name, a);
 
         this.Info(nodeVar).Var = a;
