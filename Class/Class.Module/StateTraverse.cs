@@ -24,7 +24,7 @@ public class StateTraverse : Traverse
     protected virtual ClassClass NullClass { get; set; }
     protected virtual ClassClass ThisClass { get; set; }
     protected virtual ClassClass ThisResultClass { get; set; }
-    protected virtual Table StateVars { get; set; }
+    protected virtual Table StateVar { get; set; }
     protected virtual Stack VarStack { get; set; }
 
     public override bool ExecuteClass(NodeClass varClass)
@@ -78,7 +78,7 @@ public class StateTraverse : Traverse
 
         this.ThisResultClass = field.Class;
 
-        this.StateVars = field.Get;
+        this.StateVar = field.Get;
 
         Var dataVar;
         dataVar = new Var();
@@ -96,7 +96,7 @@ public class StateTraverse : Traverse
 
         this.VarStack.Pop();
 
-        this.StateVars = null;
+        this.StateVar = null;
         this.ThisResultClass = null;
         return true;
     }
@@ -124,7 +124,7 @@ public class StateTraverse : Traverse
 
 
 
-        this.StateVars = field.Set;
+        this.StateVar = field.Set;
 
 
 
@@ -216,7 +216,7 @@ public class StateTraverse : Traverse
 
 
 
-        this.StateVars = null;
+        this.StateVar = null;
 
 
 
@@ -288,7 +288,7 @@ public class StateTraverse : Traverse
 
 
 
-        this.StateVars = method.Call;
+        this.StateVar = method.Call;
 
 
 
@@ -336,7 +336,7 @@ public class StateTraverse : Traverse
 
 
 
-        this.StateVars = null;
+        this.StateVar = null;
 
 
 
@@ -407,7 +407,7 @@ public class StateTraverse : Traverse
 
 
 
-        if (this.StateVars.Contain(varName))
+        if (this.StateVar.Contain(varName))
         {
             this.Error(this.ErrorKind.NameUnavailable, nodeVar);
 
@@ -472,7 +472,7 @@ public class StateTraverse : Traverse
 
 
 
-        this.VarMapAdd(this.StateVars, varVar);
+        this.VarMapAdd(this.StateVar, varVar);
         
 
 
