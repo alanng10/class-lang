@@ -27,10 +27,13 @@ public class Infra : Any
         return true;
     }
 
-    public virtual long IntCapValue { get; set; }
-    public virtual char NewLine { get; set; }
-    public virtual char PathCombine { get; set; }
-
+    public virtual long IntCapValue { get { return __D_IntCapValue; } set { __D_IntCapValue = value; } }
+    protected long __D_IntCapValue;
+    public virtual char NewLine { get { return __D_NewLine; } set { __D_NewLine = value; } }
+    protected char __D_NewLine;
+    public virtual char PathCombine { get { return __D_PathCombine; } set { __D_PathCombine = value; } }
+    protected char __D_PathCombine;
+    
     public virtual bool IndexRange(Range range, int index)
     {
         range.Index = index;        
