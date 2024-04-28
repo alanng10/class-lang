@@ -246,49 +246,23 @@ public class StateTraverse : Traverse
         return true;
     }
 
-    public override bool ExecuteInfExecute(InfExecute condExecute)
+    public override bool ExecuteInfExecute(InfExecute infExecute)
     {
-        if (condExecute == null)
+        if (infExecute == null)
         {
             return true;
         }
 
-
-
-
         Operate cond;
-
-        cond = condExecute.Cond;
-
-
-
+        cond = infExecute.Cond;
         State then;
+        then = infExecute.Then;
 
-        then = condExecute.Then;
+        base.ExecuteInfExecute(infExecute);
 
-
-
-
-
-        base.ExecuteInfExecute(condExecute);
-
-
-
-
-
-        this.ExecuteCondBodyExecute(condExecute, cond);
-
-
-
-
-
+        this.ExecuteCondBodyExecute(infExecute, cond);
         return true;
     }
-
-
-
-
-
 
     public override bool ExecuteWhileExecute(WhileExecute loopExecute)
     {
@@ -1705,42 +1679,20 @@ public class StateTraverse : Traverse
         return true;
     }
 
-
-
-
-
-
-
-
-
-
-
     protected virtual bool ExecuteCondBodyExecute(Execute execute, Operate cond)
     {
         ClassClass condClass;
-
-
         condClass = null;
-
-
 
         if (!(cond == null))
         {
             condClass = this.Info(cond).OperateClass;
         }
 
-
-
-
-
         if (condClass == null)
         {
             this.Error(this.ErrorKind.CondUndefined, execute);
         }
-
-
-
-
 
         if (!(condClass == null))
         {
@@ -1749,10 +1701,6 @@ public class StateTraverse : Traverse
                 this.Error(this.ErrorKind.CondUnassignable, execute);
             }
         }
-
-
-
-
         return true;
     }
 
