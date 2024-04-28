@@ -228,10 +228,6 @@ public class StateTraverse : Traverse
         return true;
     }
 
-
-
-
-
     public override bool ExecuteState(State state)
     {
         if (state == null)
@@ -250,16 +246,9 @@ public class StateTraverse : Traverse
         return true;
     }
 
-
-
-
-
-
-
-
-    public override bool ExecuteThisOperate(ThisOperate thisOperate)
+    public override bool ExecuteInfExecute(InfExecute condExecute)
     {
-        if (thisOperate == null)
+        if (condExecute == null)
         {
             return true;
         }
@@ -267,8 +256,28 @@ public class StateTraverse : Traverse
 
 
 
+        Operate cond;
 
-        this.Info(thisOperate).OperateClass = this.ThisClass;
+        cond = condExecute.Cond;
+
+
+
+        State then;
+
+        then = condExecute.Then;
+
+
+
+
+
+        base.ExecuteInfExecute(condExecute);
+
+
+
+
+
+        this.ExecuteCondBodyExecute(condExecute, cond);
+
 
 
 
@@ -278,6 +287,119 @@ public class StateTraverse : Traverse
 
 
 
+
+
+
+    public override bool ExecuteWhileExecute(WhileExecute loopExecute)
+    {
+        if (loopExecute == null)
+        {
+            return true;
+        }
+
+
+
+
+
+        Operate cond;
+
+        cond = loopExecute.Cond;
+
+
+
+        State loop;
+
+        loop = loopExecute.Loop;
+
+
+
+
+
+        base.ExecuteWhileExecute(loopExecute);
+
+
+
+
+
+        this.ExecuteCondBodyExecute(loopExecute, cond);
+
+
+
+
+
+        return true;
+    }
+
+
+
+
+
+
+    public override bool ExecuteReturnExecute(ReturnExecute returnExecute)
+    {
+        if (returnExecute == null)
+        {
+            return true;
+        }
+
+
+
+
+
+        Operate result;
+
+        result = returnExecute.Result;
+
+
+
+
+
+        base.ExecuteReturnExecute(returnExecute);
+
+
+
+
+
+        ClassClass resultClass;
+
+
+        resultClass = null;
+
+
+
+
+        if (!(result == null))
+        {
+            resultClass = this.Info(result).OperateClass;
+        }
+
+
+
+
+
+
+        if (resultClass == null)
+        {
+            this.Error(this.ErrorKind.ResultUndefined, returnExecute);
+        }
+
+
+
+
+        if (!(resultClass == null))
+        {
+            if (!this.CheckClass(resultClass, this.ThisResultClass))
+            {
+                this.Error(this.ErrorKind.ResultUnassignable, returnExecute);
+            }
+        }
+
+
+
+
+
+        return true;
+    }
 
     public override bool ExecuteAssignExecute(AssignExecute assignExecute)
     {
@@ -368,6 +490,104 @@ public class StateTraverse : Traverse
         return true;
     }
 
+
+
+    public override bool ExecuteVarTarget(VarTarget varTarget)
+    {
+        if (varTarget == null)
+        {
+            return true;
+        }
+
+
+
+
+        VarName name;
+
+
+        name = varTarget.Var;
+
+
+
+
+        ClassClass varClass;
+
+
+        varClass = this.ExecuteVarNameNode(varTarget, name);
+
+
+
+
+        this.Info(varTarget).TargetClass = varClass;
+
+
+
+
+        return true;
+    }
+
+
+
+
+
+    public override bool ExecuteSetTarget(SetTarget setTarget)
+    {
+        if (setTarget == null)
+        {
+            return true;
+        }
+
+
+
+
+
+        Operate varThis;
+
+        varThis = setTarget.This;
+
+
+
+
+        FieldName nodeField;
+
+        nodeField = setTarget.Field;
+
+
+
+
+
+        base.ExecuteSetTarget(setTarget);
+
+
+
+
+        ClassClass fieldClass;
+
+
+        fieldClass = this.ExecuteThisFieldNode(setTarget, varThis, nodeField);
+
+
+
+
+        this.Info(setTarget).TargetClass = fieldClass;
+
+
+
+
+
+        return true;
+    }
+
+    public override bool ExecuteThisOperate(ThisOperate thisOperate)
+    {
+        if (thisOperate == null)
+        {
+            return true;
+        }
+
+        this.Info(thisOperate).OperateClass = this.ThisClass;
+        return true;
+    }
 
 
 
@@ -1489,160 +1709,6 @@ public class StateTraverse : Traverse
 
 
 
-    public override bool ExecuteInfExecute(InfExecute condExecute)
-    {
-        if (condExecute == null)
-        {
-            return true;
-        }
-
-
-
-
-        Operate cond;
-            
-        cond = condExecute.Cond;
-
-
-
-        State then;
-        
-        then = condExecute.Then;
-
-
-
-
-
-        base.ExecuteInfExecute(condExecute);
-
-
-
-
-
-        this.ExecuteCondBodyExecute(condExecute, cond);
-
-
-
-
-
-        return true;
-    }
-
-
-
-
-
-
-    public override bool ExecuteWhileExecute(WhileExecute loopExecute)
-    {
-        if (loopExecute == null)
-        {
-            return true;
-        }
-
-
-
-
-
-        Operate cond;
-
-        cond = loopExecute.Cond;
-
-
-
-        State loop;
-
-        loop = loopExecute.Loop;
-
-
-
-
-
-        base.ExecuteWhileExecute(loopExecute);
-
-
-
-
-
-        this.ExecuteCondBodyExecute(loopExecute, cond);
-
-
-
-
-
-        return true;
-    }
-
-
-
-
-
-
-    public override bool ExecuteReturnExecute(ReturnExecute returnExecute)
-    {
-        if (returnExecute == null)
-        {
-            return true;
-        }
-
-
-
-
-
-        Operate result;
-            
-        result = returnExecute.Result;
-
-
-
-
-
-        base.ExecuteReturnExecute(returnExecute);
-
-
-
-
-
-        ClassClass resultClass;
-
-
-        resultClass = null;
-
-
-
-
-        if (!(result == null))
-        {
-            resultClass = this.Info(result).OperateClass;
-        }
-
-
-
-
-        
-        
-        if (resultClass == null)
-        {
-            this.Error(this.ErrorKind.ResultUndefined, returnExecute);
-        }
-        
-
-
-
-        if (!(resultClass == null))
-        {
-            if (!this.CheckClass(resultClass, this.ThisResultClass))
-            {
-                this.Error(this.ErrorKind.ResultUnassignable, returnExecute);
-            }
-        }
-
-
-
-
-
-        return true;
-    }
 
 
 
@@ -1822,92 +1888,6 @@ public class StateTraverse : Traverse
 
 
 
-
-    public override bool ExecuteVarTarget(VarTarget varTarget)
-    {
-        if (varTarget == null)
-        {
-            return true;
-        }
-
-
-
-
-        VarName name;
-
-
-        name = varTarget.Var;
-
-
-
-
-        ClassClass varClass;
-
-
-        varClass = this.ExecuteVarNameNode(varTarget, name);
-
-
-
-
-        this.Info(varTarget).TargetClass = varClass;
-
-
-
-
-        return true;
-    }
-
-
-
-
-
-    public override bool ExecuteSetTarget(SetTarget setTarget)
-    {
-        if (setTarget == null)
-        {
-            return true;
-        }
-
-
-
-
-
-        Operate varThis;
-
-        varThis = setTarget.This;
-
-
-
-
-        FieldName nodeField;
-
-        nodeField = setTarget.Field;
-
-
-
-
-
-        base.ExecuteSetTarget(setTarget);
-
-
-
-
-        ClassClass fieldClass;
-
-
-        fieldClass = this.ExecuteThisFieldNode(setTarget, varThis, nodeField);
-
-
-
-
-        this.Info(setTarget).TargetClass = fieldClass;
-
-
-
-
-
-        return true;
-    }
 
 
 
