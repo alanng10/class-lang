@@ -1095,11 +1095,6 @@ public class Create : InfraCreate
             return null;
         }
 
-        if (!(nameRange.End == end))
-        {
-            return null;
-        }
-
         int classStart;
         int classEnd;
         classStart = classRange.Start;
