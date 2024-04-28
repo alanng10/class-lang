@@ -12,6 +12,26 @@ public class List : Any
 
     public virtual int Count { get { return __D_Count; } set { __D_Count = value; } }
     protected int __D_Count;
+    public virtual object FirstIndex
+    {
+        get
+        {
+            return this.First;
+        }
+        set
+        {
+        }
+    }
+    public virtual object LastIndex
+    {
+        get
+        {
+            return this.Last;
+        }
+        set
+        {
+        }
+    }
     private ListNode First { get; set; }
     private ListNode Last { get; set; }
     private ListNodeRef NodeRef { get; set; }
