@@ -282,11 +282,6 @@ public class StateTraverse : Traverse
         return true;
     }
 
-
-
-
-
-
     public override bool ExecuteReturnExecute(ReturnExecute returnExecute)
     {
         if (returnExecute == null)
@@ -294,49 +289,22 @@ public class StateTraverse : Traverse
             return true;
         }
 
-
-
-
-
         Operate result;
-
         result = returnExecute.Result;
-
-
-
-
 
         base.ExecuteReturnExecute(returnExecute);
 
-
-
-
-
         ClassClass resultClass;
-
-
         resultClass = null;
-
-
-
-
         if (!(result == null))
         {
             resultClass = this.Info(result).OperateClass;
         }
 
-
-
-
-
-
         if (resultClass == null)
         {
             this.Error(this.ErrorKind.ResultUndefined, returnExecute);
         }
-
-
-
 
         if (!(resultClass == null))
         {
@@ -345,11 +313,6 @@ public class StateTraverse : Traverse
                 this.Error(this.ErrorKind.ResultUnassignable, returnExecute);
             }
         }
-
-
-
-
-
         return true;
     }
 
