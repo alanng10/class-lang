@@ -2540,14 +2540,14 @@ public class Create : InfraCreate
             return null;
         }
 
-        Range classRange;
-        classRange = this.ExecuteNameRange(this.RangeB, this.Range(this.RangeA, wordToken.Range.End, end));
-        if (classRange == null)
+        if (!((wordToken.Range.End + 1) == end))
         {
             return null;
         }
 
-        if (!(classRange.End == end))
+        Range classRange;
+        classRange = this.ExecuteNameRange(this.RangeB, this.Range(this.RangeA, wordToken.Range.End, end));
+        if (classRange == null)
         {
             return null;
         }
