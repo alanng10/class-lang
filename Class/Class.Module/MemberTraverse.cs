@@ -57,7 +57,7 @@ public class MemberTraverse : Traverse
         {
             fieldName = name.Value;
         }
-        
+
         string className;
         className = null;
         if (!(nodeClass == null))
@@ -87,15 +87,19 @@ public class MemberTraverse : Traverse
                 return true;
             }
         }
-        
+
         Count count;
         count = this.GetCount(nodeCount);
 
         Table varGet;
         varGet = this.ClassInfra.TableCreateStringCompare();
-        
+
         Table varSet;
         varSet = this.ClassInfra.TableCreateStringCompare();
+
+        SystemInfo e;
+        e = new SystemInfo();
+        e.Init();
 
         Field a;
         a = new Field();
@@ -108,6 +112,7 @@ public class MemberTraverse : Traverse
         a.Parent = this.ThisClass;
         a.Index = this.ThisClass.Field.Count;
         a.Any = nodeField;
+        a.SystemInfo = e;
 
         this.ListInfra.TableAdd(this.ThisClass.Field, a.Name, a);
 
@@ -146,7 +151,7 @@ public class MemberTraverse : Traverse
         {
             className = nodeClass.Value;
         }
-        
+
         if (!(maideName == null))
         {
             if (this.Create.MemberNameDefined(this.ThisClass, maideName))
@@ -169,7 +174,7 @@ public class MemberTraverse : Traverse
                 return true;
             }
         }
-        
+
         Count count;
         count = this.GetCount(nodeCount);
 
@@ -177,8 +182,12 @@ public class MemberTraverse : Traverse
 
         Table callVar;
         callVar = this.ClassInfra.TableCreateStringCompare();
-        
+
         this.ExecuteParam(param);
+
+        SystemInfo e;
+        e = new SystemInfo();
+        e.Init();
 
         Maide a;
         a = new Maide();
@@ -191,6 +200,7 @@ public class MemberTraverse : Traverse
         a.Parent = this.ThisClass;
         a.Index = this.ThisClass.Maide.Count;
         a.Any = nodeMaide;
+        a.SystemInfo = e;
 
         this.ParamVar = null;
 
@@ -233,13 +243,18 @@ public class MemberTraverse : Traverse
             return true;
         }
 
+        SystemInfo e;
+        e = new SystemInfo();
+        e.Init();
+
         Var a;
         a = new Var();
         a.Init();
         a.Name = varName;
         a.Class = varClass;
         a.Any = nodeVar;
-        
+        a.SystemInfo = e;
+
         this.ListInfra.TableAdd(this.ParamVar, a.Name, a);
 
         this.Info(nodeVar).Var = a;
