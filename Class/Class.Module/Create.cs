@@ -28,12 +28,23 @@ public class Create : InfraCreate
     public virtual SystemClass SystemClass { get; set; }
     public virtual ErrorKindList ErrorKind { get; set; }
     public virtual CountList Count { get; set; }
+    public virtual ClassClass NullClass { get; set; }
     protected virtual ListInfra ListInfra { get; set; }
     protected virtual TextInfra TextInfra { get; set; }
     protected virtual ClassInfra ClassInfra { get; set; }
     protected virtual List ErrorList { get; set; }
     protected virtual Table BaseTable { get; set; }
     protected virtual ModuleRef ModuleRef { get; set; }
+
+    protected virtual bool InitNullClass()
+    {
+        ClassClass a;
+        a = new ClassClass();
+        a.Init();
+        a.Name = "_";
+        this.NullClass = a;
+        return true;
+    }
 
     public override bool Execute()
     {

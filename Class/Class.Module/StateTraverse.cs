@@ -1,10 +1,5 @@
 namespace Class.Module;
 
-
-
-
-
-
 public class StateTraverse : Traverse
 {
     public override bool Init()
@@ -12,17 +7,7 @@ public class StateTraverse : Traverse
         base.Init();
         this.TextInfra = TextInfra.This;
 
-
-
-        this.InitNullClass();
-
-
-
-
-        this.VarStack = new VarStack();
-
-
-
+        this.VarStack = new Stack();
         this.VarStack.Init();
 
 
@@ -36,49 +21,6 @@ public class StateTraverse : Traverse
 
         return true;
     }
-
-
-
-
-
-
-    private bool InitNullClass()
-    {
-        ClassClass c;
-
-
-        c = new ClassClass();
-
-
-        c.Name = null;
-
-
-        c.Base = null;
-
-
-        c.Field = null;
-
-
-        c.Maide = null;
-
-
-        c.Module = null;
-
-
-
-
-
-        this.NullClass = c;
-
-
-
-
-        return true;
-    }
-
-
-
-
 
     public virtual ClassClass CurrentClass { get; set; }
 
@@ -99,7 +41,7 @@ public class StateTraverse : Traverse
 
     public virtual Table StateVars { get; set; }
 
-    public virtual VarStack VarStack { get; set; }
+    public virtual Stack VarStack { get; set; }
 
     protected virtual TextInfra TextInfra { get; set; }
 
@@ -672,7 +614,7 @@ public class StateTraverse : Traverse
 
 
 
-        this.VarMapAdd(this.VarStack.Top, varVar);
+        this.VarMapAdd((Table)this.VarStack.Top, varVar);
 
 
 
