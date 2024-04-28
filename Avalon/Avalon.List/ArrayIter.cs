@@ -59,7 +59,6 @@ public class ArrayIter : Iter
         }
         set
         {
-
         }
     }
 }
