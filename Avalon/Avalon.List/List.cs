@@ -22,6 +22,7 @@ public class List : Any
         {
         }
     }
+    protected object __D_FirstIndex;
     public virtual object LastIndex
     {
         get
@@ -32,6 +33,7 @@ public class List : Any
         {
         }
     }
+    protected object __D_LastIndex;
     private ListNode First { get; set; }
     private ListNode Last { get; set; }
     private ListNodeRef NodeRef { get; set; }
