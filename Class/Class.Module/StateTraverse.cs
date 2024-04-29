@@ -1192,73 +1192,24 @@ public class StateTraverse : Traverse
         return true;
     }
 
-
-
-
-
-
-
-
     protected virtual bool ExecuteTwoOperandOperate(Operate operate, Operate left, Operate right, ClassClass resultClass, ClassClass operandClass)
     {
+        bool hasOperandUndefined;
+        hasOperandUndefined = false;
+
+        bool hasOperandUnassignable;
+        hasOperandUnassignable = false;
+
         ClassClass leftClass;
-
         leftClass = null;
-
-
-
-
         if (!(left == null))
         {
             leftClass = this.Info(left).OperateClass;
+            if (leftClass == null)
+            {
+                hasOperandUndefined = this.UniqueError(this.ErrorKind.OperandUndefined, operate, hasOperandUndefined);
+            }
         }
-
-
-
-
-
-        ClassClass rightClass;
-
-        rightClass = null;
-
-
-
-
-        if (!(right == null))
-        {
-            rightClass = this.Info(right).OperateClass;
-        }
-
-
-
-
-
-
-        bool hasOperandUndefined;
-
-
-        hasOperandUndefined = false;
-
-
-
-
-
-        bool hasOperandUnassignable;
-
-
-        hasOperandUnassignable = false;
-
-
-
-
-
-        if (leftClass == null)
-        {
-            hasOperandUndefined = this.UniqueError(this.ErrorKind.OperandUndefined, operate, hasOperandUndefined);
-        }
-
-
-
 
         if (!(leftClass == null))
         {
@@ -1268,17 +1219,16 @@ public class StateTraverse : Traverse
             }
         }
 
-
-
-
-
-        if (rightClass == null)
+        ClassClass rightClass;
+        rightClass = null;
+        if (!(right == null))
         {
-            hasOperandUndefined = this.UniqueError(this.ErrorKind.OperandUndefined, operate, hasOperandUndefined);
+            rightClass = this.Info(right).OperateClass;
+            if (rightClass == null)
+            {
+                hasOperandUndefined = this.UniqueError(this.ErrorKind.OperandUndefined, operate, hasOperandUndefined);
+            }
         }
-
-
-
 
         if (!(rightClass == null))
         {
@@ -1288,14 +1238,7 @@ public class StateTraverse : Traverse
             }
         }
 
-
-
-
         this.Info(operate).OperateClass = resultClass;
-
-
-
-
         return true;
     }
 
