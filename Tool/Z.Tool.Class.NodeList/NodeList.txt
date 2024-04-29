@@ -63,7 +63,7 @@ AssignExecute : Execute
     Operate Value
 
 OperateExecute : Execute
-    Operate Operate
+    Operate Any
 
 Argue : Node
     Array Value
