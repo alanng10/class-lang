@@ -865,11 +865,59 @@ public class StateTraverse : Traverse
         return true;
     }
 
+    public override bool ExecuteSignLessOperate(SignLessOperate signLessOperate)
+    {
+        if (signLessOperate == null)
+        {
+            return true;
+        }
 
+        Operate left;
+        left = signLessOperate.Left;
+        Operate right;
+        right = signLessOperate.Right;
 
+        base.ExecuteSignLessOperate(signLessOperate);
 
+        this.ExecuteTwoOperandOperate(signLessOperate, left, right, this.System.Bool, this.System.Int);
+        return true;
+    }
 
+    public override bool ExecuteSignMulOperate(SignMulOperate signMulOperate)
+    {
+        if (signMulOperate == null)
+        {
+            return true;
+        }
 
+        Operate left;
+        left = signMulOperate.Left;
+        Operate right;
+        right = signMulOperate.Right;
+
+        base.ExecuteSignMulOperate(signMulOperate);
+
+        this.ExecuteTwoOperandOperate(signMulOperate, left, right, this.System.Int, this.System.Int);
+        return true;
+    }
+
+    public override bool ExecuteSignDivOperate(SignDivOperate signDivOperate)
+    {
+        if (signDivOperate == null)
+        {
+            return true;
+        }
+
+        Operate left;
+        left = signDivOperate.Left;
+        Operate right;
+        right = signDivOperate.Right;
+
+        base.ExecuteSignDivOperate(signDivOperate);
+
+        this.ExecuteTwoOperandOperate(signDivOperate, left, right, this.System.Int, this.System.Int);
+        return true;
+    }
 
 
 
