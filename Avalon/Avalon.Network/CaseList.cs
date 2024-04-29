@@ -31,13 +31,20 @@ public class CaseList : Any
         return true;
     }
 
-    public virtual Case Unconnected { get; set; }
-    public virtual Case HostLookup { get; set; }
-    public virtual Case Connecting { get; set; }
-    public virtual Case Connected { get; set; }
-    public virtual Case Bound { get; set; }
-    public virtual Case Listening { get; set; }
-    public virtual Case Closing { get; set; }
+    public virtual Case Unconnected { get { return __D_Unconnected; } set { __D_Unconnected = value; } }
+    protected Case __D_Unconnected;
+    public virtual Case HostLookup { get { return __D_HostLookup; } set { __D_HostLookup = value; } }
+    protected Case __D_HostLookup;
+    public virtual Case Connecting { get { return __D_Connecting; } set { __D_Connecting = value; } }
+    protected Case __D_Connecting;
+    public virtual Case Connected { get { return __D_Connected; } set { __D_Connected = value; } }
+    protected Case __D_Connected;
+    public virtual Case Bound { get { return __D_Bound; } set { __D_Bound = value; } }
+    protected Case __D_Bound;
+    public virtual Case Listening { get { return __D_Listening; } set { __D_Listening = value; } }
+    protected Case __D_Listening;
+    public virtual Case Closing { get { return __D_Closing; } set { __D_Closing = value; } }
+    protected Case __D_Closing;
 
     protected virtual Case AddItem()
     {

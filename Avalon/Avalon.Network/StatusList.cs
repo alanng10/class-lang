@@ -49,31 +49,56 @@ public class StatusList : Any
         return true;
     }
 
-    public virtual Status NoError { get; set; }
-    public virtual Status UnknownSocketError { get; set; }
-    public virtual Status ConnectionRefusedError { get; set; }
-    public virtual Status RemoteHostClosedError { get; set; }
-    public virtual Status HostNotFoundError { get; set; }
-    public virtual Status SocketAccessError { get; set; }
-    public virtual Status SocketResourceError { get; set; }
-    public virtual Status SocketTimeoutError { get; set; }
-    public virtual Status DatagramTooLargeError { get; set; }
-    public virtual Status NetworkError { get; set; }
-    public virtual Status AddressInUseError { get; set; }
-    public virtual Status SocketAddressNotAvailableError { get; set; }
-    public virtual Status UnsupportedSocketOperationError { get; set; }
-    public virtual Status UnfinishedSocketOperationError { get; set; }
-    public virtual Status ProxyAuthenticationRequiredError { get; set; }
-    public virtual Status SslHandshakeFailedError { get; set; }
-    public virtual Status ProxyConnectionRefusedError { get; set; }
-    public virtual Status ProxyConnectionClosedError { get; set; }
-    public virtual Status ProxyConnectionTimeoutError { get; set; }
-    public virtual Status ProxyNotFoundError { get; set; }
-    public virtual Status ProxyProtocolError { get; set; }
-    public virtual Status OperationError { get; set; }
-    public virtual Status SslInternalError { get; set; }
-    public virtual Status SslInvalidUserDataError { get; set; }
-    public virtual Status TemporaryError { get; set; }
+    public virtual Status NoError { get { return __D_NoError; } set { __D_NoError = value; } }
+    protected Status __D_NoError;
+    public virtual Status UnknownSocketError { get { return __D_UnknownSocketError; } set { __D_UnknownSocketError = value; } }
+    protected Status __D_UnknownSocketError;
+    public virtual Status ConnectionRefusedError { get { return __D_ConnectionRefusedError; } set { __D_ConnectionRefusedError = value; } }
+    protected Status __D_ConnectionRefusedError;
+    public virtual Status RemoteHostClosedError { get { return __D_RemoteHostClosedError; } set { __D_RemoteHostClosedError = value; } }
+    protected Status __D_RemoteHostClosedError;
+    public virtual Status HostNotFoundError { get { return __D_HostNotFoundError; } set { __D_HostNotFoundError = value; } }
+    protected Status __D_HostNotFoundError;
+    public virtual Status SocketAccessError { get { return __D_SocketAccessError; } set { __D_SocketAccessError = value; } }
+    protected Status __D_SocketAccessError;
+    public virtual Status SocketResourceError { get { return __D_SocketResourceError; } set { __D_SocketResourceError = value; } }
+    protected Status __D_SocketResourceError;
+    public virtual Status SocketTimeoutError { get { return __D_SocketTimeoutError; } set { __D_SocketTimeoutError = value; } }
+    protected Status __D_SocketTimeoutError;
+    public virtual Status DatagramTooLargeError { get { return __D_DatagramTooLargeError; } set { __D_DatagramTooLargeError = value; } }
+    protected Status __D_DatagramTooLargeError;
+    public virtual Status NetworkError { get { return __D_NetworkError; } set { __D_NetworkError = value; } }
+    protected Status __D_NetworkError;
+    public virtual Status AddressInUseError { get { return __D_AddressInUseError; } set { __D_AddressInUseError = value; } }
+    protected Status __D_AddressInUseError;
+    public virtual Status SocketAddressNotAvailableError { get { return __D_SocketAddressNotAvailableError; } set { __D_SocketAddressNotAvailableError = value; } }
+    protected Status __D_SocketAddressNotAvailableError;
+    public virtual Status UnsupportedSocketOperationError { get { return __D_UnsupportedSocketOperationError; } set { __D_UnsupportedSocketOperationError = value; } }
+    protected Status __D_UnsupportedSocketOperationError;
+    public virtual Status UnfinishedSocketOperationError { get { return __D_UnfinishedSocketOperationError; } set { __D_UnfinishedSocketOperationError = value; } }
+    protected Status __D_UnfinishedSocketOperationError;
+    public virtual Status ProxyAuthenticationRequiredError { get { return __D_ProxyAuthenticationRequiredError; } set { __D_ProxyAuthenticationRequiredError = value; } }
+    protected Status __D_ProxyAuthenticationRequiredError;
+    public virtual Status SslHandshakeFailedError { get { return __D_SslHandshakeFailedError; } set { __D_SslHandshakeFailedError = value; } }
+    protected Status __D_SslHandshakeFailedError;
+    public virtual Status ProxyConnectionRefusedError { get { return __D_ProxyConnectionRefusedError; } set { __D_ProxyConnectionRefusedError = value; } }
+    protected Status __D_ProxyConnectionRefusedError;
+    public virtual Status ProxyConnectionClosedError { get { return __D_ProxyConnectionClosedError; } set { __D_ProxyConnectionClosedError = value; } }
+    protected Status __D_ProxyConnectionClosedError;
+    public virtual Status ProxyConnectionTimeoutError { get { return __D_ProxyConnectionTimeoutError; } set { __D_ProxyConnectionTimeoutError = value; } }
+    protected Status __D_ProxyConnectionTimeoutError;
+    public virtual Status ProxyNotFoundError { get { return __D_ProxyNotFoundError; } set { __D_ProxyNotFoundError = value; } }
+    protected Status __D_ProxyNotFoundError;
+    public virtual Status ProxyProtocolError { get { return __D_ProxyProtocolError; } set { __D_ProxyProtocolError = value; } }
+    protected Status __D_ProxyProtocolError;
+    public virtual Status OperationError { get { return __D_OperationError; } set { __D_OperationError = value; } }
+    protected Status __D_OperationError;
+    public virtual Status SslInternalError { get { return __D_SslInternalError; } set { __D_SslInternalError = value; } }
+    protected Status __D_SslInternalError;
+    public virtual Status SslInvalidUserDataError { get { return __D_SslInvalidUserDataError; } set { __D_SslInvalidUserDataError = value; } }
+    protected Status __D_SslInvalidUserDataError;
+    public virtual Status TemporaryError { get { return __D_TemporaryError; } set { __D_TemporaryError = value; } }
+    protected Status __D_TemporaryError;
 
     protected virtual Status AddItem()
     {

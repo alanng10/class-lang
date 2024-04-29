@@ -33,10 +33,14 @@ public class PenJoinList : Any
         return true;
     }
 
-    public virtual PenJoin Miter { get; set; }
-    public virtual PenJoin Bevel { get; set; }
-    public virtual PenJoin Round { get; set; }
-    public virtual PenJoin SvgMiter { get; set; }
+    public virtual PenJoin Miter { get { return __D_Miter; } set { __D_Miter = value; } }
+    protected PenJoin __D_Miter;
+    public virtual PenJoin Bevel { get { return __D_Bevel; } set { __D_Bevel = value; } }
+    protected PenJoin __D_Bevel;
+    public virtual PenJoin Round { get { return __D_Round; } set { __D_Round = value; } }
+    protected PenJoin __D_Round;
+    public virtual PenJoin SvgMiter { get { return __D_SvgMiter; } set { __D_SvgMiter = value; } }
+    protected PenJoin __D_SvgMiter;
 
     protected virtual PenJoin AddItem(ulong o)
     {

@@ -47,24 +47,42 @@ public class BrushKindList : Any
         return true;
     }
 
-    public virtual BrushKind Solid { get; set; }
-    public virtual BrushKind Dense1 { get; set; }
-    public virtual BrushKind Dense2 { get; set; }
-    public virtual BrushKind Dense3 { get; set; }
-    public virtual BrushKind Dense4 { get; set; }
-    public virtual BrushKind Dense5 { get; set; }
-    public virtual BrushKind Dense6 { get; set; }
-    public virtual BrushKind Dense7 { get; set; }
-    public virtual BrushKind Hor { get; set; }
-    public virtual BrushKind Ver { get; set; }
-    public virtual BrushKind Cross { get; set; }
-    public virtual BrushKind BDiag { get; set; }
-    public virtual BrushKind FDiag { get; set; }
-    public virtual BrushKind DiagCross { get; set; }
-    public virtual BrushKind LinearGradient { get; set; }
-    public virtual BrushKind RadialGradient { get; set; }
-    public virtual BrushKind ConicalGradient { get; set; }
-    public virtual BrushKind Texture { get; set; }
+    public virtual BrushKind Solid { get { return __D_Solid; } set { __D_Solid = value; } }
+    protected BrushKind __D_Solid;
+    public virtual BrushKind Dense1 { get { return __D_Dense1; } set { __D_Dense1 = value; } }
+    protected BrushKind __D_Dense1;
+    public virtual BrushKind Dense2 { get { return __D_Dense2; } set { __D_Dense2 = value; } }
+    protected BrushKind __D_Dense2;
+    public virtual BrushKind Dense3 { get { return __D_Dense3; } set { __D_Dense3 = value; } }
+    protected BrushKind __D_Dense3;
+    public virtual BrushKind Dense4 { get { return __D_Dense4; } set { __D_Dense4 = value; } }
+    protected BrushKind __D_Dense4;
+    public virtual BrushKind Dense5 { get { return __D_Dense5; } set { __D_Dense5 = value; } }
+    protected BrushKind __D_Dense5;
+    public virtual BrushKind Dense6 { get { return __D_Dense6; } set { __D_Dense6 = value; } }
+    protected BrushKind __D_Dense6;
+    public virtual BrushKind Dense7 { get { return __D_Dense7; } set { __D_Dense7 = value; } }
+    protected BrushKind __D_Dense7;
+    public virtual BrushKind Hor { get { return __D_Hor; } set { __D_Hor = value; } }
+    protected BrushKind __D_Hor;
+    public virtual BrushKind Ver { get { return __D_Ver; } set { __D_Ver = value; } }
+    protected BrushKind __D_Ver;
+    public virtual BrushKind Cross { get { return __D_Cross; } set { __D_Cross = value; } }
+    protected BrushKind __D_Cross;
+    public virtual BrushKind BDiag { get { return __D_BDiag; } set { __D_BDiag = value; } }
+    protected BrushKind __D_BDiag;
+    public virtual BrushKind FDiag { get { return __D_FDiag; } set { __D_FDiag = value; } }
+    protected BrushKind __D_FDiag;
+    public virtual BrushKind DiagCross { get { return __D_DiagCross; } set { __D_DiagCross = value; } }
+    protected BrushKind __D_DiagCross;
+    public virtual BrushKind LinearGradient { get { return __D_LinearGradient; } set { __D_LinearGradient = value; } }
+    protected BrushKind __D_LinearGradient;
+    public virtual BrushKind RadialGradient { get { return __D_RadialGradient; } set { __D_RadialGradient = value; } }
+    protected BrushKind __D_RadialGradient;
+    public virtual BrushKind ConicalGradient { get { return __D_ConicalGradient; } set { __D_ConicalGradient = value; } }
+    protected BrushKind __D_ConicalGradient;
+    public virtual BrushKind Texture { get { return __D_Texture; } set { __D_Texture = value; } }
+    protected BrushKind __D_Texture;
 
     protected virtual BrushKind AddItem(ulong o)
     {

@@ -32,9 +32,12 @@ public class GradientKindList : Any
         return true;
     }
 
-    public virtual GradientKind Linear { get; set; }
-    public virtual GradientKind Radial { get; set; }
-    public virtual GradientKind Conical { get; set; }
+    public virtual GradientKind Linear { get { return __D_Linear; } set { __D_Linear = value; } }
+    protected GradientKind __D_Linear;
+    public virtual GradientKind Radial { get { return __D_Radial; } set { __D_Radial = value; } }
+    protected GradientKind __D_Radial;
+    public virtual GradientKind Conical { get { return __D_Conical; } set { __D_Conical = value; } }
+    protected GradientKind __D_Conical;
 
     protected virtual GradientKind AddItem(ulong o)
     {

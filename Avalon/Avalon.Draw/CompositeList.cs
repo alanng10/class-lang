@@ -53,30 +53,54 @@ public class CompositeList : Any
         return true;
     }
 
-    public virtual Composite SourceOver { get; set; }
-    public virtual Composite DestinationOver { get; set; }
-    public virtual Composite Clear { get; set; }
-    public virtual Composite Source { get; set; }
-    public virtual Composite Destination { get; set; }
-    public virtual Composite SourceIn { get; set; }
-    public virtual Composite DestinationIn { get; set; }
-    public virtual Composite SourceOut { get; set; }
-    public virtual Composite DestinationOut { get; set; }
-    public virtual Composite SourceAtop { get; set; }
-    public virtual Composite DestinationAtop { get; set; }
-    public virtual Composite Xor { get; set; }
-    public virtual Composite Plus { get; set; }
-    public virtual Composite Multiply { get; set; }
-    public virtual Composite Screen { get; set; }
-    public virtual Composite Overlay { get; set; }
-    public virtual Composite Darken { get; set; }
-    public virtual Composite Lighten { get; set; }
-    public virtual Composite ColorDodge { get; set; }
-    public virtual Composite ColorBurn { get; set; }
-    public virtual Composite HardLight { get; set; }
-    public virtual Composite SoftLight { get; set; }
-    public virtual Composite Difference { get; set; }
-    public virtual Composite Exclusion { get; set; }
+    public virtual Composite SourceOver { get { return __D_SourceOver; } set { __D_SourceOver = value; } }
+    protected Composite __D_SourceOver;
+    public virtual Composite DestinationOver { get { return __D_DestinationOver; } set { __D_DestinationOver = value; } }
+    protected Composite __D_DestinationOver;
+    public virtual Composite Clear { get { return __D_Clear; } set { __D_Clear = value; } }
+    protected Composite __D_Clear;
+    public virtual Composite Source { get { return __D_Source; } set { __D_Source = value; } }
+    protected Composite __D_Source;
+    public virtual Composite Destination { get { return __D_Destination; } set { __D_Destination = value; } }
+    protected Composite __D_Destination;
+    public virtual Composite SourceIn { get { return __D_SourceIn; } set { __D_SourceIn = value; } }
+    protected Composite __D_SourceIn;
+    public virtual Composite DestinationIn { get { return __D_DestinationIn; } set { __D_DestinationIn = value; } }
+    protected Composite __D_DestinationIn;
+    public virtual Composite SourceOut { get { return __D_SourceOut; } set { __D_SourceOut = value; } }
+    protected Composite __D_SourceOut;
+    public virtual Composite DestinationOut { get { return __D_DestinationOut; } set { __D_DestinationOut = value; } }
+    protected Composite __D_DestinationOut;
+    public virtual Composite SourceAtop { get { return __D_SourceAtop; } set { __D_SourceAtop = value; } }
+    protected Composite __D_SourceAtop;
+    public virtual Composite DestinationAtop { get { return __D_DestinationAtop; } set { __D_DestinationAtop = value; } }
+    protected Composite __D_DestinationAtop;
+    public virtual Composite Xor { get { return __D_Xor; } set { __D_Xor = value; } }
+    protected Composite __D_Xor;
+    public virtual Composite Plus { get { return __D_Plus; } set { __D_Plus = value; } }
+    protected Composite __D_Plus;
+    public virtual Composite Multiply { get { return __D_Multiply; } set { __D_Multiply = value; } }
+    protected Composite __D_Multiply;
+    public virtual Composite Screen { get { return __D_Screen; } set { __D_Screen = value; } }
+    protected Composite __D_Screen;
+    public virtual Composite Overlay { get { return __D_Overlay; } set { __D_Overlay = value; } }
+    protected Composite __D_Overlay;
+    public virtual Composite Darken { get { return __D_Darken; } set { __D_Darken = value; } }
+    protected Composite __D_Darken;
+    public virtual Composite Lighten { get { return __D_Lighten; } set { __D_Lighten = value; } }
+    protected Composite __D_Lighten;
+    public virtual Composite ColorDodge { get { return __D_ColorDodge; } set { __D_ColorDodge = value; } }
+    protected Composite __D_ColorDodge;
+    public virtual Composite ColorBurn { get { return __D_ColorBurn; } set { __D_ColorBurn = value; } }
+    protected Composite __D_ColorBurn;
+    public virtual Composite HardLight { get { return __D_HardLight; } set { __D_HardLight = value; } }
+    protected Composite __D_HardLight;
+    public virtual Composite SoftLight { get { return __D_SoftLight; } set { __D_SoftLight = value; } }
+    protected Composite __D_SoftLight;
+    public virtual Composite Difference { get { return __D_Difference; } set { __D_Difference = value; } }
+    protected Composite __D_Difference;
+    public virtual Composite Exclusion { get { return __D_Exclusion; } set { __D_Exclusion = value; } }
+    protected Composite __D_Exclusion;
 
     protected virtual Composite AddItem(ulong o)
     {

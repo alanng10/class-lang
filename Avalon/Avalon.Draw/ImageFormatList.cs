@@ -32,9 +32,12 @@ public class ImageFormatList : Any
         return true;
     }
 
-    public virtual ImageFormat Bmp { get; set; }
-    public virtual ImageFormat Jpg { get; set; }
-    public virtual ImageFormat Png { get; set; }
+    public virtual ImageFormat Bmp { get { return __D_Bmp; } set { __D_Bmp = value; } }
+    protected ImageFormat __D_Bmp;
+    public virtual ImageFormat Jpg { get { return __D_Jpg; } set { __D_Jpg = value; } }
+    protected ImageFormat __D_Jpg;
+    public virtual ImageFormat Png { get { return __D_Png; } set { __D_Png = value; } }
+    protected ImageFormat __D_Png;
 
     protected virtual ImageFormat AddItem(ulong o)
     {

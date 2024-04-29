@@ -37,15 +37,24 @@ public class TextAlignList : Any
         return true;
     }
 
-    public virtual TextAlign LeftUp { get; set; }
-    public virtual TextAlign LeftDown { get; set; }
-    public virtual TextAlign LeftCenter { get; set; }
-    public virtual TextAlign RightUp { get; set; }
-    public virtual TextAlign RightDown { get; set; }
-    public virtual TextAlign RightCenter { get; set; }
-    public virtual TextAlign CenterUp { get; set; }
-    public virtual TextAlign CenterDown { get; set; }
-    public virtual TextAlign CenterCenter { get; set; }
+    public virtual TextAlign LeftUp { get { return __D_LeftUp; } set { __D_LeftUp = value; } }
+    protected TextAlign __D_LeftUp;
+    public virtual TextAlign LeftDown { get { return __D_LeftDown; } set { __D_LeftDown = value; } }
+    protected TextAlign __D_LeftDown;
+    public virtual TextAlign LeftCenter { get { return __D_LeftCenter; } set { __D_LeftCenter = value; } }
+    protected TextAlign __D_LeftCenter;
+    public virtual TextAlign RightUp { get { return __D_RightUp; } set { __D_RightUp = value; } }
+    protected TextAlign __D_RightUp;
+    public virtual TextAlign RightDown { get { return __D_RightDown; } set { __D_RightDown = value; } }
+    protected TextAlign __D_RightDown;
+    public virtual TextAlign RightCenter { get { return __D_RightCenter; } set { __D_RightCenter = value; } }
+    protected TextAlign __D_RightCenter;
+    public virtual TextAlign CenterUp { get { return __D_CenterUp; } set { __D_CenterUp = value; } }
+    protected TextAlign __D_CenterUp;
+    public virtual TextAlign CenterDown { get { return __D_CenterDown; } set { __D_CenterDown = value; } }
+    protected TextAlign __D_CenterDown;
+    public virtual TextAlign CenterCenter { get { return __D_CenterCenter; } set { __D_CenterCenter = value; } }
+    protected TextAlign __D_CenterCenter;
 
     protected virtual TextAlign AddItem(ulong horzAlign, ulong vertAlign)
     {

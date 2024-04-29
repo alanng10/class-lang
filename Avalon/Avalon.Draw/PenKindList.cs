@@ -35,12 +35,18 @@ public class PenKindList : Any
         return true;
     }
 
-    public virtual PenKind Solid { get; set; }
-    public virtual PenKind Dash { get; set; }
-    public virtual PenKind Dot { get; set; }
-    public virtual PenKind DashDot { get; set; }
-    public virtual PenKind DashDotDot { get; set; }
-    public virtual PenKind CustomDash { get; set; }
+    public virtual PenKind Solid { get { return __D_Solid; } set { __D_Solid = value; } }
+    protected PenKind __D_Solid;
+    public virtual PenKind Dash { get { return __D_Dash; } set { __D_Dash = value; } }
+    protected PenKind __D_Dash;
+    public virtual PenKind Dot { get { return __D_Dot; } set { __D_Dot = value; } }
+    protected PenKind __D_Dot;
+    public virtual PenKind DashDot { get { return __D_DashDot; } set { __D_DashDot = value; } }
+    protected PenKind __D_DashDot;
+    public virtual PenKind DashDotDot { get { return __D_DashDotDot; } set { __D_DashDotDot = value; } }
+    protected PenKind __D_DashDotDot;
+    public virtual PenKind CustomDash { get { return __D_CustomDash; } set { __D_CustomDash = value; } }
+    protected PenKind __D_CustomDash;
 
     protected virtual PenKind AddItem(ulong o)
     {

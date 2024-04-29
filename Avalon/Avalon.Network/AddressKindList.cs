@@ -37,14 +37,22 @@ public class AddressKindList : Any
         return true;
     }
 
-    public virtual AddressKind IPv6 { get; set; }
-    public virtual AddressKind IPv4 { get; set; }
-    public virtual AddressKind Broadcast { get; set; }
-    public virtual AddressKind LocalHost { get; set; }
-    public virtual AddressKind LocalHostIPv6 { get; set; }
-    public virtual AddressKind Any { get; set; }
-    public virtual AddressKind AnyIPv6 { get; set; }
-    public virtual AddressKind AnyIPv4 { get; set; }
+    public virtual AddressKind IPv6 { get { return __D_IPv6; } set { __D_IPv6 = value; } }
+    protected AddressKind __D_IPv6;
+    public virtual AddressKind IPv4 { get { return __D_IPv4; } set { __D_IPv4 = value; } }
+    protected AddressKind __D_IPv4;
+    public virtual AddressKind Broadcast { get { return __D_Broadcast; } set { __D_Broadcast = value; } }
+    protected AddressKind __D_Broadcast;
+    public virtual AddressKind LocalHost { get { return __D_LocalHost; } set { __D_LocalHost = value; } }
+    protected AddressKind __D_LocalHost;
+    public virtual AddressKind LocalHostIPv6 { get { return __D_LocalHostIPv6; } set { __D_LocalHostIPv6 = value; } }
+    protected AddressKind __D_LocalHostIPv6;
+    public virtual AddressKind Any { get { return __D_Any; } set { __D_Any = value; } }
+    protected AddressKind __D_Any;
+    public virtual AddressKind AnyIPv6 { get { return __D_AnyIPv6; } set { __D_AnyIPv6 = value; } }
+    protected AddressKind __D_AnyIPv6;
+    public virtual AddressKind AnyIPv4 { get { return __D_AnyIPv4; } set { __D_AnyIPv4 = value; } }
+    protected AddressKind __D_AnyIPv4;
 
     protected virtual AddressKind AddItem(ulong o)
     {

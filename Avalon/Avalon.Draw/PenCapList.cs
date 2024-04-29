@@ -32,9 +32,12 @@ public class PenCapList : Any
         return true;
     }
 
-    public virtual PenCap Flat { get; set; }
-    public virtual PenCap Square { get; set; }
-    public virtual PenCap Round { get; set; }
+    public virtual PenCap Flat { get { return __D_Flat; } set { __D_Flat = value; } }
+    protected PenCap __D_Flat;
+    public virtual PenCap Square { get { return __D_Square; } set { __D_Square = value; } }
+    protected PenCap __D_Square;
+    public virtual PenCap Round { get { return __D_Round; } set { __D_Round = value; } }
+    protected PenCap __D_Round;
 
     protected virtual PenCap AddItem(ulong o)
     {

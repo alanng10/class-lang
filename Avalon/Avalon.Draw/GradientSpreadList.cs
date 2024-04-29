@@ -32,9 +32,12 @@ public class GradientSpreadList : Any
         return true;
     }
 
-    public virtual GradientSpread Pad { get; set; }
-    public virtual GradientSpread Reflect { get; set; }
-    public virtual GradientSpread Repeat { get; set; }
+    public virtual GradientSpread Pad { get { return __D_Pad; } set { __D_Pad = value; } }
+    protected GradientSpread __D_Pad;
+    public virtual GradientSpread Reflect { get { return __D_Reflect; } set { __D_Reflect = value; } }
+    protected GradientSpread __D_Reflect;
+    public virtual GradientSpread Repeat { get { return __D_Repeat; } set { __D_Repeat = value; } }
+    protected GradientSpread __D_Repeat;
 
     protected virtual GradientSpread AddItem(ulong o)
     {
