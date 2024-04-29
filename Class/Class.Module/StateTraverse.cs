@@ -1482,10 +1482,10 @@ public class StateTraverse : Traverse
             if (!(fieldName == null))
             {
                 field = this.Field(thisClass, fieldName);
-            }
-            if (field == null)
-            {
-                this.Error(this.ErrorKind.FieldUndefined, node);
+                if (field == null)
+                {
+                    this.Error(this.ErrorKind.FieldUndefined, node);
+                }
             }
         }
         return field;
