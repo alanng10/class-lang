@@ -684,44 +684,19 @@ public class StateTraverse : Traverse
             return true;
         }
 
-
-
-
-
         Operate operate;
-
         operate = bracketOperate.Operate;
-
-
-
-
 
         base.ExecuteBracketOperate(bracketOperate);
 
-
-
-
-
         ClassClass operateClass;
-
         operateClass = null;
-
-
-
         if (!(operate == null))
         {
             operateClass = this.Info(operate).OperateClass;
         }
 
-
-
-            
-
         this.Info(bracketOperate).OperateClass = operateClass;
-
-
-
-
         return true;
     }
 
