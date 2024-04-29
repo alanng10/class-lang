@@ -684,23 +684,23 @@ public class StateTraverse : Traverse
             return true;
         }
 
-        Operate operate;
-        operate = bracketOperate.Operate;
+        Operate any;
+        any = bracketOperate.Any;
 
         base.ExecuteBracketOperate(bracketOperate);
 
-        ClassClass operateClass;
-        operateClass = null;
-        if (!(operate == null))
+        ClassClass anyClass;
+        anyClass = null;
+        if (!(any == null))
         {
-            operateClass = this.Info(operate).OperateClass;
-            if (operateClass == null)
+            anyClass = this.Info(any).OperateClass;
+            if (anyClass == null)
             {
                 this.Error(this.ErrorKind.AnyUndefined, bracketOperate);
             }
         }
 
-        this.Info(bracketOperate).OperateClass = operateClass;
+        this.Info(bracketOperate).OperateClass = anyClass;
         return true;
     }
 
