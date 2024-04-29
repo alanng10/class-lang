@@ -8,7 +8,6 @@ GetInvalid
 SetInvalid
 ParamInvalid
 CallInvalid
-OperateInvalid
 FieldInvalid
 MaideInvalid
 VarInvalid
