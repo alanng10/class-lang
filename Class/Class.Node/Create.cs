@@ -2529,7 +2529,9 @@ public class Create : InfraCreate
         start = range.Start;
         end = range.End;
 
-        if (!(start + 2 == end))
+        int count;
+        count = this.Count(start, end);
+        if (count < 1 | 2 < count)
         {
             return null;
         }
@@ -4062,9 +4064,9 @@ public class Create : InfraCreate
         return token;
     }
 
-    protected virtual int Count(Range range)
+    protected virtual int Count(int start, int end)
     {
-        return this.ClassInfra.Count(range.Start, range.End);
+        return this.ClassInfra.Count(start, end);
     }
 
     protected virtual bool TextGet(Text text, TokenToken token)
