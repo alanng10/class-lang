@@ -61,4 +61,5 @@ public class ArrayIter : Iter
         {
         }
     }
+    protected int __D_ArayIndex;
 }
