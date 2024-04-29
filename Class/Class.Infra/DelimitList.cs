@@ -42,24 +42,42 @@ public class DelimitList : Any
         return true;
     }
 
-    public virtual Delimit StopSign { get; set; }
-    public virtual Delimit PauseSign { get; set; }
-    public virtual Delimit BaseSign { get; set; }
-    public virtual Delimit ExecuteSign { get; set; }
-    public virtual Delimit EqualSign { get; set; }
-    public virtual Delimit AddSign { get; set; }
-    public virtual Delimit SubSign { get; set; }
-    public virtual Delimit MulSign { get; set; }
-    public virtual Delimit DivSign { get; set; }
-    public virtual Delimit AndSign { get; set; }
-    public virtual Delimit OrnSign { get; set; }
-    public virtual Delimit NotSign { get; set; }
-    public virtual Delimit LessSign { get; set; }
-    public virtual Delimit MoreSign { get; set; }
-    public virtual Delimit LeftBracket { get; set; }
-    public virtual Delimit RightBracket { get; set; }
-    public virtual Delimit LeftBrace { get; set; }
-    public virtual Delimit RightBrace { get; set; }
+    public virtual Delimit StopSign { get { return __D_StopSign; } set { __D_StopSign = value; } }
+    protected Delimit __D_StopSign;
+    public virtual Delimit PauseSign { get { return __D_PauseSign; } set { __D_PauseSign = value; } }
+    protected Delimit __D_PauseSign;
+    public virtual Delimit BaseSign { get { return __D_BaseSign; } set { __D_BaseSign = value; } }
+    protected Delimit __D_BaseSign;
+    public virtual Delimit ExecuteSign { get { return __D_ExecuteSign; } set { __D_ExecuteSign = value; } }
+    protected Delimit __D_ExecuteSign;
+    public virtual Delimit EqualSign { get { return __D_EqualSign; } set { __D_EqualSign = value; } }
+    protected Delimit __D_EqualSign;
+    public virtual Delimit AddSign { get { return __D_AddSign; } set { __D_AddSign = value; } }
+    protected Delimit __D_AddSign;
+    public virtual Delimit SubSign { get { return __D_SubSign; } set { __D_SubSign = value; } }
+    protected Delimit __D_SubSign;
+    public virtual Delimit MulSign { get { return __D_MulSign; } set { __D_MulSign = value; } }
+    protected Delimit __D_MulSign;
+    public virtual Delimit DivSign { get { return __D_DivSign; } set { __D_DivSign = value; } }
+    protected Delimit __D_DivSign;
+    public virtual Delimit AndSign { get { return __D_AndSign; } set { __D_AndSign = value; } }
+    protected Delimit __D_AndSign;
+    public virtual Delimit OrnSign { get { return __D_OrnSign; } set { __D_OrnSign = value; } }
+    protected Delimit __D_OrnSign;
+    public virtual Delimit NotSign { get { return __D_NotSign; } set { __D_NotSign = value; } }
+    protected Delimit __D_NotSign;
+    public virtual Delimit LessSign { get { return __D_LessSign; } set { __D_LessSign = value; } }
+    protected Delimit __D_LessSign;
+    public virtual Delimit MoreSign { get { return __D_MoreSign; } set { __D_MoreSign = value; } }
+    protected Delimit __D_MoreSign;
+    public virtual Delimit LeftBracket { get { return __D_LeftBracket; } set { __D_LeftBracket = value; } }
+    protected Delimit __D_LeftBracket;
+    public virtual Delimit RightBracket { get { return __D_RightBracket; } set { __D_RightBracket = value; } }
+    protected Delimit __D_RightBracket;
+    public virtual Delimit LeftBrace { get { return __D_LeftBrace; } set { __D_LeftBrace = value; } }
+    protected Delimit __D_LeftBrace;
+    public virtual Delimit RightBrace { get { return __D_RightBrace; } set { __D_RightBrace = value; } }
+    protected Delimit __D_RightBrace;
 
     protected virtual Delimit AddItem(string text)
     {

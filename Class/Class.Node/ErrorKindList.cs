@@ -47,29 +47,52 @@ public class ErrorKindList : Any
         return true;
     }
 
-    public virtual ErrorKind Invalid { get; set; }
-    public virtual ErrorKind NameInvalid { get; set; }
-    public virtual ErrorKind BaseInvalid { get; set; }
-    public virtual ErrorKind MemberInvalid { get; set; }
-    public virtual ErrorKind ClassInvalid { get; set; }
-    public virtual ErrorKind CountInvalid { get; set; }
-    public virtual ErrorKind GetInvalid { get; set; }
-    public virtual ErrorKind SetInvalid { get; set; }
-    public virtual ErrorKind ParamInvalid { get; set; }
-    public virtual ErrorKind CallInvalid { get; set; }
-    public virtual ErrorKind FieldInvalid { get; set; }
-    public virtual ErrorKind MaideInvalid { get; set; }
-    public virtual ErrorKind VarInvalid { get; set; }
-    public virtual ErrorKind OperandInvalid { get; set; }
-    public virtual ErrorKind TargetInvalid { get; set; }
-    public virtual ErrorKind ValueInvalid { get; set; }
-    public virtual ErrorKind ThisInvalid { get; set; }
-    public virtual ErrorKind AnyInvalid { get; set; }
-    public virtual ErrorKind ArgueInvalid { get; set; }
-    public virtual ErrorKind ResultInvalid { get; set; }
-    public virtual ErrorKind CondInvalid { get; set; }
-    public virtual ErrorKind BodyInvalid { get; set; }
-    public virtual ErrorKind ItemInvalid { get; set; }
+    public virtual ErrorKind Invalid { get { return __D_Invalid; } set { __D_Invalid = value; } }
+    protected ErrorKind __D_Invalid;
+    public virtual ErrorKind NameInvalid { get { return __D_NameInvalid; } set { __D_NameInvalid = value; } }
+    protected ErrorKind __D_NameInvalid;
+    public virtual ErrorKind BaseInvalid { get { return __D_BaseInvalid; } set { __D_BaseInvalid = value; } }
+    protected ErrorKind __D_BaseInvalid;
+    public virtual ErrorKind MemberInvalid { get { return __D_MemberInvalid; } set { __D_MemberInvalid = value; } }
+    protected ErrorKind __D_MemberInvalid;
+    public virtual ErrorKind ClassInvalid { get { return __D_ClassInvalid; } set { __D_ClassInvalid = value; } }
+    protected ErrorKind __D_ClassInvalid;
+    public virtual ErrorKind CountInvalid { get { return __D_CountInvalid; } set { __D_CountInvalid = value; } }
+    protected ErrorKind __D_CountInvalid;
+    public virtual ErrorKind GetInvalid { get { return __D_GetInvalid; } set { __D_GetInvalid = value; } }
+    protected ErrorKind __D_GetInvalid;
+    public virtual ErrorKind SetInvalid { get { return __D_SetInvalid; } set { __D_SetInvalid = value; } }
+    protected ErrorKind __D_SetInvalid;
+    public virtual ErrorKind ParamInvalid { get { return __D_ParamInvalid; } set { __D_ParamInvalid = value; } }
+    protected ErrorKind __D_ParamInvalid;
+    public virtual ErrorKind CallInvalid { get { return __D_CallInvalid; } set { __D_CallInvalid = value; } }
+    protected ErrorKind __D_CallInvalid;
+    public virtual ErrorKind FieldInvalid { get { return __D_FieldInvalid; } set { __D_FieldInvalid = value; } }
+    protected ErrorKind __D_FieldInvalid;
+    public virtual ErrorKind MaideInvalid { get { return __D_MaideInvalid; } set { __D_MaideInvalid = value; } }
+    protected ErrorKind __D_MaideInvalid;
+    public virtual ErrorKind VarInvalid { get { return __D_VarInvalid; } set { __D_VarInvalid = value; } }
+    protected ErrorKind __D_VarInvalid;
+    public virtual ErrorKind OperandInvalid { get { return __D_OperandInvalid; } set { __D_OperandInvalid = value; } }
+    protected ErrorKind __D_OperandInvalid;
+    public virtual ErrorKind TargetInvalid { get { return __D_TargetInvalid; } set { __D_TargetInvalid = value; } }
+    protected ErrorKind __D_TargetInvalid;
+    public virtual ErrorKind ValueInvalid { get { return __D_ValueInvalid; } set { __D_ValueInvalid = value; } }
+    protected ErrorKind __D_ValueInvalid;
+    public virtual ErrorKind ThisInvalid { get { return __D_ThisInvalid; } set { __D_ThisInvalid = value; } }
+    protected ErrorKind __D_ThisInvalid;
+    public virtual ErrorKind AnyInvalid { get { return __D_AnyInvalid; } set { __D_AnyInvalid = value; } }
+    protected ErrorKind __D_AnyInvalid;
+    public virtual ErrorKind ArgueInvalid { get { return __D_ArgueInvalid; } set { __D_ArgueInvalid = value; } }
+    protected ErrorKind __D_ArgueInvalid;
+    public virtual ErrorKind ResultInvalid { get { return __D_ResultInvalid; } set { __D_ResultInvalid = value; } }
+    protected ErrorKind __D_ResultInvalid;
+    public virtual ErrorKind CondInvalid { get { return __D_CondInvalid; } set { __D_CondInvalid = value; } }
+    protected ErrorKind __D_CondInvalid;
+    public virtual ErrorKind BodyInvalid { get { return __D_BodyInvalid; } set { __D_BodyInvalid = value; } }
+    protected ErrorKind __D_BodyInvalid;
+    public virtual ErrorKind ItemInvalid { get { return __D_ItemInvalid; } set { __D_ItemInvalid = value; } }
+    protected ErrorKind __D_ItemInvalid;
 
     protected virtual ErrorKind AddItem(string text)
     {

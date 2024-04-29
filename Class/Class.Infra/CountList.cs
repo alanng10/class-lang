@@ -28,10 +28,14 @@ public class CountList : Any
         return true;
     }
 
-    public virtual Count Prudate { get; set; }
-    public virtual Count Probate { get; set; }
-    public virtual Count Precate { get; set; }
-    public virtual Count Private { get; set; }
+    public virtual Count Prudate { get { return __D_Prudate; } set { __D_Prudate = value; } }
+    protected Count __D_Prudate;
+    public virtual Count Probate { get { return __D_Probate; } set { __D_Probate = value; } }
+    protected Count __D_Probate;
+    public virtual Count Precate { get { return __D_Precate; } set { __D_Precate = value; } }
+    protected Count __D_Precate;
+    public virtual Count Private { get { return __D_Private; } set { __D_Private = value; } }
+    protected Count __D_Private;
 
     protected virtual Count AddItem()
     {

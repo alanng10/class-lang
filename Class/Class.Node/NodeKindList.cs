@@ -91,73 +91,140 @@ public class NodeKindList : Any
         return true;
     }
 
-    public virtual NodeKind Class { get; set; }
-    public virtual NodeKind Part { get; set; }
-    public virtual NodeKind Comp { get; set; }
-    public virtual NodeKind Field { get; set; }
-    public virtual NodeKind Maide { get; set; }
-    public virtual NodeKind Param { get; set; }
-    public virtual NodeKind Var { get; set; }
-    public virtual NodeKind ItemCount { get; set; }
-    public virtual NodeKind PrudateCount { get; set; }
-    public virtual NodeKind ProbateCount { get; set; }
-    public virtual NodeKind PrecateCount { get; set; }
-    public virtual NodeKind PrivateCount { get; set; }
-    public virtual NodeKind State { get; set; }
-    public virtual NodeKind Execute { get; set; }
-    public virtual NodeKind InfExecute { get; set; }
-    public virtual NodeKind WhileExecute { get; set; }
-    public virtual NodeKind ReturnExecute { get; set; }
-    public virtual NodeKind DeclareExecute { get; set; }
-    public virtual NodeKind AssignExecute { get; set; }
-    public virtual NodeKind OperateExecute { get; set; }
-    public virtual NodeKind Argue { get; set; }
-    public virtual NodeKind Target { get; set; }
-    public virtual NodeKind VarTarget { get; set; }
-    public virtual NodeKind SetTarget { get; set; }
-    public virtual NodeKind BaseSetTarget { get; set; }
-    public virtual NodeKind Operate { get; set; }
-    public virtual NodeKind GetOperate { get; set; }
-    public virtual NodeKind CallOperate { get; set; }
-    public virtual NodeKind BaseGetOperate { get; set; }
-    public virtual NodeKind BaseCallOperate { get; set; }
-    public virtual NodeKind ThisOperate { get; set; }
-    public virtual NodeKind NullOperate { get; set; }
-    public virtual NodeKind NewOperate { get; set; }
-    public virtual NodeKind ShareOperate { get; set; }
-    public virtual NodeKind CastOperate { get; set; }
-    public virtual NodeKind VarOperate { get; set; }
-    public virtual NodeKind ValueOperate { get; set; }
-    public virtual NodeKind BracketOperate { get; set; }
-    public virtual NodeKind Value { get; set; }
-    public virtual NodeKind BoolValue { get; set; }
-    public virtual NodeKind IntValue { get; set; }
-    public virtual NodeKind IntHexValue { get; set; }
-    public virtual NodeKind IntSignValue { get; set; }
-    public virtual NodeKind IntHexSignValue { get; set; }
-    public virtual NodeKind StringValue { get; set; }
-    public virtual NodeKind ClassName { get; set; }
-    public virtual NodeKind FieldName { get; set; }
-    public virtual NodeKind MaideName { get; set; }
-    public virtual NodeKind VarName { get; set; }
-    public virtual NodeKind EqualOperate { get; set; }
-    public virtual NodeKind AndOperate { get; set; }
-    public virtual NodeKind OrnOperate { get; set; }
-    public virtual NodeKind NotOperate { get; set; }
-    public virtual NodeKind AddOperate { get; set; }
-    public virtual NodeKind SubOperate { get; set; }
-    public virtual NodeKind MulOperate { get; set; }
-    public virtual NodeKind DivOperate { get; set; }
-    public virtual NodeKind LessOperate { get; set; }
-    public virtual NodeKind SignMulOperate { get; set; }
-    public virtual NodeKind SignDivOperate { get; set; }
-    public virtual NodeKind SignLessOperate { get; set; }
-    public virtual NodeKind BitAndOperate { get; set; }
-    public virtual NodeKind BitOrnOperate { get; set; }
-    public virtual NodeKind BitNotOperate { get; set; }
-    public virtual NodeKind BitLeftOperate { get; set; }
-    public virtual NodeKind BitRightOperate { get; set; }
-    public virtual NodeKind BitSignRightOperate { get; set; }
+    public virtual NodeKind Class { get { return __D_Class; } set { __D_Class = value; } }
+    protected NodeKind __D_Class;
+    public virtual NodeKind Part { get { return __D_Part; } set { __D_Part = value; } }
+    protected NodeKind __D_Part;
+    public virtual NodeKind Comp { get { return __D_Comp; } set { __D_Comp = value; } }
+    protected NodeKind __D_Comp;
+    public virtual NodeKind Field { get { return __D_Field; } set { __D_Field = value; } }
+    protected NodeKind __D_Field;
+    public virtual NodeKind Maide { get { return __D_Maide; } set { __D_Maide = value; } }
+    protected NodeKind __D_Maide;
+    public virtual NodeKind Param { get { return __D_Param; } set { __D_Param = value; } }
+    protected NodeKind __D_Param;
+    public virtual NodeKind Var { get { return __D_Var; } set { __D_Var = value; } }
+    protected NodeKind __D_Var;
+    public virtual NodeKind ItemCount { get { return __D_ItemCount; } set { __D_ItemCount = value; } }
+    protected NodeKind __D_ItemCount;
+    public virtual NodeKind PrudateCount { get { return __D_PrudateCount; } set { __D_PrudateCount = value; } }
+    protected NodeKind __D_PrudateCount;
+    public virtual NodeKind ProbateCount { get { return __D_ProbateCount; } set { __D_ProbateCount = value; } }
+    protected NodeKind __D_ProbateCount;
+    public virtual NodeKind PrecateCount { get { return __D_PrecateCount; } set { __D_PrecateCount = value; } }
+    protected NodeKind __D_PrecateCount;
+    public virtual NodeKind PrivateCount { get { return __D_PrivateCount; } set { __D_PrivateCount = value; } }
+    protected NodeKind __D_PrivateCount;
+    public virtual NodeKind State { get { return __D_State; } set { __D_State = value; } }
+    protected NodeKind __D_State;
+    public virtual NodeKind Execute { get { return __D_Execute; } set { __D_Execute = value; } }
+    protected NodeKind __D_Execute;
+    public virtual NodeKind InfExecute { get { return __D_InfExecute; } set { __D_InfExecute = value; } }
+    protected NodeKind __D_InfExecute;
+    public virtual NodeKind WhileExecute { get { return __D_WhileExecute; } set { __D_WhileExecute = value; } }
+    protected NodeKind __D_WhileExecute;
+    public virtual NodeKind ReturnExecute { get { return __D_ReturnExecute; } set { __D_ReturnExecute = value; } }
+    protected NodeKind __D_ReturnExecute;
+    public virtual NodeKind DeclareExecute { get { return __D_DeclareExecute; } set { __D_DeclareExecute = value; } }
+    protected NodeKind __D_DeclareExecute;
+    public virtual NodeKind AssignExecute { get { return __D_AssignExecute; } set { __D_AssignExecute = value; } }
+    protected NodeKind __D_AssignExecute;
+    public virtual NodeKind OperateExecute { get { return __D_OperateExecute; } set { __D_OperateExecute = value; } }
+    protected NodeKind __D_OperateExecute;
+    public virtual NodeKind Argue { get { return __D_Argue; } set { __D_Argue = value; } }
+    protected NodeKind __D_Argue;
+    public virtual NodeKind Target { get { return __D_Target; } set { __D_Target = value; } }
+    protected NodeKind __D_Target;
+    public virtual NodeKind VarTarget { get { return __D_VarTarget; } set { __D_VarTarget = value; } }
+    protected NodeKind __D_VarTarget;
+    public virtual NodeKind SetTarget { get { return __D_SetTarget; } set { __D_SetTarget = value; } }
+    protected NodeKind __D_SetTarget;
+    public virtual NodeKind BaseSetTarget { get { return __D_BaseSetTarget; } set { __D_BaseSetTarget = value; } }
+    protected NodeKind __D_BaseSetTarget;
+    public virtual NodeKind Operate { get { return __D_Operate; } set { __D_Operate = value; } }
+    protected NodeKind __D_Operate;
+    public virtual NodeKind GetOperate { get { return __D_GetOperate; } set { __D_GetOperate = value; } }
+    protected NodeKind __D_GetOperate;
+    public virtual NodeKind CallOperate { get { return __D_CallOperate; } set { __D_CallOperate = value; } }
+    protected NodeKind __D_CallOperate;
+    public virtual NodeKind BaseGetOperate { get { return __D_BaseGetOperate; } set { __D_BaseGetOperate = value; } }
+    protected NodeKind __D_BaseGetOperate;
+    public virtual NodeKind BaseCallOperate { get { return __D_BaseCallOperate; } set { __D_BaseCallOperate = value; } }
+    protected NodeKind __D_BaseCallOperate;
+    public virtual NodeKind ThisOperate { get { return __D_ThisOperate; } set { __D_ThisOperate = value; } }
+    protected NodeKind __D_ThisOperate;
+    public virtual NodeKind NullOperate { get { return __D_NullOperate; } set { __D_NullOperate = value; } }
+    protected NodeKind __D_NullOperate;
+    public virtual NodeKind NewOperate { get { return __D_NewOperate; } set { __D_NewOperate = value; } }
+    protected NodeKind __D_NewOperate;
+    public virtual NodeKind ShareOperate { get { return __D_ShareOperate; } set { __D_ShareOperate = value; } }
+    protected NodeKind __D_ShareOperate;
+    public virtual NodeKind CastOperate { get { return __D_CastOperate; } set { __D_CastOperate = value; } }
+    protected NodeKind __D_CastOperate;
+    public virtual NodeKind VarOperate { get { return __D_VarOperate; } set { __D_VarOperate = value; } }
+    protected NodeKind __D_VarOperate;
+    public virtual NodeKind ValueOperate { get { return __D_ValueOperate; } set { __D_ValueOperate = value; } }
+    protected NodeKind __D_ValueOperate;
+    public virtual NodeKind BracketOperate { get { return __D_BracketOperate; } set { __D_BracketOperate = value; } }
+    protected NodeKind __D_BracketOperate;
+    public virtual NodeKind Value { get { return __D_Value; } set { __D_Value = value; } }
+    protected NodeKind __D_Value;
+    public virtual NodeKind BoolValue { get { return __D_BoolValue; } set { __D_BoolValue = value; } }
+    protected NodeKind __D_BoolValue;
+    public virtual NodeKind IntValue { get { return __D_IntValue; } set { __D_IntValue = value; } }
+    protected NodeKind __D_IntValue;
+    public virtual NodeKind IntHexValue { get { return __D_IntHexValue; } set { __D_IntHexValue = value; } }
+    protected NodeKind __D_IntHexValue;
+    public virtual NodeKind IntSignValue { get { return __D_IntSignValue; } set { __D_IntSignValue = value; } }
+    protected NodeKind __D_IntSignValue;
+    public virtual NodeKind IntHexSignValue { get { return __D_IntHexSignValue; } set { __D_IntHexSignValue = value; } }
+    protected NodeKind __D_IntHexSignValue;
+    public virtual NodeKind StringValue { get { return __D_StringValue; } set { __D_StringValue = value; } }
+    protected NodeKind __D_StringValue;
+    public virtual NodeKind ClassName { get { return __D_ClassName; } set { __D_ClassName = value; } }
+    protected NodeKind __D_ClassName;
+    public virtual NodeKind FieldName { get { return __D_FieldName; } set { __D_FieldName = value; } }
+    protected NodeKind __D_FieldName;
+    public virtual NodeKind MaideName { get { return __D_MaideName; } set { __D_MaideName = value; } }
+    protected NodeKind __D_MaideName;
+    public virtual NodeKind VarName { get { return __D_VarName; } set { __D_VarName = value; } }
+    protected NodeKind __D_VarName;
+    public virtual NodeKind EqualOperate { get { return __D_EqualOperate; } set { __D_EqualOperate = value; } }
+    protected NodeKind __D_EqualOperate;
+    public virtual NodeKind AndOperate { get { return __D_AndOperate; } set { __D_AndOperate = value; } }
+    protected NodeKind __D_AndOperate;
+    public virtual NodeKind OrnOperate { get { return __D_OrnOperate; } set { __D_OrnOperate = value; } }
+    protected NodeKind __D_OrnOperate;
+    public virtual NodeKind NotOperate { get { return __D_NotOperate; } set { __D_NotOperate = value; } }
+    protected NodeKind __D_NotOperate;
+    public virtual NodeKind AddOperate { get { return __D_AddOperate; } set { __D_AddOperate = value; } }
+    protected NodeKind __D_AddOperate;
+    public virtual NodeKind SubOperate { get { return __D_SubOperate; } set { __D_SubOperate = value; } }
+    protected NodeKind __D_SubOperate;
+    public virtual NodeKind MulOperate { get { return __D_MulOperate; } set { __D_MulOperate = value; } }
+    protected NodeKind __D_MulOperate;
+    public virtual NodeKind DivOperate { get { return __D_DivOperate; } set { __D_DivOperate = value; } }
+    protected NodeKind __D_DivOperate;
+    public virtual NodeKind LessOperate { get { return __D_LessOperate; } set { __D_LessOperate = value; } }
+    protected NodeKind __D_LessOperate;
+    public virtual NodeKind SignMulOperate { get { return __D_SignMulOperate; } set { __D_SignMulOperate = value; } }
+    protected NodeKind __D_SignMulOperate;
+    public virtual NodeKind SignDivOperate { get { return __D_SignDivOperate; } set { __D_SignDivOperate = value; } }
+    protected NodeKind __D_SignDivOperate;
+    public virtual NodeKind SignLessOperate { get { return __D_SignLessOperate; } set { __D_SignLessOperate = value; } }
+    protected NodeKind __D_SignLessOperate;
+    public virtual NodeKind BitAndOperate { get { return __D_BitAndOperate; } set { __D_BitAndOperate = value; } }
+    protected NodeKind __D_BitAndOperate;
+    public virtual NodeKind BitOrnOperate { get { return __D_BitOrnOperate; } set { __D_BitOrnOperate = value; } }
+    protected NodeKind __D_BitOrnOperate;
+    public virtual NodeKind BitNotOperate { get { return __D_BitNotOperate; } set { __D_BitNotOperate = value; } }
+    protected NodeKind __D_BitNotOperate;
+    public virtual NodeKind BitLeftOperate { get { return __D_BitLeftOperate; } set { __D_BitLeftOperate = value; } }
+    protected NodeKind __D_BitLeftOperate;
+    public virtual NodeKind BitRightOperate { get { return __D_BitRightOperate; } set { __D_BitRightOperate = value; } }
+    protected NodeKind __D_BitRightOperate;
+    public virtual NodeKind BitSignRightOperate { get { return __D_BitSignRightOperate; } set { __D_BitSignRightOperate = value; } }
+    protected NodeKind __D_BitSignRightOperate;
 
     protected virtual NodeKind AddItem(string name, Node node, InfraState newState, NodeState nodeState, CreateOperateState createOperateState)
     {

@@ -29,11 +29,16 @@ public class TaskKindList : Any
         return true;
     }
 
-    public virtual TaskKind Port { get; set; }
-    public virtual TaskKind Token { get; set; }
-    public virtual TaskKind Node { get; set; }
-    public virtual TaskKind Module { get; set; }
-    public virtual TaskKind Console { get; set; }
+    public virtual TaskKind Port { get { return __D_Port; } set { __D_Port = value; } }
+    protected TaskKind __D_Port;
+    public virtual TaskKind Token { get { return __D_Token; } set { __D_Token = value; } }
+    protected TaskKind __D_Token;
+    public virtual TaskKind Node { get { return __D_Node; } set { __D_Node = value; } }
+    protected TaskKind __D_Node;
+    public virtual TaskKind Module { get { return __D_Module; } set { __D_Module = value; } }
+    protected TaskKind __D_Module;
+    public virtual TaskKind Console { get { return __D_Console; } set { __D_Console = value; } }
+    protected TaskKind __D_Console;
 
     protected virtual TaskKind AddItem()
     {

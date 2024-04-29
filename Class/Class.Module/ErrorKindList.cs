@@ -43,25 +43,44 @@ public class ErrorKindList : Any
         return true;
     }
 
-    public virtual ErrorKind NameUnavailable { get; set; }
-    public virtual ErrorKind ClassUndefined { get; set; }
-    public virtual ErrorKind BaseUndefined { get; set; }
-    public virtual ErrorKind TargetUndefined { get; set; }
-    public virtual ErrorKind ValueUndefined { get; set; }
-    public virtual ErrorKind ValueUnassignable { get; set; }
-    public virtual ErrorKind OperandUndefined { get; set; }
-    public virtual ErrorKind OperandUnassignable { get; set; }
-    public virtual ErrorKind ThisUndefined { get; set; }
-    public virtual ErrorKind FieldUndefined { get; set; }
-    public virtual ErrorKind MaideUndefined { get; set; }
-    public virtual ErrorKind ArgueUnassignable { get; set; }
-    public virtual ErrorKind AnyUndefined { get; set; }
-    public virtual ErrorKind CastUnachievable { get; set; }
-    public virtual ErrorKind CondUndefined { get; set; }
-    public virtual ErrorKind CondUnassignable { get; set; }
-    public virtual ErrorKind ResultUndefined { get; set; }
-    public virtual ErrorKind ResultUnassignable { get; set; }
-    public virtual ErrorKind VarUndefined { get; set; }
+    public virtual ErrorKind NameUnavailable { get { return __D_NameUnavailable; } set { __D_NameUnavailable = value; } }
+    protected ErrorKind __D_NameUnavailable;
+    public virtual ErrorKind ClassUndefined { get { return __D_ClassUndefined; } set { __D_ClassUndefined = value; } }
+    protected ErrorKind __D_ClassUndefined;
+    public virtual ErrorKind BaseUndefined { get { return __D_BaseUndefined; } set { __D_BaseUndefined = value; } }
+    protected ErrorKind __D_BaseUndefined;
+    public virtual ErrorKind TargetUndefined { get { return __D_TargetUndefined; } set { __D_TargetUndefined = value; } }
+    protected ErrorKind __D_TargetUndefined;
+    public virtual ErrorKind ValueUndefined { get { return __D_ValueUndefined; } set { __D_ValueUndefined = value; } }
+    protected ErrorKind __D_ValueUndefined;
+    public virtual ErrorKind ValueUnassignable { get { return __D_ValueUnassignable; } set { __D_ValueUnassignable = value; } }
+    protected ErrorKind __D_ValueUnassignable;
+    public virtual ErrorKind OperandUndefined { get { return __D_OperandUndefined; } set { __D_OperandUndefined = value; } }
+    protected ErrorKind __D_OperandUndefined;
+    public virtual ErrorKind OperandUnassignable { get { return __D_OperandUnassignable; } set { __D_OperandUnassignable = value; } }
+    protected ErrorKind __D_OperandUnassignable;
+    public virtual ErrorKind ThisUndefined { get { return __D_ThisUndefined; } set { __D_ThisUndefined = value; } }
+    protected ErrorKind __D_ThisUndefined;
+    public virtual ErrorKind FieldUndefined { get { return __D_FieldUndefined; } set { __D_FieldUndefined = value; } }
+    protected ErrorKind __D_FieldUndefined;
+    public virtual ErrorKind MaideUndefined { get { return __D_MaideUndefined; } set { __D_MaideUndefined = value; } }
+    protected ErrorKind __D_MaideUndefined;
+    public virtual ErrorKind ArgueUnassignable { get { return __D_ArgueUnassignable; } set { __D_ArgueUnassignable = value; } }
+    protected ErrorKind __D_ArgueUnassignable;
+    public virtual ErrorKind AnyUndefined { get { return __D_AnyUndefined; } set { __D_AnyUndefined = value; } }
+    protected ErrorKind __D_AnyUndefined;
+    public virtual ErrorKind CastUnachievable { get { return __D_CastUnachievable; } set { __D_CastUnachievable = value; } }
+    protected ErrorKind __D_CastUnachievable;
+    public virtual ErrorKind CondUndefined { get { return __D_CondUndefined; } set { __D_CondUndefined = value; } }
+    protected ErrorKind __D_CondUndefined;
+    public virtual ErrorKind CondUnassignable { get { return __D_CondUnassignable; } set { __D_CondUnassignable = value; } }
+    protected ErrorKind __D_CondUnassignable;
+    public virtual ErrorKind ResultUndefined { get { return __D_ResultUndefined; } set { __D_ResultUndefined = value; } }
+    protected ErrorKind __D_ResultUndefined;
+    public virtual ErrorKind ResultUnassignable { get { return __D_ResultUnassignable; } set { __D_ResultUnassignable = value; } }
+    protected ErrorKind __D_ResultUnassignable;
+    public virtual ErrorKind VarUndefined { get { return __D_VarUndefined; } set { __D_VarUndefined = value; } }
+    protected ErrorKind __D_VarUndefined;
 
     protected virtual ErrorKind AddItem(string text)
     {
