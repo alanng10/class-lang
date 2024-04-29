@@ -1832,129 +1832,59 @@ public class StateTraverse : Traverse
 
 
 
-    protected virtual bool ArgueMatch(Maide method, Argue argue)
+    protected virtual bool ArgueMatch(Maide maide, Argue argue)
     {
         int count;
-
-
-
-        count = method.Param.Count;
-
-
-
-
+        count = maide.Param.Count;
 
         bool countEqual;
-
-
-
         countEqual = (count == argue.Value.Count);
-
-
-
-
         if (!countEqual)
         {
             return false;
         }
 
-
-
-
         Iter varIter;
+        varIter = maide.Param.IterCreate();
+        maide.Param.IterSet(varIter);
 
-        varIter = method.Param.IterCreate();
-
-        method.Param.IterSet(varIter);
-
-
-
-
-        Iter argueItemIter;
-
-        argueItemIter = argue.Value.IterCreate();
-
-        argue.Value.IterSet(argueItemIter);
-
-
+        Iter argueIter;
+        argueIter = argue.Value.IterCreate();
+        argue.Value.IterSet(argueIter);
 
         int i;
-
-
         i = 0;
-
-
         while (i < count)
         {
             varIter.Next();
-
-
-
-            argueItemIter.Next();
-
-
-
+            argueIter.Next();
 
             Var varVar;
-
-
             varVar = (Var)varIter.Value;
 
-
-
-
             Operate operate;
-
-
-            operate = (Operate)argueItemIter.Value;
-
-
-
-
+            operate = (Operate)argueIter.Value;
             if (operate == null)
             {
                 return false;
             }
 
-
-
-
-
             ClassClass varClass;
-
-
             varClass = varVar.Class;
 
-
-
-
             ClassClass operateClass;
-
-
             operateClass = this.Info(operate).OperateClass;
-
-
-
             if (operateClass == null)
             {
                 return false;
             }
 
-
-
             if (!this.CheckClass(operateClass, varClass))
             {
                 return false;
             }
-
-
-
-
             i = i + 1;
         }
-
-
-
         return true;
     }
 
