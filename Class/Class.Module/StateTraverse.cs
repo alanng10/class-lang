@@ -649,8 +649,6 @@ public class StateTraverse : Traverse
         return true;
     }
 
-
-
     public override bool ExecuteVarOperate(VarOperate varOperate)
     {
         if (varOperate == null)
