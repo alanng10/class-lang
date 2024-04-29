@@ -40,7 +40,7 @@ public class Array : List
 
     public virtual bool Contain(int index)
     {
-        return !(index < 0) & (index < this.Count);
+        return this.InfraInfra.CheckIndex(this.Count, index);
     }
 
     public virtual object Get(int index)
