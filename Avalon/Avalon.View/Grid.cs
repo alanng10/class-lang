@@ -342,7 +342,7 @@ public class Grid : View
 
         if (!this.CheckGridRect(gridRect))
         {
-            return true;
+            return false;
         }
 
         GridPos gridPos;
