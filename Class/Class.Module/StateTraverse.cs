@@ -497,7 +497,7 @@ public class StateTraverse : Traverse
 
         if (!(maide == null))
         {
-            if (!this.ArguesMatch(maide, argue))
+            if (!this.ArgueMatch(maide, argue))
             {
                 this.Error(this.ErrorKind.ArgueUnassignable, callOperate);
             }
@@ -1832,7 +1832,7 @@ public class StateTraverse : Traverse
 
 
 
-    protected virtual bool ArguesMatch(Maide method, Argue argue)
+    protected virtual bool ArgueMatch(Maide method, Argue argue)
     {
         int count;
 
