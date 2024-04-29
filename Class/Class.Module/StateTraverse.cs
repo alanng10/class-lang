@@ -345,6 +345,10 @@ public class StateTraverse : Traverse
         if (!(target == null))
         {
             targetClass = this.Info(target).TargetClass;
+            if (targetClass == null)
+            {
+                this.Error(this.ErrorKind.TargetUndefined, assignExecute);
+            }
         }
 
         ClassClass valueClass;
@@ -352,16 +356,10 @@ public class StateTraverse : Traverse
         if (!(value == null))
         {
             valueClass = this.Info(value).OperateClass;
-        }
-
-        if (targetClass == null)
-        {
-            this.Error(this.ErrorKind.TargetUndefined, assignExecute);
-        }
-
-        if (valueClass == null)
-        {
-            this.Error(this.ErrorKind.ValueUndefined, assignExecute);
+            if (valueClass == null)
+            {
+                this.Error(this.ErrorKind.ValueUndefined, assignExecute);
+            }
         }
 
         if (!(targetClass == null) & !(valueClass == null))
