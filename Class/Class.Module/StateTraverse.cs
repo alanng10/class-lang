@@ -553,26 +553,7 @@ public class StateTraverse : Traverse
         ClassName nodeClass;
         nodeClass = newOperate.Class;
 
-        string className;
-        className = null;
-        if (!(nodeClass == null))
-        {
-            className = nodeClass.Value;
-        }
-
-        ClassClass varClass;
-        varClass = null;
-        if (!(className == null))
-        {
-            varClass = this.Class(className);
-        }
-
-        if (varClass == null)
-        {
-            this.Error(this.ErrorKind.ClassUndefined, newOperate);
-        }
-
-        this.Info(newOperate).OperateClass = varClass;
+        this.WordClassOperate(newOperate, nodeClass);
         return true;
     }
 
@@ -586,26 +567,7 @@ public class StateTraverse : Traverse
         ClassName nodeClass;
         nodeClass = shareOperate.Class;
 
-        string className;
-        className = null;
-        if (!(nodeClass == null))
-        {
-            className = nodeClass.Value;
-        }
-
-        ClassClass varClass;
-        varClass = null;
-        if (!(className == null))
-        {
-            varClass = this.Class(className);
-        }
-
-        if (varClass == null)
-        {
-            this.Error(this.ErrorKind.ClassUndefined, shareOperate);
-        }
-
-        this.Info(shareOperate).OperateClass = varClass;
+        this.WordClassOperate(shareOperate, nodeClass);
         return true;
     }
 
@@ -1425,22 +1387,42 @@ public class StateTraverse : Traverse
         return true;
     }
 
-    protected virtual bool WordClassOperate(Operate operate, ClassName className)
+    protected virtual bool WordClassOperate(Operate operate, ClassName nodeClass)
     {
+        string className;
+        className = null;
+        if (!(nodeClass == null))
+        {
+            className = nodeClass.Value;
+        }
 
+        ClassClass varClass;
+        varClass = null;
+        if (!(className == null))
+        {
+            varClass = this.Class(className);
+        }
+
+        if (varClass == null)
+        {
+            this.Error(this.ErrorKind.ClassUndefined, operate);
+        }
+
+        this.Info(operate).OperateClass = varClass;
+        return true;
     }
 
 
 
 
 
-    protected virtual ClassClass ExecuteVarNameNode(NodeNode node, VarName varName)
+    protected virtual ClassClass ExecuteVarNameNode(NodeNode node, VarName name)
     {
-        string name;
-        name = varName.Value;
+        string varName;
+        varName = name.Value;
         
         Var varVar;
-        varVar = this.VarStackVar(name);
+        varVar = this.VarStackVar(varName);
         if (varVar == null)
         {
             this.Error(this.ErrorKind.VarUndefined, node);
