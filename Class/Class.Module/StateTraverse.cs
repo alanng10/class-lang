@@ -775,10 +775,23 @@ public class StateTraverse : Traverse
         return true;
     }
 
+    public override bool ExecuteLessOperate(LessOperate lessOperate)
+    {
+        if (lessOperate == null)
+        {
+            return true;
+        }
 
+        Operate left;
+        left = lessOperate.Left;
+        Operate right;
+        right = lessOperate.Right;
 
+        base.ExecuteLessOperate(lessOperate);
 
-
+        this.ExecuteTwoOperandOperate(lessOperate, left, right, this.System.Bool, this.System.Int);
+        return true;
+    }
 
     public override bool ExecuteAddOperate(AddOperate addOperate)
     {
@@ -787,43 +800,16 @@ public class StateTraverse : Traverse
             return true;
         }
 
-
-
-
-
         Operate left;
-
         left = addOperate.Left;
-
-
-
         Operate right;
-
         right = addOperate.Right;
-
-
-
-
 
         base.ExecuteAddOperate(addOperate);
 
-
-
-
-
         this.ExecuteTwoOperandOperate(addOperate, left, right, this.System.Int, this.System.Int);
-
-
-
-
-
         return true;
     }
-
-
-
-
-
 
     public override bool ExecuteSubOperate(SubOperate subOperate)
     {
@@ -832,42 +818,16 @@ public class StateTraverse : Traverse
             return true;
         }
 
-
-
-
-
         Operate left;
-
         left = subOperate.Left;
-
-
-
         Operate right;
-
         right = subOperate.Right;
-
-
-
-
 
         base.ExecuteSubOperate(subOperate);
 
-
-
-
-
         this.ExecuteTwoOperandOperate(subOperate, left, right, this.System.Int, this.System.Int);
-
-
-
-
-
         return true;
     }
-
-
-
-
 
     public override bool ExecuteMulOperate(MulOperate mulOperate)
     {
@@ -876,42 +836,16 @@ public class StateTraverse : Traverse
             return true;
         }
 
-
-
-
-
         Operate left;
-
         left = mulOperate.Left;
-
-
-
         Operate right;
-
         right = mulOperate.Right;
-
-
-
-
 
         base.ExecuteMulOperate(mulOperate);
 
-
-
-
-
         this.ExecuteTwoOperandOperate(mulOperate, left, right, this.System.Int, this.System.Int);
-
-
-
-
-
         return true;
     }
-
-
-
-
 
     public override bool ExecuteDivOperate(DivOperate divOperate)
     {
@@ -920,83 +854,19 @@ public class StateTraverse : Traverse
             return true;
         }
 
-
-
-
-
         Operate left;
-
         left = divOperate.Left;
-
-
-
         Operate right;
-
         right = divOperate.Right;
 
-
-
-
-
         base.ExecuteDivOperate(divOperate);
-
-
-
-
-
+    
         this.ExecuteTwoOperandOperate(divOperate, left, right, this.System.Int, this.System.Int);
-
-
-
-
-
         return true;
     }
 
 
 
-
-
-
-    public override bool ExecuteLessOperate(LessOperate lessOperate)
-    {
-        if (lessOperate == null)
-        {
-            return true;
-        }
-
-
-
-
-
-        Operate left;
-
-        left = lessOperate.Left;
-
-
-
-        Operate right;
-
-        right = lessOperate.Right;
-
-
-
-
-
-        base.ExecuteLessOperate(lessOperate);
-
-
-
-
-
-        this.ExecuteTwoOperandOperate(lessOperate, left, right, this.System.Bool, this.System.Int);
-
-
-
-
-
-        return true;
-    }
 
 
 
