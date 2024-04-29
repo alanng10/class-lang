@@ -89,14 +89,6 @@ public class Grid : View
         return a;
     }
 
-    protected virtual InfraRange CreateRangeA()
-    {
-        InfraRange a;
-        a = new InfraRange();
-        a.Init();
-        return a;
-    }
-
     protected virtual Data CreateChildPosList()
     {
         Data a;
