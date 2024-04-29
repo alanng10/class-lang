@@ -664,30 +664,18 @@ public class StateTraverse : Traverse
         {
             valueClass = this.System.Bool;
         }
-
-        if (value is IntValue)
+        if (value is IntValue | value is IntHexValue | value is IntSignValue | value is IntHexSignValue)
         {
             valueClass = this.System.Int;
         }
-
         if (value is StringValue)
         {
             valueClass = this.System.String;
         }
 
-
-
-
         this.Info(valueOperate).OperateClass = valueClass;
-
-
-
-
         return true;
     }
-
-
-
 
     public override bool ExecuteBracketOperate(BracketOperate bracketOperate)
     {
