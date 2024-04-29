@@ -1394,11 +1394,10 @@ public class StateTraverse : Traverse
         if (!(className == null))
         {
             varClass = this.Class(className);
-        }
-
-        if (varClass == null)
-        {
-            this.Error(this.ErrorKind.ClassUndefined, operate);
+            if (varClass == null)
+            {
+                this.Error(this.ErrorKind.ClassUndefined, operate);
+            }
         }
 
         this.Info(operate).OperateClass = varClass;
