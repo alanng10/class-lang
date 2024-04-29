@@ -1856,22 +1856,22 @@ public class Create : InfraCreate
             return null;
         }
 
-        int operateStart;
-        int operateEnd;
-        operateStart = start;
-        operateEnd = semicolon.Range.Start;
+        int anyStart;
+        int anyEnd;
+        anyStart = start;
+        anyEnd = semicolon.Range.Start;
 
-        Node operate;
-        operate = this.ExecuteOperate(this.Range(this.RangeA, operateStart, operateEnd));
-        if (operate == null)
+        Node any;
+        any = this.ExecuteOperate(this.Range(this.RangeA, anyStart, anyEnd));
+        if (any == null)
         {
-            this.Error(this.ErrorKind.OperateInvalid, operateStart, operateEnd);
+            this.Error(this.ErrorKind.AnyInvalid, anyStart, anyEnd);
         }
 
         this.OperateArg.Kind = this.NodeKind.OperateExecute;
         this.OperateArg.Start = start;
         this.OperateArg.End = end;
-        this.OperateArg.Field00 = operate;
+        this.OperateArg.Field00 = any;
         Node ret;
         ret = this.ExecuteCreateOperate();
         return ret;
@@ -2208,7 +2208,7 @@ public class Create : InfraCreate
         any = this.ExecuteOperate(this.Range(this.RangeA, operateStart, operateEnd));
         if (any == null)
         {
-            this.Error(this.ErrorKind.OperateInvalid, operateStart, operateEnd);
+            this.Error(this.ErrorKind.AnyInvalid, operateStart, operateEnd);
         }
 
         this.OperateArg.Kind = this.NodeKind.BracketOperate;
