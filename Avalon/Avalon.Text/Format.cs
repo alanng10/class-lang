@@ -37,18 +37,14 @@ public class Format : Any
     }
 
     private InternIntern InternIntern { get; set; }
-
     private InternInfra InternInfra { get; set; }
-
-    protected virtual InfraInfra InfraInfra { get; set; }
-    protected virtual Infra TextInfra { get; set; }
-
+    protected virtual InfraInfra InfraInfra { get { return __D_InfraInfra; } set { __D_InfraInfra = value; } }
+    protected InfraInfra __D_InfraInfra;
+    protected virtual Infra TextInfra { get { return __D_TextInfra; } set { __D_TextInfra = value; } }
+    protected Infra __D_TextInfra;
     private ulong Intern { get; set; }
-
     private ulong InternResult { get; set; }
-
     private ulong InternBase { get; set; }
-
 
     public virtual int ExecuteCount(Text varBase, FormatArgList argList)
     {
@@ -68,7 +64,6 @@ public class Format : Any
         a = this.InternIntern.FormatCount(this.Intern, varBase.Data.Value, baseIndexU, baseCountU, this.InternBase, argList.Intern);
         return a;
     }
-
 
     public virtual bool ExecuteResult(Text varBase, FormatArgList argList, Text result)
     {
