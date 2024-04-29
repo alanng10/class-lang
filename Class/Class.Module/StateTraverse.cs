@@ -9,11 +9,18 @@ public class StateTraverse : Traverse
         this.TextInfra = TextInfra.This;
         this.ClassInfra = ClassInfra.This;
 
-        this.VarStack = new Stack();
-        this.VarStack.Init();
-
         this.System = this.Create.SystemClass;
         this.NullClass = this.Create.NullClass;
+
+        this.VarStack = new Stack();
+        this.VarStack.Init();
+        
+        this.VarStackIter = new Iter();
+        this.VarStackIter.Init();
+        this.ParamIter = new TableIter();
+        this.ParamIter.Init();
+        this.ArgueIter = new ArrayIter();
+        this.ArgueIter.Init();
         return true;
     }
 
@@ -26,6 +33,9 @@ public class StateTraverse : Traverse
     protected virtual ClassClass ThisResultClass { get; set; }
     protected virtual Table StateVar { get; set; }
     protected virtual Stack VarStack { get; set; }
+    protected virtual Iter VarStackIter { get; set; }
+    protected virtual Iter ParamIter { get; set; }
+    protected virtual Iter ArgueIter { get; set; }
 
     public override bool ExecuteClass(NodeClass varClass)
     {
@@ -1688,23 +1698,23 @@ public class StateTraverse : Traverse
             return false;
         }
 
-        Iter varIter;
-        varIter = maide.Param.IterCreate();
-        maide.Param.IterSet(varIter);
+        Iter paramIter;
+        paramIter = this.ParamIter;
+        maide.Param.IterSet(paramIter);
 
         Iter argueIter;
-        argueIter = argue.Value.IterCreate();
+        argueIter = this.ArgueIter;
         argue.Value.IterSet(argueIter);
 
         int i;
         i = 0;
         while (i < count)
         {
-            varIter.Next();
+            paramIter.Next();
             argueIter.Next();
 
             Var varVar;
-            varVar = (Var)varIter.Value;
+            varVar = (Var)paramIter.Value;
 
             Operate operate;
             operate = (Operate)argueIter.Value;
@@ -1750,7 +1760,7 @@ public class StateTraverse : Traverse
     protected virtual Var VarStackVar(string name)
     {
         Iter iter;
-        iter = this.VarStack.IterCreate();
+        iter = this.VarStackIter;
         this.VarStack.IterSet(iter);
 
         while (iter.Next())
