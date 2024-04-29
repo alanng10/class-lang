@@ -485,10 +485,10 @@ public class StateTraverse : Traverse
             if (!(maideName == null))
             {
                 maide = this.Method(thisClass, maideName);
-            }
-            if (maide == null)
-            {
-                this.Error(this.ErrorKind.MaideUndefined, callOperate);
+                if (maide == null)
+                {
+                    this.Error(this.ErrorKind.MaideUndefined, callOperate);
+                }
             }
         }
 
