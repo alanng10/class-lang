@@ -740,10 +740,6 @@ public class StateTraverse : Traverse
         return true;
     }
 
-
-
-
-
     public override bool ExecuteNotOperate(NotOperate notOperate)
     {
         if (notOperate == null)
@@ -751,46 +747,21 @@ public class StateTraverse : Traverse
             return true;
         }
 
-
-
-
-
         Operate value;
-
         value = notOperate.Value;
-
-
-
-
 
         base.ExecuteNotOperate(notOperate);
 
-
-
-
-
         ClassClass valueClass;
-
         valueClass = null;
-
-
-
         if (!(value == null))
         {
             valueClass = this.Info(value).OperateClass;
+            if (valueClass == null)
+            {
+                this.Error(this.ErrorKind.OperandUndefined, notOperate);
+            }
         }
-
-
-
-
-
-        if (valueClass == null)
-        {
-            this.Error(this.ErrorKind.OperandUndefined, notOperate);
-        }
-
-
-
 
         if (!(valueClass == null))
         {
@@ -800,14 +771,7 @@ public class StateTraverse : Traverse
             }
         }
 
-
-            
-
         this.Info(notOperate).OperateClass = this.System.Bool;
-
-
-
-
         return true;
     }
 
