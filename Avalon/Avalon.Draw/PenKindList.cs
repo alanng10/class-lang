@@ -72,7 +72,7 @@ public class PenKindList : Any
     protected Array __D_Array;
 
     protected virtual int ArrayCount { get { return 6; } set { } }
-    protected int _D_ArrayCount;
+    protected int __D_ArrayCount;
 
     public virtual int Count { get { return __D_Count; } set { __D_Count = value; } }
     protected int __D_Count;
