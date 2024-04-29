@@ -26,6 +26,7 @@ public class Iter : Any
         {
         }
     }
+    protected object __D_Index;
 
     public virtual object Value
     {
@@ -37,4 +38,5 @@ public class Iter : Any
         {
         }
     }
+    protected object __D_Value;
 }
