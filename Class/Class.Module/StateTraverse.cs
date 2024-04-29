@@ -69,7 +69,7 @@ public class StateTraverse : Traverse
         return true;
     }
 
-    protected bool FieldGet(Field field, State nodeGet)
+    protected virtual bool FieldGet(Field field, State nodeGet)
     {
         if (nodeGet == null)
         {
