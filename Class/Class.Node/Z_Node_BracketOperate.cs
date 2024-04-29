@@ -2,5 +2,5 @@ namespace Class.Node;
 
 public class BracketOperate : Operate
 {
-    public virtual Operate Operate { get; set; }
+    public virtual Operate Any { get; set; }
 }
