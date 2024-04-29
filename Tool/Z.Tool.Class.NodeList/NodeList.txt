@@ -119,7 +119,7 @@ ValueOperate : Operate
     Value Value
 
 BracketOperate : Operate
-    Operate Operate
+    Operate Any
 
 Value : Node
 
