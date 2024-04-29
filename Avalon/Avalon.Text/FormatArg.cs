@@ -10,8 +10,8 @@ public class FormatArg : Any
     protected bool __D_ValueBool;
     public virtual long ValueInt { get { return __D_ValueInt; } set { __D_ValueInt = value; } }
     protected long __D_ValueInt;
-    public virtual string ValueString { get { return __D_ValueString; } set { __D_ValueString = value; } }
-    protected string __D_ValueString;
+    public virtual Text ValueText { get { return __D_ValueText; } set { __D_ValueText = value; } }
+    protected Text __D_ValueText;
     public virtual bool AlignLeft { get; set; }
     public virtual int FieldWidth { get; set; }
     public virtual int MaxWidth { get; set; }
