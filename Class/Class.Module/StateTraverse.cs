@@ -704,12 +704,6 @@ public class StateTraverse : Traverse
         return true;
     }
 
-
-
-
-
-
-
     public override bool ExecuteAndOperate(AndOperate andOperate)
     {
         if (andOperate == null)
@@ -717,42 +711,16 @@ public class StateTraverse : Traverse
             return true;
         }
 
-
-
-
-
         Operate left;
-            
         left = andOperate.Left;
-
-
-
         Operate right;
-            
         right = andOperate.Right;
-
-
-
-
 
         base.ExecuteAndOperate(andOperate);
 
-
-
-
-
         this.ExecuteTwoOperandOperate(andOperate, left, right, this.System.Bool, this.System.Bool);
-
-
-
-
-
         return true;
     }
-    
-
-
-
 
     public override bool ExecuteOrnOperate(OrnOperate ornOperate)
     {
@@ -761,36 +729,14 @@ public class StateTraverse : Traverse
             return true;
         }
 
-
-
-
-
         Operate left;
-
         left = ornOperate.Left;
-
-
-
         Operate right;
-
         right = ornOperate.Right;
-
-
-
-
 
         base.ExecuteOrnOperate(ornOperate);
 
-
-
-
-
         this.ExecuteTwoOperandOperate(ornOperate, left, right, this.System.Bool, this.System.Bool);
-
-
-
-
-
         return true;
     }
 
