@@ -14,7 +14,6 @@ public class Grid : View
         this.Col = this.CreateCol();
         this.Child = this.CreateChild();
         this.Dest = this.CreateDest();
-        this.RangeA = this.CreateRangeA();
         this.ChildPosData = this.CreateChildPosList();
         this.RowIter = this.Row.IterCreate();
         this.ColIter = this.Col.IterCreate();
@@ -31,7 +30,6 @@ public class Grid : View
     protected virtual Iter ColIter { get; set; }
     protected virtual Iter ChildIter { get; set; }
     protected virtual InfraInfra InfraInfra { get; set; }
-    protected virtual InfraRange RangeA { get; set; }
     protected virtual Data ChildPosData { get; set; }
 
     protected virtual DrawRect StackGridChildListRect { get; set; }
@@ -408,15 +406,11 @@ public class Grid : View
         GridSize size;
         size = rect.Size;
 
-        this.RangeA.Index = pos.Col;
-        this.RangeA.Count = size.Width;
         bool ba;
-        ba = this.InfraInfra.CheckRange(this.Col.Count, this.RangeA);
+        ba = this.InfraInfra.CheckRange(this.Col.Count, pos.Col, size.Width);
 
-        this.RangeA.Index = pos.Row;
-        this.RangeA.Count = pos.Row + size.Height;
         bool bb;
-        bb = this.InfraInfra.CheckRange(this.Row.Count, this.RangeA);
+        bb = this.InfraInfra.CheckRange(this.Row.Count, pos.Row, size.Height);
 
         bool a;
         a = ba & bb;
