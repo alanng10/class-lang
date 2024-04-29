@@ -18,10 +18,11 @@ public class String : Any
 
     public virtual int C_Char(string o, int index)
     {
-        if (!(!(index < 0) & (index < o.Length)))
+        if (!this.InfraInfra.CheckRange(o.Length, index, 1))
         {
             return -1;
         }
+
         char oc;
         oc = o[index];
         int a;
@@ -31,14 +32,18 @@ public class String : Any
 
     public virtual string C_Substring(string o, Range range)
     {
-        if (!this.InfraInfra.CheckRange(o.Length, range))
+        int index;
+        int count;
+        index = range.Index;
+        count = range.Count;
+        if (!this.InfraInfra.CheckRange(o.Length, index, count))
         {
             return null;
         }
-        return o.Substring(range.Index, range.Count);
+        return o.Substring(index, count);
     }
 
-    public virtual bool C_Equal(string o, Range range, string other, Range otherRange)
+    public virtual bool C_Equal(string o, Range range, string other, int otherIndex)
     {
         int thisIndex;
         int thisCount;
@@ -53,36 +58,15 @@ public class String : Any
         }
         if (!ba)
         {
-            if (!this.InfraInfra.CheckRange(o.Length, range))
-            {
-                return false;
-            }
             thisIndex = range.Index;
             thisCount = range.Count;
-        }
-
-        int otherIndex;
-        int otherCount;
-        otherIndex = 0;
-        otherCount = 0;
-        bool bb;
-        bb = (otherRange == null);
-        if (bb)
-        {
-            otherIndex = 0;
-            otherCount = other.Length;
-        }
-        if (!bb)
-        {
-            if (!this.InfraInfra.CheckRange(other.Length, otherRange))
+            if (!this.InfraInfra.CheckRange(o.Length, thisIndex, thisCount))
             {
                 return false;
             }
-            otherIndex = otherRange.Index;
-            otherCount = otherRange.Count;
         }
 
-        if (!(thisCount == otherCount))
+        if (!this.InfraInfra.CheckRange(other.Length, otherIndex, thisCount))
         {
             return false;
         }
