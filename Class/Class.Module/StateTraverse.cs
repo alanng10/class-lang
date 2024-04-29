@@ -384,11 +384,8 @@ public class StateTraverse : Traverse
         VarName name;
         name = varTarget.Var;
 
-        string varName;
-        varName = name.Value;
-
         ClassClass varClass;
-        varClass = this.ExecuteVarNameNode(varTarget, varName);
+        varClass = this.ExecuteVarNameNode(varTarget, name);
 
         this.Info(varTarget).TargetClass = varClass;
         return true;
@@ -557,10 +554,18 @@ public class StateTraverse : Traverse
         nodeClass = newOperate.Class;
 
         string className;
-        className = nodeClass.Value;
+        className = null;
+        if (!(nodeClass == null))
+        {
+            className = nodeClass.Value;
+        }
 
         ClassClass varClass;
-        varClass = this.Class(className);
+        varClass = null;
+        if (!(className == null))
+        {
+            varClass = this.Class(className);
+        }
 
         if (varClass == null)
         {
@@ -582,10 +587,18 @@ public class StateTraverse : Traverse
         nodeClass = shareOperate.Class;
 
         string className;
-        className = nodeClass.Value;
+        className = null;
+        if (!(nodeClass == null))
+        {
+            className = nodeClass.Value;
+        }
 
         ClassClass varClass;
-        varClass = this.Class(className);
+        varClass = null;
+        if (!(className == null))
+        {
+            varClass = this.Class(className);
+        }
 
         if (varClass == null)
         {
@@ -669,11 +682,8 @@ public class StateTraverse : Traverse
         VarName name;
         name = varOperate.Var;
 
-        string varName;
-        varName = name.Value;
-
         ClassClass varClass;
-        varClass = this.ExecuteVarNameNode(varOperate, varName);
+        varClass = this.ExecuteVarNameNode(varOperate, name);
 
         this.Info(varOperate).OperateClass = varClass;
         return true;
@@ -1390,26 +1400,6 @@ public class StateTraverse : Traverse
         return true;
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     protected virtual bool ExecuteCondBodyExecute(Execute execute, Operate cond)
     {
         ClassClass condClass;
@@ -1435,14 +1425,20 @@ public class StateTraverse : Traverse
         return true;
     }
 
-
-
-
-
-
-
-    protected virtual ClassClass ExecuteVarNameNode(NodeNode node, string name)
+    protected virtual bool WordClassOperate(Operate operate, ClassName className)
     {
+
+    }
+
+
+
+
+
+    protected virtual ClassClass ExecuteVarNameNode(NodeNode node, VarName varName)
+    {
+        string name;
+        name = varName.Value;
+        
         Var varVar;
         varVar = this.VarStackVar(name);
         if (varVar == null)
