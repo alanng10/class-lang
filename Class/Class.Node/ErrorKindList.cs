@@ -31,7 +31,6 @@ public class ErrorKindList : Any
         this.SetInvalid = this.AddItem("SetInvalid");
         this.ParamInvalid = this.AddItem("ParamInvalid");
         this.CallInvalid = this.AddItem("CallInvalid");
-        this.OperateInvalid = this.AddItem("OperateInvalid");
         this.FieldInvalid = this.AddItem("FieldInvalid");
         this.MaideInvalid = this.AddItem("MaideInvalid");
         this.VarInvalid = this.AddItem("VarInvalid");
@@ -58,7 +57,6 @@ public class ErrorKindList : Any
     public virtual ErrorKind SetInvalid { get; set; }
     public virtual ErrorKind ParamInvalid { get; set; }
     public virtual ErrorKind CallInvalid { get; set; }
-    public virtual ErrorKind OperateInvalid { get; set; }
     public virtual ErrorKind FieldInvalid { get; set; }
     public virtual ErrorKind MaideInvalid { get; set; }
     public virtual ErrorKind VarInvalid { get; set; }
@@ -99,7 +97,7 @@ public class ErrorKindList : Any
     { 
         get
         {
-            return 24;
+            return 23;
         } 
         set
         {
