@@ -309,11 +309,10 @@ public class StateTraverse : Traverse
         if (!(result == null))
         {
             resultClass = this.Info(result).OperateClass;
-        }
-
-        if (resultClass == null)
-        {
-            this.Error(this.ErrorKind.ResultUndefined, returnExecute);
+            if (resultClass == null)
+            {
+                this.Error(this.ErrorKind.ResultUndefined, returnExecute);
+            }
         }
 
         if (!(resultClass == null))
@@ -1366,11 +1365,10 @@ public class StateTraverse : Traverse
         if (!(cond == null))
         {
             condClass = this.Info(cond).OperateClass;
-        }
-
-        if (condClass == null)
-        {
-            this.Error(this.ErrorKind.CondUndefined, execute);
+            if (condClass == null)
+            {
+                this.Error(this.ErrorKind.CondUndefined, execute);
+            }
         }
 
         if (!(condClass == null))
