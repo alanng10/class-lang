@@ -18,9 +18,6 @@ public class Read : Any
         this.SetOperate.Read = this;
         this.SetOperate.Init();
 
-        this.Range = new Range();
-        this.Range.Init();
-
         this.Arg = new ReadArg();
         this.Arg.Init();
         return true;
@@ -37,7 +34,6 @@ public class Read : Any
     protected virtual CountReadOperate CountOperate { get; set; }
     protected virtual StringReadOperate StringOperate { get; set; }
     protected virtual SetReadOperate SetOperate { get; set; }
-    protected virtual Range Range { get; set; }
 
     public virtual bool Execute()
     {
@@ -1030,12 +1026,8 @@ public class Read : Any
 
     protected virtual bool CheckCount(int count)
     {
-        Range range;
-        range = this.Range;
-        range.Index = this.Arg.Index;
-        range.Count = count;
         int dataCount;
         dataCount = (int)this.Data.Count;
-        return this.InfraInfra.CheckRange(dataCount, range);
+        return this.InfraInfra.CheckRange(dataCount, this.Arg.Index, count);
     }
 }
