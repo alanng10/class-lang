@@ -694,6 +694,10 @@ public class StateTraverse : Traverse
         if (!(operate == null))
         {
             operateClass = this.Info(operate).OperateClass;
+            if (operateClass == null)
+            {
+                this.Error(this.ErrorKind.AnyUndefined, bracketOperate);
+            }
         }
 
         this.Info(bracketOperate).OperateClass = operateClass;
