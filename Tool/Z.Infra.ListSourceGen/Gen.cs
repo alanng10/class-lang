@@ -197,15 +197,14 @@ public class Gen : Any
 
     protected virtual bool AppendField(StringBuilder sb, string item)
     {
-        this.ToolInfra.AppendIndent(sb, 1);
-
         bool b;
         b = this.Export;
-
         if (b)
         {
             string dataName;
             dataName = "__D_" + item;
+            
+            this.ToolInfra.AppendIndent(sb, 1);
             sb
                 .Append("public").Append(" ").Append("virtual").Append(" ")
                 .Append(this.ItemClassName).Append(" ").Append(item).Append(" ")
@@ -214,6 +213,8 @@ public class Gen : Any
                 .Append("set").Append(" ").Append("{").Append(" ").Append(dataName).Append(" ").Append("=").Append(" ").Append("value").Append(";").Append(" ").Append("}").Append(" ")
                 .Append("}")
                 .Append(this.ToolInfra.NewLine);
+            
+            this.ToolInfra.AppendIndent(sb, 1);
             sb
                 .Append("protected").Append(" ")
                 .Append(this.ItemClassName).Append(" ").Append(dataName).Append(";")
@@ -221,6 +222,7 @@ public class Gen : Any
         }
         if (!b)
         {
+            this.ToolInfra.AppendIndent(sb, 1);
             sb
                 .Append("public").Append(" ").Append("virtual").Append(" ")
                 .Append(this.ItemClassName).Append(" ").Append(item).Append(" ")
