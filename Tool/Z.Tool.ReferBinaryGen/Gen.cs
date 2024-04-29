@@ -63,7 +63,6 @@ public class Gen : Any
     protected virtual Table BinaryTable { get; set; }
     protected virtual Array CountArray { get; set; }
     protected virtual ClassClass AnyClass { get; set; }
-    protected virtual ClassClass StringClass { get; set; }
     protected virtual bool IsAvalonInfra { get; set; }
     protected virtual Array Array { get; set; }
     protected virtual int Index { get; set; }
@@ -212,7 +211,6 @@ public class Gen : Any
             this.AddClass(typeof(ZModuleInfo));
 
             this.AnyClass = this.ModuleClassGet(this.Module, "Any");
-            this.StringClass = this.ModuleClassGet(this.Module, "String");
         }
 
         int count;
@@ -607,6 +605,18 @@ public class Gen : Any
 
     protected virtual bool SetVirtualList()
     {
+        ClassClass boolClass;
+        boolClass = null;
+        ClassClass intClass;
+        intClass = null;
+        ClassClass stringClass;
+        stringClass = null;
+        if (this.IsAvalonInfra)
+        {
+            boolClass = this.ModuleClassGet(this.Module, "Bool");
+            intClass = this.ModuleClassGet(this.Module, "Int");
+            stringClass = this.ModuleClassGet(this.Module, "String");
+        }
         Iter iter;
         iter = this.Module.Class.IterCreate();
         this.Module.Class.IterSet(iter);
@@ -616,7 +626,7 @@ public class Gen : Any
             ClassClass a;
             a = (ClassClass)iter.Value;
 
-            if (!(a == this.StringClass))
+            if (!(this.IsAvalonInfra & (a == boolClass | a == intClass | a == stringClass)))
             {
                 SystemType type;
                 type = (SystemType)a.Any;
