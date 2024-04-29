@@ -2204,9 +2204,9 @@ public class Create : InfraCreate
         operateStart = leftBracket.Range.End;
         operateEnd = rightBracket.Range.Start;
 
-        Node operate;
-        operate = this.ExecuteOperate(this.Range(this.RangeA, operateStart, operateEnd));
-        if (operate == null)
+        Node any;
+        any = this.ExecuteOperate(this.Range(this.RangeA, operateStart, operateEnd));
+        if (any == null)
         {
             this.Error(this.ErrorKind.OperateInvalid, operateStart, operateEnd);
         }
@@ -2214,7 +2214,7 @@ public class Create : InfraCreate
         this.OperateArg.Kind = this.NodeKind.BracketOperate;
         this.OperateArg.Start = start;
         this.OperateArg.End = end;
-        this.OperateArg.Field00 = operate;
+        this.OperateArg.Field00 = any;
         Node ret;
         ret = this.ExecuteCreateOperate();
         return ret;
