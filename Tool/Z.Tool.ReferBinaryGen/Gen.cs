@@ -656,26 +656,37 @@ public class Gen : Any
                     
                     field.Virtual = aa;
 
-                    if (field.Virtual == null)
+                    string dataName;
+                    dataName = "__D_" + field.Name;
+                    FieldInfo systemField;
+                    systemField = type.GetField(dataName, BindingFlag.Instance | BindingFlag.NonPublic | BindingFlag.DeclaredOnly | BindingFlag.ExactBinding);
+
+                    bool ad;
+                    ad = (field.Virtual == null); 
+                    if (ad)
                     {
-                        string dataName;
-                        dataName = "__D_" + field.Name;
-                        FieldInfo systemField;
-                        systemField = type.GetField(dataName, BindingFlag.Instance | BindingFlag.NonPublic | BindingFlag.DeclaredOnly | BindingFlag.ExactBinding);
                         if (systemField == null)
                         {
-                            global::System.Console.Error.Write("Class " + a.Name + "(" + a.Module.Ref.Name + ") data " + field.Name + " is not defined\n");
+                            global::System.Console.Error.Write("Class " + a.Name + "(" + a.Module.Ref.Name + ") field " + field.Name + " has no virtual and data is not defined\n");
                             global::System.Environment.Exit(130);
                         }
                         if (!(systemField.IsFamily))
                         {
-                            global::System.Console.Error.Write("Class " + a.Name + "(" + a.Module.Ref.Name + ") data " + field.Name + " count is not protected\n");
+                            global::System.Console.Error.Write("Class " + a.Name + "(" + a.Module.Ref.Name + ") field " + field.Name + " data count is not protected\n");
                             global::System.Environment.Exit(131);
                         }
                         if (!(systemField.FieldType == property.PropertyType))
                         {
-                            global::System.Console.Error.Write("Class " + a.Name + "(" + a.Module.Ref.Name + ") data " + field.Name + " class is not same as field class\n");
+                            global::System.Console.Error.Write("Class " + a.Name + "(" + a.Module.Ref.Name + ") field " + field.Name + " data class is not same as field class\n");
                             global::System.Environment.Exit(132);
+                        }
+                    }
+                    if (!ad)
+                    {
+                        if (!(systemField == null))
+                        {
+                            global::System.Console.Error.Write("Class " + a.Name + "(" + a.Module.Ref.Name + ") field " + field.Name + " has virtual and data is defined\n");
+                            global::System.Environment.Exit(133);
                         }
                     }
                 }
