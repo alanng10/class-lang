@@ -41,12 +41,16 @@ public class Encode : Any
         return true;
     }
 
-    public virtual EncodeKind Kind { get; set; }
-    public virtual bool WriteBom { get; set; }
+    public virtual EncodeKind Kind { get { return __D_Kind; } set { __D_Kind = value; } }
+    protected EncodeKind __D_Kind;
+    public virtual bool WriteBom { get { return __D_WriteBom; } set { __D_WriteBom = value; } }
+    protected bool __D_WriteBom;
 
     private InternIntern InternIntern { get; set; }
-    protected virtual InfraInfra InfraInfra { get; set; }
-    protected virtual Infra TextInfra { get; set; }
+    protected virtual InfraInfra InfraInfra { get { return __D_InfraInfra; } set { __D_InfraInfra = value; } }
+    protected InfraInfra __D_InfraInfra;
+    protected virtual Infra TextInfra { get { return __D_TextInfra; } set { __D_TextInfra = value; } }
+    protected Infra __D_TextInfra;
     private ulong Intern { get; set; }
     private ulong InternString { get; set; }
     private ulong InternData { get; set; }
