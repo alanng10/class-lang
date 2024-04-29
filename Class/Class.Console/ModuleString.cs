@@ -208,32 +208,7 @@ public class ModuleString : Any
 
 
 
-        this.AppendClass(this.Info.NewClass);
-
-
-        this.AppendLine();
-
-
-
-
         this.AppendClass(this.Info.TargetClass);
-
-
-        this.AppendLine();
-
-
-
-
-        this.AppendClass(this.Info.CastClass);
-
-
-        this.AppendLine();
-
-
-
-
-
-        this.AppendClass(this.Info.ShareClass);
 
 
         this.AppendLine();
