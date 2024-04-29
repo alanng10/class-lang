@@ -1718,14 +1718,8 @@ public class StateTraverse : Traverse
                 this.Error(this.ErrorKind.FieldUndefined, node);
             }
         }
-
         return field;
     }
-
-
-
-
-
 
     protected virtual bool CheckClass(ClassClass varClass, ClassClass requiredClass)
     {
