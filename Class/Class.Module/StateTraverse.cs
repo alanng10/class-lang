@@ -546,70 +546,22 @@ public class StateTraverse : Traverse
             return true;
         }
 
-
-
-
         ClassName nodeClass;
-        
-
         nodeClass = newOperate.Class;
 
-
-
-
-
         string className;
-
-
-        className = null;
-
-
-
-
-        if (!(nodeClass == null))
-        {
-            className = nodeClass.Value;
-        }
-
-
-
+        className = nodeClass.Value;
 
         ClassClass varClass;
-
-
-
-        varClass = null;
-
-
-
-
-        if (!(className == null))
-        {
-            varClass = this.Class(className);
-        }
-
-
-
-
+        varClass = this.Class(className);
 
         if (varClass == null)
         {
             this.Error(this.ErrorKind.ClassUndefined, newOperate);
         }
 
-
-
-
-
         this.Info(newOperate).NewClass = varClass;
-
-
-
         this.Info(newOperate).OperateClass = varClass;
-
-
-
-
         return true;
     }
 
