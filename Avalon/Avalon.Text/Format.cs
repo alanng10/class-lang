@@ -18,7 +18,6 @@ public class Format : Any
 
         this.Intern = Extern.Format_New();
         Extern.Format_Init(this.Intern);
-
         return true;
     }
 
@@ -32,7 +31,6 @@ public class Format : Any
 
         Extern.String_Final(this.InternBase);
         Extern.String_Delete(this.InternBase);
-
         return true;
     }
 
