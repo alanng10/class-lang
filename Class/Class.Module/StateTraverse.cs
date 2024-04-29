@@ -586,6 +586,57 @@ public class StateTraverse : Traverse
         return true;
     }
 
+    public override bool ExecuteCastOperate(CastOperate castOperate)
+    {
+        if (castOperate == null)
+        {
+            return true;
+        }
+
+        ClassName nodeClass;
+        nodeClass = castOperate.Class;
+        Operate any;
+        any = castOperate.Any;
+
+        base.ExecuteCastOperate(castOperate);
+
+        ClassClass anyClass;
+        anyClass = null;
+        if (!(any == null))
+        {
+            anyClass = this.Info(any).OperateClass;
+        }
+
+        if (anyClass == null)
+        {
+            this.Error(this.ErrorKind.AnyUndefined, castOperate);
+        }
+
+        string className;
+        className = null;
+        if (!(nodeClass == null))
+        {
+            className = nodeClass.Value;
+        }
+
+        ClassClass varClass;
+        varClass = null;
+        if (!(className == null))
+        {
+            varClass = this.Class(className);
+        }
+
+        if (varClass == null)
+        {
+            this.Error(this.ErrorKind.ClassUndefined, castOperate);
+        }
+
+        this.Info(castOperate).OperateClass = varClass;
+        return true;
+    }
+
+
+
     public override bool ExecuteVarOperate(VarOperate varOperate)
     {
         if (varOperate == null)
@@ -605,8 +656,6 @@ public class StateTraverse : Traverse
         this.Info(varOperate).OperateClass = varClass;
         return true;
     }
-
-
 
 
 
@@ -1327,108 +1376,6 @@ public class StateTraverse : Traverse
 
 
 
-
-
-
-
-    public override bool ExecuteCastOperate(CastOperate castOperate)
-    {
-        if (castOperate == null)
-        {
-            return true;
-        }
-
-
-
-
-
-
-        ClassName nodeClass;
-
-        nodeClass = castOperate.Class;
-
-
-
-
-        Operate any;
-
-        any = castOperate.Any;
-
-
-
-
-
-
-
-        base.ExecuteCastOperate(castOperate);
-
-
-
-
-
-        ClassClass anyClass;
-
-
-        anyClass = null;
-
-
-
-        if (!(any == null))
-        {
-            anyClass = this.Info(any).OperateClass;
-        }
-
-
-
-        if (anyClass == null)
-        {
-            this.Error(this.ErrorKind.AnyUndefined, castOperate);
-        }
-
-
-
-
-        string className;
-
-        className = null;
-
-
-
-        if (!(nodeClass == null))
-        {
-            className = nodeClass.Value;
-        }
-
-
-
-
-        ClassClass varClass;
-
-        varClass = null;
-
-
-        if (!(className == null))
-        {
-            varClass = this.Class(className);
-        }
-
-
-
-        if (varClass == null)
-        {
-            this.Error(this.ErrorKind.ClassUndefined, castOperate);
-        }
-
-
-
-
-        this.Info(castOperate).OperateClass = varClass;
-
-
-
-
-        return true;
-    }
 
 
 
