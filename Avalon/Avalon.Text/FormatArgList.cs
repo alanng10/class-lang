@@ -13,7 +13,6 @@ public class FormatArgList : Any
 
         Extern.Array_CountSet(this.Intern, countU);
         Extern.Array_Init(this.Intern);
-
         return true;
     }
 
@@ -21,7 +20,6 @@ public class FormatArgList : Any
     {
         Extern.Array_Final(this.Intern);
         Extern.Array_Delete(this.Intern);
-
         return true;
     }
 
