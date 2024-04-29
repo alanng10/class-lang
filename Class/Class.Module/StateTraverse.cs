@@ -467,6 +467,10 @@ public class StateTraverse : Traverse
         if (!(varThis == null))
         {
             thisClass = this.Info(varThis).OperateClass;
+            if (thisClass == null)
+            {
+                this.Error(this.ErrorKind.ThisUndefined, callOperate);
+            }
         }
 
         string maideName;
@@ -474,11 +478,6 @@ public class StateTraverse : Traverse
         if (!(nodeMaide == null))
         {
             maideName = nodeMaide.Value;
-        }
-
-        if (thisClass == null)
-        {
-            this.Error(this.ErrorKind.ThisUndefined, callOperate);
         }
 
         Maide maide;
@@ -1441,6 +1440,10 @@ public class StateTraverse : Traverse
         if (!(varThis == null))
         {
             thisClass = this.Info(varThis).OperateClass;
+            if (thisClass == null)
+            {
+                this.Error(this.ErrorKind.ThisUndefined, node);
+            }
         }
 
         string fieldName;
@@ -1448,11 +1451,6 @@ public class StateTraverse : Traverse
         if (!(nodeField == null))
         {
             fieldName = nodeField.Value;
-        }
-
-        if (thisClass == null)
-        {
-            this.Error(this.ErrorKind.ThisUndefined, node);
         }
 
         Field field;
