@@ -402,6 +402,26 @@ public class Gen : Any
                         global::System.Environment.Exit(110);
                     }
 
+                    string dataName;
+                    dataName = "__D_" + property.Name;
+                    FieldInfo systemField;
+                    systemField = type.GetField(dataName, BindingFlag.Instance | BindingFlag.NonPublic | BindingFlag.DeclaredOnly | BindingFlag.ExactBinding);
+                    if (systemField == null)
+                    {
+                        global::System.Console.Error.Write("Class " + varClass.Name + "(" + varClass.Module.Ref.Name + ") data " + property.Name + " is not defined\n");
+                        global::System.Environment.Exit(130);
+                    }
+                    if (!(systemField.IsFamily))
+                    {
+                        global::System.Console.Error.Write("Class " + varClass.Name + "(" + varClass.Module.Ref.Name + ") data " + property.Name + " count is not protected\n");
+                        global::System.Environment.Exit(131);
+                    }
+                    if (!(systemField.FieldType == property.PropertyType))
+                    {
+                        global::System.Console.Error.Write("Class " + varClass.Name + "(" + varClass.Module.Ref.Name + ") data " + property.Name + " class is not same as field class\n");
+                        global::System.Environment.Exit(132);
+                    }
+
                     Info oe;
                     oe = new Info();
                     oe.Init();

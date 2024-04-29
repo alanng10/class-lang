@@ -56,5 +56,6 @@ global using STAThreadAttribute = System.STAThreadAttribute;
 global using PropertyInfo = System.Reflection.PropertyInfo;
 global using MethodInfo = System.Reflection.MethodInfo;
 global using ParameterInfo = System.Reflection.ParameterInfo;
+global using FieldInfo = System.Reflection.FieldInfo;
 global using Assembly = System.Reflection.Assembly;
 global using BindingFlag = System.Reflection.BindingFlags;
