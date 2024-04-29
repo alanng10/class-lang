@@ -17,6 +17,7 @@ public class ButtonList : Any
     public override bool Init()
     {
         base.Init();
+        this.TextInfra = TextInfra.This;
         this.Array = new Array();
         this.Array.Count = this.Count;
         this.Array.Init();
@@ -333,6 +334,8 @@ public class ButtonList : Any
         }
     }
 
+    protected virtual TextInfra TextInfra { get; set; }
+
     protected virtual Button AddLetterButton()
     {
         int index;
@@ -400,12 +403,16 @@ public class ButtonList : Any
 
     public virtual bool IsLetterButton(int index)
     {
-        return !(index < 'A') & !('Z' < index);
+        char a;
+        a = (char)index;
+        return this.TextInfra.IsLetter(a, true);
     }
 
     public virtual bool IsDigitButton(int index)
     {
-        return !(index < '0') & !('9' < index);
+        char a;
+        a = (char)index;
+        return this.TextInfra.IsDigit(a);
     }
 
     public virtual Button LetterButton(int letterIndex)
