@@ -2199,16 +2199,16 @@ public class Create : InfraCreate
             return null;
         }
 
-        int operateStart;
-        int operateEnd;
-        operateStart = leftBracket.Range.End;
-        operateEnd = rightBracket.Range.Start;
+        int anyStart;
+        int anyEnd;
+        anyStart = leftBracket.Range.End;
+        anyEnd = rightBracket.Range.Start;
 
         Node any;
-        any = this.ExecuteOperate(this.Range(this.RangeA, operateStart, operateEnd));
+        any = this.ExecuteOperate(this.Range(this.RangeA, anyStart, anyEnd));
         if (any == null)
         {
-            this.Error(this.ErrorKind.AnyInvalid, operateStart, operateEnd);
+            this.Error(this.ErrorKind.AnyInvalid, anyStart, anyEnd);
         }
 
         this.OperateArg.Kind = this.NodeKind.BracketOperate;
