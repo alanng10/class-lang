@@ -442,9 +442,6 @@ public class StateTraverse : Traverse
         return true;
     }
 
-
-
-
     public override bool ExecuteCallOperate(CallOperate callOperate)
     {
         if (callOperate == null)
@@ -560,14 +557,9 @@ public class StateTraverse : Traverse
             this.Error(this.ErrorKind.ClassUndefined, newOperate);
         }
 
-        this.Info(newOperate).NewClass = varClass;
         this.Info(newOperate).OperateClass = varClass;
         return true;
     }
-
-
-
-
 
     public override bool ExecuteShareOperate(ShareOperate shareOperate)
     {
@@ -576,77 +568,23 @@ public class StateTraverse : Traverse
             return true;
         }
 
-
-
-
         ClassName nodeClass;
-        
-
         nodeClass = shareOperate.Class;
 
-
-
-
-
         string className;
-
-
-        className = null;
-
-
-
-
-        if (!(nodeClass == null))
-        {
-            className = nodeClass.Value;
-        }
-
-
-
+        className = nodeClass.Value;
 
         ClassClass varClass;
-
-
-
-        varClass = null;
-
-
-
-
-        if (!(className == null))
-        {
-            varClass = this.Class(className);
-        }
-
-
-
-
+        varClass = this.Class(className);
 
         if (varClass == null)
         {
             this.Error(this.ErrorKind.ClassUndefined, shareOperate);
         }
 
-
-
-
-
-        this.Info(shareOperate).ShareClass = varClass;
-
-
-
         this.Info(shareOperate).OperateClass = varClass;
-
-
-
-
         return true;
     }
-
-
-
-
-
 
     public override bool ExecuteVarOperate(VarOperate varOperate)
     {
@@ -1481,11 +1419,6 @@ public class StateTraverse : Traverse
             this.Error(this.ErrorKind.ClassUndefined, castOperate);
         }
 
-
-
-
-
-        this.Info(castOperate).CastClass = varClass;
 
 
 
