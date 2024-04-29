@@ -41,6 +41,19 @@ public class Infra : Any
         return true;
     }
 
+    public virtual bool CheckIndex(int count, int index)
+    {
+        if (count < 0)
+        {
+            return false;
+        }
+        if (index < 0)
+        {
+            return false;
+        }
+        return index < count;
+    }
+
     public virtual bool CheckRange(int totalCount, int index, int count)
     {
         if (index < 0)
