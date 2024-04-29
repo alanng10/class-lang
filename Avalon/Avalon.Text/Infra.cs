@@ -27,12 +27,12 @@ public class Infra : Any
 
     public virtual bool IsDigit(char o)
     {
-        return !((o < '0') | ('9' < o));
+        return this.IsInRange('0', '9', o);
     }
 
     public virtual bool IsHexLetter(char o)
     {
-        return !((o < 'a') | ('f' < o));
+        return this.IsInRange('a', 'f', o);
     }
 
     public virtual bool IsLetter(char o, bool upperCase)
@@ -45,6 +45,15 @@ public class Infra : Any
         {
             first = 'A';
             last = 'Z';
+        }
+        return this.IsInRange(first, last, o);
+    }
+
+    public virtual bool IsInRange(char first, char last, char o)
+    {
+        if (last < first)
+        {
+            return false;
         }
         return !((o < first) | (last < o));
     }
