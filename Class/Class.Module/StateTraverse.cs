@@ -1817,60 +1817,61 @@ public class StateTraverse : Traverse
         return d;
     }
 
-
-
-
-
     protected virtual Maide Method(ClassClass varClass, string name)
     {
-        Maide method;
+        ClassClass anyClass;
+        anyClass = this.System.Any;
 
+        ClassClass thisClass;
+        thisClass = varClass;
 
-        method = (Maide)varClass.Maide.Get(name);
+        Maide d;
+        d = null;
 
-
-
-        if (!(method == null))
+        bool b;
+        b = false;
+        while (!b & !(thisClass == null))
         {
-            if (!this.CheckCount(null, varClass, method.Count))
+            if (thisClass.Field.Contain(name))
             {
-                return null;
+                b = true;
             }
 
-
-            return method;
-        }
-
-
-
-
-        ClassClass baseClass;
-
-
-        baseClass = varClass.Base;
-
-
-
-        if (!(baseClass == null))
-        {
-            method = this.Method(baseClass, name);
-
-
-
-            if (!(method == null))
+            if (!b)
             {
-                return method;
+                Maide a;
+                a = (Maide)thisClass.Maide.Get(name);
+                if (!(a == null))
+                {
+                    d = a;
+                    b = true;
+                }
+            }
+
+            if (!b)
+            {
+                ClassClass aa;
+                aa = null;
+                if (!(thisClass == anyClass))
+                {
+                    aa = thisClass.Base;
+                }
+                thisClass = aa;
             }
         }
 
+        if (d == null)
+        {
+            return null;
+        }
 
+        if (!this.CheckCount(varClass, d.Parent, d.Count))
+        {
+            return null;
+        }
 
-        return null;
+        return d;
     }
-
-
-
-
 
     protected virtual bool CheckCount(ClassClass triggerClass, ClassClass varClass, Count count)
     {
