@@ -452,142 +452,66 @@ public class StateTraverse : Traverse
             return true;
         }
 
-
-
-
-
         Operate varThis;
-
         varThis = callOperate.This;
-
-
-
-
-        MaideName nodeMethod;
-
-        nodeMethod = callOperate.Maide;
-
-
-
-
+        MaideName nodeMaide;
+        nodeMaide = callOperate.Maide;
         Argue argue;
-
         argue = callOperate.Argue;
-
-
-
-
 
         base.ExecuteCallOperate(callOperate);
 
-
-
-
-
         ClassClass thisClass;
-
-
         thisClass = null;
-
-
-
         if (!(varThis == null))
         {
             thisClass = this.Info(varThis).OperateClass;
         }
 
-
-
-
-        string methodName;
-
-
-        methodName = null;
-
-
-
-        if (!(nodeMethod == null))
+        string maideName;
+        maideName = null;
+        if (!(nodeMaide == null))
         {
-            methodName = nodeMethod.Value;
+            maideName = nodeMaide.Value;
         }
-
-
-
 
         if (thisClass == null)
         {
             this.Error(this.ErrorKind.ThisUndefined, callOperate);
         }
 
-
-
-
-
-        Maide method;
-
-
-        method = null;
-
-
-
+        Maide maide;
+        maide = null;
 
         if (!(thisClass == null))
         {
-            if (!(methodName == null))
+            if (!(maideName == null))
             {
-                method = this.Method(thisClass, methodName);
+                maide = this.Method(thisClass, maideName);
             }
-
-
-
-            if (method == null)
+            if (maide == null)
             {
                 this.Error(this.ErrorKind.MaideUndefined, callOperate);
             }
         }
 
-
-
-
-
-
-        if (!(method == null))
+        if (!(maide == null))
         {
-            if (!this.ArguesMatch(method, argue))
+            if (!this.ArguesMatch(maide, argue))
             {
                 this.Error(this.ErrorKind.ArgueUnassignable, callOperate);
             }
         }
 
-
-
-
-
         ClassClass operateClass;
-
-
         operateClass = null;
-
-
-
-
-        if (!(method == null))
+        if (!(maide == null))
         {
-            operateClass = method.Class;
+            operateClass = maide.Class;
         }
 
-
-
-
-        this.Info(callOperate).CallMaide = method;
-
-
-
+        this.Info(callOperate).CallMaide = maide;
         this.Info(callOperate).OperateClass = operateClass;
-
-
-
-
         return true;
     }
 
