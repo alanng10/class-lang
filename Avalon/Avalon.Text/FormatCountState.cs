@@ -1,6 +1,6 @@
 namespace Avalon.Text;
 
-class FormatValueCountState : State
+class FormatCountState : State
 {
     public new virtual int Result { get; set; }
 }
