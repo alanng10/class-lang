@@ -23,11 +23,16 @@ public class FormatArg : Any
         return true;
     }
 
-    public virtual int Pos { get; set; }
-    public virtual int Kind { get; set; }
-    public virtual bool ValueBool { get; set; }
-    public virtual long ValueInt { get; set; }
-    public virtual string ValueString { get; set; }
+    public virtual int Pos { get { return __D_Pos; } set { __D_Pos = value; } }
+    protected int __D_Pos;
+    public virtual int Kind { get { return __D_Kind; } set { __D_Kind = value; } }
+    protected int __D_Kind;
+    public virtual bool ValueBool { get { return __D_ValueBool; } set { __D_ValueBool = value; } }
+    protected bool __D_ValueBool;
+    public virtual long ValueInt { get { return __D_ValueInt; } set { __D_ValueInt = value; } }
+    protected long __D_ValueInt;
+    public virtual string ValueString { get { return __D_ValueString; } set { __D_ValueString = value; } }
+    protected string __D_ValueString;
     public virtual bool AlignLeft { get; set; }
     public virtual int FieldWidth { get; set; }
     public virtual int MaxWidth { get; set; }
