@@ -631,6 +631,20 @@ public class StateTraverse : Traverse
             this.Error(this.ErrorKind.ClassUndefined, castOperate);
         }
 
+        if (!(anyClass == null))
+        {
+            if (!(varClass == null))
+            {
+                if (!this.CheckClass(anyClass, varClass))
+                {
+                    if (!this.CheckClass(varClass, anyClass))
+                    {
+                        this.Error(this.ErrorKind.CastUnachievable, castOperate);
+                    }
+                }
+            }
+        }
+
         this.Info(castOperate).OperateClass = varClass;
         return true;
     }
