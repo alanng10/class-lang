@@ -25,11 +25,11 @@ public class Grid : View
         this.StackGridChildPos = this.CreateStackGridChildPos();
         return true;
     }
-
+    
+    protected virtual InfraInfra InfraInfra { get; set; }
     protected virtual Iter RowIter { get; set; }
     protected virtual Iter ColIter { get; set; }
     protected virtual Iter ChildIter { get; set; }
-    protected virtual InfraInfra InfraInfra { get; set; }
     protected virtual Data ChildPosData { get; set; }
 
     protected virtual DrawRect StackGridChildListRect { get; set; }
