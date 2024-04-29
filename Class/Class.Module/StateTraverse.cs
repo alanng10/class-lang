@@ -590,11 +590,10 @@ public class StateTraverse : Traverse
         if (!(any == null))
         {
             anyClass = this.Info(any).OperateClass;
-        }
-
-        if (anyClass == null)
-        {
-            this.Error(this.ErrorKind.AnyUndefined, castOperate);
+            if (anyClass == null)
+            {
+                this.Error(this.ErrorKind.AnyUndefined, castOperate);
+            }
         }
 
         string className;
@@ -609,11 +608,10 @@ public class StateTraverse : Traverse
         if (!(className == null))
         {
             varClass = this.Class(className);
-        }
-
-        if (varClass == null)
-        {
-            this.Error(this.ErrorKind.ClassUndefined, castOperate);
+            if (varClass == null)
+            {
+                this.Error(this.ErrorKind.ClassUndefined, castOperate);
+            }
         }
 
         if (!(anyClass == null))
