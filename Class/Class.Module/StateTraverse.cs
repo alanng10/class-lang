@@ -645,8 +645,6 @@ public class StateTraverse : Traverse
         return true;
     }
 
-
-
     public override bool ExecuteValueOperate(ValueOperate valueOperate)
     {
         if (valueOperate == null)
@@ -654,49 +652,27 @@ public class StateTraverse : Traverse
             return true;
         }
 
-
-
-
-
         Value value;
-
-
         value = valueOperate.Value;
-
-
-
-
 
         base.ExecuteValueOperate(valueOperate);
 
-
-
-
-
         ClassClass valueClass;
-
-
         valueClass = null;
 
-
-
-
-        if (!(value == null))
+        if (value is BoolValue)
         {
-            if (value is BoolValue)
-            {
-                valueClass = this.System.Bool;
-            }
+            valueClass = this.System.Bool;
+        }
 
-            if (value is IntValue)
-            {
-                valueClass = this.System.Int;
-            }
+        if (value is IntValue)
+        {
+            valueClass = this.System.Int;
+        }
 
-            if (value is StringValue)
-            {
-                valueClass = this.System.String;
-            }
+        if (value is StringValue)
+        {
+            valueClass = this.System.String;
         }
 
 
