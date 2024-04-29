@@ -532,7 +532,7 @@ public class Traverse : Any
         }
         this.ExecuteNode(operateExecute);
 
-        this.ExecuteOperate(operateExecute.Operate);
+        this.ExecuteOperate(operateExecute.Any);
         return true;
     }
 
@@ -807,7 +807,7 @@ public class Traverse : Any
         }
         this.ExecuteNode(bracketOperate);
 
-        this.ExecuteOperate(bracketOperate.Operate);
+        this.ExecuteOperate(bracketOperate.Any);
         return true;
     }
 
