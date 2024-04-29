@@ -54,6 +54,8 @@ public class Create : InfraCreate
         this.ErrorList = new List();
         this.ErrorList.Init();
 
+        this.SystemClassSet();
+
         this.ExecuteInit();
         this.ExecuteClass();
         this.ExecuteBase();
