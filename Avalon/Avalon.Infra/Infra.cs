@@ -33,7 +33,17 @@ public class Infra : Any
     protected char __D_NewLine;
     public virtual char PathCombine { get { return __D_PathCombine; } set { __D_PathCombine = value; } }
     protected char __D_PathCombine;
-    
+
+    public virtual bool CheckIndex(int count, int index)
+    {
+        return this.CheckRange(count, index, 1);
+    }
+
+    public virtual bool CheckLongIndex(long count, long index)
+    {
+        return this.CheckLongRange(count, index, 1);
+    }
+
     public virtual bool IndexRange(Range range, int index)
     {
         range.Index = index;        
@@ -41,21 +51,12 @@ public class Infra : Any
         return true;
     }
 
-    public virtual bool CheckIndex(int count, int index)
-    {
-        if (count < 0)
-        {
-            return false;
-        }
-        if (index < 0)
-        {
-            return false;
-        }
-        return index < count;
-    }
-
     public virtual bool CheckRange(int totalCount, int index, int count)
     {
+        if (totalCount < 0)
+        {
+            return false;
+        }
         if (index < 0)
         {
             return false;
@@ -73,6 +74,10 @@ public class Infra : Any
 
     public virtual bool CheckLongRange(long totalCount, long index, long count)
     {
+        if (totalCount < 0)
+        {
+            return false;
+        }
         if (index < 0)
         {
             return false;

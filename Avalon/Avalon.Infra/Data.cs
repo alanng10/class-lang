@@ -5,12 +5,15 @@ public class Data : Any
     public override bool Init()
     {
         base.Init();
+        this.InfraInfra = Infra.This;
         this.Value = new byte[this.Count];
         return true;
     }
 
     public virtual long Count { get { return __D_Count; } set { __D_Count = value; } }
     protected long __D_Count;
+    protected virtual Infra InfraInfra { get { return __D_InfraInfra; } set { __D_InfraInfra = value; } }
+    protected Infra __D_InfraInfra;
     public virtual byte[] Value { get; set; }
 
     public virtual int Get(long index)
@@ -34,6 +37,6 @@ public class Data : Any
 
     public virtual bool Contain(long index)
     {
-        return ((!(index < 0)) & (index < this.Count));
+        return this.InfraInfra.CheckLongIndex(this.Count, index);
     }
 }
