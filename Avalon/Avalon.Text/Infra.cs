@@ -128,7 +128,7 @@ public class Infra : Any
 
         Range range;
         range = text.Range;
-        if (!this.InfraInfra.CheckRange(arrayCount, range))
+        if (!this.InfraInfra.CheckRange(arrayCount, range.Index, range.Count))
         {
             return false;
         }

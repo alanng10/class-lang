@@ -7,6 +7,7 @@ public class Encode : Any
         base.Init();
         this.InternIntern = InternIntern.This;
         this.InfraInfra = InfraInfra.This;
+        this.TextInfra = Infra.This;
 
         this.InternData = Extern.Data_New();
         Extern.Data_Init(this.InternData);
@@ -45,6 +46,7 @@ public class Encode : Any
 
     private InternIntern InternIntern { get; set; }
     protected virtual InfraInfra InfraInfra { get; set; }
+    protected virtual Infra TextInfra { get; set; }
     private ulong Intern { get; set; }
     private ulong InternString { get; set; }
     private ulong InternData { get; set; }
@@ -62,9 +64,9 @@ public class Encode : Any
 
     public virtual int Text(Text text, Data data, DataRange range)
     {
-        if (!this.InfraInfra.CheckLongRange(data.Count, range))
+        if (!this.InfraInfra.CheckLongRange(data.Count, range.Index, range.Count))
         {
-            return 0;
+            return -1;
         }
 
         long dataCount;
@@ -93,9 +95,9 @@ public class Encode : Any
 
     public virtual long Data(Data data, long index, Text text)
     {
-        if (!this.InfraInfra.CheckRange((int)text.Data.Count, text.Range))
+        if (!this.TextInfra.CheckRange(text))
         {
-            return 0;
+            return -1;
         }
 
         int textCount;
