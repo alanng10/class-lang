@@ -1404,10 +1404,6 @@ public class StateTraverse : Traverse
         return true;
     }
 
-
-
-
-
     protected virtual ClassClass ExecuteVarNameNode(NodeNode node, VarName name)
     {
         string varName;
