@@ -9,17 +9,19 @@ public class BoolFormatCountState : FormatCountState
         
         Format format;
         format = this.Format;
+        Infra textInfra;
+        textInfra = format.TextInfra;
         bool b;
         b = arg.ValueBool;
         int a;
         a = 0;
         if (!b)
         {
-            a = format.BoolFalseString.Length;
+            a = textInfra.BoolFalseString.Length;
         }
         if (b)
         {
-            a = format.BoolTrueString.Length;
+            a = textInfra.BoolTrueString.Length;
         }
         this.Result = a;
         return true;
