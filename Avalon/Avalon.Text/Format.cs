@@ -136,7 +136,7 @@ public class Format : Any
         {
             return false;
         }
-        
+
         Data baseData;
         baseData = varBase.Data;
         Range baseRange;
@@ -162,14 +162,8 @@ public class Format : Any
         count = baseCount + 1;
         int resultIndex;
         resultIndex = 0;
-        FormatArg arg;
-        arg = null;
         int argIndex;
         argIndex = 0;
-        int k;
-        k = 0;
-        bool ba;
-        ba = false;
         int i;
         i = 0;
         while (i < count)
@@ -179,10 +173,13 @@ public class Format : Any
 
             while ((!b) & (argIndex < argCount))
             {
+                FormatArg arg;
                 arg = (FormatArg)argList.Get(argIndex);
 
+                int k;
                 k = arg.Pos;
 
+                bool ba;
                 ba = (i == k);
                 if (ba)
                 {
