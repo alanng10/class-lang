@@ -71,6 +71,21 @@ public class Format : Any
         int kind;
         kind = arg.Kind;
 
+        if (kind == 1 | kind == 2)
+        {
+            if (!this.CheckIntBase(arg.Base))
+            {
+                return false;
+            }
+        }
+        if (kind == 3)
+        {
+            if (!this.TextInfra.CheckRange(arg.ValueText))
+            {
+                return false;
+            }
+        }
+
         FormatCountState state;
         state = (FormatCountState)this.CountState.Get(kind);
 
@@ -120,18 +135,13 @@ public class Format : Any
             return false;
         }
 
-        
+
         
         return true;
     }
 
     public virtual int IntDigitCount(long value, int varBase)
     {
-        if (!this.CheckIntBase(varBase))
-        {
-            return -1;
-        }
-
         long mask;
         mask = this.InfraInfra.IntCapValue - 1;
         value = value & mask;
