@@ -229,7 +229,7 @@ public class Format : Any
         return true;
     }
 
-    protected virtual bool ResultInt(Text result, ulong value, int varBase, int varCase, int valueCount, int valueWriteCount, int valueStart, int valueIndex)
+    public virtual bool ResultInt(Text result, ulong value, int varBase, int varCase, int valueCount, int valueWriteCount, int valueStart, int valueIndex)
     {
         Infra textInfra;
         textInfra = this.TextInfra;
