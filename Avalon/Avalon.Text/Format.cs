@@ -71,4 +71,27 @@ public class Format : Any
     {
         return true;
     }
+
+    public virtual int IntDigitCount(long value, int varBase)
+    {
+        int digitCount;
+        digitCount = 0;
+
+        long oa;
+        oa = value;
+        while (0 < oa)
+        {
+            oa = oa / varBase;
+            digitCount = digitCount + 1;
+        }
+
+        if (digitCount == 0)
+        {
+            digitCount = 1;
+        }
+
+        int a;
+        a = digitCount;
+        return a;
+    }
 }
