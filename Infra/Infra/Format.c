@@ -811,7 +811,7 @@ Int Format_ResultInt(Int o, Int result, Int value, Int varBase, Int varCase, Int
 
         index = count - 1 - i;
 
-        if ((!(index < valueIndex)) && index < end)
+        if ((!(index < valueIndex)) & (index < end))
         {
             Format_IntDigit(digit);
 
