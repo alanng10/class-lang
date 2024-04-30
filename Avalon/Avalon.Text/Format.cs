@@ -142,7 +142,7 @@ public class Format : Any
         return true;
     }
 
-    protected virtual bool ResultBool(Text result, bool value, int varCase, int valueWriteCount, int valueStart, int valueIndex)
+    public virtual bool ResultBool(Text result, bool value, int varCase, int valueWriteCount, int valueStart, int valueIndex)
     {
         Infra textInfra;
         textInfra = this.TextInfra;
