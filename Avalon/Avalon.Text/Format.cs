@@ -268,7 +268,9 @@ public class Format : Any
         k = value;
         ulong j;
         j = 0;
-        ulong digit;
+        ulong ka;
+        ka = 0;
+        int digit;
         digit = 0;
         int oa;
         oa = 0;
@@ -285,17 +287,19 @@ public class Format : Any
         {
             j = k / ca;
 
-            digit = k - j * ca;
-
             index = count - 1 - i;
 
-            if ((!(index < valueIndex)) && index < end)
+            if ((!(index < valueIndex)) & index < end)
             {
-                Format_IntDigit(digit);
+                ka = k - j * ca;
+
+                digit = (int)ka;
+
+                c = this.IntDigit(digit, letterDigitStart);
 
                 oa = index - valueIndex;
 
-                dest[valueStart + oa] = c;
+                textInfra.DataCharSet(destData, destIndex + oa, c);
             }
 
             k = j;
@@ -386,6 +390,27 @@ public class Format : Any
             i = i + 1;
         }
         return true;
+    }
+
+    protected virtual char IntDigit(int digit, char letterStart)
+    {
+        int n;
+        n = 0;
+        bool b;
+        b = (digit < 10);
+        if (b)
+        {
+            n = '0' + digit;
+        }
+        if (!b)
+        {
+            int m;
+            m = digit - 10;
+            n = letterStart + m;
+        }
+        char a;
+        a = (char)n;
+        return a;
     }
 
     public virtual int IntDigitCount(long value, int varBase)
