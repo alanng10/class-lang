@@ -27,8 +27,6 @@ public class Format : Any
     protected Array __D_Array;
     protected virtual int ArrayIndex { get { return __D_ArrayIndex; } set { __D_ArrayIndex = value; } }
     protected int __D_ArrayIndex;
-    public virtual string BoolFalseString { get { return "false"; } set { } }
-    public virtual string BoolTrueString { get { return "true"; } set { } }
 
     protected virtual bool InitCountState()
     {
@@ -187,11 +185,11 @@ public class Format : Any
         source = null;
         if (!value)
         {
-            source = this.BoolFalseString;
+            source = textInfra.BoolFalseString;
         }
         if (value)
         {
-            source = this.BoolTrueString;
+            source = textInfra.BoolTrueString;
         }
 
         int destIndex;

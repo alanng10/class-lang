@@ -19,11 +19,15 @@ public class Infra : Any
         base.Init();
         this.InternIntern = InternIntern.This;
         this.InfraInfra = InfraInfra.This;
+        this.BoolFalseString = "false";
+        this.BoolTrueString = "true";
         return true;
     }
 
     private InternIntern InternIntern { get; set; }
     protected virtual InfraInfra InfraInfra { get; set; }
+    public virtual string BoolFalseString { get; set; }
+    public virtual string BoolTrueString { get; set; }
 
     public virtual bool IsDigit(char o)
     {
