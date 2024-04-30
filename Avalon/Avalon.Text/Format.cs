@@ -82,6 +82,10 @@ public class Format : Any
         }
         if (kind == 3)
         {
+            if (arg.ValueText == null)
+            {
+                return false;
+            }
             if (!this.TextInfra.CheckRange(arg.ValueText))
             {
                 return false;
