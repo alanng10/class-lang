@@ -32,6 +32,7 @@ public class Format : Any
 
         this.CountStateAdd(new BoolFormatCountState());
         this.CountStateAdd(new IntFormatCountState());
+        this.CountStateAdd(new SIntFormatCountState());
         this.CountStateAdd(new TextFormatCountState());
         this.CountStateAdd(new CharFormatCountState());
         return true;
