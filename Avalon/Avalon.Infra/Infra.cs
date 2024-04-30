@@ -214,26 +214,26 @@ public class Infra : Any
 
     public virtual Data DataCreateString(string a, Range range)
     {
-        int start;
+        int index;
         int count;
-        start = 0;
+        index = 0;
         count = 0;
         
         bool b;
         b = (range == null);
         if (b)
         {
-            start = 0;
+            index = 0;
             count = a.Length;
         }
         if (!b)
         {
-            if (!this.CheckRange(a.Length, range.Index, range.Count))
+            index = range.Index;
+            count = range.Count;
+            if (!this.CheckRange(a.Length, index, count))
             {
                 return null;
             }
-            start = range.Index;
-            count = range.Count;
         }
 
         int oa;
@@ -249,9 +249,9 @@ public class Infra : Any
         while (i < count)
         {
             char oc;
-            oc = a[start + i];
-            long index;
-            index = i * oa;
+            oc = a[index + i];
+            long dataIndex;
+            dataIndex = i * oa;
 
             this.DataCharSet(data, index, oc);
             i = i + 1;
