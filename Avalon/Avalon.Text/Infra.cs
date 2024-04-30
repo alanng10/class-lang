@@ -60,12 +60,16 @@ public class Infra : Any
 
     public virtual char DataCharGet(Data data, int index)
     {
-        return this.InfraInfra.DataCharGet(data, index * 2);
+        long n;
+        n = index;
+        return this.InfraInfra.DataCharGet(data, n * 2);
     }
 
     public virtual bool DataCharSet(Data data, int index, char value)
     {
-        return this.InfraInfra.DataCharSet(data, index * 2, value);
+        long n;
+        n = index;
+        return this.InfraInfra.DataCharSet(data, n * 2, value);
     }
 
     public virtual Text TextCreate(int count)
