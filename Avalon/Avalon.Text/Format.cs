@@ -56,7 +56,7 @@ public class Format : Any
 
         this.ResultStateAdd(new BoolFormatResultState());
         this.ResultStateAdd(new IntFormatResultState());
-        this.ResultStateAdd(null);
+        this.ResultStateAdd(new SIntFormatResultState());
         this.ResultStateAdd(new TextFormatResultState());
         this.ResultStateAdd(new CharFormatResultState());
         return true;
