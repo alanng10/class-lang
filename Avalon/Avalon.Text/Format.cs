@@ -415,10 +415,6 @@ public class Format : Any
 
     public virtual int IntDigitCount(long value, int varBase)
     {
-        long mask;
-        mask = this.InfraInfra.IntCapValue - 1;
-        value = value & mask;
-
         int digitCount;
         digitCount = 0;
 
