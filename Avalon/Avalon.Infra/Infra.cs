@@ -250,10 +250,11 @@ public class Infra : Any
         {
             char oc;
             oc = a[index + i];
+
             long dataIndex;
             dataIndex = i * oa;
 
-            this.DataCharSet(data, index, oc);
+            this.DataCharSet(data, dataIndex, oc);
             i = i + 1;
         }
 
