@@ -82,7 +82,7 @@ public class CharFormatResultState : FormatResultState
             valueIndex = clampCount;
         }
 
-        format.ResultString(result, valueText, varCase, valueWriteCount, valueStart, valueIndex);
+        format.ResultText(result, valueText, varCase, valueWriteCount, valueStart, valueIndex);
 
         format.ResultFill(result, fillStart, fillCount, fillChar);
         return true;
