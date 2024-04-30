@@ -160,4 +160,58 @@ public class Infra : Any
         }
         return true;
     }
+
+    public virtual bool Equal(Text text, string o, Range range)
+    {
+        int stringIndex;
+        int stringCount;
+        stringIndex = 0;
+        stringCount = 0;
+        bool b;
+        b = (range == null);
+        if (b)
+        {
+            stringIndex = 0;
+            stringCount = o.Length;
+        }
+        if (!b)
+        {
+            stringIndex = range.Index;
+            stringCount = range.Count;
+            if (!this.InfraInfra.CheckRange(o.Length, stringIndex, stringCount))
+            {
+                return false;
+            }
+        }
+
+        int count;
+        count = text.Range.Count;
+        if (!(count == stringCount))
+        {
+            return false;
+        }
+
+        int start;
+        start = text.Range.Index;
+        int index;
+        char oca;
+        char ocb;
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            index = start + i;
+
+            oca = this.DataCharGet(text.Data, index);
+
+            ocb = o[stringIndex + i];
+            
+            if (!(oca == ocb))
+            {
+                return false;
+            }
+            i = i + 1;
+        }
+        return true;
+    }
 }

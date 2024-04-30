@@ -71,42 +71,6 @@ public class Infra : Any
         return true;
     }
 
-    public virtual bool Equal(Text text, string o)
-    {
-        if (!this.TextInfra.CheckRange(text))
-        {
-            return false;
-        }
-
-        int count;
-        count = text.Range.Count;
-        if (!(count == o.Length))
-        {
-            return false;
-        }
-
-        int start;
-        start = text.Range.Index;
-        int index;
-        char oca;
-        char ocb;
-        int i;
-        i = 0;
-        while (i < count)
-        {
-            index = start + i;
-
-            oca = this.TextInfra.DataCharGet(text.Data, index);
-            ocb = o[i];
-            if (!(oca == ocb))
-            {
-                return false;
-            }
-            i = i + 1;
-        }
-        return true;
-    }
-
     public virtual Table TableCreateStringCompare()
     {
         Table a;
