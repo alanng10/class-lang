@@ -70,6 +70,11 @@ public class Infra : Any
 
     public virtual Text TextCreate(int count)
     {
+        if (count < 0)
+        {
+            return null;
+        }
+        
         int oa;
         oa = sizeof(char);
 
