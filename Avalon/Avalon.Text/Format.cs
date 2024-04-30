@@ -77,10 +77,15 @@ public class Format : Any
 
     public virtual int IntDigitCount(long value, int varBase)
     {
+        if (!this.CheckIntBase(varBase))
+        {
+            return -1;
+        }
+
         long mask;
         mask = this.InfraInfra.IntCapValue - 1;
         value = value & mask;
-        
+
         int digitCount;
         digitCount = 0;
 
@@ -100,5 +105,10 @@ public class Format : Any
         int a;
         a = digitCount;
         return a;
+    }
+
+    protected virtual bool CheckIntBase(int varBase)
+    {
+        return !(varBase < 2 | 16 < varBase);
     }
 }
