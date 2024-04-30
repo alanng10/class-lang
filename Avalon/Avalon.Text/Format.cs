@@ -161,8 +161,8 @@ public class Format : Any
 
         Data destData;
         destData = dest.Data;
-        int k;
-        k = dest.Range.Index;
+        int destStart;
+        destStart = dest.Range.Index;
 
         string source;
         source = null;
@@ -175,6 +175,8 @@ public class Format : Any
             source = this.BoolTrueString;
         }
 
+        int destIndex;
+        destIndex = destStart + valueStart;
         char ouc;
         ouc = (char)0;
         char oc;
@@ -183,8 +185,8 @@ public class Format : Any
         aa = 0;
         int index;
         index = 0;
-        int destIndex;
-        destIndex = 0;
+        int k;
+        k = 0;
         int count;
         count = valueWriteCount;
         int i;
@@ -209,9 +211,9 @@ public class Format : Any
             }
             oc = (char)aa;
 
-            destIndex = k + valueStart + i;
+            k = destIndex + i;
 
-            textInfra.DataCharSet(destData, destIndex, oc);
+            textInfra.DataCharSet(destData, k, oc);
 
             i = i + 1;
         }
@@ -226,6 +228,8 @@ public class Format : Any
         destData = dest.Data;
         int destStart;
         destStart = dest.Range.Index;
+        int destIndex;
+        destIndex = destStart + fillIndex;
         int index;
         index = 0;
         int count;
@@ -234,7 +238,7 @@ public class Format : Any
         i = 0;
         while (i < count)
         {
-            index = destStart + fillIndex + i;
+            index = destIndex + i;
             textInfra.DataCharSet(destData, index, fillChar);
             i = i + 1;
         }
