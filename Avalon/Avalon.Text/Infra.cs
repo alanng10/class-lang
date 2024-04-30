@@ -178,10 +178,6 @@ public class Infra : Any
         {
             stringIndex = range.Index;
             stringCount = range.Count;
-            if (!this.InfraInfra.CheckRange(o.Length, stringIndex, stringCount))
-            {
-                return false;
-            }
         }
 
         int count;
