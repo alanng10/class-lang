@@ -188,4 +188,39 @@ public class Infra : Any
         }
         return true;
     }
+
+    public virtual bool TextEqualText(Text text, Text other)
+    {
+        Data textData;
+        textData = text.Data;
+        Data otherData;
+        otherData = other.Data;
+        int count;
+        count = text.Range.Count;
+        int start;
+        start = text.Range.Index;
+        int otherStart;
+        otherStart = other.Range.Index;
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            int index;
+            index = start + i;
+            int otherIndex;
+            otherIndex = otherStart + i;
+
+            char oca;
+            oca = this.DataCharGet(textData, index);
+            char ocb;
+            ocb = this.DataCharGet(otherData, otherIndex);
+
+            if (!(oca == ocb))
+            {
+                return false;
+            }
+            i = i + 1;
+        }
+        return true;
+    }
 }
