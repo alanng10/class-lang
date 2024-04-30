@@ -90,7 +90,38 @@ public class Format : Any
 
     public virtual int ExecuteCount(Text varBase, Array argList)
     {
-        return 0;
+        int count;
+        count = argList.Count;
+        int k;
+        k = 0;
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            FormatArg arg;
+            arg = (FormatArg)argList.Get(i);
+            
+            if (!arg.HasCount)
+            {
+                this.ExecuteArgCount(arg);
+            }
+
+            int ka;
+            ka = arg.Count;
+
+            k = k + ka;
+
+            i = i + 1;
+        }
+
+        int baseCount;
+        baseCount = varBase.Range.Count;
+
+        k = k + baseCount;
+
+        int a;
+        a = k;
+        return a;
     }
 
     public virtual bool ExecuteResult(Text varBase, Array argList, Text result)
