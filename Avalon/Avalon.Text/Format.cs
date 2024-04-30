@@ -229,6 +229,82 @@ public class Format : Any
         return true;
     }
 
+    protected virtual bool ResultInt(Text result, ulong value, int varBase, int varCase, int valueCount, int valueWriteCount, int valueStart, int valueIndex)
+    {
+        Infra textInfra;
+        textInfra = this.TextInfra;
+
+        Data destData;
+        destData = result.Data;
+        int destStart;
+        destStart = result.Range.Index;
+
+        int destIndex;
+        destIndex = destStart + valueStart;
+
+        if (value == 0)
+        {
+            if (!(valueWriteCount == 0))
+            {
+                textInfra.DataCharSet(destData, destIndex, '0');
+            }
+            return true;
+        }
+
+        int end;
+        end = valueIndex + valueWriteCount;
+
+        bool upperCase;
+        upperCase = !(varCase == 0);
+        char letterDigitStart;
+        letterDigitStart = 'a';
+        if (upperCase)
+        {
+            letterDigitStart = 'A';
+        }
+        ulong ca;
+        ca = (ulong)varBase;
+        ulong k;
+        k = value;
+        ulong j;
+        j = 0;
+        ulong digit;
+        digit = 0;
+        int oa;
+        oa = 0;
+        char c;
+        c = (char)0;
+
+        int index;
+        index = 0;
+        int count;
+        count = valueCount;
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            j = k / ca;
+
+            digit = k - j * ca;
+
+            index = count - 1 - i;
+
+            if ((!(index < valueIndex)) && index < end)
+            {
+                Format_IntDigit(digit);
+
+                oa = index - valueIndex;
+
+                dest[valueStart + oa] = c;
+            }
+
+            k = j;
+
+            i = i + 1;
+        }
+        return true;
+    }
+
     public virtual bool ResultText(Text result, Text value, int varCase, int valueWriteCount, int valueStart, int valueIndex)
     {
         Infra textInfra;
