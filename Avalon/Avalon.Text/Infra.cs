@@ -233,13 +233,20 @@ public class Infra : Any
         {
             return false;
         }
+        
+        int count;
+        count = text.Range.Count;
+        int otherCount;
+        otherCount = other.Range.Count;
+        if (!(count == otherCount))
+        {
+            return false;
+        }
 
         Data textData;
         textData = text.Data;
         Data otherData;
         otherData = other.Data;
-        int count;
-        count = text.Range.Count;
         int start;
         start = text.Range.Index;
         int otherStart;
