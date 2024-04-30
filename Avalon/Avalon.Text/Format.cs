@@ -7,6 +7,9 @@ public class Format : Any
         base.Init();
         this.InfraInfra = InfraInfra.This;
         this.TextInfra = Infra.This;
+
+        this.InitCountState();
+        this.InitResultState();
         return true;
     }
 
@@ -14,8 +17,12 @@ public class Format : Any
     protected InfraInfra __D_InfraInfra;
     protected virtual Infra TextInfra { get { return __D_TextInfra; } set { __D_TextInfra = value; } }
     protected Infra __D_TextInfra;
+    protected virtual int KindCount { get { return 5; } set { } }
+    protected int __D_KindCount;
     protected virtual Array CountState { get { return __D_CountState; } set { __D_CountState = value; } }
     protected Array __D_CountState;
+    protected virtual Array ResultState { get { return __D_ResultState; } set { __D_ResultState = value; } }
+    protected Array __D_ResultState;
     protected virtual Array Array { get { return __D_Array; } set { __D_Array = value; } }
     protected Array __D_Array;
     protected virtual int ArrayIndex { get { return __D_ArrayIndex; } set { __D_ArrayIndex = value; } }
@@ -26,7 +33,7 @@ public class Format : Any
     protected virtual bool InitCountState()
     {
         this.CountState = new Array();
-        this.CountState.Count = 5;
+        this.CountState.Count = this.KindCount;
         this.CountState.Init();
 
         this.Array = this.CountState;
@@ -40,7 +47,32 @@ public class Format : Any
         return true;
     }
 
+    protected virtual bool InitResultState()
+    {
+        this.ResultState = new Array();
+        this.ResultState.Count = this.KindCount;
+        this.ResultState.Init();
+
+        this.Array = this.ResultState;
+        this.ArrayIndex = 0;
+
+        this.ResultStateAdd(new BoolFormatResultState());
+        this.ResultStateAdd(new IntFormatCountState());
+        this.ResultStateAdd(new SIntFormatCountState());
+        this.ResultStateAdd(new TextFormatCountState());
+        this.ResultStateAdd(new CharFormatCountState());
+        return true;
+    }
+
     protected virtual bool CountStateAdd(FormatCountState state)
+    {
+        state.Format = this;
+        state.Init();
+        this.ArrayAdd(state);
+        return true;
+    }
+
+    protected virtual bool ResultStateAdd(FormatResultState state)
     {
         state.Format = this;
         state.Init();
@@ -289,7 +321,7 @@ public class Format : Any
 
     protected virtual bool CheckKind(int kind)
     {
-        return this.InfraInfra.CheckIndex(this.CountState.Count, kind);
+        return this.InfraInfra.CheckIndex(this.KindCount, kind);
     }
 
     protected virtual bool CheckIntBase(int varBase)
