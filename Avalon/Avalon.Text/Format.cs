@@ -126,6 +126,100 @@ public class Format : Any
 
     public virtual bool ExecuteResult(Text varBase, Array argList, Text result)
     {
+        Infra textInfra;
+        textInfra = this.TextInfra;
+        if (!textInfra.CheckRange(varBase))
+        {
+            return false;
+        }
+        if (!textInfra.CheckRange(result))
+        {
+            return false;
+        }
+        Data baseData;
+        baseData = varBase.Data;
+        Range baseRange;
+        baseRange = varBase.Range;
+        int baseStart;
+        baseStart = baseRange.Index;
+        int baseCount;
+        baseCount = baseRange.Count;
+
+        int argCount;
+        argCount = argList.Count;
+
+        Data resultData;
+        resultData = result.Data;
+        Range resultRange;
+        resultRange = result.Range;
+        int resultStart;
+        resultStart = resultRange.Index;
+        int resultCount;
+        resultCount = resultRange.Count;
+
+        int count;
+        count = baseCount + 1;
+        int resultIndex;
+        resultIndex = 0;
+        FormatArg arg;
+        arg = null;
+        int argIndex;
+        argIndex = 0;
+        int k;
+        k = 0;
+        bool ba;
+        ba = false;
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            bool b;
+            b = false;
+
+            while ((!b) & (argIndex < argCount))
+            {
+                arg = (FormatArg)argList.Get(argIndex);
+
+                k = arg.Pos;
+
+                ba = (i == k);
+                if (ba)
+                {
+                    int countA;
+                    countA = arg.Count;
+
+                    int oa;
+                    oa = resultStart + resultIndex;
+                    resultRange.Index = oa;
+                    resultRange.Count = countA;
+                    
+                    this.ExecuteArgResult(arg, result);
+
+                    resultRange.Index = resultStart;
+                    resultRange.Count = resultCount;
+
+                    resultIndex = resultIndex + countA;
+
+                    argIndex = argIndex + 1;
+                }
+                if (!ba)
+                {
+                    b = true;
+                }
+            }
+
+            if (!(i == baseCount))
+            {
+                char oc;
+                oc = textInfra.DataCharGet(baseData, baseStart + i);
+
+                textInfra.DataCharSet(resultData, resultStart + resultIndex, oc);
+                
+                resultIndex = resultIndex + 1;
+            }
+
+            i = i + 1;
+        }
         return true;
     }
 
@@ -187,6 +281,10 @@ public class Format : Any
             return false;
         }
         if (!this.TextInfra.CheckRange(result))
+        {
+            return false;
+        }
+        if (result.Range.Count < arg.Count)
         {
             return false;
         }
