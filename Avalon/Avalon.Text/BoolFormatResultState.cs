@@ -39,10 +39,7 @@ public class BoolFormatResultState : FormatResultState
         varCase = arg.Case;
         char fillChar;
         fillChar = arg.FillChar;
-
-        Text dest;
-        dest = result;
-
+        
         int fillStart;
         fillStart = 0;
         int valueStart;
@@ -69,7 +66,7 @@ public class BoolFormatResultState : FormatResultState
 
         format.ResultBool(result, value, varCase, valueWriteCount, valueStart, valueIndex);
 
-        format.ResultFill(dest, fillStart, fillCount, fillChar);
+        format.ResultFill(result, fillStart, fillCount, fillChar);
         return true;
     }
 }
