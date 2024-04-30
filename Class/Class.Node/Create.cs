@@ -4539,6 +4539,8 @@ public class Create : InfraCreate
 
     protected virtual Token TokenMatchLeftToken(Token result, string leftToken, string rightToken, Range range)
     {
+        TextInfra textInfra;
+        textInfra = this.TextInfra;
         int start;
         int end;
         start = range.Start;
@@ -4560,7 +4562,7 @@ public class Create : InfraCreate
             TokenToken aa;
             aa = this.TokenToken(i);
             this.TextGet(text, aa);
-            if (this.ClassInfra.Equal(text, rightToken))
+            if (textInfra.TextEqualString(text, rightToken, null))
             {
                 openCount = openCount - 1;
                 if (openCount == 0)
@@ -4569,7 +4571,7 @@ public class Create : InfraCreate
                     varContinue = false;
                 }
             }
-            if (this.ClassInfra.Equal(text, leftToken))
+            if (textInfra.TextEqualString(text, leftToken, null))
             {
                 openCount = openCount + 1;
             }
