@@ -1275,6 +1275,9 @@ public class Create : InfraCreate
             return null;
         }
 
+        TextInfra textInfra;
+        textInfra = this.TextInfra;
+
         TokenToken aa;
         aa = this.TokenToken(start);
         Text text;
@@ -1288,7 +1291,7 @@ public class Create : InfraCreate
         b = false;
         if (!b)
         {
-            if (this.ClassInfra.Equal(text, this.Keyword.True.Text))
+            if (textInfra.TextEqualString(text, this.Keyword.True.Text, null))
             {
                 value = true;
 
@@ -1298,7 +1301,7 @@ public class Create : InfraCreate
         }
         if (!b)
         {
-            if (this.ClassInfra.Equal(text, this.Keyword.False.Text))
+            if (textInfra.TextEqualString(text, this.Keyword.False.Text, null))
             {
                 value = false;
 
@@ -4139,8 +4142,8 @@ public class Create : InfraCreate
 
     protected virtual bool IsKeyword(TokenToken token)
     {
-        ClassInfra classInfra;
-        classInfra = this.ClassInfra;
+        TextInfra textInfra;
+        textInfra = this.TextInfra;
         KeywordList keyword;
         keyword = this.Keyword;
         Text text;
@@ -4156,7 +4159,7 @@ public class Create : InfraCreate
             a = keyword.Get(i);
             string o;
             o = a.Text;
-            if (classInfra.Equal(text, o))
+            if (textInfra.TextEqualString(text, o, null))
             {
                 return true;
             }
