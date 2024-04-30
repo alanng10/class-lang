@@ -20,6 +20,8 @@ public class Format : Any
     protected Array __D_Array;
     protected virtual int ArrayIndex { get { return __D_ArrayIndex; } set { __D_ArrayIndex = value; } }
     protected int __D_ArrayIndex;
+    public virtual string BoolFalseString { get { return "false"; } set { } }
+    public virtual string BoolTrueString { get { return "true"; } set { } }
 
     protected virtual bool InitCountState()
     {
@@ -137,6 +139,73 @@ public class Format : Any
 
 
         
+        return true;
+    }
+
+    protected virtual bool ResultBool(Text result, bool value, int varCase, int valueWriteCount, int valueStart, int valueIndex)
+    {
+        Infra textInfra;
+        textInfra = this.TextInfra;
+
+        Text dest;
+        dest = result;
+
+        Data destData;
+        destData = dest.Data;
+        int k;
+        k = dest.Range.Index;
+
+        string source;
+        source = null;
+        if (!value)
+        {
+            source = this.BoolFalseString;
+        }
+        if (value)
+        {
+            source = this.BoolTrueString;
+        }
+
+        char ouc;
+        ouc = (char)0;
+        char oc;
+        oc = (char)0;
+        int aa;
+        aa = 0;
+        int index;
+        index = 0;
+        int destIndex;
+        destIndex = 0;
+        int count;
+        count = valueWriteCount;
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            index = i + valueIndex;
+
+            ouc = source[index];
+            aa = ouc;
+
+            if (varCase == 1)
+            {
+                if (index == 0)
+                {
+                    aa = ouc - 'a' + 'A';
+                }
+            }
+            if (varCase == 2)
+            {
+                aa = ouc - 'a' + 'A';
+            }
+            oc = (char)aa;
+
+            destIndex = k + valueStart + i;
+
+            textInfra.DataCharSet(destData, destIndex, oc);
+
+            i = i + 1;
+        }
         return true;
     }
 
