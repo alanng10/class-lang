@@ -74,7 +74,7 @@ public class Infra : Any
         {
             return null;
         }
-        
+
         int oa;
         oa = sizeof(char);
 
@@ -137,12 +137,16 @@ public class Infra : Any
 
     public virtual bool CheckRange(Text text)
     {
-        int arrayCount;
-        arrayCount = (int)text.Data.Count;
+        long dataCount;
+        dataCount = text.Data.Count;
+        long charCount;
+        charCount = dataCount / 2;
+        int count;
+        count = (int)charCount;
 
         Range range;
         range = text.Range;
-        if (!this.InfraInfra.CheckRange(arrayCount, range.Index, range.Count))
+        if (!this.InfraInfra.CheckRange(count, range.Index, range.Count))
         {
             return false;
         }
