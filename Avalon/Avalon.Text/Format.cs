@@ -59,7 +59,7 @@ public class Format : Any
         this.ResultStateAdd(new BoolFormatResultState());
         this.ResultStateAdd(null);
         this.ResultStateAdd(null);
-        this.ResultStateAdd(null);
+        this.ResultStateAdd(new TextFormatResultState());
         this.ResultStateAdd(new CharFormatResultState());
         return true;
     }
