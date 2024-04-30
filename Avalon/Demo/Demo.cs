@@ -13,10 +13,11 @@ class Demo : Any
     public DrawImage PlayImage { get; set; }
     public Console Console { get; set; }
 
-    private Math Math { get; set; }
-    private DrawInfra DrawInfra { get; set; }
+    private ListInfra ListInfra { get; set; }
     private TextInfra TextInfra { get; set; }
+    private DrawInfra DrawInfra { get; set; }
     private DrawBrushKindList BrushKindList { get; set; }
+    private Math Math { get; set; }
     private MathCompose MathCompose { get; set; }
 
     public bool Execute()
@@ -25,9 +26,10 @@ class Demo : Any
         main = new Main();
         main.Init();
 
+        this.ListInfra = ListInfra.This;
         this.TextInfra = TextInfra.This;
-        this.BrushKindList = DrawBrushKindList.This;
         this.DrawInfra = DrawInfra.This;
+        this.BrushKindList = DrawBrushKindList.This;
         this.Console = Console.This;
 
         this.Math = new Math();
@@ -395,7 +397,6 @@ class Demo : Any
         argA.MaxWidth = -1;
         argA.Case = 1;
         argA.FillChar = ' ';
-        argA.Set();
 
         TextFormatArg argB;
         argB = new TextFormatArg();
@@ -408,7 +409,6 @@ class Demo : Any
         argB.MaxWidth = 6;
         argB.Base = 10;
         argB.FillChar = ' ';
-        argB.Set();
 
         TextFormatArg argC;
         argC = new TextFormatArg();
@@ -421,7 +421,6 @@ class Demo : Any
         argC.MaxWidth = 6;
         argC.Base = 10;
         argC.FillChar = ' ';
-        argC.Set();
 
         TextFormatArg argD;
         argD = new TextFormatArg();
@@ -435,7 +434,6 @@ class Demo : Any
         argD.Base = 16;
         argD.Case = 1;
         argD.FillChar = ' ';
-        argD.Set();
 
         TextFormatArg argDA;
         argDA = new TextFormatArg();
@@ -448,7 +446,6 @@ class Demo : Any
         argDA.MaxWidth = -1;
         argDA.Base = 10;
         argDA.Sign = 1;
-        argDA.Set();
 
         TextFormatArg argDB;
         argDB = new TextFormatArg();
@@ -462,20 +459,18 @@ class Demo : Any
         argDB.Base = 10;
         argDB.Sign = 2;
         argDB.FillChar = ':';
-        argDB.Set();
 
         TextFormatArg argE;
         argE = new TextFormatArg();
         argE.Init();
         argE.Pos = 10;
         argE.Kind = 3;
-        argE.ValueString = "F Hre a";
+        argE.ValueText = this.TextInfra.TextCreateString("F Hre a", null);
         argE.AlignLeft = true;
         argE.FieldWidth = 11;
         argE.MaxWidth = 10;
         argE.Case = 2;
         argE.FillChar = '=';
-        argE.Set();
 
         TextFormatArg argF;
         argF = new TextFormatArg();
@@ -487,20 +482,17 @@ class Demo : Any
         argF.FieldWidth = 10;
         argF.MaxWidth = -1;
         argF.FillChar = 'O';
-        argF.Set();
 
-        TextFormatArgList argList;
-        argList = new TextFormatArgList();
-        argList.Count = 8;
-        argList.Init();
-        argList.SetItem(0, argA);
-        argList.SetItem(1, argB);
-        argList.SetItem(2, argC);
-        argList.SetItem(3, argD);
-        argList.SetItem(4, argDA);
-        argList.SetItem(5, argDB);
-        argList.SetItem(6, argE);
-        argList.SetItem(7, argF);
+        Array argList;
+        argList = this.ListInfra.ArrayCreate(8);
+        argList.Set(0, argA);
+        argList.Set(1, argB);
+        argList.Set(2, argC);
+        argList.Set(3, argD);
+        argList.Set(4, argDA);
+        argList.Set(5, argDB);
+        argList.Set(6, argE);
+        argList.Set(7, argF);
 
         Text varBase;
         varBase = this.TextInfra.TextCreateString("G H , j h\n\n", null);
@@ -521,17 +513,6 @@ class Demo : Any
         a = this.TextInfra.StringCreate(text);
 
         this.Console.Out.Write(a);
-
-        format.Final();
-        argList.Final();
-        argF.Final();
-        argE.Final();
-        argDB.Final();
-        argDA.Final();
-        argD.Final();
-        argC.Final();
-        argB.Final();
-        argA.Final();
         return true;
     }
 
