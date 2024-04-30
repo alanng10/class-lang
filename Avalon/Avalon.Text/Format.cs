@@ -270,7 +270,7 @@ public class Format : Any
 
     protected virtual bool CheckKind(int kind)
     {
-        return this.InfraInfra.CheckIndex(5, kind);
+        return this.InfraInfra.CheckIndex(this.CountState.Count, kind);
     }
 
     protected virtual bool CheckIntBase(int varBase)
