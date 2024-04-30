@@ -161,32 +161,10 @@ public class Infra : Any
         return true;
     }
 
-    public virtual bool TextEqualString(Text text, string o, Range range)
+    public virtual bool TextEqualString(Text text, string o, int stringIndex)
     {
-        int stringIndex;
-        int stringCount;
-        stringIndex = 0;
-        stringCount = 0;
-        bool b;
-        b = (range == null);
-        if (b)
-        {
-            stringIndex = 0;
-            stringCount = o.Length;
-        }
-        if (!b)
-        {
-            stringIndex = range.Index;
-            stringCount = range.Count;
-        }
-
         int count;
         count = text.Range.Count;
-        if (!(count == stringCount))
-        {
-            return false;
-        }
-
         int start;
         start = text.Range.Index;
         int index;
