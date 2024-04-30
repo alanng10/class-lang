@@ -4183,7 +4183,7 @@ public class Create : InfraCreate
         text = this.Text;
         this.TextGet(text, aa);
         bool b;
-        b = this.ClassInfra.Equal(text, value);
+        b = this.TextInfra.TextEqualString(text, value, null);
         bool a;
         a = b;
         return a;
