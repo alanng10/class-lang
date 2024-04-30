@@ -209,6 +209,29 @@ public class Format : Any
         return true;
     }
 
+    public virtual bool ResultFill(Text dest, int fillIndex, int fillCount, char fillChar)
+    {
+        Infra textInfra;
+        textInfra = this.TextInfra;
+        Data destData;
+        destData = dest.Data;
+        int destStart;
+        destStart = dest.Range.Index;
+        int index;
+        index = 0;
+        int count;
+        count = fillCount;
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            index = destStart + fillIndex + i;
+            textInfra.DataCharSet(destData, index, fillChar);
+            i = i + 1;
+        }
+        return true;
+    }
+
     public virtual int IntDigitCount(long value, int varBase)
     {
         long mask;
