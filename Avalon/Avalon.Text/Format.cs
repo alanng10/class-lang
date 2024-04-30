@@ -68,6 +68,48 @@ public class Format : Any
 
     public virtual bool ExecuteArgCount(FormatArg arg)
     {
+        int kind;
+        kind = arg.Kind;
+
+        FormatCountState state;
+        state = (FormatCountState)this.CountState.Get(kind);
+
+        state.Arg = arg;
+        state.Execute();
+
+        int valueCount;
+        valueCount = state.Result;
+
+        int fieldWidth;
+        fieldWidth = arg.FieldWidth;
+
+        int maxWidth;
+        maxWidth = arg.MaxWidth;
+
+        long u;
+        u = maxWidth;
+        u = u << 4;
+        u = u >> 4;
+
+        int count;
+        count = valueCount;
+
+        if (count < fieldWidth)
+        {
+            count = fieldWidth;
+        }
+
+        if (!(u == -1))
+        {
+            if (maxWidth < count)
+            {
+                count = maxWidth;
+            }
+        }
+
+        arg.HasCount = true;
+        arg.ValueCount = valueCount;
+        arg.Count = count;
         return true;
     }
 
