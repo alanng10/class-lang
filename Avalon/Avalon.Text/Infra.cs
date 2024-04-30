@@ -161,12 +161,43 @@ public class Infra : Any
         return true;
     }
 
-    public virtual bool TextEqualString(Text text, string o, int stringIndex)
+    public virtual bool TextEqualString(Text text, string other, Range otherRange)
     {
-        Data textData;
-        textData = text.Data;
+        if (!this.CheckRange(text))
+        {
+            return false;
+        }
+
+        int otherIndex;
+        int otherCount;
+        otherIndex = 0;
+        otherCount = 0;
+        bool b;
+        b = (otherRange == null);
+        if (b)
+        {
+            otherIndex = 0;
+            otherCount = other.Length;
+        }
+        if (!b)
+        {
+            otherIndex = otherRange.Index;
+            otherCount = otherRange.Count;
+            if (!this.InfraInfra.CheckRange(other.Length, otherIndex, otherCount))
+            {
+                return false;
+            }
+        }
+
         int count;
         count = text.Range.Count;
+        if (!(count == otherCount))
+        {
+            return false;
+        }
+
+        Data textData;
+        textData = text.Data;
         int start;
         start = text.Range.Index;
         int i;
@@ -175,13 +206,13 @@ public class Infra : Any
         {
             int index;
             index = start + i;
-            int otherIndex;
-            otherIndex = stringIndex + i;
+            int indexA;
+            indexA = otherIndex + i;
 
             char oca;
             oca = this.DataCharGet(textData, index);
             char ocb;
-            ocb = o[otherIndex];
+            ocb = other[indexA];
             
             if (!(oca == ocb))
             {
@@ -194,6 +225,15 @@ public class Infra : Any
 
     public virtual bool TextEqualText(Text text, Text other)
     {
+        if (!this.CheckRange(text))
+        {
+            return false;
+        }
+        if (!this.CheckRange(other))
+        {
+            return false;
+        }
+
         Data textData;
         textData = text.Data;
         Data otherData;
