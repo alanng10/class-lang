@@ -34,6 +34,14 @@ public class Infra : Any
     public virtual char PathCombine { get { return __D_PathCombine; } set { __D_PathCombine = value; } }
     protected char __D_PathCombine;
 
+    public virtual long Int60(long a)
+    {
+        long mask;
+        mask = this.IntCapValue - 1;
+        a = a & mask;
+        return a;
+    }
+
     public virtual bool CheckIndex(int count, int index)
     {
         return this.CheckRange(count, index, 1);
