@@ -162,8 +162,14 @@ public class Format : Any
             return false;
         }
 
+        int kind;
+        kind = arg.Kind;
+        FormatResultState state;
+        state = (FormatResultState)this.ResultState.Get(kind);
 
-        
+        state.Arg = arg;
+        state.ArgResult = result;
+        state.Execute();
         return true;
     }
 
