@@ -73,6 +73,11 @@ public class Format : Any
         int kind;
         kind = arg.Kind;
 
+        if (!this.CheckKind(kind))
+        {
+            return false;
+        }
+
         if (kind == 1 | kind == 2)
         {
             if (!this.CheckIntBase(arg.Base))
@@ -261,6 +266,11 @@ public class Format : Any
         int a;
         a = digitCount;
         return a;
+    }
+
+    protected virtual bool CheckKind(int kind)
+    {
+        return this.InfraInfra.CheckIndex(5, kind);
     }
 
     protected virtual bool CheckIntBase(int varBase)
