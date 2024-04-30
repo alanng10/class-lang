@@ -5,12 +5,10 @@ public class CharFormatResultState : FormatResultState
     public override bool Init()
     {
         base.Init();
-        this.TextInfra = Infra.This;
-        this.CharText = this.TextInfra.TextCreate(1);
+        this.CharText = this.Format.TextInfra.TextCreate(1);
         return true;
     }
 
-    protected virtual Infra TextInfra { get; set; }
     protected virtual Text CharText { get; set; }
 
     public override bool Execute()
@@ -56,7 +54,7 @@ public class CharFormatResultState : FormatResultState
 
         Text valueText;
         valueText = this.CharText;
-        this.TextInfra.DataCharSet(valueText.Data, 0, valueChar);
+        format.TextInfra.DataCharSet(valueText.Data, 0, valueChar);
 
         int fillStart;
         fillStart = 0;
