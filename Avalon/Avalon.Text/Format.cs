@@ -57,10 +57,10 @@ public class Format : Any
         this.ArrayIndex = 0;
 
         this.ResultStateAdd(new BoolFormatResultState());
-        this.ResultStateAdd(new IntFormatCountState());
-        this.ResultStateAdd(new SIntFormatCountState());
-        this.ResultStateAdd(new TextFormatCountState());
-        this.ResultStateAdd(new CharFormatCountState());
+        this.ResultStateAdd(null);
+        this.ResultStateAdd(null);
+        this.ResultStateAdd(null);
+        this.ResultStateAdd(new CharFormatResultState());
         return true;
     }
 
@@ -172,13 +172,10 @@ public class Format : Any
         Infra textInfra;
         textInfra = this.TextInfra;
 
-        Text dest;
-        dest = result;
-
         Data destData;
-        destData = dest.Data;
+        destData = result.Data;
         int destStart;
-        destStart = dest.Range.Index;
+        destStart = result.Range.Index;
 
         string source;
         source = null;
@@ -201,8 +198,6 @@ public class Format : Any
         aa = 0;
         int index;
         index = 0;
-        int k;
-        k = 0;
         int count;
         count = valueWriteCount;
         int i;
@@ -227,9 +222,65 @@ public class Format : Any
             }
             oc = (char)aa;
 
-            k = destIndex + i;
+            textInfra.DataCharSet(destData, destIndex + i, oc);
 
-            textInfra.DataCharSet(destData, k, oc);
+            i = i + 1;
+        }
+        return true;
+    }
+
+    public virtual bool ResultString(Text result, Text value, int varCase, int valueWriteCount, int valueStart, int valueIndex)
+    {
+        Infra textInfra;
+        textInfra = this.TextInfra;
+
+        Data sourceData;
+        sourceData = value.Data;
+        int sourceStart;
+        sourceStart = value.Range.Index;
+
+        Data destData;
+        destData = result.Data;
+        int destStart;
+        destStart = result.Range.Index;
+
+        int sourceIndex;
+        sourceIndex = sourceStart + valueIndex;
+        int destIndex;
+        destIndex = destStart + valueStart;
+        char ouc;
+        ouc = (char)0;
+        char oc;
+        oc = (char)0;
+        int aa;
+        aa = 0;
+        int count;
+        count = valueWriteCount;
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            ouc = textInfra.DataCharGet(sourceData, sourceIndex + i);
+
+            aa = ouc;
+
+            if (varCase == 1)
+            {
+                if (textInfra.IsLetter(ouc, true))
+                {
+                    aa = ouc - 'A' + 'a';
+                }
+            }
+            if (varCase == 2)
+            {
+                if (textInfra.IsLetter(ouc, false))
+                {
+                    aa = ouc - 'a' + 'A';
+                }
+            }
+            oc = (char)aa;
+
+            textInfra.DataCharSet(destData, destIndex + i, oc);
 
             i = i + 1;
         }
