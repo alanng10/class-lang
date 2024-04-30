@@ -2,15 +2,6 @@ namespace Avalon.Text;
 
 public class SIntFormatResultState : FormatResultState
 {
-    public override bool Init()
-    {
-        base.Init();
-        this.InfraInfra = InfraInfra.This;
-        return true;
-    }
-
-    protected virtual InfraInfra InfraInfra { get; set; }
-
     public override bool Execute()
     {
         FormatArg arg;
