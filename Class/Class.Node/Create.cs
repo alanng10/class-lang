@@ -4483,6 +4483,10 @@ public class Create : InfraCreate
 
     protected virtual int BackwardSkipBracket(int index, int start)
     {
+        TextInfra textInfra;
+        textInfra = this.TextInfra;
+        DelimitList delimit;
+        delimit = this.Delimit;
         int ret;
         ret = -1;
         int t;
@@ -4492,7 +4496,7 @@ public class Create : InfraCreate
         Text text;
         text = this.Text;
         this.TextGet(text, aa);
-        if (this.ClassInfra.Equal(text, this.Delimit.RightBracket.Text))
+        if (textInfra.TextEqualString(text, delimit.RightBracket.Text, null))
         {
             Token leftBracket;
             leftBracket = this.TokenMatchRightBracket(this.TokenA, this.Range(this.RangeA, start, t));
@@ -4501,7 +4505,7 @@ public class Create : InfraCreate
                 ret = leftBracket.Range.Start;
             }
         }
-        if (this.ClassInfra.Equal(text, this.Delimit.RightBrace.Text))
+        if (textInfra.TextEqualString(text, delimit.RightBrace.Text, null))
         {
             Token leftBrace;
             leftBrace = this.TokenMatchRightBrace(this.TokenA, this.Range(this.RangeA, start, t));
