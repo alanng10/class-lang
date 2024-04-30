@@ -16,8 +16,10 @@ public class Format : Any
     protected Infra __D_TextInfra;
     protected virtual Array CountState { get { return __D_CountState; } set { __D_CountState = value; } }
     protected Array __D_CountState;
-    private Array Array { get; set; }
-    private int ArrayIndex { get; set; }
+    protected virtual Array Array { get { return __D_Array; } set { __D_Array = value; } }
+    protected Array __D_Array;
+    protected virtual int ArrayIndex { get { return __D_ArrayIndex; } set { __D_ArrayIndex = value; } }
+    protected int __D_ArrayIndex;
 
     protected virtual bool InitCountState()
     {
@@ -29,12 +31,13 @@ public class Format : Any
         this.ArrayIndex = 0;
 
         this.CountStateAdd(new BoolFormatCountState());
+        this.CountStateAdd(new IntFormatCountState());
         this.CountStateAdd(new TextFormatCountState());
         this.CountStateAdd(new CharFormatCountState());
         return true;
     }
 
-    private bool CountStateAdd(FormatCountState state)
+    protected virtual bool CountStateAdd(FormatCountState state)
     {
         state.Format = this;
         state.Init();
@@ -42,7 +45,7 @@ public class Format : Any
         return true;
     }
 
-    private bool ArrayAdd(object item)
+    protected virtual bool ArrayAdd(object item)
     {
         int index;
         index = this.ArrayIndex;

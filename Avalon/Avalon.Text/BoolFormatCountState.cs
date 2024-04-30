@@ -1,6 +1,6 @@
 namespace Avalon.Text;
 
-class BoolFormatCountState : FormatCountState
+public class BoolFormatCountState : FormatCountState
 {
     public override bool Execute()
     {
