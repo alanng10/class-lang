@@ -163,22 +163,25 @@ public class Infra : Any
 
     public virtual bool TextEqualString(Text text, string o, int stringIndex)
     {
+        Data textData;
+        textData = text.Data;
         int count;
         count = text.Range.Count;
         int start;
         start = text.Range.Index;
-        int index;
-        char oca;
-        char ocb;
         int i;
         i = 0;
         while (i < count)
         {
+            int index;
             index = start + i;
+            int otherIndex;
+            otherIndex = stringIndex + i;
 
-            oca = this.DataCharGet(text.Data, index);
-
-            ocb = o[stringIndex + i];
+            char oca;
+            oca = this.DataCharGet(textData, index);
+            char ocb;
+            ocb = o[otherIndex];
             
             if (!(oca == ocb))
             {
