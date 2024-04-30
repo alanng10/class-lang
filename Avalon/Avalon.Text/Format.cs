@@ -115,6 +115,13 @@ public class Format : Any
 
     public virtual bool ExecuteArgResult(FormatArg arg, Text result)
     {
+        if (!this.TextInfra.CheckRange(result))
+        {
+            return false;
+        }
+
+        
+        
         return true;
     }
 
