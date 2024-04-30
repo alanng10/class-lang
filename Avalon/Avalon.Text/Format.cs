@@ -136,6 +136,7 @@ public class Format : Any
         {
             return false;
         }
+        
         Data baseData;
         baseData = varBase.Data;
         Range baseRange;
