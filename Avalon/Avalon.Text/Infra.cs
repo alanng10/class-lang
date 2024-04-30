@@ -161,7 +161,7 @@ public class Infra : Any
         return true;
     }
 
-    public virtual bool TextEqual(Text text, string o, Range range)
+    public virtual bool TextEqualString(Text text, string o, Range range)
     {
         int stringIndex;
         int stringCount;
