@@ -70,33 +70,13 @@ public class Format : Any
 
     public virtual bool ExecuteArgCount(FormatArg arg)
     {
-        int kind;
-        kind = arg.Kind;
-
-        if (!this.CheckKind(kind))
+        if (!this.CheckArg(arg))
         {
             return false;
         }
 
-        if (kind == 1 | kind == 2)
-        {
-            if (!this.CheckIntBase(arg.Base))
-            {
-                return false;
-            }
-        }
-        if (kind == 3)
-        {
-            if (arg.ValueText == null)
-            {
-                return false;
-            }
-            if (!this.TextInfra.CheckRange(arg.ValueText))
-            {
-                return false;
-            }
-        }
-
+        int kind;
+        kind = arg.Kind;
         FormatCountState state;
         state = (FormatCountState)this.CountState.Get(kind);
 
@@ -141,6 +121,10 @@ public class Format : Any
 
     public virtual bool ExecuteArgResult(FormatArg arg, Text result)
     {
+        if (!this.CheckArg(arg))
+        {
+            return false;
+        }
         if (!this.TextInfra.CheckRange(result))
         {
             return false;
@@ -270,6 +254,37 @@ public class Format : Any
         int a;
         a = digitCount;
         return a;
+    }
+
+    protected virtual bool CheckArg(FormatArg arg)
+    {
+        int kind;
+        kind = arg.Kind;
+
+        if (!this.CheckKind(kind))
+        {
+            return false;
+        }
+
+        if (kind == 1 | kind == 2)
+        {
+            if (!this.CheckIntBase(arg.Base))
+            {
+                return false;
+            }
+        }
+        if (kind == 3)
+        {
+            if (arg.ValueText == null)
+            {
+                return false;
+            }
+            if (!this.TextInfra.CheckRange(arg.ValueText))
+            {
+                return false;
+            }
+        }
+        return true;
     }
 
     protected virtual bool CheckKind(int kind)
