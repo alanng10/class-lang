@@ -7,11 +7,19 @@ public class BoolFormatCountState : FormatCountState
         FormatArg arg;
         arg = (FormatArg)this.Arg;
         
+        Format format;
+        format = this.Format;
+        bool b;
+        b = arg.ValueBool;
         int a;
-        a = "false".Length;
-        if (arg.ValueBool)
+        a = 0;
+        if (!b)
         {
-            a = "true".Length;
+            a = format.BoolFalseString.Length;
+        }
+        if (b)
+        {
+            a = format.BoolTrueString.Length;
         }
         this.Result = a;
         return true;
