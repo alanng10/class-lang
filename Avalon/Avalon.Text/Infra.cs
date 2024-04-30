@@ -163,11 +163,6 @@ public class Infra : Any
 
     public virtual bool TextEqualString(Text text, string o, Range range)
     {
-        if (!this.CheckRange(text))
-        {
-            return false;
-        }
-
         int stringIndex;
         int stringCount;
         stringIndex = 0;
@@ -183,10 +178,6 @@ public class Infra : Any
         {
             stringIndex = range.Index;
             stringCount = range.Count;
-            if (!this.InfraInfra.CheckRange(o.Length, stringIndex, stringCount))
-            {
-                return false;
-            }
         }
 
         int count;
