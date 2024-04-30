@@ -46,8 +46,8 @@ public class SIntFormatCountState : FormatCountState
             oa = -oa;
         }
 
-        long ua;
-        ua = oa;
+        ulong ua;
+        ua = (ulong)oa;
 
         int count;
         count = this.Format.IntDigitCount(ua, varBase);

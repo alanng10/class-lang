@@ -19,9 +19,11 @@ public class IntFormatCountState : FormatCountState
         long value;
         value = arg.ValueInt;
         value = this.InfraInfra.Int60(value);
+        ulong o;
+        o = (ulong)value;
 
         int count;
-        count = this.Format.IntDigitCount(value, arg.Base);
+        count = this.Format.IntDigitCount(o, arg.Base);
         this.Result = count;
         return true;
     }

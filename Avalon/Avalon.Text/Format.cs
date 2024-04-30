@@ -413,16 +413,18 @@ public class Format : Any
         return a;
     }
 
-    public virtual int IntDigitCount(long value, int varBase)
+    public virtual int IntDigitCount(ulong value, int varBase)
     {
         int digitCount;
         digitCount = 0;
 
-        long oa;
+        ulong ca;
+        ca = (ulong)varBase;
+        ulong oa;
         oa = value;
         while (0 < oa)
         {
-            oa = oa / varBase;
+            oa = oa / ca;
             digitCount = digitCount + 1;
         }
 
