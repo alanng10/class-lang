@@ -970,6 +970,24 @@ public class StateTraverse : Traverse
         return true;
     }
 
+    public override bool ExecuteBitRightOperate(BitRightOperate bitRightOperate)
+    {
+        if (bitRightOperate == null)
+        {
+            return true;
+        }
+
+        Operate value;
+        value = bitRightOperate.Value;
+        Operate count;
+        count = bitRightOperate.Count;
+
+        base.ExecuteBitRightOperate(bitRightOperate);
+
+        this.ExecuteTwoOperandOperate(bitRightOperate, value, count, this.System.Int, this.System.Int);
+        return true;
+    }
+
     public override bool ExecuteEqualOperate(EqualOperate equalOperate)
     {
         if (equalOperate == null)
