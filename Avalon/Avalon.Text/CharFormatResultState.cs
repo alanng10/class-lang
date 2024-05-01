@@ -9,7 +9,8 @@ public class CharFormatResultState : FormatResultState
         return true;
     }
 
-    protected virtual Text CharText { get; set; }
+    protected virtual Text CharText { get { return __D_CharText; } set { __D_CharText = value; } }
+    protected Text __D_CharText;
 
     public override bool Execute()
     {
