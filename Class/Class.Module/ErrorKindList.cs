@@ -35,6 +35,7 @@ public class ErrorKindList : Any
         this.ArgueUnassignable = this.AddItem("ArgueUnassignable");
         this.AnyUndefined = this.AddItem("AnyUndefined");
         this.CastUnachievable = this.AddItem("CastUnachievable");
+        this.EqualUnachievable = this.AddItem("EqualUnachievable");
         this.CondUndefined = this.AddItem("CondUndefined");
         this.CondUnassignable = this.AddItem("CondUnassignable");
         this.ResultUndefined = this.AddItem("ResultUndefined");
@@ -71,6 +72,8 @@ public class ErrorKindList : Any
     protected ErrorKind __D_AnyUndefined;
     public virtual ErrorKind CastUnachievable { get { return __D_CastUnachievable; } set { __D_CastUnachievable = value; } }
     protected ErrorKind __D_CastUnachievable;
+    public virtual ErrorKind EqualUnachievable { get { return __D_EqualUnachievable; } set { __D_EqualUnachievable = value; } }
+    protected ErrorKind __D_EqualUnachievable;
     public virtual ErrorKind CondUndefined { get { return __D_CondUndefined; } set { __D_CondUndefined = value; } }
     protected ErrorKind __D_CondUndefined;
     public virtual ErrorKind CondUnassignable { get { return __D_CondUnassignable; } set { __D_CondUnassignable = value; } }
@@ -105,7 +108,7 @@ public class ErrorKindList : Any
     protected virtual Array Array { get { return __D_Array; } set { __D_Array = value; } }
     protected Array __D_Array;
 
-    protected virtual int ArrayCount { get { return 19; } set { } }
+    protected virtual int ArrayCount { get { return 20; } set { } }
     protected int __D_ArrayCount;
 
     public virtual int Count { get { return __D_Count; } set { __D_Count = value; } }
