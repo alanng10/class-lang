@@ -37,7 +37,6 @@ public class Infra : Any
         mode = new Mode();
         mode.Init();
         mode.Read = true;
-        mode.Existing = true;
 
         storage.Path = filePath;
         storage.Mode = mode;
