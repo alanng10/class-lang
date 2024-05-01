@@ -1,10 +1,10 @@
 BracketOperate
 {
-    Operate : ValueOperate
-              {
-                  Value : IntValue
-                          {
-                              Value : 1,
-                          },
-              },
+    Any : ValueOperate
+          {
+              Value : IntValue
+                      {
+                          Value : 1,
+                      },
+          },
 },
