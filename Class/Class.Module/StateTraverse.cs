@@ -969,21 +969,27 @@ public class StateTraverse : Traverse
             {
                 int boolCount;
                 boolCount = this.ClassEqualCount(leftClass, rightClass, this.System.Bool);
-                if (boolCount == 1)
+                if (0 < boolCount)
                 {
-                    this.Error(this.ErrorKind.EqualUnachievable, equalOperate);
+                    b = true;
+                    if (boolCount == 1)
+                    {
+                        this.Error(this.ErrorKind.EqualUnachievable, equalOperate);
+                    }
                 }
-                b = true;
             }
             if (!b)
             {
                 int intCount;
                 intCount = this.ClassEqualCount(leftClass, rightClass, this.System.Int);
-                if (intCount == 1)
+                if (0 < intCount)
                 {
-                    this.Error(this.ErrorKind.EqualUnachievable, equalOperate);
+                    b = true;
+                    if (intCount == 1)
+                    {
+                        this.Error(this.ErrorKind.EqualUnachievable, equalOperate);
+                    }
                 }
-                b = true;
             }
         }
 
@@ -1348,9 +1354,7 @@ public class StateTraverse : Traverse
         }
         return true;
     }
-
-
-
+    
     protected virtual bool ArgueMatch(Maide maide, Argue argue)
     {
         int count;
