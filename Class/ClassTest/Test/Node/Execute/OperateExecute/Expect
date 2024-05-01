@@ -1,10 +1,10 @@
 OperateExecute
 {
-    Operate : VarOperate
-              {
-                  Var : VarName
-                        {
-                            Value : "i",
-                        },
-              },
+    Any : VarOperate
+          {
+              Var : VarName
+                    {
+                        Value : "i",
+                    },
+          },
 },
