@@ -50,25 +50,15 @@ public class Infra : Any
         return end - start;
     }
 
-    public virtual bool CheckRange(int count, Range range)
+    public virtual bool CheckRange(int totalCount, Range range)
     {
         int start;
         int end;
         start = range.Start;
         end = range.End;
-        if (start < 0)
-        {
-            return false;
-        }
-        if (end < start)
-        {
-            return false;
-        }
-        if (count < end)
-        {
-            return false;
-        }
-        return true;
+        int count;
+        count = this.Count(start, end);
+        return this.InfraInfra.CheckRange(totalCount, start, count);
     }
 
     public virtual Table TableCreateStringCompare()
