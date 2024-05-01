@@ -53,6 +53,7 @@ public class ClassTraverse : Traverse
         a.Maide = this.ClassInfra.TableCreateStringCompare();
         a.Module = this.Module;
         a.Index = this.Source.Index;
+        a.Any = nodeClass;
         
         this.ListInfra.TableAdd(this.Module.Class, a.Name, a);
         this.ListInfra.TableAdd(table, a.Name, a);

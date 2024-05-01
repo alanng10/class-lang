@@ -117,7 +117,7 @@ public class Create : InfraCreate
     {
         Traverse traverse;
         traverse = this.InitTraverse();
-        this.ExecuteTraverse(traverse);
+        this.ExecuteRootTraverse(traverse);
         return true;
     }
 
@@ -134,7 +134,7 @@ public class Create : InfraCreate
     {
         Traverse traverse;
         traverse = this.ClassTraverse();
-        this.ExecuteTraverse(traverse);
+        this.ExecuteRootTraverse(traverse);
         return true;
     }
 
@@ -316,7 +316,7 @@ public class Create : InfraCreate
     {
         Traverse traverse;
         traverse = this.MemberTraverse();
-        this.ExecuteTraverse(traverse);
+        this.ExecuteClassTraverse(traverse);
         return true;
     }
 
@@ -638,7 +638,7 @@ public class Create : InfraCreate
     {
         Traverse traverse;
         traverse = this.StateTraverse();
-        this.ExecuteTraverse(traverse);
+        this.ExecuteClassTraverse(traverse);
         return true;
     }
 
@@ -651,7 +651,7 @@ public class Create : InfraCreate
         return a;
     }
 
-    protected virtual bool ExecuteTraverse(Traverse traverse)
+    protected virtual bool ExecuteRootTraverse(Traverse traverse)
     {
         int count;
         count = this.Source.Count;
@@ -665,22 +665,40 @@ public class Create : InfraCreate
             Source source;
             source = this.SourceGet(i);
 
-            this.TreeTraverse(traverse, root, source);
+            if (!(root == null))
+            {
+                NodeClass nodeClass;
+                nodeClass = (NodeClass)root;
+                this.ExecuteTraverse(traverse, nodeClass, source);
+            }
             i = i + 1;
         }
         return true;
     }
 
-    protected virtual bool TreeTraverse(Traverse traverse, NodeNode root, Source source)
+    protected virtual bool ExecuteClassTraverse(Traverse traverse)
     {
-        if (root == null)
+        Table table;
+        table = this.Module.Class;
+        Iter iter;
+        iter = table.IterCreate();
+        table.IterSet(iter);
+        while (iter.Next())
         {
-            return true;
+            ClassClass varClass;
+            varClass = (ClassClass)iter.Value;
+            Source source;
+            source = this.SourceGet(varClass.Index);
+            NodeClass nodeClass;
+            nodeClass = (NodeClass)varClass.Any;
+
+            this.ExecuteTraverse(traverse, nodeClass, source);
         }
+        return true;
+    }
 
-        NodeClass nodeClass;
-        nodeClass = (NodeClass)root;
-
+    protected virtual bool ExecuteTraverse(Traverse traverse, NodeClass nodeClass, Source source)
+    {
         traverse.Source = source;
         traverse.ExecuteClass(nodeClass);
         return true;

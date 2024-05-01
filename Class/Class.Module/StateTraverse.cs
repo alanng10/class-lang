@@ -46,11 +46,6 @@ public class StateTraverse : Traverse
 
         this.ThisClass = this.Info(varClass).Class;
 
-        if (this.ThisClass == null)
-        {
-            return true;
-        }
-
         base.ExecuteClass(varClass);
         return true;
     }

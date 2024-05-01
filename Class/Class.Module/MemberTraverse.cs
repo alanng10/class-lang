@@ -24,11 +24,6 @@ public class MemberTraverse : Traverse
 
         this.ThisClass = this.Info(nodeClass).Class;
 
-        if (this.ThisClass == null)
-        {
-            return true;
-        }
-
         base.ExecuteClass(nodeClass);
         return true;
     }
