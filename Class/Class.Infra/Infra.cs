@@ -50,12 +50,8 @@ public class Infra : Any
         return end - start;
     }
 
-    public virtual bool CheckRange(int totalCount, Range range)
+    public virtual bool CheckRange(int totalCount, int start, int end)
     {
-        int start;
-        int end;
-        start = range.Start;
-        end = range.End;
         int count;
         count = this.Count(start, end);
         return this.InfraInfra.CheckRange(totalCount, start, count);
