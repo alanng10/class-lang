@@ -810,13 +810,6 @@ public class StateTraverse : Traverse
             nullCount = this.ClassEqualCount(leftClass, rightClass, this.NullClass);
             if (!b)
             {
-                if (nullCount == 2)
-                {
-                    b = true;
-                }
-            }
-            if (!b)
-            {
                 int boolCount;
                 boolCount = this.ClassEqualCount(leftClass, rightClass, this.System.Bool);
                 if (0 < boolCount)
