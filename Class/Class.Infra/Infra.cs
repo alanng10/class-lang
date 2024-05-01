@@ -77,13 +77,13 @@ public class Infra : Any
         return a;
     }
 
-    public virtual ModuleRef ModuleRefCreate(string name, long ver)
+    public virtual ModuleRef ModuleRefCreate(string name, long version)
     {
         ModuleRef a;
         a = new ModuleRef();
         a.Init();
         a.Name = name;
-        a.Version = ver;
+        a.Version = version;
         return a;
     }
 
