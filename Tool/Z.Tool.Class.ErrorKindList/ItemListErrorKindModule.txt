@@ -12,6 +12,7 @@ MaideUndefined
 ArgueUnassignable
 AnyUndefined
 CastUnachievable
+EqualUnachievable
 CondUndefined
 CondUnassignable
 ResultUndefined
