@@ -22,17 +22,17 @@ public class Infra : Any
         o = 1;
         o = o << 60;
         this.IntCapValue = o;
-        this.NewLine = '\n';
-        this.PathCombine = '/';
+        this.NewLine = "\n";
+        this.PathCombine = "/";
         return true;
     }
 
     public virtual long IntCapValue { get { return __D_IntCapValue; } set { __D_IntCapValue = value; } }
     protected long __D_IntCapValue;
-    public virtual char NewLine { get { return __D_NewLine; } set { __D_NewLine = value; } }
-    protected char __D_NewLine;
-    public virtual char PathCombine { get { return __D_PathCombine; } set { __D_PathCombine = value; } }
-    protected char __D_PathCombine;
+    public virtual string NewLine { get { return __D_NewLine; } set { __D_NewLine = value; } }
+    protected string __D_NewLine;
+    public virtual string PathCombine { get { return __D_PathCombine; } set { __D_PathCombine = value; } }
+    protected string __D_PathCombine;
 
     public virtual long Int60(long a)
     {
