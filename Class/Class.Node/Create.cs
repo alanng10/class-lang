@@ -1981,10 +1981,6 @@ public class Create : InfraCreate
         }
         if (a == null)
         {
-            a = this.ExecuteEqualOperate(this.Range(this.RangeA, start, end));
-        }
-        if (a == null)
-        {
             a = this.ExecuteAndOperate(this.Range(this.RangeA, start, end));
         }
         if (a == null)
@@ -1994,6 +1990,10 @@ public class Create : InfraCreate
         if (a == null)
         {
             a = this.ExecuteNotOperate(this.Range(this.RangeA, start, end));
+        }
+        if (a == null)
+        {
+            a = this.ExecuteEqualOperate(this.Range(this.RangeA, start, end));
         }
         if (a == null)
         {
