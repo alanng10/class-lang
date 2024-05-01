@@ -928,96 +928,82 @@ public class StateTraverse : Traverse
             return true;
         }
 
-
-
-
-
         Operate left;
-
         left = equalOperate.Left;
-
-
-
-
         Operate right;
-
         right = equalOperate.Right;
-
-
-
 
         base.ExecuteEqualOperate(equalOperate);
 
 
-
-
+        bool hasOperandUndefined;
+        hasOperandUndefined = false;
 
         ClassClass leftClass;
-
         leftClass = null;
-
-
-
         if (!(left == null))
         {
             leftClass = this.Info(left).OperateClass;
+            if (leftClass == null)
+            {
+                hasOperandUndefined = this.UniqueError(this.ErrorKind.OperandUndefined, equalOperate, hasOperandUndefined);
+            }
         }
 
-
-
-
         ClassClass rightClass;
-
         rightClass = null;
-
-
-
         if (!(right == null))
         {
             rightClass = this.Info(right).OperateClass;
+            if (rightClass == null)
+            {
+                hasOperandUndefined = this.UniqueError(this.ErrorKind.OperandUndefined, equalOperate, hasOperandUndefined);
+            }
         }
 
-
-
-
-
-
-
-        bool hasOperandUndefined;
-
-
-
-        hasOperandUndefined = false;
-
-
-
-
-
-        if (leftClass == null)
+        bool b;
+        b = false;
+        if (!(leftClass == null) & !(rightClass == null))
         {
-            hasOperandUndefined = this.UniqueError(this.ErrorKind.OperandUndefined, equalOperate, hasOperandUndefined);
+            if (!b)
+            {
+                int boolCount;
+                boolCount = this.ClassEqualCount(leftClass, rightClass, this.System.Bool);
+                if (boolCount == 1)
+                {
+                    this.Error(this.ErrorKind.EqualUnachievable, equalOperate);
+                }
+                b = true;
+            }
+            if (!b)
+            {
+                int intCount;
+                intCount = this.ClassEqualCount(leftClass, rightClass, this.System.Int);
+                if (intCount == 1)
+                {
+                    this.Error(this.ErrorKind.EqualUnachievable, equalOperate);
+                }
+                b = true;
+            }
         }
-
-
-
-
-
-        if (rightClass == null)
-        {
-            hasOperandUndefined = this.UniqueError(this.ErrorKind.OperandUndefined, equalOperate, hasOperandUndefined);
-        }
-
-
-
-        
-
 
         this.Info(equalOperate).OperateClass = this.System.Bool;
-
-
-
-
         return true;
+    }
+
+    protected virtual int ClassEqualCount(ClassClass left, ClassClass right, ClassClass equalClass)
+    {
+        int a;
+        a = 0;
+        if (left == equalClass)
+        {
+            a = a + 1;
+        }
+        if (right == equalClass)
+        {
+            a = a + 1;
+        }
+        return a;
     }
 
     protected virtual bool ExecuteTwoOperandOperate(Operate operate, Operate left, Operate right, ClassClass resultClass, ClassClass operandClass)
