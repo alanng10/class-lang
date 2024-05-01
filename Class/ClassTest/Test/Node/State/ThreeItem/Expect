@@ -3,13 +3,13 @@ State
     Value : [
                 OperateExecute
                 {
-                    Operate : VarOperate
-                              {
-                                  Var : VarName
-                                        {
-                                            Value : "o",
-                                        },
-                              },
+                    Any : VarOperate
+                          {
+                              Var : VarName
+                                    {
+                                        Value : "o",
+                                    },
+                          },
                 },
                 InfExecute
                 {
