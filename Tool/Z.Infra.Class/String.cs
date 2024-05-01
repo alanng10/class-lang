@@ -43,7 +43,7 @@ public class String : Any
         return o.Substring(index, count);
     }
 
-    public virtual bool C_Equal(string o, Range range, string other, int otherIndex)
+    public virtual bool C_Equal(string o, Range range, string other, Range otherRange)
     {
         int thisIndex;
         int thisCount;
@@ -66,16 +66,39 @@ public class String : Any
             }
         }
 
-        if (!this.InfraInfra.CheckRange(other.Length, otherIndex, thisCount))
+        int otherIndex;
+        int otherCount;
+        otherIndex = 0;
+        otherCount = 0;
+        bool bb;
+        bb = (otherRange == null);
+        if (bb)
+        {
+            otherIndex = 0;
+            otherCount = other.Length;
+        }
+        if (!bb)
+        {
+            otherIndex = otherRange.Index;
+            otherCount = otherRange.Count;
+            if (!this.InfraInfra.CheckRange(other.Length, otherIndex, otherCount))
+            {
+                return false;
+            }
+        }
+
+        if (!(thisCount == otherCount))
         {
             return false;
         }
 
+        int count;
+        count = thisCount;
         char oca;
         char ocb;
         int i;
         i = 0;
-        while (i < thisCount)
+        while (i < count)
         {
             oca = o[thisIndex + i];
             ocb = other[otherIndex + i];
