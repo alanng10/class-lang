@@ -1,9 +1,9 @@
 --------------------------------------------------
-Kind: OperateInvalid
+Kind: AnyInvalid
 Range: (0, 0)
 Source: Code
 --------------------------------------------------
 OperateExecute
 {
-    Operate : null,
+    Any : null,
 },
