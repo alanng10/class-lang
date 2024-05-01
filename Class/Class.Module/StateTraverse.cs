@@ -752,26 +752,7 @@ public class StateTraverse : Traverse
 
         base.ExecuteNotOperate(notOperate);
 
-        ClassClass valueClass;
-        valueClass = null;
-        if (!(value == null))
-        {
-            valueClass = this.Info(value).OperateClass;
-            if (valueClass == null)
-            {
-                this.Error(this.ErrorKind.OperandUndefined, notOperate);
-            }
-        }
-
-        if (!(valueClass == null))
-        {
-            if (!this.CheckClass(valueClass, this.System.Bool))
-            {
-                this.Error(this.ErrorKind.OperandUnassignable, notOperate);
-            }
-        }
-
-        this.Info(notOperate).OperateClass = this.System.Bool;
+        this.ExecuteOneOperandOperate(notOperate, value, this.System.Bool, this.System.Bool);
         return true;
     }
 
@@ -919,7 +900,41 @@ public class StateTraverse : Traverse
         return true;
     }
 
+    public override bool ExecuteBitAndOperate(BitAndOperate bitAndOperate)
+    {
+        if (bitAndOperate == null)
+        {
+            return true;
+        }
 
+        Operate left;
+        left = bitAndOperate.Left;
+        Operate right;
+        right = bitAndOperate.Right;
+
+        base.ExecuteBitAndOperate(bitAndOperate);
+
+        this.ExecuteTwoOperandOperate(bitAndOperate, left, right, this.System.Int, this.System.Int);
+        return true;
+    }
+
+    public override bool ExecuteBitOrnOperate(BitOrnOperate bitOrnOperate)
+    {
+        if (bitOrnOperate == null)
+        {
+            return true;
+        }
+
+        Operate left;
+        left = bitOrnOperate.Left;
+        Operate right;
+        right = bitOrnOperate.Right;
+
+        base.ExecuteBitOrnOperate(bitOrnOperate);
+
+        this.ExecuteTwoOperandOperate(bitOrnOperate, left, right, this.System.Int, this.System.Int);
+        return true;
+    }
 
     public override bool ExecuteEqualOperate(EqualOperate equalOperate)
     {
@@ -1010,6 +1025,31 @@ public class StateTraverse : Traverse
             a = a + 1;
         }
         return a;
+    }
+
+    protected virtual bool ExecuteOneOperandOperate(Operate operate, Operate value, ClassClass resultClass, ClassClass operandClass)
+    {
+        ClassClass valueClass;
+        valueClass = null;
+        if (!(value == null))
+        {
+            valueClass = this.Info(value).OperateClass;
+            if (valueClass == null)
+            {
+                this.Error(this.ErrorKind.OperandUndefined, operate);
+            }
+        }
+
+        if (!(valueClass == null))
+        {
+            if (!this.CheckClass(valueClass, operandClass))
+            {
+                this.Error(this.ErrorKind.OperandUnassignable, operate);
+            }
+        }
+
+        this.Info(operate).OperateClass = resultClass;
+        return true;
     }
 
     protected virtual bool ExecuteTwoOperandOperate(Operate operate, Operate left, Operate right, ClassClass resultClass, ClassClass operandClass)
@@ -1354,7 +1394,7 @@ public class StateTraverse : Traverse
         }
         return true;
     }
-    
+
     protected virtual bool ArgueMatch(Maide maide, Argue argue)
     {
         int count;
