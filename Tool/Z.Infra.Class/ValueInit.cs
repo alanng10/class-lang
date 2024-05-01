@@ -16,16 +16,16 @@ public class ValueInt : Any
 
     public virtual uint InitBool(uint value)
     {
-        return 1;
+        return BoolValue.True;
     }
 
     public virtual uint InitInt(ulong value)
     {
-        return 1;
+        return BoolValue.True;
     }
 
     public virtual uint InitString(string value)
     {
-        return 1;
+        return BoolValue.True;
     }
 }
