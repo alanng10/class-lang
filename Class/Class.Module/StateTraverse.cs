@@ -446,6 +446,35 @@ public class StateTraverse : Traverse
         return true;
     }
 
+    public override bool ExecuteBaseGetOperate(BaseGetOperate baseGetOperate)
+    {
+        if (getOperate == null)
+        {
+            return true;
+        }
+
+        Operate varThis;
+        varThis = getOperate.This;
+        FieldName nodeField;
+        nodeField = getOperate.Field;
+
+        base.ExecuteGetOperate(getOperate);
+
+        Field field;
+        field = this.ExecuteThisFieldNode(getOperate, varThis, nodeField);
+
+        ClassClass fieldClass;
+        fieldClass = null;
+        if (!(field == null))
+        {
+            fieldClass = field.Class;
+        }
+
+        this.Info(getOperate).GetField = field;
+        this.Info(getOperate).OperateClass = fieldClass;
+        return true;
+    }
+
     public override bool ExecuteCallOperate(CallOperate callOperate)
     {
         if (callOperate == null)
