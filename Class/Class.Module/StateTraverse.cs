@@ -936,6 +936,40 @@ public class StateTraverse : Traverse
         return true;
     }
 
+    public override bool ExecuteBitNotOperate(BitNotOperate bitNotOperate)
+    {
+        if (bitNotOperate == null)
+        {
+            return true;
+        }
+
+        Operate value;
+        value = bitNotOperate.Value;
+
+        base.ExecuteBitNotOperate(bitNotOperate);
+
+        this.ExecuteOneOperandOperate(bitNotOperate, value, this.System.Int, this.System.Int);
+        return true;
+    }
+
+    public override bool ExecuteBitLeftOperate(BitLeftOperate bitLeftOperate)
+    {
+        if (bitLeftOperate == null)
+        {
+            return true;
+        }
+
+        Operate value;
+        value = bitLeftOperate.Value;
+        Operate count;
+        count = bitLeftOperate.Count;
+
+        base.ExecuteBitLeftOperate(bitLeftOperate);
+
+        this.ExecuteTwoOperandOperate(bitLeftOperate, value, count, this.System.Int, this.System.Int);
+        return true;
+    }
+
     public override bool ExecuteEqualOperate(EqualOperate equalOperate)
     {
         if (equalOperate == null)
