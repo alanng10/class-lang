@@ -8,3 +8,7 @@ Null can be assigned to any input of lang elements.
 The inputs include var target, set target and base set target of assignment execute.
 
 Null ref pointer can be assigned to any ref pointer holder declared in any class.
+
+Builtin Bool, Int, and String anys have Init maide that returns Bool true only.
+If root class Any ref pointer holders that have builtin Bool, Int, or String ref pointers are called Init maide then
+the calls are compile errors.
