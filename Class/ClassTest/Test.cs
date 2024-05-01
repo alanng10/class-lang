@@ -220,10 +220,10 @@ public class Test : Any
 
     private bool ExecuteUnit()
     {
-        char oc;
-        oc = this.InfraInfra.PathCombine;
+        string c;
+        c = this.InfraInfra.PathCombine;
 
-        this.UnitFold = this.DataFold + oc + this.Unit.Set.Name + oc + this.Unit.Kind + oc + this.Unit.Name;
+        this.UnitFold = this.DataFold + c + this.Unit.Set.Name + c + this.Unit.Kind + c + this.Unit.Name;
 
         this.Out = new StringOut();
         this.Out.Init();
@@ -249,7 +249,7 @@ public class Test : Any
         actual = actualErr + actualOut;
 
         string actualFile;
-        actualFile = this.UnitFold + oc + "Actual";
+        actualFile = this.UnitFold + c + "Actual";
 
         this.StorageInfra.TextWrite(actualFile, actual);
 
