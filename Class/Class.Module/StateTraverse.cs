@@ -417,6 +417,33 @@ public class StateTraverse : Traverse
         return true;
     }
 
+    public override bool ExecuteBaseSetTarget(BaseSetTarget baseSetTarget)
+    {
+        if (baseSetTarget == null)
+        {
+            return true;
+        }
+
+        FieldName nodeField;
+        nodeField = baseSetTarget.Field;
+
+        base.ExecuteBaseSetTarget(baseSetTarget);
+
+        Field field;
+        field = this.ExecuteBaseFieldNode(baseSetTarget, nodeField);
+
+        ClassClass fieldClass;
+        fieldClass = null;
+        if (!(field == null))
+        {
+            fieldClass = field.Class;
+        }
+
+        this.Info(baseSetTarget).SetField = field;
+        this.Info(baseSetTarget).TargetClass = fieldClass;
+        return true;
+    }
+
     public override bool ExecuteGetOperate(GetOperate getOperate)
     {
         if (getOperate == null)
