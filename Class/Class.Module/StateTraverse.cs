@@ -988,6 +988,24 @@ public class StateTraverse : Traverse
         return true;
     }
 
+    public override bool ExecuteBitSignRightOperate(BitSignRightOperate bitSignRightOperate)
+    {
+        if (bitSignRightOperate == null)
+        {
+            return true;
+        }
+
+        Operate value;
+        value = bitSignRightOperate.Value;
+        Operate count;
+        count = bitSignRightOperate.Count;
+
+        base.ExecuteBitSignRightOperate(bitSignRightOperate);
+
+        this.ExecuteTwoOperandOperate(bitSignRightOperate, value, count, this.System.Int, this.System.Int);
+        return true;
+    }
+
     public override bool ExecuteEqualOperate(EqualOperate equalOperate)
     {
         if (equalOperate == null)
