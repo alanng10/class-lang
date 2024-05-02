@@ -306,7 +306,7 @@ public class Test : Any
         string s;
         s = p + this.ResultSpace + a + this.ResultSpace + u + this.ResultSpace + k + " " + j + "\n";
 
-        SystemConsole.Out.Write(s);
+        this.SystemConsole.Out.Write(s);
         return true;
     }
 
@@ -329,7 +329,7 @@ public class Test : Any
             o = this.PassCount.ToString();
         }
 
-        SystemConsole.Out.Write(o + " " + "Pass" + "\n");
+        this.SystemConsole.Out.Write(o + " " + "Pass" + "\n");
         return true;
     }
 
@@ -341,7 +341,7 @@ public class Test : Any
         string k;
         k = setName.ToUpper();
 
-        SystemConsole.Out.Write("==============================" + " " + s + " " + k + " " + "TEST" + " " + "===============================" + "\n");
+        this.SystemConsole.Out.Write("==============================" + " " + s + " " + k + " " + "TEST" + " " + "===============================" + "\n");
         return true;
     }
 
