@@ -33,7 +33,6 @@ class BinaryGen : Any
             binary = this.ExecuteModule(module);
             this.ListInfra.TableAdd(this.BinaryTable, binary.Ref, binary);
         }
-
         return true;
     }
 
