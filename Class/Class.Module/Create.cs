@@ -796,10 +796,34 @@ public class Create : InfraCreate
 
         ClassClass varClass;
         varClass = (ClassClass)module.Class.Get(entry);
-        
         if (varClass == null)
         {
-            
+            return true;
+        }
+
+        ClassModule h;
+        h = this.ModuleGet("System.Entry");
+        ClassClass ha;
+        ha = this.ModuleClassGet(h, "Entry");
+
+        bool b;
+        b = false;
+        if (!b & !(varClass.Base == ha))
+        {
+            b = true;
+        }
+        if (!b)
+        {
+            if (!module.Export.Contain(entry))
+            {
+                b = true;
+            }
+        }
+        if (b)
+        {
+            NodeClass aa;
+            aa = (NodeClass)varClass.Any;
+            this.Error(this.ErrorKind.EntryUnachievable, aa, this.SourceGet(varClass.Index));
         }
 
         return true;
