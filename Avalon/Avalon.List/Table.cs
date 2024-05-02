@@ -62,13 +62,13 @@ public class Table : List
     {
         if (index == null)
         {
-            return true;
+            return false;
         }
         ListNode node;
         node = this.ListNode(index);
         if (node == null)
         {
-            return true;
+            return false;
         }
 
         Entry entry;
