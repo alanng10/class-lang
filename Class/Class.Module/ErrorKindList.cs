@@ -43,7 +43,7 @@ public class ErrorKindList : Any
         this.VarUndefined = this.AddItem("VarUndefined");
         this.ClassUnexportable = this.AddItem("ClassUnexportable");
         this.FieldUnexportable = this.AddItem("FieldUnexportable");
-        this.MaideUnexprotable = this.AddItem("MaideUnexprotable");
+        this.MaideUnexportable = this.AddItem("MaideUnexportable");
         return true;
     }
 
@@ -91,8 +91,8 @@ public class ErrorKindList : Any
     protected ErrorKind __D_ClassUnexportable;
     public virtual ErrorKind FieldUnexportable { get { return __D_FieldUnexportable; } set { __D_FieldUnexportable = value; } }
     protected ErrorKind __D_FieldUnexportable;
-    public virtual ErrorKind MaideUnexprotable { get { return __D_MaideUnexprotable; } set { __D_MaideUnexprotable = value; } }
-    protected ErrorKind __D_MaideUnexprotable;
+    public virtual ErrorKind MaideUnexportable { get { return __D_MaideUnexportable; } set { __D_MaideUnexportable = value; } }
+    protected ErrorKind __D_MaideUnexportable;
 
     protected virtual ErrorKind AddItem(string text)
     {
