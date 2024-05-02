@@ -21,7 +21,6 @@ public class ModuleLoad : Any
     protected virtual BinaryBinary Binary { get; set; }
     protected virtual Array ClassArray { get; set; }
     protected virtual Array ImportArray { get; set; }
-    protected virtual bool HasSystemInfo { get; set; }
 
     public virtual bool Execute()
     {
@@ -42,10 +41,6 @@ public class ModuleLoad : Any
         BinaryBinary binary;
         binary = (BinaryBinary)this.BinaryTable.Get(this.Module.Ref);
         this.Binary = binary;
-
-        string moduleName;
-        moduleName = this.Module.Ref.Name;
-        this.HasSystemInfo = moduleName.StartsWith("System.") | moduleName.StartsWith("Class.");
 
         this.SetClassList();
 
@@ -485,7 +480,7 @@ public class ModuleLoad : Any
                 entry = a.Name;
             }
         }
-        
+
         this.Module.Entry = entry;
         return true;
     }
@@ -504,11 +499,6 @@ public class ModuleLoad : Any
 
     protected virtual SystemInfo SystemInfoCreate(int binaryValue)
     {
-        if (!this.HasSystemInfo)
-        {
-            return null;
-        }
-
         bool b;
         b = !((binaryValue & 0x80) == 0);
 
