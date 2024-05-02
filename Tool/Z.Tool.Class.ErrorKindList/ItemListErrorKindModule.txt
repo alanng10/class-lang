@@ -18,7 +18,9 @@ CondUnassignable
 ResultUndefined
 ResultUnassignable
 VarUndefined
+ExportUndefined
 ClassUnexportable
 FieldUnexportable
 MaideUnexportable
+EntryUndefined
 EntryUnachievable
