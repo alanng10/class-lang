@@ -681,7 +681,13 @@ public class Create : InfraCreate
             ClassClass varClass;
             varClass = this.ModuleClassGet(module, name);
 
-            if (!(varClass == null))
+            bool b;
+            b = (varClass == null);
+            if (b)
+            {
+                
+            }
+            if (!b)
             {
                 this.CheckExport(varClass);
 
@@ -915,6 +921,18 @@ public class Create : InfraCreate
         a.Kind = kind;
         a.Range = node.Range;
         a.Source = source;
+
+        this.ErrorList.Add(a);
+        return true;
+    }
+
+    public virtual bool ErrorModdule(ErrorKind kind)
+    {
+        Error a;
+        a = new Error();
+        a.Init();
+        a.Stage = this.Stage;
+        a.Kind = kind;
 
         this.ErrorList.Add(a);
         return true;
