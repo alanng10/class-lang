@@ -61,9 +61,9 @@ public class Create : InfraCreate
         this.ExecuteBase();
         this.ExecuteMember();
         this.ExecuteVirtual();
-        this.ExecuteState();
         this.ExecuteExport();
         this.ExecuteEntry();
+        this.ExecuteState();
 
         this.Result.Module = this.Module;
         this.Result.Error = this.ListInfra.ArrayCreateList(this.ErrorList);
