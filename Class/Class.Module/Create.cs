@@ -685,7 +685,7 @@ public class Create : InfraCreate
             b = (varClass == null);
             if (b)
             {
-                
+                this.ErrorModule(this.ErrorKind.ExportUndefined, name);
             }
             if (!b)
             {
@@ -926,13 +926,14 @@ public class Create : InfraCreate
         return true;
     }
 
-    public virtual bool ErrorModdule(ErrorKind kind)
+    public virtual bool ErrorModule(ErrorKind kind, string name)
     {
         Error a;
         a = new Error();
         a.Init();
         a.Stage = this.Stage;
         a.Kind = kind;
+        a.Name = name;
 
         this.ErrorList.Add(a);
         return true;
