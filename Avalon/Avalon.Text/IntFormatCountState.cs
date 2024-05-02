@@ -18,7 +18,11 @@ public class IntFormatCountState : FormatCountState
 
         long value;
         value = arg.ValueInt;
-        value = this.InfraInfra.Int60(value);
+
+        long mask;
+        mask = this.InfraInfra.IntCapValue - 1;
+        value = value & mask;
+        
         ulong o;
         o = (ulong)value;
 

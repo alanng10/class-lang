@@ -26,8 +26,11 @@ public class IntFormatResultState : FormatResultState
         count = arg.Count;
         long value;
         value = arg.ValueInt;
-        value = this.InfraInfra.Int60(value);
         
+        long mask;
+        mask = this.InfraInfra.IntCapValue - 1;
+        value = value & mask;
+
         bool alignLeft;
         alignLeft = arg.AlignLeft;
 
