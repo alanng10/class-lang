@@ -41,9 +41,11 @@ public class ErrorKindList : Any
         this.ResultUndefined = this.AddItem("ResultUndefined");
         this.ResultUnassignable = this.AddItem("ResultUnassignable");
         this.VarUndefined = this.AddItem("VarUndefined");
+        this.ExportUndefined = this.AddItem("ExportUndefined");
         this.ClassUnexportable = this.AddItem("ClassUnexportable");
         this.FieldUnexportable = this.AddItem("FieldUnexportable");
         this.MaideUnexportable = this.AddItem("MaideUnexportable");
+        this.EntryUndefined = this.AddItem("EntryUndefined");
         this.EntryUnachievable = this.AddItem("EntryUnachievable");
         return true;
     }
@@ -88,12 +90,16 @@ public class ErrorKindList : Any
     protected ErrorKind __D_ResultUnassignable;
     public virtual ErrorKind VarUndefined { get { return __D_VarUndefined; } set { __D_VarUndefined = value; } }
     protected ErrorKind __D_VarUndefined;
+    public virtual ErrorKind ExportUndefined { get { return __D_ExportUndefined; } set { __D_ExportUndefined = value; } }
+    protected ErrorKind __D_ExportUndefined;
     public virtual ErrorKind ClassUnexportable { get { return __D_ClassUnexportable; } set { __D_ClassUnexportable = value; } }
     protected ErrorKind __D_ClassUnexportable;
     public virtual ErrorKind FieldUnexportable { get { return __D_FieldUnexportable; } set { __D_FieldUnexportable = value; } }
     protected ErrorKind __D_FieldUnexportable;
     public virtual ErrorKind MaideUnexportable { get { return __D_MaideUnexportable; } set { __D_MaideUnexportable = value; } }
     protected ErrorKind __D_MaideUnexportable;
+    public virtual ErrorKind EntryUndefined { get { return __D_EntryUndefined; } set { __D_EntryUndefined = value; } }
+    protected ErrorKind __D_EntryUndefined;
     public virtual ErrorKind EntryUnachievable { get { return __D_EntryUnachievable; } set { __D_EntryUnachievable = value; } }
     protected ErrorKind __D_EntryUnachievable;
 
@@ -120,7 +126,7 @@ public class ErrorKindList : Any
     protected virtual Array Array { get { return __D_Array; } set { __D_Array = value; } }
     protected Array __D_Array;
 
-    protected virtual int ArrayCount { get { return 24; } set { } }
+    protected virtual int ArrayCount { get { return 26; } set { } }
     protected int __D_ArrayCount;
 
     public virtual int Count { get { return __D_Count; } set { __D_Count = value; } }
