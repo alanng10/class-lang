@@ -579,7 +579,7 @@ public class Create : InfraCreate
 
         Table oo;
         oo = (Table)module.Import.Get(o.Ref);
-        if (!(oo == null))
+        if (oo == null)
         {
             oo = this.ClassInfra.TableCreateModuleRefCompare();
             this.ListInfra.TableAdd(module.Import, o.Ref, oo);
@@ -588,7 +588,6 @@ public class Create : InfraCreate
         if (!oo.Contain(a))
         {
             this.ListInfra.TableAdd(oo, a, a);
-            return true;
         }
         return true;
     }
