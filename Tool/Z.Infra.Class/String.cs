@@ -23,7 +23,7 @@ public class String : Any
 
     public virtual int C_Char(string o, int index)
     {
-        if (!this.InfraInfra.CheckRange(o.Length, index, 1))
+        if (!this.InfraInfra.CheckIndex(o.Length, index))
         {
             return -1;
         }
