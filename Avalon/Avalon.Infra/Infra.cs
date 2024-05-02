@@ -27,8 +27,7 @@ public class Infra : Any
         return true;
     }
 
-    public virtual long IntCapValue { get { return __D_IntCapValue; } set { __D_IntCapValue = value; } }
-    protected long __D_IntCapValue;
+    public virtual long IntCapValue { get; set; }
     public virtual string NewLine { get { return __D_NewLine; } set { __D_NewLine = value; } }
     protected string __D_NewLine;
     public virtual string PathCombine { get { return __D_PathCombine; } set { __D_PathCombine = value; } }

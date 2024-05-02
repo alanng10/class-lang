@@ -380,7 +380,10 @@ public class Gen : Any
                 {
                     ooo = property.SetMethod;
                 }
-                if (this.IsInAbstract(ooo) & !((type == typeof(Data)) & (property.Name == "Value")))
+                if (this.IsInAbstract(ooo) & 
+                    !((type == typeof(Data)) & (property.Name == "Value")) &
+                    !((type == typeof(InfraInfra)) & (property.Name == "IntCapValue"))
+                    )
                 {
                     if (!(property.CanWrite & property.CanRead))
                     {
@@ -430,8 +433,7 @@ public class Gen : Any
             method = methodArrayA[i];
 
             if (!method.IsSpecialName & this.IsInAbstract(method) & 
-                !((type == typeof(EntryEntry)) & (method.Name == "ArgSet")) & 
-                !((type == typeof(InfraInfra)) & (method.Name == "Int60")))
+                !((type == typeof(EntryEntry)) & (method.Name == "ArgSet")))
             {
                 if (!method.IsVirtual)
                 {
