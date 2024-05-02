@@ -44,6 +44,7 @@ public class ErrorKindList : Any
         this.ClassUnexportable = this.AddItem("ClassUnexportable");
         this.FieldUnexportable = this.AddItem("FieldUnexportable");
         this.MaideUnexportable = this.AddItem("MaideUnexportable");
+        this.EntryUnachievable = this.AddItem("EntryUnachievable");
         return true;
     }
 
@@ -93,6 +94,8 @@ public class ErrorKindList : Any
     protected ErrorKind __D_FieldUnexportable;
     public virtual ErrorKind MaideUnexportable { get { return __D_MaideUnexportable; } set { __D_MaideUnexportable = value; } }
     protected ErrorKind __D_MaideUnexportable;
+    public virtual ErrorKind EntryUnachievable { get { return __D_EntryUnachievable; } set { __D_EntryUnachievable = value; } }
+    protected ErrorKind __D_EntryUnachievable;
 
     protected virtual ErrorKind AddItem(string text)
     {
@@ -117,7 +120,7 @@ public class ErrorKindList : Any
     protected virtual Array Array { get { return __D_Array; } set { __D_Array = value; } }
     protected Array __D_Array;
 
-    protected virtual int ArrayCount { get { return 23; } set { } }
+    protected virtual int ArrayCount { get { return 24; } set { } }
     protected int __D_ArrayCount;
 
     public virtual int Count { get { return __D_Count; } set { __D_Count = value; } }
