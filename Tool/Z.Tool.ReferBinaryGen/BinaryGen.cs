@@ -362,12 +362,15 @@ class BinaryGen : Any
 
     protected virtual int ExecuteEntry()
     {
-        ClassClass entryClass;
-        entryClass = this.Module.Entry;
         int a;
         a = -1;
-        if (!(entryClass == null))
+        
+        string entry;
+        entry = this.Module.Entry;
+        if (!(entry == null))
         {
+            ClassClass entryClass;
+            entryClass = (ClassClass)this.Module.Class.Get(entry);
             a = this.ClassIndexGet(entryClass);
         }
         return a;
