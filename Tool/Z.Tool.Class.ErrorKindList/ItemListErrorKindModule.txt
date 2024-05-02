@@ -20,4 +20,4 @@ ResultUnassignable
 VarUndefined
 ClassUnexportable
 FieldUnexportable
-MaideUnexprotable
+MaideUnexportable
