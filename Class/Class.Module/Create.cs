@@ -777,7 +777,32 @@ public class Create : InfraCreate
             return true;
         }
 
-        return module.Export.Contain(varClass.Name);
+        bool a;
+        a = module.Export.Contain(varClass.Name);
+        return a;
+    }
+
+    protected virtual bool ExecuteEntry()
+    {
+        ClassModule module;
+        module = this.Module;
+
+        string entry;
+        entry = module.Entry;
+        if (entry == null)
+        {
+            return true;
+        }
+
+        ClassClass varClass;
+        varClass = (ClassClass)module.Class.Get(entry);
+        
+        if (varClass == null)
+        {
+            
+        }
+
+        return true;
     }
 
     protected virtual bool ExecuteRootTraverse(Traverse traverse)
