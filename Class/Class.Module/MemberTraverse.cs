@@ -75,7 +75,6 @@ public class MemberTraverse : Traverse
         if (!(className == null))
         {
             varClass = this.Class(className);
-
             if (varClass == null)
             {
                 this.Error(this.ErrorKind.ClassUndefined, nodeField);
@@ -162,7 +161,6 @@ public class MemberTraverse : Traverse
         if (!(className == null))
         {
             varClass = this.Class(className);
-
             if (varClass == null)
             {
                 this.Error(this.ErrorKind.ClassUndefined, nodeMaide);
@@ -231,7 +229,6 @@ public class MemberTraverse : Traverse
 
         ClassClass varClass;
         varClass = this.Class(className);
-
         if (varClass == null)
         {
             this.Error(this.ErrorKind.ClassUndefined, nodeVar);
