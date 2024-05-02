@@ -679,22 +679,40 @@ public class Create : InfraCreate
             ClassClass varClass;
             varClass = (ClassClass)module.Class.Get(name);
 
-            bool b;
-            b = (varClass == null);
-            if (!b)
+            if (!(varClass == null))
             {
-                
-            }    
+                this.CheckExport(varClass);
+
+                list.Add(varClass);
+            }
+        }
+
+        iter = list.IterCreate();
+        list.IterSet(iter);
+        while (iter.Next())
+        {
+            ClassClass d;
+            d = (ClassClass)iter.Value;
+            table.Set(d.Name, d);
         }
         return true;
     }
 
-    protected virtual bool AddExport(ClassClass varClass)
+    protected virtual bool CheckExport(ClassClass varClass)
     {
         ClassModule module;
         module = this.Module;
         Table table;
         table = module.Export;
+        Source source;
+        source = this.SourceGet(varClass.Index);
+
+        if (!this.CheckIsExport(varClass.Base))
+        {
+            NodeClass aa;
+            aa = (NodeClass)varClass.Any;
+            this.Error(this.ErrorKind.ClassUnexportable, aa, source);
+        }
 
         Iter iter;
         iter = varClass.Field.IterCreate();
@@ -705,10 +723,46 @@ public class Create : InfraCreate
             field = (Field)iter.Value;
             if (!this.CheckIsExport(field.Class))
             {
-                
+                NodeField ab;
+                ab = (NodeField)field.Any;
+                this.Error(this.ErrorKind.FieldUnexportable, ab, source);
             }
         }
 
+        iter = varClass.Maide.IterCreate();
+        varClass.Maide.IterSet(iter);
+        while (iter.Next())
+        {
+            Maide maide;
+            maide = (Maide)iter.Value;
+            bool b;
+            b = false;
+            if (!this.CheckIsExport(maide.Class))
+            {
+                b = true;
+            }
+            if (!b)
+            {
+                Iter iterA;
+                iterA = maide.Param.IterCreate();
+                maide.Param.IterSet(iterA);
+                while (!b & iterA.Next())
+                {
+                    Var varVar;
+                    varVar = (Var)iterA.Value;
+                    if (!this.CheckIsExport(varVar.Class))
+                    {
+                        b = true;
+                    }
+                }
+            }
+            if (b)
+            {
+                NodeMaide ac;
+                ac = (NodeMaide)maide.Any;
+                this.Error(this.ErrorKind.MaideUnexportable, ac, source);
+            }
+        }
         return true;
     }
 
