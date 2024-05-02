@@ -725,7 +725,9 @@ public class Gen : Any
     {
         if (this.Module.Ref.Name == "Class.Console")
         {
-            this.Module.Entry = "Entry";
+            ClassClass a;
+            a = this.ModuleClassGet(this.Module, "Entry");
+            this.Module.Entry = a.Name;
         }
         return true;
     }
