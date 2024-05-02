@@ -478,10 +478,10 @@ public class ModuleLoad : Any
         a = null;
         if (!(f == -1))
         {
-            a = this.ClassGetIndex(f);
+            a = (ClassClass)this.ClassArray.Get(f);
         }
 
-        this.Module.Entry = a;
+        this.Module.Entry = a.Name;
         return true;
     }
 
