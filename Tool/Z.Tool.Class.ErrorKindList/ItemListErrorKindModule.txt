@@ -21,3 +21,4 @@ VarUndefined
 ClassUnexportable
 FieldUnexportable
 MaideUnexportable
+EntryUnachievable
