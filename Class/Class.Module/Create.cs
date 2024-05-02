@@ -657,6 +657,74 @@ public class Create : InfraCreate
         return a;
     }
 
+    protected virtual bool ExecuteExport()
+    {
+        List list;
+        list = new List();
+        list.Init();
+
+        ClassModule module;
+        module = this.Module;
+        Table table;
+        table = module.Export;
+
+        Iter iter;
+        iter = table.IterCreate();
+        table.IterSet(iter);
+        while (iter.Next())
+        {
+            string name;
+            name = (string)iter.Value;
+
+            ClassClass varClass;
+            varClass = (ClassClass)module.Class.Get(name);
+
+            bool b;
+            b = (varClass == null);
+            if (!b)
+            {
+                
+            }    
+        }
+        return true;
+    }
+
+    protected virtual bool AddExport(ClassClass varClass)
+    {
+        ClassModule module;
+        module = this.Module;
+        Table table;
+        table = module.Export;
+
+        Iter iter;
+        iter = varClass.Field.IterCreate();
+        varClass.Field.IterSet(iter);
+        while (iter.Next())
+        {
+            Field field;
+            field = (Field)iter.Value;
+            if (!this.CheckIsExport(field.Class))
+            {
+                
+            }
+        }
+
+        return true;
+    }
+
+    protected virtual bool CheckIsExport(ClassClass varClass)
+    {
+        ClassModule module;
+        module = this.Module;
+
+        if (!(varClass.Module == module))
+        {
+            return true;
+        }
+
+        return module.Export.Contain(varClass.Name);
+    }
+
     protected virtual bool ExecuteRootTraverse(Traverse traverse)
     {
         int count;
