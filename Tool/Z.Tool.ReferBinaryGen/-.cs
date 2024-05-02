@@ -1,6 +1,7 @@
 global using Any = Avalon.Infra.Any;
 global using Data = Avalon.Infra.Data;
 global using RefCompare = Avalon.Infra.RefCompare;
+global using InfraInfra = Avalon.Infra.Infra;
 global using ListList = Avalon.List.List;
 global using Array = Avalon.List.Array;
 global using Table = Avalon.List.Table;

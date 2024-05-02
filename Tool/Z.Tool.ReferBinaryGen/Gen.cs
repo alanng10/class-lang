@@ -429,7 +429,9 @@ public class Gen : Any
             MethodInfo method;
             method = methodArrayA[i];
 
-            if (!method.IsSpecialName & this.IsInAbstract(method) & !((type == typeof(EntryEntry)) & (method.Name == "ArgSet")))
+            if (!method.IsSpecialName & this.IsInAbstract(method) & 
+                !((type == typeof(EntryEntry)) & (method.Name == "ArgSet")) & 
+                !((type == typeof(InfraInfra)) & (method.Name == "Int60")))
             {
                 if (!method.IsVirtual)
                 {
