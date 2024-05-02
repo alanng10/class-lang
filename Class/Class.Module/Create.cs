@@ -284,8 +284,14 @@ public class Create : InfraCreate
 
     protected virtual bool CheckClassDependency(ClassClass varClass)
     {
+        ListInfra listInfra;
+        listInfra = this.ListInfra;
+
         ClassModule module;
         module = this.Module;
+
+        Table baseTable;
+        baseTable = this.BaseTable;
 
         Table table;
         table = new Table();
@@ -293,10 +299,10 @@ public class Create : InfraCreate
         table.Compare.Init();
         table.Init();
 
-        this.ListInfra.TableAdd(table, varClass, varClass);
+        listInfra.TableAdd(table, varClass, varClass);
 
         ClassClass a;
-        a = (ClassClass)this.BaseTable.Get(varClass);
+        a = (ClassClass)baseTable.Get(varClass);
 
         while (a.Module == module)
         {
@@ -305,9 +311,9 @@ public class Create : InfraCreate
                 return false;
             }
 
-            this.ListInfra.TableAdd(table, a, a);
+            listInfra.TableAdd(table, a, a);
 
-            a = (ClassClass)this.BaseTable.Get(a);
+            a = (ClassClass)baseTable.Get(a);
         }
         return true;
     }
