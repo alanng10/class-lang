@@ -471,17 +471,22 @@ public class ModuleLoad : Any
     
     protected virtual bool SetEntry()
     {
+        string entry;
+        entry = null;
+
         int f;
         f = this.Binary.Entry;
-        
-        ClassClass a;
-        a = null;
         if (!(f == -1))
         {
+            ClassClass a;
             a = (ClassClass)this.ClassArray.Get(f);
+            if (!(a == null))
+            {
+                entry = a.Name;
+            }
         }
-
-        this.Module.Entry = a.Name;
+        
+        this.Module.Entry = entry;
         return true;
     }
 
