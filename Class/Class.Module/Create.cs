@@ -569,6 +569,34 @@ public class Create : InfraCreate
         return h;
     }
 
+    protected virtual bool AddVirtualImport(ClassClass a)
+    {
+        ClassModule module;
+        module = this.Module;
+        ClassModule o;
+        o = a.Module;
+
+        if (o == module)
+        {
+            return true;
+        }
+
+        Table oo;
+        oo = (Table)module.Import.Get(o.Ref);
+        if (!(oo == null))
+        {
+            oo = this.ClassInfra.TableCreateModuleRefCompare();
+            this.ListInfra.TableAdd(module.Import, o.Ref, oo);
+        }
+        
+        if (!oo.Contain(a))
+        {
+            this.ListInfra.TableAdd(oo, a, a);
+            return true;
+        }
+        return true;
+    }
+
     protected virtual bool VarSystemInfoAssignValue(Table varA, Table varB)
     {
         Iter iterA;
