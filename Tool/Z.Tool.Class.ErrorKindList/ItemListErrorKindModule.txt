@@ -18,3 +18,5 @@ CondUnassignable
 ResultUndefined
 ResultUnassignable
 VarUndefined
+FieldUnexportable
+MaideUnexprotable
