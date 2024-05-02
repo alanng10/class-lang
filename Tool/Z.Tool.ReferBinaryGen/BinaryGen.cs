@@ -41,10 +41,7 @@ class BinaryGen : Any
     {
         this.Module = module;
 
-        this.ClassIndexTable = new Table();
-        this.ClassIndexTable.Compare = new RefCompare();
-        this.ClassIndexTable.Compare.Init();
-        this.ClassIndexTable.Init();
+        this.ClassIndexTable = this.ClassInfra.TableCreateRefCompare();
 
         ModuleRef oa;
         oa = this.ClassInfra.ModuleRefCreate(module.Ref.Name, module.Ref.Version);
