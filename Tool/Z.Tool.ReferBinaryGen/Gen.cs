@@ -723,12 +723,10 @@ public class Gen : Any
 
     protected virtual bool SetEntry()
     {
-        if (!(this.Module.Ref.Name == "Class.Console"))
+        if (this.Module.Ref.Name == "Class.Console")
         {
-            return true;
+            this.Module.Entry = "Entry";
         }
-        
-        this.Module.Entry = this.ModuleClassGet(this.Module, "Entry");
         return true;
     }
 
