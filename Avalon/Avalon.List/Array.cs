@@ -89,12 +89,14 @@ public class Array : List
         index = range.Index;
         int count;
         count = range.Count;
+        Comparer comparer;
+        comparer = this.Comparer;
 
-        this.Comparer.CompareAny = compare;
+        comparer.CompareAny = compare;
 
-        SystemArray.Sort<object>(this.Value, index, count, this.Comparer);
-        
-        this.Comparer.CompareAny = null;
+        SystemArray.Sort<object>(this.Value, index, count, comparer);
+
+        comparer.CompareAny = null;
         return true;
     }
 
