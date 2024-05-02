@@ -63,6 +63,7 @@ public class Create : InfraCreate
         this.ExecuteVirtual();
         this.ExecuteState();
         this.ExecuteExport();
+        this.ExecuteEntry();
 
         this.Result.Module = this.Module;
         this.Result.Error = this.ListInfra.ArrayCreateList(this.ErrorList);
@@ -678,7 +679,7 @@ public class Create : InfraCreate
             name = (string)iter.Value;
 
             ClassClass varClass;
-            varClass = (ClassClass)module.Class.Get(name);
+            varClass = this.ModuleClassGet(module, name);
 
             if (!(varClass == null))
             {
@@ -795,7 +796,7 @@ public class Create : InfraCreate
         }
 
         ClassClass varClass;
-        varClass = (ClassClass)module.Class.Get(entry);
+        varClass = this.ModuleClassGet(module, entry);
         if (varClass == null)
         {
             return true;
