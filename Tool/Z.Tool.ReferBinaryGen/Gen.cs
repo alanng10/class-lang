@@ -585,25 +585,19 @@ public class Gen : Any
 
         ModuleRef moduleRef;
         moduleRef = varClass.Module.Ref;
-        if (!table.Contain(moduleRef))
-        {
-            Table oa;
-            oa = this.ClassInfra.TableCreateStringCompare();
 
-            this.ListInfra.TableAdd(table, moduleRef, oa);
-        }
         Table classTable;
         classTable = (Table)table.Get(moduleRef);
-
-        string name;
-        name = varClass.Name;
-
-        if (classTable.Contain(name))
+        if (classTable == null)
         {
-            return true;
+            classTable = this.ClassInfra.TableCreateRefCompare();
+            this.ListInfra.TableAdd(table, moduleRef, classTable);
         }
 
-        this.ListInfra.TableAdd(classTable, name, varClass);
+        if (!classTable.Contain(varClass))
+        {
+            this.ListInfra.TableAdd(classTable, varClass, varClass);
+        }
         return true;
     }
 
