@@ -17,7 +17,6 @@ public class Write : Any
     public virtual Binary Binary { get; set; }
     public virtual Data Data { get; set; }
     public virtual int Index { get; set; }
-    public virtual bool SystemInfo { get; set; }
     
     protected virtual CountWriteOperate CountOperate { get; set; }
     protected virtual SetWriteOperate SetOperate { get; set; }
@@ -252,10 +251,7 @@ public class Write : Any
 
     protected virtual bool ExecuteSystemInfo(int value)
     {
-        if (this.SystemInfo)
-        {
-            this.ExecuteByte(value);
-        }
+        this.ExecuteByte(value);
         return true;
     }
 

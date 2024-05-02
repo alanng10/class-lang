@@ -846,7 +846,6 @@ public class Gen : Any
         BinaryWrite write;
         write = new BinaryWrite();
         write.Init();
-        write.SystemInfo = true;
 
         Iter iter;
         iter = this.BinaryTable.IterCreate();
