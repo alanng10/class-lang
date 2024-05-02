@@ -161,12 +161,7 @@ public class Create : InfraCreate
 
     protected virtual bool SetBaseTable()
     {
-        RefCompare compare;
-        compare = new RefCompare();
-        compare.Init();
-        this.BaseTable = new Table();
-        this.BaseTable.Compare = compare;
-        this.BaseTable.Init();
+        this.BaseTable = this.ClassInfra.TableCreateRefCompare();
 
         Iter iter;
         iter = this.Module.Class.IterCreate();
@@ -296,10 +291,7 @@ public class Create : InfraCreate
         baseTable = this.BaseTable;
 
         Table table;
-        table = new Table();
-        table.Compare = new RefCompare();
-        table.Compare.Init();
-        table.Init();
+        table = this.ClassInfra.TableCreateRefCompare();
 
         listInfra.TableAdd(table, varClass, varClass);
 
