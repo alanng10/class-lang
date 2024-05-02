@@ -172,7 +172,7 @@ public class Infra : Any
     public virtual bool DataByteListSet(Data data, long index, int count, ulong value)
     {
         long d;
-        d = (this.IntCapValue - 1);
+        d = this.IntCapValue - 1;
         ulong da;
         da = (ulong)d;
         ulong oo;
