@@ -16,6 +16,11 @@ public class String : Any
         return o.Length;
     }
 
+    public virtual bool S_Count(string o, int value)
+    {
+        return true;
+    }
+
     public virtual int C_Char(string o, int index)
     {
         if (!this.InfraInfra.CheckRange(o.Length, index, 1))
