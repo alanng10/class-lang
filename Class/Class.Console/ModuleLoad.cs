@@ -141,12 +141,11 @@ public class ModuleLoad : Any
             ModuleRef moduleRef;
             moduleRef = o.Module;
 
-            Table ol;
-            ol = this.ClassInfra.TableCreateStringCompare();
-            this.ListInfra.TableAdd(importTable, moduleRef, ol);
-            
             Table classTable;
-            classTable = ol;
+            classTable = this.ClassInfra.TableCreateRefCompare();
+
+            this.ListInfra.TableAdd(importTable, moduleRef, classTable);
+            
 
             ClassModule module;
             module = this.ModuleGet(moduleRef);
@@ -174,7 +173,7 @@ public class ModuleLoad : Any
                 ClassClass varClass;
                 varClass = this.ModuleClassGet(module, className);
 
-                this.ListInfra.TableAdd(classTable, className, varClass);
+                this.ListInfra.TableAdd(classTable, varClass, varClass);
 
                 iA = iA + 1;
             }
