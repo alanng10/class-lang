@@ -41,6 +41,8 @@ public class ErrorKindList : Any
         this.ResultUndefined = this.AddItem("ResultUndefined");
         this.ResultUnassignable = this.AddItem("ResultUnassignable");
         this.VarUndefined = this.AddItem("VarUndefined");
+        this.FieldUnexportable = this.AddItem("FieldUnexportable");
+        this.MaideUnexprotable = this.AddItem("MaideUnexprotable");
         return true;
     }
 
@@ -84,6 +86,10 @@ public class ErrorKindList : Any
     protected ErrorKind __D_ResultUnassignable;
     public virtual ErrorKind VarUndefined { get { return __D_VarUndefined; } set { __D_VarUndefined = value; } }
     protected ErrorKind __D_VarUndefined;
+    public virtual ErrorKind FieldUnexportable { get { return __D_FieldUnexportable; } set { __D_FieldUnexportable = value; } }
+    protected ErrorKind __D_FieldUnexportable;
+    public virtual ErrorKind MaideUnexprotable { get { return __D_MaideUnexprotable; } set { __D_MaideUnexprotable = value; } }
+    protected ErrorKind __D_MaideUnexprotable;
 
     protected virtual ErrorKind AddItem(string text)
     {
@@ -108,7 +114,7 @@ public class ErrorKindList : Any
     protected virtual Array Array { get { return __D_Array; } set { __D_Array = value; } }
     protected Array __D_Array;
 
-    protected virtual int ArrayCount { get { return 20; } set { } }
+    protected virtual int ArrayCount { get { return 22; } set { } }
     protected int __D_ArrayCount;
 
     public virtual int Count { get { return __D_Count; } set { __D_Count = value; } }
