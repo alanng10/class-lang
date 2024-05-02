@@ -77,6 +77,16 @@ public class Infra : Any
         return a;
     }
 
+    public virtual Table TableCreateRefCompare()
+    {
+        Table a;
+        a = new Table();
+        a.Compare = new RefCompare();
+        a.Compare.Init();
+        a.Init();
+        return a;
+    }
+
     public virtual ModuleRef ModuleRefCreate(string name, long version)
     {
         ModuleRef a;
