@@ -372,6 +372,8 @@ public class Create : InfraCreate
             if (!(a.Virtual == null))
             {
                 this.ClassInfra.SystemInfoAssignValue(a.SystemInfo, a.Virtual.SystemInfo);
+
+                this.AddVirtualImport(a.Virtual.Parent);
             }
         }
         return true;
@@ -477,6 +479,8 @@ public class Create : InfraCreate
                 this.ClassInfra.SystemInfoAssignValue(a.SystemInfo, a.Virtual.SystemInfo);
 
                 this.VarSystemInfoAssignValue(a.Param, a.Virtual.Param);
+
+                this.AddVirtualImport(a.Virtual.Parent);
             }
         }
         return true;
