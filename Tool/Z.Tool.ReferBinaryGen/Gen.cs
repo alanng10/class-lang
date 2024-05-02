@@ -399,7 +399,7 @@ public class Gen : Any
 
                     if (this.ClassMemberHasDefine(varClass, property.Name))
                     {
-                        global::System.Console.Error.Write("Class " + varClass.Name + "(" + varClass.Module.Ref.Name + ") member name " + property.Name + " has define\n");
+                        global::System.Console.Error.Write("Class " + varClass.Name + "(" + varClass.Module.Ref.Name + ") member name " + property.Name + " duplicate\n");
                         global::System.Environment.Exit(110);
                     }
 
