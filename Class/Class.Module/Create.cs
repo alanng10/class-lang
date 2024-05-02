@@ -825,7 +825,6 @@ public class Create : InfraCreate
             aa = (NodeClass)varClass.Any;
             this.Error(this.ErrorKind.EntryUnachievable, aa, this.SourceGet(varClass.Index));
         }
-
         return true;
     }
 
