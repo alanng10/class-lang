@@ -959,18 +959,14 @@ public class Read : Any
 
     protected virtual int ExecuteSystemClass()
     {
-        int a;
-        a = 0;
-        if (this.SystemInfo)
+        int u;
+        u = this.ExecuteByte();
+        if (u == -1)
         {
-            int u;
-            u = this.ExecuteByte();
-            if (u == -1)
-            {
-                return -1;
-            }
-            a = u;
+            return -1;
         }
+        int a;
+        a = u;
         return a;
     }
 

@@ -133,7 +133,6 @@ public class Console : Any
         read = this.BinaryRead;
 
         read.Data = data;
-        read.SystemInfo = true;
 
         read.Execute();
 
