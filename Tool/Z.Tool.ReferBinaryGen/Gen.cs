@@ -781,9 +781,9 @@ public class Gen : Any
                 ob.IterSet(iterB);
                 while (iterB.Next())
                 {
-                    string className;
-                    className = (string)iterB.Index;
-                    global::System.Console.Write("    " + className + "\n");
+                    ClassClass aa;
+                    aa = (ClassClass)iterB.Value;
+                    global::System.Console.Write("    " + aa.Name + "\n");
                 }
 
                 if (!(oaa.StartsWith("System.") | oaa.StartsWith("Class.")))
