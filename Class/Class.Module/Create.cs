@@ -805,6 +805,7 @@ public class Create : InfraCreate
         varClass = this.ModuleClassGet(module, entry);
         if (varClass == null)
         {
+            this.ErrorModule(this.ErrorKind.EntryUndefined, entry);
             return true;
         }
 
