@@ -1,4 +1,4 @@
-namespace Z.Tool.Infra.StatNetworkAddressKind;
+namespace Z.Tool.Infra.StatNetworkPortKind;
 
 
 
@@ -8,7 +8,7 @@ class Gen : StatGen
 {
     public override int Execute()
     {
-        this.ClassName = "NetworkAddressKind";
+        this.ClassName = "NetworkPortKind";
 
 
 
@@ -21,7 +21,7 @@ class Gen : StatGen
 
 
 
-        this.ItemListFileName = "ToolData/ItemListNetworkAddressKind.txt";
+        this.ItemListFileName = "ToolData/ItemListNetworkPortKind.txt";
 
 
 

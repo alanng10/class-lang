@@ -1,4 +1,4 @@
-namespace Z.Tool.Infra.StatNetworkAddressKind;
+namespace Z.Tool.Infra.StatNetworkPortKind;
 
 class Entry : EntryEntry
 {
