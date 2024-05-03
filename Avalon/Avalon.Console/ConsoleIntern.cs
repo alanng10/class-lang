@@ -44,7 +44,7 @@ class ConsoleIntern : Any
         ulong uo;
         uo = this.InternInfra.StringCreate(a);
         
-        Extern.Console_Write(this.Intern, uo);
+        Extern.Console_OutWrite(this.Intern, uo);
 
         this.InternInfra.StringDelete(uo);
         return true;
@@ -64,7 +64,7 @@ class ConsoleIntern : Any
     public virtual string Read()
     {
         ulong uu;
-        uu = Extern.Console_Read(this.Intern);
+        uu = Extern.Console_InnRead(this.Intern);
 
         ulong internReturn;
         internReturn = Extern.Return_New();
