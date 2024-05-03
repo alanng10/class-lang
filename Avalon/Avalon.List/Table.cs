@@ -60,6 +60,11 @@ public class Table : List
             return null;
         }
 
+        if (entry.Index == null)
+        {
+            return null;
+        }
+
         ListNode u;
         u = this.ListNode(entry.Index);
         if (!(u == null))
@@ -97,13 +102,14 @@ public class Table : List
             return null;
         }
 
-        ListNode u;
-        u = this.ListNode(entry.Index);
-        if (!(u == null))
+        if (entry.Index == null)
         {
             return null;
         }
-        if (entry.Index == null)
+        
+        ListNode u;
+        u = this.ListNode(entry.Index);
+        if (!(u == null))
         {
             return null;
         }
