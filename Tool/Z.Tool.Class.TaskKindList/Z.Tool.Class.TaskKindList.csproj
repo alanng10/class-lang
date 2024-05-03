@@ -11,8 +11,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <Content Include="ItemListTaskKind.txt" CopyToOutputDirectory="PreserveNewest" />
-        <Content Include="AddMethodTaskKind.txt" CopyToOutputDirectory="PreserveNewest" />
+        <Content Include="ToolData/*" CopyToOutputDirectory="PreserveNewest" />
     </ItemGroup>
 
 </Project>
