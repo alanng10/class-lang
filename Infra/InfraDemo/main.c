@@ -417,7 +417,7 @@ Int ConsoleWriteConstant(const char* o)
 
 
 
-    Console_Write(Console, a);
+    Console_OutWrite(Console, a);
 
 
 
@@ -845,7 +845,7 @@ Int ThreadExecute(Int thread, Int arg)
 
     Format_ExecuteArgResult(format, formatArg, stringA);
 
-    Console_Write(Console, stringA);
+    Console_OutWrite(Console, stringA);
     ConsoleWriteConstant("\n");
 
     String_Final(stringA);
@@ -945,7 +945,7 @@ Bool MainThreadExecute()
 
     while (i < count)
     {
-        Console_Write(Console, stringA);
+        Console_OutWrite(Console, stringA);
 
 
         Thread_Sleep(2 * 1000);
@@ -1263,7 +1263,7 @@ int main(int argc, char* argv[])
 
 
 
-    Console_Write(Console, stringAc);
+    Console_OutWrite(Console, stringAc);
 
 
 
@@ -1995,7 +1995,7 @@ int main(int argc, char* argv[])
 
 
 
-    Console_Write(Console, stringOb);
+    Console_OutWrite(Console, stringOb);
 
 
 
