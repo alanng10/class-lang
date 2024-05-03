@@ -84,7 +84,7 @@ class Read : Any
 
         string ka;
 
-        ka = infra.StorageTextRead("NodeList.txt");
+        ka = infra.StorageTextRead("ToolData/NodeList.txt");
 
 
 
