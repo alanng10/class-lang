@@ -21,7 +21,7 @@ class Gen : StatGen
 
 
 
-        this.ItemListFileName = "ItemListPenJoin.txt";
+        this.ItemListFileName = "ToolData/ItemListPenJoin.txt";
 
 
 
