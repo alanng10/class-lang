@@ -622,8 +622,8 @@ public static class Extern
     [DllImport(InfraLib)] public extern static ulong Network_Final(ulong o);
     [DllImport(InfraLib)] public extern static ulong Network_HostNameGet(ulong o);
     [DllImport(InfraLib)] public extern static ulong Network_HostNameSet(ulong o, ulong value);
-    [DllImport(InfraLib)] public extern static ulong Network_PortGet(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Network_PortSet(ulong o, ulong value);
+    [DllImport(InfraLib)] public extern static ulong Network_ServerPortGet(ulong o);
+    [DllImport(InfraLib)] public extern static ulong Network_ServerPortSet(ulong o, ulong value);
     [DllImport(InfraLib)] public extern static ulong Network_StreamGet(ulong o);
     [DllImport(InfraLib)] public extern static ulong Network_StreamSet(ulong o, ulong value);
     [DllImport(InfraLib)] public extern static ulong Network_ReadyCountGet(ulong o);
@@ -651,8 +651,6 @@ public static class Extern
     [DllImport(InfraLib)] public extern static ulong NetworkServer_Delete(ulong o);
     [DllImport(InfraLib)] public extern static ulong NetworkServer_Init(ulong o);
     [DllImport(InfraLib)] public extern static ulong NetworkServer_Final(ulong o);
-    [DllImport(InfraLib)] public extern static ulong NetworkServer_AddressGet(ulong o);
-    [DllImport(InfraLib)] public extern static ulong NetworkServer_AddressSet(ulong o, ulong value);
     [DllImport(InfraLib)] public extern static ulong NetworkServer_PortGet(ulong o);
     [DllImport(InfraLib)] public extern static ulong NetworkServer_PortSet(ulong o, ulong value);
     [DllImport(InfraLib)] public extern static ulong NetworkServer_ErrorGet(ulong o);
@@ -671,20 +669,22 @@ public static class Extern
 
     public delegate ulong NetworkServer_NewPeer_Maide(ulong networkServer, ulong arg);
 
-    [DllImport(InfraLib)] public extern static ulong NetworkAddress_New();
-    [DllImport(InfraLib)] public extern static ulong NetworkAddress_Delete(ulong o);
-    [DllImport(InfraLib)] public extern static ulong NetworkAddress_Init(ulong o);
-    [DllImport(InfraLib)] public extern static ulong NetworkAddress_Final(ulong o);
-    [DllImport(InfraLib)] public extern static ulong NetworkAddress_KindGet(ulong o);
-    [DllImport(InfraLib)] public extern static ulong NetworkAddress_KindSet(ulong o, ulong value);
-    [DllImport(InfraLib)] public extern static ulong NetworkAddress_ValueAGet(ulong o);
-    [DllImport(InfraLib)] public extern static ulong NetworkAddress_ValueASet(ulong o, ulong value);
-    [DllImport(InfraLib)] public extern static ulong NetworkAddress_ValueBGet(ulong o);
-    [DllImport(InfraLib)] public extern static ulong NetworkAddress_ValueBSet(ulong o, ulong value);
-    [DllImport(InfraLib)] public extern static ulong NetworkAddress_ValueCGet(ulong o);
-    [DllImport(InfraLib)] public extern static ulong NetworkAddress_ValueCSet(ulong o, ulong value);
+    [DllImport(InfraLib)] public extern static ulong NetworkPort_New();
+    [DllImport(InfraLib)] public extern static ulong NetworkPort_Delete(ulong o);
+    [DllImport(InfraLib)] public extern static ulong NetworkPort_Init(ulong o);
+    [DllImport(InfraLib)] public extern static ulong NetworkPort_Final(ulong o);
+    [DllImport(InfraLib)] public extern static ulong NetworkPort_KindGet(ulong o);
+    [DllImport(InfraLib)] public extern static ulong NetworkPort_KindSet(ulong o, ulong value);
+    [DllImport(InfraLib)] public extern static ulong NetworkPort_ValueAGet(ulong o);
+    [DllImport(InfraLib)] public extern static ulong NetworkPort_ValueASet(ulong o, ulong value);
+    [DllImport(InfraLib)] public extern static ulong NetworkPort_ValueBGet(ulong o);
+    [DllImport(InfraLib)] public extern static ulong NetworkPort_ValueBSet(ulong o, ulong value);
+    [DllImport(InfraLib)] public extern static ulong NetworkPort_ValueCGet(ulong o);
+    [DllImport(InfraLib)] public extern static ulong NetworkPort_ValueCSet(ulong o, ulong value);
+    [DllImport(InfraLib)] public extern static ulong NetworkPort_ServerPortGet(ulong o);
+    [DllImport(InfraLib)] public extern static ulong NetworkPort_ServerPortSet(ulong o, ulong value);
 
-    [DllImport(InfraLib)] public extern static ulong NetworkAddress_Set(ulong o);
+    [DllImport(InfraLib)] public extern static ulong NetworkPort_Set(ulong o);
 
     [DllImport(InfraLib)] public extern static ulong Thread_New();
     [DllImport(InfraLib)] public extern static ulong Thread_Delete(ulong o);
@@ -873,14 +873,6 @@ public static class Extern
     [DllImport(InfraLib)] public extern static ulong Stat_StorageStatusResizeError(ulong o);
     [DllImport(InfraLib)] public extern static ulong Stat_StorageStatusPermissionsError(ulong o);
     [DllImport(InfraLib)] public extern static ulong Stat_StorageStatusCopyError(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Stat_NetworkAddressKindIPv6(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Stat_NetworkAddressKindIPv4(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Stat_NetworkAddressKindBroadcast(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Stat_NetworkAddressKindLocalHost(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Stat_NetworkAddressKindLocalHostIPv6(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Stat_NetworkAddressKindAny(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Stat_NetworkAddressKindAnyIPv6(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Stat_NetworkAddressKindAnyIPv4(ulong o);
     [DllImport(InfraLib)] public extern static ulong Stat_NetworkCaseUnconnected(ulong o);
     [DllImport(InfraLib)] public extern static ulong Stat_NetworkCaseHostLookup(ulong o);
     [DllImport(InfraLib)] public extern static ulong Stat_NetworkCaseConnecting(ulong o);
@@ -888,6 +880,14 @@ public static class Extern
     [DllImport(InfraLib)] public extern static ulong Stat_NetworkCaseBound(ulong o);
     [DllImport(InfraLib)] public extern static ulong Stat_NetworkCaseListening(ulong o);
     [DllImport(InfraLib)] public extern static ulong Stat_NetworkCaseClosing(ulong o);
+    [DllImport(InfraLib)] public extern static ulong Stat_NetworkPortKindIPv6(ulong o);
+    [DllImport(InfraLib)] public extern static ulong Stat_NetworkPortKindIPv4(ulong o);
+    [DllImport(InfraLib)] public extern static ulong Stat_NetworkPortKindBroadcast(ulong o);
+    [DllImport(InfraLib)] public extern static ulong Stat_NetworkPortKindLocalHost(ulong o);
+    [DllImport(InfraLib)] public extern static ulong Stat_NetworkPortKindLocalHostIPv6(ulong o);
+    [DllImport(InfraLib)] public extern static ulong Stat_NetworkPortKindAny(ulong o);
+    [DllImport(InfraLib)] public extern static ulong Stat_NetworkPortKindAnyIPv6(ulong o);
+    [DllImport(InfraLib)] public extern static ulong Stat_NetworkPortKindAnyIPv4(ulong o);
     [DllImport(InfraLib)] public extern static ulong Stat_NetworkStatusNoError(ulong o);
     [DllImport(InfraLib)] public extern static ulong Stat_NetworkStatusUnknownSocketError(ulong o);
     [DllImport(InfraLib)] public extern static ulong Stat_NetworkStatusConnectionRefusedError(ulong o);

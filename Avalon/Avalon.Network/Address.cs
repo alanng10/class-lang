@@ -5,15 +5,15 @@ public class Address : Any
     public override bool Init()
     {
         base.Init();
-        this.Intern = Extern.NetworkAddress_New();
-        Extern.NetworkAddress_Init(this.Intern);
+        this.Intern = Extern.NetworkPort_New();
+        Extern.NetworkPort_Init(this.Intern);
         return true;
     }
 
     public virtual bool Final()
     {
-        Extern.NetworkAddress_Final(this.Intern);
-        Extern.NetworkAddress_Delete(this.Intern);
+        Extern.NetworkPort_Final(this.Intern);
+        Extern.NetworkPort_Delete(this.Intern);
         return true;
     }
 
@@ -35,11 +35,11 @@ public class Address : Any
         valueBU = (ulong)this.ValueB;
         valueCU = (ulong)this.ValueC;
 
-        Extern.NetworkAddress_KindSet(this.Intern, kindU);
-        Extern.NetworkAddress_ValueASet(this.Intern, valueAU);
-        Extern.NetworkAddress_ValueBSet(this.Intern, valueBU);
-        Extern.NetworkAddress_ValueCSet(this.Intern, valueCU);
-        Extern.NetworkAddress_Set(this.Intern);
+        Extern.NetworkPort_KindSet(this.Intern, kindU);
+        Extern.NetworkPort_ValueASet(this.Intern, valueAU);
+        Extern.NetworkPort_ValueBSet(this.Intern, valueBU);
+        Extern.NetworkPort_ValueCSet(this.Intern, valueCU);
+        Extern.NetworkPort_Set(this.Intern);
         return true;
     }
 }
