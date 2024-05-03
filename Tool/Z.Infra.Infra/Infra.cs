@@ -45,10 +45,8 @@ public class Infra : Any
 
     public virtual string StorageTextRead(string filePath)
     {
-        string path;
-        path = "ToolData" + this.InfraInfra.PathCombine + filePath;
         string a;
-        a = this.StorageInfra.TextRead(path);
+        a = this.StorageInfra.TextRead(filePath);
 
         if (a == null)
         {
@@ -59,10 +57,8 @@ public class Infra : Any
 
     public virtual bool StorageTextWrite(string filePath, string text)
     {
-        string path;
-        path = "ToolData" + this.InfraInfra.PathCombine + filePath;
         bool a;
-        a = this.StorageInfra.TextWrite(path, text);
+        a = this.StorageInfra.TextWrite(filePath, text);
 
         if (!a)
         {
