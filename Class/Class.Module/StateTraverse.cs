@@ -1362,36 +1362,7 @@ public class StateTraverse : Traverse
 
     protected virtual bool CheckClass(ClassClass varClass, ClassClass requiredClass)
     {
-        ClassClass anyClass;
-        anyClass = this.System.Any;
-
-        ClassClass thisClass;
-        thisClass = varClass;
-
-        bool b;
-        b = false;
-        while (!b & !(thisClass == null))
-        {
-            if (thisClass == this.NullClass)
-            {
-                b = true;
-            }
-            if (thisClass == requiredClass)
-            {
-                b = true;
-            }
-
-            ClassClass aa;
-            aa = null;
-            if (!(thisClass == anyClass))
-            {
-                aa = thisClass.Base;
-            }
-            thisClass = aa;
-        }
-        bool a;
-        a = b;
-        return a;
+        return this.Create.CheckClass(varClass, requiredClass);
     }
 
     protected virtual Field Field(ClassClass varClass, string name, bool baseTrigger)

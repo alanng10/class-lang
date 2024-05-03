@@ -834,14 +834,17 @@ public class Create : InfraCreate
 
         ClassModule h;
         h = this.ModuleGet("System.Entry");
-        ClassClass ha;
-        ha = this.ModuleClassGet(h, "Entry");
+        ClassClass entryClass;
+        entryClass = this.ModuleClassGet(h, "Entry");
 
         bool b;
         b = false;
-        if (!b & !(varClass.Base == ha))
+        if (!b)        
         {
-            b = true;
+            if (!(this.CheckClass(varClass, entryClass)))
+            {
+                b = true;
+            }
         }
         if (!b)
         {
@@ -857,6 +860,40 @@ public class Create : InfraCreate
             this.Error(this.ErrorKind.EntryUnachievable, aa, this.SourceGet(varClass.Index));
         }
         return true;
+    }
+
+    public virtual bool CheckClass(ClassClass varClass, ClassClass requiredClass)
+    {
+        ClassClass anyClass;
+        anyClass = this.SystemClass.Any;
+
+        ClassClass thisClass;
+        thisClass = varClass;
+
+        bool b;
+        b = false;
+        while (!b & !(thisClass == null))
+        {
+            if (thisClass == this.NullClass)
+            {
+                b = true;
+            }
+            if (thisClass == requiredClass)
+            {
+                b = true;
+            }
+
+            ClassClass aa;
+            aa = null;
+            if (!(thisClass == anyClass))
+            {
+                aa = thisClass.Base;
+            }
+            thisClass = aa;
+        }
+        bool a;
+        a = b;
+        return a;
     }
 
     protected virtual bool ExecuteRootTraverse(Traverse traverse)
