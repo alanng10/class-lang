@@ -60,14 +60,8 @@ public class ReadList : Any
 
 
         this.ExecuteList("StorageStatus");
-
-
-        this.ExecuteList("NetworkAddressKind");
-
-
         this.ExecuteList("NetworkCase");
-
-
+        this.ExecuteList("NetworkPortKind");
         this.ExecuteList("NetworkStatus");
 
 
