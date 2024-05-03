@@ -1,4 +1,4 @@
-namespace Z.Tool.StatNetworkStatusSourceGen;
+namespace Z.Tool.Infra.StatNetworkStatus;
 
 
 

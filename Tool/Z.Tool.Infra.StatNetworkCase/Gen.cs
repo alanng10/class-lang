@@ -1,4 +1,4 @@
-namespace Z.Tool.StatNetworkCaseSourceGen;
+namespace Z.Tool.Infra.StatNetworkCase;
 
 
 

@@ -1,4 +1,4 @@
-namespace Z.Tool.StatPenCapSourceGen;
+namespace Z.Tool.Infra.StatPenCap;
 
 
 

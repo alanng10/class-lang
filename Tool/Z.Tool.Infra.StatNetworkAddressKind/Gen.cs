@@ -1,4 +1,4 @@
-namespace Z.Tool.StatNetworkAddressKindSourceGen;
+namespace Z.Tool.Infra.StatNetworkAddressKind;
 
 
 
