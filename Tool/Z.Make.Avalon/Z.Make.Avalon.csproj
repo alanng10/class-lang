@@ -11,8 +11,8 @@
         <ProjectReference Include="../Z.Tool.Avalon.GradientKindList/Z.Tool.Avalon.GradientKindList.csproj" />
         <ProjectReference Include="../Z.Tool.Avalon.GradientSpreadList/Z.Tool.Avalon.GradientSpreadList.csproj" />
         <ProjectReference Include="../Z.Tool.Avalon.ImageFormatList/Z.Tool.Avalon.ImageFormatList.csproj" />
-        <ProjectReference Include="../Z.Tool.Avalon.NetworkAddressKindList/Z.Tool.Avalon.NetworkAddressKindList.csproj" />
         <ProjectReference Include="../Z.Tool.Avalon.NetworkCaseList/Z.Tool.Avalon.NetworkCaseList.csproj" />
+        <ProjectReference Include="../Z.Tool.Avalon.NetworkPortKindList/Z.Tool.Avalon.NetworkPortKindList.csproj" />
         <ProjectReference Include="../Z.Tool.Avalon.NetworkStatusList/Z.Tool.Avalon.NetworkStatusList.csproj" />
         <ProjectReference Include="../Z.Tool.Avalon.PenCapList/Z.Tool.Avalon.PenCapList.csproj" />
         <ProjectReference Include="../Z.Tool.Avalon.PenJoinList/Z.Tool.Avalon.PenJoinList.csproj" />
