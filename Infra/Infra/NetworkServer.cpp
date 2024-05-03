@@ -21,7 +21,6 @@ Int NetworkServer_Final(Int o)
     return true;
 }
 
-CppField(NetworkServer, Address)
 CppField(NetworkServer, Port)
 
 Int NetworkServer_Listen(Int o)
@@ -29,12 +28,12 @@ Int NetworkServer_Listen(Int o)
     NetworkServer* m;
     m = CP(o);
     Int uu;
-    uu = NetworkAddress_Intern(m->Address);
+    uu = NetworkPort_InternAddress(m->Port);
     QHostAddress* ua;
     ua = (QHostAddress*)uu;
 
     quint16 ub;
-    ub = m->Port;
+    ub = NetworkPort_ServerGet(m->Port);
 
     bool bu;
     bu = m->Intern->listen(*ua, ub);

@@ -22,7 +22,7 @@ Int Network_ReadyRead(Int o);
 
 Int NetworkServer_NewPeer(Int o);
 
-Int NetworkAddress_Intern(Int o);
+Int NetworkPort_InternAddress(Int o);
 
 Int Draw_Intern(Int o);
 
