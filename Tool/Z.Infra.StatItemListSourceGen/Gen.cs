@@ -5,8 +5,8 @@ public class Gen : SourceGen
     public override bool Init()
     {
         base.Init();
-        this.AddMethodFileName = "AddMethodStatItem.txt";
-        this.InitMethodFileName = "InitMethodStatItem.txt";
+        this.AddMethodFileName = "ToolData/AddMethodStatItem.txt";
+        this.InitMethodFileName = "ToolData/InitMethodStatItem.txt";
         return true;
     }
 
@@ -20,7 +20,7 @@ public class Gen : SourceGen
 
     protected virtual string GetStatItemListFileName()
     {
-        return "ItemList" + this.StatItemClassName + ".txt";
+        return "ToolData/ItemList" + this.StatItemClassName + ".txt";
     }
 
     protected virtual string GetOutputFilePath()
