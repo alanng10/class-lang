@@ -25,7 +25,7 @@ class Gen : StatGen
 
 
 
-        this.ItemListFileName = "ItemListNetworkCase.txt";
+        this.ItemListFileName = "ToolData/ItemListNetworkCase.txt";
 
 
 
