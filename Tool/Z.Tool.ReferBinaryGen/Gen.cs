@@ -272,7 +272,7 @@ public class Gen : Any
                 
                 if (this.ArrayContainItem(this.SealedClassArray, oc))
                 {
-                    global::System.Console.Write("Class " + oc.Name + "(" + oc.Module.Ref.Name + ")" + " cannot be derived\n");
+                    global::System.Console.Error.Write("Class " + oc.Name + "(" + oc.Module.Ref.Name + ")" + " cannot be derived\n");
                     global::System.Environment.Exit(104);
                 }
 
@@ -727,9 +727,9 @@ public class Gen : Any
             Module module;
             module = (Module)iter.Value;
 
-            global::System.Console.Write("--------------\n");
-            global::System.Console.Write(module.Ref.Name + "\n");
-            global::System.Console.Write("--------------\n");
+            this.Console.Out.Write("--------------\n");
+            this.Console.Out.Write(module.Ref.Name + "\n");
+            this.Console.Out.Write("--------------\n");
 
             Table table;
             table = module.Class;
@@ -744,7 +744,7 @@ public class Gen : Any
                 this.ConsoleWriteClass(a);
             }
 
-            global::System.Console.Write("--------\n");
+            this.Console.Out.Write("--------\n");
 
             iterA = module.Import.IterCreate();
             module.Import.IterSet(iterA);
@@ -757,7 +757,7 @@ public class Gen : Any
                 string oaa;
                 oaa = oa.Name;
 
-                global::System.Console.Write(oaa + "\n");
+                this.Console.Out.Write(oaa + "\n");
 
                 Table ob;
                 ob = (Table)iterA.Value;
@@ -769,7 +769,7 @@ public class Gen : Any
                 {
                     ClassClass aa;
                     aa = (ClassClass)iterB.Value;
-                    global::System.Console.Write("    " + aa.Name + "\n");
+                    this.Console.Out.Write("    " + aa.Name + "\n");
                 }
 
                 if (!(oaa.StartsWith("System.") | oaa.StartsWith("Class.")))
@@ -784,7 +784,7 @@ public class Gen : Any
 
     protected virtual bool ConsoleWriteClass(ClassClass a)
     {
-        global::System.Console.Write("Class: Name: " + a.Name + ", Base: " + a.Base.Name + "(" + a.Base.Module.Ref.Name + ")" + "\n");
+        this.Console.Out.Write("Class: Name: " + a.Name + ", Base: " + a.Base.Name + "(" + a.Base.Module.Ref.Name + ")" + "\n");
 
         Iter iterB;
         iterB = a.Field.IterCreate();
@@ -793,7 +793,7 @@ public class Gen : Any
         {
             Field field;
             field = (Field)iterB.Value;
-            global::System.Console.Write("    Field: Name: " + field.Name + ", Count: " + this.CountString(field.Count.Index) + 
+            this.Console.Out.Write("    Field: Name: " + field.Name + ", Count: " + this.CountString(field.Count.Index) + 
             ", Class: " + field.Class.Name + "(" + field.Class.Module.Ref.Name + ")" + 
             ", SystemInfo: " + field.SystemInfo.Value +
             ", Virtual: " + ((field.Virtual == null) ? "null" : (field.Virtual.Parent.Name + "(" + field.Virtual.Parent.Module.Ref.Name + ")")) +
@@ -806,7 +806,7 @@ public class Gen : Any
         {
             Maide maide;
             maide = (Maide)iterB.Value;
-            global::System.Console.Write("    Maide: Name: " + maide.Name + ", Count: " + this.CountString(maide.Count.Index) + 
+            this.Console.Out.Write("    Maide: Name: " + maide.Name + ", Count: " + this.CountString(maide.Count.Index) + 
             ", Class: " + maide.Class.Name + "(" + maide.Class.Module.Ref.Name + ")" + 
             ", SystemInfo: " + maide.SystemInfo.Value +
             ", Virtual: " + ((maide.Virtual == null) ? "null" : (maide.Virtual.Parent.Name + "(" + maide.Virtual.Parent.Module.Ref.Name + ")")) +
@@ -821,7 +821,7 @@ public class Gen : Any
             {
                 Var varVar;
                 varVar = (Var)iterBa.Value;
-                global::System.Console.Write("        Var: Name: " + varVar.Name + ", Class: " + varVar.Class.Name + "(" + varVar.Class.Module.Ref.Name + ")" + ", SystemInfo: " + varVar.SystemInfo.Value + "\n");
+                this.Console.Out.Write("        Var: Name: " + varVar.Name + ", Class: " + varVar.Class.Name + "(" + varVar.Class.Module.Ref.Name + ")" + ", SystemInfo: " + varVar.SystemInfo.Value + "\n");
             }
         }
         return true;
