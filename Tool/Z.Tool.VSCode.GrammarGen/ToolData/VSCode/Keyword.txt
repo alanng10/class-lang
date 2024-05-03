@@ -1,1 +1,1 @@
-\b(class|get|set|this|base|null|new|share|cast|true|false|bit|return|inf|while|prudate|probate|precate|private)\b
+\b(#WordList#)\b
