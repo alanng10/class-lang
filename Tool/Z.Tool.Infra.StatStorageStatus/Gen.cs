@@ -17,7 +17,7 @@ class Gen : StatGen
 
 
 
-        this.ItemListFileName = "ItemListStorageStatus.txt";
+        this.ItemListFileName = "ToolData/ItemListStorageStatus.txt";
 
 
 
