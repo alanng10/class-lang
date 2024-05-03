@@ -11,8 +11,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <Content Include="ItemListThreadCase.txt" CopyToOutputDirectory="PreserveNewest" />
-        <Content Include="MethodThreadCase.txt" CopyToOutputDirectory="PreserveNewest" />
+        <Content Include="ToolData/*" CopyToOutputDirectory="PreserveNewest" />
     </ItemGroup>
 
 </Project>

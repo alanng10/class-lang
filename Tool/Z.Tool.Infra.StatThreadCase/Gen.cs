@@ -21,10 +21,10 @@ class Gen : StatGen
 
 
 
-        this.ItemListFileName = "ItemListThreadCase.txt";
+        this.ItemListFileName = "ToolData/ItemListThreadCase.txt";
 
 
-        this.MethodFileName = "MethodThreadCase.txt";
+        this.MethodFileName = "ToolData/MethodThreadCase.txt";
 
 
 
