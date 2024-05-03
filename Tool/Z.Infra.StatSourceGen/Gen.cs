@@ -150,158 +150,64 @@ public class Gen : Any
         return ka;
     }
 
-
-
-
-
-
     protected virtual string GetShareVarList()
     {
         string shareVarText;
-
         shareVarText = this.ToolInfra.StorageTextRead(this.ShareVarFileName);
 
-
-
         StringBuilder sa;
-
         sa = new StringBuilder(shareVarText);
-
-
-
         sa.Replace("#ClassName#", this.ClassName);
-
-
         sa.Replace("#NamePrefix#", this.NamePrefix);
-
-
         sa.Replace("#NamePostfix#", this.NamePostfix);
-
-
-
         sa.Replace("#ScopeName#", this.ScopeName);
-
-
         sa.Replace("#ScopeSeparator#", this.ScopeSeparator);
-
-
         sa.Replace("#ValuePrefix#", this.ValuePrefix);
-
-
         sa.Replace("#ValuePostfix#", this.ValuePostfix);
-
-
         sa.Replace("#ValueOffset#", this.ValueOffset);
 
-
-
-
-
         string oo;
-
         oo = sa.ToString();
 
-
-
-
-
         StringBuilder sb;
-
-
         sb = new StringBuilder();
 
-
-
-
         Iter iter;
-
         iter = this.ItemTable.IterCreate();
-
-
         this.ItemTable.IterSet(iter);
-
-
-
         int i;
-
         i = 0;
-
-
-
         while (iter.Next())
         {
             string k;
-
-
             k = this.GetItemShareVar(oo, iter, i);
 
-
-
             sb.Append(k);
-
-
-
 
             i = i + 1;
         }
 
-
-
-
         string ka;
-
         ka = sb.ToString();
-
-
-
         return ka;
     }
-
-
-
-
-
 
     protected virtual string GetItemShareVar(string shareVar, Iter iter, int index)
     {
         string a;
-
-
         a = (string)iter.Index;
 
-
-
         string ka;
-
         ka = (string)iter.Value;
 
-
-
-
         string kb;
-
-
         kb = index.ToString();
 
-
-
-
         string k;
-
-
         k = shareVar;
-
-
         k = k.Replace("#ItemName#", a);
-
-
         k = k.Replace("#ItemValue#", ka);
-
-
         k = k.Replace("#ItemIndex#", kb);
-
-
-
         return k;
     }
 
