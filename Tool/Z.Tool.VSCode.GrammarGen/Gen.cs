@@ -12,6 +12,9 @@ public class Gen : Any
 
     public virtual int Execute()
     {
+        string keywordItemList;
+        keywordItemList = this.ToolInfra.StorageTextRead("ToolData/ItemListKeyword.txt");
+        
         string keyword;
         keyword = this.ToolInfra.StorageTextRead("ToolData/VSCode/Keyword.txt");
 
@@ -24,12 +27,19 @@ public class Gen : Any
         string className;
         className = this.ToolInfra.StorageTextRead("ToolData/VSCode/ClassName.txt");
 
+        string oa;
+        oa = this.KeywordList(keywordItemList);
 
         string o;
-        o = name;
-        o = o.Replace("#Keyword#", keyword);
+        o = keyword;
+        o = o.Replace("#WordList#", oa);
 
-        string oa;
+        string keywordA;
+        keywordA = o;
+
+        o = name;
+        o = o.Replace("#Keyword#", keywordA);
+
         oa = className;
         oa = oa.Replace("#WordClassKeyword#", wordClassKeyword);
         oa = oa.Replace("#Name#", o);
@@ -39,7 +49,7 @@ public class Gen : Any
         classNameRegexString = oa;
 
         string ob;
-        ob = keyword;
+        ob = keywordA;
         ob = ob.Replace("\\", "\\\\");
 
         string keywordRegexString;
@@ -58,5 +68,58 @@ public class Gen : Any
 
         this.ToolInfra.StorageTextWrite(outputFilePath, k);
         return 0;
+    }
+
+
+    protected virtual string KeywordList(string o)
+    {
+        StringJoin join;
+        join = new StringJoin();
+        join.Init();
+
+        Array array;
+        array = this.ToolInfra.SplitLineList(o);
+
+        int count;
+        count = array.Count;
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            string line;
+            line = (string)array.Get(i);
+
+            string keyword;
+            keyword = this.Keyword(line);
+
+            if (0 < i)
+            {
+                join.Append("|");
+            }
+            join.Append(keyword);
+
+            i = i + 1;
+        }
+
+        string a;
+        a = join.Result();
+        return a;
+    }
+
+    protected virtual string Keyword(string line)
+    {
+        string a;
+        a = line;
+
+        string ka;
+        ka = "Item";
+        if (a.StartsWith(ka))
+        {
+            a = a.Substring(ka.Length);
+        }
+
+        a = a.ToLower();
+
+        return a;
     }
 }
