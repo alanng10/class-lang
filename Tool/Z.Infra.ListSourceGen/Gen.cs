@@ -7,11 +7,11 @@ public class Gen : Any
         base.Init();
         this.ToolInfra = ToolInfra.This;
 
-        this.ClassFileName = "DClass.txt";
-        this.InitMethodFileName = "InitMethod.txt";
-        this.AddMethodFileName = "AddMethod.txt";
-        this.ArrayCompListFileName = "ArrayCompList.txt";
-        this.ItemListFileName = "ItemList.txt";
+        this.ClassFileName = "ToolData/DClass.txt";
+        this.InitMethodFileName = "ToolData/InitMethod.txt";
+        this.AddMethodFileName = "ToolData/AddMethod.txt";
+        this.ArrayCompListFileName = "ToolData/ArrayCompList.txt";
+        this.ItemListFileName = "ToolData/ItemList.txt";
         return true;
     }
 
