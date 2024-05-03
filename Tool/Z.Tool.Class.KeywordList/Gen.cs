@@ -38,11 +38,11 @@ public class Gen : SourceGen
 
 
 
-        this.ItemListFileName = "ItemListKeyword.txt";
+        this.ItemListFileName = "ToolData/ItemListKeyword.txt";
 
 
 
-        this.AddMethodFileName = "AddMethodKeyword.txt";
+        this.AddMethodFileName = "ToolData/AddMethodKeyword.txt";
 
 
 
