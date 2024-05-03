@@ -197,13 +197,13 @@ public class List : Any
     {
         if (index == null)
         {
-            return true;
+            return false;
         }
         ListNode node;
         node = this.Node(index);
         if (node == null)
         {
-            return true;
+            return false;
         }
         node.Value = value;
         return true;
