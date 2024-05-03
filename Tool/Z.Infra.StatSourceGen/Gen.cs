@@ -1,289 +1,99 @@
 namespace Z.Infra.StatSourceGen;
 
-
-
-
-
-
 public class Gen : Any
 {
     public override bool Init()
     {
         base.Init();
-
-
-
-
         this.ToolInfra = ToolInfra.This;
-
-
-
-
-        this.SourceFileName = "Source.txt";
-
-
-        this.MethodFileName = "Method.txt";
-
-
-        this.ShareVarFileName = "ShareVar.txt";
-
-
-        this.ItemListFileName = "ItemList.txt";
-
-
-
+        this.SourceFileName = "ToolData/Source.txt";
+        this.MethodFileName = "ToolData/Method.txt";
+        this.ShareVarFileName = "ToolData/ShareVar.txt";
+        this.ItemListFileName = "ToolData/ItemList.txt";
 
         this.ClassName = "";
-
-
-
         this.ScopeName = "Qt";
-
-
         this.ScopeSeparator = "::";
-
-
         this.ValuePrefix = "";
-
-
         this.ValuePostfix = "";
-
-
-
         this.ValueOffset = "";
-
-
-
-
         this.NamePrefix = "";
-
-
         this.NamePostfix = "";
-
-
-
-
-
         return true;
     }
 
-
-
-
-
     public virtual string ClassName { get; set; }
-
-
-
     public virtual string ScopeName { get; set; }
-
-
-
     public virtual string ScopeSeparator { get; set; }
-
-
-
     public virtual string ValuePrefix { get; set; }
-
-
-
     public virtual string ValuePostfix { get; set; }
-
-
-
     public virtual string ValueOffset { get; set; }
-
-
-
-
     public virtual string NamePrefix { get; set; }
-
-
-
     public virtual string NamePostfix { get; set; }
-
-
-
-
-
-
     public virtual string SourceFileName { get; set; }
-
-
-
     public virtual string MethodFileName { get; set; }
-
-
-
     public virtual string ShareVarFileName { get; set; }
-
-
-
-
     public virtual string ItemListFileName { get; set; }
-
-
-
-
-
     public virtual string OutputFilePath { get; set; }
-
-
-
-
     protected virtual ToolInfra ToolInfra { get; set; }
-
-
-
-
-
-
     protected virtual Array LineArray { get; set; }
-
-
-
-
     protected virtual Table ItemTable { get; set; }
-
-
-
-
-
 
     public virtual int Execute()
     {
         this.ExecuteItemList();
 
-
-
-
-
         string sourceText;
-
         sourceText = this.ToolInfra.StorageTextRead(this.SourceFileName);
 
-
-
-
-
-
         StringBuilder sa;
-
         sa = new StringBuilder(sourceText);
 
-
-
-
         string methodList;
-
         methodList = this.GetMethodList();
 
-
-
         string shareVarList;
-
         shareVarList = this.GetShareVarList();
 
-
-
         sa.Replace("#ShareVarList#", shareVarList);
-
-
         sa.Replace("#MethodList#", methodList);
 
-
-
-
-
         string kk;
-
         kk = sa.ToString();
-
-
-
 
         this.OutputFilePath = this.GetOutputFilePath();
 
-
-
-
         this.ToolInfra.StorageTextWrite(this.OutputFilePath, kk);
-
-
-
-
-
-
         return 0;
     }
-
-
-
-
 
     protected virtual bool ExecuteItemList()
     {
         string a;
-
-
         a = this.ToolInfra.StorageTextRead(this.ItemListFileName);
 
-
-
-        
         this.LineArray = this.ToolInfra.SplitLineList(a);
 
-        
-
-
-
         StringCompare compare;
-
         compare = new StringCompare();
-
         compare.Init();
-
-
-
-
         this.ItemTable = new Table();
-
         this.ItemTable.Compare = compare;
-
         this.ItemTable.Init();
 
-
-
-
-
         Iter iter;
-
         iter = this.LineArray.IterCreate();
-
-
         this.LineArray.IterSet(iter);
-
-
-
-
         while (iter.Next())
         {
             string line;
-
             line = (string)iter.Value;
 
-
             Entry entry;
-
             entry = this.GetItemEntry(line);
-
-
 
             this.ItemTable.Add(entry);
         }
-
-
-
         return true;
     }
 
