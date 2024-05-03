@@ -23,7 +23,7 @@ class Gen : StatGen
 
 
 
-        this.ItemListFileName = "ItemListTextEncodeKind.txt";
+        this.ItemListFileName = "ToolData/ItemListTextEncodeKind.txt";
 
 
 
