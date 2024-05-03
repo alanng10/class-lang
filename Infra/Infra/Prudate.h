@@ -588,8 +588,8 @@ Infra_Api Int StorageEntry_Update(Int o);
 InfraApiNew(Network)
 Infra_Api Int Network_HostNameGet(Int o);
 Infra_Api Int Network_HostNameSet(Int o, Int value);
-Infra_Api Int Network_PortGet(Int o);
-Infra_Api Int Network_PortSet(Int o, Int value);
+Infra_Api Int Network_ServerPortGet(Int o);
+Infra_Api Int Network_ServerPortSet(Int o, Int value);
 Infra_Api Int Network_StreamGet(Int o);
 Infra_Api Int Network_StreamSet(Int o, Int value);
 Infra_Api Int Network_ReadyCountGet(Int o);
@@ -614,8 +614,6 @@ typedef Int (*Network_Error_Maide)(Int network, Int arg);
 typedef Int (*Network_ReadyRead_Maide)(Int network, Int arg);
 
 InfraApiNew(NetworkServer)
-Infra_Api Int NetworkServer_AddressGet(Int o);
-Infra_Api Int NetworkServer_AddressSet(Int o, Int value);
 Infra_Api Int NetworkServer_PortGet(Int o);
 Infra_Api Int NetworkServer_PortSet(Int o, Int value);
 Infra_Api Int NetworkServer_ErrorGet(Int o);
@@ -634,17 +632,19 @@ Infra_Api Int NetworkServer_ResumeAccept(Int o);
 
 typedef Int (*NetworkServer_NewPeer_Maide)(Int networkServer, Int arg);
 
-InfraApiNew(NetworkAddress)
-Infra_Api Int NetworkAddress_KindGet(Int o);
-Infra_Api Int NetworkAddress_KindSet(Int o, Int value);
-Infra_Api Int NetworkAddress_ValueAGet(Int o);
-Infra_Api Int NetworkAddress_ValueASet(Int o, Int value);
-Infra_Api Int NetworkAddress_ValueBGet(Int o);
-Infra_Api Int NetworkAddress_ValueBSet(Int o, Int value);
-Infra_Api Int NetworkAddress_ValueCGet(Int o);
-Infra_Api Int NetworkAddress_ValueCSet(Int o, Int value);
+InfraApiNew(NetworkPort)
+Infra_Api Int NetworkPort_KindGet(Int o);
+Infra_Api Int NetworkPort_KindSet(Int o, Int value);
+Infra_Api Int NetworkPort_ValueAGet(Int o);
+Infra_Api Int NetworkPort_ValueASet(Int o, Int value);
+Infra_Api Int NetworkPort_ValueBGet(Int o);
+Infra_Api Int NetworkPort_ValueBSet(Int o, Int value);
+Infra_Api Int NetworkPort_ValueCGet(Int o);
+Infra_Api Int NetworkPort_ValueCSet(Int o, Int value);
+Infra_Api Int NetworkPort_ServerPortGet(Int o);
+Infra_Api Int NetworkPort_ServerPortSet(Int o, Int value);
 
-Infra_Api Int NetworkAddress_Set(Int o);
+Infra_Api Int NetworkPort_Set(Int o);
 
 InfraApiNew(Thread)
 Infra_Api Int Thread_IdentGet(Int o);
@@ -815,14 +815,6 @@ Infra_Api Int Stat_StorageStatusPositionError(Int o);
 Infra_Api Int Stat_StorageStatusResizeError(Int o);
 Infra_Api Int Stat_StorageStatusPermissionsError(Int o);
 Infra_Api Int Stat_StorageStatusCopyError(Int o);
-Infra_Api Int Stat_NetworkAddressKindIPv6(Int o);
-Infra_Api Int Stat_NetworkAddressKindIPv4(Int o);
-Infra_Api Int Stat_NetworkAddressKindBroadcast(Int o);
-Infra_Api Int Stat_NetworkAddressKindLocalHost(Int o);
-Infra_Api Int Stat_NetworkAddressKindLocalHostIPv6(Int o);
-Infra_Api Int Stat_NetworkAddressKindAny(Int o);
-Infra_Api Int Stat_NetworkAddressKindAnyIPv6(Int o);
-Infra_Api Int Stat_NetworkAddressKindAnyIPv4(Int o);
 Infra_Api Int Stat_NetworkCaseUnconnected(Int o);
 Infra_Api Int Stat_NetworkCaseHostLookup(Int o);
 Infra_Api Int Stat_NetworkCaseConnecting(Int o);
@@ -830,6 +822,14 @@ Infra_Api Int Stat_NetworkCaseConnected(Int o);
 Infra_Api Int Stat_NetworkCaseBound(Int o);
 Infra_Api Int Stat_NetworkCaseListening(Int o);
 Infra_Api Int Stat_NetworkCaseClosing(Int o);
+Infra_Api Int Stat_NetworkPortKindIPv6(Int o);
+Infra_Api Int Stat_NetworkPortKindIPv4(Int o);
+Infra_Api Int Stat_NetworkPortKindBroadcast(Int o);
+Infra_Api Int Stat_NetworkPortKindLocalHost(Int o);
+Infra_Api Int Stat_NetworkPortKindLocalHostIPv6(Int o);
+Infra_Api Int Stat_NetworkPortKindAny(Int o);
+Infra_Api Int Stat_NetworkPortKindAnyIPv6(Int o);
+Infra_Api Int Stat_NetworkPortKindAnyIPv4(Int o);
 Infra_Api Int Stat_NetworkStatusNoError(Int o);
 Infra_Api Int Stat_NetworkStatusUnknownSocketError(Int o);
 Infra_Api Int Stat_NetworkStatusConnectionRefusedError(Int o);
