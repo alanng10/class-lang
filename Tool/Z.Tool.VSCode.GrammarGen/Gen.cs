@@ -1,35 +1,28 @@
 namespace Z.Tool.VSCode.GrammarGen;
 
-
-
-
-
-
 public class Gen : Any
 {
+    public override bool Init()
+    {
+        this.ToolInfra = ToolInfra.This;
+        return true;
+    }
+
+    protected virtual ToolInfra ToolInfra { get; set; }
+
     public virtual int Execute()
     {
         string keywordA;
-
-        keywordA = this.ReadRegexTextFile("Keyword.txt");
-
-
+        keywordA = this.ToolInfra.StorageTextRead("ToolData/VSCode/Keyword.txt");
 
         string wordClassKeywordA;
-
-        wordClassKeywordA = this.ReadRegexTextFile("WordClassKeyword.txt");
-
-
+        wordClassKeywordA = this.ToolInfra.StorageTextRead("ToolData/VSCode/WordClassKeyword.txt");
 
         string nameA;
-
-        nameA = this.ReadRegexTextFile("Name.txt");
-
-
+        nameA = this.ToolInfra.StorageTextRead("ToolData/VSCode/Name.txt");
 
         string classNameA;
-
-        classNameA = this.ReadRegexTextFile("ClassName.txt");
+        classNameA = this.ToolInfra.StorageTextRead("ToolData/VSCode/ClassName.txt");
 
 
 
@@ -94,54 +87,5 @@ public class Gen : Any
 
 
         return 0;
-    }
-
-
-
-
-
-    private string GetFilePath(string fileName)
-    {
-        return "../../../ClassVSCode/" + fileName;
-    }
-
-
-
-
-    private string ReadRegexTextFile(string fileName)
-    {
-        string filePath;
-
-        filePath = this.GetFilePath(fileName);
-
-
-        return this.ReadTextFile(filePath);
-    }
-
-
-
-
-
-
-    protected virtual string ReadTextFile(string filePath)
-    {
-        string a;
-
-        a = File.ReadAllText(filePath);
-
-
-        return a;
-    }
-
-
-
-
-
-    protected virtual bool WriteTextFile(string filePath, string text)
-    {
-        File.WriteAllText(filePath, text);
-
-
-        return true;
     }
 }
