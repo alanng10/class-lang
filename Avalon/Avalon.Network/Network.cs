@@ -69,7 +69,7 @@ public class Network : Any
 
     internal virtual ulong SetIntern { get; set; }
     public virtual string HostName { get; set; }
-    public virtual int Port { get; set; }
+    public virtual int ServerPort { get; set; }
     public virtual State CaseChangedState { get; set; }
     public virtual State ReadyReadState { get; set; }
     public virtual StreamStream Stream { get; set; }
@@ -156,12 +156,12 @@ public class Network : Any
         this.LoadingOpen = true;
 
         this.InternHostName = this.InternInfra.StringCreate(this.HostName);
-        ulong portU;
-        portU = (ulong)this.Port;
+        ulong serverPortU;
+        serverPortU = (ulong)this.ServerPort;
         this.DataStream = this.StreamCreate();
 
         Extern.Network_HostNameSet(this.Intern, this.InternHostName);
-        Extern.Network_ServerPortSet(this.Intern, portU);
+        Extern.Network_ServerPortSet(this.Intern, serverPortU);
         Extern.Network_StreamSet(this.Intern, this.DataStream.Ident);
         Extern.Network_Open(this.Intern);
         return true;
