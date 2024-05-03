@@ -1,4 +1,4 @@
-namespace Z.Tool.Avalon.NetworkAddressKindList;
+namespace Z.Tool.Avalon.NetworkPortKindList;
 
 public class Gen : SourceGen
 {
@@ -6,12 +6,12 @@ public class Gen : SourceGen
     {
         base.Init();
         this.Namespace = "Avalon.Network";
-        this.ClassName = "AddressKindList";
+        this.ClassName = "PortKindList";
         this.BaseClassName = "Any";
-        this.ItemClassName = "AddressKind";
+        this.ItemClassName = "PortKind";
         this.ArrayClassName = "Array";
         this.Export = true;
-        this.StatItemClassName = "NetworkAddressKind";
+        this.StatItemClassName = "NetworkPortKind";
         this.ItemListFileName = this.GetStatItemListFileName();
         return true;
     }

@@ -1,4 +1,4 @@
-namespace Z.Tool.Avalon.NetworkAddressKindList;
+namespace Z.Tool.Avalon.NetworkPortKindList;
 
 class Entry : EntryEntry
 {
