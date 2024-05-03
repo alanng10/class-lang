@@ -16,7 +16,7 @@ Int New(Int count)
 
     if (p == null)
     {
-        Exit(140);
+        Exit(0x100);
     }
 
     Int a;
