@@ -33,6 +33,11 @@ public class Infra : Any
     public virtual string PathCombine { get { return __D_PathCombine; } set { __D_PathCombine = value; } }
     protected string __D_PathCombine;
 
+    public virtual string StringCreateChar(char c)
+    {
+        return c.ToString();
+    }
+
     public virtual bool CheckIndex(int count, int index)
     {
         return this.CheckRange(count, index, 1);
