@@ -19,9 +19,9 @@ Return
     StringListItem(index)
 
 Console
-    Write(text)
+    OutWrite(text)
     ErrWrite(text)
-    Read()
+    InnRead()
 
 Array
     Count
