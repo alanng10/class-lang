@@ -13,7 +13,7 @@ class ExternGen : PrudateGen
 
 
 
-        this.PrudateFileName = "Extern.txt";
+        this.PrudateFileName = "ToolData/Extern.txt";
 
 
         this.OutputFilePath = "../../Avalon/Avalon.Intern/Extern.cs";

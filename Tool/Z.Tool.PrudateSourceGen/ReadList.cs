@@ -356,7 +356,7 @@ public class ReadList : Any
 
     protected virtual string GetListFilePath(string className)
     {
-        return "../../Tool/Z.Tool.Infra.Stat" + className + "/ItemList" + className + ".txt";
+        return "ToolData/ItemList" + className + ".txt";
     }
 
 
