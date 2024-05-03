@@ -29,3 +29,5 @@ The executable files are executed with working directory that is the directory t
 Modules read and write files in their data directories with paths that include their module ref strings.
 Modules can get their module ref strings by getting ModuleInfo class Name field and Version field in System.Infra module.
 Modules do not need to hard code module ref strings, that include module versions, in their classes.
+If modules need to read or write files in other modules data directories, including modules that they import, 
+they need to use paths that include module ref strings of those other modules.
