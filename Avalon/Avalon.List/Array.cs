@@ -12,26 +12,8 @@ public class Array : List
         return true;
     }
 
-    public override object FirstIndex
-    {
-        get
-        {
-            return null;
-        }
-        set
-        {
-        }
-    }
-    public override object LastIndex
-    {
-        get
-        {
-            return null;
-        }
-        set
-        {
-        }
-    }
+    public override object FirstIndex { get { return null; } set { } }
+    public override object LastIndex { get { return null; } set { } }
 
     protected virtual InfraInfra InfraInfra { get { return __D_InfraInfra; } set { __D_InfraInfra = value; } }
     protected InfraInfra __D_InfraInfra;
