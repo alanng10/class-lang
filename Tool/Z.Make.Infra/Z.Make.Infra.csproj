@@ -22,7 +22,7 @@
         <ProjectReference Include="../Z.Tool.Infra.StatStreamKind/Z.Tool.Infra.StatStreamKind.csproj" />
         <ProjectReference Include="../Z.Tool.Infra.StatTextAlign/Z.Tool.Infra.StatTextAlign.csproj" />
         <ProjectReference Include="../Z.Tool.Infra.StatTextEncodeKind/Z.Tool.Infra.StatTextEncodeKind.csproj" />
-        <ProjectReference Include="../Z.Tool.Infra.StatTextWarp/Z.Tool.Infra.StatTextWrap.csproj" />
+        <ProjectReference Include="../Z.Tool.Infra.StatTextWrap/Z.Tool.Infra.StatTextWrap.csproj" />
         <ProjectReference Include="../Z.Tool.Infra.StatThreadCase/Z.Tool.Infra.StatThreadCase.csproj" />
     </ItemGroup>
 
