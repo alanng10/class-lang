@@ -16,7 +16,7 @@ class Gen : StatGen
 
 
 
-        this.ItemListFileName = "ItemListTextWrap.txt";
+        this.ItemListFileName = "ToolData/ItemListTextWrap.txt";
 
 
 
