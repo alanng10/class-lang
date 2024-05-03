@@ -17,7 +17,7 @@ class Gen : StatGen
 
 
 
-        this.ItemListFileName = "ItemListTextAlign.txt";
+        this.ItemListFileName = "ToolData/ItemListTextAlign.txt";
 
 
 
