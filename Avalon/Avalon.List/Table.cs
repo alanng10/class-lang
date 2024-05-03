@@ -22,10 +22,6 @@ public class Table : List
 
     public override object Get(object index)
     {
-        if (index == null)
-        {
-            return null;
-        }
         ListNode node;
         node = this.ListNode(index);
         if (node == null)
@@ -42,10 +38,6 @@ public class Table : List
 
     public override bool Set(object index, object value)
     {
-        if (index == null)
-        {
-            return false;
-        }
         ListNode node;
         node = this.ListNode(index);
         if (node == null)
@@ -59,28 +51,8 @@ public class Table : List
         return true;
     }
 
-    private ListNode ListNode(object index)
-    {
-        TreeNodeResult t;
-        t = this.Tree.Node(index);
-        if (!t.HasNode)
-        {
-            return null;
-        }
-
-        ListNode listNode;
-        listNode = (ListNode)t.Node.Value;
-        ListNode ret;
-        ret = listNode;
-        return ret;
-    }
-
     public override object Add(object item)
     {
-        if (item == null)
-        {
-            return null;
-        }
         Entry entry;
         entry = this.Entry(item);
         if (entry == null)
@@ -111,18 +83,9 @@ public class Table : List
 
     public override object Insert(object index, object item)
     {
-        if (index == null)
-        {
-            return null;
-        }
         ListNode node;        
         node = this.ListNode(index);
         if (node == null)
-        {
-            return null;
-        }
-
-        if (item == null)
         {
             return null;
         }
@@ -137,6 +100,10 @@ public class Table : List
         ListNode u;
         u = this.ListNode(entry.Index);
         if (!(u == null))
+        {
+            return null;
+        }
+        if (entry.Index == null)
         {
             return null;
         }
@@ -157,10 +124,6 @@ public class Table : List
 
     public override bool Remove(object index)
     {
-        if (index == null)
-        {
-            return false;
-        }
         ListNode node;
         node = this.ListNode(index);
         if (node == null)
@@ -188,11 +151,6 @@ public class Table : List
 
     public override bool Contain(object index)
     {
-        if (index == null)
-        {
-            return false;
-        }
-
         ListNode node;
         node = this.ListNode(index);
         bool b;
@@ -222,8 +180,34 @@ public class Table : List
         return true;
     }
 
+    private ListNode ListNode(object index)
+    {
+        if (index == null)
+        {
+            return null;
+        }
+
+        TreeNodeResult t;
+        t = this.Tree.Node(index);
+        if (!t.HasNode)
+        {
+            return null;
+        }
+
+        ListNode listNode;
+        listNode = (ListNode)t.Node.Value;
+        ListNode a;
+        a = listNode;
+        return a;
+    }
+
     private Entry Entry(object item)
     {
+        if (item == null)
+        {
+            return null;
+        }
+        
         bool b;
         b = item is Entry;
         if (!b)
@@ -233,13 +217,9 @@ public class Table : List
 
         Entry entry;
         entry = (Entry)item;
-        if (entry.Index == null)
-        {
-            return null;
-        }
 
-        Entry ret;
-        ret = entry;
-        return ret;
+        Entry a;
+        a = entry;
+        return a;
     }
 }
