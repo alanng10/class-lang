@@ -13,7 +13,8 @@ class F : N
         this.D : a;
 
 
-
+        sign oo;
+        
 
 
         Kk kk;
