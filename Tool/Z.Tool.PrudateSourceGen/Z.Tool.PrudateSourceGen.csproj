@@ -11,10 +11,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <Content Include="MethodList.txt" CopyToOutputDirectory="PreserveNewest" />
-        <Content Include="ClassList.txt" CopyToOutputDirectory="PreserveNewest" />
-        <Content Include="Prudate.txt" CopyToOutputDirectory="PreserveNewest" />
-        <Content Include="Extern.txt" CopyToOutputDirectory="PreserveNewest" />
+        <Content Include="ToolData/*" CopyToOutputDirectory="PreserveNewest" />
     </ItemGroup>
 
 </Project>
