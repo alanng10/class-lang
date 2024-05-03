@@ -1,4 +1,4 @@
-namespace Z.Tool.ClassNameRegexStringGen;
+namespace Z.Tool.VSCode.GrammarGen;
 
 
 
