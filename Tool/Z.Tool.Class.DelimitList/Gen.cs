@@ -38,11 +38,11 @@ public class Gen : SourceGen
 
 
 
-        this.ItemListFileName = "ItemListDelimit.txt";
+        this.ItemListFileName = "ToolData/ItemListDelimit.txt";
 
 
 
-        this.AddMethodFileName = "AddMethodDelimit.txt";
+        this.AddMethodFileName = "ToolData/AddMethodDelimit.txt";
 
 
 
