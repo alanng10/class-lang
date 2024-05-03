@@ -130,19 +130,6 @@ public class Infra : Any
         return a;
     }
 
-    public virtual string StringCreate(Text text)
-    {
-        if (!this.CheckRange(text))
-        {
-            return null;
-        }
-        Range range;
-        range = text.Range;
-        string a;
-        a = this.InternIntern.StringCreateData(text.Data.Value, range.Index, range.Count);
-        return a;
-    }
-
     public virtual bool CheckRange(Text text)
     {
         long dataCount;
@@ -272,5 +259,14 @@ public class Infra : Any
             i = i + 1;
         }
         return true;
+    }
+
+    public virtual string StringCreate(Text text)
+    {
+        StringCreate o;
+        o = new StringCreate();
+        o.Init();
+
+        return o.Data(text.Data, text.Range);
     }
 }
