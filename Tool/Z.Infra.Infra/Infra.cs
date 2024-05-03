@@ -51,6 +51,7 @@ public class Infra : Any
         if (a == null)
         {
             this.Console.Err.Write("Text File Read Error path: " + filePath + "\n");
+            global::System.Environment.Exit(400);
         }
         return a;
     }
@@ -63,6 +64,7 @@ public class Infra : Any
         if (!a)
         {
             this.Console.Err.Write("Text File Write Error path: " + filePath + "\n");
+            global::System.Environment.Exit(401);
         }
         return a;
     }
