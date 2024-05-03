@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <OutputPath>../../Out</OutputPath>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="../Z.Tool.Infra.StatBrushKind/Z.Tool.Infra.StatBrushKind.csproj" />
+        <ProjectReference Include="../Z.Tool.Infra.StatComposite/Z.Tool.Infra.StatComposite.csproj" />
+        <ProjectReference Include="../Z.Tool.Infra.StatGradientKind/Z.Tool.Infra.StatGradientKind.csproj" />
+        <ProjectReference Include="../Z.Tool.Infra.StatGradientSpread/Z.Tool.Infra.StatGradientSpread.csproj" />
+        <ProjectReference Include="../Z.Tool.Infra.StatImageFormat/Z.Tool.Infra.StatImageFormat.csproj" />
+        <ProjectReference Include="../Z.Tool.Infra.StatNetworkAddressKind/Z.Tool.Infra.StatNetworkAddressKind.csproj" />
+        <ProjectReference Include="../Z.Tool.Infra.StatNetworkCase/Z.Tool.Infra.StatNetworkCase.csproj" />
+        <ProjectReference Include="../Z.Tool.Infra.StatNetworkStatus/Z.Tool.Infra.StatNetworkStatus.csproj" />
+        <ProjectReference Include="../Z.Tool.Infra.StatPenCap/Z.Tool.Infra.StatPenCap.csproj" />
+        <ProjectReference Include="../Z.Tool.Infra.StatPenJoin/Z.Tool.Infra.StatPenJoin.csproj" />
+        <ProjectReference Include="../Z.Tool.Infra.StatPenKind/Z.Tool.Infra.StatPenKind.csproj" />
+    </ItemGroup>
+
+</Project>
