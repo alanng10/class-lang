@@ -641,8 +641,8 @@ Infra_Api Int NetworkPort_ValueBGet(Int o);
 Infra_Api Int NetworkPort_ValueBSet(Int o, Int value);
 Infra_Api Int NetworkPort_ValueCGet(Int o);
 Infra_Api Int NetworkPort_ValueCSet(Int o, Int value);
-Infra_Api Int NetworkPort_ServerPortGet(Int o);
-Infra_Api Int NetworkPort_ServerPortSet(Int o, Int value);
+Infra_Api Int NetworkPort_ServerGet(Int o);
+Infra_Api Int NetworkPort_ServerSet(Int o, Int value);
 
 Infra_Api Int NetworkPort_Set(Int o);
 
