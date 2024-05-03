@@ -34,8 +34,8 @@ HEADERS += \
     Memory.hpp \
     Method.hpp \
     Network.hpp \
-    NetworkAddress.hpp \
     NetworkHandle.hpp \
+    NetworkPort.hpp \
     NetworkServer.hpp \
     NetworkServerIntern.hpp \
     Pen.hpp \
@@ -100,8 +100,8 @@ SOURCES += \
     Memory.cpp \
     Method.cpp \
     Network.cpp \
-    NetworkAddress.cpp \
     NetworkHandle.cpp \
+    NetworkPort.cpp \
     NetworkServer.cpp \
     NetworkServerIntern.cpp \
     Pen.cpp \
