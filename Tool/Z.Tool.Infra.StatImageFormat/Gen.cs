@@ -21,10 +21,10 @@ class Gen : StatGen
 
 
 
-        this.ItemListFileName = "ItemListImageFormat.txt";
+        this.ItemListFileName = "ToolData/ItemListImageFormat.txt";
 
 
-        this.MethodFileName = "MethodImageFormat.txt";
+        this.MethodFileName = "ToolData/MethodImageFormat.txt";
 
 
 
