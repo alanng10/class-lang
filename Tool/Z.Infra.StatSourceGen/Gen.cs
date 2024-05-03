@@ -211,138 +211,27 @@ public class Gen : Any
         return k;
     }
 
-
-
-
-
-
     protected virtual string GetItemMethod(string method, Iter iter, int index)
     {
         string a;
-            
-
         a = (string)iter.Index;
 
-
-
         string ka;
-
         ka = (string)iter.Value;
 
-        
-
-
         string kb;
-
-
         kb = index.ToString();
 
-
-
-
         string k;
-
-
         k = method;
-
-
         k = k.Replace("#ItemName#", a);
-
-
         k = k.Replace("#ItemValue#", ka);
-
-
         k = k.Replace("#ItemIndex#", kb);
-
-
-
         return k;
     }
-
-
-
-
 
     protected virtual string GetOutputFilePath()
     {
         return "../../Infra/Infra/Stat_" + this.ClassName + ".cpp";
-    }
-
-
-
-
-    protected virtual bool GetBool(string a)
-    {
-        bool b;
-
-
-        b = false;
-
-
-
-        if (!(a == "false"))
-        {
-            b = true;
-        }
-
-
-
-        return b;
-    }
-
-
-
-
-
-
-    protected virtual string GetBoolString(bool a)
-    {
-        string u;
-
-
-        u = "false";
-
-
-
-
-        if (a)
-        {
-            u = "true";
-        }
-
-
-
-
-        return u;
-    }
-
-
-
-
-
-    protected virtual bool AppendIndent(StringBuilder sb, int indent)
-    {
-        int count;
-
-        count = indent;
-
-
-
-        int i;
-
-        i = 0;
-
-
-        while (i < count)
-        {
-            sb.Append("    ");
-
-
-
-            i = i + 1;
-        }
-        
-
-        return true;
     }
 }
