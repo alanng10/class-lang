@@ -377,7 +377,7 @@ public class Gen : Any
                         global::System.Environment.Exit(109);
                     }
 
-                    if (!property.GetMethod.IsVirtual)
+                    if (!(property.GetMethod.IsVirtual & property.SetMethod.IsVirtual))
                     {
                         global::System.Console.Error.Write("Class " + varClass.Name + "(" + varClass.Module.Ref.Name + ") field " + property.Name + " is not virtual\n");
                         global::System.Environment.Exit(106);
