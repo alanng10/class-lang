@@ -593,7 +593,7 @@ class Demo : Any
         this.Console.Out.Write("\n");
 
         string ou;
-        ou = "Demo2.txt";
+        ou = "DemoData/Demo2.txt";
         File.Delete(ou);
 
         bool b;
@@ -627,7 +627,7 @@ class Demo : Any
         }
 
         string oua;
-        oua = "Demo3.txt";
+        oua = "DemoData/Demo3.txt";
         File.Delete(oua);
 
         bool bo;
@@ -660,7 +660,7 @@ class Demo : Any
         }
 
         string oub;
-        oub = "Demo4.txt";
+        oub = "DemoData/Demo4.txt";
         File.Delete(oub);
 
         bo = false;
