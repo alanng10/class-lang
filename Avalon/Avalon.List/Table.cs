@@ -219,7 +219,6 @@ public class Table : List
         TableIter a;
         a = (TableIter)iter;
         this.List.IterSet(a.ListIter);
-
         return true;
     }
 
