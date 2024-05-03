@@ -21,8 +21,6 @@ public class Gen : SourceGen
     protected override bool AppendInitFieldAddItem(StringBuilder sb, string index, object value)
     {
         sb.Append("AddItem").Append("(").Append(")");
-
-
         return true;
     }
 }
