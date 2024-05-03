@@ -12,17 +12,12 @@ public class Gen : Any
         this.ListInfra = ListInfra.This;
         this.StorageInfra = StorageInfra.This;
         this.ClassInfra = ClassInfra.This;
+        this.Console = Console.This;
         this.CountList = CountList.This;
 
         this.ModuleRef = this.ClassInfra.ModuleRefCreate(null, 0);
 
-        Table table;
-        table = new Table();
-        table.Compare = new RefCompare();
-        table.Compare.Init();
-        table.Init();
-
-        this.DotNetBuiltInTypeTable = table;
+        this.DotNetBuiltInTypeTable = this.ClassInfra.TableCreateRefCompare();
 
         this.AddDotNetBuiltInType(typeof(object), "Any");
         this.AddDotNetBuiltInType(typeof(bool), "Bool");
@@ -55,6 +50,7 @@ public class Gen : Any
     protected virtual ListInfra ListInfra { get; set; }
     protected virtual StorageInfra StorageInfra { get; set; }
     protected virtual ClassInfra ClassInfra { get; set; }
+    protected virtual Console Console { get; set; }
     protected virtual CountList CountList { get; set; }
     protected virtual Table ModuleTable { get; set; }
     protected virtual Module Module { get; set; }
