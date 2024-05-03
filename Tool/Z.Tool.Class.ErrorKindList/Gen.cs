@@ -17,8 +17,8 @@ public class Gen : SourceGen
         this.ItemClassName = "ErrorKind";
         this.ArrayClassName = "Array";
         this.Export = true;
-        this.ItemListFileName = "ItemListErrorKind" + name + ".txt";
-        this.AddMethodFileName = "AddMethodErrorKind.txt";
+        this.ItemListFileName = "ToolData/ItemListErrorKind" + name + ".txt";
+        this.AddMethodFileName = "ToolData/AddMethodErrorKind.txt";
         this.OutputFilePath = "../../Class/Class." + name + "/ErrorKindList.cs";
         base.Execute();
         return true;

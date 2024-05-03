@@ -11,9 +11,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <Content Include="ItemListErrorKindNode.txt" CopyToOutputDirectory="PreserveNewest" />
-        <Content Include="ItemListErrorKindModule.txt" CopyToOutputDirectory="PreserveNewest" />
-        <Content Include="AddMethodErrorKind.txt" CopyToOutputDirectory="PreserveNewest" />
+        <Content Include="ToolData/*" CopyToOutputDirectory="PreserveNewest" />
     </ItemGroup>
 
 </Project>
