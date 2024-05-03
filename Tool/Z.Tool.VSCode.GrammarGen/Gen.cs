@@ -70,7 +70,6 @@ public class Gen : Any
         return 0;
     }
 
-
     protected virtual string KeywordList(string o)
     {
         StringJoin join;
