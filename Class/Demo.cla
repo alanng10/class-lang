@@ -13,9 +13,9 @@ class F : N
         this.D : a;
 
 
-        sign oo;
-        
-        bit < (sf df)
+        sign < (100, 33)
+
+        bit | (222, 632)
 
 
         Kk kk;
