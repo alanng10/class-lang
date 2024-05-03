@@ -11,8 +11,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <Content Include="InitMethodTextAlign.txt" CopyToOutputDirectory="PreserveNewest" />
-        <Content Include="AddMethodTextAlign.txt" CopyToOutputDirectory="PreserveNewest" />
+        <Content Include="ToolData/*" CopyToOutputDirectory="PreserveNewest" />
     </ItemGroup>
 
 </Project>
