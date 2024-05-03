@@ -388,7 +388,7 @@ NetworkPort
     ValueA
     ValueB
     ValueC
-    ServerPort
+    Server
     Set()
 
 Thread
