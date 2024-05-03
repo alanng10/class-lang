@@ -354,7 +354,7 @@ StorageEntry
 
 Network
     HostName
-    Port
+    ServerPort
     Stream
     ReadyCount
     Status
@@ -378,17 +378,17 @@ NetworkServer
     HasPendingPeer()
     PauseAccept()
     ResumeAccept()
-    Address
     Port
     Error
     NewPeerState
     NewPeer(networkServer, arg) --
 
-NetworkAddress
+NetworkPort
     Kind
     ValueA
     ValueB
     ValueC
+    ServerPort
     Set()
 
 Thread
