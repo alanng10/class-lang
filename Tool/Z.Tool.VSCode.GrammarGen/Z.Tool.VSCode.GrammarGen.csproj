@@ -10,4 +10,7 @@
         <ProjectReference Include="../Z.Infra.Infra/Z.Infra.Infra.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+        <Content Include="ToolData/VSCode/*" CopyToOutputDirectory="PreserveNewest" />
+    </ItemGroup>
 </Project>
