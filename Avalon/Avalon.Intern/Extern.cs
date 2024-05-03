@@ -681,8 +681,8 @@ public static class Extern
     [DllImport(InfraLib)] public extern static ulong NetworkPort_ValueBSet(ulong o, ulong value);
     [DllImport(InfraLib)] public extern static ulong NetworkPort_ValueCGet(ulong o);
     [DllImport(InfraLib)] public extern static ulong NetworkPort_ValueCSet(ulong o, ulong value);
-    [DllImport(InfraLib)] public extern static ulong NetworkPort_ServerPortGet(ulong o);
-    [DllImport(InfraLib)] public extern static ulong NetworkPort_ServerPortSet(ulong o, ulong value);
+    [DllImport(InfraLib)] public extern static ulong NetworkPort_ServerGet(ulong o);
+    [DllImport(InfraLib)] public extern static ulong NetworkPort_ServerSet(ulong o, ulong value);
 
     [DllImport(InfraLib)] public extern static ulong NetworkPort_Set(ulong o);
 
