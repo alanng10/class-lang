@@ -125,8 +125,8 @@ SOURCES += \
     Stat_GradientKind.cpp \
     Stat_GradientSpread.cpp \
     Stat_ImageFormat.cpp \
-    Stat_NetworkAddressKind.cpp \
     Stat_NetworkCase.cpp \
+    Stat_NetworkPortKind.cpp \
     Stat_NetworkStatus.cpp \
     Stat_PenCap.cpp \
     Stat_PenJoin.cpp \
