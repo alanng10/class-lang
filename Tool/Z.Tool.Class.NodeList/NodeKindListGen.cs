@@ -38,7 +38,7 @@ public class NodeKindListGen : SourceGen
 
 
 
-        this.AddMethodFileName = "AddMethodNodeKind.txt";
+        this.AddMethodFileName = "ToolData/AddMethodNodeKind.txt";
 
 
 

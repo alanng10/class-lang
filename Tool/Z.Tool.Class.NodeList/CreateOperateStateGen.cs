@@ -47,7 +47,7 @@ public class CreateOperateStateGen : Any
 
     public virtual int Execute()
     {
-        this.SourceFileName = "CreateOperateStateSource.txt";
+        this.SourceFileName = "ToolData/CreateOperateStateSource.txt";
 
 
 

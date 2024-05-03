@@ -38,7 +38,7 @@ public class NewStateGen : Any
 
     public virtual int Execute()
     {
-        this.NewStateSourceFileName = "NewStateSource.txt";
+        this.NewStateSourceFileName = "ToolData/NewStateSource.txt";
 
 
 

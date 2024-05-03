@@ -38,7 +38,7 @@ public class NodeStateGen : Any
 
     public virtual int Execute()
     {
-        this.NodeStateSourceFileName = "NodeStateSource.txt";
+        this.NodeStateSourceFileName = "ToolData/NodeStateSource.txt";
 
 
 

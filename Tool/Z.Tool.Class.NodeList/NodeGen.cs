@@ -38,7 +38,7 @@ public class NodeGen : Any
 
     public virtual bool Execute()
     {
-        this.NodeSourceText = this.ToolInfra.StorageTextRead("NodeSource.txt");
+        this.NodeSourceText = this.ToolInfra.StorageTextRead("ToolData/NodeSource.txt");
 
 
 
