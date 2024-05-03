@@ -25,7 +25,7 @@ class Gen : StatGen
 
 
 
-        this.ItemListFileName = "ItemListGradientKind.txt";
+        this.ItemListFileName = "ToolData/ItemListGradientKind.txt";
 
 
 
