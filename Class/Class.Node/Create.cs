@@ -1294,8 +1294,6 @@ public class Create : InfraCreate
             if (textInfra.EqualString(text, this.Keyword.True.Text, null))
             {
                 value = true;
-
-
                 b = true;
             }
         }
@@ -1304,8 +1302,6 @@ public class Create : InfraCreate
             if (textInfra.EqualString(text, this.Keyword.False.Text, null))
             {
                 value = false;
-
-
                 b = true;
             }
         }
