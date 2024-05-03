@@ -223,7 +223,7 @@ public class Infra : Any
         return true;
     }
 
-    public virtual bool TextEqualText(Text text, Text other)
+    public virtual bool EqualText(Text text, Text other)
     {
         if (!this.CheckRange(text))
         {
