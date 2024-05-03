@@ -12,45 +12,51 @@ public class Gen : Any
 
     public virtual int Execute()
     {
-        string keywordA;
-        keywordA = this.ToolInfra.StorageTextRead("ToolData/VSCode/Keyword.txt");
+        string keyword;
+        keyword = this.ToolInfra.StorageTextRead("ToolData/VSCode/Keyword.txt");
 
-        string wordClassKeywordA;
-        wordClassKeywordA = this.ToolInfra.StorageTextRead("ToolData/VSCode/WordClassKeyword.txt");
+        string wordClassKeyword;
+        wordClassKeyword = this.ToolInfra.StorageTextRead("ToolData/VSCode/WordClassKeyword.txt");
 
-        string nameA;
-        nameA = this.ToolInfra.StorageTextRead("ToolData/VSCode/Name.txt");
+        string name;
+        name = this.ToolInfra.StorageTextRead("ToolData/VSCode/Name.txt");
 
-        string classNameA;
-        classNameA = this.ToolInfra.StorageTextRead("ToolData/VSCode/ClassName.txt");
+        string className;
+        className = this.ToolInfra.StorageTextRead("ToolData/VSCode/ClassName.txt");
 
 
         string o;
-        o = nameA;
-        o = o.Replace("#Keyword#", keywordA);
+        o = name;
+        o = o.Replace("#Keyword#", keyword);
 
         string oa;
-        oa = classNameA;
-        oa = oa.Replace("#WordClassKeyword#", wordClassKeywordA);
+        oa = className;
+        oa = oa.Replace("#WordClassKeyword#", wordClassKeyword);
         oa = oa.Replace("#Name#", o);
+        oa = oa.Replace("\\", "\\\\");
+
+        string classNameRegexString;
+        classNameRegexString = oa;
+
+        string ob;
+        ob = keyword;
+        ob = ob.Replace("\\", "\\\\");
+
+        string keywordRegexString;
+        keywordRegexString = ob;
+
+        string grammar;
+        grammar = this.ToolInfra.StorageTextRead("ToolData/VSCode/Grammar.txt");
 
         string k;
-        k = oa.Replace("\\", "\\\\");
-
-
+        k = grammar;
+        k = k.Replace("#KeywordRegexString#", keywordRegexString);
+        k = k.Replace("#ClassNameRegexString#", classNameRegexString);
 
         string outputFilePath;
+        outputFilePath = "../../VSCode/class-lang-vscode-ext/syntaxes/class.tmLanguage.json";
 
-        outputFilePath = this.GetFilePath("ClassNameRegexString.txt");
-
-
-
-        this.WriteTextFile(outputFilePath, k);
-
-
-
-
-
+        this.ToolInfra.StorageTextWrite(outputFilePath, k);
         return 0;
     }
 }
