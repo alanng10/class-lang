@@ -46,9 +46,9 @@ public static class Extern
     [DllImport(InfraLib)] public extern static ulong Console_Delete(ulong o);
     [DllImport(InfraLib)] public extern static ulong Console_Init(ulong o);
     [DllImport(InfraLib)] public extern static ulong Console_Final(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Console_Write(ulong o, ulong text);
+    [DllImport(InfraLib)] public extern static ulong Console_OutWrite(ulong o, ulong text);
     [DllImport(InfraLib)] public extern static ulong Console_ErrWrite(ulong o, ulong text);
-    [DllImport(InfraLib)] public extern static ulong Console_Read(ulong o);
+    [DllImport(InfraLib)] public extern static ulong Console_InnRead(ulong o);
 
     [DllImport(InfraLib)] public extern static ulong Array_New();
     [DllImport(InfraLib)] public extern static ulong Array_Delete(ulong o);

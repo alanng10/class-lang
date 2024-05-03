@@ -123,9 +123,9 @@ Infra_Api Int Return_StringListCount(Int o);
 Infra_Api Int Return_StringListItem(Int o, Int index);
 
 InfraApiNew(Console)
-Infra_Api Int Console_Write(Int o, Int text);
+Infra_Api Int Console_OutWrite(Int o, Int text);
 Infra_Api Int Console_ErrWrite(Int o, Int text);
-Infra_Api Int Console_Read(Int o);
+Infra_Api Int Console_InnRead(Int o);
 
 InfraApiNew(Array)
 Infra_Api Int Array_CountGet(Int o);
