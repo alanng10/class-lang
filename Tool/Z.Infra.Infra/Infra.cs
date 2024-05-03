@@ -17,6 +17,7 @@ public class Infra : Any
     public override bool Init()
     {
         base.Init();
+        this.InfraInfra = InfraInfra.This;
         this.StorageInfra = StorageInfra.This;
         this.Console = Console.This;
         this.NewLine = "\n";
@@ -24,6 +25,7 @@ public class Infra : Any
     }
 
     public virtual string NewLine { get; set; }
+    protected virtual InfraInfra InfraInfra { get; set; }
     protected virtual StorageInfra StorageInfra { get; set; }
     protected virtual Console Console { get; set; }
 
@@ -43,8 +45,10 @@ public class Infra : Any
 
     public virtual string StorageTextRead(string filePath)
     {
+        string path;
+        path = "ToolData" + this.InfraInfra.PathCombine + filePath;
         string a;
-        a = this.StorageInfra.TextRead(filePath);
+        a = this.StorageInfra.TextRead(path);
 
         if (a == null)
         {
@@ -55,8 +59,10 @@ public class Infra : Any
 
     public virtual bool StorageTextWrite(string filePath, string text)
     {
+        string path;
+        path = "ToolData" + this.InfraInfra.PathCombine + filePath;
         bool a;
-        a = this.StorageInfra.TextWrite(filePath, text);
+        a = this.StorageInfra.TextWrite(path, text);
 
         if (!a)
         {
