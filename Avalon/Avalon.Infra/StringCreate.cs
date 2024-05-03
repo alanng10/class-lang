@@ -13,12 +13,7 @@ public class StringCreate : Any
     private InternIntern InternIntern { get; set; }
     protected virtual Infra InfraInfra { get; set; }
 
-    public virtual string Char(char c)
-    {
-        return c.ToString();
-    }
-
-    public virtual string CharCount(char c, int count)
+    public virtual string Char(char c, int count)
     {
         if (count < 0)
         {
