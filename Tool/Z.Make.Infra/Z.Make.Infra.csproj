@@ -11,8 +11,8 @@
         <ProjectReference Include="../Z.Tool.Infra.StatGradientKind/Z.Tool.Infra.StatGradientKind.csproj" />
         <ProjectReference Include="../Z.Tool.Infra.StatGradientSpread/Z.Tool.Infra.StatGradientSpread.csproj" />
         <ProjectReference Include="../Z.Tool.Infra.StatImageFormat/Z.Tool.Infra.StatImageFormat.csproj" />
-        <ProjectReference Include="../Z.Tool.Infra.StatNetworkAddressKind/Z.Tool.Infra.StatNetworkAddressKind.csproj" />
         <ProjectReference Include="../Z.Tool.Infra.StatNetworkCase/Z.Tool.Infra.StatNetworkCase.csproj" />
+        <ProjectReference Include="../Z.Tool.Infra.StatNetworkPortKind/Z.Tool.Infra.StatNetworkPortKind.csproj" />
         <ProjectReference Include="../Z.Tool.Infra.StatNetworkStatus/Z.Tool.Infra.StatNetworkStatus.csproj" />
         <ProjectReference Include="../Z.Tool.Infra.StatPenCap/Z.Tool.Infra.StatPenCap.csproj" />
         <ProjectReference Include="../Z.Tool.Infra.StatPenJoin/Z.Tool.Infra.StatPenJoin.csproj" />
