@@ -24,7 +24,7 @@ Int Console_Final(Int o)
     return true;
 }
 
-Int Console_Write(Int o, Int text)
+Int Console_OutWrite(Int o, Int text)
 {
     std::ostream* uu;
     uu = &(std::cout);
@@ -67,7 +67,7 @@ Int Console_StreamWrite(Int o, Int text, Int stream)
     return true;
 }
 
-Int Console_Read(Int o)
+Int Console_InnRead(Int o)
 {
     Console* m;
     m = CP(o);
