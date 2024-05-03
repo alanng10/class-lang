@@ -1,4 +1,4 @@
-namespace Z.Tool.StatImageFormatSourceGen;
+namespace Z.Tool.Infra.StatImageFormat;
 
 
 

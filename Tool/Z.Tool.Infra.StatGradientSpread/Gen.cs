@@ -1,4 +1,4 @@
-namespace Z.Tool.StatGradientSpreadSourceGen;
+namespace Z.Tool.Infra.StatGradientSpread;
 
 
 

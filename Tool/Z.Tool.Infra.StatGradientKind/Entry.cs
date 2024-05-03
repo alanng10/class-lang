@@ -1,4 +1,4 @@
-namespace Z.Tool.Infra.StatBrushKind;
+namespace Z.Tool.Infra.StatGradientKind;
 
 class Entry : EntryEntry
 {

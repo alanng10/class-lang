@@ -1,4 +1,4 @@
-namespace Z.Tool.Infra.StatBrushKind;
+namespace Z.Tool.Infra.StatImageFormat;
 
 class Entry : EntryEntry
 {

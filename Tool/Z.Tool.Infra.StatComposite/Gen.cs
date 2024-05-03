@@ -1,4 +1,4 @@
-namespace Z.Tool.StatCompositeSourceGen;
+namespace Z.Tool.Infra.StatComposite;
 
 class Gen : StatGen
 {

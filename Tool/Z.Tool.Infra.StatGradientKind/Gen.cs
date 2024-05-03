@@ -1,4 +1,4 @@
-namespace Z.Tool.StatGradientKindSourceGen;
+namespace Z.Tool.Infra.StatGradientKind;
 
 
 
