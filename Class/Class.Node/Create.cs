@@ -1291,7 +1291,7 @@ public class Create : InfraCreate
         b = false;
         if (!b)
         {
-            if (textInfra.TextEqualString(text, this.Keyword.True.Text, null))
+            if (textInfra.EqualString(text, this.Keyword.True.Text, null))
             {
                 value = true;
 
@@ -1301,7 +1301,7 @@ public class Create : InfraCreate
         }
         if (!b)
         {
-            if (textInfra.TextEqualString(text, this.Keyword.False.Text, null))
+            if (textInfra.EqualString(text, this.Keyword.False.Text, null))
             {
                 value = false;
 
@@ -4159,7 +4159,7 @@ public class Create : InfraCreate
             a = keyword.Get(i);
             string o;
             o = a.Text;
-            if (textInfra.TextEqualString(text, o, null))
+            if (textInfra.EqualString(text, o, null))
             {
                 return true;
             }
@@ -4183,7 +4183,7 @@ public class Create : InfraCreate
         text = this.Text;
         this.TextGet(text, aa);
         bool b;
-        b = this.TextInfra.TextEqualString(text, value, null);
+        b = this.TextInfra.EqualString(text, value, null);
         bool a;
         a = b;
         return a;
@@ -4460,7 +4460,7 @@ public class Create : InfraCreate
         Text text;
         text = this.Text;
         this.TextGet(text, aa);
-        if (textInfra.TextEqualString(text, delimit.LeftBracket.Text, null))
+        if (textInfra.EqualString(text, delimit.LeftBracket.Text, null))
         {
             Token rightBracket;
             rightBracket = this.TokenMatchLeftBracket(this.TokenA, this.Range(this.RangeA, index + 1, end));
@@ -4469,7 +4469,7 @@ public class Create : InfraCreate
                 ret = rightBracket.Range.End;
             }
         }
-        if (textInfra.TextEqualString(text, delimit.LeftBrace.Text, null))
+        if (textInfra.EqualString(text, delimit.LeftBrace.Text, null))
         {
             Token rightBrace;
             rightBrace = this.TokenMatchLeftBrace(this.TokenA, this.Range(this.RangeA, index + 1, end));
@@ -4496,7 +4496,7 @@ public class Create : InfraCreate
         Text text;
         text = this.Text;
         this.TextGet(text, aa);
-        if (textInfra.TextEqualString(text, delimit.RightBracket.Text, null))
+        if (textInfra.EqualString(text, delimit.RightBracket.Text, null))
         {
             Token leftBracket;
             leftBracket = this.TokenMatchRightBracket(this.TokenA, this.Range(this.RangeA, start, t));
@@ -4505,7 +4505,7 @@ public class Create : InfraCreate
                 ret = leftBracket.Range.Start;
             }
         }
-        if (textInfra.TextEqualString(text, delimit.RightBrace.Text, null))
+        if (textInfra.EqualString(text, delimit.RightBrace.Text, null))
         {
             Token leftBrace;
             leftBrace = this.TokenMatchRightBrace(this.TokenA, this.Range(this.RangeA, start, t));
@@ -4562,7 +4562,7 @@ public class Create : InfraCreate
             TokenToken aa;
             aa = this.TokenToken(i);
             this.TextGet(text, aa);
-            if (textInfra.TextEqualString(text, rightToken, null))
+            if (textInfra.EqualString(text, rightToken, null))
             {
                 openCount = openCount - 1;
                 if (openCount == 0)
@@ -4571,7 +4571,7 @@ public class Create : InfraCreate
                     varContinue = false;
                 }
             }
-            if (textInfra.TextEqualString(text, leftToken, null))
+            if (textInfra.EqualString(text, leftToken, null))
             {
                 openCount = openCount + 1;
             }
@@ -4620,7 +4620,7 @@ public class Create : InfraCreate
             TokenToken aa;
             aa = this.TokenToken(t);
             this.TextGet(text, aa);
-            if (textInfra.TextEqualString(text, leftToken, null))
+            if (textInfra.EqualString(text, leftToken, null))
             {
                 openCount = openCount - 1;
                 if (openCount == 0)
@@ -4629,7 +4629,7 @@ public class Create : InfraCreate
                     varContinue = false;
                 }
             }
-            if (textInfra.TextEqualString(text, rightToken, null))
+            if (textInfra.EqualString(text, rightToken, null))
             {
                 openCount = openCount + 1;
             }

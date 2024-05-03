@@ -161,7 +161,7 @@ public class Infra : Any
         return true;
     }
 
-    public virtual bool TextEqualString(Text text, string other, Range otherRange)
+    public virtual bool EqualString(Text text, string other, Range otherRange)
     {
         if (!this.CheckRange(text))
         {
