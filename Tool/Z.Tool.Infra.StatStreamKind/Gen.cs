@@ -21,10 +21,10 @@ class Gen : StatGen
 
 
 
-        this.ItemListFileName = "ItemListStreamKind.txt";
+        this.ItemListFileName = "ToolData/ItemListStreamKind.txt";
 
 
-        this.MethodFileName = "MethodStreamKind.txt";
+        this.MethodFileName = "ToolData/MethodStreamKind.txt";
 
 
 

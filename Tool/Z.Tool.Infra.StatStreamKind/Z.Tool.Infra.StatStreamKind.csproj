@@ -11,8 +11,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <Content Include="ItemListStreamKind.txt" CopyToOutputDirectory="PreserveNewest" />
-        <Content Include="MethodStreamKind.txt" CopyToOutputDirectory="PreserveNewest" />
+        <Content Include="ToolData/*" CopyToOutputDirectory="PreserveNewest" />
     </ItemGroup>
 
 </Project>
