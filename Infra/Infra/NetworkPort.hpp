@@ -4,15 +4,16 @@
 
 #include "Probate.hpp"
 
-struct NetworkAddress
+struct NetworkPort
 {
     Int Kind;
     Int ValueA;
     Int ValueB;
     Int ValueC;
-    QHostAddress* Intern;
+    Int Server;
+    QHostAddress* InternAddress;
 };
 
-#define CP(a) ((NetworkAddress*)(a))
+#define CP(a) ((NetworkPort*)(a))
 
-Int NetworkAddress_ValueSet(Int o, Int pointer, Int index, Int value, Int count);
+Int NetworkPort_ValueSet(Int o, Int pointer, Int index, Int value, Int count);

@@ -1,27 +1,27 @@
-#include "NetworkAddress.hpp"
+#include "NetworkPort.hpp"
 
-CppClassNew(NetworkAddress)
+CppClassNew(NetworkPort)
 
-Int NetworkAddress_Init(Int o)
+Int NetworkPort_Init(Int o)
 {
-    NetworkAddress* m;
+    NetworkPort* m;
     m = CP(o);
-    m->Intern = new QHostAddress;
+    m->InternAddress = new QHostAddress;
     return true;
 }
 
-Int NetworkAddress_Final(Int o)
+Int NetworkPort_Final(Int o)
 {
-    NetworkAddress* m;
+    NetworkPort* m;
     m = CP(o);
 
-    delete m->Intern;
+    delete m->InternAddress;
     return true;
 }
 
-Int NetworkAddress_Set(Int o)
+Int NetworkPort_Set(Int o)
 {
-    NetworkAddress* m;
+    NetworkPort* m;
     m = CP(o);
     Int kind;
     kind = m->Kind;
@@ -37,7 +37,7 @@ Int NetworkAddress_Set(Int o)
 
     Bool b;
     b = false;
-    if ((!b) & (kind == Stat_NetworkAddressKindIPv6(stat)))
+    if ((!b) & (kind == Stat_NetworkPortKindIPv6(stat)))
     {
         Q_IPV6ADDR u;
         u = { };
@@ -48,20 +48,20 @@ Int NetworkAddress_Set(Int o)
         Int uu;
         uu = CastInt(ua);
 
-        NetworkAddress_ValueSet(o, uu, 0, m->ValueA, 6);
-        NetworkAddress_ValueSet(o, uu, 6, m->ValueB, 6);
-        NetworkAddress_ValueSet(o, uu, 12, m->ValueC, 4);
+        NetworkPort_ValueSet(o, uu, 0, m->ValueA, 6);
+        NetworkPort_ValueSet(o, uu, 6, m->ValueB, 6);
+        NetworkPort_ValueSet(o, uu, 12, m->ValueC, 4);
 
-        m->Intern->setAddress(u);
+        m->InternAddress->setAddress(u);
         b = true;
     }
 
-    if ((!b) & (kind == Stat_NetworkAddressKindIPv4(stat)))
+    if ((!b) & (kind == Stat_NetworkPortKindIPv4(stat)))
     {
         quint32 u;
         u = m->ValueA;
 
-        m->Intern->setAddress(u);
+        m->InternAddress->setAddress(u);
         b = true;
     }
 
@@ -69,17 +69,18 @@ Int NetworkAddress_Set(Int o)
     {
         QHostAddress::SpecialAddress uu;
         uu = (QHostAddress::SpecialAddress)(kind - 2);
-        m->Intern->setAddress(uu);
+        m->InternAddress->setAddress(uu);
     }
     return true;
 }
 
-CppField(NetworkAddress, Kind)
-CppField(NetworkAddress, ValueA)
-CppField(NetworkAddress, ValueB)
-CppField(NetworkAddress, ValueC)
+CppField(NetworkPort, Kind)
+CppField(NetworkPort, ValueA)
+CppField(NetworkPort, ValueB)
+CppField(NetworkPort, ValueC)
+CppField(NetworkPort, Server)
 
-Int NetworkAddress_ValueSet(Int o, Int pointer, Int index, Int value, Int count)
+Int NetworkPort_ValueSet(Int o, Int pointer, Int index, Int value, Int count)
 {
     Int* sourceU;
     sourceU = &value;
@@ -91,11 +92,11 @@ Int NetworkAddress_ValueSet(Int o, Int pointer, Int index, Int value, Int count)
     return true;
 }
 
-Int NetworkAddress_Intern(Int o)
+Int NetworkPort_InternAddress(Int o)
 {
-    NetworkAddress* m;
+    NetworkPort* m;
     m = CP(o);
     Int a;
-    a = CastInt(m->Intern);
+    a = CastInt(m->InternAddress);
     return a;
 }
