@@ -18,6 +18,11 @@ public class StringCreate : Any
         return c.ToString();
     }
 
+    public virtual string CharCount(char c, int count)
+    {
+        return new string(c, count);
+    }
+
     public virtual string Data(Data data, Range range)
     {
         long dataCount;
