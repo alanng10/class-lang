@@ -6,7 +6,7 @@ class Gen : StatGen
     {
         this.ClassName = "BrushKind";
         this.ValuePostfix = "Pattern";
-        this.ItemListFileName = "ItemListBrushKind.txt";
+        this.ItemListFileName = "ToolData/ItemListBrushKind.txt";
         int o;
         o = base.Execute();
         return o;
