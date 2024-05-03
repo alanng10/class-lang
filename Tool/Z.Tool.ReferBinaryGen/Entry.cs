@@ -4,12 +4,17 @@ class Entry : EntryEntry
 {
     public override int Execute()
     {
+        Main main;
+        main = new Main();
+        main.Init();
+
         Gen gen;
         gen = new Gen();
         gen.Init();
         int o;
         o = gen.Execute();
-        gen.Final();
+        
+        main.Final();
         return o;
     }
 

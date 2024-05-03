@@ -6,9 +6,6 @@ public class Gen : Any
     {
         base.Init();
 
-        this.Main = new Main();
-        this.Main.Init();
-
         this.ListInfra = ListInfra.This;
         this.StorageInfra = StorageInfra.This;
         this.ClassInfra = ClassInfra.This;
@@ -41,12 +38,6 @@ public class Gen : Any
         return true;
     }
 
-    public virtual bool Final()
-    {
-        this.Main.Final();
-        return true;
-    }
-
     protected virtual ListInfra ListInfra { get; set; }
     protected virtual StorageInfra StorageInfra { get; set; }
     protected virtual ClassInfra ClassInfra { get; set; }
@@ -62,7 +53,6 @@ public class Gen : Any
     protected virtual bool IsAvalonInfra { get; set; }
     protected virtual Array Array { get; set; }
     protected virtual int Index { get; set; }
-    protected virtual Main Main { get; set; }
     protected virtual Array SealedClassArray { get; set; }
 
     public virtual int Execute()
