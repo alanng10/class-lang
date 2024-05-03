@@ -36,7 +36,6 @@ public class Server : Any
     }
 
     public virtual Address Address { get; set; }
-    public virtual int Port { get; set; }
     public virtual State NewPeerState { get; set; }
 
     private InternIntern InternIntern { get; set; }
@@ -50,12 +49,9 @@ public class Server : Any
     {
         ulong addressU;
         addressU = this.Address.Intern;
-        ulong portU;
-        portU = (ulong)this.Port;
 
-        Extern.NetworkServer_AddressSet(this.Intern, addressU);
-        Extern.NetworkServer_PortSet(this.Intern, portU);
-
+        Extern.NetworkServer_PortSet(this.Intern, addressU);
+        
         ulong u;
         u = Extern.NetworkServer_Listen(this.Intern);
         bool a;

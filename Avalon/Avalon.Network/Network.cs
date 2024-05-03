@@ -161,7 +161,7 @@ public class Network : Any
         this.DataStream = this.StreamCreate();
 
         Extern.Network_HostNameSet(this.Intern, this.InternHostName);
-        Extern.Network_PortSet(this.Intern, portU);
+        Extern.Network_ServerPortSet(this.Intern, portU);
         Extern.Network_StreamSet(this.Intern, this.DataStream.Ident);
         Extern.Network_Open(this.Intern);
         return true;
@@ -171,7 +171,7 @@ public class Network : Any
     {   
         Extern.Network_Close(this.Intern);
         Extern.Network_StreamSet(this.Intern, 0);
-        Extern.Network_PortSet(this.Intern, 0);
+        Extern.Network_ServerPortSet(this.Intern, 0);
         Extern.Network_HostNameSet(this.Intern, 0);
 
         this.DataStream.Final();
