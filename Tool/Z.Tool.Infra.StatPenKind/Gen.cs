@@ -1,4 +1,4 @@
-namespace Z.Tool.StatPenKindSourceGen;
+namespace Z.Tool.Infra.StatPenKind;
 
 
 

@@ -1,4 +1,4 @@
-namespace Z.Tool.StatTextEncodeKindSourceGen;
+namespace Z.Tool.Infra.StatTextEncodeKind;
 
 
 

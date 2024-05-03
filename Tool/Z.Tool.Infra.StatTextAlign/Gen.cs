@@ -1,4 +1,4 @@
-namespace Z.Tool.StatTextAlignSourceGen;
+namespace Z.Tool.Infra.StatTextAlign;
 
 
 

@@ -1,4 +1,4 @@
-namespace Z.Tool.StatStreamKindSourceGen;
+namespace Z.Tool.Infra.StatStreamKind;
 
 
 

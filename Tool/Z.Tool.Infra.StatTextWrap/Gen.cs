@@ -1,4 +1,4 @@
-namespace Z.Tool.StatTextWrapSourceGen;
+namespace Z.Tool.Infra.StatTextWrap;
 
 
 

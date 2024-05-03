@@ -1,4 +1,4 @@
-namespace Z.Tool.StatPenJoinSourceGen;
+namespace Z.Tool.Infra.StatPenJoin;
 
 
 

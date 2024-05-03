@@ -1,4 +1,4 @@
-namespace Z.Tool.StatStorageModeSourceGen;
+namespace Z.Tool.Infra.StatStorageMode;
 
 
 

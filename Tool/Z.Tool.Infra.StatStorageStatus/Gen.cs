@@ -1,4 +1,4 @@
-namespace Z.Tool.StatStorageStatusSourceGen;
+namespace Z.Tool.Infra.StatStorageStatus;
 
 
 

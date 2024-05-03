@@ -1,4 +1,4 @@
-namespace Z.Tool.StatThreadCaseSourceGen;
+namespace Z.Tool.Infra.StatThreadCase;
 
 
 
