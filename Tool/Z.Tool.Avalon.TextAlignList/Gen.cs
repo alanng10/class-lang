@@ -12,8 +12,8 @@ public class Gen : SourceGen
         this.ItemClassName = "TextAlign";
         this.ArrayClassName = "Array";
         this.Export = true;
-        this.InitMethodFileName = "InitMethodTextAlign.txt";
-        this.AddMethodFileName = "AddMethodTextAlign.txt";
+        this.InitMethodFileName = "ToolData/InitMethodTextAlign.txt";
+        this.AddMethodFileName = "ToolData/AddMethodTextAlign.txt";
         this.OutputFilePath = "../../Avalon/Avalon.Draw/TextAlignList.cs";
         return true;
     }

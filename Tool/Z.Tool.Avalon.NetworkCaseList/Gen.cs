@@ -13,8 +13,8 @@ public class Gen : SourceGen
         this.Export = true;
         this.StatItemClassName = "NetworkCase";
         this.ItemListFileName = this.GetStatItemListFileName();
-        this.AddMethodFileName = "AddMethodNetworkCase.txt";
-        this.InitMethodFileName = "InitMethod.txt";
+        this.AddMethodFileName = "ToolData/AddMethodNetworkCase.txt";
+        this.InitMethodFileName = "ToolData/InitMethod.txt";
         return true;
     }
 
