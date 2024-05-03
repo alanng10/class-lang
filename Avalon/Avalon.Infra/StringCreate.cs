@@ -20,6 +20,11 @@ public class StringCreate : Any
 
     public virtual string CharCount(char c, int count)
     {
+        if (count < 0)
+        {
+            return null;
+        }
+        
         return new string(c, count);
     }
 
