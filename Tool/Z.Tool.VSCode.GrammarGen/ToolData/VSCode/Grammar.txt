@@ -22,12 +22,12 @@
 		"Keyword": {
 			"patterns": [{
 				"name": "keyword.class",
-				"match": "\\b(class|get|set|this|base|null|new|share|cast|true|false|bit|return|inf|while|prudate|probate|precate|private)\\b"
+				"match": "#KeywordRegexString#"
 			}]
 		},
 		"ClassName": {
 			"patterns": [{
-				"match": "\\b(((class)[\\s]+(?!(\\b(class|get|set|this|base|null|new|share|cast|true|false|bit|return|inf|while|prudate|probate|precate|private)\\b))([A-Za-z][A-Za-z0-9_]*)([\\s]*:[\\s]*(?!(\\b(class|get|set|this|base|null|new|share|cast|true|false|bit|return|inf|while|prudate|probate|precate|private)\\b))([A-Za-z][A-Za-z0-9_]*))?)|((new|share|cast|prudate|probate|precate|private)[\\s]+(?!(\\b(class|get|set|this|base|null|new|share|cast|true|false|bit|return|inf|while|prudate|probate|precate|private)\\b))([A-Za-z][A-Za-z0-9_]*))|((?!(\\b(class|get|set|this|base|null|new|share|cast|true|false|bit|return|inf|while|prudate|probate|precate|private)\\b))([A-Za-z][A-Za-z0-9_]*)[\\s]+(?!(\\b(class|get|set|this|base|null|new|share|cast|true|false|bit|return|inf|while|prudate|probate|precate|private)\\b))([A-Za-z][A-Za-z0-9_]*)))\\b",
+				"match": "#ClassNameRegexString#",
 				"captures": {
 					"3" : { "name": "keyword.class" },
 					"6" : { "name": "entity.name.type.class" },

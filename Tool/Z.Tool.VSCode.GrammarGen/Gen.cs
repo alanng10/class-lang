@@ -25,52 +25,17 @@ public class Gen : Any
         classNameA = this.ToolInfra.StorageTextRead("ToolData/VSCode/ClassName.txt");
 
 
+        string o;
+        o = nameA;
+        o = o.Replace("#Keyword#", keywordA);
 
-
-        StringBuilder sa;
-
-        sa = new StringBuilder();
-
-
-        sa.Append(nameA);
-
-
-        sa.Replace("#Keyword#", keywordA);
-
-
-
-        string oo;
-
-        oo = sa.ToString();
-
-
-
-
-        StringBuilder sb;
-
-        sb = new StringBuilder();
-
-
-        sb.Append(classNameA);
-
-
-        sb.Replace("#WordClassKeyword#", wordClassKeywordA);
-
-
-        sb.Replace("#Name#", oo);
-
-
-
-
-        string ka;
-
-        ka = sb.ToString();
-
-
+        string oa;
+        oa = classNameA;
+        oa = oa.Replace("#WordClassKeyword#", wordClassKeywordA);
+        oa = oa.Replace("#Name#", o);
 
         string k;
-
-        k = ka.Replace("\\", "\\\\");
+        k = oa.Replace("\\", "\\\\");
 
 
 
