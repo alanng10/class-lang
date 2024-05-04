@@ -127,7 +127,9 @@ public class ClassGenTraverse : Traverse
         
         this.ExecuteBuiltinClassStart(maide.SystemInfo);
         
-        if (maide == this.Gen.ModuleInfoNameMaide | maide == this.Gen.ModuleInfoVersionMaide)
+        bool b;
+        b = (maide == this.Gen.ModuleInfoNameMaide | maide == this.Gen.ModuleInfoVersionMaide);
+        if (b)
         {
             this.Text(this.DelimitLeftBracket);
 
@@ -144,17 +146,20 @@ public class ClassGenTraverse : Traverse
             this.Text(this.DelimitRightBracket);
             
             this.Text(this.DelimitRightBracket);
-            return true;
+        }
+        if (!b)
+        {
+            this.Text(this.DelimitLeftBracket);
+            this.ExecuteOperate(callOperate.This);
+            this.Text(this.DelimitDot);
+            this.Text(callOperate.Maide.Value);
+            this.Text(this.DelimitLeftBracket);
+            this.ExecuteMaideArgue(maide, callOperate.Argue);
+            this.Text(this.DelimitRightBracket);
+            this.Text(this.DelimitRightBracket);
         }
 
-        this.Text(this.DelimitLeftBracket);
-        this.ExecuteOperate(callOperate.This);
-        this.Text(this.DelimitDot);
-        this.Text(callOperate.Maide.Value);
-        this.Text(this.DelimitLeftBracket);
-        this.ExecuteMaideArgue(maide, callOperate.Argue);
-        this.Text(this.DelimitRightBracket);
-        this.Text(this.DelimitRightBracket);
+        this.ExecuteBuiltinClassEnd(maide.SystemInfo);
         return true;
     }
 
