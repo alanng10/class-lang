@@ -91,9 +91,11 @@ public class ClassGenTraverse : Traverse
 
         this.Text(this.DelimitLeftBracket);
         this.ExecuteValueOperand(left, operandClass);
+
         this.Text(this.Space);
         this.Text(delimit);
         this.Text(this.Space);
+        
         this.ExecuteValueOperand(right, operandClass);
         this.Text(this.DelimitRightBracket);
 
