@@ -5,12 +5,14 @@ public class ClassGenTraverse : Traverse
     public override bool Init()
     {
         base.Init();
-        this.Space = " ";
+        this.InternModuleInfoClass = "__C_ModuleInfo"; 
         this.RefKindMask = "0x1000000000000000";
         this.RefKindClearMask = "0x0fffffffffffffff";
+        this.Space = " ";
         this.KeywordThis = "this";
         this.KeywordNull = "null";
         this.DelimitDot = ".";
+        this.DelimitComma = ",";
         this.DelimitAnd = "&";
         this.DelimitOrn = "|";
         this.DelimitNot = "!";
@@ -37,6 +39,31 @@ public class ClassGenTraverse : Traverse
 
     public override bool ExecuteCallOperate(CallOperate callOperate)
     {
+        Maide maide;
+        maide = this.Info(callOperate).CallMaide;
+        if (maide == this.Gen.ModuleInfoNameMaide | maide == this.Gen.ModuleInfoVersionMaide)
+        {
+            this.Text(this.DelimitLeftBracket);
+
+            this.ExecuteOperate(callOperate.This);
+            this.Text(this.DelimitDot);
+            this.Text(callOperate.Maide.Value);
+            
+            this.Text(this.DelimitLeftBracket);
+
+            this.Text(this.InternModuleInfoClass);
+            this.Text(this.DelimitDot);
+            this.Text("Name");
+            this.Text(this.DelimitComma);
+            this.Text(this.Space);
+            
+            this.ExecuteArgue(callOperate.Argue);
+            
+            this.Text(this.DelimitRightBracket);
+            
+            this.Text(this.DelimitRightBracket);
+        }
+
         this.Text(this.DelimitLeftBracket);
         this.ExecuteOperate(callOperate.This);
         this.Text(this.DelimitDot);
@@ -210,12 +237,14 @@ public class ClassGenTraverse : Traverse
         return (Info)node.NodeAny;
     }
 
+    protected virtual string InternModuleInfoClass { get; set; }
     protected virtual string RefKindMask { get; set; }
     protected virtual string RefKindClearMask { get; set; }
     protected virtual string Space { get; set; }
     protected virtual string KeywordThis { get; set; }
     protected virtual string KeywordNull { get; set; }
     protected virtual string DelimitDot { get; set; }
+    protected virtual string DelimitComma { get; set; }
     protected virtual string DelimitAnd { get; set; }
     protected virtual string DelimitOrn { get; set; }
     protected virtual string DelimitNot { get; set; }

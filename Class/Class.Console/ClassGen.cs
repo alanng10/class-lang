@@ -5,6 +5,7 @@ public class ClassGen : Any
     public override bool Init()
     {
         base.Init();
+        this.ClassInfra = ClassInfra.This;
         this.CountOperate = new CountClassGenOperate();
         this.CountOperate.Gen = this;
         this.CountOperate.Init();
@@ -14,18 +15,24 @@ public class ClassGen : Any
         this.Traverse = new ClassGenTraverse();
         this.Traverse.Gen = this;
         this.Traverse.Init();
+        this.ModuleRef = this.ClassInfra.ModuleRefCreate(null, 0);
         return true;
     }
 
     public virtual ClassClass Class { get; set; }
+    public virtual Table ModuleTable { get; set; }
     public virtual ClassClass NullClass { get; set; }
     public virtual SystemClass System { get; set; }
     public virtual Data Data { get; set; }
     public virtual GenArg Arg { get; set; }
-    public ClassGenOperate Operate { get; set; }
-    protected CountClassGenOperate CountOperate { get; set; }
-    protected SetClassGenOperate SetOperate { get; set; }
-    protected ClassGenTraverse Traverse { get; set; }
+    public virtual ClassGenOperate Operate { get; set; }
+    public virtual Maide ModuleInfoNameMaide { get; set; }
+    public virtual Maide ModuleInfoVersionMaide { get; set; }
+    protected virtual ClassInfra ClassInfra { get; set; }
+    protected virtual CountClassGenOperate CountOperate { get; set; }
+    protected virtual SetClassGenOperate SetOperate { get; set; }
+    protected virtual ClassGenTraverse Traverse { get; set; }
+    protected virtual ModuleRef ModuleRef { get; set; }
 
     public virtual bool Execute()
     {

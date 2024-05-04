@@ -65,7 +65,7 @@ public class ModuleString : Any
 
 
 
-        this.Info = (ModuleInfo)this.Node.NodeAny;
+        this.Info = (Info)this.Node.NodeAny;
 
 
 
@@ -158,7 +158,7 @@ public class ModuleString : Any
 
 
 
-    protected virtual ModuleInfo Info { get; set; }
+    protected virtual Info Info { get; set; }
 
 
 
