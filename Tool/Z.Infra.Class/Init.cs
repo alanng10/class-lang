@@ -4,10 +4,10 @@ public class Entry
 {
     public static bool Init()
     {
-        uint aa;
-        aa = ValueShare.Bool;
-        ValueInit ab;
-        ab = ValueInit.This;
+        ValueInit aa;
+        aa = ValueInit.This;
+        uint ab;
+        ab = ValueShare.Bool;
         String ac;
         ac = String.This;
         return true;
