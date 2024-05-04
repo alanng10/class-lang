@@ -9,12 +9,16 @@ public class ClassGenTraverse : Traverse
         this.InternModuleInfoClass = "__C_ModuleInfo";
         this.RefKindMask = "0x1000000000000000";
         this.RefKindClearMask = "0x0fffffffffffffff";
+        this.Indent = new string(' ', 4);
         this.Space = " ";
+        this.NewLine = "\n";
         this.KeywordThis = "this";
         this.KeywordBase = "base";
         this.KeywordNull = "null";
         this.DelimitDot = ".";
         this.DelimitComma = ",";
+        this.DelimitSemicolon = ";";
+        this.DelimitEqual = "=";
         this.DelimitAnd = "&";
         this.DelimitOrn = "|";
         this.DelimitNot = "!";
@@ -28,6 +32,49 @@ public class ClassGenTraverse : Traverse
     }
 
     public virtual ClassGen Gen { get; set; }
+    protected int ScopeLevel { get; set; }
+    protected virtual string InternVarPrefix { get; set; }
+    protected virtual string InternModuleInfoClass { get; set; }
+    protected virtual string RefKindMask { get; set; }
+    protected virtual string RefKindClearMask { get; set; }
+    protected virtual string Indent { get; set; }
+    protected virtual string Space { get; set; }
+    protected virtual string NewLine { get; set; }
+    protected virtual string KeywordThis { get; set; }
+    protected virtual string KeywordBase { get; set; }
+    protected virtual string KeywordNull { get; set; }
+    protected virtual string DelimitDot { get; set; }
+    protected virtual string DelimitComma { get; set; }
+    protected virtual string DelimitSemicolon { get; set; }
+    protected virtual string DelimitEqual { get; set; }
+    protected virtual string DelimitAnd { get; set; }
+    protected virtual string DelimitOrn { get; set; }
+    protected virtual string DelimitNot { get; set; }
+    protected virtual string DelimitAdd { get; set; }
+    protected virtual string DelimitSub { get; set; }
+    protected virtual string DelimitMul { get; set; }
+    protected virtual string DelimitDiv { get; set; }
+    protected virtual string DelimitLeftBracket { get; set; }
+    protected virtual string DelimitRightBracket { get; set; }
+
+
+    public override bool ExecuteAssignExecute(AssignExecute assignExecute)
+    {
+        ClassClass targetClass;
+        targetClass = this.Info(assignExecute.Target).TargetClass;
+        
+        this.TextIndent();
+        this.ExecuteTarget(assignExecute.Target);
+
+        this.Text(this.Space);
+        this.Text(this.DelimitEqual);
+        this.Text(this.Space);
+
+        this.ExecuteInputOperate(assignExecute.Value, targetClass);
+        this.Text(this.DelimitSemicolon);
+        this.Text(this.NewLine);
+        return true;
+    }
 
     public override bool ExecuteVarTarget(VarTarget varTarget)
     {
@@ -283,25 +330,21 @@ public class ClassGenTraverse : Traverse
         return (Info)node.NodeAny;
     }
 
-    protected virtual string InternVarPrefix { get; set; }
-    protected virtual string InternModuleInfoClass { get; set; }
-    protected virtual string RefKindMask { get; set; }
-    protected virtual string RefKindClearMask { get; set; }
-    protected virtual string Space { get; set; }
-    protected virtual string KeywordThis { get; set; }
-    protected virtual string KeywordBase { get; set; }
-    protected virtual string KeywordNull { get; set; }
-    protected virtual string DelimitDot { get; set; }
-    protected virtual string DelimitComma { get; set; }
-    protected virtual string DelimitAnd { get; set; }
-    protected virtual string DelimitOrn { get; set; }
-    protected virtual string DelimitNot { get; set; }
-    protected virtual string DelimitAdd { get; set; }
-    protected virtual string DelimitSub { get; set; }
-    protected virtual string DelimitMul { get; set; }
-    protected virtual string DelimitDiv { get; set; }
-    protected virtual string DelimitLeftBracket { get; set; }
-    protected virtual string DelimitRightBracket { get; set; }
+    protected virtual bool TextIndent()
+    {
+        string indent;
+        indent = this.Indent;
+        int count;
+        count = this.ScopeLevel;
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            this.Text(indent);
+            i = i + 1;
+        }
+        return true;
+    }
 
     protected virtual bool Text(string o)
     {
