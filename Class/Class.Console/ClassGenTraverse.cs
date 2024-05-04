@@ -58,6 +58,7 @@ public class ClassGenTraverse : Traverse
             this.Text(this.DelimitRightBracket);
             
             this.Text(this.DelimitRightBracket);
+            return true;
         }
 
         this.Text(this.DelimitLeftBracket);
@@ -65,7 +66,7 @@ public class ClassGenTraverse : Traverse
         this.Text(this.DelimitDot);
         this.Text(callOperate.Maide.Value);
         this.Text(this.DelimitLeftBracket);
-        this.ExecuteArgue(callOperate.Argue);
+        this.ExecuteMaideArgue(maide, callOperate.Argue);
         this.Text(this.DelimitRightBracket);
         this.Text(this.DelimitRightBracket);
         return true;
@@ -112,6 +113,11 @@ public class ClassGenTraverse : Traverse
     public override bool ExecuteDivOperate(DivOperate divOperate)
     {
         this.ExecuteIntTwoOperand(this.DelimitDiv, divOperate.Left, divOperate.Right);
+        return true;
+    }
+
+    protected virtual bool ExecuteMaideArgue(Maide maide, Argue argue)
+    {
         return true;
     }
 
