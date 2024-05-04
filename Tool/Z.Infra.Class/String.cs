@@ -2,6 +2,18 @@ namespace Z.Infra.Class;
 
 public class String : Any
 {
+    public static readonly String This = ShareCreate();
+
+    private static String ShareCreate()
+    {
+        String share;
+        share = new String();
+        Any a;
+        a = share;
+        a.Init();
+        return share;
+    }
+
     public override bool Init()
     {
         base.Init();
