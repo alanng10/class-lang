@@ -6,6 +6,10 @@ public class ClassGenTraverse : Traverse
     {
         base.Init();
         this.InternVarPrefix = "__V_";
+        this.InternBoolValueClass = "__C_BoolValue";
+        this.InternValueNull = "Null";
+        this.InternValueFalse = "False";
+        this.InternValueTrue = "True";
         this.InternModuleInfoClass = "__C_ModuleInfo";
         this.RefKindMask = "0x1000000000000000";
         this.RefKindClearMask = "0x0fffffffffffffff";
@@ -17,7 +21,9 @@ public class ClassGenTraverse : Traverse
         this.KeywordNull = "null";
         this.DelimitDot = ".";
         this.DelimitComma = ",";
+        this.DelimitColon = ":";
         this.DelimitSemicolon = ";";
+        this.DelimitQuestion = "?";
         this.DelimitEqual = "=";
         this.DelimitAnd = "&";
         this.DelimitOrn = "|";
@@ -32,8 +38,12 @@ public class ClassGenTraverse : Traverse
     }
 
     public virtual ClassGen Gen { get; set; }
-    protected int ScopeLevel { get; set; }
+    protected virtual int ScopeLevel { get; set; }
     protected virtual string InternVarPrefix { get; set; }
+    protected virtual string InternBoolValueClass { get; set; }
+    protected virtual string InternValueNull { get; set; }
+    protected virtual string InternValueFalse { get; set; }
+    protected virtual string InternValueTrue { get; set; }
     protected virtual string InternModuleInfoClass { get; set; }
     protected virtual string RefKindMask { get; set; }
     protected virtual string RefKindClearMask { get; set; }
@@ -45,7 +55,9 @@ public class ClassGenTraverse : Traverse
     protected virtual string KeywordNull { get; set; }
     protected virtual string DelimitDot { get; set; }
     protected virtual string DelimitComma { get; set; }
+    protected virtual string DelimitColon { get; set; }
     protected virtual string DelimitSemicolon { get; set; }
+    protected virtual string DelimitQuestion { get; set; }
     protected virtual string DelimitEqual { get; set; }
     protected virtual string DelimitAnd { get; set; }
     protected virtual string DelimitOrn { get; set; }
@@ -112,6 +124,9 @@ public class ClassGenTraverse : Traverse
     {
         Maide maide;
         maide = this.Info(callOperate).CallMaide;
+        
+        this.ExecuteBuiltinClassStart(maide.SystemInfo);
+        
         if (maide == this.Gen.ModuleInfoNameMaide | maide == this.Gen.ModuleInfoVersionMaide)
         {
             this.Text(this.DelimitLeftBracket);
@@ -269,6 +284,36 @@ public class ClassGenTraverse : Traverse
         return true;
     }
 
+    protected virtual bool ExecuteBuiltinClassStart(SystemInfo systemInfo)
+    {
+        if (systemInfo.Value == 2)
+        {
+            this.Text(this.DelimitLeftBracket);
+        }
+        return true;
+    }
+
+    protected virtual bool ExecuteBuiltinClassEnd(SystemInfo systemInfo)
+    {
+        if (systemInfo.Value == 2)
+        {
+            this.Text(this.Space);
+            this.Text(this.DelimitQuestion);
+            this.Text(this.Space);
+            
+            this.ExecuteBoolValue(true);
+
+            this.Text(this.Space);
+            this.Text(this.DelimitColon);
+            this.Text(this.Space);
+
+            this.ExecuteBoolValue(false);
+
+            this.Text(this.DelimitRightBracket);
+        }
+        return true;
+    }
+
     protected virtual bool ExecuteValueOperand(Operate operate, ClassClass requiredClass)
     {
         this.Text(this.DelimitLeftBracket);
@@ -296,7 +341,9 @@ public class ClassGenTraverse : Traverse
             ba = false;
             if (!ba & requiredClass == this.Gen.System.Bool)
             {
-                this.Text("__BoolValue.Null");
+                this.Text(this.InternBoolValueClass);
+                this.Text(this.DelimitDot);
+                this.Text(this.InternValueNull);
                 ba = true;
             }
             if (!ba & requiredClass == this.Gen.System.Int)
@@ -315,6 +362,25 @@ public class ClassGenTraverse : Traverse
         {
             this.ExecuteOperate(operate);
         }
+        return true;
+    }
+
+    protected virtual bool ExecuteBoolValue(bool b)
+    {
+        string k;
+        k = null;
+        if (!b)
+        {
+            k = this.InternValueFalse;
+        }
+        if (b)
+        {
+            k = this.InternValueTrue;
+        }
+
+        this.Text(this.InternBoolValueClass);
+        this.Text(this.DelimitDot);
+        this.Text(k);
         return true;
     }
 
