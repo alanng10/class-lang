@@ -393,7 +393,7 @@ public class ClassGenTraverse : Traverse
     {
         int n;
         n = a.Value;
-        return !(n < 3 | 12 < n);
+        return !(n < 3 | 11 < n);
     }
 
     protected virtual Info Info(NodeNode node)
