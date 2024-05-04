@@ -1,6 +1,6 @@
 namespace Class.Console;
 
-public class Gen : Any
+public class ClassGen : Any
 {
     public override bool Init()
     {
@@ -8,6 +8,9 @@ public class Gen : Any
         this.CountOperate = new CountGenOperate();
         this.CountOperate.Gen = this;
         this.CountOperate.Init();
+        this.SetOperate = new SetGenOperate();
+        this.SetOperate.Gen = this;
+        this.SetOperate.Init();
         return true;
     }
 
@@ -22,12 +25,33 @@ public class Gen : Any
         this.Arg = new GenArg();
         this.Arg.Init();
 
+        this.Operate = this.CountOperate;
+
+        this.ResetStageIndex();
         this.ExecuteStage();
 
+        long nn;
+        nn = this.Arg.Index;
+        nn = nn * sizeof(char);
+        Data data;
+        data = new Data();
+        data.Count = nn;
+        data.Init();
+        this.Arg.Data = data;
+
+        this.Operate = this.SetOperate;
+
+        this.ResetStageIndex();
         this.ExecuteStage();
 
         this.Data = this.Arg.Data;
         this.Arg = null;
+        return true;
+    }
+
+    protected virtual bool ResetStageIndex()
+    {
+        this.Arg.Index = 0;
         return true;
     }
 
