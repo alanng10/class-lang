@@ -7,6 +7,7 @@ public class ClassGenTraverse : Traverse
         base.Init();
         this.Space = " ";
         this.KeywordThis = "this";
+        this.KeywordNull = "null";
         this.DelimitDot = ".";
         this.DelimitAdd = "+";
         this.DelimitSub = "-";
@@ -86,8 +87,47 @@ public class ClassGenTraverse : Traverse
         return true;
     }
 
+    protected virtual bool ExecuteInputOperate(Operate operate, ClassClass requiredClass)
+    {
+        ClassClass a;
+        a = this.Info(operate).OperateClass;
+
+        bool b;
+        b = (a == this.Gen.NullClass);
+        if (b)
+        {
+            bool ba;
+            ba = false;
+            if (!ba & requiredClass == this.Gen.System.Bool)
+            {
+                this.Text("__BoolValue.Null");
+                ba = true;
+            }
+            if (!ba & requiredClass == this.Gen.System.Int)
+            {
+                this.Text("__IntValue.Null");
+                ba = true;
+            }
+            if (!ba)
+            {
+                this.Text(this.KeywordNull);
+            }
+        }
+        if (!b)
+        {
+            this.ExecuteOperate(operate);
+        }
+        return true;
+    }
+
+    protected virtual Info Info(NodeNode node)
+    {
+        return (Info)node.NodeAny;
+    }
+
     protected virtual string Space { get; set; }
     protected virtual string KeywordThis { get; set; }
+    protected virtual string KeywordNull { get; set; }
     protected virtual string DelimitDot { get; set; }
     protected virtual string DelimitAdd { get; set; }
     protected virtual string DelimitSub { get; set; }

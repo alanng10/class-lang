@@ -18,6 +18,8 @@ public class ClassGen : Any
     }
 
     public virtual ClassClass Class { get; set; }
+    public virtual ClassClass NullClass { get; set; }
+    public virtual SystemClass System { get; set; }
     public virtual Data Data { get; set; }
     public virtual GenArg Arg { get; set; }
     public ClassGenOperate Operate { get; set; }
