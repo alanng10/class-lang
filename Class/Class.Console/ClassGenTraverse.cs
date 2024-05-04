@@ -11,8 +11,6 @@ public class ClassGenTraverse : Traverse
         return true;
     }
 
-
-
     public virtual ClassGen Gen { get; set; }
 
     public override bool ExecuteGetOperate(GetOperate getOperate)
