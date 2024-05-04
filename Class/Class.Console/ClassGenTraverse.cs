@@ -10,6 +10,7 @@ public class ClassGenTraverse : Traverse
         this.RefKindClearMask = "0x0fffffffffffffff";
         this.Space = " ";
         this.KeywordThis = "this";
+        this.KeywordBase = "base";
         this.KeywordNull = "null";
         this.DelimitDot = ".";
         this.DelimitComma = ",";
@@ -26,6 +27,22 @@ public class ClassGenTraverse : Traverse
     }
 
     public virtual ClassGen Gen { get; set; }
+
+    public override bool ExecuteSetTarget(SetTarget setTarget)
+    {
+        this.ExecuteOperate(setTarget.This);
+        this.Text(this.DelimitDot);
+        this.Text(setTarget.Field.Value);
+        return true;
+    }
+
+    public override bool ExecuteBaseSetTarget(BaseSetTarget baseSetTarget)
+    {
+        this.Text(this.KeywordBase);
+        this.Text(this.DelimitDot);
+        this.Text(baseSetTarget.Field.Value);
+        return true;
+    }
 
     public override bool ExecuteGetOperate(GetOperate getOperate)
     {
@@ -244,6 +261,7 @@ public class ClassGenTraverse : Traverse
     protected virtual string RefKindClearMask { get; set; }
     protected virtual string Space { get; set; }
     protected virtual string KeywordThis { get; set; }
+    protected virtual string KeywordBase { get; set; }
     protected virtual string KeywordNull { get; set; }
     protected virtual string DelimitDot { get; set; }
     protected virtual string DelimitComma { get; set; }
