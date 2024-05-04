@@ -1,13 +1,13 @@
 namespace Z.Infra.Class;
 
-public class ValueInt : Any
+public class ValueInit : Any
 {
-    public static readonly ValueInt This = ShareCreate();
+    public static readonly ValueInit This = ShareCreate();
 
-    private static ValueInt ShareCreate()
+    private static ValueInit ShareCreate()
     {
-        ValueInt share;
-        share = new ValueInt();
+        ValueInit share;
+        share = new ValueInit();
         Any a;
         a = share;
         a.Init();
