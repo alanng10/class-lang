@@ -5,7 +5,8 @@ public class ClassGenTraverse : Traverse
     public override bool Init()
     {
         base.Init();
-        this.InternModuleInfoClass = "__C_ModuleInfo"; 
+        this.InternVarPrefix = "__V_";
+        this.InternModuleInfoClass = "__C_ModuleInfo";
         this.RefKindMask = "0x1000000000000000";
         this.RefKindClearMask = "0x0fffffffffffffff";
         this.Space = " ";
@@ -27,6 +28,12 @@ public class ClassGenTraverse : Traverse
     }
 
     public virtual ClassGen Gen { get; set; }
+
+    public override bool ExecuteVarTarget(VarTarget varTarget)
+    {
+        this.ExecuteNodeVarName(varTarget);
+        return true;
+    }
 
     public override bool ExecuteSetTarget(SetTarget setTarget)
     {
@@ -130,6 +137,19 @@ public class ClassGenTraverse : Traverse
     public override bool ExecuteDivOperate(DivOperate divOperate)
     {
         this.ExecuteIntTwoOperand(this.DelimitDiv, divOperate.Left, divOperate.Right);
+        return true;
+    }
+
+    protected virtual bool ExecuteNodeVarName(NodeNode node)
+    {
+        Var varVar;
+        varVar = this.Info(node).Var;
+
+        if (this.IsBuiltinInt(varVar.SystemInfo))
+        {
+            this.Text(this.InternVarPrefix);
+        }
+        this.Text(varVar.Name);
         return true;
     }
 
@@ -251,11 +271,19 @@ public class ClassGenTraverse : Traverse
         return true;
     }
 
+    protected virtual bool IsBuiltinInt(SystemInfo a)
+    {
+        int n;
+        n = a.Value;
+        return !(n < 3 | 12 < n);
+    }
+
     protected virtual Info Info(NodeNode node)
     {
         return (Info)node.NodeAny;
     }
 
+    protected virtual string InternVarPrefix { get; set; }
     protected virtual string InternModuleInfoClass { get; set; }
     protected virtual string RefKindMask { get; set; }
     protected virtual string RefKindClearMask { get; set; }
