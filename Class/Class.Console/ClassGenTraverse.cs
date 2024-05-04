@@ -6,6 +6,7 @@ public class ClassGenTraverse : Traverse
     {
         base.Init();
         this.Space = " ";
+        this.RefKindClearMask = "0x0fffffffffffffff";
         this.KeywordThis = "this";
         this.KeywordNull = "null";
         this.DelimitDot = ".";
@@ -57,12 +58,30 @@ public class ClassGenTraverse : Traverse
     public override bool ExecuteAddOperate(AddOperate addOperate)
     {
         this.Text(this.DelimitLeftBracket);
-        
-        this.ExecuteInputOperate(addOperate.Left, this.Gen.System.Int);
+
+        this.Text(this.DelimitLeftBracket);
+
+        this.Text(this.DelimitLeftBracket);
+        this.ExecuteValueOperand(addOperate.Left, this.Gen.System.Int);
         this.Text(this.Space);
         this.Text(this.DelimitAdd);
         this.Text(this.Space);
-        this.ExecuteInputOperate(addOperate.Right, this.Gen.System.Int);
+        this.ExecuteValueOperand(addOperate.Right, this.Gen.System.Int);
+        this.Text(this.DelimitRightBracket);
+
+        this.Text(this.Space);
+        this.Text(this.DelimitAnd);
+        this.Text(this.Space);
+
+        this.Text(this.RefKindClearMask);
+
+        this.Text(this.DelimitRightBracket);
+
+        this.Text(this.Space);
+        this.Text(this.DelimitOrn);
+        this.Text(this.Space);
+
+
         this.Text(this.DelimitRightBracket);
         return true;
     }
@@ -91,6 +110,18 @@ public class ClassGenTraverse : Traverse
         return true;
     }
 
+    protected virtual bool ExecuteValueOperand(Operate operate, ClassClass requiredClass)
+    {
+        this.Text(this.DelimitLeftBracket);
+        this.ExecuteInputOperate(operate, requiredClass);
+        this.Text(this.Space);
+        this.Text(this.DelimitAnd);
+        this.Text(this.Space);
+        this.Text(this.RefKindClearMask);
+        this.Text(this.DelimitRightBracket);
+        return true;
+    }
+
     protected virtual bool ExecuteInputOperate(Operate operate, ClassClass requiredClass)
     {
         ClassClass a;
@@ -100,6 +131,8 @@ public class ClassGenTraverse : Traverse
         b = (a == this.Gen.NullClass);
         if (b)
         {
+            this.Text(this.DelimitLeftBracket);
+
             bool ba;
             ba = false;
             if (!ba & requiredClass == this.Gen.System.Bool)
@@ -116,6 +149,8 @@ public class ClassGenTraverse : Traverse
             {
                 this.Text(this.KeywordNull);
             }
+
+            this.Text(this.DelimitRightBracket);
         }
         if (!b)
         {
@@ -129,6 +164,7 @@ public class ClassGenTraverse : Traverse
         return (Info)node.NodeAny;
     }
 
+    protected virtual string RefKindClearMask { get; set; }
     protected virtual string Space { get; set; }
     protected virtual string KeywordThis { get; set; }
     protected virtual string KeywordNull { get; set; }
