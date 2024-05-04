@@ -1,127 +1,51 @@
 namespace Z.Tool.Class.NodeList;
 
-
-
-
-
-
 public class NodeKindListGen : SourceGen
 {
     public override bool Init()
     {
         base.Init();
-
-
-
-
-
         this.Namespace = "Class.Node";
-
-
         this.ClassName = "NodeKindList";
-
-
         this.BaseClassName = "Any";
-
-
         this.ItemClassName = "NodeKind";
-
-
         this.ArrayClassName = "Array";
-
-
-
-
         this.Export = true;
-
-
-
-
-
         this.AddMethodFileName = "ToolData/AddMethodNodeKind.txt";
-
-
-
         this.OutputFilePath = "../../Class/Class.Node/NodeKindList.cs";
-
-
-
-
-
         return true;
     }
 
-
-
-
-
     public virtual Array ClassArray { get; set; }
-
-
-
-
-
 
     protected override bool ExecuteItemList()
     {
         StringCompare compare;
-
         compare = new StringCompare();
-
         compare.Init();
-
-
-
-
         this.ItemTable = new Table();
-
         this.ItemTable.Compare = compare;
-
         this.ItemTable.Init();
 
-
-
-
         int count;
-
         count = this.ClassArray.Count;
-
-
         int i;
-
         i = 0;
-
-
-
         while (i < count)
         {
             Class varClass;
-
             varClass = (Class)this.ClassArray.Get(i);
 
-
-
             string a;
-
             a = varClass.Name;
-            
-
 
             TableEntry entry;
-
             entry = this.GetItemEntry(a);
-
-
 
             this.ItemTable.Add(entry);
 
-
-
             i = i + 1;
         }
-
-
-
         return true;
     }
 
