@@ -568,6 +568,62 @@ public class StateTraverse : Traverse
         return true;
     }
 
+    public override bool ExecuteBaseCallOperate(BaseCallOperate baseCallOperate)
+    {
+        if (baseCallOperate == null)
+        {
+            return true;
+        }
+
+        MaideName nodeMaide;
+        nodeMaide = baseCallOperate.Maide;
+        Argue argue;
+        argue = baseCallOperate.Argue;
+
+        base.ExecuteBaseCallOperate(baseCallOperate);
+
+        ClassClass baseClass;
+        baseClass = this.ThisClass.Base;
+
+        string maideName;
+        maideName = null;
+        if (!(nodeMaide == null))
+        {
+            maideName = nodeMaide.Value;
+        }
+
+        Maide maide;
+        maide = null;
+
+        if (!(maideName == null))
+        {
+            maide = this.Maide(baseClass, maideName, true);
+            if (maide == null)
+            {
+                this.Error(this.ErrorKind.MaideUndefined, baseCallOperate);
+            }
+        }
+
+        if (!(maide == null))
+        {
+            if (!this.ArgueMatch(maide, argue))
+            {
+                this.Error(this.ErrorKind.ArgueUnassignable, baseCallOperate);
+            }
+        }
+
+        ClassClass operateClass;
+        operateClass = null;
+        if (!(maide == null))
+        {
+            operateClass = maide.Class;
+        }
+
+        this.Info(baseCallOperate).CallMaide = maide;
+        this.Info(baseCallOperate).OperateClass = operateClass;
+        return true;
+    }
+
     public override bool ExecuteThisOperate(ThisOperate thisOperate)
     {
         if (thisOperate == null)
