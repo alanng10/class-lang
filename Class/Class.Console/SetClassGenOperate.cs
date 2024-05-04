@@ -1,6 +1,6 @@
 namespace Class.Console;
 
-public class SetGenOperate : GenOperate
+public class SetClassGenOperate : ClassGenOperate
 {
     public override bool Init()
     {

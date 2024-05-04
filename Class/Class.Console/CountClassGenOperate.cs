@@ -1,6 +1,6 @@
 namespace Class.Console;
 
-public class CountGenOperate : GenOperate
+public class CountClassGenOperate : ClassGenOperate
 {
     public override bool ExecuteString(string o)
     {
