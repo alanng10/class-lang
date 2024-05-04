@@ -62,6 +62,9 @@ public class String : Any
 
     public virtual bool C_Equal(string o, Range range, string other, Range otherRange)
     {
+        InfraInfra infraInfra;
+        infraInfra = this.InfraInfra;
+
         int thisIndex;
         int thisCount;
         thisIndex = 0;
@@ -77,7 +80,7 @@ public class String : Any
         {
             thisIndex = range.Index;
             thisCount = range.Count;
-            if (!this.InfraInfra.CheckRange(o.Length, thisIndex, thisCount))
+            if (!infraInfra.CheckRange(o.Length, thisIndex, thisCount))
             {
                 return false;
             }
@@ -98,7 +101,7 @@ public class String : Any
         {
             otherIndex = otherRange.Index;
             otherCount = otherRange.Count;
-            if (!this.InfraInfra.CheckRange(other.Length, otherIndex, otherCount))
+            if (!infraInfra.CheckRange(other.Length, otherIndex, otherCount))
             {
                 return false;
             }
