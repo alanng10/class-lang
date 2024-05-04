@@ -9,6 +9,9 @@ public class ClassGenTraverse : Traverse
         this.KeywordThis = "this";
         this.KeywordNull = "null";
         this.DelimitDot = ".";
+        this.DelimitAnd = "&";
+        this.DelimitOrn = "|";
+        this.DelimitNot = "!";
         this.DelimitAdd = "+";
         this.DelimitSub = "-";
         this.DelimitMul = "*";
@@ -53,7 +56,14 @@ public class ClassGenTraverse : Traverse
 
     public override bool ExecuteAddOperate(AddOperate addOperate)
     {
-        this.ExecuteTwoOperand(this.DelimitAdd, addOperate.Left, addOperate.Right);
+        this.Text(this.DelimitLeftBracket);
+        
+        this.ExecuteInputOperate(addOperate.Left, this.Gen.System.Int);
+        this.Text(this.Space);
+        this.Text(this.DelimitAdd);
+        this.Text(this.Space);
+        this.ExecuteInputOperate(addOperate.Right, this.Gen.System.Int);
+        this.Text(this.DelimitRightBracket);
         return true;
     }
 
@@ -77,13 +87,7 @@ public class ClassGenTraverse : Traverse
 
     protected virtual bool ExecuteTwoOperand(string delimit, Operate left, Operate right)
     {
-        this.Text(this.DelimitLeftBracket);
-        this.ExecuteOperate(left);
-        this.Text(this.Space);
-        this.Text(delimit);
-        this.Text(this.Space);
-        this.ExecuteOperate(right);
-        this.Text(this.DelimitRightBracket);
+
         return true;
     }
 
@@ -129,6 +133,9 @@ public class ClassGenTraverse : Traverse
     protected virtual string KeywordThis { get; set; }
     protected virtual string KeywordNull { get; set; }
     protected virtual string DelimitDot { get; set; }
+    protected virtual string DelimitAnd { get; set; }
+    protected virtual string DelimitOrn { get; set; }
+    protected virtual string DelimitNot { get; set; }
     protected virtual string DelimitAdd { get; set; }
     protected virtual string DelimitSub { get; set; }
     protected virtual string DelimitMul { get; set; }
