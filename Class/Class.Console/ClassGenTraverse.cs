@@ -6,6 +6,7 @@ public class ClassGenTraverse : Traverse
     {
         base.Init();
         this.Space = " ";
+        this.RefKindMask = "0x1000000000000000";
         this.RefKindClearMask = "0x0fffffffffffffff";
         this.KeywordThis = "this";
         this.KeywordNull = "null";
@@ -57,16 +58,43 @@ public class ClassGenTraverse : Traverse
 
     public override bool ExecuteAddOperate(AddOperate addOperate)
     {
-        this.Text(this.DelimitLeftBracket);
+        this.ExecuteIntTwoOperand(this.DelimitAdd, addOperate.Left, addOperate.Right);
+        return true;
+    }
+
+    public override bool ExecuteSubOperate(SubOperate subOperate)
+    {
+        this.ExecuteIntTwoOperand(this.DelimitSub, subOperate.Left, subOperate.Right);
+        return true;
+    }
+
+    public override bool ExecuteMulOperate(MulOperate mulOperate)
+    {
+        this.ExecuteIntTwoOperand(this.DelimitMul, mulOperate.Left, mulOperate.Right);
+        return true;
+    }
+
+    public override bool ExecuteDivOperate(DivOperate divOperate)
+    {
+        this.ExecuteIntTwoOperand(this.DelimitDiv, divOperate.Left, divOperate.Right);
+        return true;
+    }
+
+    protected virtual bool ExecuteIntTwoOperand(string delimit, Operate left, Operate right)
+    {
+        ClassClass operandClass;
+        operandClass = this.Gen.System.Int;
 
         this.Text(this.DelimitLeftBracket);
 
         this.Text(this.DelimitLeftBracket);
-        this.ExecuteValueOperand(addOperate.Left, this.Gen.System.Int);
+
+        this.Text(this.DelimitLeftBracket);
+        this.ExecuteValueOperand(left, operandClass);
         this.Text(this.Space);
-        this.Text(this.DelimitAdd);
+        this.Text(delimit);
         this.Text(this.Space);
-        this.ExecuteValueOperand(addOperate.Right, this.Gen.System.Int);
+        this.ExecuteValueOperand(right, operandClass);
         this.Text(this.DelimitRightBracket);
 
         this.Text(this.Space);
@@ -81,32 +109,9 @@ public class ClassGenTraverse : Traverse
         this.Text(this.DelimitOrn);
         this.Text(this.Space);
 
+        this.Text(this.RefKindMask);
 
         this.Text(this.DelimitRightBracket);
-        return true;
-    }
-
-    public override bool ExecuteSubOperate(SubOperate subOperate)
-    {
-        this.ExecuteTwoOperand(this.DelimitSub, subOperate.Left, subOperate.Right);
-        return true;
-    }
-
-    public override bool ExecuteMulOperate(MulOperate mulOperate)
-    {
-        this.ExecuteTwoOperand(this.DelimitMul, mulOperate.Left, mulOperate.Right);
-        return true;
-    }
-
-    public override bool ExecuteDivOperate(DivOperate divOperate)
-    {
-        this.ExecuteTwoOperand(this.DelimitDiv, divOperate.Left, divOperate.Right);
-        return true;
-    }
-
-    protected virtual bool ExecuteTwoOperand(string delimit, Operate left, Operate right)
-    {
-
         return true;
     }
 
@@ -164,6 +169,7 @@ public class ClassGenTraverse : Traverse
         return (Info)node.NodeAny;
     }
 
+    protected virtual string RefKindMask { get; set; }
     protected virtual string RefKindClearMask { get; set; }
     protected virtual string Space { get; set; }
     protected virtual string KeywordThis { get; set; }
