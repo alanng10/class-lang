@@ -839,7 +839,7 @@ public class Create : InfraCreate
 
         bool b;
         b = false;
-        if (!b)        
+        if (!b)
         {
             if (!(this.CheckClass(varClass, entryClass)))
             {
