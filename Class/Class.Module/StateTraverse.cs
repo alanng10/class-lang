@@ -1441,11 +1441,6 @@ public class StateTraverse : Traverse
         b = false;
         while (!b & !(thisClass == null))
         {
-            if (thisClass.Maide.Contain(name))
-            {
-                b = true;
-            }
-            
             if (!b)
             {
                 Field a;
@@ -1455,6 +1450,11 @@ public class StateTraverse : Traverse
                     d = a;
                     b = true;
                 }
+            }
+
+            if (!b & thisClass.Maide.Contain(name))
+            {
+                b = true;
             }
 
             if (!b)
@@ -1502,11 +1502,6 @@ public class StateTraverse : Traverse
         b = false;
         while (!b & !(thisClass == null))
         {
-            if (thisClass.Field.Contain(name))
-            {
-                b = true;
-            }
-
             if (!b)
             {
                 Maide a;
@@ -1516,6 +1511,11 @@ public class StateTraverse : Traverse
                     d = a;
                     b = true;
                 }
+            }
+
+            if (!b & thisClass.Field.Contain(name))
+            {
+                b = true;
             }
 
             if (!b)
