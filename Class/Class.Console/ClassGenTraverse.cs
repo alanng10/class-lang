@@ -56,6 +56,18 @@ public class ClassGenTraverse : Traverse
         return true;
     }
 
+    public override bool ExecuteAndOperate(AndOperate andOperate)
+    {
+        this.ExecuteBoolTwoOperand(this.DelimitAnd, andOperate.Left, andOperate.Right);
+        return true;
+    }
+
+    public override bool ExecuteOrnOperate(OrnOperate ornOperate)
+    {
+        this.ExecuteBoolTwoOperand(this.DelimitOrn, ornOperate.Left, ornOperate.Right);
+        return true;
+    }
+
     public override bool ExecuteAddOperate(AddOperate addOperate)
     {
         this.ExecuteIntTwoOperand(this.DelimitAdd, addOperate.Left, addOperate.Right);
@@ -86,7 +98,7 @@ public class ClassGenTraverse : Traverse
         operandClass = this.Gen.System.Bool;
 
         this.Text(this.DelimitLeftBracket);
-        
+
         this.Text(this.DelimitLeftBracket);
         this.ExecuteValueOperand(left, operandClass);
 
