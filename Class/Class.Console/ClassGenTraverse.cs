@@ -80,6 +80,33 @@ public class ClassGenTraverse : Traverse
         return true;
     }
 
+    protected virtual bool ExecuteBoolTwoOperand(string delimit, Operate left, Operate right)
+    {
+        ClassClass operandClass;
+        operandClass = this.Gen.System.Bool;
+
+        this.Text(this.DelimitLeftBracket);
+        
+        this.Text(this.DelimitLeftBracket);
+        this.ExecuteValueOperand(left, operandClass);
+
+        this.Text(this.Space);
+        this.Text(delimit);
+        this.Text(this.Space);
+
+        this.ExecuteValueOperand(right, operandClass);
+        this.Text(this.DelimitRightBracket);
+
+        this.Text(this.Space);
+        this.Text(this.DelimitOrn);
+        this.Text(this.Space);
+
+        this.Text(this.RefKindMask);
+
+        this.Text(this.DelimitRightBracket);
+        return true;
+    }
+
     protected virtual bool ExecuteIntTwoOperand(string delimit, Operate left, Operate right)
     {
         ClassClass operandClass;
