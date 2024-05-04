@@ -1,8 +1,8 @@
 namespace Class.Console;
 
-public class GenOperate : Any
+public class ClassGenOperate : Any
 {
-    public virtual Gen Gen { get; set; }
+    public virtual ClassGen Gen { get; set; }
 
     public virtual bool ExecuteString(string o)
     {
