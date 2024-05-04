@@ -540,7 +540,7 @@ public class StateTraverse : Traverse
         {
             if (!(maideName == null))
             {
-                maide = this.Method(thisClass, maideName, false);
+                maide = this.Maide(thisClass, maideName, false);
                 if (maide == null)
                 {
                     this.Error(this.ErrorKind.MaideUndefined, callOperate);
@@ -1367,6 +1367,11 @@ public class StateTraverse : Traverse
 
     protected virtual Field Field(ClassClass varClass, string name, bool baseTrigger)
     {
+        if (varClass == this.NullClass)
+        {
+            return null;
+        }
+        
         ClassClass anyClass;
         anyClass = this.System.Any;
 
@@ -1421,8 +1426,13 @@ public class StateTraverse : Traverse
         return d;
     }
 
-    protected virtual Maide Method(ClassClass varClass, string name, bool baseTrigger)
+    protected virtual Maide Maide(ClassClass varClass, string name, bool baseTrigger)
     {
+        if (varClass == this.NullClass)
+        {
+            return null;
+        }
+
         ClassClass anyClass;
         anyClass = this.System.Any;
 
