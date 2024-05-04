@@ -5,6 +5,7 @@ public class ClassGenTraverse : Traverse
     public override bool Init()
     {
         base.Init();
+        this.KeywordThis = "this";
         this.DelimitDot = ".";
         this.DelimitLeftBracket = "(";
         this.DelimitRightBracket = ")";
@@ -36,6 +37,15 @@ public class ClassGenTraverse : Traverse
         return true;
     }
 
+    public override bool ExecuteThisOperate(ThisOperate thisOperate)
+    {
+        this.Text(this.DelimitLeftBracket);
+        this.Text(this.KeywordThis);
+        this.Text(this.DelimitRightBracket);
+        return true;
+    }
+
+    protected virtual string KeywordThis { get; set; }
     protected virtual string DelimitDot { get; set; }
     protected virtual string DelimitLeftBracket { get; set; }
     protected virtual string DelimitRightBracket { get; set; }
