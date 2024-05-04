@@ -84,127 +84,68 @@ public class CreateOperateStateGen : Any
         string className;
         className = field.Class;
 
-
-
-
         bool isValueClass;
-
         isValueClass = this.IsFieldValueClass(className);
 
-
-
-
         string argFieldName;
-
         argFieldName = null;
-
-
 
         if (isValueClass)
         {
             argFieldName = this.GetArgFieldNameValue(index, className);
         }
-
-
-
         if (!isValueClass)
         {
             argFieldName = this.GetArgFieldName(index, className);
         }
 
 
-
-
-
         this.ToolInfra.AppendIndent(sb, 2);
-
-
-
-
         sb
             .Append("node").Append(".").Append(field.Name)
             .Append(" ").Append("=").Append(" ");
 
-            
-
         if (!isValueClass)
         {
             string castClassName;
-
             castClassName = this.GetCastClassName(className);
-
-
-
             sb.Append("(").Append(castClassName).Append(")");
         }
-
-
 
         sb
             .Append("this").Append(".").Append("Arg").Append(".").Append(argFieldName)
             .Append(";")
             .Append(this.ToolInfra.NewLine)
             ;
-
-
-
-
         return true;
     }
-
-
-
-
 
     protected virtual bool IsFieldValueClass(string className)
     {
         bool b;
-
         b = false;
-
-
         if (!b & className == "Bool")
         {
             b = true;
         }
-
-
-
         if (!b & className == "Int")
         {
             b = true;
         }
-
-
         return b;
     }
-
-
-
-
-
 
     protected virtual string GetArgFieldNameValue(int index, string className)
     {
         return "Field" + className;
     }
 
-
-
-
     protected virtual string GetArgFieldName(int index, string className)
     {
         string fieldIndex;
-
         fieldIndex = index.ToString("x2");
-
-
-
         string k;
-
         k = "Field" + fieldIndex;
-
-
         return k;
     }
 
