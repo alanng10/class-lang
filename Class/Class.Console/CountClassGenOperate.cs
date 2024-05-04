@@ -2,7 +2,7 @@ namespace Class.Console;
 
 public class CountClassGenOperate : ClassGenOperate
 {
-    public override bool ExecuteString(string o)
+    public override bool ExecuteText(string o)
     {
         GenArg arg;
         arg = this.Gen.Arg;

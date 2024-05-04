@@ -11,7 +11,7 @@ public class SetClassGenOperate : ClassGenOperate
 
     protected virtual TextInfra TextInfra { get; set; }
 
-    public override bool ExecuteString(string o)
+    public override bool ExecuteText(string o)
     {
         TextInfra textInfra;
         textInfra = TextInfra.This;

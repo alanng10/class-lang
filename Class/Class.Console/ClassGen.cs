@@ -20,7 +20,7 @@ public class ClassGen : Any
     public virtual ClassClass Class { get; set; }
     public virtual Data Data { get; set; }
     public virtual GenArg Arg { get; set; }
-    protected ClassGenOperate Operate { get; set; }
+    public ClassGenOperate Operate { get; set; }
     protected CountClassGenOperate CountOperate { get; set; }
     protected SetClassGenOperate SetOperate { get; set; }
     protected ClassGenTraverse Traverse { get; set; }
