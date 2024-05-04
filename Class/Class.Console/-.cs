@@ -45,6 +45,7 @@ global using NodeCreate = Class.Node.Create;
 global using NodeNode = Class.Node.Node;
 global using NodeResult = Class.Node.Result;
 global using Traverse = Class.Node.Traverse;
+global using NodeClass = Class.Node.Class;
 global using ModuleCreate = Class.Module.Create;
 global using ModuleResult = Class.Module.Result;
 global using ModuleInfo = Class.Module.Info;

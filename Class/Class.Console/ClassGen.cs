@@ -11,14 +11,19 @@ public class ClassGen : Any
         this.SetOperate = new SetClassGenOperate();
         this.SetOperate.Gen = this;
         this.SetOperate.Init();
+        this.Traverse = new ClassGenTraverse();
+        this.Traverse.Gen = this;
+        this.Traverse.Init();
         return true;
     }
 
+    public virtual ClassClass Class { get; set; }
     public virtual Data Data { get; set; }
     public virtual GenArg Arg { get; set; }
     protected ClassGenOperate Operate { get; set; }
     protected CountClassGenOperate CountOperate { get; set; }
     protected SetClassGenOperate SetOperate { get; set; }
+    protected ClassGenTraverse Traverse { get; set; }
 
     public virtual bool Execute()
     {
@@ -57,6 +62,10 @@ public class ClassGen : Any
 
     protected virtual bool ExecuteStage()
     {
+        NodeClass nodeClass;
+        nodeClass = (NodeClass)this.Class.Any;
+
+        this.Traverse.ExecuteClass(nodeClass);
         return true;
     }
 }
