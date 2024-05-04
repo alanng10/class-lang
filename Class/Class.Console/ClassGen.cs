@@ -5,10 +5,10 @@ public class ClassGen : Any
     public override bool Init()
     {
         base.Init();
-        this.CountOperate = new CountGenOperate();
+        this.CountOperate = new CountClassGenOperate();
         this.CountOperate.Gen = this;
         this.CountOperate.Init();
-        this.SetOperate = new SetGenOperate();
+        this.SetOperate = new SetClassGenOperate();
         this.SetOperate.Gen = this;
         this.SetOperate.Init();
         return true;
@@ -16,9 +16,9 @@ public class ClassGen : Any
 
     public virtual Data Data { get; set; }
     public virtual GenArg Arg { get; set; }
-    protected GenOperate Operate { get; set; }
-    protected CountGenOperate CountOperate { get; set; }
-    protected SetGenOperate SetOperate { get; set; }
+    protected ClassGenOperate Operate { get; set; }
+    protected CountClassGenOperate CountOperate { get; set; }
+    protected SetClassGenOperate SetOperate { get; set; }
 
     public virtual bool Execute()
     {
