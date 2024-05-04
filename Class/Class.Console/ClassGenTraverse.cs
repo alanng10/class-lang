@@ -53,7 +53,7 @@ public class ClassGenTraverse : Traverse
 
             this.Text(this.InternModuleInfoClass);
             this.Text(this.DelimitDot);
-            this.Text("Name");
+            this.Text(maide.Name);
             this.Text(this.DelimitComma);
             this.Text(this.Space);
             
