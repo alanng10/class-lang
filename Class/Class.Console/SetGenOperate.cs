@@ -16,7 +16,7 @@ public class SetGenOperate : GenOperate
         TextInfra textInfra;
         textInfra = TextInfra.This;
         GenArg arg;
-        arg = this.Traverse.Arg;
+        arg = this.Gen.Arg;
         
         int index;
         index = arg.Index;
