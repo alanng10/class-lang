@@ -505,7 +505,7 @@ public class ClassGenTraverse : Traverse
         {
             this.Text(this.DelimitLeftBracket);
         }
-        if (systemInfo < 12)
+        if (3 < systemInfo & systemInfo < 12)
         {
             this.Text(this.DelimitLeftBracket);
             this.Text(this.DelimitLeftBracket);
@@ -528,7 +528,7 @@ public class ClassGenTraverse : Traverse
             this.Text(this.Int60Mask);
             this.Text(this.DelimitRightBracket);
         }
-        if (systemInfo < 12)
+        if (3 < systemInfo & systemInfo < 12)
         {
             this.Text(this.DelimitRightBracket);
 
