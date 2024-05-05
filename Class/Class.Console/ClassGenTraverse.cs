@@ -17,6 +17,7 @@ public class ClassGenTraverse : Traverse
         this.Indent = new string(' ', 4);
         this.Space = " ";
         this.NewLine = "\n";
+        this.KeywordNew = "new";
         this.KeywordThis = "this";
         this.KeywordBase = "base";
         this.KeywordNull = "null";
@@ -68,6 +69,7 @@ public class ClassGenTraverse : Traverse
     protected virtual string Indent { get; set; }
     protected virtual string Space { get; set; }
     protected virtual string NewLine { get; set; }
+    protected virtual string KeywordNew { get; set; }
     protected virtual string KeywordThis { get; set; }
     protected virtual string KeywordBase { get; set; }
     protected virtual string KeywordNull { get; set; }
@@ -320,6 +322,38 @@ public class ClassGenTraverse : Traverse
         return true;
     }
 
+    public override bool ExecuteNewOperate(NewOperate newOperate)
+    {
+        ClassClass a;
+        a = this.Info(newOperate).OperateClass;
+
+        bool b;
+        b = (a == this.Gen.System.Bool |
+            a == this.Gen.System.Int |
+            a == this.Gen.System.String);
+
+        if (b)
+        {
+            this.ExecuteValueClass(a);
+        }
+        if (!b)
+        {
+            this.Text(this.DelimitLeftBracket);
+            this.Text(this.KeywordNew);
+            this.Text(this.Space);
+            this.ExecuteClassName(a);
+            this.Text(this.DelimitLeftBracket);
+            this.Text(this.DelimitRightBracket);
+            this.Text(this.DelimitRightBracket);
+        }
+        return true;
+    }
+
+    public override bool ExecuteShareOperate(ShareOperate shareOperate)
+    {
+        return true;
+    }
+
     public override bool ExecuteVarOperate(VarOperate varOperate)
     {
         bool b;
@@ -504,6 +538,11 @@ public class ClassGenTraverse : Traverse
         return true;
     }
 
+    protected virtual bool ExecuteClassName(ClassClass a)
+    {
+        return true;
+    }
+
     protected virtual bool ExecuteNodeVarName(NodeNode node)
     {
         Var varVar;
@@ -554,6 +593,19 @@ public class ClassGenTraverse : Traverse
 
             i = i + 1;
         }
+        return true;
+    }
+
+    protected virtual bool ExecuteValueClass(ClassClass a)
+    {
+        string name;
+        name = a.Name;
+
+        this.Text(this.DelimitLeftBracket);
+        this.Text(this.InternValueShareClass);
+        this.Text(this.DelimitDot);
+        this.Text(name);
+        this.Text(this.DelimitRightBracket);
         return true;
     }
 
