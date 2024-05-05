@@ -318,6 +318,12 @@ public class ClassGenTraverse : Traverse
         return true;
     }
 
+    public override bool ExecuteVarOperate(VarOperate varOperate)
+    {
+        this.ExecuteNodeVarName(varOperate);
+        return true;
+    }
+
     public override bool ExecuteThisOperate(ThisOperate thisOperate)
     {
         this.Text(this.DelimitLeftBracket);
