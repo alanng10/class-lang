@@ -30,8 +30,8 @@ public class ClassGenTraverse : Traverse
         this.DelimitSemicolon = ";";
         this.DelimitQuestion = "?";
         this.DelimitEqual = "=";
-        this.DelimitLess = "<";
-        this.DelimitMore = ">";
+        this.DelimitLeftShift = "<<";
+        this.DelimitRightShift = ">>";
         this.DelimitAnd = "&";
         this.DelimitOrn = "|";
         this.DelimitNot = "!";
@@ -71,8 +71,8 @@ public class ClassGenTraverse : Traverse
     protected virtual string DelimitSemicolon { get; set; }
     protected virtual string DelimitQuestion { get; set; }
     protected virtual string DelimitEqual { get; set; }
-    protected virtual string DelimitLess { get; set; }
-    protected virtual string DelimitMore { get; set; }
+    protected virtual string DelimitLeftShift { get; set; }
+    protected virtual string DelimitRightShift { get; set; }
     protected virtual string DelimitAnd { get; set; }
     protected virtual string DelimitOrn { get; set; }
     protected virtual string DelimitNot { get; set; }
@@ -377,16 +377,14 @@ public class ClassGenTraverse : Traverse
         this.Text(this.DelimitRightBracket);
 
         this.Text(this.Space);
-        this.Text(this.DelimitLess);
-        this.Text(this.DelimitLess);
+        this.Text(this.DelimitLeftShift);
         this.Text(this.Space);
         this.Text("4");
 
         this.Text(this.DelimitRightBracket);
 
         this.Text(this.Space);
-        this.Text(this.DelimitMore);
-        this.Text(this.DelimitMore);
+        this.Text(this.DelimitRightShift);
         this.Text(this.Space);
         this.Text("4");
 
