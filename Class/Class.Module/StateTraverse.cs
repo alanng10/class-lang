@@ -827,7 +827,6 @@ public class StateTraverse : Traverse
 
         base.ExecuteEqualOperate(equalOperate);
 
-
         bool hasOperandUndefined;
         hasOperandUndefined = false;
 
@@ -857,8 +856,6 @@ public class StateTraverse : Traverse
         b = false;
         if (!(leftClass == null) & !(rightClass == null))
         {
-            int nullCount;
-            nullCount = this.ClassEqualCount(leftClass, rightClass, this.NullClass);
             if (!b)
             {
                 int boolCount;
@@ -866,7 +863,7 @@ public class StateTraverse : Traverse
                 if (0 < boolCount)
                 {
                     b = true;
-                    if (boolCount == 1 & nullCount == 0)
+                    if (boolCount == 1)
                     {
                         this.Error(this.ErrorKind.EqualUnachievable, equalOperate);
                     }
@@ -879,7 +876,7 @@ public class StateTraverse : Traverse
                 if (0 < intCount)
                 {
                     b = true;
-                    if (intCount == 1 & nullCount == 0)
+                    if (intCount == 1)
                     {
                         this.Error(this.ErrorKind.EqualUnachievable, equalOperate);
                     }
