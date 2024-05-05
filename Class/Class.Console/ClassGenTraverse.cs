@@ -132,7 +132,9 @@ public class ClassGenTraverse : Traverse
         Maide maide;
         maide = this.Info(callOperate).CallMaide;
         
-        this.ExecuteSystemTypeStart(maide.SystemInfo);
+        int u;
+        u = maide.SystemInfo.Value;
+        this.ExecuteSystemTypeStart(u);
         
         bool b;
         b = (maide == this.Gen.ModuleInfoNameMaide | maide == this.Gen.ModuleInfoVersionMaide);
@@ -166,7 +168,7 @@ public class ClassGenTraverse : Traverse
             this.Text(this.DelimitRightBracket);
         }
 
-        this.ExecuteSystemTypeEnd(maide.SystemInfo);
+        this.ExecuteSystemTypeEnd(u);
         return true;
     }
 
@@ -436,13 +438,61 @@ public class ClassGenTraverse : Traverse
         return true;
     }
 
-    protected virtual bool ExecuteSystemTypeStart(SystemInfo systemInfo)
+    protected virtual bool ExecuteSystemTypeStart(int systemInfo)
     {
+        if (systemInfo == 4)
+        {
+            this.Text(this.DelimitLeftBracket);
+            this.Text(this.DelimitLeftBracket);
+
+            this.Text(this.DelimitLeftBracket);
+            this.Text(this.KeywordULong);
+            this.Text(this.DelimitRightBracket);
+        }
+        if (systemInfo == 6 | systemInfo == 8 | systemInfo == 10)
+        {
+            this.Text(this.DelimitLeftBracket);
+            this.Text(this.DelimitLeftBracket);
+
+            this.Text(this.DelimitLeftBracket);
+            this.Text(this.KeywordULong);
+            this.Text(this.DelimitRightBracket);
+
+            this.Text(this.DelimitLeftBracket);
+
+            this.Text(this.DelimitLeftBracket);
+            this.Text(this.KeywordLong);
+            this.Text(this.DelimitRightBracket);
+        }
         return true;
     }
 
-    protected virtual bool ExecuteSystemTypeEnd(SystemInfo systemInfo)
+    protected virtual bool ExecuteSystemTypeEnd(int systemInfo)
     {
+        if (systemInfo == 4)
+        {
+            this.Text(this.DelimitRightBracket);
+
+            this.Text(this.Space);
+            this.Text(this.DelimitAnd);
+            this.Text(this.Space);
+
+            this.Text(this.Int60Mask);
+            this.Text(this.DelimitRightBracket);
+        }
+        if (systemInfo == 6 | systemInfo == 8 | systemInfo == 10)
+        {
+            this.Text(this.DelimitRightBracket);
+
+            this.Text(this.DelimitRightBracket);
+
+            this.Text(this.Space);
+            this.Text(this.DelimitAnd);
+            this.Text(this.Space);
+
+            this.Text(this.Int60Mask);
+            this.Text(this.DelimitRightBracket);
+        }
         return true;
     }
 
