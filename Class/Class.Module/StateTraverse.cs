@@ -135,7 +135,6 @@ public class StateTraverse : Traverse
         valueVar.SystemInfo = this.CreateSystemInfo();
         valueVar.SystemInfo.Value = field.SystemInfo.Value;
         
-        
         Table o;
         o = this.ClassInfra.TableCreateStringCompare();
 
