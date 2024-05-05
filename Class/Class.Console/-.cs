@@ -22,6 +22,7 @@ global using Maide = Class.Infra.Maide;
 global using Var = Class.Infra.Var;
 global using ClassModule = Class.Infra.Module;
 global using SystemInfo = Class.Infra.SystemInfo;
+global using Count = Class.Infra.Count;
 global using CountList = Class.Infra.CountList;
 global using Error = Class.Infra.Error;
 global using ErrorKind = Class.Infra.ErrorKind;

@@ -186,12 +186,17 @@ public class ClassGenTraverse : Traverse
         return true;
     }
 
-    public override bool ExecuteField(NodeField field)
+    public override bool ExecuteField(NodeField nodeField)
     {
-        this.ThisField = this.Info(field).Field;
+        Field field;
+        field = this.Info(nodeField).Field;
 
-        this.ExecuteState(field.Get);
-        this.ExecuteState(field.Set);
+
+
+        this.ThisField = field;
+
+        this.ExecuteState(nodeField.Get);
+        this.ExecuteState(nodeField.Set);
         
         this.ThisField = null;
         return true;
@@ -824,6 +829,11 @@ public class ClassGenTraverse : Traverse
             this.Text(aa);
         }
         return true;
+    }
+
+    protected virtual string CountWord(Count count)
+    {
+        return (string)this.CountAccessWord.Get(count.Index);
     }
 
     protected virtual bool ExecuteCondBodyExecute(string keyword, Operate cond, State body)
