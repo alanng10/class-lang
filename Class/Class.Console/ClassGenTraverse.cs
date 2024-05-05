@@ -22,6 +22,7 @@ public class ClassGenTraverse : Traverse
         this.KeywordThis = "this";
         this.KeywordBase = "base";
         this.KeywordNull = "null";
+        this.KeywordULong = "ulong";
         this.KeywordLong = "long";
         this.DelimitDot = ".";
         this.DelimitComma = ",";
@@ -62,6 +63,7 @@ public class ClassGenTraverse : Traverse
     protected virtual string KeywordThis { get; set; }
     protected virtual string KeywordBase { get; set; }
     protected virtual string KeywordNull { get; set; }
+    protected virtual string KeywordULong { get; set; }
     protected virtual string KeywordLong { get; set; }
     protected virtual string DelimitDot { get; set; }
     protected virtual string DelimitComma { get; set; }
@@ -320,6 +322,12 @@ public class ClassGenTraverse : Traverse
 
         this.Text(this.DelimitLeftBracket);
 
+        this.Text(this.DelimitLeftBracket);
+        this.Text(this.KeywordULong);
+        this.Text(this.DelimitRightBracket);
+
+        this.Text(this.DelimitLeftBracket);
+
         this.ExecuteSignIntOperand(left);
 
         this.Text(this.Space);
@@ -327,6 +335,8 @@ public class ClassGenTraverse : Traverse
         this.Text(this.Space);
 
         this.ExecuteSignIntOperand(right);
+
+        this.Text(this.DelimitRightBracket);
 
         this.Text(this.DelimitRightBracket);
 
