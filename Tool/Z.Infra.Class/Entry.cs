@@ -6,7 +6,7 @@ public class Entry
     {
         ValueInit aa;
         aa = ValueInit.This;
-        uint ab;
+        bool ab;
         ab = ValueShare.Bool;
         String ac;
         ac = String.This;

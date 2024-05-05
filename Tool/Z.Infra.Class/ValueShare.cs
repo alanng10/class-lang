@@ -2,9 +2,9 @@ namespace Z.Infra.Class;
 
 public class ValueShare
 {
-    public static uint Bool { get; } = BoolValue.False;
+    public static bool Bool { get; } = false;
 
-    public static ulong Int { get; } = IntValue.Zero;
+    public static long Int { get; } = 0;
 
     public static string String { get; } = "";
 }

@@ -14,18 +14,18 @@ public class ValueInit : Any
         return share;
     }
 
-    public virtual uint InitBool(uint value)
+    public virtual bool InitBool(bool value)
     {
-        return BoolValue.True;
+        return true;
     }
 
-    public virtual uint InitInt(ulong value)
+    public virtual bool InitInt(long value)
     {
-        return BoolValue.True;
+        return true;
     }
 
-    public virtual uint InitString(string value)
+    public virtual bool InitString(string value)
     {
-        return BoolValue.True;
+        return true;
     }
 }
