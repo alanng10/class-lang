@@ -149,6 +149,78 @@ public class ClassGenTraverse : Traverse
         return true;
     }
 
+    public override bool ExecuteWhileExecute(WhileExecute whileExecute)
+    {
+        return true;
+    }
+
+    public override bool ExecuteDeclareExecute(DeclareExecute declareExecute)
+    {
+        SystemClass system;
+        system = this.Gen.System;
+
+        NodeVar nodeVar;
+        nodeVar = declareExecute.Var;
+
+        Var varVar;
+        varVar = this.Info(nodeVar).Var;
+
+        ClassClass c;
+        c = varVar.Class;
+
+        bool b;
+        b = false;
+        string k;
+        k = null;
+        if (!b)
+        {
+            if (c == system.Bool)
+            {
+                k = this.KeywordFalse;
+                b = true;
+            }
+        }
+        if (!b)
+        {
+            if (c == system.Int)
+            {
+                k = this.Zero;
+                b = true;
+            }
+        }
+        if (!b)
+        {
+            k = this.KeywordNull;
+            b = true;
+        }
+
+
+        this.TextIndent();
+
+        this.ExecuteClassName(c);
+        
+        this.Text(this.Space);
+
+        this.Text(varVar.Name);
+
+        this.Text(this.DelimitSemicolon);
+        this.Text(this.NewLine);
+
+        this.TextIndent();
+
+        this.Text(varVar.Name);
+
+        this.Text(this.Space);
+        this.Text(this.DelimitEqual);
+        this.Text(this.Space);
+
+        this.Text(k);
+
+        this.Text(this.DelimitSemicolon);
+        this.Text(this.NewLine);
+        return true;
+    }
+
     public override bool ExecuteAssignExecute(AssignExecute assignExecute)
     {
         int systemInfo;
