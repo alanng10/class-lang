@@ -12,9 +12,9 @@ public class ClassGenTraverse : Traverse
         this.InternValueFalse = "False";
         this.InternValueTrue = "True";
         this.InternModuleInfoClass = "__C_ModuleInfo";
-        this.RefKindBoolMask = "0x10000000";
+        this.RefKindBoolMask = "0xf0000000";
         this.RefKindBoolClearMask = "0x0fffffff";
-        this.RefKindIntMask = "0x1000000000000000";
+        this.RefKindIntMask = "0xf000000000000000";
         this.RefKindIntClearMask = "0x0fffffffffffffff";
         this.Indent = new string(' ', 4);
         this.Space = " ";
@@ -309,8 +309,6 @@ public class ClassGenTraverse : Traverse
         this.Text(this.DelimitLeftBracket);
 
         this.Text(this.DelimitLeftBracket);
-
-        this.Text(this.DelimitLeftBracket);
         this.ExecuteValueOperand(left, operandClass);
 
         this.Text(this.Space);
@@ -318,14 +316,6 @@ public class ClassGenTraverse : Traverse
         this.Text(this.Space);
         
         this.ExecuteValueOperand(right, operandClass);
-        this.Text(this.DelimitRightBracket);
-
-        this.Text(this.Space);
-        this.Text(this.DelimitAnd);
-        this.Text(this.Space);
-
-        this.Text(this.RefKindIntClearMask);
-
         this.Text(this.DelimitRightBracket);
 
         this.Text(this.Space);
@@ -345,8 +335,6 @@ public class ClassGenTraverse : Traverse
         this.Text(this.DelimitLeftBracket);
 
         this.Text(this.DelimitLeftBracket);
-
-        this.Text(this.DelimitLeftBracket);
         this.Text(this.KeywordULong);
         this.Text(this.DelimitRightBracket);
 
@@ -361,14 +349,6 @@ public class ClassGenTraverse : Traverse
         this.ExecuteSignIntOperand(right);
 
         this.Text(this.DelimitRightBracket);
-
-        this.Text(this.DelimitRightBracket);
-
-        this.Text(this.Space);
-        this.Text(this.DelimitAnd);
-        this.Text(this.Space);
-
-        this.Text(this.RefKindIntClearMask);
 
         this.Text(this.DelimitRightBracket);
 
