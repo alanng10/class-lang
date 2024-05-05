@@ -506,28 +506,13 @@ public class ClassGenTraverse : Traverse
         {
             this.Text(this.DelimitLeftBracket);
         }
-        if (systemInfo == 4 | systemInfo == 5 | systemInfo == 7 | systemInfo == 9 | systemInfo == 11)
+        if (systemInfo < 12)
         {
             this.Text(this.DelimitLeftBracket);
             this.Text(this.DelimitLeftBracket);
 
             this.Text(this.DelimitLeftBracket);
             this.Text(this.KeywordULong);
-            this.Text(this.DelimitRightBracket);
-        }
-        if (systemInfo == 6 | systemInfo == 8 | systemInfo == 10)
-        {
-            this.Text(this.DelimitLeftBracket);
-            this.Text(this.DelimitLeftBracket);
-
-            this.Text(this.DelimitLeftBracket);
-            this.Text(this.KeywordULong);
-            this.Text(this.DelimitRightBracket);
-
-            this.Text(this.DelimitLeftBracket);
-
-            this.Text(this.DelimitLeftBracket);
-            this.Text(this.KeywordLong);
             this.Text(this.DelimitRightBracket);
         }
         return true;
@@ -544,21 +529,8 @@ public class ClassGenTraverse : Traverse
             this.Text(this.Int60Mask);
             this.Text(this.DelimitRightBracket);
         }
-        if (systemInfo == 4 | systemInfo == 5 | systemInfo == 7 | systemInfo == 9 | systemInfo == 11)
+        if (systemInfo < 12)
         {
-            this.Text(this.DelimitRightBracket);
-
-            this.Text(this.Space);
-            this.Text(this.DelimitAnd);
-            this.Text(this.Space);
-
-            this.Text(this.Int60Mask);
-            this.Text(this.DelimitRightBracket);
-        }
-        if (systemInfo == 6 | systemInfo == 8 | systemInfo == 10)
-        {
-            this.Text(this.DelimitRightBracket);
-
             this.Text(this.DelimitRightBracket);
 
             this.Text(this.Space);
