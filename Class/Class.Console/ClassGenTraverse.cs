@@ -81,9 +81,6 @@ public class ClassGenTraverse : Traverse
 
     public override bool ExecuteAssignExecute(AssignExecute assignExecute)
     {
-        ClassClass targetClass;
-        targetClass = this.Info(assignExecute.Target).TargetClass;
-        
         this.TextIndent();
         this.ExecuteTarget(assignExecute.Target);
 
@@ -91,7 +88,7 @@ public class ClassGenTraverse : Traverse
         this.Text(this.DelimitEqual);
         this.Text(this.Space);
 
-        this.ExecuteInputOperate(assignExecute.Value, targetClass);
+        this.ExecuteOperate(assignExecute.Value);
         this.Text(this.DelimitSemicolon);
         this.Text(this.NewLine);
         return true;
@@ -202,7 +199,7 @@ public class ClassGenTraverse : Traverse
 
     public override bool ExecuteLessOperate(LessOperate lessOperate)
     {
-        this.ExecuteTwoOperand(this.DelimitLess, lessOperate.Left, lessOperate.Right, this.Gen.System.Int);
+        this.ExecuteTwoOperand(this.DelimitLess, lessOperate.Left, lessOperate.Right);
         return true;
     }
 
@@ -324,14 +321,14 @@ public class ClassGenTraverse : Traverse
 
     protected virtual bool ExecuteBoolTwoOperand(string delimit, Operate left, Operate right)
     {
-        this.ExecuteTwoOperand(delimit, left, right, this.Gen.System.Bool);
+        this.ExecuteTwoOperand(delimit, left, right);
         return true;
     }
 
     protected virtual bool ExecuteIntTwoOperand(string delimit, Operate left, Operate right)
     {
         this.Text(this.DelimitLeftBracket);
-        this.ExecuteTwoOperand(delimit, left, right, this.Gen.System.Int);
+        this.ExecuteTwoOperand(delimit, left, right);
 
         this.Text(this.Space);
         this.Text(this.DelimitAnd);
@@ -343,16 +340,16 @@ public class ClassGenTraverse : Traverse
         return true;
     }
 
-    protected virtual bool ExecuteTwoOperand(string delimit, Operate left, Operate right, ClassClass operandClass)
+    protected virtual bool ExecuteTwoOperand(string delimit, Operate left, Operate right)
     {
         this.Text(this.DelimitLeftBracket);
-        this.ExecuteInputOperate(left, operandClass);
+        this.ExecuteOperate(left);
 
         this.Text(this.Space);
         this.Text(delimit);
         this.Text(this.Space);
 
-        this.ExecuteInputOperate(right, operandClass);
+        this.ExecuteOperate(right);
         this.Text(this.DelimitRightBracket);
         return true;
     }
@@ -386,7 +383,7 @@ public class ClassGenTraverse : Traverse
         this.Text(delimit);
         this.Text(this.Space);
 
-        this.ExecuteInputOperate(value, operandClass);
+        this.ExecuteOperate(value);
 
         this.Text(this.DelimitRightBracket);
         return true;
@@ -397,7 +394,7 @@ public class ClassGenTraverse : Traverse
         this.Text(this.DelimitLeftBracket);
 
         this.Text(this.DelimitLeftBracket);
-        this.ExecuteInputOperate(value, this.Gen.System.Int);
+        this.ExecuteOperate(value);
 
         this.Text(this.Space);
         this.Text(delimit);
@@ -539,43 +536,6 @@ public class ClassGenTraverse : Traverse
 
             this.Text(this.Int60Mask);
             this.Text(this.DelimitRightBracket);
-        }
-        return true;
-    }
-
-    protected virtual bool ExecuteInputOperate(Operate operate, ClassClass requiredClass)
-    {
-        ClassClass a;
-        a = this.Info(operate).OperateClass;
-
-        bool b;
-        b = (a == this.Gen.NullClass);
-        if (b)
-        {
-            this.Text(this.DelimitLeftBracket);
-
-            bool ba;
-            ba = false;
-            if (!ba & requiredClass == this.Gen.System.Bool)
-            {
-                this.Text(this.KeywordFalse);
-                ba = true;
-            }
-            if (!ba & requiredClass == this.Gen.System.Int)
-            {
-                this.Text(this.Zero);
-                ba = true;
-            }
-            if (!ba)
-            {
-                this.Text(this.KeywordNull);
-            }
-
-            this.Text(this.DelimitRightBracket);
-        }
-        if (!b)
-        {
-            this.ExecuteOperate(operate);
         }
         return true;
     }
