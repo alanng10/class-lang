@@ -320,7 +320,37 @@ public class ClassGenTraverse : Traverse
 
     public override bool ExecuteVarOperate(VarOperate varOperate)
     {
-        this.ExecuteNodeVarName(varOperate);
+        bool b;
+        b = false;
+
+        int systemInfo;
+        systemInfo = 0;
+
+        Var varVar;
+        varVar = this.Info(varOperate).Var;
+
+        if (!(this.ThisField == null))
+        {
+            if (varVar.Name == "data")
+            {
+                systemInfo = this.ThisField.SystemInfo.Value;
+                b = true;
+            }
+        }
+
+        if (b)
+        {
+            this.ExecuteSystemTypeResultStart(systemInfo);
+
+            this.Text(varVar.Name);
+
+            this.ExecuteSystemTypeResultEnd(systemInfo);
+        }
+
+        if (!b)
+        {
+            this.ExecuteNodeVarName(varOperate);
+        }
         return true;
     }
 
