@@ -11,6 +11,8 @@ public class ClassGenTraverse : Traverse
         this.InternValueFalse = "False";
         this.InternValueTrue = "True";
         this.InternModuleInfoClass = "__C_ModuleInfo";
+        this.RefKindBoolMask = "0x10000000";
+        this.RefKindBoolClearMask = "0x0fffffff";
         this.RefKindIntMask = "0x1000000000000000";
         this.RefKindIntClearMask = "0x0fffffffffffffff";
         this.Indent = new string(' ', 4);
@@ -45,6 +47,8 @@ public class ClassGenTraverse : Traverse
     protected virtual string InternValueFalse { get; set; }
     protected virtual string InternValueTrue { get; set; }
     protected virtual string InternModuleInfoClass { get; set; }
+    protected virtual string RefKindBoolMask { get; set; }
+    protected virtual string RefKindBoolClearMask { get; set; }
     protected virtual string RefKindIntMask { get; set; }
     protected virtual string RefKindIntClearMask { get; set; }
     protected virtual string Indent { get; set; }
