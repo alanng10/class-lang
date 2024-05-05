@@ -130,7 +130,7 @@ public class ClassGenTraverse : Traverse
         Maide maide;
         maide = this.Info(callOperate).CallMaide;
         
-        this.ExecuteBuiltinClassStart(maide.SystemInfo);
+        this.ExecuteSystemTypeStart(maide.SystemInfo);
         
         bool b;
         b = (maide == this.Gen.ModuleInfoNameMaide | maide == this.Gen.ModuleInfoVersionMaide);
@@ -164,7 +164,7 @@ public class ClassGenTraverse : Traverse
             this.Text(this.DelimitRightBracket);
         }
 
-        this.ExecuteBuiltinClassEnd(maide.SystemInfo);
+        this.ExecuteSystemTypeEnd(maide.SystemInfo);
         return true;
     }
 
@@ -416,12 +416,12 @@ public class ClassGenTraverse : Traverse
         return true;
     }
 
-    protected virtual bool ExecuteBuiltinClassStart(SystemInfo systemInfo)
+    protected virtual bool ExecuteSystemTypeStart(SystemInfo systemInfo)
     {
         return true;
     }
 
-    protected virtual bool ExecuteBuiltinClassEnd(SystemInfo systemInfo)
+    protected virtual bool ExecuteSystemTypeEnd(SystemInfo systemInfo)
     {
         return true;
     }
