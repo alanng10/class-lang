@@ -229,7 +229,7 @@ public class ClassGenTraverse : Traverse
 
         this.TextIndent();
 
-        this.ExecuteClassName(c);
+        this.ExecuteClassName(c, 0);
         
         this.Text(this.Space);
 
@@ -696,7 +696,7 @@ public class ClassGenTraverse : Traverse
         return true;
     }
 
-    protected virtual bool ExecuteClassName(ClassClass a)
+    protected virtual bool ExecuteClassName(ClassClass a, int systemInfo)
     {
         SystemClass system;
         system = this.Gen.System;
@@ -723,7 +723,21 @@ public class ClassGenTraverse : Traverse
         {
             if (a == system.Int)
             {
-                this.Text(this.KeywordULong);
+                bool ba;
+                ba = this.IsSystemTypeInt(systemInfo);
+                if (ba)
+                {
+                    int kk;
+                    kk = systemInfo - 3;
+                    
+                    string name;
+                    name = (string)this.SystemTypeIntName.Get(kk);
+                    this.Text(name);
+                }
+                if (!ba)
+                {
+                    this.Text(this.KeywordULong);
+                }
                 b = true;
             }
         }
@@ -787,7 +801,7 @@ public class ClassGenTraverse : Traverse
         Var varVar;
         varVar = this.Info(node).Var;
 
-        if (this.IsSystemTypeInt(varVar.SystemInfo))
+        if (this.IsSystemTypeInt(varVar.SystemInfo.Value))
         {
             this.Text(this.InternVarPrefix);
         }
@@ -1162,10 +1176,8 @@ public class ClassGenTraverse : Traverse
         return true;
     }
 
-    protected virtual bool IsSystemTypeInt(SystemInfo a)
+    protected virtual bool IsSystemTypeInt(int n)
     {
-        int n;
-        n = a.Value;
         return !(n < 3 | 11 < n);
     }
 
