@@ -19,6 +19,7 @@ public class ClassGenTraverse : Traverse
         this.KeywordTrue = "true";
         this.KeywordULong = "ulong";
         this.KeywordLong = "long";
+        this.KeywordInt = "int";
         this.DelimitDot = ".";
         this.DelimitComma = ",";
         this.DelimitColon = ":";
@@ -57,6 +58,7 @@ public class ClassGenTraverse : Traverse
     protected virtual string KeywordTrue { get; set; }
     protected virtual string KeywordULong { get; set; }
     protected virtual string KeywordLong { get; set; }
+    protected virtual string KeywordInt { get; set; }
     protected virtual string DelimitDot { get; set; }
     protected virtual string DelimitComma { get; set; }
     protected virtual string DelimitColon { get; set; }
@@ -433,9 +435,6 @@ public class ClassGenTraverse : Traverse
 
     protected virtual bool ExecuteSignIntOperand(Operate operate)
     {
-        ClassClass k;
-        k = this.Gen.System.Int;
-
         this.Text(this.DelimitLeftBracket);
 
         this.Text(this.DelimitLeftBracket);
@@ -445,7 +444,7 @@ public class ClassGenTraverse : Traverse
         this.Text(this.DelimitLeftBracket);
         this.Text(this.KeywordLong);
         this.Text(this.DelimitRightBracket);
-        this.ExecuteInputOperate(operate, k);
+        this.ExecuteInputOperate(operate, this.Gen.System.Int);
         
         this.Text(this.DelimitRightBracket);
 
@@ -460,6 +459,19 @@ public class ClassGenTraverse : Traverse
         this.Text(this.DelimitRightShift);
         this.Text(this.Space);
         this.Text("4");
+
+        this.Text(this.DelimitRightBracket);
+        return true;
+    }
+
+    protected virtual bool ExecuteIntShiftOperand(Operate operate)
+    {
+        this.Text(this.DelimitLeftBracket);
+
+        this.Text(this.DelimitLeftBracket);
+        this.Text(this.KeywordInt);
+        this.Text(this.DelimitRightBracket);
+        this.ExecuteInputOperate(operate, this.Gen.System.Int);
 
         this.Text(this.DelimitRightBracket);
         return true;
