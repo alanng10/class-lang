@@ -159,6 +159,21 @@ public class ClassGenTraverse : Traverse
         return true;
     }
 
+    public override bool ExecuteState(State state)
+    {
+        int k;
+        k = this.IndentLevel;
+        
+        k = k + 1;
+        this.IndentLevel = k;
+
+        base.ExecuteState(state);
+
+        k = k - 1;
+        this.IndentLevel = k;
+        return true;
+    }
+
     public override bool ExecuteInfExecute(InfExecute infExecute)
     {
         this.ExecuteCondBodyExecute(this.KeywordIf, infExecute.Cond, infExecute.Then);
