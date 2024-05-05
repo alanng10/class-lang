@@ -32,6 +32,7 @@ public class ClassGenTraverse : Traverse
         this.DelimitEqual = "=";
         this.DelimitLeftShift = "<<";
         this.DelimitRightShift = ">>";
+        this.DelimitComplement = "~";
         this.DelimitAnd = "&";
         this.DelimitOrn = "|";
         this.DelimitNot = "!";
@@ -73,6 +74,7 @@ public class ClassGenTraverse : Traverse
     protected virtual string DelimitEqual { get; set; }
     protected virtual string DelimitLeftShift { get; set; }
     protected virtual string DelimitRightShift { get; set; }
+    protected virtual string DelimitComplement { get; set; }
     protected virtual string DelimitAnd { get; set; }
     protected virtual string DelimitOrn { get; set; }
     protected virtual string DelimitNot { get; set; }
@@ -244,6 +246,12 @@ public class ClassGenTraverse : Traverse
         return true;
     }
 
+    public override bool ExecuteBitNotOperate(BitNotOperate bitNotOperate)
+    {
+        this.ExecuteOneOperand(this.DelimitComplement, bitNotOperate.Value, this.Gen.System.Int);
+        return true;
+    }
+
     public override bool ExecuteBitLeftOperate(BitLeftOperate bitLeftOperate)
     {
         this.ExecuteIntTwoOperand(this.DelimitLeftShift, bitLeftOperate.Value, bitLeftOperate.Count);
@@ -313,6 +321,42 @@ public class ClassGenTraverse : Traverse
         this.Text(this.Space);
 
         this.ExecuteValueOperand(right, operandClass);
+        this.Text(this.DelimitRightBracket);
+
+        this.Text(this.Space);
+        this.Text(this.DelimitOrn);
+        this.Text(this.Space);
+
+        this.Text(mask);
+
+        this.Text(this.DelimitRightBracket);
+        return true;
+    }
+
+    protected virtual bool ExecuteOneOperand(string delimit, Operate value, ClassClass operandClass)
+    {
+        string mask;
+        mask = null;
+        bool b;
+        b = (operandClass == this.Gen.System.Int);
+        if (b)
+        {
+            mask = this.RefKindIntMask;
+        }
+        if (!b)
+        {
+            mask = this.RefKindBoolMask;
+        }
+
+        this.Text(this.DelimitLeftBracket);
+
+        this.Text(this.DelimitLeftBracket);
+
+        this.Text(delimit);
+        this.Text(this.Space);
+
+        this.ExecuteValueOperand(value, operandClass);
+
         this.Text(this.DelimitRightBracket);
 
         this.Text(this.Space);
