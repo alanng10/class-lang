@@ -52,6 +52,7 @@ public class ClassGenTraverse : Traverse
 
     public virtual ClassGen Gen { get; set; }
     protected virtual ListInfra ListInfra { get; set; }
+    protected virtual Field ThisField { get; set; }
     protected virtual Array SystemTypeIntName { get; set; }
     protected virtual int IndentLevel { get; set; }
     protected virtual string InternVarPrefix { get; set; }
@@ -118,10 +119,22 @@ public class ClassGenTraverse : Traverse
         return true;
     }
 
+    public override bool ExecuteField(NodeField field)
+    {
+        this.ThisField = this.Info(field).Field;
+
+        this.ExecuteState(field.Get);
+        this.ExecuteState(field.Set);
+        
+        this.ThisField = null;
+        return true;
+    }
+
     public override bool ExecuteAssignExecute(AssignExecute assignExecute)
     {
         int systemInfo;
         systemInfo = 0;
+        
         Target target;
         target = assignExecute.Target;
         if (target is SetTarget | target is BaseSetTarget)
@@ -135,6 +148,14 @@ public class ClassGenTraverse : Traverse
         {
             Var varVar;
             varVar = this.Info(target).Var;
+
+            if (!(this.ThisField == null))
+            {
+                if (varVar.Name == "data")
+                {
+                    systemInfo = this.ThisField.SystemInfo.Value;
+                }
+            }
         }
 
         this.TextIndent();
