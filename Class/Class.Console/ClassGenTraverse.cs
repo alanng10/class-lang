@@ -195,7 +195,6 @@ public class ClassGenTraverse : Traverse
         Field field;
         field = this.Info(nodeField).Field;
 
-
         string ka;
         ka = null;
         bool b;
