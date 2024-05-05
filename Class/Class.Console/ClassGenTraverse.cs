@@ -228,13 +228,13 @@ public class ClassGenTraverse : Traverse
 
     public override bool ExecuteSignMulOperate(SignMulOperate signMulOperate)
     {
-        this.ExecuteSignIntTwoOperand(this.DelimitMul, signMulOperate.Left, signMulOperate.Right);
+        this.ExecuteSignIntTwoOperandResultInt(this.DelimitMul, signMulOperate.Left, signMulOperate.Right);
         return true;
     }
 
     public override bool ExecuteSignDivOperate(SignDivOperate signDivOperate)
     {
-        this.ExecuteSignIntTwoOperand(this.DelimitDiv, signDivOperate.Left, signDivOperate.Right);
+        this.ExecuteSignIntTwoOperandResultInt(this.DelimitDiv, signDivOperate.Left, signDivOperate.Right);
         return true;
     }
 
@@ -356,7 +356,7 @@ public class ClassGenTraverse : Traverse
         return true;
     }
 
-    protected virtual bool ExecuteSignIntTwoOperand(string delimit, Operate left, Operate right)
+    protected virtual bool ExecuteSignIntTwoOperandResultInt(string delimit, Operate left, Operate right)
     {
         this.Text(this.DelimitLeftBracket);
 
@@ -366,6 +366,22 @@ public class ClassGenTraverse : Traverse
         this.Text(this.KeywordULong);
         this.Text(this.DelimitRightBracket);
 
+        this.ExecuteSignIntTwoOperand(delimit, left, right);
+
+        this.Text(this.DelimitRightBracket);
+
+        this.Text(this.Space);
+        this.Text(this.DelimitAnd);
+        this.Text(this.Space);
+
+        this.Text(this.Int60Mask);
+
+        this.Text(this.DelimitRightBracket);
+        return true;
+    }
+
+    protected virtual bool ExecuteSignIntTwoOperand(string delimit, Operate left, Operate right)
+    {
         this.Text(this.DelimitLeftBracket);
 
         this.ExecuteSignIntOperand(left);
@@ -375,16 +391,6 @@ public class ClassGenTraverse : Traverse
         this.Text(this.Space);
 
         this.ExecuteSignIntOperand(right);
-
-        this.Text(this.DelimitRightBracket);
-
-        this.Text(this.DelimitRightBracket);
-
-        this.Text(this.Space);
-        this.Text(this.DelimitAnd);
-        this.Text(this.Space);
-
-        this.Text(this.Int60Mask);
 
         this.Text(this.DelimitRightBracket);
         return true;
