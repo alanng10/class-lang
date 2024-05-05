@@ -23,7 +23,7 @@ public class ClassGen : Any
     public virtual ClassModule Module { get; set; }
     public virtual Table ModuleTable { get; set; }
     public virtual Table ClassImportName { get; set; }
-    public virtual Table ClassShareSystem { get; set; }
+    public virtual Table ClassShare { get; set; }
     public virtual ClassClass NullClass { get; set; }
     public virtual SystemClass System { get; set; }
     public virtual Data Data { get; set; }

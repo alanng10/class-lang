@@ -9,6 +9,8 @@ public class ClassGenTraverse : Traverse
         this.TableIter = new TableIter();
         this.TableIter.Init();
         this.InternClassNamePrefix = "_";
+        this.InternClassSharePrefix = "__S_";
+        this.InternClassShareThis = "This";
         this.InternVarPrefix = "__V_";
         this.InternValueShareClass = "__C_ValueShare";
         this.InternModuleInfoClass = "__C_ModuleInfo";
@@ -65,6 +67,8 @@ public class ClassGenTraverse : Traverse
     protected virtual Array SystemTypeIntName { get; set; }
     protected virtual int IndentLevel { get; set; }
     protected virtual string InternClassNamePrefix { get; set; }
+    protected virtual string InternClassSharePrefix { get; set; }
+    protected virtual string InternClassShareThis { get; set; }
     protected virtual string InternVarPrefix { get; set; }
     protected virtual string InternValueShareClass { get; set; }
     protected virtual string InternModuleInfoClass { get; set; }
@@ -332,13 +336,16 @@ public class ClassGenTraverse : Traverse
 
     public override bool ExecuteNewOperate(NewOperate newOperate)
     {
+        SystemClass system;
+        system = this.Gen.System;
+
         ClassClass a;
         a = this.Info(newOperate).OperateClass;
 
         bool b;
-        b = (a == this.Gen.System.Bool |
-            a == this.Gen.System.Int |
-            a == this.Gen.System.String);
+        b = (a == system.Bool |
+            a == system.Int |
+            a == system.String);
 
         if (b)
         {
@@ -359,6 +366,39 @@ public class ClassGenTraverse : Traverse
 
     public override bool ExecuteShareOperate(ShareOperate shareOperate)
     {
+        SystemClass system;
+        system = this.Gen.System;
+
+        ClassClass a;
+        a = this.Info(shareOperate).OperateClass;
+
+        bool b;
+        b = (a == system.Bool |
+            a == system.Int |
+            a == system.String);
+
+        if (b)
+        {
+            this.ExecuteValueClass(a);
+        }
+        if (!b)
+        {
+            bool ba;
+            ba = this.Gen.ClassShare.Contain(a);
+            if (ba)
+            {
+                
+            }
+            if (!ba)
+            {
+                this.Text(this.DelimitLeftBracket);
+                this.Text(this.InternClassSharePrefix);
+                this.ExecuteClassTableName(a);
+                this.Text(this.DelimitDot);
+                this.Text(this.InternClassSharePrefix);
+                this.Text(this.DelimitRightBracket);
+            }
+        }
         return true;
     }
 
@@ -587,6 +627,7 @@ public class ClassGenTraverse : Traverse
         }
         if (!b)
         {
+            this.Text(this.InternClassNamePrefix);
             this.ExecuteClassTableName(a);
         }
         return true;
@@ -598,14 +639,12 @@ public class ClassGenTraverse : Traverse
         b = (a.Module == this.Gen.Module);
         if (b)
         {
-            this.Text(this.InternClassNamePrefix);
             this.Text(a.Name);
         }
         if (!b)
         {
             string aa;
             aa = (string)this.Gen.ClassImportName.Get(a);
-            this.Text(this.InternClassNamePrefix);
             this.Text(aa);
         }
         return true;
