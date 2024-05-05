@@ -19,7 +19,7 @@ public class ValueInit : Any
         return true;
     }
 
-    public virtual bool InitInt(long value)
+    public virtual bool InitInt(ulong value)
     {
         return true;
     }
