@@ -301,7 +301,6 @@ public class ClassGenTraverse : Traverse
         this.Text(this.Int60Mask);
 
         this.Text(this.DelimitRightBracket);
-
         return true;
     }
 
