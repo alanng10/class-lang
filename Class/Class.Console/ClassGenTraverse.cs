@@ -634,8 +634,10 @@ public class ClassGenTraverse : Traverse
     {
         if (3 < systemInfo & systemInfo < 12)
         {
+            int index;
+            index = systemInfo - 3;
             string k;
-            k = null;
+            k = (string)this.SystemTypeIntName.Get(index);
             
             this.Text(this.DelimitLeftBracket);
 
