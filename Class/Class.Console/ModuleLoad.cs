@@ -498,17 +498,10 @@ public class ModuleLoad : Any
 
     protected virtual SystemInfo SystemInfoCreate(int binaryValue)
     {
-        bool b;
-        b = !((binaryValue & 0x80) == 0);
-
-        int e;
-        e = binaryValue & 0x7f;
-
         SystemInfo a;
         a = new SystemInfo();
         a.Init();
-        a.Value = e;
-        a.HasNull = b;
+        a.Value = binaryValue;
         return a;
     }
 

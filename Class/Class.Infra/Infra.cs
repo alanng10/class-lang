@@ -165,7 +165,6 @@ public class Infra : Any
     public virtual bool SystemInfoAssignValue(SystemInfo a, SystemInfo b)
     {
         a.Value = b.Value;
-        a.HasNull = b.HasNull;
         return true;
     }
 }
