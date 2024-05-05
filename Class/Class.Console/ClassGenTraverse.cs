@@ -5,6 +5,7 @@ public class ClassGenTraverse : Traverse
     public override bool Init()
     {
         base.Init();
+        this.ListInfra = ListInfra.This;
         this.InternVarPrefix = "__V_";
         this.InternModuleInfoClass = "__C_ModuleInfo";
         this.Int60Mask = "0xf000000000000000UL";
@@ -20,7 +21,13 @@ public class ClassGenTraverse : Traverse
         this.KeywordTrue = "true";
         this.KeywordULong = "ulong";
         this.KeywordLong = "long";
+        this.KeywordUInt = "uint";
         this.KeywordInt = "int";
+        this.KeywordUShort = "ushort";
+        this.KeywordShort = "short";
+        this.KeywordByte = "byte";
+        this.KeywordSByte = "sbyte";
+        this.KeywordChar = "char";
         this.DelimitDot = ".";
         this.DelimitComma = ",";
         this.DelimitColon = ":";
@@ -44,6 +51,8 @@ public class ClassGenTraverse : Traverse
     }
 
     public virtual ClassGen Gen { get; set; }
+    protected virtual ListInfra ListInfra { get; set; }
+    protected virtual Array SystemTypeIntName { get; set; }
     protected virtual int IndentLevel { get; set; }
     protected virtual string InternVarPrefix { get; set; }
     protected virtual string InternModuleInfoClass { get; set; }
@@ -60,7 +69,13 @@ public class ClassGenTraverse : Traverse
     protected virtual string KeywordTrue { get; set; }
     protected virtual string KeywordULong { get; set; }
     protected virtual string KeywordLong { get; set; }
+    protected virtual string KeywordUInt { get; set; }
     protected virtual string KeywordInt { get; set; }
+    protected virtual string KeywordUShort { get; set; }
+    protected virtual string KeywordShort { get; set; }
+    protected virtual string KeywordByte { get; set; }
+    protected virtual string KeywordSByte { get; set; }
+    protected virtual string KeywordChar { get; set; }
     protected virtual string DelimitDot { get; set; }
     protected virtual string DelimitComma { get; set; }
     protected virtual string DelimitColon { get; set; }
@@ -80,15 +95,51 @@ public class ClassGenTraverse : Traverse
     protected virtual string DelimitDiv { get; set; }
     protected virtual string DelimitLeftBracket { get; set; }
     protected virtual string DelimitRightBracket { get; set; }
+    protected virtual Array Array { get; set; }
+    protected virtual int ArrayIndex { get; set; }
+
+    protected virtual bool InitSystemTypeIntArray()
+    {
+        this.SystemTypeIntName = this.ListInfra.ArrayCreate(9);
+        
+        this.Array = this.SystemTypeIntName;
+        this.ArrayIndex = 0;
+        this.ArrayAdd(this.KeywordULong);
+        this.ArrayAdd(this.KeywordLong);
+        this.ArrayAdd(this.KeywordUInt);
+        this.ArrayAdd(this.KeywordInt);
+        this.ArrayAdd(this.KeywordUShort);
+        this.ArrayAdd(this.KeywordShort);
+        this.ArrayAdd(this.KeywordByte);
+        this.ArrayAdd(this.KeywordSByte);
+        this.ArrayAdd(this.KeywordChar);
+
+        this.Array = null;
+        return true;
+    }
 
     public override bool ExecuteAssignExecute(AssignExecute assignExecute)
     {
+        int systemInfo;
+        systemInfo = 0;
+        Target target;
+        target = assignExecute.Target;
+        if (target is SetTarget | target is BaseSetTarget)
+        {
+            Field field;
+            field = this.Info(target).SetField;
+
+            systemInfo = field.SystemInfo.Value;
+        }
+
         this.TextIndent();
         this.ExecuteTarget(assignExecute.Target);
 
         this.Text(this.Space);
         this.Text(this.DelimitEqual);
         this.Text(this.Space);
+
+        
 
         this.ExecuteOperate(assignExecute.Value);
         this.Text(this.DelimitSemicolon);
@@ -125,8 +176,8 @@ public class ClassGenTraverse : Traverse
 
         int u;
         u = field.SystemInfo.Value;
-        
-        this.ExecuteSystemTypeStart(u);
+
+        this.ExecuteSystemTypeResultStart(u);
 
         this.Text(this.DelimitLeftBracket);
 
@@ -136,7 +187,7 @@ public class ClassGenTraverse : Traverse
         
         this.Text(this.DelimitRightBracket);
 
-        this.ExecuteSystemTypeEnd(u);
+        this.ExecuteSystemTypeResultEnd(u);
         return true;
     }
 
@@ -148,7 +199,7 @@ public class ClassGenTraverse : Traverse
         int u;
         u = field.SystemInfo.Value;
 
-        this.ExecuteSystemTypeStart(u);
+        this.ExecuteSystemTypeResultStart(u);
 
         this.Text(this.DelimitLeftBracket);
 
@@ -158,7 +209,7 @@ public class ClassGenTraverse : Traverse
 
         this.Text(this.DelimitRightBracket);
 
-        this.ExecuteSystemTypeEnd(u);
+        this.ExecuteSystemTypeResultEnd(u);
         return true;
     }
 
@@ -170,7 +221,7 @@ public class ClassGenTraverse : Traverse
         int u;
         u = maide.SystemInfo.Value;
 
-        this.ExecuteSystemTypeStart(u);
+        this.ExecuteSystemTypeResultStart(u);
         
         bool b;
         b = (maide == this.Gen.ModuleInfoNameMaide | maide == this.Gen.ModuleInfoVersionMaide);
@@ -206,7 +257,7 @@ public class ClassGenTraverse : Traverse
             this.Text(this.DelimitRightBracket);
         }
 
-        this.ExecuteSystemTypeEnd(u);
+        this.ExecuteSystemTypeResultEnd(u);
         return true;
     }
 
@@ -536,7 +587,7 @@ public class ClassGenTraverse : Traverse
         return true;
     }
 
-    protected virtual bool ExecuteSystemTypeStart(int systemInfo)
+    protected virtual bool ExecuteSystemTypeResultStart(int systemInfo)
     {
         if (systemInfo == 3)
         {
@@ -554,7 +605,7 @@ public class ClassGenTraverse : Traverse
         return true;
     }
 
-    protected virtual bool ExecuteSystemTypeEnd(int systemInfo)
+    protected virtual bool ExecuteSystemTypeResultEnd(int systemInfo)
     {
         if (systemInfo == 3)
         {
@@ -574,6 +625,31 @@ public class ClassGenTraverse : Traverse
             this.Text(this.Space);
 
             this.Text(this.Int60Mask);
+            this.Text(this.DelimitRightBracket);
+        }
+        return true;
+    }
+
+    protected virtual bool ExecuteSystemTypeInnStart(int systemInfo)
+    {
+        if (3 < systemInfo & systemInfo < 12)
+        {
+            string k;
+            k = null;
+            
+            this.Text(this.DelimitLeftBracket);
+
+            this.Text(this.DelimitLeftBracket);
+            this.Text(k);
+            this.Text(this.DelimitRightBracket);
+        }
+        return true;
+    }
+
+    protected virtual bool ExecuteSystemTypeInnEnd(int systemInfo)
+    {
+        if (3 < systemInfo & systemInfo < 12)
+        {
             this.Text(this.DelimitRightBracket);
         }
         return true;
@@ -610,6 +686,16 @@ public class ClassGenTraverse : Traverse
     protected virtual bool Text(string o)
     {
         this.Gen.Operate.ExecuteText(o);
+        return true;
+    }
+
+    protected virtual bool ArrayAdd(object item)
+    {
+        int index;
+        index = this.ArrayIndex;
+        this.Array.Set(index, item);
+        index = index + 1;
+        this.ArrayIndex = index;
         return true;
     }
 }
