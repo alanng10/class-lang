@@ -387,7 +387,11 @@ public class ClassGenTraverse : Traverse
             ba = this.Gen.ClassShare.Contain(a);
             if (ba)
             {
-                
+                this.Text(this.DelimitLeftBracket);
+                this.ExecuteClassName(a);
+                this.Text(this.DelimitDot);
+                this.Text(this.InternClassShareThis);
+                this.Text(this.DelimitRightBracket);
             }
             if (!ba)
             {
@@ -395,7 +399,7 @@ public class ClassGenTraverse : Traverse
                 this.Text(this.InternClassSharePrefix);
                 this.ExecuteClassTableName(a);
                 this.Text(this.DelimitDot);
-                this.Text(this.InternClassSharePrefix);
+                this.Text(this.InternClassShareThis);
                 this.Text(this.DelimitRightBracket);
             }
         }
