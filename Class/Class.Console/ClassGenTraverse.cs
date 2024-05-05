@@ -800,18 +800,34 @@ public class ClassGenTraverse : Traverse
     {
         Var varVar;
         varVar = this.Info(node).Var;
+        
+        string name;
+        name = varVar.Name;
 
-        SystemInfo u;
-        u = varVar.SystemInfo;
-        if (!(u == null))
+        int systemInfo;
+        systemInfo = 0;
+
+        bool b;
+        b = false;
+
+        if (!(this.ThisField == null))
         {
-            if (this.IsSystemTypeInt(u.Value))
+            if (name == "data")
+            {
+                b = true;
+            }
+        }
+
+        if (!b)
+        {
+            systemInfo = varVar.SystemInfo.Value;
+
+            if (this.IsSystemTypeInt(systemInfo))
             {
                 this.Text(this.InternVarPrefix);
             }
         }
-
-        this.Text(varVar.Name);
+        this.Text(name);
         return true;
     }
 
