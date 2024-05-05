@@ -7,11 +7,11 @@ public class ClassGenTraverse : Traverse
         base.Init();
         this.InternVarPrefix = "__V_";
         this.InternModuleInfoClass = "__C_ModuleInfo";
-        this.Int60Mask = "0xf000000000000000";
+        this.Int60Mask = "0xf000000000000000UL";
         this.Indent = new string(' ', 4);
         this.Space = " ";
         this.NewLine = "\n";
-        this.Zero = "0";
+        this.Zero = "0UL";
         this.KeywordThis = "this";
         this.KeywordBase = "base";
         this.KeywordNull = "null";
