@@ -257,6 +257,9 @@ public class ClassGenTraverse : Traverse
 
     public override bool ExecuteAssignExecute(AssignExecute assignExecute)
     {
+        bool b;
+        b = false;
+
         int systemInfo;
         systemInfo = 0;
         
@@ -279,13 +282,23 @@ public class ClassGenTraverse : Traverse
                 if (varVar.Name == "data")
                 {
                     systemInfo = this.ThisField.SystemInfo.Value;
+                    b = true;
                 }
             }
         }
 
         this.TextIndent();
-        this.ExecuteTarget(assignExecute.Target);
 
+        if (b)
+        {
+            this.Text(this.InternDataPrefix);
+            this.Text(this.ThisField.Name);
+        }
+        if (!b)
+        {
+            this.ExecuteTarget(assignExecute.Target);
+        }
+        
         this.Text(this.Space);
         this.Text(this.DelimitAssign);
         this.Text(this.Space);
@@ -303,7 +316,9 @@ public class ClassGenTraverse : Traverse
 
     public override bool ExecuteVarTarget(VarTarget varTarget)
     {
-        this.ExecuteNodeVarName(varTarget);
+        Var varVar;
+        varVar = this.Info(varTarget).Var;
+        this.ExecuteNodeVarName(varVar);
         return true;
     }
 
@@ -545,7 +560,7 @@ public class ClassGenTraverse : Traverse
 
         if (!b)
         {
-            this.ExecuteNodeVarName(varOperate);
+            this.ExecuteNodeVarName(varVar);
         }
         return true;
     }
@@ -798,41 +813,16 @@ public class ClassGenTraverse : Traverse
         return true;
     }
 
-    protected virtual bool ExecuteNodeVarName(NodeNode node)
+    protected virtual bool ExecuteNodeVarName(Var varVar)
     {
-        Var varVar;
-        varVar = this.Info(node).Var;
-        
-        string name;
-        name = varVar.Name;
+        int systemInfo;
+        systemInfo = varVar.SystemInfo.Value;
 
-        bool b;
-        b = false;
-
-        if (!(this.ThisField == null))
+        if (this.IsSystemTypeInt(systemInfo))
         {
-            if (name == "data")
-            {
-                b = true;
-            }
+            this.Text(this.InternVarPrefix);
         }
-
-        if (b)
-        {
-            this.Text(this.InternDataPrefix);
-        }
-
-        if (!b)
-        {
-            int systemInfo;
-            systemInfo = varVar.SystemInfo.Value;
-
-            if (this.IsSystemTypeInt(systemInfo))
-            {
-                this.Text(this.InternVarPrefix);
-            }
-        }
-        this.Text(name);
+        this.Text(varVar.Name);
         return true;
     }
 
