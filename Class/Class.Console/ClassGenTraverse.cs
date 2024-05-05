@@ -192,6 +192,60 @@ public class ClassGenTraverse : Traverse
         field = this.Info(nodeField).Field;
 
 
+        string ka;
+        ka = null;
+        bool b;
+        b = (field.Virtual == null);
+        if (b)
+        {
+            ka = this.KeywordVirtual;
+        }
+        if (!b)
+        {
+            ka = this.KeywordOverride;
+        }
+
+        this.TextIndent();
+
+        this.Text(this.CountWord(field.Count));
+        
+        this.Text(this.Space);
+        
+        this.Text(ka);
+        
+        this.Text(this.Space);
+
+        this.ExecuteClassName(field.Class, field.SystemInfo.Value);
+        
+        this.Text(this.Space);
+
+        this.Text(field.Name);
+
+        this.Text(this.NewLine);
+
+        this.TextIndent();
+
+        this.Text(this.DelimitLeftBrace);
+
+        this.Text(this.NewLine);
+
+        int kb;
+        kb = this.IndentLevel;
+
+        kb = kb + 1;
+        this.IndentLevel = kb;
+
+        
+
+        kb = kb - 1;
+        this.IndentLevel = kb;
+
+        this.TextIndent();
+
+        this.Text(this.DelimitRightBrace);
+
+        this.Text(this.NewLine);
+
 
         this.ThisField = field;
 
