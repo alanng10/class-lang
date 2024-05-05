@@ -41,7 +41,7 @@ public class ClassGenTraverse : Traverse
     }
 
     public virtual ClassGen Gen { get; set; }
-    protected virtual int ScopeLevel { get; set; }
+    protected virtual int IndentLevel { get; set; }
     protected virtual string InternVarPrefix { get; set; }
     protected virtual string InternBoolValueClass { get; set; }
     protected virtual string InternIntValueClass { get; set; }
@@ -426,7 +426,7 @@ public class ClassGenTraverse : Traverse
         string indent;
         indent = this.Indent;
         int count;
-        count = this.ScopeLevel;
+        count = this.IndentLevel;
         int i;
         i = 0;
         while (i < count)
