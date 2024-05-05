@@ -553,7 +553,8 @@ public class ClassGenTraverse : Traverse
         {
             this.ExecuteSystemTypeResultStart(systemInfo);
 
-            this.Text(varVar.Name);
+            this.Text(this.InternDataPrefix);
+            this.Text(this.ThisField.Name);
 
             this.ExecuteSystemTypeResultEnd(systemInfo);
         }
