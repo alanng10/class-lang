@@ -7,7 +7,7 @@ public class ModuleInfo : Any
         return o;
     }
 
-    public virtual long Version(long o)
+    public virtual ulong Version(ulong o)
     {
         return o;
     }
