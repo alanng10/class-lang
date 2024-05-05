@@ -11,8 +11,8 @@ public class ClassGenTraverse : Traverse
         this.InternValueFalse = "False";
         this.InternValueTrue = "True";
         this.InternModuleInfoClass = "__C_ModuleInfo";
-        this.RefKindMask = "0x1000000000000000";
-        this.RefKindClearMask = "0x0fffffffffffffff";
+        this.RefKindIntMask = "0x1000000000000000";
+        this.RefKindIntClearMask = "0x0fffffffffffffff";
         this.Indent = new string(' ', 4);
         this.Space = " ";
         this.NewLine = "\n";
@@ -45,8 +45,8 @@ public class ClassGenTraverse : Traverse
     protected virtual string InternValueFalse { get; set; }
     protected virtual string InternValueTrue { get; set; }
     protected virtual string InternModuleInfoClass { get; set; }
-    protected virtual string RefKindMask { get; set; }
-    protected virtual string RefKindClearMask { get; set; }
+    protected virtual string RefKindIntMask { get; set; }
+    protected virtual string RefKindIntClearMask { get; set; }
     protected virtual string Indent { get; set; }
     protected virtual string Space { get; set; }
     protected virtual string NewLine { get; set; }
@@ -246,7 +246,7 @@ public class ClassGenTraverse : Traverse
         this.Text(this.DelimitOrn);
         this.Text(this.Space);
 
-        this.Text(this.RefKindMask);
+        this.Text(this.RefKindIntMask);
 
         this.Text(this.DelimitRightBracket);
         return true;
@@ -275,7 +275,7 @@ public class ClassGenTraverse : Traverse
         this.Text(this.DelimitAnd);
         this.Text(this.Space);
 
-        this.Text(this.RefKindClearMask);
+        this.Text(this.RefKindIntClearMask);
 
         this.Text(this.DelimitRightBracket);
 
@@ -283,7 +283,7 @@ public class ClassGenTraverse : Traverse
         this.Text(this.DelimitOrn);
         this.Text(this.Space);
 
-        this.Text(this.RefKindMask);
+        this.Text(this.RefKindIntMask);
 
         this.Text(this.DelimitRightBracket);
         return true;
@@ -326,7 +326,7 @@ public class ClassGenTraverse : Traverse
         this.Text(this.Space);
         this.Text(this.DelimitAnd);
         this.Text(this.Space);
-        this.Text(this.RefKindClearMask);
+        this.Text(this.RefKindIntClearMask);
         this.Text(this.DelimitRightBracket);
         return true;
     }
