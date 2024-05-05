@@ -139,9 +139,12 @@ public class ClassGenTraverse : Traverse
         this.Text(this.DelimitEqual);
         this.Text(this.Space);
 
-        
+        this.ExecuteSystemTypeInnStart(systemInfo);
 
         this.ExecuteOperate(assignExecute.Value);
+
+        this.ExecuteSystemTypeInnEnd(systemInfo);
+
         this.Text(this.DelimitSemicolon);
         this.Text(this.NewLine);
         return true;
