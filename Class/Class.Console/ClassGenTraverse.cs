@@ -131,6 +131,11 @@ public class ClassGenTraverse : Traverse
 
             systemInfo = field.SystemInfo.Value;
         }
+        if (target is VarTarget)
+        {
+            Var varVar;
+            varVar = this.Info(target).Var;
+        }
 
         this.TextIndent();
         this.ExecuteTarget(assignExecute.Target);
