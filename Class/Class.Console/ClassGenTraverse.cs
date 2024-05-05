@@ -12,6 +12,7 @@ public class ClassGenTraverse : Traverse
         this.InternValueFalse = "False";
         this.InternValueTrue = "True";
         this.InternModuleInfoClass = "__C_ModuleInfo";
+        this.ValueBoolMask = "0x00000001";
         this.RefKindBoolMask = "0xf0000000";
         this.RefKindBoolClearMask = "0x0fffffff";
         this.RefKindIntMask = "0xf000000000000000";
@@ -54,6 +55,7 @@ public class ClassGenTraverse : Traverse
     protected virtual string InternValueFalse { get; set; }
     protected virtual string InternValueTrue { get; set; }
     protected virtual string InternModuleInfoClass { get; set; }
+    protected virtual string ValueBoolMask { get; set; }
     protected virtual string RefKindBoolMask { get; set; }
     protected virtual string RefKindBoolClearMask { get; set; }
     protected virtual string RefKindIntMask { get; set; }
@@ -198,6 +200,12 @@ public class ClassGenTraverse : Traverse
         return true;
     }
 
+    public override bool ExecuteNotOperate(NotOperate notOperate)
+    {
+        this.ExecuteBoolOneOperand(this.DelimitComplement, notOperate.Value);
+        return true;
+    }
+
     public override bool ExecuteAddOperate(AddOperate addOperate)
     {
         this.ExecuteIntTwoOperand(this.DelimitAdd, addOperate.Left, addOperate.Right);
@@ -248,7 +256,7 @@ public class ClassGenTraverse : Traverse
 
     public override bool ExecuteBitNotOperate(BitNotOperate bitNotOperate)
     {
-        this.ExecuteOneOperand(this.DelimitComplement, bitNotOperate.Value, this.Gen.System.Int);
+        this.ExecuteIntOneOperand(this.DelimitComplement, bitNotOperate.Value);
         return true;
     }
 
@@ -333,20 +341,9 @@ public class ClassGenTraverse : Traverse
         return true;
     }
 
-    protected virtual bool ExecuteOneOperand(string delimit, Operate value, ClassClass operandClass)
+    protected virtual bool ExecuteBoolOneOperand(string delimit, Operate value)
     {
-        string mask;
-        mask = null;
-        bool b;
-        b = (operandClass == this.Gen.System.Int);
-        if (b)
-        {
-            mask = this.RefKindIntMask;
-        }
-        if (!b)
-        {
-            mask = this.RefKindBoolMask;
-        }
+        this.Text(this.DelimitLeftBracket);
 
         this.Text(this.DelimitLeftBracket);
 
@@ -355,7 +352,15 @@ public class ClassGenTraverse : Traverse
         this.Text(delimit);
         this.Text(this.Space);
 
-        this.ExecuteValueOperand(value, operandClass);
+        this.ExecuteValueOperand(value, this.Gen.System.Bool);
+
+        this.Text(this.DelimitRightBracket);
+
+        this.Text(this.Space);
+        this.Text(this.DelimitAnd);
+        this.Text(this.Space);
+
+        this.Text(this.ValueBoolMask);
 
         this.Text(this.DelimitRightBracket);
 
@@ -363,7 +368,30 @@ public class ClassGenTraverse : Traverse
         this.Text(this.DelimitOrn);
         this.Text(this.Space);
 
-        this.Text(mask);
+        this.Text(this.RefKindBoolMask);
+
+        this.Text(this.DelimitRightBracket);
+        return true;
+    }
+
+    protected virtual bool ExecuteIntOneOperand(string delimit, Operate value)
+    {
+        this.Text(this.DelimitLeftBracket);
+
+        this.Text(this.DelimitLeftBracket);
+
+        this.Text(delimit);
+        this.Text(this.Space);
+
+        this.ExecuteValueOperand(value, this.Gen.System.Int);
+
+        this.Text(this.DelimitRightBracket);
+
+        this.Text(this.Space);
+        this.Text(this.DelimitOrn);
+        this.Text(this.Space);
+
+        this.Text(this.RefKindIntMask);
 
         this.Text(this.DelimitRightBracket);
         return true;
