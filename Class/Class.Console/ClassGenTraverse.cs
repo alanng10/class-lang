@@ -801,10 +801,16 @@ public class ClassGenTraverse : Traverse
         Var varVar;
         varVar = this.Info(node).Var;
 
-        if (this.IsSystemTypeInt(varVar.SystemInfo.Value))
+        SystemInfo u;
+        u = varVar.SystemInfo;
+        if (!(u == null))
         {
-            this.Text(this.InternVarPrefix);
+            if (this.IsSystemTypeInt(u.Value))
+            {
+                this.Text(this.InternVarPrefix);
+            }
         }
+
         this.Text(varVar.Name);
         return true;
     }
