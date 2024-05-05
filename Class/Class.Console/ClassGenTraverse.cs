@@ -582,11 +582,9 @@ public class ClassGenTraverse : Traverse
             if (!ba)
             {
                 string aa;
-                aa = (string)this.Gen.ModuleImportName.Get(a.Module);
+                aa = (string)this.Gen.ClassImportName.Get(a);
                 this.Text(this.InternClassNamePrefix);
                 this.Text(aa);
-                this.Text(this.Underscore);
-                this.Text(a.Name);
             }
         }
         return true;
