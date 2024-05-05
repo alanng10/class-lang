@@ -30,6 +30,8 @@ public class ClassGenTraverse : Traverse
         this.KeywordPrivate = "private";
         this.KeywordVirtual = "virtual";
         this.KeywordOverride = "override";
+        this.KeywordGet = "get";
+        this.KeywordSet = "set";
         this.KeywordIf = "if";
         this.KeywordWhile = "while";
         this.KeywordNew = "new";
@@ -105,6 +107,8 @@ public class ClassGenTraverse : Traverse
     protected virtual string KeywordPrivate { get; set; }
     protected virtual string KeywordVirtual { get; set; }
     protected virtual string KeywordOverride { get; set; }
+    protected virtual string KeywordGet { get; set; }
+    protected virtual string KeywordSet { get; set; }
     protected virtual string KeywordIf { get; set; }
     protected virtual string KeywordWhile { get; set; }
     protected virtual string KeywordNew { get; set; }
@@ -205,6 +209,21 @@ public class ClassGenTraverse : Traverse
             ka = this.KeywordOverride;
         }
 
+        Count kk;
+        kk = null;
+        bool ba;
+        ba = (field.Count == this.CountList.Private);
+        if (ba)
+        {
+            kk = this.CountList.Private;
+        }
+        if (!ba)
+        {
+            kk = this.CountList.Precate;
+        }
+
+        this.ThisField = field;
+
         this.TextIndent();
 
         this.Text(this.CountWord(field.Count));
@@ -224,9 +243,7 @@ public class ClassGenTraverse : Traverse
         this.Text(this.NewLine);
 
         this.TextIndent();
-
         this.Text(this.DelimitLeftBrace);
-
         this.Text(this.NewLine);
 
         int kb;
@@ -235,24 +252,60 @@ public class ClassGenTraverse : Traverse
         kb = kb + 1;
         this.IndentLevel = kb;
 
-        
+        this.TextIndent();
+        this.Text(this.KeywordGet);
+        this.Text(this.NewLine);
+        this.TextIndent();
+
+        this.TextIndent();
+        this.Text(this.DelimitLeftBrace);
+        this.Text(this.NewLine);
+
+        this.ExecuteState(nodeField.Get);
+
+        this.TextIndent();
+        this.Text(this.DelimitRightBrace);
+        this.Text(this.NewLine);
+
+        this.TextIndent();
+        this.Text(this.KeywordSet);
+        this.Text(this.NewLine);
+        this.TextIndent();
+
+        this.TextIndent();
+        this.Text(this.DelimitLeftBrace);
+        this.Text(this.NewLine);
+
+        this.ExecuteState(nodeField.Set);
+
+        this.TextIndent();
+        this.Text(this.DelimitRightBrace);
+        this.Text(this.NewLine);
 
         kb = kb - 1;
         this.IndentLevel = kb;
 
         this.TextIndent();
-
         this.Text(this.DelimitRightBrace);
-
         this.Text(this.NewLine);
 
-
-        this.ThisField = field;
-
-        this.ExecuteState(nodeField.Get);
-        this.ExecuteState(nodeField.Set);
-        
         this.ThisField = null;
+
+        this.TextIndent();
+
+        this.Text(this.CountWord(kk));
+
+        this.Text(this.Space);
+
+        this.ExecuteClassName(field.Class, field.SystemInfo.Value);
+
+        this.Text(this.Space);
+
+        this.Text(this.InternDataPrefix);
+        this.Text(field.Name);
+
+        this.Text(this.DelimitSemicolon);
+        this.Text(this.NewLine);
         return true;
     }
 
