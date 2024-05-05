@@ -120,11 +120,22 @@ public class ClassGenTraverse : Traverse
 
     public override bool ExecuteGetOperate(GetOperate getOperate)
     {
+        Field field;
+        field = this.Info(getOperate).GetField;
+
+        int u;
+        u = field.SystemInfo.Value;
+        this.ExecuteSystemTypeStart(u);
+
         this.Text(this.DelimitLeftBracket);
+
         this.ExecuteOperate(getOperate.This);
         this.Text(this.DelimitDot);
         this.Text(getOperate.Field.Value);
+        
         this.Text(this.DelimitRightBracket);
+
+        this.ExecuteSystemTypeEnd(u);
         return true;
     }
 
@@ -160,12 +171,14 @@ public class ClassGenTraverse : Traverse
         if (!b)
         {
             this.Text(this.DelimitLeftBracket);
+
             this.ExecuteOperate(callOperate.This);
             this.Text(this.DelimitDot);
             this.Text(callOperate.Maide.Value);
             this.Text(this.DelimitLeftBracket);
             this.ExecuteMaideArgue(maide, callOperate.Argue);
             this.Text(this.DelimitRightBracket);
+            
             this.Text(this.DelimitRightBracket);
         }
 
