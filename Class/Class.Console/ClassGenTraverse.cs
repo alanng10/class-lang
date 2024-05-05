@@ -12,6 +12,7 @@ public class ClassGenTraverse : Traverse
         this.InternClassSharePrefix = "__S_";
         this.InternClassShareThis = "This";
         this.InternVarPrefix = "__V_";
+        this.InternDataPrefix = "__D_";
         this.InternValueShareClass = "__C_ValueShare";
         this.InternModuleInfoClass = "__C_ModuleInfo";
         this.Int60Mask = "0xf000000000000000UL";
@@ -75,6 +76,7 @@ public class ClassGenTraverse : Traverse
     protected virtual string InternClassSharePrefix { get; set; }
     protected virtual string InternClassShareThis { get; set; }
     protected virtual string InternVarPrefix { get; set; }
+    protected virtual string InternDataPrefix { get; set; }
     protected virtual string InternValueShareClass { get; set; }
     protected virtual string InternModuleInfoClass { get; set; }
     protected virtual string Int60Mask { get; set; }
@@ -804,9 +806,6 @@ public class ClassGenTraverse : Traverse
         string name;
         name = varVar.Name;
 
-        int systemInfo;
-        systemInfo = 0;
-
         bool b;
         b = false;
 
@@ -818,8 +817,14 @@ public class ClassGenTraverse : Traverse
             }
         }
 
+        if (b)
+        {
+            this.Text(this.InternDataPrefix);
+        }
+
         if (!b)
         {
+            int systemInfo;
             systemInfo = varVar.SystemInfo.Value;
 
             if (this.IsSystemTypeInt(systemInfo))
