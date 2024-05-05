@@ -587,20 +587,26 @@ public class ClassGenTraverse : Traverse
         }
         if (!b)
         {
-            bool ba;
-            ba = (a.Module == this.Gen.Module);
-            if (ba)
-            {
-                this.Text(this.InternClassNamePrefix);
-                this.Text(a.Name);
-            }
-            if (!ba)
-            {
-                string aa;
-                aa = (string)this.Gen.ClassImportName.Get(a);
-                this.Text(this.InternClassNamePrefix);
-                this.Text(aa);
-            }
+            this.ExecuteClassTableName(a);
+        }
+        return true;
+    }
+
+    protected virtual bool ExecuteClassTableName(ClassClass a)
+    {
+        bool b;
+        b = (a.Module == this.Gen.Module);
+        if (b)
+        {
+            this.Text(this.InternClassNamePrefix);
+            this.Text(a.Name);
+        }
+        if (!b)
+        {
+            string aa;
+            aa = (string)this.Gen.ClassImportName.Get(a);
+            this.Text(this.InternClassNamePrefix);
+            this.Text(aa);
         }
         return true;
     }
