@@ -326,17 +326,13 @@ public class ClassGenTraverse : Traverse
 
     public override bool ExecuteThisOperate(ThisOperate thisOperate)
     {
-        this.Text(this.DelimitLeftBracket);
         this.Text(this.KeywordThis);
-        this.Text(this.DelimitRightBracket);
         return true;
     }
 
     public override bool ExecuteNullOperate(NullOperate nullOperate)
     {
-        this.Text(this.DelimitLeftBracket);
         this.Text(this.KeywordNull);
-        this.Text(this.DelimitRightBracket);
         return true;
     }
 
