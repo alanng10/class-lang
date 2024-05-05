@@ -548,27 +548,42 @@ public class ClassGenTraverse : Traverse
 
     protected virtual bool ExecuteClassName(ClassClass a)
     {
+        SystemClass system;
+        system = this.Gen.System;
+        
         bool b;
         b = false;
-        if (!b & a == this.Gen.System.Any)
+        if (!b)
         {
-            this.Text(this.KeywordObject);
-            b = true;
+            if (a == system.Any)
+            {
+                this.Text(this.KeywordObject);
+                b = true;
+            }
         }
-        if (!b & a == this.Gen.System.Bool)
+        if (!b)
         {
-            this.Text(this.KeywordBool);
-            b = true;
+            if (a == system.Bool)
+            {
+                this.Text(this.KeywordBool);
+                b = true;
+            }
         }
-        if (!b & a == this.Gen.System.Int)
+        if (!b)
         {
-            this.Text(this.KeywordULong);
-            b = true;
+            if (a == system.Int)
+            {
+                this.Text(this.KeywordULong);
+                b = true;
+            }
         }
-        if (!b & a == this.Gen.System.String)
+        if (!b)
         {
-            this.Text(this.KeywordString);
-            b = true;
+            if (a == system.String)
+            {
+                this.Text(this.KeywordString);
+                b = true;
+            }
         }
         if (!b)
         {
