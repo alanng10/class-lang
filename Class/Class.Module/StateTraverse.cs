@@ -94,6 +94,8 @@ public class StateTraverse : Traverse
 
         Table o;
         o = this.ClassInfra.TableCreateStringCompare();
+
+        this.ListInfra.TableAdd(this.StateVar, dataVar.Name, dataVar);
         this.ListInfra.TableAdd(o, dataVar.Name, dataVar);
 
         this.VarStack.Push(o);
@@ -131,10 +133,14 @@ public class StateTraverse : Traverse
         valueVar.Name = "value";
         valueVar.Class = field.Class;
         valueVar.SystemInfo = this.CreateSystemInfo();
+        valueVar.SystemInfo.Value = field.SystemInfo.Value;
+        
         
         Table o;
         o = this.ClassInfra.TableCreateStringCompare();
 
+        this.ListInfra.TableAdd(this.StateVar, dataVar.Name, dataVar);
+        this.ListInfra.TableAdd(this.StateVar, valueVar.Name, valueVar);
         this.ListInfra.TableAdd(o, dataVar.Name, dataVar);
         this.ListInfra.TableAdd(o, valueVar.Name, valueVar);
 
