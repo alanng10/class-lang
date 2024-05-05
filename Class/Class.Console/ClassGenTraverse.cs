@@ -25,6 +25,7 @@ public class ClassGenTraverse : Traverse
         this.DelimitSemicolon = ";";
         this.DelimitQuestion = "?";
         this.DelimitEqual = "=";
+        this.DelimitLess = "<";
         this.DelimitLeftShift = "<<";
         this.DelimitRightShift = ">>";
         this.DelimitComplement = "~";
@@ -62,6 +63,7 @@ public class ClassGenTraverse : Traverse
     protected virtual string DelimitSemicolon { get; set; }
     protected virtual string DelimitQuestion { get; set; }
     protected virtual string DelimitEqual { get; set; }
+    protected virtual string DelimitLess { get; set; }
     protected virtual string DelimitLeftShift { get; set; }
     protected virtual string DelimitRightShift { get; set; }
     protected virtual string DelimitComplement { get; set; }
@@ -191,6 +193,12 @@ public class ClassGenTraverse : Traverse
     public override bool ExecuteNotOperate(NotOperate notOperate)
     {
         this.ExecuteBoolOneOperand(this.DelimitComplement, notOperate.Value);
+        return true;
+    }
+
+    public override bool ExecuteLessOperate(LessOperate lessOperate)
+    {
+        this.ExecuteTwoOperand(this.DelimitLess, lessOperate.Left, lessOperate.Right, this.Gen.System.Int);
         return true;
     }
 
