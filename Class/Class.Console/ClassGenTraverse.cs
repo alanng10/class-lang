@@ -356,7 +356,8 @@ public class ClassGenTraverse : Traverse
             this.Text(this.DelimitLeftBracket);
             this.Text(this.KeywordNew);
             this.Text(this.Space);
-            this.ExecuteClassName(a);
+            this.Text(this.InternClassNamePrefix);
+            this.ExecuteClassTableName(a);
             this.Text(this.DelimitLeftBracket);
             this.Text(this.DelimitRightBracket);
             this.Text(this.DelimitRightBracket);
@@ -388,7 +389,8 @@ public class ClassGenTraverse : Traverse
             if (ba)
             {
                 this.Text(this.DelimitLeftBracket);
-                this.ExecuteClassName(a);
+                this.Text(this.InternClassNamePrefix);
+                this.ExecuteClassTableName(a);
                 this.Text(this.DelimitDot);
                 this.Text(this.InternClassShareThis);
                 this.Text(this.DelimitRightBracket);
