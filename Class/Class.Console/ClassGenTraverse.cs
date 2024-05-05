@@ -21,6 +21,7 @@ public class ClassGenTraverse : Traverse
         this.Space = " ";
         this.NewLine = "\n";
         this.Underscore = "_";
+        this.KeywordWhile = "while";
         this.KeywordNew = "new";
         this.KeywordThis = "this";
         this.KeywordBase = "base";
@@ -39,6 +40,10 @@ public class ClassGenTraverse : Traverse
         this.KeywordSByte = "sbyte";
         this.KeywordChar = "char";
         this.KeywordString = "string";
+        this.DelimitLeftBrace = "{";
+        this.DelimitRightBrace = "}";
+        this.DelimitLeftBracket = "(";
+        this.DelimitRightBracket = ")";
         this.DelimitDot = ".";
         this.DelimitComma = ",";
         this.DelimitColon = ":";
@@ -55,8 +60,6 @@ public class ClassGenTraverse : Traverse
         this.DelimitSub = "-";
         this.DelimitMul = "*";
         this.DelimitDiv = "/";
-        this.DelimitLeftBracket = "(";
-        this.DelimitRightBracket = ")";
         return true;
     }
 
@@ -79,6 +82,7 @@ public class ClassGenTraverse : Traverse
     protected virtual string Space { get; set; }
     protected virtual string NewLine { get; set; }
     protected virtual string Underscore { get; set; }
+    protected virtual string KeywordWhile { get; set; }
     protected virtual string KeywordNew { get; set; }
     protected virtual string KeywordThis { get; set; }
     protected virtual string KeywordBase { get; set; }
@@ -97,6 +101,10 @@ public class ClassGenTraverse : Traverse
     protected virtual string KeywordSByte { get; set; }
     protected virtual string KeywordChar { get; set; }
     protected virtual string KeywordString { get; set; }
+    protected virtual string DelimitLeftBrace { get; set; }
+    protected virtual string DelimitRightBrace { get; set; }
+    protected virtual string DelimitLeftBracket { get; set; }
+    protected virtual string DelimitRightBracket { get; set; }
     protected virtual string DelimitDot { get; set; }
     protected virtual string DelimitComma { get; set; }
     protected virtual string DelimitColon { get; set; }
@@ -113,8 +121,6 @@ public class ClassGenTraverse : Traverse
     protected virtual string DelimitSub { get; set; }
     protected virtual string DelimitMul { get; set; }
     protected virtual string DelimitDiv { get; set; }
-    protected virtual string DelimitLeftBracket { get; set; }
-    protected virtual string DelimitRightBracket { get; set; }
     protected virtual Array Array { get; set; }
     protected virtual int ArrayIndex { get; set; }
 
@@ -151,6 +157,23 @@ public class ClassGenTraverse : Traverse
 
     public override bool ExecuteWhileExecute(WhileExecute whileExecute)
     {
+        this.TextIndent();
+        this.Text(this.KeywordWhile);
+        this.Text(this.Space);
+        this.Text(this.DelimitLeftBracket);
+        this.ExecuteOperate(whileExecute.Cond);
+        this.Text(this.DelimitRightBracket);
+        this.Text(this.NewLine);
+
+        this.TextIndent();
+        this.Text(this.DelimitLeftBrace);
+        this.Text(this.NewLine);
+
+        this.ExecuteState(whileExecute.Loop);
+
+        this.TextIndent();
+        this.Text(this.DelimitRightBrace);
+        this.Text(this.NewLine);
         return true;
     }
 
