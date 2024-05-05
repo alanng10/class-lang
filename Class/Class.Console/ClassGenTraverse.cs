@@ -22,6 +22,10 @@ public class ClassGenTraverse : Traverse
         this.Space = " ";
         this.NewLine = "\n";
         this.Underscore = "_";
+        this.KeywordPublic = "public";
+        this.KeywordInternal = "internal";
+        this.KeywordProtected = "protected";
+        this.KeywordPrivate = "private";
         this.KeywordIf = "if";
         this.KeywordWhile = "while";
         this.KeywordNew = "new";
@@ -86,6 +90,10 @@ public class ClassGenTraverse : Traverse
     protected virtual string Space { get; set; }
     protected virtual string NewLine { get; set; }
     protected virtual string Underscore { get; set; }
+    protected virtual string KeywordPublic { get; set; }
+    protected virtual string KeywordInternal { get; set; }
+    protected virtual string KeywordProtected { get; set; }
+    protected virtual string KeywordPrivate { get; set; }
     protected virtual string KeywordIf { get; set; }
     protected virtual string KeywordWhile { get; set; }
     protected virtual string KeywordNew { get; set; }
