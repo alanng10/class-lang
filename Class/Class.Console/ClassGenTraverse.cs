@@ -22,12 +22,15 @@ public class ClassGenTraverse : Traverse
         this.KeywordThis = "this";
         this.KeywordBase = "base";
         this.KeywordNull = "null";
+        this.KeywordLong = "long";
         this.DelimitDot = ".";
         this.DelimitComma = ",";
         this.DelimitColon = ":";
         this.DelimitSemicolon = ";";
         this.DelimitQuestion = "?";
         this.DelimitEqual = "=";
+        this.DelimitLess = "<";
+        this.DelimitMore = ">";
         this.DelimitAnd = "&";
         this.DelimitOrn = "|";
         this.DelimitNot = "!";
@@ -59,12 +62,15 @@ public class ClassGenTraverse : Traverse
     protected virtual string KeywordThis { get; set; }
     protected virtual string KeywordBase { get; set; }
     protected virtual string KeywordNull { get; set; }
+    protected virtual string KeywordLong { get; set; }
     protected virtual string DelimitDot { get; set; }
     protected virtual string DelimitComma { get; set; }
     protected virtual string DelimitColon { get; set; }
     protected virtual string DelimitSemicolon { get; set; }
     protected virtual string DelimitQuestion { get; set; }
     protected virtual string DelimitEqual { get; set; }
+    protected virtual string DelimitLess { get; set; }
+    protected virtual string DelimitMore { get; set; }
     protected virtual string DelimitAnd { get; set; }
     protected virtual string DelimitOrn { get; set; }
     protected virtual string DelimitNot { get; set; }
@@ -212,6 +218,18 @@ public class ClassGenTraverse : Traverse
         return true;
     }
 
+    public override bool ExecuteSignMulOperate(SignMulOperate signMulOperate)
+    {
+        this.ExecuteSignIntTwoOperand(this.DelimitMul, signMulOperate.Left, signMulOperate.Right);
+        return true;
+    }
+
+    public override bool ExecuteSignDivOperate(SignDivOperate signDivOperate)
+    {
+        this.ExecuteSignIntTwoOperand(this.DelimitDiv, signDivOperate.Left, signDivOperate.Right);
+        return true;
+    }
+
     protected virtual bool ExecuteNodeVarName(NodeNode node)
     {
         Var varVar;
@@ -289,6 +307,78 @@ public class ClassGenTraverse : Traverse
         this.Text(this.Space);
 
         this.Text(this.RefKindIntMask);
+
+        this.Text(this.DelimitRightBracket);
+        return true;
+    }
+
+    protected virtual bool ExecuteSignIntTwoOperand(string delimit, Operate left, Operate right)
+    {
+        this.Text(this.DelimitLeftBracket);
+
+        this.Text(this.DelimitLeftBracket);
+
+        this.Text(this.DelimitLeftBracket);
+
+        this.ExecuteSignIntOperand(left);
+
+        this.Text(this.Space);
+        this.Text(delimit);
+        this.Text(this.Space);
+
+        this.ExecuteSignIntOperand(right);
+
+        this.Text(this.DelimitRightBracket);
+
+        this.Text(this.Space);
+        this.Text(this.DelimitAnd);
+        this.Text(this.Space);
+
+        this.Text(this.RefKindIntClearMask);
+
+        this.Text(this.DelimitRightBracket);
+
+        this.Text(this.Space);
+        this.Text(this.DelimitOrn);
+        this.Text(this.Space);
+
+        this.Text(this.RefKindIntMask);
+
+        this.Text(this.DelimitRightBracket);
+        return true;
+    }
+
+    protected virtual bool ExecuteSignIntOperand(Operate operate)
+    {
+        ClassClass k;
+        k = this.Gen.System.Int;
+
+        this.Text(this.DelimitLeftBracket);
+
+        this.Text(this.DelimitLeftBracket);
+
+        this.Text(this.DelimitLeftBracket);
+
+        this.Text(this.DelimitLeftBracket);
+        this.Text(this.KeywordLong);
+        this.Text(this.DelimitRightBracket);
+        this.ExecuteValueOperand(operate, k);
+        
+        this.Text(this.DelimitRightBracket);
+
+        this.Text(this.Space);
+        this.Text(this.DelimitLess);
+        this.Text(this.DelimitLess);
+        this.Text(this.Space);
+        this.Text("4");
+
+        this.Text(this.DelimitRightBracket);
+
+        this.Text(this.Space);
+        this.Text(this.DelimitMore);
+        this.Text(this.DelimitMore);
+        this.Text(this.Space);
+        this.Text("4");
 
         this.Text(this.DelimitRightBracket);
         return true;
