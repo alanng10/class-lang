@@ -300,7 +300,6 @@ public class ClassGenTraverse : Traverse
         this.Text(this.Int60Mask);
 
         this.Text(this.DelimitRightBracket);
-
         return true;
     }
 
@@ -322,32 +321,13 @@ public class ClassGenTraverse : Traverse
     {
         this.Text(this.DelimitLeftBracket);
 
-        this.Text(this.DelimitLeftBracket);
-
-        this.Text(this.DelimitLeftBracket);
-
         this.Text(delimit);
         this.Text(this.Space);
 
-        this.ExecuteValueOperand(value, this.Gen.System.Bool);
+        this.ExecuteInputOperate(value, this.Gen.System.Bool);
 
         this.Text(this.DelimitRightBracket);
 
-        this.Text(this.Space);
-        this.Text(this.DelimitAnd);
-        this.Text(this.Space);
-
-        this.Text(this.ValueBoolMask);
-
-        this.Text(this.DelimitRightBracket);
-
-        this.Text(this.Space);
-        this.Text(this.DelimitOrn);
-        this.Text(this.Space);
-
-        this.Text(this.RefKindBoolMask);
-
-        this.Text(this.DelimitRightBracket);
         return true;
     }
 
