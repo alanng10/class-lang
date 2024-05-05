@@ -232,6 +232,30 @@ public class ClassGenTraverse : Traverse
         return true;
     }
 
+    public override bool ExecuteBitAndOperate(BitAndOperate bitAndOperate)
+    {
+        this.ExecuteIntTwoOperand(this.DelimitAnd, bitAndOperate.Left, bitAndOperate.Right);
+        return true;
+    }
+
+    public override bool ExecuteBitOrnOperate(BitOrnOperate bitOrnOperate)
+    {
+        this.ExecuteIntTwoOperand(this.DelimitOrn, bitOrnOperate.Left, bitOrnOperate.Right);
+        return true;
+    }
+
+    public override bool ExecuteBitLeftOperate(BitLeftOperate bitLeftOperate)
+    {
+        this.ExecuteIntTwoOperand(this.DelimitLeftShift, bitLeftOperate.Value, bitLeftOperate.Count);
+        return true;
+    }
+
+    public override bool ExecuteBitRightOperate(BitRightOperate bitRightOperate)
+    {
+        this.ExecuteIntTwoOperand(this.DelimitRightShift, bitRightOperate.Value, bitRightOperate.Count);
+        return true;
+    }
+
     protected virtual bool ExecuteNodeVarName(NodeNode node)
     {
         Var varVar;
