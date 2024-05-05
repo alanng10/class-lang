@@ -265,7 +265,7 @@ public class ClassGenTraverse : Traverse
         Var varVar;
         varVar = this.Info(node).Var;
 
-        if (this.IsBuiltinInt(varVar.SystemInfo))
+        if (this.IsSystemTypeInt(varVar.SystemInfo))
         {
             this.Text(this.InternVarPrefix);
         }
@@ -463,7 +463,7 @@ public class ClassGenTraverse : Traverse
         return true;
     }
 
-    protected virtual bool IsBuiltinInt(SystemInfo a)
+    protected virtual bool IsSystemTypeInt(SystemInfo a)
     {
         int n;
         n = a.Value;
