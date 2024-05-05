@@ -24,6 +24,7 @@ public class ClassGenTraverse : Traverse
         this.KeywordFalse = "false";
         this.KeywordTrue = "true";
         this.KeywordObject = "object";
+        this.KeywordBool = "bool";
         this.KeywordULong = "ulong";
         this.KeywordLong = "long";
         this.KeywordUInt = "uint";
@@ -33,6 +34,7 @@ public class ClassGenTraverse : Traverse
         this.KeywordByte = "byte";
         this.KeywordSByte = "sbyte";
         this.KeywordChar = "char";
+        this.KeywordString = "string";
         this.DelimitDot = ".";
         this.DelimitComma = ",";
         this.DelimitColon = ":";
@@ -76,6 +78,7 @@ public class ClassGenTraverse : Traverse
     protected virtual string KeywordFalse { get; set; }
     protected virtual string KeywordTrue { get; set; }
     protected virtual string KeywordObject { get; set; }
+    protected virtual string KeywordBool { get; set; }
     protected virtual string KeywordULong { get; set; }
     protected virtual string KeywordLong { get; set; }
     protected virtual string KeywordUInt { get; set; }
@@ -85,6 +88,7 @@ public class ClassGenTraverse : Traverse
     protected virtual string KeywordByte { get; set; }
     protected virtual string KeywordSByte { get; set; }
     protected virtual string KeywordChar { get; set; }
+    protected virtual string KeywordString { get; set; }
     protected virtual string DelimitDot { get; set; }
     protected virtual string DelimitComma { get; set; }
     protected virtual string DelimitColon { get; set; }
@@ -540,6 +544,32 @@ public class ClassGenTraverse : Traverse
 
     protected virtual bool ExecuteClassName(ClassClass a)
     {
+        bool b;
+        b = false;
+        if (!b & a == this.Gen.System.Any)
+        {
+            this.Text(this.KeywordObject);
+            b = true;
+        }
+        if (!b & a == this.Gen.System.Bool)
+        {
+            this.Text(this.KeywordBool);
+            b = true;
+        }
+        if (!b & a == this.Gen.System.Int)
+        {
+            this.Text(this.KeywordULong);
+            b = true;
+        }
+        if (!b & a == this.Gen.System.String)
+        {
+            this.Text(this.KeywordString);
+            b = true;
+        }
+        if (!b)
+        {
+            
+        }
         return true;
     }
 
