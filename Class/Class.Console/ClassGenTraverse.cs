@@ -225,9 +225,7 @@ public class ClassGenTraverse : Traverse
         if (!b)
         {
             k = this.KeywordNull;
-            b = true;
         }
-
 
         this.TextIndent();
 
