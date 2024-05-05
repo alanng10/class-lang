@@ -202,6 +202,12 @@ public class ClassGenTraverse : Traverse
         return true;
     }
 
+    public override bool ExecuteSignLessOperate(SignLessOperate signLessOperate)
+    {
+        this.ExecuteSignIntTwoOperand(this.DelimitLess, signLessOperate.Left, signLessOperate.Right);
+        return true;
+    }
+
     public override bool ExecuteAddOperate(AddOperate addOperate)
     {
         this.ExecuteIntTwoOperand(this.DelimitAdd, addOperate.Left, addOperate.Right);
