@@ -7,6 +7,7 @@ public class ClassGenTraverse : Traverse
         base.Init();
         this.InternVarPrefix = "__V_";
         this.InternBoolValueClass = "__C_BoolValue";
+        this.InternIntValueClass = "__C_IntValue";
         this.InternValueNull = "Null";
         this.InternValueFalse = "False";
         this.InternValueTrue = "True";
@@ -43,6 +44,7 @@ public class ClassGenTraverse : Traverse
     protected virtual int ScopeLevel { get; set; }
     protected virtual string InternVarPrefix { get; set; }
     protected virtual string InternBoolValueClass { get; set; }
+    protected virtual string InternIntValueClass { get; set; }
     protected virtual string InternValueNull { get; set; }
     protected virtual string InternValueFalse { get; set; }
     protected virtual string InternValueTrue { get; set; }
@@ -250,7 +252,7 @@ public class ClassGenTraverse : Traverse
         this.Text(this.DelimitOrn);
         this.Text(this.Space);
 
-        this.Text(this.RefKindIntMask);
+        this.Text(this.RefKindBoolMask);
 
         this.Text(this.DelimitRightBracket);
         return true;
@@ -370,7 +372,9 @@ public class ClassGenTraverse : Traverse
             }
             if (!ba & requiredClass == this.Gen.System.Int)
             {
-                this.Text("__IntValue.Null");
+                this.Text(this.InternIntValueClass);
+                this.Text(this.DelimitDot);
+                this.Text(this.InternValueNull);
                 ba = true;
             }
             if (!ba)
