@@ -6,6 +6,8 @@ public class ClassGenTraverse : Traverse
     {
         base.Init();
         this.ListInfra = ListInfra.This;
+        this.TableIter = new TableIter();
+        this.TableIter.Init();
         this.InternVarPrefix = "__V_";
         this.InternModuleInfoClass = "__C_ModuleInfo";
         this.Int60Mask = "0xf000000000000000UL";
@@ -53,6 +55,7 @@ public class ClassGenTraverse : Traverse
     public virtual ClassGen Gen { get; set; }
     protected virtual ListInfra ListInfra { get; set; }
     protected virtual Field ThisField { get; set; }
+    protected virtual Iter TableIter { get; set; }
     protected virtual Array SystemTypeIntName { get; set; }
     protected virtual int IndentLevel { get; set; }
     protected virtual string InternVarPrefix { get; set; }
@@ -474,6 +477,41 @@ public class ClassGenTraverse : Traverse
 
     protected virtual bool ExecuteMaideArgue(Maide maide, Argue argue)
     {
+        Iter iter;
+        iter = this.TableIter;
+        maide.Param.IterSet(iter);
+        
+        int count;
+        count = maide.Param.Count;
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            iter.Next();
+            
+            Var varVar;
+            varVar = (Var)iter.Value;            
+
+            Operate operate;
+            operate = (Operate)argue.Value.Get(i);
+
+            int systemInfo;
+            systemInfo = varVar.SystemInfo.Value;
+
+            if (0 < i)
+            {
+                this.Text(this.DelimitComma);
+                this.Text(this.Space);
+            }
+
+            this.ExecuteSystemTypeInnStart(systemInfo);
+
+            this.ExecuteOperate(operate);
+
+            this.ExecuteSystemTypeInnEnd(systemInfo);
+
+            i = i + 1;
+        }
         return true;
     }
 
