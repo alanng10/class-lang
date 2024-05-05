@@ -276,6 +276,33 @@ public class ClassGenTraverse : Traverse
         return true;
     }
 
+    public override bool ExecuteBitSignRightOperate(BitSignRightOperate bitSignRightOperate)
+    {
+        this.Text(this.DelimitLeftBracket);
+
+        this.Text(this.DelimitLeftBracket);
+
+        this.ExecuteSignIntOperand(bitSignRightOperate.Value);
+
+        this.Text(this.Space);
+        this.Text(this.DelimitRightShift);
+        this.Text(this.Space);
+
+        this.ExecuteInputOperate(bitSignRightOperate.Count, this.Gen.System.Int);
+
+        this.Text(this.DelimitRightBracket);
+
+        this.Text(this.Space);
+        this.Text(this.DelimitAnd);
+        this.Text(this.Space);
+
+        this.Text(this.Int60Mask);
+
+        this.Text(this.DelimitRightBracket);
+
+        return true;
+    }
+
     protected virtual bool ExecuteNodeVarName(NodeNode node)
     {
         Var varVar;
