@@ -125,6 +125,7 @@ public class ClassGenTraverse : Traverse
 
         int u;
         u = field.SystemInfo.Value;
+        
         this.ExecuteSystemTypeStart(u);
 
         this.Text(this.DelimitLeftBracket);
@@ -139,6 +140,28 @@ public class ClassGenTraverse : Traverse
         return true;
     }
 
+    public override bool ExecuteBaseGetOperate(BaseGetOperate baseGetOperate)
+    {
+        Field field;
+        field = this.Info(baseGetOperate).GetField;
+
+        int u;
+        u = field.SystemInfo.Value;
+
+        this.ExecuteSystemTypeStart(u);
+
+        this.Text(this.DelimitLeftBracket);
+
+        this.Text(this.KeywordBase);
+        this.Text(this.DelimitDot);
+        this.Text(baseGetOperate.Field.Value);
+
+        this.Text(this.DelimitRightBracket);
+
+        this.ExecuteSystemTypeEnd(u);
+        return true;
+    }
+
     public override bool ExecuteCallOperate(CallOperate callOperate)
     {
         Maide maide;
@@ -146,6 +169,7 @@ public class ClassGenTraverse : Traverse
         
         int u;
         u = maide.SystemInfo.Value;
+
         this.ExecuteSystemTypeStart(u);
         
         bool b;
