@@ -327,7 +327,6 @@ public class ClassGenTraverse : Traverse
         this.ExecuteInputOperate(value, this.Gen.System.Bool);
 
         this.Text(this.DelimitRightBracket);
-
         return true;
     }
 
