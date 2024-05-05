@@ -75,7 +75,6 @@ public class ClassGenTraverse : Traverse
     protected virtual string DelimitLeftBracket { get; set; }
     protected virtual string DelimitRightBracket { get; set; }
 
-
     public override bool ExecuteAssignExecute(AssignExecute assignExecute)
     {
         ClassClass targetClass;
