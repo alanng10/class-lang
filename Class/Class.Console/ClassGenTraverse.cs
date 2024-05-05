@@ -268,13 +268,13 @@ public class ClassGenTraverse : Traverse
 
     public override bool ExecuteBitLeftOperate(BitLeftOperate bitLeftOperate)
     {
-        this.ExecuteIntTwoOperand(this.DelimitLeftShift, bitLeftOperate.Value, bitLeftOperate.Count);
+        this.ExecuteBitShiftTwoOperand(this.DelimitLeftShift, bitLeftOperate.Value, bitLeftOperate.Count);
         return true;
     }
 
     public override bool ExecuteBitRightOperate(BitRightOperate bitRightOperate)
     {
-        this.ExecuteIntTwoOperand(this.DelimitRightShift, bitRightOperate.Value, bitRightOperate.Count);
+        this.ExecuteBitShiftTwoOperand(this.DelimitRightShift, bitRightOperate.Value, bitRightOperate.Count);
         return true;
     }
 
@@ -290,7 +290,7 @@ public class ClassGenTraverse : Traverse
         this.Text(this.DelimitRightShift);
         this.Text(this.Space);
 
-        this.ExecuteInputOperate(bitSignRightOperate.Count, this.Gen.System.Int);
+        this.ExecuteIntShiftOperand(bitSignRightOperate.Count);
 
         this.Text(this.DelimitRightBracket);
 
@@ -388,6 +388,30 @@ public class ClassGenTraverse : Traverse
         this.Text(this.Space);
 
         this.ExecuteInputOperate(value, operandClass);
+
+        this.Text(this.DelimitRightBracket);
+        return true;
+    }
+
+    protected virtual bool ExecuteBitShiftTwoOperand(string delimit, Operate value, Operate count)
+    {
+        this.Text(this.DelimitLeftBracket);
+
+        this.Text(this.DelimitLeftBracket);
+        this.ExecuteInputOperate(value, this.Gen.System.Int);
+
+        this.Text(this.Space);
+        this.Text(delimit);
+        this.Text(this.Space);
+
+        this.ExecuteIntShiftOperand(count);
+        this.Text(this.DelimitRightBracket);
+
+        this.Text(this.Space);
+        this.Text(this.DelimitAnd);
+        this.Text(this.Space);
+
+        this.Text(this.Int60Mask);
 
         this.Text(this.DelimitRightBracket);
         return true;
