@@ -870,14 +870,17 @@ public class Create : InfraCreate
         ClassClass thisClass;
         thisClass = varClass;
 
+        if (thisClass == this.NullClass)
+        {
+            bool ba;
+            ba = !(requiredClass == this.SystemClass.Bool | requiredClass == this.SystemClass.Int);
+            return ba;
+        }
+
         bool b;
         b = false;
         while (!b & !(thisClass == null))
         {
-            if (thisClass == this.NullClass)
-            {
-                b = true;
-            }
             if (thisClass == requiredClass)
             {
                 b = true;
