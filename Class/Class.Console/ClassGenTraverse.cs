@@ -278,33 +278,30 @@ public class ClassGenTraverse : Traverse
     {
         ClassClass operandClass;
         operandClass = this.Gen.System.Bool;
-
-        this.Text(this.DelimitLeftBracket);
-
-        this.Text(this.DelimitLeftBracket);
-        this.ExecuteValueOperand(left, operandClass);
-
-        this.Text(this.Space);
-        this.Text(delimit);
-        this.Text(this.Space);
-
-        this.ExecuteValueOperand(right, operandClass);
-        this.Text(this.DelimitRightBracket);
-
-        this.Text(this.Space);
-        this.Text(this.DelimitOrn);
-        this.Text(this.Space);
-
-        this.Text(this.RefKindBoolMask);
-
-        this.Text(this.DelimitRightBracket);
-        return true;
+        return this.ExecuteTwoOperand(delimit, left, right, operandClass);
     }
 
     protected virtual bool ExecuteIntTwoOperand(string delimit, Operate left, Operate right)
     {
         ClassClass operandClass;
         operandClass = this.Gen.System.Int;
+        return this.ExecuteTwoOperand(delimit, left, right, operandClass);
+    }
+
+    protected virtual bool ExecuteTwoOperand(string delimit, Operate left, Operate right, ClassClass operandClass)
+    {
+        string mask;
+        mask = null;
+        bool b;
+        b = (operandClass == this.Gen.System.Int);
+        if (b)
+        {
+            mask = this.RefKindIntMask;
+        }
+        if (!b)
+        {
+            mask = this.RefKindBoolMask;
+        }
 
         this.Text(this.DelimitLeftBracket);
 
@@ -314,7 +311,7 @@ public class ClassGenTraverse : Traverse
         this.Text(this.Space);
         this.Text(delimit);
         this.Text(this.Space);
-        
+
         this.ExecuteValueOperand(right, operandClass);
         this.Text(this.DelimitRightBracket);
 
@@ -322,7 +319,7 @@ public class ClassGenTraverse : Traverse
         this.Text(this.DelimitOrn);
         this.Text(this.Space);
 
-        this.Text(this.RefKindIntMask);
+        this.Text(mask);
 
         this.Text(this.DelimitRightBracket);
         return true;
