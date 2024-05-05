@@ -28,6 +28,8 @@ public class ClassGenTraverse : Traverse
         this.KeywordInternal = "internal";
         this.KeywordProtected = "protected";
         this.KeywordPrivate = "private";
+        this.KeywordVirtual = "virtual";
+        this.KeywordOverride = "override";
         this.KeywordIf = "if";
         this.KeywordWhile = "while";
         this.KeywordNew = "new";
@@ -101,6 +103,8 @@ public class ClassGenTraverse : Traverse
     protected virtual string KeywordInternal { get; set; }
     protected virtual string KeywordProtected { get; set; }
     protected virtual string KeywordPrivate { get; set; }
+    protected virtual string KeywordVirtual { get; set; }
+    protected virtual string KeywordOverride { get; set; }
     protected virtual string KeywordIf { get; set; }
     protected virtual string KeywordWhile { get; set; }
     protected virtual string KeywordNew { get; set; }
