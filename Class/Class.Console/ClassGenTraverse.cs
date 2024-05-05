@@ -325,12 +325,25 @@ public class ClassGenTraverse : Traverse
 
     protected virtual bool ExecuteValueOperand(Operate operate, ClassClass requiredClass)
     {
+        string clearMask;
+        clearMask = null;
+        bool b;
+        b = (requiredClass == this.Gen.System.Int);
+        if (b)
+        {
+            clearMask = this.RefKindIntClearMask;
+        }
+        if (!b)
+        {
+            clearMask = this.RefKindBoolClearMask;
+        }
+
         this.Text(this.DelimitLeftBracket);
         this.ExecuteInputOperate(operate, requiredClass);
         this.Text(this.Space);
         this.Text(this.DelimitAnd);
         this.Text(this.Space);
-        this.Text(this.RefKindIntClearMask);
+        this.Text(clearMask);
         this.Text(this.DelimitRightBracket);
         return true;
     }
