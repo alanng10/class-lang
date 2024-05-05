@@ -6,6 +6,8 @@ public class ClassGenTraverse : Traverse
     {
         base.Init();
         this.ListInfra = ListInfra.This;
+        this.CountList = CountList.This;
+
         this.TableIter = new TableIter();
         this.TableIter.Init();
         this.InternClassNamePrefix = "_";
@@ -67,13 +69,18 @@ public class ClassGenTraverse : Traverse
         this.DelimitSub = "-";
         this.DelimitMul = "*";
         this.DelimitDiv = "/";
+
+        this.InitCountAccessWord();
+        this.InitSystemTypeIntName();
         return true;
     }
 
     public virtual ClassGen Gen { get; set; }
     protected virtual ListInfra ListInfra { get; set; }
+    protected virtual CountList CountList { get; set; }
     protected virtual Field ThisField { get; set; }
     protected virtual Iter TableIter { get; set; }
+    protected virtual Array CountAccessWord { get; set; }
     protected virtual Array SystemTypeIntName { get; set; }
     protected virtual int IndentLevel { get; set; }
     protected virtual string InternClassNamePrefix { get; set; }
@@ -138,12 +145,29 @@ public class ClassGenTraverse : Traverse
     protected virtual Array Array { get; set; }
     protected virtual int ArrayIndex { get; set; }
 
-    protected virtual bool InitSystemTypeIntArray()
+    protected virtual bool InitCountAccessWord()
+    {
+        this.CountAccessWord = this.ListInfra.ArrayCreate(this.CountList.Count);
+
+        this.Array = this.CountAccessWord;
+        this.ArrayIndex = 0;
+
+        this.ArrayAdd(this.KeywordPublic);
+        this.ArrayAdd(this.KeywordInternal);
+        this.ArrayAdd(this.KeywordProtected);
+        this.ArrayAdd(this.KeywordPrivate);
+
+        this.Array = null;
+        return true;
+    }
+
+    protected virtual bool InitSystemTypeIntName()
     {
         this.SystemTypeIntName = this.ListInfra.ArrayCreate(9);
         
         this.Array = this.SystemTypeIntName;
         this.ArrayIndex = 0;
+
         this.ArrayAdd(this.KeywordULong);
         this.ArrayAdd(this.KeywordLong);
         this.ArrayAdd(this.KeywordUInt);
