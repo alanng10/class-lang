@@ -481,6 +481,7 @@ public class ClassGenTraverse : Traverse
 
         this.Text(this.Space);
         this.Text(this.DelimitEqual);
+        this.Text(this.DelimitEqual);
         this.Text(this.Space);
 
         this.ExecuteEqualOperand(equalOperate.Right);
