@@ -8,6 +8,7 @@ public class ClassGenTraverse : Traverse
         this.ListInfra = ListInfra.This;
         this.TableIter = new TableIter();
         this.TableIter.Init();
+        this.InternClassNamePrefix = "_";
         this.InternVarPrefix = "__V_";
         this.InternValueShareClass = "__C_ValueShare";
         this.InternModuleInfoClass = "__C_ModuleInfo";
@@ -17,6 +18,7 @@ public class ClassGenTraverse : Traverse
         this.Indent = new string(' ', 4);
         this.Space = " ";
         this.NewLine = "\n";
+        this.Underscore = "_";
         this.KeywordNew = "new";
         this.KeywordThis = "this";
         this.KeywordBase = "base";
@@ -62,6 +64,7 @@ public class ClassGenTraverse : Traverse
     protected virtual Iter TableIter { get; set; }
     protected virtual Array SystemTypeIntName { get; set; }
     protected virtual int IndentLevel { get; set; }
+    protected virtual string InternClassNamePrefix { get; set; }
     protected virtual string InternVarPrefix { get; set; }
     protected virtual string InternValueShareClass { get; set; }
     protected virtual string InternModuleInfoClass { get; set; }
@@ -71,6 +74,7 @@ public class ClassGenTraverse : Traverse
     protected virtual string Indent { get; set; }
     protected virtual string Space { get; set; }
     protected virtual string NewLine { get; set; }
+    protected virtual string Underscore { get; set; }
     protected virtual string KeywordNew { get; set; }
     protected virtual string KeywordThis { get; set; }
     protected virtual string KeywordBase { get; set; }
@@ -568,7 +572,22 @@ public class ClassGenTraverse : Traverse
         }
         if (!b)
         {
-            
+            bool ba;
+            ba = (a.Module == this.Gen.Module);
+            if (ba)
+            {
+                this.Text(this.InternClassNamePrefix);
+                this.Text(a.Name);
+            }
+            if (!ba)
+            {
+                string aa;
+                aa = (string)this.Gen.ModuleImportName.Get(a.Module);
+                this.Text(this.InternClassNamePrefix);
+                this.Text(aa);
+                this.Text(this.Underscore);
+                this.Text(a.Name);
+            }
         }
         return true;
     }
