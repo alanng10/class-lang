@@ -440,7 +440,11 @@ public class ClassGenTraverse : Traverse
 
     protected virtual bool ExecuteSystemTypeStart(int systemInfo)
     {
-        if (systemInfo == 4)
+        if (systemInfo == 3)
+        {
+            this.Text(this.DelimitLeftBracket);
+        }
+        if (systemInfo == 4 | systemInfo == 5 | systemInfo == 7 | systemInfo == 9 | systemInfo == 11)
         {
             this.Text(this.DelimitLeftBracket);
             this.Text(this.DelimitLeftBracket);
@@ -469,7 +473,16 @@ public class ClassGenTraverse : Traverse
 
     protected virtual bool ExecuteSystemTypeEnd(int systemInfo)
     {
-        if (systemInfo == 4)
+        if (systemInfo == 3)
+        {
+            this.Text(this.Space);
+            this.Text(this.DelimitAnd);
+            this.Text(this.Space);
+
+            this.Text(this.Int60Mask);
+            this.Text(this.DelimitRightBracket);
+        }
+        if (systemInfo == 4 | systemInfo == 5 | systemInfo == 7 | systemInfo == 9 | systemInfo == 11)
         {
             this.Text(this.DelimitRightBracket);
 
