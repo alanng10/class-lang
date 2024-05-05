@@ -326,6 +326,14 @@ public class ClassGenTraverse : Traverse
         return true;
     }
 
+    public override bool ExecuteNullOperate(NullOperate nullOperate)
+    {
+        this.Text(this.DelimitLeftBracket);
+        this.Text(this.KeywordNull);
+        this.Text(this.DelimitRightBracket);
+        return true;
+    }
+
     public override bool ExecuteAndOperate(AndOperate andOperate)
     {
         this.ExecuteBoolTwoOperand(this.DelimitAnd, andOperate.Left, andOperate.Right);
@@ -488,7 +496,7 @@ public class ClassGenTraverse : Traverse
         while (i < count)
         {
             iter.Next();
-            
+
             Var varVar;
             varVar = (Var)iter.Value;            
 
