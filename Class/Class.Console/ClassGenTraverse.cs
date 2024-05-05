@@ -290,6 +290,31 @@ public class ClassGenTraverse : Traverse
         return true;
     }
 
+    public override bool ExecuteBaseCallOperate(BaseCallOperate baseCallOperate)
+    {
+        Maide maide;
+        maide = this.Info(baseCallOperate).CallMaide;
+
+        int u;
+        u = maide.SystemInfo.Value;
+
+        this.ExecuteSystemTypeResultStart(u);
+
+        this.Text(this.DelimitLeftBracket);
+
+        this.Text(this.KeywordBase);
+        this.Text(this.DelimitDot);
+        this.Text(baseCallOperate.Maide.Value);
+        this.Text(this.DelimitLeftBracket);
+        this.ExecuteMaideArgue(maide, baseCallOperate.Argue);
+        this.Text(this.DelimitRightBracket);
+
+        this.Text(this.DelimitRightBracket);
+
+        this.ExecuteSystemTypeResultEnd(u);
+        return true;
+    }
+
     public override bool ExecuteThisOperate(ThisOperate thisOperate)
     {
         this.Text(this.DelimitLeftBracket);
