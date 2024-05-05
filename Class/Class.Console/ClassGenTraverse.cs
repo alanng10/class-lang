@@ -464,7 +464,7 @@ public class ClassGenTraverse : Traverse
         this.Text(this.DelimitLeftBracket);
         this.Text(this.KeywordLong);
         this.Text(this.DelimitRightBracket);
-        this.ExecuteInputOperate(operate, this.Gen.System.Int);
+        this.ExecuteOperate(operate);
         
         this.Text(this.DelimitRightBracket);
 
@@ -491,7 +491,7 @@ public class ClassGenTraverse : Traverse
         this.Text(this.DelimitLeftBracket);
         this.Text(this.KeywordInt);
         this.Text(this.DelimitRightBracket);
-        this.ExecuteInputOperate(operate, this.Gen.System.Int);
+        this.ExecuteOperate(operate);
 
         this.Text(this.DelimitRightBracket);
         return true;
