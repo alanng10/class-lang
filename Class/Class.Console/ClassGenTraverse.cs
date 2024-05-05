@@ -19,6 +19,7 @@ public class ClassGenTraverse : Traverse
         this.KeywordNull = "null";
         this.KeywordFalse = "false";
         this.KeywordTrue = "true";
+        this.KeywordObject = "object";
         this.KeywordULong = "ulong";
         this.KeywordLong = "long";
         this.KeywordUInt = "uint";
@@ -67,6 +68,7 @@ public class ClassGenTraverse : Traverse
     protected virtual string KeywordNull { get; set; }
     protected virtual string KeywordFalse { get; set; }
     protected virtual string KeywordTrue { get; set; }
+    protected virtual string KeywordObject { get; set; }
     protected virtual string KeywordULong { get; set; }
     protected virtual string KeywordLong { get; set; }
     protected virtual string KeywordUInt { get; set; }
@@ -339,6 +341,20 @@ public class ClassGenTraverse : Traverse
         return true;
     }
 
+    public override bool ExecuteEqualOperate(EqualOperate equalOperate)
+    {
+        this.Text(this.DelimitLeftBracket);
+        this.ExecuteEqualOperand(equalOperate.Left);
+
+        this.Text(this.Space);
+        this.Text(this.DelimitEqual);
+        this.Text(this.Space);
+
+        this.ExecuteEqualOperand(equalOperate.Right);
+        this.Text(this.DelimitRightBracket);
+        return true;
+    }
+
     public override bool ExecuteLessOperate(LessOperate lessOperate)
     {
         this.ExecuteTwoOperand(this.DelimitLess, lessOperate.Left, lessOperate.Right);
@@ -458,6 +474,30 @@ public class ClassGenTraverse : Traverse
 
     protected virtual bool ExecuteMaideArgue(Maide maide, Argue argue)
     {
+        return true;
+    }
+
+    protected virtual bool ExecuteEqualOperand(Operate operand)
+    {
+        ClassClass a;
+        a = this.Info(operand).OperateClass;
+        
+        bool b;
+        b = (a == this.Gen.System.String);
+        if (b)
+        {
+            this.Text(this.DelimitLeftBracket);
+            this.Text(this.DelimitLeftBracket);
+            this.Text(this.KeywordObject);
+            this.Text(this.DelimitRightBracket);
+        }
+        
+        this.ExecuteOperate(operand);
+
+        if (b)
+        {
+            this.Text(this.DelimitRightBracket);
+        }
         return true;
     }
 
