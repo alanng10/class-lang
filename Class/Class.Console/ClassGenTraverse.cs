@@ -21,6 +21,7 @@ public class ClassGenTraverse : Traverse
         this.Space = " ";
         this.NewLine = "\n";
         this.Underscore = "_";
+        this.KeywordIf = "if";
         this.KeywordWhile = "while";
         this.KeywordNew = "new";
         this.KeywordThis = "this";
@@ -48,7 +49,8 @@ public class ClassGenTraverse : Traverse
         this.DelimitComma = ",";
         this.DelimitColon = ":";
         this.DelimitSemicolon = ";";
-        this.DelimitEqual = "=";
+        this.DelimitAssign = "=";
+        this.DelimitEqual = "==";
         this.DelimitLess = "<";
         this.DelimitLeftShift = "<<";
         this.DelimitRightShift = ">>";
@@ -82,6 +84,7 @@ public class ClassGenTraverse : Traverse
     protected virtual string Space { get; set; }
     protected virtual string NewLine { get; set; }
     protected virtual string Underscore { get; set; }
+    protected virtual string KeywordIf { get; set; }
     protected virtual string KeywordWhile { get; set; }
     protected virtual string KeywordNew { get; set; }
     protected virtual string KeywordThis { get; set; }
@@ -109,6 +112,7 @@ public class ClassGenTraverse : Traverse
     protected virtual string DelimitComma { get; set; }
     protected virtual string DelimitColon { get; set; }
     protected virtual string DelimitSemicolon { get; set; }
+    protected virtual string DelimitAssign { get; set; }
     protected virtual string DelimitEqual { get; set; }
     protected virtual string DelimitLess { get; set; }
     protected virtual string DelimitLeftShift { get; set; }
@@ -155,25 +159,15 @@ public class ClassGenTraverse : Traverse
         return true;
     }
 
+    public override bool ExecuteInfExecute(InfExecute infExecute)
+    {
+        this.ExecuteCondBodyExecute(this.KeywordIf, infExecute.Cond, infExecute.Then);
+        return true;
+    }
+
     public override bool ExecuteWhileExecute(WhileExecute whileExecute)
     {
-        this.TextIndent();
-        this.Text(this.KeywordWhile);
-        this.Text(this.Space);
-        this.Text(this.DelimitLeftBracket);
-        this.ExecuteOperate(whileExecute.Cond);
-        this.Text(this.DelimitRightBracket);
-        this.Text(this.NewLine);
-
-        this.TextIndent();
-        this.Text(this.DelimitLeftBrace);
-        this.Text(this.NewLine);
-
-        this.ExecuteState(whileExecute.Loop);
-
-        this.TextIndent();
-        this.Text(this.DelimitRightBrace);
-        this.Text(this.NewLine);
+        this.ExecuteCondBodyExecute(this.KeywordWhile, whileExecute.Cond, whileExecute.Loop);
         return true;
     }
 
@@ -234,7 +228,7 @@ public class ClassGenTraverse : Traverse
         this.Text(varVar.Name);
 
         this.Text(this.Space);
-        this.Text(this.DelimitEqual);
+        this.Text(this.DelimitAssign);
         this.Text(this.Space);
 
         this.Text(k);
@@ -276,7 +270,7 @@ public class ClassGenTraverse : Traverse
         this.ExecuteTarget(assignExecute.Target);
 
         this.Text(this.Space);
-        this.Text(this.DelimitEqual);
+        this.Text(this.DelimitAssign);
         this.Text(this.Space);
 
         this.ExecuteSystemTypeInnStart(systemInfo);
@@ -576,7 +570,6 @@ public class ClassGenTraverse : Traverse
 
         this.Text(this.Space);
         this.Text(this.DelimitEqual);
-        this.Text(this.DelimitEqual);
         this.Text(this.Space);
 
         this.ExecuteEqualOperand(equalOperate.Right);
@@ -749,6 +742,28 @@ public class ClassGenTraverse : Traverse
             aa = (string)this.Gen.ClassImportName.Get(a);
             this.Text(aa);
         }
+        return true;
+    }
+
+    protected virtual bool ExecuteCondBodyExecute(string keyword, Operate cond, State body)
+    {
+        this.TextIndent();
+        this.Text(keyword);
+        this.Text(this.Space);
+        this.Text(this.DelimitLeftBracket);
+        this.ExecuteOperate(cond);
+        this.Text(this.DelimitRightBracket);
+        this.Text(this.NewLine);
+
+        this.TextIndent();
+        this.Text(this.DelimitLeftBrace);
+        this.Text(this.NewLine);
+
+        this.ExecuteState(body);
+
+        this.TextIndent();
+        this.Text(this.DelimitRightBrace);
+        this.Text(this.NewLine);
         return true;
     }
 
