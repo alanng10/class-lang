@@ -9,6 +9,7 @@ public class ClassGenTraverse : Traverse
         this.TableIter = new TableIter();
         this.TableIter.Init();
         this.InternVarPrefix = "__V_";
+        this.InternValueShareClass = "__C_ValueShare";
         this.InternModuleInfoClass = "__C_ModuleInfo";
         this.Int60Mask = "0xf000000000000000UL";
         this.SignIntShift = "4";
@@ -59,6 +60,7 @@ public class ClassGenTraverse : Traverse
     protected virtual Array SystemTypeIntName { get; set; }
     protected virtual int IndentLevel { get; set; }
     protected virtual string InternVarPrefix { get; set; }
+    protected virtual string InternValueShareClass { get; set; }
     protected virtual string InternModuleInfoClass { get; set; }
     protected virtual string Int60Mask { get; set; }
     protected virtual string SignIntShift { get; set; }
