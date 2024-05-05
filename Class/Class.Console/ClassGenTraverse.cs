@@ -6,23 +6,17 @@ public class ClassGenTraverse : Traverse
     {
         base.Init();
         this.InternVarPrefix = "__V_";
-        this.InternBoolValueClass = "__C_BoolValue";
-        this.InternIntValueClass = "__C_IntValue";
-        this.InternValueNull = "Null";
-        this.InternValueFalse = "False";
-        this.InternValueTrue = "True";
         this.InternModuleInfoClass = "__C_ModuleInfo";
-        this.ValueBoolMask = "0x00000001";
-        this.RefKindBoolMask = "0xf0000000";
-        this.RefKindBoolClearMask = "0x0fffffff";
-        this.RefKindIntMask = "0xf000000000000000";
-        this.RefKindIntClearMask = "0x0fffffffffffffff";
+        this.Int60Mask = "0xf000000000000000";
         this.Indent = new string(' ', 4);
         this.Space = " ";
         this.NewLine = "\n";
+        this.Zero = "0";
         this.KeywordThis = "this";
         this.KeywordBase = "base";
         this.KeywordNull = "null";
+        this.KeywordFalse = "false";
+        this.KeywordTrue = "true";
         this.KeywordULong = "ulong";
         this.KeywordLong = "long";
         this.DelimitDot = ".";
@@ -49,23 +43,17 @@ public class ClassGenTraverse : Traverse
     public virtual ClassGen Gen { get; set; }
     protected virtual int IndentLevel { get; set; }
     protected virtual string InternVarPrefix { get; set; }
-    protected virtual string InternBoolValueClass { get; set; }
-    protected virtual string InternIntValueClass { get; set; }
-    protected virtual string InternValueNull { get; set; }
-    protected virtual string InternValueFalse { get; set; }
-    protected virtual string InternValueTrue { get; set; }
     protected virtual string InternModuleInfoClass { get; set; }
-    protected virtual string ValueBoolMask { get; set; }
-    protected virtual string RefKindBoolMask { get; set; }
-    protected virtual string RefKindBoolClearMask { get; set; }
-    protected virtual string RefKindIntMask { get; set; }
-    protected virtual string RefKindIntClearMask { get; set; }
+    protected virtual string Int60Mask { get; set; }
     protected virtual string Indent { get; set; }
     protected virtual string Space { get; set; }
     protected virtual string NewLine { get; set; }
+    protected virtual string Zero { get; set; }
     protected virtual string KeywordThis { get; set; }
     protected virtual string KeywordBase { get; set; }
     protected virtual string KeywordNull { get; set; }
+    protected virtual string KeywordFalse { get; set; }
+    protected virtual string KeywordTrue { get; set; }
     protected virtual string KeywordULong { get; set; }
     protected virtual string KeywordLong { get; set; }
     protected virtual string DelimitDot { get; set; }
@@ -301,42 +289,31 @@ public class ClassGenTraverse : Traverse
     {
         ClassClass operandClass;
         operandClass = this.Gen.System.Int;
-        return this.ExecuteTwoOperand(delimit, left, right, operandClass);
+
+        this.Text(this.DelimitLeftBracket);
+        this.ExecuteTwoOperand(delimit, left, right, operandClass);
+
+        this.Text(this.Space);
+        this.Text(this.DelimitAnd);
+        this.Text(this.Space);
+
+        this.Text(this.Int60Mask);
+
+        this.Text(this.DelimitRightBracket);
+
+        return true;
     }
 
     protected virtual bool ExecuteTwoOperand(string delimit, Operate left, Operate right, ClassClass operandClass)
     {
-        string mask;
-        mask = null;
-        bool b;
-        b = (operandClass == this.Gen.System.Int);
-        if (b)
-        {
-            mask = this.RefKindIntMask;
-        }
-        if (!b)
-        {
-            mask = this.RefKindBoolMask;
-        }
-
         this.Text(this.DelimitLeftBracket);
-
-        this.Text(this.DelimitLeftBracket);
-        this.ExecuteValueOperand(left, operandClass);
+        this.ExecuteInputOperate(left, operandClass);
 
         this.Text(this.Space);
         this.Text(delimit);
         this.Text(this.Space);
 
-        this.ExecuteValueOperand(right, operandClass);
-        this.Text(this.DelimitRightBracket);
-
-        this.Text(this.Space);
-        this.Text(this.DelimitOrn);
-        this.Text(this.Space);
-
-        this.Text(mask);
-
+        this.ExecuteInputOperate(right, operandClass);
         this.Text(this.DelimitRightBracket);
         return true;
     }
@@ -383,15 +360,15 @@ public class ClassGenTraverse : Traverse
         this.Text(delimit);
         this.Text(this.Space);
 
-        this.ExecuteValueOperand(value, this.Gen.System.Int);
+        this.ExecuteInputOperate(value, this.Gen.System.Int);
 
         this.Text(this.DelimitRightBracket);
 
         this.Text(this.Space);
-        this.Text(this.DelimitOrn);
+        this.Text(this.DelimitAnd);
         this.Text(this.Space);
 
-        this.Text(this.RefKindIntMask);
+        this.Text(this.Int60Mask);
 
         this.Text(this.DelimitRightBracket);
         return true;
@@ -467,56 +444,11 @@ public class ClassGenTraverse : Traverse
 
     protected virtual bool ExecuteBuiltinClassStart(SystemInfo systemInfo)
     {
-        if (systemInfo.Value == 2)
-        {
-            this.Text(this.DelimitLeftBracket);
-        }
         return true;
     }
 
     protected virtual bool ExecuteBuiltinClassEnd(SystemInfo systemInfo)
     {
-        if (systemInfo.Value == 2)
-        {
-            this.Text(this.Space);
-            this.Text(this.DelimitQuestion);
-            this.Text(this.Space);
-            
-            this.ExecuteBoolValue(true);
-
-            this.Text(this.Space);
-            this.Text(this.DelimitColon);
-            this.Text(this.Space);
-
-            this.ExecuteBoolValue(false);
-
-            this.Text(this.DelimitRightBracket);
-        }
-        return true;
-    }
-
-    protected virtual bool ExecuteValueOperand(Operate operate, ClassClass requiredClass)
-    {
-        string clearMask;
-        clearMask = null;
-        bool b;
-        b = (requiredClass == this.Gen.System.Int);
-        if (b)
-        {
-            clearMask = this.RefKindIntClearMask;
-        }
-        if (!b)
-        {
-            clearMask = this.RefKindBoolClearMask;
-        }
-
-        this.Text(this.DelimitLeftBracket);
-        this.ExecuteInputOperate(operate, requiredClass);
-        this.Text(this.Space);
-        this.Text(this.DelimitAnd);
-        this.Text(this.Space);
-        this.Text(clearMask);
-        this.Text(this.DelimitRightBracket);
         return true;
     }
 
@@ -535,16 +467,12 @@ public class ClassGenTraverse : Traverse
             ba = false;
             if (!ba & requiredClass == this.Gen.System.Bool)
             {
-                this.Text(this.InternBoolValueClass);
-                this.Text(this.DelimitDot);
-                this.Text(this.InternValueNull);
+                this.Text(this.KeywordFalse);
                 ba = true;
             }
             if (!ba & requiredClass == this.Gen.System.Int)
             {
-                this.Text(this.InternIntValueClass);
-                this.Text(this.DelimitDot);
-                this.Text(this.InternValueNull);
+                this.Text(this.Zero);
                 ba = true;
             }
             if (!ba)
@@ -558,25 +486,6 @@ public class ClassGenTraverse : Traverse
         {
             this.ExecuteOperate(operate);
         }
-        return true;
-    }
-
-    protected virtual bool ExecuteBoolValue(bool b)
-    {
-        string k;
-        k = null;
-        if (!b)
-        {
-            k = this.InternValueFalse;
-        }
-        if (b)
-        {
-            k = this.InternValueTrue;
-        }
-
-        this.Text(this.InternBoolValueClass);
-        this.Text(this.DelimitDot);
-        this.Text(k);
         return true;
     }
 
