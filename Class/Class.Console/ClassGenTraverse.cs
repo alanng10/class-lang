@@ -8,10 +8,11 @@ public class ClassGenTraverse : Traverse
         this.InternVarPrefix = "__V_";
         this.InternModuleInfoClass = "__C_ModuleInfo";
         this.Int60Mask = "0xf000000000000000UL";
+        this.SignIntShift = "4";
+        this.Zero = "0UL";
         this.Indent = new string(' ', 4);
         this.Space = " ";
         this.NewLine = "\n";
-        this.Zero = "0UL";
         this.KeywordThis = "this";
         this.KeywordBase = "base";
         this.KeywordNull = "null";
@@ -47,10 +48,11 @@ public class ClassGenTraverse : Traverse
     protected virtual string InternVarPrefix { get; set; }
     protected virtual string InternModuleInfoClass { get; set; }
     protected virtual string Int60Mask { get; set; }
+    protected virtual string SignIntShift { get; set; }
+    protected virtual string Zero { get; set; }
     protected virtual string Indent { get; set; }
     protected virtual string Space { get; set; }
     protected virtual string NewLine { get; set; }
-    protected virtual string Zero { get; set; }
     protected virtual string KeywordThis { get; set; }
     protected virtual string KeywordBase { get; set; }
     protected virtual string KeywordNull { get; set; }
@@ -471,14 +473,14 @@ public class ClassGenTraverse : Traverse
         this.Text(this.Space);
         this.Text(this.DelimitLeftShift);
         this.Text(this.Space);
-        this.Text("4");
+        this.Text(this.SignIntShift);
 
         this.Text(this.DelimitRightBracket);
 
         this.Text(this.Space);
         this.Text(this.DelimitRightShift);
         this.Text(this.Space);
-        this.Text("4");
+        this.Text(this.SignIntShift);
 
         this.Text(this.DelimitRightBracket);
         return true;
