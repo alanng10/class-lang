@@ -536,6 +536,57 @@ public class ClassGenTraverse : Traverse
         return true;
     }
 
+    public override bool ExecuteOperateExecute(OperateExecute operateExecute)
+    {
+        Operate any;
+        any = operateExecute.Any;
+        ClassClass c;
+        c = this.Info(any).OperateClass;
+
+        SystemClass system;
+        system = this.Gen.System;
+
+        string k;
+        k = null;
+        bool b;
+        b = false;
+        if (!b)
+        {
+            if (c == system.Bool)
+            {
+                k = this.InternOperateVarBool;
+                b = true;
+            }
+        }
+        if (!b)
+        {
+            if (c == system.Int)
+            {
+                k = this.InternOperateVarInt;
+                b = true;
+            }
+        }
+        if (!b)
+        {
+            k = this.InternOperateVarObject;
+        }
+
+        this.TextIndent();
+        
+        this.Text(this.InternOperateVarPrefix);
+        this.Text(k);
+
+        this.Text(this.Space);
+        this.Text(this.DelimitAssign);
+        this.Text(this.Space);
+
+        this.ExecuteOperate(any);
+
+        this.Text(this.DelimitSemicolon);
+        this.Text(this.NewLine);
+        return true;
+    }
+
     public override bool ExecuteVarTarget(VarTarget varTarget)
     {
         Var varVar;
