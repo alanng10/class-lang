@@ -84,6 +84,7 @@ public class ClassGenTraverse : Traverse
     protected virtual ListInfra ListInfra { get; set; }
     protected virtual CountList CountList { get; set; }
     protected virtual Field ThisField { get; set; }
+    protected virtual Maide ThisMaide { get; set; }
     protected virtual int MemberStateKind { get; set; }
     protected virtual ClassClass ResultClass { get; set; }
     protected virtual int ResultSystemInfo { get; set; }
@@ -345,9 +346,25 @@ public class ClassGenTraverse : Traverse
 
         if (b)
         {
-            if (this.MemberStateKind == 2)
+            int ka;
+            ka = this.MemberStateKind;
+            if (ka == 2)
             {
-                
+                Var valueVar;
+                valueVar = (Var)this.ThisField.Set.Get("value");
+                this.ExecuteInternVarInit(valueVar);
+            }
+            if (ka == 3)
+            {
+                Iter iter;
+                iter = this.TableIter;
+                this.ThisMaide.Param.IterSet(iter);
+                while (iter.Next())
+                {
+                    Var varVar;
+                    varVar = (Var)iter.Value;
+                    this.ExecuteInternVarInit(varVar);
+                }
             }
         }
 
