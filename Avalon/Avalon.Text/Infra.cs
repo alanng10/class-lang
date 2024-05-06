@@ -81,14 +81,15 @@ public class Infra : Any
             return null;
         }
 
-        int oa;
-        oa = sizeof(char);
+        long oa;
+        oa = count;
+        oa = oa * sizeof(char);
 
         Text a;
         a = new Text();
         a.Init();
         a.Data = new Data();
-        a.Data.Count = count * oa;
+        a.Data.Count = oa;
         a.Data.Init();
         a.Range = new Range();
         a.Range.Init();
