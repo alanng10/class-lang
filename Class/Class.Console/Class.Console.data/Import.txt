@@ -1,0 +1,1 @@
+global using __C_Any = Avalon.Infra.Any;
