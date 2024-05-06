@@ -15,6 +15,10 @@ public class ClassGenTraverse : Traverse
         this.InternClassShareThis = "This";
         this.InternVarPrefix = "__V_";
         this.InternDataPrefix = "__D_";
+        this.InternOperateVarPrefix = "__U_";
+        this.InternOperateVarObject = "O";
+        this.InternOperateVarBool = "B";
+        this.InternOperateVarInt = "I";
         this.InternValueShareClass = "__C_ValueShare";
         this.InternModuleInfoClass = "__C_ModuleInfo";
         this.Int60Mask = "0xf000000000000000UL";
@@ -99,6 +103,10 @@ public class ClassGenTraverse : Traverse
     protected virtual string InternClassShareThis { get; set; }
     protected virtual string InternVarPrefix { get; set; }
     protected virtual string InternDataPrefix { get; set; }
+    protected virtual string InternOperateVarPrefix { get; set; }
+    protected virtual string InternOperateVarObject { get; set; }
+    protected virtual string InternOperateVarBool { get; set; }
+    protected virtual string InternOperateVarInt { get; set; }
     protected virtual string InternValueShareClass { get; set; }
     protected virtual string InternModuleInfoClass { get; set; }
     protected virtual string Int60Mask { get; set; }
@@ -1034,6 +1042,22 @@ public class ClassGenTraverse : Traverse
             k = this.KeywordNull;
         }
         return k;
+    }
+
+    protected virtual bool ExecuteInternOperateVarDeclare(ClassClass varClass, string name)
+    {
+        this.TextIndent();
+        
+        this.ExecuteClassName(varClass, 0);
+        
+        this.Text(this.Space);
+        
+        this.Text(this.InternOperateVarPrefix);
+        this.Text(name);
+
+        this.Text(this.DelimitSemicolon);
+        this.Text(this.NewLine);
+        return true;
     }
 
     protected virtual bool ExecuteInternVarInit(Var varVar)
