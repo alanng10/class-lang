@@ -19,6 +19,7 @@ public class ClassGenTraverse : Traverse
         this.InternOperateVarObject = "O";
         this.InternOperateVarBool = "B";
         this.InternOperateVarInt = "I";
+        this.InternAnyClass = "__C_Any";
         this.InternValueShareClass = "__C_ValueShare";
         this.InternModuleInfoClass = "__C_ModuleInfo";
         this.Int60Mask = "0xf000000000000000UL";
@@ -108,6 +109,7 @@ public class ClassGenTraverse : Traverse
     protected virtual string InternOperateVarObject { get; set; }
     protected virtual string InternOperateVarBool { get; set; }
     protected virtual string InternOperateVarInt { get; set; }
+    protected virtual string InternAnyClass { get; set; }
     protected virtual string InternValueShareClass { get; set; }
     protected virtual string InternModuleInfoClass { get; set; }
     protected virtual string Int60Mask { get; set; }
@@ -384,9 +386,9 @@ public class ClassGenTraverse : Traverse
 
             SystemClass system;
             system = this.Gen.System;
-            this.ExecuteInternOperateVarDeclare(system.Any, this.InternOperateVarObject);
-            this.ExecuteInternOperateVarDeclare(system.Bool, this.InternOperateVarBool);
-            this.ExecuteInternOperateVarDeclare(system.Int, this.InternOperateVarInt);
+            this.ExecuteInternOperateVarDeclare(this.KeywordObject, this.InternOperateVarObject);
+            this.ExecuteInternOperateVarDeclare(this.KeywordBool, this.InternOperateVarBool);
+            this.ExecuteInternOperateVarDeclare(this.KeywordInt, this.InternOperateVarInt);
         }
 
         base.ExecuteState(state);
@@ -698,8 +700,7 @@ public class ClassGenTraverse : Traverse
             this.Text(this.DelimitLeftBracket);
 
             this.Text(this.DelimitLeftBracket);
-            this.Text(this.InternClassNamePrefix);
-            this.ExecuteClassTableName(c);
+            this.Text(this.InternAnyClass);
             this.Text(this.DelimitRightBracket);
             this.ExecuteOperate(callOperate.This);
 
@@ -1168,11 +1169,11 @@ public class ClassGenTraverse : Traverse
         return true;
     }
 
-    protected virtual bool ExecuteInternOperateVarDeclare(ClassClass varClass, string name)
+    protected virtual bool ExecuteInternOperateVarDeclare(string keywordType, string name)
     {
         this.TextIndent();
         
-        this.ExecuteClassName(varClass, 0);
+        this.Text(keywordType);
         
         this.Text(this.Space);
         
