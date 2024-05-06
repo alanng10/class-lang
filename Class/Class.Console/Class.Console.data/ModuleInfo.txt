@@ -4,5 +4,5 @@ class __C_ModuleInfo
 {
     public static readonly string Name = "#Name#";
 
-    public static readomly ulong Version = #Version#;
+    public static readonly ulong Version = #Version#;
 }
