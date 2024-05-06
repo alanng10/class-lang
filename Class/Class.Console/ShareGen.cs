@@ -31,8 +31,10 @@ public class ShareGen : Any
     {
         string o;
         o = this.SourceTemplate;
-        o = o.Replace("#ClassName#", this.Class.Name);
         
+        o = o.Replace("#ModuleName#", this.Class.Module.Ref.Name);
+        o = o.Replace("#ClassName#", this.Class.Name);
+
         this.Source = o;
         return true;
     }
