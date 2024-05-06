@@ -459,6 +459,7 @@ public class Create : InfraCreate
             Node node;
             node = (Node)o;
             node.Init();
+            node.Range = this.CreateRange();
             this.NodeArray.Set(i, node);
 
             i = i + 1;
@@ -4166,7 +4167,6 @@ public class Create : InfraCreate
 
     public virtual bool NodeInfo(Node node, int start, int end)
     {
-        node.Range = this.CreateRange();
         this.Range(node.Range, start, end);
         return true;
     }
