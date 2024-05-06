@@ -343,6 +343,14 @@ public class ClassGenTraverse : Traverse
         k = k + 1;
         this.IndentLevel = k;
 
+        if (b)
+        {
+            if (this.MemberStateKind == 2)
+            {
+                
+            }
+        }
+
         base.ExecuteState(state);
 
         if (b)
@@ -1004,6 +1012,53 @@ public class ClassGenTraverse : Traverse
             k = this.KeywordNull;
         }
         return k;
+    }
+
+    protected virtual bool ExecuteInternVarInit(Var varVar)
+    {
+        int systemInfo;
+        systemInfo = varVar.SystemInfo.Value;
+
+        if (!this.IsSystemTypeInt(systemInfo))
+        {
+            return true;
+        }
+
+        ClassClass c;
+        c = varVar.Class;
+        string name;
+        name = varVar.Name;
+
+        this.TextIndent();
+        
+        this.ExecuteClassName(c, systemInfo);
+        
+        this.Text(this.Space);
+
+        this.Text(this.InternVarPrefix);
+        this.Text(name);
+        
+        this.Text(this.DelimitSemicolon);
+        this.Text(this.NewLine);
+
+        this.TextIndent();
+        
+        this.Text(this.InternVarPrefix);
+        this.Text(name);
+        
+        this.Text(this.Space);
+        this.Text(this.DelimitAssign);
+        this.Text(this.Space);
+
+        this.ExecuteSystemTypeResultStart(systemInfo);
+
+        this.Text(name);
+
+        this.ExecuteSystemTypeResultEnd(systemInfo);
+
+        this.Text(this.DelimitSemicolon);
+        this.Text(this.NewLine);
+        return true;
     }
 
     protected virtual bool ExecuteCondBodyExecute(string keyword, Operate cond, State body)
