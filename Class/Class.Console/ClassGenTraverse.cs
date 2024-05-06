@@ -587,6 +587,23 @@ public class ClassGenTraverse : Traverse
 
         this.Text(this.DelimitSemicolon);
         this.Text(this.NewLine);
+
+        if (!b)
+        {
+            this.TextIndent();
+
+            this.Text(this.InternOperateVarPrefix);
+            this.Text(k);
+
+            this.Text(this.Space);
+            this.Text(this.DelimitAssign);
+            this.Text(this.Space);
+
+            this.Text(this.KeywordNull);
+
+            this.Text(this.DelimitSemicolon);
+            this.Text(this.NewLine);
+        }
         return true;
     }
 
