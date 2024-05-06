@@ -38,12 +38,14 @@ public class ModuleInfoGen : Any
 
     public virtual bool Execute()
     {
+        string version;
+        version = this.Version();
 
         string o;
         o = this.SourceTemplate;
         
         o = o.Replace("#Name#", this.ModuleRef.Name);
-        
+        o = o.Replace("#Version#", version);
 
         this.Source = o;
         return true;
