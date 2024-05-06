@@ -13,6 +13,7 @@ public class ShareGen : Any
     }
 
     public virtual ClassClass Class { get; set; }
+    public virtual bool Export { get; set; }
     public virtual string Source { get; set; }
     protected virtual InfraInfra InfraInfra { get; set; }
     protected virtual StorageInfra StorageInfra { get; set; }
@@ -29,11 +30,19 @@ public class ShareGen : Any
 
     public virtual bool Execute()
     {
+        string ka;
+        ka = "";
+        if (this.Export)
+        {
+            ka = "public ";
+        }
+
         string o;
         o = this.SourceTemplate;
         
         o = o.Replace("#ModuleName#", this.Class.Module.Ref.Name);
         o = o.Replace("#ClassName#", this.Class.Name);
+        o = o.Replace("#Export#", ka);
 
         this.Source = o;
         return true;
