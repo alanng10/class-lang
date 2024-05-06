@@ -18,6 +18,7 @@ public class Gen : Any
     public virtual string Namespace { get; set; }
     public virtual string ClassName { get; set; }
     public virtual string BaseClassName { get; set; }
+    public virtual string AnyClassName { get; set; }
     public virtual bool Export { get; set; }
     public virtual string ItemClassName { get; set; }
     public virtual string ArrayClassName { get; set; }
@@ -42,6 +43,7 @@ public class Gen : Any
         sb = new StringBuilder(a);
         sb.Replace("#Namespace#", this.Namespace);
         sb.Replace("#ClassName#", this.ClassName);
+        sb.Replace("#AnyClassName#", this.AnyClassName);
         sb.Replace("#BaseClassName#", this.BaseClassName);
 
         string aa;

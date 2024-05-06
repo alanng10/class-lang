@@ -8,7 +8,7 @@ namespace #Namespace#;
     {
         #ClassName# share;
         share = new #ClassName#();
-        Any a;
+        #AnyClassName# a;
         a = share;
         a.Init();
         return share;
