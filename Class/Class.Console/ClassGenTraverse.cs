@@ -349,31 +349,6 @@ public class ClassGenTraverse : Traverse
         ClassClass c;
         c = varVar.Class;
 
-        bool b;
-        b = false;
-        string k;
-        k = null;
-        if (!b)
-        {
-            if (c == system.Bool)
-            {
-                k = this.KeywordFalse;
-                b = true;
-            }
-        }
-        if (!b)
-        {
-            if (c == system.Int)
-            {
-                k = this.Zero;
-                b = true;
-            }
-        }
-        if (!b)
-        {
-            k = this.KeywordNull;
-        }
-
         this.TextIndent();
 
         this.ExecuteClassName(c, 0);
@@ -393,7 +368,7 @@ public class ClassGenTraverse : Traverse
         this.Text(this.DelimitAssign);
         this.Text(this.Space);
 
-        this.Text(k);
+        this.Text(this.AnyDefault(c));
 
         this.Text(this.DelimitSemicolon);
         this.Text(this.NewLine);
