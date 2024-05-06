@@ -1,1 +1,5 @@
 global using __C_Any = Avalon.Infra.Any;
+global using __C_String = Z.Infra.Class.String;
+global using __C_ValueInit = Z.Infra.Class.ValueInit
+global using __C_ValueShare = Z.Infra.Class.ValueShare
+#Import#
