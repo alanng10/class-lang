@@ -1,0 +1,16 @@
+namespace C.#ModuleName#;
+
+#Export#class __S_#ClassName#
+{
+    public static #ClassName# This { get; } = ShareCreate();
+
+    private static #ClassName# ShareCreate()
+    {
+        #ClassName# share;
+        share = new #ClassName#();
+        Any a;
+        a = share;
+        a.Init();
+        return share;
+    }
+}
