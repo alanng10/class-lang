@@ -8,6 +8,7 @@ public class Gen : SourceGen
         this.Namespace = "Avalon.Draw";
         this.ClassName = "GradientKindList";
         this.BaseClassName = "Any";
+        this.AnyClassName = "Any";
         this.ItemClassName = "GradientKind";
         this.ArrayClassName = "Array";
         this.Export = true;

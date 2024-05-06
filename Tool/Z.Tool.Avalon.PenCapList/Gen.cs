@@ -8,6 +8,7 @@ public class Gen : SourceGen
         this.Namespace = "Avalon.Draw";
         this.ClassName = "PenCapList";
         this.BaseClassName = "Any";
+        this.AnyClassName = "Any";
         this.ItemClassName = "PenCap";
         this.ArrayClassName = "Array";
         this.Export = true;

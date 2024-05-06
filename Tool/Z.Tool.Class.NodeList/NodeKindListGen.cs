@@ -8,6 +8,7 @@ public class NodeKindListGen : SourceGen
         this.Namespace = "Class.Node";
         this.ClassName = "NodeKindList";
         this.BaseClassName = "Any";
+        this.AnyClassName = "Any";
         this.ItemClassName = "NodeKind";
         this.ArrayClassName = "Array";
         this.Export = true;

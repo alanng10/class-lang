@@ -8,6 +8,7 @@ public class Gen : SourceGen
         this.Namespace = "Class.Infra";
         this.ClassName = "DelimitList";
         this.BaseClassName = "Any";
+        this.AnyClassName = "Any";
         this.ItemClassName = "Delimit";
         this.ArrayClassName = "Array";
         this.Export = true;

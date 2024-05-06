@@ -8,6 +8,7 @@ public class Gen : SourceGen
         this.Namespace = "Avalon.Text";
         this.ClassName = "EncodeKindList";
         this.BaseClassName = "Any";
+        this.AnyClassName = "Any";
         this.ItemClassName = "EncodeKind";
         this.ArrayClassName = "Array";
         this.Export = true;

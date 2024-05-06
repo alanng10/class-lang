@@ -14,6 +14,7 @@ public class Gen : SourceGen
         this.Namespace = "Class." + name;
         this.ClassName = "ErrorKindList";
         this.BaseClassName = "Any";
+        this.AnyClassName = "Any";
         this.ItemClassName = "ErrorKind";
         this.ArrayClassName = "Array";
         this.Export = true;

@@ -8,6 +8,7 @@ public class Gen : SourceGen
         this.Namespace = "Avalon.Draw";
         this.ClassName = "BrushKindList";
         this.BaseClassName = "Any";
+        this.AnyClassName = "Any";
         this.ItemClassName = "BrushKind";
         this.ArrayClassName = "Array";
         this.Export = true;

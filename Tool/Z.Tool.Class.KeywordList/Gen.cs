@@ -8,6 +8,7 @@ public class Gen : SourceGen
         this.Namespace = "Class.Infra";
         this.ClassName = "KeywordList";
         this.BaseClassName = "Any";
+        this.AnyClassName = "Any";
         this.ItemClassName = "Keyword";
         this.ArrayClassName = "Array";
         this.Export = true;

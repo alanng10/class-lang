@@ -8,6 +8,7 @@ public class Gen : SourceGen
         this.Namespace = "Avalon.Network";
         this.ClassName = "StatusList";
         this.BaseClassName = "Any";
+        this.AnyClassName = "Any";
         this.ItemClassName = "Status";
         this.ArrayClassName = "Array";
         this.Export = true;

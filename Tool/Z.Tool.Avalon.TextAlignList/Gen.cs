@@ -9,6 +9,7 @@ public class Gen : SourceGen
         this.Namespace = "Avalon.Draw";
         this.ClassName = "TextAlignList";
         this.BaseClassName = "Any";
+        this.AnyClassName = "Any";
         this.ItemClassName = "TextAlign";
         this.ArrayClassName = "Array";
         this.Export = true;

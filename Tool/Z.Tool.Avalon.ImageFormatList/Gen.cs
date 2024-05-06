@@ -8,6 +8,7 @@ public class Gen : SourceGen
         this.Namespace = "Avalon.Draw";
         this.ClassName = "ImageFormatList";
         this.BaseClassName = "Any";
+        this.AnyClassName = "Any";
         this.ItemClassName = "ImageFormat";
         this.ArrayClassName = "Array";
         this.Export = true;

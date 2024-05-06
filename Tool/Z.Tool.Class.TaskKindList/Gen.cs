@@ -8,6 +8,7 @@ public class Gen : SourceGen
         this.Namespace = "Class.Console";
         this.ClassName = "TaskKindList";
         this.BaseClassName = "Any";
+        this.AnyClassName = "Any";
         this.ItemClassName = "TaskKind";
         this.ArrayClassName = "Array";
         this.Export = true;

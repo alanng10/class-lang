@@ -8,6 +8,7 @@ public class Gen : SourceGen
         this.Namespace = "Avalon.Network";
         this.ClassName = "PortKindList";
         this.BaseClassName = "Any";
+        this.AnyClassName = "Any";
         this.ItemClassName = "PortKind";
         this.ArrayClassName = "Array";
         this.Export = true;
