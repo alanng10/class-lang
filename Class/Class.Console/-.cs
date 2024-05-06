@@ -28,7 +28,6 @@ global using Error = Class.Infra.Error;
 global using ErrorKind = Class.Infra.ErrorKind;
 global using Range = Class.Infra.Range;
 global using ModuleRef = Class.Infra.ModuleRef;
-global using ClassIntValue = Class.Infra.IntValue;
 global using ClassInfra = Class.Infra.Infra;
 global using BinaryBinary = Class.Binary.Binary;
 global using BinaryClass = Class.Binary.Class;
