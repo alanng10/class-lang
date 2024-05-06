@@ -19,7 +19,7 @@ public class ClassGenTraverse : Traverse
         this.InternModuleInfoClass = "__C_ModuleInfo";
         this.Int60Mask = "0xf000000000000000UL";
         this.SignIntShift = "4";
-        this.Zero = "0UL";
+        this.Zero = "0";
         this.Indent = new string(' ', 4);
         this.Space = " ";
         this.NewLine = "\n";
@@ -86,6 +86,7 @@ public class ClassGenTraverse : Traverse
     protected virtual Field ThisField { get; set; }
     protected virtual ClassClass ResultClass { get; set; }
     protected virtual int ResultSystemInfo { get; set; }
+    protected virtual bool TopLevelState { get; set; }
     protected virtual Iter TableIter { get; set; }
     protected virtual Array CountAccessWord { get; set; }
     protected virtual Array SystemTypeIntName { get; set; }
@@ -266,6 +267,7 @@ public class ClassGenTraverse : Traverse
 
         this.ResultClass = field.Class;
         this.ResultSystemInfo = field.SystemInfo.Value;
+        this.TopLevelState = true;
 
         this.ExecuteState(nodeField.Get);
 
@@ -287,6 +289,7 @@ public class ClassGenTraverse : Traverse
 
         this.ResultClass = this.Gen.System.Bool;
         this.ResultSystemInfo = 0;
+        this.TopLevelState = true;
 
         this.ExecuteState(nodeField.Set);
 
@@ -325,6 +328,10 @@ public class ClassGenTraverse : Traverse
 
     public override bool ExecuteState(State state)
     {
+        bool b;
+        b = this.TopLevelState;
+        this.TopLevelState = false;
+
         int k;
         k = this.IndentLevel;
         
@@ -332,6 +339,18 @@ public class ClassGenTraverse : Traverse
         this.IndentLevel = k;
 
         base.ExecuteState(state);
+
+        if (b)
+        {
+            this.TextIndent();
+            this.Text(this.KeywordReturn);
+            this.Text(this.Space);
+            
+            this.Text(this.AnyDefault(this.ResultClass));
+
+            this.Text(this.DelimitSemicolon);
+            this.Text(this.NewLine);
+        }
 
         k = k - 1;
         this.IndentLevel = k;
