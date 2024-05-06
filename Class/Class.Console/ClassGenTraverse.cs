@@ -84,6 +84,7 @@ public class ClassGenTraverse : Traverse
     protected virtual ListInfra ListInfra { get; set; }
     protected virtual CountList CountList { get; set; }
     protected virtual Field ThisField { get; set; }
+    protected virtual int MemberStateKind { get; set; }
     protected virtual ClassClass ResultClass { get; set; }
     protected virtual int ResultSystemInfo { get; set; }
     protected virtual bool TopLevelState { get; set; }
@@ -267,12 +268,14 @@ public class ClassGenTraverse : Traverse
 
         this.ResultClass = field.Class;
         this.ResultSystemInfo = field.SystemInfo.Value;
+        this.MemberStateKind = 1;
         this.TopLevelState = true;
 
         this.ExecuteState(nodeField.Get);
 
         this.ResultClass = null;
         this.ResultSystemInfo = 0;
+        this.MemberStateKind = 0;
 
         this.TextIndent();
         this.Text(this.DelimitRightBrace);
@@ -289,11 +292,13 @@ public class ClassGenTraverse : Traverse
 
         this.ResultClass = this.Gen.System.Bool;
         this.ResultSystemInfo = 0;
+        this.MemberStateKind = 2;
         this.TopLevelState = true;
 
         this.ExecuteState(nodeField.Set);
 
         this.ResultClass = null;
+        this.MemberStateKind = 0;
 
         this.TextIndent();
         this.Text(this.DelimitRightBrace);
