@@ -2,6 +2,7 @@ global using Any = Avalon.Infra.Any;
 global using Data = Avalon.Infra.Data;
 global using InfraRange = Avalon.Infra.Range;
 global using InfraInfra = Avalon.Infra.Infra;
+global using StringCreate = Avalon.Infra.StringCreate;
 global using StringJoin = Avalon.Infra.StringJoin;
 global using StringCompare = Avalon.Infra.StringCompare;
 global using List = Avalon.List.List;

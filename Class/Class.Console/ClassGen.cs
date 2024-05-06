@@ -6,15 +6,21 @@ public class ClassGen : Any
     {
         base.Init();
         this.ClassInfra = ClassInfra.This;
+
         this.CountOperate = new CountClassGenOperate();
         this.CountOperate.Gen = this;
         this.CountOperate.Init();
         this.SetOperate = new SetClassGenOperate();
         this.SetOperate.Gen = this;
         this.SetOperate.Init();
+
         this.Traverse = new ClassGenTraverse();
         this.Traverse.Gen = this;
         this.Traverse.Init();
+        
+        this.StringCreate = new StringCreate();
+        this.StringCreate.Init();
+
         this.ModuleRef = this.ClassInfra.ModuleRefCreate(null, 0);
         return true;
     }
@@ -26,16 +32,17 @@ public class ClassGen : Any
     public virtual Table ClassShare { get; set; }
     public virtual ClassClass NullClass { get; set; }
     public virtual SystemClass System { get; set; }
-    public virtual Data Data { get; set; }
     public virtual GenArg Arg { get; set; }
     public virtual ClassGenOperate Operate { get; set; }
     public virtual Maide AnyInitMaide { get; set; }
     public virtual Maide ModuleInfoNameMaide { get; set; }
     public virtual Maide ModuleInfoVersionMaide { get; set; }
+    public virtual string Source { get; set; }
     protected virtual ClassInfra ClassInfra { get; set; }
     protected virtual CountClassGenOperate CountOperate { get; set; }
     protected virtual SetClassGenOperate SetOperate { get; set; }
     protected virtual ClassGenTraverse Traverse { get; set; }
+    protected virtual StringCreate StringCreate { get; set; }
     protected virtual ModuleRef ModuleRef { get; set; }
 
     public virtual bool Execute()
@@ -62,7 +69,12 @@ public class ClassGen : Any
         this.ResetStageIndex();
         this.ExecuteStage();
 
-        this.Data = this.Arg.Data;
+        string o;
+        o = this.StringCreate.Data(data, null);
+
+        this.Source = o;
+
+        this.Operate = null;
         this.Arg = null;
         return true;
     }
