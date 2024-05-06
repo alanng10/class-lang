@@ -29,6 +29,7 @@ public class ClassGen : Any
     public virtual Data Data { get; set; }
     public virtual GenArg Arg { get; set; }
     public virtual ClassGenOperate Operate { get; set; }
+    public virtual Maide AnyInitMaide { get; set; }
     public virtual Maide ModuleInfoNameMaide { get; set; }
     public virtual Maide ModuleInfoVersionMaide { get; set; }
     protected virtual ClassInfra ClassInfra { get; set; }
