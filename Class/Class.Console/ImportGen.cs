@@ -6,7 +6,6 @@ public class ImportGen : Any
     {
         base.Init();
         this.InfraInfra = InfraInfra.This;
-        this.TextInfra = TextInfra.This;
         this.StorageInfra = StorageInfra.This;
 
         this.InitSourceTemplate();
@@ -16,7 +15,6 @@ public class ImportGen : Any
     public virtual Table ClassImportName { get; set; }
     public virtual string Source { get; set; }
     protected virtual InfraInfra InfraInfra { get; set; }
-    protected virtual TextInfra TextInfra { get; set; }
     protected virtual StorageInfra StorageInfra { get; set; }
     protected virtual string SourceTemplate { get; set; }
 
