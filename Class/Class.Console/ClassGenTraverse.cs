@@ -379,6 +379,12 @@ public class ClassGenTraverse : Traverse
                     this.ExecuteInternVarInit(varVar);
                 }
             }
+
+            SystemClass system;
+            system = this.Gen.System;
+            this.ExecuteInternOperateVarDeclare(system.Any, this.InternOperateVarObject);
+            this.ExecuteInternOperateVarDeclare(system.Bool, this.InternOperateVarBool);
+            this.ExecuteInternOperateVarDeclare(system.Int, this.InternOperateVarInt);
         }
 
         base.ExecuteState(state);
