@@ -8,7 +8,7 @@ namespace C.#ModuleName#;
     {
         #ClassName# share;
         share = new #ClassName#();
-        #AnyClassName# a;
+        __C_Any a;
         a = share;
         a.Init();
         return share;
