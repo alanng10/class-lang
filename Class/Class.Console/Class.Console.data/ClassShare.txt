@@ -2,12 +2,12 @@ namespace C.#ModuleName#;
 
 #Export#class __S_#ClassName#
 {
-    public static #ClassName# This { get; } = ShareCreate();
+    public static _#ClassName# This { get; } = ShareCreate();
 
-    private static #ClassName# ShareCreate()
+    private static _#ClassName# ShareCreate()
     {
         #ClassName# share;
-        share = new #ClassName#();
+        share = new _#ClassName#();
         __C_Any a;
         a = share;
         a.Init();
