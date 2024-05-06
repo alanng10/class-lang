@@ -20,8 +20,6 @@ public class ClassGen : Any
         
         this.StringCreate = new StringCreate();
         this.StringCreate.Init();
-
-        this.ModuleRef = this.ClassInfra.ModuleRefCreate(null, 0);
         return true;
     }
 
@@ -43,7 +41,6 @@ public class ClassGen : Any
     protected virtual SetClassGenOperate SetOperate { get; set; }
     protected virtual ClassGenTraverse Traverse { get; set; }
     protected virtual StringCreate StringCreate { get; set; }
-    protected virtual ModuleRef ModuleRef { get; set; }
 
     public virtual bool Execute()
     {
