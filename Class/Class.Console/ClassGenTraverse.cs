@@ -680,43 +680,75 @@ public class ClassGenTraverse : Traverse
         Maide maide;
         maide = this.Info(callOperate).CallMaide;
         
+        ClassClass c;
+        c = this.Info(callOperate.This).OperateClass;
+
         int u;
         u = maide.SystemInfo.Value;
 
         this.ExecuteSystemTypeResultStart(u);
         
         bool b;
-        b = (maide == this.Gen.ModuleInfoNameMaide | maide == this.Gen.ModuleInfoVersionMaide);
+        b = (c == this.Gen.System.Any & maide == this.Gen.AnyInitMaide);
+
         if (b)
         {
             this.Text(this.DelimitLeftBracket);
 
-            this.ExecuteOperate(callOperate.This);
-            this.Text(this.DelimitDot);
-            this.Text(callOperate.Maide.Value);
-            
             this.Text(this.DelimitLeftBracket);
 
-            this.Text(this.InternModuleInfoClass);
-            this.Text(this.DelimitDot);
-            this.Text(maide.Name);
-    
+            this.Text(this.DelimitLeftBracket);
+            this.Text(this.InternClassNamePrefix);
+            this.ExecuteClassTableName(c);
             this.Text(this.DelimitRightBracket);
-            
+            this.ExecuteOperate(callOperate.This);
+
+            this.Text(this.DelimitRightBracket);
+
+            this.Text(this.DelimitDot);
+
+            this.Text(callOperate.Maide.Value);
+
+            this.Text(this.DelimitLeftBracket);
+            this.Text(this.DelimitRightBracket);
+
             this.Text(this.DelimitRightBracket);
         }
         if (!b)
         {
-            this.Text(this.DelimitLeftBracket);
+            bool ba;
+            ba = (maide == this.Gen.ModuleInfoNameMaide | maide == this.Gen.ModuleInfoVersionMaide);
+            if (ba)
+            {
+                this.Text(this.DelimitLeftBracket);
 
-            this.ExecuteOperate(callOperate.This);
-            this.Text(this.DelimitDot);
-            this.Text(callOperate.Maide.Value);
-            this.Text(this.DelimitLeftBracket);
-            this.ExecuteMaideArgue(maide, callOperate.Argue);
-            this.Text(this.DelimitRightBracket);
-            
-            this.Text(this.DelimitRightBracket);
+                this.ExecuteOperate(callOperate.This);
+                this.Text(this.DelimitDot);
+                this.Text(callOperate.Maide.Value);
+                
+                this.Text(this.DelimitLeftBracket);
+
+                this.Text(this.InternModuleInfoClass);
+                this.Text(this.DelimitDot);
+                this.Text(maide.Name);
+        
+                this.Text(this.DelimitRightBracket);
+                
+                this.Text(this.DelimitRightBracket);
+            }
+            if (!ba)
+            {
+                this.Text(this.DelimitLeftBracket);
+
+                this.ExecuteOperate(callOperate.This);
+                this.Text(this.DelimitDot);
+                this.Text(callOperate.Maide.Value);
+                this.Text(this.DelimitLeftBracket);
+                this.ExecuteMaideArgue(maide, callOperate.Argue);
+                this.Text(this.DelimitRightBracket);
+                
+                this.Text(this.DelimitRightBracket);
+            }
         }
 
         this.ExecuteSystemTypeResultEnd(u);
