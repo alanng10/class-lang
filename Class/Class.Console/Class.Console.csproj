@@ -14,4 +14,8 @@
         <ProjectReference Include="../Class.Module/Class.Module.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+        <Content Include="Class.Console.data/*" CopyToOutputDirectory="PreserveNewest" />
+    </ItemGroup>
+
 </Project>
