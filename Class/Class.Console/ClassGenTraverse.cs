@@ -85,6 +85,7 @@ public class ClassGenTraverse : Traverse
     protected virtual CountList CountList { get; set; }
     protected virtual Field ThisField { get; set; }
     protected virtual Maide ThisMaide { get; set; }
+    protected virtual Var ThisFieldData { get; set; }
     protected virtual int MemberStateKind { get; set; }
     protected virtual ClassClass ResultClass { get; set; }
     protected virtual int ResultSystemInfo { get; set; }
@@ -270,6 +271,7 @@ public class ClassGenTraverse : Traverse
         this.ResultClass = field.Class;
         this.ResultSystemInfo = field.SystemInfo.Value;
         this.MemberStateKind = 1;
+        this.ThisFieldData = (Var)field.Get.Get("data");
         this.TopLevelState = true;
 
         this.ExecuteState(nodeField.Get);
@@ -277,6 +279,7 @@ public class ClassGenTraverse : Traverse
         this.ResultClass = null;
         this.ResultSystemInfo = 0;
         this.MemberStateKind = 0;
+        this.ThisFieldData = null;
 
         this.TextIndent();
         this.Text(this.DelimitRightBrace);
@@ -294,12 +297,14 @@ public class ClassGenTraverse : Traverse
         this.ResultClass = this.Gen.System.Bool;
         this.ResultSystemInfo = 0;
         this.MemberStateKind = 2;
+        this.ThisFieldData = (Var)field.Set.Get("data");
         this.TopLevelState = true;
 
         this.ExecuteState(nodeField.Set);
 
         this.ResultClass = null;
         this.MemberStateKind = 0;
+        this.ThisFieldData = null;
 
         this.TextIndent();
         this.Text(this.DelimitRightBrace);
@@ -482,7 +487,7 @@ public class ClassGenTraverse : Traverse
 
             if (!(this.ThisField == null))
             {
-                if (varVar.Name == "data")
+                if (varVar == this.ThisFieldData)
                 {
                     systemInfo = this.ThisField.SystemInfo.Value;
                     b = true;
@@ -745,7 +750,7 @@ public class ClassGenTraverse : Traverse
 
         if (!(this.ThisField == null))
         {
-            if (varVar.Name == "data")
+            if (varVar == this.ThisFieldData)
             {
                 systemInfo = this.ThisField.SystemInfo.Value;
                 b = true;
