@@ -1,4 +1,4 @@
-namespace C.#Name#
+namespace C.#Name#;
 
 class __C_ModuleInfo
 {
