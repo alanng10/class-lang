@@ -24,6 +24,7 @@ public class ClassGenTraverse : Traverse
         this.Int60Mask = "0xf000000000000000UL";
         this.SignIntShift = "4";
         this.Zero = "0";
+        this.ZeroChar = "\'\\0\'";
         this.Indent = new string(' ', 4);
         this.Space = " ";
         this.NewLine = "\n";
@@ -112,6 +113,7 @@ public class ClassGenTraverse : Traverse
     protected virtual string Int60Mask { get; set; }
     protected virtual string SignIntShift { get; set; }
     protected virtual string Zero { get; set; }
+    protected virtual string ZeroChar { get; set; }
     protected virtual string Indent { get; set; }
     protected virtual string Space { get; set; }
     protected virtual string NewLine { get; set; }
@@ -395,7 +397,7 @@ public class ClassGenTraverse : Traverse
             this.Text(this.KeywordReturn);
             this.Text(this.Space);
             
-            this.Text(this.AnyDefault(this.ResultClass));
+            this.ExecuteAnyDefault(this.ResultClass, this.ResultSystemInfo);
 
             this.Text(this.DelimitSemicolon);
             this.Text(this.NewLine);
@@ -470,7 +472,7 @@ public class ClassGenTraverse : Traverse
         this.Text(this.DelimitAssign);
         this.Text(this.Space);
 
-        this.Text(this.AnyDefault(c));
+        this.ExecuteAnyDefault(c, 0);
 
         this.Text(this.DelimitSemicolon);
         this.Text(this.NewLine);
@@ -1071,19 +1073,19 @@ public class ClassGenTraverse : Traverse
         return (string)this.CountAccessWord.Get(count.Index);
     }
 
-    protected virtual string AnyDefault(ClassClass c)
+    protected virtual bool ExecuteAnyDefault(ClassClass c, int systemInfo)
     {
         SystemClass system;
         system = this.Gen.System;
+
         bool b;
         b = false;
-        string k;
-        k = null;
+        
         if (!b)
         {
             if (c == system.Bool)
             {
-                k = this.KeywordFalse;
+                this.Text(this.KeywordFalse);
                 b = true;
             }
         }
@@ -1091,15 +1093,30 @@ public class ClassGenTraverse : Traverse
         {
             if (c == system.Int)
             {
-                k = this.Zero;
+                string k;
+                k = null;
+                
+                bool ba;
+                ba = (systemInfo == 11);
+                if (ba)
+                {
+                    k = this.ZeroChar;
+                }
+                if (!ba)
+                {
+                    k = this.Zero;
+                }
+                
+                this.Text(k);
+                
                 b = true;
             }
         }
         if (!b)
         {
-            k = this.KeywordNull;
+            this.Text(this.KeywordNull);
         }
-        return k;
+        return true;
     }
 
     protected virtual bool ExecuteInternOperateVarDeclare(ClassClass varClass, string name)
