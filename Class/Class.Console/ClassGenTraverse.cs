@@ -1031,7 +1031,7 @@ public class ClassGenTraverse : Traverse
 
         this.TextIndent();
         
-        this.ExecuteClassName(c, systemInfo);
+        this.ExecuteClassName(this.Gen.System.Int, 0);
         
         this.Text(this.Space);
 
