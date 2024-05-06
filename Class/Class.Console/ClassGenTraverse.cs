@@ -34,6 +34,7 @@ public class ClassGenTraverse : Traverse
         this.KeywordSet = "set";
         this.KeywordIf = "if";
         this.KeywordWhile = "while";
+        this.KeywordReturn = "return";
         this.KeywordNew = "new";
         this.KeywordThis = "this";
         this.KeywordBase = "base";
@@ -113,6 +114,7 @@ public class ClassGenTraverse : Traverse
     protected virtual string KeywordSet { get; set; }
     protected virtual string KeywordIf { get; set; }
     protected virtual string KeywordWhile { get; set; }
+    protected virtual string KeywordReturn { get; set; }
     protected virtual string KeywordNew { get; set; }
     protected virtual string KeywordThis { get; set; }
     protected virtual string KeywordBase { get; set; }
@@ -289,7 +291,7 @@ public class ClassGenTraverse : Traverse
         this.ExecuteState(nodeField.Set);
 
         this.ResultClass = null;
-        
+
         this.TextIndent();
         this.Text(this.DelimitRightBrace);
         this.Text(this.NewLine);
@@ -350,6 +352,20 @@ public class ClassGenTraverse : Traverse
 
     public override bool ExecuteReturnExecute(ReturnExecute returnExecute)
     {
+        this.TextIndent();
+
+        this.Text(this.KeywordReturn);
+        
+        this.Text(this.Space);
+
+        this.ExecuteSystemTypeInnStart(this.ResultSystemInfo);
+
+        this.ExecuteOperate(returnExecute.Result);
+
+        this.ExecuteSystemTypeInnEnd(this.ResultSystemInfo);
+
+        this.Text(this.DelimitSemicolon);
+        this.Text(this.NewLine);
         return true;
     }
 
