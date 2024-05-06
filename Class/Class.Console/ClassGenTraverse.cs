@@ -942,6 +942,37 @@ public class ClassGenTraverse : Traverse
         return (string)this.CountAccessWord.Get(count.Index);
     }
 
+    protected virtual string AnyDefault(ClassClass c)
+    {
+        SystemClass system;
+        system = this.Gen.System;
+        bool b;
+        b = false;
+        string k;
+        k = null;
+        if (!b)
+        {
+            if (c == system.Bool)
+            {
+                k = this.KeywordFalse;
+                b = true;
+            }
+        }
+        if (!b)
+        {
+            if (c == system.Int)
+            {
+                k = this.Zero;
+                b = true;
+            }
+        }
+        if (!b)
+        {
+            k = this.KeywordNull;
+        }
+        return k;
+    }
+
     protected virtual bool ExecuteCondBodyExecute(string keyword, Operate cond, State body)
     {
         this.TextIndent();
