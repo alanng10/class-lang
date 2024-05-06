@@ -540,6 +540,7 @@ public class ClassGenTraverse : Traverse
     {
         Operate any;
         any = operateExecute.Any;
+        
         ClassClass c;
         c = this.Info(any).OperateClass;
 
