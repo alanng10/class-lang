@@ -83,6 +83,8 @@ public class ClassGenTraverse : Traverse
     protected virtual ListInfra ListInfra { get; set; }
     protected virtual CountList CountList { get; set; }
     protected virtual Field ThisField { get; set; }
+    protected virtual ClassClass ResultClass { get; set; }
+    protected virtual int ResultSystemInfo { get; set; }
     protected virtual Iter TableIter { get; set; }
     protected virtual Array CountAccessWord { get; set; }
     protected virtual Array SystemTypeIntName { get; set; }
@@ -260,7 +262,13 @@ public class ClassGenTraverse : Traverse
         this.Text(this.DelimitLeftBrace);
         this.Text(this.NewLine);
 
+        this.ResultClass = field.Class;
+        this.ResultSystemInfo = field.SystemInfo.Value;
+
         this.ExecuteState(nodeField.Get);
+
+        this.ResultClass = null;
+        this.ResultSystemInfo = 0;
 
         this.TextIndent();
         this.Text(this.DelimitRightBrace);
@@ -275,8 +283,13 @@ public class ClassGenTraverse : Traverse
         this.Text(this.DelimitLeftBrace);
         this.Text(this.NewLine);
 
+        this.ResultClass = this.Gen.System.Bool;
+        this.ResultSystemInfo = 0;
+
         this.ExecuteState(nodeField.Set);
 
+        this.ResultClass = null;
+        
         this.TextIndent();
         this.Text(this.DelimitRightBrace);
         this.Text(this.NewLine);
@@ -332,6 +345,11 @@ public class ClassGenTraverse : Traverse
     public override bool ExecuteWhileExecute(WhileExecute whileExecute)
     {
         this.ExecuteCondBodyExecute(this.KeywordWhile, whileExecute.Cond, whileExecute.Loop);
+        return true;
+    }
+
+    public override bool ExecuteReturnExecute(ReturnExecute returnExecute)
+    {
         return true;
     }
 
