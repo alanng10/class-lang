@@ -689,13 +689,16 @@ public class ClassGenTraverse : Traverse
         ClassClass c;
         c = this.Info(callOperate.This).OperateClass;
 
+        SystemClass system;
+        system = this.Gen.System;
+
         int u;
         u = maide.SystemInfo.Value;
 
         this.ExecuteSystemTypeResultStart(u);
         
         bool b;
-        b = (c == this.Gen.System.Any & maide == this.Gen.AnyInitMaide);
+        b = (c == system.Any & maide == this.Gen.AnyInitMaide);
 
         if (b)
         {
@@ -712,7 +715,7 @@ public class ClassGenTraverse : Traverse
 
             this.Text(this.DelimitDot);
 
-            this.Text(callOperate.Maide.Value);
+            this.Text(maide.Name);
 
             this.Text(this.DelimitLeftBracket);
             this.Text(this.DelimitRightBracket);
@@ -722,10 +725,33 @@ public class ClassGenTraverse : Traverse
         if (!b)
         {
             bool bb;
-            bb = (c == this.Gen.System.String);
+            bb = (c == system.String);
             if (bb)
             {
+                this.Text(this.DelimitLeftBracket);
 
+                this.Text(this.DelimitLeftBracket);
+                this.Text(this.InternStringClass);
+                this.Text(this.DelimitDot);
+                this.Text(this.InternClassShareThis);
+                this.Text(this.DelimitRightBracket);
+
+                this.Text(this.DelimitDot);
+                this.Text(this.InternStringMaideCallPrefix);
+                this.Text(maide.Name);
+
+                this.Text(this.DelimitLeftBracket);
+                
+                this.ExecuteOperate(callOperate.This);
+
+                this.Text(this.DelimitComma);
+                this.Text(this.Space);
+
+                this.ExecuteMaideArgue(maide, callOperate.Argue);
+
+                this.Text(this.DelimitRightBracket);
+
+                this.Text(this.DelimitRightBracket);
             }
             if (!bb)
             {
@@ -755,7 +781,7 @@ public class ClassGenTraverse : Traverse
 
                     this.ExecuteOperate(callOperate.This);
                     this.Text(this.DelimitDot);
-                    this.Text(callOperate.Maide.Value);
+                    this.Text(maide.Name);
                     this.Text(this.DelimitLeftBracket);
                     this.ExecuteMaideArgue(maide, callOperate.Argue);
                     this.Text(this.DelimitRightBracket);
