@@ -30,6 +30,10 @@ public class String : Any
 
     public virtual bool S_Count(string o, int value)
     {
+        if (o == null)
+        {
+            throw new Exception("Null Reference Exception");
+        }
         return true;
     }
 
