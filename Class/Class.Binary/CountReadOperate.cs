@@ -20,7 +20,7 @@ public class CountReadOperate : ReadOperate
         this.Maide.Init();
         this.Var = new Var();
         this.Var.Init();
-        this.ClassIndex = new ClassIndex();
+        this.ClassIndex = new IntValue();
         this.ClassIndex.Init();
         this.ModuleRef = new ModuleRef();
         this.ModuleRef.Init();
@@ -38,7 +38,7 @@ public class CountReadOperate : ReadOperate
     protected virtual Field Field { get; set; }
     protected virtual Maide Maide { get; set; }
     protected virtual Var Var { get; set; }
-    protected virtual ClassIndex ClassIndex { get; set; }
+    protected virtual IntValue ClassIndex { get; set; }
     protected virtual ModuleRef ModuleRef { get; set; }
     protected virtual string String { get; set; }
     protected virtual Array Array { get; set; }
@@ -99,7 +99,7 @@ public class CountReadOperate : ReadOperate
         return this.Var;
     }
 
-    public override ClassIndex ExecuteClassIndex()
+    public override IntValue ExecuteClassIndex()
     {
         ReadArg arg;
         arg = this.Read.Arg;
