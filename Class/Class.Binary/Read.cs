@@ -75,17 +75,17 @@ public class Read : Any
         arg.StringArray = this.ListInfra.ArrayCreate(arg.StringIndex);
         arg.ArrayArray = this.ListInfra.ArrayCreate(arg.ArrayIndex);
 
-        this.ExecuteBinaryCreate();
-        this.ExecuteClassCreate();
-        this.ExecuteImportCreate();
-        this.ExecutePartCreate();
-        this.ExecuteFieldCreate();
-        this.ExecuteMaideCreate();
-        this.ExecuteVarCreate();
-        this.ExecuteClassIndexCreate();
-        this.ExecuteModuleRefCreate();
-        this.ExecuteStringCreate();
-        this.ExecuteArrayCreate();
+        this.ExecuteCreateBinary();
+        this.ExecuteCreateClass();
+        this.ExecuteCreateImport();
+        this.ExecuteCreatePart();
+        this.ExecuteCreateField();
+        this.ExecuteCreateMaide();
+        this.ExecuteCreateVar();
+        this.ExecuteCreateClassIndex();
+        this.ExecuteCreateModuleRef();
+        this.ExecuteCreateString();
+        this.ExecuteCreateArray();
 
         this.Operate = this.SetOperate;
 
@@ -116,7 +116,7 @@ public class Read : Any
         return true;
     }
 
-    protected virtual bool ExecuteStringCreate()
+    protected virtual bool ExecuteCreateString()
     {
         InfraInfra infraInfra;
         infraInfra = this.InfraInfra;
@@ -162,7 +162,7 @@ public class Read : Any
         return true;
     }
 
-    protected virtual bool ExecuteArrayCreate()
+    protected virtual bool ExecuteCreateArray()
     {
         InfraInfra infraInfra;
         infraInfra = this.InfraInfra;
@@ -196,7 +196,7 @@ public class Read : Any
         return true;
     }
 
-    protected virtual bool ExecuteBinaryCreate()
+    protected virtual bool ExecuteCreateBinary()
     {
         Array array;
         array = this.Arg.BinaryArray;
@@ -216,7 +216,7 @@ public class Read : Any
         return true;
     }
 
-    protected virtual bool ExecuteClassCreate()
+    protected virtual bool ExecuteCreateClass()
     {
         Array array;
         array = this.Arg.ClassArray;
@@ -236,7 +236,7 @@ public class Read : Any
         return true;
     }
 
-    protected virtual bool ExecuteImportCreate()
+    protected virtual bool ExecuteCreateImport()
     {
         Array array;
         array = this.Arg.ImportArray;
@@ -256,7 +256,7 @@ public class Read : Any
         return true;
     }
 
-    protected virtual bool ExecutePartCreate()
+    protected virtual bool ExecuteCreatePart()
     {
         Array array;
         array = this.Arg.PartArray;
@@ -276,7 +276,7 @@ public class Read : Any
         return true;
     }
 
-    protected virtual bool ExecuteFieldCreate()
+    protected virtual bool ExecuteCreateField()
     {
         Array array;
         array = this.Arg.FieldArray;
@@ -296,7 +296,7 @@ public class Read : Any
         return true;
     }
 
-    protected virtual bool ExecuteMaideCreate()
+    protected virtual bool ExecuteCreateMaide()
     {
         Array array;
         array = this.Arg.MaideArray;
@@ -316,7 +316,7 @@ public class Read : Any
         return true;
     }
 
-    protected virtual bool ExecuteVarCreate()
+    protected virtual bool ExecuteCreateVar()
     {
         Array array;
         array = this.Arg.VarArray;
@@ -336,7 +336,7 @@ public class Read : Any
         return true;
     }
 
-    protected virtual bool ExecuteClassIndexCreate()
+    protected virtual bool ExecuteCreateClassIndex()
     {
         Array array;
         array = this.Arg.ClassIndexArray;
@@ -356,7 +356,7 @@ public class Read : Any
         return true;
     }
 
-    protected virtual bool ExecuteModuleRefCreate()
+    protected virtual bool ExecuteCreateModuleRef()
     {
         Array array;
         array = this.Arg.ModuleRefArray;
