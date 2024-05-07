@@ -493,18 +493,41 @@ public class ClassGenTraverse : Traverse
     {
         bool b;
         b = false;
+        bool ba;
+        ba = false;
 
+        Field field;
+        field = null;
+
+        SetTarget setTarget;
+        setTarget = null;
+        
         int systemInfo;
         systemInfo = 0;
         
         Target target;
         target = assignExecute.Target;
-        if (target is SetTarget | target is BaseSetTarget)
+        
+        bool bb;
+        bb = (target is SetTarget);
+        if (bb | target is BaseSetTarget)
         {
-            Field field;
             field = this.Info(target).SetField;
 
             systemInfo = field.SystemInfo.Value;
+
+            if (bb)
+            {
+                setTarget = (SetTarget)target;
+
+                ClassClass c;
+                c = this.Info(setTarget.This).OperateClass;
+
+                if (c == this.Gen.System.String)
+                {
+                    b = true;
+                }
+            }
         }
         if (target is VarTarget)
         {
@@ -516,7 +539,7 @@ public class ClassGenTraverse : Traverse
                 if (varVar == this.ThisFieldData)
                 {
                     systemInfo = this.ThisField.SystemInfo.Value;
-                    b = true;
+                    ba = true;
                 }
             }
         }
@@ -525,23 +548,57 @@ public class ClassGenTraverse : Traverse
 
         if (b)
         {
-            this.Text(this.InternDataPrefix);
-            this.Text(this.ThisField.Name);
+            this.Text(this.DelimitLeftBracket);
+
+            this.Text(this.DelimitLeftBracket);
+            this.Text(this.InternStringClass);
+            this.Text(this.DelimitDot);
+            this.Text(this.InternClassShareThis);
+            this.Text(this.DelimitRightBracket);
+
+            this.Text(this.DelimitDot);
+            this.Text(this.InternStringFieldSetPrefix);
+            this.Text(field.Name);
+
+            this.Text(this.DelimitLeftBracket);
+
+            this.ExecuteOperate(setTarget.This);
+
+            this.Text(this.DelimitComma);
+            this.Text(this.Space);
+
+            this.ExecuteSystemTypeInnStart(systemInfo);
+
+            this.ExecuteOperate(assignExecute.Value);
+
+            this.ExecuteSystemTypeInnEnd(systemInfo);
+
+            this.Text(this.DelimitRightBracket);
+
+            this.Text(this.DelimitRightBracket);
         }
         if (!b)
         {
-            this.ExecuteTarget(assignExecute.Target);
+            if (ba)
+            {
+                this.Text(this.InternDataPrefix);
+                this.Text(this.ThisField.Name);
+            }
+            if (!ba)
+            {
+                this.ExecuteTarget(assignExecute.Target);
+            }
+
+            this.Text(this.Space);
+            this.Text(this.DelimitAssign);
+            this.Text(this.Space);
+
+            this.ExecuteSystemTypeInnStart(systemInfo);
+
+            this.ExecuteOperate(assignExecute.Value);
+
+            this.ExecuteSystemTypeInnEnd(systemInfo);
         }
-        
-        this.Text(this.Space);
-        this.Text(this.DelimitAssign);
-        this.Text(this.Space);
-
-        this.ExecuteSystemTypeInnStart(systemInfo);
-
-        this.ExecuteOperate(assignExecute.Value);
-
-        this.ExecuteSystemTypeInnEnd(systemInfo);
 
         this.Text(this.DelimitSemicolon);
         this.Text(this.NewLine);
