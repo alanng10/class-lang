@@ -21,6 +21,7 @@ public class ClassGenTraverse : Traverse
         this.InternOperateVarInt = "I";
         this.InternAnyClass = "__C_Any";
         this.InternStringClass = "__C_String";
+        this.InternStringMaideCallPrefix = "C_";
         this.InternValueShareClass = "__C_ValueShare";
         this.InternModuleInfoClass = "__C_ModuleInfo";
         this.Int60Mask = "0xf000000000000000UL";
@@ -112,6 +113,7 @@ public class ClassGenTraverse : Traverse
     protected virtual string InternOperateVarInt { get; set; }
     protected virtual string InternAnyClass { get; set; }
     protected virtual string InternStringClass { get; set; }
+    protected virtual string InternStringMaideCallPrefix { get; set; }
     protected virtual string InternValueShareClass { get; set; }
     protected virtual string InternModuleInfoClass { get; set; }
     protected virtual string Int60Mask { get; set; }
