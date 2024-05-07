@@ -1,4 +1,4 @@
-namespace Class.Infra;
+namespace Avalon.Infra;
 
 public class IntValue : Any
 {
