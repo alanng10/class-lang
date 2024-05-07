@@ -21,6 +21,8 @@ public class ClassGenTraverse : Traverse
         this.InternOperateVarInt = "I";
         this.InternAnyClass = "__C_Any";
         this.InternStringClass = "__C_String";
+        this.InternStringFieldGetPrefix = "G_";
+        this.InternStringFieldSetPrefix = "S_";
         this.InternStringMaideCallPrefix = "C_";
         this.InternValueShareClass = "__C_ValueShare";
         this.InternModuleInfoClass = "__C_ModuleInfo";
@@ -113,6 +115,8 @@ public class ClassGenTraverse : Traverse
     protected virtual string InternOperateVarInt { get; set; }
     protected virtual string InternAnyClass { get; set; }
     protected virtual string InternStringClass { get; set; }
+    protected virtual string InternStringFieldGetPrefix { get; set; }
+    protected virtual string InternStringFieldSetPrefix { get; set; }
     protected virtual string InternStringMaideCallPrefix { get; set; }
     protected virtual string InternValueShareClass { get; set; }
     protected virtual string InternModuleInfoClass { get; set; }
@@ -642,18 +646,51 @@ public class ClassGenTraverse : Traverse
         Field field;
         field = this.Info(getOperate).GetField;
 
+        ClassClass c;
+        c = this.Info(getOperate.This).OperateClass;
+
+        SystemClass system;
+        system = this.Gen.System;
+
         int u;
         u = field.SystemInfo.Value;
 
         this.ExecuteSystemTypeResultStart(u);
 
-        this.Text(this.DelimitLeftBracket);
+        bool b;
+        b = (c == system.String);
+        if (b)
+        {
+            this.Text(this.DelimitLeftBracket);
 
-        this.ExecuteOperate(getOperate.This);
-        this.Text(this.DelimitDot);
-        this.Text(getOperate.Field.Value);
-        
-        this.Text(this.DelimitRightBracket);
+            this.Text(this.DelimitLeftBracket);
+            this.Text(this.InternStringClass);
+            this.Text(this.DelimitDot);
+            this.Text(this.InternClassShareThis);
+            this.Text(this.DelimitRightBracket);
+
+            this.Text(this.DelimitDot);
+            this.Text(this.InternStringFieldGetPrefix);
+            this.Text(field.Name);
+
+            this.Text(this.DelimitLeftBracket);
+
+            this.ExecuteOperate(getOperate.This);
+
+            this.Text(this.DelimitRightBracket);
+
+            this.Text(this.DelimitRightBracket);
+        }
+        if (!b)
+        {
+            this.Text(this.DelimitLeftBracket);
+
+            this.ExecuteOperate(getOperate.This);
+            this.Text(this.DelimitDot);
+            this.Text(getOperate.Field.Value);
+
+            this.Text(this.DelimitRightBracket);
+        }
 
         this.ExecuteSystemTypeResultEnd(u);
         return true;
@@ -744,8 +781,11 @@ public class ClassGenTraverse : Traverse
                 
                 this.ExecuteOperate(callOperate.This);
 
-                this.Text(this.DelimitComma);
-                this.Text(this.Space);
+                if (0 < maide.Param.Count)
+                {
+                    this.Text(this.DelimitComma);
+                    this.Text(this.Space);
+                }
 
                 this.ExecuteMaideArgue(maide, callOperate.Argue);
 
