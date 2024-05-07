@@ -206,12 +206,12 @@ public class String : Any
 
         int count;
         count = thisCount;
-        char oca;
-        char ocb;
         int i;
         i = 0;
         while (i < count)
         {
+            char oca;
+            char ocb;
             oca = o[thisIndex + i];
             ocb = other[otherIndex + i];
             if (!(oca == ocb))
