@@ -20,6 +20,7 @@ public class ClassGenTraverse : Traverse
         this.InternOperateVarBool = "B";
         this.InternOperateVarInt = "I";
         this.InternAnyClass = "__C_Any";
+        this.InternStringClass = "__C_String";
         this.InternValueShareClass = "__C_ValueShare";
         this.InternModuleInfoClass = "__C_ModuleInfo";
         this.Int60Mask = "0xf000000000000000UL";
@@ -110,6 +111,7 @@ public class ClassGenTraverse : Traverse
     protected virtual string InternOperateVarBool { get; set; }
     protected virtual string InternOperateVarInt { get; set; }
     protected virtual string InternAnyClass { get; set; }
+    protected virtual string InternStringClass { get; set; }
     protected virtual string InternValueShareClass { get; set; }
     protected virtual string InternModuleInfoClass { get; set; }
     protected virtual string Int60Mask { get; set; }
@@ -717,38 +719,47 @@ public class ClassGenTraverse : Traverse
         }
         if (!b)
         {
-            bool ba;
-            ba = (maide == this.Gen.ModuleInfoNameMaide | maide == this.Gen.ModuleInfoVersionMaide);
-            if (ba)
+            bool bb;
+            bb = (c == this.Gen.System.String);
+            if (bb)
             {
-                this.Text(this.DelimitLeftBracket);
 
-                this.ExecuteOperate(callOperate.This);
-                this.Text(this.DelimitDot);
-                this.Text(callOperate.Maide.Value);
-                
-                this.Text(this.DelimitLeftBracket);
-
-                this.Text(this.InternModuleInfoClass);
-                this.Text(this.DelimitDot);
-                this.Text(maide.Name);
-        
-                this.Text(this.DelimitRightBracket);
-                
-                this.Text(this.DelimitRightBracket);
             }
-            if (!ba)
+            if (!bb)
             {
-                this.Text(this.DelimitLeftBracket);
+                bool bba;
+                bba = (maide == this.Gen.ModuleInfoNameMaide | maide == this.Gen.ModuleInfoVersionMaide);
+                if (bba)
+                {
+                    this.Text(this.DelimitLeftBracket);
 
-                this.ExecuteOperate(callOperate.This);
-                this.Text(this.DelimitDot);
-                this.Text(callOperate.Maide.Value);
-                this.Text(this.DelimitLeftBracket);
-                this.ExecuteMaideArgue(maide, callOperate.Argue);
-                this.Text(this.DelimitRightBracket);
-                
-                this.Text(this.DelimitRightBracket);
+                    this.ExecuteOperate(callOperate.This);
+                    this.Text(this.DelimitDot);
+                    this.Text(callOperate.Maide.Value);
+
+                    this.Text(this.DelimitLeftBracket);
+
+                    this.Text(this.InternModuleInfoClass);
+                    this.Text(this.DelimitDot);
+                    this.Text(maide.Name);
+
+                    this.Text(this.DelimitRightBracket);
+
+                    this.Text(this.DelimitRightBracket);
+                }
+                if (!bba)
+                {
+                    this.Text(this.DelimitLeftBracket);
+
+                    this.ExecuteOperate(callOperate.This);
+                    this.Text(this.DelimitDot);
+                    this.Text(callOperate.Maide.Value);
+                    this.Text(this.DelimitLeftBracket);
+                    this.ExecuteMaideArgue(maide, callOperate.Argue);
+                    this.Text(this.DelimitRightBracket);
+
+                    this.Text(this.DelimitRightBracket);
+                }
             }
         }
 
