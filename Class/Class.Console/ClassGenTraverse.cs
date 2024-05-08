@@ -1182,9 +1182,25 @@ public class ClassGenTraverse : Traverse
 
     public override bool ExecuteIntValue(IntValue intValue)
     {
-        long a;
-        a = intValue.Value;
+        this.ExecuteIntValueHex(intValue.Value);
+        return true;
+    }
 
+    public override bool ExecuteIntHexValue(IntHexValue intHexValue)
+    {
+        this.ExecuteIntValueHex(intHexValue.Value);
+        return true;
+    }
+
+    public override bool ExecuteIntSignValue(IntSignValue intSignValue)
+    {
+        this.ExecuteIntValueHex(intSignValue.Value);
+        return true;
+    }
+
+    public override bool ExecuteIntHexSignValue(IntHexSignValue intHexSignValue)
+    {
+        this.ExecuteIntValueHex(intHexSignValue.Value);
         return true;
     }
 
