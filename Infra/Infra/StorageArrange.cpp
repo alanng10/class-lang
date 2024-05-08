@@ -99,3 +99,20 @@ Int StorageArrange_LinkTarget(Int o, Int path)
     a = CastInt(ub);
     return a;
 }
+
+Int StorageArrange_FoldCreate(Int o, Int path)
+{
+    QString pathU;
+    Int ua;
+    ua = CastInt(&pathU);
+    String_QStringSet(ua, path);
+
+    QDir dir;
+    
+    bool bu;
+    bu = dir.mkdir(pathU);
+
+    Bool a;
+    a = bu;
+    return a;
+}
