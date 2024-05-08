@@ -35,6 +35,10 @@ public class ClassGenTraverse : Traverse
         this.Space = " ";
         this.NewLine = "\n";
         this.Underscore = "_";
+        this.Backslash = "\\";
+        this.DoubleQuote = "\"";
+        this.SingleQuote = "\'";
+        this.NewLineEscapedChar = "n";
         this.KeywordPublic = "public";
         this.KeywordInternal = "internal";
         this.KeywordProtected = "protected";
@@ -133,6 +137,10 @@ public class ClassGenTraverse : Traverse
     protected virtual string Space { get; set; }
     protected virtual string NewLine { get; set; }
     protected virtual string Underscore { get; set; }
+    protected virtual string Backslash { get; set; }
+    protected virtual string DoubleQuote { get; set; }
+    protected virtual string SingleQuote { get; set; }
+    protected virtual string NewLineEscapedChar { get; set; }
     protected virtual string KeywordPublic { get; set; }
     protected virtual string KeywordInternal { get; set; }
     protected virtual string KeywordProtected { get; set; }
@@ -1145,6 +1153,11 @@ public class ClassGenTraverse : Traverse
         {
             this.ExecuteNodeVarName(varVar);
         }
+        return true;
+    }
+
+    public override bool ExecuteStringValue(StringValue stringValue)
+    {
         return true;
     }
 
