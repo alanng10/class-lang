@@ -81,7 +81,6 @@ global using GridChild = Avalon.View.GridChild;
 global using ViewText = Avalon.View.Text;
 global using ViewInfra = Avalon.View.Infra;
 global using Frame = Avalon.View.Frame;
-global using Main = Avalon.Main.Main;
 global using EntryEntry = Avalon.Entry.Entry;
 global using STAThreadAttribute = System.STAThreadAttribute;
 global using Encoding = System.Text.Encoding;

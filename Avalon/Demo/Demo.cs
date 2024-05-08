@@ -22,15 +22,15 @@ class Demo : Any
 
     public bool Execute()
     {
-        Main main;
-        main = new Main();
-        main.Init();
-
         this.ListInfra = ListInfra.This;
         this.TextInfra = TextInfra.This;
         this.DrawInfra = DrawInfra.This;
         this.BrushKindList = DrawBrushKindList.This;
         this.Console = Console.This;
+
+        ThreadCurrent current;
+        current = new ThreadCurrent();
+        current.Init();
 
         this.Math = new Math();
         this.Math.Init();
@@ -224,7 +224,10 @@ class Demo : Any
         this.Frame.View = this.View;
         this.Frame.Visible = true;
 
-        main.Execute();
+        ThreadThread thread;
+        thread = current.Thread;
+        
+        thread.ExecuteEventLoop();
 
         this.AudioEffectFinal(this.AudioEffect);
 
@@ -251,8 +254,6 @@ class Demo : Any
         this.Frame.Final();
 
         this.ThreadDrawImageFinal(this.ThreadDrawImage);
-
-        main.Final();
         return true;
     }
 
