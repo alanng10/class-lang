@@ -97,10 +97,6 @@ public class SetClassGenOperate : ClassGenOperate
 
         e.ValueInt = o;
 
-        e.HasCount = false;
-        e.Count = 0;
-        e.ValueCount = 0;
-
         format.ExecuteArgCount(e);
 
         kk.Data = arg.Data;
@@ -109,7 +105,14 @@ public class SetClassGenOperate : ClassGenOperate
 
         format.ExecuteArgResult(e, kk);
 
+        e.HasCount = false;
+        e.Count = 0;
+        e.ValueCount = 0;
+        e.ValueInt = 0;
+        
         kk.Data = null;
+        kk.Range.Index = 0;
+        kk.Range.Count = 0;
 
         index = index + 15;
         arg.Index = index;
