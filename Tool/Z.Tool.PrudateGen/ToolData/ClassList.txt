@@ -326,7 +326,6 @@ StorageArrange
     Exist(path)
     LinkTarget(path)
     FoldCreate(path)
-    FoldCreateToPath(path)
     FoldRemove(path)
     FoldRemoveRecursive(path)
     FoldRename(path, destPath)
