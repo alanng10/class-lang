@@ -155,8 +155,8 @@ class BinaryGen : Any
             ClassClass oa;
             oa = (ClassClass)iter.Value;
     
-            BinaryClassIndex a;
-            a = new BinaryClassIndex();
+            IntValue a;
+            a = new IntValue();
             a.Init();
             a.Value = oa.Index;
             array.Set(i, a);
@@ -191,8 +191,8 @@ class BinaryGen : Any
             int aa;
             aa = this.ClassIndexGet(ob);
 
-            BinaryClassIndex a;
-            a = new BinaryClassIndex();
+            IntValue a;
+            a = new IntValue();
             a.Init();
             a.Value = aa;
 

@@ -1,6 +1,7 @@
 global using Any = Avalon.Infra.Any;
 global using Data = Avalon.Infra.Data;
 global using RefCompare = Avalon.Infra.RefCompare;
+global using IntValue = Avalon.Infra.IntValue;
 global using InfraInfra = Avalon.Infra.Infra;
 global using ListList = Avalon.List.List;
 global using Array = Avalon.List.Array;
@@ -39,7 +40,6 @@ global using SystemInfo = Class.Infra.SystemInfo;
 global using Binary = Class.Binary.Binary;
 global using BinaryClass = Class.Binary.Class;
 global using BinaryImport = Class.Binary.Import;
-global using BinaryClassIndex = Class.Binary.ClassIndex;
 global using BinaryPart = Class.Binary.Part;
 global using BinaryField = Class.Binary.Field;
 global using BinaryMaide = Class.Binary.Maide;
