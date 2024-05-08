@@ -10,8 +10,17 @@ public class SetClassGenOperate : ClassGenOperate
         this.Format = new Format();
         this.Format.Init();
 
-        this.FormatArg = new FormatArg();
-        this.FormatArg.Init();
+        FormatArg e;
+        e = new FormatArg();
+        e.Init();
+        e.Kind = 1;
+        e.Base = 16;
+        e.Case = 0;
+        e.AlignLeft = false;
+        e.FieldWidth = 15;
+        e.MaxWidth = 15;
+        e.FillChar = '0';
+        this.FormatArg = e;
 
         this.FormatText = new Text();
         this.FormatText.Init();
@@ -72,19 +81,32 @@ public class SetClassGenOperate : ClassGenOperate
 
     public override bool ExecuteIntFormat(long o)
     {
-        Format format;
-        format = this.Format;
-        FormatArg formatArg;
-        formatArg = this.FormatArg;
-
-        
-
-
-
         GenArg arg;
         arg = this.Gen.Arg;
         int index;
         index = arg.Index;
+
+        Format format;
+        format = this.Format;
+
+        FormatArg e;
+        e = this.FormatArg;
+
+        Text kk;
+        kk = this.FormatText;
+
+        e.HasCount = false;
+        e.Count = 0;
+        e.ValueCount = 0;
+
+        format.ExecuteArgCount(e);
+
+        kk.Data = arg.Data;
+        kk.Range.Index = index;
+        kk.Range.Count = e.Count;
+
+        format.ExecuteArgResult(e, kk);
+
         index = index + 15;
         arg.Index = index;
         return true;
