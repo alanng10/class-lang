@@ -109,6 +109,8 @@ public class SetClassGenOperate : ClassGenOperate
 
         format.ExecuteArgResult(e, kk);
 
+        kk.Data = null;
+
         index = index + 15;
         arg.Index = index;
         return true;
