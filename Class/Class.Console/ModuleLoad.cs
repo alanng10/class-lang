@@ -8,6 +8,9 @@ public class ModuleLoad : Any
         this.ListInfra = ListInfra.This;
         this.ClassInfra = ClassInfra.This;
         this.CountList = CountList.This;
+
+        this.NameCheck = new NameCheck();
+        this.NameCheck.Init();
         return true;
     }
 
@@ -18,6 +21,7 @@ public class ModuleLoad : Any
     protected virtual ListInfra ListInfra { get; set; }
     protected virtual ClassInfra ClassInfra { get; set; }
     protected virtual CountList CountList { get; set; }
+    protected virtual NameCheck NameCheck { get; set; }
     protected virtual BinaryBinary Binary { get; set; }
     protected virtual Array ClassArray { get; set; }
     protected virtual Array ImportArray { get; set; }
@@ -78,6 +82,9 @@ public class ModuleLoad : Any
 
     protected virtual bool SetClassList()
     {
+        ListInfra listInfra;
+        listInfra = this.ListInfra;
+
         Table classTable;
         classTable = this.ClassInfra.TableCreateStringCompare();
         
@@ -104,13 +111,13 @@ public class ModuleLoad : Any
             a.Name = name;
             a.Module = this.Module;
 
-            this.ListInfra.TableAdd(classTable, a.Name, a); 
+            listInfra.TableAdd(classTable, a.Name, a); 
 
             i = i + 1;
         }
 
         Array classArray;
-        classArray = this.ListInfra.ArrayCreate(classTable.Count);
+        classArray = listInfra.ArrayCreate(classTable.Count);
 
         Iter iter;
         iter = classTable.IterCreate();
