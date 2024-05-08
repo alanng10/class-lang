@@ -1,0 +1,26 @@
+--------------------------------------------------
+Kind: GetInvalid
+Range: (4, 4)
+Source: Code
+--------------------------------------------------
+--------------------------------------------------
+Kind: SetInvalid
+Range: (4, 4)
+Source: Code
+--------------------------------------------------
+Field
+{
+    Class : ClassName
+            {
+                Value : "Int",
+            },
+    Name : FieldName
+           {
+               Value : "Gg",
+           },
+    Count : PrudateCount
+            {
+            },
+    Get : null,
+    Set : null,
+},
