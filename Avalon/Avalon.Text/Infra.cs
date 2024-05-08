@@ -105,7 +105,7 @@ public class Infra : Any
         return a;
     }
 
-    public virtual Data DataCreateString(string a, Range range)
+    public virtual Data DataCreateString(string o, Range range)
     {
         int index;
         int count;
@@ -116,13 +116,13 @@ public class Infra : Any
         if (b)
         {
             index = 0;
-            count = a.Length;
+            count = o.Length;
         }
         if (!b)
         {
             index = range.Index;
             count = range.Count;
-            if (!this.InfraInfra.CheckRange(a.Length, index, count))
+            if (!this.InfraInfra.CheckRange(o.Length, index, count))
             {
                 return null;
             }
@@ -142,7 +142,7 @@ public class Infra : Any
         while (i < count)
         {
             char oc;
-            oc = a[index + i];
+            oc = o[index + i];
 
             this.DataCharSet(data, i, oc);
             i = i + 1;
