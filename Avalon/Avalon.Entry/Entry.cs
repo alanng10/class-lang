@@ -41,7 +41,6 @@ public class Entry : Any
         return true;
     }
 
-
     protected virtual int Main()
     {
         return 0;
