@@ -78,7 +78,6 @@ public class Gen : Any
         this.ExecuteTypeModule(typeof(Play));
         this.ExecuteTypeModule(typeof(Draw));
         this.ExecuteTypeModule(typeof(View));
-        this.ExecuteTypeModule(typeof(Main));
         this.ExecuteTypeModule(typeof(EntryEntry));
         this.ExecuteTypeModule(typeof(ClassClass));
         this.ExecuteTypeModule(typeof(Binary));
