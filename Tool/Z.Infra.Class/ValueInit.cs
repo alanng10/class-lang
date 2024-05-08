@@ -14,17 +14,17 @@ public class ValueInit : Any
         return share;
     }
 
-    public virtual bool InitBool(bool value)
+    public virtual bool Bool(bool value)
     {
         return true;
     }
 
-    public virtual bool InitInt(ulong value)
+    public virtual bool Int(ulong value)
     {
         return true;
     }
 
-    public virtual bool InitString(string value)
+    public virtual bool String(string value)
     {
         if (value == null)
         {
