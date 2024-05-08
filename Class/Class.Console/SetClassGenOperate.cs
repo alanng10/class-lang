@@ -43,17 +43,13 @@ public class SetClassGenOperate : ClassGenOperate
 
     public override bool ExecuteChar(char o)
     {
-        TextInfra textInfra;
-        textInfra = this.TextInfra;
         GenArg arg;
         arg = this.Gen.Arg;
 
         int index;
         index = arg.Index;
-        Data data;
-        data = arg.Data;
 
-        textInfra.DataCharSet(data, index, o);
+        this.TextInfra.DataCharSet(arg.Data, index, o);
 
         index = index + 1;
         arg.Index = index;
