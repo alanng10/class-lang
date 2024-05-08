@@ -161,8 +161,8 @@ public class ModuleLoad : Any
             iA = 0;
             while (iA < countA)
             {
-                BinaryClassIndex oe;
-                oe = (BinaryClassIndex)oa.Get(iA);
+                InfraIntValue oe;
+                oe = (InfraIntValue)oa.Get(iA);
 
                 BinaryClass of;
                 of = (BinaryClass)oo.Class.Get(oe.Value);
@@ -231,8 +231,8 @@ public class ModuleLoad : Any
             ClassClass varClass;
             varClass = (ClassClass)classArray.Get(i);
 
-            BinaryClassIndex a;
-            a = (BinaryClassIndex)array.Get(i);
+            InfraIntValue a;
+            a = (InfraIntValue)array.Get(i);
 
             ClassClass baseClass;
             baseClass = this.ClassGetIndex(a.Value);
