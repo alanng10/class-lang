@@ -2,6 +2,13 @@ namespace Avalon.Infra;
 
 public class StringData : Data
 {
+    public override bool Init()
+    {
+        base.Init();
+        this.InfraInfra = Infra.This;
+        return true;
+    }
+
     public new virtual string Value { get; set; }
 
     public virtual int GetChar(int index)
