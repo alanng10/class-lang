@@ -109,12 +109,25 @@ public class Infra : Any
     {
         int index;
         int count;
-        index = range.Index;
-        count = range.Count;
-        if (!this.InfraInfra.CheckRange(a.Length, index, count))
+        index = 0;
+        count = 0;
+        bool b;
+        b = (range == null);
+        if (b)
         {
-            return null;
+            index = 0;
+            count = a.Length;
         }
+        if (!b)
+        {
+            index = range.Index;
+            count = range.Count;
+            if (!this.InfraInfra.CheckRange(a.Length, index, count))
+            {
+                return null;
+            }
+        }
+
 
         long oa;
         oa = count;
@@ -149,7 +162,17 @@ public class Infra : Any
         }
 
         int count;
-        count = range.Count;
+        count = 0;
+        bool b;
+        b = (range == null);
+        if (b)
+        {
+            count = o.Length;
+        }
+        if (!b)
+        {
+            count = range.Count;
+        }
 
         Text a;
         a = new Text();
