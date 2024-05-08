@@ -10,11 +10,13 @@ public class Create : InfraCreate
         this.TextInfra = TextInfra.This;
         this.ListInfra = ListInfra.This;
         this.ClassInfra = ClassInfra.This;
-        this.Keyword = this.CreateKeywordList();
-        this.Delimit = this.CreateDelimitList();
-        this.ErrorKind = this.CreateErrorKindList();
-        this.NodeKind = this.CreateNodeKindList();
-        this.StringValueWrite = this.StringValueWriteCreate();
+        this.Keyword = KeywordList.This;
+        this.Delimit = DelimitList.This;
+        this.ErrorKind = ErrorKindList.This;
+        this.NodeKind = NodeKindList.This;
+
+        this.NameCheck = this.CreateNameCheck();
+        this.StringValueWrite = this.CreateStringValueWrite();
 
         this.CountOperate = this.CreateCountCreateOperate();
         this.KindOperate = this.CreateKindCreateOperate();
@@ -112,32 +114,21 @@ public class Create : InfraCreate
     protected virtual KindCreateOperate KindOperate { get; set; }
     protected virtual SetCreateOperate SetOperate { get; set; }
 
+    protected virtual NameCheck NameCheck { get; set; }
     public virtual StringValueWrite StringValueWrite { get; set; }
 
     public virtual CreateOperate Operate { get; set; }
     public virtual CreateOperateArg OperateArg { get; set; }
 
-    protected virtual KeywordList CreateKeywordList()
+    protected virtual NameCheck CreateNameCheck()
     {
-        return KeywordList.This;
+        NameCheck a;
+        a = new NameCheck();
+        a.Init();
+        return a;
     }
 
-    protected virtual DelimitList CreateDelimitList()
-    {
-        return DelimitList.This;
-    }
-
-    protected virtual ErrorKindList CreateErrorKindList()
-    {
-        return ErrorKindList.This;
-    }
-
-    protected virtual NodeKindList CreateNodeKindList()
-    {
-        return NodeKindList.This;
-    }
-
-    protected virtual StringValueWrite StringValueWriteCreate()
+    protected virtual StringValueWrite CreateStringValueWrite()
     {
         StringValueWrite a;
         a = new StringValueWrite();
@@ -4083,86 +4074,9 @@ public class Create : InfraCreate
 
     protected virtual bool IsName(TokenToken token)
     {
-        if (this.IsKeyword(token))
-        {
-            return false;
-        }
+        this.TextGet(this.Text, token);
 
-        TextInfra textInfra;
-        textInfra = this.TextInfra;
-
-        Text line;
-        line = (Text)this.SourceText.Get(token.Row);
-
-        Data data;
-        data = line.Data;
-        int start;
-        start = token.Range.Index;
-
-        int index;
-        index = start;
-        char oc;
-        oc = textInfra.DataCharGet(data, index);
-        if (!(textInfra.IsLetter(oc, true) | textInfra.IsLetter(oc, false)))
-        {
-            return false;
-        }
-
-        bool b;
-        b = false;
-
-        int count;
-        count = token.Range.Count;
-        count = count - 1;
-
-        start = start + 1;
-        
-        int i;
-        i = 0;
-        while (!b & i < count)
-        {
-            index = start + i;
-
-            oc = textInfra.DataCharGet(data, index);
-
-            if (!(textInfra.IsLetter(oc, true) | textInfra.IsLetter(oc, false) | textInfra.IsDigit(oc) | oc == '_'))
-            {
-                b = true;
-            }
-            i = i + 1;
-        }
-
-        bool a;
-        a = !b;
-        return a;
-    }
-
-    protected virtual bool IsKeyword(TokenToken token)
-    {
-        TextInfra textInfra;
-        textInfra = this.TextInfra;
-        KeywordList keyword;
-        keyword = this.Keyword;
-        Text text;
-        text = this.Text;
-        this.TextGet(text, token);
-        int count;
-        count = keyword.Count;
-        int i;
-        i = 0;
-        while (i < count)
-        {
-            Keyword a;
-            a = keyword.Get(i);
-            string o;
-            o = a.Text;
-            if (textInfra.EqualString(text, o, null))
-            {
-                return true;
-            }
-            i = i + 1;
-        }
-        return false;
+        return this.NameCheck.IsName(this.Text);
     }
 
     public virtual bool NodeInfo(Node node, int start, int end)
