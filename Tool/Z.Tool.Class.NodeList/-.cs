@@ -8,7 +8,6 @@ global using ArrayIter = Avalon.List.ArrayIter;
 global using TableIter = Avalon.List.TableIter;
 global using TableEntry = Avalon.List.Entry;
 global using ListInfra = Avalon.List.Infra;
-global using Main = Avalon.Main.Main;
 global using EntryEntry = Avalon.Entry.Entry;
 global using ToolInfra = Z.Infra.Infra.Infra;
 global using SourceGen = Z.Infra.ListSourceGen.Gen;
