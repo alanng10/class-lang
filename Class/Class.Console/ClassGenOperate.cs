@@ -8,4 +8,9 @@ public class ClassGenOperate : Any
     {
         return true;
     }
+
+    public virtual bool ExecuteChar(char o)
+    {
+        return true;
+    }
 }

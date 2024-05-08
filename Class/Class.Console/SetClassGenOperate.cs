@@ -14,7 +14,7 @@ public class SetClassGenOperate : ClassGenOperate
     public override bool ExecuteText(string o)
     {
         TextInfra textInfra;
-        textInfra = TextInfra.This;
+        textInfra = this.TextInfra;
         GenArg arg;
         arg = this.Gen.Arg;
         
@@ -32,11 +32,30 @@ public class SetClassGenOperate : ClassGenOperate
             char c;
             c = o[i];
 
-            textInfra.DataCharSet(data, index, c);
+            textInfra.DataCharSet(data, index + i, c);
             i = i + 1;
         }
 
         index = index + count;
+        arg.Index = index;
+        return true;
+    }
+
+    public override bool ExecuteChar(char o)
+    {
+        TextInfra textInfra;
+        textInfra = this.TextInfra;
+        GenArg arg;
+        arg = this.Gen.Arg;
+
+        int index;
+        index = arg.Index;
+        Data data;
+        data = arg.Data;
+
+        textInfra.DataCharSet(data, index, o);
+
+        index = index + 1;
         arg.Index = index;
         return true;
     }
