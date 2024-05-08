@@ -552,7 +552,6 @@ Infra_Api Int StorageArrange_Remove(Int o, Int path);
 Infra_Api Int StorageArrange_Exist(Int o, Int path);
 Infra_Api Int StorageArrange_LinkTarget(Int o, Int path);
 Infra_Api Int StorageArrange_FoldCreate(Int o, Int path);
-Infra_Api Int StorageArrange_FoldCreateToPath(Int o, Int path);
 Infra_Api Int StorageArrange_FoldRemove(Int o, Int path);
 Infra_Api Int StorageArrange_FoldRemoveRecursive(Int o, Int path);
 Infra_Api Int StorageArrange_FoldRename(Int o, Int path, Int destPath);
