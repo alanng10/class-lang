@@ -3,13 +3,14 @@ namespace Class.Test.Exe;
 class Entry
 {
     [STAThread]
-    static int Main()
+    static int Main(string[] arg)
     {
-        TestEntry entry;
-        entry = new TestEntry();
+        EntryEntry entry;
+        entry = new ModuleEntry();
+        entry.ArgSet(arg);
         entry.Init();
-        int a;
-        a = entry.Execute();
-        return a;
+        int o;
+        o = entry.Execute();
+        return o;
     }
 }
