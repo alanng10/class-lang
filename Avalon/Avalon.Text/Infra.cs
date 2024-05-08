@@ -218,7 +218,8 @@ public class Infra : Any
         StringData data;
         data = this.StringDataCreateString(o);
 
-        Range aa = new Range();
+        Range aa;
+        aa = new Range();
         aa.Init();
         aa.Index = index;
         aa.Count = count;
