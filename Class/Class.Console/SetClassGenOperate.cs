@@ -95,6 +95,8 @@ public class SetClassGenOperate : ClassGenOperate
         Text kk;
         kk = this.FormatText;
 
+        e.ValueInt = o;
+
         e.HasCount = false;
         e.Count = 0;
         e.ValueCount = 0;
