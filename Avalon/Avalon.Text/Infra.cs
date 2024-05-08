@@ -155,6 +155,15 @@ public class Infra : Any
         return true;
     }
 
+    public virtual string StringCreate(Text text)
+    {
+        StringCreate o;
+        o = new StringCreate();
+        o.Init();
+
+        return o.Data(text.Data, text.Range);
+    }
+
     public virtual bool Equal(Text text, Text other)
     {
         if (!this.CheckRange(text))
@@ -204,15 +213,6 @@ public class Infra : Any
             i = i + 1;
         }
         return true;
-    }
-
-    public virtual string StringCreate(Text text)
-    {
-        StringCreate o;
-        o = new StringCreate();
-        o.Init();
-
-        return o.Data(text.Data, text.Range);
     }
 
     public virtual int Index(Text text, Text other)
