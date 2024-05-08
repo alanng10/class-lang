@@ -2,6 +2,15 @@ namespace Avalon.Entry;
 
 public class Entry : Any
 {
+    public override bool Init()
+    {
+        base.Init();
+        this.InternIntern = InternIntern.This;
+        return true;
+    }
+
+    private InternIntern InternIntern { get; set; }
+
     public virtual int Execute()
     {
         this.MainBefore();
@@ -18,7 +27,7 @@ public class Entry : Any
         string kk;
         kk = Directiory.GetCurrentDirectory();
 
-        InternIntern.ExecuteDirectory = kk;
+        this.InternIntern.ExecuteFoldPath = kk;
 
         string k;
         k = typeof(Any).Assembly.Location;

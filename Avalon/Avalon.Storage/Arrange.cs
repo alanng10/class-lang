@@ -19,6 +19,16 @@ public class Arrange : Any
         return true;
     }
 
+    public virtual string ExecuteFoldPath
+    {
+        get
+        {
+            return this.InternIntern.ExecuteFoldPath;
+        }
+        set
+        {
+        }
+    }
     private InternIntern InternIntern { get; set; }
     private InternInfra InternInfra { get; set; }
     private ulong Intern { get; set; }
