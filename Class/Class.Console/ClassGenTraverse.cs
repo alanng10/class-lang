@@ -73,6 +73,7 @@ public class ClassGenTraverse : Traverse
         this.DelimitComma = ",";
         this.DelimitColon = ":";
         this.DelimitSemicolon = ";";
+        this.DelimitQuestion = "?";
         this.DelimitAssign = "=";
         this.DelimitEqual = "==";
         this.DelimitLess = "<";
@@ -169,6 +170,7 @@ public class ClassGenTraverse : Traverse
     protected virtual string DelimitComma { get; set; }
     protected virtual string DelimitColon { get; set; }
     protected virtual string DelimitSemicolon { get; set; }
+    protected virtual string DelimitQuestion { get; set; }
     protected virtual string DelimitAssign { get; set; }
     protected virtual string DelimitEqual { get; set; }
     protected virtual string DelimitLess { get; set; }
