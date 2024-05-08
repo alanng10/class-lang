@@ -7,7 +7,7 @@ public class Entry : Any
         this.MainBefore();
 
         int o;
-        o = this.Main();
+        o = this.ExecuteMain();
 
         this.MainAfter();
         return o;
@@ -41,7 +41,7 @@ public class Entry : Any
         return true;
     }
 
-    protected virtual int Main()
+    protected virtual int ExecuteMain()
     {
         return 0;
     }
