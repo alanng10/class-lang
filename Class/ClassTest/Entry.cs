@@ -2,20 +2,14 @@ namespace Class.Test;
 
 public class Entry : EntryEntry
 {
-    public override int Execute()
+    protected override int ExecuteMain()
     {
-        Main main;
-        main = new Main();
-        main.Init();
-
         Test a;
         a = new Test();
         a.Init();
 
         int o;
         o = a.Execute();
-
-        main.Final();
         return o;
     }
 }
