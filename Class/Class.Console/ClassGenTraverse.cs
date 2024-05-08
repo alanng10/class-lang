@@ -50,6 +50,7 @@ public class ClassGenTraverse : Traverse
         this.KeywordThis = "this";
         this.KeywordBase = "base";
         this.KeywordAs = "as";
+        this.KeywordIs = "is";
         this.KeywordNull = "null";
         this.KeywordFalse = "false";
         this.KeywordTrue = "true";
@@ -147,6 +148,7 @@ public class ClassGenTraverse : Traverse
     protected virtual string KeywordThis { get; set; }
     protected virtual string KeywordBase { get; set; }
     protected virtual string KeywordAs { get; set; }
+    protected virtual string KeywordIs { get; set; }
     protected virtual string KeywordNull { get; set; }
     protected virtual string KeywordFalse { get; set; }
     protected virtual string KeywordTrue { get; set; }
