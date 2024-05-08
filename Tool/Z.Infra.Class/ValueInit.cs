@@ -26,6 +26,10 @@ public class ValueInit : Any
 
     public virtual bool InitString(string value)
     {
+        if (value == null)
+        {
+            throw new Exception("Null Reference Exception");
+        }
         return true;
     }
 }
