@@ -11,7 +11,12 @@ public class StringData : Data
             return -1;
         }
 
-        return this.Value[index];
+        char oc;
+        oc = this.Value[index];
+        
+        int a;
+        a = oc;
+        return a;
     }
 
     public virtual bool ContainChar(int index)
