@@ -529,7 +529,7 @@ class Demo : Any
         ooa = a.Execute(ooo, 10, false);
         this.Console.Out.Write("Demo.ExecuteIntParse ooa: " + ooa.ToString() + "\n");
 
-        ooo = this.TextInfra.TextCreateString("9E532F", null);
+        ooo = this.TextInfra.TextCreateStringData("9E532F", null);
         ooa = a.Execute(ooo, 16, true);
         this.Console.Out.Write("Demo.ExecuteIntParse ooa: 0h" + ooa.ToString("x15") + "\n");
 
@@ -537,7 +537,7 @@ class Demo : Any
         ooa = a.Execute(ooo, 16, false);
         this.Console.Out.Write("Demo.ExecuteIntParse ooa: 0h" + ooa.ToString("x16") + "\n");
 
-        ooo = this.TextInfra.TextCreateString("1000000000000000", null);
+        ooo = this.TextInfra.TextCreateStringData("1000000000000000", null);
         ooa = a.Execute(ooo, 16, true);
         this.Console.Out.Write("Demo.ExecuteIntParse ooa: 0h" + ooa.ToString("x16") + "\n");
         return true;
