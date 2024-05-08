@@ -1,4 +1,4 @@
-namespace Z.Tool.PrudateSourceGen;
+namespace Z.Tool.PrudateGen;
 
 
 

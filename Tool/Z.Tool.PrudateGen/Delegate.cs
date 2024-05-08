@@ -1,9 +1,9 @@
-namespace Z.Tool.PrudateSourceGen;
+namespace Z.Tool.PrudateGen;
 
 
 
 
-public class NameParamResult : Any
+public class Delegate : Any
 {
     public virtual string Name { get; set; }
 
