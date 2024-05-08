@@ -13,4 +13,9 @@ public class ClassGenOperate : Any
     {
         return true;
     }
+
+    public virtual bool ExecuteIntFormat(long o)
+    {
+        return true;
+    }
 }

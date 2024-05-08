@@ -1176,6 +1176,14 @@ public class ClassGenTraverse : Traverse
         return true;
     }
 
+    public override bool ExecuteIntValue(IntValue intValue)
+    {
+        long a;
+        a = intValue.Value;
+
+        return true;
+    }
+
     public override bool ExecuteStringValue(StringValue stringValue)
     {
         this.Text(this.DoubleQuote);
@@ -1654,6 +1662,14 @@ public class ClassGenTraverse : Traverse
 
             i = i + 1;
         }
+        return true;
+    }
+
+    protected virtual bool ExecuteIntValueFormat(long a)
+    {
+
+
+
         return true;
     }
 

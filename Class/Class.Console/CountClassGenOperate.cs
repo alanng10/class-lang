@@ -23,4 +23,15 @@ public class CountClassGenOperate : ClassGenOperate
         arg.Index = index;
         return true;
     }
+
+    public override bool ExecuteIntFormat(long o)
+    {
+        GenArg arg;
+        arg = this.Gen.Arg;
+        int index;
+        index = arg.Index;
+        index = index + 15;
+        arg.Index = index;
+        return true;
+    }
 }

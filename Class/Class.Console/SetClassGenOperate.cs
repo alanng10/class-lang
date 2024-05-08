@@ -6,10 +6,24 @@ public class SetClassGenOperate : ClassGenOperate
     {
         base.Init();
         this.TextInfra = TextInfra.This;
+
+        this.Format = new Format();
+        this.Format.Init();
+
+        this.FormatArg = new FormatArg();
+        this.FormatArg.Init();
+
+        this.FormatText = new Text();
+        this.FormatText.Init();
+        this.FormatText.Range = new InfraRange();
+        this.FormatText.Range.Init();
         return true;
     }
 
     protected virtual TextInfra TextInfra { get; set; }
+    protected virtual Format Format { get; set; }
+    protected virtual FormatArg FormatArg { get; set; }
+    protected virtual Text FormatText { get; set; }
 
     public override bool ExecuteText(string o)
     {
@@ -52,6 +66,26 @@ public class SetClassGenOperate : ClassGenOperate
         this.TextInfra.DataCharSet(arg.Data, index, o);
 
         index = index + 1;
+        arg.Index = index;
+        return true;
+    }
+
+    public override bool ExecuteIntFormat(long o)
+    {
+        Format format;
+        format = this.Format;
+        FormatArg formatArg;
+        formatArg = this.FormatArg;
+
+        
+
+
+
+        GenArg arg;
+        arg = this.Gen.Arg;
+        int index;
+        index = arg.Index;
+        index = index + 15;
         arg.Index = index;
         return true;
     }
