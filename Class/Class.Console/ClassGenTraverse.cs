@@ -1158,6 +1158,67 @@ public class ClassGenTraverse : Traverse
 
     public override bool ExecuteStringValue(StringValue stringValue)
     {
+        this.Text(this.DoubleQuote);
+
+        string a;
+        a = stringValue.Value;
+
+        int count;
+        count = a.Length;
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            char oc;
+            oc = a[i];
+
+            bool b;
+            b = false;
+            if (!b)
+            {
+                if (oc == '\\')
+                {
+                    this.Text(this.Backslash);
+                    this.Text(this.Backslash);
+                    b = true;
+                }
+            }
+            if (!b)
+            {
+                if (oc == '\"')
+                {
+                    this.Text(this.Backslash);
+                    this.Text(this.DoubleQuote);
+                    b = true;
+                }
+            }
+            if (!b)
+            {
+                if (oc == '\'')
+                {
+                    this.Text(this.Backslash);
+                    this.Text(this.SingleQuote);
+                    b = true;
+                }
+            }
+            if (!b)
+            {
+                if (oc == '\n')
+                {
+                    this.Text(this.Backslash);
+                    this.Text(this.NewLineEscapedChar);
+                    b = true;
+                }
+            }
+            if (!b)
+            {
+                
+            }
+
+            i = i + 1;
+        }
+
+        this.Text(this.DoubleQuote);
         return true;
     }
 
