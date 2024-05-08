@@ -2,7 +2,7 @@ namespace Z.Tool.#Name#;
 
 class Entry : EntryEntry
 {
-    protected override int Main()
+    protected override int ExecuteMain()
     {
         Gen gen;
         gen = new Gen();
