@@ -794,29 +794,52 @@ public class ClassGenTraverse : Traverse
         this.ExecuteSystemTypeResultStart(u);
         
         bool b;
-        b = (c == system.Any & maide == this.Gen.AnyInitMaide);
-
+        b = ((c == system.Any | c == system.Bool | c == system.Int | c == system.String) & maide == this.Gen.AnyInitMaide);
         if (b)
         {
-            this.Text(this.DelimitLeftBracket);
+            bool ba;
+            ba = (c == system.Any);
+            if (ba)
+            {
+                this.Text(this.DelimitLeftBracket);
 
-            this.Text(this.DelimitLeftBracket);
+                this.Text(this.DelimitLeftBracket);
 
-            this.Text(this.DelimitLeftBracket);
-            this.Text(this.InternAnyClass);
-            this.Text(this.DelimitRightBracket);
-            this.ExecuteOperate(callOperate.This);
+                this.Text(this.DelimitLeftBracket);
+                this.Text(this.InternAnyClass);
+                this.Text(this.DelimitRightBracket);
+                this.ExecuteOperate(callOperate.This);
 
-            this.Text(this.DelimitRightBracket);
+                this.Text(this.DelimitRightBracket);
 
-            this.Text(this.DelimitDot);
+                this.Text(this.DelimitDot);
 
-            this.Text(maide.Name);
+                this.Text(maide.Name);
 
-            this.Text(this.DelimitLeftBracket);
-            this.Text(this.DelimitRightBracket);
+                this.Text(this.DelimitLeftBracket);
+                this.Text(this.DelimitRightBracket);
 
-            this.Text(this.DelimitRightBracket);
+                this.Text(this.DelimitRightBracket);
+            }
+            if (!ba)
+            {
+                this.Text(this.DelimitLeftBracket);
+
+                this.Text(this.DelimitLeftBracket);
+                this.Text(this.InternValueInitClass);
+                this.Text(this.DelimitDot);
+                this.Text(this.InternClassShareThis);
+                this.Text(this.DelimitRightBracket);
+
+                this.Text(this.DelimitDot);
+                this.Text(c.Name);
+
+                this.Text(this.DelimitLeftBracket);
+                this.ExecuteOperate(callOperate.This);
+                this.Text(this.DelimitRightBracket);
+
+                this.Text(this.DelimitRightBracket);
+            }
         }
         if (!b)
         {
