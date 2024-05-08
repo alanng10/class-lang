@@ -780,6 +780,14 @@ class Demo : Any
 
         File.Move(destPathA, pathA);
 
+        string pathB;
+        pathB = "DemoData/image.jpg";
+
+        b = arrange.Exist(pathB);
+
+        this.Console.Out.Write("Exist " + pathB + " " + b.ToString().ToLower() + "\n");
+
+
         arrange.Final();
         return true;
     }
