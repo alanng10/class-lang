@@ -62,6 +62,14 @@ public class Infra : Any
 
     public virtual char DataCharGet(Data data, int index)
     {
+        if (data is StringData)
+        {
+            StringData aa;
+            aa = (StringData)data;
+            char oc;
+            oc = (char)aa.GetChar(index);
+            return oc;
+        }
         long n;
         n = index;
         return this.InfraInfra.DataCharGet(data, n * 2);
@@ -147,69 +155,7 @@ public class Infra : Any
         return true;
     }
 
-    public virtual bool EqualString(Text text, string other, Range otherRange)
-    {
-        if (!this.CheckRange(text))
-        {
-            return false;
-        }
-
-        int otherIndex;
-        int otherCount;
-        otherIndex = 0;
-        otherCount = 0;
-        bool b;
-        b = (otherRange == null);
-        if (b)
-        {
-            otherIndex = 0;
-            otherCount = other.Length;
-        }
-        if (!b)
-        {
-            otherIndex = otherRange.Index;
-            otherCount = otherRange.Count;
-            if (!this.InfraInfra.CheckRange(other.Length, otherIndex, otherCount))
-            {
-                return false;
-            }
-        }
-
-        int count;
-        count = text.Range.Count;
-        if (!(count == otherCount))
-        {
-            return false;
-        }
-
-        Data textData;
-        textData = text.Data;
-        int start;
-        start = text.Range.Index;
-        int i;
-        i = 0;
-        while (i < count)
-        {
-            int index;
-            index = start + i;
-            int indexA;
-            indexA = otherIndex + i;
-
-            char oca;
-            oca = this.DataCharGet(textData, index);
-            char ocb;
-            ocb = other[indexA];
-            
-            if (!(oca == ocb))
-            {
-                return false;
-            }
-            i = i + 1;
-        }
-        return true;
-    }
-
-    public virtual bool EqualText(Text text, Text other)
+    public virtual bool Equal(Text text, Text other)
     {
         if (!this.CheckRange(text))
         {
@@ -269,66 +215,36 @@ public class Infra : Any
         return o.Data(text.Data, text.Range);
     }
 
-    public virtual int StringIndex(string o, Range range, string other, Range otherRange)
+    public virtual int Index(Text text, Text other)
     {
-        InfraInfra infraInfra;
-        infraInfra = this.InfraInfra;
-
-        int thisIndex;
-        int thisCount;
-        thisIndex = 0;
-        thisCount = 0;
-        bool ba;
-        ba = (range == null);
-        if (ba)
-        {
-            thisIndex = 0;
-            thisCount = o.Length;
-        }
-        if (!ba)
-        {
-            thisIndex = range.Index;
-            thisCount = range.Count;
-            if (!infraInfra.CheckRange(o.Length, thisIndex, thisCount))
-            {
-                return -1;
-            }
-        }
+        int textIndex;
+        int textCount;
+        textIndex = text.Range.Index;
+        textCount = text.Range.Count;
 
         int otherIndex;
         int otherCount;
-        otherIndex = 0;
-        otherCount = 0;
-        bool bb;
-        bb = (otherRange == null);
-        if (bb)
-        {
-            otherIndex = 0;
-            otherCount = other.Length;
-        }
-        if (!bb)
-        {
-            otherIndex = otherRange.Index;
-            otherCount = otherRange.Count;
-            if (!infraInfra.CheckRange(other.Length, otherIndex, otherCount))
-            {
-                return -1;
-            }
-        }
+        otherIndex = other.Range.Index;
+        otherCount = other.Range.Count;
 
-        if (thisCount < otherCount)
+        if (textCount < otherCount)
         {
             return -1;
         }
 
+        Data textData;
+        textData = text.Data;
+        Data otherData;
+        otherData = other.Data;
+
         int count;
-        count = thisCount - otherCount + 1;
+        count = textCount - otherCount + 1;
         int i;
         i = 0;
         while (i < count)
         {
             int index;
-            index = thisIndex + i;
+            index = textIndex + i;
 
             bool b;
             b = false;
@@ -341,8 +257,8 @@ public class Infra : Any
             {
                 char oca;
                 char ocb;
-                oca = o[index + iA];
-                ocb = other[otherIndex + iA];
+                oca = this.DataCharGet(textData, index + iA);
+                ocb = this.DataCharGet(otherData, otherIndex + iA);
 
                 if (!(oca == ocb))
                 {
@@ -359,76 +275,5 @@ public class Infra : Any
         }
 
         return -1;
-    }
-
-    public virtual bool StringEqualString(string o, Range range, string other, Range otherRange)
-    {
-        InfraInfra infraInfra;
-        infraInfra = this.InfraInfra;
-
-        int thisIndex;
-        int thisCount;
-        thisIndex = 0;
-        thisCount = 0;
-        bool ba;
-        ba = (range == null);
-        if (ba)
-        {
-            thisIndex = 0;
-            thisCount = o.Length;
-        }
-        if (!ba)
-        {
-            thisIndex = range.Index;
-            thisCount = range.Count;
-            if (!infraInfra.CheckRange(o.Length, thisIndex, thisCount))
-            {
-                return false;
-            }
-        }
-
-        int otherIndex;
-        int otherCount;
-        otherIndex = 0;
-        otherCount = 0;
-        bool bb;
-        bb = (otherRange == null);
-        if (bb)
-        {
-            otherIndex = 0;
-            otherCount = other.Length;
-        }
-        if (!bb)
-        {
-            otherIndex = otherRange.Index;
-            otherCount = otherRange.Count;
-            if (!infraInfra.CheckRange(other.Length, otherIndex, otherCount))
-            {
-                return false;
-            }
-        }
-
-        if (!(thisCount == otherCount))
-        {
-            return false;
-        }
-
-        int count;
-        count = thisCount;
-        int i;
-        i = 0;
-        while (i < count)
-        {
-            char oca;
-            char ocb;
-            oca = o[thisIndex + i];
-            ocb = other[otherIndex + i];
-            if (!(oca == ocb))
-            {
-                return false;
-            }
-            i = i + 1;
-        }
-        return true;
     }
 }
