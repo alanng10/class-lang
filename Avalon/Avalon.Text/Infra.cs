@@ -64,14 +64,16 @@ public class Infra : Any
     {
         long n;
         n = index;
-        return this.InfraInfra.DataCharGet(data, n * 2);
+        n = n * sizeof(char);
+        return this.InfraInfra.DataCharGet(data, n);
     }
 
     public virtual bool DataCharSet(Data data, int index, char value)
     {
         long n;
         n = index;
-        return this.InfraInfra.DataCharSet(data, n * 2, value);
+        n = n * sizeof(char);
+        return this.InfraInfra.DataCharSet(data, n, value);
     }
 
     public virtual Text TextCreate(int count)
