@@ -7,11 +7,23 @@ public class NameCheck : Any
         base.Init();
         this.TextInfra = TextInfra.This;
         this.Keyword = KeywordList.This;
+
+        this.StringData = new StringData();
+        this.StringData.Init();
+
+        Text text;
+        text = new Text();
+        text.Init();
+        text.Range = new InfraRange();
+        text.Range.Init();
+        this.Text = text;
         return true;
     }
 
     protected virtual TextInfra TextInfra { get; set; }
     protected virtual KeywordList Keyword { get; set; }
+    protected virtual StringData StringData { get; set; }
+    protected virtual Text Text { get; set; }
 
     public virtual bool IsName(Text text)
     {
@@ -72,6 +84,9 @@ public class NameCheck : Any
         textInfra = this.TextInfra;
         KeywordList keyword;
         keyword = this.Keyword;
+
+        Text oo;
+        oo = this.Text;
         int count;
         count = keyword.Count;
         int i;
@@ -82,12 +97,27 @@ public class NameCheck : Any
             a = keyword.Get(i);
             string o;
             o = a.Text;
-            if (textInfra.EqualString(text, o, null))
+
+            this.TextStringGet(oo, o);
+
+            if (textInfra.Equal(text, oo))
             {
                 return true;
             }
             i = i + 1;
         }
         return false;
+    }
+
+    protected virtual bool TextStringGet(Text text, string o)
+    {
+        StringData d;
+        d = this.StringData;
+        d.Value = o;
+
+        text.Data = d;
+        text.Range.Index = 0;
+        text.Range.Count = o.Length;
+        return true;
     }
 }
