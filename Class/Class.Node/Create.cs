@@ -37,6 +37,9 @@ public class Create : InfraCreate
         this.TokenH = this.CreateToken();
 
         this.Text = this.CreateText();
+        this.TextB = this.CreateText();
+        this.StringData = new StringData();
+        this.StringData.Init();
         this.TextIntParse = this.CreateTextIntParse();
 
         this.InitListItemState();
@@ -89,6 +92,8 @@ public class Create : InfraCreate
     protected virtual Token TokenH { get; set; }
 
     protected virtual Text Text { get; set; }
+    protected virtual Text TextB { get; set; }
+    protected virtual StringData StringData { get; set; }
     protected virtual TextIntParse TextIntParse { get; set; }
 
     public virtual int NodeIndex { get; set; }
@@ -1275,6 +1280,8 @@ public class Create : InfraCreate
         Text text;
         text = this.Text;
         this.TextGet(text, aa);
+        Text textB;
+        textB = this.TextB;
 
         bool value;
         value = false;
@@ -1283,7 +1290,8 @@ public class Create : InfraCreate
         b = false;
         if (!b)
         {
-            if (textInfra.EqualString(text, this.Keyword.True.Text, null))
+            this.TextStringGet(textB, this.Keyword.True.Text);
+            if (textInfra.Equal(text, textB))
             {
                 value = true;
                 b = true;
@@ -1291,7 +1299,8 @@ public class Create : InfraCreate
         }
         if (!b)
         {
-            if (textInfra.EqualString(text, this.Keyword.False.Text, null))
+            this.TextStringGet(textB, this.Keyword.False.Text);
+            if (textInfra.Equal(text, textB))
             {
                 value = false;
                 b = true;
@@ -4072,6 +4081,18 @@ public class Create : InfraCreate
         return true;
     }
 
+    protected virtual bool TextStringGet(Text text, string o)
+    {
+        StringData d;
+        d = this.StringData;
+        d.Value = o;
+
+        text.Data = d;
+        text.Range.Index = 0;
+        text.Range.Count = o.Length;
+        return true;
+    }
+
     protected virtual bool IsName(TokenToken token)
     {
         this.TextGet(this.Text, token);
@@ -4089,11 +4110,17 @@ public class Create : InfraCreate
     {
         TokenToken aa;
         aa = this.TokenToken(index);
+        
         Text text;
         text = this.Text;
         this.TextGet(text, aa);
+
+        Text textB;
+        textB = this.TextB;
+        this.TextStringGet(textB, value);
+
         bool b;
-        b = this.TextInfra.EqualString(text, value, null);
+        b = this.TextInfra.Equal(text, textB);
         bool a;
         a = b;
         return a;
@@ -4367,10 +4394,15 @@ public class Create : InfraCreate
         ret = -1;
         TokenToken aa;
         aa = this.TokenToken(index);
+        
         Text text;
         text = this.Text;
         this.TextGet(text, aa);
-        if (textInfra.EqualString(text, delimit.LeftBracket.Text, null))
+        Text textB;
+        textB = this.TextB;
+
+        this.TextStringGet(textB, delimit.LeftBracket.Text);
+        if (textInfra.Equal(text, textB))
         {
             Token rightBracket;
             rightBracket = this.TokenMatchLeftBracket(this.TokenA, this.Range(this.RangeA, index + 1, end));
@@ -4379,7 +4411,9 @@ public class Create : InfraCreate
                 ret = rightBracket.Range.End;
             }
         }
-        if (textInfra.EqualString(text, delimit.LeftBrace.Text, null))
+
+        this.TextStringGet(textB, delimit.LeftBrace.Text);
+        if (textInfra.Equal(text, textB))
         {
             Token rightBrace;
             rightBrace = this.TokenMatchLeftBrace(this.TokenA, this.Range(this.RangeA, index + 1, end));
