@@ -86,6 +86,16 @@ public class Arrange : Any
 
     public virtual bool Exist(string path)
     {
-        return true;
+        ulong pathU;
+        pathU = this.InternInfra.StringCreate(path);
+
+        ulong o;
+        o = Extern.StorageArrange_Exist(this.Intern, pathU);
+
+        this.InternInfra.StringDelete(pathU);
+
+        bool a;
+        a = (!(o == 0));
+        return a;
     }
 }
