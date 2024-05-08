@@ -18,7 +18,6 @@ global using FormatArg = Avalon.Text.FormatArg;
 global using TextInfra = Avalon.Text.Infra;
 global using StorageInfra = Avalon.Storage.Infra;
 global using Out = Avalon.Console.Out;
-global using Main = Avalon.Main.Main;
 global using EntryEntry = Avalon.Entry.Entry;
 global using Source = Class.Infra.Source;
 global using ClassClass = Class.Infra.Class;

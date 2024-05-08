@@ -10,7 +10,6 @@ global using ListInfra = Avalon.List.Infra;
 global using StorageInfra = Avalon.Storage.Infra;
 global using ConsoleConsole = Avalon.Console.Console;
 global using StringOut = Avalon.Console.StringOut;
-global using Main = Avalon.Main.Main;
 global using EntryEntry = Avalon.Entry.Entry;
 global using ClassInfra = Class.Infra.Infra;
 global using ClassConsole = Class.Console.Console;
