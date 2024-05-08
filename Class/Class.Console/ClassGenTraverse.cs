@@ -49,6 +49,7 @@ public class ClassGenTraverse : Traverse
         this.KeywordNew = "new";
         this.KeywordThis = "this";
         this.KeywordBase = "base";
+        this.KeywordAs = "as";
         this.KeywordNull = "null";
         this.KeywordFalse = "false";
         this.KeywordTrue = "true";
@@ -144,6 +145,7 @@ public class ClassGenTraverse : Traverse
     protected virtual string KeywordNew { get; set; }
     protected virtual string KeywordThis { get; set; }
     protected virtual string KeywordBase { get; set; }
+    protected virtual string KeywordAs { get; set; }
     protected virtual string KeywordNull { get; set; }
     protected virtual string KeywordFalse { get; set; }
     protected virtual string KeywordTrue { get; set; }
@@ -1010,6 +1012,49 @@ public class ClassGenTraverse : Traverse
                 this.ExecuteClassTableName(a);
                 this.Text(this.DelimitDot);
                 this.Text(this.InternClassShareThis);
+                this.Text(this.DelimitRightBracket);
+            }
+        }
+        return true;
+    }
+
+    public override bool ExecuteCastOperate(CastOperate castOperate)
+    {
+        ClassClass ca;
+        ca = this.Info(castOperate.Any).OperateClass;
+        ClassClass c;
+        c = this.Info(castOperate).OperateClass;
+
+        bool b;
+        b = (c == ca);
+
+        if (b)
+        {
+            this.ExecuteOperate(castOperate.Any);
+        }
+        if (!b)
+        {
+            SystemClass system;
+            system = this.Gen.System;
+
+            bool ba;
+            ba = (c == system.Bool | c == system.Int);
+            if (ba)
+            {
+
+            }
+            if (!ba)
+            {
+                this.Text(this.DelimitLeftBracket);
+
+                this.ExecuteOperate(castOperate.Any);
+
+                this.Text(this.Space);
+                this.Text(this.KeywordAs);
+                this.Text(this.Space);
+
+                this.ExecuteClassName(c, 0);
+
                 this.Text(this.DelimitRightBracket);
             }
         }
