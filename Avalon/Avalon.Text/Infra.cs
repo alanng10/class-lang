@@ -105,27 +105,51 @@ public class Infra : Any
         return a;
     }
 
+    public virtual Data DataCreateString(string a, Range range)
+    {
+        int index;
+        int count;
+        index = range.Index;
+        count = range.Count;
+        if (!this.InfraInfra.CheckRange(a.Length, index, count))
+        {
+            return null;
+        }
+
+        long oa;
+        oa = count;
+        oa = oa * sizeof(char);
+
+        Data data;
+        data = new Data();
+        data.Count = oa;
+        data.Init();
+
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            char oc;
+            oc = a[index + i];
+
+            this.DataCharSet(data, i, oc);
+            i = i + 1;
+        }
+
+        return data;
+    }
+
     public virtual Text TextCreateString(string o, Range range)
     {
         Data data;
-        data = this.InfraInfra.DataCreateString(o, range);
+        data = this.DataCreateString(o, range);
         if (data == null)
         {
             return null;
         }
 
         int count;
-        count = 0;
-        bool b;
-        b = (range == null);
-        if (b)
-        {
-            count = o.Length;
-        }
-        if (!b)
-        {
-            count = range.Count;
-        }
+        count = range.Count;
 
         Text a;
         a = new Text();
