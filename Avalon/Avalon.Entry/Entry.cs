@@ -43,7 +43,7 @@ public class Entry : Any
     }
 
 
-    public virtual int Main()
+    protected virtual int Main()
     {
         return 0;
     }
