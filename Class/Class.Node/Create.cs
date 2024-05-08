@@ -4499,6 +4499,8 @@ public class Create : InfraCreate
 
         Text text;
         text = this.Text;
+        Text textB;
+        textB = this.TextB;
 
         int openCount;
         openCount = 1;
@@ -4513,7 +4515,9 @@ public class Create : InfraCreate
             TokenToken aa;
             aa = this.TokenToken(i);
             this.TextGet(text, aa);
-            if (textInfra.EqualString(text, rightToken, null))
+            
+            this.TextStringGet(textB, rightToken);
+            if (textInfra.Equal(text, textB))
             {
                 openCount = openCount - 1;
                 if (openCount == 0)
@@ -4522,10 +4526,13 @@ public class Create : InfraCreate
                     varContinue = false;
                 }
             }
-            if (textInfra.EqualString(text, leftToken, null))
+
+            this.TextStringGet(textB, leftToken);
+            if (textInfra.Equal(text, textB))
             {
                 openCount = openCount + 1;
             }
+
             if (index == -1)
             {
                 i = i + 1;
@@ -4555,6 +4562,8 @@ public class Create : InfraCreate
 
         Text text;
         text = this.Text;
+        Text textB;
+        textB = this.TextB;
 
         int openCount;
         openCount = 1;
@@ -4571,7 +4580,9 @@ public class Create : InfraCreate
             TokenToken aa;
             aa = this.TokenToken(t);
             this.TextGet(text, aa);
-            if (textInfra.EqualString(text, leftToken, null))
+
+            this.TextStringGet(textB, leftToken);
+            if (textInfra.Equal(text, textB))
             {
                 openCount = openCount - 1;
                 if (openCount == 0)
@@ -4580,10 +4591,13 @@ public class Create : InfraCreate
                     varContinue = false;
                 }
             }
-            if (textInfra.EqualString(text, rightToken, null))
+
+            this.TextStringGet(textB, rightToken);
+            if (textInfra.Equal(text, textB))
             {
                 openCount = openCount + 1;
             }
+            
             if (index == -1)
             {
                 i = i - 1;
