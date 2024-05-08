@@ -30,11 +30,14 @@ public class StringData : Data
             return -1;
         }
 
+        int oa;
+        oa = sizeof(char);
+
         long ka;
-        ka = index / 2;
+        ka = index / oa;
 
         long kb;
-        kb = ka * 2;
+        kb = ka * oa;
 
         long kc;
         kc = index - kb;
