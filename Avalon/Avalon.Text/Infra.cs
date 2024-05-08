@@ -128,7 +128,6 @@ public class Infra : Any
             }
         }
 
-
         long oa;
         oa = count;
         oa = oa * sizeof(char);
@@ -181,6 +180,54 @@ public class Infra : Any
         a.Range = new Range();
         a.Range.Init();
         a.Range.Count = count;
+        return a;
+    }
+
+    public virtual StringData StringDataCreateString(string o)
+    {
+        StringData a;
+        a = new StringData();
+        a.Init();
+        a.Value = o;
+        return a;
+    }
+
+    public virtual Text TextCreateStringData(string o, Range range)
+    {
+        int index;
+        int count;
+        index = 0;
+        count = 0;
+        bool b;
+        b = (range == null);
+        if (b)
+        {
+            index = 0;
+            count = o.Length;
+        }
+        if (!b)
+        {
+            index = range.Index;
+            count = range.Count;
+            if (!this.InfraInfra.CheckRange(o.Length, index, count))
+            {
+                return null;
+            }
+        }
+
+        StringData data;
+        data = this.StringDataCreateString(o);
+
+        Range aa = new Range();
+        aa.Init();
+        aa.Index = index;
+        aa.Count = count;
+
+        Text a;
+        a = new Text();
+        a.Init();
+        a.Data = data;
+        a.Range = aa;
         return a;
     }
 
