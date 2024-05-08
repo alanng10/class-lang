@@ -2,9 +2,8 @@ namespace Avalon.Infra;
 
 public class StringData : Data
 {
-    public override bool Init()
+    protected override bool InitValue()
     {
-        this.InfraInfra = Infra.This;
         return true;
     }
 
