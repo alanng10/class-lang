@@ -6,7 +6,7 @@ public class StringData : Data
 
     public virtual int GetChar(int index)
     {
-        if (!this.Contain(index))
+        if (!this.ContainChar(index))
         {
             return -1;
         }
