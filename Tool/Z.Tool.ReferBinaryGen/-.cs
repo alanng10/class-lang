@@ -24,7 +24,6 @@ global using Console = Avalon.Console.Console;
 global using Play = Avalon.Media.Play;
 global using Draw = Avalon.Draw.Draw;
 global using View = Avalon.View.View;
-global using Main = Avalon.Main.Main;
 global using EntryEntry = Avalon.Entry.Entry;
 global using Module = Class.Infra.Module;
 global using ModuleRef = Class.Infra.ModuleRef;
