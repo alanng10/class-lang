@@ -1156,6 +1156,26 @@ public class ClassGenTraverse : Traverse
         return true;
     }
 
+    public override bool ExecuteBoolValue(BoolValue boolValue)
+    {
+        string k;
+        k = null;
+
+        bool b;
+        b = boolValue.Value;
+        if (!b)
+        {
+            k = this.KeywordFalse;
+        }
+        if (b)
+        {
+            k = this.KeywordTrue;
+        }
+
+        this.Text(k);
+        return true;
+    }
+
     public override bool ExecuteStringValue(StringValue stringValue)
     {
         this.Text(this.DoubleQuote);
@@ -1212,7 +1232,7 @@ public class ClassGenTraverse : Traverse
             }
             if (!b)
             {
-                
+                this.Gen.Operate.ExecuteChar(oc);
             }
 
             i = i + 1;
