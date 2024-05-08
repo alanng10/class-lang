@@ -24,6 +24,7 @@ public class ClassGenTraverse : Traverse
         this.InternStringFieldGetPrefix = "G_";
         this.InternStringFieldSetPrefix = "S_";
         this.InternStringMaideCallPrefix = "C_";
+        this.InternValueInitClass = "__C_ValueInit";
         this.InternValueShareClass = "__C_ValueShare";
         this.InternModuleInfoClass = "__C_ModuleInfo";
         this.Int60Mask = "0xf000000000000000UL";
@@ -118,6 +119,7 @@ public class ClassGenTraverse : Traverse
     protected virtual string InternStringFieldGetPrefix { get; set; }
     protected virtual string InternStringFieldSetPrefix { get; set; }
     protected virtual string InternStringMaideCallPrefix { get; set; }
+    protected virtual string InternValueInitClass { get; set; }
     protected virtual string InternValueShareClass { get; set; }
     protected virtual string InternModuleInfoClass { get; set; }
     protected virtual string Int60Mask { get; set; }
