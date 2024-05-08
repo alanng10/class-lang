@@ -325,7 +325,6 @@ StorageArrange
     Remove(path)
     Exist(path)
     LinkTarget(path)
-    MoveToTrash(path, trashPath)
     FoldCreate(path)
     FoldCreateToPath(path)
     FoldRemove(path)
