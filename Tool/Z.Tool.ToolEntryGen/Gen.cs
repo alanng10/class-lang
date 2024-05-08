@@ -35,6 +35,25 @@ class Gen : Any
         this.ExecuteOne("Class.KeywordList");
         this.ExecuteOne("Class.NodeList");
         this.ExecuteOne("Class.TaskKindList");
+        this.ExecuteOne("Infra.StatBrushKind");
+        this.ExecuteOne("Infra.StatComposite");
+        this.ExecuteOne("Infra.StatGradientKind");
+        this.ExecuteOne("Infra.StatGradientSpread");
+        this.ExecuteOne("Infra.StatImageFormat");
+        this.ExecuteOne("Infra.StatNetworkCase");
+        this.ExecuteOne("Infra.StatNetworkPortKind");
+        this.ExecuteOne("Infra.StatNetworkStatus");
+        this.ExecuteOne("Infra.StatPenCap");
+        this.ExecuteOne("Infra.StatPenJoin");
+        this.ExecuteOne("Infra.StatPenKind");
+        this.ExecuteOne("Infra.StatStorageMode");
+        this.ExecuteOne("Infra.StatStorageStatus");
+        this.ExecuteOne("Infra.StatStreamKind");
+        this.ExecuteOne("Infra.StatTextAlign");
+        this.ExecuteOne("Infra.StatTextEncodeKind");
+        this.ExecuteOne("Infra.StatTextWrap");
+        this.ExecuteOne("Infra.StatThreadCase");
+
         return 0;
     }
 
