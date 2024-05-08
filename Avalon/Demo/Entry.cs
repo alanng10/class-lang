@@ -2,7 +2,7 @@ namespace Demo;
 
 class Entry : EntryEntry
 {
-    protected override int Main()
+    protected override int ExecuteMain()
     {
         Demo demo;
         demo = new Demo();
