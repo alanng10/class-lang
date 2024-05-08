@@ -754,14 +754,8 @@ class Demo : Any
 
         bool b;
         b = arrange.Copy(path, destPath);
-        string k;
-        k = "Success";
-        if (!b)
-        {
-            k = "Error";
-        }
 
-        this.Console.Out.Write("Copy " + path + " " + k + "\n");
+        this.Console.Out.Write("Copy " + path + " " + this.StorageArrangeStatus(b) + "\n");
 
         string pathA;        
         pathA = "DemoData/DemoRename.txt";
@@ -771,12 +765,8 @@ class Demo : Any
         File.Delete(destPathA);
 
         b = arrange.Rename(pathA, destPathA);
-        k = "Success";
-        if (!b)
-        {
-            k = "Error";
-        }
-        this.Console.Out.Write("Rename " + pathA + " " + k + "\n");
+
+        this.Console.Out.Write("Rename " + pathA + " " + this.StorageArrangeStatus(b) + "\n");
 
         File.Move(destPathA, pathA);
 
@@ -787,9 +777,34 @@ class Demo : Any
 
         this.Console.Out.Write("Exist " + pathB + " " + b.ToString().ToLower() + "\n");
 
+        string pathC;
+        pathC = "DemoData/FoldA";
+
+        try
+        {
+            Directory.Delete(pathC);
+        }
+        catch
+        {
+        }
+        
+        b = arrange.FoldCreate(pathC);
+
+        this.Console.Out.Write("FoldCreate " + pathC + " " + this.StorageArrangeStatus(b) + "\n");
 
         arrange.Final();
         return true;
+    }
+
+    private string StorageArrangeStatus(bool b)
+    {
+        string k;
+        k = "Success";
+        if (!b)
+        {
+            k = "Error";
+        }
+        return k;
     }
 
     private DrawImage ThreadDrawImageCreate()
