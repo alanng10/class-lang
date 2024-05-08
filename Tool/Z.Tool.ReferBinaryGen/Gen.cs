@@ -49,6 +49,7 @@ public class Gen : Any
     protected virtual ModuleRef ModuleRef { get; set; }
     protected virtual Table BinaryTable { get; set; }
     protected virtual Array CountArray { get; set; }
+    protected virtual SystemType InfraAnyType { get; set; }
     protected virtual ClassClass AnyClass { get; set; }
     protected virtual bool IsAvalonInfra { get; set; }
     protected virtual Array Array { get; set; }
@@ -182,13 +183,14 @@ public class Gen : Any
         b = this.IsAvalonInfra;
         if (b)
         {
-            anyType = this.AnyType(typeArray);
+            anyType = this.AnyTypeGet(typeArray);
 
             if (anyType == null)
             {
                 global::System.Console.Error.Write("Any class not found\n");
                 global::System.Environment.Exit(103);
             }
+            this.InfraAnyType = anyType;
 
             this.AddClass(anyType);
 
@@ -389,6 +391,12 @@ public class Gen : Any
                         global::System.Environment.Exit(110);
                     }
 
+                    if (property.PropertyType == this.InfraAnyType)
+                    {
+                        global::System.Console.Error.Write("Class " + varClass.Name + "(" + varClass.Module.Ref.Name + ") field " + property.Name + " is Avalon.Infra Any type\n");
+                        global::System.Environment.Exit(160);
+                    }
+
                     Info oe;
                     oe = new Info();
                     oe.Init();
@@ -433,6 +441,12 @@ public class Gen : Any
                     global::System.Environment.Exit(110);
                 }
 
+                if (method.ReturnType == this.InfraAnyType)
+                {
+                    global::System.Console.Error.Write("Class " + varClass.Name + "(" + varClass.Module.Ref.Name + ") maide " + method.Name + " is Avalon.Infra Any type\n");
+                    global::System.Environment.Exit(161);
+                }
+
                 Info of;
                 of = new Info();
                 of.Init();
@@ -464,6 +478,13 @@ public class Gen : Any
                     {
                         ParameterInfo parameter;
                         parameter = parameterArray[iA];
+
+                        if (parameter.ParameterType == this.InfraAnyType)
+                        {
+                            global::System.Console.Error.Write("Class " + varClass.Name + "(" + varClass.Module.Ref.Name + ") maide " + maide.Name + 
+                            " var " + parameter.Name + " is Avalon.Infra Any type\n");
+                            global::System.Environment.Exit(162);
+                        }
 
                         Info og;
                         og = new Info();
@@ -1098,7 +1119,7 @@ public class Gen : Any
         return true;
     }
 
-    protected virtual SystemType AnyType(SystemType[] typeArray)
+    protected virtual SystemType AnyTypeGet(SystemType[] typeArray)
     {
         int count;
         count = typeArray.Length;
