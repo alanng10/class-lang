@@ -39,6 +39,8 @@ public class ClassGenTraverse : Traverse
         this.DoubleQuote = "\"";
         this.SingleQuote = "\'";
         this.NewLineEscapedChar = "n";
+        this.IntValueHexPrefix = "0x";
+        this.IntValuePostfix = "UL";
         this.KeywordPublic = "public";
         this.KeywordInternal = "internal";
         this.KeywordProtected = "protected";
@@ -141,6 +143,8 @@ public class ClassGenTraverse : Traverse
     protected virtual string DoubleQuote { get; set; }
     protected virtual string SingleQuote { get; set; }
     protected virtual string NewLineEscapedChar { get; set; }
+    protected virtual string IntValueHexPrefix { get; set; }
+    protected virtual string IntValuePostfix { get; set; }
     protected virtual string KeywordPublic { get; set; }
     protected virtual string KeywordInternal { get; set; }
     protected virtual string KeywordProtected { get; set; }
@@ -1665,11 +1669,13 @@ public class ClassGenTraverse : Traverse
         return true;
     }
 
-    protected virtual bool ExecuteIntValueFormat(long a)
+    protected virtual bool ExecuteIntValueHex(long a)
     {
+        this.Text(this.IntValueHexPrefix);
 
+        this.Gen.Operate.ExecuteIntFormat(a);
 
-
+        this.Text(this.IntValuePostfix);
         return true;
     }
 
