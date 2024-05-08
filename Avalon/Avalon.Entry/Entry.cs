@@ -4,6 +4,47 @@ public class Entry : Any
 {
     public virtual int Execute()
     {
+        this.MainBefore();
+
+        int o;
+        o = this.Main();
+
+        this.MainAfter();
+        return o;
+    }
+
+    protected virtual bool MainBefore()
+    {
+        string k;
+        k = typeof(Any).Assembly.Location;
+        string ka;
+        ka = Path.GetDirectoryName(k);
+
+        Directiory.SetCurrentDirectory(ka);
+
+
+        Environment.SetEnvironmentVariable("QT_PLUGIN_PATH", "Avalon.Intern.data/Lib");
+
+        ulong ua;
+        ua = 1;
+        Extern.Main_IsCSharpSet(ua);
+        Extern.Main_Init();
+
+        ThreadThread o;
+        o = new ThreadThread();
+        o.InitMainThread();
+        return true;
+    }
+
+    protected virtual bool MainAfter()
+    {
+        Extern.Main_Final();
+        return true;
+    }
+
+
+    public virtual int Main()
+    {
         return 0;
     }
     
