@@ -231,18 +231,6 @@ class ObjectString : Any
 
             return true;
         }
-        if (varObject is Text)
-        {
-            Text oo;
-            oo = (Text)varObject;
-
-            string oooa;
-            oooa = this.TextInfra.StringCreate(oo);
-            oooa = this.EscapeString(oooa);
-
-            this.Append("\"").Append(oooa).Append("\"").Append(",").AppendLine();
-            return true;
-        }
 
 
 
