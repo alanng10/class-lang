@@ -62,14 +62,6 @@ public class Infra : Any
 
     public virtual char DataCharGet(Data data, int index)
     {
-        if (data is StringData)
-        {
-            StringData aa;
-            aa = (StringData)data;
-            char oc;
-            oc = (char)aa.GetChar(index);
-            return oc;
-        }
         long n;
         n = index;
         return this.InfraInfra.DataCharGet(data, n * 2);
@@ -242,16 +234,6 @@ public class Infra : Any
 
         Range range;
         range = text.Range;
-
-        if (data is StringData)
-        {
-            StringData aa;
-            aa = (StringData)data;
-
-            bool b;
-            b = infraInfra.CheckRange(aa.Value.Length, range.Index, range.Count);
-            return b;
-        }
 
         long dataCount;
         dataCount = data.Count;
