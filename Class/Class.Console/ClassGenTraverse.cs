@@ -1045,7 +1045,53 @@ public class ClassGenTraverse : Traverse
             ba = (c == system.Bool | c == system.Int);
             if (ba)
             {
+                this.Text(this.DelimitLeftBracket);
 
+                this.Text(this.DelimitLeftBracket);
+
+                this.Text(this.DelimitLeftBracket);
+
+                this.Text(this.InternOperateVarPrefix);
+                this.Text(this.InternOperateVarObject);
+
+                this.Text(this.Space);
+                this.Text(this.DelimitAssign);
+                this.Text(this.Space);
+
+                this.ExecuteOperate(castOperate.Any);
+
+                this.Text(this.DelimitRightBracket);
+
+                this.Text(this.Space);
+                this.Text(this.KeywordIs);
+                this.Text(this.Space);
+
+                this.ExecuteClassName(c, 0);
+
+                this.Text(this.DelimitRightBracket);
+
+                this.Text(this.Space);
+                this.Text(this.DelimitQuestion);
+                this.Text(this.Space);
+
+                this.Text(this.DelimitLeftBracket);
+
+                this.Text(this.DelimitLeftBracket);
+                this.ExecuteClassName(c, 0);
+                this.Text(this.DelimitRightBracket);
+
+                this.Text(this.InternOperateVarPrefix);
+                this.Text(this.InternOperateVarObject);
+
+                this.Text(this.DelimitRightBracket);
+
+                this.Text(this.Space);
+                this.Text(this.DelimitColon);
+                this.Text(this.Space);
+
+                this.ExecuteAnyDefault(c, 0);
+
+                this.Text(this.DelimitRightBracket);
             }
             if (!ba)
             {
