@@ -36,7 +36,7 @@ public class Create : InfraCreate
         this.TokenG = this.CreateToken();
         this.TokenH = this.CreateToken();
 
-        this.Text = this.CreateText();
+        this.TextA = this.CreateText();
         this.TextB = this.CreateText();
         this.StringData = new StringData();
         this.StringData.Init();
@@ -91,7 +91,7 @@ public class Create : InfraCreate
     protected virtual Token TokenG { get; set; }
     protected virtual Token TokenH { get; set; }
 
-    protected virtual Text Text { get; set; }
+    protected virtual Text TextA { get; set; }
     protected virtual Text TextB { get; set; }
     protected virtual StringData StringData { get; set; }
     protected virtual TextIntParse TextIntParse { get; set; }
@@ -518,7 +518,7 @@ public class Create : InfraCreate
         data = this.NameValueData;
 
         Text text;
-        text = this.Text;
+        text = this.TextA;
         text.Data = this.NameValueText;
         text.Range.Index = 0;
         text.Range.Count = 0;
@@ -554,7 +554,7 @@ public class Create : InfraCreate
         data = this.StringValueData;
 
         Text text;
-        text = this.Text;
+        text = this.TextA;
         text.Data = this.StringValueText;
         text.Range.Index = 0;
         text.Range.Count = 0;
@@ -1278,7 +1278,7 @@ public class Create : InfraCreate
         TokenToken aa;
         aa = this.TokenToken(start);
         Text text;
-        text = this.Text;
+        text = this.TextA;
         this.TextGet(text, aa);
         Text textB;
         textB = this.TextB;
@@ -1342,7 +1342,7 @@ public class Create : InfraCreate
         }
 
         Text text;
-        text = this.Text;
+        text = this.TextA;
         this.TextGet(text, aa);
         
         long value;
@@ -1384,7 +1384,7 @@ public class Create : InfraCreate
         Text line;
         line = (Text)this.SourceText.Get(aa.Row);
         Text text;
-        text = this.Text;
+        text = this.TextA;
         text.Data = line.Data;
         text.Range.Index = aa.Range.Index + 2;
         text.Range.Count = aa.Range.Count - 2;
@@ -1430,7 +1430,7 @@ public class Create : InfraCreate
         Text line;
         line = (Text)this.SourceText.Get(aa.Row);
         Text text;
-        text = this.Text;
+        text = this.TextA;
         text.Data = line.Data;
         text.Range.Index = aa.Range.Index + 3;
         text.Range.Count = aa.Range.Count - 3;
@@ -1504,7 +1504,7 @@ public class Create : InfraCreate
         Text line;
         line = (Text)this.SourceText.Get(aa.Row);
         Text text;
-        text = this.Text;
+        text = this.TextA;
         text.Data = line.Data;
         text.Range.Index = aa.Range.Index + 4;
         text.Range.Count = aa.Range.Count - 4;
@@ -1567,7 +1567,7 @@ public class Create : InfraCreate
         TokenToken aa;
         aa = this.TokenToken(start);
         Text text;
-        text = this.Text;
+        text = this.TextA;
         this.TextGet(text, aa);
 
         bool b;
@@ -3821,7 +3821,7 @@ public class Create : InfraCreate
         TokenToken aa;
         aa = this.TokenToken(start);
         Text text;
-        text = this.Text;
+        text = this.TextA;
         this.TextGet(text, aa);
 
         string a;
@@ -3831,9 +3831,9 @@ public class Create : InfraCreate
 
     protected virtual bool IsIntValue(TokenToken aa)
     {
-        this.TextGet(this.Text, aa);
+        this.TextGet(this.TextA, aa);
 
-        if (!this.IsIntChar(this.Text))
+        if (!this.IsIntChar(this.TextA))
         {
             return false;
         }
@@ -3871,10 +3871,10 @@ public class Create : InfraCreate
         startA = start + 2;
         int countA;
         countA = count - 2;
-        this.Text.Data = data;
-        this.Text.Range.Index = startA;
-        this.Text.Range.Count = countA;
-        if (!this.IsIntHexChar(this.Text))
+        this.TextA.Data = data;
+        this.TextA.Range.Index = startA;
+        this.TextA.Range.Count = countA;
+        if (!this.IsIntHexChar(this.TextA))
         {
             return false;
         }
@@ -3919,10 +3919,10 @@ public class Create : InfraCreate
         startA = start + 3;
         int countA;
         countA = count - 3;
-        this.Text.Data = data;
-        this.Text.Range.Index = startA;
-        this.Text.Range.Count = countA;
-        if (!this.IsIntChar(this.Text))
+        this.TextA.Data = data;
+        this.TextA.Range.Index = startA;
+        this.TextA.Range.Count = countA;
+        if (!this.IsIntChar(this.TextA))
         {
             return false;
         }
@@ -3971,10 +3971,10 @@ public class Create : InfraCreate
         startA = start + 4;
         int countA;
         countA = count - 4;
-        this.Text.Data = data;
-        this.Text.Range.Index = startA;
-        this.Text.Range.Count = countA;
-        if (!this.IsIntHexChar(this.Text))
+        this.TextA.Data = data;
+        this.TextA.Range.Index = startA;
+        this.TextA.Range.Count = countA;
+        if (!this.IsIntHexChar(this.TextA))
         {
             return false;
         }
@@ -4095,9 +4095,9 @@ public class Create : InfraCreate
 
     protected virtual bool IsName(TokenToken token)
     {
-        this.TextGet(this.Text, token);
+        this.TextGet(this.TextA, token);
 
-        return this.NameCheck.IsName(this.Text);
+        return this.NameCheck.IsName(this.TextA);
     }
 
     public virtual bool NodeInfo(Node node, int start, int end)
@@ -4112,7 +4112,7 @@ public class Create : InfraCreate
         aa = this.TokenToken(index);
         
         Text text;
-        text = this.Text;
+        text = this.TextA;
         this.TextGet(text, aa);
 
         Text textB;
@@ -4396,7 +4396,7 @@ public class Create : InfraCreate
         aa = this.TokenToken(index);
         
         Text text;
-        text = this.Text;
+        text = this.TextA;
         this.TextGet(text, aa);
         Text textB;
         textB = this.TextB;
@@ -4439,7 +4439,7 @@ public class Create : InfraCreate
         aa = this.TokenToken(t);
         
         Text text;
-        text = this.Text;
+        text = this.TextA;
         this.TextGet(text, aa);
         Text textB;
         textB = this.TextB;
@@ -4498,7 +4498,7 @@ public class Create : InfraCreate
         end = range.End;
 
         Text text;
-        text = this.Text;
+        text = this.TextA;
         Text textB;
         textB = this.TextB;
 
@@ -4561,7 +4561,7 @@ public class Create : InfraCreate
         end = range.End;
 
         Text text;
-        text = this.Text;
+        text = this.TextA;
         Text textB;
         textB = this.TextB;
 
