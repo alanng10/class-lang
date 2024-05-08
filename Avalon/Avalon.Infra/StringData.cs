@@ -63,4 +63,9 @@ public class StringData : Data
 
         return a;
     }
+
+    public override bool Set(long index, int value)
+    {
+        return false;
+    }
 }
