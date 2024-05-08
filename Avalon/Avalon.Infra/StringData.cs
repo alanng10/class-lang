@@ -4,7 +4,6 @@ public class StringData : Data
 {
     public override bool Init()
     {
-        base.Init();
         this.InfraInfra = Infra.This;
         return true;
     }
