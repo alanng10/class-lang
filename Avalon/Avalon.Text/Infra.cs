@@ -139,16 +139,33 @@ public class Infra : Any
 
     public virtual bool CheckRange(Text text)
     {
+        InfraInfra infraInfra;
+        infraInfra = this.InfraInfra;
+
+        Data data;
+        data = text.Data;
+
+        Range range;
+        range = text.Range;
+
+        if (data is StringData)
+        {
+            StringData aa;
+            aa = (StringData)data;
+
+            bool b;
+            b = infraInfra.CheckRange(aa.Value.Length, range.Index, range.Count);
+            return b;
+        }
+
         long dataCount;
-        dataCount = text.Data.Count;
+        dataCount = data.Count;
         long charCount;
         charCount = dataCount / 2;
         int count;
         count = (int)charCount;
 
-        Range range;
-        range = text.Range;
-        if (!this.InfraInfra.CheckRange(count, range.Index, range.Count))
+        if (!infraInfra.CheckRange(count, range.Index, range.Count))
         {
             return false;
         }
