@@ -20,6 +20,8 @@ public class Intern : object
     [SystemThreadStatic]
     public static object ThisThread = null;
 
+    public static string ExecuteDirectory { get; set; }
+
     public virtual ulong MaidePointer(SystemDelegate d)
     {
         SystemIntPtr u;

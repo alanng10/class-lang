@@ -15,6 +15,11 @@ public class Entry : Any
 
     protected virtual bool MainBefore()
     {
+        string kk;
+        kk = Directiory.GetCurrentDirectory();
+
+        InternIntern.ExecuteDirectory = kk;
+
         string k;
         k = typeof(Any).Assembly.Location;
         string ka;
