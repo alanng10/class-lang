@@ -24,8 +24,27 @@ public class ModuleLoad : Any
 
     public virtual bool Execute()
     {
+        bool b;
+        b = this.ExecuteAll();
+
+        this.Binary = null;
+        this.ClassArray = null;
+        this.ImportArray = null;
+
+        if (!b)
+        {
+            this.Module = null;
+            return false;
+        }
+
+        return true;
+    }
+
+    protected virtual bool ExecuteAll()
+    {
         ModuleRef o;
         o = this.ModuleRef;
+
         if (this.ModuleTable.Contain(o))
         {
             return false;
@@ -42,21 +61,23 @@ public class ModuleLoad : Any
         binary = (BinaryBinary)this.BinaryTable.Get(this.Module.Ref);
         this.Binary = binary;
 
+        bool b;
+        
         this.SetClassList();
 
         this.SetImportList();
 
         this.SetBaseList();
 
-        this.SetPartList();
+        b = this.SetPartList();
+        if (!b)
+        {
+            return false;
+        }
 
         this.SetVirtualList();
 
         this.SetEntry();
-
-        this.Binary = null;
-        this.ClassArray = null;
-        this.ImportArray = null;
         return true;
     }
 
@@ -237,6 +258,11 @@ public class ModuleLoad : Any
             ClassClass baseClass;
             baseClass = this.ClassGetIndex(a.Value);
 
+            if (baseClass == null)
+            {
+                return false;
+            }
+
             varClass.Base = baseClass;            
 
             i = i + 1;
@@ -264,7 +290,12 @@ public class ModuleLoad : Any
             BinaryPart a;
             a = (BinaryPart)array.Get(i);
 
-            this.SetPart(varClass, a);
+            bool b;
+            b = this.SetPart(varClass, a);
+            if (!b)
+            {
+                return false;
+            }
 
             i = i + 1;
         }
@@ -273,8 +304,19 @@ public class ModuleLoad : Any
 
     protected virtual bool SetPart(ClassClass varClass, BinaryPart part)
     {
-        this.SetPartField(varClass, part.Field);
-        this.SetPartMaide(varClass, part.Maide);
+        bool b;
+        
+        b = this.SetPartField(varClass, part.Field);
+        if (!b)
+        {
+            return false;
+        }
+        b = this.SetPartMaide(varClass, part.Maide);
+        if (!b)
+        {
+            return false;
+        }
+
         return true;
     }
 
@@ -293,12 +335,19 @@ public class ModuleLoad : Any
             BinaryField ua;
             ua = (BinaryField)binaryField.Get(i);
 
+            ClassClass c;
+            c = this.ClassGetIndex(ua.Class);
+            if (c == null)
+            {
+                return false;
+            }
+
             Field a;
             a = new Field();
             a.Init();
             a.Index = fieldTable.Count;
             a.Name = ua.Name;
-            a.Class = this.ClassGetIndex(ua.Class);
+            a.Class = c;
             a.SystemInfo = this.SystemInfoCreate(ua.SystemInfo);
             a.Count = this.CountList.Get(ua.Count);
             a.Parent = varClass;
@@ -325,17 +374,29 @@ public class ModuleLoad : Any
             BinaryMaide ua;
             ua = (BinaryMaide)binaryMaide.Get(i);
 
+            ClassClass c;
+            c = this.ClassGetIndex(ua.Class);
+            if (c == null)
+            {
+                return false;
+            }
+
             Maide a;
             a = new Maide();
             a.Init();
             a.Index = maideTable.Count;
             a.Name = ua.Name;
-            a.Class = this.ClassGetIndex(ua.Class);
+            a.Class = c;
             a.SystemInfo = this.SystemInfoCreate(ua.SystemInfo);
             a.Count = this.CountList.Get(ua.Count);
             a.Parent = varClass;
 
-            this.SetPartParam(a, ua.Param);
+            bool b;
+            b = this.SetPartParam(a, ua.Param);
+            if (!b)
+            {
+                return false;
+            }
 
             this.ListInfra.TableAdd(maideTable, a.Name, a);
 
@@ -359,11 +420,18 @@ public class ModuleLoad : Any
             BinaryVar ua;
             ua = (BinaryVar)binaryVar.Get(i);
 
+            ClassClass c;
+            c = this.ClassGetIndex(ua.Class);
+            if (c == null)
+            {
+                return false;
+            }
+            
             Var a;
             a = new Var();
             a.Init();
             a.Name = ua.Name;
-            a.Class = this.ClassGetIndex(ua.Class);
+            a.Class = c;
             a.SystemInfo = this.SystemInfoCreate(ua.SystemInfo);
             
             this.ListInfra.TableAdd(varTable, a.Name, a);
@@ -513,7 +581,7 @@ public class ModuleLoad : Any
         ClassClass a;
         a = null;
         bool b;
-        b = (index < classArray.Count);
+        b = (classArray.Contain(index));
         if (b)
         {
             a = (ClassClass)classArray.Get(index);
@@ -522,6 +590,10 @@ public class ModuleLoad : Any
         {
             int oa;
             oa = index - classArray.Count;
+            if (!this.ImportArray.Contain(oa))
+            {
+                return null;
+            }
             a = (ClassClass)this.ImportArray.Get(oa);
         }
         return a;
