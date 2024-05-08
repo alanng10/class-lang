@@ -2,7 +2,7 @@ namespace Demo;
 
 class Entry : EntryEntry
 {
-    public override int Execute()
+    protected override int Main()
     {
         Demo demo;
         demo = new Demo();
@@ -14,11 +14,11 @@ class Entry : EntryEntry
     [STAThread]
     static int Main(string[] arg)
     {
-        Entry entry;
-        entry = new Entry();
-        entry.Init();
+        EntryEntry a;
+        a = new Entry();
+        a.Init();
         int o;
-        o = entry.Execute();
+        o = a.Execute();
         return o;
     }
 }
