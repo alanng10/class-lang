@@ -33,24 +33,6 @@ public class Arrange : Any
     private InternInfra InternInfra { get; set; }
     private ulong Intern { get; set; }
 
-    public virtual bool Copy(string path, string destPath)
-    {
-        ulong pathU;
-        pathU = this.InternInfra.StringCreate(path);
-        ulong destPathU;
-        destPathU = this.InternInfra.StringCreate(destPath);
-
-        ulong o;
-        o = Extern.StorageArrange_Copy(this.Intern, pathU, destPathU);
-
-        this.InternInfra.StringDelete(destPathU);
-        this.InternInfra.StringDelete(pathU);
-
-        bool a;
-        a = (!(o == 0));
-        return a;
-    }
-
     public virtual bool Rename(string path, string destPath)
     {
         ulong pathU;
@@ -69,14 +51,17 @@ public class Arrange : Any
         return a;
     }
 
-    public virtual bool Remove(string path)
+    public virtual bool FileCopy(string path, string destPath)
     {
         ulong pathU;
         pathU = this.InternInfra.StringCreate(path);
+        ulong destPathU;
+        destPathU = this.InternInfra.StringCreate(destPath);
 
         ulong o;
-        o = Extern.StorageArrange_Remove(this.Intern, pathU);
+        o = Extern.StorageArrange_FileCopy(this.Intern, pathU, destPathU);
 
+        this.InternInfra.StringDelete(destPathU);
         this.InternInfra.StringDelete(pathU);
 
         bool a;
@@ -84,13 +69,13 @@ public class Arrange : Any
         return a;
     }
 
-    public virtual bool Exist(string path)
+    public virtual bool FileRemove(string path)
     {
         ulong pathU;
         pathU = this.InternInfra.StringCreate(path);
 
         ulong o;
-        o = Extern.StorageArrange_Exist(this.Intern, pathU);
+        o = Extern.StorageArrange_FileRemove(this.Intern, pathU);
 
         this.InternInfra.StringDelete(pathU);
 
@@ -121,6 +106,21 @@ public class Arrange : Any
 
         ulong o;
         o = Extern.StorageArrange_FoldRemove(this.Intern, pathU);
+
+        this.InternInfra.StringDelete(pathU);
+
+        bool a;
+        a = (!(o == 0));
+        return a;
+    }
+
+    public virtual bool Exist(string path)
+    {
+        ulong pathU;
+        pathU = this.InternInfra.StringCreate(path);
+
+        ulong o;
+        o = Extern.StorageArrange_Exist(this.Intern, pathU);
 
         this.InternInfra.StringDelete(pathU);
 
