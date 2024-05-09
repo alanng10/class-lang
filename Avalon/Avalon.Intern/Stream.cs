@@ -1,175 +1,82 @@
 namespace Avalon.Intern;
 
-
-
-
 public class Stream : object
 {
     public virtual bool Init()
     {
         this.InternIntern = Avalon.Intern.Intern.This;
 
-
-
-
         this.InternData = Extern.Data_New();
-
-
         Extern.Data_Init(this.InternData);
 
-
-
-
         this.InternRange = Extern.Range_New();
-
-
         Extern.Range_Init(this.InternRange);
 
-
-
-
-
         bool b;
-
-
         b = (this.SetIntern == 0);
-
 
         if (b)
         {
             this.Intern = Extern.Stream_New();
-
-
             Extern.Stream_Init(this.Intern);
         }
-
-
-
         if (!b)
         {
             this.Intern = this.SetIntern;
         }
 
-
-
-
         this.Ident = this.Intern;
-
-
-
         return true;
     }
-
-
-
-
 
     public virtual bool Final()
     {
         if (this.SetIntern == 0)
         {
             Extern.Stream_Final(this.Intern);
-
-
             Extern.Stream_Delete(this.Intern);
         }
         
-
-
-
         Extern.Range_Final(this.InternRange);
-
-
         Extern.Range_Delete(this.InternRange);
 
-
-
         Extern.Data_Final(this.InternData);
-
-
         Extern.Data_Delete(this.InternData);
-
-
-
-
         return true;
     }
 
-
-
-
-
-
-
     public virtual ulong SetIntern { get; set; }
-
-
-
-
-    private Intern InternIntern { get; set; }
-
-
-
-
 
     public virtual ulong Ident { get; set; }
 
-
-
-
+    private Intern InternIntern { get; set; }
     private ulong Intern { get; set; }
-
-
-
     private ulong InternRange { get; set; }
-
-
-
     private ulong InternData { get; set; }
-
-
-
-
-
 
     public virtual bool HasCount
     {
         get
         {
             ulong u;
-
             u = Extern.Stream_HasCount(this.Intern);
-
-
             bool b;
-
             b = (!(u == 0));
-
-
             return b;
         }
         set
         {
         }
     }
-
-
-
 
     public virtual bool HasPos
     {
         get
         {
             ulong u;
-
             u = Extern.Stream_HasPos(this.Intern);
-
-
             bool b;
-
             b = (!(u == 0));
-
-
             return b;
         }
         set
@@ -177,24 +84,14 @@ public class Stream : object
         }
     }
 
-
-
-
-
     public virtual bool CanRead
     {
         get
         {
             ulong u;
-
             u = Extern.Stream_CanRead(this.Intern);
-
-
             bool b;
-
             b = (!(u == 0));
-
-
             return b;
         }
         set
