@@ -195,50 +195,24 @@ public class Stream : object
         return true;
     }
 
-
-
-
-
     private bool SetInternDataCount(long count)
     {
         ulong countU;
-
         countU = (ulong)count;
 
-
-
         Extern.Data_CountSet(this.InternData, countU);
-
-
-
         return true;
     }
-
-
-
-
 
     private bool SetInternRange(long index, long count)
     {
         ulong indexU;
-
         ulong countU;
-
-
         indexU = (ulong)index;
-
         countU = (ulong)count;
 
-
-
         Extern.Range_IndexSet(this.InternRange, indexU);
-
-
         Extern.Range_CountSet(this.InternRange, countU);
-
-
-
-
         return true;
     }
 }
