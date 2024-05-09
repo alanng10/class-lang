@@ -810,9 +810,13 @@ class Demo : Any
         pathCa = "DemoData/RemoveFoldA";
         string pathCaa;
         pathCaa = pathCa + "/FoldB";
+        string pathCab;
+        pathCab = pathCaa + "/FileA";
         try
         {
             Directory.CreateDirectory(pathCaa);
+            
+            File.Create(pathCab).Dispose();
         }
         catch
         {
