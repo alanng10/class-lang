@@ -810,7 +810,7 @@ class Demo : Any
 
         b = arrange.FileCopy(path, destPath);
 
-        this.Console.Out.Write("FileCopy " + path + " " + this.StorageArrangeStatus(b) + "\n");
+        this.Console.Out.Write("FileCopy " + path + " to " + destPath + " " + this.StorageArrangeStatus(b) + "\n");
 
         string pathB;
         pathB = "DemoData/Remove.txt";
@@ -842,8 +842,22 @@ class Demo : Any
 
         this.Console.Out.Write("FoldCreate " + pathC + " " + this.StorageArrangeStatus(b) + "\n");
 
+        string pathCa;
+        pathCa = "DemoData/FoldCopy";
+        string destPathCa;
+        destPathCa = "DemoData/FoldCopyDest";
+        
+        try
+        {
+            Directory.Delete(destPathCa, true);
+        }
+        catch
+        {
+        }
 
+        b = arrange.FoldCopy(pathCa, destPathCa);
 
+        this.Console.Out.Write("FoldCopy " + pathCa + " to " + destPathCa + " " + this.StorageArrangeStatus(b) + "\n");
 
         string pathCb;
         pathCb = "DemoData/RemoveFoldA";
