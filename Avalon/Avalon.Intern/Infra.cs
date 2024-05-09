@@ -152,30 +152,17 @@ public class Infra : object
         return true;
     }
 
-
-
-
     public virtual bool SetRectFromRectValue(ulong rect, int left, int up, int width, int height)
     {
         ulong pos;
-
         pos = Extern.Rect_PosGet(rect);
-
 
         this.SetPos(pos, left, up);
 
-
-
         ulong size;
-
         size = Extern.Rect_SizeGet(rect);
 
-
         this.SetSize(size, width, height);
-
-
-
-
         return true;
     }
 
