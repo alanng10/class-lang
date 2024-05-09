@@ -77,37 +77,20 @@ public class Intern : object
             fixed (byte* p = dataArray)
             {
                 ulong u;
-
                 u = (ulong)p;
 
-
-
                 ulong dataValue;
-
                 dataValue = u;
-
-
 
                 Extern.Data_ValueSet(data, dataValue);
 
-
-
                 Extern.Stream_Read(stream, data, range);
-
-
 
                 Extern.Data_ValueSet(data, 0);
             }
         }
-
-
-
         return true;
     }
-
-
-
-
 
     public virtual bool StreamWrite(ulong stream, byte[] dataArray, ulong data, ulong range)
     {
@@ -116,51 +99,31 @@ public class Intern : object
             fixed (byte* p = dataArray)
             {
                 ulong u;
-
                 u = (ulong)p;
 
-
-
                 ulong dataValue;
-
                 dataValue = u;
-
-
 
                 Extern.Data_ValueSet(data, dataValue);
 
-
-
                 Extern.Stream_Write(stream, data, range);
-
-
 
                 Extern.Data_ValueSet(data, 0);
             }
         }
-
-
-
         return true;
     }
 
     public virtual string StringCreate(ulong data, int count)
     {
         string a;
-
-
         unsafe
         {
             char* p;
-
             p = (char*)data;
-
-
 
             a = new string(p, 0, count);
         }
-
-
         return a;
     }
 
