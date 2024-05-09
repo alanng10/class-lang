@@ -146,8 +146,6 @@ public class Intern : object
     public virtual int TextEncodeString(ulong intern, byte[] result, int resultIndex, ulong data, byte[] dataValue, long dataIndex)
     {
         ulong k;
-
-
         unsafe
         {
             fixed (byte* p = result)
@@ -155,61 +153,33 @@ public class Intern : object
                 fixed (byte* pa = dataValue)
                 {
                     char* pu;
-
                     pu = (char*)p;
-
                     pu = pu + resultIndex;
 
-
-
                     byte* pau;
-
                     pau = pa + dataIndex;
 
-
-
                     ulong ou;
-
                     ou = (ulong)pu;
 
-
                     ulong oau;
-
                     oau = (ulong)pau;
 
-
-
-
                     Extern.Data_ValueSet(data, oau);
-
-
-
 
                     k = Extern.TextEncode_String(intern, ou, data);
                 }
             }
         }
 
-
-
         int a;
-
         a = (int)k;
-
-
         return a;
     }
-
-
-
-
-
 
     public virtual long TextEncodeData(ulong intern, byte[] result, long resultIndex, ulong fromText, byte[] fromTextData, int fromTextIndex)
     {
         ulong k;
-
-
         unsafe
         {
             fixed (byte* p = result)
@@ -217,48 +187,27 @@ public class Intern : object
                 fixed (byte* pa = fromTextData)
                 {
                     byte* pu;
-
                     pu = p + resultIndex;
 
-
-
                     char* pau;
-
                     pau = (char*)pa;
-
                     pau = pau + fromTextIndex;
 
-
-
                     ulong ou;
-
                     ou = (ulong)pu;
 
-
                     ulong oau;
-
                     oau = (ulong)pau;
 
-
-
-
                     Extern.String_DataSet(fromText, oau);
-
-
-
 
                     k = Extern.TextEncode_Data(intern, ou, fromText);
                 }
             }
         }
 
-
-
         long a;
-
         a = (long)k;
-
-
         return a;
     }
 
