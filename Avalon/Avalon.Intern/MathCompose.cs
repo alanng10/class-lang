@@ -1,9 +1,5 @@
 namespace Avalon.Intern;
 
-
-
-
-
 public class MathCompose : object
 {
     public virtual bool Init()
@@ -11,11 +7,7 @@ public class MathCompose : object
         return true;
     }
 
-
-
     public virtual ulong Significand { get; set; }
-
-
 
     public virtual ulong Exponent { get; set; }
 }
