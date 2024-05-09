@@ -752,14 +752,55 @@ class Demo : Any
         pathA = "DemoData/DemoRename.txt";
         string destPathA;
         destPathA = "DemoData/Rename/Demo_a.txt";
-        Directory.CreateDirectory("DemoData/Rename");
-        File.Delete(destPathA);
+
+        try
+        {
+            File.Create(pathA).Dispose();
+        }
+        catch
+        {
+        }
+        try
+        {
+            Directory.CreateDirectory("DemoData/Rename");
+            File.Delete(destPathA);
+        }
+        catch
+        {
+        }
 
         b = arrange.Rename(pathA, destPathA);
 
-        this.Console.Out.Write("Rename " + pathA + " " + this.StorageArrangeStatus(b) + "\n");
+        this.Console.Out.Write("Rename File " + pathA + " " + this.StorageArrangeStatus(b) + "\n");
 
-        File.Move(destPathA, pathA);
+        string pathAa;
+        pathAa = "DemoData/FoldRename";
+        string pathAaa;
+        pathAaa = pathAa + "/FoldAa";
+        string pathAab;
+        pathAab = pathAaa + "/FileA";
+        string destPathAa;
+        destPathAa = "DemoData/FoldRenameDest";
+
+        try
+        {
+            Directory.Delete(destPathAa);
+        }
+        catch
+        {
+        }
+        try
+        {
+            Directory.CreateDirectory(pathAaa);
+            File.Create(pathAab).Dispose();
+        }
+        catch
+        {
+        }
+
+        b = arrange.Rename(pathAa, destPathAa);
+
+        this.Console.Out.Write("Rename Fold " + pathAa + " " + this.StorageArrangeStatus(b) + "\n");
 
         string path;
         path = "DemoData/DemoCopy.txt";
@@ -771,18 +812,18 @@ class Demo : Any
 
         this.Console.Out.Write("FileCopy " + path + " " + this.StorageArrangeStatus(b) + "\n");
 
-        string pathAa;
-        pathAa = "DemoData/Remove.txt";
+        string pathB;
+        pathB = "DemoData/Remove.txt";
         try
         {
-            File.Create(pathAa).Dispose();
+            File.Create(pathB).Dispose();
         }
         catch
         {
         }
-        b = arrange.FileRemove(pathAa);
+        b = arrange.FileRemove(pathB);
 
-        this.Console.Out.Write("FileRemove " + pathAa + " " + this.StorageArrangeStatus(b) + "\n");
+        this.Console.Out.Write("FileRemove " + pathB + " " + this.StorageArrangeStatus(b) + "\n");
 
 
         string pathC;
@@ -821,12 +862,12 @@ class Demo : Any
 
         this.Console.Out.Write("FoldRemove " + pathCa + " " + this.StorageArrangeStatus(b) + "\n");
 
-        string pathB;
-        pathB = "DemoData/image.jpg";
+        string pathE;
+        pathE = "DemoData/image.jpg";
 
-        b = arrange.Exist(pathB);
+        b = arrange.Exist(pathE);
 
-        this.Console.Out.Write("Exist " + pathB + " " + b.ToString() + "\n");
+        this.Console.Out.Write("Exist " + pathE + " " + b.ToString() + "\n");
 
         arrange.Final();
         return true;
