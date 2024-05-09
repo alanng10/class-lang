@@ -44,8 +44,10 @@ Int StorageArrange_Rename(Int o, Int path, Int destPath)
     ub = CastInt(&destPathU);
     String_QStringSet(ub, destPath);
 
+    QDir dir;
+    
     bool bu;
-    bu = QFile::rename(pathU, destPathU);
+    bu = dir.rename(pathU, destPathU);
 
     Bool a;
     a = bu;
