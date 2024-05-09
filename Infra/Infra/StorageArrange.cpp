@@ -110,7 +110,7 @@ Int StorageArrange_FoldCreate(Int o, Int path)
     QDir dir;
     
     bool bu;
-    bu = dir.mkdir(pathU);
+    bu = dir.mkpath(pathU);
 
     Bool a;
     a = bu;
