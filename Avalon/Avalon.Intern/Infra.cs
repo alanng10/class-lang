@@ -15,72 +15,32 @@ public class Infra : object
     public virtual bool Init()
     {
         this.InternIntern = Intern.This;
-
-
-
         return true;
     }
 
-
-
-
-
     protected virtual Intern InternIntern { get; set; }
-
-
-
-
 
     public virtual ulong StringCreate(string a)
     {
         int k;
-
         k = a.Length;
 
-
-
         ulong count;
-
         count = (ulong)k;
 
-
-
-
         ulong byteCount;
-
         byteCount = count * 2;
 
-
-
-
         ulong data;
-
         data = Extern.New(byteCount);
-
-
-
 
         this.InternIntern.CopyString(data, a, 0, count);
  
-
-
-
         ulong o;
-
         o = Extern.String_New();
-
-
         Extern.String_Init(o);
-
-
         Extern.String_CountSet(o, count);
-
-
         Extern.String_DataSet(o, data);
-
-
-
-
         return o;
     }
 
