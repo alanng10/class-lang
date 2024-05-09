@@ -772,7 +772,7 @@ class Demo : Any
         this.Console.Out.Write("FileCopy " + path + " " + this.StorageArrangeStatus(b) + "\n");
 
         string pathAa;
-        pathAa = "DemoData/Delete.txt";
+        pathAa = "DemoData/Remove.txt";
         try
         {
             File.Create(pathAa).Dispose();
