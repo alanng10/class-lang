@@ -99,24 +99,14 @@ public class Stream : object
         }
     }
 
-
-
-
-
     public virtual bool CanWrite
     {
         get
         {
             ulong u;
-
             u = Extern.Stream_CanWrite(this.Intern);
-
-
             bool b;
-
             b = (!(u == 0));
-
-
             return b;
         }
         set
@@ -124,54 +114,29 @@ public class Stream : object
         }
     }
 
-
-
-
-
-
     public virtual long Count
     {
         get
         {
             ulong ou;
-            
             ou = Extern.Stream_CountGet(this.Intern);
-
-
-
             long o;
-
             o = (long)ou;
-
-
-
             return o;
         }
         set
         {
         }
     }
-
-
-
-
 
     public virtual long Pos
     {
         get
         {
             ulong ou;
-
             ou = Extern.Stream_PosGet(this.Intern);
-
-
-
             long o;
-
             o = (long)ou;
-
-
-
             return o;
         }
         set
@@ -179,53 +144,28 @@ public class Stream : object
         }
     }
 
-
-
-
     public virtual bool PosSet(long value)
     {
         ulong u;
-
         u = (ulong)value;
-
-
-
         Extern.Stream_PosSet(this.Intern, u);
-
-
-
         return true;
     }
-
-
-
-
 
     public virtual int Status
     {
         get
         {
             ulong u;
-
             u = Extern.Stream_StatusGet(this.Intern);
-
-
             int o;
-
             o = (int)u;
-
-
             return o;
         }
         set
         {
         }
     }
-
-
-
-
-
 
     public virtual bool Read(byte[] data, long dataCount, long index, long count)
     {
@@ -234,26 +174,12 @@ public class Stream : object
             return true;
         }
 
-
-
-
         this.SetInternDataCount(dataCount);
-
-
         this.SetInternRange(index, count);
 
-
-
         this.InternIntern.StreamRead(this.Intern, data, this.InternData, this.InternRange);
-
-
-
         return true;
     }
-
-    
-
-
 
     public virtual bool Write(byte[] data, long dataCount, long index, long count)
     {
@@ -262,20 +188,10 @@ public class Stream : object
             return true;
         }
 
-
-
-
         this.SetInternDataCount(dataCount);
-
-
         this.SetInternRange(index, count);
 
-
-
         this.InternIntern.StreamWrite(this.Intern, data, this.InternData, this.InternRange);
-
-
-
         return true;
     }
 
