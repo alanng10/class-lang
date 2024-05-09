@@ -116,3 +116,20 @@ Int StorageArrange_FoldCreate(Int o, Int path)
     a = bu;
     return a;
 }
+
+Int StorageArrange_FoldRemove(Int o, Int path)
+{
+    QString pathU;
+    Int ua;
+    ua = CastInt(&pathU);
+    String_QStringSet(ua, path);
+
+    QDir dir(pathU);
+
+    bool bu;
+    bu = dir.removeRecursively();
+
+    Bool a;
+    a = bu;
+    return a;
+}
