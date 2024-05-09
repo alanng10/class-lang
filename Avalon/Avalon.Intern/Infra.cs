@@ -166,65 +166,27 @@ public class Infra : object
         return true;
     }
 
-
-
-
-
     public virtual bool SetPos(ulong pos, int left, int up)
     {
-        long leftU;
-
-        long upU;
-
-
-        leftU = left;
-
-        upU = up;
-
-
-
         ulong l;
-
         ulong u;
-
-        l = (ulong)leftU;
-
-        u = (ulong)upU;
-
-
-
+        l = (ulong)left;
+        u = (ulong)up;
 
         Extern.Pos_LeftSet(pos, l);
-
         Extern.Pos_UpSet(pos, u);
-
-
-
         return true;
     }
-
-
-
 
     public virtual bool SetSize(ulong size, int width, int height)
     {
         ulong w;
-
         ulong h;
-
         w = (ulong)width;
-
         h = (ulong)height;
 
-
-
-
         Extern.Size_WidthSet(size, w);
-
         Extern.Size_HeightSet(size, h);
-
-
-
         return true;
     }
 }
