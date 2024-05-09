@@ -546,14 +546,14 @@ Infra_Api Int Storage_Open(Int o);
 Infra_Api Int Storage_Close(Int o);
 
 InfraApiNew(StorageArrange)
-Infra_Api Int StorageArrange_Copy(Int o, Int path, Int destPath);
-Infra_Api Int StorageArrange_Rename(Int o, Int path, Int destPath);
-Infra_Api Int StorageArrange_Remove(Int o, Int path);
 Infra_Api Int StorageArrange_Exist(Int o, Int path);
-Infra_Api Int StorageArrange_LinkTarget(Int o, Int path);
+Infra_Api Int StorageArrange_Rename(Int o, Int path, Int destPath);
+Infra_Api Int StorageArrange_FileCopy(Int o, Int path, Int destPath);
+Infra_Api Int StorageArrange_FileRemove(Int o, Int path);
 Infra_Api Int StorageArrange_FoldCreate(Int o, Int path);
+Infra_Api Int StorageArrange_FoldCopy(Int o, Int path, Int destPath);
 Infra_Api Int StorageArrange_FoldRemove(Int o, Int path);
-Infra_Api Int StorageArrange_FoldRename(Int o, Int path, Int destPath);
+Infra_Api Int StorageArrange_LinkTarget(Int o, Int path);
 Infra_Api Int StorageArrange_EntryCount(Int o, Int foldPath);
 Infra_Api Int StorageArrange_EntryName(Int o, Int path);
 Infra_Api Int StorageArrange_BaseName(Int o, Int name);
