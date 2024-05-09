@@ -12,26 +12,6 @@ Int StorageArrange_Final(Int o)
     return true;
 }
 
-Int StorageArrange_Copy(Int o, Int path, Int destPath)
-{
-    QString pathU;
-    Int ua;
-    ua = CastInt(&pathU);
-    String_QStringSet(ua, path);
-
-    QString destPathU;
-    Int ub;
-    ub = CastInt(&destPathU);
-    String_QStringSet(ub, destPath);
-
-    bool bu;
-    bu = QFile::copy(pathU, destPathU);
-
-    Bool a;
-    a = bu;
-    return a;
-}
-
 Int StorageArrange_Rename(Int o, Int path, Int destPath)
 {
     QString pathU;
@@ -54,7 +34,27 @@ Int StorageArrange_Rename(Int o, Int path, Int destPath)
     return a;
 }
 
-Int StorageArrange_Remove(Int o, Int path)
+Int StorageArrange_FileCopy(Int o, Int path, Int destPath)
+{
+    QString pathU;
+    Int ua;
+    ua = CastInt(&pathU);
+    String_QStringSet(ua, path);
+
+    QString destPathU;
+    Int ub;
+    ub = CastInt(&destPathU);
+    String_QStringSet(ub, destPath);
+
+    bool bu;
+    bu = QFile::copy(pathU, destPathU);
+
+    Bool a;
+    a = bu;
+    return a;
+}
+
+Int StorageArrange_FileRemove(Int o, Int path)
 {
     QString pathU;
     Int ua;
@@ -63,6 +63,46 @@ Int StorageArrange_Remove(Int o, Int path)
 
     bool bu;
     bu = QFile::remove(pathU);
+
+    Bool a;
+    a = bu;
+    return a;
+}
+
+
+Int StorageArrange_FoldCreate(Int o, Int path)
+{
+    QString pathU;
+    Int ua;
+    ua = CastInt(&pathU);
+    String_QStringSet(ua, path);
+
+    QDir dir;
+    
+    bool bu;
+    bu = dir.mkpath(pathU);
+
+    Bool a;
+    a = bu;
+    return a;
+}
+
+Int StorageArrange_FoldCopy(Int o, Int path, Int destPath)
+{
+    return true;
+}
+
+Int StorageArrange_FoldRemove(Int o, Int path)
+{
+    QString pathU;
+    Int ua;
+    ua = CastInt(&pathU);
+    String_QStringSet(ua, path);
+
+    QDir dir(pathU);
+
+    bool bu;
+    bu = dir.removeRecursively();
 
     Bool a;
     a = bu;
@@ -99,39 +139,5 @@ Int StorageArrange_LinkTarget(Int o, Int path)
 
     Int a;
     a = CastInt(ub);
-    return a;
-}
-
-Int StorageArrange_FoldCreate(Int o, Int path)
-{
-    QString pathU;
-    Int ua;
-    ua = CastInt(&pathU);
-    String_QStringSet(ua, path);
-
-    QDir dir;
-    
-    bool bu;
-    bu = dir.mkpath(pathU);
-
-    Bool a;
-    a = bu;
-    return a;
-}
-
-Int StorageArrange_FoldRemove(Int o, Int path)
-{
-    QString pathU;
-    Int ua;
-    ua = CastInt(&pathU);
-    String_QStringSet(ua, path);
-
-    QDir dir(pathU);
-
-    bool bu;
-    bu = dir.removeRecursively();
-
-    Bool a;
-    a = bu;
     return a;
 }
