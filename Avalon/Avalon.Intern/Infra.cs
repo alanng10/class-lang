@@ -97,117 +97,58 @@ public class Infra : object
         return true;
     }
 
-
-
-
-
     public virtual ulong PosCreate(int left, int up)
     {
         ulong o;
-
         o = Extern.Pos_New();
-
-
         Extern.Pos_Init(o);
 
-
-
         this.SetPos(o, left, up);
-
-
-
-
         return o;
     }
-
-
-
-
 
     public virtual bool PosDelete(ulong o)
     {
         Extern.Pos_Final(o);
-
-
         Extern.Pos_Delete(o);
-
-
-
         return true;
     }
-
-
-
-
-
-
 
     public virtual ulong RectCreate()
     {
         ulong pos;
-
         pos = Extern.Pos_New();
-
         Extern.Pos_Init(pos);
 
-
-
         ulong size;
-
         size = Extern.Size_New();
-
         Extern.Size_Init(size);
 
-
-
         ulong rect;
-
         rect = Extern.Rect_New();
-
         Extern.Rect_Init(rect);
-
         Extern.Rect_PosSet(rect, pos);
-
         Extern.Rect_SizeSet(rect, size);
-
-
-
         return rect;
     }
-
-
-
 
     public virtual bool RectDelete(ulong rect)
     {
         ulong pos;
-
         ulong size;
-
+        
         pos = Extern.Rect_PosGet(rect);
 
         size = Extern.Rect_SizeGet(rect);
 
-
-
         Extern.Rect_Final(rect);
-
         Extern.Rect_Delete(rect);
 
-
-
         Extern.Size_Final(size);
-
         Extern.Size_Delete(size);
 
-
-
         Extern.Pos_Final(pos);
-
         Extern.Pos_Delete(pos);
-
-
-
         return true;
     }
 
