@@ -111,7 +111,6 @@ Int StorageArrange_FoldCopyRecurse(Int o, Int path, Int destPath)
     pathA = *((QString*)path);
     destPathA = *((QString*)destPath);
 
-    Bool b;
     bool bu;
 
     QDir dir;
