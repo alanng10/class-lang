@@ -89,6 +89,73 @@ Int StorageArrange_FoldCreate(Int o, Int path)
 
 Int StorageArrange_FoldCopy(Int o, Int path, Int destPath)
 {
+    QString pathU;
+    Int ua;
+    ua = CastInt(&pathU);
+    String_QStringSet(ua, path);
+
+    QString destPathU;
+    Int ub;
+    ub = CastInt(&destPathU);
+    String_QStringSet(ub, destPath);
+
+    Bool a;
+    a = StorageArrange_FoldCopyRecurse(o, ua, ub);
+    return a;
+}
+
+Int StorageArrange_FoldCopyRecurse(Int o, Int path, Int destPath)
+{
+    QString pathA;
+    QString destPathA;
+    pathA = *((QString*)path);
+    destPathA = *((QString*)destPath);
+
+    Bool b;
+    bool bu;
+
+    QDir dir;
+    bu = dir.mkpath(destPathA);
+    if (!bu)
+    {
+        return false;
+    }
+
+    QDir dirA(pathA);
+
+    QStringList foldList;
+    foldList = dirA.entryList(QDir::Dirs | QDir::NoDotAndDotDot);
+    
+    qsizetype count;
+    count = foldList.count();
+    qsizetype i;
+    i = 0;
+    while (i < count)
+    {
+        QString fold;
+        fold = foldList.at(i);
+
+        QString newPath;
+        newPath = pathA + "/" + fold;
+
+        QString newDestPath;
+        newDestPath = destPathA + "/" + fold;
+
+        Int uua;
+        Int uub;
+        uua = CastInt(&newPath);
+        uub = CastInt(&newDestPath);
+        
+        Bool ba;
+        ba = StorageArrange_FoldCopyRecurse(o, uua, uub);
+        if (!ba)
+        {
+            return false;
+        }
+
+        i = i + 1;
+    }
+
     return true;
 }
 
