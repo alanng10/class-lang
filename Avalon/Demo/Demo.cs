@@ -778,11 +778,12 @@ class Demo : Any
         this.Console.Out.Write("Exist " + pathB + " " + b.ToString().ToLower() + "\n");
 
         string pathC;
-        pathC = "DemoData/FoldA";
+        pathC = "DemoData/FoldA/FoldB";
 
         try
         {
             Directory.Delete(pathC);
+            Directory.Delete("DemoData/FoldA");
         }
         catch
         {
