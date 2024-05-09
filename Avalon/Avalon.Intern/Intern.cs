@@ -271,7 +271,6 @@ public class Intern : object
         return true;
     }
 
-
     public virtual bool FormatArgResult(ulong format, ulong arg, byte[] resultArray, ulong resultIndex, ulong resultCount, ulong result)
     {
         unsafe
@@ -294,110 +293,58 @@ public class Intern : object
         return true;
     }
 
-
-
-
-
     public virtual bool MathCompose(ulong math, MathCompose compose, long value)
     {
         ulong u;
-
         u = (ulong)value;
-
 
         unsafe
         {
             ulong oa;
-
             ulong ob;
-
             oa = 0;
-
             ob = 0;
 
-
             ulong* pa;
-
             ulong* pb;
-
-
             pa = &oa;
-
             pb = &ob;
 
-
-
             ulong ua;
-
             ulong ub;
-
-
             ua = (ulong)pa;
-
             ub = (ulong)pb;
-
 
             Extern.Math_Compose(math, u, ua, ub);
 
-
-
-
             compose.Significand = oa;
-
-
             compose.Exponent = ob;
         }
-
-
         return true;
     }
-
-
-
-
 
     public virtual bool DrawGradientStopPointGet(ulong intern, ulong index, DrawGradientStopPoint result)
     {
         unsafe
         {
             ulong pos;
-
             ulong color;
 
-
             ulong* posU;
-
             ulong* colorU;
-
-
             posU = &pos;
-
             colorU = &color;
 
-
-
             ulong ua;
-
             ulong ub;
-
-
             ua = (ulong)posU;
-
             ub = (ulong)colorU;
 
-
-
             Extern.GradientStop_PointGet(intern, index, ua, ub);
-
-
-
+            
             result.Pos = pos;
-
             result.Color = color;
         }
-
-
-
         return true;
     }
 
