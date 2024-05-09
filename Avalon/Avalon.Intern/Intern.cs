@@ -70,11 +70,6 @@ public class Intern : object
         return true;
     }
 
-
-
-
-
-
     public virtual bool StreamRead(ulong stream, byte[] dataArray, ulong data, ulong range)
     {
         unsafe

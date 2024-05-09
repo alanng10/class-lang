@@ -1,35 +1,16 @@
 namespace Avalon.Intern;
 
-
-
-
-
-
 public class Infra : object
 {
     public static Infra This { get; } = ShareCreate();
 
-
-
-
     private static Infra ShareCreate()
     {
         Infra share;
-
-
         share = new Infra();
-
-
         share.Init();
-
-
-
         return share;
     }
-
-
-
-
 
     public virtual bool Init()
     {
