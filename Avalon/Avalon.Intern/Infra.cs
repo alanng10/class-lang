@@ -80,45 +80,20 @@ public class Infra : object
         return true;
     }
     
-
-
-
-
-
     public virtual ulong StateCreate(MaideAddress maideAddress, ulong arg)
     {
         ulong a;
-
-
         a = Extern.State_New();
-
-
         Extern.State_Init(a);
-
-
         Extern.State_MaideSet(a, maideAddress.Value);
-
-
         Extern.State_ArgSet(a, arg);
-
-
-
         return a;
     }
-
-
-
-
 
     public virtual bool StateDelete(ulong o)
     {
         Extern.State_Final(o);
-
-
         Extern.State_Delete(o);
-
-
-
         return true;
     }
 
