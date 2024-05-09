@@ -68,30 +68,15 @@ public class Infra : object
         return o;
     }
 
-
-
-
-
     public virtual bool StringDelete(ulong o)
     {
         ulong data;
-
         data = Extern.String_DataGet(o);
 
-
-
         Extern.String_Final(o);
-
-
         Extern.String_Delete(o);
 
-
-
         Extern.Delete(data);
-
-
-
-
         return true;
     }
     
