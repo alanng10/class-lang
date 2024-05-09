@@ -11,7 +11,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <Content Include="DemoData/*" CopyToOutputDirectory="PreserveNewest" />
+        <Content Include="DemoData/**/*" CopyToOutputDirectory="PreserveNewest" />
     </ItemGroup>
 
 </Project>
