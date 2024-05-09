@@ -320,12 +320,13 @@ Storage
     Close()
 
 StorageArrange
-    Copy(path, destPath)
+    Exist(path)
     Rename(path, destPath)
+    FileCopy(path, destPath)
     FileRemove(path)
     FoldCreate(path)
+    FoldCopy(path, destPath)
     FoldRemove(path)
-    Exist(path)
     LinkTarget(path)
     EntryCount(foldPath)
     EntryName(path)
