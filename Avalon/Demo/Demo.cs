@@ -842,25 +842,28 @@ class Demo : Any
 
         this.Console.Out.Write("FoldCreate " + pathC + " " + this.StorageArrangeStatus(b) + "\n");
 
-        string pathCa;
-        pathCa = "DemoData/RemoveFoldA";
-        string pathCaa;
-        pathCaa = pathCa + "/FoldB";
-        string pathCab;
-        pathCab = pathCaa + "/FileA";
+
+
+
+        string pathCb;
+        pathCb = "DemoData/RemoveFoldA";
+        string pathCba;
+        pathCba = pathCb + "/FoldB";
+        string pathCbb;
+        pathCbb = pathCba + "/FileA";
         try
         {
-            Directory.CreateDirectory(pathCaa);
+            Directory.CreateDirectory(pathCba);
 
-            File.Create(pathCab).Dispose();
+            File.Create(pathCbb).Dispose();
         }
         catch
         {
         }
 
-        b = arrange.FoldRemove(pathCa);
+        b = arrange.FoldRemove(pathCb);
 
-        this.Console.Out.Write("FoldRemove " + pathCa + " " + this.StorageArrangeStatus(b) + "\n");
+        this.Console.Out.Write("FoldRemove " + pathCb + " " + this.StorageArrangeStatus(b) + "\n");
 
         string pathE;
         pathE = "DemoData/image.jpg";
