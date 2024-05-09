@@ -113,4 +113,19 @@ public class Arrange : Any
         a = (!(o == 0));
         return a;
     }
+
+    public virtual bool FoldRemove(string path)
+    {
+        ulong pathU;
+        pathU = this.InternInfra.StringCreate(path);
+
+        ulong o;
+        o = Extern.StorageArrange_FoldRemove(this.Intern, pathU);
+
+        this.InternInfra.StringDelete(pathU);
+
+        bool a;
+        a = (!(o == 0));
+        return a;
+    }
 }
