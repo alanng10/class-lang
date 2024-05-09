@@ -806,6 +806,22 @@ class Demo : Any
 
         this.Console.Out.Write("FoldCreate " + pathC + " " + this.StorageArrangeStatus(b) + "\n");
 
+        string pathCa;
+        pathCa = "DemoData/RemoveFoldA";
+        string pathCaa;
+        pathCaa = pathCa + "/FoldB";
+        try
+        {
+            Directory.CreateDirectory(pathCaa);
+        }
+        catch
+        {
+        }
+
+        b = arrange.FoldRemove(pathCa);
+
+        this.Console.Out.Write("FoldRemove " + pathCa + " " + this.StorageArrangeStatus(b) + "\n");
+
         arrange.Final();
         return true;
     }
