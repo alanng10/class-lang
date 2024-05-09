@@ -99,6 +99,24 @@ public class Arrange : Any
         return a;
     }
 
+    public virtual bool FoldCopy(string path, string destPath)
+    {
+        ulong pathU;
+        pathU = this.InternInfra.StringCreate(path);
+        ulong destPathU;
+        destPathU = this.InternInfra.StringCreate(destPath);
+
+        ulong o;
+        o = Extern.StorageArrange_FoldCopy(this.Intern, pathU, destPathU);
+
+        this.InternInfra.StringDelete(destPathU);
+        this.InternInfra.StringDelete(pathU);
+
+        bool a;
+        a = (!(o == 0));
+        return a;
+    }
+
     public virtual bool FoldRemove(string path)
     {
         ulong pathU;
