@@ -770,12 +770,25 @@ class Demo : Any
 
         File.Move(destPathA, pathA);
 
+        string pathAa;
+        pathAa = "DemoData/Delete.txt";
+        try
+        {
+            File.Create(pathAa).Dispose();
+        }
+        catch
+        {
+        }
+        b = arrange.Remove(pathAa);
+
+        this.Console.Out.Write("Delete File " + pathAa + " " + this.StorageArrangeStatus(b) + "\n");
+
         string pathB;
         pathB = "DemoData/image.jpg";
 
         b = arrange.Exist(pathB);
 
-        this.Console.Out.Write("Exist " + pathB + " " + b.ToString().ToLower() + "\n");
+        this.Console.Out.Write("Exist " + pathB + " " + b.ToString() + "\n");
 
         string pathC;
         pathC = "DemoData/FoldA/FoldB";
