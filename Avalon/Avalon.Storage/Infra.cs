@@ -233,4 +233,21 @@ public class Infra : Any
         a = d;
         return a;
     }
+
+    public virtual string Extension(string entryName)
+    {
+        int u;
+        u = entryName.LastIndexOf('.');
+        if (u == -1)
+        {
+            return null;
+        }
+
+        string d;
+        d = entryName.Substring(u + 1);
+
+        string a;
+        a = d;
+        return a;
+    }
 }
