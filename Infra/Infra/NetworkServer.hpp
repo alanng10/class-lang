@@ -8,7 +8,6 @@
 
 struct NetworkServer
 {
-    Int Address;
     Int Port;
     Int NewPeerState;
     NetworkServerIntern* Intern;
