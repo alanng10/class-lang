@@ -2,6 +2,15 @@ namespace Avalon.Text;
 
 public class SIntFormatResultState : FormatResultState
 {
+    public override bool Init()
+    {
+        base.Init();
+        this.TextInfra = Infra.This;
+        return true;
+    }
+
+    protected virtual Infra TextInfra { get; set; }
+
     public override bool Execute()
     {
         FormatArg arg;
@@ -181,7 +190,7 @@ public class SIntFormatResultState : FormatResultState
             int resultIndex;
             resultIndex = result.Range.Index;
 
-            format.TextInfra.DataCharSet(resultData, resultIndex + signIndex, ooc);
+            this.TextInfra.DataCharSet(resultData, resultIndex + signIndex, ooc);
         }
 
         format.ResultFill(result, fillStart, fillCount, fillChar);
