@@ -12,6 +12,9 @@ public class Server : Any
         this.InternHandle.Any = this;
         this.InternHandle.Init();
 
+        this.InternPort = Extern.NetworkPort_New();
+        Extern.NetworkPort_Init(this.InternPort);
+
         MaideAddress oa;
         oa = this.NetworkInfra.ServerNewPeerMaideAddress;
         ulong arg;
@@ -31,6 +34,9 @@ public class Server : Any
 
         this.InternInfra.StateDelete(this.InternNewPeerState);
 
+        Extern.NetworkPort_Final(this.InternPort);
+        Extern.NetworkPort_Delete(this.InternPort);
+
         this.InternHandle.Final();
         return true;
     }
@@ -43,14 +49,14 @@ public class Server : Any
     private Infra NetworkInfra { get; set; }
     private ulong Intern { get; set; }
     private ulong InternNewPeerState { get; set; }
+    private ulong InternPort { get; set; }
     private Handle InternHandle { get; set; }
 
     public virtual bool Listen()
     {
-        ulong portU;
-        portU = this.Port.Intern;
+        this.InternPortSet();
 
-        Extern.NetworkServer_PortSet(this.Intern, portU);
+        Extern.NetworkServer_PortSet(this.Intern, this.InternPort);
         
         ulong u;
         u = Extern.NetworkServer_Listen(this.Intern);
@@ -100,6 +106,33 @@ public class Server : Any
         network.Final();
 
         Extern.NetworkServer_ClosePeer(this.Intern, u);
+        return true;
+    }
+
+    private bool InternPortSet()
+    {
+        Port aa;
+        aa = this.Port;
+
+        ulong kindU;
+        kindU = aa.Kind.Intern;
+        ulong valueAU;
+        ulong valueBU;
+        ulong valueCU;
+        ulong serverU;
+        valueAU = (ulong)aa.ValueA;
+        valueBU = (ulong)aa.ValueB;
+        valueCU = (ulong)aa.ValueC;
+        serverU = (ulong)aa.Server;
+
+        ulong u;
+        u = this.InternPort;
+        Extern.NetworkPort_KindSet(u, kindU);
+        Extern.NetworkPort_ValueASet(u, valueAU);
+        Extern.NetworkPort_ValueBSet(u, valueBU);
+        Extern.NetworkPort_ValueCSet(u, valueCU);
+        Extern.NetworkPort_ServerSet(u, serverU);
+        Extern.NetworkPort_Set(u);
         return true;
     }
 
