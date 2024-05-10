@@ -6,9 +6,6 @@ Int NetworkServer_Init(Int o)
 {
     NetworkServer* m;
     m = CP(o);
-    m->Intern = new NetworkServerIntern;
-    m->Intern->NetworkServer = o;
-    m->Intern->Init();
     return true;
 }
 
@@ -16,8 +13,6 @@ Int NetworkServer_Final(Int o)
 {
     NetworkServer* m;
     m = CP(o);
-
-    delete m->Intern;
     return true;
 }
 
@@ -27,6 +22,11 @@ Int NetworkServer_Listen(Int o)
 {
     NetworkServer* m;
     m = CP(o);
+
+    m->Intern = new NetworkServerIntern;
+    m->Intern->NetworkServer = o;
+    m->Intern->Init();
+
     Int uu;
     uu = NetworkPort_InternAddress(m->Port);
     QHostAddress* ua;
@@ -48,6 +48,9 @@ Int NetworkServer_Close(Int o)
     NetworkServer* m;
     m = CP(o);
     m->Intern->close();
+
+    delete m->Intern;
+    m->Intern = null;
     return true;
 }
 
