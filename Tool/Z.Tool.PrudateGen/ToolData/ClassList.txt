@@ -328,7 +328,6 @@ StorageArrange
     FoldRemove(path)
     Exist(path)
     LinkTarget(path)
-    EntryCount(foldPath)
     AbsolutePath(path)
     RelativePath(path, destPath)
     CanonicalPath(path)
