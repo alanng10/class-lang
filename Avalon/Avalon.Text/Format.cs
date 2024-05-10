@@ -15,7 +15,7 @@ public class Format : Any
 
     protected virtual InfraInfra InfraInfra { get { return __D_InfraInfra; } set { __D_InfraInfra = value; } }
     protected InfraInfra __D_InfraInfra;
-    public virtual Infra TextInfra { get { return __D_TextInfra; } set { __D_TextInfra = value; } }
+    protected virtual Infra TextInfra { get { return __D_TextInfra; } set { __D_TextInfra = value; } }
     protected Infra __D_TextInfra;
     protected virtual int KindCount { get { return 5; } set { } }
     protected int __D_KindCount;

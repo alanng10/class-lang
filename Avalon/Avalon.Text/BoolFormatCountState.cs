@@ -2,15 +2,22 @@ namespace Avalon.Text;
 
 public class BoolFormatCountState : FormatCountState
 {
+    public override bool Init()
+    {
+        base.Init();
+        this.TextInfra = Infra.This;
+        return true;
+    }
+
+    protected virtual Infra TextInfra { get; set; }
+
     public override bool Execute()
     {
         FormatArg arg;
         arg = (FormatArg)this.Arg;
-        
-        Format format;
-        format = this.Format;
+
         Infra textInfra;
-        textInfra = format.TextInfra;
+        textInfra = this.TextInfra;
         bool b;
         b = arg.ValueBool;
         int a;
