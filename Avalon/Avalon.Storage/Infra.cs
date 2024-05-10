@@ -216,4 +216,21 @@ public class Infra : Any
         storage.Final();
         return o;
     }
+
+    public virtual string BaseName(string entryName)
+    {
+        int u;
+        u = entryName.LastIndexOf('.');
+        if (u == -1)
+        {
+            return entryName;
+        }
+
+        string d;
+        d = entryName.Substring(0, u);
+
+        string a;
+        a = d;
+        return a;
+    }
 }
