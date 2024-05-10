@@ -22,3 +22,4 @@ Modules can output info by storing and transferring models in text and models in
 Models in text and in diagram are sufficient ways to represent info effectively. One of the reason they are effective is that they can be presented in video without using 3D visual. Users have no need to interpret 3D visual that way.
 
 The system modules have purpose that is builtin infra to do model input and output.
+The system modules abstract names have meanings that cover wholely and entirely the entities that the names refer to.
