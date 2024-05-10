@@ -35,11 +35,7 @@ Int Interval_ActiveGet(Int o)
     return b;
 }
 
-Int Interval_ActiveSet(Int o, Int value)
-{
-    return true;
-}
-
+FieldDefaultSet(Interval, Active)
 CppField(Interval, ElapseState)
 
 Int Interval_Start(Int o)
