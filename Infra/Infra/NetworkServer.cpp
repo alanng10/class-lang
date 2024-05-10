@@ -4,15 +4,11 @@ CppClassNew(NetworkServer)
 
 Int NetworkServer_Init(Int o)
 {
-    NetworkServer* m;
-    m = CP(o);
     return true;
 }
 
 Int NetworkServer_Final(Int o)
 {
-    NetworkServer* m;
-    m = CP(o);
     return true;
 }
 
