@@ -6,7 +6,7 @@ Int Interval_Init(Int o)
 {
     Interval* m;
     m = CP(o);
-    m->Intern = new IntervalIntern();
+    m->Intern = new IntervalIntern;
     m->Intern->Interval = o;
     m->Intern->Init();
     return true;
