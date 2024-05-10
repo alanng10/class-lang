@@ -54,10 +54,7 @@ Int Frame_Final(Int o)
 
 CppFieldGet(Frame, Size)
 
-Int Frame_SizeSet(Int o, Int value)
-{
-    return true;
-}
+FieldDefaultSet(Frame, Size)
 
 CppField(Frame, Title)
 
