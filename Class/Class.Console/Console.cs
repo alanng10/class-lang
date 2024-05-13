@@ -391,9 +391,6 @@ public class Console : Any
         return 0;
     }
 
-
-
-
     protected virtual bool ReadPort()
     {
         return true;
