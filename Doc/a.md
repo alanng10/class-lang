@@ -25,3 +25,5 @@ The module binary is executed on .NET runtime.
 
 Module and other modules that it depends, their associated files and folders,
 are copied to a folder, and ready to be executed, when the module is deployed.
+
+Class as a platform is best platform to develop because it has easiest use lang elements and builtin infra.

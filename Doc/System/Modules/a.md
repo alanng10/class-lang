@@ -31,5 +31,3 @@ The entities also have highest modularity.
 Modularity is grouping of entities for different purposes of uses.
 The grouping in the system modules is for the easiest uses for human minds use tools.
 The system modules abstract entities are easiest uses as builtin infra.
-
-Class as a platform is best platform to develop because it has easiest use lang elements and builtin infra.
