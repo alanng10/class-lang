@@ -84,7 +84,11 @@ public class ModuleLoad : Any
             return false;
         }
 
-        this.SetBaseList();
+        b = this.SetBaseList();
+        if (!b)
+        {
+            return false;
+        }
 
         b = this.SetPartList();
         if (!b)
@@ -92,9 +96,17 @@ public class ModuleLoad : Any
             return false;
         }
 
-        this.SetVirtualList();
+        b = this.SetVirtualList();
+        if (!b)
+        {
+            return false;
+        }
 
-        this.SetEntry();
+        b = this.SetEntry();
+        if (!b)
+        {
+            return false;
+        }
         return true;
     }
 
@@ -588,10 +600,12 @@ public class ModuleLoad : Any
         {
             ClassClass a;
             a = (ClassClass)this.ClassArray.Get(f);
-            if (!(a == null))
+            if (a == null)
             {
-                entry = a.Name;
+                return false;
             }
+
+            entry = a.Name;
         }
 
         this.Module.Entry = entry;
