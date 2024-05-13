@@ -3,5 +3,5 @@
 set DocOutFold=.\Out\Doc
 mkdir %DocOutFold% 1>NUL 2>NUL
 
-dotnet Out\net8.0\ClassExe.dll doc "Doc" "%DocOutFold%"
+Out\net8.0\class.exe doc "Doc" "%DocOutFold%"
 echo Status: %errorlevel%
