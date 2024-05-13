@@ -167,7 +167,7 @@ public class Gen : Any
         string kb;
         kb = newLine + newLine;
 
-        inner = inner.Replace(kb, "<br />");
+        inner = inner.Replace(kb, "<br /><br />");
         
         string pageRootPath;
         pageRootPath = this.PageRootPath(level);
