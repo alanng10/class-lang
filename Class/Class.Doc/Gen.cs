@@ -121,6 +121,9 @@ public class Gen : Any
         string combine;
         combine = infraInfra.PathCombine;
 
+        string newLine;
+        newLine = "\n";
+
         string filePath;
         filePath = this.SourceFoldPath + combine + path + combine + "a.md";
 
@@ -138,11 +141,11 @@ public class Gen : Any
         Text o;
         o = textInfra.TextCreateStringData(oo, null);
 
-        Text newLine;
-        newLine = textInfra.TextCreateStringData("\n", null);
+        Text oa;
+        oa = textInfra.TextCreateStringData(newLine, null);
 
         int u;
-        u = this.TextInfra.Index(o, newLine);
+        u = this.TextInfra.Index(o, oa);
         if (u < 0)
         {
             return false;
@@ -160,6 +163,11 @@ public class Gen : Any
 
         string inner;
         inner = oo.Substring(kk + 1);
+
+        string kb;
+        kb = newLine + newLine;
+
+        inner = inner.Replace(kb, "<br />");
         
         string pageRootPath;
         pageRootPath = this.PageRootPath(level);
