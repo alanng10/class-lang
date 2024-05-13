@@ -10,6 +10,7 @@ public class Entry : EntryEntry
         console.ArgSet(this.Arg);
         int a;
         a = console.Execute();
+        console.Final();
         return a;
     }
 }
