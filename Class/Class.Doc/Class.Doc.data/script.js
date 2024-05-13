@@ -1,57 +1,21 @@
 document.addEventListener("DOMContentLoaded", function (event) {
 
     CreateNavi();
-
-    nodeList = document.querySelectorAll(".Node");
-
-    for (let i = 0; i < nodeList.length; i++) {
-        var node;
-        node = nodeList[i];
-        
-        NodeSet(node, false);
-
-        var nodeIcon;
-        nodeIcon = node.firstElementChild;
-
-        nodeIcon.addEventListener("click", function(event) {
-            event.stopPropagation();
-
-            var a;
-            a = this.parentElement;
-            
-            ToggleNode(a);
-        });
-    }
 });
 
-function CreateNavi()
-{
-    var array;
-    array = Tree;
-    
+function CreateNavi() {
     var navi;
     navi = document.querySelector(".Navi");
 
-    var count;
-    count = array.length;
-    var i;
-    i = 0;
-    while (i < count)
-    {
-        var a;
-        a = array[i];
+    var e;
+    e = CreateNode(NaviTree);
 
-        var e;
-        e = CreateNode(a);
+    NodeSet(e, true);
 
-        navi.appendChild(e);
-
-        i = i + 1;
-    }
+    navi.appendChild(e);
 }
 
-function CreateNode(a)
-{
+function CreateNode(a) {
     var e;
     e = CreateElement();
     e.className = "Node";
@@ -73,14 +37,25 @@ function CreateNode(a)
     e.appendChild(eb);
     e.appendChild(ec);
 
+    NodeSet(e, false);
+
+    ea.addEventListener("click", function (event) {
+        event.stopPropagation();
+
+        var a;
+        a = this.parentElement;
+
+        ToggleNode(a);
+    });
+
+
     var array;
     array = a.Child;
     var count;
     count = array.length;
     var i;
     i = 0;
-    while (i < count)
-    {
+    while (i < count) {
         var aa;
         aa = array[i];
 
@@ -95,13 +70,11 @@ function CreateNode(a)
     return e;
 }
 
-function CreateElement()
-{
+function CreateElement() {
     return document.createElement("div");
 }
 
-function ToggleNode(node)
-{
+function ToggleNode(node) {
     var b;
     b = node.Expanded;
 
@@ -110,8 +83,7 @@ function ToggleNode(node)
     NodeSet(node, b);
 }
 
-function NodeSet(node, expanded)
-{
+function NodeSet(node, expanded) {
     var b;
     b = expanded;
 
@@ -137,9 +109,4 @@ function NodeSet(node, expanded)
     nodeChild.style.display = o;
 
     node.Expanded = b;
-}
-
-function Hh()
-{
-    document.getElementById("demo").innerHTML = "KLO J"
 }
