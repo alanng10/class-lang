@@ -16,7 +16,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <Content Include="Class.Console.data/*" CopyToOutputDirectory="PreserveNewest" />
+        <Content Include="$(AssemblyName).data/*" CopyToOutputDirectory="PreserveNewest" />
     </ItemGroup>
 
 </Project>
