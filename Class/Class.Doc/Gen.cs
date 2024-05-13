@@ -53,7 +53,12 @@ public class Gen : Any
         Node root;
         root = this.Root;
 
-        this.ExecuteArticleNode(root, 0, ".");
+        bool b;
+        b = this.ExecuteArticleNode(root, 0, ".");
+        if (!b)
+        {
+            return false;
+        }
         return true;
     }
 
