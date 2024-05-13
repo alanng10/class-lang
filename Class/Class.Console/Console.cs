@@ -15,6 +15,9 @@ public class Console : Any
 
         this.ErrorWrite = true;
 
+        this.StorageArrange = new StorageArrange();
+        this.StorageArrange.Init();
+
         this.BinaryRead = this.CreateBinaryRead();
         this.ModuleLoad = this.CreateModuleLoad();
 
@@ -34,6 +37,13 @@ public class Console : Any
         this.ModuleLoad.BinaryTable = this.BinaryTable;
 
         this.InitSystem();
+
+        return true;
+    }
+
+    public virtual bool Final()
+    {
+        this.StorageArrange.Final();
 
         return true;
     }
@@ -78,6 +88,7 @@ public class Console : Any
     protected virtual TextInfra TextInfra { get; set; }
     protected virtual StorageInfra StorageInfra { get; set; }
     protected virtual ClassInfra ClassInfra { get; set; }
+    protected virtual StorageArrange StorageArrange { get; set; }
     protected virtual Table ModuleTable { get; set; }
     protected virtual Table BinaryTable { get; set; }
     protected virtual BinaryRead BinaryRead { get; set; }
@@ -194,8 +205,73 @@ public class Console : Any
         return a;
     }
 
+    public virtual bool ArgSet(Array arg)
+    {
+        this.Arg = arg;
+
+        string aa;
+        aa = null;
+        bool b;
+        b = (0 < arg.Count);
+        if (!b)
+        {
+            return false;
+        }
+        if (b)
+        {
+            aa = (string)arg.Get(0);
+        }
+
+        bool ba;
+        ba = (aa == "doc");
+        if (ba)
+        {
+            bool baa;
+            baa = (arg.Count == 3);
+            if (!baa)
+            {
+                return false;
+            }
+            string aaa;
+            aaa = (string)arg.Get(1);
+            string aab;
+            aab = (string)arg.Get(2);
+
+            string executeFoldPath;
+            executeFoldPath = this.StorageArrange.ExecuteFoldPath;
+
+            string combine;
+            combine = this.InfraInfra.PathCombine;
+
+            string sourceFold;
+            sourceFold = executeFoldPath + combine + aaa;
+            string destFold;
+            destFold = executeFoldPath + combine + aab;
+
+            ConsoleConsole oo;
+            oo = ConsoleConsole.This;
+
+            Task task;
+            task = new Task();
+            task.Init();
+            task.Kind = this.TaskKind.Doc;
+            task.Source = sourceFold;
+            task.Dest = destFold;
+            task.Out = oo.Out;
+            task.Err = oo.Err;
+
+            this.Task = task;
+        }
+        return true;
+    }
+
     public virtual int Execute()
     {
+        if (this.Task == null)
+        {
+            return 0x10000;
+        }
+
         this.Out = this.Task.Out;
         this.Err = this.Task.Err;
 

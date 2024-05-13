@@ -7,7 +7,7 @@ public class Entry : EntryEntry
         Console console;
         console = new Console();
         console.Init();
-        console.Arg = this.Arg;
+        console.ArgSet(this.Arg);
         int a;
         a = console.Execute();
         return a;
