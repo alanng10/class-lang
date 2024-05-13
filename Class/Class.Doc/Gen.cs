@@ -168,6 +168,11 @@ public class Gen : Any
         return true;
     }
 
+    protected virtual bool ExecuteAsset()
+    {
+        return true;
+    }
+
     protected virtual string DocPath(int level)
     {
         StringJoin o;
