@@ -30,10 +30,18 @@ function CreateNode(a, path)
     eb = CreateElement();
     eb.className = "NodeName";
 
+    var link;
+    link = PageRootPath + "/" + path;
+
+    if (LinkFileName)
+    {
+        link = link + "index.html";
+    }
+
     var eba;
     eba = document.createElement("a");
     eba.innerText = a.Name;
-    eba.href = PageRootPath + "/" + path + "index.html";
+    eba.href = link;
     
     eb.appendChild(eba);
 
