@@ -20,8 +20,27 @@ public class Gen : Any
 
     public virtual bool Execute()
     {
-        this.ExecuteNode();
-        
+        bool b;
+
+        b = this.ExecuteNode();
+        if (!b)
+        {
+            return false;
+        }
+
+        b = this.ExecuteArticle();
+        if (!b)
+        {
+            return false;
+        }
+
+        return true;
+    }
+
+    protected virtual bool ExecuteArticle()
+    {
+
+
         return true;
     }
 
