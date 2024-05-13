@@ -108,6 +108,7 @@ public class Console : Any
         this.InitBinary("System.Entry");
         this.InitBinary("Class.Infra");
         this.InitBinary("Class.Binary");
+        this.InitBinary("Class.Doc");
         this.InitBinary("Class.Port");
         this.InitBinary("Class.Token");
         this.InitBinary("Class.Node");
