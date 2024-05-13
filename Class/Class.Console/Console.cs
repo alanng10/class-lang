@@ -24,6 +24,9 @@ public class Console : Any
 
         this.Create = this.CreateCreate();
 
+        this.DocGen = new DocGen();
+        this.DocGen.Init();
+
         this.ModuleTable = this.ClassInfra.TableCreateModuleRefCompare();
         this.BinaryTable = this.ClassInfra.TableCreateModuleRefCompare();
 
@@ -62,7 +65,7 @@ public class Console : Any
 
     public virtual Create Create { get; set; }
 
-
+    public virtual DocGen DocGen { get; set; }
 
 
     private ErrorString ErrorString { get; set; }
@@ -203,12 +206,35 @@ public class Console : Any
 
         bool b;
         b = (kind == kindList.Console | kind == kindList.Module);
+        bool ba;
+        ba = (kind == kindList.Token | kind == kindList.Node);
+        bool bb;
+        bb = (kind == kindList.Doc);
+
+        if (bb)
+        {
+            string sourceFoldPath;
+            string destFoldPath;
+            sourceFoldPath = this.Task.Source;
+            destFoldPath = this.Task.Dest;
+
+            this.DocGen.SourceFoldPath = sourceFoldPath;
+            this.DocGen.DestFoldPath = destFoldPath;
+
+            bool bba;
+            bba = this.DocGen.Execute();
+            if (!bba)
+            {
+                return 900;
+            }
+            return 0;
+        }
 
         bool hasFileExtension;
         hasFileExtension = false;
         Array sourceNameList;
         sourceNameList = null;
-        if (!b)
+        if (ba)
         {
             string file;
             file = this.Task.Source;
@@ -239,9 +265,9 @@ public class Console : Any
                 return 100;
             }
 
-            bool ba;
-            ba = this.ReadPort();
-            if (!ba)
+            bool baa;
+            baa = this.ReadPort();
+            if (!baa)
             {
                 this.Error("Port Invalid");
                 return 101;

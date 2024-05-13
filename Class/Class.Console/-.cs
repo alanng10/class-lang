@@ -42,6 +42,7 @@ global using BinaryField = Class.Binary.Field;
 global using BinaryMaide = Class.Binary.Maide;
 global using BinaryVar = Class.Binary.Var;
 global using BinaryRead = Class.Binary.Read;
+global using DocGen = Class.Doc.Gen;
 global using TokenCreate = Class.Token.Create;
 global using Code = Class.Token.Code;
 global using TokenToken = Class.Token.Token;
