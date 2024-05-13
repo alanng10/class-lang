@@ -28,26 +28,10 @@ public class Gen : Any
         string nodePath;
         nodePath = this.SourceFoldPath;
 
-        Table child;
-        child = this.ChildTable(nodePath);
+        Table root;
+        root = this.CreateChild(nodePath);
 
-        Iter iter;
-        iter = child.IterCreate();
-        child.IterSet(iter);
-
-        while (iter.Next())
-        {
-            string kk;
-            kk = (string)iter.Index;
-
-            Node aa;
-            aa = this.CreateNode(nodePath, kk);
-
-            child.Set(kk, aa);
-        }
-
-        this.Root = child;
-
+        this.Root = root;
         return true;
     }
 
@@ -61,6 +45,13 @@ public class Gen : Any
         string nodePath;
         nodePath = foldPath + this.InfraInfra.PathCombine + name;
 
+        a.Child = this.CreateChild(nodePath);
+
+        return a;
+    }
+
+    protected virtual Table CreateChild(string nodePath)
+    {
         Table child;
         child = this.ChildTable(nodePath);
 
@@ -79,7 +70,7 @@ public class Gen : Any
             child.Set(kk, aa);
         }
 
-        return a;
+        return child;
     }
 
     protected virtual Table ChildTable(string foldPath)
