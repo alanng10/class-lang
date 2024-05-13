@@ -75,6 +75,9 @@ public class Gen : Any
 
     protected virtual Table ChildTable(string foldPath)
     {
+        ListInfra listInfra;
+        listInfra = this.ListInfra;
+
         Table child;
         child = this.ClassInfra.TableCreateStringCompare();
 
@@ -90,7 +93,7 @@ public class Gen : Any
             string name;
             name = (string)array.Get(i);
 
-            this.ListInfra.TableAdd(child, name, null);
+            listInfra.TableAdd(child, name, null);
 
             i = i + 1;
         }
