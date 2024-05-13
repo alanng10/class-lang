@@ -43,13 +43,13 @@ public class Gen : Any
             return false;
         }
 
-        b = this.ExecuteArticle();
+        b = this.ExecuteVar();
         if (!b)
         {
             return false;
         }
 
-        b = this.ExecuteVar();
+        b = this.ExecuteArticle();
         if (!b)
         {
             return false;
