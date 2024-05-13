@@ -26,7 +26,7 @@ public class Gen : Any
     protected virtual StorageInfra StorageInfra { get; set; }
     protected virtual ClassInfra ClassInfra { get; set; }
     protected virtual StringJoin StringJoin { get; set; }
-    protected virtual Table Root { get; set; }
+    protected virtual Node Root { get; set; }
     protected virtual string PageTemplate { get; set; }
 
     public virtual bool Execute()
@@ -50,8 +50,10 @@ public class Gen : Any
 
     protected virtual bool ExecuteArticle()
     {
+        Node root;
+        root = this.Root;
 
-
+        this.ExecuteArticleNode(root, 0, ".");
         return true;
     }
 
@@ -142,7 +144,6 @@ public class Gen : Any
         string docPath;
         docPath = this.DocPath(level);
         
-
         string a;
         a = this.PageTemplate;
         a = a.Replace("#Title#", title);
@@ -191,10 +192,14 @@ public class Gen : Any
         string nodePath;
         nodePath = this.SourceFoldPath;
 
-        Table root;
-        root = this.CreateChild(nodePath);
+        Node a;
+        a = new Node();
+        a.Init();
+        a.Name = "";;
 
-        this.Root = root;
+        a.Child = this.CreateChild(nodePath);
+
+        this.Root = a;
         return true;
     }
 
