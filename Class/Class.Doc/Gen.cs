@@ -10,6 +10,11 @@ public class Gen : Any
         this.TextInfra = TextInfra.This;
         this.StorageInfra = StorageInfra.This;
         this.ClassInfra = ClassInfra.This;
+
+        this.StringJoin = new StringJoin();
+        this.StringJoin.Init();
+
+        this.PageTemplate = this.StorageInfra.TextRead("Class.Doc.data/a.html");
         return true;
     }
 
@@ -20,7 +25,9 @@ public class Gen : Any
     protected virtual TextInfra TextInfra { get; set; }
     protected virtual StorageInfra StorageInfra { get; set; }
     protected virtual ClassInfra ClassInfra { get; set; }
+    protected virtual StringJoin StringJoin { get; set; }
     protected virtual Table Root { get; set; }
+    protected virtual string PageTemplate { get; set; }
 
     public virtual bool Execute()
     {
@@ -48,10 +55,52 @@ public class Gen : Any
         return true;
     }
 
-    protected virtual bool GenArticle(string foldPath)
+    protected virtual bool ExecuteArticleNode(Node node, int level, string path)
     {
+        bool b;
+        b = this.GenArticle(level, path);
+        if (!b)
+        {
+            return false;
+        }
+
+        string combine;
+        combine = this.InfraInfra.PathCombine;
+
+        Iter iter;
+        iter = node.Child.IterCreate();
+        node.Child.IterSet(iter);
+
+        while (iter.Next())
+        {
+            string name;
+            name = (string)iter.Index;
+
+            Node aa;
+            aa = (Node)iter.Value;
+            
+            string ka;
+            ka = path + combine + name;
+
+            b = this.ExecuteArticleNode(aa, level + 1, ka);
+            if (!b)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    protected virtual bool GenArticle(int level, string path)
+    {
+        InfraInfra infraInfra;
+        infraInfra = this.InfraInfra;
+
+        string combine;
+        combine = infraInfra.PathCombine;
+
         string filePath;
-        filePath = foldPath + this.InfraInfra.PathCombine + "a.md";
+        filePath = this.SourceFoldPath + combine + path + combine + "a.md";
 
         string oo;
         oo = this.StorageInfra.TextRead(filePath);
@@ -90,8 +139,51 @@ public class Gen : Any
         string inner;
         inner = oo.Substring(kk + 1);
         
+        string docPath;
+        docPath = this.DocPath(level);
+        
+
+        string a;
+        a = this.PageTemplate;
+        a = a.Replace("#Title#", title);
+        a = a.Replace("#Inner#", inner);
+        a = a.Replace("#DocPath#", docPath);
+
+        string outFilePath;
+        outFilePath = this.DestFoldPath + combine + path + combine + "index.html";
+
+        bool b;
+        b = this.StorageInfra.TextWrite(outFilePath, a);
+        if (!b)
+        {
+            return false;
+        }
 
         return true;
+    }
+
+    protected virtual string DocPath(int level)
+    {
+        StringJoin o;
+        o = this.StringJoin;
+        o.Clear();
+
+        o.Append("..");
+
+        int count;
+        count = level;
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            o.Append("/..");
+
+            i = i + 1;
+        }
+
+        string a;
+        a = o.Result();
+        return a;
     }
 
     protected virtual bool ExecuteNode()
