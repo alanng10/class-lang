@@ -16,9 +16,38 @@ public class Gen : Any
     protected virtual InfraInfra InfraInfra { get; set; }
     protected virtual ListInfra ListInfra { get; set; }
     protected virtual ClassInfra ClassInfra { get; set; }
+    protected virtual Table Root { get; set; }
 
     public virtual bool Execute()
     {
+        return true;
+    }
+
+    protected virtual bool ExecuteNode()
+    {
+        string nodePath;
+        nodePath = this.SourceFoldPath;
+
+        Table child;
+        child = this.ChildTable(nodePath);
+
+        Iter iter;
+        iter = child.IterCreate();
+        child.IterSet(iter);
+
+        while (iter.Next())
+        {
+            string kk;
+            kk = (string)iter.Index;
+
+            Node aa;
+            aa = this.CreateNode(nodePath, kk);
+
+            child.Set(kk, aa);
+        }
+
+        this.Root = child;
+
         return true;
     }
 
