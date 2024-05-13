@@ -23,6 +23,7 @@ public class Gen : Any
     public virtual string SourceFoldPath { get; set; }
     public virtual string DestFoldPath { get; set; }
     public virtual bool LinkFileName { get; set; }
+    public virtual Table ModuleTable { get; set; }
     protected virtual InfraInfra InfraInfra { get; set; }
     protected virtual ListInfra ListInfra { get; set; }
     protected virtual TextInfra TextInfra { get; set; }
