@@ -37,12 +37,6 @@ public class Gen : Any
     {
         bool b;
 
-        b = this.ExecuteVar();
-        if (!b)
-        {
-            return false;
-        }
-
         b = this.ExecuteNode();
         if (!b)
         {
@@ -50,6 +44,12 @@ public class Gen : Any
         }
 
         b = this.ExecuteArticle();
+        if (!b)
+        {
+            return false;
+        }
+
+        b = this.ExecuteVar();
         if (!b)
         {
             return false;
