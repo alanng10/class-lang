@@ -177,6 +177,11 @@ public class Gen : Any
         return true;
     }
 
+    protected virtual bool ExecuteNavi()
+    {
+        return true;
+    }
+
     protected virtual bool ExecuteAsset()
     {
         bool b;
