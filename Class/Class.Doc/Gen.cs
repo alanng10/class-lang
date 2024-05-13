@@ -30,6 +30,7 @@ public class Gen : Any
     protected virtual ClassInfra ClassInfra { get; set; }
     protected virtual StorageArrange StorageArrange { get; set; }
     protected virtual StringJoin StringJoin { get; set; }
+    protected virtual string Ver { get; set; }
     protected virtual Node Root { get; set; }
     protected virtual string PageTemplate { get; set; }
 
@@ -61,6 +62,54 @@ public class Gen : Any
             return false;
         }
 
+        return true;
+    }
+
+    protected virtual bool ExecuteVer()
+    {
+        Time time;
+        time = new Time();
+        time.Init();
+
+        time.Current();
+
+        Time timeA;
+        timeA = new Time();
+        timeA.Init();
+
+        long aa;
+        aa = timeA.MillisecondTo(time);
+
+        timeA.Final();
+        time.Final();
+
+        Format format;
+        format = new Format();
+        format.Init();
+
+        FormatArg arg;
+        arg = new FormatArg();
+        arg.Init();
+        arg.Kind = 1;
+        arg.ValueInt = aa;
+        arg.Base = 16;
+        arg.Case = 0;
+        arg.AlignLeft = false;
+        arg.FieldWidth = 15;
+        arg.MaxWidth = 15;
+        arg.FillChar = '0';
+
+        format.ExecuteArgCount(arg);
+
+        Text a;
+        a = this.TextInfra.TextCreate(arg.Count);
+
+        format.ExecuteArgResult(arg, a);
+
+        string o;
+        o = this.TextInfra.StringCreate(a);
+
+        this.Ver = o;
         return true;
     }
 
