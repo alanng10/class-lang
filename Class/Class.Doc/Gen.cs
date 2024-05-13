@@ -48,6 +48,12 @@ public class Gen : Any
             return false;
         }
 
+        b = this.ExecuteNavi();
+        if (!b)
+        {
+            return false;
+        }
+
         b = this.ExecuteAsset();
         if (!b)
         {
@@ -179,9 +185,30 @@ public class Gen : Any
 
     protected virtual bool ExecuteNavi()
     {
-        
+        StringJoin o;
+        o = this.StringJoin;
+        o.Clear();
+
+        o.Append("var NaviTree =\n");
 
         this.ExecuteNaviNode(0, this.Root);
+
+        string a;
+        a = o.Result();
+
+        string combine;
+        combine = this.InfraInfra.PathCombine;
+
+        string outFilePath;
+        outFilePath = this.DestFoldPath + combine + "navivar.js";
+
+        bool b;
+        b = this.StorageInfra.TextWrite(outFilePath, a);
+        if (!b)
+        {
+            return false;
+        }
+
         return true;
     }
 
@@ -191,8 +218,14 @@ public class Gen : Any
         newLine = "\n";
         string colon;
         colon = ":";
+        string semicolon;
+        semicolon = ";";
         string comma;
         comma = ",";
+        string leftBrace;
+        leftBrace = "{";
+        string rightBrace;
+        rightBrace = "}";
         string space;
         space = " ";
         string quote;
@@ -205,7 +238,7 @@ public class Gen : Any
         indent = level * 2;
 
         this.AppendIndent(indent);
-        o.Append("{");
+        o.Append(leftBrace);
         o.Append(newLine);
 
         this.AppendIndent(indent + 1);
@@ -237,11 +270,11 @@ public class Gen : Any
         b = (level == 0);
 
         this.AppendIndent(indent);
-        o.Append("}");
+        o.Append(rightBrace);
         
         if (b)
         {
-            o.Append(";");
+            o.Append(semicolon);
         }
         if (!b)
         {
