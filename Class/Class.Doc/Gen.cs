@@ -161,14 +161,14 @@ public class Gen : Any
         string inner;
         inner = oo.Substring(kk + 1);
         
-        string docPath;
-        docPath = this.PageRootPath(level);
+        string pageRootPath;
+        pageRootPath = this.PageRootPath(level);
         
         string a;
         a = this.PageTemplate;
         a = a.Replace("#ArticleTitle#", title);
         a = a.Replace("#ArticleInner#", inner);
-        a = a.Replace("#DocPath#", docPath);
+        a = a.Replace("#PageRootPath#", pageRootPath);
 
         string foldPath;
         foldPath = this.DestFoldPath + combine + path;
