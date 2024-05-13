@@ -218,7 +218,7 @@ public class Console : Any
         if (ba)
         {
             bool baa;
-            baa = (arg.Count == 3);
+            baa = (2 < arg.Count);
             if (!baa)
             {
                 return false;
@@ -227,6 +227,13 @@ public class Console : Any
             aaa = (string)arg.Get(1);
             string aab;
             aab = (string)arg.Get(2);
+
+            string aac;
+            aac = null;
+            if (3 < arg.Count)
+            {
+                aac = (string)arg.Get(3);
+            }
 
             string executeFoldPath;
             executeFoldPath = this.StorageArrange.ExecuteFoldPath;
@@ -239,6 +246,16 @@ public class Console : Any
             string destFold;
             destFold = executeFoldPath + combine + aab;
 
+            bool linkFileName;
+            linkFileName = true;
+            if (!(aac == null))
+            {
+                if (aac == "-d")
+                {
+                    linkFileName = false;
+                }
+            }
+
             ConsoleConsole oo;
             oo = ConsoleConsole.This;
 
@@ -248,6 +265,7 @@ public class Console : Any
             task.Kind = this.TaskKind.Doc;
             task.Source = sourceFold;
             task.Dest = destFold;
+            task.ArgBool = linkFileName;
             task.Out = oo.Out;
             task.Err = oo.Err;
 
@@ -284,9 +302,12 @@ public class Console : Any
             string destFoldPath;
             sourceFoldPath = this.Task.Source;
             destFoldPath = this.Task.Dest;
+            bool linkFileName;
+            linkFileName = this.Task.ArgBool;
 
             this.DocGen.SourceFoldPath = sourceFoldPath;
             this.DocGen.DestFoldPath = destFoldPath;
+            this.DocGen.LinkFileName = linkFileName;
 
             bool bba;
             bba = this.DocGen.Execute();
