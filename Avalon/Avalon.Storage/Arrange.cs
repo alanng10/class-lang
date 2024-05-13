@@ -2,6 +2,18 @@ namespace Avalon.Storage;
 
 public class Arrange : Any
 {
+    public static Infra This { get; } = ShareCreate();
+
+    private static Infra ShareCreate()
+    {
+        Infra share;
+        share = new Infra();
+        Any a;
+        a = share;
+        a.Init();
+        return share;
+    }
+    
     public override bool Init()
     {
         base.Init();
