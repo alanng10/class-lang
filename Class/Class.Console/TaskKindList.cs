@@ -26,6 +26,7 @@ public class TaskKindList : Any
         this.Node = this.AddItem();
         this.Module = this.AddItem();
         this.Console = this.AddItem();
+        this.Doc = this.AddItem();
         return true;
     }
 
@@ -39,6 +40,8 @@ public class TaskKindList : Any
     protected TaskKind __D_Module;
     public virtual TaskKind Console { get { return __D_Console; } set { __D_Console = value; } }
     protected TaskKind __D_Console;
+    public virtual TaskKind Doc { get { return __D_Doc; } set { __D_Doc = value; } }
+    protected TaskKind __D_Doc;
 
     protected virtual TaskKind AddItem()
     {
@@ -62,7 +65,7 @@ public class TaskKindList : Any
     protected virtual Array Array { get { return __D_Array; } set { __D_Array = value; } }
     protected Array __D_Array;
 
-    protected virtual int ArrayCount { get { return 5; } set { } }
+    protected virtual int ArrayCount { get { return 6; } set { } }
     protected int __D_ArrayCount;
 
     public virtual int Count { get { return __D_Count; } set { __D_Count = value; } }
