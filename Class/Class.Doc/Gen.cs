@@ -22,6 +22,7 @@ public class Gen : Any
 
     public virtual string SourceFoldPath { get; set; }
     public virtual string DestFoldPath { get; set; }
+    public virtual bool LinkFileName { get; set; }
     protected virtual InfraInfra InfraInfra { get; set; }
     protected virtual ListInfra ListInfra { get; set; }
     protected virtual TextInfra TextInfra { get; set; }
@@ -36,6 +37,12 @@ public class Gen : Any
     {
         bool b;
 
+        b = this.ExecuteVar();
+        if (!b)
+        {
+            return false;
+        }
+
         b = this.ExecuteNode();
         if (!b)
         {
@@ -43,12 +50,6 @@ public class Gen : Any
         }
 
         b = this.ExecuteArticle();
-        if (!b)
-        {
-            return false;
-        }
-
-        b = this.ExecuteVar();
         if (!b)
         {
             return false;
@@ -207,7 +208,11 @@ public class Gen : Any
         o = this.StringJoin;
         o.Clear();
 
-        o.Append("var NaviTree =\n");
+        o.Append("var LinkFileName;\n");
+        o.Append("LinkFileName = " + this.LinkFileName.ToString().ToLower() + ";\n");
+
+        o.Append("var NaviTree;\n");
+        o.Append("NaviTree =\n");
 
         string newLine;
         newLine = "\n";
