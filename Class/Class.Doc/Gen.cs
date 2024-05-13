@@ -20,6 +20,8 @@ public class Gen : Any
 
     public virtual bool Execute()
     {
+        this.ExecuteNode();
+        
         return true;
     }
 
