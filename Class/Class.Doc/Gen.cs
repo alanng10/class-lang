@@ -162,7 +162,7 @@ public class Gen : Any
         inner = oo.Substring(kk + 1);
         
         string docPath;
-        docPath = this.DocPath(level);
+        docPath = this.PageRootPath(level);
         
         string a;
         a = this.PageTemplate;
@@ -338,7 +338,7 @@ public class Gen : Any
         return true;
     }
 
-    protected virtual string DocPath(int level)
+    protected virtual string PageRootPath(int level)
     {
         StringJoin o;
         o = this.StringJoin;
