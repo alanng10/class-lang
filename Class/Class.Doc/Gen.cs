@@ -223,7 +223,13 @@ public class Gen : Any
         string kb;
         kb = newLine + newLine;
 
-        inner = inner.Replace(kb, "<br /><br />");
+        string kc;
+        kc = "<br />";
+
+        string kd;
+        kd = kc + kc + newLine;
+
+        inner = inner.Replace(kb, kd);
         
         string pageRootPath;
         pageRootPath = this.PageRootPath(level);
