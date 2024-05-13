@@ -399,8 +399,8 @@ public class Gen : Any
         ListInfra listInfra;
         listInfra = this.ListInfra;
 
-        Table child;
-        child = this.ClassInfra.TableCreateStringCompare();
+        Table table;
+        table = this.ClassInfra.TableCreateStringCompare();
 
         Array array;
         array = this.FoldList(foldPath);
@@ -414,11 +414,11 @@ public class Gen : Any
             string name;
             name = (string)array.Get(i);
 
-            listInfra.TableAdd(child, name, null);
+            listInfra.TableAdd(table, name, null);
 
             i = i + 1;
         }
-        return null;
+        return table;
     }
 
     protected virtual bool AppendIndent(int count)
