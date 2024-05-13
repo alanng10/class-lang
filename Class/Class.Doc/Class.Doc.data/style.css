@@ -14,7 +14,7 @@ body
     font-style: normal;
     --MainColor: #008888;
     --NaviPadding: 10px;
-    --CenterPadding: 36px;
+    --ArticlePadding: 36px;
 }
 
 .Navi
@@ -26,16 +26,16 @@ body
     border-right: 2px solid var(--MainColor);
 }
 
-.Center
+.Article
 {
     position: absolute;
     left: calc(350px + var(--NaviPadding) * 2 + 2px);
-    width: calc(100% - (350px + var(--NaviPadding) * 2 + 2px) - var(--CenterPadding) * 2);
-    height: calc(100% - var(--CenterPadding) * 2);
-    padding: var(--CenterPadding);
+    width: calc(100% - (350px + var(--NaviPadding) * 2 + 2px) - var(--ArticlePadding) * 2);
+    height: calc(100% - var(--ArticlePadding) * 2);
+    padding: var(--ArticlePadding);
 }
 
-.Center .Title
+.Article .Title
 {
     height: 50px;
     margin-top: 10px;
@@ -44,7 +44,7 @@ body
     font-weight: 700;
 }
 
-.Center .InnerCenter
+.Article .InnerArticle
 {
     font-size: 18px;
 }
