@@ -195,7 +195,7 @@ public class Gen : Any
         Node a;
         a = new Node();
         a.Init();
-        a.Name = "";;
+        a.Name = "";
 
         a.Child = this.CreateChild(nodePath);
 
