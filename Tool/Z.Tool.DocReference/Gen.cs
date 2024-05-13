@@ -7,6 +7,7 @@ public class Gen : Any
         base.Init();
         this.InfraInfra = InfraInfra.This;
         this.ListInfra = ListInfra.This;
+        this.TextInfra = TextInfra.This;
         this.StorageInfra = StorageInfra.This;
         this.ClassInfra = ClassInfra.This;
 
@@ -21,6 +22,7 @@ public class Gen : Any
 
     protected virtual InfraInfra InfraInfra { get; set; }
     protected virtual ListInfra ListInfra { get; set; }
+    protected virtual TextInfra TextInfra { get; set; }
     protected virtual StorageInfra StorageInfra { get; set; }
     protected virtual ClassInfra ClassInfra { get; set; }
     protected virtual StorageArrange StorageArrange { get; set; }
@@ -29,6 +31,7 @@ public class Gen : Any
     protected virtual BinaryRead BinaryRead { get; set; }
     protected virtual ModuleLoad ModuleLoad { get; set; }
     protected virtual string ReferenceFoldPath { get; set; }
+    protected virtual string ModuleFoldPath { get; set; }
 
     public virtual int Execute()
     {
@@ -103,27 +106,35 @@ public class Gen : Any
         foldPath = this.ReferenceFoldPath + "/" + module.Ref.Name;
 
         string ka;
-        ka = foldPath + "/";
+        ka = foldPath + "/" + this.ClassInfra.Version(module.Ref.Version);
 
+        bool b;
+        b = this.StorageArrange.FoldCreate(ka);
 
+        if (!b)
+        {
+            global::System.Console.Error.Write("DocReference:Gen.ExecuteModule module version fold create error\n");
+            global::System.Environment.Exit(300);
+        }
+
+        this.ModuleFoldPath = ka;
+
+        Iter iter;
+        iter = module.Class.IterCreate();
+        module.Class.IterSet(iter);
+        while (iter.Next())
+        {
+            ClassClass varClass;
+            varClass = (ClassClass)iter.Value;
+            this.ExecuteClass(varClass);
+        }
         return true;
     }
 
-    protected virtual string Version(long o)
+    protected virtual bool ExecuteClass(ClassClass varClass)
     {
-        long revision;
-        revision = o & 0xff;
-
-        long minor;
-        minor = (o >> 8) & 0xff;
-
-        long ka;
-        ka = this.InfraInfra.IntCapValue - 1;
-
-        long major;
-        major = (o >> 16) & ka;
-
-        return null;
+        
+        return true;
     }
 
     protected virtual bool InitBinary(string moduleName)
