@@ -10,4 +10,6 @@ global using List = Avalon.List.List;
 global using Array = Avalon.List.Array;
 global using Table = Avalon.List.Table;
 global using Text = Avalon.Text.Text;
+global using Format = Avalon.Text.Format;
+global using FormatArg = Avalon.Text.FormatArg;
 global using TextInfra = Avalon.Text.Infra;

@@ -97,6 +97,82 @@ public class Infra : Any
         return a;
     }
 
+    public virtual string Version(long o)
+    {
+        long revision;
+        revision = o & 0xff;
+
+        long minor;
+        minor = (o >> 8) & 0xff;
+
+        long ka;
+        ka = this.InfraInfra.IntCapValue - 1;
+
+        long major;
+        major = (o >> 16) & ka;
+
+        Format format;
+        format = new Format();
+        format.Init();
+
+        FormatArg arg;
+        arg = new FormatArg();
+        arg.Init();
+
+        arg.Kind = 1;
+        arg.Base = 10;
+        arg.Case = 0;
+        arg.AlignLeft = false;
+        arg.FieldWidth = 2;
+        arg.MaxWidth = 2;
+        arg.FillChar = '0';
+
+        arg.ValueInt = revision;
+
+        format.ExecuteArgCount(arg);
+
+        Text aa;
+        aa = this.TextInfra.TextCreate(arg.Count);
+
+        format.ExecuteArgResult(arg, aa);
+
+        string oa;
+        oa = this.TextInfra.StringCreate(aa);
+
+        arg.ValueInt = minor;
+
+        format.ExecuteArgCount(arg);
+
+        Text ab;
+        ab = this.TextInfra.TextCreate(arg.Count);
+
+        format.ExecuteArgResult(arg, ab);
+
+        string ob;
+        ob = this.TextInfra.StringCreate(ab);
+
+        arg.FieldWidth = 1;
+        arg.MaxWidth = -1;
+        arg.ValueInt = major;
+
+        format.ExecuteArgCount(arg);
+
+        Text ac;
+        ac = this.TextInfra.TextCreate(arg.Count);
+
+        format.ExecuteArgResult(arg, ac);
+
+        string oc;
+        oc = this.TextInfra.StringCreate(ac);
+
+        string dot;
+        dot = ".";
+
+        string a;
+        a = major + dot + minor + dot + revision;
+        return a;
+    }
+
     public virtual Array TextCreate(string o)
     {
         TextInfra textInfra;
