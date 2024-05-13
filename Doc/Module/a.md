@@ -24,7 +24,9 @@ additional 2 executable files and executable related files are parts of the modu
 The module execution is started with the execution of 1 of the executable files.
 1 executable file is for execution with console input and output in a command prompt.
 Another executable file is for execution without console input and output and without command prompt.
-The executable files are executed with working directory that is the directory that contain the C# assembly binary of the module.
+The executable files can be executed in any working directory.
+The directory is ExecuteFoldPath that can be gotten in System.Storage module Arrange class.
+The working directory during module execution is the directory that contain the C# assembly binary of the module.
 
 Modules read and write files in their data directories with paths that include their module ref strings.
 Modules can get their module ref strings by calling ModuleInfo class Name maide and Version maide in System.Infra module.
