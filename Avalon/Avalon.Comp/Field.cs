@@ -58,6 +58,20 @@ public class Field : Any
         return true;
     }
 
+    protected virtual long LongValue { get; set; }
+
+    public virtual long GetLong()
+    {
+        return this.LongValue;
+    }
+
+    public virtual bool SetLong(long value)
+    {
+        this.LongValue = value;
+        this.SetChange();
+        return true;
+    }
+
     protected virtual object AnyValue { get; set; }
 
     public virtual object GetAny()
