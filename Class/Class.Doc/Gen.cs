@@ -170,10 +170,20 @@ public class Gen : Any
         a = a.Replace("#ArticleInner#", inner);
         a = a.Replace("#DocPath#", docPath);
 
-        string outFilePath;
-        outFilePath = this.DestFoldPath + combine + path + combine + "index.html";
+        string foldPath;
+        foldPath = this.DestFoldPath + combine + path;
 
         bool b;
+
+        b = this.StorageArrange.FoldCreate(foldPath);
+        if (!b)
+        {
+            return false;
+        }
+
+        string outFilePath;
+        outFilePath = foldPath + combine + "index.html";
+
         b = this.StorageInfra.TextWrite(outFilePath, a);
         if (!b)
         {
@@ -232,6 +242,10 @@ public class Gen : Any
         leftBrace = "{";
         string rightBrace;
         rightBrace = "}";
+        string leftSquare;
+        leftSquare = "[";
+        string rightSquare;
+        rightSquare = "]";
         string space;
         space = " ";
         string quote;
@@ -262,6 +276,10 @@ public class Gen : Any
         o.Append(colon);
         o.Append(newLine);
 
+        this.AppendIndent(indent + 1);
+        o.Append(leftSquare);
+        o.Append(newLine);
+
         Iter iter;
         iter = a.Child.IterCreate();
         a.Child.IterSet(iter);
@@ -274,6 +292,10 @@ public class Gen : Any
             o.Append(comma);
             o.Append(newLine);
         }
+
+        this.AppendIndent(indent + 1);
+        o.Append(rightSquare);
+        o.Append(newLine);
 
         this.AppendIndent(indent);
         o.Append(rightBrace);
@@ -322,7 +344,7 @@ public class Gen : Any
         o = this.StringJoin;
         o.Clear();
 
-        o.Append("..");
+        o.Append(".");
 
         int count;
         count = level;
