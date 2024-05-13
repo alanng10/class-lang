@@ -31,7 +31,7 @@ public class Gen : Any
     protected virtual StorageArrange StorageArrange { get; set; }
     protected virtual StringJoin StringJoin { get; set; }
     protected virtual string Ver { get; set; }
-    protected virtual Node Root { get; set; }
+    protected virtual Node ArticleRoot { get; set; }
     protected virtual string PageTemplate { get; set; }
 
     public virtual bool Execute()
@@ -122,7 +122,7 @@ public class Gen : Any
     protected virtual bool ExecuteArticle()
     {
         Node root;
-        root = this.Root;
+        root = this.ArticleRoot;
 
         bool b;
         b = this.ExecuteArticleNode(root, 0, ".");
@@ -281,7 +281,7 @@ public class Gen : Any
         string semicolon;
         semicolon = ";";
 
-        this.ExecuteNaviNode(0, this.Root);
+        this.ExecuteNaviNode(0, this.ArticleRoot);
         
         o.Append(semicolon);
         o.Append(newLine);
@@ -439,8 +439,11 @@ public class Gen : Any
 
     protected virtual bool ExecuteNode()
     {
+        string combine;
+        combine = this.InfraInfra.PathCombine;
+
         string nodePath;
-        nodePath = this.SourceFoldPath;
+        nodePath = this.SourceFoldPath + combine + "Article";
 
         Node a;
         a = new Node();
@@ -449,7 +452,7 @@ public class Gen : Any
 
         a.Child = this.CreateChild(nodePath);
 
-        this.Root = a;
+        this.ArticleRoot = a;
         return true;
     }
 
