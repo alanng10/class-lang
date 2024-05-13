@@ -7,6 +7,8 @@ public class Gen : Any
         base.Init();
         this.InfraInfra = InfraInfra.This;
         this.ListInfra = ListInfra.This;
+        this.TextInfra = TextInfra.This;
+        this.StorageInfra = StorageInfra.This;
         this.ClassInfra = ClassInfra.This;
         return true;
     }
@@ -15,6 +17,8 @@ public class Gen : Any
     public virtual string DestFoldPath { get; set; }
     protected virtual InfraInfra InfraInfra { get; set; }
     protected virtual ListInfra ListInfra { get; set; }
+    protected virtual TextInfra TextInfra { get; set; }
+    protected virtual StorageInfra StorageInfra { get; set; }
     protected virtual ClassInfra ClassInfra { get; set; }
     protected virtual Table Root { get; set; }
 
@@ -40,6 +44,52 @@ public class Gen : Any
     protected virtual bool ExecuteArticle()
     {
 
+
+        return true;
+    }
+
+    protected virtual bool GenArticle(string foldPath)
+    {
+        string filePath;
+        filePath = foldPath + this.InfraInfra.PathCombine + "a.md";
+
+        string oo;
+        oo = this.StorageInfra.TextRead(filePath);
+
+        if (oo == null)
+        {
+            return false;
+        }
+
+        TextInfra textInfra;
+        textInfra = this.TextInfra;
+
+        Text o;
+        o = textInfra.TextCreateStringData(oo, null);
+
+        Text newLine;
+        newLine = textInfra.TextCreateStringData("\n", null);
+
+        int u;
+        u = this.TextInfra.Index(o, newLine);
+        if (u < 0)
+        {
+            return false;
+        }
+
+        int kk;
+        kk = u;
+        int ka;
+        ka = 2;
+        int count;
+        count = kk - ka;
+        
+        string title;
+        title = oo.Substring(ka, count);
+
+        string inner;
+        inner = oo.Substring(kk + 1);
+        
 
         return true;
     }
