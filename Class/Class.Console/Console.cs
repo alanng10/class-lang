@@ -11,12 +11,10 @@ public class Console : Any
         this.TextInfra = TextInfra.This;
         this.StorageInfra = StorageInfra.This;
         this.ClassInfra = ClassInfra.This;
+        this.StorageArrange = StorageArrange.This;
         this.TaskKind = TaskKindList.This;
 
         this.ErrorWrite = true;
-
-        this.StorageArrange = new StorageArrange();
-        this.StorageArrange.Init();
 
         this.BinaryRead = this.CreateBinaryRead();
         this.ModuleLoad = this.CreateModuleLoad();
@@ -40,14 +38,6 @@ public class Console : Any
 
         return true;
     }
-
-    public virtual bool Final()
-    {
-        this.StorageArrange.Final();
-
-        return true;
-    }
-
 
     public virtual Array Source { get; set; }
 
