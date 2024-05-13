@@ -191,7 +191,15 @@ public class Gen : Any
 
         o.Append("var NaviTree =\n");
 
+        string newLine;
+        newLine = "\n";
+        string semicolon;
+        semicolon = ";";
+
         this.ExecuteNaviNode(0, this.Root);
+        
+        o.Append(semicolon);
+        o.Append(newLine);
 
         string a;
         a = o.Result();
@@ -218,8 +226,6 @@ public class Gen : Any
         newLine = "\n";
         string colon;
         colon = ":";
-        string semicolon;
-        semicolon = ";";
         string comma;
         comma = ",";
         string leftBrace;
@@ -264,25 +270,13 @@ public class Gen : Any
             Node aa;
             aa = (Node)iter.Value;
             this.ExecuteNaviNode(level + 1, aa);
-        }
 
-        bool b;
-        b = (level == 0);
+            o.Append(comma);
+            o.Append(newLine);
+        }
 
         this.AppendIndent(indent);
         o.Append(rightBrace);
-        
-        if (b)
-        {
-            o.Append(semicolon);
-        }
-        if (!b)
-        {
-            o.Append(comma);
-        }
-
-        o.Append(newLine);
-
         return true;
     }
 
