@@ -3,19 +3,21 @@ document.addEventListener("DOMContentLoaded", function (event) {
     CreateNavi();
 });
 
-function CreateNavi() {
+function CreateNavi()
+{
     var navi;
     navi = document.querySelector(".Navi");
 
     var e;
-    e = CreateNode(NaviTree);
+    e = CreateNode(NaviTree, "");
 
     NodeSet(e, true);
 
     navi.appendChild(e);
 }
 
-function CreateNode(a) {
+function CreateNode(a, path)
+{
     var e;
     e = CreateElement();
     e.className = "Node";
@@ -27,7 +29,13 @@ function CreateNode(a) {
     var eb;
     eb = CreateElement();
     eb.className = "NodeName";
-    eb.innerText = a.Name;
+
+    var eba;
+    eba = document.createElement("a");
+    eba.innerText = a.Name;
+    eba.href = PageRootPath + "/" + path + "index.html";
+    
+    eb.appendChild(eba);
 
     var ec;
     ec = CreateElement();
@@ -48,19 +56,19 @@ function CreateNode(a) {
         ToggleNode(a);
     });
 
-
     var array;
     array = a.Child;
     var count;
     count = array.length;
     var i;
     i = 0;
-    while (i < count) {
+    while (i < count)
+    {
         var aa;
         aa = array[i];
 
         var ee;
-        ee = CreateNode(aa);
+        ee = CreateNode(aa, path + aa.Name + "/");
 
         ec.appendChild(ee);
 
@@ -70,11 +78,13 @@ function CreateNode(a) {
     return e;
 }
 
-function CreateElement() {
+function CreateElement()
+{
     return document.createElement("div");
 }
 
-function ToggleNode(node) {
+function ToggleNode(node)
+{
     var b;
     b = node.Expanded;
 
@@ -83,7 +93,8 @@ function ToggleNode(node) {
     NodeSet(node, b);
 }
 
-function NodeSet(node, expanded) {
+function NodeSet(node, expanded)
+{
     var b;
     b = expanded;
 

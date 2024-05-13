@@ -87,6 +87,8 @@ body
     padding-top : 2px;
     line-height: 16px;
     font-size: 16px;
+    font-weight: 500;
+    text-decoration: none;
 }
 
 .Navi > .Node > .NodeIcon
