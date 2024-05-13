@@ -9,6 +9,7 @@ global using Iter = Avalon.List.Iter;
 global using ListInfra = Avalon.List.Infra;
 global using Text = Avalon.Text.Text;
 global using TextInfra = Avalon.Text.Infra;
+global using StorageArrange = Avalon.Storage.Arrange;
 global using StorageInfra = Avalon.Storage.Infra;
 global using ClassInfra = Class.Infra.Infra;
 global using Directory = System.IO.Directory;

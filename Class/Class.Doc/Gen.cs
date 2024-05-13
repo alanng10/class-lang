@@ -11,6 +11,8 @@ public class Gen : Any
         this.StorageInfra = StorageInfra.This;
         this.ClassInfra = ClassInfra.This;
 
+        this.StorageArrange = StorageArrange.This;
+
         this.StringJoin = new StringJoin();
         this.StringJoin.Init();
 
@@ -25,6 +27,7 @@ public class Gen : Any
     protected virtual TextInfra TextInfra { get; set; }
     protected virtual StorageInfra StorageInfra { get; set; }
     protected virtual ClassInfra ClassInfra { get; set; }
+    protected virtual StorageArrange StorageArrange { get; set; }
     protected virtual StringJoin StringJoin { get; set; }
     protected virtual Node Root { get; set; }
     protected virtual string PageTemplate { get; set; }
@@ -40,6 +43,12 @@ public class Gen : Any
         }
 
         b = this.ExecuteArticle();
+        if (!b)
+        {
+            return false;
+        }
+
+        b = this.ExecuteAsset();
         if (!b)
         {
             return false;
@@ -170,6 +179,37 @@ public class Gen : Any
 
     protected virtual bool ExecuteAsset()
     {
+        bool b;
+        b = this.CopyAsset("style.css");
+        if (!b)
+        {
+            return false;
+        }
+        b = this.CopyAsset("script.js");
+        if (!b)
+        {
+            return false;
+        }
+        return true;
+    }
+
+    protected virtual bool CopyAsset(string fileName)
+    {
+        string combine;
+        combine = this.InfraInfra.PathCombine;
+
+        string aa;
+        aa = "Class.Doc.data" + combine + fileName;
+
+        string ab;
+        ab = this.DestFoldPath + combine + fileName;
+
+        bool b;
+        b = this.StorageArrange.FileCopy(aa, ab);
+        if (!b)
+        {
+            return false;
+        }
         return true;
     }
 
