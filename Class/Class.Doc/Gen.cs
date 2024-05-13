@@ -179,6 +179,77 @@ public class Gen : Any
 
     protected virtual bool ExecuteNavi()
     {
+        
+
+        this.ExecuteNaviNode(0, this.Root);
+        return true;
+    }
+
+    protected virtual bool ExecuteNaviNode(int level, Node a)
+    {
+        string newLine;
+        newLine = "\n";
+        string colon;
+        colon = ":";
+        string comma;
+        comma = ",";
+        string space;
+        space = " ";
+        string quote;
+        quote = "\"";
+
+        StringJoin o;
+        o = this.StringJoin;
+
+        int indent;
+        indent = level * 2;
+
+        this.AppendIndent(indent);
+        o.Append("{");
+        o.Append(newLine);
+
+        this.AppendIndent(indent + 1);
+        o.Append("Name");
+        o.Append(colon);
+        o.Append(space);
+        o.Append(quote);
+        o.Append(a.Name);
+        o.Append(quote);
+        o.Append(comma);
+        o.Append(newLine);
+
+        this.AppendIndent(indent + 1);
+        o.Append("Child");
+        o.Append(colon);
+        o.Append(newLine);
+
+        Iter iter;
+        iter = a.Child.IterCreate();
+        a.Child.IterSet(iter);
+        while (iter.Next())
+        {
+            Node aa;
+            aa = (Node)iter.Value;
+            this.ExecuteNaviNode(level + 1, aa);
+        }
+
+        bool b;
+        b = (level == 0);
+
+        this.AppendIndent(indent);
+        o.Append("}");
+        
+        if (b)
+        {
+            o.Append(";");
+        }
+        if (!b)
+        {
+            o.Append(comma);
+        }
+
+        o.Append(newLine);
+
         return true;
     }
 
@@ -321,6 +392,21 @@ public class Gen : Any
             i = i + 1;
         }
         return null;
+    }
+
+    protected virtual bool AppendIndent(int count)
+    {
+        StringJoin o;
+        o = this.StringJoin;
+
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            o.Append("    ");
+            i = i + 1;
+        }
+        return true;
     }
 
     protected virtual Array FoldList(string foldPath)
