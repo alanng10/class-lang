@@ -48,7 +48,7 @@ public class Gen : Any
             return false;
         }
 
-        b = this.ExecuteNavi();
+        b = this.ExecuteVar();
         if (!b)
         {
             return false;
@@ -193,7 +193,7 @@ public class Gen : Any
         return true;
     }
 
-    protected virtual bool ExecuteNavi()
+    protected virtual bool ExecuteVar()
     {
         StringJoin o;
         o = this.StringJoin;
@@ -218,7 +218,7 @@ public class Gen : Any
         combine = this.InfraInfra.PathCombine;
 
         string outFilePath;
-        outFilePath = this.DestFoldPath + combine + "navivar.js";
+        outFilePath = this.DestFoldPath + combine + "var.js";
 
         bool b;
         b = this.StorageInfra.TextWrite(outFilePath, a);
