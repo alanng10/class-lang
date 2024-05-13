@@ -181,7 +181,7 @@ public class Gen : Any
         newLine = "\n";
 
         string filePath;
-        filePath = this.SourceFoldPath + combine + path + combine + "a.md";
+        filePath = this.SourceFoldPath + combine + "Article" + combine + path + combine + "a.md";
 
         string oo;
         oo = this.StorageInfra.TextRead(filePath);
