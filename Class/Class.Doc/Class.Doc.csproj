@@ -9,4 +9,8 @@
         <ProjectReference Include="../Class.Infra/Class.Infra.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+        <Content Include="$(AssemblyName).data/*" CopyToOutputDirectory="PreserveNewest" />
+    </ItemGroup>
+
 </Project>
