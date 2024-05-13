@@ -1,3 +1,13 @@
 global using Any = Avalon.Infra.Any;
+global using Data = Avalon.Infra.Data;
+global using Iter = Avalon.List.Iter;
+global using Table = Avalon.List.Table;
+global using ListInfra = Avalon.List.Infra;
+global using StorageInfra = Avalon.Storage.Infra;
 global using EntryEntry = Avalon.Entry.Entry;
+global using ClassModule = Class.Infra.Module;
+global using ModuleRef = Class.Infra.ModuleRef;
+global using BinaryBinary = Class.Binary.Binary;
+global using BinaryRead = Class.Binary.Read;
+global using ModuleLoad = Class.Console.ModuleLoad;
 global using STAThreadAttribute = System.STAThreadAttribute;
