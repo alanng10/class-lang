@@ -5,20 +5,45 @@ public class Gen : Any
     public override bool Init()
     {
         base.Init();
+        this.InfraInfra = InfraInfra.This;
         this.ListInfra = ListInfra.This;
         this.StorageInfra = StorageInfra.This;
+        this.ClassInfra = ClassInfra.This;
+
+        this.StorageArrange = StorageArrange.This;
+
+        this.BinaryRead = this.CreateBinaryRead();
+        this.ModuleLoad = this.CreateModuleLoad();
+
+
         return true;
     }
 
+    protected virtual InfraInfra InfraInfra { get; set; }
     protected virtual ListInfra ListInfra { get; set; }
     protected virtual StorageInfra StorageInfra { get; set; }
+    protected virtual ClassInfra ClassInfra { get; set; }
+    protected virtual StorageArrange StorageArrange { get; set; }
     protected virtual Table ModuleTable { get; set; }
     protected virtual Table BinaryTable { get; set; }
     protected virtual BinaryRead BinaryRead { get; set; }
     protected virtual ModuleLoad ModuleLoad { get; set; }
+    protected virtual string ReferenceFoldPath { get; set; }
 
     public virtual int Execute()
     {
+        this.ReferenceFoldPath = "../../Doc/Reference";
+
+        this.ModuleTable = this.ClassInfra.TableCreateModuleRefCompare();
+        this.BinaryTable = this.ClassInfra.TableCreateModuleRefCompare();
+
+        this.ModuleLoad.ModuleTable = this.ModuleTable;
+        this.ModuleLoad.BinaryTable = this.BinaryTable;
+
+        this.InitSystem();
+
+        this.ExecuteAllModule();
+
         return 0;
     }
 
@@ -58,6 +83,49 @@ public class Gen : Any
         return true;
     }
 
+    protected virtual bool ExecuteAllModule()
+    {
+        Iter iter;
+        iter = this.ModuleTable.IterCreate();
+        this.ModuleTable.IterSet(iter);
+        while (iter.Next())
+        {
+            ClassModule module;
+            module = (ClassModule)iter.Value;
+            this.ExecuteModule(module);
+        }
+        return true;
+    }
+
+    protected virtual bool ExecuteModule(ClassModule module)
+    {
+        string foldPath;
+        foldPath = this.ReferenceFoldPath + "/" + module.Ref.Name;
+
+        string ka;
+        ka = foldPath + "/";
+
+
+        return true;
+    }
+
+    protected virtual string Version(long o)
+    {
+        long revision;
+        revision = o & 0xff;
+
+        long minor;
+        minor = (o >> 8) & 0xff;
+
+        long ka;
+        ka = this.InfraInfra.IntCapValue - 1;
+
+        long major;
+        major = (o >> 16) & ka;
+
+        return null;
+    }
+
     protected virtual bool InitBinary(string moduleName)
     {
         string filePath;
@@ -68,7 +136,7 @@ public class Gen : Any
 
         if (data == null)
         {
-            global::System.Console.Error.Write("Class.Console:Class.InitBinary data is null, module name: " + moduleName + "\n");
+            global::System.Console.Error.Write("DocReference:Gen.InitBinary data is null, module name: " + moduleName + "\n");
             global::System.Environment.Exit(1001);
         }
 
@@ -84,7 +152,7 @@ public class Gen : Any
 
         if (binary == null)
         {
-            global::System.Console.Error.Write("Class.Console:Class.InitBinary binary is null, module name: " + moduleName + "\n");
+            global::System.Console.Error.Write("DocReference:Gen.InitBinary binary is null, module name: " + moduleName + "\n");
             global::System.Environment.Exit(1000);
         }
 
