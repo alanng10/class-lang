@@ -38,6 +38,12 @@ public class Gen : Any
     {
         bool b;
 
+        b = this.ExecuteVer();
+        if (!b)
+        {
+            return false;
+        }
+
         b = this.ExecuteNode();
         if (!b)
         {
@@ -224,6 +230,7 @@ public class Gen : Any
         
         string a;
         a = this.PageTemplate;
+        a = a.Replace("#AssetVer#", this.Ver);
         a = a.Replace("#ArticleTitle#", title);
         a = a.Replace("#ArticleInner#", inner);
         a = a.Replace("#PageRootPath#", pageRootPath);
