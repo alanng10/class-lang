@@ -11,6 +11,14 @@ public class ModuleLoad : Any
 
         this.NameCheck = new NameCheck();
         this.NameCheck.Init();
+
+        this.StringData = new StringData();
+        this.StringData.Init();
+
+        this.Text = new Text();
+        this.Text.Data = this.StringData;
+        this.Text.Range = new InfraRange();
+        this.Text.Range.Init();
         return true;
     }
 
@@ -25,6 +33,8 @@ public class ModuleLoad : Any
     protected virtual BinaryBinary Binary { get; set; }
     protected virtual Array ClassArray { get; set; }
     protected virtual Array ImportArray { get; set; }
+    protected virtual Text Text { get; set; }
+    protected virtual StringData StringData { get; set; }
 
     public virtual bool Execute()
     {
@@ -62,9 +72,17 @@ public class ModuleLoad : Any
 
         bool b;
         
-        this.SetClassList();
+        b = this.SetClassList();
+        if (!b)
+        {
+            return false;
+        }
 
-        this.SetImportList();
+        b = this.SetImportList();
+        if (!b)
+        {
+            return false;
+        }
 
         this.SetBaseList();
 
@@ -103,6 +121,11 @@ public class ModuleLoad : Any
 
             string name;
             name = o.Name;
+
+            if (!this.CheckName(name))
+            {
+                return false;
+            }
 
             ClassClass a;
             a = new ClassClass();
@@ -344,11 +367,18 @@ public class ModuleLoad : Any
                 return false;
             }
 
+            string name;
+            name = ua.Name;
+            if (!this.CheckName(name))
+            {
+                return false;
+            }
+
             Field a;
             a = new Field();
             a.Init();
             a.Index = fieldTable.Count;
-            a.Name = ua.Name;
+            a.Name = name;
             a.Class = c;
             a.SystemInfo = this.SystemInfoCreate(ua.SystemInfo);
             a.Count = this.CountList.Get(ua.Count);
@@ -383,11 +413,18 @@ public class ModuleLoad : Any
                 return false;
             }
 
+            string name;
+            name = ua.Name;
+            if (!this.CheckName(name))
+            {
+                return false;
+            }
+
             Maide a;
             a = new Maide();
             a.Init();
             a.Index = maideTable.Count;
-            a.Name = ua.Name;
+            a.Name = name;
             a.Class = c;
             a.SystemInfo = this.SystemInfoCreate(ua.SystemInfo);
             a.Count = this.CountList.Get(ua.Count);
@@ -428,11 +465,18 @@ public class ModuleLoad : Any
             {
                 return false;
             }
+
+            string name;
+            name = ua.Name;
+            if (!this.CheckName(name))
+            {
+                return false;
+            }
             
             Var a;
             a = new Var();
             a.Init();
-            a.Name = ua.Name;
+            a.Name = name;
             a.Class = c;
             a.SystemInfo = this.SystemInfoCreate(ua.SystemInfo);
             
@@ -551,6 +595,21 @@ public class ModuleLoad : Any
         }
 
         this.Module.Entry = entry;
+        return true;
+    }
+
+    protected virtual bool CheckName(string o)
+    {
+        this.TextGet(o);
+        return this.NameCheck.IsName(this.Text);
+    }
+
+    protected virtual bool TextGet(string o)
+    {
+        this.StringData.Value = o;
+
+        this.Text.Range.Count = o.Length;
+
         return true;
     }
 
