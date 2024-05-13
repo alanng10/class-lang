@@ -151,8 +151,8 @@ public class Gen : Any
         
         string a;
         a = this.PageTemplate;
-        a = a.Replace("#Title#", title);
-        a = a.Replace("#Inner#", inner);
+        a = a.Replace("#ArticleTitle#", title);
+        a = a.Replace("#ArticleInner#", inner);
         a = a.Replace("#DocPath#", docPath);
 
         string outFilePath;
