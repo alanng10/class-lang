@@ -99,17 +99,19 @@ public class Infra : Any
 
     public virtual string Version(long o)
     {
+        long ka;
+        ka = this.InfraInfra.IntCapValue - 1;
+
+        o = o & ka;
+
         long revision;
         revision = o & 0xff;
 
         long minor;
         minor = (o >> 8) & 0xff;
 
-        long ka;
-        ka = this.InfraInfra.IntCapValue - 1;
-
         long major;
-        major = (o >> 16) & ka;
+        major = o >> 16;
 
         Format format;
         format = new Format();
