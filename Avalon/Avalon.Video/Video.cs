@@ -44,6 +44,7 @@ public class Video : Any
     public virtual ulong Ident { get; set; }
 
     private InternIntern InternIntern { get; set; }
+    protected virtual InfraInfra InfraInfra { get; set; }
     protected virtual Infra VideoInfra { get; set; }
     internal virtual ulong Intern { get; set; }
     private ulong InternData { get; set; }
@@ -79,6 +80,32 @@ public class Video : Any
         Extern.Data_CountSet(this.InternData, dataCount);
         Extern.Data_ValueSet(this.InternData, this.InternDataValue);
         Extern.Image_DataCreate(this.Intern);
+        return true;
+    }
+
+    public virtual bool DataGet(Data data, long index)
+    {
+        int w;
+        int h;
+        w = this.Size.Width;
+        h = this.Size.Height;
+        int k;
+        k = this.VideoInfra.PixelByteCount;
+
+        long ka;
+        ka = w;
+        ka = ka * h;
+        ka = ka * k;
+
+        long count;
+        count = ka;
+
+        if (!this.InfraInfra.CheckLongRange(data.Count, index, count))
+        {
+            return false;
+        }
+        
+        this.InternIntern.VideoDataGet(this.InternDataValue, data.Value, index, k, w, h);
         return true;
     }
 
