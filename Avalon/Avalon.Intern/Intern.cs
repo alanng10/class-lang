@@ -348,7 +348,7 @@ public class Intern : object
         return true;
     }
 
-    public virtual bool DataGet(ulong source, byte[] dest, long index, long count)
+    public virtual bool CopyToByteArray(ulong source, byte[] dest, long index, long count)
     {
         unsafe
         {
@@ -369,7 +369,7 @@ public class Intern : object
         return true;
     }
 
-    public virtual bool DataSet(ulong dest, byte[] source, long index, long count)
+    public virtual bool CopyFromByteArray(ulong dest, byte[] source, long index, long count)
     {
         unsafe
         {
