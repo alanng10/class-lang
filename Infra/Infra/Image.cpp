@@ -81,11 +81,11 @@ Int Image_DataCreate(Int o)
     Int pixelByteCount;
     pixelByteCount = 4;
 
-    Int stride;
-    stride = width * pixelByteCount;
+    Int rowByteCount;
+    rowByteCount = width * pixelByteCount;
 
     Int dataCount;
-    dataCount = height * stride;
+    dataCount = height * rowByteCount;
 
     Int dataValue;
     dataValue = New(dataCount);
@@ -97,7 +97,7 @@ Int Image_DataCreate(Int o)
     dataValueU = (uchar*)dataValue;
 
     qsizetype bytePerLine;
-    bytePerLine = stride;
+    bytePerLine = rowByteCount;
 
     QImage::Format format;
     format = Image_Var_Format;
