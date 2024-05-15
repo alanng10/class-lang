@@ -9,6 +9,9 @@ Int Image_Init(Int o)
     Image* m;
     m = CP(o);
 
+    Size_WidthSet(m->Size, 0);
+    Size_HeightSet(m->Size, 0);
+
     Int dataCount;
     dataCount = 0;
 
