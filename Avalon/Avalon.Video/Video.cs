@@ -33,11 +33,6 @@ public class Video : Any
 
         Extern.Size_Final(this.InternSize);
         Extern.Size_Delete(this.InternSize);
-
-        if (!(this.InternDataValue == 0))
-        {
-            Extern.Delete(this.InternDataValue);
-        }
         return true;
     }
 
@@ -49,15 +44,9 @@ public class Video : Any
     internal virtual ulong Intern { get; set; }
     private ulong InternData { get; set; }
     private ulong InternSize { get; set; }
-    private ulong InternDataValue { get; set; }
 
     public virtual bool DataCreate()
     {
-        if (!(this.InternDataValue == 0))
-        {
-            Extern.Delete(this.InternDataValue);
-        }
-
         int width;
         int height;
         width = this.Size.Width;
@@ -69,16 +58,6 @@ public class Video : Any
         Extern.Size_WidthSet(this.InternSize, w);
         Extern.Size_HeightSet(this.InternSize, h);
 
-        int aa;
-        aa = this.VideoInfra.PixelByteCount;
-        ulong uaa;
-        uaa = (ulong)aa;
-        ulong dataCount;
-        dataCount = w * h * uaa;
-
-        this.InternDataValue = Extern.New(dataCount);
-        Extern.Data_CountSet(this.InternData, dataCount);
-        Extern.Data_ValueSet(this.InternData, this.InternDataValue);
         Extern.Image_DataCreate(this.Intern);
         return true;
     }
@@ -104,8 +83,11 @@ public class Video : Any
         {
             return false;
         }
+
+        ulong a;
+        a = Extern.Data_ValueGet(this.InternData);
         
-        this.InternIntern.VideoDataGet(this.InternDataValue, data.Value, index, k, w, h);
+        this.InternIntern.VideoDataGet(a, data.Value, index, k, w, h);
         return true;
     }
 
