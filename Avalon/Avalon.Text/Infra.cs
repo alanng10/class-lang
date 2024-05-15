@@ -328,18 +328,14 @@ public class Infra : Any
             return -1;
         }
 
-        Data textData;
-        textData = text.Data;
-        Data otherData;
-        otherData = other.Data;
-
-        int a;
-        a = -1;
+        int k;
+        k = -1;
+        
         int count;
         count = textCount - otherCount + 1;
         int i;
         i = 0;
-        while (a == -1 & i < count)
+        while (k == -1 & i < count)
         {
             int index;
             index = textIndex + i;
@@ -351,7 +347,7 @@ public class Infra : Any
             b = this.Equal(text, other);
             if (b)
             {
-                a = i;
+                k = i;
             }
             i = i + 1;
         }
@@ -359,6 +355,6 @@ public class Infra : Any
         text.Range.Index = textIndex;
         text.Range.Count = textCount;
 
-        return a;
+        return k;
     }
 }
