@@ -134,21 +134,6 @@ public class Video : Any
         }
     }
 
-    public virtual int RowByteCount
-    {
-        get
-        {
-            ulong u;
-            u = Extern.Image_RowByteCountGet(this.Intern);
-            int a;
-            a = (int)u;
-            return a;
-        }
-        set
-        {
-        }
-    }
-
     public virtual ulong Out
     {
         get
