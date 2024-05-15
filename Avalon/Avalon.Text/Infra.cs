@@ -333,43 +333,32 @@ public class Infra : Any
         Data otherData;
         otherData = other.Data;
 
+        int a;
+        a = -1;
         int count;
         count = textCount - otherCount + 1;
         int i;
         i = 0;
-        while (i < count)
+        while (a == -1 & i < count)
         {
             int index;
             index = textIndex + i;
 
+            text.Range.Index = index;
+            text.Range.Count = otherCount;
+
             bool b;
-            b = false;
-
-            int countA;
-            countA = otherCount;
-            int iA;
-            iA = 0;
-            while (!b & iA < countA)
+            b = this.Equal(text, other);
+            if (b)
             {
-                char oca;
-                char ocb;
-                oca = this.DataCharGet(textData, index + iA);
-                ocb = this.DataCharGet(otherData, otherIndex + iA);
-
-                if (!(oca == ocb))
-                {
-                    b = true;
-                }
-                iA = iA + 1;
-            }
-
-            if (!b)
-            {
-                return i;
+                a = i;
             }
             i = i + 1;
         }
 
-        return -1;
+        text.Range.Index = textIndex;
+        text.Range.Count = textCount;
+
+        return a;
     }
 }
