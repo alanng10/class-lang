@@ -338,8 +338,6 @@ public static class Extern
     [DllImport(InfraLib)] public extern static ulong Image_SizeSet(ulong o, ulong value);
     [DllImport(InfraLib)] public extern static ulong Image_DataGet(ulong o);
     [DllImport(InfraLib)] public extern static ulong Image_DataSet(ulong o, ulong value);
-    [DllImport(InfraLib)] public extern static ulong Image_RowByteCountGet(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Image_RowByteCountSet(ulong o, ulong value);
 
     [DllImport(InfraLib)] public extern static ulong Image_VideoOut(ulong o);
     [DllImport(InfraLib)] public extern static ulong Image_DataCreate(ulong o);
@@ -582,10 +580,6 @@ public static class Extern
     [DllImport(InfraLib)] public extern static ulong StorageArrange_FoldRemove(ulong o, ulong path);
     [DllImport(InfraLib)] public extern static ulong StorageArrange_Exist(ulong o, ulong path);
     [DllImport(InfraLib)] public extern static ulong StorageArrange_LinkTarget(ulong o, ulong path);
-    [DllImport(InfraLib)] public extern static ulong StorageArrange_EntryCount(ulong o, ulong foldPath);
-    [DllImport(InfraLib)] public extern static ulong StorageArrange_EntryName(ulong o, ulong path);
-    [DllImport(InfraLib)] public extern static ulong StorageArrange_BaseName(ulong o, ulong name);
-    [DllImport(InfraLib)] public extern static ulong StorageArrange_Extension(ulong o, ulong name);
     [DllImport(InfraLib)] public extern static ulong StorageArrange_AbsolutePath(ulong o, ulong path);
     [DllImport(InfraLib)] public extern static ulong StorageArrange_RelativePath(ulong o, ulong path, ulong destPath);
     [DllImport(InfraLib)] public extern static ulong StorageArrange_CanonicalPath(ulong o, ulong path);
