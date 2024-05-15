@@ -52,7 +52,7 @@ public class Server : Any
     private ulong InternPort { get; set; }
     private Handle InternHandle { get; set; }
 
-    public virtual bool Listen()
+    public virtual bool Open()
     {
         this.InternPortSet();
 
