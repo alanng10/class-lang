@@ -330,9 +330,7 @@ public class Infra : Any
         textIndex = textRange.Index;
         textCount = textRange.Count;
 
-        int otherIndex;
         int otherCount;
-        otherIndex = other.Range.Index;
         otherCount = other.Range.Count;
 
         if (textCount < otherCount)
@@ -389,9 +387,7 @@ public class Infra : Any
         textIndex = textRange.Index;
         textCount = textRange.Count;
 
-        int otherIndex;
         int otherCount;
-        otherIndex = other.Range.Index;
         otherCount = other.Range.Count;
 
         if (textCount < otherCount)
