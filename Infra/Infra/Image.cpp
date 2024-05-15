@@ -9,7 +9,31 @@ Int Image_Init(Int o)
     Image* m;
     m = CP(o);
 
-    m->Intern = new QImage(0, 0, Image_Var_Format);
+    Int dataCount;
+    dataCount = 0;
+
+    Int dataValue;
+    dataValue = New(dataCount);
+
+    Data_CountSet(m->Data, dataCount);
+    Data_ValueSet(m->Data, dataValue);
+
+    uchar* dataValueU;
+    dataValueU = (uchar*)dataValue;
+
+    int width;
+    int height;
+    width = 0;
+    height = 0;
+
+    qsizetype bytePerLine;
+    bytePerLine = 0;
+
+    QImage::Format format;
+    format = Image_Var_Format;
+
+    m->Intern = new QImage(dataValueU, width, height, bytePerLine, format);
+
     Image_VideoOutSet(o);
     return true;
 }
@@ -20,6 +44,11 @@ Int Image_Final(Int o)
     m = CP(o);
 
     delete m->Intern;
+
+    Int oa;
+    oa = Data_ValueGet(m->Data);
+    Delete(oa);
+    
     return true;
 }
 
@@ -42,16 +71,23 @@ Int Image_DataCreate(Int o)
     widthU = width;
     heightU = height;
 
-    Int dataValue;
-    dataValue = Data_ValueGet(data);
-    uchar* dataValueU;
-    dataValueU = (uchar*)dataValue;
-
     Int pixelByteCount;
     pixelByteCount = 4;
 
     Int stride;
     stride = width * pixelByteCount;
+
+    Int dataCount;
+    dataCount = height * stride;
+
+    Int dataValue;
+    dataValue = New(dataCount);
+
+    Data_CountSet(data, dataCount);
+    Data_ValueSet(data, dataValue);
+
+    uchar* dataValueU;
+    dataValueU = (uchar*)dataValue;
 
     qsizetype bytePerLine;
     bytePerLine = stride;
@@ -74,19 +110,31 @@ Int Image_SetReadIntern(Int o, Int value)
     QImage* u;
     u = (QImage*)value;
 
-    (*(m->Intern)) = *u;
-
     int widthU;
     int heightU;
-    widthU = m->Intern->width();
-    heightU = m->Intern->height();
+    widthU = u->width();
+    heightU = u->height();
 
-    const uchar* dataValueU;
-    dataValueU = m->Intern->constBits();
+    const uchar* bits;
+    bits = u->constBits();
 
-    qsizetype dataCountU;
-    dataCountU = m->Intern->sizeInBytes();
+    qsizetype bytePerLine;
+    bytePerLine = u->bytesPerLine();
 
+    qsizetype countU;
+    countU = heightU * bytePerLine;
+
+    Int count;
+    count = countU;
+
+    Int source;
+    source = CastInt(bits);
+
+    Int dataValue;
+    dataValue = New(count);
+
+    Copy(dataValue, source, count);
+    
     Int width;
     Int height;
     width = widthU;
@@ -96,15 +144,21 @@ Int Image_SetReadIntern(Int o, Int value)
     Size_WidthSet(size, width);
     Size_HeightSet(size, height);
 
-    Int dataCount;
-    dataCount = dataCountU;
-    Int dataValue;
-    dataValue = CastInt(dataValueU);
-
     Int data;
     data = m->Data;
-    Data_CountSet(data, dataCount);
+    Data_CountSet(data, count);
     Data_ValueSet(data, dataValue);
+
+    uchar* dataValueU;
+    dataValueU = (uchar*)dataValue;
+
+    QImage::Format format;
+    format = Image_Var_Format;
+
+    QImage ua;
+    ua = QImage(dataValueU, widthU, heightU, bytePerLine, format);
+
+    (*(m->Intern)) = ua;
     return true;
 }
 
