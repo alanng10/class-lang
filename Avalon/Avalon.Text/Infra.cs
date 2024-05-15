@@ -322,10 +322,13 @@ public class Infra : Any
             return -1;
         }
 
+        Range textRange;
+        textRange = text.Range;
+
         int textIndex;
         int textCount;
-        textIndex = text.Range.Index;
-        textCount = text.Range.Count;
+        textIndex = textRange.Index;
+        textCount = textRange.Count;
 
         int otherIndex;
         int otherCount;
@@ -349,8 +352,8 @@ public class Infra : Any
             int index;
             index = textIndex + i;
 
-            text.Range.Index = index;
-            text.Range.Count = otherCount;
+            textRange.Index = index;
+            textRange.Count = otherCount;
 
             bool b;
             b = this.Equal(text, other);
@@ -361,8 +364,8 @@ public class Infra : Any
             i = i + 1;
         }
 
-        text.Range.Index = textIndex;
-        text.Range.Count = textCount;
+        textRange.Index = textIndex;
+        textRange.Count = textCount;
 
         return k;
     }
