@@ -124,16 +124,16 @@ Int Image_SetReadIntern(Int o, Int value)
     qsizetype countU;
     countU = heightU * bytePerLine;
 
-    Int count;
-    count = countU;
+    Int dataCount;
+    dataCount = countU;
 
     Int source;
     source = CastInt(bits);
 
     Int dataValue;
-    dataValue = New(count);
+    dataValue = New(dataCount);
 
-    Copy(dataValue, source, count);
+    Copy(dataValue, source, dataCount);
     
     Int width;
     Int height;
@@ -146,7 +146,7 @@ Int Image_SetReadIntern(Int o, Int value)
 
     Int data;
     data = m->Data;
-    Data_CountSet(data, count);
+    Data_CountSet(data, dataCount);
     Data_ValueSet(data, dataValue);
 
     uchar* dataValueU;
