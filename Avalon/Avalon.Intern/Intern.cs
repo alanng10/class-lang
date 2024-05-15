@@ -348,101 +348,43 @@ public class Intern : object
         return true;
     }
 
-    public virtual bool VideoDataGet(ulong videoData, byte[] dataArray, long index, int rowByteCount, int width, int height)
+    public virtual bool DataGet(ulong source, byte[] dest, long index, long count)
     {
         unsafe
         {
-            fixed (byte* uu = dataArray)
+            fixed (byte* uu = dest)
             {
-                byte* dest;
-                dest = uu + index;
+                byte* destP;
+                destP = uu + index;
                 
-                byte* source;
-                source = (byte*)videoData;
+                ulong destU;
+                destU = (ulong)destP;
 
-                byte* p;
-                byte* pa;
+                ulong countU;
+                countU = (ulong)count;
 
-                uint* d;
-                uint* da;
-
-                long count;
-                long countA;
-                long i;
-                long j;
-
-                count = height;
-                countA = width;
-                i = 0;
-                while (i < count)
-                {
-                    j = 0;
-
-                    while (j < countA)
-                    {
-                        p = source + i * rowByteCount + j * 4;
-
-                        pa = dest + (i * countA + j) * 4;
-
-                        d = (uint*)p;
-                        da = (uint*)pa;
-
-                        *da = *d;
-
-                        j = j + 1;
-                    }
-                    i = i + 1;
-                }
+                Extern.Copy(destU, source, countU);
             }
         }
         return true;
     }
 
-    public virtual bool VideoDataSet(ulong videoData, byte[] dataArray, long index, int rowByteCount, int width, int height)
+    public virtual bool DataSet(ulong dest, byte[] source, long index, long count)
     {
         unsafe
         {
-            fixed (byte* uu = dataArray)
+            fixed (byte* uu = source)
             {
-                byte* source;
-                source = uu + index;
+                byte* sourceP;
+                sourceP = uu + index;
 
-                byte* dest;
-                dest = (byte*)videoData;
+                ulong sourceU;
+                sourceU = (ulong)sourceP;
 
-                byte* p;
-                byte* pa;
+                ulong countU;
+                countU = (ulong)count;
 
-                uint* d;
-                uint* da;
-
-                long count;
-                long countA;
-                long i;
-                long j;
-
-                count = height;
-                countA = width;
-                i = 0;
-                while (i < count)
-                {
-                    j = 0;
-
-                    while (j < countA)
-                    {
-                        p = source + (i * countA + j) * 4;
-
-                        pa = dest + i * rowByteCount + j * 4;
-
-                        d = (uint*)p;
-                        da = (uint*)pa;
-
-                        *da = *d;
-
-                        j = j + 1;
-                    }
-                    i = i + 1;
-                }
+                Extern.Copy(dest, sourceU, countU);
             }
         }
         return true;
