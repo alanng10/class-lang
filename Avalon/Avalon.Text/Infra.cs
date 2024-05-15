@@ -369,4 +369,63 @@ public class Infra : Any
 
         return k;
     }
+
+    public virtual int LastIndex(Text text, Text other)
+    {
+        if (!this.CheckRange(text))
+        {
+            return -1;
+        }
+        if (!this.CheckRange(other))
+        {
+            return -1;
+        }
+
+        Range textRange;
+        textRange = text.Range;
+
+        int textIndex;
+        int textCount;
+        textIndex = textRange.Index;
+        textCount = textRange.Count;
+
+        int otherIndex;
+        int otherCount;
+        otherIndex = other.Range.Index;
+        otherCount = other.Range.Count;
+
+        if (textCount < otherCount)
+        {
+            return -1;
+        }
+
+        int k;
+        k = -1;
+
+        int count;
+        count = textCount - otherCount + 1;
+        int i;
+        i = 0;
+        while (k == -1 & i < count)
+        {
+            int index;
+            index = textIndex + count - 1 - i;
+
+            textRange.Index = index;
+            textRange.Count = otherCount;
+
+            bool b;
+            b = this.Equal(text, other);
+            if (b)
+            {
+                k = i;
+            }
+            i = i + 1;
+        }
+
+        textRange.Index = textIndex;
+        textRange.Count = textCount;
+
+        return k;
+    }
 }
