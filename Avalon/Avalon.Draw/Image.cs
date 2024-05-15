@@ -35,16 +35,4 @@ public class Image : Any
         size.Height = sizeA.Height;
         return true;
     }
-
-    public virtual bool SetData(Image dest, Pos destPos, Rect rect)
-    {
-        Pos aa;
-        aa = rect.Pos;
-        Size ab;
-        ab = rect.Size;
-
-        this.InternIntern.CopyImageData(dest.Video.Data, dest.Video.RowByteCount, destPos.Left, destPos.Up,  
-            this.Video.Data, this.Video.RowByteCount, aa.Left, aa.Up, ab.Width, ab.Height);
-        return true;
-    }
 }
