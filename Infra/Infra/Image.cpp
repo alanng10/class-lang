@@ -238,19 +238,6 @@ Int Image_VideoOut(Int o)
     return m->VideoOut;
 }
 
-Int Image_RowByteCountGet(Int o)
-{
-    Image* m;
-    m = CP(o);
-    qsizetype u;
-    u = m->Intern->bytesPerLine();
-    Int a;
-    a = u;
-    return a;
-}
-
-FieldDefaultSet(Image, RowByteCount);
-
 Int Image_VideoOutSet(Int o)
 {
     Image* m;
