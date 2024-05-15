@@ -398,6 +398,56 @@ public class Intern : object
         return true;
     }
 
+    public virtual bool VideoDataSet(ulong videoData, byte[] dataArray, long index, int rowByteCount, int width, int height)
+    {
+        unsafe
+        {
+            fixed (byte* uu = dataArray)
+            {
+                byte* source;
+                source = uu + index;
+
+                byte* dest;
+                dest = (byte*)videoData;
+
+                byte* p;
+                byte* pa;
+
+                uint* d;
+                uint* da;
+
+                long count;
+                long countA;
+                long i;
+                long j;
+
+                count = height;
+                countA = width;
+                i = 0;
+                while (i < count)
+                {
+                    j = 0;
+
+                    while (j < countA)
+                    {
+                        p = source + (i * countA + j) * 4;
+
+                        pa = dest + i * rowByteCount + j * 4;
+
+                        d = (uint*)p;
+                        da = (uint*)pa;
+
+                        *da = *d;
+
+                        j = j + 1;
+                    }
+                    i = i + 1;
+                }
+            }
+        }
+        return true;
+    }
+
     public virtual int TypeIndexFromInternIndex(int u)
     {
         int a;
