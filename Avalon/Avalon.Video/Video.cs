@@ -88,7 +88,36 @@ public class Video : Any
         ulong a;
         a = Extern.Data_ValueGet(this.InternData);
         
-        this.InternIntern.VideoDataGet(a, data.Value, index, k, w, h);
+        this.InternIntern.VideoDataGet(a, data.Value, index, this.RowByteCount, w, h);
+        return true;
+    }
+
+    public virtual bool DataSet(Data data, long index)
+    {
+        int w;
+        int h;
+        w = this.Size.Width;
+        h = this.Size.Height;
+        int k;
+        k = this.VideoInfra.PixelByteCount;
+
+        long ka;
+        ka = w;
+        ka = ka * h;
+        ka = ka * k;
+
+        long count;
+        count = ka;
+
+        if (!this.InfraInfra.CheckLongRange(data.Count, index, count))
+        {
+            return false;
+        }
+
+        ulong a;
+        a = Extern.Data_ValueGet(this.InternData);
+
+        this.InternIntern.VideoDataSet(a, data.Value, index, this.RowByteCount, w, h);
         return true;
     }
 
