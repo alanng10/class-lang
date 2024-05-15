@@ -313,6 +313,15 @@ public class Infra : Any
 
     public virtual int Index(Text text, Text other)
     {
+        if (!this.CheckRange(text))
+        {
+            return -1;
+        }
+        if (!this.CheckRange(other))
+        {
+            return -1;
+        }
+
         int textIndex;
         int textCount;
         textIndex = text.Range.Index;
