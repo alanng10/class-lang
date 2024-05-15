@@ -41,6 +41,15 @@ public class Video : Any
         return true;
     }
 
+    public virtual ulong Ident { get; set; }
+
+    private InternIntern InternIntern { get; set; }
+    protected virtual Infra VideoInfra { get; set; }
+    internal virtual ulong Intern { get; set; }
+    private ulong InternData { get; set; }
+    private ulong InternSize { get; set; }
+    private ulong InternDataValue { get; set; }
+
     public virtual bool DataCreate()
     {
         if (!(this.InternDataValue == 0))
@@ -111,14 +120,4 @@ public class Video : Any
         {
         }
     }
-
-    public virtual ulong Ident { get; set; }
-
-    private InternIntern InternIntern { get; set; }
-    protected virtual Infra VideoInfra { get; set; }
-
-    internal virtual ulong Intern { get; set; }
-    private ulong InternData { get; set; }
-    private ulong InternSize { get; set; }
-    private ulong InternDataValue { get; set; }
 }
