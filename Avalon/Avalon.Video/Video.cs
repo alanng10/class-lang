@@ -88,7 +88,7 @@ public class Video : Any
         ulong a;
         a = Extern.Data_ValueGet(this.InternData);
         
-        this.InternIntern.VideoDataGet(a, data.Value, index, this.RowByteCount, w, h);
+        this.InternIntern.CopyToByteArray(a, data.Value, index, count);
         return true;
     }
 
@@ -117,7 +117,7 @@ public class Video : Any
         ulong a;
         a = Extern.Data_ValueGet(this.InternData);
 
-        this.InternIntern.VideoDataSet(a, data.Value, index, this.RowByteCount, w, h);
+        this.InternIntern.CopyFromByteArray(a, data.Value, index, count);
         return true;
     }
 
