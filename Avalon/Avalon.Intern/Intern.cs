@@ -366,10 +366,10 @@ public class Intern : object
                 uint* d;
                 uint* da;
 
-                int count;
-                int countA;
-                int i;
-                int j;
+                long count;
+                long countA;
+                long i;
+                long j;
 
                 count = height;
                 countA = width;
