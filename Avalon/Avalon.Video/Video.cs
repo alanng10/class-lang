@@ -36,7 +36,18 @@ public class Video : Any
         Extern.Size_Delete(this.InternSize);
         return true;
     }
-
+    
+    public virtual Size Size { get; set; }
+    public virtual ulong Out
+    {
+        get
+        {
+            return Extern.Image_VideoOut(this.Intern);
+        }
+        set
+        {
+        }
+    }
     public virtual ulong Ident { get; set; }
 
     private InternIntern InternIntern { get; set; }
@@ -46,6 +57,8 @@ public class Video : Any
     private ulong InternData { get; set; }
     private ulong InternSize { get; set; }
 
+
+    
     public virtual bool DataCreate()
     {
         int width;
@@ -119,29 +132,5 @@ public class Video : Any
 
         this.InternIntern.CopyFromByteArray(a, data.Value, index, count);
         return true;
-    }
-
-    public virtual Size Size { get; set; }
-
-    public virtual ulong Data
-    {
-        get
-        {
-            return Extern.Data_ValueGet(this.InternData);
-        }
-        set
-        {
-        }
-    }
-
-    public virtual ulong Out
-    {
-        get
-        {
-            return Extern.Image_VideoOut(this.Intern);
-        }
-        set
-        {
-        }
     }
 }
