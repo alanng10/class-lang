@@ -6,6 +6,7 @@ public class Video : Any
     {
         base.Init();
         this.InternIntern = InternIntern.This;
+        this.InfraInfra = InfraInfra.This;
         this.VideoInfra = Infra.This;
 
         this.Size = new Size();
