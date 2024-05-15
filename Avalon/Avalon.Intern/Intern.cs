@@ -348,47 +348,51 @@ public class Intern : object
         return true;
     }
 
-    public virtual bool CopyImageData(ulong dest, int destRowByteCount, int destLeft, int destUp, ulong source, int sourceRowByteCount, int sourceLeft, int sourceUp, int width, int height)
+    public virtual bool VideoDataGet(ulong videoData, byte[] dataArray, long index, int rowByteCount, int width, int height)
     {
         unsafe
         {
-            byte* destU;
-            byte* sourceU;
-            destU = (byte*)dest;
-            sourceU = (byte*)source;
-
-            byte* p;
-            byte* pa;
-
-            uint* d;
-            uint* da;
-
-            int count;
-            int countA;
-            int i;
-            int j;
-
-            count = height;
-            countA = width;
-            i = 0;
-            while (i < count)
+            fixed (byte* uu = dataArray)
             {
-                j = 0;
+                byte* dest;
+                dest = uu + index;
+                
+                byte* source;
+                source = (byte*)videoData;
 
-                while (j < countA)
+                byte* p;
+                byte* pa;
+
+                uint* d;
+                uint* da;
+
+                int count;
+                int countA;
+                int i;
+                int j;
+
+                count = height;
+                countA = width;
+                i = 0;
+                while (i < count)
                 {
-                    p = sourceU + (sourceUp + i) * sourceRowByteCount + (sourceLeft + j) * 4;
+                    j = 0;
 
-                    pa = destU + (destUp + i) * destRowByteCount + (destLeft + j) * 4;
+                    while (j < countA)
+                    {
+                        p = source + i * rowByteCount + j * 4;
 
-                    d = (uint*)p;
-                    da = (uint*)pa;
+                        pa = dest + (i * countA + j) * 4;
 
-                    *da = *d;
+                        d = (uint*)p;
+                        da = (uint*)pa;
 
-                    j = j + 1;
+                        *da = *d;
+
+                        j = j + 1;
+                    }
+                    i = i + 1;
                 }
-                i = i + 1;
             }
         }
         return true;
