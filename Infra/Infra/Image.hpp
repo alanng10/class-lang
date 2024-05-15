@@ -15,3 +15,4 @@ struct Image
 #define CP(a) ((Image*)(a))
 
 Int Image_VideoOutSet(Int o);
+Int Image_DataCopy(Int o, Int dest, Int source, Int width, Int height, Int rowByteCount);
