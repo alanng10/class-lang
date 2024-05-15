@@ -57,6 +57,10 @@ Int Image_DataCreate(Int o)
     Image* m;
     m = CP(o);
 
+    Int oa;
+    oa = Data_ValueGet(m->Data);
+    Delete(oa);
+
     Int size;
     size = m->Size;
     Int data;
@@ -107,6 +111,10 @@ Int Image_SetReadIntern(Int o, Int value)
     Image* m;
     m = CP(o);
 
+    Int oa;
+    oa = Data_ValueGet(m->Data);
+    Delete(oa);
+    
     QImage* u;
     u = (QImage*)value;
 
