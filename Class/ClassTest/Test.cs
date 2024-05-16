@@ -76,6 +76,8 @@ public class Test : Any
         this.AddSet("Token", this.TaskKindList.Token, false, false, false);
 
         this.AddSet("Node", this.TaskKindList.Node, true, false, false);
+
+        //this.AddSet("Port", this.TaskKindList.Port, false, false, false);
         return true;
     }
 
