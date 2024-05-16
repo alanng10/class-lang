@@ -678,6 +678,57 @@ public class ModuleLoad : Any
         return true;
     }
 
+    protected virtual bool CheckVirtualMaideParam(Table param, Table virtualParam)
+    {
+        int count;
+        count = param.Count;
+
+        if (!(count == virtualParam.Count))
+        {
+            return false;
+        }
+
+        Iter iter;
+        iter = param.IterCreate();
+        param.IterSet(iter);
+
+        Iter iterA;
+        iterA = virtualParam.IterCreate();
+        virtualParam.IterSet(iterA);
+
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            iter.Next();
+            iterA.Next();
+
+            Var varVar;
+            varVar = (Var)iter.Value;
+
+            Var varA;
+            varA = (Var)iterA.Value;
+
+            if (!(varVar.Class == varA.Class))
+            {
+                return false;
+            }
+
+            if (!(varVar.SystemInfo.Value == varA.SystemInfo.Value))
+            {
+                return false;
+            }
+
+            if (!(varVar.Name == varA.Name))
+            {
+                return false;
+            }
+
+            i = i + 1;
+        }
+        return true;
+    }
+
     protected virtual bool CheckName(string o)
     {
         this.TextGet(o);
