@@ -472,6 +472,8 @@ public class ClassGenTraverse : Traverse
 
         this.Text(this.DelimitLeftBracket);
 
+        this.ExecuteMaideCallParam(maide);
+
         this.Text(this.DelimitRightBracket);
 
         this.Text(this.NewLine);
