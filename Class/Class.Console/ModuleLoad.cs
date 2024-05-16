@@ -59,6 +59,11 @@ public class ModuleLoad : Any
         ModuleRef o;
         o = this.ModuleRef;
 
+        if (this.ModuleTable.Contain(o))
+        {
+            return false;
+        }
+
         ClassModule a;
         a = new ClassModule();
         a.Init();
