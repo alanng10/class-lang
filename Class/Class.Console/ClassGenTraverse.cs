@@ -452,6 +452,8 @@ public class ClassGenTraverse : Traverse
             ka = this.KeywordOverride;
         }
 
+        this.ThisMaide = maide;
+
         this.TextIndent();
 
         this.Text(this.CountWord(maide.Count));
@@ -492,6 +494,8 @@ public class ClassGenTraverse : Traverse
         this.TextIndent();
         this.Text(this.DelimitRightBrace);
         this.Text(this.NewLine);
+
+        this.ThisMaide = null;
         return true;
     }
 
