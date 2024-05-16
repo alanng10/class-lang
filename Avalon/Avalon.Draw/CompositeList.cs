@@ -37,19 +37,6 @@ public class CompositeList : Any
         this.DestinationOut = this.AddItem(Extern.Stat_CompositeDestinationOut(stat));
         this.SourceAtop = this.AddItem(Extern.Stat_CompositeSourceAtop(stat));
         this.DestinationAtop = this.AddItem(Extern.Stat_CompositeDestinationAtop(stat));
-        this.Xor = this.AddItem(Extern.Stat_CompositeXor(stat));
-        this.Plus = this.AddItem(Extern.Stat_CompositePlus(stat));
-        this.Multiply = this.AddItem(Extern.Stat_CompositeMultiply(stat));
-        this.Screen = this.AddItem(Extern.Stat_CompositeScreen(stat));
-        this.Overlay = this.AddItem(Extern.Stat_CompositeOverlay(stat));
-        this.Darken = this.AddItem(Extern.Stat_CompositeDarken(stat));
-        this.Lighten = this.AddItem(Extern.Stat_CompositeLighten(stat));
-        this.ColorDodge = this.AddItem(Extern.Stat_CompositeColorDodge(stat));
-        this.ColorBurn = this.AddItem(Extern.Stat_CompositeColorBurn(stat));
-        this.HardLight = this.AddItem(Extern.Stat_CompositeHardLight(stat));
-        this.SoftLight = this.AddItem(Extern.Stat_CompositeSoftLight(stat));
-        this.Difference = this.AddItem(Extern.Stat_CompositeDifference(stat));
-        this.Exclusion = this.AddItem(Extern.Stat_CompositeExclusion(stat));
         return true;
     }
 
@@ -75,32 +62,6 @@ public class CompositeList : Any
     protected Composite __D_SourceAtop;
     public virtual Composite DestinationAtop { get { return __D_DestinationAtop; } set { __D_DestinationAtop = value; } }
     protected Composite __D_DestinationAtop;
-    public virtual Composite Xor { get { return __D_Xor; } set { __D_Xor = value; } }
-    protected Composite __D_Xor;
-    public virtual Composite Plus { get { return __D_Plus; } set { __D_Plus = value; } }
-    protected Composite __D_Plus;
-    public virtual Composite Multiply { get { return __D_Multiply; } set { __D_Multiply = value; } }
-    protected Composite __D_Multiply;
-    public virtual Composite Screen { get { return __D_Screen; } set { __D_Screen = value; } }
-    protected Composite __D_Screen;
-    public virtual Composite Overlay { get { return __D_Overlay; } set { __D_Overlay = value; } }
-    protected Composite __D_Overlay;
-    public virtual Composite Darken { get { return __D_Darken; } set { __D_Darken = value; } }
-    protected Composite __D_Darken;
-    public virtual Composite Lighten { get { return __D_Lighten; } set { __D_Lighten = value; } }
-    protected Composite __D_Lighten;
-    public virtual Composite ColorDodge { get { return __D_ColorDodge; } set { __D_ColorDodge = value; } }
-    protected Composite __D_ColorDodge;
-    public virtual Composite ColorBurn { get { return __D_ColorBurn; } set { __D_ColorBurn = value; } }
-    protected Composite __D_ColorBurn;
-    public virtual Composite HardLight { get { return __D_HardLight; } set { __D_HardLight = value; } }
-    protected Composite __D_HardLight;
-    public virtual Composite SoftLight { get { return __D_SoftLight; } set { __D_SoftLight = value; } }
-    protected Composite __D_SoftLight;
-    public virtual Composite Difference { get { return __D_Difference; } set { __D_Difference = value; } }
-    protected Composite __D_Difference;
-    public virtual Composite Exclusion { get { return __D_Exclusion; } set { __D_Exclusion = value; } }
-    protected Composite __D_Exclusion;
 
     protected virtual Composite AddItem(ulong o)
     {
@@ -125,7 +86,7 @@ public class CompositeList : Any
     protected virtual Array Array { get { return __D_Array; } set { __D_Array = value; } }
     protected Array __D_Array;
 
-    protected virtual int ArrayCount { get { return 24; } set { } }
+    protected virtual int ArrayCount { get { return 11; } set { } }
     protected int __D_ArrayCount;
 
     public virtual int Count { get { return __D_Count; } set { __D_Count = value; } }
