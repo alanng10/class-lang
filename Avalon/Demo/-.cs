@@ -34,6 +34,7 @@ global using AudioEffect = Avalon.Audio.Effect;
 global using Storage = Avalon.Storage.Storage;
 global using StorageMode = Avalon.Storage.Mode;
 global using StorageArrange = Avalon.Storage.Arrange;
+global using StorageStatusList = Avalon.Storage.StatusList;
 global using StorageInfra = Avalon.Storage.Infra;
 global using Console = Avalon.Console.Console;
 global using Play = Avalon.Media.Play;

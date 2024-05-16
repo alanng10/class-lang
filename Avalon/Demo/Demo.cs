@@ -16,6 +16,7 @@ class Demo : Any
     private ListInfra ListInfra { get; set; }
     private TextInfra TextInfra { get; set; }
     private DrawInfra DrawInfra { get; set; }
+    private StorageStatusList StorageStatusList { get; set; }
     private DrawBrushKindList BrushKindList { get; set; }
     private Math Math { get; set; }
     private MathCompose MathCompose { get; set; }
@@ -25,6 +26,7 @@ class Demo : Any
         this.ListInfra = ListInfra.This;
         this.TextInfra = TextInfra.This;
         this.DrawInfra = DrawInfra.This;
+        this.StorageStatusList = StorageStatusList.This;
         this.BrushKindList = DrawBrushKindList.This;
         this.Console = Console.This;
 
@@ -721,7 +723,7 @@ class Demo : Any
 
         bool o;
         o = false;
-        if (storage.Status == 0)
+        if (storage.Status == this.StorageStatusList.NoError)
         {
             Stream stream;
             stream = storage.Stream;
