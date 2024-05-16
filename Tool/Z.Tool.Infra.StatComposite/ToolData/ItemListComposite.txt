@@ -9,16 +9,3 @@ SourceOut
 DestinationOut
 SourceAtop
 DestinationAtop
-Xor
-Plus
-Multiply
-Screen
-Overlay
-Darken
-Lighten
-ColorDodge
-ColorBurn
-HardLight
-SoftLight
-Difference
-Exclusion
