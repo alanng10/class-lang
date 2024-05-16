@@ -16,12 +16,11 @@ public class CountReadOperate : ReadOperate
     protected virtual string String { get; set; }
     protected virtual Array Array { get; set; }
 
-    public override string ExecuteString(Text text)
+    public override string ExecuteString(int row, Range range)
     {
         ReadArg arg;
         arg = this.Read.Arg;
         arg.StringIndex = arg.StringIndex + 1;
-        arg.StringTextIndex = arg.StringTextIndex + text.Range.Count;
         return this.String;
     }
 

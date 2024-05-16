@@ -2,7 +2,7 @@ namespace Class.Port;
 
 public class ReadOperate : Any
 {
-    public virtual string ExecuteString(Text text)
+    public virtual string ExecuteString(int row, Range range)
     {
         return null;
     }
