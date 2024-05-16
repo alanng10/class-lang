@@ -312,6 +312,12 @@ public class Gen : Any
 
     protected virtual bool AddClass(SystemType type)
     {
+        if (!this.TypeIsClass(type))
+        {
+            global::System.Console.Error.Write("AddClass type is not C# class: " + type.Name + "\n");
+            global::System.Environment.Exit(143);
+        }
+
         ClassClass a;
         a = new ClassClass();
         a.Init();
