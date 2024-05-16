@@ -41,6 +41,7 @@ public class ClassGenTraverse : Traverse
         this.NewLineEscapedChar = "n";
         this.IntValueHexPrefix = "0x";
         this.IntValuePostfix = "UL";
+        this.KeywordClass = "class";
         this.KeywordPublic = "public";
         this.KeywordInternal = "internal";
         this.KeywordProtected = "protected";
@@ -145,6 +146,7 @@ public class ClassGenTraverse : Traverse
     protected virtual string NewLineEscapedChar { get; set; }
     protected virtual string IntValueHexPrefix { get; set; }
     protected virtual string IntValuePostfix { get; set; }
+    protected virtual string KeywordClass { get; set; }
     protected virtual string KeywordPublic { get; set; }
     protected virtual string KeywordInternal { get; set; }
     protected virtual string KeywordProtected { get; set; }
@@ -235,6 +237,61 @@ public class ClassGenTraverse : Traverse
         this.ArrayAdd(this.KeywordChar);
 
         this.Array = null;
+        return true;
+    }
+
+    public override bool ExecuteClass(NodeClass nodeClass)
+    {
+        ClassClass varClass;
+        varClass = this.Info(nodeClass).Class;
+
+        this.TextIndent();
+
+        if (this.Gen.Export)
+        {
+            this.Text(this.KeywordPublic);
+            this.Text(this.Space);
+        }
+
+        this.Text(this.KeywordClass);
+        this.Text(this.Space);
+
+        this.Text(this.InternClassNamePrefix);
+        this.ExecuteClassTableName(varClass);
+
+        this.Text(this.Space);
+        this.Text(this.DelimitColon);
+        this.Text(this.Space);
+
+        this.Text(this.InternClassNamePrefix);
+        this.ExecuteClassTableName(varClass.Base);
+        
+        this.Text(this.NewLine);
+        
+        this.TextIndent();
+        this.Text(this.DelimitLeftBrace);
+        this.Text(this.NewLine);
+
+        this.ExecutePart(nodeClass.Member);
+
+        this.TextIndent();
+        this.Text(this.DelimitRightBrace);
+        this.Text(this.NewLine);
+        return true;
+    }
+
+    public override bool ExecutePart(Part part)
+    {
+        int k;
+        k = this.IndentLevel;
+
+        k = k + 1;
+        this.IndentLevel = k;
+
+        base.ExecutePart(part);
+
+        k = k - 1;
+        this.IndentLevel = k;
         return true;
     }
 
