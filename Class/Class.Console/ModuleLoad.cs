@@ -648,6 +648,11 @@ public class ModuleLoad : Any
                 {
                     return false;
                 }
+
+                if (!this.CheckVirtualMaideParam(a.Param, aa.Param))
+                {
+                    return false;
+                }
             }
 
             a.Virtual = aa;
