@@ -190,7 +190,7 @@ public class ModuleLoad : Any
         binaryTable = this.BinaryTable;
 
         Table importTable;
-        importTable = this.ClassInfra.TableCreateModuleRefCompare();
+        importTable = classInfra.TableCreateModuleRefCompare();
 
         this.Module.Import = importTable;
         
