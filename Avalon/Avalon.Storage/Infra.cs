@@ -19,12 +19,14 @@ public class Infra : Any
         base.Init();
         this.InfraInfra = InfraInfra.This;
         this.TextInfra = TextInfra.This;
+        this.StorageStatusList = StatusList.This;
         this.TextEncodeKindList = TextEncodeKindList.This;
         return true;
     }
 
     protected virtual InfraInfra InfraInfra { get; set; }
     protected virtual TextInfra TextInfra { get; set; }
+    protected virtual StatusList StorageStatusList { get; set; }
     protected virtual TextEncodeKindList TextEncodeKindList { get; set; }
 
     public virtual Data DataRead(string filePath)
@@ -44,7 +46,7 @@ public class Infra : Any
 
         Data o;
         o = null;
-        if (storage.Status == 0)
+        if (storage.Status == this.StorageStatusList.NoError)
         {
             StreamStream stream;
             stream = storage.Stream;
@@ -98,7 +100,7 @@ public class Infra : Any
 
         bool o;
         o = false;
-        if (storage.Status == 0)
+        if (storage.Status == this.StorageStatusList.NoError)
         {
             StreamStream stream;
             stream = storage.Stream;
@@ -187,6 +189,9 @@ public class Infra : Any
 
     public virtual bool CountSet(string filePath, long value)
     {
+        StatusList statusList;
+        statusList = this.StorageStatusList;
+
         Storage storage;
         storage = new Storage();
         storage.Init();
@@ -204,10 +209,10 @@ public class Infra : Any
 
         bool o;
         o = false;
-        if (storage.Status == 0)
+        if (storage.Status == statusList.NoError)
         {
             storage.CountSet(value);
-            if (storage.Status == 0)
+            if (storage.Status == statusList.NoError)
             {
                 o = true;
             }
