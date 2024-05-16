@@ -78,7 +78,6 @@ global using Grid = Avalon.View.Grid;
 global using GridRow = Avalon.View.GridRow;
 global using GridCol = Avalon.View.GridCol;
 global using GridChild = Avalon.View.GridChild;
-global using ViewText = Avalon.View.Text;
 global using ViewInfra = Avalon.View.Infra;
 global using Frame = Avalon.View.Frame;
 global using EntryEntry = Avalon.Entry.Entry;
