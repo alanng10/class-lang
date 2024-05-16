@@ -288,7 +288,31 @@ public class ClassGenTraverse : Traverse
         k = k + 1;
         this.IndentLevel = k;
 
-        base.ExecutePart(part);
+        Iter iter;
+        iter = this.Iter;
+        part.Value.IterSet(iter);
+
+        int count;
+        count = part.Value.Count;
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            iter.Next();
+            
+            Comp comp;
+            comp = (Comp)iter.Value;
+            
+            if (0 < i)
+            {
+                this.Text(this.NewLine);
+            }
+            
+            this.ExecuteComp(comp);
+
+            i = i + 1;
+        }
+
 
         k = k - 1;
         this.IndentLevel = k;
