@@ -11,3 +11,4 @@ global using VideoSize = Avalon.Video.Size;
 global using VideoFrame = Avalon.Video.Frame;
 global using StorageStorage = Avalon.Storage.Storage;
 global using StorageMode = Avalon.Storage.Mode;
+global using StorageStatusList = Avalon.Storage.StatusList;

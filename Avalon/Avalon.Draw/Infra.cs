@@ -17,6 +17,7 @@ public class Infra : Any
     public override bool Init()
     {
         base.Init();
+        this.StorageStatusList = StorageStatusList.This;
         this.BrushInfra = BrushInfra.This;
         this.ColorCompMax = byte.MaxValue;
         this.WhiteColor = this.ColorCreate(this.ColorCompMax, this.ColorCompMax, this.ColorCompMax, this.ColorCompMax);
@@ -66,6 +67,7 @@ public class Infra : Any
         return true;
     }
 
+    protected virtual StorageStatusList StorageStatusList { get; set; }
     private BrushInfra BrushInfra { get; set; }
 
     public virtual int ColorCompMax { get; set; }
@@ -168,7 +170,7 @@ public class Infra : Any
 
         storage.Open();
 
-        if (storage.Status == 0)
+        if (storage.Status == this.StorageStatusList.NoError)
         {
             StreamStream stream;
             stream = storage.Stream;
@@ -215,7 +217,7 @@ public class Infra : Any
 
         bool o;
         o = false;
-        if (storage.Status == 0)
+        if (storage.Status == this.StorageStatusList.NoError)
         {
             StreamStream stream;
             stream = storage.Stream;
