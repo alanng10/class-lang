@@ -724,11 +724,6 @@ public class ModuleLoad : Any
                 return false;
             }
 
-            if (!(varVar.Name == varA.Name))
-            {
-                return false;
-            }
-
             i = i + 1;
         }
         return true;
