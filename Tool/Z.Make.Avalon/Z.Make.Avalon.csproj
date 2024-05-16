@@ -17,6 +17,7 @@
         <ProjectReference Include="../Z.Tool.Avalon.PenCapList/Z.Tool.Avalon.PenCapList.csproj" />
         <ProjectReference Include="../Z.Tool.Avalon.PenJoinList/Z.Tool.Avalon.PenJoinList.csproj" />
         <ProjectReference Include="../Z.Tool.Avalon.PenKindList/Z.Tool.Avalon.PenKindList.csproj" />
+        <ProjectReference Include="../Z.Tool.Avalon.StorageStatusList/Z.Tool.Avalon.StorageStatusList.csproj" />
         <ProjectReference Include="../Z.Tool.Avalon.TextAlignList/Z.Tool.Avalon.TextAlignList.csproj" />
         <ProjectReference Include="../Z.Tool.Avalon.TextEncodeKindList/Z.Tool.Avalon.TextEncodeKindList.csproj" />
     </ItemGroup>
