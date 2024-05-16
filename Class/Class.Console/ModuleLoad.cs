@@ -519,7 +519,12 @@ public class ModuleLoad : Any
             BinaryPart a;
             a = (BinaryPart)array.Get(i);
 
-            this.SetVirtual(varClass, a);
+            bool b;
+            b = this.SetVirtual(varClass, a);
+            if (!b)
+            {
+                return false;
+            }
 
             i = i + 1;
         }
@@ -528,8 +533,17 @@ public class ModuleLoad : Any
 
     protected virtual bool SetVirtual(ClassClass varClass, BinaryPart part)
     {
-        this.SetVirtualField(varClass, part.Field);
-        this.SetVirtualMaide(varClass, part.Maide);
+        bool b;
+        b = this.SetVirtualField(varClass, part.Field);
+        if (!b)
+        {
+            return false;
+        }
+        b = this.SetVirtualMaide(varClass, part.Maide);
+        if (!b)
+        {
+            return false;
+        }
         return true;
     }
 
@@ -549,11 +563,37 @@ public class ModuleLoad : Any
 
             Field aa;
             aa = null;
-            ClassClass af;
-            af = this.VirtualDefineClass(ae.Virtual);
-            if (!(af == null))
+
+            if (!(ae.Virtual == -1))
             {
+                ClassClass af;
+                af = this.ClassGetIndex(ae.Virtual);
+                
+                if (af == null)
+                {
+                    return false;
+                }
+                
                 aa = (Field)af.Field.Get(a.Name);
+                if (aa == null)
+                {
+                    return false;
+                }
+
+                if (!(a.Count == aa.Count))
+                {
+                    return false;
+                }
+
+                if (!(a.Class == aa.Class))
+                {
+                    return false;
+                }
+
+                if (!(a.SystemInfo.Value == aa.SystemInfo.Value))
+                {
+                    return false;
+                }
             }
 
             a.Virtual = aa;
