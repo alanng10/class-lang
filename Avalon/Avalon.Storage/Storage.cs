@@ -7,6 +7,7 @@ public class Storage : Any
         base.Init();
         this.InternIntern = InternIntern.This;
         this.InternInfra = InternInfra.This;
+        this.StorageStatusList = StatusList.This;
         this.Intern = Extern.Storage_New();
         Extern.Storage_Init(this.Intern);
         return true;
@@ -26,10 +27,12 @@ public class Storage : Any
 
     private InternIntern InternIntern { get; set; }
     private InternInfra InternInfra { get; set; }
+    protected virtual StatusList StorageStatusList { get; set; }
+    
     private ulong Intern { get; set; }
     private ulong InternPath { get; set; }
 
-    public virtual int Status
+    public virtual Status Status
     {
         get
         {
@@ -37,7 +40,9 @@ public class Storage : Any
             u = Extern.Storage_StatusGet(this.Intern);
             int o;
             o = (int)u;
-            return o;
+            Status a;
+            a = this.StorageStatusList.Get(o);
+            return a;
         }
         set
         {
@@ -64,7 +69,7 @@ public class Storage : Any
         Extern.Storage_ModeSet(this.Intern, modeU);
         Extern.Storage_StreamSet(this.Intern, this.DataStream.Ident);
         Extern.Storage_Open(this.Intern);
-        if (this.Status == 0)
+        if (this.Status == this.StorageStatusList.NoError)
         {
             this.Stream = this.DataStream;
         }
