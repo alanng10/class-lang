@@ -927,7 +927,6 @@ public static class Extern
     [DllImport(InfraLib)] public extern static ulong Stat_PenKindDot(ulong o);
     [DllImport(InfraLib)] public extern static ulong Stat_PenKindDashDot(ulong o);
     [DllImport(InfraLib)] public extern static ulong Stat_PenKindDashDotDot(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Stat_PenKindCustomDash(ulong o);
     [DllImport(InfraLib)] public extern static ulong Stat_PenCapFlat(ulong o);
     [DllImport(InfraLib)] public extern static ulong Stat_PenCapSquare(ulong o);
     [DllImport(InfraLib)] public extern static ulong Stat_PenCapRound(ulong o);

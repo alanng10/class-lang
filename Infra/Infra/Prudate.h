@@ -869,7 +869,6 @@ Infra_Api Int Stat_PenKindDash(Int o);
 Infra_Api Int Stat_PenKindDot(Int o);
 Infra_Api Int Stat_PenKindDashDot(Int o);
 Infra_Api Int Stat_PenKindDashDotDot(Int o);
-Infra_Api Int Stat_PenKindCustomDash(Int o);
 Infra_Api Int Stat_PenCapFlat(Int o);
 Infra_Api Int Stat_PenCapSquare(Int o);
 Infra_Api Int Stat_PenCapRound(Int o);
