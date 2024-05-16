@@ -434,6 +434,67 @@ public class ClassGenTraverse : Traverse
         return true;
     }
 
+    public override bool ExecuteMaide(NodeMaide nodeMaide)
+    {
+        Maide maide;
+        maide = this.Info(nodeMaide).Maide;
+
+        string ka;
+        ka = null;
+        bool b;
+        b = (maide.Virtual == null);
+        if (b)
+        {
+            ka = this.KeywordVirtual;
+        }
+        if (!b)
+        {
+            ka = this.KeywordOverride;
+        }
+
+        this.TextIndent();
+
+        this.Text(this.CountWord(maide.Count));
+
+        this.Text(this.Space);
+
+        this.Text(ka);
+
+        this.Text(this.Space);
+
+        this.ExecuteClassName(maide.Class, maide.SystemInfo.Value);
+
+        this.Text(this.Space);
+
+        this.Text(maide.Name);
+
+        this.Text(this.DelimitLeftBracket);
+
+        this.Text(this.DelimitRightBracket);
+
+        this.Text(this.NewLine);
+
+        this.TextIndent();
+        this.Text(this.DelimitLeftBrace);
+        this.Text(this.NewLine);
+
+        this.ResultClass = maide.Class;
+        this.ResultSystemInfo = maide.SystemInfo.Value;
+        this.MemberStateKind = 3;
+        this.TopLevelState = true;
+
+        this.ExecuteState(nodeMaide.Call);
+
+        this.ResultClass = null;
+        this.ResultSystemInfo = 0;
+        this.MemberStateKind = 0;
+
+        this.TextIndent();
+        this.Text(this.DelimitRightBrace);
+        this.Text(this.NewLine);
+        return true;
+    }
+
     public override bool ExecuteState(State state)
     {
         bool b;
