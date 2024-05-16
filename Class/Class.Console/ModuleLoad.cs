@@ -617,11 +617,37 @@ public class ModuleLoad : Any
 
             Maide aa;
             aa = null;
-            ClassClass af;
-            af = this.VirtualDefineClass(ae.Virtual);
-            if (!(af == null))
+
+            if (!(ae.Virtual == -1))
             {
+                ClassClass af;
+                af = this.ClassGetIndex(ae.Virtual);
+
+                if (af == null)
+                {
+                    return false;
+                }
+
                 aa = (Maide)af.Maide.Get(a.Name);
+                if (aa == null)
+                {
+                    return false;
+                }
+
+                if (!(a.Count == aa.Count))
+                {
+                    return false;
+                }
+
+                if (!(a.Class == aa.Class))
+                {
+                    return false;
+                }
+
+                if (!(a.SystemInfo.Value == aa.SystemInfo.Value))
+                {
+                    return false;
+                }
             }
 
             a.Virtual = aa;
@@ -665,18 +691,6 @@ public class ModuleLoad : Any
         this.Text.Range.Count = o.Length;
 
         return true;
-    }
-
-    protected virtual ClassClass VirtualDefineClass(int classIndex)
-    {
-        if (classIndex == -1)
-        {
-            return null;
-        }
-
-        ClassClass a;
-        a = this.ClassGetIndex(classIndex);
-        return a;
     }
 
     protected virtual SystemInfo SystemInfoCreate(int binaryValue)
