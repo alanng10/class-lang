@@ -18,4 +18,10 @@ public class Gen : SourceGen
         this.InitMethodFileName = "ToolData/InitMethod.txt";
         return true;
     }
+
+    protected override bool AppendInitFieldAddItem(StringBuilder sb, string index, object value)
+    {
+        sb.Append("AddItem").Append("(").Append(")");
+        return true;
+    }
 }
