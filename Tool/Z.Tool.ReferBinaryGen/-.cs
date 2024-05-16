@@ -52,6 +52,7 @@ global using Task = Class.Console.Task;
 global using ZString = Z.Infra.Class.String;
 global using ZModuleInfo = Z.Infra.Class.ModuleInfo;
 global using SystemType = System.Type;
+global using Delegate = System.Delegate;
 global using STAThreadAttribute = System.STAThreadAttribute;
 global using PropertyInfo = System.Reflection.PropertyInfo;
 global using MethodInfo = System.Reflection.MethodInfo;

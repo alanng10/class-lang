@@ -940,12 +940,32 @@ public class Gen : Any
                 global::System.Console.Error.Write("ClassGetType assemblyName is BCL assembly name: " + assemblyName + "\n");
                 global::System.Environment.Exit(140);
             }
+            if (!this.TypeIsClass(type))
+            {
+                global::System.Console.Error.Write("ClassGetType type is not C# class: " + type.Name + "\n");
+                global::System.Environment.Exit(142);
+            }
             module = this.ClassModuleName(assemblyName);
             varClass = type.Name;
         }
         ClassClass a;
         a = this.ClassGet(module, varClass);
         return a;
+    }
+
+    protected virtual bool TypeIsClass(SystemType type)
+    {
+        if (!type.IsClass)
+        {
+            return false;
+        }
+
+        if (typeof(Delegate).IsAssignableFrom(type))
+        {
+            return false;
+        }
+
+        return true;
     }
 
     protected virtual ClassClass ClassGet(string moduleName, string className)
