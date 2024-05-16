@@ -21,6 +21,7 @@ public class Read : Any
 
     public virtual string Source { get; set; }
     public virtual Port Port { get; set; }
+    public virtual ReadArg Arg { get; set; }
     protected virtual ClassInfra ClassInfra { get; set; }
     protected virtual Array LineList { get; set; }
     protected virtual Text Text { get; set; }
