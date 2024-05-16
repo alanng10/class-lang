@@ -181,6 +181,14 @@ public class ModuleLoad : Any
     
     protected virtual bool SetImportList()
     {
+        ListInfra listInfra;
+        listInfra = this.ListInfra;
+        ClassInfra classInfra;
+        classInfra = this.ClassInfra;
+
+        Table binaryTable;
+        binaryTable = this.BinaryTable;
+
         Table importTable;
         importTable = this.ClassInfra.TableCreateModuleRefCompare();
 
@@ -205,16 +213,15 @@ public class ModuleLoad : Any
             moduleRef = o.Module;
 
             Table classTable;
-            classTable = this.ClassInfra.TableCreateRefCompare();
+            classTable = classInfra.TableCreateRefCompare();
 
-            this.ListInfra.TableAdd(importTable, moduleRef, classTable);
+            listInfra.TableAdd(importTable, moduleRef, classTable);
             
-
             ClassModule module;
             module = this.ModuleGet(moduleRef);
 
             BinaryBinary oo;
-            oo = (BinaryBinary)this.BinaryTable.Get(moduleRef);
+            oo = (BinaryBinary)binaryTable.Get(moduleRef);
 
             Array oa;
             oa = o.Class;
@@ -236,7 +243,7 @@ public class ModuleLoad : Any
                 ClassClass varClass;
                 varClass = this.ModuleClassGet(module, className);
 
-                this.ListInfra.TableAdd(classTable, varClass, varClass);
+                listInfra.TableAdd(classTable, varClass, varClass);
 
                 iA = iA + 1;
             }
@@ -247,7 +254,7 @@ public class ModuleLoad : Any
         }
 
         Array importArray;
-        importArray = this.ListInfra.ArrayCreate(importTotal);
+        importArray = listInfra.ArrayCreate(importTotal);
 
         int oi;
         oi = 0;
