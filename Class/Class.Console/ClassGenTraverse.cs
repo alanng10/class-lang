@@ -1623,6 +1623,40 @@ public class ClassGenTraverse : Traverse
         return (string)this.CountAccessWord.Get(count.Index);
     }
 
+    protected virtual bool ExecuteMaideCallParam(Maide maide)
+    {
+        Iter iter;
+        iter = this.TableIter;
+        maide.Param.IterSet(iter);
+        
+        int count;
+        count = maide.Param.Count;
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            iter.Next();
+
+            Var varVar;
+            varVar = (Var)iter.Value;
+            
+            if (0 < i)
+            {
+                this.Text(this.DelimitComma);
+                this.Text(this.Space);
+            }
+
+            this.ExecuteClassName(varVar.Class, varVar.SystemInfo.Value);
+
+            this.Text(this.Space);
+
+            this.Text(varVar.Name);
+
+            i = i + 1;
+        }
+        return true;
+    }
+
     protected virtual bool ExecuteAnyDefault(ClassClass c, int systemInfo)
     {
         SystemClass system;
