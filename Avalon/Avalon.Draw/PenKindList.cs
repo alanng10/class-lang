@@ -31,7 +31,6 @@ public class PenKindList : Any
         this.Dot = this.AddItem(Extern.Stat_PenKindDot(stat));
         this.DashDot = this.AddItem(Extern.Stat_PenKindDashDot(stat));
         this.DashDotDot = this.AddItem(Extern.Stat_PenKindDashDotDot(stat));
-        this.CustomDash = this.AddItem(Extern.Stat_PenKindCustomDash(stat));
         return true;
     }
 
@@ -45,8 +44,6 @@ public class PenKindList : Any
     protected PenKind __D_DashDot;
     public virtual PenKind DashDotDot { get { return __D_DashDotDot; } set { __D_DashDotDot = value; } }
     protected PenKind __D_DashDotDot;
-    public virtual PenKind CustomDash { get { return __D_CustomDash; } set { __D_CustomDash = value; } }
-    protected PenKind __D_CustomDash;
 
     protected virtual PenKind AddItem(ulong o)
     {
@@ -71,7 +68,7 @@ public class PenKindList : Any
     protected virtual Array Array { get { return __D_Array; } set { __D_Array = value; } }
     protected Array __D_Array;
 
-    protected virtual int ArrayCount { get { return 6; } set { } }
+    protected virtual int ArrayCount { get { return 5; } set { } }
     protected int __D_ArrayCount;
 
     public virtual int Count { get { return __D_Count; } set { __D_Count = value; } }
