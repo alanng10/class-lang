@@ -260,10 +260,26 @@ public class Infra : Any
         return o.Data(text.Data, text.Range);
     }
 
+    public virtual int Compare(Text text, Text other, Compare compare)
+    {
+        if (!this.CheckRange(text))
+        {
+            return 0;
+        }
+        if (!this.CheckRange(other))
+        {
+            return 0;
+        }
+
+        int o;
+        o = compare.Execute(text, other);
+        return o;
+    }
+
     public virtual bool Equal(Text text, Text other, Compare compare)
     {
         int o;
-        o = compare.Execute(text, other);
+        o = this.Compare(text, other, compare);
         return (o == 0);
     }
 
