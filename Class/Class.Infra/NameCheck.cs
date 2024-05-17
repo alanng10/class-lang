@@ -8,6 +8,13 @@ public class NameCheck : Any
         this.TextInfra = TextInfra.This;
         this.Keyword = KeywordList.This;
 
+        this.CharCompare = new TextCharCompare();
+        this.CharCompare.Init();
+
+        this.Compare = new TextCompare();
+        this.Compare.CharCompare = this.CharCompare;
+        this.Compare.Init();
+
         this.StringData = new StringData();
         this.StringData.Init();
 
@@ -22,6 +29,8 @@ public class NameCheck : Any
 
     protected virtual TextInfra TextInfra { get; set; }
     protected virtual KeywordList Keyword { get; set; }
+    protected virtual TextCompare Compare { get; set; }
+    protected virtual TextCharCompare CharCompare { get; set; }
     protected virtual StringData StringData { get; set; }
     protected virtual Text Text { get; set; }
 
@@ -85,6 +94,9 @@ public class NameCheck : Any
         KeywordList keyword;
         keyword = this.Keyword;
 
+        TextCompare compare;
+        compare = this.Compare;
+
         Text oo;
         oo = this.Text;
         int count;
@@ -100,7 +112,7 @@ public class NameCheck : Any
 
             this.TextStringGet(oo, o);
 
-            if (textInfra.Equal(text, oo))
+            if (textInfra.Equal(text, oo, compare))
             {
                 return true;
             }
