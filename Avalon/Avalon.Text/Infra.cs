@@ -260,10 +260,10 @@ public class Infra : Any
         return o.Data(text.Data, text.Range);
     }
 
-    public virtual bool Equal(Text text, Text other, Compare compare)
+    public virtual bool Equal(Text left, Text right, Compare compare)
     {
         int o;
-        o = compare.Execute(text, other);
+        o = compare.Execute(left, right);
         return (o == 0);
     }
 
