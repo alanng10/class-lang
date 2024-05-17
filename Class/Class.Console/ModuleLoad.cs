@@ -358,6 +358,10 @@ public class ModuleLoad : Any
 
     protected virtual bool SetPart(ClassClass varClass, BinaryPart part)
     {
+        varClass.Field = this.ClassInfra.TableCreateStringCompare();
+
+        varClass.Maide = this.ClassInfra.TableCreateStringCompare();
+
         bool b;
         
         b = this.SetPartField(varClass, part.Field);
@@ -377,8 +381,7 @@ public class ModuleLoad : Any
     protected virtual bool SetPartField(ClassClass varClass, Array binaryField)
     {
         Table fieldTable;
-        fieldTable = this.ClassInfra.TableCreateStringCompare();
-        varClass.Field = fieldTable;
+        fieldTable = varClass.Field;
 
         int count;
         count = binaryField.Count;
@@ -403,6 +406,11 @@ public class ModuleLoad : Any
                 return false;
             }
 
+            if (this.MemberNameDefined(varClass, name))
+            {
+                return false;
+            }
+
             Field a;
             a = new Field();
             a.Init();
@@ -423,8 +431,7 @@ public class ModuleLoad : Any
     protected virtual bool SetPartMaide(ClassClass varClass, Array binaryMaide)
     {
         Table maideTable;
-        maideTable = this.ClassInfra.TableCreateStringCompare();
-        varClass.Maide = maideTable;
+        maideTable = varClass.Maide;
 
         int count;
         count = binaryMaide.Count;
@@ -445,6 +452,11 @@ public class ModuleLoad : Any
             string name;
             name = ua.Name;
             if (!this.CheckName(name))
+            {
+                return false;
+            }
+
+            if (this.MemberNameDefined(varClass, name))
             {
                 return false;
             }
@@ -498,6 +510,11 @@ public class ModuleLoad : Any
             string name;
             name = ua.Name;
             if (!this.CheckName(name))
+            {
+                return false;
+            }
+
+            if (varTable.Contain(name))
             {
                 return false;
             }
@@ -698,6 +715,11 @@ public class ModuleLoad : Any
 
         this.Module.Entry = entry;
         return true;
+    }
+
+    protected virtual bool MemberNameDefined(ClassClass varClass, string name)
+    {
+        return (varClass.Field.Contain(name) | varClass.Maide.Contain(name));
     }
 
     protected virtual bool CheckVirtualMaideParam(Table param, Table virtualParam)
