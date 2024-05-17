@@ -10,6 +10,7 @@ public class ClassGenTraverse : Traverse
 
         this.TableIter = new TableIter();
         this.TableIter.Init();
+        this.InternNamespacePrefix = "C.";
         this.InternClassNamePrefix = "_";
         this.InternClassSharePrefix = "__S_";
         this.InternClassShareThis = "This";
@@ -41,6 +42,7 @@ public class ClassGenTraverse : Traverse
         this.NewLineEscapedChar = "n";
         this.IntValueHexPrefix = "0x";
         this.IntValuePostfix = "UL";
+        this.KeywordNamespace = "namespace";
         this.KeywordClass = "class";
         this.KeywordPublic = "public";
         this.KeywordInternal = "internal";
@@ -115,6 +117,7 @@ public class ClassGenTraverse : Traverse
     protected virtual Array CountAccessWord { get; set; }
     protected virtual Array SystemTypeIntName { get; set; }
     protected virtual int IndentLevel { get; set; }
+    protected virtual string InternNamespacePrefix { get; set; }
     protected virtual string InternClassNamePrefix { get; set; }
     protected virtual string InternClassSharePrefix { get; set; }
     protected virtual string InternClassShareThis { get; set; }
@@ -146,6 +149,7 @@ public class ClassGenTraverse : Traverse
     protected virtual string NewLineEscapedChar { get; set; }
     protected virtual string IntValueHexPrefix { get; set; }
     protected virtual string IntValuePostfix { get; set; }
+    protected virtual string KeywordNamespace { get; set; }
     protected virtual string KeywordClass { get; set; }
     protected virtual string KeywordPublic { get; set; }
     protected virtual string KeywordInternal { get; set; }
@@ -244,6 +248,18 @@ public class ClassGenTraverse : Traverse
     {
         ClassClass varClass;
         varClass = this.Info(nodeClass).Class;
+
+        this.TextIndent();
+
+        this.Text(this.KeywordNamespace);
+        this.Text(this.Space);
+
+        this.Text(this.InternNamespacePrefix);
+        this.Text(this.Gen.Module.Ref.Name);
+
+        this.Text(this.DelimitSemicolon);
+        this.Text(this.NewLine);
+        this.Text(this.NewLine);
 
         this.TextIndent();
 
