@@ -36,6 +36,12 @@ public class Create : InfraCreate
         this.TokenG = this.CreateToken();
         this.TokenH = this.CreateToken();
 
+        this.TextCharCompare = new TextCharCompare();
+        this.TextCharCompare.Init();
+        this.TextCompare = new TextCompare();
+        this.TextCompare.CharCompare = this.TextCharCompare;
+        this.TextCompare.Init();
+
         this.TextA = this.CreateText();
         this.TextB = this.CreateText();
         this.StringData = new StringData();
@@ -91,6 +97,8 @@ public class Create : InfraCreate
     protected virtual Token TokenG { get; set; }
     protected virtual Token TokenH { get; set; }
 
+    protected virtual TextCompare TextCompare { get; set; }
+    protected virtual TextCharCompare TextCharCompare { get; set; }
     protected virtual Text TextA { get; set; }
     protected virtual Text TextB { get; set; }
     protected virtual StringData StringData { get; set; }
@@ -1275,6 +1283,8 @@ public class Create : InfraCreate
         TextInfra textInfra;
         textInfra = this.TextInfra;
 
+        TextCompare compare;
+        compare = this.TextCompare;
         TokenToken aa;
         aa = this.TokenToken(start);
         Text text;
@@ -1291,7 +1301,7 @@ public class Create : InfraCreate
         if (!b)
         {
             this.TextStringGet(textB, this.Keyword.True.Text);
-            if (textInfra.Equal(text, textB))
+            if (textInfra.Equal(text, textB, compare))
             {
                 value = true;
                 b = true;
@@ -1300,7 +1310,7 @@ public class Create : InfraCreate
         if (!b)
         {
             this.TextStringGet(textB, this.Keyword.False.Text);
-            if (textInfra.Equal(text, textB))
+            if (textInfra.Equal(text, textB, compare))
             {
                 value = false;
                 b = true;
@@ -4120,7 +4130,7 @@ public class Create : InfraCreate
         this.TextStringGet(textB, value);
 
         bool b;
-        b = this.TextInfra.Equal(text, textB);
+        b = this.TextInfra.Equal(text, textB, this.TextCompare);
         bool a;
         a = b;
         return a;
@@ -4395,6 +4405,8 @@ public class Create : InfraCreate
         TokenToken aa;
         aa = this.TokenToken(index);
         
+        TextCompare compare;
+        compare = this.TextCompare;
         Text text;
         text = this.TextA;
         this.TextGet(text, aa);
@@ -4402,7 +4414,7 @@ public class Create : InfraCreate
         textB = this.TextB;
 
         this.TextStringGet(textB, delimit.LeftBracket.Text);
-        if (textInfra.Equal(text, textB))
+        if (textInfra.Equal(text, textB, compare))
         {
             Token rightBracket;
             rightBracket = this.TokenMatchLeftBracket(this.TokenA, this.Range(this.RangeA, index + 1, end));
@@ -4413,7 +4425,7 @@ public class Create : InfraCreate
         }
 
         this.TextStringGet(textB, delimit.LeftBrace.Text);
-        if (textInfra.Equal(text, textB))
+        if (textInfra.Equal(text, textB, compare))
         {
             Token rightBrace;
             rightBrace = this.TokenMatchLeftBrace(this.TokenA, this.Range(this.RangeA, index + 1, end));
@@ -4437,7 +4449,9 @@ public class Create : InfraCreate
         t = index - 1;
         TokenToken aa;
         aa = this.TokenToken(t);
-        
+
+        TextCompare compare;
+        compare = this.TextCompare;
         Text text;
         text = this.TextA;
         this.TextGet(text, aa);
@@ -4445,7 +4459,7 @@ public class Create : InfraCreate
         textB = this.TextB;
 
         this.TextStringGet(textB, delimit.RightBracket.Text);
-        if (textInfra.Equal(text, textB))
+        if (textInfra.Equal(text, textB, compare))
         {
             Token leftBracket;
             leftBracket = this.TokenMatchRightBracket(this.TokenA, this.Range(this.RangeA, start, t));
@@ -4456,7 +4470,7 @@ public class Create : InfraCreate
         }
 
         this.TextStringGet(textB, delimit.RightBrace.Text);
-        if (textInfra.Equal(text, textB))
+        if (textInfra.Equal(text, textB, compare))
         {
             Token leftBrace;
             leftBrace = this.TokenMatchRightBrace(this.TokenA, this.Range(this.RangeA, start, t));
@@ -4497,6 +4511,8 @@ public class Create : InfraCreate
         start = range.Start;
         end = range.End;
 
+        TextCompare compare;
+        compare = this.TextCompare;
         Text text;
         text = this.TextA;
         Text textB;
@@ -4517,7 +4533,7 @@ public class Create : InfraCreate
             this.TextGet(text, aa);
             
             this.TextStringGet(textB, rightToken);
-            if (textInfra.Equal(text, textB))
+            if (textInfra.Equal(text, textB, compare))
             {
                 openCount = openCount - 1;
                 if (openCount == 0)
@@ -4528,7 +4544,7 @@ public class Create : InfraCreate
             }
 
             this.TextStringGet(textB, leftToken);
-            if (textInfra.Equal(text, textB))
+            if (textInfra.Equal(text, textB, compare))
             {
                 openCount = openCount + 1;
             }
@@ -4560,6 +4576,8 @@ public class Create : InfraCreate
         start = range.Start;
         end = range.End;
 
+        TextCompare compare;
+        compare = this.TextCompare;
         Text text;
         text = this.TextA;
         Text textB;
@@ -4582,7 +4600,7 @@ public class Create : InfraCreate
             this.TextGet(text, aa);
 
             this.TextStringGet(textB, leftToken);
-            if (textInfra.Equal(text, textB))
+            if (textInfra.Equal(text, textB, compare))
             {
                 openCount = openCount - 1;
                 if (openCount == 0)
@@ -4593,7 +4611,7 @@ public class Create : InfraCreate
             }
 
             this.TextStringGet(textB, rightToken);
-            if (textInfra.Equal(text, textB))
+            if (textInfra.Equal(text, textB, compare))
             {
                 openCount = openCount + 1;
             }
