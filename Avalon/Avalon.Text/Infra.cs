@@ -260,14 +260,14 @@ public class Infra : Any
         return o.Data(text.Data, text.Range);
     }
 
-    public virtual bool Equal(Text left, Text right, Compare compare)
+    public virtual bool Equal(Text left, Text right, InfraCompare compare)
     {
         int o;
         o = compare.Execute(left, right);
         return (o == 0);
     }
 
-    public virtual int Index(Text text, Text other, Compare compare)
+    public virtual int Index(Text text, Text other, InfraCompare compare)
     {
         if (!this.CheckRange(text))
         {
@@ -324,7 +324,7 @@ public class Infra : Any
         return k;
     }
 
-    public virtual int LastIndex(Text text, Text other, Compare compare)
+    public virtual int LastIndex(Text text, Text other, InfraCompare compare)
     {
         if (!this.CheckRange(text))
         {
