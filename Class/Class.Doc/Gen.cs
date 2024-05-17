@@ -16,10 +16,10 @@ public class Gen : Any
         this.StringJoin = new StringJoin();
         this.StringJoin.Init();
 
-        this.TextCharCompare = new TextCharCompare();
-        this.TextCharCompare.Init();
+        this.CharCompare = new IntCompare();
+        this.CharCompare.Init();
         this.TextCompare = new TextCompare();
-        this.TextCompare.CharCompare = this.TextCharCompare;
+        this.TextCompare.CharCompare = this.CharCompare;
         this.TextCompare.Init();
 
         this.PageTemplate = this.StorageInfra.TextRead("Class.Doc.data/a.html");
@@ -38,7 +38,7 @@ public class Gen : Any
     protected virtual StorageArrange StorageArrange { get; set; }
     protected virtual StringJoin StringJoin { get; set; }
     protected virtual TextCompare TextCompare { get; set; }
-    protected virtual TextCharCompare TextCharCompare { get; set; }
+    protected virtual IntCompare CharCompare { get; set; }
     protected virtual string Ver { get; set; }
     protected virtual Node ArticleRoot { get; set; }
     protected virtual string PageTemplate { get; set; }
