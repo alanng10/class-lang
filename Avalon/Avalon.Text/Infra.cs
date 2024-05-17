@@ -260,58 +260,14 @@ public class Infra : Any
         return o.Data(text.Data, text.Range);
     }
 
-    public virtual bool Equal(Text text, Text other)
+    public virtual bool Equal(Text text, Text other, Compare compare)
     {
-        if (!this.CheckRange(text))
-        {
-            return false;
-        }
-        if (!this.CheckRange(other))
-        {
-            return false;
-        }
-        
-        int count;
-        count = text.Range.Count;
-        int otherCount;
-        otherCount = other.Range.Count;
-        if (!(count == otherCount))
-        {
-            return false;
-        }
-
-        Data textData;
-        textData = text.Data;
-        Data otherData;
-        otherData = other.Data;
-        int start;
-        start = text.Range.Index;
-        int otherStart;
-        otherStart = other.Range.Index;
-        int i;
-        i = 0;
-        while (i < count)
-        {
-            int index;
-            index = start + i;
-            int otherIndex;
-            otherIndex = otherStart + i;
-
-            char oca;
-            oca = this.DataCharGet(textData, index);
-            char ocb;
-            ocb = this.DataCharGet(otherData, otherIndex);
-
-            if (!(oca == ocb))
-            {
-                return false;
-            }
-            i = i + 1;
-        }
-        return true;
+        int o;
+        o = compare.Execute(text, other);
+        return (o == 0);
     }
 
-    public virtual int Index(Text text, Text other)
+    public virtual int Index(Text text, Text other, Compare compare)
     {
         if (!this.CheckRange(text))
         {
@@ -354,7 +310,7 @@ public class Infra : Any
             textRange.Count = otherCount;
 
             bool b;
-            b = this.Equal(text, other);
+            b = this.Equal(text, other, compare);
             if (b)
             {
                 k = i;
@@ -368,7 +324,7 @@ public class Infra : Any
         return k;
     }
 
-    public virtual int LastIndex(Text text, Text other)
+    public virtual int LastIndex(Text text, Text other, Compare compare)
     {
         if (!this.CheckRange(text))
         {
@@ -411,7 +367,7 @@ public class Infra : Any
             textRange.Count = otherCount;
 
             bool b;
-            b = this.Equal(text, other);
+            b = this.Equal(text, other, compare);
             if (b)
             {
                 k = i;
