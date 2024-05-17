@@ -36,10 +36,10 @@ public class Create : InfraCreate
         this.TokenG = this.CreateToken();
         this.TokenH = this.CreateToken();
 
-        this.TextCharCompare = new TextCharCompare();
-        this.TextCharCompare.Init();
+        this.CharCompare = new IntCompare();
+        this.CharCompare.Init();
         this.TextCompare = new TextCompare();
-        this.TextCompare.CharCompare = this.TextCharCompare;
+        this.TextCompare.CharCompare = this.CharCompare;
         this.TextCompare.Init();
 
         this.TextA = this.CreateText();
@@ -98,7 +98,7 @@ public class Create : InfraCreate
     protected virtual Token TokenH { get; set; }
 
     protected virtual TextCompare TextCompare { get; set; }
-    protected virtual TextCharCompare TextCharCompare { get; set; }
+    protected virtual IntCompare CharCompare { get; set; }
     protected virtual Text TextA { get; set; }
     protected virtual Text TextB { get; set; }
     protected virtual StringData StringData { get; set; }
