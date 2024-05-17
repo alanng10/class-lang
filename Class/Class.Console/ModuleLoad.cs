@@ -144,6 +144,11 @@ public class ModuleLoad : Any
                 return false;
             }
 
+            if (classTable.Contain(name))
+            {
+                return false;
+            }
+
             ClassClass a;
             a = new ClassClass();
             a.Init();
