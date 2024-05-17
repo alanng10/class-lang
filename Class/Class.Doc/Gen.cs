@@ -16,6 +16,12 @@ public class Gen : Any
         this.StringJoin = new StringJoin();
         this.StringJoin.Init();
 
+        this.TextCharCompare = new TextCharCompare();
+        this.TextCharCompare.Init();
+        this.TextCompare = new TextCompare();
+        this.TextCompare.CharCompare = this.TextCharCompare;
+        this.TextCompare.Init();
+
         this.PageTemplate = this.StorageInfra.TextRead("Class.Doc.data/a.html");
         return true;
     }
@@ -31,6 +37,8 @@ public class Gen : Any
     protected virtual ClassInfra ClassInfra { get; set; }
     protected virtual StorageArrange StorageArrange { get; set; }
     protected virtual StringJoin StringJoin { get; set; }
+    protected virtual TextCompare TextCompare { get; set; }
+    protected virtual TextCharCompare TextCharCompare { get; set; }
     protected virtual string Ver { get; set; }
     protected virtual Node ArticleRoot { get; set; }
     protected virtual string PageTemplate { get; set; }
@@ -202,7 +210,7 @@ public class Gen : Any
         oa = textInfra.TextCreateStringData(newLine, null);
 
         int u;
-        u = this.TextInfra.Index(o, oa);
+        u = this.TextInfra.Index(o, oa, this.TextCompare);
         if (u < 0)
         {
             return false;
