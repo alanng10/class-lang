@@ -14,11 +14,6 @@ public class Compare : InfraCompare
 
     public override int Execute(object left, object right)
     {
-        if (left == null | right == null)
-        {
-            return 0;
-        }
-
         Infra textInfra;
         textInfra = this.TextInfra;
 
@@ -26,6 +21,15 @@ public class Compare : InfraCompare
         Text rightText;
         leftText = (Text)left;
         rightText = (Text)right;
+
+        if (!textInfra.CheckRange(leftText))
+        {
+            return 0;
+        }
+        if (!textInfra.CheckRange(rightText))
+        {
+            return 0;
+        }
 
         Range leftRange;
         Range rightRange;
