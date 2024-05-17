@@ -22,7 +22,7 @@ public class Gen : Any
         this.TextCompare.CharCompare = this.CharCompare;
         this.TextCompare.Init();
 
-        this.PageTemplate = this.StorageInfra.TextRead("Class.Doc.data/a.html");
+        this.InitTemplate();
         return true;
     }
 
@@ -42,6 +42,12 @@ public class Gen : Any
     protected virtual string Ver { get; set; }
     protected virtual Node ArticleRoot { get; set; }
     protected virtual string PageTemplate { get; set; }
+
+    protected virtual bool InitTemplate()
+    {
+        this.PageTemplate = this.StorageInfra.TextRead("Class.Doc.data/a.html");
+        return true;
+    }
 
     public virtual bool Execute()
     {
