@@ -426,7 +426,7 @@ public class Format : Any
 
                 digit = (int)ka;
 
-                c = this.IntDigit(digit, letterDigitStart);
+                c = textInfra.IntDigit(digit, letterDigitStart);
 
                 oa = index - valueIndex;
 
@@ -521,27 +521,6 @@ public class Format : Any
             i = i + 1;
         }
         return true;
-    }
-
-    protected virtual char IntDigit(int digit, char letterStart)
-    {
-        int n;
-        n = 0;
-        bool b;
-        b = (digit < 10);
-        if (b)
-        {
-            n = '0' + digit;
-        }
-        if (!b)
-        {
-            int m;
-            m = digit - 10;
-            n = letterStart + m;
-        }
-        char a;
-        a = (char)n;
-        return a;
     }
 
     public virtual int IntDigitCount(ulong value, int varBase)

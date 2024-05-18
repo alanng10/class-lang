@@ -306,6 +306,27 @@ public class Infra : Any
         return oob + 10;
     }
 
+    public virtual char IntDigit(int digit, char letterStart)
+    {
+        int n;
+        n = 0;
+        bool b;
+        b = (digit < 10);
+        if (b)
+        {
+            n = '0' + digit;
+        }
+        if (!b)
+        {
+            int m;
+            m = digit - 10;
+            n = letterStart + m;
+        }
+        char a;
+        a = (char)n;
+        return a;
+    }
+
     public virtual string StringCreate(Text text)
     {
         StringCreate o;
