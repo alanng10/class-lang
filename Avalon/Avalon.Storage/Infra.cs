@@ -222,37 +222,10 @@ public class Infra : Any
         return o;
     }
 
-    public virtual string BaseName(string entryName)
+    public virtual int EntryNameLastDot(string entryName)
     {
-        int u;
-        u = entryName.LastIndexOf('.');
-        if (u == -1)
-        {
-            return entryName;
-        }
-
-        string d;
-        d = entryName.Substring(0, u);
-
-        string a;
-        a = d;
-        return a;
-    }
-
-    public virtual string Extension(string entryName)
-    {
-        int u;
-        u = entryName.LastIndexOf('.');
-        if (u == -1)
-        {
-            return "";
-        }
-
-        string d;
-        d = entryName.Substring(u);
-
-        string a;
-        a = d;
+        int a;
+        a = entryName.LastIndexOf('.');
         return a;
     }
 }
