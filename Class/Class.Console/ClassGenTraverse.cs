@@ -1433,6 +1433,24 @@ public class ClassGenTraverse : Traverse
                 if (!ba)
                 {
                     this.Text(this.Backslash);
+                    this.Text(this.UnicodeEscapedChar);
+
+                    int ka;
+                    ka = oc;
+
+                    int countA;
+                    countA = sizeof(char) * 2;
+                    int iA;
+                    iA = 0;
+                    while (iA < countA)
+                    {
+                        int kk;
+                        kk = ka >> (iA * 4);   
+
+                        
+
+                        iA = iA + 1;
+                    }
                 }
 
                 this.Gen.Operate.ExecuteChar(oc);
