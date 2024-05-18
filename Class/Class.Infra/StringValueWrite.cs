@@ -308,8 +308,11 @@ public class StringValueWrite : Any
                             int od;
                             od = textInfra.DigitValue(ua, 16, false);
 
+                            int na;
+                            na = countA - 1 - iA;
+
                             int nn;
-                            nn = od << (iA * 4);
+                            nn = od << (na * 4);
 
                             ka = ka | nn;
 
