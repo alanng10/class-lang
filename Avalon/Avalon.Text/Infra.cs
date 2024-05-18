@@ -306,7 +306,7 @@ public class Infra : Any
         return oob + 10;
     }
 
-    public virtual char IntDigit(int digit, char letterStart)
+    public virtual char DigitChar(int digit, char letterStart)
     {
         int n;
         n = 0;

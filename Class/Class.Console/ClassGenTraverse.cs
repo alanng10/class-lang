@@ -1460,7 +1460,7 @@ public class ClassGenTraverse : Traverse
                         kk = kk & 0xf;
 
                         char cc;
-                        cc = textInfra.IntDigit(kk, letterStart);
+                        cc = textInfra.DigitChar(kk, letterStart);
                         
                         operate.ExecuteChar(cc);
 

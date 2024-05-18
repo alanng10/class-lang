@@ -426,7 +426,7 @@ public class Format : Any
 
                 digit = (int)ka;
 
-                c = textInfra.IntDigit(digit, letterDigitStart);
+                c = textInfra.DigitChar(digit, letterDigitStart);
 
                 oa = index - valueIndex;
 
