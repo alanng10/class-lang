@@ -1433,15 +1433,15 @@ public class ClassGenTraverse : Traverse
             }
             if (!b)
             {
+                ClassGenOperate operate;
+                operate = this.Gen.Operate;
+
                 bool ba;
                 ba = this.PrintableChar.Get(oc);
                 if (!ba)
                 {
                     this.Text(this.Backslash);
                     this.Text(this.UnicodeEscapedChar);
-
-                    ClassGenOperate operate;
-                    operate = this.Gen.Operate;
 
                     char letterStart;
                     letterStart = 'a';
@@ -1470,7 +1470,7 @@ public class ClassGenTraverse : Traverse
 
                 if (ba)
                 {
-                    this.Gen.Operate.ExecuteChar(oc);
+                    operate.ExecuteChar(oc);
                 }
             }
 
