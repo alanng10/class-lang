@@ -222,7 +222,7 @@ public class Infra : Any
         return o;
     }
 
-    public virtual int EntryNameLastDot(string entryName)
+    public virtual int EntryNameExtensionDot(string entryName)
     {
         int a;
         a = entryName.LastIndexOf('.');
