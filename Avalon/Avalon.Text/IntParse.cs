@@ -15,6 +15,9 @@ public class IntParse : Any
 
     public virtual long Execute(Text text, int varBase, bool upperCase)
     {
+        Infra textInfra;
+        textInfra = this.TextInfra;
+
         if (varBase < 2 | 16 < varBase)
         {
             return -1;
@@ -22,8 +25,6 @@ public class IntParse : Any
 
         ulong capValue;
         capValue = (ulong)this.InfraInfra.IntCapValue;
-        Infra textInfra;
-        textInfra = this.TextInfra;
         ulong m;
         m = 0;
         ulong h;
@@ -60,7 +61,7 @@ public class IntParse : Any
             index = start + count - 1 - i;
             oc = textInfra.DataCharGet(data, index);
             
-            digitValue = this.DigitValue(oc, varBase, upperCase);
+            digitValue = textInfra.DigitValue(oc, varBase, upperCase);
             if (digitValue == -1)
             {
                 return -1;
@@ -85,62 +86,5 @@ public class IntParse : Any
         long a;
         a = (long)m;
         return a;
-    }
-
-    protected virtual int DigitValue(char oc, int varBase, bool upperCase)
-    {
-        int oa;
-        oa = 0;
-        bool b;
-        b = (varBase < 10);
-        if (b)
-        {
-            oa = varBase;
-        }
-        if (!b)
-        {
-            oa = 10;
-        }
-        int oaa;
-        oaa = 0;
-        if (!b)
-        {
-            oaa = varBase - 10;
-        }
-        char oca;
-        oca = 'a';
-        if (upperCase)
-        {
-            oca = 'A';
-        }
-
-        Infra textInfra;
-        textInfra = this.TextInfra;
-        
-        if (textInfra.IsDigit(oc))
-        {
-            int ooa;
-            ooa = oc - '0';
-            if (!(ooa < oa))
-            {
-                return -1;
-            }
-
-            return ooa;
-        }
-
-        if (!textInfra.IsLetter(oc, upperCase))
-        {
-            return -1;
-        }
-
-        int oob;
-        oob = oc - oca;
-        if (!(oob < oaa))
-        {
-            return -1;
-        }
-
-        return oob + 10;
     }
 }

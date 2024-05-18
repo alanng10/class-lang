@@ -251,6 +251,61 @@ public class Infra : Any
         return true;
     }
 
+
+    public virtual int DigitValue(char oc, int varBase, bool upperCase)
+    {
+        int oa;
+        oa = 0;
+        bool b;
+        b = (varBase < 10);
+        if (b)
+        {
+            oa = varBase;
+        }
+        if (!b)
+        {
+            oa = 10;
+        }
+        int oaa;
+        oaa = 0;
+        if (!b)
+        {
+            oaa = varBase - 10;
+        }
+        char oca;
+        oca = 'a';
+        if (upperCase)
+        {
+            oca = 'A';
+        }
+
+        if (this.IsDigit(oc))
+        {
+            int ooa;
+            ooa = oc - '0';
+            if (!(ooa < oa))
+            {
+                return -1;
+            }
+
+            return ooa;
+        }
+
+        if (!this.IsLetter(oc, upperCase))
+        {
+            return -1;
+        }
+
+        int oob;
+        oob = oc - oca;
+        if (!(oob < oaa))
+        {
+            return -1;
+        }
+
+        return oob + 10;
+    }
+
     public virtual string StringCreate(Text text)
     {
         StringCreate o;
