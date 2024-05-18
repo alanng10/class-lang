@@ -192,6 +192,7 @@ public class StringValueWrite : Any
 
                         iA = iA + 1;
                     }
+                    
                     i = i + countA;
                     bba = true;
                 }
