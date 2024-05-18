@@ -693,8 +693,7 @@ class ObjectString : Any
                     string kk;
                     kk = stringCreate.Data(data, null);
 
-                    h.Append("\\");
-                    h.Append("u");
+                    h.Append("\\u");
                     h.Append(kk);
                 }
 
