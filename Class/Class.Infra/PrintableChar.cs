@@ -18,7 +18,7 @@ public class PrintableChar : Any
     {
         int first;
         int last;
-        first = '!';
+        first = ' ';
         last = '~';
 
         bool a;
