@@ -32,9 +32,18 @@ public class Infra : Any
         return this.IsInRange('0', '9', o);
     }
 
-    public virtual bool IsHexLetter(char o)
+    public virtual bool IsHexLetter(char o, bool upperCase)
     {
-        return this.IsInRange('a', 'f', o);
+        char first;
+        first = 'a';
+        char last;
+        last = 'f';
+        if (upperCase)
+        {
+            first = 'A';
+            last = 'F';
+        }
+        return this.IsInRange(first, last, o);
     }
 
     public virtual bool IsLetter(char o, bool upperCase)
