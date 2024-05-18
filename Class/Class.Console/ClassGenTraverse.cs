@@ -462,21 +462,24 @@ public class ClassGenTraverse : Traverse
 
         this.ThisField = null;
 
-        this.TextIndent();
+        if (!b)
+        {
+            this.TextIndent();
 
-        this.Text(this.CountWord(kk));
+            this.Text(this.CountWord(kk));
 
-        this.Text(this.Space);
+            this.Text(this.Space);
 
-        this.ExecuteClassName(field.Class, field.SystemInfo.Value);
+            this.ExecuteClassName(field.Class, field.SystemInfo.Value);
 
-        this.Text(this.Space);
+            this.Text(this.Space);
 
-        this.Text(this.InternDataPrefix);
-        this.Text(field.Name);
+            this.Text(this.InternDataPrefix);
+            this.Text(field.Name);
 
-        this.Text(this.DelimitSemicolon);
-        this.Text(this.NewLine);
+            this.Text(this.DelimitSemicolon);
+            this.Text(this.NewLine);
+        }
         return true;
     }
 
