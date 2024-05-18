@@ -462,7 +462,7 @@ public class ClassGenTraverse : Traverse
 
         this.ThisField = null;
 
-        if (!b)
+        if (b)
         {
             this.TextIndent();
 
