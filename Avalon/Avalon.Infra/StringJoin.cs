@@ -27,4 +27,10 @@ public class StringJoin : Any
         this.Builder.Append(a);
         return true;
     }
+
+    public virtual bool AppendChar(char a)
+    {
+        this.Builder.Append(a);
+        return true;
+    }
 }
