@@ -192,7 +192,7 @@ public class StringValueWrite : Any
 
                         iA = iA + 1;
                     }
-                    
+
                     i = i + countA;
                     bba = true;
                 }
@@ -239,6 +239,9 @@ public class StringValueWrite : Any
         newLine = classInfra.NewLine[0];
         char uuu;
         uuu = (char)0;
+        
+        int countA;
+        countA = 4;
         int count;
         count = kk - 2;
         int start;
@@ -286,6 +289,38 @@ public class StringValueWrite : Any
                     if (u == backSlash)
                     {
                         escapeValue = u;
+                    }
+                    if (u == 'u')
+                    {
+                        int ka;
+                        ka = 0;
+                        int indexAa;
+                        indexAa = start + j + 1;
+                        int iA;
+                        iA = 0;
+                        while (iA < countA)
+                        {
+                            int oa;
+                            oa = indexAa + iA;
+                            char ua;
+                            ua = textInfra.DataCharGet(data, oa);
+
+                            int od;
+                            od = textInfra.DigitValue(ua, 16, false);
+
+                            int nn;
+                            nn = od << (iA * 4);
+
+                            ka = ka | nn;
+
+                            iA = iA + 1;
+                        }
+
+                        char uu;
+                        uu = (char)ka;
+                        escapeValue = uu;
+
+                        i = i + countA;
                     }
                     this.ExecuteValueChar(escapeValue);
                     i = i + 1;
