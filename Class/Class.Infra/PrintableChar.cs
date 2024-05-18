@@ -14,15 +14,24 @@ public class PrintableChar : Any
         return share;
     }
 
-    public virtual bool Get(int index)
+    public override bool Init()
     {
-        int first;
-        int last;
+        base.Init();
+        this.TextInfra = TextInfra.This;
+        return true;
+    }
+
+    protected virtual TextInfra TextInfra { get; set; }
+
+    public virtual bool Get(char index)
+    {
+        char first;
+        char last;
         first = ' ';
         last = '~';
 
         bool a;
-        a = !(index < first | last < index);
+        a = this.TextInfra.IsInRange(first, last, index);
 
         return a;
     }
