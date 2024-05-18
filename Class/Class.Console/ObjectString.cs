@@ -700,10 +700,7 @@ class ObjectString : Any
 
                 if (ba)
                 {
-                    string kc;
-                    kc = stringCreate.Char(oc, 1);
-
-                    h.Append(kc);
+                    h.AppendChar(oc);
                 }
             }
 
