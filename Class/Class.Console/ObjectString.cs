@@ -5,73 +5,14 @@ namespace Class.Console;
 
 class ObjectString : Any
 {
-    private char CharSpace { get; set; }
-
-
-
-    private int IndentSize { get; set; }
-
-
-
-
-    private StringBuilder StringBuilder { get; set; }
-
-
-
-    private int SpaceCount { get; set; }
-
-
-
-    private InfraInfra InfraInfra { get; set; }
-
-
-
-    private TextInfra TextInfra { get; set; }
-
-
-
-    private Type NodeType { get; set; }
-
-
-
-    private Type CodeType { get; set; }
-
-
-
-    private Type TokenType { get; set; }
-
-
-
-    private Type CommentType { get; set; }
-
-
-
-
-    private string TrueString { get; set; }
-
-
-
-    private string FalseString { get; set; }
-
-
-
-
     public override bool Init()
     {
         base.Init();
-
-
-
-
         this.InfraInfra = InfraInfra.This;
-
-
-
-
         this.TextInfra = TextInfra.This;
-
-
-
+        this.PrintableChar = PrintableChar.This;
+        this.StringCreate = new StringCreate();
+        this.StringCreate.Init();
 
 
         this.NodeType = typeof(NodeNode);
@@ -102,12 +43,59 @@ class ObjectString : Any
 
 
         this.FalseString = "false";
-
-
-
-
         return true;
     }
+
+    protected virtual InfraInfra InfraInfra { get; set; }
+    protected virtual TextInfra TextInfra { get; set; }
+    protected virtual PrintableChar PrintableChar { get; set; }
+    protected virtual StringCreate StringCreate { get; set; }
+
+
+    private char CharSpace { get; set; }
+
+
+
+    private int IndentSize { get; set; }
+
+
+
+
+    private StringBuilder StringBuilder { get; set; }
+
+
+
+    private int SpaceCount { get; set; }
+
+
+
+
+
+    private Type NodeType { get; set; }
+
+
+
+    private Type CodeType { get; set; }
+
+
+
+    private Type TokenType { get; set; }
+
+
+
+    private Type CommentType { get; set; }
+
+
+
+
+    private string TrueString { get; set; }
+
+
+
+    private string FalseString { get; set; }
+
+
+
 
 
 
@@ -606,31 +594,125 @@ class ObjectString : Any
 
 
 
-    public string EscapeString(string s)
+    public string EscapeString(string o)
     {
-        string t;
+        TextInfra textInfra;
+        textInfra = this.TextInfra;
+        PrintableChar printableChar;
+        printableChar = this.PrintableChar;
+        StringCreate stringCreate;
+        stringCreate = this.StringCreate;
 
+        StringJoin h;
+        h = new StringJoin();
+        h.Init();
 
-        t = s;
+        int count;
+        count = o.Length;
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            char oc;
+            oc = o[i];
 
+            bool b;
+            b = false;
+            if (!b)
+            {
+                if (oc == '\\')
+                {
+                    h.Append("\\\\");
+                    b = true;
+                }
+            }
+            if (!b)
+            {
+                if (oc == '\"')
+                {
+                    h.Append("\\\"");
+                    b = true;
+                }
+            }
+            if (!b)
+            {
+                if (oc == '\t')
+                {
+                    h.Append("\\t");
+                    b = true;
+                }
+            }
+            if (!b)
+            {
+                if (oc == '\n')
+                {
+                    h.Append("\\n");
+                    b = true;
+                }
+            }
+            if (!b)
+            {
+                bool ba;
+                ba = printableChar.Get(oc);
 
-        t = t.Replace("\\", "\\\\");
+                if (!ba)
+                {
+                    int k;
+                    k = oc;
 
+                    char letterStart;
+                    letterStart = 'a';
 
-        t = t.Replace("\"", "\\\"");
+                    int countA;
+                    countA = sizeof(char) * 2;
 
+                    Data data;
+                    data = new Data();
+                    data.Count = countA * sizeof(char);
+                    data.Init();
 
-        t = t.Replace("\t", "\\t");
+                    int iA;
+                    iA = 0;
+                    while (iA < countA)
+                    {
+                        int index;
+                        index = countA - 1 - iA;
 
+                        int ka;
+                        ka = k >> (index * 4);
+                        ka = ka & 0xf;
 
-        t = t.Replace("\n", "\\n");
+                        char kb;
+                        kb = textInfra.DigitChar(ka, letterStart);
+                        
+                        textInfra.DataCharSet(data, iA, kb);
 
+                        iA = iA + 1;
+                    }
 
-        t = t.Replace("\r", "\\r");
+                    string kk;
+                    kk = stringCreate.Data(data, null);
+
+                    h.Append("\\");
+                    h.Append("u");
+                    h.Append(kk);
+                }
+
+                if (ba)
+                {
+                    string kc;
+                    kc = stringCreate.Char(oc, 1);
+
+                    h.Append(kc);
+                }
+            }
+
+            i = i + 1;
+        }
 
 
         string ret;
-        ret = t;
+        ret = h.Result();
 
         return ret;
     }
