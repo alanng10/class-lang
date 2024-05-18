@@ -113,6 +113,9 @@ public class StringValueWrite : Any
         char newLine;
         newLine = this.ClassInfra.NewLine[0];
 
+        int countA;
+        countA = 4;
+
         int count;
         count = kk - 2;
         int start;
@@ -161,6 +164,34 @@ public class StringValueWrite : Any
                 }
                 if (u == backSlash)
                 {
+                    bba = true;
+                }
+                if (u == 'u')
+                {
+                    int k;
+                    k = j + countA;
+                    if (!(k < count))
+                    {
+                        return false;
+                    }
+                    int indexAa;
+                    indexAa = start + j + 1;
+                    int iA;
+                    iA = 0;
+                    while (iA < countA)
+                    {
+                        int oa;
+                        oa = indexAa + iA;
+                        char ua;
+                        ua = textInfra.DataCharGet(data, oa);
+
+                        if (!(textInfra.IsDigit(ua) | textInfra.IsHexLetter(ua)))
+                        {
+                            return false;
+                        }
+
+                        iA = iA + 1;
+                    }
                     bba = true;
                 }
                 if (!bba)
