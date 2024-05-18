@@ -245,11 +245,11 @@ public class Infra : Any
         u = entryName.LastIndexOf('.');
         if (u == -1)
         {
-            return null;
+            return "";
         }
 
         string d;
-        d = entryName.Substring(u + 1);
+        d = entryName.Substring(u);
 
         string a;
         a = d;
