@@ -1455,8 +1455,11 @@ public class ClassGenTraverse : Traverse
                     iA = 0;
                     while (iA < countA)
                     {
+                        int index;
+                        index = countA - 1 - iA;
+                        
                         int kk;
-                        kk = ka >> (iA * 4);
+                        kk = ka >> (index * 4);
                         kk = kk & 0xf;
 
                         char cc;
