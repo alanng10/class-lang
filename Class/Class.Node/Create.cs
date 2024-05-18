@@ -3993,6 +3993,9 @@ public class Create : InfraCreate
 
     protected virtual bool IsIntChar(Text text)
     {
+        TextInfra textInfra;
+        textInfra = this.TextInfra;
+
         Data data;
         data = text.Data;
         int start;
@@ -4007,9 +4010,9 @@ public class Create : InfraCreate
         {
             index = start + i;
 
-            oc = this.TextInfra.DataCharGet(data, index);
+            oc = textInfra.DataCharGet(data, index);
 
-            if (!(this.TextInfra.IsDigit(oc)))
+            if (!(textInfra.IsDigit(oc)))
             {
                 return false;
             }
@@ -4020,6 +4023,9 @@ public class Create : InfraCreate
 
     protected virtual bool IsIntHexChar(Text text)
     {
+        TextInfra textInfra;
+        textInfra = this.TextInfra;
+
         Data data;
         data = text.Data;
         int start;
@@ -4034,9 +4040,9 @@ public class Create : InfraCreate
         {
             index = start + i;
 
-            oc = this.TextInfra.DataCharGet(data, index);
+            oc = textInfra.DataCharGet(data, index);
 
-            if (!(this.TextInfra.IsDigit(oc) | this.TextInfra.IsHexLetter(oc, false)))
+            if (!(textInfra.IsDigit(oc) | textInfra.IsHexLetter(oc, false)))
             {
                 return false;
             }
