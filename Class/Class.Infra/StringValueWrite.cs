@@ -340,17 +340,4 @@ public class StringValueWrite : Any
         this.WriteOperate.ExecuteChar(oc);
         return true;
     }
-
-    public virtual string EscapeString(string a)
-    {
-        string k;
-        k = a;
-        k = k.Replace("\\", "\\\\");
-        k = k.Replace("\"", "\\\"");
-        k = k.Replace("\t", "\\t");
-        k = k.Replace("\n", "\\n");
-        string ret;
-        ret = k;
-        return ret;
-    }
 }
