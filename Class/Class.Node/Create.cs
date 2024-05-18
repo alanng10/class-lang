@@ -4036,7 +4036,7 @@ public class Create : InfraCreate
 
             oc = this.TextInfra.DataCharGet(data, index);
 
-            if (!(this.TextInfra.IsDigit(oc) | this.TextInfra.IsHexLetter(oc)))
+            if (!(this.TextInfra.IsDigit(oc) | this.TextInfra.IsHexLetter(oc, false)))
             {
                 return false;
             }
