@@ -7,6 +7,7 @@ public class ClassGenTraverse : Traverse
         base.Init();
         this.ListInfra = ListInfra.This;
         this.CountList = CountList.This;
+        this.PrintableChar = PrintableChar.This;
 
         this.TableIter = new TableIter();
         this.TableIter.Init();
@@ -106,6 +107,7 @@ public class ClassGenTraverse : Traverse
     public virtual ClassGen Gen { get; set; }
     protected virtual ListInfra ListInfra { get; set; }
     protected virtual CountList CountList { get; set; }
+    protected virtual PrintableChar PrintableChar { get; set; }
     protected virtual Field ThisField { get; set; }
     protected virtual Maide ThisMaide { get; set; }
     protected virtual Var ThisFieldData { get; set; }
