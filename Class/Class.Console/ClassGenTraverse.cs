@@ -41,6 +41,7 @@ public class ClassGenTraverse : Traverse
         this.DoubleQuote = "\"";
         this.SingleQuote = "\'";
         this.NewLineEscapedChar = "n";
+        this.UnicodeEscapedChar = "u";
         this.IntValueHexPrefix = "0x";
         this.IntValuePostfix = "UL";
         this.KeywordNamespace = "namespace";
@@ -149,6 +150,7 @@ public class ClassGenTraverse : Traverse
     protected virtual string DoubleQuote { get; set; }
     protected virtual string SingleQuote { get; set; }
     protected virtual string NewLineEscapedChar { get; set; }
+    protected virtual string UnicodeEscapedChar { get; set; }
     protected virtual string IntValueHexPrefix { get; set; }
     protected virtual string IntValuePostfix { get; set; }
     protected virtual string KeywordNamespace { get; set; }
@@ -1426,6 +1428,13 @@ public class ClassGenTraverse : Traverse
             }
             if (!b)
             {
+                bool ba;
+                ba = this.PrintableChar.Get(oc);
+                if (!ba)
+                {
+                    this.Text(this.Backslash);
+                }
+
                 this.Gen.Operate.ExecuteChar(oc);
             }
 
