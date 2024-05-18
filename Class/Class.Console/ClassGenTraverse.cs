@@ -6,6 +6,7 @@ public class ClassGenTraverse : Traverse
     {
         base.Init();
         this.ListInfra = ListInfra.This;
+        this.TextInfra = TextInfra.This;
         this.CountList = CountList.This;
         this.PrintableChar = PrintableChar.This;
 
@@ -107,6 +108,7 @@ public class ClassGenTraverse : Traverse
 
     public virtual ClassGen Gen { get; set; }
     protected virtual ListInfra ListInfra { get; set; }
+    protected virtual TextInfra TextInfra { get; set; }
     protected virtual CountList CountList { get; set; }
     protected virtual PrintableChar PrintableChar { get; set; }
     protected virtual Field ThisField { get; set; }
@@ -1374,6 +1376,9 @@ public class ClassGenTraverse : Traverse
 
     public override bool ExecuteStringValue(StringValue stringValue)
     {
+        TextInfra textInfra;
+        textInfra = this.TextInfra;
+
         this.Text(this.DoubleQuote);
 
         string a;
@@ -1435,6 +1440,12 @@ public class ClassGenTraverse : Traverse
                     this.Text(this.Backslash);
                     this.Text(this.UnicodeEscapedChar);
 
+                    ClassGenOperate operate;
+                    operate = this.Gen.Operate;
+
+                    char letterStart;
+                    letterStart = 'a';
+
                     int ka;
                     ka = oc;
 
@@ -1445,15 +1456,22 @@ public class ClassGenTraverse : Traverse
                     while (iA < countA)
                     {
                         int kk;
-                        kk = ka >> (iA * 4);   
+                        kk = ka >> (iA * 4);
+                        kk = kk & 0xf;
 
+                        char cc;
+                        cc = textInfra.IntDigit(kk, letterStart);
                         
+                        operate.ExecuteChar(cc);
 
                         iA = iA + 1;
                     }
                 }
 
-                this.Gen.Operate.ExecuteChar(oc);
+                if (ba)
+                {
+                    this.Gen.Operate.ExecuteChar(oc);
+                }
             }
 
             i = i + 1;
