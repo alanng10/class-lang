@@ -14,6 +14,7 @@ global using Entry = Avalon.List.Entry;
 global using ListInfra = Avalon.List.Infra;
 global using Text = Avalon.Text.Text;
 global using TextCompare = Avalon.Text.Compare;
+global using TextEqualCompare = Avalon.Text.EqualCompare;
 global using TextIntParse = Avalon.Text.IntParse;
 global using TextInfra = Avalon.Text.Infra;
 global using InfraCreate = Class.Infra.Create;
