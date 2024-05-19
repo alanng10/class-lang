@@ -8,7 +8,6 @@
 
 struct Console
 {
-    Int Phore;
 };
 
 #define CP(a) ((Console*)(a))

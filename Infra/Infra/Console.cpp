@@ -4,23 +4,11 @@ CppClassNew(Console)
 
 Int Console_Init(Int o)
 {
-    Console* m;
-    m = CP(o);
-
-    Int initCount;
-    initCount = 1;
-    m->Phore = Phore_New();
-    Phore_InitCountSet(m->Phore, initCount);
-    Phore_Init(m->Phore);
     return true;
 }
 
 Int Console_Final(Int o)
 {
-    Console* m;
-    m = CP(o);
-    Phore_Final(m->Phore);
-    Phore_Delete(m->Phore);
     return true;
 }
 
@@ -46,7 +34,16 @@ Int Console_StreamWrite(Int o, Int text, Int stream)
 {
     Console* m;
     m = CP(o);
-    Phore_Acquire(m->Phore);
+
+    Int share;
+    share = Infra_Share();
+    Int stat;
+    stat = Share_Stat(share);
+
+    Int phore;
+    phore = Stat_ConsolePhore(stat);
+
+    Phore_Acquire(phore);
 
     QString oa;
     Int ua;
@@ -63,7 +60,7 @@ Int Console_StreamWrite(Int o, Int text, Int stream)
 
     ob->flush();
 
-    Phore_Release(m->Phore);
+    Phore_Release(phore);
     return true;
 }
 
@@ -71,7 +68,16 @@ Int Console_InnRead(Int o)
 {
     Console* m;
     m = CP(o);
-    Phore_Acquire(m->Phore);
+
+    Int share;
+    share = Infra_Share();
+    Int stat;
+    stat = Share_Stat(share);
+
+    Int phore;
+    phore = Stat_ConsolePhore(stat);
+
+    Phore_Acquire(phore);
 
     std::string u;
     std::getline(std::cin, u);
@@ -84,6 +90,7 @@ Int Console_InnRead(Int o)
 
     Int a;
     a = CastInt(ob);
-    Phore_Release(m->Phore);
+    
+    Phore_Release(phore);
     return a;
 }
