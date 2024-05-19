@@ -31,38 +31,36 @@ public class Compare : InfraCompare
             return 0;
         }
 
-        Range leftRange;
-        Range rightRange;
-        leftRange = leftText.Range;
-        rightRange = rightText.Range;
-
-        int leftCount;
-        int rightCount;
-        leftCount = leftRange.Count;
-        rightCount = rightRange.Count;
-
-        int o;
-        o = leftCount.CompareTo(rightCount);
-        if (!(o == 0))
-        {
-            return o;
-        }
-
         Data leftData;
         Data rightData;
         leftData = leftText.Data;
         rightData = rightText.Data;
 
-        int leftIndex;
-        int rightIndex;
-        leftIndex = leftRange.Index;
-        rightIndex = rightRange.Index;
+        Range leftRange;
+        Range rightRange;
+        leftRange = leftText.Range;
+        rightRange = rightText.Range;
 
+        int leftIndex;
+        int leftCount;
+        leftIndex = leftRange.Index;
+        leftCount = leftRange.Count;
+
+        int rightIndex;
+        int rightCount;
+        rightIndex = rightRange.Index;
+        rightCount = rightRange.Count;
+        
         IntCompare charCompare;
         charCompare = this.CharCompare;
 
         int count;
         count = leftCount;
+        if (rightCount < count)
+        {
+            count = rightCount;
+        }
+
         int i;
         i = 0;
         while (i < count)
@@ -81,6 +79,7 @@ public class Compare : InfraCompare
 
             i = i + 1;
         }
-        return 0;
+
+        return leftCount - rightCount;
     }
 }
