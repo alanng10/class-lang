@@ -15,6 +15,7 @@
 struct Stat
 {
     Int TimeInit;
+    Int ConsolePhore;
 };
 
 #define CP(a) ((Stat*)(a))

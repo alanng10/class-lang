@@ -7,6 +7,12 @@ Int Stat_Init(Int o)
     Stat* m;
     m = CP(o);
     m->TimeInit = Stat_TimeInitCreate(o);
+
+    Int aa;
+    aa = Phore_New();
+    Phore_InitCountSet(aa, 1);
+    Phore_Init(aa);
+    m->ConsolePhore = aa;
     return true;
 }
 
@@ -14,6 +20,9 @@ Int Stat_Final(Int o)
 {
     Stat* m;
     m = CP(o);
+    Phore_Final(m->ConsolePhore);
+    Phore_Delete(m->ConsolePhore);
+
     Stat_TimeInitDelete(o, m->TimeInit);
     return true;
 }
