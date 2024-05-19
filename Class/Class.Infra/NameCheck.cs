@@ -11,7 +11,7 @@ public class NameCheck : Any
         this.CharCompare = new IntCompare();
         this.CharCompare.Init();
 
-        this.TextCompare = new TextCompare();
+        this.TextCompare = new TextEqualCompare();
         this.TextCompare.CharCompare = this.CharCompare;
         this.TextCompare.Init();
 
