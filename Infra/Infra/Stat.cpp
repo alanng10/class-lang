@@ -65,3 +65,10 @@ Int Stat_TimeInitDelete(Int o, Int a)
     delete u;
     return true;
 }
+
+Int Stat_ConsolePhore(Int o)
+{
+    Stat* m;
+    m = CP(o);
+    return m->ConsolePhore;
+}

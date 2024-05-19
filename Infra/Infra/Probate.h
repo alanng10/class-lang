@@ -95,6 +95,7 @@ Int Stat_Delete(Int o);
 Int Stat_Init(Int o);
 Int Stat_Final(Int o);
 Int Stat_TimeInit(Int o);
+Int Stat_ConsolePhore(Int o);
 
 #define FieldGet(varClass, name) \
 Int varClass##_##name##Get(Int o)\
