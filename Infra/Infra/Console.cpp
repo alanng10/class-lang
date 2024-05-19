@@ -32,9 +32,6 @@ Int Console_ErrWrite(Int o, Int text)
 
 Int Console_StreamWrite(Int o, Int text, Int stream)
 {
-    Console* m;
-    m = CP(o);
-
     Int share;
     share = Infra_Share();
     Int stat;
@@ -66,9 +63,6 @@ Int Console_StreamWrite(Int o, Int text, Int stream)
 
 Int Console_InnRead(Int o)
 {
-    Console* m;
-    m = CP(o);
-
     Int share;
     share = Infra_Share();
     Int stat;
@@ -90,7 +84,7 @@ Int Console_InnRead(Int o)
 
     Int a;
     a = CastInt(ob);
-    
+
     Phore_Release(phore);
     return a;
 }
