@@ -222,6 +222,13 @@ public class Infra : Any
         return o;
     }
 
+    public virtual int EntryPathNameCombine(string entryPath)
+    {
+        int a;
+        a = entryPath.LastIndexOf('/');
+        return a;
+    }
+
     public virtual int EntryNameExtensionDot(string entryName)
     {
         int a;
