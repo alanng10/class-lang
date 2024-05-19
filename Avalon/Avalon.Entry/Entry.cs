@@ -36,6 +36,8 @@ public class Entry : Any
 
         Directiory.SetCurrentDirectory(ka);
 
+        this.InternIntern.ModuleFoldPath = ka;
+
         Environment.SetEnvironmentVariable("QT_PLUGIN_PATH", "Avalon.Intern.data/Lib");
 
         ulong ua;

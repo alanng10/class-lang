@@ -31,6 +31,16 @@ public class Arrange : Any
         return true;
     }
 
+    public virtual string ModuleFoldPath
+    {
+        get
+        {
+            return this.InternIntern.ModuleFoldPath;
+        }
+        set
+        {
+        }
+    }
     public virtual string ExecuteFoldPath
     {
         get
