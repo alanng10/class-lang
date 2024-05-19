@@ -10,6 +10,7 @@ global using Iter = Avalon.List.Iter;
 global using ListInfra = Avalon.List.Infra;
 global using Text = Avalon.Text.Text;
 global using TextCompare = Avalon.Text.Compare;
+global using TextEqualCompare = Avalon.Text.EqualCompare;
 global using Format = Avalon.Text.Format;
 global using FormatArg = Avalon.Text.FormatArg;
 global using TextInfra = Avalon.Text.Infra;
