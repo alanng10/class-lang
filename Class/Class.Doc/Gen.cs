@@ -375,7 +375,7 @@ public class Gen : Any
         o.Append(colon);
         o.Append(space);
         o.Append(quote);
-        this.AppendNodeNameValue(a.Name);
+        o.Append(a.NameString);
         o.Append(quote);
         o.Append(comma);
         o.Append(newLine);
@@ -401,7 +401,7 @@ public class Gen : Any
 
             this.AppendIndent(indent + 2);
             o.Append(quote);
-            this.AppendNodeNameValue(aa.Name);
+            o.Append(aa.NameString);
             o.Append(quote);
             o.Append(colon);
             o.Append(newLine);
