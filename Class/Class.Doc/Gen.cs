@@ -157,9 +157,6 @@ public class Gen : Any
             return false;
         }
 
-        StringJoin o;
-        o = this.StringJoin;
-
         string combine;
         combine = this.InfraInfra.PathCombine;
 
