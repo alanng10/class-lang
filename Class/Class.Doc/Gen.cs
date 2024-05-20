@@ -454,9 +454,6 @@ public class Gen : Any
 
     protected virtual bool ExecuteNode()
     {
-        string combine;
-        combine = this.InfraInfra.PathCombine;
-
         string nodePath;
         nodePath = this.SourceFoldPath;
 
