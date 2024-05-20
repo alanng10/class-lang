@@ -166,14 +166,11 @@ public class Gen : Any
 
         while (iter.Next())
         {
-            string name;
-            name = (string)iter.Index;
-
             Node aa;
             aa = (Node)iter.Value;
             
             string ka;
-            ka = path + combine + name;
+            ka = path + combine + aa.Name;
 
             b = this.ExecuteArticleNode(aa, level + 1, ka);
             if (!b)
@@ -196,7 +193,7 @@ public class Gen : Any
         newLine = "\n";
 
         string filePath;
-        filePath = this.SourceFoldPath + combine + "Article" + combine + path + combine + "a.md";
+        filePath = this.SourceFoldPath + combine + path + combine + "a.md";
 
         string oo;
         oo = this.StorageInfra.TextRead(filePath);
