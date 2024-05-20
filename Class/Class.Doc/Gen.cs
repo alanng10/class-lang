@@ -397,7 +397,7 @@ public class Gen : Any
 
             this.AppendIndent(indent + 2);
             o.Append(quote);
-            o.Append(aa.Name);
+            this.AppendNodeNameValue(aa.Name);
             o.Append(quote);
             o.Append(colon);
             o.Append(newLine);
