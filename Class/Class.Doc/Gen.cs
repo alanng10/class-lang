@@ -257,8 +257,11 @@ public class Gen : Any
         a = a.Replace("#PageRootPath#", pageRootPath);
         a = a.Replace("#PagePath#", pagePath);
 
+        string pathKk;
+        pathKk = path.ToLower();
+
         string foldPath;
-        foldPath = this.DestFoldPath + combine + path;
+        foldPath = this.DestFoldPath + combine + pathKk;
 
         bool b;
 
