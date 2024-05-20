@@ -140,7 +140,7 @@ public class Gen : Any
         root = this.Root;
 
         bool b;
-        b = this.ExecuteArticleNode(root, 0, ".");
+        b = this.ExecuteArticleNode(root, 0, ".", ".");
         if (!b)
         {
             return false;
@@ -148,14 +148,17 @@ public class Gen : Any
         return true;
     }
 
-    protected virtual bool ExecuteArticleNode(Node node, int level, string path)
+    protected virtual bool ExecuteArticleNode(Node node, int level, string path, string pagePath)
     {
         bool b;
-        b = this.GenArticle(level, path);
+        b = this.GenArticle(level, path, pagePath);
         if (!b)
         {
             return false;
         }
+
+        StringJoin o;
+        o = this.StringJoin;
 
         string combine;
         combine = this.InfraInfra.PathCombine;
@@ -171,8 +174,11 @@ public class Gen : Any
             
             string ka;
             ka = path + combine + aa.Name;
+            
+            string kk;
+            kk = pagePath + combine + aa.NameString;
 
-            b = this.ExecuteArticleNode(aa, level + 1, ka);
+            b = this.ExecuteArticleNode(aa, level + 1, ka, kk);
             if (!b)
             {
                 return false;
@@ -181,7 +187,7 @@ public class Gen : Any
         return true;
     }
 
-    protected virtual bool GenArticle(int level, string path)
+    protected virtual bool GenArticle(int level, string path, string pagePath)
     {
         InfraInfra infraInfra;
         infraInfra = this.InfraInfra;
@@ -252,6 +258,7 @@ public class Gen : Any
         a = a.Replace("#ArticleTitle#", title);
         a = a.Replace("#ArticleInner#", inner);
         a = a.Replace("#PageRootPath#", pageRootPath);
+        a = a.Replace("#PagePath#", pagePath);
 
         string foldPath;
         foldPath = this.DestFoldPath + combine + path;
@@ -483,6 +490,7 @@ public class Gen : Any
         a = new Node();
         a.Init();
         a.Name = "";
+        a.NameString = "";
 
         a.Child = this.CreateChild(nodePath);
 
@@ -496,6 +504,17 @@ public class Gen : Any
         a = new Node();
         a.Init();
         a.Name = name;
+        
+        StringJoin o;
+        o = this.StringJoin;
+        
+        o.Clear();
+        this.AppendNodeNameValue(name);
+        
+        string aa;
+        aa = o.Result();
+
+        a.NameString = aa;
 
         string nodePath;
         nodePath = foldPath + this.InfraInfra.PathCombine + name;
