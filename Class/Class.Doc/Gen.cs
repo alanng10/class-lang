@@ -558,6 +558,56 @@ public class Gen : Any
         return table;
     }
 
+    protected virtual bool AppendNodeNameValue(string name)
+    {
+        StringJoin o;
+        o = this.StringJoin;
+
+        int count;
+        count = name.Length;
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            char oc;
+            oc = name[i];
+
+            bool b;
+            b = false;
+            if (!b)
+            {
+                if (oc == '\\')
+                {
+                    o.Append("\\\\");
+                    b = true;
+                }
+            }
+            if (!b)
+            {
+                if (oc == '\"')
+                {
+                    o.Append("\\\"");
+                    b = true;
+                }
+            }
+            if (!b)
+            {
+                if (oc == '\'')
+                {
+                    o.Append("\\\'");
+                    b = true;
+                }
+            }
+            if (!b)
+            {
+                o.AppendChar(oc);
+            }
+
+            i = i + 1;
+        }
+        return true;
+    }
+
     protected virtual string BoolValueString(bool o)
     {
         string k;
