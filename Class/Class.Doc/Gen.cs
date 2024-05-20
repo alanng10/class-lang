@@ -458,7 +458,7 @@ public class Gen : Any
         combine = this.InfraInfra.PathCombine;
 
         string nodePath;
-        nodePath = this.SourceFoldPath + combine + "Article";
+        nodePath = this.SourceFoldPath;
 
         Node a;
         a = new Node();
