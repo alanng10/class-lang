@@ -27,13 +27,13 @@ public class Infra : Any
         return true;
     }
 
+    public virtual TextText TextSlash { get; set; }
+    public virtual TextText TextDot { get; set; }
+    public virtual TextText TextColon { get; set; }
     protected virtual InfraInfra InfraInfra { get; set; }
     protected virtual TextInfra TextInfra { get; set; }
     protected virtual StatusList StorageStatusList { get; set; }
     protected virtual TextEncodeKindList TextEncodeKindList { get; set; }
-    protected virtual TextText TextSlash { get; set; }
-    protected virtual TextText TextDot { get; set; }
-    protected virtual TextText TextColon { get; set; }
 
     public virtual Data DataRead(string filePath)
     {
