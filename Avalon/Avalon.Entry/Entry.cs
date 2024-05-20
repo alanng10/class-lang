@@ -26,6 +26,8 @@ public class Entry : Any
     {
         string kk;
         kk = Directiory.GetCurrentDirectory();
+        
+        kk = this.SlashCombine(kk);
 
         this.InternIntern.ExecuteFoldPath = kk;
 
@@ -35,6 +37,8 @@ public class Entry : Any
         ka = Path.GetDirectoryName(k);
 
         Directiory.SetCurrentDirectory(ka);
+
+        ka = this.SlashCombine(ka);
 
         this.InternIntern.ModuleFoldPath = ka;
 
@@ -65,6 +69,13 @@ public class Entry : Any
     public virtual Array Arg
     {
         get; set;
+    }
+
+    protected virtual string SlashCombine(string path)
+    {
+        string a;
+        a = path.Replace('\\', '/');
+        return a;
     }
 
     public virtual bool ArgSet(string[] arg)
