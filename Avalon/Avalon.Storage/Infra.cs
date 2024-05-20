@@ -21,6 +21,14 @@ public class Infra : Any
         this.TextInfra = TextInfra.This;
         this.StorageStatusList = StatusList.This;
         this.TextEncodeKindList = TextEncodeKindList.This;
+        IntCompare aa;
+        aa = new IntCompare();
+        aa.Init();
+        this.TextCompare = new TextCompare();
+        this.TextCompare.CharCompare = aa;
+        this.TextCompare.Init();
+        this.TextSlash = this.TextInfra.TextCreateStringData("/", null);
+        this.TextDot = this.TextInfra.TextCreateStringData(".", null);
         return true;
     }
 
@@ -28,6 +36,9 @@ public class Infra : Any
     protected virtual TextInfra TextInfra { get; set; }
     protected virtual StatusList StorageStatusList { get; set; }
     protected virtual TextEncodeKindList TextEncodeKindList { get; set; }
+    protected virtual TextCompare TextCompare { get; set; }
+    protected virtual TextText TextSlash { get; set; }
+    protected virtual TextText TextDot { get; set; }
 
     public virtual Data DataRead(string filePath)
     {
@@ -222,17 +233,17 @@ public class Infra : Any
         return o;
     }
 
-    public virtual int EntryPathNameCombine(string entryPath)
+    public virtual int EntryPathNameCombine(TextText entryPath)
     {
         int a;
-        a = entryPath.LastIndexOf('/');
+        a = this.TextInfra.LastIndex(entryPath, this.TextSlash, this.TextCompare);
         return a;
     }
 
-    public virtual int EntryNameExtensionDot(string entryName)
+    public virtual int EntryNameExtensionDot(TextText entryName)
     {
         int a;
-        a = entryName.LastIndexOf('.');
+        a = this.TextInfra.LastIndex(entryName, this.TextDot, this.TextCompare);
         return a;
     }
 }
