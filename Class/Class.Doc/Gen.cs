@@ -349,10 +349,6 @@ public class Gen : Any
         leftBrace = "{";
         string rightBrace;
         rightBrace = "}";
-        string leftSquare;
-        leftSquare = "[";
-        string rightSquare;
-        rightSquare = "]";
         string space;
         space = " ";
         string quote;
@@ -369,7 +365,9 @@ public class Gen : Any
         o.Append(newLine);
 
         this.AppendIndent(indent + 1);
+        o.Append(quote);
         o.Append("Name");
+        o.Append(quote);
         o.Append(colon);
         o.Append(space);
         o.Append(quote);
@@ -379,12 +377,14 @@ public class Gen : Any
         o.Append(newLine);
 
         this.AppendIndent(indent + 1);
+        o.Append(quote);
         o.Append("Child");
+        o.Append(quote);
         o.Append(colon);
         o.Append(newLine);
 
         this.AppendIndent(indent + 1);
-        o.Append(leftSquare);
+        o.Append(leftBrace);
         o.Append(newLine);
 
         Iter iter;
@@ -394,6 +394,14 @@ public class Gen : Any
         {
             Node aa;
             aa = (Node)iter.Value;
+
+            this.AppendIndent(indent + 2);
+            o.Append(quote);
+            o.Append(aa.Name);
+            o.Append(quote);
+            o.Append(colon);
+            o.Append(newLine);
+
             this.ExecuteNaviNode(level + 1, aa);
 
             o.Append(comma);
@@ -401,7 +409,7 @@ public class Gen : Any
         }
 
         this.AppendIndent(indent + 1);
-        o.Append(rightSquare);
+        o.Append(rightBrace);
         o.Append(newLine);
 
         this.AppendIndent(indent);
