@@ -24,14 +24,17 @@ function SetNavi()
     var node;
     node = NaviTree;
 
+    var h;
+    h = PagePath.substring(2);
+
     var index;
     index = 0;
     var u;
-    u = PagePath.indexOf("/", 0);
+    u = h.indexOf("/", 0);
     while (!(u < 0))
     {
         var k;
-        k = PagePath.substring(index, u);
+        k = h.substring(index, u);
 
         node = node.Child[k];
 
@@ -41,13 +44,13 @@ function SetNavi()
 
         index = u + 1;
 
-        u = PagePath.indexOf("/", index);
+        u = h.indexOf("/", index);
     }
 
-    u = PagePath.length;
+    u = h.length;
 
     var k;
-    k = PagePath.substring(index, u);
+    k = h.substring(index, u);
 
     node = node.Child[k];
 
