@@ -40,7 +40,7 @@ public class Gen : Any
     protected virtual TextCompare TextCompare { get; set; }
     protected virtual IntCompare CharCompare { get; set; }
     protected virtual string Ver { get; set; }
-    protected virtual Node ArticleRoot { get; set; }
+    protected virtual Node Root { get; set; }
     protected virtual string PageTemplate { get; set; }
 
     protected virtual bool InitTemplate()
@@ -137,7 +137,7 @@ public class Gen : Any
     protected virtual bool ExecuteArticle()
     {
         Node root;
-        root = this.ArticleRoot;
+        root = this.Root;
 
         bool b;
         b = this.ExecuteArticleNode(root, 0, ".");
@@ -296,7 +296,7 @@ public class Gen : Any
         string semicolon;
         semicolon = ";";
 
-        this.ExecuteNaviNode(0, this.ArticleRoot);
+        this.ExecuteNaviNode(0, this.Root);
         
         o.Append(semicolon);
         o.Append(newLine);
@@ -464,7 +464,7 @@ public class Gen : Any
 
         a.Child = this.CreateChild(nodePath);
 
-        this.ArticleRoot = a;
+        this.Root = a;
         return true;
     }
 
