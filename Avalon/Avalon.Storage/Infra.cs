@@ -23,6 +23,7 @@ public class Infra : Any
         this.TextEncodeKindList = TextEncodeKindList.This;
         this.TextSlash = this.TextInfra.TextCreateStringData("/", null);
         this.TextDot = this.TextInfra.TextCreateStringData(".", null);
+        this.TextColon = this.TextInfra.TextCreateStringData(":", null);
         return true;
     }
 
@@ -32,6 +33,7 @@ public class Infra : Any
     protected virtual TextEncodeKindList TextEncodeKindList { get; set; }
     protected virtual TextText TextSlash { get; set; }
     protected virtual TextText TextDot { get; set; }
+    protected virtual TextText TextColon { get; set; }
 
     public virtual Data DataRead(string filePath)
     {
@@ -237,6 +239,45 @@ public class Infra : Any
     {
         int a;
         a = this.TextInfra.LastIndex(entryName, this.TextDot, compare);
+        return a;
+    }
+
+    public virtual bool IsRelativePath(TextText entryPath, Compare compare)
+    {
+        TextInfra textInfra;
+        textInfra = this.TextInfra;
+
+        int k;
+        k = textInfra.Index(entryPath, this.TextSlash, compare);
+        if (k == -1)
+        {
+            return true;
+        }
+
+        if (k == 0)
+        {
+            return false;
+        }
+
+        Range range;
+        range = entryPath.Range;
+
+        int indexA;
+        int countA;
+        indexA = range.Index;
+        countA = range.Count;
+
+        range.Index = k - 1;
+        range.Count = 1;
+
+        bool b;
+        b = textInfra.Equal(entryPath, this.TextColon, compare);
+        
+        range.Index = indexA;
+        range.Count = countA;
+
+        bool a;
+        a = !b;
         return a;
     }
 }
