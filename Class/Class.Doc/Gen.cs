@@ -281,13 +281,36 @@ public class Gen : Any
 
     protected virtual bool ExecuteVar()
     {
+        StorageInfra storageInfra;
+        storageInfra = this.StorageInfra;
+
         StringJoin o;
         o = this.StringJoin;
         o.Clear();
 
-        o.Append("var LinkFileName;\n");
-        o.Append("LinkFileName = " + this.LinkFileName.ToString().ToLower() + ";\n");
+        string ka;
+        ka = this.BoolValueString(this.LinkFileName);
 
+        o.Append("var LinkFileName;\n");
+        o.Append("LinkFileName = " + ka + ";\n");
+
+        string a;
+        a = o.Result();
+
+        string combine;
+        combine = this.InfraInfra.PathCombine;
+
+        string outFilePath;
+        outFilePath = this.DestFoldPath + combine + "var.js";
+
+        bool b;
+        b = storageInfra.TextWrite(outFilePath, a);
+        if (!b)
+        {
+            return false;
+        }
+
+        o.Clear();
         o.Append("var NaviTree;\n");
         o.Append("NaviTree =\n");
 
@@ -301,17 +324,11 @@ public class Gen : Any
         o.Append(semicolon);
         o.Append(newLine);
 
-        string a;
         a = o.Result();
 
-        string combine;
-        combine = this.InfraInfra.PathCombine;
+        outFilePath = this.DestFoldPath + combine + "articlevar.js";
 
-        string outFilePath;
-        outFilePath = this.DestFoldPath + combine + "var.js";
-
-        bool b;
-        b = this.StorageInfra.TextWrite(outFilePath, a);
+        b = storageInfra.TextWrite(outFilePath, a);
         if (!b)
         {
             return false;
@@ -531,6 +548,21 @@ public class Gen : Any
             i = i + 1;
         }
         return table;
+    }
+
+    protected virtual string BoolValueString(bool o)
+    {
+        string k;
+        k = null;
+        if (o)
+        {
+            k = "true";
+        }
+        if (!o)
+        {
+            k = "false";
+        }
+        return k;
     }
 
     protected virtual bool AppendIndent(int count)
