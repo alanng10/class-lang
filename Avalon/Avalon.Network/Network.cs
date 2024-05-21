@@ -234,15 +234,9 @@ public class Network : Any
 
     private bool ExecuteReadyReadState()
     {
-        State state;
-        state = this.ReadyReadState;
-        if (!(state == null))
+        if (!(this.ReadyReadState == null))
         {
-            state.Arg = this;
-            
-            state.Execute();
-
-            state.Arg = null;
+            this.ReadyReadState.Execute();
         }
         return true;
     }
