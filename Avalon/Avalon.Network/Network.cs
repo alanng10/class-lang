@@ -234,9 +234,15 @@ public class Network : Any
 
     private bool ExecuteReadyReadState()
     {
-        if (!(this.ReadyReadState == null))
+        State state;
+        state = this.ReadyReadState;
+        if (!(state == null))
         {
-            this.ReadyReadState.Execute();
+            state.Arg = this;
+            
+            state.Execute();
+
+            state.Arg = null;
         }
         return true;
     }
