@@ -288,6 +288,11 @@ public class Gen : Any
         StorageInfra storageInfra;
         storageInfra = this.StorageInfra;
 
+        string newLine;
+        newLine = "\n";
+        string semicolon;
+        semicolon = ";";
+
         StringJoin o;
         o = this.StringJoin;
         o.Clear();
@@ -298,7 +303,8 @@ public class Gen : Any
         o.Append("var LinkFileName;\n");
         o.Append("LinkFileName = ");
         o.Append(ka);
-        o.Append(";\n");
+        o.Append(semicolon);
+        o.Append(newLine);
 
         string a;
         a = o.Result();
@@ -319,11 +325,6 @@ public class Gen : Any
         o.Clear();
         o.Append("var NaviTree;\n");
         o.Append("NaviTree =\n");
-
-        string newLine;
-        newLine = "\n";
-        string semicolon;
-        semicolon = ";";
 
         this.ExecuteNaviNode(0, this.Root);
         
