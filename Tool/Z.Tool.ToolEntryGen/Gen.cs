@@ -53,7 +53,6 @@ class Gen : Any
         this.ExecuteOne("Infra.StatTextEncodeKind");
         this.ExecuteOne("Infra.StatTextWrap");
         this.ExecuteOne("Infra.StatThreadCase");
-        this.ExecuteOne("VSCode.GrammarGen");
         this.ExecuteOne("PrudateGen");
         this.ExecuteOne("ReferBinaryGen");
 
