@@ -296,7 +296,9 @@ public class Gen : Any
         ka = this.BoolValueString(this.LinkFileName);
 
         o.Append("var LinkFileName;\n");
-        o.Append("LinkFileName = " + ka + ";\n");
+        o.Append("LinkFileName = ");
+        o.Append(ka);
+        o.Append(";\n");
 
         string a;
         a = o.Result();
