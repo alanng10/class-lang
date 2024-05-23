@@ -45,8 +45,12 @@ public class StringValueWrite : Any
 
         int count;
         count = this.Index;
+        
+        long k;
+        k = count;
+        k = k * sizeof(char);
         this.Data = new Data();
-        this.Data.Count = count * sizeof(short);
+        this.Data.Count = k;
         this.Data.Init();
 
         this.WriteOperate = this.AddWriteOperate;
