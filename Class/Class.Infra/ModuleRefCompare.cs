@@ -5,7 +5,13 @@ public class ModuleRefCompare : Compare
     public override bool Init()
     {
         base.Init();
+
+        IntCompare charCompare;
+        charCompare = new IntCompare();
+        charCompare.Init();
+
         this.StringCompare = new StringCompare();
+        this.StringCompare.CharCompare = charCompare;
         this.StringCompare.Init();
         return true;
     }
