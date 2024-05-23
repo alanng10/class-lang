@@ -21,9 +21,15 @@ public class NodeKindListGen : SourceGen
 
     protected override bool ExecuteItemList()
     {
+        IntCompare charCompare;
+        charCompare = new IntCompare();
+        charCompare.Init();
+
         StringCompare compare;
         compare = new StringCompare();
+        compare.CharCompare = charCompare;
         compare.Init();
+        
         this.ItemTable = new Table();
         this.ItemTable.Compare = compare;
         this.ItemTable.Init();
