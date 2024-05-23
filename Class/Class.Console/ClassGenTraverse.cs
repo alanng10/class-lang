@@ -30,6 +30,7 @@ public class ClassGenTraverse : Traverse
         this.InternValueInitClass = "__C_ValueInit";
         this.InternValueShareClass = "__C_ValueShare";
         this.InternModuleInfoClass = "__C_ModuleInfo";
+        this.WarningDisable = "#pragma warning disable 0108, 0114, 0649";
         this.Int60Mask = "0x0fffffffffffffffUL";
         this.SignIntShift = "4";
         this.Zero = "0";
@@ -140,6 +141,7 @@ public class ClassGenTraverse : Traverse
     protected virtual string InternValueInitClass { get; set; }
     protected virtual string InternValueShareClass { get; set; }
     protected virtual string InternModuleInfoClass { get; set; }
+    protected virtual string WarningDisable { get; set; }
     protected virtual string Int60Mask { get; set; }
     protected virtual string SignIntShift { get; set; }
     protected virtual string Zero { get; set; }
@@ -264,6 +266,10 @@ public class ClassGenTraverse : Traverse
         this.Text(this.Gen.Module.Ref.Name);
 
         this.Text(this.DelimitSemicolon);
+        this.Text(this.NewLine);
+        this.Text(this.NewLine);
+
+        this.Text(this.WarningDisable);
         this.Text(this.NewLine);
         this.Text(this.NewLine);
 
