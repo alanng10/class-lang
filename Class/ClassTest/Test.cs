@@ -439,8 +439,13 @@ public class Test : Any
         range.Init();
         range.Count = count;
 
+        IntCompare charCompare;
+        charCompare = new IntCompare();
+        charCompare.Init();
+
         StringCompare compare;
         compare = new StringCompare();
+        compare.CharCompare = charCompare;
         compare.Init();
 
         array.Sort(range, compare);

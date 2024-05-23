@@ -252,8 +252,13 @@ public class Create : InfraCreate
 
     protected virtual bool InitNodeState()
     {
+        IntCompare charCompare;
+        charCompare = new IntCompare();
+        charCompare.Init();
+
         StringCompare compare;
         compare = new StringCompare();
+        compare.CharCompare = charCompare;
         compare.Init();
 
         this.NodeStateTable = new Table();
