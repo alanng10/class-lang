@@ -207,13 +207,10 @@ public class StateTraverse : Traverse
         string className;
         className = nodeClass.Value;
 
-        bool b;
-        b = false;
-
         if (this.StateVar.Contain(varName))
         {
             this.Error(this.ErrorKind.NameUnavailable, nodeVar);
-            b = true;
+            return true;
         }
 
         ClassClass varClass;
@@ -221,11 +218,6 @@ public class StateTraverse : Traverse
         if (varClass == null)
         {
             this.Error(this.ErrorKind.ClassUndefined, nodeVar);
-            b = true;
-        }
-
-        if (b)
-        {
             return true;
         }
 
