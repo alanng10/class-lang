@@ -224,24 +224,26 @@ public class StateTraverse : Traverse
             b = true;
         }
 
-        if (!b)
+        if (b)
         {
-            Var a;
-            a = new Var();
-            a.Init();
-            a.Name = varName;
-            a.Class = varClass;
-            a.Any = nodeVar;
-            a.SystemInfo = this.CreateSystemInfo();
-
-            Table oo;
-            oo = (Table)this.VarStack.Top;
-
-            this.ListInfra.TableAdd(oo, a.Name, a);
-            this.ListInfra.TableAdd(this.StateVar, a.Name, a);
-
-            this.Info(nodeVar).Var = a;
+            return true;
         }
+
+        Var a;
+        a = new Var();
+        a.Init();
+        a.Name = varName;
+        a.Class = varClass;
+        a.Any = nodeVar;
+        a.SystemInfo = this.CreateSystemInfo();
+
+        Table oo;
+        oo = (Table)this.VarStack.Top;
+
+        this.ListInfra.TableAdd(oo, a.Name, a);
+        this.ListInfra.TableAdd(this.StateVar, a.Name, a);
+
+        this.Info(nodeVar).Var = a;
         return true;
     }
 
