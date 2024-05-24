@@ -277,6 +277,9 @@ public class Console : Any
             Text text;
             text = this.Text;
 
+            aaa = aaa.Replace('\\', '/');
+            aab = aab.Replace('\\', '/');
+
             string sourceFold;
             sourceFold = aaa;
 
