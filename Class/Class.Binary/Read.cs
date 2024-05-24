@@ -24,6 +24,7 @@ public class Read : Any
     }
 
     public virtual Data Data { get; set; }
+    public virtual Range Range { get; set; }
     public virtual Binary Binary { get; set; }
     public virtual ReadArg Arg { get; set; }
     protected virtual InfraInfra InfraInfra { get; set; }
@@ -36,6 +37,15 @@ public class Read : Any
 
     public virtual bool Execute()
     {
+        int dataCount;
+        dataCount = (int)this.Data.Count;
+        Range range;
+        range = this.Range;
+        if (!this.InfraInfra.CheckRange(dataCount, range.Index, range.Count))
+        {
+            return false;
+        }
+
         ReadArg arg;
         arg = new ReadArg();
         this.Arg = arg;
