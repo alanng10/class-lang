@@ -175,12 +175,9 @@ public class StateTraverse : Traverse
 
         this.ThisResultClass = maide.Class;
 
-        Table o;
-        o = this.ClassInfra.TableCreateStringCompare();
+        this.StateVar = maide.Call;
 
-        this.VarTableAdd(o, maide.Param);
-
-        this.StateVar = o;
+        this.VarTableAdd(this.StateVar, maide.Param);
 
         this.VarStack.Push(maide.Param);
 
