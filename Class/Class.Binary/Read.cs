@@ -25,7 +25,6 @@ public class Read : Any
 
     public virtual Data Data { get; set; }
     public virtual Binary Binary { get; set; }
-    public virtual bool SystemInfo { get; set; }
     public virtual ReadArg Arg { get; set; }
     protected virtual InfraInfra InfraInfra { get; set; }
     protected virtual ListInfra ListInfra { get; set; }
