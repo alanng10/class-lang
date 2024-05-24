@@ -134,10 +134,19 @@ public class Console : Any
             global::System.Environment.Exit(1001);
         }
 
+        int kk;
+        kk = (int)data.Count;
+
+        InfraRange range;
+        range = new InfraRange();
+        range.Init();
+        range.Count = kk;
+
         BinaryRead read;
         read = this.BinaryRead;
 
         read.Data = data;
+        read.Range = range;
 
         read.Execute();
 
