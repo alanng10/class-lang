@@ -155,7 +155,8 @@ public class Read : Any
         while (i < count)
         {
             long index;
-            index = i * sizeof(uint);
+            index = i;
+            index = index * sizeof(uint);
             uint u;
             u = infraInfra.DataMidGet(countData, index);
             int oa;
@@ -192,7 +193,8 @@ public class Read : Any
         while (i < count)
         {
             long index;
-            index = i * sizeof(uint);
+            index = i;
+            index = index * sizeof(uint);
             uint u;
             u = infraInfra.DataMidGet(countData, index);
             int oa;
