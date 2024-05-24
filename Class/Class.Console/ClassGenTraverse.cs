@@ -263,7 +263,7 @@ public class ClassGenTraverse : Traverse
         this.Text(this.Space);
 
         this.Text(this.InternNamespacePrefix);
-        this.Text(this.Gen.Module.Ref.Name);
+        this.Text(varClass.Module.Ref.Name);
 
         this.Text(this.DelimitSemicolon);
         this.Text(this.NewLine);
@@ -1705,7 +1705,7 @@ public class ClassGenTraverse : Traverse
     protected virtual bool ExecuteClassTableName(ClassClass a)
     {
         bool b;
-        b = (a.Module == this.Gen.Module);
+        b = (a.Module == this.Gen.Class.Module);
         if (b)
         {
             this.Text(a.Name);

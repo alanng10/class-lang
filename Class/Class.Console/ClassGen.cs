@@ -24,7 +24,6 @@ public class ClassGen : Any
     }
 
     public virtual ClassClass Class { get; set; }
-    public virtual ClassModule Module { get; set; }
     public virtual Table ModuleTable { get; set; }
     public virtual bool Export { get; set; }
     public virtual Table ClassImportName { get; set; }
