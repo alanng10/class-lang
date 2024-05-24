@@ -34,6 +34,21 @@ public class Console : Any
         this.ModuleLoad.ModuleTable = this.ModuleTable;
         this.ModuleLoad.BinaryTable = this.BinaryTable;
 
+        this.Text = new Text();
+        this.Text.Init();
+        this.Text.Range = new InfraRange();
+        this.Text.Range.Init();
+
+        this.StringData = new StringData();
+        this.StringData.Init();
+
+        IntCompare charCompare;
+        charCompare = new IntCompare();
+        charCompare.Init();
+        this.TextCompare = new TextCompare();
+        this.TextCompare.CharCompare = charCompare;
+        this.TextCompare.Init();
+
         this.InitSystem();
 
         return true;
@@ -83,6 +98,9 @@ public class Console : Any
     protected virtual Table BinaryTable { get; set; }
     protected virtual BinaryRead BinaryRead { get; set; }
     protected virtual ModuleLoad ModuleLoad { get; set; }
+    protected virtual Text Text { get; set; }
+    protected virtual StringData StringData { get; set; }
+    protected virtual TextCompare TextCompare { get; set; }
 
     protected virtual bool InitSystem()
     {
@@ -250,10 +268,32 @@ public class Console : Any
             string combine;
             combine = this.InfraInfra.PathCombine;
 
+            StorageInfra storageInfra;
+            storageInfra = this.StorageInfra;
+
+            TextCompare compare;
+            compare = this.TextCompare;
+
+            Text text;
+            text = this.Text;
+
             string sourceFold;
-            sourceFold = executeFoldPath + combine + aaa;
+            sourceFold = aaa;
+
+            this.TextStringGet(sourceFold);
+            if (storageInfra.IsRelativePath(text, compare))
+            {
+                sourceFold = executeFoldPath + combine + sourceFold;
+            }
+
             string destFold;
-            destFold = executeFoldPath + combine + aab;
+            destFold = aab;
+
+            this.TextStringGet(destFold);
+            if (storageInfra.IsRelativePath(text, compare))
+            {
+                destFold = executeFoldPath + combine + destFold;
+            }
 
             bool linkFileName;
             linkFileName = true;
@@ -718,6 +758,21 @@ public class Console : Any
     protected virtual bool Error(string message)
     {
         this.Err.Write(message + "\n");
+        return true;
+    }
+
+    protected virtual bool TextStringGet(string o)
+    {
+        StringData d;
+        d = this.StringData;
+        d.Value = o;
+
+        Text text;
+        text = this.Text;
+
+        text.Data = d;
+        text.Range.Index = 0;
+        text.Range.Count = o.Length;
         return true;
     }
 
