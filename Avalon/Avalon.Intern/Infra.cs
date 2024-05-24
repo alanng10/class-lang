@@ -44,30 +44,6 @@ public class Infra : object
         return o;
     }
 
-    public virtual ulong StringCreateText(byte[] a, int index, int count)
-    {
-        ulong countA;
-        countA = (ulong)count;
-
-        ulong byteCount;
-        byteCount = countA * 2;
-
-        ulong data;
-        data = Extern.New(byteCount);
-
-        ulong indexA;
-        indexA = (ulong)index;
-
-        this.InternIntern.CopyText(data, a, indexA, countA);
-
-        ulong o;
-        o = Extern.String_New();
-        Extern.String_Init(o);
-        Extern.String_CountSet(o, countA);
-        Extern.String_DataSet(o, data);
-        return o;
-    }
-
     public virtual bool StringDelete(ulong o)
     {
         ulong data;
