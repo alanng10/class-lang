@@ -961,6 +961,12 @@ public class Read : Any
         }
         int count;
         count = o;
+        
+        if (!this.CheckCount(count))
+        {
+            return null;
+        }
+
         string a;
         a = this.Operate.ExecuteString(count);
         return a;
