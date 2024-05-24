@@ -1031,8 +1031,22 @@ public class Read : Any
 
     protected virtual bool CheckCount(int count)
     {
-        int dataCount;
-        dataCount = (int)this.Data.Count;
-        return this.InfraInfra.CheckRange(dataCount, this.Arg.Index, count);
+        Range range;
+        range = this.Range;
+        int index;
+        int countA;
+        index = range.Index;
+        countA = range.Count;
+
+        int kk;
+        kk = index + countA;
+        
+        int ka;
+        ka = index + this.Arg.Index;
+
+        int kb;
+        kb = ka + count;
+
+        return !(kk < kb);
     }
 }
