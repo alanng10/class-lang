@@ -122,18 +122,23 @@ Int StorageArrange_FoldCopyRecurse(Int o, Int path, Int destPath)
 
     QDir dirA(pathA);
 
-    qsizetype count;
-    qsizetype i;
-
     QStringList foldList;
     foldList = dirA.entryList(QDir::Dirs | QDir::NoDotAndDotDot);
+
+    qsizetype countU;
+    countU = foldList.count();
     
-    count = foldList.count();
+    Int count;
+    count = countU;
+    Int i;
     i = 0;
     while (i < count)
     {
+        qsizetype indexU;
+        indexU = i;
+
         QString fold;
-        fold = foldList.at(i);
+        fold = foldList.at(indexU);
 
         QString newPath;
         newPath = pathA + "/" + fold;
@@ -159,12 +164,17 @@ Int StorageArrange_FoldCopyRecurse(Int o, Int path, Int destPath)
     QStringList fileList;
     fileList = dirA.entryList(QDir::Files);
 
-    count = fileList.count();
+    countU = fileList.count();
+    
+    count = countU;
     i = 0;
     while (i < count)
     {
+        qsizetype indexU;
+        indexU = i;
+        
         QString file;
-        file = fileList.at(i);
+        file = fileList.at(indexU);
 
         QString newPathA;
         newPathA = pathA + "/" + file;
