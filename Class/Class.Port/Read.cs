@@ -147,14 +147,18 @@ public class Read : Any
             int row;
             int index;
             int countA;
+            long na;
+            na = nn * sizeof(uint);
             uint u;
-            u = infraInfra.DataMidGet(textData, nn * sizeof(uint));
+            u = infraInfra.DataMidGet(textData, na);
             row = (int)u;
-            nn = nn + 1;
-            u = infraInfra.DataMidGet(textData, nn * sizeof(uint));
+            
+            na = (nn + 1) * sizeof(uint);
+            u = infraInfra.DataMidGet(textData, na);
             index = (int)u;
-            nn = nn + 1;
-            u = infraInfra.DataMidGet(textData, nn * sizeof(uint));
+            
+            na = (nn + 2) * sizeof(uint);
+            u = infraInfra.DataMidGet(textData, na);
             countA = (int)u;
 
             Text line;
