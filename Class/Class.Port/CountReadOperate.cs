@@ -14,6 +14,8 @@ public class CountReadOperate : ReadOperate
         this.Import.Init();
         this.ImportClass = new ImportClass();
         this.ImportClass.Init();
+        this.Export = new Export();
+        this.Export.Init();
         return true;
     }
 
@@ -25,6 +27,7 @@ public class CountReadOperate : ReadOperate
     protected virtual ModuleRef ModuleRef { get; set; }
     protected virtual Import Import { get; set; }
     protected virtual ImportClass ImportClass { get; set; }
+    protected virtual Export Export { get; set; }
 
     public override string ExecuteString(int row, Range range)
     {
@@ -68,7 +71,10 @@ public class CountReadOperate : ReadOperate
 
     public override Export ExecuteExport()
     {
-        return null;
+        ReadArg arg;
+        arg = this.Read.Arg;
+        arg.ExportIndex = arg.ExportIndex + 1;
+        return this.Export;
     }
 
     public override Storage ExecuteStorage()
