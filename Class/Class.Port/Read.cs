@@ -52,7 +52,66 @@ public class Read : Any
     public virtual bool Execute()
     {
         this.LineList = this.ClassInfra.TextCreate(this.Source);
+        
+        ReadArg arg;
+        arg = new ReadArg();
+        arg.Init();
+        this.Arg = arg;
+
+        this.Operate = this.CountOperate;
+
+        this.ResetStageIndex();
+        this.ExecuteStage();
+
+        long aa;
+        aa = arg.StringIndex;
+        aa = aa * sizeof(uint) * 3;
+        arg.StringTextData = this.CreateData(aa);
+        aa = arg.ArrayIndex;
+        aa = aa * sizeof(uint);
+        arg.ArrayCountData = this.CreateData(aa);
+
+        this.Operate = this.StringOperate;
+
+        this.ResetStageIndex();
+        this.ExecuteStage();
+
+        this.Arg = null;
         return true;
+    }
+
+    protected virtual bool ResetStageIndex()
+    {
+        ReadArg arg;
+        arg = this.Arg;
+        arg.StringIndex = 0;
+        arg.ArrayIndex = 0;
+        arg.ModuleRefIndex = 0;
+        arg.ImportIndex = 0;
+        arg.ImportClassIndex = 0;
+        arg.ExportIndex = 0;
+        arg.StorageIndex = 0;
+        return true;
+    }
+
+    protected virtual Data CreateData(long count)
+    {
+        Data a;
+        a = new Data();
+        a.Count = count;
+        a.Init();
+        return a;
+    }
+
+    protected virtual bool ExecuteStage()
+    {
+        this.Port = this.ExecutePort();
+        return true;
+    }
+
+    protected virtual Port ExecutePort()
+    {
+        return null;
     }
 
     protected virtual ModuleRef ExecuteModuleRef(Text text)
