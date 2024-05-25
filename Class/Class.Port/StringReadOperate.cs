@@ -50,15 +50,19 @@ public class StringReadOperate : ReadOperate
         data = arg.StringTextData;
         long nn;
         nn = index;
-        nn = nn * sizeof(uint) * 3;
+        nn = nn * 3;
 
+        long na;
+        na = nn * sizeof(uint);
         uint u;
         u = (uint)row;
-        infraInfra.DataMidSet(data, nn, u);
+        infraInfra.DataMidSet(data, na, u);
+        na = (nn + 1) * sizeof(uint);
         u = (uint)range.Index;
-        infraInfra.DataMidSet(data, nn + 1, u);
+        infraInfra.DataMidSet(data, na, u);
+        na = (nn + 2) * sizeof(uint);
         u = (uint)range.Count;
-        infraInfra.DataMidSet(data, nn + 2, u);
+        infraInfra.DataMidSet(data, na, u);
 
         arg.StringIndex = index + 1;
         return this.String;
