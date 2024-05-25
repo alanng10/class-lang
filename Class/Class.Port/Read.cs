@@ -24,6 +24,9 @@ public class Read : Any
     public virtual ReadArg Arg { get; set; }
     protected virtual ClassInfra ClassInfra { get; set; }
     protected virtual Array LineList { get; set; }
+    protected virtual ReadOperate Operate { get; set; }
+    protected virtual CountReadOperate CountOperate { get; set; }
+    protected virtual StringReadOperate StringOperate { get; set; }
     protected virtual Text Text { get; set; }
     protected virtual StringData StringData { get; set; }
     protected virtual string Colon { get; set; }
