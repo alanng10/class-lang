@@ -12,6 +12,11 @@ public class ReadOperate : Any
         return null;
     }
 
+    public virtual Port ExecutePort()
+    {
+        return null;
+    }
+
     public virtual ModuleRef ExecuteModuleRef()
     {
         return null;

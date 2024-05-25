@@ -9,6 +9,8 @@ public class StringReadOperate : ReadOperate
         this.ClassInfra = ClassInfra.This;
         this.String = "";
         this.Array = this.ListInfra.ArrayCreate(0);
+        this.Port = new Port();
+        this.Port.Init();
         this.ModuleRef = this.ClassInfra.ModuleRefCreate(null, 0);
         this.Import = new Import();
         this.Import.Init();
@@ -27,6 +29,7 @@ public class StringReadOperate : ReadOperate
     protected virtual ClassInfra ClassInfra { get; set; }
     protected virtual string String { get; set; }
     protected virtual Array Array { get; set; }
+    protected virtual Port Port { get; set; }
     protected virtual ModuleRef ModuleRef { get; set; }
     protected virtual Import Import { get; set; }
     protected virtual ImportClass ImportClass { get; set; }
@@ -78,6 +81,14 @@ public class StringReadOperate : ReadOperate
 
         arg.ArrayIndex = arrayIndex + 1;
         return this.Array;
+    }
+
+    public override Port ExecutePort()
+    {
+        ReadArg arg;
+        arg = this.Read.Arg;
+        arg.PortIndex = arg.PortIndex + 1;
+        return this.Port;
     }
 
     public override ModuleRef ExecuteModuleRef()
