@@ -5,6 +5,8 @@ public class Read : Any
     public override bool Init()
     {
         base.Init();
+        this.InfraInfra = InfraInfra.This;
+        this.ListInfra = ListInfra.This;
         this.TextInfra = TextInfra.This;
         this.ClassInfra = ClassInfra.This;
 
@@ -14,6 +16,9 @@ public class Read : Any
         this.StringOperate = new StringReadOperate();
         this.StringOperate.Read = this;
         this.StringOperate.Init();
+        this.SetOperate = new SetReadOperate();
+        this.SetOperate.Read = this;
+        this.SetOperate.Init();
 
         this.Text = new Text();
         this.Text.Init();
@@ -37,12 +42,15 @@ public class Read : Any
     public virtual string Source { get; set; }
     public virtual Port Port { get; set; }
     public virtual ReadArg Arg { get; set; }
+    protected virtual InfraInfra InfraInfra { get; set; }
+    protected virtual ListInfra ListInfra { get; set; }
     protected virtual TextInfra TextInfra { get; set; }
     protected virtual ClassInfra ClassInfra { get; set; }
     protected virtual Array LineList { get; set; }
     protected virtual ReadOperate Operate { get; set; }
     protected virtual CountReadOperate CountOperate { get; set; }
     protected virtual StringReadOperate StringOperate { get; set; }
+    protected virtual SetReadOperate SetOperate { get; set; }
     protected virtual Text Text { get; set; }
     protected virtual StringData StringData { get; set; }
     protected virtual TextCompare TextCompare { get; set; }
@@ -51,6 +59,9 @@ public class Read : Any
 
     public virtual bool Execute()
     {
+        ListInfra listInfra;
+        listInfra = this.ListInfra;
+
         this.LineList = this.ClassInfra.TextCreate(this.Source);
         
         ReadArg arg;
@@ -76,6 +87,16 @@ public class Read : Any
         this.ResetStageIndex();
         this.ExecuteStage();
 
+        arg.StringArray = listInfra.ArrayCreate(arg.StringIndex);
+        arg.ArrayArray = listInfra.ArrayCreate(arg.ArrayIndex);
+        arg.PortArray = listInfra.ArrayCreate(arg.PortIndex);
+        arg.ModuleRefArray = listInfra.ArrayCreate(arg.ModuleRefIndex);
+        arg.ImportArray = listInfra.ArrayCreate(arg.ImportIndex);
+        arg.ExportArray = listInfra.ArrayCreate(arg.ExportIndex);
+        arg.StorageArray = listInfra.ArrayCreate(arg.StorageIndex);
+
+        
+
         this.Arg = null;
         return true;
     }
@@ -86,11 +107,68 @@ public class Read : Any
         arg = this.Arg;
         arg.StringIndex = 0;
         arg.ArrayIndex = 0;
+        arg.PortIndex = 0;
         arg.ModuleRefIndex = 0;
         arg.ImportIndex = 0;
         arg.ImportClassIndex = 0;
         arg.ExportIndex = 0;
         arg.StorageIndex = 0;
+        return true;
+    }
+
+    protected virtual bool ExecuteCreateString()
+    {
+        InfraInfra infraInfra;
+        infraInfra = this.InfraInfra;
+        TextInfra textInfra;
+        textInfra = this.TextInfra;
+
+        ReadArg arg;
+        arg = this.Arg;
+        Array lineList;
+        lineList = this.LineList;
+        Text text;
+        text = this.Text;
+        Range range;
+        range = text.Range;
+        Data textData;
+        textData = arg.StringTextData;
+        Array array;
+        array = arg.StringArray;
+        int count;
+        count = array.Count;
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            long nn;
+            nn = i;
+            nn = nn * sizeof(uint) * 3;
+            int row;
+            int index;
+            int countA;
+            uint u;
+            u = infraInfra.DataMidGet(textData, nn);
+            row = (int)u;
+            u = infraInfra.DataMidGet(textData, nn + 1);
+            index = (int)u;
+            u = infraInfra.DataMidGet(textData, nn + 2);
+            countA = (int)u;
+
+            Text line;
+            line = (Text)lineList.Get(row);
+
+            text.Data = line.Data;
+            range.Index = index;
+            range.Count = countA;
+
+            string a;
+            a = textInfra.StringCreate(text);
+
+            array.Set(i, a);
+            
+            i = i + 1;
+        }
         return true;
     }
 
