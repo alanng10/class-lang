@@ -22,6 +22,7 @@ public class StringReadOperate : ReadOperate
     }
 
     public virtual Read Read { get; set; }
+    protected virtual InfraInfra InfraInfra { get; set; }
     protected virtual ListInfra ListInfra { get; set; }
     protected virtual ClassInfra ClassInfra { get; set; }
     protected virtual string String { get; set; }
@@ -34,9 +35,29 @@ public class StringReadOperate : ReadOperate
 
     public override string ExecuteString(int row, Range range)
     {
+        InfraInfra infraInfra;
+        infraInfra = this.InfraInfra;
+
         ReadArg arg;
         arg = this.Read.Arg;
-        arg.StringIndex = arg.StringIndex + 1;
+        int index;
+        index = arg.StringIndex;
+
+        Data data;
+        data = arg.StringTextData;
+        long nn;
+        nn = index;
+        nn = nn * sizeof(uint) * 3;
+
+        uint u;
+        u = (uint)row;
+        infraInfra.DataMidSet(data, nn, u);
+        u = (uint)range.Index;
+        infraInfra.DataMidSet(data, nn + 1, u);
+        u = (uint)range.Count;
+        infraInfra.DataMidSet(data, nn + 2, u);
+
+        arg.StringIndex = index + 1;
         return this.String;
     }
 
