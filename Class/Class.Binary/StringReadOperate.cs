@@ -134,11 +134,12 @@ public class StringReadOperate : ReadOperate
         int stringIndex;
         stringIndex = arg.StringIndex;
 
-        long oe;
-        oe = stringIndex * sizeof(uint);
+        long nn;
+        nn = stringIndex;
+        nn = nn * sizeof(uint);
         uint countU;
         countU = (uint)count;
-        this.InfraInfra.DataMidSet(arg.StringCountData, oe, countU);
+        this.InfraInfra.DataMidSet(arg.StringCountData, nn, countU);
 
         Data data;
         data = read.Data;
@@ -180,11 +181,12 @@ public class StringReadOperate : ReadOperate
         int arrayIndex;
         arrayIndex = arg.ArrayIndex;
 
-        long oe;
-        oe = arrayIndex * sizeof(uint);
+        long nn;
+        nn = arrayIndex;
+        nn = nn * sizeof(uint);
         uint countU;
         countU = (uint)count;
-        this.InfraInfra.DataMidSet(arg.ArrayCountData, oe, countU);
+        this.InfraInfra.DataMidSet(arg.ArrayCountData, nn, countU);
 
         arg.ArrayIndex = arrayIndex + 1;
         return this.Array;
