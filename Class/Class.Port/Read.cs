@@ -7,6 +7,13 @@ public class Read : Any
         base.Init();
         this.ClassInfra = ClassInfra.This;
 
+        this.CountOperate = new CountReadOperate();
+        this.CountOperate.Read = this;
+        this.CountOperate.Init();
+        this.StringOperate = new StringReadOperate();
+        this.StringOperate.Read = this;
+        this.StringOperate.Init();
+
         this.Text = new Text();
         this.Text.Init();
         this.Text.Range = new Range();
