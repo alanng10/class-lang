@@ -6,15 +6,25 @@ public class CountReadOperate : ReadOperate
     {
         base.Init();
         this.ListInfra = ListInfra.This;
+        this.ClassInfra = ClassInfra.This;
         this.String = "";
         this.Array = this.ListInfra.ArrayCreate(0);
+        this.ModuleRef = this.ClassInfra.ModuleRefCreate(null, 0);
+        this.Import = new Import();
+        this.Import.Init();
+        this.ImportClass = new ImportClass();
+        this.ImportClass.Init();
         return true;
     }
 
     public virtual Read Read { get; set; }
     protected virtual ListInfra ListInfra { get; set; }
+    protected virtual ClassInfra ClassInfra { get; set; }
     protected virtual string String { get; set; }
     protected virtual Array Array { get; set; }
+    protected virtual ModuleRef ModuleRef { get; set; }
+    protected virtual Import Import { get; set; }
+    protected virtual ImportClass ImportClass { get; set; }
 
     public override string ExecuteString(int row, Range range)
     {
@@ -34,17 +44,26 @@ public class CountReadOperate : ReadOperate
 
     public override ModuleRef ExecuteModuleRef()
     {
-        return null;
+        ReadArg arg;
+        arg = this.Read.Arg;
+        arg.ModuleRefIndex = arg.ModuleRefIndex + 1;
+        return this.ModuleRef;
     }
 
     public override Import ExecuteImport()
     {
-        return null;
+        ReadArg arg;
+        arg = this.Read.Arg;
+        arg.ImportIndex = arg.ImportIndex + 1;
+        return this.Import;
     }
 
     public override ImportClass ExecuteImportClass()
     {
-        return null;
+        ReadArg arg;
+        arg = this.Read.Arg;
+        arg.ImportClassIndex = arg.ImportClassIndex + 1;
+        return this.ImportClass;
     }
 
     public override Export ExecuteExport()
