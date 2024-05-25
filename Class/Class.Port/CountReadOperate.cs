@@ -82,6 +82,9 @@ public class CountReadOperate : ReadOperate
 
     public override Storage ExecuteStorage()
     {
-        return null;
+        ReadArg arg;
+        arg = this.Read.Arg;
+        arg.StorageIndex = arg.StorageIndex + 1;
+        return this.Storage;
     }
 }
