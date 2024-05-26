@@ -458,6 +458,24 @@ public class Read : Any
 
     protected virtual long ExecuteModuleVersion(Text text)
     {
+        Range range;
+        range = text.Range;
+
+        int index;
+        int count;
+        index = range.Index;
+        count = range.Count;
+        
+        long a;
+        a = this.ExecuteModuleVersionAll(text);
+
+        range.Index = index;
+        range.Count = count;
+        return a;
+    }
+
+    protected virtual long ExecuteModuleVersionAll(Text text)
+    {
         TextInfra textInfra;
         textInfra = this.TextInfra;
 
@@ -539,9 +557,6 @@ public class Read : Any
         {
             return -1;
         }
-
-        range.Index = index;
-        range.Count = count;
 
         long capValue;
         capValue = this.InfraInfra.IntCapValue;
