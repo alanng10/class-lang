@@ -6,14 +6,6 @@ public class SetReadOperate : ReadOperate
     protected virtual InfraInfra InfraInfra { get; set; }
     protected virtual ListInfra ListInfra { get; set; }
     protected virtual ClassInfra ClassInfra { get; set; }
-    protected virtual string String { get; set; }
-    protected virtual Array Array { get; set; }
-    protected virtual Port Port { get; set; }
-    protected virtual ModuleRef ModuleRef { get; set; }
-    protected virtual Import Import { get; set; }
-    protected virtual ImportClass ImportClass { get; set; }
-    protected virtual Export Export { get; set; }
-    protected virtual Storage Storage { get; set; }
 
     public override string ExecuteString(int row, Range range)
     {
@@ -21,45 +13,46 @@ public class SetReadOperate : ReadOperate
         arg = this.Read.Arg;
         int index;
         index = arg.StringIndex;
-
-
+        string a;
+        a = (string)arg.StringArray.Get(index);
         arg.StringIndex = index + 1;
-        return this.String;
+        return a;
     }
 
     public override Array ExecuteArray(int count)
     {
         ReadArg arg;
         arg = this.Read.Arg;
-
-        int arrayIndex;
-        arrayIndex = arg.ArrayIndex;
-
-        long nn;
-        nn = arrayIndex;
-        nn = nn * sizeof(uint);
-        uint u;
-        u = (uint)count;
-        this.InfraInfra.DataMidSet(arg.ArrayCountData, nn, u);
-
-        arg.ArrayIndex = arrayIndex + 1;
-        return this.Array;
+        int index;
+        index = arg.ArrayIndex;
+        Array a;
+        a = (Array)arg.ArrayArray.Get(index);
+        arg.ArrayIndex = index + 1;
+        return a;
     }
 
     public override Port ExecutePort()
     {
         ReadArg arg;
         arg = this.Read.Arg;
-        arg.PortIndex = arg.PortIndex + 1;
-        return this.Port;
+        int index;
+        index = arg.PortIndex;
+        Port a;
+        a = (Port)arg.PortArray.Get(index);
+        arg.PortIndex = index + 1;
+        return a;
     }
 
     public override ModuleRef ExecuteModuleRef()
     {
         ReadArg arg;
         arg = this.Read.Arg;
-        arg.ModuleRefIndex = arg.ModuleRefIndex + 1;
-        return this.ModuleRef;
+        int index;
+        index = arg.ModuleRefIndex;
+        ModuleRef a;
+        a = (ModuleRef)arg.ModuleRefArray.Get(index);
+        arg.ModuleRefIndex = index + 1;
+        return a;
     }
 
     public override Import ExecuteImport()
