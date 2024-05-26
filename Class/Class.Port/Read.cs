@@ -96,6 +96,7 @@ public class Read : Any
         arg.StorageArray = listInfra.ArrayCreate(arg.StorageIndex);
         this.ExecuteCreateString();
         this.ExecuteCreateArray();
+        this.ExecuteCreatePort();
         this.ExecuteCreateModuleRef();
 
         this.Operate = this.SetOperate;
@@ -219,6 +220,28 @@ public class Read : Any
             
             Array a;
             a = listInfra.ArrayCreate(k);
+            array.Set(i, a);
+            i = i + 1;
+        }
+        return true;
+    }
+
+    protected virtual bool ExecuteCreatePort()
+    {
+        ReadArg arg;
+        arg = this.Arg;
+        Array array;
+        array = arg.PortArray;
+
+        int count;
+        count = array.Count;
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            Port a;
+            a = new Port();
+            a.Init();
             array.Set(i, a);
             i = i + 1;
         }
