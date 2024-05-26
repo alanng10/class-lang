@@ -3,9 +3,6 @@ namespace Class.Port;
 public class SetReadOperate : ReadOperate
 {
     public virtual Read Read { get; set; }
-    protected virtual InfraInfra InfraInfra { get; set; }
-    protected virtual ListInfra ListInfra { get; set; }
-    protected virtual ClassInfra ClassInfra { get; set; }
 
     public override string ExecuteString(int row, Range range)
     {
@@ -83,15 +80,23 @@ public class SetReadOperate : ReadOperate
     {
         ReadArg arg;
         arg = this.Read.Arg;
-        arg.ExportIndex = arg.ExportIndex + 1;
-        return this.Export;
+        int index;
+        index = arg.ExportIndex;
+        Export a;
+        a = (Export)arg.ExportArray.Get(index);
+        arg.ExportIndex = index + 1;
+        return a;
     }
 
     public override Storage ExecuteStorage()
     {
         ReadArg arg;
         arg = this.Read.Arg;
-        arg.StorageIndex = arg.StorageIndex + 1;
-        return this.Storage;
+        int index;
+        index = arg.StorageIndex;
+        Storage a;
+        a = (Storage)arg.StorageArray.Get(index);
+        arg.StorageIndex = index + 1;
+        return a;
     }
 }
