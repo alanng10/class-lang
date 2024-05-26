@@ -92,6 +92,7 @@ public class Read : Any
         arg.PortArray = listInfra.ArrayCreate(arg.PortIndex);
         arg.ModuleRefArray = listInfra.ArrayCreate(arg.ModuleRefIndex);
         arg.ImportArray = listInfra.ArrayCreate(arg.ImportIndex);
+        arg.ImportClassArray = listInfra.ArrayCreate(arg.ImportClassIndex);
         arg.ExportArray = listInfra.ArrayCreate(arg.ExportIndex);
         arg.StorageArray = listInfra.ArrayCreate(arg.StorageIndex);
         this.ExecuteCreateString();
