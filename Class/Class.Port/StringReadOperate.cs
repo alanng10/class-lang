@@ -75,17 +75,17 @@ public class StringReadOperate : ReadOperate
         ReadArg arg;
         arg = this.Read.Arg;
 
-        int arrayIndex;
-        arrayIndex = arg.ArrayIndex;
+        int index;
+        index = arg.ArrayIndex;
 
         long nn;
-        nn = arrayIndex;
+        nn = index;
         nn = nn * sizeof(uint);
         uint u;
         u = (uint)count;
         this.InfraInfra.DataMidSet(arg.ArrayCountData, nn, u);
 
-        arg.ArrayIndex = arrayIndex + 1;
+        arg.ArrayIndex = index + 1;
         return this.Array;
     }
 
