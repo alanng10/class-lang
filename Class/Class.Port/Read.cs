@@ -485,11 +485,11 @@ public class Read : Any
         index = range.Index;
         count = range.Count;
 
-        int end;
-        end = index + count;
+        int kka;
+        kka = u;
 
         int ka;
-        ka = u + 1;
+        ka = kka + 1;
         range.Index = index + ka;
         range.Count = count - ka;
         u = textInfra.Index(text, textA, compare);
@@ -498,15 +498,20 @@ public class Read : Any
             return -1;
         }
 
+        int kkb;
+        kkb = u;
         int kb;
-        kb = ka + u + 3;
-        if (!(kb == count))
+        kb = ka + kkb + 1;
+
+        int ku;
+        ku = kb + 2;
+        if (!(ku == count))
         {
             return -1;
         }
         
         range.Index = index;
-        range.Count = u;
+        range.Count = kka;
 
         long major;
         major = intParse.Execute(text, 10, false);
@@ -515,8 +520,39 @@ public class Read : Any
             return -1;
         }
 
+        range.Index = index + ka;
+        range.Count = kkb;
 
-        return 0;
+        long minor;
+        minor = intParse.Execute(text, 10, false);
+        if (minor == -1)
+        {
+            return -1;
+        }
+
+        range.Index = index + kb;
+        range.Count = 2;
+
+        long revision;
+        revision = intParse.Execute(text, 10, false);
+        if (revision == -1)
+        {
+            return -1;
+        }
+
+        range.Index = index;
+        range.Count = count;
+
+        long capValue;
+        capValue = this.InfraInfra.IntCapValue;
+
+        long a;
+        a = 0;
+        a = a | revision;
+        a = a | (minor << 8);
+        a = a | (major << 16);
+        a = a & (capValue - 1);
+        return a;
     }
 
     protected virtual string ExecuteString(Range range)
