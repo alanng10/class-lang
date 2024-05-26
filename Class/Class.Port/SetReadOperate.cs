@@ -59,16 +59,24 @@ public class SetReadOperate : ReadOperate
     {
         ReadArg arg;
         arg = this.Read.Arg;
-        arg.ImportIndex = arg.ImportIndex + 1;
-        return this.Import;
+        int index;
+        index = arg.ImportIndex;
+        Import a;
+        a = (Import)arg.ImportArray.Get(index);
+        arg.ImportIndex = index + 1;
+        return a;
     }
 
     public override ImportClass ExecuteImportClass()
     {
         ReadArg arg;
         arg = this.Read.Arg;
-        arg.ImportClassIndex = arg.ImportClassIndex + 1;
-        return this.ImportClass;
+        int index;
+        index = arg.ImportClassIndex;
+        ImportClass a;
+        a = (ImportClass)arg.ImportClassArray.Get(index);
+        arg.ImportClassIndex = index + 1;
+        return a;
     }
 
     public override Export ExecuteExport()
