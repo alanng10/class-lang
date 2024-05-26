@@ -566,15 +566,11 @@ public class Read : Any
             return -1;
         }
 
-        long capValue;
-        capValue = this.InfraInfra.IntCapValue;
-
         long a;
         a = 0;
         a = a | revision;
         a = a | (minor << 8);
         a = a | (major << 16);
-        a = a & (capValue - 1);
         return a;
     }
 
