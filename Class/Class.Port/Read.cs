@@ -538,6 +538,14 @@ public class Read : Any
             return -1;
         }
 
+        long oo;
+        oo = 1;
+        oo = oo << 44;
+        if (!(major < oo))
+        {
+            return -1;
+        }
+
         range.Index = index + ka;
         range.Count = kkb;
 
