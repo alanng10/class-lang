@@ -20,6 +20,9 @@ public class Read : Any
         this.SetOperate.Read = this;
         this.SetOperate.Init();
 
+        this.IntParse = new IntParse();
+        this.IntParse.Init();
+
         this.Text = new Text();
         this.Text.Init();
         this.Text.Range = new Range();
@@ -52,6 +55,7 @@ public class Read : Any
     protected virtual CountReadOperate CountOperate { get; set; }
     protected virtual StringReadOperate StringOperate { get; set; }
     protected virtual SetReadOperate SetOperate { get; set; }
+    protected virtual IntParse IntParse { get; set; }
     protected virtual Text Text { get; set; }
     protected virtual StringData StringData { get; set; }
     protected virtual TextCompare TextCompare { get; set; }
@@ -454,6 +458,64 @@ public class Read : Any
 
     protected virtual long ExecuteModuleVersion(Text text)
     {
+        TextInfra textInfra;
+        textInfra = this.TextInfra;
+
+        IntParse intParse;
+        intParse = this.IntParse;
+        Text textA;
+        textA = this.Text;
+        Compare compare;
+        compare = this.TextCompare;
+
+        this.TextGet(this.Dot);
+
+        int u;
+        u = textInfra.Index(text, textA, compare);
+        if (u == -1)
+        {
+            return -1;
+        }
+
+        Range range;
+        range = text.Range;
+
+        int index;
+        int count;        
+        index = range.Index;
+        count = range.Count;
+
+        int end;
+        end = index + count;
+
+        int ka;
+        ka = u + 1;
+        range.Index = index + ka;
+        range.Count = count - ka;
+        u = textInfra.Index(text, textA, compare);
+        if (!(u == 2))
+        {
+            return -1;
+        }
+
+        int kb;
+        kb = ka + u + 3;
+        if (!(kb == count))
+        {
+            return -1;
+        }
+        
+        range.Index = index;
+        range.Count = u;
+
+        long major;
+        major = intParse.Execute(text, 10, false);
+        if (major == -1)
+        {
+            return -1;
+        }
+
+
         return 0;
     }
 
