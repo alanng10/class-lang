@@ -108,6 +108,7 @@ public class Read : Any
         this.ResetStageIndex();
         this.ExecuteStage();
 
+        this.Text.Data = null;
         this.Arg = null;
         return true;
     }
