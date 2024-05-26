@@ -108,7 +108,6 @@ public class Read : Any
         this.ResetStageIndex();
         this.ExecuteStage();
 
-        this.Text.Data = null;
         this.Arg = null;
         return true;
     }
@@ -184,6 +183,7 @@ public class Read : Any
 
             string a;
             a = textInfra.StringCreate(text);
+            text.Data = null;
 
             array.Set(i, a);
             
@@ -428,6 +428,9 @@ public class Read : Any
             rangeA.Count = end - oo;
 
             version = this.ExecuteModuleVersion(textA);
+
+            textA.Data = null;
+            
             if (version == -1)
             {
                 return null;
