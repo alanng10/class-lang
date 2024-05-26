@@ -51,16 +51,18 @@ public class StringReadOperate : ReadOperate
         long nn;
         nn = index;
         nn = nn * 3;
-
+        int ka;
+        ka = sizeof(uint);
+        
         long na;
-        na = nn * sizeof(uint);
+        na = nn * ka;
         uint u;
         u = (uint)row;
         infraInfra.DataMidSet(data, na, u);
-        na = (nn + 1) * sizeof(uint);
+        na = (nn + 1) * ka;
         u = (uint)range.Index;
         infraInfra.DataMidSet(data, na, u);
-        na = (nn + 2) * sizeof(uint);
+        na = (nn + 2) * ka;
         u = (uint)range.Count;
         infraInfra.DataMidSet(data, na, u);
 
