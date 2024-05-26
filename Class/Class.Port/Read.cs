@@ -137,6 +137,8 @@ public class Read : Any
         range = text.Range;
         Data textData;
         textData = arg.StringTextData;
+        int ka;
+        ka = sizeof(uint);
         Array array;
         array = arg.StringArray;
         int count;
@@ -152,16 +154,16 @@ public class Read : Any
             int index;
             int countA;
             long na;
-            na = nn * sizeof(uint);
+            na = nn * ka;
             uint u;
             u = infraInfra.DataMidGet(textData, na);
             row = (int)u;
             
-            na = (nn + 1) * sizeof(uint);
+            na = (nn + 1) * ka;
             u = infraInfra.DataMidGet(textData, na);
             index = (int)u;
             
-            na = (nn + 2) * sizeof(uint);
+            na = (nn + 2) * ka;
             u = infraInfra.DataMidGet(textData, na);
             countA = (int)u;
 
@@ -177,6 +179,45 @@ public class Read : Any
 
             array.Set(i, a);
             
+            i = i + 1;
+        }
+        return true;
+    }
+
+    protected virtual bool ExecuteCreateArray()
+    {
+        InfraInfra infraInfra;
+        infraInfra = this.InfraInfra;
+        ListInfra listInfra;
+        listInfra = this.ListInfra;
+
+        ReadArg arg;
+        arg = this.Arg;
+
+        Data data;
+        data = arg.ArrayCountData;
+        Array array;
+        array = arg.ArrayArray;
+        
+        int ka;
+        ka = sizeof(uint);
+        int count;
+        count = array.Count;
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            long nn;
+            nn = i;
+            nn = nn * ka;
+            uint u;
+            u = infraInfra.DataMidGet(data, nn);
+            int k;
+            k = (int)u;
+            
+            Array a;
+            a = listInfra.ArrayCreate(k);
+            array.Set(i, a);
             i = i + 1;
         }
         return true;
