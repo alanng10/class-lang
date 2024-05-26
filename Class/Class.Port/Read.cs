@@ -95,7 +95,9 @@ public class Read : Any
         arg.ExportArray = listInfra.ArrayCreate(arg.ExportIndex);
         arg.StorageArray = listInfra.ArrayCreate(arg.StorageIndex);
         this.ExecuteCreateString();
-        
+        this.ExecuteCreateArray();
+        this.ExecuteCreateModuleRef();
+
         this.Operate = this.SetOperate;
 
         this.ResetStageIndex();
@@ -217,6 +219,28 @@ public class Read : Any
             
             Array a;
             a = listInfra.ArrayCreate(k);
+            array.Set(i, a);
+            i = i + 1;
+        }
+        return true;
+    }
+
+    protected virtual bool ExecuteCreateModuleRef()
+    {
+        ReadArg arg;
+        arg = this.Arg;
+        Array array;
+        array = arg.ModuleRefArray;
+
+        int count;
+        count = array.Count;
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            ModuleRef a;
+            a = new ModuleRef();
+            a.Init();
             array.Set(i, a);
             i = i + 1;
         }
