@@ -100,6 +100,7 @@ public class Read : Any
         this.ExecuteCreateModuleRef();
         this.ExecuteCreateImport();
         this.ExecuteCreateImportClass();
+        this.ExecuteCreateExport();
 
         this.Operate = this.SetOperate;
 
@@ -309,6 +310,28 @@ public class Read : Any
         {
             ImportClass a;
             a = new ImportClass();
+            a.Init();
+            array.Set(i, a);
+            i = i + 1;
+        }
+        return true;
+    }
+
+    protected virtual bool ExecuteCreateExport()
+    {
+        ReadArg arg;
+        arg = this.Arg;
+        Array array;
+        array = arg.ExportArray;
+
+        int count;
+        count = array.Count;
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            Export a;
+            a = new Export();
             a.Init();
             array.Set(i, a);
             i = i + 1;
