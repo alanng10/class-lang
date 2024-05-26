@@ -101,6 +101,7 @@ public class Read : Any
         this.ExecuteCreateImport();
         this.ExecuteCreateImportClass();
         this.ExecuteCreateExport();
+        this.ExecuteCreateStorage();
 
         this.Operate = this.SetOperate;
 
@@ -332,6 +333,28 @@ public class Read : Any
         {
             Export a;
             a = new Export();
+            a.Init();
+            array.Set(i, a);
+            i = i + 1;
+        }
+        return true;
+    }
+
+    protected virtual bool ExecuteCreateStorage()
+    {
+        ReadArg arg;
+        arg = this.Arg;
+        Array array;
+        array = arg.StorageArray;
+
+        int count;
+        count = array.Count;
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            Storage a;
+            a = new Storage();
             a.Init();
             array.Set(i, a);
             i = i + 1;
