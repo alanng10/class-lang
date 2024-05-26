@@ -99,6 +99,7 @@ public class Read : Any
         this.ExecuteCreatePort();
         this.ExecuteCreateModuleRef();
         this.ExecuteCreateImport();
+        this.ExecuteCreateImportClass();
 
         this.Operate = this.SetOperate;
 
@@ -286,6 +287,28 @@ public class Read : Any
         {
             Import a;
             a = new Import();
+            a.Init();
+            array.Set(i, a);
+            i = i + 1;
+        }
+        return true;
+    }
+
+    protected virtual bool ExecuteCreateImportClass()
+    {
+        ReadArg arg;
+        arg = this.Arg;
+        Array array;
+        array = arg.ImportClassArray;
+
+        int count;
+        count = array.Count;
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            ImportClass a;
+            a = new ImportClass();
             a.Init();
             array.Set(i, a);
             i = i + 1;
