@@ -94,8 +94,12 @@ public class Read : Any
         arg.ImportArray = listInfra.ArrayCreate(arg.ImportIndex);
         arg.ExportArray = listInfra.ArrayCreate(arg.ExportIndex);
         arg.StorageArray = listInfra.ArrayCreate(arg.StorageIndex);
-
+        this.ExecuteCreateString();
         
+        this.Operate = this.SetOperate;
+
+        this.ResetStageIndex();
+        this.ExecuteStage();
 
         this.Arg = null;
         return true;
