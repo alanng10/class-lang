@@ -468,6 +468,14 @@ public class Read : Any
         Compare compare;
         compare = this.TextCompare;
 
+        Range range;
+        range = text.Range;
+
+        int index;
+        int count;
+        index = range.Index;
+        count = range.Count;
+
         this.TextGet(this.Dot);
 
         int u;
@@ -476,14 +484,6 @@ public class Read : Any
         {
             return -1;
         }
-
-        Range range;
-        range = text.Range;
-
-        int index;
-        int count;        
-        index = range.Index;
-        count = range.Count;
 
         int kka;
         kka = u;
