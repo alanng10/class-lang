@@ -36,6 +36,7 @@ public class Read : Any
         this.TextCompare.Init();
 
         this.Colon = ":";
+        this.Dot = ".";
         return true;
     }
 
@@ -55,6 +56,7 @@ public class Read : Any
     protected virtual StringData StringData { get; set; }
     protected virtual TextCompare TextCompare { get; set; }
     protected virtual string Colon { get; set; }
+    protected virtual string Dot { get; set; }
     protected virtual int Row { get; set; }
 
     public virtual bool Execute()
