@@ -437,24 +437,42 @@ public class Read : Any
         return null;
     }
 
-    protected virtual Array ExecuteImport(int row, int lineCount)
+    protected virtual Array ExecuteImportArray(int row, int lineCount)
     {
         int count;
         count = this.ImportCount(row, lineCount);
         Array array;
         array = this.Operate.ExecuteArray(count);
+        int k;
+        k = row;
         int i;
         i = 0;
         while (i < count)
         {
-            int k;
-            k = row + 1;
+            int kk;
+            kk = k + 1;
 
+            int ka;
+            ka = this.SubSectionLineCount(kk);
+            if (ka == -1)
+            {
+                return null;
+            }
 
+            Import a;
+            a = this.ExecuteImport(k, ka);
+            if (a == null)
+            {
+                return null;
+            }
+            
+            this.Operate.ExecuteArrayItemSet(array, i, a);
+
+            k = k + 1 + ka;
 
             i = i + 1;
         }
-        return null;
+        return array;
     }
 
     protected virtual int ImportCount(int row, int lineCount)
@@ -517,7 +535,7 @@ public class Read : Any
         return k;
     }
 
-    protected virtual Import ExecuteImportModule(int row, int subsectionLineCount)
+    protected virtual Import ExecuteImport(int row, int subsectionLineCount)
     {
         ModuleRef module;
         module = this.ExecuteModuleRef(row);
