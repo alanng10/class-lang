@@ -458,10 +458,6 @@ public class Read : Any
 
             int ka;
             ka = this.SubSectionLineCount(kk);
-            if (ka == -1)
-            {
-                return null;
-            }
 
             Import a;
             a = this.ExecuteImport(k, ka);
