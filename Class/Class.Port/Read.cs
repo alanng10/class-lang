@@ -405,12 +405,9 @@ public class Read : Any
         {
             return null;
         }
-
-        Text line;
-        line = this.LineText(this.Row);
         
         ModuleRef module;
-        module = this.ExecuteModuleRef(line);
+        module = this.ExecuteModuleRef(this.Row);
         if (module == null)
         {
             return null;
@@ -445,16 +442,10 @@ public class Read : Any
         return true;
     }
 
-    protected virtual Import ExecuteImportModule()
+    protected virtual Import ExecuteImportModule(int row)
     {
-        int row;
-        row = this.Row;
-
-        Text text;
-        text = this.LineText(row);
-        
         ModuleRef module;
-        module = this.ExecuteModuleRef(text);
+        module = this.ExecuteModuleRef(row);
         if (module == null)
         {
             return null;
@@ -478,10 +469,8 @@ public class Read : Any
         i = 0;
         while (i < count)
         {
-            Text k;
-            k = this.LineText(row + i);
             ImportClass aa;
-            aa = this.ExecuteImportClass(k);
+            aa = this.ExecuteImportClass(row + i);
             if (aa == null)
             {
                 return null;
