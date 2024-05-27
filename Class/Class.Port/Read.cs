@@ -412,6 +412,12 @@ public class Read : Any
             return null;
         }
 
+        b = this.NextRow();
+        if (!b)
+        {
+            return null;
+        }
+
         return null;
     }
 
