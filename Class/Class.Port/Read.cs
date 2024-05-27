@@ -607,6 +607,9 @@ public class Read : Any
 
         int u;
         u = textInfra.Index(text, textA, compare);
+        
+        range.Index = index;
+
         if (u == -1)
         {
             return null;
