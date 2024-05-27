@@ -462,7 +462,7 @@ public class Read : Any
         TextInfra textInfra;
         textInfra = this.TextInfra;
 
-        this.TextGet(this.Indent);
+        this.TextGet(this.Space);
 
         Text textA;
         textA = this.Text;
