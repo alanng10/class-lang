@@ -430,10 +430,6 @@ public class Read : Any
         row = row + 1;
         int ka;
         ka = this.SectionLineCount(row);
-        if (ka == -1)
-        {
-            return null;
-        }
 
         Array import;
         import = this.ExecuteImportArray(row, ka);
@@ -669,7 +665,7 @@ public class Read : Any
         
         if (!b)
         {
-            return -1;
+            return i;
         }
         return o;
     }
