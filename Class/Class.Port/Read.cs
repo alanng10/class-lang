@@ -42,6 +42,7 @@ public class Read : Any
         this.Dot = ".";
         this.SquareLeft = "[";
         this.SquareRight = "]";
+        this.Space = " ";
         this.Indent = "    ";
         return true;
     }
@@ -66,6 +67,7 @@ public class Read : Any
     protected virtual string Dot { get; set; }
     protected virtual string SquareLeft { get; set; }
     protected virtual string SquareRight { get; set; }
+    protected virtual string Space { get; set; }
     protected virtual string Indent { get; set; }
     protected virtual int Row { get; set; }
 
