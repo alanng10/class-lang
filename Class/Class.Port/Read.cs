@@ -479,7 +479,52 @@ public class Read : Any
         row = row + 1;
         ka = this.SectionLineCount(row);
 
-        return null;
+        Array storage;
+        storage = this.ExecuteStorageArray(row, ka);
+        if (storage == null)
+        {
+            return null;
+        }
+
+        row = row + ka;
+
+        row = this.NextRow(row);
+        if (row == -1)
+        {
+            return null;
+        }
+
+        b = this.CheckHead(row, "Entry");
+        if (!b)
+        {
+            return null;
+        }
+
+        row = this.NextRow(row);
+        if (row == -1)
+        {
+            return null;
+        }
+
+        Text aa;
+        aa = this.LineText(row);
+        string entry;
+        entry = this.ExecuteString(row, aa.Range);
+
+        row = row + 1;
+        if (!(row == this.LineList.Count))
+        {
+            return null;
+        }
+
+        Port a;
+        a = this.Operate.ExecutePort();
+        a.Module = module;
+        a.Import = import;
+        a.Export = export;
+        a.Storage = storage;
+        a.Entry = entry;
+        return a;
     }
 
     protected virtual Array ExecuteImportArray(int row, int lineCount)
@@ -710,6 +755,35 @@ public class Read : Any
         a = this.Operate.ExecuteExport();
         a.Class = varClass;
         return a;
+    }
+
+    protected virtual Array ExecuteStorageArray(int row, int lineCount)
+    {
+        int count;
+        count = lineCount;
+        Array array;
+        array = this.Operate.ExecuteArray(count);
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            Storage a;
+            a = this.ExecuteStorage(row + i);
+            if (a == null)
+            {
+                return null;
+            }
+
+            this.Operate.ExecuteArrayItemSet(array, i, a);
+            i = i + 1;
+        }
+
+        return array;
+    }
+
+    protected virtual Storage ExecuteStorage(int row)
+    {
+        return null;
     }
 
     protected virtual int SectionLineCount(int row)
