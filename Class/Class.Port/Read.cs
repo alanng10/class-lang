@@ -69,7 +69,6 @@ public class Read : Any
     protected virtual string SquareRight { get; set; }
     protected virtual string Space { get; set; }
     protected virtual string Indent { get; set; }
-    protected virtual int Row { get; set; }
 
     public virtual bool Execute()
     {
@@ -393,46 +392,55 @@ public class Read : Any
 
     protected virtual Port ExecutePort()
     {
+        int row;
+        row = 0;
+
         bool b;
-        b = this.CheckHead("Module");
+        b = this.CheckHead(row, "Module");
         if (!b)
         {
             return null;
         }
 
-        b = this.NextRow();
-        if (!b)
+        row = this.NextRow(row);
+        if (row == -1)
         {
             return null;
         }
         
         ModuleRef module;
-        module = this.ExecuteModuleRef(this.Row);
+        module = this.ExecuteModuleRef(row);
         if (module == null)
         {
             return null;
         }
 
-        b = this.NextRow();
+        row = this.NextRow(row);
+        if (row == -1)
+        {
+            return null;
+        }
+
+        b = this.CheckHead(row, "Import");
         if (!b)
         {
             return null;
         }
 
-        b = this.CheckHead("Import");
-        if (!b)
-        {
-            return null;
-        }
-
-        this.Row = this.Row + 1;
+        row = row + 1;
         int ka;
-        ka = this.SectionLineCount();
+        ka = this.SectionLineCount(row);
         if (ka == -1)
         {
             return null;
         }
 
+        Array import;
+        import = this.ExecuteImportArray(row, ka);
+        if (import == null)
+        {
+            return null;
+        }
 
         return null;
     }
@@ -465,7 +473,7 @@ public class Read : Any
             {
                 return null;
             }
-            
+
             this.Operate.ExecuteArrayItemSet(array, i, a);
 
             k = k + 1 + ka;
@@ -619,7 +627,7 @@ public class Read : Any
         return a;
     }
 
-    protected virtual int SectionLineCount()
+    protected virtual int SectionLineCount(int row)
     {
         int lineCount;
         lineCount = this.LineList.Count;
@@ -628,8 +636,6 @@ public class Read : Any
         o = -1;
         bool b;
         b = false;
-        int row;
-        row = this.Row;
         int count;
         count = lineCount - row;
         int i;
@@ -716,10 +722,10 @@ public class Read : Any
         return o;
     }
 
-    protected virtual bool CheckHead(string head)
+    protected virtual bool CheckHead(int row, string head)
     {
         Text line;
-        line = this.LineText(this.Row);
+        line = this.LineText(row);
 
         Range range;
         range = line.Range;
@@ -981,18 +987,17 @@ public class Read : Any
         return (Text)this.LineList.Get(row);
     }
 
-    protected virtual bool NextRow()
+    protected virtual int NextRow(int row)
     {
         int a;
-        a = this.Row;
+        a = row;
         a = a + 1;
-        this.Row = a;
-
+ 
         if (!this.InfraInfra.CheckIndex(this.LineList.Count, a))
         {
-            return false;
+            return -1;
         }
-        return true;
+        return a;
     }
 
     protected virtual string ExecuteString(int row, Range range)
