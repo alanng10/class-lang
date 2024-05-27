@@ -437,12 +437,12 @@ public class Read : Any
         return null;
     }
 
-    protected virtual bool ExecuteImport(int row, int lineCount)
+    protected virtual Array ExecuteImport(int row, int lineCount)
     {
-        return true;
+        return null;
     }
 
-    protected virtual Import ExecuteImportModule(int row)
+    protected virtual Import ExecuteImportModule(int row, int subsectionLineCount)
     {
         ModuleRef module;
         module = this.ExecuteModuleRef(row);
@@ -452,15 +452,9 @@ public class Read : Any
         }
 
         row = row + 1;
-        int ka;
-        ka = this.SubSectionLineCount(row);
-        if (ka == -1)
-        {
-            return null;
-        }
 
         int count;
-        count = ka;
+        count = subsectionLineCount;
 
         Array array;
         array = this.Operate.ExecuteArray(count);
