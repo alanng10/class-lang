@@ -398,7 +398,11 @@ public class Read : Any
             return null;
         }
 
-        this.NextRow();
+        b = this.NextRow();
+        if (!b)
+        {
+            return null;
+        }
 
         return null;
     }
