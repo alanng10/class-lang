@@ -442,6 +442,66 @@ public class Read : Any
         return null;
     }
 
+    protected virtual int ImportCount(int row, int lineCount)
+    {
+        TextInfra textInfra;
+        textInfra = this.TextInfra;
+
+        this.TextGet(this.Indent);
+
+        Text textA;
+        textA = this.Text;
+        Range rangeA;
+        rangeA = textA.Range;
+        Compare compare;
+        compare = this.TextCompare;
+
+        int ka;
+        ka = rangeA.Count;
+
+        int k;
+        k = 0;
+
+        int count;
+        count = lineCount;
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            Text text;
+            text = this.LineText(row + i);
+            Range range;
+            range = text.Range;
+            int kk;
+            kk = range.Count;
+
+            bool b;
+            b = false;
+            if (kk < ka)
+            {
+                b = true;
+            }
+            if (!b)
+            {
+                range.Count = ka;
+                if (!textInfra.Equal(text, textA, compare))
+                {
+                    b = true;
+                }
+                range.Count = kk;
+            }
+
+            if (b)
+            {
+                k = k + 1;
+            }
+
+            i = i + 1;
+        }
+
+        return k;
+    }
+
     protected virtual Import ExecuteImportModule(int row, int subsectionLineCount)
     {
         ModuleRef module;
