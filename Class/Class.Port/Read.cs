@@ -591,6 +591,15 @@ public class Read : Any
 
         this.TextGet(this.Space);
 
+        Range range;
+        range = text.Range;
+        int index;
+        index = range.Index;
+        int indexA;
+        indexA = index + 4;
+
+        range.Index = indexA;
+
         Text textA;
         textA = this.Text;
         Compare compare;
@@ -603,22 +612,24 @@ public class Read : Any
             return null;
         }
 
-        Range range;
-        range = textA.Range;
+        Range rangeA;
+        rangeA = textA.Range;
 
-        range.Index = 0;
-        range.Count = u;
+        rangeA.Index = indexA;
+        rangeA.Count = u;
 
         string name;
-        name = this.ExecuteString(row, range);
+        name = this.ExecuteString(row, rangeA);
 
         int k;
         k = u + 1;
-        range.Index = k;
-        range.Count = text.Range.Count - k;
+        int ka;
+        ka = indexA + k;
+        rangeA.Index = ka;
+        rangeA.Count = text.Range.Count - ka;
 
         string varClass;
-        varClass = this.ExecuteString(row, range);
+        varClass = this.ExecuteString(row, rangeA);
         
         ImportClass a;
         a = this.Operate.ExecuteImportClass();
