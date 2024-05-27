@@ -633,6 +633,20 @@ public class Read : Any
         return a;
     }
 
+    protected virtual Export ExecuteExport(int row)
+    {
+        Text text;
+        text = this.LineText(row);
+
+        string varClass;
+        varClass = this.ExecuteString(row, text.Range);
+
+        Export a;
+        a = this.Operate.ExecuteExport();
+        a.Class = varClass;
+        return a;
+    }
+
     protected virtual int SectionLineCount(int row)
     {
         int lineCount;
