@@ -438,6 +438,30 @@ public class Read : Any
             return null;
         }
 
+        row = row + ka;
+
+        row = this.NextRow(row);
+        if (row == -1)
+        {
+            return null;
+        }
+
+        b = this.CheckHead(row, "Export");
+        if (!b)
+        {
+            return null;
+        }
+
+        row = row + 1;
+        ka = this.SectionLineCount(row);
+
+        Array export;
+        export = this.ExecuteExportArray(row, ka);
+        if (export == null)
+        {
+            return null;
+        }
+
         return null;
     }
 
@@ -631,6 +655,30 @@ public class Read : Any
         a.Name = name;
         a.Class = varClass;
         return a;
+    }
+
+    protected virtual Array ExecuteExportArray(int row, int lineCount)
+    {
+        int count;
+        count = lineCount;
+        Array array;
+        array = this.Operate.ExecuteArray(count);
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            Export a;
+            a = this.ExecuteExport(row + i);
+            if (a == null)
+            {
+                return null;
+            }
+
+            this.Operate.ExecuteArrayItemSet(array, i, a);
+            i = i + 1;
+        }
+
+        return array;
     }
 
     protected virtual Export ExecuteExport(int row)
