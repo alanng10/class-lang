@@ -42,6 +42,7 @@ public class Read : Any
         this.Dot = ".";
         this.SquareLeft = "[";
         this.SquareRight = "]";
+        this.Indent = "    ";
         return true;
     }
 
@@ -65,6 +66,7 @@ public class Read : Any
     protected virtual string Dot { get; set; }
     protected virtual string SquareLeft { get; set; }
     protected virtual string SquareRight { get; set; }
+    protected virtual string Indent { get; set; }
     protected virtual int Row { get; set; }
 
     public virtual bool Execute()
@@ -487,12 +489,66 @@ public class Read : Any
             i = i + 1;
         }
         
-        if (b)
+        if (!b)
         {
-            return o;
+            return -1;
+        }
+        return o;
+    }
+
+    protected virtual int SubSectionLineCount()
+    {
+        TextInfra textInfra;
+        textInfra = this.TextInfra;
+
+        int lineCount;
+        lineCount = this.LineList.Count;
+
+        this.TextGet(this.Indent);
+
+        Text textA;
+        textA = this.Text;
+        Compare compare;
+        compare = this.TextCompare;
+
+        int kk;
+        kk = textA.Range.Count;
+
+        int o;
+        o = -1;
+        bool b;
+        b = false;
+        int row;
+        row = this.Row;
+        int count;
+        count = lineCount - row;
+        int i;
+        i = 0;
+        while (!b & i < count)
+        {
+            Text text;
+            text = this.LineText(row + i);
+            Range range;
+            range = text.Range;
+            int ka;
+            ka = range.Count;
+            
+            range.Count = kk;
+            if (!textInfra.Equal(text, textA, compare))
+            {
+                b = true;
+                o = i;
+            }
+            range.Count = ka;
+
+            i = i + 1;
         }
 
-        return -1;
+        if (!b)
+        {
+            return -1;
+        }
+        return o;
     }
 
     protected virtual bool CheckHead(string head)
