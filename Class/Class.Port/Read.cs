@@ -427,6 +427,42 @@ public class Read : Any
         return null;
     }
 
+    protected virtual int SectionLineCount()
+    {
+        int lineCount;
+        lineCount = this.LineList.Count;
+
+        int o;
+        o = -1;
+        bool b;
+        b = false;
+        int row;
+        row = this.Row;
+        int count;
+        count = lineCount - row;
+        int i;
+        i = 0;
+        while (!b & i < count)
+        {
+            Text text;
+            text = this.LineText(row + i);
+            if (text.Range.Count == 0)
+            {
+                b = true;
+                o = i;
+            }
+
+            i = i + 1;
+        }
+        
+        if (b)
+        {
+            return o;
+        }
+
+        return -1;
+    }
+
     protected virtual bool CheckHead(string head)
     {
         Text line;
