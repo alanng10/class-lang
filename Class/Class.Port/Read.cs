@@ -498,9 +498,50 @@ public class Read : Any
         return a;
     }
 
-    protected virtual ImportClass ExecuteImportClass(Text text)
+    protected virtual ImportClass ExecuteImportClass(int row)
     {
-        return null;
+        TextInfra textInfra;
+        textInfra = this.TextInfra;
+
+        Text text;
+        text = this.LineText(row);
+
+        this.TextGet(this.Space);
+
+        Text textA;
+        textA = this.Text;
+        Compare compare;
+        compare = this.TextCompare;
+
+        int u;
+        u = textInfra.Index(text, textA, compare);
+        if (u == -1)
+        {
+            return null;
+        }
+
+        Range range;
+        range = textA.Range;
+
+        range.Index = 0;
+        range.Count = u;
+
+        string name;
+        name = this.ExecuteString(row, range);
+
+        int k;
+        k = u + 1;
+        range.Index = k;
+        range.Count = text.Range.Count - k;
+
+        string varClass;
+        varClass = this.ExecuteString(row, range);
+        
+        ImportClass a;
+        a = this.Operate.ExecuteImportClass();
+        a.Name = name;
+        a.Class = varClass;
+        return a;
     }
 
     protected virtual int SectionLineCount()
@@ -870,10 +911,10 @@ public class Read : Any
         return true;
     }
 
-    protected virtual string ExecuteString(Range range)
+    protected virtual string ExecuteString(int row, Range range)
     {
         string a;
-        a = this.Operate.ExecuteString(this.Row, range);
+        a = this.Operate.ExecuteString(row, range);
         return a;
     }
 
