@@ -386,15 +386,12 @@ public class Read : Any
 
     protected virtual bool ExecuteStage()
     {
-        this.Port = this.ExecutePort();
+        this.Port = this.ExecutePort(0);
         return true;
     }
 
-    protected virtual Port ExecutePort()
+    protected virtual Port ExecutePort(int row)
     {
-        int row;
-        row = 0;
-
         bool b;
         b = this.CheckHead(row, "Module");
         if (!b)
@@ -415,6 +412,11 @@ public class Read : Any
             return null;
         }
 
+        row = this.NextRow(row);
+        if (row == -1)
+        {
+            return null;
+        }
         row = this.NextRow(row);
         if (row == -1)
         {
