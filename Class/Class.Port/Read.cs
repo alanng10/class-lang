@@ -483,7 +483,7 @@ public class Read : Any
 
         this.TextGet(this.SquareRight);
 
-        range.Index = count - 1;
+        range.Index = index + count - 1;
 
         if (!textInfra.Equal(line, textA, compare))
         {
@@ -492,7 +492,7 @@ public class Read : Any
         
         this.TextGet(head);
 
-        range.Index = 1;
+        range.Index = index + 1;
         range.Count = count - 2;
 
         if (!textInfra.Equal(line, textA, compare))
