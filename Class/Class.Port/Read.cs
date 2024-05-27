@@ -452,9 +452,8 @@ public class Read : Any
         }
 
         row = row + 1;
-        this.Row = row;
         int ka;
-        ka = this.SubSectionLineCount();
+        ka = this.SubSectionLineCount(row);
         if (ka == -1)
         {
             return null;
@@ -568,7 +567,7 @@ public class Read : Any
         return o;
     }
 
-    protected virtual int SubSectionLineCount()
+    protected virtual int SubSectionLineCount(int row)
     {
         TextInfra textInfra;
         textInfra = this.TextInfra;
@@ -590,8 +589,6 @@ public class Read : Any
         o = -1;
         bool b;
         b = false;
-        int row;
-        row = this.Row;
         int count;
         count = lineCount - row;
         int i;
