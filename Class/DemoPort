@@ -17,8 +17,8 @@ Ghhh
 Lo
 
 [Storage]
-"Data/Ff/ff.txt" "../../O.txt"
-"G/H" "../../K"
+Data/Ff/ff.txt:../../O.txt
+G/H:../../K
 
 [Entry]
 Fa
