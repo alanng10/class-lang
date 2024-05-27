@@ -1146,13 +1146,18 @@ public class Read : Any
         return (Text)this.LineList.Get(row);
     }
 
+    protected virtual bool CheckRow(int row)
+    {
+        return this.InfraInfra.CheckIndex(this.LineList.Count, row);
+    }
+
     protected virtual int NextRow(int row)
     {
         int a;
         a = row;
         a = a + 1;
  
-        if (!this.InfraInfra.CheckIndex(this.LineList.Count, a))
+        if (!this.CheckRow(a))
         {
             return -1;
         }
