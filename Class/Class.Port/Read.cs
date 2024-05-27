@@ -514,18 +514,20 @@ public class Read : Any
             return null;
         }
 
-        row = this.NextRow(row);
-        if (row == -1)
+        row = row + 1;
+
+        string entry;
+        entry = null;
+        if (this.CheckRow(row))
         {
-            return null;
+            Text aa;
+            aa = this.LineText(row);
+            
+            entry = this.ExecuteString(row, aa.Range);
+
+            row = row + 1;
         }
 
-        Text aa;
-        aa = this.LineText(row);
-        string entry;
-        entry = this.ExecuteString(row, aa.Range);
-
-        row = row + 1;
         if (!(row == this.LineList.Count))
         {
             return null;
