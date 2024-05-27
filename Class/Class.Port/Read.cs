@@ -40,6 +40,8 @@ public class Read : Any
 
         this.Colon = ":";
         this.Dot = ".";
+        this.SquareLeft = "[";
+        this.SquareRight = "]";
         return true;
     }
 
@@ -61,6 +63,8 @@ public class Read : Any
     protected virtual TextCompare TextCompare { get; set; }
     protected virtual string Colon { get; set; }
     protected virtual string Dot { get; set; }
+    protected virtual string SquareLeft { get; set; }
+    protected virtual string SquareRight { get; set; }
     protected virtual int Row { get; set; }
 
     public virtual bool Execute()
@@ -388,6 +392,82 @@ public class Read : Any
     protected virtual Port ExecutePort()
     {
         return null;
+    }
+
+    protected virtual bool CheckHead(string head)
+    {
+        Text line;
+        line = (Text)this.LineList.Get(this.Row);
+
+        Range range;
+        range = line.Range;
+
+        int index;
+        int count;
+        index = range.Index;
+        count = range.Count;
+
+        bool a;
+        a = this.CheckHeadAll(line, head);
+
+        range.Index = index;
+        range.Count = count;
+
+        return a;
+    }
+
+    protected virtual bool CheckHeadAll(Text line, string head)
+    {
+        TextInfra textInfra;
+        textInfra = this.TextInfra;
+        
+        Range range;
+        range = line.Range;
+
+        int index;
+        int count;
+        index = range.Index;
+        count = range.Count;
+
+        if (!((head.Length + 2) == count))
+        {
+            return false;
+        }
+
+        Text textA;
+        textA = this.Text;
+        Compare compare;
+        compare = this.TextCompare;
+
+        this.TextGet(this.SquareLeft);
+
+        range.Count = 1;
+
+        if (!textInfra.Equal(line, textA, compare))
+        {
+            return false;
+        }
+
+        this.TextGet(this.SquareRight);
+
+        range.Index = count - 1;
+
+        if (!textInfra.Equal(line, textA, compare))
+        {
+            return false;
+        }
+        
+        this.TextGet(head);
+
+        range.Index = 1;
+        range.Count = count - 2;
+
+        if (!textInfra.Equal(line, textA, compare))
+        {
+            return false;
+        }
+
+        return true;
     }
 
     protected virtual ModuleRef ExecuteModuleRef(Text text)
