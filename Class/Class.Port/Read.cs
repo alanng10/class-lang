@@ -418,6 +418,12 @@ public class Read : Any
             return null;
         }
 
+        b = this.CheckHead("Import");
+        if (!b)
+        {
+            return null;
+        }
+
         return null;
     }
 
