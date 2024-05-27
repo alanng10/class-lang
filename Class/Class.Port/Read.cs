@@ -535,21 +535,19 @@ public class Read : Any
         {
             nameCount = n - range.Index;
 
-            textA.Data = text.Data;
             int aa;
             int ab;
             aa = range.Index;
             ab = range.Count;
-            int end;
-            end = aa + ab;
             int oo;
             oo = n + 1;
-            rangeA.Index = oo;
-            rangeA.Count = end - oo;
+            range.Index = aa + oo;
+            range.Count = ab - oo;
 
-            version = this.ExecuteModuleVersion(textA);
+            version = this.ExecuteModuleVersion(text);
 
-            textA.Data = null;
+            range.Index = aa;
+            range.Count = ab;
             
             if (version == -1)
             {
