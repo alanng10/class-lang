@@ -727,7 +727,7 @@ public class Read : Any
 
         if (!b)
         {
-            return -1;
+            return i;
         }
         return o;
     }
