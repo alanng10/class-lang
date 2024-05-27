@@ -147,8 +147,6 @@ public class Read : Any
 
         ReadArg arg;
         arg = this.Arg;
-        Array lineList;
-        lineList = this.LineList;
         Text text;
         text = this.Text;
         Range range;
@@ -186,7 +184,7 @@ public class Read : Any
             countA = (int)u;
 
             Text line;
-            line = (Text)lineList.Get(row);
+            line = this.LineText(row);
 
             text.Data = line.Data;
             range.Index = index;
@@ -404,13 +402,23 @@ public class Read : Any
             return null;
         }
 
+        Text line;
+        line = this.LineText(this.Row);
+        
+        ModuleRef module;
+        module = this.ExecuteModuleRef(line);
+        if (module == null)
+        {
+            return null;
+        }
+
         return null;
     }
 
     protected virtual bool CheckHead(string head)
     {
         Text line;
-        line = (Text)this.LineList.Get(this.Row);
+        line = this.LineText(this.Row);
 
         Range range;
         range = line.Range;
@@ -665,6 +673,11 @@ public class Read : Any
         a = a | (minor << 8);
         a = a | (major << 16);
         return a;
+    }
+
+    protected virtual Text LineText(int row)
+    {
+        return (Text)this.LineList.Get(row);
     }
 
     protected virtual bool NextRow()
