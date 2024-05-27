@@ -439,6 +439,21 @@ public class Read : Any
 
     protected virtual Array ExecuteImport(int row, int lineCount)
     {
+        int count;
+        count = this.ImportCount(row, lineCount);
+        Array array;
+        array = this.Operate.ExecuteArray(count);
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            int k;
+            k = row + 1;
+
+
+
+            i = i + 1;
+        }
         return null;
     }
 
@@ -629,15 +644,15 @@ public class Read : Any
         int lineCount;
         lineCount = this.LineList.Count;
 
-        this.TextGet(this.Indent);
+        this.TextGet(this.Space);
 
         Text textA;
         textA = this.Text;
         Compare compare;
         compare = this.TextCompare;
 
-        int kk;
-        kk = textA.Range.Count;
+        int ka;
+        ka = textA.Range.Count;
 
         int o;
         o = -1;
@@ -653,16 +668,25 @@ public class Read : Any
             text = this.LineText(row + i);
             Range range;
             range = text.Range;
-            int ka;
-            ka = range.Count;
-            
-            range.Count = kk;
-            if (!textInfra.Equal(text, textA, compare))
+            int kk;
+            kk = range.Count;
+
+            if (kk < ka)
             {
                 b = true;
                 o = i;
             }
-            range.Count = ka;
+            
+            if (!b)
+            {
+                range.Count = ka;
+                if (!textInfra.Equal(text, textA, compare))
+                {
+                    b = true;
+                    o = i;
+                }
+                range.Count = kk;
+            }
 
             i = i + 1;
         }
