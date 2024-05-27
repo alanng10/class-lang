@@ -462,6 +462,23 @@ public class Read : Any
             return null;
         }
 
+        row = row + ka;
+
+        row = this.NextRow(row);
+        if (row == -1)
+        {
+            return null;
+        }
+
+        b = this.CheckHead(row, "Storage");
+        if (!b)
+        {
+            return null;
+        }
+
+        row = row + 1;
+        ka = this.SectionLineCount(row);
+
         return null;
     }
 
