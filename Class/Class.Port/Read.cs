@@ -437,7 +437,7 @@ public class Read : Any
         return null;
     }
 
-    protected virtual bool ExecuteImport(int lineCount)
+    protected virtual bool ExecuteImport(int row, int lineCount)
     {
         return true;
     }
