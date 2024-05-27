@@ -710,11 +710,13 @@ public class Read : Any
         return true;
     }
 
-    protected virtual ModuleRef ExecuteModuleRef(Text text)
+    protected virtual ModuleRef ExecuteModuleRef(int row)
     {
         TextInfra textInfra;
         textInfra = this.TextInfra;
 
+        Text text;
+        text = this.LineText(row);
         Range range;
         range = text.Range;
         Text textA;
@@ -765,7 +767,7 @@ public class Read : Any
         rangeA.Index = range.Index;
         rangeA.Count = nameCount;
         string name;
-        name = this.ExecuteString(rangeA);
+        name = this.ExecuteString(row, rangeA);
         
         ModuleRef a;
         a = this.Operate.ExecuteModuleRef();
