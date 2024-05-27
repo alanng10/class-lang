@@ -28,6 +28,12 @@ public class SetReadOperate : ReadOperate
         return a;
     }
 
+    public override bool ExecuteArrayItemSet(Array array, int index, object value)
+    {
+        array.Set(index, value);
+        return true;
+    }
+
     public override Port ExecutePort()
     {
         ReadArg arg;

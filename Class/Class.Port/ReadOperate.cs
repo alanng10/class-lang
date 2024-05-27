@@ -12,6 +12,11 @@ public class ReadOperate : Any
         return null;
     }
 
+    public virtual bool ExecuteArrayItemSet(Array array, int index, object value)
+    {
+        return false;
+    }
+
     public virtual Port ExecutePort()
     {
         return null;

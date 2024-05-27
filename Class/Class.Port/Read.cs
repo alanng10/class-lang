@@ -443,8 +443,11 @@ public class Read : Any
         return true;
     }
 
-    protected virtual Import ExecuteImportModule(int row)
+    protected virtual Import ExecuteImportModule()
     {
+        int row;
+        row = this.Row;
+
         Text text;
         text = this.LineText(row);
         
@@ -455,10 +458,47 @@ public class Read : Any
             return null;
         }
 
+        row = row + 1;
+        this.Row = row;
+        int ka;
+        ka = this.SubSectionLineCount();
+        if (ka == -1)
+        {
+            return null;
+        }
+
+        int count;
+        count = ka;
+
+        Array array;
+        array = this.Operate.ExecuteArray(count);
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            Text k;
+            k = this.LineText(row + i);
+            ImportClass aa;
+            aa = this.ExecuteImportClass(k);
+            if (aa == null)
+            {
+                return null;
+            }
+            array.Set(i, aa);
+
+            i = i + 1;
+        }
+
         Import a;
         a = this.Operate.ExecuteImport();
         a.Module = module;
+        a.Class = array;
         return a;
+    }
+
+    protected virtual ImportClass ExecuteImportClass(Text text)
+    {
+        return null;
     }
 
     protected virtual int SectionLineCount()
