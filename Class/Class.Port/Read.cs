@@ -441,6 +441,10 @@ public class Read : Any
         }
 
         row = row + ka;
+        if (!this.CheckRow(row))
+        {
+            return null;
+        }
 
         row = this.NextRow(row);
         if (row == -1)
@@ -465,6 +469,10 @@ public class Read : Any
         }
 
         row = row + ka;
+        if (!this.CheckRow(row))
+        {
+            return null;
+        }
 
         row = this.NextRow(row);
         if (row == -1)
@@ -489,6 +497,10 @@ public class Read : Any
         }
 
         row = row + ka;
+        if (!this.CheckRow(row))
+        {
+            return null;
+        }
 
         row = this.NextRow(row);
         if (row == -1)
