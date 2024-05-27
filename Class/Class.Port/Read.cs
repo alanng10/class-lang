@@ -424,7 +424,39 @@ public class Read : Any
             return null;
         }
 
+        this.Row = this.Row + 1;
+        int ka;
+        ka = this.SectionLineCount();
+        if (ka == -1)
+        {
+            return null;
+        }
+
+
         return null;
+    }
+
+    protected virtual bool ExecuteImport(int lineCount)
+    {
+        return true;
+    }
+
+    protected virtual Import ExecuteImportModule(int row)
+    {
+        Text text;
+        text = this.LineText(row);
+        
+        ModuleRef module;
+        module = this.ExecuteModuleRef(text);
+        if (module == null)
+        {
+            return null;
+        }
+
+        Import a;
+        a = this.Operate.ExecuteImport();
+        a.Module = module;
+        return a;
     }
 
     protected virtual int SectionLineCount()
