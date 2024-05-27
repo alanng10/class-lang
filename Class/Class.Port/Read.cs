@@ -391,6 +391,15 @@ public class Read : Any
 
     protected virtual Port ExecutePort()
     {
+        bool b;
+        b = this.CheckHead("Module");
+        if (!b)
+        {
+            return null;
+        }
+
+        this.NextRow();
+
         return null;
     }
 
@@ -652,6 +661,20 @@ public class Read : Any
         a = a | (minor << 8);
         a = a | (major << 16);
         return a;
+    }
+
+    protected virtual bool NextRow()
+    {
+        int a;
+        a = this.Row;
+        a = a + 1;
+        this.Row = a;
+
+        if (!this.InfraInfra.CheckIndex(this.LineList.Count, a))
+        {
+            return false;
+        }
+        return true;
     }
 
     protected virtual string ExecuteString(Range range)
