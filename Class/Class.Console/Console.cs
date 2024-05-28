@@ -873,7 +873,7 @@ public class Console : Any
         StorageInfra storageInfra;
         storageInfra = this.StorageInfra;
         ClassInfra classInfra;
-        classInfra = ClassInfra.This;
+        classInfra = this.ClassInfra;
 
         Array array;
         array = this.Source;
