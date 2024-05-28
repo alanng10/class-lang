@@ -386,6 +386,12 @@ public class ModuleLoad : Any
 
         int count;
         count = array.Count;
+        if (!(count == classArray.Count))
+        {
+            this.Status = 40;
+            return false;
+        }
+
         int i;
         i = 0;
         while (i < count)
