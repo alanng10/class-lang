@@ -64,6 +64,12 @@ public class ModuleLoad : Any
             return false;
         }
 
+        this.TextGet(o.Name);
+        if (!this.ClassInfra.IsModuleName(this.NameCheck, this.Text))
+        {
+            return false;
+        }
+
         ClassModule a;
         a = new ClassModule();
         a.Init();
