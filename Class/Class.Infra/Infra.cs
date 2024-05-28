@@ -25,6 +25,14 @@ public class Infra : Any
         this.NewLine = "\n";
         this.IntSignValueNegativeMax = this.InfraInfra.IntCapValue / 2;
         this.IntSignValuePositiveMax = this.IntSignValueNegativeMax - 1;
+        
+        this.CharCompare = new IntCompare();
+        this.CharCompare.Init();
+
+        this.TextCompare = new TextCompare();
+        this.TextCompare.CharCompare = this.CharCompare;
+        this.TextCompare.Init();
+
         this.DotText = this.TextInfra.TextCreateStringData(".", null);
         return true;
     }
@@ -38,6 +46,8 @@ public class Infra : Any
 
     protected virtual InfraInfra InfraInfra { get; set; }
     protected virtual TextInfra TextInfra { get; set; }
+    protected virtual TextCompare TextCompare { get; set; }
+    protected virtual IntCompare CharCompare { get; set; }
     protected virtual Text DotText { get; set; }
 
     public virtual bool IndexRange(Range range, int index)
@@ -250,10 +260,13 @@ public class Infra : Any
         return text;
     }
 
-    public virtual bool IsModuleName(NameCheck nameCheck, Text text, Compare compare)
+    public virtual bool IsModuleName(NameCheck nameCheck, Text text)
     {
         TextInfra textInfra;
         textInfra = this.TextInfra;
+
+        Compare compare;
+        compare = this.TextCompare;
 
         Text dot;
         dot = this.DotText;
