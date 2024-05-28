@@ -28,10 +28,10 @@ public class Console : Any
         this.DocGen = new DocGen();
         this.DocGen.Init();
 
-        this.ModuleTable = this.ClassInfra.TableCreateModuleRefCompare();
+        this.InitModuleTable = this.ClassInfra.TableCreateModuleRefCompare();
         this.BinaryTable = this.ClassInfra.TableCreateModuleRefCompare();
 
-        this.ModuleLoad.ModuleTable = this.ModuleTable;
+        this.ModuleLoad.ModuleTable = this.InitModuleTable;
         this.ModuleLoad.BinaryTable = this.BinaryTable;
 
         this.PortRead = new PortRead();
@@ -51,6 +51,9 @@ public class Console : Any
         this.TextCompare = new TextCompare();
         this.TextCompare.CharCompare = charCompare;
         this.TextCompare.Init();
+
+        this.SystemModulePre = "System.";
+        this.ClassModulePre = "Class.";
 
         this.InitSystem();
 
@@ -97,15 +100,18 @@ public class Console : Any
     protected virtual StorageInfra StorageInfra { get; set; }
     protected virtual ClassInfra ClassInfra { get; set; }
     protected virtual StorageArrange StorageArrange { get; set; }
-    protected virtual Table ModuleTable { get; set; }
-    protected virtual Table BinaryTable { get; set; }
     protected virtual BinaryRead BinaryRead { get; set; }
     protected virtual ModuleLoad ModuleLoad { get; set; }
     protected virtual PortRead PortRead { get; set; }
+    protected virtual Table InitModuleTable { get; set; }
+    protected virtual Table BinaryTable { get; set; }
+    protected virtual Table ModuleTable { get; set; }
     protected virtual PortPort Port { get; set; }
     protected virtual Text Text { get; set; }
     protected virtual StringData StringData { get; set; }
     protected virtual TextCompare TextCompare { get; set; }
+    protected virtual string SystemModulePre { get; set; }
+    protected virtual string ClassModulePre { get; set; }
 
     protected virtual bool InitSystem()
     {
@@ -207,7 +213,7 @@ public class Console : Any
 
             this.ModuleLoad.Module = null;
 
-            this.ListInfra.TableAdd(this.ModuleTable, a.Ref, a);
+            this.ListInfra.TableAdd(this.InitModuleTable, a.Ref, a);
         }
         return true;
     }
@@ -418,6 +424,13 @@ public class Console : Any
                 return 101;
             }
 
+            baa = this.LoadPortModule();
+            if (!baa)
+            {
+                this.Error("Load Port Module Fail");
+                return 102;
+            }
+
             hasFileExtension = true;
             sourceNameList = this.GetSourceNameList(this.SourceFold);
         }
@@ -485,6 +498,13 @@ public class Console : Any
         }
 
         this.Port = port;
+        return true;
+    }
+
+    protected virtual bool LoadPortModule()
+    {
+        PortPort port;
+        port = this.Port;
         return true;
     }
 
@@ -816,39 +836,6 @@ public class Console : Any
         text.Data = d;
         text.Range.Index = 0;
         text.Range.Count = o.Length;
-        return true;
-    }
-
-    private bool CheckPortFile(string portFile)
-    {
-        string name;
-
-
-        name = Path.GetFileName(portFile);
-
-
-
-        bool b;
-
-
-        b = (name == "Port");
-
-
-
-        if (!b)
-        {
-            return false;
-        }
-
-
-
-        if (!File.Exists(portFile))
-        {
-            return false;
-        }
-
-
-
         return true;
     }
 }
