@@ -393,6 +393,12 @@ public class ModuleLoad : Any
             ClassClass varClass;
             varClass = (ClassClass)classArray.Get(i);
 
+            if (!this.CheckBaseDepend(varClass))
+            {
+                this.Status = 32;
+                return false;
+            }
+
             i = i + 1;
         }
         return true;
