@@ -799,7 +799,48 @@ public class Read : Any
 
     protected virtual Storage ExecuteStorage(int row)
     {
-        return null;
+        TextInfra textInfra;
+        textInfra = this.TextInfra;
+
+        Text text;
+        text = this.LineText(row);
+
+        Text textA;
+        textA = this.Text;
+        Compare compare;
+        compare = this.TextCompare;
+
+        this.TextGet(this.Colon);
+
+        int u;
+        u = textInfra.Index(text, textA, compare);
+        if (u == -1)
+        {
+            return null;
+        }
+
+        Range range;
+        range = textA.Range;
+        
+        range.Index = 0;
+        range.Count = u;
+        
+        string path;
+        path = this.ExecuteString(row, range);
+
+        int k;
+        k = u + 1;
+        range.Index = k;
+        range.Count = text.Range.Count - k;
+
+        string sourcePath;
+        sourcePath = this.ExecuteString(row, range);
+
+        Storage a;
+        a = this.Operate.ExecuteStorage();
+        a.Path = path;
+        a.SourcePath = sourcePath;
+        return a;
     }
 
     protected virtual int SectionLineCount(int row)
