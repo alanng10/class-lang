@@ -521,22 +521,30 @@ public class Console : Any
 
     protected virtual bool LoadPortModule()
     {
+        TextInfra textInfra;
+        textInfra = this.TextInfra;
+
         PortPort port;
         port = this.Port;
 
-        Text text;
-        text = this.TextA;
-        StringData data;
-        data = this.StringDataA;
+        Text textA;
+        Text textB;
+        textA = this.TextA;
+        textB = this.TextB;
 
-        this.TextStringGet(text, data, port.Module.Name);
+        StringData dataA;
+        StringData dataB;
+        dataA = this.StringDataA;
+        dataB = this.StringDataB;
 
-        if (!(this.ClassInfra.IsModuleName(this.NameCheck, text)))
+        this.TextStringGet(textA, dataA, port.Module.Name);
+
+        if (!(this.ClassInfra.IsModuleName(this.NameCheck, textA)))
         {
             return false;
         }
 
-
+        this.TextStringGet(textB, dataB, this.SystemModulePre);
         return true;
     }
 
