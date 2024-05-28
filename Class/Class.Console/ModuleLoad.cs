@@ -64,12 +64,14 @@ public class ModuleLoad : Any
 
         if (this.ModuleTable.Contain(o))
         {
+            this.Status = 1;
             return false;
         }
 
         this.TextGet(o.Name);
         if (!this.ClassInfra.IsModuleName(this.NameCheck, this.Text))
         {
+            this.Status = 2;
             return false;
         }
 
@@ -150,13 +152,13 @@ public class ModuleLoad : Any
 
             if (!this.CheckName(name))
             {
-                this.Status = 1;
+                this.Status = 10;
                 return false;
             }
 
             if (classTable.Contain(name))
             {
-                this.Status = 2;
+                this.Status = 11;
                 return false;
             }
 
