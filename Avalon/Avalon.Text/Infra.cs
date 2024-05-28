@@ -377,6 +377,39 @@ public class Infra : Any
         return a;
     }
 
+    public virtual bool End(Text text, Text other, InfraCompare compare)
+    {
+        Range range;
+        range = text.Range;
+
+        int count;
+        count = range.Count;
+        int otherCount;
+        otherCount = other.Range.Count;
+
+        if (count < otherCount)
+        {
+            return false;
+        }
+
+        int index;
+        index = range.Index;
+        
+        int end;
+        end = index + count;
+
+        range.Index = end - otherCount;
+        range.Count = otherCount;
+
+        bool a;
+        a = this.Equal(text, other, compare);
+
+        range.Index = index;
+        range.Count = count;
+
+        return a;
+    }
+
     public virtual int Index(Text text, Text other, InfraCompare compare)
     {
         if (!this.CheckRange(text))
