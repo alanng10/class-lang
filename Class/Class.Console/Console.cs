@@ -870,14 +870,23 @@ public class Console : Any
 
     protected virtual bool ReadSourceText(bool hasFileExtension)
     {
+        StorageInfra storageInfra;
+        storageInfra = this.StorageInfra;
+        ClassInfra classInfra;
+        classInfra = ClassInfra.This;
+
+        Array array;
+        array = this.Source;
+        string sourceFold;
+        sourceFold = this.SourceFold;
         int count;
-        count = this.Source.Count;
+        count = array.Count;
         int i;
         i = 0;
         while (i < count)
         {
             Source a;
-            a = (Source)this.Source.Get(i);
+            a = (Source)array.Get(i);
 
             string k;
             k = "";
@@ -887,13 +896,13 @@ public class Console : Any
             }
 
             string filePath;
-            filePath = this.SourceFold + "/" + a.Name + k;
+            filePath = sourceFold + "/" + a.Name + k;
 
             string h;
-            h = this.StorageInfra.TextRead(filePath);
+            h = storageInfra.TextRead(filePath);
 
             Array text;
-            text = this.ClassInfra.TextCreate(h);
+            text = classInfra.TextCreate(h);
             a.Text = text;
 
             i = i + 1;
