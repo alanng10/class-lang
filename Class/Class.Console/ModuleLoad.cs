@@ -230,6 +230,12 @@ public class ModuleLoad : Any
             ModuleRef moduleRef;
             moduleRef = o.Module;
 
+            if (importTable.Contain(moduleRef))
+            {
+                this.Status = 20;
+                return false;
+            }
+
             Table classTable;
             classTable = classInfra.TableCreateRefCompare();
 
@@ -239,7 +245,7 @@ public class ModuleLoad : Any
             module = this.ModuleGet(moduleRef);
             if (module == null)
             {
-                this.Status = 20;
+                this.Status = 21;
                 return false;
             }
 
@@ -247,7 +253,7 @@ public class ModuleLoad : Any
             oo = (BinaryBinary)binaryTable.Get(moduleRef);
             if (oo == null)
             {
-                this.Status = 21;
+                this.Status = 22;
                 return false;
             }
 
@@ -266,7 +272,7 @@ public class ModuleLoad : Any
                 of = (BinaryClass)oo.Class.Get(oe.Value);
                 if (of == null)
                 {
-                    this.Status = 22;
+                    this.Status = 23;
                     return false;
                 }
 
@@ -277,7 +283,13 @@ public class ModuleLoad : Any
                 varClass = this.ModuleClassGet(module, className);
                 if (varClass == null)
                 {
-                    this.Status = 23;
+                    this.Status = 24;
+                    return false;
+                }
+
+                if (classTable.Contain(varClass))
+                {
+                    this.Status = 25;
                     return false;
                 }
 
