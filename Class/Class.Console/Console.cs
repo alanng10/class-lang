@@ -37,13 +37,16 @@ public class Console : Any
         this.PortRead = new PortRead();
         this.PortRead.Init();
 
-        this.Text = new Text();
-        this.Text.Init();
-        this.Text.Range = new InfraRange();
-        this.Text.Range.Init();
+        this.NameCheck = new NameCheck();
+        this.NameCheck.Init();
 
-        this.StringData = new StringData();
-        this.StringData.Init();
+        this.TextA = this.CreateText();
+        this.TextB = this.CreateText();
+
+        this.StringDataA = new StringData();
+        this.StringDataA.Init();
+        this.StringDataB = new StringData();
+        this.StringDataB.Init();
 
         IntCompare charCompare;
         charCompare = new IntCompare();
@@ -103,12 +106,15 @@ public class Console : Any
     protected virtual BinaryRead BinaryRead { get; set; }
     protected virtual ModuleLoad ModuleLoad { get; set; }
     protected virtual PortRead PortRead { get; set; }
+    protected virtual NameCheck NameCheck { get; set; }
     protected virtual Table InitModuleTable { get; set; }
     protected virtual Table BinaryTable { get; set; }
     protected virtual Table ModuleTable { get; set; }
     protected virtual PortPort Port { get; set; }
-    protected virtual Text Text { get; set; }
-    protected virtual StringData StringData { get; set; }
+    protected virtual Text TextA { get; set; }
+    protected virtual Text TextB { get; set; }
+    protected virtual StringData StringDataA { get; set; }
+    protected virtual StringData StringDataB { get; set; }
     protected virtual TextCompare TextCompare { get; set; }
     protected virtual string SystemModulePre { get; set; }
     protected virtual string ClassModulePre { get; set; }
@@ -233,6 +239,16 @@ public class Console : Any
         a.Init();
         return a;
     }
+    
+    private Text CreateText()
+    {
+        Text a;
+        a = new Text();
+        a.Init();
+        a.Range = new InfraRange();
+        a.Range.Init();
+        return a;
+    }
 
     public virtual bool ArgSet(Array arg)
     {
@@ -286,7 +302,9 @@ public class Console : Any
             compare = this.TextCompare;
 
             Text text;
-            text = this.Text;
+            text = this.TextA;
+            StringData data;
+            data = this.StringDataA;
 
             aaa = aaa.Replace('\\', '/');
             aab = aab.Replace('\\', '/');
@@ -294,7 +312,7 @@ public class Console : Any
             string sourceFold;
             sourceFold = aaa;
 
-            this.TextStringGet(sourceFold);
+            this.TextStringGet(text, data, sourceFold);
             if (storageInfra.IsRelativePath(text, compare))
             {
                 sourceFold = executeFoldPath + combine + sourceFold;
@@ -303,7 +321,7 @@ public class Console : Any
             string destFold;
             destFold = aab;
 
-            this.TextStringGet(destFold);
+            this.TextStringGet(text, data, destFold);
             if (storageInfra.IsRelativePath(text, compare))
             {
                 destFold = executeFoldPath + combine + destFold;
@@ -505,6 +523,20 @@ public class Console : Any
     {
         PortPort port;
         port = this.Port;
+
+        Text text;
+        text = this.TextA;
+        StringData data;
+        data = this.StringDataA;
+
+        this.TextStringGet(text, data, port.Module.Name);
+
+        if (!(this.ClassInfra.IsModuleName(this.NameCheck, text)))
+        {
+            return false;
+        }
+
+
         return true;
     }
 
@@ -824,16 +856,11 @@ public class Console : Any
         return true;
     }
 
-    protected virtual bool TextStringGet(string o)
+    protected virtual bool TextStringGet(Text text, StringData data, string o)
     {
-        StringData d;
-        d = this.StringData;
-        d.Value = o;
+        data.Value = o;
 
-        Text text;
-        text = this.Text;
-
-        text.Data = d;
+        text.Data = data;
         text.Range.Index = 0;
         text.Range.Count = o.Length;
         return true;
