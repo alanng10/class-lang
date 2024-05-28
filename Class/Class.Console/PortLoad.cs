@@ -31,6 +31,8 @@ public class PortLoad : Any
         return true;
     }
     public virtual PortPort Port { get; set; }
+    public virtual Table ModuleTable { get; set; }
+    public virtual Table BinaryTable { get; set; }
     protected virtual TextInfra TextInfra { get; set; }
     protected virtual StorageInfra StorageInfra { get; set; }
     protected virtual ClassInfra ClassInfra { get; set; }
@@ -157,13 +159,44 @@ public class PortLoad : Any
 
     protected virtual bool PortImportLoad(PortImport import)
     {
+        ClassInfra classInfra;
+        classInfra = this.ClassInfra;
+
         ModuleRef module;
         module = import.Module;
-        if (!this.CheckImportModuleRef(module))
+        
+        Text textA;
+        Text textB;
+        textA = this.TextA;
+        textB = this.TextB;
+
+        StringData dataA;
+        StringData dataB;
+        dataA = this.StringDataA;
+        dataB = this.StringDataB;
+
+        string name;
+        name = module.Name;
+        long version;
+        version = module.Version;
+
+        this.TextStringGet(textA, dataA, name);
+        if (!(classInfra.IsModuleName(this.NameCheck, textA)))
         {
             return false;
         }
 
+        bool isBuiltin;
+        isBuiltin = this.IsBuiltinModuleRef(module);
+
+        if (isBuiltin)
+        {
+            if (!(version == -1))
+            {
+                return false;
+            }
+        }
+        
         Array array;
         array = import.Class;
         int count;
@@ -180,7 +213,7 @@ public class PortLoad : Any
         return true;
     }
 
-    protected virtual bool CheckImportModuleRef(ModuleRef moduleRef)
+    protected virtual bool IsBuiltinModuleRef(ModuleRef moduleRef)
     {
         TextInfra textInfra;
         textInfra = this.TextInfra;
@@ -202,8 +235,6 @@ public class PortLoad : Any
 
         string name;
         name = moduleRef.Name;
-        long version;
-        version = moduleRef.Version;
 
         this.TextStringGet(textA, dataA, name);
 
@@ -248,15 +279,7 @@ public class PortLoad : Any
             }
         }
 
-        if (b)
-        {
-            if (!(version == -1))
-            {
-                return false;
-            }
-        }
-
-        return true;
+        return b;
     }
 
     protected virtual bool TextStringGet(Text text, StringData data, string o)
