@@ -55,8 +55,10 @@ public class Console : Any
         this.TextCompare.CharCompare = charCompare;
         this.TextCompare.Init();
 
-        this.SystemModulePre = "System.";
-        this.ClassModulePre = "Class.";
+        this.SystemModuleSingle = "System";
+        this.SystemModulePre = this.SystemModuleSingle + ".";
+        this.ClassModuleSingle = "Class";
+        this.ClassModulePre = this.ClassModuleSingle + ".";
 
         this.InitSystem();
 
@@ -116,7 +118,9 @@ public class Console : Any
     protected virtual StringData StringDataA { get; set; }
     protected virtual StringData StringDataB { get; set; }
     protected virtual TextCompare TextCompare { get; set; }
+    protected virtual string SystemModuleSingle { get; set; }
     protected virtual string SystemModulePre { get; set; }
+    protected virtual string ClassModuleSingle { get; set; }
     protected virtual string ClassModulePre { get; set; }
 
     protected virtual bool InitSystem()
@@ -537,6 +541,9 @@ public class Console : Any
         dataA = this.StringDataA;
         dataB = this.StringDataB;
 
+        Compare compare;
+        compare = this.TextCompare;
+
         this.TextStringGet(textA, dataA, port.Module.Name);
 
         if (!(this.ClassInfra.IsModuleName(this.NameCheck, textA)))
@@ -544,7 +551,30 @@ public class Console : Any
             return false;
         }
 
+        this.TextStringGet(textB, dataB, this.SystemModuleSingle);
+        if (textInfra.Equal(textA, textB, compare))
+        {
+            return false;
+        }
+
         this.TextStringGet(textB, dataB, this.SystemModulePre);
+        if (textInfra.Start(textA, textB, compare))
+        {
+            return false;
+        }
+
+        this.TextStringGet(textB, dataB, this.ClassModuleSingle);
+        if (textInfra.Equal(textA, textB, compare))
+        {
+            return false;
+        }
+
+        this.TextStringGet(textB, dataB, this.ClassModulePre);
+        if (textInfra.Start(textA, textB, compare))
+        {
+            return false;
+        }
+
         return true;
     }
 

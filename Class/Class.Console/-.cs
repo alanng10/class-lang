@@ -6,6 +6,7 @@ global using InfraInfra = Avalon.Infra.Infra;
 global using InfraIntValue = Avalon.Infra.IntValue;
 global using StringCreate = Avalon.Infra.StringCreate;
 global using StringJoin = Avalon.Infra.StringJoin;
+global using Compare = Avalon.Infra.Compare;
 global using IntCompare = Avalon.Infra.IntCompare;
 global using StringCompare = Avalon.Infra.StringCompare;
 global using List = Avalon.List.List;
