@@ -123,6 +123,7 @@ public class Read : Any
         this.ExecuteStage();
 
         this.Arg = null;
+        this.LineList = null;
         return true;
     }
 
