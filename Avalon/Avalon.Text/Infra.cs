@@ -352,6 +352,31 @@ public class Infra : Any
         return (o == 0);
     }
 
+    public virtual bool Start(Text text, Text other, InfraCompare compare)
+    {
+        Range range;
+        range = text.Range;
+
+        int count;
+        count = range.Count;
+        int otherCount;
+        otherCount = other.Range.Count;
+        
+        if (count < otherCount)
+        {
+            return false;
+        }
+
+        range.Count = otherCount;
+
+        bool a;
+        a = this.Equal(text, other, compare);
+
+        range.Count = count;
+
+        return a;
+    }
+
     public virtual int Index(Text text, Text other, InfraCompare compare)
     {
         if (!this.CheckRange(text))
