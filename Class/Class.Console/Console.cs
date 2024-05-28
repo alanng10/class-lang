@@ -55,11 +55,6 @@ public class Console : Any
         this.TextCompare.CharCompare = charCompare;
         this.TextCompare.Init();
 
-        this.SystemModuleSingle = "System";
-        this.SystemModulePre = this.SystemModuleSingle + ".";
-        this.ClassModuleSingle = "Class";
-        this.ClassModulePre = this.ClassModuleSingle + ".";
-
         this.InitSystem();
 
         return true;
@@ -119,10 +114,6 @@ public class Console : Any
     protected virtual StringData StringDataA { get; set; }
     protected virtual StringData StringDataB { get; set; }
     protected virtual TextCompare TextCompare { get; set; }
-    protected virtual string SystemModuleSingle { get; set; }
-    protected virtual string SystemModulePre { get; set; }
-    protected virtual string ClassModuleSingle { get; set; }
-    protected virtual string ClassModulePre { get; set; }
 
     protected virtual bool InitSystem()
     {
@@ -447,7 +438,7 @@ public class Console : Any
                 return 101;
             }
 
-            baa = this.LoadPortModule();
+            baa = this.PortModuleLoad();
             if (!baa)
             {
                 this.Error("Load Port Module Fail");
@@ -524,70 +515,8 @@ public class Console : Any
         return true;
     }
 
-    protected virtual bool LoadPortModule()
+    protected virtual bool PortModuleLoad()
     {
-        TextInfra textInfra;
-        textInfra = this.TextInfra;
-        ClassInfra classInfra;
-        classInfra = this.ClassInfra;
-
-        PortPort port;
-        port = this.Port;
-
-        Text textA;
-        Text textB;
-        textA = this.TextA;
-        textB = this.TextB;
-
-        StringData dataA;
-        StringData dataB;
-        dataA = this.StringDataA;
-        dataB = this.StringDataB;
-
-        Compare compare;
-        compare = this.TextCompare;
-
-        string name;
-        name = port.Module.Name;
-        long version;
-        version = port.Module.Version;
-
-        this.TextStringGet(textA, dataA, name);
-
-        if (!(this.ClassInfra.IsModuleName(this.NameCheck, textA)))
-        {
-            return false;
-        }
-
-        if (version == -1)
-        {
-            return false;
-        }
-
-        this.TextStringGet(textB, dataB, this.SystemModuleSingle);
-        if (textInfra.Equal(textA, textB, compare))
-        {
-            return false;
-        }
-
-        this.TextStringGet(textB, dataB, this.SystemModulePre);
-        if (textInfra.Start(textA, textB, compare))
-        {
-            return false;
-        }
-
-        this.TextStringGet(textB, dataB, this.ClassModuleSingle);
-        if (textInfra.Equal(textA, textB, compare))
-        {
-            return false;
-        }
-
-        this.TextStringGet(textB, dataB, this.ClassModulePre);
-        if (textInfra.Start(textA, textB, compare))
-        {
-            return false;
-        }
-
         return true;
     }
 
