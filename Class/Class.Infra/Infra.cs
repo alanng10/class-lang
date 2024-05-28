@@ -265,6 +265,8 @@ public class Infra : Any
         int ab;
         aa = range.Index;
         ab = range.Count;
+        int ac;
+        ac = aa + ab;
 
         bool b;
         b = false;
@@ -289,7 +291,7 @@ public class Infra : Any
             if (!b)
             {
                 index = index + u + 1;
-                count = ab - index;
+                count = ac - index;
 
                 u = textInfra.Index(text, dot, compare);
             }
