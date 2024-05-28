@@ -29,10 +29,10 @@ public class Console : Any
         this.DocGen.Init();
 
         this.InitModuleTable = this.ClassInfra.TableCreateModuleRefCompare();
-        this.BinaryTable = this.ClassInfra.TableCreateModuleRefCompare();
+        this.InitBinaryTable = this.ClassInfra.TableCreateModuleRefCompare();
 
         this.ModuleLoad.ModuleTable = this.InitModuleTable;
-        this.ModuleLoad.BinaryTable = this.BinaryTable;
+        this.ModuleLoad.BinaryTable = this.InitBinaryTable;
 
         this.PortRead = new PortRead();
         this.PortRead.Init();
@@ -110,8 +110,9 @@ public class Console : Any
     protected virtual PortRead PortRead { get; set; }
     protected virtual NameCheck NameCheck { get; set; }
     protected virtual Table InitModuleTable { get; set; }
-    protected virtual Table BinaryTable { get; set; }
+    protected virtual Table InitBinaryTable { get; set; }
     protected virtual Table ModuleTable { get; set; }
+    protected virtual Table BinaryTable { get; set; }
     protected virtual PortPort Port { get; set; }
     protected virtual Text TextA { get; set; }
     protected virtual Text TextB { get; set; }
@@ -200,15 +201,15 @@ public class Console : Any
 
         read.Binary = null;
 
-        this.ListInfra.TableAdd(this.BinaryTable, binary.Ref, binary);
+        this.ListInfra.TableAdd(this.InitBinaryTable, binary.Ref, binary);
         return true;
     }
 
     protected virtual bool InitModuleList()
     {
         Iter iter;
-        iter = this.BinaryTable.IterCreate();
-        this.BinaryTable.IterSet(iter);
+        iter = this.InitBinaryTable.IterCreate();
+        this.InitBinaryTable.IterSet(iter);
 
         while (iter.Next())
         {
