@@ -278,7 +278,7 @@ public class Infra : Any
         countA = count;
         while (!b & !(u == -1))
         {
-            countA = u - indexA;
+            countA = u;
             range.Count = countA;
 
             if (!nameCheck.IsName(text))
@@ -288,7 +288,7 @@ public class Infra : Any
 
             if (!b)
             {
-                indexA = u + 1;
+                indexA = indexA + u + 1;
                 countA = count - indexA;
 
                 u = textInfra.Index(text, dot, compare);
