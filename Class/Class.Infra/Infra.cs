@@ -309,7 +309,7 @@ public class Infra : Any
         }
         if (!ba)
         {
-            count = ab - index;
+            count = ac - index;
             range.Count = count;
 
             if (!nameCheck.IsName(text))
