@@ -36,6 +36,7 @@ public class ModuleLoad : Any
     protected virtual Array ImportArray { get; set; }
     protected virtual Text Text { get; set; }
     protected virtual StringData StringData { get; set; }
+    protected virtual ClassClass AnyClass { get; set; }
 
     public virtual bool Execute()
     {
@@ -169,9 +170,21 @@ public class ModuleLoad : Any
             a.Name = name;
             a.Module = this.Module;
 
-            listInfra.TableAdd(classTable, a.Name, a); 
+            listInfra.TableAdd(classTable, name, a); 
 
             i = i + 1;
+        }
+
+        if (this.Module.Ref.Name == "System.Infra")
+        {
+            ClassClass oo;
+            oo = (ClassClass)classTable.Get("Any");
+            if (oo == null)
+            {
+                this.Status = 12;
+                return false;
+            }
+            this.AnyClass = oo;
         }
 
         Array classArray;
@@ -373,6 +386,55 @@ public class ModuleLoad : Any
 
             i = i + 1;
         }
+
+        i = 0;
+        while (i < count)
+        {
+            ClassClass varClass;
+            varClass = (ClassClass)classArray.Get(i);
+
+            i = i + 1;
+        }
+        return true;
+    }
+
+    protected virtual bool CheckBaseDepend(ClassClass varClass)
+    {
+        ListInfra listInfra;
+        listInfra = this.ListInfra;
+
+        ClassClass anyClass;
+        anyClass = this.AnyClass;
+
+        ClassModule module;
+        module = this.Module;
+
+        Table table;
+        table = this.ClassInfra.TableCreateRefCompare();
+
+        while (!(varClass == null))
+        {
+            if (!(varClass.Module == module))
+            {
+                return true;
+            }
+            
+            if (table.Contain(varClass))
+            {
+                return false;
+            }
+
+            listInfra.TableAdd(table, varClass, varClass);
+
+            ClassClass a;
+            a = null;
+            if (!(varClass == anyClass))
+            {
+                a = varClass.Base;
+            }
+            varClass = a;
+        }
+
         return true;
     }
 
