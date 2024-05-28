@@ -34,6 +34,9 @@ public class Console : Any
         this.ModuleLoad.ModuleTable = this.ModuleTable;
         this.ModuleLoad.BinaryTable = this.BinaryTable;
 
+        this.PortRead = new PortRead();
+        this.PortRead.Init();
+
         this.Text = new Text();
         this.Text.Init();
         this.Text.Range = new InfraRange();
@@ -98,6 +101,8 @@ public class Console : Any
     protected virtual Table BinaryTable { get; set; }
     protected virtual BinaryRead BinaryRead { get; set; }
     protected virtual ModuleLoad ModuleLoad { get; set; }
+    protected virtual PortRead PortRead { get; set; }
+    protected virtual PortPort Port { get; set; }
     protected virtual Text Text { get; set; }
     protected virtual StringData StringData { get; set; }
     protected virtual TextCompare TextCompare { get; set; }
@@ -445,6 +450,41 @@ public class Console : Any
 
     protected virtual bool ReadPort()
     {
+        string combine;
+        combine = this.InfraInfra.PathCombine;
+
+        string fileName;
+        fileName = "Class.Port";
+
+        string filePath;
+        filePath = this.SourceFold + combine + fileName;
+
+        string source;
+        source = this.StorageInfra.TextRead(filePath);
+
+        if (source == null)
+        {
+            return false;
+        }
+
+        PortRead read;
+        read = this.PortRead;
+
+        read.Source = source;
+        read.Execute();
+
+        PortPort port;
+        port = read.Port;
+
+        read.Source = null;
+        read.Port = null;
+
+        if (port == null)
+        {
+            return false;
+        }
+
+        this.Port = port;
         return true;
     }
 
