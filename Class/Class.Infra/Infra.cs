@@ -25,6 +25,7 @@ public class Infra : Any
         this.NewLine = "\n";
         this.IntSignValueNegativeMax = this.InfraInfra.IntCapValue / 2;
         this.IntSignValuePositiveMax = this.IntSignValueNegativeMax - 1;
+        this.DotText = this.TextInfra.TextCreateStringData(".", null);
         return true;
     }
 
@@ -37,6 +38,7 @@ public class Infra : Any
 
     protected virtual InfraInfra InfraInfra { get; set; }
     protected virtual TextInfra TextInfra { get; set; }
+    protected virtual Text DotText { get; set; }
 
     public virtual bool IndexRange(Range range, int index)
     {
@@ -246,6 +248,80 @@ public class Infra : Any
         text.Set(count, lastLine);
 
         return text;
+    }
+
+    public virtual bool IsModuleName(NameCheck nameCheck, Text text, Compare compare)
+    {
+        TextInfra textInfra;
+        textInfra = this.TextInfra;
+
+        Text dot;
+        dot = this.DotText;
+
+        InfraRange range;
+        range = text.Range;
+
+        int index;
+        int count;
+        index = range.Index;
+        count = range.Count;
+
+        bool b;
+        b = false;
+
+        int u;
+        u = textInfra.Index(text, dot, compare);
+
+        int indexA;
+        int countA;
+        indexA = index;
+        countA = count;
+        while (!b & !(u == -1))
+        {
+            countA = u - indexA;
+            range.Count = countA;
+
+            if (!nameCheck.IsName(text))
+            {
+                b = true;
+            }
+
+            if (!b)
+            {
+                indexA = u + 1;
+                countA = count - indexA;
+
+                u = textInfra.Index(text, dot, compare);
+            }
+        }
+
+        bool ba;
+        ba = false;
+
+        if (!ba)
+        {
+            if (b)
+            {
+                ba = true;
+            }
+        }
+        if (!ba)
+        {
+            countA = count - indexA;
+            range.Count = countA;
+
+            if (!nameCheck.IsName(text))
+            {
+                ba = true;
+            }
+        }
+
+        range.Index = index;
+        range.Count = count;
+        
+        bool a;
+        a = !ba;
+        return a;
     }
 
     public virtual bool SystemInfoAssignValue(SystemInfo a, SystemInfo b)
