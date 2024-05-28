@@ -237,9 +237,19 @@ public class ModuleLoad : Any
             
             ClassModule module;
             module = this.ModuleGet(moduleRef);
+            if (module == null)
+            {
+                this.Status = 20;
+                return false;
+            }
 
             BinaryBinary oo;
             oo = (BinaryBinary)binaryTable.Get(moduleRef);
+            if (oo == null)
+            {
+                this.Status = 21;
+                return false;
+            }
 
             Array oa;
             oa = o.Class;
@@ -254,12 +264,22 @@ public class ModuleLoad : Any
 
                 BinaryClass of;
                 of = (BinaryClass)oo.Class.Get(oe.Value);
+                if (of == null)
+                {
+                    this.Status = 22;
+                    return false;
+                }
 
                 string className;
                 className = of.Name;
 
                 ClassClass varClass;
                 varClass = this.ModuleClassGet(module, className);
+                if (varClass == null)
+                {
+                    this.Status = 23;
+                    return false;
+                }
 
                 listInfra.TableAdd(classTable, varClass, varClass);
 
