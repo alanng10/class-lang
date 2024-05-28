@@ -31,8 +31,12 @@ public class PortLoad : Any
         return true;
     }
     public virtual PortPort Port { get; set; }
+    public virtual int Status { get; set; }
+    public virtual ModuleLoad ModuleLoad { get; set; }
+    public virtual BinaryRead BinaryRead { get; set; }
     public virtual Table ModuleTable { get; set; }
     public virtual Table BinaryTable { get; set; }
+    protected virtual ListInfra ListInfra { get; set; }
     protected virtual TextInfra TextInfra { get; set; }
     protected virtual StorageInfra StorageInfra { get; set; }
     protected virtual ClassInfra ClassInfra { get; set; }
@@ -196,6 +200,16 @@ public class PortLoad : Any
                 return false;
             }
         }
+
+        if (!isBuiltin)
+        {
+            bool b;
+            b = this.BinaryLoad(module);
+            if (!b)
+            {
+                return false;
+            }
+        }
         
         Array array;
         array = import.Class;
@@ -210,6 +224,62 @@ public class PortLoad : Any
 
             i = i + 1;
         }
+        return true;
+    }
+
+    protected virtual bool BinaryLoad(ModuleRef moduleRef)
+    {
+        string moduleName;
+        moduleName = moduleRef.Name;
+        long version;
+        version = moduleRef.Version;
+
+        string versionString;
+        versionString = this.ClassInfra.VersionString(version);
+    
+        string moduleRefString;
+        moduleRefString = moduleName + "-" + versionString;
+
+        string filePath;
+        filePath = moduleRefString + ".ref";
+
+        Data data;
+        data = this.StorageInfra.DataRead(filePath);
+
+        if (data == null)
+        {
+            this.Status = 50;
+            return false;
+        }
+
+        int kk;
+        kk = (int)data.Count;
+
+        InfraRange range;
+        range = new InfraRange();
+        range.Init();
+        range.Count = kk;
+
+        BinaryRead read;
+        read = this.BinaryRead;
+
+        read.Data = data;
+        read.Range = range;
+
+        read.Execute();
+
+        BinaryBinary binary;
+        binary = read.Binary;
+
+        if (binary == null)
+        {
+            this.Status = 51;
+            return false;
+        }
+
+        read.Binary = null;
+
+        this.ListInfra.TableAdd(this.BinaryTable, binary.Ref, binary);
         return true;
     }
 
