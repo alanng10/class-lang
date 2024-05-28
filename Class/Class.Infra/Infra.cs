@@ -261,10 +261,10 @@ public class Infra : Any
         InfraRange range;
         range = text.Range;
 
-        int index;
-        int count;
-        index = range.Index;
-        count = range.Count;
+        int aa;
+        int ab;
+        aa = range.Index;
+        ab = range.Count;
 
         bool b;
         b = false;
@@ -272,14 +272,14 @@ public class Infra : Any
         int u;
         u = textInfra.Index(text, dot, compare);
 
-        int indexA;
-        int countA;
-        indexA = index;
-        countA = count;
+        int index;
+        int count;
+        index = aa;
+        count = ab;
         while (!b & !(u == -1))
         {
-            countA = u;
-            range.Count = countA;
+            count = u;
+            range.Count = count;
 
             if (!nameCheck.IsName(text))
             {
@@ -288,8 +288,8 @@ public class Infra : Any
 
             if (!b)
             {
-                indexA = indexA + u + 1;
-                countA = count - indexA;
+                index = index + u + 1;
+                count = ab - index;
 
                 u = textInfra.Index(text, dot, compare);
             }
@@ -307,8 +307,8 @@ public class Infra : Any
         }
         if (!ba)
         {
-            countA = count - indexA;
-            range.Count = countA;
+            count = ab - index;
+            range.Count = count;
 
             if (!nameCheck.IsName(text))
             {
@@ -316,8 +316,8 @@ public class Infra : Any
             }
         }
 
-        range.Index = index;
-        range.Count = count;
+        range.Index = aa;
+        range.Count = ab;
         
         bool a;
         a = !ba;
