@@ -551,6 +551,11 @@ public class Console : Any
             return false;
         }
 
+        if (port.Module.Version == -1)
+        {
+            return false;
+        }
+
         this.TextStringGet(textB, dataB, this.SystemModuleSingle);
         if (textInfra.Equal(textA, textB, compare))
         {
