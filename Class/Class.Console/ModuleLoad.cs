@@ -329,9 +329,15 @@ public class ModuleLoad : Any
 
         Array classArray;
         classArray = this.ClassArray;
-        
+
         int count;
         count = array.Count;
+        if (!(count == classArray.Count))
+        {
+            this.Status = 30;
+            return false;
+        }
+
         int i;
         i = 0;
         while (i < count)
@@ -347,6 +353,7 @@ public class ModuleLoad : Any
 
             if (baseClass == null)
             {
+                this.Status = 31;
                 return false;
             }
 
