@@ -527,6 +527,8 @@ public class Console : Any
     {
         TextInfra textInfra;
         textInfra = this.TextInfra;
+        ClassInfra classInfra;
+        classInfra = this.ClassInfra;
 
         PortPort port;
         port = this.Port;
@@ -544,14 +546,19 @@ public class Console : Any
         Compare compare;
         compare = this.TextCompare;
 
-        this.TextStringGet(textA, dataA, port.Module.Name);
+        string name;
+        name = port.Module.Name;
+        long version;
+        version = port.Module.Version;
+
+        this.TextStringGet(textA, dataA, name);
 
         if (!(this.ClassInfra.IsModuleName(this.NameCheck, textA)))
         {
             return false;
         }
 
-        if (port.Module.Version == -1)
+        if (version == -1)
         {
             return false;
         }
