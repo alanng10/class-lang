@@ -26,6 +26,7 @@ public class ModuleLoad : Any
     public virtual Table BinaryTable { get; set; }
     public virtual ModuleRef ModuleRef { get; set; }
     public virtual ClassModule Module { get; set; }
+    public virtual int Status { get; set; }
     protected virtual ListInfra ListInfra { get; set; }
     protected virtual ClassInfra ClassInfra { get; set; }
     protected virtual CountList CountList { get; set; }
@@ -56,6 +57,8 @@ public class ModuleLoad : Any
 
     protected virtual bool ExecuteAll()
     {
+        this.Status = 0;
+        
         ModuleRef o;
         o = this.ModuleRef;
 
@@ -147,11 +150,13 @@ public class ModuleLoad : Any
 
             if (!this.CheckName(name))
             {
+                this.Status = 1;
                 return false;
             }
 
             if (classTable.Contain(name))
             {
+                this.Status = 2;
                 return false;
             }
 
