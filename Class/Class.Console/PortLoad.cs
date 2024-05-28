@@ -197,6 +197,9 @@ public class PortLoad : Any
         dataA = this.StringDataA;
         dataB = this.StringDataB;
 
+        Compare compare;
+        compare = this.TextCompare;
+
         string name;
         name = moduleRef.Name;
         long version;
@@ -209,7 +212,49 @@ public class PortLoad : Any
             return false;
         }
 
+        bool b;
+        b = false;
 
+        if (!b)
+        {
+            this.TextStringGet(textB, dataB, this.SystemModuleSingle);
+            if (textInfra.Equal(textA, textB, compare))
+            {
+                b = true;
+            }
+        }
+        if (!b)
+        {
+            this.TextStringGet(textB, dataB, this.SystemModulePre);
+            if (textInfra.Start(textA, textB, compare))
+            {
+                b = true;
+            }
+        }
+        if (!b)
+        {
+            this.TextStringGet(textB, dataB, this.ClassModuleSingle);
+            if (textInfra.Equal(textA, textB, compare))
+            {
+                b = true;
+            }
+        }
+        if (!b)
+        {
+            this.TextStringGet(textB, dataB, this.ClassModulePre);
+            if (textInfra.Start(textA, textB, compare))
+            {
+                b = true;
+            }
+        }
+
+        if (b)
+        {
+            if (!(version == -1))
+            {
+                return false;
+            }
+        }
 
         return true;
     }
