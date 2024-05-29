@@ -127,15 +127,12 @@ public class Console : Any
         this.InitBinary("System.Stream");
         this.InitBinary("System.Type");
         this.InitBinary("System.Time");
-        this.InitBinary("System.Video");
-        this.InitBinary("System.Audio");
         this.InitBinary("System.Storage");
         this.InitBinary("System.Network");
         this.InitBinary("System.Console");
-        this.InitBinary("System.Media");
         this.InitBinary("System.Draw");
         this.InitBinary("System.View");
-        this.InitBinary("System.Main");
+        this.InitBinary("System.Media");
         this.InitBinary("System.Entry");
         this.InitBinary("Class.Infra");
         this.InitBinary("Class.Binary");
