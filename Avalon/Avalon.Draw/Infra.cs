@@ -145,13 +145,9 @@ public class Infra : Any
         Image a;
         a = new Image();
         a.Init();
-
-        VideoVideo video;
-        video = a.Video;
-        video.Size.Width = size.Width;
-        video.Size.Height = size.Height;
-        video.DataCreate();
-        a.SetSize();
+        a.Size.Width = size.Width;
+        a.Size.Height = size.Height;
+        a.DataCreate();
         return a; 
     }
 
@@ -235,13 +231,6 @@ public class Infra : Any
         storage.Close();
         storage.Final();
         return o;
-    }
-
-    public virtual bool VideoFrameImage(VideoFrame frame, Image image)
-    {
-        frame.Video(image.Video);
-        image.SetSize();
-        return true;
     }
 
     public virtual bool BoundArea(Rect bound, Rect area)

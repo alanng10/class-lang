@@ -19,7 +19,7 @@ public class Brush : Any
         imageU = 0;
         if (!(this.Image == null))
         {
-            imageU = this.Image.Video.Ident;
+            imageU = this.Image.Ident;
         }
         ulong gradientU;
         gradientU = 0;
