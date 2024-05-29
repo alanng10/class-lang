@@ -115,31 +115,52 @@ public class Console : Any
 
     public virtual bool Load()
     {
-        this.InitBinary("System.Infra");
-        this.InitBinary("System.List");
-        this.InitBinary("System.Math");
-        this.InitBinary("System.Text");
-        this.InitBinary("System.Event");
-        this.InitBinary("System.Comp");
-        this.InitBinary("System.Thread");
-        this.InitBinary("System.Stream");
-        this.InitBinary("System.Type");
-        this.InitBinary("System.Time");
-        this.InitBinary("System.Storage");
-        this.InitBinary("System.Network");
-        this.InitBinary("System.Console");
-        this.InitBinary("System.Draw");
-        this.InitBinary("System.View");
-        this.InitBinary("System.Media");
-        this.InitBinary("System.Entry");
-        this.InitBinary("Class.Infra");
-        this.InitBinary("Class.Binary");
-        this.InitBinary("Class.Doc");
-        this.InitBinary("Class.Port");
-        this.InitBinary("Class.Token");
-        this.InitBinary("Class.Node");
-        this.InitBinary("Class.Module");
-        this.InitBinary("Class.Console");
+        List list;
+        list = new List();
+        list.Init();
+
+        list.Add("System.Infra");
+        list.Add("System.List");
+        list.Add("System.Math");
+        list.Add("System.Text");
+        list.Add("System.Event");
+        list.Add("System.Comp");
+        list.Add("System.Thread");
+        list.Add("System.Stream");
+        list.Add("System.Type");
+        list.Add("System.Time");
+        list.Add("System.Storage");
+        list.Add("System.Network");
+        list.Add("System.Console");
+        list.Add("System.Draw");
+        list.Add("System.View");
+        list.Add("System.Media");
+        list.Add("System.Entry");
+        list.Add("Class.Infra");
+        list.Add("Class.Binary");
+        list.Add("Class.Doc");
+        list.Add("Class.Port");
+        list.Add("Class.Token");
+        list.Add("Class.Node");
+        list.Add("Class.Module");
+        list.Add("Class.Console");
+
+        Iter iter;
+        iter = list.IterCreate();
+        list.IterSet(iter);
+        while (iter.Next())
+        {
+            string a;
+            a = (string)iter.Value;
+            
+            bool ba;
+            ba = this.InitBinary(a);
+            if (!ba)
+            {
+                return false;
+            }
+        }
+
 
         bool b;
         b = this.InitModuleList();
@@ -161,8 +182,8 @@ public class Console : Any
 
         if (data == null)
         {
-            global::System.Console.Error.Write("Class.Console:Class.InitBinary data is null, module name: " + moduleName + "\n");
-            global::System.Environment.Exit(1001);
+            this.Status = 100;
+            return false;
         }
 
         int kk;
@@ -186,8 +207,8 @@ public class Console : Any
 
         if (binary == null)
         {
-            global::System.Console.Error.Write("Class.Console:Class.InitBinary binary is null, module name: " + moduleName + "\n");
-            global::System.Environment.Exit(1000);
+            this.Status = 101;
+            return false;
         }
 
         read.Binary = null;
