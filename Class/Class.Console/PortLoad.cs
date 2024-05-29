@@ -78,13 +78,13 @@ public class PortLoad : Any
         }
 
         bool b;
-        b = this.SetImportModuleRefArray();
+        b = this.SetImportModuleRef();
         if (!b)
         {
             return false;
         }
 
-        b = this.ImportArrayBinaryLoad();
+        b = this.ImportBinaryLoad();
         if (!b)
         {
             return false;
@@ -93,7 +93,7 @@ public class PortLoad : Any
         return true;
     }
 
-    protected virtual bool SetImportModuleRefArray()
+    protected virtual bool SetImportModuleRef()
     {
         ListInfra listInfra;
         listInfra = this.ListInfra;
@@ -272,7 +272,7 @@ public class PortLoad : Any
         return a;
     }
 
-    protected virtual bool ImportArrayBinaryLoad()
+    protected virtual bool ImportBinaryLoad()
     {
         Array array;
         array = this.ImportModuleRefArray;
