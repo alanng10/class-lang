@@ -557,14 +557,26 @@ Int Draw_ExecuteText(Int o, Int destRect, Int flag, Int text, Int boundRect)
     m = CP(o);
     RectValue(dest);
 
-    int l;
-    int u;
-    int w;
-    int h;
-    l = (int)destLeft;
-    u = (int)destUp;
-    w = (int)destWidth;
-    h = (int)destHeight;
+    Int al;
+    Int au;
+    Int aw;
+    Int ah;
+    al = InternValueGet(destLeft);
+    au = InternValueGet(destUp);
+    aw = InternValueGet(destWidth);
+    ah = InternValueGet(destHeight);
+
+    qreal l;
+    qreal u;
+    qreal w;
+    qreal h;
+    l = CastIntToDouble(destLeft);
+    u = CastIntToDouble(destUp);
+    w = CastIntToDouble(destWidth);
+    h = CastIntToDouble(destHeight);
+    
+    QRectF rectF;
+    rectF = QRectF(l, u, w, h);
 
     int flagU;
     flagU = (int)flag;
@@ -573,34 +585,38 @@ Int Draw_ExecuteText(Int o, Int destRect, Int flag, Int text, Int boundRect)
     ua = CastInt(m->InternText);
     String_QStringSetRaw(ua, text);
 
-    QRect boundRectA;
+    QRectF boundRectA;
 
-    m->Intern->drawText(l, u, w, h, flagU, *(m->InternText), &boundRectA);
+    m->Intern->drawText(rectF, flagU, *(m->InternText), &boundRectA);
 
     m->InternText->setRawData(null, 0);
 
-    int boundL;
-    int boundU;
-    int boundW;
-    int boundH;
+    qreal boundL;
+    qreal boundU;
+    qreal boundW;
+    qreal boundH;
     boundL = boundRectA.left();
     boundU = boundRectA.top();
     boundW = boundRectA.width();
     boundH = boundRectA.height();
 
-    SInt boundSL;
-    SInt boundSU;
-    boundSL = boundL;
-    boundSU = boundU;
-
+    Int bl;
+    Int bu;
+    Int bw;
+    Int bh;
+    bl = CastDoubleToInt(boundL);
+    bu = CastDoubleToInt(boundU);
+    bw = CastDoubleToInt(boundW);
+    bh = CastDoubleToInt(boundH);
+    
     Int boundLeft;
     Int boundUp;
     Int boundWidth;
     Int boundHeight;
-    boundLeft = boundSL;
-    boundUp = boundSU;
-    boundWidth = boundW;
-    boundHeight = boundH;
+    boundLeft = ValueGetFromInternValue(bl);
+    boundUp = ValueGetFromInternValue(bu);
+    boundWidth = ValueGetFromInternValue(bw);
+    boundHeight = ValueGetFromInternValue(bh);
 
     Int boundPos;
     boundPos = Rect_PosGet(boundRect);
