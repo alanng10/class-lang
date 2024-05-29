@@ -256,7 +256,7 @@ public class Draw : Any
         int up;
         left = this.FillPos.Left;
         up = this.FillPos.Up;
-        this.InternInfra.SetPos(this.InternFillPos, left, up);
+        this.InternInfra.PosSet(this.InternFillPos, left, up);
 
         Extern.Draw_FillPosThisSet(this.Intern);
         return true;

@@ -79,7 +79,7 @@ public class Infra : object
         o = Extern.Pos_New();
         Extern.Pos_Init(o);
 
-        this.SetPos(o, left, up);
+        this.PosSet(o, left, up);
         return o;
     }
 
@@ -133,16 +133,16 @@ public class Infra : object
         ulong pos;
         pos = Extern.Rect_PosGet(rect);
 
-        this.SetPos(pos, left, up);
+        this.PosSet(pos, left, up);
 
         ulong size;
         size = Extern.Rect_SizeGet(rect);
 
-        this.SetSize(size, width, height);
+        this.SizeSet(size, width, height);
         return true;
     }
 
-    public virtual bool SetPos(ulong pos, long left, long up)
+    public virtual bool PosSet(ulong pos, long left, long up)
     {
         ulong l;
         ulong u;
@@ -154,7 +154,7 @@ public class Infra : object
         return true;
     }
 
-    public virtual bool SetSize(ulong size, long width, long height)
+    public virtual bool SizeSet(ulong size, long width, long height)
     {
         ulong w;
         ulong h;
