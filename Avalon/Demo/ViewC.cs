@@ -2,12 +2,31 @@ namespace Demo;
 
 class ViewC : View
 {
+    public override bool Init()
+    {
+        base.Init();
+        DrawPosLong pos;
+        pos = new DrawPosLong();
+        pos.Init();
+        DrawSizeLong size;
+        size = new DrawSizeLong();
+        size.Init();
+        DrawRectLong rect;
+        rect = new DrawRectLong();
+        rect.Init();
+        rect.Pos = pos;
+        rect.Size = size;
+        this.RectLong = rect;
+        return true;
+    }
+
     public DrawRect EllipseRect { get; set; }
     public DrawBrush EllipseBrush { get; set; }
     public DrawFont Font { get; set; }
     public DrawTextAlign TextAlign { get; set; }
     public Text Text { get; set; }
     public DrawPen TextPen { get; set; }
+    private DrawRectLong RectLong { get; set; }
 
     protected override bool ExecuteDrawThis(DrawDraw draw)
     {
@@ -21,15 +40,17 @@ class ViewC : View
 
         draw.Brush = null;
 
-        this.DrawRectA.Pos.Left = this.Pos.Left + 150;
-        this.DrawRectA.Pos.Up = this.Pos.Up + 50;
-        this.DrawRectA.Size.Width = 300;
-        this.DrawRectA.Size.Height = 100;
+        DrawRectLong rect;
+        rect = this.RectLong;
+        rect.Pos.Left = this.Pos.Left + 150;
+        rect.Pos.Up = this.Pos.Up + 50;
+        rect.Size.Width = 300;
+        rect.Size.Height = 100;
 
         draw.Font = this.Font;
         draw.Pen = this.TextPen;
 
-        draw.ExecuteText(this.Text, this.DrawRectA, this.TextAlign, false);
+        draw.ExecuteText(this.Text, rect, this.TextAlign, false);
 
         draw.Pen = null;
         draw.Font = null;
