@@ -71,6 +71,17 @@ public class PortLoad : Any
             return false;
         }
 
+        if (!this.CheckImportArrayModuleRef(port.Import))
+        {
+            return false;
+        }
+
+        bool b;
+        b = this.ImportArrayBinaryLoad(port.Import);
+        if (!b)
+        {
+            return false;
+        }
 
         return true;
     }
@@ -139,7 +150,7 @@ public class PortLoad : Any
         return true;
     }
 
-    protected virtual bool PortImportArrayLoad(Array array)
+    protected virtual bool CheckImportArrayModuleRef(Array array)
     {
         int count;
         count = array.Count;
@@ -150,25 +161,21 @@ public class PortLoad : Any
             PortImport a;
             a = (PortImport)array.Get(i);
 
-            if (!this.PortImportLoad(a))
+            if (!this.CheckImportModuleRef(a.Module))
             {
                 return false;
             }
 
             i = i + 1;
         }
-
         return true;
     }
 
-    protected virtual bool PortImportLoad(PortImport import)
+    protected virtual bool CheckImportModuleRef(ModuleRef moduleRef)
     {
         ClassInfra classInfra;
         classInfra = this.ClassInfra;
 
-        ModuleRef module;
-        module = import.Module;
-        
         Text textA;
         Text textB;
         textA = this.TextA;
@@ -180,9 +187,9 @@ public class PortLoad : Any
         dataB = this.StringDataB;
 
         string name;
-        name = module.Name;
+        name = moduleRef.Name;
         long version;
-        version = module.Version;
+        version = moduleRef.Version;
 
         this.TextStringGet(textA, dataA, name);
         if (!(classInfra.IsModuleName(this.NameCheck, textA)))
@@ -191,36 +198,40 @@ public class PortLoad : Any
         }
 
         bool isBuiltin;
-        isBuiltin = this.IsBuiltinModuleRef(module);
+        isBuiltin = this.IsBuiltinModuleRef(moduleRef);
 
-        if (isBuiltin)
-        {
-            if (!(version == -1))
-            {
-                return false;
-            }
-        }
+        bool b;
+        b = (version == -1);
 
-        if (!isBuiltin)
-        {
-            bool b;
-            b = this.BinaryLoadRecursive(module);
-            if (!b)
-            {
-                return false;
-            }
-        }
-        
-        Array array;
-        array = import.Class;
+        bool a;
+        a = (isBuiltin == b);
+        return a;
+    }
+
+    protected virtual bool ImportArrayBinaryLoad(Array array)
+    {
         int count;
         count = array.Count;
         int i;
         i = 0;
         while (i < count)
         {
-            PortImportClass aa;
-            aa = (PortImportClass)array.Get(i);
+            PortImport a;
+            a = (PortImport)array.Get(i);
+
+            ModuleRef aa;
+            aa = a.Module;
+            if (aa.Version == -1)
+            {
+                aa.Version = 0;
+            }
+
+            bool b;
+            b = this.BinaryLoadRecursive(a.Module);
+            if (!b)
+            {
+                return false;
+            }
 
             i = i + 1;
         }
