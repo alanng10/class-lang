@@ -393,7 +393,7 @@ public class Draw : Any
         SizeLong size;
         pos = rect.Pos;
         size = rect.Size;
-        this.InternInfra.SetRectFromRectValue(internRect, pos.Left, pos.Up, size.Width, size.Height);
+        this.InternInfra.RectSetFromRectValue(internRect, pos.Left, pos.Up, size.Width, size.Height);
         return true;
     }
 
@@ -403,7 +403,7 @@ public class Draw : Any
         Size size;
         pos = rect.Pos;
         size = rect.Size;
-        this.InternInfra.SetRectFromRectValue(internRect, pos.Left, pos.Up, size.Width, size.Height);
+        this.InternInfra.RectSetFromRectValue(internRect, pos.Left, pos.Up, size.Width, size.Height);
         return true;
     }
 }

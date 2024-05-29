@@ -128,7 +128,7 @@ public class Infra : object
         return true;
     }
 
-    public virtual bool SetRectFromRectValue(ulong rect, long left, long up, long width, long height)
+    public virtual bool RectSetFromRectValue(ulong rect, long left, long up, long width, long height)
     {
         ulong pos;
         pos = Extern.Rect_PosGet(rect);

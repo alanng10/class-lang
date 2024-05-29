@@ -207,7 +207,7 @@ public class Frame : Comp
 
     public virtual bool Update(DrawRect rect)
     {
-        this.InternInfra.SetRectFromRectValue(this.InternUpdateRect, 
+        this.InternInfra.RectSetFromRectValue(this.InternUpdateRect, 
             rect.Pos.Left, rect.Pos.Up, rect.Size.Width, rect.Size.Height
         );
 
