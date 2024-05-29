@@ -27,7 +27,7 @@ public class ImageRead : Any
     public virtual bool Execute()
     {
         Extern.ImageRead_StreamSet(this.Intern, this.Stream.Ident);
-        Extern.ImageRead_ImageSet(this.Intern, this.Image.Video.Ident);
+        Extern.ImageRead_ImageSet(this.Intern, this.Image.Ident);
 
         ulong u;        
         u = Extern.ImageRead_Execute(this.Intern);
@@ -35,36 +35,8 @@ public class ImageRead : Any
         Extern.ImageRead_ImageSet(this.Intern, 0);
         Extern.ImageRead_StreamSet(this.Intern, 0);
         
-        bool b;
-        b = (!(u == 0));
-
-        if (b)
-        {
-            this.SetSize();
-        }
-        return b;
-    }
-
-    private bool SetSize()
-    {
-        VideoVideo video;
-        video = this.Image.Video;
-        ulong sizeU;
-        sizeU = Extern.Image_SizeGet(video.Ident);
-        ulong w;
-        ulong h;
-        w = Extern.Size_WidthGet(sizeU);
-        h = Extern.Size_HeightGet(sizeU);
-        int width;
-        int height;
-        width = (int)w;
-        height = (int)h;
-
-        VideoSize sizeA;
-        sizeA = video.Size;
-        sizeA.Width = width;
-        sizeA.Height = height;
-        this.Image.SetSize();
-        return true;
+        bool a;
+        a = (!(u == 0));
+        return a;
     }
 }
