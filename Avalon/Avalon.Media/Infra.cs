@@ -1,4 +1,4 @@
-namespace Avalon.Video;
+namespace Avalon.Media;
 
 class Infra : Any
 {

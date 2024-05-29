@@ -21,7 +21,7 @@ public class Frame : Any
 
     public virtual bool Video(Image image)
     {
-        Extern.VideoFrame_Image(this.Intern, image.Intern);
+        Extern.VideoFrame_Image(this.Intern, image.Ident);
         return true;
     }
 }

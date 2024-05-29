@@ -8,7 +8,7 @@
     <ItemGroup>
         <ProjectReference Include="../Avalon.Intern/Avalon.Intern.csproj" />
         <ProjectReference Include="../Avalon.Infra/Avalon.Infra.csproj" />
-        <ProjectReference Include="../Avalon.Video/Avalon.Video.csproj" />
+        <ProjectReference Include="../Avalon.Draw/Avalon.Draw.csproj" />
         <ProjectReference Include="../Avalon.Audio/Avalon.Audio.csproj" />
     </ItemGroup>
 
