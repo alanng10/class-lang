@@ -46,6 +46,7 @@ public class PortLoad : Any
     protected virtual StringData StringDataA { get; set; }
     protected virtual StringData StringDataB { get; set; }
     protected virtual TextCompare TextCompare { get; set; }
+    protected virtual Array ImportModuleRefArray { get; set; }
     protected virtual string SystemModuleSingle { get; set; }
     protected virtual string SystemModulePre { get; set; }
     protected virtual string ClassModuleSingle { get; set; }
@@ -77,12 +78,75 @@ public class PortLoad : Any
         }
 
         bool b;
-        b = this.ImportArrayBinaryLoad(port.Import);
+        b = this.SetImportModuleRefArray();
         if (!b)
         {
             return false;
         }
 
+        b = this.ImportArrayBinaryLoad();
+        if (!b)
+        {
+            return false;
+        }
+
+        return true;
+    }
+
+    protected virtual bool SetImportModuleRefArray()
+    {
+        ListInfra listInfra;
+        listInfra = this.ListInfra;
+        ClassInfra classInfra;
+        classInfra = this.ClassInfra;
+
+        Table table;
+        table = classInfra.TableCreateModuleRefCompare();
+
+        Array import;
+        import = this.Port.Import;
+
+        Array array;
+        array = listInfra.ArrayCreate(import.Count);
+
+        int count;
+        count = array.Count;
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            PortImport o;
+            o = (PortImport)import.Get(i);
+
+            ModuleRef aa;
+            aa = o.Module;
+
+            string name;
+            name = aa.Name;
+            long version;
+            version = aa.Version;
+            if (version == -1)
+            {
+                version = 0;
+            }
+
+            ModuleRef a;
+            a = classInfra.ModuleRefCreate(name, version);
+
+            if (table.Contain(a))
+            {
+                this.Status = 30;
+                return false;
+            }
+
+            listInfra.TableAdd(table, a, a);
+
+            array.Set(i, a);
+
+            i = i + 1;
+        }
+
+        this.ImportModuleRefArray = array;
         return true;
     }
 
@@ -208,10 +272,10 @@ public class PortLoad : Any
         return a;
     }
 
-    protected virtual bool ImportArrayBinaryLoad(Array array)
+    protected virtual bool ImportArrayBinaryLoad()
     {
-        ClassInfra classInfra;
-        classInfra = this.ClassInfra;
+        Array array;
+        array = this.ImportModuleRefArray;
 
         int count;
         count = array.Count;
@@ -219,24 +283,11 @@ public class PortLoad : Any
         i = 0;
         while (i < count)
         {
-            PortImport a;
-            a = (PortImport)array.Get(i);
-
-            ModuleRef k;
-            k = a.Module;
-
-            long version;
-            version = k.Version;
-            if (version == -1)
-            {
-                version = 0;
-            }
-
-            ModuleRef aa;
-            aa = classInfra.ModuleRefCreate(k.Name, version);
+            ModuleRef a;
+            a = (ModuleRef)array.Get(i);
 
             bool b;
-            b = this.BinaryLoadRecursive(aa);
+            b = this.BinaryLoadRecursive(a);
             if (!b)
             {
                 return false;
