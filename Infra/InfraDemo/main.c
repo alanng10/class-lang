@@ -746,7 +746,7 @@ Bool DrawHandle(Int frame, Int arg)
 
 
 
-    SetRect(RectA, 400 + TextLeft, 400 + TextUp, 300, 100);
+    SetRect(RectA, (400 + TextLeft) * scaleFactor, (400 + TextUp) * scaleFactor, 300 * scaleFactor, 100 * scaleFactor);
 
 
     Draw_ExecuteText(Draw, RectA, TextFlag, Text, RectB);
