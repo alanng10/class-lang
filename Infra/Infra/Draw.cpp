@@ -570,10 +570,10 @@ Int Draw_ExecuteText(Int o, Int destRect, Int flag, Int text, Int boundRect)
     qreal u;
     qreal w;
     qreal h;
-    l = CastIntToDouble(destLeft);
-    u = CastIntToDouble(destUp);
-    w = CastIntToDouble(destWidth);
-    h = CastIntToDouble(destHeight);
+    l = CastIntToDouble(al);
+    u = CastIntToDouble(au);
+    w = CastIntToDouble(aw);
+    h = CastIntToDouble(ah);
     
     QRectF rectF;
     rectF = QRectF(l, u, w, h);
