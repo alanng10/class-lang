@@ -227,6 +227,47 @@ public class PortLoad : Any
         return true;
     }
 
+    protected virtual bool BinaryLoadRecursive(ModuleRef moduleRef)
+    {
+        if (this.BinaryTable.Contain(moduleRef))
+        {
+            return true;
+        }
+
+        bool b;
+        b = this.BinaryLoad(moduleRef);
+        if (!b)
+        {
+            return false;
+        }
+
+        BinaryBinary binary;
+        binary = (BinaryBinary)this.BinaryTable.Get(moduleRef);
+
+        Array array;
+        array = binary.Import;
+        int count;
+        count = array.Count;
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            BinaryImport import;
+            import = (BinaryImport)array.Get(i);
+
+            bool ba;
+            ba = this.BinaryLoadRecursive(import.Module);
+            if (!ba)
+            {
+                return false;
+            }
+
+            i = i + 1;
+        }
+
+        return true;
+    }
+
     protected virtual bool BinaryLoad(ModuleRef moduleRef)
     {
         string moduleName;
