@@ -70,14 +70,12 @@ public class Gen : Any
         this.ExecuteTypeModule(typeof(Stream));
         this.ExecuteTypeModule(typeof(Type));
         this.ExecuteTypeModule(typeof(Time));
-        this.ExecuteTypeModule(typeof(Video));
-        this.ExecuteTypeModule(typeof(Effect));
         this.ExecuteTypeModule(typeof(Storage));
         this.ExecuteTypeModule(typeof(Network));
         this.ExecuteTypeModule(typeof(Console));
-        this.ExecuteTypeModule(typeof(Play));
         this.ExecuteTypeModule(typeof(Draw));
         this.ExecuteTypeModule(typeof(View));
+        this.ExecuteTypeModule(typeof(Play));
         this.ExecuteTypeModule(typeof(EntryEntry));
         this.ExecuteTypeModule(typeof(ClassClass));
         this.ExecuteTypeModule(typeof(Binary));
