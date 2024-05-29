@@ -1,6 +1,6 @@
-namespace Avalon.Audio;
+namespace Avalon.Media;
 
-public class Out : Any
+public class AudioOut : Any
 {
     public override bool Init()
     {
