@@ -113,6 +113,18 @@ Size
     Width
     Height
 
+RectF
+    Pos
+    Size
+
+PosF
+    Left
+    Up
+
+SizeF
+    Width
+    Height
+
 Data
     Count
     Value
