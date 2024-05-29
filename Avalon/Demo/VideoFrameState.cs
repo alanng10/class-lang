@@ -20,7 +20,7 @@ class VideoFrameState : State
         VideoFrame frame;        
         frame = this.Demo.Play.VideoOut.Frame;
 
-        this.DrawInfra.VideoFrameImage(frame, this.Demo.PlayImage);
+        frame.Video(this.Demo.PlayImage);
 
         this.ViewInfra.AssignDrawRectValue(this.Demo.UpdateRect, this.Demo.ViewA.Area);
 
