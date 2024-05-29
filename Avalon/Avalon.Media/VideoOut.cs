@@ -7,13 +7,13 @@ public class VideoOut : Any
         base.Init();
         this.InternIntern = InternIntern.This;
         this.InternInfra = InternInfra.This;
-        this.VideoInfra = Infra.This;
+        this.MediaInfra = Infra.This;
         this.InternHandle = new Handle();
         this.InternHandle.Any = this;
         this.InternHandle.Init();
 
         MaideAddress ua;
-        ua = this.VideoInfra.OutFrameMaideAddress;
+        ua = this.MediaInfra.VideoOutFrameMaideAddress;
         ulong arg;
         arg = this.InternHandle.ULong();
         this.InternFrameState = this.InternInfra.StateCreate(ua, arg);
@@ -36,9 +36,9 @@ public class VideoOut : Any
         return true;
     }
 
-    protected virtual Frame FrameData { get; set; }
+    protected virtual VideoFrame FrameData { get; set; }
 
-    public virtual Frame Frame
+    public virtual VideoFrame Frame
     {
         get
         {
@@ -62,7 +62,7 @@ public class VideoOut : Any
 
     private InternIntern InternIntern { get; set; }
     private InternInfra InternInfra { get; set; }
-    protected virtual Infra VideoInfra { get; set; }
+    private Infra MediaInfra { get; set; }
 
     internal virtual ulong Intern { get; set; }
     private ulong InternFrameState { get; set; }
@@ -76,8 +76,8 @@ public class VideoOut : Any
         object ao;
         ao = internIntern.HandleTarget(arg);
 
-        Out a;
-        a = (Out)ao;
+        VideoOut a;
+        a = (VideoOut)ao;
         a.FrameStateExecute();
         return 1;
     }

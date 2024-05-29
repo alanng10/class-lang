@@ -18,12 +18,12 @@ class Infra : Any
     {
         base.Init();
         VideoOutFrameMaide maideA;
-        maideA = new VideoOutFrameMaide(Out.InternFrame);
-        this.OutFrameMaideAddress = new MaideAddress();
-        this.OutFrameMaideAddress.Delegate = maideA;
-        this.OutFrameMaideAddress.Init();
+        maideA = new VideoOutFrameMaide(VideoOut.InternFrame);
+        this.VideoOutFrameMaideAddress = new MaideAddress();
+        this.VideoOutFrameMaideAddress.Delegate = maideA;
+        this.VideoOutFrameMaideAddress.Init();
         return true;
     }
 
-    internal virtual MaideAddress OutFrameMaideAddress { get; set; }
+    internal virtual MaideAddress VideoOutFrameMaideAddress { get; set; }
 }

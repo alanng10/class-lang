@@ -1,6 +1,6 @@
-namespace Avalon.Video;
+namespace Avalon.Media;
 
-public class Frame : Any
+public class VideoFrame : Any
 {
     public override bool Init()
     {
