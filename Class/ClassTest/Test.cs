@@ -96,6 +96,13 @@ public class Test : Any
 
     public virtual int Execute()
     {
+        bool b;
+        b = this.Console.Load();
+        if (!b)
+        {
+            return 1000 + this.Console.Status;
+        }
+        
         this.ExecuteSetList();
         return 0;
     }
@@ -397,12 +404,6 @@ public class Test : Any
         ClassConsole a;
         a = new ClassConsole();
         a.Init();
-        bool b;
-        b = a.Load();
-        if (!b)
-        {
-            return null;
-        }
         return a;
     }
 
