@@ -213,7 +213,7 @@ public class Draw : Any
         pos = this.Pos;
         pos.Left = 0;
         pos.Up = 0;
-        this.SetPos();
+        this.PosSet();
 
         this.Brush = null;
         this.Pen = null;
@@ -262,7 +262,7 @@ public class Draw : Any
         return true;
     }
 
-    public virtual bool SetPos()
+    public virtual bool PosSet()
     {
         this.PosA.Left = this.Pos.Left;
         this.PosA.Up = this.Pos.Up;

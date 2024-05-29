@@ -104,7 +104,7 @@ public class Infra : Any
 
         this.AssignDrawPosValue(draw.Pos, pos);
 
-        draw.SetPos();
+        draw.PosSet();
         return true;
     }
 
@@ -112,7 +112,7 @@ public class Infra : Any
     {
         this.AssignDrawPosValue(draw.Pos, stackPos);
 
-        draw.SetPos();
+        draw.PosSet();
 
         this.AssignDrawRectValue(draw.Area, stackRect);
 
