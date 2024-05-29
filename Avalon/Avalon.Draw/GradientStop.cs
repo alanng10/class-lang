@@ -63,7 +63,7 @@ public class GradientStop : Any
         long pos;
         pos = (long)(ua);
         result.Pos = pos;
-        this.DrawInfra.SetColor(result.Color, ub);
+        this.DrawInfra.ColorSet(result.Color, ub);
         return true;
     }
 }

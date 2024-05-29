@@ -96,7 +96,7 @@ public class Infra : Any
     }
 
 
-    internal virtual bool SetColor(Color color, ulong internColor)
+    internal virtual bool ColorSet(Color color, ulong internColor)
     {
         color.Blue = (int)((internColor >> (0 * 8)) & 0xff);
         color.Green = (int)((internColor >> (1 * 8)) & 0xff);

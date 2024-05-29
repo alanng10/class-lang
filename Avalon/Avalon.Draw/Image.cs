@@ -85,7 +85,7 @@ public class Image : Any
         ulong ua;
         ua = u;
 
-        this.DrawInfra.SetColor(result, ua);
+        this.DrawInfra.ColorSet(result, ua);
         return true;
     }
 
