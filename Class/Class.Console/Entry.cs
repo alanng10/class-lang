@@ -6,8 +6,9 @@ public class Entry : EntryEntry
     {
         Console console;
         console = new Console();
+        console.Init();
         bool b;
-        b = console.Init();
+        b = console.Load();
         if (b)
         {
             console.ArgSet(this.Arg);

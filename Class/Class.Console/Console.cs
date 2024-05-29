@@ -54,14 +54,6 @@ public class Console : Any
         this.TextCompare = new TextCompare();
         this.TextCompare.CharCompare = charCompare;
         this.TextCompare.Init();
-
-        bool b;
-        b = this.InitSystem();
-        if (!b)
-        {
-            return false;
-        }
-
         return true;
     }
 
@@ -121,7 +113,7 @@ public class Console : Any
     protected virtual StringData StringDataB { get; set; }
     protected virtual TextCompare TextCompare { get; set; }
 
-    protected virtual bool InitSystem()
+    public virtual bool Load()
     {
         this.InitBinary("System.Infra");
         this.InitBinary("System.List");
@@ -370,7 +362,7 @@ public class Console : Any
     public virtual bool Execute()
     {
         this.Status = 0;
-        
+
         if (this.Task == null)
         {
             this.Status = 1000;
