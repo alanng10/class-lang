@@ -60,7 +60,7 @@ public class Frame : Comp
         this.Draw.Out = ouu;
         this.Draw.Size.Width = this.Size.Width;
         this.Draw.Size.Height = this.Size.Height;
-        this.Draw.SetSize();
+        this.Draw.SizeSet();
         return true;
     }
 

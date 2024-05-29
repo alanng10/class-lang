@@ -87,7 +87,7 @@ class ThreadState : ThreadExecuteState
         draw.Out = this.Image.Video.Out;
         draw.Size.Width = this.Image.Size.Width;
         draw.Size.Height = this.Image.Size.Height;
-        draw.SetSize();
+        draw.SizeSet();
         
         draw.Start();
         draw.Pen = null;

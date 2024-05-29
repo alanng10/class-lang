@@ -232,7 +232,7 @@ public class Draw : Any
         return true;
     }
 
-    public virtual bool SetSize()
+    public virtual bool SizeSet()
     {
         ulong w;
         ulong h;
