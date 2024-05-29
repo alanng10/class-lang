@@ -356,7 +356,7 @@ public class Draw : Any
         return true;
     }
 
-    public virtual bool ExecuteText(TextText text, Rect destRect, TextAlign align, bool wordWarp)
+    public virtual bool ExecuteText(TextText text, RectLong destRect, TextAlign align, bool wordWarp)
     {
         int count;
         count = text.Range.Count;
@@ -374,7 +374,7 @@ public class Draw : Any
 
         Extern.String_CountSet(this.InternText, countU);
 
-        this.SetInternRectFromRect(this.InternRectA, destRect);
+        this.SetInternRectFromRectLong(this.InternRectA, destRect);
 
         ulong o;
         o = align.Intern;
@@ -387,14 +387,22 @@ public class Draw : Any
         return true;
     }
 
-    private bool SetInternRectFromRect(ulong internRect, Rect rect)
+    private bool SetInternRectFromRectLong(ulong internRect, RectLong rect)
     {
-        this.SetInternRectFromPosSize(internRect, rect.Pos, rect.Size);
+        PosLong pos;
+        SizeLong size;
+        pos = rect.Pos;
+        size = rect.Size;
+        this.InternInfra.SetRectFromRectValue(internRect, pos.Left, pos.Up, size.Width, size.Height);
         return true;
     }
 
-    private bool SetInternRectFromPosSize(ulong internRect, Pos pos, Size size)
+    private bool SetInternRectFromRect(ulong internRect, Rect rect)
     {
+        Pos pos;
+        Size size;
+        pos = rect.Pos;
+        size = rect.Size;
         this.InternInfra.SetRectFromRectValue(internRect, pos.Left, pos.Up, size.Width, size.Height);
         return true;
     }
