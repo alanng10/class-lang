@@ -20,10 +20,6 @@ public class Test : Any
         
         this.Console = this.CreateConsole();
 
-        string oo = this.DataRootDirectory();
-        Directory.SetCurrentDirectory(oo);
-        this.InitialCurrentDirectory = Directory.GetCurrentDirectory();
-
         this.SetMap = this.ClassInfra.TableCreateStringCompare();
 
         this.AddSetList();
@@ -94,6 +90,14 @@ public class Test : Any
         return true;
     }
 
+    protected virtual bool SetWorkFold()
+    {
+        string oo = this.DataRootDirectory();
+        Directory.SetCurrentDirectory(oo);
+        this.InitialCurrentDirectory = Directory.GetCurrentDirectory();
+        return true;
+    }
+
     public virtual int Execute()
     {
         bool b;
@@ -102,6 +106,8 @@ public class Test : Any
         {
             return this.Console.Status;
         }
+
+        this.SetWorkFold();
         
         this.ExecuteSetList();
         return 0;
