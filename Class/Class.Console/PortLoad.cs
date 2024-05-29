@@ -204,7 +204,7 @@ public class PortLoad : Any
         if (!isBuiltin)
         {
             bool b;
-            b = this.BinaryLoad(module);
+            b = this.BinaryLoadRecursive(module);
             if (!b)
             {
                 return false;
