@@ -374,7 +374,7 @@ public class Draw : Any
 
         Extern.String_CountSet(this.InternText, countU);
 
-        this.SetInternRectFromRectLong(this.InternRectA, destRect);
+        this.InternRectSetFromRectLong(this.InternRectA, destRect);
 
         ulong o;
         o = align.Intern;
@@ -387,7 +387,7 @@ public class Draw : Any
         return true;
     }
 
-    private bool SetInternRectFromRectLong(ulong internRect, RectLong rect)
+    private bool InternRectSetFromRectLong(ulong internRect, RectLong rect)
     {
         PosLong pos;
         SizeLong size;
