@@ -235,7 +235,7 @@ public class Console : Any
             o = this.ModuleLoad.Status;
             if (!(o == 0))
             {
-                this.Status = 1000 + o;
+                this.Status = 200 + o;
                 return false;
             }
 
