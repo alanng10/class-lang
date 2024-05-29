@@ -125,7 +125,7 @@ public class Image : Any
         w = this.Size.Width;
         h = this.Size.Height;
         int k;
-        k = this.VideoInfra.PixelByteCount;
+        k = this.DrawInfra.PixelByteCount;
 
         long ka;
         ka = w;
