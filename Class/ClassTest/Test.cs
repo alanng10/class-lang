@@ -100,7 +100,7 @@ public class Test : Any
         b = this.Console.Load();
         if (!b)
         {
-            return 1000 + this.Console.Status;
+            return this.Console.Status;
         }
         
         this.ExecuteSetList();
