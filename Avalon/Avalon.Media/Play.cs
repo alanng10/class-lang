@@ -64,7 +64,7 @@ public class Play : Any
         u = 0;
         if (!(this.AudioOut == null))
         {
-            u = this.AudioOut.Ident;
+            u = this.AudioOut.Intern;
         }
         Extern.Play_AudioOutSet(this.Intern, u);
         return true;
@@ -78,7 +78,7 @@ public class Play : Any
         u = 0;
         if (!(this.VideoOut == null))
         {
-            u = this.VideoOut.Ident;
+            u = this.VideoOut.Intern;
         }
         Extern.Play_VideoOutSet(this.Intern, u);
         return true;
