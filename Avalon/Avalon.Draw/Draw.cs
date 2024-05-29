@@ -281,7 +281,7 @@ public class Draw : Any
     {
         this.WorldTransform.Reset();
 
-        this.SetWorldTransformPosOffset(this.PosA);
+        this.WorldTransformPosOffsetSet(this.PosA);
 
         if (!(this.TransformA == null))
         {
@@ -292,7 +292,7 @@ public class Draw : Any
         return true;
     }
 
-    protected virtual bool SetWorldTransformPosOffset(Pos pos)
+    protected virtual bool WorldTransformPosOffsetSet(Pos pos)
     {
         long scaleFactor;
         scaleFactor = this.DrawInfra.ScaleFactor;
