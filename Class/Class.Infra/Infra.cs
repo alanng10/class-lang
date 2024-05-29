@@ -306,6 +306,9 @@ public class Infra : Any
                 index = index + u + 1;
                 count = ac - index;
 
+                range.Index = index;
+                range.Count = count;
+
                 u = textInfra.Index(text, dot, compare);
             }
         }
