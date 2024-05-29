@@ -161,7 +161,6 @@ public class Console : Any
             }
         }
 
-
         bool b;
         b = this.InitModuleList();
         if (!b)
