@@ -69,6 +69,7 @@ public class PortLoad : Any
 
         if (!this.CheckModuleRef(port.Module))
         {
+            this.Status = 5;
             return false;
         }
 
@@ -227,6 +228,7 @@ public class PortLoad : Any
 
             if (!this.CheckImportModuleRef(a.Module))
             {
+                this.Status = 7;
                 return false;
             }
 
