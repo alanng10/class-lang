@@ -79,12 +79,12 @@ class ViewA : View
         this.Transform.Rotate(angle);
 
         draw.Transform = this.Transform;
-        draw.SetTransform();
+        draw.TransformSet();
 
         draw.ExecuteImage(playImage, rect, rectB);
 
         draw.Transform = null;
-        draw.SetTransform();
+        draw.TransformSet();
         
         draw.Brush = null;
 
