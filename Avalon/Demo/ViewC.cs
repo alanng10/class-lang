@@ -40,12 +40,15 @@ class ViewC : View
 
         draw.Brush = null;
 
+        long k;
+        k = 1 << 20;
+
         DrawRectLong rect;
         rect = this.RectLong;
-        rect.Pos.Left = this.Pos.Left + 150;
-        rect.Pos.Up = this.Pos.Up + 50;
-        rect.Size.Width = 300;
-        rect.Size.Height = 100;
+        rect.Pos.Left = (this.Pos.Left + 150) * k;
+        rect.Pos.Up = (this.Pos.Up + 50) * k;
+        rect.Size.Width = 300 * k;
+        rect.Size.Height = 100 * k;
 
         draw.Font = this.Font;
         draw.Pen = this.TextPen;
