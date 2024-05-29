@@ -397,6 +397,12 @@ public class Test : Any
         ClassConsole a;
         a = new ClassConsole();
         a.Init();
+        bool b;
+        b = a.Load();
+        if (!b)
+        {
+            return null;
+        }
         return a;
     }
 
