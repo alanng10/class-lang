@@ -74,6 +74,19 @@ public class Video : Any
         return true;
     }
 
+    public virtual long Color(int left, int up)
+    {
+        ulong aa;
+        aa = Extern.Data_ValueGet(this.InternData);
+
+        uint u;
+        u = this.InternIntern.VideoDataColor(aa, this.Size.Width, left, up);
+
+        long a;
+        a = u;
+        return a;
+    }
+
     public virtual bool DataGet(Data data, long index)
     {
         int w;
