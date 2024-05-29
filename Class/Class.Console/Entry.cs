@@ -6,10 +6,15 @@ public class Entry : EntryEntry
     {
         Console console;
         console = new Console();
-        console.Init();
-        console.ArgSet(this.Arg);
+        bool b;
+        b = console.Init();
+        if (b)
+        {
+            console.ArgSet(this.Arg);
+            console.Execute();
+        }
         int a;
-        a = console.Execute();
+        a = console.Status;
         return a;
     }
 }

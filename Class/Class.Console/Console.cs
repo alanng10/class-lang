@@ -55,7 +55,12 @@ public class Console : Any
         this.TextCompare.CharCompare = charCompare;
         this.TextCompare.Init();
 
-        this.InitSystem();
+        bool b;
+        b = this.InitSystem();
+        if (!b)
+        {
+            return false;
+        }
 
         return true;
     }
@@ -93,6 +98,7 @@ public class Console : Any
 
     public virtual string SourceFold { get; set; }
 
+    public virtual int Status { get; set; }
 
     protected virtual InfraInfra InfraInfra { get; set; }
     protected virtual ListInfra ListInfra { get; set; }
@@ -143,7 +149,12 @@ public class Console : Any
         this.InitBinary("Class.Module");
         this.InitBinary("Class.Console");
 
-        this.InitModuleList();
+        bool b;
+        b = this.InitModuleList();
+        if (!b)
+        {
+            return false;
+        }
 
         return true;
     }
@@ -206,6 +217,14 @@ public class Console : Any
 
             this.ModuleLoad.ModuleRef = moduleRef;
             this.ModuleLoad.Execute();
+
+            int o;
+            o = this.ModuleLoad.Status;
+            if (!(o == 0))
+            {
+                this.Status = 1000 + o;
+                return false;
+            }
 
             ClassModule a;
             a = this.ModuleLoad.Module;
@@ -348,11 +367,14 @@ public class Console : Any
         return true;
     }
 
-    public virtual int Execute()
+    public virtual bool Execute()
     {
+        this.Status = 0;
+        
         if (this.Task == null)
         {
-            return 0x10000;
+            this.Status = 1000;
+            return false;
         }
 
         this.Out = this.Task.Out;
@@ -387,9 +409,10 @@ public class Console : Any
             bba = this.DocGen.Execute();
             if (!bba)
             {
-                return 900;
+                this.Status = 30000;
+                return false;
             }
-            return 0;
+            return true;
         }
 
         bool hasFileExtension;
@@ -424,7 +447,8 @@ public class Console : Any
             if (this.SourceFold == null)
             {
                 this.Error("Source Fold Invalid");
-                return 100;
+                this.Status = 1001;
+                return false;;
             }
 
             bool baa;
@@ -432,14 +456,16 @@ public class Console : Any
             if (!baa)
             {
                 this.Error("Port Invalid");
-                return 101;
+                this.Status = 1002;
+                return false;
             }
 
             baa = this.PortModuleLoad();
             if (!baa)
             {
-                this.Error("Load Port Module Fail");
-                return 102;
+                this.Error("Port Module Load Fail");
+                this.Status = 1010;
+                return false;
             }
 
             hasFileExtension = true;
@@ -469,7 +495,7 @@ public class Console : Any
                 this.PrintModuleResult();
             }
         }
-        return 0;
+        return true;
     }
 
     protected virtual bool ReadPort()
