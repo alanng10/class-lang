@@ -245,7 +245,7 @@ public class Draw : Any
 
     public virtual bool AreaSet()
     {
-        this.SetInternRectFromRect(this.InternArea, this.Area);
+        this.InternRectSetFromRect(this.InternArea, this.Area);
         Extern.Draw_AreaThisSet(this.Intern);
         return true;
     }
@@ -322,7 +322,7 @@ public class Draw : Any
 
     public virtual bool ExecuteRect(Rect rect)
     {
-        this.SetInternRectFromRect(this.InternRectA, rect);
+        this.InternRectSetFromRect(this.InternRectA, rect);
 
         Extern.Draw_ExecuteRect(this.Intern, this.InternRectA);
         return true;
@@ -330,7 +330,7 @@ public class Draw : Any
 
     public virtual bool ExecuteRoundRect(Rect rect, long horizRadius, long vertRadius)
     {
-        this.SetInternRectFromRect(this.InternRectA, rect);
+        this.InternRectSetFromRect(this.InternRectA, rect);
 
         ulong hr;
         ulong vr;
@@ -342,15 +342,15 @@ public class Draw : Any
 
     public virtual bool ExecuteEllipse(Rect rect)
     {
-        this.SetInternRectFromRect(this.InternRectA, rect);
+        this.InternRectSetFromRect(this.InternRectA, rect);
         Extern.Draw_ExecuteEllipse(this.Intern, this.InternRectA);
         return true;
     }
 
     public virtual bool ExecuteImage(Image image, Rect destRect, Rect sourceRect)
     {
-        this.SetInternRectFromRect(this.InternRectA, destRect);
-        this.SetInternRectFromRect(this.InternRectB, sourceRect);
+        this.InternRectSetFromRect(this.InternRectA, destRect);
+        this.InternRectSetFromRect(this.InternRectB, sourceRect);
 
         Extern.Draw_ExecuteImage(this.Intern, image.Video.Ident, this.InternRectA, this.InternRectB);
         return true;
@@ -397,7 +397,7 @@ public class Draw : Any
         return true;
     }
 
-    private bool SetInternRectFromRect(ulong internRect, Rect rect)
+    private bool InternRectSetFromRect(ulong internRect, Rect rect)
     {
         Pos pos;
         Size size;
