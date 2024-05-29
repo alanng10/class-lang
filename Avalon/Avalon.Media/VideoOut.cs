@@ -35,26 +35,25 @@ public class VideoOut : Any
         return true;
     }
 
-    protected virtual VideoFrame FrameData { get; set; }
-
     public virtual VideoFrame Frame
     {
         get
         {
-            return this.FrameData;
+            return __D_Frame;
         }
         set
         {
-            this.FrameData = value;
+            __D_Frame = value;
             ulong u;
             u = 0;
-            if (!(this.FrameData == null))
+            if (!(__D_Frame == null))
             {
-                u = this.FrameData.Intern;
+                u = __D_Frame.Intern;
             }
             Extern.VideoOut_FrameSet(this.Intern, u);
         }
     }
+    protected VideoFrame __D_Frame;
 
     public virtual State FrameState { get; set; }
 
