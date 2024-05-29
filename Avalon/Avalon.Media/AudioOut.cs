@@ -7,7 +7,6 @@ public class AudioOut : Any
         base.Init();
         this.Intern = Extern.AudioOut_New();
         Extern.AudioOut_Init(this.Intern);
-        this.Ident = this.Intern;
         return true;
     }
 
@@ -17,8 +16,6 @@ public class AudioOut : Any
         Extern.AudioOut_Delete(this.Intern);
         return true;
     }
-
-    public virtual ulong Ident { get; set; }
 
     internal virtual ulong Intern { get; set; }
 
