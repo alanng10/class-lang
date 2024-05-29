@@ -210,6 +210,9 @@ public class PortLoad : Any
 
     protected virtual bool ImportArrayBinaryLoad(Array array)
     {
+        ClassInfra classInfra;
+        classInfra = this.ClassInfra;
+
         int count;
         count = array.Count;
         int i;
@@ -219,15 +222,21 @@ public class PortLoad : Any
             PortImport a;
             a = (PortImport)array.Get(i);
 
-            ModuleRef aa;
-            aa = a.Module;
-            if (aa.Version == -1)
+            ModuleRef k;
+            k = a.Module;
+
+            long version;
+            version = k.Version;
+            if (version == -1)
             {
-                aa.Version = 0;
+                version = 0;
             }
 
+            ModuleRef aa;
+            aa = classInfra.ModuleRefCreate(k.Name, version);
+
             bool b;
-            b = this.BinaryLoadRecursive(a.Module);
+            b = this.BinaryLoadRecursive(aa);
             if (!b)
             {
                 return false;
