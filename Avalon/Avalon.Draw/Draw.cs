@@ -352,7 +352,7 @@ public class Draw : Any
         this.InternRectSetFromRect(this.InternRectA, destRect);
         this.InternRectSetFromRect(this.InternRectB, sourceRect);
 
-        Extern.Draw_ExecuteImage(this.Intern, image.Video.Ident, this.InternRectA, this.InternRectB);
+        Extern.Draw_ExecuteImage(this.Intern, image.Ident, this.InternRectA, this.InternRectB);
         return true;
     }
 
