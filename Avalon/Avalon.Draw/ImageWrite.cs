@@ -27,7 +27,7 @@ public class ImageWrite : Any
     {
         Extern.ImageWrite_StreamSet(this.Intern, this.Stream.Ident);
         Extern.ImageWrite_FormatSet(this.Intern, this.Format.Intern);
-        Extern.ImageWrite_ImageSet(this.Intern, this.Image.Video.Ident);
+        Extern.ImageWrite_ImageSet(this.Intern, this.Image.Ident);
 
         ulong u;
         u = Extern.ImageWrite_Execute(this.Intern);
@@ -36,8 +36,8 @@ public class ImageWrite : Any
         Extern.ImageWrite_FormatSet(this.Intern, 0);
         Extern.ImageWrite_StreamSet(this.Intern, 0);
 
-        bool b;
-        b = (!(u == 0));
-        return b;
+        bool a;
+        a = (!(u == 0));
+        return a;
     }
 }
