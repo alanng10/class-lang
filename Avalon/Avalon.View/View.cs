@@ -304,13 +304,13 @@ public class View : Comp
         
         draw.FillPos.Left = left;
         draw.FillPos.Up = up;
-        draw.SetFillPos();
+        draw.FillPosSet();
 
         draw.ExecuteRect(rect);
         
         draw.FillPos.Left = 0;
         draw.FillPos.Up = 0;
-        draw.SetFillPos();
+        draw.FillPosSet();
 
         draw.Brush = null;
         return true;

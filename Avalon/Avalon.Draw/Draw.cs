@@ -220,7 +220,7 @@ public class Draw : Any
         this.Composite = null;
         this.FillPos.Left = 0;
         this.FillPos.Up = 0;
-        this.SetFillPos();
+        this.FillPosSet();
         this.Transform = null;
         this.SetTransform();
         return true;
@@ -250,7 +250,7 @@ public class Draw : Any
         return true;
     }
 
-    public virtual bool SetFillPos()
+    public virtual bool FillPosSet()
     {
         int left;
         int up;

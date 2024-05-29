@@ -34,7 +34,7 @@ class ViewA : View
 
         draw.FillPos.Left = left;
         draw.FillPos.Up = up;
-        draw.SetFillPos();
+        draw.FillPosSet();
         
         long scaleFactor;
         scaleFactor = this.DrawInfra.ScaleFactor;
