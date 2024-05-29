@@ -10,7 +10,6 @@
         <ProjectReference Include="../Avalon.Infra/Avalon.Infra.csproj" />
         <ProjectReference Include="../Avalon.Text/Avalon.Text.csproj" />
         <ProjectReference Include="../Avalon.Stream/Avalon.Stream.csproj" />
-        <ProjectReference Include="../Avalon.Video/Avalon.Video.csproj" />
         <ProjectReference Include="../Avalon.Storage/Avalon.Storage.csproj" />
     </ItemGroup>
     

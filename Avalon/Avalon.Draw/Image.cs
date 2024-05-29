@@ -1,6 +1,6 @@
 namespace Avalon.Draw;
 
-public class Image : Any
+public class Image_ : Any
 {
     public override bool Init()
     {

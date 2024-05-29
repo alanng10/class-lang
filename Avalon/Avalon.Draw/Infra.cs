@@ -19,6 +19,7 @@ public class Infra : Any
         base.Init();
         this.StorageStatusList = StorageStatusList.This;
         this.BrushInfra = BrushInfra.This;
+        this.PixelByteCount = 4;
         this.ColorCompMax = byte.MaxValue;
         this.WhiteColor = this.ColorCreate(this.ColorCompMax, this.ColorCompMax, this.ColorCompMax, this.ColorCompMax);
         this.BlackColor = this.ColorCreate(this.ColorCompMax, 0, 0, 0);
@@ -67,9 +68,7 @@ public class Infra : Any
         return true;
     }
 
-    protected virtual StorageStatusList StorageStatusList { get; set; }
-    private BrushInfra BrushInfra { get; set; }
-
+    public virtual int PixelByteCount { get; set; }
     public virtual int ColorCompMax { get; set; }
     public virtual Color WhiteColor { get; set; }
     public virtual Color BlackColor { get; set; }
@@ -79,6 +78,8 @@ public class Infra : Any
     public virtual Pen BlackPen { get; set; }
     public virtual Font Font { get; set; }
     public virtual long ScaleFactor { get; set; }
+    protected virtual StorageStatusList StorageStatusList { get; set; }
+    private BrushInfra BrushInfra { get; set; }
 
     internal virtual ulong InternWordWrap { get; set; }
 

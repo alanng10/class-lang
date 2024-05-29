@@ -1,6 +1,6 @@
 namespace Avalon.Video;
 
-public class Infra : Any
+class Infra : Any
 {
     public static Infra This { get; } = ShareCreate();
 
@@ -17,7 +17,6 @@ public class Infra : Any
     public override bool Init()
     {
         base.Init();
-        this.PixelByteCount = 4;
         VideoOutFrameMaide maideA;
         maideA = new VideoOutFrameMaide(Out.InternFrame);
         this.OutFrameMaideAddress = new MaideAddress();
@@ -25,8 +24,6 @@ public class Infra : Any
         this.OutFrameMaideAddress.Init();
         return true;
     }
-
-    public virtual int PixelByteCount { get; set; }
 
     internal virtual MaideAddress OutFrameMaideAddress { get; set; }
 }

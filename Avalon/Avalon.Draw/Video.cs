@@ -1,6 +1,6 @@
-namespace Avalon.Video;
+namespace Avalon.Draw;
 
-public class Video : Any
+public class Image : Any
 {
     public override bool Init()
     {
@@ -74,17 +74,15 @@ public class Video : Any
         return true;
     }
 
-    public virtual long Color(int left, int up)
+    public virtual bool Color(Color result, Pos pos)
     {
         ulong aa;
         aa = Extern.Data_ValueGet(this.InternData);
 
         uint u;
-        u = this.InternIntern.VideoDataColor(aa, this.Size.Width, left, up);
+        u = this.InternIntern.VideoDataColor(aa, this.Size.Width, pos.Left, pos.Up);
 
-        long a;
-        a = u;
-        return a;
+        return true;
     }
 
     public virtual bool DataGet(Data data, long index)
