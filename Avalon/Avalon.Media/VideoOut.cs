@@ -21,7 +21,6 @@ public class VideoOut : Any
         this.Intern = Extern.VideoOut_New();
         Extern.VideoOut_Init(this.Intern);
         Extern.VideoOut_FrameStateSet(this.Intern, this.InternFrameState);
-        this.Ident = this.Intern;
         return true;
     }
     
@@ -58,7 +57,6 @@ public class VideoOut : Any
     }
 
     public virtual State FrameState { get; set; }
-    public virtual ulong Ident { get; set; }
 
     private InternIntern InternIntern { get; set; }
     private InternInfra InternInfra { get; set; }
