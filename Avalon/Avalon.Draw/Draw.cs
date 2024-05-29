@@ -207,7 +207,7 @@ public class Draw : Any
         area.Pos.Up = 0;
         area.Size.Width = this.Size.Width;
         area.Size.Height = this.Size.Height;
-        this.SetArea();
+        this.AreaSet();
 
         Pos pos;
         pos = this.Pos;
@@ -243,7 +243,7 @@ public class Draw : Any
         return true;
     }
 
-    public virtual bool SetArea()
+    public virtual bool AreaSet()
     {
         this.SetInternRectFromRect(this.InternArea, this.Area);
         Extern.Draw_AreaThisSet(this.Intern);
