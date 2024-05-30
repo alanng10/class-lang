@@ -13,10 +13,14 @@ public class ModuleRefCompare : Compare
         this.StringCompare = new StringCompare();
         this.StringCompare.CharCompare = charCompare;
         this.StringCompare.Init();
+
+        this.LongCompare = new LongCompare();
+        this.LongCompare.Init();
         return true;
     }
 
     protected virtual StringCompare StringCompare { get; set; }
+    protected virtual LongCompare LongCompare { get; set; }
 
     public override int Execute(object left, object right)
     {
@@ -38,6 +42,6 @@ public class ModuleRefCompare : Compare
             return a;
         }
 
-        return leftA.Version.CompareTo(rightA.Version);
+        return this.LongCompare.Execute(leftA.Version, rightA.Version);
     }
 }
