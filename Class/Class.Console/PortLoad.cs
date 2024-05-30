@@ -96,6 +96,12 @@ public class PortLoad : Any
             return false;
         }
 
+        b = this.ImportDepend();
+        if (!b)
+        {
+            return false;
+        }
+
         return true;
     }
 
@@ -399,6 +405,63 @@ public class PortLoad : Any
         read.Binary = null;
 
         this.ListInfra.TableAdd(this.BinaryTable, binary.Ref, binary);
+        return true;
+    }
+
+    protected virtual bool ImportDepend()
+    {
+        ListInfra listInfra;
+        listInfra = this.ListInfra;
+
+        Array array;
+        array = this.ImportModuleRefArray;
+
+        Table table;
+        table = this.ClassInfra.TableCreateModuleRefCompare();
+
+        Iter iter;
+        iter = this.TableIter;
+
+        int count;
+        count = array.Count;
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            ModuleRef o;
+            o = (ModuleRef)array.Get(i);
+
+            Table aa;
+            aa = this.BinaryDepend(o);
+            if (aa == null)
+            {
+                return false;
+            }
+
+            aa.IterSet(iter);
+            while (iter.Next())
+            {
+                ModuleRef oo;
+                oo = (ModuleRef)iter.Index;
+
+                if (!table.Contain(oo))
+                {
+                    listInfra.TableAdd(table, oo, oo);
+                }
+            }
+
+            i = i + 1;
+        }
+
+        ModuleRef oa;
+        oa = this.Port.Module;
+
+        if (table.Contain(oa))
+        {
+            this.Status = 61;
+            return false;
+        }
+
         return true;
     }
 
