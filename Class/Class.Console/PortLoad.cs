@@ -74,7 +74,6 @@ public class PortLoad : Any
 
         if (!this.CheckModuleRef(port.Module))
         {
-            this.Status = 5;
             return false;
         }
 
@@ -191,35 +190,41 @@ public class PortLoad : Any
 
         if (!(classInfra.IsModuleName(this.NameCheck, textA)))
         {
+            this.Status = 1;
             return false;
         }
 
         if (version == -1)
         {
+            this.Status = 2;
             return false;
         }
 
         this.TextStringGet(textB, dataB, this.SystemModuleSingle);
         if (textInfra.Equal(textA, textB, compare))
         {
+            this.Status = 3;
             return false;
         }
 
         this.TextStringGet(textB, dataB, this.SystemModulePre);
         if (textInfra.Start(textA, textB, compare))
         {
+            this.Status = 4;
             return false;
         }
 
         this.TextStringGet(textB, dataB, this.ClassModuleSingle);
         if (textInfra.Equal(textA, textB, compare))
         {
+            this.Status = 5;
             return false;
         }
 
         this.TextStringGet(textB, dataB, this.ClassModulePre);
         if (textInfra.Start(textA, textB, compare))
         {
+            this.Status = 6;
             return false;
         }
 
@@ -239,7 +244,7 @@ public class PortLoad : Any
 
             if (!this.CheckImportModuleRef(a.Module))
             {
-                this.Status = 7;
+                this.Status = 10;
                 return false;
             }
 
