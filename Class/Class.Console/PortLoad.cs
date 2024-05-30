@@ -444,6 +444,7 @@ public class PortLoad : Any
             aa = this.BinaryDepend(e);
             if (aa == null)
             {
+                listInfra.TableAdd(binaryDependTable, moduleRef, null);
                 return null;
             }
 
