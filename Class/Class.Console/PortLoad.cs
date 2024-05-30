@@ -24,6 +24,9 @@ public class PortLoad : Any
         this.TextCompare.CharCompare = charCompare;
         this.TextCompare.Init();
 
+        this.TableIter = new TableIter();
+        this.TableIter.Init();
+
         this.SystemModuleSingle = "System";
         this.SystemModulePre = this.SystemModuleSingle + ".";
         this.ClassModuleSingle = "Class";
@@ -46,7 +49,9 @@ public class PortLoad : Any
     protected virtual StringData StringDataA { get; set; }
     protected virtual StringData StringDataB { get; set; }
     protected virtual TextCompare TextCompare { get; set; }
+    protected virtual Iter TableIter { get; set; }
     protected virtual Array ImportModuleRefArray { get; set; }
+    protected virtual Table BinaryDependTable { get; set; }
     protected virtual string SystemModuleSingle { get; set; }
     protected virtual string SystemModulePre { get; set; }
     protected virtual string ClassModuleSingle { get; set; }
@@ -395,6 +400,73 @@ public class PortLoad : Any
 
         this.ListInfra.TableAdd(this.BinaryTable, binary.Ref, binary);
         return true;
+    }
+
+    protected virtual Table BinaryDepend(ModuleRef moduleRef)
+    {
+        ListInfra listInfra;
+        listInfra = this.ListInfra;
+
+        Table table;
+        table = (Table)this.BinaryDependTable.Get(moduleRef);
+        if (!(table == null))
+        {
+            return table;
+        }
+
+        table = this.ClassInfra.TableCreateModuleRefCompare();
+
+        BinaryBinary binary;
+        binary = (BinaryBinary)this.BinaryTable.Get(moduleRef);
+
+        Array array;
+        array = binary.Import;
+
+        Iter iter;
+        iter = this.TableIter;
+
+        int count;
+        count = array.Count;
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            BinaryImport import;
+            import = (BinaryImport)array.Get(i);
+
+            ModuleRef e;
+            e = import.Module;
+
+            Table aa;
+            aa = this.BinaryDepend(e);
+            if (aa == null)
+            {
+                return null;
+            }
+
+            aa.IterSet(iter);
+            while (iter.Next())
+            {
+                ModuleRef oo;
+                oo = (ModuleRef)iter.Index;
+
+                if (!table.Contain(oo))
+                {
+                    listInfra.TableAdd(table, oo, oo);
+                }
+            }
+
+            i = i + 1;
+        }
+
+        if (table.Contain(moduleRef))
+        {
+            this.Status = 60;
+            return null;
+        }
+
+        listInfra.TableAdd(this.BinaryDependTable, moduleRef, table);
+        return table;
     }
 
     protected virtual bool IsBuiltinModuleRef(ModuleRef moduleRef)
