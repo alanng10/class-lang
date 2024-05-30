@@ -407,10 +407,13 @@ public class PortLoad : Any
         ListInfra listInfra;
         listInfra = this.ListInfra;
 
+        Table binaryDependTable;
+        binaryDependTable = this.BinaryDependTable;
+
         Table table;
-        table = (Table)this.BinaryDependTable.Get(moduleRef);
-        if (!(table == null))
+        if (binaryDependTable.Contain(moduleRef))
         {
+            table = (Table)this.BinaryDependTable.Get(moduleRef);
             return table;
         }
 
@@ -462,10 +465,11 @@ public class PortLoad : Any
         if (table.Contain(moduleRef))
         {
             this.Status = 60;
+            listInfra.TableAdd(binaryDependTable, moduleRef, null);
             return null;
         }
 
-        listInfra.TableAdd(this.BinaryDependTable, moduleRef, table);
+        listInfra.TableAdd(binaryDependTable, moduleRef, table);
         return table;
     }
 
