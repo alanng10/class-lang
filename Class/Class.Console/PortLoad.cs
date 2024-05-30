@@ -413,7 +413,7 @@ public class PortLoad : Any
         Table table;
         if (binaryDependTable.Contain(moduleRef))
         {
-            table = (Table)this.BinaryDependTable.Get(moduleRef);
+            table = (Table)binaryDependTable.Get(moduleRef);
             return table;
         }
 
