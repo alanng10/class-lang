@@ -13,3 +13,5 @@ It also does not have builtin media creation effect to be used by modules.
 This system derive has file system path for any entry that is file or fold.
 This system derive has builtin storage arrange effect for files and folds.
 This system derive storage of any module is open to any module.
+
+This system derive requires Internet subscription to network with other long distance systems.
