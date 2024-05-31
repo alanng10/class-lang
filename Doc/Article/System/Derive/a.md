@@ -18,3 +18,4 @@ This system derive requires Internet subscription to network with other long dis
 
 This system derive takes up space when it is not being used.
 This system derive has weight.
+This system derive consumes energy when it is operating.
