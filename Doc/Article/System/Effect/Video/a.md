@@ -7,4 +7,4 @@ Video is ideally 16:9 ratio in point count, and also in physical dimension.
 
 Video ideally takes up half of vision width when it is viewed in center.
 
-Video ideally updates every 256 system ticks.
+Video ideally updates every 2^7 system ticks.
