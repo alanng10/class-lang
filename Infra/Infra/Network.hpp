@@ -9,7 +9,7 @@
 struct Network
 {
     Int HostName;
-    Int Port;
+    Int ServerPort;
     Int Stream;
     Int CaseChangedState;
     Int ErrorState;

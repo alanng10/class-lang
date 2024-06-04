@@ -13,7 +13,7 @@ Int Network_Final(Int o)
 }
 
 CppField(Network, HostName)
-CppField(Network, Port)
+CppField(Network, ServerPort)
 CppField(Network, Stream)
 
 Int Network_StatusGet(Int o)
@@ -72,8 +72,8 @@ Int Network_Open(Int o)
     m = CP(o);
     Int hostName;
     hostName = m->HostName;
-    Int port;
-    port = m->Port;
+    Int serverPort;
+    serverPort = m->ServerPort;
 
     QString hostNameU;
     Int uu;
@@ -81,7 +81,7 @@ Int Network_Open(Int o)
     String_QStringSet(uu, hostName);
 
     quint16 portU;
-    portU = port;
+    portU = serverPort;
 
     QTcpSocket* socket;
     socket = new QTcpSocket;
