@@ -101,6 +101,7 @@ class NetworkPeerReadyState : State
 
         if (!this.CheckStatus())
         {
+            this.Status = 20;
             return false;
         }
 
@@ -123,12 +124,14 @@ class NetworkPeerReadyState : State
 
                 if (!this.CheckStatus())
                 {
+                    this.Status = 21;
                     return false;
                 }
             }
             if (!b)
             {
                 Console.This.Err.Write("Network Server Peer Case 0 Read Data Invalid\n");
+                this.Status = 22;
                 return false;
             }
         }
@@ -156,12 +159,14 @@ class NetworkPeerReadyState : State
 
                 if (!this.CheckStatus())
                 {
+                    this.Status = 23;
                     return false;
                 }
             }
             if (!ba)
             {
                 Console.This.Err.Write("Network Server Peer Case 1 Read Data Invalid\n");
+                this.Status = 24;
                 return false;
             }
         }
