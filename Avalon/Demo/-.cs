@@ -4,6 +4,7 @@ global using Data = Avalon.Infra.Data;
 global using DataRange = Avalon.Infra.DataRange;
 global using State = Avalon.Infra.State;
 global using StringCreate = Avalon.Infra.StringCreate;
+global using InfraInfra = Avalon.Infra.Infra;
 global using Array = Avalon.List.Array;
 global using ListInfra = Avalon.List.Infra;
 global using Math = Avalon.Math.Math;

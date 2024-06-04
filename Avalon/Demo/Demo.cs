@@ -15,8 +15,9 @@ class Demo : Any
     public Network Peer { get; set; }
     public NetworkServer Server { get; set; }
 
+    public InfraInfra InfraInfra { get; set; }
     private ListInfra ListInfra { get; set; }
-    private TextInfra TextInfra { get; set; }
+    public TextInfra TextInfra { get; set; }
     private DrawInfra DrawInfra { get; set; }
     private StorageStatusList StorageStatusList { get; set; }
     public NetworkPortKindList NetworkPortKindList { get; set; }
@@ -28,6 +29,7 @@ class Demo : Any
 
     public bool Execute()
     {
+        this.InfraInfra = InfraInfra.This;
         this.ListInfra = ListInfra.This;
         this.TextInfra = TextInfra.This;
         this.DrawInfra = DrawInfra.This;
