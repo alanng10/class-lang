@@ -53,8 +53,6 @@ class ThreadNetworkState : ThreadExecuteState
         thread = current.Thread;
 
         thread.ExecuteEventLoop();
-
-        server.Close();
         return true;
     }
 }
