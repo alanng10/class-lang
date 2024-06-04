@@ -22,6 +22,7 @@ class NetworkPeerReadyState : State
     private DataRange Range { get; set; }
     private int Case { get; set; }
     private StringCreate StringCreate { get; set; }
+    private int Status { get; set; }
 
     public override bool Execute()
     {
@@ -29,6 +30,7 @@ class NetworkPeerReadyState : State
         b = this.ExecuteAll();
         if (!b)
         {
+            Console.This.Err.Write("Network Peer Status: " + this.Status + "\n");
             this.ExitNetwork(500);
         }
         return true;
