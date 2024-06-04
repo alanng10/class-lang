@@ -21,21 +21,7 @@ class ThreadNetworkState : ThreadExecuteState
 
         this.Network = network;
 
-        TimeInterval interval;
-        interval = new TimeInterval();
-        interval.Init();
-
-        interval.SingleShot = true;
-        interval.Time = 0;
-
-        NetworkOpenState openState;
-        openState = new NetworkOpenState();
-        openState.ThreadNetworkState = this;
-        openState.Init();
-
-        interval.Elapse.State.AddState(openState);
-
-        interval.Start();
+        network.Open();
 
         ThreadCurrent current;
         current = new ThreadCurrent();
