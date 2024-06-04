@@ -22,7 +22,6 @@ public class StatusList : Any
         this.Index = 0;
 
         this.NoError = this.AddItem();
-        this.UnknownSocketError = this.AddItem();
         this.ConnectionRefusedError = this.AddItem();
         this.RemoteHostClosedError = this.AddItem();
         this.HostNotFoundError = this.AddItem();
@@ -51,8 +50,6 @@ public class StatusList : Any
 
     public virtual Status NoError { get { return __D_NoError; } set { __D_NoError = value; } }
     protected Status __D_NoError;
-    public virtual Status UnknownSocketError { get { return __D_UnknownSocketError; } set { __D_UnknownSocketError = value; } }
-    protected Status __D_UnknownSocketError;
     public virtual Status ConnectionRefusedError { get { return __D_ConnectionRefusedError; } set { __D_ConnectionRefusedError = value; } }
     protected Status __D_ConnectionRefusedError;
     public virtual Status RemoteHostClosedError { get { return __D_RemoteHostClosedError; } set { __D_RemoteHostClosedError = value; } }
@@ -122,7 +119,7 @@ public class StatusList : Any
     protected virtual Array Array { get { return __D_Array; } set { __D_Array = value; } }
     protected Array __D_Array;
 
-    protected virtual int ArrayCount { get { return 25; } set { } }
+    protected virtual int ArrayCount { get { return 24; } set { } }
     protected int __D_ArrayCount;
 
     public virtual int Count { get { return __D_Count; } set { __D_Count = value; } }
