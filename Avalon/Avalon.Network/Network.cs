@@ -168,8 +168,11 @@ public class Network : Any
     }
 
     public virtual bool Close()
-    {   
+    {
+        this.LoadingOpen = false;
+        
         Extern.Network_Close(this.Intern);
+
         Extern.Network_StreamSet(this.Intern, 0);
         Extern.Network_ServerPortSet(this.Intern, 0);
         Extern.Network_HostNameSet(this.Intern, 0);
@@ -177,10 +180,8 @@ public class Network : Any
         this.DataStream.Final();
         this.DataStream = null;
         this.Stream = null;
-
+        
         this.InternInfra.StringDelete(this.InternHostName);
-
-        this.LoadingOpen = false;
         return true;
     }
 
@@ -211,9 +212,15 @@ public class Network : Any
         return o;
     }
 
-    private bool CaseChanged()
+    protected virtual bool CaseChanged()
     {
-        if (this.Case == this.NetworkCaseList.Connected)
+        CaseList caseList;
+        caseList = this.NetworkCaseList;
+
+        Case k;
+        k = this.Case;
+        
+        if (k == caseList.Connected)
         {
             this.Stream = this.DataStream;
             this.LoadingOpen = false;
@@ -223,7 +230,7 @@ public class Network : Any
         return true;
     }
 
-    private bool ExecuteCaseChangedState()
+    protected virtual bool ExecuteCaseChangedState()
     {
         if (!(this.CaseChangedState == null))
         {
@@ -232,7 +239,7 @@ public class Network : Any
         return true;
     }
 
-    private bool ExecuteReadyReadState()
+    protected virtual bool ExecuteReadyReadState()
     {
         if (!(this.ReadyReadState == null))
         {
