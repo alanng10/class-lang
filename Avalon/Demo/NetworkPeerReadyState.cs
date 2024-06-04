@@ -41,8 +41,6 @@ class NetworkPeerReadyState : State
         Network peer;
         peer = this.Demo.Peer;
 
-        peer.ReadyReadState = null;
-
         this.Demo.Server.ClosePeer(peer);
 
         this.Demo.Server.Close();
@@ -118,6 +116,8 @@ class NetworkPeerReadyState : State
             b = (kk == 58);
             if (b)
             {
+                Console.This.Out.Write("Network Server Case 0 Success\n");
+
                 this.Case = 1;
 
                 data.Set(0, this.Case);
@@ -153,6 +153,8 @@ class NetworkPeerReadyState : State
             ba = (a0 == 11 & a1 == 57 & a2 == 98 & a3 == 149);
             if (ba)
             {
+                Console.This.Out.Write("Network Server Case 1 Success\n");
+
                 this.Case = 2;
 
                 data.Set(0, this.Case);
@@ -178,7 +180,7 @@ class NetworkPeerReadyState : State
             string ka;
             ka = this.StringCreate.Data(data, null);
 
-            Console.This.Out.Write("Network Server Peer Case 2 Read Text: " + ka + "\n");
+            Console.This.Out.Write("Network Server Case 2 Read Text: " + ka + "\n");
 
             this.ExitNetwork(0);
         }
