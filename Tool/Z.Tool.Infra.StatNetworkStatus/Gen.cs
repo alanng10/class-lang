@@ -51,12 +51,12 @@ class Gen : StatGen
 
             string ua;
 
-            ua = " = ";
+            ua = "::";
 
 
             string ub;
 
-            ub = ";";
+            ub = " ";
 
 
 
@@ -104,7 +104,7 @@ class Gen : StatGen
 
             string ooc;
 
-            ooc = "UnknownSocketError + 1";
+            ooc = "UnknownSocketError";
 
 
 
