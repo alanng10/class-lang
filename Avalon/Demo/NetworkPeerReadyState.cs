@@ -25,6 +25,39 @@ class NetworkPeerReadyState : State
 
     public override bool Execute()
     {
+        bool b;
+        b = this.ExecuteAll();
+        if (!b)
+        {
+            this.ExitNetwork(500);
+        }
+        return true;
+    }
+
+    private bool ExitNetwork(int code)
+    {
+        Network peer;
+        peer = this.Demo.Peer;
+
+        this.Demo.Server.ClosePeer(peer);
+
+        this.Demo.Server.Close();
+
+        this.Demo.Peer = null;
+        this.Demo.Server = null;
+
+        ThreadCurrent current;
+        current = new ThreadCurrent();
+        current.Init();
+        ThreadThread thread;
+        thread = current.Thread;
+
+        thread.ExitEventLoop(code);
+        return true;
+    }
+
+    private bool ExecuteAll()
+    {
         Network peer;
         peer = this.Demo.Peer;
 
@@ -138,12 +171,7 @@ class NetworkPeerReadyState : State
 
             Console.This.Out.Write("Network Server Peer Case 2 Read Text: " + ka + "\n");
 
-            this.Demo.Server.ClosePeer(peer);
-
-            this.Demo.Server.Close();
-
-            this.Demo.Peer = null;
-            this.Demo.Server = null;
+            this.ExitNetwork(0);
         }
         return true;
     }
@@ -155,7 +183,7 @@ class NetworkPeerReadyState : State
 
         Network network;
         network = this.Demo.Peer;
-        
+
         if (!(network.Status == statusList.NoError))
         {
             Console.This.Err.Write("Network Server Peer Status Error: " + network.Status.Index + "\n");
