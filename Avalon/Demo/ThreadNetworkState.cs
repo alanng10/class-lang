@@ -47,7 +47,23 @@ class ThreadNetworkState : ThreadExecuteState
         ThreadThread thread;
         thread = current.Thread;
 
-        thread.ExecuteEventLoop();
+        int o;
+        o = thread.ExecuteEventLoop();
+
+        string k;
+        k = null;
+        bool b;
+        b = (o == 0);
+        if (b)
+        {
+            k = "Success";
+        }
+        if (!b)
+        {
+            k = "Fail";
+        }
+
+        Console.This.Out.Write("Network " + k + "\n");
         return true;
     }
 }

@@ -103,6 +103,8 @@ class NetworkReadyState : State
             b = (kk == 1);
             if (b)
             {
+                Console.This.Out.Write("Network Case 0 Success\n");
+
                 this.Case = 1;
 
                 data.Set(0, 11);
@@ -137,6 +139,8 @@ class NetworkReadyState : State
             b = (kk == 2);
             if (b)
             {
+                Console.This.Out.Write("Network Case 1 Success\n");
+
                 this.Case = 2;
 
                 TextInfra textInfra;

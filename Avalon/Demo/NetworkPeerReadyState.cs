@@ -181,7 +181,7 @@ class NetworkPeerReadyState : State
             ka = this.StringCreate.Data(data, null);
 
             Console.This.Out.Write("Network Server Case 2 Read Text: " + ka + "\n");
-
+            
             this.ExitNetwork(0);
         }
         return true;
