@@ -31,8 +31,8 @@ class NetworkPeerReadyState : State
         if (!b)
         {
             Console.This.Err.Write("Network Peer Status: " + this.Status + "\n");
+            this.ExitNetwork(this.Status);
         }
-        this.ExitNetwork(this.Status);
         return true;
     }
 
@@ -181,6 +181,9 @@ class NetworkPeerReadyState : State
             ka = this.StringCreate.Data(data, null);
 
             Console.This.Out.Write("Network Server Case 2 Read Text: " + ka + "\n");
+
+            this.ExitNetwork(0);
+            return true;
         }
         return true;
     }
