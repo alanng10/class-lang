@@ -66,4 +66,25 @@ class ThreadNetworkState : ThreadExecuteState
         Console.This.Out.Write("Network " + k + "\n");
         return true;
     }
+
+    public bool ExitNetwork(int code)
+    {
+        Network network;
+        network = this.Network;
+
+        network.Close();
+    
+        network.Final();
+
+        this.Network = null;
+
+        ThreadCurrent current;
+        current = new ThreadCurrent();
+        current.Init();
+        ThreadThread thread;
+        thread = current.Thread;
+
+        thread.ExitEventLoop(code);
+        return true;
+    }
 }

@@ -27,27 +27,9 @@ class NetworkReadyState : State
         if (!b)
         {
             Console.This.Err.Write("Network Status: " + this.Status + "\n");
-            this.ExitNetwork(400);
+
+            this.NetworkState.ExitNetwork(400);
         }
-        return true;
-    }
-
-    public bool ExitNetwork(int code)
-    {
-        Network network;
-        network = this.NetworkState.Network;
-
-        network.Close();
-
-        network.Final();
-
-        ThreadCurrent current;
-        current = new ThreadCurrent();
-        current.Init();
-        ThreadThread thread;
-        thread = current.Thread;
-
-        thread.ExitEventLoop(code);
         return true;
     }
 
@@ -113,7 +95,7 @@ class NetworkReadyState : State
                 data.Set(3, 149);
 
                 range.Count = 4;
-
+                
                 network.Stream.Write(data, range);
 
                 if (!this.CheckStatus())
@@ -173,7 +155,8 @@ class NetworkReadyState : State
                     return false;
                 }
 
-                this.ExitNetwork(0);
+                this.NetworkState.ExitNetwork(0);
+                return true;
             }
             if (!b)
             {

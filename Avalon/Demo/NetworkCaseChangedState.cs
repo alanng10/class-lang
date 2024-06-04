@@ -13,9 +13,7 @@ class NetworkCaseChangedState : State
         {
             Console.This.Err.Write("Network Status: " + this.Status + "\n");
 
-            NetworkReadyState ka;
-            ka = this.NetworkState.ReadyState;
-            ka.ExitNetwork(400);
+            this.NetworkState.ExitNetwork(400);
         }
         return true;
     }
@@ -50,6 +48,10 @@ class NetworkCaseChangedState : State
                 this.Status = 15;
                 return false;
             }
+        }
+
+        if (network.Case == caseList.Unconnected)
+        {
         }
 
         return true;
