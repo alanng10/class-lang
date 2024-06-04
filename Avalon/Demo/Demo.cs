@@ -12,11 +12,14 @@ class Demo : Any
     public Play Play { get; set; }
     public DrawImage PlayImage { get; set; }
     public Console Console { get; set; }
+    public Network Peer { get; set; }
+    public NetworkServer Server { get; set; }
 
     private ListInfra ListInfra { get; set; }
     private TextInfra TextInfra { get; set; }
     private DrawInfra DrawInfra { get; set; }
     private StorageStatusList StorageStatusList { get; set; }
+    public NetworkPortKindList NetworkPortKindList { get; set; }
     private DrawBrushKindList BrushKindList { get; set; }
     private Math Math { get; set; }
     private MathCompose MathCompose { get; set; }
@@ -27,6 +30,7 @@ class Demo : Any
         this.TextInfra = TextInfra.This;
         this.DrawInfra = DrawInfra.This;
         this.StorageStatusList = StorageStatusList.This;
+        this.NetworkPortKindList = NetworkPortKindList.This;
         this.BrushKindList = DrawBrushKindList.This;
         this.Console = Console.This;
 
@@ -51,6 +55,8 @@ class Demo : Any
         this.ExecuteDemoThread();
         this.ExecuteDemoInterval();
         this.ExecutePost();
+
+        this.ExecuteNetwork();
 
         this.Frame = new Frame();
         this.Frame.Init();
@@ -901,6 +907,27 @@ class Demo : Any
             k = "Error";
         }
         return k;
+    }
+
+    private bool ExecuteNetwork()
+    {
+        ThreadThread thread;
+        thread = new ThreadThread();
+        thread.Init();
+
+        ThreadNetworkState state;
+        state = new ThreadNetworkState();
+        state.Demo = this;
+        state.Init();
+
+        thread.ExecuteState = state;
+        
+        thread.Execute();
+
+        thread.Wait();
+        
+        thread.Final();
+        return true;
     }
 
     private DrawImage ThreadDrawImageCreate()
