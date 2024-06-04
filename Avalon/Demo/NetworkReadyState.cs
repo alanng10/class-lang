@@ -21,6 +21,36 @@ class NetworkReadyState : State
 
     public override bool Execute()
     {
+        bool b;
+        b = this.ExecuteAll();
+        if (!b)
+        {
+            this.ExitNetwork(400);
+        }
+        return true;
+    }
+
+    private bool ExitNetwork(int code)
+    {
+        Network network;
+        network = this.NetworkState.Network;
+
+        network.Close();
+
+        network.Final();
+
+        ThreadCurrent current;
+        current = new ThreadCurrent();
+        current.Init();
+        ThreadThread thread;
+        thread = current.Thread;
+
+        thread.ExitEventLoop(code);
+        return true;
+    }
+
+    private bool ExecuteAll()
+    {
         Network network;
         network = this.NetworkState.Network;
 
@@ -133,9 +163,7 @@ class NetworkReadyState : State
                     return false;
                 }
 
-                network.Close();
-
-                network.Final();
+                this.ExitNetwork(0);
             }
             if (!b)
             {
