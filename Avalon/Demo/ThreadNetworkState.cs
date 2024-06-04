@@ -3,32 +3,23 @@ namespace Demo;
 class ThreadNetworkState : ThreadExecuteState
 {
     public Demo Demo { get; set; }
+    public Network Network { get; set; }
 
     public override bool Execute()
     {
-        NetworkPortKindList portKindList;
-        portKindList = this.Demo.NetworkPortKindList;
+        string hostName;
+        hostName = "localhost";
+        int serverPort;
+        serverPort = 50400;
 
-        NetworkPort port;
-        port = new NetworkPort();
-        port.Init();
-        port.Kind = portKindList.LocalHost;
-        port.Server = 50400;
+        Network network;
+        network = new Network();
+        network.Init();
 
-        NetworkServer server;
-        server = new NetworkServer();
-        server.Init();
+        network.HostName = hostName;
+        network.ServerPort = serverPort;
 
-        this.Demo.Server = server;
-
-        server.Port = port;
-
-        NetworkNewPeerState state;
-        state = new NetworkNewPeerState();
-        state.Demo = this.Demo;
-        state.Init();
-
-        server.NewPeerState = state;
+        this.Network = network;
 
         TimeInterval interval;
         interval = new TimeInterval();
@@ -37,8 +28,8 @@ class ThreadNetworkState : ThreadExecuteState
         interval.SingleShot = true;
         interval.Time = 0;
 
-        NetworkOpenElapseState openState;
-        openState = new NetworkOpenElapseState();
+        NetworkOpenState openState;
+        openState = new NetworkOpenState();
         openState.ThreadNetworkState = this;
         openState.Init();
 

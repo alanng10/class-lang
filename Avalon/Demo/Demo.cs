@@ -915,8 +915,8 @@ class Demo : Any
         thread = new ThreadThread();
         thread.Init();
 
-        ThreadNetworkState state;
-        state = new ThreadNetworkState();
+        ThreadNetworkServerState state;
+        state = new ThreadNetworkServerState();
         state.Demo = this;
         state.Init();
 
@@ -924,7 +924,25 @@ class Demo : Any
         
         thread.Execute();
 
+        ThreadThread peerThread;
+        peerThread = new ThreadThread();
+        peerThread.Init();
+
+        ThreadNetworkState aa;
+        aa = new ThreadNetworkState();
+        aa.Demo = this;
+        aa.Init();
+
+        peerThread.ExecuteState = aa;
+
+        peerThread.Execute();
+
+
+        peerThread.Wait();
+
         thread.Wait();
+
+        peerThread.Final();
         
         thread.Final();
         return true;

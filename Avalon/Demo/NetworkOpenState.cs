@@ -1,12 +1,12 @@
 namespace Demo;
 
-class NetworkOpenElapseState : State
+class NetworkOpenState : State
 {
     public ThreadNetworkState ThreadNetworkState { get; set; }
     
     public override bool Execute()
     {
-        this.ThreadNetworkState.Demo.Server.Open();
+        this.ThreadNetworkState.Network.Open();
         return true;
     }
 }
