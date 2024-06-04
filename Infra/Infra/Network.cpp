@@ -140,8 +140,9 @@ Int Network_Close(Int o)
     openSocket = m->OpenSocket;
 
     m->OpenSocket = null;
-    
+
     delete m->Handle;
+    m->Handle = null;
 
     QIODevice* oo;
     oo = (QIODevice*)openSocket;
@@ -154,8 +155,6 @@ Int Network_Close(Int o)
 
     Stream_KindSet(stream, null);
     Stream_ValueSet(stream, null);
-
-    m->Handle = null;
     return true;
 }
 
