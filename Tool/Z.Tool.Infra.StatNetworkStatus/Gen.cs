@@ -16,7 +16,7 @@ class Gen : StatGen
 
 
 
-        this.ValueOffset = " + 2";
+        this.ValueOffset = " + 1";
 
 
 
@@ -104,7 +104,7 @@ class Gen : StatGen
 
             string ooc;
 
-            ooc = index.ToString();
+            ooc = "UnknownSocketError + 1";
 
 
 

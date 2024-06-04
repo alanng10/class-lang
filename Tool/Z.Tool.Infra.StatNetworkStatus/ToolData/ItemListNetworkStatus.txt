@@ -1,5 +1,4 @@
 NoError
-UnknownSocketError
 ConnectionRefusedError
 RemoteHostClosedError
 HostNotFoundError
