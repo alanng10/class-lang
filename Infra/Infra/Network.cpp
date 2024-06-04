@@ -139,6 +139,8 @@ Int Network_Close(Int o)
     Int openSocket;
     openSocket = m->OpenSocket;
 
+    m->OpenSocket = null;
+
     QIODevice* oo;
     oo = (QIODevice*)openSocket;
 
@@ -153,7 +155,6 @@ Int Network_Close(Int o)
     Stream_KindSet(stream, null);
     Stream_ValueSet(stream, null);
 
-    m->OpenSocket = null;
     m->Handle = null;
     return true;
 }
@@ -250,6 +251,26 @@ Int Network_CaseChanged(Int o)
 {
     Network* m;
     m = CP(o);
+
+    Int openSocket;
+    openSocket = m->OpenSocket;
+
+    if (openSocket == null)
+    {
+        return true;
+    }
+
+    QIODevice* oo;
+    oo = (QIODevice*)openSocket;
+
+    QTcpSocket* socket;
+    socket = (QTcpSocket*)oo;
+
+    if (socket->state() == QAbstractSocket::ConnectedState)
+    {
+        Network_ConnectedOpen(o);
+    }
+
     Int state;
     state = m->CaseChangedState;
     Int aa;
@@ -270,6 +291,15 @@ Int Network_Error(Int o)
 {
     Network* m;
     m = CP(o);
+
+    Int openSocket;
+    openSocket = m->OpenSocket;
+
+    if (openSocket == null)
+    {
+        return true;
+    }
+
     Int state;
     state = m->ErrorState;
     Int aa;
@@ -290,6 +320,15 @@ Int Network_ReadyRead(Int o)
 {
     Network* m;
     m = CP(o);
+
+    Int openSocket;
+    openSocket = m->OpenSocket;
+
+    if (openSocket == null)
+    {
+        return true;
+    }
+
     Int state;
     state = m->ReadyReadState;
     Int aa;

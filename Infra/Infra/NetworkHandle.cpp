@@ -21,10 +21,6 @@ void NetworkHandle::CaseChangedHandle(QAbstractSocket::SocketState socketState)
 {
     Int network;
     network = this->Network;
-    if (socketState == QAbstractSocket::ConnectedState)
-    {
-        Network_ConnectedOpen(network);
-    }
     Network_CaseChanged(network);
 }
 
