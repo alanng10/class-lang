@@ -64,26 +64,37 @@ class NetworkPeerReadyState : State
 
         peer.Stream.Read(data, range);
 
-        if (!(peer.Stream.Status == 0))
+        if (!this.CheckStatus())
         {
-            Console.This.Err.Write("Network Server Peer Stream Status Error: " + peer.Stream.Status + "\n");
-            return true;
+            return false;
         }
+
+        range.Count = 1;
 
         if (cc == 0)
         {
             int kk;
             kk = data.Get(0);
+
             bool b;
             b = (kk == 58);
             if (b)
             {
                 this.Case = 1;
+
+                data.Set(0, this.Case);
+
+                peer.Stream.Write(data, range);
+
+                if (!this.CheckStatus())
+                {
+                    return false;
+                }
             }
             if (!b)
             {
                 Console.This.Err.Write("Network Server Peer Case 0 Read Data Invalid\n");
-                return true;
+                return false;
             }
         }
 
@@ -103,11 +114,20 @@ class NetworkPeerReadyState : State
             if (ba)
             {
                 this.Case = 2;
+
+                data.Set(0, this.Case);
+
+                peer.Stream.Write(data, range);
+
+                if (!this.CheckStatus())
+                {
+                    return false;
+                }
             }
             if (!ba)
             {
                 Console.This.Err.Write("Network Server Peer Case 1 Read Data Invalid\n");
-                return true;
+                return false;
             }
         }
 
@@ -124,6 +144,16 @@ class NetworkPeerReadyState : State
 
             this.Demo.Peer = null;
             this.Demo.Server = null;
+        }
+        return true;
+    }
+
+    private bool CheckStatus()
+    {
+        if (!(this.Demo.Peer.Stream.Status == 0))
+        {
+            Console.This.Err.Write("Network Server Peer Stream Status Error: " + this.Demo.Peer.Stream.Status + "\n");
+            return false;
         }
         return true;
     }
