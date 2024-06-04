@@ -32,7 +32,7 @@ Int Network_StatusGet(Int o)
 
     int ua;
     ua = error;
-    ua = ua + 2;
+    ua = ua + 1;
 
     Int a;
     a = ua;
