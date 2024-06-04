@@ -31,6 +31,7 @@ class NetworkCaseChangedState : State
 
             if (!ka.CheckStatus())
             {
+                Console.This.Err.Write("Network Status: " + 15 + "\n");
                 return false;
             }
         }

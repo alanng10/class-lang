@@ -18,6 +18,7 @@ class NetworkReadyState : State
     public Data Data { get; set; }
     public DataRange Range { get; set; }
     private int Case { get; set; }
+    private int Status { get; set; }
 
     public override bool Execute()
     {
@@ -25,6 +26,7 @@ class NetworkReadyState : State
         b = this.ExecuteAll();
         if (!b)
         {
+            Console.This.Err.Write("Network Status: " + this.Status + "\n");
             this.ExitNetwork(400);
         }
         return true;
@@ -88,6 +90,7 @@ class NetworkReadyState : State
 
         if (!this.CheckStatus())
         {
+            this.Status = 10;
             return false;
         }
 
@@ -113,12 +116,14 @@ class NetworkReadyState : State
 
                 if (!this.CheckStatus())
                 {
+                    this.Status = 11;
                     return false;
                 }
             }
             if (!b)
             {
                 Console.This.Err.Write("Network Case 0 Read Data Invalid\n");
+                this.Status = 12;
                 return false;
             }
         }
@@ -160,6 +165,7 @@ class NetworkReadyState : State
 
                 if (!this.CheckStatus())
                 {
+                    this.Status = 13;
                     return false;
                 }
 
@@ -168,6 +174,7 @@ class NetworkReadyState : State
             if (!b)
             {
                 Console.This.Err.Write("Network Case 1 Read Data Invalid\n");
+                this.Status = 14;
                 return false;
             }
         }
