@@ -37,18 +37,9 @@ class NetworkReadyState : State
         Network network;
         network = this.NetworkState.Network;
 
-        network.CaseChangedState = null;
-        network.ReadyReadState = null;
-
-        Console.This.Out.Write("NetworkReadyState.ExitNetwork 1111\n");
-
         network.Close();
 
-        Console.This.Out.Write("NetworkReadyState.ExitNetwork 2222\n");
-
         network.Final();
-
-        Console.This.Out.Write("NetworkReadyState.ExitNetwork 3333\n");
 
         ThreadCurrent current;
         current = new ThreadCurrent();
