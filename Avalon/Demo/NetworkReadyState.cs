@@ -18,7 +18,6 @@ class NetworkReadyState : State
     public Data Data { get; set; }
     public DataRange Range { get; set; }
     private int Case { get; set; }
-    private StringCreate StringCreate { get; set; }
 
     public override bool Execute()
     {
@@ -134,6 +133,10 @@ class NetworkReadyState : State
                 {
                     return false;
                 }
+
+                network.Close();
+                
+                network.Final();
             }
             if (!b)
             {

@@ -5,7 +5,7 @@ class ThreadNetworkState : ThreadExecuteState
     public Demo Demo { get; set; }
     public Network Network { get; set; }
     public NetworkReadyState ReadyState { get; set; }
-    
+
     public override bool Execute()
     {
         string hostName;
@@ -28,6 +28,15 @@ class ThreadNetworkState : ThreadExecuteState
         aa.Init();
 
         network.CaseChangedState = aa;
+
+        NetworkReadyState ab;
+        ab = new NetworkReadyState();
+        ab.NetworkState = this;
+        ab.Init();
+
+        this.ReadyState = ab;
+
+        network.ReadyReadState = ab;
 
         network.Open();
 
