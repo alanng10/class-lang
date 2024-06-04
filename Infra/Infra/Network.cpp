@@ -134,8 +134,13 @@ Int Network_Close(Int o)
 {
     Network* m;
     m = CP(o);
+    Int stream;
+    stream = m->Stream;
     Int openSocket;
     openSocket = m->OpenSocket;
+
+    Stream_KindSet(stream, null);
+    Stream_ValueSet(stream, null);
 
     QIODevice* oo;
     oo = (QIODevice*)openSocket;
@@ -151,8 +156,6 @@ Int Network_CloseUnconnected(Int o)
     Network* m;
     m = CP(o);
     
-    Int stream;
-    stream = m->Stream;
     Int openSocket;
     openSocket = m->OpenSocket;
 
@@ -169,9 +172,6 @@ Int Network_CloseUnconnected(Int o)
     delete socket;
     
     m->OpenSocket = null;
-
-    Stream_KindSet(stream, null);
-    Stream_ValueSet(stream, null);
     return true;
 }
 
@@ -290,10 +290,6 @@ Int Network_CaseChanged(Int o)
     {
         Network_OpenConnected(o);
     }
-    if (oa == QAbstractSocket::UnconnectedState)
-    {
-        Network_CloseUnconnected(o);
-    }
 
     Int state;
     state = m->CaseChangedState;
@@ -307,6 +303,11 @@ Int Network_CaseChanged(Int o)
     if (!(maide == null))
     {
         maide(o, arg);
+    }
+
+    if (oa == QAbstractSocket::UnconnectedState)
+    {
+        Network_CloseUnconnected(o);
     }
     return true;
 }
