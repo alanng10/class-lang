@@ -1,38 +1,33 @@
 #include "Stat.hpp"
 
-Int Stat_Var_NetworkStatusNoError = 0;
-Int Stat_Var_NetworkStatusUnknownSocketError = QAbstractSocket::UnknownSocketError + 2;
-Int Stat_Var_NetworkStatusConnectionRefusedError = QAbstractSocket::ConnectionRefusedError + 2;
-Int Stat_Var_NetworkStatusRemoteHostClosedError = QAbstractSocket::RemoteHostClosedError + 2;
-Int Stat_Var_NetworkStatusHostNotFoundError = QAbstractSocket::HostNotFoundError + 2;
-Int Stat_Var_NetworkStatusSocketAccessError = QAbstractSocket::SocketAccessError + 2;
-Int Stat_Var_NetworkStatusSocketResourceError = QAbstractSocket::SocketResourceError + 2;
-Int Stat_Var_NetworkStatusSocketTimeoutError = QAbstractSocket::SocketTimeoutError + 2;
-Int Stat_Var_NetworkStatusDatagramTooLargeError = QAbstractSocket::DatagramTooLargeError + 2;
-Int Stat_Var_NetworkStatusNetworkError = QAbstractSocket::NetworkError + 2;
-Int Stat_Var_NetworkStatusAddressInUseError = QAbstractSocket::AddressInUseError + 2;
-Int Stat_Var_NetworkStatusSocketAddressNotAvailableError = QAbstractSocket::SocketAddressNotAvailableError + 2;
-Int Stat_Var_NetworkStatusUnsupportedSocketOperationError = QAbstractSocket::UnsupportedSocketOperationError + 2;
-Int Stat_Var_NetworkStatusUnfinishedSocketOperationError = QAbstractSocket::UnfinishedSocketOperationError + 2;
-Int Stat_Var_NetworkStatusProxyAuthenticationRequiredError = QAbstractSocket::ProxyAuthenticationRequiredError + 2;
-Int Stat_Var_NetworkStatusSslHandshakeFailedError = QAbstractSocket::SslHandshakeFailedError + 2;
-Int Stat_Var_NetworkStatusProxyConnectionRefusedError = QAbstractSocket::ProxyConnectionRefusedError + 2;
-Int Stat_Var_NetworkStatusProxyConnectionClosedError = QAbstractSocket::ProxyConnectionClosedError + 2;
-Int Stat_Var_NetworkStatusProxyConnectionTimeoutError = QAbstractSocket::ProxyConnectionTimeoutError + 2;
-Int Stat_Var_NetworkStatusProxyNotFoundError = QAbstractSocket::ProxyNotFoundError + 2;
-Int Stat_Var_NetworkStatusProxyProtocolError = QAbstractSocket::ProxyProtocolError + 2;
-Int Stat_Var_NetworkStatusOperationError = QAbstractSocket::OperationError + 2;
-Int Stat_Var_NetworkStatusSslInternalError = QAbstractSocket::SslInternalError + 2;
-Int Stat_Var_NetworkStatusSslInvalidUserDataError = QAbstractSocket::SslInvalidUserDataError + 2;
-Int Stat_Var_NetworkStatusTemporaryError = QAbstractSocket::TemporaryError + 2;
+Int Stat_Var_NetworkStatusNoError = QAbstractSocket::UnknownSocketError + 1;
+Int Stat_Var_NetworkStatusConnectionRefusedError = QAbstractSocket::ConnectionRefusedError + 1;
+Int Stat_Var_NetworkStatusRemoteHostClosedError = QAbstractSocket::RemoteHostClosedError + 1;
+Int Stat_Var_NetworkStatusHostNotFoundError = QAbstractSocket::HostNotFoundError + 1;
+Int Stat_Var_NetworkStatusSocketAccessError = QAbstractSocket::SocketAccessError + 1;
+Int Stat_Var_NetworkStatusSocketResourceError = QAbstractSocket::SocketResourceError + 1;
+Int Stat_Var_NetworkStatusSocketTimeoutError = QAbstractSocket::SocketTimeoutError + 1;
+Int Stat_Var_NetworkStatusDatagramTooLargeError = QAbstractSocket::DatagramTooLargeError + 1;
+Int Stat_Var_NetworkStatusNetworkError = QAbstractSocket::NetworkError + 1;
+Int Stat_Var_NetworkStatusAddressInUseError = QAbstractSocket::AddressInUseError + 1;
+Int Stat_Var_NetworkStatusSocketAddressNotAvailableError = QAbstractSocket::SocketAddressNotAvailableError + 1;
+Int Stat_Var_NetworkStatusUnsupportedSocketOperationError = QAbstractSocket::UnsupportedSocketOperationError + 1;
+Int Stat_Var_NetworkStatusUnfinishedSocketOperationError = QAbstractSocket::UnfinishedSocketOperationError + 1;
+Int Stat_Var_NetworkStatusProxyAuthenticationRequiredError = QAbstractSocket::ProxyAuthenticationRequiredError + 1;
+Int Stat_Var_NetworkStatusSslHandshakeFailedError = QAbstractSocket::SslHandshakeFailedError + 1;
+Int Stat_Var_NetworkStatusProxyConnectionRefusedError = QAbstractSocket::ProxyConnectionRefusedError + 1;
+Int Stat_Var_NetworkStatusProxyConnectionClosedError = QAbstractSocket::ProxyConnectionClosedError + 1;
+Int Stat_Var_NetworkStatusProxyConnectionTimeoutError = QAbstractSocket::ProxyConnectionTimeoutError + 1;
+Int Stat_Var_NetworkStatusProxyNotFoundError = QAbstractSocket::ProxyNotFoundError + 1;
+Int Stat_Var_NetworkStatusProxyProtocolError = QAbstractSocket::ProxyProtocolError + 1;
+Int Stat_Var_NetworkStatusOperationError = QAbstractSocket::OperationError + 1;
+Int Stat_Var_NetworkStatusSslInternalError = QAbstractSocket::SslInternalError + 1;
+Int Stat_Var_NetworkStatusSslInvalidUserDataError = QAbstractSocket::SslInvalidUserDataError + 1;
+Int Stat_Var_NetworkStatusTemporaryError = QAbstractSocket::TemporaryError + 1;
 
 Int Stat_NetworkStatusNoError(Int o)
 {
     return Stat_Var_NetworkStatusNoError;
-}
-Int Stat_NetworkStatusUnknownSocketError(Int o)
-{
-    return Stat_Var_NetworkStatusUnknownSocketError;
 }
 Int Stat_NetworkStatusConnectionRefusedError(Int o)
 {
