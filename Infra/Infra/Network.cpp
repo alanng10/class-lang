@@ -156,6 +156,9 @@ Int Network_CloseUnconnected(Int o)
     Int openSocket;
     openSocket = m->OpenSocket;
 
+    delete m->Handle;
+    m->Handle = null;
+
     QIODevice* oo;
     oo = (QIODevice*)openSocket;
 
@@ -166,9 +169,6 @@ Int Network_CloseUnconnected(Int o)
     delete socket;
     
     m->OpenSocket = null;
-
-    delete m->Handle;
-    m->Handle = null;
 
     Stream_KindSet(stream, null);
     Stream_ValueSet(stream, null);
