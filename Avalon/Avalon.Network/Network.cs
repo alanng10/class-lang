@@ -58,6 +58,7 @@ public class Network : Any
         if (!b)
         {
             this.DataStream.Final();
+            this.Stream = null;
         }
 
         this.InternInfra.StateDelete(this.InternReadyReadState);
