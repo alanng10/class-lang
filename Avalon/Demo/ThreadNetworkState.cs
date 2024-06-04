@@ -21,6 +21,13 @@ class ThreadNetworkState : ThreadExecuteState
 
         this.Network = network;
 
+        NetworkCaseChangedState aa;
+        aa = new NetworkCaseChangedState();
+        aa.NetworkState = this;
+        aa.Init();
+
+        network.CaseChangedState = aa;
+
         network.Open();
 
         ThreadCurrent current;

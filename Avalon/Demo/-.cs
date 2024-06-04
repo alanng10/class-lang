@@ -35,6 +35,7 @@ global using Network = Avalon.Network.Network;
 global using NetworkServer = Avalon.Network.Server;
 global using NetworkPort = Avalon.Network.Port;
 global using NetworkPortKindList = Avalon.Network.PortKindList;
+global using NetworkCaseList = Avalon.Network.CaseList;
 global using Console = Avalon.Console.Console;
 global using Play = Avalon.Media.Play;
 global using DrawDraw = Avalon.Draw.Draw;

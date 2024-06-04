@@ -20,6 +20,7 @@ class Demo : Any
     private DrawInfra DrawInfra { get; set; }
     private StorageStatusList StorageStatusList { get; set; }
     public NetworkPortKindList NetworkPortKindList { get; set; }
+    public NetworkCaseList NetworkCaseList { get; set; }
     private DrawBrushKindList BrushKindList { get; set; }
     private Math Math { get; set; }
     private MathCompose MathCompose { get; set; }
@@ -31,6 +32,7 @@ class Demo : Any
         this.DrawInfra = DrawInfra.This;
         this.StorageStatusList = StorageStatusList.This;
         this.NetworkPortKindList = NetworkPortKindList.This;
+        this.NetworkCaseList = NetworkCaseList.This;
         this.BrushKindList = DrawBrushKindList.This;
         this.Console = Console.This;
 
