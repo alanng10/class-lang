@@ -41,6 +41,8 @@ class NetworkPeerReadyState : State
         Network peer;
         peer = this.Demo.Peer;
 
+        peer.ReadyReadState = null;
+
         this.Demo.Server.ClosePeer(peer);
 
         this.Demo.Server.Close();

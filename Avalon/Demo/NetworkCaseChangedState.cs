@@ -3,8 +3,24 @@ namespace Demo;
 class NetworkCaseChangedState : State
 {
     public ThreadNetworkState NetworkState { get; set; }
-    
+    private int Status { get; set; }
+
     public override bool Execute()
+    {
+        bool b;
+        b = this.ExecuteAll();
+        if (!b)
+        {
+            Console.This.Err.Write("Network Status: " + this.Status + "\n");
+
+            NetworkReadyState ka;
+            ka = this.NetworkState.ReadyState;
+            ka.ExitNetwork(400);
+        }
+        return true;
+    }
+
+    private bool ExecuteAll()
     {
         NetworkCaseList caseList;
         caseList = this.NetworkState.Demo.NetworkCaseList;
@@ -31,7 +47,7 @@ class NetworkCaseChangedState : State
 
             if (!ka.CheckStatus())
             {
-                Console.This.Err.Write("Network Status: " + 15 + "\n");
+                this.Status = 15;
                 return false;
             }
         }
