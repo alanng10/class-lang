@@ -8,7 +8,7 @@ class NetworkNewPeerState : State
     {
         if (!(this.Demo.Peer == null))
         {
-            Console.This.Err.Write("Network Peer is more one");
+            Console.This.Err.Write("Network Peer is more one\n");
             return false;
         }
 
