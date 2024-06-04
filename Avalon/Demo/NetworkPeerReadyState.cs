@@ -150,9 +150,15 @@ class NetworkPeerReadyState : State
 
     private bool CheckStatus()
     {
-        if (!(this.Demo.Peer.Stream.Status == 0))
+        NetworkStatusList statusList;
+        statusList = this.Demo.NetworkStatusList;
+
+        Network network;
+        network = this.Demo.Peer;
+        
+        if (!(network.Status == statusList.NoError))
         {
-            Console.This.Err.Write("Network Server Peer Stream Status Error: " + this.Demo.Peer.Stream.Status + "\n");
+            Console.This.Err.Write("Network Server Peer Status Error: " + network.Status.Index + "\n");
             return false;
         }
         return true;
