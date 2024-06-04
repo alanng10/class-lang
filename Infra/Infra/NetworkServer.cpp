@@ -69,7 +69,7 @@ Int NetworkServer_NextPendingPeer(Int o)
 
     Int uu;
     uu = CastInt(socket);
-    Network_ServerSet(network, uu);
+    Network_ServerOpen(network, uu);
     return network;
 }
 
@@ -78,7 +78,7 @@ Int NetworkServer_ClosePeer(Int o, Int network)
     Int stream;
     stream = Network_StreamGet(network);
 
-    Network_Close(network);
+    Network_ServerClose(network);
 
     Network_Final(network);
     Network_Delete(network);

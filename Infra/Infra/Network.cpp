@@ -175,7 +175,7 @@ Int Network_CloseUnconnected(Int o)
     return true;
 }
 
-Int Network_ServerSet(Int o, Int socket)
+Int Network_ServerOpen(Int o, Int socket)
 {
     Network* m;
     m = CP(o);
@@ -214,6 +214,13 @@ Int Network_ServerSet(Int o, Int socket)
     Stream_ValueSet(stream, streamValue);
     Stream_CanReadSet(stream, canRead);
     Stream_CanWriteSet(stream, canWrite);
+    return true;
+}
+
+Int Network_ServerClose(Int o)
+{
+    Network_Close(o);
+    Network_CloseUnconnected(o);
     return true;
 }
 
