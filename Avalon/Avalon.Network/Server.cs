@@ -103,9 +103,9 @@ public class Server : Any
         ulong u;
         u = network.SetIntern;
 
-        network.Final();
-
         Extern.NetworkServer_ClosePeer(this.Intern, u);
+
+        network.Final();
         return true;
     }
 
