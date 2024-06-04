@@ -124,7 +124,7 @@ class NetworkReadyState : State
                     i = i + 1;
                 }
 
-                range.Count = countA * sizeof(char);
+                range.Count = 10;
 
                 network.Stream.Write(data, range);
 
