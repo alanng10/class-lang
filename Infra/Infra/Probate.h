@@ -13,7 +13,6 @@ Int Stream_CanReadSet(Int o, Int value);
 Int Stream_CanWriteSet(Int o, Int value);
 Int Stream_Intern(Int o);
 
-Int Network_ConnectedOpen(Int o);
 Int Network_GetOpenSocket(Int o);
 Int Network_ServerSet(Int o, Int socket);
 Int Network_CaseChanged(Int o);
