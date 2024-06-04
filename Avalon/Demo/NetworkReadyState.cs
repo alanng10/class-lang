@@ -123,7 +123,6 @@ class NetworkReadyState : State
 
                     i = i + 1;
                 }
-                
 
                 range.Count = countA * sizeof(char);
 
@@ -135,7 +134,7 @@ class NetworkReadyState : State
                 }
 
                 network.Close();
-                
+
                 network.Final();
             }
             if (!b)
