@@ -193,7 +193,7 @@ class NetworkPeerReadyState : State
         Network network;
         network = this.Demo.Peer;
 
-        if (!(network.Status == statusList.NoError))
+        if (!(network.Status == statusList.UnknownSocketError))
         {
             Console.This.Err.Write("Network Server Peer Status Error: " + network.Status.Index + "\n");
             return false;

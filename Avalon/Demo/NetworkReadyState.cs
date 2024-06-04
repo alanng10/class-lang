@@ -198,7 +198,7 @@ class NetworkReadyState : State
         Network network;
         network = this.NetworkState.Network;
 
-        if (!(network.Status == statusList.NoError))
+        if (!(network.Status == statusList.UnknownSocketError))
         {
             Console.This.Err.Write("Network Status Error: " + network.Status.Index + "\n");
             return false;
