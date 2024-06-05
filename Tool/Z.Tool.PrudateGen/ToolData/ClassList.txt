@@ -354,10 +354,10 @@ Network
     Open()
     Close()
     Abort()
-    CaseChangedState
-    CaseChanged(network, arg) --
-    ErrorState
-    Error(network, arg) --
+    CaseChangeState
+    CaseChange(network, arg) --
+    StatusChangeState
+    StatusChange(network, arg) --
     ReadyReadState
     ReadyRead(network, arg) --
 
