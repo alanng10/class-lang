@@ -331,8 +331,12 @@ public class Process : Any
         i = 0;
         while (i < count)
         {
+            int index;
+            index = count - 1 - i;
+
             ulong oa;
-            oa = (ulong)i;
+            oa = (ulong)index;
+            
             ulong entryU;
             entryU = Extern.Array_ItemGet(o, oa);
             ulong indexU;
