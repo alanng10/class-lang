@@ -812,17 +812,17 @@ public static class Extern
     [DllImport(InfraLib)] public extern static ulong Process_StatusSet(ulong o, ulong value);
     [DllImport(InfraLib)] public extern static ulong Process_ExitKindGet(ulong o);
     [DllImport(InfraLib)] public extern static ulong Process_ExitKindSet(ulong o, ulong value);
-    [DllImport(InfraLib)] public extern static ulong Process_StartedStateGet(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Process_StartedStateSet(ulong o, ulong value);
-    [DllImport(InfraLib)] public extern static ulong Process_FinishedStateGet(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Process_FinishedStateSet(ulong o, ulong value);
+    [DllImport(InfraLib)] public extern static ulong Process_StartStateGet(ulong o);
+    [DllImport(InfraLib)] public extern static ulong Process_StartStateSet(ulong o, ulong value);
+    [DllImport(InfraLib)] public extern static ulong Process_FinishStateGet(ulong o);
+    [DllImport(InfraLib)] public extern static ulong Process_FinishStateSet(ulong o, ulong value);
 
     [DllImport(InfraLib)] public extern static ulong Process_Execute(ulong o);
     [DllImport(InfraLib)] public extern static ulong Process_Wait(ulong o);
     [DllImport(InfraLib)] public extern static ulong Process_Terminate(ulong o);
 
-    public delegate ulong Process_Started_Maide(ulong process, ulong arg);
-    public delegate ulong Process_Finished_Maide(ulong process, ulong arg);
+    public delegate ulong Process_Start_Maide(ulong process, ulong arg);
+    public delegate ulong Process_Finish_Maide(ulong process, ulong arg);
 
     [DllImport(InfraLib)] public extern static ulong Infra_Share();
 
