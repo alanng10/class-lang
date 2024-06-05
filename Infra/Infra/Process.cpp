@@ -10,7 +10,7 @@ Int Process_Init(Int o)
     m->Intern->Process = o;
     m->Intern->Init();
 
-    m->Intern->setProcessChannelMode(QProcess::MergedChannels);
+    m->Intern->setProcessChannelMode(QProcess::ForwardedChannels);
     return true;
 }
 
