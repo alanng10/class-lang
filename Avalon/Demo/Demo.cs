@@ -63,6 +63,7 @@ class Demo : Any
         this.ExecutePost();
 
         this.ExecuteNetwork();
+        this.ExecuteNetworkProcess();
 
         this.Frame = new Frame();
         this.Frame.Init();
@@ -917,6 +918,8 @@ class Demo : Any
 
     private bool ExecuteNetwork()
     {
+        this.Console.Out.Write("Network Start\n");
+
         ThreadThread thread;
         thread = new ThreadThread();
         thread.Init();
@@ -942,7 +945,6 @@ class Demo : Any
 
         peerThread.Execute();
 
-
         peerThread.Wait();
 
         thread.Wait();
@@ -950,11 +952,15 @@ class Demo : Any
         peerThread.Final();
         
         thread.Final();
+
+        this.Console.Out.Write("Network End\n");
         return true;
     }
 
     private bool ExecuteNetworkProcess()
     {
+        this.Console.Out.Write("NetworkProcess Start\n");
+
         ThreadThread thread;
         thread = new ThreadThread();
         thread.Init();
@@ -982,7 +988,11 @@ class Demo : Any
 
         thread.Wait();
 
+        process.Final();
+
         thread.Final();
+
+        this.Console.Out.Write("NetworkProcess End\n");
         return true;
     }
 
