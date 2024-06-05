@@ -17,11 +17,11 @@ class Infra : Any
     public override bool Init()
     {
         base.Init();
-        NetworkCaseChangedMaide maideA;
-        maideA = new NetworkCaseChangedMaide(Network.InternCaseChanged);
-        this.NetworkCaseChangedMaideAddress = new MaideAddress();
-        this.NetworkCaseChangedMaideAddress.Delegate = maideA;
-        this.NetworkCaseChangedMaideAddress.Init();
+        NetworkCaseChangeMaide maideA;
+        maideA = new NetworkCaseChangeMaide(Network.InternCaseChange);
+        this.NetworkCaseChangeMaideAddress = new MaideAddress();
+        this.NetworkCaseChangeMaideAddress.Delegate = maideA;
+        this.NetworkCaseChangeMaideAddress.Init();
         NetworkReadyReadMaide maideB;
         maideB = new NetworkReadyReadMaide(Network.InternReadyRead);
         this.NetworkReadyReadMaideAddress = new MaideAddress();
@@ -35,7 +35,7 @@ class Infra : Any
         return true;
     }
 
-    public virtual MaideAddress NetworkCaseChangedMaideAddress { get; set; }
+    public virtual MaideAddress NetworkCaseChangeMaideAddress { get; set; }
     public virtual MaideAddress NetworkReadyReadMaideAddress { get; set; }
     public virtual MaideAddress ServerNewPeerMaideAddress { get; set; }
 }

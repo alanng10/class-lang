@@ -1,6 +1,7 @@
 global using InternIntern = Avalon.Intern.Intern;
 global using Extern = Avalon.Intern.Extern;
-global using NetworkCaseChangedMaide = Avalon.Intern.Extern.Network_CaseChanged_Maide;
+global using NetworkStatusChangeMaide = Avalon.Intern.Extern.Network_StatusChange_Maide;
+global using NetworkCaseChangeMaide = Avalon.Intern.Extern.Network_CaseChange_Maide;
 global using NetworkReadyReadMaide = Avalon.Intern.Extern.Network_ReadyRead_Maide;
 global using NetworkServerNewPeerMaide = Avalon.Intern.Extern.NetworkServer_NewPeer_Maide;
 global using MaideAddress = Avalon.Intern.MaideAddress;

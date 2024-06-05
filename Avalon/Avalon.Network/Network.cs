@@ -15,12 +15,12 @@ public class Network : Any
         this.InternHandle.Init();
 
         MaideAddress oa;
-        oa = this.NetworkInfra.NetworkCaseChangedMaideAddress;
+        oa = this.NetworkInfra.NetworkCaseChangeMaideAddress;
         MaideAddress ob;
         ob = this.NetworkInfra.NetworkReadyReadMaideAddress;
         ulong arg;
         arg = this.InternHandle.ULong();
-        this.InternCaseChangedState = this.InternInfra.StateCreate(oa, arg);
+        this.InternCaseChangeState = this.InternInfra.StateCreate(oa, arg);
         this.InternReadyReadState = this.InternInfra.StateCreate(ob, arg);
 
         bool b;
@@ -40,7 +40,7 @@ public class Network : Any
             this.Stream = this.DataStream;
         }
 
-        Extern.Network_CaseChangedStateSet(this.Intern, this.InternCaseChangedState);
+        Extern.Network_CaseChangeStateSet(this.Intern, this.InternCaseChangeState);
         Extern.Network_ReadyReadStateSet(this.Intern, this.InternReadyReadState);
         return true;
     }
@@ -62,7 +62,7 @@ public class Network : Any
         }
 
         this.InternInfra.StateDelete(this.InternReadyReadState);
-        this.InternInfra.StateDelete(this.InternCaseChangedState);
+        this.InternInfra.StateDelete(this.InternCaseChangeState);
 
         this.InternHandle.Final();
         return true;
@@ -71,7 +71,7 @@ public class Network : Any
     internal virtual ulong SetIntern { get; set; }
     public virtual string HostName { get; set; }
     public virtual int ServerPort { get; set; }
-    public virtual State CaseChangedState { get; set; }
+    public virtual State CaseChangeState { get; set; }
     public virtual State ReadyReadState { get; set; }
     public virtual StreamStream Stream { get; set; }
     protected virtual StreamStream DataStream { get; set; }
@@ -85,7 +85,7 @@ public class Network : Any
 
     internal virtual ulong Intern { get; set; }
     private ulong InternReadyReadState { get; set; }
-    private ulong InternCaseChangedState { get; set; }
+    private ulong InternCaseChangeState { get; set; }
     private Handle InternHandle { get; set; }
     private ulong InternHostName { get; set; }
 
@@ -213,7 +213,7 @@ public class Network : Any
         return o;
     }
 
-    protected virtual bool CaseChanged()
+    protected virtual bool CaseChange()
     {
         CaseList caseList;
         caseList = this.NetworkCaseList;
@@ -227,15 +227,15 @@ public class Network : Any
             this.LoadingOpen = false;
         }
 
-        this.ExecuteCaseChangedState();
+        this.ExecuteCaseChangeState();
         return true;
     }
 
-    protected virtual bool ExecuteCaseChangedState()
+    protected virtual bool ExecuteCaseChangeState()
     {
-        if (!(this.CaseChangedState == null))
+        if (!(this.CaseChangeState == null))
         {
-            this.CaseChangedState.Execute();
+            this.CaseChangeState.Execute();
         }
         return true;
     }
@@ -249,7 +249,7 @@ public class Network : Any
         return true;
     }
 
-    internal static ulong InternCaseChanged(ulong network, ulong arg)
+    internal static ulong InternCaseChange(ulong network, ulong arg)
     {
         InternIntern internIntern;
         internIntern = InternIntern.This;
@@ -259,7 +259,7 @@ public class Network : Any
 
         Network a;
         a = (Network)ao;
-        a.CaseChanged();
+        a.CaseChange();
 
         return 1;
     }
