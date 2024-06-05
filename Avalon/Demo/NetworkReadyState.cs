@@ -26,9 +26,7 @@ class NetworkReadyState : State
         b = this.ExecuteAll();
         if (!b)
         {
-            Console.This.Err.Write("Network Status: " + this.Status + "\n");
-
-            this.NetworkState.ExitNetwork(400);
+            this.NetworkState.ExitNetwork(this.Status);
         }
         return true;
     }
@@ -70,12 +68,6 @@ class NetworkReadyState : State
 
         network.Stream.Read(data, range);
 
-        if (!this.CheckStatus())
-        {
-            this.Status = 10;
-            return false;
-        }
-
         if (cc == 0)
         {
             int kk;
@@ -97,12 +89,6 @@ class NetworkReadyState : State
                 range.Count = 4;
                 
                 network.Stream.Write(data, range);
-
-                if (!this.CheckStatus())
-                {
-                    this.Status = 11;
-                    return false;
-                }
             }
             if (!b)
             {
@@ -149,12 +135,6 @@ class NetworkReadyState : State
 
                 network.Stream.Write(data, range);
 
-                if (!this.CheckStatus())
-                {
-                    this.Status = 13;
-                    return false;
-                }
-
                 this.NetworkState.ExitNetwork(0);
                 return true;
             }
@@ -164,22 +144,6 @@ class NetworkReadyState : State
                 this.Status = 14;
                 return false;
             }
-        }
-        return true;
-    }
-
-    internal bool CheckStatus()
-    {
-        NetworkStatusList statusList;
-        statusList = this.NetworkState.Demo.NetworkStatusList;
-        
-        Network network;
-        network = this.NetworkState.Network;
-
-        if (!(network.Status == statusList.NoError))
-        {
-            Console.This.Err.Write("Network Status Error: " + network.Status.Index + "\n");
-            return false;
         }
         return true;
     }
