@@ -11,24 +11,24 @@ Bool NetworkHandle::Init()
     QTcpSocket* u;
     u = (QTcpSocket*)uu;
 
-    connect(u, &QTcpSocket::stateChanged, this, &NetworkHandle::CaseChangedHandle);
-    connect(u, &QTcpSocket::errorOccurred, this, &NetworkHandle::ErrorHandle);
+    connect(u, &QTcpSocket::errorOccurred, this, &NetworkHandle::StatusChangeHandle);
+    connect(u, &QTcpSocket::stateChanged, this, &NetworkHandle::CaseChangeHandle);
     connect(uu, &QIODevice::readyRead, this, &NetworkHandle::ReadyReadHandle);
     return true;
 }
 
-void NetworkHandle::CaseChangedHandle(QAbstractSocket::SocketState socketState)
+void NetworkHandle::StatusChangeHandle(QAbstractSocket::SocketError socketError)
 {
     Int network;
     network = this->Network;
-    Network_CaseChanged(network);
+    Network_StatusChange(network);
 }
 
-void NetworkHandle::ErrorHandle(QAbstractSocket::SocketError socketError)
+void NetworkHandle::CaseChangeHandle(QAbstractSocket::SocketState socketState)
 {
     Int network;
     network = this->Network;
-    Network_Error(network);
+    Network_CaseChange(network);
 }
 
 void NetworkHandle::ReadyReadHandle()
