@@ -11,8 +11,8 @@ struct Network
     Int HostName;
     Int ServerPort;
     Int Stream;
-    Int CaseChangedState;
-    Int ErrorState;
+    Int StatusChangeState;
+    Int CaseChangeState;
     Int ReadyReadState;
     NetworkHandle* Handle;
     Int OpenSocket;

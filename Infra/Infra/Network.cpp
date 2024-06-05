@@ -147,6 +147,7 @@ Int Network_Close(Int o)
 
     QTcpSocket* socket;
     socket = (QTcpSocket*)oo;
+
     socket->disconnectFromHost();
     return true;
 }
@@ -155,7 +156,6 @@ Int Network_CloseUnconnected(Int o)
 {
     Network* m;
     m = CP(o);
-    
     Int openSocket;
     openSocket = m->OpenSocket;
 
@@ -167,11 +167,12 @@ Int Network_CloseUnconnected(Int o)
 
     QTcpSocket* socket;
     socket = (QTcpSocket*)oo;
+
     socket->close();
 
     delete socket;
-    
-    m->OpenSocket = null;
+
+    m->OpenSocket = null;    
     return true;
 }
 
@@ -220,7 +221,6 @@ Int Network_ServerOpen(Int o, Int socket)
 Int Network_ServerClose(Int o)
 {
     Network_Close(o);
-    Network_CloseUnconnected(o);
     return true;
 }
 
@@ -266,15 +266,34 @@ Int Network_ReadyCountGet(Int o)
 }
 
 FieldDefaultSet(Network, ReadyCount)
-CppField(Network, CaseChangedState)
-CppField(Network, ErrorState)
+CppField(Network, StatusChangeState)
+CppField(Network, CaseChangeState)
 CppField(Network, ReadyReadState)
 
-Int Network_CaseChanged(Int o)
+Int Network_StatusChange(Int o)
 {
     Network* m;
     m = CP(o);
+    Int state;
+    state = m->StatusChangeState;
+    Int aa;
+    aa = State_MaideGet(state);
+    Int arg;
+    arg = State_ArgGet(state);
 
+    Network_StatusChange_Maide maide;
+    maide = (Network_StatusChange_Maide)aa;
+    if (!(maide == null))
+    {
+        maide(o, arg);
+    }
+    return true;
+}
+
+Int Network_CaseChange(Int o)
+{
+    Network* m;
+    m = CP(o);
     Int openSocket;
     openSocket = m->OpenSocket;
 
@@ -286,20 +305,21 @@ Int Network_CaseChanged(Int o)
 
     QAbstractSocket::SocketState oa;
     oa = socket->state();
+
     if (oa == QAbstractSocket::ConnectedState)
     {
         Network_OpenConnected(o);
     }
 
     Int state;
-    state = m->CaseChangedState;
+    state = m->CaseChangeState;
     Int aa;
     aa = State_MaideGet(state);
     Int arg;
     arg = State_ArgGet(state);
 
-    Network_CaseChanged_Maide maide;
-    maide = (Network_CaseChanged_Maide)aa;
+    Network_CaseChange_Maide maide;
+    maide = (Network_CaseChange_Maide)aa;
     if (!(maide == null))
     {
         maide(o, arg);
@@ -308,27 +328,6 @@ Int Network_CaseChanged(Int o)
     if (oa == QAbstractSocket::UnconnectedState)
     {
         Network_CloseUnconnected(o);
-    }
-    return true;
-}
-
-Int Network_Error(Int o)
-{
-    Network* m;
-    m = CP(o);
-
-    Int state;
-    state = m->ErrorState;
-    Int aa;
-    aa = State_MaideGet(state);
-    Int arg;
-    arg = State_ArgGet(state);
-
-    Network_Error_Maide maide;
-    maide = (Network_Error_Maide)aa;
-    if (!(maide == null))
-    {
-        maide(o, arg);
     }
     return true;
 }
