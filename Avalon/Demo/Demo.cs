@@ -974,11 +974,15 @@ class Demo : Any
 
         thread.Execute();
 
+        List list;
+        list = new List();
+        list.Init();
+
         Process process;
         process = new Process();
         process.Init();
         process.Program = "DemoNetwork.exe";
-        process.Argue = this.ListInfra.ArrayCreate(0);
+        process.Argue = list;
         process.WorkFold = null;
         process.Environment = null;
 
