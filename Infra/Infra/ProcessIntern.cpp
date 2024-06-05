@@ -2,21 +2,21 @@
 
 Bool ProcessIntern::Init()
 {
-    connect(this, &QProcess::started, this, &ProcessIntern::StartedHandle);
-    connect(this, &QProcess::finished, this, &ProcessIntern::FinshedHandle);
+    connect(this, &QProcess::started, this, &ProcessIntern::StartHandle);
+    connect(this, &QProcess::finished, this, &ProcessIntern::FinishHandle);
     return true;
 }
 
-void ProcessIntern::StartedHandle()
+void ProcessIntern::StartHandle()
 {
     Int process;
     process = this->Process;
-    Process_Started(process);
+    Process_Start(process);
 }
 
-void ProcessIntern::FinshedHandle(int exitCode, QProcess::ExitStatus exitStatus)
+void ProcessIntern::FinishHandle(int exitCode, QProcess::ExitStatus exitStatus)
 {
     Int process;
     process = this->Process;
-    Process_Finished(process);
+    Process_Finish(process);
 }

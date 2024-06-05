@@ -12,8 +12,8 @@ struct Process
     Int Argue;
     Int WorkFold;
     Int Environment;
-    Int StartedState;
-    Int FinishedState;
+    Int StartState;
+    Int FinishState;
     ProcessIntern* Intern;
 };
 

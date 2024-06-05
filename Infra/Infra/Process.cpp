@@ -136,22 +136,22 @@ Int Process_ExitKindGet(Int o)
 }
 
 FieldDefaultSet(Process, ExitKind)
-CppField(Process, StartedState)
-CppField(Process, FinishedState)
+CppField(Process, StartState)
+CppField(Process, FinishState)
 
-Int Process_Started(Int o)
+Int Process_Start(Int o)
 {
     Process* m;
     m = CP(o);
     Int state;
-    state = m->StartedState;
+    state = m->StartState;
     Int aa;
     aa = State_MaideGet(state);
     Int arg;
     arg = State_ArgGet(state);
 
-    Process_Started_Maide maide;
-    maide = (Process_Started_Maide)aa;
+    Process_Start_Maide maide;
+    maide = (Process_Start_Maide)aa;
     if (!(maide == null))
     {
         maide(o, arg);
@@ -159,19 +159,19 @@ Int Process_Started(Int o)
     return true;
 }
 
-Int Process_Finished(Int o)
+Int Process_Finish(Int o)
 {
     Process* m;
     m = CP(o);
     Int state;
-    state = m->FinishedState;
+    state = m->FinishState;
     Int aa;
     aa = State_MaideGet(state);
     Int arg;
     arg = State_ArgGet(state);
 
-    Process_Finished_Maide maide;
-    maide = (Process_Finished_Maide)aa;
+    Process_Finish_Maide maide;
+    maide = (Process_Finish_Maide)aa;
     if (!(maide == null))
     {
         maide(o, arg);

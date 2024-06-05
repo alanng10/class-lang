@@ -75,8 +75,8 @@ Int Interval_Elapse(Int o);
 
 Int Post_ExecuteHandle(Int o);
 
-Int Process_Started(Int o);
-Int Process_Finished(Int o);
+Int Process_Start(Int o);
+Int Process_Finish(Int o);
 
 Int Main_CurrentThreadSignalHandleSet();
 

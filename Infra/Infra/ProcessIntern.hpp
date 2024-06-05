@@ -14,6 +14,6 @@ public:
 
 private slots:
 
-    void StartedHandle();
-    void FinshedHandle(int exitCode, QProcess::ExitStatus exitStatus);
+    void StartHandle();
+    void FinishHandle(int exitCode, QProcess::ExitStatus exitStatus);
 };
