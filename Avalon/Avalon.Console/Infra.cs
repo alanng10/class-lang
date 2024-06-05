@@ -17,20 +17,20 @@ class Infra : Any
     public override bool Init()
     {
         base.Init();
-        ProcessStartedMaide maideA;
-        maideA = new ProcessStartedMaide(Process.InternStarted);
-        this.ProcessStartedMaideAddress = new MaideAddress();
-        this.ProcessStartedMaideAddress.Delegate = maideA;
-        this.ProcessStartedMaideAddress.Init();
+        ProcessStartMaide maideA;
+        maideA = new ProcessStartMaide(Process.InternStart);
+        this.ProcessStartMaideAddress = new MaideAddress();
+        this.ProcessStartMaideAddress.Delegate = maideA;
+        this.ProcessStartMaideAddress.Init();
 
-        ProcessFinishedMaide maideB;
-        maideB = new ProcessFinishedMaide(Process.InternFinished);
-        this.ProcessFinishedMaideAddress = new MaideAddress();
-        this.ProcessFinishedMaideAddress.Delegate = maideB;
-        this.ProcessFinishedMaideAddress.Init();
+        ProcessFinishMaide maideB;
+        maideB = new ProcessFinishMaide(Process.InternFinish);
+        this.ProcessFinishMaideAddress = new MaideAddress();
+        this.ProcessFinishMaideAddress.Delegate = maideB;
+        this.ProcessFinishMaideAddress.Init();
         return true;
     }
 
-    public virtual MaideAddress ProcessStartedMaideAddress { get; set; }
-    public virtual MaideAddress ProcessFinishedMaideAddress { get; set; }
+    public virtual MaideAddress ProcessStartMaideAddress { get; set; }
+    public virtual MaideAddress ProcessFinishMaideAddress { get; set; }
 }

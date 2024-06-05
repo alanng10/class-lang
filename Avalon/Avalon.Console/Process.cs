@@ -13,19 +13,19 @@ public class Process : Any
         this.InternHandle.Init();
 
         MaideAddress oa;
-        oa = this.ConsoleInfra.ProcessStartedMaideAddress;
+        oa = this.ConsoleInfra.ProcessStartMaideAddress;
         MaideAddress ob;
-        ob = this.ConsoleInfra.ProcessFinishedMaideAddress;
+        ob = this.ConsoleInfra.ProcessFinishMaideAddress;
         ulong arg;
         arg = this.InternHandle.ULong();
 
-        this.InternStartedState = this.InternInfra.StateCreate(oa, arg);
-        this.InternFinishedState = this.InternInfra.StateCreate(ob, arg);
+        this.InternStartState = this.InternInfra.StateCreate(oa, arg);
+        this.InternFinishState = this.InternInfra.StateCreate(ob, arg);
 
         this.Intern = Extern.Process_New();
         Extern.Process_Init(this.Intern);
-        Extern.Process_StartedStateSet(this.Intern, this.InternStartedState);
-        Extern.Process_FinishedStateSet(this.Intern, this.InternFinishedState);
+        Extern.Process_StartStateSet(this.Intern, this.InternStartState);
+        Extern.Process_FinishStateSet(this.Intern, this.InternFinishState);
         return true;
     }
 
@@ -34,8 +34,8 @@ public class Process : Any
         Extern.Process_Final(this.Intern);
         Extern.Process_Delete(this.Intern);
 
-        this.InternInfra.StateDelete(this.InternFinishedState);
-        this.InternInfra.StateDelete(this.InternStartedState);
+        this.InternInfra.StateDelete(this.InternFinishState);
+        this.InternInfra.StateDelete(this.InternStartState);
 
         this.InternHandle.Final();
         return true;
@@ -46,18 +46,18 @@ public class Process : Any
     public virtual string WorkFold { get; set; }
     public virtual Table Environment { get; set; }
 
-    public virtual State StartedState { get; set; }
-    public virtual State FinishedState { get; set; }
+    public virtual State StartState { get; set; }
+    public virtual State FinishState { get; set; }
 
     private InternIntern InternIntern { get; set; }
     private InternInfra InternInfra { get; set; }
     private Infra ConsoleInfra { get ;set; }
     private ulong Intern { get; set; }
-    private ulong InternFinishedState { get; set; }
-    private ulong InternStartedState { get; set; }
+    private ulong InternFinishState { get; set; }
+    private ulong InternStartState { get; set; }
     private Handle InternHandle { get; set; }
 
-    internal static ulong InternStarted(ulong process, ulong arg)
+    internal static ulong InternStart(ulong process, ulong arg)
     {
         InternIntern internIntern;
         internIntern = InternIntern.This;
@@ -67,12 +67,12 @@ public class Process : Any
 
         Process a;
         a = (Process)ao;
-        a.ExecuteStartedState();
+        a.ExecuteStartState();
 
         return 1;
     }
 
-    internal static ulong InternFinished(ulong process, ulong arg)
+    internal static ulong InternFinish(ulong process, ulong arg)
     {
         InternIntern internIntern;
         internIntern = InternIntern.This;
@@ -82,25 +82,25 @@ public class Process : Any
 
         Process a;
         a = (Process)ao;
-        a.ExecuteFinishedState();
+        a.ExecuteFinishState();
 
         return 1;
     }
 
-    private bool ExecuteStartedState()
+    protected virtual bool ExecuteStartState()
     {
-        if (!(this.StartedState == null))
+        if (!(this.StartState == null))
         {
-            this.StartedState.Execute();
+            this.StartState.Execute();
         }
         return true;
     }
 
-    private bool ExecuteFinishedState()
+    protected virtual bool ExecuteFinishState()
     {
-        if (!(this.FinishedState == null))
+        if (!(this.FinishState == null))
         {
-            this.FinishedState.Execute();
+            this.FinishState.Execute();
         }
         return true;
     }
@@ -191,7 +191,13 @@ public class Process : Any
         Extern.Process_ArgueSet(this.Intern, argueU);
         Extern.Process_WorkFoldSet(this.Intern, workFoldU);
         Extern.Process_EnvironmentSet(this.Intern, environmentU);
+
         Extern.Process_Execute(this.Intern);
+
+        Extern.Process_EnvironmentSet(this.Intern, 0);
+        Extern.Process_WorkFoldSet(this.Intern, 0);
+        Extern.Process_ArgueSet(this.Intern, 0);
+        Extern.Process_ProgramSet(this.Intern, 0);
 
         if (bb)
         {
