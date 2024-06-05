@@ -22,21 +22,28 @@ class ThreadNetworkState : ThreadExecuteState
 
         this.Network = network;
 
-        NetworkCaseChangedState aa;
-        aa = new NetworkCaseChangedState();
+        NetworkStatusState aa;
+        aa = new NetworkStatusState();
         aa.NetworkState = this;
         aa.Init();
 
-        network.CaseChangedState = aa;
+        network.StatusChangeState = aa;
 
-        NetworkReadyState ab;
-        ab = new NetworkReadyState();
+        NetworkCaseState ab;
+        ab = new NetworkCaseState();
         ab.NetworkState = this;
         ab.Init();
 
-        this.ReadyState = ab;
+        network.CaseChangeState = ab;
 
-        network.ReadyReadState = ab;
+        NetworkReadyState ac;
+        ac = new NetworkReadyState();
+        ac.NetworkState = this;
+        ac.Init();
+
+        network.ReadyReadState = ac;
+
+        this.ReadyState = ac;
 
         network.Open();
 
@@ -63,7 +70,7 @@ class ThreadNetworkState : ThreadExecuteState
             k = "Fail";
         }
 
-        Console.This.Out.Write("Network " + k + "\n");
+        Console.This.Out.Write("Network " + k + ", code: " + o + "\n");
         return true;
     }
 
@@ -73,7 +80,7 @@ class ThreadNetworkState : ThreadExecuteState
         network = this.Network;
 
         network.Close();
-    
+
         network.Final();
 
         this.Network = null;
