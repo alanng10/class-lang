@@ -936,7 +936,6 @@ class Demo : Any
 
         ThreadNetworkState aa;
         aa = new ThreadNetworkState();
-        aa.Demo = this;
         aa.Init();
 
         peerThread.ExecuteState = aa;

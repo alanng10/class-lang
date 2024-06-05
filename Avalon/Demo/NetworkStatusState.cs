@@ -1,6 +1,6 @@
 namespace Demo;
 
-class NetworkStatusState : State
+public class NetworkStatusState : State
 {
     public ThreadNetworkState NetworkState { get; set; }
     private int Status { get; set; }
@@ -19,7 +19,7 @@ class NetworkStatusState : State
     private bool ExecuteAll()
     {
         NetworkStatusList statusList;
-        statusList = this.NetworkState.Demo.NetworkStatusList;
+        statusList = this.NetworkState.NetworkStatusList;
 
         Network network;
         network = this.NetworkState.Network;

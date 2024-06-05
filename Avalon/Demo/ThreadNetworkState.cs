@@ -1,8 +1,10 @@
 namespace Demo;
 
-class ThreadNetworkState : ThreadExecuteState
+public class ThreadNetworkState : ThreadExecuteState
 {
-    public Demo Demo { get; set; }
+    public TextInfra TextInfra { get; set; }
+    public NetworkStatusList NetworkStatusList { get; set; }
+    public NetworkCaseList NetworkCaseList { get; set; }
     public Network Network { get; set; }
     public NetworkReadyState ReadyState { get; set; }
 

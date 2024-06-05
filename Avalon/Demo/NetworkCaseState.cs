@@ -1,6 +1,6 @@
 namespace Demo;
 
-class NetworkCaseState : State
+public class NetworkCaseState : State
 {
     public ThreadNetworkState NetworkState { get; set; }
     private int Status { get; set; }
@@ -8,7 +8,7 @@ class NetworkCaseState : State
     public override bool Execute()
     {
         NetworkCaseList caseList;
-        caseList = this.NetworkState.Demo.NetworkCaseList;
+        caseList = this.NetworkState.NetworkCaseList;
 
         Network network;
         network = this.NetworkState.Network;

@@ -1,6 +1,6 @@
 namespace Demo;
 
-class NetworkReadyState : State
+public class NetworkReadyState : State
 {
     public override bool Init()
     {
@@ -112,7 +112,7 @@ class NetworkReadyState : State
                 this.Case = 2;
 
                 TextInfra textInfra;
-                textInfra = this.NetworkState.Demo.TextInfra;
+                textInfra = this.NetworkState.TextInfra;
 
                 string oo;
                 oo = "Fy Oi";
