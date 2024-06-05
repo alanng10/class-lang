@@ -8,6 +8,7 @@
 
     <ItemGroup>
         <ProjectReference Include="../MakeProject/MakeProject.csproj" />
+        <ProjectReference Include="../Demo/Demo.csproj" />
     </ItemGroup>
 
 </Project>
