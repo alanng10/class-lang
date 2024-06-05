@@ -15,13 +15,16 @@ public class Network : Any
         this.InternHandle.Init();
 
         MaideAddress oa;
-        oa = this.NetworkInfra.NetworkCaseChangeMaideAddress;
+        oa = this.NetworkInfra.NetworkStatusChangeMaideAddress;
         MaideAddress ob;
-        ob = this.NetworkInfra.NetworkReadyReadMaideAddress;
+        ob = this.NetworkInfra.NetworkCaseChangeMaideAddress;
+        MaideAddress oc;
+        oc = this.NetworkInfra.NetworkReadyReadMaideAddress;
         ulong arg;
         arg = this.InternHandle.ULong();
-        this.InternCaseChangeState = this.InternInfra.StateCreate(oa, arg);
-        this.InternReadyReadState = this.InternInfra.StateCreate(ob, arg);
+        this.InternStatusChangeState = this.InternInfra.StateCreate(oa, arg);
+        this.InternCaseChangeState = this.InternInfra.StateCreate(ob, arg);
+        this.InternReadyReadState = this.InternInfra.StateCreate(oc, arg);
 
         bool b;
         b = (this.SetIntern == 0);
@@ -40,6 +43,7 @@ public class Network : Any
             this.Stream = this.DataStream;
         }
 
+        Extern.Network_StatusChangeStateSet(this.Intern, this.InternStatusChangeState);
         Extern.Network_CaseChangeStateSet(this.Intern, this.InternCaseChangeState);
         Extern.Network_ReadyReadStateSet(this.Intern, this.InternReadyReadState);
         return true;
@@ -63,6 +67,7 @@ public class Network : Any
 
         this.InternInfra.StateDelete(this.InternReadyReadState);
         this.InternInfra.StateDelete(this.InternCaseChangeState);
+        this.InternInfra.StateDelete(this.InternStatusChangeState);
 
         this.InternHandle.Final();
         return true;
@@ -71,6 +76,7 @@ public class Network : Any
     internal virtual ulong SetIntern { get; set; }
     public virtual string HostName { get; set; }
     public virtual int ServerPort { get; set; }
+    public virtual State StatusChangeState { get; set; }
     public virtual State CaseChangeState { get; set; }
     public virtual State ReadyReadState { get; set; }
     public virtual StreamStream Stream { get; set; }
@@ -86,6 +92,7 @@ public class Network : Any
     internal virtual ulong Intern { get; set; }
     private ulong InternReadyReadState { get; set; }
     private ulong InternCaseChangeState { get; set; }
+    private ulong InternStatusChangeState { get; set; }
     private Handle InternHandle { get; set; }
     private ulong InternHostName { get; set; }
 
@@ -268,7 +275,7 @@ public class Network : Any
 
         Network a;
         a = (Network)ao;
-        a.ExecuteStatusChange();
+        a.ExecuteStatusChangeState();
 
         return 1;
     }
