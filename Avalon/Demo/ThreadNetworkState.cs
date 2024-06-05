@@ -2,6 +2,15 @@ namespace Demo;
 
 public class ThreadNetworkState : ThreadExecuteState
 {
+    public override bool Init()
+    {
+        base.Init();
+        this.TextInfra = TextInfra.This;
+        this.NetworkStatusList = NetworkStatusList.This;
+        this.NetworkCaseList = NetworkCaseList.This;
+        return true;
+    }
+
     public TextInfra TextInfra { get; set; }
     public NetworkStatusList NetworkStatusList { get; set; }
     public NetworkCaseList NetworkCaseList { get; set; }
