@@ -213,6 +213,15 @@ public class Network : Any
         return o;
     }
 
+    protected virtual bool ExecuteStatusChangeState()
+    {
+        if (!(this.StatusChangeState == null))
+        {
+            this.StatusChangeState.Execute();
+        }
+        return true;
+    }
+
     protected virtual bool CaseChange()
     {
         CaseList caseList;
@@ -247,6 +256,21 @@ public class Network : Any
             this.ReadyReadState.Execute();
         }
         return true;
+    }
+
+    internal static ulong InternStatusChange(ulong network, ulong arg)
+    {
+        InternIntern internIntern;
+        internIntern = InternIntern.This;
+
+        object ao;
+        ao = internIntern.HandleTarget(arg);
+
+        Network a;
+        a = (Network)ao;
+        a.ExecuteStatusChange();
+
+        return 1;
     }
 
     internal static ulong InternCaseChange(ulong network, ulong arg)

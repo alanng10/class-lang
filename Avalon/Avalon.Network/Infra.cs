@@ -17,24 +17,30 @@ class Infra : Any
     public override bool Init()
     {
         base.Init();
-        NetworkCaseChangeMaide maideA;
-        maideA = new NetworkCaseChangeMaide(Network.InternCaseChange);
+        NetworkStatusChangeMaide maideA;
+        maideA = new NetworkStatusChangeMaide(Network.InternStatusChange);
+        this.NetworkStatusChangeMaideAddress = new MaideAddress();
+        this.NetworkStatusChangeMaideAddress.Delegate = maideA;
+        this.NetworkStatusChangeMaideAddress.Init();
+        NetworkCaseChangeMaide maideB;
+        maideB = new NetworkCaseChangeMaide(Network.InternCaseChange);
         this.NetworkCaseChangeMaideAddress = new MaideAddress();
-        this.NetworkCaseChangeMaideAddress.Delegate = maideA;
+        this.NetworkCaseChangeMaideAddress.Delegate = maideB;
         this.NetworkCaseChangeMaideAddress.Init();
-        NetworkReadyReadMaide maideB;
-        maideB = new NetworkReadyReadMaide(Network.InternReadyRead);
+        NetworkReadyReadMaide maideC;
+        maideC = new NetworkReadyReadMaide(Network.InternReadyRead);
         this.NetworkReadyReadMaideAddress = new MaideAddress();
-        this.NetworkReadyReadMaideAddress.Delegate = maideB;
+        this.NetworkReadyReadMaideAddress.Delegate = maideC;
         this.NetworkReadyReadMaideAddress.Init();
-        NetworkServerNewPeerMaide maideC;
-        maideC = new NetworkServerNewPeerMaide(Server.InternNewPeer);
+        NetworkServerNewPeerMaide maideD;
+        maideD = new NetworkServerNewPeerMaide(Server.InternNewPeer);
         this.ServerNewPeerMaideAddress = new MaideAddress();
-        this.ServerNewPeerMaideAddress.Delegate = maideC;
+        this.ServerNewPeerMaideAddress.Delegate = maideD;
         this.ServerNewPeerMaideAddress.Init();
         return true;
     }
 
+    public virtual MaideAddress NetworkStatusChangeMaideAddress { get; set; }
     public virtual MaideAddress NetworkCaseChangeMaideAddress { get; set; }
     public virtual MaideAddress NetworkReadyReadMaideAddress { get; set; }
     public virtual MaideAddress ServerNewPeerMaideAddress { get; set; }
