@@ -255,8 +255,11 @@ public class Process : Any
         i = 0;
         while (i < count)
         {
+            int index;
+            index = count - 1 - i;
+
             ulong oa;
-            oa = (ulong)i;
+            oa = (ulong)index;
 
             ulong u;
             u = Extern.Array_ItemGet(o, oa);
