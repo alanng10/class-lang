@@ -2,8 +2,13 @@ namespace DemoNetwork;
 
 class Demo : Any
 {
-    public int Execute()
+    public bool Execute()
     {
-        return 0;
+        ThreadNetworkState state;
+        state = new ThreadNetworkState();
+        state.Init();
+
+        state.Execute();
+        return true;
     }
 }
