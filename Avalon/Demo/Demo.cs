@@ -953,6 +953,39 @@ class Demo : Any
         return true;
     }
 
+    private bool ExecuteNetworkProcess()
+    {
+        ThreadThread thread;
+        thread = new ThreadThread();
+        thread.Init();
+
+        ThreadNetworkServerState state;
+        state = new ThreadNetworkServerState();
+        state.Demo = this;
+        state.Init();
+
+        thread.ExecuteState = state;
+
+        thread.Execute();
+
+        Process process;
+        process = new Process();
+        process.Init();
+        process.Program = "DemoNetwork.exe";
+        process.Argue = this.ListInfra.ArrayCreate(0);
+        process.WorkFold = null;
+        process.Environment = null;
+
+        process.Execute();
+
+        process.Wait();
+
+        thread.Wait();
+
+        thread.Final();
+        return true;
+    }
+
     private DrawImage ThreadDrawImageCreate()
     {
         DrawImage a;
