@@ -17,6 +17,7 @@ class NetworkPeerReadyState : State
     }
 
     public Demo Demo { get; set; }
+    public ThreadNetworkServerState ServerState { get; set; }
 
     private Data Data { get; set; }
     private DataRange Range { get; set; }
@@ -30,31 +31,8 @@ class NetworkPeerReadyState : State
         b = this.ExecuteAll();
         if (!b)
         {
-            Console.This.Err.Write("Network Peer Status: " + this.Status + "\n");
-            this.ExitNetwork(this.Status);
+            this.ServerState.ExitNetwork(this.Status);
         }
-        return true;
-    }
-
-    private bool ExitNetwork(int code)
-    {
-        Network peer;
-        peer = this.Demo.Peer;
-
-        this.Demo.Server.ClosePeer(peer);
-
-        this.Demo.Server.Close();
-
-        this.Demo.Peer = null;
-        this.Demo.Server = null;
-
-        ThreadCurrent current;
-        current = new ThreadCurrent();
-        current.Init();
-        ThreadThread thread;
-        thread = current.Thread;
-
-        thread.ExitEventLoop(code);
         return true;
     }
 
@@ -99,12 +77,6 @@ class NetworkPeerReadyState : State
 
         peer.Stream.Read(data, range);
 
-        if (!this.CheckStatus())
-        {
-            this.Status = 20;
-            return false;
-        }
-
         range.Count = 1;
 
         if (cc == 0)
@@ -123,16 +95,10 @@ class NetworkPeerReadyState : State
                 data.Set(0, this.Case);
 
                 peer.Stream.Write(data, range);
-
-                if (!this.CheckStatus())
-                {
-                    this.Status = 21;
-                    return false;
-                }
             }
             if (!b)
             {
-                Console.This.Err.Write("Network Server Peer Case 0 Read Data Invalid\n");
+                Console.This.Err.Write("Network Server Case 0 Read Data Invalid\n");
                 this.Status = 22;
                 return false;
             }
@@ -161,15 +127,11 @@ class NetworkPeerReadyState : State
 
                 peer.Stream.Write(data, range);
 
-                if (!this.CheckStatus())
-                {
-                    this.Status = 23;
-                    return false;
-                }
+                return true;
             }
             if (!ba)
             {
-                Console.This.Err.Write("Network Server Peer Case 1 Read Data Invalid\n");
+                Console.This.Err.Write("Network Server Case 1 Read Data Invalid\n");
                 this.Status = 24;
                 return false;
             }
@@ -182,24 +144,8 @@ class NetworkPeerReadyState : State
 
             Console.This.Out.Write("Network Server Case 2 Read Text: " + ka + "\n");
 
-            this.ExitNetwork(0);
+            this.ServerState.ExitNetwork(0);
             return true;
-        }
-        return true;
-    }
-
-    private bool CheckStatus()
-    {
-        NetworkStatusList statusList;
-        statusList = this.Demo.NetworkStatusList;
-
-        Network network;
-        network = this.Demo.Peer;
-
-        if (!(network.Status == statusList.NoError))
-        {
-            Console.This.Err.Write("Network Server Peer Status Error: " + network.Status.Index + "\n");
-            return false;
         }
         return true;
     }
