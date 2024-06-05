@@ -462,10 +462,10 @@ Process
     Terminate()
     Status
     ExitKind
-    StartedState
-    FinishedState
-    Started(process, arg) --
-    Finished(process, arg) --
+    StartState
+    FinishState
+    Start(process, arg) --
+    Finish(process, arg) --
 
 Infra -
     Share() -
