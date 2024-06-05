@@ -623,10 +623,10 @@ public static class Extern
     [DllImport(InfraLib)] public extern static ulong Network_StatusSet(ulong o, ulong value);
     [DllImport(InfraLib)] public extern static ulong Network_CaseGet(ulong o);
     [DllImport(InfraLib)] public extern static ulong Network_CaseSet(ulong o, ulong value);
-    [DllImport(InfraLib)] public extern static ulong Network_CaseChangedStateGet(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Network_CaseChangedStateSet(ulong o, ulong value);
-    [DllImport(InfraLib)] public extern static ulong Network_ErrorStateGet(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Network_ErrorStateSet(ulong o, ulong value);
+    [DllImport(InfraLib)] public extern static ulong Network_CaseChangeStateGet(ulong o);
+    [DllImport(InfraLib)] public extern static ulong Network_CaseChangeStateSet(ulong o, ulong value);
+    [DllImport(InfraLib)] public extern static ulong Network_StatusChangeStateGet(ulong o);
+    [DllImport(InfraLib)] public extern static ulong Network_StatusChangeStateSet(ulong o, ulong value);
     [DllImport(InfraLib)] public extern static ulong Network_ReadyReadStateGet(ulong o);
     [DllImport(InfraLib)] public extern static ulong Network_ReadyReadStateSet(ulong o, ulong value);
 
@@ -634,8 +634,8 @@ public static class Extern
     [DllImport(InfraLib)] public extern static ulong Network_Close(ulong o);
     [DllImport(InfraLib)] public extern static ulong Network_Abort(ulong o);
 
-    public delegate ulong Network_CaseChanged_Maide(ulong network, ulong arg);
-    public delegate ulong Network_Error_Maide(ulong network, ulong arg);
+    public delegate ulong Network_CaseChange_Maide(ulong network, ulong arg);
+    public delegate ulong Network_StatusChange_Maide(ulong network, ulong arg);
     public delegate ulong Network_ReadyRead_Maide(ulong network, ulong arg);
 
     [DllImport(InfraLib)] public extern static ulong NetworkServer_New();
@@ -880,7 +880,6 @@ public static class Extern
     [DllImport(InfraLib)] public extern static ulong Stat_NetworkPortKindAnyIPv6(ulong o);
     [DllImport(InfraLib)] public extern static ulong Stat_NetworkPortKindAnyIPv4(ulong o);
     [DllImport(InfraLib)] public extern static ulong Stat_NetworkStatusNoError(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Stat_NetworkStatusUnknownSocketError(ulong o);
     [DllImport(InfraLib)] public extern static ulong Stat_NetworkStatusConnectionRefusedError(ulong o);
     [DllImport(InfraLib)] public extern static ulong Stat_NetworkStatusRemoteHostClosedError(ulong o);
     [DllImport(InfraLib)] public extern static ulong Stat_NetworkStatusHostNotFoundError(ulong o);

@@ -589,10 +589,10 @@ Infra_Api Int Network_StatusGet(Int o);
 Infra_Api Int Network_StatusSet(Int o, Int value);
 Infra_Api Int Network_CaseGet(Int o);
 Infra_Api Int Network_CaseSet(Int o, Int value);
-Infra_Api Int Network_CaseChangedStateGet(Int o);
-Infra_Api Int Network_CaseChangedStateSet(Int o, Int value);
-Infra_Api Int Network_ErrorStateGet(Int o);
-Infra_Api Int Network_ErrorStateSet(Int o, Int value);
+Infra_Api Int Network_CaseChangeStateGet(Int o);
+Infra_Api Int Network_CaseChangeStateSet(Int o, Int value);
+Infra_Api Int Network_StatusChangeStateGet(Int o);
+Infra_Api Int Network_StatusChangeStateSet(Int o, Int value);
 Infra_Api Int Network_ReadyReadStateGet(Int o);
 Infra_Api Int Network_ReadyReadStateSet(Int o, Int value);
 
@@ -600,8 +600,8 @@ Infra_Api Int Network_Open(Int o);
 Infra_Api Int Network_Close(Int o);
 Infra_Api Int Network_Abort(Int o);
 
-typedef Int (*Network_CaseChanged_Maide)(Int network, Int arg);
-typedef Int (*Network_Error_Maide)(Int network, Int arg);
+typedef Int (*Network_CaseChange_Maide)(Int network, Int arg);
+typedef Int (*Network_StatusChange_Maide)(Int network, Int arg);
 typedef Int (*Network_ReadyRead_Maide)(Int network, Int arg);
 
 InfraApiNew(NetworkServer)
@@ -822,7 +822,6 @@ Infra_Api Int Stat_NetworkPortKindAny(Int o);
 Infra_Api Int Stat_NetworkPortKindAnyIPv6(Int o);
 Infra_Api Int Stat_NetworkPortKindAnyIPv4(Int o);
 Infra_Api Int Stat_NetworkStatusNoError(Int o);
-Infra_Api Int Stat_NetworkStatusUnknownSocketError(Int o);
 Infra_Api Int Stat_NetworkStatusConnectionRefusedError(Int o);
 Infra_Api Int Stat_NetworkStatusRemoteHostClosedError(Int o);
 Infra_Api Int Stat_NetworkStatusHostNotFoundError(Int o);
