@@ -19,6 +19,6 @@ struct Process
 
 #define CP(a) ((Process*)(a))
 
-Int Process_InternSetArgue(Int result, Int argue);
+Int Process_InternArgueSet(Int result, Int argue);
 
-Int Process_InternSetEnvironment(Int result, Int environment);
+Int Process_InternEnvironmentSet(Int result, Int environment);

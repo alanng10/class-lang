@@ -47,7 +47,7 @@ Int Process_Execute(Int o)
     QStringList argueU;
     Int ub;
     ub = CastInt(&argueU);
-    Process_InternSetArgue(ub, argue);
+    Process_InternArgueSet(ub, argue);
 
     QString workFoldU;
     Bool ba;
@@ -71,7 +71,7 @@ Int Process_Execute(Int o)
     {
         Int ud;
         ud = CastInt(&environmentU);
-        Process_InternSetEnvironment(ud, environment);
+        Process_InternEnvironmentSet(ud, environment);
     }
 
     m->Intern->setProgram(programU);
@@ -179,11 +179,10 @@ Int Process_Finish(Int o)
     return true;
 }
 
-Int Process_InternSetArgue(Int result, Int argue)
+Int Process_InternArgueSet(Int result, Int argue)
 {
     QStringList* uu;
     uu = (QStringList*)result;
-    *uu = QStringList();
 
     Int count;
     count = Array_CountGet(argue);
@@ -193,12 +192,11 @@ Int Process_InternSetArgue(Int result, Int argue)
 
     uu->reserve(countU);
 
-    Int item;
-    item = null;
     Int i;
     i = 0;
     while (i < count)
     {
+        Int item;
         item = Array_ItemGet(argue, i);
 
         QString aa;
@@ -212,7 +210,7 @@ Int Process_InternSetArgue(Int result, Int argue)
     return true;
 }
 
-Int Process_InternSetEnvironment(Int result, Int environment)
+Int Process_InternEnvironmentSet(Int result, Int environment)
 {
     QProcessEnvironment* uu;
     uu = (QProcessEnvironment*)result;
