@@ -26,6 +26,7 @@ class ThreadNetworkServerState : ThreadExecuteState
         NetworkNewPeerState state;
         state = new NetworkNewPeerState();
         state.Demo = this.Demo;
+        state.ServerState = this;
         state.Init();
 
         server.NewPeerState = state;
@@ -69,7 +70,31 @@ class ThreadNetworkServerState : ThreadExecuteState
             k = "Fail";
         }
 
-        Console.This.Out.Write("Network Server " + k + "\n");
+        Console.This.Out.Write("Network Server " + k + ", code: " + o + "\n");
+        return true;
+    }
+
+    public bool ExitNetwork(int code)
+    {
+        Network peer;
+        peer = this.Demo.Peer;
+
+        this.Demo.Server.ClosePeer(peer);
+
+        this.Demo.Server.Close();
+
+        this.Demo.Server.Final();
+
+        this.Demo.Peer = null;
+        this.Demo.Server = null;
+
+        ThreadCurrent current;
+        current = new ThreadCurrent();
+        current.Init();
+        ThreadThread thread;
+        thread = current.Thread;
+
+        thread.ExitEventLoop(code);
         return true;
     }
 }
