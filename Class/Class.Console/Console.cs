@@ -569,7 +569,7 @@ public class Console : Any
     {
         Create a;
         a = new Create();
-        a.Class = this;
+        a.Console = this;
         a.Init();
         return a;
     }

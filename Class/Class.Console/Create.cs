@@ -2,7 +2,7 @@ namespace Class.Console;
 
 public class Create : Any
 {
-    public virtual Console Class { get; set; }
+    public virtual Console Console { get; set; }
     public virtual Result Result { get; set; }
     public virtual TokenCreate Token { get; set; }
     public virtual NodeCreate Node { get; set; }
@@ -47,9 +47,9 @@ public class Create : Any
         this.Result.Init();
 
         TaskKindList kindList;
-        kindList = this.Class.TaskKind;
+        kindList = this.Console.TaskKind;
         TaskKind kind;
-        kind = this.Class.Task.Kind;
+        kind = this.Console.Task.Kind;
     
         if (kind == kindList.Console | 
             kind == kindList.Module |
@@ -79,7 +79,7 @@ public class Create : Any
 
     public virtual bool ExecuteToken()
     {
-        this.Token.Source = this.Class.Source;
+        this.Token.Source = this.Console.Source;
         this.Token.Execute();
         this.Result.Token = this.Token.Result;
 
@@ -90,8 +90,8 @@ public class Create : Any
 
     public virtual bool ExecuteNode()
     {
-        this.Node.Source = this.Class.Source;
-        this.Node.Task = this.Class.Task.Node;
+        this.Node.Source = this.Console.Source;
+        this.Node.Task = this.Console.Task.Node;
         this.Node.Code = this.Result.Token.Code;
         this.Node.Execute();
         this.Result.Node = this.Node.Result;
@@ -105,7 +105,7 @@ public class Create : Any
 
     public virtual bool ExecuteModule()
     {
-        this.Module.Source = this.Class.Source;
+        this.Module.Source = this.Console.Source;
         this.Module.RootNode = this.Result.Node.Root;
         this.Module.Execute();
         this.Result.Module = this.Module.Result;
