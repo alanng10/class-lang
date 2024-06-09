@@ -276,6 +276,11 @@ Int Network_StatusChange(Int o)
     m = CP(o);
     Int state;
     state = m->StatusChangeState;
+    if (state == null)
+    {
+        return true;
+    }
+
     Int aa;
     aa = State_MaideGet(state);
     Int arg;
@@ -313,16 +318,19 @@ Int Network_CaseChange(Int o)
 
     Int state;
     state = m->CaseChangeState;
-    Int aa;
-    aa = State_MaideGet(state);
-    Int arg;
-    arg = State_ArgGet(state);
-
-    Network_CaseChange_Maide maide;
-    maide = (Network_CaseChange_Maide)aa;
-    if (!(maide == null))
+    if (!(state == null))
     {
-        maide(o, arg);
+        Int aa;
+        aa = State_MaideGet(state);
+        Int arg;
+        arg = State_ArgGet(state);
+
+        Network_CaseChange_Maide maide;
+        maide = (Network_CaseChange_Maide)aa;
+        if (!(maide == null))
+        {
+            maide(o, arg);
+        }
     }
 
     if (oa == QAbstractSocket::UnconnectedState)
@@ -339,6 +347,11 @@ Int Network_ReadyRead(Int o)
 
     Int state;
     state = m->ReadyReadState;
+    if (state == null)
+    {
+        return true;
+    }
+
     Int aa;
     aa = State_MaideGet(state);
     Int arg;
