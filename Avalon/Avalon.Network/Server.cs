@@ -92,8 +92,15 @@ public class Server : Any
         networkU = Extern.NetworkServer_NextPendingPeer(this.Intern);
 
         Network a;
+        a = this.CreateNetworkPeer(networkU);
+        return a;
+    }
+
+    protected virtual Network CreateNetworkPeer(ulong serverPeer)
+    {
+        Network a;
         a = new Network();
-        a.SetIntern = networkU;
+        a.ServerPeer = serverPeer;
         a.Init();
         return a;
     }
@@ -101,7 +108,7 @@ public class Server : Any
     public virtual bool ClosePeer(Network network)
     {
         ulong u;
-        u = network.SetIntern;
+        u = network.ServerPeer;
 
         Extern.NetworkServer_ClosePeer(this.Intern, u);
 

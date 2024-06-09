@@ -27,7 +27,7 @@ public class Network : Any
         this.InternReadyReadState = this.InternInfra.StateCreate(oc, arg);
 
         bool b;
-        b = (this.SetIntern == 0);
+        b = (this.ServerPeer == 0);
         if (b)
         {
             this.Intern = Extern.Network_New();
@@ -35,7 +35,7 @@ public class Network : Any
         }
         if (!b)
         {
-            this.Intern = this.SetIntern;
+            this.Intern = this.ServerPeer;
 
             ulong streamU;
             streamU = Extern.Network_StreamGet(this.Intern);
@@ -52,7 +52,7 @@ public class Network : Any
     public virtual bool Final()
     {
         bool b;
-        b = (this.SetIntern == 0);
+        b = (this.ServerPeer == 0);
         
         if (b)
         {
@@ -73,7 +73,7 @@ public class Network : Any
         return true;
     }
 
-    internal virtual ulong SetIntern { get; set; }
+    public virtual ulong ServerPeer { get; set; }
     public virtual string HostName { get; set; }
     public virtual int ServerPort { get; set; }
     public virtual State StatusChangeState { get; set; }
