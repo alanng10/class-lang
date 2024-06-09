@@ -105,14 +105,20 @@ public class Server : Any
         return a;
     }
 
+    protected virtual bool FinalNetworkPeer(Network a)
+    {
+        a.Final();
+        return true;
+    }
+
     public virtual bool ClosePeer(Network network)
     {
         ulong u;
         u = network.ServerPeer;
 
-        Extern.NetworkServer_ClosePeer(this.Intern, u);
+        this.FinalNetworkPeer(network);
 
-        network.Final();
+        Extern.NetworkServer_ClosePeer(this.Intern, u);
         return true;
     }
 
