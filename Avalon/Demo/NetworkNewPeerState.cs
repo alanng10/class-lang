@@ -29,14 +29,7 @@ class NetworkNewPeerState : State
         stateA.ServerState = this.ServerState;
         stateA.Init();
 
-        NetworkPeerCaseState stateB;
-        stateB = new NetworkPeerCaseState();
-        stateB.ServerState = this.ServerState;
-        stateB.Init();
-
         network.StatusChangeState = stateA;
-
-        network.CaseChangeState = stateB;
 
         network.ReadyReadState = state;
         return true;
