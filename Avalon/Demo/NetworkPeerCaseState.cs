@@ -12,15 +12,6 @@ class NetworkPeerCaseState : State
 
         Network network;
         network = this.ServerState.Demo.Peer;
-
-        if (network.Case == caseList.Connected)
-        {
-        }
-
-        if (network.Case == caseList.Unconnected)
-        {
-        }
-
         return true;
     }
 }
