@@ -71,7 +71,7 @@ public class Server : Any
         return true;
     }
 
-    public virtual bool IsListen
+    public virtual bool IsOpen
     {
         get
         {
