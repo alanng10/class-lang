@@ -51,9 +51,12 @@ public class Network : Any
 
     public virtual bool Final()
     {
+        Extern.Network_ReadyReadStateSet(this.Intern, 0);
+        Extern.Network_CaseChangeStateSet(this.Intern, 0);
+        Extern.Network_StatusChangeStateSet(this.Intern, 0);
+
         bool b;
         b = (this.ServerPeer == 0);
-        
         if (b)
         {
             Extern.Network_Final(this.Intern);
