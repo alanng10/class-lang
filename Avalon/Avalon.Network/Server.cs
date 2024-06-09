@@ -86,7 +86,7 @@ public class Server : Any
         }
     }
 
-    public virtual Network NextPendingPeer()
+    public virtual Network OpenPeer()
     {
         ulong networkU;
         networkU = Extern.NetworkServer_NextPendingPeer(this.Intern);

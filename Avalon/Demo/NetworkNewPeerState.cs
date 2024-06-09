@@ -14,7 +14,7 @@ class NetworkNewPeerState : State
         }
 
         Network network;
-        network = this.Demo.Server.NextPendingPeer();
+        network = this.Demo.Server.OpenPeer();
         
         this.Demo.Peer = network;
 
