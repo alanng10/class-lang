@@ -1,0 +1,40 @@
+Class
+{
+    Name : ClassName
+           {
+               Value : "Gg",
+           },
+    Base : ClassName
+           {
+               Value : "Hom",
+           },
+    Member : Part
+             {
+                 Value : [
+                             Field
+                             {
+                                 Class : ClassName
+                                         {
+                                             Value : "Ff",
+                                         },
+                                 Name : FieldName
+                                        {
+                                            Value : "Aeid",
+                                        },
+                                 Count : PrudateCount
+                                         {
+                                         },
+                                 Get : State
+                                       {
+                                           Value : [
+                                                   ],
+                                       },
+                                 Set : State
+                                       {
+                                           Value : [
+                                                   ],
+                                       },
+                             },
+                         ],
+             },
+},
