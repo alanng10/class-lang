@@ -260,7 +260,6 @@ public class Infra : Any
         return true;
     }
 
-
     public virtual int DigitValue(char oc, int varBase, bool upperCase)
     {
         int oa;
