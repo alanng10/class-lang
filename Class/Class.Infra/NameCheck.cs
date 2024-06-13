@@ -24,6 +24,8 @@ public class NameCheck : Any
         text.Range = new InfraRange();
         text.Range.Init();
         this.Text = text;
+
+        this.DotText = this.TextInfra.TextCreateStringData(".", null);
         return true;
     }
 
@@ -33,6 +35,7 @@ public class NameCheck : Any
     protected virtual IntCompare CharCompare { get; set; }
     protected virtual StringData StringData { get; set; }
     protected virtual Text Text { get; set; }
+    protected virtual Text DotText { get; set; }
 
     public virtual bool IsName(Text text)
     {
@@ -41,6 +44,11 @@ public class NameCheck : Any
             return false;
         }
 
+        return this.IsNamePart(text);
+    }
+
+    public virtual bool IsNamePart(Text text)
+    {
         TextInfra textInfra;
         textInfra = this.TextInfra;
 
@@ -84,6 +92,88 @@ public class NameCheck : Any
 
         bool a;
         a = !b;
+        return a;
+    }
+
+    public virtual bool IsModuleName(Text text)
+    {
+        TextInfra textInfra;
+        textInfra = this.TextInfra;
+
+        Compare compare;
+        compare = this.TextCompare;
+
+        Text dot;
+        dot = this.DotText;
+
+        InfraRange range;
+        range = text.Range;
+
+        int aa;
+        int ab;
+        aa = range.Index;
+        ab = range.Count;
+        int ac;
+        ac = aa + ab;
+
+        bool b;
+        b = false;
+
+        int u;
+        u = textInfra.Index(text, dot, compare);
+
+        int index;
+        int count;
+        index = aa;
+        count = ab;
+        while (!b & !(u == -1))
+        {
+            count = u;
+            range.Count = count;
+
+            if (!this.IsNamePart(text))
+            {
+                b = true;
+            }
+
+            if (!b)
+            {
+                index = index + u + 1;
+                count = ac - index;
+
+                range.Index = index;
+                range.Count = count;
+
+                u = textInfra.Index(text, dot, compare);
+            }
+        }
+
+        bool ba;
+        ba = false;
+
+        if (!ba)
+        {
+            if (b)
+            {
+                ba = true;
+            }
+        }
+        if (!ba)
+        {
+            count = ac - index;
+            range.Count = count;
+
+            if (!this.IsNamePart(text))
+            {
+                ba = true;
+            }
+        }
+
+        range.Index = aa;
+        range.Count = ab;
+
+        bool a;
+        a = !ba;
         return a;
     }
 

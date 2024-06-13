@@ -188,7 +188,7 @@ public class PortLoad : Any
 
         this.TextStringGet(textA, dataA, name);
 
-        if (!(classInfra.IsModuleName(this.NameCheck, textA)))
+        if (!(this.NameCheck.IsModuleName(textA)))
         {
             this.Status = 1;
             return false;
@@ -274,7 +274,7 @@ public class PortLoad : Any
         version = moduleRef.Version;
 
         this.TextStringGet(textA, dataA, name);
-        if (!(classInfra.IsModuleName(this.NameCheck, textA)))
+        if (!(this.NameCheck.IsModuleName(textA)))
         {
             return false;
         }
@@ -573,7 +573,7 @@ public class PortLoad : Any
 
         this.TextStringGet(textA, dataA, name);
 
-        if (!(classInfra.IsModuleName(this.NameCheck, textA)))
+        if (!(this.NameCheck.IsModuleName(textA)))
         {
             return false;
         }

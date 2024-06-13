@@ -70,7 +70,7 @@ public class ModuleLoad : Any
         }
 
         this.TextGet(o.Name);
-        if (!this.ClassInfra.IsModuleName(this.NameCheck, this.Text))
+        if (!this.NameCheck.IsModuleName(this.Text))
         {
             this.Status = 2;
             return false;

@@ -25,15 +25,6 @@ public class Infra : Any
         this.NewLine = "\n";
         this.IntSignValueNegativeMax = this.InfraInfra.IntCapValue / 2;
         this.IntSignValuePositiveMax = this.IntSignValueNegativeMax - 1;
-        
-        this.CharCompare = new IntCompare();
-        this.CharCompare.Init();
-
-        this.TextCompare = new TextCompare();
-        this.TextCompare.CharCompare = this.CharCompare;
-        this.TextCompare.Init();
-
-        this.DotText = this.TextInfra.TextCreateStringData(".", null);
         return true;
     }
 
@@ -46,9 +37,6 @@ public class Infra : Any
 
     protected virtual InfraInfra InfraInfra { get; set; }
     protected virtual TextInfra TextInfra { get; set; }
-    protected virtual TextCompare TextCompare { get; set; }
-    protected virtual IntCompare CharCompare { get; set; }
-    protected virtual Text DotText { get; set; }
 
     public virtual bool IndexRange(Range range, int index)
     {
@@ -258,88 +246,6 @@ public class Infra : Any
         text.Set(count, lastLine);
 
         return text;
-    }
-
-    public virtual bool IsModuleName(NameCheck nameCheck, Text text)
-    {
-        TextInfra textInfra;
-        textInfra = this.TextInfra;
-
-        Compare compare;
-        compare = this.TextCompare;
-
-        Text dot;
-        dot = this.DotText;
-
-        InfraRange range;
-        range = text.Range;
-
-        int aa;
-        int ab;
-        aa = range.Index;
-        ab = range.Count;
-        int ac;
-        ac = aa + ab;
-
-        bool b;
-        b = false;
-
-        int u;
-        u = textInfra.Index(text, dot, compare);
-
-        int index;
-        int count;
-        index = aa;
-        count = ab;
-        while (!b & !(u == -1))
-        {
-            count = u;
-            range.Count = count;
-
-            if (!nameCheck.IsName(text))
-            {
-                b = true;
-            }
-
-            if (!b)
-            {
-                index = index + u + 1;
-                count = ac - index;
-
-                range.Index = index;
-                range.Count = count;
-
-                u = textInfra.Index(text, dot, compare);
-            }
-        }
-
-        bool ba;
-        ba = false;
-
-        if (!ba)
-        {
-            if (b)
-            {
-                ba = true;
-            }
-        }
-        if (!ba)
-        {
-            count = ac - index;
-            range.Count = count;
-
-            if (!nameCheck.IsName(text))
-            {
-                ba = true;
-            }
-        }
-
-        range.Index = aa;
-        range.Count = ab;
-        
-        bool a;
-        a = !ba;
-        return a;
     }
 
     public virtual bool SystemInfoAssignValue(SystemInfo a, SystemInfo b)
