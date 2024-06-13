@@ -1,3 +1,9 @@
 prudate
 {
+    get
+    {
+    }
+    set
+    {
+    }
 }
