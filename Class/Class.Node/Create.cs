@@ -1014,14 +1014,26 @@ public class Create : InfraCreate
         int countEnd;
         countStart = countRange.Start;
         countEnd = countRange.End;
+
+        int ke;
+        ke = leftBracket.Range.Start;
+
         int classStart;
         int classEnd;
         classStart = countEnd;
+        if (ke < classStart)
+        {
+            classStart = ke;
+        }
         classEnd = classStart + 1;
+        if (ke < classEnd)
+        {
+            classEnd = ke;
+        }
         int nameStart;
         int nameEnd;
         nameStart = classEnd;
-        nameEnd = nameStart + 1;
+        nameEnd = ke;
         int paramStart;
         int paramEnd;
         paramStart = leftBracket.Range.End;
