@@ -522,4 +522,69 @@ public class Infra : Any
 
         return k;
     }
+
+    public virtual Array TextArrayCreateStringData(string o)
+    {
+        InfraInfra infraInfra;
+        infraInfra = this.InfraInfra;
+
+        char newLine;
+        newLine = infraInfra.NewLine[0];
+
+        int count;
+        count = 0;
+
+        int oo;
+        oo = o.IndexOf(newLine, 0);
+        while (!(oo < 0))
+        {
+            count = count + 1;
+            oo = o.IndexOf(newLine, oo + 1);
+        }
+
+        Array text;
+        text = new Array();
+        text.Count = count + 1;
+        text.Init();
+
+        Range range;
+        range = new Range();
+        range.Init();
+
+        int index;
+        index = 0;
+
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            oo = o.IndexOf(newLine, index);
+
+            int k;
+            k = oo - index;
+
+            range.Index = index;
+            range.Count = k;
+
+            Text line;
+            line = this.TextCreateStringData(o, range);
+            text.Set(i, line);
+
+            index = oo + 1;
+
+            i = i + 1;
+        }
+
+        int ka;
+        ka = o.Length - index;
+
+        range.Index = index;
+        range.Count = ka;
+
+        Text lastLine;
+        lastLine = this.TextCreateStringData(o, range);
+        text.Set(count, lastLine);
+
+        return text;
+    }
 }
