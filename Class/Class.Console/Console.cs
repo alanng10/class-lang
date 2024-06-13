@@ -831,8 +831,8 @@ public class Console : Any
     {
         StorageInfra storageInfra;
         storageInfra = this.StorageInfra;
-        ClassInfra classInfra;
-        classInfra = this.ClassInfra;
+        TextInfra textInfra;
+        textInfra = this.TextInfra;
 
         Array array;
         array = this.Source;
@@ -861,7 +861,7 @@ public class Console : Any
             h = storageInfra.TextRead(filePath);
 
             Array text;
-            text = classInfra.TextCreate(h);
+            text = textInfra.TextArrayCreateStringData(h);
             a.Text = text;
 
             i = i + 1;

@@ -8,7 +8,6 @@ public class Read : Any
         this.InfraInfra = InfraInfra.This;
         this.ListInfra = ListInfra.This;
         this.TextInfra = TextInfra.This;
-        this.ClassInfra = ClassInfra.This;
 
         this.CountOperate = new CountReadOperate();
         this.CountOperate.Read = this;
@@ -53,7 +52,6 @@ public class Read : Any
     protected virtual InfraInfra InfraInfra { get; set; }
     protected virtual ListInfra ListInfra { get; set; }
     protected virtual TextInfra TextInfra { get; set; }
-    protected virtual ClassInfra ClassInfra { get; set; }
     protected virtual Array LineList { get; set; }
     protected virtual ReadOperate Operate { get; set; }
     protected virtual CountReadOperate CountOperate { get; set; }
@@ -75,7 +73,7 @@ public class Read : Any
         ListInfra listInfra;
         listInfra = this.ListInfra;
 
-        this.LineList = this.ClassInfra.TextCreate(this.Source);
+        this.LineList = this.TextInfra.TextArrayCreateStringData(this.Source);
         
         ReadArg arg;
         arg = new ReadArg();
