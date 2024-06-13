@@ -4,21 +4,21 @@ public class CreateOperate : Any
 {
     public virtual bool ExecuteToken()
     {
-        return true;
+        return false;
     }
 
     public virtual bool ExecuteComment()
     {
-        return true;
+        return false;
     }
 
     public virtual bool ExecuteCodeStart(int index)
     {
-        return true;
+        return false;
     }
 
     public virtual bool ExecuteCodeEnd(int index)
     {
-        return true;
+        return false;
     }
 }

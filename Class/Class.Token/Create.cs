@@ -18,7 +18,7 @@ public class Create : InfraCreate
         this.SetOperate.Init();
 
 
-        this.Range = new InfraRange();
+        this.Range = new Range();
         this.Range.Init();
         return true;
     }
@@ -38,7 +38,7 @@ public class Create : InfraCreate
     public virtual Code Code { get; set; }
     public virtual Source SourceItem { get; set; }
     public virtual int Row { get; set; }
-    public virtual InfraRange Range { get; set; }
+    public virtual Range Range { get; set; }
     public virtual int TokenIndex { get; set; }
     public virtual Array TokenArray { get; set; }
     public virtual int CommentIndex { get; set; }
@@ -126,7 +126,7 @@ public class Create : InfraCreate
         Array sourceText;
         sourceText = this.SourceItem.Text;
 
-        InfraRange range;
+        Range range;
         range = this.Range;
 
         int row;
@@ -143,16 +143,24 @@ public class Create : InfraCreate
             Data data;
             data = line.Data;
 
+            Range ke;
+            ke = line.Range;
+            
+            int start;
+            start = ke.Index;
+
             int colCount;
-            colCount = line.Range.Count;
+            colCount = ke.Count;
+
             col = 0;
+
             while (col < colCount)
             {
                 bool isValid;
                 isValid = false;
 
                 char c;
-                c = textInfra.DataCharGet(data, col);
+                c = textInfra.DataCharGet(data, start + col);
                 if (c == '#')
                 {
                     this.EndToken(col);
@@ -186,15 +194,14 @@ public class Create : InfraCreate
 
                     int cc;
                     cc = col + 1;
-                    bool ba;
-                    bool bb;
                     bool b;
                     b = false;
                     int uu;
-                    char oc;
                     while (!b & cc < colCount)
                     {
-                        oc = textInfra.DataCharGet(data, cc);
+                        char oc;
+                        oc = textInfra.DataCharGet(data, start + cc);
+                        bool ba;
                         ba = (oc == '\"');
                         if (ba)
                         {
@@ -203,6 +210,7 @@ public class Create : InfraCreate
 
                         if (!b)
                         {
+                            bool bb;
                             bb = (oc == '\\');
                             if (bb)
                             {
@@ -301,7 +309,7 @@ public class Create : InfraCreate
             Token a;
             a = new Token();
             a.Init();
-            a.Range = new InfraRange();
+            a.Range = new Range();
             a.Range.Init();
             array.Set(i, a);
             
@@ -324,7 +332,7 @@ public class Create : InfraCreate
             Comment a;
             a = new Comment();
             a.Init();
-            a.Range = new InfraRange();
+            a.Range = new Range();
             a.Range.Init();
             array.Set(i, a);
 

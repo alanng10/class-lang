@@ -13,9 +13,9 @@ public class SetCreateOperate : CreateOperate
         token = (Token)this.Create.TokenArray.Get(index);
         token.Row = this.Create.Row;
 
-        InfraRange aa;
+        Range aa;
         aa = token.Range; 
-        InfraRange ab;
+        Range ab;
         ab = this.Create.Range;
         
         aa.Index = ab.Index;
@@ -36,9 +36,9 @@ public class SetCreateOperate : CreateOperate
         comment = (Comment)this.Create.CommentArray.Get(index);
         comment.Row = this.Create.Row;
 
-        InfraRange aa;
+        Range aa;
         aa = comment.Range;
-        InfraRange ab;
+        Range ab;
         ab = this.Create.Range;
 
         aa.Index = ab.Index;
