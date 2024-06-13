@@ -777,14 +777,22 @@ public class Create : InfraCreate
         int countEnd;
         countStart = countRange.Start;
         countEnd = countRange.End;
+
+        int ke;
+        ke = leftBrace.Range.Start;
+
         int classStart;
         int classEnd;
         classStart = countRange.End;
         classEnd = classStart + 1;
+        if (ke < classEnd)
+        {
+            classEnd = ke;
+        }
         int nameStart;
         int nameEnd;
         nameStart = classEnd;
-        nameEnd = leftBrace.Range.Start;
+        nameEnd = ke;
         int oStart;
         int oEnd;
         oStart = leftBrace.Range.End;
@@ -1021,10 +1029,6 @@ public class Create : InfraCreate
         int classStart;
         int classEnd;
         classStart = countEnd;
-        if (ke < classStart)
-        {
-            classStart = ke;
-        }
         classEnd = classStart + 1;
         if (ke < classEnd)
         {
