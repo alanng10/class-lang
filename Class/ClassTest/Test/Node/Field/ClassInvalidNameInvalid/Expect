@@ -1,0 +1,28 @@
+--------------------------------------------------
+Kind: ClassInvalid
+Range: (1, 1)
+Source: Code
+--------------------------------------------------
+--------------------------------------------------
+Kind: NameInvalid
+Range: (1, 1)
+Source: Code
+--------------------------------------------------
+Field
+{
+    Class : null,
+    Name : null,
+    Count : PrudateCount
+            {
+            },
+    Get : State
+          {
+              Value : [
+                      ],
+          },
+    Set : State
+          {
+              Value : [
+                      ],
+          },
+},
