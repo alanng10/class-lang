@@ -1,0 +1,39 @@
+--------------------------------------------------
+Kind: ClassInvalid
+Range: (1, 1)
+Source: Code
+--------------------------------------------------
+--------------------------------------------------
+Kind: NameInvalid
+Range: (1, 1)
+Source: Code
+--------------------------------------------------
+Maide
+{
+    Class : null,
+    Name : null,
+    Count : PrudateCount
+            {
+            },
+    Param : Param
+            {
+                Value : [
+                            Var
+                            {
+                                Class : ClassName
+                                        {
+                                            Value : "Int",
+                                        },
+                                Name : VarName
+                                       {
+                                           Value : "ka",
+                                       },
+                            },
+                        ],
+            },
+    Call : State
+           {
+               Value : [
+                       ],
+           },
+},
