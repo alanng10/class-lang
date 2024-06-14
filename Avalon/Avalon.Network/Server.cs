@@ -29,6 +29,8 @@ public class Server : Any
 
     public virtual bool Final()
     {
+        Extern.NetworkServer_NewPeerStateSet(this.Intern, 0);
+
         Extern.NetworkServer_Final(this.Intern);
         Extern.NetworkServer_Delete(this.Intern);
 
