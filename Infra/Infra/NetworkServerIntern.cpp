@@ -6,6 +6,12 @@ Bool NetworkServerIntern::Init()
     return true;
 }
 
+Bool NetworkServerIntern::Final()
+{
+    disconnect(this, &QTcpServer::newConnection, this, &NetworkServerIntern::NewPeerHandle);
+    return true;
+}
+
 void NetworkServerIntern::NewPeerHandle()
 {
     Int networkServer;

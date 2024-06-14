@@ -45,6 +45,8 @@ Int NetworkServer_Close(Int o)
     m = CP(o);
     m->Intern->close();
 
+    m->Intern->Final();
+
     delete m->Intern;
     m->Intern = null;
     return true;
