@@ -4113,7 +4113,7 @@ public class Create : InfraCreate
         InfraRange range;
         range = token.Range;
         text.Data = line.Data;
-        text.Range.Index = range.Index;
+        text.Range.Index = line.Range.Index + range.Index;
         text.Range.Count = range.Count;
         return true;
     }
