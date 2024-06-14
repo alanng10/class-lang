@@ -3928,7 +3928,7 @@ public class Create : InfraCreate
         Data data;
         data = line.Data;
         int start;
-        start = aa.Range.Index;
+        start = line.Range.Index + aa.Range.Index;
 
         if (!(this.TextInfra.DataCharGet(data, start) == '0'))
         {
@@ -3976,7 +3976,7 @@ public class Create : InfraCreate
         Data data;
         data = line.Data;
         int start;
-        start = aa.Range.Index;
+        start = line.Range.Index + aa.Range.Index;
 
         if (!(this.TextInfra.DataCharGet(data, start) == '0'))
         {
