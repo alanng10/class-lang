@@ -4,11 +4,23 @@ CppClassNew(Network)
 
 Int Network_Init(Int o)
 {
+    Network* m;
+    m = CP(o);
+
+    NetworkHandle* handle;
+    handle = new NetworkHandle;
+    handle->Network = o;
+    handle->Init();
+    m->Handle = handle;
     return true;
 }
 
 Int Network_Final(Int o)
 {
+    Network* m;
+    m = CP(o);
+    
+    delete m->Handle;
     return true;
 }
 
@@ -92,11 +104,7 @@ Int Network_Open(Int o)
     oa = CastInt(ua);
     m->OpenSocket = oa;
 
-    NetworkHandle* handle;
-    handle = new NetworkHandle;
-    handle->Network = o;
-    handle->Init();
-    m->Handle = handle;
+    m->Handle->Open();
 
     socket->connectToHost(hostNameU, portU);
     return true;
@@ -159,10 +167,7 @@ Int Network_CloseUnconnected(Int o)
     Int openSocket;
     openSocket = m->OpenSocket;
 
-    m->Handle->Final();
-
-    delete m->Handle;
-    m->Handle = null;
+    m->Handle->Close();
 
     QIODevice* oo;
     oo = (QIODevice*)openSocket;
@@ -190,11 +195,7 @@ Int Network_ServerOpen(Int o, Int socket)
     oa = CastInt(ua);
     m->OpenSocket = oa;
 
-    NetworkHandle* handle;
-    handle = new NetworkHandle;
-    handle->Network = o;
-    handle->Init();
-    m->Handle = handle;
+    m->Handle->Open();
 
     Int stream;
     stream = m->Stream;
