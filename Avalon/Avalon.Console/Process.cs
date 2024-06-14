@@ -31,6 +31,9 @@ public class Process : Any
 
     public virtual bool Final()
     {
+        Extern.Process_FinishStateSet(this.Intern, 0);
+        Extern.Process_StartStateSet(this.Intern, 0);
+        
         Extern.Process_Final(this.Intern);
         Extern.Process_Delete(this.Intern);
 
