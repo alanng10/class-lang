@@ -4085,7 +4085,7 @@ public class Create : InfraCreate
         Data data;
         data = line.Data;
         int start;
-        start = o.Range.Index;
+        start = line.Range.Index + o.Range.Index;
 
         char oa;
         oa = this.TextInfra.DataCharGet(data, start + index);
