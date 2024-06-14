@@ -17,6 +17,23 @@ Bool NetworkHandle::Init()
     return true;
 }
 
+Bool NetworkHandle::Final()
+{
+    Int network;
+    network = this->Network;
+    Int socket;
+    socket = Network_GetOpenSocket(network);
+    QIODevice* uu;
+    uu = (QIODevice*)socket;
+    QTcpSocket* u;
+    u = (QTcpSocket*)uu;
+
+    disconnect(uu, &QIODevice::readyRead, this, &NetworkHandle::ReadyReadHandle);
+    disconnect(u, &QTcpSocket::stateChanged, this, &NetworkHandle::CaseChangeHandle);
+    disconnect(u, &QTcpSocket::errorOccurred, this, &NetworkHandle::StatusChangeHandle);
+    return true;
+}
+
 void NetworkHandle::StatusChangeHandle(QAbstractSocket::SocketError socketError)
 {
     Int network;
