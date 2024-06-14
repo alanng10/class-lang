@@ -11,7 +11,9 @@ class NetworkHandle : public QObject
 
 public:
     Bool Init();
-    Bool Final();
+    
+    Bool Open();
+    Bool Close();
     
     Int Network;
 

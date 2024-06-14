@@ -2,6 +2,11 @@
 
 Bool NetworkHandle::Init()
 {
+    return true;
+}
+
+Bool NetworkHandle::Open()
+{
     Int network;
     network = this->Network;
     Int socket;
@@ -17,7 +22,7 @@ Bool NetworkHandle::Init()
     return true;
 }
 
-Bool NetworkHandle::Final()
+Bool NetworkHandle::Close()
 {
     Int network;
     network = this->Network;
