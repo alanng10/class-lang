@@ -159,6 +159,8 @@ Int Network_CloseUnconnected(Int o)
     Int openSocket;
     openSocket = m->OpenSocket;
 
+    m->Handle->Final();
+
     delete m->Handle;
     m->Handle = null;
 
