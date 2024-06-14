@@ -147,6 +147,11 @@ Int Process_Start(Int o)
     m = CP(o);
     Int state;
     state = m->StartState;
+    if (state == null)
+    {
+        return true;
+    }
+
     Int aa;
     aa = State_MaideGet(state);
     Int arg;
@@ -167,6 +172,11 @@ Int Process_Finish(Int o)
     m = CP(o);
     Int state;
     state = m->FinishState;
+    if (state == null)
+    {
+        return true;
+    }
+
     Int aa;
     aa = State_MaideGet(state);
     Int arg;
