@@ -1417,7 +1417,7 @@ public class Create : InfraCreate
         Text text;
         text = this.TextA;
         text.Data = line.Data;
-        text.Range.Index = aa.Range.Index + 2;
+        text.Range.Index = line.Range.Index + aa.Range.Index + 2;
         text.Range.Count = aa.Range.Count - 2;
 
         long value;
@@ -1463,7 +1463,7 @@ public class Create : InfraCreate
         Text text;
         text = this.TextA;
         text.Data = line.Data;
-        text.Range.Index = aa.Range.Index + 3;
+        text.Range.Index = line.Range.Index + aa.Range.Index + 3;
         text.Range.Count = aa.Range.Count - 3;
 
         long o;
@@ -1537,7 +1537,7 @@ public class Create : InfraCreate
         Text text;
         text = this.TextA;
         text.Data = line.Data;
-        text.Range.Index = aa.Range.Index + 4;
+        text.Range.Index = line.Range.Index + aa.Range.Index + 4;
         text.Range.Count = aa.Range.Count - 4;
 
         long o;
@@ -3887,7 +3887,7 @@ public class Create : InfraCreate
         Data data;
         data = line.Data;
         int start;
-        start = aa.Range.Index;
+        start = line.Range.Index + aa.Range.Index;
 
         if (!(this.TextInfra.DataCharGet(data, start) == '0'))
         {
