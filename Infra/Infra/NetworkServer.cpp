@@ -94,6 +94,11 @@ Int NetworkServer_NewPeer(Int o)
     m = CP(o);
     Int state;
     state = m->NewPeerState;
+    if (state == null)
+    {
+        return true;
+    }
+    
     Int aa;
     aa = State_MaideGet(state);
     Int arg;
