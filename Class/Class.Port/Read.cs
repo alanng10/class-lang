@@ -8,6 +8,7 @@ public class Read : Any
         this.InfraInfra = InfraInfra.This;
         this.ListInfra = ListInfra.This;
         this.TextInfra = TextInfra.This;
+        this.ClassInfra = ClassInfra.This;
 
         this.CountOperate = new CountReadOperate();
         this.CountOperate.Read = this;
@@ -37,6 +38,8 @@ public class Read : Any
         this.TextCompare.CharCompare = charCompare;
         this.TextCompare.Init();
 
+        this.TextNewLine = this.TextInfra.TextCreateStringData(this.ClassInfra.NewLine, null);
+
         this.Colon = ":";
         this.Dot = ".";
         this.SquareLeft = "[";
@@ -52,6 +55,7 @@ public class Read : Any
     protected virtual InfraInfra InfraInfra { get; set; }
     protected virtual ListInfra ListInfra { get; set; }
     protected virtual TextInfra TextInfra { get; set; }
+    protected virtual ClassInfra ClassInfra { get; set; }
     protected virtual Array LineList { get; set; }
     protected virtual ReadOperate Operate { get; set; }
     protected virtual CountReadOperate CountOperate { get; set; }
@@ -61,6 +65,7 @@ public class Read : Any
     protected virtual Text Text { get; set; }
     protected virtual StringData StringData { get; set; }
     protected virtual TextCompare TextCompare { get; set; }
+    protected virtual Text TextNewLine { get; set; }
     protected virtual string Colon { get; set; }
     protected virtual string Dot { get; set; }
     protected virtual string SquareLeft { get; set; }
@@ -73,7 +78,15 @@ public class Read : Any
         ListInfra listInfra;
         listInfra = this.ListInfra;
 
-        this.LineList = this.TextInfra.TextArrayCreateStringData(this.Source);
+        string source;
+        source = this.Source;
+
+        Range range;
+        range = new Range();
+        range.Init();
+        range.Count = source.Length;
+
+        this.LineList = this.TextInfra.TextArraySplitStringData(source, range, this.TextNewLine, this.TextCompare);
         
         ReadArg arg;
         arg = new ReadArg();
