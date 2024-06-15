@@ -157,6 +157,12 @@ Int Network_Close(Int o)
     socket = (QTcpSocket*)oo;
 
     socket->disconnectFromHost();
+
+    socket->close();
+
+    delete socket;
+
+    m->OpenSocket = null;
     return true;
 }
 
@@ -164,22 +170,8 @@ Int Network_CloseUnconnected(Int o)
 {
     Network* m;
     m = CP(o);
-    Int openSocket;
-    openSocket = m->OpenSocket;
-
-    m->Handle->Close();
-
-    QIODevice* oo;
-    oo = (QIODevice*)openSocket;
-
-    QTcpSocket* socket;
-    socket = (QTcpSocket*)oo;
-
-    socket->close();
-
-    delete socket;
-
-    m->OpenSocket = null;    
+    
+    m->Handle->Close(); 
     return true;
 }
 
