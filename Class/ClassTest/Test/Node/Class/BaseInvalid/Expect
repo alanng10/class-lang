@@ -1,0 +1,18 @@
+--------------------------------------------------
+Kind: BaseInvalid
+Range: (3, 3)
+Source: Code
+--------------------------------------------------
+Class
+{
+    Name : ClassName
+           {
+               Value : "Gg",
+           },
+    Base : null,
+    Member : Part
+             {
+                 Value : [
+                         ],
+             },
+},
