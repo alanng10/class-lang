@@ -523,7 +523,7 @@ public class Infra : Any
         return k;
     }
 
-    public virtual Array TextArraySplitStringData(string value, Range range, Text delimit, Compare compare)
+    public virtual Array TextArraySplitStringData(string value, Range range, Text delimit, InfraCompare compare)
     {
         InfraInfra infraInfra;
         infraInfra = this.InfraInfra;

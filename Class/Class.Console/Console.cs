@@ -54,6 +54,8 @@ public class Console : Any
         this.TextCompare = new TextCompare();
         this.TextCompare.CharCompare = charCompare;
         this.TextCompare.Init();
+
+        this.TextNewLine = this.TextInfra.TextCreateStringData(this.ClassInfra.NewLine, null);
         return true;
     }
 
@@ -112,6 +114,7 @@ public class Console : Any
     protected virtual StringData StringDataA { get; set; }
     protected virtual StringData StringDataB { get; set; }
     protected virtual TextCompare TextCompare { get; set; }
+    protected virtual Text TextNewLine { get; set; }
 
     public virtual bool Load()
     {
@@ -838,6 +841,12 @@ public class Console : Any
         array = this.Source;
         string sourceFold;
         sourceFold = this.SourceFold;
+
+        Text newLine;
+        newLine = this.TextNewLine;
+        Compare compare;
+        compare = this.TextCompare;
+        
         int count;
         count = array.Count;
         int i;
@@ -860,8 +869,13 @@ public class Console : Any
             string h;
             h = storageInfra.TextRead(filePath);
 
+            InfraRange range;
+            range = new InfraRange();
+            range.Init();
+            range.Count = h.Length;
+
             Array text;
-            text = textInfra.TextArrayCreateStringData(h);
+            text = textInfra.TextArraySplitStringData(h, range, newLine, compare);
             a.Text = text;
 
             i = i + 1;
