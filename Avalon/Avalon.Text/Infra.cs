@@ -549,7 +549,7 @@ public class Infra : Any
         {
             count = count + 1;
 
-            oRange.Index = kkk + oo + delimitCount;
+            oRange.Index = oRange.Index + oo + delimitCount;
 
             oo = this.Index(o, delimit, compare);
         }
@@ -565,36 +565,28 @@ public class Infra : Any
 
         oRange.Index = kkk;
 
-        int index;
-        index = 0;
-
         int i;
         i = 0;
         while (i < count)
         {
             oo = this.Index(o, delimit, compare);
 
-            int k;
-            k = oo - index;
-
-            rangeA.Index = kkk + index;
-            rangeA.Count = k;
+            rangeA.Index = oRange.Index;
+            rangeA.Count = oo;
 
             Text line;
             line = this.TextCreateStringData(value, rangeA);
             text.Set(i, line);
 
-            index = oo + delimitCount;
-
-            oRange.Index = kkk + index;
+            oRange.Index = oRange.Index + oo + delimitCount;
 
             i = i + 1;
         }
 
         int ka;
-        ka = oRange.Count - index;
+        ka = kkk + oRange.Count - oRange.Index;
 
-        rangeA.Index = kkk + index;
+        rangeA.Index = oRange.Index;
         rangeA.Count = ka;
 
         oRange.Index = kkk;
