@@ -869,13 +869,11 @@ public class Console : Any
             string h;
             h = storageInfra.TextRead(filePath);
 
-            InfraRange range;
-            range = new InfraRange();
-            range.Init();
-            range.Count = h.Length;
+            Text aa;
+            aa = textInfra.TextCreateStringData(h, null);
 
             Array text;
-            text = textInfra.TextArraySplitStringData(h, range, newLine, compare);
+            text = textInfra.TextArraySplit(aa, newLine, compare);
             a.Text = text;
 
             i = i + 1;

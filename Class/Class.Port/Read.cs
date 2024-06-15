@@ -81,12 +81,10 @@ public class Read : Any
         string source;
         source = this.Source;
 
-        Range range;
-        range = new Range();
-        range.Init();
-        range.Count = source.Length;
+        Text aaa;
+        aaa = this.TextInfra.TextCreateStringData(source, null);
 
-        this.LineList = this.TextInfra.TextArraySplitStringData(source, range, this.TextNewLine, this.TextCompare);
+        this.LineList = this.TextInfra.TextArraySplit(aaa, this.TextNewLine, this.TextCompare);
         
         ReadArg arg;
         arg = new ReadArg();
