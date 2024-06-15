@@ -537,8 +537,11 @@ public class Infra : Any
         int delimitCount;
         delimitCount = delimit.Range.Count;
 
-        int kkk;
-        kkk = oRange.Index;
+        int kka;
+        kka = oRange.Index;
+
+        int kkb;
+        kkb = oRange.Count;
 
         int count;
         count = 0;
@@ -549,7 +552,11 @@ public class Infra : Any
         {
             count = count + 1;
 
-            oRange.Index = oRange.Index + oo + delimitCount;
+            int kaa;
+            kaa = oo + delimitCount;
+
+            oRange.Index = oRange.Index + kaa;
+            oRange.Count = oRange.Count - kaa;
 
             oo = this.Index(o, delimit, compare);
         }
@@ -563,7 +570,8 @@ public class Infra : Any
         rangeA = new Range();
         rangeA.Init();
 
-        oRange.Index = kkk;
+        oRange.Index = kka;
+        oRange.Count = kkb;
 
         int i;
         i = 0;
@@ -578,18 +586,23 @@ public class Infra : Any
             line = this.TextCreateStringData(value, rangeA);
             text.Set(i, line);
 
-            oRange.Index = oRange.Index + oo + delimitCount;
+            int kab;
+            kab = oo + delimitCount;
+
+            oRange.Index = oRange.Index + kab;
+            oRange.Count = oRange.Count - kab;
 
             i = i + 1;
         }
 
         int ka;
-        ka = kkk + oRange.Count - oRange.Index;
+        ka = kka + kkb - oRange.Index;
 
         rangeA.Index = oRange.Index;
         rangeA.Count = ka;
 
-        oRange.Index = kkk;
+        oRange.Index = kka;
+        oRange.Count = kkb;
 
         Text lastLine;
         lastLine = this.TextCreateStringData(value, rangeA);
