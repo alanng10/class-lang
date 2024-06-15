@@ -523,23 +523,35 @@ public class Infra : Any
         return k;
     }
 
-    public virtual Array TextArrayCreateStringData(string o)
+    public virtual Array TextArraySplitStringData(string value, Range range, Text delimit, Compare compare)
     {
         InfraInfra infraInfra;
         infraInfra = this.InfraInfra;
 
-        char newLine;
-        newLine = infraInfra.NewLine[0];
+        Text o;
+        o = this.TextCreateStringData(value, range);
+
+        Range oRange;
+        oRange = o.Range;
+
+        int delimitCount;
+        delimitCount = delimit.Range.Count;
+
+        int kkk;
+        kkk = oRange.Index;
 
         int count;
         count = 0;
 
         int oo;
-        oo = o.IndexOf(newLine, 0);
+        oo = this.Index(o, delimit, compare);
         while (!(oo < 0))
         {
             count = count + 1;
-            oo = o.IndexOf(newLine, oo + 1);
+
+            oRange.Index = kkk + oo + delimitCount;
+
+            oo = this.Index(o, delimit, compare);
         }
 
         Array text;
@@ -547,9 +559,11 @@ public class Infra : Any
         text.Count = count + 1;
         text.Init();
 
-        Range range;
-        range = new Range();
-        range.Init();
+        Range rangeA;
+        rangeA = new Range();
+        rangeA.Init();
+
+        oRange.Index = kkk;
 
         int index;
         index = 0;
@@ -558,31 +572,35 @@ public class Infra : Any
         i = 0;
         while (i < count)
         {
-            oo = o.IndexOf(newLine, index);
+            oo = this.Index(o, delimit, compare);
 
             int k;
             k = oo - index;
 
-            range.Index = index;
-            range.Count = k;
+            rangeA.Index = kkk + index;
+            rangeA.Count = k;
 
             Text line;
-            line = this.TextCreateStringData(o, range);
+            line = this.TextCreateStringData(value, rangeA);
             text.Set(i, line);
 
-            index = oo + 1;
+            index = oo + delimitCount;
+
+            oRange.Index = kkk + index;
 
             i = i + 1;
         }
 
         int ka;
-        ka = o.Length - index;
+        ka = oRange.Count - index;
 
-        range.Index = index;
-        range.Count = ka;
+        rangeA.Index = kkk + index;
+        rangeA.Count = ka;
+
+        oRange.Index = kkk;
 
         Text lastLine;
-        lastLine = this.TextCreateStringData(o, range);
+        lastLine = this.TextCreateStringData(value, rangeA);
         text.Set(count, lastLine);
 
         return text;
