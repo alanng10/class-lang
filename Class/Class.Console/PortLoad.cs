@@ -51,6 +51,7 @@ public class PortLoad : Any
     protected virtual TextCompare TextCompare { get; set; }
     protected virtual Iter TableIter { get; set; }
     protected virtual Array ImportModuleRefArray { get; set; }
+    protected virtual Table ImportDependTable { get; set; }
     protected virtual Table BinaryDependTable { get; set; }
     protected virtual string SystemModuleSingle { get; set; }
     protected virtual string SystemModulePre { get; set; }
@@ -96,6 +97,12 @@ public class PortLoad : Any
         }
 
         b = this.ImportDepend();
+        if (!b)
+        {
+            return false;
+        }
+
+        b = this.ImportModuleLoad();
         if (!b)
         {
             return false;
@@ -472,6 +479,7 @@ public class PortLoad : Any
             return false;
         }
 
+        this.ImportDependTable = table;
         return true;
     }
 
@@ -555,21 +563,33 @@ public class PortLoad : Any
 
     protected virtual bool ImportModuleLoad()
     {
-        Array array;
-        array = this.ImportModuleRefArray;
+        Iter iter;
+        iter = this.TableIter;
+        this.ImportDependTable.IterSet(iter);
 
-        int count;
-        count = array.Count;
-        int i;
-        i = 0;
-        while (i < count)
+        while (iter.Next())
         {
-            ModuleRef ka;
-            ka = (ModuleRef)array.Get(i);
+            ModuleRef moduleRef;
+            moduleRef = (ModuleRef)iter.Index;
 
-            i = i + 1;
+            this.ModuleLoad.ModuleRef = moduleRef;
+            this.ModuleLoad.Execute();
+
+            int o;
+            o = this.ModuleLoad.Status;
+            if (!(o == 0))
+            {
+                this.Status = 70 + o;
+                return false;
+            }
+
+            ClassModule a;
+            a = this.ModuleLoad.Module;
+
+            this.ModuleLoad.Module = null;
+
+            this.ListInfra.TableAdd(this.ModuleTable, a.Ref, a);
         }
-
         return true;
     }
 
