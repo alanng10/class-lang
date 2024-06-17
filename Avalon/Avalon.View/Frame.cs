@@ -55,8 +55,7 @@ public class Frame : Comp
         ulong ouu;
         ouu = Extern.Frame_VideoOut(this.Intern);
 
-        this.Draw = new DrawDraw();
-        this.Draw.Init();
+        this.Draw = this.CreateDraw();
         this.Draw.Out = ouu;
         this.Draw.Size.Width = this.Size.Width;
         this.Draw.Size.Height = this.Size.Height;
@@ -66,7 +65,7 @@ public class Frame : Comp
 
     public virtual bool Final()
     {
-        this.Draw.Final();
+        this.FinalDraw(this.Draw);
 
         Extern.Frame_Final(this.Intern);
         Extern.Frame_Delete(this.Intern);
@@ -78,6 +77,20 @@ public class Frame : Comp
         this.InternInfra.StateDelete(this.InternTypeState);
 
         this.InternHandle.Final();
+        return true;
+    }
+
+    protected virtual DrawDraw CreateDraw()
+    {
+        DrawDraw a;
+        a = new DrawDraw();
+        a.Init();
+        return a;
+    }
+
+    protected virtual bool FinalDraw(DrawDraw a)
+    {
+        a.Final();
         return true;
     }
 
