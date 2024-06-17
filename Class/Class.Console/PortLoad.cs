@@ -418,11 +418,16 @@ public class PortLoad : Any
         ListInfra listInfra;
         listInfra = this.ListInfra;
 
+        ClassInfra classInfra;
+        classInfra = this.ClassInfra;
+
+        this.BinaryDependTable = classInfra.TableCreateModuleRefCompare();
+
         Array array;
         array = this.ImportModuleRefArray;
 
         Table table;
-        table = this.ClassInfra.TableCreateModuleRefCompare();
+        table = classInfra.TableCreateModuleRefCompare();
 
         Iter iter;
         iter = this.TableIter;
@@ -546,6 +551,26 @@ public class PortLoad : Any
 
         listInfra.TableAdd(binaryDependTable, moduleRef, table);
         return table;
+    }
+
+    protected virtual bool ImportModuleLoad()
+    {
+        Array array;
+        array = this.ImportModuleRefArray;
+
+        int count;
+        count = array.Count;
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            ModuleRef ka;
+            ka = (ModuleRef)array.Get(i);
+
+            i = i + 1;
+        }
+
+        return true;
     }
 
     protected virtual bool IsBuiltinModuleRef(ModuleRef moduleRef)
