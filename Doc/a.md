@@ -2,7 +2,7 @@
 
 Class is a general purpose programming language.
 Class is used to create modules.
-Class consists of execution runner, compiler modules, system modules, documentation, source code.
+Class consists of compiler modules, system modules, documentation, source code.
 Class is open source.
 Permission is granted by Class creator that is me, Alan Ng Jen Foong, to every person to use any copy of Class in any way.
 
