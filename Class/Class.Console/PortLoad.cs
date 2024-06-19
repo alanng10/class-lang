@@ -238,31 +238,9 @@ public class PortLoad : Any
             return false;
         }
 
-        this.TextStringGet(textB, dataB, this.SystemModuleSingle);
-        if (textInfra.Equal(textA, textB, compare))
+        if (this.IsBuiltinModuleRef(module))
         {
             this.Status = 3;
-            return false;
-        }
-
-        this.TextStringGet(textB, dataB, this.SystemModulePre);
-        if (textInfra.Start(textA, textB, compare))
-        {
-            this.Status = 4;
-            return false;
-        }
-
-        this.TextStringGet(textB, dataB, this.ClassModuleSingle);
-        if (textInfra.Equal(textA, textB, compare))
-        {
-            this.Status = 5;
-            return false;
-        }
-
-        this.TextStringGet(textB, dataB, this.ClassModulePre);
-        if (textInfra.Start(textA, textB, compare))
-        {
-            this.Status = 6;
             return false;
         }
 
