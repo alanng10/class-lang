@@ -73,18 +73,27 @@ public class PortLoad : Any
         PortPort port;
         port = this.Port;
 
-        if (!this.CheckModuleRef(port.Module))
-        {
-            return false;
-        }
-
-        if (!this.CheckImportArrayModuleRef(port.Import))
-        {
-            return false;
-        }
-
         bool b;
+
+        b = this.CheckModuleRef(port.Module);
+        if (!b)
+        {
+            return false;
+        }
+
+        b = this.CheckImportArrayModuleRef(port.Import);
+        if (!b)
+        {
+            return false;
+        }
+
         b = this.SetImportModuleRef();
+        if (!b)
+        {
+            return false;
+        }
+
+        b = this.CheckImportUnique();
         if (!b)
         {
             return false;
@@ -118,9 +127,6 @@ public class PortLoad : Any
         ClassInfra classInfra;
         classInfra = this.ClassInfra;
 
-        Table table;
-        table = classInfra.TableCreateModuleRefCompare();
-
         Array import;
         import = this.Port.Import;
 
@@ -151,6 +157,35 @@ public class PortLoad : Any
             ModuleRef a;
             a = classInfra.ModuleRefCreate(name, version);
 
+            array.Set(i, a);
+
+            i = i + 1;
+        }
+
+        this.ImportModuleRefArray = array;
+        return true;
+    }
+
+    protected virtual bool CheckImportUnique()
+    {
+        ListInfra listInfra;
+        listInfra = this.ListInfra;
+        
+        Table table;
+        table = this.ClassInfra.TableCreateModuleRefCompare();
+
+        Array array;
+        array = this.ImportModuleRefArray;
+
+        int count;
+        count = array.Count;
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            ModuleRef a;
+            a = (ModuleRef)array.Get(i);
+
             if (table.Contain(a))
             {
                 this.Status = 30;
@@ -159,12 +194,8 @@ public class PortLoad : Any
 
             listInfra.TableAdd(table, a, a);
 
-            array.Set(i, a);
-
             i = i + 1;
         }
-
-        this.ImportModuleRefArray = array;
         return true;
     }
 
