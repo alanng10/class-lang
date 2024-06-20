@@ -627,11 +627,6 @@ public class PortLoad : Any
 
         this.TextStringGet(textA, dataA, name);
 
-        if (!(this.NameCheck.IsModuleName(textA)))
-        {
-            return false;
-        }
-
         bool b;
         b = false;
 
