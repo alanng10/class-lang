@@ -143,6 +143,12 @@ public class PortLoad : Any
             return false;
         }
 
+        b = this.SetModuleStorage();
+        if (!b)
+        {
+            return false;
+        }
+
         b = this.SetModuleEntry();
         if (!b)
         {
