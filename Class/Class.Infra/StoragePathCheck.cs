@@ -47,9 +47,6 @@ public class StoragePathCheck : Any
 
     public virtual bool IsValidDestPath(Text text)
     {
-        TextInfra textInfra;
-        textInfra = this.TextInfra;
-
         if (!this.IsValidSourcePath(text))
         {
             return false;
@@ -62,6 +59,22 @@ public class StoragePathCheck : Any
         {
             return false;
         }
+
+        if (this.HasDotAndDotDot(text))
+        {
+            return false;
+        }
+
+        return true;
+    }
+
+    protected virtual bool HasDotAndDotDot(Text text)
+    {
+        TextInfra textInfra;
+        textInfra = this.TextInfra;
+
+        Compare compare;
+        compare = this.TextCompare;
 
         Text combine;
         combine = this.Combine;
@@ -144,9 +157,9 @@ public class StoragePathCheck : Any
 
         if (b)
         {
-            return false;
+            return true;
         }
 
-        return true;
+        return false;
     }
 }
