@@ -689,12 +689,19 @@ public class PortLoad : Any
                 string className;
                 className = importClass.Class;
 
+                this.TextStringGet(textA, stringDataA, className);
+                if (!nameCheck.IsName(textA))
+                {
+                    this.Status = 80;
+                    return false;
+                }
+
                 ClassClass varClass;
                 varClass = (ClassClass)k.Class.Get(className);
 
                 if (varClass == null)
                 {
-                    this.Status = 80;
+                    this.Status = 81;
                     return false;
                 }
 
@@ -706,13 +713,13 @@ public class PortLoad : Any
                 this.TextStringGet(textA, stringDataA, name);
                 if (!nameCheck.IsName(textA))
                 {
-                    this.Status = 81;
+                    this.Status = 82;
                     return false;
                 }
                 
                 if (module.Class.Contain(name))
                 {
-                    this.Status = 82;
+                    this.Status = 83;
                     return false;
                 }
 
