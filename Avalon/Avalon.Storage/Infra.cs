@@ -267,11 +267,17 @@ public class Infra : Any
         indexA = range.Index;
         countA = range.Count;
 
-        range.Index = k - 1;
-        range.Count = 1;
+        TextText colon;
+        colon = this.TextColon;
+
+        int colonCount;
+        colonCount = colon.Range.Count;
+
+        range.Index = indexA + k - colonCount;
+        range.Count = colonCount;
 
         bool b;
-        b = textInfra.Equal(entryPath, this.TextColon, compare);
+        b = textInfra.Equal(entryPath, colon, compare);
         
         range.Index = indexA;
         range.Count = countA;
