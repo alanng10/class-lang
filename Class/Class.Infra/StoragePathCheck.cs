@@ -30,7 +30,6 @@ public class StoragePathCheck : Any
     protected virtual Text Dot { get; set; }
     protected virtual Text DotDot { get; set; }
 
-
     public virtual bool IsValidSourcePath(Text text)
     {
         int k;
