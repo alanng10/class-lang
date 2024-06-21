@@ -118,6 +118,12 @@ public class PortLoad : Any
             return false;
         }
 
+        b = this.CreateModule();
+        if (!b)
+        {
+            return false;
+        }
+
         return true;
     }
 
@@ -609,6 +615,18 @@ public class PortLoad : Any
 
             listInfra.TableAdd(table, a.Ref, a);
         }
+        return true;
+    }
+
+    protected virtual bool CreateModule()
+    {
+        ModuleRef ka;
+        ka = this.Port.Module;
+
+        ClassModule module;
+        module = new ClassModule();
+        module.Init();
+        module.Ref = this.ClassInfra.ModuleRefCreate(ka.Name, ka.Version);
         return true;
     }
 
