@@ -699,7 +699,7 @@ public class Create : InfraCreate
         while (iter.Next())
         {
             string name;
-            name = (string)iter.Value;
+            name = (string)iter.Index;
 
             ClassClass varClass;
             varClass = this.ModuleClassGet(module, name);
