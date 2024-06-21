@@ -130,6 +130,12 @@ public class PortLoad : Any
             return false;
         }
 
+        b = this.SetModuleExport();
+        if (!b)
+        {
+            return false;
+        }
+
         return true;
     }
 
