@@ -7,6 +7,7 @@ public class StoragePathCheck : Any
         base.Init();
         this.InfraInfra = InfraInfra.This;
         this.TextInfra = TextInfra.This;
+        this.StorageInfra = StorageInfra.This;
 
         IntCompare charCompare;
         charCompare = new IntCompare();
@@ -24,6 +25,7 @@ public class StoragePathCheck : Any
 
     protected virtual InfraInfra InfraInfra { get; set; }
     protected virtual TextInfra TextInfra { get; set; }
+    protected virtual StorageInfra StorageInfra { get; set; }
     protected virtual TextCompare TextCompare { get; set; }
     protected virtual Text Combine { get; set; }
     protected virtual Text BackSlash { get; set; }
@@ -55,6 +57,12 @@ public class StoragePathCheck : Any
 
         Compare compare;
         compare = this.TextCompare;
+
+        if (!this.StorageInfra.IsRelativePath(text, compare))
+        {
+            return false;
+        }
+
         Text combine;
         combine = this.Combine;
         Text dot;
