@@ -639,8 +639,17 @@ public class PortLoad : Any
         Table moduleTable;
         moduleTable = this.ModuleTable;
 
+        NameCheck nameCheck;
+        nameCheck = this.NameCheck;
+
         Array importModuleRef;
         importModuleRef = this.ImportModuleRefArray;
+
+        Text textA;
+        textA = this.TextA;
+
+        StringData stringDataA;
+        stringDataA = this.StringDataA;
 
         Array array;
         array = this.Port.Import;
@@ -693,10 +702,17 @@ public class PortLoad : Any
 
                 string name;
                 name = importClass.Name;
-
-                if (module.Class.Contain(name))
+                
+                this.TextStringGet(textA, stringDataA, name);
+                if (!nameCheck.IsName(textA))
                 {
                     this.Status = 81;
+                    return false;
+                }
+                
+                if (module.Class.Contain(name))
+                {
+                    this.Status = 82;
                     return false;
                 }
 
