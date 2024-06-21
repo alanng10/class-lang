@@ -651,6 +651,7 @@ public class PortLoad : Any
         module.Class = classInfra.TableCreateStringCompare();
         module.Import = classInfra.TableCreateModuleRefCompare();
         module.Export = classInfra.TableCreateStringCompare();
+        module.Storage = classInfra.TableCreateStringCompare();
 
         this.Module = module;
         return true;
