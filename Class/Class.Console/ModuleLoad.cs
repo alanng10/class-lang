@@ -40,6 +40,8 @@ public class ModuleLoad : Any
 
     public virtual bool Execute()
     {
+        this.Status = 0;
+        
         bool b;
         b = this.ExecuteAll();
 

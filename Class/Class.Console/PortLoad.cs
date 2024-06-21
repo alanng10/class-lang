@@ -572,6 +572,15 @@ public class PortLoad : Any
 
     protected virtual bool ImportModuleLoad()
     {
+        ListInfra listInfra;
+        listInfra = this.ListInfra;
+
+        ModuleLoad moduleLoad;
+        moduleLoad = this.ModuleLoad;
+
+        Table table;
+        table = this.ModuleTable;
+
         Iter iter;
         iter = this.TableIter;
         this.ImportDependTable.IterSet(iter);
@@ -581,11 +590,11 @@ public class PortLoad : Any
             ModuleRef moduleRef;
             moduleRef = (ModuleRef)iter.Index;
 
-            this.ModuleLoad.ModuleRef = moduleRef;
-            this.ModuleLoad.Execute();
+            moduleLoad.ModuleRef = moduleRef;
+            moduleLoad.Execute();
 
             int o;
-            o = this.ModuleLoad.Status;
+            o = moduleLoad.Status;
             if (!(o == 0))
             {
                 this.Status = 70 + o;
@@ -593,11 +602,11 @@ public class PortLoad : Any
             }
 
             ClassModule a;
-            a = this.ModuleLoad.Module;
+            a = moduleLoad.Module;
 
-            this.ModuleLoad.Module = null;
+            moduleLoad.Module = null;
 
-            this.ListInfra.TableAdd(this.ModuleTable, a.Ref, a);
+            listInfra.TableAdd(table, a.Ref, a);
         }
         return true;
     }
