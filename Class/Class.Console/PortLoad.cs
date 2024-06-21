@@ -124,6 +124,12 @@ public class PortLoad : Any
             return false;
         }
 
+        b = this.SetModuleImport();
+        if (!b)
+        {
+            return false;
+        }
+
         return true;
     }
 
@@ -620,9 +626,6 @@ public class PortLoad : Any
 
     protected virtual bool CreateModule()
     {
-        ListInfra listInfra;
-        listInfra = this.ListInfra;
-
         ClassInfra classInfra;
         classInfra = this.ClassInfra;
 
@@ -635,6 +638,21 @@ public class PortLoad : Any
         module.Ref = classInfra.ModuleRefCreate(moduleRef.Name, moduleRef.Version);
         module.Class = classInfra.TableCreateStringCompare();
         module.Import = classInfra.TableCreateModuleRefCompare();
+
+        this.Module = module;
+        return true;
+    }
+
+    protected virtual bool SetModuleImport()
+    {
+        ListInfra listInfra;
+        listInfra = this.ListInfra;
+
+        ClassInfra classInfra;
+        classInfra = this.ClassInfra;
+
+        ClassModule module;
+        module = this.Module;
 
         Table moduleTable;
         moduleTable = this.ModuleTable;
