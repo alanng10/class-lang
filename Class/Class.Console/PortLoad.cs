@@ -620,13 +620,91 @@ public class PortLoad : Any
 
     protected virtual bool CreateModule()
     {
-        ModuleRef ka;
-        ka = this.Port.Module;
+        ListInfra listInfra;
+        listInfra = this.ListInfra;
+
+        ClassInfra classInfra;
+        classInfra = this.ClassInfra;
+
+        ModuleRef moduleRef;
+        moduleRef = this.Port.Module;
 
         ClassModule module;
         module = new ClassModule();
         module.Init();
-        module.Ref = this.ClassInfra.ModuleRefCreate(ka.Name, ka.Version);
+        module.Ref = classInfra.ModuleRefCreate(moduleRef.Name, moduleRef.Version);
+        module.Class = classInfra.TableCreateStringCompare();
+        module.Import = classInfra.TableCreateModuleRefCompare();
+
+        Table moduleTable;
+        moduleTable = this.ModuleTable;
+
+        Array importModuleRef;
+        importModuleRef = this.ImportModuleRefArray;
+
+        Array array;
+        array = this.Port.Import;
+
+        int count;
+        count = array.Count;
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            ModuleRef kk;
+            kk = (ModuleRef)importModuleRef.Get(i);
+
+            ClassModule k;
+            k = (ClassModule)moduleTable.Get(kk);
+
+            Table a;
+            a = classInfra.TableCreateRefCompare();
+            
+            listInfra.TableAdd(module.Import, kk, a);
+
+            PortImport kkk;
+            kkk = (PortImport)array.Get(i);
+
+            Array importClassArray;
+            importClassArray = kkk.Class;
+
+            int countA;
+            countA = importClassArray.Count;
+            int iA;
+            iA = 0;
+            while (iA < countA)
+            {
+                PortImportClass importClass;
+                importClass = (PortImportClass)importClassArray.Get(iA);
+
+                string className;
+                className = importClass.Class;
+
+                ClassClass varClass;
+                varClass = (ClassClass)k.Class.Get(className);
+
+                if (varClass == null)
+                {
+                    this.Status = 80;
+                    return false;
+                }
+
+                listInfra.TableAdd(a, varClass, varClass);
+
+                string name;
+                name = importClass.Name;
+
+                if (module.Class.Contain(name))
+                {
+                    this.Status = 81;
+                    return false;
+                }
+
+                listInfra.TableAdd(module.Class, name, varClass);
+
+                iA = iA + 1;
+            }
+        }
         return true;
     }
 
