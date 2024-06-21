@@ -10,6 +10,8 @@ public class Module : Any
 
     public virtual Table Export { get; set; }
 
+    public virtual Array Storage { get; set; }
+
     public virtual string Entry { get; set; }
 
     public virtual object Any { get; set; }
