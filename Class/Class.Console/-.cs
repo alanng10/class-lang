@@ -54,6 +54,7 @@ global using PortPort = Class.Port.Port;
 global using PortRead = Class.Port.Read;
 global using PortImport = Class.Port.Import;
 global using PortImportClass = Class.Port.ImportClass;
+global using PortExport = Class.Port.Export;
 global using TokenCreate = Class.Token.Create;
 global using Code = Class.Token.Code;
 global using TokenToken = Class.Token.Token;

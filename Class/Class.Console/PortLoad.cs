@@ -638,6 +638,7 @@ public class PortLoad : Any
         module.Ref = classInfra.ModuleRefCreate(moduleRef.Name, moduleRef.Version);
         module.Class = classInfra.TableCreateStringCompare();
         module.Import = classInfra.TableCreateModuleRefCompare();
+        module.Export = classInfra.TableCreateStringCompare();
 
         this.Module = module;
         return true;
@@ -745,6 +746,71 @@ public class PortLoad : Any
 
                 iA = iA + 1;
             }
+        }
+        return true;
+    }
+
+    protected virtual bool SetModuleExport()
+    {
+        ListInfra listInfra;
+        listInfra = this.ListInfra;
+
+        ClassModule module;
+        module = this.Module;
+
+        Table classTable;
+        classTable = module.Class;
+
+        Table exportTable;
+        exportTable = module.Export;
+
+        NameCheck nameCheck;
+        nameCheck = this.NameCheck;
+
+        Text textA;
+        textA = this.TextA;
+
+        StringData stringDataA;
+        stringDataA = this.StringDataA;
+
+        Array array;
+        array = this.Port.Export;
+
+        int count;
+        count = array.Count;
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            PortExport a;
+            a = (PortExport)array.Get(i);
+
+            string name;
+            name = a.Class;
+
+            this.TextStringGet(textA, stringDataA, name);
+
+            if (!nameCheck.IsName(textA))
+            {
+                this.Status = 85;
+                return false;
+            }
+
+            if (classTable.Contain(name))
+            {
+                this.Status = 86;
+                return false;
+            }
+
+            if (exportTable.Contain(name))
+            {
+                this.Status = 87;
+                return false;
+            }
+
+            listInfra.TableAdd(exportTable, name, null);
+
+            i = i + 1;
         }
         return true;
     }
