@@ -12,4 +12,5 @@ global using IntParse = Avalon.Text.IntParse;
 global using TextCompare = Avalon.Text.Compare;
 global using TextInfra = Avalon.Text.Infra;
 global using ModuleRef = Class.Infra.ModuleRef;
+global using Storage = Class.Infra.Storage;
 global using ClassInfra = Class.Infra.Infra;
