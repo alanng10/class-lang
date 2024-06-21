@@ -9,6 +9,12 @@ public class PortLoad : Any
         this.StorageInfra = StorageInfra.This;
         this.ClassInfra = ClassInfra.This;
 
+        this.NameCheck = new NameCheck();
+        this.NameCheck.Init();
+
+        this.StoragePathCheck = new StoragePathCheck();
+        this.StoragePathCheck.Init();
+
         this.TextA = this.CreateText();
         this.TextB = this.CreateText();
 
@@ -45,6 +51,7 @@ public class PortLoad : Any
     protected virtual StorageInfra StorageInfra { get; set; }
     protected virtual ClassInfra ClassInfra { get; set; }
     protected virtual NameCheck NameCheck { get; set; }
+    protected virtual StoragePathCheck StoragePathCheck { get; set; }
     protected virtual Text TextA { get; set; }
     protected virtual Text TextB { get; set; }
     protected virtual StringData StringDataA { get; set; }
