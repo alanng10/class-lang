@@ -733,8 +733,6 @@ public class Create : InfraCreate
     {
         ClassModule module;
         module = this.Module;
-        Table table;
-        table = module.Export;
         Source source;
         source = this.SourceGet(varClass.Index);
 
