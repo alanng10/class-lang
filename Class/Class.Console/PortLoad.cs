@@ -136,6 +136,12 @@ public class PortLoad : Any
             return false;
         }
 
+        b = this.SetModuleEntry();
+        if (!b)
+        {
+            return false;
+        }
+
         return true;
     }
 
@@ -818,6 +824,29 @@ public class PortLoad : Any
 
             i = i + 1;
         }
+        return true;
+    }
+
+    protected virtual bool SetModuleEntry()
+    {
+        string entry;
+        entry = this.Port.Entry;
+
+        if (entry == null)
+        {
+            return true;
+        }
+
+        Table export;
+        export = this.Module.Export;
+
+        if (!export.Contain(entry))
+        {
+            this.Status = 90;
+            return false;
+        }
+
+        this.Module.Entry = entry;
         return true;
     }
 
