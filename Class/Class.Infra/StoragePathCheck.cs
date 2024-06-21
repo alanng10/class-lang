@@ -102,15 +102,18 @@ public class StoragePathCheck : Any
                 }
             }
 
-            textRange.Count = e;
-            
-            int ka;
-            ka = kk + combineCount;
+            if (!b)
+            {
+                textRange.Count = e;
 
-            textRange.Index = textRange.Index + ka;
-            textRange.Count = textRange.Count - ka;
+                int ka;
+                ka = kk + combineCount;
 
-            kk = textInfra.Index(text, combine, compare);
+                textRange.Index = textRange.Index + ka;
+                textRange.Count = textRange.Count - ka;
+
+                kk = textInfra.Index(text, combine, compare);
+            }
         }
 
         if (!b)
