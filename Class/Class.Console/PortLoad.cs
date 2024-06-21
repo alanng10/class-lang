@@ -34,6 +34,7 @@ public class PortLoad : Any
         return true;
     }
     public virtual PortPort Port { get; set; }
+    public virtual ClassModule Module { get; set; }
     public virtual int Status { get; set; }
     public virtual ModuleLoad ModuleLoad { get; set; }
     public virtual BinaryRead BinaryRead { get; set; }
