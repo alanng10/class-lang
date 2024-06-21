@@ -38,6 +38,7 @@ global using Error = Class.Infra.Error;
 global using ErrorKind = Class.Infra.ErrorKind;
 global using Range = Class.Infra.Range;
 global using ModuleRef = Class.Infra.ModuleRef;
+global using ClassStorage = Class.Infra.Storage;
 global using NameCheck = Class.Infra.NameCheck;
 global using StoragePathCheck = Class.Infra.StoragePathCheck;
 global using PrintableChar = Class.Infra.PrintableChar;

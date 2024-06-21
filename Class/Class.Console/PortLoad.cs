@@ -835,6 +835,76 @@ public class PortLoad : Any
         return true;
     }
 
+    protected virtual bool SetModuleStorage()
+    {
+        ListInfra listInfra;
+        listInfra = this.ListInfra;
+
+        StoragePathCheck pathCheck;
+        pathCheck = this.StoragePathCheck;
+
+        Table table;
+        table = this.Module.Storage;
+
+        Text textA;
+        textA = this.TextA;
+
+        StringData stringDataA;
+        stringDataA = this.StringDataA;
+
+        Array array;
+        array = this.Port.Storage;
+
+        int count;
+        count = array.Count;
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            ClassStorage a;
+            a = (ClassStorage)array.Get(i);
+
+            string sourcePath;
+            string destPath;
+            sourcePath = a.SourcePath;
+            destPath = a.Path;
+
+            this.TextStringGet(textA, stringDataA, sourcePath);
+
+            if (!pathCheck.IsValidSourcePath(textA))
+            {
+                this.Status = 90;
+                return false;
+            }
+
+            this.TextStringGet(textA, stringDataA, destPath);
+
+            if (!pathCheck.IsValidDestPath(textA))
+            {
+                this.Status = 91;
+                return false;
+            }
+
+            if (table.Contain(destPath))
+            {
+                this.Status = 92;
+                return false;
+            }
+
+            ClassStorage m;
+            m = new ClassStorage();
+            m.Init();
+            m.Path = destPath;
+            m.SourcePath = sourcePath;
+
+            listInfra.TableAdd(table, destPath, m);
+
+            i = i + 1;
+        }
+
+        return true;
+    }
+
     protected virtual bool SetModuleEntry()
     {
         string entry;
@@ -850,7 +920,7 @@ public class PortLoad : Any
 
         if (!export.Contain(entry))
         {
-            this.Status = 90;
+            this.Status = 95;
             return false;
         }
 
