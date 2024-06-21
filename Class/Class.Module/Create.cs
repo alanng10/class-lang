@@ -731,8 +731,6 @@ public class Create : InfraCreate
 
     protected virtual bool CheckExport(ClassClass varClass)
     {
-        ClassModule module;
-        module = this.Module;
         Source source;
         source = this.SourceGet(varClass.Index);
 
