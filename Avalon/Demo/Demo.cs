@@ -978,21 +978,21 @@ class Demo : Any
         list = new List();
         list.Init();
 
-        Program process;
-        process = new Program();
-        process.Init();
-        process.Name = "DemoNetwork.exe";
-        process.Argue = list;
-        process.WorkFold = null;
-        process.Environment = null;
+        Program program;
+        program = new Program();
+        program.Init();
+        program.Name = "DemoNetwork.exe";
+        program.Argue = list;
+        program.WorkFold = null;
+        program.Environment = null;
 
-        process.Execute();
+        program.Execute();
 
-        process.Wait();
+        program.Wait();
 
         thread.Wait();
 
-        process.Final();
+        program.Final();
 
         thread.Final();
 
