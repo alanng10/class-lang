@@ -1,6 +1,6 @@
 namespace Avalon.Console;
 
-public class Process : Any
+public class Program : Any
 {
     public override bool Init()
     {
@@ -68,8 +68,8 @@ public class Process : Any
         object ao;
         ao = internIntern.HandleTarget(arg);
 
-        Process a;
-        a = (Process)ao;
+        Program a;
+        a = (Program)ao;
         a.ExecuteStartState();
 
         return 1;
@@ -83,8 +83,8 @@ public class Process : Any
         object ao;
         ao = internIntern.HandleTarget(arg);
 
-        Process a;
-        a = (Process)ao;
+        Program a;
+        a = (Program)ao;
         a.ExecuteFinishState();
 
         return 1;

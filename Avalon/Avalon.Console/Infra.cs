@@ -18,13 +18,13 @@ class Infra : Any
     {
         base.Init();
         ProcessStartMaide maideA;
-        maideA = new ProcessStartMaide(Process.InternStart);
+        maideA = new ProcessStartMaide(Program.InternStart);
         this.ProcessStartMaideAddress = new MaideAddress();
         this.ProcessStartMaideAddress.Delegate = maideA;
         this.ProcessStartMaideAddress.Init();
 
         ProcessFinishMaide maideB;
-        maideB = new ProcessFinishMaide(Process.InternFinish);
+        maideB = new ProcessFinishMaide(Program.InternFinish);
         this.ProcessFinishMaideAddress = new MaideAddress();
         this.ProcessFinishMaideAddress.Delegate = maideB;
         this.ProcessFinishMaideAddress.Init();
