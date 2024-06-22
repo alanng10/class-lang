@@ -60,7 +60,7 @@ public class StoragePathCheck : Any
             return false;
         }
 
-        if (this.HasDotAndDotDot(text))
+        if (this.HasDotOrnDotDot(text))
         {
             return false;
         }
@@ -68,7 +68,7 @@ public class StoragePathCheck : Any
         return true;
     }
 
-    protected virtual bool HasDotAndDotDot(Text text)
+    protected virtual bool HasDotOrnDotDot(Text text)
     {
         TextInfra textInfra;
         textInfra = this.TextInfra;
