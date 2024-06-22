@@ -13,7 +13,7 @@ public class Program : Any
         this.InternHandle.Init();
 
         MaideAddress oa;
-        oa = this.ConsoleInfra.ProcessStartMaideAddress;
+        oa = this.ConsoleInfra.ProgramStartMaideAddress;
         MaideAddress ob;
         ob = this.ConsoleInfra.ProcessFinishMaideAddress;
         ulong arg;

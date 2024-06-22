@@ -19,9 +19,9 @@ class Infra : Any
         base.Init();
         ProcessStartMaide maideA;
         maideA = new ProcessStartMaide(Program.InternStart);
-        this.ProcessStartMaideAddress = new MaideAddress();
-        this.ProcessStartMaideAddress.Delegate = maideA;
-        this.ProcessStartMaideAddress.Init();
+        this.ProgramStartMaideAddress = new MaideAddress();
+        this.ProgramStartMaideAddress.Delegate = maideA;
+        this.ProgramStartMaideAddress.Init();
 
         ProcessFinishMaide maideB;
         maideB = new ProcessFinishMaide(Program.InternFinish);
@@ -31,6 +31,6 @@ class Infra : Any
         return true;
     }
 
-    public virtual MaideAddress ProcessStartMaideAddress { get; set; }
+    public virtual MaideAddress ProgramStartMaideAddress { get; set; }
     public virtual MaideAddress ProcessFinishMaideAddress { get; set; }
 }
