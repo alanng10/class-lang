@@ -23,6 +23,8 @@ Int NetworkServer_Listen(Int o)
     m->Intern->NetworkServer = o;
     m->Intern->Init();
 
+    m->Intern->Open();
+
     Int uu;
     uu = NetworkPort_InternAddress(m->Port);
     QHostAddress* ua;
@@ -45,7 +47,7 @@ Int NetworkServer_Close(Int o)
     m = CP(o);
     m->Intern->close();
 
-    m->Intern->Final();
+    m->Intern->Close();
 
     delete m->Intern;
     m->Intern = null;

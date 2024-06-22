@@ -10,7 +10,9 @@ class NetworkServerIntern : public QTcpServer
 
 public:
     Bool Init();
-    Bool Final();
+
+    Bool Open();
+    Bool Close();
     
     Int NetworkServer;
 
