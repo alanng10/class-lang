@@ -978,8 +978,8 @@ class Demo : Any
         list = new List();
         list.Init();
 
-        Process process;
-        process = new Process();
+        Program process;
+        process = new Program();
         process.Init();
         process.Name = "DemoNetwork.exe";
         process.Argue = list;
