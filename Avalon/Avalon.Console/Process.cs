@@ -15,7 +15,7 @@ public class Program : Any
         MaideAddress oa;
         oa = this.ConsoleInfra.ProgramStartMaideAddress;
         MaideAddress ob;
-        ob = this.ConsoleInfra.ProcessFinishMaideAddress;
+        ob = this.ConsoleInfra.ProgramFinishMaideAddress;
         ulong arg;
         arg = this.InternHandle.ULong();
 

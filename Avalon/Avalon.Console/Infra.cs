@@ -25,12 +25,12 @@ class Infra : Any
 
         ProcessFinishMaide maideB;
         maideB = new ProcessFinishMaide(Program.InternFinish);
-        this.ProcessFinishMaideAddress = new MaideAddress();
-        this.ProcessFinishMaideAddress.Delegate = maideB;
-        this.ProcessFinishMaideAddress.Init();
+        this.ProgramFinishMaideAddress = new MaideAddress();
+        this.ProgramFinishMaideAddress.Delegate = maideB;
+        this.ProgramFinishMaideAddress.Init();
         return true;
     }
 
     public virtual MaideAddress ProgramStartMaideAddress { get; set; }
-    public virtual MaideAddress ProcessFinishMaideAddress { get; set; }
+    public virtual MaideAddress ProgramFinishMaideAddress { get; set; }
 }
