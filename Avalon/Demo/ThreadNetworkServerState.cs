@@ -57,6 +57,8 @@ class ThreadNetworkServerState : ThreadExecuteState
         int o;
         o = thread.ExecuteEventLoop();
 
+        interval.Final();
+
         string k;
         k = null;
         bool b;
