@@ -981,7 +981,7 @@ class Demo : Any
         Process process;
         process = new Process();
         process.Init();
-        process.Program = "DemoNetwork.exe";
+        process.Name = "DemoNetwork.exe";
         process.Argue = list;
         process.WorkFold = null;
         process.Environment = null;

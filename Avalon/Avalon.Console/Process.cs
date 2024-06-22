@@ -44,7 +44,7 @@ public class Process : Any
         return true;
     }
 
-    public virtual string Program { get; set; }
+    public virtual string Name { get; set; }
     public virtual ListList Argue { get; set; }
     public virtual string WorkFold { get; set; }
     public virtual Table Environment { get; set; }
@@ -167,8 +167,8 @@ public class Process : Any
 
     public virtual bool Execute()
     {
-        ulong programU;
-        programU = this.InternInfra.StringCreate(this.Program);
+        ulong nameU;
+        nameU = this.InternInfra.StringCreate(this.Name);
         ulong argueU;
         argueU = this.InternStringListCreate(this.Argue);
 
@@ -190,7 +190,7 @@ public class Process : Any
             environmentU = this.InternStringEntryListCreate(this.Environment);
         }
 
-        Extern.Process_ProgramSet(this.Intern, programU);
+        Extern.Process_ProgramSet(this.Intern, nameU);
         Extern.Process_ArgueSet(this.Intern, argueU);
         Extern.Process_WorkFoldSet(this.Intern, workFoldU);
         Extern.Process_EnvironmentSet(this.Intern, environmentU);
@@ -213,7 +213,7 @@ public class Process : Any
         
         this.InternStringListDelete(argueU);
 
-        this.InternInfra.StringDelete(programU);
+        this.InternInfra.StringDelete(nameU);
         return true;
     }
 
