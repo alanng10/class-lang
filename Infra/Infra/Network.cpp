@@ -156,8 +156,6 @@ Int Network_Close(Int o)
     QTcpSocket* socket;
     socket = (QTcpSocket*)oo;
 
-    socket->disconnectFromHost();
-
     socket->close();
 
     delete socket;
