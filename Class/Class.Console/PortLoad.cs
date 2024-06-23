@@ -649,7 +649,7 @@ public class PortLoad : Any
             o = moduleLoad.Status;
             if (!(o == 0))
             {
-                this.Status = 70 + o;
+                this.Status = 100 + o;
                 return false;
             }
 
