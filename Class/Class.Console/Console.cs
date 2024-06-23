@@ -19,6 +19,10 @@ public class Console : Any
         this.BinaryRead = this.CreateBinaryRead();
         this.ModuleLoad = this.CreateModuleLoad();
 
+        this.PortLoad = this.CreatePortLoad();
+        this.PortLoad.BinaryRead = this.BinaryRead;
+        this.PortLoad.ModuleLoad = this.ModuleLoad;
+
         this.ErrorString = new ErrorString();
         this.ErrorString.Class = this;
         this.ErrorString.Init();
@@ -264,6 +268,14 @@ public class Console : Any
     {
         ModuleLoad a;
         a = new ModuleLoad();
+        a.Init();
+        return a;
+    }
+
+    protected virtual PortLoad CreatePortLoad()
+    {
+        PortLoad a;
+        a = new PortLoad();
         a.Init();
         return a;
     }
