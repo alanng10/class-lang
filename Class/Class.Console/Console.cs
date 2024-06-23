@@ -35,9 +35,6 @@ public class Console : Any
         this.InitModuleTable = this.ClassInfra.TableCreateModuleRefCompare();
         this.InitBinaryTable = this.ClassInfra.TableCreateModuleRefCompare();
 
-        this.ModuleLoad.ModuleTable = this.InitModuleTable;
-        this.ModuleLoad.BinaryTable = this.InitBinaryTable;
-
         this.PortRead = new PortRead();
         this.PortRead.Init();
 
@@ -226,6 +223,9 @@ public class Console : Any
 
     protected virtual bool InitModuleList()
     {
+        this.ModuleLoad.ModuleTable = this.InitModuleTable;
+        this.ModuleLoad.BinaryTable = this.InitBinaryTable;
+
         Iter iter;
         iter = this.InitBinaryTable.IterCreate();
         this.InitBinaryTable.IterSet(iter);
@@ -253,6 +253,9 @@ public class Console : Any
 
             this.ListInfra.TableAdd(this.InitModuleTable, a.Ref, a);
         }
+
+        this.ModuleLoad.ModuleTable = null;
+        this.ModuleLoad.BinaryTable = null;
         return true;
     }
 
@@ -568,7 +571,48 @@ public class Console : Any
 
     protected virtual bool PortModuleLoad()
     {
+        Table binaryTable;
+        binaryTable = this.CopyModuleRefTable(this.InitBinaryTable);
+        Table moduleTable;
+        moduleTable = this.CopyModuleRefTable(this.InitModuleTable);
+        
+        this.BinaryTable = binaryTable;
+        this.ModuleTable = moduleTable;
+
+        PortLoad portLoad;
+        portLoad = this.PortLoad;
+
+        portLoad.Port = this.Port;
+        portLoad.BinaryTable = binaryTable;
+        portLoad.ModuleTable = moduleTable;
+        
+
         return true;
+    }
+
+    protected virtual Table CopyModuleRefTable(Table table)
+    {
+        ListInfra listInfra;
+        listInfra = this.ListInfra;
+        
+        Table a;
+        a = this.ClassInfra.TableCreateModuleRefCompare();
+
+        Iter iter;
+        iter = table.IterCreate();
+        table.IterSet(iter);
+
+        while (iter.Next())
+        {
+            object aa;
+            aa = iter.Index;
+            object ab;
+            ab = iter.Value;
+
+            listInfra.TableAdd(a, aa, ab);
+        }
+
+        return a;
     }
 
     public virtual bool ExecuteCreate()

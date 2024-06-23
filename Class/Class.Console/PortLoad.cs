@@ -84,6 +84,8 @@ public class PortLoad : Any
         this.ImportModuleRefArray = null;
         this.ImportDependTable = null;
         this.BinaryDependTable = null;
+        this.ModuleLoad.BinaryTable = null;
+        this.ModuleLoad.ModuleTable = null;
 
         return b;
     }
@@ -630,6 +632,9 @@ public class PortLoad : Any
         ModuleLoad moduleLoad;
         moduleLoad = this.ModuleLoad;
 
+        moduleLoad.BinaryTable = this.BinaryTable;
+        moduleLoad.ModuleTable = this.ModuleTable;
+
         Table table;
         table = this.ModuleTable;
 
@@ -660,6 +665,7 @@ public class PortLoad : Any
 
             listInfra.TableAdd(table, a.Ref, a);
         }
+        
         return true;
     }
 
