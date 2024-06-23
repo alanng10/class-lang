@@ -78,6 +78,20 @@ public class PortLoad : Any
 
     public virtual bool Execute()
     {
+        bool b;
+        b = this.ExecuteAll();
+
+        this.ImportModuleRefArray = null;
+        this.ImportDependTable = null;
+        this.BinaryDependTable = null;
+
+        return b;
+    }
+
+    protected virtual bool ExecuteAll()
+    {
+        this.Status = 0;
+        
         PortPort port;
         port = this.Port;
 

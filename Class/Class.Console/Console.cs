@@ -103,6 +103,7 @@ public class Console : Any
     protected virtual BinaryRead BinaryRead { get; set; }
     protected virtual ModuleLoad ModuleLoad { get; set; }
     protected virtual PortRead PortRead { get; set; }
+    protected virtual PortLoad PortLoad { get; set; }
     protected virtual NameCheck NameCheck { get; set; }
     protected virtual Table InitModuleTable { get; set; }
     protected virtual Table InitBinaryTable { get; set; }
