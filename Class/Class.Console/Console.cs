@@ -20,8 +20,6 @@ public class Console : Any
         this.ModuleLoad = this.CreateModuleLoad();
 
         this.PortLoad = this.CreatePortLoad();
-        this.PortLoad.BinaryRead = this.BinaryRead;
-        this.PortLoad.ModuleLoad = this.ModuleLoad;
 
         this.ErrorString = new ErrorString();
         this.ErrorString.Class = this;
@@ -62,27 +60,18 @@ public class Console : Any
 
     public virtual Array Source { get; set; }
 
-    public virtual string ModuleName { get; set; }
-
-
     public virtual bool ErrorWrite { get; set; }
 
     public virtual Array Arg { get; set; }
 
     public virtual Task Task { get; set; }
 
-
     public virtual Result Result { get; set; }
-
 
     public virtual TaskKindList TaskKind { get; set; }
 
-
-
     protected virtual Out Out { get; set; }
     protected virtual Out Err { get; set; }
-
-
 
     public virtual Create Create { get; set; }
 
@@ -94,6 +83,8 @@ public class Console : Any
     public virtual string SourceFold { get; set; }
 
     public virtual int Status { get; set; }
+
+    public virtual ClassModule PortModule { get; set; }
 
     protected virtual InfraInfra InfraInfra { get; set; }
     protected virtual ListInfra ListInfra { get; set; }
@@ -494,8 +485,6 @@ public class Console : Any
             baa = this.PortModuleLoad();
             if (!baa)
             {
-                this.Error("Port Module Load Fail");
-                this.Status = 1010;
                 return false;
             }
 
@@ -583,10 +572,22 @@ public class Console : Any
         portLoad = this.PortLoad;
 
         portLoad.Port = this.Port;
+        portLoad.BinaryRead = this.BinaryRead;
+        portLoad.ModuleLoad = this.ModuleLoad;
         portLoad.BinaryTable = binaryTable;
         portLoad.ModuleTable = moduleTable;
-        
 
+        bool b;
+        b = portLoad.Execute();
+
+        if (!b)
+        {
+            this.Error("Port Module Load Fail");
+            this.Status = 1800 + portLoad.Status;
+            return false;
+        }
+
+        this.PortModule = portLoad.Module;
         return true;
     }
 
