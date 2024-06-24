@@ -105,7 +105,7 @@ public class Read : Any
         return true;
     }
 
-    protected virtual bool ResetStageIndex()
+    public virtual bool ResetStageIndex()
     {
         ReadArg a;
         a = this.Arg;
@@ -387,7 +387,7 @@ public class Read : Any
         return true;
     }
 
-    protected virtual bool ExecuteStage()
+    public virtual bool ExecuteStage()
     {
         this.Binary = this.ExecuteBinary();
         return true;
