@@ -16,3 +16,5 @@ Node stage creates nodes trees represent sources. The nodes trees contribute to 
 Module stage creates Anys represent declarations, do class checking, name checking and count checking.
 
 Class compiler gens the module binary after the 3 stages.
+
+The stages output results as Anys.
