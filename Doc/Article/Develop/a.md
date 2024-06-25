@@ -9,3 +9,5 @@ Develop speed is fastest when all dependencies are available.
 Develop speed has order of higher if source is available.
 
 Develop speed has order of higher if dependencies have abstracts that wholly and entirely cover the needs of develop.
+
+Develop speed has order of higher is dependencies have node names.
