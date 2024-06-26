@@ -17,3 +17,8 @@ The word is suitable for use in abstract when cause of effect is not to be shown
 Word "state" has meaning that is executable entity.
 The meaning is not tagged with the existence of processing.
 The word is suitable for use in abstract when inner processing is not to be shown.
+
+Words "prudate", "probate", "precate" and "private" have meanings that are applicable
+to all, local, child, and self.
+The meanings are not tagged with the existence of processing.
+The words are suitable for use in abstract when inner processings are not to be shown.
