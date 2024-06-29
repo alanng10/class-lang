@@ -101,7 +101,6 @@ public class Console : Any
     protected virtual Table InitBinaryTable { get; set; }
     public virtual Table ModuleTable { get; set; }
     public virtual Table BinaryTable { get; set; }
-    public virtual Table ClassTable { get; set; }
     protected virtual PortPort Port { get; set; }
     protected virtual Text TextA { get; set; }
     protected virtual Text TextB { get; set; }
