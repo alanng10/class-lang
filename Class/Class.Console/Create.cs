@@ -108,12 +108,14 @@ public class Create : Any
         this.Module.Source = this.Console.Source;
         this.Module.RootNode = this.Result.Node.Root;
         this.Module.ModuleTable = this.Console.ModuleTable;
+        this.Module.ClassTable = this.Console.ClassTable;
         this.Module.Module = this.Console.PortModule;
         this.Module.Execute();
         this.Result.Module = this.Module.Result;
 
         this.Module.Result = null;
         this.Module.Module = null;
+        this.Module.ClassTable = null;
         this.Module.ModuleTable = null;
         this.Module.RootNode = null;
         this.Module.Source = null;
