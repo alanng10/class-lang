@@ -600,7 +600,6 @@ public class Console : Any
         portLoad.ModuleLoad = null;
         portLoad.BinaryRead = null;
         portLoad.Port = null;
-
         return true;
     }
 
