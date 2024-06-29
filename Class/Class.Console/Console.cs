@@ -835,8 +835,8 @@ public class Console : Any
         list = new List();
         list.Init();
 
-        string o;
-        o = ".cla";
+        string ka;
+        ka = ".cla";
 
         int count;
         count = fileArray.Count;
@@ -847,10 +847,13 @@ public class Console : Any
             string fileName;
             fileName = (string)fileArray.Get(i);
 
-            if (fileName.EndsWith(o))
+            string k;
+            k = fileName.ToLower();
+
+            if (k.EndsWith(ka))
             {
                 string name;
-                name = fileName.Substring(0, fileName.Length - o.Length);
+                name = fileName.Substring(0, k.Length - ka.Length);
 
                 list.Add(name);
             }
@@ -890,6 +893,9 @@ public class Console : Any
 
     protected virtual bool ReadSourceText(bool hasFileExtension)
     {
+        InfraInfra infraInfra;
+        infraInfra = this.InfraInfra;
+
         StorageInfra storageInfra;
         storageInfra = this.StorageInfra;
         TextInfra textInfra;
@@ -899,6 +905,9 @@ public class Console : Any
         array = this.Source;
         string sourceFold;
         sourceFold = this.SourceFold;
+
+        string combine;
+        combine = infraInfra.PathCombine;
 
         Text newLine;
         newLine = this.TextNewLine;
@@ -922,7 +931,7 @@ public class Console : Any
             }
 
             string filePath;
-            filePath = sourceFold + "/" + a.Name + k;
+            filePath = sourceFold + combine + a.Name + k;
 
             string h;
             h = storageInfra.TextRead(filePath);
