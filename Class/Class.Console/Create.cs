@@ -83,8 +83,8 @@ public class Create : Any
         this.Token.Execute();
         this.Result.Token = this.Token.Result;
 
-        this.Token.Source = null;
         this.Token.Result = null;
+        this.Token.Source = null;
         return true;
     }
 
@@ -96,10 +96,10 @@ public class Create : Any
         this.Node.Execute();
         this.Result.Node = this.Node.Result;
 
-        this.Node.Source = null;
-        this.Node.Task = null;
-        this.Node.Code = null;
         this.Node.Result = null;
+        this.Node.Code = null;
+        this.Node.Task = null;
+        this.Node.Source = null;
         return true;
     }
 
@@ -112,9 +112,11 @@ public class Create : Any
         this.Module.Execute();
         this.Result.Module = this.Module.Result;
 
-        this.Module.Source = null;
-        this.Module.RootNode = null;
         this.Module.Result = null;
+        this.Module.Module = null;
+        this.Module.ModuleTable = null;
+        this.Module.RootNode = null;
+        this.Module.Source = null;
         return true;
     }
 }
