@@ -16,6 +16,8 @@ public class Create : InfraCreate
         this.SystemClass.Init();
 
         this.ModuleRef = this.ClassInfra.ModuleRefCreate(null, 0);
+
+        this.InitNullClass();
         return true;
     }
 
