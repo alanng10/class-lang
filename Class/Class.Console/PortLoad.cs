@@ -46,6 +46,7 @@ public class PortLoad : Any
     public virtual BinaryRead BinaryRead { get; set; }
     public virtual Table ModuleTable { get; set; }
     public virtual Table BinaryTable { get; set; }
+    public virtual Table ClassTable { get; set; }
     protected virtual ListInfra ListInfra { get; set; }
     protected virtual TextInfra TextInfra { get; set; }
     protected virtual StorageInfra StorageInfra { get; set; }
@@ -704,6 +705,9 @@ public class PortLoad : Any
         Table moduleTable;
         moduleTable = this.ModuleTable;
 
+        Table classTable;
+        classTable = this.ClassTable;
+
         NameCheck nameCheck;
         nameCheck = this.NameCheck;
 
@@ -782,13 +786,13 @@ public class PortLoad : Any
                     return false;
                 }
                 
-                if (module.Class.Contain(name))
+                if (classTable.Contain(name))
                 {
                     this.Status = 83;
                     return false;
                 }
 
-                listInfra.TableAdd(module.Class, name, varClass);
+                listInfra.TableAdd(classTable, name, varClass);
 
                 iA = iA + 1;
             }
@@ -805,7 +809,7 @@ public class PortLoad : Any
         module = this.Module;
 
         Table classTable;
-        classTable = module.Class;
+        classTable = this.ClassTable;
 
         Table exportTable;
         exportTable = module.Export;
