@@ -85,7 +85,9 @@ public class Console : Any
     public virtual int Status { get; set; }
 
     public virtual ClassModule PortModule { get; set; }
-
+    public virtual Table ModuleTable { get; set; }
+    public virtual Table BinaryTable { get; set; }
+    public virtual Table ClassTable { get; set; }
     protected virtual InfraInfra InfraInfra { get; set; }
     protected virtual ListInfra ListInfra { get; set; }
     protected virtual TextInfra TextInfra { get; set; }
@@ -99,8 +101,6 @@ public class Console : Any
     protected virtual NameCheck NameCheck { get; set; }
     protected virtual Table InitModuleTable { get; set; }
     protected virtual Table InitBinaryTable { get; set; }
-    public virtual Table ModuleTable { get; set; }
-    public virtual Table BinaryTable { get; set; }
     protected virtual PortPort Port { get; set; }
     protected virtual Text TextA { get; set; }
     protected virtual Text TextB { get; set; }
@@ -564,9 +564,12 @@ public class Console : Any
         binaryTable = this.CopyModuleRefTable(this.InitBinaryTable);
         Table moduleTable;
         moduleTable = this.CopyModuleRefTable(this.InitModuleTable);
+        Table classTable;
+        classTable = this.ClassInfra.TableCreateStringCompare();
         
         this.BinaryTable = binaryTable;
         this.ModuleTable = moduleTable;
+        this.ClassTable = classTable;
 
         PortLoad portLoad;
         portLoad = this.PortLoad;
@@ -576,6 +579,7 @@ public class Console : Any
         portLoad.ModuleLoad = this.ModuleLoad;
         portLoad.BinaryTable = binaryTable;
         portLoad.ModuleTable = moduleTable;
+        portLoad.ClassTable = classTable;
 
         bool b;
         b = portLoad.Execute();
@@ -588,6 +592,15 @@ public class Console : Any
         }
 
         this.PortModule = portLoad.Module;
+
+        portLoad.Module = null;
+        portLoad.ClassTable = null;
+        portLoad.ModuleTable = null;
+        portLoad.BinaryTable = null;
+        portLoad.ModuleLoad = null;
+        portLoad.BinaryRead = null;
+        portLoad.Port = null;
+
         return true;
     }
 
