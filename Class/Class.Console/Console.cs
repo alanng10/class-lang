@@ -99,8 +99,9 @@ public class Console : Any
     protected virtual NameCheck NameCheck { get; set; }
     protected virtual Table InitModuleTable { get; set; }
     protected virtual Table InitBinaryTable { get; set; }
-    protected virtual Table ModuleTable { get; set; }
-    protected virtual Table BinaryTable { get; set; }
+    public virtual Table ModuleTable { get; set; }
+    public virtual Table BinaryTable { get; set; }
+    public virtual Table ClassTable { get; set; }
     protected virtual PortPort Port { get; set; }
     protected virtual Text TextA { get; set; }
     protected virtual Text TextB { get; set; }
