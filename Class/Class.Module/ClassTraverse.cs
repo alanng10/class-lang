@@ -36,7 +36,7 @@ public class ClassTraverse : Traverse
         }
 
         Table table;
-        table = this.Create.Module.Class;
+        table = this.Create.ClassTable;
 
         if (table.Contain(className))
         {
@@ -55,6 +55,7 @@ public class ClassTraverse : Traverse
         a.Index = this.Source.Index;
         a.Any = nodeClass;
         
+        this.ListInfra.TableAdd(this.Module.Class, a.Name, a);
         this.ListInfra.TableAdd(table, a.Name, a);
 
         this.Info(nodeClass).Class = a;

@@ -951,7 +951,7 @@ public class Create : InfraCreate
     public virtual ClassClass Class(string name)
     {
         ClassClass a;
-        a = (ClassClass)this.Module.Class.Get(name);
+        a = (ClassClass)this.ClassTable.Get(name);
         return a;
     }
 
