@@ -54,7 +54,8 @@ public class CountCreateOperate : CreateOperate
         int oa;
         oa = sizeof(uint);
         long ob;
-        ob = index * 2;
+        ob = index;
+        ob = ob * 2;
         long oe;
         oe = ob * oa;
         long of;
