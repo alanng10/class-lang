@@ -26,16 +26,16 @@ public class CountCreateOperate : CreateOperate
     public override bool ExecuteComment()
     {
         int index;
-        index = this.Create.CommentIndex;
+        index = this.Create.InfoIndex;
         index = index + 1;
-        this.Create.CommentIndex = index;
+        this.Create.InfoIndex = index;
         return true;
     }
 
     public override bool ExecuteCodeStart(int index)
     {
         this.CodeTokenStart = this.Create.TokenIndex;
-        this.CodeCommentStart = this.Create.CommentIndex;
+        this.CodeCommentStart = this.Create.InfoIndex;
         return true;
     }
 
@@ -47,7 +47,7 @@ public class CountCreateOperate : CreateOperate
         int tokenCount;
         int commentCount;
         tokenCount = this.Create.TokenIndex - this.CodeTokenStart;
-        commentCount = this.Create.CommentIndex - this.CodeCommentStart;
+        commentCount = this.Create.InfoIndex - this.CodeCommentStart;
 
         Data codeCountData;
         codeCountData = this.Create.CodeCountData;

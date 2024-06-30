@@ -30,7 +30,7 @@ public class SetCreateOperate : CreateOperate
     public override bool ExecuteComment()
     {
         int index;
-        index = this.Create.CommentIndex;
+        index = this.Create.InfoIndex;
 
         Info comment;
         comment = (Info)this.Create.CommentArray.Get(index);
@@ -46,7 +46,7 @@ public class SetCreateOperate : CreateOperate
 
         index = index + 1;
 
-        this.Create.CommentIndex = index;
+        this.Create.InfoIndex = index;
         return true;
     }
 }

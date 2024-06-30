@@ -41,7 +41,7 @@ public class Create : InfraCreate
     public virtual Range Range { get; set; }
     public virtual int TokenIndex { get; set; }
     public virtual Array TokenArray { get; set; }
-    public virtual int CommentIndex { get; set; }
+    public virtual int InfoIndex { get; set; }
     public virtual Array CommentArray { get; set; }
     public virtual Data CodeCountData { get; set; }
 
@@ -62,12 +62,12 @@ public class Create : InfraCreate
         this.Operate = this.CountOperate;
 
         this.TokenIndex = 0;
-        this.CommentIndex = 0;
+        this.InfoIndex = 0;
 
         this.ExecuteStage();
 
         this.TokenArray = this.ListInfra.ArrayCreate(this.TokenIndex);
-        this.CommentArray = this.ListInfra.ArrayCreate(this.CommentIndex);
+        this.CommentArray = this.ListInfra.ArrayCreate(this.InfoIndex);
 
         this.ExecuteTokenCreate();
         this.ExecuteCommentCreate();
@@ -76,7 +76,7 @@ public class Create : InfraCreate
         this.Operate = this.SetOperate;
 
         this.TokenIndex = 0;
-        this.CommentIndex = 0;
+        this.InfoIndex = 0;
         
         this.ExecuteStage();
 
