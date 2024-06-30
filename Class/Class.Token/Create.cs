@@ -356,9 +356,9 @@ public class Create : InfraCreate
         oa = sizeof(uint);
 
         int totalToken;
-        int totalComment;
+        int totalInfo;
         totalToken = 0;
-        totalComment = 0;
+        totalInfo = 0;
 
         int count;
         count = codeArray.Count;
@@ -385,10 +385,10 @@ public class Create : InfraCreate
             code.Comment = listInfra.ArrayCreate(infoCount);
 
             listInfra.ArrayCopy(code.Token, 0, this.TokenArray, totalToken, tokenCount);
-            listInfra.ArrayCopy(code.Comment, 0, this.InfoArray, totalComment, infoCount);
+            listInfra.ArrayCopy(code.Comment, 0, this.InfoArray, totalInfo, infoCount);
 
             totalToken = totalToken + tokenCount;
-            totalComment = totalComment + infoCount;
+            totalInfo = totalInfo + infoCount;
 
             i = i + 1;
         }
