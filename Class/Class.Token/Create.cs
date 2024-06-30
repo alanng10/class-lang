@@ -42,7 +42,7 @@ public class Create : InfraCreate
     public virtual int TokenIndex { get; set; }
     public virtual Array TokenArray { get; set; }
     public virtual int InfoIndex { get; set; }
-    public virtual Array CommentArray { get; set; }
+    public virtual Array InfoArray { get; set; }
     public virtual Data CodeCountData { get; set; }
 
     public override bool Execute()
@@ -67,7 +67,7 @@ public class Create : InfraCreate
         this.ExecuteStage();
 
         this.TokenArray = this.ListInfra.ArrayCreate(this.TokenIndex);
-        this.CommentArray = this.ListInfra.ArrayCreate(this.InfoIndex);
+        this.InfoArray = this.ListInfra.ArrayCreate(this.InfoIndex);
 
         this.ExecuteTokenCreate();
         this.ExecuteCommentCreate();
@@ -81,7 +81,7 @@ public class Create : InfraCreate
         this.ExecuteStage();
 
         this.TokenArray = null;
-        this.CommentArray = null;
+        this.InfoArray = null;
         this.CodeCountData = null;
         return true;
     }
@@ -321,7 +321,7 @@ public class Create : InfraCreate
     protected virtual bool ExecuteCommentCreate()
     {
         Array array;
-        array = this.CommentArray;
+        array = this.InfoArray;
 
         int count;
         count = array.Count;
@@ -384,7 +384,7 @@ public class Create : InfraCreate
             code.Comment = listInfra.ArrayCreate(commentCount);
 
             listInfra.ArrayCopy(code.Token, 0, this.TokenArray, totalToken, tokenCount);
-            listInfra.ArrayCopy(code.Comment, 0, this.CommentArray, totalComment, commentCount);
+            listInfra.ArrayCopy(code.Comment, 0, this.InfoArray, totalComment, commentCount);
 
             totalToken = totalToken + tokenCount;
             totalComment = totalComment + commentCount;

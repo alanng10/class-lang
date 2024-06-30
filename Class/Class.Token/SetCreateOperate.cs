@@ -33,7 +33,7 @@ public class SetCreateOperate : CreateOperate
         index = this.Create.InfoIndex;
 
         Info comment;
-        comment = (Info)this.Create.CommentArray.Get(index);
+        comment = (Info)this.Create.InfoArray.Get(index);
         comment.Row = this.Create.Row;
 
         Range aa;
