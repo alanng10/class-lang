@@ -27,7 +27,7 @@ class ObjectString : Any
 
 
 
-        this.CommentType = typeof(Comment);
+        this.CommentType = typeof(Info);
 
 
         this.CharSpace = ' ';
