@@ -2,11 +2,20 @@ namespace Class.Console;
 
 public class ModuleStringTraverse : Traverse
 {
+    public override bool Init()
+    {
+        base.Init();
+        this.InfraInfra = InfraInfra.This;
+        return true;
+    }
+
     public virtual NodeNode Result { get; set; }
     public virtual string Path { get; set; }
+    protected virtual InfraInfra InfraInfra { get; set; }
     protected virtual string Field { get; set; }
     protected virtual string FieldName { get; set; }
     protected virtual int Index { get; set; }
+    protected virtual int CurrentIndex { get; set; }
 
     public override bool ExecuteClass(NodeClass varClass)
     {
@@ -100,8 +109,22 @@ public class ModuleStringTraverse : Traverse
         }
         this.ExecuteNode(varVar);
 
-        this.ExecuteClassName(varVar.Class);
-        this.ExecuteVarName(varVar.Name);
+        if (!(this.Result == null))
+        {
+            return true;
+        }
+
+        string k;
+        k = this.FieldName;
+
+        if (k == "Class")
+        {
+            this.ExecuteClassName(varVar.Class);
+        }
+        if (k == "Name")
+        {
+            this.ExecuteVarName(varVar.Name);
+        }
         return true;
     }
 
@@ -111,17 +134,20 @@ public class ModuleStringTraverse : Traverse
         {
             return true;
         }
-        this.ExecuteNode(param);
 
-        Iter iter;
-        iter = this.Iter;
-        param.Value.IterSet(iter);
-        while (iter.Next())
+        int k;
+        k = this.Index;
+
+        Array array;
+        array = param.Value;
+        if (!(this.InfraInfra.CheckIndex(array.Count, k)))
         {
-            NodeVar varVar;
-            varVar = (NodeVar)iter.Value;
-            this.ExecuteVar(varVar);
+            return true;
         }
+
+        NodeVar varVar;
+        varVar = (NodeVar)array.Get(k);
+        this.ExecuteVar(varVar);
         return true;
     }
 
@@ -1038,5 +1064,130 @@ public class ModuleStringTraverse : Traverse
         this.ExecuteOperate(bitSignRightOperate.Value);
         this.ExecuteOperate(bitSignRightOperate.Count);
         return true;
+    }
+
+    protected override bool ExecuteNode(NodeNode node)
+    {
+        if (!(this.CurrentIndex < this.Path.Length))
+        {
+            this.Result = node;
+            return true;
+        }
+
+        this.SetField();
+
+        this.SetFieldNameIndex();
+
+        this.CurrentIndex = this.CurrentIndex + this.Field.Length + 1;
+        return true;
+    }
+
+    protected virtual bool SetField()
+    {
+        int start;
+        start = this.CurrentIndex;
+
+        int end;
+        end = 0;
+
+        int u;
+        u = this.Path.IndexOf('.', start);
+
+        bool b;
+        b = (u < 0);
+        if (b)
+        {
+            end = this.Path.Length;
+        }
+        if (!b)
+        {
+            end = u;
+        }
+
+        int count;
+        count = end - start;
+
+        string a;
+        a = this.Path.Substring(start, count);
+
+        this.Field = a;
+        return true;
+    }
+
+    protected virtual bool SetFieldNameIndex()
+    {
+        int u;
+        u = this.LeftSquareIndex(this.Field);
+
+        bool b;
+        b = u < 0;
+
+        if (!b)
+        {
+            int leftSquareIndex;
+            leftSquareIndex = u;
+
+            this.Index = this.GetIndex(this.Field, leftSquareIndex);
+
+            this.FieldName = this.Field.Substring(0, leftSquareIndex);
+        }
+
+        if (b)
+        {
+            this.Index = -1;
+
+            this.FieldName = this.Field;
+        }
+        return true;
+    }
+
+    protected virtual int LeftSquareIndex(string field)
+    {
+        int a;
+        a = field.IndexOf('[');
+
+        return a;
+    }
+
+    protected virtual int GetIndex(string field, int leftSquareIndex)
+    {
+        if (field.Length < 1)
+        {
+            return -1;
+        }
+
+        int lastIndex;
+        lastIndex = field.Length - 1;
+
+        char lastChar;
+        lastChar = field[lastIndex];
+
+        bool b;
+        b = (lastChar == ']');
+
+        if (!b)
+        {
+            return -1;
+        }
+
+        int t;
+        t = leftSquareIndex + 1;
+
+        int count;
+        count = lastIndex - t;
+
+        string s;
+        s = field.Substring(t, count);
+
+        bool parse;
+        int n;
+        parse = int.TryParse(s, out n);
+
+        if (!parse)
+        {
+            return -1;
+        }
+
+        return n;
     }
 }
