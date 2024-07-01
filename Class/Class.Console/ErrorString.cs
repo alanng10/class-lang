@@ -14,7 +14,10 @@ public class ErrorString : Any
         this.FormatArg = new FormatArg();
         this.FormatArg.Init();
 
-        this.BorderLine = "--------------------------------------------------";
+        StringCreate kk;
+        kk = new StringCreate();
+        kk.Init();
+        this.BorderLine = kk.Char('-', 50);
         return true;
     }
 
