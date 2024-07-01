@@ -9,44 +9,44 @@ public class ModuleString : Any
         return true;
     }
 
-
-    private StringBuilder Builder { get; set; }
-
-
-
-
-    public virtual ModuleResult ModuleResult { get; set; }
-
-
-
-
-    public virtual NodeResult NodeResult { get; set; }
-
-
-
-
     public virtual string Path { get; set; }
-
+    public virtual ModuleResult ModuleResult { get; set; }
+    public virtual NodeResult NodeResult { get; set; }
     protected virtual InfraInfra InfraInfra { get; set; }
+    protected virtual StringBuilder Builder { get; set; }
+    protected virtual Info Info { get; set; }
+    protected virtual NodeNode ClassNode { get; set; }
+    protected virtual NodeNode Node { get; set; }
 
+    private NodeNode CurrentNode { get; set; }
 
+    private int CurrentIndex { get; set; }
 
+    private string Field { get; set; }
 
+    private string FieldName { get; set; }
+
+    private ulong? Index { get; set; }
 
     public virtual bool Execute()
     {
+        bool b;
+        b = this.ExecuteAll();
+
+        this.Builder = null;
+        this.Info = null;
+        this.ClassNode = null;
+        this.Node = null;
+
+        return b;
+    }
+
+    protected virtual bool ExecuteAll()
+    {
         this.Builder = new StringBuilder();
         
-
-
-
-
-        this.GetClassNode();
+        this.SetClassNode();
         
-
-
-
-
         this.GetNode();
 
 
@@ -80,83 +80,22 @@ public class ModuleString : Any
 
 
 
-    private NodeNode ClassNode { get; set; }
 
 
-
-
-    private NodeNode Node { get; set; }
-
-
-
-
-
-    private NodeNode CurrentNode { get; set; }
-
-
-
-
-    private int CurrentIndex { get; set; }
-
-
-
-
-    private string Field { get; set; }
-
-
-
-
-    private string FieldName { get; set; }
-
-
-
-
-    private ulong? Index { get; set; }
-
-
-
-
-
-
-    private bool GetClassNode()
+    protected virtual bool SetClassNode()
     {
         Array rootArray;
-
-
-
         rootArray = this.NodeResult.Root;
-
-
-
-
         if (rootArray.Count == 0)
         {
-            return true;
+            return false;
         }
 
-
-
-
         NodeNode root;
-
-
         root = (NodeNode)rootArray.Get(0);
-
-
-
-
         this.ClassNode = root;
-
-
-
         return true;
     }
-
-
-
-
-    protected virtual Info Info { get; set; }
-
 
 
 
