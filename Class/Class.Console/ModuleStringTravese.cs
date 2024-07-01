@@ -25,9 +25,26 @@ public class ModuleStringTraverse : Traverse
         }
         this.ExecuteNode(varClass);
 
-        this.ExecuteClassName(varClass.Name);
-        this.ExecuteClassName(varClass.Base);
-        this.ExecutePart(varClass.Member);
+        if (!(this.Result == null))
+        {
+            return true;
+        }
+
+        string k;
+        k = this.FieldName;
+
+        if (k == "Name")
+        {
+            this.ExecuteClassName(varClass.Name);
+        }
+        if (k == "Base")
+        {
+            this.ExecuteClassName(varClass.Base);
+        }
+        if (k == "Member")
+        {
+            this.ExecutePart(varClass.Member);
+        }
         return true;
     }
 
