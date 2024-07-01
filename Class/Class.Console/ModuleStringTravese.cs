@@ -22,6 +22,8 @@ public class ModuleStringTraverse : Traverse
         this.TextCompare = new TextCompare();
         this.TextCompare.CharCompare = charCompare;
         this.TextCompare.Init();
+
+        this.Dot = this.TextInfra.TextCreateStringData(".", null);
         return true;
     }
 
@@ -38,6 +40,7 @@ public class ModuleStringTraverse : Traverse
     protected virtual StringData StringDataA { get; set; }
     protected virtual StringData StringDataB { get; set; }
     protected virtual TextCompare TextCompare { get; set; }
+    protected virtual Text Dot { get; set; }
 
     private Text CreateText()
     {
@@ -1139,27 +1142,44 @@ public class ModuleStringTraverse : Traverse
         int end;
         end = 0;
 
+        Text path;
+        path = this.Path;
+
+        InfraRange range;
+        range = path.Range;
+
+        int ka;
+        int kb;
+        ka = range.Index;
+        kb = range.Count;
+
+        range.Index = ka + start;
+        range.Count = kb - start;
+
         int u;
-        u = this.Path.IndexOf('.', start);
+        u = this.TextInfra.Index(path, this.Dot, this.TextCompare);
 
         bool b;
         b = (u < 0);
         if (b)
         {
-            end = this.Path.Length;
+            end = kb;
         }
         if (!b)
         {
-            end = u;
+            end = start + u;
         }
 
         int count;
         count = end - start;
 
-        string a;
-        a = this.Path.Substring(start, count);
+        range.Index = ka;
+        range.Count = kb;
 
-        this.Field = a;
+        InfraRange a;
+        a = this.Field;
+        a.Index = start;
+        a.Count = count;
         return true;
     }
 
