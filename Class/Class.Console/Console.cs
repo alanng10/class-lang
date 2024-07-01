@@ -718,7 +718,7 @@ public class Console : Any
         ModuleString a;
         a = this.CreateModuleString();
         a.Path = this.Task.Path;
-        a.CheckResult = this.Result.Module;
+        a.ModuleResult = this.Result.Module;
         a.NodeResult = this.Result.Node;
         a.Execute();
 

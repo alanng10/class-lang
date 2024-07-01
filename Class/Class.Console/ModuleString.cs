@@ -1,8 +1,5 @@
 namespace Class.Console;
 
-
-
-
 public class ModuleString : Any
 {
     public override bool Init()
@@ -18,7 +15,7 @@ public class ModuleString : Any
 
 
 
-    public virtual ModuleResult CheckResult { get; set; }
+    public virtual ModuleResult ModuleResult { get; set; }
 
 
 
