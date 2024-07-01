@@ -24,6 +24,7 @@ public class ModuleStringTraverse : Traverse
         this.TextCompare.Init();
 
         this.Dot = this.TextInfra.TextCreateStringData(".", null);
+        this.LeftSquare = this.TextInfra.TextCreateStringData("[", null);
         return true;
     }
 
@@ -41,6 +42,7 @@ public class ModuleStringTraverse : Traverse
     protected virtual StringData StringDataB { get; set; }
     protected virtual TextCompare TextCompare { get; set; }
     protected virtual Text Dot { get; set; }
+    protected virtual Text LeftSquare { get; set; }
 
     private Text CreateText()
     {
@@ -1185,11 +1187,30 @@ public class ModuleStringTraverse : Traverse
 
     protected virtual bool SetFieldNameIndex()
     {
+        Text path;
+        path = this.Path;
+        InfraRange range;
+        range = path.Range;
+
+        InfraRange field;
+        field = this.Field;
+
+        InfraRange fieldName;
+        fieldName = this.FieldName;
+
+        Text textA;
+        textA = this.TextA;
+        textA.Data = path.Data;
+        InfraRange rangeA;
+        rangeA = textA.Range;
+        rangeA.Index = range.Index + field.Index;
+        rangeA.Count = field.Count;
+
         int u;
-        u = this.LeftSquareIndex(this.Field);
+        u = this.LeftSquareIndex(textA);
 
         bool b;
-        b = u < 0;
+        b = (u < 0);
 
         if (!b)
         {
@@ -1198,23 +1219,24 @@ public class ModuleStringTraverse : Traverse
 
             this.Index = this.GetIndex(this.Field, leftSquareIndex);
 
-            this.FieldName = this.Field.Substring(0, leftSquareIndex);
+            fieldName.Index = field.Index;
+            fieldName.Count = leftSquareIndex;
         }
 
         if (b)
         {
             this.Index = -1;
 
-            this.FieldName = this.Field;
+            fieldName.Index = field.Index;
+            fieldName.Count = field.Count;
         }
         return true;
     }
 
-    protected virtual int LeftSquareIndex(string field)
+    protected virtual int LeftSquareIndex(Text text)
     {
         int a;
-        a = field.IndexOf('[');
-
+        a = this.TextInfra.Index(text, this.LeftSquare, this.TextCompare);
         return a;
     }
 
