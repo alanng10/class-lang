@@ -17,16 +17,11 @@ public class ModuleString : Any
     protected virtual Info Info { get; set; }
     protected virtual NodeNode ClassNode { get; set; }
     protected virtual NodeNode Node { get; set; }
-
-    private NodeNode CurrentNode { get; set; }
-
-    private int CurrentIndex { get; set; }
-
-    private string Field { get; set; }
-
-    private string FieldName { get; set; }
-
-    private ulong? Index { get; set; }
+    protected virtual NodeNode CurrentNode { get; set; }
+    protected virtual int CurrentIndex { get; set; }
+    protected virtual string Field { get; set; }
+    protected virtual string FieldName { get; set; }
+    protected virtual int Index { get; set; }
 
     public virtual bool Execute()
     {
@@ -47,40 +42,18 @@ public class ModuleString : Any
         
         this.SetClassNode();
         
-        this.GetNode();
-
-
-
+        this.SetNode();
 
         if (this.Node == null)
         {
             return true;
         }
 
-
-
-
-
-
         this.Info = (Info)this.Node.NodeAny;
 
-
-
-
-
         this.NodeInfoString();
-
-
-
-
-
         return true;
     }
-
-
-
-
-
 
     protected virtual bool SetClassNode()
     {
@@ -96,6 +69,56 @@ public class ModuleString : Any
         this.ClassNode = root;
         return true;
     }
+
+    protected virtual bool SetNode()
+    {
+        NodeNode t;
+        t = this.ClassNode;
+
+        this.CurrentNode = t;
+
+        this.CurrentIndex = 0;
+
+        while (!(this.CurrentNode == null) & this.CurrentIndex < this.Path.Length)
+        {
+            this.GetFieldNode();
+        }
+
+        this.Node = this.CurrentNode;
+        return true;
+    }
+
+    protected virtual bool GetFieldNode()
+    {
+        this.SetField();
+
+        this.SetFieldNameIndex();
+
+        this.GetFieldValue();
+
+
+
+
+        this.CurrentIndex = this.CurrentIndex + this.Field.Length + 1;
+
+
+
+
+
+        this.Field = null;
+
+
+
+
+        this.FieldName = null;
+
+
+
+
+        this.Index = -1;
+        return true;
+    }
+
 
 
 
@@ -184,12 +207,9 @@ public class ModuleString : Any
 
     protected virtual bool AppendClass(ClassClass varClass)
     {
-        if (this.Null(varClass))
+        if (varClass == null)
         {
             this.AppendNull();
-
-
-
             return true;
         }
 
@@ -236,7 +256,7 @@ public class ModuleString : Any
 
     protected virtual bool AppendField(Field field)
     {
-        if (this.Null(field))
+        if (field == null)
         {
             this.AppendNull();
 
@@ -281,7 +301,7 @@ public class ModuleString : Any
 
     protected virtual bool AppendMethod(Maide method)
     {
-        if (this.Null(method))
+        if (method == null)
         {
             this.AppendNull();
 
@@ -326,7 +346,7 @@ public class ModuleString : Any
 
     protected virtual bool AppendVar(Var varVar)
     {
-        if (this.Null(varVar))
+        if (varVar == null)
         {
             this.AppendNull();
 
@@ -375,19 +395,6 @@ public class ModuleString : Any
         return true;
     }
 
-
-
-
-
-    protected virtual bool Null(object o)
-    {
-        return o == null;
-    }
-
-
-
-
-
     public virtual string Result()
     {
         string ret;
@@ -399,385 +406,116 @@ public class ModuleString : Any
         return ret;
     }
 
-
-
-
-
-    private bool GetNode()
-    {
-        NodeNode t;
-
-
-
-        t = this.ClassNode;
-
-
-        
-
-        this.CurrentNode = t;
-
-
-
-
-        this.CurrentIndex = 0;
-
-
-
-
-        while (!this.Null(this.CurrentNode) & this.CurrentIndex < this.Path.Length)
-        {
-            this.GetFieldNode();
-        }
-
-
-
-
-        this.Node = this.CurrentNode;
-
-
-
-
-        return true;
-    }
-
-
-
-
-
-
-    private bool GetFieldNode()
-    {
-        this.GetField();
-
-
-
-
-        this.GetFieldNameIndex();
-
-
-
-
-        this.GetFieldValue();
-
-
-
-
-        this.CurrentIndex = this.CurrentIndex + this.Field.Length + 1;
-
-
-
-
-
-        this.Field = null;
-
-
-
-
-        this.FieldName = null;
-
-
-
-
-        this.Index = null;
-
-
-
-
-        return true;
-    }
-
-
-
-
-
-    private bool GetFieldValue()
+    protected virtual bool GetFieldValue()
     {
         return true;
     }
 
-
-
-
-    private bool FailGetFieldValue()
-    {
-        this.CurrentNode = null;
-
-
-        return true;
-    }
-
-
-
-
-    private bool GetField()
+    protected virtual bool SetField()
     {
         int startIndex;
-
-
-
         startIndex = this.CurrentIndex;
 
-
-
-
         int endIndex;
-
-
-
         endIndex = 0;
 
-
-
-
-
         int u;
-
-
-
         u = this.Path.IndexOf('.', startIndex);
 
-
-
-
-
         bool b;
-
-
-
         b = (u < 0);
-
-
-
-
         if (b)
         {
             endIndex = this.Path.Length;
         }
-
-
-
         if (!b)
         {
             endIndex = u;
         }
 
-
-
-
-
         int count;
-
-
         count = endIndex - startIndex;
 
-
-
-
-
         string s;
-
-
-
         s = this.Path.Substring(startIndex, count);
 
-
-
-
         this.Field = s;
-
-
-
-
         return true;
     }
 
-
-
-
-
-    private bool GetFieldNameIndex()
+    protected virtual bool SetFieldNameIndex()
     {
-        int? u;
-
-
+        int u;
         u = this.LeftSquareIndex(this.Field);        
 
+        bool b;
+        b = u < 0;
 
-
-
-
-        if (u.HasValue)
+        if (!b)
         {
             int leftSquareIndex;
-
-
-
-            leftSquareIndex = u.Value;
-
-
-
+            leftSquareIndex = u;
 
             this.Index = this.GetIndex(this.Field, leftSquareIndex);
-
-
-
-
 
             this.FieldName = this.Field.Substring(0, leftSquareIndex);
         }
 
-
-
-
-        if (!u.HasValue)
+        if (b)
         {
-            this.Index = null;
-
-
-
-
+            this.Index = -1;
 
             this.FieldName = this.Field;
         }
-
-
-
-
         return true;
     }
 
-    
-
-
-
-
-    private int? LeftSquareIndex(string field)
+    protected virtual int LeftSquareIndex(string field)
     {
-        int t;
+        int a;
+        a = field.IndexOf('[');
 
-
-
-        t = field.IndexOf('[');
-
-
-
-
-        if (t < 0)
-        {
-            return null;
-        }
-
-
-
-
-        int ret;
-
-
-        ret = t;
-
-
-
-        return ret;
+        return a;
     }
 
-
-
-
-
-    private ulong? GetIndex(string field, int leftSquareIndex)
+    protected virtual int GetIndex(string field, int leftSquareIndex)
     {
         if (field.Length < 1)
         {
-            return null;
+            return -1;
         }
-
-
-
-
 
         int lastIndex;
-
-
-
         lastIndex = field.Length - 1;
-
-
-
-
+        
         char lastChar;
-
-
         lastChar = field[lastIndex];
 
-
-
-
         bool b;
-
-
-
         b =  (lastChar == ']');
         
-
-
-
         if (!b)
         {
-            return null;
+            return -1;
         }
 
-
-
-
-
         int t;
-
-
         t = leftSquareIndex + 1;
 
-
-
-
-
         int count;
-
-
         count = lastIndex - t;
 
-
-
-
-
         string s;
-
-
-
         s = field.Substring(t, count);
 
-
-
-
-
         bool parse;
-
-
-
-
-        ulong n;
-
-
-
-        parse = ulong.TryParse(s, out n);
-
-
-
+        int n;
+        parse = int.TryParse(s, out n);
 
         if (!parse)
         {
-            return null;
+            return -1;
         }
-
-
 
         return n;
     }
