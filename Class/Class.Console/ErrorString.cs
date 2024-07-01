@@ -38,9 +38,25 @@ public class ErrorString : Any
 
         this.AppendField(h, "Kind", this.KindString(error));
 
-        this.AppendField(h, "Range", this.RangeString(error));
+        bool b;
+        b = (error.Source == null);
+
+        if (b)
+        {
+            string kk;
+            kk = error.Name;
             
-        this.AppendField(h, "Source", this.SourceString(error));
+            if (!(kk == null))
+            {
+                this.AppendField(h, "Name", kk);
+            }
+        }
+        if (!b)
+        {
+            this.AppendField(h, "Range", this.RangeString(error));
+
+            this.AppendField(h, "Source", this.SourceString(error));
+        }
 
         this.AppendBorder(h);
 
