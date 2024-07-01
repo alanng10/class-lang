@@ -31,7 +31,6 @@ public class ErrorString : Any
         h = new StringJoin();
         h.Init();
 
-
         this.AppendBorder(h);
 
         this.AppendField(h, "Kind", this.KindString(error));
