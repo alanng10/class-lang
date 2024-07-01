@@ -11,24 +11,24 @@ Code
                             },
                 },
             ],
-    Comment : [
-                  Comment
-                  {
-                      Row : 0,
-                      Range : Range
-                              {
-                                  Index : 0,
-                                  Count : 2,
-                              },
-                  },
-                  Comment
-                  {
-                      Row : 2,
-                      Range : Range
-                              {
-                                  Index : 0,
-                                  Count : 2,
-                              },
-                  },
-              ],
+    Info : [
+               Info
+               {
+                   Row : 0,
+                   Range : Range
+                           {
+                               Index : 0,
+                               Count : 2,
+                           },
+               },
+               Info
+               {
+                   Row : 2,
+                   Range : Range
+                           {
+                               Index : 0,
+                               Count : 2,
+                           },
+               },
+           ],
 },
