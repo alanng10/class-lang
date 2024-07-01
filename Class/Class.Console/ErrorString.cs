@@ -18,8 +18,6 @@ public class ErrorString : Any
         return true;
     }
 
-    public Console Class { get; set; }
-
     protected virtual InfraInfra InfraInfra { get; set; }
     protected virtual TextInfra TextInfra { get; set; }
     protected virtual Format Format { get; set; }
@@ -34,43 +32,20 @@ public class ErrorString : Any
         h.Init();
 
 
-        this.AppendBorder(sb);
+        this.AppendBorder(h);
 
+        this.AppendField(h, "Kind", this.KindString(error));
 
-
-
-        this.AppendField(sb, "Kind", this.KindString(error));
-
-
+        this.AppendField(h, "Range", this.RangeString(error));
             
+        this.AppendField(h, "Source", this.SourceString(error));
 
-        this.AppendField(sb, "Range", this.RangeString(error));
+        this.AppendBorder(h);
 
-            
+        string a;
+        a = h.Result();
 
-            
-        this.AppendField(sb, "Source", this.SourceString(error));
-
-
-
-
-        this.AppendBorder(sb);
-
-
-
-
-        string s;
-
-        s = sb.ToString();
-
-
-
-        string ret;
-
-        ret = s;
-
-
-        return ret;
+        return a;
     }
 
     protected virtual bool AppendBorder(StringJoin sb)

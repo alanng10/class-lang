@@ -22,7 +22,6 @@ public class Console : Any
         this.PortLoad = this.CreatePortLoad();
 
         this.ErrorString = new ErrorString();
-        this.ErrorString.Class = this;
         this.ErrorString.Init();
 
         this.Create = this.CreateCreate();
