@@ -2,6 +2,12 @@ namespace Class.Console;
 
 public class ModuleStringTraverse : Traverse
 {
+    public virtual NodeNode Result { get; set; }
+    public virtual string Path { get; set; }
+    protected virtual string Field { get; set; }
+    protected virtual string FieldName { get; set; }
+    protected virtual int Index { get; set; }
+
     public override bool ExecuteClass(NodeClass varClass)
     {
         if (varClass == null)
