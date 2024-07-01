@@ -11,15 +11,15 @@ Code
                             },
                 },
             ],
-    Comment : [
-                  Comment
-                  {
-                      Row : 0,
-                      Range : Range
-                              {
-                                  Index : 0,
-                                  Count : 1,
-                              },
-                  },
-              ],
+    Info : [
+               Info
+               {
+                   Row : 0,
+                   Range : Range
+                           {
+                               Index : 0,
+                               Count : 1,
+                           },
+               },
+           ],
 },
