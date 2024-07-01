@@ -9,8 +9,6 @@ public class ModuleInfoGen : Any
         this.TextInfra = TextInfra.This;
         this.StorageInfra = StorageInfra.This;
 
-        this.InitSourceTemplate();
-
         this.Format = new Format();
         this.Format.Init();
         this.FormatArg = new FormatArg();
@@ -27,7 +25,7 @@ public class ModuleInfoGen : Any
     protected virtual Format Format { get; set; }
     protected virtual FormatArg FormatArg { get; set; }
 
-    protected virtual bool InitSourceTemplate()
+    public virtual bool Load()
     {
         string k;
         k = this.InfraInfra.PathCombine;
