@@ -6,16 +6,48 @@ public class ModuleStringTraverse : Traverse
     {
         base.Init();
         this.InfraInfra = InfraInfra.This;
+        this.TextInfra = TextInfra.This;
+
+        this.TextA = this.CreateText();
+        this.TextB = this.CreateText();
+
+        this.StringDataA = new StringData();
+        this.StringDataA.Init();
+        this.StringDataB = new StringData();
+        this.StringDataB.Init();
+
+        IntCompare charCompare;
+        charCompare = new IntCompare();
+        charCompare.Init();
+        this.TextCompare = new TextCompare();
+        this.TextCompare.CharCompare = charCompare;
+        this.TextCompare.Init();
         return true;
     }
 
     public virtual NodeNode Result { get; set; }
-    public virtual string Path { get; set; }
+    public virtual Text Path { get; set; }
     protected virtual InfraInfra InfraInfra { get; set; }
-    protected virtual string Field { get; set; }
-    protected virtual string FieldName { get; set; }
+    protected virtual TextInfra TextInfra { get; set; }
+    protected virtual InfraRange Field { get; set; }
+    protected virtual InfraRange FieldName { get; set; }
     protected virtual int Index { get; set; }
     protected virtual int CurrentIndex { get; set; }
+    protected virtual Text TextA { get; set; }
+    protected virtual Text TextB { get; set; }
+    protected virtual StringData StringDataA { get; set; }
+    protected virtual StringData StringDataB { get; set; }
+    protected virtual TextCompare TextCompare { get; set; }
+
+    private Text CreateText()
+    {
+        Text a;
+        a = new Text();
+        a.Init();
+        a.Range = new InfraRange();
+        a.Range.Init();
+        return a;
+    }
 
     public override bool ExecuteClass(NodeClass varClass)
     {
@@ -30,7 +62,7 @@ public class ModuleStringTraverse : Traverse
             return true;
         }
 
-        string k;
+        InfraRange k;
         k = this.FieldName;
 
         if (k == "Name")
@@ -1206,5 +1238,42 @@ public class ModuleStringTraverse : Traverse
         }
 
         return n;
+    }
+
+    protected virtual bool FieldEqual(string right)
+    {
+        Text path;
+        path = this.Path;
+
+        Text textA;
+        Text textB;
+        textA = this.TextA;
+        textB = this.TextB;
+
+        InfraRange fieldName;
+        fieldName = this.FieldName;
+
+        InfraRange ka;
+        ka = textA.Range;
+        ka.Index = path.Range.Index + fieldName.Index;
+        ka.Count = fieldName.Count;
+
+        textA.Data = path.Data;
+
+        this.TextStringGet(textB, this.StringDataB, right);
+
+        bool a;
+        a = this.TextInfra.Equal(textA, textB, this.TextCompare);
+        return a;
+    }
+
+    protected virtual bool TextStringGet(Text text, StringData data, string o)
+    {
+        data.Value = o;
+
+        text.Data = data;
+        text.Range.Index = 0;
+        text.Range.Count = o.Length;
+        return true;
     }
 }
