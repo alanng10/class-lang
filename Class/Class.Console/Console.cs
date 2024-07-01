@@ -707,7 +707,7 @@ public class Console : Any
     protected virtual bool WriteError(Error error)
     {
         string a;
-        a = this.ErrorString.String(error);
+        a = this.ErrorString.Execute(error);
         this.Err.Write(a);
         return true;
     }
