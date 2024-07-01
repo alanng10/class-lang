@@ -28,7 +28,7 @@ public class ErrorString : Any
     protected virtual string NewLine { get; set; }
     protected virtual string BorderLine { get; set; }
 
-    public virtual string String(Error error)
+    public virtual string Execute(Error error)
     {
         StringJoin h;
         h = new StringJoin();
@@ -95,27 +95,6 @@ public class ErrorString : Any
     }
 
     protected virtual string RangeString(Error error)
-    {
-        string s;
-
-
-
-        s = this.TokenRangeString(error);
-        
-        
-
-
-        string ret;
-
-
-
-        ret = s;
-
-
-        return ret;
-    }
-
-    protected virtual string TokenRangeString(Error error)
     {
         Range range;
         range = error.Range;
