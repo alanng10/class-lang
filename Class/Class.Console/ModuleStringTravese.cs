@@ -1240,7 +1240,7 @@ public class ModuleStringTraverse : Traverse
         return n;
     }
 
-    protected virtual bool FieldEqual(string right)
+    protected virtual bool FieldEqual(string name)
     {
         Text path;
         path = this.Path;
@@ -1253,14 +1253,14 @@ public class ModuleStringTraverse : Traverse
         InfraRange fieldName;
         fieldName = this.FieldName;
 
+        textA.Data = path.Data;
+        
         InfraRange ka;
         ka = textA.Range;
         ka.Index = path.Range.Index + fieldName.Index;
         ka.Count = fieldName.Count;
 
-        textA.Data = path.Data;
-
-        this.TextStringGet(textB, this.StringDataB, right);
+        this.TextStringGet(textB, this.StringDataB, name);
 
         bool a;
         a = this.TextInfra.Equal(textA, textB, this.TextCompare);
