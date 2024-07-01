@@ -1,30 +1,37 @@
 namespace Class.Console;
 
-
-
-
-class ErrorString : Any
+public class ErrorString : Any
 {
+    public override bool Init()
+    {
+        base.Init();
+        this.InfraInfra = InfraInfra.This;
+        this.TextInfra = TextInfra.This;
+        this.NewLine = this.InfraInfra.NewLine;
+
+        this.Format = new Format();
+        this.Format.Init();
+        this.FormatArg = new FormatArg();
+        this.FormatArg.Init();
+
+        this.BorderLine = "--------------------------------------------------";
+        return true;
+    }
+
     public Console Class { get; set; }
 
+    protected virtual InfraInfra InfraInfra { get; set; }
+    protected virtual TextInfra TextInfra { get; set; }
+    protected virtual Format Format { get; set; }
+    protected virtual FormatArg FormatArg { get; set; }
+    protected virtual string NewLine { get; set; }
+    protected virtual string BorderLine { get; set; }
 
-
-    private static readonly string LineEnd = "\n";
-
-
-
-    private static readonly string BorderLine = "--------------------------------------------------";
-
-
-
-
-    public string String(Error error)
+    public virtual string String(Error error)
     {
-        StringBuilder sb;
-
-
-        sb = new StringBuilder();
-
+        StringJoin h;
+        h = new StringJoin();
+        h.Init();
 
 
         this.AppendBorder(sb);
@@ -66,77 +73,35 @@ class ErrorString : Any
         return ret;
     }
 
-
-
-
-    private bool AppendBorder(StringBuilder sb)
+    protected virtual bool AppendBorder(StringJoin sb)
     {
-        sb.Append(BorderLine).Append(LineEnd);
-
-
-
+        sb.Append(this.BorderLine);
+        sb.Append(this.NewLine);
         return true;
     }
 
-
-
-
-    private bool AppendField(StringBuilder sb, string word, string value)
+    protected virtual bool AppendField(StringJoin sb, string word, string value)
     {
-        sb
-            .Append(word).Append(":").Append(" ")
-            .Append(value)
-            .Append(LineEnd);
-
-
-
+        sb.Append(word);
+        sb.Append(":");
+        sb.Append(" ");
+        sb.Append(value);
+        sb.Append(this.NewLine);
         return true;
     }
 
-
-
-
-
-    private string KindString(Error error)
+    protected virtual string KindString(Error error)
     {
-        string s;
-            
-
-
-
         ErrorKind errorKind;
-
-
-
-
         errorKind = error.Kind;
+                
+        string a;
+        a = errorKind.Text;
 
-
-
-
-        s = errorKind.Text;
-            
-
-
-
-
-
-        string ret;
-
-
-
-        ret = s;
-
-
-
-        return ret;
+        return a;
     }
 
-
-
-
-
-    private string RangeString(Error error)
+    protected virtual string RangeString(Error error)
     {
         string s;
 
@@ -157,69 +122,66 @@ class ErrorString : Any
         return ret;
     }
 
-
-
-
-
-
-    private string TokenRangeString(Error error)
+    protected virtual string TokenRangeString(Error error)
     {
         Range range;
-
         range = error.Range;
 
+        StringJoin sb;
+        sb = new StringJoin();
+        sb.Init();
 
+        string ka;
+        ka = this.IntString(range.Start);
 
+        string kb;
+        kb = this.IntString(range.End);
 
-        StringBuilder sb;
+        sb.Append("(");
+        sb.Append(ka);
+        sb.Append(",");
+        sb.Append(" ");
+        sb.Append(kb);
+        sb.Append(")");
 
+        string a;
+        a = sb.Result();
 
-        sb = new StringBuilder();
-
-
-
-        sb
-            .Append("(")
-            .Append(range.Start)
-            .Append(",").Append(" ")
-            .Append(range.End)
-            .Append(")");
-
-
-
-        string s;
-
-        s = sb.ToString();
-
-
-
-        string ret;
-
-        ret = s;
-
-
-        return ret;
+        return a;
     }
 
-
-
-
-    private string SourceString(Error error)
+    protected virtual string SourceString(Error error)
     {
-        Source a;
+        Source aa;
+        aa = error.Source;
 
+        string a;
+        a = aa.Name;
+        return a;
+    }
 
-        a = error.Source;
+    protected virtual string IntString(int value)
+    {
+        FormatArg e;
+        e = this.FormatArg;
 
+        e.Kind = 1;
+        e.Base = 10;
+        e.Case = 0;
+        e.AlignLeft = false;
+        e.FieldWidth = 0;
+        e.MaxWidth = -1;
+        e.ValueInt = value;
 
+        this.Format.ExecuteArgCount(e);
 
+        Text text;
+        text = this.TextInfra.TextCreate(e.Count);
 
-        string name;
+        this.Format.ExecuteArgResult(e, text);
 
-
-        name = a.Name;
-
-
-        return name;
+        string a;
+        a = this.TextInfra.StringCreate(text);
+        return a;
     }
 }

@@ -150,4 +150,3 @@ global using FieldInfoDictionary = System.Collections.Generic.Dictionary<string,
 global using IEnumerableFieldInfo = System.Collections.Generic.IEnumerable<System.Reflection.FieldInfo>;
 global using Path = System.IO.Path;
 global using Directory = System.IO.Directory;
-global using File = System.IO.File;
