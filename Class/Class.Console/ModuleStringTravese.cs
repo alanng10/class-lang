@@ -1124,7 +1124,7 @@ public class ModuleStringTraverse : Traverse
 
     protected override bool ExecuteNode(NodeNode node)
     {
-        if (!(this.CurrentIndex < this.Path.Length))
+        if (!(this.CurrentIndex < this.Path.Range.Count))
         {
             this.Result = node;
             return true;
@@ -1134,7 +1134,7 @@ public class ModuleStringTraverse : Traverse
 
         this.SetFieldNameIndex();
 
-        this.CurrentIndex = this.CurrentIndex + this.Field.Length + 1;
+        this.CurrentIndex = this.CurrentIndex + this.FieldName.Count + 1;
         return true;
     }
 
