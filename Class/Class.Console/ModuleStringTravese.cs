@@ -25,6 +25,7 @@ public class ModuleStringTraverse : Traverse
 
         this.Dot = this.TextInfra.TextCreateStringData(".", null);
         this.LeftSquare = this.TextInfra.TextCreateStringData("[", null);
+        this.RightSquare = this.TextInfra.TextCreateStringData("]", null);
         return true;
     }
 
@@ -43,6 +44,7 @@ public class ModuleStringTraverse : Traverse
     protected virtual TextCompare TextCompare { get; set; }
     protected virtual Text Dot { get; set; }
     protected virtual Text LeftSquare { get; set; }
+    protected virtual Text RightSquare { get; set; }
 
     private Text CreateText()
     {
