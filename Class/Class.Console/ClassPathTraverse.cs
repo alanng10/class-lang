@@ -73,31 +73,20 @@ public class ClassPathTraverse : Traverse
             return true;
         }
 
-        bool b;
-        b = false;
-        if (!b)
+        if (this.FieldEqual("Name"))
         {
-            if (this.FieldEqual("Name"))
-            {
-                this.ExecuteClassName(varClass.Name);
-                b = true;
-            }
+            this.ExecuteClassName(varClass.Name);
+            return true;
         }
-        if (!b)
+        if (this.FieldEqual("Base"))
         {
-            if (this.FieldEqual("Base"))
-            {
-                this.ExecuteClassName(varClass.Base);
-                b = true;
-            }
+            this.ExecuteClassName(varClass.Base);
+            return true;
         }
-        if (!b)
+        if (this.FieldEqual("Member"))
         {
-            if (this.FieldEqual("Member"))
-            {
-                this.ExecutePart(varClass.Member);
-                b = true;
-            }
+            this.ExecutePart(varClass.Member);
+            return true;
         }
         return true;
     }
@@ -188,10 +177,12 @@ public class ClassPathTraverse : Traverse
         if (this.FieldEqual("Class"))
         {
             this.ExecuteClassName(varVar.Class);
+            return true;
         }
         if (this.FieldEqual("Name"))
         {
             this.ExecuteVarName(varVar.Name);
+            return true;
         }
         return true;
     }
