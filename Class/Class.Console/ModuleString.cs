@@ -13,7 +13,7 @@ public class ModuleString : Any
     public virtual ModuleResult ModuleResult { get; set; }
     public virtual NodeResult NodeResult { get; set; }
     protected virtual InfraInfra InfraInfra { get; set; }
-    protected virtual StringBuilder Builder { get; set; }
+    protected virtual StringJoin StringJoin { get; set; }
     protected virtual Info Info { get; set; }
     protected virtual NodeNode ClassNode { get; set; }
     protected virtual NodeNode Node { get; set; }
@@ -28,7 +28,7 @@ public class ModuleString : Any
         bool b;
         b = this.ExecuteAll();
 
-        this.Builder = null;
+        this.StringJoin = null;
         this.Info = null;
         this.ClassNode = null;
         this.Node = null;
@@ -38,7 +38,8 @@ public class ModuleString : Any
 
     protected virtual bool ExecuteAll()
     {
-        this.Builder = new StringBuilder();
+        this.StringJoin = new StringJoin();
+        this.StringJoin.Init();
         
         this.SetClassNode();
         
@@ -380,7 +381,7 @@ public class ModuleString : Any
 
     protected virtual bool AppendNull()
     {
-        this.Builder.Append("<Null>");
+        this.StringJoin.Append("<Null>");
 
 
         return true;
@@ -389,7 +390,7 @@ public class ModuleString : Any
 
     protected virtual bool Append(string s)
     {
-        this.Builder.Append(s);
+        this.StringJoin.Append(s);
 
 
         return true;
@@ -399,7 +400,7 @@ public class ModuleString : Any
     {
         string ret;
 
-        ret = this.Builder.ToString();
+        ret = this.StringJoin.Result();
 
 
 
