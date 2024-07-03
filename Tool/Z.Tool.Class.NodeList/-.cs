@@ -8,6 +8,7 @@ global using Iter = Avalon.List.Iter;
 global using TableEntry = Avalon.List.Entry;
 global using ListInfra = Avalon.List.Infra;
 global using EntryEntry = Avalon.Entry.Entry;
+global using NameCheck = Class.Infra.NameCheck;
 global using ToolInfra = Z.Infra.Infra.Infra;
 global using SourceGen = Z.Infra.ListSourceGen.Gen;
 global using STAThreadAttribute = System.STAThreadAttribute;
