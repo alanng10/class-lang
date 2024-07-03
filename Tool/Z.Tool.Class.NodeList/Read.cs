@@ -128,12 +128,14 @@ class Read : Any
             this.Class = varClass;
 
             this.ListInfra.TableAdd(this.ClassTable, varClass.Name, varClass);
-
-            this.FieldList = new List();
-            this.FieldList.Init();
         }
         if (b)
         {
+            if (this.Class == null)
+            {
+                return false;
+            }
+
             string compLine;
             compLine = line.Substring(oo.Length);
 
@@ -144,24 +146,19 @@ class Read : Any
                 return false;
             }
 
-            List list;
-            list = this.FieldList;
-            list.Add(ob);
+            if (this.Class.Field.Contain(ob.Name))
+            {
+                return false;
+            }
+
+            this.ListInfra.TableAdd(this.Class.Field, ob.Name, ob);
         }
         return true;
     }
 
     protected virtual bool EndCurrentClass()
     {
-        if (this.Class == null)
-        {
-            return true;
-        }
-
-        this.Class.Field = this.ListInfra.ArrayCreateList(this.FieldList);
-
         this.Class = null;
-        this.FieldList = null;
         return true;
     }
 
@@ -346,25 +343,22 @@ class Read : Any
             int n;
             n = 0;
 
-            Array array;
-            array = a.Field;
+            Table tableA;
+            tableA = a.Field;
 
-            int count;
-            count = array.Count;
-
-            int i;
-            i = 0;
-            while (i < count)
+            Iter iterA;
+            iterA = tableA.IterCreate();
+            tableA.IterSet(iterA);
+            
+            while (iterA.Next())
             {
                 Field aa;
-                aa = (Field)array.Get(i);
+                aa = (Field)iterA.Value;
 
                 if (!(aa.ItemClass == null))
                 {
                     n = n + 1;
                 }
-
-                i = i + 1;
             }
 
             if (1 < n)
@@ -374,7 +368,7 @@ class Read : Any
 
             if (n == 1)
             {
-                if (1 < array.Count)
+                if (1 < tableA.Count)
                 {
                     return false;
                 }
