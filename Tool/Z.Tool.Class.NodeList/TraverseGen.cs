@@ -190,7 +190,7 @@ public class TraverseGen : Any
         sj.Init();
 
         Table table;
-        table = varClass.Derive;
+        table = varClass.Field;
 
         Iter iter;
         iter = table.IterCreate();
@@ -198,16 +198,11 @@ public class TraverseGen : Any
 
         while (iter.Next())
         {
-            Class aa;
-            aa = (Class)iter.Value;
-
-            string kk;
-            kk = aa.Name;
+            Field aa;
+            aa = (Field)iter.Value;
 
             string k;
-            k = this.TextDerive;
-            k = k.Replace("#VarName#", varName);
-            k = k.Replace("#DeriveClassName#", kk);
+            k = this.Field(aa, varName);
 
             sj.Append(k);
         }
@@ -225,7 +220,7 @@ public class TraverseGen : Any
         return k;
     }
 
-    protected virtual string Field(string textField, string varName, Field field)
+    protected virtual string Field(Field field, string varName)
     {
         string fieldClassName;
         fieldClassName = field.Class;
@@ -239,7 +234,7 @@ public class TraverseGen : Any
         fieldName = field.Name;
 
         string k;
-        k = textField;
+        k = this.TextField;
         k = k.Replace("#FieldClassName#", fieldClassName);
         k = k.Replace("#VarName#", varName);
         k = k.Replace("#FieldName#", fieldName);
