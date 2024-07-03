@@ -8,6 +8,9 @@ public class ModuleStringTraverse : Traverse
         this.InfraInfra = InfraInfra.This;
         this.TextInfra = TextInfra.This;
 
+        this.IntParse = new IntParse();
+        this.IntParse.Init();
+
         this.TextA = this.CreateText();
         this.TextB = this.CreateText();
 
@@ -37,6 +40,7 @@ public class ModuleStringTraverse : Traverse
     protected virtual InfraRange FieldName { get; set; }
     protected virtual int Index { get; set; }
     protected virtual int CurrentIndex { get; set; }
+    protected virtual IntParse IntParse { get; set; }
     protected virtual Text TextA { get; set; }
     protected virtual Text TextB { get; set; }
     protected virtual StringData StringDataA { get; set; }
@@ -1242,46 +1246,61 @@ public class ModuleStringTraverse : Traverse
         return a;
     }
 
-    protected virtual int GetIndex(string field, int leftSquareIndex)
+    protected virtual int GetIndex(InfraRange field, int leftSquareIndex)
     {
-        if (field.Length < 1)
+        if (field.Count < 1)
         {
             return -1;
         }
 
-        int lastIndex;
-        lastIndex = field.Length - 1;
+        Text path;
+        path = this.Path;
 
-        char lastChar;
-        lastChar = field[lastIndex];
+        InfraRange range;
+        range = path.Range;
+
+        Text textA;
+        textA = this.TextA;
+
+        textA.Data = path.Data;
+        
+        InfraRange rangeA;
+        rangeA = textA.Range;
+
+        rangeA.Index = range.Index + field.Index;
+        rangeA.Count = field.Count;
 
         bool b;
-        b = (lastChar == ']');
+        b = this.TextInfra.End(textA, this.RightSquare, this.TextCompare);
 
         if (!b)
         {
             return -1;
         }
 
-        int t;
-        t = leftSquareIndex + 1;
+        int start;
+        start = leftSquareIndex + this.LeftSquare.Range.Count;
+
+        int end;
+        end = field.Count - this.RightSquare.Range.Count;
 
         int count;
-        count = lastIndex - t;
+        count = end - start;
 
-        string s;
-        s = field.Substring(t, count);
+        rangeA.Index = rangeA.Index + start;
+        rangeA.Count = count;
 
-        bool parse;
-        int n;
-        parse = int.TryParse(s, out n);
+        long n;
+        n = this.IntParse.Execute(textA, 10, false);
 
-        if (!parse)
+        if (n == -1)
         {
             return -1;
         }
 
-        return n;
+        int a;
+        a = (int)n;
+        return a;
     }
 
     protected virtual bool FieldEqual(string name)
