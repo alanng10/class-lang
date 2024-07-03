@@ -25,6 +25,12 @@ class Read : Any
         {
             return 20;
         }
+
+        b = this.CheckArrayField();
+        if (!b)
+        {
+            return 30;
+        }
         return 0;
     }
 
@@ -270,6 +276,52 @@ class Read : Any
             }
         }
 
+        return true;
+    }
+
+    protected virtual bool CheckArrayField()
+    {
+        Table table;
+        table = this.ClassTable;
+
+        Iter iter;
+        iter = table.IterCreate();
+        table.IterSet(iter);
+
+        while (iter.Next())
+        {
+            Class a;
+            a = (Class)iter.Value;
+
+            int n;
+            n = 0;
+
+            Array array;
+            array = a.Field;
+
+            int count;
+            count = array.Count;
+
+            int i;
+            i = 0;
+            while (i < count)
+            {
+                Field aa;
+                aa = (Field)array.Get(i);
+
+                if (!(aa.ItemClass == null))
+                {
+                    n = n + 1;
+                }
+
+                i = i + 1;
+            }
+
+            if (1 < n)
+            {
+                return false;
+            }
+        }
         return true;
     }
 
