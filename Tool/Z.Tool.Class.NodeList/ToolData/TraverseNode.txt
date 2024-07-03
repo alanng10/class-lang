@@ -4,8 +4,6 @@
         {
             return true;
         }
-        this.ExecuteNode(#VarName#);
-
-#FieldList#        return true;
+#State#        return true;
     }
 
