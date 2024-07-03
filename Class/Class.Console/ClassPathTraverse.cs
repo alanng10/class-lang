@@ -153,11 +153,36 @@ public class ClassPathTraverse : Traverse
         }
         this.ExecuteNode(maide);
 
-        this.ExecuteClassName(maide.Class);
-        this.ExecuteMaideName(maide.Name);
-        this.ExecuteCount(maide.Count);
-        this.ExecuteParam(maide.Param);
-        this.ExecuteState(maide.Call);
+        if (this.HasResult())
+        {
+            return true;
+        }
+
+        if (this.FieldEqual("Class"))
+        {
+            this.ExecuteClassName(maide.Class);
+            return true;
+        }
+        if (this.FieldEqual("Name"))
+        {
+            this.ExecuteMaideName(maide.Name);
+            return true;
+        }
+        if (this.FieldEqual("Count"))
+        {
+            this.ExecuteCount(maide.Count);
+            return true;
+        }
+        if (this.FieldEqual("Param"))
+        {
+            this.ExecuteParam(maide.Param);
+            return true;
+        }
+        if (this.FieldEqual("Call"))
+        {
+            this.ExecuteState(maide.Call);
+            return true;
+        }
         return true;
     }
 
