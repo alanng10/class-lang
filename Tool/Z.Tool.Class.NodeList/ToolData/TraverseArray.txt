@@ -1,0 +1,9 @@
+        Iter iter;
+        iter = this.Iter;
+        #VarName#.Value.IterSet(iter);
+        while (iter.Next())
+        {
+            #ItemClassName# item;
+            item = (#ItemClassName#)iter.Value;
+            this.Execute#ItemClassName#(item);
+        }
