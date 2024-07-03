@@ -13,7 +13,7 @@ class Read : Any
     public virtual int Execute()
     {
         bool b;
-        b = this.SetClassArray();
+        b = this.SetClassTable();
         if (!b)
         {
             return 1;
@@ -21,14 +21,14 @@ class Read : Any
         return 0;
     }
 
-    public virtual Array ClassArray { get; set; }
+    public virtual Table ClassTable { get; set; }
     protected virtual ListInfra ListInfra { get; set; }
     protected virtual ToolInfra ToolInfra { get; set; }
     protected virtual List ClassList { get; set; }
     protected virtual Class Class { get; set; }
     protected virtual List FieldList { get; set; }
 
-    protected virtual bool SetClassArray()
+    protected virtual bool SetClassTable()
     {
         ToolInfra infra;
         infra = this.ToolInfra;
@@ -63,7 +63,7 @@ class Read : Any
 
         this.EndCurrentClass();
 
-        this.ClassArray = this.ListInfra.ArrayCreateList(this.ClassList);
+        this.ClassTable = this.CreateClassTable(this.ClassList);
         this.ClassList = null;
         return true;
     }
@@ -179,5 +179,39 @@ class Read : Any
         o.Class = className;
         o.Name = fieldName;
         return o;
+    }
+
+    protected virtual Table CreateClassTable(List list)
+    {
+        ListInfra listInfra;
+        listInfra = this.ListInfra;
+
+        IntCompare charCompare;
+        charCompare = new IntCompare();
+        charCompare.Init();
+
+        StringCompare compare;
+        compare = new StringCompare();
+        compare.CharCompare = charCompare;
+        compare.Init();
+
+        Table table;
+        table = new Table();
+        table.Compare = compare;
+        table.Init();
+
+        Iter iter;
+        iter = list.IterCreate();
+
+        list.IterSet(iter);
+
+        while (iter.Next())
+        {
+            Class aa;
+            aa = (Class)iter.Value;
+
+            listInfra.TableAdd(table, aa.Name, aa);
+        }
+        return table;
     }
 }

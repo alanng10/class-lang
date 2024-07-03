@@ -4,6 +4,7 @@ global using StringCompare = Avalon.Infra.StringCompare;
 global using List = Avalon.List.List;
 global using Array = Avalon.List.Array;
 global using Table = Avalon.List.Table;
+global using Iter = Avalon.List.Iter;
 global using TableEntry = Avalon.List.Entry;
 global using ListInfra = Avalon.List.Infra;
 global using EntryEntry = Avalon.Entry.Entry;
