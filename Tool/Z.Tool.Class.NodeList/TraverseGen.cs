@@ -112,7 +112,16 @@ public class TraverseGen : Any
             return this.DeriveState(varClass, varName);
         }
 
+        if (varClass.Field.Count == 1)
+        {
+            Field field;
+            field = (Field)varClass.Field.Get(0);
 
+            if (!(field.ItemClass == null))
+            {
+                return this.ArrayState(varClass, field, varName);
+            }
+        }
 
         return null;
     }
@@ -149,6 +158,31 @@ public class TraverseGen : Any
         string a;
         a = sj.Result();
         return a;
+    }
+
+    protected virtual string ArrayState(Class varClass, Field field, string varName)
+    {
+        string itemClassName;
+        itemClassName = field.ItemClass;
+
+        string ka;
+        ka = this.ExecuteNode(varName);
+
+        string k;
+        k = this.TextArray;
+        k = k.Replace("#VarName#", varName);
+        k = k.Replace("#ItemClassName#", itemClassName);
+        k = ka + k;
+        
+        return k;
+    }
+
+    protected virtual string ExecuteNode(string varName)
+    {
+        string k;
+        k = this.TextExecuteNode;
+        k = k.Replace("#VarName#", varName);
+        return k;
     }
 
     protected virtual string Field(string textField, string varName, Field field)
