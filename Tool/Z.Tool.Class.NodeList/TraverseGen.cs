@@ -114,8 +114,14 @@ public class TraverseGen : Any
 
         if (varClass.Field.Count == 1)
         {
+            Iter iter;
+            iter = varClass.Field.IterCreate();
+            varClass.Field.IterSet(iter);
+
+            iter.Next();
+            
             Field field;
-            field = (Field)varClass.Field.Get(0);
+            field = (Field)iter.Value;
 
             if (!(field.ItemClass == null))
             {
