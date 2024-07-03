@@ -38,7 +38,7 @@ class Read : Any
         Array lineArray;        
         lineArray = infra.SplitLineList(ka);
 
-        this.ClassTable = this.CreateClassTable();
+        this.ClassTable = this.CreateTableStringCompare();
 
         int count;
         count = lineArray.Count;
@@ -154,6 +154,7 @@ class Read : Any
         varClass.Init();
         varClass.Name = className;
         varClass.Base = baseClassName;
+        varClass.Derive = this.CreateTableStringCompare();
         return varClass;
     }
 
@@ -181,7 +182,40 @@ class Read : Any
         return o;
     }
 
-    protected virtual Table CreateClassTable()
+    protected virtual bool SetDerive()
+    {
+        ListInfra listInfra;
+        listInfra = this.ListInfra;
+
+        Table table;
+        table = this.ClassTable;
+
+        Iter iter;
+        iter = table.IterCreate();
+        table.IterSet(iter);
+
+        while (iter.Next())
+        {
+            Class a;
+            a = (Class)iter.Value;
+
+            string ka;
+            ka = a.Base;
+
+            Class k;
+            k = (Class)table.Get(ka);
+
+            if (k == null)
+            {
+                return false;
+            }
+
+            listInfra.TableAdd(k.Derive, a.Name, a);
+        }
+        return true;
+    }
+
+    protected virtual Table CreateTableStringCompare()
     {
         IntCompare charCompare;
         charCompare = new IntCompare();
