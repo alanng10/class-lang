@@ -197,6 +197,12 @@ public class TraverseGen : Any
 
         sj.Append(ka);
 
+        string newLine;
+        newLine = "\n";
+
+        bool ba;
+        ba = false;
+
         Table table;
         table = varClass.Field;
 
@@ -212,7 +218,16 @@ public class TraverseGen : Any
             string k;
             k = this.Field(aa, varName);
 
-            sj.Append(k);
+            if (!(k.Length == 0))
+            {
+                if (!ba)
+                {
+                    sj.Append(newLine);
+                    ba = true;
+                }
+
+                sj.Append(k);
+            }
         }
 
         string a;
