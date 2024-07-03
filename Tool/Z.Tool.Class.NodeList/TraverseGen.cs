@@ -50,7 +50,8 @@ public class TraverseGen : Any
         nodeList = this.NodeList();
 
         string k;
-        k = this.TextSource.Replace("#NodeList#", nodeList);
+        k = this.TextSource;
+        k = k.Replace("#NodeList#", nodeList);
     
         this.ToolInfra.StorageTextWrite(this.PathOutput, k);
         return true;
@@ -58,9 +59,9 @@ public class TraverseGen : Any
 
     protected virtual string NodeList()
     {
-        StringJoin kk;
-        kk = new StringJoin();
-        kk.Init();
+        StringJoin sj;
+        sj = new StringJoin();
+        sj.Init();
 
         Table table;
         table = this.ClassTable;
@@ -77,11 +78,11 @@ public class TraverseGen : Any
             string nodeString;
             nodeString = this.Node(varClass);
 
-            kk.Append(nodeString);
+            sj.Append(nodeString);
         }
 
         string a;
-        a = kk.Result();
+        a = sj.Result();
         return a;
     }
 
