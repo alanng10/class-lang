@@ -1,0 +1,18 @@
+namespace Class.Node;
+
+public class Traverse : Any
+{
+    public override bool Init()
+    {
+        this.Iter = new ArrayIter();
+        this.Iter.Init();
+        return true;
+    }
+
+    protected virtual Iter Iter { get; set; }
+
+#NodeList#    protected virtual bool ExecuteNode(Node node)
+    {
+        return true;
+    }
+}
