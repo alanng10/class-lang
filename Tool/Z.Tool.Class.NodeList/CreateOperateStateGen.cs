@@ -57,19 +57,21 @@ public class CreateOperateStateGen : Any
         return 0;
     }
 
-    protected virtual string GetFieldSetListString(Array fieldList)
+    protected virtual string GetFieldSetListString(Table fieldList)
     {
         StringBuilder sb;
         sb = new StringBuilder();
 
-        int count;
-        count = fieldList.Count;
-        Field field;
+        Iter iter;
+        iter = fieldList.IterCreate();
+        fieldList.IterSet(iter);
+
         int i;
         i = 0;
-        while (i < count)
+        while (iter.Next())
         {
-            field = (Field)fieldList.Get(i);
+            Field field;
+            field = (Field)iter.Value;
 
             this.AppendFieldSet(sb, field, i);
 
