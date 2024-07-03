@@ -9,7 +9,7 @@ public class NodeGen : Any
         return true;
     }
 
-    public virtual Array ClassArray { get; set; }
+    public virtual Table ClassTable { get; set; }
     protected virtual ToolInfra ToolInfra { get; set; }
     protected virtual string NodeSourceText { get; set; }
 
@@ -17,18 +17,19 @@ public class NodeGen : Any
     {
         this.NodeSourceText = this.ToolInfra.StorageTextRead("ToolData/NodeSource.txt");
 
-        int count;
-        count = this.ClassArray.Count;
-        int i;
-        i = 0;
-        while (i < count)
+        Table table;
+        table = this.ClassTable;
+
+        Iter iter;
+        iter = table.IterCreate();
+        table.IterSet(iter);
+        
+        while (iter.Next())
         {
             Class varClass;
-            varClass = (Class)this.ClassArray.Get(i);
+            varClass = (Class)iter.Value;
 
             this.ExecuteClass(varClass);
-
-            i = i + 1;
         }
         return true;
     }

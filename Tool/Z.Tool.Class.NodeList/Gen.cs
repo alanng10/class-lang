@@ -14,37 +14,37 @@ public class Gen : Any
             return oo;
         }
 
-        Array classArray;
-        classArray = read.ClassArray;
+        Table classTable;
+        classTable = read.ClassTable;
 
         NodeGen nodeGen;
         nodeGen = new NodeGen();
         nodeGen.Init();
-        nodeGen.ClassArray = classArray;
+        nodeGen.ClassTable = classTable;
         nodeGen.Execute();
 
         NewStateGen newStateGen;
         newStateGen = new NewStateGen();
         newStateGen.Init();
-        newStateGen.ClassArray = classArray;
+        newStateGen.ClassArray = classTable;
         newStateGen.Execute();
 
         NodeStateGen nodeStateGen;
         nodeStateGen = new NodeStateGen();
         nodeStateGen.Init();
-        nodeStateGen.ClassArray = classArray;
+        nodeStateGen.ClassArray = classTable;
         nodeStateGen.Execute();
 
         CreateOperateStateGen createOperateStateGen;
         createOperateStateGen = new CreateOperateStateGen();
         createOperateStateGen.Init();
-        createOperateStateGen.ClassArray = classArray;
+        createOperateStateGen.ClassArray = classTable;
         createOperateStateGen.Execute();
 
         NodeKindListGen nodeKindListGen;
         nodeKindListGen = new NodeKindListGen();
         nodeKindListGen.Init();
-        nodeKindListGen.ClassArray = classArray;
+        nodeKindListGen.ClassArray = classTable;
         nodeKindListGen.Execute();
         return 0;
     }
