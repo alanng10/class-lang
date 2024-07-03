@@ -44,7 +44,7 @@ public class Gen : Any
         NodeKindListGen nodeKindListGen;
         nodeKindListGen = new NodeKindListGen();
         nodeKindListGen.Init();
-        nodeKindListGen.ClassArray = classTable;
+        nodeKindListGen.ClassTable = classTable;
         nodeKindListGen.Execute();
         return 0;
     }
