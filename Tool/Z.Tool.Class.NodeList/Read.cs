@@ -176,15 +176,46 @@ class Read : Any
         }
 
         string className;
+        string itemClassName;
+        itemClassName = null;
+        string fieldName;
+        fieldName = null;
+
         className = a.Substring(0, uu);
 
-        string fieldName;
-        fieldName = a.Substring(uu + 1);
+        int ka;
+        ka = uu + 1;
+
+        bool b;
+        b = (className == "Array");
+        if (b)
+        {            
+            int ua;
+            ua = a.IndexOf(' ', ka);
+
+            if (ua < 0)
+            {
+                return null;
+            }
+
+            int kk;
+            kk = ua - ka;
+
+            itemClassName = a.Substring(ka, kk);
+
+            fieldName = a.Substring(ua + 1);
+        }
+
+        if (!b)
+        {
+            fieldName = a.Substring(uu + 1);
+        }
 
         Field o;
         o = new Field();
         o.Init();
         o.Class = className;
+        o.ItemClass = itemClassName;
         o.Name = fieldName;
         return o;
     }
