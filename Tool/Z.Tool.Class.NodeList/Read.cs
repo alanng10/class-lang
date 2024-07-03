@@ -13,7 +13,7 @@ class Read : Any
     public virtual int Execute()
     {
         bool b;
-        
+
         b = this.SetClassTable();
         if (!b)
         {
@@ -209,15 +209,18 @@ class Read : Any
             string ka;
             ka = a.Base;
 
-            Class k;
-            k = (Class)table.Get(ka);
-
-            if (k == null)
+            if (!(ka == "Node"))
             {
-                return false;
-            }
+                Class k;
+                k = (Class)table.Get(ka);
 
-            listInfra.TableAdd(k.Derive, a.Name, a);
+                if (k == null)
+                {
+                    return false;
+                }
+
+                listInfra.TableAdd(k.Derive, a.Name, a);
+            }
         }
         return true;
     }
