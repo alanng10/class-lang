@@ -189,6 +189,11 @@ public class TraverseGen : Any
         sj = new StringJoin();
         sj.Init();
 
+        string ka;
+        ka = this.ExecuteNode(varName);
+
+        sj.Append(ka);
+
         Table table;
         table = varClass.Field;
 
