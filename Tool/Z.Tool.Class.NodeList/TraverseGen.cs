@@ -59,12 +59,17 @@ public class TraverseGen : Any
         {
             Class a;
             a = (Class)iter.Value;
+
+            string varName;
+            varName = this.VarName(a.Name);
+
+            
         }
 
         return null;
     }
 
-    protected virtual string GetVarName(string className)
+    protected virtual string VarName(string className)
     {
         bool b;
         b = false;
