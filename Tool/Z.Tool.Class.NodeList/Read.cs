@@ -24,7 +24,6 @@ class Read : Any
     public virtual Table ClassTable { get; set; }
     protected virtual ListInfra ListInfra { get; set; }
     protected virtual ToolInfra ToolInfra { get; set; }
-    protected virtual List ClassList { get; set; }
     protected virtual Class Class { get; set; }
     protected virtual List FieldList { get; set; }
 
@@ -39,8 +38,7 @@ class Read : Any
         Array lineArray;        
         lineArray = infra.SplitLineList(ka);
 
-        this.ClassList = new List();
-        this.ClassList.Init();
+        this.ClassTable = this.CreateClassTable();
 
         int count;
         count = lineArray.Count;
@@ -62,9 +60,6 @@ class Read : Any
         }
 
         this.EndCurrentClass();
-
-        this.ClassTable = this.CreateClassTable(this.ClassList);
-        this.ClassList = null;
         return true;
     }
 
@@ -91,9 +86,14 @@ class Read : Any
                 return false;
             }
 
+            if (this.ClassTable.Contain(varClass.Name))
+            {
+                return false;
+            }
+
             this.Class = varClass;
 
-            this.ClassList.Add(this.Class);
+            this.ListInfra.TableAdd(this.ClassTable, varClass.Name, varClass);
 
             this.FieldList = new List();
             this.FieldList.Init();
@@ -181,11 +181,8 @@ class Read : Any
         return o;
     }
 
-    protected virtual Table CreateClassTable(List list)
+    protected virtual Table CreateClassTable()
     {
-        ListInfra listInfra;
-        listInfra = this.ListInfra;
-
         IntCompare charCompare;
         charCompare = new IntCompare();
         charCompare.Init();
@@ -199,19 +196,6 @@ class Read : Any
         table = new Table();
         table.Compare = compare;
         table.Init();
-
-        Iter iter;
-        iter = list.IterCreate();
-
-        list.IterSet(iter);
-
-        while (iter.Next())
-        {
-            Class aa;
-            aa = (Class)iter.Value;
-
-            listInfra.TableAdd(table, aa.Name, aa);
-        }
         return table;
     }
 }
