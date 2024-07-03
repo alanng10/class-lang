@@ -1,4 +1,4 @@
-    public virtual bool Execute#ClassName#(#ClassName# #VarName#)
+    public #Virtual# bool Execute#ClassName#(#ClassName# #VarName#)
     {
         if (#VarName# == null)
         {
@@ -8,3 +8,4 @@
 
 #FieldList#        return true;
     }
+
