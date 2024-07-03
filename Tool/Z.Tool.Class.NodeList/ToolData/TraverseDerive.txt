@@ -1,0 +1,4 @@
+        if (#VarName# is #DeriveClassName#)
+        {
+            this.Execute#DeriveClassName#((#DeriveClassName#)#VarName#);
+        }
