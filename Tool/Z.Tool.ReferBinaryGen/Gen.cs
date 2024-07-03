@@ -941,7 +941,7 @@ public class Gen : Any
             assemblyName = type.Assembly.GetName().Name;
             if (assemblyName.StartsWith("System.") | assemblyName == "System")
             {
-                global::System.Console.Error.Write("ClassGetType assemblyName is BCL assembly name: " + assemblyName + "\n");
+                global::System.Console.Error.Write("ClassGetType assemblyName is BCL assembly name: " + assemblyName + ", type name: " + type.FullName + "\n");
                 global::System.Environment.Exit(140);
             }
             if (!this.TypeIsClass(type))
