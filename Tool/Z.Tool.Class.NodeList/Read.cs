@@ -13,10 +13,17 @@ class Read : Any
     public virtual int Execute()
     {
         bool b;
+        
         b = this.SetClassTable();
         if (!b)
         {
-            return 1;
+            return 10;
+        }
+        
+        b = this.SetDerive();
+        if (!b)
+        {
+            return 20;
         }
         return 0;
     }
