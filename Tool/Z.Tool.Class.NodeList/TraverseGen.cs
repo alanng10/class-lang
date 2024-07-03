@@ -27,17 +27,30 @@ public class TraverseGen : Any
     protected virtual string PathExecuteNode { get; set; }
     protected virtual string PathArray { get; set; }
     protected virtual string PathField { get; set; }
+    protected virtual string TextSource { get; set; }
+    protected virtual string TextNode { get; set; }
+    protected virtual string TextDerive { get; set; }
+    protected virtual string TextExecuteNode { get; set; }
+    protected virtual string TextArray { get; set; }
+    protected virtual string TextField { get; set; }
+    protected virtual string TextVirtual { get; set; }
 
     public virtual bool Execute()
     {
-        string textSource;
-        textSource = this.ToolInfra.StorageTextRead(this.PathSource);
+        this.TextSource = this.ToolInfra.StorageTextRead(this.PathSource);
+        this.TextNode = this.ToolInfra.StorageTextRead(this.PathNode);
+        this.TextDerive = this.ToolInfra.StorageTextRead(this.PathDerive);
+        this.TextExecuteNode = this.ToolInfra.StorageTextRead(this.PathExecuteNode);
+        this.TextArray = this.ToolInfra.StorageTextRead(this.PathArray);
+        this.TextField = this.ToolInfra.StorageTextRead(this.PathField);
+
+        this.TextVirtual = this.Virtual();
 
         string nodeList;
         nodeList = this.NodeList();
 
         string k;
-        k = textSource.Replace("#NodeList#", nodeList);
+        k = this.TextSource.Replace("#NodeList#", nodeList);
     
         this.ToolInfra.StorageTextWrite(this.PathOutput, k);
         return true;
@@ -48,12 +61,6 @@ public class TraverseGen : Any
         StringJoin kk;
         kk = new StringJoin();
         kk.Init();
-
-        string textNode;
-        textNode = this.ToolInfra.StorageTextRead(this.PathNode);
-
-        string varVirtual;
-        varVirtual = this.Virtual();
 
         Table table;
         table = this.ClassTable;
@@ -68,7 +75,7 @@ public class TraverseGen : Any
             varClass = (Class)iter.Value;
 
             string nodeString;
-            nodeString = this.Node(textNode, varVirtual, varClass);
+            nodeString = this.Node(varClass);
 
             kk.Append(nodeString);
         }
@@ -78,7 +85,7 @@ public class TraverseGen : Any
         return a;
     }
 
-    protected virtual string Node(string textNode, string varVirtual, Class varClass)
+    protected virtual string Node(Class varClass)
     {
         string className;
         className = varClass.Name;
@@ -87,20 +94,61 @@ public class TraverseGen : Any
         varName = this.VarName(varClass.Name);
 
         string state;
-        state = this.State(varName, varClass);
+        state = this.State(varClass, varName);
 
         string k;
-        k = textNode;
-        k = k.Replace("#Virtual#", varVirtual);
+        k = this.TextNode;
+        k = k.Replace("#Virtual#", this.TextVirtual);
         k = k.Replace("#ClassName#", className);
         k = k.Replace("#VarName#", varName);
         k = k.Replace("#State#", state);
         return k;
     }
 
-    protected virtual string State(string varName, Class varClass)
+    protected virtual string State(Class varClass, string varName)
     {
+        if (0 < varClass.Derive.Count)
+        {
+            return this.DeriveState(varClass, varName);
+        }
+
+
+
         return null;
+    }
+
+    protected virtual string DeriveState(Class varClass, string varName)
+    {
+        StringJoin sj;
+        sj = new StringJoin();
+        sj.Init();
+
+        Table table;
+        table = varClass.Derive; 
+
+        Iter iter;
+        iter = table.IterCreate();
+        table.IterSet(iter);
+
+        while (iter.Next())
+        {
+            Class aa;
+            aa = (Class)iter.Value;
+
+            string kk;
+            kk = aa.Name;
+
+            string k;
+            k = this.TextDerive;
+            k = k.Replace("#VarName#", varName);
+            k = k.Replace("#DeriveClassName#", kk);
+
+            sj.Append(k);
+        }
+
+        string a;
+        a = sj.Result();
+        return a;
     }
 
     protected virtual string Field(string textField, string varName, Field field)
