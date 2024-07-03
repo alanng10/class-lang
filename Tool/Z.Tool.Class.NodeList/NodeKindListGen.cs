@@ -17,7 +17,7 @@ public class NodeKindListGen : SourceGen
         return true;
     }
 
-    public virtual Array ClassArray { get; set; }
+    public virtual Table ClassTable { get; set; }
 
     protected override bool ExecuteItemList()
     {
@@ -34,14 +34,17 @@ public class NodeKindListGen : SourceGen
         this.ItemTable.Compare = compare;
         this.ItemTable.Init();
 
-        int count;
-        count = this.ClassArray.Count;
-        int i;
-        i = 0;
-        while (i < count)
+        Table table;
+        table = this.ClassTable;
+
+        Iter iter;
+        iter = table.IterCreate();
+        table.IterSet(iter);
+        
+        while (iter.Next())
         {
             Class varClass;
-            varClass = (Class)this.ClassArray.Get(i);
+            varClass = (Class)iter.Value;
 
             string a;
             a = varClass.Name;
@@ -50,8 +53,6 @@ public class NodeKindListGen : SourceGen
             entry = this.GetItemEntry(a);
 
             this.ItemTable.Add(entry);
-
-            i = i + 1;
         }
         return true;
     }
