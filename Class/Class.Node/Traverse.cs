@@ -38,9 +38,9 @@ public class Traverse : Any
         part.Value.IterSet(iter);
         while (iter.Next())
         {
-            Comp comp;
-            comp = (Comp)iter.Value;
-            this.ExecuteComp(comp);
+            Comp item;
+            item = (Comp)iter.Value;
+            this.ExecuteComp(item);
         }
         return true;
     }
@@ -95,19 +95,6 @@ public class Traverse : Any
         return true;
     }
 
-    public virtual bool ExecuteVar(Var varVar)
-    {
-        if (varVar == null)
-        {
-            return true;
-        }
-        this.ExecuteNode(varVar);
-
-        this.ExecuteClassName(varVar.Class);
-        this.ExecuteVarName(varVar.Name);
-        return true;
-    }
-
     public virtual bool ExecuteParam(Param param)
     {
         if (param == null)
@@ -121,183 +108,23 @@ public class Traverse : Any
         param.Value.IterSet(iter);
         while (iter.Next())
         {
-            Var varVar;
-            varVar = (Var)iter.Value;
-            this.ExecuteVar(varVar);
+            Var item;
+            item = (Var)iter.Value;
+            this.ExecuteVar(item);
         }
         return true;
     }
 
-    public virtual bool ExecuteArgue(Argue argue)
+    public virtual bool ExecuteVar(Var varVar)
     {
-        if (argue == null)
+        if (varVar == null)
         {
             return true;
         }
-        this.ExecuteNode(argue);
+        this.ExecuteNode(varVar);
 
-        Iter iter;
-        iter = this.Iter;
-        argue.Value.IterSet(iter);
-        while (iter.Next())
-        {
-            Operate operate;
-            operate = (Operate)iter.Value;
-            this.ExecuteOperate(operate);
-        }
-        return true;
-    }
-
-    public virtual bool ExecuteTarget(Target target)
-    {
-        if (target == null)
-        {
-            return true;
-        }
-
-        if (target is VarTarget)
-        {
-            this.ExecuteVarTarget((VarTarget)target);
-        }
-        if (target is SetTarget)
-        {
-            this.ExecuteSetTarget((SetTarget)target);
-        }
-        if (target is BaseSetTarget)
-        {
-            this.ExecuteBaseSetTarget((BaseSetTarget)target);
-        }
-        return true;
-    }
-
-    public virtual bool ExecuteVarTarget(VarTarget varTarget)
-    {
-        if (varTarget == null)
-        {
-            return true;
-        }
-        this.ExecuteNode(varTarget);
-
-        this.ExecuteVarName(varTarget.Var);
-        return true;
-    }
-
-    public virtual bool ExecuteSetTarget(SetTarget setTarget)
-    {
-        if (setTarget == null)
-        {
-            return true;
-        }
-        this.ExecuteNode(setTarget);
-
-        this.ExecuteOperate(setTarget.This);
-        this.ExecuteFieldName(setTarget.Field);
-        return true;
-    }
-
-    public virtual bool ExecuteBaseSetTarget(BaseSetTarget baseSetTarget)
-    {
-        if (baseSetTarget == null)
-        {
-            return true;
-        }
-        this.ExecuteNode(baseSetTarget);
-
-        this.ExecuteFieldName(baseSetTarget.Field);
-        return true;
-    }
-
-    public virtual bool ExecuteValue(Value value)
-    {
-        if (value == null)
-        {
-            return true;
-        }
-
-        if (value is BoolValue)
-        {
-            this.ExecuteBoolValue((BoolValue)value);
-        }
-        if (value is IntValue)
-        {
-            this.ExecuteIntValue((IntValue)value);
-        }
-        if (value is IntSignValue)
-        {
-            this.ExecuteIntSignValue((IntSignValue)value);
-        }
-        if (value is IntHexValue)
-        {
-            this.ExecuteIntHexValue((IntHexValue)value);
-        }
-        if (value is IntHexSignValue)
-        {
-            this.ExecuteIntHexSignValue((IntHexSignValue)value);
-        }
-        if (value is StringValue)
-        {
-            this.ExecuteStringValue((StringValue)value);
-        }
-        return true;
-    }
-
-    public virtual bool ExecuteBoolValue(BoolValue boolValue)
-    {
-        if (boolValue == null)
-        {
-            return true;
-        }
-        this.ExecuteNode(boolValue);
-        return true;
-    }
-
-    public virtual bool ExecuteIntValue(IntValue intValue)
-    {
-        if (intValue == null)
-        {
-            return true;
-        }
-        this.ExecuteNode(intValue);
-        return true;
-    }
-
-    public virtual bool ExecuteIntHexValue(IntHexValue intHexValue)
-    {
-        if (intHexValue == null)
-        {
-            return true;
-        }
-        this.ExecuteNode(intHexValue);
-        return true;
-    }
-
-    public virtual bool ExecuteIntSignValue(IntSignValue intSignValue)
-    {
-        if (intSignValue == null)
-        {
-            return true;
-        }
-        this.ExecuteNode(intSignValue);
-        return true;
-    }
-
-    public virtual bool ExecuteIntHexSignValue(IntHexSignValue intHexSignValue)
-    {
-        if (intHexSignValue == null)
-        {
-            return true;
-        }
-        this.ExecuteNode(intHexSignValue);
-        return true;
-    }
-
-    public virtual bool ExecuteStringValue(StringValue stringValue)
-    {
-        if (stringValue == null)
-        {
-            return true;
-        }
-        this.ExecuteNode(stringValue);
+        this.ExecuteClassName(varVar.Class);
+        this.ExecuteVarName(varVar.Name);
         return true;
     }
 
@@ -367,46 +194,6 @@ public class Traverse : Any
         return true;
     }
 
-    public virtual bool ExecuteClassName(ClassName className)
-    {
-        if (className == null)
-        {
-            return true;
-        }
-        this.ExecuteNode(className);
-        return true;
-    }
-
-    public virtual bool ExecuteFieldName(FieldName fieldName)
-    {
-        if (fieldName == null)
-        {
-            return true;
-        }
-        this.ExecuteNode(fieldName);
-        return true;
-    }
-
-    public virtual bool ExecuteMaideName(MaideName maideName)
-    {
-        if (maideName == null)
-        {
-            return true;
-        }
-        this.ExecuteNode(maideName);
-        return true;
-    }
-
-    public virtual bool ExecuteVarName(VarName varName)
-    {
-        if (varName == null)
-        {
-            return true;
-        }
-        this.ExecuteNode(varName);
-        return true;
-    }
-
     public virtual bool ExecuteState(State state)
     {
         if (state == null)
@@ -420,9 +207,9 @@ public class Traverse : Any
         state.Value.IterSet(iter);
         while (iter.Next())
         {
-            Execute execute;
-            execute = (Execute)iter.Value;
-            this.ExecuteExecute(execute);
+            Execute item;
+            item = (Execute)iter.Value;
+            this.ExecuteExecute(item);
         }
         return true;
     }
@@ -434,10 +221,6 @@ public class Traverse : Any
             return true;
         }
 
-        if (execute is ReturnExecute)
-        {
-            this.ExecuteReturnExecute((ReturnExecute)execute);
-        }
         if (execute is InfExecute)
         {
             this.ExecuteInfExecute((InfExecute)execute);
@@ -445,6 +228,10 @@ public class Traverse : Any
         if (execute is WhileExecute)
         {
             this.ExecuteWhileExecute((WhileExecute)execute);
+        }
+        if (execute is ReturnExecute)
+        {
+            this.ExecuteReturnExecute((ReturnExecute)execute);
         }
         if (execute is DeclareExecute)
         {
@@ -536,6 +323,85 @@ public class Traverse : Any
         return true;
     }
 
+    public virtual bool ExecuteArgue(Argue argue)
+    {
+        if (argue == null)
+        {
+            return true;
+        }
+        this.ExecuteNode(argue);
+
+        Iter iter;
+        iter = this.Iter;
+        argue.Value.IterSet(iter);
+        while (iter.Next())
+        {
+            Operate item;
+            item = (Operate)iter.Value;
+            this.ExecuteOperate(item);
+        }
+        return true;
+    }
+
+    public virtual bool ExecuteTarget(Target target)
+    {
+        if (target == null)
+        {
+            return true;
+        }
+
+        if (target is VarTarget)
+        {
+            this.ExecuteVarTarget((VarTarget)target);
+        }
+        if (target is SetTarget)
+        {
+            this.ExecuteSetTarget((SetTarget)target);
+        }
+        if (target is BaseSetTarget)
+        {
+            this.ExecuteBaseSetTarget((BaseSetTarget)target);
+        }
+        return true;
+    }
+
+    public virtual bool ExecuteVarTarget(VarTarget varTarget)
+    {
+        if (varTarget == null)
+        {
+            return true;
+        }
+        this.ExecuteNode(varTarget);
+
+        this.ExecuteVarName(varTarget.Var);
+        return true;
+    }
+
+    public virtual bool ExecuteSetTarget(SetTarget setTarget)
+    {
+        if (setTarget == null)
+        {
+            return true;
+        }
+        this.ExecuteNode(setTarget);
+
+        this.ExecuteOperate(setTarget.This);
+        this.ExecuteFieldName(setTarget.Field);
+        return true;
+    }
+
+    public virtual bool ExecuteBaseSetTarget(BaseSetTarget baseSetTarget)
+    {
+        if (baseSetTarget == null)
+        {
+            return true;
+        }
+        this.ExecuteNode(baseSetTarget);
+
+        this.ExecuteFieldName(baseSetTarget.Field);
+        return true;
+    }
+
     public virtual bool ExecuteOperate(Operate operate)
     {
         if (operate == null)
@@ -559,14 +425,6 @@ public class Traverse : Any
         {
             this.ExecuteBaseCallOperate((BaseCallOperate)operate);
         }
-        if (operate is VarOperate)
-        {
-            this.ExecuteVarOperate((VarOperate)operate);
-        }
-        if (operate is ValueOperate)
-        {
-            this.ExecuteValueOperate((ValueOperate)operate);
-        }
         if (operate is ThisOperate)
         {
             this.ExecuteThisOperate((ThisOperate)operate);
@@ -586,6 +444,14 @@ public class Traverse : Any
         if (operate is CastOperate)
         {
             this.ExecuteCastOperate((CastOperate)operate);
+        }
+        if (operate is VarOperate)
+        {
+            this.ExecuteVarOperate((VarOperate)operate);
+        }
+        if (operate is ValueOperate)
+        {
+            this.ExecuteValueOperate((ValueOperate)operate);
         }
         if (operate is BracketOperate)
         {
@@ -607,10 +473,6 @@ public class Traverse : Any
         {
             this.ExecuteNotOperate((NotOperate)operate);
         }
-        if (operate is LessOperate)
-        {
-            this.ExecuteLessOperate((LessOperate)operate);
-        }
         if (operate is AddOperate)
         {
             this.ExecuteAddOperate((AddOperate)operate);
@@ -627,9 +489,9 @@ public class Traverse : Any
         {
             this.ExecuteDivOperate((DivOperate)operate);
         }
-        if (operate is SignLessOperate)
+        if (operate is LessOperate)
         {
-            this.ExecuteSignLessOperate((SignLessOperate)operate);
+            this.ExecuteLessOperate((LessOperate)operate);
         }
         if (operate is SignMulOperate)
         {
@@ -638,6 +500,10 @@ public class Traverse : Any
         if (operate is SignDivOperate)
         {
             this.ExecuteSignDivOperate((SignDivOperate)operate);
+        }
+        if (operate is SignLessOperate)
+        {
+            this.ExecuteSignLessOperate((SignLessOperate)operate);
         }
         if (operate is BitAndOperate)
         {
@@ -738,30 +604,6 @@ public class Traverse : Any
         return true;
     }
 
-    public virtual bool ExecuteVarOperate(VarOperate varOperate)
-    {
-        if (varOperate == null)
-        {
-            return true;
-        }
-        this.ExecuteNode(varOperate);
-
-        this.ExecuteVarName(varOperate.Var);
-        return true;
-    }
-
-    public virtual bool ExecuteValueOperate(ValueOperate valueOperate)
-    {
-        if (valueOperate == null)
-        {
-            return true;
-        }
-        this.ExecuteNode(valueOperate);
-
-        this.ExecuteValue(valueOperate.Value);
-        return true;
-    }
-
     public virtual bool ExecuteNewOperate(NewOperate newOperate)
     {
         if (newOperate == null)
@@ -799,6 +641,30 @@ public class Traverse : Any
         return true;
     }
 
+    public virtual bool ExecuteVarOperate(VarOperate varOperate)
+    {
+        if (varOperate == null)
+        {
+            return true;
+        }
+        this.ExecuteNode(varOperate);
+
+        this.ExecuteVarName(varOperate.Var);
+        return true;
+    }
+
+    public virtual bool ExecuteValueOperate(ValueOperate valueOperate)
+    {
+        if (valueOperate == null)
+        {
+            return true;
+        }
+        this.ExecuteNode(valueOperate);
+
+        this.ExecuteValue(valueOperate.Value);
+        return true;
+    }
+
     public virtual bool ExecuteBracketOperate(BracketOperate bracketOperate)
     {
         if (bracketOperate == null)
@@ -808,6 +674,140 @@ public class Traverse : Any
         this.ExecuteNode(bracketOperate);
 
         this.ExecuteOperate(bracketOperate.Any);
+        return true;
+    }
+
+    public virtual bool ExecuteValue(Value value)
+    {
+        if (value == null)
+        {
+            return true;
+        }
+
+        if (value is BoolValue)
+        {
+            this.ExecuteBoolValue((BoolValue)value);
+        }
+        if (value is IntValue)
+        {
+            this.ExecuteIntValue((IntValue)value);
+        }
+        if (value is IntHexValue)
+        {
+            this.ExecuteIntHexValue((IntHexValue)value);
+        }
+        if (value is IntSignValue)
+        {
+            this.ExecuteIntSignValue((IntSignValue)value);
+        }
+        if (value is IntHexSignValue)
+        {
+            this.ExecuteIntHexSignValue((IntHexSignValue)value);
+        }
+        if (value is StringValue)
+        {
+            this.ExecuteStringValue((StringValue)value);
+        }
+        return true;
+    }
+
+    public virtual bool ExecuteBoolValue(BoolValue boolValue)
+    {
+        if (boolValue == null)
+        {
+            return true;
+        }
+        this.ExecuteNode(boolValue);
+        return true;
+    }
+
+    public virtual bool ExecuteIntValue(IntValue intValue)
+    {
+        if (intValue == null)
+        {
+            return true;
+        }
+        this.ExecuteNode(intValue);
+        return true;
+    }
+
+    public virtual bool ExecuteIntHexValue(IntHexValue intHexValue)
+    {
+        if (intHexValue == null)
+        {
+            return true;
+        }
+        this.ExecuteNode(intHexValue);
+        return true;
+    }
+
+    public virtual bool ExecuteIntSignValue(IntSignValue intSignValue)
+    {
+        if (intSignValue == null)
+        {
+            return true;
+        }
+        this.ExecuteNode(intSignValue);
+        return true;
+    }
+
+    public virtual bool ExecuteIntHexSignValue(IntHexSignValue intHexSignValue)
+    {
+        if (intHexSignValue == null)
+        {
+            return true;
+        }
+        this.ExecuteNode(intHexSignValue);
+        return true;
+    }
+
+    public virtual bool ExecuteStringValue(StringValue stringValue)
+    {
+        if (stringValue == null)
+        {
+            return true;
+        }
+        this.ExecuteNode(stringValue);
+        return true;
+    }
+
+    public virtual bool ExecuteClassName(ClassName className)
+    {
+        if (className == null)
+        {
+            return true;
+        }
+        this.ExecuteNode(className);
+        return true;
+    }
+
+    public virtual bool ExecuteFieldName(FieldName fieldName)
+    {
+        if (fieldName == null)
+        {
+            return true;
+        }
+        this.ExecuteNode(fieldName);
+        return true;
+    }
+
+    public virtual bool ExecuteMaideName(MaideName maideName)
+    {
+        if (maideName == null)
+        {
+            return true;
+        }
+        this.ExecuteNode(maideName);
+        return true;
+    }
+
+    public virtual bool ExecuteVarName(VarName varName)
+    {
+        if (varName == null)
+        {
+            return true;
+        }
+        this.ExecuteNode(varName);
         return true;
     }
 
