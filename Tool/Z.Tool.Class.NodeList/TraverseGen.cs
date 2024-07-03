@@ -280,6 +280,7 @@ public class TraverseGen : Any
 
         char firstChar;
         firstChar = className[0];
+        firstChar = char.ToLower(firstChar);
 
         string k;
         k = firstChar + className.Substring(1);
