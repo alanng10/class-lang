@@ -175,30 +175,18 @@ class Read : Any
             return null;
         }
 
-        NameCheck nameCheck;
-        nameCheck = this.NameCheck;
-
-        Text textA;
-        textA = this.TextA;
-        StringData stringDataA;
-        stringDataA = this.StringDataA;
-
         string className;
         className = a.Substring(0, uu);
-
-        this.TextStringGet(textA, stringDataA, className);
-
-        if (!nameCheck.IsName(textA))
-        {
-            return null;
-        }
 
         string baseClassName;
         baseClassName = a.Substring(uu + uo.Length);
 
-        this.TextStringGet(textA, stringDataA, baseClassName);
+        if (!this.CheckIsName(className))
+        {
+            return null;
+        }
 
-        if (!nameCheck.IsName(textA))
+        if (!this.CheckIsName(baseClassName))
         {
             return null;
         }
@@ -256,6 +244,24 @@ class Read : Any
         if (!b)
         {
             fieldName = a.Substring(uu + 1);
+        }
+
+        if (!this.CheckIsName(className))
+        {
+            return null;
+        }
+
+        if (!(itemClassName == null))
+        {
+            if (!this.CheckIsName(itemClassName))
+            {
+                return null;
+            }
+        }
+
+        if (!this.CheckIsName(fieldName))
+        {
+            return null;
         }
 
         Field o;
@@ -382,6 +388,21 @@ class Read : Any
         table.Compare = compare;
         table.Init();
         return table;
+    }
+
+    protected virtual bool CheckIsName(string value)
+    {
+        NameCheck nameCheck;
+        nameCheck = this.NameCheck;
+
+        Text textA;
+        textA = this.TextA;
+        StringData stringDataA;
+        stringDataA = this.StringDataA;
+
+        this.TextStringGet(textA, stringDataA, value);
+
+        return nameCheck.IsName(textA);
     }
 
     protected virtual bool TextStringGet(Text text, StringData data, string o)
