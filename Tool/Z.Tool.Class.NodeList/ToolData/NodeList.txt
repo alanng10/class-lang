@@ -4,7 +4,7 @@ Class : Node
     Part Member
 
 Part : Node
-    Array Value
+    Array Comp Value
 
 Comp : Node
 
@@ -23,7 +23,7 @@ Maide : Comp
     State Call
 
 Param : Node
-    Array Value
+    Array Var Value
 
 Var : Node
     ClassName Class
@@ -40,7 +40,7 @@ PrecateCount : Count
 PrivateCount : Count
 
 State : Node
-    Array Value
+    Array Execute Value
 
 Execute : Node
 
@@ -66,7 +66,7 @@ OperateExecute : Execute
     Operate Any
 
 Argue : Node
-    Array Value
+    Array Operate Value
 
 Target : Node
 
