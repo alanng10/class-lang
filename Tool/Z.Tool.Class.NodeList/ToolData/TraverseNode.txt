@@ -1,0 +1,10 @@
+    public virtual bool Execute#ClassName#(#ClassName# #VarName#)
+    {
+        if (#VarName# == null)
+        {
+            return true;
+        }
+        this.ExecuteNode(#VarName#);
+
+#FieldList#        return true;
+    }
