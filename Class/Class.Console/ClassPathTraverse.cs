@@ -68,23 +68,20 @@ public class ClassPathTraverse : Traverse
         }
         this.ExecuteNode(varClass);
 
-        if (!(this.Result == null))
+        if (this.HasResult())
         {
             return true;
         }
 
-        InfraRange k;
-        k = this.FieldName;
-
-        if (k == "Name")
+        if (this.FieldEqual("Name"))
         {
             this.ExecuteClassName(varClass.Name);
         }
-        if (k == "Base")
+        if (this.FieldEqual("Base"))
         {
             this.ExecuteClassName(varClass.Base);
         }
-        if (k == "Member")
+        if (this.FieldEqual("Member"))
         {
             this.ExecutePart(varClass.Member);
         }
@@ -169,19 +166,16 @@ public class ClassPathTraverse : Traverse
         }
         this.ExecuteNode(varVar);
 
-        if (!(this.Result == null))
+        if (this.HasResult())
         {
             return true;
         }
 
-        string k;
-        k = this.FieldName;
-
-        if (k == "Class")
+        if (this.FieldEqual("Class"))
         {
             this.ExecuteClassName(varVar.Class);
         }
-        if (k == "Name")
+        if (this.FieldEqual("Name"))
         {
             this.ExecuteVarName(varVar.Name);
         }
@@ -1301,6 +1295,11 @@ public class ClassPathTraverse : Traverse
         int a;
         a = (int)n;
         return a;
+    }
+
+    protected virtual bool HasResult()
+    {
+        return !(this.Result == null);
     }
 
     protected virtual bool FieldEqual(string name)
