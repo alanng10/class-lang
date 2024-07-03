@@ -38,7 +38,7 @@ public class Gen : Any
         CreateOperateStateGen createOperateStateGen;
         createOperateStateGen = new CreateOperateStateGen();
         createOperateStateGen.Init();
-        createOperateStateGen.ClassArray = classTable;
+        createOperateStateGen.ClassTable = classTable;
         createOperateStateGen.Execute();
 
         NodeKindListGen nodeKindListGen;
