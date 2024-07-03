@@ -26,7 +26,7 @@ public class Gen : Any
         NewStateGen newStateGen;
         newStateGen = new NewStateGen();
         newStateGen.Init();
-        newStateGen.ClassArray = classTable;
+        newStateGen.ClassTable = classTable;
         newStateGen.Execute();
 
         NodeStateGen nodeStateGen;
