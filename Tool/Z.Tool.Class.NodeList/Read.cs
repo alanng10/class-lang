@@ -368,6 +368,14 @@ class Read : Any
             {
                 return false;
             }
+
+            if (n == 1)
+            {
+                if (1 < array.Count)
+                {
+                    return false;
+                }
+            }
         }
         return true;
     }
