@@ -9,7 +9,7 @@ public class NodeStateGen : Any
         return true;
     }
 
-    public virtual Array ClassArray { get; set; }
+    public virtual Table ClassTable { get; set; }
     protected virtual ToolInfra ToolInfra { get; set; }
     private string OutputFoldPath { get; set; }
     private string NodeStateSourceFileName { get; set; }
@@ -22,14 +22,17 @@ public class NodeStateGen : Any
         string kk;
         kk = this.ToolInfra.StorageTextRead(this.NodeStateSourceFileName);
 
-        int count;
-        count = this.ClassArray.Count;
-        int i;
-        i = 0;
-        while (i < count)
+        Table table;
+        table = this.ClassTable;
+
+        Iter iter;
+        iter = table.IterCreate();
+        table.IterSet(iter);
+
+        while (iter.Next())
         {
             Class varClass;
-            varClass = (Class)this.ClassArray.Get(i);
+            varClass = (Class)iter.Value;
 
             string kind;
             kind = varClass.Name;
@@ -41,8 +44,6 @@ public class NodeStateGen : Any
             path = this.GetOutputFilePath(kind);
 
             this.ToolInfra.StorageTextWrite(path, k);
-
-            i = i + 1;
         }
         return 0;
     }
