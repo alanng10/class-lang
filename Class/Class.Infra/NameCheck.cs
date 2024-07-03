@@ -52,6 +52,11 @@ public class NameCheck : Any
         TextInfra textInfra;
         textInfra = this.TextInfra;
 
+        if (text.Range.Count < 1)
+        {
+            return false;
+        }
+
         Data data;
         data = text.Data;
         int start;
