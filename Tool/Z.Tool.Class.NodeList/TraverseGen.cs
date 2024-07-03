@@ -145,7 +145,7 @@ public class TraverseGen : Any
         newLine = this.ToolInfra.NewLine;
 
         sj.Append(newLine);
-        
+
         Table table;
         table = varClass.Derive; 
 
@@ -176,6 +176,13 @@ public class TraverseGen : Any
 
     protected virtual string ArrayState(Class varClass, Field field, string varName)
     {
+        StringJoin sj;
+        sj = new StringJoin();
+        sj.Init();
+
+        string newLine;
+        newLine = this.ToolInfra.NewLine;
+
         string itemClassName;
         itemClassName = field.ItemClass;
 
@@ -186,9 +193,14 @@ public class TraverseGen : Any
         k = this.TextArray;
         k = k.Replace("#VarName#", varName);
         k = k.Replace("#ItemClassName#", itemClassName);
-        k = ka + k;
-        
-        return k;
+
+        sj.Append(ka);
+        sj.Append(newLine);
+        sj.Append(k);
+
+        string a;
+        a = sj.Result();        
+        return a;
     }
 
     protected virtual string FieldState(Class varClass, string varName)
