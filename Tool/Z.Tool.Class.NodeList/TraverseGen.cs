@@ -198,7 +198,7 @@ public class TraverseGen : Any
         sj.Append(ka);
 
         string newLine;
-        newLine = "\n";
+        newLine = this.ToolInfra.NewLine;
 
         bool ba;
         ba = false;
