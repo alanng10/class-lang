@@ -45,6 +45,9 @@ public class TraverseGen : Any
 
     protected virtual string NodeList()
     {
+        string textNode;
+        textNode = this.ToolInfra.StorageTextRead(this.PathNode);
+
         Table table;
         table = this.ClassTable;
 
@@ -52,7 +55,48 @@ public class TraverseGen : Any
         iter = table.IterCreate();
         table.IterSet(iter);
 
+        while (iter.Next())
+        {
+            Class a;
+            a = (Class)iter.Value;
+        }
+
         return null;
+    }
+
+    protected virtual string GetVarName(string className)
+    {
+        bool b;
+        b = false;
+        if (!b)
+        {
+            if (className == "Class")
+            {
+                b = true;
+            }
+        }
+        if (!b)
+        {
+            if (className == "Var")
+            {
+                b = true;
+            }
+        }
+
+        if (b)
+        {
+            return "var" + className;
+        }
+
+        char firstChar;
+        firstChar = className[0];
+
+        string k;
+        k = firstChar + className.Substring(1);
+    
+        string a;
+        a = k;
+        return a;
     }
 
     private string GetPath(string name)
