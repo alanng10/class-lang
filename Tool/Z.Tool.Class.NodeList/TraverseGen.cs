@@ -7,6 +7,8 @@ public class TraverseGen : Any
         base.Init();
         this.ToolInfra = ToolInfra.This;
 
+        this.PathOutput = "../../Class/Class.Node/Traverse.cs";
+
         this.PathSource = this.GetPath("Source");
         this.PathNode = this.GetPath("Node");
         this.PathDerive = this.GetPath("Derive");
