@@ -159,8 +159,18 @@ class Read : Any
         string className;
         className = a.Substring(0, uu);
 
+        if (className.Length == 0)
+        {
+            return null;
+        }
+
         string baseClassName;
         baseClassName = a.Substring(uu + uo.Length);
+
+        if (baseClassName.Length == 0)
+        {
+            return null;
+        }
 
         Class varClass;
         varClass = new Class();
