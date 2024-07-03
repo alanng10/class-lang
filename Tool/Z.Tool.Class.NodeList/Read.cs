@@ -253,6 +253,23 @@ class Read : Any
                 listInfra.TableAdd(k.Derive, a.Name, a);
             }
         }
+
+        table.IterSet(iter);
+        
+        while (iter.Next())
+        {
+            Class a;
+            a = (Class)iter.Value;
+
+            if (0 < a.Derive.Count)
+            {
+                if (0 < a.Field.Count)
+                {
+                    return false;
+                }
+            }
+        }
+
         return true;
     }
 
