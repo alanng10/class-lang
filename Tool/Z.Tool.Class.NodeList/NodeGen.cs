@@ -56,22 +56,22 @@ public class NodeGen : Any
         return true;
     }
 
-    protected virtual string GetFieldListString(Array fieldList)
+    protected virtual string GetFieldListString(Table fieldList)
     {
         StringBuilder sb;
         sb = new StringBuilder();
 
-        int count;
-        count = fieldList.Count;
-        Field field;
-        int i;
-        i = 0;
-        while (i < count)
+        Iter iter;
+        iter = fieldList.IterCreate();
+        fieldList.IterSet(iter);
+        
+        while (iter.Next())
         {
-            field = (Field)fieldList.Get(i);
+            Field field;
+            field = (Field)iter.Value;
             this.AppendField(sb, field);
-            i = i + 1;
         }
+        
         string k;
         k = sb.ToString();
         return k;
