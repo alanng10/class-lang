@@ -7,7 +7,23 @@ class Read : Any
         base.Init();
         this.ListInfra = ListInfra.This;
         this.ToolInfra = ToolInfra.This;
+        this.NameCheck = new NameCheck();
+        this.NameCheck.Init();
+
+        this.TextA = this.CreateText();
+        this.StringDataA = new StringData();
+        this.StringDataA.Init();
         return true;
+    }
+
+    private Text CreateText()
+    {
+        Text a;
+        a = new Text();
+        a.Init();
+        a.Range = new Range();
+        a.Range.Init();
+        return a;
     }
 
     public virtual int Execute()
@@ -37,6 +53,9 @@ class Read : Any
     public virtual Table ClassTable { get; set; }
     protected virtual ListInfra ListInfra { get; set; }
     protected virtual ToolInfra ToolInfra { get; set; }
+    protected virtual NameCheck NameCheck { get; set; }
+    protected virtual Text TextA { get; set; }
+    protected virtual StringData StringDataA { get; set; }
     protected virtual Class Class { get; set; }
     protected virtual List FieldList { get; set; }
 
@@ -156,10 +175,20 @@ class Read : Any
             return null;
         }
 
+        NameCheck nameCheck;
+        nameCheck = this.NameCheck;
+
+        Text textA;
+        textA = this.TextA;
+        StringData stringDataA;
+        stringDataA = this.StringDataA;
+
         string className;
         className = a.Substring(0, uu);
 
-        if (className.Length == 0)
+        this.TextStringGet(textA, stringDataA, className);
+
+        if (!nameCheck.IsName(textA))
         {
             return null;
         }
@@ -167,7 +196,9 @@ class Read : Any
         string baseClassName;
         baseClassName = a.Substring(uu + uo.Length);
 
-        if (baseClassName.Length == 0)
+        this.TextStringGet(textA, stringDataA, baseClassName);
+
+        if (!nameCheck.IsName(textA))
         {
             return null;
         }
@@ -351,5 +382,15 @@ class Read : Any
         table.Compare = compare;
         table.Init();
         return table;
+    }
+
+    protected virtual bool TextStringGet(Text text, StringData data, string o)
+    {
+        data.Value = o;
+
+        text.Data = data;
+        text.Range.Index = 0;
+        text.Range.Count = o.Length;
+        return true;
     }
 }

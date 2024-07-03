@@ -1,4 +1,6 @@
 global using Any = Avalon.Infra.Any;
+global using Range = Avalon.Infra.Range;
+global using StringData = Avalon.Infra.StringData;
 global using IntCompare = Avalon.Infra.IntCompare;
 global using StringCompare = Avalon.Infra.StringCompare;
 global using List = Avalon.List.List;
@@ -7,6 +9,7 @@ global using Table = Avalon.List.Table;
 global using Iter = Avalon.List.Iter;
 global using TableEntry = Avalon.List.Entry;
 global using ListInfra = Avalon.List.Infra;
+global using Text = Avalon.Text.Text;
 global using EntryEntry = Avalon.Entry.Entry;
 global using NameCheck = Class.Infra.NameCheck;
 global using ToolInfra = Z.Infra.Infra.Infra;
