@@ -50,7 +50,7 @@ class Read : Any
             line = (string)lineArray.Get(i);
 
             bool b;
-            b = this.SetClassArrayOneLine(line);
+            b = this.SetClassTableOneLine(line);
             if (!b)
             {
                 return false;
@@ -63,7 +63,7 @@ class Read : Any
         return true;
     }
 
-    protected virtual bool SetClassArrayOneLine(string line)
+    protected virtual bool SetClassTableOneLine(string line)
     {
         if (line.Length == 0)
         {
