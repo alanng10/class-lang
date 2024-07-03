@@ -129,7 +129,9 @@ public class TraverseGen : Any
             }
         }
 
-        return null;
+        string k;
+        k = this.FieldState(varClass, varName);
+        return k;
     }
 
     protected virtual string DeriveState(Class varClass, string varName)
