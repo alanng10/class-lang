@@ -8,6 +8,7 @@
 
     <ItemGroup>
         <ProjectReference Include="../Z.Infra.ListSourceGen/Z.Infra.ListSourceGen.csproj" />
+        <ProjectReference Include="../../Class/Class.Infra/Class.Infra.csproj" />
     </ItemGroup>
 
     <ItemGroup>
