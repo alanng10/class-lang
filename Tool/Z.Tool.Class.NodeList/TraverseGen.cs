@@ -177,6 +177,40 @@ public class TraverseGen : Any
         return k;
     }
 
+    protected virtual string FieldState(Class varClass, string varName)
+    {
+        StringJoin sj;
+        sj = new StringJoin();
+        sj.Init();
+
+        Table table;
+        table = varClass.Derive;
+
+        Iter iter;
+        iter = table.IterCreate();
+        table.IterSet(iter);
+
+        while (iter.Next())
+        {
+            Class aa;
+            aa = (Class)iter.Value;
+
+            string kk;
+            kk = aa.Name;
+
+            string k;
+            k = this.TextDerive;
+            k = k.Replace("#VarName#", varName);
+            k = k.Replace("#DeriveClassName#", kk);
+
+            sj.Append(k);
+        }
+
+        string a;
+        a = sj.Result();
+        return a;
+    }
+
     protected virtual string ExecuteNode(string varName)
     {
         string k;
