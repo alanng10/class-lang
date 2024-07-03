@@ -1,6 +1,6 @@
 namespace Class.Console;
 
-public class ModuleStringTraverse : Traverse
+public class ClassPathTraverse : Traverse
 {
     public override bool Init()
     {
