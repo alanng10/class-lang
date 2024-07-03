@@ -6,6 +6,7 @@ class Read : Any
     {
         base.Init();
         this.ListInfra = ListInfra.This;
+        this.ClassInfra = ClassInfra.This;
         this.ToolInfra = ToolInfra.This;
         this.NameCheck = new NameCheck();
         this.NameCheck.Init();
@@ -52,6 +53,7 @@ class Read : Any
 
     public virtual Table ClassTable { get; set; }
     protected virtual ListInfra ListInfra { get; set; }
+    protected virtual ClassInfra ClassInfra { get; set; }
     protected virtual ToolInfra ToolInfra { get; set; }
     protected virtual NameCheck NameCheck { get; set; }
     protected virtual Text TextA { get; set; }
@@ -70,7 +72,7 @@ class Read : Any
         Array lineArray;        
         lineArray = infra.SplitLineList(ka);
 
-        this.ClassTable = this.CreateTableStringCompare();
+        this.ClassTable = this.ClassInfra.TableCreateStringCompare();
 
         int count;
         count = lineArray.Count;
@@ -196,7 +198,8 @@ class Read : Any
         varClass.Init();
         varClass.Name = className;
         varClass.Base = baseClassName;
-        varClass.Derive = this.CreateTableStringCompare();
+        varClass.Field = this.ClassInfra.TableCreateStringCompare();
+        varClass.Derive = this.ClassInfra.TableCreateStringCompare();
         return varClass;
     }
 
@@ -378,24 +381,6 @@ class Read : Any
             }
         }
         return true;
-    }
-
-    protected virtual Table CreateTableStringCompare()
-    {
-        IntCompare charCompare;
-        charCompare = new IntCompare();
-        charCompare.Init();
-
-        StringCompare compare;
-        compare = new StringCompare();
-        compare.CharCompare = charCompare;
-        compare.Init();
-
-        Table table;
-        table = new Table();
-        table.Compare = compare;
-        table.Init();
-        return table;
     }
 
     protected virtual bool CheckIsName(string value)

@@ -13,6 +13,7 @@ global using ListInfra = Avalon.List.Infra;
 global using Text = Avalon.Text.Text;
 global using EntryEntry = Avalon.Entry.Entry;
 global using NameCheck = Class.Infra.NameCheck;
+global using ClassInfra = Class.Infra.Infra;
 global using ToolInfra = Z.Infra.Infra.Infra;
 global using SourceGen = Z.Infra.ListSourceGen.Gen;
 global using STAThreadAttribute = System.STAThreadAttribute;
