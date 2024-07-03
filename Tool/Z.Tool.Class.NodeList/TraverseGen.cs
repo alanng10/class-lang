@@ -141,6 +141,11 @@ public class TraverseGen : Any
         sj = new StringJoin();
         sj.Init();
 
+        string newLine;
+        newLine = this.ToolInfra.NewLine;
+
+        sj.Append(newLine);
+        
         Table table;
         table = varClass.Derive; 
 
