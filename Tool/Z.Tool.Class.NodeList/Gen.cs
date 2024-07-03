@@ -32,7 +32,7 @@ public class Gen : Any
         NodeStateGen nodeStateGen;
         nodeStateGen = new NodeStateGen();
         nodeStateGen.Init();
-        nodeStateGen.ClassArray = classTable;
+        nodeStateGen.ClassTable = classTable;
         nodeStateGen.Execute();
 
         CreateOperateStateGen createOperateStateGen;
