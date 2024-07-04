@@ -1,0 +1,14 @@
+
+        int k;
+        k = this.Index;
+
+        Array array;
+        array = #VarName#.Value;
+        if (!(this.InfraInfra.CheckIndex(array.Count, k)))
+        {
+            return true;
+        }
+
+        #ItemDeclareClassName# item;
+        item = (#ItemDeclareClassName#)array.Get(k);
+        this.Execute#ItemClassName#(item);
