@@ -40,7 +40,7 @@ class ThreadNetworkHostState : ThreadExecuteState
 
         NetworkHostOpenState openState;
         openState = new NetworkHostOpenState();
-        openState.ThreadNetworkServerState = this;
+        openState.ThreadNetworkHostState = this;
         openState.Init();
 
         interval.Elapse.State.AddState(openState);
