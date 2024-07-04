@@ -162,13 +162,17 @@ public class TraverseGen : Any
             Class aa;
             aa = (Class)iter.Value;
 
-            string kk;
-            kk = aa.Name;
+            string className;
+            className = aa.Name;
+
+            string declareClassName;
+            declareClassName = this.DeclareClassName(className);
 
             string k;
             k = this.TextDerive;
             k = k.Replace("#VarName#", varName);
-            k = k.Replace("#DeriveClassName#", kk);
+            k = k.Replace("#DeriveClassName#", className);
+            k = k.Replace("#DeriveDeclareClassName#", declareClassName);
 
             sj.Append(k);
         }

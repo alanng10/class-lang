@@ -1,4 +1,4 @@
-        if (#VarName# is #DeriveClassName#)
+        if (#VarName# is #DeriveDeclareClassName#)
         {
-            this.Execute#DeriveClassName#((#DeriveClassName#)#VarName#);
+            this.Execute#DeriveClassName#((#DeriveDeclareClassName#)#VarName#);
         }
