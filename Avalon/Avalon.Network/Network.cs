@@ -92,7 +92,7 @@ public class Network : Any
     protected virtual CaseList NetworkCaseList { get; set; }
     protected virtual StatusList NetworkStatusList { get; set; }
 
-    internal virtual ulong Intern { get; set; }
+    private ulong Intern { get; set; }
     private ulong InternReadyReadState { get; set; }
     private ulong InternCaseChangeState { get; set; }
     private ulong InternStatusChangeState { get; set; }
