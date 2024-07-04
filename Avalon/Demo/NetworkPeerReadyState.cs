@@ -88,7 +88,7 @@ class NetworkPeerReadyState : State
             b = (kk == 58);
             if (b)
             {
-                Console.This.Out.Write("Network Server Case 0 Success\n");
+                Console.This.Out.Write("Network Host Case 0 Success\n");
 
                 this.Case = 1;
 
@@ -98,7 +98,7 @@ class NetworkPeerReadyState : State
             }
             if (!b)
             {
-                Console.This.Err.Write("Network Server Case 0 Read Data Invalid\n");
+                Console.This.Err.Write("Network Host Case 0 Read Data Invalid\n");
                 this.Status = 22;
                 return false;
             }
@@ -119,7 +119,7 @@ class NetworkPeerReadyState : State
             ba = (a0 == 11 & a1 == 57 & a2 == 98 & a3 == 149);
             if (ba)
             {
-                Console.This.Out.Write("Network Server Case 1 Success\n");
+                Console.This.Out.Write("Network Host Case 1 Success\n");
 
                 this.Case = 2;
 
@@ -131,7 +131,7 @@ class NetworkPeerReadyState : State
             }
             if (!ba)
             {
-                Console.This.Err.Write("Network Server Case 1 Read Data Invalid\n");
+                Console.This.Err.Write("Network Host Case 1 Read Data Invalid\n");
                 this.Status = 24;
                 return false;
             }
@@ -142,7 +142,7 @@ class NetworkPeerReadyState : State
             string ka;
             ka = this.StringCreate.Data(data, null);
 
-            Console.This.Out.Write("Network Server Case 2 Read Text: " + ka + "\n");
+            Console.This.Out.Write("Network Host Case 2 Read Text: " + ka + "\n");
 
             this.HostState.ExitNetwork(0);
             return true;
