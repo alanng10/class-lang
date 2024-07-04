@@ -1,4 +1,4 @@
-    public #Virtual# bool Execute#ClassName#(#ClassName# #VarName#)
+    public #Virtual# bool Execute#ClassName#(#DeclareClassName# #VarName#)
     {
         if (#VarName# == null)
         {

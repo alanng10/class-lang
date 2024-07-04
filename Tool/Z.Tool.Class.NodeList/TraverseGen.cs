@@ -91,6 +91,9 @@ public class TraverseGen : Any
         string className;
         className = varClass.Name;
 
+        string declareClassName;
+        declareClassName = this.DeclareClassName(className);
+
         string varName;
         varName = this.VarName(varClass.Name);
 
@@ -101,6 +104,7 @@ public class TraverseGen : Any
         k = this.TextNode;
         k = k.Replace("#Virtual#", this.TextVirtual);
         k = k.Replace("#ClassName#", className);
+        k = k.Replace("#DeclareClassName#", declareClassName);
         k = k.Replace("#VarName#", varName);
         k = k.Replace("#State#", state);
         return k;
@@ -279,6 +283,11 @@ public class TraverseGen : Any
     protected virtual string Virtual()
     {
         return "virtual";
+    }
+
+    protected virtual string DeclareClassName(string className)
+    {
+        return className;
     }
 
     protected virtual string VarName(string className)
