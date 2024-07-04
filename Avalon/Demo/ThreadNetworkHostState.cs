@@ -15,13 +15,13 @@ class ThreadNetworkHostState : ThreadExecuteState
         port.Kind = portKindList.LocalHost;
         port.Server = 50400;
 
-        NetworkHost server;
-        server = new NetworkHost();
-        server.Init();
+        NetworkHost host;
+        host = new NetworkHost();
+        host.Init();
 
-        this.Demo.Host = server;
+        this.Demo.Host = host;
 
-        server.Port = port;
+        host.Port = port;
 
         NetworkNewPeerState state;
         state = new NetworkNewPeerState();
@@ -29,7 +29,7 @@ class ThreadNetworkHostState : ThreadExecuteState
         state.HostState = this;
         state.Init();
 
-        server.NewPeerState = state;
+        host.NewPeerState = state;
 
         TimeInterval interval;
         interval = new TimeInterval();
