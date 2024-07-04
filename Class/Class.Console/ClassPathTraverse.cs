@@ -251,12 +251,24 @@ public class ClassPathTraverse : Traverse
         {
             return true;
         }
+        this.ExecuteNode(prudateCount);
+
+        if (this.HasResult())
+        {
+            return true;
+        }
         return true;
     }
 
     public override bool ExecuteProbateCount(ProbateCount probateCount)
     {
         if (probateCount == null)
+        {
+            return true;
+        }
+        this.ExecuteNode(probateCount);
+
+        if (this.HasResult())
         {
             return true;
         }
@@ -269,12 +281,24 @@ public class ClassPathTraverse : Traverse
         {
             return true;
         }
+        this.ExecuteNode(precateCount);
+
+        if (this.HasResult())
+        {
+            return true;
+        }
         return true;
     }
 
     public override bool ExecutePrivateCount(PrivateCount privateCount)
     {
         if (privateCount == null)
+        {
+            return true;
+        }
+        this.ExecuteNode(privateCount);
+
+        if (this.HasResult())
         {
             return true;
         }
@@ -646,12 +670,24 @@ public class ClassPathTraverse : Traverse
         {
             return true;
         }
+        this.ExecuteNode(thisOperate);
+
+        if (this.HasResult())
+        {
+            return true;
+        }
         return true;
     }
 
     public override bool ExecuteNullOperate(NullOperate nullOperate)
     {
         if (nullOperate == null)
+        {
+            return true;
+        }
+        this.ExecuteNode(nullOperate);
+
+        if (this.HasResult())
         {
             return true;
         }
@@ -795,12 +831,24 @@ public class ClassPathTraverse : Traverse
         {
             return true;
         }
+        this.ExecuteNode(boolValue);
+
+        if (this.HasResult())
+        {
+            return true;
+        }
         return true;
     }
 
     public override bool ExecuteIntValue(IntValue intValue)
     {
         if (intValue == null)
+        {
+            return true;
+        }
+        this.ExecuteNode(intValue);
+
+        if (this.HasResult())
         {
             return true;
         }
@@ -813,12 +861,24 @@ public class ClassPathTraverse : Traverse
         {
             return true;
         }
+        this.ExecuteNode(intHexValue);
+
+        if (this.HasResult())
+        {
+            return true;
+        }
         return true;
     }
 
     public override bool ExecuteIntSignValue(IntSignValue intSignValue)
     {
         if (intSignValue == null)
+        {
+            return true;
+        }
+        this.ExecuteNode(intSignValue);
+
+        if (this.HasResult())
         {
             return true;
         }
@@ -831,12 +891,24 @@ public class ClassPathTraverse : Traverse
         {
             return true;
         }
+        this.ExecuteNode(intHexSignValue);
+
+        if (this.HasResult())
+        {
+            return true;
+        }
         return true;
     }
 
     public override bool ExecuteStringValue(StringValue stringValue)
     {
         if (stringValue == null)
+        {
+            return true;
+        }
+        this.ExecuteNode(stringValue);
+
+        if (this.HasResult())
         {
             return true;
         }
@@ -849,12 +921,24 @@ public class ClassPathTraverse : Traverse
         {
             return true;
         }
+        this.ExecuteNode(className);
+
+        if (this.HasResult())
+        {
+            return true;
+        }
         return true;
     }
 
     public override bool ExecuteFieldName(FieldName fieldName)
     {
         if (fieldName == null)
+        {
+            return true;
+        }
+        this.ExecuteNode(fieldName);
+
+        if (this.HasResult())
         {
             return true;
         }
@@ -867,12 +951,24 @@ public class ClassPathTraverse : Traverse
         {
             return true;
         }
+        this.ExecuteNode(maideName);
+
+        if (this.HasResult())
+        {
+            return true;
+        }
         return true;
     }
 
     public override bool ExecuteVarName(VarName varName)
     {
         if (varName == null)
+        {
+            return true;
+        }
+        this.ExecuteNode(varName);
+
+        if (this.HasResult())
         {
             return true;
         }
