@@ -59,7 +59,6 @@ class Read : Any
     protected virtual Text TextA { get; set; }
     protected virtual StringData StringDataA { get; set; }
     protected virtual Class Class { get; set; }
-    protected virtual List FieldList { get; set; }
 
     protected virtual bool SetClassTable()
     {
