@@ -1,0 +1,6 @@
+        this.ExecuteNode(#VarName#);
+
+        if (this.HasResult())
+        {
+            return true;
+        }
