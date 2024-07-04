@@ -18,6 +18,25 @@ public class TraverseClassPathGen : TraverseGen
         return "";
     }
 
+    protected override string ArrayState(Class varClass, Field field, string varName)
+    {
+        string itemClassName;
+        itemClassName = field.ItemClass;
+
+        string itemDeclareClassName;
+        itemDeclareClassName = this.DeclareClassName(itemClassName);
+
+        string k;
+        k = this.TextArray;
+        k = k.Replace("#VarName#", varName);
+        k = k.Replace("#ItemClassName#", itemClassName);
+        k = k.Replace("#ItemDeclareClassName#", itemDeclareClassName);
+
+        string a;
+        a = k;
+        return a;
+    }
+
     protected override string FieldState(Class varClass, string varName)
     {
         if (varClass.AnyInt == varClass.Field.Count)
