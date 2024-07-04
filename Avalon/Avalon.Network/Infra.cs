@@ -33,7 +33,7 @@ class Infra : Any
         this.NetworkReadyReadMaideAddress.Delegate = maideC;
         this.NetworkReadyReadMaideAddress.Init();
         NetworkServerNewPeerMaide maideD;
-        maideD = new NetworkServerNewPeerMaide(Server.InternNewPeer);
+        maideD = new NetworkServerNewPeerMaide(Host.InternNewPeer);
         this.ServerNewPeerMaideAddress = new MaideAddress();
         this.ServerNewPeerMaideAddress.Delegate = maideD;
         this.ServerNewPeerMaideAddress.Init();

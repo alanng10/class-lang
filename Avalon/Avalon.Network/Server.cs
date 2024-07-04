@@ -1,6 +1,6 @@
 namespace Avalon.Network;
 
-public class Server : Any
+public class Host : Any
 {
     public override bool Init()
     {
@@ -168,8 +168,8 @@ public class Server : Any
         object ao;
         ao = internIntern.HandleTarget(arg);
 
-        Server a;
-        a = (Server)ao;
+        Host a;
+        a = (Host)ao;
         a.ExecuteNewPeerState();
 
         return 1;
