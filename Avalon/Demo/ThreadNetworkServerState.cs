@@ -15,8 +15,8 @@ class ThreadNetworkServerState : ThreadExecuteState
         port.Kind = portKindList.LocalHost;
         port.Server = 50400;
 
-        NetworkServer server;
-        server = new NetworkServer();
+        NetworkHost server;
+        server = new NetworkHost();
         server.Init();
 
         this.Demo.Server = server;
