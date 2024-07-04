@@ -38,8 +38,8 @@ class ThreadNetworkServerState : ThreadExecuteState
         interval.SingleShot = true;
         interval.Time = 0;
 
-        NetworkServerOpenState openState;
-        openState = new NetworkServerOpenState();
+        NetworkHostOpenState openState;
+        openState = new NetworkHostOpenState();
         openState.ThreadNetworkServerState = this;
         openState.Init();
 

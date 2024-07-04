@@ -1,6 +1,6 @@
 namespace Demo;
 
-class NetworkServerOpenState : State
+class NetworkHostOpenState : State
 {
     public ThreadNetworkServerState ThreadNetworkServerState { get; set; }
     
