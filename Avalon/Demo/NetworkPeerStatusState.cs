@@ -2,7 +2,7 @@ namespace Demo;
 
 class NetworkPeerStatusState : State
 {
-    public ThreadNetworkHostState ServerState { get; set; }
+    public ThreadNetworkHostState HostState { get; set; }
     private int Status { get; set; }
 
     public override bool Execute()
@@ -11,7 +11,7 @@ class NetworkPeerStatusState : State
         b = this.ExecuteAll();
         if (!b)
         {
-            this.ServerState.ExitNetwork(this.Status);
+            this.HostState.ExitNetwork(this.Status);
         }
         return true;
     }
@@ -19,10 +19,10 @@ class NetworkPeerStatusState : State
     private bool ExecuteAll()
     {
         NetworkStatusList statusList;
-        statusList = this.ServerState.Demo.NetworkStatusList;
+        statusList = this.HostState.Demo.NetworkStatusList;
 
         Network network;
-        network = this.ServerState.Demo.Peer;
+        network = this.HostState.Demo.Peer;
 
         if (!(network.Status == statusList.NoError))
         {
