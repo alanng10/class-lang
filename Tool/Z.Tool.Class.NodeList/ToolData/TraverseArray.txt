@@ -3,7 +3,7 @@
         #VarName#.Value.IterSet(iter);
         while (iter.Next())
         {
-            #ItemClassName# item;
-            item = (#ItemClassName#)iter.Value;
+            #ItemDeclareClassName# item;
+            item = (#ItemDeclareClassName#)iter.Value;
             this.Execute#ItemClassName#(item);
         }

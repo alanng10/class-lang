@@ -194,6 +194,9 @@ public class TraverseGen : Any
         string itemClassName;
         itemClassName = field.ItemClass;
 
+        string itemDeclareClassName;
+        itemDeclareClassName = this.DeclareClassName(itemClassName);
+
         string ka;
         ka = this.ExecuteNode(varName);
 
@@ -201,6 +204,7 @@ public class TraverseGen : Any
         k = this.TextArray;
         k = k.Replace("#VarName#", varName);
         k = k.Replace("#ItemClassName#", itemClassName);
+        k = k.Replace("#ItemDeclareClassName#", itemDeclareClassName);
 
         sj.Append(ka);
         sj.Append(newLine);
