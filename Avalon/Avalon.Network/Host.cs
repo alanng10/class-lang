@@ -138,7 +138,7 @@ public class Host : Any
         valueAU = (ulong)aa.ValueA;
         valueBU = (ulong)aa.ValueB;
         valueCU = (ulong)aa.ValueC;
-        serverU = (ulong)aa.Server;
+        serverU = (ulong)aa.Host;
 
         ulong u;
         u = this.InternPort;

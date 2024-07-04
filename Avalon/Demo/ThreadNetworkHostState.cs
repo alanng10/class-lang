@@ -13,7 +13,7 @@ class ThreadNetworkHostState : ThreadExecuteState
         port = new NetworkPort();
         port.Init();
         port.Kind = portKindList.LocalHost;
-        port.Server = 50400;
+        port.Host = 50400;
 
         NetworkHost host;
         host = new NetworkHost();

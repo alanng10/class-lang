@@ -6,5 +6,5 @@ public class Port : Any
     public virtual long ValueA { get; set; }
     public virtual long ValueB { get; set; }
     public virtual long ValueC { get; set; }
-    public virtual int Server { get; set; }
+    public virtual int Host { get; set; }
 }
