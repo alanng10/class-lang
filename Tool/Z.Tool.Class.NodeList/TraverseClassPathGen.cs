@@ -21,13 +21,8 @@ public class TraverseClassPathGen : TraverseGen
         {
             return "";
         }
-        
-        return base.Node(varClass);
-    }
 
-    protected override string DeriveState(Class varClass, string varName)
-    {
-        return "";
+        return base.Node(varClass);
     }
 
     protected override string ArrayState(Class varClass, Field field, string varName)
