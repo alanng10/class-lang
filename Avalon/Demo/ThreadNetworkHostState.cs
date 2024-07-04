@@ -26,7 +26,7 @@ class ThreadNetworkHostState : ThreadExecuteState
         NetworkNewPeerState state;
         state = new NetworkNewPeerState();
         state.Demo = this.Demo;
-        state.ServerState = this;
+        state.HostState = this;
         state.Init();
 
         server.NewPeerState = state;

@@ -3,7 +3,7 @@ namespace Demo;
 class NetworkNewPeerState : State
 {
     public Demo Demo { get; set; }
-    public ThreadNetworkHostState ServerState { get; set; }
+    public ThreadNetworkHostState HostState { get; set; }
     
     public override bool Execute()
     {
@@ -21,12 +21,12 @@ class NetworkNewPeerState : State
         NetworkPeerReadyState state;
         state = new NetworkPeerReadyState();
         state.Demo = this.Demo;
-        state.ServerState = this.ServerState;
+        state.ServerState = this.HostState;
         state.Init();
 
         NetworkPeerStatusState stateA;
         stateA = new NetworkPeerStatusState();
-        stateA.ServerState = this.ServerState;
+        stateA.ServerState = this.HostState;
         stateA.Init();
 
         network.StatusChangeState = stateA;
