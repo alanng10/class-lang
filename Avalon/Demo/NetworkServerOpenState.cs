@@ -6,7 +6,7 @@ class NetworkServerOpenState : State
     
     public override bool Execute()
     {
-        this.ThreadNetworkServerState.Demo.Server.Open();
+        this.ThreadNetworkServerState.Demo.Host.Open();
         return true;
     }
 }

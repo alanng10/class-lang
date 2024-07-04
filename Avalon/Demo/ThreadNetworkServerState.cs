@@ -19,7 +19,7 @@ class ThreadNetworkServerState : ThreadExecuteState
         server = new NetworkHost();
         server.Init();
 
-        this.Demo.Server = server;
+        this.Demo.Host = server;
 
         server.Port = port;
 
@@ -81,14 +81,14 @@ class ThreadNetworkServerState : ThreadExecuteState
         Network peer;
         peer = this.Demo.Peer;
 
-        this.Demo.Server.ClosePeer(peer);
+        this.Demo.Host.ClosePeer(peer);
 
-        this.Demo.Server.Close();
+        this.Demo.Host.Close();
 
-        this.Demo.Server.Final();
+        this.Demo.Host.Final();
 
         this.Demo.Peer = null;
-        this.Demo.Server = null;
+        this.Demo.Host = null;
 
         ThreadCurrent current;
         current = new ThreadCurrent();

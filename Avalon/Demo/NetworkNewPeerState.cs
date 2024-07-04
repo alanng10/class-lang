@@ -14,7 +14,7 @@ class NetworkNewPeerState : State
         }
 
         Network network;
-        network = this.Demo.Server.OpenPeer();
+        network = this.Demo.Host.OpenPeer();
         
         this.Demo.Peer = network;
 
