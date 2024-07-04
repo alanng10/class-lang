@@ -81,6 +81,13 @@ public class TraverseClassPathGen : TraverseGen
                 b = true;
             }
         }
+        if (!b)
+        {
+            if (className == "Count")
+            {
+                b = true;
+            }
+        }
 
         if (b)
         {
