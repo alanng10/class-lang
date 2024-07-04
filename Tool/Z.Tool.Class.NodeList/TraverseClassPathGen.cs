@@ -15,6 +15,16 @@ public class TraverseClassPathGen : TraverseGen
         return true;
     }
 
+    protected override string Node(Class varClass)
+    {
+        if (this.IsDeriveState(varClass))
+        {
+            return "";
+        }
+        
+        return base.Node(varClass);
+    }
+
     protected override string DeriveState(Class varClass, string varName)
     {
         return "";
