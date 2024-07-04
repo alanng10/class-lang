@@ -9,6 +9,11 @@ public class TraverseClassPathGen : TraverseGen
         return true;
     }
 
+    protected override string DeriveState(Class varClass, string varName)
+    {
+        return "";
+    }
+
     protected override string FieldState(Class varClass, string varName)
     {
         if (varClass.AnyInt == varClass.Field.Count)
