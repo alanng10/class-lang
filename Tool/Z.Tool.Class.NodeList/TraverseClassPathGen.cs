@@ -8,4 +8,19 @@ public class TraverseClassPathGen : TraverseGen
         this.PathSource = "ToolData/TraverseClassPathSource.txt";
         return true;
     }
+
+    protected override string FieldState(Class varClass, string varName)
+    {
+        if (varClass.AnyInt == varClass.Field.Count)
+        {
+            return "";
+        }
+
+        return base.FieldState(varClass, varName);
+    }
+
+    protected override string Virtual()
+    {
+        return "override";
+    }
 }
