@@ -10,6 +10,7 @@ public class TraverseClassPathGen : TraverseGen
 
         this.PathSource = this.GetPath("ClassPathSource");
         this.PathArray = this.GetPath("ClassPathArray");
+        this.PathExecuteNode = this.GetPath("ClassPathExecuteNode");
         return true;
     }
 
