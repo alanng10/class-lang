@@ -21,7 +21,7 @@ class NetworkNewPeerState : State
         NetworkPeerReadyState state;
         state = new NetworkPeerReadyState();
         state.Demo = this.Demo;
-        state.ServerState = this.HostState;
+        state.HostState = this.HostState;
         state.Init();
 
         NetworkPeerStatusState stateA;

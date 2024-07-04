@@ -17,7 +17,7 @@ class NetworkPeerReadyState : State
     }
 
     public Demo Demo { get; set; }
-    public ThreadNetworkHostState ServerState { get; set; }
+    public ThreadNetworkHostState HostState { get; set; }
 
     private Data Data { get; set; }
     private DataRange Range { get; set; }
@@ -31,7 +31,7 @@ class NetworkPeerReadyState : State
         b = this.ExecuteAll();
         if (!b)
         {
-            this.ServerState.ExitNetwork(this.Status);
+            this.HostState.ExitNetwork(this.Status);
         }
         return true;
     }
@@ -144,7 +144,7 @@ class NetworkPeerReadyState : State
 
             Console.This.Out.Write("Network Server Case 2 Read Text: " + ka + "\n");
 
-            this.ServerState.ExitNetwork(0);
+            this.HostState.ExitNetwork(0);
             return true;
         }
         return true;
