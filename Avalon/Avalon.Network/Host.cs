@@ -16,7 +16,7 @@ public class Host : Any
         Extern.NetworkPort_Init(this.InternPort);
 
         MaideAddress oa;
-        oa = this.NetworkInfra.ServerNewPeerMaideAddress;
+        oa = this.NetworkInfra.HostNewPeerMaideAddress;
         ulong arg;
         arg = this.InternHandle.ULong();
         this.InternNewPeerState = this.InternInfra.StateCreate(oa, arg);

@@ -34,14 +34,14 @@ class Infra : Any
         this.NetworkReadyReadMaideAddress.Init();
         NetworkServerNewPeerMaide maideD;
         maideD = new NetworkServerNewPeerMaide(Host.InternNewPeer);
-        this.ServerNewPeerMaideAddress = new MaideAddress();
-        this.ServerNewPeerMaideAddress.Delegate = maideD;
-        this.ServerNewPeerMaideAddress.Init();
+        this.HostNewPeerMaideAddress = new MaideAddress();
+        this.HostNewPeerMaideAddress.Delegate = maideD;
+        this.HostNewPeerMaideAddress.Init();
         return true;
     }
 
     public virtual MaideAddress NetworkStatusChangeMaideAddress { get; set; }
     public virtual MaideAddress NetworkCaseChangeMaideAddress { get; set; }
     public virtual MaideAddress NetworkReadyReadMaideAddress { get; set; }
-    public virtual MaideAddress ServerNewPeerMaideAddress { get; set; }
+    public virtual MaideAddress HostNewPeerMaideAddress { get; set; }
 }
