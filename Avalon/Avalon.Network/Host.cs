@@ -102,7 +102,7 @@ public class Host : Any
     {
         Network a;
         a = new Network();
-        a.ServerPeer = serverPeer;
+        a.HostPeer = serverPeer;
         a.Init();
         return a;
     }
@@ -116,7 +116,7 @@ public class Host : Any
     public virtual bool ClosePeer(Network network)
     {
         ulong u;
-        u = network.ServerPeer;
+        u = network.HostPeer;
 
         this.FinalPeer(network);
 
