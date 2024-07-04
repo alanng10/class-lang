@@ -29,7 +29,7 @@ public class ThreadNetworkState : ThreadExecuteState
         network.Init();
 
         network.HostName = hostName;
-        network.ServerPort = serverPort;
+        network.HostPort = serverPort;
 
         this.Network = network;
 

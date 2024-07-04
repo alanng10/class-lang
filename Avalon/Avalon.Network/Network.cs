@@ -78,7 +78,7 @@ public class Network : Any
 
     public virtual ulong HostPeer { get; set; }
     public virtual string HostName { get; set; }
-    public virtual int ServerPort { get; set; }
+    public virtual int HostPort { get; set; }
     public virtual State StatusChangeState { get; set; }
     public virtual State CaseChangeState { get; set; }
     public virtual State ReadyReadState { get; set; }
@@ -168,7 +168,7 @@ public class Network : Any
 
         this.InternHostName = this.InternInfra.StringCreate(this.HostName);
         ulong serverPortU;
-        serverPortU = (ulong)this.ServerPort;
+        serverPortU = (ulong)this.HostPort;
         this.DataStream = this.StreamCreate();
 
         Extern.Network_HostNameSet(this.Intern, this.InternHostName);
