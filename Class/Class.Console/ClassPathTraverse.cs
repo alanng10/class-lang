@@ -59,7 +59,7 @@ public class ClassPathTraverse : Traverse
         a.Range.Init();
         return a;
     }
-
+    
     public override bool ExecuteClass(NodeClass varClass)
     {
         if (varClass == null)
@@ -97,17 +97,20 @@ public class ClassPathTraverse : Traverse
         {
             return true;
         }
-        this.ExecuteNode(part);
 
-        Iter iter;
-        iter = this.Iter;
-        part.Value.IterSet(iter);
-        while (iter.Next())
+        int k;
+        k = this.Index;
+
+        Array array;
+        array = part.Value;
+        if (!(this.InfraInfra.CheckIndex(array.Count, k)))
         {
-            Comp comp;
-            comp = (Comp)iter.Value;
-            this.ExecuteComp(comp);
+            return true;
         }
+
+        Comp item;
+        item = (Comp)array.Get(k);
+        this.ExecuteComp(item);
         return true;
     }
 
@@ -116,15 +119,6 @@ public class ClassPathTraverse : Traverse
         if (comp == null)
         {
             return true;
-        }
-
-        if (comp is NodeField)
-        {
-            this.ExecuteField((NodeField)comp);
-        }
-        if (comp is NodeMaide)
-        {
-            this.ExecuteMaide((NodeMaide)comp);
         }
         return true;
     }
@@ -137,11 +131,36 @@ public class ClassPathTraverse : Traverse
         }
         this.ExecuteNode(field);
 
-        this.ExecuteClassName(field.Class);
-        this.ExecuteFieldName(field.Name);
-        this.ExecuteCount(field.Count);
-        this.ExecuteState(field.Get);
-        this.ExecuteState(field.Set);
+        if (this.HasResult())
+        {
+            return true;
+        }
+
+        if (this.FieldEqual("Class"))
+        {
+            this.ExecuteClassName(field.Class);
+            return true;
+        }
+        if (this.FieldEqual("Name"))
+        {
+            this.ExecuteFieldName(field.Name);
+            return true;
+        }
+        if (this.FieldEqual("Count"))
+        {
+            this.ExecuteCount(field.Count);
+            return true;
+        }
+        if (this.FieldEqual("Get"))
+        {
+            this.ExecuteState(field.Get);
+            return true;
+        }
+        if (this.FieldEqual("Set"))
+        {
+            this.ExecuteState(field.Set);
+            return true;
+        }
         return true;
     }
 
@@ -186,6 +205,29 @@ public class ClassPathTraverse : Traverse
         return true;
     }
 
+    public override bool ExecuteParam(Param param)
+    {
+        if (param == null)
+        {
+            return true;
+        }
+
+        int k;
+        k = this.Index;
+
+        Array array;
+        array = param.Value;
+        if (!(this.InfraInfra.CheckIndex(array.Count, k)))
+        {
+            return true;
+        }
+
+        NodeVar item;
+        item = (NodeVar)array.Get(k);
+        this.ExecuteVar(item);
+        return true;
+    }
+
     public override bool ExecuteVar(NodeVar varVar)
     {
         if (varVar == null)
@@ -212,224 +254,11 @@ public class ClassPathTraverse : Traverse
         return true;
     }
 
-    public override bool ExecuteParam(Param param)
-    {
-        if (param == null)
-        {
-            return true;
-        }
-
-        int k;
-        k = this.Index;
-
-        Array array;
-        array = param.Value;
-        if (!(this.InfraInfra.CheckIndex(array.Count, k)))
-        {
-            return true;
-        }
-
-        NodeVar varVar;
-        varVar = (NodeVar)array.Get(k);
-        this.ExecuteVar(varVar);
-        return true;
-    }
-
-    public override bool ExecuteArgue(Argue argue)
-    {
-        if (argue == null)
-        {
-            return true;
-        }
-        this.ExecuteNode(argue);
-
-        Iter iter;
-        iter = this.Iter;
-        argue.Value.IterSet(iter);
-        while (iter.Next())
-        {
-            Operate operate;
-            operate = (Operate)iter.Value;
-            this.ExecuteOperate(operate);
-        }
-        return true;
-    }
-
-    public override bool ExecuteTarget(Target target)
-    {
-        if (target == null)
-        {
-            return true;
-        }
-
-        if (target is VarTarget)
-        {
-            this.ExecuteVarTarget((VarTarget)target);
-        }
-        if (target is SetTarget)
-        {
-            this.ExecuteSetTarget((SetTarget)target);
-        }
-        if (target is BaseSetTarget)
-        {
-            this.ExecuteBaseSetTarget((BaseSetTarget)target);
-        }
-        return true;
-    }
-
-    public override bool ExecuteVarTarget(VarTarget varTarget)
-    {
-        if (varTarget == null)
-        {
-            return true;
-        }
-        this.ExecuteNode(varTarget);
-
-        this.ExecuteVarName(varTarget.Var);
-        return true;
-    }
-
-    public override bool ExecuteSetTarget(SetTarget setTarget)
-    {
-        if (setTarget == null)
-        {
-            return true;
-        }
-        this.ExecuteNode(setTarget);
-
-        this.ExecuteOperate(setTarget.This);
-        this.ExecuteFieldName(setTarget.Field);
-        return true;
-    }
-
-    public override bool ExecuteBaseSetTarget(BaseSetTarget baseSetTarget)
-    {
-        if (baseSetTarget == null)
-        {
-            return true;
-        }
-        this.ExecuteNode(baseSetTarget);
-
-        this.ExecuteFieldName(baseSetTarget.Field);
-        return true;
-    }
-
-    public override bool ExecuteValue(Value value)
-    {
-        if (value == null)
-        {
-            return true;
-        }
-
-        if (value is BoolValue)
-        {
-            this.ExecuteBoolValue((BoolValue)value);
-        }
-        if (value is IntValue)
-        {
-            this.ExecuteIntValue((IntValue)value);
-        }
-        if (value is IntSignValue)
-        {
-            this.ExecuteIntSignValue((IntSignValue)value);
-        }
-        if (value is IntHexValue)
-        {
-            this.ExecuteIntHexValue((IntHexValue)value);
-        }
-        if (value is IntHexSignValue)
-        {
-            this.ExecuteIntHexSignValue((IntHexSignValue)value);
-        }
-        if (value is StringValue)
-        {
-            this.ExecuteStringValue((StringValue)value);
-        }
-        return true;
-    }
-
-    public override bool ExecuteBoolValue(BoolValue boolValue)
-    {
-        if (boolValue == null)
-        {
-            return true;
-        }
-        this.ExecuteNode(boolValue);
-        return true;
-    }
-
-    public override bool ExecuteIntValue(IntValue intValue)
-    {
-        if (intValue == null)
-        {
-            return true;
-        }
-        this.ExecuteNode(intValue);
-        return true;
-    }
-
-    public override bool ExecuteIntHexValue(IntHexValue intHexValue)
-    {
-        if (intHexValue == null)
-        {
-            return true;
-        }
-        this.ExecuteNode(intHexValue);
-        return true;
-    }
-
-    public override bool ExecuteIntSignValue(IntSignValue intSignValue)
-    {
-        if (intSignValue == null)
-        {
-            return true;
-        }
-        this.ExecuteNode(intSignValue);
-        return true;
-    }
-
-    public override bool ExecuteIntHexSignValue(IntHexSignValue intHexSignValue)
-    {
-        if (intHexSignValue == null)
-        {
-            return true;
-        }
-        this.ExecuteNode(intHexSignValue);
-        return true;
-    }
-
-    public override bool ExecuteStringValue(StringValue stringValue)
-    {
-        if (stringValue == null)
-        {
-            return true;
-        }
-        this.ExecuteNode(stringValue);
-        return true;
-    }
-
     public override bool ExecuteCount(NodeCount count)
     {
         if (count == null)
         {
             return true;
-        }
-
-        if (count is PrudateCount)
-        {
-            this.ExecutePrudateCount((PrudateCount)count);
-        }
-        if (count is ProbateCount)
-        {
-            this.ExecuteProbateCount((ProbateCount)count);
-        }
-        if (count is PrecateCount)
-        {
-            this.ExecutePrecateCount((PrecateCount)count);
-        }
-        if (count is PrivateCount)
-        {
-            this.ExecutePrivateCount((PrivateCount)count);
         }
         return true;
     }
@@ -440,7 +269,6 @@ public class ClassPathTraverse : Traverse
         {
             return true;
         }
-        this.ExecuteNode(prudateCount);
         return true;
     }
 
@@ -450,7 +278,6 @@ public class ClassPathTraverse : Traverse
         {
             return true;
         }
-        this.ExecuteNode(probateCount);
         return true;
     }
 
@@ -460,7 +287,6 @@ public class ClassPathTraverse : Traverse
         {
             return true;
         }
-        this.ExecuteNode(precateCount);
         return true;
     }
 
@@ -470,47 +296,6 @@ public class ClassPathTraverse : Traverse
         {
             return true;
         }
-        this.ExecuteNode(privateCount);
-        return true;
-    }
-
-    public override bool ExecuteClassName(ClassName className)
-    {
-        if (className == null)
-        {
-            return true;
-        }
-        this.ExecuteNode(className);
-        return true;
-    }
-
-    public override bool ExecuteFieldName(FieldName fieldName)
-    {
-        if (fieldName == null)
-        {
-            return true;
-        }
-        this.ExecuteNode(fieldName);
-        return true;
-    }
-
-    public override bool ExecuteMaideName(MaideName maideName)
-    {
-        if (maideName == null)
-        {
-            return true;
-        }
-        this.ExecuteNode(maideName);
-        return true;
-    }
-
-    public override bool ExecuteVarName(VarName varName)
-    {
-        if (varName == null)
-        {
-            return true;
-        }
-        this.ExecuteNode(varName);
         return true;
     }
 
@@ -520,17 +305,20 @@ public class ClassPathTraverse : Traverse
         {
             return true;
         }
-        this.ExecuteNode(state);
 
-        Iter iter;
-        iter = this.Iter;
-        state.Value.IterSet(iter);
-        while (iter.Next())
+        int k;
+        k = this.Index;
+
+        Array array;
+        array = state.Value;
+        if (!(this.InfraInfra.CheckIndex(array.Count, k)))
         {
-            Execute execute;
-            execute = (Execute)iter.Value;
-            this.ExecuteExecute(execute);
+            return true;
         }
+
+        Execute item;
+        item = (Execute)array.Get(k);
+        this.ExecuteExecute(item);
         return true;
     }
 
@@ -539,31 +327,6 @@ public class ClassPathTraverse : Traverse
         if (execute == null)
         {
             return true;
-        }
-
-        if (execute is ReturnExecute)
-        {
-            this.ExecuteReturnExecute((ReturnExecute)execute);
-        }
-        if (execute is InfExecute)
-        {
-            this.ExecuteInfExecute((InfExecute)execute);
-        }
-        if (execute is WhileExecute)
-        {
-            this.ExecuteWhileExecute((WhileExecute)execute);
-        }
-        if (execute is DeclareExecute)
-        {
-            this.ExecuteDeclareExecute((DeclareExecute)execute);
-        }
-        if (execute is AssignExecute)
-        {
-            this.ExecuteAssignExecute((AssignExecute)execute);
-        }
-        if (execute is OperateExecute)
-        {
-            this.ExecuteOperateExecute((OperateExecute)execute);
         }
         return true;
     }
@@ -576,8 +339,21 @@ public class ClassPathTraverse : Traverse
         }
         this.ExecuteNode(infExecute);
 
-        this.ExecuteOperate(infExecute.Cond);
-        this.ExecuteState(infExecute.Then);
+        if (this.HasResult())
+        {
+            return true;
+        }
+
+        if (this.FieldEqual("Cond"))
+        {
+            this.ExecuteOperate(infExecute.Cond);
+            return true;
+        }
+        if (this.FieldEqual("Then"))
+        {
+            this.ExecuteState(infExecute.Then);
+            return true;
+        }
         return true;
     }
 
@@ -589,8 +365,21 @@ public class ClassPathTraverse : Traverse
         }
         this.ExecuteNode(whileExecute);
 
-        this.ExecuteOperate(whileExecute.Cond);
-        this.ExecuteState(whileExecute.Loop);
+        if (this.HasResult())
+        {
+            return true;
+        }
+
+        if (this.FieldEqual("Cond"))
+        {
+            this.ExecuteOperate(whileExecute.Cond);
+            return true;
+        }
+        if (this.FieldEqual("Loop"))
+        {
+            this.ExecuteState(whileExecute.Loop);
+            return true;
+        }
         return true;
     }
 
@@ -602,7 +391,16 @@ public class ClassPathTraverse : Traverse
         }
         this.ExecuteNode(returnExecute);
 
-        this.ExecuteOperate(returnExecute.Result);
+        if (this.HasResult())
+        {
+            return true;
+        }
+
+        if (this.FieldEqual("Result"))
+        {
+            this.ExecuteOperate(returnExecute.Result);
+            return true;
+        }
         return true;
     }
 
@@ -614,7 +412,16 @@ public class ClassPathTraverse : Traverse
         }
         this.ExecuteNode(declareExecute);
 
-        this.ExecuteVar(declareExecute.Var);
+        if (this.HasResult())
+        {
+            return true;
+        }
+
+        if (this.FieldEqual("Var"))
+        {
+            this.ExecuteVar(declareExecute.Var);
+            return true;
+        }
         return true;
     }
 
@@ -626,8 +433,21 @@ public class ClassPathTraverse : Traverse
         }
         this.ExecuteNode(assignExecute);
 
-        this.ExecuteTarget(assignExecute.Target);
-        this.ExecuteOperate(assignExecute.Value);
+        if (this.HasResult())
+        {
+            return true;
+        }
+
+        if (this.FieldEqual("Target"))
+        {
+            this.ExecuteTarget(assignExecute.Target);
+            return true;
+        }
+        if (this.FieldEqual("Value"))
+        {
+            this.ExecuteOperate(assignExecute.Value);
+            return true;
+        }
         return true;
     }
 
@@ -639,7 +459,116 @@ public class ClassPathTraverse : Traverse
         }
         this.ExecuteNode(operateExecute);
 
-        this.ExecuteOperate(operateExecute.Any);
+        if (this.HasResult())
+        {
+            return true;
+        }
+
+        if (this.FieldEqual("Any"))
+        {
+            this.ExecuteOperate(operateExecute.Any);
+            return true;
+        }
+        return true;
+    }
+
+    public override bool ExecuteArgue(Argue argue)
+    {
+        if (argue == null)
+        {
+            return true;
+        }
+
+        int k;
+        k = this.Index;
+
+        Array array;
+        array = argue.Value;
+        if (!(this.InfraInfra.CheckIndex(array.Count, k)))
+        {
+            return true;
+        }
+
+        Operate item;
+        item = (Operate)array.Get(k);
+        this.ExecuteOperate(item);
+        return true;
+    }
+
+    public override bool ExecuteTarget(Target target)
+    {
+        if (target == null)
+        {
+            return true;
+        }
+        return true;
+    }
+
+    public override bool ExecuteVarTarget(VarTarget varTarget)
+    {
+        if (varTarget == null)
+        {
+            return true;
+        }
+        this.ExecuteNode(varTarget);
+
+        if (this.HasResult())
+        {
+            return true;
+        }
+
+        if (this.FieldEqual("Var"))
+        {
+            this.ExecuteVarName(varTarget.Var);
+            return true;
+        }
+        return true;
+    }
+
+    public override bool ExecuteSetTarget(SetTarget setTarget)
+    {
+        if (setTarget == null)
+        {
+            return true;
+        }
+        this.ExecuteNode(setTarget);
+
+        if (this.HasResult())
+        {
+            return true;
+        }
+
+        if (this.FieldEqual("This"))
+        {
+            this.ExecuteOperate(setTarget.This);
+            return true;
+        }
+        if (this.FieldEqual("Field"))
+        {
+            this.ExecuteFieldName(setTarget.Field);
+            return true;
+        }
+        return true;
+    }
+
+    public override bool ExecuteBaseSetTarget(BaseSetTarget baseSetTarget)
+    {
+        if (baseSetTarget == null)
+        {
+            return true;
+        }
+        this.ExecuteNode(baseSetTarget);
+
+        if (this.HasResult())
+        {
+            return true;
+        }
+
+        if (this.FieldEqual("Field"))
+        {
+            this.ExecuteFieldName(baseSetTarget.Field);
+            return true;
+        }
         return true;
     }
 
@@ -648,127 +577,6 @@ public class ClassPathTraverse : Traverse
         if (operate == null)
         {
             return true;
-        }
-
-        if (operate is GetOperate)
-        {
-            this.ExecuteGetOperate((GetOperate)operate);
-        }
-        if (operate is CallOperate)
-        {
-            this.ExecuteCallOperate((CallOperate)operate);
-        }
-        if (operate is BaseGetOperate)
-        {
-            this.ExecuteBaseGetOperate((BaseGetOperate)operate);
-        }
-        if (operate is BaseCallOperate)
-        {
-            this.ExecuteBaseCallOperate((BaseCallOperate)operate);
-        }
-        if (operate is VarOperate)
-        {
-            this.ExecuteVarOperate((VarOperate)operate);
-        }
-        if (operate is ValueOperate)
-        {
-            this.ExecuteValueOperate((ValueOperate)operate);
-        }
-        if (operate is ThisOperate)
-        {
-            this.ExecuteThisOperate((ThisOperate)operate);
-        }
-        if (operate is NullOperate)
-        {
-            this.ExecuteNullOperate((NullOperate)operate);
-        }
-        if (operate is NewOperate)
-        {
-            this.ExecuteNewOperate((NewOperate)operate);
-        }
-        if (operate is ShareOperate)
-        {
-            this.ExecuteShareOperate((ShareOperate)operate);
-        }
-        if (operate is CastOperate)
-        {
-            this.ExecuteCastOperate((CastOperate)operate);
-        }
-        if (operate is BracketOperate)
-        {
-            this.ExecuteBracketOperate((BracketOperate)operate);
-        }
-        if (operate is EqualOperate)
-        {
-            this.ExecuteEqualOperate((EqualOperate)operate);
-        }
-        if (operate is AndOperate)
-        {
-            this.ExecuteAndOperate((AndOperate)operate);
-        }
-        if (operate is OrnOperate)
-        {
-            this.ExecuteOrnOperate((OrnOperate)operate);
-        }
-        if (operate is NotOperate)
-        {
-            this.ExecuteNotOperate((NotOperate)operate);
-        }
-        if (operate is LessOperate)
-        {
-            this.ExecuteLessOperate((LessOperate)operate);
-        }
-        if (operate is AddOperate)
-        {
-            this.ExecuteAddOperate((AddOperate)operate);
-        }
-        if (operate is SubOperate)
-        {
-            this.ExecuteSubOperate((SubOperate)operate);
-        }
-        if (operate is MulOperate)
-        {
-            this.ExecuteMulOperate((MulOperate)operate);
-        }
-        if (operate is DivOperate)
-        {
-            this.ExecuteDivOperate((DivOperate)operate);
-        }
-        if (operate is SignLessOperate)
-        {
-            this.ExecuteSignLessOperate((SignLessOperate)operate);
-        }
-        if (operate is SignMulOperate)
-        {
-            this.ExecuteSignMulOperate((SignMulOperate)operate);
-        }
-        if (operate is SignDivOperate)
-        {
-            this.ExecuteSignDivOperate((SignDivOperate)operate);
-        }
-        if (operate is BitAndOperate)
-        {
-            this.ExecuteBitAndOperate((BitAndOperate)operate);
-        }
-        if (operate is BitOrnOperate)
-        {
-            this.ExecuteBitOrnOperate((BitOrnOperate)operate);
-        }
-        if (operate is BitNotOperate)
-        {
-            this.ExecuteBitNotOperate((BitNotOperate)operate);
-        }
-        if (operate is BitLeftOperate)
-        {
-            this.ExecuteBitLeftOperate((BitLeftOperate)operate);
-        }
-        if (operate is BitRightOperate)
-        {
-            this.ExecuteBitRightOperate((BitRightOperate)operate);
-        }
-        if (operate is BitSignRightOperate)
-        {
-            this.ExecuteBitSignRightOperate((BitSignRightOperate)operate);
         }
         return true;
     }
@@ -781,8 +589,21 @@ public class ClassPathTraverse : Traverse
         }
         this.ExecuteNode(getOperate);
 
-        this.ExecuteOperate(getOperate.This);
-        this.ExecuteFieldName(getOperate.Field);
+        if (this.HasResult())
+        {
+            return true;
+        }
+
+        if (this.FieldEqual("This"))
+        {
+            this.ExecuteOperate(getOperate.This);
+            return true;
+        }
+        if (this.FieldEqual("Field"))
+        {
+            this.ExecuteFieldName(getOperate.Field);
+            return true;
+        }
         return true;
     }
 
@@ -794,9 +615,26 @@ public class ClassPathTraverse : Traverse
         }
         this.ExecuteNode(callOperate);
 
-        this.ExecuteOperate(callOperate.This);
-        this.ExecuteMaideName(callOperate.Maide);
-        this.ExecuteArgue(callOperate.Argue);
+        if (this.HasResult())
+        {
+            return true;
+        }
+
+        if (this.FieldEqual("This"))
+        {
+            this.ExecuteOperate(callOperate.This);
+            return true;
+        }
+        if (this.FieldEqual("Maide"))
+        {
+            this.ExecuteMaideName(callOperate.Maide);
+            return true;
+        }
+        if (this.FieldEqual("Argue"))
+        {
+            this.ExecuteArgue(callOperate.Argue);
+            return true;
+        }
         return true;
     }
 
@@ -808,7 +646,16 @@ public class ClassPathTraverse : Traverse
         }
         this.ExecuteNode(baseGetOperate);
 
-        this.ExecuteFieldName(baseGetOperate.Field);
+        if (this.HasResult())
+        {
+            return true;
+        }
+
+        if (this.FieldEqual("Field"))
+        {
+            this.ExecuteFieldName(baseGetOperate.Field);
+            return true;
+        }
         return true;
     }
 
@@ -820,8 +667,21 @@ public class ClassPathTraverse : Traverse
         }
         this.ExecuteNode(baseCallOperate);
 
-        this.ExecuteMaideName(baseCallOperate.Maide);
-        this.ExecuteArgue(baseCallOperate.Argue);
+        if (this.HasResult())
+        {
+            return true;
+        }
+
+        if (this.FieldEqual("Maide"))
+        {
+            this.ExecuteMaideName(baseCallOperate.Maide);
+            return true;
+        }
+        if (this.FieldEqual("Argue"))
+        {
+            this.ExecuteArgue(baseCallOperate.Argue);
+            return true;
+        }
         return true;
     }
 
@@ -831,7 +691,6 @@ public class ClassPathTraverse : Traverse
         {
             return true;
         }
-        this.ExecuteNode(thisOperate);
         return true;
     }
 
@@ -841,31 +700,6 @@ public class ClassPathTraverse : Traverse
         {
             return true;
         }
-        this.ExecuteNode(nullOperate);
-        return true;
-    }
-
-    public override bool ExecuteVarOperate(VarOperate varOperate)
-    {
-        if (varOperate == null)
-        {
-            return true;
-        }
-        this.ExecuteNode(varOperate);
-
-        this.ExecuteVarName(varOperate.Var);
-        return true;
-    }
-
-    public override bool ExecuteValueOperate(ValueOperate valueOperate)
-    {
-        if (valueOperate == null)
-        {
-            return true;
-        }
-        this.ExecuteNode(valueOperate);
-
-        this.ExecuteValue(valueOperate.Value);
         return true;
     }
 
@@ -877,7 +711,16 @@ public class ClassPathTraverse : Traverse
         }
         this.ExecuteNode(newOperate);
 
-        this.ExecuteClassName(newOperate.Class);
+        if (this.HasResult())
+        {
+            return true;
+        }
+
+        if (this.FieldEqual("Class"))
+        {
+            this.ExecuteClassName(newOperate.Class);
+            return true;
+        }
         return true;
     }
 
@@ -889,7 +732,16 @@ public class ClassPathTraverse : Traverse
         }
         this.ExecuteNode(shareOperate);
 
-        this.ExecuteClassName(shareOperate.Class);
+        if (this.HasResult())
+        {
+            return true;
+        }
+
+        if (this.FieldEqual("Class"))
+        {
+            this.ExecuteClassName(shareOperate.Class);
+            return true;
+        }
         return true;
     }
 
@@ -901,8 +753,63 @@ public class ClassPathTraverse : Traverse
         }
         this.ExecuteNode(castOperate);
 
-        this.ExecuteClassName(castOperate.Class);
-        this.ExecuteOperate(castOperate.Any);
+        if (this.HasResult())
+        {
+            return true;
+        }
+
+        if (this.FieldEqual("Class"))
+        {
+            this.ExecuteClassName(castOperate.Class);
+            return true;
+        }
+        if (this.FieldEqual("Any"))
+        {
+            this.ExecuteOperate(castOperate.Any);
+            return true;
+        }
+        return true;
+    }
+
+    public override bool ExecuteVarOperate(VarOperate varOperate)
+    {
+        if (varOperate == null)
+        {
+            return true;
+        }
+        this.ExecuteNode(varOperate);
+
+        if (this.HasResult())
+        {
+            return true;
+        }
+
+        if (this.FieldEqual("Var"))
+        {
+            this.ExecuteVarName(varOperate.Var);
+            return true;
+        }
+        return true;
+    }
+
+    public override bool ExecuteValueOperate(ValueOperate valueOperate)
+    {
+        if (valueOperate == null)
+        {
+            return true;
+        }
+        this.ExecuteNode(valueOperate);
+
+        if (this.HasResult())
+        {
+            return true;
+        }
+
+        if (this.FieldEqual("Value"))
+        {
+            this.ExecuteValue(valueOperate.Value);
+            return true;
+        }
         return true;
     }
 
@@ -914,7 +821,115 @@ public class ClassPathTraverse : Traverse
         }
         this.ExecuteNode(bracketOperate);
 
-        this.ExecuteOperate(bracketOperate.Any);
+        if (this.HasResult())
+        {
+            return true;
+        }
+
+        if (this.FieldEqual("Any"))
+        {
+            this.ExecuteOperate(bracketOperate.Any);
+            return true;
+        }
+        return true;
+    }
+
+    public override bool ExecuteValue(Value value)
+    {
+        if (value == null)
+        {
+            return true;
+        }
+        return true;
+    }
+
+    public override bool ExecuteBoolValue(BoolValue boolValue)
+    {
+        if (boolValue == null)
+        {
+            return true;
+        }
+        return true;
+    }
+
+    public override bool ExecuteIntValue(IntValue intValue)
+    {
+        if (intValue == null)
+        {
+            return true;
+        }
+        return true;
+    }
+
+    public override bool ExecuteIntHexValue(IntHexValue intHexValue)
+    {
+        if (intHexValue == null)
+        {
+            return true;
+        }
+        return true;
+    }
+
+    public override bool ExecuteIntSignValue(IntSignValue intSignValue)
+    {
+        if (intSignValue == null)
+        {
+            return true;
+        }
+        return true;
+    }
+
+    public override bool ExecuteIntHexSignValue(IntHexSignValue intHexSignValue)
+    {
+        if (intHexSignValue == null)
+        {
+            return true;
+        }
+        return true;
+    }
+
+    public override bool ExecuteStringValue(StringValue stringValue)
+    {
+        if (stringValue == null)
+        {
+            return true;
+        }
+        return true;
+    }
+
+    public override bool ExecuteClassName(ClassName className)
+    {
+        if (className == null)
+        {
+            return true;
+        }
+        return true;
+    }
+
+    public override bool ExecuteFieldName(FieldName fieldName)
+    {
+        if (fieldName == null)
+        {
+            return true;
+        }
+        return true;
+    }
+
+    public override bool ExecuteMaideName(MaideName maideName)
+    {
+        if (maideName == null)
+        {
+            return true;
+        }
+        return true;
+    }
+
+    public override bool ExecuteVarName(VarName varName)
+    {
+        if (varName == null)
+        {
+            return true;
+        }
         return true;
     }
 
@@ -926,8 +941,21 @@ public class ClassPathTraverse : Traverse
         }
         this.ExecuteNode(equalOperate);
 
-        this.ExecuteOperate(equalOperate.Left);
-        this.ExecuteOperate(equalOperate.Right);
+        if (this.HasResult())
+        {
+            return true;
+        }
+
+        if (this.FieldEqual("Left"))
+        {
+            this.ExecuteOperate(equalOperate.Left);
+            return true;
+        }
+        if (this.FieldEqual("Right"))
+        {
+            this.ExecuteOperate(equalOperate.Right);
+            return true;
+        }
         return true;
     }
 
@@ -939,8 +967,21 @@ public class ClassPathTraverse : Traverse
         }
         this.ExecuteNode(andOperate);
 
-        this.ExecuteOperate(andOperate.Left);
-        this.ExecuteOperate(andOperate.Right);
+        if (this.HasResult())
+        {
+            return true;
+        }
+
+        if (this.FieldEqual("Left"))
+        {
+            this.ExecuteOperate(andOperate.Left);
+            return true;
+        }
+        if (this.FieldEqual("Right"))
+        {
+            this.ExecuteOperate(andOperate.Right);
+            return true;
+        }
         return true;
     }
 
@@ -952,8 +993,21 @@ public class ClassPathTraverse : Traverse
         }
         this.ExecuteNode(ornOperate);
 
-        this.ExecuteOperate(ornOperate.Left);
-        this.ExecuteOperate(ornOperate.Right);
+        if (this.HasResult())
+        {
+            return true;
+        }
+
+        if (this.FieldEqual("Left"))
+        {
+            this.ExecuteOperate(ornOperate.Left);
+            return true;
+        }
+        if (this.FieldEqual("Right"))
+        {
+            this.ExecuteOperate(ornOperate.Right);
+            return true;
+        }
         return true;
     }
 
@@ -965,7 +1019,16 @@ public class ClassPathTraverse : Traverse
         }
         this.ExecuteNode(notOperate);
 
-        this.ExecuteOperate(notOperate.Value);
+        if (this.HasResult())
+        {
+            return true;
+        }
+
+        if (this.FieldEqual("Value"))
+        {
+            this.ExecuteOperate(notOperate.Value);
+            return true;
+        }
         return true;
     }
 
@@ -977,8 +1040,21 @@ public class ClassPathTraverse : Traverse
         }
         this.ExecuteNode(addOperate);
 
-        this.ExecuteOperate(addOperate.Left);
-        this.ExecuteOperate(addOperate.Right);
+        if (this.HasResult())
+        {
+            return true;
+        }
+
+        if (this.FieldEqual("Left"))
+        {
+            this.ExecuteOperate(addOperate.Left);
+            return true;
+        }
+        if (this.FieldEqual("Right"))
+        {
+            this.ExecuteOperate(addOperate.Right);
+            return true;
+        }
         return true;
     }
 
@@ -990,8 +1066,21 @@ public class ClassPathTraverse : Traverse
         }
         this.ExecuteNode(subOperate);
 
-        this.ExecuteOperate(subOperate.Left);
-        this.ExecuteOperate(subOperate.Right);
+        if (this.HasResult())
+        {
+            return true;
+        }
+
+        if (this.FieldEqual("Left"))
+        {
+            this.ExecuteOperate(subOperate.Left);
+            return true;
+        }
+        if (this.FieldEqual("Right"))
+        {
+            this.ExecuteOperate(subOperate.Right);
+            return true;
+        }
         return true;
     }
 
@@ -1003,8 +1092,21 @@ public class ClassPathTraverse : Traverse
         }
         this.ExecuteNode(mulOperate);
 
-        this.ExecuteOperate(mulOperate.Left);
-        this.ExecuteOperate(mulOperate.Right);
+        if (this.HasResult())
+        {
+            return true;
+        }
+
+        if (this.FieldEqual("Left"))
+        {
+            this.ExecuteOperate(mulOperate.Left);
+            return true;
+        }
+        if (this.FieldEqual("Right"))
+        {
+            this.ExecuteOperate(mulOperate.Right);
+            return true;
+        }
         return true;
     }
 
@@ -1016,8 +1118,21 @@ public class ClassPathTraverse : Traverse
         }
         this.ExecuteNode(divOperate);
 
-        this.ExecuteOperate(divOperate.Left);
-        this.ExecuteOperate(divOperate.Right);
+        if (this.HasResult())
+        {
+            return true;
+        }
+
+        if (this.FieldEqual("Left"))
+        {
+            this.ExecuteOperate(divOperate.Left);
+            return true;
+        }
+        if (this.FieldEqual("Right"))
+        {
+            this.ExecuteOperate(divOperate.Right);
+            return true;
+        }
         return true;
     }
 
@@ -1029,8 +1144,21 @@ public class ClassPathTraverse : Traverse
         }
         this.ExecuteNode(lessOperate);
 
-        this.ExecuteOperate(lessOperate.Left);
-        this.ExecuteOperate(lessOperate.Right);
+        if (this.HasResult())
+        {
+            return true;
+        }
+
+        if (this.FieldEqual("Left"))
+        {
+            this.ExecuteOperate(lessOperate.Left);
+            return true;
+        }
+        if (this.FieldEqual("Right"))
+        {
+            this.ExecuteOperate(lessOperate.Right);
+            return true;
+        }
         return true;
     }
 
@@ -1042,8 +1170,21 @@ public class ClassPathTraverse : Traverse
         }
         this.ExecuteNode(signMulOperate);
 
-        this.ExecuteOperate(signMulOperate.Left);
-        this.ExecuteOperate(signMulOperate.Right);
+        if (this.HasResult())
+        {
+            return true;
+        }
+
+        if (this.FieldEqual("Left"))
+        {
+            this.ExecuteOperate(signMulOperate.Left);
+            return true;
+        }
+        if (this.FieldEqual("Right"))
+        {
+            this.ExecuteOperate(signMulOperate.Right);
+            return true;
+        }
         return true;
     }
 
@@ -1055,8 +1196,21 @@ public class ClassPathTraverse : Traverse
         }
         this.ExecuteNode(signDivOperate);
 
-        this.ExecuteOperate(signDivOperate.Left);
-        this.ExecuteOperate(signDivOperate.Right);
+        if (this.HasResult())
+        {
+            return true;
+        }
+
+        if (this.FieldEqual("Left"))
+        {
+            this.ExecuteOperate(signDivOperate.Left);
+            return true;
+        }
+        if (this.FieldEqual("Right"))
+        {
+            this.ExecuteOperate(signDivOperate.Right);
+            return true;
+        }
         return true;
     }
 
@@ -1068,8 +1222,21 @@ public class ClassPathTraverse : Traverse
         }
         this.ExecuteNode(signLessOperate);
 
-        this.ExecuteOperate(signLessOperate.Left);
-        this.ExecuteOperate(signLessOperate.Right);
+        if (this.HasResult())
+        {
+            return true;
+        }
+
+        if (this.FieldEqual("Left"))
+        {
+            this.ExecuteOperate(signLessOperate.Left);
+            return true;
+        }
+        if (this.FieldEqual("Right"))
+        {
+            this.ExecuteOperate(signLessOperate.Right);
+            return true;
+        }
         return true;
     }
 
@@ -1081,8 +1248,21 @@ public class ClassPathTraverse : Traverse
         }
         this.ExecuteNode(bitAndOperate);
 
-        this.ExecuteOperate(bitAndOperate.Left);
-        this.ExecuteOperate(bitAndOperate.Right);
+        if (this.HasResult())
+        {
+            return true;
+        }
+
+        if (this.FieldEqual("Left"))
+        {
+            this.ExecuteOperate(bitAndOperate.Left);
+            return true;
+        }
+        if (this.FieldEqual("Right"))
+        {
+            this.ExecuteOperate(bitAndOperate.Right);
+            return true;
+        }
         return true;
     }
 
@@ -1094,8 +1274,21 @@ public class ClassPathTraverse : Traverse
         }
         this.ExecuteNode(bitOrnOperate);
 
-        this.ExecuteOperate(bitOrnOperate.Left);
-        this.ExecuteOperate(bitOrnOperate.Right);
+        if (this.HasResult())
+        {
+            return true;
+        }
+
+        if (this.FieldEqual("Left"))
+        {
+            this.ExecuteOperate(bitOrnOperate.Left);
+            return true;
+        }
+        if (this.FieldEqual("Right"))
+        {
+            this.ExecuteOperate(bitOrnOperate.Right);
+            return true;
+        }
         return true;
     }
 
@@ -1107,7 +1300,16 @@ public class ClassPathTraverse : Traverse
         }
         this.ExecuteNode(bitNotOperate);
 
-        this.ExecuteOperate(bitNotOperate.Value);
+        if (this.HasResult())
+        {
+            return true;
+        }
+
+        if (this.FieldEqual("Value"))
+        {
+            this.ExecuteOperate(bitNotOperate.Value);
+            return true;
+        }
         return true;
     }
 
@@ -1119,8 +1321,21 @@ public class ClassPathTraverse : Traverse
         }
         this.ExecuteNode(bitLeftOperate);
 
-        this.ExecuteOperate(bitLeftOperate.Value);
-        this.ExecuteOperate(bitLeftOperate.Count);
+        if (this.HasResult())
+        {
+            return true;
+        }
+
+        if (this.FieldEqual("Value"))
+        {
+            this.ExecuteOperate(bitLeftOperate.Value);
+            return true;
+        }
+        if (this.FieldEqual("Count"))
+        {
+            this.ExecuteOperate(bitLeftOperate.Count);
+            return true;
+        }
         return true;
     }
 
@@ -1132,8 +1347,21 @@ public class ClassPathTraverse : Traverse
         }
         this.ExecuteNode(bitRightOperate);
 
-        this.ExecuteOperate(bitRightOperate.Value);
-        this.ExecuteOperate(bitRightOperate.Count);
+        if (this.HasResult())
+        {
+            return true;
+        }
+
+        if (this.FieldEqual("Value"))
+        {
+            this.ExecuteOperate(bitRightOperate.Value);
+            return true;
+        }
+        if (this.FieldEqual("Count"))
+        {
+            this.ExecuteOperate(bitRightOperate.Count);
+            return true;
+        }
         return true;
     }
 
@@ -1145,8 +1373,21 @@ public class ClassPathTraverse : Traverse
         }
         this.ExecuteNode(bitSignRightOperate);
 
-        this.ExecuteOperate(bitSignRightOperate.Value);
-        this.ExecuteOperate(bitSignRightOperate.Count);
+        if (this.HasResult())
+        {
+            return true;
+        }
+
+        if (this.FieldEqual("Value"))
+        {
+            this.ExecuteOperate(bitSignRightOperate.Value);
+            return true;
+        }
+        if (this.FieldEqual("Count"))
+        {
+            this.ExecuteOperate(bitSignRightOperate.Count);
+            return true;
+        }
         return true;
     }
 
