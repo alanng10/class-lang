@@ -114,15 +114,6 @@ public class ClassPathTraverse : Traverse
         return true;
     }
 
-    public override bool ExecuteComp(Comp comp)
-    {
-        if (comp == null)
-        {
-            return true;
-        }
-        return true;
-    }
-
     public override bool ExecuteField(NodeField field)
     {
         if (field == null)
@@ -254,15 +245,6 @@ public class ClassPathTraverse : Traverse
         return true;
     }
 
-    public override bool ExecuteCount(NodeCount count)
-    {
-        if (count == null)
-        {
-            return true;
-        }
-        return true;
-    }
-
     public override bool ExecutePrudateCount(PrudateCount prudateCount)
     {
         if (prudateCount == null)
@@ -319,15 +301,6 @@ public class ClassPathTraverse : Traverse
         Execute item;
         item = (Execute)array.Get(k);
         this.ExecuteExecute(item);
-        return true;
-    }
-
-    public override bool ExecuteExecute(Execute execute)
-    {
-        if (execute == null)
-        {
-            return true;
-        }
         return true;
     }
 
@@ -495,15 +468,6 @@ public class ClassPathTraverse : Traverse
         return true;
     }
 
-    public override bool ExecuteTarget(Target target)
-    {
-        if (target == null)
-        {
-            return true;
-        }
-        return true;
-    }
-
     public override bool ExecuteVarTarget(VarTarget varTarget)
     {
         if (varTarget == null)
@@ -567,15 +531,6 @@ public class ClassPathTraverse : Traverse
         if (this.FieldEqual("Field"))
         {
             this.ExecuteFieldName(baseSetTarget.Field);
-            return true;
-        }
-        return true;
-    }
-
-    public override bool ExecuteOperate(Operate operate)
-    {
-        if (operate == null)
-        {
             return true;
         }
         return true;
@@ -829,15 +784,6 @@ public class ClassPathTraverse : Traverse
         if (this.FieldEqual("Any"))
         {
             this.ExecuteOperate(bracketOperate.Any);
-            return true;
-        }
-        return true;
-    }
-
-    public override bool ExecuteValue(Value value)
-    {
-        if (value == null)
-        {
             return true;
         }
         return true;
