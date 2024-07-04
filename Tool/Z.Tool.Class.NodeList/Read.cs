@@ -376,6 +376,74 @@ class Read : Any
         return true;
     }
 
+    protected virtual bool SetAny()
+    {
+        Table table;
+        table = this.ClassTable;
+
+        Iter iter;
+        iter = table.IterCreate();
+        table.IterSet(iter);
+
+        while (iter.Next())
+        {
+            Class a;
+            a = (Class)iter.Value;
+
+            int n;
+            n = 0;
+
+            Table tableA;
+            tableA = a.Field;
+
+            Iter iterA;
+            iterA = tableA.IterCreate();
+            tableA.IterSet(iterA);
+
+            while (iterA.Next())
+            {
+                Field aa;
+                aa = (Field)iterA.Value;
+
+                string fieldClassName;
+                fieldClassName = aa.Class;
+
+                bool b;
+                b = false;
+                if (!b)
+                {
+                    if (fieldClassName == "Bool")
+                    {
+                        b = true;
+                    }
+                }
+                if (!b)
+                {
+                    if (fieldClassName == "Int")
+                    {
+                        b = true;
+                    }
+                }
+                if (!b)
+                {
+                    if (fieldClassName == "String")
+                    {
+                        b = true;
+                    }
+                }
+                
+                if (b)
+                {
+                    aa.AnyBool = true;
+                    n = n + 1;
+                }
+            }
+
+            a.AnyInt = n;
+        }
+        return true;
+    }
+
     protected virtual bool CheckIsName(string value)
     {
         NameCheck nameCheck;
