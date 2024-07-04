@@ -151,7 +151,7 @@ public class Host : Any
         return true;
     }
 
-    private bool ExecuteNewPeerState()
+    protected virtual bool ExecuteNewPeerState()
     {
         if (!(this.NewPeerState == null))
         {
