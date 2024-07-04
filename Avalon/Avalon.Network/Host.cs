@@ -107,7 +107,7 @@ public class Host : Any
         return a;
     }
 
-    protected virtual bool FinalNetworkPeer(Network a)
+    protected virtual bool FinalPeer(Network a)
     {
         a.Final();
         return true;
@@ -118,7 +118,7 @@ public class Host : Any
         ulong u;
         u = network.ServerPeer;
 
-        this.FinalNetworkPeer(network);
+        this.FinalPeer(network);
 
         Extern.NetworkServer_ClosePeer(this.Intern, u);
         return true;
