@@ -112,7 +112,7 @@ public class TraverseGen : Any
 
     protected virtual string State(Class varClass, string varName)
     {
-        if (0 < varClass.Derive.Count)
+        if (this.IsDeriveState(varClass))
         {
             return this.DeriveState(varClass, varName);
         }
@@ -291,6 +291,11 @@ public class TraverseGen : Any
     protected virtual string Virtual()
     {
         return "virtual";
+    }
+
+    protected virtual bool IsDeriveState(Class varClass)
+    {
+        return 0 < varClass.Derive.Count;
     }
 
     protected virtual string DeclareClassName(string className)
