@@ -13,7 +13,7 @@ class Demo : Any
     public DrawImage PlayImage { get; set; }
     public Console Console { get; set; }
     public Network Peer { get; set; }
-    public NetworkServer Server { get; set; }
+    public NetworkHost Server { get; set; }
 
     public InfraInfra InfraInfra { get; set; }
     private ListInfra ListInfra { get; set; }
