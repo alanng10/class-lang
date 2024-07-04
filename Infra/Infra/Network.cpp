@@ -158,7 +158,7 @@ Int Network_Close(Int o)
 
     socket->close();
 
-    delete socket;
+    socket->deleteLater();
 
     m->OpenSocket = null;
     return true;
