@@ -22,3 +22,8 @@ Words "prudate", "probate", "precate" and "private" have meanings that are appli
 to all, local, child, and self.
 The meanings are not tagged with the existence of processing.
 The words are suitable for use in abstract when inner processings are not to be shown.
+
+Words "inf", "while", and "return" have meanings that are conditionally,
+conditionally trigger again, and refer result.
+The meanings are not tagged with the existence of processing.
+The words are suitable for use in abstract when inner processings are not to be shown.
