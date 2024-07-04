@@ -21,15 +21,15 @@ public class ThreadNetworkState : ThreadExecuteState
     {
         string hostName;
         hostName = "localhost";
-        int serverPort;
-        serverPort = 50400;
+        int hostPort;
+        hostPort = 50400;
 
         Network network;
         network = new Network();
         network.Init();
 
         network.HostName = hostName;
-        network.HostPort = serverPort;
+        network.HostPort = hostPort;
 
         this.Network = network;
 
