@@ -1,6 +1,6 @@
 namespace Demo;
 
-class ThreadNetworkServerState : ThreadExecuteState
+class ThreadNetworkHostState : ThreadExecuteState
 {
     public Demo Demo { get; set; }
 

@@ -17,7 +17,7 @@ class NetworkPeerReadyState : State
     }
 
     public Demo Demo { get; set; }
-    public ThreadNetworkServerState ServerState { get; set; }
+    public ThreadNetworkHostState ServerState { get; set; }
 
     private Data Data { get; set; }
     private DataRange Range { get; set; }

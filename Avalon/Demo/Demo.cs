@@ -924,8 +924,8 @@ class Demo : Any
         thread = new ThreadThread();
         thread.Init();
 
-        ThreadNetworkServerState state;
-        state = new ThreadNetworkServerState();
+        ThreadNetworkHostState state;
+        state = new ThreadNetworkHostState();
         state.Demo = this;
         state.Init();
 
@@ -965,8 +965,8 @@ class Demo : Any
         thread = new ThreadThread();
         thread.Init();
 
-        ThreadNetworkServerState state;
-        state = new ThreadNetworkServerState();
+        ThreadNetworkHostState state;
+        state = new ThreadNetworkHostState();
         state.Demo = this;
         state.Init();
 

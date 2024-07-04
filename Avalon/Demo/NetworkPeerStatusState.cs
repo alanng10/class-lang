@@ -2,7 +2,7 @@ namespace Demo;
 
 class NetworkPeerStatusState : State
 {
-    public ThreadNetworkServerState ServerState { get; set; }
+    public ThreadNetworkHostState ServerState { get; set; }
     private int Status { get; set; }
 
     public override bool Execute()
