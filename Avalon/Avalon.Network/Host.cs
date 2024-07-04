@@ -94,11 +94,11 @@ public class Host : Any
         networkU = Extern.NetworkServer_NextPendingPeer(this.Intern);
 
         Network a;
-        a = this.CreateNetworkPeer(networkU);
+        a = this.CreatePeer(networkU);
         return a;
     }
 
-    protected virtual Network CreateNetworkPeer(ulong serverPeer)
+    protected virtual Network CreatePeer(ulong serverPeer)
     {
         Network a;
         a = new Network();
