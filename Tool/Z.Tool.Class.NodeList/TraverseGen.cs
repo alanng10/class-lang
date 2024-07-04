@@ -232,11 +232,11 @@ public class TraverseGen : Any
             Field aa;
             aa = (Field)iter.Value;
 
-            string k;
-            k = this.Field(aa, varName);
-
-            if (!(k.Length == 0))
+            if (!aa.AnyBool)
             {
+                string k;
+                k = this.Field(aa, varName);
+
                 if (!ba)
                 {
                     sj.Append(newLine);
@@ -264,11 +264,6 @@ public class TraverseGen : Any
     {
         string fieldClassName;
         fieldClassName = field.Class;
-
-        if (fieldClassName == "Bool" | fieldClassName == "Int" | fieldClassName == "String")
-        {
-            return "";
-        }
 
         string fieldName;
         fieldName = field.Name;
