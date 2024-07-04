@@ -334,7 +334,7 @@ public class TraverseGen : Any
         return a;
     }
 
-    private string GetPath(string name)
+    protected virtual string GetPath(string name)
     {
         return "ToolData/Traverse" + name + ".txt";
     }

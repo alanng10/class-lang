@@ -5,7 +5,11 @@ public class TraverseClassPathGen : TraverseGen
     public override bool Init()
     {
         base.Init();
-        this.PathSource = "ToolData/TraverseClassPathSource.txt";
+        
+        this.PathOutput = "../../Class/Class.Console/ClassPathTraverse.cs";
+
+        this.PathSource = this.GetPath("ClassPathSource");
+        this.PathArray = this.GetPath("ClassPathArray");
         return true;
     }
 
