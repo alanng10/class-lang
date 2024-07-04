@@ -48,6 +48,12 @@ class Read : Any
         {
             return 30;
         }
+
+        b = this.SetAny();
+        if (!b)
+        {
+            return 40;
+        }
         return 0;
     }
 
@@ -431,7 +437,7 @@ class Read : Any
                         b = true;
                     }
                 }
-                
+
                 if (b)
                 {
                     aa.AnyBool = true;
