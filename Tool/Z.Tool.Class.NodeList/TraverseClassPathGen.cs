@@ -46,6 +46,11 @@ public class TraverseClassPathGen : TraverseGen
 
     protected override string FieldState(Class varClass, string varName)
     {
+        if (varClass.Field.Count == 0)
+        {
+            return "";
+        }
+
         if (varClass.AnyInt == varClass.Field.Count)
         {
             return "";
