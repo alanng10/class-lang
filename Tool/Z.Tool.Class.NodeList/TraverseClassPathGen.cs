@@ -24,6 +24,47 @@ public class TraverseClassPathGen : TraverseGen
         return base.FieldState(varClass, varName);
     }
 
+    protected override string DeclareClassName(string className)
+    {
+        bool b;
+        b = false;
+        if (!b)
+        {
+            if (className == "Class")
+            {
+                b = true;
+            }
+        }
+        if (!b)
+        {
+            if (className == "Field")
+            {
+                b = true;
+            }
+        }
+        if (!b)
+        {
+            if (className == "Maide")
+            {
+                b = true;
+            }
+        }
+        if (!b)
+        {
+            if (className == "Var")
+            {
+                b = true;
+            }
+        }
+
+        if (b)
+        {
+            return "Node" + className;
+        }
+
+        return className;
+    }
+
     protected override string Virtual()
     {
         return "override";
