@@ -6,6 +6,8 @@ Word "field" has meaning that is has get and set.
 
 Word "maide" has meaning that is output from out after input into inn.
 
+Word "var" has meaning that is holder.
+
 Word "effect" has meaning that is output of anything.
 
 Word "state" has meaning that is executable entity.
