@@ -20,5 +20,11 @@ Word "case" has meaning that is one of discrete choices.
 
 Word "compute" has meaning that is process info.
 
+Word "memory" has meaning that is data store.
+
+Word "storage" has meaning that is persistent store.
+
+Word "network" has meaning that is interchange.
+
 The meanings are not tagged with the existence of processing.
 The words are suitable for use in abstract when inner processings are not to be shown.
