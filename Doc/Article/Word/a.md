@@ -26,5 +26,7 @@ Word "storage" has meaning that is persistent store.
 
 Word "network" has meaning that is interchange.
 
+Word "video" has meaning that is color points rect.
+
 The meanings are not tagged with the existence of processing.
 The words are suitable for use in abstract when inner processings are not to be shown.
