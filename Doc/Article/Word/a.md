@@ -32,5 +32,7 @@ Word "audio" has meaning that is tune points line.
 
 Word "time" has meaning that is serial world change.
 
+Word "type" has meaning that is info entry.
+
 The meanings are not tagged with the existence of processing.
 The words are suitable for use in abstract when inner processings are not to be shown.
