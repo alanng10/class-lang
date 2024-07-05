@@ -32,7 +32,7 @@ Word "video" has meaning that is color points rect.
 
 Word "audio" has meaning that is tune points line.
 
-Word "time" has meaning that is serial world change.
+Word "time" has meaning that is serial instants.
 
 Word "type" has meaning that is info entry.
 
