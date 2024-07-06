@@ -280,11 +280,11 @@ public class ModuleLoad : Any
             iA = 0;
             while (iA < countA)
             {
-                InfraIntValue oe;
-                oe = (InfraIntValue)oa.Get(iA);
+                InfraValue oe;
+                oe = (InfraValue)oa.Get(iA);
 
                 BinaryClass of;
-                of = (BinaryClass)oo.Class.Get(oe.Value);
+                of = (BinaryClass)oo.Class.Get(oe.Mid);
                 if (of == null)
                 {
                     this.Status = 23;
@@ -372,11 +372,11 @@ public class ModuleLoad : Any
             ClassClass varClass;
             varClass = (ClassClass)classArray.Get(i);
 
-            InfraIntValue a;
-            a = (InfraIntValue)array.Get(i);
+            InfraValue a;
+            a = (InfraValue)array.Get(i);
 
             ClassClass baseClass;
-            baseClass = this.ClassGetIndex(a.Value);
+            baseClass = this.ClassGetIndex(a.Mid);
 
             if (baseClass == null)
             {
