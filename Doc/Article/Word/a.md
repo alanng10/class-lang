@@ -14,6 +14,8 @@ Word "state" has meaning that is executable entity.
 
 Word "count" has meaning that is applied.
 
+Word "argue" has meaning that is call param.
+
 Words "prudate", "probate", "precate" and "private" have meanings that are applicable
 to all, local, child, and self.
 
