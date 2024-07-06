@@ -29,7 +29,7 @@ public class ClassGen : Any
     public virtual Table ClassImportName { get; set; }
     public virtual Table ClassShare { get; set; }
     public virtual ClassClass NullClass { get; set; }
-    public virtual SystemClass System { get; set; }
+    public virtual BuiltinClass System { get; set; }
     public virtual GenArg Arg { get; set; }
     public virtual ClassGenOperate Operate { get; set; }
     public virtual Maide AnyInitMaide { get; set; }

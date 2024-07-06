@@ -591,7 +591,7 @@ public class ClassGenTraverse : Traverse
                 }
             }
 
-            SystemClass system;
+            BuiltinClass system;
             system = this.Gen.System;
             this.ExecuteInternOperateVarDeclare(this.KeywordObject, this.InternOperateVarObject);
             this.ExecuteInternOperateVarDeclare(this.KeywordBool, this.InternOperateVarBool);
@@ -650,7 +650,7 @@ public class ClassGenTraverse : Traverse
 
     public override bool ExecuteDeclareExecute(DeclareExecute declareExecute)
     {
-        SystemClass system;
+        BuiltinClass system;
         system = this.Gen.System;
 
         NodeVar nodeVar;
@@ -812,7 +812,7 @@ public class ClassGenTraverse : Traverse
         ClassClass c;
         c = this.Info(any).OperateClass;
 
-        SystemClass system;
+        BuiltinClass system;
         system = this.Gen.System;
 
         string k;
@@ -905,7 +905,7 @@ public class ClassGenTraverse : Traverse
         ClassClass c;
         c = this.Info(getOperate.This).OperateClass;
 
-        SystemClass system;
+        BuiltinClass system;
         system = this.Gen.System;
 
         int u;
@@ -982,7 +982,7 @@ public class ClassGenTraverse : Traverse
         ClassClass c;
         c = this.Info(callOperate.This).OperateClass;
 
-        SystemClass system;
+        BuiltinClass system;
         system = this.Gen.System;
 
         int u;
@@ -1141,7 +1141,7 @@ public class ClassGenTraverse : Traverse
 
     public override bool ExecuteNewOperate(NewOperate newOperate)
     {
-        SystemClass system;
+        BuiltinClass system;
         system = this.Gen.System;
 
         ClassClass a;
@@ -1172,7 +1172,7 @@ public class ClassGenTraverse : Traverse
 
     public override bool ExecuteShareOperate(ShareOperate shareOperate)
     {
-        SystemClass system;
+        BuiltinClass system;
         system = this.Gen.System;
 
         ClassClass a;
@@ -1229,7 +1229,7 @@ public class ClassGenTraverse : Traverse
         }
         if (!b)
         {
-            SystemClass system;
+            BuiltinClass system;
             system = this.Gen.System;
 
             bool ba;
@@ -1643,7 +1643,7 @@ public class ClassGenTraverse : Traverse
 
     protected virtual bool ExecuteClassName(ClassClass a, int systemInfo)
     {
-        SystemClass system;
+        BuiltinClass system;
         system = this.Gen.System;
         
         bool b;
@@ -1760,7 +1760,7 @@ public class ClassGenTraverse : Traverse
 
     protected virtual bool ExecuteAnyDefault(ClassClass c, int systemInfo)
     {
-        SystemClass system;
+        BuiltinClass system;
         system = this.Gen.System;
 
         bool b;
