@@ -12,6 +12,8 @@ Word "effect" has meaning that is output of anything.
 
 Word "state" has meaning that is executable entity.
 
+Word "count" has meaning that is applied.
+
 Words "prudate", "probate", "precate" and "private" have meanings that are applicable
 to all, local, child, and self.
 
