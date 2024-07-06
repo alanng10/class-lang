@@ -1,5 +1,5 @@
 # Name
 
-Name in Class modules can be any English word except Class source keywords.
+Name in Class modules can be any word except Class source keywords.
 
-English words can be put any meaning.
+The words can be put any meaning.
