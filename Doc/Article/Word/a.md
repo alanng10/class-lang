@@ -18,6 +18,10 @@ Word "argue" has meaning that is call param.
 
 Word "call" has meaning that is trigger maide.
 
+Word "get" has meaning that is trigger got.
+
+Word "set" has meaning that is trigger assign got.
+
 Words "prudate", "probate", "precate" and "private" have meanings that are applicable
 to all, local, child, and self.
 
