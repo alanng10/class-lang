@@ -16,6 +16,8 @@ Word "count" has meaning that is applied.
 
 Word "argue" has meaning that is call param.
 
+Word "call" has meaning that is trigger maide.
+
 Words "prudate", "probate", "precate" and "private" have meanings that are applicable
 to all, local, child, and self.
 
