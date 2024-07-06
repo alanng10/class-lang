@@ -18,6 +18,7 @@ public class StoragePathCheck : Any
 
         this.Combine = this.TextInfra.TextCreateStringData(this.InfraInfra.PathCombine, null);
         this.BackSlash = this.TextInfra.TextCreateStringData("\\", null);
+        this.SlashSlash = this.TextInfra.TextCreateStringData("//", null);
         this.Dot = this.TextInfra.TextCreateStringData(".", null);
         this.DotDot = this.TextInfra.TextCreateStringData("..", null);
         return true;
@@ -29,13 +30,24 @@ public class StoragePathCheck : Any
     protected virtual TextCompare TextCompare { get; set; }
     protected virtual Text Combine { get; set; }
     protected virtual Text BackSlash { get; set; }
+    protected virtual Text SlashSlash { get; set; }
     protected virtual Text Dot { get; set; }
     protected virtual Text DotDot { get; set; }
 
     public virtual bool IsValidSourcePath(Text text)
     {
+        TextInfra textInfra;
+        textInfra = this.TextInfra;
+        
         int k;
-        k = this.TextInfra.Index(text, this.BackSlash, this.TextCompare);
+        k = textInfra.Index(text, this.BackSlash, this.TextCompare);
+
+        if (!(k == -1))
+        {
+            return false;
+        }
+
+        k = textInfra.Index(text, this.SlashSlash, this.TextCompare);
 
         if (!(k == -1))
         {
