@@ -1,6 +1,6 @@
 namespace Class.Module;
 
-public class SystemClass : Any
+public class BuiltinClass : Any
 {
     public virtual ClassClass Any { get; set; }
     public virtual ClassClass Bool { get; set; }

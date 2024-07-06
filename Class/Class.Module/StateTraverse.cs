@@ -27,7 +27,7 @@ public class StateTraverse : Traverse
     protected virtual ListInfra ListInfra { get; set; }
     protected virtual TextInfra TextInfra { get; set; }
     protected virtual ClassInfra ClassInfra { get; set; }
-    protected virtual SystemClass System { get; set; }
+    protected virtual BuiltinClass System { get; set; }
     protected virtual ClassClass NullClass { get; set; }
     protected virtual ClassClass ThisClass { get; set; }
     protected virtual ClassClass ThisResultClass { get; set; }
