@@ -37,7 +37,7 @@ public class ReadOperate : Any
         return null;
     }
 
-    public virtual IntValue ExecuteClassIndex()
+    public virtual Value ExecuteClassIndex()
     {
         return null;
     }

@@ -119,17 +119,17 @@ public class Write : Any
         i = 0;
         while (i < count)
         {
-            IntValue classIndex;
-            classIndex = (IntValue)array.Get(i);
+            Value classIndex;
+            classIndex = (Value)array.Get(i);
             this.ExecuteClassIndex(classIndex);
             i = i + 1;
         }
         return true;
     }
 
-    protected virtual bool ExecuteClassIndex(IntValue classIndex)
+    protected virtual bool ExecuteClassIndex(Value classIndex)
     {
-        this.ExecuteIndex(classIndex.Value);
+        this.ExecuteIndex(classIndex.Mid);
         return true;
     }
 

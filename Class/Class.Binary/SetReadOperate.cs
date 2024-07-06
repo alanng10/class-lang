@@ -88,14 +88,14 @@ public class SetReadOperate : ReadOperate
         return a;
     }
 
-    public override IntValue ExecuteClassIndex()
+    public override Value ExecuteClassIndex()
     {
         ReadArg arg;
         arg = this.Read.Arg;
         int index;
         index = arg.ClassIndexIndex;
-        IntValue a;
-        a = (IntValue)arg.ClassIndexArray.Get(index);
+        Value a;
+        a = (Value)arg.ClassIndexArray.Get(index);
         arg.ClassIndexIndex = index + 1;
         return a;
     }

@@ -358,8 +358,8 @@ public class Read : Any
         i = 0;
         while (i < count)
         {
-            IntValue o;
-            o = new IntValue();
+            Value o;
+            o = new Value();
             o.Init();
             array.Set(i, o);
             i = i + 1;
@@ -895,7 +895,7 @@ public class Read : Any
         i = 0;
         while (i < count)
         {
-            IntValue a;
+            Value a;
             a = this.ExecuteClassIndex();
             if (a == null)
             {
@@ -907,7 +907,7 @@ public class Read : Any
         return array;
     }
 
-    protected virtual IntValue ExecuteClassIndex()
+    protected virtual Value ExecuteClassIndex()
     {
         int u;
         u = this.ExecuteIndex();
@@ -917,9 +917,9 @@ public class Read : Any
         }
         int value;
         value = u;
-        IntValue a;
+        Value a;
         a = this.Operate.ExecuteClassIndex();
-        a.Value = value;
+        a.Mid = value;
         return a;
     }
 
