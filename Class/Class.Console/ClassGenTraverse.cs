@@ -1569,7 +1569,51 @@ public class ClassGenTraverse : Traverse
 
     public override bool ExecuteDivOperate(DivOperate divOperate)
     {
-        this.ExecuteIntTwoOperand(this.DelimitDiv, divOperate.Left, divOperate.Right);
+        this.Text(this.DelimitLeftBracket);
+
+        this.Text(this.DelimitLeftBracket);
+
+        this.Text(this.DelimitLeftBracket);
+        
+        this.Text(this.InternOperateVarInt);
+        
+        this.Text(this.Space);
+        this.Text(this.DelimitAssign);
+        this.Text(this.Space);
+
+        this.ExecuteOperate(divOperate.Right);
+
+        this.Text(this.DelimitRightBracket);
+
+        this.Text(this.Space);
+        this.Text(this.DelimitMul);
+        this.Text(this.Space);
+
+        this.Text(this.Zero);
+
+        this.Text(this.DelimitRightBracket);
+
+        this.Text(this.Space);
+        this.Text(this.DelimitAdd);
+        this.Text(this.Space);
+
+        this.Text(this.DelimitLeftBracket);
+        this.ExecuteOperate(divOperate.Left);
+
+        this.Text(this.Space);
+        this.Text(this.DelimitDiv);
+        this.Text(this.Space);
+
+        this.Text(this.InternOperateVarInt);
+        this.Text(this.DelimitRightBracket);
+
+        this.Text(this.Space);
+        this.Text(this.DelimitAnd);
+        this.Text(this.Space);
+
+        this.Text(this.Int60Mask);
+
+        this.Text(this.DelimitRightBracket);
         return true;
     }
 
