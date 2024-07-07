@@ -1,6 +1,6 @@
 # System Derive
 
-Class uses PC hardware, Windows operating system, C# programming language, .NET CLI, Qt C++ framework, 
+Class uses PC hardware, Internet subscription, Windows operating system, C# programming language, .NET CLI, Qt C++ framework, 
 C programming language, C++ programming language.
 Class layers on top of these in system architecture.
 The system architecture is a derive of the ideal system architecture.
@@ -14,7 +14,7 @@ This system derive has file system path for any entry that is file or fold.
 This system derive has builtin storage arrange effect for files and folds.
 This system derive storage of any module is open to any module.
 
-This system derive requires Internet subscription to network with other long distance systems.
+This system derive uses millisecond as the smallest time unit.
 
 This system derive takes up space when it is not being used.
 This system derive has weight.
