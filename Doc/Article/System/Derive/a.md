@@ -13,6 +13,7 @@ to use the precate comp.
 This Class does not allow null to be assigned to builtin Bool and Int classes ref holders.
 Assigning builtin Bool and Int anys to Any class ref holders will have memory allocation.
 Builtin Bool, Int and String anys called Init maide with Any clas ref holders will have run time error.
+Casting Any class ref holders to builtin Bool and Int class will have value false and -1 if the castings fail.
 Using DivOperate and SignDivOperate to divide by zero will have run time error.
 
 This system derive, does not have builtin audio tune effect to be used by modules.
