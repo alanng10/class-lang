@@ -1598,6 +1598,30 @@ public class ClassGenTraverse : Traverse
         this.Text(this.Space);
 
         this.Text(this.DelimitLeftBracket);
+
+        this.Text(this.DelimitLeftBracket);
+
+        this.Text(this.InternOperateVarInt);
+
+        this.Text(this.Space);
+        this.Text(this.DelimitEqual);
+        this.Text(this.Space);
+
+        this.Text(this.Zero);
+
+        this.Text(this.DelimitRightBracket);
+
+        this.Text(this.Space);
+        this.Text(this.DelimitQuestion);
+        this.Text(this.Space);
+
+        this.Text(this.Zero);
+
+        this.Text(this.Space);
+        this.Text(this.DelimitColon);
+        this.Text(this.Space);
+
+        this.Text(this.DelimitLeftBracket);
         this.ExecuteOperate(divOperate.Left);
 
         this.Text(this.Space);
@@ -1605,6 +1629,8 @@ public class ClassGenTraverse : Traverse
         this.Text(this.Space);
 
         this.Text(this.InternOperateVarInt);
+        this.Text(this.DelimitRightBracket);
+
         this.Text(this.DelimitRightBracket);
 
         this.Text(this.Space);
