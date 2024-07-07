@@ -10,6 +10,7 @@ This system derive, Class does not have BaseOperate in its lang elements.
 It has BaseGetOperate, BaseCallOperate, BaseSetTarget to use base class comps. 
 This Class does not allow null to be assigned to builtin Bool and Int classes ref holders.
 Assigning builtin Bool and Int anys to Any class ref holders will have memory allocation.
+Using DivOperate and SignDivOperate to divide by zero will have run time error.
 
 This system derive, does not have builtin audio tune effect to be used by modules.
 It also does not have builtin video 3D draw effect to be used by modules.
