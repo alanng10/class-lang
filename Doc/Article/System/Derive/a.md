@@ -8,7 +8,7 @@ Modules made from module sources in Class, layers on top of this system.
 
 This system derive, Class does not have BaseOperate in its lang elements.
 It has BaseGetOperate, BaseCallOperate, BaseSetTarget to use base class comps. 
-This Class precate count does not allow derive classes comps base class ref holders that is not base keyword
+This Class precate count does not allow derive classes comps base class ref holders that are not base keywords
 to use the precate comp.
 This Class does not allow null to be assigned to builtin Bool and Int classes ref holders.
 Assigning builtin Bool and Int anys to Any class ref holders will have memory allocation.
