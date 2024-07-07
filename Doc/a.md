@@ -25,7 +25,7 @@ The module binary is executed on .NET runtime.
 
 Class has documentation that includes programming guide, system architecture, and API reference.
 
-Class as a platform is best platform to develop because it has easiest use lang elements and builtin infra.
+Class as a platform is best platform to develop because it has best and easiest use lang elements and builtin infra.
 It is also best to make abstract.
 It is best to abstract any effect.
 
