@@ -10,6 +10,7 @@ This system derive, Class does not have BaseOperate in its lang elements.
 It has BaseGetOperate, BaseCallOperate, BaseSetTarget to use base class comps. 
 This Class precate count does not allow derive classes comps base class ref holders that are not base keywords
 to use the precate comp.
+This Class CastOperate does class hierarchy checking at compile time.
 This Class does not allow null to be assigned to builtin Bool and Int classes ref holders.
 Assigning builtin Bool and Int anys to Any class ref holders will have memory allocation.
 Builtin Bool, Int and String anys called Init maide with Any class ref holders will have run time error.
