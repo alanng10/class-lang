@@ -21,7 +21,8 @@ public class ClassGenTraverse : Traverse
         this.InternOperateVarPrefix = "__U_";
         this.InternOperateVarObject = "O";
         this.InternOperateVarBool = "B";
-        this.InternOperateVarInt = "I";
+        this.InternOperateVarIntA = "I_A";
+        this.InternOperateVarIntB = "I_B";
         this.InternAnyClass = "__C_Any";
         this.InternStringClass = "__C_String";
         this.InternStringFieldGetPrefix = "G_";
@@ -132,7 +133,8 @@ public class ClassGenTraverse : Traverse
     protected virtual string InternOperateVarPrefix { get; set; }
     protected virtual string InternOperateVarObject { get; set; }
     protected virtual string InternOperateVarBool { get; set; }
-    protected virtual string InternOperateVarInt { get; set; }
+    protected virtual string InternOperateVarIntA { get; set; }
+    protected virtual string InternOperateVarIntB { get; set; }
     protected virtual string InternAnyClass { get; set; }
     protected virtual string InternStringClass { get; set; }
     protected virtual string InternStringFieldGetPrefix { get; set; }
@@ -595,7 +597,8 @@ public class ClassGenTraverse : Traverse
             system = this.Gen.System;
             this.ExecuteInternOperateVarDeclare(this.KeywordObject, this.InternOperateVarObject);
             this.ExecuteInternOperateVarDeclare(this.KeywordBool, this.InternOperateVarBool);
-            this.ExecuteInternOperateVarDeclare(this.KeywordInt, this.InternOperateVarInt);
+            this.ExecuteInternOperateVarDeclare(this.KeywordInt, this.InternOperateVarIntA);
+            this.ExecuteInternOperateVarDeclare(this.KeywordInt, this.InternOperateVarIntB);
         }
 
         base.ExecuteState(state);
@@ -831,7 +834,7 @@ public class ClassGenTraverse : Traverse
         {
             if (c == system.Int)
             {
-                k = this.InternOperateVarInt;
+                k = this.InternOperateVarIntA;
                 b = true;
             }
         }
@@ -1574,14 +1577,38 @@ public class ClassGenTraverse : Traverse
         this.Text(this.DelimitLeftBracket);
 
         this.Text(this.DelimitLeftBracket);
-        
-        this.Text(this.InternOperateVarInt);
+
+        this.Text(this.DelimitLeftBracket);
+
+        this.Text(this.DelimitLeftBracket);
+
+        this.Text(this.InternOperateVarPrefix);
+        this.Text(this.InternOperateVarIntA);
+
+        this.Text(this.Space);
+        this.Text(this.DelimitAssign);
+        this.Text(this.Space);
+
+        this.ExecuteOperate(divOperate.Left);
+
+        this.Text(this.DelimitRightBracket);
+
+        this.Text(this.Space);
+        this.Text(this.DelimitAdd);
+        this.Text(this.Space);
+
+        this.Text(this.DelimitLeftBracket);
+
+        this.Text(this.InternOperateVarPrefix);
+        this.Text(this.InternOperateVarIntB);
         
         this.Text(this.Space);
         this.Text(this.DelimitAssign);
         this.Text(this.Space);
 
         this.ExecuteOperate(divOperate.Right);
+
+        this.Text(this.DelimitRightBracket);
 
         this.Text(this.DelimitRightBracket);
 
@@ -1601,7 +1628,8 @@ public class ClassGenTraverse : Traverse
 
         this.Text(this.DelimitLeftBracket);
 
-        this.Text(this.InternOperateVarInt);
+        this.Text(this.InternOperateVarPrefix);
+        this.Text(this.InternOperateVarIntB);
 
         this.Text(this.Space);
         this.Text(this.DelimitEqual);
@@ -1622,13 +1650,19 @@ public class ClassGenTraverse : Traverse
         this.Text(this.Space);
 
         this.Text(this.DelimitLeftBracket);
-        this.ExecuteOperate(divOperate.Left);
+
+        this.Text(this.InternOperateVarPrefix);
+        this.Text(this.InternOperateVarIntA);
 
         this.Text(this.Space);
         this.Text(this.DelimitDiv);
         this.Text(this.Space);
 
-        this.Text(this.InternOperateVarInt);
+        this.Text(this.InternOperateVarPrefix);
+        this.Text(this.InternOperateVarIntB);
+        
+        this.Text(this.DelimitRightBracket);
+
         this.Text(this.DelimitRightBracket);
 
         this.Text(this.DelimitRightBracket);
