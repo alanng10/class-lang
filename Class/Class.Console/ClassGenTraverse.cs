@@ -1685,7 +1685,35 @@ public class ClassGenTraverse : Traverse
 
     public override bool ExecuteSignDivOperate(SignDivOperate signDivOperate)
     {
-        this.ExecuteSignIntTwoOperandResultInt(this.DelimitDiv, signDivOperate.Left, signDivOperate.Right);
+        this.Text(this.DelimitLeftBracket);
+
+        this.Text(this.DelimitLeftBracket);
+
+        this.Text(this.DelimitLeftBracket);
+        this.Text(this.KeywordULong);
+        this.Text(this.DelimitRightBracket);
+
+        this.Text(this.DelimitLeftBracket);
+
+        this.ExecuteSignIntOperandInternVar(this.InternOperateVarIntA);
+
+        this.Text(this.Space);
+        this.Text(this.DelimitDiv);
+        this.Text(this.Space);
+
+        this.ExecuteSignIntOperandInternVar(this.InternOperateVarIntB);
+
+        this.Text(this.DelimitRightBracket);
+
+        this.Text(this.DelimitRightBracket);
+
+        this.Text(this.Space);
+        this.Text(this.DelimitAnd);
+        this.Text(this.Space);
+
+        this.Text(this.Int60Mask);
+
+        this.Text(this.DelimitRightBracket);
         return true;
     }
 
@@ -2240,6 +2268,39 @@ public class ClassGenTraverse : Traverse
         this.Text(this.DelimitRightBracket);
         this.ExecuteOperate(operate);
         
+        this.Text(this.DelimitRightBracket);
+
+        this.Text(this.Space);
+        this.Text(this.DelimitLeftShift);
+        this.Text(this.Space);
+        this.Text(this.SignIntShift);
+
+        this.Text(this.DelimitRightBracket);
+
+        this.Text(this.Space);
+        this.Text(this.DelimitRightShift);
+        this.Text(this.Space);
+        this.Text(this.SignIntShift);
+
+        this.Text(this.DelimitRightBracket);
+        return true;
+    }
+
+    protected virtual bool ExecuteSignIntOperandInternVar(string internVar)
+    {
+        this.Text(this.DelimitLeftBracket);
+
+        this.Text(this.DelimitLeftBracket);
+
+        this.Text(this.DelimitLeftBracket);
+
+        this.Text(this.DelimitLeftBracket);
+        this.Text(this.KeywordLong);
+        this.Text(this.DelimitRightBracket);
+
+        this.Text(this.InternVarPrefix);
+        this.Text(internVar);
+
         this.Text(this.DelimitRightBracket);
 
         this.Text(this.Space);
