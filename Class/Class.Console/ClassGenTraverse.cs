@@ -1690,6 +1690,81 @@ public class ClassGenTraverse : Traverse
         this.Text(this.DelimitLeftBracket);
 
         this.Text(this.DelimitLeftBracket);
+
+        this.Text(this.DelimitLeftBracket);
+
+        this.Text(this.DelimitLeftBracket);
+
+        this.Text(this.InternOperateVarPrefix);
+        this.Text(this.InternOperateVarIntA);
+
+        this.Text(this.Space);
+        this.Text(this.DelimitAssign);
+        this.Text(this.Space);
+
+        this.ExecuteOperate(signDivOperate.Left);
+
+        this.Text(this.DelimitRightBracket);
+
+        this.Text(this.Space);
+        this.Text(this.DelimitAdd);
+        this.Text(this.Space);
+
+        this.Text(this.DelimitLeftBracket);
+
+        this.Text(this.InternOperateVarPrefix);
+        this.Text(this.InternOperateVarIntB);
+
+        this.Text(this.Space);
+        this.Text(this.DelimitAssign);
+        this.Text(this.Space);
+
+        this.ExecuteOperate(signDivOperate.Right);
+
+        this.Text(this.DelimitRightBracket);
+
+        this.Text(this.DelimitRightBracket);
+
+        this.Text(this.Space);
+        this.Text(this.DelimitMul);
+        this.Text(this.Space);
+
+        this.Text(this.Zero);
+
+        this.Text(this.DelimitRightBracket);
+
+        this.Text(this.Space);
+        this.Text(this.DelimitAdd);
+        this.Text(this.Space);
+
+        this.Text(this.DelimitLeftBracket);
+
+        this.Text(this.DelimitLeftBracket);
+
+        this.Text(this.InternOperateVarPrefix);
+        this.Text(this.InternOperateVarIntB);
+
+        this.Text(this.Space);
+        this.Text(this.DelimitEqual);
+        this.Text(this.Space);
+
+        this.Text(this.Zero);
+
+        this.Text(this.DelimitRightBracket);
+
+        this.Text(this.Space);
+        this.Text(this.DelimitQuestion);
+        this.Text(this.Space);
+
+        this.Text(this.Zero);
+
+        this.Text(this.Space);
+        this.Text(this.DelimitColon);
+        this.Text(this.Space);
+
+        this.Text(this.DelimitLeftBracket);
+
+        this.Text(this.DelimitLeftBracket);
         this.Text(this.KeywordULong);
         this.Text(this.DelimitRightBracket);
 
@@ -1702,6 +1777,10 @@ public class ClassGenTraverse : Traverse
         this.Text(this.Space);
 
         this.ExecuteSignIntOperandInternVar(this.InternOperateVarIntB);
+
+        this.Text(this.DelimitRightBracket);
+
+        this.Text(this.DelimitRightBracket);
 
         this.Text(this.DelimitRightBracket);
 
