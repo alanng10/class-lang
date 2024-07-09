@@ -6,4 +6,5 @@ The paths are interpreted in the way that all parts of the paths are storage ent
 
 The source paths storage nodes are copied to be the destination paths storage nodes.
 
-The source paths storage nodes any data and any child nodes are copied.
+The source paths storage nodes any data and any child nodes are copied. 
+File path has no child node. Fold path has no data.
