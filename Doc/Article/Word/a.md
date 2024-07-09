@@ -30,6 +30,9 @@ to all, local, child, and self.
 Words "inf", "while", and "return" have meanings that are conditionally,
 conditionally trigger again, and refer result.
 
+Word "and", "orn", "not" have meanings that are both true,
+any one true, and untrue.
+
 Word "case" has meaning that is one of discrete choices.
 
 Word "compute" has meaning that is process info.
