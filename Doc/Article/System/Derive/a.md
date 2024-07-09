@@ -6,8 +6,7 @@ Class layers on top of these in system architecture.
 The system architecture is a derive of the ideal system architecture.
 Modules made from module sources in Class, layers on top of this system.
 
-This system derive, Class port storage section uses paths that their last parts refer to files only as storage nodes that have data.
-This Class does not have BaseOperate in its lang elements.
+This system derive, Class does not have BaseOperate in its lang elements.
 It has BaseGetOperate, BaseCallOperate, BaseSetTarget to use base class comps. 
 This Class precate count does not allow derive classes comps base class ref holders that are not base keywords
 to use the precate comp.
