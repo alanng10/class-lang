@@ -13,3 +13,8 @@ Develop speed has order of higher if dependencies have abstracts that wholly and
 Develop speed has order of higher if dependencies have node names.
 
 Develop speed has order of higher if the entity to be developed has node name.
+
+Class lang elements and builtin infra have abstracts that wholly and entirely cover the needs of develop.
+They have node names.
+
+Class is a node name.
