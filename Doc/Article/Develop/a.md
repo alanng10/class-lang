@@ -18,4 +18,4 @@ Class lang elements and builtin infra have abstracts that wholly and entirely co
 The abstracts are opaque enough for develop.
 They have node names.
 
-Class is a node name.
+This programming language name "Class" is a node name.
