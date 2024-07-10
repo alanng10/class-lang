@@ -225,8 +225,6 @@ public class Gen : Any
             this.ClassBaseSetAny("Int");
             this.ClassBaseSetAny("String");
 
-            this.ClassBaseSetAny("ModuleInfo");
-
             this.SealedClassArray = this.ListInfra.ArrayCreate(4);
 
             Module oo;
@@ -237,15 +235,12 @@ public class Gen : Any
             intClass = this.ModuleClassGet(oo, "Int");
             ClassClass stringClass;
             stringClass = this.ModuleClassGet(oo, "String");
-            ClassClass moduleInfoClass;
-            moduleInfoClass = this.ModuleClassGet(oo, "ModuleInfo");
 
             this.Array = this.SealedClassArray;
             this.Index = 0;
             this.ArraySetItem(boolClass);
             this.ArraySetItem(intClass);
             this.ArraySetItem(stringClass);
-            this.ArraySetItem(moduleInfoClass);
         }
 
 
