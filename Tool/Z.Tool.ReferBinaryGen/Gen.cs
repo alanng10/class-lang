@@ -194,8 +194,6 @@ public class Gen : Any
 
             this.AddInfraBuiltInClassList();
 
-            this.AddClass(typeof(ZModuleInfo));
-
             this.AnyClass = this.ModuleClassGet(this.Module, "Any");
         }
 
@@ -469,44 +467,41 @@ public class Gen : Any
                 Table varTable;
                 varTable = this.ClassInfra.TableCreateStringCompare();
 
-                if (!((type == typeof(ZModuleInfo)) & ((maide.Name == "Name") | (maide.Name == "Version"))))
+                ParameterInfo[] parameterArray;
+                parameterArray = method.GetParameters();
+                int countA;
+                countA = parameterArray.Length;
+
+                int iA;
+                iA = 0;
+                while (iA < countA)
                 {
-                    ParameterInfo[] parameterArray;
-                    parameterArray = method.GetParameters();
-                    int countA;
-                    countA = parameterArray.Length;
+                    ParameterInfo parameter;
+                    parameter = parameterArray[iA];
 
-                    int iA;
-                    iA = 0;
-                    while (iA < countA)
+                    if (parameter.ParameterType == this.InfraAnyType)
                     {
-                        ParameterInfo parameter;
-                        parameter = parameterArray[iA];
-
-                        if (parameter.ParameterType == this.InfraAnyType)
-                        {
-                            global::System.Console.Error.Write("Class " + varClass.Name + "(" + varClass.Module.Ref.Name + ") maide " + maide.Name + 
-                            " var " + parameter.Name + " is Avalon.Infra Any type\n");
-                            global::System.Environment.Exit(162);
-                        }
-
-                        Info og;
-                        og = new Info();
-                        og.Init();
-                        og.Parameter = parameter;
-
-                        Var varVar;
-                        varVar = new Var();
-                        varVar.Init();
-                        varVar.Name = parameter.Name;
-                        varVar.Class = this.ClassGetType(parameter.ParameterType);
-                        varVar.SystemInfo = this.SystemInfoCreate(parameter.ParameterType);
-                        varVar.Any = og;
-
-                        this.ListInfra.TableAdd(varTable, varVar.Name, varVar);
-
-                        iA = iA + 1;
+                        global::System.Console.Error.Write("Class " + varClass.Name + "(" + varClass.Module.Ref.Name + ") maide " + maide.Name + 
+                        " var " + parameter.Name + " is Avalon.Infra Any type\n");
+                        global::System.Environment.Exit(162);
                     }
+
+                    Info og;
+                    og = new Info();
+                    og.Init();
+                    og.Parameter = parameter;
+
+                    Var varVar;
+                    varVar = new Var();
+                    varVar.Init();
+                    varVar.Name = parameter.Name;
+                    varVar.Class = this.ClassGetType(parameter.ParameterType);
+                    varVar.SystemInfo = this.SystemInfoCreate(parameter.ParameterType);
+                    varVar.Any = og;
+
+                    this.ListInfra.TableAdd(varTable, varVar.Name, varVar);
+
+                    iA = iA + 1;
                 }
 
                 maide.Param = varTable;
