@@ -27,11 +27,14 @@ Word "set" has meaning that is trigger assign got.
 Words "prudate", "probate", "precate" and "private" have meanings that are applicable
 to all, local, child, and self.
 
-Words "inf", "while", and "return" have meanings that are conditionally,
+Words "inf", "while" and "return" have meanings that are conditionally,
 conditionally trigger again, and refer result.
 
-Word "and", "orn", "not" have meanings that are both true,
+Words "and", "orn" and "not" have meanings that are both true,
 any one true, and untrue.
+
+Words "add", "sub", "mul" and "div" have meanings that are
+count more, count less, count times more, and count times of.
 
 Word "case" has meaning that is one of discrete choices.
 
