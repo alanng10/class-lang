@@ -20,3 +20,6 @@ Thread module Post class Any can be execute to queue event to event loop of the 
 the Thread is the thread that Post class Any is Init.
 Post class Any Execute method is call to queue event. When the event loop execute the event, it will execute a State Any in Post class Any.
 The Execute method can be call from any Thread.
+
+Avalon.Entry module Entry class has field ClassStorage that is type "bool" to set whether the module execution will
+use current directory that is the module binary fold path, the Storage class will accept storage nodes outside of data directory.
