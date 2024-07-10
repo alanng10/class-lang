@@ -28,8 +28,5 @@ The executable files can be executed in any working directory.
 The directory is ExecuteFoldPath that can be gotten in System.Storage module Arrange class.
 The working directory during module execution is the directory that contain the C# assembly binary of the module.
 
-Modules read and write files in their data directories with paths that include their module ref strings.
-Modules can get their module ref strings by calling ModuleInfo class Name maide and Version maide in System.Infra module.
-Modules do not need to hard code module ref strings, that include module versions, in their classes.
-If modules need to read or write files in other modules data directories, including modules that they import, 
-they need to use paths that include module ref strings of those other modules.
+Modules read and write files in their data directories with paths that relative to their data directories.
+Modules files in their data directories are not open to other modules by builtin infra.
