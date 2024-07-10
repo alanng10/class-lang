@@ -89,7 +89,6 @@ public class Gen : Any
         Module module;
         module = this.ModuleGet("System.Infra");
         this.ConsoleWriteClass(this.ModuleClassGet(module, "String"));
-        this.ConsoleWriteClass(this.ModuleClassGet(module, "ModuleInfo"));
         this.ConsoleWriteClass(this.ModuleClassGet(module, "Infra"));
         this.ConsoleWriteClass(this.ClassGet("Class.Node", "SetCreateOperate"));
 
