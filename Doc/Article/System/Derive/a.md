@@ -15,6 +15,7 @@ This Class does not allow null to be assigned to builtin Bool and Int classes re
 Assigning builtin Bool and Int anys to Any class ref holders will have memory allocation.
 Builtin Bool, Int and String anys called Init maide with Any class ref holders will have run time error.
 Casting Any class ref holders to builtin Bool and Int class will have value false and 0 if the castings fail.
+This Class Text and String anys use 2 bytes as 1 char unit. There are characters as 2 char units.
 
 This system derive, does not have builtin audio tune effect to be used by modules.
 It also does not have builtin video 3D draw effect to be used by modules.
