@@ -877,7 +877,7 @@ public class Gen : Any
             string path;
             path = name + ".ref";
 
-            this.StorageInfra.DataWrite(path, data);
+            this.StorageInfra.DataWriteAny(path, data, true);
         }
         return true;
     }

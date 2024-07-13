@@ -174,7 +174,7 @@ public class Test : Any
                 expectFile = unitFold + this.InfraInfra.PathCombine + "Expect";
 
                 string expect;                
-                expect = this.StorageInfra.TextRead(expectFile);
+                expect = this.StorageInfra.TextReadAny(expectFile, true);
 
                 string path;
                 path = null;
@@ -182,7 +182,7 @@ public class Test : Any
                 {
                     string pathFile;
                     pathFile = unitFold + this.InfraInfra.PathCombine + "Path";
-                    path = this.StorageInfra.TextRead(pathFile);
+                    path = this.StorageInfra.TextReadAny(pathFile, true);
                 }
                 
                 Unit a;
@@ -264,7 +264,7 @@ public class Test : Any
         string actualFile;
         actualFile = this.UnitFold + c + "Actual";
 
-        this.StorageInfra.TextWrite(actualFile, actual);
+        this.StorageInfra.TextWriteAny(actualFile, actual, true);
 
         this.Unit.Actual = actual;
 
