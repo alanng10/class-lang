@@ -45,7 +45,7 @@ public class Gen : Any
 
     protected virtual bool InitTemplate()
     {
-        this.PageTemplate = this.StorageInfra.TextRead("Class.Doc.data/a.html");
+        this.PageTemplate = this.StorageInfra.TextReadAny("Class.Doc.data/a.html", true);
         return true;
     }
 
@@ -199,7 +199,7 @@ public class Gen : Any
         filePath = this.SourceFoldPath + combine + path + combine + "a.md";
 
         string oo;
-        oo = this.StorageInfra.TextRead(filePath);
+        oo = this.StorageInfra.TextReadAny(filePath, true);
 
         if (oo == null)
         {
@@ -274,7 +274,7 @@ public class Gen : Any
         string outFilePath;
         outFilePath = foldPath + combine + "index.html";
 
-        b = this.StorageInfra.TextWrite(outFilePath, a);
+        b = this.StorageInfra.TextWriteAny(outFilePath, a, true);
         if (!b)
         {
             return false;
@@ -316,7 +316,7 @@ public class Gen : Any
         outFilePath = this.DestFoldPath + combine + "var.js";
 
         bool b;
-        b = storageInfra.TextWrite(outFilePath, a);
+        b = storageInfra.TextWriteAny(outFilePath, a, true);
         if (!b)
         {
             return false;
@@ -335,7 +335,7 @@ public class Gen : Any
 
         outFilePath = this.DestFoldPath + combine + "articlevar.js";
 
-        b = storageInfra.TextWrite(outFilePath, a);
+        b = storageInfra.TextWriteAny(outFilePath, a, true);
         if (!b)
         {
             return false;
