@@ -426,7 +426,10 @@ public class Gen : Any
                 !((type == typeof(EntryEntry)) & (method.Name == "ArgSet")) &
                 !((type == typeof(StorageInfra)) & (
                     (method.Name == "DataReadAny") |
+                    (method.Name == "DataWriteAny") |
                     (method.Name == "DataWriteRangeAny") |
+                    (method.Name == "TextReadAny") |
+                    (method.Name == "TextWriteAny") |
                     (method.Name == "CountSetAny")
                     ))
                 )
