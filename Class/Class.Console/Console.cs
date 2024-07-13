@@ -172,7 +172,7 @@ public class Console : Any
         filePath = moduleName + ".ref";
 
         Data data;
-        data = this.StorageInfra.DataRead(filePath);
+        data = this.StorageInfra.DataReadAny(filePath, true);
 
         if (data == null)
         {
@@ -529,7 +529,7 @@ public class Console : Any
         filePath = this.SourceFold + combine + fileName;
 
         string source;
-        source = this.StorageInfra.TextRead(filePath);
+        source = this.StorageInfra.TextReadAny(filePath, true);
 
         if (source == null)
         {
@@ -945,7 +945,7 @@ public class Console : Any
             filePath = sourceFold + combine + a.Name + k;
 
             string h;
-            h = storageInfra.TextRead(filePath);
+            h = storageInfra.TextReadAny(filePath, true);
 
             Text aa;
             aa = textInfra.TextCreateStringData(h, null);
