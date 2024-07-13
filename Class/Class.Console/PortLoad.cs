@@ -445,7 +445,7 @@ public class PortLoad : Any
         filePath = moduleRefString + ".ref";
 
         Data data;
-        data = this.StorageInfra.DataRead(filePath);
+        data = this.StorageInfra.DataReadAny(filePath, true);
 
         if (data == null)
         {

@@ -23,7 +23,7 @@ public class ImportGen : Any
         string k;
         k = this.InfraInfra.PathCombine;
 
-        this.SourceTemplate = this.StorageInfra.TextRead("Class.Console.data" + k + "Import.txt");
+        this.SourceTemplate = this.StorageInfra.TextReadAny("Class.Console.data" + k + "Import.txt", true);
         return true;
     }
 
