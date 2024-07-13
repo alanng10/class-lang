@@ -182,6 +182,11 @@ public class Infra : Any
 
     public virtual bool TextWrite(string filePath, string text)
     {
+        return this.TextWriteAny(filePath, text, false);
+    }
+
+    public virtual bool TextWriteAny(string filePath, string text, bool anyNode)
+    {
         TextEncode encode;
         encode = new TextEncode();
         encode.Kind = this.TextEncodeKindList.Utf8;
@@ -211,7 +216,7 @@ public class Infra : Any
         range.Init();
         range.Count = count;
         bool a;
-        a = this.DataWriteRange(filePath, data, range);
+        a = this.DataWriteRangeAny(filePath, data, range, anyNode);
         return a;
     }
 
@@ -228,6 +233,7 @@ public class Infra : Any
         Storage storage;
         storage = new Storage();
         storage.Init();
+        storage.AnyNode = anyNode;
 
         Mode mode;
         mode = new Mode();
