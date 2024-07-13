@@ -10,7 +10,7 @@ The line has ideally 4 kilo points.
 Audio tune points are ideally unsigned 32 bits integers values.
 
 The line first point represents zero pitch, last point represents full pitch.
-The pitch changes linearly with the point position.
+The pitch changes linearly with the point index.
 
 The points values are amplitudes of the pitches.
 Zero value is zero amplitude.
