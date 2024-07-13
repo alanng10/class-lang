@@ -423,7 +423,13 @@ public class Gen : Any
             method = methodArrayA[i];
 
             if (!method.IsSpecialName & this.IsInAbstract(method) & 
-                !((type == typeof(EntryEntry)) & (method.Name == "ArgSet")))
+                !((type == typeof(EntryEntry)) & (method.Name == "ArgSet")) &
+                !((type == typeof(StorageInfra)) & (
+                    (method.Name == "DataReadAny") |
+                    (method.Name == "DataWriteRangeAny") |
+                    (method.Name == "CountSetAny")
+                    ))
+                )
             {
                 if (!method.IsVirtual)
                 {
