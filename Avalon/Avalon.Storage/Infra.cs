@@ -88,11 +88,16 @@ public class Infra : Any
 
     public virtual bool DataWrite(string filePath, Data data)
     {
+        return this.DataWriteAny(filePath, data, false);
+    }
+
+    public virtual bool DataWriteAny(string filePath, Data data, bool anyNode)
+    {
         DataRange range;
         range = new DataRange();
         range.Init();
         range.Count = data.Count;
-        return this.DataWriteRange(filePath, data, range);
+        return this.DataWriteRangeAny(filePath, data, range, anyNode);
     }
 
     public virtual bool DataWriteRange(string filePath, Data data, DataRange range)
