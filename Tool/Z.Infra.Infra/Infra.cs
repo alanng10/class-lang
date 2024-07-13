@@ -46,7 +46,7 @@ public class Infra : Any
     public virtual string StorageTextRead(string filePath)
     {
         string a;
-        a = this.StorageInfra.TextRead(filePath);
+        a = this.StorageInfra.TextReadAny(filePath, true);
 
         if (a == null)
         {
@@ -59,7 +59,7 @@ public class Infra : Any
     public virtual bool StorageTextWrite(string filePath, string text)
     {
         bool a;
-        a = this.StorageInfra.TextWrite(filePath, text);
+        a = this.StorageInfra.TextWriteAny(filePath, text, true);
 
         if (!a)
         {
