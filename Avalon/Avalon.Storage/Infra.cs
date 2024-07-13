@@ -140,8 +140,13 @@ public class Infra : Any
 
     public virtual string TextRead(string filePath)
     {
+        return this.TextReadAny(filePath, false);
+    }
+
+    public virtual string TextReadAny(string filePath, bool anyNode)
+    {
         Data data;
-        data = this.DataRead(filePath);
+        data = this.DataReadAny(filePath, anyNode);
         if (data == null)
         {
             return null;
