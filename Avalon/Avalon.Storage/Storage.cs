@@ -22,6 +22,7 @@ public class Storage : Any
 
     public virtual string Path { get; set; }
     public virtual Mode Mode { get; set; }
+    public virtual bool CSharp { get; set; }
     public virtual StreamStream Stream { get; set; }
     protected virtual StreamStream DataStream { get; set; }
 
