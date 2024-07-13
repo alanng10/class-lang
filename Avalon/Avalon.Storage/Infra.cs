@@ -37,9 +37,15 @@ public class Infra : Any
 
     public virtual Data DataRead(string filePath)
     {
+        return this.DataReadAny(filePath, false);
+    }
+
+    public virtual Data DataReadAny(string filePath, bool anyNode)
+    {
         Storage storage;
         storage = new Storage();
         storage.Init();
+        storage.AnyNode = anyNode;
 
         Mode mode;
         mode = new Mode();
@@ -91,9 +97,15 @@ public class Infra : Any
 
     public virtual bool DataWriteRange(string filePath, Data data, DataRange range)
     {
+        return this.DataWriteRangeAny(filePath, data, range, false);
+    }
+
+    public virtual bool DataWriteRangeAny(string filePath, Data data, DataRange range, bool anyNode)
+    {
         Storage storage;
         storage = new Storage();
         storage.Init();
+        storage.AnyNode = anyNode;
 
         Mode mode;
         mode = new Mode();
@@ -194,6 +206,11 @@ public class Infra : Any
     }
 
     public virtual bool CountSet(string filePath, long value)
+    {
+        return this.CountSetAny(filePath, value, false);
+    }
+
+    public virtual bool CountSetAny(string filePath, long value, bool anyNode)
     {
         StatusList statusList;
         statusList = this.StorageStatusList;
