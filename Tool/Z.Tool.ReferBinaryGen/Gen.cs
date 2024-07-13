@@ -243,7 +243,6 @@ public class Gen : Any
             this.ArraySetItem(stringClass);
         }
 
-
         Iter iter;
         iter = this.Module.Class.IterCreate();
         this.Module.Class.IterSet(iter);
@@ -366,7 +365,8 @@ public class Gen : Any
                 }
                 if (this.IsInAbstract(ooo) & 
                     !((type == typeof(Data)) & (property.Name == "Value")) &
-                    !((type == typeof(InfraInfra)) & (property.Name == "IntCapValue"))
+                    !((type == typeof(InfraInfra)) & (property.Name == "IntCapValue")) &
+                    !((type == typeof(Storage)) & (property.Name == "CSharp"))
                     )
                 {
                     if (!(property.CanWrite & property.CanRead))
