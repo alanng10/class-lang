@@ -366,7 +366,7 @@ public class Gen : Any
                 if (this.IsInAbstract(ooo) & 
                     !((type == typeof(Data)) & (property.Name == "Value")) &
                     !((type == typeof(InfraInfra)) & (property.Name == "IntCapValue")) &
-                    !((type == typeof(Storage)) & (property.Name == "CSharp"))
+                    !((type == typeof(Storage)) & (property.Name == "AnyNode"))
                     )
                 {
                     if (!(property.CanWrite & property.CanRead))
