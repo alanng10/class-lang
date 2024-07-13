@@ -24,7 +24,7 @@ public class ShareGen : Any
         string k;
         k = this.InfraInfra.PathCombine;
 
-        this.SourceTemplate = this.StorageInfra.TextRead("Class.Console.data" + k + "ClassShare.txt");
+        this.SourceTemplate = this.StorageInfra.TextReadAny("Class.Console.data" + k + "ClassShare.txt", true);
         return true;
     }
 
