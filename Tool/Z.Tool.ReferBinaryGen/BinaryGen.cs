@@ -374,18 +374,18 @@ class BinaryGen : Any
 
     protected virtual bool ClassIndexAdd(ClassClass varClass)
     {
-        ClassIndex a;
-        a = new ClassIndex();
+        Value a;
+        a = new Value();
         a.Init();
-        a.Value = this.ClassIndexTable.Count;
+        a.Mid = this.ClassIndexTable.Count;
         this.ListInfra.TableAdd(this.ClassIndexTable, varClass, a);
         return true;
     }
 
     protected virtual int ClassIndexGet(ClassClass varClass)
     {
-        ClassIndex a;
-        a = (ClassIndex)this.ClassIndexTable.Get(varClass);
-        return a.Value;
+        Value a;
+        a = (Value)this.ClassIndexTable.Get(varClass);
+        return a.Mid;
     }
 }
