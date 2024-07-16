@@ -13,3 +13,6 @@ The fourth 60 bits Int identifies the opening network any.
 
 Network does any effect by sending and receiving info with anys by the
 network ports of the anys.
+
+Network has ideally minimum speed of sending and receiving bytes that
+is 4 kilo bytes per tick.
