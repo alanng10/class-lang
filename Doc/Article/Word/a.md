@@ -38,6 +38,8 @@ count more, count less, count times more, and count times of.
 
 Word "case" has meaning that is one of discrete choices.
 
+Word "refer" has meaning that is declaration.
+
 Word "compute" has meaning that is process info.
 
 Word "memory" has meaning that is data store.
