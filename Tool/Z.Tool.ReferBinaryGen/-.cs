@@ -20,6 +20,7 @@ global using StorageArrange = Avalon.Storage.Arrange;
 global using StorageInfra = Avalon.Storage.Infra;
 global using Network = Avalon.Network.Network;
 global using Console = Avalon.Console.Console;
+global using ConsoleProgram = Avalon.Console.Program;
 global using Draw = Avalon.Draw.Draw;
 global using View = Avalon.View.View;
 global using Play = Avalon.Media.Play;

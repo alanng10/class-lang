@@ -307,7 +307,7 @@ public class Gen : Any
             global::System.Environment.Exit(143);
         }
 
-        if (type == typeof(StorageArrange))
+        if ((type == typeof(StorageArrange)) | (type == typeof(ConsoleProgram)))
         {
             return true;
         }
