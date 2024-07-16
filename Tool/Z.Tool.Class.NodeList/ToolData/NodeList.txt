@@ -55,7 +55,7 @@ WhileExecute : Execute
 ReturnExecute : Execute
     Operate Result
 
-DeclareExecute : Execute
+ReferExecute : Execute
     Var Var
 
 AssignExecute : Execute
