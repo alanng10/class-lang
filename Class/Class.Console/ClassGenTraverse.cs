@@ -691,7 +691,7 @@ public class ClassGenTraverse : Traverse
         return true;
     }
 
-    public override bool ExecuteAssignExecute(AssignExecute assignExecute)
+    public override bool ExecuteAreExecute(AreExecute assignExecute)
     {
         bool b;
         b = false;
