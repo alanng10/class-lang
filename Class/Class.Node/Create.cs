@@ -1691,7 +1691,7 @@ public class Create : InfraCreate
         }
         if (a == null)
         {
-            a = this.ExecuteDeclareExecute(this.Range(this.RangeA, start, end));
+            a = this.ExecuteReferExecute(this.Range(this.RangeA, start, end));
         }
         if (a == null)
         {
@@ -1766,7 +1766,7 @@ public class Create : InfraCreate
         return ret;
     }
 
-    public virtual Node ExecuteDeclareExecute(Range range)
+    public virtual Node ExecuteReferExecute(Range range)
     {
         int start;
         int end;
@@ -1798,7 +1798,7 @@ public class Create : InfraCreate
             return null;
         }
 
-        this.OperateArg.Kind = this.NodeKind.DeclareExecute;
+        this.OperateArg.Kind = this.NodeKind.ReferExecute;
         this.OperateArg.Start = start;
         this.OperateArg.End = end;
         this.OperateArg.Field00 = varVar;
