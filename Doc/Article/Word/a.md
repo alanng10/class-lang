@@ -18,6 +18,8 @@ Word "count" has meaning that is applied.
 
 Word "argue" has meaning that is call param.
 
+Word "param" has meaning that is call input.
+
 Word "call" has meaning that is trigger maide.
 
 Word "get" has meaning that is trigger got.
