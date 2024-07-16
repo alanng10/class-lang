@@ -6,7 +6,7 @@ Class consists of compiler modules, system modules, documentation, source code.
 Class is open source.
 Permission is granted by Class creator that is me, Alan Ng Jen Foong, to every person to use any copy of Class in any way.
 
-Class is an object oriented programming language.
+Class is an object orient programming language.
 It uses classes to define any entity.
 Any entity can be defined by a class.
 Abstract of an entity is the define of the entity.
