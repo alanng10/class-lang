@@ -58,7 +58,7 @@ ReturnExecute : Execute
 ReferExecute : Execute
     Var Var
 
-AssignExecute : Execute
+AreExecute : Execute
     Target Target
     Operate Value
 
