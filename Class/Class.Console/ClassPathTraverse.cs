@@ -422,13 +422,13 @@ public class ClassPathTraverse : Traverse
         return true;
     }
 
-    public override bool ExecuteAssignExecute(AssignExecute assignExecute)
+    public override bool ExecuteAreExecute(AreExecute areExecute)
     {
-        if (assignExecute == null)
+        if (areExecute == null)
         {
             return true;
         }
-        this.ExecuteNode(assignExecute);
+        this.ExecuteNode(areExecute);
 
         if (this.HasResult())
         {
@@ -437,12 +437,12 @@ public class ClassPathTraverse : Traverse
 
         if (this.FieldEqual("Target"))
         {
-            this.ExecuteTarget(assignExecute.Target);
+            this.ExecuteTarget(areExecute.Target);
             return true;
         }
         if (this.FieldEqual("Value"))
         {
-            this.ExecuteOperate(assignExecute.Value);
+            this.ExecuteOperate(areExecute.Value);
             return true;
         }
         return true;
