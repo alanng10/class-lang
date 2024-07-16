@@ -42,6 +42,8 @@ Word "refer" has meaning that is declaration.
 
 Word "operate" has meaning that is work.
 
+Word "execute" has meaning that is do until done.
+
 Word "compute" has meaning that is process info.
 
 Word "memory" has meaning that is data store.
