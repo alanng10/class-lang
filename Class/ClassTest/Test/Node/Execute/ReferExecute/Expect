@@ -1,4 +1,4 @@
-DeclareExecute
+ReferExecute
 {
     Var : Var
           {
