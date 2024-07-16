@@ -44,6 +44,8 @@ Word "operate" has meaning that is work.
 
 Word "execute" has meaning that is do until done.
 
+Word "is" has meaning that is make be.
+
 Word "compute" has meaning that is process info.
 
 Word "memory" has meaning that is data store.
