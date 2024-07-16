@@ -691,7 +691,7 @@ public class ClassGenTraverse : Traverse
         return true;
     }
 
-    public override bool ExecuteAreExecute(AreExecute assignExecute)
+    public override bool ExecuteAreExecute(AreExecute areExecute)
     {
         bool b;
         b = false;
@@ -708,7 +708,7 @@ public class ClassGenTraverse : Traverse
         systemInfo = 0;
         
         Target target;
-        target = assignExecute.Target;
+        target = areExecute.Target;
         
         bool bb;
         bb = (target is SetTarget);
@@ -771,7 +771,7 @@ public class ClassGenTraverse : Traverse
 
             this.ExecuteSystemTypeInnStart(systemInfo);
 
-            this.ExecuteOperate(assignExecute.Value);
+            this.ExecuteOperate(areExecute.Value);
 
             this.ExecuteSystemTypeInnEnd(systemInfo);
 
@@ -788,7 +788,7 @@ public class ClassGenTraverse : Traverse
             }
             if (!ba)
             {
-                this.ExecuteTarget(assignExecute.Target);
+                this.ExecuteTarget(areExecute.Target);
             }
 
             this.Text(this.Space);
@@ -797,7 +797,7 @@ public class ClassGenTraverse : Traverse
 
             this.ExecuteSystemTypeInnStart(systemInfo);
 
-            this.ExecuteOperate(assignExecute.Value);
+            this.ExecuteOperate(areExecute.Value);
 
             this.ExecuteSystemTypeInnEnd(systemInfo);
         }
