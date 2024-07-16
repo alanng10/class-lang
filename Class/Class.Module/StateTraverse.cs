@@ -326,19 +326,19 @@ public class StateTraverse : Traverse
         return true;
     }
 
-    public override bool ExecuteAssignExecute(AssignExecute assignExecute)
+    public override bool ExecuteAreExecute(AreExecute areExecute)
     {
-        if (assignExecute == null)
+        if (areExecute == null)
         {
             return true;
         }
 
         Target target;            
-        target = assignExecute.Target;
+        target = areExecute.Target;
         Operate value;
-        value = assignExecute.Value;
+        value = areExecute.Value;
 
-        base.ExecuteAssignExecute(assignExecute);
+        base.ExecuteAreExecute(areExecute);
 
         ClassClass targetClass;
         targetClass = null;
@@ -347,7 +347,7 @@ public class StateTraverse : Traverse
             targetClass = this.Info(target).TargetClass;
             if (targetClass == null)
             {
-                this.Error(this.ErrorKind.TargetUndefined, assignExecute);
+                this.Error(this.ErrorKind.TargetUndefined, areExecute);
             }
         }
 
@@ -358,7 +358,7 @@ public class StateTraverse : Traverse
             valueClass = this.Info(value).OperateClass;
             if (valueClass == null)
             {
-                this.Error(this.ErrorKind.ValueUndefined, assignExecute);
+                this.Error(this.ErrorKind.ValueUndefined, areExecute);
             }
         }
 
@@ -366,7 +366,7 @@ public class StateTraverse : Traverse
         {
             if (!this.CheckClass(valueClass, targetClass))
             {
-                this.Error(this.ErrorKind.ValueUnassignable, assignExecute);
+                this.Error(this.ErrorKind.ValueUnassignable, areExecute);
             }
         }
         return true;
