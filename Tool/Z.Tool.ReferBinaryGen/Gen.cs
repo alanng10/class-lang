@@ -307,6 +307,11 @@ public class Gen : Any
             global::System.Environment.Exit(143);
         }
 
+        if (type == typeof(StorageArrange))
+        {
+            return true;
+        }
+
         ClassClass a;
         a = new ClassClass();
         a.Init();

@@ -16,6 +16,7 @@ global using Stream = Avalon.Stream.Stream;
 global using Type = Avalon.Type.Type;
 global using Time = Avalon.Time.Time;
 global using Storage = Avalon.Storage.Storage;
+global using StorageArrange = Avalon.Storage.Arrange;
 global using StorageInfra = Avalon.Storage.Infra;
 global using Network = Avalon.Network.Network;
 global using Console = Avalon.Console.Console;
