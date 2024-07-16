@@ -38,6 +38,11 @@ public class Console : Any
         this.NameCheck = new NameCheck();
         this.NameCheck.Init();
 
+        this.ModuleRef = this.ClassInfra.ModuleRefCreate(null, 0);
+
+        this.ModuleRefCompare = new ModuleRefCompare();
+        this.ModuleRefCompare.Init();
+
         this.TextA = this.CreateText();
         this.TextB = this.CreateText();
 
@@ -101,6 +106,8 @@ public class Console : Any
     protected virtual Table InitModuleTable { get; set; }
     protected virtual Table InitBinaryTable { get; set; }
     protected virtual PortPort Port { get; set; }
+    protected virtual ModuleRef ModuleRef { get; set; }
+    protected virtual ModuleRefCompare ModuleRefCompare { get; set; }
     protected virtual Text TextA { get; set; }
     protected virtual Text TextB { get; set; }
     protected virtual StringData StringDataA { get; set; }
@@ -199,13 +206,25 @@ public class Console : Any
         BinaryBinary binary;
         binary = read.Binary;
 
+        read.Binary = null;
+        read.Range = null;
+        read.Data = null;
+
         if (binary == null)
         {
             this.Status = 101;
             return false;
         }
 
-        read.Binary = null;
+        ModuleRef ka;
+        ka = this.ModuleRef;
+        ka.Name = moduleName;
+
+        if (!(this.ModuleRefCompare.Execute(ka, binary.Ref) == 0))
+        {
+            this.Status = 102;
+            return false;
+        }
 
         this.ListInfra.TableAdd(this.InitBinaryTable, binary.Ref, binary);
         return true;
