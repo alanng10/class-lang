@@ -40,6 +40,8 @@ Word "case" has meaning that is one of discrete choices.
 
 Word "refer" has meaning that is declaration.
 
+Word "operate" has meaning that is work.
+
 Word "compute" has meaning that is process info.
 
 Word "memory" has meaning that is data store.
