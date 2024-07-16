@@ -237,9 +237,9 @@ public class Traverse : Any
         {
             this.ExecuteReferExecute((ReferExecute)execute);
         }
-        if (execute is AssignExecute)
+        if (execute is AreExecute)
         {
-            this.ExecuteAssignExecute((AssignExecute)execute);
+            this.ExecuteAreExecute((AreExecute)execute);
         }
         if (execute is OperateExecute)
         {
@@ -298,16 +298,16 @@ public class Traverse : Any
         return true;
     }
 
-    public virtual bool ExecuteAssignExecute(AssignExecute assignExecute)
+    public virtual bool ExecuteAreExecute(AreExecute areExecute)
     {
-        if (assignExecute == null)
+        if (areExecute == null)
         {
             return true;
         }
-        this.ExecuteNode(assignExecute);
+        this.ExecuteNode(areExecute);
 
-        this.ExecuteTarget(assignExecute.Target);
-        this.ExecuteOperate(assignExecute.Value);
+        this.ExecuteTarget(areExecute.Target);
+        this.ExecuteOperate(areExecute.Value);
         return true;
     }
 
