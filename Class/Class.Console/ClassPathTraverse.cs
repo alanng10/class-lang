@@ -401,13 +401,13 @@ public class ClassPathTraverse : Traverse
         return true;
     }
 
-    public override bool ExecuteDeclareExecute(DeclareExecute declareExecute)
+    public override bool ExecuteReferExecute(ReferExecute referExecute)
     {
-        if (declareExecute == null)
+        if (referExecute == null)
         {
             return true;
         }
-        this.ExecuteNode(declareExecute);
+        this.ExecuteNode(referExecute);
 
         if (this.HasResult())
         {
@@ -416,7 +416,7 @@ public class ClassPathTraverse : Traverse
 
         if (this.FieldEqual("Var"))
         {
-            this.ExecuteVar(declareExecute.Var);
+            this.ExecuteVar(referExecute.Var);
             return true;
         }
         return true;
