@@ -38,7 +38,7 @@ public class NodeKindList : Any
         this.InfExecute = this.AddItem("InfExecute", new InfExecute(), new InfExecuteNewState(), new InfExecuteNodeState(), new InfExecuteCreateOperateState());
         this.WhileExecute = this.AddItem("WhileExecute", new WhileExecute(), new WhileExecuteNewState(), new WhileExecuteNodeState(), new WhileExecuteCreateOperateState());
         this.ReturnExecute = this.AddItem("ReturnExecute", new ReturnExecute(), new ReturnExecuteNewState(), new ReturnExecuteNodeState(), new ReturnExecuteCreateOperateState());
-        this.DeclareExecute = this.AddItem("DeclareExecute", new DeclareExecute(), new DeclareExecuteNewState(), new DeclareExecuteNodeState(), new DeclareExecuteCreateOperateState());
+        this.ReferExecute = this.AddItem("ReferExecute", new ReferExecute(), new ReferExecuteNewState(), new ReferExecuteNodeState(), new ReferExecuteCreateOperateState());
         this.AssignExecute = this.AddItem("AssignExecute", new AssignExecute(), new AssignExecuteNewState(), new AssignExecuteNodeState(), new AssignExecuteCreateOperateState());
         this.OperateExecute = this.AddItem("OperateExecute", new OperateExecute(), new OperateExecuteNewState(), new OperateExecuteNodeState(), new OperateExecuteCreateOperateState());
         this.Argue = this.AddItem("Argue", new Argue(), new ArgueNewState(), new ArgueNodeState(), new ArgueCreateOperateState());
@@ -125,8 +125,8 @@ public class NodeKindList : Any
     protected NodeKind __D_WhileExecute;
     public virtual NodeKind ReturnExecute { get { return __D_ReturnExecute; } set { __D_ReturnExecute = value; } }
     protected NodeKind __D_ReturnExecute;
-    public virtual NodeKind DeclareExecute { get { return __D_DeclareExecute; } set { __D_DeclareExecute = value; } }
-    protected NodeKind __D_DeclareExecute;
+    public virtual NodeKind ReferExecute { get { return __D_ReferExecute; } set { __D_ReferExecute = value; } }
+    protected NodeKind __D_ReferExecute;
     public virtual NodeKind AssignExecute { get { return __D_AssignExecute; } set { __D_AssignExecute = value; } }
     protected NodeKind __D_AssignExecute;
     public virtual NodeKind OperateExecute { get { return __D_OperateExecute; } set { __D_OperateExecute = value; } }
