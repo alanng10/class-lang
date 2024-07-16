@@ -6,3 +6,5 @@ Memory has ideally minimum capacity that is
 2 ^ 20 blocks.
 
 Block is 64 kilo bytes of data.
+
+Memory space can be mapped in and mapped out for each block.
