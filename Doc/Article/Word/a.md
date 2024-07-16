@@ -44,7 +44,7 @@ Word "operate" has meaning that is work.
 
 Word "execute" has meaning that is do until done.
 
-Word "is" has meaning that is make be.
+Word "are" has meaning that is already be.
 
 Word "compute" has meaning that is process info.
 
