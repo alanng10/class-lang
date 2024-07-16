@@ -35,13 +35,13 @@ public class Gen : Any
     protected virtual TextInfra TextInfra { get; set; }
     protected virtual StorageInfra StorageInfra { get; set; }
     protected virtual ClassInfra ClassInfra { get; set; }
-    protected virtual StorageArrange StorageArrange { get; set; }
     protected virtual StringJoin StringJoin { get; set; }
     protected virtual TextCompare TextCompare { get; set; }
     protected virtual IntCompare CharCompare { get; set; }
     protected virtual string Ver { get; set; }
     protected virtual Node Root { get; set; }
     protected virtual string PageTemplate { get; set; }
+    private StorageArrange StorageArrange { get; set; }
 
     protected virtual bool InitTemplate()
     {

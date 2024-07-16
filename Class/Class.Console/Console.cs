@@ -97,7 +97,6 @@ public class Console : Any
     protected virtual TextInfra TextInfra { get; set; }
     protected virtual StorageInfra StorageInfra { get; set; }
     protected virtual ClassInfra ClassInfra { get; set; }
-    protected virtual StorageArrange StorageArrange { get; set; }
     protected virtual BinaryRead BinaryRead { get; set; }
     protected virtual ModuleLoad ModuleLoad { get; set; }
     protected virtual PortRead PortRead { get; set; }
@@ -114,6 +113,7 @@ public class Console : Any
     protected virtual StringData StringDataB { get; set; }
     protected virtual TextCompare TextCompare { get; set; }
     protected virtual Text TextNewLine { get; set; }
+    private StorageArrange StorageArrange { get; set; }
 
     public virtual bool Load()
     {
