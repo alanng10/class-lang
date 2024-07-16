@@ -9,3 +9,8 @@ Type is ideally layouted with its buttons positions at symmetrical left and righ
 Each button has the other matching button on the other side.
 
 Type is ideally used with its position at the front of, horizontally center of, and vertically below system video position.
+
+Type buttons take ideally small force to press down.
+Type buttons take ideally small force to keep pressed down.
+
+Type is easy enough to be used continuously for long duration of up to half a day.
