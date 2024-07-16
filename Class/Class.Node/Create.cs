@@ -1695,7 +1695,7 @@ public class Create : InfraCreate
         }
         if (a == null)
         {
-            a = this.ExecuteAssignExecute(this.Range(this.RangeA, start, end));
+            a = this.ExecuteAreExecute(this.Range(this.RangeA, start, end));
         }
         if (a == null)
         {
@@ -1807,7 +1807,7 @@ public class Create : InfraCreate
         return ret;
     }
 
-    public virtual Node ExecuteAssignExecute(Range range)
+    public virtual Node ExecuteAreExecute(Range range)
     {
         int start;
         int end;
@@ -1857,7 +1857,7 @@ public class Create : InfraCreate
             this.Error(this.ErrorKind.ValueInvalid, valueStart, valueEnd);
         }
 
-        this.OperateArg.Kind = this.NodeKind.AssignExecute;
+        this.OperateArg.Kind = this.NodeKind.AreExecute;
         this.OperateArg.Start = start;
         this.OperateArg.End = end;
         this.OperateArg.Field00 = target;
