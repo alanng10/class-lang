@@ -651,13 +651,13 @@ public class ClassGenTraverse : Traverse
         return true;
     }
 
-    public override bool ExecuteDeclareExecute(DeclareExecute declareExecute)
+    public override bool ExecuteReferExecute(ReferExecute referExecute)
     {
         BuiltinClass system;
         system = this.Gen.System;
 
         NodeVar nodeVar;
-        nodeVar = declareExecute.Var;
+        nodeVar = referExecute.Var;
 
         Var varVar;
         varVar = this.Info(nodeVar).Var;
