@@ -8,7 +8,7 @@ Word "maide" has meaning that is output from out after input into inn.
 
 Word "var" has meaning that is holder.
 
-Word "any" has meaning that is class of anything.
+Word "any" has meaning that is anything.
 
 Word "effect" has meaning that is output of anything.
 
