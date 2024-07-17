@@ -10,7 +10,7 @@ Class is an object oriented programming language.
 It uses classes to define any entity.
 Any entity can be defined by a class.
 Abstract of an entity is the define of the entity.
-A class can be any abstract. 
+A class can be any abstract.
 
 Class is high level programming language.
 Class does not need manual memory management when the user develops in the language.
