@@ -56,6 +56,8 @@ Word "execute" has meaning that is do until done.
 
 Word "are" has meaning that is already be.
 
+Word "stage" has meaning that is execute step.
+
 Word "compute" has meaning that is process info.
 
 Word "memory" has meaning that is data store.
