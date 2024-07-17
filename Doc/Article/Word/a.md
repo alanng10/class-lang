@@ -12,7 +12,7 @@ Word "any" has meaning that is class of anything.
 
 Word "effect" has meaning that is output of anything.
 
-Word "node" has meaning that is any entity.
+Word "node" has meaning that is entity.
 
 Word "state" has meaning that is executable entity.
 
