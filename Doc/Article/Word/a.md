@@ -56,7 +56,7 @@ Word "execute" has meaning that is do until done.
 
 Word "are" has meaning that is already be.
 
-Word "comm" has meaning that is programmed task.
+Word "console" has meaning that is programmed task.
 
 Word "stage" has meaning that is execute step.
 
