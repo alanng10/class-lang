@@ -86,7 +86,7 @@ public class Create : InfraCreate
         return true;
     }
 
-    protected virtual bool ExecuteStage()
+    public virtual bool ExecuteStage()
     {
         int count;
         count = this.CodeArray.Count;
