@@ -19,7 +19,7 @@
         <ProjectReference Include="../Avalon.Time/Avalon.Time.csproj" />
         <ProjectReference Include="../Avalon.Storage/Avalon.Storage.csproj" />
         <ProjectReference Include="../Avalon.Network/Avalon.Network.csproj" />
-        <ProjectReference Include="../Avalon.Single/Avalon.Single.csproj" />
+        <ProjectReference Include="../Avalon.Console/Avalon.Console.csproj" />
         <ProjectReference Include="../Avalon.Draw/Avalon.Draw.csproj" />
         <ProjectReference Include="../Avalon.View/Avalon.View.csproj" />
         <ProjectReference Include="../Avalon.Media/Avalon.Media.csproj" />
