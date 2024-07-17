@@ -1,4 +1,4 @@
-namespace Avalon.Console;
+namespace Avalon.Single;
 
 public class StringOut : Out
 {
