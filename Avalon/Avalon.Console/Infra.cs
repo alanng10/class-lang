@@ -1,4 +1,4 @@
-namespace Avalon.Single;
+namespace Avalon.Console;
 
 class Infra : Any
 {

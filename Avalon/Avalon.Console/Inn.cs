@@ -1,4 +1,4 @@
-namespace Avalon.Single;
+namespace Avalon.Console;
 
 public class Inn : Any
 {
