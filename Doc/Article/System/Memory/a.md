@@ -1,6 +1,6 @@
 # System Memory
 
-System has memory that is data store.
+System has memory that is used to store any data.
 
 Memory has ideally minimum capacity that is 
 2 ^ 20 blocks.
