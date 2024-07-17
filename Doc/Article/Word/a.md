@@ -12,6 +12,8 @@ Word "any" has meaning that is class of anything.
 
 Word "effect" has meaning that is output of anything.
 
+Word "node" has meaning that is any entity.
+
 Word "state" has meaning that is executable entity.
 
 Word "count" has meaning that is applied.
