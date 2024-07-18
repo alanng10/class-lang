@@ -62,8 +62,8 @@ class Demo : Any
         this.ExecuteDemoInterval();
         this.ExecutePost();
 
-        this.ExecuteNetwork();
-        this.ExecuteNetworkProcess();
+        // this.ExecuteNetwork();
+        // this.ExecuteNetworkProcess();
 
         this.Frame = new Frame();
         this.Frame.Init();
