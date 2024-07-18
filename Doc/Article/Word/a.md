@@ -62,6 +62,10 @@ Word "stage" has meaning that is execute step.
 
 Word "list" has meaning that is integer multiple.
 
+Word "draw" has meaning that is comp video.
+
+Word "tune" has meaning that is comp audio.
+
 Word "compute" has meaning that is process info.
 
 Word "memory" has meaning that is data store.
