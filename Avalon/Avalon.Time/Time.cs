@@ -139,21 +139,6 @@ public class Time : Any
         }
     }
 
-    public virtual bool LocalTime
-    {
-        get
-        {
-            ulong u;
-            u = Extern.Time_LocalTimeGet(this.Intern);
-            bool a;
-            a = (!(u == 0));
-            return a;
-        }
-        set
-        {
-        }
-    }
-
     public virtual int YearDay
     {
         get
@@ -217,12 +202,6 @@ public class Time : Any
     public virtual bool Current()
     {
         Extern.Time_Current(this.Intern);
-        return true;
-    }
-
-    public virtual bool ToLocalTime()
-    {
-        Extern.Time_ToLocalTime(this.Intern);
         return true;
     }
 
@@ -354,7 +333,7 @@ public class Time : Any
         return a;
     }
 
-    public virtual bool Set(int year, int month, int day, int hour, int minute, int second, int millisecond, bool isLocalTime, int offsetUtc)
+    public virtual bool Set(int year, int month, int day, int hour, int minute, int second, int millisecond, int offsetUtc)
     {
         ulong yearU;
         ulong monthU;
@@ -372,7 +351,7 @@ public class Time : Any
         minuteU = (ulong)minute;
         secondU = (ulong)second;
         millisecondU = (ulong)millisecond;
-        isLocalTimeU = (ulong)(isLocalTime ? 1 : 0);
+        isLocalTimeU = 0;
         offsetUtcU = (ulong)offsetUtc;
 
         Extern.Time_Set(this.Intern, yearU, monthU, dayU, hourU, minuteU, secondU, millisecondU, isLocalTimeU, offsetUtcU);
