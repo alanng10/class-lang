@@ -575,9 +575,6 @@ class Demo : Any
         time.AddMillisecond(200 * 1000);
         this.ConsoleWriteTime("Demo.ExecuteTime time AddMillisecond ", time);
 
-        time.ToLocalTime();
-        this.ConsoleWriteTime("Demo.ExecuteTime time ToLocalTime ", time);
-
         time.Final();
         return true;
     }
@@ -592,8 +589,7 @@ class Demo : Any
         "minute: " + time.Minute + ", " +
         "second: " + time.Second + ", " +
         "millisecond: " + time.Millisecond + ", " +
-        "offsetUtc: " + time.OffsetUtc + ", " +
-        "localTime: " + time.LocalTime.ToString().ToLower() +
+        "offsetUtc: " + time.OffsetUtc + 
         "\n");
         return true;
     }
