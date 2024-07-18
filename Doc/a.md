@@ -24,7 +24,7 @@ The module binary is a C# assembly binary.
 The module binary is executed on .NET runtime.
 
 Class has documentation that includes programming guide, system architecture, and API reference.
-
+ 
 Class as a platform is best platform to develop because it has best and easiest use lang elements and builtin infra.
 It is also best to make abstract.
 Class modules can abstract any effect. It is best to abstract any effect.
