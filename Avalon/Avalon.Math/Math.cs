@@ -8,15 +8,6 @@ public class Math : Any
         this.InternIntern = InternIntern.This;
         this.InternMathCompose = new InternMathCompose();
         this.InternMathCompose.Init();
-        this.Intern = Extern.Math_New();
-        Extern.Math_Init(this.Intern);
-        return true;
-    }
-
-    public virtual bool Final()
-    {
-        Extern.Math_Final(this.Intern);
-        Extern.Math_Delete(this.Intern);
         return true;
     }
 
