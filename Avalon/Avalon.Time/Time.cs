@@ -1,7 +1,7 @@
 namespace Avalon.Time;
 
 public class Time : Any
-{
+{ 
     public override bool Init()
     {
         base.Init();
