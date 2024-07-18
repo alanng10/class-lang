@@ -1,5 +1,7 @@
 #pragma once
 
+#include <QBrush>
+
 #include "Probate.hpp"
 
 struct GradientStopPoint
@@ -11,7 +13,7 @@ struct GradientStopPoint
 struct GradientStop
 {
     Int Count;
-    Int Data;
+    QGradientStops* Intern;
 };
 
 #define CP(a) ((GradientStop*)(a))
