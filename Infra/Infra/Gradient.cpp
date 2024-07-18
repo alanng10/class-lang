@@ -50,19 +50,16 @@ Int Gradient_Init(Int o)
         u = ua;
     }
 
-    QGradientStops ao;
+    Int uaa;
+    uaa = GradientStop_Intern(stop);
 
-    QGradientStops* po;
-    po = &ao;
-    Int au;
-    au = CastInt(po);
-
-    Gradient_InternStopSet(au, stop);
+    QGradientStops* stopU;
+    stopU = (QGradientStops*)uaa;
 
     QGradient::Spread spreadU;
     spreadU = (QGradient::Spread)(spread - 1);
 
-    u->setStops(ao);
+    u->setStops(*stopU);
 
     u->setSpread(spreadU);
 
@@ -79,71 +76,6 @@ CppField(Gradient, Kind)
 CppField(Gradient, Value)
 CppField(Gradient, Stop)
 CppField(Gradient, Spread)
-
-Int Gradient_InternStopPointSet(Int result, Int pos, Int color)
-{
-    Int posUu;
-    posUu = InternValueGet(pos);
-    qreal posU;
-    posU = CastIntToDouble(posUu);
-
-    Int32 colorUa;
-    colorUa = (Int32)color;
-    QRgb colorUb;
-    colorUb = colorUa;
-    QColor colorU;
-    colorU = QColor(colorUb);
-
-    QGradientStop* uu;
-    uu = (QGradientStop*)result;
-
-    *uu = QGradientStop();
-
-    uu->first = posU;
-    uu->second = colorU;
-    return true;
-}
-
-Int Gradient_InternStopSet(Int result, Int stop)
-{
-    QGradientStops* ua;
-    ua = (QGradientStops*)result;
-
-    Int count;
-    count = GradientStop_CountGet(stop);
-
-    qsizetype countU;
-    countU = count;
-
-    *ua = QGradientStops();
-
-    ua->reserve(countU);
-
-    Int i;
-    i = 0;
-    while (i < count)
-    {
-        Int pos;
-        Int color;
-        Int posU;
-        Int colorU;
-        posU = CastInt(&pos);
-        colorU = CastInt(&color);
-
-        GradientStop_PointGet(stop, i, posU, colorU);
-
-        QGradientStop aa;
-        Int pa;
-        pa = CastInt(&aa);
-
-        Gradient_InternStopPointSet(pa, pos, color);
-
-        ua->append(aa);
-
-        i = i + 1;
-    }
-    return true;
-}
 
 Int Gradient_Intern(Int o)
 {
