@@ -43,6 +43,8 @@ Int GradientLinear_Intern(Int o);
 
 Int GradientRadial_Intern(Int o);
 
+Int GradientStop_Intern(Int o);
+
 Int VideoOut_Intern(Int o);
 Int VideoOut_FrameChange(Int o);
 

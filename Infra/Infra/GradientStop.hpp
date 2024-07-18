@@ -17,5 +17,3 @@ struct GradientStop
 };
 
 #define CP(a) ((GradientStop*)(a))
-
-Int GradientStop_PointAddress(Int o, Int index);

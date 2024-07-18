@@ -93,3 +93,12 @@ Int GradientStop_PointSet(Int o, Int index, Int pos, Int color)
     uu->second = colorU;
     return true;
 }
+
+Int GradientStop_Intern(Int o)
+{
+    GradientStop* m;
+    m = CP(o);
+    Int a;
+    a = CastInt(m->Intern);
+    return a;
+}
