@@ -39,13 +39,14 @@ Int GradientStop_PointGet(Int o, Int index, Int pos, Int color)
 
     qreal posU;
     posU = uu->first;
+    QColor colorU;
+    colorU = uu->second;
+
     Int posUu;
     posUu = CastDoubleToInt(posU);
     Int posA;
     posA = ValueGetFromInternValue(posUu);
 
-    QColor colorU;
-    colorU = uu->second;
     QRgb colorUu;
     colorUu = colorU.rgba();
     Int32 colorUa;
@@ -84,7 +85,7 @@ Int GradientStop_PointSet(Int o, Int index, Int pos, Int color)
     colorU = QColor(colorUb);
 
     QGradientStop* uu;
-    uu = (QGradientStop*)&(m->Intern->at(indexU));
+    uu = (QGradientStop*)(&(m->Intern->at(indexU)));
 
     *uu = QGradientStop();
 
