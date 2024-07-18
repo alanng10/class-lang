@@ -7,15 +7,6 @@ class ConsoleIntern : Any
         base.Init();
         this.InternIntern = InternIntern.This;
         this.InternInfra = InternInfra.This;
-        this.Intern = Extern.Console_New();
-        Extern.Console_Init(this.Intern);
-        return true;
-    }
-
-    public virtual bool Final()
-    {
-        Extern.Console_Final(this.Intern);
-        Extern.Console_Delete(this.Intern);
         return true;
     }
 
