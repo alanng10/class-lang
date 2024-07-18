@@ -1293,7 +1293,7 @@ class Demo : Any
     {
         aa.Pos = pos;
         aa.Color = color;
-        stop.SetPoint(index, aa);
+        stop.PointSet(index, aa);
         return true;
     }
 
