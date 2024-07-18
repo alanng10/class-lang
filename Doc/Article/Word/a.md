@@ -60,6 +60,8 @@ Word "console" has meaning that is programmed task.
 
 Word "stage" has meaning that is execute step.
 
+Word "list" has meaning that is integer multiple.
+
 Word "compute" has meaning that is process info.
 
 Word "memory" has meaning that is data store.
