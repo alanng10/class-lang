@@ -14,3 +14,7 @@ Type buttons take ideally small force to press down.
 Type buttons take ideally small force to keep pressed down.
 
 Type is easy to be used continuously for long duration of up to half a day for 629 days.
+
+Letters on Type buttons are capital letters.
+Lower case letters are not shown on Type.
+Letters on Type buttons are differentiated from lower case letters.
