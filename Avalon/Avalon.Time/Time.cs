@@ -322,6 +322,31 @@ public class Time : Any
         return !(value < 1 | k < value);
     }
 
+    protected virtual bool CheckHour(int value)
+    {
+        return this.CheckTimeUnit(24, value);
+    }
+
+    protected virtual bool CheckMinute(int value)
+    {
+        return this.CheckTimeUnit(60, value);
+    }
+
+    protected virtual bool CheckSecond(int value)
+    {
+        return this.CheckTimeUnit(60, value);
+    }
+
+    protected virtual bool CheckMillisecond(int value)
+    {
+        return this.CheckTimeUnit(1000, value);
+    }
+
+    private bool CheckTimeUnit(int count, int value)
+    {
+        return !(value < 0) & (value < count);
+    }
+
     private long SystemTickTo(Time other)
     {
         long ka;
