@@ -1168,7 +1168,7 @@ class Demo : Any
         return a;
     }
 
-    private bool FontFinal(DrawFace a)
+    private bool FaceFinal(DrawFace a)
     {
         a.Final();
         return true;
@@ -1273,7 +1273,7 @@ class Demo : Any
 
         this.TextPenFinal(textPen);
 
-        this.FontFinal(font);
+        this.FaceFinal(font);
 
         this.EllipseBrushFinal(ellipseBrush);
 
