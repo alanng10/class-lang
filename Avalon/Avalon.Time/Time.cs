@@ -298,7 +298,14 @@ public class Time : Any
             return false;
         }
 
+        if (!this.CheckOffsetUtc(offsetUtc))
+        {
+            return false;
+        }
+
         this.Intern = new DateTime(year, month, day, hour, minute, second, millisecond, DateTimeKind.Local);
+
+        this.Offset = offsetUtc;
         return true;
     }
 
