@@ -158,7 +158,17 @@ public class Time : Any
 
     public virtual bool ToOffsetUtc(int offset)
     {
+        if (!this.CheckOffsetUtc(offset))
+        {
+            return false;
+        }
 
+        int k;
+        k = offset - this.Offset; 
+
+        this.AddSecond(k);
+
+        this.Offset = offset;
         return true;
     }
 
@@ -349,7 +359,11 @@ public class Time : Any
 
     protected virtual bool CheckOffsetUtc(int value)
     {
-        return this.CheckTimeCount(this.TimeInfra.DaySecondCount, value);
+        int k;
+        k = this.TimeInfra.DaySecondCount;
+        k = k / 2;
+
+        return !(value < -k | k < value);
     }
 
     private bool CheckTimeCount(int count, int value)
