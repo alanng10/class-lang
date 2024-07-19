@@ -1153,7 +1153,7 @@ class Demo : Any
         return true;
     }
 
-    private DrawFace FontCreate()
+    private DrawFace FaceCreate()
     {
         DrawFace a;
         a = new DrawFace();
@@ -1222,7 +1222,7 @@ class Demo : Any
         ellipseBrush = this.EllipseBrushCreate();
 
         DrawFace font;
-        font = this.FontCreate();
+        font = this.FaceCreate();
 
         DrawPen textPen;
         textPen = this.TextPenCreate();
