@@ -6,6 +6,8 @@ public class Time : Any
     {
         base.Init();
         this.TimeInfra = Infra.This;
+
+        this.Intern = DateTime.MinValue;
         return true;
     }
 
