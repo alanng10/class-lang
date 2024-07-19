@@ -123,19 +123,19 @@ public class Time : Any
         }
     }
 
-    public virtual int YearDayCount
+    public virtual bool LeapYear(int year)
     {
-        get
+        if (this.CheckYear(year))
         {
-            ulong u;
-            u = Extern.Time_YearDayCountGet(this.Intern);
-            int a;
-            a = (int)u;
-            return a;
+            return false;
         }
-        set
-        {
-        }
+
+        return DateTime.IsLeapYear(year);
+    }
+
+    protected virtual bool CheckYear(int value)
+    {
+        return !(value < 1 | 9999 < value);
     }
 
     public virtual int MonthDayCount
