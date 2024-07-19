@@ -25,6 +25,14 @@ class Infra : Any
 
         this.DaySystemTickCount = TimeSpan.TicksPerDay;
 
+        this.HourSystemTickCount = TimeSpan.TicksPerHour;
+
+        this.MinuteSystemTickCount = TimeSpan.TicksPerMinute;
+
+        this.SecondSystemTickCount = TimeSpan.TicksPerSecond;
+
+        this.MillisecondSystemTickCount = TimeSpan.TicksPerMillisecond;
+
         this.SystemTickMin = DateTime.MinValue.Ticks;
         this.SystemTickMax = DateTime.MaxValue.Ticks;
         return true;
@@ -33,6 +41,14 @@ class Infra : Any
     public virtual MaideAddress IntervalElapseMaideAddress { get; set; }
 
     public virtual long DaySystemTickCount { get; set; }
+
+    public virtual long HourSystemTickCount { get; set; }
+
+    public virtual long MinuteSystemTickCount { get; set; }
+
+    public virtual long SecondSystemTickCount { get; set; }
+
+    public virtual long MillisecondSystemTickCount { get; set; }
 
     public virtual long SystemTickMin { get; set; }
 
