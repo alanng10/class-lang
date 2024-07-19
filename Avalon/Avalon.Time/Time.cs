@@ -288,26 +288,17 @@ public class Time : Any
 
     public virtual bool Set(int year, int month, int day, int hour, int minute, int second, int millisecond, int offsetUtc)
     {
-        ulong yearU;
-        ulong monthU;
-        ulong dayU;
-        ulong hourU;
-        ulong minuteU;
-        ulong secondU;
-        ulong millisecondU;
-        ulong isLocalTimeU;
-        ulong offsetUtcU;
-        yearU = (ulong)year;
-        monthU = (ulong)month;
-        dayU = (ulong)day;
-        hourU = (ulong)hour;
-        minuteU = (ulong)minute;
-        secondU = (ulong)second;
-        millisecondU = (ulong)millisecond;
-        isLocalTimeU = 0;
-        offsetUtcU = (ulong)offsetUtc;
+        if (!this.ValidDate(year, month, day))
+        {
+            return false;
+        }
 
-        Extern.Time_Set(this.Intern, yearU, monthU, dayU, hourU, minuteU, secondU, millisecondU, isLocalTimeU, offsetUtcU);
+        if (!this.ValidTime(hour, minute, second, millisecond))
+        {
+            return false;
+        }
+
+        this.Intern = new DateTime(year, month, day, hour, minute, second, millisecond, DateTimeKind.Local);
         return true;
     }
 
@@ -331,25 +322,30 @@ public class Time : Any
 
     protected virtual bool CheckHour(int value)
     {
-        return this.CheckTimeUnit(24, value);
+        return this.CheckTimeCount(24, value);
     }
 
     protected virtual bool CheckMinute(int value)
     {
-        return this.CheckTimeUnit(60, value);
+        return this.CheckTimeCount(60, value);
     }
 
     protected virtual bool CheckSecond(int value)
     {
-        return this.CheckTimeUnit(60, value);
+        return this.CheckTimeCount(60, value);
     }
 
     protected virtual bool CheckMillisecond(int value)
     {
-        return this.CheckTimeUnit(1000, value);
+        return this.CheckTimeCount(1000, value);
     }
 
-    private bool CheckTimeUnit(int count, int value)
+    protected virtual bool CheckOffsetUtc(int value)
+    {
+        return this.CheckTimeCount(this.TimeInfra.DaySecondCount, value);
+    }
+
+    private bool CheckTimeCount(int count, int value)
     {
         return !(value < 0) & (value < count);
     }
