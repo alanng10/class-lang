@@ -198,11 +198,17 @@ public class Time : Any
 
     public virtual long DayTo(Time other)
     {
-        ulong u;
-        u = Extern.Time_DayTo(this.Intern, other.Intern);
-        long a;
-        a = (long)u;
-        return a;
+        long ka;
+        ka = this.Intern.Ticks;
+        long kb;
+        kb = other.Intern.Ticks;
+
+        long k;
+        k = kb - ka;
+        
+        k = k / this.TimeInfra.DaySystemTickCount;
+        
+        return k;
     }
 
     public virtual bool ValidDate(int year, int month, int day)
