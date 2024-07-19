@@ -243,18 +243,22 @@ public class Time : Any
 
     public virtual bool ValidDate(int year, int month, int day)
     {
-        ulong yearU;
-        ulong monthU;
-        ulong dayU;
-        yearU = (ulong)year;
-        monthU = (ulong)month;
-        dayU = (ulong)day;
-        ulong u;
-        u = Extern.Time_ValidDate(yearU, monthU, dayU);
+        if (!this.CheckYear(year))
+        {
+            return false;
+        }
 
-        bool a;
-        a = (!(u == 0));
-        return a;
+        if (!this.CheckMonth(month))
+        {
+            return false;
+        }
+
+        if (!this.CheckDay(year, month, day))
+        {
+            return false;
+        }
+
+        return true;
     }
 
     public virtual bool ValidTime(int hour, int minute, int second, int millisecond)
@@ -308,6 +312,14 @@ public class Time : Any
     protected virtual bool CheckMonth(int value)
     {
         return !(value < 1 | 12 < value);
+    }
+
+    protected virtual bool CheckDay(int year, int month, int value)
+    {
+        int k;
+        k = this.MonthDayCount(year, month);
+
+        return !(value < 1 | k < value);
     }
 
     private long SystemTickTo(Time other)
