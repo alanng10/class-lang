@@ -35,6 +35,16 @@ class Infra : Any
 
         this.SystemTickMin = DateTime.MinValue.Ticks;
         this.SystemTickMax = DateTime.MaxValue.Ticks;
+
+        double k;
+        k = this.DaySystemTickCount;
+
+        long ka;
+        ka = 1 << 30;
+
+        k = k / ka;
+
+        this.SystemTickPerTick = k;
         return true;
     }
 
@@ -53,4 +63,6 @@ class Infra : Any
     public virtual long SystemTickMin { get; set; }
 
     public virtual long SystemTickMax { get; set; }
+
+    public virtual double SystemTickPerTick { get; set; }
 }
