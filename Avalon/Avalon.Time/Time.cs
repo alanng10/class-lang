@@ -160,15 +160,13 @@ public class Time : Any
 
     public virtual bool Current()
     {
-        Extern.Time_Current(this.Intern);
+        this.Intern = DateTime.UtcNow;
         return true;
     }
 
     public virtual bool ToOffsetUtc(int offset)
     {
-        ulong u;        
-        u = (ulong)offset;
-        Extern.Time_ToOffsetUtc(this.Intern, u);
+
         return true;
     }
 
