@@ -124,18 +124,18 @@ public class ButtonList : Any
         //this.ControlScrollLock = this.AddControlButton();
 
         this.ControlIndex = 0x30;
-        this.ControlF1 = this.AddControlButton();
-        this.ControlF2 = this.AddControlButton();
-        this.ControlF3 = this.AddControlButton();
-        this.ControlF4 = this.AddControlButton();
-        this.ControlF5 = this.AddControlButton();
-        this.ControlF6 = this.AddControlButton();
-        this.ControlF7 = this.AddControlButton();
-        this.ControlF8 = this.AddControlButton();
-        this.ControlF9 = this.AddControlButton();
-        this.ControlF10 = this.AddControlButton();
-        this.ControlF11 = this.AddControlButton();
-        this.ControlF12 = this.AddControlButton();
+        // this.ControlF1 = this.AddControlButton();
+        // this.ControlF2 = this.AddControlButton();
+        // this.ControlF3 = this.AddControlButton();
+        // this.ControlF4 = this.AddControlButton();
+        // this.ControlF5 = this.AddControlButton();
+        // this.ControlF6 = this.AddControlButton();
+        // this.ControlF7 = this.AddControlButton();
+        // this.ControlF8 = this.AddControlButton();
+        // this.ControlF9 = this.AddControlButton();
+        // this.ControlF10 = this.AddControlButton();
+        // this.ControlF11 = this.AddControlButton();
+        // this.ControlF12 = this.AddControlButton();
         return true;
     }
 
@@ -178,12 +178,12 @@ public class ButtonList : Any
     public virtual Button Digit9 { get; set; }
 
     public virtual Button SignSpace { get; set; }
-    public virtual Button SignBackTick { get; set; }
+    // public virtual Button SignBackTick { get; set; }
     public virtual Button SignTilde { get; set; }
     public virtual Button SignExclamate { get; set; }
-    public virtual Button SignAt { get; set; }
+    // public virtual Button SignAt { get; set; }
     public virtual Button SignHash { get; set; }
-    public virtual Button SignDollar { get; set; }
+    // public virtual Button SignDollar { get; set; }
     public virtual Button SignPercent { get; set; }
     public virtual Button SignCaret { get; set; }
     public virtual Button SignAmpersand { get; set; }
@@ -211,128 +211,40 @@ public class ButtonList : Any
     public virtual Button SignBackSlash { get; set; }
     public virtual Button SignVerticalBar { get; set; }
 
-    public virtual Button ControlEscape { get; set; }
+    // public virtual Button ControlEscape { get; set; }
     public virtual Button ControlTab { get; set; }
     public virtual Button ControlBackSpace { get; set; }
     public virtual Button ControlEnter { get; set; }
-    public virtual Button ControlInsert { get; set; }
-    public virtual Button ControlDelete { get; set; }
-    public virtual Button ControlPause { get; set; }
-    public virtual Button ControlPrint { get; set; }
-    public virtual Button ControlHome { get; set; }
-    public virtual Button ControlEnd { get; set; }
-    public virtual Button ControlLeft { get; set; }
-    public virtual Button ControlUp { get; set; }
-    public virtual Button ControlRight { get; set; }
-    public virtual Button ControlDown { get; set; }
-    public virtual Button ControlPageUp { get; set; }
-    public virtual Button ControlPageDown { get; set; }
+    // public virtual Button ControlInsert { get; set; }
+    // public virtual Button ControlDelete { get; set; }
+    // public virtual Button ControlPause { get; set; }
+    // public virtual Button ControlPrint { get; set; }
+    // public virtual Button ControlHome { get; set; }
+    // public virtual Button ControlEnd { get; set; }
+    // public virtual Button ControlLeft { get; set; }
+    // public virtual Button ControlUp { get; set; }
+    // public virtual Button ControlRight { get; set; }
+    // public virtual Button ControlDown { get; set; }
+    // public virtual Button ControlPageUp { get; set; }
+    // public virtual Button ControlPageDown { get; set; }
     public virtual Button ControlShift { get; set; }
     public virtual Button ControlControl { get; set; }
-    public virtual Button ControlAlt { get; set; }
-    public virtual Button ControlCapsLock { get; set; }
-    public virtual Button ControlNumLock { get; set; }
-    public virtual Button ControlScrollLock { get; set; }
-    public virtual Button ControlF1 { get; set; }
-    public virtual Button ControlF2 { get; set; }
-    public virtual Button ControlF3 { get; set; }
-    public virtual Button ControlF4 { get; set; }
-    public virtual Button ControlF5 { get; set; }
-    public virtual Button ControlF6 { get; set; }
-    public virtual Button ControlF7 { get; set; }
-    public virtual Button ControlF8 { get; set; }
-    public virtual Button ControlF9 { get; set; }
-    public virtual Button ControlF10 { get; set; }
-    public virtual Button ControlF11 { get; set; }
-    public virtual Button ControlF12 { get; set; }
-
-    public virtual Button LeftUp
-    {
-        get
-        {
-            return this.LetterW;
-        }
-        set
-        {
-        }
-    }
-
-    public virtual Button LeftDown
-    {
-        get
-        {
-            return this.LetterS;
-        }
-        set
-        {
-        }
-    }
-
-    public virtual Button LeftLeft
-    {
-        get
-        {
-            return this.LetterA;
-        }
-        set
-        {
-        }
-    }
-
-    public virtual Button LeftRight
-    {
-        get
-        {
-            return this.LetterD;
-        }
-        set
-        {
-        }
-    }
-
-    public virtual Button RightUp
-    {
-        get
-        {
-            return this.LetterI;
-        }
-        set
-        {
-        }
-    }
-
-    public virtual Button RightDown
-    {
-        get
-        {
-            return this.LetterK;
-        }
-        set
-        {
-        }
-    }
-
-    public virtual Button RightLeft
-    {
-        get
-        {
-            return this.LetterJ;
-        }
-        set
-        {
-        }
-    }
-
-    public virtual Button RightRight
-    {
-        get
-        {
-            return this.LetterL;
-        }
-        set
-        {
-        }
-    }
+    // public virtual Button ControlAlt { get; set; }
+    // public virtual Button ControlCapsLock { get; set; }
+    // public virtual Button ControlNumLock { get; set; }
+    // public virtual Button ControlScrollLock { get; set; }
+    // public virtual Button ControlF1 { get; set; }
+    // public virtual Button ControlF2 { get; set; }
+    // public virtual Button ControlF3 { get; set; }
+    // public virtual Button ControlF4 { get; set; }
+    // public virtual Button ControlF5 { get; set; }
+    // public virtual Button ControlF6 { get; set; }
+    // public virtual Button ControlF7 { get; set; }
+    // public virtual Button ControlF8 { get; set; }
+    // public virtual Button ControlF9 { get; set; }
+    // public virtual Button ControlF10 { get; set; }
+    // public virtual Button ControlF11 { get; set; }
+    // public virtual Button ControlF12 { get; set; }
 
     protected virtual TextInfra TextInfra { get; set; }
 
