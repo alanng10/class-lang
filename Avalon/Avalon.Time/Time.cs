@@ -164,52 +164,27 @@ public class Time : Any
 
     public virtual bool AddDay(long offset)
     {
-        long o;
-        o = offset * this.TimeInfra.DaySystemTickCount;
-
-        long k;
-        k = this.Intern.Ticks;
-        k = k + o;
-
-        if (!this.CheckSystemTick(k))
-        {
-            return false;
-        }
-        
-        this.Intern = new DateTime(k, DateTimeKind.Utc);
-        return true;
+        return this.AddOffset(offset, this.TimeInfra.DaySystemTickCount);
     }
 
     public virtual bool AddHour(long offset)
     {
-        ulong u;
-        u = (ulong)offset;
-        Extern.Time_AddHour(this.Intern, u);
-        return true;
+        return this.AddOffset(offset, this.TimeInfra.HourSystemTickCount);
     }
 
     public virtual bool AddMinute(long offset)
     {
-        ulong u;
-        u = (ulong)offset;
-        Extern.Time_AddMinute(this.Intern, u);
-        return true;
+        return this.AddOffset(offset, this.TimeInfra.MinuteSystemTickCount);
     }
 
     public virtual bool AddSecond(long offset)
     {
-        ulong u;
-        u = (ulong)offset;
-        Extern.Time_AddSecond(this.Intern, u);
-        return true;
+        return this.AddOffset(offset, this.TimeInfra.SecondSystemTickCount);
     }
 
     public virtual bool AddMillisecond(long offset)
     {
-        ulong u;
-        u = (ulong)offset;
-        Extern.Time_AddMillisecond(this.Intern, u);
-        return true;
+        return this.AddOffset(offset, this.TimeInfra.MillisecondSystemTickCount);
     }
 
     public virtual long MillisecondTo(Time other)
@@ -297,6 +272,29 @@ public class Time : Any
     protected virtual bool CheckMonth(int value)
     {
         return !(value < 1 | 12 < value);
+    }
+
+    private DateTime GetDateTime(long tick)
+    {
+        return new DateTime(tick, DateTimeKind.Utc);
+    }
+
+    private bool AddOffset(long offset, long offsetScale)
+    {
+        long o;
+        o = offset * offsetScale;
+
+        long k;
+        k = this.Intern.Ticks;
+        k = k + o;
+
+        if (!this.CheckSystemTick(k))
+        {
+            return false;
+        }
+
+        this.Intern = this.GetDateTime(k);
+        return true;
     }
 
     private bool CheckSystemTick(long value)
