@@ -64,6 +64,8 @@ Word "list" has meaning that is integer multiple.
 
 Word "table" has meaning that is entry map.
 
+Word "array" has meaning that is indexed list.
+
 Word "face" has meaning that is char style.
 
 Word "draw" has meaning that is comp video.
