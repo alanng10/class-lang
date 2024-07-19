@@ -1153,10 +1153,10 @@ class Demo : Any
         return true;
     }
 
-    private DrawFont FontCreate()
+    private DrawFace FontCreate()
     {
-        DrawFont a;
-        a = new DrawFont();
+        DrawFace a;
+        a = new DrawFace();
         a.Family = "Source Code Pro";
         a.Size = 20;
         a.Weight = 400;
@@ -1168,7 +1168,7 @@ class Demo : Any
         return a;
     }
 
-    private bool FontFinal(DrawFont a)
+    private bool FontFinal(DrawFace a)
     {
         a.Final();
         return true;
@@ -1221,7 +1221,7 @@ class Demo : Any
         DrawBrush ellipseBrush;
         ellipseBrush = this.EllipseBrushCreate();
 
-        DrawFont font;
+        DrawFace font;
         font = this.FontCreate();
 
         DrawPen textPen;
@@ -1268,7 +1268,7 @@ class Demo : Any
         DrawGradientLinear gradientLinear;
         gradientLinear = gradient.Linear;
 
-        DrawFont font;
+        DrawFace font;
         font = a.Font;
 
         this.TextPenFinal(textPen);

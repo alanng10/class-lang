@@ -22,7 +22,7 @@ class ViewC : View
 
     public DrawRect EllipseRect { get; set; }
     public DrawBrush EllipseBrush { get; set; }
-    public DrawFont Font { get; set; }
+    public DrawFace Font { get; set; }
     public DrawTextAlign TextAlign { get; set; }
     public Text Text { get; set; }
     public DrawPen TextPen { get; set; }
