@@ -127,6 +127,24 @@ public class Time : Any
         }
     }
 
+    public virtual long Tick
+    {
+        get
+        {
+            double k;
+            k = this.Intern.Ticks;
+
+            k = k / this.TimeInfra.SystemTickPerTick;
+
+            long a;
+            a = (long)k;
+            return a;
+        }
+        set
+        {
+        }
+    }
+
     public virtual bool LeapYear(int year)
     {
         if (!this.CheckYear(year))
