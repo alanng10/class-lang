@@ -162,6 +162,28 @@ public class Time : Any
         return true;
     }
 
+    public virtual bool AddTick(long offset)
+    {
+        double ka;
+        ka = offset;
+        ka = ka * this.TimeInfra.SystemTickPerTick;
+
+        double k;
+        k = this.Intern.Ticks;
+        k = k + ka;
+
+        long aa;
+        aa = (long)k;
+
+        if (!this.CheckSystemTick(aa))
+        {
+            return false;
+        }
+
+        this.Intern = this.GetDateTime(aa);
+        return true;
+    }
+
     public virtual bool AddDay(long offset)
     {
         return this.AddOffset(offset, this.TimeInfra.DaySystemTickCount);
