@@ -62,6 +62,8 @@ Word "stage" has meaning that is execute step.
 
 Word "list" has meaning that is integer multiple.
 
+Word "table" has meaning that is entry map.
+
 Word "face" has meaning that is char style.
 
 Word "draw" has meaning that is comp video.
