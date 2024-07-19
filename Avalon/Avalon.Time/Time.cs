@@ -189,25 +189,19 @@ public class Time : Any
 
     public virtual long MillisecondTo(Time other)
     {
-        ulong u;
-        u = Extern.Time_MillisecondTo(this.Intern, other.Intern);
-        long a;
-        a = (long)u;
-        return a;
+        long k;
+        k = this.SystemTickTo(other);
+
+        k = k / this.TimeInfra.MillisecondSystemTickCount;
+        return k;
     }
 
     public virtual long DayTo(Time other)
     {
-        long ka;
-        ka = this.Intern.Ticks;
-        long kb;
-        kb = other.Intern.Ticks;
-
         long k;
-        k = kb - ka;
+        k = this.SystemTickTo(other);
         
         k = k / this.TimeInfra.DaySystemTickCount;
-        
         return k;
     }
 
@@ -278,6 +272,18 @@ public class Time : Any
     protected virtual bool CheckMonth(int value)
     {
         return !(value < 1 | 12 < value);
+    }
+
+    private long SystemTickTo(Time other)
+    {
+        long ka;
+        ka = this.Intern.Ticks;
+        long kb;
+        kb = other.Intern.Ticks;
+
+        long k;
+        k = kb - ka;
+        return k;
     }
 
     private DateTime GetDateTime(long tick)
