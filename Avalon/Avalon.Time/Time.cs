@@ -152,7 +152,7 @@ public class Time : Any
 
     public virtual bool Current()
     {
-        this.Intern = DateTime.UtcNow;
+        this.Intern = DateTime.Now;
         return true;
     }
 
@@ -288,7 +288,7 @@ public class Time : Any
 
     private DateTime GetDateTime(long tick)
     {
-        return new DateTime(tick, DateTimeKind.Utc);
+        return new DateTime(tick, DateTimeKind.Local);
     }
 
     private bool AddOffset(long offset, long offsetScale)
