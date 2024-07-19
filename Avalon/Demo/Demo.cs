@@ -1221,8 +1221,8 @@ class Demo : Any
         DrawBrush ellipseBrush;
         ellipseBrush = this.EllipseBrushCreate();
 
-        DrawFace font;
-        font = this.FaceCreate();
+        DrawFace face;
+        face = this.FaceCreate();
 
         DrawPen textPen;
         textPen = this.TextPenCreate();
@@ -1246,7 +1246,7 @@ class Demo : Any
         viewC.Back = brush;
         viewC.EllipseBrush = ellipseBrush;
         viewC.EllipseRect = this.DrawInfra.RectCreate(0, 0, 100, 50);
-        viewC.Face = font;
+        viewC.Face = face;
         viewC.Text = text;
         viewC.TextAlign = textAlignList.CenterUp;
         viewC.TextPen = textPen;
