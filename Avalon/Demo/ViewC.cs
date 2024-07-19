@@ -50,13 +50,13 @@ class ViewC : View
         rect.Size.Width = 300 * k;
         rect.Size.Height = 100 * k;
 
-        draw.Font = this.Font;
+        draw.Face = this.Font;
         draw.Pen = this.TextPen;
 
         draw.ExecuteText(this.Text, rect, this.TextAlign, false);
 
         draw.Pen = null;
-        draw.Font = null;
+        draw.Face = null;
         return true;
     }
 }

@@ -133,7 +133,7 @@ public class Draw : Any
 
     protected virtual Pen PenData { get; set; }
 
-    public virtual Face Font
+    public virtual Face Face
     {
         get
         {
