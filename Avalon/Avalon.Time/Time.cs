@@ -263,20 +263,27 @@ public class Time : Any
 
     public virtual bool ValidTime(int hour, int minute, int second, int millisecond)
     {
-        ulong hourU;
-        ulong minuteU;
-        ulong secondU;
-        ulong millisecondU;
-        hourU = (ulong)hour;
-        minuteU = (ulong)minute;
-        secondU = (ulong)second;
-        millisecondU = (ulong)millisecond;
-        ulong u;
-        u = Extern.Time_ValidTime(hourU, minuteU, secondU, millisecondU);
+        if (!this.CheckHour(hour))
+        {
+            return false;
+        }
 
-        bool a;
-        a = (!(u == 0));
-        return a;
+        if (!this.CheckMinute(minute))
+        {
+            return false;
+        }
+
+        if (!this.CheckSecond(second))
+        {
+            return false;
+        }
+
+        if (!this.CheckMillisecond(millisecond))
+        {
+            return false;
+        }
+        
+        return true;
     }
 
     public virtual bool Set(int year, int month, int day, int hour, int minute, int second, int millisecond, int offsetUtc)
