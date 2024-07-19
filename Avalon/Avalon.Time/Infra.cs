@@ -33,6 +33,8 @@ class Infra : Any
 
         this.MillisecondSystemTickCount = TimeSpan.TicksPerMillisecond;
 
+        this.DaySecondCount = 24 * 60 * 60;
+
         this.SystemTickMin = DateTime.MinValue.Ticks;
         this.SystemTickMax = DateTime.MaxValue.Ticks;
 
@@ -59,6 +61,8 @@ class Infra : Any
     public virtual long SecondSystemTickCount { get; set; }
 
     public virtual long MillisecondSystemTickCount { get; set; }
+
+    public virtual int DaySecondCount { get; set; }
 
     public virtual long SystemTickMin { get; set; }
 
