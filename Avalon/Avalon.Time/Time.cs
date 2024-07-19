@@ -152,7 +152,9 @@ public class Time : Any
 
     public virtual bool Current()
     {
-        this.Intern = DateTime.Now;
+        this.Intern = DateTime.UtcNow;
+        
+        this.Offset = 0;
         return true;
     }
 
