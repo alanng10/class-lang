@@ -22,7 +22,7 @@ class ViewC : View
 
     public DrawRect EllipseRect { get; set; }
     public DrawBrush EllipseBrush { get; set; }
-    public DrawFace Font { get; set; }
+    public DrawFace Face { get; set; }
     public DrawTextAlign TextAlign { get; set; }
     public Text Text { get; set; }
     public DrawPen TextPen { get; set; }
@@ -50,7 +50,7 @@ class ViewC : View
         rect.Size.Width = 300 * k;
         rect.Size.Height = 100 * k;
 
-        draw.Face = this.Font;
+        draw.Face = this.Face;
         draw.Pen = this.TextPen;
 
         draw.ExecuteText(this.Text, rect, this.TextAlign, false);

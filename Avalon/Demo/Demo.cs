@@ -1246,7 +1246,7 @@ class Demo : Any
         viewC.Back = brush;
         viewC.EllipseBrush = ellipseBrush;
         viewC.EllipseRect = this.DrawInfra.RectCreate(0, 0, 100, 50);
-        viewC.Font = font;
+        viewC.Face = font;
         viewC.Text = text;
         viewC.TextAlign = textAlignList.CenterUp;
         viewC.TextPen = textPen;
@@ -1269,7 +1269,7 @@ class Demo : Any
         gradientLinear = gradient.Linear;
 
         DrawFace font;
-        font = a.Font;
+        font = a.Face;
 
         this.TextPenFinal(textPen);
 
