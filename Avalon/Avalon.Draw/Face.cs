@@ -1,6 +1,6 @@
 namespace Avalon.Draw;
 
-public class Font : Any
+public class Face : Any
 {
     public override bool Init()
     {

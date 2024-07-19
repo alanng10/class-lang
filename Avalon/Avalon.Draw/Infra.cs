@@ -50,7 +50,7 @@ public class Infra : Any
         this.BlackPen.Join = penJoinList.Miter;
         this.BlackPen.Init();
 
-        this.Font = new Font();
+        this.Font = new Face();
         this.Font.Family = "Source Sans 3";
         this.Font.Size = 10;
         this.Font.Weight = 400;
@@ -76,7 +76,7 @@ public class Infra : Any
     public virtual Brush WhiteBrush { get; set; }
     public virtual Brush BlackBrush { get; set; }
     public virtual Pen BlackPen { get; set; }
-    public virtual Font Font { get; set; }
+    public virtual Face Font { get; set; }
     public virtual long ScaleFactor { get; set; }
     protected virtual StorageStatusList StorageStatusList { get; set; }
     private BrushInfra BrushInfra { get; set; }

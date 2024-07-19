@@ -133,7 +133,7 @@ public class Draw : Any
 
     protected virtual Pen PenData { get; set; }
 
-    public virtual Font Font
+    public virtual Face Font
     {
         get
         {
@@ -153,7 +153,7 @@ public class Draw : Any
         }
     }
 
-    protected virtual Font FontData { get; set; }
+    protected virtual Face FontData { get; set; }
 
     public virtual Composite Composite
     {
