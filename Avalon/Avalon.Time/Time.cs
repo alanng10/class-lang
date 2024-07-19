@@ -230,18 +230,6 @@ public class Time : Any
         return a;
     }
 
-    public virtual bool LeapYear(int year)
-    {
-        ulong ua;
-        ua = (ulong)year;
-        ulong u;
-        u = Extern.Time_LeapYear(ua);
-
-        bool a;
-        a = (!(u == 0));
-        return a;
-    }
-
     public virtual bool ValidDate(int year, int month, int day)
     {
         ulong yearU;
