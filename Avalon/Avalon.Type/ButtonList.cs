@@ -61,12 +61,12 @@ public class ButtonList : Any
         this.Digit9 = this.AddDigitButton();
         
         this.SignSpace = this.AddSignButton(' ');
-        this.SignBackTick = this.AddSignButton('`');
+        //this.SignBackTick = this.AddSignButton('`');
         this.SignTilde = this.AddSignButton('~');
         this.SignExclamate = this.AddSignButton('!');
-        this.SignAt = this.AddSignButton('@');
+        //this.SignAt = this.AddSignButton('@');
         this.SignHash = this.AddSignButton('#');
-        this.SignDollar = this.AddSignButton('$');
+        //this.SignDollar = this.AddSignButton('$');
         this.SignPercent = this.AddSignButton('%');
         this.SignCaret = this.AddSignButton('^');
         this.SignAmpersand = this.AddSignButton('&');
@@ -94,34 +94,34 @@ public class ButtonList : Any
         this.SignBackSlash = this.AddSignButton('\\');
         this.SignVerticalBar = this.AddSignButton('|');
 
-        this.ControlEscape = this.AddControlButton();
+        //this.ControlEscape = this.AddControlButton();
         this.ControlTab = this.AddControlButton();
         this.ControlIndex = 0x03;
         this.ControlBackSpace = this.AddControlButton();
         this.ControlEnter = this.AddControlButton();
         this.ControlIndex = 0x06;
-        this.ControlInsert = this.AddControlButton();
-        this.ControlDelete = this.AddControlButton();
-        this.ControlPause = this.AddControlButton();
-        this.ControlPrint = this.AddControlButton();
+        //this.ControlInsert = this.AddControlButton();
+        //this.ControlDelete = this.AddControlButton();
+        //this.ControlPause = this.AddControlButton();
+        //this.ControlPrint = this.AddControlButton();
         this.ControlIndex = 0x10;
-        this.ControlHome = this.AddControlButton();
-        this.ControlEnd = this.AddControlButton();
-        this.ControlLeft = this.AddControlButton();
-        this.ControlUp = this.AddControlButton();
-        this.ControlRight = this.AddControlButton();
-        this.ControlDown = this.AddControlButton();
-        this.ControlPageUp = this.AddControlButton();
-        this.ControlPageDown = this.AddControlButton();
+        //this.ControlHome = this.AddControlButton();
+        //this.ControlEnd = this.AddControlButton();
+        //this.ControlLeft = this.AddControlButton();
+        //this.ControlUp = this.AddControlButton();
+        //this.ControlRight = this.AddControlButton();
+        //this.ControlDown = this.AddControlButton();
+        //this.ControlPageUp = this.AddControlButton();
+        //this.ControlPageDown = this.AddControlButton();
 
         this.ControlIndex = 0x20;
         this.ControlShift = this.AddControlButton();
         this.ControlControl = this.AddControlButton();
         this.ControlIndex = 0x23;
-        this.ControlAlt = this.AddControlButton();
-        this.ControlCapsLock = this.AddControlButton();
-        this.ControlNumLock = this.AddControlButton();
-        this.ControlScrollLock = this.AddControlButton();
+        //this.ControlAlt = this.AddControlButton();
+        //this.ControlCapsLock = this.AddControlButton();
+        //this.ControlNumLock = this.AddControlButton();
+        //this.ControlScrollLock = this.AddControlButton();
 
         this.ControlIndex = 0x30;
         this.ControlF1 = this.AddControlButton();
