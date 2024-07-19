@@ -62,6 +62,8 @@ Word "stage" has meaning that is execute step.
 
 Word "list" has meaning that is integer multiple.
 
+Word "face" has meaning that is char style.
+
 Word "draw" has meaning that is comp video.
 
 Word "tune" has meaning that is comp audio.
