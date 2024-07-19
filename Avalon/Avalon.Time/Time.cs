@@ -5,29 +5,17 @@ public class Time : Any
     public override bool Init()
     {
         base.Init();
-        this.Intern = Extern.Time_New();
-        Extern.Time_Init(this.Intern);
         return true;
     }
 
-    public virtual bool Final()
-    {
-        Extern.Time_Final(this.Intern);
-        Extern.Time_Delete(this.Intern);
-        return true;
-    }
-
-    private ulong Intern { get; set; }
+    private DateTime Intern;
+    private int Offset { get; set; }
 
     public virtual int Year
     {
         get
         {
-            ulong u;
-            u = Extern.Time_YearGet(this.Intern);
-            int a;
-            a = (int)u;
-            return a;
+            return this.Intern.Year;
         }
         set
         {
@@ -38,11 +26,7 @@ public class Time : Any
     {
         get
         {
-            ulong u;
-            u = Extern.Time_MonthGet(this.Intern);
-            int a;
-            a = (int)u;
-            return a;
+            return this.Intern.Month;
         }
         set
         {
@@ -53,11 +37,7 @@ public class Time : Any
     {
         get
         {
-            ulong u;
-            u = Extern.Time_DayGet(this.Intern);
-            int a;
-            a = (int)u;
-            return a;
+            return this.Intern.Day;
         }
         set
         {
@@ -68,11 +48,7 @@ public class Time : Any
     {
         get
         {
-            ulong u;
-            u = Extern.Time_HourGet(this.Intern);
-            int a;
-            a = (int)u;
-            return a;
+            return this.Intern.Hour;
         }
         set
         {
@@ -83,11 +59,7 @@ public class Time : Any
     {
         get
         {
-            ulong u;
-            u = Extern.Time_MinuteGet(this.Intern);
-            int a;
-            a = (int)u;
-            return a;
+            return this.Intern.Minute;
         }
         set
         {
@@ -98,11 +70,7 @@ public class Time : Any
     {
         get
         {
-            ulong u;
-            u = Extern.Time_SecondGet(this.Intern);
-            int a;
-            a = (int)u;
-            return a;
+            return this.Intern.Second;
         }
         set
         {
@@ -113,11 +81,7 @@ public class Time : Any
     {
         get
         {
-            ulong u;
-            u = Extern.Time_MillisecondGet(this.Intern);
-            int a;
-            a = (int)u;
-            return a;
+            return this.Intern.Millisecond;
         }
         set
         {
@@ -128,11 +92,7 @@ public class Time : Any
     {
         get
         {
-            ulong u;
-            u = Extern.Time_OffsetUtcGet(this.Intern);
-            int a;
-            a = (int)u;
-            return a;
+            return this.Offset;
         }
         set
         {
@@ -143,11 +103,7 @@ public class Time : Any
     {
         get
         {
-            ulong u;
-            u = Extern.Time_YearDayGet(this.Intern);
-            int a;
-            a = (int)u;
-            return a;
+            return this.Intern.DayOfYear;
         }
         set
         {
@@ -158,10 +114,8 @@ public class Time : Any
     {
         get
         {
-            ulong u;
-            u = Extern.Time_WeekDayGet(this.Intern);
             int a;
-            a = (int)u;
+            a = (int)this.Intern.DayOfWeek;
             return a;
         }
         set
