@@ -227,6 +227,20 @@ public class Time : Any
         return k;
     }
 
+    public virtual long TickTo(Time other)
+    {
+        long ka;
+        ka = this.SystemTickTo(other);
+
+        double k;
+        k = ka;
+        k = k / this.TimeInfra.SystemTickPerTick;
+
+        long a;
+        a = (long)k;
+        return a;
+    }
+
     public virtual bool ValidDate(int year, int month, int day)
     {
         ulong yearU;
