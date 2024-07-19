@@ -22,8 +22,19 @@ class Infra : Any
         this.IntervalElapseMaideAddress = new MaideAddress();
         this.IntervalElapseMaideAddress.Delegate = maideA;
         this.IntervalElapseMaideAddress.Init();
+
+        this.DaySystemTickCount = TimeSpan.TicksPerDay;
+
+        this.SystemTickMin = DateTime.MinValue.Ticks;
+        this.SystemTickMax = DateTime.MaxValue.Ticks;
         return true;
     }
 
     public virtual MaideAddress IntervalElapseMaideAddress { get; set; }
+
+    public virtual long DaySystemTickCount { get; set; }
+
+    public virtual long SystemTickMin { get; set; }
+
+    public virtual long SystemTickMax { get; set; }
 }

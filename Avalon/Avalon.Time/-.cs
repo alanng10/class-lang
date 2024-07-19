@@ -7,3 +7,5 @@ global using InternInfra = Avalon.Intern.Infra;
 global using Any = Avalon.Infra.Any;
 global using EventEvent = Avalon.Event.Event;
 global using DateTime = System.DateTime;
+global using DateTimeKind = System.DateTimeKind;
+global using TimeSpan = System.TimeSpan;

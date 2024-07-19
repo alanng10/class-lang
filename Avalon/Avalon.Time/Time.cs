@@ -5,9 +5,11 @@ public class Time : Any
     public override bool Init()
     {
         base.Init();
+        this.TimeInfra = Infra.This;
         return true;
     }
 
+    private Infra TimeInfra { get; set; }
     private DateTime Intern;
     private int Offset { get; set; }
 
@@ -133,16 +135,6 @@ public class Time : Any
         return DateTime.IsLeapYear(year);
     }
 
-    protected virtual bool CheckYear(int value)
-    {
-        return !(value < 1 | 9999 < value);
-    }
-
-    protected virtual bool CheckMonth(int value)
-    {
-        return !(value < 1 | 12 < value);
-    }
-
     public virtual int MonthDayCount(int year, int month)
     {
         if (!this.CheckYear(year))
@@ -170,27 +162,21 @@ public class Time : Any
         return true;
     }
 
-    public virtual bool AddYear(int offset)
-    {
-        ulong u;
-        u = (ulong)offset;
-        Extern.Time_AddYear(this.Intern, u);
-        return true;
-    }
-
-    public virtual bool AddMonth(int offset)
-    {
-        ulong u;
-        u = (ulong)offset;
-        Extern.Time_AddMonth(this.Intern, u);
-        return true;
-    }
-
     public virtual bool AddDay(long offset)
     {
-        ulong u;
-        u = (ulong)offset;
-        Extern.Time_AddDay(this.Intern, u);
+        long o;
+        o = offset * this.TimeInfra.DaySystemTickCount;
+
+        long k;
+        k = this.Intern.Ticks;
+        k = k + o;
+
+        if (!this.CheckSystemTick(k))
+        {
+            return false;
+        }
+        
+        this.Intern = new DateTime(k, DateTimeKind.Utc);
         return true;
     }
 
@@ -313,5 +299,23 @@ public class Time : Any
 
         Extern.Time_Set(this.Intern, yearU, monthU, dayU, hourU, minuteU, secondU, millisecondU, isLocalTimeU, offsetUtcU);
         return true;
+    }
+
+    protected virtual bool CheckYear(int value)
+    {
+        return !(value < 1 | 9999 < value);
+    }
+
+    protected virtual bool CheckMonth(int value)
+    {
+        return !(value < 1 | 12 < value);
+    }
+
+    private bool CheckSystemTick(long value)
+    {
+        Infra infra;
+        infra = this.TimeInfra;
+
+        return !(value < infra.SystemTickMin | infra.SystemTickMax < value);
     }
 }
