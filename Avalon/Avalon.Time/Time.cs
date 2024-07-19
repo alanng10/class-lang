@@ -125,7 +125,7 @@ public class Time : Any
 
     public virtual bool LeapYear(int year)
     {
-        if (this.CheckYear(year))
+        if (!this.CheckYear(year))
         {
             return false;
         }
@@ -138,19 +138,24 @@ public class Time : Any
         return !(value < 1 | 9999 < value);
     }
 
-    public virtual int MonthDayCount
+    protected virtual bool CheckMonth(int value)
     {
-        get
+        return !(value < 1 | 12 < value);
+    }
+
+    public virtual int MonthDayCount(int year, int month)
+    {
+        if (!this.CheckYear(year))
         {
-            ulong u;
-            u = Extern.Time_MonthDayCountGet(this.Intern);
-            int a;
-            a = (int)u;
-            return a;
+            return -1;
         }
-        set
+
+        if (!this.CheckMonth(month))
         {
+            return -1;
         }
+
+        return DateTime.DaysInMonth(year, month);
     }
 
     public virtual bool Current()
