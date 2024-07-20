@@ -37,15 +37,15 @@ class ThreadState : ThreadExecuteState
             console.Out.Write("ThreadWrite.txt text: \n" + a + "\n");
         }
 
-        ThreadCurrent current;
-        current = new ThreadCurrent();
+        ThreadThis current;
+        current = new ThreadThis();
         current.Init();
 
-        console.Out.Write("ThreadState.Execute ThreadCurrent Wait START\n");
+        console.Out.Write("ThreadState.Execute ThreadThis Wait START\n");
 
         current.Wait(2 * 1000);
 
-        console.Out.Write("ThreadState.Execute ThreadCurrent Wait END\n");
+        console.Out.Write("ThreadState.Execute ThreadThis Wait END\n");
 
         this.Phore.Release();
         
