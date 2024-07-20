@@ -49,7 +49,7 @@ class Demo : Any
 
         this.ExecuteConsole();
         this.ExecuteMath();
-        this.ExecuteRandom();
+        this.ExecuteRand();
         this.ExecuteFormat();
         this.ExecuteIntParse();
         this.ExecuteTime();
@@ -384,7 +384,7 @@ class Demo : Any
         return true;
     }
 
-    private bool ExecuteRandom()
+    private bool ExecuteRand()
     {
         Rand random;
         random = new Rand();
