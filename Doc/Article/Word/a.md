@@ -132,6 +132,8 @@ Word "view" has meaning that is presentation.
 
 Word "child" has meaning that is sub entity.
 
+Word "frame" has meaning that is root view.
+
 Word "grid" has meaning that is table area.
 
 Word "row" has meaning that is vertical index.
