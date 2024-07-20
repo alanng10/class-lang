@@ -24,6 +24,10 @@ Word "system" has meaning that is execute base.
 
 Word "thread" has meaning that is execute line.
 
+Word "execute" has meaning that is do until done.
+
+Word "port" has meaning that is interpreted entity.
+
 Word "state" has meaning that is executable entity.
 
 Word "count" has meaning that is applied.
@@ -71,8 +75,6 @@ Word "case" has meaning that is one of discrete choices.
 Word "refer" has meaning that is declaration.
 
 Word "operate" has meaning that is work.
-
-Word "execute" has meaning that is do until done.
 
 Word "are" has meaning that is already be.
 
