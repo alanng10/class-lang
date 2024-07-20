@@ -200,9 +200,9 @@ class Demo : Any
         DrawRect sourceRect;
         sourceRect = this.DrawInfra.RectCreate(1880, 910, 400, 200);
 
-        DrawForm transformA;
-        transformA = new DrawForm();
-        transformA.Init();
+        DrawForm formA;
+        formA = new DrawForm();
+        formA.Init();
 
         DrawRect destRectA;
         destRectA = this.DrawInfra.RectCreate(0, 0, 200, 200);
@@ -219,7 +219,7 @@ class Demo : Any
         viewB.Size.Height = sourceRect.Size.Height;
         viewB.DrawImage = image;
         viewB.SourceRect = sourceRect;
-        viewB.Form = transformA;
+        viewB.Form = formA;
         viewB.ThreadDrawImage = this.ThreadDrawImage;
         viewB.DestRectA = destRectA;
         viewB.SourceRectA = sourceRectA;
@@ -250,7 +250,7 @@ class Demo : Any
 
         this.PlayImageFinal(this.PlayImage);
 
-        transformA.Final();
+        formA.Final();
 
         this.ImageFinal(image);
 
