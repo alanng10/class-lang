@@ -92,7 +92,7 @@ public class Gen : Any
         time = new Time();
         time.Init();
 
-        time.Current();
+        time.This();
 
         Time timeA;
         timeA = new Time();
