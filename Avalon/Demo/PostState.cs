@@ -4,8 +4,8 @@ public class PostState : State
 {
     public override bool Execute()
     {
-        ThreadCurrent current;
-        current = new ThreadCurrent();
+        ThreadThis current;
+        current = new ThreadThis();
         current.Init();
 
         ThreadThread thread;
