@@ -94,6 +94,8 @@ Word "table" has meaning that is entry map.
 
 Word "array" has meaning that is indexed list.
 
+Word "text" has meaning that is string lines.
+
 Word "stream" has meaning that is serial.
 
 Word "kind" has meaning that is one of types.
