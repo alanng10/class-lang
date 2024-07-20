@@ -99,7 +99,7 @@ public class Gen : Any
         timeA.Init();
 
         long aa;
-        aa = timeA.MillisecondTo(time);
+        aa = timeA.MillisecTo(time);
 
         Format format;
         format = new Format();

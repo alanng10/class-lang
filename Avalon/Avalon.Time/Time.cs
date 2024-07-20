@@ -241,7 +241,7 @@ public class Time : Any
         return this.AddOffset(value, this.TimeInfra.MillisecSystemTickCount);
     }
 
-    public virtual long MillisecondTo(Time other)
+    public virtual long MillisecTo(Time other)
     {
         long k;
         k = this.SystemTickTo(other);
