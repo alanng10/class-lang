@@ -108,6 +108,8 @@ Word "text" has meaning that is string lines.
 
 Word "char" has meaning that is character code.
 
+Word "math" has meaning that is calculate.
+
 Word "stream" has meaning that is serial.
 
 Word "read" has meaning that is got info from medium.
