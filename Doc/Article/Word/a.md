@@ -70,6 +70,8 @@ Word "face" has meaning that is char style.
 
 Word "phore" has meaning that is thread synchronization.
 
+Word "interval" has meaning that is repeat delayed trigger.
+
 Word "draw" has meaning that is comp video.
 
 Word "tune" has meaning that is comp audio.
