@@ -326,7 +326,7 @@ public class Time : Any
             return false;
         }
 
-        this.Intern = new DateTime(year, month, day, hour, min, sec, millisec, DateTimeKind.Local);
+        this.Intern.SetDate(year, month, day, hour, min, sec, millisec);
 
         this.OffsetUtc = pos;
         return true;
