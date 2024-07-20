@@ -50,6 +50,8 @@ Word "set" has meaning that is trigger assign got.
 
 Word "null" has meaning that is nothing.
 
+Word "this" has meaning that is currently is.
+
 Word "new" has meaning that is new instance.
 
 Words "prudate", "probate", "precate" and "private" have meanings that are applicable
