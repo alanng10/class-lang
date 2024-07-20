@@ -1,5 +1,6 @@
 global using SystemDelegate = System.Delegate;
 global using SystemIntPtr = System.IntPtr;
+global using IComparerObject = System.Collections.Generic.IComparer<object>;
 global using SystemThreadStaticAttribute = System.ThreadStaticAttribute;
 global using SystemGCHandle = System.Runtime.InteropServices.GCHandle;
 global using Marshal = System.Runtime.InteropServices.Marshal;
