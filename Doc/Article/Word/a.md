@@ -18,6 +18,8 @@ Word "node" has meaning that is entity.
 
 Word "comp" has meaning that is compose unit.
 
+Word "name" has meaning that is call word.
+
 Word "state" has meaning that is executable entity.
 
 Word "count" has meaning that is applied.
