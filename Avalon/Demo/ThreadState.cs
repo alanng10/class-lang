@@ -12,7 +12,7 @@ class ThreadState : ThreadExecuteState
         console = Console.This;
         console.Out.Write("ThreadState.Execute START\n");
 
-        this.Demo.ExecuteDemoCurrentThread();
+        this.Demo.ExecuteDemoThisThread();
 
         StorageInfra infra;
         infra = StorageInfra.This;

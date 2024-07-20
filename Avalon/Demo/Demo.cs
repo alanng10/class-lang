@@ -1009,7 +1009,7 @@ class Demo : Any
 
     private bool ExecuteDemoThread()
     {
-        this.ExecuteDemoCurrentThread();
+        this.ExecuteDemoThisThread();
 
         ThreadPhore phore;
         phore = new ThreadPhore();
@@ -1046,7 +1046,7 @@ class Demo : Any
         return true;
     }
 
-    internal bool ExecuteDemoCurrentThread()
+    internal bool ExecuteDemoThisThread()
     {
         ThreadThis varThis;
         varThis = new ThreadThis();
