@@ -397,11 +397,6 @@ public class Time : Any
         return k;
     }
 
-    private DateTime GetDateTime(long tick)
-    {
-        return new DateTime(tick, DateTimeKind.Local);
-    }
-
     private bool AddValue(long value, long valueScale)
     {
         long o;
@@ -416,7 +411,7 @@ public class Time : Any
             return false;
         }
 
-        this.Intern = this.GetDateTime(k);
+        this.Intern.Set(k);
         return true;
     }
 
