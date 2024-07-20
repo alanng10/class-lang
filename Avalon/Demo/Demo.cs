@@ -587,7 +587,7 @@ class Demo : Any
         "min: " + time.Min + ", " +
         "sec: " + time.Sec + ", " +
         "millisec: " + time.Millisec + ", " +
-        "offsetUtc: " + time.OffsetUtc + 
+        "offsetUtc: " + time.Pos + 
         "\n");
         return true;
     }

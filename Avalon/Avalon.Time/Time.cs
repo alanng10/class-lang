@@ -92,7 +92,7 @@ public class Time : Any
         }
     }
 
-    public virtual int OffsetUtc
+    public virtual int Pos
     {
         get
         {
