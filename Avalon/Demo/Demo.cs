@@ -133,9 +133,9 @@ class Demo : Any
         ViewC viewC;
         viewC = this.ViewCCreate();
 
-        DrawForm viewATransform;
-        viewATransform = new DrawForm();
-        viewATransform.Init();
+        DrawForm viewAForm;
+        viewAForm = new DrawForm();
+        viewAForm.Init();
 
         ViewA viewA;
         viewA = new ViewA();
@@ -146,7 +146,7 @@ class Demo : Any
         viewA.Size.Height = 400;
         viewA.Back = brushA;
         viewA.DrawPen = penA;
-        viewA.Form = viewATransform;
+        viewA.Form = viewAForm;
         viewA.Demo = this;
 
         Grid grid;
@@ -254,7 +254,7 @@ class Demo : Any
 
         this.ImageFinal(image);
 
-        viewATransform.Final();
+        viewAForm.Final();
 
         this.ViewCFinal(viewC);
 
