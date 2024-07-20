@@ -22,7 +22,7 @@ public class Draw : Any
         this.FillPos.Init();
         this.PosA = new Pos();
         this.PosA.Init();
-        this.WorldTransform = new Transform();
+        this.WorldTransform = new Form();
         this.WorldTransform.Init();
 
         this.TextCount = 4096;
@@ -177,10 +177,10 @@ public class Draw : Any
 
     protected virtual Comp CompData { get; set; }
 
-    public virtual Transform Transform { get; set; }
+    public virtual Form Transform { get; set; }
 
-    protected virtual Transform WorldTransform { get; set; }
-    protected virtual Transform TransformA { get; set; }
+    protected virtual Form WorldTransform { get; set; }
+    protected virtual Form TransformA { get; set; }
     protected virtual Pos PosA { get; set; }
     protected virtual int TextCount { get; set; }
 

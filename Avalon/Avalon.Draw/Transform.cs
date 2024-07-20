@@ -1,6 +1,6 @@
 namespace Avalon.Draw;
 
-public class Transform : Any
+public class Form : Any
 {
     public override bool Init()
     {
@@ -89,7 +89,7 @@ public class Transform : Any
         return true;
     }
 
-    public virtual bool Multiply(Transform other)
+    public virtual bool Multiply(Form other)
     {
         Extern.Transform_Multiply(this.Intern, other.Intern);
         return true;
