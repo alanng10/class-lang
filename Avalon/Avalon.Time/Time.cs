@@ -300,17 +300,17 @@ public class Time : Any
             return false;
         }
 
-        if (!this.CheckMinute(minute))
+        if (!this.CheckMin(minute))
         {
             return false;
         }
 
-        if (!this.CheckSecond(second))
+        if (!this.CheckSec(second))
         {
             return false;
         }
 
-        if (!this.CheckMillisecond(millisecond))
+        if (!this.CheckMillisec(millisecond))
         {
             return false;
         }
@@ -364,17 +364,17 @@ public class Time : Any
         return this.CheckTimeCount(24, value);
     }
 
-    protected virtual bool CheckMinute(int value)
+    protected virtual bool CheckMin(int value)
     {
         return this.CheckTimeCount(60, value);
     }
 
-    protected virtual bool CheckSecond(int value)
+    protected virtual bool CheckSec(int value)
     {
         return this.CheckTimeCount(60, value);
     }
 
-    protected virtual bool CheckMillisecond(int value)
+    protected virtual bool CheckMillisec(int value)
     {
         return this.CheckTimeCount(1000, value);
     }
