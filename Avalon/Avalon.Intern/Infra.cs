@@ -185,4 +185,26 @@ public class Infra : object
         Extern.Size_HeightSet(size, h);
         return true;
     }
+
+    public virtual long SystemTickToTick(long value)
+    {
+        double k;
+        k = value;
+        k = k / this.SystemTickPerTick;
+
+        long a;
+        a = (long)k;
+        return a;
+    }
+
+    public virtual long TickToSystemTick(long value)
+    {
+        double k;
+        k = value;
+        k = k * this.SystemTickPerTick;
+
+        long a;
+        a = (long)k;
+        return a;
+    }
 }
