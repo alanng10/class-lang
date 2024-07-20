@@ -98,6 +98,8 @@ Word "entry" has meaning that is associate entity.
 
 Word "event" has meaning that is occurred.
 
+Word "error" has meaning that is invalid.
+
 Word "draw" has meaning that is comp video.
 
 Word "form" has meaning that is transform.
