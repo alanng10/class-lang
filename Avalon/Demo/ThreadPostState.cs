@@ -8,12 +8,12 @@ class ThreadPostState : ThreadExecuteState
 
     public override bool Execute()
     {
-        ThreadThis current;
-        current = new ThreadThis();
-        current.Init();
+        ThreadThis varThis;
+        varThis = new ThreadThis();
+        varThis.Init();
 
         ThreadThread thread;
-        thread = current.Thread;
+        thread = varThis.Thread;
 
         ThreadPost post;
         post = new ThreadPost();
