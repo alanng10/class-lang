@@ -11,7 +11,7 @@ class ViewB : View
 
     public virtual DrawImage DrawImage { get; set; }
     public virtual DrawRect SourceRect { get; set; }
-    public virtual DrawTransform Transform { get; set; }
+    public virtual DrawForm Transform { get; set; }
     public virtual DrawImage ThreadDrawImage { get; set; }
     public virtual DrawRect DestRectA { get; set; }
     public virtual DrawRect SourceRectA { get; set; }

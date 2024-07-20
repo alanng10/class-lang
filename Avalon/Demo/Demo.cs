@@ -133,8 +133,8 @@ class Demo : Any
         ViewC viewC;
         viewC = this.ViewCCreate();
 
-        DrawTransform viewATransform;
-        viewATransform = new DrawTransform();
+        DrawForm viewATransform;
+        viewATransform = new DrawForm();
         viewATransform.Init();
 
         ViewA viewA;
@@ -200,8 +200,8 @@ class Demo : Any
         DrawRect sourceRect;
         sourceRect = this.DrawInfra.RectCreate(1880, 910, 400, 200);
 
-        DrawTransform transformA;
-        transformA = new DrawTransform();
+        DrawForm transformA;
+        transformA = new DrawForm();
         transformA.Init();
 
         DrawRect destRectA;

@@ -4,7 +4,7 @@ class ViewA : View
 {
     public virtual DrawPen DrawPen { get; set; }
     public virtual Demo Demo { get; set; }
-    public virtual DrawTransform Transform { get; set; }
+    public virtual DrawForm Transform { get; set; }
     public virtual int RotateValue { get; set; }
 
     protected override bool ExecuteDrawThis(DrawDraw draw)
