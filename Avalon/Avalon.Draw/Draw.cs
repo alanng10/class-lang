@@ -155,27 +155,27 @@ public class Draw : Any
 
     protected virtual Face FaceData { get; set; }
 
-    public virtual Composite Composite
+    public virtual Comp Comp
     {
         get
         {
-            return this.CompositeData;
+            return this.CompData;
         }
         set
         {
-            this.CompositeData = value;
+            this.CompData = value;
 
             ulong uu;
             uu = 0;
-            if (!(this.CompositeData == null))
+            if (!(this.CompData == null))
             {
-                uu = this.CompositeData.Intern;
+                uu = this.CompData.Intern;
             }
             Extern.Draw_CompositeSet(this.Intern, uu);
         }
     }
 
-    protected virtual Composite CompositeData { get; set; }
+    protected virtual Comp CompData { get; set; }
 
     public virtual Transform Transform { get; set; }
 
@@ -217,7 +217,7 @@ public class Draw : Any
 
         this.Brush = null;
         this.Pen = null;
-        this.Composite = null;
+        this.Comp = null;
         this.FillPos.Left = 0;
         this.FillPos.Up = 0;
         this.FillPosSet();

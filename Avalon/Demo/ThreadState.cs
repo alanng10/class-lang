@@ -94,9 +94,9 @@ class ThreadState : ThreadExecuteState
         draw.Brush = brush;
         draw.ExecuteRect(rect);
         draw.Brush = brushA;
-        draw.Composite = compositeList.DestinationOut;
+        draw.Comp = compositeList.DestinationOut;
         draw.ExecuteRect(rect);
-        draw.Composite = null;
+        draw.Comp = null;
         draw.End();
 
         draw.Final();

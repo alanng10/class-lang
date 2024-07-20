@@ -68,11 +68,11 @@ class ViewB : View
         this.DestRectA.Pos.Left = left;
         this.DestRectA.Pos.Up = up + 150;
 
-        draw.Composite = this.DrawComposite.SourceOver;
+        draw.Comp = this.DrawComposite.SourceOver;
 
         draw.ExecuteImage(this.ThreadDrawImage, this.DestRectA, this.SourceRectA);
 
-        draw.Composite = null;
+        draw.Comp = null;
         return true;
     }
 }
