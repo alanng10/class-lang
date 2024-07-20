@@ -94,6 +94,8 @@ Word "phore" has meaning that is thread synchronization.
 
 Word "interval" has meaning that is repeat delayed trigger.
 
+Word "entry" has meaning that is associate entity.
+
 Word "draw" has meaning that is comp video.
 
 Word "form" has meaning that is transform.
