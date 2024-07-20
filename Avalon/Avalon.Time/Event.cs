@@ -1,6 +1,6 @@
 namespace Avalon.Time;
 
-public class Interval : Any
+public class Event : Any
 {
     public override bool Init()
     {
@@ -60,14 +60,14 @@ public class Interval : Any
         object ao;
         ao = internIntern.HandleTarget(arg);
 
-        Interval a;
-        a = (Interval)ao;
-        a.ElapseTrigger();
+        Event a;
+        a = (Event)ao;
+        a.ExecuteElapse();
 
         return 1;
     }
 
-    protected virtual bool ElapseTrigger()
+    protected virtual bool ExecuteElapse()
     {
         this.Elapse.Execute(this.ElapseArg);
         return true;
