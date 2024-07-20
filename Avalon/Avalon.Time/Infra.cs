@@ -27,13 +27,13 @@ class Infra : Any
 
         this.HourSystemTickCount = TimeSpan.TicksPerHour;
 
-        this.MinuteSystemTickCount = TimeSpan.TicksPerMinute;
+        this.MinSystemTickCount = TimeSpan.TicksPerMinute;
 
-        this.SecondSystemTickCount = TimeSpan.TicksPerSecond;
+        this.SecSystemTickCount = TimeSpan.TicksPerSecond;
 
-        this.MillisecondSystemTickCount = TimeSpan.TicksPerMillisecond;
+        this.MillisecSystemTickCount = TimeSpan.TicksPerMillisecond;
 
-        this.DaySecondCount = 24 * 60 * 60;
+        this.DaySecCount = 24 * 60 * 60;
 
         this.SystemTickMin = DateTime.MinValue.Ticks;
         this.SystemTickMax = DateTime.MaxValue.Ticks;
@@ -56,13 +56,13 @@ class Infra : Any
 
     public virtual long HourSystemTickCount { get; set; }
 
-    public virtual long MinuteSystemTickCount { get; set; }
+    public virtual long MinSystemTickCount { get; set; }
 
-    public virtual long SecondSystemTickCount { get; set; }
+    public virtual long SecSystemTickCount { get; set; }
 
-    public virtual long MillisecondSystemTickCount { get; set; }
+    public virtual long MillisecSystemTickCount { get; set; }
 
-    public virtual int DaySecondCount { get; set; }
+    public virtual int DaySecCount { get; set; }
 
     public virtual long SystemTickMin { get; set; }
 

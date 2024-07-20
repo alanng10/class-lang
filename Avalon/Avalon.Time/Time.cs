@@ -228,17 +228,17 @@ public class Time : Any
 
     public virtual bool AddMinute(long offset)
     {
-        return this.AddOffset(offset, this.TimeInfra.MinuteSystemTickCount);
+        return this.AddOffset(offset, this.TimeInfra.MinSystemTickCount);
     }
 
     public virtual bool AddSecond(long offset)
     {
-        return this.AddOffset(offset, this.TimeInfra.SecondSystemTickCount);
+        return this.AddOffset(offset, this.TimeInfra.SecSystemTickCount);
     }
 
     public virtual bool AddMillisecond(long offset)
     {
-        return this.AddOffset(offset, this.TimeInfra.MillisecondSystemTickCount);
+        return this.AddOffset(offset, this.TimeInfra.MillisecSystemTickCount);
     }
 
     public virtual long MillisecondTo(Time other)
@@ -246,7 +246,7 @@ public class Time : Any
         long k;
         k = this.SystemTickTo(other);
 
-        k = k / this.TimeInfra.MillisecondSystemTickCount;
+        k = k / this.TimeInfra.MillisecSystemTickCount;
         return k;
     }
 
@@ -382,7 +382,7 @@ public class Time : Any
     protected virtual bool CheckOffsetUtc(int value)
     {
         int k;
-        k = this.TimeInfra.DaySecondCount;
+        k = this.TimeInfra.DaySecCount;
         k = k / 2;
 
         return !(value < -k | k < value);
