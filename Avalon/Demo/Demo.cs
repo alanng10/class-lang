@@ -386,18 +386,18 @@ class Demo : Any
 
     private bool ExecuteRand()
     {
-        Rand random;
-        random = new Rand();
-        random.Init();
+        Rand rand;
+        rand = new Rand();
+        rand.Init();
 
-        random.Seed = 36719;
+        rand.Seed = 36719;
 
         long oa;
-        oa = random.Execute();
+        oa = rand.Execute();
 
-        this.Console.Out.Write("Demo.ExecuteRandom oa: 0h" + oa.ToString("x15") + "\n");
+        this.Console.Out.Write("Demo.ExecuteRand oa: 0h" + oa.ToString("x15") + "\n");
 
-        random.Final();
+        rand.Final();
         return true;
     }
 
