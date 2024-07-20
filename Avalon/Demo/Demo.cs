@@ -1048,12 +1048,12 @@ class Demo : Any
 
     internal bool ExecuteDemoCurrentThread()
     {
-        ThreadThis current;
-        current = new ThreadThis();
-        current.Init();
+        ThreadThis varThis;
+        varThis = new ThreadThis();
+        varThis.Init();
 
         ThreadThread thread;
-        thread = current.Thread;
+        thread = varThis.Thread;
 
         bool isMainThread;
         isMainThread = thread.MainThread;
