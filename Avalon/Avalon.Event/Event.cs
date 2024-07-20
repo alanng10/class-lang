@@ -27,6 +27,7 @@ public class Event : Any
             state = (State)iter.Value;
             state.Arg = arg;
             state.Execute();
+            state.Arg = null;
         }
         return true;
     }
