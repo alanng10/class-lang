@@ -2,6 +2,11 @@ namespace Avalon.Intern;
 
 public class Time : object
 {
+    public virtual bool Init()
+    {
+        return true;
+    }
+
     private DateTime Intern;
 
     public virtual int Year
