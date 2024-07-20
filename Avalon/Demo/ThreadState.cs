@@ -61,8 +61,8 @@ class ThreadState : ThreadExecuteState
     {
         DrawBrushKindList brushKindList;
         brushKindList = DrawBrushKindList.This;
-        DrawCompositeList compositeList;
-        compositeList = DrawCompositeList.This;
+        DrawCompList compList;
+        compList = DrawCompList.This;
         DrawInfra drawInfra;
         drawInfra = DrawInfra.This;
 
@@ -94,7 +94,7 @@ class ThreadState : ThreadExecuteState
         draw.Brush = brush;
         draw.ExecuteRect(rect);
         draw.Brush = brushA;
-        draw.Comp = compositeList.DestinationOut;
+        draw.Comp = compList.DestinationOut;
         draw.ExecuteRect(rect);
         draw.Comp = null;
         draw.End();

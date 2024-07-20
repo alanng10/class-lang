@@ -5,7 +5,7 @@ class ViewB : View
     public override bool Init()
     {
         base.Init();
-        this.DrawComposite = DrawCompositeList.This;
+        this.DrawComposite = DrawCompList.This;
         return true;
     }
 
@@ -16,7 +16,7 @@ class ViewB : View
     public virtual DrawRect DestRectA { get; set; }
     public virtual DrawRect SourceRectA { get; set; }
 
-    protected virtual DrawCompositeList DrawComposite { get; set; }
+    protected virtual DrawCompList DrawComposite { get; set; }
 
     protected override bool ExecuteDrawThis(DrawDraw draw)
     {
