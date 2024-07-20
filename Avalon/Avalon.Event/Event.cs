@@ -16,7 +16,7 @@ public class Event : Any
     public virtual StateTable State { get; set; }
     protected virtual Iter StateIter { get; set; }
 
-    public virtual bool Trigger(object arg)
+    public virtual bool Execute(object arg)
     {
         Iter iter;
         iter = this.StateIter;
