@@ -110,6 +110,8 @@ Word "char" has meaning that is character code.
 
 Word "math" has meaning that is calculate.
 
+Word "rand" has meaning that is which ever int.
+
 Word "stream" has meaning that is serial.
 
 Word "read" has meaning that is got info from medium.
