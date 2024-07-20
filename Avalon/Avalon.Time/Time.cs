@@ -236,7 +236,7 @@ public class Time : Any
         return this.AddOffset(value, this.TimeInfra.SecSystemTickCount);
     }
 
-    public virtual bool AddMillisecond(long value)
+    public virtual bool AddMillisec(long value)
     {
         return this.AddOffset(value, this.TimeInfra.MillisecSystemTickCount);
     }

@@ -572,7 +572,7 @@ class Demo : Any
         time.ToPos(2 * 60 * 60);
         this.ConsoleWriteTime("Demo.ExecuteTime time ToOffsetUtc ", time);
 
-        time.AddMillisecond(200 * 1000);
+        time.AddMillisec(200 * 1000);
         this.ConsoleWriteTime("Demo.ExecuteTime time AddMillisecond ", time);
         return true;
     }
