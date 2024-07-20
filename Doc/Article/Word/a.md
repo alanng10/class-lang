@@ -130,6 +130,8 @@ Word "error" has meaning that is invalid.
 
 Word "draw" has meaning that is comp video.
 
+Word "pos" has meaning that is position in signed int.
+
 Word "form" has meaning that is transform.
 
 Word "tune" has meaning that is comp audio.
