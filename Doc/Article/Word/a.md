@@ -26,7 +26,7 @@ Word "thread" has meaning that is execute line.
 
 Word "execute" has meaning that is do until done.
 
-Word "port" has meaning that is interpreted entity.
+Word "port" has meaning that is represented entity.
 
 Word "state" has meaning that is executable entity.
 
