@@ -3,7 +3,7 @@ namespace Avalon.Event;
 public class StateTable : Table
 {
     public override bool Init()
-    {        
+    {
         RefCompare compare;
         compare = new RefCompare();
         compare.Init();
