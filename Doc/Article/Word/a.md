@@ -96,6 +96,8 @@ Word "interval" has meaning that is repeat delayed trigger.
 
 Word "draw" has meaning that is comp video.
 
+Word "form" has meaning that is transform.
+
 Word "tune" has meaning that is comp audio.
 
 Word "compute" has meaning that is process info.
