@@ -134,6 +134,8 @@ Word "pos" has meaning that is position in signed int.
 
 Word "size" has meaning that is length in dimensions.
 
+Word "rect" has meaning that is rectangle.
+
 Word "form" has meaning that is transform.
 
 Word "tune" has meaning that is comp audio.
