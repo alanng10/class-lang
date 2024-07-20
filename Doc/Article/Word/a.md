@@ -16,6 +16,8 @@ Word "effect" has meaning that is output of anything.
 
 Word "node" has meaning that is entity.
 
+Word "comp" has meaning that is compose unit.
+
 Word "state" has meaning that is executable entity.
 
 Word "count" has meaning that is applied.
