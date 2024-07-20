@@ -102,13 +102,13 @@ Word "list" has meaning that is integer multiple.
 
 Word "table" has meaning that is entry map.
 
-Word "array" has meaning that is indexed list.
-
-Word "text" has meaning that is string lines.
-
 Word "char" has meaning that is character code.
 
 Word "math" has meaning that is calculate.
+
+Word "array" has meaning that is indexed list.
+
+Word "text" has meaning that is string lines.
 
 Word "rand" has meaning that is which ever int.
 
