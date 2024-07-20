@@ -1,6 +1,6 @@
 namespace Avalon.Intern;
 
-public class Comparer : IComparerObject
+public class Comparer : object, IComparerObject
 {
     public virtual bool Init()
     {
