@@ -54,6 +54,8 @@ Word "int" has meaning that is integer.
 
 Word "string" has meaning that is char list.
 
+Word "infra" has meaning that is support library.
+
 Word "case" has meaning that is one of discrete choices.
 
 Word "refer" has meaning that is declaration.
