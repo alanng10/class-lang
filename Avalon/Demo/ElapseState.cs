@@ -25,7 +25,7 @@ class ElapseState : State
             {
                 this.TimeEvent.Stop();
 
-                console.Out.Write("ElapseState.Execute Interval Stop\n");
+                console.Out.Write("ElapseState.Execute Time Event Stop\n");
             }
 
             this.Thread.ExitEventLoop(this.ExitCode);
