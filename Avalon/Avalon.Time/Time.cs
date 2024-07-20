@@ -376,7 +376,7 @@ public class Time : Any
         k = this.TimeInfra.DaySecCount;
         k = k / 2;
 
-        return !(value < -k | k < value);
+        return !((value < -k) | (k < value));
     }
 
     private bool CheckTimeCount(int count, int value)
