@@ -136,6 +136,16 @@ Word "tune" has meaning that is comp audio.
 
 Word "tick" has meaning that is smallest duration.
 
+Word "year" has meaning that is date year.
+
+Word "month" has meaning that is date month.
+
+Word "day" has meaning that is date day of month.
+
+Word "leap" has meaning that is date year day count added.
+
+Word "hour" has meaning that is date hour.
+
 Word "min" has meaning that is date minute.
 
 Word "sec" has meaning that is date second.
