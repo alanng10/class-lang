@@ -22,8 +22,8 @@ public class Draw : Any
         this.FillPos.Init();
         this.PosA = new Pos();
         this.PosA.Init();
-        this.WorldTransform = new Form();
-        this.WorldTransform.Init();
+        this.WorldForm = new Form();
+        this.WorldForm.Init();
 
         this.TextCount = 4096;
 
@@ -79,7 +79,7 @@ public class Draw : Any
 
         Extern.Delete(this.InternTextData);
 
-        this.WorldTransform.Final();
+        this.WorldForm.Final();
         return true;
     }
 
@@ -179,7 +179,7 @@ public class Draw : Any
 
     public virtual Form Form { get; set; }
 
-    protected virtual Form WorldTransform { get; set; }
+    protected virtual Form WorldForm { get; set; }
     protected virtual Form TransformA { get; set; }
     protected virtual Pos PosA { get; set; }
     protected virtual int TextCount { get; set; }
@@ -279,16 +279,16 @@ public class Draw : Any
 
     protected virtual bool DrawTransformSet()
     {
-        this.WorldTransform.Reset();
+        this.WorldForm.Reset();
 
         this.WorldTransformPosOffsetSet(this.PosA);
 
         if (!(this.TransformA == null))
         {
-            this.WorldTransform.Multiply(this.TransformA);
+            this.WorldForm.Multiply(this.TransformA);
         }
 
-        Extern.Draw_TransformSet(this.Intern, this.WorldTransform.Intern);
+        Extern.Draw_TransformSet(this.Intern, this.WorldForm.Intern);
         return true;
     }
 
@@ -307,7 +307,7 @@ public class Draw : Any
         offsetLeft = leftL * scaleFactor;
         offsetUp = upL * scaleFactor;
 
-        this.WorldTransform.Offset(offsetLeft, offsetUp);
+        this.WorldForm.Offset(offsetLeft, offsetUp);
         return true;
     }
     
