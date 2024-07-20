@@ -132,6 +132,8 @@ Word "draw" has meaning that is comp video.
 
 Word "pos" has meaning that is position in signed int.
 
+Word "size" has meaning that is length in dimensions.
+
 Word "form" has meaning that is transform.
 
 Word "tune" has meaning that is comp audio.
