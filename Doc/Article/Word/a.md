@@ -100,6 +100,8 @@ Word "entry" has meaning that is associate entity.
 
 Word "event" has meaning that is occurred.
 
+Word "status" has meaning that is kind of output.
+
 Word "error" has meaning that is invalid.
 
 Word "draw" has meaning that is comp video.
