@@ -194,10 +194,10 @@ public class Time : Any
         return true;
     }
 
-    public virtual bool AddTick(long offset)
+    public virtual bool AddTick(long value)
     {
         double ka;
-        ka = offset;
+        ka = value;
         ka = ka * this.TimeInfra.SystemTickPerTick;
 
         double k;
@@ -216,29 +216,29 @@ public class Time : Any
         return true;
     }
 
-    public virtual bool AddDay(long offset)
+    public virtual bool AddDay(long value)
     {
-        return this.AddOffset(offset, this.TimeInfra.DaySystemTickCount);
+        return this.AddOffset(value, this.TimeInfra.DaySystemTickCount);
     }
 
-    public virtual bool AddHour(long offset)
+    public virtual bool AddHour(long value)
     {
-        return this.AddOffset(offset, this.TimeInfra.HourSystemTickCount);
+        return this.AddOffset(value, this.TimeInfra.HourSystemTickCount);
     }
 
-    public virtual bool AddMinute(long offset)
+    public virtual bool AddMinute(long value)
     {
-        return this.AddOffset(offset, this.TimeInfra.MinSystemTickCount);
+        return this.AddOffset(value, this.TimeInfra.MinSystemTickCount);
     }
 
-    public virtual bool AddSecond(long offset)
+    public virtual bool AddSecond(long value)
     {
-        return this.AddOffset(offset, this.TimeInfra.SecSystemTickCount);
+        return this.AddOffset(value, this.TimeInfra.SecSystemTickCount);
     }
 
-    public virtual bool AddMillisecond(long offset)
+    public virtual bool AddMillisecond(long value)
     {
-        return this.AddOffset(offset, this.TimeInfra.MillisecSystemTickCount);
+        return this.AddOffset(value, this.TimeInfra.MillisecSystemTickCount);
     }
 
     public virtual long MillisecondTo(Time other)
