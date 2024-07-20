@@ -192,23 +192,19 @@ public class Time : Any
 
     public virtual bool AddTick(long value)
     {
-        double ka;
-        ka = value;
-        ka = ka * this.TimeInfra.SystemTickPerTick;
+        long ka;
+        ka = this.InternInfra.TickToSystemTick(value);
 
-        double k;
-        k = this.Intern.Ticks;
+        long k;
+        k = this.Intern.Tick;
         k = k + ka;
 
-        long aa;
-        aa = (long)k;
-
-        if (!this.CheckSystemTick(aa))
+        if (!this.CheckSystemTick(k))
         {
             return false;
         }
 
-        this.Intern = this.GetDateTime(aa);
+        this.Intern = this.GetDateTime(k);
         return true;
     }
 
@@ -392,9 +388,9 @@ public class Time : Any
     private long SystemTickTo(Time other)
     {
         long ka;
-        ka = this.Intern.Ticks;
+        ka = this.Intern.Tick;
         long kb;
-        kb = other.Intern.Ticks;
+        kb = other.Intern.Tick;
 
         long k;
         k = kb - ka;
@@ -412,7 +408,7 @@ public class Time : Any
         o = value * valueScale;
 
         long k;
-        k = this.Intern.Ticks;
+        k = this.Intern.Tick;
         k = k + o;
 
         if (!this.CheckSystemTick(k))
@@ -426,8 +422,8 @@ public class Time : Any
 
     private bool CheckSystemTick(long value)
     {
-        Infra infra;
-        infra = this.TimeInfra;
+        InternInfra infra;
+        infra = this.InternInfra;
 
         return !(value < infra.SystemTickMin | infra.SystemTickMax < value);
     }
