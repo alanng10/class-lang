@@ -10,6 +10,8 @@ Word "var" has meaning that is holder.
 
 Word "any" has meaning that is anything.
 
+Word "module" has meaning that is use unit.
+
 Word "effect" has meaning that is output of anything.
 
 Word "node" has meaning that is entity.
