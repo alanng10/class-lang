@@ -96,6 +96,8 @@ Word "array" has meaning that is indexed list.
 
 Word "stream" has meaning that is serial.
 
+Word "kind" has meaning that is one of types.
+
 Word "face" has meaning that is char style.
 
 Word "phore" has meaning that is thread synchronization.
