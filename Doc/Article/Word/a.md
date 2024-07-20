@@ -120,6 +120,8 @@ Word "form" has meaning that is transform.
 
 Word "tune" has meaning that is comp audio.
 
+Word "tick" has meaning that is smallest duration.
+
 Word "compute" has meaning that is process info.
 
 Word "memory" has meaning that is data store.
