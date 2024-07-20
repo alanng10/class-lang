@@ -166,7 +166,7 @@ public class Time : Any
         return this.Intern.MonthDayCount(year, month);
     }
 
-    public virtual bool Current()
+    public virtual bool This()
     {
         this.Intern.Current();
         
