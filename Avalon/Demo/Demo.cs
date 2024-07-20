@@ -566,7 +566,7 @@ class Demo : Any
         
         this.ConsoleWriteTime("Demo.ExecuteTime time init ", time);
         
-        time.Current();
+        time.This();
         this.ConsoleWriteTime("Demo.ExecuteTime time current ", time);
 
         time.ToPos(2 * 60 * 60);
