@@ -81,7 +81,7 @@ public class Time : Any
         }
     }
 
-    public virtual int Millisecond
+    public virtual int Millisec
     {
         get
         {

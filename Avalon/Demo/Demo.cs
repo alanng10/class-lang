@@ -586,7 +586,7 @@ class Demo : Any
         "hour: " + time.Hour + ", " +
         "minute: " + time.Min + ", " +
         "second: " + time.Sec + ", " +
-        "millisecond: " + time.Millisecond + ", " +
+        "millisecond: " + time.Millisec + ", " +
         "offsetUtc: " + time.OffsetUtc + 
         "\n");
         return true;
