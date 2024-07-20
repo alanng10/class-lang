@@ -23,7 +23,7 @@ class ThreadIntervalState : ThreadExecuteState
         ElapseState state;
         state = new ElapseState();
         state.Init();
-        state.Interval = interval;
+        state.TimeEvent = interval;
         state.Thread = thread;
         state.ElapseCount = this.ElapseCount;
         state.ExitCode = this.ExitCode;

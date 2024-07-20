@@ -2,7 +2,7 @@ namespace Demo;
 
 class ElapseState : State
 {
-    public TimeEvent Interval { get; set; }
+    public TimeEvent TimeEvent { get; set; }
     public ThreadThread Thread { get; set; }
     public int ElapseCount { get; set; }
     public int ExitCode { get; set; }
@@ -21,9 +21,9 @@ class ElapseState : State
          
         if (!(this.Count < this.ElapseCount))
         {
-            if (!this.Interval.SingleShot)
+            if (!this.TimeEvent.SingleShot)
             {
-                this.Interval.Stop();
+                this.TimeEvent.Stop();
 
                 console.Out.Write("ElapseState.Execute Interval Stop\n");
             }
