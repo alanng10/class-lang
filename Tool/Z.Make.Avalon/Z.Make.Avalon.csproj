@@ -7,7 +7,7 @@
 
     <ItemGroup>
         <ProjectReference Include="../Z.Tool.Avalon.BrushKindList/Z.Tool.Avalon.BrushKindList.csproj" />
-        <ProjectReference Include="../Z.Tool.Avalon.CompositeList/Z.Tool.Avalon.CompositeList.csproj" />
+        <ProjectReference Include="../Z.Tool.Avalon.CompList/Z.Tool.Avalon.CompList.csproj" />
         <ProjectReference Include="../Z.Tool.Avalon.GradientKindList/Z.Tool.Avalon.GradientKindList.csproj" />
         <ProjectReference Include="../Z.Tool.Avalon.GradientSpreadList/Z.Tool.Avalon.GradientSpreadList.csproj" />
         <ProjectReference Include="../Z.Tool.Avalon.ImageFormatList/Z.Tool.Avalon.ImageFormatList.csproj" />
