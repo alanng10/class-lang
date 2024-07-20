@@ -1,13 +1,13 @@
 namespace Avalon.Draw;
 
-public class CompositeList : Any
+public class CompList : Any
 {
-    public static CompositeList This { get; } = ShareCreate();
+    public static CompList This { get; } = ShareCreate();
 
-    private static CompositeList ShareCreate()
+    private static CompList ShareCreate()
     {
-        CompositeList share;
-        share = new CompositeList();
+        CompList share;
+        share = new CompList();
         Any a;
         a = share;
         a.Init();
@@ -40,33 +40,33 @@ public class CompositeList : Any
         return true;
     }
 
-    public virtual Composite SourceOver { get { return __D_SourceOver; } set { __D_SourceOver = value; } }
-    protected Composite __D_SourceOver;
-    public virtual Composite DestinationOver { get { return __D_DestinationOver; } set { __D_DestinationOver = value; } }
-    protected Composite __D_DestinationOver;
-    public virtual Composite Clear { get { return __D_Clear; } set { __D_Clear = value; } }
-    protected Composite __D_Clear;
-    public virtual Composite Source { get { return __D_Source; } set { __D_Source = value; } }
-    protected Composite __D_Source;
-    public virtual Composite Destination { get { return __D_Destination; } set { __D_Destination = value; } }
-    protected Composite __D_Destination;
-    public virtual Composite SourceIn { get { return __D_SourceIn; } set { __D_SourceIn = value; } }
-    protected Composite __D_SourceIn;
-    public virtual Composite DestinationIn { get { return __D_DestinationIn; } set { __D_DestinationIn = value; } }
-    protected Composite __D_DestinationIn;
-    public virtual Composite SourceOut { get { return __D_SourceOut; } set { __D_SourceOut = value; } }
-    protected Composite __D_SourceOut;
-    public virtual Composite DestinationOut { get { return __D_DestinationOut; } set { __D_DestinationOut = value; } }
-    protected Composite __D_DestinationOut;
-    public virtual Composite SourceAtop { get { return __D_SourceAtop; } set { __D_SourceAtop = value; } }
-    protected Composite __D_SourceAtop;
-    public virtual Composite DestinationAtop { get { return __D_DestinationAtop; } set { __D_DestinationAtop = value; } }
-    protected Composite __D_DestinationAtop;
+    public virtual Comp SourceOver { get { return __D_SourceOver; } set { __D_SourceOver = value; } }
+    protected Comp __D_SourceOver;
+    public virtual Comp DestinationOver { get { return __D_DestinationOver; } set { __D_DestinationOver = value; } }
+    protected Comp __D_DestinationOver;
+    public virtual Comp Clear { get { return __D_Clear; } set { __D_Clear = value; } }
+    protected Comp __D_Clear;
+    public virtual Comp Source { get { return __D_Source; } set { __D_Source = value; } }
+    protected Comp __D_Source;
+    public virtual Comp Destination { get { return __D_Destination; } set { __D_Destination = value; } }
+    protected Comp __D_Destination;
+    public virtual Comp SourceIn { get { return __D_SourceIn; } set { __D_SourceIn = value; } }
+    protected Comp __D_SourceIn;
+    public virtual Comp DestinationIn { get { return __D_DestinationIn; } set { __D_DestinationIn = value; } }
+    protected Comp __D_DestinationIn;
+    public virtual Comp SourceOut { get { return __D_SourceOut; } set { __D_SourceOut = value; } }
+    protected Comp __D_SourceOut;
+    public virtual Comp DestinationOut { get { return __D_DestinationOut; } set { __D_DestinationOut = value; } }
+    protected Comp __D_DestinationOut;
+    public virtual Comp SourceAtop { get { return __D_SourceAtop; } set { __D_SourceAtop = value; } }
+    protected Comp __D_SourceAtop;
+    public virtual Comp DestinationAtop { get { return __D_DestinationAtop; } set { __D_DestinationAtop = value; } }
+    protected Comp __D_DestinationAtop;
 
-    protected virtual Composite AddItem(ulong o)
+    protected virtual Comp AddItem(ulong o)
     {
-        Composite item;
-        item = new Composite();
+        Comp item;
+        item = new Comp();
         item.Init();
         item.Index = this.Index;
         item.Intern = o;
@@ -95,8 +95,8 @@ public class CompositeList : Any
     protected virtual int Index { get { return __D_Index; } set { __D_Index = value; } }
     protected int __D_Index;
 
-    public virtual Composite Get(int index)
+    public virtual Comp Get(int index)
     {
-        return (Composite)this.Array.Get(index);
+        return (Comp)this.Array.Get(index);
     }
 }
