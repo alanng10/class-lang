@@ -122,8 +122,6 @@ Word "view" has meaning that is presentation.
 
 Word "event" has meaning that is occurred.
 
-Word "trigger" has meaning that is effect occur.
-
 Word "status" has meaning that is kind of output.
 
 Word "error" has meaning that is invalid.
