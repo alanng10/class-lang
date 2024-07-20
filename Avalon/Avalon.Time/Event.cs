@@ -11,7 +11,7 @@ public class Event : Any
 
         this.ElapseArg = new ElapseArg();
         this.ElapseArg.Init();
-        this.ElapseArg.Interval = this;
+        this.ElapseArg.Event = this;
         this.Elapse = new EventEvent();
         this.Elapse.Init();
 

@@ -2,5 +2,5 @@ namespace Avalon.Time;
 
 public class ElapseArg : Any
 {
-    public virtual Interval Interval { get; set; }
+    public virtual Event Event { get; set; }
 }
