@@ -48,6 +48,8 @@ Word "inn" has meaning that is input source.
 
 Word "err" has meaning that is error destination.
 
+Word "bool" has meaning that is binary.
+
 Word "case" has meaning that is one of discrete choices.
 
 Word "refer" has meaning that is declaration.
