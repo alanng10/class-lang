@@ -18,14 +18,14 @@ public class List : Comp
         this.EventState.Init();
         this.EventState.List = this;
         
-        this.ListTriggerArg = (ListChange)this.ChangeArg;
+        this.ListChangeArg = (ListChange)this.ChangeArg;
         return true;
     }
 
     protected virtual Table ItemTable { get; set; }
     protected virtual Iter ItemIter { get; set; }
     protected virtual ListState EventState { get; set; }
-    protected virtual ListChange ListTriggerArg { get; set; }
+    protected virtual ListChange ListChangeArg { get; set; }
 
     protected override Change CreateChangeArg()
     {
@@ -48,11 +48,11 @@ public class List : Comp
 
     public virtual bool ItemChange(Comp item)
     {
-        this.ListTriggerArg.Item = item;
+        this.ListChangeArg.Item = item;
 
-        this.TriggerList();
+        this.EventList();
 
-        this.ListTriggerArg.Item = null;
+        this.ListChangeArg.Item = null;
         return true;
     }
 
@@ -73,7 +73,7 @@ public class List : Comp
 
         item.ChangeEvent.State.AddState(this.EventState);
 
-        this.TriggerList();
+        this.EventList();
         return true;
     }
 
@@ -91,7 +91,7 @@ public class List : Comp
 
         this.ItemTable.Clear();
 
-        this.TriggerList();
+        this.EventList();
         return true;
     }
 
@@ -117,7 +117,7 @@ public class List : Comp
 
         item.ChangeEvent.State.AddState(this.EventState);
 
-        this.TriggerList();
+        this.EventList();
         return true;
     }
 
@@ -134,7 +134,7 @@ public class List : Comp
 
         item.ChangeEvent.State.RemoveState(this.EventState);
 
-        this.TriggerList();
+        this.EventList();
         return true;
     }
 
@@ -157,7 +157,7 @@ public class List : Comp
         return true;
     }
 
-    protected virtual bool TriggerList()
+    protected virtual bool EventList()
     {
         this.Event(null);
         return true;
