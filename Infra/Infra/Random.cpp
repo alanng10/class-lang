@@ -43,10 +43,19 @@ Int Random_Execute(Int o)
     Random* m;
     m = CP(o);
 
-    quint32 u;
-    u = m->Intern->generate();
+    quint64 u;
+    u = m->Intern->generate64();
+
+    Int ka;
+    ka = 1;
+    ka = ka << 60;
+    ka = ka - 1;
+
+    Int k;
+    k = u;
+    k = k & ka;
 
     Int a;
-    a = u;
+    a = k;
     return a;
 }
