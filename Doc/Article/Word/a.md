@@ -110,8 +110,6 @@ Word "form" has meaning that is transform.
 
 Word "tune" has meaning that is comp audio.
 
-Word "binary" has meaning that is module data.
-
 Word "compute" has meaning that is process info.
 
 Word "memory" has meaning that is data store.
