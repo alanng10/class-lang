@@ -5,14 +5,17 @@ public class Time : Any
     public override bool Init()
     {
         base.Init();
+        this.InternInfra = InternInfra.This;
         this.TimeInfra = Infra.This;
 
-        this.Intern = DateTime.MinValue;
+        this.Intern = new InternTime();
+        this.Intern.Init();
         return true;
     }
 
+    private InternInfra InternInfra { get; set; }
     private Infra TimeInfra { get; set; }
-    private DateTime Intern;
+    private InternTime Intern { get; set; }
     private int OffsetUtc { get; set; }
 
     public virtual int Year
@@ -63,7 +66,7 @@ public class Time : Any
     {
         get
         {
-            return this.Intern.Minute;
+            return this.Intern.Min;
         }
         set
         {
@@ -74,7 +77,7 @@ public class Time : Any
     {
         get
         {
-            return this.Intern.Second;
+            return this.Intern.Sec;
         }
         set
         {
@@ -85,7 +88,7 @@ public class Time : Any
     {
         get
         {
-            return this.Intern.Millisecond;
+            return this.Intern.Millisec;
         }
         set
         {
@@ -107,7 +110,7 @@ public class Time : Any
     {
         get
         {
-            return this.Intern.DayOfYear;
+            return this.Intern.YearDay;
         }
         set
         {
@@ -118,9 +121,7 @@ public class Time : Any
     {
         get
         {
-            int a;
-            a = (int)this.Intern.DayOfWeek;
-            return a;
+            return this.Intern.WeekDay;
         }
         set
         {
@@ -131,13 +132,8 @@ public class Time : Any
     {
         get
         {
-            double k;
-            k = this.Intern.Ticks;
-
-            k = k / this.TimeInfra.SystemTickPerTick;
-
             long a;
-            a = (long)k;
+            a = this.InternInfra.SystemTickToTick(this.Intern.Tick);
             return a;
         }
         set
@@ -152,7 +148,7 @@ public class Time : Any
             return false;
         }
 
-        return DateTime.IsLeapYear(year);
+        return this.Intern.LeapYear(year);
     }
 
     public virtual int MonthDayCount(int year, int month)
@@ -167,12 +163,12 @@ public class Time : Any
             return -1;
         }
 
-        return DateTime.DaysInMonth(year, month);
+        return this.Intern.MonthDayCount(year, month);
     }
 
     public virtual bool Current()
     {
-        this.Intern = DateTime.UtcNow;
+        this.Intern.Current();
         
         this.OffsetUtc = 0;
         return true;
