@@ -62,6 +62,8 @@ Word "string" has meaning that is char list.
 
 Word "infra" has meaning that is support library.
 
+Word "token" has meaning that is string unit.
+
 Word "case" has meaning that is one of discrete choices.
 
 Word "refer" has meaning that is declaration.
