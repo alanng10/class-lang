@@ -88,7 +88,7 @@ Word "table" has meaning that is entry map.
 
 Word "array" has meaning that is indexed list.
 
-Word "stream" has meaning that is serial data.
+Word "stream" has meaning that is serial.
 
 Word "face" has meaning that is char style.
 
