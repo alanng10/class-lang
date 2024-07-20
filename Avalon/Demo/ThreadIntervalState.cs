@@ -29,7 +29,7 @@ class ThreadIntervalState : ThreadExecuteState
         state.ExitCode = this.ExitCode;
 
         varEvent.Time = this.Time;
-        varEvent.SingleShot = this.SingleShot;
+        varEvent.Single = this.SingleShot;
         varEvent.Elapse.State.AddState(state);
 
         varEvent.Start();

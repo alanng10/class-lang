@@ -70,7 +70,7 @@ public class Event : Any
         }
     }
 
-    public virtual bool SingleShot
+    public virtual bool Single
     {
         get
         {

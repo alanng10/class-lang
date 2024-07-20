@@ -21,7 +21,7 @@ class ElapseState : State
          
         if (!(this.Count < this.ElapseCount))
         {
-            if (!this.TimeEvent.SingleShot)
+            if (!this.TimeEvent.Single)
             {
                 this.TimeEvent.Stop();
 

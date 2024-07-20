@@ -35,7 +35,7 @@ class ThreadNetworkHostState : ThreadExecuteState
         varEvent = new TimeEvent();
         varEvent.Init();
 
-        varEvent.SingleShot = true;
+        varEvent.Single = true;
         varEvent.Time = 0;
 
         NetworkHostOpenState openState;
