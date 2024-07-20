@@ -118,6 +118,8 @@ Word "entry" has meaning that is associate entity.
 
 Word "view" has meaning that is presentation.
 
+Word "child" has meaning that is sub entity.
+
 Word "event" has meaning that is occurred.
 
 Word "status" has meaning that is kind of output.
