@@ -9,16 +9,16 @@ class ThreadIntervalState : ThreadExecuteState
 
     public override bool Execute()
     {
-        ThreadCurrent current;
-        current = new ThreadCurrent();
-        current.Init();
+        ThreadThis varThis;
+        varThis = new ThreadThis();
+        varThis.Init();
 
         TimeEvent varEvent;
         varEvent = new TimeEvent();
         varEvent.Init();
 
         ThreadThread thread;
-        thread = current.Thread;
+        thread = varThis.Thread;
 
         ElapseState state;
         state = new ElapseState();
