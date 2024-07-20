@@ -180,7 +180,7 @@ public class Draw : Any
     public virtual Form Form { get; set; }
 
     protected virtual Form WorldForm { get; set; }
-    protected virtual Form TransformA { get; set; }
+    protected virtual Form FormA { get; set; }
     protected virtual Pos PosA { get; set; }
     protected virtual int TextCount { get; set; }
 
@@ -272,7 +272,7 @@ public class Draw : Any
 
     public virtual bool TransformSet()
     {
-        this.TransformA = this.Form;
+        this.FormA = this.Form;
         this.DrawTransformSet();
         return true;
     }
@@ -283,9 +283,9 @@ public class Draw : Any
 
         this.WorldTransformPosOffsetSet(this.PosA);
 
-        if (!(this.TransformA == null))
+        if (!(this.FormA == null))
         {
-            this.WorldForm.Multiply(this.TransformA);
+            this.WorldForm.Multiply(this.FormA);
         }
 
         Extern.Draw_TransformSet(this.Intern, this.WorldForm.Intern);
