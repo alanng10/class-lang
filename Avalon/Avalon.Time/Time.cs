@@ -176,7 +176,7 @@ public class Time : Any
 
     public virtual bool ToPos(int pos)
     {
-        if (!this.CheckPos(pos))
+        if (!this.ValidPos(pos))
         {
             return false;
         }
@@ -309,6 +309,15 @@ public class Time : Any
         return true;
     }
 
+    public virtual bool ValidPos(int value)
+    {
+        int k;
+        k = this.TimeInfra.DaySecCount;
+        k = k / 2;
+
+        return !((value < -k) | (k < value));
+    }
+
     public virtual bool Set(int year, int month, int day, int hour, int min, int sec, int millisec, int pos)
     {
         if (!this.ValidDate(year, month, day))
@@ -321,7 +330,7 @@ public class Time : Any
             return false;
         }
 
-        if (!this.CheckPos(pos))
+        if (!this.ValidPos(pos))
         {
             return false;
         }
@@ -368,15 +377,6 @@ public class Time : Any
     protected virtual bool CheckMillisec(int value)
     {
         return this.CheckTimeCount(1000, value);
-    }
-
-    protected virtual bool CheckPos(int value)
-    {
-        int k;
-        k = this.TimeInfra.DaySecCount;
-        k = k / 2;
-
-        return !((value < -k) | (k < value));
     }
 
     private bool CheckTimeCount(int count, int value)
