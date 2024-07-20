@@ -27,7 +27,7 @@ public class List : Comp
     protected virtual ListState EventState { get; set; }
     protected virtual ListChange ListTriggerArg { get; set; }
 
-    protected override Change CreateTriggerArg()
+    protected override Change CreateChangeArg()
     {
         Change a;
         a = new ListChange();
