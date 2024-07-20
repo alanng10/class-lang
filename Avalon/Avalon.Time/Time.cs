@@ -178,19 +178,19 @@ public class Time : Any
         return true;
     }
 
-    public virtual bool ToOffsetUtc(int offset)
+    public virtual bool ToPos(int pos)
     {
-        if (!this.CheckOffsetUtc(offset))
+        if (!this.CheckOffsetUtc(pos))
         {
             return false;
         }
 
         int k;
-        k = offset - this.Offset; 
+        k = pos - this.Offset; 
 
         this.AddSecond(k);
 
-        this.Offset = offset;
+        this.Offset = pos;
         return true;
     }
 

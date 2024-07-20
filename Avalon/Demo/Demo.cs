@@ -569,7 +569,7 @@ class Demo : Any
         time.Current();
         this.ConsoleWriteTime("Demo.ExecuteTime time current ", time);
 
-        time.ToOffsetUtc(2 * 60 * 60);
+        time.ToPos(2 * 60 * 60);
         this.ConsoleWriteTime("Demo.ExecuteTime time ToOffsetUtc ", time);
 
         time.AddMillisecond(200 * 1000);
