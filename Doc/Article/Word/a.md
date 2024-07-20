@@ -104,6 +104,10 @@ Word "char" has meaning that is character code.
 
 Word "stream" has meaning that is serial.
 
+Word "read" has meaning that is got info from medium.
+
+Word "write" has meaning that is set info to medium.
+
 Word "kind" has meaning that is one of types.
 
 Word "face" has meaning that is char style.
