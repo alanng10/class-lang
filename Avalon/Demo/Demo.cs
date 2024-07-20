@@ -585,7 +585,7 @@ class Demo : Any
         "day: " + time.Day + ", " +
         "hour: " + time.Hour + ", " +
         "minute: " + time.Min + ", " +
-        "second: " + time.Second + ", " +
+        "second: " + time.Sec + ", " +
         "millisecond: " + time.Millisecond + ", " +
         "offsetUtc: " + time.OffsetUtc + 
         "\n");

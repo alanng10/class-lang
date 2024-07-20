@@ -70,7 +70,7 @@ public class Time : Any
         }
     }
 
-    public virtual int Second
+    public virtual int Sec
     {
         get
         {
