@@ -177,7 +177,7 @@ public class Draw : Any
 
     protected virtual Comp CompData { get; set; }
 
-    public virtual Form Transform { get; set; }
+    public virtual Form Form { get; set; }
 
     protected virtual Form WorldTransform { get; set; }
     protected virtual Form TransformA { get; set; }
@@ -221,7 +221,7 @@ public class Draw : Any
         this.FillPos.Left = 0;
         this.FillPos.Up = 0;
         this.FillPosSet();
-        this.Transform = null;
+        this.Form = null;
         this.TransformSet();
         return true;
     }
@@ -272,7 +272,7 @@ public class Draw : Any
 
     public virtual bool TransformSet()
     {
-        this.TransformA = this.Transform;
+        this.TransformA = this.Form;
         this.DrawTransformSet();
         return true;
     }
