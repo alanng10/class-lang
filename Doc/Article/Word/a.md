@@ -76,6 +76,8 @@ Word "infra" has meaning that is support.
 
 Word "token" has meaning that is string unit.
 
+Word "code" has meaning that is data with value.
+
 Word "case" has meaning that is one of discrete choices.
 
 Word "refer" has meaning that is declaration.
