@@ -334,12 +334,12 @@ public class Time : Any
 
     protected virtual bool CheckYear(int value)
     {
-        return !(value < 1 | 9999 < value);
+        return !((value < 1) | (9999 < value));
     }
 
     protected virtual bool CheckMonth(int value)
     {
-        return !(value < 1 | 12 < value);
+        return !((value < 1) | (12 < value));
     }
 
     protected virtual bool CheckDay(int year, int month, int value)
@@ -347,7 +347,7 @@ public class Time : Any
         int k;
         k = this.MonthDayCount(year, month);
 
-        return !(value < 1 | k < value);
+        return !((value < 1) | (k < value));
     }
 
     protected virtual bool CheckHour(int value)
