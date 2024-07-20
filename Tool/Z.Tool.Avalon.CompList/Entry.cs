@@ -1,4 +1,4 @@
-namespace Z.Tool.Avalon.CompositeList;
+namespace Z.Tool.Avalon.CompList;
 
 class Entry : EntryEntry
 {

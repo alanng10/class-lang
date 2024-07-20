@@ -1,4 +1,4 @@
-namespace Z.Tool.Avalon.CompositeList;
+namespace Z.Tool.Avalon.CompList;
 
 public class Gen : SourceGen
 {
@@ -6,10 +6,10 @@ public class Gen : SourceGen
     {
         base.Init();
         this.Namespace = "Avalon.Draw";
-        this.ClassName = "CompositeList";
+        this.ClassName = "CompList";
         this.BaseClassName = "Any";
         this.AnyClassName = "Any";
-        this.ItemClassName = "Composite";
+        this.ItemClassName = "Comp";
         this.ArrayClassName = "Array";
         this.Export = true;
         this.StatItemClassName = "Composite";
