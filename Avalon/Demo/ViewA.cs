@@ -4,7 +4,7 @@ class ViewA : View
 {
     public virtual DrawPen DrawPen { get; set; }
     public virtual Demo Demo { get; set; }
-    public virtual DrawForm Transform { get; set; }
+    public virtual DrawForm Form { get; set; }
     public virtual int RotateValue { get; set; }
 
     protected override bool ExecuteDrawThis(DrawDraw draw)
@@ -72,13 +72,13 @@ class ViewA : View
         long angle;
         angle = oa * scaleFactor;
 
-        this.Transform.Reset();
+        this.Form.Reset();
 
-        this.Transform.Offset(ooa, oob);
+        this.Form.Offset(ooa, oob);
 
-        this.Transform.Rotate(angle);
+        this.Form.Rotate(angle);
 
-        draw.Form = this.Transform;
+        draw.Form = this.Form;
         draw.FormSet();
 
         draw.ExecuteImage(playImage, rect, rectB);

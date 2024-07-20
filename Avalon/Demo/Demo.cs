@@ -146,7 +146,7 @@ class Demo : Any
         viewA.Size.Height = 400;
         viewA.Back = brushA;
         viewA.DrawPen = penA;
-        viewA.Transform = viewATransform;
+        viewA.Form = viewATransform;
         viewA.Demo = this;
 
         Grid grid;
