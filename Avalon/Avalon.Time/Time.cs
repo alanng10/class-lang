@@ -204,7 +204,7 @@ public class Time : Any
             return false;
         }
 
-        this.Intern = this.GetDateTime(k);
+        this.Intern.Set(k);
         return true;
     }
 
