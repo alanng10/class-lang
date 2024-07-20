@@ -68,6 +68,8 @@ Word "array" has meaning that is indexed list.
 
 Word "face" has meaning that is char style.
 
+Word "phore" has meaning that is thread synchronization.
+
 Word "draw" has meaning that is comp video.
 
 Word "tune" has meaning that is comp audio.
