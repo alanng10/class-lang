@@ -40,8 +40,8 @@ class Demo : Any
         this.BrushKindList = DrawBrushKindList.This;
         this.Console = Console.This;
 
-        ThreadCurrent current;
-        current = new ThreadCurrent();
+        ThreadThis current;
+        current = new ThreadThis();
         current.Init();
 
         this.Math = new Math();
@@ -1048,8 +1048,8 @@ class Demo : Any
 
     internal bool ExecuteDemoCurrentThread()
     {
-        ThreadCurrent current;
-        current = new ThreadCurrent();
+        ThreadThis current;
+        current = new ThreadThis();
         current.Init();
 
         ThreadThread thread;
