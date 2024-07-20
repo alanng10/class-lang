@@ -40,9 +40,9 @@ class Demo : Any
         this.BrushKindList = DrawBrushKindList.This;
         this.Console = Console.This;
 
-        ThreadThis current;
-        current = new ThreadThis();
-        current.Init();
+        ThreadThis varThis;
+        varThis = new ThreadThis();
+        varThis.Init();
 
         this.Math = new Math();
         this.Math.Init();
@@ -240,7 +240,7 @@ class Demo : Any
         this.Frame.Visible = true;
 
         ThreadThread thread;
-        thread = current.Thread;
+        thread = varThis.Thread;
         
         thread.ExecuteEventLoop();
 
