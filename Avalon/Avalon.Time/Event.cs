@@ -52,27 +52,6 @@ public class Event : Any
     private ulong InternElapseState { get; set; }
     private Handle InternHandle { get; set; }
 
-    internal static ulong InternElapse(ulong interval, ulong arg)
-    {
-        InternIntern internIntern;
-        internIntern = InternIntern.This;
-
-        object ao;
-        ao = internIntern.HandleTarget(arg);
-
-        Event a;
-        a = (Event)ao;
-        a.ExecuteElapse();
-
-        return 1;
-    }
-
-    protected virtual bool ExecuteElapse()
-    {
-        this.Elapse.Execute(this.ElapseArg);
-        return true;
-    }
-
     public virtual long Time
     {
         get
@@ -119,5 +98,26 @@ public class Event : Any
     {
         Extern.Interval_Stop(this.Intern);
         return true;
+    }
+
+    protected virtual bool ExecuteElapse()
+    {
+        this.Elapse.Execute(this.ElapseArg);
+        return true;
+    }
+
+    internal static ulong InternElapse(ulong interval, ulong arg)
+    {
+        InternIntern internIntern;
+        internIntern = InternIntern.This;
+
+        object ao;
+        ao = internIntern.HandleTarget(arg);
+
+        Event a;
+        a = (Event)ao;
+        a.ExecuteElapse();
+
+        return 1;
     }
 }
