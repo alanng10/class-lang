@@ -222,7 +222,7 @@ public class Draw : Any
         this.FillPos.Up = 0;
         this.FillPosSet();
         this.Form = null;
-        this.TransformSet();
+        this.FormSet();
         return true;
     }
 
@@ -270,7 +270,7 @@ public class Draw : Any
         return true;
     }
 
-    public virtual bool TransformSet()
+    public virtual bool FormSet()
     {
         this.FormA = this.Form;
         this.DrawTransformSet();

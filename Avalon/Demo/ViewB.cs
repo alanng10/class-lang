@@ -58,12 +58,12 @@ class ViewB : View
         this.Form.Scale(horizScale, vertScale);
 
         draw.Form = this.Form;
-        draw.TransformSet();
+        draw.FormSet();
 
         draw.ExecuteImage(this.DrawImage, rect, sourceRect);
 
         draw.Form = null;
-        draw.TransformSet();
+        draw.FormSet();
 
         this.DestRectA.Pos.Left = left;
         this.DestRectA.Pos.Up = up + 150;
