@@ -20,6 +20,8 @@ Word "comp" has meaning that is compose unit.
 
 Word "name" has meaning that is call word.
 
+Word "system" has meaning that is execute base.
+
 Word "state" has meaning that is executable entity.
 
 Word "count" has meaning that is applied.
