@@ -240,7 +240,7 @@ public class Infra : Any
         mode.Init();
         mode.Read = true;
         mode.Write = true;
-        mode.Existing = true;
+        mode.Exist = true;
 
         storage.Path = filePath;
         storage.Mode = mode;

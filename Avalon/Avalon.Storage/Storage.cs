@@ -111,7 +111,7 @@ public class Storage : Any
         {
             return false;
         }
-        if (mode.New & mode.Existing)
+        if (mode.New & mode.Exist)
         {
             return false;
         }
@@ -149,7 +149,7 @@ public class Storage : Any
         {
             k = k | Extern.Stat_StorageModeNew(stat);
         }
-        if (mode.Existing)
+        if (mode.Exist)
         {
             k = k | Extern.Stat_StorageModeExisting(stat);
         }
