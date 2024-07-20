@@ -26,6 +26,7 @@ public class Thread : Any
 
     public virtual bool InitMainThread()
     {
+        base.Init();
         this.InternIntern = InternIntern.This;
         this.InternInfra = InternInfra.This;
         this.ThreadInfra = Infra.This;
