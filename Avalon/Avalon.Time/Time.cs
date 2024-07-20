@@ -13,7 +13,7 @@ public class Time : Any
 
     private Infra TimeInfra { get; set; }
     private DateTime Intern;
-    private int Offset { get; set; }
+    private int OffsetUtc { get; set; }
 
     public virtual int Year
     {
@@ -96,7 +96,7 @@ public class Time : Any
     {
         get
         {
-            return this.Offset;
+            return this.OffsetUtc;
         }
         set
         {
@@ -174,7 +174,7 @@ public class Time : Any
     {
         this.Intern = DateTime.UtcNow;
         
-        this.Offset = 0;
+        this.OffsetUtc = 0;
         return true;
     }
 
@@ -186,11 +186,11 @@ public class Time : Any
         }
 
         int k;
-        k = pos - this.Offset; 
+        k = pos - this.OffsetUtc; 
 
         this.AddSec(k);
 
-        this.Offset = pos;
+        this.OffsetUtc = pos;
         return true;
     }
 
@@ -337,7 +337,7 @@ public class Time : Any
 
         this.Intern = new DateTime(year, month, day, hour, min, sec, millisec, DateTimeKind.Local);
 
-        this.Offset = pos;
+        this.OffsetUtc = pos;
         return true;
     }
 
