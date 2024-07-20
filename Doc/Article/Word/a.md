@@ -16,6 +16,8 @@ Word "effect" has meaning that is output of anything.
 
 Word "data" has meaning that is sequence of byte.
 
+Word "byte" has meaning that is data unit.
+
 Word "node" has meaning that is entity.
 
 Word "comp" has meaning that is compose unit.
