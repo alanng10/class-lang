@@ -188,7 +188,7 @@ public class Time : Any
         int k;
         k = pos - this.Offset; 
 
-        this.AddSecond(k);
+        this.AddSec(k);
 
         this.Offset = pos;
         return true;
@@ -231,7 +231,7 @@ public class Time : Any
         return this.AddOffset(value, this.TimeInfra.MinSystemTickCount);
     }
 
-    public virtual bool AddSecond(long value)
+    public virtual bool AddSec(long value)
     {
         return this.AddOffset(value, this.TimeInfra.SecSystemTickCount);
     }
