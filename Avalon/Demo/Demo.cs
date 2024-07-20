@@ -1058,7 +1058,7 @@ class Demo : Any
         bool isMainThread;
         isMainThread = thread.MainThread;
 
-        this.Console.Out.Write("Current Thread is Main Thread: " + isMainThread.ToString() + "\n");
+        this.Console.Out.Write("This Thread is Main Thread: " + isMainThread.ToString() + "\n");
         return true;
     }
 
