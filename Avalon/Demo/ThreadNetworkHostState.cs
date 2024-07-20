@@ -31,21 +31,21 @@ class ThreadNetworkHostState : ThreadExecuteState
 
         host.NewPeerState = state;
 
-        TimeInterval interval;
-        interval = new TimeInterval();
-        interval.Init();
+        TimeEvent varEvent;
+        varEvent = new TimeEvent();
+        varEvent.Init();
 
-        interval.SingleShot = true;
-        interval.Time = 0;
+        varEvent.SingleShot = true;
+        varEvent.Time = 0;
 
         NetworkHostOpenState openState;
         openState = new NetworkHostOpenState();
         openState.ThreadNetworkHostState = this;
         openState.Init();
 
-        interval.Elapse.State.AddState(openState);
+        varEvent.Elapse.State.AddState(openState);
 
-        interval.Start();
+        varEvent.Start();
 
         ThreadCurrent current;
         current = new ThreadCurrent();
@@ -57,7 +57,7 @@ class ThreadNetworkHostState : ThreadExecuteState
         int o;
         o = thread.ExecuteEventLoop();
 
-        interval.Final();
+        varEvent.Final();
 
         string k;
         k = null;
