@@ -11,7 +11,7 @@ class ViewB : View
 
     public virtual DrawImage DrawImage { get; set; }
     public virtual DrawRect SourceRect { get; set; }
-    public virtual DrawForm Transform { get; set; }
+    public virtual DrawForm Form { get; set; }
     public virtual DrawImage ThreadDrawImage { get; set; }
     public virtual DrawRect DestRectA { get; set; }
     public virtual DrawRect SourceRectA { get; set; }
@@ -51,13 +51,13 @@ class ViewB : View
         long vertScale;
         vertScale = scaleFactor;
 
-        this.Transform.Reset();
+        this.Form.Reset();
 
-        this.Transform.Rotate(angle);
+        this.Form.Rotate(angle);
 
-        this.Transform.Scale(horizScale, vertScale);
+        this.Form.Scale(horizScale, vertScale);
 
-        draw.Transform = this.Transform;
+        draw.Transform = this.Form;
         draw.TransformSet();
 
         draw.ExecuteImage(this.DrawImage, rect, sourceRect);

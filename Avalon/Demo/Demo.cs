@@ -219,7 +219,7 @@ class Demo : Any
         viewB.Size.Height = sourceRect.Size.Height;
         viewB.DrawImage = image;
         viewB.SourceRect = sourceRect;
-        viewB.Transform = transformA;
+        viewB.Form = transformA;
         viewB.ThreadDrawImage = this.ThreadDrawImage;
         viewB.DestRectA = destRectA;
         viewB.SourceRectA = sourceRectA;
