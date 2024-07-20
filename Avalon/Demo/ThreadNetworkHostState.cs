@@ -47,12 +47,12 @@ class ThreadNetworkHostState : ThreadExecuteState
 
         varEvent.Start();
 
-        ThreadCurrent current;
-        current = new ThreadCurrent();
-        current.Init();
+        ThreadThis varThis;
+        varThis = new ThreadThis();
+        varThis.Init();
 
         ThreadThread thread;
-        thread = current.Thread;
+        thread = varThis.Thread;
 
         int o;
         o = thread.ExecuteEventLoop();
@@ -90,11 +90,11 @@ class ThreadNetworkHostState : ThreadExecuteState
         this.Demo.Peer = null;
         this.Demo.Host = null;
 
-        ThreadCurrent current;
-        current = new ThreadCurrent();
-        current.Init();
+        ThreadThis varThis;
+        varThis = new ThreadThis();
+        varThis.Init();
         ThreadThread thread;
-        thread = current.Thread;
+        thread = varThis.Thread;
 
         thread.ExitEventLoop(code);
         return true;
