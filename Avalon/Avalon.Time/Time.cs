@@ -293,24 +293,24 @@ public class Time : Any
         return true;
     }
 
-    public virtual bool ValidTime(int hour, int minute, int second, int millisecond)
+    public virtual bool ValidTime(int hour, int min, int sec, int millisec)
     {
         if (!this.CheckHour(hour))
         {
             return false;
         }
 
-        if (!this.CheckMin(minute))
+        if (!this.CheckMin(min))
         {
             return false;
         }
 
-        if (!this.CheckSec(second))
+        if (!this.CheckSec(sec))
         {
             return false;
         }
 
-        if (!this.CheckMillisec(millisecond))
+        if (!this.CheckMillisec(millisec))
         {
             return false;
         }
@@ -318,14 +318,14 @@ public class Time : Any
         return true;
     }
 
-    public virtual bool Set(int year, int month, int day, int hour, int minute, int second, int millisecond, int offsetUtc)
+    public virtual bool Set(int year, int month, int day, int hour, int min, int sec, int millisecond, int offsetUtc)
     {
         if (!this.ValidDate(year, month, day))
         {
             return false;
         }
 
-        if (!this.ValidTime(hour, minute, second, millisecond))
+        if (!this.ValidTime(hour, min, sec, millisecond))
         {
             return false;
         }
@@ -335,7 +335,7 @@ public class Time : Any
             return false;
         }
 
-        this.Intern = new DateTime(year, month, day, hour, minute, second, millisecond, DateTimeKind.Local);
+        this.Intern = new DateTime(year, month, day, hour, min, sec, millisecond, DateTimeKind.Local);
 
         this.Offset = offsetUtc;
         return true;
