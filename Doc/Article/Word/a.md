@@ -138,7 +138,7 @@ Word "tick" has meaning that is smallest duration.
 
 Word "media" has meaning that is contain video and audio.
 
-Word "play" has meaning that is play back.
+Word "play" has meaning that is execute media effect.
 
 Word "compute" has meaning that is process info.
 
