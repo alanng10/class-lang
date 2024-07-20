@@ -87,6 +87,30 @@ public class Time : object
         }
     }
 
+    public virtual int YearDay
+    {
+        get
+        {
+            return this.Intern.DayOfYear;
+        }
+        set
+        {
+        }
+    }
+
+    public virtual int WeekDay
+    {
+        get
+        {
+            int a;
+            a = (int)this.Intern.DayOfWeek;
+            return a;
+        }
+        set
+        {
+        }
+    }
+
     public virtual long Tick
     {
         get
