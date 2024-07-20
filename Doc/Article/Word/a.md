@@ -120,7 +120,7 @@ Word "face" has meaning that is char style.
 
 Word "phore" has meaning that is thread synchronization.
 
-Word "post" has meaning that is after event.
+Word "post" has meaning that is queued event.
 
 Word "entry" has meaning that is associate entity.
 
