@@ -58,8 +58,8 @@ public class ThreadNetworkState : ThreadExecuteState
 
         network.Open();
 
-        ThreadCurrent current;
-        current = new ThreadCurrent();
+        ThreadThis current;
+        current = new ThreadThis();
         current.Init();
 
         ThreadThread thread;
@@ -96,8 +96,8 @@ public class ThreadNetworkState : ThreadExecuteState
 
         this.Network = null;
 
-        ThreadCurrent current;
-        current = new ThreadCurrent();
+        ThreadThis current;
+        current = new ThreadThis();
         current.Init();
         ThreadThread thread;
         thread = current.Thread;
