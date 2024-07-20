@@ -122,6 +122,22 @@ public class Time : object
         }
     }
 
+    public virtual bool LeapYear(int year)
+    {
+        return DateTime.IsLeapYear(year);
+    }
+
+    public virtual int MonthDayCount(int year, int month)
+    {
+        return DateTime.DaysInMonth(year, month);
+    }
+
+    public virtual bool Current()
+    {
+        this.Intern = DateTime.UtcNow;
+        return true;
+    }
+
     public virtual bool SetDate(int year, int month, int day, int hour, int min, int sec, int millisec)
     {
         this.Intern = new DateTime(year, month, day, hour, min, sec, millisec, DateTimeKind.Local);
