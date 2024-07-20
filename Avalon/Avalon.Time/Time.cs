@@ -256,12 +256,11 @@ public class Time : Any
         long ka;
         ka = this.SystemTickTo(other);
 
-        double k;
-        k = ka;
-        k = k / this.TimeInfra.SystemTickPerTick;
+        long k;
+        k = this.InternInfra.SystemTickToTick(ka);
 
         long a;
-        a = (long)k;
+        a = k;
         return a;
     }
 
