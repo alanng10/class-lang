@@ -58,12 +58,12 @@ public class ThreadNetworkState : ThreadExecuteState
 
         network.Open();
 
-        ThreadThis current;
-        current = new ThreadThis();
-        current.Init();
+        ThreadThis varThis;
+        varThis = new ThreadThis();
+        varThis.Init();
 
         ThreadThread thread;
-        thread = current.Thread;
+        thread = varThis.Thread;
 
         int o;
         o = thread.ExecuteEventLoop();
@@ -96,11 +96,11 @@ public class ThreadNetworkState : ThreadExecuteState
 
         this.Network = null;
 
-        ThreadThis current;
-        current = new ThreadThis();
-        current.Init();
+        ThreadThis varThis;
+        varThis = new ThreadThis();
+        varThis.Init();
         ThreadThread thread;
-        thread = current.Thread;
+        thread = varThis.Thread;
 
         thread.ExitEventLoop(code);
         return true;
