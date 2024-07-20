@@ -1,6 +1,6 @@
 namespace Avalon.Thread;
 
-public class Current : Any
+public class This : Any
 {
     public virtual bool Wait(long timeMilliSecond)
     {
