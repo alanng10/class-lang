@@ -59,7 +59,7 @@ public class Time : Any
         }
     }
 
-    public virtual int Minute
+    public virtual int Min
     {
         get
         {

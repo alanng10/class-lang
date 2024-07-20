@@ -584,7 +584,7 @@ class Demo : Any
         "month: " + time.Month + ", " +
         "day: " + time.Day + ", " +
         "hour: " + time.Hour + ", " +
-        "minute: " + time.Minute + ", " +
+        "minute: " + time.Min + ", " +
         "second: " + time.Second + ", " +
         "millisecond: " + time.Millisecond + ", " +
         "offsetUtc: " + time.OffsetUtc + 
