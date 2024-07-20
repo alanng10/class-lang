@@ -584,9 +584,9 @@ class Demo : Any
         "month: " + time.Month + ", " +
         "day: " + time.Day + ", " +
         "hour: " + time.Hour + ", " +
-        "minute: " + time.Min + ", " +
-        "second: " + time.Sec + ", " +
-        "millisecond: " + time.Millisec + ", " +
+        "min: " + time.Min + ", " +
+        "sec: " + time.Sec + ", " +
+        "millisec: " + time.Millisec + ", " +
         "offsetUtc: " + time.OffsetUtc + 
         "\n");
         return true;
