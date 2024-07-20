@@ -66,7 +66,7 @@ Word "int" has meaning that is integer.
 
 Word "string" has meaning that is char list.
 
-Word "infra" has meaning that is support library.
+Word "infra" has meaning that is support.
 
 Word "token" has meaning that is string unit.
 
