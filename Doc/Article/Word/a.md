@@ -96,6 +96,8 @@ Word "interval" has meaning that is repeat delayed trigger.
 
 Word "entry" has meaning that is associate entity.
 
+Word "event" has meaning that is occurred.
+
 Word "draw" has meaning that is comp video.
 
 Word "form" has meaning that is transform.
