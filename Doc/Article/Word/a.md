@@ -114,8 +114,6 @@ Word "face" has meaning that is char style.
 
 Word "phore" has meaning that is thread synchronization.
 
-Word "interval" has meaning that is repeat delayed trigger.
-
 Word "entry" has meaning that is associate entity.
 
 Word "view" has meaning that is presentation.
