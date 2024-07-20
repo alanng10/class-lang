@@ -22,6 +22,8 @@ Word "name" has meaning that is call word.
 
 Word "system" has meaning that is execute base.
 
+Word "thread" has meaning that is execute line.
+
 Word "state" has meaning that is executable entity.
 
 Word "count" has meaning that is applied.
