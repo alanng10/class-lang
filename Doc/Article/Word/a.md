@@ -136,6 +136,12 @@ Word "tune" has meaning that is comp audio.
 
 Word "tick" has meaning that is smallest duration.
 
+Word "min" has meaning that is date minute.
+
+Word "sec" has meaning that is date second.
+
+Word "millisec" has meaning that is date millisecond.
+
 Word "media" has meaning that is contain video and audio.
 
 Word "play" has meaning that is execute media effect.
