@@ -18,6 +18,8 @@ Word "data" has meaning that is sequence of byte.
 
 Word "byte" has meaning that is data unit.
 
+Word "info" has meaning that is interpreted.
+
 Word "node" has meaning that is entity.
 
 Word "comp" has meaning that is compose unit.
