@@ -168,7 +168,7 @@ public class Time : Any
 
     public virtual bool This()
     {
-        this.Intern.Current();
+        this.Intern.This();
         
         this.OffsetUtc = 0;
         return true;

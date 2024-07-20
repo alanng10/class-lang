@@ -132,7 +132,7 @@ public class Time : object
         return DateTime.DaysInMonth(year, month);
     }
 
-    public virtual bool Current()
+    public virtual bool This()
     {
         this.Intern = DateTime.UtcNow;
         return true;
