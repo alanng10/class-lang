@@ -85,7 +85,7 @@ public class Type : Any
         a.Value = value;
         this.ChangeArg.Button = button;
         this.ChangeArg.Field = value;
-        this.Change.Trigger(this.ChangeArg);
+        this.Change.Execute(this.ChangeArg);
         return true;
     }
 

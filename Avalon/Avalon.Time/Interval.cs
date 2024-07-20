@@ -69,7 +69,7 @@ public class Interval : Any
 
     protected virtual bool ElapseTrigger()
     {
-        this.Elapse.Trigger(this.ElapseArg);
+        this.Elapse.Execute(this.ElapseArg);
         return true;
     }
 

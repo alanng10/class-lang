@@ -28,7 +28,7 @@ public class Comp : Any
     {
         this.TriggerArg.Comp = this;
         this.TriggerArg.Field = field;
-        this.ChangeEvent.Trigger(this.TriggerArg);
+        this.ChangeEvent.Execute(this.TriggerArg);
         return true;
     }
 
