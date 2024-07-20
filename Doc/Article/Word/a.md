@@ -54,6 +54,8 @@ Word "this" has meaning that is currently is.
 
 Word "new" has meaning that is new instance.
 
+Word "share" has meaning that is shared instance.
+
 Words "prudate", "probate", "precate" and "private" have meanings that are applicable
 to all, local, child, and self.
 
