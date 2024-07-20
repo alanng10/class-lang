@@ -570,10 +570,10 @@ class Demo : Any
         this.ConsoleWriteTime("Demo.ExecuteTime time current ", time);
 
         time.ToPos(2 * 60 * 60);
-        this.ConsoleWriteTime("Demo.ExecuteTime time ToOffsetUtc ", time);
+        this.ConsoleWriteTime("Demo.ExecuteTime time ToPos ", time);
 
         time.AddMillisec(200 * 1000);
-        this.ConsoleWriteTime("Demo.ExecuteTime time AddMillisecond ", time);
+        this.ConsoleWriteTime("Demo.ExecuteTime time AddMillisec ", time);
         return true;
     }
 
@@ -587,7 +587,7 @@ class Demo : Any
         "min: " + time.Min + ", " +
         "sec: " + time.Sec + ", " +
         "millisec: " + time.Millisec + ", " +
-        "offsetUtc: " + time.Pos + 
+        "pos: " + time.Pos + 
         "\n");
         return true;
     }
