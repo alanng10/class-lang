@@ -2,7 +2,7 @@ namespace Demo;
 
 class ThreadIntervalState : ThreadExecuteState
 {
-    public bool SingleShot { get; set; }
+    public bool Single { get; set; }
     public int ElapseCount { get; set; }
     public long Time { get; set; }
     public int ExitCode { get; set; }
@@ -29,7 +29,7 @@ class ThreadIntervalState : ThreadExecuteState
         state.ExitCode = this.ExitCode;
 
         varEvent.Time = this.Time;
-        varEvent.Single = this.SingleShot;
+        varEvent.Single = this.Single;
         varEvent.Elapse.State.AddState(state);
 
         varEvent.Start();

@@ -1069,7 +1069,7 @@ class Demo : Any
         return true;
     }
 
-    private bool ExecuteTimeEventOne(bool singleshot, int elapseCount, long time, int exitCode)
+    private bool ExecuteTimeEventOne(bool single, int elapseCount, long time, int exitCode)
     {
         ThreadThread thread;
         thread = new ThreadThread();
@@ -1078,7 +1078,7 @@ class Demo : Any
         ThreadIntervalState state;
         state = new ThreadIntervalState();
         state.Init();
-        state.SingleShot = singleshot;
+        state.Single = single;
         state.ElapseCount = elapseCount;
         state.Time = time;
         state.ExitCode = exitCode;
