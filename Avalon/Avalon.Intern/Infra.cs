@@ -15,10 +15,30 @@ public class Infra : object
     public virtual bool Init()
     {
         this.InternIntern = Intern.This;
+
+
+        this.SystemTickMin = DateTime.MinValue.Ticks;
+        this.SystemTickMax = DateTime.MaxValue.Ticks;
+
+        double k;
+        k = TimeSpan.TicksPerDay;
+
+        long ka;
+        ka = 1 << 30;
+
+        k = k / ka;
+
+        this.SystemTickPerTick = k;
         return true;
     }
 
     protected virtual Intern InternIntern { get; set; }
+
+    public virtual long SystemTickMin { get; set; }
+
+    public virtual long SystemTickMax { get; set; }
+
+    public virtual double SystemTickPerTick { get; set; }
 
     public virtual ulong StringCreate(string a)
     {

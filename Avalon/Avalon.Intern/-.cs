@@ -1,6 +1,7 @@
 global using SystemDelegate = System.Delegate;
 global using DateTime = System.DateTime;
 global using DateTimeKind = System.DateTimeKind;
+global using TimeSpan = System.TimeSpan;
 global using SystemIntPtr = System.IntPtr;
 global using IComparerObject = System.Collections.Generic.IComparer<object>;
 global using SystemThreadStaticAttribute = System.ThreadStaticAttribute;
