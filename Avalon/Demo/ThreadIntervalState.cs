@@ -13,9 +13,9 @@ class ThreadIntervalState : ThreadExecuteState
         current = new ThreadCurrent();
         current.Init();
 
-        TimeEvent interval;
-        interval = new TimeEvent();
-        interval.Init();
+        TimeEvent varEvent;
+        varEvent = new TimeEvent();
+        varEvent.Init();
 
         ThreadThread thread;
         thread = current.Thread;
@@ -23,21 +23,21 @@ class ThreadIntervalState : ThreadExecuteState
         ElapseState state;
         state = new ElapseState();
         state.Init();
-        state.TimeEvent = interval;
+        state.TimeEvent = varEvent;
         state.Thread = thread;
         state.ElapseCount = this.ElapseCount;
         state.ExitCode = this.ExitCode;
 
-        interval.Time = this.Time;
-        interval.SingleShot = this.SingleShot;
-        interval.Elapse.State.AddState(state);
+        varEvent.Time = this.Time;
+        varEvent.SingleShot = this.SingleShot;
+        varEvent.Elapse.State.AddState(state);
 
-        interval.Start();
+        varEvent.Start();
 
         int o;        
         o = thread.ExecuteEventLoop();
 
-        interval.Final();
+        varEvent.Final();
         
         this.Result = o;
         return true;
