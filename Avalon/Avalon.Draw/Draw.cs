@@ -266,18 +266,18 @@ public class Draw : Any
     {
         this.PosA.Left = this.Pos.Left;
         this.PosA.Up = this.Pos.Up;
-        this.DrawTransformSet();
+        this.DrawFormSet();
         return true;
     }
 
     public virtual bool FormSet()
     {
         this.FormA = this.Form;
-        this.DrawTransformSet();
+        this.DrawFormSet();
         return true;
     }
 
-    protected virtual bool DrawTransformSet()
+    protected virtual bool DrawFormSet()
     {
         this.WorldForm.Reset();
 
