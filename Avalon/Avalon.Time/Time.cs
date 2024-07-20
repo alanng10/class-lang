@@ -218,27 +218,27 @@ public class Time : Any
 
     public virtual bool AddDay(long value)
     {
-        return this.AddOffset(value, this.TimeInfra.DaySystemTickCount);
+        return this.AddValue(value, this.TimeInfra.DaySystemTickCount);
     }
 
     public virtual bool AddHour(long value)
     {
-        return this.AddOffset(value, this.TimeInfra.HourSystemTickCount);
+        return this.AddValue(value, this.TimeInfra.HourSystemTickCount);
     }
 
     public virtual bool AddMin(long value)
     {
-        return this.AddOffset(value, this.TimeInfra.MinSystemTickCount);
+        return this.AddValue(value, this.TimeInfra.MinSystemTickCount);
     }
 
     public virtual bool AddSec(long value)
     {
-        return this.AddOffset(value, this.TimeInfra.SecSystemTickCount);
+        return this.AddValue(value, this.TimeInfra.SecSystemTickCount);
     }
 
     public virtual bool AddMillisec(long value)
     {
-        return this.AddOffset(value, this.TimeInfra.MillisecSystemTickCount);
+        return this.AddValue(value, this.TimeInfra.MillisecSystemTickCount);
     }
 
     public virtual long MillisecTo(Time other)
@@ -410,10 +410,10 @@ public class Time : Any
         return new DateTime(tick, DateTimeKind.Local);
     }
 
-    private bool AddOffset(long offset, long offsetScale)
+    private bool AddValue(long value, long valueScale)
     {
         long o;
-        o = offset * offsetScale;
+        o = value * valueScale;
 
         long k;
         k = this.Intern.Ticks;
