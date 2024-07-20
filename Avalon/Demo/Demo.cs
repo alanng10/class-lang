@@ -1056,7 +1056,7 @@ class Demo : Any
         thread = varThis.Thread;
 
         bool isMainThread;
-        isMainThread = thread.MainThread;
+        isMainThread = thread.Main;
 
         this.Console.Out.Write("This Thread is Main Thread: " + isMainThread.ToString() + "\n");
         return true;

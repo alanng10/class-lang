@@ -111,7 +111,7 @@ public class Thread : Any
         return true;
     }
 
-    public virtual bool MainThread
+    public virtual bool Main
     {
         get
         {
