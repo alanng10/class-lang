@@ -4,12 +4,12 @@ public class PostState : State
 {
     public override bool Execute()
     {
-        ThreadThis current;
-        current = new ThreadThis();
-        current.Init();
+        ThreadThis varThis;
+        varThis = new ThreadThis();
+        varThis.Init();
 
         ThreadThread thread;
-        thread = current.Thread;
+        thread = varThis.Thread;
         thread.ExitEventLoop(0x89f6);
 
         Console console;
