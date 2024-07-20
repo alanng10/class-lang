@@ -24,7 +24,8 @@ public class Infra : object
         k = TimeSpan.TicksPerDay;
 
         long ka;
-        ka = 1 << 30;
+        ka = 1;
+        ka = ka << 30;
 
         k = k / ka;
 
