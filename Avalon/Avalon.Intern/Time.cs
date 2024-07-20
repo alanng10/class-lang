@@ -4,6 +4,7 @@ public class Time : object
 {
     public virtual bool Init()
     {
+        this.Intern = DateTime.MinValue;
         return true;
     }
 
