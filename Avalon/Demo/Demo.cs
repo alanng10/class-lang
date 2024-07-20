@@ -59,7 +59,7 @@ class Demo : Any
         this.ThreadDrawImage = this.ThreadDrawImageCreate();
 
         this.ExecuteDemoThread();
-        this.ExecuteDemoInterval();
+        this.ExecuteTimeEvent();
         this.ExecutePost();
 
         // this.ExecuteNetwork();
@@ -1062,14 +1062,14 @@ class Demo : Any
         return true;
     }
 
-    private bool ExecuteDemoInterval()
+    private bool ExecuteTimeEvent()
     {
-        this.ExecuteInterval(false, 4, 340, 0x4efd);
-        this.ExecuteInterval(true, 0, 610, 0xf06e);
+        this.ExecuteTimeEventOne(false, 4, 340, 0x4efd);
+        this.ExecuteTimeEventOne(true, 0, 610, 0xf06e);
         return true;
     }
 
-    private bool ExecuteInterval(bool singleshot, int elapseCount, long time, int exitCode)
+    private bool ExecuteTimeEventOne(bool singleshot, int elapseCount, long time, int exitCode)
     {
         ThreadThread thread;
         thread = new ThreadThread();
@@ -1094,7 +1094,7 @@ class Demo : Any
 
         thread.Final();
 
-        this.Console.Out.Write("Demo.ExecuteInterval Thread Status: 0h" + o.ToString("x8") + "\n");
+        this.Console.Out.Write("Demo.ExecuteTimeEventOne Thread Status: 0h" + o.ToString("x8") + "\n");
         return true;
     }
 

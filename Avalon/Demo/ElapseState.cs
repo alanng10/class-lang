@@ -2,7 +2,7 @@ namespace Demo;
 
 class ElapseState : State
 {
-    public TimeInterval Interval { get; set; }
+    public TimeEvent Interval { get; set; }
     public ThreadThread Thread { get; set; }
     public int ElapseCount { get; set; }
     public int ExitCode { get; set; }

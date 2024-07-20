@@ -13,8 +13,8 @@ class ThreadIntervalState : ThreadExecuteState
         current = new ThreadCurrent();
         current.Init();
 
-        TimeInterval interval;
-        interval = new TimeInterval();
+        TimeEvent interval;
+        interval = new TimeEvent();
         interval.Init();
 
         ThreadThread thread;
