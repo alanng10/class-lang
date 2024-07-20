@@ -52,6 +52,8 @@ Word "bool" has meaning that is binary.
 
 Word "int" has meaning that is integer.
 
+Word "string" has meaning that is char list.
+
 Word "case" has meaning that is one of discrete choices.
 
 Word "refer" has meaning that is declaration.
