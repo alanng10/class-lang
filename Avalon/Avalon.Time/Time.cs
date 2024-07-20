@@ -226,7 +226,7 @@ public class Time : Any
         return this.AddOffset(value, this.TimeInfra.HourSystemTickCount);
     }
 
-    public virtual bool AddMinute(long value)
+    public virtual bool AddMin(long value)
     {
         return this.AddOffset(value, this.TimeInfra.MinSystemTickCount);
     }
