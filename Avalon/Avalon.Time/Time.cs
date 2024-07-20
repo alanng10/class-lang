@@ -180,7 +180,7 @@ public class Time : Any
 
     public virtual bool ToPos(int pos)
     {
-        if (!this.CheckOffsetUtc(pos))
+        if (!this.CheckPos(pos))
         {
             return false;
         }
@@ -330,7 +330,7 @@ public class Time : Any
             return false;
         }
 
-        if (!this.CheckOffsetUtc(offsetUtc))
+        if (!this.CheckPos(offsetUtc))
         {
             return false;
         }
@@ -379,7 +379,7 @@ public class Time : Any
         return this.CheckTimeCount(1000, value);
     }
 
-    protected virtual bool CheckOffsetUtc(int value)
+    protected virtual bool CheckPos(int value)
     {
         int k;
         k = this.TimeInfra.DaySecCount;
