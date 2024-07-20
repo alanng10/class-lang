@@ -386,8 +386,8 @@ class Demo : Any
 
     private bool ExecuteRandom()
     {
-        Random random;
-        random = new Random();
+        Rand random;
+        random = new Rand();
         random.Init();
 
         random.Seed = 36719;
