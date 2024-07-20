@@ -18,7 +18,7 @@ class Infra : Any
     {
         base.Init();
         IntervalElapseMaide maideA;
-        maideA = new IntervalElapseMaide(Interval.InternElapse);
+        maideA = new IntervalElapseMaide(Event.InternElapse);
         this.IntervalElapseMaideAddress = new MaideAddress();
         this.IntervalElapseMaideAddress.Delegate = maideA;
         this.IntervalElapseMaideAddress.Init();
