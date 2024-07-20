@@ -92,9 +92,15 @@ public class Time : object
         }
     }
 
-    public virtual bool Set(int year, int month, int day, int hour, int min, int sec, int millisec)
+    public virtual bool SetDate(int year, int month, int day, int hour, int min, int sec, int millisec)
     {
         this.Intern = new DateTime(year, month, day, hour, min, sec, millisec, DateTimeKind.Local);
+        return true;
+    }
+
+    public bool Set(long tick)
+    {
+        this.Intern = new DateTime(tick, DateTimeKind.Local);
         return true;
     }
 }
