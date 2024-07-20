@@ -48,6 +48,8 @@ Word "get" has meaning that is trigger got.
 
 Word "set" has meaning that is trigger assign got.
 
+Word "new" has meaning that is new instance.
+
 Words "prudate", "probate", "precate" and "private" have meanings that are applicable
 to all, local, child, and self.
 
