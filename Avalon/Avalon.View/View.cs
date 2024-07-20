@@ -146,7 +146,7 @@ public class View : Comp
 
     protected virtual bool ChangePos(Change change)
     {
-        this.Trigger(this.PosField);
+        this.Event(this.PosField);
         return true;
     }
 
@@ -166,7 +166,7 @@ public class View : Comp
 
     protected virtual bool ChangeSize(Change change)
     {
-        this.Trigger(this.SizeField);
+        this.Event(this.SizeField);
         return true;
     }
 
@@ -186,7 +186,7 @@ public class View : Comp
 
     protected virtual bool ChangeBack(Change change)
     {
-        this.Trigger(this.BackField);
+        this.Event(this.BackField);
         return true;
     }
 
@@ -206,7 +206,7 @@ public class View : Comp
 
     protected virtual bool ChangeVisible(Change change)
     {
-        this.Trigger(this.VisibleField);
+        this.Event(this.VisibleField);
         return true;
     }
 
@@ -226,7 +226,7 @@ public class View : Comp
 
     protected virtual bool ChangeChild(Change change)
     {
-        this.Trigger(this.ChildField);
+        this.Event(this.ChildField);
         return true;
     }
 

@@ -280,7 +280,7 @@ public class Frame : Comp
 
     protected virtual bool ChangeView(Change change)
     {
-        this.Trigger(this.ViewField);
+        this.Event(this.ViewField);
         return true;
     }
 

@@ -5,13 +5,13 @@ public class Comp : Any
     public override bool Init()
     {
         base.Init();
-        this.TriggerArg = this.CreateTriggerArg();
+        this.ChangeArg = this.CreateChangeArg();
         this.ChangeEvent = new EventEvent();
         this.ChangeEvent.Init();
         return true;
     }
 
-    protected virtual Change CreateTriggerArg()
+    protected virtual Change CreateChangeArg()
     {
         Change a;
         a = new Change();
@@ -24,14 +24,14 @@ public class Comp : Any
         return true;
     }
 
-    protected virtual bool Trigger(Field field)
+    protected virtual bool Event(Field field)
     {
-        this.TriggerArg.Comp = this;
-        this.TriggerArg.Field = field;
-        this.ChangeEvent.Execute(this.TriggerArg);
+        this.ChangeArg.Comp = this;
+        this.ChangeArg.Field = field;
+        this.ChangeEvent.Execute(this.ChangeArg);
         return true;
     }
 
-    public virtual Change TriggerArg { get; set; }
+    public virtual Change ChangeArg { get; set; }
     public virtual EventEvent ChangeEvent { get; set; }
 }

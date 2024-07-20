@@ -18,7 +18,7 @@ public class List : Comp
         this.EventState.Init();
         this.EventState.List = this;
         
-        this.ListTriggerArg = (ListChange)this.TriggerArg;
+        this.ListTriggerArg = (ListChange)this.ChangeArg;
         return true;
     }
 
@@ -159,7 +159,7 @@ public class List : Comp
 
     protected virtual bool TriggerList()
     {
-        this.Trigger(null);
+        this.Event(null);
         return true;
     }
 

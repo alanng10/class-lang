@@ -45,7 +45,7 @@ public class GridChild : Comp
 
     protected virtual bool ChangeView(Change change)
     {
-        this.Trigger(this.ViewField);
+        this.Event(this.ViewField);
         return true;
     }
 
@@ -65,7 +65,7 @@ public class GridChild : Comp
 
     protected virtual bool ChangeRect(Change change)
     {
-        this.Trigger(this.RectField);
+        this.Event(this.RectField);
         return true;
     }
 

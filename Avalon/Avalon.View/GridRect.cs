@@ -55,7 +55,7 @@ public class GridRect : Comp
 
     protected virtual bool ChangePos(Change change)
     {
-        this.Trigger(this.PosField);
+        this.Event(this.PosField);
         return true;
     }
 
@@ -76,7 +76,7 @@ public class GridRect : Comp
 
     protected virtual bool ChangeSize(Change change)
     {
-        this.Trigger(this.SizeField);
+        this.Event(this.SizeField);
         return true;
     }
 

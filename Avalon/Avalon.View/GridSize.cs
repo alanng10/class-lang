@@ -50,7 +50,7 @@ public class GridSize : Comp
 
     protected virtual bool ChangeWidth(Change change)
     {
-        this.Trigger(this.WidthField);
+        this.Event(this.WidthField);
         return true;
     }
 
@@ -71,7 +71,7 @@ public class GridSize : Comp
 
     protected virtual bool ChangeHeight(Change change)
     {
-        this.Trigger(this.HeightField);
+        this.Event(this.HeightField);
         return true;
     }
 }

@@ -50,7 +50,7 @@ public class Pos : Comp
 
     protected virtual bool ChangeLeft(Change change)
     {
-        this.Trigger(this.LeftField);
+        this.Event(this.LeftField);
         return true;
     }
 
@@ -71,7 +71,7 @@ public class Pos : Comp
 
     protected virtual bool ChangeUp(Change change)
     {
-        this.Trigger(this.UpField);
+        this.Event(this.UpField);
         return true;
     }
 }

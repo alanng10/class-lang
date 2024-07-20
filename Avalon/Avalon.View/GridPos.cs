@@ -37,7 +37,7 @@ public class GridPos : Comp
 
     protected virtual bool ChangeRow(Change change)
     {
-        this.Trigger(this.RowField);
+        this.Event(this.RowField);
         return true;
     }
 
@@ -58,7 +58,7 @@ public class GridPos : Comp
 
     protected virtual bool ChangeCol(Change change)
     {
-        this.Trigger(this.ColField);
+        this.Event(this.ColField);
         return true;
     }
 

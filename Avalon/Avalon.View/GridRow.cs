@@ -32,7 +32,7 @@ public class GridRow : Comp
 
     protected virtual bool ChangeHeight(Change change)
     {
-        this.Trigger(this.HeightField);
+        this.Event(this.HeightField);
         return true;
     }
 

@@ -160,7 +160,7 @@ public class Grid : View
             return true;
         }
         this.UpdateLayout();
-        this.Trigger(this.RowField);
+        this.Event(this.RowField);
         return true;
     }
 
@@ -186,7 +186,7 @@ public class Grid : View
             return true;
         }
         this.UpdateLayout();
-        this.Trigger(this.ColField);
+        this.Event(this.ColField);
         return true;
     }
 
@@ -211,7 +211,7 @@ public class Grid : View
         {
             return true;
         }
-        this.Trigger(this.ChildField);
+        this.Event(this.ChildField);
         return true;
     }
 
@@ -231,7 +231,7 @@ public class Grid : View
 
     protected virtual bool ChangeDest(Change change)
     {
-        this.Trigger(this.DestField);
+        this.Event(this.DestField);
         return true;
     }
 

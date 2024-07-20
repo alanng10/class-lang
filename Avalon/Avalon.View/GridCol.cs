@@ -32,7 +32,7 @@ public class GridCol : Comp
 
     protected virtual bool ChangeWidth(Change change)
     {
-        this.Trigger(this.WidthField);
+        this.Event(this.WidthField);
         return true;
     }
 
