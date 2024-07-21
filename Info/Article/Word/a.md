@@ -20,6 +20,8 @@ Word "byte" has meaning that is data unit.
 
 Word "info" has meaning that is interpreted.
 
+Word "tool" has meaning that is be used to do.
+
 Word "node" has meaning that is entity.
 
 Word "comp" has meaning that is compose unit.
