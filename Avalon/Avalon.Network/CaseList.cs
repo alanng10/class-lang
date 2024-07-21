@@ -79,6 +79,6 @@ public class CaseList : Any
 
     public virtual Case Get(int index)
     {
-        return (Case)this.Array.Get((object)index);
+        return (Case)this.Array.GetAt(index);
     }
 }

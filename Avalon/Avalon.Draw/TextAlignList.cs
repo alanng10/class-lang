@@ -90,6 +90,6 @@ public class TextAlignList : Any
 
     public virtual TextAlign Get(int index)
     {
-        return (TextAlign)this.Array.Get((object)index);
+        return (TextAlign)this.Array.GetAt(index);
     }
 }

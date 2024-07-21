@@ -76,6 +76,6 @@ public class PenJoinList : Any
 
     public virtual PenJoin Get(int index)
     {
-        return (PenJoin)this.Array.Get((object)index);
+        return (PenJoin)this.Array.GetAt(index);
     }
 }

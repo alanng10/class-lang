@@ -130,6 +130,6 @@ public class StatusList : Any
 
     public virtual Status Get(int index)
     {
-        return (Status)this.Array.Get((object)index);
+        return (Status)this.Array.GetAt(index);
     }
 }

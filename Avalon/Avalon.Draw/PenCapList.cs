@@ -73,6 +73,6 @@ public class PenCapList : Any
 
     public virtual PenCap Get(int index)
     {
-        return (PenCap)this.Array.Get((object)index);
+        return (PenCap)this.Array.GetAt(index);
     }
 }

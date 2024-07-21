@@ -79,6 +79,6 @@ public class PenKindList : Any
 
     public virtual PenKind Get(int index)
     {
-        return (PenKind)this.Array.Get((object)index);
+        return (PenKind)this.Array.GetAt(index);
     }
 }

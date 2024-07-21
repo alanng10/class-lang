@@ -118,6 +118,6 @@ public class BrushKindList : Any
 
     public virtual BrushKind Get(int index)
     {
-        return (BrushKind)this.Array.Get((object)index);
+        return (BrushKind)this.Array.GetAt(index);
     }
 }

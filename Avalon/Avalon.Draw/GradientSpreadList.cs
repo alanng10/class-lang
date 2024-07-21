@@ -73,6 +73,6 @@ public class GradientSpreadList : Any
 
     public virtual GradientSpread Get(int index)
     {
-        return (GradientSpread)this.Array.Get((object)index);
+        return (GradientSpread)this.Array.GetAt(index);
     }
 }

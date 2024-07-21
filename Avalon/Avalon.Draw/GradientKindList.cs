@@ -73,6 +73,6 @@ public class GradientKindList : Any
 
     public virtual GradientKind Get(int index)
     {
-        return (GradientKind)this.Array.Get((object)index);
+        return (GradientKind)this.Array.GetAt(index);
     }
 }

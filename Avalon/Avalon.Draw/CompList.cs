@@ -97,6 +97,6 @@ public class CompList : Any
 
     public virtual Comp Get(int index)
     {
-        return (Comp)this.Array.Get((object)index);
+        return (Comp)this.Array.GetAt(index);
     }
 }

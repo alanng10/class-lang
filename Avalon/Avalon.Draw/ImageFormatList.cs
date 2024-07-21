@@ -73,6 +73,6 @@ public class ImageFormatList : Any
 
     public virtual ImageFormat Get(int index)
     {
-        return (ImageFormat)this.Array.Get((object)index);
+        return (ImageFormat)this.Array.GetAt(index);
     }
 }
