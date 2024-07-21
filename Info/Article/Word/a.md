@@ -116,6 +116,8 @@ Word "console" has meaning that is programmed task.
 
 Word "stage" has meaning that is execute step.
 
+Word "create" has meaning that is make from source.
+
 Word "binary" has meaning that is module data.
 
 Word "ref" has meaning that is refer value.
