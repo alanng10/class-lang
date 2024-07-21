@@ -15,8 +15,7 @@ Root class for any.
 ## Name
 Init
 ## Param
-## Change
-A
+
 ## Define
 Init for any.
 ## Detail
