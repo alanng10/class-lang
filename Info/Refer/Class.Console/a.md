@@ -1,1 +1,1 @@
-Class builtin console module.
+Class system console module.
