@@ -140,7 +140,7 @@ public class Console : Any
         list.Add("System.Entry");
         list.Add("Class.Infra");
         list.Add("Class.Binary");
-        list.Add("Class.Doc");
+        list.Add("Class.Info");
         list.Add("Class.Port");
         list.Add("Class.Token");
         list.Add("Class.Node");
