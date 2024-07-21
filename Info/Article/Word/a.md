@@ -72,6 +72,8 @@ Word "true" has meaning that is bool true.
 
 Word "false" has meaning that is bool false.
 
+Word "value" has meaning that is known info.
+
 Words "prudate", "probate", "precate" and "private" have meanings that are applicable
 to all, local, child, and self.
 
