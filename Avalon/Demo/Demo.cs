@@ -501,14 +501,14 @@ class Demo : Any
 
         Array argList;
         argList = this.ListInfra.ArrayCreate(8);
-        argList.Set(0, argA);
-        argList.Set(1, argB);
-        argList.Set(2, argC);
-        argList.Set(3, argD);
-        argList.Set(4, argDA);
-        argList.Set(5, argDB);
-        argList.Set(6, argE);
-        argList.Set(7, argF);
+        argList.SetAt(0, argA);
+        argList.SetAt(1, argB);
+        argList.SetAt(2, argC);
+        argList.SetAt(3, argD);
+        argList.SetAt(4, argDA);
+        argList.SetAt(5, argDB);
+        argList.SetAt(6, argE);
+        argList.SetAt(7, argF);
 
         Text varBase;
         varBase = this.TextInfra.TextCreateString("G H , j h\n\n", null);
