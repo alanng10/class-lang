@@ -32,6 +32,10 @@ Word "comp" has meaning that is compose unit.
 
 Word "name" has meaning that is call word.
 
+Word "base" has meaning that is already base.
+
+Word "derive" has meaning that is derivative.
+
 Word "system" has meaning that is execute base.
 
 Word "thread" has meaning that is execute line.
