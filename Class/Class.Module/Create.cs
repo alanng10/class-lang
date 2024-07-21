@@ -62,7 +62,7 @@ public class Create : InfraCreate
         this.ExecuteClass();
         this.ExecuteBase();
         this.ExecuteMember();
-        this.ExecuteVirtual();
+        this.ExecuteImport();
         this.ExecuteExport();
         this.ExecuteEntry();
         this.ExecuteState();
@@ -331,7 +331,7 @@ public class Create : InfraCreate
         return a;
     }
 
-    protected virtual bool ExecuteVirtual()
+    protected virtual bool ExecuteImport()
     {
         Iter iter;
         iter = this.Module.Class.IterCreate();
