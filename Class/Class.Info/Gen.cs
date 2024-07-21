@@ -43,7 +43,15 @@ public class Gen : Any
 
     public virtual bool Load()
     {
-        this.PageTemplate = this.StorageInfra.TextReadAny("Class.Info.data/a.html", true);
+        string k;
+        k = this.StorageInfra.TextReadAny("Class.Info.data/a.html", true);
+
+        if (k == null)
+        {
+            return false;
+        }
+
+        this.PageTemplate = k;
         return true;
     }
 
