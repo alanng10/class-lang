@@ -156,10 +156,10 @@ public class ReadList : Any
         {
             Method method;
 
-            method = (Method)this.ReadResult.Stat.Method.Get(i);
+            method = (Method)this.ReadResult.Stat.Method.GetAt(i);
 
 
-            array.Set(i, method);
+            array.SetAt(i, method);
 
 
 
@@ -210,7 +210,7 @@ public class ReadList : Any
 
 
 
-            array.Set(index, method);
+            array.SetAt(index, method);
 
 
 
@@ -269,7 +269,7 @@ public class ReadList : Any
             string a;
 
 
-            a = (string)array.Get(i);
+            a = (string)array.GetAt(i);
 
 
 

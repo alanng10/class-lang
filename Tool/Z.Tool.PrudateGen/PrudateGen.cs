@@ -191,7 +191,7 @@ class PrudateGen : Any
         {
             Class varClass;
 
-            varClass = (Class)this.ReadResult.Class.Get(i);
+            varClass = (Class)this.ReadResult.Class.GetAt(i);
 
 
 
@@ -288,7 +288,7 @@ class PrudateGen : Any
         {
             Field field;
 
-            field = (Field)fieldArray.Get(i);
+            field = (Field)fieldArray.GetAt(i);
 
 
             this.AppendField(sb, varClass, field);
@@ -323,7 +323,7 @@ class PrudateGen : Any
         {
             Method method;
 
-            method = (Method)methodArray.Get(i);
+            method = (Method)methodArray.GetAt(i);
 
 
             this.AppendMethod(sb, varClass, method);
@@ -357,7 +357,7 @@ class PrudateGen : Any
         {
             Delegate varDelegate;
 
-            varDelegate = (Delegate)delegateArray.Get(i);
+            varDelegate = (Delegate)delegateArray.GetAt(i);
 
 
 
@@ -582,7 +582,7 @@ class PrudateGen : Any
         {
             Method method;
 
-            method = (Method)this.ReadResult.Method.Get(i);
+            method = (Method)this.ReadResult.Method.GetAt(i);
 
 
 
@@ -704,7 +704,7 @@ class PrudateGen : Any
 
     public virtual string GetParamItem(Array param, int index)
     {
-        return (string)param.Get(index);
+        return (string)param.GetAt(index);
     }
 
 

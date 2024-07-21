@@ -74,7 +74,7 @@ class ExternGen : PrudateGen
         deleteParam.Init();
 
 
-        deleteParam.Set(0, "o");
+        deleteParam.SetAt(0, "o");
 
 
 
@@ -151,7 +151,7 @@ class ExternGen : PrudateGen
 
 
 
-        this.ClassNewMethodArray.Set(index, method);
+        this.ClassNewMethodArray.SetAt(index, method);
 
 
 

@@ -128,7 +128,7 @@ class Read : Any
             string line;
 
 
-            line = (string)lineArray.Get(i);
+            line = (string)lineArray.GetAt(i);
 
 
 
@@ -493,7 +493,7 @@ class Read : Any
             o = iter.Value;
 
 
-            a.Set(i, o);
+            a.SetAt(i, o);
 
 
 
@@ -797,7 +797,7 @@ class Read : Any
             o = u[i];
 
 
-            array.Set(i, o);
+            array.SetAt(i, o);
 
 
 
@@ -860,7 +860,7 @@ class Read : Any
             string line;
 
 
-            line = (string)lineArray.Get(i);
+            line = (string)lineArray.GetAt(i);
 
 
 
@@ -876,7 +876,7 @@ class Read : Any
 
 
 
-            array.Set(i, method);
+            array.SetAt(i, method);
 
 
 
