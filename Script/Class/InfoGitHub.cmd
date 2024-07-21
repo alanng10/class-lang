@@ -1,4 +1,4 @@
 @echo off
 
-call Script\Class\CleanDocGitHub
-call Script\Class\ExecuteDocGitHub
+call Script\Class\CleanInfoGitHub
+call Script\Class\ExecuteInfoGitHub
