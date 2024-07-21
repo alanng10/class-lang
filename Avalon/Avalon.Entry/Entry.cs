@@ -93,7 +93,7 @@ public class Entry : Any
             string a;
             a = arg[i];
 
-            array.Set(i, a);
+            array.SetAt(i, a);
             i = i + 1;
         }
         this.Arg = array;
