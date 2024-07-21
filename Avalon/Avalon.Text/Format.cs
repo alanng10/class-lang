@@ -82,7 +82,7 @@ public class Format : Any
     {
         int index;
         index = this.ArrayIndex;
-        this.Array.Set(index, item);
+        this.Array.SetAt(index, item);
         index = index + 1;
         this.ArrayIndex = index;
         return true;
@@ -99,7 +99,7 @@ public class Format : Any
         while (i < count)
         {
             FormatArg arg;
-            arg = (FormatArg)argList.Get(i);
+            arg = (FormatArg)argList.GetAt(i);
             
             if (!arg.HasCount)
             {
@@ -174,7 +174,7 @@ public class Format : Any
             while ((!b) & (argIndex < argCount))
             {
                 FormatArg arg;
-                arg = (FormatArg)argList.Get(argIndex);
+                arg = (FormatArg)argList.GetAt(argIndex);
 
                 int k;
                 k = arg.Pos;
@@ -231,7 +231,7 @@ public class Format : Any
         int kind;
         kind = arg.Kind;
         FormatCountState state;
-        state = (FormatCountState)this.CountState.Get(kind);
+        state = (FormatCountState)this.CountState.GetAt(kind);
 
         state.Arg = arg;
         state.Execute();
@@ -290,7 +290,7 @@ public class Format : Any
         int kind;
         kind = arg.Kind;
         FormatResultState state;
-        state = (FormatResultState)this.ResultState.Get(kind);
+        state = (FormatResultState)this.ResultState.GetAt(kind);
 
         state.Arg = arg;
         state.ArgResult = result;

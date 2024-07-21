@@ -585,7 +585,7 @@ public class Infra : Any
             Text line;
             line = this.TextCreateDataRange(data, rangeA);
 
-            array.Set(i, line);
+            array.SetAt(i, line);
 
             int kab;
             kab = oo + delimitCount;
@@ -608,7 +608,7 @@ public class Infra : Any
         Text lastLine;
         lastLine = this.TextCreateDataRange(data, rangeA);
 
-        array.Set(count, lastLine);
+        array.SetAt(count, lastLine);
 
         return array;
     }
