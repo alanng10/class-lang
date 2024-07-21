@@ -370,6 +370,24 @@ public class Create : InfraCreate
         return true;
     }
 
+    protected virtual bool ExecuteImportMaide(Table maide)
+    {
+        Iter iter;
+        iter = maide.IterCreate();
+        maide.IterSet(iter);
+        while (iter.Next())
+        {
+            Maide a;
+            a = (Maide)iter.Value;
+
+            if (!(a.Virtual == null))
+            {
+                this.AddVirtualImport(a.Virtual.Parent);
+            }
+        }
+        return true;
+    }
+
     protected virtual bool VirtualField(Field a)
     {
         ClassClass varClass;
@@ -425,24 +443,6 @@ public class Create : InfraCreate
         a.Virtual = h;
 
         this.ClassInfra.SystemInfoAssignValue(a.SystemInfo, h.SystemInfo);
-        return true;
-    }
-
-    protected virtual bool ExecuteImportMaide(Table maide)
-    {
-        Iter iter;
-        iter = maide.IterCreate();
-        maide.IterSet(iter);
-        while (iter.Next())
-        {
-            Maide a;
-            a = (Maide)iter.Value;
-            
-            if (!(a.Virtual == null))
-            {
-                this.AddVirtualImport(a.Virtual.Parent);
-            }
-        }
         return true;
     }
 
