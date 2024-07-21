@@ -18,4 +18,4 @@ Init
 A
 ## Define
 Init for any.
-## Detail 
+## Detail
