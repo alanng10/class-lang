@@ -14,7 +14,7 @@ public class ModuleString : Any
     public virtual NodeResult NodeResult { get; set; }
     protected virtual InfraInfra InfraInfra { get; set; }
     protected virtual StringJoin StringJoin { get; set; }
-    protected virtual Info Info { get; set; }
+    protected virtual ModuleInfo Info { get; set; }
     protected virtual NodeNode ClassNode { get; set; }
     protected virtual NodeNode Node { get; set; }
     protected virtual NodeNode CurrentNode { get; set; }
@@ -50,7 +50,7 @@ public class ModuleString : Any
             return true;
         }
 
-        this.Info = (Info)this.Node.NodeAny;
+        this.Info = (ModuleInfo)this.Node.NodeAny;
 
         this.NodeInfoString();
         return true;

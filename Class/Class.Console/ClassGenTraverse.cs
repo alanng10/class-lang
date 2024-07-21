@@ -2528,9 +2528,9 @@ public class ClassGenTraverse : Traverse
         return !(n < 3 | 11 < n);
     }
 
-    protected virtual Info Info(NodeNode node)
+    protected virtual ModuleInfo Info(NodeNode node)
     {
-        return (Info)node.NodeAny;
+        return (ModuleInfo)node.NodeAny;
     }
 
     protected virtual bool TextIndent()
