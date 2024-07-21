@@ -26,7 +26,7 @@ public class TaskKindList : Any
         this.Node = this.AddItem();
         this.Module = this.AddItem();
         this.Console = this.AddItem();
-        this.Doc = this.AddItem();
+        this.Info = this.AddItem();
         return true;
     }
 
@@ -40,8 +40,8 @@ public class TaskKindList : Any
     protected TaskKind __D_Module;
     public virtual TaskKind Console { get { return __D_Console; } set { __D_Console = value; } }
     protected TaskKind __D_Console;
-    public virtual TaskKind Doc { get { return __D_Doc; } set { __D_Doc = value; } }
-    protected TaskKind __D_Doc;
+    public virtual TaskKind Info { get { return __D_Info; } set { __D_Info = value; } }
+    protected TaskKind __D_Info;
 
     protected virtual TaskKind AddItem()
     {
