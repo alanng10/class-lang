@@ -1,7 +1,7 @@
 @echo off
 
-set DocGitHubOutFold=.\Out\DocGitHub
-mkdir %DocGitHubOutFold% 1>NUL 2>NUL
+set InfoGitHubOutFold=.\Out\InfoGitHub
+mkdir %InfoGitHubOutFold% 1>NUL 2>NUL
 
-Out\net8.0\class.exe doc "Doc" "%DocGitHubOutFold%" -d
+Out\net8.0\class.exe doc "Info" "%InfoGitHubOutFold%" -d
 echo Status: %errorlevel%
