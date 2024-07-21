@@ -3,4 +3,4 @@ Token
 Node
 Module
 Console
-Doc
+Info
