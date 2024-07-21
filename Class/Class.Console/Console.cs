@@ -326,7 +326,7 @@ public class Console : Any
         }
 
         bool ba;
-        ba = (aa == "doc");
+        ba = (aa == "info");
         if (ba)
         {
             bool baa;
@@ -401,7 +401,7 @@ public class Console : Any
             Task task;
             task = new Task();
             task.Init();
-            task.Kind = this.TaskKind.Doc;
+            task.Kind = this.TaskKind.Info;
             task.Source = sourceFold;
             task.Dest = destFold;
             task.ArgBool = linkFileName;
@@ -436,7 +436,7 @@ public class Console : Any
         bool ba;
         ba = (kind == kindList.Token | kind == kindList.Node);
         bool bb;
-        bb = (kind == kindList.Doc);
+        bb = (kind == kindList.Info);
 
         if (bb)
         {
