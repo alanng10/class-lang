@@ -87,7 +87,7 @@ public class Infra : Any
         {
             string aa;
             aa = a[i];
-            array.Set(i, aa);
+            array.SetAt(i, aa);
             i = i + 1;
         }
         return array;
