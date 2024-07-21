@@ -3,3 +3,14 @@
 
 # Define
 Class builtin all console.
+# Detail
+
+# Part
+## Field
+
+## Maide
+<c m="System.Infra:0.00.00" n="Bool">Bool</c> Execute()
+
+## Define
+Execute task.
+## Detail
