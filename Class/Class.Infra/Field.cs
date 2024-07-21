@@ -10,6 +10,7 @@ public class Field : Any
     public virtual Table Set { get; set; }
     public virtual Class Parent { get; set; }
     public virtual int Index { get; set; }
+    public virtual bool Change { get; set; }
     public virtual object Any { get; set; }
     public virtual SystemInfo SystemInfo { get; set; }
 }
