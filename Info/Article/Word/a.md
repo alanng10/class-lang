@@ -116,6 +116,8 @@ Word "ref" has meaning that is refer value.
 
 Word "ver" has meaning that is version.
 
+Word "task" has meaning that is to be done.
+
 Word "list" has meaning that is integer multiple.
 
 Word "table" has meaning that is entry map.
