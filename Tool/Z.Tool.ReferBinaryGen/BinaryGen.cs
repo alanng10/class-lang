@@ -86,7 +86,7 @@ class BinaryGen : Any
             a.Init();
             a.Name = oa.Name;
             
-            array.Set(i, a);
+            array.SetAt(i, a);
 
             this.ClassIndexAdd(oa);
             i = i + 1;
@@ -130,7 +130,7 @@ class BinaryGen : Any
 
             a.Class = aa;
 
-            array.Set(i, a);
+            array.SetAt(i, a);
             i = i + 1;
         }
 
@@ -159,7 +159,7 @@ class BinaryGen : Any
             a = new Value();
             a.Init();
             a.Mid = oa.Index;
-            array.Set(i, a);
+            array.SetAt(i, a);
             this.ClassIndexAdd(oa);
             i = i + 1;
         }
@@ -196,7 +196,7 @@ class BinaryGen : Any
             a.Init();
             a.Mid = aa;
 
-            array.Set(i, a);
+            array.SetAt(i, a);
             i = i + 1;
         }
 
@@ -228,7 +228,7 @@ class BinaryGen : Any
             a.Field = this.ExecuteFieldArray(oa);
             a.Maide = this.ExecuteMaideArray(oa);
 
-            array.Set(i, a);
+            array.SetAt(i, a);
             i = i + 1;
         }
 
@@ -270,7 +270,7 @@ class BinaryGen : Any
             a.Virtual = of;
             a.Name = oa.Name;
 
-            array.Set(i, a);
+            array.SetAt(i, a);
             i = i + 1;
         }
 
@@ -316,7 +316,7 @@ class BinaryGen : Any
             varArray = this.ExecuteVarArray(oa.Param);
             a.Param = varArray;
 
-            array.Set(i, a);
+            array.SetAt(i, a);
             i = i + 1;
         }
 
@@ -349,7 +349,7 @@ class BinaryGen : Any
             a.SystemInfo = oa.SystemInfo.Value;
             a.Name = oa.Name;
 
-            array.Set(i, a);
+            array.SetAt(i, a);
             i = i + 1;
         }
 

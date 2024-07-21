@@ -1268,7 +1268,7 @@ public class Gen : Any
 
     protected virtual string CountString(int value)
     {
-        return (string)this.CountArray.Get(value);
+        return (string)this.CountArray.GetAt(value);
     }
 
     protected virtual bool SetCountString(string o)
@@ -1286,7 +1286,7 @@ public class Gen : Any
         i = 0;
         while (i < count)
         {
-            if (array.Get(i) == value)
+            if (array.GetAt(i) == value)
             {
                 return true;
             }
@@ -1299,7 +1299,7 @@ public class Gen : Any
     {
         int index;
         index = this.Index;
-        this.Array.Set(index, value);
+        this.Array.SetAt(index, value);
         index = index + 1;
         this.Index = index;
         return true;
