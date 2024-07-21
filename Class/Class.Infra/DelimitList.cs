@@ -86,7 +86,7 @@ public class DelimitList : Any
         item.Init();
         item.Index = this.Index;
         item.Text = text;
-        this.Array.Set(item.Index, item);
+        this.Array.SetAt(item.Index, item);
         this.Index = this.Index + 1;
         return item;
     }
@@ -113,6 +113,6 @@ public class DelimitList : Any
 
     public virtual Delimit Get(int index)
     {
-        return (Delimit)this.Array.Get(index);
+        return (Delimit)this.Array.GetAt(index);
     }
 }

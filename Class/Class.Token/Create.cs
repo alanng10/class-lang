@@ -96,9 +96,9 @@ public class Create : InfraCreate
         while (i < count)
         {
             Code code;
-            code = (Code)this.CodeArray.Get(i);
+            code = (Code)this.CodeArray.GetAt(i);
 
-            this.SourceItem = (Source)this.Source.Get(i);
+            this.SourceItem = (Source)this.Source.GetAt(i);
 
             this.Operate.ExecuteCodeStart(i);
 
@@ -139,7 +139,7 @@ public class Create : InfraCreate
         while (row < count)
         {
             Text line;
-            line = (Text)sourceText.Get(row);
+            line = (Text)sourceText.GetAt(row);
             Data data;
             data = line.Data;
 
@@ -287,7 +287,7 @@ public class Create : InfraCreate
             code = new Code();
             code.Init();
 
-            array.Set(i, code);
+            array.SetAt(i, code);
 
             i = i + 1;
         }
@@ -311,7 +311,7 @@ public class Create : InfraCreate
             a.Init();
             a.Range = new Range();
             a.Range.Init();
-            array.Set(i, a);
+            array.SetAt(i, a);
             
             i = i + 1;
         }
@@ -334,7 +334,7 @@ public class Create : InfraCreate
             a.Init();
             a.Range = new Range();
             a.Range.Init();
-            array.Set(i, a);
+            array.SetAt(i, a);
 
             i = i + 1;
         }
@@ -367,7 +367,7 @@ public class Create : InfraCreate
         while (i < count)
         {
             Code code;
-            code = (Code)codeArray.Get(i);
+            code = (Code)codeArray.GetAt(i);
 
             long ob;
             ob = i;

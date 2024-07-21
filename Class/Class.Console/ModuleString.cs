@@ -66,7 +66,7 @@ public class ModuleString : Any
         }
 
         NodeNode root;
-        root = (NodeNode)rootArray.Get(0);
+        root = (NodeNode)rootArray.GetAt(0);
         this.ClassNode = root;
         return true;
     }

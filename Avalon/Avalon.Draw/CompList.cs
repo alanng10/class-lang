@@ -70,7 +70,7 @@ public class CompList : Any
         item.Init();
         item.Index = this.Index;
         item.Intern = o;
-        this.Array.Set(item.Index, item);
+        this.Array.Set((object)item.Index, item);
         this.Index = this.Index + 1;
         return item;
     }
@@ -97,6 +97,6 @@ public class CompList : Any
 
     public virtual Comp Get(int index)
     {
-        return (Comp)this.Array.Get(index);
+        return (Comp)this.Array.Get((object)index);
     }
 }

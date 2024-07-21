@@ -1887,7 +1887,7 @@ public class ClassGenTraverse : Traverse
                     kk = systemInfo - 3;
                     
                     string name;
-                    name = (string)this.SystemTypeIntName.Get(kk);
+                    name = (string)this.SystemTypeIntName.GetAt(kk);
                     this.Text(name);
                 }
                 if (!ba)
@@ -1932,7 +1932,7 @@ public class ClassGenTraverse : Traverse
 
     protected virtual string CountWord(Count count)
     {
-        return (string)this.CountAccessWord.Get(count.Index);
+        return (string)this.CountAccessWord.GetAt(count.Index);
     }
 
     protected virtual bool ExecuteMaideCallParam(Maide maide)
@@ -2131,7 +2131,7 @@ public class ClassGenTraverse : Traverse
             varVar = (Var)iter.Value;            
 
             Operate operate;
-            operate = (Operate)argue.Value.Get(i);
+            operate = (Operate)argue.Value.GetAt(i);
 
             int systemInfo;
             systemInfo = varVar.SystemInfo.Value;
@@ -2485,7 +2485,7 @@ public class ClassGenTraverse : Traverse
             int index;
             index = systemInfo - 3;
             string k;
-            k = (string)this.SystemTypeIntName.Get(index);
+            k = (string)this.SystemTypeIntName.GetAt(index);
             
             this.Text(this.DelimitLeftBracket);
 
@@ -2559,7 +2559,7 @@ public class ClassGenTraverse : Traverse
     {
         int index;
         index = this.ArrayIndex;
-        this.Array.Set(index, item);
+        this.Array.SetAt(index, item);
         index = index + 1;
         this.ArrayIndex = index;
         return true;

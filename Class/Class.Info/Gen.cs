@@ -571,7 +571,7 @@ public class Gen : Any
         while (i < count)
         {
             string name;
-            name = (string)array.Get(i);
+            name = (string)array.GetAt(i);
 
             listInfra.TableAdd(table, name, null);
 
@@ -690,7 +690,7 @@ public class Gen : Any
             string k;
             k = u[i];
 
-            array.Set(i, k);
+            array.SetAt(i, k);
             i = i + 1;
         }
 

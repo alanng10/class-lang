@@ -43,7 +43,7 @@ public class CountList : Any
         item = new Count();
         item.Init();
         item.Index = this.Index;
-        this.Array.Set(item.Index, item);
+        this.Array.SetAt(item.Index, item);
         this.Index = this.Index + 1;
         return item;
     }
@@ -70,6 +70,6 @@ public class CountList : Any
 
     public virtual Count Get(int index)
     {
-        return (Count)this.Array.Get(index);
+        return (Count)this.Array.GetAt(index);
     }
 }

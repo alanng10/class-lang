@@ -46,7 +46,7 @@ public class GradientKindList : Any
         item.Init();
         item.Index = this.Index;
         item.Intern = o;
-        this.Array.Set(item.Index, item);
+        this.Array.Set((object)item.Index, item);
         this.Index = this.Index + 1;
         return item;
     }
@@ -73,6 +73,6 @@ public class GradientKindList : Any
 
     public virtual GradientKind Get(int index)
     {
-        return (GradientKind)this.Array.Get(index);
+        return (GradientKind)this.Array.Get((object)index);
     }
 }

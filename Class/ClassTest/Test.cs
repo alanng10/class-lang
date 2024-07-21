@@ -443,7 +443,7 @@ public class Test : Any
             string k;
             k = u[i];
 
-            array.Set(i, k);
+            array.SetAt(i, k);
             i = i + 1;
         }
 

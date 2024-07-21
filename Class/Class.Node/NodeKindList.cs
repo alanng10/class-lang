@@ -242,7 +242,7 @@ public class NodeKindList : Any
         item.NewState = newState;
         item.NodeState = nodeState;
         item.CreateOperateState = createOperateState;
-        this.Array.Set(item.Index, item);
+        this.Array.SetAt(item.Index, item);
         this.Index = this.Index + 1;
         return item;
     }
@@ -269,6 +269,6 @@ public class NodeKindList : Any
 
     public virtual NodeKind Get(int index)
     {
-        return (NodeKind)this.Array.Get(index);
+        return (NodeKind)this.Array.GetAt(index);
     }
 }

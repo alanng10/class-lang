@@ -322,7 +322,7 @@ public class Console : Any
         }
         if (b)
         {
-            aa = (string)arg.Get(0);
+            aa = (string)arg.GetAt(0);
         }
 
         bool ba;
@@ -336,15 +336,15 @@ public class Console : Any
                 return false;
             }
             string aaa;
-            aaa = (string)arg.Get(1);
+            aaa = (string)arg.GetAt(1);
             string aab;
-            aab = (string)arg.Get(2);
+            aab = (string)arg.GetAt(2);
 
             string aac;
             aac = null;
             if (3 < arg.Count)
             {
-                aac = (string)arg.Get(3);
+                aac = (string)arg.GetAt(3);
             }
 
             string executeFoldPath;
@@ -483,7 +483,7 @@ public class Console : Any
             sourceNameList = new Array();
             sourceNameList.Count = 1;
             sourceNameList.Init();
-            sourceNameList.Set(0, fileName);
+            sourceNameList.SetAt(0, fileName);
         }
 
         if (b)
@@ -722,7 +722,7 @@ public class Console : Any
         while (i < count)
         {
             Error a;
-            a = (Error)errorList.Get(i);
+            a = (Error)errorList.GetAt(i);
             this.WriteError(a);
             i = i + 1;
         }
@@ -840,7 +840,7 @@ public class Console : Any
         {
             string k;
             k = u[i];
-            array.Set(i, k);
+            array.SetAt(i, k);
             i = i + 1;
         }
 
@@ -881,7 +881,7 @@ public class Console : Any
         while (i < count)
         {
             string fileName;
-            fileName = (string)fileArray.Get(i);
+            fileName = (string)fileArray.GetAt(i);
 
             string k;
             k = fileName.ToLower();
@@ -911,7 +911,7 @@ public class Console : Any
         while (i < count)
         {
             string name;
-            name = (string)array.Get(i);
+            name = (string)array.GetAt(i);
 
             Source a;
             a = new Source();
@@ -919,7 +919,7 @@ public class Console : Any
             a.Index = i;
             a.Name = name;
 
-            array.Set(i, a);
+            array.SetAt(i, a);
             i = i + 1;
         }
 
@@ -957,7 +957,7 @@ public class Console : Any
         while (i < count)
         {
             Source a;
-            a = (Source)array.Get(i);
+            a = (Source)array.GetAt(i);
 
             string k;
             k = "";

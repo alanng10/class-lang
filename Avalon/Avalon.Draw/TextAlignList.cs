@@ -63,7 +63,7 @@ public class TextAlignList : Any
         item.Init();
         item.Index = this.Index;
         item.Intern = horzAlign | vertAlign;
-        this.Array.Set(item.Index, item);
+        this.Array.Set((object)item.Index, item);
         this.Index = this.Index + 1;
         return item;
     }
@@ -90,6 +90,6 @@ public class TextAlignList : Any
 
     public virtual TextAlign Get(int index)
     {
-        return (TextAlign)this.Array.Get(index);
+        return (TextAlign)this.Array.Get((object)index);
     }
 }

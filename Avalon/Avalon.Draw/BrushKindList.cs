@@ -91,7 +91,7 @@ public class BrushKindList : Any
         item.Init();
         item.Index = this.Index;
         item.Intern = o;
-        this.Array.Set(item.Index, item);
+        this.Array.Set((object)item.Index, item);
         this.Index = this.Index + 1;
         return item;
     }
@@ -118,6 +118,6 @@ public class BrushKindList : Any
 
     public virtual BrushKind Get(int index)
     {
-        return (BrushKind)this.Array.Get(index);
+        return (BrushKind)this.Array.Get((object)index);
     }
 }

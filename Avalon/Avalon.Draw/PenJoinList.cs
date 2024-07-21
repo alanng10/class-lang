@@ -49,7 +49,7 @@ public class PenJoinList : Any
         item.Init();
         item.Index = this.Index;
         item.Intern = o;
-        this.Array.Set(item.Index, item);
+        this.Array.Set((object)item.Index, item);
         this.Index = this.Index + 1;
         return item;
     }
@@ -76,6 +76,6 @@ public class PenJoinList : Any
 
     public virtual PenJoin Get(int index)
     {
-        return (PenJoin)this.Array.Get(index);
+        return (PenJoin)this.Array.Get((object)index);
     }
 }

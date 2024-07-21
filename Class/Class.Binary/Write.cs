@@ -73,7 +73,7 @@ public class Write : Any
         while (i < count)
         {
             Class varClass;
-            varClass = (Class)array.Get(i);
+            varClass = (Class)array.GetAt(i);
             this.ExecuteClass(varClass);
             i = i + 1;
         }
@@ -96,7 +96,7 @@ public class Write : Any
         while (i < count)
         {
             Import import;
-            import = (Import)array.Get(i);
+            import = (Import)array.GetAt(i);
             this.ExecuteImport(import);
             i = i + 1;
         }
@@ -120,7 +120,7 @@ public class Write : Any
         while (i < count)
         {
             Value classIndex;
-            classIndex = (Value)array.Get(i);
+            classIndex = (Value)array.GetAt(i);
             this.ExecuteClassIndex(classIndex);
             i = i + 1;
         }
@@ -148,7 +148,7 @@ public class Write : Any
         while (i < count)
         {
             Part part;
-            part = (Part)array.Get(i);
+            part = (Part)array.GetAt(i);
             this.ExecutePart(part);
             i = i + 1;
         }
@@ -172,7 +172,7 @@ public class Write : Any
         while (i < count)
         {
             Field field;
-            field = (Field)array.Get(i);
+            field = (Field)array.GetAt(i);
             this.ExecuteField(field);
             i = i + 1;
         }
@@ -199,7 +199,7 @@ public class Write : Any
         while (i < count)
         {
             Maide maide;
-            maide = (Maide)array.Get(i);
+            maide = (Maide)array.GetAt(i);
             this.ExecuteMaide(maide);
             i = i + 1;
         }
@@ -227,7 +227,7 @@ public class Write : Any
         while (i < count)
         {
             Var varVar;
-            varVar = (Var)array.Get(i);
+            varVar = (Var)array.GetAt(i);
             this.ExecuteVar(varVar);
             i = i + 1;
         }

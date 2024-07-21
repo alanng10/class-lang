@@ -165,7 +165,7 @@ public class Read : Any
             text.Range.Count = oa;
             string oo;
             oo = textInfra.StringCreate(text);
-            array.Set(i, oo);
+            array.SetAt(i, oo);
             total = total + oa;
             i = i + 1;
         }
@@ -201,7 +201,7 @@ public class Read : Any
             oa = (int)u;
             Array o;
             o = listInfra.ArrayCreate(oa);
-            array.Set(i, o);
+            array.SetAt(i, o);
             i = i + 1;
         }
         return true;
@@ -221,7 +221,7 @@ public class Read : Any
             Binary o;
             o = new Binary();
             o.Init();
-            array.Set(i, o);
+            array.SetAt(i, o);
             i = i + 1;
         }
         return true;
@@ -241,7 +241,7 @@ public class Read : Any
             Class o;
             o = new Class();
             o.Init();
-            array.Set(i, o);
+            array.SetAt(i, o);
             i = i + 1;
         }
         return true;
@@ -261,7 +261,7 @@ public class Read : Any
             Import o;
             o = new Import();
             o.Init();
-            array.Set(i, o);
+            array.SetAt(i, o);
             i = i + 1;
         }
         return true;
@@ -281,7 +281,7 @@ public class Read : Any
             Part o;
             o = new Part();
             o.Init();
-            array.Set(i, o);
+            array.SetAt(i, o);
             i = i + 1;
         }
         return true;
@@ -301,7 +301,7 @@ public class Read : Any
             Field o;
             o = new Field();
             o.Init();
-            array.Set(i, o);
+            array.SetAt(i, o);
             i = i + 1;
         }
         return true;
@@ -321,7 +321,7 @@ public class Read : Any
             Maide o;
             o = new Maide();
             o.Init();
-            array.Set(i, o);
+            array.SetAt(i, o);
             i = i + 1;
         }
         return true;
@@ -341,7 +341,7 @@ public class Read : Any
             Var o;
             o = new Var();
             o.Init();
-            array.Set(i, o);
+            array.SetAt(i, o);
             i = i + 1;
         }
         return true;
@@ -361,7 +361,7 @@ public class Read : Any
             Value o;
             o = new Value();
             o.Init();
-            array.Set(i, o);
+            array.SetAt(i, o);
             i = i + 1;
         }
         return true;
@@ -381,7 +381,7 @@ public class Read : Any
             ModuleRef o;
             o = new ModuleRef();
             o.Init();
-            array.Set(i, o);
+            array.SetAt(i, o);
             i = i + 1;
         }
         return true;

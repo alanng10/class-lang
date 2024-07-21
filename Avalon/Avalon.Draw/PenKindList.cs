@@ -52,7 +52,7 @@ public class PenKindList : Any
         item.Init();
         item.Index = this.Index;
         item.Intern = o;
-        this.Array.Set(item.Index, item);
+        this.Array.Set((object)item.Index, item);
         this.Index = this.Index + 1;
         return item;
     }
@@ -79,6 +79,6 @@ public class PenKindList : Any
 
     public virtual PenKind Get(int index)
     {
-        return (PenKind)this.Array.Get(index);
+        return (PenKind)this.Array.Get((object)index);
     }
 }

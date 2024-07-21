@@ -46,7 +46,7 @@ public class PenCapList : Any
         item.Init();
         item.Index = this.Index;
         item.Intern = o;
-        this.Array.Set(item.Index, item);
+        this.Array.Set((object)item.Index, item);
         this.Index = this.Index + 1;
         return item;
     }
@@ -73,6 +73,6 @@ public class PenCapList : Any
 
     public virtual PenCap Get(int index)
     {
-        return (PenCap)this.Array.Get(index);
+        return (PenCap)this.Array.Get((object)index);
     }
 }

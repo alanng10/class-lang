@@ -17,7 +17,7 @@ public class SetCreateOperate : CreateOperate
         index = this.Create.NodeIndex;
 
         Node node;        
-        node = (Node)this.Create.NodeArray.Get(index);
+        node = (Node)this.Create.NodeArray.GetAt(index);
 
         CreateOperateArg o;
         o = this.Create.OperateArg;
@@ -58,15 +58,15 @@ public class SetCreateOperate : CreateOperate
 
     public override Array ExecuteListGet(int index)
     {
-        return (Array)this.Create.ListArray.Get(index);
+        return (Array)this.Create.ListArray.GetAt(index);
     }
 
     public override bool ExecuteListSetItem(int index, int itemIndex, object item)
     {
         Array array;
-        array = (Array)this.Create.ListArray.Get(index);
+        array = (Array)this.Create.ListArray.GetAt(index);
 
-        array.Set(itemIndex, item);
+        array.SetAt(itemIndex, item);
         return true;
     }
     
@@ -76,7 +76,7 @@ public class SetCreateOperate : CreateOperate
         index = this.Create.ErrorIndex;
 
         Error error;
-        error = (Error)this.Create.ErrorArray.Get(index);
+        error = (Error)this.Create.ErrorArray.GetAt(index);
         error.Kind = kind;
         error.Range.Start = start;
         error.Range.End = end;
@@ -96,7 +96,7 @@ public class SetCreateOperate : CreateOperate
         indexA = this.Create.NameValueTotalIndex;
 
         string a;
-        a = (string)this.Create.NameValueArray.Get(index);
+        a = (string)this.Create.NameValueArray.GetAt(index);
 
         index = index + 1;
         indexA = indexA + a.Length;
@@ -114,7 +114,7 @@ public class SetCreateOperate : CreateOperate
         indexA = this.Create.StringValueTotalIndex;
 
         string a;
-        a = (string)this.Create.StringValueArray.Get(index);
+        a = (string)this.Create.StringValueArray.GetAt(index);
 
         index = index + 1;
         indexA = indexA + a.Length;

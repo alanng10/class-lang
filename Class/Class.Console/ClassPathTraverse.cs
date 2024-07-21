@@ -109,7 +109,7 @@ public class ClassPathTraverse : Traverse
         }
 
         Comp item;
-        item = (Comp)array.Get(k);
+        item = (Comp)array.GetAt(k);
         this.ExecuteComp(item);
         return true;
     }
@@ -214,7 +214,7 @@ public class ClassPathTraverse : Traverse
         }
 
         NodeVar item;
-        item = (NodeVar)array.Get(k);
+        item = (NodeVar)array.GetAt(k);
         this.ExecuteVar(item);
         return true;
     }
@@ -323,7 +323,7 @@ public class ClassPathTraverse : Traverse
         }
 
         Execute item;
-        item = (Execute)array.Get(k);
+        item = (Execute)array.GetAt(k);
         this.ExecuteExecute(item);
         return true;
     }
@@ -487,7 +487,7 @@ public class ClassPathTraverse : Traverse
         }
 
         Operate item;
-        item = (Operate)array.Get(k);
+        item = (Operate)array.GetAt(k);
         this.ExecuteOperate(item);
         return true;
     }

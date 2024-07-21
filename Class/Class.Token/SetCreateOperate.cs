@@ -10,7 +10,7 @@ public class SetCreateOperate : CreateOperate
         index = this.Create.TokenIndex;
 
         Token token;
-        token = (Token)this.Create.TokenArray.Get(index);
+        token = (Token)this.Create.TokenArray.GetAt(index);
         token.Row = this.Create.Row;
 
         Range aa;
@@ -33,7 +33,7 @@ public class SetCreateOperate : CreateOperate
         index = this.Create.InfoIndex;
 
         Info comment;
-        comment = (Info)this.Create.InfoArray.Get(index);
+        comment = (Info)this.Create.InfoArray.GetAt(index);
         comment.Row = this.Create.Row;
 
         Range aa;

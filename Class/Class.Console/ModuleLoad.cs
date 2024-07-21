@@ -148,7 +148,7 @@ public class ModuleLoad : Any
         while (i < count)
         {
             BinaryClass o;
-            o = (BinaryClass)array.Get(i);
+            o = (BinaryClass)array.GetAt(i);
 
             string name;
             name = o.Name;
@@ -204,7 +204,7 @@ public class ModuleLoad : Any
             ClassClass oa;
             oa = (ClassClass)iter.Value;
 
-            classArray.Set(i, oa);
+            classArray.SetAt(i, oa);
             i = i + 1;
         }
 
@@ -240,7 +240,7 @@ public class ModuleLoad : Any
         while (i < count)
         {
             BinaryImport o;
-            o = (BinaryImport)array.Get(i);
+            o = (BinaryImport)array.GetAt(i);
 
             ModuleRef moduleRef;
             moduleRef = o.Module;
@@ -281,10 +281,10 @@ public class ModuleLoad : Any
             while (iA < countA)
             {
                 InfraValue oe;
-                oe = (InfraValue)oa.Get(iA);
+                oe = (InfraValue)oa.GetAt(iA);
 
                 BinaryClass of;
-                of = (BinaryClass)oo.Class.Get(oe.Mid);
+                of = (BinaryClass)oo.Class.GetAt(oe.Mid);
                 if (of == null)
                 {
                     this.Status = 23;
@@ -339,7 +339,7 @@ public class ModuleLoad : Any
                 ClassClass ooa;
                 ooa = (ClassClass)iterA.Value;
 
-                importArray.Set(oi, ooa);
+                importArray.SetAt(oi, ooa);
 
                 oi = oi + 1;
             }
@@ -370,10 +370,10 @@ public class ModuleLoad : Any
         while (i < count)
         {
             ClassClass varClass;
-            varClass = (ClassClass)classArray.Get(i);
+            varClass = (ClassClass)classArray.GetAt(i);
 
             InfraValue a;
-            a = (InfraValue)array.Get(i);
+            a = (InfraValue)array.GetAt(i);
 
             ClassClass baseClass;
             baseClass = this.ClassGetIndex(a.Mid);
@@ -393,7 +393,7 @@ public class ModuleLoad : Any
         while (i < count)
         {
             ClassClass varClass;
-            varClass = (ClassClass)classArray.Get(i);
+            varClass = (ClassClass)classArray.GetAt(i);
 
             if (!this.CheckBaseDepend(varClass))
             {
@@ -467,10 +467,10 @@ public class ModuleLoad : Any
         while (i < count)
         {
             ClassClass varClass;
-            varClass = (ClassClass)classArray.Get(i);
+            varClass = (ClassClass)classArray.GetAt(i);
 
             BinaryPart a;
-            a = (BinaryPart)array.Get(i);
+            a = (BinaryPart)array.GetAt(i);
 
             bool b;
             b = this.SetPart(varClass, a);
@@ -518,7 +518,7 @@ public class ModuleLoad : Any
         while (i < count)
         {
             BinaryField ua;
-            ua = (BinaryField)binaryField.Get(i);
+            ua = (BinaryField)binaryField.GetAt(i);
 
             ClassClass c;
             c = this.ClassGetIndex(ua.Class);
@@ -568,7 +568,7 @@ public class ModuleLoad : Any
         while (i < count)
         {
             BinaryMaide ua;
-            ua = (BinaryMaide)binaryMaide.Get(i);
+            ua = (BinaryMaide)binaryMaide.GetAt(i);
 
             ClassClass c;
             c = this.ClassGetIndex(ua.Class);
@@ -626,7 +626,7 @@ public class ModuleLoad : Any
         while (i < count)
         {
             BinaryVar ua;
-            ua = (BinaryVar)binaryVar.Get(i);
+            ua = (BinaryVar)binaryVar.GetAt(i);
 
             ClassClass c;
             c = this.ClassGetIndex(ua.Class);
@@ -676,10 +676,10 @@ public class ModuleLoad : Any
         while (i < count)
         {
             ClassClass varClass;
-            varClass = (ClassClass)classArray.Get(i);
+            varClass = (ClassClass)classArray.GetAt(i);
 
             BinaryPart a;
-            a = (BinaryPart)array.Get(i);
+            a = (BinaryPart)array.GetAt(i);
 
             bool b;
             b = this.SetVirtual(varClass, a);
@@ -721,7 +721,7 @@ public class ModuleLoad : Any
             a = (Field)iter.Value;
 
             BinaryField ae;
-            ae = (BinaryField)binaryField.Get(a.Index);
+            ae = (BinaryField)binaryField.GetAt(a.Index);
 
             Field aa;
             aa = null;
@@ -775,7 +775,7 @@ public class ModuleLoad : Any
             a = (Maide)iter.Value;
 
             BinaryMaide ae;
-            ae = (BinaryMaide)binaryMaide.Get(a.Index);
+            ae = (BinaryMaide)binaryMaide.GetAt(a.Index);
 
             Maide aa;
             aa = null;
@@ -832,7 +832,7 @@ public class ModuleLoad : Any
         if (!(f == -1))
         {
             ClassClass a;
-            a = (ClassClass)this.ClassArray.Get(f);
+            a = (ClassClass)this.ClassArray.GetAt(f);
             if (a == null)
             {
                 return false;
@@ -928,20 +928,20 @@ public class ModuleLoad : Any
         ClassClass a;
         a = null;
         bool b;
-        b = (classArray.Contain(index));
+        b = (classArray.ContainAt(index));
         if (b)
         {
-            a = (ClassClass)classArray.Get(index);
+            a = (ClassClass)classArray.GetAt(index);
         }
         if (!b)
         {
             int oa;
             oa = index - classArray.Count;
-            if (!this.ImportArray.Contain(oa))
+            if (!this.ImportArray.ContainAt(oa))
             {
                 return null;
             }
-            a = (ClassClass)this.ImportArray.Get(oa);
+            a = (ClassClass)this.ImportArray.GetAt(oa);
         }
         return a;
     }

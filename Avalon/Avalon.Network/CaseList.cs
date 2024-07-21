@@ -52,7 +52,7 @@ public class CaseList : Any
         item = new Case();
         item.Init();
         item.Index = this.Index;
-        this.Array.Set(item.Index, item);
+        this.Array.Set((object)item.Index, item);
         this.Index = this.Index + 1;
         return item;
     }
@@ -79,6 +79,6 @@ public class CaseList : Any
 
     public virtual Case Get(int index)
     {
-        return (Case)this.Array.Get(index);
+        return (Case)this.Array.Get((object)index);
     }
 }

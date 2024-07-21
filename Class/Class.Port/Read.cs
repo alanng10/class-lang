@@ -207,7 +207,7 @@ public class Read : Any
             a = textInfra.StringCreate(text);
             text.Data = null;
 
-            array.Set(i, a);
+            array.SetAt(i, a);
             
             i = i + 1;
         }
@@ -247,7 +247,7 @@ public class Read : Any
             
             Array a;
             a = listInfra.ArrayCreate(k);
-            array.Set(i, a);
+            array.SetAt(i, a);
             i = i + 1;
         }
         return true;
@@ -269,7 +269,7 @@ public class Read : Any
             Port a;
             a = new Port();
             a.Init();
-            array.Set(i, a);
+            array.SetAt(i, a);
             i = i + 1;
         }
         return true;
@@ -291,7 +291,7 @@ public class Read : Any
             ModuleRef a;
             a = new ModuleRef();
             a.Init();
-            array.Set(i, a);
+            array.SetAt(i, a);
             i = i + 1;
         }
         return true;
@@ -313,7 +313,7 @@ public class Read : Any
             Import a;
             a = new Import();
             a.Init();
-            array.Set(i, a);
+            array.SetAt(i, a);
             i = i + 1;
         }
         return true;
@@ -335,7 +335,7 @@ public class Read : Any
             ImportClass a;
             a = new ImportClass();
             a.Init();
-            array.Set(i, a);
+            array.SetAt(i, a);
             i = i + 1;
         }
         return true;
@@ -357,7 +357,7 @@ public class Read : Any
             Export a;
             a = new Export();
             a.Init();
-            array.Set(i, a);
+            array.SetAt(i, a);
             i = i + 1;
         }
         return true;
@@ -379,7 +379,7 @@ public class Read : Any
             Storage a;
             a = new Storage();
             a.Init();
-            array.Set(i, a);
+            array.SetAt(i, a);
             i = i + 1;
         }
         return true;
@@ -673,7 +673,7 @@ public class Read : Any
             {
                 return null;
             }
-            array.Set(i, aa);
+            array.SetAt(i, aa);
 
             i = i + 1;
         }
@@ -1210,7 +1210,7 @@ public class Read : Any
 
     protected virtual Text LineText(int row)
     {
-        return (Text)this.LineList.Get(row);
+        return (Text)this.LineList.GetAt(row);
     }
 
     protected virtual bool CheckRow(int row)

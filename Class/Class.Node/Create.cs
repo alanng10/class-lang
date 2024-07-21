@@ -469,7 +469,7 @@ public class Create : InfraCreate
             node = (Node)o;
             node.Init();
             node.Range = this.CreateRange();
-            this.NodeArray.Set(i, node);
+            this.NodeArray.SetAt(i, node);
 
             i = i + 1;
         }
@@ -497,7 +497,7 @@ public class Create : InfraCreate
             array = new Array();
             array.Count = oa;
             array.Init();
-            this.ListArray.Set(i, array);
+            this.ListArray.SetAt(i, array);
             i = i + 1;
         }
         return true;
@@ -519,7 +519,7 @@ public class Create : InfraCreate
             range = new Range();
             range.Init();
             error.Range = range;
-            this.ErrorArray.Set(i, error);
+            this.ErrorArray.SetAt(i, error);
             i = i + 1;
         }
         return true;
@@ -554,7 +554,7 @@ public class Create : InfraCreate
             text.Range.Count = oa;
             string oo;
             oo = this.TextInfra.StringCreate(text);
-            this.NameValueArray.Set(i, oo);
+            this.NameValueArray.SetAt(i, oo);
             total = total + oa;
             i = i + 1;
         }
@@ -590,7 +590,7 @@ public class Create : InfraCreate
             text.Range.Count = oa;
             string oo;
             oo = this.TextInfra.StringCreate(text);
-            this.StringValueArray.Set(i, oo);
+            this.StringValueArray.SetAt(i, oo);
             total = total + oa;
             i = i + 1;
         }
@@ -605,14 +605,14 @@ public class Create : InfraCreate
         i = 0;
         while (i < count)
         {
-            this.CodeItem = (Code)this.Code.Get(i);
+            this.CodeItem = (Code)this.Code.GetAt(i);
 
-            this.SourceItem = (Source)this.Source.Get(i);
+            this.SourceItem = (Source)this.Source.GetAt(i);
             this.SourceText = this.SourceItem.Text;
 
             Node root;
             root = this.ExecuteRoot();
-            this.Result.Root.Set(i, root);
+            this.Result.Root.SetAt(i, root);
             i = i + 1;
         }
         return true;
@@ -1413,7 +1413,7 @@ public class Create : InfraCreate
         }
 
         Text line;
-        line = (Text)this.SourceText.Get(aa.Row);
+        line = (Text)this.SourceText.GetAt(aa.Row);
         Text text;
         text = this.TextA;
         text.Data = line.Data;
@@ -1459,7 +1459,7 @@ public class Create : InfraCreate
         signNegative = this.IsTokenSignNegative(aa, 2);
 
         Text line;
-        line = (Text)this.SourceText.Get(aa.Row);
+        line = (Text)this.SourceText.GetAt(aa.Row);
         Text text;
         text = this.TextA;
         text.Data = line.Data;
@@ -1533,7 +1533,7 @@ public class Create : InfraCreate
         signNegative = this.IsTokenSignNegative(aa, 3);
 
         Text line;
-        line = (Text)this.SourceText.Get(aa.Row);
+        line = (Text)this.SourceText.GetAt(aa.Row);
         Text text;
         text = this.TextA;
         text.Data = line.Data;
@@ -3882,7 +3882,7 @@ public class Create : InfraCreate
         }
 
         Text line;
-        line = (Text)this.SourceText.Get(aa.Row);
+        line = (Text)this.SourceText.GetAt(aa.Row);
 
         Data data;
         data = line.Data;
@@ -3923,7 +3923,7 @@ public class Create : InfraCreate
         }
 
         Text line;
-        line = (Text)this.SourceText.Get(aa.Row);
+        line = (Text)this.SourceText.GetAt(aa.Row);
 
         Data data;
         data = line.Data;
@@ -3971,7 +3971,7 @@ public class Create : InfraCreate
         }
 
         Text line;
-        line = (Text)this.SourceText.Get(aa.Row);
+        line = (Text)this.SourceText.GetAt(aa.Row);
 
         Data data;
         data = line.Data;
@@ -4080,7 +4080,7 @@ public class Create : InfraCreate
     protected virtual bool IsTokenSignNegative(TokenToken o, int index)
     {
         Text line;
-        line = (Text)this.SourceText.Get(o.Row);
+        line = (Text)this.SourceText.GetAt(o.Row);
 
         Data data;
         data = line.Data;
@@ -4097,7 +4097,7 @@ public class Create : InfraCreate
     protected virtual TokenToken TokenToken(int index)
     {
         TokenToken token;
-        token = (TokenToken)this.CodeItem.Token.Get(index);
+        token = (TokenToken)this.CodeItem.Token.GetAt(index);
         return token;
     }
 
@@ -4109,7 +4109,7 @@ public class Create : InfraCreate
     protected virtual bool TextGet(Text text, TokenToken token)
     {
         Text line;
-        line = (Text)this.SourceText.Get(token.Row);
+        line = (Text)this.SourceText.GetAt(token.Row);
         InfraRange range;
         range = token.Range;
         text.Data = line.Data;

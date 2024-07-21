@@ -49,7 +49,7 @@ public class TaskKindList : Any
         item = new TaskKind();
         item.Init();
         item.Index = this.Index;
-        this.Array.Set(item.Index, item);
+        this.Array.SetAt(item.Index, item);
         this.Index = this.Index + 1;
         return item;
     }
@@ -76,6 +76,6 @@ public class TaskKindList : Any
 
     public virtual TaskKind Get(int index)
     {
-        return (TaskKind)this.Array.Get(index);
+        return (TaskKind)this.Array.GetAt(index);
     }
 }

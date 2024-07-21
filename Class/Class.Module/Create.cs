@@ -853,7 +853,7 @@ public class Create : InfraCreate
         while (i < count)
         {
             NodeNode root;
-            root = (NodeNode)this.RootNode.Get(i);
+            root = (NodeNode)this.RootNode.GetAt(i);
 
             Source source;
             source = this.SourceGet(i);
@@ -969,7 +969,7 @@ public class Create : InfraCreate
 
     protected virtual Source SourceGet(int index)
     {
-        return (Source)this.Source.Get(index);
+        return (Source)this.Source.GetAt(index);
     }
 
     public virtual bool Error(ErrorKind kind, NodeNode node, Source source)

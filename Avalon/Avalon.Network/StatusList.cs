@@ -103,7 +103,7 @@ public class StatusList : Any
         item = new Status();
         item.Init();
         item.Index = this.Index;
-        this.Array.Set(item.Index, item);
+        this.Array.Set((object)item.Index, item);
         this.Index = this.Index + 1;
         return item;
     }
@@ -130,6 +130,6 @@ public class StatusList : Any
 
     public virtual Status Get(int index)
     {
-        return (Status)this.Array.Get(index);
+        return (Status)this.Array.Get((object)index);
     }
 }

@@ -92,7 +92,7 @@ public class KeywordList : Any
         item.Init();
         item.Index = this.Index;
         item.Text = text;
-        this.Array.Set(item.Index, item);
+        this.Array.SetAt(item.Index, item);
         this.Index = this.Index + 1;
         return item;
     }
@@ -119,6 +119,6 @@ public class KeywordList : Any
 
     public virtual Keyword Get(int index)
     {
-        return (Keyword)this.Array.Get(index);
+        return (Keyword)this.Array.GetAt(index);
     }
 }

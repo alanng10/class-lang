@@ -195,7 +195,7 @@ public class PortLoad : Any
         while (i < count)
         {
             PortImport o;
-            o = (PortImport)import.Get(i);
+            o = (PortImport)import.GetAt(i);
 
             ModuleRef aa;
             aa = o.Module;
@@ -212,7 +212,7 @@ public class PortLoad : Any
             ModuleRef a;
             a = classInfra.ModuleRefCreate(name, version);
 
-            array.Set(i, a);
+            array.SetAt(i, a);
 
             i = i + 1;
         }
@@ -239,7 +239,7 @@ public class PortLoad : Any
         while (i < count)
         {
             ModuleRef a;
-            a = (ModuleRef)array.Get(i);
+            a = (ModuleRef)array.GetAt(i);
 
             if (table.Contain(a))
             {
@@ -311,7 +311,7 @@ public class PortLoad : Any
         while (i < count)
         {
             PortImport a;
-            a = (PortImport)array.Get(i);
+            a = (PortImport)array.GetAt(i);
 
             if (!this.CheckImportModuleRef(a.Module))
             {
@@ -373,7 +373,7 @@ public class PortLoad : Any
         while (i < count)
         {
             ModuleRef a;
-            a = (ModuleRef)array.Get(i);
+            a = (ModuleRef)array.GetAt(i);
 
             bool b;
             b = this.BinaryLoadRecursive(a);
@@ -413,7 +413,7 @@ public class PortLoad : Any
         while (i < count)
         {
             BinaryImport import;
-            import = (BinaryImport)array.Get(i);
+            import = (BinaryImport)array.GetAt(i);
 
             bool ba;
             ba = this.BinaryLoadRecursive(import.Module);
@@ -510,7 +510,7 @@ public class PortLoad : Any
         while (i < count)
         {
             ModuleRef o;
-            o = (ModuleRef)array.Get(i);
+            o = (ModuleRef)array.GetAt(i);
 
             Table aa;
             aa = this.BinaryDepend(o);
@@ -586,7 +586,7 @@ public class PortLoad : Any
         while (i < count)
         {
             BinaryImport import;
-            import = (BinaryImport)array.Get(i);
+            import = (BinaryImport)array.GetAt(i);
 
             ModuleRef e;
             e = import.Module;
@@ -730,7 +730,7 @@ public class PortLoad : Any
         while (i < count)
         {
             ModuleRef kk;
-            kk = (ModuleRef)importModuleRef.Get(i);
+            kk = (ModuleRef)importModuleRef.GetAt(i);
 
             ClassModule k;
             k = (ClassModule)moduleTable.Get(kk);
@@ -741,7 +741,7 @@ public class PortLoad : Any
             listInfra.TableAdd(module.Import, kk, a);
 
             PortImport kkk;
-            kkk = (PortImport)array.Get(i);
+            kkk = (PortImport)array.GetAt(i);
 
             Array importClassArray;
             importClassArray = kkk.Class;
@@ -753,7 +753,7 @@ public class PortLoad : Any
             while (iA < countA)
             {
                 PortImportClass importClass;
-                importClass = (PortImportClass)importClassArray.Get(iA);
+                importClass = (PortImportClass)importClassArray.GetAt(iA);
 
                 string className;
                 className = importClass.Class;
@@ -833,7 +833,7 @@ public class PortLoad : Any
         while (i < count)
         {
             PortExport a;
-            a = (PortExport)array.Get(i);
+            a = (PortExport)array.GetAt(i);
 
             string name;
             name = a.Class;
@@ -892,7 +892,7 @@ public class PortLoad : Any
         while (i < count)
         {
             ClassStorage a;
-            a = (ClassStorage)array.Get(i);
+            a = (ClassStorage)array.GetAt(i);
 
             string sourcePath;
             string destPath;

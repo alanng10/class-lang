@@ -110,7 +110,7 @@ public class ErrorKindList : Any
         item.Init();
         item.Index = this.Index;
         item.Text = text;
-        this.Array.Set(item.Index, item);
+        this.Array.SetAt(item.Index, item);
         this.Index = this.Index + 1;
         return item;
     }
@@ -137,6 +137,6 @@ public class ErrorKindList : Any
 
     public virtual ErrorKind Get(int index)
     {
-        return (ErrorKind)this.Array.Get(index);
+        return (ErrorKind)this.Array.GetAt(index);
     }
 }
