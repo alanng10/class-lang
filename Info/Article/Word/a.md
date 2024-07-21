@@ -68,6 +68,10 @@ Word "sign" has meaning that is signed positive and negative.
 
 Word "bit" has meaning that is zero or one.
 
+Word "true" has meaning that is bool true.
+
+Word "false" has meaning that is bool false.
+
 Words "prudate", "probate", "precate" and "private" have meanings that are applicable
 to all, local, child, and self.
 
