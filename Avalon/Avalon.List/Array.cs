@@ -41,6 +41,21 @@ public class Array : List
         return false;
     }
 
+    public override bool Contain(object index)
+    {
+        return false;
+    }
+
+    public override object Get(object index)
+    {
+        return null;
+    }
+
+    public override bool Set(object index, object value)
+    {
+        return false;
+    }
+
     public virtual bool ContainAt(int index)
     {
         return this.InfraInfra.CheckIndex(this.Count, index);
