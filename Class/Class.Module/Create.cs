@@ -466,7 +466,7 @@ public class Create : InfraCreate
         {
             Maide a;
             a = (Maide)iter.Value;
-            a.Virtual = this.VirtualMaide(a);
+            this.VirtualMaide(a);
 
             if (!(a.Virtual == null))
             {
@@ -480,7 +480,7 @@ public class Create : InfraCreate
         return true;
     }
 
-    protected virtual Maide VirtualMaide(Maide a)
+    protected virtual bool VirtualMaide(Maide a)
     {
         ClassClass varClass;
         varClass = a.Parent;
@@ -490,7 +490,7 @@ public class Create : InfraCreate
 
         if (k == null)
         {
-            return null;
+            return false;
         }
 
         bool b;
@@ -527,7 +527,7 @@ public class Create : InfraCreate
             NodeMaide aa;
             aa = (NodeMaide)a.Any;
             this.Error(this.ErrorKind.MaideUndefined, aa, source);
-            return null;
+            return false;
         }
 
         Maide h;
@@ -536,7 +536,9 @@ public class Create : InfraCreate
         {
             h = k.Virtual;
         }
-        return h;
+
+        a.Virtual = h;
+        return true;
     }
 
     protected virtual bool AddVirtualImport(ClassClass a)
