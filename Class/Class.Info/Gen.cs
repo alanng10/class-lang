@@ -1,4 +1,4 @@
-namespace Class.Doc;
+namespace Class.Info;
 
 public class Gen : Any
 {
