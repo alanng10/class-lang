@@ -968,9 +968,9 @@ public class Create : InfraCreate
         while (!(c == null))
         {
             bool ba;
-            ba = varClass.Field.Contain(name);
+            ba = c.Field.Contain(name);
             bool bb;
-            bb = varClass.Maide.Contain(name);
+            bb = c.Maide.Contain(name);
 
             bool b;
             b = ba | bb;
