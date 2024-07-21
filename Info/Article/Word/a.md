@@ -20,6 +20,8 @@ Word "byte" has meaning that is data unit.
 
 Word "info" has meaning that is interpreted.
 
+Word "define" has meaning that is definition.
+
 Word "tool" has meaning that is be used to do.
 
 Word "node" has meaning that is entity.
