@@ -21,8 +21,6 @@ public class Gen : Any
         this.TextCompare = new TextCompare();
         this.TextCompare.CharCompare = this.CharCompare;
         this.TextCompare.Init();
-
-        this.InitTemplate();
         return true;
     }
 
@@ -43,9 +41,9 @@ public class Gen : Any
     protected virtual string PageTemplate { get; set; }
     private StorageArrange StorageArrange { get; set; }
 
-    protected virtual bool InitTemplate()
+    public virtual bool Load()
     {
-        this.PageTemplate = this.StorageInfra.TextReadAny("Class.Doc.data/a.html", true);
+        this.PageTemplate = this.StorageInfra.TextReadAny("Class.Info.data/a.html", true);
         return true;
     }
 
@@ -443,7 +441,7 @@ public class Gen : Any
         combine = this.InfraInfra.PathCombine;
 
         string aa;
-        aa = "Class.Doc.data" + combine + fileName;
+        aa = "Class.Info.data" + combine + fileName;
 
         string ab;
         ab = this.DestFoldPath + combine + fileName;
