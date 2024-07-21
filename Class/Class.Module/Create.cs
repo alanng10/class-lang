@@ -348,7 +348,7 @@ public class Create : InfraCreate
     protected virtual bool ExecuteImportClass(ClassClass varClass)
     {
         this.ExecuteImportField(varClass.Field);
-        this.ExecuteVirtualMaide(varClass.Maide);
+        this.ExecuteImportMaide(varClass.Maide);
         return true;
     }
 
@@ -431,7 +431,7 @@ public class Create : InfraCreate
         return true;
     }
 
-    protected virtual bool ExecuteVirtualMaide(Table maide)
+    protected virtual bool ExecuteImportMaide(Table maide)
     {
         Iter iter;
         iter = maide.IterCreate();
