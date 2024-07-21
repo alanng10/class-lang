@@ -91,7 +91,7 @@ public class BrushKindList : Any
         item.Init();
         item.Index = this.Index;
         item.Intern = o;
-        this.Array.Set((object)item.Index, item);
+        this.Array.SetAt(item.Index, item);
         this.Index = this.Index + 1;
         return item;
     }

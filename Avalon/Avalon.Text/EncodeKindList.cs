@@ -61,7 +61,7 @@ public class EncodeKindList : Any
         item.Init();
         item.Index = this.Index;
         item.Intern = o;
-        this.Array.Set((object)item.Index, item);
+        this.Array.SetAt(item.Index, item);
         this.Index = this.Index + 1;
         return item;
     }
@@ -88,6 +88,6 @@ public class EncodeKindList : Any
 
     public virtual EncodeKind Get(int index)
     {
-        return (EncodeKind)this.Array.Get((object)index);
+        return (EncodeKind)this.Array.GetAt(index);
     }
 }
