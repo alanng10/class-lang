@@ -60,6 +60,8 @@ Word "cast" has meaning that is as.
 
 Word "sign" has meaning that is signed positive and negative.
 
+Word "bit" has meaning that is zero or one.
+
 Words "prudate", "probate", "precate" and "private" have meanings that are applicable
 to all, local, child, and self.
 
