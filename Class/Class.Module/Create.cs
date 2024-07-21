@@ -361,100 +361,74 @@ public class Create : InfraCreate
         {
             Field a;
             a = (Field)iter.Value;
-            a.Virtual = this.VirtualField(a);
-
+            
             if (!(a.Virtual == null))
             {
-                this.ClassInfra.SystemInfoAssignValue(a.SystemInfo, a.Virtual.SystemInfo);
-
                 this.AddVirtualImport(a.Virtual.Parent);
             }
         }
         return true;
     }
 
-    protected virtual Field VirtualField(Field a)
+    protected virtual bool VirtualField(Field a)
     {
-        if (a.Count == this.Count.Private)
+        ClassClass varClass;
+        varClass = a.Parent;
+
+        object ka;
+        ka = this.CompDefined(varClass.Base, a.Name);
+
+        if (ka == null)
         {
-            return null;
+            return true;
         }
 
-        bool ba;
-        ba = (a.Count == this.Count.Probate);
+        if (ka is Maide)
+        {
+            return false;
+        }
 
-        string name;
-        name = a.Name;
-
-        ClassClass anyClass;
-        anyClass = this.BuiltinClass.Any;
+        Field k;
+        k = (Field)ka;
 
         bool b;
         b = false;
 
-        Field d;
-        d = null;
-
-        ClassClass varClass;
-        varClass = a.Parent;
-
-        ClassClass thisClass;
-        thisClass = varClass.Base;
-        while (!b & !(thisClass == null))
+        if (!b)
         {
-            if (thisClass.Maide.Contain(name))
+            if (!(a.Class == k.Class))
             {
                 b = true;
             }
+        }
 
-            if (!b)
+        if (!b)
+        {
+            if (!(a.Count == k.Count))
             {
-                Field o;
-                o = (Field)thisClass.Field.Get(name);
-                if (!(o == null))
-                {
-                    if ((a.Class == o.Class & a.Count == o.Count))
-                    {
-                        if (ba)
-                        {
-                            if (a.Parent.Module == o.Parent.Module)
-                            {
-                                d = o;
-                            }
-                        }
-                        if (!ba)
-                        {
-                            d = o;
-                        }
-                    }
-                    b = true;
-                }
-            }
-
-            if (!b)
-            {
-                ClassClass aa;
-                aa = null;
-                if (!(thisClass == anyClass))
-                {
-                    aa = thisClass.Base;
-                }
-                thisClass = aa;
+                b = true;
             }
         }
 
-        if (d == null)
+        if (b)
         {
-            return null;
+            return false;
         }
 
         Field h;
-        h = d;
-        if (!(d.Virtual == null))
+        h = k;
+        if (!(k.Virtual == null))
         {
-            h = d.Virtual;
+            h = k.Virtual;
         }
-        return h;
+
+        a.Virtual = h;
+
+        if (!(h == null))
+        {
+            this.ClassInfra.SystemInfoAssignValue(a.SystemInfo, h.SystemInfo);
+        }
+        return true;
     }
 
     protected virtual bool ExecuteVirtualMaide(Table maide)
