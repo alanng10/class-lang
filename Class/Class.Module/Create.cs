@@ -957,9 +957,21 @@ public class Create : InfraCreate
         return a;
     }
 
-    public virtual object CompDefined(ClassClass varClass, string name)
+    public virtual bool MemberNameDefined(ClassClass varClass, string name)
     {
-        object k;
+        bool ba;
+        ba = varClass.Field.Contain(name);
+        bool bb;
+        bb = varClass.Maide.Contain(name);
+
+        bool a;
+        a = ba | bb;
+        return a;
+    }
+
+    public virtual Maide MaideDefined(ClassClass varClass, string name)
+    {
+        Maide k;
         k = null;
 
         bool b;
@@ -975,17 +987,7 @@ public class Create : InfraCreate
         {
             if (!b)
             {
-                k = c.Field.Get(name);
-
-                if (!(k == null))
-                {
-                    b = true;
-                }
-            }
-
-            if (!b)
-            {
-                k = c.Maide.Get(name);
+                k = (Maide)c.Maide.Get(name);
 
                 if (!(k == null))
                 {
