@@ -156,6 +156,8 @@ Word "status" has meaning that is kind of output.
 
 Word "error" has meaning that is invalid.
 
+Word "valid" has meaning that is can accept.
+
 Word "draw" has meaning that is comp video.
 
 Word "pos" has meaning that is position in signed int.
