@@ -957,38 +957,55 @@ public class Create : InfraCreate
         return a;
     }
 
-    public virtual bool MemberNameDefined(ClassClass varClass, string name)
+    public virtual object CompDefined(ClassClass varClass, string name)
     {
+        object k;
+        k = null;
+
+        bool b;
+        b = false;
+
         ClassClass anyClass;
         anyClass = this.BuiltinClass.Any;
 
         ClassClass c;
         c = varClass;
 
-        while (!(c == null))
+        while (!b & !(c == null))
         {
-            bool ba;
-            ba = c.Field.Contain(name);
-            bool bb;
-            bb = c.Maide.Contain(name);
-
-            bool b;
-            b = ba | bb;
-            if (b)
+            if (!b)
             {
-                return true;
+                k = c.Field.Get(name);
+
+                if (!(k == null))
+                {
+                    b = true;
+                }
             }
 
-            ClassClass aa;
-            aa = null;
-            if (!(c == anyClass))
+            if (!b)
             {
-                aa = c.Base;
+                k = c.Maide.Get(name);
+
+                if (!(k == null))
+                {
+                    b = true;
+                }
             }
-            c = aa;
+
+            if (!b)
+            {
+                ClassClass aa;
+                aa = null;
+                if (!(c == anyClass))
+                {
+                    aa = c.Base;
+                }
+                c = aa;
+            }
         }
 
-        return false;
+        return k;
     }
 
     protected virtual Source SourceGet(int index)
