@@ -86,7 +86,7 @@ class Read : Any
         while (i < count)
         {
             string line;
-            line = (string)lineArray.Get(i);
+            line = (string)lineArray.GetAt(i);
 
             bool b;
             b = this.SetClassTableOneLine(line);
