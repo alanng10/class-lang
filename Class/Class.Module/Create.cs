@@ -959,14 +959,36 @@ public class Create : InfraCreate
 
     public virtual bool MemberNameDefined(ClassClass varClass, string name)
     {
-        bool ba;
-        ba = varClass.Field.Contain(name);
-        bool bb;
-        bb = varClass.Maide.Contain(name);
+        ClassClass anyClass;
+        anyClass = this.BuiltinClass.Any;
 
-        bool a;
-        a = ba | bb;
-        return a;
+        ClassClass c;
+        c = varClass;
+
+        while (!(c == null))
+        {
+            bool ba;
+            ba = varClass.Field.Contain(name);
+            bool bb;
+            bb = varClass.Maide.Contain(name);
+
+            bool b;
+            b = ba | bb;
+            if (b)
+            {
+                return true;
+            }
+
+            ClassClass aa;
+            aa = null;
+            if (!(c == anyClass))
+            {
+                aa = c.Base;
+            }
+            c = aa;
+        }
+
+        return false;
     }
 
     protected virtual Source SourceGet(int index)
