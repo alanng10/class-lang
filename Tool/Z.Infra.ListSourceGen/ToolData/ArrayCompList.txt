@@ -20,5 +20,5 @@
 
     public virtual #ItemClassName# Get(int index)
     {
-        return (#ItemClassName#)this.Array.Get(index);
+        return (#ItemClassName#)this.Array.GetAt(index);
     }
