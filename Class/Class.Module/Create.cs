@@ -480,13 +480,21 @@ public class Create : InfraCreate
         ClassClass varClass;
         varClass = a.Parent;
 
-        Maide k;
-        k = this.MaideDefined(varClass.Base, a.Name);
+        object ka;
+        ka = this.CompDefined(varClass.Base, a.Name);
 
-        if (k == null)
+        if (ka == null)
         {
             return true;
         }
+        
+        if (ka is Field)
+        {
+            return false;
+        }
+
+        Maide k;
+        k = (Maide)ka;
 
         bool b;
         b = false;
@@ -940,9 +948,9 @@ public class Create : InfraCreate
         return a;
     }
 
-    public virtual Maide MaideDefined(ClassClass varClass, string name)
+    public virtual object CompDefined(ClassClass varClass, string name)
     {
-        Maide k;
+        object k;
         k = null;
 
         bool b;
@@ -958,7 +966,17 @@ public class Create : InfraCreate
         {
             if (!b)
             {
-                k = (Maide)c.Maide.Get(name);
+                k = c.Field.Get(name);
+
+                if (!(k == null))
+                {
+                    b = true;
+                }
+            }
+
+            if (!b)
+            {
+                k = c.Maide.Get(name);
 
                 if (!(k == null))
                 {
