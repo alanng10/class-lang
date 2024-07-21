@@ -79,7 +79,7 @@ public class Gen : Any
         this.ExecuteTypeModule(typeof(EntryEntry));
         this.ExecuteTypeModule(typeof(ClassClass));
         this.ExecuteTypeModule(typeof(Binary));
-        this.ExecuteTypeModule(typeof(DocGen));
+        this.ExecuteTypeModule(typeof(InfoGen));
         this.ExecuteTypeModule(typeof(Port));
         this.ExecuteTypeModule(typeof(Token));
         this.ExecuteTypeModule(typeof(Node));
