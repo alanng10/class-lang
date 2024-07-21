@@ -197,6 +197,15 @@ public class MemberTraverse : Traverse
 
         this.ParamVar = null;
 
+        bool b;
+        b = this.Create.VirtualMaide(a);
+
+        if (!b)
+        {
+            this.Error(this.ErrorKind.MaideUndefined, nodeMaide);
+            return true;
+        }
+
         this.ListInfra.TableAdd(this.ThisClass.Maide, a.Name, a);
 
         this.Info(nodeMaide).Maide = a;

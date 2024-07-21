@@ -466,21 +466,16 @@ public class Create : InfraCreate
         {
             Maide a;
             a = (Maide)iter.Value;
-            this.VirtualMaide(a);
-
+            
             if (!(a.Virtual == null))
             {
-                this.ClassInfra.SystemInfoAssignValue(a.SystemInfo, a.Virtual.SystemInfo);
-
-                this.VarSystemInfoAssignValue(a.Param, a.Virtual.Param);
-
                 this.AddVirtualImport(a.Virtual.Parent);
             }
         }
         return true;
     }
 
-    protected virtual bool VirtualMaide(Maide a)
+    public virtual bool VirtualMaide(Maide a)
     {
         ClassClass varClass;
         varClass = a.Parent;
@@ -522,11 +517,6 @@ public class Create : InfraCreate
 
         if (b)
         {
-            Source source;
-            source = this.SourceGet(varClass.Index);
-            NodeMaide aa;
-            aa = (NodeMaide)a.Any;
-            this.Error(this.ErrorKind.MaideUndefined, aa, source);
             return false;
         }
 
@@ -538,6 +528,13 @@ public class Create : InfraCreate
         }
 
         a.Virtual = h;
+
+        if (!(h == null))
+        {
+            this.ClassInfra.SystemInfoAssignValue(a.SystemInfo, h.SystemInfo);
+
+            this.VarSystemInfoAssignValue(a.Param, h.Param);
+        }
         return true;
     }
 
