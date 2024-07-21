@@ -108,6 +108,8 @@ Word "stage" has meaning that is execute step.
 
 Word "binary" has meaning that is module data.
 
+Word "ref" has meaning that is refer value.
+
 Word "list" has meaning that is integer multiple.
 
 Word "table" has meaning that is entry map.
