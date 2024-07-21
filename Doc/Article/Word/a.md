@@ -56,6 +56,8 @@ Word "new" has meaning that is new instance.
 
 Word "share" has meaning that is shared instance.
 
+Word "cast" has meaning that is as.
+
 Words "prudate", "probate", "precate" and "private" have meanings that are applicable
 to all, local, child, and self.
 
