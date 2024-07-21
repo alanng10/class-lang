@@ -490,7 +490,7 @@ public class Create : InfraCreate
 
         if (k == null)
         {
-            return false;
+            return true;
         }
 
         bool b;
