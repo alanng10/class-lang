@@ -3,7 +3,7 @@
         #ItemClassName# item;
         item = new #ItemClassName#();
         item.Init();
-        this.Array.Set(this.Index, item);
+        this.Array.SetAt(this.Index, item);
         this.Index = this.Index + 1;
         return item;
     }
