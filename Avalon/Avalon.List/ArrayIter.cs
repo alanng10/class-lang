@@ -9,7 +9,7 @@ public class ArrayIter : Iter
     public override bool Next()
     {
         bool b;
-        b = this.Array.Contain(this.IntIndex);
+        b = this.Array.ContainAt(this.IntIndex);
 
         if (b)
         {
@@ -44,7 +44,7 @@ public class ArrayIter : Iter
             {
                 return null;
             }
-            return this.Array.Get(this.CurrentIndex);
+            return this.Array.GetAt(this.CurrentIndex);
         }
         set
         {

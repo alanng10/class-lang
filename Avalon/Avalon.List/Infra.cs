@@ -43,7 +43,7 @@ public class Infra : Any
             iter.Next();
             object aa;
             aa = iter.Value;
-            a.Set(i, aa);
+            a.SetAt(i, aa);
             i = i + 1;
         }
         return a;
@@ -56,8 +56,8 @@ public class Infra : Any
         while (i < count)
         {
             object o;
-            o = source.Get(sourceIndex + i);
-            dest.Set(destIndex + i, o);
+            o = source.GetAt(sourceIndex + i);
+            dest.SetAt(destIndex + i, o);
 
             i = i + 1;
         }

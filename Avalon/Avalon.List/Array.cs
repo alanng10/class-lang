@@ -41,23 +41,23 @@ public class Array : List
         return false;
     }
 
-    public virtual bool Contain(int index)
+    public virtual bool ContainAt(int index)
     {
         return this.InfraInfra.CheckIndex(this.Count, index);
     }
 
-    public virtual object Get(int index)
+    public virtual object GetAt(int index)
     {
-        if (!this.Contain(index))
+        if (!this.ContainAt(index))
         {
             return null;
         }
         return this.Value[index];
     }
 
-    public virtual bool Set(int index, object value)
+    public virtual bool SetAt(int index, object value)
     {
-        if (!this.Contain(index))
+        if (!this.ContainAt(index))
         {
             return false;
         }
