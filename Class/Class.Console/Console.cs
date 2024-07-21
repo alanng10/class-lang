@@ -26,7 +26,7 @@ public class Console : Any
 
         this.Create = this.CreateCreate();
 
-        this.DocGen = new DocGen();
+        this.DocGen = new InfoGen();
         this.DocGen.Init();
 
         this.InitModuleTable = this.ClassInfra.TableCreateModuleRefCompare();
@@ -79,7 +79,7 @@ public class Console : Any
 
     public virtual Create Create { get; set; }
 
-    public virtual DocGen DocGen { get; set; }
+    public virtual InfoGen DocGen { get; set; }
 
 
     private ErrorString ErrorString { get; set; }
@@ -170,6 +170,12 @@ public class Console : Any
             return false;
         }
 
+        b = this.DocGen.Load();
+        if (!b)
+        {
+            return false;
+        }
+        
         return true;
     }
 
