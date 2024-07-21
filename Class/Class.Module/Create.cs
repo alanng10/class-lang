@@ -340,12 +340,12 @@ public class Create : InfraCreate
         {
             ClassClass a;
             a = (ClassClass)iter.Value;
-            this.ExecuteVirtualClass(a);
+            this.ExecuteImportClass(a);
         }
         return true;
     }
 
-    protected virtual bool ExecuteVirtualClass(ClassClass varClass)
+    protected virtual bool ExecuteImportClass(ClassClass varClass)
     {
         this.ExecuteVirtualField(varClass.Field);
         this.ExecuteVirtualMaide(varClass.Maide);
