@@ -424,10 +424,7 @@ public class Create : InfraCreate
 
         a.Virtual = h;
 
-        if (!(h == null))
-        {
-            this.ClassInfra.SystemInfoAssignValue(a.SystemInfo, h.SystemInfo);
-        }
+        this.ClassInfra.SystemInfoAssignValue(a.SystemInfo, h.SystemInfo);
         return true;
     }
 
@@ -511,12 +508,9 @@ public class Create : InfraCreate
 
         a.Virtual = h;
 
-        if (!(h == null))
-        {
-            this.ClassInfra.SystemInfoAssignValue(a.SystemInfo, h.SystemInfo);
+        this.ClassInfra.SystemInfoAssignValue(a.SystemInfo, h.SystemInfo);
 
-            this.VarSystemInfoAssignValue(a.Param, h.Param);
-        }
+        this.VarSystemInfoAssignValue(a.Param, h.Param);
         return true;
     }
 
