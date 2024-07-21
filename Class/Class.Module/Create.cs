@@ -482,87 +482,59 @@ public class Create : InfraCreate
 
     protected virtual Maide VirtualMaide(Maide a)
     {
-        if (a.Count == this.Count.Private)
+        ClassClass varClass;
+        varClass = a.Parent;
+
+        Maide k;
+        k = this.MaideDefined(varClass.Base, a.Name);
+
+        if (k == null)
         {
             return null;
         }
-
-        bool ba;
-        ba = (a.Count == this.Count.Probate);
-
-        string name;
-        name = a.Name;
-
-        ClassClass anyClass;
-        anyClass = this.BuiltinClass.Any;
 
         bool b;
         b = false;
 
-        Maide d;
-        d = null;
-
-        ClassClass varClass;
-        varClass = a.Parent;
-
-        ClassClass thisClass;
-        thisClass = varClass.Base;
-        while (!b & !(thisClass == null))
+        if (!b)
         {
-            if (thisClass.Field.Contain(name))
+            if (!(a.Class == k.Class))
             {
                 b = true;
             }
+        }
 
-            if (!b)
+        if (!b)
+        {
+            if (!(a.Count == k.Count))
             {
-                Maide o;
-                o = (Maide)thisClass.Maide.Get(name);
-                if (!(o == null))
-                {
-                    if ((a.Class == o.Class & a.Count == o.Count))
-                    {
-                        if (this.VarSameClass(a.Param, o.Param))
-                        {
-                            if (ba)
-                            {
-                                if (a.Parent.Module == o.Parent.Module)
-                                {
-                                    d = o;
-                                }
-                            }
-                            if (!ba)
-                            {
-                                d = o;
-                            }
-                        }
-                    }
-                    b = true;
-                }
+                b = true;
             }
-
-            if (!b)
+        }
+        
+        if (!b)
+        {
+            if (!this.VarSameClass(a.Param, k.Param))
             {
-                ClassClass aa;
-                aa = null;
-                if (!(thisClass == anyClass))
-                {
-                    aa = thisClass.Base;
-                }
-                thisClass = aa;
+                b = true;
             }
         }
 
-        if (d == null)
+        if (b)
         {
+            Source source;
+            source = this.SourceGet(varClass.Index);
+            NodeMaide aa;
+            aa = (NodeMaide)a.Any;
+            this.Error(this.ErrorKind.MaideUndefined, aa, source);
             return null;
         }
 
         Maide h;
-        h = d;
-        if (!(d.Virtual == null))
+        h = k;
+        if (!(k.Virtual == null))
         {
-            h = d.Virtual;
+            h = k.Virtual;
         }
         return h;
     }
