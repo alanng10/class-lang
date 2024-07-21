@@ -61,7 +61,7 @@ public class Gen : SourceGen
         while (ia < countA)
         {
             AlignEntry aa;
-            aa = (AlignEntry)horzAlign.Get(ia);
+            aa = (AlignEntry)horzAlign.GetAt(ia);
             int countB;
             countB = vertAlign.Count;
             int ib;
@@ -69,7 +69,7 @@ public class Gen : SourceGen
             while (ib < countB)
             {
                 AlignEntry ab;
-                ab = (AlignEntry)vertAlign.Get(ib);
+                ab = (AlignEntry)vertAlign.GetAt(ib);
 
                 string index;
                 index = aa.Name + ab.Name;
@@ -111,7 +111,7 @@ public class Gen : SourceGen
     {
         AlignEntry entry;
         entry = this.CreateEntry(name, intern);
-        this.AlignArray.Set(this.Index, entry);
+        this.AlignArray.SetAt(this.Index, entry);
         this.Index = this.Index + 1;
         return true;
     }
