@@ -26,8 +26,8 @@ public class Console : Any
 
         this.Create = this.CreateCreate();
 
-        this.DocGen = new InfoGen();
-        this.DocGen.Init();
+        this.InfoGen = new InfoGen();
+        this.InfoGen.Init();
 
         this.InitModuleTable = this.ClassInfra.TableCreateModuleRefCompare();
         this.InitBinaryTable = this.ClassInfra.TableCreateModuleRefCompare();
@@ -79,7 +79,7 @@ public class Console : Any
 
     public virtual Create Create { get; set; }
 
-    public virtual InfoGen DocGen { get; set; }
+    public virtual InfoGen InfoGen { get; set; }
 
 
     private ErrorString ErrorString { get; set; }
@@ -170,12 +170,12 @@ public class Console : Any
             return false;
         }
 
-        b = this.DocGen.Load();
+        b = this.InfoGen.Load();
         if (!b)
         {
             return false;
         }
-        
+
         return true;
     }
 
@@ -447,12 +447,12 @@ public class Console : Any
             bool linkFileName;
             linkFileName = this.Task.ArgBool;
 
-            this.DocGen.SourceFoldPath = sourceFoldPath;
-            this.DocGen.DestFoldPath = destFoldPath;
-            this.DocGen.LinkFileName = linkFileName;
+            this.InfoGen.SourceFoldPath = sourceFoldPath;
+            this.InfoGen.DestFoldPath = destFoldPath;
+            this.InfoGen.LinkFileName = linkFileName;
 
             bool bba;
-            bba = this.DocGen.Execute();
+            bba = this.InfoGen.Execute();
             if (!bba)
             {
                 this.Status = 30000;
