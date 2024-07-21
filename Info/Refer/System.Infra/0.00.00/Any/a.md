@@ -10,6 +10,7 @@ Root class for any.
 
 ## Maide
 <c m="System.Infra:0.00.00" n="Bool">Bool</c> Init()
+A
 
 ## Define
 Init for any.

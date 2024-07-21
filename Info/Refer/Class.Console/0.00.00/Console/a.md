@@ -10,12 +10,8 @@ Class system all console.
 
 ## Maide
 <c m="System.Infra:0.00.00" n="Bool">Bool</c> Execute()
+A
 
 ## Define
 Execute task.
 ## Detail
-
-## Change
-### Replace
-
-### Remove
