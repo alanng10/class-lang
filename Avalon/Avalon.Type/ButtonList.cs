@@ -304,13 +304,13 @@ public class ButtonList : Any
         a.Init();
         a.Index = index;
         a.Char = varChar;
-        this.Array.Set(a.Index, a);
+        this.Array.SetAt(a.Index, a);
         return a;
     }
 
     public virtual Button Get(int index)
     {
-        return (Button)this.Array.Get(index);
+        return (Button)this.Array.GetAt(index);
     }
 
     public virtual bool IsLetterButton(int index)

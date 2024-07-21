@@ -48,7 +48,7 @@ public class Type : Any
             ButtonField field;
             field = new ButtonField();
             field.Init();
-            a.Set(i, field);
+            a.SetAt(i, field);
             i = i + 1;
         }
         return true;
@@ -60,7 +60,7 @@ public class Type : Any
     public virtual bool Get(int index)
     {
         ButtonField a;
-        a = (ButtonField)this.FieldList.Get(index);
+        a = (ButtonField)this.FieldList.GetAt(index);
         return a.Value;
     }
 
@@ -75,7 +75,7 @@ public class Type : Any
         }
 
         ButtonField a;
-        a = (ButtonField)this.FieldList.Get(index);
+        a = (ButtonField)this.FieldList.GetAt(index);
 
         if (a.Value == value)
         {
