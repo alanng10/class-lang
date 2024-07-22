@@ -144,7 +144,7 @@ public class Time : object
         return true;
     }
 
-    public bool Set(long tick)
+    public virtual bool Set(long tick)
     {
         this.Intern = new DateTime(tick, DateTimeKind.Local);
         return true;
