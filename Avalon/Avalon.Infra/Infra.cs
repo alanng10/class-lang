@@ -38,7 +38,7 @@ public class Infra : Any
         return this.ValidRange(count, index, 1);
     }
 
-    public virtual bool CheckLongIndex(long count, long index)
+    public virtual bool ValidLongIndex(long count, long index)
     {
         return this.ValidLongRange(count, index, 1);
     }
