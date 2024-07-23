@@ -241,7 +241,7 @@ public class PortLoad : Any
             ModuleRef a;
             a = (ModuleRef)array.GetAt(i);
 
-            if (table.Contain(a))
+            if (table.Valid(a))
             {
                 this.Status = 30;
                 return false;
@@ -389,7 +389,7 @@ public class PortLoad : Any
 
     protected virtual bool BinaryLoadRecursive(ModuleRef moduleRef)
     {
-        if (this.BinaryTable.Contain(moduleRef))
+        if (this.BinaryTable.Valid(moduleRef))
         {
             return true;
         }
@@ -525,7 +525,7 @@ public class PortLoad : Any
                 ModuleRef oo;
                 oo = (ModuleRef)iter.Index;
 
-                if (!table.Contain(oo))
+                if (!table.Valid(oo))
                 {
                     listInfra.TableAdd(table, oo, oo);
                 }
@@ -537,7 +537,7 @@ public class PortLoad : Any
         ModuleRef oa;
         oa = this.Port.Module;
 
-        if (table.Contain(oa))
+        if (table.Valid(oa))
         {
             this.Status = 61;
             return false;
@@ -556,7 +556,7 @@ public class PortLoad : Any
         binaryDependTable = this.BinaryDependTable;
 
         Table table;
-        if (binaryDependTable.Contain(moduleRef))
+        if (binaryDependTable.Valid(moduleRef))
         {
             table = (Table)binaryDependTable.Get(moduleRef);
             return table;
@@ -605,7 +605,7 @@ public class PortLoad : Any
                 ModuleRef oo;
                 oo = (ModuleRef)iter.Index;
 
-                if (!table.Contain(oo))
+                if (!table.Valid(oo))
                 {
                     listInfra.TableAdd(table, oo, oo);
                 }
@@ -614,7 +614,7 @@ public class PortLoad : Any
             i = i + 1;
         }
 
-        if (table.Contain(moduleRef))
+        if (table.Valid(moduleRef))
         {
             this.Status = 60;
             listInfra.TableAdd(binaryDependTable, moduleRef, null);
@@ -786,7 +786,7 @@ public class PortLoad : Any
                     return false;
                 }
                 
-                if (classTable.Contain(name))
+                if (classTable.Valid(name))
                 {
                     this.Status = 83;
                     return false;
@@ -846,13 +846,13 @@ public class PortLoad : Any
                 return false;
             }
 
-            if (classTable.Contain(name))
+            if (classTable.Valid(name))
             {
                 this.Status = 86;
                 return false;
             }
 
-            if (exportTable.Contain(name))
+            if (exportTable.Valid(name))
             {
                 this.Status = 87;
                 return false;
@@ -915,7 +915,7 @@ public class PortLoad : Any
                 return false;
             }
 
-            if (table.Contain(destPath))
+            if (table.Valid(destPath))
             {
                 this.Status = 92;
                 return false;
@@ -948,7 +948,7 @@ public class PortLoad : Any
         Table export;
         export = this.Module.Export;
 
-        if (!export.Contain(entry))
+        if (!export.Valid(entry))
         {
             this.Status = 95;
             return false;

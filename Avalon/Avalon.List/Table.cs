@@ -155,7 +155,7 @@ public class Table : List
         return true;
     }
 
-    public override bool Contain(object index)
+    public override bool Valid(object index)
     {
         ListNode node;
         node = this.ListNode(index);

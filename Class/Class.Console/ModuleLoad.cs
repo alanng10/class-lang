@@ -65,7 +65,7 @@ public class ModuleLoad : Any
         ModuleRef o;
         o = this.ModuleRef;
 
-        if (this.ModuleTable.Contain(o))
+        if (this.ModuleTable.Valid(o))
         {
             this.Status = 1;
             return false;
@@ -159,7 +159,7 @@ public class ModuleLoad : Any
                 return false;
             }
 
-            if (classTable.Contain(name))
+            if (classTable.Valid(name))
             {
                 this.Status = 11;
                 return false;
@@ -245,7 +245,7 @@ public class ModuleLoad : Any
             ModuleRef moduleRef;
             moduleRef = o.Module;
 
-            if (importTable.Contain(moduleRef))
+            if (importTable.Valid(moduleRef))
             {
                 this.Status = 20;
                 return false;
@@ -302,7 +302,7 @@ public class ModuleLoad : Any
                     return false;
                 }
 
-                if (classTable.Contain(varClass))
+                if (classTable.Valid(varClass))
                 {
                     this.Status = 25;
                     return false;
@@ -427,7 +427,7 @@ public class ModuleLoad : Any
                 return true;
             }
             
-            if (table.Contain(varClass))
+            if (table.Valid(varClass))
             {
                 return false;
             }
@@ -642,7 +642,7 @@ public class ModuleLoad : Any
                 return false;
             }
 
-            if (varTable.Contain(name))
+            if (varTable.Valid(name))
             {
                 return false;
             }
@@ -847,7 +847,7 @@ public class ModuleLoad : Any
 
     protected virtual bool MemberNameDefined(ClassClass varClass, string name)
     {
-        return (varClass.Field.Contain(name) | varClass.Maide.Contain(name));
+        return (varClass.Field.Valid(name) | varClass.Maide.Valid(name));
     }
 
     protected virtual bool CheckVirtualMaideParam(Table param, Table virtualParam)

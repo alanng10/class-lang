@@ -158,7 +158,7 @@ public class List : Any
         return true;
     }
 
-    public virtual bool Contain(object index)
+    public virtual bool Valid(object index)
     {
         if (index == null)
         {

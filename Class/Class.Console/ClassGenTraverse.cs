@@ -1193,7 +1193,7 @@ public class ClassGenTraverse : Traverse
         if (!b)
         {
             bool ba;
-            ba = this.Gen.ClassShare.Contain(a);
+            ba = this.Gen.ClassShare.Valid(a);
             if (ba)
             {
                 this.Text(this.DelimitLeftBracket);

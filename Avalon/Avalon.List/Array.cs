@@ -49,7 +49,7 @@ public class Array : List
         return false;
     }
 
-    public override bool Contain(object index)
+    public override bool Valid(object index)
     {
         return false;
     }
