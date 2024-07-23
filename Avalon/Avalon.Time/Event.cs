@@ -75,7 +75,7 @@ public class Event : Any
         get
         {
             ulong u;
-            u = Extern.Interval_SingleShotGet(this.Intern);
+            u = Extern.Interval_SingleGet(this.Intern);
             bool b;
             b = (!(u == 0));
             return b;
@@ -84,7 +84,7 @@ public class Event : Any
         {
             ulong u;
             u = (ulong)(value ? 1 : 0);
-            Extern.Interval_SingleShotSet(this.Intern, u);
+            Extern.Interval_SingleSet(this.Intern, u);
         }
     }
 
