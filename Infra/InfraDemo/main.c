@@ -1038,7 +1038,7 @@ Int ThreadIntervalExecute(Int thread, Int arg)
 
 
 
-    Interval_SingleShotSet(interval, false);
+    Interval_SingleSet(interval, false);
 
 
     Interval_TimeSet(interval, 100);
