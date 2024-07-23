@@ -77,7 +77,7 @@ public class ReadList : Any
         this.ExecuteList("PenJoin");
 
 
-        this.ExecuteList("Composite");
+        this.ExecuteList("Comp");
 
 
         this.ExecuteList("GradientKind");
