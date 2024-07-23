@@ -79,7 +79,7 @@ public class Time : Any
         }
     }
 
-    public virtual int Minute
+    public virtual int Min
     {
         get
         {
@@ -94,7 +94,7 @@ public class Time : Any
         }
     }
 
-    public virtual int Second
+    public virtual int Sec
     {
         get
         {
@@ -109,7 +109,7 @@ public class Time : Any
         }
     }
 
-    public virtual int Millisecond
+    public virtual int Millisec
     {
         get
         {
@@ -266,7 +266,7 @@ public class Time : Any
         return true;
     }
 
-    public virtual bool AddMinute(long offset)
+    public virtual bool AddMin(long offset)
     {
         ulong u;
         u = (ulong)offset;
@@ -274,7 +274,7 @@ public class Time : Any
         return true;
     }
 
-    public virtual bool AddSecond(long offset)
+    public virtual bool AddSec(long offset)
     {
         ulong u;
         u = (ulong)offset;
@@ -282,7 +282,7 @@ public class Time : Any
         return true;
     }
 
-    public virtual bool AddMillisecond(long offset)
+    public virtual bool AddMillisec(long offset)
     {
         ulong u;
         u = (ulong)offset;
@@ -290,7 +290,7 @@ public class Time : Any
         return true;
     }
 
-    public virtual long MillisecondTo(Time other)
+    public virtual long MillisecTo(Time other)
     {
         ulong u;
         u = Extern.Time_MillisecondTo(this.Intern, other.Intern);
@@ -336,46 +336,46 @@ public class Time : Any
         return a;
     }
 
-    public virtual bool ValidTime(int hour, int minute, int second, int millisecond)
+    public virtual bool ValidTime(int hour, int min, int sec, int millisec)
     {
         ulong hourU;
-        ulong minuteU;
-        ulong secondU;
-        ulong millisecondU;
+        ulong minU;
+        ulong secU;
+        ulong millisecU;
         hourU = (ulong)hour;
-        minuteU = (ulong)minute;
-        secondU = (ulong)second;
-        millisecondU = (ulong)millisecond;
+        minU = (ulong)min;
+        secU = (ulong)sec;
+        millisecU = (ulong)millisec;
         ulong u;
-        u = Extern.Time_ValidTime(hourU, minuteU, secondU, millisecondU);
+        u = Extern.Time_ValidTime(hourU, minU, secU, millisecU);
 
         bool a;
         a = (!(u == 0));
         return a;
     }
 
-    public virtual bool Set(int year, int month, int day, int hour, int minute, int second, int millisecond, bool isLocalTime, int offsetUtc)
+    public virtual bool Set(int year, int month, int day, int hour, int min, int sec, int millisec, bool isLocalTime, int offsetUtc)
     {
         ulong yearU;
         ulong monthU;
         ulong dayU;
         ulong hourU;
-        ulong minuteU;
-        ulong secondU;
-        ulong millisecondU;
+        ulong minU;
+        ulong secU;
+        ulong millisecU;
         ulong isLocalTimeU;
         ulong offsetUtcU;
         yearU = (ulong)year;
         monthU = (ulong)month;
         dayU = (ulong)day;
         hourU = (ulong)hour;
-        minuteU = (ulong)minute;
-        secondU = (ulong)second;
-        millisecondU = (ulong)millisecond;
+        minU = (ulong)min;
+        secU = (ulong)sec;
+        millisecU = (ulong)millisec;
         isLocalTimeU = (ulong)(isLocalTime ? 1 : 0);
         offsetUtcU = (ulong)offsetUtc;
 
-        Extern.Time_Set(this.Intern, yearU, monthU, dayU, hourU, minuteU, secondU, millisecondU, isLocalTimeU, offsetUtcU);
+        Extern.Time_Set(this.Intern, yearU, monthU, dayU, hourU, minU, secU, millisecU, isLocalTimeU, offsetUtcU);
         return true;
     }
 }
