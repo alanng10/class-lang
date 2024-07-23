@@ -12,7 +12,7 @@ public class StringData : Data
         get
         {
             long a;
-            a = this.Value.Length;
+            a = this.ValueString.Length;
             a = a * sizeof(char);
             return a;
         }
@@ -21,7 +21,7 @@ public class StringData : Data
         }
     }
 
-    public new virtual string Value { get; set; }
+    public virtual string ValueString { get; set; }
 
     public override int Get(long index)
     {
@@ -46,7 +46,7 @@ public class StringData : Data
         n = (int)ka;
 
         char oc;
-        oc = this.Value[n];
+        oc = this.ValueString[n];
         
         int a;
         a = oc;
