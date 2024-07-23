@@ -1240,7 +1240,7 @@ public class Read : Any
 
     protected virtual bool TextGet(string o)
     {
-        this.StringData.Value = o;
+        this.StringData.ValueString = o;
         this.Text.Data = this.StringData;
         this.Text.Range.Index = 0;
         this.Text.Range.Count = o.Length;
