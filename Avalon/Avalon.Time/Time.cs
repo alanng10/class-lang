@@ -205,10 +205,10 @@ public class Time : Any
         return true;
     }
 
-    public virtual bool ToOffsetUtc(int offset)
+    public virtual bool ToPos(int pos)
     {
         ulong u;
-        u = (ulong)offset;
+        u = (ulong)pos;
         Extern.Time_ToOffsetUtc(this.Intern, u);
         return true;
     }
