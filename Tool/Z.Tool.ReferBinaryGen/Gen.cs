@@ -608,7 +608,7 @@ public class Gen : Any
             this.ListInfra.TableAdd(table, moduleRef, classTable);
         }
 
-        if (!classTable.Contain(varClass))
+        if (!classTable.Valid(varClass))
         {
             this.ListInfra.TableAdd(classTable, varClass, varClass);
         }
@@ -890,9 +890,9 @@ public class Gen : Any
     protected virtual bool ClassMemberHasDefine(ClassClass varClass, string name)
     {
         bool ba;
-        ba = varClass.Field.Contain(name);
+        ba = varClass.Field.Valid(name);
         bool bb;
-        bb = varClass.Maide.Contain(name);
+        bb = varClass.Maide.Valid(name);
         bool b;
         b = ba | bb;
         return b;
@@ -1240,7 +1240,7 @@ public class Gen : Any
 
     protected virtual bool IsDotNetBuiltInType(SystemType type)
     {
-        return this.DotNetBuiltInTypeTable.Contain(type);
+        return this.DotNetBuiltInTypeTable.Valid(type);
     }
 
     protected virtual Count CountGet(MethodInfo method)

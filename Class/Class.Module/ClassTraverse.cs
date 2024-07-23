@@ -38,7 +38,7 @@ public class ClassTraverse : Traverse
         Table table;
         table = this.Create.ClassTable;
 
-        if (table.Contain(className))
+        if (table.Valid(className))
         {
             this.Error(this.ErrorKind.NameUnavailable, nodeClass);
             return true;

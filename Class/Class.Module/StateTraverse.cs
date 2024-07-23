@@ -207,7 +207,7 @@ public class StateTraverse : Traverse
         string className;
         className = nodeClass.Value;
 
-        if (this.StateVar.Contain(varName))
+        if (this.StateVar.Valid(varName))
         {
             this.Error(this.ErrorKind.NameUnavailable, nodeVar);
             return true;
@@ -1451,7 +1451,7 @@ public class StateTraverse : Traverse
                 }
             }
 
-            if (!b & thisClass.Maide.Contain(name))
+            if (!b & thisClass.Maide.Valid(name))
             {
                 b = true;
             }
@@ -1512,7 +1512,7 @@ public class StateTraverse : Traverse
                 }
             }
 
-            if (!b & thisClass.Field.Contain(name))
+            if (!b & thisClass.Field.Valid(name))
             {
                 b = true;
             }

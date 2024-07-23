@@ -230,7 +230,7 @@ public class MemberTraverse : Traverse
         string className;
         className = nodeClass.Value;
 
-        if (this.ParamVar.Contain(varName))
+        if (this.ParamVar.Valid(varName))
         {
             this.Error(this.ErrorKind.NameUnavailable, nodeVar);
             return true;

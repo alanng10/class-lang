@@ -125,7 +125,7 @@ class Read : Any
                 return false;
             }
 
-            if (this.ClassTable.Contain(varClass.Name))
+            if (this.ClassTable.Valid(varClass.Name))
             {
                 return false;
             }
@@ -151,7 +151,7 @@ class Read : Any
                 return false;
             }
 
-            if (this.Class.Field.Contain(ob.Name))
+            if (this.Class.Field.Valid(ob.Name))
             {
                 return false;
             }

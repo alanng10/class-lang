@@ -302,7 +302,7 @@ public class Create : InfraCreate
 
         while (a.Module == module)
         {
-            if (table.Contain(a))
+            if (table.Valid(a))
             {
                 return false;
             }
@@ -534,7 +534,7 @@ public class Create : InfraCreate
             this.ListInfra.TableAdd(module.Import, o.Ref, oo);
         }
         
-        if (!oo.Contain(a))
+        if (!oo.Valid(a))
         {
             this.ListInfra.TableAdd(oo, a, a);
         }
@@ -753,7 +753,7 @@ public class Create : InfraCreate
         }
 
         bool a;
-        a = module.Export.Contain(varClass.Name);
+        a = module.Export.Valid(varClass.Name);
         return a;
     }
 
@@ -793,7 +793,7 @@ public class Create : InfraCreate
         }
         if (!b)
         {
-            if (!module.Export.Contain(entry))
+            if (!module.Export.Valid(entry))
             {
                 b = true;
             }
@@ -907,9 +907,9 @@ public class Create : InfraCreate
     public virtual bool MemberNameDefined(ClassClass varClass, string name)
     {
         bool ba;
-        ba = varClass.Field.Contain(name);
+        ba = varClass.Field.Valid(name);
         bool bb;
-        bb = varClass.Maide.Contain(name);
+        bb = varClass.Maide.Valid(name);
 
         bool a;
         a = ba | bb;
