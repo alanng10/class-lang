@@ -186,18 +186,23 @@ public class Frame : Comp
         draw.Start();
         draw.Clear(this.DrawInfra.WhiteColor);
 
-        this.ExecuteDrawView(draw);
+        if (this.ValidDrawView())
+        {
+            this.ExecuteDrawView(draw);
+        }
 
         draw.End();
         return true;
     }
 
+    protected virtual bool ValidDrawView()
+    {
+        return !(this.View == null);
+    }
+
     protected virtual bool ExecuteDrawView(DrawDraw draw)
     {
-        if (!(this.View == null))
-        {
-            this.View.ExecuteDraw(draw);
-        }
+        this.View.ExecuteDraw(draw);
         return true;
     }
 
