@@ -7,7 +7,12 @@ public class TextFormatCountState : FormatCountState
         FormatArg arg;
         arg = (FormatArg)this.Arg;
 
-        this.Result = arg.ValueText.Range.Count;
+        int a;
+        a = arg.ValueText.Range.Count;
+
+        Value aa;
+        aa = (Value)this.Result;
+        aa.Mid = a;
         return true;
     }
 }

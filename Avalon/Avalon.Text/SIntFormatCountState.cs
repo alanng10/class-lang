@@ -57,7 +57,12 @@ public class SIntFormatCountState : FormatCountState
             count = count + 1;
         }
 
-        this.Result = count;
+        int a;
+        a = count;
+
+        Value aa;
+        aa = (Value)this.Result;
+        aa.Mid = a;
         return true;
     }
 }

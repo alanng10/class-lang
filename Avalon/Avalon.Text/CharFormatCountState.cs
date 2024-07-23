@@ -4,7 +4,9 @@ public class CharFormatCountState : FormatCountState
 {
     public override bool Execute()
     {
-        this.Result = 1;
+        Value aa;
+        aa = (Value)this.Result;
+        aa.Mid = 1;
         return true;
     }
 }

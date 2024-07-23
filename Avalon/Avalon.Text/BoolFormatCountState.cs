@@ -30,7 +30,10 @@ public class BoolFormatCountState : FormatCountState
         {
             a = textInfra.BoolTrueString.Length;
         }
-        this.Result = a;
+
+        Value aa;
+        aa = (Value)this.Result;
+        aa.Mid = a;
         return true;
     }
 }

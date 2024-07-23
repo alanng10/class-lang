@@ -28,7 +28,13 @@ public class IntFormatCountState : FormatCountState
 
         int count;
         count = this.Format.IntDigitCount(o, arg.Base);
-        this.Result = count;
+        
+        int a;
+        a = count;
+
+        Value aa;
+        aa = (Value)this.Result;
+        aa.Mid = a;
         return true;
     }
 }
