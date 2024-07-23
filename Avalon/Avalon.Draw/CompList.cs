@@ -26,17 +26,17 @@ public class CompList : Any
         ulong stat;
         stat = Extern.Share_Stat(share);
 
-        this.SourceOver = this.AddItem(Extern.Stat_CompositeSourceOver(stat));
-        this.DestinationOver = this.AddItem(Extern.Stat_CompositeDestinationOver(stat));
-        this.Clear = this.AddItem(Extern.Stat_CompositeClear(stat));
-        this.Source = this.AddItem(Extern.Stat_CompositeSource(stat));
-        this.Destination = this.AddItem(Extern.Stat_CompositeDestination(stat));
-        this.SourceIn = this.AddItem(Extern.Stat_CompositeSourceIn(stat));
-        this.DestinationIn = this.AddItem(Extern.Stat_CompositeDestinationIn(stat));
-        this.SourceOut = this.AddItem(Extern.Stat_CompositeSourceOut(stat));
-        this.DestinationOut = this.AddItem(Extern.Stat_CompositeDestinationOut(stat));
-        this.SourceAtop = this.AddItem(Extern.Stat_CompositeSourceAtop(stat));
-        this.DestinationAtop = this.AddItem(Extern.Stat_CompositeDestinationAtop(stat));
+        this.SourceOver = this.AddItem(Extern.Stat_CompSourceOver(stat));
+        this.DestinationOver = this.AddItem(Extern.Stat_CompDestinationOver(stat));
+        this.Clear = this.AddItem(Extern.Stat_CompClear(stat));
+        this.Source = this.AddItem(Extern.Stat_CompSource(stat));
+        this.Destination = this.AddItem(Extern.Stat_CompDestination(stat));
+        this.SourceIn = this.AddItem(Extern.Stat_CompSourceIn(stat));
+        this.DestinationIn = this.AddItem(Extern.Stat_CompDestinationIn(stat));
+        this.SourceOut = this.AddItem(Extern.Stat_CompSourceOut(stat));
+        this.DestinationOut = this.AddItem(Extern.Stat_CompDestinationOut(stat));
+        this.SourceAtop = this.AddItem(Extern.Stat_CompSourceAtop(stat));
+        this.DestinationAtop = this.AddItem(Extern.Stat_CompDestinationAtop(stat));
         return true;
     }
 
