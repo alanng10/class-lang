@@ -74,18 +74,24 @@ public class Thread : Any
 
         a.ExecuteState.Execute();
 
-        Value k;
-        k = (Value)a.ExecuteState.Result;
+        object aa;
+        aa = a.ExecuteState.Result;
 
         ulong oa;
         oa = 0;
 
-        if (!(k == null))
+        if (!(aa == null))
         {
-            int o;
-            o = k.Mid;
+            if (aa is Value)
+            {
+                Value k;
+                k = (Value)aa;
 
-            oa = (ulong)o;
+                int o;
+                o = k.Mid;
+
+                oa = (ulong)o;
+            }
         }
         return oa;
     }
