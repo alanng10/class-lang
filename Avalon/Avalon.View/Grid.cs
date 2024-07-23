@@ -520,6 +520,10 @@ public class Grid : View
         {
             this.ChangeChildList(change);
         }
+        if (this.DestField == field)
+        {
+            this.ChangeDest(change);
+        }
         return true;
     }
 
