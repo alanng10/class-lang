@@ -5,24 +5,29 @@ public class Time : Any
     public override bool Init()
     {
         base.Init();
-        this.InternInfra = InternInfra.This;
-        this.TimeInfra = Infra.This;
-
-        this.Intern = new InternTime();
-        this.Intern.Init();
+        this.Intern = Extern.Time_New();
+        Extern.Time_Init(this.Intern);
         return true;
     }
 
-    private InternInfra InternInfra { get; set; }
-    private Infra TimeInfra { get; set; }
-    private InternTime Intern { get; set; }
-    private int OffsetUtc { get; set; }
+    public virtual bool Final()
+    {
+        Extern.Time_Final(this.Intern);
+        Extern.Time_Delete(this.Intern);
+        return true;
+    }
+
+    private ulong Intern { get; set; }
 
     public virtual int Year
     {
         get
         {
-            return this.Intern.Year;
+            ulong u;
+            u = Extern.Time_YearGet(this.Intern);
+            int a;
+            a = (int)u;
+            return a;
         }
         set
         {
@@ -33,7 +38,11 @@ public class Time : Any
     {
         get
         {
-            return this.Intern.Month;
+            ulong u;
+            u = Extern.Time_MonthGet(this.Intern);
+            int a;
+            a = (int)u;
+            return a;
         }
         set
         {
@@ -44,7 +53,11 @@ public class Time : Any
     {
         get
         {
-            return this.Intern.Day;
+            ulong u;
+            u = Extern.Time_DayGet(this.Intern);
+            int a;
+            a = (int)u;
+            return a;
         }
         set
         {
@@ -55,51 +68,86 @@ public class Time : Any
     {
         get
         {
-            return this.Intern.Hour;
+            ulong u;
+            u = Extern.Time_HourGet(this.Intern);
+            int a;
+            a = (int)u;
+            return a;
         }
         set
         {
         }
     }
 
-    public virtual int Min
+    public virtual int Minute
     {
         get
         {
-            return this.Intern.Min;
+            ulong u;
+            u = Extern.Time_MinuteGet(this.Intern);
+            int a;
+            a = (int)u;
+            return a;
         }
         set
         {
         }
     }
 
-    public virtual int Sec
+    public virtual int Second
     {
         get
         {
-            return this.Intern.Sec;
+            ulong u;
+            u = Extern.Time_SecondGet(this.Intern);
+            int a;
+            a = (int)u;
+            return a;
         }
         set
         {
         }
     }
 
-    public virtual int Millisec
+    public virtual int Millisecond
     {
         get
         {
-            return this.Intern.Millisec;
+            ulong u;
+            u = Extern.Time_MillisecondGet(this.Intern);
+            int a;
+            a = (int)u;
+            return a;
         }
         set
         {
         }
     }
 
-    public virtual int Pos
+    public virtual int OffsetUtc
     {
         get
         {
-            return this.OffsetUtc;
+            ulong u;
+            u = Extern.Time_OffsetUtcGet(this.Intern);
+            int a;
+            a = (int)u;
+            return a;
+        }
+        set
+        {
+        }
+    }
+
+    public virtual bool LocalTime
+    {
+        get
+        {
+            ulong u;
+            u = Extern.Time_LocalTimeGet(this.Intern);
+            bool a;
+            a = (!(u == 0));
+            return a;
         }
         set
         {
@@ -110,7 +158,11 @@ public class Time : Any
     {
         get
         {
-            return this.Intern.YearDay;
+            ulong u;
+            u = Extern.Time_YearDayGet(this.Intern);
+            int a;
+            a = (int)u;
+            return a;
         }
         set
         {
@@ -121,19 +173,10 @@ public class Time : Any
     {
         get
         {
-            return this.Intern.WeekDay;
-        }
-        set
-        {
-        }
-    }
-
-    public virtual long Tick
-    {
-        get
-        {
-            long a;
-            a = this.InternInfra.SystemTickToTick(this.Intern.Tick);
+            ulong u;
+            u = Extern.Time_WeekDayGet(this.Intern);
+            int a;
+            a = (int)u;
             return a;
         }
         set
@@ -141,284 +184,198 @@ public class Time : Any
         }
     }
 
-    public virtual bool LeapYear(int year)
+    public virtual int YearDayCount
     {
-        if (!this.CheckYear(year))
+        get
         {
-            return false;
+            ulong u;
+            u = Extern.Time_YearDayCountGet(this.Intern);
+            int a;
+            a = (int)u;
+            return a;
         }
-
-        return this.Intern.LeapYear(year);
+        set
+        {
+        }
     }
 
-    public virtual int MonthDayCount(int year, int month)
+    public virtual int MonthDayCount
     {
-        if (!this.CheckYear(year))
+        get
         {
-            return -1;
+            ulong u;
+            u = Extern.Time_MonthDayCountGet(this.Intern);
+            int a;
+            a = (int)u;
+            return a;
         }
-
-        if (!this.CheckMonth(month))
+        set
         {
-            return -1;
         }
-
-        return this.Intern.MonthDayCount(year, month);
     }
 
-    public virtual bool This()
+    public virtual bool Current()
     {
-        this.Intern.This();
-        
-        this.OffsetUtc = 0;
+        Extern.Time_Current(this.Intern);
         return true;
     }
 
-    public virtual bool ToPos(int pos)
+    public virtual bool ToLocalTime()
     {
-        if (!this.ValidPos(pos))
-        {
-            return false;
-        }
-
-        int k;
-        k = pos - this.OffsetUtc; 
-
-        this.AddSec(k);
-
-        this.OffsetUtc = pos;
+        Extern.Time_ToLocalTime(this.Intern);
         return true;
     }
 
-    public virtual bool AddTick(long value)
+    public virtual bool ToOffsetUtc(int offset)
     {
-        long ka;
-        ka = this.InternInfra.TickToSystemTick(value);
-
-        long k;
-        k = this.Intern.Tick;
-        k = k + ka;
-
-        if (!this.CheckSystemTick(k))
-        {
-            return false;
-        }
-
-        this.Intern.Set(k);
+        ulong u;
+        u = (ulong)offset;
+        Extern.Time_ToOffsetUtc(this.Intern, u);
         return true;
     }
 
-    public virtual bool AddDay(long value)
+    public virtual bool AddYear(int offset)
     {
-        return this.AddValue(value, this.TimeInfra.DaySystemTickCount);
+        ulong u;
+        u = (ulong)offset;
+        Extern.Time_AddYear(this.Intern, u);
+        return true;
     }
 
-    public virtual bool AddHour(long value)
+    public virtual bool AddMonth(int offset)
     {
-        return this.AddValue(value, this.TimeInfra.HourSystemTickCount);
+        ulong u;
+        u = (ulong)offset;
+        Extern.Time_AddMonth(this.Intern, u);
+        return true;
     }
 
-    public virtual bool AddMin(long value)
+    public virtual bool AddDay(long offset)
     {
-        return this.AddValue(value, this.TimeInfra.MinSystemTickCount);
+        ulong u;
+        u = (ulong)offset;
+        Extern.Time_AddDay(this.Intern, u);
+        return true;
     }
 
-    public virtual bool AddSec(long value)
+    public virtual bool AddHour(long offset)
     {
-        return this.AddValue(value, this.TimeInfra.SecSystemTickCount);
+        ulong u;
+        u = (ulong)offset;
+        Extern.Time_AddHour(this.Intern, u);
+        return true;
     }
 
-    public virtual bool AddMillisec(long value)
+    public virtual bool AddMinute(long offset)
     {
-        return this.AddValue(value, this.TimeInfra.MillisecSystemTickCount);
+        ulong u;
+        u = (ulong)offset;
+        Extern.Time_AddMinute(this.Intern, u);
+        return true;
     }
 
-    public virtual long MillisecTo(Time other)
+    public virtual bool AddSecond(long offset)
     {
-        long k;
-        k = this.SystemTickTo(other);
+        ulong u;
+        u = (ulong)offset;
+        Extern.Time_AddSecond(this.Intern, u);
+        return true;
+    }
 
-        k = k / this.TimeInfra.MillisecSystemTickCount;
-        return k;
+    public virtual bool AddMillisecond(long offset)
+    {
+        ulong u;
+        u = (ulong)offset;
+        Extern.Time_AddMillisecond(this.Intern, u);
+        return true;
+    }
+
+    public virtual long MillisecondTo(Time other)
+    {
+        ulong u;
+        u = Extern.Time_MillisecondTo(this.Intern, other.Intern);
+        long a;
+        a = (long)u;
+        return a;
     }
 
     public virtual long DayTo(Time other)
     {
-        long k;
-        k = this.SystemTickTo(other);
-        
-        k = k / this.TimeInfra.DaySystemTickCount;
-        return k;
+        ulong u;
+        u = Extern.Time_DayTo(this.Intern, other.Intern);
+        long a;
+        a = (long)u;
+        return a;
     }
 
-    public virtual long TickTo(Time other)
+    public virtual bool LeapYear(int year)
     {
-        long ka;
-        ka = this.SystemTickTo(other);
+        ulong ua;
+        ua = (ulong)year;
+        ulong u;
+        u = Extern.Time_LeapYear(ua);
 
-        long k;
-        k = this.InternInfra.SystemTickToTick(ka);
-
-        long a;
-        a = k;
+        bool a;
+        a = (!(u == 0));
         return a;
     }
 
     public virtual bool ValidDate(int year, int month, int day)
     {
-        if (!this.CheckYear(year))
-        {
-            return false;
-        }
+        ulong yearU;
+        ulong monthU;
+        ulong dayU;
+        yearU = (ulong)year;
+        monthU = (ulong)month;
+        dayU = (ulong)day;
+        ulong u;
+        u = Extern.Time_ValidDate(yearU, monthU, dayU);
 
-        if (!this.CheckMonth(month))
-        {
-            return false;
-        }
+        bool a;
+        a = (!(u == 0));
+        return a;
+    }
 
-        if (!this.CheckDay(year, month, day))
-        {
-            return false;
-        }
+    public virtual bool ValidTime(int hour, int minute, int second, int millisecond)
+    {
+        ulong hourU;
+        ulong minuteU;
+        ulong secondU;
+        ulong millisecondU;
+        hourU = (ulong)hour;
+        minuteU = (ulong)minute;
+        secondU = (ulong)second;
+        millisecondU = (ulong)millisecond;
+        ulong u;
+        u = Extern.Time_ValidTime(hourU, minuteU, secondU, millisecondU);
 
+        bool a;
+        a = (!(u == 0));
+        return a;
+    }
+
+    public virtual bool Set(int year, int month, int day, int hour, int minute, int second, int millisecond, bool isLocalTime, int offsetUtc)
+    {
+        ulong yearU;
+        ulong monthU;
+        ulong dayU;
+        ulong hourU;
+        ulong minuteU;
+        ulong secondU;
+        ulong millisecondU;
+        ulong isLocalTimeU;
+        ulong offsetUtcU;
+        yearU = (ulong)year;
+        monthU = (ulong)month;
+        dayU = (ulong)day;
+        hourU = (ulong)hour;
+        minuteU = (ulong)minute;
+        secondU = (ulong)second;
+        millisecondU = (ulong)millisecond;
+        isLocalTimeU = (ulong)(isLocalTime ? 1 : 0);
+        offsetUtcU = (ulong)offsetUtc;
+
+        Extern.Time_Set(this.Intern, yearU, monthU, dayU, hourU, minuteU, secondU, millisecondU, isLocalTimeU, offsetUtcU);
         return true;
-    }
-
-    public virtual bool ValidTime(int hour, int min, int sec, int millisec)
-    {
-        if (!this.CheckHour(hour))
-        {
-            return false;
-        }
-
-        if (!this.CheckMin(min))
-        {
-            return false;
-        }
-
-        if (!this.CheckSec(sec))
-        {
-            return false;
-        }
-
-        if (!this.CheckMillisec(millisec))
-        {
-            return false;
-        }
-        
-        return true;
-    }
-
-    public virtual bool ValidPos(int value)
-    {
-        int k;
-        k = this.TimeInfra.DaySecCount;
-        k = k / 2;
-
-        return !((value < -k) | (k < value));
-    }
-
-    public virtual bool Set(int year, int month, int day, int hour, int min, int sec, int millisec, int pos)
-    {
-        if (!this.ValidDate(year, month, day))
-        {
-            return false;
-        }
-
-        if (!this.ValidTime(hour, min, sec, millisec))
-        {
-            return false;
-        }
-
-        if (!this.ValidPos(pos))
-        {
-            return false;
-        }
-
-        this.Intern.SetDate(year, month, day, hour, min, sec, millisec);
-
-        this.OffsetUtc = pos;
-        return true;
-    }
-
-    protected virtual bool CheckYear(int value)
-    {
-        return !((value < 1) | (9999 < value));
-    }
-
-    protected virtual bool CheckMonth(int value)
-    {
-        return !((value < 1) | (12 < value));
-    }
-
-    protected virtual bool CheckDay(int year, int month, int value)
-    {
-        int k;
-        k = this.MonthDayCount(year, month);
-
-        return !((value < 1) | (k < value));
-    }
-
-    protected virtual bool CheckHour(int value)
-    {
-        return this.CheckTimeCount(24, value);
-    }
-
-    protected virtual bool CheckMin(int value)
-    {
-        return this.CheckTimeCount(60, value);
-    }
-
-    protected virtual bool CheckSec(int value)
-    {
-        return this.CheckTimeCount(60, value);
-    }
-
-    protected virtual bool CheckMillisec(int value)
-    {
-        return this.CheckTimeCount(1000, value);
-    }
-
-    private bool CheckTimeCount(int count, int value)
-    {
-        return !(value < 0) & (value < count);
-    }
-
-    private long SystemTickTo(Time other)
-    {
-        long ka;
-        ka = this.Intern.Tick;
-        long kb;
-        kb = other.Intern.Tick;
-
-        long k;
-        k = kb - ka;
-        return k;
-    }
-
-    private bool AddValue(long value, long valueScale)
-    {
-        long o;
-        o = value * valueScale;
-
-        long k;
-        k = this.Intern.Tick;
-        k = k + o;
-
-        if (!this.CheckSystemTick(k))
-        {
-            return false;
-        }
-
-        this.Intern.Set(k);
-        return true;
-    }
-
-    private bool CheckSystemTick(long value)
-    {
-        InternInfra infra;
-        infra = this.InternInfra;
-
-        return !(value < infra.SystemTickMin | infra.SystemTickMax < value);
     }
 }
