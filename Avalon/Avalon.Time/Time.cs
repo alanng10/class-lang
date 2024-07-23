@@ -84,7 +84,7 @@ public class Time : Any
         get
         {
             ulong u;
-            u = Extern.Time_MinuteGet(this.Intern);
+            u = Extern.Time_MinGet(this.Intern);
             int a;
             a = (int)u;
             return a;
@@ -99,7 +99,7 @@ public class Time : Any
         get
         {
             ulong u;
-            u = Extern.Time_SecondGet(this.Intern);
+            u = Extern.Time_SecGet(this.Intern);
             int a;
             a = (int)u;
             return a;
@@ -114,7 +114,7 @@ public class Time : Any
         get
         {
             ulong u;
-            u = Extern.Time_MillisecondGet(this.Intern);
+            u = Extern.Time_MillisecGet(this.Intern);
             int a;
             a = (int)u;
             return a;
@@ -129,7 +129,7 @@ public class Time : Any
         get
         {
             ulong u;
-            u = Extern.Time_OffsetUtcGet(this.Intern);
+            u = Extern.Time_PosGet(this.Intern);
             int a;
             a = (int)u;
             return a;
@@ -209,7 +209,7 @@ public class Time : Any
     {
         ulong u;
         u = (ulong)pos;
-        Extern.Time_ToOffsetUtc(this.Intern, u);
+        Extern.Time_ToPos(this.Intern, u);
         return true;
     }
 
@@ -249,7 +249,7 @@ public class Time : Any
     {
         ulong u;
         u = (ulong)value;
-        Extern.Time_AddMinute(this.Intern, u);
+        Extern.Time_AddMin(this.Intern, u);
         return true;
     }
 
@@ -257,7 +257,7 @@ public class Time : Any
     {
         ulong u;
         u = (ulong)value;
-        Extern.Time_AddSecond(this.Intern, u);
+        Extern.Time_AddSec(this.Intern, u);
         return true;
     }
 
@@ -265,14 +265,14 @@ public class Time : Any
     {
         ulong u;
         u = (ulong)value;
-        Extern.Time_AddMillisecond(this.Intern, u);
+        Extern.Time_AddMillisec(this.Intern, u);
         return true;
     }
 
     public virtual long MillisecTo(Time other)
     {
         ulong u;
-        u = Extern.Time_MillisecondTo(this.Intern, other.Intern);
+        u = Extern.Time_MillisecTo(this.Intern, other.Intern);
         long a;
         a = (long)u;
         return a;
@@ -342,7 +342,7 @@ public class Time : Any
         ulong minU;
         ulong secU;
         ulong millisecU;
-        ulong offsetUtcU;
+        ulong posU;
         yearU = (ulong)year;
         monthU = (ulong)month;
         dayU = (ulong)day;
@@ -350,9 +350,9 @@ public class Time : Any
         minU = (ulong)min;
         secU = (ulong)sec;
         millisecU = (ulong)millisec;
-        offsetUtcU = (ulong)pos;
+        posU = (ulong)pos;
 
-        Extern.Time_Set(this.Intern, yearU, monthU, dayU, hourU, minU, secU, millisecU, 0, offsetUtcU);
+        Extern.Time_Set(this.Intern, yearU, monthU, dayU, hourU, minU, secU, millisecU, posU);
         return true;
     }
 }
