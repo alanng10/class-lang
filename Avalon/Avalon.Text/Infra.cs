@@ -191,7 +191,7 @@ public class Infra : Any
         StringData a;
         a = new StringData();
         a.Init();
-        a.Value = o;
+        a.ValueString = o;
         return a;
     }
 
