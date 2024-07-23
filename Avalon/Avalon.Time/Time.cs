@@ -213,58 +213,58 @@ public class Time : Any
         return true;
     }
 
-    public virtual bool AddYear(int offset)
+    public virtual bool AddYear(int value)
     {
         ulong u;
-        u = (ulong)offset;
+        u = (ulong)value;
         Extern.Time_AddYear(this.Intern, u);
         return true;
     }
 
-    public virtual bool AddMonth(int offset)
+    public virtual bool AddMonth(int value)
     {
         ulong u;
-        u = (ulong)offset;
+        u = (ulong)value;
         Extern.Time_AddMonth(this.Intern, u);
         return true;
     }
 
-    public virtual bool AddDay(long offset)
+    public virtual bool AddDay(long value)
     {
         ulong u;
-        u = (ulong)offset;
+        u = (ulong)value;
         Extern.Time_AddDay(this.Intern, u);
         return true;
     }
 
-    public virtual bool AddHour(long offset)
+    public virtual bool AddHour(long value)
     {
         ulong u;
-        u = (ulong)offset;
+        u = (ulong)value;
         Extern.Time_AddHour(this.Intern, u);
         return true;
     }
 
-    public virtual bool AddMin(long offset)
+    public virtual bool AddMin(long value)
     {
         ulong u;
-        u = (ulong)offset;
+        u = (ulong)value;
         Extern.Time_AddMinute(this.Intern, u);
         return true;
     }
 
-    public virtual bool AddSec(long offset)
+    public virtual bool AddSec(long value)
     {
         ulong u;
-        u = (ulong)offset;
+        u = (ulong)value;
         Extern.Time_AddSecond(this.Intern, u);
         return true;
     }
 
-    public virtual bool AddMillisec(long offset)
+    public virtual bool AddMillisec(long value)
     {
         ulong u;
-        u = (ulong)offset;
+        u = (ulong)value;
         Extern.Time_AddMillisecond(this.Intern, u);
         return true;
     }
