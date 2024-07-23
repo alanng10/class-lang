@@ -467,7 +467,7 @@ class Read : Any
 
     protected virtual bool TextStringGet(Text text, StringData data, string o)
     {
-        data.Value = o;
+        data.ValueString = o;
 
         text.Data = data;
         text.Range.Index = 0;
