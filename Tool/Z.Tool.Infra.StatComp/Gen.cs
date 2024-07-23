@@ -9,7 +9,7 @@ class Gen : StatGen
         this.ValuePrefix = "CompositionMode_";
         this.ValueOffset = " + 1";
         this.ItemListFileName = "ToolData/ItemListComp.txt";
-        int o;        
+        int o;
         o = base.Execute();
         return o;
     }
