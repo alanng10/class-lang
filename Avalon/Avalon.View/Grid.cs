@@ -12,12 +12,12 @@ public class Grid : View
         this.DestField = this.CreateDestField();
         this.Row = this.CreateRow();
         this.Col = this.CreateCol();
-        this.Child = this.CreateChild();
+        this.ChildList = this.CreateChildList();
         this.Dest = this.CreateDest();
         this.ChildPosData = this.CreateChildPosList();
         this.RowIter = this.Row.IterCreate();
         this.ColIter = this.Col.IterCreate();
-        this.ChildIter = this.Child.IterCreate();
+        this.ChildListIter = this.ChildList.IterCreate();
 
         this.StackGridChildListRect = this.CreateStackGridChildListRect();
         this.StackGridChildListPos = this.CreateStackGridChildListPos();
@@ -29,7 +29,7 @@ public class Grid : View
     protected virtual InfraInfra InfraInfra { get; set; }
     protected virtual Iter RowIter { get; set; }
     protected virtual Iter ColIter { get; set; }
-    protected virtual Iter ChildIter { get; set; }
+    protected virtual Iter ChildListIter { get; set; }
     protected virtual Data ChildPosData { get; set; }
 
     protected virtual DrawRect StackGridChildListRect { get; set; }
@@ -73,7 +73,7 @@ public class Grid : View
         return a;
     }
 
-    protected virtual List CreateChild()
+    protected virtual List CreateChildList()
     {
         List a;
         a = new List();
@@ -190,28 +190,28 @@ public class Grid : View
         return true;
     }
 
-    public new virtual Field ChildField { get; set; }
+    public virtual Field ChildListField { get; set; }
 
-    public new virtual List Child
+    public virtual List ChildList
     {
         get
         {
-            return (List)this.ChildField.Get();
+            return (List)this.ChildListField.Get();
         }
 
         set
         {
-            this.ChildField.Set(value);
+            this.ChildListField.Set(value);
         }
     }
 
-    protected new virtual bool ChangeChild(Change change)
+    protected virtual bool ChangeChildList(Change change)
     {
         if ((this.Row == null) | (this.Col == null) | (this.Child == null))
         {
             return true;
         }
-        this.Event(this.ChildField);
+        this.Event(this.ChildListField);
         return true;
     }
 
@@ -307,8 +307,8 @@ public class Grid : View
     protected virtual bool ExecuteGridChildListDraw(DrawDraw draw)
     {
         Iter iter;
-        iter = this.ChildIter;
-        this.Child.IterSet(iter);
+        iter = this.ChildListIter;
+        this.ChildList.IterSet(iter);
         while (iter.Next())
         {
             GridChild child;
@@ -516,9 +516,9 @@ public class Grid : View
         {
             this.ChangeCol(change);
         }
-        if (this.ChildField == field)
+        if (this.ChildListField == field)
         {
-            this.ChangeChild(change);
+            this.ChangeChildList(change);
         }
         return true;
     }
