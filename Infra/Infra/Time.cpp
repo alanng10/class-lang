@@ -136,7 +136,7 @@ Int Time_HourGet(Int o)
 
 FieldDefaultSet(Time, Hour)
 
-Int Time_MinuteGet(Int o)
+Int Time_MinGet(Int o)
 {
     Time* m;
     m = CP(o);
@@ -149,9 +149,9 @@ Int Time_MinuteGet(Int o)
     return a;
 }
 
-FieldDefaultSet(Time, Minute)
+FieldDefaultSet(Time, Min)
 
-Int Time_SecondGet(Int o)
+Int Time_SecGet(Int o)
 {
     Time* m;
     m = CP(o);
@@ -164,9 +164,9 @@ Int Time_SecondGet(Int o)
     return a;
 }
 
-FieldDefaultSet(Time, Second)
+FieldDefaultSet(Time, Sec)
 
-Int Time_MillisecondGet(Int o)
+Int Time_MillisecGet(Int o)
 {
     Time* m;
     m = CP(o);
@@ -179,9 +179,9 @@ Int Time_MillisecondGet(Int o)
     return a;
 }
 
-FieldDefaultSet(Time, Millisecond)
+FieldDefaultSet(Time, Millisec)
 
-Int Time_OffsetUtcGet(Int o)
+Int Time_PosGet(Int o)
 {
     Time* m;
     m = CP(o);
@@ -192,22 +192,9 @@ Int Time_OffsetUtcGet(Int o)
     return a;
 }
 
-FieldDefaultSet(Time, OffsetUtc)
+FieldDefaultSet(Time, Pos)
 
-Int Time_LocalTimeGet(Int o)
-{
-    Time* m;
-    m = CP(o);
-    Qt::TimeSpec timeSpec;
-    timeSpec = m->Intern->timeSpec();
-    Bool a;
-    a = (timeSpec == Qt::LocalTime);
-    return a;
-}
-
-FieldDefaultSet(Time, LocalTime)
-
-Int Time_Current(Int o)
+Int Time_This(Int o)
 {
     Time* m;
     m = CP(o);
@@ -217,22 +204,12 @@ Int Time_Current(Int o)
     return true;
 }
 
-Int Time_ToLocalTime(Int o)
-{
-    Time* m;
-    m = CP(o);
-    QDateTime u;
-    u = m->Intern->toLocalTime();
-    (*(m->Intern)) = u;
-    return true;
-}
-
-Int Time_ToOffsetUtc(Int o, Int offset)
+Int Time_ToPos(Int o, Int pos)
 {
     Time* m;
     m = CP(o);
     int ua;
-    ua = offset;
+    ua = pos;
     QDateTime u;
     u = m->Intern->toOffsetFromUtc(ua);
     (*(m->Intern)) = u;
@@ -342,30 +319,30 @@ Int Time_AddHour(Int o, Int offset)
     u = u * 60 * 60 * 1000;
     Int oa;
     oa = u;
-    return Time_AddMillisecond(o, oa);
+    return Time_AddMillisec(o, oa);
 }
 
-Int Time_AddMinute(Int o, Int offset)
+Int Time_AddMin(Int o, Int offset)
 {
     qint64 u;
     u = offset;
     u = u * 60 * 1000;
     Int oa;
     oa = u;
-    return Time_AddMillisecond(o, oa);
+    return Time_AddMillisec(o, oa);
 }
 
-Int Time_AddSecond(Int o, Int offset)
+Int Time_AddSec(Int o, Int offset)
 {
     qint64 u;
     u = offset;
     u = u * 1000;
     Int oa;
     oa = u;
-    return Time_AddMillisecond(o, oa);
+    return Time_AddMillisec(o, oa);
 }
 
-Int Time_AddMillisecond(Int o, Int offset)
+Int Time_AddMillisec(Int o, Int offset)
 {
     Time* m;
     m = CP(o);
@@ -377,7 +354,7 @@ Int Time_AddMillisecond(Int o, Int offset)
     return true;
 }
 
-Int Time_MillisecondTo(Int o, Int other)
+Int Time_MillisecTo(Int o, Int other)
 {
     Time* m;
     m = CP(o);
@@ -433,16 +410,16 @@ Int Time_ValidDate(Int year, Int month, Int day)
     return a;
 }
 
-Int Time_ValidTime(Int hour, Int minute, Int second, Int millisecond)
+Int Time_ValidTime(Int hour, Int min, Int sec, Int millisec)
 {
     int hourU;
     int minuteU;
     int secondU;
     int millisecondU;
     hourU = hour;
-    minuteU = minute;
-    secondU = second;
-    millisecondU = millisecond;
+    minuteU = min;
+    secondU = sec;
+    millisecondU = millisec;
     bool bu;
     bu = QTime::isValid(hourU, minuteU, secondU, millisecondU);
     Bool a;
