@@ -106,7 +106,7 @@ public class Image : Any
         long count;
         count = ka;
 
-        if (!this.InfraInfra.CheckLongRange(data.Count, index, count))
+        if (!this.InfraInfra.ValidLongRange(data.Count, index, count))
         {
             return false;
         }
@@ -135,7 +135,7 @@ public class Image : Any
         long count;
         count = ka;
 
-        if (!this.InfraInfra.CheckLongRange(data.Count, index, count))
+        if (!this.InfraInfra.ValidLongRange(data.Count, index, count))
         {
             return false;
         }

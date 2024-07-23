@@ -68,7 +68,7 @@ public class Encode : Any
 
     public virtual int Text(Text text, Data data, DataRange range)
     {
-        if (!this.InfraInfra.CheckLongRange(data.Count, range.Index, range.Count))
+        if (!this.InfraInfra.ValidLongRange(data.Count, range.Index, range.Count))
         {
             return -1;
         }
