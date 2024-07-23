@@ -194,7 +194,7 @@ Int Time_PosGet(Int o)
 
 FieldDefaultSet(Time, Pos)
 
-Int Time_Current(Int o)
+Int Time_This(Int o)
 {
     Time* m;
     m = CP(o);
