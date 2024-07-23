@@ -314,7 +314,10 @@ public class Grid : View
             GridChild child;
             child = (GridChild)iter.Value;
 
-            this.ExecuteDrawGridChild(draw, child);
+            if (this.ValidDrawGridChild(child))
+            {
+                this.ExecuteDrawGridChild(draw, child);
+            }
         }
         return true;
     }
@@ -326,11 +329,6 @@ public class Grid : View
 
     protected virtual bool ExecuteDrawGridChild(DrawDraw draw, GridChild child)
     {
-        if (!this.ValidDrawGridChild(child))
-        {
-            return true;
-        }
-
         GridRect gridRect;
         gridRect = child.Rect;
 
