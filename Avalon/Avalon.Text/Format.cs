@@ -560,7 +560,7 @@ public class Format : Any
 
         if (kind == 1 | kind == 2)
         {
-            if (!this.CheckIntBase(arg.Base))
+            if (!this.ValidIntBase(arg.Base))
             {
                 return false;
             }
@@ -584,7 +584,7 @@ public class Format : Any
         return this.InfraInfra.ValidIndex(this.KindCount, kind);
     }
 
-    protected virtual bool CheckIntBase(int varBase)
+    protected virtual bool ValidIntBase(int varBase)
     {
         return !(varBase < 2 | 16 < varBase);
     }
