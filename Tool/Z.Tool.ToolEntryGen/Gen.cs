@@ -17,7 +17,7 @@ class Gen : Any
         this.SourceTemplate = this.ToolInfra.StorageTextRead("ToolData/Entry.txt");
 
         this.ExecuteOne("Avalon.BrushKindList");
-        this.ExecuteOne("Avalon.CompositeList");
+        this.ExecuteOne("Avalon.DrawCompList");
         this.ExecuteOne("Avalon.GradientKindList");
         this.ExecuteOne("Avalon.GradientSpreadList");
         this.ExecuteOne("Avalon.ImageFormatList");

@@ -1,4 +1,4 @@
-namespace Z.Tool.Avalon.CompList;
+namespace Z.Tool.Avalon.DrawCompList;
 
 class Entry : EntryEntry
 {
