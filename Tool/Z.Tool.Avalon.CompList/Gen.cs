@@ -12,7 +12,7 @@ public class Gen : SourceGen
         this.ItemClassName = "Comp";
         this.ArrayClassName = "Array";
         this.Export = true;
-        this.StatItemClassName = "Composite";
+        this.StatItemClassName = "Comp";
         this.ItemListFileName = this.GetStatItemListFileName();
         return true;
     }
