@@ -185,7 +185,7 @@ public class Frame : Comp
 
         this.ExecuteDrawStart(draw);
 
-        if (this.CheckDrawView())
+        if (this.ValidDrawView())
         {
             this.ExecuteDrawView(draw);
         }
@@ -194,7 +194,7 @@ public class Frame : Comp
         return true;
     }
 
-    protected virtual bool CheckDrawView()
+    protected virtual bool ValidDrawView()
     {
         return !(this.View == null);
     }
