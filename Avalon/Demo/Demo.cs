@@ -189,8 +189,8 @@ class Demo : Any
         grid.Row.Add(rowA);
         grid.Col.Add(colA);
         grid.Col.Add(colB);
-        grid.Child.Add(childA);
-        grid.Child.Add(childB);
+        grid.ChildList.Add(childA);
+        grid.ChildList.Add(childB);
 
         view.Child = grid;
 
