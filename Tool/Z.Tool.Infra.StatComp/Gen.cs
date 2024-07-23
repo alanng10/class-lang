@@ -1,14 +1,14 @@
-namespace Z.Tool.Infra.StatComposite;
+namespace Z.Tool.Infra.StatComp;
 
 class Gen : StatGen
 {
     public override int Execute()
     {
-        this.ClassName = "Composite";
+        this.ClassName = "Comp";
         this.ScopeName = "QPainter";
         this.ValuePrefix = "CompositionMode_";
         this.ValueOffset = " + 1";
-        this.ItemListFileName = "ToolData/ItemListComposite.txt";
+        this.ItemListFileName = "ToolData/ItemListComp.txt";
         int o;        
         o = base.Execute();
         return o;

@@ -36,7 +36,7 @@ class Gen : Any
         this.ExecuteOne("Class.NodeList");
         this.ExecuteOne("Class.TaskKindList");
         this.ExecuteOne("Infra.StatBrushKind");
-        this.ExecuteOne("Infra.StatComposite");
+        this.ExecuteOne("Infra.StatComp");
         this.ExecuteOne("Infra.StatGradientKind");
         this.ExecuteOne("Infra.StatGradientSpread");
         this.ExecuteOne("Infra.StatImageFormat");

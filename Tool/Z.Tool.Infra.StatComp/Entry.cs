@@ -1,4 +1,4 @@
-namespace Z.Tool.Infra.StatComposite;
+namespace Z.Tool.Infra.StatComp;
 
 class Entry : EntryEntry
 {
