@@ -22,11 +22,11 @@ public class Compare : InfraCompare
         leftText = (Text)left;
         rightText = (Text)right;
 
-        if (!textInfra.CheckRange(leftText))
+        if (!textInfra.ValidRange(leftText))
         {
             return 0;
         }
-        if (!textInfra.CheckRange(rightText))
+        if (!textInfra.ValidRange(rightText))
         {
             return 0;
         }

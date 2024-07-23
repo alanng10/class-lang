@@ -128,11 +128,11 @@ public class Format : Any
     {
         Infra textInfra;
         textInfra = this.TextInfra;
-        if (!textInfra.CheckRange(varBase))
+        if (!textInfra.ValidRange(varBase))
         {
             return false;
         }
-        if (!textInfra.CheckRange(result))
+        if (!textInfra.ValidRange(result))
         {
             return false;
         }
@@ -278,7 +278,7 @@ public class Format : Any
         {
             return false;
         }
-        if (!this.TextInfra.CheckRange(result))
+        if (!this.TextInfra.ValidRange(result))
         {
             return false;
         }
@@ -571,7 +571,7 @@ public class Format : Any
             {
                 return false;
             }
-            if (!this.TextInfra.CheckRange(arg.ValueText))
+            if (!this.TextInfra.ValidRange(arg.ValueText))
             {
                 return false;
             }

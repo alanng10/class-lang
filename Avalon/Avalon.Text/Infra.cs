@@ -235,7 +235,7 @@ public class Infra : Any
         return a;
     }
 
-    public virtual bool CheckRange(Text text)
+    public virtual bool ValidRange(Text text)
     {
         InfraInfra infraInfra;
         infraInfra = this.InfraInfra;
@@ -411,11 +411,11 @@ public class Infra : Any
 
     public virtual int Index(Text text, Text other, InfraCompare compare)
     {
-        if (!this.CheckRange(text))
+        if (!this.ValidRange(text))
         {
             return -1;
         }
-        if (!this.CheckRange(other))
+        if (!this.ValidRange(other))
         {
             return -1;
         }
@@ -468,11 +468,11 @@ public class Infra : Any
 
     public virtual int LastIndex(Text text, Text other, InfraCompare compare)
     {
-        if (!this.CheckRange(text))
+        if (!this.ValidRange(text))
         {
             return -1;
         }
-        if (!this.CheckRange(other))
+        if (!this.ValidRange(other))
         {
             return -1;
         }

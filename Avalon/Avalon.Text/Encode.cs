@@ -99,7 +99,7 @@ public class Encode : Any
 
     public virtual long Data(Data data, long index, Text text)
     {
-        if (!this.TextInfra.CheckRange(text))
+        if (!this.TextInfra.ValidRange(text))
         {
             return -1;
         }
