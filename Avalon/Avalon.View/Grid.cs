@@ -332,7 +332,7 @@ public class Grid : View
         GridRect gridRect;
         gridRect = child.Rect;
 
-        if (!this.CheckGridRect(gridRect))
+        if (!this.ValidGridRect(gridRect))
         {
             return false;
         }
@@ -391,7 +391,7 @@ public class Grid : View
         return true;
     }
 
-    protected virtual bool CheckGridRect(GridRect rect)
+    protected virtual bool ValidGridRect(GridRect rect)
     {
         GridPos pos;
         pos = rect.Pos;
