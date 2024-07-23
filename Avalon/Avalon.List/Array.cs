@@ -8,7 +8,15 @@ public class Array : List
         this.Comparer = new Comparer();
         this.Comparer.Init();
 
-        this.Value = new object[this.Count];
+        int k;
+        k = this.Count;
+
+        if (!this.ValidCount(k))
+        {
+            return false;
+        }
+
+        this.Value = new object[k];
         return true;
     }
 
@@ -78,6 +86,11 @@ public class Array : List
         }
         this.Value[index] = value;
         return true;
+    }
+
+    public virtual bool ValidCount(int value)
+    {
+        return !(value < 0);
     }
 
     public virtual bool Sort(Range range, Compare compare)
