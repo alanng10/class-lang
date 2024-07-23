@@ -199,7 +199,7 @@ public class Time : Any
         }
     }
 
-    public virtual bool Current()
+    public virtual bool This()
     {
         Extern.Time_Current(this.Intern);
         return true;
