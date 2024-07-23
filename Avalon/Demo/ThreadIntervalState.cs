@@ -39,7 +39,11 @@ class ThreadIntervalState : State
 
         varEvent.Final();
         
-        this.Result = o;
+        Value aa;
+        aa = new Value();
+        aa.Init();
+        aa.Mid = o;
+        this.Result = aa;
         return true;
     }
 }
