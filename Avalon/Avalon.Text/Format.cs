@@ -553,7 +553,7 @@ public class Format : Any
         int kind;
         kind = arg.Kind;
 
-        if (!this.CheckKind(kind))
+        if (!this.ValidKind(kind))
         {
             return false;
         }
@@ -579,7 +579,7 @@ public class Format : Any
         return true;
     }
 
-    protected virtual bool CheckKind(int kind)
+    protected virtual bool ValidKind(int kind)
     {
         return this.InfraInfra.ValidIndex(this.KindCount, kind);
     }
