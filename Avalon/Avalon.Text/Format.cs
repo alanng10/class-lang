@@ -223,7 +223,7 @@ public class Format : Any
 
     public virtual bool ExecuteArgCount(FormatArg arg)
     {
-        if (!this.CheckArg(arg))
+        if (!this.ValidArg(arg))
         {
             return false;
         }
@@ -274,7 +274,7 @@ public class Format : Any
 
     public virtual bool ExecuteArgResult(FormatArg arg, Text result)
     {
-        if (!this.CheckArg(arg))
+        if (!this.ValidArg(arg))
         {
             return false;
         }
@@ -548,7 +548,7 @@ public class Format : Any
         return a;
     }
 
-    protected virtual bool CheckArg(FormatArg arg)
+    protected virtual bool ValidArg(FormatArg arg)
     {
         int kind;
         kind = arg.Kind;
