@@ -32,27 +32,17 @@ Int Time_Final(Int o)
     return true;
 }
 
-Int Time_Set(Int o, Int year, Int month, Int day, Int hour, Int minute, Int second, Int millisecond, Int isLocalTime, Int offsetUtc)
+Int Time_Set(Int o, Int year, Int month, Int day, Int hour, Int min, Int sec, Int millisec, Int pos)
 {
     Time* m;
     m = CP(o);
 
-    Bool b;
-    b = isLocalTime;
-
     QDateTime dtO;
 
-    if (b)
-    {
-        dtO = dtO.toLocalTime();
-    }
-    if (!b)
-    {
-        int offsetUtcU;
-        offsetUtcU = offsetUtc;
+    int offsetUtcU;
+    offsetUtcU = pos;
 
-        dtO = dtO.toOffsetFromUtc(offsetUtcU);
-    }
+    dtO = dtO.toOffsetFromUtc(offsetUtcU);
 
     int yearU;
     int monthU;
@@ -64,15 +54,15 @@ Int Time_Set(Int o, Int year, Int month, Int day, Int hour, Int minute, Int seco
     QDate dateO(yearU, monthU, dayU);
 
     int hourU;
-    int minuteU;
-    int secondU;
-    int millisecondU;
+    int minU;
+    int secU;
+    int millisecU;
     hourU = hour;
-    minuteU = minute;
-    secondU = second;
-    millisecondU = millisecond;
+    minU = min;
+    secU = sec;
+    millisecU = millisec;
 
-    QTime timeO(hourU, minuteU, secondU, millisecondU);
+    QTime timeO(hourU, minU, secU, millisecU);
 
     dtO.setDate(dateO);
     dtO.setTime(timeO);
