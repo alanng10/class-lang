@@ -271,7 +271,7 @@ public class View : Comp
         
         this.ExecuteDrawThis(draw);
 
-        if (!this.CheckDrawChild())
+        if (!this.ValidDrawChild())
         {
             return true;
         }
@@ -316,7 +316,7 @@ public class View : Comp
         return true;
     }
 
-    protected virtual bool CheckDrawChild()
+    protected virtual bool ValidDrawChild()
     {
         return !(this.Child == null);
     }

@@ -265,7 +265,7 @@ public class Grid : View
         return true;
     }
 
-    protected override bool CheckDrawChild()
+    protected override bool ValidDrawChild()
     {
         return true;
     }
