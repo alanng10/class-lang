@@ -56,7 +56,7 @@ public class Storage : Any
         {
             return true;
         }
-        if (!this.CheckMode(this.Mode))
+        if (!this.ValidMode(this.Mode))
         {
             return true;
         }
@@ -105,7 +105,7 @@ public class Storage : Any
         return true;
     }
 
-    protected virtual bool CheckMode(Mode mode)
+    protected virtual bool ValidMode(Mode mode)
     {
         if (!(mode.Read | mode.Write))
         {
