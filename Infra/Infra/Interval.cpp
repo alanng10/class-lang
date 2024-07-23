@@ -22,7 +22,7 @@ Int Interval_Final(Int o)
 }
 
 CppField(Interval, Time)
-CppField(Interval, SingleShot)
+CppField(Interval, Single)
 
 Int Interval_ActiveGet(Int o)
 {
@@ -44,13 +44,13 @@ Int Interval_Start(Int o)
     m = CP(o);
     Int time;
     time = m->Time;
-    Int singleShot;
-    singleShot = m->SingleShot;
+    Int single;
+    single = m->Single;
 
     int timeU;
     timeU = time;
     bool singleShotU;
-    singleShotU = singleShot;
+    singleShotU = single;
 
     m->Intern->setInterval(timeU);
     m->Intern->setSingleShot(singleShotU);

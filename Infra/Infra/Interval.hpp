@@ -7,7 +7,7 @@
 struct Interval
 {
     Int Time;
-    Int SingleShot;
+    Int Single;
     Int ElapseState;
     IntervalIntern* Intern;
 };
