@@ -25,7 +25,7 @@ public class StringData : Data
 
     public override int Get(long index)
     {
-        if (!this.Contain(index))
+        if (!this.Valid(index))
         {
             return -1;
         }

@@ -24,7 +24,7 @@ public class Data : Any
 
     public virtual int Get(long index)
     {
-        if (!this.Contain(index))
+        if (!this.Valid(index))
         {
             return -1;
         }
@@ -33,7 +33,7 @@ public class Data : Any
 
     public virtual bool Set(long index, int value)
     {
-        if (!this.Contain(index))
+        if (!this.Valid(index))
         {
             return false;
         }
@@ -41,7 +41,7 @@ public class Data : Any
         return true;
     }
 
-    public virtual bool Contain(long index)
+    public virtual bool Valid(long index)
     {
         return this.InfraInfra.ValidLongIndex(this.Count, index);
     }
