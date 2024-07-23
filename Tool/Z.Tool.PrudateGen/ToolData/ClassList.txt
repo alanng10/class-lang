@@ -419,16 +419,16 @@ Time
     WeekDay
     YearDayCount
     MonthDayCount
-    AddYear(offset)
-    AddMonth(offset)
-    AddDay(offset)
-    AddHour(offset)
-    AddMin(offset)
-    AddSec(offset)
-    AddMillisec(offset)
+    AddYear(value)
+    AddMonth(value)
+    AddDay(value)
+    AddHour(value)
+    AddMin(value)
+    AddSec(value)
+    AddMillisec(value)
     MillisecTo(other)
     DayTo(other)
-    Current()
+    This()
     ToPos(pos)
     Set(year, month, day, hour, min, sec, millisec, pos)
     LeapYear(year) -
