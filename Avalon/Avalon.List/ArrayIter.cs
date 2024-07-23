@@ -9,7 +9,7 @@ public class ArrayIter : Iter
     public override bool Next()
     {
         bool b;
-        b = this.Array.ContainAt(this.IntIndex);
+        b = this.Array.ValidAt(this.IntIndex);
 
         if (b)
         {

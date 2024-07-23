@@ -904,7 +904,7 @@ public class ModuleLoad : Any
 
     protected virtual bool TextGet(string o)
     {
-        this.StringData.Value = o;
+        this.StringData.ValueString = o;
 
         this.Text.Range.Count = o.Length;
 
@@ -928,7 +928,7 @@ public class ModuleLoad : Any
         ClassClass a;
         a = null;
         bool b;
-        b = (classArray.ContainAt(index));
+        b = (classArray.ValidAt(index));
         if (b)
         {
             a = (ClassClass)classArray.GetAt(index);
@@ -937,7 +937,7 @@ public class ModuleLoad : Any
         {
             int oa;
             oa = index - classArray.Count;
-            if (!this.ImportArray.ContainAt(oa))
+            if (!this.ImportArray.ValidAt(oa))
             {
                 return null;
             }

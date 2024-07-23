@@ -64,14 +64,14 @@ public class Array : List
         return false;
     }
 
-    public virtual bool ContainAt(int index)
+    public virtual bool ValidAt(int index)
     {
         return this.InfraInfra.ValidIndex(this.Count, index);
     }
 
     public virtual object GetAt(int index)
     {
-        if (!this.ContainAt(index))
+        if (!this.ValidAt(index))
         {
             return null;
         }
@@ -80,7 +80,7 @@ public class Array : List
 
     public virtual bool SetAt(int index, object value)
     {
-        if (!this.ContainAt(index))
+        if (!this.ValidAt(index))
         {
             return false;
         }
