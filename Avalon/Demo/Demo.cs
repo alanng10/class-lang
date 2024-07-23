@@ -574,6 +574,8 @@ class Demo : Any
 
         time.AddMillisec(200 * 1000);
         this.ConsoleWriteTime("Demo.ExecuteTime time AddMillisec ", time);
+
+        time.Final();
         return true;
     }
 
