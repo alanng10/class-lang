@@ -411,11 +411,10 @@ Time
     Month
     Day
     Hour
-    Minute
-    Second
-    Millisecond
-    OffsetUtc
-    LocalTime
+    Min
+    Sec
+    Millisec
+    Pos
     YearDay
     WeekDay
     YearDayCount
@@ -424,24 +423,23 @@ Time
     AddMonth(offset)
     AddDay(offset)
     AddHour(offset)
-    AddMinute(offset)
-    AddSecond(offset)
-    AddMillisecond(offset)
-    MillisecondTo(other)
+    AddMin(offset)
+    AddSec(offset)
+    AddMillisec(offset)
+    MillisecTo(other)
     DayTo(other)
     Current()
-    ToLocalTime()
-    ToOffsetUtc(offset)
-    Set(year, month, day, hour, minute, second, millisecond, isLocalTime, offsetUtc)
+    ToPos(pos)
+    Set(year, month, day, hour, min, sec, millisec, pos)
     LeapYear(year) -
     ValidDate(year, month, day) -
-    ValidTime(hour, minute, second, millisecond) -
+    ValidTime(hour, minute, sec, millisec) -
 
 Interval
     Start()
     Stop()
     Time
-    SingleShot
+    Single
     Active
     ElapseState
     Elapse(interval, arg) --
