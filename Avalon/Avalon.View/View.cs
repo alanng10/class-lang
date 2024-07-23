@@ -255,7 +255,7 @@ public class View : Comp
         return true;
     }
 
-    protected virtual bool CheckDraw()
+    protected virtual bool ValidDraw()
     {
         return this.Visible;
     }
@@ -264,7 +264,7 @@ public class View : Comp
     {
         this.ViewInfra.AssignDrawRectValue(this.Area, draw.Area);
 
-        if (!this.CheckDraw())
+        if (!this.ValidDraw())
         {
             return true;
         }
