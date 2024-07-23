@@ -124,7 +124,7 @@ public class Time : Any
         }
     }
 
-    public virtual int OffsetUtc
+    public virtual int Pos
     {
         get
         {
@@ -333,7 +333,7 @@ public class Time : Any
         return a;
     }
 
-    public virtual bool Set(int year, int month, int day, int hour, int min, int sec, int millisec, int offsetUtc)
+    public virtual bool Set(int year, int month, int day, int hour, int min, int sec, int millisec, int pos)
     {
         ulong yearU;
         ulong monthU;
@@ -350,7 +350,7 @@ public class Time : Any
         minU = (ulong)min;
         secU = (ulong)sec;
         millisecU = (ulong)millisec;
-        offsetUtcU = (ulong)offsetUtc;
+        offsetUtcU = (ulong)pos;
 
         Extern.Time_Set(this.Intern, yearU, monthU, dayU, hourU, minU, secU, millisecU, 0, offsetUtcU);
         return true;
