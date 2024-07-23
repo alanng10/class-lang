@@ -236,8 +236,11 @@ public class Format : Any
         state.Arg = arg;
         state.Execute();
 
+        Value aa;
+        aa = (Value)state.Result;
+
         int valueCount;
-        valueCount = state.Result;
+        valueCount = aa.Mid;
 
         int fieldWidth;
         fieldWidth = arg.FieldWidth;
