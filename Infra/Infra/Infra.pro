@@ -121,7 +121,7 @@ SOURCES += \
     Size.c \
     Stat.cpp \
     Stat_BrushKind.cpp \
-    Stat_Composite.cpp \
+    Stat_Comp.cpp \
     Stat_GradientKind.cpp \
     Stat_GradientSpread.cpp \
     Stat_ImageFormat.cpp \
