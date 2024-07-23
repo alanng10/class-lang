@@ -8,7 +8,7 @@ public class Grid : View
         this.InfraInfra = InfraInfra.This;
         this.RowField = this.CreateRowField();
         this.ColField = this.CreateColField();
-        this.ChildField = this.CreateGridChildField();
+        this.ChildListField = this.CreateGridChildField();
         this.DestField = this.CreateDestField();
         this.Row = this.CreateRow();
         this.Col = this.CreateCol();
