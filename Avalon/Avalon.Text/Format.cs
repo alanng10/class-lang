@@ -581,7 +581,7 @@ public class Format : Any
 
     protected virtual bool CheckKind(int kind)
     {
-        return this.InfraInfra.CheckIndex(this.KindCount, kind);
+        return this.InfraInfra.ValidIndex(this.KindCount, kind);
     }
 
     protected virtual bool CheckIntBase(int varBase)

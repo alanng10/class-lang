@@ -103,7 +103,7 @@ public class ClassPathTraverse : Traverse
 
         Array array;
         array = part.Value;
-        if (!(this.InfraInfra.CheckIndex(array.Count, k)))
+        if (!(this.InfraInfra.ValidIndex(array.Count, k)))
         {
             return true;
         }
@@ -208,7 +208,7 @@ public class ClassPathTraverse : Traverse
 
         Array array;
         array = param.Value;
-        if (!(this.InfraInfra.CheckIndex(array.Count, k)))
+        if (!(this.InfraInfra.ValidIndex(array.Count, k)))
         {
             return true;
         }
@@ -317,7 +317,7 @@ public class ClassPathTraverse : Traverse
 
         Array array;
         array = state.Value;
-        if (!(this.InfraInfra.CheckIndex(array.Count, k)))
+        if (!(this.InfraInfra.ValidIndex(array.Count, k)))
         {
             return true;
         }
@@ -481,7 +481,7 @@ public class ClassPathTraverse : Traverse
 
         Array array;
         array = argue.Value;
-        if (!(this.InfraInfra.CheckIndex(array.Count, k)))
+        if (!(this.InfraInfra.ValidIndex(array.Count, k)))
         {
             return true;
         }

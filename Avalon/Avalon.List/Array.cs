@@ -58,7 +58,7 @@ public class Array : List
 
     public virtual bool ContainAt(int index)
     {
-        return this.InfraInfra.CheckIndex(this.Count, index);
+        return this.InfraInfra.ValidIndex(this.Count, index);
     }
 
     public virtual object GetAt(int index)

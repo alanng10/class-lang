@@ -39,7 +39,7 @@ public class String : Any
 
     public virtual int C_Char(string o, int index)
     {
-        if (!this.InfraInfra.CheckIndex(o.Length, index))
+        if (!this.InfraInfra.ValidIndex(o.Length, index))
         {
             return -1;
         }

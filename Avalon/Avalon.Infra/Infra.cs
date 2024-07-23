@@ -33,7 +33,7 @@ public class Infra : Any
     public virtual string PathCombine { get { return __D_PathCombine; } set { __D_PathCombine = value; } }
     protected string __D_PathCombine;
 
-    public virtual bool CheckIndex(int count, int index)
+    public virtual bool ValidIndex(int count, int index)
     {
         return this.ValidRange(count, index, 1);
     }

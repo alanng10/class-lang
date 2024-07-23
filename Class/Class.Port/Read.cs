@@ -1215,7 +1215,7 @@ public class Read : Any
 
     protected virtual bool CheckRow(int row)
     {
-        return this.InfraInfra.CheckIndex(this.LineList.Count, row);
+        return this.InfraInfra.ValidIndex(this.LineList.Count, row);
     }
 
     protected virtual int NextRow(int row)
