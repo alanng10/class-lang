@@ -125,7 +125,7 @@ public class Infra : Any
         {
             index = range.Index;
             count = range.Count;
-            if (!this.InfraInfra.CheckRange(o.Length, index, count))
+            if (!this.InfraInfra.ValidRange(o.Length, index, count))
             {
                 return null;
             }
@@ -212,7 +212,7 @@ public class Infra : Any
         {
             index = range.Index;
             count = range.Count;
-            if (!this.InfraInfra.CheckRange(o.Length, index, count))
+            if (!this.InfraInfra.ValidRange(o.Length, index, count))
             {
                 return null;
             }
@@ -253,7 +253,7 @@ public class Infra : Any
         int count;
         count = (int)charCount;
 
-        if (!infraInfra.CheckRange(count, range.Index, range.Count))
+        if (!infraInfra.ValidRange(count, range.Index, range.Count))
         {
             return false;
         }

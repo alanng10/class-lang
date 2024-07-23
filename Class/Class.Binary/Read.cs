@@ -41,7 +41,7 @@ public class Read : Any
         dataCount = (int)this.Data.Count;
         Range range;
         range = this.Range;
-        if (!this.InfraInfra.CheckRange(dataCount, range.Index, range.Count))
+        if (!this.InfraInfra.ValidRange(dataCount, range.Index, range.Count))
         {
             return false;
         }

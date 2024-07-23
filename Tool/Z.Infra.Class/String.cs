@@ -57,7 +57,7 @@ public class String : Any
         int count;
         index = range.Index;
         count = range.Count;
-        if (!this.InfraInfra.CheckRange(o.Length, index, count))
+        if (!this.InfraInfra.ValidRange(o.Length, index, count))
         {
             return null;
         }

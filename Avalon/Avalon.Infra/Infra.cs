@@ -35,7 +35,7 @@ public class Infra : Any
 
     public virtual bool CheckIndex(int count, int index)
     {
-        return this.CheckRange(count, index, 1);
+        return this.ValidRange(count, index, 1);
     }
 
     public virtual bool CheckLongIndex(long count, long index)
@@ -50,7 +50,7 @@ public class Infra : Any
         return true;
     }
 
-    public virtual bool CheckRange(int totalCount, int index, int count)
+    public virtual bool ValidRange(int totalCount, int index, int count)
     {
         if (totalCount < 0)
         {

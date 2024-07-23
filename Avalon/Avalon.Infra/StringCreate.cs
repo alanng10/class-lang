@@ -47,7 +47,7 @@ public class StringCreate : Any
         {
             index = range.Index;
             count = range.Count;
-            if (!this.InfraInfra.CheckRange(totalCount, index, count))
+            if (!this.InfraInfra.ValidRange(totalCount, index, count))
             {
                 return null;
             }

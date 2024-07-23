@@ -54,7 +54,7 @@ public class Infra : Any
     {
         int count;
         count = this.Count(start, end);
-        return this.InfraInfra.CheckRange(totalCount, start, count);
+        return this.InfraInfra.ValidRange(totalCount, start, count);
     }
 
     public virtual Table TableCreateStringCompare()

@@ -399,10 +399,10 @@ public class Grid : View
         size = rect.Size;
 
         bool ba;
-        ba = this.InfraInfra.CheckRange(this.Col.Count, pos.Col, size.Width);
+        ba = this.InfraInfra.ValidRange(this.Col.Count, pos.Col, size.Width);
 
         bool bb;
-        bb = this.InfraInfra.CheckRange(this.Row.Count, pos.Row, size.Height);
+        bb = this.InfraInfra.ValidRange(this.Row.Count, pos.Row, size.Height);
 
         bool a;
         a = ba & bb;
