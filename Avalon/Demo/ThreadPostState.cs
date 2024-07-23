@@ -1,6 +1,6 @@
 namespace Demo;
 
-class ThreadPostState : ThreadExecuteState
+class ThreadPostState : State
 {
     public State PostState { get; set; }
     public ThreadPhore Phore { get; set; }
@@ -29,7 +29,12 @@ class ThreadPostState : ThreadExecuteState
 
         post.Final();
 
-        this.Result = o;
+        Value aa;
+        aa = new Value();
+        aa.Init();
+        aa.Mid = o;
+
+        this.Result = aa;
         return true;
     }
 }
