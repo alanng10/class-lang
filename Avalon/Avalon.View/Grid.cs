@@ -155,7 +155,7 @@ public class Grid : View
 
     protected virtual bool ChangeRow(Change change)
     {
-        if ((this.Row == null) | (this.Col == null) | (this.Child == null))
+        if ((this.Row == null) | (this.Col == null) | (this.ChildList == null))
         {
             return true;
         }
@@ -181,7 +181,7 @@ public class Grid : View
 
     protected virtual bool ChangeCol(Change change)
     {
-        if ((this.Row == null) | (this.Col == null) | (this.Child == null))
+        if ((this.Row == null) | (this.Col == null) | (this.ChildList == null))
         {
             return true;
         }
@@ -207,7 +207,7 @@ public class Grid : View
 
     protected virtual bool ChangeChildList(Change change)
     {
-        if ((this.Row == null) | (this.Col == null) | (this.Child == null))
+        if ((this.Row == null) | (this.Col == null) | (this.ChildList == null))
         {
             return true;
         }
