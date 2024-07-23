@@ -1,6 +1,6 @@
 namespace Demo;
 
-class ThreadIntervalState : ThreadExecuteState
+class ThreadIntervalState : State
 {
     public bool Single { get; set; }
     public int ElapseCount { get; set; }
