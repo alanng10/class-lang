@@ -1,6 +1,6 @@
 namespace Demo;
 
-class ThreadState : ThreadExecuteState
+class ThreadState : State
 {
     public Demo Demo { get; set; }
     public DrawImage Image { get; set; }
@@ -51,7 +51,12 @@ class ThreadState : ThreadExecuteState
         
         this.Draw();
 
-        this.Result = 0x10000;
+        Value aa;
+        aa = new Value();
+        aa.Init();
+        aa.Mid = 0x10000;
+
+        this.Result = aa;
 
         console.Out.Write("ThreadState.Execute END\n");
         return true;
