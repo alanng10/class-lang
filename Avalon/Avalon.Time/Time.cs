@@ -201,7 +201,7 @@ public class Time : Any
 
     public virtual bool This()
     {
-        Extern.Time_Current(this.Intern);
+        Extern.Time_This(this.Intern);
         return true;
     }
 
