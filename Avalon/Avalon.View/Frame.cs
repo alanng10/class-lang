@@ -220,29 +220,18 @@ public class Frame : Comp
     {
         get
         {
-            return this.GetVisible();
+            ulong u;
+            u = Extern.Frame_VisibleGet(this.Intern);
+            bool a;
+            a = (!(u == 0));
+            return a;
         }
         set
         {
-            this.SetVisible(value);
+            ulong u;
+            u = (ulong)(value ? 1 : 0);
+            Extern.Frame_VisibleSet(this.Intern, u);
         }
-    }
-
-    private bool GetVisible()
-    {
-        ulong u;
-        u = Extern.Frame_VisibleGet(this.Intern);
-        bool a;
-        a = (!(u == 0));
-        return a;
-    }
-
-    private bool SetVisible(bool value)
-    {
-        ulong u;
-        u = (ulong)(value ? 1 : 0);
-        Extern.Frame_VisibleSet(this.Intern, u);
-        return true;
     }
 
     public virtual bool Close()
