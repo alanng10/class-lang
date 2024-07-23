@@ -7,3 +7,4 @@ global using Handle = Avalon.Intern.Handle;
 global using InternInfra = Avalon.Intern.Infra;
 global using Any = Avalon.Infra.Any;
 global using State = Avalon.Infra.State;
+global using Value = Avalon.Infra.Value;

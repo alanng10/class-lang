@@ -49,7 +49,7 @@ public class Thread : Any
         return true;
     }
 
-    public virtual ExecuteState ExecuteState { get; set; }
+    public virtual State ExecuteState { get; set; }
     public virtual object Any { get; set; }
 
     private InternIntern InternIntern { get; set; }
@@ -74,11 +74,19 @@ public class Thread : Any
 
         a.ExecuteState.Execute();
 
-        int o;
-        o = a.ExecuteState.Result;
+        Value k;
+        k = (Value)a.ExecuteState.Result;
 
         ulong oa;
-        oa = (ulong)o;
+        oa = 0;
+
+        if (!(k == null))
+        {
+            int o;
+            o = k.Mid;
+
+            oa = (ulong)o;
+        }
         return oa;
     }
 
