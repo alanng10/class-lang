@@ -220,7 +220,7 @@ public class NameCheck : Any
     {
         StringData d;
         d = this.StringData;
-        d.Value = o;
+        d.ValueString = o;
 
         text.Data = d;
         text.Range.Index = 0;
