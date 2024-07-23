@@ -7,7 +7,7 @@
 
     <ItemGroup>
         <ProjectReference Include="../Z.Tool.Infra.StatBrushKind/Z.Tool.Infra.StatBrushKind.csproj" />
-        <ProjectReference Include="../Z.Tool.Infra.StatComposite/Z.Tool.Infra.StatComposite.csproj" />
+        <ProjectReference Include="../Z.Tool.Infra.StatComp/Z.Tool.Infra.StatComp.csproj" />
         <ProjectReference Include="../Z.Tool.Infra.StatGradientKind/Z.Tool.Infra.StatGradientKind.csproj" />
         <ProjectReference Include="../Z.Tool.Infra.StatGradientSpread/Z.Tool.Infra.StatGradientSpread.csproj" />
         <ProjectReference Include="../Z.Tool.Infra.StatImageFormat/Z.Tool.Infra.StatImageFormat.csproj" />
