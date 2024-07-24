@@ -25,16 +25,16 @@ public class Event : Any
         arg = this.InternHandle.ULong();
         this.InternElapseState = this.InternInfra.StateCreate(oa, arg);
 
-        this.Intern = Extern.Interval_New();
-        Extern.Interval_Init(this.Intern);
-        Extern.Interval_ElapseStateSet(this.Intern, this.InternElapseState);
+        this.Intern = Extern.TimeEvent_New();
+        Extern.TimeEvent_Init(this.Intern);
+        Extern.TimeEvent_ElapseStateSet(this.Intern, this.InternElapseState);
         return true;
     }
 
     public virtual bool Final()
     {
-        Extern.Interval_Final(this.Intern);
-        Extern.Interval_Delete(this.Intern);
+        Extern.TimeEvent_Final(this.Intern);
+        Extern.TimeEvent_Delete(this.Intern);
 
         this.InternInfra.StateDelete(this.InternElapseState);
 
@@ -57,7 +57,7 @@ public class Event : Any
         get
         {
             ulong u;
-            u = Extern.Interval_TimeGet(this.Intern);
+            u = Extern.TimeEvent_TimeGet(this.Intern);
             long o;
             o = (long)u;
             return o;
@@ -66,7 +66,7 @@ public class Event : Any
         {
             ulong u;
             u = (ulong)value;
-            Extern.Interval_TimeSet(this.Intern, u);
+            Extern.TimeEvent_TimeSet(this.Intern, u);
         }
     }
 
@@ -75,7 +75,7 @@ public class Event : Any
         get
         {
             ulong u;
-            u = Extern.Interval_SingleGet(this.Intern);
+            u = Extern.TimeEvent_SingleGet(this.Intern);
             bool b;
             b = (!(u == 0));
             return b;
@@ -84,19 +84,19 @@ public class Event : Any
         {
             ulong u;
             u = (ulong)(value ? 1 : 0);
-            Extern.Interval_SingleSet(this.Intern, u);
+            Extern.TimeEvent_SingleSet(this.Intern, u);
         }
     }
 
     public virtual bool Start()
     {
-        Extern.Interval_Start(this.Intern);
+        Extern.TimeEvent_Start(this.Intern);
         return true;
     }
 
     public virtual bool Stop()
     {
-        Extern.Interval_Stop(this.Intern);
+        Extern.TimeEvent_Stop(this.Intern);
         return true;
     }
 
