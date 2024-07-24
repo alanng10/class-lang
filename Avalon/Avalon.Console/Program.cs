@@ -22,20 +22,20 @@ public class Program : Any
         this.InternStartState = this.InternInfra.StateCreate(oa, arg);
         this.InternFinishState = this.InternInfra.StateCreate(ob, arg);
 
-        this.Intern = Extern.Process_New();
-        Extern.Process_Init(this.Intern);
-        Extern.Process_StartStateSet(this.Intern, this.InternStartState);
-        Extern.Process_FinishStateSet(this.Intern, this.InternFinishState);
+        this.Intern = Extern.Program_New();
+        Extern.Program_Init(this.Intern);
+        Extern.Program_StartStateSet(this.Intern, this.InternStartState);
+        Extern.Program_FinishStateSet(this.Intern, this.InternFinishState);
         return true;
     }
 
     public virtual bool Final()
     {
-        Extern.Process_FinishStateSet(this.Intern, 0);
-        Extern.Process_StartStateSet(this.Intern, 0);
+        Extern.Program_FinishStateSet(this.Intern, 0);
+        Extern.Program_StartStateSet(this.Intern, 0);
         
-        Extern.Process_Final(this.Intern);
-        Extern.Process_Delete(this.Intern);
+        Extern.Program_Final(this.Intern);
+        Extern.Program_Delete(this.Intern);
 
         this.InternInfra.StateDelete(this.InternFinishState);
         this.InternInfra.StateDelete(this.InternStartState);
@@ -113,7 +113,7 @@ public class Program : Any
         get
         {
             ulong u;
-            u = Extern.Process_IdentGet(this.Intern);
+            u = Extern.Program_IdentGet(this.Intern);
             int a;
             a = (int)u;
             return a;
@@ -128,7 +128,7 @@ public class Program : Any
         get
         {
             ulong u;
-            u = Extern.Process_StatusGet(this.Intern);
+            u = Extern.Program_StatusGet(this.Intern);
             int a;
             a = (int)u;
             return a;
@@ -143,7 +143,7 @@ public class Program : Any
         get
         {
             ulong u;
-            u = Extern.Process_ExitKindGet(this.Intern);
+            u = Extern.Program_ExitKindGet(this.Intern);
             int a;
             a = (int)u;
             return a;
@@ -155,13 +155,13 @@ public class Program : Any
 
     public virtual bool Wait()
     {
-        Extern.Process_Wait(this.Intern);
+        Extern.Program_Wait(this.Intern);
         return true;
     }
 
     public virtual bool Terminate()
     {
-        Extern.Process_Terminate(this.Intern);
+        Extern.Program_Terminate(this.Intern);
         return true;
     }
 
@@ -190,17 +190,17 @@ public class Program : Any
             environmentU = this.InternStringEntryListCreate(this.Environment);
         }
 
-        Extern.Process_ProgramSet(this.Intern, nameU);
-        Extern.Process_ArgueSet(this.Intern, argueU);
-        Extern.Process_WorkFoldSet(this.Intern, workFoldU);
-        Extern.Process_EnvironmentSet(this.Intern, environmentU);
+        Extern.Program_NameSet(this.Intern, nameU);
+        Extern.Program_ArgueSet(this.Intern, argueU);
+        Extern.Program_WorkFoldSet(this.Intern, workFoldU);
+        Extern.Program_EnvironmentSet(this.Intern, environmentU);
 
-        Extern.Process_Execute(this.Intern);
+        Extern.Program_Execute(this.Intern);
 
-        Extern.Process_EnvironmentSet(this.Intern, 0);
-        Extern.Process_WorkFoldSet(this.Intern, 0);
-        Extern.Process_ArgueSet(this.Intern, 0);
-        Extern.Process_ProgramSet(this.Intern, 0);
+        Extern.Program_EnvironmentSet(this.Intern, 0);
+        Extern.Program_WorkFoldSet(this.Intern, 0);
+        Extern.Program_ArgueSet(this.Intern, 0);
+        Extern.Program_NameSet(this.Intern, 0);
 
         if (bb)
         {
