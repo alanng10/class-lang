@@ -15,8 +15,8 @@ struct Draw
 {
     Int Size;
     Int Out;
-    Int Brush;
-    Int Pen;
+    Int Fill;
+    Int Stroke;
     Int Font;
     Int Transform;
     Int Composite;
