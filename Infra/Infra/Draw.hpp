@@ -59,3 +59,5 @@ prefix##Height = Size_HeightGet(prefix##Size);\
     InternValue(prefix##Width);\
     InternValue(prefix##Height);\
 
+
+#define InternRect(prefix) QRectF prefix##RectU(prefix##LeftU, prefix##UpU, prefix##WidthU, prefix##HeightU);

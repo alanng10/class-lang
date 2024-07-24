@@ -510,28 +510,13 @@ Int Draw_ExecuteImage(Int o, Int image, Int destRect, Int sourceRect)
     RectValue(dest);
     RectValue(source);
 
-    int dl;
-    int du;
-    int dw;
-    int dh;
-    dl = (int)destLeft;
-    du = (int)destUp;
-    dw = (int)destWidth;
-    dh = (int)destHeight;
+    InternRectValue(dest);
+    InternRectValue(source);
 
-    int sl;
-    int su;
-    int sw;
-    int sh;
-    sl = (int)sourceLeft;
-    su = (int)sourceUp;
-    sw = (int)sourceWidth;
-    sh = (int)sourceHeight;
+    InternRect(dest);
+    InternRect(source);
 
-    QRect destRectA(dl, du, dw, dh);
-    QRect sourceRectA(sl, su, sw, sh);
-
-    m->Intern->drawImage(destRectA, *ub, sourceRectA);
+    m->Intern->drawImage(destRectU, *ub, sourceRectU);
     return true;
 }
 
