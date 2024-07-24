@@ -61,11 +61,19 @@ qreal a##U;\
 a##U = CastIntToDouble(a##_u);\
 
 
-#define InternRectValue(prefix) \
+#define InternPosValue(prefix) \
 InternValue(prefix##Left);\
 InternValue(prefix##Up);\
+
+
+#define InternSizeValue(prefix) \
 InternValue(prefix##Width);\
 InternValue(prefix##Height);\
+
+
+#define InternRectValue(prefix) \
+InternPosValue(prefix);\
+InternSizeValue(prefix);\
 
 
 #define InternRect(prefix) QRectF prefix##RectU(prefix##LeftU, prefix##UpU, prefix##WidthU, prefix##HeightU);
