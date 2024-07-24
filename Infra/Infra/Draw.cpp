@@ -449,8 +449,8 @@ Int Draw_ExecutePolygon(Int o, Int pointListCount, Int pointListData)
 
     Int dataValue;
     dataValue = Data_ValueGet(pointListData);
-    QPoint* u;
-    u = (QPoint*)dataValue;
+    QPointF* u;
+    u = (QPointF*)dataValue;
 
     m->Intern->drawConvexPolygon(u, countU);
     return true;
@@ -465,8 +465,8 @@ Int Draw_ExecutePolyline(Int o, Int pointListCount, Int pointListData)
 
     Int dataValue;
     dataValue = Data_ValueGet(pointListData);
-    QPoint* u;
-    u = (QPoint*)dataValue;
+    QPointF* u;
+    u = (QPointF*)dataValue;
 
     m->Intern->drawPolyline(u, countU);
     return true;
