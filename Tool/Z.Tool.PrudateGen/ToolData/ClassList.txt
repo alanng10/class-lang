@@ -154,11 +154,11 @@ Draw
     Start()
     End()
     FillPos
-    Brush
-    Pen
+    Fill
+    Stroke
     Font
-    Transform
-    Composite
+    Form
+    Comp
     FillPosThisSet()
     AreaThisSet()
     Clear(color)
