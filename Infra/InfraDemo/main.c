@@ -1388,8 +1388,8 @@ int main(int argc, char* argv[])
 
 
 
-    Int penRectBrushKind;
-    penRectBrushKind = Stat_BrushKindColor(Stat);
+    Int penRectKind;
+    penRectKind = Stat_BrushKindColor(Stat);
 
     Int penRectLine;
     penRectLine = Stat_BrushLineDashDot(Stat);
@@ -1403,7 +1403,7 @@ int main(int argc, char* argv[])
     Int penRectBrush;
     penRectBrush = Brush_New();
 
-    Brush_KindSet(penRectBrush, penRectBrushKind);
+    Brush_KindSet(penRectBrush, penRectKind);
 
     Brush_ColorSet(penRectBrush, 0xff00ff00);
 
@@ -1423,8 +1423,8 @@ int main(int argc, char* argv[])
 
 
 
-    Int penTextBrushKind;
-    penTextBrushKind = Stat_BrushKindColor(Stat);
+    Int penTextKind;
+    penTextKind = Stat_BrushKindColor(Stat);
 
     Int penTextLine;
     penTextLine = Stat_BrushLineSolid(Stat);
@@ -1439,7 +1439,7 @@ int main(int argc, char* argv[])
     Int penTextBrush;
     penTextBrush = Brush_New();
 
-    Brush_KindSet(penTextBrush, penTextBrushKind);
+    Brush_KindSet(penTextBrush, penTextKind);
 
     Brush_ColorSet(penTextBrush, 0xff0000ff);
 
