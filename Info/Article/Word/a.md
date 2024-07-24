@@ -118,6 +118,8 @@ Word "are" has meaning that is already be.
 
 Word "console" has meaning that is programmed task.
 
+Word "program" has meaning that is automatic execute.
+
 Word "stage" has meaning that is execute step.
 
 Word "create" has meaning that is make from source.
