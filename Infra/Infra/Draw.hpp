@@ -45,3 +45,22 @@ prefix##Width = Size_WidthGet(prefix##Size);\
 Int prefix##Height;\
 prefix##Height = Size_HeightGet(prefix##Size);\
 
+
+#define InternRectValue(prefix) \
+    Int prefix##_u_l;\
+    Int prefix##_u_u;\
+    Int prefix##_u_w;\
+    Int prefix##_u_h;\
+    prefix##_u_l = InternValueGet(prefix##Left);\
+    prefix##_u_u = InternValueGet(prefix##Up);\
+    prefix##_u_w = InternValueGet(prefix##Width);\
+    prefix##_u_h = InternValueGet(prefix##Height);\
+    qreal prefix##LeftU;\
+    qreal prefix##UpU;\
+    qreal prefix##WidthU;\
+    qreal prefix##HeightU;\
+    prefix##LeftU = CastIntToDouble(prefix##_u_l);\
+    prefix##UpU = CastIntToDouble(prefix##_u_u);\
+    prefix##WidthU = CastIntToDouble(prefix##_u_w);\
+    prefix##HeightU = CastIntToDouble(prefix##_u_h);\
+
