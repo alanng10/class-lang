@@ -431,13 +431,12 @@ Int Draw_ExecuteRoundRect(Int o, Int rect, Int horizRadius, Int vertRadius)
 
     InternRectValue(a);
 
-    QRectF aa(aLeftU, aUpU, aWidthU, aHeightU);
+    InternRect(a);
 
     InternValue(horizRadius);
-
     InternValue(vertRadius);
     
-    m->Intern->drawRoundedRect(aa, horizRadiusU, vertRadiusU);
+    m->Intern->drawRoundedRect(aRectU, horizRadiusU, vertRadiusU);
     return true;
 }
 
