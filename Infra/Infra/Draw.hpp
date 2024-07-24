@@ -31,33 +31,41 @@ struct Draw
 
 #define CP(a) ((Draw*)(a))
 
-#define RectValue(prefix) \
-Int prefix##Pos;\
-prefix##Pos = Rect_PosGet(prefix##Rect);\
+#define PosValue(prefix) \
 Int prefix##Left;\
 prefix##Left = Pos_LeftGet(prefix##Pos);\
 Int prefix##Up;\
 prefix##Up = Pos_UpGet(prefix##Pos);\
-Int prefix##Size;\
-prefix##Size = Rect_SizeGet(prefix##Rect);\
+
+
+#define SizeValue(prefix) \
 Int prefix##Width;\
 prefix##Width = Size_WidthGet(prefix##Size);\
 Int prefix##Height;\
 prefix##Height = Size_HeightGet(prefix##Size);\
 
 
+#define RectValue(prefix) \
+Int prefix##Pos;\
+prefix##Pos = Rect_PosGet(prefix##Rect);\
+Int prefix##Size;\
+prefix##Size = Rect_SizeGet(prefix##Rect);\
+PosValue(prefix);\
+SizeValue(prefix);\
+
+
 #define InternValue(a) \
-    Int a##_u;\
-    a##_u = InternValueGet(a);\
-    qreal a##U;\
-    a##U = CastIntToDouble(a##_u);\
+Int a##_u;\
+a##_u = InternValueGet(a);\
+qreal a##U;\
+a##U = CastIntToDouble(a##_u);\
 
 
 #define InternRectValue(prefix) \
-    InternValue(prefix##Left);\
-    InternValue(prefix##Up);\
-    InternValue(prefix##Width);\
-    InternValue(prefix##Height);\
+InternValue(prefix##Left);\
+InternValue(prefix##Up);\
+InternValue(prefix##Width);\
+InternValue(prefix##Height);\
 
 
 #define InternRect(prefix) QRectF prefix##RectU(prefix##LeftU, prefix##UpU, prefix##WidthU, prefix##HeightU);
