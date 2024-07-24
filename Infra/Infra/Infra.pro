@@ -118,18 +118,18 @@ SOURCES += \
     Share.cpp \
     Size.c \
     Stat.cpp \
-    Stat_BrushKind.cpp \
-    Stat_Comp.cpp \
     Stat_GradientKind.cpp \
     Stat_GradientSpread.cpp \
     Stat_ImageFormat.cpp \
     Stat_NetworkCase.cpp \
     Stat_NetworkPortKind.cpp \
     Stat_NetworkStatus.cpp \
+    Stat_BrushKind.cpp \
+    Stat_BrushLine.cpp \
     Stat_PenCap.cpp \
     Stat_PenJoin.cpp \
-    Stat_PenKind.cpp \
     Stat_PointData.cpp \
+    Stat_Comp.cpp \
     Stat_StorageMode.cpp \
     Stat_StorageStatus.cpp \
     Stat_StreamKind.cpp \
