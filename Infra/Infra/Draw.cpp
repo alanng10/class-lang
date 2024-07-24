@@ -369,27 +369,23 @@ Int Draw_ExecutePie(Int o, Int rect, Int angleRange)
     aRect = rect;
     RectValue(a);
 
-    int l;
-    int u;
-    int w;
-    int h;
-    l = (int)aLeft;
-    u = (int)aUp;
-    w = (int)aWidth;
-    h = (int)aHeight;
+    InternRectValue(a);
 
+    InternRect(a);
+    
     Int angleStart;
     Int angleCount;
     Int angleEnd;
     angleStart = Range_IndexGet(angleRange);
     angleCount = Range_CountGet(angleRange);
     angleEnd = angleStart + angleCount;
+
     int startA;
     int spanA;
     startA = (int)angleStart;
     spanA = (int)angleEnd;
 
-    m->Intern->drawPie(l, u, w, h, startA, spanA);
+    m->Intern->drawPie(aRectU, startA, spanA);
     return true;
 }
 
