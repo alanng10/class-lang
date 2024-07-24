@@ -21,7 +21,7 @@ Int Program_Final(Int o)
     return true;
 }
 
-CppField(Program, Program)
+CppField(Program, Name)
 CppField(Program, Argue)
 CppField(Program, WorkFold)
 CppField(Program, Environment)
@@ -30,8 +30,8 @@ Int Program_Execute(Int o)
 {
     Program* m;
     m = CP(o);
-    Int program;
-    program = m->Program;
+    Int name;
+    name = m->Name;
     Int argue;
     argue = m->Argue;
     Int workFold;
@@ -39,15 +39,15 @@ Int Program_Execute(Int o)
     Int environment;
     environment = m->Environment;
 
-    QString programU;
+    QString nameU;
     Int ua;
-    ua = CastInt(&programU);
-    String_QStringSet(ua, program);
+    ua = CastInt(&nameU);
+    String_QStringSet(ua, name);
 
     QStringList argueU;
     Int ub;
     ub = CastInt(&argueU);
-    Process_InternArgueSet(ub, argue);
+    Program_InternArgueSet(ub, argue);
 
     QString workFoldU;
     Bool ba;
@@ -71,10 +71,10 @@ Int Program_Execute(Int o)
     {
         Int ud;
         ud = CastInt(&environmentU);
-        Process_InternEnvironmentSet(ud, environment);
+        Program_InternEnvironmentSet(ud, environment);
     }
 
-    m->Intern->setProgram(programU);
+    m->Intern->setProgram(nameU);
     m->Intern->setArguments(argueU);
     m->Intern->setWorkingDirectory(workFoldU);
     m->Intern->setProcessEnvironment(environmentU);
