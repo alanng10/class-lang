@@ -1144,7 +1144,7 @@ class Demo : Any
         DrawBrush a;
         a = new DrawBrush();
         a.Kind = this.BrushKindList.Color;
-        a.Color = this.DrawInfra.ColorCreate(0xff, 0, 0xff, 0);
+        a.Color = this.DrawInfra.ColorCreate(0xff, 0, 0xff, 0xff);
         a.Init();
         return a;
     }
