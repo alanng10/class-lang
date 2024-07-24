@@ -517,7 +517,7 @@ Bool DrawHandle(Int frame, Int arg)
 
 
 
-    Draw_BrushSet(Draw, Brush);
+    Draw_FillSet(Draw, Brush);
 
 
 
@@ -610,7 +610,7 @@ Bool DrawHandle(Int frame, Int arg)
 
 
 
-    Draw_BrushSet(Draw, GradientBrush);
+    Draw_FillSet(Draw, GradientBrush);
 
 
     SetRect(RectA, 1400, 200, 250, 110);
@@ -624,7 +624,7 @@ Bool DrawHandle(Int frame, Int arg)
 
 
 
-    Draw_BrushSet(Draw, ImageBrush);
+    Draw_FillSet(Draw, ImageBrush);
 
 
 
@@ -718,7 +718,7 @@ Bool DrawHandle(Int frame, Int arg)
 
 
 
-    Draw_BrushSet(Draw, null);
+    Draw_FillSet(Draw, null);
 
 
 

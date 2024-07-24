@@ -340,18 +340,14 @@ Infra_Api Int Brush_ImageGet(Int o);
 Infra_Api Int Brush_ImageSet(Int o, Int value);
 Infra_Api Int Brush_GradientGet(Int o);
 Infra_Api Int Brush_GradientSet(Int o, Int value);
-
-InfraApiNew(Pen)
-Infra_Api Int Pen_KindGet(Int o);
-Infra_Api Int Pen_KindSet(Int o, Int value);
-Infra_Api Int Pen_WidthGet(Int o);
-Infra_Api Int Pen_WidthSet(Int o, Int value);
-Infra_Api Int Pen_BrushGet(Int o);
-Infra_Api Int Pen_BrushSet(Int o, Int value);
-Infra_Api Int Pen_CapGet(Int o);
-Infra_Api Int Pen_CapSet(Int o, Int value);
-Infra_Api Int Pen_JoinGet(Int o);
-Infra_Api Int Pen_JoinSet(Int o, Int value);
+Infra_Api Int Brush_LineGet(Int o);
+Infra_Api Int Brush_LineSet(Int o, Int value);
+Infra_Api Int Brush_WidthGet(Int o);
+Infra_Api Int Brush_WidthSet(Int o, Int value);
+Infra_Api Int Brush_CapGet(Int o);
+Infra_Api Int Brush_CapSet(Int o, Int value);
+Infra_Api Int Brush_JoinGet(Int o);
+Infra_Api Int Brush_JoinSet(Int o, Int value);
 
 Infra_Api Int PointData_PointGet(Int address, Int result);
 Infra_Api Int PointData_PointSet(Int address, Int pos);
