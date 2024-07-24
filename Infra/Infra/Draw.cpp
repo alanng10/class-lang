@@ -298,15 +298,10 @@ Int Draw_ExecuteLine(Int o, Int startPos, Int endPos)
     InternPosValue(start);
     InternPosValue(end);
 
-    int sl;
-    int su;
-    int el;
-    int eu;
-    sl = (int)startLeft;
-    su = (int)startUp;
-    el = (int)endLeft;
-    eu = (int)endUp;
-    m->Intern->drawLine(sl, su, el, eu);
+    InternPos(start);
+    InternPos(end);
+
+    m->Intern->drawLine(startPosU, endPosU);
     return true;
 }
 
