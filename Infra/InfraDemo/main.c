@@ -1363,7 +1363,7 @@ int main(int argc, char* argv[])
 
     Int brushKind;
 
-    brushKind = Stat_BrushKindDiagCross(Stat);
+    brushKind = Stat_BrushKindColor(Stat);
 
 
 
@@ -1390,7 +1390,7 @@ int main(int argc, char* argv[])
 
     Int penRectBrushKind;
 
-    penRectBrushKind = Stat_BrushKindSolid(Stat);
+    penRectBrushKind = Stat_BrushKindColor(Stat);
 
 
 
@@ -1460,7 +1460,7 @@ int main(int argc, char* argv[])
 
     Int penTextBrushKind;
 
-    penTextBrushKind = Stat_BrushKindSolid(Stat);
+    penTextBrushKind = Stat_BrushKindColor(Stat);
 
 
 
@@ -2109,7 +2109,7 @@ int main(int argc, char* argv[])
 
     Int imageBrushKind;
 
-    imageBrushKind = Stat_BrushKindTexture(Stat);
+    imageBrushKind = Stat_BrushKindImage(Stat);
 
 
 
@@ -2251,7 +2251,7 @@ int main(int argc, char* argv[])
 
     Int gradientBrushKind;
 
-    gradientBrushKind = Stat_BrushKindRadialGradient(Stat);
+    gradientBrushKind = Stat_BrushKindGradient(Stat);
 
 
 
