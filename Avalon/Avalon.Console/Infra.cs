@@ -17,14 +17,14 @@ class Infra : Any
     public override bool Init()
     {
         base.Init();
-        ProcessStartMaide maideA;
-        maideA = new ProcessStartMaide(Program.InternStart);
+        ProgramStartMaide maideA;
+        maideA = new ProgramStartMaide(Program.InternStart);
         this.ProgramStartMaideAddress = new MaideAddress();
         this.ProgramStartMaideAddress.Delegate = maideA;
         this.ProgramStartMaideAddress.Init();
 
-        ProcessFinishMaide maideB;
-        maideB = new ProcessFinishMaide(Program.InternFinish);
+        ProgramFinishMaide maideB;
+        maideB = new ProgramFinishMaide(Program.InternFinish);
         this.ProgramFinishMaideAddress = new MaideAddress();
         this.ProgramFinishMaideAddress.Delegate = maideB;
         this.ProgramFinishMaideAddress.Init();

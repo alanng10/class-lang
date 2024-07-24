@@ -1,8 +1,8 @@
 global using InternIntern = Avalon.Intern.Intern;
 global using InternInfra = Avalon.Intern.Infra;
 global using Extern = Avalon.Intern.Extern;
-global using ProcessStartMaide = Avalon.Intern.Extern.Process_Start_Maide;
-global using ProcessFinishMaide = Avalon.Intern.Extern.Process_Finish_Maide;
+global using ProgramStartMaide = Avalon.Intern.Extern.Program_Start_Maide;
+global using ProgramFinishMaide = Avalon.Intern.Extern.Program_Finish_Maide;
 global using MaideAddress = Avalon.Intern.MaideAddress;
 global using Handle = Avalon.Intern.Handle;
 global using Any = Avalon.Infra.Any;
