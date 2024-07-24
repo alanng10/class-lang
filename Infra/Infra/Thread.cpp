@@ -252,7 +252,7 @@ Int Thread_ExecuteEventLoop(Int o)
     m = CP(o);
 
     Bool b;
-    b = Thread_IsMainThread(o);
+    b = Thread_IsMain(o);
     if (b)
     {
         Int oa;
@@ -271,7 +271,7 @@ Int Thread_ExitEventLoop(Int o, Int code)
     m = CP(o);
 
     Bool b;
-    b = Thread_IsMainThread(o);
+    b = Thread_IsMain(o);
     if (b)
     {
         Bool oa;
@@ -286,7 +286,7 @@ Int Thread_ExitEventLoop(Int o, Int code)
     return true;
 }
 
-Int Thread_IsMainThread(Int o)
+Int Thread_IsMain(Int o)
 {
     Thread* m;
     m = CP(o);
@@ -339,7 +339,7 @@ Int Thread_StoreSetThread(Int thread)
     return true;
 }
 
-Int Thread_CurrentThread()
+Int Thread_This()
 {
     Int share;
     share = Infra_Share();
