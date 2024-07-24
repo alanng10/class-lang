@@ -6,24 +6,24 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <ProjectReference Include="../Z.Tool.Infra.StatThreadCase/Z.Tool.Infra.StatThreadCase.csproj" />
+        <ProjectReference Include="../Z.Tool.Infra.StatStreamKind/Z.Tool.Infra.StatStreamKind.csproj" />
+        <ProjectReference Include="../Z.Tool.Infra.StatStorageMode/Z.Tool.Infra.StatStorageMode.csproj" />
+        <ProjectReference Include="../Z.Tool.Infra.StatStorageStatus/Z.Tool.Infra.StatStorageStatus.csproj" />
+        <ProjectReference Include="../Z.Tool.Infra.StatNetworkCase/Z.Tool.Infra.StatNetworkCase.csproj" />
+        <ProjectReference Include="../Z.Tool.Infra.StatNetworkPortKind/Z.Tool.Infra.StatNetworkPortKind.csproj" />
+        <ProjectReference Include="../Z.Tool.Infra.StatNetworkStatus/Z.Tool.Infra.StatNetworkStatus.csproj" />
         <ProjectReference Include="../Z.Tool.Infra.StatBrushKind/Z.Tool.Infra.StatBrushKind.csproj" />
+        <ProjectReference Include="../Z.Tool.Infra.StatBrushLine/Z.Tool.Infra.StatBrushLine.csproj" />
+        <ProjectReference Include="../Z.Tool.Infra.StatBrushCap/Z.Tool.Infra.StatBrushCap.csproj" />
+        <ProjectReference Include="../Z.Tool.Infra.StatBrushJoin/Z.Tool.Infra.StatBrushJoin.csproj" />
         <ProjectReference Include="../Z.Tool.Infra.StatComp/Z.Tool.Infra.StatComp.csproj" />
         <ProjectReference Include="../Z.Tool.Infra.StatGradientKind/Z.Tool.Infra.StatGradientKind.csproj" />
         <ProjectReference Include="../Z.Tool.Infra.StatGradientSpread/Z.Tool.Infra.StatGradientSpread.csproj" />
         <ProjectReference Include="../Z.Tool.Infra.StatImageFormat/Z.Tool.Infra.StatImageFormat.csproj" />
-        <ProjectReference Include="../Z.Tool.Infra.StatNetworkCase/Z.Tool.Infra.StatNetworkCase.csproj" />
-        <ProjectReference Include="../Z.Tool.Infra.StatNetworkPortKind/Z.Tool.Infra.StatNetworkPortKind.csproj" />
-        <ProjectReference Include="../Z.Tool.Infra.StatNetworkStatus/Z.Tool.Infra.StatNetworkStatus.csproj" />
-        <ProjectReference Include="../Z.Tool.Infra.StatPenCap/Z.Tool.Infra.StatPenCap.csproj" />
-        <ProjectReference Include="../Z.Tool.Infra.StatPenJoin/Z.Tool.Infra.StatPenJoin.csproj" />
-        <ProjectReference Include="../Z.Tool.Infra.StatBrushLine/Z.Tool.Infra.StatBrushLine.csproj" />
-        <ProjectReference Include="../Z.Tool.Infra.StatStorageMode/Z.Tool.Infra.StatStorageMode.csproj" />
-        <ProjectReference Include="../Z.Tool.Infra.StatStorageStatus/Z.Tool.Infra.StatStorageStatus.csproj" />
-        <ProjectReference Include="../Z.Tool.Infra.StatStreamKind/Z.Tool.Infra.StatStreamKind.csproj" />
         <ProjectReference Include="../Z.Tool.Infra.StatTextAlign/Z.Tool.Infra.StatTextAlign.csproj" />
         <ProjectReference Include="../Z.Tool.Infra.StatTextEncodeKind/Z.Tool.Infra.StatTextEncodeKind.csproj" />
         <ProjectReference Include="../Z.Tool.Infra.StatTextWrap/Z.Tool.Infra.StatTextWrap.csproj" />
-        <ProjectReference Include="../Z.Tool.Infra.StatThreadCase/Z.Tool.Infra.StatThreadCase.csproj" />
     </ItemGroup>
 
 </Project>
