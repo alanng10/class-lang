@@ -1389,139 +1389,77 @@ int main(int argc, char* argv[])
 
 
     Int penRectBrushKind;
-
     penRectBrushKind = Stat_BrushKindColor(Stat);
 
+    Int penRectLine;
+    penRectLine = Stat_BrushLineDashDot(Stat);
 
+    Int penRectCap;
+    penRectCap = Stat_BrushCapRound(Stat);
 
-
+    Int penRectJoin;
+    penRectJoin = Stat_BrushJoinBevel(Stat);
 
     Int penRectBrush;
-
-
     penRectBrush = Brush_New();
-
-
 
     Brush_KindSet(penRectBrush, penRectBrushKind);
 
-
     Brush_ColorSet(penRectBrush, 0xff00ff00);
 
+    Brush_LineSet(penRectBrush, penRectLine);
+
+    Brush_WidthSet(penRectBrush, 10);
+
+    Brush_CapSet(penRectBrush, penRectCap);
+
+    Brush_JoinSet(penRectBrush, penRectJoin);
 
     Brush_Init(penRectBrush);
 
-
-
-
-
-
-    Int penRectKind;
-
-    penRectKind = Stat_BrushLineDashDot(Stat);
-
-
-
-    Int penRectCap;
-
-    penRectCap = Stat_BrushCapRound(Stat);
-
-
-    Int penRectJoin;
-
-    penRectJoin = Stat_BrushJoinBevel(Stat);
-
-
-
-    PenRect = Pen_New();
-
-
-    Pen_KindSet(PenRect, penRectKind);
-
-
-    Pen_WidthSet(PenRect, 10);
-
-
-    Pen_BrushSet(PenRect, penRectBrush);
-
-
-    Pen_CapSet(PenRect, penRectCap);
-
-
-    Pen_JoinSet(PenRect, penRectJoin);
-
-
-
-    Pen_Init(PenRect);
+    PenRect = penRectBrush;
 
 
 
 
 
     Int penTextBrushKind;
-
     penTextBrushKind = Stat_BrushKindColor(Stat);
 
+    Int penTextLine;
+    penTextLine = Stat_BrushLineSolid(Stat);
 
+    Int penTextCap;
+    penTextCap = Stat_BrushCapSquare(Stat);
 
+    Int penTextJoin;
+    penTextJoin = Stat_BrushJoinMiter(Stat);
 
 
     Int penTextBrush;
-
-
     penTextBrush = Brush_New();
-
-
 
     Brush_KindSet(penTextBrush, penTextBrushKind);
 
-
     Brush_ColorSet(penTextBrush, 0xff0000ff);
 
+    Brush_LineSet(penTextBrush, penTextLine);
+
+    Brush_WidthSet(penTextBrush, 4);
+
+    Brush_CapSet(penTextBrush, penTextCap);
+
+    Brush_JoinSet(penTextBrush, penTextJoin);
 
     Brush_Init(penTextBrush);
 
 
-
-
-
-    Int penTextKind;
-
-    penTextKind = Stat_BrushLineSolid(Stat);
-
-
-
-    Int penTextCap;
-
-    penTextCap = Stat_BrushCapSquare(Stat);
-
-
-    Int penTextJoin;
-
-    penTextJoin = Stat_BrushJoinMiter(Stat);
+    PenText = penTextBrush;
 
 
 
 
-    PenText = Pen_New();
 
-
-    Pen_KindSet(PenText, penTextKind);
-
-
-    Pen_WidthSet(PenText, 4);
-
-
-    Pen_BrushSet(PenText, penTextBrush);
-
-
-    Pen_CapSet(PenText, penTextCap);
-
-
-    Pen_JoinSet(PenText, penTextJoin);
-
-
-    Pen_Init(PenText);
 
 
 
