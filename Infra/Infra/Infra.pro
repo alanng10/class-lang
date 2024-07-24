@@ -36,7 +36,6 @@ HEADERS += \
     NetworkPort.hpp \
     NetworkServer.hpp \
     NetworkServerIntern.hpp \
-    Pen.hpp \
     Phore.hpp \
     Play.hpp \
     PointData.hpp \
@@ -102,7 +101,6 @@ SOURCES += \
     NetworkPort.cpp \
     NetworkServer.cpp \
     NetworkServerIntern.cpp \
-    Pen.cpp \
     Phore.cpp \
     Play.cpp \
     PointData.cpp \
