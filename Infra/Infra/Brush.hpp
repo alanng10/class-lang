@@ -1,6 +1,7 @@
 #pragma once
 
 #include <QBrush>
+#include <QPen>
 #include <QGradient>
 
 #include "Probate.hpp"
@@ -11,7 +12,12 @@ struct Brush
     Int Color;
     Int Gradient;
     Int Image;
-    QBrush* Intern;
+    Int Width;
+    Int Line;
+    Int Cap;
+    Int Join;
+    QBrush* InternBrush;
+    QPen* Intern;
 };
 
 #define CP(a) ((Brush*)(a))

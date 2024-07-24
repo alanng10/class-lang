@@ -32,7 +32,7 @@ Int Brush_Init(Int o)
         QColor colorU;
         colorU = QColor(kk);
         
-        m->Intern = new QBrush(colorU);
+        m->InternBrush = new QBrush(colorU);
     }
 
     if (kind == Stat_BrushKindGradient(stat))
@@ -43,7 +43,7 @@ Int Brush_Init(Int o)
         QGradient* ua;
         ua = (QGradient*)gradientU;
 
-        m->Intern = new QBrush(*ua);
+        m->InternBrush = new QBrush(*ua);
     }
     
     if (kind == Stat_BrushKindImage(stat))
@@ -54,8 +54,10 @@ Int Brush_Init(Int o)
         QImage* ub;
         ub = (QImage*)imageU;
 
-        m->Intern = new QBrush(*ub);
+        m->InternBrush = new QBrush(*ub);
     }
+
+    
     return true;
 }
 
@@ -65,6 +67,9 @@ Int Brush_Final(Int o)
     m = CP(o);
 
     delete m->Intern;
+
+    delete m->InternBrush;
+
     return true;
 }
 
