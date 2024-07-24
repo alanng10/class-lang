@@ -9,8 +9,8 @@ struct Brush
 {
     Int Kind;
     Int Color;
-    Int Image;
     Int Gradient;
+    Int Image;
     QBrush* Intern;
 };
 
