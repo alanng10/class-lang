@@ -1,4 +1,4 @@
-namespace Z.Tool.Infra.StatPenCap;
+namespace Z.Tool.Infra.StatBrushCap;
 
 class Entry : EntryEntry
 {
