@@ -11,43 +11,17 @@ Int Brush_Init(Int o)
     kind = m->Kind;
     Int color;
     color = m->Color;
-    Int image;
-    image = m->Image;
     Int gradient;
     gradient = m->Gradient;
+    Int image;
+    image = m->Image;
 
     Int share;
     share = Infra_Share();
     Int stat;
     stat = Share_Stat(share);
 
-    Bool b;
-    b = false;
-    if ((!b) & (kind == Stat_BrushKindTexture(stat)))
-    {
-        Int imageU;
-        imageU = Image_Intern(image);
-
-        QImage* ua;
-        ua = (QImage*)imageU;
-
-        m->Intern = new QBrush(*ua);
-        b = true;
-    }
-
-    if ((!b) & ((kind == Stat_BrushKindLinearGradient(stat)) | (kind == Stat_BrushKindRadialGradient(stat))))
-    {
-        Int gradientU;
-        gradientU = Gradient_Intern(gradient);
-
-        QGradient* ub;
-        ub = (QGradient*)gradientU;
-
-        m->Intern = new QBrush(*ub);
-        b = true;
-    }
-
-    if (!b)
+    if (kind == Stat_BrushKindColor(stat))
     {
         Int32 uu;
         uu = (Int32)color;
@@ -59,8 +33,31 @@ Int Brush_Init(Int o)
         colorU = QColor(kk);
 
         Qt::BrushStyle brushStyle;
-        brushStyle = (Qt::BrushStyle)kind;
+        brushStyle = Qt::SolidPattern;
+        
         m->Intern = new QBrush(colorU, brushStyle);
+    }
+
+    if (kind == Stat_BrushKindGradient(stat))
+    {
+        Int gradientU;
+        gradientU = Gradient_Intern(gradient);
+
+        QGradient* ua;
+        ua = (QGradient*)gradientU;
+
+        m->Intern = new QBrush(*ua);
+    }
+    
+    if (kind == Stat_BrushKindImage(stat))
+    {
+        Int imageU;
+        imageU = Image_Intern(image);
+
+        QImage* ub;
+        ub = (QImage*)imageU;
+
+        m->Intern = new QBrush(*ub);
     }
     return true;
 }
@@ -76,8 +73,8 @@ Int Brush_Final(Int o)
 
 CppField(Brush, Kind)
 CppField(Brush, Color)
-CppField(Brush, Image)
 CppField(Brush, Gradient)
+CppField(Brush, Image)
 
 Int Brush_Intern(Int o)
 {
