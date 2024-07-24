@@ -1,14 +1,14 @@
-namespace Z.Tool.Infra.StatPenKind;
+namespace Z.Tool.Infra.StatBrushLine;
 
 class Gen : StatGen
 {
     public override int Execute()
     {
-        this.ClassName = "BrushStroke";
+        this.ClassName = "BrushLine";
         
         this.ValuePostfix = "Line";
 
-        this.ItemListFileName = "ToolData/ItemListBrushStroke.txt";
+        this.ItemListFileName = "ToolData/ItemListBrushLine.txt";
 
         int o;        
         o = base.Execute();

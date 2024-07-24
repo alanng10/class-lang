@@ -1,4 +1,4 @@
-namespace Z.Tool.Infra.StatPenKind;
+namespace Z.Tool.Infra.StatBrushLine;
 
 class Entry : EntryEntry
 {

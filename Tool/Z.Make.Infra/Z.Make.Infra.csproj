@@ -16,7 +16,7 @@
         <ProjectReference Include="../Z.Tool.Infra.StatNetworkStatus/Z.Tool.Infra.StatNetworkStatus.csproj" />
         <ProjectReference Include="../Z.Tool.Infra.StatPenCap/Z.Tool.Infra.StatPenCap.csproj" />
         <ProjectReference Include="../Z.Tool.Infra.StatPenJoin/Z.Tool.Infra.StatPenJoin.csproj" />
-        <ProjectReference Include="../Z.Tool.Infra.StatPenKind/Z.Tool.Infra.StatPenKind.csproj" />
+        <ProjectReference Include="../Z.Tool.Infra.StatBrushLine/Z.Tool.Infra.StatBrushLine.csproj" />
         <ProjectReference Include="../Z.Tool.Infra.StatStorageMode/Z.Tool.Infra.StatStorageMode.csproj" />
         <ProjectReference Include="../Z.Tool.Infra.StatStorageStatus/Z.Tool.Infra.StatStorageStatus.csproj" />
         <ProjectReference Include="../Z.Tool.Infra.StatStreamKind/Z.Tool.Infra.StatStreamKind.csproj" />
