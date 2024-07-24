@@ -448,8 +448,8 @@ Post
     ExecuteState
     Execute(post, arg) --
 
-Process
-    Program
+Program
+    Name
     Argue
     WorkFold
     Environment
@@ -461,8 +461,8 @@ Process
     ExitKind
     StartState
     FinishState
-    Start(process, arg) --
-    Finish(process, arg) --
+    Start(program, arg) --
+    Finish(program, arg) --
 
 Infra -
     Share() -
