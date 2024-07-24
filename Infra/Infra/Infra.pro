@@ -27,8 +27,6 @@ HEADERS += \
     Image.hpp \
     ImageRead.hpp \
     ImageWrite.hpp \
-    Interval.hpp \
-    IntervalIntern.hpp \
     Main.hpp \
     Math.hpp \
     Memory.hpp \
@@ -65,6 +63,8 @@ HEADERS += \
     Thread.hpp \
     ThreadIntern.hpp \
     Time.hpp \
+    TimeEvent.hpp \
+    TimeEventIntern.hpp \
     Transform.hpp \
     TransformIntern.hpp \
     VideoFrame.hpp \
@@ -93,8 +93,6 @@ SOURCES += \
     Image.cpp \
     ImageRead.cpp \
     ImageWrite.cpp \
-    Interval.cpp \
-    IntervalIntern.cpp \
     Main.cpp \
     Math.cpp \
     Memory.cpp \
@@ -147,6 +145,8 @@ SOURCES += \
     Thread.cpp \
     ThreadIntern.cpp \
     Time.cpp \
+    TimeEvent.cpp \
+    TimeEventIntern.cpp \
     Transform.cpp \
     VideoFrame.cpp \
     VideoOut.cpp \
