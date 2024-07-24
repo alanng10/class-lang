@@ -31,7 +31,7 @@ public class Thread : Any
         this.InternInfra = InternInfra.This;
         this.ThreadInfra = Infra.This;
 
-        this.Intern = Extern.Thread_CurrentThread();
+        this.Intern = Extern.Thread_This();
 
         InternIntern.ThisThread = this;
         return true;
@@ -131,7 +131,7 @@ public class Thread : Any
         get
         {
             ulong u;
-            u = Extern.Thread_IsMainThread(this.Intern);
+            u = Extern.Thread_IsMain(this.Intern);
             bool a;
             a = (!(u == 0));
             return a;
