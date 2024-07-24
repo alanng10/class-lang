@@ -788,7 +788,7 @@ Int ThreadExecute(Int thread, Int arg)
 
     Int threadA;
 
-    threadA = Thread_CurrentThread();
+    threadA = Thread_This();
 
 
 
@@ -894,7 +894,7 @@ Bool TerminateHandle()
 {
     Int thread;
 
-    thread = Thread_CurrentThread();
+    thread = Thread_This();
 
 
 
@@ -1164,7 +1164,7 @@ int main(int argc, char* argv[])
 
 
 
-    MainThread = Thread_CurrentThread();
+    MainThread = Thread_This();
 
 
 
