@@ -2,23 +2,23 @@
 
 #include <QProcessEnvironment>
 
-#include "ProcessIntern.hpp"
+#include "ProgramIntern.hpp"
 
 #include "Probate.hpp"
 
-struct Process
+struct Program
 {
-    Int Program;
+    Int Name;
     Int Argue;
     Int WorkFold;
     Int Environment;
     Int StartState;
     Int FinishState;
-    ProcessIntern* Intern;
+    ProgramIntern* Intern;
 };
 
-#define CP(a) ((Process*)(a))
+#define CP(a) ((Program*)(a))
 
-Int Process_InternArgueSet(Int result, Int argue);
+Int Program_InternArgueSet(Int result, Int argue);
 
-Int Process_InternEnvironmentSet(Int result, Int environment);
+Int Program_InternEnvironmentSet(Int result, Int environment);

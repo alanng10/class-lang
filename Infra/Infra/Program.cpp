@@ -1,34 +1,34 @@
-#include "Process.hpp"
+#include "Program.hpp"
 
-CppClassNew(Process)
+CppClassNew(Program)
 
-Int Process_Init(Int o)
+Int Program_Init(Int o)
 {
-    Process* m;
+    Program* m;
     m = CP(o);
-    m->Intern = new ProcessIntern;
-    m->Intern->Process = o;
+    m->Intern = new ProgramIntern;
+    m->Intern->Program = o;
     m->Intern->Init();
     return true;
 }
 
-Int Process_Final(Int o)
+Int Program_Final(Int o)
 {
-    Process* m;
+    Program* m;
     m = CP(o);
 
     delete m->Intern;
     return true;
 }
 
-CppField(Process, Program)
-CppField(Process, Argue)
-CppField(Process, WorkFold)
-CppField(Process, Environment)
+CppField(Program, Program)
+CppField(Program, Argue)
+CppField(Program, WorkFold)
+CppField(Program, Environment)
 
-Int Process_Execute(Int o)
+Int Program_Execute(Int o)
 {
-    Process* m;
+    Program* m;
     m = CP(o);
     Int program;
     program = m->Program;
@@ -82,9 +82,9 @@ Int Process_Execute(Int o)
     return true;
 }
 
-Int Process_IdentGet(Int o)
+Int Program_IdentGet(Int o)
 {
-    Process* m;
+    Program* m;
     m = CP(o);
     qint64 u;
     u = m->Intern->processId();
@@ -93,27 +93,27 @@ Int Process_IdentGet(Int o)
     return a;
 }
 
-FieldDefaultSet(Process, Ident)
+FieldDefaultSet(Program, Ident)
 
-Int Process_Wait(Int o)
+Int Program_Wait(Int o)
 {
-    Process* m;
+    Program* m;
     m = CP(o);
     m->Intern->waitForFinished();
     return true;
 }
 
-Int Process_Terminate(Int o)
+Int Program_Terminate(Int o)
 {
-    Process* m;
+    Program* m;
     m = CP(o);
     m->Intern->kill();
     return true;
 }
 
-Int Process_StatusGet(Int o)
+Int Program_StatusGet(Int o)
 {
-    Process* m;
+    Program* m;
     m = CP(o);
     int u;
     u = m->Intern->exitCode();
@@ -122,11 +122,11 @@ Int Process_StatusGet(Int o)
     return a;
 }
 
-FieldDefaultSet(Process, Status)
+FieldDefaultSet(Program, Status)
 
-Int Process_ExitKindGet(Int o)
+Int Program_ExitKindGet(Int o)
 {
-    Process* m;
+    Program* m;
     m = CP(o);
     QProcess::ExitStatus u;
     u = m->Intern->exitStatus();
@@ -135,16 +135,17 @@ Int Process_ExitKindGet(Int o)
     return a;
 }
 
-FieldDefaultSet(Process, ExitKind)
-CppField(Process, StartState)
-CppField(Process, FinishState)
+FieldDefaultSet(Program, ExitKind)
+CppField(Program, StartState)
+CppField(Program, FinishState)
 
-Int Process_Start(Int o)
+Int Program_Start(Int o)
 {
-    Process* m;
+    Program* m;
     m = CP(o);
     Int state;
     state = m->StartState;
+
     if (state == null)
     {
         return true;
@@ -155,21 +156,26 @@ Int Process_Start(Int o)
     Int arg;
     arg = State_ArgGet(state);
 
-    Process_Start_Maide maide;
-    maide = (Process_Start_Maide)aa;
-    if (!(maide == null))
+    if (aa == null)
     {
-        maide(o, arg);
+        return true;
     }
+
+    Program_Start_Maide maide;
+    maide = (Program_Start_Maide)aa;
+    
+    maide(o, arg);
+    
     return true;
 }
 
-Int Process_Finish(Int o)
+Int Program_Finish(Int o)
 {
-    Process* m;
+    Program* m;
     m = CP(o);
     Int state;
     state = m->FinishState;
+
     if (state == null)
     {
         return true;
@@ -180,16 +186,20 @@ Int Process_Finish(Int o)
     Int arg;
     arg = State_ArgGet(state);
 
-    Process_Finish_Maide maide;
-    maide = (Process_Finish_Maide)aa;
-    if (!(maide == null))
+    if (aa == null)
     {
-        maide(o, arg);
+        return true;
     }
+
+    Program_Finish_Maide maide;
+    maide = (Program_Finish_Maide)aa;
+    
+    maide(o, arg);
+    
     return true;
 }
 
-Int Process_InternArgueSet(Int result, Int argue)
+Int Program_InternArgueSet(Int result, Int argue)
 {
     QStringList* uu;
     uu = (QStringList*)result;
@@ -220,7 +230,7 @@ Int Process_InternArgueSet(Int result, Int argue)
     return true;
 }
 
-Int Process_InternEnvironmentSet(Int result, Int environment)
+Int Program_InternEnvironmentSet(Int result, Int environment)
 {
     QProcessEnvironment* uu;
     uu = (QProcessEnvironment*)result;
