@@ -97,7 +97,7 @@ class Demo : Any
 
         DrawBrush brush;
         brush = new DrawBrush();
-        brush.Kind = this.BrushKindList.Dense5;
+        brush.Kind = this.BrushKindList.Color;
         brush.Color = this.DrawInfra.ColorCreate(0xff, 0, 0xff, 0);
         brush.Init();
         View view;
@@ -111,13 +111,13 @@ class Demo : Any
 
         DrawBrush brushA;
         brushA = new DrawBrush();
-        brushA.Kind = this.BrushKindList.DiagCross;
+        brushA.Kind = this.BrushKindList.Color;
         brushA.Color = this.DrawInfra.ColorCreate(0xff, 0, 0, 0xff);
         brushA.Init();
 
         DrawBrush penBrush;
         penBrush = new DrawBrush();
-        penBrush.Kind = this.BrushKindList.Dense1;
+        penBrush.Kind = this.BrushKindList.Color;
         penBrush.Color = this.DrawInfra.ColorCreate(0xff, 0xff, 0, 0xff);
         penBrush.Init();
 
@@ -1143,7 +1143,7 @@ class Demo : Any
     {
         DrawBrush a;
         a = new DrawBrush();
-        a.Kind = this.BrushKindList.DiagCross;
+        a.Kind = this.BrushKindList.Color;
         a.Color = this.DrawInfra.ColorCreate(0xff, 0, 0xff, 0);
         a.Init();
         return a;
@@ -1216,7 +1216,7 @@ class Demo : Any
 
         DrawBrush brush;
         brush = new DrawBrush();
-        brush.Kind = this.BrushKindList.LinearGradient;
+        brush.Kind = this.BrushKindList.Gradient;
         brush.Gradient = gradient;
         brush.Init();
 
@@ -1301,7 +1301,7 @@ class Demo : Any
     {
         DrawBrush aa;
         aa = new DrawBrush();
-        aa.Kind = this.BrushKindList.Solid;
+        aa.Kind = this.BrushKindList.Color;
         aa.Color = this.DrawInfra.ColorCreate(0xff, 0, 0, 0xff);
         aa.Init();
 

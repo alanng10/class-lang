@@ -73,13 +73,13 @@ class ThreadState : State
 
         DrawBrush brush;
         brush = new DrawBrush();
-        brush.Kind = brushKindList.Solid;
+        brush.Kind = brushKindList.Color;
         brush.Color = drawInfra.ColorCreate(0xff, 0xff, 0xff, 0);
         brush.Init();
 
         DrawBrush brushA;
         brushA = new DrawBrush();
-        brushA.Kind = brushKindList.Cross;
+        brushA.Kind = brushKindList.Color;
         brushA.Color = drawInfra.ColorCreate(0xff, 0, 0, 0);
         brushA.Init();
 
@@ -100,6 +100,18 @@ class ThreadState : State
         draw.ExecuteRect(rect);
         draw.Brush = brushA;
         draw.Comp = compList.DestinationOut;
+
+        int w;
+        w = rect.Size.Width;
+        w = w - 40;
+
+        int h;
+        h = rect.Size.Height;
+        h = h - 40;
+
+        rect.Size.Width = w;
+        rect.Size.Height = h;
+
         draw.ExecuteRect(rect);
         draw.Comp = null;
         draw.End();
