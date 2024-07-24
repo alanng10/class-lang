@@ -100,14 +100,8 @@ public class Gen : Any
 
         time.This();
 
-        Time timeA;
-        timeA = new Time();
-        timeA.Init();
-
         long aa;
-        aa = timeA.MillisecTo(time);
-
-        timeA.Final();
+        aa = time.TotalMillisec;
 
         time.Final();
 
