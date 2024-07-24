@@ -126,8 +126,8 @@ SOURCES += \
     Stat_NetworkStatus.cpp \
     Stat_BrushKind.cpp \
     Stat_BrushLine.cpp \
-    Stat_PenCap.cpp \
-    Stat_PenJoin.cpp \
+    Stat_BrushCap.cpp \
+    Stat_BrushJoin.cpp \
     Stat_PointData.cpp \
     Stat_Comp.cpp \
     Stat_StorageMode.cpp \
