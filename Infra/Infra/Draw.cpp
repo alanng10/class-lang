@@ -7,7 +7,7 @@ Int Draw_Init(Int o)
     Draw* m;
     m = CP(o);
 
-    m->InternIdentityTransform = new QTransform;
+    m->InternIdentityForm = new QTransform;
 
     QString* uu;
     uu = new QString;
@@ -16,7 +16,7 @@ Int Draw_Init(Int o)
 
     QFont* ua;
     ua = new QFont(QApplication::font());
-    m->InternDefaultFont = ua;
+    m->InternDefaultFace = ua;
 
     QPainter* u;
     u = new QPainter;
@@ -30,9 +30,9 @@ Int Draw_Final(Int o)
     m = CP(o);
 
     delete m->Intern;
-    delete m->InternDefaultFont;
+    delete m->InternDefaultFace;
     delete m->InternText;
-    delete m->InternIdentityTransform;
+    delete m->InternIdentityForm;
     return true;
 }
 
@@ -137,42 +137,42 @@ Int Draw_StrokeSet(Int o, Int value)
     return true;
 }
 
-CppFieldGet(Draw, Font)
+CppFieldGet(Draw, Face)
 
 Int Draw_FontSet(Int o, Int value)
 {
     Draw* m;
     m = CP(o);
-    m->Font = value;
-    if (m->Font == null)
+    m->Face = value;
+    if (m->Face == null)
     {
-        m->Intern->setFont(*(m->InternDefaultFont));
+        m->Intern->setFont(*(m->InternDefaultFace));
         return true;
     }
 
     Int u;
-    u = Font_Intern(m->Font);
+    u = Font_Intern(m->Face);
     QFont* uu;
     uu = (QFont*)u;
     m->Intern->setFont(*uu);
     return true;
 }
 
-CppFieldGet(Draw, Transform)
+CppFieldGet(Draw, Form)
 
-Int Draw_TransformSet(Int o, Int value)
+Int Draw_FormSet(Int o, Int value)
 {
     Draw* m;
     m = CP(o);
-    m->Transform = value;
-    if (m->Transform == null)
+    m->Form = value;
+    if (m->Form == null)
     {
-        m->Intern->setWorldTransform((*(m->InternIdentityTransform)), false);
+        m->Intern->setWorldTransform((*(m->InternIdentityForm)), false);
         return true;
     }
 
     Int u;
-    u = Transform_Intern(m->Transform);
+    u = Transform_Intern(m->Form);
     QTransform* uu;
     uu = (QTransform*)u;
     m->Intern->setWorldTransform(*uu, false);
@@ -180,21 +180,21 @@ Int Draw_TransformSet(Int o, Int value)
 }
 
 CppField(Draw, FillPos)
-CppFieldGet(Draw, Composite)
+CppFieldGet(Draw, Comp)
 
-Int Draw_CompositeSet(Int o, Int value)
+Int Draw_CompSet(Int o, Int value)
 {
     Draw* m;
     m = CP(o);
-    m->Composite = value;
-    if (m->Composite == null)
+    m->Comp = value;
+    if (m->Comp == null)
     {
         m->Intern->setCompositionMode(QPainter::CompositionMode_SourceOver);
         return true;
     }
 
     Int k;
-    k = m->Composite - 1;
+    k = m->Comp - 1;
     QPainter::CompositionMode u;
     u = (QPainter::CompositionMode)k;
 
