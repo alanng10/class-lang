@@ -15,6 +15,14 @@ Int Brush_Init(Int o)
     gradient = m->Gradient;
     Int image;
     image = m->Image;
+    Int line;
+    line = m->Line;
+    Int width;
+    width = m->Width;
+    Int cap;
+    cap = m->Cap;
+    Int join;
+    join = m->Join;
 
     Int share;
     share = Infra_Share();
@@ -57,7 +65,28 @@ Int Brush_Init(Int o)
         m->InternBrush = new QBrush(*ub);
     }
 
-    
+    if (line == null)
+    {
+        return true;
+    }
+
+    Qt::PenStyle styleU;
+    styleU = (Qt::PenStyle)line;
+
+    int widthU;
+    widthU = (int)width;
+    qreal widthUu;
+    widthUu = widthU;
+
+    Qt::PenCapStyle capStyleU;
+    capStyleU = (Qt::PenCapStyle)(cap - 1);
+
+    Qt::PenJoinStyle joinStyleU;
+    joinStyleU = (Qt::PenJoinStyle)(join - 1);
+
+    QPen* u;
+    u = new QPen(*(m->InternBrush), widthUu, styleU, capStyleU, joinStyleU);
+    m->Intern = u;
     return true;
 }
 
