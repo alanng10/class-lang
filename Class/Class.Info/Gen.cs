@@ -105,7 +105,6 @@ public class Gen : Any
 
         time.Final();
 
-
         Format format;
         format = new Format();
         format.Init();
