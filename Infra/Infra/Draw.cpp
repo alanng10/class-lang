@@ -454,26 +454,15 @@ Int Draw_ExecuteRoundRect(Int o, Int rect, Int horizRadius, Int vertRadius)
     aRect = rect;
     RectValue(a);
 
-    int l;
-    int u;
-    int w;
-    int h;
-    l = (int)aLeft;
-    u = (int)aUp;
-    w = (int)aWidth;
-    h = (int)aHeight;
+    InternRectValue(a);
 
-    Int ua;
-    ua = InternValueGet(horizRadius);
-    qreal horizRadiusU;
-    horizRadiusU = CastIntToDouble(ua);
+    QRectF aa(aLeftU, aUpU, aWidthU, aHeightU);
 
-    Int ub;
-    ub = InternValueGet(vertRadius);
-    qreal vertRadiusU;
-    vertRadiusU = CastIntToDouble(ub);
+    InternValue(horizRadius);
 
-    m->Intern->drawRoundedRect(l, u, w, h, horizRadiusU, vertRadiusU);
+    InternValue(vertRadius);
+    
+    m->Intern->drawRoundedRect(aa, horizRadiusU, vertRadiusU);
     return true;
 }
 
