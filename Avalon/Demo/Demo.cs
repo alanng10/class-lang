@@ -980,7 +980,7 @@ class Demo : Any
         program.Name = "DemoNetwork.exe";
         program.Argue = list;
         program.WorkFold = null;
-        program.Environment = null;
+        program.Environ = null;
 
         program.Execute();
 

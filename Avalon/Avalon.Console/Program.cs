@@ -47,7 +47,7 @@ public class Program : Any
     public virtual string Name { get; set; }
     public virtual ListList Argue { get; set; }
     public virtual string WorkFold { get; set; }
-    public virtual Table Environment { get; set; }
+    public virtual Table Environ { get; set; }
 
     public virtual State StartState { get; set; }
     public virtual State FinishState { get; set; }
@@ -184,10 +184,10 @@ public class Program : Any
         ulong environmentU;
         environmentU = 0;
         bool bb;
-        bb = !(this.Environment == null);
+        bb = !(this.Environ == null);
         if (bb)
         {
-            environmentU = this.InternStringEntryListCreate(this.Environment);
+            environmentU = this.InternStringEntryListCreate(this.Environ);
         }
 
         Extern.Program_NameSet(this.Intern, nameU);
