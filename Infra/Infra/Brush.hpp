@@ -14,6 +14,7 @@ struct Brush
     Int Image;
     Int Width;
     Int Line;
+    Int Brush;
     Int Cap;
     Int Join;
     QBrush* InternBrush;
