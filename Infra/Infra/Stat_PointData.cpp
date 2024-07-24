@@ -2,7 +2,7 @@
 
 
 
-Int Stat_Var_PointDataCount = sizeof(QPoint);
+Int Stat_Var_PointDataCount = sizeof(QPointF);
 
 
 
