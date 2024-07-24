@@ -1418,18 +1418,18 @@ int main(int argc, char* argv[])
 
     Int penRectKind;
 
-    penRectKind = Stat_PenKindDashDot(Stat);
+    penRectKind = Stat_BrushLineDashDot(Stat);
 
 
 
     Int penRectCap;
 
-    penRectCap = Stat_PenCapRound(Stat);
+    penRectCap = Stat_BrushCapRound(Stat);
 
 
     Int penRectJoin;
 
-    penRectJoin = Stat_PenJoinBevel(Stat);
+    penRectJoin = Stat_BrushJoinBevel(Stat);
 
 
 
@@ -1487,18 +1487,18 @@ int main(int argc, char* argv[])
 
     Int penTextKind;
 
-    penTextKind = Stat_PenKindSolid(Stat);
+    penTextKind = Stat_BrushLineSolid(Stat);
 
 
 
     Int penTextCap;
 
-    penTextCap = Stat_PenCapSquare(Stat);
+    penTextCap = Stat_BrushCapSquare(Stat);
 
 
     Int penTextJoin;
 
-    penTextJoin = Stat_PenJoinMiter(Stat);
+    penTextJoin = Stat_BrushJoinMiter(Stat);
 
 
 
