@@ -12,9 +12,8 @@ struct Brush
     Int Color;
     Int Gradient;
     Int Image;
-    Int Width;
     Int Line;
-    Int Brush;
+    Int Width;
     Int Cap;
     Int Join;
     QBrush* InternBrush;
