@@ -419,6 +419,8 @@ Time
     WeekDay
     YearDayCount
     MonthDayCount
+    TotalMillisec
+    TotalDay
     AddYear(value)
     AddMonth(value)
     AddDay(value)
@@ -426,8 +428,6 @@ Time
     AddMin(value)
     AddSec(value)
     AddMillisec(value)
-    MillisecTo(other)
-    DayTo(other)
     This()
     ToPos(pos)
     Set(year, month, day, hour, min, sec, millisec, pos)
