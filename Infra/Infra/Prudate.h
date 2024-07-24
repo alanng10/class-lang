@@ -654,10 +654,10 @@ Infra_Api Int Thread_Resume(Int o);
 Infra_Api Int Thread_Wait(Int o);
 Infra_Api Int Thread_ExecuteEventLoop(Int o);
 Infra_Api Int Thread_ExitEventLoop(Int o, Int code);
-Infra_Api Int Thread_IsMainThread(Int o);
+Infra_Api Int Thread_IsMain(Int o);
 
 Infra_Api Int Thread_Sleep(Int time);
-Infra_Api Int Thread_CurrentThread();
+Infra_Api Int Thread_This();
 
 typedef Int (*Thread_Execute_Maide)(Int thread, Int arg);
 
@@ -713,20 +713,20 @@ Infra_Api Int Time_LeapYear(Int year);
 Infra_Api Int Time_ValidDate(Int year, Int month, Int day);
 Infra_Api Int Time_ValidTime(Int hour, Int minute, Int sec, Int millisec);
 
-InfraApiNew(Interval)
-Infra_Api Int Interval_TimeGet(Int o);
-Infra_Api Int Interval_TimeSet(Int o, Int value);
-Infra_Api Int Interval_SingleGet(Int o);
-Infra_Api Int Interval_SingleSet(Int o, Int value);
-Infra_Api Int Interval_ActiveGet(Int o);
-Infra_Api Int Interval_ActiveSet(Int o, Int value);
-Infra_Api Int Interval_ElapseStateGet(Int o);
-Infra_Api Int Interval_ElapseStateSet(Int o, Int value);
+InfraApiNew(TimeEvent)
+Infra_Api Int TimeEvent_TimeGet(Int o);
+Infra_Api Int TimeEvent_TimeSet(Int o, Int value);
+Infra_Api Int TimeEvent_SingleGet(Int o);
+Infra_Api Int TimeEvent_SingleSet(Int o, Int value);
+Infra_Api Int TimeEvent_ActiveGet(Int o);
+Infra_Api Int TimeEvent_ActiveSet(Int o, Int value);
+Infra_Api Int TimeEvent_ElapseStateGet(Int o);
+Infra_Api Int TimeEvent_ElapseStateSet(Int o, Int value);
 
-Infra_Api Int Interval_Start(Int o);
-Infra_Api Int Interval_Stop(Int o);
+Infra_Api Int TimeEvent_Start(Int o);
+Infra_Api Int TimeEvent_Stop(Int o);
 
-typedef Int (*Interval_Elapse_Maide)(Int interval, Int arg);
+typedef Int (*TimeEvent_Elapse_Maide)(Int timeEvent, Int arg);
 
 InfraApiNew(Post)
 Infra_Api Int Post_ExecuteStateGet(Int o);
@@ -736,32 +736,32 @@ Infra_Api Int Post_Execute(Int o);
 
 typedef Int (*Post_Execute_Maide)(Int post, Int arg);
 
-InfraApiNew(Process)
-Infra_Api Int Process_ProgramGet(Int o);
-Infra_Api Int Process_ProgramSet(Int o, Int value);
-Infra_Api Int Process_ArgueGet(Int o);
-Infra_Api Int Process_ArgueSet(Int o, Int value);
-Infra_Api Int Process_WorkFoldGet(Int o);
-Infra_Api Int Process_WorkFoldSet(Int o, Int value);
-Infra_Api Int Process_EnvironmentGet(Int o);
-Infra_Api Int Process_EnvironmentSet(Int o, Int value);
-Infra_Api Int Process_IdentGet(Int o);
-Infra_Api Int Process_IdentSet(Int o, Int value);
-Infra_Api Int Process_StatusGet(Int o);
-Infra_Api Int Process_StatusSet(Int o, Int value);
-Infra_Api Int Process_ExitKindGet(Int o);
-Infra_Api Int Process_ExitKindSet(Int o, Int value);
-Infra_Api Int Process_StartStateGet(Int o);
-Infra_Api Int Process_StartStateSet(Int o, Int value);
-Infra_Api Int Process_FinishStateGet(Int o);
-Infra_Api Int Process_FinishStateSet(Int o, Int value);
+InfraApiNew(Program)
+Infra_Api Int Program_NameGet(Int o);
+Infra_Api Int Program_NameSet(Int o, Int value);
+Infra_Api Int Program_ArgueGet(Int o);
+Infra_Api Int Program_ArgueSet(Int o, Int value);
+Infra_Api Int Program_WorkFoldGet(Int o);
+Infra_Api Int Program_WorkFoldSet(Int o, Int value);
+Infra_Api Int Program_EnvironmentGet(Int o);
+Infra_Api Int Program_EnvironmentSet(Int o, Int value);
+Infra_Api Int Program_IdentGet(Int o);
+Infra_Api Int Program_IdentSet(Int o, Int value);
+Infra_Api Int Program_StatusGet(Int o);
+Infra_Api Int Program_StatusSet(Int o, Int value);
+Infra_Api Int Program_ExitKindGet(Int o);
+Infra_Api Int Program_ExitKindSet(Int o, Int value);
+Infra_Api Int Program_StartStateGet(Int o);
+Infra_Api Int Program_StartStateSet(Int o, Int value);
+Infra_Api Int Program_FinishStateGet(Int o);
+Infra_Api Int Program_FinishStateSet(Int o, Int value);
 
-Infra_Api Int Process_Execute(Int o);
-Infra_Api Int Process_Wait(Int o);
-Infra_Api Int Process_Terminate(Int o);
+Infra_Api Int Program_Execute(Int o);
+Infra_Api Int Program_Wait(Int o);
+Infra_Api Int Program_Terminate(Int o);
 
-typedef Int (*Process_Start_Maide)(Int process, Int arg);
-typedef Int (*Process_Finish_Maide)(Int process, Int arg);
+typedef Int (*Program_Start_Maide)(Int program, Int arg);
+typedef Int (*Program_Finish_Maide)(Int program, Int arg);
 
 Infra_Api Int Infra_Share();
 
@@ -885,7 +885,6 @@ Infra_Api Int Stat_CompSourceAtop(Int o);
 Infra_Api Int Stat_CompDestinationAtop(Int o);
 Infra_Api Int Stat_GradientKindLinear(Int o);
 Infra_Api Int Stat_GradientKindRadial(Int o);
-Infra_Api Int Stat_GradientKindConical(Int o);
 Infra_Api Int Stat_GradientSpreadPad(Int o);
 Infra_Api Int Stat_GradientSpreadReflect(Int o);
 Infra_Api Int Stat_GradientSpreadRepeat(Int o);

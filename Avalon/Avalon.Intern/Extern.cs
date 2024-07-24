@@ -697,10 +697,10 @@ public static class Extern
     [DllImport(InfraLib)] public extern static ulong Thread_Wait(ulong o);
     [DllImport(InfraLib)] public extern static ulong Thread_ExecuteEventLoop(ulong o);
     [DllImport(InfraLib)] public extern static ulong Thread_ExitEventLoop(ulong o, ulong code);
-    [DllImport(InfraLib)] public extern static ulong Thread_IsMainThread(ulong o);
+    [DllImport(InfraLib)] public extern static ulong Thread_IsMain(ulong o);
 
     [DllImport(InfraLib)] public extern static ulong Thread_Sleep(ulong time);
-    [DllImport(InfraLib)] public extern static ulong Thread_CurrentThread();
+    [DllImport(InfraLib)] public extern static ulong Thread_This();
 
     public delegate ulong Thread_Execute_Maide(ulong thread, ulong arg);
 
@@ -762,23 +762,23 @@ public static class Extern
     [DllImport(InfraLib)] public extern static ulong Time_ValidDate(ulong year, ulong month, ulong day);
     [DllImport(InfraLib)] public extern static ulong Time_ValidTime(ulong hour, ulong minute, ulong sec, ulong millisec);
 
-    [DllImport(InfraLib)] public extern static ulong Interval_New();
-    [DllImport(InfraLib)] public extern static ulong Interval_Delete(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Interval_Init(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Interval_Final(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Interval_TimeGet(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Interval_TimeSet(ulong o, ulong value);
-    [DllImport(InfraLib)] public extern static ulong Interval_SingleGet(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Interval_SingleSet(ulong o, ulong value);
-    [DllImport(InfraLib)] public extern static ulong Interval_ActiveGet(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Interval_ActiveSet(ulong o, ulong value);
-    [DllImport(InfraLib)] public extern static ulong Interval_ElapseStateGet(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Interval_ElapseStateSet(ulong o, ulong value);
+    [DllImport(InfraLib)] public extern static ulong TimeEvent_New();
+    [DllImport(InfraLib)] public extern static ulong TimeEvent_Delete(ulong o);
+    [DllImport(InfraLib)] public extern static ulong TimeEvent_Init(ulong o);
+    [DllImport(InfraLib)] public extern static ulong TimeEvent_Final(ulong o);
+    [DllImport(InfraLib)] public extern static ulong TimeEvent_TimeGet(ulong o);
+    [DllImport(InfraLib)] public extern static ulong TimeEvent_TimeSet(ulong o, ulong value);
+    [DllImport(InfraLib)] public extern static ulong TimeEvent_SingleGet(ulong o);
+    [DllImport(InfraLib)] public extern static ulong TimeEvent_SingleSet(ulong o, ulong value);
+    [DllImport(InfraLib)] public extern static ulong TimeEvent_ActiveGet(ulong o);
+    [DllImport(InfraLib)] public extern static ulong TimeEvent_ActiveSet(ulong o, ulong value);
+    [DllImport(InfraLib)] public extern static ulong TimeEvent_ElapseStateGet(ulong o);
+    [DllImport(InfraLib)] public extern static ulong TimeEvent_ElapseStateSet(ulong o, ulong value);
 
-    [DllImport(InfraLib)] public extern static ulong Interval_Start(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Interval_Stop(ulong o);
+    [DllImport(InfraLib)] public extern static ulong TimeEvent_Start(ulong o);
+    [DllImport(InfraLib)] public extern static ulong TimeEvent_Stop(ulong o);
 
-    public delegate ulong Interval_Elapse_Maide(ulong interval, ulong arg);
+    public delegate ulong TimeEvent_Elapse_Maide(ulong timeEvent, ulong arg);
 
     [DllImport(InfraLib)] public extern static ulong Post_New();
     [DllImport(InfraLib)] public extern static ulong Post_Delete(ulong o);
@@ -791,35 +791,35 @@ public static class Extern
 
     public delegate ulong Post_Execute_Maide(ulong post, ulong arg);
 
-    [DllImport(InfraLib)] public extern static ulong Process_New();
-    [DllImport(InfraLib)] public extern static ulong Process_Delete(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Process_Init(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Process_Final(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Process_ProgramGet(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Process_ProgramSet(ulong o, ulong value);
-    [DllImport(InfraLib)] public extern static ulong Process_ArgueGet(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Process_ArgueSet(ulong o, ulong value);
-    [DllImport(InfraLib)] public extern static ulong Process_WorkFoldGet(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Process_WorkFoldSet(ulong o, ulong value);
-    [DllImport(InfraLib)] public extern static ulong Process_EnvironmentGet(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Process_EnvironmentSet(ulong o, ulong value);
-    [DllImport(InfraLib)] public extern static ulong Process_IdentGet(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Process_IdentSet(ulong o, ulong value);
-    [DllImport(InfraLib)] public extern static ulong Process_StatusGet(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Process_StatusSet(ulong o, ulong value);
-    [DllImport(InfraLib)] public extern static ulong Process_ExitKindGet(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Process_ExitKindSet(ulong o, ulong value);
-    [DllImport(InfraLib)] public extern static ulong Process_StartStateGet(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Process_StartStateSet(ulong o, ulong value);
-    [DllImport(InfraLib)] public extern static ulong Process_FinishStateGet(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Process_FinishStateSet(ulong o, ulong value);
+    [DllImport(InfraLib)] public extern static ulong Program_New();
+    [DllImport(InfraLib)] public extern static ulong Program_Delete(ulong o);
+    [DllImport(InfraLib)] public extern static ulong Program_Init(ulong o);
+    [DllImport(InfraLib)] public extern static ulong Program_Final(ulong o);
+    [DllImport(InfraLib)] public extern static ulong Program_NameGet(ulong o);
+    [DllImport(InfraLib)] public extern static ulong Program_NameSet(ulong o, ulong value);
+    [DllImport(InfraLib)] public extern static ulong Program_ArgueGet(ulong o);
+    [DllImport(InfraLib)] public extern static ulong Program_ArgueSet(ulong o, ulong value);
+    [DllImport(InfraLib)] public extern static ulong Program_WorkFoldGet(ulong o);
+    [DllImport(InfraLib)] public extern static ulong Program_WorkFoldSet(ulong o, ulong value);
+    [DllImport(InfraLib)] public extern static ulong Program_EnvironmentGet(ulong o);
+    [DllImport(InfraLib)] public extern static ulong Program_EnvironmentSet(ulong o, ulong value);
+    [DllImport(InfraLib)] public extern static ulong Program_IdentGet(ulong o);
+    [DllImport(InfraLib)] public extern static ulong Program_IdentSet(ulong o, ulong value);
+    [DllImport(InfraLib)] public extern static ulong Program_StatusGet(ulong o);
+    [DllImport(InfraLib)] public extern static ulong Program_StatusSet(ulong o, ulong value);
+    [DllImport(InfraLib)] public extern static ulong Program_ExitKindGet(ulong o);
+    [DllImport(InfraLib)] public extern static ulong Program_ExitKindSet(ulong o, ulong value);
+    [DllImport(InfraLib)] public extern static ulong Program_StartStateGet(ulong o);
+    [DllImport(InfraLib)] public extern static ulong Program_StartStateSet(ulong o, ulong value);
+    [DllImport(InfraLib)] public extern static ulong Program_FinishStateGet(ulong o);
+    [DllImport(InfraLib)] public extern static ulong Program_FinishStateSet(ulong o, ulong value);
 
-    [DllImport(InfraLib)] public extern static ulong Process_Execute(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Process_Wait(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Process_Terminate(ulong o);
+    [DllImport(InfraLib)] public extern static ulong Program_Execute(ulong o);
+    [DllImport(InfraLib)] public extern static ulong Program_Wait(ulong o);
+    [DllImport(InfraLib)] public extern static ulong Program_Terminate(ulong o);
 
-    public delegate ulong Process_Start_Maide(ulong process, ulong arg);
-    public delegate ulong Process_Finish_Maide(ulong process, ulong arg);
+    public delegate ulong Program_Start_Maide(ulong program, ulong arg);
+    public delegate ulong Program_Finish_Maide(ulong program, ulong arg);
 
     [DllImport(InfraLib)] public extern static ulong Infra_Share();
 
@@ -943,7 +943,6 @@ public static class Extern
     [DllImport(InfraLib)] public extern static ulong Stat_CompDestinationAtop(ulong o);
     [DllImport(InfraLib)] public extern static ulong Stat_GradientKindLinear(ulong o);
     [DllImport(InfraLib)] public extern static ulong Stat_GradientKindRadial(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Stat_GradientKindConical(ulong o);
     [DllImport(InfraLib)] public extern static ulong Stat_GradientSpreadPad(ulong o);
     [DllImport(InfraLib)] public extern static ulong Stat_GradientSpreadReflect(ulong o);
     [DllImport(InfraLib)] public extern static ulong Stat_GradientSpreadRepeat(ulong o);
