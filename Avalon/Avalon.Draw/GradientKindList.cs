@@ -28,7 +28,6 @@ public class GradientKindList : Any
 
         this.Linear = this.AddItem(Extern.Stat_GradientKindLinear(stat));
         this.Radial = this.AddItem(Extern.Stat_GradientKindRadial(stat));
-        this.Conical = this.AddItem(Extern.Stat_GradientKindConical(stat));
         return true;
     }
 
@@ -36,8 +35,6 @@ public class GradientKindList : Any
     protected GradientKind __D_Linear;
     public virtual GradientKind Radial { get { return __D_Radial; } set { __D_Radial = value; } }
     protected GradientKind __D_Radial;
-    public virtual GradientKind Conical { get { return __D_Conical; } set { __D_Conical = value; } }
-    protected GradientKind __D_Conical;
 
     protected virtual GradientKind AddItem(ulong o)
     {
@@ -62,7 +59,7 @@ public class GradientKindList : Any
     protected virtual Array Array { get { return __D_Array; } set { __D_Array = value; } }
     protected Array __D_Array;
 
-    protected virtual int ArrayCount { get { return 3; } set { } }
+    protected virtual int ArrayCount { get { return 2; } set { } }
     protected int __D_ArrayCount;
 
     public virtual int Count { get { return __D_Count; } set { __D_Count = value; } }
