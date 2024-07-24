@@ -16,11 +16,6 @@ Int Gradient_Init(Int o)
     Int spread;
     spread = m->Spread;
 
-    if ((kind == null) | (value == null) | (stop == null) | (spread == null))
-    {
-        return true;
-    }
-
     Int share;
     share = Infra_Share();
     Int stat;
