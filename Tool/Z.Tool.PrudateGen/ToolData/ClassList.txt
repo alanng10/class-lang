@@ -420,7 +420,6 @@ Time
     YearDayCount
     MonthDayCount
     TotalMillisec
-    TotalDay
     AddYear(value)
     AddMonth(value)
     AddDay(value)
