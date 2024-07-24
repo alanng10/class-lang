@@ -17,13 +17,13 @@ class Infra : Any
     public override bool Init()
     {
         base.Init();
-        IntervalElapseMaide maideA;
-        maideA = new IntervalElapseMaide(Event.InternElapse);
-        this.IntervalElapseMaideAddress = new MaideAddress();
-        this.IntervalElapseMaideAddress.Delegate = maideA;
-        this.IntervalElapseMaideAddress.Init();
+        TimeEventElapseMaide maideA;
+        maideA = new TimeEventElapseMaide(Event.InternElapse);
+        this.TimeEventElapseMaideAddress = new MaideAddress();
+        this.TimeEventElapseMaideAddress.Delegate = maideA;
+        this.TimeEventElapseMaideAddress.Init();
         return true;
     }
 
-    public virtual MaideAddress IntervalElapseMaideAddress { get; set; }
+    public virtual MaideAddress TimeEventElapseMaideAddress { get; set; }
 }

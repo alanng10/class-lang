@@ -20,7 +20,7 @@ public class Event : Any
         this.InternHandle.Init();
 
         MaideAddress oa;
-        oa = this.TimeInfra.IntervalElapseMaideAddress;
+        oa = this.TimeInfra.TimeEventElapseMaideAddress;
         ulong arg;
         arg = this.InternHandle.ULong();
         this.InternElapseState = this.InternInfra.StateCreate(oa, arg);
