@@ -395,9 +395,9 @@ Thread
     Wait()
     ExecuteEventLoop()
     ExitEventLoop(code)
-    IsMainThread()
+    IsMain()
     Sleep(time) -
-    CurrentThread() -
+    This() -
     Execute(thread, arg) --
 
 Phore
