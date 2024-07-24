@@ -31,11 +31,8 @@ Int Brush_Init(Int o)
 
         QColor colorU;
         colorU = QColor(kk);
-
-        Qt::BrushStyle brushStyle;
-        brushStyle = Qt::SolidPattern;
         
-        m->Intern = new QBrush(colorU, brushStyle);
+        m->Intern = new QBrush(colorU);
     }
 
     if (kind == Stat_BrushKindGradient(stat))
