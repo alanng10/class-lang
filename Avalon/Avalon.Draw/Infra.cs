@@ -35,11 +35,11 @@ public class Infra : Any
         penJoinList = PenJoinList.This;
 
         this.WhiteBrush = new Brush();
-        this.WhiteBrush.Kind = brushKindList.Solid;
+        this.WhiteBrush.Kind = brushKindList.Color;
         this.WhiteBrush.Color = this.WhiteColor;
         this.WhiteBrush.Init();
         this.BlackBrush = new Brush();
-        this.BlackBrush.Kind = brushKindList.Solid;
+        this.BlackBrush.Kind = brushKindList.Color;
         this.BlackBrush.Color = this.BlackColor;
         this.BlackBrush.Init();
         this.BlackPen = new Pen();
