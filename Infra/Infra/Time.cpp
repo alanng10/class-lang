@@ -194,6 +194,37 @@ Int Time_PosGet(Int o)
 
 FieldDefaultSet(Time, Pos)
 
+Int Time_TotalMillisecGet(Int o)
+{
+    Time* m;
+    m = CP(o);
+    
+    Int share;
+    share = Infra_Share();
+    Int stat;
+    stat = Share_Stat(share);
+
+    Int timeInit;
+    timeInit = Stat_TimeInit(stat);
+
+    QDateTime* ua;
+    ua = (QDateTime*)timeInit;
+
+    qint64 uu;
+    uu = ua->msecsTo(*(m->Intern));
+
+    SInt u;
+    u = uu;
+    u = u << 4;
+    u = u >> 4;
+
+    Int a;
+    a = u;
+    return a;
+}
+
+FieldDefaultSet(Time, TotalMillisec)
+
 Int Time_This(Int o)
 {
     Time* m;
@@ -352,36 +383,6 @@ Int Time_AddMillisec(Int o, Int offset)
     u = m->Intern->addMSecs(offsetU);
     (*(m->Intern)) = u;
     return true;
-}
-
-Int Time_MillisecTo(Int o, Int other)
-{
-    Time* m;
-    m = CP(o);
-    Time* ma;
-    ma = CP(other);
-    qint64 u;
-    u = m->Intern->msecsTo(*(ma->Intern));
-    Int a;
-    a = u;
-    return a;
-}
-
-Int Time_DayTo(Int o, Int other)
-{
-    Time* m;
-    m = CP(o);
-    Time* ma;
-    ma = CP(other);
-    QDate da;
-    da = m->Intern->date();
-    QDate db;
-    db = ma->Intern->date();
-    qint64 u;
-    u = da.daysTo(db);
-    Int a;
-    a = u;
-    return a;
 }
 
 Int Time_LeapYear(Int year)

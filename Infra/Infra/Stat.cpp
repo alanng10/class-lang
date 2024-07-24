@@ -52,9 +52,9 @@ Int Stat_TimeInitCreate(Int o)
     u->setDate(date);
     u->setTime(time);
 
-    Int oa;
-    oa = CastInt(u);
-    return oa;
+    Int a;
+    a = CastInt(u);
+    return a;
 }
 
 Int Stat_TimeInitDelete(Int o, Int a)
