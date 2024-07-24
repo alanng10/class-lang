@@ -397,16 +397,11 @@ Int Draw_ExecuteEllipse(Int o, Int rect)
     aRect = rect;
     RectValue(a);
 
-    int l;
-    int u;
-    int w;
-    int h;
-    l = (int)aLeft;
-    u = (int)aUp;
-    w = (int)aWidth;
-    h = (int)aHeight;
+    InternRectValue(a);
 
-    m->Intern->drawEllipse(l, u, w, h);
+    InternRect(a);
+
+    m->Intern->drawEllipse(aRectU);
     return true;
 }
 
