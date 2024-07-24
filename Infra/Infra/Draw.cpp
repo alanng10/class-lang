@@ -295,6 +295,8 @@ Int Draw_ExecuteLine(Int o, Int startPos, Int endPos)
     PosValue(start);
     PosValue(end);
 
+    InternPosValue(start);
+    InternPosValue(end);
 
     int sl;
     int su;
