@@ -526,32 +526,19 @@ Int Draw_ExecuteText(Int o, Int destRect, Int flag, Int text, Int boundRect)
     boundW = boundRectA.width();
     boundH = boundRectA.height();
 
-    Int bl;
-    Int bu;
-    Int bw;
-    Int bh;
-    bl = CastDoubleToInt(boundL);
-    bu = CastDoubleToInt(boundU);
-    bw = CastDoubleToInt(boundW);
-    bh = CastDoubleToInt(boundH);
+    ValueFromInternValue(boundL);
+    ValueFromInternValue(boundU);
+    ValueFromInternValue(boundW);
+    ValueFromInternValue(boundH);
     
-    Int boundLeft;
-    Int boundUp;
-    Int boundWidth;
-    Int boundHeight;
-    boundLeft = ValueGetFromInternValue(bl);
-    boundUp = ValueGetFromInternValue(bu);
-    boundWidth = ValueGetFromInternValue(bw);
-    boundHeight = ValueGetFromInternValue(bh);
-
     Int boundPos;
     boundPos = Rect_PosGet(boundRect);
     Int boundSize;
     boundSize = Rect_SizeGet(boundRect);
-    Pos_LeftSet(boundPos, boundLeft);
-    Pos_UpSet(boundPos, boundUp);
-    Size_WidthSet(boundSize, boundWidth);
-    Size_HeightSet(boundSize, boundHeight);
+    Pos_LeftSet(boundPos, boundLA);
+    Pos_UpSet(boundPos, boundUA);
+    Size_WidthSet(boundSize, boundWA);
+    Size_HeightSet(boundSize, boundHA);
     return true;
 }
 
