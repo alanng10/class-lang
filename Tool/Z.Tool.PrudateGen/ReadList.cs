@@ -66,16 +66,10 @@ public class ReadList : Any
 
         this.ExecuteList("BrushKind");
         this.ExecuteList("BrushLine");
-
-
-        this.ExecuteList("PenCap");
-
-
-        this.ExecuteList("PenJoin");
-
-
+        this.ExecuteList("BrushCap");
+        this.ExecuteList("BrushJoin");
+        
         this.ExecuteList("Comp");
-
 
         this.ExecuteList("GradientKind");
 
