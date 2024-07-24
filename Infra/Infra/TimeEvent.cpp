@@ -1,32 +1,32 @@
-#include "Interval.hpp"
+#include "TimeEvent.hpp"
 
-CppClassNew(Interval)
+CppClassNew(TimeEvent)
 
-Int Interval_Init(Int o)
+Int TimeEvent_Init(Int o)
 {
-    Interval* m;
+    TimeEvent* m;
     m = CP(o);
-    m->Intern = new IntervalIntern;
-    m->Intern->Interval = o;
+    m->Intern = new TimeEventIntern;
+    m->Intern->TimeEvent = o;
     m->Intern->Init();
     return true;
 }
 
-Int Interval_Final(Int o)
+Int TimeEvent_Final(Int o)
 {
-    Interval* m;
+    TimeEvent* m;
     m = CP(o);
 
     delete m->Intern;
     return true;
 }
 
-CppField(Interval, Time)
-CppField(Interval, Single)
+CppField(TimeEvent, Time)
+CppField(TimeEvent, Single)
 
-Int Interval_ActiveGet(Int o)
+Int TimeEvent_ActiveGet(Int o)
 {
-    Interval* m;
+    TimeEvent* m;
     m = CP(o);
     bool bu;
     bu = m->Intern->isActive();
@@ -35,12 +35,12 @@ Int Interval_ActiveGet(Int o)
     return b;
 }
 
-FieldDefaultSet(Interval, Active)
-CppField(Interval, ElapseState)
+FieldDefaultSet(TimeEvent, Active)
+CppField(TimeEvent, ElapseState)
 
-Int Interval_Start(Int o)
+Int TimeEvent_Start(Int o)
 {
-    Interval* m;
+    TimeEvent* m;
     m = CP(o);
     Int time;
     time = m->Time;
@@ -58,31 +58,41 @@ Int Interval_Start(Int o)
     return true;
 }
 
-Int Interval_Stop(Int o)
+Int TimeEvent_Stop(Int o)
 {
-    Interval* m;
+    TimeEvent* m;
     m = CP(o);
     m->Intern->stop();
     return true;
 }
 
-Int Interval_Elapse(Int o)
+Int TimeEvent_Elapse(Int o)
 {
-    Interval* m;
+    TimeEvent* m;
     m = CP(o);
 
     Int state;
     state = m->ElapseState;
+
+    if (state == null)
+    {
+        return true;
+    }
+    
     Int aa;
     aa = State_MaideGet(state);
     Int arg;
     arg = State_ArgGet(state);
 
-    Interval_Elapse_Maide maide;
-    maide = (Interval_Elapse_Maide)aa;
-    if (!(maide == null))
+    if (aa == null)
     {
-        maide(o, arg);
+        return true;
     }
+
+    TimeEvent_Elapse_Maide maide;
+    maide = (TimeEvent_Elapse_Maide)aa;
+    
+    maide(o, arg);
+    
     return true;
 }

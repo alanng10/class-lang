@@ -4,13 +4,13 @@
 
 #include "Probate.hpp"
 
-class IntervalIntern : public QTimer
+class TimeEventIntern : public QTimer
 {
     Q_OBJECT
 
 public:
     Bool Init();
-    Int Interval;
+    Int TimeEvent;
 
 private slots:
     void TimeOutHandle();

@@ -73,7 +73,7 @@ Int Thread_CreateStore();
 Int Thread_DeleteStore(Int a);
 Int Thread_StoreSetThread(Int thread);
 
-Int Interval_Elapse(Int o);
+Int TimeEvent_Elapse(Int o);
 
 Int Post_ExecuteHandle(Int o);
 
