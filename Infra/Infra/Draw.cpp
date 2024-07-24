@@ -438,16 +438,11 @@ Int Draw_ExecuteRect(Int o, Int rect)
     aRect = rect;
     RectValue(a);
 
-    int l;
-    int u;
-    int w;
-    int h;
-    l = (int)aLeft;
-    u = (int)aUp;
-    w = (int)aWidth;
-    h = (int)aHeight;
+    InternRectValue(a);
 
-    m->Intern->drawRect(l, u, w, h);
+    QRectF aa(aLeftU, aUpU, aWidthU, aHeightU);
+
+    m->Intern->drawRect(aa);
     return true;
 }
 
