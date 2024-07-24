@@ -73,10 +73,10 @@ Int Brush_Init(Int o)
     Qt::PenStyle styleU;
     styleU = (Qt::PenStyle)line;
 
-    int widthU;
-    widthU = (int)width;
+    Int widthU;
+    widthU = InternValueGet(width);
     qreal widthUu;
-    widthUu = widthU;
+    widthUu = CastIntToDouble(widthU);
 
     Qt::PenCapStyle capStyleU;
     capStyleU = (Qt::PenCapStyle)(cap - 1);
