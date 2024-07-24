@@ -124,6 +124,13 @@ Int Draw_StrokeSet(Int o, Int value)
 
     Int u;
     u = Brush_Intern(m->Stroke);
+
+    if (u == null)
+    {
+        m->Intern->setPen(Qt::NoPen);
+        return true;
+    }
+    
     QPen* uu;
     uu = (QPen*)u;
     m->Intern->setPen(*uu);
