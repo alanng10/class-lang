@@ -23,20 +23,17 @@ Int PointData_PointGet(Int address, Int result)
 
 Int PointData_PointSet(Int address, Int pos)
 {
-    Int left;
-    Int up;
-    left = Pos_LeftGet(pos);
-    up = Pos_UpGet(pos);
+    Int aPos;
+    aPos = pos;
 
-    int leftU;
-    int upU;
-    leftU = left;
-    upU = up;
+    PosValue(a);
 
-    QPoint point(leftU, upU);
+    InternPosValue(a);
 
-    QPoint* u;
-    u = (QPoint*)(address);
-    *u = point;
+    InternPos(a);
+
+    QPointF* u;
+    u = (QPointF*)(address);
+    *u = aPosU;
     return true;
 }
