@@ -695,6 +695,8 @@ Infra_Api Int Time_YearDayCountGet(Int o);
 Infra_Api Int Time_YearDayCountSet(Int o, Int value);
 Infra_Api Int Time_MonthDayCountGet(Int o);
 Infra_Api Int Time_MonthDayCountSet(Int o, Int value);
+Infra_Api Int Time_TotalMillisecGet(Int o);
+Infra_Api Int Time_TotalMillisecSet(Int o, Int value);
 
 Infra_Api Int Time_AddYear(Int o, Int value);
 Infra_Api Int Time_AddMonth(Int o, Int value);
@@ -703,8 +705,6 @@ Infra_Api Int Time_AddHour(Int o, Int value);
 Infra_Api Int Time_AddMin(Int o, Int value);
 Infra_Api Int Time_AddSec(Int o, Int value);
 Infra_Api Int Time_AddMillisec(Int o, Int value);
-Infra_Api Int Time_MillisecTo(Int o, Int other);
-Infra_Api Int Time_DayTo(Int o, Int other);
 Infra_Api Int Time_This(Int o);
 Infra_Api Int Time_ToPos(Int o, Int pos);
 Infra_Api Int Time_Set(Int o, Int year, Int month, Int day, Int hour, Int min, Int sec, Int millisec, Int pos);
