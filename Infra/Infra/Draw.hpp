@@ -17,16 +17,16 @@ struct Draw
     Int Out;
     Int Fill;
     Int Stroke;
-    Int Font;
-    Int Transform;
-    Int Composite;
+    Int Face;
+    Int Form;
+    Int Comp;
     Int FillPos;
     Int Area;
     Int OutAlpha;
     QPainter* Intern;
-    QFont* InternDefaultFont;
+    QFont* InternDefaultFace;
     QString* InternText;
-    QTransform* InternIdentityTransform;
+    QTransform* InternIdentityForm;
 };
 
 #define CP(a) ((Draw*)(a))
