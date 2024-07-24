@@ -434,14 +434,14 @@ Time
     ValidDate(year, month, day) -
     ValidTime(hour, minute, sec, millisec) -
 
-Interval
+TimeEvent
     Start()
     Stop()
     Time
     Single
     Active
     ElapseState
-    Elapse(interval, arg) --
+    Elapse(timeEvent, arg) --
 
 Post
     Execute()
