@@ -45,8 +45,8 @@ HEADERS += \
     PostIntern.hpp \
     Probate.h \
     Probate.hpp \
-    Process.hpp \
-    ProcessIntern.hpp \
+    Program.hpp \
+    ProgramIntern.hpp \
     Prudate.h \
     Random.hpp \
     Range.h \
@@ -109,8 +109,8 @@ SOURCES += \
     Pos.c \
     Post.cpp \
     PostIntern.cpp \
-    Process.cpp \
-    ProcessIntern.cpp \
+    Program.cpp \
+    ProgramIntern.cpp \
     Random.cpp \
     Range.c \
     Rect.c \
