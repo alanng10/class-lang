@@ -77,6 +77,10 @@ CppField(Brush, Kind)
 CppField(Brush, Color)
 CppField(Brush, Gradient)
 CppField(Brush, Image)
+CppField(Brush, Line)
+CppField(Brush, Width)
+CppField(Brush, Cap)
+CppField(Brush, Join)
 
 Int Brush_Intern(Int o)
 {
@@ -84,5 +88,14 @@ Int Brush_Intern(Int o)
     m = CP(o);
     Int a;
     a = CastInt(m->Intern);
+    return a;
+}
+
+Int Brush_InternBrush(Int o)
+{
+    Brush* m;
+    m = CP(o);
+    Int a;
+    a = CastInt(m->InternBrush);
     return a;
 }
