@@ -107,6 +107,11 @@ public class Gen : Any
         long aa;
         aa = timeA.MillisecTo(time);
 
+        timeA.Final();
+
+        time.Final();
+
+
         Format format;
         format = new Format();
         format.Init();
