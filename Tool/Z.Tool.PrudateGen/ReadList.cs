@@ -64,11 +64,8 @@ public class ReadList : Any
         this.ExecuteList("NetworkPortKind");
         this.ExecuteList("NetworkStatus");
 
-
         this.ExecuteList("BrushKind");
-
-
-        this.ExecuteList("PenKind");
+        this.ExecuteList("BrushLine");
 
 
         this.ExecuteList("PenCap");
