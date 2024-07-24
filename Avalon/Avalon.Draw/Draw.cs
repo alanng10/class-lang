@@ -105,7 +105,7 @@ public class Draw : Any
             {
                 uu = this.BrushData.Intern;
             }
-            Extern.Draw_BrushSet(this.Intern, uu);
+            Extern.Draw_FillSet(this.Intern, uu);
         }
     }
 
@@ -127,7 +127,7 @@ public class Draw : Any
             {
                 uu = this.PenData.Intern;
             }
-            Extern.Draw_PenSet(this.Intern, uu);
+            Extern.Draw_StrokeSet(this.Intern, uu);
         }
     }
 
@@ -149,7 +149,7 @@ public class Draw : Any
             {
                 u = this.FaceData.Intern;
             }
-            Extern.Draw_FontSet(this.Intern, u);
+            Extern.Draw_FaceSet(this.Intern, u);
         }
     }
 
@@ -171,7 +171,7 @@ public class Draw : Any
             {
                 uu = this.CompData.Intern;
             }
-            Extern.Draw_CompositeSet(this.Intern, uu);
+            Extern.Draw_CompSet(this.Intern, uu);
         }
     }
 
@@ -288,7 +288,7 @@ public class Draw : Any
             this.WorldForm.Multiply(this.FormA);
         }
 
-        Extern.Draw_TransformSet(this.Intern, this.WorldForm.Intern);
+        Extern.Draw_FormSet(this.Intern, this.WorldForm.Intern);
         return true;
     }
 

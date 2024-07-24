@@ -26,11 +26,11 @@ public class PenKindList : Any
         ulong stat;
         stat = Extern.Share_Stat(share);
 
-        this.Solid = this.AddItem(Extern.Stat_PenKindSolid(stat));
-        this.Dash = this.AddItem(Extern.Stat_PenKindDash(stat));
-        this.Dot = this.AddItem(Extern.Stat_PenKindDot(stat));
-        this.DashDot = this.AddItem(Extern.Stat_PenKindDashDot(stat));
-        this.DashDotDot = this.AddItem(Extern.Stat_PenKindDashDotDot(stat));
+        this.Solid = this.AddItem(Extern.Stat_BrushLineSolid(stat));
+        this.Dash = this.AddItem(Extern.Stat_BrushLineDash(stat));
+        this.Dot = this.AddItem(Extern.Stat_BrushLineDot(stat));
+        this.DashDot = this.AddItem(Extern.Stat_BrushLineDashDot(stat));
+        this.DashDotDot = this.AddItem(Extern.Stat_BrushLineDashDotDot(stat));
         return true;
     }
 
