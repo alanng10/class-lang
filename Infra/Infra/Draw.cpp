@@ -415,9 +415,9 @@ Int Draw_ExecuteRect(Int o, Int rect)
 
     InternRectValue(a);
 
-    QRectF aa(aLeftU, aUpU, aWidthU, aHeightU);
+    InternRect(a);
 
-    m->Intern->drawRect(aa);
+    m->Intern->drawRect(aRectU);
     return true;
 }
 
