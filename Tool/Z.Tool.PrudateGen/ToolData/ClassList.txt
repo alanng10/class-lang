@@ -153,8 +153,8 @@ Draw
     Area
     Start()
     End()
-    FillPos
     Fill
+    FillPos
     Stroke
     Face
     Form
