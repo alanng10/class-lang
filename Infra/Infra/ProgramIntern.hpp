@@ -4,13 +4,13 @@
 
 #include "Probate.hpp"
 
-class ProcessIntern : public QProcess
+class ProgramIntern : public QProcess
 {
     Q_OBJECT
 
 public:
     Bool Init();
-    Int Process;
+    Int Program;
 
 private slots:
 
