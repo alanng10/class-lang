@@ -313,15 +313,10 @@ Int Draw_ExecuteArc(Int o, Int rect, Int angleRange)
     aRect = rect;
     RectValue(a);
 
-    int l;
-    int u;
-    int w;
-    int h;
-    l = (int)aLeft;
-    u = (int)aUp;
-    w = (int)aWidth;
-    h = (int)aHeight;
+    InternRectValue(a);
 
+    InternRect(a);
+    
     Int angleStart;
     Int angleCount;
     Int angleEnd;
@@ -334,7 +329,7 @@ Int Draw_ExecuteArc(Int o, Int rect, Int angleRange)
     startA = (int)angleStart;
     spanA = (int)angleEnd;
 
-    m->Intern->drawArc(l, u, w, h, startA, spanA);
+    m->Intern->drawArc(aRectU, startA, spanA);
     return true;
 }
 
