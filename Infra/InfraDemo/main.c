@@ -2876,43 +2876,17 @@ int main(int argc, char* argv[])
 
     Pos_Final(rectPosA);
 
-
     Pos_Delete(rectPosA);
-
-
-
-
-    Pen_Final(PenText);
-
-
-    Pen_Delete(PenText);
-
-
 
 
     Brush_Final(penTextBrush);
 
-
     Brush_Delete(penTextBrush);
-
-
-
-
-    Pen_Final(PenRect);
-
-
-    Pen_Delete(PenRect);
-
-
 
 
     Brush_Final(penRectBrush);
 
-
     Brush_Delete(penRectBrush);
-
-
-
 
 
     Brush_Final(Brush);
