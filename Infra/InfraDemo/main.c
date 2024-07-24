@@ -995,7 +995,7 @@ Bool ThreadAExecute(Int thread, Int arg)
 
 Int ThreadIntervalExecute(Int thread, Int arg)
 {
-    Interval_Elapse_Maide maide;
+    TimeEvent_Elapse_Maide maide;
 
     maide = &ThreadIntervalElapseHandle;
 
@@ -1031,27 +1031,27 @@ Int ThreadIntervalExecute(Int thread, Int arg)
     Int interval;
 
 
-    interval = Interval_New();
+    interval = TimeEvent_New();
 
 
-    Interval_Init(interval);
-
-
-
-    Interval_SingleSet(interval, false);
-
-
-    Interval_TimeSet(interval, 100);
+    TimeEvent_Init(interval);
 
 
 
+    TimeEvent_SingleSet(interval, false);
 
-    Interval_ElapseStateSet(interval, intervalElapseState);
+
+    TimeEvent_TimeSet(interval, 100);
 
 
 
 
-    Interval_Start(interval);
+    TimeEvent_ElapseStateSet(interval, intervalElapseState);
+
+
+
+
+    TimeEvent_Start(interval);
 
 
 
@@ -1061,10 +1061,10 @@ Int ThreadIntervalExecute(Int thread, Int arg)
 
 
 
-    Interval_Final(interval);
+    TimeEvent_Final(interval);
 
 
-    Interval_Delete(interval);
+    TimeEvent_Delete(interval);
 
 
 
@@ -1098,7 +1098,7 @@ Int ThreadIntervalElapseHandle(Int interval, Int arg)
 
     if (!(IntervalElapseCount < 3))
     {
-        Interval_Stop(interval);
+        TimeEvent_Stop(interval);
 
 
 
