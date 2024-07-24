@@ -2,24 +2,22 @@
 
 Int PointData_PointGet(Int address, Int result)
 {
-    QPoint* u;
-    u = (QPoint*)(address);
+    QPointF* u;
+    u = (QPointF*)(address);
 
-    QPoint point;
+    QPointF point;
     point = *u;
 
-    SInt leftU;
-    SInt upU;
-    leftU = point.x();
-    upU = point.y();
+    qreal left;
+    qreal up;
+    left = point.x();
+    up = point.y();
 
-    Int left;
-    Int up;
-    left = leftU;
-    up = upU;
+    ValueFromInternValue(left);
+    ValueFromInternValue(up);
 
-    Pos_LeftSet(result, left);
-    Pos_UpSet(result, up);
+    Pos_LeftSet(result, leftA);
+    Pos_UpSet(result, upA);
     return true;
 }
 
