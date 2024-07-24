@@ -522,7 +522,7 @@ Bool DrawHandle(Int frame, Int arg)
 
 
 
-    Draw_PenSet(Draw, PenRect);
+    Draw_StrokeSet(Draw, PenRect);
 
 
 
@@ -548,7 +548,7 @@ Bool DrawHandle(Int frame, Int arg)
 
 
 
-    Draw_PenSet(Draw, PenRect);
+    Draw_StrokeSet(Draw, PenRect);
 
 
 
@@ -578,7 +578,7 @@ Bool DrawHandle(Int frame, Int arg)
 
 
 
-    Draw_PenSet(Draw, null);
+    Draw_StrokeSet(Draw, null);
 
 
     SetRect(RectA, 500, 200, 100, 100);
@@ -593,7 +593,7 @@ Bool DrawHandle(Int frame, Int arg)
 
 
 
-    Draw_PenSet(Draw, PenRect);
+    Draw_StrokeSet(Draw, PenRect);
 
 
     SetRect(RectA, 130, 550, 150, 100);
@@ -643,7 +643,7 @@ Bool DrawHandle(Int frame, Int arg)
 
 
 
-    Draw_PenSet(Draw, PenRect);
+    Draw_StrokeSet(Draw, PenRect);
 
 
 
@@ -666,7 +666,7 @@ Bool DrawHandle(Int frame, Int arg)
 
 
 
-    Draw_TransformSet(Draw, Transform);
+    Draw_FormSet(Draw, Transform);
 
 
 
@@ -674,7 +674,7 @@ Bool DrawHandle(Int frame, Int arg)
 
 
 
-    Draw_TransformSet(Draw, null);
+    Draw_FormSet(Draw, null);
 
 
     SetPos(fillPos, 0, 0);
@@ -692,13 +692,13 @@ Bool DrawHandle(Int frame, Int arg)
     Transform_Offset(Transform, 500 * scaleFactor, 100 * scaleFactor);
 
 
-    Draw_TransformSet(Draw, Transform);
+    Draw_FormSet(Draw, Transform);
 
 
     Draw_ExecutePolyline(Draw, PointListCount, PointListData);
 
 
-    Draw_TransformSet(Draw, null);
+    Draw_FormSet(Draw, null);
 
 
 
@@ -722,7 +722,7 @@ Bool DrawHandle(Int frame, Int arg)
 
 
 
-    Draw_PenSet(Draw, PenRect);
+    Draw_StrokeSet(Draw, PenRect);
 
 
 
@@ -736,12 +736,12 @@ Bool DrawHandle(Int frame, Int arg)
 
 
 
-    Draw_FontSet(Draw, Font);
+    Draw_FaceSet(Draw, Font);
 
 
 
 
-    Draw_PenSet(Draw, PenText);
+    Draw_StrokeSet(Draw, PenText);
 
 
 
@@ -754,7 +754,7 @@ Bool DrawHandle(Int frame, Int arg)
 
 
 
-    Draw_FontSet(Draw, null);
+    Draw_FaceSet(Draw, null);
 
 
 
