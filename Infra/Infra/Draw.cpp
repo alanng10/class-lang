@@ -139,7 +139,7 @@ Int Draw_StrokeSet(Int o, Int value)
 
 CppFieldGet(Draw, Face)
 
-Int Draw_FontSet(Int o, Int value)
+Int Draw_FaceSet(Int o, Int value)
 {
     Draw* m;
     m = CP(o);
