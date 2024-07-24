@@ -11,12 +11,12 @@ void ProgramIntern::StartHandle()
 {
     Int m;
     m = this->Program;
-    Process_Start(m);
+    Program_Start(m);
 }
 
 void ProgramIntern::FinishHandle(int exitCode, QProcess::ExitStatus exitStatus)
 {
     Int m;
     m = this->Program;
-    Process_Finish(m);
+    Program_Finish(m);
 }
