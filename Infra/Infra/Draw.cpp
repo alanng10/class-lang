@@ -526,26 +526,9 @@ Int Draw_ExecuteText(Int o, Int destRect, Int flag, Int text, Int boundRect)
     m = CP(o);
     RectValue(dest);
 
-    Int al;
-    Int au;
-    Int aw;
-    Int ah;
-    al = InternValueGet(destLeft);
-    au = InternValueGet(destUp);
-    aw = InternValueGet(destWidth);
-    ah = InternValueGet(destHeight);
+    InternRectValue(dest);
 
-    qreal l;
-    qreal u;
-    qreal w;
-    qreal h;
-    l = CastIntToDouble(al);
-    u = CastIntToDouble(au);
-    w = CastIntToDouble(aw);
-    h = CastIntToDouble(ah);
-    
-    QRectF rectF;
-    rectF = QRectF(l, u, w, h);
+    InternRect(dest);
 
     int flagU;
     flagU = (int)flag;
@@ -556,7 +539,7 @@ Int Draw_ExecuteText(Int o, Int destRect, Int flag, Int text, Int boundRect)
 
     QRectF boundRectA;
 
-    m->Intern->drawText(rectF, flagU, *(m->InternText), &boundRectA);
+    m->Intern->drawText(destRectU, flagU, *(m->InternText), &boundRectA);
 
     m->InternText->setRawData(null, 0);
 
