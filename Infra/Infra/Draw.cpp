@@ -215,16 +215,16 @@ Int Draw_FillPosThisSet(Int o)
 {
     Draw* m;
     m = CP(o);
-    Int left;
-    Int up;
-    left = Pos_LeftGet(m->FillPos);
-    up = Pos_UpGet(m->FillPos);
+    Int aPos;
+    aPos = m->FillPos;
 
-    int leftU;
-    int upU;
-    leftU = left;
-    upU = up;
-    m->Intern->setBrushOrigin(leftU, upU);
+    PosValue(a);
+
+    InternPosValue(a);
+
+    InternPos(a);
+
+    m->Intern->setBrushOrigin(aPosU);
     return true;
 }
 
