@@ -1,31 +1,17 @@
 namespace Z.Tool.Infra.StatPenKind;
 
-
-
-
-
 class Gen : StatGen
 {
     public override int Execute()
     {
-        this.ClassName = "PenKind";
-
-        
+        this.ClassName = "BrushStroke";
         
         this.ValuePostfix = "Line";
-        
 
+        this.ItemListFileName = "ToolData/ItemListBrushStroke.txt";
 
-        this.ItemListFileName = "ToolData/ItemListPenKind.txt";
-
-
-
-
-        int o;
-        
+        int o;        
         o = base.Execute();
-
-
         return o;
     }
 }
