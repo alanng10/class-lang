@@ -744,6 +744,8 @@ public static class Extern
     [DllImport(InfraLib)] public extern static ulong Time_YearDayCountSet(ulong o, ulong value);
     [DllImport(InfraLib)] public extern static ulong Time_MonthDayCountGet(ulong o);
     [DllImport(InfraLib)] public extern static ulong Time_MonthDayCountSet(ulong o, ulong value);
+    [DllImport(InfraLib)] public extern static ulong Time_TotalMillisecGet(ulong o);
+    [DllImport(InfraLib)] public extern static ulong Time_TotalMillisecSet(ulong o, ulong value);
 
     [DllImport(InfraLib)] public extern static ulong Time_AddYear(ulong o, ulong value);
     [DllImport(InfraLib)] public extern static ulong Time_AddMonth(ulong o, ulong value);
@@ -752,8 +754,6 @@ public static class Extern
     [DllImport(InfraLib)] public extern static ulong Time_AddMin(ulong o, ulong value);
     [DllImport(InfraLib)] public extern static ulong Time_AddSec(ulong o, ulong value);
     [DllImport(InfraLib)] public extern static ulong Time_AddMillisec(ulong o, ulong value);
-    [DllImport(InfraLib)] public extern static ulong Time_MillisecTo(ulong o, ulong other);
-    [DllImport(InfraLib)] public extern static ulong Time_DayTo(ulong o, ulong other);
     [DllImport(InfraLib)] public extern static ulong Time_This(ulong o);
     [DllImport(InfraLib)] public extern static ulong Time_ToPos(ulong o, ulong pos);
     [DllImport(InfraLib)] public extern static ulong Time_Set(ulong o, ulong year, ulong month, ulong day, ulong hour, ulong min, ulong sec, ulong millisec, ulong pos);
