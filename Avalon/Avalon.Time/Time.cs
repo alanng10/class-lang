@@ -199,6 +199,21 @@ public class Time : Any
         }
     }
 
+    public virtual long TotalMillisec
+    {
+        get
+        {
+            ulong u;
+            u = Extern.Time_TotalMillisecGet(this.Intern);
+            long a;
+            a = (long)u;
+            return a;
+        }
+        set
+        {
+        }
+    }
+
     public virtual bool This()
     {
         Extern.Time_This(this.Intern);
@@ -267,24 +282,6 @@ public class Time : Any
         u = (ulong)value;
         Extern.Time_AddMillisec(this.Intern, u);
         return true;
-    }
-
-    public virtual long MillisecTo(Time other)
-    {
-        ulong u;
-        u = Extern.Time_MillisecTo(this.Intern, other.Intern);
-        long a;
-        a = (long)u;
-        return a;
-    }
-
-    public virtual long DayTo(Time other)
-    {
-        ulong u;
-        u = Extern.Time_DayTo(this.Intern, other.Intern);
-        long a;
-        a = (long)u;
-        return a;
     }
 
     public virtual bool LeapYear(int year)
