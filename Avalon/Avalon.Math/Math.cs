@@ -1,6 +1,6 @@
 namespace Avalon.Math;
 
-public class Math : Any
+public partial class Math : Any
 {
     public override bool Init()
     {
