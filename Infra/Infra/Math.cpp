@@ -171,6 +171,9 @@ Int Math_Value(Int o, Int significand, Int exponent)
 
     double uaa;
     uaa = aa;
+
+    ValidDouble(uaa);
+    
     int uab;
     uab = ab;
 
