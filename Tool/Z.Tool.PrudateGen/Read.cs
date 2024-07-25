@@ -1,170 +1,87 @@
 namespace Z.Tool.PrudateGen;
 
-
-
-
-
 class Read : Any
 {
+    public override bool Init()
+    {
+        base.Init();
+        this.ListInfra = ListInfra.This;
+        return true;
+    }
+
+    public virtual ReadResult Result { get; set; }
+
+    protected virtual ListInfra ListInfra { get; set; }
+    protected virtual Table ClassTable { get; set; }
+    protected virtual Class Class { get; set; }
+    protected virtual List FieldList { get; set; }
+    protected virtual List MethodList { get; set; }
+    protected virtual List StaticFieldList { get; set; }
+    protected virtual List StaticMethodList { get; set; }
+    protected virtual List DelegateList { get; set; }
+
+
     public virtual int Execute()
     {
         this.Result = new ReadResult();
-
         this.Result.Init();
-
-
-
 
         bool b;
 
         b = this.SetClassArray();
-
-
         if (!b)
         {
             return 1;
         }
 
-
-
         b = this.SetMethodArray();
-
-
         if (!b)
         {
             return 2;
         }
         
-
-
         return 0;
     }
-
-
-
-
-
-    public virtual ReadResult Result { get; set; }
-
-
-
-
-    protected virtual List ClassList { get; set; }
-
-
-    protected virtual Class Class { get; set; }
-
-
-
-
-
-
-    protected virtual List FieldList { get; set; }
-
-
-
-    protected virtual List MethodList { get; set; }
-
-
-
-    protected virtual List StaticFieldList { get; set; }
-
-
-
-    protected virtual List StaticMethodList { get; set; }
-
-
-
-    protected virtual List DelegateList { get; set; }
-
-
-
-
-
-
-
-
 
     protected virtual bool SetClassArray()
     {
         ToolInfra infra;
-
         infra = ToolInfra.This;
 
-
-
         string ka;
-
         ka = infra.StorageTextRead("ToolData/ClassList.txt");
 
-
-
-        Array lineArray;
-        
+        Array lineArray;        
         lineArray = infra.SplitLineList(ka);
 
+        Table table;
+        table = infra.TableCreateStringCompare();
 
-
-
-        this.ClassList = new List();
-
-        this.ClassList.Init();
-
-
-
+        this.ClassTable = table;
 
         int count;
-
         count = lineArray.Count;
 
-
         int i;
-
         i = 0;
-
-
         while (i < count)
         {
             string line;
-
-
             line = (string)lineArray.GetAt(i);
 
-
-
             bool b;
-
             b = this.SetClassArrayOneLine(line);
-
 
             if (!b)
             {
                 return false;
             }
-
-
-
-
             i = i + 1;
         }
 
-
-
         this.EndCurrentClass();
 
-
-
-
-        this.Result.Class = this.CreateArray(this.ClassList);
-
-
-
-
-        this.ClassList = null;
-
-
-
-
+        this.Result.Class = this.ClassTable;
         return true;
     }
 
@@ -194,28 +111,22 @@ class Read : Any
         {
             this.EndCurrentClass();
 
-
-
-
-
             Class varClass;
-
             varClass = this.GetClass(line);
-
 
             if (varClass == null)
             {
                 return false;
             }
 
-
-
             this.Class = varClass;
 
+            if (this.ClassTable.Valid(this.Class.Name))
+            {
+                return false;
+            }
 
-
-            this.ClassList.Add(this.Class);
-
+            this.ListInfra.TableAdd(this.ClassTable, this.Class.Name, this.Class);
 
 
             this.FieldList = new List();

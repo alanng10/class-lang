@@ -43,6 +43,24 @@ public class Infra : Any
         return true;
     }
 
+    public virtual Table TableCreateStringCompare()
+    {
+        IntCompare charCompare;
+        charCompare = new IntCompare();
+        charCompare.Init();
+
+        StringCompare compare;
+        compare = new StringCompare();
+        compare.CharCompare = charCompare;
+        compare.Init();
+
+        Table a;
+        a = new Table();
+        a.Compare = compare;
+        a.Init();
+        return a;
+    }
+
     public virtual string StorageTextRead(string filePath)
     {
         string a;

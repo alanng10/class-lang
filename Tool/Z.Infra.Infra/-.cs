@@ -1,6 +1,9 @@
 global using Any = Avalon.Infra.Any;
+global using IntCompare = Avalon.Infra.IntCompare;
+global using StringCompare = Avalon.Infra.StringCompare;
 global using InfraInfra = Avalon.Infra.Infra;
 global using Array = Avalon.List.Array;
+global using Table = Avalon.List.Table;
 global using StorageInfra = Avalon.Storage.Infra;
 global using Console = Avalon.Console.Console;
 global using StringSplitOption = System.StringSplitOptions;

@@ -6,7 +6,7 @@ namespace Z.Tool.PrudateGen;
 
 public class ReadResult : Any
 {
-    public virtual Array Class { get; set; }
+    public virtual Table Class { get; set; }
 
 
 
