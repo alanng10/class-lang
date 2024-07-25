@@ -1338,12 +1338,9 @@ int main(int argc, char* argv[])
 
     PointListData = Data_New();
 
-
     Data_Init(PointListData);
 
-
     Data_CountSet(PointListData, pointListDataCount);
-
 
     Data_ValueSet(PointListData, pointListDataValue);
 
@@ -1380,7 +1377,7 @@ int main(int argc, char* argv[])
 
 
 
-        SetPos(PosA, uuua, uuub);
+        SetPos(PosA, MathInt(uuua), MathInt(uuub));
 
 
         PointData_PointSet(pointListDataValue + iia * pointDataCount, PosA);
