@@ -1,0 +1,5 @@
+namespace Avalon.Math;
+
+partial class Math
+{
+#Part}
