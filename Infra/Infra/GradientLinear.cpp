@@ -12,23 +12,17 @@ Int GradientLinear_Init(Int o)
     Int endPos;
     endPos = m->EndPos;
 
-    Int startLeft;
-    Int startUp;
-    startLeft = Pos_LeftGet(startPos);
-    startUp = Pos_UpGet(startPos);
+    PosValue(start);
+    PosValue(end);
 
-    Int endLeft;
-    Int endUp;
-    endLeft = Pos_LeftGet(endPos);
-    endUp = Pos_UpGet(endPos);
+    InternPosValue(start);
+    InternPosValue(end);
 
-    InternQReal(startLeft)
-    InternQReal(startUp)
-    InternQReal(endLeft)
-    InternQReal(endUp)
+    InternPos(start);
+    InternPos(end);
 
     QLinearGradient* linearGradient;
-    linearGradient = new QLinearGradient(startLeftU, startUpU, endLeftU, endUpU);
+    linearGradient = new QLinearGradient(startPosU, endPosU);
     m->Intern = linearGradient;
     return true;
 }
