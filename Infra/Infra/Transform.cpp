@@ -74,13 +74,10 @@ Int Transform_ValueGet(Int o, Int row, Int col)
     qreal u;
     u = array[row * 3 + col];
 
-    Int uu;
-    uu = CastDoubleToInt(u);
-    Int k;
-    k = Math_GetValueFromInternValue(0, uu);
+    ValueFromInternValue(u);
 
     Int a;
-    a = k;
+    a = uA;
     return a;
 }
 
@@ -183,14 +180,10 @@ Int Transform_Determinant(Int o)
     qreal u;
     u = m->Intern->determinant();
 
-    Int uu;
-    uu = CastDoubleToInt(u);
-
-    Int k;
-    k = ValueGetFromInternValue(uu);
+    ValueFromInternValue(u);
 
     Int a;
-    a = k;
+    a = uA;
     return a;
 }
 
