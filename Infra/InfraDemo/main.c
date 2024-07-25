@@ -452,30 +452,18 @@ Bool DrawHandle(Int frame, Int arg)
     Draw_ExecuteArc(Draw, RectA, RangeA);
 
 
-
-
-    SetRect(RectA, 500, 550, 100, 100);
-
+    SetRect(RectA, MathInt(500), MathInt(550), MathInt(100), MathInt(100));
 
     SetRange(RangeA, 120 * 16, 160 * 16);
-
 
     Draw_ExecuteChord(Draw, RectA, RangeA);
 
 
-
-
-
-
-
     Draw_StrokeSet(Draw, null);
 
-
-    SetRect(RectA, 500, 200, 100, 100);
-
+    SetRect(RectA, MathInt(500), MathInt(200), MathInt(100), MathInt(100));
 
     SetRange(RangeA, 10 * 16, 80 * 16);
-
 
     Draw_ExecutePie(Draw, RectA, RangeA);
 
@@ -485,9 +473,7 @@ Bool DrawHandle(Int frame, Int arg)
 
     Draw_StrokeSet(Draw, PenRect);
 
-
     SetRect(RectA, 130, 550, 150, 100);
-
 
     Draw_ExecuteEllipse(Draw, RectA);
 
