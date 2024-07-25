@@ -1461,30 +1461,18 @@ int main(int argc, char* argv[])
     Brush_Init(ImageBrush);
 
 
-
-
-
     Int scaleFactor;
-
-
     scaleFactor = 1 << 20;
-
-
-
 
     Int gradientRadialCenterPos;
 
-
     gradientRadialCenterPos = Pos_New();
-
 
     Pos_Init(gradientRadialCenterPos);
 
+    Pos_LeftSet(gradientRadialCenterPos, MathInt(1450));
 
-    Pos_LeftSet(gradientRadialCenterPos, 1450);
-
-
-    Pos_UpSet(gradientRadialCenterPos, 250);
+    Pos_UpSet(gradientRadialCenterPos, MathInt(250));
 
 
 
@@ -1498,10 +1486,10 @@ int main(int argc, char* argv[])
     Pos_Init(gradientRadialFocusPos);
 
 
-    Pos_LeftSet(gradientRadialFocusPos, 1500);
+    Pos_LeftSet(gradientRadialFocusPos, MathInt(1500));
 
 
-    Pos_UpSet(gradientRadialFocusPos, 250);
+    Pos_UpSet(gradientRadialFocusPos, MathInt(250));
 
 
 
@@ -1515,13 +1503,13 @@ int main(int argc, char* argv[])
     GradientRadial_CenterPosSet(gradientRadial, gradientRadialCenterPos);
 
 
-    GradientRadial_CenterRadiusSet(gradientRadial, 100);
+    GradientRadial_CenterRadiusSet(gradientRadial, MathInt(100));
 
 
     GradientRadial_FocusPosSet(gradientRadial, gradientRadialFocusPos);
 
 
-    GradientRadial_FocusRadiusSet(gradientRadial, 20);
+    GradientRadial_FocusRadiusSet(gradientRadial, MathInt(20));
 
 
     GradientRadial_Init(gradientRadial);
@@ -1542,13 +1530,13 @@ int main(int argc, char* argv[])
 
 
 
-    GradientStop_PointSet(gradientStop, 0, 0, 0xffff0000);
+    GradientStop_PointSet(gradientStop, 0, MathInt(0), 0xffff0000);
 
 
-    GradientStop_PointSet(gradientStop, 1, scaleFactor / 2, 0xff00ff00);
+    GradientStop_PointSet(gradientStop, 1, Math_Value(0, scaleFactor / 2, -20), 0xff00ff00);
 
 
-    GradientStop_PointSet(gradientStop, 2, scaleFactor, 0xff0000ff);
+    GradientStop_PointSet(gradientStop, 2, MathInt(1), 0xff0000ff);
 
 
 
