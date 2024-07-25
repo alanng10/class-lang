@@ -26,9 +26,9 @@ public class PenCapList : Any
         ulong stat;
         stat = Extern.Share_Stat(share);
 
-        this.Flat = this.AddItem(Extern.Stat_PenCapFlat(stat));
-        this.Square = this.AddItem(Extern.Stat_PenCapSquare(stat));
-        this.Round = this.AddItem(Extern.Stat_PenCapRound(stat));
+        this.Flat = this.AddItem(Extern.Stat_BrushCapFlat(stat));
+        this.Square = this.AddItem(Extern.Stat_BrushCapSquare(stat));
+        this.Round = this.AddItem(Extern.Stat_BrushCapRound(stat));
         return true;
     }
 

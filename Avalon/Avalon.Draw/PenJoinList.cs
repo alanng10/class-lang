@@ -26,10 +26,10 @@ public class PenJoinList : Any
         ulong stat;
         stat = Extern.Share_Stat(share);
 
-        this.Miter = this.AddItem(Extern.Stat_PenJoinMiter(stat));
-        this.Bevel = this.AddItem(Extern.Stat_PenJoinBevel(stat));
-        this.Round = this.AddItem(Extern.Stat_PenJoinRound(stat));
-        this.SvgMiter = this.AddItem(Extern.Stat_PenJoinSvgMiter(stat));
+        this.Miter = this.AddItem(Extern.Stat_BrushJoinMiter(stat));
+        this.Bevel = this.AddItem(Extern.Stat_BrushJoinBevel(stat));
+        this.Round = this.AddItem(Extern.Stat_BrushJoinRound(stat));
+        this.SvgMiter = this.AddItem(Extern.Stat_BrushJoinSvgMiter(stat));
         return true;
     }
 
