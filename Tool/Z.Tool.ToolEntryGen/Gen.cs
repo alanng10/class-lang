@@ -16,19 +16,19 @@ class Gen : Any
     {
         this.SourceTemplate = this.ToolInfra.StorageTextRead("ToolData/Entry.txt");
 
+        this.ExecuteOne("Avalon.TextEncodeKindList");
         this.ExecuteOne("Avalon.BrushKindList");
+        this.ExecuteOne("Avalon.BrushLineList");
+        this.ExecuteOne("Avalon.BrushCapList");
+        this.ExecuteOne("Avalon.BrushJoinList");
         this.ExecuteOne("Avalon.DrawCompList");
         this.ExecuteOne("Avalon.GradientKindList");
         this.ExecuteOne("Avalon.GradientSpreadList");
         this.ExecuteOne("Avalon.ImageFormatList");
+        this.ExecuteOne("Avalon.TextAlignList");
         this.ExecuteOne("Avalon.NetworkCaseList");
         this.ExecuteOne("Avalon.NetworkPortKindList");
         this.ExecuteOne("Avalon.NetworkStatusList");
-        this.ExecuteOne("Avalon.PenCapList");
-        this.ExecuteOne("Avalon.PenJoinList");
-        this.ExecuteOne("Avalon.PenKindList");
-        this.ExecuteOne("Avalon.TextAlignList");
-        this.ExecuteOne("Avalon.TextEncodeKindList");
         this.ExecuteOne("Class.CountList");
         this.ExecuteOne("Class.DelimitList");
         this.ExecuteOne("Class.ErrorKindList");
