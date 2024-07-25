@@ -82,7 +82,7 @@ public class Gen : Any
         ka = ka.Replace("#Part#", k);
 
         string outputPath;
-        outputPath = "../../Avalon/Avalon.Draw/MathPart.cs";
+        outputPath = "../../Avalon/Avalon.Math/MathPart.cs";
 
         toolInfra.StorageTextWrite(outputPath, ka);
         return 0;
