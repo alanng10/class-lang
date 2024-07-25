@@ -29,7 +29,6 @@ class Gen : Any
         this.ExecuteOne("Avalon.NetworkCaseList");
         this.ExecuteOne("Avalon.NetworkPortKindList");
         this.ExecuteOne("Avalon.NetworkStatusList");
-        this.ExecuteOne("Avalon.MathPart");
         this.ExecuteOne("Class.CountList");
         this.ExecuteOne("Class.DelimitList");
         this.ExecuteOne("Class.ErrorKindList");
@@ -54,6 +53,7 @@ class Gen : Any
         this.ExecuteOne("Infra.StatTextEncodeKind");
         this.ExecuteOne("Infra.StatTextWrap");
         this.ExecuteOne("Infra.StatThreadCase");
+        this.ExecuteOne("MathGen");
         this.ExecuteOne("PrudateGen");
         this.ExecuteOne("ReferBinaryGen");
 
