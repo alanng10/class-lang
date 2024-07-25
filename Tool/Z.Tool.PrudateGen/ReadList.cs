@@ -81,9 +81,16 @@ public class ReadList : Any
 
         this.ExecuteList("ImageFormat");
 
-        this.SetStatMethod();
+        bool b;
+        b = this.SetStatMethod();
 
         this.List = null;
+
+        if (!b)
+        {
+            return false;
+        }
+
         return true;
     }
 
@@ -94,16 +101,19 @@ public class ReadList : Any
 
     protected virtual bool SetStatMethod()
     {
+        Class statClass;
+        statClass = (Class)this.ReadResult.Class.Get("Stat");
+
+        if (statClass == null)
+        {
+            return false;
+        }
+
         int ka;
-
-        ka = this.ReadResult.Stat.Method.Count;
-
-
+        ka = statClass.Method.Count;
 
         int k;
-
         k = ka;
-
         k = k + this.List.Count;
 
 
@@ -132,7 +142,7 @@ public class ReadList : Any
         {
             Method method;
 
-            method = (Method)this.ReadResult.Stat.Method.GetAt(i);
+            method = (Method)statClass.Method.GetAt(i);
 
 
             array.SetAt(i, method);
@@ -193,13 +203,7 @@ public class ReadList : Any
             i = i + 1;
         }
 
-
-
-
-        this.ReadResult.Stat.Method = array;
-
-
-
+        statClass.Method = array;
 
         return true;
     }

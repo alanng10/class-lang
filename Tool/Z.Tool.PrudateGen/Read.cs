@@ -336,19 +336,7 @@ class Read : Any
 
         this.Class.Delegate = this.CreateArray(this.DelegateList);
 
-
-
-
-        if (this.Class.Name == "Stat")
-        {
-            this.Result.Stat = this.Class;
-        }
-
-
-
-
         this.Class = null;
-
 
         this.FieldList = null;
 
@@ -359,9 +347,6 @@ class Read : Any
         this.StaticMethodList = null;
 
         this.DelegateList = null;
-
-
-
         return true;
     }
 

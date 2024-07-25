@@ -50,19 +50,18 @@ class Gen : Any
         readList.ReadResult = this.ReadResult;
 
 
-        readList.Execute();
+        bool b;
+
+        b = readList.Execute();
         
-
-
-
+        if (!b)
+        {
+            return 100;
+        }
 
         this.ExecutePrudateGen(new PrudateGen());
 
-
-
         this.ExecutePrudateGen(new ExternGen());
-
-
 
         return 0;
     }
