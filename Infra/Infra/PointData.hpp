@@ -8,7 +8,7 @@
 Int a##_u;\
 a##_u = CastDoubleToInt(a);\
 Int a##A;\
-a##A = ValueGetFromInternValue(a##_u);\
+a##A = Math_GetValueFromInternValue(0, a##_u);\
 
 
 #define PosValue(prefix) \
@@ -20,7 +20,7 @@ prefix##Up = Pos_UpGet(prefix##Pos);\
 
 #define InternValue(a) \
 Int a##_u;\
-a##_u = InternValueGet(a);\
+a##_u = Math_GetInternValue(0, a);\
 qreal a##U;\
 a##U = CastIntToDouble(a##_u);\
 
