@@ -15,7 +15,6 @@ struct Math
     ua = Math_GetInternValue(o, value);\
     double u;\
     u = CastIntToDouble(ua);\
-\
 
 
 #define End \
@@ -37,7 +36,6 @@ if (isnan(a))\
 Int Math_##name(Int o, Int value)\
 {\
     Start\
-    Valid(u);\
     double oo;\
     oo = std::f(u);\
     Valid(oo);\

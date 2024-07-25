@@ -51,6 +51,11 @@ Int Math_GetInternValue(Int o, Int value)
     double ou;
     ou = std::ldexp(uaa, uab);
 
+    if (isnan(ou))
+    {
+        return -1LL;
+    }
+
     Int a;
     a = CastDoubleToInt(ou);
     return a;
