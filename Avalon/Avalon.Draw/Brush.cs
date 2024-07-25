@@ -27,11 +27,24 @@ public class Brush : Any
         {
             gradientU = this.Gradient.Intern;
         }
+        ulong lineU;
+        lineU = this.Line.Intern;
+        ulong widthU;
+        widthU = (ulong)(this.Width);
+        ulong capU;
+        capU = this.Cap.Intern;
+        ulong joinU;
+        joinU = this.Join.Intern;
+
         this.Intern = Extern.Brush_New();
         Extern.Brush_KindSet(this.Intern, kindU);
         Extern.Brush_ColorSet(this.Intern, colorU);
         Extern.Brush_ImageSet(this.Intern, imageU);
         Extern.Brush_GradientSet(this.Intern, gradientU);
+        // Extern.Brush_LineSet(this.Intern, lineU);
+        // Extern.Brush_WidthSet(this.Intern, widthU);
+        // Extern.Brush_CapSet(this.Intern, capU);
+        // Extern.Brush_JoinSet(this.Intern, joinU);
         Extern.Brush_Init(this.Intern);
         return true;
     }
@@ -45,8 +58,11 @@ public class Brush : Any
 
     public virtual BrushKind Kind { get; set; }
     public virtual Color Color { get; set; }
-    public virtual Image Image { get; set; }
     public virtual Gradient Gradient { get; set; }
-
+    public virtual Image Image { get; set; }
+    public virtual BrushLine Line { get; set; }
+    public virtual int Width { get; set; }
+    public virtual BrushCap Cap { get; set; }
+    public virtual BrushJoin Join { get; set; }
     internal virtual ulong Intern { get; set; }    
 }
