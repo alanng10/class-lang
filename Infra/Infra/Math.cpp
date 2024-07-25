@@ -51,7 +51,7 @@ Int Math_GetInternValue(Int o, Int value)
     double ou;
     ou = std::ldexp(uaa, uab);
 
-    Valid(ou);
+    ValidDouble(ou);
 
     Int a;
     a = CastDoubleToInt(ou);
@@ -69,12 +69,12 @@ Int Math_GetValueFromInternValue(Int o, Int u)
     double uu;
     uu = std::frexp(ou, &exp);
 
-    Valid(uu);
+    ValidDouble(uu);
 
     double uua;
     uua = std::ldexp(uu, 49);
 
-    Valid(uua);
+    ValidDouble(uua);
 
     int expa;
     expa = exp - 49;
@@ -177,6 +177,8 @@ Int Math_Value(Int o, Int significand, Int exponent)
     double oo;
     oo = std::ldexp(uaa, uab);
 
+    ValidDouble(oo);
+
     End
 }
 
@@ -192,20 +194,30 @@ Int Math_ValueTen(Int o, Int significand, Int exponentTen)
     ab = ab << 4;
     ab = ab >> 4;
 
-    double uua;
-    uua = 10;
+    double u;
+    u = aa;
+
     double au;
     au = ab;
+
+    ValidDouble(u);
+
+    ValidDouble(au);
+
+    double uua;
+    uua = 10;
 
     double uu;
     uu = std::pow(uua, au);
 
-    double u;
-    u = aa;
+    ValidDouble(uu);
+
     u = u * uu;
 
     double oo;
     oo = u;
+
+    ValidDouble(oo);
 
     End
 }
