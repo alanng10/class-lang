@@ -214,7 +214,10 @@ class MathAdd : Any
         int count;
         count = 1;
 
-        if (operandTwo)
+        bool b;
+        b = operandTwo;
+
+        if (b)
         {
             count = 2;
         }
@@ -222,16 +225,15 @@ class MathAdd : Any
         Array param;
         param = this.ListInfra.ArrayCreate(count);
 
-        int i;
-        i = 0;
-        while (i < count)
+        if (!b)
         {
-            string k;
-            k = "arg" + i.ToString();
+            param.SetAt(0, "value");
+        }
 
-            param.SetAt(i, k);
-
-            i = i + 1;
+        if (b)
+        {
+            param.SetAt(0, "valueA");
+            param.SetAt(1, "valueB");
         }
 
         return param;
