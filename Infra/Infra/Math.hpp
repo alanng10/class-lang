@@ -10,13 +10,24 @@ struct Math
 
 #define CP(a) ((Math*)(a))
 
+#define ValidValue(a) \
+if (a == CastInt(-1))\
+{\
+    return a;\
+}\
+
+
+#define ValidDouble(a) \
+if (std::isnan(a))\
+{\
+    return CastInt(-1);\
+}\
+
+
 #define Start \
     Int ua;\
     ua = Math_GetInternValue(o, value);\
-    if (ua == CastInt(-1))\
-    {\
-        return ua;\
-    }\
+    ValidValue(ua);\
     double u;\
     u = CastIntToDouble(ua);\
 
@@ -29,20 +40,13 @@ struct Math
     return a;\
 
 
-#define Valid(a) \
-if (std::isnan(a))\
-{\
-    return CastInt(-1);\
-}\
-
-
 #define MathMaide(name, f) \
 Int Math_##name(Int o, Int value)\
 {\
     Start\
     double oo;\
     oo = std::f(u);\
-    Valid(oo);\
+    ValidDouble(oo);\
     End\
 }\
 
