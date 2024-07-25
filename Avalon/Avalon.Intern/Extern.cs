@@ -307,25 +307,18 @@ public static class Extern
     [DllImport(InfraLib)] public extern static ulong Brush_KindSet(ulong o, ulong value);
     [DllImport(InfraLib)] public extern static ulong Brush_ColorGet(ulong o);
     [DllImport(InfraLib)] public extern static ulong Brush_ColorSet(ulong o, ulong value);
-    [DllImport(InfraLib)] public extern static ulong Brush_ImageGet(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Brush_ImageSet(ulong o, ulong value);
     [DllImport(InfraLib)] public extern static ulong Brush_GradientGet(ulong o);
     [DllImport(InfraLib)] public extern static ulong Brush_GradientSet(ulong o, ulong value);
-
-    [DllImport(InfraLib)] public extern static ulong Pen_New();
-    [DllImport(InfraLib)] public extern static ulong Pen_Delete(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Pen_Init(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Pen_Final(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Pen_KindGet(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Pen_KindSet(ulong o, ulong value);
-    [DllImport(InfraLib)] public extern static ulong Pen_WidthGet(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Pen_WidthSet(ulong o, ulong value);
-    [DllImport(InfraLib)] public extern static ulong Pen_BrushGet(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Pen_BrushSet(ulong o, ulong value);
-    [DllImport(InfraLib)] public extern static ulong Pen_CapGet(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Pen_CapSet(ulong o, ulong value);
-    [DllImport(InfraLib)] public extern static ulong Pen_JoinGet(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Pen_JoinSet(ulong o, ulong value);
+    [DllImport(InfraLib)] public extern static ulong Brush_ImageGet(ulong o);
+    [DllImport(InfraLib)] public extern static ulong Brush_ImageSet(ulong o, ulong value);
+    [DllImport(InfraLib)] public extern static ulong Brush_LineGet(ulong o);
+    [DllImport(InfraLib)] public extern static ulong Brush_LineSet(ulong o, ulong value);
+    [DllImport(InfraLib)] public extern static ulong Brush_WidthGet(ulong o);
+    [DllImport(InfraLib)] public extern static ulong Brush_WidthSet(ulong o, ulong value);
+    [DllImport(InfraLib)] public extern static ulong Brush_CapGet(ulong o);
+    [DllImport(InfraLib)] public extern static ulong Brush_CapSet(ulong o, ulong value);
+    [DllImport(InfraLib)] public extern static ulong Brush_JoinGet(ulong o);
+    [DllImport(InfraLib)] public extern static ulong Brush_JoinSet(ulong o, ulong value);
 
     [DllImport(InfraLib)] public extern static ulong PointData_PointGet(ulong address, ulong result);
     [DllImport(InfraLib)] public extern static ulong PointData_PointSet(ulong address, ulong pos);
