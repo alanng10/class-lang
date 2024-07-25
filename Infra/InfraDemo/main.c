@@ -1438,20 +1438,13 @@ int main(int argc, char* argv[])
     Thread_ExecuteStateSet(threadAA, threadAAExecuteState);
 
     Thread_Execute(threadAA);
-    
+
     Thread_Wait(threadAA);
-
-
-
 
 
     Transform = Transform_New();
 
-
     Transform_Init(Transform);
-
-
-
 
 
     Int imageBrushKind;
@@ -1459,16 +1452,11 @@ int main(int argc, char* argv[])
     imageBrushKind = Stat_BrushKindImage(Stat);
 
 
-
-
     ImageBrush = Brush_New();
-
 
     Brush_KindSet(ImageBrush, imageBrushKind);
 
-
     Brush_ImageSet(ImageBrush, Image);
-
 
     Brush_Init(ImageBrush);
 
