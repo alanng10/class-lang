@@ -27,12 +27,12 @@ public class Infra : Any
 
         BrushKindList brushKindList;
         brushKindList = BrushKindList.This;
-        PenKindList penKindList;
-        penKindList = PenKindList.This;
-        PenCapList penCapList;
-        penCapList = PenCapList.This;
-        PenJoinList penJoinList;
-        penJoinList = PenJoinList.This;
+        BrushLineList brushLineList;
+        brushLineList = BrushLineList.This;
+        BrushCapList brushCapList;
+        brushCapList = BrushCapList.This;
+        BrushJoinList brushJoinList;
+        brushJoinList = BrushJoinList.This;
 
         this.WhiteBrush = new Brush();
         this.WhiteBrush.Kind = brushKindList.Color;
@@ -41,14 +41,11 @@ public class Infra : Any
         this.BlackBrush = new Brush();
         this.BlackBrush.Kind = brushKindList.Color;
         this.BlackBrush.Color = this.BlackColor;
+        this.BlackBrush.Line = brushLineList.Solid;
+        this.BlackBrush.Width = 1;
+        this.BlackBrush.Cap = brushCapList.Flat;
+        this.BlackBrush.Join = brushJoinList.Miter;
         this.BlackBrush.Init();
-        this.BlackPen = new Pen();
-        this.BlackPen.Kind = penKindList.Solid;
-        this.BlackPen.Width = 1;
-        this.BlackPen.Brush = this.BlackBrush;
-        this.BlackPen.Cap = penCapList.Flat;
-        this.BlackPen.Join = penJoinList.Miter;
-        this.BlackPen.Init();
 
         this.Font = new Face();
         this.Font.Family = "Source Sans 3";
@@ -75,7 +72,6 @@ public class Infra : Any
     public virtual Color TransparentColor { get; set; }
     public virtual Brush WhiteBrush { get; set; }
     public virtual Brush BlackBrush { get; set; }
-    public virtual Pen BlackPen { get; set; }
     public virtual Face Font { get; set; }
     public virtual long ScaleFactor { get; set; }
     protected virtual StorageStatusList StorageStatusList { get; set; }

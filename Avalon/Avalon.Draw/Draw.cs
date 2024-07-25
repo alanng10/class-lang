@@ -111,7 +111,7 @@ public class Draw : Any
 
     protected virtual Brush BrushData { get; set; }
 
-    public virtual Pen Pen
+    public virtual Brush Pen
     {
         get
         {
@@ -131,7 +131,7 @@ public class Draw : Any
         }
     }
 
-    protected virtual Pen PenData { get; set; }
+    protected virtual Brush PenData { get; set; }
 
     public virtual Face Face
     {
