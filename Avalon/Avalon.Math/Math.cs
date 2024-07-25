@@ -48,7 +48,7 @@ public class Math : Any
         return a;
     }
     
-    public virtual bool Compose(Comp result, long value)
+    public virtual bool Comp(Comp result, long value)
     {
         InternMathCompose u;
         u = this.InternMathCompose;

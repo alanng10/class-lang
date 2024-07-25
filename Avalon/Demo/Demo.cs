@@ -375,7 +375,7 @@ class Demo : Any
 
     private bool ConsoleWriteMathValue(string prefix, long value)
     {
-        this.Math.Compose(this.MathCompose, value);
+        this.Math.Comp(this.MathCompose, value);
         
         this.Console.Out.Write(prefix +
         "Significand: " + this.MathCompose.Significand.ToString("x") + ", " +
