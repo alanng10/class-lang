@@ -25,12 +25,12 @@ public class MathAdd : Any
         string ka;
         ka = toolInfra.StorageTextRead("ToolData/Math/TrigoList.txt");
 
-        string textList;
-        textList = toolInfra.StorageTextRead("ToolData/Math/List.txt");
+        string kb;
+        kb = toolInfra.StorageTextRead("ToolData/Math/List.txt");
 
         this.TrigoList = toolInfra.SplitLineList(ka);
 
-        this.LineList = toolInfra.SplitLineList(textList);
+        this.LineList = toolInfra.SplitLineList(kb);
 
         this.List = new List();
         this.List.Init();
@@ -48,13 +48,76 @@ public class MathAdd : Any
             return false;
         }
 
-        
+        b = this.SetMathClass();
+        if (!b)
+        {
+            return false;
+        }
 
         return true;
     }
 
     protected virtual bool SetMathClass()
     {
+        Class mathClass;
+        mathClass = (Class)this.ReadResult.Class.Get("Math");
+
+        if (mathClass == null)
+        {
+            return false;
+        }
+
+        int ka;
+        ka = mathClass.Method.Count;
+
+        int k;
+        k = ka;
+        k = k + this.List.Count;
+
+        Array array;
+        array = new Array();
+        array.Count = k;
+        array.Init();
+
+        int count;
+        count = ka;
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            Maide method;
+            method = (Maide)mathClass.Method.GetAt(i);
+
+            array.SetAt(i, method);
+
+            i = i + 1;
+        }
+
+        Iter iter;
+        iter = this.List.IterCreate();
+        this.List.IterSet(iter);
+
+        int start;
+        start = ka;
+
+        count = this.List.Count;
+        i = 0;
+        while (i < count)
+        {
+            iter.Next();
+
+            Maide method;
+            method = (Maide)iter.Value;
+
+            int index;
+            index = start + i;
+
+            array.SetAt(index, method);
+
+            i = i + 1;
+        }
+
+        mathClass.Method = array;
         return true;
     }
 
