@@ -73,11 +73,8 @@ Int Brush_Init(Int o)
     Qt::PenStyle styleU;
     styleU = (Qt::PenStyle)line;
 
-    Int widthU;
-    widthU = InternValueGet(width);
-    qreal widthUu;
-    widthUu = CastIntToDouble(widthU);
-
+    InternValue(width);
+    
     Qt::PenCapStyle capStyleU;
     capStyleU = (Qt::PenCapStyle)(cap - 1);
 
@@ -85,7 +82,7 @@ Int Brush_Init(Int o)
     joinStyleU = (Qt::PenJoinStyle)(join - 1);
 
     QPen* u;
-    u = new QPen(*(m->InternBrush), widthUu, styleU, capStyleU, joinStyleU);
+    u = new QPen(*(m->InternBrush), widthU, styleU, capStyleU, joinStyleU);
     m->Intern = u;
     return true;
 }
