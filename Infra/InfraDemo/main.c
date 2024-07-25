@@ -330,103 +330,48 @@ Bool TypeHandle(Int frame, Int index, Int field, Int arg)
 Bool SetRect(Int rect, Int left, Int up, Int width, Int height)
 {
     Int pos;
-
     Int size;
-
-
     pos = Rect_PosGet(rect);
-
     size = Rect_SizeGet(rect);
-
-
 
     SetPos(pos, left, up);
 
-
     SetSize(size, width, height);
-
-
-
     return true;
 }
-
-
-
-
 
 Bool SetPos(Int pos, Int left, Int up)
 {
     Pos_LeftSet(pos, left);
-
-
     Pos_UpSet(pos, up);
-
-
-
     return true;
 }
-
-
-
 
 Bool SetSize(Int size, Int width, Int height)
 {
     Size_WidthSet(size, width);
-
-
     Size_HeightSet(size, height);
-
-
-
     return true;
 }
-
-
-
 
 Bool SetRange(Int range, Int index, Int count)
 {
     Range_IndexSet(range, index);
-
-
     Range_CountSet(range, count);
-
-
-
     return true;
 }
-
-
-
-
 
 Int ConsoleWriteConstant(const char* o)
 {
     Int u;
-
     u = CastInt(o);
 
-
-
-
-
     Int a;
-
     a = String_ConstantCreate(u);
-
-
-
 
     Console_OutWrite(Console, a);
 
-
-
-
     String_ConstantDelete(a);
-
-
-
-
     return true;
 }
 
