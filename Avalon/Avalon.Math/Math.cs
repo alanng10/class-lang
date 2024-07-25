@@ -15,7 +15,7 @@ public class Math : Any
     private ulong Intern { get; set; }
     private InternMathCompose InternMathCompose { get; set; }
 
-    public virtual long Value(Compose compose)
+    public virtual long Value(Comp compose)
     {
         long aa;
         aa = compose.Significand;
@@ -48,7 +48,7 @@ public class Math : Any
         return a;
     }
     
-    public virtual bool Compose(Compose result, long value)
+    public virtual bool Compose(Comp result, long value)
     {
         InternMathCompose u;
         u = this.InternMathCompose;

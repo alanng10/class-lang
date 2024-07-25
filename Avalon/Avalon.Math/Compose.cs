@@ -1,6 +1,6 @@
 namespace Avalon.Math;
 
-public class Compose : Any
+public class Comp : Any
 {
     public virtual long Significand { get { return __D_Significand; } set { __D_Significand = value; } }
     protected long __D_Significand;
