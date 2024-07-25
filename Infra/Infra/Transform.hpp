@@ -15,7 +15,7 @@ struct Transform
 
 #define InternValue(a) \
 Int a##_uu;\
-a##_uu = InternValueGet(a);\
+a##_uu = Math_GetInternValue(0, a);\
 qreal a##U;\
 a##U = CastIntToDouble(a##_uu);\
 
