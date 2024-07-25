@@ -15,24 +15,20 @@ Int GradientRadial_Init(Int o)
     Int focusRadius;
     focusRadius = m->FocusRadius;
 
-    Int centerLeft;
-    Int centerUp;
-    centerLeft = Pos_LeftGet(centerPos);
-    centerUp = Pos_UpGet(centerPos);
-    Int focusLeft;
-    Int focusUp;
-    focusLeft = Pos_LeftGet(focusPos);
-    focusUp = Pos_UpGet(focusPos);
+    PosValue(center);
+    PosValue(focus);
 
-    InternQReal(centerLeft)
-    InternQReal(centerUp)
-    InternQReal(focusLeft)
-    InternQReal(focusUp)
-    InternQReal(centerRadius)
-    InternQReal(focusRadius)
+    InternPosValue(center);
+    InternPosValue(focus);
+
+    InternPos(center);
+    InternPos(focus);
+
+    InternValue(centerRadius);
+    InternValue(focusRadius);
 
     QRadialGradient* radialGradient;
-    radialGradient = new QRadialGradient(centerLeftU, centerUpU, centerRadiusU, focusLeftU, focusUpU, focusRadiusU);
+    radialGradient = new QRadialGradient(centerPosU, centerRadiusU, focusPosU, focusRadiusU);
     m->Intern = radialGradient;
     return true;
 }
