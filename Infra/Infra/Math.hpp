@@ -18,7 +18,7 @@ if (a == CastInt(-1))\
 
 
 #define ValidDouble(a) \
-if (std::isnan(a))\
+if (std::isnan(a) | std::isinf(a))\
 {\
     return CastInt(-1);\
 }\
