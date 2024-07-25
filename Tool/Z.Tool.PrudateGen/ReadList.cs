@@ -1,63 +1,31 @@
 namespace Z.Tool.PrudateGen;
 
-
-
-
-
 public class ReadList : Any
 {
     public override bool Init()
     {
         base.Init();
-
-
-
         this.ToolInfra = ToolInfra.This;
-
-
-
-
         return true;
     }
 
-
-
-
-
     public virtual ReadResult ReadResult { get; set; }
 
-
-
-
     protected virtual ToolInfra ToolInfra { get; set; }
-
-
-
     protected virtual List List { get; set; }
-
-
-
 
     public virtual bool Execute()
     {
         this.List = new List();
-
         this.List.Init();
-
-
-
 
         this.ExecuteList("TextEncodeKind");
 
-
         this.ExecuteList("ThreadCase");
-
 
         this.ExecuteList("StreamKind");
 
-
         this.ExecuteList("StorageMode");
-
 
         this.ExecuteList("StorageStatus");
         this.ExecuteList("NetworkCase");
@@ -93,11 +61,6 @@ public class ReadList : Any
 
         return true;
     }
-
-
-
-
-
 
     protected virtual bool SetStatMethod()
     {
