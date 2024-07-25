@@ -15,12 +15,12 @@ public class Math : Any
     private ulong Intern { get; set; }
     private InternMathComp InternComp { get; set; }
 
-    public virtual long Value(Comp compose)
+    public virtual long Value(Comp comp)
     {
         long aa;
-        aa = compose.Significand;
+        aa = comp.Significand;
         long ab;
-        ab = compose.Exponent;
+        ab = comp.Exponent;
 
         ulong ua;
         ulong ub;
