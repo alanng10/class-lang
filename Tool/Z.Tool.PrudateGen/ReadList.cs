@@ -73,32 +73,17 @@ public class ReadList : Any
 
         this.ExecuteList("GradientKind");
 
-
         this.ExecuteList("GradientSpread");
-
 
         this.ExecuteList("TextAlign");
 
-
         this.ExecuteList("TextWrap");
-
 
         this.ExecuteList("ImageFormat");
 
-
-
-
-
         this.SetStatMethod();
 
-
-
-
         this.List = null;
-
-
-
-
         return true;
     }
 
