@@ -1285,297 +1285,160 @@ int main(int argc, char* argv[])
     Storage_Open(storage);
 
 
-
-
-
     Int imageRead;
-
 
     imageRead = ImageRead_New();
 
-
-
     ImageRead_Init(imageRead);
-
-
-
-
 
     ImageRead_StreamSet(imageRead, stream);
 
 
-
-
-
     Int imageSize;
 
-
     imageSize = Size_New();
-
 
     Size_Init(imageSize);
 
 
-
-
-
     Int imageData;
 
-
     imageData = Data_New();
-
 
     Data_Init(imageData);
 
 
-
-
-
     Image = Image_New();
-
 
     Image_SizeSet(Image, imageSize);
 
-
     Image_DataSet(Image, imageData);
-
 
     Image_Init(Image);
 
 
-
-
     ImageRead_ImageSet(imageRead, Image);
-
-
-
 
     ImageRead_Execute(imageRead);
 
 
-
-
-
-
     Storage_Close(storage);
-
-
-
-
-
-
 
 
     Int memory;
 
     memory = Memory_New();
 
-
     Memory_Init(memory);
 
-
-
     Memory_StreamSet(memory, stream);
-
-
 
     Memory_Open(memory);
 
 
-
-
     Int stringOa;
-
     stringOa = String_ConstantCreate(CastInt("ABCD GGHH o4\n"));
 
-
-
     Int memoryDataValue;
-
     memoryDataValue = String_DataGet(stringOa);
 
 
     Int memoryDataCount;
-
     memoryDataCount = String_CountGet(stringOa) * Constant_CharByteCount();
-
 
 
     Int dataA;
 
     dataA = Data_New();
 
-
     Data_Init(dataA);
-
 
     Data_CountSet(dataA, memoryDataCount);
 
-
     Data_ValueSet(dataA, memoryDataValue);
 
-
-
-
     SetRange(RangeA, 0, memoryDataCount);
-
 
 
     Stream_Write(stream, dataA, RangeA);
 
 
-
     Int stringCountA;
-
     stringCountA = 8;
-
 
     memoryDataCount = stringCountA * Constant_CharByteCount();
 
-
-
     Int dataValueA;
-
     dataValueA = New(memoryDataCount);
-
-
 
     Data_CountSet(dataA, memoryDataCount);
 
-
     Data_ValueSet(dataA, dataValueA);
-
-
 
     SetRange(RangeA, 0, memoryDataCount);
 
-
-
     Stream_PosSet(stream, 5 * Constant_CharByteCount());
-
-
-
-
 
     Stream_Read(stream, dataA, RangeA);
 
 
-
-
     Int stringOb;
-
 
     stringOb = String_New();
 
-
     String_Init(stringOb);
-
 
     String_CountSet(stringOb, stringCountA);
 
-
     String_DataSet(stringOb, dataValueA);
-
-
-
 
     Console_OutWrite(Console, stringOb);
 
-
-
     String_Final(stringOb);
-
 
     String_Delete(stringOb);
 
-
-
-
     Delete(dataValueA);
-
-
-
 
     Data_Final(dataA);
 
-
     Data_Delete(dataA);
-
-
-
 
 
     String_ConstantDelete(stringOa);
 
 
-
-
-
     Memory_Close(memory);
-
-
-
-
 
     Memory_Final(memory);
 
-
-
     Memory_Delete(memory);
-
-
-
-
-
 
 
     Thread_Execute_Maide threadAAExecute;
 
     threadAAExecute = &ThreadAAExecute;
 
-
-
     Int uoaa;
-
     uoaa = CastInt(threadAAExecute);
 
-
-
-
     Int threadAAExecuteState;
-
-
     threadAAExecuteState = State_New();
 
-
-
     State_Init(threadAAExecuteState);
-
-
 
     State_MaideSet(threadAAExecuteState, uoaa);
 
 
-
-
-
     Int threadAA;
-
     threadAA = Thread_New();
-
 
     Thread_Init(threadAA);
 
-
-
     Thread_ExecuteStateSet(threadAA, threadAAExecuteState);
 
-
-
     Thread_Execute(threadAA);
-
-
-
+    
     Thread_Wait(threadAA);
 
 
