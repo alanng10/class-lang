@@ -1177,170 +1177,84 @@ int main(int argc, char* argv[])
 
     Console = Console_New();
 
-
-
     Console_Init(Console);
-
-
-
-
-
 
     ConsoleWriteConstant("DEMO HELLO\n");
 
-
-
-
     ConsoleWriteConstant("DEMO 的 阿卡 HELLO\n");
 
-
-
-
-
-
     Int stringAa;
-
     Int stringAb;
-
-
-
     stringAa = String_ConstantCreate(CastInt("Phore Init Count Success\n"));
-
     stringAb = String_ConstantCreate(CastInt("Phore Init Count Error\n"));
 
-
-
-
     Int phoreInitCount;
-
     phoreInitCount = 467;
 
-
-
     Int phore;
-
     phore = Phore_New();
-
 
     Phore_InitCountSet(phore, phoreInitCount);
 
-
     Phore_Init(phore);
 
-
-
     Int phoreCount;
-
     phoreCount = Phore_CountGet(phore);
-
-
-
 
     Phore_Final(phore);
 
-
     Phore_Delete(phore);
 
-
-
-
-
     Bool phoreB;
-
     phoreB = (phoreCount == phoreInitCount);
 
-
     Int stringAc;
-
     stringAc = stringAa;
-
 
     if (!phoreB)
     {
         stringAc = stringAb;
     }
 
-
-
-
     Console_OutWrite(Console, stringAc);
-
-
-
 
     String_ConstantDelete(stringAb);
 
-
     String_ConstantDelete(stringAa);
-
-
-
-
 
 
     Thread_Execute_Maide maideO;
 
     maideO = &ThreadIntervalExecute;
 
-
-
     Int threadOu;
-
     threadOu = CastInt(maideO);
 
-
-
-
     Int threadOExecuteState;
-
-
+    
     threadOExecuteState = State_New();
-
 
     State_Init(threadOExecuteState);
 
-
     State_MaideSet(threadOExecuteState, threadOu);
-
-
-
 
     Int threadO;
 
-
     threadO = Thread_New();
-
 
     Thread_Init(threadO);
 
-
-
     Thread_ExecuteStateSet(threadO, threadOExecuteState);
-
-
-
 
     Thread_Execute(threadO);
 
-
-
-
     Thread_Wait(threadO);
-
-
-
-
 
     Thread_Final(threadO);
 
-
     Thread_Delete(threadO);
 
-
-
-
     State_Final(threadOExecuteState);
-
 
     State_Delete(threadOExecuteState);
 
@@ -1420,9 +1334,6 @@ int main(int argc, char* argv[])
     PenRect = penRectBrush;
 
 
-
-
-
     Int penTextKind;
     penTextKind = Stat_BrushKindColor(Stat);
 
@@ -1452,7 +1363,6 @@ int main(int argc, char* argv[])
     Brush_JoinSet(penTextBrush, penTextJoin);
 
     Brush_Init(penTextBrush);
-
 
     PenText = penTextBrush;
 
