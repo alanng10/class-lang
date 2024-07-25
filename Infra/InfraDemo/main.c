@@ -499,22 +499,15 @@ Bool DrawHandle(Int frame, Int arg)
     Draw_StrokeSet(Draw, PenRect);
 
 
-
-
-
     Transform_Reset(Transform);
 
+    Transform_Offset(Transform, MathInt(-780), MathInt(-450));
 
-    Transform_Offset(Transform, -780 * scaleFactor, -450 * scaleFactor);
+    Transform_Scale(Transform, MathInt(1), Math_Value(0, 1 * scaleFactor + (1 << 18), -20));
 
+    Transform_Rotate(Transform, MathInt(RotateAngle + 30));
 
-    Transform_Scale(Transform, scaleFactor, 1 * scaleFactor + (1 << 18));
-
-
-    Transform_Rotate(Transform, (RotateAngle + 30) * scaleFactor);
-
-
-    Transform_Offset(Transform, 1080 * scaleFactor, -600 * scaleFactor);
+    Transform_Offset(Transform, MathInt(1080), MathInt(-600));
 
 
 
