@@ -1,6 +1,6 @@
 namespace Avalon.Intern;
 
-public class MathCompose : object
+public class MathComp : object
 {
     public virtual bool Init()
     {

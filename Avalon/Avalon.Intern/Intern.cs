@@ -212,7 +212,7 @@ public class Intern : object
         return a;
     }
 
-    public virtual bool MathCompose(ulong math, MathCompose compose, long value)
+    public virtual bool MathCompose(ulong math, MathComp compose, long value)
     {
         ulong u;
         u = (ulong)value;
