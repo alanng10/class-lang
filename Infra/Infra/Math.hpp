@@ -15,7 +15,6 @@ struct Math
     ua = Math_GetInternValue(o, value);\
     double u;\
     u = CastIntToDouble(ua);\
-    double oo;\
 \
 
 
@@ -31,6 +30,7 @@ struct Math
 Int Math_##name(Int o, Int value)\
 {\
     Start\
+    double oo;\
     oo = std::f(u);\
     End\
 }\
