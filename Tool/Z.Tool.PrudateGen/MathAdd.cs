@@ -1,6 +1,6 @@
 namespace Z.Tool.PrudateGen;
 
-public class MathAdd : Any
+class MathAdd : Any
 {
     public override bool Init()
     {
