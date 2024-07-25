@@ -1,4 +1,4 @@
-namespace Z.Tool.Avalon.PenJoinList;
+namespace Z.Tool.Avalon.BrushJoinList;
 
 class Entry : EntryEntry
 {

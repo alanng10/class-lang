@@ -1,4 +1,4 @@
-namespace Z.Tool.Avalon.PenJoinList;
+namespace Z.Tool.Avalon.BrushJoinList;
 
 public class Gen : SourceGen
 {
@@ -6,13 +6,13 @@ public class Gen : SourceGen
     {
         base.Init();
         this.Namespace = "Avalon.Draw";
-        this.ClassName = "PenJoinList";
+        this.ClassName = "BrushJoinList";
         this.BaseClassName = "Any";
         this.AnyClassName = "Any";
-        this.ItemClassName = "PenJoin";
+        this.ItemClassName = "BrushJoin";
         this.ArrayClassName = "Array";
         this.Export = true;
-        this.StatItemClassName = "PenJoin";
+        this.StatItemClassName = "BrushJoin";
         this.ItemListFileName = this.GetStatItemListFileName();
         return true;
     }
