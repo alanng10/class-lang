@@ -12,10 +12,18 @@ public class Gen : Any
 
     protected virtual ListInfra ListInfra { get; set; }
     protected virtual ToolInfra ToolInfra { get; set; }
+    protected virtual string MaideText { get; set; }
+    protected virtual string TrigoText { get; set; }
     protected virtual Table TrigoTable { get; set; }
 
     public virtual int Execute()
     {
+        ToolInfra toolInfra;
+        toolInfra = this.ToolInfra;
+
+        this.MaideText = toolInfra.StorageTextRead("ToolData/MathMaide.txt");
+        this.TrigoText = toolInfra.StorageTextRead("ToolData/TrigoList.txt");
+
         this.SetTrigoTable();
 
         
@@ -31,11 +39,8 @@ public class Gen : Any
         ToolInfra toolInfra;
         toolInfra = this.ToolInfra;
 
-        string ka;
-        ka = toolInfra.StorageTextRead("ToolData/TrigoList.txt");
-
         Array k;
-        k = toolInfra.SplitLineList(ka);
+        k = toolInfra.SplitLineList(this.TrigoText);
         
         IntCompare kaa;
         kaa = new IntCompare();
