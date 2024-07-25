@@ -26,15 +26,6 @@ Int varClass##_Delete(Int o)\
 
 #define CastInt32ToFloat(a)   (*((float*)&a))
 
-#define InternQReal(a) \
-    SInt a##_u;\
-    a##_u = a;\
-    a##_u = a##_u << 4;\
-    a##_u = a##_u >> 4;\
-    qreal a##U;\
-    a##U = a##_u;\
-
-
 #define CppFieldGet(varClass, name) \
 Int varClass##_##name##Get(Int o)\
 {\
