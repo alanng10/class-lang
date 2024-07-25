@@ -1,4 +1,4 @@
-namespace Z.Tool.Avalon.PenKindList;
+namespace Z.Tool.Avalon.BrushLineList;
 
 class Entry : EntryEntry
 {
