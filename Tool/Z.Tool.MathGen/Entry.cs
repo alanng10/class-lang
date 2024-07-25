@@ -1,4 +1,4 @@
-namespace Z.Tool.Avalon.MathPart;
+namespace Z.Tool.MathGen;
 
 class Entry : EntryEntry
 {

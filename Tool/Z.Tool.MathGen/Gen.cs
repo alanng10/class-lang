@@ -1,4 +1,4 @@
-namespace Z.Tool.Avalon.MathPart;
+namespace Z.Tool.MathGen;
 
 public class Gen : Any
 {
