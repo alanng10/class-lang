@@ -52,7 +52,7 @@ public class Math : Any
     {
         InternMathComp u;
         u = this.InternComp;
-        this.InternIntern.MathCompose(this.Intern, u, value);
+        this.InternIntern.MathComp(this.Intern, u, value);
 
         long s;
         long e;
