@@ -468,31 +468,22 @@ Bool DrawHandle(Int frame, Int arg)
     Draw_ExecutePie(Draw, RectA, RangeA);
 
 
-
-
-
     Draw_StrokeSet(Draw, PenRect);
 
-    SetRect(RectA, 130, 550, 150, 100);
+    SetRect(RectA, MathInt(130), MathInt(550), MathInt(150), MathInt(100));
 
     Draw_ExecuteEllipse(Draw, RectA);
-
-
 
 
     Int scaleFactor;
 
     scaleFactor = (1 << 20);
 
-
-
     Draw_FillSet(Draw, GradientBrush);
 
+    SetRect(RectA, MathInt(1400), MathInt(200), MathInt(250), MathInt(110));
 
-    SetRect(RectA, 1400, 200, 250, 110);
-
-
-    Draw_ExecuteRoundRect(Draw, RectA, 30 * scaleFactor, 23 * scaleFactor);
+    Draw_ExecuteRoundRect(Draw, RectA, MathInt(30), MathInt(23));
 
 
 
