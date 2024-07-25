@@ -486,28 +486,14 @@ Bool DrawHandle(Int frame, Int arg)
     Draw_ExecuteRoundRect(Draw, RectA, MathInt(30), MathInt(23));
 
 
-
-
-
-
-
     Draw_FillSet(Draw, ImageBrush);
 
-
-
-
     Int fillPos;
-
-
     fillPos = Draw_FillPosGet(Draw);
 
-
-    SetPos(fillPos, FillLeft, FillUp);
-
+    SetPos(fillPos, MathInt(FillLeft), MathInt(FillUp));
 
     Draw_FillPosThisSet(Draw);
-
-
 
 
     Draw_StrokeSet(Draw, PenRect);
