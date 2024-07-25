@@ -544,45 +544,23 @@ Bool DrawHandle(Int frame, Int arg)
 
     Draw_StrokeSet(Draw, PenRect);
 
-    SetRect(RectA, 400 + TextLeft, 400 + TextUp, 300, 100);
+    SetRect(RectA, MathInt(400 + TextLeft), MathInt(400 + TextUp), MathInt(300), MathInt(100));
 
     Draw_ExecuteRect(Draw, RectA);
 
 
-
-
-
-
     Draw_FaceSet(Draw, Font);
-
-
-
 
     Draw_StrokeSet(Draw, PenText);
 
-
-
-
-    SetRect(RectA, (400 + TextLeft) * scaleFactor, (400 + TextUp) * scaleFactor, 300 * scaleFactor, 100 * scaleFactor);
-
+    SetRect(RectA, MathInt(400 + TextLeft), MathInt(400 + TextUp), MathInt(300), MathInt(100));
 
     Draw_ExecuteText(Draw, RectA, TextFlag, Text, RectB);
-
-
-
 
     Draw_FaceSet(Draw, null);
 
 
-
-
-
     Draw_End(Draw);
-
-
-
-
-
     return true;
 }
 
