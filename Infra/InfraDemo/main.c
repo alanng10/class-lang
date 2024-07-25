@@ -361,6 +361,11 @@ Bool SetRange(Int range, Int index, Int count)
     return true;
 }
 
+Int MathInt(Int n)
+{
+    return Math_Value(0, n, 0);
+}
+
 Int ConsoleWriteConstant(const char* o)
 {
     Int u;
@@ -375,86 +380,46 @@ Int ConsoleWriteConstant(const char* o)
     return true;
 }
 
-
-
-
 Bool DrawHandle(Int frame, Int arg)
 {
     Draw_Start(Draw);
 
-
-
-
     Draw_Clear(Draw, 0xffffffff);
 
-
-
-
-
     Int area;
-
     area = Draw_AreaGet(Draw);
 
-
     Int areaPos;
-
     areaPos = Rect_PosGet(area);
-
     Int areaSize;
-
     areaSize = Rect_SizeGet(area);
 
-
     Int areaLeft;
-
     Int areaUp;
-
     Int areaWidth;
-
     Int areaHeight;
 
-
     areaLeft = Pos_LeftGet(areaPos);
-
     areaUp = Pos_UpGet(areaPos);
-
     areaWidth = Size_WidthGet(areaSize);
-
     areaHeight = Size_HeightGet(areaSize);
 
-
-
     Int aSize;
-
     aSize = Draw_SizeGet(Draw);
 
-
     Int aWidth;
-
     Int aHeight;
-
     aWidth = Size_WidthGet(aSize);
-
     aHeight = Size_HeightGet(aSize);
 
-
-
     areaLeft = AreaOffset;
-
     areaUp = AreaOffset;
-
     areaWidth = aWidth - 2 * AreaOffset;
-
     areaHeight = aHeight - 2 * AreaOffset;
-
-
 
     SetPos(areaPos, areaLeft, areaUp);
 
     SetSize(areaSize, areaWidth, areaHeight);
-
-
-
 
     Draw_AreaThisSet(Draw);
 
@@ -464,45 +429,25 @@ Bool DrawHandle(Int frame, Int arg)
 
     Draw_FillSet(Draw, Brush);
 
-
-
-
     Draw_StrokeSet(Draw, PenRect);
 
-
-
-
-    SetRect(RectA, 100, 100, 200, 200);
-
-
+    SetRect(RectA, MathInt(100), MathInt(100), MathInt(200), MathInt(200));
 
     Draw_ExecuteRect(Draw, RectA);
 
 
+    SetPos(PosA, MathInt(120), MathInt(470));
 
-
-    SetPos(PosA, 120, 470);
-
-
-    SetPos(PosB, 230, 370);
-
+    SetPos(PosB, MathInt(230), MathInt(370));
 
     Draw_ExecuteLine(Draw, PosA, PosB);
 
 
-
-
-
     Draw_StrokeSet(Draw, PenRect);
 
-
-
-    SetRect(RectA, 500, 350, 100, 100);
-
+    SetRect(RectA, MathInt(500), MathInt(350), MathInt(100), MathInt(100));
 
     SetRange(RangeA, 100 * 16, 120 * 16);
-
-
 
     Draw_ExecuteArc(Draw, RectA, RangeA);
 

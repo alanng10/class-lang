@@ -55,6 +55,7 @@ Bool SetSize(Int size, Int width, Int height);
 
 Bool SetRange(Int range, Int index, Int count);
 
+Int MathInt(Int n);
 
 
 
