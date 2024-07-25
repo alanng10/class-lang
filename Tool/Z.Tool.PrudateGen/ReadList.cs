@@ -10,7 +10,6 @@ public class ReadList : Any
     }
 
     public virtual ReadResult ReadResult { get; set; }
-
     protected virtual ToolInfra ToolInfra { get; set; }
     protected virtual List List { get; set; }
 
