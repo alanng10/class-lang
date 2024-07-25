@@ -51,10 +51,7 @@ Int Math_GetInternValue(Int o, Int value)
     double ou;
     ou = std::ldexp(uaa, uab);
 
-    if (isnan(ou))
-    {
-        return -1LL;
-    }
+    Valid(ou);
 
     Int a;
     a = CastDoubleToInt(ou);
@@ -72,8 +69,12 @@ Int Math_GetValueFromInternValue(Int o, Int u)
     double uu;
     uu = std::frexp(ou, &exp);
 
+    Valid(uu);
+
     double uua;
     uua = std::ldexp(uu, 49);
+
+    Valid(uua);
 
     int expa;
     expa = exp - 49;

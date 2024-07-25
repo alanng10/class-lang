@@ -13,6 +13,10 @@ struct Math
 #define Start \
     Int ua;\
     ua = Math_GetInternValue(o, value);\
+    if (ua == CastInt(-1))\
+    {\
+        return ua;\
+    }\
     double u;\
     u = CastIntToDouble(ua);\
 
