@@ -26,7 +26,12 @@ public class Gen : Any
         this.TextMaide = toolInfra.StorageTextRead("ToolData/MathMaide.txt");
         this.TextTrigo = toolInfra.StorageTextRead("ToolData/TrigoList.txt");
 
-        this.SetTrigoTable();
+        bool b;
+        b = this.SetTrigoTable();
+        if (!b)
+        {
+            return 500;
+        }
 
         List list;
         list = new List();
@@ -47,8 +52,8 @@ public class Gen : Any
         h = new StringJoin();
         h.Init();
 
-        bool b;
-        b = false;
+        bool ba;
+        ba = false;
 
         Iter iter;
         iter = list.IterCreate();
@@ -56,7 +61,7 @@ public class Gen : Any
 
         while (iter.Next())
         {
-            if (b)
+            if (ba)
             {
                 h.Append(newLine);
             }
@@ -66,7 +71,7 @@ public class Gen : Any
 
             h.Append(aa);
 
-            b = true;
+            ba = true;
         }
 
         string k;
@@ -157,6 +162,8 @@ public class Gen : Any
 
             i = i + 1;
         }
+
+        this.TrigoTable = table;
         return true;
     }
 }
