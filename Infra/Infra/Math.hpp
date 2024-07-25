@@ -26,9 +26,9 @@ struct Math
 
 
 #define Valid(a) \
-if (isnan(a))\
+if (std::isnan(a))\
 {\
-    return -1;\
+    return CastInt(-1);\
 }\
 
 
