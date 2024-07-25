@@ -1,4 +1,4 @@
-namespace Z.Tool.Avalon.PenCapList;
+namespace Z.Tool.Avalon.BrushCapList;
 
 public class Gen : SourceGen
 {
@@ -6,13 +6,13 @@ public class Gen : SourceGen
     {
         base.Init();
         this.Namespace = "Avalon.Draw";
-        this.ClassName = "PenCapList";
+        this.ClassName = "BrushCapList";
         this.BaseClassName = "Any";
         this.AnyClassName = "Any";
-        this.ItemClassName = "PenCap";
+        this.ItemClassName = "BrushCap";
         this.ArrayClassName = "Array";
         this.Export = true;
-        this.StatItemClassName = "PenCap";
+        this.StatItemClassName = "BrushCap";
         this.ItemListFileName = this.GetStatItemListFileName();
         return true;
     }
