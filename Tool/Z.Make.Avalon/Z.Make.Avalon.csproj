@@ -20,6 +20,7 @@
         <ProjectReference Include="../Z.Tool.Avalon.NetworkPortKindList/Z.Tool.Avalon.NetworkPortKindList.csproj" />
         <ProjectReference Include="../Z.Tool.Avalon.NetworkStatusList/Z.Tool.Avalon.NetworkStatusList.csproj" />
         <ProjectReference Include="../Z.Tool.Avalon.StorageStatusList/Z.Tool.Avalon.StorageStatusList.csproj" />
+        <ProjectReference Include="../Z.Tool.Avalon.MathPart/Z.Tool.Avalon.MathPart.csproj" />
     </ItemGroup>
 
 </Project>

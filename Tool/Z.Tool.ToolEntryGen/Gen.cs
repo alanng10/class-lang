@@ -29,6 +29,7 @@ class Gen : Any
         this.ExecuteOne("Avalon.NetworkCaseList");
         this.ExecuteOne("Avalon.NetworkPortKindList");
         this.ExecuteOne("Avalon.NetworkStatusList");
+        this.ExecuteOne("Avalon.MathPart");
         this.ExecuteOne("Class.CountList");
         this.ExecuteOne("Class.DelimitList");
         this.ExecuteOne("Class.ErrorKindList");
