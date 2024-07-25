@@ -26,12 +26,21 @@ struct Math
     return a;\
 
 
+#define Valid(a) \
+if (isnan(a))\
+{\
+    return -1;\
+}\
+
+
 #define MathMaide(name, f) \
 Int Math_##name(Int o, Int value)\
 {\
     Start\
+    Valid(u);\
     double oo;\
     oo = std::f(u);\
+    Valid(oo);\
     End\
 }\
 
