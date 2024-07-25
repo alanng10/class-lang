@@ -26,7 +26,7 @@ struct Math
     return a;\
 
 
-#define MathMethod(name, f) \
+#define MathMaide(name, f) \
 Int Math_##name(Int o, Int value)\
 {\
     Start\
