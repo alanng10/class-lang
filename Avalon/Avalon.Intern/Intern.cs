@@ -212,7 +212,7 @@ public class Intern : object
         return a;
     }
 
-    public virtual bool MathComp(ulong math, MathComp compose, long value)
+    public virtual bool MathComp(ulong math, MathComp comp, long value)
     {
         ulong u;
         u = (ulong)value;
@@ -236,8 +236,8 @@ public class Intern : object
 
             Extern.Math_Compose(math, u, ua, ub);
 
-            compose.Significand = oa;
-            compose.Exponent = ob;
+            comp.Significand = oa;
+            comp.Exponent = ob;
         }
         return true;
     }
