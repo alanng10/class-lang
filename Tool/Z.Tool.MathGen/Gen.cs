@@ -22,9 +22,9 @@ public class Gen : Any
         ToolInfra toolInfra;
         toolInfra = this.ToolInfra;
 
-        this.TextPart = toolInfra.StorageTextRead("ToolData/MathPart.txt");
-        this.TextMaide = toolInfra.StorageTextRead("ToolData/MathMaide.txt");
-        this.TextTrigo = toolInfra.StorageTextRead("ToolData/TrigoList.txt");
+        this.TextPart = toolInfra.StorageTextRead("ToolData/Math/Part.txt");
+        this.TextMaide = toolInfra.StorageTextRead("ToolData/Math/Maide.txt");
+        this.TextTrigo = toolInfra.StorageTextRead("ToolData/Math/TrigoList.txt");
 
         bool b;
         b = this.SetTrigoTable();
