@@ -48,9 +48,9 @@ class ExternGen : PrudateGen
 
     protected virtual bool InitClassNewMethodArray()
     {
-        Method newMethod;
+        Maide newMethod;
 
-        newMethod = new Method();
+        newMethod = new Maide();
 
         newMethod.Init();
 
@@ -79,9 +79,9 @@ class ExternGen : PrudateGen
 
 
 
-        Method deleteMethod;
+        Maide deleteMethod;
 
-        deleteMethod = new Method();
+        deleteMethod = new Maide();
 
         deleteMethod.Init();
 
@@ -96,12 +96,12 @@ class ExternGen : PrudateGen
 
 
 
-        Method initMethod;
+        Maide initMethod;
 
         initMethod = this.CreateClassNewInstanceMethod("Init");
 
 
-        Method finalMethod;
+        Maide finalMethod;
 
         finalMethod = this.CreateClassNewInstanceMethod("Final");
 
@@ -143,7 +143,7 @@ class ExternGen : PrudateGen
 
 
 
-    protected virtual bool AddClassNewMethod(Method method)
+    protected virtual bool AddClassNewMethod(Maide method)
     {
         int index;
 
@@ -170,11 +170,11 @@ class ExternGen : PrudateGen
 
 
 
-    protected virtual Method CreateClassNewInstanceMethod(string name)
+    protected virtual Maide CreateClassNewInstanceMethod(string name)
     {
-        Method a;
+        Maide a;
 
-        a = new Method();
+        a = new Maide();
 
         a.Init();
 

@@ -40,9 +40,21 @@ public class MathAdd : Any
         this.AddTrigoMaideList("", "H");
         this.AddTrigoMaideList("A", "H");
 
-        this.AddMaideList();
+        bool b;
 
+        b = this.AddMaideList();
+        if (!b)
+        {
+            return false;
+        }
 
+        
+
+        return true;
+    }
+
+    protected virtual bool SetMathClass()
+    {
         return true;
     }
 
@@ -80,7 +92,7 @@ public class MathAdd : Any
             bool ba;
             ba = toolInfra.GetBool(kk);
 
-            Method maide;
+            Maide maide;
             maide = this.CreateMaide(name, ba);
 
             this.List.Add(maide);
@@ -107,7 +119,7 @@ public class MathAdd : Any
             string ka;
             ka = pre + k + post;
 
-            Method a;
+            Maide a;
             a = this.CreateMaide(ka, false);
 
             this.List.Add(a);
@@ -117,7 +129,7 @@ public class MathAdd : Any
         return true;
     }
 
-    protected virtual Method CreateMaide(string name, bool operandTwo)
+    protected virtual Maide CreateMaide(string name, bool operandTwo)
     {
         ListInfra listInfra;
         listInfra = this.ListInfra;
@@ -125,8 +137,8 @@ public class MathAdd : Any
         Array param;
         param = this.CreateParam(operandTwo);
 
-        Method maide;
-        maide = new Method();
+        Maide maide;
+        maide = new Maide();
         maide.Init();
         maide.Name = name;
         maide.Param = param;

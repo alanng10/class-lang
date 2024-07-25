@@ -5,7 +5,7 @@ namespace Z.Tool.PrudateGen;
 
 class MethodCallFunctionOperate : FunctionOperate
 {
-    public virtual Method Method { get; set; }
+    public virtual Maide Method { get; set; }
 
 
 

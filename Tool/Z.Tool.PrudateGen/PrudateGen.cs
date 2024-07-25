@@ -172,44 +172,25 @@ class PrudateGen : Any
     protected virtual string GetClassListString()
     {
         StringBuilder sb;
-
         sb = new StringBuilder();
 
-
-
-        int count;
-
-        count = this.ReadResult.Class.Count;
-
-
-        int i;
-
-        i = 0;
-
-
-        while (i < count)
+        Table table;
+        table = this.ReadResult.Class;
+        
+        Iter iter;
+        iter = table.IterCreate();
+        table.IterSet(iter);
+        
+        while (iter.Next())
         {
             Class varClass;
-
-            varClass = (Class)this.ReadResult.Class.GetAt(i);
-
-
+            varClass = (Class)iter.Value;
 
             this.AppendClass(sb, varClass);
-
-
-
-            i = i + 1;
         }
 
-
-
         string o;
-
         o = sb.ToString();
-
-
-
         return o;
     }
 
@@ -321,9 +302,9 @@ class PrudateGen : Any
 
         while (i < count)
         {
-            Method method;
+            Maide method;
 
-            method = (Method)methodArray.GetAt(i);
+            method = (Maide)methodArray.GetAt(i);
 
 
             this.AppendMethod(sb, varClass, method);
@@ -409,7 +390,7 @@ class PrudateGen : Any
 
 
 
-    protected virtual bool AppendMethod(StringBuilder sb, Class varClass, Method method)
+    protected virtual bool AppendMethod(StringBuilder sb, Class varClass, Maide method)
     {
         this.MethodCallFunctionOperate.Class = varClass;
 
@@ -580,9 +561,9 @@ class PrudateGen : Any
 
         while (i < count)
         {
-            Method method;
+            Maide method;
 
-            method = (Method)this.ReadResult.Method.GetAt(i);
+            method = (Maide)this.ReadResult.Method.GetAt(i);
 
 
 

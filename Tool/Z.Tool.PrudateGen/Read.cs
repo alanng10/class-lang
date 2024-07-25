@@ -249,7 +249,7 @@ class Read : Any
 
                 if (isMethod)
                 {
-                    Method oa;
+                    Maide oa;
 
                     oa = this.GetMethod(ka, isStatic);
 
@@ -478,7 +478,7 @@ class Read : Any
 
 
 
-    protected virtual Method GetMethod(string a, bool isStatic)
+    protected virtual Maide GetMethod(string a, bool isStatic)
     {
         NameParamResult u;
 
@@ -492,9 +492,9 @@ class Read : Any
 
 
 
-        Method o;
+        Maide o;
 
-        o = new Method();
+        o = new Maide();
 
         o.Init();
 
@@ -760,7 +760,7 @@ class Read : Any
 
 
 
-            Method method;
+            Maide method;
 
             method = this.GetMethod(line, true);
 

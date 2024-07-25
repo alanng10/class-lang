@@ -102,9 +102,9 @@ public class ReadList : Any
 
         while (i < count)
         {
-            Method method;
+            Maide method;
 
-            method = (Method)statClass.Method.GetAt(i);
+            method = (Maide)statClass.Method.GetAt(i);
 
 
             array.SetAt(i, method);
@@ -146,9 +146,9 @@ public class ReadList : Any
             iter.Next();
 
 
-            Method method;
+            Maide method;
 
-            method = (Method)iter.Value;
+            method = (Maide)iter.Value;
 
 
 
@@ -257,9 +257,9 @@ public class ReadList : Any
 
 
 
-            Method method;
+            Maide method;
 
-            method = new Method();
+            method = new Maide();
 
             method.Init();
 
