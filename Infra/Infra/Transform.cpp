@@ -77,7 +77,7 @@ Int Transform_ValueGet(Int o, Int row, Int col)
     Int uu;
     uu = CastDoubleToInt(u);
     Int k;
-    k = ValueGetFromInternValue(uu);
+    k = Math_GetValueFromInternValue(0, uu);
 
     Int a;
     a = k;
