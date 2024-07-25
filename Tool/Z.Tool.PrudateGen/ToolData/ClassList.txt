@@ -177,13 +177,10 @@ Draw
 Brush
     Kind
     Color
-    Image
     Gradient
-
-Pen
-    Kind
+    Image
+    Line
     Width
-    Brush
     Cap
     Join
 
