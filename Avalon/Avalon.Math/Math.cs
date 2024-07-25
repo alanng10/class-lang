@@ -6,14 +6,14 @@ public class Math : Any
     {
         base.Init();
         this.InternIntern = InternIntern.This;
-        this.InternMathCompose = new InternMathCompose();
-        this.InternMathCompose.Init();
+        this.InternComp = new InternMathComp();
+        this.InternComp.Init();
         return true;
     }
 
     private InternIntern InternIntern { get; set; }
     private ulong Intern { get; set; }
-    private InternMathCompose InternMathCompose { get; set; }
+    private InternMathComp InternComp { get; set; }
 
     public virtual long Value(Comp compose)
     {
@@ -50,8 +50,8 @@ public class Math : Any
     
     public virtual bool Comp(Comp result, long value)
     {
-        InternMathCompose u;
-        u = this.InternMathCompose;
+        InternMathComp u;
+        u = this.InternComp;
         this.InternIntern.MathCompose(this.Intern, u, value);
 
         long s;
