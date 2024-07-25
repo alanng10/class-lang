@@ -510,70 +510,41 @@ Bool DrawHandle(Int frame, Int arg)
     Transform_Offset(Transform, MathInt(1080), MathInt(-600));
 
 
-
-
     Draw_FormSet(Draw, Transform);
 
-
-
     Draw_ExecutePolygon(Draw, PointListCount, PointListData);
-
-
 
     Draw_FormSet(Draw, null);
 
 
-    SetPos(fillPos, 0, 0);
-
+    SetPos(fillPos, MathInt(0), MathInt(0));
 
     Draw_FillPosThisSet(Draw);
 
 
-
-
-
     Transform_Reset(Transform);
 
-
-    Transform_Offset(Transform, 500 * scaleFactor, 100 * scaleFactor);
-
+    Transform_Offset(Transform, MathInt(500), MathInt(100));
 
     Draw_FormSet(Draw, Transform);
 
-
     Draw_ExecutePolyline(Draw, PointListCount, PointListData);
-
 
     Draw_FormSet(Draw, null);
 
 
+    SetRect(RectA, MathInt(850), MathInt(150), MathInt(150), MathInt(150));
 
-
-
-
-    SetRect(RectA, 850, 150, 150, 150);
-
-    SetRect(RectB, 50, 10, 150, 150);
-
+    SetRect(RectB, MathInt(50), MathInt(10), MathInt(150), MathInt(150));
 
     Draw_ExecuteImage(Draw, Image, RectA, RectB);
 
 
-
-
-
-
-
     Draw_FillSet(Draw, null);
-
-
 
     Draw_StrokeSet(Draw, PenRect);
 
-
-
     SetRect(RectA, 400 + TextLeft, 400 + TextUp, 300, 100);
-
 
     Draw_ExecuteRect(Draw, RectA);
 
