@@ -1162,138 +1162,55 @@ int main(int argc, char* argv[])
     PenText = penTextBrush;
 
 
-
-
-
-
-
-
-
     Int rectPosA;
-
-
     Int rectSizeA;
-
-
-
     rectPosA = Pos_New();
-
-
     Pos_Init(rectPosA);
-
-
     rectSizeA = Size_New();
-
-
     Size_Init(rectSizeA);
 
-
-
     RectA = Rect_New();
-
-
     Rect_Init(RectA);
-
-
     Rect_PosSet(RectA, rectPosA);
-
-
     Rect_SizeSet(RectA, rectSizeA);
 
-
-
     Int rectPosB;
-
-
     Int rectSizeB;
-
-
-
     rectPosB = Pos_New();
-
-
     Pos_Init(rectPosB);
-
-
     rectSizeB = Size_New();
-
-
     Size_Init(rectSizeB);
 
-
-
     RectB = Rect_New();
-
-
     Rect_Init(RectB);
-
-
     Rect_PosSet(RectB, rectPosB);
-
-
     Rect_SizeSet(RectB, rectSizeB);
 
 
-
-
     PosA = Pos_New();
-
-
     Pos_Init(PosA);
 
-
-
-
     PosB = Pos_New();
-
-
     Pos_Init(PosB);
 
-
-
-
     RangeA = Range_New();
-
-
     Range_Init(RangeA);
 
-
-
-
-
     Int pointDataCount;
-
     pointDataCount = Stat_PointDataCount(Stat);
-
-
-
 
     PointListCount = 6;
 
-
-
     Int pointListDataCount;
-
     pointListDataCount = PointListCount * pointDataCount;
 
-
-
     Int pointListDataValue;
-
     pointListDataValue = New(pointListDataCount);
 
-
-
-
     PointListData = Data_New();
-
     Data_Init(PointListData);
-
     Data_CountSet(PointListData, pointListDataCount);
-
     Data_ValueSet(PointListData, pointListDataValue);
-
-
 
     Int pointDataArray[6][2] =
     {
@@ -1305,138 +1222,65 @@ int main(int argc, char* argv[])
         { 980, 420 },
     };
 
-
-
     Int iia;
-
     iia = 0;
-
-
     while (iia < PointListCount)
     {
         Int uuua;
-
         Int uuub;
 
-
         uuua = pointDataArray[iia][0];
-
-
         uuub = pointDataArray[iia][1];
-
-
 
         SetPos(PosA, MathInt(uuua), MathInt(uuub));
 
-
         PointData_PointSet(pointListDataValue + iia * pointDataCount, PosA);
-
-
 
         iia = iia + 1;
     }
 
 
-
-
-
-
     Int fontFamily;
-
-
     fontFamily = String_ConstantCreate(CastInt("Source Sans 3"));
 
-
-
-
     Font = Font_New();
-
-
     Font_FamilySet(Font, fontFamily);
-
-
     Font_SizeSet(Font, 16);
-
-
     Font_WeightSet(Font, 600);
-
-
     Font_ItalicSet(Font, true);
-
-
     Font_UnderlineSet(Font, true);
-
-
     Font_OverlineSet(Font, true);
-
-
     Font_StrikeoutSet(Font, true);
-
-
-
     Font_Init(Font);
-
-
-
-
 
     TextFlag = Stat_TextAlignRight(Stat) | Stat_TextAlignVCenter(Stat);
 
 
-
-
-
-
-
-
     Int imagePath;
-
-
     imagePath = String_ConstantCreate(CastInt("../../DemoImage.png"));
-
-
-
 
     Int stream;
 
-
     stream = Stream_New();
-
 
     Stream_Init(stream);
 
 
-
-
-
-
     Int storageMode;
-
     storageMode = Stat_StorageModeRead(Stat);
-
-
-
 
 
     Int storage;
 
-
     storage = Storage_New();
-
 
     Storage_Init(storage);
 
-
-
     Storage_PathSet(storage, imagePath);
-
 
     Storage_ModeSet(storage, storageMode);
 
-
     Storage_StreamSet(storage, stream);
-
-
 
     Storage_Open(storage);
 
