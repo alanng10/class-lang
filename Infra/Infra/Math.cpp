@@ -12,19 +12,6 @@ Int Math_Final(Int o)
     return true;
 }
 
-MathMaide(Sin, sin)
-MathMaide(Cos, cos)
-MathMaide(Tan, tan)
-MathMaide(ASin, asin)
-MathMaide(ACos, acos)
-MathMaide(ATan, atan)
-MathMaide(SinH, sinh)
-MathMaide(CosH, cosh)
-MathMaide(TanH, tanh)
-MathMaide(ASinH, asinh)
-MathMaide(ACosH, acosh)
-MathMaide(ATanH, atanh)
-
 Int Math_GetInternValue(Int o, Int value)
 {
     Int aa;
@@ -224,3 +211,8 @@ Int Math_ValueTen(Int o, Int significand, Int exponentTen)
 
     End
 }
+
+MathMaideOperate(Add, +)
+MathMaideOperate(Sub, -)
+MathMaideOperate(Mul, *)
+MathMaideOperate(Div, /)

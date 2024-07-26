@@ -63,4 +63,19 @@ Int Math_##name(Int o, Int valueA, Int valueB)\
 }\
 
 
+#define MathMaideOperateRefer(name, op) double Math_Private##name(double valueA, double valueB)
+
+#define MathMaideOperate(name, op) \
+MathMaideOperateRefer(name, op)\
+{\
+    double a;\
+    a = valueA op valueB;\
+    return a;\
+}\
+
 Int Math_GetValueFromCompose(Int o, Int significand, Int exponent);
+
+MathMaideOperateRefer(Add, +);
+MathMaideOperateRefer(Sub, -);
+MathMaideOperateRefer(Mul, *);
+MathMaideOperateRefer(Div, /);

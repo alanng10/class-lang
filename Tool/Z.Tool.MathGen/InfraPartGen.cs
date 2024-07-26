@@ -15,7 +15,7 @@ class InfraPartGen : PartGen
 
     protected override string FuncPrivateName(string name)
     {
-        return "Math_" + name;
+        return "Math_Private" + name;
     }
 
     protected override string FuncLibName(string name)
