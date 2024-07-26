@@ -93,25 +93,31 @@ public class Read : Any
             string a;
             a = (string)array.GetAt(i);
 
-            int uu;
-            uu = a.IndexOf(' ');
-
-            if (uu < 0)
+            string[] uu;
+            uu = a.Split(' ');
+            
+            if (!(uu.Length == 3))
             {
                 return false;
             }
 
             string name;
-            name = a.Substring(0, uu);
+            name = uu[0];
 
-            string kk;
-            kk = a.Substring(uu + 1);
+            string ka;
+            ka = uu[1];
+
+            string kb;
+            kb = uu[2];
 
             bool ba;
-            ba = toolInfra.GetBool(kk);
+            ba = toolInfra.GetBool(ka);
+
+            bool bb;
+            bb = toolInfra.GetBool(kb);
 
             Maide maide;
-            maide = this.CreateMaide(name, ba);
+            maide = this.CreateMaide(name, ba, bb);
 
             if (table.Valid(name))
             {
@@ -146,7 +152,7 @@ public class Read : Any
             name = pre + k + post;
 
             Maide maide;
-            maide = this.CreateMaide(name, false);
+            maide = this.CreateMaide(name, false, false);
 
             if (table.Valid(name))
             {
@@ -158,13 +164,14 @@ public class Read : Any
         return true;
     }
 
-    protected virtual Maide CreateMaide(string name, bool operandTwo)
+    protected virtual Maide CreateMaide(string name, bool operandTwo, bool funcPrivate)
     {
         Maide a;
         a = new Maide();
         a.Init();
         a.Name = name;
         a.OperandTwo = operandTwo;
+        a.FuncPrivate = funcPrivate;
         return a;
     }
 
