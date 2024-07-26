@@ -15,7 +15,7 @@ public class Grid : View
         this.ChildList = this.CreateChildList();
         this.Dest = this.CreateDest();
 
-        this.Back = null;
+        this.Back = this.DrawInfra.TransparentBrush;
 
         this.ChildPosData = this.CreateChildPosList();
         this.RowIter = this.Row.IterCreate();
