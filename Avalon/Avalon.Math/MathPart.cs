@@ -133,4 +133,227 @@ partial class Math
         a = (long)u;
         return a;
     }
+
+    public virtual long Add(long valueA, long valueB)
+    {
+        ulong ua;
+        ulong ub;
+        ua = (ulong)valueA;
+        ub = (ulong)valueB;
+        ulong u;
+        u = Extern.Math_Add(this.Intern, ua, ub);
+        long a;
+        a = (long)u;
+        return a;
+    }
+
+    public virtual long Sub(long valueA, long valueB)
+    {
+        ulong ua;
+        ulong ub;
+        ua = (ulong)valueA;
+        ub = (ulong)valueB;
+        ulong u;
+        u = Extern.Math_Sub(this.Intern, ua, ub);
+        long a;
+        a = (long)u;
+        return a;
+    }
+
+    public virtual long Mul(long valueA, long valueB)
+    {
+        ulong ua;
+        ulong ub;
+        ua = (ulong)valueA;
+        ub = (ulong)valueB;
+        ulong u;
+        u = Extern.Math_Mul(this.Intern, ua, ub);
+        long a;
+        a = (long)u;
+        return a;
+    }
+
+    public virtual long Div(long valueA, long valueB)
+    {
+        ulong ua;
+        ulong ub;
+        ua = (ulong)valueA;
+        ub = (ulong)valueB;
+        ulong u;
+        u = Extern.Math_Div(this.Intern, ua, ub);
+        long a;
+        a = (long)u;
+        return a;
+    }
+
+    public virtual long Less(long valueA, long valueB)
+    {
+        ulong ua;
+        ulong ub;
+        ua = (ulong)valueA;
+        ub = (ulong)valueB;
+        ulong u;
+        u = Extern.Math_Less(this.Intern, ua, ub);
+        long a;
+        a = (long)u;
+        return a;
+    }
+
+    public virtual long Abs(long value)
+    {
+        ulong ua;
+        ua = (ulong)value;
+        ulong u;
+        u = Extern.Math_Abs(this.Intern, ua);
+        long a;
+        a = (long)u;
+        return a;
+    }
+
+    public virtual long Exp(long value)
+    {
+        ulong ua;
+        ua = (ulong)value;
+        ulong u;
+        u = Extern.Math_Exp(this.Intern, ua);
+        long a;
+        a = (long)u;
+        return a;
+    }
+
+    public virtual long Exp2(long value)
+    {
+        ulong ua;
+        ua = (ulong)value;
+        ulong u;
+        u = Extern.Math_Exp2(this.Intern, ua);
+        long a;
+        a = (long)u;
+        return a;
+    }
+
+    public virtual long Log(long value)
+    {
+        ulong ua;
+        ua = (ulong)value;
+        ulong u;
+        u = Extern.Math_Log(this.Intern, ua);
+        long a;
+        a = (long)u;
+        return a;
+    }
+
+    public virtual long Log10(long value)
+    {
+        ulong ua;
+        ua = (ulong)value;
+        ulong u;
+        u = Extern.Math_Log10(this.Intern, ua);
+        long a;
+        a = (long)u;
+        return a;
+    }
+
+    public virtual long Log2(long value)
+    {
+        ulong ua;
+        ua = (ulong)value;
+        ulong u;
+        u = Extern.Math_Log2(this.Intern, ua);
+        long a;
+        a = (long)u;
+        return a;
+    }
+
+    public virtual long Pow(long valueA, long valueB)
+    {
+        ulong ua;
+        ulong ub;
+        ua = (ulong)valueA;
+        ub = (ulong)valueB;
+        ulong u;
+        u = Extern.Math_Pow(this.Intern, ua, ub);
+        long a;
+        a = (long)u;
+        return a;
+    }
+
+    public virtual long Sqrt(long value)
+    {
+        ulong ua;
+        ua = (ulong)value;
+        ulong u;
+        u = Extern.Math_Sqrt(this.Intern, ua);
+        long a;
+        a = (long)u;
+        return a;
+    }
+
+    public virtual long Cbrt(long value)
+    {
+        ulong ua;
+        ua = (ulong)value;
+        ulong u;
+        u = Extern.Math_Cbrt(this.Intern, ua);
+        long a;
+        a = (long)u;
+        return a;
+    }
+
+    public virtual long ATan2(long valueA, long valueB)
+    {
+        ulong ua;
+        ulong ub;
+        ua = (ulong)valueA;
+        ub = (ulong)valueB;
+        ulong u;
+        u = Extern.Math_ATan2(this.Intern, ua, ub);
+        long a;
+        a = (long)u;
+        return a;
+    }
+
+    public virtual long Ceil(long value)
+    {
+        ulong ua;
+        ua = (ulong)value;
+        ulong u;
+        u = Extern.Math_Ceil(this.Intern, ua);
+        long a;
+        a = (long)u;
+        return a;
+    }
+
+    public virtual long Floor(long value)
+    {
+        ulong ua;
+        ua = (ulong)value;
+        ulong u;
+        u = Extern.Math_Floor(this.Intern, ua);
+        long a;
+        a = (long)u;
+        return a;
+    }
+
+    public virtual long Trunc(long value)
+    {
+        ulong ua;
+        ua = (ulong)value;
+        ulong u;
+        u = Extern.Math_Trunc(this.Intern, ua);
+        long a;
+        a = (long)u;
+        return a;
+    }
+
+    public virtual long Round(long value)
+    {
+        ulong ua;
+        ua = (ulong)value;
+        ulong u;
+        u = Extern.Math_Round(this.Intern, ua);
+        long a;
+        a = (long)u;
+        return a;
+    }
 }
