@@ -34,11 +34,6 @@ class MathAdd : Any
 
         this.MaideTable = toolInfra.TableCreateStringCompare();
 
-        this.AddTrigoMaideList("", "");
-        this.AddTrigoMaideList("A", "");
-        this.AddTrigoMaideList("", "H");
-        this.AddTrigoMaideList("A", "H");
-
         bool b;
 
         b = this.AddMaideList();
@@ -47,6 +42,30 @@ class MathAdd : Any
             return false;
         }
 
+        b = this.AddTrigoMaideList("", "");
+        if (!b)
+        {
+            return false;
+        }
+
+        b = this.AddTrigoMaideList("A", "");
+        if (!b)
+        {
+            return false;
+        }
+
+        b = this.AddTrigoMaideList("", "H");
+        if (!b)
+        {
+            return false;
+        }
+        
+        b = this.AddTrigoMaideList("A", "H");
+        if (!b)
+        {
+            return false;
+        }
+        
         b = this.SetMathClass();
         if (!b)
         {
