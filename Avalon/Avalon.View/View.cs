@@ -326,11 +326,16 @@ public class View : Comp
         int height;
         height = this.Size.Height;
 
+        long leftM;
+        long upM;
+        leftM = this.MathInt(left);
+        upM = this.MathInt(up);
+
         DrawRectInt rect;
         rect = this.DrawRectIntA;
 
-        rect.Pos.Left = this.MathInt(left);
-        rect.Pos.Up = this.MathInt(up);
+        rect.Pos.Left = leftM;
+        rect.Pos.Up = upM;
         rect.Size.Width = this.MathInt(width);
         rect.Size.Height = this.MathInt(height);
 
@@ -338,8 +343,8 @@ public class View : Comp
         brush = this.Back;
         draw.Fill = brush;
         
-        draw.FillPos.Left = left;
-        draw.FillPos.Up = up;
+        draw.FillPos.Left = leftM;
+        draw.FillPos.Up = upM;
         draw.FillPosSet();
 
         draw.ExecuteRect(rect);
