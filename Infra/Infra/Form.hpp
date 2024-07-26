@@ -2,13 +2,13 @@
 
 #include <QTransform>
 
-#include "TransformIntern.hpp"
+#include "FormIntern.hpp"
 
 #include "Probate.hpp"
 
-struct Transform
+struct Form
 {
     QTransform* Intern;
 };
 
-#define CP(a) ((Transform*)(a))
+#define CP(a) ((Form*)(a))
