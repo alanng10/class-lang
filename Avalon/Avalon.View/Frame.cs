@@ -27,11 +27,10 @@ public class Frame : Comp
 
         this.InternUpdateRect = this.InternInfra.RectCreate();
 
-        this.Title = "Frame";
-
         this.Intern = Extern.Frame_New();
         Extern.Frame_Init(this.Intern);
 
+        this.Title = "Frame";
         this.TitleSet();
 
         ulong sizeU;
