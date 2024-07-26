@@ -111,7 +111,7 @@ public class Draw : Any
 
     protected virtual Brush FillData { get; set; }
 
-    public virtual Brush Pen
+    public virtual Brush Stroke
     {
         get
         {
@@ -216,7 +216,7 @@ public class Draw : Any
         this.PosSet();
 
         this.Fill = null;
-        this.Pen = null;
+        this.Stroke = null;
         this.Comp = null;
         this.FillPos.Left = 0;
         this.FillPos.Up = 0;

@@ -118,7 +118,7 @@ class ThreadState : State
         draw.SizeSet();
         
         draw.Start();
-        draw.Pen = null;
+        draw.Stroke = null;
         draw.Fill = brush;
         draw.ExecuteRect(rectA);
 
