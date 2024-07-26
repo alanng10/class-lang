@@ -179,14 +179,14 @@ public class Draw : Any
 
     public virtual Form Form { get; set; }
 
+    private InternIntern InternIntern { get; set; }
+    private InternInfra InternInfra { get; set; }
+    protected virtual Infra DrawInfra { get; set; }
     protected virtual Form WorldForm { get; set; }
     protected virtual Form FormA { get; set; }
     protected virtual PosInt PosA { get; set; }
     protected virtual int TextCount { get; set; }
 
-    private InternIntern InternIntern { get; set; }
-    private InternInfra InternInfra { get; set; }
-    protected virtual Infra DrawInfra { get; set; }
     private ulong Intern { get; set; }
     private ulong InternFillPos { get; set; }
     private ulong InternArea { get; set; }
