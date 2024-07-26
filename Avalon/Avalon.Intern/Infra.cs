@@ -94,7 +94,7 @@ public class Infra : object
         return true;
     }
 
-    public virtual ulong PosCreate(int left, int up)
+    public virtual ulong PosCreate(long left, long up)
     {
         ulong o;
         o = Extern.Pos_New();
