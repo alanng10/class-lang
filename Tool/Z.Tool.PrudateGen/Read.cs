@@ -20,7 +20,6 @@ class Read : Any
     protected virtual List StaticMaideList { get; set; }
     protected virtual List DelegateList { get; set; }
 
-
     public virtual int Execute()
     {
         this.Result = new ReadResult();
