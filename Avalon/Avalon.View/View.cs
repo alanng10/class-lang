@@ -412,4 +412,17 @@ public class View : Comp
         a = mathInfra.Int(math, mathComp, n);
         return a;
     }
+
+    protected virtual long MathValue(long significand, long exponent)
+    {
+        MathComp mathComp;
+        mathComp = this.MathComp;
+
+        mathComp.Significand = significand;
+        mathComp.Exponent = exponent;
+
+        long a;
+        a = this.Math.Value(mathComp);
+        return a;
+    }
 }
