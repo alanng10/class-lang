@@ -105,3 +105,12 @@ a##_u = CastDoubleToInt(a);\
 Int a##A;\
 a##A = Math_GetValueFromInternValue(0, a##_u);\
 
+
+#define InternColor(a) \
+Int32 a##_u;\
+a##_u = (Int32)a;\
+QRgb a##_k;\
+a##_k = a##_u;\
+QColor a##U;\
+a##U = QColor::fromRgba(a##_k);\
+
