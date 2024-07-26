@@ -1,6 +1,6 @@
-#include "Transform.hpp"
+#include "Form.hpp"
 
-CppClassNew(Transform)
+CppClassNew(Form)
 
 Int Transform_Init(Int o)
 {
