@@ -21,31 +21,24 @@ public class Infra : Any
         this.BrushInfra = BrushInfra.This;
         this.PixelByteCount = 4;
         this.ColorCompMax = byte.MaxValue;
-        this.WhiteColor = this.ColorCreate(this.ColorCompMax, this.ColorCompMax, this.ColorCompMax, this.ColorCompMax);
-        this.BlackColor = this.ColorCreate(this.ColorCompMax, 0, 0, 0);
-        this.TransparentColor = this.ColorCreate(0, 0, 0, 0);
 
-        BrushKindList brushKindList;
-        brushKindList = BrushKindList.This;
-        BrushLineList brushLineList;
-        brushLineList = BrushLineList.This;
-        BrushCapList brushCapList;
-        brushCapList = BrushCapList.This;
-        BrushJoinList brushJoinList;
-        brushJoinList = BrushJoinList.This;
+        Color blackColor;
+        blackColor = this.ColorCreate(this.ColorCompMax, 0, 0, 0);
 
-        this.WhiteBrush = new Brush();
-        this.WhiteBrush.Kind = brushKindList.Color;
-        this.WhiteBrush.Color = this.WhiteColor;
-        this.WhiteBrush.Init();
-        this.BlackBrush = new Brush();
-        this.BlackBrush.Kind = brushKindList.Color;
-        this.BlackBrush.Color = this.BlackColor;
-        this.BlackBrush.Line = brushLineList.Solid;
-        this.BlackBrush.Width = 1;
-        this.BlackBrush.Cap = brushCapList.Flat;
-        this.BlackBrush.Join = brushJoinList.Miter;
-        this.BlackBrush.Init();
+        Color whiteColor;
+        whiteColor = this.ColorCreate(this.ColorCompMax, this.ColorCompMax, this.ColorCompMax, this.ColorCompMax);
+        
+        Color transparentColor;
+        transparentColor = this.ColorCreate(0, 0, 0, 0);
+
+        this.BrushKindList = BrushKindList.This;
+        this.BrushLineList = BrushLineList.This;
+        this.BrushCapList = BrushCapList.This;
+        this.BrushJoinList = BrushJoinList.This;
+        
+        this.BlackBrush = this.CreateBrush(blackColor);
+        this.WhiteBrush = this.CreateBrush(whiteColor);
+        this.TransparentBrush = this.CreateBrush(transparentColor);
 
         this.Font = new Face();
         this.Font.Family = "Source Sans 3";
@@ -67,14 +60,17 @@ public class Infra : Any
 
     public virtual int PixelByteCount { get; set; }
     public virtual int ColorCompMax { get; set; }
-    public virtual Color WhiteColor { get; set; }
-    public virtual Color BlackColor { get; set; }
-    public virtual Color TransparentColor { get; set; }
     public virtual Brush WhiteBrush { get; set; }
     public virtual Brush BlackBrush { get; set; }
+    public virtual Brush TransparentBrush { get; set; }
     public virtual Face Font { get; set; }
     public virtual long ScaleFactor { get; set; }
     protected virtual StorageStatusList StorageStatusList { get; set; }
+    protected virtual BrushKindList BrushKindList { get; set; }
+    protected virtual BrushLineList BrushLineList { get; set; }
+    protected virtual BrushCapList BrushCapList { get; set; }
+    protected virtual BrushJoinList BrushJoinList { get; set; }
+
     private BrushInfra BrushInfra { get; set; }
 
     internal virtual ulong InternWordWrap { get; set; }
@@ -89,6 +85,20 @@ public class Infra : Any
         color.Green = green;
         color.Blue = blue;
         return color;
+    }
+
+    private Brush CreateBrush(Color color)
+    {
+        Brush a;
+        a = new Brush();
+        a.Kind = this.BrushKindList.Color;
+        a.Color = color;
+        a.Line = this.BrushLineList.Solid;
+        a.Width = 1;
+        a.Cap = this.BrushCapList.Flat;
+        a.Join = this.BrushJoinList.Miter;
+        a.Init();
+        return a;
     }
 
 
