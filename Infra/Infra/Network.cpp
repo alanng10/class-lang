@@ -25,7 +25,7 @@ Int Network_Final(Int o)
 }
 
 CppField(Network, HostName)
-CppField(Network, ServerPort)
+CppField(Network, HostPort)
 CppField(Network, Stream)
 
 Int Network_StatusGet(Int o)
@@ -84,8 +84,8 @@ Int Network_Open(Int o)
     m = CP(o);
     Int hostName;
     hostName = m->HostName;
-    Int serverPort;
-    serverPort = m->ServerPort;
+    Int hostPort;
+    hostPort = m->HostPort;
 
     QString hostNameU;
     Int uu;
@@ -93,7 +93,7 @@ Int Network_Open(Int o)
     String_QStringSet(uu, hostName);
 
     quint16 portU;
-    portU = serverPort;
+    portU = hostPort;
 
     QTcpSocket* socket;
     socket = new QTcpSocket;
@@ -214,21 +214,6 @@ Int Network_ServerOpen(Int o, Int socket)
 Int Network_ServerClose(Int o)
 {
     Network_Close(o);
-    return true;
-}
-
-Int Network_Abort(Int o)
-{
-    Network* m;
-    m = CP(o);
-    Int socket;
-    socket = m->OpenSocket;
-    QIODevice* uu;
-    uu = (QIODevice*)socket;
-    QTcpSocket* u;
-    u = (QTcpSocket*)uu;
-
-    u->abort();
     return true;
 }
 
