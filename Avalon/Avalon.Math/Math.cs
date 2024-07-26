@@ -63,4 +63,18 @@ public partial class Math : Any
         result.Exponent = e;
         return true;
     }
+
+    public virtual bool Less(long valueA, long valueB)
+    {
+        ulong ua;
+        ulong ub;
+        ua = (ulong)valueA;
+        ub = (ulong)valueB;
+        ulong u;
+        u = Extern.Math_Less(this.Intern, ua, ub);
+        
+        bool a;
+        a = !(u == 0);
+        return a;
+    }
 }
