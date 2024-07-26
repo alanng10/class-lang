@@ -31,7 +31,7 @@ Int NetworkServer_Listen(Int o)
     ua = (QHostAddress*)uu;
 
     quint16 ub;
-    ub = NetworkPort_ServerGet(m->Port);
+    ub = NetworkPort_HostGet(m->Port);
 
     bool bu;
     bu = m->Intern->listen(*ua, ub);
@@ -108,11 +108,15 @@ Int NetworkServer_NewPeer(Int o)
     Int arg;
     arg = State_ArgGet(state);
 
-    NetworkServer_NewPeer_Maide maide;
-    maide = (NetworkServer_NewPeer_Maide)aa;
-    if (!(maide == null))
+    if (aa == null)
     {
-        maide(o, arg);
+        return true;
     }
+
+    NetworkHost_NewPeer_Maide maide;
+    maide = (NetworkHost_NewPeer_Maide)aa;
+
+    maide(o, arg);
+    
     return true;
 }
