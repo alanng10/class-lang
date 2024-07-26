@@ -3259,7 +3259,7 @@ public class Create : InfraCreate
         {
             RangeStateArg arg;
             arg = (RangeStateArg)rangeState.Arg;
-            
+
             arg.Result = this.RangeB;
             arg.Range = this.Range(this.RangeA, index, end);
             rangeState.Execute();
@@ -3345,16 +3345,19 @@ public class Create : InfraCreate
         index = start;
         while (index < end)
         {
-            rangeState.Arg.Result = this.RangeB;
-            rangeState.Arg.Range = this.Range(this.RangeA, index, end);
+            RangeStateArg arg;
+            arg = (RangeStateArg)rangeState.Arg;
+
+            arg.Result = this.RangeB;
+            arg.Range = this.Range(this.RangeA, index, end);
 
             rangeState.Execute();
 
             Range itemRange;
             itemRange = rangeState.Result;
 
-            rangeState.Arg.Result = null;
-            rangeState.Arg.Range = null;
+            arg.Result = null;
+            arg.Range = null;
             rangeState.Result = null;
 
             int aStart;
