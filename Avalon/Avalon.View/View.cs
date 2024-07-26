@@ -5,6 +5,7 @@ public class View : Comp
     public override bool Init()
     {
         base.Init();
+        this.MathInfra = MathInfra.This;
         this.DrawInfra = DrawInfra.This;
 
         this.PosField = this.CreatePosField();
@@ -20,10 +21,16 @@ public class View : Comp
 
         this.Area = this.CreateArea();
 
+        this.Math = this.CreateMath();
+        this.MathComp = this.CreateMathComp();
+
         this.DrawRectA = this.CreateDrawRect();
         this.DrawRectB = this.CreateDrawRect();
         this.DrawRectC = this.CreateDrawRect();
         this.DrawRectD = this.CreateDrawRect();
+
+        this.DrawRectIntA = this.CreateDrawRectInt();
+        this.DrawRectIntB = this.CreateDrawRectInt();
 
         this.DrawPosA = this.CreateDrawPos();
 
@@ -34,11 +41,16 @@ public class View : Comp
 
     public virtual DrawRect Area { get; set; }
 
+    protected virtual MathInfra MathInfra { get; set; }
     protected virtual DrawInfra DrawInfra { get; set; }
+    protected virtual MathMath Math { get; set; }
+    protected virtual MathComp MathComp { get; set; }
     protected virtual DrawRect DrawRectA { get; set; }
-    protected virtual DrawRect DrawRectB { get; set; }
+    protected virtual DrawRect DrawRectB { get; set; }    
     protected virtual DrawRect DrawRectC { get; set; }
     protected virtual DrawRect DrawRectD { get; set; }
+    protected virtual DrawRectInt DrawRectIntA { get; set; }
+    protected virtual DrawRectInt DrawRectIntB { get; set; }
     protected virtual DrawPos DrawPosA { get; set; }
     protected virtual DrawRect StackRect { get; set; }
     protected virtual DrawPos StackPos { get; set; }
@@ -66,6 +78,22 @@ public class View : Comp
     protected virtual Field CreateChildField()
     {
         return this.ViewInfra.FieldCreate(this);
+    }
+
+    protected virtual MathMath CreateMath()
+    {
+        MathMath a;
+        a = new MathMath();
+        a.Init();
+        return a;
+    }
+
+    protected virtual MathComp CreateMathComp()
+    {
+        MathComp a;
+        a = new MathComp();
+        a.Init();
+        return a;
     }
 
     protected virtual Pos CreatePos()
@@ -106,6 +134,13 @@ public class View : Comp
     {
         DrawRect rect;
         rect = this.DrawInfra.RectCreate(0, 0, 0, 0);
+        return rect;
+    }
+
+    protected virtual DrawRectInt CreateDrawRectInt()
+    {
+        DrawRectInt rect;
+        rect = this.DrawInfra.RectIntCreate(0, 0, 0, 0);
         return rect;
     }
 
@@ -282,6 +317,15 @@ public class View : Comp
 
     protected virtual bool ExecuteDrawThis(DrawDraw draw)
     {
+        MathInfra mathInfra;
+        mathInfra = this.MathInfra;
+
+        MathMath math;
+        math = this.Math;
+
+        MathComp mathComp;
+        mathComp = this.MathComp;
+
         int left;
         left = this.Pos.Left;
         int up;
@@ -291,16 +335,17 @@ public class View : Comp
         int height;
         height = this.Size.Height;
 
-        this.DrawRectA.Pos.Left = left;
-        this.DrawRectA.Pos.Up = up;
-        this.DrawRectA.Size.Width = width;
-        this.DrawRectA.Size.Height = height;
+        DrawRectInt rect;
+        rect = this.DrawRectIntA;
 
-        DrawRect rect;
-        rect = this.DrawRectA;
+        rect.Pos.Left = mathInfra.Int(math, mathComp, left);
+        rect.Pos.Up = mathInfra.Int(math, mathComp, up);
+        rect.Size.Width = mathInfra.Int(math, mathComp, width);
+        rect.Size.Height = mathInfra.Int(math, mathComp, height);
+
         DrawBrush brush;
         brush = this.Back;
-        draw.Brush = brush;
+        draw.Fill = brush;
         
         draw.FillPos.Left = left;
         draw.FillPos.Up = up;
@@ -312,7 +357,7 @@ public class View : Comp
         draw.FillPos.Up = 0;
         draw.FillPosSet();
 
-        draw.Brush = null;
+        draw.Fill = null;
         return true;
     }
 

@@ -89,7 +89,7 @@ public class Draw : Any
     public virtual Pos Pos { get; set; }
     public virtual PosInt FillPos { get; set; }
 
-    public virtual Brush Brush
+    public virtual Brush Fill
     {
         get
         {
@@ -215,7 +215,7 @@ public class Draw : Any
         pos.Up = 0;
         this.PosSet();
 
-        this.Brush = null;
+        this.Fill = null;
         this.Pen = null;
         this.Comp = null;
         this.FillPos.Left = 0;
