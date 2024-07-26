@@ -339,10 +339,10 @@ public class Draw : Any
         return true;
     }
 
-    public virtual bool ExecuteImage(Image image, Rect destRect, Rect sourceRect)
+    public virtual bool ExecuteImage(Image image, RectInt destRect, RectInt sourceRect)
     {
-        this.InternRectSetFromRect(this.InternRectA, destRect);
-        this.InternRectSetFromRect(this.InternRectB, sourceRect);
+        this.InternRectSetFromRectInt(this.InternRectA, destRect);
+        this.InternRectSetFromRectInt(this.InternRectB, sourceRect);
 
         Extern.Draw_ExecuteImage(this.Intern, image.Ident, this.InternRectA, this.InternRectB);
         return true;
