@@ -639,7 +639,7 @@ public class Create : InfraCreate
         this.NodeState.Execute();
 
         Node node;
-        node = this.NodeState.Result;
+        node = (Node)this.NodeState.Result;
         this.NodeState.Arg = null;
         this.NodeState.Result = null;
         if (node == null)
@@ -3293,7 +3293,7 @@ public class Create : InfraCreate
                 nodeState.Execute();
 
                 Node item;
-                item = nodeState.Result;
+                item = (Node)nodeState.Result;
 
                 nodeState.Arg = null;
                 nodeState.Result = null;
@@ -3382,7 +3382,7 @@ public class Create : InfraCreate
             nodeState.Execute();
 
             Node item;
-            item = nodeState.Result;
+            item = (Node)nodeState.Result;
 
             nodeState.Arg = null;
             nodeState.Result = null;
