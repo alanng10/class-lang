@@ -41,13 +41,13 @@ class ViewA : View
         DrawImage playImage;
         playImage = this.Demo.PlayImage;
 
-        rect.Pos.Left = this.MathInt(0);
-        rect.Pos.Up = this.MathInt(0);
+        rect.Pos.Left = 0;
+        rect.Pos.Up = 0;
 
         DrawRectInt rectB;
         rectB = this.DrawRectIntB;
-        rectB.Pos.Left = this.MathInt(0);
-        rectB.Pos.Up = this.MathInt(0);
+        rectB.Pos.Left = 0;
+        rectB.Pos.Up = 0;
         rectB.Size.Width = this.MathInt(playImage.Size.Width);
         rectB.Size.Height = this.MathInt(playImage.Size.Height);
 
