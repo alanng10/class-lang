@@ -15,7 +15,7 @@ class Read : Any
     protected virtual Table ClassTable { get; set; }
     protected virtual Class Class { get; set; }
     protected virtual List FieldList { get; set; }
-    protected virtual List MethodList { get; set; }
+    protected virtual List MaideList { get; set; }
     protected virtual List StaticFieldList { get; set; }
     protected virtual List StaticMethodList { get; set; }
     protected virtual List DelegateList { get; set; }
@@ -134,9 +134,9 @@ class Read : Any
             this.FieldList.Init();
 
 
-            this.MethodList = new List();
+            this.MaideList = new List();
 
-            this.MethodList.Init();
+            this.MaideList.Init();
 
 
             this.StaticFieldList = new List();
@@ -262,7 +262,7 @@ class Read : Any
 
                     List list;
 
-                    list = this.MethodList;
+                    list = this.MaideList;
 
 
                     if (isStatic)
@@ -325,7 +325,7 @@ class Read : Any
         this.Class.Field = this.CreateArray(this.FieldList);
 
 
-        this.Class.Maide = this.CreateArray(this.MethodList);
+        this.Class.Maide = this.CreateArray(this.MaideList);
 
 
         this.Class.StaticField = this.CreateArray(this.StaticFieldList);
@@ -340,7 +340,7 @@ class Read : Any
 
         this.FieldList = null;
 
-        this.MethodList = null;
+        this.MaideList = null;
 
         this.StaticFieldList = null;
 
