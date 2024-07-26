@@ -13,6 +13,19 @@ class InfraPartGen : PartGen
         return true;
     }
 
+    protected override string FuncPrivateName(string name)
+    {
+        return "Math_" + name;
+    }
+
+    protected override string FuncLibName(string name)
+    {
+        string k;
+        k = name.ToLower();
+
+        return "std::" + k;
+    }
+
     protected override bool AppendNewLine(StringJoin h)
     {
         return true;
