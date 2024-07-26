@@ -212,6 +212,19 @@ Int Math_ValueTen(Int o, Int significand, Int exponentTen)
     End
 }
 
+Int Math_Less(Int o, Int valueA, Int valueB)
+{
+    Start(valueA, ua);
+    Start(valueB, ub);
+    
+    bool b;
+    b = ua < ub;
+
+    Int a;
+    a = b;
+    return a;
+}
+
 MathMaideOperate(Add, +)
 MathMaideOperate(Sub, -)
 MathMaideOperate(Mul, *)
