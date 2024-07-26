@@ -8,7 +8,7 @@ public class GradientRadial : Any
         this.InternIntern = InternIntern.This;
         this.InternInfra = InternInfra.This;
 
-        Pos pos;
+        PosInt pos;
         pos = this.CenterPos;
         this.InternCenterPos = this.InternInfra.PosCreate(pos.Left, pos.Up);
         pos = this.FocusPos;
@@ -39,9 +39,9 @@ public class GradientRadial : Any
         return true;
     }
 
-    public virtual Pos CenterPos { get; set; }
+    public virtual PosInt CenterPos { get; set; }
     public virtual int CenterRadius { get; set; }
-    public virtual Pos FocusPos { get; set; }
+    public virtual PosInt FocusPos { get; set; }
     public virtual int FocusRadius { get; set; }
 
     private InternIntern InternIntern { get; set; }
