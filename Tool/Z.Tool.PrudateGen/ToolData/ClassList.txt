@@ -60,10 +60,10 @@ FormatArg
 Math
     Value(significand, exponent)
     ValueTen(significand, exponentTen)
-    Compose(value, significand, exponent)
+    Comp(value, significand, exponent)
     Less(valueA, valueB)
 
-Random
+Rand
     Seed
     Execute()
 
@@ -173,7 +173,7 @@ Font
     Overline
     Strikeout
 
-Transform
+Form
     Reset()
     Offset(offsetLeft, offsetUp)
     Scale(horizScale, vertScale)
@@ -293,23 +293,6 @@ StorageArrange
     FoldCopy(path, destPath)
     FoldRemove(path)
     Exist(path)
-    LinkTarget(path)
-    AbsolutePath(path)
-    RelativePath(path, destPath)
-    CanonicalPath(path)
-    CleanPath(path)
-
-StorageEntry
-    Path
-    Kind
-    Count
-    CreateTime(result)
-    LastModifyTime(result)
-    LastReadTime(result)
-    IsReadable
-    IsHidden
-    IsExecutable
-    Update()
 
 Network
     HostName
