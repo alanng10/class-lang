@@ -16,6 +16,8 @@ HEADERS += \
     Draw.hpp \
     Entry.h \
     Font.hpp \
+    Form.hpp \
+    FormIntern.hpp \
     Format.h \
     FormatArg.h \
     Frame.hpp \
@@ -64,8 +66,6 @@ HEADERS += \
     Time.hpp \
     TimeEvent.hpp \
     TimeEventIntern.hpp \
-    Transform.hpp \
-    TransformIntern.hpp \
     VideoFrame.hpp \
     VideoOut.hpp \
     VideoOutIntern.hpp
@@ -81,6 +81,7 @@ SOURCES += \
     Draw.cpp \
     Entry.c \
     Font.cpp \
+    Form.cpp \
     Format.c \
     FormatArg.c \
     Frame.cpp \
@@ -146,7 +147,6 @@ SOURCES += \
     Time.cpp \
     TimeEvent.cpp \
     TimeEventIntern.cpp \
-    Transform.cpp \
     VideoFrame.cpp \
     VideoOut.cpp \
     VideoOutIntern.cpp
