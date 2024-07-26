@@ -51,20 +51,32 @@ public class Frame : Comp
         Extern.Frame_TypeStateSet(this.Intern, this.InternTypeState);
         Extern.Frame_DrawStateSet(this.Intern, this.InternDrawState);
 
-        ulong ouu;
-        ouu = Extern.Frame_VideoOut(this.Intern);
+        DrawImage image;
+        image = new DrawImage();
+        image.Init();
+        image.Size.Width = width;
+        image.Size.Height = height;
+        image.DataCreate();
+        this.DrawImage = image;
+
+        DrawDraw frameDraw;
+        frameDraw = new DrawDraw();
+        frameDraw.Init();
+        this.FrameDraw = frameDraw;
+        this.DrawSet(frameDraw, this.VideoOut);
 
         this.Draw = this.CreateDraw();
-        this.Draw.Out = ouu;
-        this.Draw.Size.Width = this.Size.Width;
-        this.Draw.Size.Height = this.Size.Height;
-        this.Draw.SizeSet();
+        this.DrawSet(this.Draw, image.Out);
         return true;
     }
 
     public virtual bool Final()
     {
         this.FinalDraw(this.Draw);
+
+        this.FrameDraw.Final();
+
+        this.DrawImage.Final();
 
         Extern.Frame_Final(this.Intern);
         Extern.Frame_Delete(this.Intern);
@@ -79,6 +91,35 @@ public class Frame : Comp
         return true;
     }
 
+    public virtual DrawSize Size { get; set; }
+    public virtual string Title { get; set; }
+    public virtual TypeType Type { get; set; }
+    public virtual ulong VideoOut
+    {
+        get
+        {
+            return Extern.Frame_VideoOut(this.Intern);
+        }
+        set
+        {
+        }
+    }
+
+    private InternIntern InternIntern { get; set; }
+    private InternInfra InternInfra { get; set; }
+    protected virtual DrawInfra DrawInfra { get; set; }
+    protected virtual DrawDraw Draw { get; set; }
+    private ulong Intern { get; set; }
+    private ulong InternTitle { get; set; }
+    private ulong InternUpdateRect { get; set; }
+    private ulong InternDrawState { get; set; }
+    private ulong InternTypeState { get; set; }
+    private Handle InternHandle { get; set; }
+    private DrawImage DrawImage { get; set; }
+    private DrawDraw FrameDraw { get; set; }
+    private DrawRectInt DestRect { get; set; }
+    private DrawRectInt SourceRect { get; set; }
+
     protected virtual DrawDraw CreateDraw()
     {
         DrawDraw a;
@@ -92,23 +133,7 @@ public class Frame : Comp
         a.Final();
         return true;
     }
-
-    public virtual DrawSize Size { get; set; }
-    public virtual string Title { get; set; }
-    public virtual TypeType Type { get; set; }
-
-    private InternIntern InternIntern { get; set; }
-    private InternInfra InternInfra { get; set; }
-    protected virtual DrawInfra DrawInfra { get; set; }
-    protected virtual DrawDraw Draw { get; set; }
-    private ulong Intern { get; set; }
-    private ulong InternTitle { get; set; }
-    private ulong InternUpdateRect { get; set; }
-    private ulong InternDrawState { get; set; }
-    private ulong InternTypeState { get; set; }
-    private Handle InternHandle { get; set; }
-    private DrawImage DrawImage { get; set; }
-
+    
     protected virtual Field CreateViewField()
     {
         return this.ViewInfra.FieldCreate(this);
@@ -174,8 +199,23 @@ public class Frame : Comp
 
         Frame a;
         a = (Frame)ao;
-        a.ExecuteDraw();
+        a.ExecuteFrameDraw();
         return 1;
+    }
+
+    private bool ExecuteFrameDraw()
+    {
+        DrawDraw draw;
+        draw = this.FrameDraw;
+
+        draw.Start();
+
+        this.ExecuteDraw();
+
+        draw.ExecuteImage(this.DrawImage, this.DestRect, this.SourceRect);
+
+        draw.End();
+        return true;
     }
 
     protected virtual bool ExecuteDraw()
@@ -184,6 +224,7 @@ public class Frame : Comp
         draw = this.Draw;
 
         draw.Start();
+        
         draw.Clear(this.DrawInfra.WhiteBrush.Color);
 
         if (this.ValidDrawView())
@@ -267,6 +308,19 @@ public class Frame : Comp
         {
             this.ChangeView(change);
         }
+        return true;
+    }
+
+    private bool DrawSet(DrawDraw draw, ulong videoOut)
+    {
+        DrawSize size;
+        size = this.Size;
+
+        draw.Out = videoOut;
+        draw.Size.Width = size.Width;
+        draw.Size.Height = size.Height;
+        draw.SizeSet();
+
         return true;
     }
 }
