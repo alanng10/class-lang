@@ -14,7 +14,7 @@ Int NetworkServer_Final(Int o)
 
 CppField(NetworkServer, Port)
 
-Int NetworkServer_Listen(Int o)
+Int NetworkServer_Open(Int o)
 {
     NetworkServer* m;
     m = CP(o);
@@ -56,7 +56,7 @@ Int NetworkServer_Close(Int o)
 
 CppField(NetworkServer, NewPeerState)
 
-Int NetworkServer_NextPendingPeer(Int o)
+Int NetworkServer_OpenPeer(Int o)
 {
     NetworkServer* m;
     m = CP(o);
