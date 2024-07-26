@@ -34,8 +34,8 @@ HEADERS += \
     Network.hpp \
     NetworkHandle.hpp \
     NetworkPort.hpp \
-    NetworkServer.hpp \
-    NetworkServerIntern.hpp \
+    NetworkHost.hpp \
+    NetworkHostIntern.hpp \
     Phore.hpp \
     Play.hpp \
     PointData.hpp \
@@ -100,8 +100,8 @@ SOURCES += \
     Network.cpp \
     NetworkHandle.cpp \
     NetworkPort.cpp \
-    NetworkServer.cpp \
-    NetworkServerIntern.cpp \
+    NetworkHost.cpp \
+    NetworkHostIntern.cpp \
     Phore.cpp \
     Play.cpp \
     PointData.cpp \
