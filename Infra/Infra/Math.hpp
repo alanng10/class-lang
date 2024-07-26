@@ -45,7 +45,7 @@ Int Math_##name(Int o, Int value)\
 {\
     Start(value, ua);\
     double oo;\
-    oo = std::f(ua);\
+    oo = f(ua);\
     ValidDouble(oo);\
     End;\
 }\
@@ -57,7 +57,7 @@ Int Math_##name(Int o, Int valueA, Int valueB)\
     Start(valueA, ua);\
     Start(valueB, ub);\
     double oo;\
-    oo = std::f(ua, ub);\
+    oo = f(ua, ub);\
     ValidDouble(oo);\
     End;\
 }\
