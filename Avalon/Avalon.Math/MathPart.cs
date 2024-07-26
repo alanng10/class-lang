@@ -186,19 +186,6 @@ partial class Math
         return a;
     }
 
-    public virtual long Less(long valueA, long valueB)
-    {
-        ulong ua;
-        ulong ub;
-        ua = (ulong)valueA;
-        ub = (ulong)valueB;
-        ulong u;
-        u = Extern.Math_Less(this.Intern, ua, ub);
-        long a;
-        a = (long)u;
-        return a;
-    }
-
     public virtual long Abs(long value)
     {
         ulong ua;
