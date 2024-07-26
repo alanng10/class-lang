@@ -7,7 +7,11 @@ public class Frame : Comp
         base.Init();
         this.InternIntern = InternIntern.This;
         this.InternInfra = InternInfra.This;
+        this.MathInfra = MathInfra.This;
         this.DrawInfra = DrawInfra.This;
+
+        this.Math = this.CreateMath();
+        this.MathComp = this.CreateMathComp();
 
         this.ViewField = this.CreateViewField();
 
@@ -50,6 +54,9 @@ public class Frame : Comp
 
         Extern.Frame_TypeStateSet(this.Intern, this.InternTypeState);
         Extern.Frame_DrawStateSet(this.Intern, this.InternDrawState);
+
+        this.DestRect = this.CreateFrameRect();
+        this.SourceRect = this.CreateFrameRect();
 
         DrawImage image;
         image = new DrawImage();
@@ -107,7 +114,10 @@ public class Frame : Comp
 
     private InternIntern InternIntern { get; set; }
     private InternInfra InternInfra { get; set; }
+    protected virtual MathInfra MathInfra { get; set; }
     protected virtual DrawInfra DrawInfra { get; set; }
+    protected virtual MathMath Math { get; set; }
+    protected virtual MathComp MathComp { get; set; }
     protected virtual DrawDraw Draw { get; set; }
     private ulong Intern { get; set; }
     private ulong InternTitle { get; set; }
@@ -119,6 +129,22 @@ public class Frame : Comp
     private DrawDraw FrameDraw { get; set; }
     private DrawRectInt DestRect { get; set; }
     private DrawRectInt SourceRect { get; set; }
+
+    protected virtual MathMath CreateMath()
+    {
+        MathMath a;
+        a = new MathMath();
+        a.Init();
+        return a;
+    }
+
+    protected virtual MathComp CreateMathComp()
+    {
+        MathComp a;
+        a = new MathComp();
+        a.Init();
+        return a;
+    }
 
     protected virtual DrawDraw CreateDraw()
     {
@@ -224,7 +250,7 @@ public class Frame : Comp
         draw = this.Draw;
 
         draw.Start();
-        
+
         draw.Clear(this.DrawInfra.WhiteBrush.Color);
 
         if (this.ValidDrawView())
@@ -309,6 +335,45 @@ public class Frame : Comp
             this.ChangeView(change);
         }
         return true;
+    }
+
+    protected virtual long MathInt(long n)
+    {
+        MathInfra mathInfra;
+        mathInfra = this.MathInfra;
+
+        MathMath math;
+        math = this.Math;
+
+        MathComp mathComp;
+        mathComp = this.MathComp;
+
+        long a;
+        a = mathInfra.Int(math, mathComp, n);
+        return a;
+    }
+
+    protected virtual long MathValue(long significand, long exponent)
+    {
+        MathComp mathComp;
+        mathComp = this.MathComp;
+
+        mathComp.Significand = significand;
+        mathComp.Exponent = exponent;
+
+        long a;
+        a = this.Math.Value(mathComp);
+        return a;
+    }
+
+    private DrawRectInt CreateFrameRect()
+    {
+        DrawSize size;
+        size = this.Size;
+
+        DrawRectInt a;
+        a = this.DrawInfra.RectIntCreate(0, 0, this.MathInt(size.Width), this.MathInt(size.Height));
+        return a;
     }
 
     private bool DrawSet(DrawDraw draw, ulong videoOut)

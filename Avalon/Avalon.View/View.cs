@@ -7,6 +7,9 @@ public class View : Comp
         base.Init();
         this.MathInfra = MathInfra.This;
         this.DrawInfra = DrawInfra.This;
+        
+        this.Math = this.CreateMath();
+        this.MathComp = this.CreateMathComp();
 
         this.PosField = this.CreatePosField();
         this.SizeField = this.CreateSizeField();
@@ -20,9 +23,6 @@ public class View : Comp
         this.Visible = true;
 
         this.Area = this.CreateArea();
-
-        this.Math = this.CreateMath();
-        this.MathComp = this.CreateMathComp();
 
         this.DrawRectA = this.CreateDrawRect();
         this.DrawRectB = this.CreateDrawRect();
@@ -55,6 +55,22 @@ public class View : Comp
     protected virtual DrawRect StackRect { get; set; }
     protected virtual DrawPos StackPos { get; set; }
 
+    protected virtual MathMath CreateMath()
+    {
+        MathMath a;
+        a = new MathMath();
+        a.Init();
+        return a;
+    }
+
+    protected virtual MathComp CreateMathComp()
+    {
+        MathComp a;
+        a = new MathComp();
+        a.Init();
+        return a;
+    }
+
     protected virtual Field CreatePosField()
     {
         return this.ViewInfra.FieldCreate(this);
@@ -78,22 +94,6 @@ public class View : Comp
     protected virtual Field CreateChildField()
     {
         return this.ViewInfra.FieldCreate(this);
-    }
-
-    protected virtual MathMath CreateMath()
-    {
-        MathMath a;
-        a = new MathMath();
-        a.Init();
-        return a;
-    }
-
-    protected virtual MathComp CreateMathComp()
-    {
-        MathComp a;
-        a = new MathComp();
-        a.Init();
-        return a;
     }
 
     protected virtual Pos CreatePos()
