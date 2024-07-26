@@ -119,13 +119,13 @@ public class Frame : Comp
     protected virtual MathMath Math { get; set; }
     protected virtual MathComp MathComp { get; set; }
     protected virtual DrawDraw Draw { get; set; }
+    protected virtual DrawImage DrawImage { get; set; }
     private ulong Intern { get; set; }
     private ulong InternTitle { get; set; }
     private ulong InternUpdateRect { get; set; }
     private ulong InternDrawState { get; set; }
     private ulong InternTypeState { get; set; }
     private Handle InternHandle { get; set; }
-    private DrawImage DrawImage { get; set; }
     private DrawDraw FrameDraw { get; set; }
     private DrawRectInt DestRect { get; set; }
     private DrawRectInt SourceRect { get; set; }
