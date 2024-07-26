@@ -312,9 +312,9 @@ public class Draw : Any
         return true;
     }
 
-    public virtual bool ExecuteRect(Rect rect)
+    public virtual bool ExecuteRect(RectInt rect)
     {
-        this.InternRectSetFromRect(this.InternRectA, rect);
+        this.InternRectSetFromRectInt(this.InternRectA, rect);
 
         Extern.Draw_ExecuteRect(this.Intern, this.InternRectA);
         return true;
@@ -366,7 +366,7 @@ public class Draw : Any
 
         Extern.String_CountSet(this.InternText, countU);
 
-        this.InternRectSetFromRectLong(this.InternRectA, destRect);
+        this.InternRectSetFromRectInt(this.InternRectA, destRect);
 
         ulong o;
         o = align.Intern;
@@ -379,7 +379,7 @@ public class Draw : Any
         return true;
     }
 
-    private bool InternRectSetFromRectLong(ulong internRect, RectInt rect)
+    private bool InternRectSetFromRectInt(ulong internRect, RectInt rect)
     {
         PosInt pos;
         SizeInt size;
