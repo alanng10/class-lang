@@ -389,7 +389,7 @@ public class Draw : Any
 
     private bool InternRectSetFromRectLong(ulong internRect, RectLong rect)
     {
-        PosLong pos;
+        PosInt pos;
         SizeLong size;
         pos = rect.Pos;
         size = rect.Size;
