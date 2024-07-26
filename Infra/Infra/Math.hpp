@@ -73,7 +73,7 @@ MathMaideOperateRefer(name, op)\
     return a;\
 }\
 
-Int Math_GetValueFromCompose(Int o, Int significand, Int exponent);
+Int Math_GetValueFromComp(Int o, Int significand, Int exponent);
 
 MathMaideOperateRefer(Add, +);
 MathMaideOperateRefer(Sub, -);

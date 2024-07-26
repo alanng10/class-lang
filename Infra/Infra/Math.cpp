@@ -78,11 +78,11 @@ Int Math_GetValueFromInternValue(Int o, Int u)
     ob = ab;
 
     Int a;
-    a = Math_GetValueFromCompose(o, oa, ob);
+    a = Math_GetValueFromComp(o, oa, ob);
     return a;
 }
 
-Int Math_GetValueFromCompose(Int o, Int significand, Int exponent)
+Int Math_GetValueFromComp(Int o, Int significand, Int exponent)
 {
     SInt aa;
     aa = significand;
