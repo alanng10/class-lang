@@ -24,6 +24,10 @@ class Demo : Any
     public NetworkCaseList NetworkCaseList { get; set; }
     public NetworkStatusList NetworkStatusList { get; set; }
     private DrawBrushKindList BrushKindList { get; set; }
+    private DrawBrushLineList BrushLineList { get; set; }
+    private DrawBrushCapList BrushCapList { get; set; }
+    private DrawBrushJoinList BrushJoinList { get; set; }
+
     protected virtual MathInfra MathInfra { get; set; }
     protected virtual MathMath Math { get; set; }
     protected virtual MathComp MathComp { get; set; }
@@ -40,6 +44,9 @@ class Demo : Any
         this.NetworkCaseList = NetworkCaseList.This;
         this.NetworkStatusList = NetworkStatusList.This;
         this.BrushKindList = DrawBrushKindList.This;
+        this.BrushLineList = DrawBrushLineList.This;
+        this.BrushCapList = DrawBrushCapList.This;
+        this.BrushJoinList = DrawBrushJoinList.This;
         this.Console = Console.This;
 
         ThreadThis varThis;
@@ -92,13 +99,6 @@ class Demo : Any
         type.Change.State.AddState(state);
         this.Frame.Type = type;
 
-        DrawPenKindList penKindList;
-        penKindList = DrawPenKindList.This;
-        DrawPenCapList penCapList;
-        penCapList = DrawPenCapList.This;
-        DrawPenJoinList penJoinList;
-        penJoinList = DrawPenJoinList.This;
-
         DrawBrush brush;
         brush = new DrawBrush();
         brush.Kind = this.BrushKindList.Color;
@@ -124,10 +124,10 @@ class Demo : Any
         penBrush = new DrawBrush();
         penBrush.Kind = this.BrushKindList.Color;
         penBrush.Color = this.DrawInfra.ColorCreate(0xff, 0xff, 0, 0xff);
-        penBrush.Line = penKindList.DashDotDot;
+        penBrush.Line = this.BrushLineList.DashDotDot;
         penBrush.Width = this.MathInt(11);
-        penBrush.Cap = penCapList.Round;
-        penBrush.Join = penJoinList.Bevel;
+        penBrush.Cap = this.BrushCapList.Round;
+        penBrush.Join = this.BrushJoinList.Bevel;
         penBrush.Init();
 
         ViewC viewC;
@@ -1223,7 +1223,7 @@ class Demo : Any
         DrawFace face;
         face = this.FaceCreate();
 
-        DrawPen textPen;
+        DrawBrush textPen;
         textPen = this.TextPenCreate();
 
         DrawTextAlignList textAlignList;
@@ -1244,7 +1244,7 @@ class Demo : Any
         viewC.Size.Height = 400;
         viewC.Back = brush;
         viewC.EllipseBrush = ellipseBrush;
-        viewC.EllipseRect = this.DrawInfra.RectCreate(0, 0, 100, 50);
+        viewC.EllipseRect = this.DrawInfra.RectIntCreate(0, 0, this.MathInt(100), this.MathInt(50));
         viewC.Face = face;
         viewC.Text = text;
         viewC.TextAlign = textAlignList.CenterUp;
@@ -1254,7 +1254,7 @@ class Demo : Any
 
     private bool ViewCFinal(ViewC a)
     {
-        DrawPen textPen;
+        DrawBrush textPen;
         textPen = a.TextPen;
         DrawBrush ellipseBrush;
         ellipseBrush = a.EllipseBrush;
@@ -1294,40 +1294,23 @@ class Demo : Any
         return true;
     }
 
-    private DrawPen TextPenCreate()
+    private DrawBrush TextPenCreate()
     {
-        DrawBrush aa;
-        aa = new DrawBrush();
-        aa.Kind = this.BrushKindList.Color;
-        aa.Color = this.DrawInfra.ColorCreate(0xff, 0, 0, 0xff);
-        aa.Init();
-
-        DrawPenKindList penKindList;
-        penKindList = DrawPenKindList.This;
-        DrawPenCapList penCapList;
-        penCapList = DrawPenCapList.This;
-        DrawPenJoinList penJoinList;
-        penJoinList = DrawPenJoinList.This;
-
-        DrawPen a;
-        a = new DrawPen();
-        a.Kind = penKindList.DashDotDot;
-        a.Width = 14;
-        a.Brush = aa;
-        a.Cap = penCapList.Round;
-        a.Join = penJoinList.Bevel;
+        DrawBrush a;
+        a = new DrawBrush();
+        a.Kind = this.BrushKindList.Color;
+        a.Color = this.DrawInfra.ColorCreate(0xff, 0, 0, 0xff);
+        a.Line = this.BrushLineList.DashDotDot;
+        a.Width = this.MathInt(14);
+        a.Cap = this.BrushCapList.Round;
+        a.Join = this.BrushJoinList.Bevel;
         a.Init();
         return a;
     }
 
-    private bool TextPenFinal(DrawPen a)
+    private bool TextPenFinal(DrawBrush a)
     {
-        DrawBrush aa;
-        aa = a.Brush;
-
         a.Final();
-
-        aa.Final();
         return true;
     }
 
