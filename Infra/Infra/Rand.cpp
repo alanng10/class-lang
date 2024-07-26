@@ -9,24 +9,24 @@ Int Rand_Init(Int o)
 
     m->Intern = new QRandomGenerator;
 
-    Random_SeedSet(o, 1);
+    Rand_SeedSet(o, 1);
     return true;
 }
 
-Int Random_Final(Int o)
+Int Rand_Final(Int o)
 {
-    Random* m;
+    Rand* m;
     m = CP(o);
 
     delete m->Intern;
     return true;
 }
 
-CppFieldGet(Random, Seed)
+CppFieldGet(Rand, Seed)
 
-Int Random_SeedSet(Int o, Int value)
+Int Rand_SeedSet(Int o, Int value)
 {
-    Random* m;
+    Rand* m;
     m = CP(o);
 
     m->Seed = value;
@@ -38,9 +38,9 @@ Int Random_SeedSet(Int o, Int value)
     return true;
 }
 
-Int Random_Execute(Int o)
+Int Rand_Execute(Int o)
 {
-    Random* m;
+    Rand* m;
     m = CP(o);
 
     quint64 u;
