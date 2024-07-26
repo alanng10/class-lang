@@ -39,14 +39,11 @@ class ViewB : View
         DrawRectInt sourceRect;
         sourceRect = this.SourceRect;
 
-        long scaleFactor;
-        scaleFactor = this.DrawInfra.ScaleFactor;
-
         long angle;
         angle = this.MathInt(20);
     
         long horizScale;
-        horizScale = this.MathValue(scaleFactor + scaleFactor / 2, -20);
+        horizScale = this.MathValue(3, -1);
 
         long vertScale;
         vertScale = this.MathInt(1);
