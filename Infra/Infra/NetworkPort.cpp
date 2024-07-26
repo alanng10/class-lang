@@ -78,7 +78,7 @@ CppField(NetworkPort, Kind)
 CppField(NetworkPort, ValueA)
 CppField(NetworkPort, ValueB)
 CppField(NetworkPort, ValueC)
-CppField(NetworkPort, Server)
+CppField(NetworkPort, Host)
 
 Int NetworkPort_ValueSet(Int o, Int pointer, Int index, Int value, Int count)
 {

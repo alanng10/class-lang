@@ -10,7 +10,7 @@ struct NetworkPort
     Int ValueA;
     Int ValueB;
     Int ValueC;
-    Int Server;
+    Int Host;
     QHostAddress* InternAddress;
 };
 
