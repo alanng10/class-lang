@@ -33,9 +33,9 @@ HEADERS += \
     Method.hpp \
     Network.hpp \
     NetworkHandle.hpp \
-    NetworkPort.hpp \
     NetworkHost.hpp \
     NetworkHostIntern.hpp \
+    NetworkPort.hpp \
     Phore.hpp \
     Play.hpp \
     PointData.hpp \
@@ -47,7 +47,7 @@ HEADERS += \
     Program.hpp \
     ProgramIntern.hpp \
     Prudate.h \
-    Random.hpp \
+    Rand.hpp \
     Range.h \
     Rect.h \
     Return.hpp \
@@ -99,9 +99,9 @@ SOURCES += \
     Method.cpp \
     Network.cpp \
     NetworkHandle.cpp \
-    NetworkPort.cpp \
     NetworkHost.cpp \
     NetworkHostIntern.cpp \
+    NetworkPort.cpp \
     Phore.cpp \
     Play.cpp \
     PointData.cpp \
@@ -110,7 +110,7 @@ SOURCES += \
     PostIntern.cpp \
     Program.cpp \
     ProgramIntern.cpp \
-    Random.cpp \
+    Rand.cpp \
     Range.c \
     Rect.c \
     Return.cpp \
