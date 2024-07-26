@@ -4,10 +4,10 @@
 
 #include "Probate.hpp"
 
-struct Random
+struct Rand
 {
     Int Seed;
     QRandomGenerator* Intern;
 };
 
-#define CP(a) ((Random*)(a))
+#define CP(a) ((Rand*)(a))
