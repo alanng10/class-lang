@@ -2,7 +2,7 @@
 
 CppClassNew(Form)
 
-Int Transform_Init(Int o)
+Int Form_Init(Int o)
 {
     Transform* m;
     m = CP(o);
@@ -13,7 +13,7 @@ Int Transform_Init(Int o)
     return true;
 }
 
-Int Transform_Final(Int o)
+Int Form_Final(Int o)
 {
     Transform* m;
     m = CP(o);
@@ -21,7 +21,7 @@ Int Transform_Final(Int o)
     return true;
 }
 
-Int Transform_Reset(Int o)
+Int Form_Reset(Int o)
 {
     Transform* m;
     m = CP(o);
@@ -29,7 +29,7 @@ Int Transform_Reset(Int o)
     return true;
 }
 
-Int Transform_Offset(Int o, Int offsetLeft, Int offsetUp)
+Int Form_Offset(Int o, Int offsetLeft, Int offsetUp)
 {
     Transform* m;
     m = CP(o);
@@ -40,7 +40,7 @@ Int Transform_Offset(Int o, Int offsetLeft, Int offsetUp)
     return true;
 }
 
-Int Transform_Scale(Int o, Int horizScale, Int vertScale)
+Int Form_Scale(Int o, Int horizScale, Int vertScale)
 {
     Transform* m;
     m = CP(o);
@@ -51,7 +51,7 @@ Int Transform_Scale(Int o, Int horizScale, Int vertScale)
     return true;
 }
 
-Int Transform_Rotate(Int o, Int angle)
+Int Form_Rotate(Int o, Int angle)
 {
     Transform* m;
     m = CP(o);
@@ -61,7 +61,7 @@ Int Transform_Rotate(Int o, Int angle)
     return true;
 }
 
-Int Transform_ValueGet(Int o, Int row, Int col)
+Int Form_ValueGet(Int o, Int row, Int col)
 {
     Transform* m;
     m = CP(o);
@@ -81,7 +81,7 @@ Int Transform_ValueGet(Int o, Int row, Int col)
     return a;
 }
 
-Int Transform_ValueSet(Int o, Int row, Int col, Int value)
+Int Form_ValueSet(Int o, Int row, Int col, Int value)
 {
     Transform* m;
     m = CP(o);
@@ -97,7 +97,7 @@ Int Transform_ValueSet(Int o, Int row, Int col, Int value)
     return true;
 }
 
-Int Transform_Multiply(Int o, Int other)
+Int Form_Multiply(Int o, Int other)
 {
     Transform* m;
     m = CP(o);
@@ -111,7 +111,7 @@ Int Transform_Multiply(Int o, Int other)
     return true;
 }
 
-Int Transform_IsIdentity(Int o)
+Int Form_IsIdentity(Int o)
 {
     Transform* m;
     m = CP(o);
@@ -122,7 +122,7 @@ Int Transform_IsIdentity(Int o)
     return a;
 }
 
-Int Transform_IsInvertible(Int o)
+Int Form_IsInvertible(Int o)
 {
     Transform* m;
     m = CP(o);
@@ -133,7 +133,7 @@ Int Transform_IsInvertible(Int o)
     return a;
 }
 
-Int Transform_Invert(Int o, Int result)
+Int Form_Invert(Int o, Int result)
 {
     Transform* m;
     m = CP(o);
@@ -157,7 +157,7 @@ Int Transform_Invert(Int o, Int result)
     return true;
 }
 
-Int Transform_Transpose(Int o, Int result)
+Int Form_Transpose(Int o, Int result)
 {
     Transform* m;
     m = CP(o);
@@ -172,7 +172,7 @@ Int Transform_Transpose(Int o, Int result)
     return true;
 }
 
-Int Transform_Determinant(Int o)
+Int Form_Determinant(Int o)
 {
     Transform* m;
     m = CP(o);
@@ -187,7 +187,7 @@ Int Transform_Determinant(Int o)
     return a;
 }
 
-Int Transform_Intern(Int o)
+Int Form_Intern(Int o)
 {
     Transform* m;
     m = CP(o);
