@@ -71,12 +71,7 @@ Int GradientStop_PointSet(Int o, Int index, Int pos, Int color)
 
     InternValue(pos);
 
-    Int32 colorUa;
-    colorUa = (Int32)color;
-    QRgb colorUb;
-    colorUb = colorUa;
-    QColor colorU;
-    colorU = QColor(colorUb);
+    InternColor(color);
 
     QGradientStop* uu;
     uu = (QGradientStop*)(&(m->Intern->at(indexU)));
