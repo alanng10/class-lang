@@ -137,6 +137,12 @@ class MathAdd : Any
         bool b;
         b = false;
 
+        b = this.TableAddMaide(table, "Less", true);
+        if (!b)
+        {
+            return false;
+        }
+
         int count;
         count = array.Count;
         int i;
@@ -146,22 +152,22 @@ class MathAdd : Any
             string a;
             a = (string)array.GetAt(i);
 
-            int uu;
-            uu = a.IndexOf(' ');
+            string[] uu;
+            uu = a.Split(' ');
 
-            if (uu < 0)
+            if (!(uu.Length == 3))
             {
                 return false;
             }
 
             string name;
-            name = a.Substring(0, uu);
-            
-            string kk;
-            kk = a.Substring(uu + 1);
+            name = uu[0];
+
+            string ka;
+            ka = uu[1];
 
             bool ba;
-            ba = toolInfra.GetBool(kk);
+            ba = toolInfra.GetBool(ka);
 
             b = this.TableAddMaide(table, name, ba);
             if (!b)
@@ -170,12 +176,6 @@ class MathAdd : Any
             }
 
             i = i + 1;
-        }
-
-        b = this.TableAddMaide(table, "Less", true);
-        if (!b)
-        {
-            return false;
         }
 
         return true;
@@ -190,7 +190,7 @@ class MathAdd : Any
         {
             return false;
         }
-        
+
         Maide maide;
         maide = this.CreateMaide(name, operandTwo);
 
@@ -200,15 +200,15 @@ class MathAdd : Any
 
     protected virtual bool AddTrigoMaideList(string pre, string post)
     {
-        ListInfra listInfra;
-        listInfra = this.ListInfra;
-
         Array array;
         array = this.TrigoList;
 
         Table table;
         table = this.MaideTable;
 
+        bool b;
+        b = false;
+        
         int count;
         count = array.Count;
         int i;
@@ -218,13 +218,14 @@ class MathAdd : Any
             string k;
             k = (string)array.GetAt(i);
 
-            string ka;
-            ka = pre + k + post;
+            string name;
+            name = pre + k + post;
 
-            Maide a;
-            a = this.CreateMaide(ka, false);
-
-            listInfra.TableAdd(table, ka, a);
+            b = this.TableAddMaide(table, name, false);
+            if (!b)
+            {
+                return false;
+            }
 
             i = i + 1;
         }
