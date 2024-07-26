@@ -4,7 +4,7 @@ CppClassNew(Form)
 
 Int Form_Init(Int o)
 {
-    Transform* m;
+    Form* m;
     m = CP(o);
     QTransform* transform;
     transform = new QTransform;
@@ -15,7 +15,7 @@ Int Form_Init(Int o)
 
 Int Form_Final(Int o)
 {
-    Transform* m;
+    Form* m;
     m = CP(o);
     delete m->Intern;
     return true;
@@ -23,7 +23,7 @@ Int Form_Final(Int o)
 
 Int Form_Reset(Int o)
 {
-    Transform* m;
+    Form* m;
     m = CP(o);
     m->Intern->reset();
     return true;
@@ -31,7 +31,7 @@ Int Form_Reset(Int o)
 
 Int Form_Offset(Int o, Int offsetLeft, Int offsetUp)
 {
-    Transform* m;
+    Form* m;
     m = CP(o);
     InternValue(offsetLeft);
     InternValue(offsetUp);
@@ -42,7 +42,7 @@ Int Form_Offset(Int o, Int offsetLeft, Int offsetUp)
 
 Int Form_Scale(Int o, Int horizScale, Int vertScale)
 {
-    Transform* m;
+    Form* m;
     m = CP(o);
     InternValue(horizScale);
     InternValue(vertScale);
@@ -53,7 +53,7 @@ Int Form_Scale(Int o, Int horizScale, Int vertScale)
 
 Int Form_Rotate(Int o, Int angle)
 {
-    Transform* m;
+    Form* m;
     m = CP(o);
     InternValue(angle);
 
@@ -63,7 +63,7 @@ Int Form_Rotate(Int o, Int angle)
 
 Int Form_ValueGet(Int o, Int row, Int col)
 {
-    Transform* m;
+    Form* m;
     m = CP(o);
     TransformIntern* uo;
     uo = (TransformIntern*)(m->Intern);
@@ -83,7 +83,7 @@ Int Form_ValueGet(Int o, Int row, Int col)
 
 Int Form_ValueSet(Int o, Int row, Int col, Int value)
 {
-    Transform* m;
+    Form* m;
     m = CP(o);
     InternValue(value);
 
@@ -99,7 +99,7 @@ Int Form_ValueSet(Int o, Int row, Int col, Int value)
 
 Int Form_Multiply(Int o, Int other)
 {
-    Transform* m;
+    Form* m;
     m = CP(o);
     Int otherU;
     otherU = Transform_Intern(other);
@@ -113,7 +113,7 @@ Int Form_Multiply(Int o, Int other)
 
 Int Form_IsIdentity(Int o)
 {
-    Transform* m;
+    Form* m;
     m = CP(o);
     bool bu;
     bu = m->Intern->isIdentity();
@@ -124,7 +124,7 @@ Int Form_IsIdentity(Int o)
 
 Int Form_IsInvertible(Int o)
 {
-    Transform* m;
+    Form* m;
     m = CP(o);
     bool bu;
     bu = m->Intern->isInvertible();
@@ -135,7 +135,7 @@ Int Form_IsInvertible(Int o)
 
 Int Form_Invert(Int o, Int result)
 {
-    Transform* m;
+    Form* m;
     m = CP(o);
 
     Transform* aa;
@@ -159,7 +159,7 @@ Int Form_Invert(Int o, Int result)
 
 Int Form_Transpose(Int o, Int result)
 {
-    Transform* m;
+    Form* m;
     m = CP(o);
 
     Transform* aa;
@@ -174,7 +174,7 @@ Int Form_Transpose(Int o, Int result)
 
 Int Form_Determinant(Int o)
 {
-    Transform* m;
+    Form* m;
     m = CP(o);
 
     qreal u;
@@ -189,7 +189,7 @@ Int Form_Determinant(Int o)
 
 Int Form_Intern(Int o)
 {
-    Transform* m;
+    Form* m;
     m = CP(o);
     Int a;
     a = CastInt(m->Intern);
