@@ -2,7 +2,7 @@
 
 #include <QtGlobal>
 
-class TransformIntern
+class FormIntern
 {
 public:
     qreal* Value() { return &(m_matrix[0][0]); }
