@@ -2,7 +2,6 @@ Add true true
 Sub true true
 Mul true true
 Div true true
-Less true true
 Abs false false
 Exp false false
 Exp2 false false
