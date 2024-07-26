@@ -93,23 +93,23 @@ public class Draw : Any
     {
         get
         {
-            return this.BrushData;
+            return this.FillData;
         }
         set
         {
-            this.BrushData = value;
+            this.FillData = value;
 
             ulong uu;
             uu = 0;
-            if (!(this.BrushData == null))
+            if (!(this.FillData == null))
             {
-                uu = this.BrushData.Intern;
+                uu = this.FillData.Intern;
             }
             Extern.Draw_FillSet(this.Intern, uu);
         }
     }
 
-    protected virtual Brush BrushData { get; set; }
+    protected virtual Brush FillData { get; set; }
 
     public virtual Brush Pen
     {
