@@ -18,9 +18,9 @@ public class Draw : Any
         this.Area.Size.Init();
         this.Pos = new Pos();
         this.Pos.Init();
-        this.FillPos = new Pos();
+        this.FillPos = new PosInt();
         this.FillPos.Init();
-        this.PosA = new Pos();
+        this.PosA = new PosInt();
         this.PosA.Init();
         this.WorldForm = new Form();
         this.WorldForm.Init();
@@ -87,7 +87,7 @@ public class Draw : Any
     public virtual Size Size { get; set; }
     public virtual Rect Area { get; set; }
     public virtual Pos Pos { get; set; }
-    public virtual Pos FillPos { get; set; }
+    public virtual PosInt FillPos { get; set; }
 
     public virtual Brush Brush
     {
@@ -181,7 +181,7 @@ public class Draw : Any
 
     protected virtual Form WorldForm { get; set; }
     protected virtual Form FormA { get; set; }
-    protected virtual Pos PosA { get; set; }
+    protected virtual PosInt PosA { get; set; }
     protected virtual int TextCount { get; set; }
 
     private InternIntern InternIntern { get; set; }
@@ -252,8 +252,8 @@ public class Draw : Any
 
     public virtual bool FillPosSet()
     {
-        int left;
-        int up;
+        long left;
+        long up;
         left = this.FillPos.Left;
         up = this.FillPos.Up;
         this.InternInfra.PosSet(this.InternFillPos, left, up);
@@ -292,22 +292,14 @@ public class Draw : Any
         return true;
     }
 
-    protected virtual bool WorldFormPosOffsetSet(Pos pos)
+    protected virtual bool WorldFormPosOffsetSet(PosInt pos)
     {
-        long scaleFactor;
-        scaleFactor = this.DrawInfra.ScaleFactor;
+        long left;
+        long up;
+        left = pos.Left;
+        up = pos.Up;
 
-        long leftL;
-        long upL;
-        leftL = pos.Left;
-        upL = pos.Up;
-
-        long offsetLeft;
-        long offsetUp;
-        offsetLeft = leftL * scaleFactor;
-        offsetUp = upL * scaleFactor;
-
-        this.WorldForm.Offset(offsetLeft, offsetUp);
+        this.WorldForm.Offset(left, up);
         return true;
     }
     
