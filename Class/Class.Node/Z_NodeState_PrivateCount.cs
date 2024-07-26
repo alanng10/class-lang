@@ -4,7 +4,10 @@ public class PrivateCountNodeState : NodeState
 {
     public override bool Execute()
     {
-        this.Result = this.Create.ExecutePrivateCount(this.Arg);
+        Range range;
+        range = (Range)this.Arg;
+        
+        this.Result = this.Create.ExecutePrivateCount(range);
         return true;
     }
 }

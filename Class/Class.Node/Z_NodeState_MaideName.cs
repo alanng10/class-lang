@@ -4,7 +4,10 @@ public class MaideNameNodeState : NodeState
 {
     public override bool Execute()
     {
-        this.Result = this.Create.ExecuteMaideName(this.Arg);
+        Range range;
+        range = (Range)this.Arg;
+        
+        this.Result = this.Create.ExecuteMaideName(range);
         return true;
     }
 }

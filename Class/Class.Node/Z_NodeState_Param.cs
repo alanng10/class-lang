@@ -4,7 +4,10 @@ public class ParamNodeState : NodeState
 {
     public override bool Execute()
     {
-        this.Result = this.Create.ExecuteParam(this.Arg);
+        Range range;
+        range = (Range)this.Arg;
+        
+        this.Result = this.Create.ExecuteParam(range);
         return true;
     }
 }

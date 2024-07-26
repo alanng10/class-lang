@@ -4,7 +4,10 @@ public class SignLessOperateNodeState : NodeState
 {
     public override bool Execute()
     {
-        this.Result = this.Create.ExecuteSignLessOperate(this.Arg);
+        Range range;
+        range = (Range)this.Arg;
+        
+        this.Result = this.Create.ExecuteSignLessOperate(range);
         return true;
     }
 }

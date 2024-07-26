@@ -4,7 +4,10 @@ public class CountNodeState : NodeState
 {
     public override bool Execute()
     {
-        this.Result = this.Create.ExecuteCount(this.Arg);
+        Range range;
+        range = (Range)this.Arg;
+        
+        this.Result = this.Create.ExecuteCount(range);
         return true;
     }
 }

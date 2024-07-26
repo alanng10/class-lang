@@ -4,7 +4,10 @@ public class ClassNameNodeState : NodeState
 {
     public override bool Execute()
     {
-        this.Result = this.Create.ExecuteClassName(this.Arg);
+        Range range;
+        range = (Range)this.Arg;
+        
+        this.Result = this.Create.ExecuteClassName(range);
         return true;
     }
 }

@@ -4,7 +4,10 @@ public class BracketOperateNodeState : NodeState
 {
     public override bool Execute()
     {
-        this.Result = this.Create.ExecuteBracketOperate(this.Arg);
+        Range range;
+        range = (Range)this.Arg;
+        
+        this.Result = this.Create.ExecuteBracketOperate(range);
         return true;
     }
 }

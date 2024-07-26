@@ -4,7 +4,10 @@ public class ReferExecuteNodeState : NodeState
 {
     public override bool Execute()
     {
-        this.Result = this.Create.ExecuteReferExecute(this.Arg);
+        Range range;
+        range = (Range)this.Arg;
+        
+        this.Result = this.Create.ExecuteReferExecute(range);
         return true;
     }
 }

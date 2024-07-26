@@ -4,7 +4,10 @@ public class CastOperateNodeState : NodeState
 {
     public override bool Execute()
     {
-        this.Result = this.Create.ExecuteCastOperate(this.Arg);
+        Range range;
+        range = (Range)this.Arg;
+        
+        this.Result = this.Create.ExecuteCastOperate(range);
         return true;
     }
 }

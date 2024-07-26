@@ -4,7 +4,10 @@ public class SetTargetNodeState : NodeState
 {
     public override bool Execute()
     {
-        this.Result = this.Create.ExecuteSetTarget(this.Arg);
+        Range range;
+        range = (Range)this.Arg;
+        
+        this.Result = this.Create.ExecuteSetTarget(range);
         return true;
     }
 }

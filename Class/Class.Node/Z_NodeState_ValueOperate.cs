@@ -4,7 +4,10 @@ public class ValueOperateNodeState : NodeState
 {
     public override bool Execute()
     {
-        this.Result = this.Create.ExecuteValueOperate(this.Arg);
+        Range range;
+        range = (Range)this.Arg;
+        
+        this.Result = this.Create.ExecuteValueOperate(range);
         return true;
     }
 }

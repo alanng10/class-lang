@@ -4,7 +4,10 @@ public class ShareOperateNodeState : NodeState
 {
     public override bool Execute()
     {
-        this.Result = this.Create.ExecuteShareOperate(this.Arg);
+        Range range;
+        range = (Range)this.Arg;
+        
+        this.Result = this.Create.ExecuteShareOperate(range);
         return true;
     }
 }

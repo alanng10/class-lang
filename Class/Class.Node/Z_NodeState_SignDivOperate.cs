@@ -4,7 +4,10 @@ public class SignDivOperateNodeState : NodeState
 {
     public override bool Execute()
     {
-        this.Result = this.Create.ExecuteSignDivOperate(this.Arg);
+        Range range;
+        range = (Range)this.Arg;
+        
+        this.Result = this.Create.ExecuteSignDivOperate(range);
         return true;
     }
 }

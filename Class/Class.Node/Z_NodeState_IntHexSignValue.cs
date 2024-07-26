@@ -4,7 +4,10 @@ public class IntHexSignValueNodeState : NodeState
 {
     public override bool Execute()
     {
-        this.Result = this.Create.ExecuteIntHexSignValue(this.Arg);
+        Range range;
+        range = (Range)this.Arg;
+        
+        this.Result = this.Create.ExecuteIntHexSignValue(range);
         return true;
     }
 }

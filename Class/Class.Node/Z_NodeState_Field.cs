@@ -4,7 +4,10 @@ public class FieldNodeState : NodeState
 {
     public override bool Execute()
     {
-        this.Result = this.Create.ExecuteField(this.Arg);
+        Range range;
+        range = (Range)this.Arg;
+        
+        this.Result = this.Create.ExecuteField(range);
         return true;
     }
 }

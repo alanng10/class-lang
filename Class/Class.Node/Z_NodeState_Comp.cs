@@ -4,7 +4,10 @@ public class CompNodeState : NodeState
 {
     public override bool Execute()
     {
-        this.Result = this.Create.ExecuteComp(this.Arg);
+        Range range;
+        range = (Range)this.Arg;
+        
+        this.Result = this.Create.ExecuteComp(range);
         return true;
     }
 }

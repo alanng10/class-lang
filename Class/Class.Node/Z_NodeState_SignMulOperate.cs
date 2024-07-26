@@ -4,7 +4,10 @@ public class SignMulOperateNodeState : NodeState
 {
     public override bool Execute()
     {
-        this.Result = this.Create.ExecuteSignMulOperate(this.Arg);
+        Range range;
+        range = (Range)this.Arg;
+        
+        this.Result = this.Create.ExecuteSignMulOperate(range);
         return true;
     }
 }

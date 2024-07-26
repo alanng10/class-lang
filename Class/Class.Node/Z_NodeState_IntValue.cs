@@ -4,7 +4,10 @@ public class IntValueNodeState : NodeState
 {
     public override bool Execute()
     {
-        this.Result = this.Create.ExecuteIntValue(this.Arg);
+        Range range;
+        range = (Range)this.Arg;
+        
+        this.Result = this.Create.ExecuteIntValue(range);
         return true;
     }
 }

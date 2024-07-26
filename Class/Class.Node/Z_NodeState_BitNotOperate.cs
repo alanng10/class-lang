@@ -4,7 +4,10 @@ public class BitNotOperateNodeState : NodeState
 {
     public override bool Execute()
     {
-        this.Result = this.Create.ExecuteBitNotOperate(this.Arg);
+        Range range;
+        range = (Range)this.Arg;
+        
+        this.Result = this.Create.ExecuteBitNotOperate(range);
         return true;
     }
 }

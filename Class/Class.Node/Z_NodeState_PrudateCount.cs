@@ -4,7 +4,10 @@ public class PrudateCountNodeState : NodeState
 {
     public override bool Execute()
     {
-        this.Result = this.Create.ExecutePrudateCount(this.Arg);
+        Range range;
+        range = (Range)this.Arg;
+        
+        this.Result = this.Create.ExecutePrudateCount(range);
         return true;
     }
 }

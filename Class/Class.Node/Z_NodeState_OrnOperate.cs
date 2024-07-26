@@ -4,7 +4,10 @@ public class OrnOperateNodeState : NodeState
 {
     public override bool Execute()
     {
-        this.Result = this.Create.ExecuteOrnOperate(this.Arg);
+        Range range;
+        range = (Range)this.Arg;
+        
+        this.Result = this.Create.ExecuteOrnOperate(range);
         return true;
     }
 }

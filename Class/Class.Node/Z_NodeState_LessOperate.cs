@@ -4,7 +4,10 @@ public class LessOperateNodeState : NodeState
 {
     public override bool Execute()
     {
-        this.Result = this.Create.ExecuteLessOperate(this.Arg);
+        Range range;
+        range = (Range)this.Arg;
+        
+        this.Result = this.Create.ExecuteLessOperate(range);
         return true;
     }
 }
