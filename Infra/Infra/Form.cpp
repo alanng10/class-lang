@@ -138,7 +138,7 @@ Int Form_Invert(Int o, Int result)
     Form* m;
     m = CP(o);
 
-    Transform* aa;
+    Form* aa;
     aa = CP(result);
 
     bool bu;
@@ -162,7 +162,7 @@ Int Form_Transpose(Int o, Int result)
     Form* m;
     m = CP(o);
 
-    Transform* aa;
+    Form* aa;
     aa = CP(result);
 
     QTransform uu;
