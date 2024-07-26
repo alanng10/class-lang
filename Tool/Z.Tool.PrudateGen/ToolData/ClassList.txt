@@ -61,6 +61,7 @@ Math
     Value(significand, exponent)
     ValueTen(significand, exponentTen)
     Compose(value, significand, exponent)
+    Less(valueA, valueB)
 
 Random
     Seed
