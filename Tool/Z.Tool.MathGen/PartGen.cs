@@ -107,7 +107,14 @@ class PartGen : Any
             k = this.TextMaideTwo;
         }
 
-        k = k.Replace("#Name#", maide.Name);
+        string ka;
+        ka = maide.Name;
+
+        string kb;
+        kb = ka.ToLower();
+
+        k = k.Replace("#Name#", ka);
+        k = k.Replace("#Func#", kb);
 
         return k;
     }
