@@ -4,7 +4,7 @@
 
         Array array;
         array = #VarName#.Value;
-        if (!(this.InfraInfra.CheckIndex(array.Count, k)))
+        if (!(this.InfraInfra.ValidIndex(array.Count, k)))
         {
             return true;
         }
