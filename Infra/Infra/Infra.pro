@@ -27,10 +27,10 @@ HEADERS += \
     Image.hpp \
     ImageRead.hpp \
     ImageWrite.hpp \
+    Maide.hpp \
     Main.hpp \
     Math.hpp \
     Memory.hpp \
-    Method.hpp \
     Network.hpp \
     NetworkHandle.hpp \
     NetworkHost.hpp \
@@ -92,11 +92,11 @@ SOURCES += \
     Image.cpp \
     ImageRead.cpp \
     ImageWrite.cpp \
+    Maide.cpp \
     Main.cpp \
     Math.cpp \
     MathPart.cpp \
     Memory.cpp \
-    Method.cpp \
     Network.cpp \
     NetworkHandle.cpp \
     NetworkHost.cpp \
