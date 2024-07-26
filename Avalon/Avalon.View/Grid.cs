@@ -365,14 +365,16 @@ public class Grid : View
         int height;
         height = down - upA;
 
-        this.DrawRectA.Pos.Left = left;
-        this.DrawRectA.Pos.Up = up;
-        this.DrawRectA.Size.Width = width;
-        this.DrawRectA.Size.Height = height;
+        DrawRect rect;
+        rect = this.DrawRectA;
+        rect.Pos.Left = left;
+        rect.Pos.Up = up;
+        rect.Size.Width = width;
+        rect.Size.Height = height;
 
-        this.SetChildArea(this.DrawRectA);
+        this.SetChildArea(rect);
 
-        this.ViewInfra.StackPushChild(draw, this.StackGridChildRect, this.StackGridChildPos, this.DrawRectA, this.DrawPosA);
+        this.ViewInfra.StackPushChild(draw, this.StackGridChildRect, this.StackGridChildPos, rect, this.DrawPosA);
 
         this.ExecuteGridChildDraw(draw, child);
 
