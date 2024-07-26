@@ -2,7 +2,7 @@
 
 #include <QHostAddress>
 
-#include "NetworkServerIntern.hpp"
+#include "NetworkHostIntern.hpp"
 
 #include "Probate.hpp"
 

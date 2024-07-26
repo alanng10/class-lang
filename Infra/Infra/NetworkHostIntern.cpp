@@ -1,4 +1,4 @@
-#include "NetworkServerIntern.hpp"
+#include "NetworkHostIntern.hpp"
 
 Bool NetworkServerIntern::Init()
 {

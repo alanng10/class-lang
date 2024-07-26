@@ -1,4 +1,4 @@
-#include "NetworkServer.hpp"
+#include "NetworkHost.hpp"
 
 CppClassNew(NetworkServer)
 
