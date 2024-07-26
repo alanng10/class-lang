@@ -41,22 +41,23 @@ Int AudioOut_VolumeSet(Int o, Int value)
     AudioOut* m;
     m = CP(o);
 
-    m->Volume = value;
+    Int capValue;
+    capValue = Math_Value(null, 1, 0);
 
-    Int scaleFactor;
-    scaleFactor = 1 << 20;
-    if (scaleFactor < (m->Volume))
+    Bool b;
+    b = Math_Less(null, capValue, value);
+
+    if (b)
     {
-        m->Volume = scaleFactor;
+        value = capValue;
     }
 
-    Int ua;
-    ua = InternValueGet(m->Volume);
-    qreal uU;
-    uU = CastIntToDouble(ua);
+    m->Volume = value;
+
+    InternValue(value);
 
     float uo;
-    uo = uU;
+    uo = valueU;
     m->Intern->setVolume(uo);
     return true;
 }
