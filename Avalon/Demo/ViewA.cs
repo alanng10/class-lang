@@ -2,7 +2,7 @@ namespace Demo;
 
 class ViewA : View
 {
-    public virtual DrawPen DrawPen { get; set; }
+    public virtual DrawBrush DrawPen { get; set; }
     public virtual Demo Demo { get; set; }
     public virtual DrawForm Form { get; set; }
     public virtual int RotateValue { get; set; }
@@ -18,49 +18,44 @@ class ViewA : View
         int height;
         height = this.Size.Height;
 
-        DrawRect rect;
-        rect = this.DrawRectA;
-        rect.Pos.Left = left;
-        rect.Pos.Up = up;
-        rect.Size.Width = width;
-        rect.Size.Height = height;
+        DrawRectInt rect;
+        rect = this.DrawRectIntA;
+        rect.Pos.Left = this.MathInt(left);
+        rect.Pos.Up = this.MathInt(up);
+        rect.Size.Width = this.MathInt(width);
+        rect.Size.Height = this.MathInt(height);
 
         DrawBrush brush;
         brush = this.Back;
-        draw.Brush = brush;
-        DrawPen pen;
+        draw.Fill = brush;
+        DrawBrush pen;
         pen = this.DrawPen;
         draw.Pen = pen;
 
-        draw.FillPos.Left = left;
-        draw.FillPos.Up = up;
+        draw.FillPos.Left = this.MathInt(left);
+        draw.FillPos.Up = this.MathInt(up);
         draw.FillPosSet();
         
-        long scaleFactor;
-        scaleFactor = this.DrawInfra.ScaleFactor;
-
-        draw.ExecuteRoundRect(rect, 40 * scaleFactor, 30 * scaleFactor);
+        draw.ExecuteRoundRect(rect, this.MathInt(40), this.MathInt(30));
 
         DrawImage playImage;
         playImage = this.Demo.PlayImage;
 
-        rect.Pos.Left = 0;
-        rect.Pos.Up = 0;
+        rect.Pos.Left = this.MathInt(0);
+        rect.Pos.Up = this.MathInt(0);
 
-        DrawRect rectB;
-        rectB = this.DrawRectB;
-        rectB.Pos.Left = 0;
-        rectB.Pos.Up = 0;
-        rectB.Size.Width = playImage.Size.Width;
-        rectB.Size.Height = playImage.Size.Height;
+        DrawRectInt rectB;
+        rectB = this.DrawRectIntB;
+        rectB.Pos.Left = this.MathInt(0);
+        rectB.Pos.Up = this.MathInt(0);
+        rectB.Size.Width = this.MathInt(playImage.Size.Width);
+        rectB.Size.Height = this.MathInt(playImage.Size.Height);
 
         long ooa;
-        ooa = left;
-        ooa = ooa * scaleFactor;
+        ooa = this.MathInt(left);
 
         long oob;
-        oob = up;
-        oob = oob * scaleFactor;
+        oob = this.MathInt(up);
 
         int oa;
         oa = this.RotateValue * 10;
@@ -70,7 +65,7 @@ class ViewA : View
         oa = oa - ob;
 
         long angle;
-        angle = oa * scaleFactor;
+        angle = this.MathInt(oa);
 
         this.Form.Reset();
 
@@ -86,9 +81,25 @@ class ViewA : View
         draw.Form = null;
         draw.FormSet();
         
-        draw.Brush = null;
+        draw.Fill = null;
 
         draw.Pen = null;
         return true;
+    }
+
+    protected virtual long MathInt(long n)
+    {
+        MathInfra mathInfra;
+        mathInfra = this.MathInfra;
+
+        MathMath math;
+        math = this.Math;
+
+        MathComp mathComp;
+        mathComp = this.MathComp;
+
+        long a;
+        a = mathInfra.Int(math, mathComp, n);
+        return a;
     }
 }
