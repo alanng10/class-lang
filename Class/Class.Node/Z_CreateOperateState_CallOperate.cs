@@ -4,11 +4,14 @@ public class CallOperateCreateOperateState : CreateOperateState
 {
     public override bool Execute()
     {
+        CreateOperateArg arg;
+        arg = (CreateOperateArg)this.Arg;
+        
         CallOperate node;
         node = (CallOperate)this.Node;
-        node.This = (Operate)this.Arg.Field00;
-        node.Maide = (MaideName)this.Arg.Field01;
-        node.Argue = (Argue)this.Arg.Field02;
+        node.This = (Operate)arg.Field00;
+        node.Maide = (MaideName)arg.Field01;
+        node.Argue = (Argue)arg.Field02;
         return true;
     }
 }

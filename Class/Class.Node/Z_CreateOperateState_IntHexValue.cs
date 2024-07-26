@@ -4,9 +4,12 @@ public class IntHexValueCreateOperateState : CreateOperateState
 {
     public override bool Execute()
     {
+        CreateOperateArg arg;
+        arg = (CreateOperateArg)this.Arg;
+        
         IntHexValue node;
         node = (IntHexValue)this.Node;
-        node.Value = this.Arg.FieldInt;
+        node.Value = arg.FieldInt;
         return true;
     }
 }

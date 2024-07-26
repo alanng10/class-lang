@@ -4,9 +4,12 @@ public class VarOperateCreateOperateState : CreateOperateState
 {
     public override bool Execute()
     {
+        CreateOperateArg arg;
+        arg = (CreateOperateArg)this.Arg;
+        
         VarOperate node;
         node = (VarOperate)this.Node;
-        node.Var = (VarName)this.Arg.Field00;
+        node.Var = (VarName)arg.Field00;
         return true;
     }
 }

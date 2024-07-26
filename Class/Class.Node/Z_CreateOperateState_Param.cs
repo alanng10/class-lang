@@ -4,9 +4,12 @@ public class ParamCreateOperateState : CreateOperateState
 {
     public override bool Execute()
     {
+        CreateOperateArg arg;
+        arg = (CreateOperateArg)this.Arg;
+        
         Param node;
         node = (Param)this.Node;
-        node.Value = (Array)this.Arg.Field00;
+        node.Value = (Array)arg.Field00;
         return true;
     }
 }

@@ -4,10 +4,13 @@ public class BitSignRightOperateCreateOperateState : CreateOperateState
 {
     public override bool Execute()
     {
+        CreateOperateArg arg;
+        arg = (CreateOperateArg)this.Arg;
+        
         BitSignRightOperate node;
         node = (BitSignRightOperate)this.Node;
-        node.Value = (Operate)this.Arg.Field00;
-        node.Count = (Operate)this.Arg.Field01;
+        node.Value = (Operate)arg.Field00;
+        node.Count = (Operate)arg.Field01;
         return true;
     }
 }
