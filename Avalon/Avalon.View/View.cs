@@ -317,15 +317,6 @@ public class View : Comp
 
     protected virtual bool ExecuteDrawThis(DrawDraw draw)
     {
-        MathInfra mathInfra;
-        mathInfra = this.MathInfra;
-
-        MathMath math;
-        math = this.Math;
-
-        MathComp mathComp;
-        mathComp = this.MathComp;
-
         int left;
         left = this.Pos.Left;
         int up;
@@ -338,10 +329,10 @@ public class View : Comp
         DrawRectInt rect;
         rect = this.DrawRectIntA;
 
-        rect.Pos.Left = mathInfra.Int(math, mathComp, left);
-        rect.Pos.Up = mathInfra.Int(math, mathComp, up);
-        rect.Size.Width = mathInfra.Int(math, mathComp, width);
-        rect.Size.Height = mathInfra.Int(math, mathComp, height);
+        rect.Pos.Left = this.MathInt(left);
+        rect.Pos.Up = this.MathInt(up);
+        rect.Size.Width = this.MathInt(width);
+        rect.Size.Height = this.MathInt(height);
 
         DrawBrush brush;
         brush = this.Back;
@@ -404,5 +395,21 @@ public class View : Comp
     {
         this.Child.ExecuteDraw(draw);
         return true;
+    }
+
+    protected virtual long MathInt(long n)
+    {
+        MathInfra mathInfra;
+        mathInfra = this.MathInfra;
+
+        MathMath math;
+        math = this.Math;
+
+        MathComp mathComp;
+        mathComp = this.MathComp;
+
+        long a;
+        a = mathInfra.Int(math, mathComp, n);
+        return a;
     }
 }
