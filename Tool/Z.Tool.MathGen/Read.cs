@@ -13,8 +13,6 @@ public class Read : Any
     public virtual Table MaideTable { get; set; }
     protected virtual ListInfra ListInfra { get; set; }
     protected virtual ToolInfra ToolInfra { get; set; }
-    protected virtual string TextPart { get; set; }
-    protected virtual string TextMaide { get; set; }
     protected virtual string TextTrigoList { get; set; }
     protected virtual string TextList { get; set; }
     protected virtual Table TrigoTable { get; set; }
@@ -26,8 +24,6 @@ public class Read : Any
         ToolInfra toolInfra;
         toolInfra = this.ToolInfra;
 
-        this.TextPart = toolInfra.StorageTextRead("ToolData/Math/Part.txt");
-        this.TextMaide = toolInfra.StorageTextRead("ToolData/Math/Maide.txt");
         this.TextList = toolInfra.StorageTextRead("ToolData/Math/List.txt");
         this.TextTrigoList = toolInfra.StorageTextRead("ToolData/Math/TrigoList.txt");
 
@@ -72,47 +68,6 @@ public class Read : Any
         {
             return 510;
         }
-
-        string newLine;
-        newLine = toolInfra.NewLine;
-
-        StringJoin h;
-        h = new StringJoin();
-        h.Init();
-
-        bool ba;
-        ba = false;
-
-        Iter iter;
-        iter = list.IterCreate();
-        list.IterSet(iter);
-
-        while (iter.Next())
-        {
-            if (ba)
-            {
-                h.Append(newLine);
-            }
-
-            string aa;
-            aa = (string)iter.Value;
-
-            h.Append(aa);
-
-            ba = true;
-        }
-
-        string k;
-        k = h.Result();
-
-        string ka;
-        ka = this.TextPart;
-        ka = ka.Replace("#Part#", k);
-
-        string outputPath;
-        outputPath = "../../Avalon/Avalon.Math/MathPart.cs";
-
-        toolInfra.StorageTextWrite(outputPath, ka);
         return 0;
     }
 
@@ -201,16 +156,6 @@ public class Read : Any
             listInfra.TableAdd(table, name, maide);
         }
         return true;
-    }
-
-    protected virtual string Maide(string name)
-    {
-        string k;
-        k = this.TextMaide;
-
-        k = k.Replace("#Name#", name);
-
-        return k;
     }
 
     protected virtual Maide CreateMaide(string name, bool operandTwo)
