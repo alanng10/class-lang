@@ -320,9 +320,9 @@ public class Draw : Any
         return true;
     }
 
-    public virtual bool ExecuteRoundRect(Rect rect, long horizRadius, long vertRadius)
+    public virtual bool ExecuteRoundRect(RectInt rect, long horizRadius, long vertRadius)
     {
-        this.InternRectSetFromRect(this.InternRectA, rect);
+        this.InternRectSetFromRectInt(this.InternRectA, rect);
 
         ulong hr;
         ulong vr;
@@ -332,9 +332,9 @@ public class Draw : Any
         return true;
     }
 
-    public virtual bool ExecuteEllipse(Rect rect)
+    public virtual bool ExecuteEllipse(RectInt rect)
     {
-        this.InternRectSetFromRect(this.InternRectA, rect);
+        this.InternRectSetFromRectInt(this.InternRectA, rect);
         Extern.Draw_ExecuteEllipse(this.Intern, this.InternRectA);
         return true;
     }
