@@ -15,7 +15,9 @@ public class Gen : Any
     protected virtual string TextPart { get; set; }
     protected virtual string TextMaide { get; set; }
     protected virtual string TextTrigo { get; set; }
+    protected virtual string TextList { get; set; }
     protected virtual Table TrigoTable { get; set; }
+    protected virtual Table MaideTable { get ;set; }
 
     public virtual int Execute()
     {
@@ -24,6 +26,7 @@ public class Gen : Any
 
         this.TextPart = toolInfra.StorageTextRead("ToolData/Math/Part.txt");
         this.TextMaide = toolInfra.StorageTextRead("ToolData/Math/Maide.txt");
+        this.TextList = toolInfra.StorageTextRead("ToolData/Math/List.txt");
         this.TextTrigo = toolInfra.StorageTextRead("ToolData/Math/TrigoList.txt");
 
         bool b;
@@ -33,17 +36,31 @@ public class Gen : Any
             return 500;
         }
 
-        List list;
-        list = new List();
-        list.Init();
+        this.MaideTable = toolInfra.TableCreateStringCompare();
 
-        this.ExecuteTrigoMaideList(list, "", "");
+        b = this.ExecuteTrigoMaideList("", "");
+        if (!b)
+        {
+            return 501;
+        }
 
-        this.ExecuteTrigoMaideList(list, "A", "");
+        b = this.ExecuteTrigoMaideList("A", "");
+        if (!b)
+        {
+            return 502;
+        }
 
-        this.ExecuteTrigoMaideList(list, "", "H");
+        b = this.ExecuteTrigoMaideList("", "H");
+        if (!b)
+        {
+            return 503;
+        }
 
-        this.ExecuteTrigoMaideList(list, "A", "H");
+        b = this.ExecuteTrigoMaideList("A", "H");
+        if (!b)
+        {
+            return 504;
+        }
 
         string newLine;
         newLine = toolInfra.NewLine;
@@ -88,8 +105,19 @@ public class Gen : Any
         return 0;
     }
 
-    protected virtual bool ExecuteTrigoMaideList(List list, string pre, string post)
+    protected virtual bool ExecuteMaideList()
     {
+
+    }
+
+    protected virtual bool ExecuteTrigoMaideList(string pre, string post)
+    {
+        ListInfra listInfra;
+        listInfra = this.ListInfra;
+
+        Table table;
+        table = this.MaideTable;
+
         Iter iter;
         iter = this.TrigoTable.IterCreate();
         this.TrigoTable.IterSet(iter);
@@ -102,10 +130,18 @@ public class Gen : Any
             string k;
             k = pre + name + post;
 
-            string a;
-            a = this.Maide(k);
+            if (table.Valid(k))
+            {
+                return false;
+            }
 
-            list.Add(a);
+            Maide maide;
+            maide = new Maide();
+            maide.Init();
+            maide.Name = k;
+            maide.OperandTwo = false;
+
+            listInfra.TableAdd(table, maide.Name, maide);
         }
         return true;
     }
