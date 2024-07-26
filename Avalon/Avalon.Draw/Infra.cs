@@ -75,7 +75,7 @@ public class Infra : Any
     public virtual Brush WhiteBrush { get; set; }
     public virtual Brush TransparentBrush { get; set; }
     public virtual Face Font { get; set; }
-    public virtual long ScaleFactor { get; set; }
+    private long ScaleFactor { get; set; }
     protected virtual MathInfra MathInfra { get; set; }
     protected virtual StorageStatusList StorageStatusList { get; set; }
     protected virtual BrushKindList BrushKindList { get; set; }
