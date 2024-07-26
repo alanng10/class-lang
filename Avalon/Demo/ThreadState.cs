@@ -121,8 +121,6 @@ class ThreadState : State
         draw.Pen = null;
         draw.Fill = brush;
         draw.ExecuteRect(rectA);
-        draw.Fill = brushA;
-        draw.Comp = compList.DestinationOut;
 
         int w;
         w = width;
@@ -135,6 +133,8 @@ class ThreadState : State
         rectA.Size.Width = this.MathInt(w);
         rectA.Size.Height = this.MathInt(h);
 
+        draw.Fill = brushA;
+        draw.Comp = compList.DestinationOut;
         draw.ExecuteRect(rectA);
         draw.Comp = null;
         draw.End();
