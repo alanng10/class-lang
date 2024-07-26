@@ -4,7 +4,7 @@
 
 #include "Probate.hpp"
 
-class NetworkServerIntern : public QTcpServer
+class NetworkHostIntern : public QTcpServer
 {
     Q_OBJECT
 
@@ -14,7 +14,7 @@ public:
     Bool Open();
     Bool Close();
     
-    Int NetworkServer;
+    Int NetworkHost;
 
 private slots:
 

@@ -6,11 +6,11 @@
 
 #include "Probate.hpp"
 
-struct NetworkServer
+struct NetworkHost
 {
     Int Port;
     Int NewPeerState;
-    NetworkServerIntern* Intern;
+    NetworkHostIntern* Intern;
 };
 
-#define CP(a) ((NetworkServer*)(a))
+#define CP(a) ((NetworkHost*)(a))

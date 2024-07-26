@@ -20,7 +20,7 @@ Int Network_StatusChange(Int o);
 Int Network_CaseChange(Int o);
 Int Network_ReadyRead(Int o);
 
-Int NetworkServer_NewPeer(Int o);
+Int NetworkHost_NewPeer(Int o);
 
 Int NetworkPort_InternAddress(Int o);
 
