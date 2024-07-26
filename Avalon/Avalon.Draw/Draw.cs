@@ -277,8 +277,11 @@ public class Draw : Any
 
     public virtual bool PosSet()
     {
-        this.PosA.Left = this.Pos.Left;
-        this.PosA.Up = this.Pos.Up;
+        Pos k;
+        k = this.Pos;
+
+        this.PosA.Left = this.MathInt(k.Left);
+        this.PosA.Up = this.MathInt(k.Up);
         this.DrawFormSet();
         return true;
     }
@@ -390,6 +393,35 @@ public class Draw : Any
 
         Extern.Draw_ExecuteText(this.Intern, this.InternRectA, o, this.InternText, this.InternRectB);
         return true;
+    }
+
+    protected virtual long MathInt(long n)
+    {
+        MathInfra mathInfra;
+        mathInfra = this.MathInfra;
+
+        MathMath math;
+        math = this.Math;
+
+        MathComp mathComp;
+        mathComp = this.MathComp;
+
+        long a;
+        a = mathInfra.Int(math, mathComp, n);
+        return a;
+    }
+
+    protected virtual long MathValue(long significand, long exponent)
+    {
+        MathComp mathComp;
+        mathComp = this.MathComp;
+
+        mathComp.Significand = significand;
+        mathComp.Exponent = exponent;
+
+        long a;
+        a = this.Math.Value(mathComp);
+        return a;
     }
 
     private bool InternRectSetFromRectInt(ulong internRect, RectInt rect)
