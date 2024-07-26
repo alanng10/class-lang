@@ -1,10 +1,10 @@
-#include "Random.hpp"
+#include "Rand.hpp"
 
-CppClassNew(Random)
+CppClassNew(Rand)
 
-Int Random_Init(Int o)
+Int Rand_Init(Int o)
 {
-    Random* m;
+    Rand* m;
     m = CP(o);
 
     m->Intern = new QRandomGenerator;
