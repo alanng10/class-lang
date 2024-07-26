@@ -156,12 +156,6 @@ class MathAdd : Any
         bool b;
         b = false;
 
-        b = this.TableAddMaide(table, "Less", true);
-        if (!b)
-        {
-            return false;
-        }
-
         int count;
         count = array.Count;
         int i;
