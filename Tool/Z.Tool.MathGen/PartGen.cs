@@ -110,12 +110,34 @@ class PartGen : Any
         string ka;
         ka = maide.Name;
 
+        bool ba;
+        ba = maide.FuncPrivate;
+
         string kb;
-        kb = ka.ToLower();
+        kb = null;
+
+        if (ba)
+        {
+            kb = this.FuncPrivateName(ka);
+        }   
+        if (!ba)
+        {
+            kb = this.FuncLibName(ka);
+        }     
 
         k = k.Replace("#Name#", ka);
         k = k.Replace("#Func#", kb);
 
         return k;
+    }
+
+    protected virtual string FuncPrivateName(string name)
+    {
+        return name;
+    }
+
+    protected virtual string FuncLibName(string name)
+    {
+        return name;
     }
 }
