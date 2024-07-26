@@ -42,12 +42,6 @@ class PartGen : Any
 
     protected virtual string GetPart()
     {
-        ToolInfra toolInfra;
-        toolInfra = this.ToolInfra;
-
-        string newLine;
-        newLine = toolInfra.NewLine;
-
         StringJoin h;
         h = new StringJoin();
         h.Init();
@@ -63,7 +57,7 @@ class PartGen : Any
         {
             if (ba)
             {
-                h.Append(newLine);
+                this.AppendNewLine(h);
             }
 
             Maide aa;
@@ -81,6 +75,18 @@ class PartGen : Any
         k = h.Result();
 
         return k;
+    }
+
+    protected virtual bool AppendNewLine(StringJoin h)
+    {
+        ToolInfra toolInfra;
+        toolInfra = this.ToolInfra;
+
+        string newLine;
+        newLine = toolInfra.NewLine;
+
+        h.Append(newLine);
+        return true;
     }
 
     protected virtual string MaideString(Maide maide)
