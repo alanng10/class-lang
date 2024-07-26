@@ -1,26 +1,26 @@
 #include "NetworkHost.hpp"
 
-CppClassNew(NetworkServer)
+CppClassNew(NetworkHost)
 
-Int NetworkServer_Init(Int o)
+Int NetworkHost_Init(Int o)
 {
     return true;
 }
 
-Int NetworkServer_Final(Int o)
+Int NetworkHost_Final(Int o)
 {
     return true;
 }
 
-CppField(NetworkServer, Port)
+CppField(NetworkHost, Port)
 
-Int NetworkServer_Open(Int o)
+Int NetworkHost_Open(Int o)
 {
-    NetworkServer* m;
+    NetworkHost* m;
     m = CP(o);
 
-    m->Intern = new NetworkServerIntern;
-    m->Intern->NetworkServer = o;
+    m->Intern = new NetworkHostIntern;
+    m->Intern->NetworkHost = o;
     m->Intern->Init();
 
     m->Intern->Open();
@@ -41,9 +41,9 @@ Int NetworkServer_Open(Int o)
     return a;
 }
 
-Int NetworkServer_Close(Int o)
+Int NetworkHost_Close(Int o)
 {
-    NetworkServer* m;
+    NetworkHost* m;
     m = CP(o);
     m->Intern->close();
 
@@ -54,11 +54,11 @@ Int NetworkServer_Close(Int o)
     return true;
 }
 
-CppField(NetworkServer, NewPeerState)
+CppField(NetworkHost, NewPeerState)
 
-Int NetworkServer_OpenPeer(Int o)
+Int NetworkHost_OpenPeer(Int o)
 {
-    NetworkServer* m;
+    NetworkHost* m;
     m = CP(o);
     QTcpSocket* socket;
     socket = m->Intern->nextPendingConnection();
@@ -77,7 +77,7 @@ Int NetworkServer_OpenPeer(Int o)
     return network;
 }
 
-Int NetworkServer_ClosePeer(Int o, Int network)
+Int NetworkHost_ClosePeer(Int o, Int network)
 {
     Int stream;
     stream = Network_StreamGet(network);
@@ -92,9 +92,9 @@ Int NetworkServer_ClosePeer(Int o, Int network)
     return true;
 }
 
-Int NetworkServer_NewPeer(Int o)
+Int NetworkHost_NewPeer(Int o)
 {
-    NetworkServer* m;
+    NetworkHost* m;
     m = CP(o);
     Int state;
     state = m->NewPeerState;

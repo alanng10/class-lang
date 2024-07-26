@@ -1,25 +1,25 @@
 #include "NetworkHostIntern.hpp"
 
-Bool NetworkServerIntern::Init()
+Bool NetworkHostIntern::Init()
 {
     return true;
 }
 
-Bool NetworkServerIntern::Open()
+Bool NetworkHostIntern::Open()
 {
-    connect(this, &QTcpServer::newConnection, this, &NetworkServerIntern::NewPeerHandle);
+    connect(this, &QTcpServer::newConnection, this, &NetworkHostIntern::NewPeerHandle);
     return true;
 }
 
-Bool NetworkServerIntern::Close()
+Bool NetworkHostIntern::Close()
 {
-    disconnect(this, &QTcpServer::newConnection, this, &NetworkServerIntern::NewPeerHandle);
+    disconnect(this, &QTcpServer::newConnection, this, &NetworkHostIntern::NewPeerHandle);
     return true;
 }
 
-void NetworkServerIntern::NewPeerHandle()
+void NetworkHostIntern::NewPeerHandle()
 {
     Int networkServer;
-    networkServer = this->NetworkServer;
-    NetworkServer_NewPeer(networkServer);
+    networkServer = this->NetworkHost;
+    NetworkHost_NewPeer(networkServer);
 }
