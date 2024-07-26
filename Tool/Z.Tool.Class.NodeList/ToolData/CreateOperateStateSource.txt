@@ -4,6 +4,9 @@ public class #NodeKind#CreateOperateState : CreateOperateState
 {
     public override bool Execute()
     {
+        CreateOperateArg arg;
+        arg = (CreateOperateArg)this.Arg;
+        
         #NodeKind# node;
         node = (#NodeKind#)this.Node;
 #FieldSetList#        return true;

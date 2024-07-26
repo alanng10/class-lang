@@ -116,7 +116,7 @@ public class CreateOperateStateGen : Any
         }
 
         sb
-            .Append("this").Append(".").Append("Arg").Append(".").Append(argFieldName)
+            .Append("arg").Append(".").Append(argFieldName)
             .Append(";")
             .Append(this.ToolInfra.NewLine)
             ;
