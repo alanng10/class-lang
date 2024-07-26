@@ -1,19 +1,19 @@
-Add true
-Sub true
-Mul true
-Div true
-Less true
-Abs false
-Exp false
-Exp2 false
-Log false
-Log10 false
-Log2 false
-Pow true
-Sqrt false
-Cbrt false
-ATan2 true
-Ceil false
-Floor false
-Trunc false
-Round false
+Add true true
+Sub true true
+Mul true true
+Div true true
+Less true true
+Abs false false
+Exp false false
+Exp2 false false
+Log false false
+Log10 false false
+Log2 false false
+Pow true false
+Sqrt false false
+Cbrt false false
+ATan2 true false
+Ceil false false
+Floor false false
+Trunc false false
+Round false false
