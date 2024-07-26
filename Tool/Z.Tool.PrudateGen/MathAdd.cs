@@ -68,7 +68,7 @@ class MathAdd : Any
         }
 
         int ka;
-        ka = mathClass.Method.Count;
+        ka = mathClass.Maide.Count;
 
         int k;
         k = ka;
@@ -86,7 +86,7 @@ class MathAdd : Any
         while (i < count)
         {
             Maide method;
-            method = (Maide)mathClass.Method.GetAt(i);
+            method = (Maide)mathClass.Maide.GetAt(i);
 
             array.SetAt(i, method);
 
@@ -117,7 +117,7 @@ class MathAdd : Any
             i = i + 1;
         }
 
-        mathClass.Method = array;
+        mathClass.Maide = array;
         return true;
     }
 

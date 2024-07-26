@@ -72,7 +72,7 @@ public class ReadList : Any
         }
 
         int ka;
-        ka = statClass.Method.Count;
+        ka = statClass.Maide.Count;
 
         int k;
         k = ka;
@@ -104,7 +104,7 @@ public class ReadList : Any
         {
             Maide method;
 
-            method = (Maide)statClass.Method.GetAt(i);
+            method = (Maide)statClass.Maide.GetAt(i);
 
 
             array.SetAt(i, method);
@@ -165,7 +165,7 @@ public class ReadList : Any
             i = i + 1;
         }
 
-        statClass.Method = array;
+        statClass.Maide = array;
 
         return true;
     }

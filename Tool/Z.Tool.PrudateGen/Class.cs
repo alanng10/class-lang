@@ -16,7 +16,7 @@ public class Class : Any
     public virtual Array Field { get; set; }
 
 
-    public virtual Array Method { get; set; }
+    public virtual Array Maide { get; set; }
 
 
 
