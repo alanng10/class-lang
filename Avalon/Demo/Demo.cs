@@ -1193,11 +1193,8 @@ class Demo : Any
         aa = new DrawGradientStopPoint();
         aa.Init();
 
-        long scaleFactor;
-        scaleFactor = this.DrawInfra.ScaleFactor;
-
         this.GradientStopSetPoint(gradientStop, aa, 0, 0, this.DrawInfra.ColorCreate(0xff, 0xff, 0, 0));
-        this.GradientStopSetPoint(gradientStop, aa, 1, this.MathValue(scaleFactor / 2, -20), this.DrawInfra.ColorCreate(0xff, 0, 0xff, 0));
+        this.GradientStopSetPoint(gradientStop, aa, 1, this.MathValue(1, -1), this.DrawInfra.ColorCreate(0xff, 0, 0xff, 0));
         this.GradientStopSetPoint(gradientStop, aa, 2, this.MathInt(1), this.DrawInfra.ColorCreate(0xff, 0, 0, 0xff));
 
         DrawGradientSpreadList spreadList;
