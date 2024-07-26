@@ -27,7 +27,7 @@ HEADERS += \
     Image.hpp \
     ImageRead.hpp \
     ImageWrite.hpp \
-    Maide.hpp \
+    Maide.h \
     Main.hpp \
     Math.hpp \
     Memory.hpp \
@@ -92,7 +92,7 @@ SOURCES += \
     Image.cpp \
     ImageRead.cpp \
     ImageWrite.cpp \
-    Maide.cpp \
+    Maide.c \
     Main.cpp \
     Math.cpp \
     MathPart.cpp \
