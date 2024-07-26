@@ -17,6 +17,7 @@ public class Infra : Any
     public override bool Init()
     {
         base.Init();
+        this.MathInfra = MathInfra.This;
         this.StorageStatusList = StorageStatusList.This;
         this.BrushInfra = BrushInfra.This;
         this.PixelByteCount = 4;
@@ -35,10 +36,20 @@ public class Infra : Any
         this.BrushLineList = BrushLineList.This;
         this.BrushCapList = BrushCapList.This;
         this.BrushJoinList = BrushJoinList.This;
-        
-        this.BlackBrush = this.CreateBrush(blackColor);
-        this.WhiteBrush = this.CreateBrush(whiteColor);
-        this.TransparentBrush = this.CreateBrush(transparentColor);
+
+        MathMath math;
+        math = new MathMath();
+        math.Init();
+        MathComp ka;
+        ka = new MathComp();
+        ka.Init();
+
+        long k;
+        k = this.MathInfra.Int(math, ka, 1);
+
+        this.BlackBrush = this.CreateBrush(blackColor, k);
+        this.WhiteBrush = this.CreateBrush(whiteColor, k);
+        this.TransparentBrush = this.CreateBrush(transparentColor, k);
 
         this.Font = new Face();
         this.Font.Family = "Source Sans 3";
@@ -60,11 +71,12 @@ public class Infra : Any
 
     public virtual int PixelByteCount { get; set; }
     public virtual int ColorCompMax { get; set; }
-    public virtual Brush WhiteBrush { get; set; }
     public virtual Brush BlackBrush { get; set; }
+    public virtual Brush WhiteBrush { get; set; }
     public virtual Brush TransparentBrush { get; set; }
     public virtual Face Font { get; set; }
     public virtual long ScaleFactor { get; set; }
+    protected virtual MathInfra MathInfra { get; set; }
     protected virtual StorageStatusList StorageStatusList { get; set; }
     protected virtual BrushKindList BrushKindList { get; set; }
     protected virtual BrushLineList BrushLineList { get; set; }
@@ -87,14 +99,14 @@ public class Infra : Any
         return color;
     }
 
-    private Brush CreateBrush(Color color)
+    private Brush CreateBrush(Color color, long width)
     {
         Brush a;
         a = new Brush();
         a.Kind = this.BrushKindList.Color;
         a.Color = color;
         a.Line = this.BrushLineList.Solid;
-        a.Width = 1;
+        a.Width = width;
         a.Cap = this.BrushCapList.Flat;
         a.Join = this.BrushJoinList.Miter;
         a.Init();
