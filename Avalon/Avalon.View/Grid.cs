@@ -260,11 +260,6 @@ public class Grid : View
         return true;
     }
 
-    protected override bool ExecuteDrawThis(DrawDraw draw)
-    {
-        return true;
-    }
-
     protected override bool ValidDrawChild()
     {
         return true;
