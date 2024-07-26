@@ -31,14 +31,7 @@ Int Brush_Init(Int o)
 
     if (kind == Stat_BrushKindColor(stat))
     {
-        Int32 uu;
-        uu = (Int32)color;
-
-        QRgb kk;
-        kk = uu;
-
-        QColor colorU;
-        colorU = QColor(kk);
+        InternColor(color);
         
         m->InternBrush = new QBrush(colorU);
     }
