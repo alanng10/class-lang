@@ -9,7 +9,7 @@ public class Draw : Any
         this.InternInfra = InternInfra.This;
         this.MathInfra = MathInfra.This;
         this.DrawInfra = Infra.This;
-        
+
         this.Size = new Size();
         this.Size.Init();
         this.Area = new Rect();
@@ -190,9 +190,9 @@ public class Draw : Any
     private InternIntern InternIntern { get; set; }
     private InternInfra InternInfra { get; set; }
     protected virtual MathInfra MathInfra { get; set; }
+    protected virtual Infra DrawInfra { get; set; }
     protected virtual MathMath Math { get; set; }
     protected virtual MathComp MathComp { get; set; }
-    protected virtual Infra DrawInfra { get; set; }
     protected virtual Form WorldForm { get; set; }
     protected virtual Form FormA { get; set; }
     protected virtual PosInt PosA { get; set; }
