@@ -3265,11 +3265,11 @@ public class Create : InfraCreate
             rangeState.Execute();
 
             Range itemRange;
-            itemRange = rangeState.Result;
-
+            itemRange = (Range)rangeState.Result;
+            
+            rangeState.Result = null;
             arg.Result = null;
             arg.Range = null;
-            rangeState.Result = null;
 
             bool b;
             b = (itemRange == null);
@@ -3354,11 +3354,11 @@ public class Create : InfraCreate
             rangeState.Execute();
 
             Range itemRange;
-            itemRange = rangeState.Result;
+            itemRange = (Range)rangeState.Result;
 
+            rangeState.Result = null;
             arg.Result = null;
             arg.Range = null;
-            rangeState.Result = null;
 
             int aStart;
             int aEnd;
