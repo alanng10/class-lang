@@ -13,7 +13,7 @@ class MathAdd : Any
     public virtual ReadResult ReadResult { get; set; }
     protected virtual ListInfra ListInfra { get; set; }
     protected virtual ToolInfra ToolInfra { get; set; }
-    protected virtual List List { get; set; }
+    protected virtual Table MaideTable { get; set; }
     protected virtual Array TrigoList { get; set; }
     protected virtual Array LineList { get; set; }
 
@@ -32,8 +32,7 @@ class MathAdd : Any
 
         this.LineList = toolInfra.SplitLineList(kb);
 
-        this.List = new List();
-        this.List.Init();
+        this.MaideTable = toolInfra.TableCreateStringCompare();
 
         this.AddTrigoMaideList("", "");
         this.AddTrigoMaideList("A", "");
@@ -70,9 +69,12 @@ class MathAdd : Any
         int ka;
         ka = mathClass.Maide.Count;
 
+        int kb;
+        kb = this.MaideTable.Count;
+
         int k;
         k = ka;
-        k = k + this.List.Count;
+        k = k + kb;
 
         Array array;
         array = new Array();
@@ -94,13 +96,13 @@ class MathAdd : Any
         }
 
         Iter iter;
-        iter = this.List.IterCreate();
-        this.List.IterSet(iter);
+        iter = this.MaideTable.IterCreate();
+        this.MaideTable.IterSet(iter);
 
         int start;
         start = ka;
 
-        count = this.List.Count;
+        count = kb;
         i = 0;
         while (i < count)
         {
@@ -129,6 +131,12 @@ class MathAdd : Any
         Array array;
         array = this.LineList;
 
+        Table table;
+        table = this.MaideTable;
+
+        bool b;
+        b = false;
+
         int count;
         count = array.Count;
         int i;
@@ -155,20 +163,51 @@ class MathAdd : Any
             bool ba;
             ba = toolInfra.GetBool(kk);
 
-            Maide maide;
-            maide = this.CreateMaide(name, ba);
-
-            this.List.Add(maide);
+            b = this.TableAddMaide(table, name, ba);
+            if (!b)
+            {
+                return false;
+            }
 
             i = i + 1;
         }
+
+        b = this.TableAddMaide(table, "Less", true);
+        if (!b)
+        {
+            return false;
+        }
+
+        return true;
+    }
+
+    protected virtual bool TableAddMaide(Table table, string name, bool operandTwo)
+    {
+        ListInfra listInfra;
+        listInfra = this.ListInfra;
+
+        if (table.Valid(name))
+        {
+            return false;
+        }
+        
+        Maide maide;
+        maide = this.CreateMaide(name, operandTwo);
+
+        listInfra.TableAdd(table, name, maide);
         return true;
     }
 
     protected virtual bool AddTrigoMaideList(string pre, string post)
     {
+        ListInfra listInfra;
+        listInfra = this.ListInfra;
+
         Array array;
         array = this.TrigoList;
+
+        Table table;
+        table = this.MaideTable;
 
         int count;
         count = array.Count;
@@ -185,7 +224,7 @@ class MathAdd : Any
             Maide a;
             a = this.CreateMaide(ka, false);
 
-            this.List.Add(a);
+            listInfra.TableAdd(table, ka, a);
 
             i = i + 1;
         }
@@ -200,13 +239,12 @@ class MathAdd : Any
         Array param;
         param = this.CreateParam(operandTwo);
 
-        Maide maide;
-        maide = new Maide();
-        maide.Init();
-        maide.Name = name;
-        maide.Param = param;
-
-        return maide;
+        Maide a;
+        a = new Maide();
+        a.Init();
+        a.Name = name;
+        a.Param = param;
+        return a;
     }
 
     protected virtual Array CreateParam(bool operandTwo)
