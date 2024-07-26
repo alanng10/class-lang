@@ -49,14 +49,7 @@ public class Infra : Any
 
         this.BlackBrush = this.CreateBrush(blackColor, k);
         this.WhiteBrush = this.CreateBrush(whiteColor, k);
-        
-        Brush brush;
-        brush = new Brush();
-        brush.Kind = this.BrushKindList.Color;
-        brush.Color = transparentColor;
-        brush.Init();
-
-        this.TransparentBrush = brush;
+        this.TransparentBrush = this.CreateBrush(transparentColor, k);
 
         this.Font = new Face();
         this.Font.Family = "Source Sans 3";
