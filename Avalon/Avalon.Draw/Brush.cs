@@ -27,14 +27,23 @@ public class Brush : Any
         {
             gradientU = this.Gradient.Intern;
         }
+
         ulong lineU;
-        lineU = this.Line.Intern;
         ulong widthU;
-        widthU = (ulong)(this.Width);
         ulong capU;
-        capU = this.Cap.Intern;
         ulong joinU;
-        joinU = this.Join.Intern;
+        lineU = 0;
+        widthU = 0;
+        capU = 0;
+        joinU = 0;
+        
+        if (!(this.Line == null))
+        {
+            lineU = this.Line.Intern;
+            widthU = (ulong)(this.Width);
+            capU = this.Cap.Intern;
+            joinU = this.Join.Intern;
+        }
 
         this.Intern = Extern.Brush_New();
         Extern.Brush_KindSet(this.Intern, kindU);
