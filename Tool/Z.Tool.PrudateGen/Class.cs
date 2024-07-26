@@ -24,7 +24,7 @@ public class Class : Any
 
 
 
-    public virtual Array StaticMethod { get; set; }
+    public virtual Array StaticMaide { get; set; }
 
 
 

@@ -230,10 +230,10 @@ class PrudateGen : Any
 
 
 
-        this.AppendMethodArray(sb, varClass, varClass.StaticMethod);
+        this.AppendMethodArray(sb, varClass, varClass.StaticMaide);
 
 
-        this.AppendNewLineIfNotEmpty(sb, varClass.StaticMethod);
+        this.AppendNewLineIfNotEmpty(sb, varClass.StaticMaide);
 
 
 

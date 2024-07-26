@@ -331,7 +331,7 @@ class Read : Any
         this.Class.StaticField = this.CreateArray(this.StaticFieldList);
 
 
-        this.Class.StaticMethod = this.CreateArray(this.StaticMethodList);
+        this.Class.StaticMaide = this.CreateArray(this.StaticMethodList);
 
 
         this.Class.Delegate = this.CreateArray(this.DelegateList);
