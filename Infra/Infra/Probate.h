@@ -34,7 +34,7 @@ Int Image_SetReadIntern(Int o, Int value);
 
 Int Font_Intern(Int o);
 
-Int Transform_Intern(Int o);
+Int Form_Intern(Int o);
 
 Int Gradient_Intern(Int o);
 
