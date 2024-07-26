@@ -120,7 +120,7 @@ public static class Extern
     [DllImport(InfraLib)] public extern static ulong Math_Final(ulong o);
     [DllImport(InfraLib)] public extern static ulong Math_Value(ulong o, ulong significand, ulong exponent);
     [DllImport(InfraLib)] public extern static ulong Math_ValueTen(ulong o, ulong significand, ulong exponentTen);
-    [DllImport(InfraLib)] public extern static ulong Math_Compose(ulong o, ulong value, ulong significand, ulong exponent);
+    [DllImport(InfraLib)] public extern static ulong Math_Comp(ulong o, ulong value, ulong significand, ulong exponent);
     [DllImport(InfraLib)] public extern static ulong Math_Less(ulong o, ulong valueA, ulong valueB);
     [DllImport(InfraLib)] public extern static ulong Math_Add(ulong o, ulong valueA, ulong valueB);
     [DllImport(InfraLib)] public extern static ulong Math_Sub(ulong o, ulong valueA, ulong valueB);
@@ -153,14 +153,14 @@ public static class Extern
     [DllImport(InfraLib)] public extern static ulong Math_ACosH(ulong o, ulong value);
     [DllImport(InfraLib)] public extern static ulong Math_ATanH(ulong o, ulong value);
 
-    [DllImport(InfraLib)] public extern static ulong Random_New();
-    [DllImport(InfraLib)] public extern static ulong Random_Delete(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Random_Init(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Random_Final(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Random_SeedGet(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Random_SeedSet(ulong o, ulong value);
+    [DllImport(InfraLib)] public extern static ulong Rand_New();
+    [DllImport(InfraLib)] public extern static ulong Rand_Delete(ulong o);
+    [DllImport(InfraLib)] public extern static ulong Rand_Init(ulong o);
+    [DllImport(InfraLib)] public extern static ulong Rand_Final(ulong o);
+    [DllImport(InfraLib)] public extern static ulong Rand_SeedGet(ulong o);
+    [DllImport(InfraLib)] public extern static ulong Rand_SeedSet(ulong o, ulong value);
 
-    [DllImport(InfraLib)] public extern static ulong Random_Execute(ulong o);
+    [DllImport(InfraLib)] public extern static ulong Rand_Execute(ulong o);
 
     [DllImport(InfraLib)] public extern static ulong Range_New();
     [DllImport(InfraLib)] public extern static ulong Range_Delete(ulong o);
@@ -354,22 +354,22 @@ public static class Extern
     [DllImport(InfraLib)] public extern static ulong Font_StrikeoutGet(ulong o);
     [DllImport(InfraLib)] public extern static ulong Font_StrikeoutSet(ulong o, ulong value);
 
-    [DllImport(InfraLib)] public extern static ulong Transform_New();
-    [DllImport(InfraLib)] public extern static ulong Transform_Delete(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Transform_Init(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Transform_Final(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Transform_Reset(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Transform_Offset(ulong o, ulong offsetLeft, ulong offsetUp);
-    [DllImport(InfraLib)] public extern static ulong Transform_Scale(ulong o, ulong horizScale, ulong vertScale);
-    [DllImport(InfraLib)] public extern static ulong Transform_Rotate(ulong o, ulong angle);
-    [DllImport(InfraLib)] public extern static ulong Transform_ValueGet(ulong o, ulong row, ulong col);
-    [DllImport(InfraLib)] public extern static ulong Transform_ValueSet(ulong o, ulong row, ulong col, ulong value);
-    [DllImport(InfraLib)] public extern static ulong Transform_Multiply(ulong o, ulong other);
-    [DllImport(InfraLib)] public extern static ulong Transform_IsIdentity(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Transform_IsInvertible(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Transform_Invert(ulong o, ulong result);
-    [DllImport(InfraLib)] public extern static ulong Transform_Transpose(ulong o, ulong result);
-    [DllImport(InfraLib)] public extern static ulong Transform_Determinant(ulong o);
+    [DllImport(InfraLib)] public extern static ulong Form_New();
+    [DllImport(InfraLib)] public extern static ulong Form_Delete(ulong o);
+    [DllImport(InfraLib)] public extern static ulong Form_Init(ulong o);
+    [DllImport(InfraLib)] public extern static ulong Form_Final(ulong o);
+    [DllImport(InfraLib)] public extern static ulong Form_Reset(ulong o);
+    [DllImport(InfraLib)] public extern static ulong Form_Offset(ulong o, ulong offsetLeft, ulong offsetUp);
+    [DllImport(InfraLib)] public extern static ulong Form_Scale(ulong o, ulong horizScale, ulong vertScale);
+    [DllImport(InfraLib)] public extern static ulong Form_Rotate(ulong o, ulong angle);
+    [DllImport(InfraLib)] public extern static ulong Form_ValueGet(ulong o, ulong row, ulong col);
+    [DllImport(InfraLib)] public extern static ulong Form_ValueSet(ulong o, ulong row, ulong col, ulong value);
+    [DllImport(InfraLib)] public extern static ulong Form_Multiply(ulong o, ulong other);
+    [DllImport(InfraLib)] public extern static ulong Form_IsIdentity(ulong o);
+    [DllImport(InfraLib)] public extern static ulong Form_IsInvertible(ulong o);
+    [DllImport(InfraLib)] public extern static ulong Form_Invert(ulong o, ulong result);
+    [DllImport(InfraLib)] public extern static ulong Form_Transpose(ulong o, ulong result);
+    [DllImport(InfraLib)] public extern static ulong Form_Determinant(ulong o);
 
     [DllImport(InfraLib)] public extern static ulong Gradient_New();
     [DllImport(InfraLib)] public extern static ulong Gradient_Delete(ulong o);
@@ -572,33 +572,6 @@ public static class Extern
     [DllImport(InfraLib)] public extern static ulong StorageArrange_FoldCopy(ulong o, ulong path, ulong destPath);
     [DllImport(InfraLib)] public extern static ulong StorageArrange_FoldRemove(ulong o, ulong path);
     [DllImport(InfraLib)] public extern static ulong StorageArrange_Exist(ulong o, ulong path);
-    [DllImport(InfraLib)] public extern static ulong StorageArrange_LinkTarget(ulong o, ulong path);
-    [DllImport(InfraLib)] public extern static ulong StorageArrange_AbsolutePath(ulong o, ulong path);
-    [DllImport(InfraLib)] public extern static ulong StorageArrange_RelativePath(ulong o, ulong path, ulong destPath);
-    [DllImport(InfraLib)] public extern static ulong StorageArrange_CanonicalPath(ulong o, ulong path);
-    [DllImport(InfraLib)] public extern static ulong StorageArrange_CleanPath(ulong o, ulong path);
-
-    [DllImport(InfraLib)] public extern static ulong StorageEntry_New();
-    [DllImport(InfraLib)] public extern static ulong StorageEntry_Delete(ulong o);
-    [DllImport(InfraLib)] public extern static ulong StorageEntry_Init(ulong o);
-    [DllImport(InfraLib)] public extern static ulong StorageEntry_Final(ulong o);
-    [DllImport(InfraLib)] public extern static ulong StorageEntry_PathGet(ulong o);
-    [DllImport(InfraLib)] public extern static ulong StorageEntry_PathSet(ulong o, ulong value);
-    [DllImport(InfraLib)] public extern static ulong StorageEntry_KindGet(ulong o);
-    [DllImport(InfraLib)] public extern static ulong StorageEntry_KindSet(ulong o, ulong value);
-    [DllImport(InfraLib)] public extern static ulong StorageEntry_CountGet(ulong o);
-    [DllImport(InfraLib)] public extern static ulong StorageEntry_CountSet(ulong o, ulong value);
-    [DllImport(InfraLib)] public extern static ulong StorageEntry_IsReadableGet(ulong o);
-    [DllImport(InfraLib)] public extern static ulong StorageEntry_IsReadableSet(ulong o, ulong value);
-    [DllImport(InfraLib)] public extern static ulong StorageEntry_IsHiddenGet(ulong o);
-    [DllImport(InfraLib)] public extern static ulong StorageEntry_IsHiddenSet(ulong o, ulong value);
-    [DllImport(InfraLib)] public extern static ulong StorageEntry_IsExecutableGet(ulong o);
-    [DllImport(InfraLib)] public extern static ulong StorageEntry_IsExecutableSet(ulong o, ulong value);
-
-    [DllImport(InfraLib)] public extern static ulong StorageEntry_CreateTime(ulong o, ulong result);
-    [DllImport(InfraLib)] public extern static ulong StorageEntry_LastModifyTime(ulong o, ulong result);
-    [DllImport(InfraLib)] public extern static ulong StorageEntry_LastReadTime(ulong o, ulong result);
-    [DllImport(InfraLib)] public extern static ulong StorageEntry_Update(ulong o);
 
     [DllImport(InfraLib)] public extern static ulong Network_New();
     [DllImport(InfraLib)] public extern static ulong Network_Delete(ulong o);
@@ -631,27 +604,25 @@ public static class Extern
     public delegate ulong Network_StatusChange_Maide(ulong network, ulong arg);
     public delegate ulong Network_ReadyRead_Maide(ulong network, ulong arg);
 
-    [DllImport(InfraLib)] public extern static ulong NetworkServer_New();
-    [DllImport(InfraLib)] public extern static ulong NetworkServer_Delete(ulong o);
-    [DllImport(InfraLib)] public extern static ulong NetworkServer_Init(ulong o);
-    [DllImport(InfraLib)] public extern static ulong NetworkServer_Final(ulong o);
-    [DllImport(InfraLib)] public extern static ulong NetworkServer_PortGet(ulong o);
-    [DllImport(InfraLib)] public extern static ulong NetworkServer_PortSet(ulong o, ulong value);
-    [DllImport(InfraLib)] public extern static ulong NetworkServer_ErrorGet(ulong o);
-    [DllImport(InfraLib)] public extern static ulong NetworkServer_ErrorSet(ulong o, ulong value);
-    [DllImport(InfraLib)] public extern static ulong NetworkServer_NewPeerStateGet(ulong o);
-    [DllImport(InfraLib)] public extern static ulong NetworkServer_NewPeerStateSet(ulong o, ulong value);
+    [DllImport(InfraLib)] public extern static ulong NetworkHost_New();
+    [DllImport(InfraLib)] public extern static ulong NetworkHost_Delete(ulong o);
+    [DllImport(InfraLib)] public extern static ulong NetworkHost_Init(ulong o);
+    [DllImport(InfraLib)] public extern static ulong NetworkHost_Final(ulong o);
+    [DllImport(InfraLib)] public extern static ulong NetworkHost_PortGet(ulong o);
+    [DllImport(InfraLib)] public extern static ulong NetworkHost_PortSet(ulong o, ulong value);
+    [DllImport(InfraLib)] public extern static ulong NetworkHost_ErrorGet(ulong o);
+    [DllImport(InfraLib)] public extern static ulong NetworkHost_ErrorSet(ulong o, ulong value);
+    [DllImport(InfraLib)] public extern static ulong NetworkHost_NewPeerStateGet(ulong o);
+    [DllImport(InfraLib)] public extern static ulong NetworkHost_NewPeerStateSet(ulong o, ulong value);
 
-    [DllImport(InfraLib)] public extern static ulong NetworkServer_Listen(ulong o);
-    [DllImport(InfraLib)] public extern static ulong NetworkServer_Close(ulong o);
-    [DllImport(InfraLib)] public extern static ulong NetworkServer_IsListen(ulong o);
-    [DllImport(InfraLib)] public extern static ulong NetworkServer_NextPendingPeer(ulong o);
-    [DllImport(InfraLib)] public extern static ulong NetworkServer_ClosePeer(ulong o, ulong network);
-    [DllImport(InfraLib)] public extern static ulong NetworkServer_HasPendingPeer(ulong o);
-    [DllImport(InfraLib)] public extern static ulong NetworkServer_PauseAccept(ulong o);
-    [DllImport(InfraLib)] public extern static ulong NetworkServer_ResumeAccept(ulong o);
+    [DllImport(InfraLib)] public extern static ulong NetworkHost_Open(ulong o);
+    [DllImport(InfraLib)] public extern static ulong NetworkHost_Close(ulong o);
+    [DllImport(InfraLib)] public extern static ulong NetworkHost_IsOpen(ulong o);
+    [DllImport(InfraLib)] public extern static ulong NetworkHost_OpenPeer(ulong o);
+    [DllImport(InfraLib)] public extern static ulong NetworkHost_ClosePeer(ulong o, ulong network);
+    [DllImport(InfraLib)] public extern static ulong NetworkHost_HasPendingPeer(ulong o);
 
-    public delegate ulong NetworkServer_NewPeer_Maide(ulong networkServer, ulong arg);
+    public delegate ulong NetworkHost_NewPeer_Maide(ulong networkHost, ulong arg);
 
     [DllImport(InfraLib)] public extern static ulong NetworkPort_New();
     [DllImport(InfraLib)] public extern static ulong NetworkPort_Delete(ulong o);
@@ -665,8 +636,8 @@ public static class Extern
     [DllImport(InfraLib)] public extern static ulong NetworkPort_ValueBSet(ulong o, ulong value);
     [DllImport(InfraLib)] public extern static ulong NetworkPort_ValueCGet(ulong o);
     [DllImport(InfraLib)] public extern static ulong NetworkPort_ValueCSet(ulong o, ulong value);
-    [DllImport(InfraLib)] public extern static ulong NetworkPort_ServerGet(ulong o);
-    [DllImport(InfraLib)] public extern static ulong NetworkPort_ServerSet(ulong o, ulong value);
+    [DllImport(InfraLib)] public extern static ulong NetworkPort_HostGet(ulong o);
+    [DllImport(InfraLib)] public extern static ulong NetworkPort_HostSet(ulong o, ulong value);
 
     [DllImport(InfraLib)] public extern static ulong NetworkPort_Set(ulong o);
 

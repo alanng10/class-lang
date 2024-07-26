@@ -182,7 +182,7 @@ Infra_Api Int FormatArg_CountSet(Int o, Int value);
 InfraApiNew(Math)
 Infra_Api Int Math_Value(Int o, Int significand, Int exponent);
 Infra_Api Int Math_ValueTen(Int o, Int significand, Int exponentTen);
-Infra_Api Int Math_Compose(Int o, Int value, Int significand, Int exponent);
+Infra_Api Int Math_Comp(Int o, Int value, Int significand, Int exponent);
 Infra_Api Int Math_Less(Int o, Int valueA, Int valueB);
 Infra_Api Int Math_Add(Int o, Int valueA, Int valueB);
 Infra_Api Int Math_Sub(Int o, Int valueA, Int valueB);
@@ -215,11 +215,11 @@ Infra_Api Int Math_ASinH(Int o, Int value);
 Infra_Api Int Math_ACosH(Int o, Int value);
 Infra_Api Int Math_ATanH(Int o, Int value);
 
-InfraApiNew(Random)
-Infra_Api Int Random_SeedGet(Int o);
-Infra_Api Int Random_SeedSet(Int o, Int value);
+InfraApiNew(Rand)
+Infra_Api Int Rand_SeedGet(Int o);
+Infra_Api Int Rand_SeedSet(Int o, Int value);
 
-Infra_Api Int Random_Execute(Int o);
+Infra_Api Int Rand_Execute(Int o);
 
 InfraApiNew(Range)
 Infra_Api Int Range_IndexGet(Int o);
@@ -377,19 +377,19 @@ Infra_Api Int Font_OverlineSet(Int o, Int value);
 Infra_Api Int Font_StrikeoutGet(Int o);
 Infra_Api Int Font_StrikeoutSet(Int o, Int value);
 
-InfraApiNew(Transform)
-Infra_Api Int Transform_Reset(Int o);
-Infra_Api Int Transform_Offset(Int o, Int offsetLeft, Int offsetUp);
-Infra_Api Int Transform_Scale(Int o, Int horizScale, Int vertScale);
-Infra_Api Int Transform_Rotate(Int o, Int angle);
-Infra_Api Int Transform_ValueGet(Int o, Int row, Int col);
-Infra_Api Int Transform_ValueSet(Int o, Int row, Int col, Int value);
-Infra_Api Int Transform_Multiply(Int o, Int other);
-Infra_Api Int Transform_IsIdentity(Int o);
-Infra_Api Int Transform_IsInvertible(Int o);
-Infra_Api Int Transform_Invert(Int o, Int result);
-Infra_Api Int Transform_Transpose(Int o, Int result);
-Infra_Api Int Transform_Determinant(Int o);
+InfraApiNew(Form)
+Infra_Api Int Form_Reset(Int o);
+Infra_Api Int Form_Offset(Int o, Int offsetLeft, Int offsetUp);
+Infra_Api Int Form_Scale(Int o, Int horizScale, Int vertScale);
+Infra_Api Int Form_Rotate(Int o, Int angle);
+Infra_Api Int Form_ValueGet(Int o, Int row, Int col);
+Infra_Api Int Form_ValueSet(Int o, Int row, Int col, Int value);
+Infra_Api Int Form_Multiply(Int o, Int other);
+Infra_Api Int Form_IsIdentity(Int o);
+Infra_Api Int Form_IsInvertible(Int o);
+Infra_Api Int Form_Invert(Int o, Int result);
+Infra_Api Int Form_Transpose(Int o, Int result);
+Infra_Api Int Form_Determinant(Int o);
 
 InfraApiNew(Gradient)
 Infra_Api Int Gradient_KindGet(Int o);
@@ -547,30 +547,6 @@ Infra_Api Int StorageArrange_FoldCreate(Int o, Int path);
 Infra_Api Int StorageArrange_FoldCopy(Int o, Int path, Int destPath);
 Infra_Api Int StorageArrange_FoldRemove(Int o, Int path);
 Infra_Api Int StorageArrange_Exist(Int o, Int path);
-Infra_Api Int StorageArrange_LinkTarget(Int o, Int path);
-Infra_Api Int StorageArrange_AbsolutePath(Int o, Int path);
-Infra_Api Int StorageArrange_RelativePath(Int o, Int path, Int destPath);
-Infra_Api Int StorageArrange_CanonicalPath(Int o, Int path);
-Infra_Api Int StorageArrange_CleanPath(Int o, Int path);
-
-InfraApiNew(StorageEntry)
-Infra_Api Int StorageEntry_PathGet(Int o);
-Infra_Api Int StorageEntry_PathSet(Int o, Int value);
-Infra_Api Int StorageEntry_KindGet(Int o);
-Infra_Api Int StorageEntry_KindSet(Int o, Int value);
-Infra_Api Int StorageEntry_CountGet(Int o);
-Infra_Api Int StorageEntry_CountSet(Int o, Int value);
-Infra_Api Int StorageEntry_IsReadableGet(Int o);
-Infra_Api Int StorageEntry_IsReadableSet(Int o, Int value);
-Infra_Api Int StorageEntry_IsHiddenGet(Int o);
-Infra_Api Int StorageEntry_IsHiddenSet(Int o, Int value);
-Infra_Api Int StorageEntry_IsExecutableGet(Int o);
-Infra_Api Int StorageEntry_IsExecutableSet(Int o, Int value);
-
-Infra_Api Int StorageEntry_CreateTime(Int o, Int result);
-Infra_Api Int StorageEntry_LastModifyTime(Int o, Int result);
-Infra_Api Int StorageEntry_LastReadTime(Int o, Int result);
-Infra_Api Int StorageEntry_Update(Int o);
 
 InfraApiNew(Network)
 Infra_Api Int Network_HostNameGet(Int o);
@@ -600,24 +576,22 @@ typedef Int (*Network_CaseChange_Maide)(Int network, Int arg);
 typedef Int (*Network_StatusChange_Maide)(Int network, Int arg);
 typedef Int (*Network_ReadyRead_Maide)(Int network, Int arg);
 
-InfraApiNew(NetworkServer)
-Infra_Api Int NetworkServer_PortGet(Int o);
-Infra_Api Int NetworkServer_PortSet(Int o, Int value);
-Infra_Api Int NetworkServer_ErrorGet(Int o);
-Infra_Api Int NetworkServer_ErrorSet(Int o, Int value);
-Infra_Api Int NetworkServer_NewPeerStateGet(Int o);
-Infra_Api Int NetworkServer_NewPeerStateSet(Int o, Int value);
+InfraApiNew(NetworkHost)
+Infra_Api Int NetworkHost_PortGet(Int o);
+Infra_Api Int NetworkHost_PortSet(Int o, Int value);
+Infra_Api Int NetworkHost_ErrorGet(Int o);
+Infra_Api Int NetworkHost_ErrorSet(Int o, Int value);
+Infra_Api Int NetworkHost_NewPeerStateGet(Int o);
+Infra_Api Int NetworkHost_NewPeerStateSet(Int o, Int value);
 
-Infra_Api Int NetworkServer_Listen(Int o);
-Infra_Api Int NetworkServer_Close(Int o);
-Infra_Api Int NetworkServer_IsListen(Int o);
-Infra_Api Int NetworkServer_NextPendingPeer(Int o);
-Infra_Api Int NetworkServer_ClosePeer(Int o, Int network);
-Infra_Api Int NetworkServer_HasPendingPeer(Int o);
-Infra_Api Int NetworkServer_PauseAccept(Int o);
-Infra_Api Int NetworkServer_ResumeAccept(Int o);
+Infra_Api Int NetworkHost_Open(Int o);
+Infra_Api Int NetworkHost_Close(Int o);
+Infra_Api Int NetworkHost_IsOpen(Int o);
+Infra_Api Int NetworkHost_OpenPeer(Int o);
+Infra_Api Int NetworkHost_ClosePeer(Int o, Int network);
+Infra_Api Int NetworkHost_HasPendingPeer(Int o);
 
-typedef Int (*NetworkServer_NewPeer_Maide)(Int networkServer, Int arg);
+typedef Int (*NetworkHost_NewPeer_Maide)(Int networkHost, Int arg);
 
 InfraApiNew(NetworkPort)
 Infra_Api Int NetworkPort_KindGet(Int o);
@@ -628,8 +602,8 @@ Infra_Api Int NetworkPort_ValueBGet(Int o);
 Infra_Api Int NetworkPort_ValueBSet(Int o, Int value);
 Infra_Api Int NetworkPort_ValueCGet(Int o);
 Infra_Api Int NetworkPort_ValueCSet(Int o, Int value);
-Infra_Api Int NetworkPort_ServerGet(Int o);
-Infra_Api Int NetworkPort_ServerSet(Int o, Int value);
+Infra_Api Int NetworkPort_HostGet(Int o);
+Infra_Api Int NetworkPort_HostSet(Int o, Int value);
 
 Infra_Api Int NetworkPort_Set(Int o);
 
