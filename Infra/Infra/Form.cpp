@@ -65,8 +65,8 @@ Int Form_ValueGet(Int o, Int row, Int col)
 {
     Form* m;
     m = CP(o);
-    TransformIntern* uo;
-    uo = (TransformIntern*)(m->Intern);
+    FormIntern* uo;
+    uo = (FormIntern*)(m->Intern);
 
     qreal* array;
     array = uo->Value();
@@ -87,8 +87,8 @@ Int Form_ValueSet(Int o, Int row, Int col, Int value)
     m = CP(o);
     InternValue(value);
 
-    TransformIntern* uo;
-    uo = (TransformIntern*)(m->Intern);
+    FormIntern* uo;
+    uo = (FormIntern*)(m->Intern);
 
     qreal* array;
     array = uo->Value();
