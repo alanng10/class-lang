@@ -1180,8 +1180,8 @@ class Demo : Any
 
         DrawGradientLinear gradientLinear;
         gradientLinear = new DrawGradientLinear();
-        gradientLinear.StartPos = this.DrawInfra.PosCreate(300, 0);
-        gradientLinear.EndPos = this.DrawInfra.PosCreate(300, 400);
+        gradientLinear.StartPos = this.DrawInfra.PosIntCreate(this.MathInt(300), 0);
+        gradientLinear.EndPos = this.DrawInfra.PosIntCreate(this.MathInt(300), this.MathInt(400));
         gradientLinear.Init();
 
         DrawGradientStop gradientStop;
