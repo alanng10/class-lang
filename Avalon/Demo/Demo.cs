@@ -104,6 +104,7 @@ class Demo : Any
         brush.Kind = this.BrushKindList.Color;
         brush.Color = this.DrawInfra.ColorCreate(0xff, 0, 0xff, 0);
         brush.Init();
+
         View view;
         view = new View();
         view.Init();
@@ -124,7 +125,7 @@ class Demo : Any
         penBrush.Kind = this.BrushKindList.Color;
         penBrush.Color = this.DrawInfra.ColorCreate(0xff, 0xff, 0, 0xff);
         penBrush.Line = penKindList.DashDotDot;
-        penBrush.Width = 11;
+        penBrush.Width = this.MathInt(11);
         penBrush.Cap = penCapList.Round;
         penBrush.Join = penJoinList.Bevel;
         penBrush.Init();
@@ -196,26 +197,30 @@ class Demo : Any
         DrawImage image;
         image = this.ImageCreate();
 
-        DrawRect sourceRect;
-        sourceRect = this.DrawInfra.RectCreate(1880, 910, 400, 200);
+        int widthA;
+        int heightA;
+        widthA = 400;
+        heightA = 200;
+        DrawRectInt sourceRect;
+        sourceRect = this.DrawInfra.RectIntCreate(this.MathInt(1880), this.MathInt(910), this.MathInt(widthA), this.MathInt(heightA));
 
         DrawForm formA;
         formA = new DrawForm();
         formA.Init();
 
-        DrawRect destRectA;
-        destRectA = this.DrawInfra.RectCreate(0, 0, 200, 200);
+        DrawRectInt destRectA;
+        destRectA = this.DrawInfra.RectIntCreate(0, 0, this.MathInt(200), this.MathInt(200));
 
-        DrawRect sourceRectA;
-        sourceRectA = this.DrawInfra.RectCreate(0, 0, 200, 200);
+        DrawRectInt sourceRectA;
+        sourceRectA = this.DrawInfra.RectIntCreate(0, 0, this.MathInt(200), this.MathInt(200));
 
         ViewB viewB;
         viewB = new ViewB();
         viewB.Init();
         viewB.Pos.Left = 60;
         viewB.Pos.Up = 40;
-        viewB.Size.Width = sourceRect.Size.Width;
-        viewB.Size.Height = sourceRect.Size.Height;
+        viewB.Size.Width = widthA;
+        viewB.Size.Height = heightA;
         viewB.DrawImage = image;
         viewB.SourceRect = sourceRect;
         viewB.Form = formA;
@@ -1412,5 +1417,21 @@ class Demo : Any
     {
         a.Final();
         return true;
+    }
+
+    protected virtual long MathInt(long n)
+    {
+        MathInfra mathInfra;
+        mathInfra = this.MathInfra;
+
+        MathMath math;
+        math = this.Math;
+
+        MathComp mathComp;
+        mathComp = this.MathComp;
+
+        long a;
+        a = mathInfra.Int(math, mathComp, n);
+        return a;
     }
 }
