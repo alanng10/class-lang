@@ -197,7 +197,6 @@ public class Draw : Any
     protected virtual Form FormA { get; set; }
     protected virtual PosInt PosA { get; set; }
     protected virtual int TextCount { get; set; }
-
     private ulong Intern { get; set; }
     private ulong InternFillPos { get; set; }
     private ulong InternArea { get; set; }
