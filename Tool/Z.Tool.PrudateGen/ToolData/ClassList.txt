@@ -311,26 +311,24 @@ Network
     ReadyReadState
     ReadyRead(network, arg) --
 
-NetworkServer
-    Listen()
+NetworkHost
+    Open()
     Close()
-    IsListen()
-    NextPendingPeer()
+    IsOpen()
+    OpenPeer()
     ClosePeer(network)
     HasPendingPeer()
-    PauseAccept()
-    ResumeAccept()
     Port
     Error
     NewPeerState
-    NewPeer(networkServer, arg) --
+    NewPeer(networkHost, arg) --
 
 NetworkPort
     Kind
     ValueA
     ValueB
     ValueC
-    Server
+    Host
     Set()
 
 Thread
