@@ -86,20 +86,4 @@ class ViewA : View
         draw.Pen = null;
         return true;
     }
-
-    protected virtual long MathInt(long n)
-    {
-        MathInfra mathInfra;
-        mathInfra = this.MathInfra;
-
-        MathMath math;
-        math = this.Math;
-
-        MathComp mathComp;
-        mathComp = this.MathComp;
-
-        long a;
-        a = mathInfra.Int(math, mathComp, n);
-        return a;
-    }
 }
