@@ -10,11 +10,11 @@ class ViewB : View
     }
 
     public virtual DrawImage DrawImage { get; set; }
-    public virtual DrawRect SourceRect { get; set; }
+    public virtual DrawRectInt SourceRect { get; set; }
     public virtual DrawForm Form { get; set; }
     public virtual DrawImage ThreadDrawImage { get; set; }
-    public virtual DrawRect DestRectA { get; set; }
-    public virtual DrawRect SourceRectA { get; set; }
+    public virtual DrawRectInt DestRectA { get; set; }
+    public virtual DrawRectInt SourceRectA { get; set; }
 
     protected virtual DrawCompList DrawComp { get; set; }
 
@@ -29,27 +29,27 @@ class ViewB : View
         int height;
         height = this.Size.Height;
 
-        DrawRect rect;
-        rect = this.DrawRectA;
-        rect.Pos.Left = left;
-        rect.Pos.Up = up;
-        rect.Size.Width = width;
-        rect.Size.Height = height;
+        DrawRectInt rect;
+        rect = this.DrawRectIntA;
+        rect.Pos.Left = this.MathInt(left);
+        rect.Pos.Up = this.MathInt(up);
+        rect.Size.Width = this.MathInt(width);
+        rect.Size.Height = this.MathInt(height);
 
-        DrawRect sourceRect;
+        DrawRectInt sourceRect;
         sourceRect = this.SourceRect;
 
         long scaleFactor;
         scaleFactor = this.DrawInfra.ScaleFactor;
 
         long angle;
-        angle = 20 * scaleFactor;
+        angle = this.MathInt(20);
     
         long horizScale;
-        horizScale = scaleFactor + scaleFactor / 2;
+        horizScale = this.MathValue(scaleFactor + scaleFactor / 2, -20);
 
         long vertScale;
-        vertScale = scaleFactor;
+        vertScale = this.MathInt(1);
 
         this.Form.Reset();
 
@@ -65,8 +65,8 @@ class ViewB : View
         draw.Form = null;
         draw.FormSet();
 
-        this.DestRectA.Pos.Left = left;
-        this.DestRectA.Pos.Up = up + 150;
+        this.DestRectA.Pos.Left = this.MathInt(left);
+        this.DestRectA.Pos.Up = this.MathInt(up + 150);
 
         draw.Comp = this.DrawComp.SourceOver;
 
