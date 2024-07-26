@@ -94,6 +94,7 @@ SOURCES += \
     ImageWrite.cpp \
     Main.cpp \
     Math.cpp \
+    MathPart.cpp \
     Memory.cpp \
     Method.cpp \
     Network.cpp \
