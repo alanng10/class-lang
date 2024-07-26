@@ -2,9 +2,23 @@ namespace Demo;
 
 class ThreadState : State
 {
+    public override bool Init()
+    {
+        base.Init();
+        this.MathInfra = MathInfra.This;
+        this.Math = new MathMath();
+        this.Math.Init();
+        this.MathComp = new MathComp();
+        this.MathComp.Init();
+        return true;
+    }
+
     public Demo Demo { get; set; }
     public DrawImage Image { get; set; }
     public ThreadPhore Phore { get; set; }
+    protected virtual MathInfra MathInfra { get; set; }
+    protected virtual MathMath Math { get; set; }
+    protected virtual MathComp MathComp { get; set; }
 
     public override bool Execute()
     {
@@ -83,8 +97,17 @@ class ThreadState : State
         brushA.Color = drawInfra.ColorCreate(0xff, 0, 0, 0);
         brushA.Init();
 
-        DrawRect rect;
-        rect = drawInfra.RectCreate(20, 20, this.Image.Size.Width - 50, this.Image.Size.Height - 50);
+        int left;
+        int up;
+        int width;
+        int height;
+        left = 20;
+        up = 20;
+        width = this.Image.Size.Width - 50;
+        height = this.Image.Size.Height - 50;
+
+        DrawRectInt rectA;
+        rectA = drawInfra.RectIntCreate(this.MathInt(left), this.MathInt(up), this.MathInt(width), this.MathInt(height));
 
         DrawDraw draw;
         draw = new DrawDraw();
@@ -96,23 +119,23 @@ class ThreadState : State
         
         draw.Start();
         draw.Pen = null;
-        draw.Brush = brush;
-        draw.ExecuteRect(rect);
-        draw.Brush = brushA;
+        draw.Fill = brush;
+        draw.ExecuteRect(rectA);
+        draw.Fill = brushA;
         draw.Comp = compList.DestinationOut;
 
         int w;
-        w = rect.Size.Width;
+        w = width;
         w = w - 40;
 
         int h;
-        h = rect.Size.Height;
+        h = height;
         h = h - 40;
 
-        rect.Size.Width = w;
-        rect.Size.Height = h;
+        rectA.Size.Width = this.MathInt(w);
+        rectA.Size.Height = this.MathInt(h);
 
-        draw.ExecuteRect(rect);
+        draw.ExecuteRect(rectA);
         draw.Comp = null;
         draw.End();
 
@@ -122,5 +145,21 @@ class ThreadState : State
 
         brush.Final();
         return true;
+    }
+
+    protected virtual long MathInt(long n)
+    {
+        MathInfra mathInfra;
+        mathInfra = this.MathInfra;
+
+        MathMath math;
+        math = this.Math;
+
+        MathComp mathComp;
+        mathComp = this.MathComp;
+
+        long a;
+        a = mathInfra.Int(math, mathComp, n);
+        return a;
     }
 }
