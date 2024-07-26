@@ -356,7 +356,7 @@ public class Draw : Any
         return true;
     }
 
-    public virtual bool ExecuteText(TextText text, RectLong destRect, TextAlign align, bool wordWarp)
+    public virtual bool ExecuteText(TextText text, RectInt destRect, TextAlign align, bool wordWarp)
     {
         int count;
         count = text.Range.Count;
@@ -387,7 +387,7 @@ public class Draw : Any
         return true;
     }
 
-    private bool InternRectSetFromRectLong(ulong internRect, RectLong rect)
+    private bool InternRectSetFromRectLong(ulong internRect, RectInt rect)
     {
         PosInt pos;
         SizeLong size;
