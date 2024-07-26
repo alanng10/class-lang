@@ -24,30 +24,42 @@ if (std::isnan(a) | std::isinf(a))\
 }\
 
 
-#define Start \
-    Int ua;\
-    ua = Math_GetInternValue(o, value);\
-    ValidValue(ua);\
-    double u;\
-    u = CastIntToDouble(ua);\
+#define Start(value, aa) \
+    Int aa##_u;\
+    aa##_u = Math_GetInternValue(o, value);\
+    ValidValue(aa##_u);\
+    double aa;\
+    aa = CastIntToDouble(aa##_u);\
 
 
 #define End \
-    Int ub;\
-    ub = CastDoubleToInt(oo);\
+    Int a_u;\
+    a_u = CastDoubleToInt(oo);\
     Int a;\
-    a = Math_GetValueFromInternValue(o, ub);\
+    a = Math_GetValueFromInternValue(o, a_u);\
     return a;\
 
 
 #define MathMaide(name, f) \
 Int Math_##name(Int o, Int value)\
 {\
-    Start\
+    Start(value, ua);\
     double oo;\
-    oo = std::f(u);\
+    oo = std::f(ua);\
     ValidDouble(oo);\
-    End\
+    End;\
+}\
+
+
+#define MathMaideTwo(name, f) \
+Int Math_##name(Int o, Int valueA, Int valueB)\
+{\
+    Start(valueA, ua);\
+    Start(valueB, ub);\
+    double oo;\
+    oo = std::f(ua, ub);\
+    ValidDouble(oo);\
+    End;\
 }\
 
 
