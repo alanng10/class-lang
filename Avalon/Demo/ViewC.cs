@@ -5,50 +5,36 @@ class ViewC : View
     public override bool Init()
     {
         base.Init();
-        DrawPosLong pos;
-        pos = new DrawPosLong();
-        pos.Init();
-        DrawSizeLong size;
-        size = new DrawSizeLong();
-        size.Init();
-        DrawRectLong rect;
-        rect = new DrawRectLong();
-        rect.Init();
-        rect.Pos = pos;
-        rect.Size = size;
-        this.RectLong = rect;
+        this.RectLong = this.DrawInfra.RectIntCreate(0, 0, 0, 0);
         return true;
     }
 
-    public DrawRect EllipseRect { get; set; }
+    public DrawRectInt EllipseRect { get; set; }
     public DrawBrush EllipseBrush { get; set; }
     public DrawFace Face { get; set; }
     public DrawTextAlign TextAlign { get; set; }
     public Text Text { get; set; }
-    public DrawPen TextPen { get; set; }
-    private DrawRectLong RectLong { get; set; }
+    public DrawBrush TextPen { get; set; }
+    private DrawRectInt RectLong { get; set; }
 
     protected override bool ExecuteDrawThis(DrawDraw draw)
     {
         base.ExecuteDrawThis(draw);
-        this.EllipseRect.Pos.Left = this.Pos.Left + 400;
-        this.EllipseRect.Pos.Up = this.Pos.Up + 20;
+        this.EllipseRect.Pos.Left = this.MathInt(this.Pos.Left + 400);
+        this.EllipseRect.Pos.Up = this.MathInt(this.Pos.Up + 20);
         
-        draw.Brush = this.EllipseBrush;
+        draw.Fill = this.EllipseBrush;
 
         draw.ExecuteEllipse(this.EllipseRect);
 
-        draw.Brush = null;
+        draw.Fill = null;
 
-        long k;
-        k = 1 << 20;
-
-        DrawRectLong rect;
+        DrawRectInt rect;
         rect = this.RectLong;
-        rect.Pos.Left = (this.Pos.Left + 150) * k;
-        rect.Pos.Up = (this.Pos.Up + 50) * k;
-        rect.Size.Width = 300 * k;
-        rect.Size.Height = 100 * k;
+        rect.Pos.Left = this.MathInt(this.Pos.Left + 150);
+        rect.Pos.Up = this.MathInt(this.Pos.Up + 50);
+        rect.Size.Width = this.MathInt(300);
+        rect.Size.Height = this.MathInt(100);
 
         draw.Face = this.Face;
         draw.Pen = this.TextPen;
