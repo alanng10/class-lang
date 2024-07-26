@@ -1197,8 +1197,8 @@ class Demo : Any
         scaleFactor = this.DrawInfra.ScaleFactor;
 
         this.GradientStopSetPoint(gradientStop, aa, 0, 0, this.DrawInfra.ColorCreate(0xff, 0xff, 0, 0));
-        this.GradientStopSetPoint(gradientStop, aa, 1, scaleFactor / 2, this.DrawInfra.ColorCreate(0xff, 0, 0xff, 0));
-        this.GradientStopSetPoint(gradientStop, aa, 2, scaleFactor, this.DrawInfra.ColorCreate(0xff, 0, 0, 0xff));
+        this.GradientStopSetPoint(gradientStop, aa, 1, this.MathValue(scaleFactor / 2, -20), this.DrawInfra.ColorCreate(0xff, 0, 0xff, 0));
+        this.GradientStopSetPoint(gradientStop, aa, 2, this.MathInt(1), this.DrawInfra.ColorCreate(0xff, 0, 0, 0xff));
 
         DrawGradientSpreadList spreadList;
         spreadList = DrawGradientSpreadList.This;
@@ -1415,6 +1415,19 @@ class Demo : Any
 
         long a;
         a = mathInfra.Int(math, mathComp, n);
+        return a;
+    }
+
+    protected virtual long MathValue(long significand, long exponent)
+    {
+        MathComp mathComp;
+        mathComp = this.MathComp;
+
+        mathComp.Significand = significand;
+        mathComp.Exponent = exponent;
+
+        long a;
+        a = this.Math.Value(mathComp);
         return a;
     }
 }
