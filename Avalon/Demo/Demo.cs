@@ -149,9 +149,18 @@ class Demo : Any
         viewA.Form = viewAForm;
         viewA.Demo = this;
 
+        DrawBrush gridBrush;
+        gridBrush = new DrawBrush();
+        gridBrush.Kind = this.BrushKindList.Color;
+        gridBrush.Color = this.DrawInfra.ColorCreate(0x80, 0, 0, 0);
+        gridBrush.Init();
+
         Grid grid;
         grid = new Grid();
         grid.Init();
+
+        grid.Back = gridBrush;
+
         GridCol colA;
         colA = new GridCol();
         colA.Init();
@@ -257,6 +266,8 @@ class Demo : Any
         formA.Final();
 
         this.ImageFinal(image);
+
+        gridBrush.Final();
 
         viewAForm.Final();
 
