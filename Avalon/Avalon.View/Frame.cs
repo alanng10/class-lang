@@ -108,6 +108,7 @@ public class Frame : Comp
     private ulong InternDrawState { get; set; }
     private ulong InternTypeState { get; set; }
     private Handle InternHandle { get; set; }
+    private DrawImage DrawImage { get; set; }
 
     protected virtual Field CreateViewField()
     {
