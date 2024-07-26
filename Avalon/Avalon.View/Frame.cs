@@ -184,7 +184,7 @@ public class Frame : Comp
         draw = this.Draw;
 
         draw.Start();
-        draw.Clear(this.DrawInfra.WhiteColor);
+        draw.Clear(this.DrawInfra.WhiteBrush.Color);
 
         if (this.ValidDrawView())
         {
