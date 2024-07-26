@@ -24,14 +24,16 @@ class Demo : Any
     public NetworkCaseList NetworkCaseList { get; set; }
     public NetworkStatusList NetworkStatusList { get; set; }
     private DrawBrushKindList BrushKindList { get; set; }
-    private Math Math { get; set; }
-    private MathCompose MathCompose { get; set; }
+    protected virtual MathInfra MathInfra { get; set; }
+    protected virtual MathMath Math { get; set; }
+    protected virtual MathComp MathComp { get; set; }
 
     public bool Execute()
     {
         this.InfraInfra = InfraInfra.This;
         this.ListInfra = ListInfra.This;
         this.TextInfra = TextInfra.This;
+        this.MathInfra = MathInfra.This;
         this.DrawInfra = DrawInfra.This;
         this.StorageStatusList = StorageStatusList.This;
         this.NetworkPortKindList = NetworkPortKindList.This;
@@ -43,9 +45,11 @@ class Demo : Any
         ThreadThis varThis;
         varThis = new ThreadThis();
         varThis.Init();
-
-        this.Math = new Math();
+        
+        this.Math = new MathMath();
         this.Math.Init();
+        this.MathComp = new MathComp();
+        this.MathComp.Init();
 
         this.ExecuteConsole();
         this.ExecuteMath();
@@ -119,16 +123,11 @@ class Demo : Any
         penBrush = new DrawBrush();
         penBrush.Kind = this.BrushKindList.Color;
         penBrush.Color = this.DrawInfra.ColorCreate(0xff, 0xff, 0, 0xff);
+        penBrush.Line = penKindList.DashDotDot;
+        penBrush.Width = 11;
+        penBrush.Cap = penCapList.Round;
+        penBrush.Join = penJoinList.Bevel;
         penBrush.Init();
-
-        DrawPen penA;
-        penA = new DrawPen();
-        penA.Kind = penKindList.DashDotDot;
-        penA.Width = 11;
-        penA.Brush = penBrush;
-        penA.Cap = penCapList.Round;
-        penA.Join = penJoinList.Bevel;
-        penA.Init();
 
         ViewC viewC;
         viewC = this.ViewCCreate();
@@ -145,7 +144,7 @@ class Demo : Any
         viewA.Size.Width = 600;
         viewA.Size.Height = 400;
         viewA.Back = brushA;
-        viewA.DrawPen = penA;
+        viewA.DrawPen = penBrush;
         viewA.Form = viewAForm;
         viewA.Demo = this;
 
@@ -258,8 +257,6 @@ class Demo : Any
 
         this.ViewCFinal(viewC);
 
-        penA.Final();
-
         penBrush.Final();
 
         brushA.Final();
@@ -301,13 +298,8 @@ class Demo : Any
 
     private bool ExecuteMath()
     {
-        MathCompose compose;
-        compose = new MathCompose();
-        compose.Init();
-        this.MathCompose = compose;
-
-        MathCompose ca;
-        ca = new MathCompose();
+        MathComp ca;
+        ca = new MathComp();
         ca.Init();
 
         long aaaa;
@@ -375,11 +367,11 @@ class Demo : Any
 
     private bool ConsoleWriteMathValue(string prefix, long value)
     {
-        this.Math.Comp(this.MathCompose, value);
+        this.Math.Comp(this.MathComp, value);
         
         this.Console.Out.Write(prefix +
-        "Significand: " + this.MathCompose.Significand.ToString("x") + ", " +
-        "Exponent: " + this.MathCompose.Exponent +
+        "Significand: " + this.MathComp.Significand.ToString("x") + ", " +
+        "Exponent: " + this.MathComp.Exponent +
         "\n");
         return true;
     }
