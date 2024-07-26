@@ -283,12 +283,7 @@ Int Draw_Clear(Int o, Int color)
     w = width;
     h = height;
 
-    Int32 uu;
-    uu = (Int32)color;
-    QRgb kk;
-    kk = uu;
-    QColor colorU;
-    colorU = QColor(kk);
+    InternColor(color);
 
     m->Intern->fillRect(0, 0, w, h, colorU);
     return true;
