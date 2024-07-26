@@ -254,6 +254,7 @@ Int Network_StatusChange(Int o)
     m = CP(o);
     Int state;
     state = m->StatusChangeState;
+
     if (state == null)
     {
         return true;
@@ -264,12 +265,16 @@ Int Network_StatusChange(Int o)
     Int arg;
     arg = State_ArgGet(state);
 
+    if (aa == null)
+    {
+        return true;
+    }
+
     Network_StatusChange_Maide maide;
     maide = (Network_StatusChange_Maide)aa;
-    if (!(maide == null))
-    {
-        maide(o, arg);
-    }
+
+    maide(o, arg);
+    
     return true;
 }
 
@@ -325,6 +330,7 @@ Int Network_ReadyRead(Int o)
 
     Int state;
     state = m->ReadyReadState;
+
     if (state == null)
     {
         return true;
@@ -335,12 +341,16 @@ Int Network_ReadyRead(Int o)
     Int arg;
     arg = State_ArgGet(state);
 
+    if (aa == null)
+    {
+        return true;
+    }
+
     Network_ReadyRead_Maide maide;
     maide = (Network_ReadyRead_Maide)aa;
-    if (!(maide == null))
-    {
-        maide(o, arg);
-    }
+
+    maide(o, arg);
+
     return true;
 }
 
