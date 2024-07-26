@@ -136,6 +136,36 @@ public class Infra : Any
         return rect;
     }
 
+    public virtual PosInt PosIntCreate(long left, long up)
+    {
+        PosInt pos;
+        pos = new PosInt();
+        pos.Init();
+        pos.Left = left;
+        pos.Up = up;
+        return pos;
+    }
+
+    public virtual SizeInt SizeIntCreate(long width, long height)
+    {
+        SizeInt size;
+        size = new SizeInt();
+        size.Init();
+        size.Width = width;
+        size.Height = height;
+        return size;
+    }
+
+    public virtual RectInt RectIntCreate(long left, long up, long width, long height)
+    {
+        RectInt rect;
+        rect = new RectInt();
+        rect.Init();
+        rect.Pos = this.PosIntCreate(left, up);
+        rect.Size = this.SizeIntCreate(width, height);
+        return rect;
+    }
+
     public virtual Image ImageCreateSize(Size size)
     {
         Image a;
