@@ -34,10 +34,16 @@ public class Read : Any
         b = this.SetTrigoTable();
         if (!b)
         {
-            return 500;
+            return 450;
         }
 
         this.MaideTable = toolInfra.TableCreateStringCompare();
+
+        b = this.ExecuteMaideList();
+        if (!b)
+        {
+            return 500;
+        }
 
         b = this.ExecuteTrigoMaideList("", "");
         if (!b)
@@ -63,11 +69,6 @@ public class Read : Any
             return 504;
         }
 
-        b = this.ExecuteMaideList();
-        if (!b)
-        {
-            return 510;
-        }
         return 0;
     }
 
