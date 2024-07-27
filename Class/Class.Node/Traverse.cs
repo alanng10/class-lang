@@ -21,7 +21,7 @@ public class Traverse : Any
 
         this.ExecuteClassName(varClass.Name);
         this.ExecuteClassName(varClass.Base);
-        this.ExecutePart(varClass.Member);
+        this.ExecutePart(varClass.Part);
         return true;
     }
 

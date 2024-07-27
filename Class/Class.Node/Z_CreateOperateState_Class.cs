@@ -11,7 +11,7 @@ public class ClassCreateOperateState : CreateOperateState
         node = (Class)this.Node;
         node.Name = (ClassName)arg.Field00;
         node.Base = (ClassName)arg.Field01;
-        node.Member = (Part)arg.Field02;
+        node.Part = (Part)arg.Field02;
         return true;
     }
 }

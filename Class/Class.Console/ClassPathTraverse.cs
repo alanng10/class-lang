@@ -83,9 +83,9 @@ public class ClassPathTraverse : Traverse
             this.ExecuteClassName(varClass.Base);
             return true;
         }
-        if (this.FieldEqual("Member"))
+        if (this.FieldEqual("Part"))
         {
-            this.ExecutePart(varClass.Member);
+            this.ExecutePart(varClass.Part);
             return true;
         }
         return true;
