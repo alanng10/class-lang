@@ -37,7 +37,7 @@ void ThreadIntern::run()
     Main_CurrentThreadSignalHandleSet();
 
     Int ua;
-    ua = Thread_GetInternHandleSemaphore(thread);
+    ua = Thread_InternHandleSemaphore(thread);
 
     QSemaphore* handleSemaphore;
     handleSemaphore = (QSemaphore*)ua;
@@ -67,7 +67,7 @@ void ThreadIntern::run()
     finishCase = Stat_ThreadCaseFinish(stat);
     
     Int uc;
-    uc = Thread_GetInternCaseMutex(thread);
+    uc = Thread_InternCaseMutex(thread);
     QMutex* caseMutex;
     caseMutex = (QMutex*)uc;
 

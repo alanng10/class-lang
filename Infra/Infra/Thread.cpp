@@ -108,7 +108,7 @@ CppField(Thread, Status)
 CppField(Thread, Case)
 CppField(Thread, Handle)
 
-Int Thread_GetInternCaseMutex(Int o)
+Int Thread_InternCaseMutex(Int o)
 {
     Thread* m;
     m = CP(o);
@@ -119,7 +119,7 @@ Int Thread_GetInternCaseMutex(Int o)
     return a;
 }
 
-Int Thread_GetInternHandleSemaphore(Int o)
+Int Thread_InternHandleSemaphore(Int o)
 {
     Thread* m;
     m = CP(o);

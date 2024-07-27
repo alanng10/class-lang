@@ -56,8 +56,8 @@ Int Math_GetValueFromInternValue(Int o, Int a);
 
 Int Thread_HandleGet(Int o);
 Int Thread_HandleSet(Int o, Int value);
-Int Thread_GetInternCaseMutex(Int o);
-Int Thread_GetInternHandleSemaphore(Int o);
+Int Thread_InternCaseMutex(Int o);
+Int Thread_InternHandleSemaphore(Int o);
 Int Thread_InitMainThread(Int o);
 Int Thread_FinalMainThread(Int o);
 Int Thread_OS_OpenHandle(Int threadId);
