@@ -151,7 +151,7 @@ Int Draw_FaceSet(Int o, Int value)
     }
 
     Int u;
-    u = Font_Intern(m->Face);
+    u = Face_Intern(m->Face);
     QFont* uu;
     uu = (QFont*)u;
     m->Intern->setFont(*uu);
