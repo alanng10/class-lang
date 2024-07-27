@@ -145,7 +145,7 @@ class TypeState : State
             long k;
             k = this.Demo.Play.AudioOut.Volume;
             long ao;
-            ao = scaleFactor / 16;
+            ao = this.Demo.MathValue(scaleFactor / 16, -20);
             k = k + ao;
             this.Demo.Play.AudioOut.Volume = k;
         }
@@ -155,7 +155,7 @@ class TypeState : State
             long k;
             k = this.Demo.Play.AudioOut.Volume;
             long ao;
-            ao = scaleFactor / 16;
+            ao = this.Demo.MathValue(scaleFactor / 16, -20);
             k = k - ao;
             if (k < 0)
             {

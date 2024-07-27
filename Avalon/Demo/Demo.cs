@@ -1410,7 +1410,7 @@ class Demo : Any
         return true;
     }
 
-    protected virtual long MathInt(long n)
+    public virtual long MathInt(long n)
     {
         MathInfra mathInfra;
         mathInfra = this.MathInfra;
@@ -1426,7 +1426,7 @@ class Demo : Any
         return a;
     }
 
-    protected virtual long MathValue(long significand, long exponent)
+    public virtual long MathValue(long significand, long exponent)
     {
         MathComp mathComp;
         mathComp = this.MathComp;
