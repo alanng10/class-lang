@@ -84,6 +84,21 @@ public class PointList : Any
         return true;
     }
 
+    public virtual bool Set(int index, PosInt value)
+    {
+        ulong pos;
+        pos = this.InternPos;
+
+        this.InternInfra.PosSet(pos, value.Left, value.Up);
+
+        ulong k;
+        k = this.Address(index);
+
+        Extern.PointData_PointSet(k, pos);
+
+        return true;
+    }
+
     private ulong Address(int index)
     {
         ulong ka;
