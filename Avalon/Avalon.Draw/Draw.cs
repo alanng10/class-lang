@@ -406,6 +406,15 @@ public class Draw : Any
         return true;
     }
 
+    public virtual bool ExecuteShape(PointList pointList)
+    {
+        ulong ka;
+        ka = (ulong)pointList.Count;
+
+        Extern.Draw_ExecutePolygon(this.Intern, ka, pointList.Intern);
+        return true;
+    }
+
     public virtual bool ExecuteImage(Image image, RectInt destRect, RectInt sourceRect)
     {
         this.InternRectSetFromRectInt(this.InternRectA, destRect);

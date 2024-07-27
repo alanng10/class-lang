@@ -87,7 +87,6 @@ public class PointList : Any
 
         result.Left = left;
         result.Up = up;
-
         return true;
     }
 
@@ -97,7 +96,7 @@ public class PointList : Any
         {
             return false;
         }
-        
+
         ulong pos;
         pos = this.InternPos;
 
