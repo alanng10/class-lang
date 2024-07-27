@@ -360,21 +360,21 @@ Infra_Api Int Image_DataSet(Int o, Int value);
 Infra_Api Int Image_VideoOut(Int o);
 Infra_Api Int Image_DataCreate(Int o);
 
-InfraApiNew(Font)
-Infra_Api Int Font_FamilyGet(Int o);
-Infra_Api Int Font_FamilySet(Int o, Int value);
-Infra_Api Int Font_SizeGet(Int o);
-Infra_Api Int Font_SizeSet(Int o, Int value);
-Infra_Api Int Font_WeightGet(Int o);
-Infra_Api Int Font_WeightSet(Int o, Int value);
-Infra_Api Int Font_ItalicGet(Int o);
-Infra_Api Int Font_ItalicSet(Int o, Int value);
-Infra_Api Int Font_UnderlineGet(Int o);
-Infra_Api Int Font_UnderlineSet(Int o, Int value);
-Infra_Api Int Font_OverlineGet(Int o);
-Infra_Api Int Font_OverlineSet(Int o, Int value);
-Infra_Api Int Font_StrikeoutGet(Int o);
-Infra_Api Int Font_StrikeoutSet(Int o, Int value);
+InfraApiNew(Face)
+Infra_Api Int Face_FamilyGet(Int o);
+Infra_Api Int Face_FamilySet(Int o, Int value);
+Infra_Api Int Face_SizeGet(Int o);
+Infra_Api Int Face_SizeSet(Int o, Int value);
+Infra_Api Int Face_WeightGet(Int o);
+Infra_Api Int Face_WeightSet(Int o, Int value);
+Infra_Api Int Face_ItalicGet(Int o);
+Infra_Api Int Face_ItalicSet(Int o, Int value);
+Infra_Api Int Face_UnderlineGet(Int o);
+Infra_Api Int Face_UnderlineSet(Int o, Int value);
+Infra_Api Int Face_OverlineGet(Int o);
+Infra_Api Int Face_OverlineSet(Int o, Int value);
+Infra_Api Int Face_StrikeoutGet(Int o);
+Infra_Api Int Face_StrikeoutSet(Int o, Int value);
 
 InfraApiNew(Form)
 Infra_Api Int Form_Reset(Int o);
