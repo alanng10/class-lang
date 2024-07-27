@@ -1,7 +1,7 @@
 Class : Node
     ClassName Name
     ClassName Base
-    Part Member
+    Part Part
 
 Part : Node
     Array Comp Value
