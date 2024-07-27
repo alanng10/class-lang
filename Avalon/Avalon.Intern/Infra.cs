@@ -176,6 +176,18 @@ public class Infra : object
         return true;
     }
 
+    public virtual bool RangeSet(ulong range, long index, long count)
+    {
+        ulong indexU;
+        ulong countU;
+        indexU = (ulong)index;
+        countU = (ulong)count;
+
+        Extern.Range_IndexSet(range, indexU);
+        Extern.Range_CountSet(range, countU);
+        return true;
+    }
+
     public virtual bool PosSet(ulong pos, long left, long up)
     {
         ulong l;

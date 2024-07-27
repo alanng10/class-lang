@@ -46,6 +46,7 @@ public class Draw : Any
         Extern.String_CountSet(this.InternText, 0);
         Extern.String_DataSet(this.InternText, this.InternTextData);
 
+        this.InternRangeA = this.InternInfra.RangeCreate();
         this.InternRectA = this.InternInfra.RectCreate();
         this.InternRectB = this.InternInfra.RectCreate();
         this.InternPosA = this.InternInfra.PosCreate();
@@ -84,6 +85,7 @@ public class Draw : Any
         this.InternInfra.PosDelete(this.InternPosA);
         this.InternInfra.RectDelete(this.InternRectB);
         this.InternInfra.RectDelete(this.InternRectA);
+        this.InternInfra.RangeDelete(this.InternRangeA);
 
         Extern.String_Final(this.InternText);
         Extern.String_Delete(this.InternText);
@@ -208,6 +210,7 @@ public class Draw : Any
     private ulong InternPosA { get; set; }
     private ulong InternRectB { get; set; }
     private ulong InternRectA { get; set; }
+    private ulong InternRangeA { get; set; }
     private ulong InternText { get; set; }
     private ulong InternTextData { get; set; }
 
@@ -355,6 +358,16 @@ public class Draw : Any
         return true;
     }
 
+    public virtual bool ExecuteArc(RectInt rect, DataRange range)
+    {
+        this.InternRectSetFromRectInt(this.InternRectA, rect);
+
+        this.InternRangeSetFromRangeInt(this.InternRangeA, range);
+
+        Extern.Draw_ExecuteArc(this.Intern, this.InternRectA, this.InternRangeA);
+        return true;
+    }
+
     public virtual bool ExecuteEllipse(RectInt rect)
     {
         this.InternRectSetFromRectInt(this.InternRectA, rect);
@@ -438,6 +451,12 @@ public class Draw : Any
         long a;
         a = this.Math.Value(mathComp);
         return a;
+    }
+
+    private bool InternRangeSetFromRangeInt(ulong internRange, DataRange range)
+    {
+        this.InternInfra.RangeSet(internRange, range.Index, range.Count);
+        return true;
     }
 
     private bool InternPosSetFromPosInt(ulong internPos, PosInt pos)

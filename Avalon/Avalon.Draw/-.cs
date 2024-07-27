@@ -4,6 +4,7 @@ global using Extern = Avalon.Intern.Extern;
 global using InternDrawGradientStopPoint = Avalon.Intern.DrawGradientStopPoint;
 global using Any = Avalon.Infra.Any;
 global using Data = Avalon.Infra.Data;
+global using DataRange = Avalon.Infra.DataRange;
 global using InfraInfra = Avalon.Infra.Infra;
 global using Array = Avalon.List.Array;
 global using MathMath = Avalon.Math.Math;
