@@ -134,6 +134,8 @@ Word "task" has meaning that is to be done.
 
 Word "init" has meaning that is initialize.
 
+Word "range" has meaning that is between start inclusive and end exclusive.
+
 Word "list" has meaning that is integer multiple.
 
 Word "table" has meaning that is entry map.
