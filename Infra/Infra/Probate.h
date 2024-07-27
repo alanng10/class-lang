@@ -54,10 +54,6 @@ Int AudioOut_Intern(Int o);
 Int Math_GetInternValue(Int o, Int a);
 Int Math_GetValueFromInternValue(Int o, Int a);
 
-Int Thread_HandleGet(Int o);
-Int Thread_HandleSet(Int o, Int value);
-Int Thread_InternCaseMutex(Int o);
-Int Thread_InternHandleSemaphore(Int o);
 Int Thread_InitMainThread(Int o);
 Int Thread_FinalMainThread(Int o);
 Int Thread_ExecuteHandle(Int o);
@@ -68,7 +64,6 @@ Int Thread_OS_Pause(Int handle);
 Int Thread_OS_Resume(Int handle);
 Int Thread_CreateStore();
 Int Thread_DeleteStore(Int a);
-Int Thread_StoreSetThread(Int thread);
 
 Int TimeEvent_Elapse(Int o);
 
