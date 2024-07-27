@@ -144,17 +144,6 @@ partial class Math
         return a;
     }
 
-    public virtual long Cbrt(long value)
-    {
-        ulong ua;
-        ua = (ulong)value;
-        ulong u;
-        u = Extern.Math_Cbrt(this.Intern, ua);
-        long a;
-        a = (long)u;
-        return a;
-    }
-
     public virtual long Ceil(long value)
     {
         ulong ua;
