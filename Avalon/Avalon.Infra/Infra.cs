@@ -40,7 +40,7 @@ public class Infra : Any
 
     public virtual bool ValidIndexInt(long count, long index)
     {
-        return this.ValidLongRange(count, index, 1);
+        return this.ValidRangeInt(count, index, 1);
     }
 
     public virtual bool IndexRange(Range range, int index)
@@ -71,7 +71,7 @@ public class Infra : Any
         return true;
     }
 
-    public virtual bool ValidLongRange(long totalCount, long index, long count)
+    public virtual bool ValidRangeInt(long totalCount, long index, long count)
     {
         if (totalCount < 0)
         {
