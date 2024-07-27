@@ -102,7 +102,7 @@ Int Form_Multiply(Int o, Int other)
     Form* m;
     m = CP(o);
     Int otherU;
-    otherU = Transform_Intern(other);
+    otherU = Form_Intern(other);
 
     QTransform* uu;
     uu = (QTransform*)otherU;
