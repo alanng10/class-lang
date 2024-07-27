@@ -43,6 +43,6 @@ public class Data : Any
 
     public virtual bool Valid(long index)
     {
-        return this.InfraInfra.ValidLongIndex(this.Count, index);
+        return this.InfraInfra.ValidIndexInt(this.Count, index);
     }
 }
