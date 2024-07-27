@@ -21,18 +21,18 @@ public class Host : Any
         arg = this.InternHandle.ULong();
         this.InternNewPeerState = this.InternInfra.StateCreate(oa, arg);
 
-        this.Intern = Extern.NetworkServer_New();
-        Extern.NetworkServer_Init(this.Intern);
-        Extern.NetworkServer_NewPeerStateSet(this.Intern, this.InternNewPeerState);
+        this.Intern = Extern.NetworkHost_New();
+        Extern.NetworkHost_Init(this.Intern);
+        Extern.NetworkHost_NewPeerStateSet(this.Intern, this.InternNewPeerState);
         return true;
     }
 
     public virtual bool Final()
     {
-        Extern.NetworkServer_NewPeerStateSet(this.Intern, 0);
+        Extern.NetworkHost_NewPeerStateSet(this.Intern, 0);
 
-        Extern.NetworkServer_Final(this.Intern);
-        Extern.NetworkServer_Delete(this.Intern);
+        Extern.NetworkHost_Final(this.Intern);
+        Extern.NetworkHost_Delete(this.Intern);
 
         this.InternInfra.StateDelete(this.InternNewPeerState);
 
@@ -58,10 +58,10 @@ public class Host : Any
     {
         this.InternPortSet();
 
-        Extern.NetworkServer_PortSet(this.Intern, this.InternPort);
+        Extern.NetworkHost_PortSet(this.Intern, this.InternPort);
         
         ulong u;
-        u = Extern.NetworkServer_Listen(this.Intern);
+        u = Extern.NetworkHost_Open(this.Intern);
         bool a;
         a = (!(u == 0));
         return a;
@@ -69,7 +69,7 @@ public class Host : Any
 
     public virtual bool Close()
     {
-        Extern.NetworkServer_Close(this.Intern);
+        Extern.NetworkHost_Close(this.Intern);
         return true;
     }
 
@@ -78,7 +78,7 @@ public class Host : Any
         get
         {
             ulong u;
-            u = Extern.NetworkServer_IsListen(this.Intern);
+            u = Extern.NetworkHost_IsOpen(this.Intern);
             bool a;
             a = (!(u == 0));
             return a;
@@ -91,7 +91,7 @@ public class Host : Any
     public virtual Network OpenPeer()
     {
         ulong networkU;
-        networkU = Extern.NetworkServer_NextPendingPeer(this.Intern);
+        networkU = Extern.NetworkHost_OpenPeer(this.Intern);
 
         Network a;
         a = this.CreatePeer(networkU);
@@ -120,7 +120,7 @@ public class Host : Any
 
         this.FinalPeer(network);
 
-        Extern.NetworkServer_ClosePeer(this.Intern, u);
+        Extern.NetworkHost_ClosePeer(this.Intern, u);
         return true;
     }
 
@@ -134,11 +134,11 @@ public class Host : Any
         ulong valueAU;
         ulong valueBU;
         ulong valueCU;
-        ulong serverU;
+        ulong hostU;
         valueAU = (ulong)aa.ValueA;
         valueBU = (ulong)aa.ValueB;
         valueCU = (ulong)aa.ValueC;
-        serverU = (ulong)aa.Host;
+        hostU = (ulong)aa.Host;
 
         ulong u;
         u = this.InternPort;
@@ -146,7 +146,7 @@ public class Host : Any
         Extern.NetworkPort_ValueASet(u, valueAU);
         Extern.NetworkPort_ValueBSet(u, valueBU);
         Extern.NetworkPort_ValueCSet(u, valueCU);
-        Extern.NetworkPort_ServerSet(u, serverU);
+        Extern.NetworkPort_HostSet(u, hostU);
         Extern.NetworkPort_Set(u);
         return true;
     }
