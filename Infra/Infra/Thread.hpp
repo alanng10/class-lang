@@ -28,3 +28,7 @@ struct ThreadStoreValue
 };
 
 #define CP(a) ((Thread*)(a))
+
+Int Thread_HandleGet(Int o);
+Int Thread_HandleSet(Int o, Int value);
+Int Thread_StoreSetThread(Int thread);
