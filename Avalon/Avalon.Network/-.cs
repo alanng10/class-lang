@@ -11,6 +11,6 @@ global using InternStream = Avalon.Intern.Stream;
 global using Any = Avalon.Infra.Any;
 global using State = Avalon.Infra.State;
 global using Data = Avalon.Infra.Data;
-global using Range = Avalon.Infra.DataRange;
+global using Range = Avalon.Infra.RangeInt;
 global using Array = Avalon.List.Array;
 global using StreamStream = Avalon.Stream.Stream;

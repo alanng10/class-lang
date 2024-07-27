@@ -1,6 +1,6 @@
 namespace Avalon.Infra;
 
-public class DataRange : Any
+public class RangeInt : Any
 {
     public virtual long Index { get { return __D_Index; } set { __D_Index = value; } }
     protected long __D_Index;
