@@ -23,22 +23,22 @@ public class Face : Any
         ulong strikeoutU;
         strikeoutU = (ulong)(this.Strikeout ? 1 : 0);
 
-        this.Intern = Extern.Font_New();
-        Extern.Font_FamilySet(this.Intern, this.InternFamily);
-        Extern.Font_SizeSet(this.Intern, sizeU);
-        Extern.Font_WeightSet(this.Intern, weightU);
-        Extern.Font_ItalicSet(this.Intern, italicU);
-        Extern.Font_UnderlineSet(this.Intern, underlineU);
-        Extern.Font_OverlineSet(this.Intern, overlineU);
-        Extern.Font_StrikeoutSet(this.Intern, strikeoutU);
-        Extern.Font_Init(this.Intern);
+        this.Intern = Extern.Face_New();
+        Extern.Face_FamilySet(this.Intern, this.InternFamily);
+        Extern.Face_SizeSet(this.Intern, sizeU);
+        Extern.Face_WeightSet(this.Intern, weightU);
+        Extern.Face_ItalicSet(this.Intern, italicU);
+        Extern.Face_UnderlineSet(this.Intern, underlineU);
+        Extern.Face_OverlineSet(this.Intern, overlineU);
+        Extern.Face_StrikeoutSet(this.Intern, strikeoutU);
+        Extern.Face_Init(this.Intern);
         return true;
     }
 
     public virtual bool Final()
     {
-        Extern.Font_Final(this.Intern);
-        Extern.Font_Delete(this.Intern);
+        Extern.Face_Final(this.Intern);
+        Extern.Face_Delete(this.Intern);
 
         this.InternInfra.StringDelete(this.InternFamily);
         return true;
