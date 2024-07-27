@@ -66,7 +66,7 @@ public class Encode : Any
         return a;
     }
 
-    public virtual int Text(Text text, Data data, DataRange range)
+    public virtual int Text(Text text, Data data, RangeInt range)
     {
         if (!this.InfraInfra.ValidRangeInt(data.Count, range.Index, range.Count))
         {
