@@ -27,13 +27,13 @@ class Read : Any
 
         bool b;
 
-        b = this.SetClassArray();
+        b = this.SetClassTable();
         if (!b)
         {
             return 1;
         }
 
-        b = this.SetMethodArray();
+        b = this.SetMaideArray();
         if (!b)
         {
             return 2;
@@ -42,7 +42,7 @@ class Read : Any
         return 0;
     }
 
-    protected virtual bool SetClassArray()
+    protected virtual bool SetClassTable()
     {
         ToolInfra infra;
         infra = ToolInfra.This;
@@ -708,7 +708,7 @@ class Read : Any
 
 
 
-    protected virtual bool SetMethodArray()
+    protected virtual bool SetMaideArray()
     {
         ToolInfra infra;
 
@@ -718,7 +718,7 @@ class Read : Any
 
         string ka;
 
-        ka = infra.StorageTextRead("ToolData/MethodList.txt");
+        ka = infra.StorageTextRead("ToolData/MaideList.txt");
 
 
 
