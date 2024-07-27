@@ -25,7 +25,11 @@ public class KeywordList : Any
         this.ItemGet = this.AddItem("get");
         this.Set = this.AddItem("set");
         this.ItemThis = this.AddItem("this");
+        this.Var = this.AddItem("var");
         this.Base = this.AddItem("base");
+        this.Return = this.AddItem("return");
+        this.Inf = this.AddItem("inf");
+        this.While = this.AddItem("while");
         this.New = this.AddItem("new");
         this.Share = this.AddItem("share");
         this.Cast = this.AddItem("cast");
@@ -34,9 +38,6 @@ public class KeywordList : Any
         this.False = this.AddItem("false");
         this.Sign = this.AddItem("sign");
         this.Bit = this.AddItem("bit");
-        this.Return = this.AddItem("return");
-        this.Inf = this.AddItem("inf");
-        this.While = this.AddItem("while");
         this.Prudate = this.AddItem("prudate");
         this.Probate = this.AddItem("probate");
         this.Precate = this.AddItem("precate");
@@ -52,8 +53,16 @@ public class KeywordList : Any
     protected Keyword __D_Set;
     public virtual Keyword ItemThis { get { return __D_ItemThis; } set { __D_ItemThis = value; } }
     protected Keyword __D_ItemThis;
+    public virtual Keyword Var { get { return __D_Var; } set { __D_Var = value; } }
+    protected Keyword __D_Var;
     public virtual Keyword Base { get { return __D_Base; } set { __D_Base = value; } }
     protected Keyword __D_Base;
+    public virtual Keyword Return { get { return __D_Return; } set { __D_Return = value; } }
+    protected Keyword __D_Return;
+    public virtual Keyword Inf { get { return __D_Inf; } set { __D_Inf = value; } }
+    protected Keyword __D_Inf;
+    public virtual Keyword While { get { return __D_While; } set { __D_While = value; } }
+    protected Keyword __D_While;
     public virtual Keyword New { get { return __D_New; } set { __D_New = value; } }
     protected Keyword __D_New;
     public virtual Keyword Share { get { return __D_Share; } set { __D_Share = value; } }
@@ -70,12 +79,6 @@ public class KeywordList : Any
     protected Keyword __D_Sign;
     public virtual Keyword Bit { get { return __D_Bit; } set { __D_Bit = value; } }
     protected Keyword __D_Bit;
-    public virtual Keyword Return { get { return __D_Return; } set { __D_Return = value; } }
-    protected Keyword __D_Return;
-    public virtual Keyword Inf { get { return __D_Inf; } set { __D_Inf = value; } }
-    protected Keyword __D_Inf;
-    public virtual Keyword While { get { return __D_While; } set { __D_While = value; } }
-    protected Keyword __D_While;
     public virtual Keyword Prudate { get { return __D_Prudate; } set { __D_Prudate = value; } }
     protected Keyword __D_Prudate;
     public virtual Keyword Probate { get { return __D_Probate; } set { __D_Probate = value; } }
@@ -108,7 +111,7 @@ public class KeywordList : Any
     protected virtual Array Array { get { return __D_Array; } set { __D_Array = value; } }
     protected Array __D_Array;
 
-    protected virtual int ArrayCount { get { return 20; } set { } }
+    protected virtual int ArrayCount { get { return 21; } set { } }
     protected int __D_ArrayCount;
 
     public virtual int Count { get { return __D_Count; } set { __D_Count = value; } }
