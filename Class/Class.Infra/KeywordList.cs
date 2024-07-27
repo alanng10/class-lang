@@ -22,10 +22,12 @@ public class KeywordList : Any
         this.Index = 0;
 
         this.Class = this.AddItem("class");
+        this.Field = this.AddItem("field");
+        this.Maide = this.AddItem("maide");
+        this.Var = this.AddItem("var");
         this.ItemGet = this.AddItem("get");
         this.Set = this.AddItem("set");
         this.ItemThis = this.AddItem("this");
-        this.Var = this.AddItem("var");
         this.Base = this.AddItem("base");
         this.Return = this.AddItem("return");
         this.Inf = this.AddItem("inf");
@@ -47,14 +49,18 @@ public class KeywordList : Any
 
     public virtual Keyword Class { get { return __D_Class; } set { __D_Class = value; } }
     protected Keyword __D_Class;
+    public virtual Keyword Field { get { return __D_Field; } set { __D_Field = value; } }
+    protected Keyword __D_Field;
+    public virtual Keyword Maide { get { return __D_Maide; } set { __D_Maide = value; } }
+    protected Keyword __D_Maide;
+    public virtual Keyword Var { get { return __D_Var; } set { __D_Var = value; } }
+    protected Keyword __D_Var;
     public virtual Keyword ItemGet { get { return __D_ItemGet; } set { __D_ItemGet = value; } }
     protected Keyword __D_ItemGet;
     public virtual Keyword Set { get { return __D_Set; } set { __D_Set = value; } }
     protected Keyword __D_Set;
     public virtual Keyword ItemThis { get { return __D_ItemThis; } set { __D_ItemThis = value; } }
     protected Keyword __D_ItemThis;
-    public virtual Keyword Var { get { return __D_Var; } set { __D_Var = value; } }
-    protected Keyword __D_Var;
     public virtual Keyword Base { get { return __D_Base; } set { __D_Base = value; } }
     protected Keyword __D_Base;
     public virtual Keyword Return { get { return __D_Return; } set { __D_Return = value; } }
@@ -111,7 +117,7 @@ public class KeywordList : Any
     protected virtual Array Array { get { return __D_Array; } set { __D_Array = value; } }
     protected Array __D_Array;
 
-    protected virtual int ArrayCount { get { return 21; } set { } }
+    protected virtual int ArrayCount { get { return 23; } set { } }
     protected int __D_ArrayCount;
 
     public virtual int Count { get { return __D_Count; } set { __D_Count = value; } }
