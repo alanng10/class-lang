@@ -47,7 +47,7 @@ public partial class Math : Any
         a = (long)u;
         return a;
     }
-    
+
     public virtual bool Comp(Comp result, long value)
     {
         InternMathComp u;
@@ -58,7 +58,7 @@ public partial class Math : Any
         long e;
         s = (long)(u.Significand);
         e = (long)(u.Exponent);
-        
+
         result.Significand = s;
         result.Exponent = e;
         return true;
@@ -73,6 +73,14 @@ public partial class Math : Any
 
         ulong u;
         u = Extern.Math_Less(this.Intern, ua, ub);
+
+        long k;
+        k = (long)u;
+
+        if (k == -1)
+        {
+            return false;
+        }
 
         bool a;
         a = !(u == 0);
