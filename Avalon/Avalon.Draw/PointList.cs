@@ -57,4 +57,43 @@ public class PointList : Any
     internal virtual ulong Intern { get; set; }
     private ulong InternDataValue { get; set; }
     private ulong InternPos { get; set; }
+
+    public virtual bool Get(int index, PosInt result)
+    {
+        ulong ka;
+        ka = (ulong)index;
+
+        ulong share;
+        share = Extern.Infra_Share();
+
+        ulong stat;
+        stat = Extern.Share_Stat(share);
+
+        ulong ua;
+        ua = Extern.Stat_PointDataCount(stat);
+
+        ulong k;
+        k = ka * ua;
+        k = this.InternDataValue + k;
+
+        ulong pos;
+        pos = this.InternPos;
+
+        Extern.PointData_PointGet(k, pos);
+
+        ulong leftU;
+        ulong upU;
+        leftU = Extern.Pos_LeftGet(pos);
+        upU = Extern.Pos_UpGet(pos);
+
+        long left;
+        long up;
+        left = (long)leftU;
+        up = (long)upU;
+
+        result.Left = left;
+        result.Up = up;
+
+        return true;
+    }
 }
