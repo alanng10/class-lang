@@ -264,6 +264,7 @@ public class Draw : Any
     public virtual bool AreaSet()
     {
         this.InternRectSetFromRect(this.InternArea, this.Area);
+
         Extern.Draw_AreaThisSet(this.Intern);
         return true;
     }
