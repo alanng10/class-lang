@@ -73,7 +73,7 @@ Int Image;
 
 
 
-Int Transform;
+Int Form;
 
 
 
@@ -499,18 +499,18 @@ Bool DrawHandle(Int frame, Int arg)
     Draw_StrokeSet(Draw, PenRect);
 
 
-    Transform_Reset(Transform);
+    Form_Reset(Form);
 
-    Transform_Offset(Transform, MathInt(-780), MathInt(-450));
+    Form_Offset(Form, MathInt(-780), MathInt(-450));
 
-    Transform_Scale(Transform, MathInt(1), Math_Value(0, 1 * scaleFactor + (1 << 18), -20));
+    Form_Scale(Form, MathInt(1), Math_Value(0, 1 * scaleFactor + (1 << 18), -20));
 
-    Transform_Rotate(Transform, MathInt(RotateAngle + 30));
+    Form_Rotate(Form, MathInt(RotateAngle + 30));
 
-    Transform_Offset(Transform, MathInt(1080), MathInt(-600));
+    Form_Offset(Form, MathInt(1080), MathInt(-600));
 
 
-    Draw_FormSet(Draw, Transform);
+    Draw_FormSet(Draw, Form);
 
     Draw_ExecutePolygon(Draw, PointListCount, PointListData);
 
@@ -522,11 +522,11 @@ Bool DrawHandle(Int frame, Int arg)
     Draw_FillPosThisSet(Draw);
 
 
-    Transform_Reset(Transform);
+    Form_Reset(Form);
 
-    Transform_Offset(Transform, MathInt(500), MathInt(100));
+    Form_Offset(Form, MathInt(500), MathInt(100));
 
-    Draw_FormSet(Draw, Transform);
+    Draw_FormSet(Draw, Form);
 
     Draw_ExecutePolyline(Draw, PointListCount, PointListData);
 
@@ -1442,9 +1442,9 @@ int main(int argc, char* argv[])
     Thread_Wait(threadAA);
 
 
-    Transform = Transform_New();
+    Form = Form_New();
 
-    Transform_Init(Transform);
+    Form_Init(Form);
 
 
     Int imageBrushKind;
@@ -2079,11 +2079,11 @@ int main(int argc, char* argv[])
 
 
 
-    Transform_Final(Transform);
+    Form_Final(Form);
 
 
 
-    Transform_Delete(Transform);
+    Form_Delete(Form);
 
 
 
