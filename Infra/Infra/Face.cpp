@@ -1,6 +1,6 @@
-#include "Font.hpp"
+#include "Face.hpp"
 
-CppClassNew(Font)
+CppClassNew(Face)
 
 Int Font_Init(Int o)
 {

@@ -6,7 +6,7 @@
 
 #include "Probate.hpp"
 
-struct Font
+struct Face
 {
     Int Family;
     Int Size;
@@ -18,4 +18,4 @@ struct Font
     QFont* Intern;
 };
 
-#define CP(a) ((Font*)(a))
+#define CP(a) ((Face*)(a))
