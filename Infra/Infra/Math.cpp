@@ -214,6 +214,8 @@ Int Math_ValueTen(Int o, Int significand, Int exponentTen)
 
 Int Math_Less(Int o, Int valueA, Int valueB)
 {
+    ValidValue(valueA);
+    ValidValue(valueB);
     Start(valueA, ua);
     Start(valueB, ub);
     
