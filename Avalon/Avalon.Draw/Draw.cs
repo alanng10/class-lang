@@ -368,7 +368,7 @@ public class Draw : Any
         return true;
     }
 
-    public virtual bool ExecuteEllipse(RectInt rect)
+    public virtual bool ExecuteRound(RectInt rect)
     {
         this.InternRectSetFromRectInt(this.InternRectA, rect);
         Extern.Draw_ExecuteEllipse(this.Intern, this.InternRectA);

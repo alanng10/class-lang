@@ -25,7 +25,7 @@ class ViewC : View
         
         draw.Fill = this.EllipseBrush;
 
-        draw.ExecuteEllipse(this.EllipseRect);
+        draw.ExecuteRound(this.EllipseRect);
 
         draw.Fill = null;
 
