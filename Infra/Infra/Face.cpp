@@ -2,9 +2,9 @@
 
 CppClassNew(Face)
 
-Int Font_Init(Int o)
+Int Face_Init(Int o)
 {
-    Font* m;
+    Face* m;
     m = CP(o);
 
     QString familyString;
@@ -39,26 +39,26 @@ Int Font_Init(Int o)
     return true;
 }
 
-Int Font_Final(Int o)
+Int Face_Final(Int o)
 {
-    Font* m;
+    Face* m;
     m = CP(o);
 
     delete m->Intern;
     return true;
 }
 
-CppField(Font, Family)
-CppField(Font, Size)
-CppField(Font, Weight)
-CppField(Font, Italic)
-CppField(Font, Underline)
-CppField(Font, Overline)
-CppField(Font, Strikeout)
+CppField(Face, Family)
+CppField(Face, Size)
+CppField(Face, Weight)
+CppField(Face, Italic)
+CppField(Face, Underline)
+CppField(Face, Overline)
+CppField(Face, Strikeout)
 
-Int Font_Intern(Int o)
+Int Face_Intern(Int o)
 {
-    Font* m;
+    Face* m;
     m = CP(o);
     Int a;
     a = CastInt(m->Intern);
