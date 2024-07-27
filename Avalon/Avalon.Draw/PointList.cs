@@ -6,6 +6,7 @@ public class PointList : Any
     {
         base.Init();
         this.InternInfra = InternInfra.This;
+        this.InfraInfra = InfraInfra.This;
 
         this.InternPos = this.InternInfra.PosCreate();
 
@@ -54,12 +55,18 @@ public class PointList : Any
 
     public virtual int Count { get; set; }
     private InternInfra InternInfra { get; set; }
+    protected virtual InfraInfra InfraInfra { get; set; }
     internal virtual ulong Intern { get; set; }
     private ulong InternDataValue { get; set; }
     private ulong InternPos { get; set; }
 
     public virtual bool Get(int index, PosInt result)
     {
+        if (!this.InfraInfra.ValidIndex(this.Count, index))
+        {
+            return false;
+        }
+
         ulong k;
         k = this.Address(index);
 
@@ -86,6 +93,11 @@ public class PointList : Any
 
     public virtual bool Set(int index, PosInt value)
     {
+        if (!this.InfraInfra.ValidIndex(this.Count, index))
+        {
+            return false;
+        }
+        
         ulong pos;
         pos = this.InternPos;
 
