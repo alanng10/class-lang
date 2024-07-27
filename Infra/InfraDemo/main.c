@@ -62,7 +62,7 @@ Int PointListData;
 
 
 
-Int Font;
+Int Face;
 
 
 Int TextFlag;
@@ -549,7 +549,7 @@ Bool DrawHandle(Int frame, Int arg)
     Draw_ExecuteRect(Draw, RectA);
 
 
-    Draw_FaceSet(Draw, Font);
+    Draw_FaceSet(Draw, Face);
 
     Draw_StrokeSet(Draw, PenText);
 
@@ -1240,18 +1240,18 @@ int main(int argc, char* argv[])
     }
 
 
-    Int fontFamily;
-    fontFamily = String_ConstantCreate(CastInt("Source Sans 3"));
+    Int faceFamily;
+    faceFamily = String_ConstantCreate(CastInt("Source Sans 3"));
 
-    Font = Font_New();
-    Font_FamilySet(Font, fontFamily);
-    Font_SizeSet(Font, 16);
-    Font_WeightSet(Font, 600);
-    Font_ItalicSet(Font, true);
-    Font_UnderlineSet(Font, true);
-    Font_OverlineSet(Font, true);
-    Font_StrikeoutSet(Font, true);
-    Font_Init(Font);
+    Face = Face_New();
+    Face_FamilySet(Face, faceFamily);
+    Face_SizeSet(Face, 16);
+    Face_WeightSet(Face, 600);
+    Face_ItalicSet(Face, true);
+    Face_UnderlineSet(Face, true);
+    Face_OverlineSet(Face, true);
+    Face_StrikeoutSet(Face, true);
+    Face_Init(Face);
 
     TextFlag = Stat_TextAlignRight(Stat) | Stat_TextAlignVCenter(Stat);
 
@@ -2173,15 +2173,15 @@ int main(int argc, char* argv[])
 
 
 
-    Font_Final(Font);
+    Face_Final(Face);
 
 
-    Font_Delete(Font);
+    Face_Delete(Face);
 
 
 
 
-    String_ConstantDelete(fontFamily);
+    String_ConstantDelete(faceFamily);
 
 
 
