@@ -32,7 +32,7 @@ Int Brush_InternBrush(Int o);
 Int Image_Intern(Int o);
 Int Image_SetReadIntern(Int o, Int value);
 
-Int Font_Intern(Int o);
+Int Face_Intern(Int o);
 
 Int Form_Intern(Int o);
 
