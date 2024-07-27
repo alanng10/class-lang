@@ -346,7 +346,7 @@ public class Draw : Any
         return true;
     }
 
-    public virtual bool ExecuteRoundRect(RectInt rect, long horizRadius, long vertRadius)
+    public virtual bool ExecuteRectRound(RectInt rect, long horizRadius, long vertRadius)
     {
         this.InternRectSetFromRectInt(this.InternRectA, rect);
 

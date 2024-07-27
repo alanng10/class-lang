@@ -36,7 +36,7 @@ class ViewA : View
         draw.FillPos.Up = this.MathInt(up);
         draw.FillPosSet();
         
-        draw.ExecuteRoundRect(rect, this.MathInt(40), this.MathInt(30));
+        draw.ExecuteRectRound(rect, this.MathInt(40), this.MathInt(30));
 
         DrawImage playImage;
         playImage = this.Demo.PlayImage;
