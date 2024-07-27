@@ -94,6 +94,21 @@ public class Infra : object
         return true;
     }
 
+    public virtual ulong RangeCreate()
+    {
+        ulong o;
+        o = Extern.Range_New();
+        Extern.Range_Init(o);
+        return o;
+    }
+
+    public virtual bool RangeDelete(ulong o)
+    {
+        Extern.Range_Final(o);
+        Extern.Range_Delete(o);
+        return true;
+    }
+
     public virtual ulong PosCreate()
     {
         ulong o;
