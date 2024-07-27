@@ -5,6 +5,9 @@ public class PointList : Any
     public override bool Init()
     {
         base.Init();
+        this.InternInfra = InternInfra.This;
+
+        this.InternPos = this.InternInfra.PosCreate();
 
         int count;
         count = this.Count;
@@ -43,10 +46,15 @@ public class PointList : Any
         Extern.Data_Delete(this.Intern);
 
         Extern.Delete(this.InternDataValue);
+
+        this.InternInfra.PosDelete(this.InternPos);
+
         return true;
     }
 
     public virtual int Count { get; set; }
+    private InternInfra InternInfra { get; set; }
     internal virtual ulong Intern { get; set; }
     private ulong InternDataValue { get; set; }
+    private ulong InternPos { get; set; }
 }
