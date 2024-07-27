@@ -45,7 +45,7 @@ public class Host : Any
 
     public virtual Port Port { get; set; }
     public virtual State NewPeerState { get; set; }
-
+    public virtual bool IsOpen { get; set; }
     private InternIntern InternIntern { get; set; }
     private InternInfra InternInfra { get; set; }
     private Infra NetworkInfra { get; set; }
@@ -62,30 +62,26 @@ public class Host : Any
         
         ulong u;
         u = Extern.NetworkHost_Open(this.Intern);
+
+        bool k;
+        k = (!(u == 0));
+
+        if (k)
+        {
+            this.IsOpen = true;
+        }
+
         bool a;
-        a = (!(u == 0));
+        a = k;
         return a;
     }
 
     public virtual bool Close()
     {
+        this.IsOpen = false;
+
         Extern.NetworkHost_Close(this.Intern);
         return true;
-    }
-
-    public virtual bool IsOpen
-    {
-        get
-        {
-            ulong u;
-            u = Extern.NetworkHost_IsOpen(this.Intern);
-            bool a;
-            a = (!(u == 0));
-            return a;
-        }
-        set
-        {
-        }
     }
 
     public virtual Network OpenPeer()
