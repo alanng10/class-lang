@@ -119,12 +119,12 @@ class Stream : StreamStream
         }
     }
 
-    public override bool Read(Data data, DataRange range)
+    public override bool Read(Data data, RangeInt range)
     {
         return this.Intern.Read(data.Value, data.Count, range.Index, range.Count);
     }
 
-    public override bool Write(Data data, DataRange range)
+    public override bool Write(Data data, RangeInt range)
     {
         return this.Intern.Write(data.Value, data.Count, range.Index, range.Count);
     }
