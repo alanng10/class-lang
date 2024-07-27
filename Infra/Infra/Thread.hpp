@@ -1,5 +1,6 @@
 #pragma once
 
+#include <QThread>
 #include <QMutex>
 #include <QSemaphore>
 #include <QThreadStorage>

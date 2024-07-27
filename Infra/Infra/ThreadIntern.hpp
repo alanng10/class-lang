@@ -1,9 +1,6 @@
 #pragma once
 
 #include <QThread>
-#include <QSemaphore>
-#include <QMutex>
-#include <QThreadStorage>
 
 #include "Probate.hpp"
 
