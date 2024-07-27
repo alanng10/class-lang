@@ -5,12 +5,14 @@ CppClassNew(AudioEffect)
 Int AudioEffect_Init(Int o)
 {
     AudioEffect* m;
-
     m = CP(o);
-    m->Intern = new QSoundEffect();
-    Int scaleFactor;
-    scaleFactor = 1 << 20;
-    m->Volume = scaleFactor;
+
+    m->Intern = new QSoundEffect;
+
+    Int capValue;
+    capValue = Math_Value(null, 1, 0);
+    
+    AudioEffect_VolumeSet(o, capValue);
     return true;
 }
 
