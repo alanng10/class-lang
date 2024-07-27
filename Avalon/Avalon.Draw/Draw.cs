@@ -358,11 +358,11 @@ public class Draw : Any
         return true;
     }
 
-    public virtual bool ExecuteArc(RectInt rect, RangeInt range)
+    public virtual bool ExecuteArc(RectInt rect, Range range)
     {
         this.InternRectSetFromRectInt(this.InternRectA, rect);
 
-        this.InternRangeSetFromRangeInt(this.InternRangeA, range);
+        this.InternRangeSetFromRange(this.InternRangeA, range);
 
         Extern.Draw_ExecuteArc(this.Intern, this.InternRectA, this.InternRangeA);
         return true;
@@ -453,7 +453,7 @@ public class Draw : Any
         return a;
     }
 
-    private bool InternRangeSetFromRangeInt(ulong internRange, RangeInt range)
+    private bool InternRangeSetFromRange(ulong internRange, Range range)
     {
         this.InternInfra.RangeSet(internRange, range.Index, range.Count);
         return true;
