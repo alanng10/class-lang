@@ -23,7 +23,7 @@ Int Math_GetInternValue(Int o, Int value)
     uoa = CastInt(&aa);
     uob = CastInt(&ab);
 
-    Math_Compose(o, value, uoa, uob);
+    Math_Comp(o, value, uoa, uob);
 
     SInt oaa;
     SInt oab;
@@ -118,7 +118,7 @@ Int Math_GetValueFromComp(Int o, Int significand, Int exponent)
     return k;
 }
 
-Int Math_Compose(Int o, Int value, Int significand, Int exponent)
+Int Math_Comp(Int o, Int value, Int significand, Int exponent)
 {
     SInt aa;
     aa = value;
