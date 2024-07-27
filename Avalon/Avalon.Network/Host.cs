@@ -94,11 +94,11 @@ public class Host : Any
         return a;
     }
 
-    protected virtual Network CreatePeer(ulong hostPeer)
+    protected virtual Network CreatePeer(ulong peer)
     {
         Network a;
         a = new Network();
-        a.HostPeer = hostPeer;
+        a.HostPeer = peer;
         a.Init();
         return a;
     }
