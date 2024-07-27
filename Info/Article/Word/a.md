@@ -108,6 +108,8 @@ Word "token" has meaning that is string unit.
 
 Word "code" has meaning that is data with value.
 
+Word "kind" has meaning that is one of types.
+
 Word "case" has meaning that is one of discrete choices.
 
 Word "refer" has meaning that is declaration.
@@ -155,8 +157,6 @@ Word "stream" has meaning that is serial.
 Word "read" has meaning that is got info from medium.
 
 Word "write" has meaning that is set info to medium.
-
-Word "kind" has meaning that is one of types.
 
 Word "face" has meaning that is char style.
 
