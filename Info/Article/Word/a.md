@@ -20,6 +20,8 @@ Word "byte" has meaning that is data unit.
 
 Word "info" has meaning that is interpreted.
 
+Word "all" has meaning that is anything included.
+
 Word "define" has meaning that is definition.
 
 Word "detail" has meaning that is sub info.
