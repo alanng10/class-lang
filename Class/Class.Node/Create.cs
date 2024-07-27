@@ -1106,43 +1106,50 @@ public class Create : InfraCreate
         start = range.Start;
         end = range.End;
 
-        if (!(start + 2 == end))
+        int count;
+        count = this.Count(start, end);
+
+        if (!(count < 1 | 3 < count))
         {
             return null;
         }
 
-        Range classRange;
-        classRange = this.ExecuteNameRange(this.RangeB, this.Range(this.RangeA, start, end));
-        if (classRange == null)
-        {
-            return null;
-        }
-
-        Range nameRange;
-        nameRange = this.ExecuteNameRange(this.RangeC, this.Range(this.RangeA, classRange.End, end));
-        if (nameRange == null)
+        Token varToken;
+        varToken = this.Token(this.TokenA, this.Keyword.Var.Text, this.IndexRange(this.RangeA, start));
+        if (varToken == null)
         {
             return null;
         }
 
         int classStart;
         int classEnd;
-        classStart = classRange.Start;
-        classEnd = classRange.End;
+        classStart = varToken.Range.End;
+        classEnd = classStart + 1;
+
+        if (end < classEnd)
+        {
+            classEnd = end;
+        }
+        
         int nameStart;
         int nameEnd;
-        nameStart = nameRange.Start;
-        nameEnd = nameRange.End;
+        nameStart = classEnd;
+        nameEnd = nameStart + 1;
+
+        if (end < nameEnd)
+        {
+            nameEnd = end;
+        }
 
         Node varClass;
-        varClass = this.ExecuteNameNode(this.NodeKind.ClassName, this.Range(this.RangeA, classStart, classEnd));
+        varClass = this.ExecuteName(this.NodeKind.ClassName, this.Range(this.RangeA, classStart, classEnd));
         if (varClass == null)
         {
             this.Error(this.ErrorKind.ClassInvalid, classStart, classEnd);
         }
 
         Node name;
-        name = this.ExecuteNameNode(this.NodeKind.VarName, this.Range(this.RangeA, nameStart, nameEnd));
+        name = this.ExecuteName(this.NodeKind.VarName, this.Range(this.RangeA, nameStart, nameEnd));
         if (name == null)
         {
             this.Error(this.ErrorKind.NameInvalid, nameStart, nameEnd);
@@ -2566,6 +2573,7 @@ public class Create : InfraCreate
 
         int count;
         count = this.Count(start, end);
+
         if (count < 1 | 2 < count)
         {
             return null;
