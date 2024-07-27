@@ -13,7 +13,7 @@ struct Math
 #define ValidValue(a) \
 if (a == CastInt(-1))\
 {\
-    return a;\
+    return CastInt(-1);\
 }\
 
 
@@ -25,19 +25,20 @@ if (std::isnan(a) | std::isinf(a))\
 
 
 #define Start(value, aa) \
-    Int aa##_u;\
-    aa##_u = Math_GetInternValue(o, value);\
-    ValidValue(aa##_u);\
-    double aa;\
-    aa = CastIntToDouble(aa##_u);\
+ValidValue(value);\
+Int aa##_u;\
+aa##_u = Math_GetInternValue(o, value);\
+ValidValue(aa##_u);\
+double aa;\
+aa = CastIntToDouble(aa##_u);\
 
 
 #define End \
-    Int a_u;\
-    a_u = CastDoubleToInt(oo);\
-    Int a;\
-    a = Math_GetValueFromInternValue(o, a_u);\
-    return a;\
+Int a_u;\
+a_u = CastDoubleToInt(oo);\
+Int a;\
+a = Math_GetValueFromInternValue(o, a_u);\
+return a;\
 
 
 #define MathMaide(name, f) \
