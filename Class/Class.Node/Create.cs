@@ -35,6 +35,7 @@ public class Create : InfraCreate
         this.TokenF = this.CreateToken();
         this.TokenG = this.CreateToken();
         this.TokenH = this.CreateToken();
+        this.TokenI = this.CreateToken();
 
         this.CharCompare = new IntCompare();
         this.CharCompare.Init();
@@ -96,6 +97,7 @@ public class Create : InfraCreate
     protected virtual Token TokenF { get; set; }
     protected virtual Token TokenG { get; set; }
     protected virtual Token TokenH { get; set; }
+    protected virtual Token TokenI { get; set; }
 
     protected virtual TextCompare TextCompare { get; set; }
     protected virtual IntCompare CharCompare { get; set; }
@@ -751,22 +753,27 @@ public class Create : InfraCreate
         start = range.Start;
         end = range.End;
 
-        Range countRange;
-        countRange = this.ExecuteCountRange(this.RangeB, this.Range(this.RangeA, start, end));
-        if (countRange == null)
+        if (start == end)
+        {
+            return null;
+        }
+
+        Token fieldToken;
+        fieldToken = this.Token(this.TokenA, this.Keyword.Field.Text, this.IndexRange(this.RangeA, start));
+        if (fieldToken == null)
         {
             return null;
         }
 
         Token leftBrace;
-        leftBrace = this.TokenForwardNoSkip(this.TokenA, this.Delimit.LeftBrace.Text, this.Range(this.RangeA, countRange.End, end));
+        leftBrace = this.TokenForwardNoSkip(this.TokenB, this.Delimit.LeftBrace.Text, this.Range(this.RangeA, fieldToken.Range.End, end));
         if (leftBrace == null)
         {
             return null;
         }
 
         Token rightBrace;
-        rightBrace = this.TokenMatchLeftBrace(this.TokenB, this.Range(this.RangeA, leftBrace.Range.End, end));
+        rightBrace = this.TokenMatchLeftBrace(this.TokenC, this.Range(this.RangeA, leftBrace.Range.End, end));
         if (rightBrace == null)
         {
             return null;
@@ -779,24 +786,32 @@ public class Create : InfraCreate
 
         int countStart;
         int countEnd;
-        countStart = countRange.Start;
-        countEnd = countRange.End;
+        countStart = fieldToken.Range.End;
+        countEnd = countStart + 1;
 
         int ke;
         ke = leftBrace.Range.Start;
 
+        if (ke < countEnd)
+        {
+            countEnd = ke;
+        }
+
         int classStart;
         int classEnd;
-        classStart = countRange.End;
+        classStart = countEnd;
         classEnd = classStart + 1;
+
         if (ke < classEnd)
         {
             classEnd = ke;
         }
+
         int nameStart;
         int nameEnd;
         nameStart = classEnd;
         nameEnd = ke;
+        
         int oStart;
         int oEnd;
         oStart = leftBrace.Range.End;
@@ -836,7 +851,7 @@ public class Create : InfraCreate
         getToken = null;
         if (!b)
         {
-            getToken = this.Token(this.TokenC, this.Keyword.ItemGet.Text, this.IndexRange(this.RangeA, oStart));
+            getToken = this.Token(this.TokenD, this.Keyword.ItemGet.Text, this.IndexRange(this.RangeA, oStart));
             if (getToken == null)
             {
                 b = true;
@@ -854,7 +869,7 @@ public class Create : InfraCreate
         getLeftBrace = null;
         if (!b)
         {
-            getLeftBrace = this.Token(this.TokenD, this.Delimit.LeftBrace.Text, this.IndexRange(this.RangeA, getToken.Range.End));
+            getLeftBrace = this.Token(this.TokenE, this.Delimit.LeftBrace.Text, this.IndexRange(this.RangeA, getToken.Range.End));
             if (getLeftBrace == null)
             {
                 b = true;
@@ -865,7 +880,7 @@ public class Create : InfraCreate
         getRightBrace = null;
         if (!b)
         {
-            getRightBrace = this.TokenMatchLeftBrace(this.TokenE, this.Range(this.RangeA, getLeftBrace.Range.End, oEnd));
+            getRightBrace = this.TokenMatchLeftBrace(this.TokenF, this.Range(this.RangeA, getLeftBrace.Range.End, oEnd));
             if (getRightBrace == null)
             {
                 b = true;
@@ -883,7 +898,7 @@ public class Create : InfraCreate
         setToken = null;
         if (!b)
         {
-            setToken = this.Token(this.TokenF, this.Keyword.Set.Text, this.IndexRange(this.RangeA, getRightBrace.Range.End));
+            setToken = this.Token(this.TokenG, this.Keyword.Set.Text, this.IndexRange(this.RangeA, getRightBrace.Range.End));
             if (setToken == null)
             {
                 b = true;
@@ -901,7 +916,7 @@ public class Create : InfraCreate
         setLeftBrace = null;
         if (!b)
         {
-            setLeftBrace = this.Token(this.TokenG, this.Delimit.LeftBrace.Text, this.IndexRange(this.RangeA, setToken.Range.End));
+            setLeftBrace = this.Token(this.TokenH, this.Delimit.LeftBrace.Text, this.IndexRange(this.RangeA, setToken.Range.End));
             if (setLeftBrace == null)
             {
                 b = true;
@@ -912,7 +927,7 @@ public class Create : InfraCreate
         setRightBrace = null;
         if (!b)
         {
-            setRightBrace = this.TokenMatchLeftBrace(this.TokenH, this.Range(this.RangeA, setLeftBrace.Range.End, oEnd));
+            setRightBrace = this.TokenMatchLeftBrace(this.TokenI, this.Range(this.RangeA, setLeftBrace.Range.End, oEnd));
             if (setRightBrace == null)
             {
                 b = true;
