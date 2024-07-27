@@ -10,7 +10,6 @@ Log10 false false
 Log2 false false
 Pow true false
 Sqrt false false
-Cbrt false false
 Ceil false false
 Floor false false
 Trunc false false
