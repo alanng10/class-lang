@@ -385,6 +385,16 @@ public class Draw : Any
         Extern.Draw_ExecutePie(this.Intern, this.InternRectA, this.InternRangeA);
         return true;
     }
+    
+    public virtual bool ExecuteRoundShape(RectInt rect, Range range)
+    {
+        this.InternRectSetFromRectInt(this.InternRectA, rect);
+
+        this.InternRangeSetFromRange(this.InternRangeA, range);
+
+        Extern.Draw_ExecuteChord(this.Intern, this.InternRectA, this.InternRangeA);
+        return true;
+    }
 
     public virtual bool ExecuteLine(PosInt startPos, PosInt endPos)
     {
