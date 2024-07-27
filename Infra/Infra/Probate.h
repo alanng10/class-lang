@@ -60,6 +60,7 @@ Int Thread_InternCaseMutex(Int o);
 Int Thread_InternHandleSemaphore(Int o);
 Int Thread_InitMainThread(Int o);
 Int Thread_FinalMainThread(Int o);
+Int Thread_ExecuteHandle(Int o);
 Int Thread_OS_OpenHandle(Int threadId);
 Int Thread_OS_CloseHandle(Int handle);
 Int Thread_OS_Set();

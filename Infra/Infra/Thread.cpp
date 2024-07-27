@@ -304,6 +304,82 @@ Int Thread_Sleep(Int time)
     return true;
 }
 
+Int Thread_ExecuteHandle(Int o)
+{
+    Qt::HANDLE uu;
+    uu = QThread::currentThreadId();
+
+    Int threadId;
+    threadId = CastInt(uu);
+
+    Int handle;
+    handle = Thread_OS_OpenHandle(threadId);
+
+    Thread_HandleSet(o, handle);
+
+    Thread_OS_Set();
+
+    Int share;
+    share = Infra_Share();
+    Int stat;
+    stat = Share_Stat(share);
+
+    Int executeCase;
+    executeCase = Stat_ThreadCaseExecute(stat);
+    Thread_CaseSet(o, executeCase);
+
+    Thread_StoreSetThread(o);
+
+    Main_CurrentThreadSignalHandleSet();
+
+    Int ua;
+    ua = Thread_InternHandleSemaphore(o);
+
+    QSemaphore* handleSemaphore;
+    handleSemaphore = (QSemaphore*)ua;
+    handleSemaphore->release();
+
+    Int status;
+    status = 0;
+
+    Int state;
+    state = Thread_ExecuteStateGet(o);
+
+    if (!(state == null))
+    {
+        Int aa;
+        aa = State_MaideGet(state);
+        Int ab;
+        ab = State_ArgGet(state);
+
+        if (!(aa == null))
+        {
+            Thread_Execute_Maide maide;
+            maide = (Thread_Execute_Maide)aa;
+
+            status = maide(o, ab);
+        }
+    }
+
+    Thread_StatusSet(o, status);
+
+    Int finishCase;
+    finishCase = Stat_ThreadCaseFinish(stat);
+    
+    Int uc;
+    uc = Thread_InternCaseMutex(o);
+    QMutex* caseMutex;
+    caseMutex = (QMutex*)uc;
+
+    caseMutex->lock();
+
+    Thread_CaseSet(o, finishCase);
+
+    caseMutex->unlock();
+    
+    return true;
+}
+
 Int Thread_CreateStore()
 {
     QThreadStorage<ThreadStoreValue>* threadStorage;
