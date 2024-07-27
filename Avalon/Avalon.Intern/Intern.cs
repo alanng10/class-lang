@@ -234,7 +234,7 @@ public class Intern : object
             ua = (ulong)pa;
             ub = (ulong)pb;
 
-            Extern.Math_Compose(math, u, ua, ub);
+            Extern.Math_Comp(math, u, ua, ub);
 
             comp.Significand = oa;
             comp.Exponent = ob;
