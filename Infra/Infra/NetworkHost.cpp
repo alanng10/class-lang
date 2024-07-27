@@ -13,6 +13,7 @@ Int NetworkHost_Final(Int o)
 }
 
 CppField(NetworkHost, Port)
+CppField(NetworkHost, NewPeerState)
 
 Int NetworkHost_Open(Int o)
 {
@@ -55,8 +56,6 @@ Int NetworkHost_Close(Int o)
     m->Intern = null;
     return true;
 }
-
-CppField(NetworkHost, NewPeerState)
 
 Int NetworkHost_OpenPeer(Int o)
 {
