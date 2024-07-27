@@ -1357,7 +1357,7 @@ class Demo : Any
         scaleFactor = 1 << 20;
 
         long volume;
-        volume = scaleFactor / 8;
+        volume = this.MathValue(scaleFactor / 8, -20);
 
         AudioOut audioOut;
         audioOut = new AudioOut();
