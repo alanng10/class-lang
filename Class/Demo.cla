@@ -1,6 +1,6 @@
 class F : N
 {
-    prudate Bool A()
+    prudate Bool A(var Bool aa, var String ao)
     {
         this.D : new D;
 
