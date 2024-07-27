@@ -471,7 +471,7 @@ public class Draw : Any
         SizeInt size;
         pos = rect.Pos;
         size = rect.Size;
-        this.InternInfra.RectSetFromRectValue(internRect, pos.Left, pos.Up, size.Width, size.Height);
+        this.InternInfra.RectSet(internRect, pos.Left, pos.Up, size.Width, size.Height);
         return true;
     }
 
@@ -481,7 +481,7 @@ public class Draw : Any
         Size size;
         pos = rect.Pos;
         size = rect.Size;
-        this.InternInfra.RectSetFromRectValue(internRect, pos.Left, pos.Up, size.Width, size.Height);
+        this.InternInfra.RectSet(internRect, pos.Left, pos.Up, size.Width, size.Height);
         return true;
     }
 }
