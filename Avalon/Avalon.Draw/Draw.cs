@@ -48,6 +48,8 @@ public class Draw : Any
 
         this.InternRectA = this.InternInfra.RectCreate();
         this.InternRectB = this.InternInfra.RectCreate();
+        this.InternPosA = this.InternInfra.PosCreate();
+        this.InternPosB = this.InternInfra.PosCreate();
 
         this.InternSize = Extern.Size_New();
         Extern.Size_Init(this.InternSize);
@@ -78,8 +80,9 @@ public class Draw : Any
         Extern.Size_Final(this.InternSize);
         Extern.Size_Delete(this.InternSize);
 
+        this.InternInfra.PosDelete(this.InternPosB);
+        this.InternInfra.PosDelete(this.InternPosA);
         this.InternInfra.RectDelete(this.InternRectB);
-
         this.InternInfra.RectDelete(this.InternRectA);
 
         Extern.String_Final(this.InternText);
@@ -201,6 +204,8 @@ public class Draw : Any
     private ulong InternFillPos { get; set; }
     private ulong InternArea { get; set; }
     private ulong InternSize { get; set; }
+    private ulong InternPosB { get; set; }
+    private ulong InternPosA { get; set; }
     private ulong InternRectB { get; set; }
     private ulong InternRectA { get; set; }
     private ulong InternText { get; set; }
@@ -357,6 +362,15 @@ public class Draw : Any
         return true;
     }
 
+    public virtual bool ExecuteLine(PosInt startPos, PosInt endPos)
+    {
+        this.InternPosSetFromPosInt(this.InternPosA, startPos);
+        this.InternPosSetFromPosInt(this.InternPosB, endPos);
+
+        Extern.Draw_ExecuteLine(this.Intern, this.InternPosA, this.InternPosB);
+        return true;
+    }
+
     public virtual bool ExecuteImage(Image image, RectInt destRect, RectInt sourceRect)
     {
         this.InternRectSetFromRectInt(this.InternRectA, destRect);
@@ -424,6 +438,12 @@ public class Draw : Any
         long a;
         a = this.Math.Value(mathComp);
         return a;
+    }
+
+    private bool InternPosSetFromPosInt(ulong internPos, PosInt pos)
+    {
+        this.InternInfra.PosSet(internPos, pos.Left, pos.Up);
+        return true;
     }
 
     private bool InternRectSetFromRectInt(ulong internRect, RectInt rect)
