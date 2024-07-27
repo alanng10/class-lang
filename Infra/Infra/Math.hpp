@@ -25,7 +25,6 @@ if (std::isnan(a) | std::isinf(a))\
 
 
 #define Start(value, aa) \
-ValidValue(value);\
 Int aa##_u;\
 aa##_u = Math_GetInternValue(o, value);\
 ValidValue(aa##_u);\
@@ -44,6 +43,7 @@ return a;\
 #define MathMaide(name, f) \
 Int Math_##name(Int o, Int value)\
 {\
+    ValidValue(value);\
     Start(value, ua);\
     double oo;\
     oo = f(ua);\
@@ -55,6 +55,8 @@ Int Math_##name(Int o, Int value)\
 #define MathMaideTwo(name, f) \
 Int Math_##name(Int o, Int valueA, Int valueB)\
 {\
+    ValidValue(valueA);\
+    ValidValue(valueB);\
     Start(valueA, ua);\
     Start(valueB, ub);\
     double oo;\
