@@ -6,7 +6,7 @@ public class TraverseClassPathGen : TraverseGen
     {
         base.Init();
         
-        this.PathOutput = "../../Class/Class.Console/ClassPathTraverse.cs";
+        this.PathOutput = "../../Class/Class.Console/ClassPathTraversePart.cs";
 
         this.PathSource = this.GetPath("ClassPathSource");
         this.PathArray = this.GetPath("ClassPathArray");
