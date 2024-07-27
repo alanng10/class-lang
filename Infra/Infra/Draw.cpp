@@ -172,7 +172,7 @@ Int Draw_FormSet(Int o, Int value)
     }
 
     Int u;
-    u = Transform_Intern(m->Form);
+    u = Form_Intern(m->Form);
     QTransform* uu;
     uu = (QTransform*)u;
     m->Intern->setWorldTransform(*uu, false);
