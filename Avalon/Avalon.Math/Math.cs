@@ -70,9 +70,18 @@ public partial class Math : Any
         ulong ub;
         ua = (ulong)valueA;
         ub = (ulong)valueB;
+
         ulong u;
         u = Extern.Math_Less(this.Intern, ua, ub);
         
+        long k;
+        k = (long)u;
+        
+        if (k == -1)
+        {
+            return false;
+        }
+
         bool a;
         a = !(u == 0);
         return a;
