@@ -358,20 +358,21 @@ public class Draw : Any
         return true;
     }
 
-    public virtual bool ExecuteArc(RectInt rect, Range range)
+    public virtual bool ExecuteRound(RectInt rect)
+    {
+        this.InternRectSetFromRectInt(this.InternRectA, rect);
+        
+        Extern.Draw_ExecuteEllipse(this.Intern, this.InternRectA);
+        return true;
+    }
+
+    public virtual bool ExecuteRoundLine(RectInt rect, Range range)
     {
         this.InternRectSetFromRectInt(this.InternRectA, rect);
 
         this.InternRangeSetFromRange(this.InternRangeA, range);
 
         Extern.Draw_ExecuteArc(this.Intern, this.InternRectA, this.InternRangeA);
-        return true;
-    }
-
-    public virtual bool ExecuteRound(RectInt rect)
-    {
-        this.InternRectSetFromRectInt(this.InternRectA, rect);
-        Extern.Draw_ExecuteEllipse(this.Intern, this.InternRectA);
         return true;
     }
 
