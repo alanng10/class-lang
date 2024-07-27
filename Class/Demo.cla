@@ -18,7 +18,7 @@ class F : N
         bit | (222, 632)
 
 
-        Kk kk;
+        var Kk kk;
 
 
         kk : share Kk;
@@ -29,7 +29,7 @@ class F : N
 
 
 
-        Color c;
+        var Color c;
 
 
 
@@ -38,7 +38,7 @@ class F : N
 
 
 
-        Int gg;
+        var Int gg;
 
 
 
@@ -47,12 +47,12 @@ class F : N
 
 
 
-        D a;
+        var D a;
 
 
 
 
-        N n;
+        var N n;
 
 
         n : new F;
@@ -60,7 +60,7 @@ class F : N
 
 
 
-        F f;
+        var F f;
         
         
         f : cast F(this.M);
@@ -76,18 +76,18 @@ class F : N
 
 
 
-        Int a;
+        var Int a;
 
         a : 10;
 
 
 
-        Int count;
+        var Int count;
 
         count : 12;
 
 
-        Int i;
+        var Int i;
 
         i : 0;
 
@@ -103,7 +103,7 @@ class F : N
 
 
 
-        String kk;
+        var String kk;
 
         kk : "sdfsfsfd\nsfdfsfsf";
 
