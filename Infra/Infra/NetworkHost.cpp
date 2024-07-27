@@ -25,13 +25,15 @@ Int NetworkHost_Open(Int o)
 
     m->Intern->Open();
 
-    Int uu;
-    uu = NetworkPort_InternAddress(m->Port);
+    Int ka;
+    ka = NetworkPort_InternAddress(m->Port);
     QHostAddress* ua;
-    ua = (QHostAddress*)uu;
+    ua = (QHostAddress*)ka;
 
+    Int kb;
+    kb = NetworkPort_HostGet(m->Port);
     quint16 ub;
-    ub = NetworkPort_HostGet(m->Port);
+    ub = kb;
 
     bool bu;
     bu = m->Intern->listen(*ua, ub);
