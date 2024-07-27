@@ -578,8 +578,8 @@ public static class Extern
     [DllImport(InfraLib)] public extern static ulong Network_Final(ulong o);
     [DllImport(InfraLib)] public extern static ulong Network_HostNameGet(ulong o);
     [DllImport(InfraLib)] public extern static ulong Network_HostNameSet(ulong o, ulong value);
-    [DllImport(InfraLib)] public extern static ulong Network_ServerPortGet(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Network_ServerPortSet(ulong o, ulong value);
+    [DllImport(InfraLib)] public extern static ulong Network_HostPortGet(ulong o);
+    [DllImport(InfraLib)] public extern static ulong Network_HostPortSet(ulong o, ulong value);
     [DllImport(InfraLib)] public extern static ulong Network_StreamGet(ulong o);
     [DllImport(InfraLib)] public extern static ulong Network_StreamSet(ulong o, ulong value);
     [DllImport(InfraLib)] public extern static ulong Network_ReadyCountGet(ulong o);
@@ -609,17 +609,13 @@ public static class Extern
     [DllImport(InfraLib)] public extern static ulong NetworkHost_Final(ulong o);
     [DllImport(InfraLib)] public extern static ulong NetworkHost_PortGet(ulong o);
     [DllImport(InfraLib)] public extern static ulong NetworkHost_PortSet(ulong o, ulong value);
-    [DllImport(InfraLib)] public extern static ulong NetworkHost_ErrorGet(ulong o);
-    [DllImport(InfraLib)] public extern static ulong NetworkHost_ErrorSet(ulong o, ulong value);
     [DllImport(InfraLib)] public extern static ulong NetworkHost_NewPeerStateGet(ulong o);
     [DllImport(InfraLib)] public extern static ulong NetworkHost_NewPeerStateSet(ulong o, ulong value);
 
     [DllImport(InfraLib)] public extern static ulong NetworkHost_Open(ulong o);
     [DllImport(InfraLib)] public extern static ulong NetworkHost_Close(ulong o);
-    [DllImport(InfraLib)] public extern static ulong NetworkHost_IsOpen(ulong o);
     [DllImport(InfraLib)] public extern static ulong NetworkHost_OpenPeer(ulong o);
     [DllImport(InfraLib)] public extern static ulong NetworkHost_ClosePeer(ulong o, ulong network);
-    [DllImport(InfraLib)] public extern static ulong NetworkHost_HasPendingPeer(ulong o);
 
     public delegate ulong NetworkHost_NewPeer_Maide(ulong networkHost, ulong arg);
 

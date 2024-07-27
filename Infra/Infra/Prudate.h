@@ -550,8 +550,8 @@ Infra_Api Int StorageArrange_Exist(Int o, Int path);
 InfraApiNew(Network)
 Infra_Api Int Network_HostNameGet(Int o);
 Infra_Api Int Network_HostNameSet(Int o, Int value);
-Infra_Api Int Network_ServerPortGet(Int o);
-Infra_Api Int Network_ServerPortSet(Int o, Int value);
+Infra_Api Int Network_HostPortGet(Int o);
+Infra_Api Int Network_HostPortSet(Int o, Int value);
 Infra_Api Int Network_StreamGet(Int o);
 Infra_Api Int Network_StreamSet(Int o, Int value);
 Infra_Api Int Network_ReadyCountGet(Int o);
@@ -578,17 +578,13 @@ typedef Int (*Network_ReadyRead_Maide)(Int network, Int arg);
 InfraApiNew(NetworkHost)
 Infra_Api Int NetworkHost_PortGet(Int o);
 Infra_Api Int NetworkHost_PortSet(Int o, Int value);
-Infra_Api Int NetworkHost_ErrorGet(Int o);
-Infra_Api Int NetworkHost_ErrorSet(Int o, Int value);
 Infra_Api Int NetworkHost_NewPeerStateGet(Int o);
 Infra_Api Int NetworkHost_NewPeerStateSet(Int o, Int value);
 
 Infra_Api Int NetworkHost_Open(Int o);
 Infra_Api Int NetworkHost_Close(Int o);
-Infra_Api Int NetworkHost_IsOpen(Int o);
 Infra_Api Int NetworkHost_OpenPeer(Int o);
 Infra_Api Int NetworkHost_ClosePeer(Int o, Int network);
-Infra_Api Int NetworkHost_HasPendingPeer(Int o);
 
 typedef Int (*NetworkHost_NewPeer_Maide)(Int networkHost, Int arg);
 
