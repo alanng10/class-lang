@@ -34,10 +34,21 @@ Int VideoOut_FrameChange(Int o)
 
     Int state;
     state = m->FrameState;
+
+    if (state == null)
+    {
+        return true;
+    }
+
     Int aa;
     aa = State_MaideGet(state);
     Int arg;
     arg = State_ArgGet(state);
+
+    if (aa == null)
+    {
+        return true;
+    }
 
     Int oa;
     oa = m->Frame;
@@ -45,10 +56,8 @@ Int VideoOut_FrameChange(Int o)
     VideoOut_Frame_Maide maide;
     maide = (VideoOut_Frame_Maide)aa;
 
-    if (!(maide == null))
-    {
-        maide(o, oa, arg);
-    }
+    maide(o, oa, arg);
+
     return true;
 }
 
