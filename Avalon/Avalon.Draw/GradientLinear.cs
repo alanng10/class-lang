@@ -10,9 +10,12 @@ public class GradientLinear : Any
 
         PosInt pos;
         pos = this.StartPos;
-        this.InternStartPos = this.InternInfra.PosCreate(pos.Left, pos.Up);
+        this.InternStartPos = this.InternInfra.PosCreate();
+        this.InternInfra.PosSet(this.InternStartPos, pos.Left, pos.Up);
+        
         pos = this.EndPos;
-        this.InternEndPos = this.InternInfra.PosCreate(pos.Left, pos.Up);
+        this.InternEndPos = this.InternInfra.PosCreate();
+        this.InternInfra.PosSet(this.InternEndPos, pos.Left, pos.Up);
 
         this.Intern = Extern.GradientLinear_New();
         Extern.GradientLinear_StartPosSet(this.Intern, this.InternStartPos);
