@@ -1109,7 +1109,7 @@ public class Create : InfraCreate
         int count;
         count = this.Count(start, end);
 
-        if (!(count < 1 | 3 < count))
+        if (count < 1 | 3 < count)
         {
             return null;
         }
