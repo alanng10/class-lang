@@ -60,21 +60,8 @@ public class PointList : Any
 
     public virtual bool Get(int index, PosInt result)
     {
-        ulong ka;
-        ka = (ulong)index;
-
-        ulong share;
-        share = Extern.Infra_Share();
-
-        ulong stat;
-        stat = Extern.Share_Stat(share);
-
-        ulong ua;
-        ua = Extern.Stat_PointDataCount(stat);
-
         ulong k;
-        k = ka * ua;
-        k = this.InternDataValue + k;
+        k = this.Address(index);
 
         ulong pos;
         pos = this.InternPos;
@@ -95,5 +82,26 @@ public class PointList : Any
         result.Up = up;
 
         return true;
+    }
+
+    private ulong Address(int index)
+    {
+        ulong ka;
+        ka = (ulong)index;
+
+        ulong share;
+        share = Extern.Infra_Share();
+
+        ulong stat;
+        stat = Extern.Share_Stat(share);
+
+        ulong ua;
+        ua = Extern.Stat_PointDataCount(stat);
+
+        ulong k;
+        k = ka * ua;
+        k = this.InternDataValue + k;
+
+        return k;
     }
 }
