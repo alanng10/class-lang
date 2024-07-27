@@ -2,7 +2,11 @@ Class
 ItemGet
 Set
 ItemThis
+Var
 Base
+Return
+Inf
+While
 New
 Share
 Cast
@@ -11,9 +15,6 @@ True
 False
 Sign
 Bit
-Return
-Inf
-While
 Prudate
 Probate
 Precate
