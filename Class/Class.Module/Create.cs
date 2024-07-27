@@ -921,6 +921,9 @@ public class Create : InfraCreate
         object k;
         k = null;
 
+        Count ka;
+        ka = this.Count.Private;
+
         bool b;
         b = false;
 
@@ -934,21 +937,31 @@ public class Create : InfraCreate
         {
             if (!b)
             {
-                k = c.Field.Get(name);
+                Field field;
+                field = (Field)c.Field.Get(name);
 
-                if (!(k == null))
+                if (!(field == null))
                 {
-                    b = true;
+                    if (!(field.Count == ka))
+                    {
+                        k = field;
+                        b = true;
+                    }
                 }
             }
 
             if (!b)
             {
-                k = c.Maide.Get(name);
+                Maide maide;
+                maide = (Maide)c.Maide.Get(name);
 
-                if (!(k == null))
+                if (!(maide == null))
                 {
-                    b = true;
+                    if (!(maide.Count == ka))
+                    {
+                        k = maide;
+                        b = true;
+                    }
                 }
             }
 
