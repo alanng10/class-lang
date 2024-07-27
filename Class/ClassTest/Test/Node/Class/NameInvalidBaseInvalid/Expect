@@ -12,9 +12,9 @@ Class
 {
     Name : null,
     Base : null,
-    Member : Part
-             {
-                 Value : [
-                         ],
-             },
+    Part : Part
+           {
+               Value : [
+                       ],
+           },
 },

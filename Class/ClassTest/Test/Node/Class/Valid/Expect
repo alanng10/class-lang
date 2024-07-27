@@ -8,9 +8,9 @@ Class
            {
                Value : "H",
            },
-    Member : Part
-             {
-                 Value : [
-                         ],
-             },
+    Part : Part
+           {
+               Value : [
+                       ],
+           },
 },

@@ -10,9 +10,9 @@ Class
                Value : "Gg",
            },
     Base : null,
-    Member : Part
-             {
-                 Value : [
-                         ],
-             },
+    Part : Part
+           {
+               Value : [
+                       ],
+           },
 },
