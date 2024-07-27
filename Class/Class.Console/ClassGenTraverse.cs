@@ -302,7 +302,7 @@ public class ClassGenTraverse : Traverse
         this.Text(this.DelimitLeftBrace);
         this.Text(this.NewLine);
 
-        this.ExecutePart(nodeClass.Member);
+        this.ExecutePart(nodeClass.Part);
 
         this.TextIndent();
         this.Text(this.DelimitRightBrace);
