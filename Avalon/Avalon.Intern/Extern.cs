@@ -134,7 +134,6 @@ public static class Extern
     [DllImport(InfraLib)] public extern static ulong Math_Log2(ulong o, ulong value);
     [DllImport(InfraLib)] public extern static ulong Math_Pow(ulong o, ulong valueA, ulong valueB);
     [DllImport(InfraLib)] public extern static ulong Math_Sqrt(ulong o, ulong value);
-    [DllImport(InfraLib)] public extern static ulong Math_Cbrt(ulong o, ulong value);
     [DllImport(InfraLib)] public extern static ulong Math_Ceil(ulong o, ulong value);
     [DllImport(InfraLib)] public extern static ulong Math_Floor(ulong o, ulong value);
     [DllImport(InfraLib)] public extern static ulong Math_Trunc(ulong o, ulong value);

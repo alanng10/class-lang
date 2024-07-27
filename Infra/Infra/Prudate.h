@@ -196,7 +196,6 @@ Infra_Api Int Math_Log10(Int o, Int value);
 Infra_Api Int Math_Log2(Int o, Int value);
 Infra_Api Int Math_Pow(Int o, Int valueA, Int valueB);
 Infra_Api Int Math_Sqrt(Int o, Int value);
-Infra_Api Int Math_Cbrt(Int o, Int value);
 Infra_Api Int Math_Ceil(Int o, Int value);
 Infra_Api Int Math_Floor(Int o, Int value);
 Infra_Api Int Math_Trunc(Int o, Int value);
