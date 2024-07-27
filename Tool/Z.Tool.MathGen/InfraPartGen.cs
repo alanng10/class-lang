@@ -9,7 +9,7 @@ class InfraPartGen : PartGen
         this.PartFilePath = "ToolData/Math/InfraPart.txt";
         this.MaideFilePath = "ToolData/Math/InfraMaide.txt";
         this.MaideTwoFilePath = "ToolData/Math/InfraMaideTwo.txt";
-        this.OutputFilePath = "../../Infra/Infra/MathPart.cpp";
+        this.OutputFilePath = "../../Infra/Infra/Math_Part.cpp";
         return true;
     }
 
