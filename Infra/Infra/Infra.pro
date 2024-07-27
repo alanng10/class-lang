@@ -96,7 +96,7 @@ SOURCES += \
     Maide.c \
     Main.cpp \
     Math.cpp \
-    MathPart.cpp \
+    Math_Part.cpp \
     Memory.cpp \
     Network.cpp \
     NetworkHandle.cpp \
