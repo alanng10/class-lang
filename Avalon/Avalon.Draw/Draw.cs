@@ -361,7 +361,7 @@ public class Draw : Any
     public virtual bool ExecuteRound(RectInt rect)
     {
         this.InternRectSetFromRectInt(this.InternRectA, rect);
-        
+
         Extern.Draw_ExecuteEllipse(this.Intern, this.InternRectA);
         return true;
     }
@@ -373,6 +373,16 @@ public class Draw : Any
         this.InternRangeSetFromRange(this.InternRangeA, range);
 
         Extern.Draw_ExecuteArc(this.Intern, this.InternRectA, this.InternRangeA);
+        return true;
+    }
+
+    public virtual bool ExecuteRoundPart(RectInt rect, Range range)
+    {
+        this.InternRectSetFromRectInt(this.InternRectA, rect);
+
+        this.InternRangeSetFromRange(this.InternRangeA, range);
+
+        Extern.Draw_ExecutePie(this.Intern, this.InternRectA, this.InternRangeA);
         return true;
     }
 
