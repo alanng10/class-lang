@@ -10,9 +10,12 @@ public class GradientRadial : Any
 
         PosInt pos;
         pos = this.CenterPos;
-        this.InternCenterPos = this.InternInfra.PosCreate(pos.Left, pos.Up);
+        this.InternCenterPos = this.InternInfra.PosCreate();
+        this.InternInfra.PosSet(this.InternCenterPos, pos.Left, pos.Up);
+        
         pos = this.FocusPos;
-        this.InternFocusPos = this.InternInfra.PosCreate(pos.Left, pos.Up);
+        this.InternFocusPos = this.InternInfra.PosCreate();
+        this.InternInfra.PosSet(this.InternFocusPos, pos.Left, pos.Up);
 
         ulong centerRadiusU;
         centerRadiusU = (ulong)(this.CenterRadius);
