@@ -167,12 +167,12 @@ public class Network : Any
         this.LoadingOpen = true;
 
         this.InternHostName = this.InternInfra.StringCreate(this.HostName);
-        ulong serverPortU;
-        serverPortU = (ulong)this.HostPort;
+        ulong hostPortU;
+        hostPortU = (ulong)this.HostPort;
         this.DataStream = this.StreamCreate();
 
         Extern.Network_HostNameSet(this.Intern, this.InternHostName);
-        Extern.Network_ServerPortSet(this.Intern, serverPortU);
+        Extern.Network_HostPortSet(this.Intern, hostPortU);
         Extern.Network_StreamSet(this.Intern, this.DataStream.Ident);
         Extern.Network_Open(this.Intern);
         return true;
@@ -185,7 +185,7 @@ public class Network : Any
         Extern.Network_Close(this.Intern);
 
         Extern.Network_StreamSet(this.Intern, 0);
-        Extern.Network_ServerPortSet(this.Intern, 0);
+        Extern.Network_HostPortSet(this.Intern, 0);
         Extern.Network_HostNameSet(this.Intern, 0);
 
         this.DataStream.Final();
