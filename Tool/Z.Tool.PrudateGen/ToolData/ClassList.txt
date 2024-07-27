@@ -296,7 +296,7 @@ StorageArrange
 
 Network
     HostName
-    ServerPort
+    HostPort
     Stream
     ReadyCount
     Status
@@ -314,12 +314,9 @@ Network
 NetworkHost
     Open()
     Close()
-    IsOpen()
     OpenPeer()
     ClosePeer(network)
-    HasPendingPeer()
     Port
-    Error
     NewPeerState
     NewPeer(networkHost, arg) --
 
