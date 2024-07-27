@@ -5,15 +5,15 @@ public class Rand : Any
     public override bool Init()
     {
         base.Init();
-        this.Intern = Extern.Random_New();
-        Extern.Random_Init(this.Intern);
+        this.Intern = Extern.Rand_New();
+        Extern.Rand_Init(this.Intern);
         return true;
     }
 
     public virtual bool Final()
     {
-        Extern.Random_Final(this.Intern);
-        Extern.Random_Delete(this.Intern);
+        Extern.Rand_Final(this.Intern);
+        Extern.Rand_Delete(this.Intern);
         return true;
     }
 
@@ -24,7 +24,7 @@ public class Rand : Any
         get
         {
             ulong u;
-            u = Extern.Random_SeedGet(this.Intern);
+            u = Extern.Rand_SeedGet(this.Intern);
             long a;
             a = (long)u;
             return a;
@@ -33,7 +33,7 @@ public class Rand : Any
         {
             ulong u;
             u = (ulong)value;
-            Extern.Random_SeedSet(this.Intern, u);
+            Extern.Rand_SeedSet(this.Intern, u);
         }
     }
     protected long __D_Seed;
@@ -41,7 +41,7 @@ public class Rand : Any
     public virtual long Execute()
     {
         ulong u;
-        u = Extern.Random_Execute(this.Intern);
+        u = Extern.Rand_Execute(this.Intern);
         long a;
         a = (long)u;
         return a;
