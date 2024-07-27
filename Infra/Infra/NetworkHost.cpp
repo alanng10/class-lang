@@ -75,7 +75,7 @@ Int NetworkHost_OpenPeer(Int o)
 
     Int uu;
     uu = CastInt(socket);
-    Network_ServerOpen(network, uu);
+    Network_HostOpen(network, uu);
     return network;
 }
 
@@ -84,7 +84,7 @@ Int NetworkHost_ClosePeer(Int o, Int network)
     Int stream;
     stream = Network_StreamGet(network);
 
-    Network_ServerClose(network);
+    Network_HostClose(network);
 
     Network_Final(network);
     Network_Delete(network);

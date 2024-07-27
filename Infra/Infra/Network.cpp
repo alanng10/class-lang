@@ -173,7 +173,7 @@ Int Network_CloseUnconnected(Int o)
     return true;
 }
 
-Int Network_ServerOpen(Int o, Int socket)
+Int Network_HostOpen(Int o, Int socket)
 {
     Network* m;
     m = CP(o);
@@ -211,7 +211,7 @@ Int Network_ServerOpen(Int o, Int socket)
     return true;
 }
 
-Int Network_ServerClose(Int o)
+Int Network_HostClose(Int o)
 {
     Network_Close(o);
     return true;
