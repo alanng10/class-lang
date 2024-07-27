@@ -6,8 +6,8 @@ public class Form : Any
     {
         base.Init();
         this.InternIntern = InternIntern.This;
-        this.Intern = Extern.Transform_New();
-        Extern.Transform_Init(this.Intern);
+        this.Intern = Extern.Form_New();
+        Extern.Form_Init(this.Intern);
         return true;
     }
 
@@ -16,8 +16,8 @@ public class Form : Any
 
     public virtual bool Final()
     {
-        Extern.Transform_Final(this.Intern);
-        Extern.Transform_Delete(this.Intern);
+        Extern.Form_Final(this.Intern);
+        Extern.Form_Delete(this.Intern);
         return true;
     }
 
@@ -28,7 +28,7 @@ public class Form : Any
         r = (ulong)row;
         c = (ulong)col;
         ulong u;
-        u = Extern.Transform_ValueGet(this.Intern, r, c);
+        u = Extern.Form_ValueGet(this.Intern, r, c);
         long a;
         a = (long)u;
         return a;
@@ -42,20 +42,20 @@ public class Form : Any
         c = (ulong)col;
         ulong u;
         u = (ulong)value;
-        Extern.Transform_ValueSet(this.Intern, r, c, u);
+        Extern.Form_ValueSet(this.Intern, r, c, u);
         return true;
     }
 
     public virtual bool Reset()
     {
-        Extern.Transform_Reset(this.Intern);
+        Extern.Form_Reset(this.Intern);
         return true;
     }
 
     public virtual bool IsIdentity()
     {
         ulong u;
-        u = Extern.Transform_IsIdentity(this.Intern);
+        u = Extern.Form_IsIdentity(this.Intern);
         bool b;
         b = (!(u == 0));
         return b;
@@ -67,7 +67,7 @@ public class Form : Any
         ulong upU;
         leftU = (ulong)left;
         upU = (ulong)up;
-        Extern.Transform_Offset(this.Intern, leftU, upU);
+        Extern.Form_Offset(this.Intern, leftU, upU);
         return true;
     }
 
@@ -75,7 +75,7 @@ public class Form : Any
     {
         ulong angleU;
         angleU = (ulong)angle;
-        Extern.Transform_Rotate(this.Intern, angleU);
+        Extern.Form_Rotate(this.Intern, angleU);
         return true;
     }
 
@@ -85,13 +85,13 @@ public class Form : Any
         ulong vertScaleU;
         horizScaleU = (ulong)horizScale;
         vertScaleU = (ulong)vertScale;
-        Extern.Transform_Scale(this.Intern, horizScaleU, vertScaleU);
+        Extern.Form_Scale(this.Intern, horizScaleU, vertScaleU);
         return true;
     }
 
     public virtual bool Multiply(Form other)
     {
-        Extern.Transform_Multiply(this.Intern, other.Intern);
+        Extern.Form_Multiply(this.Intern, other.Intern);
         return true;
     }
 }
