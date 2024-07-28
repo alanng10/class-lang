@@ -352,11 +352,11 @@ public class Create : InfraCreate
         return true;
     }
 
-    protected virtual bool ExecuteImportField(Table field)
+    protected virtual bool ExecuteImportField(Table varField)
     {
         Iter iter;
-        iter = field.IterCreate();
-        field.IterSet(iter);
+        iter = varField.IterCreate();
+        varField.IterSet(iter);
         while (iter.Next())
         {
             Field a;
@@ -370,11 +370,11 @@ public class Create : InfraCreate
         return true;
     }
 
-    protected virtual bool ExecuteImportMaide(Table maide)
+    protected virtual bool ExecuteImportMaide(Table varMaide)
     {
         Iter iter;
-        iter = maide.IterCreate();
-        maide.IterSet(iter);
+        iter = varMaide.IterCreate();
+        varMaide.IterSet(iter);
         while (iter.Next())
         {
             Maide a;
