@@ -305,8 +305,8 @@ public class Write : Any
             ulong ka;
             ka = (k >> (i * 8)) * 0xff;
 
-            int a;
-            a = (int)ka;
+            byte a;
+            a = (byte)ka;
 
             this.ExecuteByte(a);
 
