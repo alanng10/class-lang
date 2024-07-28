@@ -3808,22 +3808,22 @@ public class Create : InfraCreate
         start = range.Start;
         end = range.End;
 
-        Range countRange;
-        countRange = this.ExecuteCountRange(this.RangeB, this.Range(this.RangeA, start, end));
-        if (countRange == null)
+        Token fieldToken;
+        fieldToken = this.Token(this.TokenA, this.Keyword.Field.Text, this.IndexRange(this.RangeA, start));
+        if (fieldToken == null)
         {
             return null;
         }
 
         Token leftBrace;
-        leftBrace = this.TokenForwardNoSkip(this.TokenA, this.Delimit.LeftBrace.Text, this.Range(this.RangeA, countRange.End, end));
+        leftBrace = this.TokenForwardNoSkip(this.TokenB, this.Delimit.LeftBrace.Text, this.Range(this.RangeA, fieldToken.Range.End, end));
         if (leftBrace == null)
         {
             return null;
         }
 
         Token rightBrace;
-        rightBrace = this.TokenMatchLeftBrace(this.TokenB, this.Range(this.RangeA, leftBrace.Range.End, end));
+        rightBrace = this.TokenMatchLeftBrace(this.TokenC, this.Range(this.RangeA, leftBrace.Range.End, end));
         if (rightBrace == null)
         {
             return null;
