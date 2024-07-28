@@ -44,9 +44,16 @@ Int AudioOut_VolumeSet(Int o, Int value)
     Int capValue;
     capValue = Math_Value(null, 1, 0);
 
-    Bool b;
-    b = Math_Less(null, capValue, value);
+    Int k;
+    k = Math_Less(null, capValue, value);
 
+    if (k == CastInt(-1))
+    {
+        return false;
+    }
+
+    Int b;
+    b = k;
     if (b)
     {
         value = capValue;
