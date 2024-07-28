@@ -19,15 +19,15 @@ public class Comp : Any
         return a;
     }
 
-    public virtual bool Change(Field field, Change change)
+    public virtual bool Change(Field varField, Change change)
     {
         return true;
     }
 
-    protected virtual bool Event(Field field)
+    protected virtual bool Event(Field varField)
     {
         this.ChangeArg.Comp = this;
-        this.ChangeArg.Field = field;
+        this.ChangeArg.Field = varField;
         this.ChangeEvent.Execute(this.ChangeArg);
         return true;
     }
