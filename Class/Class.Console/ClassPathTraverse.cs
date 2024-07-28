@@ -180,9 +180,9 @@ public partial class ClassPathTraverse : Traverse
         return a;
     }
 
-    protected virtual int GetIndex(InfraRange field, int leftSquareIndex)
+    protected virtual int GetIndex(InfraRange varField, int leftSquareIndex)
     {
-        if (field.Count < 1)
+        if (varField.Count < 1)
         {
             return -1;
         }
@@ -201,8 +201,8 @@ public partial class ClassPathTraverse : Traverse
         InfraRange rangeA;
         rangeA = textA.Range;
 
-        rangeA.Index = range.Index + field.Index;
-        rangeA.Count = field.Count;
+        rangeA.Index = range.Index + varField.Index;
+        rangeA.Count = varField.Count;
 
         bool b;
         b = this.TextInfra.End(textA, this.RightSquare, this.TextCompare);
@@ -216,7 +216,7 @@ public partial class ClassPathTraverse : Traverse
         start = leftSquareIndex + this.LeftSquare.Range.Count;
 
         int end;
-        end = field.Count - this.RightSquare.Range.Count;
+        end = varField.Count - this.RightSquare.Range.Count;
 
         int count;
         count = end - start;
