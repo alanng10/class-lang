@@ -58,6 +58,9 @@ public class Frame : Comp
         this.DestRect = this.CreateFrameRect();
         this.SourceRect = this.CreateFrameRect();
 
+        ulong kk;
+        kk = Extern.Frame_VideoOut(this.Intern);
+
         DrawImage image;
         image = new DrawImage();
         image.Init();
@@ -70,7 +73,7 @@ public class Frame : Comp
         frameDraw = new DrawDraw();
         frameDraw.Init();
         this.FrameDraw = frameDraw;
-        this.DrawSet(frameDraw, this.VideoOut);
+        this.DrawSet(frameDraw, kk);
 
         this.Draw = this.CreateDraw();
         this.DrawSet(this.Draw, image.Out);
@@ -101,16 +104,7 @@ public class Frame : Comp
     public virtual DrawSize Size { get; set; }
     public virtual string Title { get; set; }
     public virtual TypeType Type { get; set; }
-    public virtual ulong VideoOut
-    {
-        get
-        {
-            return Extern.Frame_VideoOut(this.Intern);
-        }
-        set
-        {
-        }
-    }
+    public virtual DrawImage DrawImage { get; set; }
 
     private InternIntern InternIntern { get; set; }
     private InternInfra InternInfra { get; set; }
@@ -119,7 +113,6 @@ public class Frame : Comp
     protected virtual MathMath Math { get; set; }
     protected virtual MathComp MathComp { get; set; }
     protected virtual DrawDraw Draw { get; set; }
-    protected virtual DrawImage DrawImage { get; set; }
     private ulong Intern { get; set; }
     private ulong InternTitle { get; set; }
     private ulong InternUpdateRect { get; set; }
