@@ -3500,11 +3500,11 @@ public class Create : InfraCreate
         }
         if (a == null)
         {
-            a = this.ExecuteDeclareExecuteRange(result, this.Range(this.RangeA, start, end));
+            a = this.ExecuteReferExecuteRange(result, this.Range(this.RangeA, start, end));
         }
         if (a == null)
         {
-            a = this.ExecuteAssignExecuteRange(result, this.Range(this.RangeA, start, end));
+            a = this.ExecuteAreExecuteRange(result, this.Range(this.RangeA, start, end));
         }
         if (a == null)
         {
@@ -3610,7 +3610,7 @@ public class Create : InfraCreate
         return result;
     }
 
-    protected virtual Range ExecuteDeclareExecuteRange(Range result, Range range)
+    protected virtual Range ExecuteReferExecuteRange(Range result, Range range)
     {
         int start;
         int end;
@@ -3639,7 +3639,7 @@ public class Create : InfraCreate
         return result;
     }
 
-    protected virtual Range ExecuteAssignExecuteRange(Range result, Range range)
+    protected virtual Range ExecuteAreExecuteRange(Range result, Range range)
     {
         int start;
         int end;
