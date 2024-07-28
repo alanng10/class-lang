@@ -1162,12 +1162,7 @@ public class Create : InfraCreate
         int nameStart;
         int nameEnd;
         nameStart = classEnd;
-        nameEnd = nameStart + 1;
-
-        if (end < nameEnd)
-        {
-            nameEnd = end;
-        }
+        nameEnd = end;
 
         Node varClass;
         varClass = this.ExecuteName(this.NodeKind.ClassName, this.Range(this.RangeA, classStart, classEnd));
