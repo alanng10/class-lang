@@ -303,7 +303,7 @@ public class Write : Any
         while (i < count)
         {
             ulong ka;
-            ka = (k >> (i * 8)) * 0xff;
+            ka = (k >> (i * 8)) & 0xff;
 
             byte a;
             a = (byte)ka;
