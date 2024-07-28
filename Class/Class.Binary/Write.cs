@@ -179,13 +179,13 @@ public class Write : Any
         return true;
     }
 
-    protected virtual bool ExecuteField(Field field)
+    protected virtual bool ExecuteField(Field varField)
     {
-        this.ExecuteIndex(field.Class);
-        this.ExecuteSystemInfo(field.SystemInfo);
-        this.ExecuteByte(field.Count);
-        this.ExecuteIndex(field.Virtual);
-        this.ExecuteName(field.Name);
+        this.ExecuteIndex(varField.Class);
+        this.ExecuteSystemInfo(varField.SystemInfo);
+        this.ExecuteByte(varField.Count);
+        this.ExecuteIndex(varField.Virtual);
+        this.ExecuteName(varField.Name);
         return true;
     }
 
@@ -206,14 +206,14 @@ public class Write : Any
         return true;
     }
 
-    protected virtual bool ExecuteMaide(Maide maide)
+    protected virtual bool ExecuteMaide(Maide varMaide)
     {
-        this.ExecuteIndex(maide.Class);
-        this.ExecuteSystemInfo(maide.SystemInfo);
-        this.ExecuteByte(maide.Count);
-        this.ExecuteIndex(maide.Virtual);
-        this.ExecuteName(maide.Name);
-        this.ExecuteVarArray(maide.Param);
+        this.ExecuteIndex(varMaide.Class);
+        this.ExecuteSystemInfo(varMaide.SystemInfo);
+        this.ExecuteByte(varMaide.Count);
+        this.ExecuteIndex(varMaide.Virtual);
+        this.ExecuteName(varMaide.Name);
+        this.ExecuteVarArray(varMaide.Param);
         return true;
     }
 
