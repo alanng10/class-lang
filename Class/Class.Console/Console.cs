@@ -251,14 +251,18 @@ public class Console : Any
             moduleRef = (ModuleRef)iter.Index;
 
             this.ModuleLoad.ModuleRef = moduleRef;
-            this.ModuleLoad.Execute();
-
-            int o;
-            o = this.ModuleLoad.Status;
-            if (!(o == 0))
+            
+            bool b;
+            b = this.ModuleLoad.Execute();
+            if (!b)
             {
-                this.Status = 200 + o;
-                return false;
+                int o;
+                o = this.ModuleLoad.Status;
+                if (!(o == 0))
+                {
+                    this.Status = 200 + o;
+                    return false;
+                }
             }
 
             ClassModule a;
