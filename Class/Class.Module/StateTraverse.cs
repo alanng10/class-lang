@@ -74,22 +74,22 @@ public class StateTraverse : Traverse
         return true;
     }
 
-    protected virtual bool FieldGet(Field field, State nodeGet)
+    protected virtual bool FieldGet(Field varField, State nodeGet)
     {
         if (nodeGet == null)
         {
             return true;
         }
 
-        this.ThisResultClass = field.Class;
+        this.ThisResultClass = varField.Class;
 
-        this.StateVar = field.Get;
+        this.StateVar = varField.Get;
 
         Var dataVar;
         dataVar = new Var();
         dataVar.Init();
         dataVar.Name = "data";
-        dataVar.Class = field.Class;
+        dataVar.Class = varField.Class;
         dataVar.SystemInfo = this.CreateSystemInfo();
 
         Table o;
@@ -109,7 +109,7 @@ public class StateTraverse : Traverse
         return true;
     }
 
-    protected virtual bool FieldSet(Field field, State nodeSet)
+    protected virtual bool FieldSet(Field varField, State nodeSet)
     {
         if (nodeSet == null)
         {
@@ -118,22 +118,22 @@ public class StateTraverse : Traverse
 
         this.ThisResultClass = this.System.Bool;
 
-        this.StateVar = field.Set;
+        this.StateVar = varField.Set;
 
         Var dataVar;
         dataVar = new Var();
         dataVar.Init();
         dataVar.Name = "data";
-        dataVar.Class = field.Class;
+        dataVar.Class = varField.Class;
         dataVar.SystemInfo = this.CreateSystemInfo();
 
         Var valueVar;
         valueVar = new Var();
         valueVar.Init();
         valueVar.Name = "value";
-        valueVar.Class = field.Class;
+        valueVar.Class = varField.Class;
         valueVar.SystemInfo = this.CreateSystemInfo();
-        valueVar.SystemInfo.Value = field.SystemInfo.Value;
+        valueVar.SystemInfo.Value = varField.SystemInfo.Value;
         
         Table o;
         o = this.ClassInfra.TableCreateStringCompare();
@@ -1585,10 +1585,10 @@ public class StateTraverse : Traverse
         return true;
     }
 
-    protected virtual bool ArgueMatch(Maide maide, Argue argue)
+    protected virtual bool ArgueMatch(Maide varMaide, Argue argue)
     {
         int count;
-        count = maide.Param.Count;
+        count = varMaide.Param.Count;
 
         bool countEqual;
         countEqual = (count == argue.Value.Count);
@@ -1599,7 +1599,7 @@ public class StateTraverse : Traverse
 
         Iter paramIter;
         paramIter = this.ParamIter;
-        maide.Param.IterSet(paramIter);
+        varMaide.Param.IterSet(paramIter);
 
         Iter argueIter;
         argueIter = this.ArgueIter;
