@@ -40,8 +40,6 @@ public class ModuleLoad : Any
 
     public virtual bool Execute()
     {
-        this.Status = 0;
-        
         bool b;
         b = this.ExecuteAll();
 
@@ -61,7 +59,7 @@ public class ModuleLoad : Any
     protected virtual bool ExecuteAll()
     {
         this.Status = 0;
-        
+
         ModuleRef o;
         o = this.ModuleRef;
 
@@ -613,11 +611,11 @@ public class ModuleLoad : Any
         return true;
     }
 
-    protected virtual bool SetPartParam(Maide maide, Array binaryVar)
+    protected virtual bool SetPartParam(Maide varMaide, Array binaryVar)
     {
         Table varTable;
         varTable = this.ClassInfra.TableCreateStringCompare();
-        maide.Param = varTable;
+        varMaide.Param = varTable;
 
         int count;
         count = binaryVar.Count;
