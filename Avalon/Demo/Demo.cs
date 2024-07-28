@@ -15,10 +15,11 @@ class Demo : Any
     public Network Peer { get; set; }
     public NetworkHost Host { get; set; }
 
-    public InfraInfra InfraInfra { get; set; }
-    private ListInfra ListInfra { get; set; }
-    public TextInfra TextInfra { get; set; }
-    private DrawInfra DrawInfra { get; set; }
+    public virtual InfraInfra InfraInfra { get; set; }
+    public virtual ListInfra ListInfra { get; set; }
+    public virtual MathInfra MathInfra { get; set; }
+    public virtual TextInfra TextInfra { get; set; }
+    public virtual DrawInfra DrawInfra { get; set; }
     private StorageStatusList StorageStatusList { get; set; }
     public NetworkPortKindList NetworkPortKindList { get; set; }
     public NetworkCaseList NetworkCaseList { get; set; }
@@ -28,8 +29,7 @@ class Demo : Any
     private DrawBrushCapList BrushCapList { get; set; }
     private DrawBrushJoinList BrushJoinList { get; set; }
 
-    protected virtual MathInfra MathInfra { get; set; }
-    protected virtual MathMath Math { get; set; }
+    public virtual MathMath Math { get; set; }
     protected virtual MathComp MathComp { get; set; }
 
     public bool Execute()
