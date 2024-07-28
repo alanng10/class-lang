@@ -316,6 +316,20 @@ public class TraverseGen : Any
         }
         if (!b)
         {
+            if (className == "Field")
+            {
+                b = true;
+            }
+        }
+        if (!b)
+        {
+            if (className == "Maide")
+            {
+                b = true;
+            }
+        }
+        if (!b)
+        {
             if (className == "Var")
             {
                 b = true;
