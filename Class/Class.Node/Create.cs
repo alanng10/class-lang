@@ -3845,22 +3845,27 @@ public class Create : InfraCreate
         start = range.Start;
         end = range.End;
 
-        Range countRange;
-        countRange = this.ExecuteCountRange(this.RangeB, this.Range(this.RangeA, start, end));
-        if (countRange == null)
+        if (start == end)
+        {
+            return null;
+        }
+
+        Token maideToken;
+        maideToken = this.Token(this.TokenA, this.Keyword.Maide.Text, this.IndexRange(this.RangeA, start));
+        if (maideToken == null)
         {
             return null;
         }
 
         Token leftBracket;
-        leftBracket = this.TokenForwardNoSkip(this.TokenA, this.Delimit.LeftBracket.Text, this.Range(this.RangeA, countRange.End, end));
+        leftBracket = this.TokenForwardNoSkip(this.TokenB, this.Delimit.LeftBracket.Text, this.Range(this.RangeA, maideToken.Range.End, end));
         if (leftBracket == null)
         {
             return null;
         }
 
         Token rightBracket;
-        rightBracket = this.TokenMatchLeftBracket(this.TokenB, this.Range(this.RangeA, leftBracket.Range.End, end));
+        rightBracket = this.TokenMatchLeftBracket(this.TokenC, this.Range(this.RangeA, leftBracket.Range.End, end));
         if (rightBracket == null)
         {
             return null;
@@ -3871,14 +3876,14 @@ public class Create : InfraCreate
             return null;
         }
         Token leftBrace;
-        leftBrace = this.Token(this.TokenC, this.Delimit.LeftBrace.Text, this.IndexRange(this.RangeA, rightBracket.Range.End));
+        leftBrace = this.Token(this.TokenD, this.Delimit.LeftBrace.Text, this.IndexRange(this.RangeA, rightBracket.Range.End));
         if (leftBrace == null)
         {
             return null;
         }
 
         Token rightBrace;
-        rightBrace = this.TokenMatchLeftBrace(this.TokenD, this.Range(this.RangeA, leftBrace.Range.End, end));
+        rightBrace = this.TokenMatchLeftBrace(this.TokenE, this.Range(this.RangeA, leftBrace.Range.End, end));
         if (rightBrace == null)
         {
             return null;
