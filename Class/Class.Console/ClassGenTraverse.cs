@@ -1935,14 +1935,14 @@ public class ClassGenTraverse : Traverse
         return (string)this.CountAccessWord.GetAt(count.Index);
     }
 
-    protected virtual bool ExecuteMaideCallParam(Maide maide)
+    protected virtual bool ExecuteMaideCallParam(Maide varMaide)
     {
         Iter iter;
         iter = this.TableIter;
-        maide.Param.IterSet(iter);
+        varMaide.Param.IterSet(iter);
         
         int count;
-        count = maide.Param.Count;
+        count = varMaide.Param.Count;
         int i;
         i = 0;
         while (i < count)
@@ -2113,14 +2113,14 @@ public class ClassGenTraverse : Traverse
         return true;
     }
 
-    protected virtual bool ExecuteMaideArgue(Maide maide, Argue argue)
+    protected virtual bool ExecuteMaideArgue(Maide varMaide, Argue argue)
     {
         Iter iter;
         iter = this.TableIter;
-        maide.Param.IterSet(iter);
+        varMaide.Param.IterSet(iter);
         
         int count;
-        count = maide.Param.Count;
+        count = varMaide.Param.Count;
         int i;
         i = 0;
         while (i < count)
