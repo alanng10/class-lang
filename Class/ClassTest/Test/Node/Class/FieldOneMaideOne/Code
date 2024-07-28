@@ -1,6 +1,6 @@
 class Gg : Hom
 {
-    prudate Ff Aeid
+    field prudate Ff Aeid
     {
         get
         {
@@ -10,7 +10,7 @@ class Gg : Hom
         }
     }
 
-    private De Mnj()
+    maide private De Mnj()
     {
     }
 }
