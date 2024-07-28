@@ -255,9 +255,9 @@ public class ModuleString : Any
 
 
 
-    protected virtual bool AppendField(Field field)
+    protected virtual bool AppendField(Field varField)
     {
-        if (field == null)
+        if (varField == null)
         {
             this.AppendNull();
 
@@ -274,7 +274,7 @@ public class ModuleString : Any
 
 
 
-        varClass = field.Parent;
+        varClass = varField.Parent;
 
 
 
@@ -289,7 +289,7 @@ public class ModuleString : Any
 
 
 
-        this.Append(field.Name);
+        this.Append(varField.Name);
 
 
 
@@ -300,9 +300,9 @@ public class ModuleString : Any
 
 
 
-    protected virtual bool AppendMethod(Maide method)
+    protected virtual bool AppendMethod(Maide varMaide)
     {
-        if (method == null)
+        if (varMaide == null)
         {
             this.AppendNull();
 
@@ -319,7 +319,7 @@ public class ModuleString : Any
 
 
 
-        varClass = method.Parent;
+        varClass = varMaide.Parent;
 
 
 
@@ -334,7 +334,7 @@ public class ModuleString : Any
 
 
 
-        this.Append(method.Name);
+        this.Append(varMaide.Name);
 
 
 
@@ -471,26 +471,26 @@ public class ModuleString : Any
         return true;
     }
 
-    protected virtual int LeftSquareIndex(string field)
+    protected virtual int LeftSquareIndex(string varField)
     {
         int a;
-        a = field.IndexOf('[');
+        a = varField.IndexOf('[');
 
         return a;
     }
 
-    protected virtual int GetIndex(string field, int leftSquareIndex)
+    protected virtual int GetIndex(string varField, int leftSquareIndex)
     {
-        if (field.Length < 1)
+        if (varField.Length < 1)
         {
             return -1;
         }
 
         int lastIndex;
-        lastIndex = field.Length - 1;
+        lastIndex = varField.Length - 1;
         
         char lastChar;
-        lastChar = field[lastIndex];
+        lastChar = varField[lastIndex];
 
         bool b;
         b =  (lastChar == ']');
@@ -507,7 +507,7 @@ public class ModuleString : Any
         count = lastIndex - t;
 
         string s;
-        s = field.Substring(t, count);
+        s = varField.Substring(t, count);
 
         bool parse;
         int n;
