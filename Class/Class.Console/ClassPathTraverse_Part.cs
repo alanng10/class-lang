@@ -56,13 +56,13 @@ partial class ClassPathTraverse
         return true;
     }
 
-    public override bool ExecuteField(NodeField field)
+    public override bool ExecuteField(NodeField varField)
     {
-        if (field == null)
+        if (varField == null)
         {
             return true;
         }
-        this.ExecuteNode(field);
+        this.ExecuteNode(varField);
 
         if (this.HasResult())
         {
@@ -71,39 +71,39 @@ partial class ClassPathTraverse
 
         if (this.FieldEqual("Class"))
         {
-            this.ExecuteClassName(field.Class);
+            this.ExecuteClassName(varField.Class);
             return true;
         }
         if (this.FieldEqual("Name"))
         {
-            this.ExecuteFieldName(field.Name);
+            this.ExecuteFieldName(varField.Name);
             return true;
         }
         if (this.FieldEqual("Count"))
         {
-            this.ExecuteCount(field.Count);
+            this.ExecuteCount(varField.Count);
             return true;
         }
         if (this.FieldEqual("Get"))
         {
-            this.ExecuteState(field.Get);
+            this.ExecuteState(varField.Get);
             return true;
         }
         if (this.FieldEqual("Set"))
         {
-            this.ExecuteState(field.Set);
+            this.ExecuteState(varField.Set);
             return true;
         }
         return true;
     }
 
-    public override bool ExecuteMaide(NodeMaide maide)
+    public override bool ExecuteMaide(NodeMaide varMaide)
     {
-        if (maide == null)
+        if (varMaide == null)
         {
             return true;
         }
-        this.ExecuteNode(maide);
+        this.ExecuteNode(varMaide);
 
         if (this.HasResult())
         {
@@ -112,27 +112,27 @@ partial class ClassPathTraverse
 
         if (this.FieldEqual("Class"))
         {
-            this.ExecuteClassName(maide.Class);
+            this.ExecuteClassName(varMaide.Class);
             return true;
         }
         if (this.FieldEqual("Name"))
         {
-            this.ExecuteMaideName(maide.Name);
+            this.ExecuteMaideName(varMaide.Name);
             return true;
         }
         if (this.FieldEqual("Count"))
         {
-            this.ExecuteCount(maide.Count);
+            this.ExecuteCount(varMaide.Count);
             return true;
         }
         if (this.FieldEqual("Param"))
         {
-            this.ExecuteParam(maide.Param);
+            this.ExecuteParam(varMaide.Param);
             return true;
         }
         if (this.FieldEqual("Call"))
         {
-            this.ExecuteState(maide.Call);
+            this.ExecuteState(varMaide.Call);
             return true;
         }
         return true;
