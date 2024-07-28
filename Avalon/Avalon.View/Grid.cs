@@ -505,22 +505,22 @@ public class Grid : View
         return true;
     }
 
-    public override bool Change(Field field, Change change)
+    public override bool Change(Field varField, Change change)
     {
-        base.Change(field, change);
-        if (this.RowField == field)
+        base.Change(varField, change);
+        if (this.RowField == varField)
         {
             this.ChangeRow(change);
         }
-        if (this.ColField == field)
+        if (this.ColField == varField)
         {
             this.ChangeCol(change);
         }
-        if (this.ChildListField == field)
+        if (this.ChildListField == varField)
         {
             this.ChangeChildList(change);
         }
-        if (this.DestField == field)
+        if (this.DestField == varField)
         {
             this.ChangeDest(change);
         }

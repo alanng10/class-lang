@@ -43,13 +43,13 @@ public class Rect : Comp
         return a;
     }
 
-    public override bool Change(Field field, Change change)
+    public override bool Change(Field varField, Change change)
     {
-        if (this.PosField == field)
+        if (this.PosField == varField)
         {
             this.ChangePos(change);
         }
-        if (this.SizeField == field)
+        if (this.SizeField == varField)
         {
             this.ChangeSize(change);
         }

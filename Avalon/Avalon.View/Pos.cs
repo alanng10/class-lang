@@ -20,13 +20,13 @@ public class Pos : Comp
         return this.ViewInfra.FieldCreate(this);
     }
 
-    public override bool Change(Field field, Change change)
+    public override bool Change(Field varField, Change change)
     {
-        if (this.LeftField == field)
+        if (this.LeftField == varField)
         {
             this.ChangeLeft(change);
         }
-        if (this.UpField == field)
+        if (this.UpField == varField)
         {
             this.ChangeUp(change);
         }

@@ -69,13 +69,13 @@ public class GridChild : Comp
         return true;
     }
 
-    public override bool Change(Field field, Change change)
+    public override bool Change(Field varField, Change change)
     {
-        if (this.ViewField == field)
+        if (this.ViewField == varField)
         {
             this.ChangeView(change);
         }
-        if (this.RectField == field)
+        if (this.RectField == varField)
         {
             this.ChangeRect(change);
         }

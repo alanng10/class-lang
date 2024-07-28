@@ -265,25 +265,25 @@ public class View : Comp
         return true;
     }
 
-    public override bool Change(Field field, Change change)
+    public override bool Change(Field varField, Change change)
     {
-        if (this.SizeField == field)
+        if (this.SizeField == varField)
         {
             this.ChangeSize(change);
         }
-        if (this.PosField == field)
+        if (this.PosField == varField)
         {
             this.ChangePos(change);
         }
-        if (this.BackField == field)
+        if (this.BackField == varField)
         {
             this.ChangeBack(change);
         }
-        if (this.VisibleField == field)
+        if (this.VisibleField == varField)
         {
             this.ChangeVisible(change);
         }
-        if (this.ChildField == field)
+        if (this.ChildField == varField)
         {
             this.ChangeChild(change);
         }

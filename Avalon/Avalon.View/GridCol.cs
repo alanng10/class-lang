@@ -36,9 +36,9 @@ public class GridCol : Comp
         return true;
     }
 
-    public override bool Change(Field field, Change change)
+    public override bool Change(Field varField, Change change)
     {
-        if (this.WidthField == field)
+        if (this.WidthField == varField)
         {
             this.ChangeWidth(change);
         }
