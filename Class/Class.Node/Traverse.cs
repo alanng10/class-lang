@@ -63,35 +63,35 @@ public class Traverse : Any
         return true;
     }
 
-    public virtual bool ExecuteField(Field field)
+    public virtual bool ExecuteField(Field varField)
     {
-        if (field == null)
+        if (varField == null)
         {
             return true;
         }
-        this.ExecuteNode(field);
+        this.ExecuteNode(varField);
 
-        this.ExecuteClassName(field.Class);
-        this.ExecuteFieldName(field.Name);
-        this.ExecuteCount(field.Count);
-        this.ExecuteState(field.Get);
-        this.ExecuteState(field.Set);
+        this.ExecuteClassName(varField.Class);
+        this.ExecuteFieldName(varField.Name);
+        this.ExecuteCount(varField.Count);
+        this.ExecuteState(varField.Get);
+        this.ExecuteState(varField.Set);
         return true;
     }
 
-    public virtual bool ExecuteMaide(Maide maide)
+    public virtual bool ExecuteMaide(Maide varMaide)
     {
-        if (maide == null)
+        if (varMaide == null)
         {
             return true;
         }
-        this.ExecuteNode(maide);
+        this.ExecuteNode(varMaide);
 
-        this.ExecuteClassName(maide.Class);
-        this.ExecuteMaideName(maide.Name);
-        this.ExecuteCount(maide.Count);
-        this.ExecuteParam(maide.Param);
-        this.ExecuteState(maide.Call);
+        this.ExecuteClassName(varMaide.Class);
+        this.ExecuteMaideName(varMaide.Name);
+        this.ExecuteCount(varMaide.Count);
+        this.ExecuteParam(varMaide.Param);
+        this.ExecuteState(varMaide.Call);
         return true;
     }
 
