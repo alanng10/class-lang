@@ -26,6 +26,21 @@ State
                                        ],
                            },
                 },
+                WhileExecute
+                {
+                    Cond : VarOperate
+                           {
+                               Var : VarName
+                                     {
+                                         Value : "b",
+                                     },
+                           },
+                    Loop : State
+                           {
+                               Value : [
+                                       ],
+                           },
+                },
                 ReturnExecute
                 {
                     Result : VarOperate
@@ -35,6 +50,33 @@ State
                                            Value : "n",
                                        },
                              },
+                },
+                ReferExecute
+                {
+                    Var : Var
+                          {
+                              Class : ClassName
+                                      {
+                                          Value : "Int",
+                                      },
+                              Name : VarName
+                                     {
+                                         Value : "k",
+                                     },
+                          },
+                },
+                AreExecute
+                {
+                    Target : VarTarget
+                             {
+                                 Var : VarName
+                                       {
+                                           Value : "d",
+                                       },
+                             },
+                    Value : ThisOperate
+                            {
+                            },
                 },
             ],
 },
