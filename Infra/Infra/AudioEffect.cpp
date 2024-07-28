@@ -33,10 +33,28 @@ Int AudioEffect_VolumeSet(Int o, Int value)
     AudioEffect* m;
     m = CP(o);
 
+    Int minValue;
+    minValue = 0;
+
     Int capValue;
     capValue = Math_Value(null, 1, 0);
 
     Int k;
+    Int b;
+
+    k = Math_Less(null, value, minValue);
+
+    if (k == CastInt(-1))
+    {
+        return false;
+    }
+
+    b = k;
+    if (b)
+    {
+        value = minValue;
+    }
+
     k = Math_Less(null, capValue, value);
 
     if (k == CastInt(-1))
@@ -44,7 +62,6 @@ Int AudioEffect_VolumeSet(Int o, Int value)
         return false;
     }
 
-    Int b;
     b = k;
     if (b)
     {
