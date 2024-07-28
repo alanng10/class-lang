@@ -3617,19 +3617,20 @@ public class Create : InfraCreate
         start = range.Start;
         end = range.End;
 
-        Range varRange;
-        varRange = this.ExecuteVarRange(this.RangeB, this.Range(this.RangeA, start, end));
-        if (varRange == null)
+        if (start == end)
         {
             return null;
         }
 
-        if (varRange.End == end)
+        Token varToken;
+        varToken = this.Token(this.TokenA, this.Keyword.Var.Text, this.IndexRange(this.RangeA, start));
+        if (varToken == null)
         {
             return null;
         }
+
         Token semicolon;
-        semicolon = this.Token(this.TokenA, this.Delimit.ExecuteSign.Text, this.IndexRange(this.RangeA, varRange.End));
+        semicolon = this.TokenForward(this.TokenB, this.Delimit.ExecuteSign.Text, this.Range(this.RangeA, varToken.Range.End, end));
         if (semicolon == null)
         {
             return null;
@@ -3679,31 +3680,6 @@ public class Create : InfraCreate
         }
 
         this.Range(result, start, semicolon.Range.End);
-        return result;
-    }
-
-    protected virtual Range ExecuteVarRange(Range result, Range range)
-    {
-        int start;
-        int end;
-        start = range.Start;
-        end = range.End;
-
-        Range classRange;
-        classRange = this.ExecuteNameRange(this.RangeB, this.Range(this.RangeA, start, end));
-        if (classRange == null)
-        {
-            return null;
-        }
-
-        Range nameRange;
-        nameRange = this.ExecuteNameRange(this.RangeC, this.Range(this.RangeA, classRange.End, end));
-        if (nameRange == null)
-        {
-            return null;
-        }
-
-        this.Range(result, start, nameRange.End);
         return result;
     }
 
