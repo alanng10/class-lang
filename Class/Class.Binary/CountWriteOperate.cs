@@ -12,13 +12,4 @@ public class CountWriteOperate : WriteOperate
         this.Write.Index = index;
         return true;
     }
-
-    public override bool ExecuteInt(long value)
-    {
-        int index;
-        index = this.Write.Index;
-        index = index + sizeof(ulong);
-        this.Write.Index = index;
-        return true;
-    }
 }

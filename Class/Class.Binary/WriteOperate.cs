@@ -6,9 +6,4 @@ public class WriteOperate : Any
     {
         return true;
     }
-
-    public virtual bool ExecuteInt(long value)
-    {
-        return true;
-    }
 }

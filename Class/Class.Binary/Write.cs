@@ -291,7 +291,27 @@ public class Write : Any
 
     protected virtual bool ExecuteInt(long value)
     {
-        this.Operate.ExecuteInt(value);
+        ulong k;
+        k = (ulong)value;
+        k = k << 4;
+        k = k >> 4;
+
+        int count;
+        count = sizeof(ulong);
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            ulong ka;
+            ka = (k >> (i * 8)) * 0xff;
+
+            int a;
+            a = (int)ka;
+
+            this.ExecuteByte(a);
+
+            i = i + 1;
+        }
         return true;
     }
 

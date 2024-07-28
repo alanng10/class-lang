@@ -23,20 +23,4 @@ public class SetWriteOperate : WriteOperate
         this.Write.Index = index;
         return true;
     }
-
-    public override bool ExecuteInt(long value)
-    {
-        int index;
-        index = this.Write.Index;
-        Data data;
-        data = this.Write.Data;
-        int count;
-        count = sizeof(ulong);
-        ulong u;
-        u = (ulong)value;
-        this.InfraInfra.DataIntSet(data, index, u);
-        index = index + count;
-        this.Write.Index = index;
-        return true;
-    }
 }
