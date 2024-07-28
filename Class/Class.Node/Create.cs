@@ -3808,6 +3808,11 @@ public class Create : InfraCreate
         start = range.Start;
         end = range.End;
 
+        if (start == end)
+        {
+            return null;
+        }
+
         Token fieldToken;
         fieldToken = this.Token(this.TokenA, this.Keyword.Field.Text, this.IndexRange(this.RangeA, start));
         if (fieldToken == null)
