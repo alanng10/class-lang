@@ -1,4 +1,4 @@
-prudate Bool Gg
+field prudate Bool Gg
 {
     get
     {
