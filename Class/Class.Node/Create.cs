@@ -1811,6 +1811,19 @@ public class Create : InfraCreate
         {
             return null;
         }
+
+        Token varToken;
+        varToken = this.Token(this.TokenA, this.Keyword.Var.Text, this.IndexRange(this.RangeA, start));
+        if (varToken == null)
+        {
+            return null;
+        }
+
+        if (varToken.Range.End == end)
+        {
+            return null;
+        }
+
         int lastIndex;
         lastIndex = end - 1;
         Token semicolon;
