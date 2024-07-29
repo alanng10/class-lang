@@ -4,7 +4,7 @@ public class StringInn : Inn
 {
     public virtual string String { get; set; }
 
-    protected virtual int Index { get; set; }
+    public virtual int Index { get; set; }
 
     public override string Read()
     {
