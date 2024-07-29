@@ -63,7 +63,7 @@ public class Field : Any
         return true;
     }
 
-    public virtual long GetLong()
+    public virtual long GetInt()
     {
         return this.ValueAny.Int;
     }
