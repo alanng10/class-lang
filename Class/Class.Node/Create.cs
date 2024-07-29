@@ -3666,22 +3666,15 @@ public class Create : InfraCreate
             return null;
         }
 
-        Token areToken;
-        areToken = this.Token(this.TokenA, this.Keyword.Are.Text, this.IndexRange(this.RangeA, start));
-        if (areToken == null)
-        {
-            return null;
-        }
-
         Token semicolon;
-        semicolon = this.TokenForward(this.TokenB, this.Delimit.ExecuteSign.Text, this.Range(this.RangeA, areToken.Range.End, end));
+        semicolon = this.TokenForward(this.TokenA, this.Delimit.ExecuteSign.Text, this.Range(this.RangeA, start, end));
         if (semicolon == null)
         {
             return null;
         }
 
         Token colon;
-        colon = this.TokenForward(this.TokenC, this.Delimit.BaseSign.Text, this.Range(this.RangeA, areToken.Range.End, semicolon.Range.Start));
+        colon = this.TokenForward(this.TokenB, this.Delimit.BaseSign.Text, this.Range(this.RangeA, start, semicolon.Range.Start));
         if (colon == null)
         {
             return null;
