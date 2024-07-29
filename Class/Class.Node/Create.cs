@@ -3647,16 +3647,21 @@ public class Create : InfraCreate
         start = range.Start;
         end = range.End;
 
-        Token semicolon;
-        semicolon = this.TokenForward(this.TokenA, this.Delimit.ExecuteSign.Text, this.Range(this.RangeA, start, end));
-        if (semicolon == null)
+        if (start == end)
         {
             return null;
         }
 
-        Token colon;
-        colon = this.TokenForward(this.TokenB, this.Delimit.BaseSign.Text, this.Range(this.RangeA, start, semicolon.Range.Start));
-        if (colon == null)
+        Token areToken;
+        areToken = this.Token(this.TokenA, this.Keyword.Are.Text, this.IndexRange(this.RangeA, start));
+        if (areToken == null)
+        {
+            return null;
+        }
+
+        Token semicolon;
+        semicolon = this.TokenForward(this.TokenB, this.Delimit.ExecuteSign.Text, this.Range(this.RangeA, areToken.Range.End, end));
+        if (semicolon == null)
         {
             return null;
         }
