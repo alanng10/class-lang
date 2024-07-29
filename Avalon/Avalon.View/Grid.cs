@@ -459,9 +459,9 @@ public class Grid : View
         i = 0;
         while (iter.Next())
         {
-            GridCol gridCol;
-            gridCol = (GridCol)iter.Value;
-            left = left + gridCol.Width;
+            Count gridCol;
+            gridCol = (Count)iter.Value;
+            left = left + gridCol.Value;
 
             int index;
             index = start + i;
@@ -489,9 +489,9 @@ public class Grid : View
         i = 0;
         while (iter.Next())
         {
-            GridRow gridRow;
-            gridRow = (GridRow)iter.Value;
-            up = up + gridRow.Height;
+            Count gridRow;
+            gridRow = (Count)iter.Value;
+            up = up + gridRow.Value;
 
             int index;
             index = start + i;
