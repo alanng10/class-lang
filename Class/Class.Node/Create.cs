@@ -380,7 +380,7 @@ public class Create : InfraCreate
         this.ExecuteCreateList();
         this.ExecuteNameValueCreate();
         this.ExecuteStringValueCreate();
-        this.ExecuteErrorCreate();
+        this.ExecuteCreateError();
 
         this.Operate = this.SetOperate;
 
@@ -509,7 +509,7 @@ public class Create : InfraCreate
         return true;
     }
 
-    protected virtual bool ExecuteErrorCreate()
+    protected virtual bool ExecuteCreateError()
     {
         int count;
         count = this.ErrorArray.Count;
