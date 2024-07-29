@@ -1883,7 +1883,7 @@ public class Create : InfraCreate
 
         int targetStart;
         int targetEnd;
-        targetStart = start;
+        targetStart = areToken.Range.End;
         targetEnd = colon.Range.Start;
         int valueStart;
         int valueEnd;
