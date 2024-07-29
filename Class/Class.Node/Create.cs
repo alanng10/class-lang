@@ -1875,7 +1875,7 @@ public class Create : InfraCreate
         }
 
         Token colon;
-        colon = this.TokenForward(this.TokenC, this.Delimit.BaseSign.Text, this.Range(this.RangeA, start, semicolon.Range.Start));
+        colon = this.TokenForward(this.TokenC, this.Delimit.BaseSign.Text, this.Range(this.RangeA, areToken.Range.End, semicolon.Range.Start));
         if (colon == null)
         {
             return null;
