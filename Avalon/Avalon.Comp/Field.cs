@@ -68,7 +68,7 @@ public class Field : Any
         return this.ValueAny.Int;
     }
 
-    public virtual bool SetLong(long value)
+    public virtual bool SetInt(long value)
     {
         this.ValueAny.Int = value;
         this.SetChange();
