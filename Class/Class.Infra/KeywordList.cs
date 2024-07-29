@@ -32,7 +32,6 @@ public class KeywordList : Any
         this.Return = this.AddItem("return");
         this.Inf = this.AddItem("inf");
         this.While = this.AddItem("while");
-        this.Are = this.AddItem("are");
         this.New = this.AddItem("new");
         this.Share = this.AddItem("share");
         this.Cast = this.AddItem("cast");
@@ -70,8 +69,6 @@ public class KeywordList : Any
     protected Keyword __D_Inf;
     public virtual Keyword While { get { return __D_While; } set { __D_While = value; } }
     protected Keyword __D_While;
-    public virtual Keyword Are { get { return __D_Are; } set { __D_Are = value; } }
-    protected Keyword __D_Are;
     public virtual Keyword New { get { return __D_New; } set { __D_New = value; } }
     protected Keyword __D_New;
     public virtual Keyword Share { get { return __D_Share; } set { __D_Share = value; } }
@@ -120,7 +117,7 @@ public class KeywordList : Any
     protected virtual Array Array { get { return __D_Array; } set { __D_Array = value; } }
     protected Array __D_Array;
 
-    protected virtual int ArrayCount { get { return 24; } set { } }
+    protected virtual int ArrayCount { get { return 23; } set { } }
     protected int __D_ArrayCount;
 
     public virtual int Count { get { return __D_Count; } set { __D_Count = value; } }
