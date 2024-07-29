@@ -56,7 +56,7 @@ public class Field : Any
         return this.ValueAny.Mid;
     }
 
-    public virtual bool SetInt(int value)
+    public virtual bool SetMid(int value)
     {
         this.ValueAny.Mid = value;
         this.SetChange();

@@ -26,7 +26,7 @@ public class GridRow : Comp
 
         set
         {
-            this.HeightField.SetInt(value);
+            this.HeightField.SetMid(value);
         }
     }
 

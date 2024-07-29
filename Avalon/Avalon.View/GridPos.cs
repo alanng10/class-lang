@@ -31,7 +31,7 @@ public class GridPos : Comp
 
         set
         {
-            this.RowField.SetInt(value);
+            this.RowField.SetMid(value);
         }
     }
 
@@ -52,7 +52,7 @@ public class GridPos : Comp
 
         set
         {
-            this.ColField.SetInt(value);
+            this.ColField.SetMid(value);
         }
     }
 

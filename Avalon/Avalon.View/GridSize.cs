@@ -44,7 +44,7 @@ public class GridSize : Comp
 
         set
         {
-            this.WidthField.SetInt(value);
+            this.WidthField.SetMid(value);
         }
     }
 
@@ -65,7 +65,7 @@ public class GridSize : Comp
 
         set
         {
-            this.HeightField.SetInt(value);
+            this.HeightField.SetMid(value);
         }
     }
 

@@ -44,7 +44,7 @@ public class Pos : Comp
 
         set
         {
-            this.LeftField.SetInt(value);
+            this.LeftField.SetMid(value);
         }
     }
 
@@ -65,7 +65,7 @@ public class Pos : Comp
 
         set
         {
-            this.UpField.SetInt(value);
+            this.UpField.SetMid(value);
         }
     }
 

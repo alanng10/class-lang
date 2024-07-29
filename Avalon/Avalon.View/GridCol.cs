@@ -26,7 +26,7 @@ public class GridCol : Comp
 
         set
         {
-            this.WidthField.SetInt(value);
+            this.WidthField.SetMid(value);
         }
     }
 
