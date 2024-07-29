@@ -10,7 +10,7 @@ class F : N
         
 
 
-        are this.D : a;
+        this.D : a;
 
 
         sign < (100, 33)
