@@ -21,7 +21,7 @@ public class GridRow : Comp
     {
         get
         {
-            return this.HeightField.GetInt();
+            return this.HeightField.GetMid();
         }
 
         set

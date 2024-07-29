@@ -39,7 +39,7 @@ public class Pos : Comp
     {
         get
         {
-            return this.LeftField.GetInt();
+            return this.LeftField.GetMid();
         }
 
         set
@@ -60,7 +60,7 @@ public class Pos : Comp
     {
         get
         {
-            return this.UpField.GetInt();
+            return this.UpField.GetMid();
         }
 
         set

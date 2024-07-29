@@ -39,7 +39,7 @@ public class Size : Comp
     {
         get
         {
-            return this.WidthField.GetInt();
+            return this.WidthField.GetMid();
         }
 
         set
@@ -60,7 +60,7 @@ public class Size : Comp
     {
         get
         {
-            return this.HeightField.GetInt();
+            return this.HeightField.GetMid();
         }
 
         set

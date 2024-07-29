@@ -51,7 +51,7 @@ public class Field : Any
         return true;
     }
 
-    public virtual int GetInt()
+    public virtual int GetMid()
     {
         return this.ValueAny.Mid;
     }

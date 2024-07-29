@@ -21,7 +21,7 @@ public class GridCol : Comp
     {
         get
         {
-            return this.WidthField.GetInt();
+            return this.WidthField.GetMid();
         }
 
         set

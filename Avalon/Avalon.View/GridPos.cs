@@ -26,7 +26,7 @@ public class GridPos : Comp
     {
         get
         {
-            return this.RowField.GetInt();
+            return this.RowField.GetMid();
         }
 
         set
@@ -47,7 +47,7 @@ public class GridPos : Comp
     {
         get
         {
-            return this.ColField.GetInt();
+            return this.ColField.GetMid();
         }
 
         set
