@@ -161,18 +161,18 @@ class Demo : Any
 
         grid.Back = gridBrush;
 
-        GridCol colA;
-        colA = new GridCol();
+        ViewCount colA;
+        colA = new ViewCount();
         colA.Init();
-        colA.Width = 600;
-        GridCol colB;
-        colB = new GridCol();
+        colA.Value = 600;
+        ViewCount colB;
+        colB = new ViewCount();
         colB.Init();
-        colB.Width = 600;
-        GridRow rowA;
-        rowA = new GridRow();
+        colB.Value = 600;
+        ViewCount rowA;
+        rowA = new ViewCount();
         rowA.Init();
-        rowA.Height = 600;
+        rowA.Value = 600;
         GridChild childA;
         childA = new GridChild();
         childA.Init();
@@ -183,7 +183,7 @@ class Demo : Any
         childB = new GridChild();
         childB.Init();
         childB.View = viewC;
-        childB.Rect.Pos.Col = 1;
+        childB.Rect.Pos.Left = 1;
         childB.Rect.Size.Width = 1;
         childB.Rect.Size.Height = 1;
 
