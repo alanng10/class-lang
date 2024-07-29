@@ -2,10 +2,19 @@ namespace Avalon.Comp;
 
 public class Field : Any
 {
+    public override bool Init()
+    {
+        base.Init();
+        this.ValueAny = new InfraValue();
+        this.ValueAny.Init();
+        return true;
+    }
+
     public virtual Comp Comp { get; set; }
     public virtual FieldState State { get; set; }
     public virtual Change SetChangeArg { get; set; }
     protected virtual Comp Value { get; set; }
+    protected virtual InfraValue ValueAny { get; set; }
 
     public virtual Comp Get()
     {
@@ -30,58 +39,50 @@ public class Field : Any
         return true;
     }
 
-    protected virtual bool BoolValue { get; set; }
-
     public virtual bool GetBool()
     {
-        return this.BoolValue;
+        return this.ValueAny.Bool;
     }
 
     public virtual bool SetBool(bool value)
     {
-        this.BoolValue = value;
+        this.ValueAny.Bool = value;
         this.SetChange();
         return true;
     }
 
-    protected virtual int IntValue { get; set; }
-
     public virtual int GetInt()
     {
-        return this.IntValue;
+        return this.ValueAny.Mid;
     }
 
     public virtual bool SetInt(int value)
     {
-        this.IntValue = value;
+        this.ValueAny.Mid = value;
         this.SetChange();
         return true;
     }
 
-    protected virtual long LongValue { get; set; }
-
     public virtual long GetLong()
     {
-        return this.LongValue;
+        return this.ValueAny.Int;
     }
 
     public virtual bool SetLong(long value)
     {
-        this.LongValue = value;
+        this.ValueAny.Int = value;
         this.SetChange();
         return true;
     }
 
-    protected virtual object AnyValue { get; set; }
-
     public virtual object GetAny()
     {
-        return this.AnyValue;
+        return this.ValueAny.Any;
     }
 
     public virtual bool SetAny(object value)
     {
-        this.AnyValue = value;
+        this.ValueAny.Any = value;
         this.SetChange();
         return true;
     }
