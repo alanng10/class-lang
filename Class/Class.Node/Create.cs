@@ -378,7 +378,7 @@ public class Create : InfraCreate
 
         this.ExecuteCreateNode();
         this.ExecuteCreateList();
-        this.ExecuteNameValueCreate();
+        this.ExecuteCreateNameValue();
         this.ExecuteStringValueCreate();
         this.ExecuteCreateError();
 
@@ -531,7 +531,7 @@ public class Create : InfraCreate
         return true;
     }
 
-    protected virtual bool ExecuteNameValueCreate()
+    protected virtual bool ExecuteCreateNameValue()
     {
         Data data;
         data = this.NameValueData;
