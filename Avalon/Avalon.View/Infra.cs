@@ -120,21 +120,12 @@ public class Infra : Any
         return true;
     }
 
-    public virtual GridCol GridColCreate(int width)
+    public virtual Count CountCreate(int value)
     {
-        GridCol a;
-        a = new GridCol();
+        Count a;
+        a = new Count();
         a.Init();
-        a.Width = width;
-        return a;
-    }
-
-    public virtual GridRow GridRowCreate(int height)
-    {
-        GridRow a;
-        a = new GridRow();
-        a.Init();
-        a.Height = height;
+        a.Value = value;
         return a;
     }
 }
