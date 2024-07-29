@@ -327,7 +327,7 @@ public class Grid : View
 
     protected virtual bool ExecuteDrawGridChild(DrawDraw draw, GridChild child)
     {
-        GridRect gridRect;
+        Rect gridRect;
         gridRect = child.Rect;
 
         if (!this.ValidGridRect(gridRect))
@@ -335,17 +335,17 @@ public class Grid : View
             return false;
         }
 
-        GridPos gridPos;
+        Pos gridPos;
         gridPos = gridRect.Pos;
-        GridSize gridSize;
+        Size gridSize;
         gridSize = gridRect.Size;
 
         int startCol;
-        startCol = gridPos.Col;
+        startCol = gridPos.Left;
         int endCol;
         endCol = startCol + gridSize.Width;
         int startRow;
-        startRow = gridPos.Row;
+        startRow = gridPos.Up;
         int endRow;
         endRow = startRow + gridSize.Height;
 
@@ -391,18 +391,18 @@ public class Grid : View
         return true;
     }
 
-    protected virtual bool ValidGridRect(GridRect rect)
+    protected virtual bool ValidGridRect(Rect rect)
     {
-        GridPos pos;
+        Pos pos;
         pos = rect.Pos;
-        GridSize size;
+        Size size;
         size = rect.Size;
 
         bool ba;
-        ba = this.InfraInfra.ValidRange(this.Col.Count, pos.Col, size.Width);
+        ba = this.InfraInfra.ValidRange(this.Col.Count, pos.Left, size.Width);
 
         bool bb;
-        bb = this.InfraInfra.ValidRange(this.Row.Count, pos.Row, size.Height);
+        bb = this.InfraInfra.ValidRange(this.Row.Count, pos.Up, size.Height);
 
         bool a;
         a = ba & bb;
