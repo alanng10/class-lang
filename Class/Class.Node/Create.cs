@@ -1827,7 +1827,7 @@ public class Create : InfraCreate
         int lastIndex;
         lastIndex = end - 1;
         Token semicolon;
-        semicolon = this.Token(this.TokenA, this.Delimit.ExecuteSign.Text, this.IndexRange(this.RangeA, lastIndex));
+        semicolon = this.Token(this.TokenB, this.Delimit.ExecuteSign.Text, this.IndexRange(this.RangeA, lastIndex));
         if (semicolon == null)
         {
             return null;
