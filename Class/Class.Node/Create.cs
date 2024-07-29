@@ -376,7 +376,7 @@ public class Create : InfraCreate
         this.StringValueArray = this.ListInfra.ArrayCreate(stringValueCount);
         this.ErrorArray = this.ListInfra.ArrayCreate(errorCount);
 
-        this.ExecuteNodeCreate();
+        this.ExecuteCreateNode();
         this.ExecuteListCreate();
         this.ExecuteNameValueCreate();
         this.ExecuteStringValueCreate();
@@ -450,7 +450,7 @@ public class Create : InfraCreate
         return a;
     }
 
-    protected virtual bool ExecuteNodeCreate()
+    protected virtual bool ExecuteCreateNode()
     {
         int count;
         count = this.NodeArray.Count;
