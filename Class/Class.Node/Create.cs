@@ -1842,7 +1842,7 @@ public class Create : InfraCreate
         varVar = this.ExecuteVar(this.Range(this.RangeA, varStart, varEnd));
         if (varVar == null)
         {
-            return null;
+            this.Error(this.ErrorKind.VarInvalid, varStart, varEnd);
         }
 
         this.OperateArg.Kind = this.NodeKind.ReferExecute;
