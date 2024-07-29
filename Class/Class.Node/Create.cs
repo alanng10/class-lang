@@ -1852,17 +1852,30 @@ public class Create : InfraCreate
         {
             return null;
         }
+
+        Token areToken;
+        areToken = this.Token(this.TokenA, this.Keyword.Are.Text, this.IndexRange(this.RangeA, start));
+        if (areToken == null)
+        {
+            return null;
+        }
+
+        if (areToken.Range.End == end)
+        {
+            return null;
+        }
+
         int lastIndex;
         lastIndex = end - 1;
         Token semicolon;
-        semicolon = this.Token(this.TokenA, this.Delimit.ExecuteSign.Text, this.IndexRange(this.RangeA, lastIndex));
+        semicolon = this.Token(this.TokenB, this.Delimit.ExecuteSign.Text, this.IndexRange(this.RangeA, lastIndex));
         if (semicolon == null)
         {
             return null;
         }
 
         Token colon;
-        colon = this.TokenForward(this.TokenB, this.Delimit.BaseSign.Text, this.Range(this.RangeA, start, semicolon.Range.Start));
+        colon = this.TokenForward(this.TokenC, this.Delimit.BaseSign.Text, this.Range(this.RangeA, start, semicolon.Range.Start));
         if (colon == null)
         {
             return null;
