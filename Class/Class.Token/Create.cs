@@ -17,7 +17,6 @@ public class Create : InfraCreate
         this.SetOperate.Create = this;
         this.SetOperate.Init();
 
-
         this.Range = new Range();
         this.Range.Init();
         return true;
