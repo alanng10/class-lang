@@ -72,16 +72,19 @@ public class CountCreateOperate : CreateOperate
 
     public override string ExecuteNameValue(Text text)
     {
+        CreateArg arg;
+        arg = this.Create.Arg;
+
         int index;
-        index = this.Create.NameValueIndex;
+        index = arg.NameValueIndex;
         int indexA;
-        indexA = this.Create.NameValueTotalIndex;
+        indexA = arg.NameValueTextIndex;
 
         index = index + 1;
         indexA = indexA + text.Range.Count;
 
-        this.Create.NameValueTotalIndex = indexA;
-        this.Create.NameValueIndex = index;
+        arg.NameValueTextIndex = indexA;
+        arg.NameValueIndex = index;
         return this.String;
     }
 
