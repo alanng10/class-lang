@@ -90,10 +90,13 @@ public class CountCreateOperate : CreateOperate
 
     public override string ExecuteStringValue(Text text)
     {
+        CreateArg arg;
+        arg = this.Create.Arg;
+
         int index;
-        index = this.Create.StringValueIndex;
+        index = arg.StringValueIndex;
         int indexA;
-        indexA = this.Create.StringValueTotalIndex;
+        indexA = arg.StringValueTextIndex;
         
         StringValueWrite write;
         write = this.Create.StringValueWrite;
@@ -106,8 +109,8 @@ public class CountCreateOperate : CreateOperate
         index = index + 1;
         indexA = indexA + count;
 
-        this.Create.StringValueTotalIndex = indexA;
-        this.Create.StringValueIndex = index;
+        arg.StringValueTextIndex = indexA;
+        arg.StringValueIndex = index;
         return this.String;
     }
 }
