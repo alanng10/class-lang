@@ -21,10 +21,19 @@ public class ClassGen : Any
         this.StringCreate = new StringCreate();
         this.StringCreate.Init();
 
+        this.Space = " ";
         this.Indent = new string(' ', 4);
         this.VarPrefix = "var";
         this.VarArgA = "ArgA";
         this.VarArgB = "ArgB";
+        this.Eval = "e";
+        this.EvalStackVar = "S";
+        this.EvalIndexVar = "N";
+        this.DelimitDot = ".";
+        this.DelimitDotPointer = "->";
+        this.DelimitSquareLeft = "[";
+        this.DelimitSquareRight = "]";
+        this.DelimitSub = "-";
         return true;
     }
 
@@ -47,10 +56,19 @@ public class ClassGen : Any
     protected virtual ClassGenTraverse Traverse { get; set; }
     protected virtual StringCreate StringCreate { get; set; }
     protected virtual int IndentCount { get; set; }
+    protected virtual string Space { get; set; }
     protected virtual string Indent { get; set; }
     protected virtual string VarPrefix { get; set; }
     protected virtual string VarArgA { get; set; }
     protected virtual string VarArgB { get; set; }
+    protected virtual string Eval { get; set; }
+    protected virtual string EvalStackVar { get; set; }
+    protected virtual string EvalIndexVar { get; set; }
+    protected virtual string DelimitDot { get; set; }
+    protected virtual string DelimitDotPointer { get; set; }
+    protected virtual string DelimitSquareLeft { get; set; }
+    protected virtual string DelimitSquareRight { get; set; }
+    protected virtual string DelimitSub { get; set; }
 
     public virtual bool Execute()
     {
@@ -98,6 +116,43 @@ public class ClassGen : Any
         nodeClass = (NodeClass)this.Class.Any;
 
         this.Traverse.ExecuteClass(nodeClass);
+        return true;
+    }
+
+    public virtual bool EvalStackValue(int index)
+    {
+        this.EvalStack();
+        this.Text(this.DelimitSquareLeft);
+        
+        this.EvalIndex();
+        this.Text(this.Space);
+        this.Text(this.DelimitSub);
+        this.Text(this.Space);
+        this.TextInt(index);
+        
+        this.Text(this.DelimitSquareRight);
+        return true;
+    }
+
+    public virtual bool EvalStack()
+    {
+        this.Text(this.Eval);
+        this.Text(this.DelimitDotPointer);
+        this.Text(this.EvalStackVar);
+        return true;
+    }
+
+    public virtual bool EvalIndex()
+    {
+        this.Text(this.Eval);
+        this.Text(this.DelimitDotPointer);
+        this.Text(this.EvalIndexVar);
+        return true;
+    }
+
+    public virtual bool TextInt(long n)
+    {
+        this.Operate.ExecuteIntFormat(n);
         return true;
     }
 
