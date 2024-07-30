@@ -66,28 +66,49 @@ public class ClassGen : Any
         this.ResetStageIndex();
         this.ExecuteStage();
 
+        this.Operate = null;
+        this.Arg = null;
+
         string o;
         o = this.StringCreate.Data(data, null);
 
         this.Source = o;
-
-        this.Operate = null;
-        this.Arg = null;
         return true;
     }
 
-    protected virtual bool ResetStageIndex()
+    public virtual bool ResetStageIndex()
     {
         this.Arg.Index = 0;
         return true;
     }
 
-    protected virtual bool ExecuteStage()
+    public virtual bool ExecuteStage()
     {
         NodeClass nodeClass;
         nodeClass = (NodeClass)this.Class.Any;
 
         this.Traverse.ExecuteClass(nodeClass);
+        return true;
+    }
+
+    public virtual bool Text(string text)
+    {
+        ClassGenOperate o;
+        o = this.Operate;
+
+        int count;
+        count = text.Length;
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            char oc;
+            oc = text[i];
+
+            o.ExecuteChar(oc);
+
+            i = i + 1;
+        }
         return true;
     }
 }
