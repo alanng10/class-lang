@@ -33,6 +33,8 @@ public class ClassGen : Any
         this.DelimitDotPointer = "->";
         this.DelimitSquareLeft = "[";
         this.DelimitSquareRight = "]";
+        this.DelimitSemicolon = ";";
+        this.DelimitAre = "=";
         this.DelimitSub = "-";
         return true;
     }
@@ -68,6 +70,8 @@ public class ClassGen : Any
     protected virtual string DelimitDotPointer { get; set; }
     protected virtual string DelimitSquareLeft { get; set; }
     protected virtual string DelimitSquareRight { get; set; }
+    protected virtual string DelimitSemicolon { get; set; }
+    protected virtual string DelimitAre { get; set; }
     protected virtual string DelimitSub { get; set; }
 
     public virtual bool Execute()
@@ -119,6 +123,22 @@ public class ClassGen : Any
         return true;
     }
 
+    public virtual bool GetEvalStackValue(int index, string arg)
+    {
+        this.TextIndent();
+        
+        this.VarArg(arg);
+
+        this.Text(this.Space);
+        this.Text(this.DelimitAre);
+        this.Text(this.Space);
+        
+        this.EvalStackValue(index);
+        
+        this.Text(this.DelimitSemicolon);
+        return true;
+    }
+
     public virtual bool EvalStackValue(int index)
     {
         this.EvalStack();
@@ -147,6 +167,13 @@ public class ClassGen : Any
         this.Text(this.Eval);
         this.Text(this.DelimitDotPointer);
         this.Text(this.EvalIndexVar);
+        return true;
+    }
+
+    public virtual bool VarArg(string arg)
+    {
+        this.Text(this.VarPrefix);
+        this.Text(arg);
         return true;
     }
 
