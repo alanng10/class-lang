@@ -20,6 +20,8 @@ public class ClassGen : Any
         
         this.StringCreate = new StringCreate();
         this.StringCreate.Init();
+
+        this.Indent = new string(' ', 4);
         return true;
     }
 
@@ -41,6 +43,8 @@ public class ClassGen : Any
     protected virtual SetClassGenOperate SetOperate { get; set; }
     protected virtual ClassGenTraverse Traverse { get; set; }
     protected virtual StringCreate StringCreate { get; set; }
+    protected virtual int IndentCount { get; set; }
+    protected virtual string Indent { get; set; }
 
     public virtual bool Execute()
     {
@@ -88,6 +92,22 @@ public class ClassGen : Any
         nodeClass = (NodeClass)this.Class.Any;
 
         this.Traverse.ExecuteClass(nodeClass);
+        return true;
+    }
+
+    public virtual bool TextIndent()
+    {
+        string indent;
+        indent = this.Indent;
+        int count;
+        count = this.IndentCount;
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            this.Text(indent);
+            i = i + 1;
+        }
         return true;
     }
 
