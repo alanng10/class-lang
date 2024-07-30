@@ -291,15 +291,10 @@ public class Create : InfraCreate
             return true;
         }
 
-        this.Operate = this.CountOperate;
+        this.Arg = new CreateArg();
+        this.Arg.Init();
 
-        this.NodeIndex = 0;
-        this.ListIndex = 0;
-        this.NameValueIndex = 0;
-        this.NameValueTotalIndex = 0;
-        this.StringValueIndex = 0;
-        this.StringValueTotalIndex = 0;
-        this.ErrorIndex = 0;
+        this.Operate = this.CountOperate;
 
         this.ExecuteStage();
 
@@ -365,19 +360,10 @@ public class Create : InfraCreate
 
         this.Result.Error = this.ErrorArray;
 
-        this.KindData = null;
-        this.NodeArray = null;
-        this.ListData = null;
-        this.ListArray = null;
-        this.NameValueData = null;
-        this.NameValueText = null;
-        this.NameValueArray = null;
-        this.StringValueData = null;
-        this.StringValueText = null;
-        this.StringValueArray = null;
-        this.ErrorArray = null;
+        this.Arg = null;
 
         this.OperateArgClear();
+
         return true;
     }
 
