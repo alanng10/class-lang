@@ -22,6 +22,9 @@ public class ClassGen : Any
         this.StringCreate.Init();
 
         this.Indent = new string(' ', 4);
+        this.VarPrefix = "var";
+        this.VarArgA = "ArgA";
+        this.VarArgB = "ArgB";
         return true;
     }
 
@@ -45,6 +48,9 @@ public class ClassGen : Any
     protected virtual StringCreate StringCreate { get; set; }
     protected virtual int IndentCount { get; set; }
     protected virtual string Indent { get; set; }
+    protected virtual string VarPrefix { get; set; }
+    protected virtual string VarArgA { get; set; }
+    protected virtual string VarArgB { get; set; }
 
     public virtual bool Execute()
     {
