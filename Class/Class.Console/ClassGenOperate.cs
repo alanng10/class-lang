@@ -6,16 +6,16 @@ public class ClassGenOperate : Any
 
     public virtual bool ExecuteText(string o)
     {
-        return true;
+        return false;
     }
 
     public virtual bool ExecuteChar(char o)
     {
-        return true;
+        return false;
     }
 
     public virtual bool ExecuteIntFormat(long o)
     {
-        return true;
+        return false;
     }
 }
