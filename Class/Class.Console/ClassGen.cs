@@ -29,7 +29,8 @@ public class ClassGen : Any
         this.Eval = "e";
         this.EvalStackVar = "S";
         this.EvalIndexVar = "N";
-        this.IntValuePrefix = "0x";
+        this.IntValuePre = "0x";
+        this.IntValuePost = "ULL";
         this.DelimitDot = ".";
         this.DelimitDotPointer = "->";
         this.DelimitSquareLeft = "[";
@@ -67,7 +68,8 @@ public class ClassGen : Any
     protected virtual string Eval { get; set; }
     protected virtual string EvalStackVar { get; set; }
     protected virtual string EvalIndexVar { get; set; }
-    protected virtual string IntValuePrefix { get; set; }
+    protected virtual string IntValuePre { get; set; }
+    protected virtual string IntValuePost { get; set; }
     protected virtual string DelimitDot { get; set; }
     protected virtual string DelimitDotPointer { get; set; }
     protected virtual string DelimitSquareLeft { get; set; }
@@ -197,9 +199,11 @@ public class ClassGen : Any
 
     public virtual bool TextInt(long n)
     {
-        this.Text(this.IntValuePrefix);
+        this.Text(this.IntValuePre);
         
         this.Operate.ExecuteIntFormat(n);
+
+        this.Text(this.IntValuePost);
         return true;
     }
 
