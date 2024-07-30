@@ -106,24 +106,7 @@ public class Create : InfraCreate
     protected virtual StringData StringData { get; set; }
     protected virtual TextIntParse TextIntParse { get; set; }
 
-    public virtual int NodeIndex { get; set; }
-    public virtual Data KindData { get; set; }
-    public virtual Array NodeArray { get; set; }
-    public virtual int ListIndex { get; set; }
-    public virtual Data ListData { get; set; }
-    public virtual Array ListArray { get; set; }
-    public virtual int ErrorIndex { get; set; }
-    public virtual Array ErrorArray { get; set; }
-    public virtual int NameValueIndex { get; set; }
-    public virtual int NameValueTotalIndex { get; set; }
-    public virtual Data NameValueText { get; set; }
-    public virtual Data NameValueData { get; set; }
-    public virtual Array NameValueArray { get; set; }
-    public virtual int StringValueIndex { get; set; }
-    public virtual int StringValueTotalIndex { get; set; }
-    public virtual Data StringValueText { get; set; }
-    public virtual Data StringValueData { get; set; }
-    public virtual Array StringValueArray { get; set; }
+    public virtual CreateArg Arg { get; set; }
     
     protected virtual CountCreateOperate CountOperate { get; set; }
     protected virtual KindCreateOperate KindOperate { get; set; }
@@ -258,27 +241,19 @@ public class Create : InfraCreate
 
     protected virtual bool InitNodeState()
     {
-        IntCompare charCompare;
-        charCompare = new IntCompare();
-        charCompare.Init();
+        this.NodeStateTable = this.ClassInfra.TableCreateStringCompare();
 
-        StringCompare compare;
-        compare = new StringCompare();
-        compare.CharCompare = charCompare;
-        compare.Init();
-
-        this.NodeStateTable = new Table();
-        this.NodeStateTable.Compare = compare;
-        this.NodeStateTable.Init();
+        NodeKindList nodeKind;
+        nodeKind = this.NodeKind;
 
         int count;
-        count = this.NodeKind.Count;
+        count = nodeKind.Count;
         int i;
         i = 0;
         while (i < count)
         {
             NodeKind kind;
-            kind = this.NodeKind.Get(i);
+            kind = nodeKind.Get(i);
             this.AddNodeState(kind);
             i = i + 1;
         }
@@ -291,12 +266,7 @@ public class Create : InfraCreate
         state = kind.NodeState;
         state.Create = this;
 
-        Entry entry;
-        entry = new Entry();
-        entry.Init();
-        entry.Index = kind.Name;
-        entry.Value = state;
-        this.NodeStateTable.Add(entry);
+        this.ListInfra.TableAdd(this.NodeStateTable, kind.Name, state);
         return true;
     }
 
