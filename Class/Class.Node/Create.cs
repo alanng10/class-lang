@@ -1995,15 +1995,15 @@ public class Create : InfraCreate
                 {
                     if (a == null)
                     {
+                        a = this.ExecuteSignLessOperate(this.Range(this.RangeA, start, end));
+                    }
+                    if (a == null)
+                    {
                         a = this.ExecuteSignMulOperate(this.Range(this.RangeA, start, end));
                     }
                     if (a == null)
                     {
                         a = this.ExecuteSignDivOperate(this.Range(this.RangeA, start, end));
-                    }
-                    if (a == null)
-                    {
-                        a = this.ExecuteSignLessOperate(this.Range(this.RangeA, start, end));
                     }
                 }
             }
