@@ -8,4 +8,9 @@ public class ClassGenOperate : Any
     {
         return false;
     }
+
+    public virtual bool ExecuteIntFormat(long o)
+    {
+        return false;
+    }
 }
