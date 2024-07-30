@@ -11,13 +11,13 @@ public class CreateArg : Any
     public virtual int ErrorIndex { get; set; }
     public virtual Array ErrorArray { get; set; }
     public virtual int NameValueIndex { get; set; }
-    public virtual int NameValueTotalIndex { get; set; }
-    public virtual Data NameValueText { get; set; }
-    public virtual Data NameValueData { get; set; }
+    public virtual Data NameValueCountData { get; set; }
+    public virtual int NameValueTextIndex { get; set; }
+    public virtual Data NameValueTextData { get; set; }
     public virtual Array NameValueArray { get; set; }
     public virtual int StringValueIndex { get; set; }
-    public virtual int StringValueTotalIndex { get; set; }
-    public virtual Data StringValueText { get; set; }
-    public virtual Data StringValueData { get; set; }
+    public virtual Data StringValueCountData { get; set; }
+    public virtual int StringValueTextIndex { get; set; }
+    public virtual Data StringValueTextData { get; set; }
     public virtual Array StringValueArray { get; set; }
 }
