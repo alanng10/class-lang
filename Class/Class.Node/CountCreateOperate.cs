@@ -19,12 +19,15 @@ public class CountCreateOperate : CreateOperate
 
     public override Node Execute()
     {
+        CreateArg arg;
+        arg = this.Create.Arg;
+
         int index;
-        index = this.Create.NodeIndex;
+        index = arg.NodeIndex;
 
         index = index + 1;
 
-        this.Create.NodeIndex = index;
+        arg.NodeIndex = index;
 
         Node a;
         a = this.Create.OperateArg.Kind.Node;
@@ -33,15 +36,18 @@ public class CountCreateOperate : CreateOperate
 
     public override int ExecuteListNew()
     {
+        CreateArg arg;
+        arg = this.Create.Arg;
+
         int index;
-        index = this.Create.ListIndex;
+        index = arg.ListIndex;
 
         int a;
         a = index;
 
         index = index + 1;
 
-        this.Create.ListIndex = index;
+        arg.ListIndex = index;
         return a;
     }
 
@@ -52,12 +58,15 @@ public class CountCreateOperate : CreateOperate
 
     public override bool ExecuteError(ErrorKind kind, int start, int end)
     {
+        CreateArg arg;
+        arg = this.Create.Arg;
+
         int index;
-        index = this.Create.ErrorIndex;
+        index = arg.ErrorIndex;
 
         index = index + 1;
 
-        this.Create.ErrorIndex = index;
+        arg.ErrorIndex = index;
         return true;
     }
 
