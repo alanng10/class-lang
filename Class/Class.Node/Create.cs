@@ -291,55 +291,38 @@ public class Create : InfraCreate
             return true;
         }
 
-        this.Arg = new CreateArg();
-        this.Arg.Init();
+        CreateArg arg;
+        arg = new CreateArg();
+        arg.Init();
+        this.Arg = arg;
 
         this.Operate = this.CountOperate;
 
         this.ExecuteStage();
 
-        int nodeCount;
-        nodeCount = this.NodeIndex;
-        int listCount;
-        listCount = this.ListIndex;
-        int nameValueCount;
-        nameValueCount = this.NameValueIndex;
-        int nameValueTotalCount;
-        nameValueTotalCount = this.NameValueTotalIndex;
-        int stringValueCount;
-        stringValueCount = this.StringValueIndex;
-        int stringValueTotalCount;
-        stringValueTotalCount = this.StringValueTotalIndex;
-        int errorCount;
-        errorCount = this.ErrorIndex;
+        Data nodeData;
+        nodeData = new Data();
+        nodeData.Count = arg.NodeIndex;
+        nodeData.Init();
+        arg.NodeData = nodeData;
 
-        this.KindData = new Data();
-        this.KindData.Count = nodeCount;
-        this.KindData.Init();
-
-        this.ListData = this.CountDataCreate(listCount);
-        this.NameValueData = this.CountDataCreate(nameValueCount);
-        this.NameValueText = this.TextDataCreate(nameValueTotalCount);
-        this.StringValueData = this.CountDataCreate(stringValueCount);
-        this.StringValueText = this.TextDataCreate(stringValueTotalCount);
+        arg.ListData = this.CountDataCreate(arg.ListIndex);
+        arg.NameValueCountData = this.CountDataCreate(arg.NameValueIndex);
+        arg.NameValueTextData = this.TextDataCreate(arg.NameValueTextIndex);
+        arg.StringValueCountData = this.CountDataCreate(arg.StringValueIndex);
+        arg.StringValueTextData = this.TextDataCreate(arg.StringValueTextIndex);
         
         this.Operate = this.KindOperate;
 
-        this.NodeIndex = 0;
-        this.ListIndex = 0;
-        this.NameValueIndex = 0;
-        this.NameValueTotalIndex = 0;
-        this.StringValueIndex = 0;
-        this.StringValueTotalIndex = 0;
-        this.ErrorIndex = 0;
+        this.ArgClearIndex();
 
         this.ExecuteStage();
 
-        this.NodeArray = this.ListInfra.ArrayCreate(nodeCount);
-        this.ListArray = this.ListInfra.ArrayCreate(listCount);
-        this.NameValueArray = this.ListInfra.ArrayCreate(nameValueCount);
-        this.StringValueArray = this.ListInfra.ArrayCreate(stringValueCount);
-        this.ErrorArray = this.ListInfra.ArrayCreate(errorCount);
+        arg.NodeArray = this.ListInfra.ArrayCreate(arg.NodeIndex);
+        arg.ListArray = this.ListInfra.ArrayCreate(arg.ListIndex);
+        arg.NameValueArray = this.ListInfra.ArrayCreate(arg.NameValueIndex);
+        arg.StringValueArray = this.ListInfra.ArrayCreate(arg.StringValueIndex);
+        arg.ErrorArray = this.ListInfra.ArrayCreate(arg.ErrorIndex);
 
         this.ExecuteCreateNode();
         this.ExecuteCreateList();
@@ -349,21 +332,30 @@ public class Create : InfraCreate
 
         this.Operate = this.SetOperate;
 
-        this.NodeIndex = 0;
-        this.ListIndex = 0;
-        this.NameValueIndex = 0;
-        this.StringValueIndex = 0;
-        this.StringValueTotalIndex = 0;
-        this.ErrorIndex = 0;
+        this.ArgClearIndex();
 
         this.ExecuteStage();
 
-        this.Result.Error = this.ErrorArray;
+        this.Result.Error = arg.ErrorArray;
 
         this.Arg = null;
 
         this.OperateArgClear();
+        return true;
+    }
+    
+    protected virtual bool ArgClearIndex()
+    {
+        CreateArg arg;
+        arg = this.Arg;
 
+        arg.NodeIndex = 0;
+        arg.ListIndex = 0;
+        arg.NameValueIndex = 0;
+        arg.NameValueTextIndex = 0;
+        arg.StringValueIndex = 0;
+        arg.StringValueTextIndex = 0;
+        arg.ErrorIndex = 0;
         return true;
     }
 
