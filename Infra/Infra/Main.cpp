@@ -83,13 +83,13 @@ Int Main_TerminateStateSet(Int value)
 
 Int Main_CurrentThreadSignalHandleSet()
 {
-    Main* m;
-    m = &D_Var;
+    // Main* m;
+    // m = &D_Var;
 
-    if (!(m->IsCSharp))
-    {
-        signal(SIGSEGV, Main_SignalHandle);
-    }
+    // if (!(m->IsCSharp))
+    // {
+    //     signal(SIGSEGV, Main_SignalHandle);
+    // }
     return true;
 }
 
