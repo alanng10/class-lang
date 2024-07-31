@@ -481,27 +481,6 @@ partial class ClassPathTraverse
         return true;
     }
 
-    public override bool ExecuteBaseSetTarget(BaseSetTarget baseSetTarget)
-    {
-        if (baseSetTarget == null)
-        {
-            return true;
-        }
-        this.ExecuteNode(baseSetTarget);
-
-        if (this.HasResult())
-        {
-            return true;
-        }
-
-        if (this.FieldEqual("Field"))
-        {
-            this.ExecuteFieldName(baseSetTarget.Field);
-            return true;
-        }
-        return true;
-    }
-
     public override bool ExecuteGetOperate(GetOperate getOperate)
     {
         if (getOperate == null)
@@ -559,53 +538,6 @@ partial class ClassPathTraverse
         return true;
     }
 
-    public override bool ExecuteBaseGetOperate(BaseGetOperate baseGetOperate)
-    {
-        if (baseGetOperate == null)
-        {
-            return true;
-        }
-        this.ExecuteNode(baseGetOperate);
-
-        if (this.HasResult())
-        {
-            return true;
-        }
-
-        if (this.FieldEqual("Field"))
-        {
-            this.ExecuteFieldName(baseGetOperate.Field);
-            return true;
-        }
-        return true;
-    }
-
-    public override bool ExecuteBaseCallOperate(BaseCallOperate baseCallOperate)
-    {
-        if (baseCallOperate == null)
-        {
-            return true;
-        }
-        this.ExecuteNode(baseCallOperate);
-
-        if (this.HasResult())
-        {
-            return true;
-        }
-
-        if (this.FieldEqual("Maide"))
-        {
-            this.ExecuteMaideName(baseCallOperate.Maide);
-            return true;
-        }
-        if (this.FieldEqual("Argue"))
-        {
-            this.ExecuteArgue(baseCallOperate.Argue);
-            return true;
-        }
-        return true;
-    }
-
     public override bool ExecuteThisOperate(ThisOperate thisOperate)
     {
         if (thisOperate == null)
@@ -613,6 +545,21 @@ partial class ClassPathTraverse
             return true;
         }
         this.ExecuteNode(thisOperate);
+
+        if (this.HasResult())
+        {
+            return true;
+        }
+        return true;
+    }
+
+    public override bool ExecuteBaseOperate(BaseOperate baseOperate)
+    {
+        if (baseOperate == null)
+        {
+            return true;
+        }
+        this.ExecuteNode(baseOperate);
 
         if (this.HasResult())
         {

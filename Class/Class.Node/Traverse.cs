@@ -358,10 +358,6 @@ public class Traverse : Any
         {
             this.ExecuteSetTarget((SetTarget)target);
         }
-        if (target is BaseSetTarget)
-        {
-            this.ExecuteBaseSetTarget((BaseSetTarget)target);
-        }
         return true;
     }
 
@@ -390,18 +386,6 @@ public class Traverse : Any
         return true;
     }
 
-    public virtual bool ExecuteBaseSetTarget(BaseSetTarget baseSetTarget)
-    {
-        if (baseSetTarget == null)
-        {
-            return true;
-        }
-        this.ExecuteNode(baseSetTarget);
-
-        this.ExecuteFieldName(baseSetTarget.Field);
-        return true;
-    }
-
     public virtual bool ExecuteOperate(Operate operate)
     {
         if (operate == null)
@@ -417,17 +401,13 @@ public class Traverse : Any
         {
             this.ExecuteCallOperate((CallOperate)operate);
         }
-        if (operate is BaseGetOperate)
-        {
-            this.ExecuteBaseGetOperate((BaseGetOperate)operate);
-        }
-        if (operate is BaseCallOperate)
-        {
-            this.ExecuteBaseCallOperate((BaseCallOperate)operate);
-        }
         if (operate is ThisOperate)
         {
             this.ExecuteThisOperate((ThisOperate)operate);
+        }
+        if (operate is BaseOperate)
+        {
+            this.ExecuteBaseOperate((BaseOperate)operate);
         }
         if (operate is NullOperate)
         {
@@ -559,31 +539,6 @@ public class Traverse : Any
         return true;
     }
 
-    public virtual bool ExecuteBaseGetOperate(BaseGetOperate baseGetOperate)
-    {
-        if (baseGetOperate == null)
-        {
-            return true;
-        }
-        this.ExecuteNode(baseGetOperate);
-
-        this.ExecuteFieldName(baseGetOperate.Field);
-        return true;
-    }
-
-    public virtual bool ExecuteBaseCallOperate(BaseCallOperate baseCallOperate)
-    {
-        if (baseCallOperate == null)
-        {
-            return true;
-        }
-        this.ExecuteNode(baseCallOperate);
-
-        this.ExecuteMaideName(baseCallOperate.Maide);
-        this.ExecuteArgue(baseCallOperate.Argue);
-        return true;
-    }
-
     public virtual bool ExecuteThisOperate(ThisOperate thisOperate)
     {
         if (thisOperate == null)
@@ -591,6 +546,16 @@ public class Traverse : Any
             return true;
         }
         this.ExecuteNode(thisOperate);
+        return true;
+    }
+
+    public virtual bool ExecuteBaseOperate(BaseOperate baseOperate)
+    {
+        if (baseOperate == null)
+        {
+            return true;
+        }
+        this.ExecuteNode(baseOperate);
         return true;
     }
 

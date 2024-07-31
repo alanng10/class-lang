@@ -45,13 +45,11 @@ public class NodeKindList : Any
         this.Target = this.AddItem("Target", new Target(), new TargetNewState(), new TargetNodeState(), new TargetCreateOperateState());
         this.VarTarget = this.AddItem("VarTarget", new VarTarget(), new VarTargetNewState(), new VarTargetNodeState(), new VarTargetCreateOperateState());
         this.SetTarget = this.AddItem("SetTarget", new SetTarget(), new SetTargetNewState(), new SetTargetNodeState(), new SetTargetCreateOperateState());
-        this.BaseSetTarget = this.AddItem("BaseSetTarget", new BaseSetTarget(), new BaseSetTargetNewState(), new BaseSetTargetNodeState(), new BaseSetTargetCreateOperateState());
         this.Operate = this.AddItem("Operate", new Operate(), new OperateNewState(), new OperateNodeState(), new OperateCreateOperateState());
         this.GetOperate = this.AddItem("GetOperate", new GetOperate(), new GetOperateNewState(), new GetOperateNodeState(), new GetOperateCreateOperateState());
         this.CallOperate = this.AddItem("CallOperate", new CallOperate(), new CallOperateNewState(), new CallOperateNodeState(), new CallOperateCreateOperateState());
-        this.BaseGetOperate = this.AddItem("BaseGetOperate", new BaseGetOperate(), new BaseGetOperateNewState(), new BaseGetOperateNodeState(), new BaseGetOperateCreateOperateState());
-        this.BaseCallOperate = this.AddItem("BaseCallOperate", new BaseCallOperate(), new BaseCallOperateNewState(), new BaseCallOperateNodeState(), new BaseCallOperateCreateOperateState());
         this.ThisOperate = this.AddItem("ThisOperate", new ThisOperate(), new ThisOperateNewState(), new ThisOperateNodeState(), new ThisOperateCreateOperateState());
+        this.BaseOperate = this.AddItem("BaseOperate", new BaseOperate(), new BaseOperateNewState(), new BaseOperateNodeState(), new BaseOperateCreateOperateState());
         this.NullOperate = this.AddItem("NullOperate", new NullOperate(), new NullOperateNewState(), new NullOperateNodeState(), new NullOperateCreateOperateState());
         this.NewOperate = this.AddItem("NewOperate", new NewOperate(), new NewOperateNewState(), new NewOperateNodeState(), new NewOperateCreateOperateState());
         this.ShareOperate = this.AddItem("ShareOperate", new ShareOperate(), new ShareOperateNewState(), new ShareOperateNodeState(), new ShareOperateCreateOperateState());
@@ -139,20 +137,16 @@ public class NodeKindList : Any
     protected NodeKind __D_VarTarget;
     public virtual NodeKind SetTarget { get { return __D_SetTarget; } set { __D_SetTarget = value; } }
     protected NodeKind __D_SetTarget;
-    public virtual NodeKind BaseSetTarget { get { return __D_BaseSetTarget; } set { __D_BaseSetTarget = value; } }
-    protected NodeKind __D_BaseSetTarget;
     public virtual NodeKind Operate { get { return __D_Operate; } set { __D_Operate = value; } }
     protected NodeKind __D_Operate;
     public virtual NodeKind GetOperate { get { return __D_GetOperate; } set { __D_GetOperate = value; } }
     protected NodeKind __D_GetOperate;
     public virtual NodeKind CallOperate { get { return __D_CallOperate; } set { __D_CallOperate = value; } }
     protected NodeKind __D_CallOperate;
-    public virtual NodeKind BaseGetOperate { get { return __D_BaseGetOperate; } set { __D_BaseGetOperate = value; } }
-    protected NodeKind __D_BaseGetOperate;
-    public virtual NodeKind BaseCallOperate { get { return __D_BaseCallOperate; } set { __D_BaseCallOperate = value; } }
-    protected NodeKind __D_BaseCallOperate;
     public virtual NodeKind ThisOperate { get { return __D_ThisOperate; } set { __D_ThisOperate = value; } }
     protected NodeKind __D_ThisOperate;
+    public virtual NodeKind BaseOperate { get { return __D_BaseOperate; } set { __D_BaseOperate = value; } }
+    protected NodeKind __D_BaseOperate;
     public virtual NodeKind NullOperate { get { return __D_NullOperate; } set { __D_NullOperate = value; } }
     protected NodeKind __D_NullOperate;
     public virtual NodeKind NewOperate { get { return __D_NewOperate; } set { __D_NewOperate = value; } }
@@ -258,7 +252,7 @@ public class NodeKindList : Any
     protected virtual Array Array { get { return __D_Array; } set { __D_Array = value; } }
     protected Array __D_Array;
 
-    protected virtual int ArrayCount { get { return 67; } set { } }
+    protected virtual int ArrayCount { get { return 65; } set { } }
     protected int __D_ArrayCount;
 
     public virtual int Count { get { return __D_Count; } set { __D_Count = value; } }
