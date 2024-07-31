@@ -253,7 +253,7 @@ public class ClassGen : Any
         return true;
     }
 
-    public virtual bool GetEvalValue(int index, string arg)
+    public virtual bool EvalValueGet(int index, string arg)
     {
         this.TextIndent();
         
@@ -269,7 +269,7 @@ public class ClassGen : Any
         return true;
     }
 
-    public virtual bool SetEvalValue(int index, string arg)
+    public virtual bool EvalValueSet(int index, string arg)
     {
         this.TextIndent();
 

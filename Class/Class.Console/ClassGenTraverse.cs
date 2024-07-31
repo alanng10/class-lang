@@ -16,7 +16,7 @@ public class ClassGenTraverse : Traverse
 
         gen.GetEvalFrameValue(1, argA);
 
-        gen.SetEvalValue(0, argA);
+        gen.EvalValueSet(0, argA);
 
         gen.SetEvalIndexPos(1);
         return true;
@@ -32,7 +32,7 @@ public class ClassGenTraverse : Traverse
 
         gen.VarSet(argA, gen.Zero);
 
-        gen.SetEvalValue(0, argA);
+        gen.EvalValueSet(0, argA);
 
         gen.SetEvalIndexPos(1);
         return true;
@@ -109,8 +109,8 @@ public class ClassGenTraverse : Traverse
         string ka;
         ka = gen.RefKindClearMask;
 
-        gen.GetEvalValue(2, argA);
-        gen.GetEvalValue(1, argB);
+        gen.EvalValueGet(2, argA);
+        gen.EvalValueGet(1, argB);
 
         gen.ClearVarMask(argA, ka);
         gen.ClearVarMask(argB, ka);
@@ -121,7 +121,7 @@ public class ClassGenTraverse : Traverse
 
         gen.SetVarMask(argA, gen.RefKindIntMask);
 
-        gen.SetEvalValue(2, argA);
+        gen.EvalValueSet(2, argA);
 
         gen.SetEvalIndexPos(-1);
 
@@ -141,8 +141,8 @@ public class ClassGenTraverse : Traverse
         string ka;
         ka = gen.RefKindClearMask;
 
-        gen.GetEvalValue(2, argA);
-        gen.GetEvalValue(1, argB);
+        gen.EvalValueGet(2, argA);
+        gen.EvalValueGet(1, argB);
 
         gen.ClearVarMask(argA, ka);
         gen.ClearVarMask(argB, ka);
@@ -151,7 +151,7 @@ public class ClassGenTraverse : Traverse
 
         gen.SetVarMask(argA, gen.RefKindBoolMask);
 
-        gen.SetEvalValue(2, argA);
+        gen.EvalValueSet(2, argA);
 
         gen.SetEvalIndexPos(-1);
 
@@ -169,7 +169,7 @@ public class ClassGenTraverse : Traverse
         string ka;
         ka = gen.RefKindClearMask;
 
-        gen.GetEvalValue(1, argA);
+        gen.EvalValueGet(1, argA);
 
         gen.ClearVarMask(argA, ka);
 
@@ -177,7 +177,7 @@ public class ClassGenTraverse : Traverse
 
         gen.SetVarMask(argA, gen.RefKindBoolMask);
 
-        gen.SetEvalValue(1, argA);
+        gen.EvalValueSet(1, argA);
 
         return true;
     }
