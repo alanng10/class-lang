@@ -16,6 +16,9 @@ public class ClassGenTraverse : Traverse
         gen.GetEvalValue(1, gen.VarArgA);
         gen.GetEvalValue(0, gen.VarArgB);
 
+        gen.ClearRefKind(gen.VarArgA);
+        gen.ClearRefKind(gen.VarArgB);
+
         
 
 

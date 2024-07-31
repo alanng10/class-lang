@@ -39,6 +39,7 @@ public class ClassGen : Any
         this.DelimitSemicolon = ";";
         this.DelimitAre = "=";
         this.DelimitAnd = "&";
+        this.DelimitAdd = "+";
         this.DelimitSub = "-";
         return true;
     }
@@ -80,6 +81,7 @@ public class ClassGen : Any
     protected virtual string DelimitSemicolon { get; set; }
     protected virtual string DelimitAre { get; set; }
     protected virtual string DelimitAnd { get; set; }
+    protected virtual string DelimitAdd { get; set; }
     protected virtual string DelimitSub { get; set; }
 
     public virtual bool Execute()
@@ -128,6 +130,28 @@ public class ClassGen : Any
         nodeClass = (NodeClass)this.Class.Any;
 
         this.Traverse.ExecuteClass(nodeClass);
+        return true;
+    }
+
+    public virtual bool Add(string destArg, string left, string right)
+    {
+        this.TextIndent();
+
+        this.VarArg(destArg);
+        
+        this.Text(this.Space);
+        this.Text(this.DelimitAre);
+        this.Text(this.Space);
+
+        this.VarArg(left);
+
+        this.Text(this.Space);
+        this.Text(this.DelimitAdd);
+        this.Text(this.Space);
+
+        this.VarArg(right);
+
+        this.Text(this.DelimitSemicolon);
         return true;
     }
 
