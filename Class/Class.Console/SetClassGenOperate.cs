@@ -20,7 +20,7 @@ public class SetClassGenOperate : ClassGenOperate
         e.FieldWidth = 15;
         e.MaxWidth = 15;
         e.FillChar = '0';
-        this.FormatArg = e;
+        this.FormatArgInt = e;
 
         this.FormatText = new Text();
         this.FormatText.Init();
@@ -31,7 +31,7 @@ public class SetClassGenOperate : ClassGenOperate
 
     protected virtual TextInfra TextInfra { get; set; }
     protected virtual Format Format { get; set; }
-    protected virtual FormatArg FormatArg { get; set; }
+    protected virtual FormatArg FormatArgInt { get; set; }
     protected virtual Text FormatText { get; set; }
 
     public override bool ExecuteChar(char o)
@@ -60,7 +60,7 @@ public class SetClassGenOperate : ClassGenOperate
         format = this.Format;
 
         FormatArg e;
-        e = this.FormatArg;
+        e = this.FormatArgInt;
 
         Text kk;
         kk = this.FormatText;
