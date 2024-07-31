@@ -104,37 +104,43 @@ public class SetCreateOperate : CreateOperate
 
     public override string ExecuteNameValue(Text text)
     {
+        CreateArg arg;
+        arg = this.Create.Arg;
+
         int index;
-        index = this.Create.NameValueIndex;
+        index = arg.NameValueIndex;
         int indexA;
-        indexA = this.Create.NameValueTotalIndex;
+        indexA = arg.NameValueTextIndex;
 
         string a;
-        a = (string)this.Create.NameValueArray.GetAt(index);
+        a = (string)arg.NameValueArray.GetAt(index);
 
         index = index + 1;
         indexA = indexA + a.Length;
 
-        this.Create.NameValueTotalIndex = indexA;
-        this.Create.NameValueIndex = index;
+        arg.NameValueTextIndex = indexA;
+        arg.NameValueIndex = index;
         return a;
     }
 
     public override string ExecuteStringValue(Text text)
     {
+        CreateArg arg;
+        arg = this.Create.Arg;
+
         int index;
-        index = this.Create.StringValueIndex;
+        index = arg.StringValueIndex;
         int indexA;
-        indexA = this.Create.StringValueTotalIndex;
+        indexA = arg.StringValueTextIndex;
 
         string a;
-        a = (string)this.Create.StringValueArray.GetAt(index);
+        a = (string)arg.StringValueArray.GetAt(index);
 
         index = index + 1;
         indexA = indexA + a.Length;
 
-        this.Create.StringValueTotalIndex = indexA;
-        this.Create.StringValueIndex = index;
+        arg.StringValueTextIndex = indexA;
+        arg.StringValueIndex = index;
         return a;
     }
 }
