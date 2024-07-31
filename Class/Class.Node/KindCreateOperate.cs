@@ -120,13 +120,18 @@ public class KindCreateOperate : CreateOperate
 
     public override string ExecuteStringValue(Text text)
     {
+        Create create;
+        create = this.Create;
+        CreateArg arg;
+        arg = create.Arg;
+
         int index;
-        index = this.Create.StringValueIndex;
+        index = arg.StringValueIndex;
         int indexA;
-        indexA = this.Create.StringValueTotalIndex;
+        indexA = arg.StringValueTextIndex;
 
         StringValueWrite write;
-        write = this.Create.StringValueWrite;
+        write = create.StringValueWrite;
         write.WriteOperate = write.CountWriteOperate;
         write.Index = 0;
         write.ExecuteValueString(text);
@@ -135,34 +140,38 @@ public class KindCreateOperate : CreateOperate
         uint u;
         u = (uint)count;
         long oa;
-        oa = index * sizeof(uint);
-        this.InfraInfra.DataMidSet(this.Create.StringValueData, oa, u);
+        oa = index;
+        oa = oa * sizeof(uint);
+        this.InfraInfra.DataMidSet(arg.StringValueCountData, oa, u);
         
         write.WriteOperate = write.AddWriteOperate;
         write.Index = indexA;
-        write.Data = this.Create.StringValueText;
+        write.Data = arg.StringValueTextData;
         write.ExecuteValueString(text);
         write.Data = null;
 
         index = index + 1;
         indexA = indexA + count;
 
-        this.Create.StringValueTotalIndex = indexA;
-        this.Create.StringValueIndex = index;
+        arg.StringValueTextIndex = indexA;
+        arg.StringValueIndex = index;
         return this.String;
     }
 
 
     protected virtual bool CopyText(Data dest, int destIndex, Data source, int sourceIndex, int count)
     {
-        char oc;
+        TextInfra textInfra;
+        textInfra = this.TextInfra;
+
         int i;
         i = 0;
         while (i < count)
         {
-            oc = this.TextInfra.DataCharGet(source, sourceIndex + i);
+            char oc;
+            oc = textInfra.DataCharGet(source, sourceIndex + i);
 
-            this.TextInfra.DataCharSet(dest, destIndex + i, oc);
+            textInfra.DataCharSet(dest, destIndex + i, oc);
             
             i = i + 1;
         }
