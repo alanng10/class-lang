@@ -22,6 +22,20 @@ public class ClassGenTraverse : Traverse
         return true;
     }
 
+    public override bool ExecuteNullOperate(NullOperate nullOperate)
+    {
+        ClassGen gen;
+        gen = this.Gen;
+
+        string argA;
+        argA = gen.VarArgA;
+
+        gen.SetEvalValue(0, argA);
+
+        gen.SetEvalIndexPos(1);
+        return true;
+    }
+
     public override bool ExecuteAndOperate(AndOperate andOperate)
     {
         this.ExecuteOperate(andOperate.Left);
