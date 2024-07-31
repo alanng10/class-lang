@@ -4,6 +4,26 @@ public class ClassGenTraverse : Traverse
 {
     public virtual ClassGen Gen { get; set; }
 
+    public override bool ExecuteAndOperate(AndOperate andOperate)
+    {
+        this.ExecuteOperate(andOperate.Left);
+
+        this.ExecuteOperate(andOperate.Right);
+
+        this.ExecuteOperateDelimit(this.Gen.DelimitAnd);
+        return true;
+    }
+
+    public override bool ExecuteOrnOperate(OrnOperate ornOperate)
+    {
+        this.ExecuteOperate(ornOperate.Left);
+
+        this.ExecuteOperate(ornOperate.Right);
+
+        this.ExecuteOperateDelimit(this.Gen.DelimitOrn);
+        return true;
+    }
+
     public override bool ExecuteAddOperate(AddOperate addOperate)
     {
         this.ExecuteOperate(addOperate.Left);
