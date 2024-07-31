@@ -29,6 +29,7 @@ public class ClassGen : Any
         this.Eval = "e";
         this.EvalStackVar = "S";
         this.EvalIndexVar = "N";
+        this.EvalFrameVar = "f";
         this.IntValuePre = "0x";
         this.IntValuePost = "ULL";
         this.RefKindClearMask = "0xfffffffffffffff";
@@ -77,6 +78,7 @@ public class ClassGen : Any
     public virtual string Eval { get; set; }
     public virtual string EvalStackVar { get; set; }
     public virtual string EvalIndexVar { get; set; }
+    public virtual string EvalFrameVar { get; set; }
     public virtual string IntValuePre { get; set; }
     public virtual string IntValuePost { get; set; }
     public virtual string RefKindClearMask { get; set; }
@@ -279,6 +281,40 @@ public class ClassGen : Any
         
         this.TextInt(index);
         
+        this.Text(this.DelimitSquareRight);
+        return true;
+    }
+
+    public virtual bool GetEvalFrameValue(int index, string arg)
+    {
+        this.TextIndent();
+
+        this.VarArg(arg);
+
+        this.Text(this.Space);
+        this.Text(this.DelimitAre);
+        this.Text(this.Space);
+
+        this.EvalFrameValue(index);
+
+        this.Text(this.DelimitSemicolon);
+        return true;
+    }
+
+    public virtual bool EvalFrameValue(int index)
+    {
+        this.EvalStack();
+
+        this.Text(this.DelimitSquareLeft);
+
+        this.Text(this.EvalFrameVar);
+
+        this.Text(this.Space);
+        this.Text(this.DelimitSub);
+        this.Text(this.Space);
+
+        this.TextInt(index);
+
         this.Text(this.DelimitSquareRight);
         return true;
     }

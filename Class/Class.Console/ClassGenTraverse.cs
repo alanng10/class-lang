@@ -11,6 +11,14 @@ public class ClassGenTraverse : Traverse
         ClassGen gen;
         gen = this.Gen;
 
+        string argA;
+        argA = gen.VarArgA;
+
+        gen.GetEvalFrameValue(1, argA);
+
+        gen.SetEvalValue(0, argA);
+
+        gen.SetEvalIndexPos(1);
         return true;
     }
 
