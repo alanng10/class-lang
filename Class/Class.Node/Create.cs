@@ -378,8 +378,9 @@ public class Create : InfraCreate
 
     protected virtual Data CountDataCreate(int count)
     {
-        int o;
-        o = count * sizeof(uint);
+        long o;
+        o = count;
+        o = o * sizeof(uint);
         Data a;
         a = new Data();
         a.Count = o;
@@ -389,8 +390,9 @@ public class Create : InfraCreate
 
     protected virtual Data TextDataCreate(int count)
     {
-        int o;
-        o = count * sizeof(char);
+        long o;
+        o = count;
+        o = o * sizeof(char);
         Data a;
         a = new Data();
         a.Count = o;
