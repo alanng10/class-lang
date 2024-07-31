@@ -162,12 +162,15 @@ public class ClassGen : Any
     public virtual bool EvalValue(int index)
     {
         this.EvalStack();
+        
         this.Text(this.DelimitSquareLeft);
         
         this.EvalIndex();
+
         this.Text(this.Space);
         this.Text(this.DelimitSub);
         this.Text(this.Space);
+        
         this.TextInt(index);
         
         this.Text(this.DelimitSquareRight);
