@@ -272,6 +272,9 @@ public class Create : InfraCreate
 
     public override bool Execute()
     {
+        ListInfra listInfra;
+        listInfra = this.ListInfra;
+
         this.Result = new Result();
         this.Result.Init();
         Array rootArray;
@@ -318,11 +321,11 @@ public class Create : InfraCreate
 
         this.ExecuteStage();
 
-        arg.NodeArray = this.ListInfra.ArrayCreate(arg.NodeIndex);
-        arg.ListArray = this.ListInfra.ArrayCreate(arg.ListIndex);
-        arg.NameValueArray = this.ListInfra.ArrayCreate(arg.NameValueIndex);
-        arg.StringValueArray = this.ListInfra.ArrayCreate(arg.StringValueIndex);
-        arg.ErrorArray = this.ListInfra.ArrayCreate(arg.ErrorIndex);
+        arg.NodeArray = listInfra.ArrayCreate(arg.NodeIndex);
+        arg.ListArray = listInfra.ArrayCreate(arg.ListIndex);
+        arg.NameValueArray = listInfra.ArrayCreate(arg.NameValueIndex);
+        arg.StringValueArray = listInfra.ArrayCreate(arg.StringValueIndex);
+        arg.ErrorArray = listInfra.ArrayCreate(arg.ErrorIndex);
 
         this.ExecuteCreateNode();
         this.ExecuteCreateList();
