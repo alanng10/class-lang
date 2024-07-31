@@ -41,8 +41,11 @@ public class ClassGen : Any
         this.DelimitAre = "=";
         this.DelimitAnd = "&";
         this.DelimitOrn = "|";
+        this.DelimitNot = "!";
         this.DelimitAdd = "+";
         this.DelimitSub = "-";
+        this.DelimitMul = "*";
+        this.DelimitDiv = "/";
         return true;
     }
 
@@ -85,8 +88,11 @@ public class ClassGen : Any
     public virtual string DelimitAre { get; set; }
     public virtual string DelimitAnd { get; set; }
     public virtual string DelimitOrn { get; set; }
+    public virtual string DelimitNot { get; set; }
     public virtual string DelimitAdd { get; set; }
     public virtual string DelimitSub { get; set; }
+    public virtual string DelimitMul { get; set; }
+    public virtual string DelimitDiv { get; set; }
 
     public virtual bool Execute()
     {
@@ -137,7 +143,7 @@ public class ClassGen : Any
         return true;
     }
 
-    public virtual bool Add(string destArg, string left, string right)
+    public virtual bool OperateDelimit(string destArg, string left, string right, string delimit)
     {
         this.TextIndent();
 
@@ -150,7 +156,7 @@ public class ClassGen : Any
         this.VarArg(left);
 
         this.Text(this.Space);
-        this.Text(this.DelimitAdd);
+        this.Text(delimit);
         this.Text(this.Space);
 
         this.VarArg(right);

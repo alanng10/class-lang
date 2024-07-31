@@ -6,6 +6,36 @@ public class ClassGenTraverse : Traverse
 
     public override bool ExecuteAddOperate(AddOperate addOperate)
     {
+        this.ExecuteOperate(addOperate.Left);
+        
+        this.ExecuteOperate(addOperate.Right);
+
+        this.ExecuteOperateDelimit(this.Gen.DelimitAdd);
+        return true;
+    }
+
+    public override bool ExecuteSubOperate(SubOperate subOperate)
+    {
+        this.ExecuteOperate(subOperate.Left);
+
+        this.ExecuteOperate(subOperate.Right);
+
+        this.ExecuteOperateDelimit(this.Gen.DelimitSub);
+        return true;
+    }
+
+    public override bool ExecuteMulOperate(MulOperate mulOperate)
+    {
+        this.ExecuteOperate(mulOperate.Left);
+
+        this.ExecuteOperate(mulOperate.Right);
+
+        this.ExecuteOperateDelimit(this.Gen.DelimitMul);
+        return true;
+    }
+
+    protected virtual bool ExecuteOperateDelimit(string delimit)
+    {
         ClassGen gen;
         gen = this.Gen;
 
@@ -17,17 +47,13 @@ public class ClassGenTraverse : Traverse
         string ka;
         ka = gen.RefKindClearMask;
 
-        this.ExecuteOperate(addOperate.Left);
-        
-        this.ExecuteOperate(addOperate.Right);
-
         gen.GetEvalValue(2, argA);
         gen.GetEvalValue(1, argB);
 
         gen.ClearVarMask(argA, ka);
         gen.ClearVarMask(argB, ka);
 
-        gen.Add(argA, argA, argB);
+        gen.OperateDelimit(argA, argA, argB, delimit);
 
         gen.ClearVarMask(argA, ka);
 
@@ -36,9 +62,9 @@ public class ClassGenTraverse : Traverse
         gen.SetEvalValue(2, argA);
 
         gen.SetEvalIndexPos(-1);
+
         return true;
     }
-
 
     protected virtual bool TextIndent()
     {
