@@ -32,6 +32,7 @@ public class ClassGen : Any
         this.IntValuePre = "0x";
         this.IntValuePost = "ULL";
         this.RefKindClearMask = "0xfffffffffffffff";
+        this.RefKindIntMask = "0x2000000000000000";
         this.DelimitDot = ".";
         this.DelimitDotPointer = "->";
         this.DelimitSquareLeft = "[";
@@ -39,6 +40,7 @@ public class ClassGen : Any
         this.DelimitSemicolon = ";";
         this.DelimitAre = "=";
         this.DelimitAnd = "&";
+        this.DelimitOrn = "|";
         this.DelimitAdd = "+";
         this.DelimitSub = "-";
         return true;
@@ -57,32 +59,34 @@ public class ClassGen : Any
     public virtual Maide ModuleInfoNameMaide { get; set; }
     public virtual Maide ModuleInfoVersionMaide { get; set; }
     public virtual string Source { get; set; }
-    protected virtual ClassInfra ClassInfra { get; set; }
-    protected virtual CountClassGenOperate CountOperate { get; set; }
-    protected virtual SetClassGenOperate SetOperate { get; set; }
-    protected virtual ClassGenTraverse Traverse { get; set; }
-    protected virtual StringCreate StringCreate { get; set; }
-    protected virtual int IndentCount { get; set; }
-    protected virtual string Space { get; set; }
-    protected virtual string Indent { get; set; }
-    protected virtual string VarPrefix { get; set; }
+    public virtual ClassInfra ClassInfra { get; set; }
+    public virtual CountClassGenOperate CountOperate { get; set; }
+    public virtual SetClassGenOperate SetOperate { get; set; }
+    public virtual ClassGenTraverse Traverse { get; set; }
+    public virtual StringCreate StringCreate { get; set; }
+    public virtual int IndentCount { get; set; }
+    public virtual string Space { get; set; }
+    public virtual string Indent { get; set; }
+    public virtual string VarPrefix { get; set; }
     public virtual string VarArgA { get; set; }
     public virtual string VarArgB { get; set; }
-    protected virtual string Eval { get; set; }
-    protected virtual string EvalStackVar { get; set; }
-    protected virtual string EvalIndexVar { get; set; }
-    protected virtual string IntValuePre { get; set; }
-    protected virtual string IntValuePost { get; set; }
-    protected virtual string RefKindClearMask { get; set; }
-    protected virtual string DelimitDot { get; set; }
-    protected virtual string DelimitDotPointer { get; set; }
-    protected virtual string DelimitSquareLeft { get; set; }
-    protected virtual string DelimitSquareRight { get; set; }
-    protected virtual string DelimitSemicolon { get; set; }
-    protected virtual string DelimitAre { get; set; }
-    protected virtual string DelimitAnd { get; set; }
-    protected virtual string DelimitAdd { get; set; }
-    protected virtual string DelimitSub { get; set; }
+    public virtual string Eval { get; set; }
+    public virtual string EvalStackVar { get; set; }
+    public virtual string EvalIndexVar { get; set; }
+    public virtual string IntValuePre { get; set; }
+    public virtual string IntValuePost { get; set; }
+    public virtual string RefKindClearMask { get; set; }
+    public virtual string RefKindIntMask { get; set; }
+    public virtual string DelimitDot { get; set; }
+    public virtual string DelimitDotPointer { get; set; }
+    public virtual string DelimitSquareLeft { get; set; }
+    public virtual string DelimitSquareRight { get; set; }
+    public virtual string DelimitSemicolon { get; set; }
+    public virtual string DelimitAre { get; set; }
+    public virtual string DelimitAnd { get; set; }
+    public virtual string DelimitOrn { get; set; }
+    public virtual string DelimitAdd { get; set; }
+    public virtual string DelimitSub { get; set; }
 
     public virtual bool Execute()
     {
@@ -155,7 +159,7 @@ public class ClassGen : Any
         return true;
     }
 
-    public virtual bool ClearRefKind(string arg)
+    public virtual bool ClearVarMask(string arg, string mask)
     {
         this.TextIndent();
 
@@ -171,7 +175,29 @@ public class ClassGen : Any
         this.Text(this.DelimitAnd);
         this.Text(this.Space);
 
-        this.Text(this.RefKindClearMask);
+        this.Text(mask);
+
+        this.Text(this.DelimitSemicolon);
+        return true;
+    }
+
+    public virtual bool SetVarMask(string arg, string mask)
+    {
+        this.TextIndent();
+
+        this.VarArg(arg);
+
+        this.Text(this.Space);
+        this.Text(this.DelimitAre);
+        this.Text(this.Space);
+
+        this.VarArg(arg);
+
+        this.Text(this.Space);
+        this.Text(this.DelimitOrn);
+        this.Text(this.Space);
+
+        this.Text(mask);
 
         this.Text(this.DelimitSemicolon);
         return true;
