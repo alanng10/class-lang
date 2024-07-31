@@ -402,16 +402,28 @@ public class Create : InfraCreate
 
     protected virtual bool ExecuteCreateNode()
     {
+        CreateArg arg;
+        arg = this.Arg;
+
+        Array array;
+        array = arg.NodeArray;
+
+        Data data;
+        data = arg.NodeData;
+
+        NodeKindList nodeKind;
+        nodeKind = this.NodeKind;
+
         int count;
-        count = this.NodeArray.Count;
+        count = array.Count;
         int i;
         i = 0;
         while (i < count)
         {
             int oa;
-            oa = this.KindData.Get(i);
+            oa = data.Get(i);
             NodeKind kind;
-            kind = this.NodeKind.Get(oa);
+            kind = nodeKind.Get(oa);
 
             InfraState newState;
             newState = kind.NewState;
@@ -425,7 +437,7 @@ public class Create : InfraCreate
             node = (Node)o;
             node.Init();
             node.Range = this.CreateRange();
-            this.NodeArray.SetAt(i, node);
+            array.SetAt(i, node);
 
             i = i + 1;
         }
@@ -434,26 +446,36 @@ public class Create : InfraCreate
 
     protected virtual bool ExecuteCreateList()
     {
+        ListInfra listInfra;
+        listInfra = this.ListInfra;
+
+        CreateArg arg;
+        arg = this.Arg;
+        
         Data data;
-        data = this.ListData;
+        data = arg.ListData;
+
+        Array array;
+        array = arg.ListArray;
 
         int count;
-        count = this.ListArray.Count;
+        count = array.Count;
         int i;
         i = 0;
         while (i < count)
         {
             long index;
-            index = i * sizeof(uint);
+            index = i;
+            index = index * sizeof(uint);
             uint u;
             u = this.InfraInfra.DataMidGet(data, index);
             int oa;
             oa = (int)u;
-            Array array;
-            array = new Array();
-            array.Count = oa;
-            array.Init();
-            this.ListArray.SetAt(i, array);
+
+            Array a;
+            a = listInfra.ArrayCreate(oa);
+
+            array.SetAt(i, a);
             i = i + 1;
         }
         return true;
