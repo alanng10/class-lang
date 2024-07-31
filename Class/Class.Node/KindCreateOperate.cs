@@ -77,6 +77,20 @@ public class KindCreateOperate : CreateOperate
         return true;
     }
 
+    public override bool ExecuteError(ErrorKind kind, int start, int end)
+    {
+        CreateArg arg;
+        arg = this.Create.Arg;
+
+        int index;
+        index = arg.ErrorIndex;
+
+        index = index + 1;
+
+        arg.ErrorIndex = index;
+        return true;
+    }
+
     public override string ExecuteNameValue(Text text)
     {
         CreateArg arg;
