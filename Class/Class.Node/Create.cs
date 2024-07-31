@@ -563,35 +563,56 @@ public class Create : InfraCreate
 
     protected virtual bool ExecuteCreateStringValue()
     {
+        InfraInfra infraInfra;
+        infraInfra = this.InfraInfra;
+        TextInfra textInfra;
+        textInfra = this.TextInfra;
+
+        CreateArg arg;
+        arg = this.Arg;
+
+        Array array;
+        array = arg.StringValueArray;
+
         Data data;
-        data = this.StringValueData;
+        data = arg.StringValueCountData;
 
         Text text;
         text = this.TextA;
-        text.Data = this.StringValueText;
-        text.Range.Index = 0;
-        text.Range.Count = 0;
+        text.Data = arg.StringValueTextData;
+        InfraRange range;
+        range = text.Range;
+        range.Index = 0;
+        range.Count = 0;
+
         int total;
         total = 0;
 
         int count;
-        count = this.StringValueArray.Count;
+        count = array.Count;
         int i;
         i = 0;
         while (i < count)
         {
             long index;
-            index = i * sizeof(uint);
+            index = i;
+            index = index * sizeof(uint);
+            
             uint u;
-            u = this.InfraInfra.DataMidGet(data, index);
+            u = infraInfra.DataMidGet(data, index);
             int oa;
             oa = (int)u;
-            text.Range.Index = total;
-            text.Range.Count = oa;
-            string oo;
-            oo = this.TextInfra.StringCreate(text);
-            this.StringValueArray.SetAt(i, oo);
+            
+            range.Index = total;
+            range.Count = oa;
+            
+            string a;
+            a = textInfra.StringCreate(text);
+            
+            array.SetAt(i, a);
+            
             total = total + oa;
+            
             i = i + 1;
         }
         return true;
