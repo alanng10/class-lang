@@ -303,7 +303,7 @@ public class ClassGen : Any
         return true;
     }
 
-    public virtual bool GetEvalFrameValue(int index, string arg)
+    public virtual bool EvalFrameValueGet(int index, string arg)
     {
         this.TextIndent();
 

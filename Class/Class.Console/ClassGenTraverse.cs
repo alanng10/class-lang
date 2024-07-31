@@ -14,7 +14,7 @@ public class ClassGenTraverse : Traverse
         string argA;
         argA = gen.VarArgA;
 
-        gen.GetEvalFrameValue(1, argA);
+        gen.EvalFrameValueGet(1, argA);
 
         gen.EvalValueSet(0, argA);
 
