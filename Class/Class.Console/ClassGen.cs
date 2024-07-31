@@ -253,6 +253,26 @@ public class ClassGen : Any
         return true;
     }
 
+    public virtual bool SetEvalIndex(int pos)
+    {
+        this.TextIndent();
+
+        this.EvalIndex();
+
+        this.Text(this.Space);
+        this.Text(this.DelimitAre);
+        this.Text(this.Space);
+
+        this.EvalIndex();
+
+        this.Text(this.Space);
+
+        this.TextPos(pos);
+
+        this.Text(this.DelimitSemicolon);
+        return true;
+    }
+
     public virtual bool EvalStack()
     {
         this.Text(this.Eval);
@@ -273,6 +293,30 @@ public class ClassGen : Any
     {
         this.Text(this.VarPrefix);
         this.Text(arg);
+        return true;
+    }
+
+    public virtual bool TextPos(long n)
+    {
+        bool b;
+        b = (n < 0);
+
+        string ka;
+        ka = this.DelimitAdd;
+
+        long k;
+        k = n;
+        
+        if (b)
+        {
+            k = -k;
+
+            ka = this.DelimitSub;
+        }
+
+        this.Text(ka);
+        this.Text(this.Space);
+        this.TextInt(k);
         return true;
     }
 
