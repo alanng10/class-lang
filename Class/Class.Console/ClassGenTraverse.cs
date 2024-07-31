@@ -66,6 +66,36 @@ public class ClassGenTraverse : Traverse
         return true;
     }
 
+    protected virtual bool ExecuteOperateDelimitBool(string delimit)
+    {
+        ClassGen gen;
+        gen = this.Gen;
+
+        string argA;
+        string argB;
+        argA = gen.VarArgA;
+        argB = gen.VarArgB;
+
+        string ka;
+        ka = gen.RefKindClearMask;
+
+        gen.GetEvalValue(2, argA);
+        gen.GetEvalValue(1, argB);
+
+        gen.ClearVarMask(argA, ka);
+        gen.ClearVarMask(argB, ka);
+
+        gen.OperateDelimit(argA, argA, argB, delimit);
+
+        gen.SetVarMask(argA, gen.RefKindBoolMask);
+
+        gen.SetEvalValue(2, argA);
+
+        gen.SetEvalIndexPos(-1);
+
+        return true;
+    }
+
     protected virtual bool TextIndent()
     {
         return this.Gen.TextIndent();

@@ -32,6 +32,7 @@ public class ClassGen : Any
         this.IntValuePre = "0x";
         this.IntValuePost = "ULL";
         this.RefKindClearMask = "0xfffffffffffffff";
+        this.RefKindBoolMask = "0x1000000000000000";
         this.RefKindIntMask = "0x2000000000000000";
         this.DelimitDot = ".";
         this.DelimitDotPointer = "->";
@@ -79,6 +80,7 @@ public class ClassGen : Any
     public virtual string IntValuePre { get; set; }
     public virtual string IntValuePost { get; set; }
     public virtual string RefKindClearMask { get; set; }
+    public virtual string RefKindBoolMask { get; set; }
     public virtual string RefKindIntMask { get; set; }
     public virtual string DelimitDot { get; set; }
     public virtual string DelimitDotPointer { get; set; }
