@@ -23,6 +23,7 @@ public class ClassGen : Any
 
         this.Space = " ";
         this.Indent = new string(' ', 4);
+        this.Zero = "0";
         this.VarPrefix = "var";
         this.VarArgA = "ArgA";
         this.VarArgB = "ArgB";
@@ -72,6 +73,7 @@ public class ClassGen : Any
     public virtual int IndentCount { get; set; }
     public virtual string Space { get; set; }
     public virtual string Indent { get; set; }
+    public virtual string Zero { get; set; }
     public virtual string VarPrefix { get; set; }
     public virtual string VarArgA { get; set; }
     public virtual string VarArgB { get; set; }
@@ -186,6 +188,22 @@ public class ClassGen : Any
         this.Text(this.Space);
 
         this.VarArg(value);
+
+        this.Text(this.DelimitSemicolon);
+        return true;
+    }
+
+    public virtual bool VarSet(string destArg, string value)
+    {
+        this.TextIndent();
+
+        this.VarArg(destArg);
+
+        this.Text(this.Space);
+        this.Text(this.DelimitAre);
+        this.Text(this.Space);
+
+        this.Text(value);
 
         this.Text(this.DelimitSemicolon);
         return true;

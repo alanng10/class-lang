@@ -30,6 +30,8 @@ public class ClassGenTraverse : Traverse
         string argA;
         argA = gen.VarArgA;
 
+        gen.VarSet(argA, gen.Zero);
+
         gen.SetEvalValue(0, argA);
 
         gen.SetEvalIndexPos(1);
