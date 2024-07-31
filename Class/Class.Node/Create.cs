@@ -1281,10 +1281,6 @@ public class Create : InfraCreate
         }
         if (a == null)
         {
-            a = this.ExecuteBaseSetTarget(this.Range(this.RangeA, start, end));
-        }
-        if (a == null)
-        {
             a = this.ExecuteSetTarget(this.Range(this.RangeA, start, end));
         }
         return a;
@@ -1298,11 +1294,6 @@ public class Create : InfraCreate
     public virtual Node ExecuteSetTarget(Range range)
     {
         return this.ExecuteDotField(this.NodeKind.SetTarget, range);
-    }
-
-    public virtual Node ExecuteBaseSetTarget(Range range)
-    {
-        return this.ExecuteWordDotField(this.NodeKind.BaseSetTarget, this.Keyword.Base, range);
     }
 
     public virtual Node ExecuteValue(Range range)
@@ -2111,15 +2102,7 @@ public class Create : InfraCreate
         }
         if (a == null)
         {
-            a = this.ExecuteBaseCallOperate(this.Range(this.RangeA, start, end));
-        }
-        if (a == null)
-        {
             a = this.ExecuteCallOperate(this.Range(this.RangeA, start, end));
-        }
-        if (a == null)
-        {
-            a = this.ExecuteBaseGetOperate(this.Range(this.RangeA, start, end));
         }
         if (a == null)
         {
@@ -2136,16 +2119,6 @@ public class Create : InfraCreate
     public virtual Node ExecuteCallOperate(Range range)
     {
         return this.ExecuteDotMaideCall(this.NodeKind.CallOperate, range);
-    }
-
-    public virtual Node ExecuteBaseGetOperate(Range range)
-    {
-        return this.ExecuteWordDotField(this.NodeKind.BaseGetOperate, this.Keyword.Base, range);
-    }
-
-    public virtual Node ExecuteBaseCallOperate(Range range)
-    {
-        return this.ExecuteWordDotMaideCall(this.NodeKind.BaseCallOperate, this.Keyword.Base, range);
     }
 
     public virtual Node ExecuteThisOperate(Range range)
