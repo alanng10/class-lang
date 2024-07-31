@@ -61,15 +61,13 @@ public class ClassGen : Any
     public virtual BuiltinClass System { get; set; }
     public virtual GenArg Arg { get; set; }
     public virtual ClassGenOperate Operate { get; set; }
-    public virtual Maide AnyInitMaide { get; set; }
-    public virtual Maide ModuleInfoNameMaide { get; set; }
-    public virtual Maide ModuleInfoVersionMaide { get; set; }
     public virtual string Source { get; set; }
     public virtual ClassInfra ClassInfra { get; set; }
     public virtual CountClassGenOperate CountOperate { get; set; }
     public virtual SetClassGenOperate SetOperate { get; set; }
     public virtual ClassGenTraverse Traverse { get; set; }
     public virtual StringCreate StringCreate { get; set; }
+    public virtual int BaseIndex { get; set; }
     public virtual int IndentCount { get; set; }
     public virtual string Space { get; set; }
     public virtual string Indent { get; set; }
@@ -102,6 +100,8 @@ public class ClassGen : Any
 
     public virtual bool Execute()
     {
+        this.BaseIndex = this.BaseIndexGet();
+        
         this.Arg = new GenArg();
         this.Arg.Init();
 
@@ -449,5 +449,39 @@ public class ClassGen : Any
             i = i + 1;
         }
         return true;
+    }
+
+    public virtual int BaseIndexGet()
+    {
+        ClassClass anyClass;
+        anyClass = this.System.Any;
+
+        ClassClass c;
+        c = this.Class;
+
+        int k;
+        k = 0;
+
+        ClassClass ka;
+        ka = null;
+        if (!(c == anyClass))
+        {
+            ka = c.Base;
+        }
+        c = ka;
+
+        while (!(c == null))
+        {
+            k = k + 1;
+
+            ka = null;
+            if (!(c == anyClass))
+            {
+                ka = c.Base;
+            }
+            c = ka;
+        }
+
+        return k;
     }
 }
