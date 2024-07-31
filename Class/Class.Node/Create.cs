@@ -483,8 +483,11 @@ public class Create : InfraCreate
 
     protected virtual bool ExecuteCreateError()
     {
+        Array array;
+        array = this.Arg.ErrorArray;
+
         int count;
-        count = this.ErrorArray.Count;
+        count = array.Count;
         int i;
         i = 0;
         while (i < count)
@@ -493,11 +496,9 @@ public class Create : InfraCreate
             error = new Error();
             error.Init();
             error.Stage = this.Stage;
-            Range range;
-            range = new Range();
-            range.Init();
-            error.Range = range;
-            this.ErrorArray.SetAt(i, error);
+            error.Range = this.CreateRange();
+            
+            array.SetAt(i, error);
             i = i + 1;
         }
         return true;
