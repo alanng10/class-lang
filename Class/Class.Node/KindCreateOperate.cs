@@ -172,7 +172,6 @@ public class KindCreateOperate : CreateOperate
         return this.String;
     }
 
-
     protected virtual bool CopyText(Data dest, int destIndex, Data source, int sourceIndex, int count)
     {
         TextInfra textInfra;
