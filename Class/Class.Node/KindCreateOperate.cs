@@ -79,25 +79,32 @@ public class KindCreateOperate : CreateOperate
 
     public override string ExecuteNameValue(Text text)
     {
+        CreateArg arg;
+        arg = this.Create.Arg;
+
         int index;
-        index = this.Create.NameValueIndex;
+        index = arg.NameValueIndex;
         int indexA;
-        indexA = this.Create.NameValueTotalIndex;
+        indexA = arg.NameValueTextIndex;
+
+        InfraRange range;
+        range = text.Range;
 
         int count;
-        count = text.Range.Count;
+        count = range.Count;
         uint u;
         u = (uint)count;
         long oa;
-        oa = index * sizeof(uint);
-        this.InfraInfra.DataMidSet(this.Create.NameValueData, oa, u);
+        oa = index;
+        oa = oa * sizeof(uint);
+        this.InfraInfra.DataMidSet(arg.NameValueCountData, oa, u);
 
         Data source;
         source = text.Data;
         int sourceIndex;
-        sourceIndex = text.Range.Index;
+        sourceIndex = range.Index;
         Data dest;
-        dest = this.Create.NameValueText;
+        dest = arg.NameValueTextData;
         int destIndex;
         destIndex = indexA;
 
@@ -106,8 +113,8 @@ public class KindCreateOperate : CreateOperate
         index = index + 1;
         indexA = indexA + count;
 
-        this.Create.NameValueTotalIndex = indexA;
-        this.Create.NameValueIndex = index;
+        arg.NameValueTextIndex = indexA;
+        arg.NameValueIndex = index;
         return this.String;
     }
 
