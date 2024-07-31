@@ -119,7 +119,7 @@ public class ClassGenTraverse : Traverse
 
         gen.VarMaskClear(argA, ka);
 
-        gen.SetVarMask(argA, gen.RefKindIntMask);
+        gen.VarMaskSet(argA, gen.RefKindIntMask);
 
         gen.EvalValueSet(2, argA);
 
@@ -149,7 +149,7 @@ public class ClassGenTraverse : Traverse
 
         gen.OperateDelimit(argA, argA, argB, delimit);
 
-        gen.SetVarMask(argA, gen.RefKindBoolMask);
+        gen.VarMaskSet(argA, gen.RefKindBoolMask);
 
         gen.EvalValueSet(2, argA);
 
@@ -175,7 +175,7 @@ public class ClassGenTraverse : Traverse
 
         gen.OperateDelimitOne(argA, argA, delimit);
 
-        gen.SetVarMask(argA, gen.RefKindBoolMask);
+        gen.VarMaskSet(argA, gen.RefKindBoolMask);
 
         gen.EvalValueSet(1, argA);
 

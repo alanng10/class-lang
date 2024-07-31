@@ -231,7 +231,7 @@ public class ClassGen : Any
         return true;
     }
 
-    public virtual bool SetVarMask(string arg, string mask)
+    public virtual bool VarMaskSet(string arg, string mask)
     {
         this.TextIndent();
 
