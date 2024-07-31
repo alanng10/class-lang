@@ -4,6 +4,16 @@ public class ClassGenTraverse : Traverse
 {
     public virtual ClassGen Gen { get; set; }
 
+    public virtual int ParamCount { get; set; }
+
+    public override bool ExecuteThisOperate(ThisOperate thisOperate)
+    {
+        ClassGen gen;
+        gen = this.Gen;
+
+        return true;
+    }
+
     public override bool ExecuteAndOperate(AndOperate andOperate)
     {
         this.ExecuteOperate(andOperate.Left);
