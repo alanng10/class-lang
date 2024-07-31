@@ -540,22 +540,22 @@ public class Create : InfraCreate
             long index;
             index = i;
             index = index * sizeof(uint);
-            
+
             uint u;
             u = infraInfra.DataMidGet(data, index);
             int oa;
             oa = (int)u;
-            
+
             range.Index = total;
             range.Count = oa;
 
             string a;
             a = textInfra.StringCreate(text);
-            
+
             array.SetAt(i, a);
-            
+
             total = total + oa;
-            
+
             i = i + 1;
         }
         return true;
