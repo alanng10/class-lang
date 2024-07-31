@@ -31,12 +31,14 @@ public class ClassGen : Any
         this.EvalIndexVar = "N";
         this.IntValuePre = "0x";
         this.IntValuePost = "ULL";
+        this.RefKindClearMask = "0xfffffffffffffff";
         this.DelimitDot = ".";
         this.DelimitDotPointer = "->";
         this.DelimitSquareLeft = "[";
         this.DelimitSquareRight = "]";
         this.DelimitSemicolon = ";";
         this.DelimitAre = "=";
+        this.DelimitAnd = "&";
         this.DelimitSub = "-";
         return true;
     }
@@ -70,12 +72,14 @@ public class ClassGen : Any
     protected virtual string EvalIndexVar { get; set; }
     protected virtual string IntValuePre { get; set; }
     protected virtual string IntValuePost { get; set; }
+    protected virtual string RefKindClearMask { get; set; }
     protected virtual string DelimitDot { get; set; }
     protected virtual string DelimitDotPointer { get; set; }
     protected virtual string DelimitSquareLeft { get; set; }
     protected virtual string DelimitSquareRight { get; set; }
     protected virtual string DelimitSemicolon { get; set; }
     protected virtual string DelimitAre { get; set; }
+    protected virtual string DelimitAnd { get; set; }
     protected virtual string DelimitSub { get; set; }
 
     public virtual bool Execute()
@@ -124,6 +128,28 @@ public class ClassGen : Any
         nodeClass = (NodeClass)this.Class.Any;
 
         this.Traverse.ExecuteClass(nodeClass);
+        return true;
+    }
+
+    public virtual bool ClearRefKind(string arg)
+    {
+        this.TextIndent();
+
+        this.VarArg(arg);
+
+        this.Text(this.Space);
+        this.Text(this.DelimitAre);
+        this.Text(this.Space);
+
+        this.VarArg(arg);
+
+        this.Text(this.Space);
+        this.Text(this.DelimitAnd);
+        this.Text(this.Space);
+
+        this.Text(this.RefKindClearMask);
+
+        this.Text(this.DelimitSemicolon);
         return true;
     }
 
