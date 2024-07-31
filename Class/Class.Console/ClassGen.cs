@@ -147,19 +147,22 @@ public class ClassGen : Any
 
     public virtual bool OperateDelimit(string destArg, string left, string right, string delimit)
     {
+        string space;
+        space = this.Space;
+
         this.TextIndent();
 
         this.VarArg(destArg);
         
-        this.Text(this.Space);
+        this.Text(space);
         this.Text(this.DelimitAre);
-        this.Text(this.Space);
+        this.Text(space);
 
         this.VarArg(left);
 
-        this.Text(this.Space);
+        this.Text(space);
         this.Text(delimit);
-        this.Text(this.Space);
+        this.Text(space);
 
         this.VarArg(right);
 
