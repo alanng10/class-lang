@@ -497,7 +497,7 @@ public class Create : InfraCreate
             error.Init();
             error.Stage = this.Stage;
             error.Range = this.CreateRange();
-            
+
             array.SetAt(i, error);
             i = i + 1;
         }
@@ -506,35 +506,56 @@ public class Create : InfraCreate
 
     protected virtual bool ExecuteCreateNameValue()
     {
+        InfraInfra infraInfra;
+        infraInfra = this.InfraInfra;
+        TextInfra textInfra;
+        textInfra = this.TextInfra;
+
+        CreateArg arg;
+        arg = this.Arg;
+
+        Array array;
+        array = arg.NameValueArray;
+
         Data data;
-        data = this.NameValueData;
+        data = arg.NameValueCountData;
 
         Text text;
         text = this.TextA;
-        text.Data = this.NameValueText;
-        text.Range.Index = 0;
-        text.Range.Count = 0;
+        text.Data = arg.NameValueTextData;
+        InfraRange range;
+        range = text.Range;
+        range.Index = 0;
+        range.Count = 0;
+
         int total;
         total = 0;
 
         int count;
-        count = this.NameValueArray.Count;
+        count = array.Count;
         int i;
         i = 0;
         while (i < count)
         {
             long index;
-            index = i * sizeof(uint);
+            index = i;
+            index = index * sizeof(uint);
+            
             uint u;
-            u = this.InfraInfra.DataMidGet(data, index);
+            u = infraInfra.DataMidGet(data, index);
             int oa;
             oa = (int)u;
-            text.Range.Index = total;
-            text.Range.Count = oa;
-            string oo;
-            oo = this.TextInfra.StringCreate(text);
-            this.NameValueArray.SetAt(i, oo);
+            
+            range.Index = total;
+            range.Count = oa;
+
+            string a;
+            a = textInfra.StringCreate(text);
+            
+            array.SetAt(i, a);
+            
             total = total + oa;
+            
             i = i + 1;
         }
         return true;
