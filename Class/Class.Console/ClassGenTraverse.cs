@@ -10,7 +10,7 @@ public class ClassGenTraverse : Traverse
 
         this.ExecuteOperate(andOperate.Right);
 
-        this.ExecuteOperateDelimit(this.Gen.DelimitAnd);
+        this.ExecuteOperateDelimitBool(this.Gen.DelimitAnd);
         return true;
     }
 
@@ -20,7 +20,7 @@ public class ClassGenTraverse : Traverse
 
         this.ExecuteOperate(ornOperate.Right);
 
-        this.ExecuteOperateDelimit(this.Gen.DelimitOrn);
+        this.ExecuteOperateDelimitBool(this.Gen.DelimitOrn);
         return true;
     }
 
