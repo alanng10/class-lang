@@ -63,8 +63,8 @@ public class ClassGen : Any
     protected virtual string Space { get; set; }
     protected virtual string Indent { get; set; }
     protected virtual string VarPrefix { get; set; }
-    protected virtual string VarArgA { get; set; }
-    protected virtual string VarArgB { get; set; }
+    public virtual string VarArgA { get; set; }
+    public virtual string VarArgB { get; set; }
     protected virtual string Eval { get; set; }
     protected virtual string EvalStackVar { get; set; }
     protected virtual string EvalIndexVar { get; set; }

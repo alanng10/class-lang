@@ -6,7 +6,18 @@ public class ClassGenTraverse : Traverse
 
     public override bool ExecuteAddOperate(AddOperate addOperate)
     {
+        ClassGen gen;
+        gen = this.Gen;
+
+        this.ExecuteOperate(addOperate.Left);
         
+        this.ExecuteOperate(addOperate.Right);
+
+        gen.GetEvalValue(1, gen.VarArgA);
+        gen.GetEvalValue(0, gen.VarArgB);
+
+        
+
 
         return true;
     }
