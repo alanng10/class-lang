@@ -13,14 +13,20 @@ public class SetCreateOperate : CreateOperate
 
     public override Node Execute()
     {
-        int index;
-        index = this.Create.NodeIndex;
+        Create create;
+        create = this.Create;
 
-        Node node;        
-        node = (Node)this.Create.NodeArray.GetAt(index);
+        CreateArg arg;
+        arg = create.Arg;
 
         CreateOperateArg o;
-        o = this.Create.OperateArg;
+        o = create.OperateArg;
+
+        int index;
+        index = arg.NodeIndex;
+
+        Node node;        
+        node = (Node)arg.NodeArray.GetAt(index);
 
         NodeKind kind;
         kind = o.Kind;
@@ -34,37 +40,40 @@ public class SetCreateOperate : CreateOperate
         state.Node = null;
         state.Arg = null;
 
-        this.Create.NodeInfo(node, o.Start, o.End);
+        create.NodeInfo(node, o.Start, o.End);
 
         index = index + 1;
 
-        this.Create.NodeIndex = index;
+        arg.NodeIndex = index;
         return node;
     }
 
     public override int ExecuteListNew()
     {
+        CreateArg arg;
+        arg = this.Create.Arg;
+
         int index;
-        index = this.Create.ListIndex;
+        index = arg.ListIndex;
 
         int a;
         a = index;
 
         index = index + 1;
 
-        this.Create.ListIndex = index;
+        arg.ListIndex = index;
         return a;
     }
 
     public override Array ExecuteListGet(int index)
     {
-        return (Array)this.Create.ListArray.GetAt(index);
+        return (Array)this.Create.Arg.ListArray.GetAt(index);
     }
 
     public override bool ExecuteListSetItem(int index, int itemIndex, object item)
     {
         Array array;
-        array = (Array)this.Create.ListArray.GetAt(index);
+        array = (Array)this.Create.Arg.ListArray.GetAt(index);
 
         array.SetAt(itemIndex, item);
         return true;
@@ -72,19 +81,24 @@ public class SetCreateOperate : CreateOperate
     
     public override bool ExecuteError(ErrorKind kind, int start, int end)
     {
+        Create create;
+        create = this.Create;
+        CreateArg arg;
+        arg = create.Arg;
+
         int index;
-        index = this.Create.ErrorIndex;
+        index = arg.ErrorIndex;
 
         Error error;
-        error = (Error)this.Create.ErrorArray.GetAt(index);
+        error = (Error)arg.ErrorArray.GetAt(index);
         error.Kind = kind;
         error.Range.Start = start;
         error.Range.End = end;
-        error.Source = this.Create.SourceItem;
+        error.Source = create.SourceItem;
 
         index = index + 1;
 
-        this.Create.ErrorIndex = index;
+        arg.ErrorIndex = index;
         return true;
     }
 
