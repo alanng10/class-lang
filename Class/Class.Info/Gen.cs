@@ -141,16 +141,7 @@ public class Gen : Any
         root = this.Root;
 
         bool b;
-        b = this.GenArticle(0, ".", ".");
-        if (!b)
-        {
-            return false;
-        }
-
-        Node article;
-        article = (Node)root.Child.Get("Article");
-
-        b = this.ExecuteArticleNode(article, 1, "./Article", "./Article");
+        b = this.ExecuteArticleNode(root, 0, ".", ".");
         if (!b)
         {
             return false;
