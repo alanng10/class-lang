@@ -36,6 +36,7 @@ public class ClassGen : Any
         this.RefKindClearMask = "0xfffffffffffffff";
         this.RefKindBoolMask = "0x1000000000000000";
         this.RefKindIntMask = "0x2000000000000000";
+        this.BaseClearMask = "0xf000ffffffffffff";
         this.DelimitDot = ".";
         this.DelimitDotPointer = "->";
         this.DelimitSquareLeft = "[";
@@ -68,6 +69,7 @@ public class ClassGen : Any
     public virtual ClassGenTraverse Traverse { get; set; }
     public virtual StringCreate StringCreate { get; set; }
     public virtual int BaseIndex { get; set; }
+    public virtual string BaseMask { get; set; }
     public virtual int IndentCount { get; set; }
     public virtual string Space { get; set; }
     public virtual string Indent { get; set; }
@@ -84,6 +86,7 @@ public class ClassGen : Any
     public virtual string RefKindClearMask { get; set; }
     public virtual string RefKindBoolMask { get; set; }
     public virtual string RefKindIntMask { get; set; }
+    public virtual string BaseClearMask { get; set; }
     public virtual string DelimitDot { get; set; }
     public virtual string DelimitDotPointer { get; set; }
     public virtual string DelimitSquareLeft { get; set; }
@@ -101,7 +104,9 @@ public class ClassGen : Any
     public virtual bool Execute()
     {
         this.BaseIndex = this.BaseIndexGet();
-        
+
+        this.BaseMask = this.BaseMaskGet(this.BaseIndex);
+
         this.Arg = new GenArg();
         this.Arg.Init();
 
@@ -449,6 +454,19 @@ public class ClassGen : Any
             i = i + 1;
         }
         return true;
+    }
+
+    public virtual string BaseMaskGet(int index)
+    {
+        ulong k;
+        k = (ulong)index;
+
+        k = k & 0xfff;
+        k = k << 48;
+
+        string a;
+        a = k.ToString("x16");
+        return a;
     }
 
     public virtual int BaseIndexGet()
