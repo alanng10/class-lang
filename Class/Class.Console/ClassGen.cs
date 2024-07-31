@@ -209,7 +209,7 @@ public class ClassGen : Any
         return true;
     }
 
-    public virtual bool ClearVarMask(string arg, string mask)
+    public virtual bool VarMaskClear(string arg, string mask)
     {
         this.TextIndent();
 

@@ -112,12 +112,12 @@ public class ClassGenTraverse : Traverse
         gen.EvalValueGet(2, argA);
         gen.EvalValueGet(1, argB);
 
-        gen.ClearVarMask(argA, ka);
-        gen.ClearVarMask(argB, ka);
+        gen.VarMaskClear(argA, ka);
+        gen.VarMaskClear(argB, ka);
 
         gen.OperateDelimit(argA, argA, argB, delimit);
 
-        gen.ClearVarMask(argA, ka);
+        gen.VarMaskClear(argA, ka);
 
         gen.SetVarMask(argA, gen.RefKindIntMask);
 
@@ -144,8 +144,8 @@ public class ClassGenTraverse : Traverse
         gen.EvalValueGet(2, argA);
         gen.EvalValueGet(1, argB);
 
-        gen.ClearVarMask(argA, ka);
-        gen.ClearVarMask(argB, ka);
+        gen.VarMaskClear(argA, ka);
+        gen.VarMaskClear(argB, ka);
 
         gen.OperateDelimit(argA, argA, argB, delimit);
 
@@ -171,7 +171,7 @@ public class ClassGenTraverse : Traverse
 
         gen.EvalValueGet(1, argA);
 
-        gen.ClearVarMask(argA, ka);
+        gen.VarMaskClear(argA, ka);
 
         gen.OperateDelimitOne(argA, argA, delimit);
 
