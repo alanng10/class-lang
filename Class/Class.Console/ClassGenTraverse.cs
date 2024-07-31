@@ -21,8 +21,8 @@ public class ClassGenTraverse : Traverse
         
         this.ExecuteOperate(addOperate.Right);
 
-        gen.GetEvalValue(1, argA);
-        gen.GetEvalValue(0, argB);
+        gen.GetEvalValue(2, argA);
+        gen.GetEvalValue(1, argB);
 
         gen.ClearVarMask(argA, ka);
         gen.ClearVarMask(argB, ka);
@@ -33,10 +33,9 @@ public class ClassGenTraverse : Traverse
 
         gen.SetVarMask(argA, gen.RefKindIntMask);
 
-        gen.SetEvalValue(1, argA);
+        gen.SetEvalValue(2, argA);
 
-        
-
+        gen.SetEvalIndex(-1);
         return true;
     }
 
