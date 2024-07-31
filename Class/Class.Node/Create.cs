@@ -1980,6 +1980,10 @@ public class Create : InfraCreate
         }
         if (a == null)
         {
+            a = this.ExecuteBaseOperate(this.Range(this.RangeA, start, end));
+        }
+        if (a == null)
+        {
             a = this.ExecuteNullOperate(this.Range(this.RangeA, start, end));
         }
         if (a == null)
@@ -2124,6 +2128,11 @@ public class Create : InfraCreate
     public virtual Node ExecuteThisOperate(Range range)
     {
         return this.ExecuteOneWord(this.NodeKind.ThisOperate, this.Keyword.ItemThis, range);
+    }
+
+    public virtual Node ExecuteBaseOperate(Range range)
+    {
+        return this.ExecuteOneWord(this.NodeKind.BaseOperate, this.Keyword.Base, range);
     }
 
     public virtual Node ExecuteNullOperate(Range range)
