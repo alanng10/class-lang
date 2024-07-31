@@ -337,7 +337,7 @@ public class ClassGen : Any
         return true;
     }
 
-    public virtual bool SetEvalIndexPos(int pos)
+    public virtual bool EvalIndexPosSet(int pos)
     {
         this.TextIndent();
 

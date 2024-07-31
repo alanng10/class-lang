@@ -18,7 +18,7 @@ public class ClassGenTraverse : Traverse
 
         gen.EvalValueSet(0, argA);
 
-        gen.SetEvalIndexPos(1);
+        gen.EvalIndexPosSet(1);
         return true;
     }
 
@@ -34,7 +34,7 @@ public class ClassGenTraverse : Traverse
 
         gen.EvalValueSet(0, argA);
 
-        gen.SetEvalIndexPos(1);
+        gen.EvalIndexPosSet(1);
         return true;
     }
 
@@ -123,7 +123,7 @@ public class ClassGenTraverse : Traverse
 
         gen.EvalValueSet(2, argA);
 
-        gen.SetEvalIndexPos(-1);
+        gen.EvalIndexPosSet(-1);
 
         return true;
     }
@@ -153,7 +153,7 @@ public class ClassGenTraverse : Traverse
 
         gen.EvalValueSet(2, argA);
 
-        gen.SetEvalIndexPos(-1);
+        gen.EvalIndexPosSet(-1);
 
         return true;
     }
