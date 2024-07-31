@@ -418,33 +418,6 @@ public class StateTraverse : Traverse
         return true;
     }
 
-    public override bool ExecuteBaseSetTarget(BaseSetTarget baseSetTarget)
-    {
-        if (baseSetTarget == null)
-        {
-            return true;
-        }
-
-        FieldName nodeField;
-        nodeField = baseSetTarget.Field;
-
-        base.ExecuteBaseSetTarget(baseSetTarget);
-
-        Field field;
-        field = this.ExecuteBaseFieldNode(baseSetTarget, nodeField);
-
-        ClassClass fieldClass;
-        fieldClass = null;
-        if (!(field == null))
-        {
-            fieldClass = field.Class;
-        }
-
-        this.Info(baseSetTarget).SetField = field;
-        this.Info(baseSetTarget).TargetClass = fieldClass;
-        return true;
-    }
-
     public override bool ExecuteGetOperate(GetOperate getOperate)
     {
         if (getOperate == null)
@@ -471,33 +444,6 @@ public class StateTraverse : Traverse
 
         this.Info(getOperate).GetField = field;
         this.Info(getOperate).OperateClass = fieldClass;
-        return true;
-    }
-
-    public override bool ExecuteBaseGetOperate(BaseGetOperate baseGetOperate)
-    {
-        if (baseGetOperate == null)
-        {
-            return true;
-        }
-
-        FieldName nodeField;
-        nodeField = baseGetOperate.Field;
-
-        base.ExecuteBaseGetOperate(baseGetOperate);
-
-        Field field;
-        field = this.ExecuteBaseFieldNode(baseGetOperate, nodeField);
-
-        ClassClass fieldClass;
-        fieldClass = null;
-        if (!(field == null))
-        {
-            fieldClass = field.Class;
-        }
-
-        this.Info(baseGetOperate).GetField = field;
-        this.Info(baseGetOperate).OperateClass = fieldClass;
         return true;
     }
 
@@ -567,62 +513,6 @@ public class StateTraverse : Traverse
 
         this.Info(callOperate).CallMaide = maide;
         this.Info(callOperate).OperateClass = operateClass;
-        return true;
-    }
-
-    public override bool ExecuteBaseCallOperate(BaseCallOperate baseCallOperate)
-    {
-        if (baseCallOperate == null)
-        {
-            return true;
-        }
-
-        MaideName nodeMaide;
-        nodeMaide = baseCallOperate.Maide;
-        Argue argue;
-        argue = baseCallOperate.Argue;
-
-        base.ExecuteBaseCallOperate(baseCallOperate);
-
-        ClassClass baseClass;
-        baseClass = this.ThisClass.Base;
-
-        string maideName;
-        maideName = null;
-        if (!(nodeMaide == null))
-        {
-            maideName = nodeMaide.Value;
-        }
-
-        Maide maide;
-        maide = null;
-
-        if (!(maideName == null))
-        {
-            maide = this.Maide(baseClass, maideName, true);
-            if (maide == null)
-            {
-                this.Error(this.ErrorKind.MaideUndefined, baseCallOperate);
-            }
-        }
-
-        if (!(maide == null))
-        {
-            if (!this.ArgueMatch(maide, argue))
-            {
-                this.Error(this.ErrorKind.ArgueUnassignable, baseCallOperate);
-            }
-        }
-
-        ClassClass operateClass;
-        operateClass = null;
-        if (!(maide == null))
-        {
-            operateClass = maide.Class;
-        }
-
-        this.Info(baseCallOperate).CallMaide = maide;
-        this.Info(baseCallOperate).OperateClass = operateClass;
         return true;
     }
 
