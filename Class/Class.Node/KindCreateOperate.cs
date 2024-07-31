@@ -21,31 +21,43 @@ public class KindCreateOperate : CreateOperate
 
     public override Node Execute()
     {
-        int index;
-        index = this.Create.NodeIndex;
+        Create create;
+        create = this.Create;
+        
+        CreateArg arg;
+        arg = create.Arg;
+        
+        NodeKind kind;
+        kind = create.OperateArg.Kind;
 
-        this.Create.KindData.Set(index, this.Create.OperateArg.Kind.Index);
+        int index;
+        index = arg.NodeIndex;
+
+        arg.NodeData.Set(index, kind.Index);
 
         index = index + 1;
 
-        this.Create.NodeIndex = index;
+        arg.NodeIndex = index;
 
         Node a;
-        a = this.Create.OperateArg.Kind.Node;
+        a = kind.Node;
         return a;
     }
 
     public override int ExecuteListNew()
     {
+        CreateArg arg;
+        arg = this.Create.Arg;
+
         int index;
-        index = this.Create.ListIndex;
+        index = arg.ListIndex;
 
         int a;
         a = index;
 
         index = index + 1;
 
-        this.Create.ListIndex = index;
+        arg.ListIndex = index;
         return a;
     }
 
@@ -57,10 +69,11 @@ public class KindCreateOperate : CreateOperate
     public override bool ExecuteListCount(int index, int count)
     {
         long oa;
-        oa = index * sizeof(uint);
+        oa = index;
+        oa = oa * sizeof(uint);
         uint u;
         u = (uint)count;
-        this.InfraInfra.DataMidSet(this.Create.ListData, oa, u);
+        this.InfraInfra.DataMidSet(this.Create.Arg.ListData, oa, u);
         return true;
     }
 
