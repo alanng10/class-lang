@@ -35,7 +35,7 @@ public class ClassGenTraverse : Traverse
 
         gen.SetEvalValue(2, argA);
 
-        gen.SetEvalIndex(-1);
+        gen.SetEvalIndexPos(-1);
         return true;
     }
 

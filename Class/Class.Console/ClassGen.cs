@@ -253,7 +253,7 @@ public class ClassGen : Any
         return true;
     }
 
-    public virtual bool SetEvalIndex(int pos)
+    public virtual bool SetEvalIndexPos(int pos)
     {
         this.TextIndent();
 
