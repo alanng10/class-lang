@@ -127,7 +127,7 @@ public class ClassGen : Any
         return true;
     }
 
-    public virtual bool GetEvalStackValue(int index, string arg)
+    public virtual bool GetEvalValue(int index, string arg)
     {
         this.TextIndent();
         
@@ -137,17 +137,17 @@ public class ClassGen : Any
         this.Text(this.DelimitAre);
         this.Text(this.Space);
         
-        this.EvalStackValue(index);
+        this.EvalValue(index);
         
         this.Text(this.DelimitSemicolon);
         return true;
     }
 
-    public virtual bool SetEvalStackValue(int index, string arg)
+    public virtual bool SetEvalValue(int index, string arg)
     {
         this.TextIndent();
 
-        this.EvalStackValue(index);
+        this.EvalValue(index);
 
         this.Text(this.Space);
         this.Text(this.DelimitAre);
@@ -159,7 +159,7 @@ public class ClassGen : Any
         return true;
     }
 
-    public virtual bool EvalStackValue(int index)
+    public virtual bool EvalValue(int index)
     {
         this.EvalStack();
         this.Text(this.DelimitSquareLeft);
