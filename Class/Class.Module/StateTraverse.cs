@@ -527,6 +527,16 @@ public class StateTraverse : Traverse
         return true;
     }
 
+    public override bool ExecuteBaseOperate(BaseOperate baseOperate)
+    {
+        if (baseOperate == null)
+        {
+            return true;
+        }
+
+        this.Info(baseOperate).OperateClass = this.ThisClass.Base;
+        return true;
+    }
 
     public override bool ExecuteNullOperate(NullOperate nullOperate)
     {
