@@ -24,6 +24,14 @@ public class ClassGenTraverse : Traverse
         return true;
     }
 
+    public override bool ExecuteNotOperate(NotOperate notOperate)
+    {
+        this.ExecuteOperate(notOperate.Value);
+
+        this.ExecuteOperateDelimitBoolOne(this.Gen.DelimitNot);
+        return true;
+    }
+
     public override bool ExecuteAddOperate(AddOperate addOperate)
     {
         this.ExecuteOperate(addOperate.Left);
@@ -112,6 +120,30 @@ public class ClassGenTraverse : Traverse
         gen.SetEvalValue(2, argA);
 
         gen.SetEvalIndexPos(-1);
+
+        return true;
+    }
+
+    protected virtual bool ExecuteOperateDelimitBoolOne(string delimit)
+    {
+        ClassGen gen;
+        gen = this.Gen;
+
+        string argA;
+        argA = gen.VarArgA;
+
+        string ka;
+        ka = gen.RefKindClearMask;
+
+        gen.GetEvalValue(1, argA);
+
+        gen.ClearVarMask(argA, ka);
+
+        gen.OperateDelimitOne(argA, argA, delimit);
+
+        gen.SetVarMask(argA, gen.RefKindBoolMask);
+
+        gen.SetEvalValue(1, argA);
 
         return true;
     }

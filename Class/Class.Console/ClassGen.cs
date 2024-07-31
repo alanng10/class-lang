@@ -167,6 +167,25 @@ public class ClassGen : Any
         return true;
     }
 
+    public virtual bool OperateDelimitOne(string destArg, string value, string delimit)
+    {
+        this.TextIndent();
+
+        this.VarArg(destArg);
+
+        this.Text(this.Space);
+        this.Text(this.DelimitAre);
+        this.Text(this.Space);
+
+        this.Text(delimit);
+        this.Text(this.Space);
+
+        this.VarArg(value);
+
+        this.Text(this.DelimitSemicolon);
+        return true;
+    }
+
     public virtual bool ClearVarMask(string arg, string mask)
     {
         this.TextIndent();
