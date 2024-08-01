@@ -622,7 +622,7 @@ class ObjectString : Any
             {
                 if (oc == '\\')
                 {
-                    h.Append("\\\\");
+                    this.JoinAppend(h, "\\\\");
                     b = true;
                 }
             }
@@ -630,7 +630,7 @@ class ObjectString : Any
             {
                 if (oc == '\"')
                 {
-                    h.Append("\\\"");
+                    this.JoinAppend(h, "\\\"");
                     b = true;
                 }
             }
@@ -638,7 +638,7 @@ class ObjectString : Any
             {
                 if (oc == '\t')
                 {
-                    h.Append("\\t");
+                    this.JoinAppend(h, "\\t");
                     b = true;
                 }
             }
@@ -646,7 +646,7 @@ class ObjectString : Any
             {
                 if (oc == '\n')
                 {
-                    h.Append("\\n");
+                    this.JoinAppend(h, "\\n");
                     b = true;
                 }
             }
@@ -693,13 +693,13 @@ class ObjectString : Any
                     string kk;
                     kk = stringCreate.Data(data, null);
 
-                    h.Append("\\u");
-                    h.Append(kk);
+                    this.JoinAppend(h, "\\u");
+                    this.JoinAppend(h, kk);
                 }
 
                 if (ba)
                 {
-                    h.AppendChar(oc);
+                    h.Append(oc);
                 }
             }
 
@@ -713,10 +713,11 @@ class ObjectString : Any
         return ret;
     }
 
-
-
-
-
+    protected virtual bool JoinAppend(StringJoin h, string text)
+    {
+        this.InfraInfra.StringJoinString(h, text);
+        return true;
+    }
 
     private ObjectString Append(string s)
     {
