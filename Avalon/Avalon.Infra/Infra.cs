@@ -202,4 +202,22 @@ public class Infra : Any
         }
         return true;
     }
+
+    public virtual bool StringJoinString(StringJoin h, string a)
+    {
+        int count;
+        count = a.Length;
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            char oc;
+            oc = a[i];
+
+            h.Append(oc);
+
+            i = i + 1;
+        }
+        return true;
+    }
 }
