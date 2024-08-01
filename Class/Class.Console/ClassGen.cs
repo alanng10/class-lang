@@ -43,6 +43,7 @@ public class ClassGen : Any
         this.DelimitSquareRight = "]";
         this.DelimitSemicolon = ";";
         this.DelimitAre = "=";
+        this.DelimitEqual = "==";
         this.DelimitAnd = "&";
         this.DelimitOrn = "|";
         this.DelimitNot = "!";
@@ -93,6 +94,7 @@ public class ClassGen : Any
     public virtual string DelimitSquareRight { get; set; }
     public virtual string DelimitSemicolon { get; set; }
     public virtual string DelimitAre { get; set; }
+    public virtual string DelimitEqual { get; set; }
     public virtual string DelimitAnd { get; set; }
     public virtual string DelimitOrn { get; set; }
     public virtual string DelimitNot { get; set; }

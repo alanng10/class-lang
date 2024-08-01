@@ -60,9 +60,9 @@ public class ClassGenTraverse : Traverse
 
     public override bool ExecuteEqualOperate(EqualOperate equalOperate)
     {
-        this.ExecuteOperate(equalOperate.Left);
+        base.ExecuteEqualOperate(equalOperate);
 
-        this.ExecuteOperate(equalOperate.Right);
+        
 
         return true;
     }
