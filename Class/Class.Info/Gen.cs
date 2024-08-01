@@ -301,11 +301,11 @@ public class Gen : Any
         string ka;
         ka = this.BoolValueString(this.LinkFileName);
 
-        o.Append("var LinkFileName;\n");
-        o.Append("LinkFileName = ");
-        o.Append(ka);
-        o.Append(semicolon);
-        o.Append(newLine);
+        this.Append("var LinkFileName;\n");
+        this.Append("LinkFileName = ");
+        this.Append(ka);
+        this.Append(semicolon);
+        this.Append(newLine);
 
         string a;
         a = o.Result();
@@ -324,13 +324,13 @@ public class Gen : Any
         }
 
         o.Clear();
-        o.Append("var NaviTree;\n");
-        o.Append("NaviTree =\n");
+        this.Append("var NaviTree;\n");
+        this.Append("NaviTree =\n");
 
         this.ExecuteNaviNode(0, this.Root);
-        
-        o.Append(semicolon);
-        o.Append(newLine);
+
+        this.Append(semicolon);
+        this.Append(newLine);
 
         a = o.Result();
 
@@ -369,31 +369,31 @@ public class Gen : Any
         indent = level * 2;
 
         this.AppendIndent(indent);
-        o.Append(leftBrace);
-        o.Append(newLine);
+        this.Append(leftBrace);
+        this.Append(newLine);
 
         this.AppendIndent(indent + 1);
-        o.Append(quote);
-        o.Append("Name");
-        o.Append(quote);
-        o.Append(colon);
-        o.Append(space);
-        o.Append(quote);
-        o.Append(a.NameString);
-        o.Append(quote);
-        o.Append(comma);
-        o.Append(newLine);
+        this.Append(quote);
+        this.Append("Name");
+        this.Append(quote);
+        this.Append(colon);
+        this.Append(space);
+        this.Append(quote);
+        this.Append(a.NameString);
+        this.Append(quote);
+        this.Append(comma);
+        this.Append(newLine);
 
         this.AppendIndent(indent + 1);
-        o.Append(quote);
-        o.Append("Child");
-        o.Append(quote);
-        o.Append(colon);
-        o.Append(newLine);
+        this.Append(quote);
+        this.Append("Child");
+        this.Append(quote);
+        this.Append(colon);
+        this.Append(newLine);
 
         this.AppendIndent(indent + 1);
-        o.Append(leftBrace);
-        o.Append(newLine);
+        this.Append(leftBrace);
+        this.Append(newLine);
 
         Iter iter;
         iter = a.Child.IterCreate();
@@ -404,24 +404,24 @@ public class Gen : Any
             aa = (Node)iter.Value;
 
             this.AppendIndent(indent + 2);
-            o.Append(quote);
-            o.Append(aa.NameString);
-            o.Append(quote);
-            o.Append(colon);
-            o.Append(newLine);
+            this.Append(quote);
+            this.Append(aa.NameString);
+            this.Append(quote);
+            this.Append(colon);
+            this.Append(newLine);
 
             this.ExecuteNaviNode(level + 1, aa);
 
-            o.Append(comma);
-            o.Append(newLine);
+            this.Append(comma);
+            this.Append(newLine);
         }
 
         this.AppendIndent(indent + 1);
-        o.Append(rightBrace);
-        o.Append(newLine);
+        this.Append(rightBrace);
+        this.Append(newLine);
 
         this.AppendIndent(indent);
-        o.Append(rightBrace);
+        this.Append(rightBrace);
         return true;
     }
 
@@ -467,7 +467,7 @@ public class Gen : Any
         o = this.StringJoin;
         o.Clear();
 
-        o.Append(".");
+        this.Append(".");
 
         int count;
         count = level;
@@ -475,7 +475,7 @@ public class Gen : Any
         i = 0;
         while (i < count)
         {
-            o.Append("/..");
+            this.Append("/..");
 
             i = i + 1;
         }
@@ -598,7 +598,7 @@ public class Gen : Any
             {
                 if (oc == '\\')
                 {
-                    o.Append("\\\\");
+                    this.Append("\\\\");
                     b = true;
                 }
             }
@@ -606,7 +606,7 @@ public class Gen : Any
             {
                 if (oc == '\"')
                 {
-                    o.Append("\\\"");
+                    this.Append("\\\"");
                     b = true;
                 }
             }
@@ -614,13 +614,13 @@ public class Gen : Any
             {
                 if (oc == '\'')
                 {
-                    o.Append("\\\'");
+                    this.Append("\\\'");
                     b = true;
                 }
             }
             if (!b)
             {
-                o.AppendChar(oc);
+                o.Append(oc);
             }
 
             i = i + 1;
@@ -645,16 +645,19 @@ public class Gen : Any
 
     protected virtual bool AppendIndent(int count)
     {
-        StringJoin o;
-        o = this.StringJoin;
-
         int i;
         i = 0;
         while (i < count)
         {
-            o.Append("    ");
+            this.Append("    ");
             i = i + 1;
         }
+        return true;
+    }
+
+    protected virtual bool Append(string text)
+    {
+        this.InfraInfra.StringJoinString(this.StringJoin, text);
         return true;
     }
 
