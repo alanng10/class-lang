@@ -180,6 +180,32 @@ public class ClassGenTraverse : Traverse
         return true;
     }
 
+    public override bool ExecuteBitNotOperate(BitNotOperate bitNotOperate)
+    {
+        base.ExecuteBitNotOperate(bitNotOperate);
+
+        ClassGen gen;
+        gen = this.Gen;
+
+        string argA;
+        argA = gen.VarArgA;
+
+        string ka;
+        ka = gen.RefKindClearMask;
+
+        gen.EvalValueGet(1, argA);
+
+        gen.OperateDelimitOne(argA, argA, gen.DelimitBitNot);
+
+        gen.VarMaskClear(argA, ka);
+
+        gen.VarMaskSet(argA, gen.RefKindIntMask);
+
+        gen.EvalValueSet(1, argA);
+
+        return true;
+    }
+
     public override bool ExecuteBitLeftOperate(BitLeftOperate bitLeftOperate)
     {
         base.ExecuteBitLeftOperate(bitLeftOperate);
