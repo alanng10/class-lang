@@ -42,6 +42,9 @@ class PartGen : Any
 
     protected virtual string GetPart()
     {
+        ToolInfra toolInfra;
+        toolInfra = this.ToolInfra;
+        
         StringJoin h;
         h = new StringJoin();
         h.Init();
@@ -66,8 +69,8 @@ class PartGen : Any
             string a;
             a = this.MaideString(aa);
 
-            h.Append(a);
-
+            toolInfra.Append(h, a);
+            
             ba = true;
         }
 
@@ -85,7 +88,7 @@ class PartGen : Any
         string newLine;
         newLine = toolInfra.NewLine;
 
-        h.Append(newLine);
+        this.ToolInfra.Append(h, newLine);
         return true;
     }
 
