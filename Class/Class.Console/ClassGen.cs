@@ -52,6 +52,9 @@ public class ClassGen : Any
         this.DelimitSub = "-";
         this.DelimitMul = "*";
         this.DelimitDiv = "/";
+        this.DelimitBitNot = "~";
+        this.DelimitBitLeft = "<<";
+        this.DelimitBitRight = ">>";
         return true;
     }
 
@@ -104,6 +107,9 @@ public class ClassGen : Any
     public virtual string DelimitSub { get; set; }
     public virtual string DelimitMul { get; set; }
     public virtual string DelimitDiv { get; set; }
+    public virtual string DelimitBitNot { get; set; }
+    public virtual string DelimitBitLeft { get; set; }
+    public virtual string DelimitBitRight { get; set; }
 
     public virtual bool Execute()
     {
