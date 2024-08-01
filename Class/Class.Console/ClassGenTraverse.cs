@@ -62,7 +62,24 @@ public class ClassGenTraverse : Traverse
     {
         base.ExecuteEqualOperate(equalOperate);
 
-        
+        ClassGen gen;
+        gen = this.Gen;
+
+        string argA;
+        string argB;
+        argA = gen.VarArgA;
+        argB = gen.VarArgB;
+
+        gen.EvalValueGet(2, argA);
+        gen.EvalValueGet(1, argB);
+
+        gen.OperateDelimit(argA, argA, argB, gen.DelimitEqual);
+
+        gen.VarMaskSet(argA, gen.RefKindBoolMask);
+
+        gen.EvalValueSet(2, argA);
+
+        gen.EvalIndexPosSet(-1);
 
         return true;
     }
