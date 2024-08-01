@@ -82,7 +82,6 @@ public class Create : InfraCreate
         this.BuiltinClass.Bool = this.ModuleClassGet(d, "Bool");
         this.BuiltinClass.Int = this.ModuleClassGet(d, "Int");
         this.BuiltinClass.String = this.ModuleClassGet(d, "String");
-        this.BuiltinClass.ModuleInfo = this.ModuleClassGet(d, "ModuleInfo");
         return true;
     }
 
@@ -236,7 +235,7 @@ public class Create : InfraCreate
         BuiltinClass d;
         d = this.BuiltinClass;
 
-        if (varClass == d.Bool | varClass == d.Int | varClass == d.String | varClass == d.ModuleInfo)
+        if (varClass == d.Bool | varClass == d.Int | varClass == d.String)
         {
             return false;
         }
