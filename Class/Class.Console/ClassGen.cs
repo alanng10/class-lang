@@ -395,15 +395,45 @@ public class ClassGen : Any
         return true;
     }
 
-    public virtual bool MaideName(Maide varMaide)
+    public virtual bool FieldGetMaideName(Field varField)
     {
+        return this.CompStateMaideName(varField.Parent, varField.Name, "G");
+    }
+
+    public virtual bool FieldSetMaideName(Field varField)
+    {
+        return this.CompStateMaideName(varField.Parent, varField.Name, "S");
+    }
+
+    public virtual bool MaideCallMaideName(Maide varMaide)
+    {
+        return this.CompStateMaideName(varMaide.Parent, varMaide.Name, "C");
+    }
+
+    public virtual bool CompStateMaideName(ClassClass varClass, string compName, string state)
+    {
+        ModuleRef moduleRef;
+        moduleRef = varClass.Module.Ref;
+
+        this.ModuleRef(moduleRef);
         
+        this.Text("__");
+
+        this.Name(varClass.Name);
+
+        this.Text("_");
+
+        this.Name(compName);
+
+        this.Text("_");
+
+        this.Text(state);
         return true;
     }
 
     public virtual bool ModuleRef(ModuleRef moduleRef)
     {
-        this.ModuleName(moduleRef.Name);
+        this.Name(moduleRef.Name);
         
         this.Text("__");
 
@@ -411,7 +441,7 @@ public class ClassGen : Any
         return true;
     }
 
-    public virtual bool ModuleName(string name)
+    public virtual bool Name(string name)
     {
         ClassGenOperate o;
         o = this.Operate;
