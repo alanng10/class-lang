@@ -6,6 +6,8 @@ public class ClassGenTraverse : Traverse
 
     public virtual int ParamCount { get; set; }
 
+    public virtual int LocalVarCount { get; set; }
+
     public override bool ExecuteReturnExecute(ReturnExecute returnExecute)
     {
         base.ExecuteReturnExecute(returnExecute);
@@ -19,10 +21,14 @@ public class ClassGenTraverse : Traverse
         int k;
         k = this.ParamCount;
 
+        int ka;
+        ka = this.LocalVarCount + k;
+
         gen.EvalValueGet(1, argA);
 
         gen.EvalFrameValueSet(k, argA);
 
+        gen.EvalIndexPosSet(-ka);
         return true;
     }
 
