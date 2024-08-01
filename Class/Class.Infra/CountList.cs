@@ -28,14 +28,10 @@ public class CountList : Any
         return true;
     }
 
-    public virtual Count Prudate { get { return __D_Prudate; } set { __D_Prudate = value; } }
-    protected Count __D_Prudate;
-    public virtual Count Probate { get { return __D_Probate; } set { __D_Probate = value; } }
-    protected Count __D_Probate;
-    public virtual Count Precate { get { return __D_Precate; } set { __D_Precate = value; } }
-    protected Count __D_Precate;
-    public virtual Count Private { get { return __D_Private; } set { __D_Private = value; } }
-    protected Count __D_Private;
+    public virtual Count Prudate { get; set; }
+    public virtual Count Probate { get; set; }
+    public virtual Count Precate { get; set; }
+    public virtual Count Private { get; set; }
 
     protected virtual Count AddItem()
     {
@@ -56,17 +52,13 @@ public class CountList : Any
         return true;
     }
 
-    protected virtual Array Array { get { return __D_Array; } set { __D_Array = value; } }
-    protected Array __D_Array;
+    protected virtual Array Array { get; set; }
 
     protected virtual int ArrayCount { get { return 4; } set { } }
-    protected int __D_ArrayCount;
 
-    public virtual int Count { get { return __D_Count; } set { __D_Count = value; } }
-    protected int __D_Count;
+    public virtual int Count { get; set; }
     
-    protected virtual int Index { get { return __D_Index; } set { __D_Index = value; } }
-    protected int __D_Index;
+    protected virtual int Index { get; set; }
 
     public virtual Count Get(int index)
     {

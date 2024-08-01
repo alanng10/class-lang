@@ -30,18 +30,12 @@ public class TaskKindList : Any
         return true;
     }
 
-    public virtual TaskKind Port { get { return __D_Port; } set { __D_Port = value; } }
-    protected TaskKind __D_Port;
-    public virtual TaskKind Token { get { return __D_Token; } set { __D_Token = value; } }
-    protected TaskKind __D_Token;
-    public virtual TaskKind Node { get { return __D_Node; } set { __D_Node = value; } }
-    protected TaskKind __D_Node;
-    public virtual TaskKind Module { get { return __D_Module; } set { __D_Module = value; } }
-    protected TaskKind __D_Module;
-    public virtual TaskKind Console { get { return __D_Console; } set { __D_Console = value; } }
-    protected TaskKind __D_Console;
-    public virtual TaskKind Info { get { return __D_Info; } set { __D_Info = value; } }
-    protected TaskKind __D_Info;
+    public virtual TaskKind Port { get; set; }
+    public virtual TaskKind Token { get; set; }
+    public virtual TaskKind Node { get; set; }
+    public virtual TaskKind Module { get; set; }
+    public virtual TaskKind Console { get; set; }
+    public virtual TaskKind Info { get; set; }
 
     protected virtual TaskKind AddItem()
     {
@@ -62,17 +56,13 @@ public class TaskKindList : Any
         return true;
     }
 
-    protected virtual Array Array { get { return __D_Array; } set { __D_Array = value; } }
-    protected Array __D_Array;
+    protected virtual Array Array { get; set; }
 
     protected virtual int ArrayCount { get { return 6; } set { } }
-    protected int __D_ArrayCount;
 
-    public virtual int Count { get { return __D_Count; } set { __D_Count = value; } }
-    protected int __D_Count;
+    public virtual int Count { get; set; }
     
-    protected virtual int Index { get { return __D_Index; } set { __D_Index = value; } }
-    protected int __D_Index;
+    protected virtual int Index { get; set; }
 
     public virtual TaskKind Get(int index)
     {
