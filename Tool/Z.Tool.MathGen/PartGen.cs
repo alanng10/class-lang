@@ -44,7 +44,7 @@ class PartGen : Any
     {
         ToolInfra toolInfra;
         toolInfra = this.ToolInfra;
-        
+
         StringJoin h;
         h = new StringJoin();
         h.Init();
@@ -88,7 +88,7 @@ class PartGen : Any
         string newLine;
         newLine = toolInfra.NewLine;
 
-        this.ToolInfra.Append(h, newLine);
+        toolInfra.Append(h, newLine);
         return true;
     }
 
