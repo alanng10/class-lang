@@ -84,6 +84,38 @@ public class ClassGenTraverse : Traverse
         return true;
     }
 
+    public override bool ExecuteLessOperate(LessOperate lessOperate)
+    {
+        base.ExecuteLessOperate(lessOperate);
+
+        ClassGen gen;
+        gen = this.Gen;
+
+        string argA;
+        string argB;
+        argA = gen.VarArgA;
+        argB = gen.VarArgB;
+
+        string ka;
+        ka = gen.RefKindClearMask;
+
+        gen.EvalValueGet(2, argA);
+        gen.EvalValueGet(1, argB);
+
+        gen.VarMaskClear(argA, ka);
+        gen.VarMaskClear(argB, ka);
+
+        gen.OperateDelimit(argA, argA, argB, gen.DelimitLess);
+
+        gen.VarMaskSet(argA, gen.RefKindBoolMask);
+
+        gen.EvalValueSet(2, argA);
+
+        gen.EvalIndexPosSet(-1);
+
+        return true;
+    }
+
     public override bool ExecuteAndOperate(AndOperate andOperate)
     {
         base.ExecuteAndOperate(andOperate);
