@@ -12,3 +12,4 @@ global using StringData = Avalon.Infra.StringData;
 global using Value = Avalon.Infra.Value;
 global using InfraInfra = Avalon.Infra.Infra;
 global using Array = Avalon.List.Array;
+global using ListInfra = Avalon.List.Infra;
