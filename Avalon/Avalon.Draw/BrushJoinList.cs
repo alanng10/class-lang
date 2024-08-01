@@ -33,14 +33,10 @@ public class BrushJoinList : Any
         return true;
     }
 
-    public virtual BrushJoin Miter { get { return __D_Miter; } set { __D_Miter = value; } }
-    protected BrushJoin __D_Miter;
-    public virtual BrushJoin Bevel { get { return __D_Bevel; } set { __D_Bevel = value; } }
-    protected BrushJoin __D_Bevel;
-    public virtual BrushJoin Round { get { return __D_Round; } set { __D_Round = value; } }
-    protected BrushJoin __D_Round;
-    public virtual BrushJoin SvgMiter { get { return __D_SvgMiter; } set { __D_SvgMiter = value; } }
-    protected BrushJoin __D_SvgMiter;
+    public virtual BrushJoin Miter { get; set; }
+    public virtual BrushJoin Bevel { get; set; }
+    public virtual BrushJoin Round { get; set; }
+    public virtual BrushJoin SvgMiter { get; set; }
 
     protected virtual BrushJoin AddItem(ulong o)
     {
@@ -62,17 +58,13 @@ public class BrushJoinList : Any
         return true;
     }
 
-    protected virtual Array Array { get { return __D_Array; } set { __D_Array = value; } }
-    protected Array __D_Array;
+    protected virtual Array Array { get; set; }
 
     protected virtual int ArrayCount { get { return 4; } set { } }
-    protected int __D_ArrayCount;
 
-    public virtual int Count { get { return __D_Count; } set { __D_Count = value; } }
-    protected int __D_Count;
+    public virtual int Count { get; set; }
     
-    protected virtual int Index { get { return __D_Index; } set { __D_Index = value; } }
-    protected int __D_Index;
+    protected virtual int Index { get; set; }
 
     public virtual BrushJoin Get(int index)
     {

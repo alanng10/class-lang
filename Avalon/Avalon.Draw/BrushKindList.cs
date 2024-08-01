@@ -32,12 +32,9 @@ public class BrushKindList : Any
         return true;
     }
 
-    public virtual BrushKind Color { get { return __D_Color; } set { __D_Color = value; } }
-    protected BrushKind __D_Color;
-    public virtual BrushKind Gradient { get { return __D_Gradient; } set { __D_Gradient = value; } }
-    protected BrushKind __D_Gradient;
-    public virtual BrushKind Image { get { return __D_Image; } set { __D_Image = value; } }
-    protected BrushKind __D_Image;
+    public virtual BrushKind Color { get; set; }
+    public virtual BrushKind Gradient { get; set; }
+    public virtual BrushKind Image { get; set; }
 
     protected virtual BrushKind AddItem(ulong o)
     {
@@ -59,17 +56,13 @@ public class BrushKindList : Any
         return true;
     }
 
-    protected virtual Array Array { get { return __D_Array; } set { __D_Array = value; } }
-    protected Array __D_Array;
+    protected virtual Array Array { get; set; }
 
     protected virtual int ArrayCount { get { return 3; } set { } }
-    protected int __D_ArrayCount;
 
-    public virtual int Count { get { return __D_Count; } set { __D_Count = value; } }
-    protected int __D_Count;
+    public virtual int Count { get; set; }
     
-    protected virtual int Index { get { return __D_Index; } set { __D_Index = value; } }
-    protected int __D_Index;
+    protected virtual int Index { get; set; }
 
     public virtual BrushKind Get(int index)
     {

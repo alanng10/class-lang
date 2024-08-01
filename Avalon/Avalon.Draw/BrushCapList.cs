@@ -32,12 +32,9 @@ public class BrushCapList : Any
         return true;
     }
 
-    public virtual BrushCap Flat { get { return __D_Flat; } set { __D_Flat = value; } }
-    protected BrushCap __D_Flat;
-    public virtual BrushCap Square { get { return __D_Square; } set { __D_Square = value; } }
-    protected BrushCap __D_Square;
-    public virtual BrushCap Round { get { return __D_Round; } set { __D_Round = value; } }
-    protected BrushCap __D_Round;
+    public virtual BrushCap Flat { get; set; }
+    public virtual BrushCap Square { get; set; }
+    public virtual BrushCap Round { get; set; }
 
     protected virtual BrushCap AddItem(ulong o)
     {
@@ -59,17 +56,13 @@ public class BrushCapList : Any
         return true;
     }
 
-    protected virtual Array Array { get { return __D_Array; } set { __D_Array = value; } }
-    protected Array __D_Array;
+    protected virtual Array Array { get; set; }
 
     protected virtual int ArrayCount { get { return 3; } set { } }
-    protected int __D_ArrayCount;
 
-    public virtual int Count { get { return __D_Count; } set { __D_Count = value; } }
-    protected int __D_Count;
+    public virtual int Count { get; set; }
     
-    protected virtual int Index { get { return __D_Index; } set { __D_Index = value; } }
-    protected int __D_Index;
+    protected virtual int Index { get; set; }
 
     public virtual BrushCap Get(int index)
     {

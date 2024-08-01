@@ -39,36 +39,21 @@ public class StatusList : Any
         return true;
     }
 
-    public virtual Status NoError { get { return __D_NoError; } set { __D_NoError = value; } }
-    protected Status __D_NoError;
-    public virtual Status ReadError { get { return __D_ReadError; } set { __D_ReadError = value; } }
-    protected Status __D_ReadError;
-    public virtual Status WriteError { get { return __D_WriteError; } set { __D_WriteError = value; } }
-    protected Status __D_WriteError;
-    public virtual Status FatalError { get { return __D_FatalError; } set { __D_FatalError = value; } }
-    protected Status __D_FatalError;
-    public virtual Status ResourceError { get { return __D_ResourceError; } set { __D_ResourceError = value; } }
-    protected Status __D_ResourceError;
-    public virtual Status OpenError { get { return __D_OpenError; } set { __D_OpenError = value; } }
-    protected Status __D_OpenError;
-    public virtual Status AbortError { get { return __D_AbortError; } set { __D_AbortError = value; } }
-    protected Status __D_AbortError;
-    public virtual Status TimeOutError { get { return __D_TimeOutError; } set { __D_TimeOutError = value; } }
-    protected Status __D_TimeOutError;
-    public virtual Status UnspecifiedError { get { return __D_UnspecifiedError; } set { __D_UnspecifiedError = value; } }
-    protected Status __D_UnspecifiedError;
-    public virtual Status RemoveError { get { return __D_RemoveError; } set { __D_RemoveError = value; } }
-    protected Status __D_RemoveError;
-    public virtual Status RenameError { get { return __D_RenameError; } set { __D_RenameError = value; } }
-    protected Status __D_RenameError;
-    public virtual Status PositionError { get { return __D_PositionError; } set { __D_PositionError = value; } }
-    protected Status __D_PositionError;
-    public virtual Status ResizeError { get { return __D_ResizeError; } set { __D_ResizeError = value; } }
-    protected Status __D_ResizeError;
-    public virtual Status PermissionsError { get { return __D_PermissionsError; } set { __D_PermissionsError = value; } }
-    protected Status __D_PermissionsError;
-    public virtual Status CopyError { get { return __D_CopyError; } set { __D_CopyError = value; } }
-    protected Status __D_CopyError;
+    public virtual Status NoError { get; set; }
+    public virtual Status ReadError { get; set; }
+    public virtual Status WriteError { get; set; }
+    public virtual Status FatalError { get; set; }
+    public virtual Status ResourceError { get; set; }
+    public virtual Status OpenError { get; set; }
+    public virtual Status AbortError { get; set; }
+    public virtual Status TimeOutError { get; set; }
+    public virtual Status UnspecifiedError { get; set; }
+    public virtual Status RemoveError { get; set; }
+    public virtual Status RenameError { get; set; }
+    public virtual Status PositionError { get; set; }
+    public virtual Status ResizeError { get; set; }
+    public virtual Status PermissionsError { get; set; }
+    public virtual Status CopyError { get; set; }
 
     protected virtual Status AddItem()
     {
@@ -89,17 +74,13 @@ public class StatusList : Any
         return true;
     }
 
-    protected virtual Array Array { get { return __D_Array; } set { __D_Array = value; } }
-    protected Array __D_Array;
+    protected virtual Array Array { get; set; }
 
     protected virtual int ArrayCount { get { return 15; } set { } }
-    protected int __D_ArrayCount;
 
-    public virtual int Count { get { return __D_Count; } set { __D_Count = value; } }
-    protected int __D_Count;
+    public virtual int Count { get; set; }
     
-    protected virtual int Index { get { return __D_Index; } set { __D_Index = value; } }
-    protected int __D_Index;
+    protected virtual int Index { get; set; }
 
     public virtual Status Get(int index)
     {

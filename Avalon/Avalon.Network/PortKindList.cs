@@ -37,22 +37,14 @@ public class PortKindList : Any
         return true;
     }
 
-    public virtual PortKind IPv6 { get { return __D_IPv6; } set { __D_IPv6 = value; } }
-    protected PortKind __D_IPv6;
-    public virtual PortKind IPv4 { get { return __D_IPv4; } set { __D_IPv4 = value; } }
-    protected PortKind __D_IPv4;
-    public virtual PortKind Broadcast { get { return __D_Broadcast; } set { __D_Broadcast = value; } }
-    protected PortKind __D_Broadcast;
-    public virtual PortKind LocalHost { get { return __D_LocalHost; } set { __D_LocalHost = value; } }
-    protected PortKind __D_LocalHost;
-    public virtual PortKind LocalHostIPv6 { get { return __D_LocalHostIPv6; } set { __D_LocalHostIPv6 = value; } }
-    protected PortKind __D_LocalHostIPv6;
-    public virtual PortKind Any { get { return __D_Any; } set { __D_Any = value; } }
-    protected PortKind __D_Any;
-    public virtual PortKind AnyIPv6 { get { return __D_AnyIPv6; } set { __D_AnyIPv6 = value; } }
-    protected PortKind __D_AnyIPv6;
-    public virtual PortKind AnyIPv4 { get { return __D_AnyIPv4; } set { __D_AnyIPv4 = value; } }
-    protected PortKind __D_AnyIPv4;
+    public virtual PortKind IPv6 { get; set; }
+    public virtual PortKind IPv4 { get; set; }
+    public virtual PortKind Broadcast { get; set; }
+    public virtual PortKind LocalHost { get; set; }
+    public virtual PortKind LocalHostIPv6 { get; set; }
+    public virtual PortKind Any { get; set; }
+    public virtual PortKind AnyIPv6 { get; set; }
+    public virtual PortKind AnyIPv4 { get; set; }
 
     protected virtual PortKind AddItem(ulong o)
     {
@@ -74,17 +66,13 @@ public class PortKindList : Any
         return true;
     }
 
-    protected virtual Array Array { get { return __D_Array; } set { __D_Array = value; } }
-    protected Array __D_Array;
+    protected virtual Array Array { get; set; }
 
     protected virtual int ArrayCount { get { return 8; } set { } }
-    protected int __D_ArrayCount;
 
-    public virtual int Count { get { return __D_Count; } set { __D_Count = value; } }
-    protected int __D_Count;
+    public virtual int Count { get; set; }
     
-    protected virtual int Index { get { return __D_Index; } set { __D_Index = value; } }
-    protected int __D_Index;
+    protected virtual int Index { get; set; }
 
     public virtual PortKind Get(int index)
     {

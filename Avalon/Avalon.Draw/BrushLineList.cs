@@ -34,16 +34,11 @@ public class BrushLineList : Any
         return true;
     }
 
-    public virtual BrushLine Solid { get { return __D_Solid; } set { __D_Solid = value; } }
-    protected BrushLine __D_Solid;
-    public virtual BrushLine Dash { get { return __D_Dash; } set { __D_Dash = value; } }
-    protected BrushLine __D_Dash;
-    public virtual BrushLine Dot { get { return __D_Dot; } set { __D_Dot = value; } }
-    protected BrushLine __D_Dot;
-    public virtual BrushLine DashDot { get { return __D_DashDot; } set { __D_DashDot = value; } }
-    protected BrushLine __D_DashDot;
-    public virtual BrushLine DashDotDot { get { return __D_DashDotDot; } set { __D_DashDotDot = value; } }
-    protected BrushLine __D_DashDotDot;
+    public virtual BrushLine Solid { get; set; }
+    public virtual BrushLine Dash { get; set; }
+    public virtual BrushLine Dot { get; set; }
+    public virtual BrushLine DashDot { get; set; }
+    public virtual BrushLine DashDotDot { get; set; }
 
     protected virtual BrushLine AddItem(ulong o)
     {
@@ -65,17 +60,13 @@ public class BrushLineList : Any
         return true;
     }
 
-    protected virtual Array Array { get { return __D_Array; } set { __D_Array = value; } }
-    protected Array __D_Array;
+    protected virtual Array Array { get; set; }
 
     protected virtual int ArrayCount { get { return 5; } set { } }
-    protected int __D_ArrayCount;
 
-    public virtual int Count { get { return __D_Count; } set { __D_Count = value; } }
-    protected int __D_Count;
+    public virtual int Count { get; set; }
     
-    protected virtual int Index { get { return __D_Index; } set { __D_Index = value; } }
-    protected int __D_Index;
+    protected virtual int Index { get; set; }
 
     public virtual BrushLine Get(int index)
     {

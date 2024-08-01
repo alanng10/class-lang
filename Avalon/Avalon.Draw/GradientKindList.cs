@@ -31,10 +31,8 @@ public class GradientKindList : Any
         return true;
     }
 
-    public virtual GradientKind Linear { get { return __D_Linear; } set { __D_Linear = value; } }
-    protected GradientKind __D_Linear;
-    public virtual GradientKind Radial { get { return __D_Radial; } set { __D_Radial = value; } }
-    protected GradientKind __D_Radial;
+    public virtual GradientKind Linear { get; set; }
+    public virtual GradientKind Radial { get; set; }
 
     protected virtual GradientKind AddItem(ulong o)
     {
@@ -56,17 +54,13 @@ public class GradientKindList : Any
         return true;
     }
 
-    protected virtual Array Array { get { return __D_Array; } set { __D_Array = value; } }
-    protected Array __D_Array;
+    protected virtual Array Array { get; set; }
 
     protected virtual int ArrayCount { get { return 2; } set { } }
-    protected int __D_ArrayCount;
 
-    public virtual int Count { get { return __D_Count; } set { __D_Count = value; } }
-    protected int __D_Count;
+    public virtual int Count { get; set; }
     
-    protected virtual int Index { get { return __D_Index; } set { __D_Index = value; } }
-    protected int __D_Index;
+    protected virtual int Index { get; set; }
 
     public virtual GradientKind Get(int index)
     {

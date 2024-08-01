@@ -32,12 +32,9 @@ public class ImageFormatList : Any
         return true;
     }
 
-    public virtual ImageFormat Bmp { get { return __D_Bmp; } set { __D_Bmp = value; } }
-    protected ImageFormat __D_Bmp;
-    public virtual ImageFormat Jpg { get { return __D_Jpg; } set { __D_Jpg = value; } }
-    protected ImageFormat __D_Jpg;
-    public virtual ImageFormat Png { get { return __D_Png; } set { __D_Png = value; } }
-    protected ImageFormat __D_Png;
+    public virtual ImageFormat Bmp { get; set; }
+    public virtual ImageFormat Jpg { get; set; }
+    public virtual ImageFormat Png { get; set; }
 
     protected virtual ImageFormat AddItem(ulong o)
     {
@@ -59,17 +56,13 @@ public class ImageFormatList : Any
         return true;
     }
 
-    protected virtual Array Array { get { return __D_Array; } set { __D_Array = value; } }
-    protected Array __D_Array;
+    protected virtual Array Array { get; set; }
 
     protected virtual int ArrayCount { get { return 3; } set { } }
-    protected int __D_ArrayCount;
 
-    public virtual int Count { get { return __D_Count; } set { __D_Count = value; } }
-    protected int __D_Count;
+    public virtual int Count { get; set; }
     
-    protected virtual int Index { get { return __D_Index; } set { __D_Index = value; } }
-    protected int __D_Index;
+    protected virtual int Index { get; set; }
 
     public virtual ImageFormat Get(int index)
     {

@@ -32,12 +32,9 @@ public class GradientSpreadList : Any
         return true;
     }
 
-    public virtual GradientSpread Pad { get { return __D_Pad; } set { __D_Pad = value; } }
-    protected GradientSpread __D_Pad;
-    public virtual GradientSpread Reflect { get { return __D_Reflect; } set { __D_Reflect = value; } }
-    protected GradientSpread __D_Reflect;
-    public virtual GradientSpread Repeat { get { return __D_Repeat; } set { __D_Repeat = value; } }
-    protected GradientSpread __D_Repeat;
+    public virtual GradientSpread Pad { get; set; }
+    public virtual GradientSpread Reflect { get; set; }
+    public virtual GradientSpread Repeat { get; set; }
 
     protected virtual GradientSpread AddItem(ulong o)
     {
@@ -59,17 +56,13 @@ public class GradientSpreadList : Any
         return true;
     }
 
-    protected virtual Array Array { get { return __D_Array; } set { __D_Array = value; } }
-    protected Array __D_Array;
+    protected virtual Array Array { get; set; }
 
     protected virtual int ArrayCount { get { return 3; } set { } }
-    protected int __D_ArrayCount;
 
-    public virtual int Count { get { return __D_Count; } set { __D_Count = value; } }
-    protected int __D_Count;
+    public virtual int Count { get; set; }
     
-    protected virtual int Index { get { return __D_Index; } set { __D_Index = value; } }
-    protected int __D_Index;
+    protected virtual int Index { get; set; }
 
     public virtual GradientSpread Get(int index)
     {

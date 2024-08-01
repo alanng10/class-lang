@@ -37,22 +37,14 @@ public class EncodeKindList : Any
         return true;
     }
 
-    public virtual EncodeKind Utf8 { get { return __D_Utf8; } set { __D_Utf8 = value; } }
-    protected EncodeKind __D_Utf8;
-    public virtual EncodeKind Utf16 { get { return __D_Utf16; } set { __D_Utf16 = value; } }
-    protected EncodeKind __D_Utf16;
-    public virtual EncodeKind Utf16LE { get { return __D_Utf16LE; } set { __D_Utf16LE = value; } }
-    protected EncodeKind __D_Utf16LE;
-    public virtual EncodeKind Utf16BE { get { return __D_Utf16BE; } set { __D_Utf16BE = value; } }
-    protected EncodeKind __D_Utf16BE;
-    public virtual EncodeKind Utf32 { get { return __D_Utf32; } set { __D_Utf32 = value; } }
-    protected EncodeKind __D_Utf32;
-    public virtual EncodeKind Utf32LE { get { return __D_Utf32LE; } set { __D_Utf32LE = value; } }
-    protected EncodeKind __D_Utf32LE;
-    public virtual EncodeKind Utf32BE { get { return __D_Utf32BE; } set { __D_Utf32BE = value; } }
-    protected EncodeKind __D_Utf32BE;
-    public virtual EncodeKind Latin1 { get { return __D_Latin1; } set { __D_Latin1 = value; } }
-    protected EncodeKind __D_Latin1;
+    public virtual EncodeKind Utf8 { get; set; }
+    public virtual EncodeKind Utf16 { get; set; }
+    public virtual EncodeKind Utf16LE { get; set; }
+    public virtual EncodeKind Utf16BE { get; set; }
+    public virtual EncodeKind Utf32 { get; set; }
+    public virtual EncodeKind Utf32LE { get; set; }
+    public virtual EncodeKind Utf32BE { get; set; }
+    public virtual EncodeKind Latin1 { get; set; }
 
     protected virtual EncodeKind AddItem(ulong o)
     {
@@ -74,17 +66,13 @@ public class EncodeKindList : Any
         return true;
     }
 
-    protected virtual Array Array { get { return __D_Array; } set { __D_Array = value; } }
-    protected Array __D_Array;
+    protected virtual Array Array { get; set; }
 
     protected virtual int ArrayCount { get { return 8; } set { } }
-    protected int __D_ArrayCount;
 
-    public virtual int Count { get { return __D_Count; } set { __D_Count = value; } }
-    protected int __D_Count;
+    public virtual int Count { get; set; }
     
-    protected virtual int Index { get { return __D_Index; } set { __D_Index = value; } }
-    protected int __D_Index;
+    protected virtual int Index { get; set; }
 
     public virtual EncodeKind Get(int index)
     {
