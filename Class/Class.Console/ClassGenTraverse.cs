@@ -32,6 +32,21 @@ public class ClassGenTraverse : Traverse
         return true;
     }
 
+    public override bool ExecuteCallOperate(CallOperate callOperate)
+    {
+        base.ExecuteCallOperate(callOperate);
+
+        ClassGen gen;
+        gen = this.Gen;
+
+        string argA;
+        argA = gen.VarArgA;
+
+        
+
+        return true;
+    }
+
     public override bool ExecuteThisOperate(ThisOperate thisOperate)
     {
         ClassGen gen;
