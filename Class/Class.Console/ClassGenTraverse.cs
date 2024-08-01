@@ -288,9 +288,6 @@ public class ClassGenTraverse : Traverse
         argA = gen.VarArgA;
         argB = gen.VarArgB;
 
-        string ka;
-        ka = gen.RefKindClearMask;
-
         gen.EvalValueGet(2, argA);
         gen.EvalValueGet(1, argB);
 
