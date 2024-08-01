@@ -58,11 +58,18 @@ public class ClassGenTraverse : Traverse
         return true;
     }
 
+    public override bool ExecuteEqualOperate(EqualOperate equalOperate)
+    {
+        this.ExecuteOperate(equalOperate.Left);
+
+        this.ExecuteOperate(equalOperate.Right);
+
+        return true;
+    }
+
     public override bool ExecuteAndOperate(AndOperate andOperate)
     {
-        this.ExecuteOperate(andOperate.Left);
-
-        this.ExecuteOperate(andOperate.Right);
+        base.ExecuteAndOperate(andOperate);
 
         this.ExecuteOperateDelimitBool(this.Gen.DelimitAnd);
         return true;
@@ -70,9 +77,7 @@ public class ClassGenTraverse : Traverse
 
     public override bool ExecuteOrnOperate(OrnOperate ornOperate)
     {
-        this.ExecuteOperate(ornOperate.Left);
-
-        this.ExecuteOperate(ornOperate.Right);
+        base.ExecuteOrnOperate(ornOperate);
 
         this.ExecuteOperateDelimitBool(this.Gen.DelimitOrn);
         return true;
@@ -80,7 +85,7 @@ public class ClassGenTraverse : Traverse
 
     public override bool ExecuteNotOperate(NotOperate notOperate)
     {
-        this.ExecuteOperate(notOperate.Value);
+        base.ExecuteNotOperate(notOperate);
 
         this.ExecuteOperateDelimitBoolOne(this.Gen.DelimitNot);
         return true;
@@ -88,9 +93,7 @@ public class ClassGenTraverse : Traverse
 
     public override bool ExecuteAddOperate(AddOperate addOperate)
     {
-        this.ExecuteOperate(addOperate.Left);
-        
-        this.ExecuteOperate(addOperate.Right);
+        base.ExecuteAddOperate(addOperate);
 
         this.ExecuteOperateDelimit(this.Gen.DelimitAdd);
         return true;
@@ -98,9 +101,7 @@ public class ClassGenTraverse : Traverse
 
     public override bool ExecuteSubOperate(SubOperate subOperate)
     {
-        this.ExecuteOperate(subOperate.Left);
-
-        this.ExecuteOperate(subOperate.Right);
+        base.ExecuteSubOperate(subOperate);
 
         this.ExecuteOperateDelimit(this.Gen.DelimitSub);
         return true;
@@ -108,9 +109,7 @@ public class ClassGenTraverse : Traverse
 
     public override bool ExecuteMulOperate(MulOperate mulOperate)
     {
-        this.ExecuteOperate(mulOperate.Left);
-
-        this.ExecuteOperate(mulOperate.Right);
+        base.ExecuteMulOperate(mulOperate);
 
         this.ExecuteOperateDelimit(this.Gen.DelimitMul);
         return true;
