@@ -294,9 +294,6 @@ public class ClassGenTraverse : Traverse
         gen.EvalValueGet(2, argA);
         gen.EvalValueGet(1, argB);
 
-        gen.VarMaskClear(argA, ka);
-        gen.VarMaskClear(argB, ka);
-
         gen.OperateDelimit(argA, argA, argB, delimit);
 
         gen.VarMaskSet(argA, gen.RefKindBoolMask);
