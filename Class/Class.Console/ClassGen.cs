@@ -198,6 +198,7 @@ public class ClassGen : Any
         this.VarArg(right);
 
         this.Text(this.DelimitSemicolon);
+        this.Text(this.NewLine);
         return true;
     }
 
@@ -217,6 +218,7 @@ public class ClassGen : Any
         this.VarArg(value);
 
         this.Text(this.DelimitSemicolon);
+        this.Text(this.NewLine);
         return true;
     }
 
@@ -238,6 +240,7 @@ public class ClassGen : Any
         this.Text(this.DelimitBracketRight);
 
         this.Text(this.DelimitSemicolon);
+        this.Text(this.NewLine);
         return true;
     }
 
@@ -252,6 +255,7 @@ public class ClassGen : Any
         this.Text(this.Zero);
 
         this.Text(this.DelimitSemicolon);
+        this.Text(this.NewLine);
         return true;
     }
 
@@ -268,6 +272,7 @@ public class ClassGen : Any
         this.Text(value);
 
         this.Text(this.DelimitSemicolon);
+        this.Text(this.NewLine);
         return true;
     }
 
@@ -290,6 +295,7 @@ public class ClassGen : Any
         this.Text(mask);
 
         this.Text(this.DelimitSemicolon);
+        this.Text(this.NewLine);
         return true;
     }
 
@@ -312,6 +318,7 @@ public class ClassGen : Any
         this.Text(mask);
 
         this.Text(this.DelimitSemicolon);
+        this.Text(this.NewLine);
         return true;
     }
 
@@ -328,6 +335,7 @@ public class ClassGen : Any
         this.EvalValue(index);
         
         this.Text(this.DelimitSemicolon);
+        this.Text(this.NewLine);
         return true;
     }
 
@@ -344,6 +352,7 @@ public class ClassGen : Any
         this.VarArg(arg);
 
         this.Text(this.DelimitSemicolon);
+        this.Text(this.NewLine);
         return true;
     }
 
@@ -378,6 +387,7 @@ public class ClassGen : Any
         this.EvalFrameValue(index);
 
         this.Text(this.DelimitSemicolon);
+        this.Text(this.NewLine);
         return true;
     }
 
@@ -394,6 +404,7 @@ public class ClassGen : Any
         this.VarArg(arg);
 
         this.Text(this.DelimitSemicolon);
+        this.Text(this.NewLine);
         return true;
     }
 
@@ -432,6 +443,7 @@ public class ClassGen : Any
         this.TextPos(pos);
 
         this.Text(this.DelimitSemicolon);
+        this.Text(this.NewLine);
         return true;
     }
 
