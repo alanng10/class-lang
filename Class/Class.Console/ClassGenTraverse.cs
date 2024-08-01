@@ -30,6 +30,7 @@ public class ClassGenTraverse : Traverse
 
         gen.EvalIndexPosSet(-ka);
 
+        gen.Return();
         return true;
     }
 
