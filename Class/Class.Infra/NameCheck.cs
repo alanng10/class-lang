@@ -44,10 +44,10 @@ public class NameCheck : Any
             return false;
         }
 
-        return this.IsNamePart(text, true);
+        return this.IsNamePart(text);
     }
 
-    public virtual bool IsNamePart(Text text, bool underscore)
+    public virtual bool IsNamePart(Text text)
     {
         TextInfra textInfra;
         textInfra = this.TextInfra;
@@ -90,11 +90,6 @@ public class NameCheck : Any
 
             bool ba;
             ba = textInfra.IsLetter(oc, true) | textInfra.IsLetter(oc, false) | textInfra.IsDigit(oc);
-            
-            if (underscore)
-            {
-                ba = ba | (oc == '_');
-            }
 
             if (!ba)
             {
@@ -144,7 +139,7 @@ public class NameCheck : Any
             count = u;
             range.Count = count;
 
-            if (!this.IsNamePart(text, false))
+            if (!this.IsNamePart(text))
             {
                 b = true;
             }
@@ -176,7 +171,7 @@ public class NameCheck : Any
             count = ac - index;
             range.Count = count;
 
-            if (!this.IsNamePart(text, false))
+            if (!this.IsNamePart(text))
             {
                 ba = true;
             }
