@@ -22,6 +22,7 @@ public class ClassGen : Any
         this.StringCreate.Init();
 
         this.Space = " ";
+        this.NewLine = "\n";
         this.Indent = new string(' ', 4);
         this.Zero = "0";
         this.VarPrefix = "var";
@@ -37,11 +38,15 @@ public class ClassGen : Any
         this.RefKindBoolMask = "0x1000000000000000";
         this.RefKindIntMask = "0x2000000000000000";
         this.BaseClearMask = "0xf000ffffffffffff";
+        this.KeywordReturn = "return";
         this.DelimitDot = ".";
         this.DelimitDotPointer = "->";
+        this.DelimitBracketLeft = "(";
+        this.DelimitBracketRight = ")";
         this.DelimitSquareLeft = "[";
         this.DelimitSquareRight = "]";
         this.DelimitSemicolon = ";";
+        this.DelimitComma = ",";
         this.DelimitAre = "=";
         this.DelimitEqual = "==";
         this.DelimitLess = "<";
@@ -79,6 +84,7 @@ public class ClassGen : Any
     public virtual string BaseMask { get; set; }
     public virtual int IndentCount { get; set; }
     public virtual string Space { get; set; }
+    public virtual string NewLine { get; set; }
     public virtual string Indent { get; set; }
     public virtual string Zero { get; set; }
     public virtual string VarPrefix { get; set; }
@@ -94,11 +100,15 @@ public class ClassGen : Any
     public virtual string RefKindBoolMask { get; set; }
     public virtual string RefKindIntMask { get; set; }
     public virtual string BaseClearMask { get; set; }
+    public virtual string KeywordReturn { get; set; }
     public virtual string DelimitDot { get; set; }
     public virtual string DelimitDotPointer { get; set; }
+    public virtual string DelimitBracketLeft { get; set; }
+    public virtual string DelimitBracketRight { get; set; }
     public virtual string DelimitSquareLeft { get; set; }
     public virtual string DelimitSquareRight { get; set; }
     public virtual string DelimitSemicolon { get; set; }
+    public virtual string DelimitComma { get; set; }
     public virtual string DelimitAre { get; set; }
     public virtual string DelimitEqual { get; set; }
     public virtual string DelimitLess { get; set; }
@@ -205,6 +215,41 @@ public class ClassGen : Any
         this.Text(this.Space);
 
         this.VarArg(value);
+
+        this.Text(this.DelimitSemicolon);
+        return true;
+    }
+
+    public virtual bool MaideCall(Maide maide)
+    {
+        this.TextIndent();
+
+        this.MaideCallMaideName(maide);
+
+        this.Text(this.DelimitBracketLeft);
+
+        this.Text(this.Eval);
+
+        this.Text(this.DelimitComma);
+        this.Text(this.Space);
+
+        this.EvalIndex();
+
+        this.Text(this.DelimitBracketRight);
+
+        this.Text(this.DelimitSemicolon);
+        return true;
+    }
+
+    public virtual bool Return()
+    {
+        this.TextIndent();
+
+        this.Text(this.KeywordReturn);
+
+        this.Text(this.Space);
+
+        this.Text(this.Zero);
 
         this.Text(this.DelimitSemicolon);
         return true;

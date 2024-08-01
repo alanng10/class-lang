@@ -29,6 +29,7 @@ public class ClassGenTraverse : Traverse
         gen.EvalFrameValueSet(k, argA);
 
         gen.EvalIndexPosSet(-ka);
+
         return true;
     }
 
@@ -39,11 +40,16 @@ public class ClassGenTraverse : Traverse
         ClassGen gen;
         gen = this.Gen;
 
-        string argA;
-        argA = gen.VarArgA;
+        object ka;
+        ka = callOperate.NodeAny;
 
+        ModuleInfo info;
+        info = (ModuleInfo)ka;
         
+        Maide maide;
+        maide = info.CallMaide;
 
+        gen.MaideCall(maide);
         return true;
     }
 
@@ -426,15 +432,5 @@ public class ClassGenTraverse : Traverse
         gen.EvalValueSet(1, argA);
 
         return true;
-    }
-
-    protected virtual bool TextIndent()
-    {
-        return this.Gen.TextIndent();
-    }
-
-    protected virtual bool Text(string text)
-    {
-        return this.Gen.Text(text);
     }
 }
