@@ -419,11 +419,11 @@ public class ClassGen : Any
         
         this.Text("__");
 
-        this.Name(varClass.Name);
+        this.Text(varClass.Name);
 
         this.Text("_");
 
-        this.Name(compName);
+        this.Text(compName);
 
         this.Text("_");
 
@@ -433,7 +433,7 @@ public class ClassGen : Any
 
     public virtual bool ModuleRef(ModuleRef moduleRef)
     {
-        this.Name(moduleRef.Name);
+        this.ModuleName(moduleRef.Name);
         
         this.Text("__");
 
@@ -441,7 +441,7 @@ public class ClassGen : Any
         return true;
     }
 
-    public virtual bool Name(string name)
+    public virtual bool ModuleName(string name)
     {
         ClassGenOperate o;
         o = this.Operate;
