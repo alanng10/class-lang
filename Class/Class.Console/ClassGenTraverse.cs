@@ -164,6 +164,22 @@ public class ClassGenTraverse : Traverse
         return true;
     }
 
+    public override bool ExecuteBitAndOperate(BitAndOperate bitAndOperate)
+    {
+        base.ExecuteBitAndOperate(bitAndOperate);
+
+        this.ExecuteOperateDelimitA(this.Gen.DelimitAnd);
+        return true;
+    }
+
+    public override bool ExecuteBitOrnOperate(BitOrnOperate bitOrnOperate)
+    {
+        base.ExecuteBitOrnOperate(bitOrnOperate);
+
+        this.ExecuteOperateDelimitA(this.Gen.DelimitOrn);
+        return true;
+    }
+
     public override bool ExecuteBitLeftOperate(BitLeftOperate bitLeftOperate)
     {
         base.ExecuteBitLeftOperate(bitLeftOperate);
@@ -204,6 +220,28 @@ public class ClassGenTraverse : Traverse
         gen.VarMaskClear(argA, ka);
 
         gen.VarMaskSet(argA, gen.RefKindIntMask);
+
+        gen.EvalValueSet(2, argA);
+
+        gen.EvalIndexPosSet(-1);
+
+        return true;
+    }
+
+    protected virtual bool ExecuteOperateDelimitA(string delimit)
+    {
+        ClassGen gen;
+        gen = this.Gen;
+
+        string argA;
+        string argB;
+        argA = gen.VarArgA;
+        argB = gen.VarArgB;
+
+        gen.EvalValueGet(2, argA);
+        gen.EvalValueGet(1, argB);
+
+        gen.OperateDelimit(argA, argA, argB, delimit);;
 
         gen.EvalValueSet(2, argA);
 
