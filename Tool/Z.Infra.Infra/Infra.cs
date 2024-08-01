@@ -43,6 +43,12 @@ public class Infra : Any
         return true;
     }
 
+    public virtual bool Append(StringJoin h, string k)
+    {
+        this.InfraInfra.StringJoinString(h, k);
+        return true;
+    }
+
     public virtual Table TableCreateStringCompare()
     {
         IntCompare charCompare;

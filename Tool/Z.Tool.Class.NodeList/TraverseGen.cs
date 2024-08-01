@@ -78,7 +78,7 @@ public class TraverseGen : Any
             string nodeString;
             nodeString = this.Node(varClass);
 
-            sj.Append(nodeString);
+            this.Append(sj, nodeString);
         }
 
         string a;
@@ -148,7 +148,7 @@ public class TraverseGen : Any
         string newLine;
         newLine = this.ToolInfra.NewLine;
 
-        sj.Append(newLine);
+        this.Append(sj, newLine);
 
         Table table;
         table = varClass.Derive; 
@@ -174,7 +174,7 @@ public class TraverseGen : Any
             k = k.Replace("#DeriveClassName#", className);
             k = k.Replace("#DeriveDeclareClassName#", declareClassName);
 
-            sj.Append(k);
+            this.Append(sj, k);
         }
 
         string a;
@@ -206,9 +206,9 @@ public class TraverseGen : Any
         k = k.Replace("#ItemClassName#", itemClassName);
         k = k.Replace("#ItemDeclareClassName#", itemDeclareClassName);
 
-        sj.Append(ka);
-        sj.Append(newLine);
-        sj.Append(k);
+        this.Append(sj, ka);
+        this.Append(sj, newLine);
+        this.Append(sj, k);
 
         string a;
         a = sj.Result();        
@@ -224,7 +224,7 @@ public class TraverseGen : Any
         string ka;
         ka = this.ExecuteNode(varName);
 
-        sj.Append(ka);
+        this.Append(sj, ka);
 
         string newLine;
         newLine = this.ToolInfra.NewLine;
@@ -251,11 +251,11 @@ public class TraverseGen : Any
 
                 if (!ba)
                 {
-                    sj.Append(newLine);
+                    this.Append(sj, newLine);
                     ba = true;
                 }
 
-                sj.Append(k);
+                this.Append(sj, k);
             }
         }
 
@@ -356,5 +356,10 @@ public class TraverseGen : Any
     protected virtual string GetPath(string name)
     {
         return "ToolData/Traverse" + name + ".txt";
+    }
+
+    protected virtual bool Append(StringJoin h, string k)
+    {
+        return this.ToolInfra.Append(h, k);
     }
 }
