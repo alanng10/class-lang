@@ -395,6 +395,41 @@ public class ClassGen : Any
         return true;
     }
 
+    public virtual bool MaideName(Maide varMaide)
+    {
+        return true;
+    }
+
+    public virtual bool ModuleName(ClassModule module)
+    {
+        ClassGenOperate o;
+        o = this.Operate;
+
+        string name;
+        name = module.Ref.Name;
+
+        int count;
+        count = name.Length;
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            char oc;
+            oc = name[i];
+
+            if (oc == '.')
+            {
+                oc = '_';    
+            }
+
+            o.ExecuteChar(oc);
+
+            i = i + 1;
+        }
+
+        return true;
+    }
+
     public virtual bool TextPos(long n)
     {
         bool b;
