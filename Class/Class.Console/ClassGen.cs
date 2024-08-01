@@ -336,6 +336,22 @@ public class ClassGen : Any
         return true;
     }
 
+    public virtual bool EvalFrameValueSet(int index, string arg)
+    {
+        this.TextIndent();
+
+        this.EvalFrameValue(index);
+
+        this.Text(this.Space);
+        this.Text(this.DelimitAre);
+        this.Text(this.Space);
+
+        this.VarArg(arg);
+
+        this.Text(this.DelimitSemicolon);
+        return true;
+    }
+
     public virtual bool EvalFrameValue(int index)
     {
         this.EvalStack();
