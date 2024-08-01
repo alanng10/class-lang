@@ -267,7 +267,9 @@ public class ClassGenTraverse : Traverse
         gen.EvalValueGet(2, argA);
         gen.EvalValueGet(1, argB);
 
-        gen.OperateDelimit(argA, argA, argB, delimit);;
+        gen.OperateDelimit(argA, argA, argB, delimit);
+
+        gen.VarMaskSet(argA, gen.RefKindIntMask);
 
         gen.EvalValueSet(2, argA);
 
