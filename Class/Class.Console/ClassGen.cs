@@ -222,28 +222,6 @@ public class ClassGen : Any
         return true;
     }
 
-    public virtual bool MaideCall(Maide maide)
-    {
-        this.TextIndent();
-
-        this.MaideCallMaideName(maide);
-
-        this.Text(this.DelimitBracketLeft);
-
-        this.Text(this.Eval);
-
-        this.Text(this.DelimitComma);
-        this.Text(this.Space);
-
-        this.EvalIndex();
-
-        this.Text(this.DelimitBracketRight);
-
-        this.Text(this.DelimitSemicolon);
-        this.Text(this.NewLine);
-        return true;
-    }
-
     public virtual bool Return()
     {
         this.TextIndent();
