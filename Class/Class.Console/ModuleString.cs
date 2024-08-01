@@ -381,18 +381,14 @@ public class ModuleString : Any
 
     protected virtual bool AppendNull()
     {
-        this.StringJoin.Append("<Null>");
-
-
+        this.Append("<Null>");
         return true;
     }
 
 
     protected virtual bool Append(string s)
     {
-        this.StringJoin.Append(s);
-
-
+        this.InfraInfra.StringJoinString(this.StringJoin, s);
         return true;
     }
 
