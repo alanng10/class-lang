@@ -8,6 +8,7 @@ global using Handle = Avalon.Intern.Handle;
 global using Any = Avalon.Infra.Any;
 global using State = Avalon.Infra.State;
 global using StringJoin = Avalon.Infra.StringJoin;
+global using InfraInfra = Avalon.Infra.Infra;
 global using ListList = Avalon.List.List;
 global using Table = Avalon.List.Table;
 global using Iter = Avalon.List.Iter;
