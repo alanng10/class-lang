@@ -397,16 +397,24 @@ public class ClassGen : Any
 
     public virtual bool MaideName(Maide varMaide)
     {
+        
         return true;
     }
 
-    public virtual bool ModuleName(ClassModule module)
+    public virtual bool ModuleRef(ModuleRef moduleRef)
+    {
+        this.ModuleName(moduleRef.Name);
+        
+        this.Text("__");
+
+        this.ModuleVer(moduleRef.Version);
+        return true;
+    }
+
+    public virtual bool ModuleName(string name)
     {
         ClassGenOperate o;
         o = this.Operate;
-
-        string name;
-        name = module.Ref.Name;
 
         int count;
         count = name.Length;
@@ -427,6 +435,11 @@ public class ClassGen : Any
             i = i + 1;
         }
 
+        return true;
+    }
+    
+    public virtual bool ModuleVer(long ver)
+    {
         return true;
     }
 
