@@ -6,6 +6,26 @@ public class ClassGenTraverse : Traverse
 
     public virtual int ParamCount { get; set; }
 
+    public override bool ExecuteReturnExecute(ReturnExecute returnExecute)
+    {
+        base.ExecuteReturnExecute(returnExecute);
+
+        ClassGen gen;
+        gen = this.Gen;
+
+        string argA;
+        argA = gen.VarArgA;
+
+        int k;
+        k = this.ParamCount;
+
+        gen.EvalValueGet(1, argA);
+
+        gen.EvalFrameValueSet(k, argA);
+
+        return true;
+    }
+
     public override bool ExecuteThisOperate(ThisOperate thisOperate)
     {
         ClassGen gen;
