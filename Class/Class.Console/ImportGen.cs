@@ -50,15 +50,15 @@ public class ImportGen : Any
             string ka;
             ka = this.Namespace(moduleName);
 
-            k.Append("global using ");
-            k.Append("_");
-            k.Append(name);
-            k.Append(" = ");
-            k.Append(ka);
-            k.Append(".");
-            k.Append(c.Name);
-            k.Append(";");
-            k.Append("\n");
+            this.Append(k, "global using ");
+            this.Append(k, "_");
+            this.Append(k, name);
+            this.Append(k, " = ");
+            this.Append(k, ka);
+            this.Append(k, ".");
+            this.Append(k, c.Name);
+            this.Append(k, ";");
+            this.Append(k, "\n");
         }
 
         string kk;
@@ -98,5 +98,11 @@ public class ImportGen : Any
         string a;
         a = kb + moduleName;
         return a;
+    }
+
+    protected virtual bool Append(StringJoin h, string text)
+    {
+        this.InfraInfra.StringJoinString(h, text);
+        return true;
     }
 }
