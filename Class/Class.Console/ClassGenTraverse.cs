@@ -164,6 +164,22 @@ public class ClassGenTraverse : Traverse
         return true;
     }
 
+    public override bool ExecuteBitLeftOperate(BitLeftOperate bitLeftOperate)
+    {
+        base.ExecuteBitLeftOperate(bitLeftOperate);
+
+        this.ExecuteOperateDelimit(this.Gen.DelimitBitLeft);
+        return true;
+    }
+
+    public override bool ExecuteBitRightOperate(BitRightOperate bitRightOperate)
+    {
+        base.ExecuteBitRightOperate(bitRightOperate);
+
+        this.ExecuteOperateDelimit(this.Gen.DelimitBitRight);
+        return true;
+    }
+
     protected virtual bool ExecuteOperateDelimit(string delimit)
     {
         ClassGen gen;
