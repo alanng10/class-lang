@@ -66,20 +66,20 @@ public class ErrorString : Any
         return a;
     }
 
-    protected virtual bool AppendBorder(StringJoin sb)
+    protected virtual bool AppendBorder(StringJoin h)
     {
-        sb.Append(this.BorderLine);
-        sb.Append(this.NewLine);
+        this.Append(h, this.BorderLine);
+        this.Append(h, this.NewLine);
         return true;
     }
 
-    protected virtual bool AppendField(StringJoin sb, string word, string value)
+    protected virtual bool AppendField(StringJoin h, string word, string value)
     {
-        sb.Append(word);
-        sb.Append(":");
-        sb.Append(" ");
-        sb.Append(value);
-        sb.Append(this.NewLine);
+        this.Append(h, word);
+        this.Append(h, ":");
+        this.Append(h, " ");
+        this.Append(h, value);
+        this.Append(h, this.NewLine);
         return true;
     }
 
@@ -99,9 +99,9 @@ public class ErrorString : Any
         Range range;
         range = error.Range;
 
-        StringJoin sb;
-        sb = new StringJoin();
-        sb.Init();
+        StringJoin h;
+        h = new StringJoin();
+        h.Init();
 
         string ka;
         ka = this.IntString(range.Start);
@@ -109,15 +109,15 @@ public class ErrorString : Any
         string kb;
         kb = this.IntString(range.End);
 
-        sb.Append("(");
-        sb.Append(ka);
-        sb.Append(",");
-        sb.Append(" ");
-        sb.Append(kb);
-        sb.Append(")");
+        this.Append(h, "(");
+        this.Append(h, ka);
+        this.Append(h, ",");
+        this.Append(h, " ");
+        this.Append(h, kb);
+        this.Append(h, ")");
 
         string a;
-        a = sb.Result();
+        a = h.Result();
 
         return a;
     }
@@ -155,5 +155,11 @@ public class ErrorString : Any
         string a;
         a = this.TextInfra.StringCreate(text);
         return a;
+    }
+
+    protected virtual bool Append(StringJoin h, string text)
+    {
+        this.InfraInfra.StringJoinString(h, text);
+        return true;
     }
 }
