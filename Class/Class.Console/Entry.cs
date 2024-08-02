@@ -8,17 +8,17 @@ public class Entry : EntryEntry
         console = new Console();
         console.Init();
         
-        bool b;
-        b = console.Load();
-        if (b)
-        {
+        // bool b;
+        // b = console.Load();
+        // if (b)
+        // {
             bool ba;
             ba = console.ArgSet(this.Arg);
             if (ba)
             {
                 console.Execute();
             }
-        }
+        // }
 
         int a;
         a = console.Status;
