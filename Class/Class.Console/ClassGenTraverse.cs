@@ -60,7 +60,7 @@ public class ClassGenTraverse : Traverse
 
         int kk;
         kk = varClass.MaideRange.Index;
-        kk = kk + maide.Index;
+        kk = kk + maide.BinaryIndex;
 
         int k;
         k = maide.Param.Count;
