@@ -1414,41 +1414,7 @@ public class StateTraverse : Traverse
 
     protected virtual bool ValidCount(ClassClass triggerClass, ClassClass varClass, Count count)
     {
-        if (count == this.Count.Prudate)
-        {
-            return true;
-        }
-
-        if (count == this.Count.Probate)
-        {
-            if (this.Module == varClass.Module)
-            {
-                return true;
-            }
-            return false;
-        }
-
-        if (count == this.Count.Precate)
-        {
-            if (this.ValidClass(this.ThisClass, triggerClass))
-            {
-                return true;
-            }
-            return false;
-        }
-
-        if (count == this.Count.Private)
-        {
-            if (triggerClass == varClass)
-            {
-                if (this.ThisClass == triggerClass)
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
-        return true;
+        return this.ClassInfra.ValidCount(this.ThisClass, triggerClass, varClass, count, this.System.Any, this.NullClass);
     }
 
     protected virtual bool ArgueMatch(Maide varMaide, Argue argue)
