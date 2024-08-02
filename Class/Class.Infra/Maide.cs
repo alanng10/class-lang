@@ -11,5 +11,4 @@ public class Maide : Any
     public virtual Class Parent { get; set; }
     public virtual int Index { get; set; }
     public virtual object Any { get; set; }
-    public virtual SystemInfo SystemInfo { get; set; }
 }
