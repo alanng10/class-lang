@@ -1430,7 +1430,7 @@ public class StateTraverse : Traverse
 
         if (count == this.Count.Precate)
         {
-            if (this.ThisClass == triggerClass)
+            if (this.CheckClass(this.ThisClass, triggerClass))
             {
                 return true;
             }
@@ -1439,12 +1439,9 @@ public class StateTraverse : Traverse
 
         if (count == this.Count.Private)
         {
-            if (triggerClass == varClass)
+            if (this.ThisClass == triggerClass)
             {
-                if (this.ThisClass == triggerClass)
-                {
-                    return true;
-                }
+                return true;
             }
             return false;
         }
