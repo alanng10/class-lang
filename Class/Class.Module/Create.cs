@@ -440,8 +440,6 @@ public class Create : InfraCreate
         }
 
         a.Virtual = h;
-
-        this.ClassInfra.SystemInfoAssignValue(a.SystemInfo, h.SystemInfo);
         return true;
     }
 
@@ -506,10 +504,6 @@ public class Create : InfraCreate
         }
 
         a.Virtual = h;
-
-        this.ClassInfra.SystemInfoAssignValue(a.SystemInfo, h.SystemInfo);
-
-        this.VarSystemInfoAssignValue(a.Param, h.Param);
         return true;
     }
 
@@ -536,37 +530,6 @@ public class Create : InfraCreate
         if (!oo.Valid(a))
         {
             this.ListInfra.TableAdd(oo, a, a);
-        }
-        return true;
-    }
-
-    protected virtual bool VarSystemInfoAssignValue(Table varA, Table varB)
-    {
-        Iter iterA;
-        iterA = varA.IterCreate();
-        varA.IterSet(iterA);
-
-        Iter iterB;
-        iterB = varB.IterCreate();
-        varB.IterSet(iterB);
-
-        int count;
-        count = varA.Count;
-        int i;
-        i = 0;
-        while (i < count)
-        {
-            iterA.Next();
-            iterB.Next();
-
-            Var aa;
-            Var ab;
-            aa = (Var)iterA.Value;
-            ab = (Var)iterB.Value;
-
-            this.ClassInfra.SystemInfoAssignValue(aa.SystemInfo, ab.SystemInfo);
-
-            i = i + 1;
         }
         return true;
     }
