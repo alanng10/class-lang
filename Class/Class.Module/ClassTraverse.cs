@@ -53,6 +53,8 @@ public class ClassTraverse : Traverse
         a.Maide = this.ClassInfra.TableCreateStringCompare();
         a.Module = this.Module;
         a.Index = this.Source.Index;
+        a.FieldRange = this.CreateRange();
+        a.MaideRange = this.CreateRange();
         a.Any = nodeClass;
         
         this.ListInfra.TableAdd(this.Module.Class, a.Name, a);
@@ -60,5 +62,13 @@ public class ClassTraverse : Traverse
 
         this.Info(nodeClass).Class = a;
         return true;
+    }
+
+    private Range CreateRange()
+    {
+        Range a;
+        a = new Range();
+        a.Init();
+        return a;
     }
 }

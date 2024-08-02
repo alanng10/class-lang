@@ -1,4 +1,5 @@
 global using Any = Avalon.Infra.Any;
+global using Range = Avalon.Infra.Range;
 global using RefCompare = Avalon.Infra.RefCompare;
 global using List = Avalon.List.List;
 global using Array = Avalon.List.Array;
@@ -16,7 +17,6 @@ global using Field = Class.Infra.Field;
 global using Maide = Class.Infra.Maide;
 global using Var = Class.Infra.Var;
 global using ClassModule = Class.Infra.Module;
-global using SystemInfo = Class.Infra.SystemInfo;
 global using ClassInfra = Class.Infra.Infra;
 global using ModuleRef = Class.Infra.ModuleRef;
 global using Count = Class.Infra.Count;
