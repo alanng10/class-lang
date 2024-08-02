@@ -330,6 +330,23 @@ public class Create : InfraCreate
         return a;
     }
 
+    protected virtual bool SetClassIndex()
+    {
+        Table table;
+        table = this.Module.Class;
+        
+        Iter iter;
+        iter = table.IterCreate();
+        table.IterSet(iter);
+        while (iter.Next())
+        {
+            ClassClass a;
+            a = (ClassClass)iter.Value;
+        }
+
+        return true;
+    }
+
     protected virtual bool ExecuteImport()
     {
         Iter iter;
