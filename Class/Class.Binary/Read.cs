@@ -97,6 +97,7 @@ public class Read : Any
         this.ExecuteCreateVar();
         this.ExecuteCreateClassIndex();
         this.ExecuteCreateModuleRef();
+        this.ExecuteCreateRange();
         this.ExecuteCreateString();
         this.ExecuteCreateArray();
 
@@ -123,6 +124,7 @@ public class Read : Any
         a.VarIndex = 0;
         a.ClassIndexIndex = 0;
         a.ModuleRefIndex = 0;
+        a.RangeIndex = 0;
         a.StringIndex = 0;
         a.StringTextIndex = 0;
         a.ArrayIndex = 0;
