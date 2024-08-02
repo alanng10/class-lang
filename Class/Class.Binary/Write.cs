@@ -157,6 +157,9 @@ public class Write : Any
 
     protected virtual bool ExecutePart(Part part)
     {
+        this.ExecuteRange(part.FieldRange);
+        this.ExecuteRange(part.MaideRange);
+        
         this.ExecuteFieldArray(part.Field);
         this.ExecuteMaideArray(part.Maide);
         return true;
@@ -248,9 +251,10 @@ public class Write : Any
         return true;
     }
 
-    protected virtual bool ExecuteSystemInfo(int value)
+    protected virtual bool ExecuteRange(Range range)
     {
-        this.ExecuteByte(value);
+        this.ExecuteIndex(range.Index);
+        this.ExecuteCount(range.Count);
         return true;
     }
 
