@@ -630,6 +630,20 @@ public class Read : Any
 
     protected virtual Part ExecutePart()
     {
+        Range fieldRange;
+        fieldRange = this.ExecuteRange();
+        if (fieldRange == null)
+        {
+            return null;
+        }
+
+        Range maideRange;
+        maideRange = this.ExecuteRange();
+        if (maideRange == null)
+        {
+            return null;
+        }
+
         Array field;
         field = this.ExecuteFieldArray();
         if (field == null)
@@ -646,6 +660,8 @@ public class Read : Any
 
         Part a;
         a = this.Operate.ExecutePart();
+        a.FieldRange = fieldRange;
+        a.MaideRange = maideRange;
         a.Field = field;
         a.Maide = maide;
         return a;
