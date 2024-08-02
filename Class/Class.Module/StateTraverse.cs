@@ -1287,7 +1287,7 @@ public class StateTraverse : Traverse
 
     protected virtual bool ValidClass(ClassClass varClass, ClassClass requiredClass)
     {
-        return this.Create.ValidClass(varClass, requiredClass);
+        return this.ClassInfra.ValidClass(varClass, requiredClass, this.System.Any, this.NullClass);
     }
 
     protected virtual Field Field(ClassClass varClass, string name)
