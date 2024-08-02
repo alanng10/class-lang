@@ -779,9 +779,7 @@ public class Create : InfraCreate
 
         if (thisClass == this.NullClass)
         {
-            bool ba;
-            ba = !(requiredClass == this.BuiltinClass.Bool | requiredClass == this.BuiltinClass.Int);
-            return ba;
+            return true;
         }
 
         bool b;
