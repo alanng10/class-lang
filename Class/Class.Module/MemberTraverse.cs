@@ -91,6 +91,9 @@ public class MemberTraverse : Traverse
         Table varSet;
         varSet = this.ClassInfra.TableCreateStringCompare();
 
+        int ka;
+        ka = this.ThisClass.Field.Count;
+
         Field a;
         a = new Field();
         a.Init();
@@ -100,7 +103,8 @@ public class MemberTraverse : Traverse
         a.Get = varGet;
         a.Set = varSet;
         a.Parent = this.ThisClass;
-        a.Index = this.ThisClass.Field.Count;
+        a.Index = ka;
+        a.BinaryIndex = ka;
         a.Any = nodeField;
 
         bool b;
@@ -182,6 +186,9 @@ public class MemberTraverse : Traverse
 
         this.ExecuteParam(param);
 
+        int ka;
+        ka = this.ThisClass.Maide.Count;
+
         Maide a;
         a = new Maide();
         a.Init();
@@ -191,7 +198,8 @@ public class MemberTraverse : Traverse
         a.Param = this.ParamVar;
         a.Call = callVar;
         a.Parent = this.ThisClass;
-        a.Index = this.ThisClass.Maide.Count;
+        a.Index = ka;
+        a.BinaryIndex = ka;
         a.Any = nodeMaide;
 
         this.ParamVar = null;
