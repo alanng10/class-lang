@@ -878,7 +878,7 @@ public class Create : InfraCreate
 
     public virtual object CompDefined(ClassClass varClass, string name)
     {
-        return this.ClassInfra.CompDefined(varClass, name, this.BuiltinClass.Any, this.Count.Private);
+        return this.ClassInfra.CompDefined(varClass, name, this.BuiltinClass.Any);
     }
 
     protected virtual Source SourceGet(int index)

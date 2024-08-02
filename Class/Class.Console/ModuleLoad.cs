@@ -728,9 +728,6 @@ public class ModuleLoad : Any
         ClassClass anyClass;
         anyClass = this.AnyClass;
 
-        Count privateCount;
-        privateCount = this.CountList.Private;
-
         Iter iter;
         iter = varClass.Field.IterCreate();
         varClass.Field.IterSet(iter);
@@ -744,7 +741,7 @@ public class ModuleLoad : Any
             k = null;
 
             object kk;
-            kk = classInfra.CompDefined(varClass.Base, a.Name, anyClass, privateCount);
+            kk = classInfra.CompDefined(varClass.Base, a.Name, anyClass);
             if (!(kk == null))
             {
                 if (!(kk is Field))
