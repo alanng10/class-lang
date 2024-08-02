@@ -103,6 +103,15 @@ public class MemberTraverse : Traverse
         a.Index = this.ThisClass.Field.Count;
         a.Any = nodeField;
 
+        bool b;
+        b = this.Create.VirtualField(a);
+
+        if (!b)
+        {
+            this.Error(this.ErrorKind.FieldUndefined, nodeField);
+            return true;
+        }
+
         this.ListInfra.TableAdd(this.ThisClass.Field, a.Name, a);
 
         this.Info(nodeField).Field = a;

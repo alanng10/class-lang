@@ -387,7 +387,7 @@ public class Create : InfraCreate
         return true;
     }
 
-    protected virtual bool VirtualField(Field a)
+    public virtual bool VirtualField(Field a)
     {
         ClassClass varClass;
         varClass = a.Parent;
