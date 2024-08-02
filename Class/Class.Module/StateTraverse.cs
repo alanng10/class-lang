@@ -1421,7 +1421,7 @@ public class StateTraverse : Traverse
 
         if (count == this.Count.Probate)
         {
-            if (this.Module == varClass.Module)
+            if (this.Module == triggerClass.Module)
             {
                 return true;
             }
