@@ -90,7 +90,6 @@ public class StateTraverse : Traverse
         dataVar.Init();
         dataVar.Name = "data";
         dataVar.Class = varField.Class;
-        dataVar.SystemInfo = this.CreateSystemInfo();
 
         Table o;
         o = this.ClassInfra.TableCreateStringCompare();
@@ -125,15 +124,12 @@ public class StateTraverse : Traverse
         dataVar.Init();
         dataVar.Name = "data";
         dataVar.Class = varField.Class;
-        dataVar.SystemInfo = this.CreateSystemInfo();
 
         Var valueVar;
         valueVar = new Var();
         valueVar.Init();
         valueVar.Name = "value";
         valueVar.Class = varField.Class;
-        valueVar.SystemInfo = this.CreateSystemInfo();
-        valueVar.SystemInfo.Value = varField.SystemInfo.Value;
         
         Table o;
         o = this.ClassInfra.TableCreateStringCompare();
@@ -227,7 +223,6 @@ public class StateTraverse : Traverse
         a.Name = varName;
         a.Class = varClass;
         a.Any = nodeVar;
-        a.SystemInfo = this.CreateSystemInfo();
 
         Table oo;
         oo = (Table)this.VarStack.Top;
@@ -1575,13 +1570,5 @@ public class StateTraverse : Traverse
             }
         }
         return null;
-    }
-
-    protected virtual SystemInfo CreateSystemInfo()
-    {
-        SystemInfo a;
-        a = new SystemInfo();
-        a.Init();
-        return a;
     }
 }
