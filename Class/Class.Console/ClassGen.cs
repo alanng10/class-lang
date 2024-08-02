@@ -254,6 +254,26 @@ public class ClassGen : Any
         return true;
     }
 
+    public virtual bool ClassFieldStart(ClassClass varClass)
+    {
+        this.ClassName(varClass);
+
+        this.Text("__");
+
+        this.Text("F");
+        return true;
+    }
+
+    public virtual bool ClassMaideStart(ClassClass varClass)
+    {
+        this.ClassName(varClass);
+
+        this.Text("__");
+
+        this.Text("M");
+        return true;
+    }
+
     public virtual bool VarMaskClear(string arg, string mask)
     {
         this.TextIndent();
@@ -465,14 +485,7 @@ public class ClassGen : Any
 
     public virtual bool CompStateMaideName(ClassClass varClass, string compName, string state)
     {
-        ModuleRef moduleRef;
-        moduleRef = varClass.Module.Ref;
-
-        this.ModuleRef(moduleRef);
-        
-        this.Text("__");
-
-        this.Text(varClass.Name);
+        this.ClassName(varClass);
 
         this.Text("_");
 
@@ -481,6 +494,19 @@ public class ClassGen : Any
         this.Text("_");
 
         this.Text(state);
+        return true;
+    }
+
+    public virtual bool ClassName(ClassClass varClass)
+    {
+        ModuleRef moduleRef;
+        moduleRef = varClass.Module.Ref;
+
+        this.ModuleRef(moduleRef);
+
+        this.Text("__");
+
+        this.Text(varClass.Name);
         return true;
     }
 

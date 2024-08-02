@@ -49,6 +49,9 @@ public class ClassGenTraverse : Traverse
         
         Maide maide;
         maide = info.CallMaide;
+
+        string argA;
+        argA = gen.VarArgA;
         return true;
     }
 
