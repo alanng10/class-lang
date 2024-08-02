@@ -1,6 +1,6 @@
 namespace Class.Module;
 
-public class MemberTraverse : Traverse
+public class CompTraverse : Traverse
 {
     public override bool Init()
     {
