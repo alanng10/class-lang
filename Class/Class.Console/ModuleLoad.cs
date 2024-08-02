@@ -540,10 +540,9 @@ public class ModuleLoad : Any
             Field a;
             a = new Field();
             a.Init();
-            a.Index = fieldTable.Count;
+            a.Index = ua.Index;
             a.Name = name;
             a.Class = c;
-            a.SystemInfo = this.SystemInfoCreate(ua.SystemInfo);
             a.Count = this.CountList.Get(ua.Count);
             a.Parent = varClass;
 
@@ -590,10 +589,9 @@ public class ModuleLoad : Any
             Maide a;
             a = new Maide();
             a.Init();
-            a.Index = maideTable.Count;
+            a.Index = ua.Index;
             a.Name = name;
             a.Class = c;
-            a.SystemInfo = this.SystemInfoCreate(ua.SystemInfo);
             a.Count = this.CountList.Get(ua.Count);
             a.Parent = varClass;
 
@@ -650,7 +648,6 @@ public class ModuleLoad : Any
             a.Init();
             a.Name = name;
             a.Class = c;
-            a.SystemInfo = this.SystemInfoCreate(ua.SystemInfo);
             
             this.ListInfra.TableAdd(varTable, a.Name, a);
 
@@ -749,11 +746,6 @@ public class ModuleLoad : Any
                 {
                     return false;
                 }
-
-                if (!(a.SystemInfo.Value == aa.SystemInfo.Value))
-                {
-                    return false;
-                }
             }
 
             a.Virtual = aa;
@@ -800,11 +792,6 @@ public class ModuleLoad : Any
                 }
 
                 if (!(a.Class == aa.Class))
-                {
-                    return false;
-                }
-
-                if (!(a.SystemInfo.Value == aa.SystemInfo.Value))
                 {
                     return false;
                 }
@@ -880,11 +867,6 @@ public class ModuleLoad : Any
             varA = (Var)iterA.Value;
 
             if (!(varVar.Class == varA.Class))
-            {
-                return false;
-            }
-
-            if (!(varVar.SystemInfo.Value == varA.SystemInfo.Value))
             {
                 return false;
             }
