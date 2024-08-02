@@ -213,10 +213,52 @@ public class Infra : Any
             }
             thisClass = k;
         }
-        
+
         bool a;
         a = b;
         return a;
+    }
+
+    public virtual bool ValidCount(Class thisClass, Class triggerClass, Class varClass, Count count, Class anyClass, Class nullClass)
+    {
+        CountList countList;
+        countList = this.CountList;
+
+        if (count == countList.Prudate)
+        {
+            return true;
+        }
+
+        if (count == countList.Probate)
+        {
+            if (thisClass.Module == varClass.Module)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        if (count == countList.Precate)
+        {
+            if (this.ValidClass(thisClass, triggerClass, anyClass, nullClass))
+            {
+                return true;
+            }
+            return false;
+        }
+
+        if (count == countList.Private)
+        {
+            if (triggerClass == varClass)
+            {
+                if (thisClass == triggerClass)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return true;
     }
 
     public virtual object CompDefined(Class varClass, string name, Class anyClass)
