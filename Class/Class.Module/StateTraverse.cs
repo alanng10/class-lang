@@ -1538,6 +1538,9 @@ public class StateTraverse : Traverse
 
     protected virtual bool VarTableAdd(Table varTable, Table other)
     {
+        ListInfra listInfra;
+        listInfra = this.ListInfra;
+
         Iter iter;
         iter = other.IterCreate();
         other.IterSet(iter);
@@ -1546,7 +1549,7 @@ public class StateTraverse : Traverse
             Var a;
             a = (Var)iter.Value;
 
-            this.ListInfra.TableAdd(varTable, a.Name, a);
+            listInfra.TableAdd(varTable, a.Name, a);
         }
         return true;
     }
