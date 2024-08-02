@@ -319,6 +319,8 @@ public class Create : InfraCreate
         Traverse traverse;
         traverse = this.MemberTraverse();
         this.ExecuteClassTraverse(traverse);
+
+        this.SetClassRange();
         return true;
     }
 
