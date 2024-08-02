@@ -50,6 +50,11 @@ public class ClassGenTraverse : Traverse
         Maide maide;
         maide = info.CallMaide;
 
+        if (!(maide.Virtual == null))
+        {
+            maide = maide.Virtual;
+        }
+
         int k;
         k = maide.Param.Count;
 
@@ -58,6 +63,8 @@ public class ClassGenTraverse : Traverse
 
         gen.EvalValueGet(k + 1, argA);
 
+        
+
         gen.VarMaskClear(argA, gen.MemoryIndexMask);
 
         gen.VarSetDeref(argA, argA, 0);
@@ -65,6 +72,10 @@ public class ClassGenTraverse : Traverse
         gen.VarSetDeref(argA, argA, 0);
 
         gen.VarSetDeref(argA, argA, 2);
+
+        gen.VarSetDeref(argA, argA, maide.Index);
+
+
 
         return true;
     }
