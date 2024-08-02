@@ -260,6 +260,23 @@ public class ClassGen : Any
         return true;
     }
 
+    public virtual bool VarSetArg(string destArg, string arg)
+    {
+        this.TextIndent();
+
+        this.VarArg(destArg);
+
+        this.Text(this.Space);
+        this.Text(this.DelimitAre);
+        this.Text(this.Space);
+
+        this.VarArg(arg);
+
+        this.Text(this.DelimitSemicolon);
+        this.Text(this.NewLine);
+        return true;
+    }
+
     public virtual bool VarSetDeref(string destArg, string arg, int pos)
     {
         string kk;
