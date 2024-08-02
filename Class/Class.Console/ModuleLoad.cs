@@ -484,6 +484,10 @@ public class ModuleLoad : Any
 
     protected virtual bool SetPart(ClassClass varClass, BinaryPart part)
     {
+        varClass.FieldRange = this.CreateRange(part.FieldRange);
+
+        varClass.MaideRange = this.CreateRange(part.MaideRange);
+
         varClass.Field = this.ClassInfra.TableCreateStringCompare();
 
         varClass.Maide = this.ClassInfra.TableCreateStringCompare();
@@ -876,6 +880,16 @@ public class ModuleLoad : Any
         return true;
     }
 
+    protected virtual InfraRange CreateRange(InfraRange range)
+    {
+        InfraRange a;
+        a = new InfraRange();
+        a.Init();
+        a.Index = range.Index;
+        a.Count = range.Count;
+        return a;
+    }
+
     protected virtual bool CheckName(string o)
     {
         this.TextGet(o);
@@ -889,15 +903,6 @@ public class ModuleLoad : Any
         this.Text.Range.Count = o.Length;
 
         return true;
-    }
-
-    protected virtual SystemInfo SystemInfoCreate(int binaryValue)
-    {
-        SystemInfo a;
-        a = new SystemInfo();
-        a.Init();
-        a.Value = binaryValue;
-        return a;
     }
 
     protected virtual ClassClass ClassGetIndex(int index)
