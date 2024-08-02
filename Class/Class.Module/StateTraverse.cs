@@ -1343,7 +1343,7 @@ public class StateTraverse : Traverse
             return null;
         }
 
-        if (!this.ValidCount(varClass, d.Count))
+        if (!this.ValidCount(varClass, d.Parent, d.Count))
         {
             return null;
         }
@@ -1404,7 +1404,7 @@ public class StateTraverse : Traverse
             return null;
         }
 
-        if (!this.ValidCount(varClass, d.Count))
+        if (!this.ValidCount(varClass, d.Parent, d.Count))
         {
             return null;
         }
@@ -1412,7 +1412,7 @@ public class StateTraverse : Traverse
         return d;
     }
 
-    protected virtual bool ValidCount(ClassClass triggerClass, Count count)
+    protected virtual bool ValidCount(ClassClass triggerClass, ClassClass varClass, Count count)
     {
         if (count == this.Count.Prudate)
         {
@@ -1421,7 +1421,7 @@ public class StateTraverse : Traverse
 
         if (count == this.Count.Probate)
         {
-            if (this.Module == triggerClass.Module)
+            if (this.Module == varClass.Module)
             {
                 return true;
             }
@@ -1439,9 +1439,12 @@ public class StateTraverse : Traverse
 
         if (count == this.Count.Private)
         {
-            if (this.ThisClass == triggerClass)
+            if (triggerClass == varClass)
             {
-                return true;
+                if (this.ThisClass == triggerClass)
+                {
+                    return true;
+                }
             }
             return false;
         }
