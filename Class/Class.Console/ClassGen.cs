@@ -39,6 +39,7 @@ public class ClassGen : Any
         this.RefKindIntMask = "0x2000000000000000";
         this.BaseClearMask = "0xf000ffffffffffff";
         this.MemoryIndexMask = "0x0000ffffffffffff";
+        this.ClassInt = "Int";
         this.KeywordReturn = "return";
         this.DelimitDot = ".";
         this.DelimitDotPointer = "->";
@@ -48,6 +49,7 @@ public class ClassGen : Any
         this.DelimitSquareRight = "]";
         this.DelimitSemicolon = ";";
         this.DelimitComma = ",";
+        this.DelimitAsterisk = "*";
         this.DelimitAre = "=";
         this.DelimitEqual = "==";
         this.DelimitLess = "<";
@@ -102,6 +104,7 @@ public class ClassGen : Any
     public virtual string RefKindIntMask { get; set; }
     public virtual string BaseClearMask { get; set; }
     public virtual string MemoryIndexMask { get; set; }
+    public virtual string ClassInt { get; set; }
     public virtual string KeywordReturn { get; set; }
     public virtual string DelimitDot { get; set; }
     public virtual string DelimitDotPointer { get; set; }
@@ -111,6 +114,7 @@ public class ClassGen : Any
     public virtual string DelimitSquareRight { get; set; }
     public virtual string DelimitSemicolon { get; set; }
     public virtual string DelimitComma { get; set; }
+    public virtual string DelimitAsterisk { get; set; }
     public virtual string DelimitAre { get; set; }
     public virtual string DelimitEqual { get; set; }
     public virtual string DelimitLess { get; set; }
@@ -250,6 +254,38 @@ public class ClassGen : Any
         this.Text(this.Space);
 
         this.Text(value);
+
+        this.Text(this.DelimitSemicolon);
+        this.Text(this.NewLine);
+        return true;
+    }
+
+    public virtual bool VarSetDeref(string destArg, string arg)
+    {
+        this.TextIndent();
+
+        this.VarArg(destArg);
+
+        this.Text(this.Space);
+        this.Text(this.DelimitAre);
+        this.Text(this.Space);
+
+        string ka;
+        string kb;
+        ka = this.DelimitSquareLeft;
+        kb = this.DelimitSquareRight;
+
+        this.Text(this.DelimitAsterisk);
+        this.Text(ka);
+
+        this.Text(ka);
+        this.Text(this.ClassInt);
+        this.Text(this.DelimitAsterisk);
+        this.Text(kb);
+
+        this.VarArg(arg);
+
+        this.Text(kb);
 
         this.Text(this.DelimitSemicolon);
         this.Text(this.NewLine);
