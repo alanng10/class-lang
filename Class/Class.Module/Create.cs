@@ -357,7 +357,10 @@ public class Create : InfraCreate
 
     protected virtual bool SetClassRangeClass(ClassClass varClass)
     {
-        if (this.RangeTable.Valid(varClass))
+        Table k;
+        k = this.RangeTable;
+
+        if (k.Valid(varClass))
         {
             return true;
         }
@@ -376,7 +379,7 @@ public class Create : InfraCreate
 
         this.SetClassRangeOne(varClass.MaideRange, baseClass.MaideRange, varClass.Maide.Count);
 
-        this.ListInfra.TableAdd(this.RangeTable, varClass, varClass);
+        this.ListInfra.TableAdd(k, varClass, varClass);
 
         return true;
     }
