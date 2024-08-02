@@ -42,6 +42,7 @@ public class ClassGen : Any
         this.BaseClearMask = "0xf000ffffffffffff";
         this.MemoryIndexMask = "0x0000ffffffffffff";
         this.ClassInt = "Int";
+        this.ClassCompState = "CompState";
         this.KeywordReturn = "return";
         this.DelimitDot = ".";
         this.DelimitDotPointer = "->";
@@ -109,6 +110,7 @@ public class ClassGen : Any
     public virtual string BaseClearMask { get; set; }
     public virtual string MemoryIndexMask { get; set; }
     public virtual string ClassInt { get; set; }
+    public virtual string ClassCompState { get; set; }
     public virtual string KeywordReturn { get; set; }
     public virtual string DelimitDot { get; set; }
     public virtual string DelimitDotPointer { get; set; }
@@ -241,6 +243,43 @@ public class ClassGen : Any
         this.Text(this.Space);
 
         this.Text(this.Zero);
+
+        this.Text(this.DelimitSemicolon);
+        this.Text(this.NewLine);
+        return true;
+    }
+
+    public virtual bool CallCompState(string arg)
+    {
+        string kk;
+        kk = this.Space;
+
+        string ka;
+        string kb;
+        ka = this.DelimitSquareLeft;
+        kb = this.DelimitSquareRight;
+
+        this.TextIndent();
+
+        this.Text(ka);
+
+        this.Text(ka);
+        this.Text(this.ClassCompState);
+        this.Text(kb);
+
+        this.VarArg(arg);
+
+        this.Text(kb);
+
+        this.Text(ka);
+        this.Text(this.Eval);
+
+        this.Text(this.DelimitComma);
+        this.Text(kk);
+
+        this.EvalIndex();
+    
+        this.Text(kb);
 
         this.Text(this.DelimitSemicolon);
         this.Text(this.NewLine);
