@@ -9,7 +9,7 @@ public class StateTraverse : Traverse
         this.TextInfra = TextInfra.This;
         this.ClassInfra = ClassInfra.This;
 
-        this.System = this.Create.BuiltinClass;
+        this.System = this.Create.SystemClass;
         this.NullClass = this.Create.NullClass;
 
         this.VarStack = new Stack();

@@ -12,8 +12,8 @@ public class Create : InfraCreate
         this.ErrorKind = this.CreateErrorKindList();
         this.Count = this.CreateCountList();
 
-        this.BuiltinClass = new SystemClass();
-        this.BuiltinClass.Init();
+        this.SystemClass = new SystemClass();
+        this.SystemClass.Init();
 
         this.ModuleRef = this.ClassInfra.ModuleRefCreate(null, 0);
 
@@ -27,7 +27,7 @@ public class Create : InfraCreate
     public virtual Table ModuleTable { get; set; }
     public virtual Table ClassTable { get; set; }
     public virtual Result Result { get; set; }
-    public virtual SystemClass BuiltinClass { get; set; }
+    public virtual SystemClass SystemClass { get; set; }
     public virtual ErrorKindList ErrorKind { get; set; }
     public virtual CountList Count { get; set; }
     public virtual ClassClass NullClass { get; set; }
@@ -79,10 +79,10 @@ public class Create : InfraCreate
         ClassModule d;
         d = this.ModuleGet("System.Infra");
 
-        this.BuiltinClass.Any = this.ModuleClassGet(d, "Any");
-        this.BuiltinClass.Bool = this.ModuleClassGet(d, "Bool");
-        this.BuiltinClass.Int = this.ModuleClassGet(d, "Int");
-        this.BuiltinClass.String = this.ModuleClassGet(d, "String");
+        this.SystemClass.Any = this.ModuleClassGet(d, "Any");
+        this.SystemClass.Bool = this.ModuleClassGet(d, "Bool");
+        this.SystemClass.Int = this.ModuleClassGet(d, "Int");
+        this.SystemClass.String = this.ModuleClassGet(d, "String");
         return true;
     }
 
@@ -224,7 +224,7 @@ public class Create : InfraCreate
 
         if (b)
         {
-            a = this.BuiltinClass.Any;
+            a = this.SystemClass.Any;
         }
 
         this.ListInfra.TableAdd(this.BaseTable, varClass, a);
@@ -234,7 +234,7 @@ public class Create : InfraCreate
     protected virtual bool CheckBase(ClassClass varClass)
     {
         SystemClass d;
-        d = this.BuiltinClass;
+        d = this.SystemClass;
 
         if (varClass == d.Bool | varClass == d.Int | varClass == d.String)
         {
@@ -246,7 +246,7 @@ public class Create : InfraCreate
     protected virtual bool AddBaseList()
     {
         ClassClass anyClass;
-        anyClass = this.BuiltinClass.Any;
+        anyClass = this.SystemClass.Any;
 
         Iter iter;
         iter = this.BaseTable.IterCreate();
@@ -809,7 +809,7 @@ public class Create : InfraCreate
         b = false;
         if (!b)
         {
-            if (!(this.ClassInfra.ValidClass(varClass, entryClass, this.BuiltinClass.Any, this.NullClass)))
+            if (!(this.ClassInfra.ValidClass(varClass, entryClass, this.SystemClass.Any, this.NullClass)))
             {
                 b = true;
             }
@@ -904,7 +904,7 @@ public class Create : InfraCreate
 
     public virtual object CompDefined(ClassClass varClass, string name)
     {
-        return this.ClassInfra.CompDefined(varClass, name, this.BuiltinClass.Any);
+        return this.ClassInfra.CompDefined(varClass, name, this.SystemClass.Any);
     }
 
     protected virtual Source SourceGet(int index)
