@@ -258,7 +258,7 @@ public class Create : InfraCreate
             varClass = (ClassClass)iter.Index;
 
             bool b;
-            b = this.CheckClassDependency(varClass);
+            b = this.ValidClassDependency(varClass);
 
             ClassClass a;
             a = null;
@@ -281,7 +281,7 @@ public class Create : InfraCreate
         return true;
     }
 
-    protected virtual bool CheckClassDependency(ClassClass varClass)
+    protected virtual bool ValidClassDependency(ClassClass varClass)
     {
         ListInfra listInfra;
         listInfra = this.ListInfra;
