@@ -668,14 +668,6 @@ public class Read : Any
         int varClass;
         varClass = u;
 
-        u = this.ExecuteSystemClass();
-        if (u == -1)
-        {
-            return null;
-        }
-        int systemClass;
-        systemClass = u;
-
         u = this.ExecuteByte();
         if (u == -1)
         {
@@ -710,7 +702,6 @@ public class Read : Any
         Field a;
         a = this.Operate.ExecuteField();
         a.Class = varClass;
-        a.SystemInfo = systemClass;
         a.Count = count;
         a.Virtual = varVirtual;
         a.Index = index;
@@ -763,14 +754,6 @@ public class Read : Any
         int varClass;
         varClass = u;
 
-        u = this.ExecuteSystemClass();
-        if (u == -1)
-        {
-            return null;
-        }
-        int systemClass;
-        systemClass = u;
-
         u = this.ExecuteByte();
         if (u == -1)
         {
@@ -812,7 +795,6 @@ public class Read : Any
         Maide a;
         a = this.Operate.ExecuteMaide();
         a.Class = varClass;
-        a.SystemInfo = systemClass;
         a.Count = count;
         a.Virtual = varVirtual;
         a.Index = index;
@@ -866,14 +848,6 @@ public class Read : Any
         int varClass;
         varClass = u;
 
-        u = this.ExecuteSystemClass();
-        if (u == -1)
-        {
-            return null;
-        }
-        int systemClass;
-        systemClass = u;
-
         string name;
         name = this.ExecuteString();
         if (name == null)
@@ -884,7 +858,6 @@ public class Read : Any
         Var a;
         a = this.Operate.ExecuteVar();
         a.Class = varClass;
-        a.SystemInfo = systemClass;
         a.Name = name;
         return a;
     }
@@ -987,19 +960,6 @@ public class Read : Any
 
         string a;
         a = this.Operate.ExecuteString(count);
-        return a;
-    }
-
-    protected virtual int ExecuteSystemClass()
-    {
-        int u;
-        u = this.ExecuteByte();
-        if (u == -1)
-        {
-            return -1;
-        }
-        int a;
-        a = u;
         return a;
     }
 
