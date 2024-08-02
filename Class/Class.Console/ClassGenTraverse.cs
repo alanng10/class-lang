@@ -89,7 +89,7 @@ public class ClassGenTraverse : Traverse
 
         gen.EvalValueSet(k + 1, argB);
 
-        
+        gen.CallCompState(argC);
 
         return true;
     }
