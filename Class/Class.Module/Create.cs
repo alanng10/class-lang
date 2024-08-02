@@ -326,8 +326,8 @@ public class Create : InfraCreate
 
     protected virtual Traverse MemberTraverse()
     {
-        MemberTraverse a;
-        a = new MemberTraverse();
+        CompTraverse a;
+        a = new CompTraverse();
         a.Create = this;
         a.Init();
         return a;
