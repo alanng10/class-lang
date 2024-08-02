@@ -878,66 +878,7 @@ public class Create : InfraCreate
 
     public virtual object CompDefined(ClassClass varClass, string name)
     {
-        object k;
-        k = null;
-
-        Count ka;
-        ka = this.Count.Private;
-
-        bool b;
-        b = false;
-
-        ClassClass anyClass;
-        anyClass = this.BuiltinClass.Any;
-
-        ClassClass c;
-        c = varClass;
-
-        while (!b & !(c == null))
-        {
-            if (!b)
-            {
-                Field field;
-                field = (Field)c.Field.Get(name);
-
-                if (!(field == null))
-                {
-                    if (!(field.Count == ka))
-                    {
-                        k = field;
-                        b = true;
-                    }
-                }
-            }
-
-            if (!b)
-            {
-                Maide maide;
-                maide = (Maide)c.Maide.Get(name);
-
-                if (!(maide == null))
-                {
-                    if (!(maide.Count == ka))
-                    {
-                        k = maide;
-                        b = true;
-                    }
-                }
-            }
-
-            if (!b)
-            {
-                ClassClass aa;
-                aa = null;
-                if (!(c == anyClass))
-                {
-                    aa = c.Base;
-                }
-                c = aa;
-            }
-        }
-
-        return k;
+        return this.ClassInfra.CompDefined(varClass, name, this.BuiltinClass.Any, this.Count.Private);
     }
 
     protected virtual Source SourceGet(int index)

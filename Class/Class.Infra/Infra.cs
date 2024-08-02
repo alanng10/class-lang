@@ -183,9 +183,61 @@ public class Infra : Any
         return a;
     }
 
-    public virtual bool SystemInfoAssignValue(SystemInfo a, SystemInfo b)
+    public virtual object CompDefined(Class varClass, string name, Class anyClass, Count privateCount)
     {
-        a.Value = b.Value;
-        return true;
+        object k;
+        k = null;
+
+        bool b;
+        b = false;
+
+        Class c;
+        c = varClass;
+
+        while (!b & !(c == null))
+        {
+            if (!b)
+            {
+                Field field;
+                field = (Field)c.Field.Get(name);
+
+                if (!(field == null))
+                {
+                    if (!(field.Count == privateCount))
+                    {
+                        k = field;
+                        b = true;
+                    }
+                }
+            }
+
+            if (!b)
+            {
+                Maide maide;
+                maide = (Maide)c.Maide.Get(name);
+
+                if (!(maide == null))
+                {
+                    if (!(maide.Count == privateCount))
+                    {
+                        k = maide;
+                        b = true;
+                    }
+                }
+            }
+
+            if (!b)
+            {
+                Class aa;
+                aa = null;
+                if (!(c == anyClass))
+                {
+                    aa = c.Base;
+                }
+                c = aa;
+            }
+        }
+
+        return k;
     }
 }
