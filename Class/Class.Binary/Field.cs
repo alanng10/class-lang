@@ -9,6 +9,8 @@ public class Field : Any
     public virtual int Count { get; set; }
 
     public virtual int Virtual { get; set; }
-    
+
+    public virtual int Index { get; set; }
+
     public virtual string Name { get; set; }
 }

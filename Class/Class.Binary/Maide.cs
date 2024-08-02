@@ -10,6 +10,8 @@ public class Maide : Any
 
     public virtual int Virtual { get; set; }
 
+    public virtual int Index { get; set; }
+
     public virtual string Name { get; set; }
 
     public virtual Array Param { get; set; }
