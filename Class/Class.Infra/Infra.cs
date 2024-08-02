@@ -19,6 +19,8 @@ public class Infra : Any
         base.Init();
         this.InfraInfra = InfraInfra.This;
         this.TextInfra = TextInfra.This;
+        this.CountList = CountList.This;
+
         this.Quote = "\"";
         this.BackSlash = "\\";
         this.Tab = "\t";
@@ -37,6 +39,7 @@ public class Infra : Any
 
     protected virtual InfraInfra InfraInfra { get; set; }
     protected virtual TextInfra TextInfra { get; set; }
+    protected virtual CountList CountList { get; set; }
 
     public virtual bool IndexRange(Range range, int index)
     {
@@ -183,8 +186,11 @@ public class Infra : Any
         return a;
     }
 
-    public virtual object CompDefined(Class varClass, string name, Class anyClass, Count privateCount)
+    public virtual object CompDefined(Class varClass, string name, Class anyClass)
     {
+        Count privateCount;
+        privateCount = this.CountList.Private;
+
         object k;
         k = null;
 
