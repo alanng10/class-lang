@@ -50,8 +50,16 @@ public class ClassGenTraverse : Traverse
         Maide maide;
         maide = info.CallMaide;
 
+        int k;
+        k = maide.Param.Count;
+
         string argA;
         argA = gen.VarArgA;
+
+        gen.EvalValueGet(k + 1, argA);
+
+        gen.VarMaskClear(argA, gen.MemoryIndexMask);
+
         return true;
     }
 

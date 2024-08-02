@@ -38,6 +38,7 @@ public class ClassGen : Any
         this.RefKindBoolMask = "0x1000000000000000";
         this.RefKindIntMask = "0x2000000000000000";
         this.BaseClearMask = "0xf000ffffffffffff";
+        this.MemoryIndexMask = "0x0000ffffffffffff";
         this.KeywordReturn = "return";
         this.DelimitDot = ".";
         this.DelimitDotPointer = "->";
@@ -100,6 +101,7 @@ public class ClassGen : Any
     public virtual string RefKindBoolMask { get; set; }
     public virtual string RefKindIntMask { get; set; }
     public virtual string BaseClearMask { get; set; }
+    public virtual string MemoryIndexMask { get; set; }
     public virtual string KeywordReturn { get; set; }
     public virtual string DelimitDot { get; set; }
     public virtual string DelimitDotPointer { get; set; }
