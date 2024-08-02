@@ -47,6 +47,11 @@ public class ReadOperate : Any
         return null;
     }
 
+    public virtual Range ExecuteRange()
+    {
+        return null;
+    }
+
     public virtual string ExecuteString(int count)
     {
         return null;
