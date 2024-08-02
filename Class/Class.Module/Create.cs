@@ -317,14 +317,14 @@ public class Create : InfraCreate
     protected virtual bool ExecuteMember()
     {
         Traverse traverse;
-        traverse = this.MemberTraverse();
+        traverse = this.CompTraverse();
         this.ExecuteClassTraverse(traverse);
 
         this.SetClassRange();
         return true;
     }
 
-    protected virtual Traverse MemberTraverse()
+    protected virtual Traverse CompTraverse()
     {
         CompTraverse a;
         a = new CompTraverse();
