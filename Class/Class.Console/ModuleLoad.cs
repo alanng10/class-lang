@@ -750,6 +750,11 @@ public class ModuleLoad : Any
                 {
                     return false;
                 }
+
+                if (!this.ValidVirtualBase(a.Parent, af))
+                {
+                    return false;
+                }
             }
 
             a.Virtual = aa;
@@ -800,6 +805,11 @@ public class ModuleLoad : Any
                     return false;
                 }
 
+                if (!this.ValidVirtualBase(a.Parent, af))
+                {
+                    return false;
+                }
+                
                 if (!this.ValidVirtualMaideParam(a.Param, aa.Param))
                 {
                     return false;
