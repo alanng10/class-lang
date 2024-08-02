@@ -483,7 +483,7 @@ public class StateTraverse : Traverse
         {
             if (!(maideName == null))
             {
-                maide = this.Maide(thisClass, maideName, false);
+                maide = this.Maide(thisClass, maideName);
                 if (maide == null)
                 {
                     this.Error(this.ErrorKind.MaideUndefined, callOperate);
@@ -1376,7 +1376,7 @@ public class StateTraverse : Traverse
         return d;
     }
 
-    protected virtual Maide Maide(ClassClass varClass, string name, bool baseTrigger)
+    protected virtual Maide Maide(ClassClass varClass, string name)
     {
         if (varClass == this.NullClass)
         {
@@ -1437,7 +1437,7 @@ public class StateTraverse : Traverse
         return d;
     }
 
-    protected virtual bool CheckCount(ClassClass triggerClass, ClassClass varClass, Count count, bool baseTrigger)
+    protected virtual bool CheckCount(ClassClass triggerClass, ClassClass varClass, Count count)
     {
         if (count == this.Count.Prudate)
         {
@@ -1455,10 +1455,6 @@ public class StateTraverse : Traverse
 
         if (count == this.Count.Precate)
         {
-            if (baseTrigger)
-            {
-                return true;
-            }
             if (this.ThisClass == triggerClass)
             {
                 return true;
