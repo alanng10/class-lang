@@ -60,6 +60,12 @@ public class ClassGenTraverse : Traverse
 
         gen.VarMaskClear(argA, gen.MemoryIndexMask);
 
+        gen.VarSetDeref(argA, argA, 0);
+
+        gen.VarSetDeref(argA, argA, 0);
+
+        gen.VarSetDeref(argA, argA, 2);
+
         return true;
     }
 
