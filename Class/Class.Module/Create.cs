@@ -36,6 +36,7 @@ public class Create : InfraCreate
     protected virtual ClassInfra ClassInfra { get; set; }
     protected virtual List ErrorList { get; set; }
     protected virtual Table BaseTable { get; set; }
+    protected virtual Table RangeTable { get; set; }
     protected virtual ModuleRef ModuleRef { get; set; }
 
     protected virtual bool InitNullClass()
@@ -330,11 +331,13 @@ public class Create : InfraCreate
         return a;
     }
 
-    protected virtual bool SetClassIndex()
+    protected virtual bool SetClassRange()
     {
         Table table;
         table = this.Module.Class;
-        
+
+        this.RangeTable = this.ClassInfra.TableCreateRefCompare();
+
         Iter iter;
         iter = table.IterCreate();
         table.IterSet(iter);
@@ -342,8 +345,44 @@ public class Create : InfraCreate
         {
             ClassClass a;
             a = (ClassClass)iter.Value;
+
+            this.SetClassRangeClass(a);
         }
 
+        this.RangeTable = null;
+        return true;
+    }
+
+    protected virtual bool SetClassRangeClass(ClassClass varClass)
+    {
+        if (this.RangeTable.Valid(varClass))
+        {
+            return true;
+        }
+
+        if (!(varClass.Module == this.Module))
+        {
+            return true;
+        }
+
+        ClassClass baseClass;
+        baseClass = varClass.Base;
+
+        this.SetClassRangeClass(baseClass);
+        
+        this.SetClassRangeOne(varClass.FieldRange, baseClass.FieldRange, varClass.Field.Count);
+
+        this.SetClassRangeOne(varClass.MaideRange, baseClass.MaideRange, varClass.Maide.Count);
+
+        this.ListInfra.TableAdd(this.RangeTable, varClass, varClass);
+
+        return true;
+    }
+
+    protected virtual bool SetClassRangeOne(Range ka, Range kb, int count)
+    {
+        ka.Index = kb.Index + kb.Count;
+        ka.Count = count;
         return true;
     }
 
