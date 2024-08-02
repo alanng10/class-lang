@@ -722,6 +722,15 @@ public class ModuleLoad : Any
 
     protected virtual bool SetVirtualField(ClassClass varClass, Array binaryField)
     {
+        ClassInfra classInfra;
+        classInfra = this.ClassInfra;
+
+        ClassClass anyClass;
+        anyClass = this.AnyClass;
+
+        Count privateCount;
+        privateCount = this.CountList.Private;
+
         Iter iter;
         iter = varClass.Field.IterCreate();
         varClass.Field.IterSet(iter);
@@ -731,13 +740,35 @@ public class ModuleLoad : Any
             Field a;
             a = (Field)iter.Value;
 
+            Field k;
+            k = null;
+
+            object kk;
+            kk = classInfra.CompDefined(varClass.Base, a.Name, anyClass, privateCount);
+            if (!(kk == null))
+            {
+                if (!(kk is Field))
+                {
+                    return false;
+                }
+
+                k = (Field)kk;
+            }
+
             BinaryField ae;
             ae = (BinaryField)binaryField.GetAt(a.Index);
 
-            Field aa;
-            aa = null;
+            bool ba;
+            ba = (k == null);
+            bool bb;
+            bb = (ae.Virtual == -1);
 
-            if (!(ae.Virtual == -1))
+            if (!(ba == bb))
+            {
+                return false;
+            }
+
+            if (!ba)
             {
                 ClassClass af;
                 af = this.ClassGetIndex(ae.Virtual);
@@ -746,30 +777,24 @@ public class ModuleLoad : Any
                 {
                     return false;
                 }
-                
-                aa = (Field)af.Field.Get(a.Name);
-                if (aa == null)
+
+                if (!(af == k.Parent))
                 {
                     return false;
                 }
 
-                if (!(a.Count == aa.Count))
+                if (!(a.Count == k.Count))
                 {
                     return false;
                 }
 
-                if (!(a.Class == aa.Class))
-                {
-                    return false;
-                }
-
-                if (!this.ValidVirtualBase(a.Parent, af))
+                if (!(a.Class == k.Class))
                 {
                     return false;
                 }
             }
 
-            a.Virtual = aa;
+            a.Virtual = k;
         }
         return true;
     }
