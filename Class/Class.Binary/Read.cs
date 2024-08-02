@@ -602,6 +602,23 @@ public class Read : Any
 
     protected virtual Part ExecutePart()
     {
+        int o;
+        o = this.ExecuteCount();
+        if (o == -1)
+        {
+            return null;
+        }
+        int fieldStart;
+        fieldStart = o;
+
+        o = this.ExecuteCount();
+        if (o == -1)
+        {
+            return null;
+        }
+        int maideStart;
+        maideStart = o;
+
         Array field;
         field = this.ExecuteFieldArray();
         if (field == null)
@@ -618,6 +635,8 @@ public class Read : Any
 
         Part a;
         a = this.Operate.ExecutePart();
+        a.FieldStart = fieldStart;
+        a.MaideStart = maideStart;
         a.Field = field;
         a.Maide = maide;
         return a;
