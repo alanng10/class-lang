@@ -391,6 +391,28 @@ public class Read : Any
         return true;
     }
 
+    protected virtual bool ExecuteCreateRange()
+    {
+        Array array;
+        array = this.Arg.RangeArray;
+
+        int count;
+        count = array.Count;
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            Range a;
+            a = new Range();
+            a.Init();
+            
+            array.SetAt(i, a);
+
+            i = i + 1;
+        }
+        return true;
+    }
+
     public virtual bool ExecuteStage()
     {
         this.Binary = this.ExecuteBinary();
