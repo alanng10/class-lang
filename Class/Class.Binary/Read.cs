@@ -684,14 +684,13 @@ public class Read : Any
         int count;
         count = u;
 
-        long uu;
-        uu = this.ExecuteInt();
-        if (uu == -1)
+        u = this.ExecuteIndex();
+        if (u == -1)
         {
             return null;
         }
         int varVirtual;
-        varVirtual = (int)uu;
+        varVirtual = u;
 
         u = this.ExecuteIndex();
         if (u == -1)
@@ -780,14 +779,13 @@ public class Read : Any
         int count;
         count = u;
 
-        long uu;
-        uu = this.ExecuteInt();
-        if (uu == -1)
+        u = this.ExecuteIndex();
+        if (u == -1)
         {
             return null;
         }
         int varVirtual;
-        varVirtual = (int)uu;
+        varVirtual = u;
 
         u = this.ExecuteIndex();
         if (u == -1)
