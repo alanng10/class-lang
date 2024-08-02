@@ -62,7 +62,7 @@ public class Create : InfraCreate
         this.ExecuteInit();
         this.ExecuteClass();
         this.ExecuteBase();
-        this.ExecuteMember();
+        this.ExecuteComp();
         this.ExecuteImport();
         this.ExecuteExport();
         this.ExecuteEntry();
@@ -314,7 +314,7 @@ public class Create : InfraCreate
         return true;
     }
 
-    protected virtual bool ExecuteMember()
+    protected virtual bool ExecuteComp()
     {
         Traverse traverse;
         traverse = this.CompTraverse();
