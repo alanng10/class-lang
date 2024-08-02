@@ -313,7 +313,7 @@ public class StateTraverse : Traverse
 
         if (!(resultClass == null))
         {
-            if (!this.CheckClass(resultClass, this.ThisResultClass))
+            if (!this.ValidClass(resultClass, this.ThisResultClass))
             {
                 this.Error(this.ErrorKind.ResultUnassignable, returnExecute);
             }
@@ -359,7 +359,7 @@ public class StateTraverse : Traverse
 
         if (!(targetClass == null) & !(valueClass == null))
         {
-            if (!this.CheckClass(valueClass, targetClass))
+            if (!this.ValidClass(valueClass, targetClass))
             {
                 this.Error(this.ErrorKind.ValueUnassignable, areExecute);
             }
@@ -620,9 +620,9 @@ public class StateTraverse : Traverse
         {
             if (!(varClass == null))
             {
-                if (!this.CheckClass(anyClass, varClass))
+                if (!this.ValidClass(anyClass, varClass))
                 {
-                    if (!this.CheckClass(varClass, anyClass))
+                    if (!this.ValidClass(varClass, anyClass))
                     {
                         this.Error(this.ErrorKind.CastUnachievable, castOperate);
                     }
@@ -1117,7 +1117,7 @@ public class StateTraverse : Traverse
 
         if (!(valueClass == null))
         {
-            if (!this.CheckClass(valueClass, operandClass))
+            if (!this.ValidClass(valueClass, operandClass))
             {
                 this.Error(this.ErrorKind.OperandUnassignable, operate);
             }
@@ -1148,7 +1148,7 @@ public class StateTraverse : Traverse
 
         if (!(leftClass == null))
         {
-            if (!this.CheckClass(leftClass, operandClass))
+            if (!this.ValidClass(leftClass, operandClass))
             {
                 hasOperandUnassignable = this.UniqueError(this.ErrorKind.OperandUnassignable, operate, hasOperandUnassignable);
             }
@@ -1167,7 +1167,7 @@ public class StateTraverse : Traverse
 
         if (!(rightClass == null))
         {
-            if (!this.CheckClass(rightClass, operandClass))
+            if (!this.ValidClass(rightClass, operandClass))
             {
                 hasOperandUnassignable = this.UniqueError(this.ErrorKind.OperandUnassignable, operate, hasOperandUnassignable);
             }
@@ -1193,7 +1193,7 @@ public class StateTraverse : Traverse
 
         if (!(condClass == null))
         {
-            if (!this.CheckClass(condClass, this.System.Bool))
+            if (!this.ValidClass(condClass, this.System.Bool))
             {
                 this.Error(this.ErrorKind.CondUnassignable, execute);
             }
@@ -1285,9 +1285,9 @@ public class StateTraverse : Traverse
         return field;
     }
 
-    protected virtual bool CheckClass(ClassClass varClass, ClassClass requiredClass)
+    protected virtual bool ValidClass(ClassClass varClass, ClassClass requiredClass)
     {
-        return this.Create.CheckClass(varClass, requiredClass);
+        return this.Create.ValidClass(varClass, requiredClass);
     }
 
     protected virtual Field Field(ClassClass varClass, string name)
@@ -1430,7 +1430,7 @@ public class StateTraverse : Traverse
 
         if (count == this.Count.Precate)
         {
-            if (this.CheckClass(this.ThisClass, triggerClass))
+            if (this.ValidClass(this.ThisClass, triggerClass))
             {
                 return true;
             }
@@ -1495,7 +1495,7 @@ public class StateTraverse : Traverse
                 return false;
             }
 
-            if (!this.CheckClass(operateClass, varClass))
+            if (!this.ValidClass(operateClass, varClass))
             {
                 return false;
             }

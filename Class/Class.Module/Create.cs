@@ -809,7 +809,7 @@ public class Create : InfraCreate
         b = false;
         if (!b)
         {
-            if (!(this.CheckClass(varClass, entryClass)))
+            if (!(this.ValidClass(varClass, entryClass)))
             {
                 b = true;
             }
@@ -830,7 +830,7 @@ public class Create : InfraCreate
         return true;
     }
 
-    public virtual bool CheckClass(ClassClass varClass, ClassClass requiredClass)
+    public virtual bool ValidClass(ClassClass varClass, ClassClass requiredClass)
     {
         ClassClass anyClass;
         anyClass = this.BuiltinClass.Any;
