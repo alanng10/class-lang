@@ -809,7 +809,7 @@ public class Create : InfraCreate
         b = false;
         if (!b)
         {
-            if (!(this.ValidClass(varClass, entryClass)))
+            if (!(this.ClassInfra.ValidClass(varClass, entryClass, this.BuiltinClass.Any, this.NullClass)))
             {
                 b = true;
             }
@@ -828,41 +828,6 @@ public class Create : InfraCreate
             this.Error(this.ErrorKind.EntryUnachievable, aa, this.SourceGet(varClass.Index));
         }
         return true;
-    }
-
-    public virtual bool ValidClass(ClassClass varClass, ClassClass requiredClass)
-    {
-        ClassClass anyClass;
-        anyClass = this.BuiltinClass.Any;
-
-        ClassClass thisClass;
-        thisClass = varClass;
-
-        if (thisClass == this.NullClass)
-        {
-            return true;
-        }
-
-        bool b;
-        b = false;
-        while (!b & !(thisClass == null))
-        {
-            if (thisClass == requiredClass)
-            {
-                b = true;
-            }
-
-            ClassClass aa;
-            aa = null;
-            if (!(thisClass == anyClass))
-            {
-                aa = thisClass.Base;
-            }
-            thisClass = aa;
-        }
-        bool a;
-        a = b;
-        return a;
     }
 
     protected virtual bool ExecuteRootTraverse(Traverse traverse)

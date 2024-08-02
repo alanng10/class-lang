@@ -186,6 +186,39 @@ public class Infra : Any
         return a;
     }
 
+    public virtual bool ValidClass(Class varClass, Class requiredClass, Class anyClass, Class nullClass)
+    {
+        Class thisClass;
+        thisClass = varClass;
+
+        if (thisClass == nullClass)
+        {
+            return true;
+        }
+
+        bool b;
+        b = false;
+        while (!b & !(thisClass == null))
+        {
+            if (thisClass == requiredClass)
+            {
+                b = true;
+            }
+
+            Class k;
+            k = null;
+            if (!(thisClass == anyClass))
+            {
+                k = thisClass.Base;
+            }
+            thisClass = k;
+        }
+        
+        bool a;
+        a = b;
+        return a;
+    }
+
     public virtual object CompDefined(Class varClass, string name, Class anyClass)
     {
         Count privateCount;
