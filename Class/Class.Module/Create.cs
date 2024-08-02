@@ -212,7 +212,7 @@ public class Create : InfraCreate
 
         if (!ba)
         {
-            if (!this.CheckBase(varBase))
+            if (!this.ValidBase(varBase))
             {
                 this.Error(this.ErrorKind.BaseUndefined, nodeClass, this.SourceGet(varClass.Index));
                 b = true;
@@ -231,7 +231,7 @@ public class Create : InfraCreate
         return true;
     }
 
-    protected virtual bool CheckBase(ClassClass varClass)
+    protected virtual bool ValidBase(ClassClass varClass)
     {
         SystemClass d;
         d = this.SystemClass;
