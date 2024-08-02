@@ -488,10 +488,6 @@ public class ModuleLoad : Any
 
         varClass.MaideRange = this.CreateRange(part.MaideRange);
 
-        varClass.Field = this.ClassInfra.TableCreateStringCompare();
-
-        varClass.Maide = this.ClassInfra.TableCreateStringCompare();
-
         bool b;
         
         b = this.SetPartField(varClass, part.Field);
@@ -510,8 +506,13 @@ public class ModuleLoad : Any
 
     protected virtual bool SetPartField(ClassClass varClass, Array binaryField)
     {
+        ListInfra listInfra;
+        listInfra = this.ListInfra;
+
         Table fieldTable;
-        fieldTable = varClass.Field;
+        fieldTable = this.ClassInfra.TableCreateStringCompare();
+
+        varClass.Field = fieldTable;
 
         int count;
         count = binaryField.Count;
@@ -544,13 +545,14 @@ public class ModuleLoad : Any
             Field a;
             a = new Field();
             a.Init();
-            a.Index = ua.Index;
+            a.Index = fieldTable.Count;
+            a.BinaryIndex = ua.Index;
             a.Name = name;
             a.Class = c;
             a.Count = this.CountList.Get(ua.Count);
             a.Parent = varClass;
 
-            this.ListInfra.TableAdd(fieldTable, a.Name, a);
+            listInfra.TableAdd(fieldTable, a.Name, a);
 
             i = i + 1;
         }
@@ -559,8 +561,13 @@ public class ModuleLoad : Any
 
     protected virtual bool SetPartMaide(ClassClass varClass, Array binaryMaide)
     {
+        ListInfra listInfra;
+        listInfra = this.ListInfra;
+
         Table maideTable;
-        maideTable = varClass.Maide;
+        maideTable = this.ClassInfra.TableCreateStringCompare();
+        
+        varClass.Maide = maideTable;
 
         int count;
         count = binaryMaide.Count;
@@ -593,7 +600,8 @@ public class ModuleLoad : Any
             Maide a;
             a = new Maide();
             a.Init();
-            a.Index = ua.Index;
+            a.Index = maideTable.Count;
+            a.BinaryIndex = ua.Index;
             a.Name = name;
             a.Class = c;
             a.Count = this.CountList.Get(ua.Count);
@@ -606,7 +614,7 @@ public class ModuleLoad : Any
                 return false;
             }
 
-            this.ListInfra.TableAdd(maideTable, a.Name, a);
+            listInfra.TableAdd(maideTable, a.Name, a);
 
             i = i + 1;
         }
@@ -615,8 +623,12 @@ public class ModuleLoad : Any
 
     protected virtual bool SetPartParam(Maide varMaide, Array binaryVar)
     {
+        ListInfra listInfra;
+        listInfra = this.ListInfra;
+
         Table varTable;
         varTable = this.ClassInfra.TableCreateStringCompare();
+        
         varMaide.Param = varTable;
 
         int count;
@@ -652,8 +664,8 @@ public class ModuleLoad : Any
             a.Init();
             a.Name = name;
             a.Class = c;
-            
-            this.ListInfra.TableAdd(varTable, a.Name, a);
+
+            listInfra.TableAdd(varTable, a.Name, a);
 
             i = i + 1;
         }
