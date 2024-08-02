@@ -1343,7 +1343,7 @@ public class StateTraverse : Traverse
             return null;
         }
 
-        if (!this.CheckCount(varClass, d.Count))
+        if (!this.ValidCount(varClass, d.Count))
         {
             return null;
         }
@@ -1404,7 +1404,7 @@ public class StateTraverse : Traverse
             return null;
         }
 
-        if (!this.CheckCount(varClass, d.Count))
+        if (!this.ValidCount(varClass, d.Count))
         {
             return null;
         }
@@ -1412,7 +1412,7 @@ public class StateTraverse : Traverse
         return d;
     }
 
-    protected virtual bool CheckCount(ClassClass triggerClass, Count count)
+    protected virtual bool ValidCount(ClassClass triggerClass, Count count)
     {
         if (count == this.Count.Prudate)
         {
