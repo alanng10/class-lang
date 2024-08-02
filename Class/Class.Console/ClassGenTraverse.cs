@@ -59,23 +59,37 @@ public class ClassGenTraverse : Traverse
         k = maide.Param.Count;
 
         string argA;
+        string argB;
+        string argC;
+        string argD;
         argA = gen.VarArgA;
+        argB = gen.VarArgB;
+        argC = gen.VarArgC;
+        argD = gen.VarArgD;
 
         gen.EvalValueGet(k + 1, argA);
 
-        
+        gen.VarSetArg(argB, argA);
 
         gen.VarMaskClear(argA, gen.MemoryIndexMask);
 
         gen.VarSetDeref(argA, argA, 0);
 
-        gen.VarSetDeref(argA, argA, 0);
+        gen.VarSetDeref(argC, argA, 0);
 
-        gen.VarSetDeref(argA, argA, 2);
+        gen.VarSetDeref(argC, argC, 2);
 
-        gen.VarSetDeref(argA, argA, maide.Index);
+        gen.VarSetDeref(argC, argC, maide.Index);
 
+        gen.VarSetDeref(argD, argA, 1);
 
+        gen.VarMaskClear(argB, gen.BaseClearMask);
+
+        gen.VarMaskSetArg(argB, argD);
+
+        gen.EvalValueSet(k + 1, argB);
+
+        
 
         return true;
     }

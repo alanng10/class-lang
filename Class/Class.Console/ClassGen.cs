@@ -391,6 +391,29 @@ public class ClassGen : Any
         return true;
     }
 
+    public virtual bool VarMaskSetArg(string arg, string maskArg)
+    {
+        this.TextIndent();
+
+        this.VarArg(arg);
+
+        this.Text(this.Space);
+        this.Text(this.DelimitAre);
+        this.Text(this.Space);
+
+        this.VarArg(arg);
+
+        this.Text(this.Space);
+        this.Text(this.DelimitOrn);
+        this.Text(this.Space);
+
+        this.VarArg(maskArg);
+
+        this.Text(this.DelimitSemicolon);
+        this.Text(this.NewLine);
+        return true;
+    }
+
     public virtual bool EvalValueGet(int index, string arg)
     {
         this.TextIndent();
