@@ -1429,7 +1429,7 @@ public class StateTraverse : Traverse
             return null;
         }
 
-        if (!this.CheckCount(varClass, d.Parent, d.Count, baseTrigger))
+        if (!this.CheckCount(varClass, d.Parent, d.Count))
         {
             return null;
         }
