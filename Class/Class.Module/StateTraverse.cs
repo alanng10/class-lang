@@ -1275,36 +1275,11 @@ public class StateTraverse : Traverse
         {
             if (!(fieldName == null))
             {
-                field = this.Field(thisClass, fieldName, false);
+                field = this.Field(thisClass, fieldName);
                 if (field == null)
                 {
                     this.Error(this.ErrorKind.FieldUndefined, node);
                 }
-            }
-        }
-        return field;
-    }
-
-    protected virtual Field ExecuteBaseFieldNode(NodeNode node, FieldName nodeField)
-    {
-        ClassClass baseClass;
-        baseClass = this.ThisClass.Base;
-
-        string fieldName;
-        fieldName = null;
-        if (!(nodeField == null))
-        {
-            fieldName = nodeField.Value;
-        }
-
-        Field field;
-        field = null;
-        if (!(fieldName == null))
-        {
-            field = this.Field(baseClass, fieldName, true);
-            if (field == null)
-            {
-                this.Error(this.ErrorKind.FieldUndefined, node);
             }
         }
         return field;
@@ -1315,7 +1290,7 @@ public class StateTraverse : Traverse
         return this.Create.CheckClass(varClass, requiredClass);
     }
 
-    protected virtual Field Field(ClassClass varClass, string name, bool baseTrigger)
+    protected virtual Field Field(ClassClass varClass, string name)
     {
         if (varClass == this.NullClass)
         {
@@ -1368,7 +1343,7 @@ public class StateTraverse : Traverse
             return null;
         }
 
-        if (!this.CheckCount(varClass, d.Parent, d.Count, baseTrigger))
+        if (!this.CheckCount(varClass, d.Parent, d.Count))
         {
             return null;
         }
