@@ -937,6 +937,32 @@ public class Read : Any
         return a;
     }
 
+    protected virtual Range ExecuteRange()
+    {
+        int u;
+        u = this.ExecuteIndex();
+        if (u == -1)
+        {
+            return null;
+        }
+        int index;
+        index = u;
+
+        u = this.ExecuteCount();
+        if (u == -1)
+        {
+            return null;
+        }
+        int count;
+        count = u;
+
+        Range a;
+        a = this.Operate.ExecuteRange();
+        a.Index = index;
+        a.Count = count;
+        return a;
+    }
+
     protected virtual Array ExecuteArray(int count)
     {
         return this.Operate.ExecuteArray(count);
