@@ -12,9 +12,9 @@ public class Class : Any
 
     public virtual Module Module { get; set; }
 
-    public virtual Range FieldRange { get; set; }
+    public virtual InfraRange FieldRange { get; set; }
 
-    public virtual Range MaideRange { get; set; }
+    public virtual InfraRange MaideRange { get; set; }
 
     public virtual int Index { get; set; }
 
