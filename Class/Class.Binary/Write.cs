@@ -157,9 +157,6 @@ public class Write : Any
 
     protected virtual bool ExecutePart(Part part)
     {
-        this.ExecuteCount(part.FieldStart);
-        this.ExecuteCount(part.MaideStart);
-
         this.ExecuteFieldArray(part.Field);
         this.ExecuteMaideArray(part.Maide);
         return true;
