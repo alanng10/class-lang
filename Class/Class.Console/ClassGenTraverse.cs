@@ -64,6 +64,7 @@ public class ClassGenTraverse : Traverse
 
         int k;
         k = maide.Param.Count;
+        k = k + 1;
 
         string argA;
         string argB;
