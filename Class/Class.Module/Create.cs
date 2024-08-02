@@ -12,7 +12,7 @@ public class Create : InfraCreate
         this.ErrorKind = this.CreateErrorKindList();
         this.Count = this.CreateCountList();
 
-        this.BuiltinClass = new BuiltinClass();
+        this.BuiltinClass = new SystemClass();
         this.BuiltinClass.Init();
 
         this.ModuleRef = this.ClassInfra.ModuleRefCreate(null, 0);
@@ -27,7 +27,7 @@ public class Create : InfraCreate
     public virtual Table ModuleTable { get; set; }
     public virtual Table ClassTable { get; set; }
     public virtual Result Result { get; set; }
-    public virtual BuiltinClass BuiltinClass { get; set; }
+    public virtual SystemClass BuiltinClass { get; set; }
     public virtual ErrorKindList ErrorKind { get; set; }
     public virtual CountList Count { get; set; }
     public virtual ClassClass NullClass { get; set; }
@@ -233,7 +233,7 @@ public class Create : InfraCreate
 
     protected virtual bool CheckBase(ClassClass varClass)
     {
-        BuiltinClass d;
+        SystemClass d;
         d = this.BuiltinClass;
 
         if (varClass == d.Bool | varClass == d.Int | varClass == d.String)
