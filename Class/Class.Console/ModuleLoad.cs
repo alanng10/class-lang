@@ -798,6 +798,12 @@ public class ModuleLoad : Any
 
     protected virtual bool SetVirtualMaide(ClassClass varClass, Array binaryMaide)
     {
+        ClassInfra classInfra;
+        classInfra = this.ClassInfra;
+
+        ClassClass anyClass;
+        anyClass = this.AnyClass;
+
         Iter iter;
         iter = varClass.Maide.IterCreate();
         varClass.Maide.IterSet(iter);
@@ -807,13 +813,35 @@ public class ModuleLoad : Any
             Maide a;
             a = (Maide)iter.Value;
 
+            Maide k;
+            k = null;
+
+            object kk;
+            kk = classInfra.CompDefined(varClass.Base, a.Name, anyClass);
+            if (!(kk == null))
+            {
+                if (!(kk is Maide))
+                {
+                    return false;
+                }
+
+                k = (Maide)kk;
+            }
+
             BinaryMaide ae;
             ae = (BinaryMaide)binaryMaide.GetAt(a.Index);
 
-            Maide aa;
-            aa = null;
+            bool ba;
+            ba = (k == null);
+            bool bb;
+            bb = (ae.Virtual == -1);
 
-            if (!(ae.Virtual == -1))
+            if (!(ba == bb))
+            {
+                return false;
+            }
+
+            if (!ba)
             {
                 ClassClass af;
                 af = this.ClassGetIndex(ae.Virtual);
@@ -823,34 +851,28 @@ public class ModuleLoad : Any
                     return false;
                 }
 
-                aa = (Maide)af.Maide.Get(a.Name);
-                if (aa == null)
+                if (!(af == k.Parent))
                 {
                     return false;
                 }
 
-                if (!(a.Count == aa.Count))
+                if (!(a.Count == k.Count))
                 {
                     return false;
                 }
 
-                if (!(a.Class == aa.Class))
+                if (!(a.Class == k.Class))
                 {
                     return false;
                 }
 
-                if (!this.ValidVirtualBase(a.Parent, af))
-                {
-                    return false;
-                }
-                
-                if (!this.ValidVirtualMaideParam(a.Param, aa.Param))
+                if (!this.ValidVirtualMaideParam(a.Param, k.Param))
                 {
                     return false;
                 }
             }
 
-            a.Virtual = aa;
+            a.Virtual = k;
         }
         return true;
     }
