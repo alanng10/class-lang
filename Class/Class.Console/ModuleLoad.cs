@@ -800,7 +800,7 @@ public class ModuleLoad : Any
                     return false;
                 }
 
-                if (!this.CheckVirtualMaideParam(a.Param, aa.Param))
+                if (!this.ValidVirtualMaideParam(a.Param, aa.Param))
                 {
                     return false;
                 }
@@ -839,7 +839,7 @@ public class ModuleLoad : Any
         return (varClass.Field.Valid(name) | varClass.Maide.Valid(name));
     }
 
-    protected virtual bool CheckVirtualMaideParam(Table param, Table virtualParam)
+    protected virtual bool ValidVirtualMaideParam(Table param, Table virtualParam)
     {
         int count;
         count = param.Count;
