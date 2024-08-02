@@ -924,33 +924,6 @@ public class ModuleLoad : Any
         return true;
     }
 
-    protected virtual bool ValidVirtualBase(ClassClass varClass, ClassClass baseClass)
-    {
-        ClassClass anyClass;
-        anyClass = this.AnyClass;
-
-        ClassClass c;
-        c = varClass.Base;
-
-        while (!(c == null))
-        {
-            if (c == baseClass)
-            {
-                return true;
-            }
-
-            ClassClass k;
-            k = null;
-            if (!(c == anyClass))
-            {
-                k = c.Base;
-            }
-            c = k;
-        }
-
-        return false;
-    }
-
     protected virtual InfraRange CreateRange(InfraRange range)
     {
         InfraRange a;
