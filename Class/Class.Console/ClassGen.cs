@@ -260,22 +260,28 @@ public class ClassGen : Any
         return true;
     }
 
-    public virtual bool VarSetDeref(string destArg, string arg)
+    public virtual bool VarSetDeref(string destArg, string arg, int pos)
     {
-        this.TextIndent();
-
-        this.VarArg(destArg);
-
-        this.Text(this.Space);
-        this.Text(this.DelimitAre);
-        this.Text(this.Space);
+        string kk;
+        kk = this.Space;
 
         string ka;
         string kb;
         ka = this.DelimitSquareLeft;
         kb = this.DelimitSquareRight;
 
+        this.TextIndent();
+
+        this.VarArg(destArg);
+
+        this.Text(kk);
+        this.Text(this.DelimitAre);
+        this.Text(kk);
+
         this.Text(this.DelimitAsterisk);
+
+        this.Text(ka);
+
         this.Text(ka);
 
         this.Text(ka);
@@ -284,6 +290,12 @@ public class ClassGen : Any
         this.Text(kb);
 
         this.VarArg(arg);
+
+        this.Text(kb);
+
+        this.Text(kk);
+
+        this.TextPos(pos);
 
         this.Text(kb);
 
