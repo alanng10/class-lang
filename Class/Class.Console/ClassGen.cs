@@ -320,7 +320,7 @@ public class ClassGen : Any
         return true;
     }
 
-    public virtual bool VarSetDeref(string dest, string arg, int pos)
+    public virtual bool VarSetDeref(string dest, string value, int pos)
     {
         string kk;
         kk = this.Space;
@@ -349,7 +349,7 @@ public class ClassGen : Any
         this.Text(this.DelimitAsterisk);
         this.Text(kb);
 
-        this.Text(arg);
+        this.Text(value);
 
         this.Text(kb);
 
