@@ -11,8 +11,8 @@ public class ClassGenTraverse : Traverse
         ClassGen gen;
         gen = this.Gen;
 
-        string argA;
-        argA = gen.VarA;
+        string varA;
+        varA = gen.VarA;
 
         int k;
         k = gen.ParamCount;
@@ -20,9 +20,9 @@ public class ClassGenTraverse : Traverse
         int ka;
         ka = gen.LocalVarCount + k;
 
-        gen.EvalValueGet(1, argA);
+        gen.EvalValueGet(1, varA);
 
-        gen.EvalFrameValueSet(k, argA);
+        gen.EvalFrameValueSet(k, varA);
 
         gen.EvalIndexPosSet(-ka);
 
