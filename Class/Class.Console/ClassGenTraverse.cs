@@ -77,23 +77,23 @@ public class ClassGenTraverse : Traverse
         ModuleInfo info;
         info = (ModuleInfo)ka;
         
-        Maide maide;
-        maide = info.CallMaide;
+        Maide varMaide;
+        varMaide = info.CallMaide;
 
-        if (!(maide.Virtual == null))
+        if (!(varMaide.Virtual == null))
         {
-            maide = maide.Virtual;
+            varMaide = varMaide.Virtual;
         }
 
         ClassClass varClass;
-        varClass = maide.Parent;
+        varClass = varMaide.Parent;
 
         int kk;
         kk = varClass.MaideRange.Index;
-        kk = kk + maide.BinaryIndex;
+        kk = kk + varMaide.BinaryIndex;
 
         int k;
-        k = maide.Param.Count;
+        k = varMaide.Param.Count;
         k = k + 1;
 
         this.ExecuteVirtualCall(k, 2, kk);
