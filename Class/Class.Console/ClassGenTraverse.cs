@@ -382,6 +382,14 @@ public class ClassGenTraverse : Traverse
 
         gen.VarSetDeref(argC, argA, 0);
 
+        gen.VarSetArg(argD, argB);
+
+        gen.VarMaskClear(argD, gen.BaseMask);
+
+        gen.VarSetDelimit(argD, argD, gen.DelimitBitRight, gen.BaseBitRightCount);
+
+        gen.VarSetDerefArg(argC, argC, argD);
+
         gen.VarSetDeref(argC, argC, stateKind);
 
         gen.VarSetDeref(argC, argC, stateIndex);
