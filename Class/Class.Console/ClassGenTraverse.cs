@@ -148,15 +148,15 @@ public class ClassGenTraverse : Traverse
         ClassGen gen;
         gen = this.Gen;
 
-        string argA;
-        argA = gen.VarA;
+        string varA;
+        varA = gen.VarA;
 
         int k;
         k = gen.ParamCount;
 
-        gen.EvalFrameValueGet(k, argA);
+        gen.EvalFrameValueGet(k, varA);
 
-        gen.EvalValueSet(0, argA);
+        gen.EvalValueSet(0, varA);
 
         gen.EvalIndexPosSet(1);
         return true;
