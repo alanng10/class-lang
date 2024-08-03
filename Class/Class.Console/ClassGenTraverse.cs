@@ -190,12 +190,12 @@ public class ClassGenTraverse : Traverse
         ClassGen gen;
         gen = this.Gen;
 
-        string argA;
-        argA = gen.VarA;
+        string varA;
+        varA = gen.VarA;
 
-        gen.VarSet(argA, gen.Zero);
+        gen.VarSet(varA, gen.Zero);
 
-        gen.EvalValueSet(0, argA);
+        gen.EvalValueSet(0, varA);
 
         gen.EvalIndexPosSet(1);
         return true;
