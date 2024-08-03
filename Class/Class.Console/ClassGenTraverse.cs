@@ -41,6 +41,11 @@ public class ClassGenTraverse : Traverse
         Target target;
         target = areExecute.Target;
 
+        if (target is VarTarget)
+        {
+            
+        }
+
         if (target is SetTarget)
         {
             SetTarget setTarget;
