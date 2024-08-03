@@ -234,25 +234,25 @@ public class ClassGenTraverse : Traverse
         ClassGen gen;
         gen = this.Gen;
 
-        string argA;
-        string argB;
-        argA = gen.VarA;
-        argB = gen.VarB;
+        string varA;
+        string varB;
+        varA = gen.VarA;
+        varB = gen.VarB;
 
         string ka;
         ka = gen.RefKindClearMask;
 
-        gen.EvalValueGet(2, argA);
-        gen.EvalValueGet(1, argB);
+        gen.EvalValueGet(2, varA);
+        gen.EvalValueGet(1, varB);
 
-        gen.VarMaskClear(argA, ka);
-        gen.VarMaskClear(argB, ka);
+        gen.VarMaskClear(varA, ka);
+        gen.VarMaskClear(varB, ka);
 
-        gen.OperateDelimit(argA, argA, argB, gen.DelimitLess);
+        gen.OperateDelimit(varA, varA, varB, gen.DelimitLess);
 
-        gen.VarMaskSet(argA, gen.RefKindBoolMask);
+        gen.VarMaskSet(varA, gen.RefKindBoolMask);
 
-        gen.EvalValueSet(2, argA);
+        gen.EvalValueSet(2, varA);
 
         gen.EvalIndexPosSet(-1);
 
