@@ -758,8 +758,16 @@ public class ClassGen : Any
 
     public virtual string BaseMaskGet(int index)
     {
+        int ka;
+        ka = index;
+        
+        if (0 < ka)
+        {
+            ka = ka - 1;
+        }
+
         ulong k;
-        k = (ulong)index;
+        k = (ulong)ka;
 
         k = k & 0xfff;
         k = k << 48;
