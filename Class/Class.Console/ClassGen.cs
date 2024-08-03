@@ -88,6 +88,9 @@ public class ClassGen : Any
     public virtual StringCreate StringCreate { get; set; }
     public virtual int BaseIndex { get; set; }
     public virtual string ClassBaseMask { get; set; }
+    public virtual int CompStateKind { get; set; }
+    public virtual int ParamCount { get; set; }
+    public virtual int LocalVarCount { get; set; }
     public virtual int IndentCount { get; set; }
     public virtual string Space { get; set; }
     public virtual string NewLine { get; set; }
