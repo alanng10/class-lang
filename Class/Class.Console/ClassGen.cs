@@ -152,7 +152,7 @@ public class ClassGen : Any
 
         this.BaseIndex = k;
 
-        this.ClassBaseMask = this.BaseMaskGet(k);
+        this.ClassBaseMask = this.ClassBaseMaskGet(k);
 
         this.Arg = new GenArg();
         this.Arg.Init();
@@ -853,7 +853,7 @@ public class ClassGen : Any
         return true;
     }
 
-    public virtual string BaseMaskGet(int index)
+    public virtual string ClassBaseMaskGet(int index)
     {
         int ka;
         ka = index;
