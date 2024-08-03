@@ -145,12 +145,12 @@ public class ClassGen : Any
         int k;
         k = this.BaseIndexGet();
         
-        this.BaseIndex = k;
-
-        if (!(k < 0x1000))
+        if (!this.ValidBaseIndex(k))
         {
             return false;
         }
+
+        this.BaseIndex = k;
 
         this.ClassBaseMask = this.BaseMaskGet(k);
 
@@ -840,6 +840,16 @@ public class ClassGen : Any
 
             i = i + 1;
         }
+        return true;
+    }
+
+    public virtual bool ValidBaseIndex(int index)
+    {
+        if (!(index < 0x1000))
+        {
+            return false;
+        }
+
         return true;
     }
 
