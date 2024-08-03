@@ -225,6 +225,7 @@ public class StateTraverse : Traverse
         a.Init();
         a.Name = varName;
         a.Class = varClass;
+        a.Index = this.StateVar.Count;
         a.Any = nodeVar;
 
         Table oo;
