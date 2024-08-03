@@ -381,7 +381,7 @@ public class ClassGenTraverse : Traverse
 
         gen.EvalValueGet(thisEvalIndex, argA);
 
-        gen.VarSetArg(argB, argA);
+        gen.VarSet(argB, argA);
 
         gen.VarMaskClear(argA, gen.MemoryIndexMask);
 
@@ -389,7 +389,7 @@ public class ClassGenTraverse : Traverse
 
         gen.VarSetDeref(argC, argA, 0);
 
-        gen.VarSetArg(argD, argB);
+        gen.VarSet(argD, argB);
 
         gen.VarMaskClear(argD, gen.BaseMask);
 
