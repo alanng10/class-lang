@@ -362,7 +362,7 @@ public class ClassGen : Any
         return true;
     }
 
-    public virtual bool VarSetDerefArg(string dest, string value, string varPos)
+    public virtual bool VarSetDerefVar(string dest, string value, string varPos)
     {
         string kk;
         kk = this.Space;

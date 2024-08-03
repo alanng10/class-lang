@@ -395,7 +395,7 @@ public class ClassGenTraverse : Traverse
 
         gen.OperateDelimit(argD, argD, gen.BaseBitRightCount, gen.DelimitBitRight);
 
-        gen.VarSetDerefArg(argC, argC, argD);
+        gen.VarSetDerefVar(argC, argC, argD);
 
         gen.VarSetDeref(argC, argC, stateKind);
 
