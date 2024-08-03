@@ -36,6 +36,7 @@ public class ClassGen : Any
         this.EvalFrameVar = "f";
         this.IntValuePre = "0x";
         this.IntValuePost = "ULL";
+        this.BaseBitRightCount = "48";
         this.RefKindClearMask = "0xfffffffffffffff";
         this.RefKindBoolMask = "0x1000000000000000";
         this.RefKindIntMask = "0x2000000000000000";
@@ -105,6 +106,7 @@ public class ClassGen : Any
     public virtual string EvalFrameVar { get; set; }
     public virtual string IntValuePre { get; set; }
     public virtual string IntValuePost { get; set; }
+    public virtual string BaseBitRightCount { get; set; }
     public virtual string RefKindClearMask { get; set; }
     public virtual string RefKindBoolMask { get; set; }
     public virtual string RefKindIntMask { get; set; }
@@ -322,6 +324,32 @@ public class ClassGen : Any
         return true;
     }
 
+    public virtual bool VarSetDelimit(string destArg, string arg, string delimit, string value)
+    {
+        string ka;
+        ka = this.Space;
+
+        this.TextIndent();
+
+        this.VarArg(destArg);
+
+        this.Text(ka);
+        this.Text(this.DelimitAre);
+        this.Text(ka);
+
+        this.VarArg(arg);
+
+        this.Text(ka);
+        this.Text(delimit);
+        this.Text(ka);
+
+        this.Text(value);
+
+        this.Text(this.DelimitSemicolon);
+        this.Text(this.NewLine);
+        return true;
+    }
+
     public virtual bool VarSetDeref(string destArg, string arg, int pos)
     {
         string kk;
@@ -358,6 +386,54 @@ public class ClassGen : Any
         this.Text(kk);
 
         this.TextPos(pos);
+
+        this.Text(kb);
+
+        this.Text(this.DelimitSemicolon);
+        this.Text(this.NewLine);
+        return true;
+    }
+
+    public virtual bool VarSetDerefArg(string destArg, string arg, string argPos)
+    {
+        string kk;
+        kk = this.Space;
+
+        string ka;
+        string kb;
+        ka = this.DelimitSquareLeft;
+        kb = this.DelimitSquareRight;
+
+        this.TextIndent();
+
+        this.VarArg(destArg);
+
+        this.Text(kk);
+        this.Text(this.DelimitAre);
+        this.Text(kk);
+
+        this.Text(this.DelimitAsterisk);
+
+        this.Text(ka);
+
+        this.Text(ka);
+
+        this.Text(ka);
+        this.Text(this.ClassInt);
+        this.Text(this.DelimitAsterisk);
+        this.Text(kb);
+
+        this.VarArg(arg);
+
+        this.Text(kb);
+
+        this.Text(kk);
+
+        this.Text(this.DelimitAdd);
+
+        this.Text(kk);
+
+        this.VarArg(argPos);
 
         this.Text(kb);
 
