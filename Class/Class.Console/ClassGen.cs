@@ -30,6 +30,8 @@ public class ClassGen : Any
         this.VarArgB = "ArgB";
         this.VarArgC = "ArgC";
         this.VarArgD = "ArgD";
+        this.VarArgSA = "ArgSA";
+        this.VarArgSB = "ArgSB";
         this.Eval = "e";
         this.EvalStackVar = "S";
         this.EvalIndexVar = "N";
@@ -101,6 +103,8 @@ public class ClassGen : Any
     public virtual string VarArgB { get; set; }
     public virtual string VarArgC { get; set; }
     public virtual string VarArgD { get; set; }
+    public virtual string VarArgSA { get; set; }
+    public virtual string VarArgSB { get; set; }
     public virtual string Eval { get; set; }
     public virtual string EvalStackVar { get; set; }
     public virtual string EvalIndexVar { get; set; }
