@@ -264,7 +264,7 @@ public class ClassGen : Any
         return true;
     }
 
-    public virtual bool CallCompState(string arg)
+    public virtual bool CallCompState(string compState)
     {
         string kk;
         kk = this.Space;
@@ -282,7 +282,7 @@ public class ClassGen : Any
         this.Text(this.ClassCompState);
         this.Text(kb);
 
-        this.VarArg(arg);
+        this.Text(compState);
 
         this.Text(kb);
 
@@ -301,11 +301,11 @@ public class ClassGen : Any
         return true;
     }
 
-    public virtual bool VarSet(string destArg, string value)
+    public virtual bool VarSet(string dest, string value)
     {
         this.TextIndent();
 
-        this.VarArg(destArg);
+        this.Text(dest);
 
         this.Text(this.Space);
         this.Text(this.DelimitAre);
@@ -318,50 +318,7 @@ public class ClassGen : Any
         return true;
     }
 
-    public virtual bool VarSetArg(string destArg, string arg)
-    {
-        this.TextIndent();
-
-        this.VarArg(destArg);
-
-        this.Text(this.Space);
-        this.Text(this.DelimitAre);
-        this.Text(this.Space);
-
-        this.VarArg(arg);
-
-        this.Text(this.DelimitSemicolon);
-        this.Text(this.NewLine);
-        return true;
-    }
-
-    public virtual bool VarSetDelimit(string destArg, string arg, string delimit, string value)
-    {
-        string ka;
-        ka = this.Space;
-
-        this.TextIndent();
-
-        this.VarArg(destArg);
-
-        this.Text(ka);
-        this.Text(this.DelimitAre);
-        this.Text(ka);
-
-        this.VarArg(arg);
-
-        this.Text(ka);
-        this.Text(delimit);
-        this.Text(ka);
-
-        this.Text(value);
-
-        this.Text(this.DelimitSemicolon);
-        this.Text(this.NewLine);
-        return true;
-    }
-
-    public virtual bool VarSetDeref(string destArg, string arg, int pos)
+    public virtual bool VarSetDeref(string dest, string arg, int pos)
     {
         string kk;
         kk = this.Space;
@@ -373,7 +330,7 @@ public class ClassGen : Any
 
         this.TextIndent();
 
-        this.VarArg(destArg);
+        this.Text(dest);
 
         this.Text(kk);
         this.Text(this.DelimitAre);
@@ -390,7 +347,7 @@ public class ClassGen : Any
         this.Text(this.DelimitAsterisk);
         this.Text(kb);
 
-        this.VarArg(arg);
+        this.Text(arg);
 
         this.Text(kb);
 
@@ -417,7 +374,7 @@ public class ClassGen : Any
 
         this.TextIndent();
 
-        this.VarArg(destArg);
+        this.Text(destArg);
 
         this.Text(kk);
         this.Text(this.DelimitAre);
@@ -434,7 +391,7 @@ public class ClassGen : Any
         this.Text(this.DelimitAsterisk);
         this.Text(kb);
 
-        this.VarArg(arg);
+        this.Text(arg);
 
         this.Text(kb);
 
@@ -444,7 +401,7 @@ public class ClassGen : Any
 
         this.Text(kk);
 
-        this.VarArg(argPos);
+        this.Text(argPos);
 
         this.Text(kb);
 
@@ -473,17 +430,17 @@ public class ClassGen : Any
         return true;
     }
 
-    public virtual bool VarMaskClear(string arg, string mask)
+    public virtual bool VarMaskClear(string varVar, string mask)
     {
         this.TextIndent();
 
-        this.VarArg(arg);
+        this.Text(varVar);
 
         this.Text(this.Space);
         this.Text(this.DelimitAre);
         this.Text(this.Space);
 
-        this.VarArg(arg);
+        this.Text(varVar);
 
         this.Text(this.Space);
         this.Text(this.DelimitAnd);
@@ -496,17 +453,17 @@ public class ClassGen : Any
         return true;
     }
 
-    public virtual bool VarMaskSet(string arg, string mask)
+    public virtual bool VarMaskSet(string varVar, string mask)
     {
         this.TextIndent();
 
-        this.VarArg(arg);
+        this.Text(varVar);
 
         this.Text(this.Space);
         this.Text(this.DelimitAre);
         this.Text(this.Space);
 
-        this.VarArg(arg);
+        this.Text(varVar);
 
         this.Text(this.Space);
         this.Text(this.DelimitOrn);
@@ -519,23 +476,23 @@ public class ClassGen : Any
         return true;
     }
 
-    public virtual bool VarMaskSetArg(string arg, string maskArg)
+    public virtual bool VarMaskSetArg(string varVar, string mask)
     {
         this.TextIndent();
 
-        this.VarArg(arg);
+        this.Text(varVar);
 
         this.Text(this.Space);
         this.Text(this.DelimitAre);
         this.Text(this.Space);
 
-        this.VarArg(arg);
+        this.Text(varVar);
 
         this.Text(this.Space);
         this.Text(this.DelimitOrn);
         this.Text(this.Space);
 
-        this.VarArg(maskArg);
+        this.Text(mask);
 
         this.Text(this.DelimitSemicolon);
         this.Text(this.NewLine);
@@ -546,7 +503,7 @@ public class ClassGen : Any
     {
         this.TextIndent();
         
-        this.VarArg(arg);
+        this.Text(arg);
 
         this.Text(this.Space);
         this.Text(this.DelimitAre);
@@ -569,7 +526,7 @@ public class ClassGen : Any
         this.Text(this.DelimitAre);
         this.Text(this.Space);
 
-        this.VarArg(arg);
+        this.Text(arg);
 
         this.Text(this.DelimitSemicolon);
         this.Text(this.NewLine);
@@ -598,7 +555,7 @@ public class ClassGen : Any
     {
         this.TextIndent();
 
-        this.VarArg(arg);
+        this.Text(arg);
 
         this.Text(this.Space);
         this.Text(this.DelimitAre);
@@ -621,7 +578,7 @@ public class ClassGen : Any
         this.Text(this.DelimitAre);
         this.Text(this.Space);
 
-        this.VarArg(arg);
+        this.Text(arg);
 
         this.Text(this.DelimitSemicolon);
         this.Text(this.NewLine);
