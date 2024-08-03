@@ -370,46 +370,46 @@ public class ClassGenTraverse : Traverse
         ClassGen gen;
         gen = this.Gen;
 
-        string argA;
-        string argB;
-        string argC;
-        string argD;
-        argA = gen.VarA;
-        argB = gen.VarB;
-        argC = gen.VarC;
-        argD = gen.VarD;
+        string varA;
+        string varB;
+        string varC;
+        string varD;
+        varA = gen.VarA;
+        varB = gen.VarB;
+        varC = gen.VarC;
+        varD = gen.VarD;
 
-        gen.EvalValueGet(thisEvalIndex, argA);
+        gen.EvalValueGet(thisEvalIndex, varA);
 
-        gen.VarSet(argB, argA);
+        gen.VarSet(varB, varA);
 
-        gen.VarMaskClear(argA, gen.MemoryIndexMask);
+        gen.VarMaskClear(varA, gen.MemoryIndexMask);
 
-        gen.VarSetDeref(argA, argA, 0);
+        gen.VarSetDeref(varA, varA, 0);
 
-        gen.VarSetDeref(argC, argA, 0);
+        gen.VarSetDeref(varC, varA, 0);
 
-        gen.VarSet(argD, argB);
+        gen.VarSet(varD, varB);
 
-        gen.VarMaskClear(argD, gen.BaseMask);
+        gen.VarMaskClear(varD, gen.BaseMask);
 
-        gen.OperateDelimit(argD, argD, gen.BaseBitRightCount, gen.DelimitBitRight);
+        gen.OperateDelimit(varD, varD, gen.BaseBitRightCount, gen.DelimitBitRight);
 
-        gen.VarSetDerefVar(argC, argC, argD);
+        gen.VarSetDerefVar(varC, varC, varD);
 
-        gen.VarSetDeref(argC, argC, stateKind);
+        gen.VarSetDeref(varC, varC, stateKind);
 
-        gen.VarSetDeref(argC, argC, stateIndex);
+        gen.VarSetDeref(varC, varC, stateIndex);
 
-        gen.VarSetDeref(argD, argA, 1);
+        gen.VarSetDeref(varD, varA, 1);
 
-        gen.VarMaskClear(argB, gen.BaseClearMask);
+        gen.VarMaskClear(varB, gen.BaseClearMask);
 
-        gen.VarMaskSet(argB, argD);
+        gen.VarMaskSet(varB, varD);
 
-        gen.EvalValueSet(thisEvalIndex, argB);
+        gen.EvalValueSet(thisEvalIndex, varB);
 
-        gen.CallCompState(argC);
+        gen.CallCompState(varC);
         return true;
     }
 
