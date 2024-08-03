@@ -38,9 +38,6 @@ public class ClassGenTraverse : Traverse
     {
         base.ExecuteCallOperate(callOperate);
 
-        ClassGen gen;
-        gen = this.Gen;
-
         object ka;
         ka = callOperate.NodeAny;
 
@@ -66,38 +63,7 @@ public class ClassGenTraverse : Traverse
         k = maide.Param.Count;
         k = k + 1;
 
-        string argA;
-        string argB;
-        string argC;
-        string argD;
-        argA = gen.VarArgA;
-        argB = gen.VarArgB;
-        argC = gen.VarArgC;
-        argD = gen.VarArgD;
-
-        gen.EvalValueGet(k, argA);
-
-        gen.VarSetArg(argB, argA);
-
-        gen.VarMaskClear(argA, gen.MemoryIndexMask);
-
-        gen.VarSetDeref(argA, argA, 0);
-
-        gen.VarSetDeref(argC, argA, 0);
-
-        gen.VarSetDeref(argC, argC, 2);
-
-        gen.VarSetDeref(argC, argC, kk);
-
-        gen.VarSetDeref(argD, argA, 1);
-
-        gen.VarMaskClear(argB, gen.BaseClearMask);
-
-        gen.VarMaskSetArg(argB, argD);
-
-        gen.EvalValueSet(k, argB);
-
-        gen.CallCompState(argC);
+        this.ExecuteVirtualCall(k, 2, kk);
 
         return true;
     }
@@ -315,6 +281,46 @@ public class ClassGenTraverse : Traverse
         base.ExecuteBitRightOperate(bitRightOperate);
 
         this.ExecuteOperateDelimitAB(this.Gen.DelimitBitRight);
+        return true;
+    }
+
+    public virtual bool ExecuteVirtualCall(int thisEvalIndex, int stateKind, int stateIndex)
+    {
+        ClassGen gen;
+        gen = this.Gen;
+
+        string argA;
+        string argB;
+        string argC;
+        string argD;
+        argA = gen.VarArgA;
+        argB = gen.VarArgB;
+        argC = gen.VarArgC;
+        argD = gen.VarArgD;
+
+        gen.EvalValueGet(thisEvalIndex, argA);
+
+        gen.VarSetArg(argB, argA);
+
+        gen.VarMaskClear(argA, gen.MemoryIndexMask);
+
+        gen.VarSetDeref(argA, argA, 0);
+
+        gen.VarSetDeref(argC, argA, 0);
+
+        gen.VarSetDeref(argC, argC, stateKind);
+
+        gen.VarSetDeref(argC, argC, stateIndex);
+
+        gen.VarSetDeref(argD, argA, 1);
+
+        gen.VarMaskClear(argB, gen.BaseClearMask);
+
+        gen.VarMaskSetArg(argB, argD);
+
+        gen.EvalValueSet(thisEvalIndex, argB);
+
+        gen.CallCompState(argC);
         return true;
     }
 
