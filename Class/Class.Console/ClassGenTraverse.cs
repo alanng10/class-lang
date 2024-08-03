@@ -405,7 +405,7 @@ public class ClassGenTraverse : Traverse
 
         gen.VarMaskClear(argB, gen.BaseClearMask);
 
-        gen.VarMaskSetArg(argB, argD);
+        gen.VarMaskSet(argB, argD);
 
         gen.EvalValueSet(thisEvalIndex, argB);
 
