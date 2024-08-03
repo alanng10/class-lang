@@ -87,8 +87,6 @@ public class ClassGen : Any
     public virtual ClassGenTraverse Traverse { get; set; }
     public virtual StringCreate StringCreate { get; set; }
     public virtual int BaseIndex { get; set; }
-    public virtual int FieldStart { get; set; }
-    public virtual int MaideStart { get; set; }
     public virtual string ClassBaseMask { get; set; }
     public virtual int IndentCount { get; set; }
     public virtual string Space { get; set; }
