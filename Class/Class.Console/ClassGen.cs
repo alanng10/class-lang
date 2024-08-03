@@ -142,9 +142,17 @@ public class ClassGen : Any
 
     public virtual bool Execute()
     {
-        this.BaseIndex = this.BaseIndexGet();
+        int k;
+        k = this.BaseIndexGet();
+        
+        this.BaseIndex = k;
 
-        this.ClassBaseMask = this.BaseMaskGet(this.BaseIndex);
+        if (!(k < 0x1000))
+        {
+            return false;
+        }
+
+        this.ClassBaseMask = this.BaseMaskGet(k);
 
         this.Arg = new GenArg();
         this.Arg.Init();
