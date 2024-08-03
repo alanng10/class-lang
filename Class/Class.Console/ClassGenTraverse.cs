@@ -34,6 +34,39 @@ public class ClassGenTraverse : Traverse
         return true;
     }
 
+    public override bool ExecuteGetOperate(GetOperate getOperate)
+    {
+        base.ExecuteGetOperate(getOperate);
+
+        object ka;
+        ka = getOperate.NodeAny;
+
+        ModuleInfo info;
+        info = (ModuleInfo)ka;
+
+        Field varField;
+        varField = info.GetField;
+
+        if (!(varField.Virtual == null))
+        {
+            varField = varField.Virtual;
+        }
+
+        ClassClass varClass;
+        varClass = varField.Parent;
+
+        int kk;
+        kk = varClass.FieldRange.Index;
+        kk = kk + varField.BinaryIndex;
+
+        int k;
+        k = 1;
+
+        this.ExecuteVirtualCall(k, 0, kk);
+
+        return true;
+    }
+
     public override bool ExecuteCallOperate(CallOperate callOperate)
     {
         base.ExecuteCallOperate(callOperate);
