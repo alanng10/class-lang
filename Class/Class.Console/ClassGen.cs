@@ -476,11 +476,11 @@ public class ClassGen : Any
         return true;
     }
 
-    public virtual bool EvalValueGet(int index, string arg)
+    public virtual bool EvalValueGet(int index, string varVar)
     {
         this.TextIndent();
         
-        this.Text(arg);
+        this.Text(varVar);
 
         this.Text(this.Space);
         this.Text(this.DelimitAre);
@@ -493,7 +493,7 @@ public class ClassGen : Any
         return true;
     }
 
-    public virtual bool EvalValueSet(int index, string arg)
+    public virtual bool EvalValueSet(int index, string varVar)
     {
         this.TextIndent();
 
@@ -503,7 +503,7 @@ public class ClassGen : Any
         this.Text(this.DelimitAre);
         this.Text(this.Space);
 
-        this.Text(arg);
+        this.Text(varVar);
 
         this.Text(this.DelimitSemicolon);
         this.Text(this.NewLine);
