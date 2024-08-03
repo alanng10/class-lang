@@ -12,7 +12,7 @@ public class ClassGenTraverse : Traverse
         gen = this.Gen;
 
         string argA;
-        argA = gen.VarArgA;
+        argA = gen.VarA;
 
         int k;
         k = gen.ParamCount;
@@ -149,7 +149,7 @@ public class ClassGenTraverse : Traverse
         gen = this.Gen;
 
         string argA;
-        argA = gen.VarArgA;
+        argA = gen.VarA;
 
         int k;
         k = gen.ParamCount;
@@ -168,7 +168,7 @@ public class ClassGenTraverse : Traverse
         gen = this.Gen;
 
         string argA;
-        argA = gen.VarArgA;
+        argA = gen.VarA;
 
         int k;
         k = gen.ParamCount;
@@ -191,7 +191,7 @@ public class ClassGenTraverse : Traverse
         gen = this.Gen;
 
         string argA;
-        argA = gen.VarArgA;
+        argA = gen.VarA;
 
         gen.VarSet(argA, gen.Zero);
 
@@ -210,8 +210,8 @@ public class ClassGenTraverse : Traverse
 
         string argA;
         string argB;
-        argA = gen.VarArgA;
-        argB = gen.VarArgB;
+        argA = gen.VarA;
+        argB = gen.VarB;
 
         gen.EvalValueGet(2, argA);
         gen.EvalValueGet(1, argB);
@@ -236,8 +236,8 @@ public class ClassGenTraverse : Traverse
 
         string argA;
         string argB;
-        argA = gen.VarArgA;
-        argB = gen.VarArgB;
+        argA = gen.VarA;
+        argB = gen.VarB;
 
         string ka;
         ka = gen.RefKindClearMask;
@@ -331,7 +331,7 @@ public class ClassGenTraverse : Traverse
         gen = this.Gen;
 
         string argA;
-        argA = gen.VarArgA;
+        argA = gen.VarA;
 
         string ka;
         ka = gen.RefKindClearMask;
@@ -374,10 +374,10 @@ public class ClassGenTraverse : Traverse
         string argB;
         string argC;
         string argD;
-        argA = gen.VarArgA;
-        argB = gen.VarArgB;
-        argC = gen.VarArgC;
-        argD = gen.VarArgD;
+        argA = gen.VarA;
+        argB = gen.VarB;
+        argC = gen.VarC;
+        argD = gen.VarD;
 
         gen.EvalValueGet(thisEvalIndex, argA);
 
@@ -420,8 +420,8 @@ public class ClassGenTraverse : Traverse
 
         string argA;
         string argB;
-        argA = gen.VarArgA;
-        argB = gen.VarArgB;
+        argA = gen.VarA;
+        argB = gen.VarB;
 
         string ka;
         ka = gen.RefKindClearMask;
@@ -452,8 +452,8 @@ public class ClassGenTraverse : Traverse
 
         string argA;
         string argB;
-        argA = gen.VarArgA;
-        argB = gen.VarArgB;
+        argA = gen.VarA;
+        argB = gen.VarB;
 
         string ka;
         ka = gen.RefKindClearMask;
@@ -483,8 +483,8 @@ public class ClassGenTraverse : Traverse
 
         string argA;
         string argB;
-        argA = gen.VarArgA;
-        argB = gen.VarArgB;
+        argA = gen.VarA;
+        argB = gen.VarB;
 
         string ka;
         ka = gen.RefKindClearMask;
@@ -513,8 +513,8 @@ public class ClassGenTraverse : Traverse
 
         string argA;
         string argB;
-        argA = gen.VarArgA;
-        argB = gen.VarArgB;
+        argA = gen.VarA;
+        argB = gen.VarB;
 
         gen.EvalValueGet(2, argA);
         gen.EvalValueGet(1, argB);
@@ -537,8 +537,8 @@ public class ClassGenTraverse : Traverse
 
         string argA;
         string argB;
-        argA = gen.VarArgA;
-        argB = gen.VarArgB;
+        argA = gen.VarA;
+        argB = gen.VarB;
 
         gen.EvalValueGet(2, argA);
         gen.EvalValueGet(1, argB);
@@ -560,7 +560,7 @@ public class ClassGenTraverse : Traverse
         gen = this.Gen;
 
         string argA;
-        argA = gen.VarArgA;
+        argA = gen.VarA;
 
         string ka;
         ka = gen.RefKindClearMask;

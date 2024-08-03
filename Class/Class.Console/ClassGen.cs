@@ -25,13 +25,12 @@ public class ClassGen : Any
         this.NewLine = "\n";
         this.Indent = new string(' ', 4);
         this.Zero = "0";
-        this.VarPrefix = "var";
-        this.VarArgA = "ArgA";
-        this.VarArgB = "ArgB";
-        this.VarArgC = "ArgC";
-        this.VarArgD = "ArgD";
-        this.VarArgSA = "ArgSA";
-        this.VarArgSB = "ArgSB";
+        this.VarA = "vA";
+        this.VarB = "vB";
+        this.VarC = "vC";
+        this.VarD = "vD";
+        this.VarSA = "vSA";
+        this.VarSB = "vSB";
         this.Eval = "e";
         this.EvalStackVar = "S";
         this.EvalIndexVar = "N";
@@ -98,13 +97,12 @@ public class ClassGen : Any
     public virtual string NewLine { get; set; }
     public virtual string Indent { get; set; }
     public virtual string Zero { get; set; }
-    public virtual string VarPrefix { get; set; }
-    public virtual string VarArgA { get; set; }
-    public virtual string VarArgB { get; set; }
-    public virtual string VarArgC { get; set; }
-    public virtual string VarArgD { get; set; }
-    public virtual string VarArgSA { get; set; }
-    public virtual string VarArgSB { get; set; }
+    public virtual string VarA { get; set; }
+    public virtual string VarB { get; set; }
+    public virtual string VarC { get; set; }
+    public virtual string VarD { get; set; }
+    public virtual string VarSA { get; set; }
+    public virtual string VarSB { get; set; }
     public virtual string Eval { get; set; }
     public virtual string EvalStackVar { get; set; }
     public virtual string EvalIndexVar { get; set; }
@@ -205,37 +203,37 @@ public class ClassGen : Any
         return true;
     }
 
-    public virtual bool OperateDelimit(string destArg, string left, string right, string delimit)
+    public virtual bool OperateDelimit(string dest, string left, string right, string delimit)
     {
         string space;
         space = this.Space;
 
         this.TextIndent();
 
-        this.VarArg(destArg);
+        this.Text(dest);
         
         this.Text(space);
         this.Text(this.DelimitAre);
         this.Text(space);
 
-        this.VarArg(left);
+        this.Text(left);
 
         this.Text(space);
         this.Text(delimit);
         this.Text(space);
 
-        this.VarArg(right);
+        this.Text(right);
 
         this.Text(this.DelimitSemicolon);
         this.Text(this.NewLine);
         return true;
     }
 
-    public virtual bool OperateDelimitOne(string destArg, string value, string delimit)
+    public virtual bool OperateDelimitOne(string dest, string value, string delimit)
     {
         this.TextIndent();
 
-        this.VarArg(destArg);
+        this.Text(dest);
 
         this.Text(this.Space);
         this.Text(this.DelimitAre);
@@ -244,7 +242,7 @@ public class ClassGen : Any
         this.Text(delimit);
         this.Text(this.Space);
 
-        this.VarArg(value);
+        this.Text(value);
 
         this.Text(this.DelimitSemicolon);
         this.Text(this.NewLine);
@@ -682,13 +680,6 @@ public class ClassGen : Any
         this.Text(this.Eval);
         this.Text(this.DelimitDotPointer);
         this.Text(this.EvalIndexVar);
-        return true;
-    }
-
-    public virtual bool VarArg(string arg)
-    {
-        this.Text(this.VarPrefix);
-        this.Text(arg);
         return true;
     }
 
