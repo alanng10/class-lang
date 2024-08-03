@@ -170,7 +170,7 @@ public class ClassGenTraverse : Traverse
 
         gen.VarMaskClear(argA, gen.BaseClearMask);
 
-        gen.VarMaskSet(argA, gen.BaseMask);
+        gen.VarMaskSet(argA, gen.ClassBaseMask);
 
         gen.EvalValueSet(0, argA);
 

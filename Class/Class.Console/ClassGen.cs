@@ -87,7 +87,7 @@ public class ClassGen : Any
     public virtual int BaseIndex { get; set; }
     public virtual int FieldStart { get; set; }
     public virtual int MaideStart { get; set; }
-    public virtual string BaseMask { get; set; }
+    public virtual string ClassBaseMask { get; set; }
     public virtual int IndentCount { get; set; }
     public virtual string Space { get; set; }
     public virtual string NewLine { get; set; }
@@ -108,6 +108,7 @@ public class ClassGen : Any
     public virtual string RefKindBoolMask { get; set; }
     public virtual string RefKindIntMask { get; set; }
     public virtual string BaseClearMask { get; set; }
+    public virtual string BaseMask { get; set; }
     public virtual string MemoryIndexMask { get; set; }
     public virtual string ClassInt { get; set; }
     public virtual string ClassCompState { get; set; }
@@ -139,7 +140,7 @@ public class ClassGen : Any
     {
         this.BaseIndex = this.BaseIndexGet();
 
-        this.BaseMask = this.BaseMaskGet(this.BaseIndex);
+        this.ClassBaseMask = this.BaseMaskGet(this.BaseIndex);
 
         this.Arg = new GenArg();
         this.Arg.Init();
