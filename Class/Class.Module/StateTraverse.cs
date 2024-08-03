@@ -90,6 +90,7 @@ public class StateTraverse : Traverse
         dataVar.Init();
         dataVar.Name = "data";
         dataVar.Class = varField.Class;
+        dataVar.Index = this.StateVar.Count;
 
         Table o;
         o = this.ClassInfra.TableCreateStringCompare();
@@ -124,12 +125,14 @@ public class StateTraverse : Traverse
         dataVar.Init();
         dataVar.Name = "data";
         dataVar.Class = varField.Class;
+        dataVar.Index = this.StateVar.Count;
 
         Var valueVar;
         valueVar = new Var();
         valueVar.Init();
         valueVar.Name = "value";
         valueVar.Class = varField.Class;
+        valueVar.Index = this.StateVar.Count;
         
         Table o;
         o = this.ClassInfra.TableCreateStringCompare();
