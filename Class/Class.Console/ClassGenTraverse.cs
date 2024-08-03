@@ -330,21 +330,21 @@ public class ClassGenTraverse : Traverse
         ClassGen gen;
         gen = this.Gen;
 
-        string argA;
-        argA = gen.VarA;
+        string varA;
+        varA = gen.VarA;
 
         string ka;
         ka = gen.RefKindClearMask;
 
-        gen.EvalValueGet(1, argA);
+        gen.EvalValueGet(1, varA);
 
-        gen.OperateDelimitOne(argA, argA, gen.DelimitBitNot);
+        gen.OperateDelimitOne(varA, varA, gen.DelimitBitNot);
 
-        gen.VarMaskClear(argA, ka);
+        gen.VarMaskClear(varA, ka);
 
-        gen.VarMaskSet(argA, gen.RefKindIntMask);
+        gen.VarMaskSet(varA, gen.RefKindIntMask);
 
-        gen.EvalValueSet(1, argA);
+        gen.EvalValueSet(1, varA);
 
         return true;
     }
