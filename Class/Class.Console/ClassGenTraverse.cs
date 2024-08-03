@@ -393,7 +393,7 @@ public class ClassGenTraverse : Traverse
 
         gen.VarMaskClear(argD, gen.BaseMask);
 
-        gen.VarSetDelimit(argD, argD, gen.DelimitBitRight, gen.BaseBitRightCount);
+        gen.OperateDelimit(argD, argD, gen.BaseBitRightCount, gen.DelimitBitRight);
 
         gen.VarSetDerefArg(argC, argC, argD);
 
