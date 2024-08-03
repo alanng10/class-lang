@@ -38,8 +38,8 @@ public class ClassGen : Any
         this.IntValuePost = "ULL";
         this.BaseBitRightCount = "48";
         this.RefKindClearMask = "0xfffffffffffffff";
-        this.RefKindBoolMask = "0x1000000000000000";
-        this.RefKindIntMask = "0x2000000000000000";
+        this.RefKindBoolMask = "0x2000000000000000";
+        this.RefKindIntMask = "0x3000000000000000";
         this.BaseClearMask = "0xf000ffffffffffff";
         this.BaseMask = "0x0fff000000000000";
         this.MemoryIndexMask = "0x0000ffffffffffff";
