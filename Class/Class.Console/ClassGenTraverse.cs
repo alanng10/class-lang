@@ -151,7 +151,10 @@ public class ClassGenTraverse : Traverse
         string argA;
         argA = gen.VarArgA;
 
-        gen.EvalFrameValueGet(1, argA);
+        int k;
+        k = gen.ParamCount;
+
+        gen.EvalFrameValueGet(k, argA);
 
         gen.EvalValueSet(0, argA);
 
@@ -167,7 +170,10 @@ public class ClassGenTraverse : Traverse
         string argA;
         argA = gen.VarArgA;
 
-        gen.EvalFrameValueGet(1, argA);
+        int k;
+        k = gen.ParamCount;
+
+        gen.EvalFrameValueGet(k, argA);
 
         gen.VarMaskClear(argA, gen.BaseClearMask);
 
