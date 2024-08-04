@@ -6,21 +6,21 @@ public class ModuleRefCompare : Compare
     {
         base.Init();
 
-        IntCompare charCompare;
-        charCompare = new IntCompare();
+        CompareMid charCompare;
+        charCompare = new CompareMid();
         charCompare.Init();
 
         this.StringCompare = new StringCompare();
         this.StringCompare.CharCompare = charCompare;
         this.StringCompare.Init();
 
-        this.LongCompare = new LongCompare();
-        this.LongCompare.Init();
+        this.CompareInt = new CompareInt();
+        this.CompareInt.Init();
         return true;
     }
 
     protected virtual StringCompare StringCompare { get; set; }
-    protected virtual LongCompare LongCompare { get; set; }
+    protected virtual CompareInt CompareInt { get; set; }
 
     public override int Execute(object left, object right)
     {
@@ -42,6 +42,6 @@ public class ModuleRefCompare : Compare
             return a;
         }
 
-        return this.LongCompare.Execute(leftA.Version, rightA.Version);
+        return this.CompareInt.Execute(leftA.Version, rightA.Version);
     }
 }
