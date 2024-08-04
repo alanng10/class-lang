@@ -62,8 +62,8 @@ public class Infra : Any
 
     public virtual Table TableCreateStringCompare()
     {
-        IntCompare charCompare;
-        charCompare = new IntCompare();
+        CompareMid charCompare;
+        charCompare = new CompareMid();
         charCompare.Init();
 
         StringCompare compare;
