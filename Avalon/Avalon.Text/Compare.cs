@@ -9,7 +9,7 @@ public class Compare : InfraCompare
         return true;
     }
 
-    public virtual IntCompare CharCompare { get; set; }
+    public virtual CompareMid CharCompare { get; set; }
     protected virtual Infra TextInfra { get; set; }
 
     public override int Execute(object left, object right)
@@ -51,7 +51,7 @@ public class Compare : InfraCompare
         rightIndex = rightRange.Index;
         rightCount = rightRange.Count;
         
-        IntCompare charCompare;
+        CompareMid charCompare;
         charCompare = this.CharCompare;
 
         int count;
