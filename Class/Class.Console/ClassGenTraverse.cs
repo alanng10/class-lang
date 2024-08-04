@@ -71,7 +71,7 @@ public class ClassGenTraverse : Traverse
             int k;
             k = 2;
 
-            this.ExecuteVirtualCall(k, 1, kk);
+            this.ExecuteVirtualCall(k, this.Gen.StateKindSet, kk);
         }
         return true;
     }
@@ -104,7 +104,7 @@ public class ClassGenTraverse : Traverse
         int k;
         k = 1;
 
-        this.ExecuteVirtualCall(k, 0, kk);
+        this.ExecuteVirtualCall(k, this.Gen.StateKindGet, kk);
 
         return true;
     }
@@ -138,7 +138,7 @@ public class ClassGenTraverse : Traverse
         k = varMaide.Param.Count;
         k = k + 1;
 
-        this.ExecuteVirtualCall(k, 2, kk);
+        this.ExecuteVirtualCall(k, this.Gen.StateKindCall, kk);
 
         return true;
     }

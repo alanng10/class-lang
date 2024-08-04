@@ -21,6 +21,10 @@ public class ClassGen : Any
         this.StringCreate = new StringCreate();
         this.StringCreate.Init();
 
+        this.StateKindGet = 0;
+        this.StateKindSet = 1;
+        this.StateKindCall = 2;
+
         this.Space = " ";
         this.NewLine = "\n";
         this.Indent = new string(' ', 4);
@@ -95,6 +99,9 @@ public class ClassGen : Any
     public virtual int ParamCount { get; set; }
     public virtual int LocalVarCount { get; set; }
     public virtual int IndentCount { get; set; }
+    public virtual int StateKindGet { get; set; }
+    public virtual int StateKindSet { get; set; }
+    public virtual int StateKindCall { get; set; }
     public virtual string Space { get; set; }
     public virtual string NewLine { get; set; }
     public virtual string Indent { get; set; }
