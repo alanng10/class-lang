@@ -442,6 +442,42 @@ public class ClassGen : Any
         return true;
     }
 
+    public virtual bool VarDerefSet(string dest, string value)
+    {
+        string kk;
+        kk = this.Space;
+
+        string ka;
+        string kb;
+        ka = this.DelimitSquareLeft;
+        kb = this.DelimitSquareRight;
+
+        this.TextIndent();
+
+        this.Text(this.DelimitAsterisk);
+
+        this.Text(ka);
+
+        this.Text(ka);
+        this.Text(this.ClassInt);
+        this.Text(this.DelimitAsterisk);
+        this.Text(kb);
+
+        this.Text(dest);
+
+        this.Text(kb);
+
+        this.Text(kk);
+        this.Text(this.DelimitAre);
+        this.Text(kk);
+
+        this.Text(value);
+
+        this.Text(this.DelimitSemicolon);
+        this.Text(this.NewLine);
+        return true;
+    }
+
     public virtual bool ClassFieldStart(ClassClass varClass)
     {
         this.ClassName(varClass);
