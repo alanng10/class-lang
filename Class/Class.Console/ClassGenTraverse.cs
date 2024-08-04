@@ -47,14 +47,8 @@ public class ClassGenTraverse : Traverse
             SetTarget setTarget;
             setTarget = (SetTarget)target;
 
-            object ka;
-            ka = setTarget.NodeAny;
-
-            ModuleInfo info;
-            info = (ModuleInfo)ka;
-
             Field varField;
-            varField = info.SetField;
+            varField = this.Info(setTarget).SetField;
 
             if (!(varField.Virtual == null))
             {
@@ -80,14 +74,8 @@ public class ClassGenTraverse : Traverse
     {
         base.ExecuteGetOperate(getOperate);
 
-        object ka;
-        ka = getOperate.NodeAny;
-
-        ModuleInfo info;
-        info = (ModuleInfo)ka;
-
         Field varField;
-        varField = info.GetField;
+        varField = this.Info(getOperate).GetField;
 
         if (!(varField.Virtual == null))
         {
@@ -112,15 +100,9 @@ public class ClassGenTraverse : Traverse
     public override bool ExecuteCallOperate(CallOperate callOperate)
     {
         base.ExecuteCallOperate(callOperate);
-
-        object ka;
-        ka = callOperate.NodeAny;
-
-        ModuleInfo info;
-        info = (ModuleInfo)ka;
         
         Maide varMaide;
-        varMaide = info.CallMaide;
+        varMaide = this.Info(callOperate).CallMaide;
 
         if (!(varMaide.Virtual == null))
         {
@@ -140,6 +122,15 @@ public class ClassGenTraverse : Traverse
 
         this.ExecuteVirtualCall(k, this.Gen.StateKindCall, kk);
 
+        return true;
+    }
+
+    public override bool ExecuteVarOperate(VarOperate varOperate)
+    {
+        Var varVar;
+        varVar = this.Info(varOperate).Var;
+
+        this.ExecuteVarGet(varVar);
         return true;
     }
 
@@ -713,5 +704,10 @@ public class ClassGenTraverse : Traverse
         gen.EvalValueSet(1, varA);
 
         return true;
+    }
+
+    protected virtual ModuleInfo Info(NodeNode node)
+    {
+        return (ModuleInfo)node.NodeAny;
     }
 }
