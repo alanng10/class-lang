@@ -398,10 +398,6 @@ public class ClassGenTraverse : Traverse
                 kkk = -kkk;
 
                 gen.EvalFrameValueGet(kkk, varA);
-
-                gen.EvalValueSet(0, varA);
-
-                gen.EvalIndexPosSet(1);
             }
 
             if (!b)
@@ -409,8 +405,12 @@ public class ClassGenTraverse : Traverse
                 int index;
                 index = kk - ka;
 
-                
+                gen.EvalFrameValueGet(index, varA);
             }
+
+            gen.EvalValueSet(0, varA);
+
+            gen.EvalIndexPosSet(1);
         }
 
         return true;
