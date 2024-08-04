@@ -420,7 +420,9 @@ public class ClassGenTraverse : Traverse
 
             if (ba)
             {
+                this.ExecuteThisFieldData();
 
+                gen.VarSetDeref(varA, varA, 0);
             }
 
             if (!ba)
