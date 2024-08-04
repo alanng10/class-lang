@@ -365,6 +365,54 @@ public class ClassGenTraverse : Traverse
         return true;
     }
 
+    public virtual bool ExecuteVarGet(Var varVar)
+    {
+        ClassGen gen;
+        gen = this.Gen;
+
+        string varA;
+        varA = gen.VarA;
+        
+        int stateKind;
+        stateKind = gen.CompStateKind;
+
+        int k;
+        k = gen.ParamCount;
+        
+        int kk;
+        kk = varVar.Index;
+
+        if (stateKind == gen.StateKindCall)
+        {
+            int ka;
+            ka = k - 1;
+
+            bool b;
+            b = (kk < ka);
+            if (b)
+            {
+                int index;
+                index = ka - kk;
+
+                gen.EvalFrameValueGet(index, varA);
+
+                gen.EvalValueSet(0, varA);
+
+                gen.EvalIndexPosSet(1);
+            }
+
+            if (!b)
+            {
+                int index;
+                index = kk - ka;
+
+                
+            }
+        }
+
+        return true;
+    }
+
     public virtual bool ExecuteVirtualCall(int thisEvalIndex, int stateKind, int stateIndex)
     {
         ClassGen gen;
