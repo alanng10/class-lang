@@ -9,8 +9,8 @@ public class StoragePathCheck : Any
         this.TextInfra = TextInfra.This;
         this.StorageInfra = StorageInfra.This;
 
-        IntCompare charCompare;
-        charCompare = new IntCompare();
+        CompareMid charCompare;
+        charCompare = new CompareMid();
         charCompare.Init();
         this.TextCompare = new TextCompare();
         this.TextCompare.CharCompare = charCompare;

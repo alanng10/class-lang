@@ -8,7 +8,7 @@ public class NameCheck : Any
         this.TextInfra = TextInfra.This;
         this.Keyword = KeywordList.This;
 
-        this.CharCompare = new IntCompare();
+        this.CharCompare = new CompareMid();
         this.CharCompare.Init();
 
         this.TextCompare = new TextCompare();
@@ -32,7 +32,7 @@ public class NameCheck : Any
     protected virtual TextInfra TextInfra { get; set; }
     protected virtual KeywordList Keyword { get; set; }
     protected virtual TextCompare TextCompare { get; set; }
-    protected virtual IntCompare CharCompare { get; set; }
+    protected virtual CompareMid CharCompare { get; set; }
     protected virtual StringData StringData { get; set; }
     protected virtual Text Text { get; set; }
     protected virtual Text DotText { get; set; }
