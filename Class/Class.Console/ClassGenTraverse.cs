@@ -501,6 +501,37 @@ public class ClassGenTraverse : Traverse
             }
         }
 
+        if (stateKind == gen.StateKindSet)
+        {
+            bool bc;
+            bc = (kk == 0);
+            bool bd;
+            bd = (kk == 1);
+
+            if (bc)
+            {
+                this.ExecuteThisFieldData();
+
+                gen.VarDerefSet(varA, varB);
+            }
+
+            if (bd)
+            {
+                int posC;
+                posC = -1;
+
+                gen.EvalFrameValueSet(posC, varB);
+            }
+
+            if (!(bc | bd))
+            {
+                int posD;
+                posD = kk - 2;
+
+                gen.EvalFrameValueSet(posD, varB);
+            }
+        }
+
         if (stateKind == gen.StateKindCall)
         {
             int ka;
