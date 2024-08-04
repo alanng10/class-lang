@@ -439,6 +439,39 @@ public class ClassGenTraverse : Traverse
         return true;
     }
 
+    public virtual bool ExecuteThisFieldData()
+    {
+        ClassGen gen;
+        gen = this.Gen;
+
+        string varA;
+        varA = gen.VarA;
+
+        Field varField;
+        varField = gen.ThisField;
+
+        ClassClass varClass;
+        varClass = gen.Class;
+        
+        int k;
+        k = gen.ParamCount;
+        k = -k;
+
+        int kk;
+        kk = varClass.FieldRange.Index;
+        kk = kk + varField.BinaryIndex;
+
+        int pos;
+        pos = (kk + 1) * sizeof(ulong);
+
+        gen.EvalFrameValueGet(k, varA);
+
+        gen.VarMaskClear(varA, gen.MemoryIndexMask);
+
+        gen.VarSetPos(varA, varA, pos);
+        return true;
+    }
+
     public virtual bool ExecuteVirtualCall(int thisEvalIndex, int stateKind, int stateIndex)
     {
         ClassGen gen;

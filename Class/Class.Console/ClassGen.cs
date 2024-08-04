@@ -328,6 +328,30 @@ public class ClassGen : Any
         return true;
     }
 
+    public virtual bool VarSetPos(string dest, string value, int pos)
+    {
+        string k;
+        k = this.Space;
+
+        this.TextIndent();
+
+        this.Text(dest);
+
+        this.Text(k);
+        this.Text(this.DelimitAre);
+        this.Text(k);
+
+        this.Text(value);
+
+        this.Text(k);
+
+        this.TextPos(pos);
+
+        this.Text(this.DelimitSemicolon);
+        this.Text(this.NewLine);
+        return true;
+    }
+
     public virtual bool VarSetDeref(string dest, string value, int pos)
     {
         string kk;
