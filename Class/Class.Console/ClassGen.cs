@@ -535,7 +535,7 @@ public class ClassGen : Any
         return true;
     }
 
-    public virtual bool EvalFrameValueGet(int index, string arg)
+    public virtual bool EvalFrameValueGet(int pos, string arg)
     {
         this.TextIndent();
 
@@ -545,18 +545,18 @@ public class ClassGen : Any
         this.Text(this.DelimitAre);
         this.Text(this.Space);
 
-        this.EvalFrameValue(index);
+        this.EvalFrameValue(pos);
 
         this.Text(this.DelimitSemicolon);
         this.Text(this.NewLine);
         return true;
     }
 
-    public virtual bool EvalFrameValueSet(int index, string arg)
+    public virtual bool EvalFrameValueSet(int pos, string arg)
     {
         this.TextIndent();
 
-        this.EvalFrameValue(index);
+        this.EvalFrameValue(pos);
 
         this.Text(this.Space);
         this.Text(this.DelimitAre);
@@ -569,7 +569,7 @@ public class ClassGen : Any
         return true;
     }
 
-    public virtual bool EvalFrameValue(int index)
+    public virtual bool EvalFrameValue(int pos)
     {
         this.EvalStack();
 
@@ -578,10 +578,8 @@ public class ClassGen : Any
         this.Text(this.EvalFrameVar);
 
         this.Text(this.Space);
-        this.Text(this.DelimitSub);
-        this.Text(this.Space);
 
-        this.TextInt(index);
+        this.TextPos(pos);
 
         this.Text(this.DelimitSquareRight);
         return true;
