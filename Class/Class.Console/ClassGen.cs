@@ -93,7 +93,6 @@ public class ClassGen : Any
     public virtual SetClassGenOperate SetOperate { get; set; }
     public virtual ClassGenTraverse Traverse { get; set; }
     public virtual StringCreate StringCreate { get; set; }
-    public virtual Data CompStateStackCount { get; set; }
     public virtual int BaseIndex { get; set; }
     public virtual string ClassBaseMask { get; set; }
     public virtual Field ThisField { get; set; }
@@ -101,6 +100,7 @@ public class ClassGen : Any
     public virtual int ParamCount { get; set; }
     public virtual int LocalVarCount { get; set; }
     public virtual int IndentCount { get; set; }
+    public virtual Array BlockStack { get; set; }
     public virtual int StateKindGet { get; set; }
     public virtual int StateKindSet { get; set; }
     public virtual int StateKindCall { get; set; }
