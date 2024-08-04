@@ -1,6 +1,6 @@
 namespace Avalon.Infra;
 
-public class IntCompare : Any
+public class CompareMid : Any
 {
     public virtual int Execute(int left, int right)
     {

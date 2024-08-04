@@ -2,7 +2,7 @@ namespace Avalon.Infra;
 
 public class StringCompare : Compare
 {
-    public virtual IntCompare CharCompare { get; set; }
+    public virtual CompareMid CharCompare { get; set; }
 
     public override int Execute(object left, object right)
     {
@@ -17,7 +17,7 @@ public class StringCompare : Compare
         int rightCount;
         rightCount = rightString.Length;
 
-        IntCompare charCompare;
+        CompareMid charCompare;
         charCompare = this.CharCompare;
 
         int count;
