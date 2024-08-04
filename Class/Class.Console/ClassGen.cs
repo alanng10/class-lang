@@ -93,6 +93,7 @@ public class ClassGen : Any
     public virtual SetClassGenOperate SetOperate { get; set; }
     public virtual ClassGenTraverse Traverse { get; set; }
     public virtual StringCreate StringCreate { get; set; }
+    public virtual Data CompStateStackCount { get; set; }
     public virtual int BaseIndex { get; set; }
     public virtual string ClassBaseMask { get; set; }
     public virtual Field ThisField { get; set; }
