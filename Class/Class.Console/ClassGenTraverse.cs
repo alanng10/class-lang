@@ -402,15 +402,34 @@ public class ClassGenTraverse : Traverse
 
             if (!b)
             {
-                int index;
-                index = kk - ka;
+                int pos;
+                pos = kk - ka;
 
-                gen.EvalFrameValueGet(index, varA);
+                gen.EvalFrameValueGet(pos, varA);
             }
 
             gen.EvalValueSet(0, varA);
 
             gen.EvalIndexPosSet(1);
+        }
+
+        if (stateKind == gen.StateKindGet)
+        {
+            bool ba;
+            ba = (0 < kk);
+
+            if (ba)
+            {
+                int pos;
+                pos = kk - 1;
+
+                gen.EvalFrameValueGet(pos, varA);
+            }
+            
+            if (!ba)
+            {
+
+            }
         }
 
         return true;
