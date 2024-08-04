@@ -460,9 +460,10 @@ public class ClassGenTraverse : Traverse
         int kk;
         kk = varClass.FieldRange.Index;
         kk = kk + varField.BinaryIndex;
+        kk = kk + 1;
 
         int pos;
-        pos = (kk + 1) * sizeof(ulong);
+        pos = kk * sizeof(ulong);
 
         gen.EvalFrameValueGet(k, varA);
 
