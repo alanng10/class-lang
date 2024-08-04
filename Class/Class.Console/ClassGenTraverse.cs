@@ -389,10 +389,10 @@ public class ClassGenTraverse : Traverse
 
             if (!ba)
             {
-                int posB;
-                posB = kk - 1;
+                int posA;
+                posA = kk - 1;
 
-                gen.EvalFrameValueGet(posB, varA);
+                gen.EvalFrameValueGet(posA, varA);
             }
         }
 
@@ -412,18 +412,18 @@ public class ClassGenTraverse : Traverse
 
             if (bd)
             {
-                int posC;
-                posC = -1;
+                int posB;
+                posB = -1;
 
-                gen.EvalFrameValueGet(posC, varA);
+                gen.EvalFrameValueGet(posB, varA);
             }
 
             if (!(bc | bd))
             {
-                int posD;
-                posD = kk - 2;
+                int posC;
+                posC = kk - 2;
 
-                gen.EvalFrameValueGet(posD, varA);
+                gen.EvalFrameValueGet(posC, varA);
             }
         }
 
@@ -440,15 +440,18 @@ public class ClassGenTraverse : Traverse
                 kkk = ka - kk;
                 kkk = -kkk;
 
-                gen.EvalFrameValueGet(kkk, varA);
+                int posD;
+                posD = kkk;
+
+                gen.EvalFrameValueGet(posD, varA);
             }
 
             if (!b)
             {
-                int posA;
-                posA = kk - ka;
+                int posE;
+                posE = kk - ka;
 
-                gen.EvalFrameValueGet(posA, varA);
+                gen.EvalFrameValueGet(posE, varA);
             }
         }
 
