@@ -407,10 +407,6 @@ public class ClassGenTraverse : Traverse
 
                 gen.EvalFrameValueGet(pos, varA);
             }
-
-            gen.EvalValueSet(0, varA);
-
-            gen.EvalIndexPosSet(1);
         }
 
         if (stateKind == gen.StateKindGet)
@@ -432,11 +428,42 @@ public class ClassGenTraverse : Traverse
 
                 gen.EvalFrameValueGet(pos, varA);
             }
-
-            gen.EvalValueSet(0, varA);
-
-            gen.EvalIndexPosSet(1);
         }
+
+        if (stateKind == gen.StateKindSet)
+        {
+            bool bc;
+            bc = (kk == 0);
+            bool bd;
+            bd = (kk == 1);
+
+            if (bc)
+            {
+                this.ExecuteThisFieldData();
+
+                gen.VarSetDeref(varA, varA, 0);
+            }
+
+            if (bd)
+            {
+                int pos;
+                pos = -1;
+
+                gen.EvalFrameValueGet(pos, varA);
+            }
+
+            if (!(bc | bd))
+            {
+                int pos;
+                pos = kk - 2;
+
+                gen.EvalFrameValueGet(pos, varA);
+            }
+        }
+
+        gen.EvalValueSet(0, varA);
+
+        gen.EvalIndexPosSet(1);
 
         return true;
     }
