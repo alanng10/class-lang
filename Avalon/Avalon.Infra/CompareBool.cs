@@ -1,6 +1,6 @@
 namespace Avalon.Infra;
 
-public class BoolCompare : Any
+public class CompareBool : Any
 {
     public virtual int Execute(bool left, bool right)
     {
