@@ -451,10 +451,59 @@ public class ClassGenTraverse : Traverse
                 gen.EvalFrameValueGet(posA, varA);
             }
         }
-        
+
         gen.EvalValueSet(0, varA);
 
         gen.EvalIndexPosSet(1);
+
+        return true;
+    }
+
+    public virtual bool ExecuteVarSet(Var varVar)
+    {
+        ClassGen gen;
+        gen = this.Gen;
+
+        string varA;
+        varA = gen.VarA;
+
+        int stateKind;
+        stateKind = gen.CompStateKind;
+
+        int k;
+        k = gen.ParamCount;
+
+        int kk;
+        kk = varVar.Index;
+
+        gen.EvalValueSet(1, varA);
+
+        if (stateKind == gen.StateKindCall)
+        {
+            int ka;
+            ka = k - 1;
+
+            bool b;
+            b = (kk < ka);
+            if (b)
+            {
+                int kkk;
+                kkk = ka - kk;
+                kkk = -kkk;
+
+                gen.EvalFrameValueSet(kkk, varA);
+            }
+
+            if (!b)
+            {
+                int posA;
+                posA = kk - ka;
+
+                gen.EvalFrameValueSet(posA, varA);
+            }
+        }
+
+        gen.EvalIndexPosSet(-1);
 
         return true;
     }
