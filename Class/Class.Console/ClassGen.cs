@@ -841,6 +841,11 @@ public class ClassGen : Any
 
     public virtual bool ValidBaseIndex(int index)
     {
+        if (index < 0)
+        {
+            return false;
+        }
+        
         if (!(index < 0x1000))
         {
             return false;
