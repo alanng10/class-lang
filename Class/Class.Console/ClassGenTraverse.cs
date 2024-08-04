@@ -153,6 +153,7 @@ public class ClassGenTraverse : Traverse
 
         int k;
         k = gen.ParamCount;
+        k = -k;
 
         gen.EvalFrameValueGet(k, varA);
 
@@ -172,6 +173,7 @@ public class ClassGenTraverse : Traverse
 
         int k;
         k = gen.ParamCount;
+        k = -k;
 
         gen.EvalFrameValueGet(k, varA);
 
@@ -391,10 +393,11 @@ public class ClassGenTraverse : Traverse
             b = (kk < ka);
             if (b)
             {
-                int index;
-                index = ka - kk;
+                int kkk;
+                kkk = ka - kk;
+                kkk = -kkk;
 
-                gen.EvalFrameValueGet(index, varA);
+                gen.EvalFrameValueGet(kkk, varA);
 
                 gen.EvalValueSet(0, varA);
 
