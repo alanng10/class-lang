@@ -39,7 +39,13 @@ public class ClassGenTraverse : Traverse
 
         if (target is VarTarget)
         {
-            
+            VarTarget varTarget;
+            varTarget = (VarTarget)target;
+
+            Var varVar;
+            varVar = this.Info(varTarget).Var;
+
+            this.ExecuteVarSet(varVar);
         }
 
         if (target is SetTarget)
