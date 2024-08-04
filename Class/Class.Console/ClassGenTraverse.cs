@@ -480,6 +480,27 @@ public class ClassGenTraverse : Traverse
 
         gen.EvalValueSet(1, varB);
 
+        if (stateKind == gen.StateKindGet)
+        {
+            bool ba;
+            ba = (kk == 0);
+
+            if (ba)
+            {
+                this.ExecuteThisFieldData();
+
+                gen.VarDerefSet(varA, varB);
+            }
+
+            if (!ba)
+            {
+                int posB;
+                posB = kk - 1;
+
+                gen.EvalFrameValueSet(posB, varB);
+            }
+        }
+
         if (stateKind == gen.StateKindCall)
         {
             int ka;
