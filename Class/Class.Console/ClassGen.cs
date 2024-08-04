@@ -101,6 +101,7 @@ public class ClassGen : Any
     public virtual int LocalVarCount { get; set; }
     public virtual int IndentCount { get; set; }
     public virtual Data BlockStack { get; set; }
+    public virtual int BlockStackIndex { get; set; }
     public virtual int StateKindGet { get; set; }
     public virtual int StateKindSet { get; set; }
     public virtual int StateKindCall { get; set; }
