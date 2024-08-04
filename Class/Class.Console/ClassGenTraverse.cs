@@ -465,7 +465,9 @@ public class ClassGenTraverse : Traverse
         gen = this.Gen;
 
         string varA;
+        string varB;
         varA = gen.VarA;
+        varB = gen.VarB;
 
         int stateKind;
         stateKind = gen.CompStateKind;
@@ -476,7 +478,7 @@ public class ClassGenTraverse : Traverse
         int kk;
         kk = varVar.Index;
 
-        gen.EvalValueSet(1, varA);
+        gen.EvalValueSet(1, varB);
 
         if (stateKind == gen.StateKindCall)
         {
@@ -491,7 +493,7 @@ public class ClassGenTraverse : Traverse
                 kkk = ka - kk;
                 kkk = -kkk;
 
-                gen.EvalFrameValueSet(kkk, varA);
+                gen.EvalFrameValueSet(kkk, varB);
             }
 
             if (!b)
@@ -499,7 +501,7 @@ public class ClassGenTraverse : Traverse
                 int posA;
                 posA = kk - ka;
 
-                gen.EvalFrameValueSet(posA, varA);
+                gen.EvalFrameValueSet(posA, varB);
             }
         }
 
