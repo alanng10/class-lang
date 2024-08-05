@@ -22,7 +22,8 @@ public class Gen : Any
         this.CharForm.Init();
         this.TextCompare = new TextCompare();
         this.TextCompare.CharCompare = this.CharCompare;
-        this.TextCompare.CharForm = this.CharForm;
+        this.TextCompare.LeftCharForm = this.CharForm;
+        this.TextCompare.RightCharForm = this.CharForm;
         this.TextCompare.Init();
         return true;
     }
