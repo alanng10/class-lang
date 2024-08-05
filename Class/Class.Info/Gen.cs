@@ -16,7 +16,7 @@ public class Gen : Any
         this.StringJoin = new StringJoin();
         this.StringJoin.Init();
 
-        this.CharCompare = new IntCompare();
+        this.CharCompare = new CompareMid();
         this.CharCompare.Init();
         this.CharForm = new CharForm();
         this.CharForm.Init();
@@ -38,7 +38,7 @@ public class Gen : Any
     protected virtual ClassInfra ClassInfra { get; set; }
     protected virtual StringJoin StringJoin { get; set; }
     protected virtual TextCompare TextCompare { get; set; }
-    protected virtual IntCompare CharCompare { get; set; }
+    protected virtual CompareMid CharCompare { get; set; }
     protected virtual CharForm CharForm { get; set; }
     protected virtual string Ver { get; set; }
     protected virtual Node Root { get; set; }
@@ -704,14 +704,8 @@ public class Gen : Any
         range.Init();
         range.Count = count;
 
-        IntCompare charCompare;
-        charCompare = new IntCompare();
-        charCompare.Init();
-
         StringCompare compare;
-        compare = new StringCompare();
-        compare.CharCompare = charCompare;
-        compare.Init();
+        compare = this.ClassInfra.StringCompareCreate();
 
         array.Sort(range, compare);
 
