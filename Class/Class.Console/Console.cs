@@ -890,14 +890,8 @@ public class Console : Any
         range.Init();
         range.Count = count;
 
-        CompareMid charCompare;
-        charCompare = new CompareMid();
-        charCompare.Init();
-
         StringCompare compare;
-        compare = new StringCompare();
-        compare.CharCompare = charCompare;
-        compare.Init();
+        compare = this.ClassInfra.StringCompareCreate();
 
         array.Sort(range, compare);
         return array;
