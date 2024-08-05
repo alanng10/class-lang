@@ -20,11 +20,6 @@ public class ModuleRefCompare : Compare
 
     public override int Execute(object left, object right)
     {
-        if (left == null | right == null)
-        {
-            return 0;
-        }
-
         ModuleRef leftA;
         ModuleRef rightA;
         leftA = (ModuleRef)left;
