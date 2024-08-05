@@ -3,6 +3,7 @@ namespace Avalon.Infra;
 public class StringCompare : Compare
 {
     public virtual CompareMid CharCompare { get; set; }
+    public virtual CharForm CharForm { get; set; }
 
     public override int Execute(object left, object right)
     {
@@ -20,6 +21,9 @@ public class StringCompare : Compare
         CompareMid charCompare;
         charCompare = this.CharCompare;
 
+        CharForm charForm;
+        charForm = this.CharForm;
+
         int count;
         count = leftCount;
         if (rightCount < count)
@@ -35,6 +39,9 @@ public class StringCompare : Compare
             char ocb;
             oca = leftString[i];
             ocb = rightString[i];
+
+            oca = (char)charForm.Execute(oca);
+            ocb = (char)charForm.Execute(ocb);
 
             int oo;
             oo = charCompare.Execute(oca, ocb);
