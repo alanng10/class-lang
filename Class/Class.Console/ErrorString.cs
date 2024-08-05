@@ -9,8 +9,13 @@ public class ErrorString : Any
         this.TextInfra = TextInfra.This;
         this.NewLine = this.InfraInfra.NewLine;
 
+        CharForm charForm;
+        charForm = new CharForm();
+        charForm.Init();
+
         this.Format = new Format();
         this.Format.Init();
+        this.Format.CharForm = charForm;
         this.FormatArg = new FormatArg();
         this.FormatArg.Init();
 
