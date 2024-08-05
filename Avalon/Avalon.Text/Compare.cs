@@ -10,6 +10,7 @@ public class Compare : InfraCompare
     }
 
     public virtual CompareMid CharCompare { get; set; }
+    public virtual CharForm CharForm { get; set; }
     protected virtual Infra TextInfra { get; set; }
 
     public override int Execute(object left, object right)
@@ -54,6 +55,9 @@ public class Compare : InfraCompare
         CompareMid charCompare;
         charCompare = this.CharCompare;
 
+        CharForm charForm;
+        charForm = this.CharForm;
+        
         int count;
         count = leftCount;
         if (rightCount < count)
@@ -69,7 +73,10 @@ public class Compare : InfraCompare
             char ocb;
             oca = textInfra.DataCharGet(leftData, leftIndex + i);
             ocb = textInfra.DataCharGet(rightData, rightIndex + i);
-            
+
+            oca = (char)charForm.Execute(oca);
+            ocb = (char)charForm.Execute(ocb);
+
             int oo;
             oo = charCompare.Execute(oca, ocb);
             if (!(oo == 0))
