@@ -39,7 +39,7 @@ public class Read : Any
         charForm.Init();
         this.TextCompare = new TextCompare();
         this.TextCompare.CharCompare = charCompare;
-        this.TextCompare.CharForm = charForm;
+        this.TextCompare.LeftCharForm = charForm;
         this.TextCompare.Init();
 
         this.TextNewLine = this.TextInfra.TextCreateStringData(this.ClassInfra.NewLine, null);

@@ -134,7 +134,8 @@ public class Console : Any
         TextCompare a;
         a = new TextCompare();
         a.CharCompare = this.CharCompare;
-        a.CharForm = this.CharForm;
+        a.LeftCharForm = this.CharForm;
+        a.RightCharForm = this.CharForm;
         a.Init();
         return a;
     }

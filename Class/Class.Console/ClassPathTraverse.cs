@@ -27,7 +27,8 @@ public partial class ClassPathTraverse : Traverse
         charForm.Init();
         this.TextCompare = new TextCompare();
         this.TextCompare.CharCompare = charCompare;
-        this.TextCompare.CharForm = charForm;
+        this.TextCompare.LeftCharForm = charForm;
+        this.TextCompare.RightCharForm = charForm;
         this.TextCompare.Init();
 
         this.Dot = this.TextInfra.TextCreateStringData(".", null);

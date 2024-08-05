@@ -17,7 +17,7 @@ public class StoragePathCheck : Any
         charForm.Init();
         this.TextCompare = new TextCompare();
         this.TextCompare.CharCompare = charCompare;
-        this.TextCompare.CharForm = charForm;
+        this.TextCompare.LeftCharForm = charForm;
         this.TextCompare.Init();
 
         this.Combine = this.TextInfra.TextCreateStringData(this.InfraInfra.PathCombine, null);
