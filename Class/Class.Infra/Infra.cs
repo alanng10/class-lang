@@ -60,29 +60,10 @@ public class Infra : Any
         return this.InfraInfra.ValidRange(totalCount, start, count);
     }
 
-    public virtual StringCompare StringCompareCreate()
-    {
-        CompareMid charCompare;
-        charCompare = new CompareMid();
-        charCompare.Init();
-
-        CharForm charForm;
-        charForm = new CharForm();
-        charForm.Init();
-
-        StringCompare a;
-        a = new StringCompare();
-        a.CharCompare = charCompare;
-        a.CharForm = charForm;
-        a.Init();
-    
-        return a;
-    }
-
     public virtual Table TableCreateStringCompare()
     {
         StringCompare compare;
-        compare = this.StringCompareCreate();
+        compare = this.InfraInfra.StringCompareCreate();
         
         Table a;
         a = new Table();

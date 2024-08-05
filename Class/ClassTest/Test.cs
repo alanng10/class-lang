@@ -453,7 +453,7 @@ public class Test : Any
         range.Count = count;
 
         StringCompare compare;
-        compare = this.ClassInfra.StringCompareCreate();
+        compare = this.InfraInfra.StringCompareCreate();
 
         array.Sort(range, compare);
         return array;
