@@ -9,8 +9,22 @@ public class PortLoad : Any
         this.StorageInfra = StorageInfra.This;
         this.ClassInfra = ClassInfra.This;
 
+        CompareMid charCompare;
+        charCompare = new CompareMid();
+        charCompare.Init();
+        CharForm charForm;
+        charForm = new CharForm();
+        charForm.Init();
+        this.TextCompare = new TextCompare();
+        this.TextCompare.CharCompare = charCompare;
+        this.TextCompare.CharForm = charForm;
+        this.TextCompare.Init();
+
         this.NameCheck = new NameCheck();
         this.NameCheck.Init();
+        this.NameCheck.TextCompare = this.TextCompare;
+        this.NameCheck.CharCompare = charCompare;
+        this.NameCheck.CharForm = charForm;
 
         this.StoragePathCheck = new StoragePathCheck();
         this.StoragePathCheck.Init();
@@ -22,13 +36,6 @@ public class PortLoad : Any
         this.StringDataA.Init();
         this.StringDataB = new StringData();
         this.StringDataB.Init();
-
-        CompareMid charCompare;
-        charCompare = new CompareMid();
-        charCompare.Init();
-        this.TextCompare = new TextCompare();
-        this.TextCompare.CharCompare = charCompare;
-        this.TextCompare.Init();
 
         this.TableIter = new TableIter();
         this.TableIter.Init();
