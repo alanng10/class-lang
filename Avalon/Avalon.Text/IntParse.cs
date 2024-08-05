@@ -7,16 +7,23 @@ public class IntParse : Any
         base.Init();
         this.InfraInfra = InfraInfra.This;
         this.TextInfra = Infra.This;
+
+        this.CharForm = new CharForm();
+        this.CharForm.Init();
         return true;
     }
 
     protected virtual InfraInfra InfraInfra { get; set; }
     protected virtual Infra TextInfra { get; set; }
+    protected virtual CharForm CharForm { get; set; }
 
     public virtual long Execute(Text text, int varBase, bool upperCase)
     {
         Infra textInfra;
         textInfra = this.TextInfra;
+
+        CharForm charForm;
+        charForm = this.CharForm;
 
         if (varBase < 2 | 16 < varBase)
         {
@@ -61,6 +68,8 @@ public class IntParse : Any
             index = start + count - 1 - i;
             oc = textInfra.DataCharGet(data, index);
             
+            oc = (char)charForm.Execute(oc);
+
             digitValue = textInfra.DigitValue(oc, varBase, upperCase);
             if (digitValue == -1)
             {
