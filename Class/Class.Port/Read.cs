@@ -31,8 +31,8 @@ public class Read : Any
         this.StringData = new StringData();
         this.StringData.Init();
 
-        IntCompare charCompare;
-        charCompare = new IntCompare();
+        CompareMid charCompare;
+        charCompare = new CompareMid();
         charCompare.Init();
         this.TextCompare = new TextCompare();
         this.TextCompare.CharCompare = charCompare;
