@@ -9,23 +9,6 @@ public class PortLoad : Any
         this.StorageInfra = StorageInfra.This;
         this.ClassInfra = ClassInfra.This;
 
-        CompareMid charCompare;
-        charCompare = new CompareMid();
-        charCompare.Init();
-        CharForm charForm;
-        charForm = new CharForm();
-        charForm.Init();
-        this.TextCompare = new TextCompare();
-        this.TextCompare.CharCompare = charCompare;
-        this.TextCompare.CharForm = charForm;
-        this.TextCompare.Init();
-
-        this.NameCheck = new NameCheck();
-        this.NameCheck.Init();
-        this.NameCheck.TextCompare = this.TextCompare;
-        this.NameCheck.CharCompare = charCompare;
-        this.NameCheck.CharForm = charForm;
-
         this.StoragePathCheck = new StoragePathCheck();
         this.StoragePathCheck.Init();
 
@@ -54,11 +37,11 @@ public class PortLoad : Any
     public virtual Table ModuleTable { get; set; }
     public virtual Table BinaryTable { get; set; }
     public virtual Table ClassTable { get; set; }
+    public virtual NameCheck NameCheck { get; set; }
     protected virtual ListInfra ListInfra { get; set; }
     protected virtual TextInfra TextInfra { get; set; }
     protected virtual StorageInfra StorageInfra { get; set; }
     protected virtual ClassInfra ClassInfra { get; set; }
-    protected virtual NameCheck NameCheck { get; set; }
     protected virtual StoragePathCheck StoragePathCheck { get; set; }
     protected virtual Text TextA { get; set; }
     protected virtual Text TextB { get; set; }
@@ -86,6 +69,8 @@ public class PortLoad : Any
 
     public virtual bool Execute()
     {
+        this.ExecuteSet();
+
         bool b;
         b = this.ExecuteAll();
 
@@ -96,6 +81,12 @@ public class PortLoad : Any
         this.ModuleLoad.ModuleTable = null;
 
         return b;
+    }
+
+    protected virtual bool ExecuteSet()
+    {
+        this.TextCompare = this.NameCheck.TextCompare;
+        return true;
     }
 
     protected virtual bool ExecuteAll()

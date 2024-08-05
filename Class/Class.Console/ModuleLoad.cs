@@ -9,9 +9,6 @@ public class ModuleLoad : Any
         this.ClassInfra = ClassInfra.This;
         this.CountList = CountList.This;
 
-        this.NameCheck = new NameCheck();
-        this.NameCheck.Init();
-
         this.StringData = new StringData();
         this.StringData.Init();
 
@@ -27,10 +24,10 @@ public class ModuleLoad : Any
     public virtual ModuleRef ModuleRef { get; set; }
     public virtual ClassModule Module { get; set; }
     public virtual int Status { get; set; }
+    public virtual NameCheck NameCheck { get; set; }
     protected virtual ListInfra ListInfra { get; set; }
     protected virtual ClassInfra ClassInfra { get; set; }
     protected virtual CountList CountList { get; set; }
-    protected virtual NameCheck NameCheck { get; set; }
     protected virtual BinaryBinary Binary { get; set; }
     protected virtual Array ClassArray { get; set; }
     protected virtual Array ImportArray { get; set; }
