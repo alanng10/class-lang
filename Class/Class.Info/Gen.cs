@@ -18,8 +18,11 @@ public class Gen : Any
 
         this.CharCompare = new IntCompare();
         this.CharCompare.Init();
+        this.CharForm = new CharForm();
+        this.CharForm.Init();
         this.TextCompare = new TextCompare();
         this.TextCompare.CharCompare = this.CharCompare;
+        this.TextCompare.CharForm = this.CharForm;
         this.TextCompare.Init();
         return true;
     }
@@ -36,6 +39,7 @@ public class Gen : Any
     protected virtual StringJoin StringJoin { get; set; }
     protected virtual TextCompare TextCompare { get; set; }
     protected virtual IntCompare CharCompare { get; set; }
+    protected virtual CharForm CharForm { get; set; }
     protected virtual string Ver { get; set; }
     protected virtual Node Root { get; set; }
     protected virtual string PageTemplate { get; set; }
