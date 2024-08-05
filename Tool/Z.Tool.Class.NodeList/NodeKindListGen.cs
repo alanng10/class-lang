@@ -20,19 +20,8 @@ public class NodeKindListGen : SourceGen
     public virtual Table ClassTable { get; set; }
 
     protected override bool ExecuteItemList()
-    {
-        IntCompare charCompare;
-        charCompare = new IntCompare();
-        charCompare.Init();
-
-        StringCompare compare;
-        compare = new StringCompare();
-        compare.CharCompare = charCompare;
-        compare.Init();
-        
-        this.ItemTable = new Table();
-        this.ItemTable.Compare = compare;
-        this.ItemTable.Init();
+    {   
+        this.ItemTable = this.ToolInfra.TableCreateStringCompare();
 
         Table table;
         table = this.ClassTable;
