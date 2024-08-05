@@ -16,6 +16,12 @@ public class Console : Any
 
         this.ErrorWrite = true;
 
+        this.CharCompare = this.CreateCharCompare();
+        this.CharForm = this.CreateCharForm();
+        this.TextCompare = this.CreateTextCompare();
+
+        this.NameCheck = this.CreateNameCheck();
+
         this.BinaryRead = this.CreateBinaryRead();
         this.ModuleLoad = this.CreateModuleLoad();
 
@@ -35,9 +41,6 @@ public class Console : Any
         this.PortRead = new PortRead();
         this.PortRead.Init();
 
-        this.NameCheck = new NameCheck();
-        this.NameCheck.Init();
-
         this.ModuleRef = this.ClassInfra.ModuleRefCreate(null, 0);
 
         this.ModuleRefCompare = new ModuleRefCompare();
@@ -50,17 +53,6 @@ public class Console : Any
         this.StringDataA.Init();
         this.StringDataB = new StringData();
         this.StringDataB.Init();
-
-        CompareMid charCompare;
-        charCompare = new CompareMid();
-        charCompare.Init();
-        CharForm charForm;
-        charForm = new CharForm();
-        charForm.Init();
-        this.TextCompare = new TextCompare();
-        this.TextCompare.CharCompare = charCompare;
-        this.TextCompare.CharForm = charForm;
-        this.TextCompare.Init();
 
         this.TextNewLine = this.TextInfra.TextCreateStringData(this.ClassInfra.NewLine, null);
         return true;
@@ -105,6 +97,9 @@ public class Console : Any
     protected virtual ModuleLoad ModuleLoad { get; set; }
     protected virtual PortRead PortRead { get; set; }
     protected virtual PortLoad PortLoad { get; set; }
+    protected virtual TextCompare TextCompare { get; set; }
+    protected virtual CompareMid CharCompare { get; set; }
+    protected virtual CharForm CharForm { get; set; }
     protected virtual NameCheck NameCheck { get; set; }
     protected virtual Table InitModuleTable { get; set; }
     protected virtual Table InitBinaryTable { get; set; }
@@ -115,9 +110,45 @@ public class Console : Any
     protected virtual Text TextB { get; set; }
     protected virtual StringData StringDataA { get; set; }
     protected virtual StringData StringDataB { get; set; }
-    protected virtual TextCompare TextCompare { get; set; }
     protected virtual Text TextNewLine { get; set; }
     private StorageArrange StorageArrange { get; set; }
+
+    protected virtual CompareMid CreateCharCompare()
+    {
+        CompareMid a;
+        a = new CompareMid();
+        a.Init();
+        return a;
+    }
+
+    protected virtual CharForm CreateCharForm()
+    {
+        CharForm a;
+        a = new CharForm();
+        a.Init();
+        return a;
+    }
+
+    protected virtual TextCompare CreateTextCompare()
+    {
+        TextCompare a;
+        a = new TextCompare();
+        a.CharCompare = this.CharCompare;
+        a.CharForm = this.CharForm;
+        a.Init();
+        return a;
+    }
+    
+    protected virtual NameCheck CreateNameCheck()
+    {
+        NameCheck a;
+        a = new NameCheck();
+        a.Init();
+        a.TextCompare = this.TextCompare;
+        a.CharCompare = this.CharCompare;
+        a.CharForm = this.CharForm;
+        return a;
+    }
 
     public virtual bool Load()
     {
