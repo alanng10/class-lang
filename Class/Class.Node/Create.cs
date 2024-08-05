@@ -37,7 +37,7 @@ public class Create : InfraCreate
         this.TokenH = this.CreateToken();
         this.TokenI = this.CreateToken();
 
-        this.CharCompare = new IntCompare();
+        this.CharCompare = new CompareMid();
         this.CharCompare.Init();
         this.TextCompare = new TextCompare();
         this.TextCompare.CharCompare = this.CharCompare;
@@ -100,7 +100,7 @@ public class Create : InfraCreate
     protected virtual Token TokenI { get; set; }
 
     protected virtual TextCompare TextCompare { get; set; }
-    protected virtual IntCompare CharCompare { get; set; }
+    protected virtual CompareMid CharCompare { get; set; }
     protected virtual Text TextA { get; set; }
     protected virtual Text TextB { get; set; }
     protected virtual StringData StringData { get; set; }
