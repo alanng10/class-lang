@@ -15,6 +15,9 @@ public class NameCheck : Any
         this.TextCompare.CharCompare = this.CharCompare;
         this.TextCompare.Init();
 
+        this.CharForm = new CharForm();
+        this.CharForm.Init();
+
         this.StringData = new StringData();
         this.StringData.Init();
 
@@ -33,6 +36,7 @@ public class NameCheck : Any
     protected virtual KeywordList Keyword { get; set; }
     protected virtual TextCompare TextCompare { get; set; }
     protected virtual CompareMid CharCompare { get; set; }
+    protected virtual CharForm CharForm { get; set; }
     protected virtual StringData StringData { get; set; }
     protected virtual Text Text { get; set; }
     protected virtual Text DotText { get; set; }
@@ -52,6 +56,9 @@ public class NameCheck : Any
         TextInfra textInfra;
         textInfra = this.TextInfra;
 
+        CharForm charForm;
+        charForm = this.CharForm;
+
         if (text.Range.Count < 1)
         {
             return false;
@@ -66,6 +73,9 @@ public class NameCheck : Any
         index = start;
         char oc;
         oc = textInfra.DataCharGet(data, index);
+
+        oc = (char)charForm.Execute(oc);
+
         if (!(textInfra.IsLetter(oc, true) | textInfra.IsLetter(oc, false)))
         {
             return false;
@@ -87,6 +97,8 @@ public class NameCheck : Any
             index = start + i;
 
             oc = textInfra.DataCharGet(data, index);
+
+            oc = (char)charForm.Execute(oc);
 
             bool ba;
             ba = textInfra.IsLetter(oc, true) | textInfra.IsLetter(oc, false) | textInfra.IsDigit(oc);
