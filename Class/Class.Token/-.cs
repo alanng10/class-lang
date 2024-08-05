@@ -2,6 +2,7 @@ global using Any = Avalon.Infra.Any;
 global using Range = Avalon.Infra.Range;
 global using InfraInfra = Avalon.Infra.Infra;
 global using Data = Avalon.Infra.Data;
+global using CharForm = Avalon.Infra.CharForm;
 global using Array = Avalon.List.Array;
 global using ListInfra = Avalon.List.Infra;
 global using Text = Avalon.Text.Text;

@@ -17,6 +17,9 @@ public class Create : InfraCreate
         this.SetOperate.Create = this;
         this.SetOperate.Init();
 
+        this.CharForm = new CharForm();
+        this.CharForm.Init();
+
         this.Range = new Range();
         this.Range.Init();
         return true;
@@ -33,6 +36,7 @@ public class Create : InfraCreate
     protected virtual SetCreateOperate SetOperate { get; set; }
     protected virtual CreateOperate Operate { get; set; }
     protected virtual Array CodeArray { get; set; }
+    protected virtual CharForm CharForm { get; set; }
 
     public virtual Code Code { get; set; }
     public virtual Source SourceItem { get; set; }
@@ -113,14 +117,17 @@ public class Create : InfraCreate
 
     protected virtual bool ExecuteCode(Code code)
     {
-        this.Code = code;
-
-        this.Reset();
-
         TextInfra textInfra;
         textInfra = this.TextInfra;
         ClassInfra classInfra;
         classInfra = this.ClassInfra;
+
+        this.Code = code;
+
+        this.Reset();
+
+        CharForm charForm;
+        charForm = this.CharForm;
 
         Array sourceText;
         sourceText = this.SourceItem.Text;
@@ -160,6 +167,9 @@ public class Create : InfraCreate
 
                 char c;
                 c = textInfra.DataCharGet(data, start + col);
+
+                c = (char)charForm.Execute(c);
+
                 if (c == '#')
                 {
                     this.EndToken(col);
@@ -200,6 +210,9 @@ public class Create : InfraCreate
                     {
                         char oc;
                         oc = textInfra.DataCharGet(data, start + cc);
+
+                        oc = (char)charForm.Execute(oc);
+
                         bool ba;
                         ba = (oc == '\"');
                         if (ba)
