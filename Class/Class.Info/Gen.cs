@@ -110,9 +110,14 @@ public class Gen : Any
 
         time.Final();
 
+        CharForm charForm;
+        charForm = new CharForm();
+        charForm.Init();
+
         Format format;
         format = new Format();
         format.Init();
+        format.CharForm = charForm;
 
         FormatArg arg;
         arg = new FormatArg();
