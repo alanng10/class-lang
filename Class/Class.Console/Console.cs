@@ -54,8 +54,12 @@ public class Console : Any
         CompareMid charCompare;
         charCompare = new CompareMid();
         charCompare.Init();
+        CharForm charForm;
+        charForm = new CharForm();
+        charForm.Init();
         this.TextCompare = new TextCompare();
         this.TextCompare.CharCompare = charCompare;
+        this.TextCompare.CharForm = charForm;
         this.TextCompare.Init();
 
         this.TextNewLine = this.TextInfra.TextCreateStringData(this.ClassInfra.NewLine, null);
