@@ -118,9 +118,14 @@ public class Infra : Any
         long major;
         major = o >> 16;
 
+        CharForm charForm;
+        charForm = new CharForm();
+        charForm.Init();
+
         Format format;
         format = new Format();
         format.Init();
+        format.CharForm = charForm;
 
         FormatArg arg;
         arg = new FormatArg();
