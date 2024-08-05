@@ -5,20 +5,16 @@ public class ModuleRefCompare : Compare
     public override bool Init()
     {
         base.Init();
+        this.ClassInfra = Infra.This;
 
-        CompareMid charCompare;
-        charCompare = new CompareMid();
-        charCompare.Init();
-
-        this.StringCompare = new StringCompare();
-        this.StringCompare.CharCompare = charCompare;
-        this.StringCompare.Init();
+        this.StringCompare = this.ClassInfra.StringCompareCreate();
 
         this.CompareInt = new CompareInt();
         this.CompareInt.Init();
         return true;
     }
 
+    protected virtual Infra ClassInfra { get; set; }
     protected virtual StringCompare StringCompare { get; set; }
     protected virtual CompareInt CompareInt { get; set; }
 
