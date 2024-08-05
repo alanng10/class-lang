@@ -7,7 +7,16 @@ Code
                     Range : Range
                             {
                                 Index : 0,
-                                Count : 2,
+                                Count : 1,
+                            },
+                },
+                Token
+                {
+                    Row : 0,
+                    Range : Range
+                            {
+                                Index : 1,
+                                Count : 1,
                             },
                 },
             ],
