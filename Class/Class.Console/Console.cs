@@ -326,6 +326,7 @@ public class Console : Any
         ModuleLoad a;
         a = new ModuleLoad();
         a.Init();
+        a.NameCheck = this.NameCheck;
         return a;
     }
 
