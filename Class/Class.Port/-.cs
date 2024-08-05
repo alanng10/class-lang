@@ -4,6 +4,7 @@ global using Data = Avalon.Infra.Data;
 global using StringData = Avalon.Infra.StringData;
 global using Compare = Avalon.Infra.Compare;
 global using CompareMid = Avalon.Infra.CompareMid;
+global using CharForm = Avalon.Infra.CharForm;
 global using InfraInfra = Avalon.Infra.Infra;
 global using Array = Avalon.List.Array;
 global using ListInfra = Avalon.List.Infra;
