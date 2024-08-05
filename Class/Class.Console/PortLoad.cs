@@ -278,9 +278,6 @@ public class PortLoad : Any
         dataA = this.StringDataA;
         dataB = this.StringDataB;
 
-        Compare compare;
-        compare = this.TextCompare;
-
         string name;
         name = module.Name;
         long version;
