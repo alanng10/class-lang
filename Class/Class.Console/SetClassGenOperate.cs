@@ -7,8 +7,13 @@ public class SetClassGenOperate : ClassGenOperate
         base.Init();
         this.TextInfra = TextInfra.This;
 
+        CharForm charForm;
+        charForm = new CharForm();
+        charForm.Init();
+
         this.Format = new Format();
         this.Format.Init();
+        this.Format.CharForm = charForm;
 
         FormatArg e;
         e = new FormatArg();
