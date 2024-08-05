@@ -521,9 +521,14 @@ class Demo : Any
         Text varBase;
         varBase = this.TextInfra.TextCreateString("G H , j h\n\n", null);
 
+        CharForm charForm;
+        charForm = new CharForm();
+        charForm.Init();
+
         TextFormat format;
         format = new TextFormat();
         format.Init();
+        format.CharForm = charForm;
 
         int count;
         count = format.ExecuteCount(varBase, argList);

@@ -5,6 +5,7 @@ global using DataRange = Avalon.Infra.RangeInt;
 global using State = Avalon.Infra.State;
 global using StringCreate = Avalon.Infra.StringCreate;
 global using Value = Avalon.Infra.Value;
+global using CharForm = Avalon.Infra.CharForm;
 global using InfraInfra = Avalon.Infra.Infra;
 global using List = Avalon.List.List;
 global using Array = Avalon.List.Array;
