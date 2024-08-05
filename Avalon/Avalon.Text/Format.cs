@@ -13,20 +13,14 @@ public class Format : Any
         return true;
     }
 
-    protected virtual InfraInfra InfraInfra { get { return __D_InfraInfra; } set { __D_InfraInfra = value; } }
-    protected InfraInfra __D_InfraInfra;
-    protected virtual Infra TextInfra { get { return __D_TextInfra; } set { __D_TextInfra = value; } }
-    protected Infra __D_TextInfra;
+    public virtual CharForm CharForm { get; set; }
+    protected virtual InfraInfra InfraInfra { get; set; }
+    protected virtual Infra TextInfra { get; set; }
     protected virtual int KindCount { get { return 5; } set { } }
-    protected int __D_KindCount;
-    protected virtual Array CountState { get { return __D_CountState; } set { __D_CountState = value; } }
-    protected Array __D_CountState;
-    protected virtual Array ResultState { get { return __D_ResultState; } set { __D_ResultState = value; } }
-    protected Array __D_ResultState;
-    protected virtual Array Array { get { return __D_Array; } set { __D_Array = value; } }
-    protected Array __D_Array;
-    protected virtual int ArrayIndex { get { return __D_ArrayIndex; } set { __D_ArrayIndex = value; } }
-    protected int __D_ArrayIndex;
+    protected virtual Array CountState { get; set; }
+    protected virtual Array ResultState { get; set; }
+    protected virtual Array Array { get; set; }
+    protected virtual int ArrayIndex { get; set; }
 
     protected virtual bool InitCountState()
     {
@@ -306,6 +300,9 @@ public class Format : Any
         Infra textInfra;
         textInfra = this.TextInfra;
 
+        CharForm charForm;
+        charForm = this.CharForm;
+
         Data destData;
         destData = result.Data;
         int destStart;
@@ -356,6 +353,8 @@ public class Format : Any
             }
             oc = (char)aa;
 
+            oc = (char)charForm.Execute(oc);
+
             textInfra.DataCharSet(destData, destIndex + i, oc);
 
             i = i + 1;
@@ -367,6 +366,9 @@ public class Format : Any
     {
         Infra textInfra;
         textInfra = this.TextInfra;
+
+        CharForm charForm;
+        charForm = this.CharForm;
 
         Data destData;
         destData = result.Data;
@@ -380,7 +382,12 @@ public class Format : Any
         {
             if (!(valueWriteCount == 0))
             {
-                textInfra.DataCharSet(destData, destIndex, '0');
+                char occ;
+                occ = '0';
+
+                occ = (char)charForm.Execute(occ);
+
+                textInfra.DataCharSet(destData, destIndex, occ);
             }
             return true;
         }
@@ -431,6 +438,8 @@ public class Format : Any
 
                 c = textInfra.DigitChar(digit, letterDigitStart);
 
+                c = (char)charForm.Execute(c);
+
                 oa = index - valueIndex;
 
                 textInfra.DataCharSet(destData, destIndex + oa, c);
@@ -447,6 +456,9 @@ public class Format : Any
     {
         Infra textInfra;
         textInfra = this.TextInfra;
+
+        CharForm charForm;
+        charForm = this.CharForm;
 
         Data sourceData;
         sourceData = value.Data;
@@ -493,6 +505,8 @@ public class Format : Any
                 }
             }
             oc = (char)aa;
+
+            oc = (char)charForm.Execute(oc);
 
             textInfra.DataCharSet(destData, destIndex + i, oc);
 
