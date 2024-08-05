@@ -220,4 +220,23 @@ public class Infra : Any
         }
         return true;
     }
+
+    public virtual StringCompare StringCompareCreate()
+    {
+        CompareMid charCompare;
+        charCompare = new CompareMid();
+        charCompare.Init();
+
+        CharForm charForm;
+        charForm = new CharForm();
+        charForm.Init();
+
+        StringCompare a;
+        a = new StringCompare();
+        a.CharCompare = charCompare;
+        a.CharForm = charForm;
+        a.Init();
+
+        return a;
+    }
 }
