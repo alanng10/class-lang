@@ -1,8 +1,5 @@
 global using Any = Avalon.Infra.Any;
 global using StringJoin = Avalon.Infra.StringJoin;
-global using IntCompare = Avalon.Infra.CompareMid;
-global using StringCompare = Avalon.Infra.StringCompare;
-global using List = Avalon.List.List;
 global using Array = Avalon.List.Array;
 global using Table = Avalon.List.Table;
 global using Iter = Avalon.List.Iter;
