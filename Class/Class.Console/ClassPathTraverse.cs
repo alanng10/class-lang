@@ -19,8 +19,8 @@ public partial class ClassPathTraverse : Traverse
         this.StringDataB = new StringData();
         this.StringDataB.Init();
 
-        IntCompare charCompare;
-        charCompare = new IntCompare();
+        CompareMid charCompare;
+        charCompare = new CompareMid();
         charCompare.Init();
         this.TextCompare = new TextCompare();
         this.TextCompare.CharCompare = charCompare;

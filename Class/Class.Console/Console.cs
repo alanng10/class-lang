@@ -51,8 +51,8 @@ public class Console : Any
         this.StringDataB = new StringData();
         this.StringDataB.Init();
 
-        IntCompare charCompare;
-        charCompare = new IntCompare();
+        CompareMid charCompare;
+        charCompare = new CompareMid();
         charCompare.Init();
         this.TextCompare = new TextCompare();
         this.TextCompare.CharCompare = charCompare;
@@ -853,8 +853,8 @@ public class Console : Any
         range.Init();
         range.Count = count;
 
-        IntCompare charCompare;
-        charCompare = new IntCompare();
+        CompareMid charCompare;
+        charCompare = new CompareMid();
         charCompare.Init();
 
         StringCompare compare;
