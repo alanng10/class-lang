@@ -11,12 +11,13 @@ public class NameCheck : Any
         this.CharCompare = new CompareMid();
         this.CharCompare.Init();
 
-        this.TextCompare = new TextCompare();
-        this.TextCompare.CharCompare = this.CharCompare;
-        this.TextCompare.Init();
-
         this.CharForm = new CharForm();
         this.CharForm.Init();
+
+        this.TextCompare = new TextCompare();
+        this.TextCompare.CharCompare = this.CharCompare;
+        this.TextCompare.CharForm = this.CharForm;
+        this.TextCompare.Init();
 
         this.StringData = new StringData();
         this.StringData.Init();
