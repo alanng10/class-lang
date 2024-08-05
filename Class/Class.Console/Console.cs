@@ -334,6 +334,7 @@ public class Console : Any
         PortLoad a;
         a = new PortLoad();
         a.Init();
+        a.NameCheck = this.NameCheck;
         return a;
     }
     
