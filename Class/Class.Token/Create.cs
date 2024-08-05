@@ -232,7 +232,7 @@ public class Create : InfraCreate
                     isValid = true;
                 }
 
-                if (textInfra.IsLetter(c, false) | textInfra.IsLetter(c, true) | textInfra.IsDigit(c) | c == '_')
+                if (textInfra.IsLetter(c, false) | textInfra.IsLetter(c, true) | textInfra.IsDigit(c))
                 {
                     if (this.NullRange())
                     {
