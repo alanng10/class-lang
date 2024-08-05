@@ -33,11 +33,11 @@ public class NameCheck : Any
         return true;
     }
 
+    public virtual TextCompare TextCompare { get; set; }
+    public virtual CompareMid CharCompare { get; set; }
+    public virtual CharForm CharForm { get; set; }
     protected virtual TextInfra TextInfra { get; set; }
     protected virtual KeywordList Keyword { get; set; }
-    protected virtual TextCompare TextCompare { get; set; }
-    protected virtual CompareMid CharCompare { get; set; }
-    protected virtual CharForm CharForm { get; set; }
     protected virtual StringData StringData { get; set; }
     protected virtual Text Text { get; set; }
     protected virtual Text DotText { get; set; }
