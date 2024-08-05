@@ -235,6 +235,7 @@ public class Infra : Any
         a = new StringCompare();
         a.CharCompare = charCompare;
         a.LeftCharForm = charForm;
+        a.RightCharForm = charForm;
         a.Init();
 
         return a;
