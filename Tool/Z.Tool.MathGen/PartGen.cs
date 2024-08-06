@@ -14,9 +14,11 @@ class PartGen : Any
     protected virtual string PartFilePath { get; set; }
     protected virtual string MaideFilePath { get; set; }
     protected virtual string MaideTwoFilePath { get; set; }
+    protected virtual string MaideOperateFilePath { get; set; }
     protected virtual string TextPart { get; set; }
     protected virtual string TextMaide { get; set; }
     protected virtual string TextMaideTwo { get; set; }
+    protected virtual string TextMaideOperate { get; set; }
     protected virtual string OutputFilePath { get; set; }
 
     public virtual bool Execute()
@@ -27,6 +29,11 @@ class PartGen : Any
         this.TextPart = toolInfra.StorageTextRead(this.PartFilePath);
         this.TextMaide = toolInfra.StorageTextRead(this.MaideFilePath);
         this.TextMaideTwo = toolInfra.StorageTextRead(this.MaideTwoFilePath);
+
+        if (!(this.MaideOperateFilePath == null))
+        {
+            this.TextMaideOperate = toolInfra.StorageTextRead(this.MaideOperateFilePath);
+        }
 
         string k;
         k = this.GetPart();
@@ -94,49 +101,53 @@ class PartGen : Any
 
     protected virtual string MaideString(Maide maide)
     {
+        string name;
+        name = maide.Name;
+
+        string delimit;
+        delimit = maide.OperateDelimit;
+
         bool b;
         b = maide.OperandTwo;
+
+        bool ba;
+        ba = (delimit == null);
 
         string k;
         k = null;
 
-        if (!b)
-        {
-            k = this.TextMaide;
-        }
-
-        if (b)
-        {
-            k = this.TextMaideTwo;
-        }
-
-        string ka;
-        ka = maide.Name;
-
-        bool ba;
-        ba = maide.FuncPrivate;
-
-        string kb;
-        kb = null;
+        string func;
+        func = null;
 
         if (ba)
         {
-            kb = this.FuncPrivateName(ka);
-        }   
+            if (!b)
+            {
+                k = this.TextMaide;
+            }
+
+            if (b)
+            {
+                k = this.TextMaideTwo;
+            }
+
+            delimit = "";
+
+            func = this.FuncLibName(name);
+        }
+
         if (!ba)
         {
-            kb = this.FuncLibName(ka);
-        }     
+            k = this.TextMaideOperate;
 
-        k = k.Replace("#Name#", ka);
-        k = k.Replace("#Func#", kb);
+            func = "";
+        }
+
+        k = k.Replace("#Name#", name);
+        k = k.Replace("#Func#", func);
+        k = k.Replace("#Delimit#", delimit);
 
         return k;
-    }
-
-    protected virtual string FuncPrivateName(string name)
-    {
-        return name;
     }
 
     protected virtual string FuncLibName(string name)
