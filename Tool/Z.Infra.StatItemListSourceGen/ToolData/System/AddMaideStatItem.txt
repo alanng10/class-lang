@@ -9,6 +9,6 @@
         item.Index : index;
         item.Intern : o;
         this.Array.SetAt(index, item);
-        this.Index = index + 1;
+        this.Index : index + 1;
         return item;
     }
