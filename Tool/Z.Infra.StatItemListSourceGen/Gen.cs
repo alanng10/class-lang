@@ -25,7 +25,7 @@ public class Gen : SourceGen
 
     protected virtual string GetOutputFilePath()
     {
-        return "../../Avalon/" + this.Namespace + "/" + this.ClassName + ".cs";
+        return "../../../System/" + this.Namespace + "/" + this.ClassName + ".cla";
     }
 
     protected override TableEntry GetItemEntry(string line)
@@ -55,7 +55,7 @@ public class Gen : SourceGen
     {
         sb.Append("AddItem")
             .Append("(")
-            .Append("varExtern.Stat_" + StatItemClassName + index).Append("(").Append("stat").Append(")")
+            .Append("varExtern.Stat_" + this.StatItemClassName + index).Append("(").Append("stat").Append(")")
             .Append(")");
         return true;
     }

@@ -55,7 +55,7 @@ public class AvalonGen : AvalonSourceGen
     {
         sb.Append("AddItem")
             .Append("(")
-            .Append("Extern.Stat_" + StatItemClassName + index).Append("(").Append("stat").Append(")")
+            .Append("Extern.Stat_" + this.StatItemClassName + index).Append("(").Append("stat").Append(")")
             .Append(")");
         return true;
     }
