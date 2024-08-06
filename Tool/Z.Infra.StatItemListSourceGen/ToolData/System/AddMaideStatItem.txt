@@ -1,0 +1,14 @@
+    maide precate #ItemClassName# AddItem(var Int o)
+    {
+        var Int index;
+        index : this.Index;
+
+        var #ItemClassName# item;
+        item : new #ItemClassName#;
+        item.Init();
+        item.Index : index;
+        item.Intern : o;
+        this.Array.SetAt(index, item);
+        this.Index = index + 1;
+        return item;
+    }
