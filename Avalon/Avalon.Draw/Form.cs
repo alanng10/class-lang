@@ -84,9 +84,10 @@ public class Form : Any
     {
         ulong u;
         u = Extern.Form_IsIdentity(this.Intern);
-        bool b;
-        b = (!(u == 0));
-        return b;
+        
+        bool a;
+        a = !(u == 0);
+        return a;
     }
 
     public virtual bool Offset(long left, long up)
@@ -95,16 +96,26 @@ public class Form : Any
         ulong upU;
         leftU = (ulong)left;
         upU = (ulong)up;
-        Extern.Form_Offset(this.Intern, leftU, upU);
-        return true;
+        
+        ulong u;
+        u = Extern.Form_Offset(this.Intern, leftU, upU);
+
+        bool a;
+        a = !(u == 0);
+        return a;
     }
 
     public virtual bool Rotate(long angle)
     {
         ulong angleU;
         angleU = (ulong)angle;
-        Extern.Form_Rotate(this.Intern, angleU);
-        return true;
+
+        ulong u;
+        u = Extern.Form_Rotate(this.Intern, angleU);
+
+        bool a;
+        a = !(u == 0);
+        return a;
     }
 
     public virtual bool Scale(long horizScale, long vertScale)
@@ -113,8 +124,13 @@ public class Form : Any
         ulong vertScaleU;
         horizScaleU = (ulong)horizScale;
         vertScaleU = (ulong)vertScale;
-        Extern.Form_Scale(this.Intern, horizScaleU, vertScaleU);
-        return true;
+
+        ulong u;
+        u = Extern.Form_Scale(this.Intern, horizScaleU, vertScaleU);
+
+        bool a;
+        a = !(u == 0);
+        return a;
     }
 
     public virtual bool Multiply(Form other)
