@@ -1,9 +1,12 @@
-    protected virtual #ItemClassName# AddItem()
+    maide precate #ItemClassName# AddItem()
     {
-        #ItemClassName# item;
-        item = new #ItemClassName#();
+        var Int index;
+        index : this.Index;
+
+        var #ItemClassName# item;
+        item : new #ItemClassName#;
         item.Init();
-        this.Array.SetAt(this.Index, item);
-        this.Index = this.Index + 1;
+        this.Array.SetAt(index, item);
+        this.Index : index + 1;
         return item;
     }
