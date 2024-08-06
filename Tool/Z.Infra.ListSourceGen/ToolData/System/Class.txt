@@ -1,6 +1,6 @@
 class #ClassName# : #BaseClassName#
 {
-#InitMethod#
+#InitMaide#
 #FieldList#
-#AddMethod#
+#AddMaide#
 #ArrayCompList#}

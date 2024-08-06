@@ -1,20 +1,20 @@
-    protected virtual bool InitArray()
+    maide precate Bool InitArray()
     {
-        this.Array = new #ArrayClassName#();
-        this.Array.Count = this.ArrayCount;
+        this.Array : new #ArrayClassName#;
+        this.Array.Count : this.ArrayCount;
         this.Array.Init();
         return true;
     }
 
-    protected virtual #ArrayClassName# Array { get; set; }
+    field precate #ArrayClassName# Array { get { return data; } set { data : value; } }
 
-    protected virtual int ArrayCount { get { return #ArrayCount#; } set { } }
+    field precate Int ArrayCount { get { return #ArrayCount#; } set { } }
 
-    public virtual int Count { get; set; }
+    field prudate Int Count { get { return data; } set { data : value; } }
     
-    protected virtual int Index { get; set; }
+    field precate Int Index { get { return data; } set { data : value; } }
 
-    public virtual #ItemClassName# Get(int index)
+    maide prudate #ItemClassName# Get(var Int index)
     {
-        return (#ItemClassName#)this.Array.GetAt(index);
+        return cast #ItemClassName#(this.Array.GetAt(index));
     }

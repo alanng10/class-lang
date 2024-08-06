@@ -57,7 +57,7 @@ public class Gen : Any
 
         string initMethodText;
         initMethodText = this.GetInitMethod();
-        sb.Replace("#InitMethod#", initMethodText);
+        sb.Replace("#InitMaide#", initMethodText);
 
         string fieldListText;
         fieldListText = this.GetFieldList();
@@ -65,7 +65,7 @@ public class Gen : Any
 
         string addMethodText;
         addMethodText = this.GetAddMethod();
-        sb.Replace("#AddMethod#", addMethodText);
+        sb.Replace("#AddMaide#", addMethodText);
 
         string arrayCompListText;
         arrayCompListText = this.GetArrayCompList();
