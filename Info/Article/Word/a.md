@@ -56,6 +56,8 @@ Word "param" has meaning that is call input.
 
 Word "call" has meaning that is trigger maide.
 
+Word "part" has meaning that is comp list.
+
 Word "get" has meaning that is trigger got.
 
 Word "set" has meaning that is trigger assign got.
