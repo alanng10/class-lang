@@ -104,7 +104,7 @@ Int Form_ValueSet(Int o, Int row, Int col, Int value)
     }
 
     QTransform* k;
-    k = (m->Intern);
+    k = m->Intern;
 
     qreal array[3][3] =
     {
