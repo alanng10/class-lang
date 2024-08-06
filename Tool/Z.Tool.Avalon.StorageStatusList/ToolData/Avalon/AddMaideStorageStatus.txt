@@ -1,0 +1,13 @@
+    protected virtual #ItemClassName# AddItem()
+    {
+        int index;
+        index = this.Index;
+
+        #ItemClassName# item;
+        item = new #ItemClassName#();
+        item.Init();
+        item.Index = index;
+        this.Array.SetAt(index, item);
+        this.Index = index + 1;
+        return item;
+    }
