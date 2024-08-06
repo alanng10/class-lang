@@ -1,19 +1,5 @@
-namespace #Namespace#;
-
-#Export#class #ClassName# : #BaseClassName#
+class #ClassName# : #BaseClassName#
 {
-    public static #ClassName# This { get; } = ShareCreate();
-
-    private static #ClassName# ShareCreate()
-    {
-        #ClassName# share;
-        share = new #ClassName#();
-        #AnyClassName# a;
-        a = share;
-        a.Init();
-        return share;
-    }
-
 #InitMethod#
 #FieldList#
 #AddMethod#
