@@ -5,8 +5,8 @@ public class Gen : SourceGen
     public override bool Init()
     {
         base.Init();
-        this.AddMethodFileName = "ToolData/AddMethodStatItem.txt";
-        this.InitMethodFileName = "ToolData/InitMethodStatItem.txt";
+        this.AddMethodFileName = "ToolData/System/AddMaideStatItem.txt";
+        this.InitMethodFileName = "ToolData/System/InitMaideStatItem.txt";
         return true;
     }
 
