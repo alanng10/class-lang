@@ -15,6 +15,16 @@ public class Create : InfraCreate
         this.ErrorKind = ErrorKindList.This;
         this.NodeKind = NodeKindList.This;
 
+        this.CharCompare = new CompareMid();
+        this.CharCompare.Init();
+        this.CharForm = new CharForm();
+        this.CharForm.Init();
+        this.TextCompare = new TextCompare();
+        this.TextCompare.CharCompare = this.CharCompare;
+        this.TextCompare.LeftCharForm = this.CharForm;
+        this.TextCompare.RightCharForm = this.CharForm;
+        this.TextCompare.Init();
+
         this.NameCheck = this.CreateNameCheck();
         this.StringValueWrite = this.CreateStringValueWrite();
 
@@ -36,12 +46,6 @@ public class Create : InfraCreate
         this.TokenG = this.CreateToken();
         this.TokenH = this.CreateToken();
         this.TokenI = this.CreateToken();
-
-        this.CharCompare = new CompareMid();
-        this.CharCompare.Init();
-        this.TextCompare = new TextCompare();
-        this.TextCompare.CharCompare = this.CharCompare;
-        this.TextCompare.Init();
 
         this.TextA = this.CreateText();
         this.TextB = this.CreateText();
@@ -101,6 +105,7 @@ public class Create : InfraCreate
 
     protected virtual TextCompare TextCompare { get; set; }
     protected virtual CompareMid CharCompare { get; set; }
+    protected virtual CharForm CharForm { get; set; }
     protected virtual Text TextA { get; set; }
     protected virtual Text TextB { get; set; }
     protected virtual StringData StringData { get; set; }
@@ -123,6 +128,9 @@ public class Create : InfraCreate
         NameCheck a;
         a = new NameCheck();
         a.Init();
+        a.TextCompare = this.TextCompare;
+        a.CharCompare = this.CharCompare;
+        a.CharForm = this.CharForm;
         return a;
     }
 
