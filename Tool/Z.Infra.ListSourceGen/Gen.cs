@@ -157,7 +157,7 @@ public class Gen : Any
     {
         this.ToolInfra.AppendIndent(sb, 2);
 
-        sb.Append("this").Append(".").Append(index).Append(" ").Append("=").Append(" ").Append("this").Append(".");
+        sb.Append("this").Append(".").Append(index).Append(" ").Append(":").Append(" ").Append("this").Append(".");
 
         this.AppendInitFieldAddItem(sb, index, value);
 
@@ -195,9 +195,14 @@ public class Gen : Any
     {
         this.ToolInfra.AppendIndent(sb, 1);
         sb
-            .Append("public").Append(" ").Append("virtual").Append(" ")
+            .Append("field").Append(" ").Append("prudate").Append(" ")
             .Append(this.ItemClassName).Append(" ").Append(item).Append(" ")
-            .Append("{").Append(" ").Append("get").Append(";").Append(" ").Append("set").Append(";").Append(" ").Append("}")
+            .Append("{").Append(" ")
+            .Append("get").Append(" ").Append("{").Append(" ").Append("return").Append(" ").Append("data").Append(";").Append(" ").Append("}")
+            .Append(" ")
+            .Append("set").Append(" ").Append("{").Append(" ").Append("data").Append(" ").Append(":").Append(" ").Append("value").Append(";").Append(" ").Append("}")
+            .Append(" ")
+            .Append("}")
             .Append(this.ToolInfra.NewLine);
         return true;
     }
