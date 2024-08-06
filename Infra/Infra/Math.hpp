@@ -66,19 +66,18 @@ Int Math_##name(Int o, Int valueA, Int valueB)\
 }\
 
 
-#define MathMaideOperateRefer(name, op) double Math_Private##name(double valueA, double valueB)
-
 #define MathMaideOperate(name, op) \
-MathMaideOperateRefer(name, op)\
+Int Math_##name(Int o, Int valueA, Int valueB)\
 {\
-    double a;\
-    a = valueA op valueB;\
-    return a;\
+    ValidValue(valueA);\
+    ValidValue(valueB);\
+    Start(valueA, ua);\
+    Start(valueB, ub);\
+    double oo;\
+    oo = valueA op valueB;\
+    ValidDouble(oo);\
+    End;\
 }\
 
-Int Math_GetValueFromComp(Int o, Int significand, Int exponent);
 
-MathMaideOperateRefer(Add, +);
-MathMaideOperateRefer(Sub, -);
-MathMaideOperateRefer(Mul, *);
-MathMaideOperateRefer(Div, /);
+Int Math_GetValueFromComp(Int o, Int significand, Int exponent);
