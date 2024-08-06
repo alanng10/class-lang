@@ -97,7 +97,7 @@ public class Read : Any
             string[] uu;
             uu = a.Split(' ');
             
-            if (!(uu.Length == 3))
+            if (!(uu.Length == 4))
             {
                 return false;
             }
@@ -117,8 +117,16 @@ public class Read : Any
             bool bb;
             bb = toolInfra.GetBool(kb);
 
+            string kc;
+            kc = null;
+            
+            if (bb)
+            {
+                kc = uu[3];
+            }
+
             Maide maide;
-            maide = this.CreateMaide(name, ba, bb);
+            maide = this.CreateMaide(name, ba, kc);
 
             if (table.Valid(name))
             {
@@ -153,7 +161,7 @@ public class Read : Any
             name = pre + k + post;
 
             Maide maide;
-            maide = this.CreateMaide(name, false, false);
+            maide = this.CreateMaide(name, false, null);
 
             if (table.Valid(name))
             {
@@ -165,14 +173,14 @@ public class Read : Any
         return true;
     }
 
-    protected virtual Maide CreateMaide(string name, bool operandTwo, bool funcPrivate)
+    protected virtual Maide CreateMaide(string name, bool operandTwo, string operateDelimit)
     {
         Maide a;
         a = new Maide();
         a.Init();
         a.Name = name;
         a.OperandTwo = operandTwo;
-        a.FuncPrivate = funcPrivate;
+        a.OperateDelimit = operateDelimit;
         return a;
     }
 
