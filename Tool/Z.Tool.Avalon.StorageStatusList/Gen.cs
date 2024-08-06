@@ -1,6 +1,6 @@
 namespace Z.Tool.Avalon.StorageStatusList;
 
-public class Gen : AvalonSourceGen
+public class Gen : SourceGen
 {
     public override bool Init()
     {
