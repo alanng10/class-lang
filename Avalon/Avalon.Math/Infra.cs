@@ -16,7 +16,7 @@ public class Infra : Any
 
     public virtual long Int(Math math, Comp comp, long value)
     {
-        comp.Significand = value;
+        comp.Cand = value;
         comp.Expo = 0;
 
         long a;

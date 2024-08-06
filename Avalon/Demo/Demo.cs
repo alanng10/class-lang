@@ -334,7 +334,7 @@ class Demo : Any
         aaa = this.Math.Cos(0);
         this.ConsoleWriteMathValue("Demo.ExecuteMath Cos(0): ", aaa);
 
-        ca.Significand = 0x3243F6A8885;
+        ca.Cand = 0x3243F6A8885;
         ca.Expo = -40;
 
         long pi;
@@ -386,7 +386,7 @@ class Demo : Any
         this.Math.Comp(this.MathComp, value);
         
         this.Console.Out.Write(prefix +
-        "Significand: " + this.MathComp.Significand.ToString("x") + ", " +
+        "Significand: " + this.MathComp.Cand.ToString("x") + ", " +
         "Exponent: " + this.MathComp.Expo +
         "\n");
         return true;
@@ -1436,7 +1436,7 @@ class Demo : Any
         MathComp mathComp;
         mathComp = this.MathComp;
 
-        mathComp.Significand = significand;
+        mathComp.Cand = significand;
         mathComp.Expo = exponent;
 
         long a;

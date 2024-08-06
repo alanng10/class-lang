@@ -423,7 +423,7 @@ public class View : Comp
         MathComp mathComp;
         mathComp = this.MathComp;
 
-        mathComp.Significand = significand;
+        mathComp.Cand = significand;
         mathComp.Expo = exponent;
 
         long a;

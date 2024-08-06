@@ -18,7 +18,7 @@ public partial class Math : Any
     public virtual long Value(Comp comp)
     {
         long aa;
-        aa = comp.Significand;
+        aa = comp.Cand;
         long ab;
         ab = comp.Expo;
 
@@ -59,7 +59,7 @@ public partial class Math : Any
         s = (long)(u.Significand);
         e = (long)(u.Exponent);
 
-        result.Significand = s;
+        result.Cand = s;
         result.Expo = e;
         return true;
     }

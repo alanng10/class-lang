@@ -485,7 +485,7 @@ public class Draw : Any
         MathComp mathComp;
         mathComp = this.MathComp;
 
-        mathComp.Significand = significand;
+        mathComp.Cand = significand;
         mathComp.Expo = exponent;
 
         long a;
