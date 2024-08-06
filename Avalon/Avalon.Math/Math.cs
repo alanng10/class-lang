@@ -34,12 +34,12 @@ public partial class Math : Any
         return a;
     }
 
-    public virtual long ValueTen(long significand, long exponentTen)
+    public virtual long ValueTen(long cand, long expoTen)
     {
         ulong ua;
         ulong ub;
-        ua = (ulong)significand;
-        ub = (ulong)exponentTen;
+        ua = (ulong)cand;
+        ub = (ulong)expoTen;
 
         ulong u;
         u = Extern.Math_ValueTen(this.Intern, ua, ub);
