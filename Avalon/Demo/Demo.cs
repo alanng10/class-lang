@@ -335,7 +335,7 @@ class Demo : Any
         this.ConsoleWriteMathValue("Demo.ExecuteMath Cos(0): ", aaa);
 
         ca.Significand = 0x3243F6A8885;
-        ca.Exponent = -40;
+        ca.Expo = -40;
 
         long pi;
         pi = this.Math.Value(ca);
@@ -345,7 +345,7 @@ class Demo : Any
         ab = this.Math.Sin(pi);
         this.ConsoleWriteMathValue("Demo.ExecuteMath Sin(pi): ", ab);
 
-        ca.Exponent = -41;
+        ca.Expo = -41;
 
         long piHalf;
         piHalf = this.Math.Value(ca);
@@ -359,7 +359,7 @@ class Demo : Any
         ad = this.Math.Tan(0);
         this.ConsoleWriteMathValue("Demo.ExecuteMath Tan(0): ", ad);
 
-        ca.Exponent = -42;
+        ca.Expo = -42;
 
         long piQuarter;
         piQuarter = this.Math.Value(ca);
@@ -387,7 +387,7 @@ class Demo : Any
         
         this.Console.Out.Write(prefix +
         "Significand: " + this.MathComp.Significand.ToString("x") + ", " +
-        "Exponent: " + this.MathComp.Exponent +
+        "Exponent: " + this.MathComp.Expo +
         "\n");
         return true;
     }
@@ -1437,7 +1437,7 @@ class Demo : Any
         mathComp = this.MathComp;
 
         mathComp.Significand = significand;
-        mathComp.Exponent = exponent;
+        mathComp.Expo = exponent;
 
         long a;
         a = this.Math.Value(mathComp);

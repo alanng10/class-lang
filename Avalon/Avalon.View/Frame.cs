@@ -352,7 +352,7 @@ public class Frame : Comp
         mathComp = this.MathComp;
 
         mathComp.Significand = significand;
-        mathComp.Exponent = exponent;
+        mathComp.Expo = exponent;
 
         long a;
         a = this.Math.Value(mathComp);

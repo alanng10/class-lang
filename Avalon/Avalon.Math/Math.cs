@@ -20,7 +20,7 @@ public partial class Math : Any
         long aa;
         aa = comp.Significand;
         long ab;
-        ab = comp.Exponent;
+        ab = comp.Expo;
 
         ulong ua;
         ulong ub;
@@ -60,7 +60,7 @@ public partial class Math : Any
         e = (long)(u.Exponent);
 
         result.Significand = s;
-        result.Exponent = e;
+        result.Expo = e;
         return true;
     }
 
