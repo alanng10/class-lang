@@ -17,7 +17,6 @@ HEADERS += \
     Entry.h \
     Face.hpp \
     Form.hpp \
-    FormIntern.hpp \
     Format.h \
     FormatArg.h \
     Frame.hpp \
