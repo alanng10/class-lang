@@ -1,4 +1,4 @@
-namespace Z.Tool.Avalon.StorageStatusList;
+namespace Z.Tool.System.StorageStatusList;
 
 class Entry : EntryEntry
 {
