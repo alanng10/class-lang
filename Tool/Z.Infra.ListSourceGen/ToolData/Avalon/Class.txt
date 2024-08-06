@@ -14,7 +14,7 @@ namespace #Namespace#;
         return share;
     }
 
-#InitMethod#
+#InitMaide#
 #FieldList#
-#AddMethod#
+#AddMaide#
 #ArrayCompList#}
