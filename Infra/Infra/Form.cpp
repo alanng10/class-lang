@@ -33,9 +33,11 @@ Int Form_Offset(Int o, Int offsetLeft, Int offsetUp)
 {
     Form* m;
     m = CP(o);
+    ValidValue(offsetLeft);
     InternValue(offsetLeft);
     ValidDouble(offsetLeftU);
 
+    ValidValue(offsetUp);
     InternValue(offsetUp);
     ValidDouble(offsetUpU);
 
@@ -47,9 +49,11 @@ Int Form_Scale(Int o, Int horizScale, Int vertScale)
 {
     Form* m;
     m = CP(o);
+    ValidValue(horizScale);
     InternValue(horizScale);
     ValidDouble(horizScaleU);
 
+    ValidValue(vertScale);
     InternValue(vertScale);
     ValidDouble(vertScaleU);
 
@@ -61,6 +65,7 @@ Int Form_Rotate(Int o, Int angle)
 {
     Form* m;
     m = CP(o);
+    ValidValue(angle);
     InternValue(angle);
     ValidDouble(angleU);
 
@@ -98,10 +103,7 @@ Int Form_ValueSet(Int o, Int row, Int col, Int value)
     Form* m;
     m = CP(o);
 
-    if (value == CastInt(-1))
-    {
-        return false;
-    }
+    ValidValue(value);
 
     InternValue(value);
 
@@ -201,21 +203,6 @@ Int Form_Transpose(Int o, Int result)
 
     *(aa->Intern) = uu;
     return true;
-}
-
-Int Form_Determinant(Int o)
-{
-    Form* m;
-    m = CP(o);
-
-    qreal u;
-    u = m->Intern->determinant();
-
-    ValueFromInternValue(u);
-
-    Int a;
-    a = uA;
-    return a;
 }
 
 Int Form_Intern(Int o)

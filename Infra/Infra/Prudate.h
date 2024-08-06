@@ -388,7 +388,6 @@ Infra_Api Int Form_IsIdentity(Int o);
 Infra_Api Int Form_IsInvertible(Int o);
 Infra_Api Int Form_Invert(Int o, Int result);
 Infra_Api Int Form_Transpose(Int o, Int result);
-Infra_Api Int Form_Determinant(Int o);
 
 InfraApiNew(Gradient)
 Infra_Api Int Gradient_KindGet(Int o);

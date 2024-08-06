@@ -11,6 +11,13 @@ struct Form
 
 #define CP(a) ((Form*)(a))
 
+#define ValidValue(a) \
+if (a == CastInt(-1))\
+{\
+    return false;\
+}\
+
+
 #define ValidDouble(a) \
 if (std::isnan(a) | std::isinf(a))\
 {\
