@@ -8,8 +8,8 @@ public class Gen : Any
         this.ToolInfra = ToolInfra.This;
 
         this.ClassFileName = "ToolData/System/Class.txt";
-        this.InitMethodFileName = "ToolData/System/InitMethod.txt";
-        this.AddMethodFileName = "ToolData/System/AddMethod.txt";
+        this.InitMethodFileName = "ToolData/System/InitMaide.txt";
+        this.AddMethodFileName = "ToolData/System/AddMaide.txt";
         this.ArrayCompListFileName = "ToolData/System/ArrayCompList.txt";
         this.ItemListFileName = "ToolData/System/ItemList.txt";
         return true;
