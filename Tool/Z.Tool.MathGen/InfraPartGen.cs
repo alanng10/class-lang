@@ -9,13 +9,9 @@ class InfraPartGen : PartGen
         this.PartFilePath = "ToolData/Math/InfraPart.txt";
         this.MaideFilePath = "ToolData/Math/InfraMaide.txt";
         this.MaideTwoFilePath = "ToolData/Math/InfraMaideTwo.txt";
+        this.MaideOperateFilePath = "ToolData/Math/InfraMaideOperate.txt";
         this.OutputFilePath = "../../Infra/Infra/Math_Part.cpp";
         return true;
-    }
-
-    protected override string FuncPrivateName(string name)
-    {
-        return "Math_Private" + name;
     }
 
     protected override string FuncLibName(string name)
