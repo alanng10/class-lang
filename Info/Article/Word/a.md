@@ -148,6 +148,10 @@ Word "array" has meaning that is indexed list.
 
 Word "math" has meaning that is calculate.
 
+Word "cand" has meaning that is represent significand.
+
+Word "expo" has meaning that is represent exponent.
+
 Word "rand" has meaning that is which ever int.
 
 Word "text" has meaning that is string lines.
