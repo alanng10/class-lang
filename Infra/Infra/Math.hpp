@@ -74,7 +74,7 @@ Int Math_##name(Int o, Int valueA, Int valueB)\
     Start(valueA, ua);\
     Start(valueB, ub);\
     double oo;\
-    oo = valueA op valueB;\
+    oo = ua op ub;\
     ValidDouble(oo);\
     End;\
 }\
