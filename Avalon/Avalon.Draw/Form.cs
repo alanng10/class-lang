@@ -63,7 +63,14 @@ public class Form : Any
         c = (ulong)col;
         ulong u;
         u = (ulong)value;
-        Extern.Form_ValueSet(this.Intern, r, c, u);
+
+        ulong k;
+        k = Extern.Form_ValueSet(this.Intern, r, c, u);
+
+        if (k == 0)
+        {
+            return false;
+        }
         return true;
     }
 
