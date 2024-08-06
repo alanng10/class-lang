@@ -98,6 +98,11 @@ Int Form_ValueSet(Int o, Int row, Int col, Int value)
 
     InternValue(value);
 
+    if (std::isnan(valueU) | std::isinf(valueU))\
+    {
+        return false;
+    }
+
     QTransform* k;
     k = (m->Intern);
 
