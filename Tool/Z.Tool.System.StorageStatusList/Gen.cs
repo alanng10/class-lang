@@ -1,18 +1,27 @@
 namespace Z.Tool.System.StorageStatusList;
 
-class Gen : Any
+public class Gen : SourceGen
 {
-    public virtual int Execute()
+    public override bool Init()
     {
-        this.ExecuteGen(new AvalonGen());
-        this.ExecuteGen(new SystemGen());   
-        return 0;
+        base.Init();
+        this.Namespace = "System.Storage";
+        this.ClassName = "StatusList";
+        this.BaseClassName = "Any";
+        this.AnyClassName = "Any";
+        this.ItemClassName = "Status";
+        this.ArrayClassName = "Array";
+        this.Export = true;
+        this.StatItemClassName = "StorageStatus";
+        this.ItemListFileName = this.GetStatItemListFileName();
+        this.AddMethodFileName = "ToolData/System/AddMaideStorageStatus.txt";
+        this.InitMethodFileName = "ToolData/System/InitMaide.txt";
+        return true;
     }
 
-    protected virtual bool ExecuteGen(ListGen gen)
+    protected override bool AppendInitFieldAddItem(StringBuilder sb, string index, object value)
     {
-        gen.Init();
-        gen.Execute();
+        sb.Append("AddItem").Append("(").Append(")");
         return true;
     }
 }
