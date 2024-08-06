@@ -1,17 +1,17 @@
-Add true true
-Sub true true
-Mul true true
-Div true true
-Abs false false
-Exp false false
-Exp2 false false
-Log false false
-Log10 false false
-Log2 false false
-Pow true false
-Sqrt false false
-Ceil false false
-Floor false false
-Trunc false false
-Round false false
-ATan2 true false
+Add true true +
+Sub true true -
+Mul true true *
+Div true true /
+Abs false false 0
+Exp false false 0
+Exp2 false false 0
+Log false false 0
+Log10 false false 0
+Log2 false false 0
+Pow true false 0
+Sqrt false false 0
+Ceil false false 0
+Floor false false 0
+Trunc false false 0
+Round false false 0
+ATan2 true false 0
