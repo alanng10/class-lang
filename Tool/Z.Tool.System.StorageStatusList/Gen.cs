@@ -5,7 +5,7 @@ public class Gen : SourceGen
     public override bool Init()
     {
         base.Init();
-        this.Namespace = "Avalon.Storage";
+        this.Namespace = "System.Storage";
         this.ClassName = "StatusList";
         this.BaseClassName = "Any";
         this.AnyClassName = "Any";
@@ -14,8 +14,8 @@ public class Gen : SourceGen
         this.Export = true;
         this.StatItemClassName = "StorageStatus";
         this.ItemListFileName = this.GetStatItemListFileName();
-        this.AddMethodFileName = "ToolData/AddMethodStorageStatus.txt";
-        this.InitMethodFileName = "ToolData/InitMethod.txt";
+        this.AddMethodFileName = "ToolData/System/AddMaideStorageStatus.txt";
+        this.InitMethodFileName = "ToolData/System/InitMaide.txt";
         return true;
     }
 
