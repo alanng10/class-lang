@@ -34,7 +34,10 @@ Int Form_Offset(Int o, Int offsetLeft, Int offsetUp)
     Form* m;
     m = CP(o);
     InternValue(offsetLeft);
+    ValidDouble(offsetLeftU);
+
     InternValue(offsetUp);
+    ValidDouble(offsetUpU);
 
     m->Intern->translate(offsetLeftU, offsetUpU);
     return true;
@@ -45,7 +48,10 @@ Int Form_Scale(Int o, Int horizScale, Int vertScale)
     Form* m;
     m = CP(o);
     InternValue(horizScale);
+    ValidDouble(horizScaleU);
+
     InternValue(vertScale);
+    ValidDouble(vertScaleU);
 
     m->Intern->scale(horizScaleU, vertScaleU);
     return true;
@@ -56,6 +62,7 @@ Int Form_Rotate(Int o, Int angle)
     Form* m;
     m = CP(o);
     InternValue(angle);
+    ValidDouble(angleU);
 
     m->Intern->rotate(angleU);
     return true;
@@ -98,10 +105,7 @@ Int Form_ValueSet(Int o, Int row, Int col, Int value)
 
     InternValue(value);
 
-    if (std::isnan(valueU) | std::isinf(valueU))\
-    {
-        return false;
-    }
+    ValidDouble(valueU);
 
     QTransform* k;
     k = m->Intern;

@@ -10,3 +10,10 @@ struct Form
 };
 
 #define CP(a) ((Form*)(a))
+
+#define ValidDouble(a) \
+if (std::isnan(a) | std::isinf(a))\
+{\
+    return false;\
+}\
+
