@@ -29,11 +29,7 @@ class PartGen : Any
         this.TextPart = toolInfra.StorageTextRead(this.PartFilePath);
         this.TextMaide = toolInfra.StorageTextRead(this.MaideFilePath);
         this.TextMaideTwo = toolInfra.StorageTextRead(this.MaideTwoFilePath);
-
-        if (!(this.MaideOperateFilePath == null))
-        {
-            this.TextMaideOperate = toolInfra.StorageTextRead(this.MaideOperateFilePath);
-        }
+        this.TextMaideOperate = toolInfra.StorageTextRead(this.MaideOperateFilePath);
 
         string k;
         k = this.GetPart();
