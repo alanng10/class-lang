@@ -65,14 +65,19 @@ Int Form_ValueGet(Int o, Int row, Int col)
 {
     Form* m;
     m = CP(o);
-    FormIntern* uo;
-    uo = (FormIntern*)(m->Intern);
-
-    qreal* array;
-    array = uo->Value();
+    
+    QTransform* k;
+    k = m->Intern;
+    
+    qreal array[3][3] =
+    {
+        { k->m11(), k->m12(), k->m13() },
+        { k->m21(), k->m22(), k->m23() },
+        { k->m31(), k->m32(), k->m33() },
+    };
 
     qreal u;
-    u = array[row * 3 + col];
+    u = array[row][col];
 
     ValueFromInternValue(u);
 
@@ -85,15 +90,32 @@ Int Form_ValueSet(Int o, Int row, Int col, Int value)
 {
     Form* m;
     m = CP(o);
+
+    if (value == CastInt(-1))
+    {
+        return false;
+    }
+
     InternValue(value);
 
-    FormIntern* uo;
-    uo = (FormIntern*)(m->Intern);
+    QTransform* k;
+    k = (m->Intern);
 
-    qreal* array;
-    array = uo->Value();
+    qreal array[3][3] =
+    {
+        { k->m11(), k->m12(), k->m13() },
+        { k->m21(), k->m22(), k->m23() },
+        { k->m31(), k->m32(), k->m33() },
+    };
 
-    array[row * 3 + col] = valueU;
+    array[row][col] = valueU;
+
+    k->setMatrix(
+        array[0][0], array[0][1], array[0][2],
+        array[1][0], array[1][1], array[1][2],
+        array[2][0], array[2][1], array[2][2]
+    );
+
     return true;
 }
 

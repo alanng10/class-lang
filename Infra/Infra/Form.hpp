@@ -2,8 +2,6 @@
 
 #include <QTransform>
 
-#include "FormIntern.hpp"
-
 #include "Probate.hpp"
 
 struct Form
