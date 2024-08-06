@@ -1,9 +1,9 @@
 #include "Math.hpp"
 
-MathMaideTwo(Add, Math_PrivateAdd)
-MathMaideTwo(Sub, Math_PrivateSub)
-MathMaideTwo(Mul, Math_PrivateMul)
-MathMaideTwo(Div, Math_PrivateDiv)
+MathMaideOperate(Add, +)
+MathMaideOperate(Sub, -)
+MathMaideOperate(Mul, *)
+MathMaideOperate(Div, /)
 MathMaide(Abs, std::abs)
 MathMaide(Exp, std::exp)
 MathMaide(Exp2, std::exp2)
