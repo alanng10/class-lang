@@ -368,7 +368,6 @@ public static class Extern
     [DllImport(InfraLib)] public extern static ulong Form_IsInvertible(ulong o);
     [DllImport(InfraLib)] public extern static ulong Form_Invert(ulong o, ulong result);
     [DllImport(InfraLib)] public extern static ulong Form_Transpose(ulong o, ulong result);
-    [DllImport(InfraLib)] public extern static ulong Form_Determinant(ulong o);
 
     [DllImport(InfraLib)] public extern static ulong Gradient_New();
     [DllImport(InfraLib)] public extern static ulong Gradient_Delete(ulong o);
