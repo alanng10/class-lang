@@ -185,7 +185,6 @@ Form
     IsInvertible()
     Invert(result)
     Transpose(result)
-    Determinant()
 
 Gradient
     Kind
