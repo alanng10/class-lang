@@ -226,8 +226,3 @@ Int Math_Less(Int o, Int valueA, Int valueB)
     a = b;
     return a;
 }
-
-MathMaideOperate(Add, +)
-MathMaideOperate(Sub, -)
-MathMaideOperate(Mul, *)
-MathMaideOperate(Div, /)
