@@ -1,6 +1,6 @@
 # Class
 
-Class is a general purpose programming language.
+Class is an all purpose programming language.
 Class is used to create modules.
 Class consists of compiler modules, system modules, documentation, source code.
 Class is open source.
