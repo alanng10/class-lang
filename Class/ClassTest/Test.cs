@@ -100,12 +100,12 @@ public class Test : Any
 
     public virtual int Execute()
     {
-        // bool b;
-        // b = this.Console.Load();
-        // if (!b)
-        // {
-        //     return this.Console.Status;
-        // }
+        bool b;
+        b = this.Console.Load();
+        if (!b)
+        {
+            return this.Console.Status;
+        }
 
         this.SetWorkFold();
         

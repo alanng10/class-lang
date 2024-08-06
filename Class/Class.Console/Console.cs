@@ -153,58 +153,58 @@ public class Console : Any
 
     public virtual bool Load()
     {
-        List list;
-        list = new List();
-        list.Init();
+        // List list;
+        // list = new List();
+        // list.Init();
 
-        list.Add("System.Infra");
-        list.Add("System.List");
-        list.Add("System.Math");
-        list.Add("System.Text");
-        list.Add("System.Event");
-        list.Add("System.Comp");
-        list.Add("System.Thread");
-        list.Add("System.Stream");
-        list.Add("System.Type");
-        list.Add("System.Time");
-        list.Add("System.Storage");
-        list.Add("System.Network");
-        list.Add("System.Console");
-        list.Add("System.Draw");
-        list.Add("System.View");
-        list.Add("System.Media");
-        list.Add("System.Entry");
-        list.Add("Class.Infra");
-        list.Add("Class.Binary");
-        list.Add("Class.Info");
-        list.Add("Class.Port");
-        list.Add("Class.Token");
-        list.Add("Class.Node");
-        list.Add("Class.Module");
-        list.Add("Class.Console");
+        // list.Add("System.Infra");
+        // list.Add("System.List");
+        // list.Add("System.Math");
+        // list.Add("System.Text");
+        // list.Add("System.Event");
+        // list.Add("System.Comp");
+        // list.Add("System.Thread");
+        // list.Add("System.Stream");
+        // list.Add("System.Type");
+        // list.Add("System.Time");
+        // list.Add("System.Storage");
+        // list.Add("System.Network");
+        // list.Add("System.Console");
+        // list.Add("System.Draw");
+        // list.Add("System.View");
+        // list.Add("System.Media");
+        // list.Add("System.Entry");
+        // list.Add("Class.Infra");
+        // list.Add("Class.Binary");
+        // list.Add("Class.Info");
+        // list.Add("Class.Port");
+        // list.Add("Class.Token");
+        // list.Add("Class.Node");
+        // list.Add("Class.Module");
+        // list.Add("Class.Console");
 
-        Iter iter;
-        iter = list.IterCreate();
-        list.IterSet(iter);
-        while (iter.Next())
-        {
-            string a;
-            a = (string)iter.Value;
+        // Iter iter;
+        // iter = list.IterCreate();
+        // list.IterSet(iter);
+        // while (iter.Next())
+        // {
+        //     string a;
+        //     a = (string)iter.Value;
             
-            bool ba;
-            ba = this.InitBinary(a);
-            if (!ba)
-            {
-                return false;
-            }
-        }
+        //     bool ba;
+        //     ba = this.InitBinary(a);
+        //     if (!ba)
+        //     {
+        //         return false;
+        //     }
+        // }
 
         bool b;
-        b = this.InitModuleList();
-        if (!b)
-        {
-            return false;
-        }
+        // b = this.InitModuleList();
+        // if (!b)
+        // {
+        //     return false;
+        // }
 
         b = this.InfoGen.Load();
         if (!b)
