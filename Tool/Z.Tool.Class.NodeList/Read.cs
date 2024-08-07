@@ -8,8 +8,25 @@ class Read : Any
         this.ListInfra = ListInfra.This;
         this.ClassInfra = ClassInfra.This;
         this.ToolInfra = ToolInfra.This;
+
+        CompareMid charCompare;
+        charCompare = new CompareMid();
+        charCompare.Init();
+        CharForm charForm;
+        charForm = new CharForm();
+        charForm.Init();
+        TextCompare compare;
+        compare = new TextCompare();
+        compare.CharCompare = charCompare;
+        compare.LeftCharForm = charForm;
+        compare.RightCharForm = charForm;
+        compare.Init();
+
         this.NameCheck = new NameCheck();
         this.NameCheck.Init();
+        this.NameCheck.TextCompare = compare;
+        this.NameCheck.CharCompare = charCompare;
+        this.NameCheck.CharForm = charForm;
 
         this.TextA = this.CreateText();
         this.StringDataA = new StringData();
