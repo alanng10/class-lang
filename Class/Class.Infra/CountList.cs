@@ -22,15 +22,15 @@ public class CountList : Any
         this.Index = 0;
 
         this.Prudate = this.AddItem();
-        this.Probate = this.AddItem();
         this.Precate = this.AddItem();
+        this.Probate = this.AddItem();
         this.Private = this.AddItem();
         return true;
     }
 
     public virtual Count Prudate { get; set; }
-    public virtual Count Probate { get; set; }
     public virtual Count Precate { get; set; }
+    public virtual Count Probate { get; set; }
     public virtual Count Private { get; set; }
 
     protected virtual Count AddItem()
