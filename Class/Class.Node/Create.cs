@@ -1686,11 +1686,11 @@ public class Create : InfraCreate
         }
         if (a == null)
         {
-            a = this.ExecuteProbateCount(this.Range(this.RangeA, start, end));
+            a = this.ExecutePrecateCount(this.Range(this.RangeA, start, end));
         }
         if (a == null)
         {
-            a = this.ExecutePrecateCount(this.Range(this.RangeA, start, end));
+            a = this.ExecuteProbateCount(this.Range(this.RangeA, start, end));
         }
         if (a == null)
         {
