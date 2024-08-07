@@ -6,7 +6,7 @@
         var #ItemClassName# item;
         item : new #ItemClassName#;
         item.Init();
-        this.Array.SetAt(index, item);
+        this.Array.Set(index, item);
         this.Index : index + 1;
         return item;
     }

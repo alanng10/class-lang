@@ -16,5 +16,5 @@
 
     maide prudate #ItemClassName# Get(var Int index)
     {
-        return cast #ItemClassName#(this.Array.GetAt(index));
+        return cast #ItemClassName#(this.Array.Get(index));
     }

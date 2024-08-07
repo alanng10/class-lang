@@ -8,7 +8,7 @@
         item.Init();
         item.Index : index;
         item.Intern : o;
-        this.Array.SetAt(index, item);
+        this.Array.Set(index, item);
         this.Index : index + 1;
         return item;
     }
