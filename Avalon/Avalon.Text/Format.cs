@@ -565,7 +565,7 @@ public class Format : Any
         return a;
     }
 
-    protected virtual bool ValidArg(FormatArg arg)
+    public virtual bool ValidArg(FormatArg arg)
     {
         int kind;
         kind = arg.Kind;
@@ -596,12 +596,12 @@ public class Format : Any
         return true;
     }
 
-    protected virtual bool ValidKind(int kind)
+    public virtual bool ValidKind(int kind)
     {
         return this.InfraInfra.ValidIndex(this.KindCount, kind);
     }
 
-    protected virtual bool ValidIntBase(int varBase)
+    public virtual bool ValidIntBase(int varBase)
     {
         return !(varBase < 2 | 16 < varBase);
     }
