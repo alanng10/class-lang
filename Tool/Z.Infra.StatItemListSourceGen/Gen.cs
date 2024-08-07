@@ -55,7 +55,7 @@ public class Gen : SourceGen
     {
         sb.Append("AddItem")
             .Append("(")
-            .Append("varExtern.Stat_" + this.StatItemClassName + index).Append("(").Append("stat").Append(")")
+            .Append("extern.Stat_" + this.StatItemClassName + index).Append("(").Append("stat").Append(")")
             .Append(")");
         return true;
     }

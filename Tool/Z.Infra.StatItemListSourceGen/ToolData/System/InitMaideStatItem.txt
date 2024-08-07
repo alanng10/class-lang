@@ -5,13 +5,13 @@
         this.Count : this.Array.Count;
         this.Index : 0;
 
-        var Extern varExtern;
-        varExtern : share Extern;
+        var Extern extern;
+        extern : share Extern;
 
         var Int varShare;
-        varShare : varExtern.Infra_Share();
+        varShare : extern.Infra_Share();
         var Int stat;
-        stat : varExtern.Share_Stat(varShare);
+        stat : extern.Share_Stat(varShare);
 
 #InitFieldList#        return true;
     }
