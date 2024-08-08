@@ -59,7 +59,7 @@ HEADERS += \
     Storage.hpp \
     StorageArrange.hpp \
     Stream.hpp \
-    TextEncode.hpp \
+    TextEncode.h \
     Thread.hpp \
     ThreadIntern.hpp \
     Time.hpp \
@@ -140,7 +140,7 @@ SOURCES += \
     Storage.cpp \
     StorageArrange.cpp \
     Stream.cpp \
-    TextEncode.cpp \
+    TextEncode.c \
     Thread.cpp \
     ThreadIntern.cpp \
     Time.cpp \
