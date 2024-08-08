@@ -208,6 +208,7 @@ Int TextEncode_ExecuteResult32To8(Int o, Int result, Int data)
         {
             Int kaa;
             kaa = ka;
+            kaa = kaa | (kb << 4);
             kaa = kaa & 0x7f; 
 
             Byte oba;
