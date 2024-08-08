@@ -135,8 +135,8 @@ Infra_Api Int Array_ItemGet(Int o, Int index);
 Infra_Api Int Array_ItemSet(Int o, Int index, Int value);
 
 InfraApiNew(TextEncode)
-Infra_Api Int TextEncode_ExecuteCount(Int o, Int innKnud, Int outKind, Int data);
-Infra_Api Int TextEncode_ExecuteResult(Int o, Int result, Int innKnud, Int outKind, Int data);
+Infra_Api Int TextEncode_ExecuteCount(Int o, Int innKind, Int outKind, Int data);
+Infra_Api Int TextEncode_ExecuteResult(Int o, Int result, Int innKind, Int outKind, Int data);
 
 InfraApiNew(Format)
 Infra_Api Int Format_ExecuteCount(Int o, Int varBase, Int argList);
