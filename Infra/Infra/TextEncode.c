@@ -175,14 +175,14 @@ Int TextEncode_ExecuteResult32To8(Int o, Int result, Int data)
     Byte* dest;
     dest = CastPointer(resultValue);
 
-    Int ka;
-    ka = 4;
+    Int countA;
+    countA = 4;
 
     Int k;
     k = 0;
 
     Int count;
-    count = dataCount / ka;
+    count = dataCount / countA;
     Int i;
     i = 0;
     while (i < count)
@@ -190,10 +190,28 @@ Int TextEncode_ExecuteResult32To8(Int o, Int result, Int data)
         Char oc;
         oc = p[i];
 
+        Int ka;
+        Int kb;
+        Int kc;
+        Int kd;
+        Int ke;
+        Int kf;
+
+        ka = (oc >> (4 * 0)) & 0xf;
+        kb = (oc >> (4 * 1)) & 0xf;
+        kc = (oc >> (4 * 2)) & 0xf;
+        kd = (oc >> (4 * 3)) & 0xf;
+        ke = (oc >> (4 * 4)) & 0xf;
+        kf = (oc >> (4 * 5)) & 0x1;
+
         if (oc < 0x80)
         {
+            Int kaa;
+            kaa = ka;
+            kaa = kaa & 0x7f; 
+
             Byte oba;
-            oba = oc;
+            oba = kaa;
 
             dest[k] = oba;
 
