@@ -19,12 +19,12 @@
 typedef unsigned char Byte;
 typedef unsigned long long Bool;
 typedef unsigned long long Int;
-typedef unsigned short Char;
 typedef long long SInt;
 typedef unsigned int Int32;
 typedef int SInt32;
 typedef unsigned short Int16;
 typedef short SInt16;
+typedef Int32 Char;
 
 #define true (1)
 #define false (0)
