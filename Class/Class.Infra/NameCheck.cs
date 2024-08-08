@@ -91,7 +91,7 @@ public class NameCheck : Any
             oc = (char)charForm.Execute(oc);
 
             bool ba;
-            ba = textInfra.IsLetter(oc, true) | textInfra.IsLetter(oc, false) | textInfra.IsDigit(oc);
+            ba = textInfra.IsLetter(oc, true) | textInfra.IsLetter(oc, false) | textInfra.IsDigit(oc) | oc == '_';
 
             if (!ba)
             {
