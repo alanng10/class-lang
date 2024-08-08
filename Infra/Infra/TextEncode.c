@@ -252,7 +252,7 @@ Int TextEncode_ExecuteResult32To8(Int o, Int result, Int data)
 
             Int kcb;
             kcb = kcb | (kb >> 2);
-            kcb = kcb | ((kc << 2) & 0xf);
+            kcb = kcb | (kc << 2);
             kcb = kcb | 0x80;
 
             Int kcc;
