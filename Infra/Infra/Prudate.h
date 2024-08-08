@@ -19,12 +19,12 @@
 typedef unsigned char Byte;
 typedef unsigned long long Bool;
 typedef unsigned long long Int;
-typedef unsigned short Char;
 typedef long long SInt;
 typedef unsigned int Int32;
 typedef int SInt32;
 typedef unsigned short Int16;
 typedef short SInt16;
+typedef Int32 Char;
 
 #define true (1)
 #define false (0)
@@ -137,13 +137,11 @@ Infra_Api Int Array_ItemSet(Int o, Int index, Int value);
 InfraApiNew(TextEncode)
 Infra_Api Int TextEncode_KindGet(Int o);
 Infra_Api Int TextEncode_KindSet(Int o, Int value);
-Infra_Api Int TextEncode_WriteBomGet(Int o);
-Infra_Api Int TextEncode_WriteBomSet(Int o, Int value);
 
-Infra_Api Int TextEncode_StringCountMax(Int o, Int count);
-Infra_Api Int TextEncode_String(Int o, Int result, Int data);
-Infra_Api Int TextEncode_DataCountMax(Int o, Int count);
-Infra_Api Int TextEncode_Data(Int o, Int result, Int fromString);
+Infra_Api Int TextEncode_ExecuteTextCount(Int o, Int data);
+Infra_Api Int TextEncode_ExecuteTextResult(Int o, Int result, Int data);
+Infra_Api Int TextEncode_ExecuteDataCount(Int o, Int text);
+Infra_Api Int TextEncode_ExecuteDataResult(Int o, Int result, Int text);
 
 InfraApiNew(Format)
 Infra_Api Int Format_ExecuteCount(Int o, Int varBase, Int argList);
@@ -734,12 +732,7 @@ Infra_Api Int Share_Stat(Int o);
 Infra_Api Int Stat_PointDataCount(Int o);
 Infra_Api Int Stat_TextEncodeKindUtf8(Int o);
 Infra_Api Int Stat_TextEncodeKindUtf16(Int o);
-Infra_Api Int Stat_TextEncodeKindUtf16LE(Int o);
-Infra_Api Int Stat_TextEncodeKindUtf16BE(Int o);
 Infra_Api Int Stat_TextEncodeKindUtf32(Int o);
-Infra_Api Int Stat_TextEncodeKindUtf32LE(Int o);
-Infra_Api Int Stat_TextEncodeKindUtf32BE(Int o);
-Infra_Api Int Stat_TextEncodeKindLatin1(Int o);
 Infra_Api Int Stat_ThreadCaseReady(Int o);
 Infra_Api Int Stat_ThreadCaseExecute(Int o);
 Infra_Api Int Stat_ThreadCasePause(Int o);

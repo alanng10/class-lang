@@ -66,13 +66,11 @@ public static class Extern
     [DllImport(InfraLib)] public extern static ulong TextEncode_Final(ulong o);
     [DllImport(InfraLib)] public extern static ulong TextEncode_KindGet(ulong o);
     [DllImport(InfraLib)] public extern static ulong TextEncode_KindSet(ulong o, ulong value);
-    [DllImport(InfraLib)] public extern static ulong TextEncode_WriteBomGet(ulong o);
-    [DllImport(InfraLib)] public extern static ulong TextEncode_WriteBomSet(ulong o, ulong value);
 
-    [DllImport(InfraLib)] public extern static ulong TextEncode_StringCountMax(ulong o, ulong count);
-    [DllImport(InfraLib)] public extern static ulong TextEncode_String(ulong o, ulong result, ulong data);
-    [DllImport(InfraLib)] public extern static ulong TextEncode_DataCountMax(ulong o, ulong count);
-    [DllImport(InfraLib)] public extern static ulong TextEncode_Data(ulong o, ulong result, ulong fromString);
+    [DllImport(InfraLib)] public extern static ulong TextEncode_ExecuteTextCount(ulong o, ulong data);
+    [DllImport(InfraLib)] public extern static ulong TextEncode_ExecuteTextResult(ulong o, ulong result, ulong data);
+    [DllImport(InfraLib)] public extern static ulong TextEncode_ExecuteDataCount(ulong o, ulong text);
+    [DllImport(InfraLib)] public extern static ulong TextEncode_ExecuteDataResult(ulong o, ulong result, ulong text);
 
     [DllImport(InfraLib)] public extern static ulong Format_New();
     [DllImport(InfraLib)] public extern static ulong Format_Delete(ulong o);
@@ -786,12 +784,7 @@ public static class Extern
     [DllImport(InfraLib)] public extern static ulong Stat_PointDataCount(ulong o);
     [DllImport(InfraLib)] public extern static ulong Stat_TextEncodeKindUtf8(ulong o);
     [DllImport(InfraLib)] public extern static ulong Stat_TextEncodeKindUtf16(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Stat_TextEncodeKindUtf16LE(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Stat_TextEncodeKindUtf16BE(ulong o);
     [DllImport(InfraLib)] public extern static ulong Stat_TextEncodeKindUtf32(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Stat_TextEncodeKindUtf32LE(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Stat_TextEncodeKindUtf32BE(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Stat_TextEncodeKindLatin1(ulong o);
     [DllImport(InfraLib)] public extern static ulong Stat_ThreadCaseReady(ulong o);
     [DllImport(InfraLib)] public extern static ulong Stat_ThreadCaseExecute(ulong o);
     [DllImport(InfraLib)] public extern static ulong Stat_ThreadCasePause(ulong o);
