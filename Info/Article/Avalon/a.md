@@ -2,7 +2,6 @@
 
 Avalon is Class Library list for C#.
 Avalon has infra classes and effect element classes for C#.
-Avalon is used as System modules for Class. Class modules use interfaces declared in Avalon modules refer binaries to use Avalon classes.
 
 Avalon classes member variables are not in abstract.
 
@@ -22,3 +21,5 @@ Post class Any Execute method is call to queue event. When the event loop execut
 The Execute method can be call from any Thread.
 
 Avalon.Storage module Storage class has field AnyNode that is type "bool" to set the Storage Any to accept any storage nodes.
+
+Avalon uses text with each char unit in 16 bits Int.
