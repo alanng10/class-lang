@@ -211,16 +211,35 @@ Int TextEncode_ExecuteResult32To8(Int o, Int result, Int data)
             kaa = kaa | (kb << 4);
             kaa = kaa & 0x7f; 
 
-            Byte oba;
-            oba = kaa;
+            Byte oaa;
+            oaa = kaa;
 
-            dest[k] = oba;
+            dest[k] = oaa;
 
             k = k + 1;
         }
 
         if (!(oc < 0x80) & oc < 0x800)
         {
+            Int kba;
+            kba = ka;
+            kba = kba | ((kb << 4) & 0x3);
+            kba = kba | 0x80;
+
+            Int kbb;
+            kbb = kbb | (kb >> 2);
+            kbb = kbb | ((kc << 2) & 0x7);
+            kbb = kbb | 0xc0;
+
+            Byte oba;
+            Byte obb;
+
+            oba = kba;
+            obb = kbb;
+
+            dest[k] = obb;
+            dest[k + 1] = oba;
+
             k = k + 2;
         }
 
