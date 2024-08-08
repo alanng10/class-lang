@@ -1704,14 +1704,14 @@ public class Create : InfraCreate
         return this.ExecuteOneWord(this.NodeKind.PrudateCount, this.Keyword.Prudate, range);
     }
 
-    public virtual Node ExecuteProbateCount(Range range)
-    {
-        return this.ExecuteOneWord(this.NodeKind.ProbateCount, this.Keyword.Probate, range);
-    }
-
     public virtual Node ExecutePrecateCount(Range range)
     {
         return this.ExecuteOneWord(this.NodeKind.PrecateCount, this.Keyword.Precate, range);
+    }
+
+    public virtual Node ExecuteProbateCount(Range range)
+    {
+        return this.ExecuteOneWord(this.NodeKind.ProbateCount, this.Keyword.Probate, range);
     }
 
     public virtual Node ExecutePrivateCount(Range range)
