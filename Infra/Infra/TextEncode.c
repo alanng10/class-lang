@@ -48,6 +48,9 @@ Int TextEncode_ExecuteCount32To8(Int o, Int data)
     Int ka;
     ka = 4;
 
+    Int k;
+    k = 0;
+
     Int count;
     count = dataCount / ka;
     Int i;
@@ -57,11 +60,32 @@ Int TextEncode_ExecuteCount32To8(Int o, Int data)
         Char oc;
         oc = p[i];
 
-        
+        if (oc < 0x80)
+        {
+            k = k + 1;
+        }
+
+        if (!(oc < 0x80) & oc < 0x800)
+        {
+            k = k + 2;
+        }
+
+        if (!(oc < 0x800) & oc < 0x10000)
+        {
+            k = k + 3;
+        }
+
+        if (!(oc < 0x10000) & oc < 0x110000)
+        {
+            k = k + 4;
+        }
 
         i = i + 1;
     }
-    return 0;
+
+    Int a;
+    a = k;
+    return a;
 }
 
 Int TextEncode_ExecuteCount32To16(Int o, Int data)
