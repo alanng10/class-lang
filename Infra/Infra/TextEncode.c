@@ -21,7 +21,12 @@ Int TextEncode_Final(Int o)
 
 Int TextEncode_ExecuteCount(Int o, Int innKind, Int outKind, Int data)
 {
-    return 0;
+    TextEncode_CountMaide maide;
+    maide = CountMaideArray[innKind][outKind];
+
+    Int a;
+    a = maide(o, data);
+    return a;
 }
 
 Int TextEncode_ExecuteResult(Int o, Int result, Int innKind, Int outKind, Int data)
