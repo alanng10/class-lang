@@ -168,7 +168,7 @@ class MathAdd : Any
             string[] uu;
             uu = a.Split(' ');
 
-            if (!(uu.Length == 3))
+            if (!(uu.Length == 4))
             {
                 return false;
             }
