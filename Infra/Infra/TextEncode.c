@@ -227,6 +227,7 @@ Int TextEncode_ExecuteResult32To8(Int o, Int result, Int data)
             kba = kba | 0x80;
 
             Int kbb;
+            kbb = 0;
             kbb = kbb | (kb >> 2);
             kbb = kbb | ((kc & 0x7) << 2);
             kbb = kbb | 0xc0;
@@ -251,11 +252,13 @@ Int TextEncode_ExecuteResult32To8(Int o, Int result, Int data)
             kca = kca | 0x80;
 
             Int kcb;
+            kcb = 0;
             kcb = kcb | (kb >> 2);
             kcb = kcb | (kc << 2);
             kcb = kcb | 0x80;
 
             Int kcc;
+            kcc = 0;
             kcc = kcc | kd;
             kcc = kcc | 0xe0;
 
