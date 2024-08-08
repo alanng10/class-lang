@@ -245,6 +245,17 @@ Int TextEncode_ExecuteResult32To8(Int o, Int result, Int data)
 
         if (!(oc < 0x800) & oc < 0x10000)
         {
+            Int kca;
+            kca = ka;
+            kca = kca | ((kb << 4) & 0x3);
+            kca = kca | 0x80;
+
+            Int kcb;
+            kcb = kcb | (kb >> 2);
+            kcb = kcb | ((kc << 2) & 0xf);
+            kcb = kcb | 0x80;
+
+
             k = k + 3;
         }
 
