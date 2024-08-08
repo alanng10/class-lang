@@ -34,6 +34,10 @@ TextEncode
     ExecuteTextResult(result, data)
     ExecuteDataCount(text)
     ExecuteDataResult(result, text)
+    ExecuteTextCount16(data)
+    ExecuteTextResult16(result, data)
+    ExecuteDataCount16(text)
+    ExecuteDataResult16(result, text)
 
 Format
     ExecuteCount(varBase, argList)
