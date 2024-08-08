@@ -139,14 +139,14 @@ Int String_QStringSet(Int result, Int a)
     Int data;
     data = String_DataGet(a);
 
-    const QChar* dataU;
-    dataU = (const QChar*)data;
+    const char32_t* dataU;
+    dataU = (const char32_t*)data;
     qsizetype countU;
     countU = count;
 
     QString* u;
     u = (QString*)result;
-    *u = QString(dataU, countU);
+    *u = QString::fromUcs4(dataU, countU);
     return true;
 }
 
