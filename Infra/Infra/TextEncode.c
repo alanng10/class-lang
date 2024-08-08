@@ -237,7 +237,7 @@ Int TextEncode_ExecuteResult32To8(Int o, Int result, Int data)
             oba = kba;
             obb = kbb;
 
-            dest[k] = obb;
+            dest[k + 0] = obb;
             dest[k + 1] = oba;
 
             k = k + 2;
@@ -255,6 +255,21 @@ Int TextEncode_ExecuteResult32To8(Int o, Int result, Int data)
             kcb = kcb | ((kc << 2) & 0xf);
             kcb = kcb | 0x80;
 
+            Int kcc;
+            kcc = kcc | kd;
+            kcc = kcc | 0xe0;
+
+            Byte oca;
+            Byte ocb;
+            Byte occ;
+
+            oca = kca;
+            ocb = kcb;
+            occ = kcc;
+
+            dest[k + 0] = occ;
+            dest[k + 1] = ocb;
+            dest[k + 2] = oca;
 
             k = k + 3;
         }
