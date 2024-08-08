@@ -29,11 +29,10 @@ Array
     ItemSet(index, value)
 
 TextEncode
-    Kind
-    ExecuteTextCount(data)
-    ExecuteTextResult(result, data)
-    ExecuteDataCount(text)
-    ExecuteDataResult(result, text)
+    InnKind
+    OutKind
+    ExecuteCount(data)
+    ExecuteResult(result, data)
 
 Format
     ExecuteCount(varBase, argList)
