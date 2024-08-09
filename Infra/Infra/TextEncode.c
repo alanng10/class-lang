@@ -196,29 +196,47 @@ Int TextEncode_ExecuteCount8To32(Int o, Int data)
 
         if ((aaa >> 5) == 0x6)
         {
-            i = i + 2;
+            Int akb;
+            akb = i + 2;
 
-            k = k + 1;
+            if (!(count < akb))
+            {
+                i = akb;
 
-            b = true;
+                k = k + 1;
+
+                b = true;
+            }
         }
 
         if ((aaa >> 4) == 0xe)
         {
-            i = i + 3;
+            Int akc;
+            akc = i + 3;
 
-            k = k + 1;
+            if (!(count < akc))
+            {
+                i = akc;
 
-            b = true;
+                k = k + 1;
+
+                b = true;
+            }
         }
 
         if ((aaa >> 3) == 0x1e)
         {
-            i = i + 4;
+            Int akd;
+            akd = i + 4;
 
-            k = k + 1;
+            if (!(count < akd))
+            {
+                i = akd;
 
-            b = true;
+                k = k + 1;
+
+                b = true;
+            }
         }
     }
 
