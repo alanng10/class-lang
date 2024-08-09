@@ -6,7 +6,7 @@ public class Pos : Comp
     {
         base.Init();
         this.ColField = this.CreateColField();
-        this.RowField = this.CreateUpField();
+        this.RowField = this.CreateRowField();
         return true;
     }
 
@@ -15,7 +15,7 @@ public class Pos : Comp
         return this.ViewInfra.FieldCreate(this);
     }
 
-    protected virtual Field CreateUpField()
+    protected virtual Field CreateRowField()
     {
         return this.ViewInfra.FieldCreate(this);
     }
