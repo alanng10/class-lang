@@ -310,7 +310,7 @@ Int TextEncode_ExecuteResult16To32(Int o, Int result, Int data)
     dest = CastPointer(resultValue);
 
     Int countA;
-    countA = sizeof(Char);
+    countA = sizeof(Int16);
 
     Int k;
     k = 0;
