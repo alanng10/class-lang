@@ -5,7 +5,7 @@ public class Pos : Comp
     public override bool Init()
     {
         base.Init();
-        this.LeftField = this.CreateLeftField();
+        this.ColField = this.CreateLeftField();
         this.UpField = this.CreateUpField();
         return true;
     }
@@ -22,7 +22,7 @@ public class Pos : Comp
 
     public override bool Change(Field varField, Change change)
     {
-        if (this.LeftField == varField)
+        if (this.ColField == varField)
         {
             this.ChangeLeft(change);
         }
@@ -33,24 +33,24 @@ public class Pos : Comp
         return true;
     }
 
-    public virtual Field LeftField { get; set; }
+    public virtual Field ColField { get; set; }
 
     public virtual int Col
     {
         get
         {
-            return this.LeftField.GetMid();
+            return this.ColField.GetMid();
         }
 
         set
         {
-            this.LeftField.SetMid(value);
+            this.ColField.SetMid(value);
         }
     }
 
     protected virtual bool ChangeLeft(Change change)
     {
-        this.Event(this.LeftField);
+        this.Event(this.ColField);
         return true;
     }
 
