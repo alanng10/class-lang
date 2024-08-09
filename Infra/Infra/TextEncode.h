@@ -475,10 +475,35 @@ Int TextEncode_ExecuteResult8To32(Int o, Int result, Int data);
     i = 0;\
 
 
-#define StartDest(DestInt) \
+#define Start(IntType) \
+    Int dataCount;\
+    Int dataValue;\
+    dataCount = Data_CountGet(data);\
+    dataValue = Data_ValueGet(data);\
+\
+    IntType* p;\
+    p = CastPointer(dataValue);\
+\
+    Int countA;\
+    countA = sizeof(IntType);\
+\
+    Int k;\
+    k = 0;\
+\
+    Bool b;\
+    b = true;\
+\
+    Int count;\
+    count = dataCount / countA;\
+\
+    Int i;\
+    i = 0;\
+
+
+#define StartDest(IntType) \
     Int resultValue;\
     resultValue = Data_ValueGet(result);\
 \
-    DestInt* dest;\
+    IntType* dest;\
     dest = CastPointer(resultValue);\
 
