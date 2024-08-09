@@ -164,7 +164,7 @@ public class Infra : Any
         pos = new PosInt();
         pos.Init();
         pos.Col = left;
-        pos.Up = up;
+        pos.Row = up;
         return pos;
     }
 

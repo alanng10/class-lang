@@ -335,7 +335,7 @@ public class View : Comp
         rect = this.DrawRectIntA;
 
         rect.Pos.Col = leftM;
-        rect.Pos.Up = upM;
+        rect.Pos.Row = upM;
         rect.Size.Width = this.MathInt(width);
         rect.Size.Height = this.MathInt(height);
 
@@ -344,13 +344,13 @@ public class View : Comp
         draw.Fill = brush;
         
         draw.FillPos.Col = leftM;
-        draw.FillPos.Up = upM;
+        draw.FillPos.Row = upM;
         draw.FillPosSet();
 
         draw.ExecuteRect(rect);
         
         draw.FillPos.Col = 0;
-        draw.FillPos.Up = 0;
+        draw.FillPos.Row = 0;
         draw.FillPosSet();
 
         draw.Fill = null;

@@ -21,7 +21,7 @@ class ViewA : View
         DrawRectInt rect;
         rect = this.DrawRectIntA;
         rect.Pos.Col = this.MathInt(left);
-        rect.Pos.Up = this.MathInt(up);
+        rect.Pos.Row = this.MathInt(up);
         rect.Size.Width = this.MathInt(width);
         rect.Size.Height = this.MathInt(height);
 
@@ -33,7 +33,7 @@ class ViewA : View
         draw.Stroke = pen;
 
         draw.FillPos.Col = this.MathInt(left);
-        draw.FillPos.Up = this.MathInt(up);
+        draw.FillPos.Row = this.MathInt(up);
         draw.FillPosSet();
         
         draw.ExecuteRectRound(rect, this.MathInt(40), this.MathInt(30));
@@ -42,12 +42,12 @@ class ViewA : View
         playImage = this.Demo.PlayImage;
 
         rect.Pos.Col = 0;
-        rect.Pos.Up = 0;
+        rect.Pos.Row = 0;
 
         DrawRectInt rectB;
         rectB = this.DrawRectIntB;
         rectB.Pos.Col = 0;
-        rectB.Pos.Up = 0;
+        rectB.Pos.Row = 0;
         rectB.Size.Width = this.MathInt(playImage.Size.Width);
         rectB.Size.Height = this.MathInt(playImage.Size.Height);
 

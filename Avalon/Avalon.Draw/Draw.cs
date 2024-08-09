@@ -237,7 +237,7 @@ public class Draw : Any
         this.Stroke = null;
         this.Comp = null;
         this.FillPos.Col = 0;
-        this.FillPos.Up = 0;
+        this.FillPos.Row = 0;
         this.FillPosSet();
         this.Form = null;
         this.FormSet();
@@ -277,7 +277,7 @@ public class Draw : Any
         long left;
         long up;
         left = k.Col;
-        up = k.Up;
+        up = k.Row;
         this.InternInfra.PosSet(this.InternFillPos, left, up);
 
         Extern.Draw_FillPosThisSet(this.Intern);
@@ -290,7 +290,7 @@ public class Draw : Any
         k = this.Pos;
 
         this.PosA.Col = this.MathInt(k.Col);
-        this.PosA.Up = this.MathInt(k.Row);
+        this.PosA.Row = this.MathInt(k.Row);
         this.DrawFormSet();
         return true;
     }
@@ -324,7 +324,7 @@ public class Draw : Any
         long left;
         long up;
         left = pos.Col;
-        up = pos.Up;
+        up = pos.Row;
 
         this.WorldForm.Offset(left, up);
         return true;
@@ -501,7 +501,7 @@ public class Draw : Any
 
     private bool InternPosSetFromPosInt(ulong internPos, PosInt pos)
     {
-        this.InternInfra.PosSet(internPos, pos.Col, pos.Up);
+        this.InternInfra.PosSet(internPos, pos.Col, pos.Row);
         return true;
     }
 
@@ -511,7 +511,7 @@ public class Draw : Any
         SizeInt size;
         pos = rect.Pos;
         size = rect.Size;
-        this.InternInfra.RectSet(internRect, pos.Col, pos.Up, size.Width, size.Height);
+        this.InternInfra.RectSet(internRect, pos.Col, pos.Row, size.Width, size.Height);
         return true;
     }
 

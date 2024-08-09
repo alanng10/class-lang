@@ -86,7 +86,7 @@ public class PointList : Any
         up = (long)upU;
 
         result.Col = left;
-        result.Up = up;
+        result.Row = up;
         return true;
     }
 
@@ -100,7 +100,7 @@ public class PointList : Any
         ulong pos;
         pos = this.InternPos;
 
-        this.InternInfra.PosSet(pos, value.Col, value.Up);
+        this.InternInfra.PosSet(pos, value.Col, value.Row);
 
         ulong k;
         k = this.Address(index);
