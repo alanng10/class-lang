@@ -336,7 +336,45 @@ Int TextEncode_ExecuteResult16To32(Int o, Int result, Int data)
 
 Int TextEncode_ExecuteResult8To16(Int o, Int result, Int data)
 {
+    Int dataCount;
+    Int dataValue;
+    dataCount = Data_CountGet(data);
+    dataValue = Data_ValueGet(data);
 
+    Int resultValue;
+    resultValue = Data_ValueGet(result);
+
+    Byte* p;
+    p = CastPointer(dataValue);
+
+    Char* dest;
+    dest = CastPointer(resultValue);
+
+    Int k;
+    k = 0;
+
+    Bool b;
+    b = true;
+
+    Int count;
+    count = dataCount;
+
+    Int i;
+    i = 0;
+    while (b & (i < count))
+    {
+        Char oc;
+        oc = 0;
+
+        Read8;
+
+        if (b)
+        {
+            Write16;
+        }
+    }
+
+    return true;
 }
 
 Int TextEncode_ExecuteResult8To32(Int o, Int result, Int data)
