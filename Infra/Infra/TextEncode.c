@@ -59,8 +59,6 @@ Int TextEncode_ExecuteCount32To8(Int o, Int data)
         Read32;
 
         Count8;
-
-        i = i + 1;
     }
 
     Int a;
@@ -79,8 +77,6 @@ Int TextEncode_ExecuteCount32To16(Int o, Int data)
         Read32;
 
         Count16;
-
-        i = i + 1;
     }
 
     Int a;
