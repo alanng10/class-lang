@@ -51,7 +51,7 @@ Int TextEncode_ExecuteResult8To32(Int o, Int result, Int data);
             Byte oaa;\
             oaa = kaa;\
 \
-            dest[k] = oaa;\
+            dest[k + 0] = oaa;\
 \
             k = k + 1;\
         }\
@@ -199,5 +199,13 @@ Int TextEncode_ExecuteResult8To32(Int o, Int result, Int data);
 \
             k = k + 2;\
         }\
+}\
+
+
+#define Write32 \
+{\
+        dest[k + 0] = oc;\
+\
+        k = k + 1;\
 }\
 
