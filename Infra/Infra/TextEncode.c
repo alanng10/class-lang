@@ -324,7 +324,11 @@ Int TextEncode_ExecuteResult16To32(Int o, Int result, Int data)
         Char oc;
         oc = 0;
 
-        
+        Int16 ooa;
+        ooa = p[i];
+
+        Int aaa;
+        aaa = ooa;
 
         
     }
