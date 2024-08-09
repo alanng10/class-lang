@@ -315,14 +315,20 @@ Int TextEncode_ExecuteResult16To32(Int o, Int result, Int data)
     Int k;
     k = 0;
 
+    Bool b;
+    b = true;
+    
     Int count;
     count = dataCount / countA;
+    
     Int i;
     i = 0;
-    while (i < count)
+    while (b & i < count)
     {
         Char oc;
         oc = 0;
+
+        b = false;
 
         Int16 ooa;
         ooa = p[i];
@@ -330,7 +336,51 @@ Int TextEncode_ExecuteResult16To32(Int o, Int result, Int data)
         Int aaa;
         aaa = ooa;
 
+        Bool ba;
+        ba = (!(aaa < 0xd800)) & (aaa < 0xe000);
+
+        if (!ba)
+        {
+            oc = aaa;
+
+            b = true;
+        }
+
+        if (ba)
+        {
+            Int akb;
+            akb = i + 2;
+
+            if (!(count < akb))
+            {
+                Int16 akboa;
+                Int16 akbob;
+                akboa = p[i + 1];
+                akbob = ooa;
+
+                Int akba;
+                Int akbb;
+                akba = akboa & 0x3ff;
+                akbb = akbob & 0x3ff;
+
+                Int kkb;
+                kkb = 0;
+                kkb = kkb | akba;
+                kkb = kkb | (akbb << 10);
+                kkb = kkb + 0x10000;
+
+                oc = kkb;
+
+                i = akb;
+
+                b = true;
+            }
+        }
         
+        if (b)
+        {
+            Write32;
+        }
     }
 
     return true;
