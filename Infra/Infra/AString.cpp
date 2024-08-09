@@ -83,40 +83,48 @@ Int String_ConstantCreate(Int o)
     Int stat;
     stat = Share_Stat(share);
 
-    Int encode;
-    encode = TextEncode_New();
-    TextEncode_KindSet(encode, Stat_TextEncodeKindUtf8(stat));
-    TextEncode_Init(encode);
+    Int innKind;
+    innKind = Stat_TextEncodeKindUtf8(stat);
+    Int outKind;
+    outKind = Stat_TextEncodeKindUtf32(stat);
+
+    Int innData;
+    innData = Data_New();
+    Data_Init(innData);
+    Data_CountSet(innData, count);
+    Data_ValueSet(innData, o);
 
     Int k;
-    k = TextEncode_StringCountMax(encode, count);
+    k = TextEncode_ExecuteCount(0, innKind, outKind, innData);
 
-    Int byteCount;
-    byteCount = k * Constant_CharByteCount();
+    Int outDataValue;
+    outDataValue = New(k);
 
-    Int stringData;
-    stringData = New(byteCount);
+    Int outData;
+    outData = Data_New();
+    Data_Init(outData);
+    Data_CountSet(outData, k);
+    Data_ValueSet(outData, outDataValue);
 
-    Int data;
-    data = Data_New();
-    Data_Init(data);
-    Data_CountSet(data, count);
-    Data_ValueSet(data, o);
+    TextEncode_ExecuteResult(0, outData, innKind, outKind, innData);
 
     Int stringCount;
-    stringCount = TextEncode_String(encode, stringData, data);
+    stringCount = k / sizeof(Char);
 
-    Data_Final(data);
-    Data_Delete(data);
+    Data_Final(outData);
+    Data_Delete(outData);
 
-    TextEncode_Final(encode);
-    TextEncode_Delete(encode);
+    Data_Final(innData);
+    Data_Delete(innData);
+
+    Int kk;
+    kk = String_New();
+    String_Init(kk);
+    String_CountSet(kk, stringCount);
+    String_DataSet(kk, outDataValue);
 
     Int a;
-    a = String_New();
-    String_Init(a);
-    String_CountSet(a, stringCount);
-    String_DataSet(a, stringData);
+    a = kk;
     return a;
 }
 
