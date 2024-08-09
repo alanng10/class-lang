@@ -321,12 +321,12 @@ public class Draw : Any
 
     protected virtual bool WorldFormPosOffsetSet(PosInt pos)
     {
-        long left;
-        long up;
-        left = pos.Col;
-        up = pos.Row;
+        long col;
+        long row;
+        col = pos.Col;
+        row = pos.Row;
 
-        this.WorldForm.Offset(left, up);
+        this.WorldForm.Offset(col, row);
         return true;
     }
     
