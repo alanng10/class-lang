@@ -431,14 +431,31 @@ Int TextEncode_ExecuteResult8To32(Int o, Int result, Int data)
 
             if (!(count < akc))
             {
-                Byte akoa;
-                Byte akob;
-                Byte akoc;
-                akoa = p[i + 2];
-                akob = p[i + 1];
-                akoc = ooa;
+                Byte akcoa;
+                Byte akcob;
+                Byte akcoc;
+                akcoa = p[i + 2];
+                akcob = p[i + 1];
+                akcoc = ooa;
 
+                Int akca;
+                Int akcb;
+                Int akcc;
+                Int akcd;
+                akca = akcoa & 0xf;
+                akcb = ((akcoa >> 4) & 0x3) | ((akcob & 0x3) << 2);
+                akcc = (akcob >> 2) & 0xf;
+                akcd = akcoc & 0xf;
 
+                Int kkc;
+                kkc = 0;
+                kkc = kkc | (akca << (4 * 0));
+                kkc = kkc | (akcb << (4 * 1));
+                kkc = kkc | (akcc << (4 * 2));
+                kkc = kkc | (akcd << (4 * 3));
+
+                oc = kkc;
+                
                 i = akc;
 
                 b = true;
