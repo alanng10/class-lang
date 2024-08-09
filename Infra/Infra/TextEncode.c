@@ -484,7 +484,23 @@ Int TextEncode_ExecuteResult8To32(Int o, Int result, Int data)
                 Int akdd;
                 Int akde;
                 Int akdf;
+                akda = akdoa & 0xf;
+                akdb = ((akdoa >> 4) & 0x3) | ((akdob & 0x3) << 2);
+                akdc = (akdob >> 2) & 0xf;
+                akdd = akdoc & 0xf;
+                akde = ((akdoc >> 4) & 0x3) | ((akdod & 0x3) << 2);
+                akdf = (akdod >> 2) & 0x1;
 
+                Int kkd;
+                kkd = 0;
+                kkd = kkd | (akda << (4 * 0));
+                kkd = kkd | (akdb << (4 * 1));
+                kkd = kkd | (akdc << (4 * 2));
+                kkd = kkd | (akdd << (4 * 3));
+                kkd = kkd | (akde << (4 * 4));
+                kkd = kkd | (akdf << (4 * 5));
+
+                oc = kkd;
 
                 i = akd;
 
