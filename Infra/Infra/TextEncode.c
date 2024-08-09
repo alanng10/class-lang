@@ -207,30 +207,8 @@ Int TextEncode_ExecuteCount8To32(Int o, Int data)
 
 Int TextEncode_ExecuteResult32To8(Int o, Int result, Int data)
 {
-    Int dataCount;
-    Int dataValue;
-    dataCount = Data_CountGet(data);
-    dataValue = Data_ValueGet(data);
-
-    Int resultValue;
-    resultValue = Data_ValueGet(result);
-
-    Char* p;
-    p = CastPointer(dataValue);
-
-    Byte* dest;
-    dest = CastPointer(resultValue);
-
-    Int countA;
-    countA = sizeof(Char);
-
-    Int k;
-    k = 0;
-
-    Int count;
-    count = dataCount / countA;
-    Int i;
-    i = 0;
+    StartDest(Byte);
+    Start32;
     while (i < count)
     {
         Char oc;
@@ -249,30 +227,8 @@ Int TextEncode_ExecuteResult32To8(Int o, Int result, Int data)
 
 Int TextEncode_ExecuteResult32To16(Int o, Int result, Int data)
 {
-    Int dataCount;
-    Int dataValue;
-    dataCount = Data_CountGet(data);
-    dataValue = Data_ValueGet(data);
-
-    Int resultValue;
-    resultValue = Data_ValueGet(result);
-
-    Char* p;
-    p = CastPointer(dataValue);
-
-    Int16* dest;
-    dest = CastPointer(resultValue);
-
-    Int countA;
-    countA = sizeof(Char);
-
-    Int k;
-    k = 0;
-
-    Int count;
-    count = dataCount / countA;
-    Int i;
-    i = 0;
+    StartDest(Int16);
+    Start32;
     while (i < count)
     {
         Char oc;

@@ -453,3 +453,32 @@ Int TextEncode_ExecuteResult8To32(Int o, Int result, Int data);
         k = k + 1;\
 }\
 
+
+#define Start32 \
+    Int dataCount;\
+    Int dataValue;\
+    dataCount = Data_CountGet(data);\
+    dataValue = Data_ValueGet(data);\
+\
+    Char* p;\
+    p = CastPointer(dataValue);\
+\
+    Int countA;\
+    countA = sizeof(Char);\
+\
+    Int k;\
+    k = 0;\
+\
+    Int count;\
+    count = dataCount / countA;\
+    Int i;\
+    i = 0;\
+
+
+#define StartDest(DestInt) \
+    Int resultValue;\
+    resultValue = Data_ValueGet(result);\
+\
+    DestInt* dest;\
+    dest = CastPointer(resultValue);\
+
