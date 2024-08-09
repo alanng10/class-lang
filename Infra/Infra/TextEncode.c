@@ -123,10 +123,7 @@ Int TextEncode_ExecuteCount32To16(Int o, Int data)
 
         if (oc < 0x10000)
         {
-            if ((oc < 0xd800) | !(oc < 0xe000))
-            {
-                k = k + 1;
-            }
+            k = k + 1;
         }
 
         if (!(oc < 0x10000))
@@ -367,15 +364,12 @@ Int TextEncode_ExecuteResult32To16(Int o, Int result, Int data)
 
         if (oc < 0x10000)
         {
-            if ((oc < 0xd800) | !(oc < 0xe000))
-            {
-                Int16 kaa;
-                kaa = oc;
+            Int16 kaa;
+            kaa = oc;
 
-                dest[k + 0] = kaa;
+            dest[k + 0] = kaa;
 
-                k = k + 1;
-            }
+            k = k + 1;
         }
 
         if (!(oc < 0x10000))
