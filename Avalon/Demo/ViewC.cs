@@ -20,7 +20,7 @@ class ViewC : View
     protected override bool ExecuteDrawThis(DrawDraw draw)
     {
         base.ExecuteDrawThis(draw);
-        this.EllipseRect.Pos.Left = this.MathInt(this.Pos.Left + 400);
+        this.EllipseRect.Pos.Col = this.MathInt(this.Pos.Left + 400);
         this.EllipseRect.Pos.Up = this.MathInt(this.Pos.Up + 20);
         
         draw.Fill = this.EllipseBrush;
@@ -31,7 +31,7 @@ class ViewC : View
 
         DrawRectInt rect;
         rect = this.Rect;
-        rect.Pos.Left = this.MathInt(this.Pos.Left + 150);
+        rect.Pos.Col = this.MathInt(this.Pos.Left + 150);
         rect.Pos.Up = this.MathInt(this.Pos.Up + 50);
         rect.Size.Width = this.MathInt(300);
         rect.Size.Height = this.MathInt(100);

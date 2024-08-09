@@ -31,7 +31,7 @@ class ViewB : View
 
         DrawRectInt rect;
         rect = this.DrawRectIntA;
-        rect.Pos.Left = this.MathInt(left);
+        rect.Pos.Col = this.MathInt(left);
         rect.Pos.Up = this.MathInt(up);
         rect.Size.Width = this.MathInt(width);
         rect.Size.Height = this.MathInt(height);
@@ -62,7 +62,7 @@ class ViewB : View
         draw.Form = null;
         draw.FormSet();
 
-        this.DestRectA.Pos.Left = this.MathInt(left);
+        this.DestRectA.Pos.Col = this.MathInt(left);
         this.DestRectA.Pos.Up = this.MathInt(up + 150);
 
         draw.Comp = this.DrawComp.SourceOver;
