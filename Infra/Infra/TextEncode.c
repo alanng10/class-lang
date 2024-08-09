@@ -398,17 +398,17 @@ Int TextEncode_ExecuteResult8To32(Int o, Int result, Int data)
 
             if (!(count < akb))
             {
-                Byte akoa;
-                Byte akob;
-                akoa = p[i + 1];
-                akob = ooa;
+                Byte akboa;
+                Byte akbob;
+                akboa = p[i + 1];
+                akbob = ooa;
 
                 Int akba;
                 Int akbb;
                 Int akbc;
-                akba = akoa & 0xf;
-                akbb = ((akoa >> 4) & 0x3) | ((akob & 0x3) << 2);
-                akbc = (akob >> 2) & 0x7;
+                akba = akboa & 0xf;
+                akbb = ((akboa >> 4) & 0x3) | ((akbob & 0x3) << 2);
+                akbc = (akbob >> 2) & 0x7;
 
                 Int kkb;
                 kkb = 0;
