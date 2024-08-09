@@ -165,6 +165,12 @@ Int TextEncode_ExecuteResult8To32(Int o, Int result, Int data);
 }\
 
 
+#define Read32 \
+{\
+        oc = p[i];\
+}\
+
+
 #define Write8 \
 {\
         Int ka;\
