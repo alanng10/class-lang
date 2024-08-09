@@ -455,7 +455,7 @@ Int TextEncode_ExecuteResult8To32(Int o, Int result, Int data)
                 kkc = kkc | (akcd << (4 * 3));
 
                 oc = kkc;
-                
+
                 i = akc;
 
                 b = true;
@@ -469,6 +469,23 @@ Int TextEncode_ExecuteResult8To32(Int o, Int result, Int data)
 
             if (!(count < akd))
             {
+                Byte akdoa;
+                Byte akdob;
+                Byte akdoc;
+                Byte akdod;
+                akdoa = p[i + 3];
+                akdob = p[i + 2];
+                akdoc = p[i + 1];
+                akdod = ooa;
+
+                Int akda;
+                Int akdb;
+                Int akdc;
+                Int akdd;
+                Int akde;
+                Int akdf;
+
+
                 i = akd;
 
                 b = true;
