@@ -110,9 +110,6 @@ Int TextEncode_ExecuteCount16To32(Int o, Int data)
     Start(Int16);
     While
     {
-        Char oc;
-        oc = 0;
-
         Read16ForCount32;
 
         if (b)
@@ -152,9 +149,6 @@ Int TextEncode_ExecuteCount8To32(Int o, Int data)
     Start(Byte);
     While
     {
-        Char oc;
-        oc = 0;
-
         Read8ForCount32;
 
         if (b)
