@@ -51,7 +51,7 @@ Int TextEncode_ExecuteCount32To8(Int o, Int data)
     dataValue = Data_ValueGet(data);
 
     Char* p;
-    p = CastPonter(dataValue);
+    p = CastPointer(dataValue);
 
     Int ka;
     ka = 4;
@@ -104,7 +104,7 @@ Int TextEncode_ExecuteCount32To16(Int o, Int data)
     dataValue = Data_ValueGet(data);
 
     Char* p;
-    p = CastPonter(dataValue);
+    p = CastPointer(dataValue);
 
     Int ka;
     ka = 4;
@@ -170,7 +170,7 @@ Int TextEncode_ExecuteResult32To8(Int o, Int result, Int data)
     resultValue = Data_ValueGet(result);
 
     Char* p;
-    p = CastPonter(dataValue);
+    p = CastPointer(dataValue);
 
     Byte* dest;
     dest = CastPointer(resultValue);
