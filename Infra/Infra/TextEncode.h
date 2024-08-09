@@ -351,6 +351,30 @@ Int TextEncode_ExecuteResult8To32(Int o, Int result, Int data);
 }\
 
 
+#define Count8 \
+{\
+        if (oc < 0x80)\
+        {\
+            k = k + 1;\
+        }\
+\
+        if (!(oc < 0x80) & oc < 0x800)\
+        {\
+            k = k + 2;\
+        }\
+\
+        if (!(oc < 0x800) & oc < 0x10000)\
+        {\
+            k = k + 3;\
+        }\
+\
+        if (!(oc < 0x10000) & oc < 0x110000)\
+        {\
+            k = k + 4;\
+        }\
+}\
+
+
 #define Count16 \
 {\
         if (oc < 0x10000)\
