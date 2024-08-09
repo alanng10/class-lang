@@ -381,11 +381,10 @@ Int TextEncode_ExecuteResult8To32(Int o, Int result, Int data)
 
         if ((aaa >> 7) == 0)
         {
-            Int aaka;
-            aaka = aaa;
+            Int aakaa;
+            aakaa = aaa;
 
-
-            oc = aaka;
+            oc = aakaa;
 
             i = i + 1;
 
@@ -399,6 +398,26 @@ Int TextEncode_ExecuteResult8To32(Int o, Int result, Int data)
 
             if (!(count < akb))
             {
+                Byte aakoa;
+                Byte aakob;
+                aakoa = p[i + 1];
+                aakob = ooa;
+
+                Int aakba;
+                Int aakbb;
+                Int aakbc;
+                aakba = aakoa & 0xf;
+                aakbb = ((aakoa >> 4) & 0x3) | ((aakob & 0x3) << 2);
+                aakbc = (aakob >> 2) & 0x7;
+
+                Int kkb;
+                kkb = 0;
+                kkb = kkb | (aakba << (4 * 0));
+                kkb = kkb | (aakbb << (4 * 1));
+                kkb = kkb | (aakbc << (4 * 2));
+
+                oc = kkb;
+
                 i = akb;
 
                 b = true;
