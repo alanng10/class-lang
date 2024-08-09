@@ -135,7 +135,7 @@ Int TextEncode_ExecuteCount32To16(Int o, Int data)
     }
 
     Int a;
-    a = k;
+    a = k * sizeof(Int16);
     return a;
 }
 
@@ -156,7 +156,75 @@ Int TextEncode_ExecuteCount8To16(Int o, Int data)
 
 Int TextEncode_ExecuteCount8To32(Int o, Int data)
 {
-    return 0;
+    Int dataCount;
+    Int dataValue;
+    dataCount = Data_CountGet(data);
+    dataValue = Data_ValueGet(data);
+
+    Byte* p;
+    p = CastPointer(dataValue);
+
+    Int k;
+    k = 0;
+
+    Bool b;
+    b = true;
+
+    Int count;
+    count = dataCount;
+
+    Int i;
+    i = 0;
+    while (b & (i < count))
+    {
+        b = false;
+
+        Byte ooa;
+        ooa = p[i];
+        
+        Int aaa;
+        aaa = ooa;
+
+        if ((aaa >> 7) == 0)
+        {
+            i = i + 1;
+
+            k = k + 1;
+
+            b = true;
+        }
+
+        if ((aaa >> 5) == 0x6)
+        {
+            i = i + 2;
+
+            k = k + 1;
+
+            b = true;
+        }
+
+        if ((aaa >> 4) == 0xe)
+        {
+            i = i + 3;
+
+            k = k + 1;
+
+            b = true;
+        }
+
+        if ((aaa >> 3) == 0x1e)
+        {
+            i = i + 4;
+
+            k = k + 1;
+
+            b = true;
+        }
+    }
+
+    Int a;
+    a = k * sizeof(Char);
+    return a;
 }
 
 Int TextEncode_ExecuteResult32To8(Int o, Int result, Int data)
