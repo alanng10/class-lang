@@ -256,7 +256,7 @@ Int TextEncode_ExecuteResult8To32(Int o, Int result, Int data);
             k = k + 1;\
         }\
 \
-        if (!(oc < 0x80) & oc < 0x800)\
+        if ((!(oc < 0x80)) & (oc < 0x800))\
         {\
             Int kba;\
             kba = 0;\
@@ -282,7 +282,7 @@ Int TextEncode_ExecuteResult8To32(Int o, Int result, Int data);
             k = k + 2;\
         }\
 \
-        if (!(oc < 0x800) & oc < 0x10000)\
+        if ((!(oc < 0x800)) & (oc < 0x10000))\
         {\
             Int kca;\
             kca = 0;\
