@@ -66,7 +66,9 @@ Int TextEncode_ExecuteCount32To8(Int o, Int data)
     while (i < count)
     {
         Char oc;
-        oc = p[i];
+        oc = 0;
+
+        Read32;
 
         Count8;
 
@@ -101,7 +103,9 @@ Int TextEncode_ExecuteCount32To16(Int o, Int data)
     while (i < count)
     {
         Char oc;
-        oc = p[i];
+        oc = 0;
+
+        Read32;
 
         Count16;
 
@@ -230,7 +234,9 @@ Int TextEncode_ExecuteResult32To8(Int o, Int result, Int data)
     while (i < count)
     {
         Char oc;
-        oc = p[i];
+        oc = 0;
+
+        Read32;
 
         Write8;
 
@@ -270,7 +276,9 @@ Int TextEncode_ExecuteResult32To16(Int o, Int result, Int data)
     while (i < count)
     {
         Char oc;
-        oc = p[i];
+        oc = 0;
+
+        Read32;
 
         Write16;
 
