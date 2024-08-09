@@ -23,7 +23,7 @@ class ViewB : View
         int left;
         left = this.Pos.Col;
         int up;
-        up = this.Pos.Up;
+        up = this.Pos.Row;
         int width;
         width = this.Size.Width;
         int height;

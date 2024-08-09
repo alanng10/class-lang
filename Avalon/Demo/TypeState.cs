@@ -44,17 +44,17 @@ class TypeState : State
         if (a == d.LetterI & o)
         {
             int k;
-            k = this.Demo.ViewA.Pos.Up;
+            k = this.Demo.ViewA.Pos.Row;
             k = k - 10;
-            this.Demo.ViewA.Pos.Up = k;
+            this.Demo.ViewA.Pos.Row = k;
             b = true;
         }
         if (a == d.LetterK & o)
         {
             int k;
-            k = this.Demo.ViewA.Pos.Up;
+            k = this.Demo.ViewA.Pos.Row;
             k = k + 10;
-            this.Demo.ViewA.Pos.Up = k;
+            this.Demo.ViewA.Pos.Row = k;
             b = true;
         }
         if (a == d.LetterJ & o)
@@ -97,17 +97,17 @@ class TypeState : State
         if (a == d.LetterW & o)
         {
             int k;
-            k = this.Demo.ViewC.Pos.Up;
+            k = this.Demo.ViewC.Pos.Row;
             k = k - 10;
-            this.Demo.ViewC.Pos.Up = k;
+            this.Demo.ViewC.Pos.Row = k;
             ba = true;
         }
         if (a == d.LetterS & o)
         {
             int k;
-            k = this.Demo.ViewC.Pos.Up;
+            k = this.Demo.ViewC.Pos.Row;
             k = k + 10;
-            this.Demo.ViewC.Pos.Up = k;
+            this.Demo.ViewC.Pos.Row = k;
             ba = true;
         }
         if (a == d.LetterA & o)

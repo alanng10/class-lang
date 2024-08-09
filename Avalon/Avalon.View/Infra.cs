@@ -45,7 +45,7 @@ public class Infra : Any
         a.Pos = new DrawPos();
         a.Pos.Init();
         a.Pos.Col = rect.Pos.Col;
-        a.Pos.Row = rect.Pos.Up;
+        a.Pos.Row = rect.Pos.Row;
         a.Size = new DrawSize();
         a.Size.Init();
         a.Size.Width = rect.Size.Width;

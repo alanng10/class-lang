@@ -21,7 +21,7 @@ class ViewC : View
     {
         base.ExecuteDrawThis(draw);
         this.EllipseRect.Pos.Col = this.MathInt(this.Pos.Col + 400);
-        this.EllipseRect.Pos.Row = this.MathInt(this.Pos.Up + 20);
+        this.EllipseRect.Pos.Row = this.MathInt(this.Pos.Row + 20);
         
         draw.Fill = this.EllipseBrush;
 
@@ -32,7 +32,7 @@ class ViewC : View
         DrawRectInt rect;
         rect = this.Rect;
         rect.Pos.Col = this.MathInt(this.Pos.Col + 150);
-        rect.Pos.Row = this.MathInt(this.Pos.Up + 50);
+        rect.Pos.Row = this.MathInt(this.Pos.Row + 50);
         rect.Size.Width = this.MathInt(300);
         rect.Size.Height = this.MathInt(100);
 

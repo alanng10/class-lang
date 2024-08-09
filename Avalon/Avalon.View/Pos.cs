@@ -56,7 +56,7 @@ public class Pos : Comp
 
     public virtual Field UpField { get; set; }
 
-    public virtual int Up
+    public virtual int Row
     {
         get
         {

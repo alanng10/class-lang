@@ -29,7 +29,7 @@ public class Rect : Comp
         a = new Pos();
         a.Init();
         a.Col = 0;
-        a.Up = 0;
+        a.Row = 0;
         return a;
     }
 

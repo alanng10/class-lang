@@ -109,7 +109,7 @@ class Demo : Any
         view = new View();
         view.Init();
         view.Pos.Col = 100;
-        view.Pos.Up = 100;
+        view.Pos.Row = 100;
         view.Size.Width = 1600;
         view.Size.Height = 900;
         view.Back = brush;
@@ -141,7 +141,7 @@ class Demo : Any
         viewA = new ViewA();
         viewA.Init();
         viewA.Pos.Col = 0;
-        viewA.Pos.Up = 0;
+        viewA.Pos.Row = 0;
         viewA.Size.Width = 600;
         viewA.Size.Height = 400;
         viewA.Back = brushA;
@@ -188,11 +188,11 @@ class Demo : Any
         childB.Rect.Size.Height = 1;
 
         grid.Pos.Col = 50;
-        grid.Pos.Up = 50;
+        grid.Pos.Row = 50;
         grid.Size.Width = 1500;
         grid.Size.Height = 800;
         grid.Dest.Pos.Col = 0;
-        grid.Dest.Pos.Up = 0;
+        grid.Dest.Pos.Row = 0;
         grid.Dest.Size.Width = 1500;
         grid.Dest.Size.Height = 800;
         grid.Row.Add(rowA);
@@ -227,7 +227,7 @@ class Demo : Any
         viewB = new ViewB();
         viewB.Init();
         viewB.Pos.Col = 60;
-        viewB.Pos.Up = 40;
+        viewB.Pos.Row = 40;
         viewB.Size.Width = widthA;
         viewB.Size.Height = heightA;
         viewB.DrawImage = image;
@@ -1252,7 +1252,7 @@ class Demo : Any
         viewC = new ViewC();
         viewC.Init();
         viewC.Pos.Col = -300;
-        viewC.Pos.Up = 0;
+        viewC.Pos.Row = 0;
         viewC.Size.Width = 500;
         viewC.Size.Height = 400;
         viewC.Back = brush;

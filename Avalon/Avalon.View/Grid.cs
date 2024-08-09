@@ -280,7 +280,7 @@ public class Grid : View
         left = this.Dest.Pos.Col;
         left = left + draw.Pos.Col;
         int up;
-        up = this.Dest.Pos.Up;
+        up = this.Dest.Pos.Row;
         up = up + draw.Pos.Row;
         int width;
         width = this.Dest.Size.Width;
@@ -345,7 +345,7 @@ public class Grid : View
         int endCol;
         endCol = startCol + gridSize.Width;
         int startRow;
-        startRow = gridPos.Up;
+        startRow = gridPos.Row;
         int endRow;
         endRow = startRow + gridSize.Height;
 
@@ -402,7 +402,7 @@ public class Grid : View
         ba = this.InfraInfra.ValidRange(this.Col.Count, pos.Col, size.Width);
 
         bool bb;
-        bb = this.InfraInfra.ValidRange(this.Row.Count, pos.Up, size.Height);
+        bb = this.InfraInfra.ValidRange(this.Row.Count, pos.Row, size.Height);
 
         bool a;
         a = ba & bb;

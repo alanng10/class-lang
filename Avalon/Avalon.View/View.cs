@@ -102,7 +102,7 @@ public class View : Comp
         a = new Pos();
         a.Init();
         a.Col = 0;
-        a.Up = 0;
+        a.Row = 0;
         return a;
     }
 
@@ -320,7 +320,7 @@ public class View : Comp
         int left;
         left = this.Pos.Col;
         int up;
-        up = this.Pos.Up;
+        up = this.Pos.Row;
         int width;
         width = this.Size.Width;
         int height;
@@ -368,7 +368,7 @@ public class View : Comp
         left = this.Pos.Col;
         left = left + draw.Pos.Col;
         int up;
-        up = this.Pos.Up;
+        up = this.Pos.Row;
         up = up + draw.Pos.Row;
 
         int width;
