@@ -347,7 +347,7 @@ Int TextEncode_ExecuteResult8To16(Int o, Int result, Int data)
     Byte* p;
     p = CastPointer(dataValue);
 
-    Char* dest;
+    Int16* dest;
     dest = CastPointer(resultValue);
 
     Int k;
