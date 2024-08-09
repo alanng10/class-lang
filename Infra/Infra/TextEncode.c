@@ -45,24 +45,7 @@ Int TextEncode_ExecuteResult(Int o, Int result, Int innKind, Int outKind, Int da
 
 Int TextEncode_ExecuteCount32To8(Int o, Int data)
 {
-    Int dataCount;
-    Int dataValue;
-    dataCount = Data_CountGet(data);
-    dataValue = Data_ValueGet(data);
-
-    Char* p;
-    p = CastPointer(dataValue);
-
-    Int ka;
-    ka = 4;
-
-    Int k;
-    k = 0;
-
-    Int count;
-    count = dataCount / ka;
-    Int i;
-    i = 0;
+    Start32;
     while (i < count)
     {
         Char oc;
@@ -82,24 +65,7 @@ Int TextEncode_ExecuteCount32To8(Int o, Int data)
 
 Int TextEncode_ExecuteCount32To16(Int o, Int data)
 {
-    Int dataCount;
-    Int dataValue;
-    dataCount = Data_CountGet(data);
-    dataValue = Data_ValueGet(data);
-
-    Char* p;
-    p = CastPointer(dataValue);
-
-    Int ka;
-    ka = 4;
-
-    Int k;
-    k = 0;
-
-    Int count;
-    count = dataCount / ka;
-    Int i;
-    i = 0;
+    Start32;
     while (i < count)
     {
         Char oc;
