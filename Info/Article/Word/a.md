@@ -182,10 +182,6 @@ Word "frame" has meaning that is root view.
 
 Word "grid" has meaning that is table area.
 
-Word "row" has meaning that is vertical index.
-
-Word "col" has meaning that is horizontal index.
-
 Word "event" has meaning that is occurred.
 
 Word "status" has meaning that is kind of output.
@@ -197,6 +193,12 @@ Word "valid" has meaning that is can accept.
 Word "draw" has meaning that is comp video.
 
 Word "pos" has meaning that is position in signed int.
+
+Word "row" has meaning that is vertical index.
+
+Word "col" has meaning that is horizontal index.
+
+Word "for" has meaning that is frontal index;
 
 Word "size" has meaning that is length in dimensions.
 
