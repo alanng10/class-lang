@@ -28,7 +28,7 @@ public class Pos : Comp
         }
         if (this.RowField == varField)
         {
-            this.ChangeUp(change);
+            this.ChangeRow(change);
         }
         return true;
     }
@@ -69,7 +69,7 @@ public class Pos : Comp
         }
     }
 
-    protected virtual bool ChangeUp(Change change)
+    protected virtual bool ChangeRow(Change change)
     {
         this.Event(this.RowField);
         return true;
