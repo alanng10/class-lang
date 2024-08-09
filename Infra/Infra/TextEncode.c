@@ -123,7 +123,10 @@ Int TextEncode_ExecuteCount32To16(Int o, Int data)
 
         if (oc < 0x10000)
         {
-            k = k + 1;
+            if ((oc < 0xd800) | !(oc < 0xe000))
+            {
+                k = k + 1;
+            }
         }
 
         if (!(oc < 0x10000))
@@ -344,7 +347,7 @@ Int TextEncode_ExecuteResult32To16(Int o, Int result, Int data)
     Char* p;
     p = CastPointer(dataValue);
 
-    Byte* dest;
+    Int16* dest;
     dest = CastPointer(resultValue);
 
     Int countA;
@@ -362,7 +365,23 @@ Int TextEncode_ExecuteResult32To16(Int o, Int result, Int data)
         Char oc;
         oc = p[i];
 
+        if (oc < 0x10000)
+        {
+            if ((oc < 0xd800) | !(oc < 0xe000))
+            {
+                Int16 kaa;
+                kaa = oc;
 
+                dest[k + 0] = kaa;
+
+                k = k + 1;
+            }
+        }
+
+        if (!(oc < 0x10000))
+        {
+            k = k + 2;
+        }
 
         i = i + 1;
     }
