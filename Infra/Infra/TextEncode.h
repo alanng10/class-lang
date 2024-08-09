@@ -182,6 +182,8 @@ Int TextEncode_ExecuteResult8To32(Int o, Int result, Int data);
         {\
             oc = aaa;\
 \
+            i = i + 1;\
+\
             b = true;\
         }\
 \
@@ -221,6 +223,8 @@ Int TextEncode_ExecuteResult8To32(Int o, Int result, Int data);
 #define Read32 \
 {\
         oc = p[i];\
+\
+        i = i + 1;\
 }\
 
 
