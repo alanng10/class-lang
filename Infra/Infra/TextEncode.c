@@ -207,7 +207,8 @@ Int TextEncode_ExecuteResult32To8(Int o, Int result, Int data)
         if (oc < 0x80)
         {
             Int kaa;
-            kaa = ka;
+            kaa = 0;
+            kaa = kaa | ka;
             kaa = kaa | (kb << 4);
             kaa = kaa & 0x7f; 
 
@@ -222,7 +223,8 @@ Int TextEncode_ExecuteResult32To8(Int o, Int result, Int data)
         if (!(oc < 0x80) & oc < 0x800)
         {
             Int kba;
-            kba = ka;
+            kba = 0;
+            kba = kba | ka;
             kba = kba | ((kb & 0x3) << 4);
             kba = kba | 0x80;
 
@@ -247,7 +249,8 @@ Int TextEncode_ExecuteResult32To8(Int o, Int result, Int data)
         if (!(oc < 0x800) & oc < 0x10000)
         {
             Int kca;
-            kca = ka;
+            kca = 0;
+            kca = kca | ka;
             kca = kca | ((kb & 0x3) << 4);
             kca = kca | 0x80;
 
@@ -280,7 +283,8 @@ Int TextEncode_ExecuteResult32To8(Int o, Int result, Int data)
         if (!(oc < 0x10000) & oc < 0x110000)
         {
             Int kda;
-            kda = ka;
+            kda = 0;
+            kda = kda | ka;
             kda = kda | ((kb & 0x3) << 4);
             kda = kda | 0x80;
 
