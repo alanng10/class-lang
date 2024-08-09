@@ -95,25 +95,7 @@ Int TextEncode_ExecuteCount16To32(Int o, Int data)
 
 Int TextEncode_ExecuteCount8To16(Int o, Int data)
 {
-    Int dataCount;
-    Int dataValue;
-    dataCount = Data_CountGet(data);
-    dataValue = Data_ValueGet(data);
-
-    Byte* p;
-    p = CastPointer(dataValue);
-
-    Int k;
-    k = 0;
-
-    Bool b;
-    b = true;
-
-    Int count;
-    count = dataCount;
-
-    Int i;
-    i = 0;
+    Start(Byte);
     while (b & (i < count))
     {
         Char oc;
@@ -134,25 +116,7 @@ Int TextEncode_ExecuteCount8To16(Int o, Int data)
 
 Int TextEncode_ExecuteCount8To32(Int o, Int data)
 {
-    Int dataCount;
-    Int dataValue;
-    dataCount = Data_CountGet(data);
-    dataValue = Data_ValueGet(data);
-
-    Byte* p;
-    p = CastPointer(dataValue);
-
-    Int k;
-    k = 0;
-
-    Bool b;
-    b = true;
-
-    Int count;
-    count = dataCount;
-
-    Int i;
-    i = 0;
+    Start(Byte);
     while (b & (i < count))
     {
         Char oc;
