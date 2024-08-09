@@ -28,7 +28,7 @@ public class Rect : Comp
         Pos a;
         a = new Pos();
         a.Init();
-        a.Left = 0;
+        a.Col = 0;
         a.Up = 0;
         return a;
     }

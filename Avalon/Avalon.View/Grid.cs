@@ -277,7 +277,7 @@ public class Grid : View
     protected virtual bool ExecuteDrawGridChildList(DrawDraw draw)
     {
         int left;
-        left = this.Dest.Pos.Left;
+        left = this.Dest.Pos.Col;
         left = left + draw.Pos.Col;
         int up;
         up = this.Dest.Pos.Up;
@@ -341,7 +341,7 @@ public class Grid : View
         gridSize = gridRect.Size;
 
         int startCol;
-        startCol = gridPos.Left;
+        startCol = gridPos.Col;
         int endCol;
         endCol = startCol + gridSize.Width;
         int startRow;
@@ -399,7 +399,7 @@ public class Grid : View
         size = rect.Size;
 
         bool ba;
-        ba = this.InfraInfra.ValidRange(this.Col.Count, pos.Left, size.Width);
+        ba = this.InfraInfra.ValidRange(this.Col.Count, pos.Col, size.Width);
 
         bool bb;
         bb = this.InfraInfra.ValidRange(this.Row.Count, pos.Up, size.Height);

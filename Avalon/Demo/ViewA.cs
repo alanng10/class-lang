@@ -10,7 +10,7 @@ class ViewA : View
     protected override bool ExecuteDrawThis(DrawDraw draw)
     {
         int left;
-        left = this.Pos.Left;
+        left = this.Pos.Col;
         int up;
         up = this.Pos.Up;
         int width;

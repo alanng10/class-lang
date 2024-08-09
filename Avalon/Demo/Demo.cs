@@ -108,7 +108,7 @@ class Demo : Any
         View view;
         view = new View();
         view.Init();
-        view.Pos.Left = 100;
+        view.Pos.Col = 100;
         view.Pos.Up = 100;
         view.Size.Width = 1600;
         view.Size.Height = 900;
@@ -140,7 +140,7 @@ class Demo : Any
         ViewA viewA;
         viewA = new ViewA();
         viewA.Init();
-        viewA.Pos.Left = 0;
+        viewA.Pos.Col = 0;
         viewA.Pos.Up = 0;
         viewA.Size.Width = 600;
         viewA.Size.Height = 400;
@@ -183,15 +183,15 @@ class Demo : Any
         childB = new GridChild();
         childB.Init();
         childB.View = viewC;
-        childB.Rect.Pos.Left = 1;
+        childB.Rect.Pos.Col = 1;
         childB.Rect.Size.Width = 1;
         childB.Rect.Size.Height = 1;
 
-        grid.Pos.Left = 50;
+        grid.Pos.Col = 50;
         grid.Pos.Up = 50;
         grid.Size.Width = 1500;
         grid.Size.Height = 800;
-        grid.Dest.Pos.Left = 0;
+        grid.Dest.Pos.Col = 0;
         grid.Dest.Pos.Up = 0;
         grid.Dest.Size.Width = 1500;
         grid.Dest.Size.Height = 800;
@@ -226,7 +226,7 @@ class Demo : Any
         ViewB viewB;
         viewB = new ViewB();
         viewB.Init();
-        viewB.Pos.Left = 60;
+        viewB.Pos.Col = 60;
         viewB.Pos.Up = 40;
         viewB.Size.Width = widthA;
         viewB.Size.Height = heightA;
@@ -1251,7 +1251,7 @@ class Demo : Any
         ViewC viewC;
         viewC = new ViewC();
         viewC.Init();
-        viewC.Pos.Left = -300;
+        viewC.Pos.Col = -300;
         viewC.Pos.Up = 0;
         viewC.Size.Width = 500;
         viewC.Size.Height = 400;

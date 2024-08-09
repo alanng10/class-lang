@@ -101,7 +101,7 @@ public class View : Comp
         Pos a;
         a = new Pos();
         a.Init();
-        a.Left = 0;
+        a.Col = 0;
         a.Up = 0;
         return a;
     }
@@ -318,7 +318,7 @@ public class View : Comp
     protected virtual bool ExecuteDrawThis(DrawDraw draw)
     {
         int left;
-        left = this.Pos.Left;
+        left = this.Pos.Col;
         int up;
         up = this.Pos.Up;
         int width;
@@ -365,7 +365,7 @@ public class View : Comp
     protected virtual bool ExecuteDrawChild(DrawDraw draw)
     {
         int left;        
-        left = this.Pos.Left;
+        left = this.Pos.Col;
         left = left + draw.Pos.Col;
         int up;
         up = this.Pos.Up;

@@ -35,7 +35,7 @@ public class Pos : Comp
 
     public virtual Field LeftField { get; set; }
 
-    public virtual int Left
+    public virtual int Col
     {
         get
         {
