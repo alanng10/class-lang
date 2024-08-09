@@ -431,6 +431,14 @@ Int TextEncode_ExecuteResult8To32(Int o, Int result, Int data)
 
             if (!(count < akc))
             {
+                Byte akoa;
+                Byte akob;
+                Byte akoc;
+                akoa = p[i + 2];
+                akob = p[i + 1];
+                akoc = ooa;
+
+
                 i = akc;
 
                 b = true;
