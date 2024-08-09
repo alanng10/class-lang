@@ -379,7 +379,5 @@ Int TextEncode_ExecuteResult8To32(Int o, Int result, Int data)
         }
     }
 
-    Int a;
-    a = k * sizeof(Char);
-    return a;
+    return true;
 }
