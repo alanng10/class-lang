@@ -228,6 +228,99 @@ Int TextEncode_ExecuteResult8To32(Int o, Int result, Int data);
 }\
 
 
+#define Read8ForCount32 \
+{\
+        b = false;\
+\
+        Byte ooa;\
+        ooa = p[i];\
+\
+        Int aaa;\
+        aaa = ooa;\
+\
+        if ((aaa >> 7) == 0)\
+        {\
+            i = i + 1;\
+\
+            b = true;\
+        }\
+\
+        if ((aaa >> 5) == 0x6)\
+        {\
+            Int akb;\
+            akb = i + 2;\
+\
+            if (!(count < akb))\
+            {\
+                i = akb;\
+\
+                b = true;\
+            }\
+        }\
+\
+        if ((aaa >> 4) == 0xe)\
+        {\
+            Int akc;\
+            akc = i + 3;\
+\
+            if (!(count < akc))\
+            {\
+                i = akc;\
+\
+                b = true;\
+            }\
+        }\
+\
+        if ((aaa >> 3) == 0x1e)\
+        {\
+            Int akd;\
+            akd = i + 4;\
+\
+            if (!(count < akd))\
+            {\
+                i = akd;\
+\
+                b = true;\
+            }\
+        }\
+}\
+
+
+#define Read16ForCount32 \
+{\
+        b = false;\
+\
+        Int16 ooa;\
+        ooa = p[i];\
+\
+        Int aaa;\
+        aaa = ooa;\
+\
+        Bool ba;\
+        ba = (!(aaa < 0xd800)) & (aaa < 0xe000);\
+\
+        if (!ba)\
+        {\
+            i = i + 1;\
+\
+            b = true;\
+        }\
+\
+        if (ba)\
+        {\
+            Int akb;\
+            akb = i + 2;\
+\
+            if (!(count < akb))\
+            {\
+                i = akb;\
+\
+                b = true;\
+            }\
+        }\
+}\
+
+
 #define Write8 \
 {\
         Int ka;\
