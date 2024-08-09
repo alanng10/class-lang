@@ -6,7 +6,7 @@ public class Pos : Comp
     {
         base.Init();
         this.ColField = this.CreateLeftField();
-        this.UpField = this.CreateUpField();
+        this.RowField = this.CreateUpField();
         return true;
     }
 
@@ -26,7 +26,7 @@ public class Pos : Comp
         {
             this.ChangeLeft(change);
         }
-        if (this.UpField == varField)
+        if (this.RowField == varField)
         {
             this.ChangeUp(change);
         }
@@ -54,24 +54,24 @@ public class Pos : Comp
         return true;
     }
 
-    public virtual Field UpField { get; set; }
+    public virtual Field RowField { get; set; }
 
     public virtual int Row
     {
         get
         {
-            return this.UpField.GetMid();
+            return this.RowField.GetMid();
         }
 
         set
         {
-            this.UpField.SetMid(value);
+            this.RowField.SetMid(value);
         }
     }
 
     protected virtual bool ChangeUp(Change change)
     {
-        this.Event(this.UpField);
+        this.Event(this.RowField);
         return true;
     }
 }
