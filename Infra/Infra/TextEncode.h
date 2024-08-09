@@ -24,7 +24,7 @@ Int TextEncode_ExecuteResult16To32(Int o, Int result, Int data);
 Int TextEncode_ExecuteResult8To16(Int o, Int result, Int data);
 Int TextEncode_ExecuteResult8To32(Int o, Int result, Int data);
 
-#define WriteTo8 \
+#define Write8 \
 {\
         Int ka;\
         Int kb;\
@@ -158,6 +158,46 @@ Int TextEncode_ExecuteResult8To32(Int o, Int result, Int data);
             dest[k + 3] = oda;\
 \
             k = k + 4;\
+        }\
+}\
+
+
+#define Write16 \
+{\
+        if (oc < 0x10000)\
+        {\
+            Int16 oaa;\
+            oaa = oc;\
+\
+            dest[k + 0] = oaa;\
+\
+            k = k + 1;\
+        }\
+\
+        if (!(oc < 0x10000))\
+        {\
+            Int koa;\
+            koa = oc;\
+            koa = koa - 0x10000;\
+\
+            Int kba;\
+            kba = koa & 0x3ff;\
+            kba = kba + 0xdc00;\
+\
+            Int kbb;\
+            kbb = (koa >> 10) & 0x3ff;\
+            kbb = kbb + 0xd800;\
+\
+            Int16 oba;\
+            Int16 obb;\
+\
+            oba = kba;\
+            obb = kbb;\
+\
+            dest[k + 0] = obb;\
+            dest[k + 1] = oba;\
+\
+            k = k + 2;\
         }\
 }\
 
