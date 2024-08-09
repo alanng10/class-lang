@@ -49,58 +49,58 @@ Int TextEncode_ExecuteResult8To32(Int o, Int result, Int data);
             b = true;\
         }\
 \
-        if ((aaa >> 5) == 0x6)
-        {
-            Int akb;
-            akb = i + 2;
-
-            if (!(count < akb))
-            {
-                Byte akboa;
-                Byte akbob;
-                akboa = p[i + 1];
-                akbob = ooa;
-
-                Int akba;
-                Int akbb;
-                Int akbc;
-                akba = akboa & 0xf;
-                akbb = ((akboa >> 4) & 0x3) | ((akbob & 0x3) << 2);
-                akbc = (akbob >> 2) & 0x7;
-
-                Int kkb;
-                kkb = 0;
-                kkb = kkb | (akba << (4 * 0));
-                kkb = kkb | (akbb << (4 * 1));
-                kkb = kkb | (akbc << (4 * 2));
-
-                oc = kkb;
-
-                i = akb;
-
-                b = true;
-            }
-        }
-
-        if ((aaa >> 4) == 0xe)
-        {
-            Int akc;
-            akc = i + 3;
-
-            if (!(count < akc))
-            {
-                Byte akcoa;
-                Byte akcob;
-                Byte akcoc;
-                akcoa = p[i + 2];
-                akcob = p[i + 1];
-                akcoc = ooa;
-
-                Int akca;
-                Int akcb;
-                Int akcc;
-                Int akcd;
-                akca = akcoa & 0xf;
+        if ((aaa >> 5) == 0x6)\
+        {\
+            Int akb;\
+            akb = i + 2;\
+\
+            if (!(count < akb))\
+            {\
+                Byte akboa;\
+                Byte akbob;\
+                akboa = p[i + 1];\
+                akbob = ooa;\
+\
+                Int akba;\
+                Int akbb;\
+                Int akbc;\
+                akba = akboa & 0xf;\
+                akbb = ((akboa >> 4) & 0x3) | ((akbob & 0x3) << 2);\
+                akbc = (akbob >> 2) & 0x7;\
+\
+                Int kkb;\
+                kkb = 0;\
+                kkb = kkb | (akba << (4 * 0));\
+                kkb = kkb | (akbb << (4 * 1));\
+                kkb = kkb | (akbc << (4 * 2));\
+\
+                oc = kkb;\
+\
+                i = akb;\
+\
+                b = true;\
+            }\
+        }\
+\
+        if ((aaa >> 4) == 0xe)\
+        {\
+            Int akc;\
+            akc = i + 3;\
+\
+            if (!(count < akc))\
+            {\
+                Byte akcoa;\
+                Byte akcob;\
+                Byte akcoc;\
+                akcoa = p[i + 2];\
+                akcob = p[i + 1];\
+                akcoc = ooa;\
+\
+                Int akca;\
+                Int akcb;\
+                Int akcc;\
+                Int akcd;\
+                akca = akcoa & 0xf;\
                 akcb = ((akcoa >> 4) & 0x3) | ((akcob & 0x3) << 2);
                 akcc = (akcob >> 2) & 0xf;
                 akcd = akcoc & 0xf;
