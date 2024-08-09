@@ -206,6 +206,8 @@ Word "width" has meaning that is length horizontal.
 
 Word "height" has meaning that is length vertical.
 
+Word "depth" has meaning that is length frontal.
+
 Word "rect" has meaning that is rectangle.
 
 Word "form" has meaning that is transform.
