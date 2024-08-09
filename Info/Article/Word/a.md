@@ -200,6 +200,10 @@ Word "pos" has meaning that is position in signed int.
 
 Word "size" has meaning that is length in dimensions.
 
+Word "width" has meaning that is length horizontal.
+
+Word "height" has meaning that is length vertical.
+
 Word "rect" has meaning that is rectangle.
 
 Word "form" has meaning that is transform.
