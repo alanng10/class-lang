@@ -300,6 +300,26 @@ Int TextEncode_ExecuteResult32To8(Int o, Int result, Int data)
             kdc = kdc | ((ke & 0x3) << 4);
             kdc = kdc | 0x80;
 
+            Int kdd;
+            kdd = 0;
+            kdd = kdd | (ke >> 2);
+            kdd = kdd | (kf << 2);
+            kdd = kdd | 0xf0;
+
+            Byte oda;
+            Byte odb;
+            Byte odc;
+            Byte odd;
+
+            oda = kda;
+            odb = kdb;
+            odc = kdc;
+            odd = kdd;
+
+            dest[k + 0] = odd;
+            dest[k + 1] = odc;
+            dest[k + 2] = odb;
+            dest[k + 3] = oda;
 
             k = k + 4;
         }
