@@ -39,7 +39,12 @@ Int TextEncode_ExecuteCount(Int o, Int innKind, Int outKind, Int data)
 
 Int TextEncode_ExecuteResult(Int o, Int result, Int innKind, Int outKind, Int data)
 {
-    return 0;
+    TextEncode_ResultMaide maide;
+    maide = ResultMaideArray[innKind][outKind];
+
+    Int a;
+    a = maide(o, result, data);
+    return a;
 }
 
 
