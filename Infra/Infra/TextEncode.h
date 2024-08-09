@@ -25,6 +25,7 @@ Int TextEncode_ExecuteResult8To16(Int o, Int result, Int data);
 Int TextEncode_ExecuteResult8To32(Int o, Int result, Int data);
 
 #define WriteTo8 \
+{\
         Int ka;\
         Int kb;\
         Int kc;\
@@ -104,57 +105,59 @@ Int TextEncode_ExecuteResult8To32(Int o, Int result, Int data);
             Byte ocb;\
             Byte occ;\
 \
-            oca = kca;
-            ocb = kcb;
-            occ = kcc;
-
-            dest[k + 0] = occ;
-            dest[k + 1] = ocb;
-            dest[k + 2] = oca;
-
-            k = k + 3;
-        }
-
-        if (!(oc < 0x10000) & oc < 0x110000)
-        {
-            Int kda;
-            kda = 0;
-            kda = kda | ka;
-            kda = kda | ((kb & 0x3) << 4);
-            kda = kda | 0x80;
-
-            Int kdb;
-            kdb = 0;
-            kdb = kdb | (kb >> 2);
-            kdb = kdb | (kc << 2);
-            kdb = kdb | 0x80;
-
-            Int kdc;
-            kdc = 0;
-            kdc = kdc | kd;
-            kdc = kdc | ((ke & 0x3) << 4);
-            kdc = kdc | 0x80;
-
-            Int kdd;
-            kdd = 0;
-            kdd = kdd | (ke >> 2);
-            kdd = kdd | (kf << 2);
-            kdd = kdd | 0xf0;
-
-            Byte oda;
-            Byte odb;
-            Byte odc;
-            Byte odd;
-
-            oda = kda;
-            odb = kdb;
-            odc = kdc;
-            odd = kdd;
-
-            dest[k + 0] = odd;
-            dest[k + 1] = odc;
-            dest[k + 2] = odb;
-            dest[k + 3] = oda;
-
-            k = k + 4;
+            oca = kca;\
+            ocb = kcb;\
+            occ = kcc;\
+\
+            dest[k + 0] = occ;\
+            dest[k + 1] = ocb;\
+            dest[k + 2] = oca;\
+\
+            k = k + 3;\
         }\
+\
+        if (!(oc < 0x10000) & oc < 0x110000)\
+        {\
+            Int kda;\
+            kda = 0;\
+            kda = kda | ka;\
+            kda = kda | ((kb & 0x3) << 4);\
+            kda = kda | 0x80;\
+\
+            Int kdb;\
+            kdb = 0;\
+            kdb = kdb | (kb >> 2);\
+            kdb = kdb | (kc << 2);\
+            kdb = kdb | 0x80;\
+\
+            Int kdc;\
+            kdc = 0;\
+            kdc = kdc | kd;\
+            kdc = kdc | ((ke & 0x3) << 4);\
+            kdc = kdc | 0x80;\
+\
+            Int kdd;\
+            kdd = 0;\
+            kdd = kdd | (ke >> 2);\
+            kdd = kdd | (kf << 2);\
+            kdd = kdd | 0xf0;\
+\
+            Byte oda;\
+            Byte odb;\
+            Byte odc;\
+            Byte odd;\
+\
+            oda = kda;\
+            odb = kdb;\
+            odc = kdc;\
+            odd = kdd;\
+\
+            dest[k + 0] = odd;\
+            dest[k + 1] = odc;\
+            dest[k + 2] = odb;\
+            dest[k + 3] = oda;\
+\
+            k = k + 4;\
+        }\
+}\
+
