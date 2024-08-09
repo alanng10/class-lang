@@ -180,8 +180,6 @@ Int TextEncode_ExecuteResult32To8(Int o, Int result, Int data)
         Read32;
 
         Write8;
-
-        i = i + 1;
     }
 
     return true;
@@ -200,8 +198,6 @@ Int TextEncode_ExecuteResult32To16(Int o, Int result, Int data)
         Read32;
 
         Write16;
-
-        i = i + 1;
     }
 
     return true;
