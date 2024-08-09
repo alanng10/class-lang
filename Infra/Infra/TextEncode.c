@@ -51,7 +51,7 @@ Int TextEncode_ExecuteResult(Int o, Int result, Int innKind, Int outKind, Int da
 Int TextEncode_ExecuteCount32To8(Int o, Int data)
 {
     Start(Char);
-    while (i < count)
+    While
     {
         Char oc;
         oc = 0;
@@ -71,7 +71,7 @@ Int TextEncode_ExecuteCount32To8(Int o, Int data)
 Int TextEncode_ExecuteCount32To16(Int o, Int data)
 {
     Start(Char);
-    while (i < count)
+    While
     {
         Char oc;
         oc = 0;
@@ -91,7 +91,7 @@ Int TextEncode_ExecuteCount32To16(Int o, Int data)
 Int TextEncode_ExecuteCount16To8(Int o, Int data)
 {
     Start(Int16);
-    while (b & (i < count))
+    While
     {
         Char oc;
         oc = 0;
@@ -112,7 +112,7 @@ Int TextEncode_ExecuteCount16To8(Int o, Int data)
 Int TextEncode_ExecuteCount16To32(Int o, Int data)
 {
     Start(Int16);
-    while (b & (i < count))
+    While
     {
         Char oc;
         oc = 0;
@@ -133,7 +133,7 @@ Int TextEncode_ExecuteCount16To32(Int o, Int data)
 Int TextEncode_ExecuteCount8To16(Int o, Int data)
 {
     Start(Byte);
-    while (b & (i < count))
+    While
     {
         Char oc;
         oc = 0;
@@ -154,7 +154,7 @@ Int TextEncode_ExecuteCount8To16(Int o, Int data)
 Int TextEncode_ExecuteCount8To32(Int o, Int data)
 {
     Start(Byte);
-    while (b & (i < count))
+    While
     {
         Char oc;
         oc = 0;
@@ -176,7 +176,7 @@ Int TextEncode_ExecuteResult32To8(Int o, Int result, Int data)
 {
     StartDest(Byte);
     Start(Char);
-    while (i < count)
+    While
     {
         Char oc;
         oc = 0;
@@ -196,7 +196,7 @@ Int TextEncode_ExecuteResult32To16(Int o, Int result, Int data)
 {
     StartDest(Int16);
     Start(Char);
-    while (i < count)
+    While
     {
         Char oc;
         oc = 0;
@@ -215,7 +215,7 @@ Int TextEncode_ExecuteResult16To8(Int o, Int result, Int data)
 {
     StartDest(Byte);
     Start(Int16);
-    while (b & (i < count))
+    While
     {
         Char oc;
         oc = 0;
@@ -235,7 +235,7 @@ Int TextEncode_ExecuteResult16To32(Int o, Int result, Int data)
 {
     StartDest(Char);
     Start(Int16);
-    while (b & (i < count))
+    While
     {
         Char oc;
         oc = 0;
@@ -255,7 +255,7 @@ Int TextEncode_ExecuteResult8To16(Int o, Int result, Int data)
 {
     StartDest(Int16);
     Start(Byte);
-    while (b & (i < count))
+    While
     {
         Char oc;
         oc = 0;
@@ -275,7 +275,7 @@ Int TextEncode_ExecuteResult8To32(Int o, Int result, Int data)
 {
     StartDest(Char);
     Start(Byte);
-    while (b & (i < count))
+    While
     {
         Char oc;
         oc = 0;

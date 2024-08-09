@@ -486,3 +486,5 @@ Int TextEncode_ExecuteResult8To32(Int o, Int result, Int data);
     IntType* dest;\
     dest = CastPointer(resultValue);\
 
+
+#define While while (b & (i < count))
