@@ -90,7 +90,23 @@ Int TextEncode_ExecuteCount16To8(Int o, Int data)
 
 Int TextEncode_ExecuteCount16To32(Int o, Int data)
 {
-    return 0;
+    Start(Int16);
+    while (b & (i < count))
+    {
+        Char oc;
+        oc = 0;
+
+        Read16;
+
+        if (b)
+        {
+            Count32;
+        }
+    }
+
+    Int a;
+    a = k * sizeof(Char);
+    return a;
 }
 
 Int TextEncode_ExecuteCount8To16(Int o, Int data)
