@@ -316,7 +316,7 @@ Int TextEncode_ExecuteResult8To32(Int o, Int result, Int data);
             k = k + 3;\
         }\
 \
-        if (!(oc < 0x10000) & oc < 0x110000)\
+        if ((!(oc < 0x10000)) & (oc < 0x110000))\
         {\
             Int kda;\
             kda = 0;\
