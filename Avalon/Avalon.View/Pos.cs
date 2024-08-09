@@ -24,7 +24,7 @@ public class Pos : Comp
     {
         if (this.ColField == varField)
         {
-            this.ChangeLeft(change);
+            this.ChangeCol(change);
         }
         if (this.RowField == varField)
         {
@@ -48,7 +48,7 @@ public class Pos : Comp
         }
     }
 
-    protected virtual bool ChangeLeft(Change change)
+    protected virtual bool ChangeCol(Change change)
     {
         this.Event(this.ColField);
         return true;
