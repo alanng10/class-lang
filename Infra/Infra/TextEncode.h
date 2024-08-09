@@ -34,9 +34,6 @@ Int TextEncode_ExecuteResult8To32(Int o, Int result, Int data);
         Int aaa;\
         aaa = ooa;\
 \
-        Char oc;\
-        oc = 0;\
-\
         if ((aaa >> 7) == 0)\
         {\
             Int akaa;\
