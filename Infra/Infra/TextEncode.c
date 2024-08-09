@@ -121,15 +121,7 @@ Int TextEncode_ExecuteCount32To16(Int o, Int data)
         Char oc;
         oc = p[i];
 
-        if (oc < 0x10000)
-        {
-            k = k + 1;
-        }
-
-        if (!(oc < 0x10000))
-        {
-            k = k + 2;
-        }
+        Count16;
 
         i = i + 1;
     }
