@@ -215,7 +215,7 @@ Int TextEncode_ExecuteResult16To8(Int o, Int result, Int data)
 {
     StartDest(Byte);
     Start(Int16);
-    while (b & i < count)
+    while (b & (i < count))
     {
         Char oc;
         oc = 0;
@@ -235,7 +235,7 @@ Int TextEncode_ExecuteResult16To32(Int o, Int result, Int data)
 {
     StartDest(Char);
     Start(Int16);
-    while (b & i < count)
+    while (b & (i < count))
     {
         Char oc;
         oc = 0;
