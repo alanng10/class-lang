@@ -80,7 +80,7 @@ public class Image : Any
         aa = Extern.Data_ValueGet(this.InternData);
 
         uint u;
-        u = this.InternIntern.VideoDataColor(aa, this.Size.Width, pos.Left, pos.Up);
+        u = this.InternIntern.VideoDataColor(aa, this.Size.Width, pos.Col, pos.Row);
 
         ulong ua;
         ua = u;

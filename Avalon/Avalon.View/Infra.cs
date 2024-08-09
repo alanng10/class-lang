@@ -44,8 +44,8 @@ public class Infra : Any
         a.Init();
         a.Pos = new DrawPos();
         a.Pos.Init();
-        a.Pos.Left = rect.Pos.Left;
-        a.Pos.Up = rect.Pos.Up;
+        a.Pos.Col = rect.Pos.Left;
+        a.Pos.Row = rect.Pos.Up;
         a.Size = new DrawSize();
         a.Size.Init();
         a.Size.Width = rect.Size.Width;
@@ -76,8 +76,8 @@ public class Infra : Any
 
     public virtual bool AssignDrawPosValue(DrawPos dest, DrawPos source)
     {
-        dest.Left = source.Left;
-        dest.Up = source.Up;
+        dest.Col = source.Col;
+        dest.Row = source.Row;
         return true;
     }
 

@@ -366,18 +366,18 @@ public class View : Comp
     {
         int left;        
         left = this.Pos.Left;
-        left = left + draw.Pos.Left;
+        left = left + draw.Pos.Col;
         int up;
         up = this.Pos.Up;
-        up = up + draw.Pos.Up;
+        up = up + draw.Pos.Row;
 
         int width;
         width = this.Size.Width;
         int height;
         height = this.Size.Height;
 
-        this.DrawRectA.Pos.Left = left;
-        this.DrawRectA.Pos.Up = up;
+        this.DrawRectA.Pos.Col = left;
+        this.DrawRectA.Pos.Row = up;
         this.DrawRectA.Size.Width = width;
         this.DrawRectA.Size.Height = height;
 

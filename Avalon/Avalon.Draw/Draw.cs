@@ -221,16 +221,16 @@ public class Draw : Any
 
         Rect area;
         area = this.Area;
-        area.Pos.Left = 0;
-        area.Pos.Up = 0;
+        area.Pos.Col = 0;
+        area.Pos.Row = 0;
         area.Size.Width = this.Size.Width;
         area.Size.Height = this.Size.Height;
         this.AreaSet();
 
         Pos pos;
         pos = this.Pos;
-        pos.Left = 0;
-        pos.Up = 0;
+        pos.Col = 0;
+        pos.Row = 0;
         this.PosSet();
 
         this.Fill = null;
@@ -289,8 +289,8 @@ public class Draw : Any
         Pos k;
         k = this.Pos;
 
-        this.PosA.Left = this.MathInt(k.Left);
-        this.PosA.Up = this.MathInt(k.Up);
+        this.PosA.Left = this.MathInt(k.Col);
+        this.PosA.Up = this.MathInt(k.Row);
         this.DrawFormSet();
         return true;
     }
@@ -521,7 +521,7 @@ public class Draw : Any
         Size size;
         pos = rect.Pos;
         size = rect.Size;
-        this.InternInfra.RectSet(internRect, pos.Left, pos.Up, size.Width, size.Height);
+        this.InternInfra.RectSet(internRect, pos.Col, pos.Row, size.Width, size.Height);
         return true;
     }
 }

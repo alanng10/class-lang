@@ -278,17 +278,17 @@ public class Grid : View
     {
         int left;
         left = this.Dest.Pos.Left;
-        left = left + draw.Pos.Left;
+        left = left + draw.Pos.Col;
         int up;
         up = this.Dest.Pos.Up;
-        up = up + draw.Pos.Up;
+        up = up + draw.Pos.Row;
         int width;
         width = this.Dest.Size.Width;
         int height;
         height = this.Dest.Size.Height;
 
-        this.DrawRectA.Pos.Left = left;
-        this.DrawRectA.Pos.Up = up;
+        this.DrawRectA.Pos.Col = left;
+        this.DrawRectA.Pos.Row = up;
         this.DrawRectA.Size.Width = width;
         this.DrawRectA.Size.Height = height;
 
@@ -354,9 +354,9 @@ public class Grid : View
         int upA;
         upA = this.GridRowUp(startRow);
         int left;
-        left = leftA + draw.Pos.Left;
+        left = leftA + draw.Pos.Col;
         int up;
-        up = upA + draw.Pos.Up;
+        up = upA + draw.Pos.Row;
         
         int right;
         right = this.GridColLeft(endCol);
@@ -370,8 +370,8 @@ public class Grid : View
 
         DrawRect rect;
         rect = this.DrawRectA;
-        rect.Pos.Left = left;
-        rect.Pos.Up = up;
+        rect.Pos.Col = left;
+        rect.Pos.Row = up;
         rect.Size.Width = width;
         rect.Size.Height = height;
 

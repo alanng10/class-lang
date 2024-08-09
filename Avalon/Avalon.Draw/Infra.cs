@@ -133,8 +133,8 @@ public class Infra : Any
         Pos pos;
         pos = new Pos();
         pos.Init();
-        pos.Left = left;
-        pos.Up = up;
+        pos.Col = left;
+        pos.Row = up;
         return pos;
     }
 
@@ -284,9 +284,9 @@ public class Infra : Any
     public virtual bool BoundArea(Rect bound, Rect area)
     {
         int left;
-        left = area.Pos.Left;
+        left = area.Pos.Col;
         int up;
-        up = area.Pos.Up;
+        up = area.Pos.Row;
         int width;
         width = area.Size.Width;
         int height;
@@ -297,17 +297,17 @@ public class Infra : Any
         down = up + height;
 
         int boundRight;
-        boundRight = bound.Pos.Left + bound.Size.Width;
+        boundRight = bound.Pos.Col + bound.Size.Width;
         int boundDown;
-        boundDown = bound.Pos.Up + bound.Size.Height;
+        boundDown = bound.Pos.Row + bound.Size.Height;
 
-        if (left < bound.Pos.Left)
+        if (left < bound.Pos.Col)
         {
-            left = bound.Pos.Left;
+            left = bound.Pos.Col;
         }
-        if (up < bound.Pos.Up)
+        if (up < bound.Pos.Row)
         {
-            up = bound.Pos.Up;
+            up = bound.Pos.Row;
         }
         if (boundRight < right)
         {
@@ -323,8 +323,8 @@ public class Infra : Any
         int h;
         h = this.BoundSub(down, up);
 
-        area.Pos.Left = left;
-        area.Pos.Up = up;
+        area.Pos.Col = left;
+        area.Pos.Row = up;
         area.Size.Width = w;
         area.Size.Height = h;
         return true;

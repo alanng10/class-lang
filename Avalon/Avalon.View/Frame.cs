@@ -269,7 +269,7 @@ public class Frame : Comp
     public virtual bool Update(DrawRect rect)
     {
         this.InternInfra.RectSet(this.InternUpdateRect, 
-            rect.Pos.Left, rect.Pos.Up, rect.Size.Width, rect.Size.Height
+            rect.Pos.Col, rect.Pos.Row, rect.Size.Width, rect.Size.Height
         );
 
         Extern.Frame_Update(this.Intern, this.InternUpdateRect);
