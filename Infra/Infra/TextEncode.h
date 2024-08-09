@@ -350,3 +350,9 @@ Int TextEncode_ExecuteResult8To32(Int o, Int result, Int data);
         k = k + 1;\
 }\
 
+
+#define Count32 \
+{\
+        k = k + 1;\
+}\
+

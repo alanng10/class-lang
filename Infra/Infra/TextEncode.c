@@ -177,66 +177,14 @@ Int TextEncode_ExecuteCount8To32(Int o, Int data)
     i = 0;
     while (b & (i < count))
     {
-        b = false;
+        Char oc;
+        oc = 0;
 
-        Byte ooa;
-        ooa = p[i];
+        Read8;
 
-        Int aaa;
-        aaa = ooa;
-
-        if ((aaa >> 7) == 0)
+        if (b)
         {
-            i = i + 1;
-
-            k = k + 1;
-
-            b = true;
-        }
-
-        if ((aaa >> 5) == 0x6)
-        {
-            Int akb;
-            akb = i + 2;
-
-            if (!(count < akb))
-            {
-                i = akb;
-
-                k = k + 1;
-
-                b = true;
-            }
-        }
-
-        if ((aaa >> 4) == 0xe)
-        {
-            Int akc;
-            akc = i + 3;
-
-            if (!(count < akc))
-            {
-                i = akc;
-
-                k = k + 1;
-
-                b = true;
-            }
-        }
-
-        if ((aaa >> 3) == 0x1e)
-        {
-            Int akd;
-            akd = i + 4;
-
-            if (!(count < akd))
-            {
-                i = akd;
-
-                k = k + 1;
-
-                b = true;
-            }
+            Count32;
         }
     }
 
