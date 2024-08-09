@@ -274,11 +274,11 @@ public class Draw : Any
         PosInt k;
         k = this.FillPos;
 
-        long left;
-        long up;
-        left = k.Col;
-        up = k.Row;
-        this.InternInfra.PosSet(this.InternFillPos, left, up);
+        long col;
+        long row;
+        col = k.Col;
+        row = k.Row;
+        this.InternInfra.PosSet(this.InternFillPos, col, row);
 
         Extern.Draw_FillPosThisSet(this.Intern);
         return true;
