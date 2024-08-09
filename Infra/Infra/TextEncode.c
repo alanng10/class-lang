@@ -181,7 +181,7 @@ Int TextEncode_ExecuteCount8To32(Int o, Int data)
 
         Byte ooa;
         ooa = p[i];
-        
+
         Int aaa;
         aaa = ooa;
 
