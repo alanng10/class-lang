@@ -1649,39 +1649,7 @@ int main(int argc, char* argv[])
 
 
 
-    Int textConstant;
-    textConstant = String_ConstantCreate(CastInt("DEMO Infra ABCD abcd"));
-
-    Int innKind;
-    Int outKind;
-    innKind = Stat_TextEncodeKindUtf32(Stat);
-    outKind = Stat_TextEncodeKindUtf16(Stat);
-
-    Int textData;
-    Int textCount;
-    textData = String_DataGet(textConstant);
-    textCount = String_CountGet(textConstant);
-
-    Int dataValue;
-    Int dataCount;
-    dataValue = textData;
-    dataCount = textCount * sizeof(Char);
-
-    Int resultCount;
-    resultCount = TextEncode_ExecuteCount(0, innKind, outKind, dataValue, dataCount);
-
-    Int resultText;
-    resultText = New(resultCount);
-
-    TextEncode_ExecuteResult(0, resultText, innKind, outKind, dataValue, dataCount);
-
-    Int resultTextK;
-    resultTextK = resultCount / sizeof(Int16);
-
-    Text = String_New();
-    String_Init(Text);
-    String_DataSet(Text, resultText);
-    String_CountSet(Text, resultTextK);
+    Text = String_ConstantCreate(CastInt("DEMO Infra ABCD abcd"));
 
 
     Int updatePos;
@@ -2007,15 +1975,7 @@ int main(int argc, char* argv[])
     Pos_Delete(updatePos);
 
 
-
-    String_Final(Text);
-    String_Delete(Text);
-
-    Delete(resultText);
-
-    String_ConstantDelete(textConstant);
-
-
+    String_ConstantDelete(Text);
 
 
     Thread_Final(Thread);
