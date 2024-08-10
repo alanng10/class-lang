@@ -83,10 +83,11 @@ public class Intern : object
                 byte* pa;
                 pa = p;
                 pa = pa + dataIndex;
-                ulong u;
-                u = (ulong)pa;
 
-                a = Extern.TextEncode_ExecuteCount(0, innKind, outKind, u, dataCount);
+                ulong dataValue;
+                dataValue = (ulong)pa;
+
+                a = Extern.TextEncode_ExecuteCount(0, innKind, outKind, dataValue, dataCount);
             }
         }
         return a;
