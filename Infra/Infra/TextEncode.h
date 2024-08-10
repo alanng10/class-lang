@@ -564,11 +564,6 @@ Int TextEncode_ExecuteResult8To32(Int o, Int result, Int dataCount, Int dataValu
 
 
 #define Start(IntType) \
-    Int dataCount;\
-    Int dataValue;\
-    dataCount = Data_CountGet(data);\
-    dataValue = Data_ValueGet(data);\
-\
     IntType* p;\
     p = CastPointer(dataValue);\
 \
@@ -589,11 +584,8 @@ Int TextEncode_ExecuteResult8To32(Int o, Int result, Int dataCount, Int dataValu
 
 
 #define StartDest(IntType) \
-    Int resultValue;\
-    resultValue = Data_ValueGet(result);\
-\
     IntType* dest;\
-    dest = CastPointer(resultValue);\
+    dest = CastPointer(result);\
 
 
 #define While while (b & (i < count))
