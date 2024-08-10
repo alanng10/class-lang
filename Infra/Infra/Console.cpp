@@ -105,7 +105,7 @@ Int Console_InnRead(Int o)
     char* p;
     p = u.data();
 
-    std:size_t uu;
+    std::size_t uu;
     uu = u.length();
 
     Int ka;
