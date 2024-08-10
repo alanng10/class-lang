@@ -144,30 +144,20 @@ public class Intern : object
         return a;
     }
 
-    public virtual bool TextEncodeResultString(byte[] result, ulong resultIndex, ulong innKind, ulong outKind, string data, ulong dataIndex, ulong dataCount)
+    public virtual bool TextEncodeResultString(ulong result, ulong innKind, ulong outKind, string data, ulong dataIndex, ulong dataCount)
     {
         unsafe
         {
-            fixed (byte* uaa = result)
+            fixed (char* p = data)
             {
-                fixed (char* p = data)
-                {
-                    byte* resultU;
-                    resultU = uaa;
-                    resultU = resultU + resultIndex;
+                byte* pa;
+                pa = (byte*)p;
+                pa = pa + dataIndex;
 
-                    ulong resultValue;
-                    resultValue = (ulong)resultU;
+                ulong dataValue;
+                dataValue = (ulong)pa;
 
-                    byte* pa;
-                    pa = (byte*)p;
-                    pa = pa + dataIndex;
-
-                    ulong dataValue;
-                    dataValue = (ulong)pa;
-
-                    Extern.TextEncode_ExecuteResult(0, resultValue, innKind, outKind, dataValue, dataCount);
-                }
+                Extern.TextEncode_ExecuteResult(0, result, innKind, outKind, dataValue, dataCount);
             }
         }
         return true;
