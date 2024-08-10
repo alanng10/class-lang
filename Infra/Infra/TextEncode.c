@@ -29,8 +29,13 @@ Int TextEncode_Final(Int o)
 
 Int TextEncode_ExecuteCount(Int o, Int innKind, Int outKind, Int data)
 {
+    Int ka;
+    Int kb;
+    ka = innKind - 1;
+    kb = outKind - 1;
+
     TextEncode_CountMaide maide;
-    maide = CountMaideArray[innKind][outKind];
+    maide = CountMaideArray[ka][kb];
 
     Int a;
     a = maide(o, data);
@@ -39,8 +44,13 @@ Int TextEncode_ExecuteCount(Int o, Int innKind, Int outKind, Int data)
 
 Int TextEncode_ExecuteResult(Int o, Int result, Int innKind, Int outKind, Int data)
 {
+    Int ka;
+    Int kb;
+    ka = innKind - 1;
+    kb = outKind - 1;
+
     TextEncode_ResultMaide maide;
-    maide = ResultMaideArray[innKind][outKind];
+    maide = ResultMaideArray[ka][kb];
 
     Int a;
     a = maide(o, result, data);
