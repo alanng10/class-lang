@@ -305,8 +305,6 @@ Infra_Api Int Draw_FormGet(Int o);
 Infra_Api Int Draw_FormSet(Int o, Int value);
 Infra_Api Int Draw_CompGet(Int o);
 Infra_Api Int Draw_CompSet(Int o, Int value);
-Infra_Api Int Draw_Text16Get(Int o);
-Infra_Api Int Draw_Text16Set(Int o, Int value);
 
 Infra_Api Int Draw_Start(Int o);
 Infra_Api Int Draw_End(Int o);
