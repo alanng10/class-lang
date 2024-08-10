@@ -1668,12 +1668,12 @@ int main(int argc, char* argv[])
     dataCount = textCount * sizeof(Char);
 
     Int resultCount;
-    resultCount = TextEncode_ExecuteCount(0, innKind, outKind, dataCount, dataValue);
+    resultCount = TextEncode_ExecuteCount(0, innKind, outKind, dataValue, dataCount);
 
     Int resultText;
     resultText = New(resultCount);
 
-    TextEncode_ExecuteResult(0, resultText, innKind, outKind, dataCount, dataValue);
+    TextEncode_ExecuteResult(0, resultText, innKind, outKind, dataValue, dataCount);
 
     Int resultTextK;
     resultTextK = resultCount / sizeof(Int16);
