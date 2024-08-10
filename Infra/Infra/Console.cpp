@@ -52,11 +52,6 @@ Int Console_StreamWrite(Int o, Int text, Int stream)
     dataCount = ka * sizeof(Char);
     dataValue = kb;
 
-    Int share;
-    share = Infra_Share();
-    Int stat;
-    stat = Share_Stat(share);
-
     Int innKind;
     Int outKind;
     innKind = Stat_TextEncodeKindUtf32(stat);
@@ -107,14 +102,46 @@ Int Console_InnRead(Int o)
     std::string u;
     std::getline(std::cin, u);
 
-    QString oa;
-    oa = QString::fromStdString(u);
+    char* p;
+    p = u.data();
 
-    QString* ob;
-    ob = new QString(oa);
+    std:size_t uu;
+    uu = u.length();
+
+    Int ka;
+    Int kb;
+    ka = uu;
+    kb = CastInt(p);
+
+    Int dataCount;
+    Int dataValue;
+    dataCount = ka;
+    dataValue = kb;
+
+    Int innKind;
+    Int outKind;
+    innKind = Stat_TextEncodeKindUtf8(stat);
+    outKind = Stat_TextEncodeKindUtf32(stat);
+
+    Int resultCount;
+    resultCount = TextEncode_ExecuteCount(0, innKind, outKind, dataCount, dataValue);
+
+    Int result;
+    result = New(resultCount);
+
+    TextEncode_ExecuteResult(0, result, innKind, outKind, dataCount, dataValue);
+
+    Int count;
+    count = resultCount / sizeof(Char);
+
+    Int k;
+    k = String_New();
+    String_Init(k);
+    String_CountSet(k, count);
+    String_DataSet(k, result);
 
     Int a;
-    a = CastInt(ob);
+    a = k;
 
     Phore_Release(phore);
     return a;
