@@ -110,13 +110,13 @@ Int Console_InnRead(Int o)
 
     Int ka;
     Int kb;
-    ka = uu;
-    kb = CastInt(p);
+    ka = CastInt(p);
+    kb = uu;
 
-    Int dataCount;
     Int dataValue;
-    dataCount = ka;
-    dataValue = kb;
+    Int dataCount;
+    dataValue = ka;
+    dataCount = kb;
 
     Int innKind;
     Int outKind;
@@ -124,12 +124,12 @@ Int Console_InnRead(Int o)
     outKind = Stat_TextEncodeKindUtf32(stat);
 
     Int resultCount;
-    resultCount = TextEncode_ExecuteCount(0, innKind, outKind, dataCount, dataValue);
+    resultCount = TextEncode_ExecuteCount(0, innKind, outKind, dataValue, dataCount);
 
     Int result;
     result = New(resultCount);
 
-    TextEncode_ExecuteResult(0, result, innKind, outKind, dataCount, dataValue);
+    TextEncode_ExecuteResult(0, result, innKind, outKind, dataValue, dataCount);
 
     Int count;
     count = resultCount / sizeof(Char);
@@ -137,8 +137,8 @@ Int Console_InnRead(Int o)
     Int k;
     k = String_New();
     String_Init(k);
-    String_CountSet(k, count);
     String_DataSet(k, result);
+    String_CountSet(k, count);
 
     Int a;
     a = k;
