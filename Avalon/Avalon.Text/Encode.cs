@@ -40,9 +40,9 @@ public class Encode : Any
         return a;
     }
 
-    public virtual bool ExecuteResult(Text result, EncodeKind innKind, EncodeKind outKind, Data data, RangeInt dataRange)
+    public virtual bool ExecuteResult(Data result, long resultIndex, EncodeKind innKind, EncodeKind outKind, Data data, RangeInt dataRange)
     {
-        if (!this.TextInfra.ValidRange(result))
+        if (!this.InfraInfra.ValidRangeInt(result.Count, resultIndex, 0))
         {
             return false;
         }
@@ -62,10 +62,10 @@ public class Encode : Any
         dataIndexU = (ulong)dataIndex;
         dataCountU = (ulong)dataCount;
 
-        ulong resultIndex;
-        resultIndex = (ulong)result.Range.Index;
+        ulong resultIndexU;
+        resultIndexU = (ulong)resultIndex;
 
-        this.InternIntern.TextEncodeResult(result.Data.Value, resultIndex, innKind.Intern, outKind.Intern, data.Value, dataIndexU, dataCountU);
+        this.InternIntern.TextEncodeResult(result.Value, resultIndexU, innKind.Intern, outKind.Intern, data.Value, dataIndexU, dataCountU);
 
         return true;
     }
