@@ -29,8 +29,8 @@ Array
     ItemSet(index, value)
 
 TextEncode
-    ExecuteCount(innKind, outKind, dataCount, dataValue)
-    ExecuteResult(result, innKind, outKind, dataCount, dataValue)
+    ExecuteCount(innKind, outKind, dataValue, dataCount)
+    ExecuteResult(result, innKind, outKind, dataValue, dataCount)
 
 Format
     ExecuteCount(varBase, argList)
