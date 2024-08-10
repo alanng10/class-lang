@@ -3,7 +3,6 @@
 #include "Prudate.h"
 
 Int String_QStringSet(Int result, Int a);
-Int String_QStringSetRaw(Int result, Int a);
 
 Int Stream_FlushStorage(Int device);
 Int Stream_FlushNetwork(Int device);
