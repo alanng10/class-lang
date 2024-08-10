@@ -508,6 +508,16 @@ Int Draw_ExecuteText(Int o, Int destRect, Int flag, Int text, Int boundRect)
 {
     Draw* m;
     m = CP(o);
+
+    Int count;
+    count = String_CountGet(text);
+
+    if (4096 < count)
+    {
+        return false;
+    }
+
+
     RectValue(dest);
 
     InternRectValue(dest);
@@ -559,4 +569,43 @@ Int Draw_Intern(Int o)
     Int a;
     a = CastInt(m->Intern);
     return a;
+}
+
+Int Draw_TextDataSet(Int o, Int text)
+{
+    Int textData;
+    Int textCount;
+    textData = String_DataGet(text);
+    textCount = String_CountGet(text);
+
+    Int dataValue;
+    Int dataCount;
+    dataValue = textData;
+    dataCount = textCount * sizeof(Char);
+
+    Int share;
+    Int stat;
+    share = Infra_Share();
+    stat = Share_Stat(share);
+
+    Int innKind;
+    Int outKind;
+    innKind = Stat_TextEncodeKindUtf32(stat);
+    outKind = Stat_TextEncodeKindUtf16(stat);
+
+    Int resultCount;
+    resultCount = TextEncode_ExecuteCount(0, innKind, outKind, dataValue, dataCount);
+}
+
+Int Draw_QStringSetRaw(Int result, Int data, Int count)
+{
+    const QChar* dataU;
+    dataU = (const QChar*)data;
+    qsizetype countU;
+    countU = count;
+
+    QString* u;
+    u = (QString*)result;
+    u->setRawData(dataU, countU);
+    return true;
 }
