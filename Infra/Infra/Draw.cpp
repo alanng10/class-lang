@@ -8,7 +8,7 @@ Int Draw_Init(Int o)
     m = CP(o);
 
     Int count;
-    count = 4096 * 2 * sizeof(QChar);
+    count = TextCountMax * 2 * sizeof(Int16);
     Int p;
     p = New(count);
     m->TextData = p;
@@ -509,14 +509,15 @@ Int Draw_ExecuteText(Int o, Int destRect, Int flag, Int text, Int boundRect)
     Draw* m;
     m = CP(o);
 
-    Int count;
-    count = String_CountGet(text);
+    Int textData;
+    Int textCount;
+    textData = String_DataGet(text);
+    textCount = String_CountGet(text);
 
-    if (4096 < count)
+    if (TextCountMax < textCount)
     {
         return false;
     }
-
 
     RectValue(dest);
 
@@ -527,9 +528,7 @@ Int Draw_ExecuteText(Int o, Int destRect, Int flag, Int text, Int boundRect)
     int flagU;
     flagU = (int)flag;
 
-    Int ua;
-    ua = CastInt(m->InternText);
-    String_QStringSetRaw(ua, text);
+    Draw_TextSet(o, textData, textCount);
 
     QRectF boundRectA;
 
@@ -571,12 +570,10 @@ Int Draw_Intern(Int o)
     return a;
 }
 
-Int Draw_TextDataSet(Int o, Int text)
+Int Draw_TextSet(Int o, Int textData, Int textCount)
 {
-    Int textData;
-    Int textCount;
-    textData = String_DataGet(text);
-    textCount = String_CountGet(text);
+    Draw* m;
+    m = CP(o);
 
     Int dataValue;
     Int dataCount;
@@ -595,6 +592,17 @@ Int Draw_TextDataSet(Int o, Int text)
 
     Int resultCount;
     resultCount = TextEncode_ExecuteCount(0, innKind, outKind, dataValue, dataCount);
+
+    TextEncode_ExecuteResult(0, m->TextData, innKind, outKind, dataValue, dataCount);
+
+    Int ka;
+    ka = resultCount / sizeof(Int16);
+
+    Int ua;
+    ua = CastInt(m->InternText);
+    Draw_QStringSetRaw(ua, m->TextData, ka);
+
+    return true;
 }
 
 Int Draw_QStringSetRaw(Int result, Int data, Int count)
