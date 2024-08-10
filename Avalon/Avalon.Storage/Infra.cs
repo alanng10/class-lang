@@ -145,6 +145,9 @@ public class Infra : Any
 
     public virtual string TextReadAny(string filePath, bool anyNode)
     {
+        TextEncodeKindList kindList;
+        kindList = this.TextEncodeKindList;
+
         Data data;
         data = this.DataReadAny(filePath, anyNode);
         if (data == null)
@@ -153,27 +156,31 @@ public class Infra : Any
         }
         TextEncode encode;
         encode = new TextEncode();
-        encode.Kind = this.TextEncodeKindList.Utf8;
         encode.Init();
 
+        RangeInt dataRange;
+        dataRange = new RangeInt();
+        dataRange.Init();
+        dataRange.Count = data.Count;
+
+        long resultCount;
+        resultCount = encode.ExecuteCount(kindList.Utf8, kindList.Utf16, data, dataRange);
+
+        long charCount;
+        charCount = resultCount / sizeof(char);
+
+        if (int.MaxValue < charCount)
+        {
+            return null;
+        }
+
         int ka;
-        ka = encode.TextCountMax(data.Count);
+        ka = (int)charCount;
 
         TextText text;
         text = this.TextInfra.TextCreate(ka);
-        RangeInt range;
-        range = new RangeInt();
-        range.Init();
-        range.Count = data.Count;
-        int kb;
-        kb = encode.Text(text, data, range);
 
-        encode.Final();
-
-        int count;
-        count = kb;
-
-        text.Range.Count = count;
+        encode.ExecuteResult(text, kindList.Utf8, kindList.Utf16, data, dataRange);
 
         string a;
         a = this.TextInfra.StringCreate(text);
