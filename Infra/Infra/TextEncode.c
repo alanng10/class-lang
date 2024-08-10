@@ -57,7 +57,6 @@ Int TextEncode_ExecuteResult(Int o, Int result, Int innKind, Int outKind, Int da
     return a;
 }
 
-
 Int TextEncode_ExecuteCount32To8(Int o, Int data)
 {
     Start(Char);
