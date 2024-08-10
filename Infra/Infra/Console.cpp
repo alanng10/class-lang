@@ -44,13 +44,13 @@ Int Console_StreamWrite(Int o, Int text, Int stream)
 
     Int ka;
     Int kb;
-    ka = String_CountGet(text);
-    kb = String_DataGet(text);
+    ka = String_DataGet(text);
+    kb = String_CountGet(text);
 
-    Int dataCount;
     Int dataValue;
-    dataCount = ka * sizeof(Char);
-    dataValue = kb;
+    Int dataCount;
+    dataValue = ka;
+    dataCount = kb * sizeof(Char);
 
     Int innKind;
     Int outKind;
@@ -58,12 +58,12 @@ Int Console_StreamWrite(Int o, Int text, Int stream)
     outKind = Stat_TextEncodeKindUtf8(stat);
 
     Int k;
-    k = TextEncode_ExecuteCount(0, innKind, outKind, dataCount, dataValue);
+    k = TextEncode_ExecuteCount(0, innKind, outKind, dataValue, dataCount);
 
     Int result;
     result = New(k);
 
-    TextEncode_ExecuteResult(0, result, innKind, outKind, dataCount, dataValue);
+    TextEncode_ExecuteResult(0, result, innKind, outKind, dataValue, dataCount);
 
     const char* p;
     p = (const char*)result;
