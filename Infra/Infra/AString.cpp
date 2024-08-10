@@ -88,20 +88,20 @@ Int String_ConstantCreate(Int o)
     Int outKind;
     outKind = Stat_TextEncodeKindUtf32(stat);
 
-    Int innDataCount;
     Int innDataValue;
-    innDataCount = count;
+    Int innDataCount;
     innDataValue = o;
+    innDataCount = count;
 
     Int k;
-    k = TextEncode_ExecuteCount(0, innKind, outKind, innDataCount, innDataValue);
+    k = TextEncode_ExecuteCount(0, innKind, outKind, innDataValue, innDataCount);
 
-    Int outDataCount;
     Int outDataValue;
-    outDataCount = k;
+    Int outDataCount;
     outDataValue = New(k);
+    outDataCount = k;
 
-    TextEncode_ExecuteResult(0, outDataValue, innKind, outKind, innDataCount, innDataValue);
+    TextEncode_ExecuteResult(0, outDataValue, innKind, outKind, innDataValue, innDataCount);
 
     Int stringCount;
     stringCount = outDataCount / sizeof(Char);
@@ -109,8 +109,8 @@ Int String_ConstantCreate(Int o)
     Int kk;
     kk = String_New();
     String_Init(kk);
-    String_CountSet(kk, stringCount);
     String_DataSet(kk, outDataValue);
+    String_CountSet(kk, stringCount);
 
     Int a;
     a = kk;
