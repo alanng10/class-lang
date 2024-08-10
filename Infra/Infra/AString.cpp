@@ -88,34 +88,23 @@ Int String_ConstantCreate(Int o)
     Int outKind;
     outKind = Stat_TextEncodeKindUtf32(stat);
 
-    Int innData;
-    innData = Data_New();
-    Data_Init(innData);
-    Data_CountSet(innData, count);
-    Data_ValueSet(innData, o);
+    Int innDataCount;
+    Int innDataValue;
+    innDataCount = count;
+    innDataValue = o;
 
     Int k;
-    k = TextEncode_ExecuteCount(0, innKind, outKind, innData);
+    k = TextEncode_ExecuteCount(0, innKind, outKind, innDataCount, innDataValue);
 
+    Int outDataCount;
     Int outDataValue;
+    outDataCount = k;
     outDataValue = New(k);
 
-    Int outData;
-    outData = Data_New();
-    Data_Init(outData);
-    Data_CountSet(outData, k);
-    Data_ValueSet(outData, outDataValue);
-
-    TextEncode_ExecuteResult(0, outData, innKind, outKind, innData);
+    TextEncode_ExecuteResult(0, outDataValue, innKind, outKind, innDataCount, innDataValue);
 
     Int stringCount;
-    stringCount = k / sizeof(Char);
-
-    Data_Final(outData);
-    Data_Delete(outData);
-
-    Data_Final(innData);
-    Data_Delete(innData);
+    stringCount = outDataCount / sizeof(Char);
 
     Int kk;
     kk = String_New();
