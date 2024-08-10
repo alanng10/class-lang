@@ -169,21 +169,30 @@ public class Infra : Any
         long charCount;
         charCount = resultCount / sizeof(char);
 
-        if (int.MaxValue < charCount)
+        long kk;
+        kk = int.MaxValue;
+
+        if (kk < charCount)
         {
             return null;
         }
 
-        int ka;
-        ka = (int)charCount;
+        Data result;
+        result = new Data();
+        result.Count = resultCount;
+        result.Init();
 
-        TextText text;
-        text = this.TextInfra.TextCreate(ka);
+        encode.ExecuteResult(result, 0, kindList.Utf8, kindList.Utf16, data, dataRange);
 
-        encode.ExecuteResult(text, kindList.Utf8, kindList.Utf16, data, dataRange);
+        StringCreate stringCreate;
+        stringCreate = new StringCreate();
+        stringCreate.Init();
+
+        string k;
+        k = stringCreate.Data(result, null);
 
         string a;
-        a = this.TextInfra.StringCreate(text);
+        a = k;
         return a;
     }
 
@@ -196,35 +205,10 @@ public class Infra : Any
     {
         TextEncode encode;
         encode = new TextEncode();
-        encode.Kind = this.TextEncodeKindList.Utf8;
         encode.Init();
 
-        TextText o;
-        o = this.TextInfra.TextCreateString(text, null);
-        int kk;
-        kk = o.Range.Count;
-        long ka;
-        ka = encode.DataCountMax(kk);
 
-        Data data;
-        data = new Data();
-        data.Count = ka;
-        data.Init();
-
-        long kb;
-        kb = encode.Data(data, 0, o);
-
-        encode.Final();
-
-        long count;
-        count = kb;
-        RangeInt range;
-        range = new RangeInt();
-        range.Init();
-        range.Count = count;
-        bool a;
-        a = this.DataWriteRangeAny(filePath, data, range, anyNode);
-        return a;
+        return true;
     }
 
     public virtual bool CountSet(string filePath, long value)
