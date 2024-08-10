@@ -15,31 +15,10 @@ public class Infra : object
     public virtual bool Init()
     {
         this.InternIntern = Intern.This;
-
-
-        this.SystemTickMin = DateTime.MinValue.Ticks;
-        this.SystemTickMax = DateTime.MaxValue.Ticks;
-
-        double k;
-        k = TimeSpan.TicksPerDay;
-
-        long ka;
-        ka = 1;
-        ka = ka << 30;
-
-        k = k / ka;
-
-        this.SystemTickPerTick = k;
         return true;
     }
 
     protected virtual Intern InternIntern { get; set; }
-
-    public virtual long SystemTickMin { get; set; }
-
-    public virtual long SystemTickMax { get; set; }
-
-    public virtual double SystemTickPerTick { get; set; }
 
     public virtual ulong StringCreate(string a)
     {
@@ -210,27 +189,5 @@ public class Infra : object
         Extern.Size_WidthSet(size, w);
         Extern.Size_HeightSet(size, h);
         return true;
-    }
-
-    public virtual long SystemTickToTick(long value)
-    {
-        double k;
-        k = value;
-        k = k / this.SystemTickPerTick;
-
-        long a;
-        a = (long)k;
-        return a;
-    }
-
-    public virtual long TickToSystemTick(long value)
-    {
-        double k;
-        k = value;
-        k = k * this.SystemTickPerTick;
-
-        long a;
-        a = (long)k;
-        return a;
     }
 }
