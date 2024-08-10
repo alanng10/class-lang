@@ -323,6 +323,9 @@ Int TextEncode_ExecuteResult8To32(Int o, Int result, Int data);
 
 #define Write8 \
 {\
+        Int ko;\
+        ko = oc;\
+\
         Int ka;\
         Int kb;\
         Int kc;\
@@ -330,14 +333,14 @@ Int TextEncode_ExecuteResult8To32(Int o, Int result, Int data);
         Int ke;\
         Int kf;\
 \
-        ka = (oc >> (4 * 0)) & 0xf;\
-        kb = (oc >> (4 * 1)) & 0xf;\
-        kc = (oc >> (4 * 2)) & 0xf;\
-        kd = (oc >> (4 * 3)) & 0xf;\
-        ke = (oc >> (4 * 4)) & 0xf;\
-        kf = (oc >> (4 * 5)) & 0x1;\
+        ka = (ko >> (4 * 0)) & 0xf;\
+        kb = (ko >> (4 * 1)) & 0xf;\
+        kc = (ko >> (4 * 2)) & 0xf;\
+        kd = (ko >> (4 * 3)) & 0xf;\
+        ke = (ko >> (4 * 4)) & 0xf;\
+        kf = (ko >> (4 * 5)) & 0x1;\
 \
-        if (oc < 0x80)\
+        if (ko < 0x80)\
         {\
             Int kaa;\
             kaa = 0;\
@@ -353,7 +356,7 @@ Int TextEncode_ExecuteResult8To32(Int o, Int result, Int data);
             k = k + 1;\
         }\
 \
-        if ((!(oc < 0x80)) & (oc < 0x800))\
+        if ((!(ko < 0x80)) & (ko < 0x800))\
         {\
             Int kba;\
             kba = 0;\
@@ -379,7 +382,7 @@ Int TextEncode_ExecuteResult8To32(Int o, Int result, Int data);
             k = k + 2;\
         }\
 \
-        if ((!(oc < 0x800)) & (oc < 0x10000))\
+        if ((!(ko < 0x800)) & (ko < 0x10000))\
         {\
             Int kca;\
             kca = 0;\
@@ -413,7 +416,7 @@ Int TextEncode_ExecuteResult8To32(Int o, Int result, Int data);
             k = k + 3;\
         }\
 \
-        if ((!(oc < 0x10000)) & (oc < 0x110000))\
+        if ((!(ko < 0x10000)) & (ko < 0x110000))\
         {\
             Int kda;\
             kda = 0;\
@@ -461,20 +464,23 @@ Int TextEncode_ExecuteResult8To32(Int o, Int result, Int data);
 
 #define Write16 \
 {\
-        if (oc < 0x10000)\
+        Int ko;\
+        ko = oc;\
+\
+        if (ko < 0x10000)\
         {\
             Int16 oaa;\
-            oaa = oc;\
+            oaa = ko;\
 \
             dest[k + 0] = oaa;\
 \
             k = k + 1;\
         }\
 \
-        if (!(oc < 0x10000))\
+        if (!(ko < 0x10000))\
         {\
             Int koa;\
-            koa = oc;\
+            koa = ko;\
             koa = koa - 0x10000;\
 \
             Int kba;\
@@ -509,22 +515,25 @@ Int TextEncode_ExecuteResult8To32(Int o, Int result, Int data);
 
 #define Count8 \
 {\
-        if (oc < 0x80)\
+        Int ko;\
+        ko = oc;\
+\
+        if (ko < 0x80)\
         {\
             k = k + 1;\
         }\
 \
-        if ((!(oc < 0x80)) & (oc < 0x800))\
+        if ((!(ko < 0x80)) & (ko < 0x800))\
         {\
             k = k + 2;\
         }\
 \
-        if ((!(oc < 0x800)) & (oc < 0x10000))\
+        if ((!(ko < 0x800)) & (ko < 0x10000))\
         {\
             k = k + 3;\
         }\
 \
-        if ((!(oc < 0x10000)) & (oc < 0x110000))\
+        if ((!(ko < 0x10000)) & (ko < 0x110000))\
         {\
             k = k + 4;\
         }\
@@ -533,12 +542,15 @@ Int TextEncode_ExecuteResult8To32(Int o, Int result, Int data);
 
 #define Count16 \
 {\
-        if (oc < 0x10000)\
+        Int ko;\
+        ko = oc;\
+\
+        if (ko < 0x10000)\
         {\
             k = k + 1;\
         }\
 \
-        if (!(oc < 0x10000))\
+        if (!(ko < 0x10000))\
         {\
             k = k + 2;\
         }\
