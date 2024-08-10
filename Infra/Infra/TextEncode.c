@@ -27,7 +27,7 @@ Int TextEncode_Final(Int o)
     return true;
 }
 
-Int TextEncode_ExecuteCount(Int o, Int innKind, Int outKind, Int dataCount, Int dataValue)
+Int TextEncode_ExecuteCount(Int o, Int innKind, Int outKind, Int dataValue, Int dataCount)
 {
     Int ka;
     Int kb;
@@ -38,11 +38,11 @@ Int TextEncode_ExecuteCount(Int o, Int innKind, Int outKind, Int dataCount, Int 
     maide = CountMaideArray[ka][kb];
 
     Int a;
-    a = maide(o, dataCount, dataValue);
+    a = maide(o, dataValue, dataCount);
     return a;
 }
 
-Int TextEncode_ExecuteResult(Int o, Int result, Int innKind, Int outKind, Int dataCount, Int dataValue)
+Int TextEncode_ExecuteResult(Int o, Int result, Int innKind, Int outKind, Int dataValue, Int dataCount)
 {
     Int ka;
     Int kb;
@@ -53,11 +53,11 @@ Int TextEncode_ExecuteResult(Int o, Int result, Int innKind, Int outKind, Int da
     maide = ResultMaideArray[ka][kb];
 
     Int a;
-    a = maide(o, result, dataCount, dataValue);
+    a = maide(o, result, dataValue, dataCount);
     return a;
 }
 
-Int TextEncode_ExecuteCount32To8(Int o, Int dataCount, Int dataValue)
+Int TextEncode_ExecuteCount32To8(Int o, Int dataValue, Int dataCount)
 {
     Start(Char);
     While
@@ -75,7 +75,7 @@ Int TextEncode_ExecuteCount32To8(Int o, Int dataCount, Int dataValue)
     return a;
 }
 
-Int TextEncode_ExecuteCount32To16(Int o, Int dataCount, Int dataValue)
+Int TextEncode_ExecuteCount32To16(Int o, Int dataValue, Int dataCount)
 {
     Start(Char);
     While
@@ -93,7 +93,7 @@ Int TextEncode_ExecuteCount32To16(Int o, Int dataCount, Int dataValue)
     return a;
 }
 
-Int TextEncode_ExecuteCount16To8(Int o, Int dataCount, Int dataValue)
+Int TextEncode_ExecuteCount16To8(Int o, Int dataValue, Int dataCount)
 {
     Start(Int16);
     While
@@ -114,7 +114,7 @@ Int TextEncode_ExecuteCount16To8(Int o, Int dataCount, Int dataValue)
     return a;
 }
 
-Int TextEncode_ExecuteCount16To32(Int o, Int dataCount, Int dataValue)
+Int TextEncode_ExecuteCount16To32(Int o, Int dataValue, Int dataCount)
 {
     Start(Int16);
     While
@@ -132,7 +132,7 @@ Int TextEncode_ExecuteCount16To32(Int o, Int dataCount, Int dataValue)
     return a;
 }
 
-Int TextEncode_ExecuteCount8To16(Int o, Int dataCount, Int dataValue)
+Int TextEncode_ExecuteCount8To16(Int o, Int dataValue, Int dataCount)
 {
     Start(Byte);
     While
@@ -153,7 +153,7 @@ Int TextEncode_ExecuteCount8To16(Int o, Int dataCount, Int dataValue)
     return a;
 }
 
-Int TextEncode_ExecuteCount8To32(Int o, Int dataCount, Int dataValue)
+Int TextEncode_ExecuteCount8To32(Int o, Int dataValue, Int dataCount)
 {
     Start(Byte);
     While
@@ -171,7 +171,7 @@ Int TextEncode_ExecuteCount8To32(Int o, Int dataCount, Int dataValue)
     return a;
 }
 
-Int TextEncode_ExecuteResult32To8(Int o, Int result, Int dataCount, Int dataValue)
+Int TextEncode_ExecuteResult32To8(Int o, Int result, Int dataValue, Int dataCount)
 {
     StartDest(Byte);
     Start(Char);
@@ -189,7 +189,7 @@ Int TextEncode_ExecuteResult32To8(Int o, Int result, Int dataCount, Int dataValu
 }
 
 
-Int TextEncode_ExecuteResult32To16(Int o, Int result, Int dataCount, Int dataValue)
+Int TextEncode_ExecuteResult32To16(Int o, Int result, Int dataValue, Int dataCount)
 {
     StartDest(Int16);
     Start(Char);
@@ -206,7 +206,7 @@ Int TextEncode_ExecuteResult32To16(Int o, Int result, Int dataCount, Int dataVal
     return true;
 }
 
-Int TextEncode_ExecuteResult16To8(Int o, Int result, Int dataCount, Int dataValue)
+Int TextEncode_ExecuteResult16To8(Int o, Int result, Int dataValue, Int dataCount)
 {
     StartDest(Byte);
     Start(Int16);
@@ -226,7 +226,7 @@ Int TextEncode_ExecuteResult16To8(Int o, Int result, Int dataCount, Int dataValu
     return true;
 }
 
-Int TextEncode_ExecuteResult16To32(Int o, Int result, Int dataCount, Int dataValue)
+Int TextEncode_ExecuteResult16To32(Int o, Int result, Int dataValue, Int dataCount)
 {
     StartDest(Char);
     Start(Int16);
@@ -246,7 +246,7 @@ Int TextEncode_ExecuteResult16To32(Int o, Int result, Int dataCount, Int dataVal
     return true;
 }
 
-Int TextEncode_ExecuteResult8To16(Int o, Int result, Int dataCount, Int dataValue)
+Int TextEncode_ExecuteResult8To16(Int o, Int result, Int dataValue, Int dataCount)
 {
     StartDest(Int16);
     Start(Byte);
@@ -266,7 +266,7 @@ Int TextEncode_ExecuteResult8To16(Int o, Int result, Int dataCount, Int dataValu
     return true;
 }
 
-Int TextEncode_ExecuteResult8To32(Int o, Int result, Int dataCount, Int dataValue)
+Int TextEncode_ExecuteResult8To32(Int o, Int result, Int dataValue, Int dataCount)
 {
     StartDest(Char);
     Start(Byte);
