@@ -14,7 +14,6 @@ public class Encode : Any
     private InternIntern InternIntern { get; set; }
     protected virtual InfraInfra InfraInfra { get; set; }
     protected virtual Infra TextInfra { get; set; }
-    private ulong Intern { get; set; }
 
     public virtual long ExecuteCount(EncodeKind innKind, EncodeKind outKind, Data data, RangeInt dataRange)
     {
