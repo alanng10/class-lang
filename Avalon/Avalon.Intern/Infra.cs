@@ -25,22 +25,38 @@ public class Infra : object
         int k;
         k = a.Length;
 
-        ulong count;
-        count = (ulong)k;
+        ulong kk;
+        kk = (ulong)k;
 
-        ulong byteCount;
-        byteCount = count * 2;
+        ulong dataCount;
+        dataCount = kk * 2;
 
-        ulong data;
-        data = Extern.New(byteCount);
+        ulong varShare;
+        varShare = Extern.Infra_Share();
+        ulong stat;
+        stat = Extern.Share_Stat(varShare);
 
-        this.InternIntern.CopyString(data, a, 0, count);
+        ulong innKind;
+        ulong outKind;
+        innKind = Extern.Stat_TextEncodeKindUtf16(stat);
+        outKind = Extern.Stat_TextEncodeKindUtf32(stat);
+
+        ulong resultCount;
+        resultCount = this.InternIntern.TextEncodeCountString(innKind, outKind, a, 0, dataCount);
+
+        ulong result;
+        result = Extern.New(resultCount);
+
+        this.InternIntern.TextEncodeResultString(result, innKind, outKind, a, 0, dataCount);
  
+        ulong count;
+        count = resultCount / 4;
+
         ulong o;
         o = Extern.String_New();
         Extern.String_Init(o);
+        Extern.String_DataSet(o, result);
         Extern.String_CountSet(o, count);
-        Extern.String_DataSet(o, data);
         return o;
     }
 
