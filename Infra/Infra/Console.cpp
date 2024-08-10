@@ -75,14 +75,16 @@ Int Console_StreamWrite(Int o, Int text, Int stream)
     size_t uu;
     uu = k;
 
-    std::string oo(p, uu);
+    {
+        std::ostream* ob;
+        ob = (std::ostream*)stream;
 
-    std::ostream* ob;
-    ob = (std::ostream*)stream;
+        std::string oo(p, uu);
 
-    (*ob) << oo;
+        (*ob) << oo;
 
-    ob->flush();
+        ob->flush();
+    }
 
     Delete(result);
 
