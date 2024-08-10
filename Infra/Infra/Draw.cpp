@@ -7,6 +7,12 @@ Int Draw_Init(Int o)
     Draw* m;
     m = CP(o);
 
+    Int count;
+    count = 4096 * 2 * sizeof(QChar);
+    Int p;
+    p = New(count);
+    m->TextData = p;
+
     m->InternIdentityForm = new QTransform;
 
     QString* uu;
@@ -33,6 +39,8 @@ Int Draw_Final(Int o)
     delete m->InternDefaultFace;
     delete m->InternText;
     delete m->InternIdentityForm;
+
+    Delete(m->TextData);
     return true;
 }
 
