@@ -82,8 +82,8 @@ Word "false" has meaning that is bool false.
 
 Word "value" has meaning that is known data.
 
-Words "prusate", "probate", "precate" and "private" have meanings that are applicable
-to all, local, child, and self.
+Words "prusate", "precate", "probate" and "private" have meanings that are applicable
+to all, child, local, and self.
 
 Words "inf", "while" and "return" have meanings that are conditionally,
 conditionally trigger again, and refer result.
