@@ -42,20 +42,49 @@ Int Console_StreamWrite(Int o, Int text, Int stream)
 
     Phore_Acquire(phore);
 
-    QString oa;
-    Int ua;
-    ua = CastInt(&oa);
-    String_QStringSetRaw(ua, text);
+    Int ka;
+    Int kb;
+    ka = String_CountGet(text);
+    kb = String_DataGet(text);
+
+    Int dataCount;
+    Int dataValue;
+    dataCount = ka * sizeof(Char);
+    dataValue = kb;
+
+    Int share;
+    share = Infra_Share();
+    Int stat;
+    stat = Share_Stat(share);
+
+    Int innKind;
+    Int outKind;
+    innKind = Stat_TextEncodeKindUtf32(stat);
+    outKind = Stat_TextEncodeKindUtf8(stat);
+
+    Int k;
+    k = TextEncode_ExecuteCount(0, innKind, outKind, dataCount, dataValue);
+
+    Int result;
+    result = New(k);
+
+    TextEncode_ExecuteResult(0, result, innKind, outKind, dataCount, dataValue);
+
+    const char* p;
+    p = (const char*)result;
+    size_t uu;
+    uu = k;
+
+    std::string oo(p, uu);
 
     std::ostream* ob;
     ob = (std::ostream*)stream;
 
-    std::string oo;
-    oo = oa.toStdString();
-
     (*ob) << oo;
 
     ob->flush();
+
+    Delete(result);
 
     Phore_Release(phore);
     return true;
