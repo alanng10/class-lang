@@ -75,7 +75,7 @@ public class Intern : object
     {
         ulong a;
         a = 0;
-        
+
         unsafe
         {
             fixed (byte* p = data)
@@ -90,6 +90,35 @@ public class Intern : object
             }
         }
         return a;
+    }
+
+    public virtual bool TextEncodeResult(byte[] result, ulong resultIndex, ulong innKind, ulong outKind, byte[] data, ulong dataIndex, ulong dataCount)
+    {
+        unsafe
+        {
+            fixed (byte* uaa = result)
+            {
+                fixed (byte* p = data)
+                {
+                    byte* resultU;
+                    resultU = uaa;
+                    resultU = resultU + resultIndex;
+
+                    ulong resultValue;
+                    resultValue = (ulong)resultU;
+
+                    byte* pa;
+                    pa = p;
+                    pa = pa + dataIndex;
+                    
+                    ulong dataValue;
+                    dataValue = (ulong)pa;
+
+                    Extern.TextEncode_ExecuteResult(0, resultValue, innKind, outKind, dataValue, dataCount);
+                }
+            }
+        }
+        return true;
     }
 
     public virtual bool StreamRead(ulong stream, byte[] dataArray, ulong data, ulong range)
