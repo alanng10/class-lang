@@ -1657,15 +1657,15 @@ int main(int argc, char* argv[])
     innKind = Stat_TextEncodeKindUtf32(Stat);
     outKind = Stat_TextEncodeKindUtf16(Stat);
 
-    Int textCount;
     Int textData;
-    textCount = String_CountGet(textConstant);
+    Int textCount;
     textData = String_DataGet(textConstant);
+    textCount = String_CountGet(textConstant);
 
-    Int dataCount;
     Int dataValue;
-    dataCount = textCount * sizeof(Char);
+    Int dataCount;
     dataValue = textData;
+    dataCount = textCount * sizeof(Char);
 
     Int resultCount;
     resultCount = TextEncode_ExecuteCount(0, innKind, outKind, dataCount, dataValue);
@@ -1680,8 +1680,8 @@ int main(int argc, char* argv[])
 
     Text = String_New();
     String_Init(Text);
-    String_CountSet(Text, resultTextK);
     String_DataSet(Text, resultText);
+    String_CountSet(Text, resultTextK);
 
 
     Int updatePos;
