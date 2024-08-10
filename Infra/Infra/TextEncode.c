@@ -27,7 +27,7 @@ Int TextEncode_Final(Int o)
     return true;
 }
 
-Int TextEncode_ExecuteCount(Int o, Int innKind, Int outKind, Int data)
+Int TextEncode_ExecuteCount(Int o, Int innKind, Int outKind, Int dataCount, Int dataValue)
 {
     Int ka;
     Int kb;
@@ -38,11 +38,11 @@ Int TextEncode_ExecuteCount(Int o, Int innKind, Int outKind, Int data)
     maide = CountMaideArray[ka][kb];
 
     Int a;
-    a = maide(o, data);
+    a = maide(o, dataCount, dataValue);
     return a;
 }
 
-Int TextEncode_ExecuteResult(Int o, Int result, Int innKind, Int outKind, Int data)
+Int TextEncode_ExecuteResult(Int o, Int result, Int innKind, Int outKind, Int dataCount, Int dataValue)
 {
     Int ka;
     Int kb;
@@ -53,7 +53,7 @@ Int TextEncode_ExecuteResult(Int o, Int result, Int innKind, Int outKind, Int da
     maide = ResultMaideArray[ka][kb];
 
     Int a;
-    a = maide(o, result, data);
+    a = maide(o, result, dataCount, dataValue);
     return a;
 }
 
