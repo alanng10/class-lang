@@ -72,7 +72,7 @@ Int Console_StreamWrite(Int o, Int text, Int stream)
 
     const char* p;
     p = (const char*)result;
-    size_t uu;
+    std::size_t uu;
     uu = k;
 
     {
