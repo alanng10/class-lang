@@ -71,6 +71,27 @@ public class Intern : object
         return true;
     }
 
+    public virtual ulong TextEncodeCount(ulong innKind, ulong outKind, byte[] data, ulong dataIndex, ulong dataCount)
+    {
+        ulong a;
+        a = 0;
+        
+        unsafe
+        {
+            fixed (byte* p = data)
+            {
+                byte* pa;
+                pa = p;
+                pa = pa + dataIndex;
+                ulong u;
+                u = (ulong)pa;
+
+                a = Extern.TextEncode_ExecuteCount(0, innKind, outKind, u, dataCount);
+            }
+        }
+        return a;
+    }
+
     public virtual bool StreamRead(ulong stream, byte[] dataArray, ulong data, ulong range)
     {
         unsafe
