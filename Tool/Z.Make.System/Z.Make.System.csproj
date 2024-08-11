@@ -10,6 +10,7 @@
         <ProjectReference Include="../Z.Tool.System.StorageStatusList/Z.Tool.System.StorageStatusList.csproj" />
         <ProjectReference Include="../Z.Tool.System.NetworkPortKindList/Z.Tool.System.NetworkPortKindList.csproj" />
         <ProjectReference Include="../Z.Tool.System.NetworkStatusList/Z.Tool.System.NetworkStatusList.csproj" />
+        <ProjectReference Include="../Z.Tool.System.BrushCapList/Z.Tool.System.BrushCapList.csproj" />
         <ProjectReference Include="../Z.Tool.System.BrushJoinList/Z.Tool.System.BrushJoinList.csproj" />
         <ProjectReference Include="../Z.Tool.System.BrushKindList/Z.Tool.System.BrushKindList.csproj" />
         <ProjectReference Include="../Z.Tool.System.GradientKindList/Z.Tool.System.GradientKindList.csproj" />
