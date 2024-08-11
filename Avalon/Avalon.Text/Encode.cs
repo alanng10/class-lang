@@ -33,7 +33,7 @@ public class Encode : Any
         dataCountU = (ulong)dataCount;
 
         ulong u;
-        u = this.InternIntern.TextEncodeCount(innKind.Intern, outKind.Intern, data.Value, dataIndexU, dataCountU);
+        u = this.InternIntern.TextEncodeCountArray(innKind.Intern, outKind.Intern, data.Value, dataIndexU, dataCountU);
 
         long a;
         a = (long)u;
@@ -65,7 +65,7 @@ public class Encode : Any
         ulong resultIndexU;
         resultIndexU = (ulong)resultIndex;
 
-        this.InternIntern.TextEncodeResult(result.Value, resultIndexU, innKind.Intern, outKind.Intern, data.Value, dataIndexU, dataCountU);
+        this.InternIntern.TextEncodeResultArrayArray(result.Value, resultIndexU, innKind.Intern, outKind.Intern, data.Value, dataIndexU, dataCountU);
 
         return true;
     }
