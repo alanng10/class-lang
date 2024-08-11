@@ -273,13 +273,13 @@ public class CompTraverse : Traverse
         {
             a = this.Count.Prusate;
         }
-        if ((a == null) & (nodeCount is ProbateCount))
-        {
-            a = this.Count.Probate;
-        }
         if ((a == null) & (nodeCount is PrecateCount))
         {
             a = this.Count.Precate;
+        }
+        if ((a == null) & (nodeCount is ProbateCount))
+        {
+            a = this.Count.Probate;
         }
         if ((a == null) & (nodeCount is PrivateCount))
         {
