@@ -223,7 +223,7 @@ public class Infra : Any
         CountList countList;
         countList = this.CountList;
 
-        if (count == countList.Prudate)
+        if (count == countList.Prusate)
         {
             return true;
         }
