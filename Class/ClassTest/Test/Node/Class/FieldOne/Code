@@ -1,6 +1,6 @@
 class Gg : Hom
 {
-    field prudate Ff Aeid
+    field prusate Ff Aeid
     {
         get
         {
