@@ -41,12 +41,15 @@ public class CaseList : Any
 
     protected virtual Case AddItem()
     {
+        int index;
+        index = this.Index;
+
         Case item;
         item = new Case();
         item.Init();
-        item.Index = this.Index;
-        this.Array.SetAt(item.Index, item);
-        this.Index = this.Index + 1;
+        item.Index = index;
+        this.Array.SetAt(index, item);
+        this.Index = index + 1;
         return item;
     }
 
