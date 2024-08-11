@@ -198,7 +198,7 @@ Word "row" has meaning that is vertical index.
 
 Word "col" has meaning that is horizontal index.
 
-Word "for" has meaning that is frontal index;
+Word "hor" has meaning that is frontal index;
 
 Word "size" has meaning that is length in dimensions.
 
