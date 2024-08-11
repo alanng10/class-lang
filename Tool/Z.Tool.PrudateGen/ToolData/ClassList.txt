@@ -54,9 +54,9 @@ FormatArg
     Count
 
 Math
-    Value(significand, exponent)
-    ValueTen(significand, exponentTen)
-    Comp(value, significand, exponent)
+    Value(cand, expo)
+    ValueTen(cand, expoTen)
+    Comp(value, cand, expo)
     Less(valueA, valueB)
 
 Rand
