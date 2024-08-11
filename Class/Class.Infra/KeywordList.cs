@@ -40,7 +40,7 @@ public class KeywordList : Any
         this.False = this.AddItem("false");
         this.Sign = this.AddItem("sign");
         this.Bit = this.AddItem("bit");
-        this.Prudate = this.AddItem("prudate");
+        this.Prusate = this.AddItem("prusate");
         this.Probate = this.AddItem("probate");
         this.Precate = this.AddItem("precate");
         this.Private = this.AddItem("private");
@@ -66,7 +66,7 @@ public class KeywordList : Any
     public virtual Keyword False { get; set; }
     public virtual Keyword Sign { get; set; }
     public virtual Keyword Bit { get; set; }
-    public virtual Keyword Prudate { get; set; }
+    public virtual Keyword Prusate { get; set; }
     public virtual Keyword Probate { get; set; }
     public virtual Keyword Precate { get; set; }
     public virtual Keyword Private { get; set; }
