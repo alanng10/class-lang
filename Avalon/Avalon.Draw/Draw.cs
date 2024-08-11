@@ -33,7 +33,7 @@ public class Draw : Any
         this.WorldForm = new Form();
         this.WorldForm.Init();
 
-        this.TextCount = 4096;
+        this.TextCount = 1024;
 
         ulong oa;
         oa = (ulong)this.TextCount;
