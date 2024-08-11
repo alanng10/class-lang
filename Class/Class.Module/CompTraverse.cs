@@ -269,19 +269,19 @@ public class CompTraverse : Traverse
         Count a;
         a = null;
 
-        if ((a == null) & (nodeCount is PrudateAccess))
+        if ((a == null) & (nodeCount is PrusateCount))
         {
-            a = this.Count.Prudate;
+            a = this.Count.Prusate;
         }
-        if ((a == null) & (nodeCount is ProbateAccess))
+        if ((a == null) & (nodeCount is ProbateCount))
         {
             a = this.Count.Probate;
         }
-        if ((a == null) & (nodeCount is PrecateAccess))
+        if ((a == null) & (nodeCount is PrecateCount))
         {
             a = this.Count.Precate;
         }
-        if ((a == null) & (nodeCount is PrivateAccess))
+        if ((a == null) & (nodeCount is PrivateCount))
         {
             a = this.Count.Private;
         }
