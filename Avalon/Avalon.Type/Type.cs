@@ -36,19 +36,19 @@ public class Type : Any
         this.FieldList.Count = this.Button.Count;
         this.FieldList.Init();
 
-        Array a;
-        a = this.FieldList;
+        Array array;
+        array = this.FieldList;
 
         int count;
-        count = a.Count;
+        count = array.Count;
         int i;
         i = 0;
         while (i < count)
         {
-            ButtonField field;
-            field = new ButtonField();
-            field.Init();
-            a.SetAt(i, field);
+            Value a;
+            a = new Value();
+            a.Init();
+            array.SetAt(i, a);
             i = i + 1;
         }
         return true;
@@ -59,9 +59,9 @@ public class Type : Any
 
     public virtual bool Get(int index)
     {
-        ButtonField a;
-        a = (ButtonField)this.FieldList.GetAt(index);
-        return a.Value;
+        Value a;
+        a = (Value)this.FieldList.GetAt(index);
+        return a.Bool;
     }
 
     public virtual bool Set(int index, bool value)
@@ -74,15 +74,15 @@ public class Type : Any
             return true;
         }
 
-        ButtonField a;
-        a = (ButtonField)this.FieldList.GetAt(index);
+        Value a;
+        a = (Value)this.FieldList.GetAt(index);
 
-        if (a.Value == value)
+        if (a.Bool == value)
         {
             return true;
         }
 
-        a.Value = value;
+        a.Bool = value;
         this.ChangeArg.Button = button;
         this.ChangeArg.Field = value;
         this.Change.Execute(this.ChangeArg);
