@@ -208,7 +208,7 @@ public class Infra : Any
         encode.Init();
 
         Data data;
-        data = this.TextInfra.DataCreateString(text, null);
+        data = this.TextInfra.StringDataCreateString(text);
 
         RangeInt dataRange;
         dataRange = new RangeInt();
@@ -224,7 +224,7 @@ public class Infra : Any
         result.Init();
 
         encode.ExecuteResult(result, 0, kindList.Utf16, kindList.Utf8, data, dataRange);
-        
+
         bool a;
         a = this.DataWriteAny(filePath, result, anyNode);
         return a;
