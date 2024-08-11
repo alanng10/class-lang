@@ -10,11 +10,11 @@
 
     field precate Int ArrayCount { get { return #ArrayCount#; } set { } }
 
-    field prudate Int Count { get { return data; } set { data : value; } }
+    field prusate Int Count { get { return data; } set { data : value; } }
     
     field precate Int Index { get { return data; } set { data : value; } }
 
-    maide prudate #ItemClassName# Get(var Int index)
+    maide prusate #ItemClassName# Get(var Int index)
     {
         return cast #ItemClassName#(this.Array.Get(index));
     }

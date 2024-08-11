@@ -1,4 +1,4 @@
-    maide prudate Bool Init()
+    maide prusate Bool Init()
     {
         base.Init();
         this.InitArray();
