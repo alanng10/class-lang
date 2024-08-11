@@ -28,7 +28,7 @@ public class StringCreate : Any
         long dataCount;
         dataCount = data.Count;
         long charCount;
-        charCount = dataCount / 2;
+        charCount = dataCount / sizeof(char);
         int totalCount;
         totalCount = (int)charCount;
 
