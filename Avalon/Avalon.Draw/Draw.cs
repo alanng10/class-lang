@@ -35,16 +35,15 @@ public class Draw : Any
 
         this.TextCount = 4096;
 
-        int oa;
-        oa = this.TextCount * sizeof(char);
-        ulong ou;
-        ou = (ulong)oa;
-        this.InternTextData = Extern.New(ou);
+        ulong oa;
+        oa = (ulong)this.TextCount;
+        oa = oa * sizeof(uint);
+        this.InternTextData = Extern.New(oa);
 
         this.InternText = Extern.String_New();
         Extern.String_Init(this.InternText);
-        Extern.String_CountSet(this.InternText, 0);
         Extern.String_DataSet(this.InternText, this.InternTextData);
+        Extern.String_CountSet(this.InternText, 0);
 
         this.InternRangeA = this.InternInfra.RangeCreate();
         this.InternRectA = this.InternInfra.RectCreate();
