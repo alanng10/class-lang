@@ -62,11 +62,11 @@ class ConsoleIntern : Any
         data = Extern.String_DataGet(u);
         count = Extern.String_CountGet(u);
         
-        int k;
-        k = (int)count;
+        ulong dataCount;
+        dataCount = count * 4;
 
         string a;
-        a = this.InternIntern.StringCreate(data, k);
+        a = this.InternIntern.StringCreate(data, dataCount);
 
         Extern.String_Final(u);
         Extern.String_Delete(u);
