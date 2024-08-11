@@ -17,6 +17,8 @@ Int Main_Init()
     char** argv;
     argv = m->Argv;
 
+    QCoreApplication::addLibraryPath(".");
+
     m->Intern = new QApplication(argc, argv);
 
     m->MainThread = Thread_New();
