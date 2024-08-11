@@ -61,12 +61,12 @@ class ConsoleIntern : Any
         ulong count;
         data = Extern.String_DataGet(u);
         count = Extern.String_CountGet(u);
-        
+
         ulong dataCount;
         dataCount = count * 4;
 
         string a;
-        a = this.InternIntern.StringCreate(data, dataCount);
+        a = this.InternIntern.StringCreateUtf32(data, dataCount);
 
         Extern.String_Final(u);
         Extern.String_Delete(u);

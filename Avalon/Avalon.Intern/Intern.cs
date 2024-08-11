@@ -203,7 +203,7 @@ public class Intern : object
         return true;
     }
 
-    public virtual string StringCreate(ulong data, ulong dataCount)
+    public virtual string StringCreateUtf32(ulong data, ulong dataCount)
     {
         ulong share;
         ulong stat;
