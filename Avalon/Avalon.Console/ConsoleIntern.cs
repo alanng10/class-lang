@@ -54,39 +54,19 @@ class ConsoleIntern : Any
 
     public virtual string Read()
     {
-        ulong uu;
-        uu = Extern.Console_InnRead(this.Intern);
-
-        ulong internReturn;
-        internReturn = Extern.Return_New();
-        Extern.Return_Init(internReturn);
-
-        Extern.Return_StringSet(internReturn, uu);
-
-        Extern.Return_StringStart(internReturn);
-        ulong countU;
-        countU = Extern.Return_StringCount(internReturn);
-        ulong byteCount;
-        byteCount = countU * 2;
-        ulong data;
-        data = Extern.New(byteCount);
         ulong u;
-        u = Extern.String_New();
-        Extern.String_Init(u);
-        Extern.String_CountSet(u, countU);
-        Extern.String_DataSet(u, data);
-        Extern.Return_StringResult(internReturn, u);
-        Extern.Return_StringEnd(internReturn);
+        u = Extern.Console_InnRead(this.Intern);
 
-        Extern.Return_StringSet(internReturn, 0);
+        ulong data;
+        ulong count;
+        data = Extern.String_DataGet(u);
+        count = Extern.String_CountGet(u);
+        
+        int k;
+        k = (int)count;
 
-        Extern.Return_Final(internReturn);
-        Extern.Return_Delete(internReturn);
-
-        int count;
-        count = (int)countU;
         string a;
-        a = this.InternIntern.StringCreate(data, count);
+        a = this.InternIntern.StringCreate(data, k);
 
         Extern.String_Final(u);
         Extern.String_Delete(u);
