@@ -15,6 +15,7 @@
         <ProjectReference Include="../Z.Tool.System.BrushKindList/Z.Tool.System.BrushKindList.csproj" />
         <ProjectReference Include="../Z.Tool.System.DrawCompList/Z.Tool.System.DrawCompList.csproj" />
         <ProjectReference Include="../Z.Tool.System.GradientKindList/Z.Tool.System.GradientKindList.csproj" />
+        <ProjectReference Include="../Z.Tool.System.GradientSpreadList/Z.Tool.System.GradientSpreadList.csproj" />
         <ProjectReference Include="../Z.Tool.System.ImageFormatList/Z.Tool.System.ImageFormatList.csproj" />
     </ItemGroup>
 
