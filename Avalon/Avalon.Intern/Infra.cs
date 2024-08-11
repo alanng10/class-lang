@@ -20,13 +20,13 @@ public class Infra : object
 
     protected virtual Intern InternIntern { get; set; }
 
-    public virtual ulong StringCreate(string a)
+    public virtual ulong StringCreate(string o)
     {
-        int k;
-        k = a.Length;
+        int countA;
+        countA = o.Length;
 
         ulong kk;
-        kk = (ulong)k;
+        kk = (ulong)countA;
 
         ulong dataCount;
         dataCount = kk * sizeof(char);
@@ -42,22 +42,22 @@ public class Infra : object
         outKind = Extern.Stat_TextEncodeKindUtf32(stat);
 
         ulong resultCount;
-        resultCount = this.InternIntern.TextEncodeCountString(innKind, outKind, a, 0, dataCount);
+        resultCount = this.InternIntern.TextEncodeCountString(innKind, outKind, o, 0, dataCount);
 
         ulong result;
         result = Extern.New(resultCount);
 
-        this.InternIntern.TextEncodeResultString(result, innKind, outKind, a, 0, dataCount);
+        this.InternIntern.TextEncodeResultString(result, innKind, outKind, o, 0, dataCount);
  
         ulong count;
         count = resultCount / 4;
 
-        ulong o;
-        o = Extern.String_New();
-        Extern.String_Init(o);
-        Extern.String_DataSet(o, result);
-        Extern.String_CountSet(o, count);
-        return o;
+        ulong a;
+        a = Extern.String_New();
+        Extern.String_Init(a);
+        Extern.String_DataSet(a, result);
+        Extern.String_CountSet(a, count);
+        return a;
     }
 
     public virtual bool StringDelete(ulong o)
