@@ -111,9 +111,9 @@ public static class Extern
     [DllImport(InfraLib)] public extern static ulong Math_Delete(ulong o);
     [DllImport(InfraLib)] public extern static ulong Math_Init(ulong o);
     [DllImport(InfraLib)] public extern static ulong Math_Final(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Math_Value(ulong o, ulong significand, ulong exponent);
-    [DllImport(InfraLib)] public extern static ulong Math_ValueTen(ulong o, ulong significand, ulong exponentTen);
-    [DllImport(InfraLib)] public extern static ulong Math_Comp(ulong o, ulong value, ulong significand, ulong exponent);
+    [DllImport(InfraLib)] public extern static ulong Math_Value(ulong o, ulong cand, ulong expo);
+    [DllImport(InfraLib)] public extern static ulong Math_ValueTen(ulong o, ulong cand, ulong expoTen);
+    [DllImport(InfraLib)] public extern static ulong Math_Comp(ulong o, ulong value, ulong cand, ulong expo);
     [DllImport(InfraLib)] public extern static ulong Math_Less(ulong o, ulong valueA, ulong valueB);
     [DllImport(InfraLib)] public extern static ulong Math_Add(ulong o, ulong valueA, ulong valueB);
     [DllImport(InfraLib)] public extern static ulong Math_Sub(ulong o, ulong valueA, ulong valueB);

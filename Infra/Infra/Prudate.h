@@ -173,9 +173,9 @@ Infra_Api Int FormatArg_CountGet(Int o);
 Infra_Api Int FormatArg_CountSet(Int o, Int value);
 
 InfraApiNew(Math)
-Infra_Api Int Math_Value(Int o, Int significand, Int exponent);
-Infra_Api Int Math_ValueTen(Int o, Int significand, Int exponentTen);
-Infra_Api Int Math_Comp(Int o, Int value, Int significand, Int exponent);
+Infra_Api Int Math_Value(Int o, Int cand, Int expo);
+Infra_Api Int Math_ValueTen(Int o, Int cand, Int expoTen);
+Infra_Api Int Math_Comp(Int o, Int value, Int cand, Int expo);
 Infra_Api Int Math_Less(Int o, Int valueA, Int valueB);
 Infra_Api Int Math_Add(Int o, Int valueA, Int valueB);
 Infra_Api Int Math_Sub(Int o, Int valueA, Int valueB);
