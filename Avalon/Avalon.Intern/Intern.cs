@@ -159,6 +159,21 @@ public class Intern : object
         return true;
     }
 
+    public virtual bool TextEncodeResultArrayArray(byte[] result, ulong resultIndex, ulong innKind, ulong outKind, byte[] data, ulong dataIndex, ulong dataCount)
+    {
+        unsafe
+        {
+            fixed (byte* p = result)
+            {
+                ulong resultU;
+                resultU = (ulong)p;
+
+                this.TextEncodeResultArray(resultU, resultIndex, innKind, outKind, data, dataIndex, dataCount);
+            }
+        }
+        return true;
+    }
+
     public virtual bool StreamRead(ulong stream, byte[] dataArray, ulong data, ulong range)
     {
         unsafe
