@@ -48,13 +48,16 @@ public class PortKindList : Any
 
     protected virtual PortKind AddItem(ulong o)
     {
+        int index;
+        index = this.Index;
+
         PortKind item;
         item = new PortKind();
         item.Init();
-        item.Index = this.Index;
+        item.Index = index;
         item.Intern = o;
-        this.Array.SetAt(item.Index, item);
-        this.Index = this.Index + 1;
+        this.Array.SetAt(index, item);
+        this.Index = index + 1;
         return item;
     }
 

@@ -38,13 +38,16 @@ public class BrushKindList : Any
 
     protected virtual BrushKind AddItem(ulong o)
     {
+        int index;
+        index = this.Index;
+
         BrushKind item;
         item = new BrushKind();
         item.Init();
-        item.Index = this.Index;
+        item.Index = index;
         item.Intern = o;
-        this.Array.SetAt(item.Index, item);
-        this.Index = this.Index + 1;
+        this.Array.SetAt(index, item);
+        this.Index = index + 1;
         return item;
     }
 
