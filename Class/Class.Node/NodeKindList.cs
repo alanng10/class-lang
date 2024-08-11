@@ -29,7 +29,7 @@ public class NodeKindList : Any
         this.Param = this.AddItem("Param", new Param(), new ParamNewState(), new ParamNodeState(), new ParamCreateOperateState());
         this.Var = this.AddItem("Var", new Var(), new VarNewState(), new VarNodeState(), new VarCreateOperateState());
         this.ItemCount = this.AddItem("Count", new Count(), new CountNewState(), new CountNodeState(), new CountCreateOperateState());
-        this.PrudateCount = this.AddItem("PrudateCount", new PrudateCount(), new PrudateCountNewState(), new PrudateCountNodeState(), new PrudateCountCreateOperateState());
+        this.PrusateCount = this.AddItem("PrusateCount", new PrusateCount(), new PrusateCountNewState(), new PrusateCountNodeState(), new PrusateCountCreateOperateState());
         this.ProbateCount = this.AddItem("ProbateCount", new ProbateCount(), new ProbateCountNewState(), new ProbateCountNodeState(), new ProbateCountCreateOperateState());
         this.PrecateCount = this.AddItem("PrecateCount", new PrecateCount(), new PrecateCountNewState(), new PrecateCountNodeState(), new PrecateCountCreateOperateState());
         this.PrivateCount = this.AddItem("PrivateCount", new PrivateCount(), new PrivateCountNewState(), new PrivateCountNodeState(), new PrivateCountCreateOperateState());
@@ -97,7 +97,7 @@ public class NodeKindList : Any
     public virtual NodeKind Param { get; set; }
     public virtual NodeKind Var { get; set; }
     public virtual NodeKind ItemCount { get; set; }
-    public virtual NodeKind PrudateCount { get; set; }
+    public virtual NodeKind PrusateCount { get; set; }
     public virtual NodeKind ProbateCount { get; set; }
     public virtual NodeKind PrecateCount { get; set; }
     public virtual NodeKind PrivateCount { get; set; }

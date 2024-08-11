@@ -1682,7 +1682,7 @@ public class Create : InfraCreate
         a = null;
         if (a == null)
         {
-            a = this.ExecutePrudateCount(this.Range(this.RangeA, start, end));
+            a = this.ExecutePrusateCount(this.Range(this.RangeA, start, end));
         }
         if (a == null)
         {
@@ -1699,9 +1699,9 @@ public class Create : InfraCreate
         return a;
     }
 
-    public virtual Node ExecutePrudateCount(Range range)
+    public virtual Node ExecutePrusateCount(Range range)
     {
-        return this.ExecuteOneWord(this.NodeKind.PrudateCount, this.Keyword.Prudate, range);
+        return this.ExecuteOneWord(this.NodeKind.PrusateCount, this.Keyword.Prusate, range);
     }
 
     public virtual Node ExecutePrecateCount(Range range)

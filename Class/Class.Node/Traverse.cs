@@ -135,9 +135,9 @@ public class Traverse : Any
             return true;
         }
 
-        if (count is PrudateCount)
+        if (count is PrusateCount)
         {
-            this.ExecutePrudateCount((PrudateCount)count);
+            this.ExecutePrusateCount((PrusateCount)count);
         }
         if (count is ProbateCount)
         {
@@ -154,13 +154,13 @@ public class Traverse : Any
         return true;
     }
 
-    public virtual bool ExecutePrudateCount(PrudateCount prudateCount)
+    public virtual bool ExecutePrusateCount(PrusateCount prusateCount)
     {
-        if (prudateCount == null)
+        if (prusateCount == null)
         {
             return true;
         }
-        this.ExecuteNode(prudateCount);
+        this.ExecuteNode(prusateCount);
         return true;
     }
 
