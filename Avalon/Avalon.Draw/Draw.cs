@@ -195,6 +195,7 @@ public class Draw : Any
     private InternInfra InternInfra { get; set; }
     protected virtual MathInfra MathInfra { get; set; }
     protected virtual Infra DrawInfra { get; set; }
+    protected virtual TextEncodeKindList TextEncodeKindList { get; set; }
     protected virtual MathMath Math { get; set; }
     protected virtual MathComp MathComp { get; set; }
     protected virtual Form WorldForm { get; set; }
@@ -438,17 +439,10 @@ public class Draw : Any
         count = text.Range.Count;
         if (this.TextCount < count)
         {
-            return true;
+            return false;
         }
-        ulong countU;
-        countU = (ulong)count;
 
-        ulong indexU;
-        indexU = (ulong)(text.Range.Index);
-
-        this.InternIntern.CopyText(this.InternTextData, text.Data.Value, indexU, countU);
-
-        Extern.String_CountSet(this.InternText, countU);
+        this.TextSet(text);        
 
         this.InternRectSetFromRectInt(this.InternRectA, destRect);
 
@@ -460,6 +454,21 @@ public class Draw : Any
         }
 
         Extern.Draw_ExecuteText(this.Intern, this.InternRectA, o, this.InternText, this.InternRectB);
+        return true;
+    }
+
+    private bool TextSet(TextText text)
+    {
+
+        ulong countU;
+        countU = (ulong)count;
+
+        ulong indexU;
+        indexU = (ulong)(text.Range.Index);
+
+        this.InternIntern.TextEncodeCount(this.InternTextData, text.Data.Value, indexU, countU);
+
+        Extern.String_CountSet(this.InternText, countU);
         return true;
     }
 
