@@ -54,7 +54,27 @@ public class StringCreate : Any
         }
 
         string a;
-        a = this.InternIntern.StringCreateData(data.Value, index, count);
+        a = null;
+        
+        bool ba;
+        ba = (data is StringData);
+
+        if (!ba)
+        {
+            a = this.InternIntern.StringCreateArray(data.Value, index, count);
+        }
+
+        if (ba)
+        {
+            StringData stringData;
+            stringData = (StringData)data;
+
+            string dataString;
+            dataString = stringData.ValueString;
+
+            a = dataString.Substring(index, count);
+        }
+        
         return a;
     }
 }

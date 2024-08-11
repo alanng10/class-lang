@@ -273,17 +273,30 @@ public class Intern : object
         return a;
     }
 
-    public virtual string StringCreateData(byte[] data, int index, int count)
+    public virtual string StringCreate(ulong data, int index, int count)
+    {
+        string a;
+        unsafe
+        {
+            char* p;
+            p = (char*)data;
+
+            a = new string(p, index, count);
+        }
+        return a;
+    }
+
+    public virtual string StringCreateArray(byte[] data, int index, int count)
     {
         string a;
         unsafe
         {
             fixed (byte* p = data)
             {
-                char* pa;
-                pa = (char*)p;
+                ulong pa;
+                pa = (ulong)p;
 
-                a = new string(pa, index, count);
+                a = this.StringCreate(pa, index, count);
             }
         }
         return a;
