@@ -1,4 +1,4 @@
-field prudate Bool Hh
+field prusate Bool Hh
 {
     get
     {
@@ -8,7 +8,7 @@ field prudate Bool Hh
     }
 }
 
-field prudate Int Kk
+field prusate Int Kk
 {
     get
     {
@@ -18,6 +18,6 @@ field prudate Int Kk
     }
 }
 
-maide prudate String Dy()
+maide prusate String Dy()
 {
 }
