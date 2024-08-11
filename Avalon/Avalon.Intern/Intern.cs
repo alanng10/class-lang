@@ -216,12 +216,12 @@ public class Intern : object
         outKind = Extern.Stat_TextEncodeKindUtf16(stat);
 
         ulong resultCount;
-        resultCount = Extern.TextEncode_ExecuteCount(0, innKind, outKind, data, dataCount);        
+        resultCount = this.TextEncodeCount(innKind, outKind, data, 0, dataCount);        
         
         ulong result;
         result = Extern.New(resultCount);
 
-        Extern.TextEncode_ExecuteResult(0, result, innKind, outKind, data, dataCount);
+        this.TextEncodeResult(result, 0, innKind, outKind, data, 0, dataCount);
         
         ulong kk;
         kk = resultCount / sizeof(char);
