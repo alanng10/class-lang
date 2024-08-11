@@ -195,7 +195,7 @@ public class Gen : Any
     {
         this.ToolInfra.AppendIndent(sb, 1);
         sb
-            .Append("field").Append(" ").Append("prudate").Append(" ")
+            .Append("field").Append(" ").Append("prusate").Append(" ")
             .Append(this.ItemClassName).Append(" ").Append(item).Append(" ")
             .Append("{").Append(" ")
             .Append("get").Append(" ").Append("{").Append(" ").Append("return").Append(" ").Append("data").Append(";").Append(" ").Append("}")
