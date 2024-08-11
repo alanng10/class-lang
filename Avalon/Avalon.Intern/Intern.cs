@@ -71,7 +71,29 @@ public class Intern : object
         return true;
     }
 
-    public virtual ulong TextEncodeCount(ulong innKind, ulong outKind, byte[] data, ulong dataIndex, ulong dataCount)
+    public virtual ulong TextEncodeCount(ulong innKind, ulong outKind, ulong data, ulong dataIndex, ulong dataCount)
+    {
+        ulong dataValue;
+        dataValue = data + dataIndex;
+        
+        ulong a;
+        a = Extern.TextEncode_ExecuteCount(0, innKind, outKind, dataValue, dataCount);
+        return a;
+    }
+
+    public virtual bool TextEncodeResult(ulong result, ulong resultIndex, ulong innKind, ulong outKind, ulong data, ulong dataIndex, ulong dataCount)
+    {
+        ulong resultValue;
+        resultValue = result + resultIndex;
+
+        ulong dataValue;
+        dataValue = data + dataIndex;
+
+        Extern.TextEncode_ExecuteResult(0, resultValue, innKind, outKind, dataValue, dataCount);
+        return true;
+    }
+
+    public virtual ulong TextEncodeCountArray(ulong innKind, ulong outKind, byte[] data, ulong dataIndex, ulong dataCount)
     {
         ulong a;
         a = 0;
@@ -80,46 +102,13 @@ public class Intern : object
         {
             fixed (byte* p = data)
             {
-                byte* pa;
-                pa = p;
-                pa = pa + dataIndex;
+                ulong dataU;
+                dataU = (ulong)p;
 
-                ulong dataValue;
-                dataValue = (ulong)pa;
-
-                a = Extern.TextEncode_ExecuteCount(0, innKind, outKind, dataValue, dataCount);
+                a = this.TextEncodeCount(innKind, outKind, dataU, dataIndex, dataCount);
             }
         }
         return a;
-    }
-
-    public virtual bool TextEncodeResult(byte[] result, ulong resultIndex, ulong innKind, ulong outKind, byte[] data, ulong dataIndex, ulong dataCount)
-    {
-        unsafe
-        {
-            fixed (byte* uaa = result)
-            {
-                fixed (byte* p = data)
-                {
-                    byte* resultU;
-                    resultU = uaa;
-                    resultU = resultU + resultIndex;
-
-                    ulong resultValue;
-                    resultValue = (ulong)resultU;
-
-                    byte* pa;
-                    pa = p;
-                    pa = pa + dataIndex;
-                    
-                    ulong dataValue;
-                    dataValue = (ulong)pa;
-
-                    Extern.TextEncode_ExecuteResult(0, resultValue, innKind, outKind, dataValue, dataCount);
-                }
-            }
-        }
-        return true;
     }
 
     public virtual ulong TextEncodeCountString(ulong innKind, ulong outKind, string data, ulong dataIndex, ulong dataCount)
@@ -131,33 +120,40 @@ public class Intern : object
         {
             fixed (char* p = data)
             {
-                byte* pa;
-                pa = (byte*)p;
-                pa = pa + dataIndex;
+                ulong dataU;
+                dataU = (ulong)p;
 
-                ulong dataValue;
-                dataValue = (ulong)pa;
-
-                a = Extern.TextEncode_ExecuteCount(0, innKind, outKind, dataValue, dataCount);
+                a = this.TextEncodeCount(innKind, outKind, dataU, dataIndex, dataCount);
             }
         }
         return a;
     }
 
-    public virtual bool TextEncodeResultString(ulong result, ulong innKind, ulong outKind, string data, ulong dataIndex, ulong dataCount)
+    public virtual bool TextEncodeResultArray(ulong result, ulong resultIndex, ulong innKind, ulong outKind, byte[] data, ulong dataIndex, ulong dataCount)
+    {
+        unsafe
+        {
+            fixed (byte* p = data)
+            {
+                ulong dataU;
+                dataU = (ulong)p;
+
+                this.TextEncodeResult(result, resultIndex, innKind, outKind, dataU, dataIndex, dataCount);
+            }
+        }
+        return true;
+    }
+
+    public virtual bool TextEncodeResultString(ulong result, ulong resultIndex, ulong innKind, ulong outKind, string data, ulong dataIndex, ulong dataCount)
     {
         unsafe
         {
             fixed (char* p = data)
             {
-                byte* pa;
-                pa = (byte*)p;
-                pa = pa + dataIndex;
+                ulong dataU;
+                dataU = (ulong)p;
 
-                ulong dataValue;
-                dataValue = (ulong)pa;
-
-                Extern.TextEncode_ExecuteResult(0, result, innKind, outKind, dataValue, dataCount);
+                this.TextEncodeResult(result, resultIndex, innKind, outKind, dataU, dataIndex, dataCount);
             }
         }
         return true;
