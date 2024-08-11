@@ -47,7 +47,7 @@ public class Infra : object
         ulong result;
         result = Extern.New(resultCount);
 
-        this.InternIntern.TextEncodeResultString(result, innKind, outKind, o, 0, dataCount);
+        this.InternIntern.TextEncodeResultString(result, 0, innKind, outKind, o, 0, dataCount);
  
         ulong count;
         count = resultCount / 4;
