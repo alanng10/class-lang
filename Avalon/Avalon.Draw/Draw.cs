@@ -491,14 +491,14 @@ public class Draw : Any
         resultCount = this.InternIntern.TextEncodeCountArray(innKind, outKind, data, dataIndex, dataCount);
 
         ulong result;
-        result = this.InternText;
+        result = this.InternTextData;
 
         this.InternIntern.TextEncodeResultArray(result, 0, innKind, outKind, data, dataIndex, dataCount);
 
         ulong stringCount;
         stringCount = resultCount / sizeof(uint);
 
-        Extern.String_CountSet(result, stringCount);
+        Extern.String_CountSet(this.InternText, stringCount);
         return true;
     }
 
