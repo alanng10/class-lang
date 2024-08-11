@@ -17,7 +17,7 @@ True
 False
 Sign
 Bit
-Prudate
+Prusate
 Probate
 Precate
 Private
