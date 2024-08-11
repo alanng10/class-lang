@@ -31,10 +31,10 @@ public class Infra : object
         ulong dataCount;
         dataCount = kk * sizeof(char);
 
-        ulong varShare;
-        varShare = Extern.Infra_Share();
+        ulong share;
         ulong stat;
-        stat = Extern.Share_Stat(varShare);
+        share = Extern.Infra_Share();
+        stat = Extern.Share_Stat(share);
 
         ulong innKind;
         ulong outKind;
@@ -50,7 +50,7 @@ public class Infra : object
         this.InternIntern.TextEncodeResultString(result, 0, innKind, outKind, o, 0, dataCount);
  
         ulong count;
-        count = resultCount / 4;
+        count = resultCount / sizeof(uint);
 
         ulong a;
         a = Extern.String_New();
