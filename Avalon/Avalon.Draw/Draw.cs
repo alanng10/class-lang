@@ -195,7 +195,6 @@ public class Draw : Any
     private InternInfra InternInfra { get; set; }
     protected virtual MathInfra MathInfra { get; set; }
     protected virtual Infra DrawInfra { get; set; }
-    protected virtual TextEncodeKindList TextEncodeKindList { get; set; }
     protected virtual MathMath Math { get; set; }
     protected virtual MathComp MathComp { get; set; }
     protected virtual Form WorldForm { get; set; }
@@ -459,16 +458,47 @@ public class Draw : Any
 
     private bool TextSet(TextText text)
     {
+        ulong share;
+        ulong stat;
+        share = Extern.Infra_Share();
+        stat = Extern.Share_Stat(share);
 
-        ulong countU;
-        countU = (ulong)count;
+        ulong innKind;
+        ulong outKind;
+        innKind = Extern.Stat_TextEncodeKindUtf16(stat);
+        outKind = Extern.Stat_TextEncodeKindUtf32(stat);
+
+        Range range;
+        range = text.Range;
 
         ulong indexU;
-        indexU = (ulong)(text.Range.Index);
+        ulong countU;
+        indexU = (ulong)range.Index;
+        countU = (ulong)range.Count;
 
-        this.InternIntern.TextEncodeCount(this.InternTextData, text.Data.Value, indexU, countU);
+        ulong ka;
+        ka = sizeof(char);
 
-        Extern.String_CountSet(this.InternText, countU);
+        ulong dataIndex;
+        ulong dataCount;
+        dataIndex = indexU * ka;
+        dataCount = countU * ka;
+
+        byte[] data;
+        data = text.Data.Value;
+
+        ulong resultCount;
+        resultCount = this.InternIntern.TextEncodeCountArray(innKind, outKind, data, dataIndex, dataCount);
+
+        ulong result;
+        result = this.InternText;
+
+        this.InternIntern.TextEncodeResultArray(result, 0, innKind, outKind, data, dataIndex, dataCount);
+
+        ulong stringCount;
+        stringCount = resultCount / sizeof(uint);
+
+        Extern.String_CountSet(result, stringCount);
         return true;
     }
 
