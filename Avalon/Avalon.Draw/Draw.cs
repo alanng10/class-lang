@@ -484,16 +484,40 @@ public class Draw : Any
         dataIndex = indexU * ka;
         dataCount = countU * ka;
 
-        byte[] data;
-        data = text.Data.Value;
-
-        ulong resultCount;
-        resultCount = this.InternIntern.TextEncodeCountArray(innKind, outKind, data, dataIndex, dataCount);
+        Data data;
+        data = text.Data;
 
         ulong result;
         result = this.InternTextData;
 
-        this.InternIntern.TextEncodeResultArray(result, 0, innKind, outKind, data, dataIndex, dataCount);
+        ulong resultCount;
+        resultCount = 0;
+
+        bool b;
+        b = (data is StringData);
+
+        if (!b)
+        {
+            byte[] dataArray;
+            dataArray = data.Value;
+
+            resultCount = this.InternIntern.TextEncodeCountArray(innKind, outKind, dataArray, dataIndex, dataCount);
+
+            this.InternIntern.TextEncodeResultArray(result, 0, innKind, outKind, dataArray, dataIndex, dataCount);
+        }
+
+        if (b)
+        {
+            StringData stringData;
+            stringData = (StringData)data;
+
+            string dataString;
+            dataString = stringData.ValueString;
+
+            resultCount = this.InternIntern.TextEncodeCountString(innKind, outKind, dataString, dataIndex, dataCount);
+
+            this.InternIntern.TextEncodeResultString(result, 0, innKind, outKind, dataString, dataIndex, dataCount);
+        }
 
         ulong stringCount;
         stringCount = resultCount / sizeof(uint);
