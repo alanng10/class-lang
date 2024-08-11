@@ -11,7 +11,7 @@ Part
                            {
                                Value : "Hh",
                            },
-                    Count : PrudateCount
+                    Count : PrusateCount
                             {
                             },
                     Get : State
@@ -35,7 +35,7 @@ Part
                            {
                                Value : "Kk",
                            },
-                    Count : PrudateCount
+                    Count : PrusateCount
                             {
                             },
                     Get : State
@@ -59,7 +59,7 @@ Part
                            {
                                Value : "Dy",
                            },
-                    Count : PrudateCount
+                    Count : PrusateCount
                             {
                             },
                     Param : Param

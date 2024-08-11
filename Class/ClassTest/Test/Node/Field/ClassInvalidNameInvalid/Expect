@@ -12,7 +12,7 @@ Field
 {
     Class : null,
     Name : null,
-    Count : PrudateCount
+    Count : PrusateCount
             {
             },
     Get : State

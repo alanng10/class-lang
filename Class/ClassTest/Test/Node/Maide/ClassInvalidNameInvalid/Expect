@@ -12,7 +12,7 @@ Maide
 {
     Class : null,
     Name : null,
-    Count : PrudateCount
+    Count : PrusateCount
             {
             },
     Param : Param

@@ -21,7 +21,7 @@ Class
                                       {
                                           Value : "Aeid",
                                       },
-                               Count : PrudateCount
+                               Count : PrusateCount
                                        {
                                        },
                                Get : State

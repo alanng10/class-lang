@@ -11,7 +11,7 @@ Part
                            {
                                Value : "Hh",
                            },
-                    Count : PrudateCount
+                    Count : PrusateCount
                             {
                             },
                     Get : State
