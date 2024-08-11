@@ -14,7 +14,7 @@ public class Gen : SourceGen
         this.Export = true;
         this.StatItemClassName = "NetworkCase";
         this.ItemListFileName = this.GetStatItemListFileName();
-        this.AddMethodFileName = "ToolData/AddMethodNetworkCase.txt";
+        this.AddMethodFileName = "ToolData/Avalon/AddMaideNetworkCase.txt";
         this.InitMethodFileName = "ToolData/Avalon/InitMaide.txt";
         return true;
     }
