@@ -93,20 +93,6 @@ public class Infra : Any
 
     public virtual bool DataWriteAny(string filePath, Data data, bool anyNode)
     {
-        RangeInt range;
-        range = new RangeInt();
-        range.Init();
-        range.Count = data.Count;
-        return this.DataWriteRangeAny(filePath, data, range, anyNode);
-    }
-
-    public virtual bool DataWriteRange(string filePath, Data data, RangeInt range)
-    {
-        return this.DataWriteRangeAny(filePath, data, range, false);
-    }
-
-    public virtual bool DataWriteRangeAny(string filePath, Data data, RangeInt range, bool anyNode)
-    {
         Storage storage;
         storage = new Storage();
         storage.Init();
@@ -127,6 +113,16 @@ public class Infra : Any
         {
             StreamStream stream;
             stream = storage.Stream;
+
+            long count;
+            count = data.Count;
+
+            RangeInt range;
+            range = new RangeInt();
+            range.Init();
+            range.Index = 0;
+            range.Count = count;
+
             stream.Write(data, range);
             if (stream.Status == 0)
             {
@@ -154,6 +150,7 @@ public class Infra : Any
         {
             return null;
         }
+
         TextEncode encode;
         encode = new TextEncode();
         encode.Init();
@@ -203,12 +200,34 @@ public class Infra : Any
 
     public virtual bool TextWriteAny(string filePath, string text, bool anyNode)
     {
+        TextEncodeKindList kindList;
+        kindList = this.TextEncodeKindList;
+
         TextEncode encode;
         encode = new TextEncode();
         encode.Init();
 
+        Data data;
+        data = this.TextInfra.DataCreateString(text, null);
 
-        return true;
+        RangeInt dataRange;
+        dataRange = new RangeInt();
+        dataRange.Init();
+        dataRange.Count = data.Count;
+
+        long resultCount;
+        resultCount = encode.ExecuteCount(kindList.Utf16, kindList.Utf8, data, dataRange);
+
+        Data result;
+        result = new Data();
+        result.Count = resultCount;
+        result.Init();
+
+        encode.ExecuteResult(result, 0, kindList.Utf16, kindList.Utf8, data, dataRange);
+        
+        bool a;
+        a = this.DataWriteAny(filePath, result, anyNode);
+        return a;
     }
 
     public virtual bool CountSet(string filePath, long value)
