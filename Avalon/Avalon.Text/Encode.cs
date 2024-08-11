@@ -33,7 +33,25 @@ public class Encode : Any
         dataCountU = (ulong)dataCount;
 
         ulong u;
-        u = this.InternIntern.TextEncodeCountArray(innKind.Intern, outKind.Intern, data.Value, dataIndexU, dataCountU);
+        u = 0;
+
+        bool b;
+        b = (data is StringData);
+
+        if (!b)
+        {
+            u = this.InternIntern.TextEncodeCountArray(innKind.Intern, outKind.Intern, data.Value, dataIndexU, dataCountU);
+        }
+        if (b)
+        {
+            StringData stringData;
+            stringData = (StringData)data;
+
+            string dataString;
+            dataString = stringData.ValueString;
+
+            u = this.InternIntern.TextEncodeCountString(innKind.Intern, outKind.Intern, dataString, dataIndexU, dataCountU);
+        }
 
         long a;
         a = (long)u;
