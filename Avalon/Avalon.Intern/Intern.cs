@@ -207,16 +207,43 @@ public class Intern : object
         return true;
     }
 
-    public virtual string StringCreate(ulong data, int count)
+    public virtual string StringCreate(ulong data, ulong dataCount)
     {
+        ulong share;
+        ulong stat;
+        share = Extern.Infra_Share();
+        stat = Extern.Share_Stat(share);
+
+        ulong innKind;
+        ulong outKind;
+        innKind = Extern.Stat_TextEncodeKindUtf32(stat);
+        outKind = Extern.Stat_TextEncodeKindUtf16(stat);
+
+        ulong resultCount;
+        resultCount = Extern.TextEncode_ExecuteCount(0, innKind, outKind, data, dataCount);        
+        
+        ulong result;
+        result = Extern.New(resultCount);
+
+        Extern.TextEncode_ExecuteResult(0, result, innKind, outKind, data, dataCount);
+        
+        ulong kk;
+        kk = resultCount / sizeof(char);
+
+        int count;
+        count = (int)kk;
+
         string a;
         unsafe
         {
             char* p;
-            p = (char*)data;
+            p = (char*)result;
 
             a = new string(p, 0, count);
         }
+
+        Extern.Delete(result);
+
         return a;
     }
 
