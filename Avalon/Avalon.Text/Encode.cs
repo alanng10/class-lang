@@ -17,6 +17,11 @@ public class Encode : Any
 
     public virtual long ExecuteCount(EncodeKind innKind, EncodeKind outKind, Data data, RangeInt dataRange)
     {
+        if (innKind == outKind)
+        {
+            return -1;
+        }
+
         long dataIndex;
         long dataCount;
         dataIndex = dataRange.Index;
@@ -61,6 +66,11 @@ public class Encode : Any
 
     public virtual bool ExecuteResult(Data result, long resultIndex, EncodeKind innKind, EncodeKind outKind, Data data, RangeInt dataRange)
     {
+        if (innKind == outKind)
+        {
+            return false;
+        }
+
         if (!this.InfraInfra.ValidRangeInt(result.Count, resultIndex, 0))
         {
             return false;
