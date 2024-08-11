@@ -42,6 +42,7 @@ public class Encode : Any
         {
             u = this.InternIntern.TextEncodeCountArray(innKind.Intern, outKind.Intern, data.Value, dataIndexU, dataCountU);
         }
+
         if (b)
         {
             StringData stringData;
@@ -83,7 +84,24 @@ public class Encode : Any
         ulong resultIndexU;
         resultIndexU = (ulong)resultIndex;
 
-        this.InternIntern.TextEncodeResultArrayArray(result.Value, resultIndexU, innKind.Intern, outKind.Intern, data.Value, dataIndexU, dataCountU);
+        bool b;
+        b = (data is StringData);
+
+        if (!b)
+        {
+            this.InternIntern.TextEncodeResultArrayArray(result.Value, resultIndexU, innKind.Intern, outKind.Intern, data.Value, dataIndexU, dataCountU);
+        }
+
+        if (b)
+        {
+            StringData stringData;
+            stringData = (StringData)data;
+
+            string dataString;
+            dataString = stringData.ValueString;
+
+            this.InternIntern.TextEncodeResultStringArray(result.Value, resultIndexU, innKind.Intern, outKind.Intern, dataString, dataIndexU, dataCountU);
+        }
 
         return true;
     }
