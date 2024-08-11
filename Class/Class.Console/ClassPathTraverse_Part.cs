@@ -187,13 +187,13 @@ partial class ClassPathTraverse
         return true;
     }
 
-    public override bool ExecutePrudateCount(PrudateCount prudateCount)
+    public override bool ExecutePrusateCount(PrusateCount prusateCount)
     {
-        if (prudateCount == null)
+        if (prusateCount == null)
         {
             return true;
         }
-        this.ExecuteNode(prudateCount);
+        this.ExecuteNode(prusateCount);
 
         if (this.HasResult())
         {
