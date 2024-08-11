@@ -29,7 +29,7 @@ public class Infra : object
         kk = (ulong)k;
 
         ulong dataCount;
-        dataCount = kk * 2;
+        dataCount = kk * sizeof(char);
 
         ulong varShare;
         varShare = Extern.Infra_Share();
