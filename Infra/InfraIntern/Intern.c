@@ -16,7 +16,7 @@ Int Intern_Base[2] =
 
 Int Intern_Class[2] =
 {
-    CastInt(Intern_Base), 0
+    CastInt(Intern_Base), 0x1000000
 };
 
 Int Intern_RefCompare(Eval* eval, Int frame)
