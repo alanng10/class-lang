@@ -505,6 +505,153 @@ public class ClassGen : Any
         return true;
     }
 
+    public virtual bool ExecuteOperateDelimit(string delimit)
+    {
+        string varA;
+        string varB;
+        varA = this.VarA;
+        varB = this.VarB;
+
+        string ka;
+        ka = this.RefKindClearMask;
+
+        this.EvalValueGet(2, varA);
+        this.EvalValueGet(1, varB);
+
+        this.VarMaskClear(varA, ka);
+        this.VarMaskClear(varB, ka);
+
+        this.OperateDelimit(varA, varA, varB, delimit);
+
+        this.VarMaskClear(varA, ka);
+
+        this.VarMaskSet(varA, this.RefKindIntMask);
+
+        this.EvalValueSet(2, varA);
+
+        this.EvalIndexPosSet(-1);
+
+        return true;
+    }
+
+    public virtual bool ExecuteOperateDelimitAA(string delimit)
+    {
+        string varA;
+        string varB;
+        varA = this.VarA;
+        varB = this.VarB;
+
+        string ka;
+        ka = this.RefKindClearMask;
+
+        this.EvalValueGet(2, varA);
+        this.EvalValueGet(1, varB);
+
+        this.VarMaskClear(varB, ka);
+
+        this.OperateDelimit(varA, varA, varB, delimit);
+
+        this.VarMaskClear(varA, ka);
+
+        this.VarMaskSet(varA, this.RefKindIntMask);
+
+        this.EvalValueSet(2, varA);
+
+        this.EvalIndexPosSet(-1);
+
+        return true;
+    }
+
+    public virtual bool ExecuteOperateDelimitAB(string delimit)
+    {
+        string varA;
+        string varB;
+        varA = this.VarA;
+        varB = this.VarB;
+
+        string ka;
+        ka = this.RefKindClearMask;
+
+        this.EvalValueGet(2, varA);
+        this.EvalValueGet(1, varB);
+
+        this.VarMaskClear(varA, ka);
+        this.VarMaskClear(varB, ka);
+
+        this.OperateDelimit(varA, varA, varB, delimit);
+
+        this.VarMaskSet(varA, this.RefKindIntMask);
+
+        this.EvalValueSet(2, varA);
+
+        this.EvalIndexPosSet(-1);
+
+        return true;
+    }
+
+    public virtual bool ExecuteOperateDelimitA(string delimit)
+    {
+        string varA;
+        string varB;
+        varA = this.VarA;
+        varB = this.VarB;
+
+        this.EvalValueGet(2, varA);
+        this.EvalValueGet(1, varB);
+
+        this.OperateDelimit(varA, varA, varB, delimit);
+
+        this.VarMaskSet(varA, this.RefKindIntMask);
+
+        this.EvalValueSet(2, varA);
+
+        this.EvalIndexPosSet(-1);
+
+        return true;
+    }
+
+    public virtual bool ExecuteOperateDelimitBool(string delimit)
+    {
+        string varA;
+        string varB;
+        varA = this.VarA;
+        varB = this.VarB;
+
+        this.EvalValueGet(2, varA);
+        this.EvalValueGet(1, varB);
+
+        this.OperateDelimit(varA, varA, varB, delimit);
+
+        this.VarMaskSet(varA, this.RefKindBoolMask);
+
+        this.EvalValueSet(2, varA);
+
+        this.EvalIndexPosSet(-1);
+
+        return true;
+    }
+
+    public virtual bool ExecuteOperateDelimitBoolOne(string delimit)
+    {
+        string varA;
+        varA = this.VarA;
+
+        string ka;
+        ka = this.RefKindClearMask;
+
+        this.EvalValueGet(1, varA);
+
+        this.VarMaskClear(varA, ka);
+
+        this.OperateDelimitOne(varA, varA, delimit);
+
+        this.VarMaskSet(varA, this.RefKindBoolMask);
+
+        this.EvalValueSet(1, varA);
+
+        return true;
+    }
+
     public virtual bool OperateDelimit(string dest, string left, string right, string delimit)
     {
         string space;
