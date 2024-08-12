@@ -260,6 +260,140 @@ public class ClassGen : Any
         return true;
     }
 
+    public virtual bool ExecuteVarSet(Var varVar)
+    {
+        string varA;
+        string varB;
+        varA = this.VarA;
+        varB = this.VarB;
+
+        int stateKind;
+        stateKind = this.CompStateKind;
+
+        int k;
+        k = this.ParamCount;
+
+        int kk;
+        kk = varVar.Index;
+
+        this.EvalValueSet(1, varB);
+
+        if (stateKind == this.StateKindGet)
+        {
+            bool ba;
+            ba = (kk == 0);
+
+            if (ba)
+            {
+                this.ExecuteThisFieldData();
+
+                this.VarDerefSet(varA, varB);
+            }
+
+            if (!ba)
+            {
+                int posA;
+                posA = kk - 1;
+
+                this.EvalFrameValueSet(posA, varB);
+            }
+        }
+
+        if (stateKind == this.StateKindSet)
+        {
+            bool bc;
+            bc = (kk == 0);
+            bool bd;
+            bd = (kk == 1);
+
+            if (bc)
+            {
+                this.ExecuteThisFieldData();
+
+                this.VarDerefSet(varA, varB);
+            }
+
+            if (bd)
+            {
+                int posB;
+                posB = -1;
+
+                this.EvalFrameValueSet(posB, varB);
+            }
+
+            if (!(bc | bd))
+            {
+                int posC;
+                posC = kk - 2;
+
+                this.EvalFrameValueSet(posC, varB);
+            }
+        }
+
+        if (stateKind == this.StateKindCall)
+        {
+            int ka;
+            ka = k - 1;
+
+            bool b;
+            b = (kk < ka);
+            if (b)
+            {
+                int kkk;
+                kkk = ka - kk;
+                kkk = -kkk;
+
+                int posD;
+                posD = kkk;
+
+                this.EvalFrameValueSet(posD, varB);
+            }
+
+            if (!b)
+            {
+                int posE;
+                posE = kk - ka;
+
+                this.EvalFrameValueSet(posE, varB);
+            }
+        }
+
+        this.EvalIndexPosSet(-1);
+
+        return true;
+    }
+
+    public virtual bool ExecuteThisFieldData()
+    {
+        string varA;
+        varA = this.VarA;
+
+        Field varField;
+        varField = this.ThisField;
+
+        ClassClass varClass;
+        varClass = this.Class;
+
+        int k;
+        k = this.ParamCount;
+        k = -k;
+
+        int kk;
+        kk = varClass.FieldRange.Index;
+        kk = kk + varField.BinaryIndex;
+        kk = kk + 1;
+
+        int pos;
+        pos = kk * sizeof(ulong);
+
+        this.EvalFrameValueGet(k, varA);
+
+        this.VarMaskClear(varA, this.MemoryIndexMask);
+
+        this.VarSetPos(varA, varA, pos);
+        return true;
+    }
+
     public virtual bool OperateDelimit(string dest, string left, string right, string delimit)
     {
         string space;

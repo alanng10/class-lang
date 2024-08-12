@@ -34,6 +34,9 @@ public class ClassGenTraverse : Traverse
     {
         base.ExecuteAreExecute(areExecute);
 
+        ClassGen gen;
+        gen = this.Gen;
+
         Target target;
         target = areExecute.Target;
 
@@ -45,7 +48,7 @@ public class ClassGenTraverse : Traverse
             Var varVar;
             varVar = this.Info(varTarget).Var;
 
-            this.ExecuteVarSet(varVar);
+            gen.ExecuteVarSet(varVar);
         }
 
         if (target is SetTarget)
@@ -71,8 +74,6 @@ public class ClassGenTraverse : Traverse
             int k;
             k = 2;
 
-            ClassGen gen;
-            gen = this.Gen;
             gen.ExecuteVirtualCall(k, gen.StateKindSet, kk);
         }
         return true;
@@ -394,7 +395,7 @@ public class ClassGenTraverse : Traverse
 
             if (ba)
             {
-                this.ExecuteThisFieldData();
+                gen.ExecuteThisFieldData();
 
                 gen.VarSetDeref(varA, varA, 0);
             }
@@ -417,7 +418,7 @@ public class ClassGenTraverse : Traverse
 
             if (bc)
             {
-                this.ExecuteThisFieldData();
+                gen.ExecuteThisFieldData();
 
                 gen.VarSetDeref(varA, varA, 0);
             }
@@ -471,146 +472,6 @@ public class ClassGenTraverse : Traverse
 
         gen.EvalIndexPosSet(1);
 
-        return true;
-    }
-
-    public virtual bool ExecuteVarSet(Var varVar)
-    {
-        ClassGen gen;
-        gen = this.Gen;
-
-        string varA;
-        string varB;
-        varA = gen.VarA;
-        varB = gen.VarB;
-
-        int stateKind;
-        stateKind = gen.CompStateKind;
-
-        int k;
-        k = gen.ParamCount;
-
-        int kk;
-        kk = varVar.Index;
-
-        gen.EvalValueSet(1, varB);
-
-        if (stateKind == gen.StateKindGet)
-        {
-            bool ba;
-            ba = (kk == 0);
-
-            if (ba)
-            {
-                this.ExecuteThisFieldData();
-
-                gen.VarDerefSet(varA, varB);
-            }
-
-            if (!ba)
-            {
-                int posA;
-                posA = kk - 1;
-
-                gen.EvalFrameValueSet(posA, varB);
-            }
-        }
-
-        if (stateKind == gen.StateKindSet)
-        {
-            bool bc;
-            bc = (kk == 0);
-            bool bd;
-            bd = (kk == 1);
-
-            if (bc)
-            {
-                this.ExecuteThisFieldData();
-
-                gen.VarDerefSet(varA, varB);
-            }
-
-            if (bd)
-            {
-                int posB;
-                posB = -1;
-
-                gen.EvalFrameValueSet(posB, varB);
-            }
-
-            if (!(bc | bd))
-            {
-                int posC;
-                posC = kk - 2;
-
-                gen.EvalFrameValueSet(posC, varB);
-            }
-        }
-
-        if (stateKind == gen.StateKindCall)
-        {
-            int ka;
-            ka = k - 1;
-
-            bool b;
-            b = (kk < ka);
-            if (b)
-            {
-                int kkk;
-                kkk = ka - kk;
-                kkk = -kkk;
-                
-                int posD;
-                posD = kkk;
-
-                gen.EvalFrameValueSet(posD, varB);
-            }
-
-            if (!b)
-            {
-                int posE;
-                posE = kk - ka;
-
-                gen.EvalFrameValueSet(posE, varB);
-            }
-        }
-
-        gen.EvalIndexPosSet(-1);
-
-        return true;
-    }
-
-    public virtual bool ExecuteThisFieldData()
-    {
-        ClassGen gen;
-        gen = this.Gen;
-
-        string varA;
-        varA = gen.VarA;
-
-        Field varField;
-        varField = gen.ThisField;
-
-        ClassClass varClass;
-        varClass = gen.Class;
-        
-        int k;
-        k = gen.ParamCount;
-        k = -k;
-
-        int kk;
-        kk = varClass.FieldRange.Index;
-        kk = kk + varField.BinaryIndex;
-        kk = kk + 1;
-
-        int pos;
-        pos = kk * sizeof(ulong);
-
-        gen.EvalFrameValueGet(k, varA);
-
-        gen.VarMaskClear(varA, gen.MemoryIndexMask);
-
-        gen.VarSetPos(varA, varA, pos);
         return true;
     }
 
