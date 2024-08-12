@@ -22,7 +22,7 @@ public class ClassGenTraverse : Traverse
 
         gen.EvalValueGet(1, varA);
 
-        gen.EvalFrameValueSet(k, varA);
+        gen.EvalFrameValueSet(-k, varA);
 
         gen.EvalIndexPosSet(-ka);
 
