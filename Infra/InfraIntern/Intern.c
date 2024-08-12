@@ -1,5 +1,21 @@
 #include "Intern.h"
 
+Int Intern_FieldGet[0] = { };
+Int Intern_FieldSet[0] = { };
+
+Int Intern_CompState[3] = 
+{
+    CastInt(Intern_FieldGet), CastInt(Intern_FieldSet), 0
+};
+
+Int Intern_Base[1] = { CastInt(Intern_CompState) };
+
+
+Int Intern_Class[2] =
+{
+    CastInt(Intern_Base), 0
+};
+
 Int Intern_RefCompare(Eval* eval, Int frame)
 {
     Int ka;
