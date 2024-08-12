@@ -71,7 +71,9 @@ public class ClassGenTraverse : Traverse
             int k;
             k = 2;
 
-            this.ExecuteVirtualCall(k, this.Gen.StateKindSet, kk);
+            ClassGen gen;
+            gen = this.Gen;
+            gen.ExecuteVirtualCall(k, gen.StateKindSet, kk);
         }
         return true;
     }
@@ -98,7 +100,9 @@ public class ClassGenTraverse : Traverse
         int k;
         k = 1;
 
-        this.ExecuteVirtualCall(k, this.Gen.StateKindGet, kk);
+        ClassGen gen;
+        gen = this.Gen;
+        gen.ExecuteVirtualCall(k, gen.StateKindGet, kk);
 
         return true;
     }
@@ -126,7 +130,9 @@ public class ClassGenTraverse : Traverse
         k = varMaide.Param.Count;
         k = k + 1;
 
-        this.ExecuteVirtualCall(k, this.Gen.StateKindCall, kk);
+        ClassGen gen;
+        gen = this.Gen;
+        gen.ExecuteVirtualCall(k, gen.StateKindCall, kk);
 
         return true;
     }
@@ -605,54 +611,6 @@ public class ClassGenTraverse : Traverse
         gen.VarMaskClear(varA, gen.MemoryIndexMask);
 
         gen.VarSetPos(varA, varA, pos);
-        return true;
-    }
-
-    public virtual bool ExecuteVirtualCall(int thisEvalIndex, int stateKind, int stateIndex)
-    {
-        ClassGen gen;
-        gen = this.Gen;
-
-        string varA;
-        string varB;
-        string varC;
-        string varD;
-        varA = gen.VarA;
-        varB = gen.VarB;
-        varC = gen.VarC;
-        varD = gen.VarD;
-
-        gen.EvalValueGet(thisEvalIndex, varA);
-
-        gen.VarSet(varB, varA);
-
-        gen.VarMaskClear(varA, gen.MemoryIndexMask);
-
-        gen.VarSetDeref(varA, varA, 0);
-
-        gen.VarSetDeref(varC, varA, 0);
-
-        gen.VarSet(varD, varB);
-
-        gen.VarMaskClear(varD, gen.BaseMask);
-
-        gen.OperateDelimit(varD, varD, gen.BaseBitRightCount, gen.DelimitBitRight);
-
-        gen.VarSetDerefVar(varC, varC, varD);
-
-        gen.VarSetDeref(varC, varC, stateKind);
-
-        gen.VarSetDeref(varC, varC, stateIndex);
-
-        gen.VarSetDeref(varD, varA, 1);
-
-        gen.VarMaskClear(varB, gen.BaseClearMask);
-
-        gen.VarMaskSet(varB, varD);
-
-        gen.EvalValueSet(thisEvalIndex, varB);
-
-        gen.CallCompState(varC);
         return true;
     }
 

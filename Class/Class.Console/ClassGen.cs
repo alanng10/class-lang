@@ -215,6 +215,51 @@ public class ClassGen : Any
         return true;
     }
 
+    public virtual bool ExecuteVirtualCall(int thisEvalIndex, int stateKind, int stateIndex)
+    {
+        string varA;
+        string varB;
+        string varC;
+        string varD;
+        varA = this.VarA;
+        varB = this.VarB;
+        varC = this.VarC;
+        varD = this.VarD;
+
+        this.EvalValueGet(thisEvalIndex, varA);
+
+        this.VarSet(varB, varA);
+
+        this.VarMaskClear(varA, this.MemoryIndexMask);
+
+        this.VarSetDeref(varA, varA, 0);
+
+        this.VarSetDeref(varC, varA, 0);
+
+        this.VarSet(varD, varB);
+
+        this.VarMaskClear(varD, this.BaseMask);
+
+        this.OperateDelimit(varD, varD, this.BaseBitRightCount, this.DelimitBitRight);
+
+        this.VarSetDerefVar(varC, varC, varD);
+
+        this.VarSetDeref(varC, varC, stateKind);
+
+        this.VarSetDeref(varC, varC, stateIndex);
+
+        this.VarSetDeref(varD, varA, 1);
+
+        this.VarMaskClear(varB, this.BaseClearMask);
+
+        this.VarMaskSet(varB, varD);
+
+        this.EvalValueSet(thisEvalIndex, varB);
+
+        this.CallCompState(varC);
+        return true;
+    }
+
     public virtual bool OperateDelimit(string dest, string left, string right, string delimit)
     {
         string space;
