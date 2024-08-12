@@ -381,16 +381,26 @@ public class ClassGen : Any
         int kk;
         kk = varClass.FieldRange.Index;
         kk = kk + varField.BinaryIndex;
+
+        this.EvalFrameValueGet(k, varA);
+
+        this.ExecuteFieldData(varA, kk);
+
+        return true;
+    }
+
+    public virtual bool ExecuteFieldData(string varVar, int fieldIndex)
+    {
+        int kk;
+        kk = fieldIndex;
         kk = kk + 1;
 
         int pos;
         pos = kk * sizeof(ulong);
 
-        this.EvalFrameValueGet(k, varA);
+        this.VarMaskClear(varVar, this.MemoryIndexMask);
 
-        this.VarMaskClear(varA, this.MemoryIndexMask);
-
-        this.VarSetPos(varA, varA, pos);
+        this.VarSetPos(varVar, varVar, pos);
         return true;
     }
 
