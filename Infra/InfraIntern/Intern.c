@@ -68,7 +68,7 @@ Int Intern_StringChar(Eval* eval, Int frame)
     k = s;
     RefMemoryAddress(k);
 
-    k = k + sizeof(Int);
+    k = k + 2 * sizeof(Int);
 
     Int32* p;
     p = CastPointer(k);
