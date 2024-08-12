@@ -106,3 +106,11 @@ Int Intern_StringCount(Eval* eval, Int frame)
 
     Return(ke, 1);
 }
+
+Int Intern_Any_Init(Eval* eval, Int frame)
+{
+    Int k;
+    k = BoolTrue;
+
+    Return(k, 0);
+}

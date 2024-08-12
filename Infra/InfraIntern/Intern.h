@@ -2,6 +2,10 @@
 
 #include "Probate.h"
 
+#define BoolFalse 0x2000000000000000
+
+#define BoolTrue 0x2000000000000001
+
 #define RefKindClear(name) name = name & 0x0fffffffffffffff;
 
 #define RefKindInt(name) name = name | 0x3000000000000000;

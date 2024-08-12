@@ -2,21 +2,27 @@
 
 Int Intern_Any_FieldGet[0] = { };
 Int Intern_Any_FieldSet[0] = { };
+Int Intern_Any_MaideCall[1] = { CastInt(Intern_Any_Init) };
 
-
-
-Int Intern_FieldGet[0] = { };
-Int Intern_FieldSet[0] = { };
-
-Int Intern_CompState[3] = 
+Int Intern_Any_State[3] = 
 {
-    CastInt(Intern_FieldGet), CastInt(Intern_FieldSet), 0
+    CastInt(Intern_Any_FieldGet), CastInt(Intern_Any_FieldSet), CastInt(Intern_Any_MaideCall)
+};
+
+
+Int Intern_Intern_FieldGet[0] = { };
+Int Intern_Intern_FieldSet[0] = { };
+Int Intern_Intern_MaideCall[0] = { };
+
+Int Intern_Intern_State[3] = 
+{
+    CastInt(Intern_Intern_FieldGet), CastInt(Intern_Intern_FieldSet), CastInt(Intern_Intern_MaideCall)
 };
 
 Int Intern_Base[2] =
 { 
-    0,
-    CastInt(Intern_CompState)
+    CastInt(Intern_Any_State),
+    CastInt(Intern_Intern_State)
 };
 
 Int Intern_Class[2] =
