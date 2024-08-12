@@ -86,3 +86,23 @@ Int Intern_StringChar(Eval* eval, Int frame)
 
     Return(ke, 2);
 }
+
+Int Intern_StringCount(Eval* eval, Int frame)
+{
+    Int s;
+    s = eval->Stack[frame - 1];
+
+    Int k;
+    k = s;
+    RefMemoryAddress(k);
+
+    k = k + sizeof(Int);
+
+    Int* p;
+    p = CastPointer(k);
+
+    Int ke;
+    ke = *p;
+
+    Return(ke, 1);
+}
