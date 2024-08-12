@@ -1,6 +1,6 @@
 #include "New.h"
 
-Int Intern_New(Eval* eval)
+Int Intern_New(Int info, Int kind, Eval* eval)
 {
-    
+
 }
