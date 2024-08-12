@@ -1,6 +1,6 @@
 #include "Intern.h"
 
-Int Intern_RefCompare(Eval* eval, Int frame)
+Int Intern_Intern_RefCompare(Eval* eval, Int frame)
 {
     Int ka;
     Int kb;
@@ -57,7 +57,7 @@ Int Intern_RefCompare(Eval* eval, Int frame)
     Return(ke, 2);
 }
 
-Int Intern_StringChar(Eval* eval, Int frame)
+Int Intern_Intern_StringChar(Eval* eval, Int frame)
 {
     Int s;
     Int index;
@@ -87,7 +87,7 @@ Int Intern_StringChar(Eval* eval, Int frame)
     Return(ke, 2);
 }
 
-Int Intern_StringCount(Eval* eval, Int frame)
+Int Intern_Intern_StringCount(Eval* eval, Int frame)
 {
     Int s;
     s = eval->Stack[frame - 1];
