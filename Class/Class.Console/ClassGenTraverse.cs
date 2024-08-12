@@ -277,7 +277,7 @@ public class ClassGenTraverse : Traverse
     {
         base.ExecuteOrnOperate(ornOperate);
 
-        this.ExecuteOperateDelimitBool(this.Gen.DelimitOrn);
+        this.Gen.ExecuteOperateDelimitBool(this.Gen.DelimitOrn);
         return true;
     }
 
@@ -285,7 +285,7 @@ public class ClassGenTraverse : Traverse
     {
         base.ExecuteNotOperate(notOperate);
 
-        this.ExecuteOperateDelimitBoolOne(this.Gen.DelimitNot);
+        this.Gen.ExecuteOperateDelimitBoolOne(this.Gen.DelimitNot);
         return true;
     }
 
@@ -293,7 +293,7 @@ public class ClassGenTraverse : Traverse
     {
         base.ExecuteAddOperate(addOperate);
 
-        this.ExecuteOperateDelimit(this.Gen.DelimitAdd);
+        this.Gen.ExecuteOperateDelimit(this.Gen.DelimitAdd);
         return true;
     }
 
@@ -301,7 +301,7 @@ public class ClassGenTraverse : Traverse
     {
         base.ExecuteSubOperate(subOperate);
 
-        this.ExecuteOperateDelimit(this.Gen.DelimitSub);
+        this.Gen.ExecuteOperateDelimit(this.Gen.DelimitSub);
         return true;
     }
 
@@ -309,7 +309,7 @@ public class ClassGenTraverse : Traverse
     {
         base.ExecuteMulOperate(mulOperate);
 
-        this.ExecuteOperateDelimit(this.Gen.DelimitMul);
+        this.Gen.ExecuteOperateDelimit(this.Gen.DelimitMul);
         return true;
     }
 
@@ -317,7 +317,7 @@ public class ClassGenTraverse : Traverse
     {
         base.ExecuteBitAndOperate(bitAndOperate);
 
-        this.ExecuteOperateDelimitA(this.Gen.DelimitAnd);
+        this.Gen.ExecuteOperateDelimitA(this.Gen.DelimitAnd);
         return true;
     }
 
@@ -325,7 +325,7 @@ public class ClassGenTraverse : Traverse
     {
         base.ExecuteBitOrnOperate(bitOrnOperate);
 
-        this.ExecuteOperateDelimitA(this.Gen.DelimitOrn);
+        this.Gen.ExecuteOperateDelimitA(this.Gen.DelimitOrn);
         return true;
     }
 
@@ -359,7 +359,7 @@ public class ClassGenTraverse : Traverse
     {
         base.ExecuteBitLeftOperate(bitLeftOperate);
 
-        this.ExecuteOperateDelimitAA(this.Gen.DelimitBitLeft);
+        this.Gen.ExecuteOperateDelimitAA(this.Gen.DelimitBitLeft);
         return true;
     }
 
@@ -367,7 +367,7 @@ public class ClassGenTraverse : Traverse
     {
         base.ExecuteBitRightOperate(bitRightOperate);
 
-        this.ExecuteOperateDelimitAB(this.Gen.DelimitBitRight);
+        this.Gen.ExecuteOperateDelimitAB(this.Gen.DelimitBitRight);
         return true;
     }
 
