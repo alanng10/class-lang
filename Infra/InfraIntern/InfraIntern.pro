@@ -5,11 +5,13 @@ DEFINES += InfraIntern_Module
 HEADERS += \
     Prudate.h \
     Intern.h \
-    New.h
+    New.h \
+    Class.h
 
 SOURCES += \
     Intern.c \
-    New.c
+    New.c \
+    Class.c
 
 LIBS += -L$$PWD/../../Out/Infra-Windows-Release/release/
 
