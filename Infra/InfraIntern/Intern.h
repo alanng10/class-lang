@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Prudate.h"
+#include "Probate.h"
 
 #define RefKindClear(name) name = name & 0x0fffffffffffffff;
 
