@@ -4,10 +4,12 @@ DEFINES += InfraIntern_Module
 
 HEADERS += \
     Prudate.h \
-    Probate.h
+    Intern.h \
+    New.h
 
 SOURCES += \
-    Intern.c
+    Intern.c \
+    New.c
 
 LIBS += -L$$PWD/../../Out/Infra-Windows-Release/release/
 
