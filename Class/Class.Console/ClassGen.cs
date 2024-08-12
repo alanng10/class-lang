@@ -260,6 +260,107 @@ public class ClassGen : Any
         return true;
     }
 
+    public virtual bool ExecuteVarGet(Var varVar)
+    {
+        string varA;
+        varA = this.VarA;
+
+        int stateKind;
+        stateKind = this.CompStateKind;
+
+        int k;
+        k = this.ParamCount;
+
+        int kk;
+        kk = varVar.Index;
+
+        if (stateKind == this.StateKindGet)
+        {
+            bool ba;
+            ba = (kk == 0);
+
+            if (ba)
+            {
+                this.ExecuteThisFieldData();
+
+                this.VarSetDeref(varA, varA, 0);
+            }
+
+            if (!ba)
+            {
+                int posA;
+                posA = kk - 1;
+
+                this.EvalFrameValueGet(posA, varA);
+            }
+        }
+
+        if (stateKind == this.StateKindSet)
+        {
+            bool bc;
+            bc = (kk == 0);
+            bool bd;
+            bd = (kk == 1);
+
+            if (bc)
+            {
+                this.ExecuteThisFieldData();
+
+                this.VarSetDeref(varA, varA, 0);
+            }
+
+            if (bd)
+            {
+                int posB;
+                posB = -1;
+
+                this.EvalFrameValueGet(posB, varA);
+            }
+
+            if (!(bc | bd))
+            {
+                int posC;
+                posC = kk - 2;
+
+                this.EvalFrameValueGet(posC, varA);
+            }
+        }
+
+        if (stateKind == this.StateKindCall)
+        {
+            int ka;
+            ka = k - 1;
+
+            bool b;
+            b = (kk < ka);
+            if (b)
+            {
+                int kkk;
+                kkk = ka - kk;
+                kkk = -kkk;
+
+                int posD;
+                posD = kkk;
+
+                this.EvalFrameValueGet(posD, varA);
+            }
+
+            if (!b)
+            {
+                int posE;
+                posE = kk - ka;
+
+                this.EvalFrameValueGet(posE, varA);
+            }
+        }
+
+        this.EvalValueSet(0, varA);
+
+        this.EvalIndexPosSet(1);
+
+        return true;
+    }
+
     public virtual bool ExecuteVarSet(Var varVar)
     {
         string varA;

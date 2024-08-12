@@ -143,7 +143,7 @@ public class ClassGenTraverse : Traverse
         Var varVar;
         varVar = this.Info(varOperate).Var;
 
-        this.ExecuteVarGet(varVar);
+        this.Gen.ExecuteVarGet(varVar);
         return true;
     }
 
@@ -368,110 +368,6 @@ public class ClassGenTraverse : Traverse
         base.ExecuteBitRightOperate(bitRightOperate);
 
         this.ExecuteOperateDelimitAB(this.Gen.DelimitBitRight);
-        return true;
-    }
-
-    public virtual bool ExecuteVarGet(Var varVar)
-    {
-        ClassGen gen;
-        gen = this.Gen;
-
-        string varA;
-        varA = gen.VarA;
-        
-        int stateKind;
-        stateKind = gen.CompStateKind;
-
-        int k;
-        k = gen.ParamCount;
-        
-        int kk;
-        kk = varVar.Index;
-
-        if (stateKind == gen.StateKindGet)
-        {
-            bool ba;
-            ba = (kk == 0);
-
-            if (ba)
-            {
-                gen.ExecuteThisFieldData();
-
-                gen.VarSetDeref(varA, varA, 0);
-            }
-
-            if (!ba)
-            {
-                int posA;
-                posA = kk - 1;
-
-                gen.EvalFrameValueGet(posA, varA);
-            }
-        }
-
-        if (stateKind == gen.StateKindSet)
-        {
-            bool bc;
-            bc = (kk == 0);
-            bool bd;
-            bd = (kk == 1);
-
-            if (bc)
-            {
-                gen.ExecuteThisFieldData();
-
-                gen.VarSetDeref(varA, varA, 0);
-            }
-
-            if (bd)
-            {
-                int posB;
-                posB = -1;
-
-                gen.EvalFrameValueGet(posB, varA);
-            }
-
-            if (!(bc | bd))
-            {
-                int posC;
-                posC = kk - 2;
-
-                gen.EvalFrameValueGet(posC, varA);
-            }
-        }
-
-        if (stateKind == gen.StateKindCall)
-        {
-            int ka;
-            ka = k - 1;
-
-            bool b;
-            b = (kk < ka);
-            if (b)
-            {
-                int kkk;
-                kkk = ka - kk;
-                kkk = -kkk;
-
-                int posD;
-                posD = kkk;
-
-                gen.EvalFrameValueGet(posD, varA);
-            }
-
-            if (!b)
-            {
-                int posE;
-                posE = kk - ka;
-
-                gen.EvalFrameValueGet(posE, varA);
-            }
-        }
-
-        gen.EvalValueSet(0, varA);
-
-        gen.EvalIndexPosSet(1);
-
         return true;
     }
 
