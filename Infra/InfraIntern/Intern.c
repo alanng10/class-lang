@@ -35,7 +35,7 @@ Int Intern_RefCompare(Eval* eval, Int frame)
 
     SInt kdo;
     kdo = kda - kdb;
-    
+
     SInt kea;
     kea = 0;
 
