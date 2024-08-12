@@ -1,9 +1,6 @@
 include(../module.pri)
 
-
 DEFINES += Infra_Module
-
-
 
 HEADERS += \
     AString.hpp \

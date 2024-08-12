@@ -1,5 +1,7 @@
 include(../module.pri)
 
+DEFINES += InfraIntern_Module
+
 HEADERS += \
     Prudate.h \
     Probate.h
