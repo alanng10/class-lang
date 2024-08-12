@@ -8,8 +8,11 @@ Int Intern_CompState[3] =
     CastInt(Intern_FieldGet), CastInt(Intern_FieldSet), 0
 };
 
-Int Intern_Base[1] = { CastInt(Intern_CompState) };
-
+Int Intern_Base[2] =
+{ 
+    0,
+    CastInt(Intern_CompState)
+};
 
 Int Intern_Class[2] =
 {
