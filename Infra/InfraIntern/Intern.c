@@ -20,7 +20,7 @@ Int Intern_RefCompare(Eval* eval, Int frame)
         Int kca;
         kca = kc;
         
-        RefClear(kca);
+        RefKindClear(kca);
         RefKindInt(kca);
 
         Return(kca, 2);
@@ -30,8 +30,8 @@ Int Intern_RefCompare(Eval* eval, Int frame)
     Int kdb;
     kda = ka;
     kdb = kb;
-    RefClear(kda);
-    RefClear(kdb);
+    RefKindClear(kda);
+    RefKindClear(kdb);
 
     SInt kdo;
     kdo = kda - kdb;
@@ -51,7 +51,7 @@ Int Intern_RefCompare(Eval* eval, Int frame)
     Int ke;
     ke = kea;
 
-    RefClear(ke);
+    RefKindClear(ke);
     RefKindInt(ke);
 
     Return(ke, 2);
