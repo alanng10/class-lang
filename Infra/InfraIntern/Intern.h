@@ -7,6 +7,6 @@
 #define RefKindInt(name) name = name | 0x2000000000000000;
 
 #define Return(ret, paramCount) \
-eval->Stack[frame - paramCount] = ret;\
-eval->Index = frame - paramCount;\
+eval->Stack[frame - (paramCount + 1)] = ret;\
+eval->Index = frame - (paramCount + 1);\
 return 0;\

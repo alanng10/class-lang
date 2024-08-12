@@ -32,7 +32,7 @@ Int Intern_RefCompare(Eval* eval, Int frame)
 
         RefKindInt(kca);
 
-        Return(kca, 3);
+        Return(kca, 2);
     }
     
     Int kda;
@@ -59,5 +59,5 @@ Int Intern_RefCompare(Eval* eval, Int frame)
 
     RefKindInt(ke);
 
-    Return(ke, 3);
+    Return(ke, 2);
 }
