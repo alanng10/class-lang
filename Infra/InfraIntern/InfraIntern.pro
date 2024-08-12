@@ -6,12 +6,14 @@ HEADERS += \
     Prudate.h \
     Intern.h \
     New.h \
-    Class.h
+    Class.h \
+    Any.h
 
 SOURCES += \
     Intern.c \
     New.c \
-    Class.c
+    Class.c \
+    Any.c
 
 LIBS += -L$$PWD/../../Out/Infra-Windows-Release/release/
 
