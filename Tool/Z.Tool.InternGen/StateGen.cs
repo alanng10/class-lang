@@ -65,13 +65,14 @@ class StateGen : Any
             Maide maide;
             maide = (Maide)iter.Value;
 
-            this.Append(h, "    , ");
+            this.Append(h, ",");
+            this.Append(h, newLine);
+            this.Append(h, "    ");
             this.Append(h, "CastInt");
             this.Append(h, "(");
             this.Append(h, "Intern_Intern_");
             this.Append(h, maide.Name);
             this.Append(h, ")");
-            this.Append(h, newLine);
         }
 
         string a;
