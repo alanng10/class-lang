@@ -5,6 +5,8 @@ Avalon has infra classes and effect element classes for C#.
 
 Avalon classes member variables are not in abstract.
 
+Avalon uses C# signed Int 64 bits as general Int class.
+
 Avalon has Thread module. It has enough threading elements for C#.
 All threads including main thread, has 1 event loop, that can be start and exit.
 One event loop can be start once and exit once.
