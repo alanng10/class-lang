@@ -60,10 +60,13 @@ public class StringComp : Any
         Infra infraInfra;
         infraInfra = this.InfraInfra;
 
+        int kka;
+        kka = sizeof(uint);
+
         long dataCount;
         dataCount = data.Count;
         long totalCount;
-        totalCount = dataCount / sizeof(uint);
+        totalCount = dataCount / kka;
 
         long index;
         long count;
@@ -86,38 +89,20 @@ public class StringComp : Any
             }
         }
 
-        String a;
-        a = null;
-        
+        Data dest;
+        dest = new Data();
+        dest.Count = count * kka;
+        dest.Init();
+
+        Data sourceData;
+        sourceData = null;
+
         bool ba;
         ba = (data is StringData);
 
         if (!ba)
         {
-            Data kk;
-            kk = new Data();
-            kk.Count = count * sizeof(uint);
-            kk.Init();
-
-            long i;
-            i = 0;
-            while (i < count)
-            {
-                long ke;
-                ke = i * sizeof(uint);
-
-                uint aa;
-                aa = infraInfra.DataCharGet(data, ke + index);
-
-                infraInfra.DataCharSet(kk, ke, aa);
-
-                i = i + 1;
-            }
-
-            a = new String();
-            a.DataData = kk;
-            a.CountData = count;
-            a.Init();
+            sourceData = data;
         }
 
         if (ba)
@@ -125,11 +110,35 @@ public class StringComp : Any
             StringData stringData;
             stringData = (StringData)data;
 
-            string dataString;
-            dataString = stringData.ValueString;
+            String koo;
+            koo = stringData.ValueString;
 
-            a = dataString.Substring(index, count);
+            sourceData = koo.DataData;
         }
+
+        long i;
+        i = 0;
+        while (i < count)
+        {
+            long kea;
+            kea = i * kka;
+            long keb;
+            keb = (i + index) * kka;
+
+            uint aa;
+            aa = infraInfra.DataCharGet(sourceData, keb);
+
+            infraInfra.DataCharSet(dest, kea, aa);
+
+            i = i + 1;
+        }
+
+
+        String a;
+        a = new String();
+        a.DataData = dest;
+        a.CountData = count;
+        a.Init();
         
         return a;
     }
