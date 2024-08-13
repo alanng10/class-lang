@@ -188,7 +188,7 @@ public class Infra : Any
         return true;
     }
 
-    public virtual int DigitValue(char oc, int varBase, bool upperCase)
+    public virtual int DigitValue(uint oc, int varBase, bool upperCase)
     {
         int oa;
         oa = 0;
@@ -208,7 +208,7 @@ public class Infra : Any
         {
             oaa = varBase - 10;
         }
-        char oca;
+        uint oca;
         oca = 'a';
         if (upperCase)
         {
@@ -218,7 +218,7 @@ public class Infra : Any
         if (this.IsDigit(oc))
         {
             int ooa;
-            ooa = oc - '0';
+            ooa = (int)(oc - '0');
             if (!(ooa < oa))
             {
                 return -1;
@@ -233,7 +233,7 @@ public class Infra : Any
         }
 
         int oob;
-        oob = oc - oca;
+        oob = (int)(oc - oca);
         if (!(oob < oaa))
         {
             return -1;
