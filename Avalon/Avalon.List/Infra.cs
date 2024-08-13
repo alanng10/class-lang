@@ -14,7 +14,7 @@ public class Infra : Any
         return share;
     }
 
-    public virtual Array ArrayCreate(int count)
+    public virtual Array ArrayCreate(long count)
     {
         Array a;
         a = new Array();
@@ -25,33 +25,33 @@ public class Infra : Any
 
     public virtual Array ArrayCreateList(List list)
     {
-        Array a;
-        a = new Array();
-        a.Count = list.Count;
-        a.Init();
+        Array array;
+        array = new Array();
+        array.Count = list.Count;
+        array.Init();
         
         Iter iter;
         iter = list.IterCreate();
         list.IterSet(iter);
 
-        int count;
-        count = a.Count;
-        int i;
+        long count;
+        count = array.Count;
+        long i;
         i = 0;
         while (i < count)
         {
             iter.Next();
-            object aa;
-            aa = iter.Value;
-            a.SetAt(i, aa);
+            object a;
+            a = iter.Value;
+            array.SetAt(i, a);
             i = i + 1;
         }
-        return a;
+        return array;
     }
 
-    public virtual bool ArrayCopy(Array dest, int destIndex, Array source, int sourceIndex, int count)
+    public virtual bool ArrayCopy(Array dest, long destIndex, Array source, long sourceIndex, long count)
     {
-        int i;
+        long i;
         i = 0;
         while (i < count)
         {
