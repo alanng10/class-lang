@@ -159,12 +159,20 @@ public class StringComp : Any
         return a;
     }
 
+    public virtual long Count(String o)
+    {
+        return o.CountData;
+    }
+
     public virtual long Char(String o, long index)
     {
         Infra infraInfra;
         infraInfra = this.InfraInfra;
 
-        if (!infraInfra.ValidIndex(o.Count, index))
+        long count;
+        count = this.Count(o);
+
+        if (!infraInfra.ValidIndex(count, index))
         {
             return -1;
         }

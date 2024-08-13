@@ -15,17 +15,5 @@ public class String : Any
 
     internal virtual Data DataData { get; set; }
 
-    public virtual long Count
-    {
-        get
-        {
-            return this.CountData;
-        }
-        set
-        {
-
-        }
-    }
-
     internal virtual long CountData { get; set; }
 }
