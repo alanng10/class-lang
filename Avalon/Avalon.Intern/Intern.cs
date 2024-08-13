@@ -111,44 +111,11 @@ public class Intern : object
         return a;
     }
 
-    public virtual ulong TextEncodeCountString(ulong innKind, ulong outKind, string data, ulong dataIndex, ulong dataCount)
-    {
-        ulong a;
-        a = 0;
-
-        unsafe
-        {
-            fixed (char* p = data)
-            {
-                ulong dataU;
-                dataU = (ulong)p;
-
-                a = this.TextEncodeCount(innKind, outKind, dataU, dataIndex, dataCount);
-            }
-        }
-        return a;
-    }
-
     public virtual bool TextEncodeResultArray(ulong result, ulong resultIndex, ulong innKind, ulong outKind, byte[] data, ulong dataIndex, ulong dataCount)
     {
         unsafe
         {
             fixed (byte* p = data)
-            {
-                ulong dataU;
-                dataU = (ulong)p;
-
-                this.TextEncodeResult(result, resultIndex, innKind, outKind, dataU, dataIndex, dataCount);
-            }
-        }
-        return true;
-    }
-
-    public virtual bool TextEncodeResultString(ulong result, ulong resultIndex, ulong innKind, ulong outKind, string data, ulong dataIndex, ulong dataCount)
-    {
-        unsafe
-        {
-            fixed (char* p = data)
             {
                 ulong dataU;
                 dataU = (ulong)p;
@@ -169,21 +136,6 @@ public class Intern : object
                 resultU = (ulong)p;
 
                 this.TextEncodeResultArray(resultU, resultIndex, innKind, outKind, data, dataIndex, dataCount);
-            }
-        }
-        return true;
-    }
-
-    public virtual bool TextEncodeResultStringArray(byte[] result, ulong resultIndex, ulong innKind, ulong outKind, string data, ulong dataIndex, ulong dataCount)
-    {
-        unsafe
-        {
-            fixed (byte* p = result)
-            {
-                ulong resultU;
-                resultU = (ulong)p;
-
-                this.TextEncodeResultString(resultU, resultIndex, innKind, outKind, data, dataIndex, dataCount);
             }
         }
         return true;
