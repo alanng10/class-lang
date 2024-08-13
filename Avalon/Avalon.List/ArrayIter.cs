@@ -3,8 +3,8 @@ namespace Avalon.List;
 public class ArrayIter : Iter
 {
     internal virtual Array Array { get; set; }
-    internal virtual int IntIndex { get; set; }
-    internal virtual int CurrentIndex { get; set; }
+    internal virtual long IntIndex { get; set; }
+    internal virtual long CurrentIndex { get; set; }
 
     public override bool Next()
     {
@@ -51,7 +51,7 @@ public class ArrayIter : Iter
         }
     }
 
-    public virtual int ArrayIndex
+    public virtual long ArrayIndex
     {
         get
         {
@@ -61,5 +61,4 @@ public class ArrayIter : Iter
         {
         }
     }
-    protected int __D_ArrayIndex;
 }
