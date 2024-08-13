@@ -263,13 +263,9 @@ public class Infra : Any
         return a;
     }
 
-    public virtual string StringCreate(Text text)
+    public virtual String StringCreate(Text text)
     {
-        StringCreate o;
-        o = new StringCreate();
-        o.Init();
-
-        return o.Data(text.Data, text.Range);
+        return this.StringComp.CreateData(text.Data, text.Range);
     }
 
     public virtual bool Equal(Text left, Text right, InfraCompare compare)
@@ -284,9 +280,9 @@ public class Infra : Any
         Range range;
         range = text.Range;
 
-        int count;
+        long count;
         count = range.Count;
-        int otherCount;
+        long otherCount;
         otherCount = other.Range.Count;
         
         if (count < otherCount)

@@ -8,7 +8,6 @@ global using State = Avalon.Infra.State;
 global using InfraCompare = Avalon.Infra.Compare;
 global using CompareMid = Avalon.Infra.CompareMid;
 global using CharForm = Avalon.Infra.CharForm;
-global using StringCreate = Avalon.Infra.StringComp;
 global using Data = Avalon.Infra.Data;
 global using StringData = Avalon.Infra.StringData;
 global using Value = Avalon.Infra.Value;
