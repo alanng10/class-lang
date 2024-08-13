@@ -9,6 +9,15 @@ Int Intern_Any_State[3] =
     CastInt(Intern_Any_FieldGet), CastInt(Intern_Any_FieldSet), CastInt(Intern_Any_MaideCall)
 };
 
+Int Intern_Any_Base[1] =
+{ 
+    CastInt(Intern_Any_State)
+};
+
+Int Intern_Any_Class[3] =
+{
+    CastInt(Intern_Any_Base), 0, 0
+};
 
 Int Intern_Intern_FieldGet[0] = { };
 Int Intern_Intern_FieldSet[0] = { };
