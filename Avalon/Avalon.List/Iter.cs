@@ -7,12 +7,14 @@ public class Iter : Any
 
     public virtual bool Next()
     {
-        if (this.Node == null)
+        ListNode node;
+        node = this.Node;
+        if (node == null)
         {
             return false;
         }
-        this.CurrentNode = this.Node;
-        this.Node = this.Node.Next;
+        this.CurrentNode = node;
+        this.Node = node.Next;
         return true;
     }
 
@@ -26,7 +28,6 @@ public class Iter : Any
         {
         }
     }
-    protected object __D_Index;
 
     public virtual object Value
     {
@@ -38,5 +39,4 @@ public class Iter : Any
         {
         }
     }
-    protected object __D_Value;
 }
