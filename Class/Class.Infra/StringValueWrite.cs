@@ -158,10 +158,6 @@ public class StringValueWrite : Any
                 {
                     bba = true;
                 }
-                if (u == 't')
-                {
-                    bba = true;
-                }
                 if (u == 'n')
                 {
                     bba = true;
@@ -281,10 +277,6 @@ public class StringValueWrite : Any
                     if (u == quote)
                     {
                         escapeValue = u;
-                    }
-                    if (u == 't')
-                    {
-                        escapeValue = tab;
                     }
                     if (u == 'n')
                     {
