@@ -2,7 +2,30 @@ namespace Avalon.Infra;
 
 public class String : Any
 {
-    public virtual Data Data { get; set; }
+    public virtual object Data
+    {
+        get
+        {
+            return this.DataData;
+        }
+        set
+        {
+        } 
+    }
 
-    public virtual long Count { get; set; }
+    internal virtual Data DataData { get; set; }
+
+    public virtual long Count
+    {
+        get
+        {
+            return this.CountData;
+        }
+        set
+        {
+
+        }
+    }
+
+    internal virtual long CountData { get; set; }
 }
