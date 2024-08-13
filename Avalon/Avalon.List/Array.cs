@@ -5,16 +5,9 @@ public class Array : List
     public override bool Init()
     {
         this.InfraInfra = InfraInfra.This;
-        this.Comparer = new Comparer();
-        this.Comparer.Init();
 
         long k;
         k = this.Count;
-
-        if (!this.ValidCount(k))
-        {
-            return false;
-        }
 
         this.Value = new object[k];
         return true;
@@ -24,9 +17,7 @@ public class Array : List
     public override object LastIndex { get { return null; } set { } }
 
     protected virtual InfraInfra InfraInfra { get; set; }
-
     private object[] Value { get; set; }
-    private Comparer Comparer { get; set; }
 
     public override object Add(object item)
     {
@@ -85,11 +76,6 @@ public class Array : List
         }
         this.Value[index] = value;
         return true;
-    }
-
-    public virtual bool ValidCount(long value)
-    {
-        return !(value < 0);
     }
 
     public override Iter IterCreate()
