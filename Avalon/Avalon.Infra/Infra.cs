@@ -107,9 +107,9 @@ public class Infra : Any
         return (ushort)this.DataByteListGet(data, index, sizeof(ushort));
     }
 
-    public virtual char DataCharGet(Data data, long index)
+    public virtual uint DataCharGet(Data data, long index)
     {
-        return (char)this.DataShortGet(data, index);
+        return this.DataMidGet(data, index);
     }
 
     public virtual bool DataIntSet(Data data, long index, ulong value)
@@ -127,9 +127,9 @@ public class Infra : Any
         return this.DataByteListSet(data, index, sizeof(ushort), value);
     }
 
-    public virtual bool DataCharSet(Data data, long index, char value)
+    public virtual bool DataCharSet(Data data, long index, uint value)
     {
-        return this.DataShortSet(data, index, (ushort)value);
+        return this.DataMidSet(data, index, value);
     }
 
     public virtual ulong DataByteListGet(Data data, long index, int count)
