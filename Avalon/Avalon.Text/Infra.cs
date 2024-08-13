@@ -458,25 +458,25 @@ public class Infra : Any
         Range textRange;
         textRange = text.Range;
 
-        int delimitCount;
+        long delimitCount;
         delimitCount = delimit.Range.Count;
 
-        int kka;
+        long kka;
         kka = textRange.Index;
 
-        int kkb;
+        long kkb;
         kkb = textRange.Count;
 
-        int count;
+        long count;
         count = 0;
 
-        int oo;
+        long oo;
         oo = this.Index(text, delimit, compare);
         while (!(oo < 0))
         {
             count = count + 1;
 
-            int kaa;
+            long kaa;
             kaa = oo + delimitCount;
 
             textRange.Index = textRange.Index + kaa;
