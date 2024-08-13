@@ -48,7 +48,7 @@ public class Read : Any
     {
         bool b;
 
-        b = this.SetClassTable();
+        b = this.SetMaideTable();
         if (!b)
         {
             return 10;

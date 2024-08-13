@@ -1,8 +1,11 @@
 global using Any = Avalon.Infra.Any;
+global using Range = Avalon.Infra.Range;
+global using StringData = Avalon.Infra.StringData;
 global using CharForm = Avalon.Infra.CharForm;
 global using CompareMid = Avalon.Infra.CompareMid;
 global using Table = Avalon.List.Table;
 global using ListInfra = Avalon.List.Infra;
+global using Text = Avalon.Text.Text;
 global using TextCompare = Avalon.Text.Compare;
 global using NameCheck = Class.Infra.NameCheck;
 global using ClassInfra = Class.Infra.Infra;
