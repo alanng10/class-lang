@@ -18,7 +18,4 @@ Eval;
 typedef Int (*Intern_State)(Eval* eval, Int frame);
 
 
-Intern_Api extern Int Intern_Class[2];
-
-
-Intern_Api Int Intern_RefCompare(Eval* eval, Int frame);
+Intern_Api extern Int Intern_Intern_Class[];
