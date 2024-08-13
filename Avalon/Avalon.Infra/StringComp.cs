@@ -13,14 +13,46 @@ public class StringComp : Any
     private InternIntern InternIntern { get; set; }
     protected virtual Infra InfraInfra { get; set; }
 
-    public virtual string Char(char c, int count)
+    public virtual String CreateChar(uint c, long count)
     {
+        Infra infraInfra;
+        infraInfra = this.InfraInfra;
+
         if (count < 0)
         {
             return null;
         }
+
+        int ko;
+        ko = sizeof(uint);
+
+        long ka;
+        ka = count * ko;
         
-        return new string(c, count);
+        Data data;
+        data = new Data();
+        data.Count = ka;
+        data.Init();
+
+        long i;
+        i = 0;
+        while (i < count)
+        {
+            long index;
+            index = i * ko;
+
+            infraInfra.DataMidSet(data, index, c);
+
+            i = i + 1;
+        }
+
+        String a;
+        a = new String();
+        a.Data = data;
+        a.Count = count;
+        a.Init();
+        
+        return a;
     }
 
     public virtual string Data(Data data, Range range)
