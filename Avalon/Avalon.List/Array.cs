@@ -92,11 +92,6 @@ public class Array : List
         return !(value < 0);
     }
 
-    public virtual bool Sort(Compare compare, Range range, Array array)
-    {
-        return true;
-    }
-
     public override Iter IterCreate()
     {
         Iter a;
@@ -112,6 +107,77 @@ public class Array : List
         a.Array = this;
         a.IntIndex = 0;
         a.CurrentIndex = -1;
+        return true;
+    }
+
+    public virtual bool Sort(Compare compare, Range range, Array array)
+    {
+        return true;
+    }
+
+
+    private bool TopDownMerge(Compare compare, object[] B, object[] A, long start, long mid, long end)
+    {
+        long i;
+        long j;
+        i = start;
+        j = mid;
+
+        // While there are elements in the left or right runs...
+        long k;
+        k = start;
+        
+        while (i < mid & j < end)
+        {
+            object left;
+            object right;
+            left = A[i];
+            right = A[j];
+
+            int ka;
+            ka = compare.Execute(left, right);
+
+            bool b;
+            b = (0 < ka);
+            
+            if (!b)
+            {
+                B[k] = A[i];
+                i = i + 1;
+            }
+
+            if (b)
+            {
+                B[k] = A[j];
+                j = j + 1;
+            }
+
+            k = k + 1;
+        }
+
+        
+
+
+        return true;
+    }
+
+
+    private bool CopyArray(object[] dest, object[] source, long start, long end)
+    {
+        long count;
+        count = end - start;
+        
+        long i;
+        i = 0;
+        while (i < count)
+        {
+            long index;
+            index = start + i;
+
+            dest[index] = source[index];
+
+            i = i + 1;
+        }
         return true;
     }
 }
