@@ -13,7 +13,7 @@ public class Data : Any
     public virtual long Count { get; set; }
     protected virtual Infra InfraInfra { get; set; }
     
-    public virtual object Value
+    public virtual byte[] Value
     {
         get
         {

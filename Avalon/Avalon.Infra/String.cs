@@ -2,7 +2,7 @@ namespace Avalon.Infra;
 
 public class String : Any
 {
-    public virtual object Data
+    public virtual Data Data
     {
         get
         {
@@ -10,7 +10,7 @@ public class String : Any
         }
         set
         {
-        } 
+        }
     }
 
     internal virtual Data DataData { get; set; }

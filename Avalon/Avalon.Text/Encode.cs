@@ -15,7 +15,7 @@ public class Encode : Any
     protected virtual InfraInfra InfraInfra { get; set; }
     protected virtual Infra TextInfra { get; set; }
 
-    public virtual long ExecuteCount(EncodeKind innKind, EncodeKind outKind, Data data, RangeInt dataRange)
+    public virtual long ExecuteCount(EncodeKind innKind, EncodeKind outKind, Data data, Range dataRange)
     {
         if (innKind == outKind)
         {
@@ -27,7 +27,7 @@ public class Encode : Any
         dataIndex = dataRange.Index;
         dataCount = dataRange.Count;
 
-        if (!this.InfraInfra.ValidRangeInt(data.Count, dataIndex, dataCount))
+        if (!this.InfraInfra.ValidRange(data.Count, dataIndex, dataCount))
         {
             return -1;
         }
@@ -37,15 +37,16 @@ public class Encode : Any
         dataIndexU = (ulong)dataIndex;
         dataCountU = (ulong)dataCount;
 
-        ulong u;
-        u = 0;
+
+        Data k;
+        k = null;
 
         bool b;
         b = (data is StringData);
 
         if (!b)
         {
-            u = this.InternIntern.TextEncodeCountArray(innKind.Intern, outKind.Intern, data.Value, dataIndexU, dataCountU);
+            k = data;
         }
 
         if (b)
@@ -53,18 +54,21 @@ public class Encode : Any
             StringData stringData;
             stringData = (StringData)data;
 
-            string dataString;
+            String dataString;
             dataString = stringData.ValueString;
 
-            u = this.InternIntern.TextEncodeCountString(innKind.Intern, outKind.Intern, dataString, dataIndexU, dataCountU);
+            k = dataString.Data;
         }
+
+        ulong u;
+        u = this.InternIntern.TextEncodeCountArray(innKind.Intern, outKind.Intern, k.Value, dataIndexU, dataCountU);
 
         long a;
         a = (long)u;
         return a;
     }
 
-    public virtual bool ExecuteResult(Data result, long resultIndex, EncodeKind innKind, EncodeKind outKind, Data data, RangeInt dataRange)
+    public virtual bool ExecuteResult(Data result, long resultIndex, EncodeKind innKind, EncodeKind outKind, Data data, Range dataRange)
     {
         if (innKind == outKind)
         {
