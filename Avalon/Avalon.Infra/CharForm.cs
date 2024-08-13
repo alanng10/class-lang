@@ -2,8 +2,8 @@ namespace Avalon.Infra;
 
 public class CharForm : Any
 {
-    public virtual long Execute(long oc)
+    public virtual long Execute(long n)
     {
-        return oc;
+        return n;
     }
 }

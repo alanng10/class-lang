@@ -9,7 +9,7 @@ public class Compare : InfraCompare
         return true;
     }
 
-    public virtual CompareMid CharCompare { get; set; }
+    public virtual CompareInt CharCompare { get; set; }
     public virtual CharForm LeftCharForm { get; set; }
     public virtual CharForm RightCharForm { get; set; }
     protected virtual Infra TextInfra { get; set; }
@@ -43,17 +43,17 @@ public class Compare : InfraCompare
         leftRange = leftText.Range;
         rightRange = rightText.Range;
 
-        int leftIndex;
-        int leftCount;
+        long leftIndex;
+        long leftCount;
         leftIndex = leftRange.Index;
         leftCount = leftRange.Count;
 
-        int rightIndex;
-        int rightCount;
+        long rightIndex;
+        long rightCount;
         rightIndex = rightRange.Index;
         rightCount = rightRange.Count;
-        
-        CompareMid charCompare;
+
+        CompareInt charCompare;
         charCompare = this.CharCompare;
 
         CharForm leftCharForm;
@@ -61,24 +61,24 @@ public class Compare : InfraCompare
         leftCharForm = this.LeftCharForm;
         rightCharForm = this.RightCharForm;
 
-        int count;
+        long count;
         count = leftCount;
         if (rightCount < count)
         {
             count = rightCount;
         }
 
-        int i;
+        long i;
         i = 0;
         while (i < count)
         {
-            char oca;
-            char ocb;
+            uint oca;
+            uint ocb;
             oca = textInfra.DataCharGet(leftData, leftIndex + i);
             ocb = textInfra.DataCharGet(rightData, rightIndex + i);
 
-            oca = (char)leftCharForm.Execute(oca);
-            ocb = (char)rightCharForm.Execute(ocb);
+            oca = (uint)leftCharForm.Execute(oca);
+            ocb = (uint)rightCharForm.Execute(ocb);
 
             int oo;
             oo = charCompare.Execute(oca, ocb);
@@ -90,6 +90,20 @@ public class Compare : InfraCompare
             i = i + 1;
         }
 
-        return leftCount - rightCount;
+        long k;
+        k = leftCount - rightCount;
+        
+        int a;
+        a = 0;
+        if (k < 0)
+        {
+            a = -1;
+        }
+
+        if (0 < k)
+        {
+            a = 1;
+        }
+        return a;
     }
 }
