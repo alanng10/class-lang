@@ -123,7 +123,6 @@ public class Array : List
         i = start;
         j = mid;
 
-        // While there are elements in the left or right runs...
         long k;
         k = start;
         
@@ -143,20 +142,37 @@ public class Array : List
             if (!b)
             {
                 B[k] = A[i];
+
                 i = i + 1;
             }
 
             if (b)
             {
                 B[k] = A[j];
+
                 j = j + 1;
             }
 
             k = k + 1;
         }
 
-        
+        while (i < mid)
+        {
+            B[k] = A[i];
 
+            i = i + 1;
+
+            k = k + 1;
+        }
+
+        while (j < end)
+        {
+            B[k] = A[j];
+
+            j = j + 1;
+
+            k = k + 1;
+        }
 
         return true;
     }
