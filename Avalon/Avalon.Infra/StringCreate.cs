@@ -1,6 +1,6 @@
 namespace Avalon.Infra;
 
-public class StringCreate : Any
+public class StringComp : Any
 {
     public override bool Init()
     {
