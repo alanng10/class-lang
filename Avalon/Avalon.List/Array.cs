@@ -115,6 +115,24 @@ public class Array : List
         return true;
     }
 
+    private bool SplitMerge(Compare compare, object[] B, object[] A, long start, long end)
+    {
+        if (end - start < 2)
+        {
+            return true;
+        }
+
+        long mid;
+        mid = (start + end) / 2;
+
+        this.SplitMerge(compare, A, B, start, mid);
+
+        this.SplitMerge(compare, A, B, mid, end);
+
+        this.Merge(compare, B, A, start, mid, end);
+
+        return true;
+    }
 
     private bool Merge(Compare compare, object[] B, object[] A, long start, long mid, long end)
     {
