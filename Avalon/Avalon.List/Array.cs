@@ -92,20 +92,8 @@ public class Array : List
         return !(value < 0);
     }
 
-    public virtual bool Sort(Range range, Compare compare)
+    public virtual bool Sort(Compare compare, Range range, Array array)
     {
-        int index;
-        index = (int)range.Index;
-        int count;
-        count = (int)range.Count;
-        Comparer comparer;
-        comparer = this.Comparer;
-
-        comparer.CompareAny = compare;
-
-        SystemArray.Sort<object>(this.Value, index, count, comparer);
-
-        comparer.CompareAny = null;
         return true;
     }
 
