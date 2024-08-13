@@ -12,7 +12,7 @@ public class StringData : Data
         get
         {
             long a;
-            a = this.ValueString.Count;
+            a = this.ValueString.CountData;
             a = a * sizeof(uint);
             return a;
         }
