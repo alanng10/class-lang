@@ -2,6 +2,18 @@ namespace Avalon.Infra;
 
 public class StringComp : Any
 {
+    public static StringComp This { get; } = ShareCreate();
+
+    private static StringComp ShareCreate()
+    {
+        StringComp share;
+        share = new StringComp();
+        Any a;
+        a = share;
+        a.Init();
+        return share;
+    }
+
     public override bool Init()
     {
         base.Init();
