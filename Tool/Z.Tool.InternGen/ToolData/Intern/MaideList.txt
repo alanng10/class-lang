@@ -1,1 +1,1 @@
-maide Int RefCompare(var Any left, var Any right)
+Int RefCompare|Any left, Any right
