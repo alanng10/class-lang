@@ -511,7 +511,7 @@ public class Infra : Any
 
             array.SetAt(i, line);
 
-            int kab;
+            long kab;
             kab = oo + delimitCount;
 
             textRange.Index = textRange.Index + kab;
@@ -520,7 +520,7 @@ public class Infra : Any
             i = i + 1;
         }
 
-        int ka;
+        long ka;
         ka = kka + kkb - textRange.Index;
 
         rangeA.Index = textRange.Index;
