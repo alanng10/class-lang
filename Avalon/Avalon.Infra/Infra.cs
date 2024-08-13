@@ -33,14 +33,9 @@ public class Infra : Any
     public virtual string PathCombine { get { return __D_PathCombine; } set { __D_PathCombine = value; } }
     protected string __D_PathCombine;
 
-    public virtual bool ValidIndex(int count, int index)
+    public virtual bool ValidIndex(long count, long index)
     {
         return this.ValidRange(count, index, 1);
-    }
-
-    public virtual bool ValidIndexInt(long count, long index)
-    {
-        return this.ValidRangeInt(count, index, 1);
     }
 
     public virtual bool IndexRange(Range range, int index)
@@ -50,28 +45,7 @@ public class Infra : Any
         return true;
     }
 
-    public virtual bool ValidRange(int totalCount, int index, int count)
-    {
-        if (totalCount < 0)
-        {
-            return false;
-        }
-        if (index < 0)
-        {
-            return false;
-        }
-        if (count < 0)
-        {
-            return false;
-        }
-        if (totalCount < index + count)
-        {
-            return false;
-        }
-        return true;
-    }
-
-    public virtual bool ValidRangeInt(long totalCount, long index, long count)
+    public virtual bool ValidRange(long totalCount, long index, long count)
     {
         if (totalCount < 0)
         {
