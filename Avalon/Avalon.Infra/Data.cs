@@ -12,6 +12,7 @@ public class Data : Any
 
     public virtual long Count { get; set; }
     protected virtual Infra InfraInfra { get; set; }
+    
     public virtual object Value
     {
         get
@@ -52,6 +53,6 @@ public class Data : Any
 
     public virtual bool Valid(long index)
     {
-        return this.InfraInfra.ValidIndexInt(this.Count, index);
+        return this.InfraInfra.ValidIndex(this.Count, index);
     }
 }
