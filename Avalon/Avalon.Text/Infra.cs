@@ -333,7 +333,7 @@ public class Infra : Any
         return a;
     }
 
-    public virtual int Index(Text text, Text other, InfraCompare compare)
+    public virtual long Index(Text text, Text other, InfraCompare compare)
     {
         if (!this.ValidRange(text))
         {
@@ -347,12 +347,12 @@ public class Infra : Any
         Range textRange;
         textRange = text.Range;
 
-        int textIndex;
-        int textCount;
+        long textIndex;
+        long textCount;
         textIndex = textRange.Index;
         textCount = textRange.Count;
 
-        int otherCount;
+        long otherCount;
         otherCount = other.Range.Count;
 
         if (textCount < otherCount)
@@ -360,16 +360,16 @@ public class Infra : Any
             return -1;
         }
 
-        int k;
+        long k;
         k = -1;
         
-        int count;
+        long count;
         count = textCount - otherCount + 1;
-        int i;
+        long i;
         i = 0;
         while (k == -1 & i < count)
         {
-            int index;
+            long index;
             index = textIndex + i;
 
             textRange.Index = index;
