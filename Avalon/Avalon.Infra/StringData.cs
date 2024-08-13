@@ -12,8 +12,8 @@ public class StringData : Data
         get
         {
             long a;
-            a = this.ValueString.Length;
-            a = a * sizeof(char);
+            a = this.ValueString.Count;
+            a = a * sizeof(uint);
             return a;
         }
         set
@@ -21,7 +21,7 @@ public class StringData : Data
         }
     }
 
-    public virtual string ValueString { get; set; }
+    public virtual String ValueString { get; set; }
 
     public override int Get(long index)
     {
@@ -30,37 +30,8 @@ public class StringData : Data
             return -1;
         }
 
-        int oa;
-        oa = sizeof(char);
-
-        long ka;
-        ka = index / oa;
-
-        long kb;
-        kb = ka * oa;
-
-        long kc;
-        kc = index - kb;
-
-        int n;
-        n = (int)ka;
-
-        char oc;
-        oc = this.ValueString[n];
-        
         int a;
-        a = oc;
-
-        if (0 < kc)
-        {
-            a = a >> 8;
-        }
-
-        int mask;
-        mask = (1 << 8) - 1;
-
-        a = a & mask;
-
+        a = this.ValueString.DataData.Get(index);
         return a;
     }
 
