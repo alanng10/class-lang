@@ -69,19 +69,19 @@ public class Infra : Any
         return !((o < first) | (last < o));
     }
 
-    public virtual char DataCharGet(Data data, int index)
+    public virtual uint DataCharGet(Data data, long index)
     {
         long n;
         n = index;
-        n = n * sizeof(char);
+        n = n * sizeof(uint);
         return this.InfraInfra.DataCharGet(data, n);
     }
 
-    public virtual bool DataCharSet(Data data, int index, char value)
+    public virtual bool DataCharSet(Data data, long index, uint value)
     {
         long n;
         n = index;
-        n = n * sizeof(char);
+        n = n * sizeof(uint);
         return this.InfraInfra.DataCharSet(data, n, value);
     }
 
