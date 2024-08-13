@@ -60,8 +60,8 @@ public class StringComp : Any
 
         String a;
         a = new String();
-        a.Data = data;
-        a.Count = count;
+        a.DataData = data;
+        a.CountData = count;
         a.Init();
         
         return a;
