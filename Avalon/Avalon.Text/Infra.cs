@@ -305,9 +305,9 @@ public class Infra : Any
         Range range;
         range = text.Range;
 
-        int count;
+        long count;
         count = range.Count;
-        int otherCount;
+        long otherCount;
         otherCount = other.Range.Count;
 
         if (count < otherCount)
@@ -315,10 +315,10 @@ public class Infra : Any
             return false;
         }
 
-        int index;
+        long index;
         index = range.Index;
         
-        int end;
+        long end;
         end = index + count;
 
         range.Index = end - otherCount;
