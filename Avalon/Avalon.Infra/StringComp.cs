@@ -55,17 +55,15 @@ public class StringComp : Any
         return a;
     }
 
-    public virtual string Data(Data data, Range range)
+    public virtual String CreateData(Data data, Range range)
     {
         long dataCount;
         dataCount = data.Count;
-        long charCount;
-        charCount = dataCount / sizeof(char);
-        int totalCount;
-        totalCount = (int)charCount;
+        long totalCount;
+        totalCount = dataCount / sizeof(uint);
 
-        int index;
-        int count;
+        long index;
+        long count;
         index = 0;
         count = 0;
         bool b;
