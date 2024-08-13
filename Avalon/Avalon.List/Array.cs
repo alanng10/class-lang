@@ -149,7 +149,7 @@ public class Array : List
         return true;
     }
 
-    private bool Merge(Compare compare, object[] B, object[] A, long start, long mid, long end)
+    private bool Merge(Compare compare, object[] dest, object[] source, long start, long mid, long end)
     {
         long i;
         long j;
@@ -163,8 +163,8 @@ public class Array : List
         {
             object left;
             object right;
-            left = A[i];
-            right = A[j];
+            left = source[i];
+            right = source[j];
 
             int ka;
             ka = compare.Execute(left, right);
@@ -174,14 +174,14 @@ public class Array : List
             
             if (!b)
             {
-                B[k] = A[i];
+                dest[k] = left;
 
                 i = i + 1;
             }
 
             if (b)
             {
-                B[k] = A[j];
+                dest[k] = right;
 
                 j = j + 1;
             }
@@ -191,7 +191,7 @@ public class Array : List
 
         while (i < mid)
         {
-            B[k] = A[i];
+            dest[k] = source[i];
 
             i = i + 1;
 
@@ -200,7 +200,7 @@ public class Array : List
 
         while (j < end)
         {
-            B[k] = A[j];
+            dest[k] = source[j];
 
             j = j + 1;
 
