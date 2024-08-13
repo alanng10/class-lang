@@ -4,6 +4,8 @@ DEFINES += InfraIntern_Module
 
 HEADERS += \
     Prusate.h \
+    Probate.h \
+    Probate_Part.h \
     Intern.h \
     New.h \
     Class.h
