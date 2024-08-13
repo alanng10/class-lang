@@ -1,1 +1,3 @@
 Int RefCompare|Any left, Any right
+Int StringChar|String string, Int index
+Int StringCount|String string
