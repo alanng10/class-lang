@@ -110,8 +110,23 @@ public class Array : List
         return true;
     }
 
-    public virtual bool Sort(Compare compare, Range range, Array array)
+    public virtual bool Sort(Compare compare, Range range, Array copy)
     {
+        long start;
+        long end;
+        start = range.Index;
+        end = start + range.Count;
+
+        object[] itemArray;
+        itemArray = this.Value;
+
+        object[] copyArray;
+        copyArray = copy.Value;
+
+        this.CopyArray(copyArray, itemArray, start, end);
+
+        this.SplitMerge(compare, itemArray, copyArray, start, end);
+
         return true;
     }
 
