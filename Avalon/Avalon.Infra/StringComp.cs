@@ -139,7 +139,6 @@ public class StringComp : Any
         a.DataData = dest;
         a.CountData = count;
         a.Init();
-        
         return a;
     }
 }
