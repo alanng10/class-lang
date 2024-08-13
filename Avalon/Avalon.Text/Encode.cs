@@ -70,12 +70,15 @@ public class Encode : Any
 
     public virtual bool ExecuteResult(Data result, long resultIndex, EncodeKind innKind, EncodeKind outKind, Data data, Range dataRange)
     {
+        InfraInfra infraInfra;
+        infraInfra = this.InfraInfra;
+
         if (innKind == outKind)
         {
             return false;
         }
 
-        if (!this.InfraInfra.ValidRangeInt(result.Count, resultIndex, 0))
+        if (!infraInfra.ValidRange(result.Count, resultIndex, 0))
         {
             return false;
         }
@@ -85,7 +88,7 @@ public class Encode : Any
         dataIndex = dataRange.Index;
         dataCount = dataRange.Count;
 
-        if (!this.InfraInfra.ValidRangeInt(data.Count, dataIndex, dataCount))
+        if (!infraInfra.ValidRange(data.Count, dataIndex, dataCount))
         {
             return false;
         }
@@ -98,12 +101,15 @@ public class Encode : Any
         ulong resultIndexU;
         resultIndexU = (ulong)resultIndex;
 
+        Data k;
+        k = null;
+
         bool b;
         b = (data is StringData);
 
         if (!b)
         {
-            this.InternIntern.TextEncodeResultArrayArray(result.Value, resultIndexU, innKind.Intern, outKind.Intern, data.Value, dataIndexU, dataCountU);
+            k = data;
         }
 
         if (b)
@@ -111,11 +117,13 @@ public class Encode : Any
             StringData stringData;
             stringData = (StringData)data;
 
-            string dataString;
+            String dataString;
             dataString = stringData.ValueString;
 
-            this.InternIntern.TextEncodeResultStringArray(result.Value, resultIndexU, innKind.Intern, outKind.Intern, dataString, dataIndexU, dataCountU);
+            k = dataString.Data;
         }
+
+        this.InternIntern.TextEncodeResultArrayArray(result.Value, resultIndexU, innKind.Intern, outKind.Intern, k.Value, dataIndexU, dataCountU);
 
         return true;
     }
