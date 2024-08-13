@@ -55,6 +55,11 @@ public class StringComp : Any
         return a;
     }
 
+    public virtual String CreateString(String s, Range range)
+    {
+        return this.CreateData(s.DataData, range);
+    }
+
     public virtual String CreateData(Data data, Range range)
     {
         Infra infraInfra;
