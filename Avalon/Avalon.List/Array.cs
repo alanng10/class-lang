@@ -130,7 +130,7 @@ public class Array : List
         return true;
     }
 
-    private bool SplitMerge(Compare compare, object[] B, object[] A, long start, long end)
+    private bool SplitMerge(Compare compare, object[] dest, object[] source, long start, long end)
     {
         if (end - start < 2)
         {
@@ -140,11 +140,11 @@ public class Array : List
         long mid;
         mid = (start + end) / 2;
 
-        this.SplitMerge(compare, A, B, start, mid);
+        this.SplitMerge(compare, source, dest, start, mid);
 
-        this.SplitMerge(compare, A, B, mid, end);
+        this.SplitMerge(compare, source, dest, mid, end);
 
-        this.Merge(compare, B, A, start, mid, end);
+        this.Merge(compare, dest, source, start, mid, end);
 
         return true;
     }
