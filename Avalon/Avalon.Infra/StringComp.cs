@@ -158,4 +158,19 @@ public class StringComp : Any
         a.Init();
         return a;
     }
+
+    public virtual long Char(String o, long index)
+    {
+        Infra infraInfra;
+        infraInfra = this.InfraInfra;
+
+        if (!infraInfra.ValidIndex(o.Count, index))
+        {
+            return -1;
+        }
+
+        uint a;
+        a = infraInfra.DataCharGet(o.DataData, index * sizeof(uint));
+        return a;
+    }
 }
