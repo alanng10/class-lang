@@ -10,8 +10,8 @@ public class List : Any
         return true;
     }
 
-    public virtual int Count { get { return __D_Count; } set { __D_Count = value; } }
-    protected int __D_Count;
+    public virtual long Count { get; set; }
+
     public virtual object FirstIndex
     {
         get

@@ -8,7 +8,7 @@ public class Array : List
         this.Comparer = new Comparer();
         this.Comparer.Init();
 
-        int k;
+        long k;
         k = this.Count;
 
         if (!this.ValidCount(k))
@@ -23,8 +23,7 @@ public class Array : List
     public override object FirstIndex { get { return null; } set { } }
     public override object LastIndex { get { return null; } set { } }
 
-    protected virtual InfraInfra InfraInfra { get { return __D_InfraInfra; } set { __D_InfraInfra = value; } }
-    protected InfraInfra __D_InfraInfra;
+    protected virtual InfraInfra InfraInfra { get; set; }
 
     private object[] Value { get; set; }
     private Comparer Comparer { get; set; }
@@ -88,7 +87,7 @@ public class Array : List
         return true;
     }
 
-    public virtual bool ValidCount(int value)
+    public virtual bool ValidCount(long value)
     {
         return !(value < 0);
     }
@@ -96,9 +95,9 @@ public class Array : List
     public virtual bool Sort(Range range, Compare compare)
     {
         int index;
-        index = range.Index;
+        index = (int)range.Index;
         int count;
-        count = range.Count;
+        count = (int)range.Count;
         Comparer comparer;
         comparer = this.Comparer;
 
