@@ -197,8 +197,8 @@ public class Infra : Any
 
     public virtual StringCompare StringCompareCreate()
     {
-        CompareMid charCompare;
-        charCompare = new CompareMid();
+        CompareInt charCompare;
+        charCompare = new CompareInt();
         charCompare.Init();
 
         CharForm charForm;
