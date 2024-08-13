@@ -20,6 +20,14 @@ class Gen : Any
 
         read.MaideTable = null;
 
+        StateGen stateGen;
+        stateGen = new StateGen();
+        stateGen.Init();
+
+        stateGen.MaideTable = table;
+
+        stateGen.Execute();
+
         return 0;
     }
 }
