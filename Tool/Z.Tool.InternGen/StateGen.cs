@@ -38,7 +38,7 @@ class StateGen : Any
         k = k.Replace("#NameList#", nameList);
 
         string outputPath;
-        outputPath = "../../Infar/InfraIntern/Class_Part.c";
+        outputPath = "../../Infra/InfraIntern/Class_Part.c";
         
         toolInfra.StorageTextWrite(outputPath, k);
         return true;
