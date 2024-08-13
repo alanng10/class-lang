@@ -38,7 +38,7 @@ public class EncodeKindList : Any
 
     protected virtual EncodeKind AddItem(ulong o)
     {
-        int index;
+        long index;
         index = this.Index;
 
         EncodeKind item;
@@ -61,13 +61,13 @@ public class EncodeKindList : Any
 
     protected virtual Array Array { get; set; }
 
-    protected virtual int ArrayCount { get { return 3; } set { } }
+    protected virtual long ArrayCount { get { return 3; } set { } }
 
-    public virtual int Count { get; set; }
+    public virtual long Count { get; set; }
     
-    protected virtual int Index { get; set; }
+    protected virtual long Index { get; set; }
 
-    public virtual EncodeKind Get(int index)
+    public virtual EncodeKind Get(long index)
     {
         return (EncodeKind)this.Array.GetAt(index);
     }
