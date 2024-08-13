@@ -63,12 +63,12 @@ public class Array : List
         return false;
     }
 
-    public virtual bool ValidAt(int index)
+    public virtual bool ValidAt(long index)
     {
         return this.InfraInfra.ValidIndex(this.Count, index);
     }
 
-    public virtual object GetAt(int index)
+    public virtual object GetAt(long index)
     {
         if (!this.ValidAt(index))
         {
@@ -77,7 +77,7 @@ public class Array : List
         return this.Value[index];
     }
 
-    public virtual bool SetAt(int index, object value)
+    public virtual bool SetAt(long index, object value)
     {
         if (!this.ValidAt(index))
         {
