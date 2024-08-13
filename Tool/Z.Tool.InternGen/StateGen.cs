@@ -16,6 +16,36 @@ class StateGen : Any
 
     public virtual bool Execute()
     {
+        this.ExecuteMaideCallArray();
+
+        this.ExecuteProbateRefer();
+        return true;
+    }
+
+    protected virtual bool ExecuteProbateRefer()
+    {
+        ToolInfra toolInfra;
+        toolInfra = this.ToolInfra;
+
+        string textProbate;
+        textProbate = toolInfra.StorageTextRead("ToolData/Intern/Probate.txt");
+
+        string referList;
+        referList = this.GetReferList();
+
+        string k;
+        k = textProbate;
+        k = k.Replace("#ReferList#", referList);
+
+        string outputPath;
+        outputPath = "../../Infra/InfraIntern/Probate_Part.h";
+
+        toolInfra.StorageTextWrite(outputPath, k);
+        return true;
+    }
+
+    protected virtual bool ExecuteMaideCallArray()
+    {
         ToolInfra toolInfra;
         toolInfra = this.ToolInfra;
 
@@ -39,9 +69,42 @@ class StateGen : Any
 
         string outputPath;
         outputPath = "../../Infra/InfraIntern/Class_Part.c";
-        
+
         toolInfra.StorageTextWrite(outputPath, k);
         return true;
+    }
+
+    protected virtual string GetReferList()
+    {
+        string newLine;
+        newLine = this.ToolInfra.NewLine;
+
+        StringJoin h;
+        h = new StringJoin();
+        h.Init();
+
+        Table table;
+        table = this.MaideTable;
+
+        Iter iter;
+        iter = table.IterCreate();
+        table.IterSet(iter);
+
+        while (iter.Next())
+        {
+            Maide maide;
+            maide = (Maide)iter.Value;
+
+            this.Append(h, "Int Intern_Intern_");
+            this.Append(h, maide.Name);
+            this.Append(h, "(Eval* eval, Int frame);");
+            this.Append(h, newLine);
+        }
+
+        string a;
+        a = h.Result();
+
+        return a;
     }
 
     protected virtual string GetNameList()
