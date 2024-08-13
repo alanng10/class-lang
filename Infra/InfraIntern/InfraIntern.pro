@@ -11,7 +11,8 @@ HEADERS += \
 SOURCES += \
     Intern.c \
     New.c \
-    Class.c
+    Class.c \
+    Class_Part.c
 
 LIBS += -L$$PWD/../../Out/Infra-Windows-Release/release/
 
