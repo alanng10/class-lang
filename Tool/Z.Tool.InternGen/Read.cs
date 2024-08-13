@@ -49,28 +49,12 @@ public class Read : Any
         bool b;
 
         b = this.SetMaideTable();
+
         if (!b)
         {
-            return 10;
-        }
-        
-        b = this.SetDerive();
-        if (!b)
-        {
-            return 20;
+            return 300;
         }
 
-        b = this.CheckArrayField();
-        if (!b)
-        {
-            return 30;
-        }
-
-        b = this.SetAny();
-        if (!b)
-        {
-            return 40;
-        }
         return 0;
     }
 
@@ -84,16 +68,20 @@ public class Read : Any
 
     protected virtual bool SetMaideTable()
     {
-        ToolInfra infra;
-        infra = this.ToolInfra;
+        ListInfra listInfra;
+        listInfra = this.ListInfra;
+        ToolInfra toolInfra;
+        toolInfra = this.ToolInfra;
 
         string ka;
-        ka = infra.StorageTextRead("ToolData/Intern/MaideList.txt");
+        ka = toolInfra.StorageTextRead("ToolData/Intern/MaideList.txt");
 
         Array lineArray;        
-        lineArray = infra.SplitLineList(ka);
+        lineArray = toolInfra.SplitLineList(ka);
 
-        this.MaideTable = this.ClassInfra.TableCreateStringCompare();
+        Table table;
+        table = this.ClassInfra.TableCreateStringCompare();
+        this.MaideTable = table;
 
         int count;
         count = lineArray.Count;
@@ -104,366 +92,148 @@ public class Read : Any
             string line;
             line = (string)lineArray.GetAt(i);
 
-            bool b;
-            b = this.SetClassTableOneLine(line);
-            if (!b)
+            Maide maide;
+            maide = this.GetMaide(line);
+            if (maide == null)
             {
                 return false;
             }
+
+            if (table.Valid(maide.Name))
+            {
+                return false;
+            }
+            
+            listInfra.TableAdd(table, maide.Name, maide);
 
             i = i + 1;
         }
 
-        this.EndCurrentClass();
         return true;
     }
 
-    protected virtual bool SetClassTableOneLine(string line)
+
+    protected virtual Maide GetMaide(string o)
     {
-        if (line.Length == 0)
-        {
-            return true;
-        }
-
-        string oo;
-        oo = "    ";
-
-        bool b;
-        b = line.StartsWith(oo);
-        if (!b)
-        {
-            this.EndCurrentClass();
-
-            Class varClass;
-            varClass = this.GetClass(line);
-            if (varClass == null)
-            {
-                return false;
-            }
-
-            if (this.ClassTable.Valid(varClass.Name))
-            {
-                return false;
-            }
-
-            this.Class = varClass;
-
-            this.ListInfra.TableAdd(this.ClassTable, varClass.Name, varClass);
-        }
-        if (b)
-        {
-            if (this.Class == null)
-            {
-                return false;
-            }
-
-            string compLine;
-            compLine = line.Substring(oo.Length);
-
-            Field ob;
-            ob = this.GetField(compLine);
-            if (ob == null)
-            {
-                return false;
-            }
-
-            if (this.Class.Field.Valid(ob.Name))
-            {
-                return false;
-            }
-
-            this.ListInfra.TableAdd(this.Class.Field, ob.Name, ob);
-        }
-        return true;
-    }
-
-    protected virtual bool EndCurrentClass()
-    {
-        this.Class = null;
-        return true;
-    }
-
-    protected virtual Class GetClass(string a)
-    {
-        string uo;
-        uo = " : ";
-
         int uu;
-        uu = a.IndexOf(uo);
+        uu = o.IndexOf('|');
+
         if (uu < 0)
         {
             return null;
         }
 
+        string ka;
+        string kb;
+        ka = o.Substring(0, uu);
+        kb = o.Substring(uu + 1);
+
+        int ua;
+        ua = ka.IndexOf(' ');
+        if (ua < 0)
+        {
+            return null;
+        }
+
         string className;
-        className = a.Substring(0, uu);
+        string maideName;
 
-        string baseClassName;
-        baseClassName = a.Substring(uu + uo.Length);
-
+        className = ka.Substring(0, ua);
         if (!this.CheckIsName(className))
         {
             return null;
         }
 
-        if (!this.CheckIsName(baseClassName))
+        maideName = ka.Substring(ua + 1);
+
+        if (!this.CheckIsName(maideName))
+        {
+            return null;
+        }
+        
+        Table param;
+        param = this.GetParam(kb);
+
+        if (param == null)
         {
             return null;
         }
 
-        Class varClass;
-        varClass = new Class();
-        varClass.Init();
-        varClass.Name = className;
-        varClass.Base = baseClassName;
-        varClass.Field = this.ClassInfra.TableCreateStringCompare();
-        varClass.Derive = this.ClassInfra.TableCreateStringCompare();
-        return varClass;
+        Maide a;
+        a = new Maide();
+        a.Init();
+        a.Class = className;
+        a.Name = maideName;
+        a.Param = param;
+        return a;
     }
 
-    protected virtual Field GetField(string a)
+    protected virtual Table GetParam(string o)
     {
-        int uu;
-        uu = a.IndexOf(' ');
+        ListInfra listInfra;
+        listInfra = this.ListInfra;
 
-        if (uu < 0)
+        Table table;
+        table = this.ClassInfra.TableCreateStringCompare();
+
+        string[] u;
+        u = o.Split(", ");
+        
+        if (u == null)
         {
-            return null;
+            return table;
         }
 
-        string className;
-        string itemClassName;
-        itemClassName = null;
-        string fieldName;
-        fieldName = null;
+        int count;
+        count = u.Length;
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            string ka;
+            ka = u[i];
 
-        className = a.Substring(0, uu);
-
-        int ka;
-        ka = uu + 1;
-
-        bool b;
-        b = (className == "Array");
-        if (b)
-        {            
             int ua;
-            ua = a.IndexOf(' ', ka);
+            ua = ka.IndexOf(' ');
 
             if (ua < 0)
             {
                 return null;
             }
 
-            int kk;
-            kk = ua - ka;
-
-            itemClassName = a.Substring(ka, kk);
-
-            fieldName = a.Substring(ua + 1);
-        }
-
-        if (!b)
-        {
-            fieldName = a.Substring(uu + 1);
-        }
-
-        if (!this.CheckIsName(className))
-        {
-            return null;
-        }
-
-        if (!(itemClassName == null))
-        {
-            if (!this.CheckIsName(itemClassName))
+            string className;
+            string varName;
+            className = ka.Substring(0, ua);
+        
+            if (!this.CheckIsName(className))
             {
                 return null;
             }
-        }
 
-        if (!this.CheckIsName(fieldName))
-        {
-            return null;
-        }
+            varName = ka.Substring(ua + 1);
 
-        Field o;
-        o = new Field();
-        o.Init();
-        o.Class = className;
-        o.ItemClass = itemClassName;
-        o.Name = fieldName;
-        return o;
-    }
-
-    protected virtual bool SetDerive()
-    {
-        ListInfra listInfra;
-        listInfra = this.ListInfra;
-
-        Table table;
-        table = this.ClassTable;
-
-        Iter iter;
-        iter = table.IterCreate();
-        table.IterSet(iter);
-
-        while (iter.Next())
-        {
-            Class a;
-            a = (Class)iter.Value;
-
-            string ka;
-            ka = a.Base;
-
-            if (!(ka == "Node"))
+            if (!this.CheckIsName(varName))
             {
-                Class k;
-                k = (Class)table.Get(ka);
-
-                if (k == null)
-                {
-                    return false;
-                }
-
-                listInfra.TableAdd(k.Derive, a.Name, a);
-            }
-        }
-
-        table.IterSet(iter);
-        
-        while (iter.Next())
-        {
-            Class a;
-            a = (Class)iter.Value;
-
-            if (0 < a.Derive.Count)
-            {
-                if (0 < a.Field.Count)
-                {
-                    return false;
-                }
-            }
-        }
-
-        return true;
-    }
-
-    protected virtual bool CheckArrayField()
-    {
-        Table table;
-        table = this.ClassTable;
-
-        Iter iter;
-        iter = table.IterCreate();
-        table.IterSet(iter);
-
-        while (iter.Next())
-        {
-            Class a;
-            a = (Class)iter.Value;
-
-            int n;
-            n = 0;
-
-            Table tableA;
-            tableA = a.Field;
-
-            Iter iterA;
-            iterA = tableA.IterCreate();
-            tableA.IterSet(iterA);
-            
-            while (iterA.Next())
-            {
-                Field aa;
-                aa = (Field)iterA.Value;
-
-                if (!(aa.ItemClass == null))
-                {
-                    n = n + 1;
-                }
+                return null;
             }
 
-            if (1 < n)
+            if (table.Valid(varName))
             {
-                return false;
+                return null;
             }
 
-            if (n == 1)
-            {
-                if (1 < tableA.Count)
-                {
-                    return false;
-                }
-            }
+            Var a;
+            a = new Var();
+            a.Init();
+            a.Class = className;
+            a.Name = varName;
+
+            listInfra.TableAdd(table, varName, a);
+
+            i = i + 1;
         }
-        return true;
-    }
 
-    protected virtual bool SetAny()
-    {
-        Table table;
-        table = this.ClassTable;
-
-        Iter iter;
-        iter = table.IterCreate();
-        table.IterSet(iter);
-
-        while (iter.Next())
-        {
-            Class a;
-            a = (Class)iter.Value;
-
-            int n;
-            n = 0;
-
-            Table tableA;
-            tableA = a.Field;
-
-            Iter iterA;
-            iterA = tableA.IterCreate();
-            tableA.IterSet(iterA);
-
-            while (iterA.Next())
-            {
-                Field aa;
-                aa = (Field)iterA.Value;
-
-                string fieldClassName;
-                fieldClassName = aa.Class;
-
-                bool b;
-                b = false;
-                if (!b)
-                {
-                    if (fieldClassName == "Bool")
-                    {
-                        b = true;
-                    }
-                }
-                if (!b)
-                {
-                    if (fieldClassName == "Int")
-                    {
-                        b = true;
-                    }
-                }
-                if (!b)
-                {
-                    if (fieldClassName == "String")
-                    {
-                        b = true;
-                    }
-                }
-
-                if (b)
-                {
-                    aa.AnyBool = true;
-                    n = n + 1;
-                }
-            }
-
-            a.AnyInt = n;
-        }
-        return true;
+        return table;
     }
 
     protected virtual bool CheckIsName(string value)
