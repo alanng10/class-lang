@@ -8,13 +8,16 @@ public class ArrayIter : Iter
 
     public override bool Next()
     {
+        long k;
+        k = this.IntIndex;
+
         bool b;
-        b = this.Array.ValidAt(this.IntIndex);
+        b = this.Array.ValidAt(k);
 
         if (b)
         {
-            this.CurrentIndex = this.IntIndex;
-            this.IntIndex = this.IntIndex + 1;
+            this.CurrentIndex = k;
+            this.IntIndex = k + 1;
         }
         return b;
     }
@@ -23,12 +26,15 @@ public class ArrayIter : Iter
     {
         get
         {
-            if (this.CurrentIndex < 0)
+            long k;
+            k = this.CurrentIndex;
+            if (k < 0)
             {
                 return null;
             }
+
             object a;
-            a = this.CurrentIndex;
+            a = k;
             return a;
         }
         set
@@ -40,11 +46,15 @@ public class ArrayIter : Iter
     {
         get
         {
-            if (this.CurrentIndex < 0)
+            long k;
+            k = this.CurrentIndex;
+
+            if (k < 0)
             {
                 return null;
             }
-            return this.Array.GetAt(this.CurrentIndex);
+
+            return this.Array.GetAt(k);
         }
         set
         {
