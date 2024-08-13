@@ -22,4 +22,4 @@ The Execute method can be call from any Thread.
 
 Avalon.Storage module Storage class has field AnyNode that is type "bool" to set the Storage Any to accept any storage nodes.
 
-Avalon uses C# builtin String type. Avalon has text with each char unit in 32 bits Int. Avalon has String char in 16 bits Int.
+Avalon has text with each char unit in 32 bits Int. Avalon has String with char in 32 bits Int.
