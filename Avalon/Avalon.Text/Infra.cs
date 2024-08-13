@@ -32,11 +32,11 @@ public class Infra : Any
         return this.IsInRange('0', '9', o);
     }
 
-    public virtual bool IsHexLetter(char o, bool upperCase)
+    public virtual bool IsHexLetter(uint o, bool upperCase)
     {
-        char first;
+        uint first;
         first = 'a';
-        char last;
+        uint last;
         last = 'f';
         if (upperCase)
         {
@@ -46,11 +46,11 @@ public class Infra : Any
         return this.IsInRange(first, last, o);
     }
 
-    public virtual bool IsLetter(char o, bool upperCase)
+    public virtual bool IsLetter(uint o, bool upperCase)
     {
-        char first;
+        uint first;
         first = 'a';
-        char last;
+        uint last;
         last = 'z';
         if (upperCase)
         {
@@ -60,7 +60,7 @@ public class Infra : Any
         return this.IsInRange(first, last, o);
     }
 
-    public virtual bool IsInRange(char first, char last, char o)
+    public virtual bool IsInRange(uint first, uint last, uint o)
     {
         if (last < first)
         {
