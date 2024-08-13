@@ -6,14 +6,18 @@ public class CompareInt : Any
     {
         long o;
         o = left - right;
+        
+        int a;
+        a = 0;
+
         if (o < 0)
         {
-            return -1;
+            a = -1;
         }
         if (0 < o)
         {
-            return 1;
+            a = 1;
         }
-        return 0;
+        return a;
     }
 }
