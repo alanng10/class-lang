@@ -121,14 +121,14 @@ public class StringComp : Any
         while (i < count)
         {
             long kea;
-            kea = i * kka;
             long keb;
-            keb = (i + index) * kka;
+            kea = (i + index) * kka;
+            keb = i * kka;
 
             uint aa;
-            aa = infraInfra.DataCharGet(sourceData, keb);
+            aa = infraInfra.DataCharGet(sourceData, kea);
 
-            infraInfra.DataCharSet(dest, kea, aa);
+            infraInfra.DataCharSet(dest, keb, aa);
 
             i = i + 1;
         }
