@@ -12,7 +12,6 @@ Int Intern_Any_State[3] =
 
 Int Intern_Intern_FieldGet[0] = { };
 Int Intern_Intern_FieldSet[0] = { };
-Int Intern_Intern_MaideCall[1] = { CastInt(Intern_Any_Init) };
 
 Int Intern_Intern_State[3] = 
 {
