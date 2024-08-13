@@ -116,7 +116,7 @@ public class Array : List
     }
 
 
-    private bool TopDownMerge(Compare compare, object[] B, object[] A, long start, long mid, long end)
+    private bool Merge(Compare compare, object[] B, object[] A, long start, long mid, long end)
     {
         long i;
         long j;
