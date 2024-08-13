@@ -18,16 +18,18 @@ public class Infra : Any
     {
         base.Init();
         this.InfraInfra = InfraInfra.This;
+        this.StringComp = StringComp.This;
         this.BoolFalseString = "false";
         this.BoolTrueString = "true";
         return true;
     }
 
     protected virtual InfraInfra InfraInfra { get; set; }
+    protected virtual StringComp StringComp { get; set; }
     public virtual string BoolFalseString { get; set; }
     public virtual string BoolTrueString { get; set; }
 
-    public virtual bool IsDigit(char o)
+    public virtual bool IsDigit(uint o)
     {
         return this.IsInRange('0', '9', o);
     }
@@ -85,7 +87,7 @@ public class Infra : Any
         return this.InfraInfra.DataCharSet(data, n, value);
     }
 
-    public virtual Text TextCreate(int count)
+    public virtual Text TextCreate(long count)
     {
         if (count < 0)
         {
@@ -94,7 +96,7 @@ public class Infra : Any
 
         long oa;
         oa = count;
-        oa = oa * sizeof(char);
+        oa = oa * sizeof(uint);
 
         Text a;
         a = new Text();
@@ -108,85 +110,7 @@ public class Infra : Any
         return a;
     }
 
-    public virtual Data DataCreateString(string o, Range range)
-    {
-        int index;
-        int count;
-        index = 0;
-        count = 0;
-        bool b;
-        b = (range == null);
-        if (b)
-        {
-            index = 0;
-            count = o.Length;
-        }
-        if (!b)
-        {
-            index = range.Index;
-            count = range.Count;
-            if (!this.InfraInfra.ValidRange(o.Length, index, count))
-            {
-                return null;
-            }
-        }
-
-        long oa;
-        oa = count;
-        oa = oa * sizeof(char);
-
-        Data data;
-        data = new Data();
-        data.Count = oa;
-        data.Init();
-
-        int i;
-        i = 0;
-        while (i < count)
-        {
-            char oc;
-            oc = o[index + i];
-
-            this.DataCharSet(data, i, oc);
-            i = i + 1;
-        }
-
-        return data;
-    }
-
-    public virtual Text TextCreateString(string o, Range range)
-    {
-        Data data;
-        data = this.DataCreateString(o, range);
-        if (data == null)
-        {
-            return null;
-        }
-
-        int count;
-        count = 0;
-        bool b;
-        b = (range == null);
-        if (b)
-        {
-            count = o.Length;
-        }
-        if (!b)
-        {
-            count = range.Count;
-        }
-
-        Text a;
-        a = new Text();
-        a.Init();
-        a.Data = data;
-        a.Range = new Range();
-        a.Range.Init();
-        a.Range.Count = count;
-        return a;
-    }
-
-    public virtual StringData StringDataCreateString(string o)
+    public virtual StringData StringDataCreateString(String o)
     {
         StringData a;
         a = new StringData();
@@ -195,10 +119,16 @@ public class Infra : Any
         return a;
     }
 
-    public virtual Text TextCreateStringData(string o, Range range)
+    public virtual Text TextCreateStringData(String o, Range range)
     {
-        int index;
-        int count;
+        StringComp stringComp;
+        stringComp = this.StringComp;
+
+        long totalCount;
+        totalCount = stringComp.Count(o);
+
+        long index;
+        long count;
         index = 0;
         count = 0;
         bool b;
@@ -206,13 +136,13 @@ public class Infra : Any
         if (b)
         {
             index = 0;
-            count = o.Length;
+            count = totalCount;
         }
         if (!b)
         {
             index = range.Index;
             count = range.Count;
-            if (!this.InfraInfra.ValidRange(o.Length, index, count))
+            if (!this.InfraInfra.ValidRange(totalCount, index, count))
             {
                 return null;
             }
@@ -248,12 +178,10 @@ public class Infra : Any
 
         long dataCount;
         dataCount = data.Count;
-        long charCount;
-        charCount = dataCount / 2;
-        int count;
-        count = (int)charCount;
-
-        if (!infraInfra.ValidRange(count, range.Index, range.Count))
+        long totalCount;
+        totalCount = dataCount / sizeof(uint);
+        
+        if (!infraInfra.ValidRange(totalCount, range.Index, range.Count))
         {
             return false;
         }
