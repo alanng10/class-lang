@@ -57,6 +57,9 @@ public class StringComp : Any
 
     public virtual String CreateData(Data data, Range range)
     {
+        Infra infraInfra;
+        infraInfra = this.InfraInfra;
+
         long dataCount;
         dataCount = data.Count;
         long totalCount;
@@ -77,13 +80,13 @@ public class StringComp : Any
         {
             index = range.Index;
             count = range.Count;
-            if (!this.InfraInfra.ValidRange(totalCount, index, count))
+            if (!infraInfra.ValidRange(totalCount, index, count))
             {
                 return null;
             }
         }
 
-        string a;
+        String a;
         a = null;
         
         bool ba;
@@ -91,7 +94,30 @@ public class StringComp : Any
 
         if (!ba)
         {
-            a = this.InternIntern.StringCreateArray(data.Value, index, count);
+            Data kk;
+            kk = new Data();
+            kk.Count = count * sizeof(uint);
+            kk.Init();
+
+            long i;
+            i = 0;
+            while (i < count)
+            {
+                long ke;
+                ke = i * sizeof(uint);
+
+                uint aa;
+                aa = infraInfra.DataCharGet(data, ke + index);
+
+                infraInfra.DataCharSet(kk, ke, aa);
+
+                i = i + 1;
+            }
+
+            a = new String();
+            a.DataData = kk;
+            a.CountData = count;
+            a.Init();
         }
 
         if (ba)
