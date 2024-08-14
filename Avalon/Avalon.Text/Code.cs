@@ -80,7 +80,10 @@ public class Code : Any
         dataIndex = dataRange.Index;
         dataCount = dataRange.Count;
 
-        if (!this.InfraInfra.ValidRange(data.Length, dataIndex, dataCount))
+        long ka;
+        ka = data.Length * sizeof(char);
+
+        if (!this.InfraInfra.ValidRange(ka, dataIndex, dataCount))
         {
             return -1;
         }
@@ -178,7 +181,10 @@ public class Code : Any
         dataIndex = dataRange.Index;
         dataCount = dataRange.Count;
 
-        if (!infraInfra.ValidRange(data.Length, dataIndex, dataCount))
+        long ka;
+        ka = data.Length * sizeof(char);
+
+        if (!infraInfra.ValidRange(ka, dataIndex, dataCount))
         {
             return false;
         }
