@@ -289,8 +289,10 @@ public class Write : Any
         WriteResultState state;
         state = (WriteResultState)this.ResultState.GetAt(kind);
 
-        state.Arg = arg;
-        state.ArgResult = result;
+        WriteResultArg ke;
+        ke = (WriteResultArg)state.Arg;
+        ke.Arg = arg;
+        ke.Result = result;
         state.Execute();
         return true;
     }
