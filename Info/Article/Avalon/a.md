@@ -3,9 +3,11 @@
 Avalon is Class Library list for C#.
 Avalon has infra classes and effect element classes for C#.
 
+Avalon uses C# signed Int 64 bits as general Int class.
+
 Avalon classes member variables are not in abstract.
 
-Avalon uses C# signed Int 64 bits as general Int class.
+Avalon String class Count and Data fields are not in abstract.
 
 Avalon has Thread module. It has enough threading elements for C#.
 All threads including main thread, has 1 event loop, that can be start and exit.
