@@ -35,7 +35,7 @@ public class Write : Any
 
         this.CountStateAdd(new BoolWriteCountState());
         this.CountStateAdd(new IntWriteCountState());
-        this.CountStateAdd(new SIntFormatCountState());
+        this.CountStateAdd(new SIntWriteCountState());
         this.CountStateAdd(new TextFormatCountState());
         return true;
     }
