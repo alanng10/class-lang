@@ -27,7 +27,7 @@ public class Infra : Any
 
         StringValue k;
         k = StringValue.This;
-        
+
         this.BoolFalseString = k.Execute("false");
         this.BoolTrueString = k.Execute("true");
         return true;
