@@ -72,10 +72,18 @@ public class Thread : Any
 
         InternIntern.ThisThread = a;
 
-        a.ExecuteState.Execute();
+        ulong oa;
+        oa = a.ExecuteStateExecute();
+
+        return oa;
+    }
+
+    private ulong ExecuteStateExecute()
+    {
+        this.ExecuteState.Execute();
 
         object aa;
-        aa = a.ExecuteState.Result;
+        aa = this.ExecuteState.Result;
 
         ulong oa;
         oa = 0;
@@ -87,12 +95,13 @@ public class Thread : Any
                 Value k;
                 k = (Value)aa;
 
-                int o;
-                o = k.Mid;
+                long o;
+                o = k.Int;
 
                 oa = (ulong)o;
             }
         }
+
         return oa;
     }
 
