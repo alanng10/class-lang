@@ -17,7 +17,7 @@ public class SIntFormatResultState : FormatResultState
         arg = (FormatArg)this.Arg;
         Text result;
         result = this.ArgResult;
-        Format format;
+        Write format;
         format = this.Format;
 
         int valueCount;

@@ -12,5 +12,5 @@ public class FormatCountState : State
         return true;
     }
 
-    public virtual Format Format { get; set; }
+    public virtual Write Format { get; set; }
 }
