@@ -6,34 +6,40 @@ public class BoolFormatCountState : FormatCountState
     {
         base.Init();
         this.TextInfra = Infra.This;
+        this.StringComp = StringComp.This;
         return true;
     }
 
     protected virtual Infra TextInfra { get; set; }
+    protected virtual StringComp StringComp { get; set; }
 
     public override bool Execute()
     {
+        StringComp stringComp;
+        stringComp = this.StringComp;
+
         WriteArg arg;
         arg = (WriteArg)this.Arg;
 
         Infra textInfra;
         textInfra = this.TextInfra;
+        
         bool b;
-        b = arg.ValueBool;
-        int a;
+        b = arg.Value.Bool;
+        long a;
         a = 0;
         if (!b)
         {
-            a = textInfra.BoolFalseString.Length;
+            a = stringComp.Count(textInfra.BoolFalseString);
         }
         if (b)
         {
-            a = textInfra.BoolTrueString.Length;
+            a = stringComp.Count(textInfra.BoolTrueString);
         }
 
         Value aa;
         aa = (Value)this.Result;
-        aa.Mid = a;
+        aa.Int = a;
         return true;
     }
 }
