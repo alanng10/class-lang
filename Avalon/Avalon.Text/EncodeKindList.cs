@@ -32,17 +32,17 @@ public class EncodeKindList : Any
         return true;
     }
 
-    public virtual EncodeKind Utf8 { get; set; }
-    public virtual EncodeKind Utf16 { get; set; }
-    public virtual EncodeKind Utf32 { get; set; }
+    public virtual CodeKind Utf8 { get; set; }
+    public virtual CodeKind Utf16 { get; set; }
+    public virtual CodeKind Utf32 { get; set; }
 
-    protected virtual EncodeKind AddItem(ulong o)
+    protected virtual CodeKind AddItem(ulong o)
     {
         long index;
         index = this.Index;
 
-        EncodeKind item;
-        item = new EncodeKind();
+        CodeKind item;
+        item = new CodeKind();
         item.Init();
         item.Index = index;
         item.Intern = o;
@@ -67,8 +67,8 @@ public class EncodeKindList : Any
     
     protected virtual long Index { get; set; }
 
-    public virtual EncodeKind Get(long index)
+    public virtual CodeKind Get(long index)
     {
-        return (EncodeKind)this.Array.GetAt(index);
+        return (CodeKind)this.Array.GetAt(index);
     }
 }

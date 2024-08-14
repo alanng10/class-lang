@@ -28,8 +28,8 @@ public class StringValue : Any
         EncodeKindList kindList;
         kindList = this.EncodeKindList;
 
-        EncodeKind innKind;
-        EncodeKind outKind;
+        CodeKind innKind;
+        CodeKind outKind;
         innKind = kindList.Utf16;
         outKind = kindList.Utf32;
 

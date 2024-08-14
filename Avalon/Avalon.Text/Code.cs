@@ -15,7 +15,7 @@ public class Code : Any
     protected virtual InfraInfra InfraInfra { get; set; }
     protected virtual Infra TextInfra { get; set; }
 
-    public virtual long ExecuteCount(EncodeKind innKind, EncodeKind outKind, Data data, Range dataRange)
+    public virtual long ExecuteCount(CodeKind innKind, CodeKind outKind, Data data, Range dataRange)
     {
         if (innKind == outKind)
         {
@@ -68,7 +68,7 @@ public class Code : Any
         return a;
     }
 
-    public virtual long ExecuteCountString(EncodeKind innKind, EncodeKind outKind, string data, Range dataRange)
+    public virtual long ExecuteCountString(CodeKind innKind, CodeKind outKind, string data, Range dataRange)
     {
         if (innKind == outKind)
         {
@@ -98,7 +98,7 @@ public class Code : Any
         return a;
     }
 
-    public virtual bool ExecuteResult(Data result, long resultIndex, EncodeKind innKind, EncodeKind outKind, Data data, Range dataRange)
+    public virtual bool ExecuteResult(Data result, long resultIndex, CodeKind innKind, CodeKind outKind, Data data, Range dataRange)
     {
         InfraInfra infraInfra;
         infraInfra = this.InfraInfra;
@@ -158,7 +158,7 @@ public class Code : Any
         return true;
     }
 
-    public virtual bool ExecuteResultString(Data result, long resultIndex, EncodeKind innKind, EncodeKind outKind, string data, Range dataRange)
+    public virtual bool ExecuteResultString(Data result, long resultIndex, CodeKind innKind, CodeKind outKind, string data, Range dataRange)
     {
         InfraInfra infraInfra;
         infraInfra = this.InfraInfra;
