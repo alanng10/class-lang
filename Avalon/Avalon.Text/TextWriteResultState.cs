@@ -4,10 +4,12 @@ public class TextWriteResultState : WriteResultState
 {
     public override bool Execute()
     {
+        WriteResultArg kke;
+        kke = (WriteResultArg)this.Arg;
         WriteArg arg;
-        arg = (WriteArg)this.Arg;
+        arg = kke.Arg;
         Text result;
-        result = this.ArgResult;
+        result = kke.Result;
         Write format;
         format = this.Format;
 
