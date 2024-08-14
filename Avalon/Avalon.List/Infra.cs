@@ -74,4 +74,127 @@ public class Infra : Any
         table.Add(entry);
         return true;
     }
+
+    public virtual bool Sort(Array array, Compare compare, Range range, Array copy)
+    {
+        long start;
+        long end;
+        start = range.Index;
+        end = start + range.Count;
+
+        this.CopyArray(copy, array, start, end);
+
+        this.SplitMerge(compare, array, copy, start, end);
+
+        return true;
+    }
+
+    private bool SplitMerge(Compare compare, Array dest, Array source, long start, long end)
+    {
+        if (end - start < 2)
+        {
+            return true;
+        }
+
+        long mid;
+        mid = (start + end) / 2;
+
+        this.SplitMerge(compare, source, dest, start, mid);
+
+        this.SplitMerge(compare, source, dest, mid, end);
+
+        this.Merge(compare, dest, source, start, mid, end);
+
+        return true;
+    }
+
+    private bool Merge(Compare compare, Array dest, Array source, long start, long mid, long end)
+    {
+        long i;
+        long j;
+        i = start;
+        j = mid;
+
+        long k;
+        k = start;
+
+        while (i < mid & j < end)
+        {
+            object left;
+            object right;
+            left = source.GetAt(i);
+            right = source.GetAt(j);
+
+            long ke;
+            ke = compare.Execute(left, right);
+
+            bool b;
+            b = (0 < ke);
+
+            if (!b)
+            {
+                dest.SetAt(k, left);
+
+                i = i + 1;
+            }
+
+            if (b)
+            {
+                dest.SetAt(k, right);
+
+                j = j + 1;
+            }
+
+            k = k + 1;
+        }
+
+        while (i < mid)
+        {
+            object ka;
+            ka = source.GetAt(i);
+
+            dest.SetAt(k, ka);
+
+            i = i + 1;
+
+            k = k + 1;
+        }
+
+        while (j < end)
+        {
+            object kb;
+            kb = source.GetAt(j);
+
+            dest.SetAt(k, kb);
+
+            j = j + 1;
+
+            k = k + 1;
+        }
+
+        return true;
+    }
+
+
+    private bool CopyArray(Array dest, Array source, long start, long end)
+    {
+        long count;
+        count = end - start;
+
+        long i;
+        i = 0;
+        while (i < count)
+        {
+            long index;
+            index = start + i;
+
+            object a;
+            a = source.GetAt(index);
+
+            dest.SetAt(index, a);
+
+            i = i + 1;
+        }
+        return true;
+    }
 }
