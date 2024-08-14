@@ -3,7 +3,7 @@
 Avalon is Class Library list for C#.
 Avalon has infra classes and effect element classes for C#.
 
-Avalon uses C# signed Int 64 bits as general Int class. Only the lower 60 bits in the Int are used.
+Avalon uses C# signed Int 64 bits as general Int class. Only the lower 60 bits in Int are used, 64 bits -1 Int value is interpreted as null.
 
 Avalon classes member variables are not in abstract.
 
