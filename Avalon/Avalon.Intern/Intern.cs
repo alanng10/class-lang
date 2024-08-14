@@ -75,7 +75,7 @@ public class Intern : object
     {
         ulong dataValue;
         dataValue = data + dataIndex;
-        
+
         ulong a;
         a = Extern.TextEncode_ExecuteCount(0, innKind, outKind, dataValue, dataCount);
         return a;
@@ -111,11 +111,44 @@ public class Intern : object
         return a;
     }
 
+    public virtual ulong TextEncodeCountString(ulong innKind, ulong outKind, string data, ulong dataIndex, ulong dataCount)
+    {
+        ulong a;
+        a = 0;
+
+        unsafe
+        {
+            fixed (char* p = data)
+            {
+                ulong dataU;
+                dataU = (ulong)p;
+
+                a = this.TextEncodeCount(innKind, outKind, dataU, dataIndex, dataCount);
+            }
+        }
+        return a;
+    }
+
     public virtual bool TextEncodeResultArray(ulong result, ulong resultIndex, ulong innKind, ulong outKind, byte[] data, ulong dataIndex, ulong dataCount)
     {
         unsafe
         {
             fixed (byte* p = data)
+            {
+                ulong dataU;
+                dataU = (ulong)p;
+
+                this.TextEncodeResult(result, resultIndex, innKind, outKind, dataU, dataIndex, dataCount);
+            }
+        }
+        return true;
+    }
+
+    public virtual bool TextEncodeResultString(ulong result, ulong resultIndex, ulong innKind, ulong outKind, string data, ulong dataIndex, ulong dataCount)
+    {
+        unsafe
+        {
+            fixed (char* p = data)
             {
                 ulong dataU;
                 dataU = (ulong)p;
@@ -136,6 +169,21 @@ public class Intern : object
                 resultU = (ulong)p;
 
                 this.TextEncodeResultArray(resultU, resultIndex, innKind, outKind, data, dataIndex, dataCount);
+            }
+        }
+        return true;
+    }
+
+    public virtual bool TextEncodeResultStringArray(byte[] result, ulong resultIndex, ulong innKind, ulong outKind, string data, ulong dataIndex, ulong dataCount)
+    {
+        unsafe
+        {
+            fixed (byte* p = result)
+            {
+                ulong resultU;
+                resultU = (ulong)p;
+
+                this.TextEncodeResultString(resultU, resultIndex, innKind, outKind, data, dataIndex, dataCount);
             }
         }
         return true;
@@ -198,13 +246,13 @@ public class Intern : object
         outKind = Extern.Stat_TextEncodeKindUtf16(stat);
 
         ulong resultCount;
-        resultCount = this.TextEncodeCount(innKind, outKind, data, 0, dataCount);        
-        
+        resultCount = this.TextEncodeCount(innKind, outKind, data, 0, dataCount);
+
         ulong result;
         result = Extern.New(resultCount);
 
         this.TextEncodeResult(result, 0, innKind, outKind, data, 0, dataCount);
-        
+
         ulong kk;
         kk = resultCount / sizeof(char);
 
@@ -302,7 +350,7 @@ public class Intern : object
             ub = (ulong)colorU;
 
             Extern.GradientStop_PointGet(intern, index, ua, ub);
-            
+
             result.Pos = pos;
             result.Color = color;
         }
@@ -317,7 +365,7 @@ public class Intern : object
             {
                 byte* destP;
                 destP = uu + index;
-                
+
                 ulong destU;
                 destU = (ulong)destP;
 
@@ -358,7 +406,7 @@ public class Intern : object
         {
             uint* p;
             p = (uint*)data;
-            
+
             uint* d;
             d = p + (up * width + left);
 
