@@ -60,8 +60,8 @@ public class StringComp : Any
 
         String a;
         a = new String();
-        a.DataData = data;
-        a.CountData = count;
+        a.Data = data;
+        a.Count = count;
         a.Init();
         
         return a;
@@ -69,7 +69,7 @@ public class StringComp : Any
 
     public virtual String CreateString(String s, Range range)
     {
-        return this.CreateData(s.DataData, range);
+        return this.CreateData(s.Data, range);
     }
 
     public virtual String CreateData(Data data, Range range)
@@ -130,7 +130,7 @@ public class StringComp : Any
             String koo;
             koo = stringData.ValueString;
 
-            sourceData = koo.DataData;
+            sourceData = koo.Data;
         }
 
         long i;
@@ -153,15 +153,15 @@ public class StringComp : Any
 
         String a;
         a = new String();
-        a.DataData = dest;
-        a.CountData = count;
+        a.Data = dest;
+        a.Count = count;
         a.Init();
         return a;
     }
 
     public virtual long Count(String o)
     {
-        return o.CountData;
+        return o.Count;
     }
 
     public virtual long Char(String o, long index)
@@ -178,7 +178,7 @@ public class StringComp : Any
         }
 
         uint a;
-        a = infraInfra.DataCharGet(o.DataData, index * sizeof(uint));
+        a = infraInfra.DataCharGet(o.Data, index * sizeof(uint));
         return a;
     }
 }
