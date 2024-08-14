@@ -135,30 +135,30 @@ public class Format : Any
         baseData = varBase.Data;
         Range baseRange;
         baseRange = varBase.Range;
-        int baseStart;
+        long baseStart;
         baseStart = baseRange.Index;
-        int baseCount;
+        long baseCount;
         baseCount = baseRange.Count;
 
-        int argCount;
+        long argCount;
         argCount = argList.Count;
 
         Data resultData;
         resultData = result.Data;
         Range resultRange;
         resultRange = result.Range;
-        int resultStart;
+        long resultStart;
         resultStart = resultRange.Index;
-        int resultCount;
+        long resultCount;
         resultCount = resultRange.Count;
 
-        int count;
+        long count;
         count = baseCount + 1;
-        int resultIndex;
+        long resultIndex;
         resultIndex = 0;
-        int argIndex;
+        long argIndex;
         argIndex = 0;
-        int i;
+        long i;
         i = 0;
         while (i < count)
         {
@@ -170,17 +170,17 @@ public class Format : Any
                 FormatArg arg;
                 arg = (FormatArg)argList.GetAt(argIndex);
 
-                int k;
+                long k;
                 k = arg.Pos;
 
                 bool ba;
                 ba = (i == k);
                 if (ba)
                 {
-                    int countA;
+                    long countA;
                     countA = arg.Count;
 
-                    int oa;
+                    long oa;
                     oa = resultStart + resultIndex;
                     resultRange.Index = oa;
                     resultRange.Count = countA;
@@ -202,7 +202,7 @@ public class Format : Any
 
             if (!(i == baseCount))
             {
-                char oc;
+                uint oc;
                 oc = textInfra.DataCharGet(baseData, baseStart + i);
 
                 textInfra.DataCharSet(resultData, resultStart + resultIndex, oc);
@@ -222,7 +222,7 @@ public class Format : Any
             return false;
         }
 
-        int kind;
+        long kind;
         kind = arg.Kind;
         FormatCountState state;
         state = (FormatCountState)this.CountState.GetAt(kind);
@@ -233,13 +233,13 @@ public class Format : Any
         Value aa;
         aa = (Value)state.Result;
 
-        int valueCount;
-        valueCount = aa.Mid;
+        long valueCount;
+        valueCount = aa.Int;
 
-        int fieldWidth;
+        long fieldWidth;
         fieldWidth = arg.FieldWidth;
 
-        int maxWidth;
+        long maxWidth;
         maxWidth = arg.MaxWidth;
 
         long u;
@@ -247,7 +247,7 @@ public class Format : Any
         u = u << 4;
         u = u >> 4;
 
-        int count;
+        long count;
         count = valueCount;
 
         if (count < fieldWidth)
@@ -284,7 +284,7 @@ public class Format : Any
             return false;
         }
 
-        int kind;
+        long kind;
         kind = arg.Kind;
         FormatResultState state;
         state = (FormatResultState)this.ResultState.GetAt(kind);
