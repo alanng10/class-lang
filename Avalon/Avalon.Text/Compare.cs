@@ -14,7 +14,7 @@ public class Compare : InfraCompare
     public virtual CharForm RightCharForm { get; set; }
     protected virtual Infra TextInfra { get; set; }
 
-    public override int Execute(object left, object right)
+    public override long Execute(object left, object right)
     {
         Infra textInfra;
         textInfra = this.TextInfra;
@@ -80,7 +80,7 @@ public class Compare : InfraCompare
             oca = (uint)leftCharForm.Execute(oca);
             ocb = (uint)rightCharForm.Execute(ocb);
 
-            int oo;
+            long oo;
             oo = charCompare.Execute(oca, ocb);
             if (!(oo == 0))
             {
@@ -93,7 +93,7 @@ public class Compare : InfraCompare
         long k;
         k = leftCount - rightCount;
         
-        int a;
+        long a;
         a = 0;
         if (k < 0)
         {
