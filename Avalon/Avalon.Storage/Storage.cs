@@ -20,7 +20,7 @@ public class Storage : Any
         return true;
     }
 
-    public virtual string Path { get; set; }
+    public virtual String Path { get; set; }
     public virtual Mode Mode { get; set; }
     public virtual bool AnyNode { get; set; }
     public virtual StreamStream Stream { get; set; }
