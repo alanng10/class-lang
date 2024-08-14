@@ -12,8 +12,7 @@ public class Table : List
         return true;
     }
 
-    public virtual Compare Compare { get { return __D_Compare; } set { __D_Compare = value; } }
-    protected Compare __D_Compare;
+    public virtual Compare Compare { get; set; }
     public override object FirstIndex { get { return null; } set { } }
     public override object LastIndex { get { return null; } set { } }
 
