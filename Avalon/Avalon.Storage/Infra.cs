@@ -39,12 +39,12 @@ public class Infra : Any
     protected virtual StatusList StorageStatusList { get; set; }
     protected virtual TextCodeKindList TextCodeKindList { get; set; }
 
-    public virtual Data DataRead(string filePath)
+    public virtual Data DataRead(String filePath)
     {
         return this.DataReadAny(filePath, false);
     }
 
-    public virtual Data DataReadAny(string filePath, bool anyNode)
+    public virtual Data DataReadAny(String filePath, bool anyNode)
     {
         Storage storage;
         storage = new Storage();
@@ -90,12 +90,12 @@ public class Infra : Any
         return o;
     }
 
-    public virtual bool DataWrite(string filePath, Data data)
+    public virtual bool DataWrite(String filePath, Data data)
     {
         return this.DataWriteAny(filePath, data, false);
     }
 
-    public virtual bool DataWriteAny(string filePath, Data data, bool anyNode)
+    public virtual bool DataWriteAny(String filePath, Data data, bool anyNode)
     {
         Storage storage;
         storage = new Storage();
@@ -138,12 +138,12 @@ public class Infra : Any
         return o;
     }
 
-    public virtual String TextRead(string filePath)
+    public virtual String TextRead(String filePath)
     {
         return this.TextReadAny(filePath, false);
     }
 
-    public virtual String TextReadAny(string filePath, bool anyNode)
+    public virtual String TextReadAny(String filePath, bool anyNode)
     {
         TextCodeKindList kindList;
         kindList = this.TextCodeKindList;
@@ -187,12 +187,12 @@ public class Infra : Any
         return a;
     }
 
-    public virtual bool TextWrite(string filePath, String text)
+    public virtual bool TextWrite(String filePath, String text)
     {
         return this.TextWriteAny(filePath, text, false);
     }
 
-    public virtual bool TextWriteAny(string filePath, String text, bool anyNode)
+    public virtual bool TextWriteAny(String filePath, String text, bool anyNode)
     {
         TextCodeKindList kindList;
         kindList = this.TextCodeKindList;
@@ -229,12 +229,12 @@ public class Infra : Any
         return a;
     }
 
-    public virtual bool CountSet(string filePath, long value)
+    public virtual bool CountSet(String filePath, long value)
     {
         return this.CountSetAny(filePath, value, false);
     }
 
-    public virtual bool CountSetAny(string filePath, long value, bool anyNode)
+    public virtual bool CountSetAny(String filePath, long value, bool anyNode)
     {
         StatusList statusList;
         statusList = this.StorageStatusList;
