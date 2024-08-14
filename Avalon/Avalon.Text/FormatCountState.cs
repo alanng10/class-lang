@@ -1,6 +1,6 @@
 namespace Avalon.Text;
 
-public class FormatCountState : State
+public class WriteCountState : State
 {
     public override bool Init()
     {
