@@ -16,11 +16,11 @@ public class Format : Any
     public virtual CharForm CharForm { get; set; }
     protected virtual InfraInfra InfraInfra { get; set; }
     protected virtual Infra TextInfra { get; set; }
-    protected virtual int KindCount { get { return 5; } set { } }
+    protected virtual long KindCount { get { return 5; } set { } }
     protected virtual Array CountState { get; set; }
     protected virtual Array ResultState { get; set; }
     protected virtual Array Array { get; set; }
-    protected virtual int ArrayIndex { get; set; }
+    protected virtual long ArrayIndex { get; set; }
 
     protected virtual bool InitCountState()
     {
@@ -74,7 +74,7 @@ public class Format : Any
 
     protected virtual bool ArrayAdd(object item)
     {
-        int index;
+        long index;
         index = this.ArrayIndex;
         this.Array.SetAt(index, item);
         index = index + 1;
@@ -82,13 +82,13 @@ public class Format : Any
         return true;
     }
 
-    public virtual int ExecuteCount(Text varBase, Array argList)
+    public virtual long ExecuteCount(Text varBase, Array argList)
     {
-        int count;
+        long count;
         count = argList.Count;
-        int k;
+        long k;
         k = 0;
-        int i;
+        long i;
         i = 0;
         while (i < count)
         {
@@ -100,7 +100,7 @@ public class Format : Any
                 this.ExecuteArgCount(arg);
             }
 
-            int ka;
+            long ka;
             ka = arg.Count;
 
             k = k + ka;
@@ -108,12 +108,12 @@ public class Format : Any
             i = i + 1;
         }
 
-        int baseCount;
+        long baseCount;
         baseCount = varBase.Range.Count;
 
         k = k + baseCount;
 
-        int a;
+        long a;
         a = k;
         return a;
     }
