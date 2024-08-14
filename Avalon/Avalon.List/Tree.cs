@@ -516,7 +516,7 @@ class Tree : Any
 
     private TreeNode Successor(TreeNode x)
     {
-        if (x.RightChild != null)
+        if (!(x.RightChild == null))
         {
             return this.Minimum(x.RightChild);
         }
@@ -525,7 +525,7 @@ class Tree : Any
 
         y = x.Parent;
 
-        while (y != null && x == y.RightChild)
+        while ((!(y == null)) && x == y.RightChild)
         {
             x = y;
 
@@ -541,7 +541,7 @@ class Tree : Any
 
         t = x;
 
-        while (t.LeftChild != null)
+        while (!(t.LeftChild == null))
         {
             t = t.LeftChild;
         }
