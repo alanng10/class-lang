@@ -64,7 +64,7 @@ public class Write : Any
         return true;
     }
 
-    protected virtual bool ResultStateAdd(FormatResultState state)
+    protected virtual bool ResultStateAdd(WriteResultState state)
     {
         state.Format = this;
         state.Init();
@@ -286,8 +286,8 @@ public class Write : Any
 
         long kind;
         kind = arg.Kind;
-        FormatResultState state;
-        state = (FormatResultState)this.ResultState.GetAt(kind);
+        WriteResultState state;
+        state = (WriteResultState)this.ResultState.GetAt(kind);
 
         state.Arg = arg;
         state.ArgResult = result;

@@ -1,6 +1,6 @@
 namespace Avalon.Text;
 
-public class IntFormatResultState : FormatResultState
+public class IntFormatResultState : WriteResultState
 {
     public override bool Init()
     {
