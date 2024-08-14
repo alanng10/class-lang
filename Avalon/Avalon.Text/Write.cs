@@ -51,7 +51,7 @@ public class Write : Any
 
         this.ResultStateAdd(new BoolWriteResultState());
         this.ResultStateAdd(new IntWriteResultState());
-        this.ResultStateAdd(new SIntFormatResultState());
+        this.ResultStateAdd(new SIntWriteResultState());
         this.ResultStateAdd(new TextFormatResultState());
         return true;
     }
