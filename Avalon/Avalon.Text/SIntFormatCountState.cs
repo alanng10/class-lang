@@ -8,10 +8,10 @@ public class SIntFormatCountState : WriteCountState
         arg = (WriteArg)this.Arg;
 
         long value;
-        value = arg.ValueInt;
-        int varBase;
+        value = arg.Value.Int;
+        long varBase;
         varBase = arg.Base;
-        int sign;
+        long sign;
         sign = arg.Sign;
 
         long oa;
@@ -49,7 +49,7 @@ public class SIntFormatCountState : WriteCountState
         ulong ua;
         ua = (ulong)oa;
 
-        int count;
+        long count;
         count = this.Format.IntDigitCount(ua, varBase);
 
         if (hasSign)
@@ -57,12 +57,12 @@ public class SIntFormatCountState : WriteCountState
             count = count + 1;
         }
 
-        int a;
+        long a;
         a = count;
 
         Value aa;
         aa = (Value)this.Result;
-        aa.Mid = a;
+        aa.Int = a;
         return true;
     }
 }
