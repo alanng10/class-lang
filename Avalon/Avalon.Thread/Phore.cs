@@ -20,7 +20,7 @@ public class Phore : Any
         return true;
     }
 
-    public virtual int InitCount { get; set; }
+    public virtual long InitCount { get; set; }
     private ulong Intern { get; set; }
 
     public virtual bool Acquire()
@@ -35,14 +35,14 @@ public class Phore : Any
         return true;
     }
 
-    public virtual int Count
+    public virtual long Count
     {
         get
         {
             ulong u;
             u = Extern.Phore_CountGet(this.Intern);
-            int a;
-            a = (int)u;
+            long a;
+            a = (long)u;
             return a;
         }
         set
