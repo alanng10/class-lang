@@ -12,7 +12,7 @@ public class StringData : Data
         get
         {
             long a;
-            a = this.ValueString.CountData;
+            a = this.ValueString.Count;
             a = a * sizeof(uint);
             return a;
         }
@@ -31,7 +31,7 @@ public class StringData : Data
         }
 
         int a;
-        a = this.ValueString.DataData.Get(index);
+        a = this.ValueString.Data.Get(index);
         return a;
     }
 

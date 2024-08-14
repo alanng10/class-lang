@@ -11,19 +11,22 @@ public class RefCompare : Compare
 
     private ReferenceEqualityComparer Comparer { get; set; }
 
-    public override int Execute(object left, object right)
+    public override long Execute(object left, object right)
     {
         if (left == null | right == null)
         {
             return 0;
         }
 
-        int lu;
-        int ru;
-        lu = this.Comparer.GetHashCode(left);
-        ru = this.Comparer.GetHashCode(right);
-        int k;
-        k = lu.CompareTo(ru);
-        return k;
+        ReferenceEqualityComparer comparer;
+        comparer = this.Comparer;
+
+        long lu;
+        long ru;
+        lu = comparer.GetHashCode(left);
+        ru = comparer.GetHashCode(right);
+        long a;
+        a = lu - ru;
+        return a;
     }
 }
