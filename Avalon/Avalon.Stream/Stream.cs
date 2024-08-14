@@ -4,7 +4,7 @@ public class Stream : Any
 {
     public virtual bool Final()
     {
-        return true;
+        return false;
     }
 
     public virtual ulong Ident
@@ -22,7 +22,7 @@ public class Stream : Any
     {
         get
         {
-            return true;
+            return false;
         }
         set
         {
@@ -33,7 +33,7 @@ public class Stream : Any
     {
         get
         {
-            return true;
+            return false;
         }
         set
         {
@@ -44,7 +44,7 @@ public class Stream : Any
     {
         get
         {
-            return true;
+            return false;
         }
         set
         {
@@ -55,7 +55,7 @@ public class Stream : Any
     {
         get
         {
-            return true;
+            return false;
         }
         set
         {
@@ -86,7 +86,7 @@ public class Stream : Any
 
     public virtual bool PosSet(long value)
     {
-        return true;
+        return false;
     }
 
     public virtual int Status
@@ -102,11 +102,11 @@ public class Stream : Any
 
     public virtual bool Read(Data data, Range range)
     {
-        return true;
+        return false;
     }
 
     public virtual bool Write(Data data, Range range)
     {
-        return true;
+        return false;
     }
 }
