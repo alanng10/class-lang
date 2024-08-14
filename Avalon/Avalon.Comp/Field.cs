@@ -51,18 +51,6 @@ public class Field : Any
         return true;
     }
 
-    public virtual int GetMid()
-    {
-        return this.ValueAny.Mid;
-    }
-
-    public virtual bool SetMid(int value)
-    {
-        this.ValueAny.Mid = value;
-        this.SetChange();
-        return true;
-    }
-
     public virtual long GetInt()
     {
         return this.ValueAny.Int;
