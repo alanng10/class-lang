@@ -18,12 +18,14 @@ public class Infra : Any
     {
         base.Init();
         this.InfraInfra = InfraInfra.This;
-        this.StringComp = StringComp.This;
+        StringComp stringComp;
+        stringComp = StringComp.This;
+        this.StringComp = stringComp;
         this.BoolFalseString = "false";
         this.BoolTrueString = "true";
 
-        this.NewLine = "\n";
-        this.PathCombine = "/";    
+        this.NewLine = stringComp.CreateChar("\n"[0], 1);
+        this.PathCombine = stringComp.CreateChar("/"[0], 1);
         return true;
     }
 
@@ -31,8 +33,8 @@ public class Infra : Any
     protected virtual StringComp StringComp { get; set; }
     public virtual string BoolFalseString { get; set; }
     public virtual string BoolTrueString { get; set; }
-    public virtual string NewLine { get; set; }
-    public virtual string PathCombine { get; set; }
+    public virtual String NewLine { get; set; }
+    public virtual String PathCombine { get; set; }
 
     public virtual bool IsDigit(uint o)
     {
