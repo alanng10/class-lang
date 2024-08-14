@@ -1,6 +1,6 @@
 namespace Avalon.Text;
 
-public class IntFormatCountState : WriteCountState
+public class IntWriteCountState : WriteCountState
 {
     public override bool Init()
     {
@@ -17,7 +17,7 @@ public class IntFormatCountState : WriteCountState
         arg = (WriteArg)this.Arg;
 
         long value;
-        value = arg.ValueInt;
+        value = arg.Value.Int;
 
         long mask;
         mask = this.InfraInfra.IntCapValue - 1;
@@ -26,15 +26,15 @@ public class IntFormatCountState : WriteCountState
         ulong o;
         o = (ulong)value;
 
-        int count;
+        long count;
         count = this.Format.IntDigitCount(o, arg.Base);
         
-        int a;
+        long a;
         a = count;
 
         Value aa;
         aa = (Value)this.Result;
-        aa.Mid = a;
+        aa.Int = a;
         return true;
     }
 }
