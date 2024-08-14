@@ -15,6 +15,6 @@ global using Table = Avalon.List.Table;
 global using Text = Avalon.Text.Text;
 global using TextCompare = Avalon.Text.Compare;
 global using Format = Avalon.Text.Write;
-global using FormatArg = Avalon.Text.FormatArg;
+global using FormatArg = Avalon.Text.WriteArg;
 global using TextInfra = Avalon.Text.Infra;
 global using StorageInfra = Avalon.Storage.Infra;

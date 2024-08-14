@@ -4,8 +4,8 @@ public class TextFormatCountState : FormatCountState
 {
     public override bool Execute()
     {
-        FormatArg arg;
-        arg = (FormatArg)this.Arg;
+        WriteArg arg;
+        arg = (WriteArg)this.Arg;
 
         int a;
         a = arg.ValueText.Range.Count;

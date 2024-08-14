@@ -13,8 +13,8 @@ public class IntFormatCountState : FormatCountState
 
     public override bool Execute()
     {
-        FormatArg arg;
-        arg = (FormatArg)this.Arg;
+        WriteArg arg;
+        arg = (WriteArg)this.Arg;
 
         long value;
         value = arg.ValueInt;

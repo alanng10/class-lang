@@ -1,6 +1,6 @@
 namespace Avalon.Text;
 
-public class FormatArg : Any
+public class WriteArg : Any
 {
     public virtual long Pos { get; set; }
     public virtual long Kind { get; set; }

@@ -13,8 +13,8 @@ public class BoolFormatCountState : FormatCountState
 
     public override bool Execute()
     {
-        FormatArg arg;
-        arg = (FormatArg)this.Arg;
+        WriteArg arg;
+        arg = (WriteArg)this.Arg;
 
         Infra textInfra;
         textInfra = this.TextInfra;

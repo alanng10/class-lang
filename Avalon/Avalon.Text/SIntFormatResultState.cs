@@ -13,8 +13,8 @@ public class SIntFormatResultState : FormatResultState
 
     public override bool Execute()
     {
-        FormatArg arg;
-        arg = (FormatArg)this.Arg;
+        WriteArg arg;
+        arg = (WriteArg)this.Arg;
         Text result;
         result = this.ArgResult;
         Write format;
