@@ -14,7 +14,7 @@ public class StringCompare : Compare
     public virtual CharForm RightCharForm { get; set; }
     protected virtual StringComp StringComp { get; set; }
 
-    public override int Execute(object left, object right)
+    public override long Execute(object left, object right)
     {
         StringComp stringComp;
         stringComp = this.StringComp;
@@ -56,7 +56,7 @@ public class StringCompare : Compare
             oca = (uint)leftCharForm.Execute(oca);
             ocb = (uint)rightCharForm.Execute(ocb);
 
-            int oo;
+            long oo;
             oo = charCompare.Execute(oca, ocb);
             if (!(oo == 0))
             {
@@ -69,7 +69,7 @@ public class StringCompare : Compare
         long k;
         k = leftCount - rightCount;
         
-        int a;
+        long a;
         a = 0;
         if (k < 0)
         {

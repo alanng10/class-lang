@@ -2,19 +2,19 @@ namespace Avalon.Infra;
 
 public class CompareBool : Any
 {
-    public virtual int Execute(bool left, bool right)
+    public virtual long Execute(bool left, bool right)
     {
-        int leftA;
-        int rightA;
+        long leftA;
+        long rightA;
         leftA = this.BoolInt(left);
         rightA = this.BoolInt(right);
         
         return leftA - rightA;
     }
 
-    protected virtual int BoolInt(bool o)
+    protected virtual long BoolInt(bool o)
     {
-        int a;
+        long a;
         a = 0;
         if (o)
         {

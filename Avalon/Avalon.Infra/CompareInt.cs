@@ -2,12 +2,12 @@ namespace Avalon.Infra;
 
 public class CompareInt : Any
 {
-    public virtual int Execute(long left, long right)
+    public virtual long Execute(long left, long right)
     {
         long o;
         o = left - right;
         
-        int a;
+        long a;
         a = 0;
 
         if (o < 0)
