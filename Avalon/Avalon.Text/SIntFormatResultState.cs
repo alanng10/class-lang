@@ -20,19 +20,19 @@ public class SIntFormatResultState : WriteResultState
         Write format;
         format = this.Format;
 
-        int valueCount;
+        long valueCount;
         valueCount = arg.ValueCount;
-        int count;
+        long count;
         count = arg.Count;
         long value;
-        value = arg.ValueInt;
+        value = arg.Value.Int;
 
         bool alignLeft;
         alignLeft = arg.AlignLeft;
 
-        int fillCount;
+        long fillCount;
         fillCount = 0;
-        int clampCount;
+        long clampCount;
         clampCount = 0;
 
         if (valueCount < count)
@@ -45,21 +45,21 @@ public class SIntFormatResultState : WriteResultState
             clampCount = valueCount - count;
         }
 
-        int varBase;
+        long varBase;
         varBase = arg.Base;
-        int varCase;
+        long varCase;
         varCase = arg.Case;
-        char fillChar;
+        uint fillChar;
         fillChar = arg.FillChar;
 
-        int fillStart;
+        long fillStart;
         fillStart = 0;
-        int valueStart;
+        long valueStart;
         valueStart = 0;
-        int valueIndex;
+        long valueIndex;
         valueIndex = 0;
 
-        int sign;
+        long sign;
         sign = arg.Sign;
 
         long valueA;
@@ -101,7 +101,7 @@ public class SIntFormatResultState : WriteResultState
         ulong ua;
         ua = (ulong)oa;
 
-        int ub;
+        long ub;
         ub = valueCount;
 
         if (hasSign)
@@ -109,13 +109,13 @@ public class SIntFormatResultState : WriteResultState
             ub = ub - 1;
         }
 
-        int unsignedWriteCount;
+        long unsignedWriteCount;
         unsignedWriteCount = valueCount - clampCount;
 
         bool ba;
         ba = false;
 
-        int signIndex;
+        long signIndex;
         signIndex = 0;
 
         if (alignLeft)
@@ -177,7 +177,7 @@ public class SIntFormatResultState : WriteResultState
 
         if (ba)
         {
-            char ooc;
+            uint ooc;
             ooc = '+';
 
             if (b)
@@ -187,7 +187,7 @@ public class SIntFormatResultState : WriteResultState
 
             Data resultData;
             resultData = result.Data;
-            int resultIndex;
+            long resultIndex;
             resultIndex = result.Range.Index;
 
             this.TextInfra.DataCharSet(resultData, resultIndex + signIndex, ooc);
