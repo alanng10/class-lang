@@ -20,42 +20,25 @@ public class Infra : object
 
     protected virtual Intern InternIntern { get; set; }
 
-    public virtual ulong StringCreate(string o)
+    public virtual ulong StringCreate(byte[] value)
     {
-        int countA;
-        countA = o.Length;
+        long k;
+        k = value.LongLength;
+        ulong ka;
+        ka = (ulong)k;
 
-        ulong kk;
-        kk = (ulong)countA;
-
-        ulong dataCount;
-        dataCount = kk * sizeof(char);
-
-        ulong share;
-        ulong stat;
-        share = Extern.Infra_Share();
-        stat = Extern.Share_Stat(share);
-
-        ulong innKind;
-        ulong outKind;
-        innKind = Extern.Stat_TextEncodeKindUtf16(stat);
-        outKind = Extern.Stat_TextEncodeKindUtf32(stat);
-
-        ulong resultCount;
-        resultCount = this.InternIntern.TextEncodeCountString(innKind, outKind, o, 0, dataCount);
-
-        ulong result;
-        result = Extern.New(resultCount);
-
-        this.InternIntern.TextEncodeResultString(result, 0, innKind, outKind, o, 0, dataCount);
- 
         ulong count;
-        count = resultCount / sizeof(uint);
+        count = ka / sizeof(uint);
+
+        ulong data;
+        data = Extern.New(ka);
+
+        this.InternIntern.CopyFromByteArray(data, value, 0, k);
 
         ulong a;
         a = Extern.String_New();
         Extern.String_Init(a);
-        Extern.String_DataSet(a, result);
+        Extern.String_DataSet(a, data);
         Extern.String_CountSet(a, count);
         return a;
     }
