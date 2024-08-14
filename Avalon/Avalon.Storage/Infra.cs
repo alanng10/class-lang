@@ -73,8 +73,8 @@ public class Infra : Any
             data = new Data();
             data.Count = count;
             data.Init();
-            RangeInt range;
-            range = new RangeInt();
+            Range range;
+            range = new Range();
             range.Init();
             range.Index = 0;
             range.Count = count;
