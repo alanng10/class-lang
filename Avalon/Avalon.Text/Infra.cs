@@ -247,9 +247,9 @@ public class Infra : Any
         return oob + 10;
     }
 
-    public virtual char DigitChar(int digit, char letterStart)
+    public virtual uint DigitChar(long digit, uint letterStart)
     {
-        int n;
+        long n;
         n = 0;
         bool b;
         b = (digit < 10);
@@ -259,12 +259,12 @@ public class Infra : Any
         }
         if (!b)
         {
-            int m;
+            long m;
             m = digit - 10;
             n = letterStart + m;
         }
-        char a;
-        a = (char)n;
+        uint a;
+        a = (uint)n;
         return a;
     }
 
