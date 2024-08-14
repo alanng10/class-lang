@@ -152,7 +152,7 @@ public class Array : List
             left = source[i];
             right = source[j];
 
-            int ka;
+            long ka;
             ka = compare.Execute(left, right);
 
             bool b;
