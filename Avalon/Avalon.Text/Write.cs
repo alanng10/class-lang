@@ -18,7 +18,7 @@ public class Write : Any
     protected virtual InfraInfra InfraInfra { get; set; }
     protected virtual Infra TextInfra { get; set; }
     protected virtual StringComp StringComp { get; set; }
-    protected virtual long KindCount { get { return 5; } set { } }
+    protected virtual long KindCount { get { return 4; } set { } }
     protected virtual Array CountState { get; set; }
     protected virtual Array ResultState { get; set; }
     protected virtual Array Array { get; set; }
@@ -37,7 +37,6 @@ public class Write : Any
         this.CountStateAdd(new IntFormatCountState());
         this.CountStateAdd(new SIntFormatCountState());
         this.CountStateAdd(new TextFormatCountState());
-        this.CountStateAdd(new CharFormatCountState());
         return true;
     }
 
@@ -54,7 +53,6 @@ public class Write : Any
         this.ResultStateAdd(new IntFormatResultState());
         this.ResultStateAdd(new SIntFormatResultState());
         this.ResultStateAdd(new TextFormatResultState());
-        this.ResultStateAdd(new CharFormatResultState());
         return true;
     }
 
