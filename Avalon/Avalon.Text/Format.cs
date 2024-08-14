@@ -535,9 +535,9 @@ public class Format : Any
         return true;
     }
 
-    public virtual int IntDigitCount(ulong value, int varBase)
+    public virtual long IntDigitCount(ulong value, long varBase)
     {
-        int digitCount;
+        long digitCount;
         digitCount = 0;
 
         ulong ca;
@@ -555,7 +555,7 @@ public class Format : Any
             digitCount = 1;
         }
 
-        int a;
+        long a;
         a = digitCount;
         return a;
     }
