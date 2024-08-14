@@ -551,6 +551,9 @@ class Tree : Any
 
     public TreeNodeResult Node(object index)
     {
+        Compare compare;
+        compare = this.Compare;
+
         TreeNode node;
         node = null;
 
@@ -563,7 +566,7 @@ class Tree : Any
         bool b;
         b = false;
 
-        int t;
+        long t;
 
         object o;
 
@@ -575,7 +578,7 @@ class Tree : Any
         {
             o = currentNode.Index;
 
-            t = this.Compare.Execute(index, o);
+            t = compare.Execute(index, o);
 
             if (t == 0)
             {
