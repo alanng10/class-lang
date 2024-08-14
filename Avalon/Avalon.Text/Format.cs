@@ -7,6 +7,7 @@ public class Format : Any
         base.Init();
         this.InfraInfra = InfraInfra.This;
         this.TextInfra = Infra.This;
+        this.StringComp = StringComp.This;
 
         this.InitCountState();
         this.InitResultState();
@@ -16,6 +17,7 @@ public class Format : Any
     public virtual CharForm CharForm { get; set; }
     protected virtual InfraInfra InfraInfra { get; set; }
     protected virtual Infra TextInfra { get; set; }
+    protected virtual StringComp StringComp { get; set; }
     protected virtual long KindCount { get { return 5; } set { } }
     protected virtual Array CountState { get; set; }
     protected virtual Array ResultState { get; set; }
@@ -300,15 +302,17 @@ public class Format : Any
         Infra textInfra;
         textInfra = this.TextInfra;
 
+        StringComp stringComp;
+        stringComp = this.StringComp;
         CharForm charForm;
         charForm = this.CharForm;
 
         Data destData;
         destData = result.Data;
-        int destStart;
+        long destStart;
         destStart = result.Range.Index;
 
-        string source;
+        String source;
         source = null;
         if (!value)
         {
@@ -319,25 +323,25 @@ public class Format : Any
             source = textInfra.BoolTrueString;
         }
 
-        int destIndex;
+        long destIndex;
         destIndex = destStart + valueStart;
-        char ouc;
-        ouc = (char)0;
-        char oc;
-        oc = (char)0;
-        int aa;
+        uint ouc;
+        ouc = 0;
+        uint oc;
+        oc = 0;
+        long aa;
         aa = 0;
-        int index;
+        long index;
         index = 0;
-        int count;
+        long count;
         count = valueWriteCount;
-        int i;
+        long i;
         i = 0;
         while (i < count)
         {
             index = i + valueIndex;
 
-            ouc = source[index];
+            ouc = (uint)stringComp.Char(source, index);
             aa = ouc;
 
             if (varCase == 1)
@@ -351,9 +355,9 @@ public class Format : Any
             {
                 aa = ouc - 'a' + 'A';
             }
-            oc = (char)aa;
+            oc = (uint)aa;
 
-            oc = (char)charForm.Execute(oc);
+            oc = (uint)charForm.Execute(oc);
 
             textInfra.DataCharSet(destData, destIndex + i, oc);
 
