@@ -17,7 +17,7 @@ public class IntParse : Any
     protected virtual Infra TextInfra { get; set; }
     protected virtual CharForm CharForm { get; set; }
 
-    public virtual long Execute(Text text, int varBase, bool upperCase)
+    public virtual long Execute(Text text, long varBase, bool upperCase)
     {
         Infra textInfra;
         textInfra = this.TextInfra;
@@ -36,27 +36,19 @@ public class IntParse : Any
         m = 0;
         ulong h;
         h = 1;
-        ulong oo;
-        oo = 0;
         ulong oe;
         oe = (ulong)varBase;
-        int digitValue;
-        digitValue = 0;
         ulong d;
         d = 0;
         Data data;
         data = text.Data;
         Range range;
         range = text.Range;
-        int count;
+        long count;
         count = range.Count;
-        int index;
-        index = 0;
-        int start;
+        long start;
         start = range.Index;
-        char oc;
-        oc = (char)0;
-        int i;
+        long i;
         i = 0;
         while (i < count)
         {
@@ -64,12 +56,16 @@ public class IntParse : Any
             {
                 return -1;
             }
-            
+
+            long index;
             index = start + count - 1 - i;
+
+            uint oc;
             oc = textInfra.DataCharGet(data, index);
             
-            oc = (char)charForm.Execute(oc);
-
+            oc = (uint)charForm.Execute(oc);
+            
+            long digitValue;
             digitValue = textInfra.DigitValue(oc, varBase, upperCase);
             if (digitValue == -1)
             {
@@ -78,6 +74,7 @@ public class IntParse : Any
 
             d = (ulong)digitValue;
 
+            ulong oo;
             oo = h * d;
             
             m = m + oo;
