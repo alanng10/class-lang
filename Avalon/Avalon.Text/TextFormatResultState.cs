@@ -11,19 +11,19 @@ public class TextFormatResultState : WriteResultState
         Write format;
         format = this.Format;
 
-        int valueCount;
+        long valueCount;
         valueCount = arg.ValueCount;
-        int count;
+        long count;
         count = arg.Count;
         Text value;
-        value = arg.ValueText;
+        value = (Text)arg.Value.Any;
 
         bool alignLeft;
         alignLeft = arg.AlignLeft;
 
-        int fillCount;
+        long fillCount;
         fillCount = 0;
-        int clampCount;
+        long clampCount;
         clampCount = 0;
 
         if (valueCount < count)
@@ -36,19 +36,19 @@ public class TextFormatResultState : WriteResultState
             clampCount = valueCount - count;
         }
 
-        int varCase;
+        long varCase;
         varCase = arg.Case;
-        char fillChar;
+        uint fillChar;
         fillChar = arg.FillChar;
 
-        int fillStart;
+        long fillStart;
         fillStart = 0;
-        int valueStart;
+        long valueStart;
         valueStart = 0;
-        int valueIndex;
+        long valueIndex;
         valueIndex = 0;
 
-        int valueWriteCount;
+        long valueWriteCount;
         valueWriteCount = valueCount - clampCount;
 
         if (alignLeft)
