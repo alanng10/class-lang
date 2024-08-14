@@ -362,7 +362,7 @@ public class Format : Any
         return true;
     }
 
-    public virtual bool ResultInt(Text result, ulong value, int varBase, int varCase, int valueCount, int valueWriteCount, int valueStart, int valueIndex)
+    public virtual bool ResultInt(Text result, ulong value, long varBase, long varCase, long valueCount, long valueWriteCount, long valueStart, long valueIndex)
     {
         Infra textInfra;
         textInfra = this.TextInfra;
@@ -372,74 +372,71 @@ public class Format : Any
 
         Data destData;
         destData = result.Data;
-        int destStart;
+        long destStart;
         destStart = result.Range.Index;
 
-        int destIndex;
+        long destIndex;
         destIndex = destStart + valueStart;
 
         if (value == 0)
         {
             if (!(valueWriteCount == 0))
             {
-                char occ;
+                uint occ;
                 occ = '0';
 
-                occ = (char)charForm.Execute(occ);
+                occ = (uint)charForm.Execute(occ);
 
                 textInfra.DataCharSet(destData, destIndex, occ);
             }
             return true;
         }
 
-        int end;
+        long end;
         end = valueIndex + valueWriteCount;
 
         bool upperCase;
         upperCase = !(varCase == 0);
-        char letterDigitStart;
+        
+        uint letterDigitStart;
         letterDigitStart = 'a';
         if (upperCase)
         {
             letterDigitStart = 'A';
         }
+        
         ulong ca;
         ca = (ulong)varBase;
         ulong k;
         k = value;
-        ulong j;
-        j = 0;
-        ulong ka;
-        ka = 0;
-        int digit;
-        digit = 0;
-        int oa;
-        oa = 0;
-        char c;
-        c = (char)0;
 
-        int index;
+        long index;
         index = 0;
-        int count;
+        long count;
         count = valueCount;
-        int i;
+        long i;
         i = 0;
         while (i < count)
         {
+            ulong j;
             j = k / ca;
 
             index = count - 1 - i;
 
             if ((!(index < valueIndex)) & index < end)
             {
+                ulong ka;
                 ka = k - j * ca;
 
-                digit = (int)ka;
+                long digit;
+                digit = (long)ka;
 
+                uint c;
                 c = textInfra.DigitChar(digit, letterDigitStart);
 
                 c = (char)charForm.Execute(c);
 
+                long oa;
                 oa = index - valueIndex;
 
                 textInfra.DataCharSet(destData, destIndex + oa, c);
