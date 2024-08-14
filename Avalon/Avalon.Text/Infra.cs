@@ -21,18 +21,19 @@ public class Infra : Any
         StringComp stringComp;
         stringComp = StringComp.This;
         this.StringComp = stringComp;
-        this.BoolFalseString = "false";
-        this.BoolTrueString = "true";
 
         this.NewLine = stringComp.CreateChar("\n"[0], 1);
         this.PathCombine = stringComp.CreateChar("/"[0], 1);
+
+        this.BoolFalseString = this.StringValue("false");
+        this.BoolTrueString = this.StringValue("true");
         return true;
     }
 
     protected virtual InfraInfra InfraInfra { get; set; }
     protected virtual StringComp StringComp { get; set; }
-    public virtual string BoolFalseString { get; set; }
-    public virtual string BoolTrueString { get; set; }
+    public virtual String BoolFalseString { get; set; }
+    public virtual String BoolTrueString { get; set; }
     public virtual String NewLine { get; set; }
     public virtual String PathCombine { get; set; }
 
