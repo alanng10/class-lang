@@ -1,18 +1,21 @@
 namespace Avalon.Text;
 
-public class TextFormatCountState : WriteCountState
+public class TextWriteCountState : WriteCountState
 {
     public override bool Execute()
     {
         WriteArg arg;
         arg = (WriteArg)this.Arg;
 
-        int a;
-        a = arg.ValueText.Range.Count;
+        Text text;
+        text = (Text)arg.Value.Any;
+
+        long a;
+        a = text.Range.Count;
 
         Value aa;
         aa = (Value)this.Result;
-        aa.Mid = a;
+        aa.Int = a;
         return true;
     }
 }
