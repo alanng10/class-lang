@@ -449,7 +449,7 @@ public class Format : Any
         return true;
     }
 
-    public virtual bool ResultText(Text result, Text value, int varCase, int valueWriteCount, int valueStart, int valueIndex)
+    public virtual bool ResultText(Text result, Text value, long varCase, long valueWriteCount, long valueStart, long valueIndex)
     {
         Infra textInfra;
         textInfra = this.TextInfra;
@@ -459,32 +459,29 @@ public class Format : Any
 
         Data sourceData;
         sourceData = value.Data;
-        int sourceStart;
+        long sourceStart;
         sourceStart = value.Range.Index;
 
         Data destData;
         destData = result.Data;
-        int destStart;
+        long destStart;
         destStart = result.Range.Index;
 
-        int sourceIndex;
+        long sourceIndex;
         sourceIndex = sourceStart + valueIndex;
-        int destIndex;
+        long destIndex;
         destIndex = destStart + valueStart;
-        char ouc;
-        ouc = (char)0;
-        char oc;
-        oc = (char)0;
-        int aa;
-        aa = 0;
-        int count;
+
+        long count;
         count = valueWriteCount;
-        int i;
+        long i;
         i = 0;
         while (i < count)
         {
+            uint ouc;
             ouc = textInfra.DataCharGet(sourceData, sourceIndex + i);
 
+            long aa;
             aa = ouc;
 
             if (varCase == 1)
@@ -501,9 +498,11 @@ public class Format : Any
                     aa = ouc - 'a' + 'A';
                 }
             }
-            oc = (char)aa;
 
-            oc = (char)charForm.Execute(oc);
+            uint oc;
+            oc = (uint)aa;
+
+            oc = (uint)charForm.Execute(oc);
 
             textInfra.DataCharSet(destData, destIndex + i, oc);
 
