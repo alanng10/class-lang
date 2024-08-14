@@ -434,7 +434,7 @@ public class Format : Any
                 uint c;
                 c = textInfra.DigitChar(digit, letterDigitStart);
 
-                c = (char)charForm.Execute(c);
+                c = (uint)charForm.Execute(c);
 
                 long oa;
                 oa = index - valueIndex;
