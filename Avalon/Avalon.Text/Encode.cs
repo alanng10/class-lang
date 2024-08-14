@@ -1,6 +1,6 @@
 namespace Avalon.Text;
 
-public class Encode : Any
+public class Code : Any
 {
     public override bool Init()
     {

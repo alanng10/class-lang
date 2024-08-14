@@ -33,8 +33,8 @@ public class StringValue : Any
         innKind = kindList.Utf16;
         outKind = kindList.Utf32;
 
-        Encode encode;
-        encode = new Encode();
+        Code encode;
+        encode = new Code();
         encode.Init();
 
         Range range;
