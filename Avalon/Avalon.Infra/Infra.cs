@@ -106,7 +106,7 @@ public class Infra : Any
         return this.DataMidSet(data, index, value);
     }
 
-    public virtual ulong DataByteListGet(Data data, long index, int count)
+    public virtual ulong DataByteListGet(Data data, long index, long count)
     {
         ulong oo;
         oo = 0;
@@ -118,13 +118,13 @@ public class Infra : Any
         byte ob;
         ob = 0;
 
-        int i;
+        long i;
         i = 0;
         while (i < count)
         {
             ob = (byte)data.Get(index + i);
 
-            shiftCount = i * 8;
+            shiftCount = (int)(i * 8);
 
             o = ob;
             o = o << shiftCount;
@@ -143,7 +143,7 @@ public class Infra : Any
         return a;
     }
 
-    public virtual bool DataByteListSet(Data data, long index, int count, ulong value)
+    public virtual bool DataByteListSet(Data data, long index, long count, ulong value)
     {
         long d;
         d = this.IntCapValue - 1;
@@ -160,11 +160,11 @@ public class Infra : Any
         byte ob;
         ob = 0;
 
-        int i;
+        long i;
         i = 0;
         while (i < count)
         {
-            shiftCount = i * 8;
+            shiftCount = (int)(i * 8);
 
             o = oo >> shiftCount;
 
