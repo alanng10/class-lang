@@ -21,6 +21,9 @@ public class Infra : Any
         this.StringComp = StringComp.This;
         this.BoolFalseString = "false";
         this.BoolTrueString = "true";
+
+        this.NewLine = "\n";
+        this.PathCombine = "/";    
         return true;
     }
 
@@ -28,6 +31,8 @@ public class Infra : Any
     protected virtual StringComp StringComp { get; set; }
     public virtual string BoolFalseString { get; set; }
     public virtual string BoolTrueString { get; set; }
+    public virtual string NewLine { get; set; }
+    public virtual string PathCombine { get; set; }
 
     public virtual bool IsDigit(uint o)
     {
