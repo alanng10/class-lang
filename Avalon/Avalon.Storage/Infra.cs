@@ -121,8 +121,8 @@ public class Infra : Any
             long count;
             count = data.Count;
 
-            RangeInt range;
-            range = new RangeInt();
+            Range range;
+            range = new Range();
             range.Init();
             range.Index = 0;
             range.Count = count;
