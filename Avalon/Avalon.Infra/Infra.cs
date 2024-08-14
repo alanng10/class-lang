@@ -22,16 +22,10 @@ public class Infra : Any
         o = 1;
         o = o << 60;
         this.IntCapValue = o;
-        this.NewLine = "\n";
-        this.PathCombine = "/";
         return true;
     }
 
     public virtual long IntCapValue { get; set; }
-    public virtual string NewLine { get { return __D_NewLine; } set { __D_NewLine = value; } }
-    protected string __D_NewLine;
-    public virtual string PathCombine { get { return __D_PathCombine; } set { __D_PathCombine = value; } }
-    protected string __D_PathCombine;
 
     public virtual bool ValidIndex(long count, long index)
     {
