@@ -58,7 +58,7 @@ public class Write : Any
 
     protected virtual bool CountStateAdd(WriteCountState state)
     {
-        state.Format = this;
+        state.Write = this;
         state.Init();
         this.ArrayAdd(state);
         return true;

@@ -50,7 +50,7 @@ public class SIntWriteCountState : WriteCountState
         ua = (ulong)oa;
 
         long count;
-        count = this.Format.IntDigitCount(ua, varBase);
+        count = this.Write.IntDigitCount(ua, varBase);
 
         if (hasSign)
         {

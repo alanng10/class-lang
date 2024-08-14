@@ -27,7 +27,7 @@ public class IntWriteCountState : WriteCountState
         o = (ulong)value;
 
         long count;
-        count = this.Format.IntDigitCount(o, arg.Base);
+        count = this.Write.IntDigitCount(o, arg.Base);
         
         long a;
         a = count;
