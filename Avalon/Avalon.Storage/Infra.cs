@@ -19,11 +19,14 @@ public class Infra : Any
         base.Init();
         this.InfraInfra = InfraInfra.This;
         this.TextInfra = TextInfra.This;
+        StringComp stringComp;
+        stringComp = StringComp.This;
+        this.StringComp = stringComp;
         this.StorageStatusList = StatusList.This;
-        this.TextEncodeKindList = TextEncodeKindList.This;
-        this.TextSlash = this.TextInfra.TextCreateStringData("/", null);
-        this.TextDot = this.TextInfra.TextCreateStringData(".", null);
-        this.TextColon = this.TextInfra.TextCreateStringData(":", null);
+        this.TextCodeKindList = TextCodeKindList.This;
+        this.TextSlash = this.TextInfra.TextCreateStringData(stringComp.CreateChar('/', 1), null);
+        this.TextDot = this.TextInfra.TextCreateStringData(stringComp.CreateChar('.', 1), null);
+        this.TextColon = this.TextInfra.TextCreateStringData(stringComp.CreateChar(':', 1), null);
         return true;
     }
 
@@ -32,8 +35,9 @@ public class Infra : Any
     public virtual TextText TextColon { get; set; }
     protected virtual InfraInfra InfraInfra { get; set; }
     protected virtual TextInfra TextInfra { get; set; }
+    protected virtual StringComp StringComp { get; set; }
     protected virtual StatusList StorageStatusList { get; set; }
-    protected virtual TextEncodeKindList TextEncodeKindList { get; set; }
+    protected virtual TextCodeKindList TextCodeKindList { get; set; }
 
     public virtual Data DataRead(string filePath)
     {
