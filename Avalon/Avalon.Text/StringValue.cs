@@ -17,15 +17,15 @@ public class StringValue : Any
     public override bool Init()
     {
         base.Init();
-        this.EncodeKindList = EncodeKindList.This;
+        this.EncodeKindList = CodeKindList.This;
         return true;
     }
 
-    protected virtual EncodeKindList EncodeKindList { get; set; }
+    protected virtual CodeKindList EncodeKindList { get; set; }
 
     public virtual String Execute(string o)
     {
-        EncodeKindList kindList;
+        CodeKindList kindList;
         kindList = this.EncodeKindList;
 
         CodeKind innKind;

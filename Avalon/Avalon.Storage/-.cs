@@ -12,6 +12,6 @@ global using InfraInfra = Avalon.Infra.Infra;
 global using Array = Avalon.List.Array;
 global using TextText = Avalon.Text.Text;
 global using TextEncode = Avalon.Text.Code;
-global using TextEncodeKindList = Avalon.Text.EncodeKindList;
+global using TextEncodeKindList = Avalon.Text.CodeKindList;
 global using TextInfra = Avalon.Text.Infra;
 global using StreamStream = Avalon.Stream.Stream;

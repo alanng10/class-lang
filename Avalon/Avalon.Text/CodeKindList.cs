@@ -1,13 +1,13 @@
 namespace Avalon.Text;
 
-public class EncodeKindList : Any
+public class CodeKindList : Any
 {
-    public static EncodeKindList This { get; } = ShareCreate();
+    public static CodeKindList This { get; } = ShareCreate();
 
-    private static EncodeKindList ShareCreate()
+    private static CodeKindList ShareCreate()
     {
-        EncodeKindList share;
-        share = new EncodeKindList();
+        CodeKindList share;
+        share = new CodeKindList();
         Any a;
         a = share;
         a.Init();
