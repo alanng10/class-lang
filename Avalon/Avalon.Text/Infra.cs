@@ -546,7 +546,7 @@ public class Infra : Any
         textRange.Index = kka;
         textRange.Count = kkb;
 
-        int i;
+        long i;
         i = 0;
         while (i < count)
         {
