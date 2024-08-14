@@ -138,15 +138,15 @@ public class Infra : Any
         return o;
     }
 
-    public virtual string TextRead(string filePath)
+    public virtual String TextRead(string filePath)
     {
         return this.TextReadAny(filePath, false);
     }
 
-    public virtual string TextReadAny(string filePath, bool anyNode)
+    public virtual String TextReadAny(string filePath, bool anyNode)
     {
-        TextEncodeKindList kindList;
-        kindList = this.TextEncodeKindList;
+        TextCodeKindList kindList;
+        kindList = this.TextCodeKindList;
 
         Data data;
         data = this.DataReadAny(filePath, anyNode);
@@ -155,79 +155,74 @@ public class Infra : Any
             return null;
         }
 
-        TextEncode encode;
-        encode = new TextEncode();
-        encode.Init();
+        TextCodeKind innKind;
+        TextCodeKind outKind;
+        innKind = kindList.Utf8;
+        outKind = kindList.Utf32;
 
-        RangeInt dataRange;
-        dataRange = new RangeInt();
+        TextCode code;
+        code = new TextCode();
+        code.Init();
+
+        Range dataRange;
+        dataRange = new Range();
         dataRange.Init();
         dataRange.Count = data.Count;
 
         long resultCount;
-        resultCount = encode.ExecuteCount(kindList.Utf8, kindList.Utf16, data, dataRange);
-
-        long charCount;
-        charCount = resultCount / sizeof(char);
-
-        long kk;
-        kk = int.MaxValue;
-
-        if (kk < charCount)
-        {
-            return null;
-        }
+        resultCount = code.ExecuteCount(innKind, outKind, data, dataRange);
 
         Data result;
         result = new Data();
         result.Count = resultCount;
         result.Init();
 
-        encode.ExecuteResult(result, 0, kindList.Utf8, kindList.Utf16, data, dataRange);
+        code.ExecuteResult(result, 0, innKind, outKind, data, dataRange);
 
-        StringCreate stringCreate;
-        stringCreate = new StringCreate();
-        stringCreate.Init();
+        String k;
+        k = this.StringComp.CreateData(result, null);
 
-        string k;
-        k = stringCreate.Data(result, null);
-
-        string a;
+        String a;
         a = k;
         return a;
     }
 
-    public virtual bool TextWrite(string filePath, string text)
+    public virtual bool TextWrite(string filePath, String text)
     {
         return this.TextWriteAny(filePath, text, false);
     }
 
-    public virtual bool TextWriteAny(string filePath, string text, bool anyNode)
+    public virtual bool TextWriteAny(string filePath, String text, bool anyNode)
     {
-        TextEncodeKindList kindList;
-        kindList = this.TextEncodeKindList;
+        TextCodeKindList kindList;
+        kindList = this.TextCodeKindList;
 
-        TextEncode encode;
-        encode = new TextEncode();
-        encode.Init();
+        TextCodeKind innKind;
+        TextCodeKind outKind;
+        innKind = kindList.Utf32;
+        outKind = kindList.Utf8;
+
+        TextCode code;
+        code = new TextCode();
+        code.Init();
 
         Data data;
         data = this.TextInfra.StringDataCreateString(text);
 
-        RangeInt dataRange;
-        dataRange = new RangeInt();
+        Range dataRange;
+        dataRange = new Range();
         dataRange.Init();
         dataRange.Count = data.Count;
 
         long resultCount;
-        resultCount = encode.ExecuteCount(kindList.Utf16, kindList.Utf8, data, dataRange);
+        resultCount = code.ExecuteCount(innKind, outKind, data, dataRange);
 
         Data result;
         result = new Data();
         result.Count = resultCount;
         result.Init();
 
-        encode.ExecuteResult(result, 0, kindList.Utf16, kindList.Utf8, data, dataRange);
+        code.ExecuteResult(result, 0, innKind, outKind, data, dataRange);
 
         bool a;
         a = this.DataWriteAny(filePath, result, anyNode);
@@ -275,16 +270,16 @@ public class Infra : Any
         return o;
     }
 
-    public virtual int EntryPathNameCombine(TextText entryPath, Compare compare)
+    public virtual long EntryPathNameCombine(TextText entryPath, Compare compare)
     {
-        int a;
+        long a;
         a = this.TextInfra.LastIndex(entryPath, this.TextSlash, compare);
         return a;
     }
 
-    public virtual int EntryNameExtensionDot(TextText entryName, Compare compare)
+    public virtual long EntryNameExtensionDot(TextText entryName, Compare compare)
     {
-        int a;
+        long a;
         a = this.TextInfra.LastIndex(entryName, this.TextDot, compare);
         return a;
     }
@@ -294,7 +289,7 @@ public class Infra : Any
         TextInfra textInfra;
         textInfra = this.TextInfra;
 
-        int k;
+        long k;
         k = textInfra.Index(entryPath, this.TextSlash, compare);
         if (k == -1)
         {
@@ -309,15 +304,15 @@ public class Infra : Any
         Range range;
         range = entryPath.Range;
 
-        int indexA;
-        int countA;
+        long indexA;
+        long countA;
         indexA = range.Index;
         countA = range.Count;
 
         TextText colon;
         colon = this.TextColon;
 
-        int colonCount;
+        long colonCount;
         colonCount = colon.Range.Count;
 
         range.Index = indexA + k - colonCount;
