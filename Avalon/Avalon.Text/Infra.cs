@@ -275,7 +275,7 @@ public class Infra : Any
 
     public virtual bool Equal(Text left, Text right, InfraCompare compare)
     {
-        int o;
+        long o;
         o = compare.Execute(left, right);
         return (o == 0);
     }
