@@ -84,12 +84,12 @@ public class Infra : Any
 
         this.CopyArray(copy, array, start, end);
 
-        this.SplitMerge(compare, array, copy, start, end);
+        this.SplitMerge(array, copy, compare, start, end);
 
         return true;
     }
 
-    private bool SplitMerge(Compare compare, Array dest, Array source, long start, long end)
+    private bool SplitMerge(Array dest, Array source, Compare compare, long start, long end)
     {
         if (end - start < 2)
         {
@@ -99,16 +99,16 @@ public class Infra : Any
         long mid;
         mid = (start + end) / 2;
 
-        this.SplitMerge(compare, source, dest, start, mid);
+        this.SplitMerge(source, dest, compare, start, mid);
 
-        this.SplitMerge(compare, source, dest, mid, end);
+        this.SplitMerge(source, dest, compare, mid, end);
 
-        this.Merge(compare, dest, source, start, mid, end);
+        this.Merge(dest, source, compare, start, mid, end);
 
         return true;
     }
 
-    private bool Merge(Compare compare, Array dest, Array source, long start, long mid, long end)
+    private bool Merge(Array dest, Array source, Compare compare, long start, long mid, long end)
     {
         long i;
         long j;
