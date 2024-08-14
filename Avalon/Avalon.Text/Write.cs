@@ -49,7 +49,7 @@ public class Write : Any
         this.Array = this.ResultState;
         this.ArrayIndex = 0;
 
-        this.ResultStateAdd(new BoolFormatResultState());
+        this.ResultStateAdd(new BoolWriteResultState());
         this.ResultStateAdd(new IntFormatResultState());
         this.ResultStateAdd(new SIntFormatResultState());
         this.ResultStateAdd(new TextFormatResultState());
