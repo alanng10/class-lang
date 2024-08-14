@@ -68,7 +68,7 @@ public class Code : Any
         return a;
     }
 
-    public virtual long ExecuteCountString(CodeKind innKind, CodeKind outKind, string data, Range dataRange)
+    internal virtual long ExecuteCountString(CodeKind innKind, CodeKind outKind, string data, Range dataRange)
     {
         if (innKind == outKind)
         {
@@ -158,7 +158,7 @@ public class Code : Any
         return true;
     }
 
-    public virtual bool ExecuteResultString(Data result, long resultIndex, CodeKind innKind, CodeKind outKind, string data, Range dataRange)
+    internal virtual bool ExecuteResultString(Data result, long resultIndex, CodeKind innKind, CodeKind outKind, string data, Range dataRange)
     {
         InfraInfra infraInfra;
         infraInfra = this.InfraInfra;
