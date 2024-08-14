@@ -25,8 +25,11 @@ public class Infra : Any
         this.NewLine = stringComp.CreateChar("\n"[0], 1);
         this.PathCombine = stringComp.CreateChar("/"[0], 1);
 
-        this.BoolFalseString = this.StringValue("false");
-        this.BoolTrueString = this.StringValue("true");
+        StringValue k;
+        k = StringValue.This;
+        
+        this.BoolFalseString = k.Execute("false");
+        this.BoolTrueString = k.Execute("true");
         return true;
     }
 
@@ -36,47 +39,6 @@ public class Infra : Any
     public virtual String BoolTrueString { get; set; }
     public virtual String NewLine { get; set; }
     public virtual String PathCombine { get; set; }
-
-    public virtual String StringValue(string o)
-    {
-        EncodeKindList kindList;
-        kindList = EncodeKindList.This;
-
-        EncodeKind innKind;
-        EncodeKind outKind;
-        innKind = kindList.Utf16;
-        outKind = kindList.Utf32;
-
-        Encode encode;
-        encode = new Encode();
-        encode.Init();
-
-        Range range;
-        range = new Range();
-        range.Init();
-        range.Count = o.Length * sizeof(char);
-
-        long resultCount;
-        resultCount = encode.ExecuteCountString(innKind, outKind, o, range);
-
-        Data result;
-        result = new Data();
-        result.Count = resultCount;
-        result.Init();
-
-        encode.ExecuteResultString(result, 0, innKind, outKind, o, range);
-
-        long count;
-        count = resultCount / sizeof(uint);
-
-        String a;
-        a = new String();
-        a.Data = result;
-        a.Count = count;
-        a.Init();
-        return a;
-    }
-
 
     public virtual bool IsDigit(uint o)
     {
