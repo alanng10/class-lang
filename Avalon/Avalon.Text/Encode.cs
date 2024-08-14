@@ -68,6 +68,36 @@ public class Encode : Any
         return a;
     }
 
+    public virtual long ExecuteCountString(EncodeKind innKind, EncodeKind outKind, string data, Range dataRange)
+    {
+        if (innKind == outKind)
+        {
+            return -1;
+        }
+
+        long dataIndex;
+        long dataCount;
+        dataIndex = dataRange.Index;
+        dataCount = dataRange.Count;
+
+        if (!this.InfraInfra.ValidRange(data.Length, dataIndex, dataCount))
+        {
+            return -1;
+        }
+
+        ulong dataIndexU;
+        ulong dataCountU;
+        dataIndexU = (ulong)dataIndex;
+        dataCountU = (ulong)dataCount;
+
+        ulong u;
+        u = this.InternIntern.TextEncodeCountString(innKind.Intern, outKind.Intern, data, dataIndexU, dataCountU);
+
+        long a;
+        a = (long)u;
+        return a;
+    }
+
     public virtual bool ExecuteResult(Data result, long resultIndex, EncodeKind innKind, EncodeKind outKind, Data data, Range dataRange)
     {
         InfraInfra infraInfra;
@@ -124,6 +154,44 @@ public class Encode : Any
         }
 
         this.InternIntern.TextEncodeResultArrayArray(result.Value, resultIndexU, innKind.Intern, outKind.Intern, k.Value, dataIndexU, dataCountU);
+
+        return true;
+    }
+
+    public virtual bool ExecuteResultString(Data result, long resultIndex, EncodeKind innKind, EncodeKind outKind, string data, Range dataRange)
+    {
+        InfraInfra infraInfra;
+        infraInfra = this.InfraInfra;
+
+        if (innKind == outKind)
+        {
+            return false;
+        }
+
+        if (!infraInfra.ValidRange(result.Count, resultIndex, 0))
+        {
+            return false;
+        }
+
+        long dataIndex;
+        long dataCount;
+        dataIndex = dataRange.Index;
+        dataCount = dataRange.Count;
+
+        if (!infraInfra.ValidRange(data.Length, dataIndex, dataCount))
+        {
+            return false;
+        }
+
+        ulong dataIndexU;
+        ulong dataCountU;
+        dataIndexU = (ulong)dataIndex;
+        dataCountU = (ulong)dataCount;
+
+        ulong resultIndexU;
+        resultIndexU = (ulong)resultIndex;
+
+        this.InternIntern.TextEncodeResultStringArray(result.Value, resultIndexU, innKind.Intern, outKind.Intern, data, dataIndexU, dataCountU);
 
         return true;
     }
