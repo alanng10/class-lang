@@ -562,7 +562,7 @@ public class Format : Any
 
     public virtual bool ValidArg(FormatArg arg)
     {
-        int kind;
+        long kind;
         kind = arg.Kind;
 
         if (!this.ValidKind(kind))
@@ -579,11 +579,20 @@ public class Format : Any
         }
         if (kind == 3)
         {
-            if (arg.ValueText == null)
+            object aa;
+            aa = arg.Value.Any;
+            if (aa == null)
             {
                 return false;
             }
-            if (!this.TextInfra.ValidRange(arg.ValueText))
+            if (!(aa is Text))
+            {
+                return false;
+            }
+
+            Text text;
+            text = (Text)aa;
+            if (!this.TextInfra.ValidRange(text))
             {
                 return false;
             }
@@ -591,12 +600,12 @@ public class Format : Any
         return true;
     }
 
-    public virtual bool ValidKind(int kind)
+    public virtual bool ValidKind(long kind)
     {
         return this.InfraInfra.ValidIndex(this.KindCount, kind);
     }
 
-    public virtual bool ValidIntBase(int varBase)
+    public virtual bool ValidIntBase(long varBase)
     {
         return !(varBase < 2 | 16 < varBase);
     }
