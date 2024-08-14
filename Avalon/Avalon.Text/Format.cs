@@ -511,24 +511,23 @@ public class Format : Any
         return true;
     }
 
-    public virtual bool ResultFill(Text dest, int fillIndex, int fillCount, char fillChar)
+    public virtual bool ResultFill(Text dest, long fillIndex, long fillCount, uint fillChar)
     {
         Infra textInfra;
         textInfra = this.TextInfra;
         Data destData;
         destData = dest.Data;
-        int destStart;
+        long destStart;
         destStart = dest.Range.Index;
-        int destIndex;
+        long destIndex;
         destIndex = destStart + fillIndex;
-        int index;
-        index = 0;
-        int count;
+        long count;
         count = fillCount;
-        int i;
+        long i;
         i = 0;
         while (i < count)
         {
+            long index;
             index = destIndex + i;
             textInfra.DataCharSet(destData, index, fillChar);
             i = i + 1;
