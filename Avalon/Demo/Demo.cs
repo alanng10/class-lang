@@ -619,17 +619,14 @@ class Demo : Any
 
     private bool ConsoleWriteIntParse(long a)
     {
-        StringJoin h;
-        h = this.StringJoin;
-
         String ka;
 
-        h.Clear();
-        this.Append(this.StringValue("Demo.ExecuteIntParse ooa: "))
-            .Append(this.StringValue(a.ToString("x16")))
-            .AppendChar('\n')
+        ka = this.AddClear()
+            .AddValue("Demo.ExecuteIntParse ooa: ")
+            .AddValue(a.ToString("x16"))
+            .AddChar('\n')
+            .AddResult()
             ;
-        ka = h.Result();
 
         this.Console.Out.Write(ka);
 
