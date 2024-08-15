@@ -53,7 +53,7 @@ public class StringComp : Any
             long index;
             index = i * ko;
 
-            infraInfra.DataMidSet(data, index, c);
+            infraInfra.DataCharSet(data, index, c);
 
             i = i + 1;
         }
@@ -63,7 +63,6 @@ public class StringComp : Any
         a.Data = data;
         a.Count = count;
         a.Init();
-        
         return a;
     }
 
@@ -77,7 +76,7 @@ public class StringComp : Any
         Infra infraInfra;
         infraInfra = this.InfraInfra;
 
-        int kka;
+        long kka;
         kka = sizeof(uint);
 
         long dataCount;
