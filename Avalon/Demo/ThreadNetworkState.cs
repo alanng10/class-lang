@@ -6,12 +6,14 @@ public class ThreadNetworkState : State
     {
         base.Init();
         this.TextInfra = TextInfra.This;
+        this.TextStringValue = TextStringValue.This;
         this.NetworkStatusList = NetworkStatusList.This;
         this.NetworkCaseList = NetworkCaseList.This;
         return true;
     }
 
     public TextInfra TextInfra { get; set; }
+    public TextStringValue TextStringValue { get; set; }
     public NetworkStatusList NetworkStatusList { get; set; }
     public NetworkCaseList NetworkCaseList { get; set; }
     public Network Network { get; set; }
@@ -19,9 +21,9 @@ public class ThreadNetworkState : State
 
     public override bool Execute()
     {
-        string hostName;
-        hostName = "localhost";
-        int hostPort;
+        String hostName;
+        hostName = this.Value("localhost");
+        long hostPort;
         hostPort = 50400;
 
         Network network;
@@ -81,7 +83,7 @@ public class ThreadNetworkState : State
             k = "Fail";
         }
 
-        Console.This.Out.Write("Network " + k + ", code: " + o + "\n");
+        Console.This.Out.Write(this.Value("Network " + k + ", code: " + o + "\n"));
         return true;
     }
 
@@ -104,5 +106,10 @@ public class ThreadNetworkState : State
 
         thread.ExitEventLoop(code);
         return true;
+    }
+
+    protected virtual String Value(string o)
+    {
+        return this.TextStringValue.Execute(o);
     }
 }
