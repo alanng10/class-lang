@@ -13,22 +13,11 @@ public class Data : Any
     public virtual long Count { get; set; }
     protected virtual Infra InfraInfra { get; set; }
     
-    public virtual byte[] Value
-    {
-        get
-        {
-            return this.ValueData;
-        }
-        set
-        {
-        }
-    }
-
-    internal virtual byte[] ValueData { get; set; }
+    public virtual byte[] Value { get; set; }
 
     protected virtual bool InitValue()
     {
-        this.ValueData = new byte[this.Count];
+        this.Value = new byte[this.Count];
         return true;
     }
 
@@ -38,7 +27,7 @@ public class Data : Any
         {
             return -1;
         }
-        return this.ValueData[index];
+        return this.Value[index];
     }
 
     public virtual bool Set(long index, int value)
@@ -47,7 +36,7 @@ public class Data : Any
         {
             return false;
         }
-        this.ValueData[index] = (byte)value;
+        this.Value[index] = (byte)value;
         return true;
     }
 

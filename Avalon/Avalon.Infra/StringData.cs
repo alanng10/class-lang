@@ -7,21 +7,33 @@ public class StringData : Data
         return true;
     }
 
-    public override long Count
+    public virtual String ValueString
     {
         get
         {
-            long a;
-            a = this.ValueString.Count;
-            a = a * sizeof(uint);
-            return a;
+            return this.ValueStringData;
         }
         set
         {
+            this.ValueStringData = value;
+
+            byte[] array;
+            array = null;
+            long count;
+            count = 0;
+
+            if (!(value == null))
+            {
+                array = value.Data.Value;
+                count = value.Count * sizeof(uint);
+            }
+
+            this.Value = array;
+            this.Count = count;
         }
     }
 
-    public virtual String ValueString { get; set; }
+    internal virtual String ValueStringData { get; set; }
 
     public override int Get(long index)
     {
