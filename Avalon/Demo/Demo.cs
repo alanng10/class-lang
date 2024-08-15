@@ -34,15 +34,15 @@ class Demo : Any
     public virtual MathMath Math { get; set; }
     protected virtual MathComp MathComp { get; set; }
     private StringJoin StringJoin { get; set; }
-    private TextFormatArg ArgPrefix { get; set; }
-    private TextFormatArg ArgYear { get; set; }
-    private TextFormatArg ArgMonth { get; set; }
-    private TextFormatArg ArgDay { get; set; }
-    private TextFormatArg ArgHour { get; set; }
-    private TextFormatArg ArgMin { get; set; }
-    private TextFormatArg ArgSec { get; set; }
-    private TextFormatArg ArgMillisec { get; set; }
-    private TextFormatArg ArgPos { get; set; }
+    private TextWriteArg ArgPrefix { get; set; }
+    private TextWriteArg ArgYear { get; set; }
+    private TextWriteArg ArgMonth { get; set; }
+    private TextWriteArg ArgDay { get; set; }
+    private TextWriteArg ArgHour { get; set; }
+    private TextWriteArg ArgMin { get; set; }
+    private TextWriteArg ArgSec { get; set; }
+    private TextWriteArg ArgMillisec { get; set; }
+    private TextWriteArg ArgPos { get; set; }
     private Array ArgList { get; set; }
 
     public bool Execute()
@@ -458,8 +458,8 @@ class Demo : Any
 
     private bool ExecuteFormat()
     {
-        TextFormatArg argA;
-        argA = new TextFormatArg();
+        TextWriteArg argA;
+        argA = new TextWriteArg();
         argA.Init();
         argA.Pos = 3;
         argA.Kind = 0;
@@ -469,8 +469,8 @@ class Demo : Any
         argA.Case = 1;
         argA.FillChar = ' ';
 
-        TextFormatArg argB;
-        argB = new TextFormatArg();
+        TextWriteArg argB;
+        argB = new TextWriteArg();
         argB.Init();
         argB.Pos = 3;
         argB.Kind = 1;
@@ -481,8 +481,8 @@ class Demo : Any
         argB.Base = 10;
         argB.FillChar = ' ';
 
-        TextFormatArg argC;
-        argC = new TextFormatArg();
+        TextWriteArg argC;
+        argC = new TextWriteArg();
         argC.Init();
         argC.Pos = 6;
         argC.Kind = 2;
@@ -493,8 +493,8 @@ class Demo : Any
         argC.Base = 10;
         argC.FillChar = ' ';
 
-        TextFormatArg argD;
-        argD = new TextFormatArg();
+        TextWriteArg argD;
+        argD = new TextWriteArg();
         argD.Init();
         argD.Pos = 7;
         argD.Kind = 2;
@@ -506,8 +506,8 @@ class Demo : Any
         argD.Case = 1;
         argD.FillChar = ' ';
 
-        TextFormatArg argDA;
-        argDA = new TextFormatArg();
+        TextWriteArg argDA;
+        argDA = new TextWriteArg();
         argDA.Init();
         argDA.Pos = 7;
         argDA.Kind = 2;
@@ -518,8 +518,8 @@ class Demo : Any
         argDA.Base = 10;
         argDA.Sign = 1;
 
-        TextFormatArg argDB;
-        argDB = new TextFormatArg();
+        TextWriteArg argDB;
+        argDB = new TextWriteArg();
         argDB.Init();
         argDB.Pos = 8;
         argDB.Kind = 2;
@@ -531,8 +531,8 @@ class Demo : Any
         argDB.Sign = 2;
         argDB.FillChar = ':';
 
-        TextFormatArg argE;
-        argE = new TextFormatArg();
+        TextWriteArg argE;
+        argE = new TextWriteArg();
         argE.Init();
         argE.Pos = 10;
         argE.Kind = 3;
@@ -543,8 +543,8 @@ class Demo : Any
         argE.Case = 2;
         argE.FillChar = '=';
 
-        TextFormatArg argF;
-        argF = new TextFormatArg();
+        TextWriteArg argF;
+        argF = new TextWriteArg();
         argF.Init();
         argF.Pos = 10;
         argF.Kind = 3;
@@ -640,8 +640,8 @@ class Demo : Any
         this.TimeWriteBase = this.TextInfra.TextCreateStringData(
             this.StringValue("year: , month: , day: , hour: , min: , sec: , millisec: , pos: \n"), null);
 
-        TextFormatArg prefixArg;
-        prefixArg = new TextFormatArg();
+        TextWriteArg prefixArg;
+        prefixArg = new TextWriteArg();
         prefixArg.Init();
         prefixArg.Pos = 0;
         prefixArg.Kind = 3;
@@ -709,8 +709,8 @@ class Demo : Any
         i = 0;
         while (i < count)
         {
-            TextFormatArg arg;
-            arg = (TextFormatArg)this.ArgList.GetAt(i);
+            TextWriteArg arg;
+            arg = (TextWriteArg)this.ArgList.GetAt(i);
             arg.HasCount = false;
 
             i = i + 1;
@@ -751,10 +751,10 @@ class Demo : Any
         return true;
     }
 
-    private TextFormatArg CreateTimeWriteArg(long pos)
+    private TextWriteArg CreateTimeWriteArg(long pos)
     {
-        TextFormatArg a;
-        a = new TextFormatArg();
+        TextWriteArg a;
+        a = new TextWriteArg();
         a.Init();
         a.Pos = pos;
         a.Kind = 1;
