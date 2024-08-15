@@ -698,7 +698,6 @@ class Demo : Any
 
         this.TimeWrite = write;
 
-
         Time time;
         time = new Time();
         time.Init();
