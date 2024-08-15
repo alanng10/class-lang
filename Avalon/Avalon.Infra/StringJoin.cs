@@ -5,26 +5,23 @@ public class StringJoin : Any
     public override bool Init()
     {
         base.Init();
-        this.Builder = new StringBuilder();
+
         return true;
     }
 
-    private StringBuilder Builder { get; set; }
 
-    public virtual string Result()
+    public virtual String Result()
     {
-        return this.Builder.ToString();
+        return null;
     }
 
     public virtual bool Clear()
     {
-        this.Builder.Clear();
         return true;
     }
 
-    public virtual bool Append(char oc)
+    public virtual bool Append(uint oc)
     {
-        this.Builder.Append(oc);
         return true;
     }
 }

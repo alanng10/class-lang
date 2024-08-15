@@ -14,7 +14,7 @@ public class StringOut : Out
     protected virtual InfraInfra InfraInfra { get; set; }
     private StringJoin Sj { get; set; }
 
-    public override bool Write(string o)
+    public override bool Write(String o)
     {
         this.InfraInfra.StringJoinString(this.Sj, o);
         return true;
@@ -26,7 +26,7 @@ public class StringOut : Out
         return true;
     }
 
-    public virtual string Result()
+    public virtual String Result()
     {
         return this.Sj.Result();
     }

@@ -17,6 +17,7 @@ public class Infra : Any
     public override bool Init()
     {
         base.Init();
+        this.StringComp = StringComp.This;
 
         long o;
         o = 1;
@@ -26,6 +27,7 @@ public class Infra : Any
     }
 
     public virtual long IntCapValue { get; set; }
+    protected virtual StringComp StringComp { get; set; }
 
     public virtual bool ValidIndex(long count, long index)
     {
@@ -171,16 +173,19 @@ public class Infra : Any
         return true;
     }
 
-    public virtual bool StringJoinString(StringJoin h, string a)
+    public virtual bool StringJoinString(StringJoin h, String a)
     {
-        int count;
-        count = a.Length;
-        int i;
+        StringComp stringComp;
+        stringComp = this.StringComp;
+
+        long count;
+        count = a.Count;
+        long i;
         i = 0;
         while (i < count)
         {
-            char oc;
-            oc = a[i];
+            uint oc;
+            oc = (uint)stringComp.Char(a, i);
 
             h.Append(oc);
 
