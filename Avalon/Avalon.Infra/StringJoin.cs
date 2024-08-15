@@ -32,6 +32,7 @@ public class StringJoin : Any
 
     public virtual bool Clear()
     {
+        this.Count = 0;
         return true;
     }
 
