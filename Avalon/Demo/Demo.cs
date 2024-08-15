@@ -1294,6 +1294,7 @@ class Demo : Any
         PostState postState;
         postState = new PostState();
         postState.Init();
+        postState.Demo = this;
 
         ThreadPhore phore;
         phore = new ThreadPhore();
