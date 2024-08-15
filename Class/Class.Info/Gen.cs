@@ -630,7 +630,7 @@ public class Gen : Any
             }
             if (!b)
             {
-                o.Append(oc);
+                o.Add(oc);
             }
 
             i = i + 1;
