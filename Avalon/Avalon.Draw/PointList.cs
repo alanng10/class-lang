@@ -10,7 +10,7 @@ public class PointList : Any
 
         this.InternPos = this.InternInfra.PosCreate();
 
-        int count;
+        long count;
         count = this.Count;
         ulong countU;
         countU = (ulong)count;
@@ -53,14 +53,14 @@ public class PointList : Any
         return true;
     }
 
-    public virtual int Count { get; set; }
+    public virtual long Count { get; set; }
     private InternInfra InternInfra { get; set; }
     protected virtual InfraInfra InfraInfra { get; set; }
     internal virtual ulong Intern { get; set; }
     private ulong InternDataValue { get; set; }
     private ulong InternPos { get; set; }
 
-    public virtual bool Get(int index, PosInt result)
+    public virtual bool Get(long index, Pos result)
     {
         if (!this.InfraInfra.ValidIndex(this.Count, index))
         {
@@ -90,7 +90,7 @@ public class PointList : Any
         return true;
     }
 
-    public virtual bool Set(int index, PosInt value)
+    public virtual bool Set(long index, Pos value)
     {
         if (!this.InfraInfra.ValidIndex(this.Count, index))
         {
@@ -110,7 +110,7 @@ public class PointList : Any
         return true;
     }
 
-    private ulong Address(int index)
+    private ulong Address(long index)
     {
         ulong ka;
         ka = (ulong)index;
