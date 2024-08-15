@@ -572,8 +572,8 @@ class Demo : Any
         charForm = new CharForm();
         charForm.Init();
 
-        TextFormat format;
-        format = new TextFormat();
+        TextWrite format;
+        format = new TextWrite();
         format.Init();
         format.CharForm = charForm;
 
@@ -672,8 +672,8 @@ class Demo : Any
         charForm = new CharForm();
         charForm.Init();
 
-        TextFormat write;
-        write = new TextFormat();
+        TextWrite write;
+        write = new TextWrite();
         write.Init();
         write.CharForm = charForm;
 
@@ -699,7 +699,7 @@ class Demo : Any
     }
 
     private Text TimeWriteBase { get; set; }
-    private TextFormat TimeWrite { get; set; }
+    private TextWrite TimeWrite { get; set; }
 
     private bool ConsoleWriteTime(string prefix, Time time)
     {
