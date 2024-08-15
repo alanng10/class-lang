@@ -36,7 +36,7 @@ public class GradientKindList : Any
 
     protected virtual GradientKind AddItem(ulong o)
     {
-        int index;
+        long index;
         index = this.Index;
 
         GradientKind item;
@@ -59,13 +59,13 @@ public class GradientKindList : Any
 
     protected virtual Array Array { get; set; }
 
-    protected virtual int ArrayCount { get { return 2; } set { } }
+    protected virtual long ArrayCount { get { return 2; } set { } }
 
-    public virtual int Count { get; set; }
+    public virtual long Count { get; set; }
     
-    protected virtual int Index { get; set; }
+    protected virtual long Index { get; set; }
 
-    public virtual GradientKind Get(int index)
+    public virtual GradientKind Get(long index)
     {
         return (GradientKind)this.Array.GetAt(index);
     }

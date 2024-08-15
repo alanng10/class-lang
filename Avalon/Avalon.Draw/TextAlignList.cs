@@ -69,13 +69,13 @@ public class TextAlignList : Any
 
     protected virtual Array Array { get; set; }
 
-    protected virtual int ArrayCount { get { return 9; } set { } }
+    protected virtual long ArrayCount { get { return 9; } set { } }
 
-    public virtual int Count { get; set; }
+    public virtual long Count { get; set; }
     
-    protected virtual int Index { get; set; }
+    protected virtual long Index { get; set; }
 
-    public virtual TextAlign Get(int index)
+    public virtual TextAlign Get(long index)
     {
         return (TextAlign)this.Array.GetAt(index);
     }

@@ -38,7 +38,7 @@ public class ImageFormatList : Any
 
     protected virtual ImageFormat AddItem(ulong o)
     {
-        int index;
+        long index;
         index = this.Index;
 
         ImageFormat item;
@@ -61,13 +61,13 @@ public class ImageFormatList : Any
 
     protected virtual Array Array { get; set; }
 
-    protected virtual int ArrayCount { get { return 3; } set { } }
+    protected virtual long ArrayCount { get { return 3; } set { } }
 
-    public virtual int Count { get; set; }
+    public virtual long Count { get; set; }
     
-    protected virtual int Index { get; set; }
+    protected virtual long Index { get; set; }
 
-    public virtual ImageFormat Get(int index)
+    public virtual ImageFormat Get(long index)
     {
         return (ImageFormat)this.Array.GetAt(index);
     }
