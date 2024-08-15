@@ -14,7 +14,7 @@ class ConsoleIntern : Any
     private InternInfra InternInfra { get; set; }
     private ulong Intern { get; set; }
 
-    public virtual bool Write(int stream, String a)
+    public virtual bool Write(long stream, String a)
     {
         bool b;
         b = (stream == 0);
