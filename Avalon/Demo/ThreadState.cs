@@ -24,30 +24,33 @@ class ThreadState : State
     {
         Console console;
         console = Console.This;
-        console.Out.Write("ThreadState.Execute START\n");
+        console.Out.Write(this.S("ThreadState.Execute START\n"));
 
         this.Demo.ExecuteDemoThisThread();
 
         StorageInfra infra;
         infra = StorageInfra.This;
 
-        string a;
-        a = infra.TextRead("DemoData/ThreadRead.txt");
+        String a;
+        a = infra.TextRead(this.S("DemoData/ThreadRead.txt"));
         console.Out.Write("ThreadRead.txt text: \n" + a + "\n");
 
         string writeFilePath;
         writeFilePath = "DemoData/ThreadWrite.txt";
         File.Delete(writeFilePath);
 
+        String kkka;
+        kkka = this.S(writeFilePath);
+
         bool b;        
-        b = infra.TextWrite(writeFilePath, "阿 了 水 GR 8 &\nEu #@ ?\n卡");
+        b = infra.TextWrite(kkka, this.S("阿 了 水 GR 8 &\nEu #@ ?\n卡"));
         if (!b)
         {
-            console.Out.Write("ThreadWrite.txt write error\n");
+            console.Out.Write(this.S("ThreadWrite.txt write error\n"));
         }
         if (b)
         {
-            a = infra.TextRead(writeFilePath);
+            a = infra.TextRead(kkka);
             console.Out.Write("ThreadWrite.txt text: \n" + a + "\n");
         }
 
@@ -55,11 +58,11 @@ class ThreadState : State
         varThis = new ThreadThis();
         varThis.Init();
 
-        console.Out.Write("ThreadState.Execute ThreadThis Wait START\n");
+        console.Out.Write(this.S("ThreadState.Execute ThreadThis Wait START\n"));
 
         varThis.Wait(2 * 1000);
 
-        console.Out.Write("ThreadState.Execute ThreadThis Wait END\n");
+        console.Out.Write(this.S("ThreadState.Execute ThreadThis Wait END\n"));
 
         this.Phore.Release();
         
@@ -68,11 +71,11 @@ class ThreadState : State
         Value aa;
         aa = new Value();
         aa.Init();
-        aa.Mid = 0x10000;
+        aa.Int = 0x10000;
 
         this.Result = aa;
 
-        console.Out.Write("ThreadState.Execute END\n");
+        console.Out.Write(this.S("ThreadState.Execute END\n"));
         return true;
     }
 
@@ -97,17 +100,17 @@ class ThreadState : State
         brushA.Color = drawInfra.ColorCreate(0xff, 0, 0, 0);
         brushA.Init();
 
-        int left;
-        int up;
-        int width;
-        int height;
+        long left;
+        long up;
+        long width;
+        long height;
         left = 20;
         up = 20;
         width = this.Image.Size.Width - 50;
         height = this.Image.Size.Height - 50;
 
-        DrawRectInt rectA;
-        rectA = drawInfra.RectIntCreate(this.MathInt(left), this.MathInt(up), this.MathInt(width), this.MathInt(height));
+        DrawRect rectA;
+        rectA = drawInfra.RectCreate(this.MathInt(left), this.MathInt(up), this.MathInt(width), this.MathInt(height));
 
         DrawDraw draw;
         draw = new DrawDraw();
@@ -122,11 +125,11 @@ class ThreadState : State
         draw.Fill = brush;
         draw.ExecuteRect(rectA);
 
-        int w;
+        long w;
         w = width;
         w = w - 40;
 
-        int h;
+        long h;
         h = height;
         h = h - 40;
 
@@ -161,5 +164,10 @@ class ThreadState : State
         long a;
         a = mathInfra.Int(math, mathComp, n);
         return a;
+    }
+
+    protected virtual String S(string o)
+    {
+        return this.Demo.StringValue(o);
     }
 }
