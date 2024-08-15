@@ -111,28 +111,6 @@ public class StringComp : Any
         dest.Count = count * kka;
         dest.Init();
 
-        Data sourceData;
-        sourceData = null;
-
-        bool ba;
-        ba = (data is StringData);
-
-        if (!ba)
-        {
-            sourceData = data;
-        }
-
-        if (ba)
-        {
-            StringData stringData;
-            stringData = (StringData)data;
-
-            String koo;
-            koo = stringData.ValueString;
-
-            sourceData = koo.Data;
-        }
-
         long i;
         i = 0;
         while (i < count)
@@ -143,7 +121,7 @@ public class StringComp : Any
             keb = i * kka;
 
             uint aa;
-            aa = infraInfra.DataCharGet(sourceData, kea);
+            aa = infraInfra.DataCharGet(data, kea);
 
             infraInfra.DataCharSet(dest, keb, aa);
 
