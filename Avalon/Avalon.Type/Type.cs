@@ -21,7 +21,6 @@ public class Type : Any
         this.Button.Init();
 
         this.InitFieldList();
-
         
         this.ChangeArg = new ChangeArg();
         this.ChangeArg.Init();
@@ -39,9 +38,9 @@ public class Type : Any
         Array array;
         array = this.FieldList;
 
-        int count;
+        long count;
         count = array.Count;
-        int i;
+        long i;
         i = 0;
         while (i < count)
         {
