@@ -1268,6 +1268,7 @@ class Demo : Any
         ThreadIntervalState state;
         state = new ThreadIntervalState();
         state.Init();
+        state.Demo = this;
         state.Single = single;
         state.ElapseCount = elapseCount;
         state.Time = time;

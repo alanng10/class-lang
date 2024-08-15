@@ -2,6 +2,7 @@ namespace Demo;
 
 class ElapseState : State
 {
+    public virtual Demo Demo { get; set; }
     public TimeEvent TimeEvent { get; set; }
     public ThreadThread Thread { get; set; }
     public int ElapseCount { get; set; }
@@ -13,11 +14,11 @@ class ElapseState : State
     {
         Console console;
         console = Console.This;
-        console.Out.Write("ElapseState.Execute START\n");
+        console.Out.Write(this.S("ElapseState.Execute START\n"));
 
         this.Count = this.Count + 1;
 
-        console.Out.Write("Elapse Count: " + this.Count + "\n");
+        console.Out.Write(this.S("Elapse Count: " + this.Count + "\n"));
          
         if (!(this.Count < this.ElapseCount))
         {
@@ -25,14 +26,19 @@ class ElapseState : State
             {
                 this.TimeEvent.Stop();
 
-                console.Out.Write("ElapseState.Execute Time Event Stop\n");
+                console.Out.Write(this.S("ElapseState.Execute Time Event Stop\n"));
             }
 
             this.Thread.ExitEventLoop(this.ExitCode);
         }
 
-        console.Out.Write("ElapseState.Execute END\n");
+        console.Out.Write(this.S("ElapseState.Execute END\n"));
 
         return true;
+    }
+
+    protected virtual String S(string o)
+    {
+        return this.Demo.StringValue(o);
     }
 }

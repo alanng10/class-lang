@@ -2,6 +2,7 @@ namespace Demo;
 
 class ThreadIntervalState : State
 {
+    public virtual Demo Demo { get; set; }
     public bool Single { get; set; }
     public int ElapseCount { get; set; }
     public long Time { get; set; }
@@ -23,6 +24,7 @@ class ThreadIntervalState : State
         ElapseState state;
         state = new ElapseState();
         state.Init();
+        state.Demo = this.Demo;
         state.TimeEvent = varEvent;
         state.Thread = thread;
         state.ElapseCount = this.ElapseCount;
@@ -42,7 +44,7 @@ class ThreadIntervalState : State
         Value aa;
         aa = new Value();
         aa.Init();
-        aa.Mid = o;
+        aa.Int = o;
         this.Result = aa;
         return true;
     }
