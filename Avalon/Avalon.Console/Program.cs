@@ -257,14 +257,14 @@ public class Program : Any
     {
         ulong countU;
         countU = Extern.Array_CountGet(o);
-        int count;
+        long count;
         count = (int)countU;
 
-        int i;
+        long i;
         i = 0;
         while (i < count)
         {
-            int index;
+            long index;
             index = count - 1 - i;
 
             ulong oa;
@@ -334,13 +334,13 @@ public class Program : Any
         ulong countU;
         countU = Extern.Array_CountGet(o);
 
-        int count;
+        long count;
         count = (int)countU;
-        int i;
+        long i;
         i = 0;
         while (i < count)
         {
-            int index;
+            long index;
             index = count - 1 - i;
 
             ulong oa;
