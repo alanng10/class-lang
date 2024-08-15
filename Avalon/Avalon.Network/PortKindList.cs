@@ -48,7 +48,7 @@ public class PortKindList : Any
 
     protected virtual PortKind AddItem(ulong o)
     {
-        int index;
+        long index;
         index = this.Index;
 
         PortKind item;
@@ -71,13 +71,13 @@ public class PortKindList : Any
 
     protected virtual Array Array { get; set; }
 
-    protected virtual int ArrayCount { get { return 8; } set { } }
+    protected virtual long ArrayCount { get { return 8; } set { } }
 
-    public virtual int Count { get; set; }
+    public virtual long Count { get; set; }
     
-    protected virtual int Index { get; set; }
+    protected virtual long Index { get; set; }
 
-    public virtual PortKind Get(int index)
+    public virtual PortKind Get(long index)
     {
         return (PortKind)this.Array.GetAt(index);
     }
