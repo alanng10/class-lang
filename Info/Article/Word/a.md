@@ -202,11 +202,11 @@ Word "hor" has meaning that is frontal index;
 
 Word "size" has meaning that is length in dimensions.
 
-Word "width" has meaning that is length horizontal.
+Word "wid" has meaning that is length horizontal.
 
-Word "height" has meaning that is length vertical.
+Word "heg" has meaning that is length vertical.
 
-Word "depth" has meaning that is length frontal.
+Word "dep" has meaning that is length frontal.
 
 Word "rect" has meaning that is rectangle.
 
