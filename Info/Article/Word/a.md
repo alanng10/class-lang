@@ -204,7 +204,7 @@ Word "size" has meaning that is length in dimensions.
 
 Word "wid" has meaning that is length horizontal.
 
-Word "heg" has meaning that is length vertical.
+Word "het" has meaning that is length vertical.
 
 Word "dep" has meaning that is length frontal.
 
