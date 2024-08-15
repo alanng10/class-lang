@@ -11,11 +11,11 @@ public class Entry : Any
 
     private InternIntern InternIntern { get; set; }
 
-    public virtual int Execute()
+    public virtual long Execute()
     {
         this.MainBefore();
 
-        int o;
+        long o;
         o = this.ExecuteMain();
 
         this.MainAfter();
@@ -61,7 +61,7 @@ public class Entry : Any
         return true;
     }
 
-    protected virtual int ExecuteMain()
+    protected virtual long ExecuteMain()
     {
         return 0;
     }
