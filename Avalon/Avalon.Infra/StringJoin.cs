@@ -80,9 +80,9 @@ public class StringJoin : Any
 
             capacity = ka;
 
-            this.Capacity = capacity;
-
             this.Data = data;
+
+            this.Capacity = capacity;
         }
 
         long ke;
