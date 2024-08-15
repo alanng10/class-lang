@@ -7,17 +7,15 @@ public class Code : Any
         base.Init();
         this.InternIntern = InternIntern.This;
         this.InfraInfra = InfraInfra.This;
-        this.TextInfra = Infra.This;
         return true;
     }
 
     private InternIntern InternIntern { get; set; }
     protected virtual InfraInfra InfraInfra { get; set; }
-    protected virtual Infra TextInfra { get; set; }
 
     public virtual long ExecuteCount(CodeKind innKind, CodeKind outKind, Data data, Range dataRange)
     {
-        if (!this.TextInfra.ValidCodeKind(innKind, outKind))
+        if (!this.ValidCodeKind(innKind, outKind))
         {
             return -1;
         }
@@ -47,7 +45,7 @@ public class Code : Any
 
     internal virtual long ExecuteCountString(CodeKind innKind, CodeKind outKind, string data, Range dataRange)
     {
-        if (!this.TextInfra.ValidCodeKind(innKind, outKind))
+        if (!this.ValidCodeKind(innKind, outKind))
         {
             return -1;
         }
@@ -83,7 +81,7 @@ public class Code : Any
         InfraInfra infraInfra;
         infraInfra = this.InfraInfra;
 
-        if (!this.TextInfra.ValidCodeKind(innKind, outKind))
+        if (!this.ValidCodeKind(innKind, outKind))
         {
             return false;
         }
@@ -121,7 +119,7 @@ public class Code : Any
         InfraInfra infraInfra;
         infraInfra = this.InfraInfra;
 
-        if (!this.TextInfra.ValidCodeKind(innKind, outKind))
+        if (!this.ValidCodeKind(innKind, outKind))
         {
             return false;
         }
@@ -154,6 +152,15 @@ public class Code : Any
 
         this.InternIntern.TextEncodeResultStringArray(result.Value, resultIndexU, innKind.Intern, outKind.Intern, data, dataIndexU, dataCountU);
 
+        return true;
+    }
+
+    public virtual bool ValidCodeKind(CodeKind innKind, CodeKind outKind)
+    {
+        if (innKind == outKind)
+        {
+            return false;
+        }
         return true;
     }
 }
