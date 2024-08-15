@@ -127,7 +127,6 @@ public class StringComp : Any
             i = i + 1;
         }
 
-
         String a;
         a = new String();
         a.Data = dest;
