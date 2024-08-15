@@ -240,16 +240,14 @@ public class Grid : View
 
     protected virtual bool UpdateLayout()
     {
-        int count;
+        long count;
         count = this.Col.Count + this.Row.Count;
 
-        int oa;
-        oa = count * sizeof(uint);
+        long oa;
+        oa = count * sizeof(ulong);
         long oo;
         oo = this.ChildPosData.Count;
-        int ob;
-        ob = (int)oo;
-        if (ob < oa)
+        if (oo < oa)
         {
             Data data;
             data = new Data();
@@ -276,15 +274,15 @@ public class Grid : View
 
     protected virtual bool ExecuteDrawGridChildList(DrawDraw draw)
     {
-        int left;
+        long left;
         left = this.Dest.Pos.Col;
         left = left + draw.Pos.Col;
-        int up;
+        long up;
         up = this.Dest.Pos.Row;
         up = up + draw.Pos.Row;
-        int width;
+        long width;
         width = this.Dest.Size.Width;
-        int height;
+        long height;
         height = this.Dest.Size.Height;
 
         this.DrawRectA.Pos.Col = left;
@@ -340,13 +338,13 @@ public class Grid : View
         Size gridSize;
         gridSize = gridRect.Size;
 
-        int startCol;
+        long startCol;
         startCol = gridPos.Col;
-        int endCol;
+        long endCol;
         endCol = startCol + gridSize.Width;
-        int startRow;
+        long startRow;
         startRow = gridPos.Row;
-        int endRow;
+        long endRow;
         endRow = startRow + gridSize.Height;
 
         int leftA;
@@ -409,53 +407,53 @@ public class Grid : View
         return a;
     }
 
-    protected virtual int GridColLeft(int col)
+    protected virtual int GridColLeft(long col)
     {
         return this.GridPosPixelPos(col, 0);
     }
 
-    protected virtual int GridRowUp(int row)
+    protected virtual int GridRowUp(long row)
     {
         return this.GridPosPixelPos(row, this.Col.Count);
     }
 
-    protected virtual int GridPosPixelPos(int pos, int start)
+    protected virtual long GridPosPixelPos(long pos, long start)
     {
-        int t;
+        long t;
         t = pos;
         bool b;
-        int u;
+        long u;
         u = 0;
 
         b = (t < 1);
         if (!b)
         {
             t = t - 1;
-            int index;
+            long index;
             index = start + t;
-            int byteIndex;
+            long byteIndex;
             byteIndex = this.IntByteIndex(index);
 
-            uint uu;
-            uu = this.InfraInfra.DataMidGet(this.ChildPosData, byteIndex);
-            u = (int)uu;
+            ulong uu;
+            uu = this.InfraInfra.DataIntGet(this.ChildPosData, byteIndex);
+            u = (long)uu;
         }
-        int ret;
+        long ret;
         ret = u;
         return ret;
     }
 
     protected virtual bool SetChildLeftArray()
     {
-        int start;
+        long start;
         start = 0;
         Iter iter;
         iter = this.ColIter;
         this.Col.IterSet(iter);
-        int left;
+        long left;
         left = 0;
 
-        int i;
+        long i;
         i = 0;
         while (iter.Next())
         {
@@ -463,13 +461,13 @@ public class Grid : View
             gridCol = (Count)iter.Value;
             left = left + gridCol.Value;
 
-            int index;
+            long index;
             index = start + i;
-            int byteIndex;
+            long byteIndex;
             byteIndex = this.IntByteIndex(index);
-            uint u;
-            u = (uint)left;
-            this.InfraInfra.DataMidSet(this.ChildPosData, byteIndex, u);
+            ulong u;
+            u = (ulong)left;
+            this.InfraInfra.DataIntSet(this.ChildPosData, byteIndex, u);
             i = i + 1;
         }
         return true;
@@ -477,15 +475,15 @@ public class Grid : View
 
     protected virtual bool SetChildUpArray()
     {
-        int start;
+        long start;
         start = this.Col.Count;
         Iter iter;
         iter = this.RowIter;
         this.Row.IterSet(iter);
-        int up;
+        long up;
         up = 0;
 
-        int i;
+        long i;
         i = 0;
         while (iter.Next())
         {
@@ -493,13 +491,13 @@ public class Grid : View
             gridRow = (Count)iter.Value;
             up = up + gridRow.Value;
 
-            int index;
+            long index;
             index = start + i;
-            int byteIndex;
+            long byteIndex;
             byteIndex = this.IntByteIndex(index);
-            uint u;
-            u = (uint)up;
-            this.InfraInfra.DataMidSet(this.ChildPosData, byteIndex, u);
+            ulong u;
+            u = (ulong)up;
+            this.InfraInfra.DataIntSet(this.ChildPosData, byteIndex, u);
             i = i + 1;
         }
         return true;
@@ -527,8 +525,8 @@ public class Grid : View
         return true;
     }
 
-    protected virtual int IntByteIndex(int index)
+    protected virtual long IntByteIndex(long index)
     {
-        return index * sizeof(uint);
+        return index * sizeof(ulong);
     }
 }
