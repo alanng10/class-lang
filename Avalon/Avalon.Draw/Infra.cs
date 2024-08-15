@@ -116,7 +116,6 @@ public class Infra : Any
         return a;
     }
 
-
     internal virtual bool ColorSet(Color color, ulong internColor)
     {
         color.Blue = (int)((internColor >> (0 * 8)) & 0xff);
@@ -131,7 +130,7 @@ public class Infra : Any
         return this.BrushInfra.InternColor(color);
     }
 
-    public virtual Pos PosCreate(int left, int up)
+    public virtual Pos PosCreate(long left, long up)
     {
         Pos pos;
         pos = new Pos();
@@ -141,7 +140,7 @@ public class Infra : Any
         return pos;
     }
 
-    public virtual Size SizeCreate(int width, int height)
+    public virtual Size SizeCreate(long width, long height)
     {
         Size size;
         size = new Size();
@@ -151,43 +150,13 @@ public class Infra : Any
         return size;
     }
 
-    public virtual Rect RectCreate(int left, int up, int width, int height)
+    public virtual Rect RectCreate(long left, long up, long width, long height)
     {
         Rect rect;
         rect = new Rect();
         rect.Init();
         rect.Pos = this.PosCreate(left, up);
         rect.Size = this.SizeCreate(width, height);
-        return rect;
-    }
-
-    public virtual Pos PosIntCreate(long left, long up)
-    {
-        Pos pos;
-        pos = new Pos();
-        pos.Init();
-        pos.Col = left;
-        pos.Row = up;
-        return pos;
-    }
-
-    public virtual Size SizeIntCreate(long width, long height)
-    {
-        Size size;
-        size = new Size();
-        size.Init();
-        size.Width = width;
-        size.Height = height;
-        return size;
-    }
-
-    public virtual Rect RectIntCreate(long left, long up, long width, long height)
-    {
-        Rect rect;
-        rect = new Rect();
-        rect.Init();
-        rect.Pos = this.PosIntCreate(left, up);
-        rect.Size = this.SizeIntCreate(width, height);
         return rect;
     }
 
