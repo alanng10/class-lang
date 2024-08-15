@@ -44,9 +44,9 @@ public class Program : Any
         return true;
     }
 
-    public virtual string Name { get; set; }
+    public virtual String Name { get; set; }
     public virtual ListList Argue { get; set; }
-    public virtual string WorkFold { get; set; }
+    public virtual String WorkFold { get; set; }
     public virtual Table Environ { get; set; }
 
     public virtual State StartState { get; set; }
@@ -168,7 +168,7 @@ public class Program : Any
     public virtual bool Execute()
     {
         ulong nameU;
-        nameU = this.InternInfra.StringCreate(this.Name);
+        nameU = this.InternInfra.StringCreate(this.Name.Data.Value);
         ulong argueU;
         argueU = this.InternStringListCreate(this.Argue);
 
@@ -178,7 +178,7 @@ public class Program : Any
         ba = !(this.WorkFold == null);
         if (ba)
         {
-            workFoldU = this.InternInfra.StringCreate(this.WorkFold);
+            workFoldU = this.InternInfra.StringCreate(this.WorkFold.Data.Value);
         }
 
         ulong environmentU;
@@ -222,7 +222,7 @@ public class Program : Any
         Iter iter;
         iter = stringList.IterCreate();
         stringList.IterSet(iter);
-        int count;
+        long count;
         count = stringList.Count;
         ulong countU;
         countU = (ulong)count;
@@ -232,17 +232,17 @@ public class Program : Any
         Extern.Array_CountSet(a, countU);
         Extern.Array_Init(a);
 
-        int i;
+        long i;
         i = 0;
         while (i < count)
         {
             iter.Next();
 
-            string o;
-            o = (string)iter.Value;
+            String o;
+            o = (String)iter.Value;
 
             ulong u;
-            u = this.InternInfra.StringCreate(o);
+            u = this.InternInfra.StringCreate(o.Data.Value);
 
             ulong oa;
             oa = (ulong)i;
@@ -289,7 +289,7 @@ public class Program : Any
         iter = stringTable.IterCreate();
         stringTable.IterSet(iter);
 
-        int count;
+        long count;
         count = stringTable.Count;
         ulong countU;
         countU = (ulong)count;
@@ -299,20 +299,20 @@ public class Program : Any
         Extern.Array_CountSet(a, countU);
         Extern.Array_Init(a);
 
-        int i;
+        long i;
         i = 0;
         while (i < count)
         {
             iter.Next();
 
-            string index;
-            string value;
-            index = (string)(iter.Index);
-            value = (string)(iter.Value);
+            String index;
+            String value;
+            index = (String)(iter.Index);
+            value = (String)(iter.Value);
             ulong indexU;
-            indexU = this.InternInfra.StringCreate(index);
+            indexU = this.InternInfra.StringCreate(index.Data.Value);
             ulong valueU;
-            valueU = this.InternInfra.StringCreate(value);
+            valueU = this.InternInfra.StringCreate(value.Data.Value);
 
             ulong entryU;
             entryU = Extern.Entry_New();
