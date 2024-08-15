@@ -408,24 +408,20 @@ class Demo : Any
 
     private bool ConsoleWriteMathValue(string prefix, long value)
     {
-        StringJoin h;
-        h = this.StringJoin;
-
         this.Math.Comp(this.MathComp, value);
         
         String ka;
 
-        h.Clear();
-        this.Append(this.StringValue(prefix))
-            .Append(this.StringValue("Cand: "))
-            .Append(this.StringValue(this.MathComp.Cand.ToString("x")))
-            .Append(this.StringValue(", "))
-            .Append(this.StringValue("Expo: "))
-            .Append(this.StringValue(this.MathComp.Expo.ToString()))
-            .AppendChar('\n')
+        ka = this.AddClear()
+            .AddValue(prefix)
+            .AddValue("Cand: ")
+            .AddValue(this.MathComp.Cand.ToString("x"))
+            .AddValue(", ")
+            .AddValue("Expo: ")
+            .AddValue(this.MathComp.Expo.ToString())
+            .AddChar('\n')
+            .AddResult()
             ;
-
-        ka = h.Result();
 
         this.Console.Out.Write(ka);
 
