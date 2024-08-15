@@ -33,7 +33,7 @@ public class Infra : object
         ulong data;
         data = Extern.New(ka);
 
-        this.InternIntern.CopyFromByteArray(data, value, 0, k);
+        this.InternIntern.CopyFromByteArray(data, value, 0, ka);
 
         ulong a;
         a = Extern.String_New();
