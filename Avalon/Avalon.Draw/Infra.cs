@@ -71,8 +71,8 @@ public class Infra : Any
         return true;
     }
 
-    public virtual int PixelByteCount { get; set; }
-    public virtual int ColorCompMax { get; set; }
+    public virtual long PixelByteCount { get; set; }
+    public virtual long ColorCompMax { get; set; }
     public virtual Brush BlackBrush { get; set; }
     public virtual Brush WhiteBrush { get; set; }
     public virtual Brush TransparentBrush { get; set; }
@@ -90,7 +90,7 @@ public class Infra : Any
 
     internal virtual ulong InternWordWrap { get; set; }
 
-    public virtual Color ColorCreate(int alpha, int red, int green, int blue)
+    public virtual Color ColorCreate(long alpha, long red, long green, long blue)
     {
         Color color;
         color = new Color();
