@@ -550,17 +550,17 @@ public class Infra : Any
 
     public virtual Data Code(CodeKind innKind, CodeKind outKind, Data data, Range range)
     {
+        if (!this.ValidCodeKind(innKind, outKind))
+        {
+            return null;
+        }
+
         Code code;
         code = new Code();
         code.Init();
 
         long resultCount;
         resultCount = code.ExecuteCount(innKind, outKind, data, range);
-
-        if (resultCount == -1)
-        {
-            return null;
-        }
 
         Data result;
         result = new Data();
@@ -570,6 +570,15 @@ public class Infra : Any
         code.ExecuteResult(result, 0, innKind, outKind, data, range);
 
         return result;
+    }
+
+    public virtual bool ValidCodeKind(CodeKind innKind, CodeKind outKind)
+    {
+        if (innKind == outKind)
+        {
+            return false;
+        }
+        return true;
     }
 
     private Text TextCreateDataRange(Data data, Range range)
