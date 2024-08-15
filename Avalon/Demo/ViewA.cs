@@ -5,21 +5,21 @@ class ViewA : View
     public virtual DrawBrush DrawPen { get; set; }
     public virtual Demo Demo { get; set; }
     public virtual DrawForm Form { get; set; }
-    public virtual int RotateValue { get; set; }
+    public virtual long RotateValue { get; set; }
 
     protected override bool ExecuteDrawThis(DrawDraw draw)
     {
-        int left;
+        long left;
         left = this.Pos.Col;
-        int up;
+        long up;
         up = this.Pos.Row;
-        int width;
+        long width;
         width = this.Size.Width;
-        int height;
+        long height;
         height = this.Size.Height;
 
-        DrawRectInt rect;
-        rect = this.DrawRectIntA;
+        DrawRect rect;
+        rect = this.DrawRectA;
         rect.Pos.Col = this.MathInt(left);
         rect.Pos.Row = this.MathInt(up);
         rect.Size.Width = this.MathInt(width);
@@ -44,8 +44,8 @@ class ViewA : View
         rect.Pos.Col = 0;
         rect.Pos.Row = 0;
 
-        DrawRectInt rectB;
-        rectB = this.DrawRectIntB;
+        DrawRect rectB;
+        rectB = this.DrawRectB;
         rectB.Pos.Col = 0;
         rectB.Pos.Row = 0;
         rectB.Size.Width = this.MathInt(playImage.Size.Width);
@@ -57,9 +57,9 @@ class ViewA : View
         long oob;
         oob = this.MathInt(up);
 
-        int oa;
+        long oa;
         oa = this.RotateValue * 10;
-        int ob;        
+        long ob;
         ob = oa / 360;
         ob = ob * 360;
         oa = oa - ob;

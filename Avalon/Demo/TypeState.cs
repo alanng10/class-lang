@@ -13,7 +13,7 @@ class TypeState : State
     public Demo Demo { get; set; }
     protected virtual ViewInfra ViewInfra { get; set; }
     protected virtual Console Console { get; set; }
-    public int TitleIndex { get; set; }
+    public long TitleIndex { get; set; }
 
     public override bool Execute()
     {
@@ -35,7 +35,7 @@ class TypeState : State
 
         if (a == d.SignPercent & o)
         {
-            this.Console.Out.Write("Type Button Sign Percent Pressed\n");
+            this.Console.Out.Write(this.S("Type Button Sign Percent Pressed\n"));
         }
 
         bool b;
@@ -43,7 +43,7 @@ class TypeState : State
     
         if (a == d.LetterI & o)
         {
-            int k;
+            long k;
             k = this.Demo.ViewA.Pos.Row;
             k = k - 10;
             this.Demo.ViewA.Pos.Row = k;
@@ -51,7 +51,7 @@ class TypeState : State
         }
         if (a == d.LetterK & o)
         {
-            int k;
+            long k;
             k = this.Demo.ViewA.Pos.Row;
             k = k + 10;
             this.Demo.ViewA.Pos.Row = k;
@@ -59,7 +59,7 @@ class TypeState : State
         }
         if (a == d.LetterJ & o)
         {
-            int k;
+            long k;
             k = this.Demo.ViewA.Pos.Col;
             k = k - 10;
             this.Demo.ViewA.Pos.Col = k;
@@ -67,7 +67,7 @@ class TypeState : State
         }
         if (a == d.LetterL & o)
         {
-            int k;
+            long k;
             k = this.Demo.ViewA.Pos.Col;
             k = k + 10;
             this.Demo.ViewA.Pos.Col = k;
@@ -85,7 +85,7 @@ class TypeState : State
 
         if (a == d.LetterF & o)
         {
-            int k;
+            long k;
             k = this.Demo.ViewA.RotateValue;
             k = k + 1;
             this.Demo.ViewA.RotateValue = k;
@@ -96,7 +96,7 @@ class TypeState : State
         ba = false;
         if (a == d.LetterW & o)
         {
-            int k;
+            long k;
             k = this.Demo.ViewC.Pos.Row;
             k = k - 10;
             this.Demo.ViewC.Pos.Row = k;
@@ -104,7 +104,7 @@ class TypeState : State
         }
         if (a == d.LetterS & o)
         {
-            int k;
+            long k;
             k = this.Demo.ViewC.Pos.Row;
             k = k + 10;
             this.Demo.ViewC.Pos.Row = k;
@@ -112,7 +112,7 @@ class TypeState : State
         }
         if (a == d.LetterA & o)
         {
-            int k;
+            long k;
             k = this.Demo.ViewC.Pos.Col;
             k = k - 10;
             this.Demo.ViewC.Pos.Col = k;
@@ -122,7 +122,7 @@ class TypeState : State
         }
         if (a == d.LetterD & o)
         {
-            int k;
+            long k;
             k = this.Demo.ViewC.Pos.Col;
             k = k + 10;
             this.Demo.ViewC.Pos.Col = k;
@@ -176,8 +176,8 @@ class TypeState : State
 
         if (a == d.LetterN & o)
         {
-            string frameTitle;
-            frameTitle = "Avalon Demo " + this.TitleIndex.ToString("x4");
+            String frameTitle;
+            frameTitle = this.S("Avalon Demo " + this.TitleIndex.ToString("x4"));
 
             this.Demo.Frame.Title = frameTitle;
             this.Demo.Frame.TitleSet();
@@ -199,5 +199,10 @@ class TypeState : State
             this.Demo.Frame.Update(this.Demo.UpdateRect);
         }
         return true;
+    }
+
+    protected virtual String S(string o)
+    {
+        return this.Demo.StringValue(o);
     }
 }
