@@ -8,7 +8,7 @@ public class Face : Any
         this.InternIntern = InternIntern.This;
         this.InternInfra = InternInfra.This;
 
-        this.InternFamily = this.InternInfra.StringCreate(this.Family);
+        this.InternFamily = this.InternInfra.StringCreate(this.Family.Data.Value);
 
         ulong sizeU;
         sizeU = (ulong)(this.Size);
@@ -44,7 +44,7 @@ public class Face : Any
         return true;
     }
 
-    public virtual string Family { get; set; }
+    public virtual String Family { get; set; }
     public virtual int Size { get; set; }
     public virtual int Weight { get; set; }
     public virtual bool Italic { get; set; }
