@@ -179,7 +179,7 @@ public class Infra : Any
         stringComp = this.StringComp;
 
         long count;
-        count = a.Count;
+        count = stringComp.Count(a);
         long i;
         i = 0;
         while (i < count)
