@@ -161,30 +161,30 @@ public class Infra : Any
         return rect;
     }
 
-    public virtual PosInt PosIntCreate(long left, long up)
+    public virtual Pos PosIntCreate(long left, long up)
     {
-        PosInt pos;
-        pos = new PosInt();
+        Pos pos;
+        pos = new Pos();
         pos.Init();
         pos.Col = left;
         pos.Row = up;
         return pos;
     }
 
-    public virtual SizeInt SizeIntCreate(long width, long height)
+    public virtual Size SizeIntCreate(long width, long height)
     {
-        SizeInt size;
-        size = new SizeInt();
+        Size size;
+        size = new Size();
         size.Init();
         size.Width = width;
         size.Height = height;
         return size;
     }
 
-    public virtual RectInt RectIntCreate(long left, long up, long width, long height)
+    public virtual Rect RectIntCreate(long left, long up, long width, long height)
     {
-        RectInt rect;
-        rect = new RectInt();
+        Rect rect;
+        rect = new Rect();
         rect.Init();
         rect.Pos = this.PosIntCreate(left, up);
         rect.Size = this.SizeIntCreate(width, height);
@@ -286,22 +286,22 @@ public class Infra : Any
 
     public virtual bool BoundArea(Rect bound, Rect area)
     {
-        int left;
+        long left;
         left = area.Pos.Col;
-        int up;
+        long up;
         up = area.Pos.Row;
-        int width;
+        long width;
         width = area.Size.Width;
-        int height;
+        long height;
         height = area.Size.Height;
-        int right;
+        long right;
         right = left + width;
-        int down;
+        long down;
         down = up + height;
 
-        int boundRight;
+        long boundRight;
         boundRight = bound.Pos.Col + bound.Size.Width;
-        int boundDown;
+        long boundDown;
         boundDown = bound.Pos.Row + bound.Size.Height;
 
         if (left < bound.Pos.Col)
@@ -321,9 +321,9 @@ public class Infra : Any
             down = boundDown;
         }
 
-        int w;
+        long w;
         w = this.BoundSub(right, left);
-        int h;
+        long h;
         h = this.BoundSub(down, up);
 
         area.Pos.Col = left;
@@ -333,9 +333,9 @@ public class Infra : Any
         return true;
     }
 
-    protected virtual int BoundSub(int left, int right)
+    protected virtual long BoundSub(long left, long right)
     {
-        int k;
+        long k;
         k = 0;
         if (!(left < right))
         {
