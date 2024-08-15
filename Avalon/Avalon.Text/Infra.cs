@@ -548,6 +548,30 @@ public class Infra : Any
         return array;
     }
 
+    public virtual Data Code(CodeKind innKind, CodeKind outKind, Data data, Range range)
+    {
+        Code code;
+        code = new Code();
+        code.Init();
+
+        long resultCount;
+        resultCount = code.ExecuteCount(innKind, outKind, data, range);
+
+        if (resultCount == -1)
+        {
+            return null;
+        }
+
+        Data result;
+        result = new Data();
+        result.Count = resultCount;
+        result.Init();
+
+        code.ExecuteResult(result, 0, innKind, outKind, data, range);
+
+        return result;
+    }
+
     private Text TextCreateDataRange(Data data, Range range)
     {
         Range aa;
