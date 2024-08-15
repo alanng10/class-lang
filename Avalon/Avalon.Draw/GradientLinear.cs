@@ -8,7 +8,7 @@ public class GradientLinear : Any
         this.InternIntern = InternIntern.This;
         this.InternInfra = InternInfra.This;
 
-        PosInt pos;
+        Pos pos;
         pos = this.StartPos;
         this.InternStartPos = this.InternInfra.PosCreate();
         this.InternInfra.PosSet(this.InternStartPos, pos.Col, pos.Row);
@@ -35,8 +35,8 @@ public class GradientLinear : Any
         return true;
     }
 
-    public virtual PosInt StartPos { get; set; }
-    public virtual PosInt EndPos { get; set; }
+    public virtual Pos StartPos { get; set; }
+    public virtual Pos EndPos { get; set; }
 
     private InternIntern InternIntern { get; set; }
     private InternInfra InternInfra { get; set; }
