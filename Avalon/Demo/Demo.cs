@@ -1102,7 +1102,7 @@ class Demo : Any
 
     private bool ExecuteNetwork()
     {
-        this.Console.Out.Write("Network Start\n");
+        this.Console.Out.Write(this.StringValue("Network Start\n"));
 
         ThreadThread thread;
         thread = new ThreadThread();
@@ -1137,13 +1137,13 @@ class Demo : Any
         
         thread.Final();
 
-        this.Console.Out.Write("Network End\n");
+        this.Console.Out.Write(this.StringValue("Network End\n"));
         return true;
     }
 
     private bool ExecuteNetworkProcess()
     {
-        this.Console.Out.Write("NetworkProcess Start\n");
+        this.Console.Out.Write(this.StringValue("NetworkProcess Start\n"));
 
         ThreadThread thread;
         thread = new ThreadThread();
@@ -1165,7 +1165,7 @@ class Demo : Any
         Program program;
         program = new Program();
         program.Init();
-        program.Name = "DemoNetwork.exe";
+        program.Name = this.StringValue("DemoNetwork.exe");
         program.Argue = list;
         program.WorkFold = null;
         program.Environ = null;
@@ -1180,7 +1180,7 @@ class Demo : Any
 
         thread.Final();
 
-        this.Console.Out.Write("NetworkProcess End\n");
+        this.Console.Out.Write(this.StringValue("NetworkProcess End\n"));
         return true;
     }
 
@@ -1222,13 +1222,13 @@ class Demo : Any
 
         phore.Acquire();
 
-        this.Console.Out.Write("Demo.ExecuteDemoThread phore Acquire Success\n");
+        this.Console.Out.Write(this.StringValue("Demo.ExecuteDemoThread phore Acquire Success\n"));
 
         thread.Wait();
 
         int aa;
         aa = thread.Status;
-        this.Console.Out.Write("Demo.ExecuteDemoThread Thread Status: 0h" + aa.ToString("x8") + "\n");
+        this.Console.Out.Write(this.StringValue("Demo.ExecuteDemoThread Thread Status: 0h" + aa.ToString("x8") + "\n"));
 
         thread.Final();
 
@@ -1248,7 +1248,7 @@ class Demo : Any
         bool isMainThread;
         isMainThread = thread.Main;
 
-        this.Console.Out.Write("This Thread is Main Thread: " + isMainThread.ToString() + "\n");
+        this.Console.Out.Write(this.StringValue("This Thread is Main Thread: " + isMainThread.ToString() + "\n"));
         return true;
     }
 
@@ -1284,7 +1284,7 @@ class Demo : Any
 
         thread.Final();
 
-        this.Console.Out.Write("Demo.ExecuteTimeEventOne Thread Status: 0h" + o.ToString("x8") + "\n");
+        this.Console.Out.Write(this.StringValue("Demo.ExecuteTimeEventOne Thread Status: 0h" + o.ToString("x8") + "\n"));
         return true;
     }
 
@@ -1323,7 +1323,7 @@ class Demo : Any
 
         phore.Final();
 
-        this.Console.Out.Write("Demo.ExecuteDemoPost Thread Status: 0h" + o.ToString("x8") + "\n");
+        this.Console.Out.Write(this.StringValue("Demo.ExecuteDemoPost Thread Status: 0h" + o.ToString("x8") + "\n"));
         return true;
     }
 
@@ -1371,8 +1371,8 @@ class Demo : Any
 
         DrawGradientLinear gradientLinear;
         gradientLinear = new DrawGradientLinear();
-        gradientLinear.StartPos = this.DrawInfra.PosIntCreate(this.MathInt(300), 0);
-        gradientLinear.EndPos = this.DrawInfra.PosIntCreate(this.MathInt(300), this.MathInt(400));
+        gradientLinear.StartPos = this.DrawInfra.PosCreate(this.MathInt(300), 0);
+        gradientLinear.EndPos = this.DrawInfra.PosCreate(this.MathInt(300), this.MathInt(400));
         gradientLinear.Init();
 
         DrawGradientStop gradientStop;
@@ -1417,11 +1417,11 @@ class Demo : Any
         DrawTextAlignList textAlignList;
         textAlignList = DrawTextAlignList.This;
 
-        string oa;
-        oa = "G L 的哈gd@行 o #";
+        String oa;
+        oa = this.StringValue("G L 的哈gd@行 o #");
 
         Text text;
-        text = this.TextInfra.TextCreateString(oa, null);
+        text = this.TextInfra.TextCreateStringData(oa, null);
 
         ViewC viewC;
         viewC = new ViewC();
@@ -1432,7 +1432,7 @@ class Demo : Any
         viewC.Size.Height = 400;
         viewC.Back = brush;
         viewC.EllipseBrush = ellipseBrush;
-        viewC.EllipseRect = this.DrawInfra.RectIntCreate(0, 0, this.MathInt(100), this.MathInt(50));
+        viewC.EllipseRect = this.DrawInfra.RectCreate(0, 0, this.MathInt(100), this.MathInt(50));
         viewC.Face = face;
         viewC.Text = text;
         viewC.TextAlign = textAlignList.CenterUp;
@@ -1502,21 +1502,6 @@ class Demo : Any
         return true;
     }
 
-    private AudioEffect AudioEffectCreate()
-    {
-        AudioEffect a;
-        a = new AudioEffect();
-        a.Source = "file:DemoData/DemoSound.wav";
-        a.Init();
-        return a;
-    }
-
-    private bool AudioEffectFinal(AudioEffect a)
-    {
-        a.Final();
-        return true;
-    }
-
     private Play PlayCreate()
     {
         VideoFrame videoFrame;
@@ -1547,7 +1532,7 @@ class Demo : Any
         Play a;
         a = new Play();
         a.Init();
-        a.Source = "file:DemoData/Video.mp4";
+        a.Source = this.StringValue("file:DemoData/Video.mp4");
         a.SourceSet();
         a.VideoOut = videoOut;
         a.AudioOut = audioOut;
