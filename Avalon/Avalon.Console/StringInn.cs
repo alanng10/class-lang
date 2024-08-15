@@ -2,35 +2,67 @@ namespace Avalon.Console;
 
 public class StringInn : Inn
 {
-    public virtual string String { get; set; }
-
-    public virtual int Index { get; set; }
-
-    public override string Read()
+    public override bool Init()
     {
-        string o;
+        base.Init();
+        this.StringComp = StringComp.This;
+        this.Range = new Range();
+        this.Range.Init();
+        return true;
+    }
+
+    public virtual String String { get; set; }
+    public virtual long Index { get; set; }
+    protected virtual StringComp StringComp { get; set; }
+    protected virtual Range Range { get; set; }
+
+    public override String Read()
+    {
+        StringComp stringComp;
+        stringComp = this.StringComp;
+
+        String o;
         o = this.String;
-        int index;
+        long index;
         index = this.Index;
 
-        string a;
+        Range range;
+        range = this.Range;
+
+        String a;
         a = null;
 
-        int u;
-        u = o.IndexOf('\n', index);
+        long u;
+        u = this.StringIndex(index, '\n');
 
         bool b;
         b = (u < 0);
+
         if (b)
         {
-            a = o.Substring(index);
-            index = index + a.Length;
+            long end;
+            end = stringComp.Count(o);
+
+            long countA;
+            countA = end - index;
+
+            range.Index = index;
+            range.Count = countA;
+
+            a = stringComp.CreateString(o, range);
+
+            index = end;
         }
         if (!b)
         {
-            int count;
+            long count;
             count = u - index;
-            a = o.Substring(index, count);
+
+            range.Index = index;
+            range.Count = count;
+
+            a = stringComp.CreateString(o, range);
+
             index = index + count + 1;
         }
 
@@ -43,5 +75,34 @@ public class StringInn : Inn
     {
         this.Index = 0;
         return true;
+    }
+
+    private long StringIndex(long index, uint n)
+    {
+        StringComp stringComp;
+        stringComp = this.StringComp;
+
+        String o;
+        o = this.String;
+
+        long count;
+        count = stringComp.Count(o);
+
+        long i;
+        i = index;
+        while (i < count)
+        {
+            uint oc;
+            oc = (uint)stringComp.Char(o, i);
+
+            if (oc == n)
+            {
+                return i;
+            }
+
+            i = i + 1;
+        }
+
+        return -1;
     }
 }
