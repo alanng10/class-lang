@@ -24,7 +24,7 @@ public class Form : Any
         return true;
     }
 
-    public virtual long ValueGet(int row, int col)
+    public virtual long ValueGet(long row, long col)
     {
         if (!this.ValidRow(row))
         {
@@ -46,7 +46,7 @@ public class Form : Any
         return a;
     }
 
-    public virtual bool ValueSet(int row, int col, long value)
+    public virtual bool ValueSet(long row, long col, long value)
     {
         if (!this.ValidRow(row))
         {
@@ -139,12 +139,12 @@ public class Form : Any
         return true;
     }
 
-    public virtual bool ValidRow(int index)
+    public virtual bool ValidRow(long index)
     {
         return this.InfraInfra.ValidIndex(3, index);
     }
 
-    public virtual bool ValidCol(int index)
+    public virtual bool ValidCol(long index)
     {
         return this.InfraInfra.ValidIndex(3, index);
     }
