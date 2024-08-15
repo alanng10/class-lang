@@ -313,22 +313,16 @@ class Demo : Any
 
     private bool ExecuteConsole()
     {
-        StringJoin h;
-        h = this.StringJoin;
-
         this.Console.Out.Write(this.StringValue("Console 水中\n"));
+
         this.Console.Out.Write(this.StringValue("Input a: "));
+
+        String ka;
 
         String a;
         a = this.Console.Inn.Read();
 
-        String ka;
-
-        h.Clear();        
-        
-        this.Append(this.StringValue("a: ")).Append(a).AppendChar('\n');
-        
-        ka = h.Result();
+        ka = this.AddClear().AddValue("a: ").Add(a).AddChar('\n').AddResult();
 
         this.Console.Out.Write(ka);
 
@@ -337,11 +331,7 @@ class Demo : Any
         String aa;
         aa = this.Console.Inn.Read();
 
-        h.Clear();
-
-        this.Append(this.StringValue("aa: ")).Append(aa).AppendChar('\n');
-
-        ka = h.Result();
+        ka = this.AddClear().AddValue("aa: ").Add(aa).AddChar('\n').AddResult();
         
         this.Console.Out.Write(ka);
         return true;
@@ -772,44 +762,60 @@ class Demo : Any
     {
         StorageInfra infra;
         infra = StorageInfra.This;
-        string k;
-        k = infra.TextRead("DemoData/Demo.txt");
-        this.Console.Out.Write("Demo.txt text: \n");
+
+        String ka;
+        
+        String k;
+        k = infra.TextRead(this.StringValue("DemoData/Demo.txt"));
+        this.Console.Out.Write(this.StringValue("Demo.txt text: \n"));
         this.Console.Out.Write(k);
-        this.Console.Out.Write("\n");
+        this.Console.Out.Write(this.StringValue("\n"));
 
         string ou;
         ou = "DemoData/Demo2.txt";
         File.Delete(ou);
 
+
+        String kou;
+        kou = this.StringValue(ou);
+
         bool b;
         b = false;
         bool ba;
-        ba = infra.TextWrite(ou, "DEMO STORAGE WRITE AAA BBB");
+        ba = infra.TextWrite(kou, this.StringValue("DEMO STORAGE WRITE AAA BBB"));
         if (!ba)
         {
-            this.Console.Out.Write("Write " + ou + " 1 Error\n");
+            ka = this.AppendClear().AppendValue("Write ").Append(kou).AppendValue(" 1 Error\n").AppendResult();
+
+            this.Console.Out.Write(ka);
             b = true;
         }
 
         if (ba)
         {
             bool bb;
-            bb = infra.TextWrite(ou, "DEMO STORAGE WRITE 2 AAA");
+            bb = infra.TextWrite(kou, this.StringValue("DEMO STORAGE WRITE 2 AAA"));
             if (!bb)
             {
-                this.Console.Out.Write("Write " + ou + " 2 Error\n");
+                ka = this.AppendClear().AppendValue("Write ").Append(kou).AppendValue(" 3 Error\n").AppendResult();
+
+                this.Console.Out.Write(ka);
                 b = true;
             }
         }
 
         if (!b)
         {
-            k = infra.TextRead(ou);
+            k = infra.TextRead(kou);
 
-            this.Console.Out.Write(ou + " text: \n");
-            this.Console.Out.Write(k);
-            this.Console.Out.Write("\n");
+            h.Clear();
+
+            this.Append(kou).AppendValue(" text: \n").Append(k);
+            this.Append(this.StringValue("\n"));
+
+            ka = h.Result();
+
+            this.Console.Out.Write(ka);
         }
 
         string oua;
@@ -1576,16 +1582,33 @@ class Demo : Any
         return true;
     }
 
-    public virtual Demo Append(String a)
+    public virtual Demo Add(String a)
     {
         this.InfraInfra.StringJoinString(this.StringJoin, a);
         return this;
     }
 
-    public virtual Demo AppendChar(uint a)
+    public virtual Demo AddValue(string o)
+    {
+        this.Add(this.StringValue(o));
+        return this;
+    }
+
+    public virtual Demo AddChar(uint a)
     {
         this.StringJoin.Append(a);
         return this;
+    }
+
+    public virtual Demo AddClear()
+    {
+        this.StringJoin.Clear();
+        return this;
+    }
+
+    public virtual String AddResult()
+    {
+        return this.StringJoin.Result();
     }
 
     public virtual String StringValue(string o)
