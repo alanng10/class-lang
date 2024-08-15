@@ -43,9 +43,9 @@ public class GradientRadial : Any
     }
 
     public virtual Pos CenterPos { get; set; }
-    public virtual int CenterRadius { get; set; }
+    public virtual long CenterRadius { get; set; }
     public virtual Pos FocusPos { get; set; }
-    public virtual int FocusRadius { get; set; }
+    public virtual long FocusRadius { get; set; }
 
     private InternIntern InternIntern { get; set; }
     private InternInfra InternInfra { get; set; }
