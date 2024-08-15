@@ -37,31 +37,8 @@ public class Code : Any
         dataIndexU = (ulong)dataIndex;
         dataCountU = (ulong)dataCount;
 
-
-        Data k;
-        k = null;
-
-        bool b;
-        b = (data is StringData);
-
-        if (!b)
-        {
-            k = data;
-        }
-
-        if (b)
-        {
-            StringData stringData;
-            stringData = (StringData)data;
-
-            String dataString;
-            dataString = stringData.ValueString;
-
-            k = dataString.Data;
-        }
-
         ulong u;
-        u = this.InternIntern.TextEncodeCountArray(innKind.Intern, outKind.Intern, k.Value, dataIndexU, dataCountU);
+        u = this.InternIntern.TextEncodeCountArray(innKind.Intern, outKind.Intern, data.Value, dataIndexU, dataCountU);
 
         long a;
         a = (long)u;
