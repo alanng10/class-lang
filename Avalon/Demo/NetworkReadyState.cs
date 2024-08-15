@@ -8,7 +8,7 @@ public class NetworkReadyState : State
         this.Data.Count = 10;
         this.Data.Init();
 
-        this.Range = new DataRange();
+        this.Range = new Range();
         this.Range.Init();
         return true;
     }
@@ -16,7 +16,7 @@ public class NetworkReadyState : State
     public ThreadNetworkState NetworkState { get; set; }
 
     public Data Data { get; set; }
-    public DataRange Range { get; set; }
+    public Range Range { get; set; }
     private int Case { get; set; }
     private int Status { get; set; }
 
@@ -61,7 +61,7 @@ public class NetworkReadyState : State
         Data data;
         data = this.Data;
 
-        DataRange range;
+        Range range;
         range = this.Range;
         range.Index = 0;
         range.Count = count;

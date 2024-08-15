@@ -4,14 +4,11 @@ class NetworkPeerReadyState : State
 {
     public override bool Init()
     {
-        this.StringCreate = new StringCreate();
-        this.StringCreate.Init();
-
         this.Data = new Data();
         this.Data.Count = 10;
         this.Data.Init();
 
-        this.Range = new DataRange();
+        this.Range = new Range();
         this.Range.Init();
         return true;
     }
@@ -20,9 +17,8 @@ class NetworkPeerReadyState : State
     public ThreadNetworkHostState HostState { get; set; }
 
     private Data Data { get; set; }
-    private DataRange Range { get; set; }
+    private Range Range { get; set; }
     private int Case { get; set; }
-    private StringCreate StringCreate { get; set; }
     private int Status { get; set; }
 
     public override bool Execute()
@@ -70,7 +66,7 @@ class NetworkPeerReadyState : State
         Data data;
         data = this.Data;
 
-        DataRange range;
+        Range range;
         range = this.Range;
         range.Index = 0;
         range.Count = count;
