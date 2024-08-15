@@ -439,18 +439,14 @@ class Demo : Any
         long oa;
         oa = rand.Execute();
 
-        StringJoin h;
-        h = this.StringJoin;
-
         String ka;
 
-        h.Clear();
-
-        this.Append(this.StringValue("Demo.ExecuteRand oa: 0h"))
-            .Append(this.StringValue(oa.ToString("x15")))
-            .AppendChar('\n');
-
-        ka = h.Result();
+        ka = this.AddClear()
+            .AddValue("Demo.ExecuteRand oa: 0h")
+            .AddValue(oa.ToString("x15"))
+            .AddChar('\n')
+            .AddResult();
+            ;
 
         this.Console.Out.Write(ka);
 
