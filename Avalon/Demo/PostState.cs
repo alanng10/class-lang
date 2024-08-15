@@ -1,7 +1,9 @@
 namespace Demo;
 
-public class PostState : State
+class PostState : State
 {
+    public virtual Demo Demo { get; set; }    
+
     public override bool Execute()
     {
         ThreadThis varThis;
@@ -14,7 +16,7 @@ public class PostState : State
 
         Console console;
         console = Console.This;
-        console.Out.Write("PostState.Execute Aaa\n");
+        console.Out.Write(this.Demo.StringValue("PostState.Execute Aaa\n"));
         return true;
     }
 }
