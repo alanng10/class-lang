@@ -609,23 +609,23 @@ class Demo : Any
 
         ooo = this.TextInfra.TextCreateStringData(this.StringValue("43695"), null);        
         ooa = a.Execute(ooo, 10, false);
-        this.IntParseConsoleWrite(ooa);
+        this.ConsoleWriteIntParse(ooa);
 
         ooo = this.TextInfra.TextCreateStringData(this.StringValue("9E532F"), null);
         ooa = a.Execute(ooo, 16, true);
-        this.IntParseConsoleWrite(ooa);
+        this.ConsoleWriteIntParse(ooa);
 
         ooo = this.TextInfra.TextCreateStringData(this.StringValue("0000000000009294ef0d"), null);
         ooa = a.Execute(ooo, 16, false);
-        this.IntParseConsoleWrite(ooa);
+        this.ConsoleWriteIntParse(ooa);
 
         ooo = this.TextInfra.TextCreateStringData(this.StringValue("1000000000000000"), null);
         ooa = a.Execute(ooo, 16, true);
-        this.IntParseConsoleWrite(ooa);
+        this.ConsoleWriteIntParse(ooa);
         return true;
     }
 
-    private bool IntParseConsoleWrite(long a)
+    private bool ConsoleWriteIntParse(long a)
     {
         StringJoin h;
         h = this.StringJoin;
