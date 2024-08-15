@@ -14,7 +14,7 @@ class ConsoleIntern : Any
     private InternInfra InternInfra { get; set; }
     private ulong Intern { get; set; }
 
-    public virtual bool Write(int stream, string a)
+    public virtual bool Write(int stream, String a)
     {
         bool b;
         b = (stream == 0);
@@ -30,10 +30,10 @@ class ConsoleIntern : Any
     }
 
 
-    public virtual bool OutWrite(string a)
+    public virtual bool OutWrite(String a)
     {
         ulong uo;
-        uo = this.InternInfra.StringCreate(a);
+        uo = this.InternInfra.StringCreate(a.Data.Value);
         
         Extern.Console_OutWrite(this.Intern, uo);
 
@@ -41,10 +41,10 @@ class ConsoleIntern : Any
         return true;
     }
 
-    public virtual bool ErrWrite(string a)
+    public virtual bool ErrWrite(String a)
     {
         ulong uo;
-        uo = this.InternInfra.StringCreate(a);
+        uo = this.InternInfra.StringCreate(a.Data.Value);
         
         Extern.Console_ErrWrite(this.Intern, uo);
 
