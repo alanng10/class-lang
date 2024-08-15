@@ -20,7 +20,7 @@ public class Draw : Any
         this.Area.Size.Init();
         this.Pos = new Pos();
         this.Pos.Init();
-        this.FillPos = new PosInt();
+        this.FillPos = new Pos();
         this.FillPos.Init();
         
         this.Math = new MathMath();
@@ -28,7 +28,7 @@ public class Draw : Any
         this.MathComp = new MathComp();
         this.MathComp.Init();
 
-        this.PosA = new PosInt();
+        this.PosA = new Pos();
         this.PosA.Init();
         this.WorldForm = new Form();
         this.WorldForm.Init();
@@ -99,7 +99,7 @@ public class Draw : Any
     public virtual Size Size { get; set; }
     public virtual Rect Area { get; set; }
     public virtual Pos Pos { get; set; }
-    public virtual PosInt FillPos { get; set; }
+    public virtual Pos FillPos { get; set; }
 
     public virtual Brush Fill
     {
@@ -199,7 +199,7 @@ public class Draw : Any
     protected virtual MathComp MathComp { get; set; }
     protected virtual Form WorldForm { get; set; }
     protected virtual Form FormA { get; set; }
-    protected virtual PosInt PosA { get; set; }
+    protected virtual Pos PosA { get; set; }
     protected virtual int TextCount { get; set; }
     private ulong Intern { get; set; }
     private ulong InternFillPos { get; set; }
@@ -270,7 +270,7 @@ public class Draw : Any
 
     public virtual bool FillPosSet()
     {
-        PosInt k;
+        Pos k;
         k = this.FillPos;
 
         long col;
@@ -318,7 +318,7 @@ public class Draw : Any
         return true;
     }
 
-    protected virtual bool WorldFormPosOffsetSet(PosInt pos)
+    protected virtual bool WorldFormPosOffsetSet(Pos pos)
     {
         long col;
         long row;
@@ -338,7 +338,7 @@ public class Draw : Any
         return true;
     }
 
-    public virtual bool ExecuteRect(RectInt rect)
+    public virtual bool ExecuteRect(Rect rect)
     {
         this.InternRectSetFromRectInt(this.InternRectA, rect);
 
@@ -508,19 +508,9 @@ public class Draw : Any
         return true;
     }
 
-    private bool InternPosSetFromPosInt(ulong internPos, PosInt pos)
+    private bool InternPosSetFromPos(ulong internPos, Pos pos)
     {
         this.InternInfra.PosSet(internPos, pos.Col, pos.Row);
-        return true;
-    }
-
-    private bool InternRectSetFromRectInt(ulong internRect, RectInt rect)
-    {
-        PosInt pos;
-        SizeInt size;
-        pos = rect.Pos;
-        size = rect.Size;
-        this.InternInfra.RectSet(internRect, pos.Col, pos.Row, size.Width, size.Height);
         return true;
     }
 
