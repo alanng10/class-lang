@@ -434,7 +434,7 @@ public class Draw : Any
 
     public virtual bool ExecuteText(TextText text, RectInt destRect, TextAlign align, bool wordWarp)
     {
-        int count;
+        long count;
         count = text.Range.Count;
         if (this.TextCount < count)
         {
@@ -458,71 +458,18 @@ public class Draw : Any
 
     private bool TextSet(TextText text)
     {
-        ulong share;
-        ulong stat;
-        share = Extern.Infra_Share();
-        stat = Extern.Share_Stat(share);
+        long count;
+        count = text.Range.Count;
 
-        ulong innKind;
-        ulong outKind;
-        innKind = Extern.Stat_TextEncodeKindUtf16(stat);
-        outKind = Extern.Stat_TextEncodeKindUtf32(stat);
+        ulong countA;
+        countA = (ulong)count;
 
-        Range range;
-        range = text.Range;
-
-        ulong indexU;
-        ulong countU;
-        indexU = (ulong)range.Index;
-        countU = (ulong)range.Count;
-
-        ulong ka;
-        ka = sizeof(char);
-
-        ulong dataIndex;
         ulong dataCount;
-        dataIndex = indexU * ka;
-        dataCount = countU * ka;
+        dataCount = countA * sizeof(uint);
 
-        Data data;
-        data = text.Data;
-
-        ulong result;
-        result = this.InternTextData;
-
-        ulong resultCount;
-        resultCount = 0;
-
-        bool b;
-        b = (data is StringData);
-
-        if (!b)
-        {
-            byte[] dataArray;
-            dataArray = data.Value;
-
-            resultCount = this.InternIntern.TextEncodeCountArray(innKind, outKind, dataArray, dataIndex, dataCount);
-
-            this.InternIntern.TextEncodeResultArray(result, 0, innKind, outKind, dataArray, dataIndex, dataCount);
-        }
-
-        if (b)
-        {
-            StringData stringData;
-            stringData = (StringData)data;
-
-            string dataString;
-            dataString = stringData.ValueString;
-
-            resultCount = this.InternIntern.TextEncodeCountString(innKind, outKind, dataString, dataIndex, dataCount);
-
-            this.InternIntern.TextEncodeResultString(result, 0, innKind, outKind, dataString, dataIndex, dataCount);
-        }
-
-        ulong stringCount;
-        stringCount = resultCount / sizeof(uint);
-
-        Extern.String_CountSet(this.InternText, stringCount);
+        this.InternIntern.CopyFromByteArray(this.InternTextData, text.Data.Value, 0, dataCount);
+        
+        Extern.String_CountSet(this.InternText, countA);
         return true;
     }
 
