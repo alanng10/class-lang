@@ -340,15 +340,15 @@ public class Draw : Any
 
     public virtual bool ExecuteRect(Rect rect)
     {
-        this.InternRectSetFromRectInt(this.InternRectA, rect);
+        this.InternRectSetFromRect(this.InternRectA, rect);
 
         Extern.Draw_ExecuteRect(this.Intern, this.InternRectA);
         return true;
     }
 
-    public virtual bool ExecuteRectRound(RectInt rect, long horizRadius, long vertRadius)
+    public virtual bool ExecuteRectRound(Rect rect, long horizRadius, long vertRadius)
     {
-        this.InternRectSetFromRectInt(this.InternRectA, rect);
+        this.InternRectSetFromRect(this.InternRectA, rect);
 
         ulong hr;
         ulong vr;
@@ -358,17 +358,17 @@ public class Draw : Any
         return true;
     }
 
-    public virtual bool ExecuteRound(RectInt rect)
+    public virtual bool ExecuteRound(Rect rect)
     {
-        this.InternRectSetFromRectInt(this.InternRectA, rect);
+        this.InternRectSetFromRect(this.InternRectA, rect);
 
         Extern.Draw_ExecuteEllipse(this.Intern, this.InternRectA);
         return true;
     }
 
-    public virtual bool ExecuteRoundLine(RectInt rect, Range range)
+    public virtual bool ExecuteRoundLine(Rect rect, Range range)
     {
-        this.InternRectSetFromRectInt(this.InternRectA, rect);
+        this.InternRectSetFromRect(this.InternRectA, rect);
 
         this.InternRangeSetFromRange(this.InternRangeA, range);
 
@@ -376,9 +376,9 @@ public class Draw : Any
         return true;
     }
 
-    public virtual bool ExecuteRoundPart(RectInt rect, Range range)
+    public virtual bool ExecuteRoundPart(Rect rect, Range range)
     {
-        this.InternRectSetFromRectInt(this.InternRectA, rect);
+        this.InternRectSetFromRect(this.InternRectA, rect);
 
         this.InternRangeSetFromRange(this.InternRangeA, range);
 
@@ -386,9 +386,9 @@ public class Draw : Any
         return true;
     }
     
-    public virtual bool ExecuteRoundShape(RectInt rect, Range range)
+    public virtual bool ExecuteRoundShape(Rect rect, Range range)
     {
-        this.InternRectSetFromRectInt(this.InternRectA, rect);
+        this.InternRectSetFromRect(this.InternRectA, rect);
 
         this.InternRangeSetFromRange(this.InternRangeA, range);
 
@@ -396,10 +396,10 @@ public class Draw : Any
         return true;
     }
 
-    public virtual bool ExecuteLine(PosInt startPos, PosInt endPos)
+    public virtual bool ExecuteLine(Pos startPos, Pos endPos)
     {
-        this.InternPosSetFromPosInt(this.InternPosA, startPos);
-        this.InternPosSetFromPosInt(this.InternPosB, endPos);
+        this.InternPosSetFromPos(this.InternPosA, startPos);
+        this.InternPosSetFromPos(this.InternPosB, endPos);
 
         Extern.Draw_ExecuteLine(this.Intern, this.InternPosA, this.InternPosB);
         return true;
@@ -423,16 +423,16 @@ public class Draw : Any
         return true;
     }
 
-    public virtual bool ExecuteImage(Image image, RectInt destRect, RectInt sourceRect)
+    public virtual bool ExecuteImage(Image image, Rect destRect, Rect sourceRect)
     {
-        this.InternRectSetFromRectInt(this.InternRectA, destRect);
-        this.InternRectSetFromRectInt(this.InternRectB, sourceRect);
+        this.InternRectSetFromRect(this.InternRectA, destRect);
+        this.InternRectSetFromRect(this.InternRectB, sourceRect);
 
         Extern.Draw_ExecuteImage(this.Intern, image.Ident, this.InternRectA, this.InternRectB);
         return true;
     }
 
-    public virtual bool ExecuteText(TextText text, RectInt destRect, TextAlign align, bool wordWarp)
+    public virtual bool ExecuteText(TextText text, Rect destRect, TextAlign align, bool wordWarp)
     {
         long count;
         count = text.Range.Count;
@@ -443,7 +443,7 @@ public class Draw : Any
 
         this.TextSet(text);        
 
-        this.InternRectSetFromRectInt(this.InternRectA, destRect);
+        this.InternRectSetFromRect(this.InternRectA, destRect);
 
         ulong o;
         o = align.Intern;
