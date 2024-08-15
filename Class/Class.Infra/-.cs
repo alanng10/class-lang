@@ -3,7 +3,6 @@ global using InfraRange = Avalon.Infra.Range;
 global using Data = Avalon.Infra.Data;
 global using StringData = Avalon.Infra.StringData;
 global using Compare = Avalon.Infra.Compare;
-global using CompareMid = Avalon.Infra.CompareMid;
 global using CompareInt = Avalon.Infra.CompareInt;
 global using StringCompare = Avalon.Infra.StringCompare;
 global using RefCompare = Avalon.Infra.RefCompare;
