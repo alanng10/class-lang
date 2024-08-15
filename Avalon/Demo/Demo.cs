@@ -33,6 +33,16 @@ class Demo : Any
     public virtual MathMath Math { get; set; }
     protected virtual MathComp MathComp { get; set; }
     private StringJoin StringJoin { get; set; }
+    private TextFormatArg ArgPrefix { get; set; }
+    private TextFormatArg ArgYear { get; set; }
+    private TextFormatArg ArgMonth { get; set; }
+    private TextFormatArg ArgDay { get; set; }
+    private TextFormatArg ArgHour { get; set; }
+    private TextFormatArg ArgMin { get; set; }
+    private TextFormatArg ArgSec { get; set; }
+    private TextFormatArg ArgMillisec { get; set; }
+    private TextFormatArg ArgPos { get; set; }
+    private Array ArgList { get; set; }
 
     public bool Execute()
     {
@@ -646,38 +656,117 @@ class Demo : Any
 
     private bool ExecuteTime()
     {
+        this.TimeWriteBase = this.TextInfra.TextCreateStringData(
+            this.StringValue("year: , month: , day: , hour: , min: , sec: , millisec: , pos: \n"), null);
+
+        TextFormatArg prefixArg;
+        prefixArg = new TextFormatArg();
+        prefixArg.Init();
+        prefixArg.Pos = 0;
+        prefixArg.Kind = 3;
+        prefixArg.MaxWidth = -1;
+        this.ArgPrefix = prefixArg;
+
+        this.ArgYear = this.CreateTimeWriteArg(6);
+        this.ArgMonth = this.CreateTimeWriteArg(15);
+        this.ArgDay = this.CreateTimeWriteArg(22);
+        this.ArgHour = this.CreateTimeWriteArg(30);
+        this.ArgMin = this.CreateTimeWriteArg(37);
+        this.ArgSec = this.CreateTimeWriteArg(44);
+        this.ArgMillisec = this.CreateTimeWriteArg(56);
+        this.ArgPos = this.CreateTimeWriteArg(63);
+
+        this.ArgList = this.ListInfra.ArrayCreate(9);
+        this.ArgList.SetAt(0, prefixArg);
+        this.ArgList.SetAt(1, this.ArgYear);
+        this.ArgList.SetAt(2, this.ArgMonth);
+        this.ArgList.SetAt(3, this.ArgDay);
+        this.ArgList.SetAt(4, this.ArgHour);
+        this.ArgList.SetAt(5, this.ArgMin);
+        this.ArgList.SetAt(6, this.ArgSec);
+        this.ArgList.SetAt(7, this.ArgMillisec);
+        this.ArgList.SetAt(8, this.ArgPos);
+
+        CharForm charForm;
+        charForm = new CharForm();
+        charForm.Init();
+
+        TextFormat write;
+        write = new TextFormat();
+        write.Init();
+        write.CharForm = charForm;
+
+        this.TimeWrite = write;
+
+
         Time time;
         time = new Time();
         time.Init();
         
-        this.ConsoleWriteTime("Demo.ExecuteTime time init ", time);
+        this.ConsoleWriteTime("Demo.ExecuteTime time init :", time);
         
         time.This();
-        this.ConsoleWriteTime("Demo.ExecuteTime time current ", time);
+        this.ConsoleWriteTime("Demo.ExecuteTime time current :", time);
 
         time.ToPos(2 * 60 * 60);
-        this.ConsoleWriteTime("Demo.ExecuteTime time ToPos ", time);
+        this.ConsoleWriteTime("Demo.ExecuteTime time ToPos :", time);
 
         time.AddMillisec(200 * 1000);
-        this.ConsoleWriteTime("Demo.ExecuteTime time AddMillisec ", time);
+        this.ConsoleWriteTime("Demo.ExecuteTime time AddMillisec :", time);
 
         time.Final();
         return true;
     }
 
+    private Text TimeWriteBase { get; set; }
+    private TextFormat TimeWrite { get; set; }
+
     private bool ConsoleWriteTime(string prefix, Time time)
     {
-        this.Console.Out.Write(prefix +
-        "year: " + time.Year + ", " +
-        "month: " + time.Month + ", " +
-        "day: " + time.Day + ", " +
-        "hour: " + time.Hour + ", " +
-        "min: " + time.Min + ", " +
-        "sec: " + time.Sec + ", " +
-        "millisec: " + time.Millisec + ", " +
-        "pos: " + time.Pos + 
-        "\n");
+        String ka;
+        ka = this.StringValue(prefix);
+
+        Text prefixText;
+        prefixText = this.TextInfra.TextCreateStringData(ka, null);
+
+        this.ArgPrefix.Value.Any = prefixText;
+
+        this.ArgYear.Value.Int = time.Year;
+        this.ArgMonth.Value.Int = time.Month;
+        this.ArgDay.Value.Int = time.Day;
+        this.ArgHour.Value.Int = time.Hour;
+        this.ArgMin.Value.Int = time.Min;
+        this.ArgSec.Value.Int = time.Sec;
+        this.ArgMillisec.Value.Int = time.Millisec;
+        this.ArgPos.Value.Int = time.Pos;
+
+        long count;
+        count = this.TimeWrite.ExecuteCount(this.TimeWriteBase, this.ArgList);
+
+        Text result;
+        result = this.TextInfra.TextCreate(count);
+
+        this.TimeWrite.ExecuteResult(this.TimeWriteBase, this.ArgList, result);
+
+        this.ArgPrefix.Value.Any = null;
+
+        String a;
+        a = this.TextInfra.StringCreate(result);
+
+        this.Console.Out.Write(a);
+
         return true;
+    }
+
+    private TextFormatArg CreateTimeWriteArg(long pos)
+    {
+        TextFormatArg a;
+        a = new TextFormatArg();
+        a.Init();
+        a.Pos = pos;
+        a.Kind = 1;
+        a.MaxWidth = -1;
+        return a;
     }
 
     private bool ExecuteStorage()
