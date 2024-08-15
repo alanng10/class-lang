@@ -5,6 +5,7 @@ public class StringInn : Inn
     public override bool Init()
     {
         base.Init();
+        this.InfraInfra = InfraInfra.This;
         this.StringComp = StringComp.This;
         this.Range = new Range();
         this.Range.Init();
@@ -13,6 +14,7 @@ public class StringInn : Inn
 
     public virtual String String { get; set; }
     public virtual long Index { get; set; }
+    protected virtual InfraInfra InfraInfra { get; set; }
     protected virtual StringComp StringComp { get; set; }
     protected virtual Range Range { get; set; }
 
@@ -23,9 +25,16 @@ public class StringInn : Inn
 
         String o;
         o = this.String;
-
         long index;
         index = this.Index;
+
+        long count;
+        count = stringComp.Count(o);
+
+        if (!this.InfraInfra.ValidIndex(count, index))
+        {
+            return null;
+        }
 
         Range range;
         range = this.Range;
@@ -41,30 +50,27 @@ public class StringInn : Inn
 
         if (b)
         {
-            long end;
-            end = stringComp.Count(o);
-
             long countA;
-            countA = end - index;
+            countA = count - index;
 
             range.Index = index;
             range.Count = countA;
 
             a = stringComp.CreateString(o, range);
 
-            index = end;
+            index = count;
         }
         if (!b)
         {
-            long count;
-            count = u - index;
+            long countB;
+            countB = u - index;
 
             range.Index = index;
-            range.Count = count;
+            range.Count = countB;
 
             a = stringComp.CreateString(o, range);
 
-            index = index + count + 1;
+            index = index + countB + 1;
         }
 
         this.Index = index;
