@@ -27,7 +27,6 @@ global using DrawSize = Avalon.Draw.Size;
 global using DrawDraw = Avalon.Draw.Draw;
 global using DrawPos = Avalon.Draw.Pos;
 global using DrawRect = Avalon.Draw.Rect;
-global using DrawRectInt = Avalon.Draw.RectInt;
 global using DrawBrush = Avalon.Draw.Brush;
 global using DrawImage = Avalon.Draw.Image;
 global using DrawInfra = Avalon.Draw.Infra;
