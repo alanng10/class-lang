@@ -35,7 +35,7 @@ public class StringComp : Any
             return null;
         }
 
-        int ko;
+        long ko;
         ko = sizeof(uint);
 
         long ka;
