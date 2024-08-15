@@ -35,19 +35,19 @@ public class StringData : Data
 
     internal virtual String ValueStringData { get; set; }
 
-    public override int Get(long index)
+    public override long Get(long index)
     {
         if (!this.Valid(index))
         {
             return -1;
         }
 
-        int a;
+        long a;
         a = this.ValueString.Data.Get(index);
         return a;
     }
 
-    public override bool Set(long index, int value)
+    public override bool Set(long index, long value)
     {
         return false;
     }
