@@ -65,10 +65,13 @@ public class StringJoin : Any
         {
             long ka;
             ka = capacity * 2;
+            
+            long kd;
+            kd = ka * kka;
 
             Data k;
             k = new Data();
-            k.Count = ka;
+            k.Count = kd;
             k.Init();
 
             long i;
