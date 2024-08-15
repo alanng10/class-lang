@@ -9,7 +9,7 @@ public class Frame : Comp
         this.InternInfra = InternInfra.This;
         this.MathInfra = MathInfra.This;
         this.DrawInfra = DrawInfra.This;
-
+        this.StringValue = StringValue.This;
         this.Math = this.CreateMath();
         this.MathComp = this.CreateMathComp();
 
@@ -34,7 +34,7 @@ public class Frame : Comp
         this.Intern = Extern.Frame_New();
         Extern.Frame_Init(this.Intern);
 
-        this.Title = "Frame";
+        this.Title = this.StringValue.Execute("Frame");
         this.TitleSet();
 
         ulong sizeU;
@@ -102,7 +102,7 @@ public class Frame : Comp
     }
 
     public virtual DrawSize Size { get; set; }
-    public virtual string Title { get; set; }
+    public virtual String Title { get; set; }
     public virtual TypeType Type { get; set; }
     public virtual DrawImage DrawImage { get; set; }
 
@@ -110,6 +110,7 @@ public class Frame : Comp
     private InternInfra InternInfra { get; set; }
     protected virtual MathInfra MathInfra { get; set; }
     protected virtual DrawInfra DrawInfra { get; set; }
+    protected virtual StringValue StringValue { get; set; }
     protected virtual MathMath Math { get; set; }
     protected virtual MathComp MathComp { get; set; }
     protected virtual DrawDraw Draw { get; set; }
@@ -160,7 +161,7 @@ public class Frame : Comp
 
     public virtual bool TitleSet()
     {
-        this.InternTitle = this.InternInfra.StringCreate(this.Title);
+        this.InternTitle = this.InternInfra.StringCreate(this.Title.Data.Value);
 
         Extern.Frame_TitleSet(this.Intern, this.InternTitle);
         Extern.Frame_TitleThisSet(this.Intern);
