@@ -24,7 +24,7 @@ class ThreadPostState : State
 
         this.Phore.Release();
 
-        int o;
+        long o;
         o = thread.ExecuteEventLoop();
 
         post.Final();
@@ -32,7 +32,7 @@ class ThreadPostState : State
         Value aa;
         aa = new Value();
         aa.Init();
-        aa.Mid = o;
+        aa.Int = o;
 
         this.Result = aa;
         return true;
