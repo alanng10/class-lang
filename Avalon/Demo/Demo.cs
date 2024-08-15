@@ -467,7 +467,7 @@ class Demo : Any
         argA.Init();
         argA.Pos = 3;
         argA.Kind = 0;
-        argA.ValueBool = true;
+        argA.Value.Bool = true;
         argA.FieldWidth = 6;
         argA.MaxWidth = -1;
         argA.Case = 1;
@@ -478,7 +478,7 @@ class Demo : Any
         argB.Init();
         argB.Pos = 3;
         argB.Kind = 1;
-        argB.ValueInt = 56712;
+        argB.Value.Int = 56712;
         argB.AlignLeft = true;
         argB.FieldWidth = 8;
         argB.MaxWidth = 6;
@@ -490,7 +490,7 @@ class Demo : Any
         argC.Init();
         argC.Pos = 6;
         argC.Kind = 2;
-        argC.ValueInt = -46842;
+        argC.Value.Int = -46842;
         argC.AlignLeft = false;
         argC.FieldWidth = 8;
         argC.MaxWidth = 6;
@@ -502,7 +502,7 @@ class Demo : Any
         argD.Init();
         argD.Pos = 7;
         argD.Kind = 2;
-        argD.ValueInt = -0x5bd9ea;
+        argD.Value.Int = -0x5bd9ea;
         argD.AlignLeft = false;
         argD.FieldWidth = 8;
         argD.MaxWidth = 6;
@@ -515,7 +515,7 @@ class Demo : Any
         argDA.Init();
         argDA.Pos = 7;
         argDA.Kind = 2;
-        argDA.ValueInt = 100;
+        argDA.Value.Int = 100;
         argDA.AlignLeft = false;
         argDA.FieldWidth = 4;
         argDA.MaxWidth = -1;
@@ -527,7 +527,7 @@ class Demo : Any
         argDB.Init();
         argDB.Pos = 8;
         argDB.Kind = 2;
-        argDB.ValueInt = 0;
+        argDB.Value.Int = 0;
         argDB.AlignLeft = false;
         argDB.FieldWidth = 3;
         argDB.MaxWidth = -1;
@@ -540,7 +540,7 @@ class Demo : Any
         argE.Init();
         argE.Pos = 10;
         argE.Kind = 3;
-        argE.ValueText = this.TextInfra.TextCreateString("F Hre a", null);
+        argE.Value.Any = this.TextInfra.TextCreateString(this.StringValue("F Hre a"), null);
         argE.AlignLeft = true;
         argE.FieldWidth = 11;
         argE.MaxWidth = 10;
