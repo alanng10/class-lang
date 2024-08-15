@@ -18,8 +18,14 @@ public class Infra : Any
     {
         base.Init();
         this.MathInfra = MathInfra.This;
+        this.TextStringValue = TextStringValue.This;
         this.StorageStatusList = StorageStatusList.This;
         this.BrushInfra = BrushInfra.This;
+        this.BrushKindList = BrushKindList.This;
+        this.BrushLineList = BrushLineList.This;
+        this.BrushCapList = BrushCapList.This;
+        this.BrushJoinList = BrushJoinList.This;
+
         this.PixelByteCount = 4;
         this.ColorCompMax = byte.MaxValue;
 
@@ -32,10 +38,6 @@ public class Infra : Any
         Color transparentColor;
         transparentColor = this.ColorCreate(0, 0, 0, 0);
 
-        this.BrushKindList = BrushKindList.This;
-        this.BrushLineList = BrushLineList.This;
-        this.BrushCapList = BrushCapList.This;
-        this.BrushJoinList = BrushJoinList.This;
 
         MathMath math;
         math = new MathMath();
@@ -52,7 +54,7 @@ public class Infra : Any
         this.TransparentBrush = this.CreateBrush(transparentColor, k);
 
         this.Font = new Face();
-        this.Font.Family = "Source Sans 3";
+        this.Font.Family = this.TextStringValue.Execute("Source Sans 3");
         this.Font.Size = 10;
         this.Font.Weight = 400;
         this.Font.Init();
@@ -77,6 +79,7 @@ public class Infra : Any
     public virtual Face Font { get; set; }
     private long ScaleFactor { get; set; }
     protected virtual MathInfra MathInfra { get; set; }
+    protected virtual TextStringValue TextStringValue { get; set; }
     protected virtual StorageStatusList StorageStatusList { get; set; }
     protected virtual BrushKindList BrushKindList { get; set; }
     protected virtual BrushLineList BrushLineList { get; set; }
@@ -199,7 +202,7 @@ public class Infra : Any
         return a; 
     }
 
-    public virtual Image ImageCreatePath(string path)
+    public virtual Image ImageCreatePath(String path)
     {
         Image image;
         image = null;
@@ -247,7 +250,7 @@ public class Infra : Any
         return image;
     }
 
-    public virtual bool ImageWrite(string path, Image image, ImageFormat format)
+    public virtual bool ImageWrite(String path, Image image, ImageFormat format)
     {
         StorageStorage storage;
         storage = new StorageStorage();

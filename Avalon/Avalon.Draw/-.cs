@@ -12,6 +12,7 @@ global using MathMath = Avalon.Math.Math;
 global using MathComp = Avalon.Math.Comp;
 global using MathInfra = Avalon.Math.Infra;
 global using TextText = Avalon.Text.Text;
+global using TextStringValue = Avalon.Text.StringValue;
 global using StreamStream = Avalon.Stream.Stream;
 global using StorageStorage = Avalon.Storage.Storage;
 global using StorageMode = Avalon.Storage.Mode;
