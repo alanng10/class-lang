@@ -33,7 +33,12 @@ class ThreadState : State
 
         String a;
         a = infra.TextRead(this.S("DemoData/ThreadRead.txt"));
-        console.Out.Write("ThreadRead.txt text: \n" + a + "\n");
+
+        String ka;
+
+        ka = this.AddClear().AddValue("ThreadRead.txt text: \n").Add(a).AddChar('\n').AddResult();
+
+        console.Out.Write(ka);
 
         string writeFilePath;
         writeFilePath = "DemoData/ThreadWrite.txt";
@@ -51,7 +56,8 @@ class ThreadState : State
         if (b)
         {
             a = infra.TextRead(kkka);
-            console.Out.Write("ThreadWrite.txt text: \n" + a + "\n");
+
+            ka = this.AddClear().AddValue("ThreadWrite.txt text: \n").Add(a).AddChar('\n').AddResult();
         }
 
         ThreadThis varThis;
@@ -164,6 +170,35 @@ class ThreadState : State
         long a;
         a = mathInfra.Int(math, mathComp, n);
         return a;
+    }
+
+    public virtual ThreadState Add(String a)
+    {
+        this.Demo.Add(a);
+        return this;
+    }
+
+    public virtual ThreadState AddValue(string o)
+    {
+        this.Demo.AddValue(o);
+        return this;
+    }
+
+    public virtual ThreadState AddChar(uint a)
+    {
+        this.Demo.AddChar(a);
+        return this;
+    }
+
+    public virtual ThreadState AddClear()
+    {
+        this.Demo.AddClear();
+        return this;
+    }
+
+    public virtual String AddResult()
+    {
+        return this.Demo.AddResult();
     }
 
     protected virtual String S(string o)
