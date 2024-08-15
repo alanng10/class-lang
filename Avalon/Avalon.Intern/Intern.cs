@@ -357,7 +357,7 @@ public class Intern : object
         return true;
     }
 
-    public virtual bool CopyToByteArray(ulong source, byte[] dest, long index, long count)
+    public virtual bool CopyToByteArray(ulong source, byte[] dest, ulong index, ulong count)
     {
         unsafe
         {
@@ -369,10 +369,7 @@ public class Intern : object
                 ulong destU;
                 destU = (ulong)destP;
 
-                ulong countU;
-                countU = (ulong)count;
-
-                Extern.Copy(destU, source, countU);
+                Extern.Copy(destU, source, count);
             }
         }
         return true;
