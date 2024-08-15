@@ -78,7 +78,7 @@ public class Network : Any
 
     public virtual ulong HostPeer { get; set; }
     public virtual String HostName { get; set; }
-    public virtual int HostPort { get; set; }
+    public virtual long HostPort { get; set; }
     public virtual State StatusChangeState { get; set; }
     public virtual State CaseChangeState { get; set; }
     public virtual State ReadyReadState { get; set; }
