@@ -89,7 +89,7 @@ public class Stream : Any
         return false;
     }
 
-    public virtual int Status
+    public virtual long Status
     {
         get
         {

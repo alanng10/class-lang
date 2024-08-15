@@ -107,7 +107,7 @@ class Stream : StreamStream
         return this.Intern.PosSet(value);
     }
 
-    public override int Status
+    public override long Status
     {
         get
         {
@@ -119,12 +119,12 @@ class Stream : StreamStream
         }
     }
 
-    public override bool Read(Data data, RangeInt range)
+    public override bool Read(Data data, Range range)
     {
         return this.Intern.Read(data.Value, data.Count, range.Index, range.Count);
     }
 
-    public override bool Write(Data data, RangeInt range)
+    public override bool Write(Data data, Range range)
     {
         return this.Intern.Write(data.Value, data.Count, range.Index, range.Count);
     }

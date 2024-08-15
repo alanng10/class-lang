@@ -152,7 +152,7 @@ public class Stream : object
         return true;
     }
 
-    public virtual int Status
+    public virtual long Status
     {
         get
         {
