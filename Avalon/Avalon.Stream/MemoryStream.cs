@@ -107,7 +107,7 @@ class MemoryStream : Stream
         return this.Intern.PosSet(value);
     }
 
-    public override int Status
+    public override long Status
     {
         get
         {
