@@ -19,7 +19,7 @@ public class Play : Any
         return true;
     }
 
-    public virtual string Source { get; set; }
+    public virtual String Source { get; set; }
 
     private InternIntern InternIntern { get; set; }
     private InternInfra InternInfra { get; set; }
@@ -28,7 +28,7 @@ public class Play : Any
     public virtual bool SourceSet()
     {
         ulong u;        
-        u = this.InternInfra.StringCreate(this.Source);
+        u = this.InternInfra.StringCreate(this.Source.Data.Value);
 
         Extern.Play_SourceSet(this.Intern, u);
         Extern.Play_SourceThisSet(this.Intern);
