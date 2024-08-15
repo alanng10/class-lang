@@ -52,7 +52,7 @@ class ConsoleIntern : Any
         return true;
     }
 
-    public virtual string Read()
+    public virtual String Read()
     {
         ulong u;
         u = Extern.Console_InnRead(this.Intern);
@@ -63,7 +63,7 @@ class ConsoleIntern : Any
         count = Extern.String_CountGet(u);
 
         ulong dataCount;
-        dataCount = count * 4;
+        dataCount = count * sizeof(uint);
 
         string a;
         a = this.InternIntern.StringCreateUtf32(data, dataCount);
@@ -72,6 +72,6 @@ class ConsoleIntern : Any
         Extern.String_Delete(u);
 
         Extern.Delete(data);
-        return a;
+        return null;
     }
 }

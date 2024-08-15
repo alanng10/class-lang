@@ -2,7 +2,7 @@ namespace Avalon.Console;
 
 public class Inn : Any
 {
-    public virtual string Read()
+    public virtual String Read()
     {
         return null;
     }
