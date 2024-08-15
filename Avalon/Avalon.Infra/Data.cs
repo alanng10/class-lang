@@ -21,7 +21,7 @@ public class Data : Any
         return true;
     }
 
-    public virtual int Get(long index)
+    public virtual long Get(long index)
     {
         if (!this.Valid(index))
         {
@@ -30,7 +30,7 @@ public class Data : Any
         return this.Value[index];
     }
 
-    public virtual bool Set(long index, int value)
+    public virtual bool Set(long index, long value)
     {
         if (!this.Valid(index))
         {
