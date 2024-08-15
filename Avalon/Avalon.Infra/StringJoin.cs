@@ -6,6 +6,7 @@ public class StringJoin : Any
     {
         base.Init();
         this.InfraInfra = Infra.This;
+        this.StringComp = StringComp.This;
 
         long capacity;
         capacity = 16;
@@ -21,13 +22,21 @@ public class StringJoin : Any
     }
 
     protected virtual Infra InfraInfra { get; set; }
+    protected virtual StringComp StringComp { get; set; }
     private Data Data { get; set; }
     private long Count { get; set; }
     private long Capacity { get; set; }
 
     public virtual String Result()
     {
-        return null;
+        Range range;
+        range = new Range();
+        range.Init();
+        range.Count = this.Count;
+
+        String a;
+        a = this.StringComp.CreateData(this.Data, range);
+        return a;
     }
 
     public virtual bool Clear()
