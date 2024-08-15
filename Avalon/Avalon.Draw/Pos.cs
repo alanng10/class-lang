@@ -2,6 +2,6 @@ namespace Avalon.Draw;
 
 public class Pos : Any
 {
-    public virtual int Col { get; set; }
-    public virtual int Row { get; set; }
+    public virtual long Col { get; set; }
+    public virtual long Row { get; set; }
 }

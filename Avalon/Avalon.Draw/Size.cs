@@ -2,6 +2,6 @@ namespace Avalon.Draw;
 
 public class Size : Any
 {
-    public virtual int Width { get; set; }
-    public virtual int Height { get; set; }
+    public virtual long Width { get; set; }
+    public virtual long Height { get; set; }
 }
