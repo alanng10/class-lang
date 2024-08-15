@@ -7,7 +7,7 @@ Avalon uses C# signed Int 64 bits as general Int class.
 
 Avalon classes member variables are not in abstract.
 
-Avalon String class Data and Count fields are not in abstract.
+Avalon Infra module String class Data and Count fields are not in abstract. Data class Value field is not in abstract.
 
 Avalon String class is not to be derived.
 
