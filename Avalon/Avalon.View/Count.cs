@@ -17,16 +17,16 @@ public class Count : Comp
 
     public virtual Field ValueField { get; set; }
 
-    public virtual int Value
+    public virtual long Value
     {
         get
         {
-            return this.ValueField.GetMid();
+            return this.ValueField.GetInt();
         }
 
         set
         {
-            this.ValueField.SetMid(value);
+            this.ValueField.SetInt(value);
         }
     }
 

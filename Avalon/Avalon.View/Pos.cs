@@ -35,16 +35,16 @@ public class Pos : Comp
 
     public virtual Field ColField { get; set; }
 
-    public virtual int Col
+    public virtual long Col
     {
         get
         {
-            return this.ColField.GetMid();
+            return this.ColField.GetInt();
         }
 
         set
         {
-            this.ColField.SetMid(value);
+            this.ColField.SetInt(value);
         }
     }
 
@@ -56,16 +56,16 @@ public class Pos : Comp
 
     public virtual Field RowField { get; set; }
 
-    public virtual int Row
+    public virtual long Row
     {
         get
         {
-            return this.RowField.GetMid();
+            return this.RowField.GetInt();
         }
 
         set
         {
-            this.RowField.SetMid(value);
+            this.RowField.SetInt(value);
         }
     }
 

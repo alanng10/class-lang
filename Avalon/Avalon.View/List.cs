@@ -35,7 +35,7 @@ public class List : Comp
         return a;
     }
 
-    public virtual int Count
+    public virtual long Count
     {
         get
         {

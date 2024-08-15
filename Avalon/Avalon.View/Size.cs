@@ -35,16 +35,16 @@ public class Size : Comp
 
     public virtual Field WidthField { get; set; }
 
-    public virtual int Width
+    public virtual long Width
     {
         get
         {
-            return this.WidthField.GetMid();
+            return this.WidthField.GetInt();
         }
 
         set
         {
-            this.WidthField.SetMid(value);
+            this.WidthField.SetInt(value);
         }
     }
 
@@ -56,16 +56,16 @@ public class Size : Comp
 
     public virtual Field HeightField { get; set; }
 
-    public virtual int Height
+    public virtual long Height
     {
         get
         {
-            return this.HeightField.GetMid();
+            return this.HeightField.GetInt();
         }
 
         set
         {
-            this.HeightField.SetMid(value);
+            this.HeightField.SetInt(value);
         }
     }
 
