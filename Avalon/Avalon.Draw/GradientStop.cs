@@ -11,7 +11,7 @@ public class GradientStop : Any
         this.InternDrawGradientStopPoint = new InternDrawGradientStopPoint();
         this.InternDrawGradientStopPoint.Init();
 
-        int count;
+        long count;
         count = this.Count;
         ulong countU;
         countU = (ulong)count;
@@ -28,14 +28,14 @@ public class GradientStop : Any
         return true;
     }
 
-    public virtual int Count { get; set; }
+    public virtual long Count { get; set; }
 
     private InternIntern InternIntern { get; set; }
     protected virtual Infra DrawInfra { get; set; }
     internal virtual ulong Intern { get; set; }
     private InternDrawGradientStopPoint InternDrawGradientStopPoint { get; set; }
 
-    public virtual bool PointSet(int index, GradientStopPoint point)
+    public virtual bool PointSet(long index, GradientStopPoint point)
     {
         ulong indexU;
         ulong posU;
@@ -47,7 +47,7 @@ public class GradientStop : Any
         return true;
     }
 
-    public virtual bool PointGet(int index, GradientStopPoint result)
+    public virtual bool PointGet(long index, GradientStopPoint result)
     {
         InternDrawGradientStopPoint u;
         u = this.InternDrawGradientStopPoint;
