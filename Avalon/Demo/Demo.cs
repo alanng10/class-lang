@@ -764,7 +764,6 @@ class Demo : Any
         ou = "DemoData/Demo2.txt";
         File.Delete(ou);
 
-
         String kou;
         kou = this.StringValue(ou);
 
@@ -774,7 +773,7 @@ class Demo : Any
         ba = infra.TextWrite(kou, this.StringValue("DEMO STORAGE WRITE AAA BBB"));
         if (!ba)
         {
-            ka = this.AppendClear().AppendValue("Write ").Append(kou).AppendValue(" 1 Error\n").AppendResult();
+            ka = this.AddClear().AddValue("Write ").Add(kou).AddValue(" 1 Error\n").AddResult();
 
             this.Console.Out.Write(ka);
             b = true;
@@ -786,7 +785,7 @@ class Demo : Any
             bb = infra.TextWrite(kou, this.StringValue("DEMO STORAGE WRITE 2 AAA"));
             if (!bb)
             {
-                ka = this.AppendClear().AppendValue("Write ").Append(kou).AppendValue(" 3 Error\n").AppendResult();
+                ka = this.AddClear().AddValue("Write ").Add(kou).AddValue(" 3 Error\n").AddResult();
 
                 this.Console.Out.Write(ka);
                 b = true;
@@ -797,12 +796,7 @@ class Demo : Any
         {
             k = infra.TextRead(kou);
 
-            h.Clear();
-
-            this.Append(kou).AppendValue(" text: \n").Append(k);
-            this.Append(this.StringValue("\n"));
-
-            ka = h.Result();
+            ka = this.AddClear().Add(kou).AddValue(" text: \n").Add(k).AddChar('\n').AddResult();
 
             this.Console.Out.Write(ka);
         }
@@ -811,63 +805,79 @@ class Demo : Any
         oua = "DemoData/Demo3.txt";
         File.Delete(oua);
 
+        String koua;
+        koua = this.StringValue(oua);
+
         bool bo;
         bo = false;
         bool baa;
-        baa = infra.TextWrite(oua, "DEMO STORAGE WRITE DEMO ABCD");
+        baa = infra.TextWrite(koua, this.StringValue("DEMO STORAGE WRITE DEMO ABCD"));
         if (!baa)
         {
-            this.Console.Out.Write("Write " + oua + " 1 Error\n");
+            ka = this.AddClear().AddValue("Write ").Add(koua).AddValue(" 1 Error\n").AddResult();
+
+            this.Console.Out.Write(ka);
             bo = true;
         }
         if (baa)
         {
-            string ka;
-            ka = "OUHU";
+            string koa;
+            koa = "OUHU";
             bool bab;
-            bab = this.WriteStringPos(oua, ka, 19);
+            bab = this.WriteStringPos(oua, koa, 19);
             if (!bab)
             {
-                this.Console.Out.Write("Write " + oua + " 2 Error\n");
+                ka = this.AddClear().AddValue("Write ").Add(koua).AddValue(" 2 Error\n").AddResult();
+
+                this.Console.Out.Write(ka);
                 bo = true;
             }
         }
         if (!bo)
         {
-            k = infra.TextRead(oua);
-            this.Console.Out.Write(oua + " text: \n");
-            this.Console.Out.Write(k);
-            this.Console.Out.Write("\n");
+            k = infra.TextRead(koua);
+
+            ka = this.AddClear().Add(koua).AddValue(" text: \n").Add(k).AddChar('\n').AddResult();
+
+            this.Console.Out.Write(ka);
         }
 
         string oub;
         oub = "DemoData/Demo4.txt";
         File.Delete(oub);
 
+        String koub;
+        koub = this.StringValue(oub);
+
         bo = false;
         bool bac;
-        bac = infra.TextWrite(oub, "Demo Storage Set Count aaaadda");
+        bac = infra.TextWrite(koub, this.StringValue("Demo Storage Set Count aaaadda"));
         if (!bac)
         {
-            this.Console.Out.Write("Write " + oub + " Error\n");
+            ka = this.AddClear().AddValue("Write ").Add(koub).AddValue(" Error\n").AddResult();
+
+            this.Console.Out.Write(ka);
             bo = true;
         }
         if (bac)
         {
             bool bd;
-            bd = infra.CountSet(oub, 22);
+            bd = infra.CountSet(koub, 22);
             if (!bd)
             {
-                this.Console.Out.Write("Set Count " + oub + " Error\n");
+                ka = this.AddClear().AddValue("Set Count ").Add(koub).AddValue(" Error\n").AddResult();
+
+                this.Console.Out.Write(ka);
                 bo = true;
             }
         }
         if (!bo)
         {
-            k = infra.TextRead(oub);
-            this.Console.Out.Write(oub + " text: \n");
-            this.Console.Out.Write(k);
-            this.Console.Out.Write("\n");
+            k = infra.TextRead(koub);
+
+            ka = this.AddClear().Add(koub).AddValue(" text: \n").Add(k).AddChar('\n').AddResult();
+
+            this.Console.Out.Write(ka);
         }
         return true;
     }
