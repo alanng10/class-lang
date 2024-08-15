@@ -23,6 +23,7 @@ public class StringInn : Inn
 
         String o;
         o = this.String;
+
         long index;
         index = this.Index;
 
@@ -33,7 +34,7 @@ public class StringInn : Inn
         a = null;
 
         long u;
-        u = this.StringIndex(index, '\n');
+        u = this.StringIndex(o, index, '\n');
 
         bool b;
         b = (u < 0);
@@ -77,13 +78,10 @@ public class StringInn : Inn
         return true;
     }
 
-    private long StringIndex(long index, uint n)
+    private long StringIndex(String o, long index, uint n)
     {
         StringComp stringComp;
         stringComp = this.StringComp;
-
-        String o;
-        o = this.String;
 
         long count;
         count = stringComp.Count(o);
