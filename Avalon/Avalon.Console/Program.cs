@@ -108,14 +108,14 @@ public class Program : Any
         return true;
     }
 
-    public virtual int Ident
+    public virtual long Ident
     {
         get
         {
             ulong u;
             u = Extern.Program_IdentGet(this.Intern);
-            int a;
-            a = (int)u;
+            long a;
+            a = (long)u;
             return a;
         }
         set
@@ -123,14 +123,14 @@ public class Program : Any
         }
     }
 
-    public virtual int Status
+    public virtual long Status
     {
         get
         {
             ulong u;
             u = Extern.Program_StatusGet(this.Intern);
-            int a;
-            a = (int)u;
+            long a;
+            a = (long)u;
             return a;
         }
         set
@@ -138,14 +138,14 @@ public class Program : Any
         }
     }
 
-    public virtual int ExitKind
+    public virtual long ExitKind
     {
         get
         {
             ulong u;
             u = Extern.Program_ExitKindGet(this.Intern);
-            int a;
-            a = (int)u;
+            long a;
+            a = (long)u;
             return a;
         }
         set
