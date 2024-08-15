@@ -18,6 +18,7 @@ class Demo : Any
     public virtual MathInfra MathInfra { get; set; }
     public virtual TextInfra TextInfra { get; set; }
     public virtual DrawInfra DrawInfra { get; set; }
+    public virtual StringComp StringComp { get; set; }
     public virtual TextStringValue TextStringValue { get; set; }
     public virtual StorageStatusList StorageStatusList { get; set; }
     public virtual NetworkPortKindList NetworkPortKindList { get; set; }
@@ -40,6 +41,7 @@ class Demo : Any
         this.TextInfra = TextInfra.This;
         this.MathInfra = MathInfra.This;
         this.DrawInfra = DrawInfra.This;
+        this.StringComp = StringComp.This;
         this.TextStringValue = TextStringValue.This;
         this.StorageStatusList = StorageStatusList.This;
         this.NetworkPortKindList = NetworkPortKindList.This;
@@ -540,7 +542,7 @@ class Demo : Any
         argE.Init();
         argE.Pos = 10;
         argE.Kind = 3;
-        argE.Value.Any = this.TextInfra.TextCreateString(this.StringValue("F Hre a"), null);
+        argE.Value.Any = this.TextInfra.TextCreateStringData(this.StringValue("F Hre a"), null);
         argE.AlignLeft = true;
         argE.FieldWidth = 11;
         argE.MaxWidth = 10;
@@ -551,8 +553,8 @@ class Demo : Any
         argF = new TextFormatArg();
         argF.Init();
         argF.Pos = 10;
-        argF.Kind = 4;
-        argF.ValueInt = 'H';
+        argF.Kind = 3;
+        argF.Value.Any = this.TextInfra.TextCreateStringData(this.StringComp.CreateChar('H', 1), null);
         argF.AlignLeft = false;
         argF.FieldWidth = 10;
         argF.MaxWidth = -1;
@@ -570,7 +572,7 @@ class Demo : Any
         argList.SetAt(7, argF);
 
         Text varBase;
-        varBase = this.TextInfra.TextCreateString("G H , j h\n\n", null);
+        varBase = this.TextInfra.TextCreateStringData(this.StringValue("G H , j h\n\n"), null);
 
         CharForm charForm;
         charForm = new CharForm();
@@ -581,7 +583,7 @@ class Demo : Any
         format.Init();
         format.CharForm = charForm;
 
-        int count;
+        long count;
         count = format.ExecuteCount(varBase, argList);
 
         Text text;
@@ -589,7 +591,7 @@ class Demo : Any
 
         format.ExecuteResult(varBase, argList, text);
 
-        string a;
+        String a;
         a = this.TextInfra.StringCreate(text);
 
         this.Console.Out.Write(a);
