@@ -393,7 +393,7 @@ public class Intern : object
         return true;
     }
 
-    public virtual uint VideoDataColor(ulong data, int width, int left, int up)
+    public virtual uint VideoDataColor(ulong data, long width, long left, long up)
     {
         uint a;
         unsafe

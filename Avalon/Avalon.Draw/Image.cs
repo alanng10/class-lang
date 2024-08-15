@@ -59,8 +59,8 @@ public class Image : Any
     
     public virtual bool DataCreate()
     {
-        int width;
-        int height;
+        long width;
+        long height;
         width = this.Size.Width;
         height = this.Size.Height;
         ulong w;
@@ -91,11 +91,11 @@ public class Image : Any
 
     public virtual bool DataGet(Data data, long index)
     {
-        int w;
-        int h;
+        long w;
+        long h;
         w = this.Size.Width;
         h = this.Size.Height;
-        int k;
+        long k;
         k = this.DrawInfra.PixelByteCount;
 
         long ka;
@@ -125,11 +125,11 @@ public class Image : Any
 
     public virtual bool DataSet(Data data, long index)
     {
-        int w;
-        int h;
+        long w;
+        long h;
         w = this.Size.Width;
         h = this.Size.Height;
-        int k;
+        long k;
         k = this.DrawInfra.PixelByteCount;
 
         long ka;
