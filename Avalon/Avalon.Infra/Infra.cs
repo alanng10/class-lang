@@ -187,7 +187,7 @@ public class Infra : Any
             uint oc;
             oc = (uint)stringComp.Char(a, i);
 
-            h.Append(oc);
+            h.Add(oc);
 
             i = i + 1;
         }

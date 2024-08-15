@@ -45,7 +45,7 @@ public class StringJoin : Any
         return true;
     }
 
-    public virtual bool Append(uint n)
+    public virtual bool Add(uint n)
     {
         Infra infraInfra;
         infraInfra = this.InfraInfra;
