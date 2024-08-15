@@ -19,6 +19,7 @@ class Demo : Any
     public virtual TextInfra TextInfra { get; set; }
     public virtual DrawInfra DrawInfra { get; set; }
     public virtual StringComp StringComp { get; set; }
+    public virtual TextCodeKindList TextCodeKindList { get; set; }
     public virtual TextStringValue TextStringValue { get; set; }
     public virtual StorageStatusList StorageStatusList { get; set; }
     public virtual NetworkPortKindList NetworkPortKindList { get; set; }
@@ -52,6 +53,7 @@ class Demo : Any
         this.MathInfra = MathInfra.This;
         this.DrawInfra = DrawInfra.This;
         this.StringComp = StringComp.This;
+        this.TextCodeKindList = TextCodeKindList.This;
         this.TextStringValue = TextStringValue.This;
         this.StorageStatusList = StorageStatusList.This;
         this.NetworkPortKindList = NetworkPortKindList.This;
@@ -821,10 +823,11 @@ class Demo : Any
         }
         if (baa)
         {
-            string koa;
-            koa = "OUHU";
+            String koa;
+            koa = this.StringValue("OUHU");
+
             bool bab;
-            bab = this.WriteStringPos(oua, koa, 19);
+            bab = this.WriteStringPos(koua, koa, 19);
             if (!bab)
             {
                 ka = this.AddClear().AddValue("Write ").Add(koua).AddValue(" 2 Error\n").AddResult();
@@ -882,20 +885,26 @@ class Demo : Any
         return true;
     }
 
-    private bool WriteStringPos(string filePath, string text, long pos)
+    private bool WriteStringPos(String filePath, String text, long pos)
     {
-        byte[] d;
-        d = Encoding.UTF8.GetBytes(text);
+        TextCodeKindList list;
+        list = this.TextCodeKindList;
 
         Data data;
-        data = new Data();
-        data.Init();
-        data.Value = d;
-        DataRange range;
-        range = new DataRange();
+        data = this.TextInfra.StringDataCreateString(text);
+
+        Range range;
+        range = new Range();
         range.Init();
-        range.Index = 0;
         range.Count = data.Count;
+
+        Data resultData;
+        resultData = this.TextInfra.Code(list.Utf32, list.Utf8, data, range);
+
+        Range resultRange;
+        resultRange = new Range();
+        resultRange.Init();
+        resultRange.Count = resultData.Count;
 
         Storage storage;
         storage = new Storage();
@@ -918,7 +927,7 @@ class Demo : Any
             stream.PosSet(pos);
             if (stream.Status == 0)
             {
-                stream.Write(data, range);
+                stream.Write(resultData, resultRange);
                 if (stream.Status == 0)
                 {
                     o = true;
