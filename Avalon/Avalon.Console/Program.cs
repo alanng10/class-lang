@@ -258,7 +258,7 @@ public class Program : Any
         ulong countU;
         countU = Extern.Array_CountGet(o);
         long count;
-        count = (int)countU;
+        count = (long)countU;
 
         long i;
         i = 0;
@@ -335,7 +335,7 @@ public class Program : Any
         countU = Extern.Array_CountGet(o);
 
         long count;
-        count = (int)countU;
+        count = (long)countU;
         long i;
         i = 0;
         while (i < count)
