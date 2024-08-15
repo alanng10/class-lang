@@ -968,9 +968,9 @@ class Demo : Any
         {
         }
 
-        b = arrange.Rename(pathA, destPathA);
+        b = arrange.Rename(this.StringValue(pathA), this.StringValue(destPathA));
 
-        this.Console.Out.Write("Rename File " + pathA + " " + this.StorageArrangeStatus(b) + "\n");
+        this.Console.Out.Write(this.StringValue("Rename File " + pathA + " " + this.StorageArrangeStatus(b) + "\n"));
 
         string pathAa;
         pathAa = "DemoData/FoldRename";
@@ -997,9 +997,9 @@ class Demo : Any
         {
         }
 
-        b = arrange.Rename(pathAa, destPathAa);
+        b = arrange.Rename(this.StringValue(pathAa), this.StringValue(destPathAa));
 
-        this.Console.Out.Write("Rename Fold " + pathAa + " " + this.StorageArrangeStatus(b) + "\n");
+        this.Console.Out.Write(this.StringValue("Rename Fold " + pathAa + " " + this.StorageArrangeStatus(b) + "\n"));
 
         string path;
         path = "DemoData/DemoCopy.txt";
@@ -1007,9 +1007,9 @@ class Demo : Any
         destPath = "DemoData/DemoCopy_Copy.txt";
         File.Delete(destPath);
 
-        b = arrange.FileCopy(path, destPath);
+        b = arrange.FileCopy(this.StringValue(path), this.StringValue(destPath));
 
-        this.Console.Out.Write("FileCopy " + path + " to " + destPath + " " + this.StorageArrangeStatus(b) + "\n");
+        this.Console.Out.Write(this.StringValue("FileCopy " + path + " to " + destPath + " " + this.StorageArrangeStatus(b) + "\n"));
 
         string pathB;
         pathB = "DemoData/Remove.txt";
@@ -1020,9 +1020,9 @@ class Demo : Any
         catch
         {
         }
-        b = arrange.FileRemove(pathB);
+        b = arrange.FileRemove(this.StringValue(pathB));
 
-        this.Console.Out.Write("FileRemove " + pathB + " " + this.StorageArrangeStatus(b) + "\n");
+        this.Console.Out.Write(this.StringValue("FileRemove " + pathB + " " + this.StorageArrangeStatus(b) + "\n"));
 
 
         string pathC;
@@ -1037,9 +1037,9 @@ class Demo : Any
         {
         }
 
-        b = arrange.FoldCreate(pathC);
+        b = arrange.FoldCreate(this.StringValue(pathC));
 
-        this.Console.Out.Write("FoldCreate " + pathC + " " + this.StorageArrangeStatus(b) + "\n");
+        this.Console.Out.Write(this.StringValue("FoldCreate " + pathC + " " + this.StorageArrangeStatus(b) + "\n"));
 
         string pathCa;
         pathCa = "DemoData/FoldCopy";
@@ -1054,9 +1054,9 @@ class Demo : Any
         {
         }
 
-        b = arrange.FoldCopy(pathCa, destPathCa);
+        b = arrange.FoldCopy(this.StringValue(pathCa), this.StringValue(destPathCa));
 
-        this.Console.Out.Write("FoldCopy " + pathCa + " to " + destPathCa + " " + this.StorageArrangeStatus(b) + "\n");
+        this.Console.Out.Write(this.StringValue("FoldCopy " + pathCa + " to " + destPathCa + " " + this.StorageArrangeStatus(b) + "\n"));
 
         string pathCb;
         pathCb = "DemoData/RemoveFoldA";
@@ -1074,16 +1074,16 @@ class Demo : Any
         {
         }
 
-        b = arrange.FoldRemove(pathCb);
+        b = arrange.FoldRemove(this.StringValue(pathCb));
 
-        this.Console.Out.Write("FoldRemove " + pathCb + " " + this.StorageArrangeStatus(b) + "\n");
+        this.Console.Out.Write(this.StringValue("FoldRemove " + pathCb + " " + this.StorageArrangeStatus(b) + "\n"));
 
         string pathE;
         pathE = "DemoData/image.jpg";
 
-        b = arrange.Exist(pathE);
+        b = arrange.Exist(this.StringValue(pathE));
 
-        this.Console.Out.Write("Exist " + pathE + " " + b.ToString() + "\n");
+        this.Console.Out.Write(this.StringValue("Exist " + pathE + " " + b.ToString() + "\n"));
 
         arrange.Final();
         return true;
