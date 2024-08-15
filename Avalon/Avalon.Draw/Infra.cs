@@ -118,10 +118,10 @@ public class Infra : Any
 
     internal virtual bool ColorSet(Color color, ulong internColor)
     {
-        color.Blue = (int)((internColor >> (0 * 8)) & 0xff);
-        color.Green = (int)((internColor >> (1 * 8)) & 0xff);
-        color.Red = (int)((internColor >> (2 * 8)) & 0xff);
-        color.Alpha = (int)((internColor >> (3 * 8)) & 0xff);
+        color.Blue = (long)((internColor >> (0 * 8)) & 0xff);
+        color.Green = (long)((internColor >> (1 * 8)) & 0xff);
+        color.Red = (long)((internColor >> (2 * 8)) & 0xff);
+        color.Alpha = (long)((internColor >> (3 * 8)) & 0xff);
         return true;
     }
 
