@@ -80,13 +80,13 @@ public class Entry : Any
 
     public virtual bool ArgSet(string[] arg)
     {
-        int count;
+        long count;
         count = arg.Length;
         Array array;
         array = new Array();
         array.Count = count;
         array.Init();
-        int i;
+        long i;
         i = 0;
         while (i < count)
         {
