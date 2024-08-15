@@ -45,8 +45,8 @@ public class Face : Any
     }
 
     public virtual String Family { get; set; }
-    public virtual int Size { get; set; }
-    public virtual int Weight { get; set; }
+    public virtual long Size { get; set; }
+    public virtual long Weight { get; set; }
     public virtual bool Italic { get; set; }
     public virtual bool Underline { get; set; }
     public virtual bool Overline { get; set; }
