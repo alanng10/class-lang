@@ -289,7 +289,7 @@ class Demo : Any
     private DrawImage ImageCreate()
     {
         DrawImage image;
-        image = this.DrawInfra.ImageCreatePath(this.TextStringValue.Execute("DemoData/image.jpg"));
+        image = this.DrawInfra.ImageCreatePath(this.StringValue("DemoData/image.jpg"));
         return image;
     }
 
