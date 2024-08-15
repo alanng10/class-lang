@@ -301,6 +301,9 @@ class Demo : Any
 
     private bool ExecuteConsole()
     {
+        StringJoin h;
+        h = this.StringJoin;
+
         this.Console.Out.Write(this.StringValue("Console 水中\n"));
         this.Console.Out.Write(this.StringValue("Input a: "));
 
@@ -309,11 +312,11 @@ class Demo : Any
 
         String ka;
 
-        this.StringJoin.Clear();        
+        h.Clear();        
         
         this.Append(this.StringValue("a: ")).Append(a).AppendChar('\n');
         
-        ka = this.StringJoin.Result();
+        ka = h.Result();
 
         this.Console.Out.Write(ka);
 
@@ -322,11 +325,11 @@ class Demo : Any
         String aa;
         aa = this.Console.Inn.Read();
 
-        this.StringJoin.Clear();
+        h.Clear();
 
         this.Append(this.StringValue("aa: ")).Append(aa).AppendChar('\n');
 
-        ka = this.StringJoin.Result();
+        ka = h.Result();
         
         this.Console.Out.Write(ka);
         return true;
