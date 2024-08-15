@@ -8,10 +8,8 @@ class Demo : Any
     public ViewC ViewC { get; set; }
     public DrawRect UpdateRect { get; set; }
     public DrawImage ThreadDrawImage { get; set; }
-    public AudioEffect AudioEffect { get; set; }
     public Play Play { get; set; }
     public DrawImage PlayImage { get; set; }
-    public Console Console { get; set; }
     public Network Peer { get; set; }
     public NetworkHost Host { get; set; }
 
@@ -20,17 +18,20 @@ class Demo : Any
     public virtual MathInfra MathInfra { get; set; }
     public virtual TextInfra TextInfra { get; set; }
     public virtual DrawInfra DrawInfra { get; set; }
-    private StorageStatusList StorageStatusList { get; set; }
-    public NetworkPortKindList NetworkPortKindList { get; set; }
-    public NetworkCaseList NetworkCaseList { get; set; }
-    public NetworkStatusList NetworkStatusList { get; set; }
-    private DrawBrushKindList BrushKindList { get; set; }
-    private DrawBrushLineList BrushLineList { get; set; }
-    private DrawBrushCapList BrushCapList { get; set; }
-    private DrawBrushJoinList BrushJoinList { get; set; }
+    public virtual TextStringValue TextStringValue { get; set; }
+    public virtual StorageStatusList StorageStatusList { get; set; }
+    public virtual NetworkPortKindList NetworkPortKindList { get; set; }
+    public virtual NetworkCaseList NetworkCaseList { get; set; }
+    public virtual NetworkStatusList NetworkStatusList { get; set; }
+    public virtual DrawBrushKindList BrushKindList { get; set; }
+    public virtual DrawBrushLineList BrushLineList { get; set; }
+    public virtual DrawBrushCapList BrushCapList { get; set; }
+    public virtual DrawBrushJoinList BrushJoinList { get; set; }
+    public virtual Console Console { get; set; }
 
     public virtual MathMath Math { get; set; }
     protected virtual MathComp MathComp { get; set; }
+    private StringJoin StringJoin { get; set; }
 
     public bool Execute()
     {
@@ -39,6 +40,7 @@ class Demo : Any
         this.TextInfra = TextInfra.This;
         this.MathInfra = MathInfra.This;
         this.DrawInfra = DrawInfra.This;
+        this.TextStringValue = TextStringValue.This;
         this.StorageStatusList = StorageStatusList.This;
         this.NetworkPortKindList = NetworkPortKindList.This;
         this.NetworkCaseList = NetworkCaseList.This;
@@ -48,6 +50,9 @@ class Demo : Any
         this.BrushCapList = DrawBrushCapList.This;
         this.BrushJoinList = DrawBrushJoinList.This;
         this.Console = Console.This;
+
+        this.StringJoin = new StringJoin();
+        this.StringJoin.Init();
 
         ThreadThis varThis;
         varThis = new ThreadThis();
@@ -78,7 +83,7 @@ class Demo : Any
 
         this.Frame = new Frame();
         this.Frame.Init();
-        this.Frame.Title = "Avalon Demo";
+        this.Frame.Title = this.StringValue("Avalon Demo");
         this.Frame.TitleSet();
 
         this.UpdateRect = new DrawRect();
@@ -210,18 +215,18 @@ class Demo : Any
         int heightA;
         widthA = 400;
         heightA = 200;
-        DrawRectInt sourceRect;
-        sourceRect = this.DrawInfra.RectIntCreate(this.MathInt(1880), this.MathInt(910), this.MathInt(widthA), this.MathInt(heightA));
+        DrawRect sourceRect;
+        sourceRect = this.DrawInfra.RectCreate(this.MathInt(1880), this.MathInt(910), this.MathInt(widthA), this.MathInt(heightA));
 
         DrawForm formA;
         formA = new DrawForm();
         formA.Init();
 
-        DrawRectInt destRectA;
-        destRectA = this.DrawInfra.RectIntCreate(0, 0, this.MathInt(200), this.MathInt(200));
+        DrawRect destRectA;
+        destRectA = this.DrawInfra.RectCreate(0, 0, this.MathInt(200), this.MathInt(200));
 
-        DrawRectInt sourceRectA;
-        sourceRectA = this.DrawInfra.RectIntCreate(0, 0, this.MathInt(200), this.MathInt(200));
+        DrawRect sourceRectA;
+        sourceRectA = this.DrawInfra.RectCreate(0, 0, this.MathInt(200), this.MathInt(200));
 
         ViewB viewB;
         viewB = new ViewB();
@@ -243,8 +248,6 @@ class Demo : Any
 
         this.Play = this.PlayCreate();
 
-        this.AudioEffect = this.AudioEffectCreate();
-
         this.ViewA = viewA;
         this.View = view;
         this.ViewC = viewC;
@@ -256,8 +259,6 @@ class Demo : Any
         thread = varThis.Thread;
         
         thread.ExecuteEventLoop();
-
-        this.AudioEffectFinal(this.AudioEffect);
 
         this.PlayFinal(this.Play);
 
@@ -288,7 +289,7 @@ class Demo : Any
     private DrawImage ImageCreate()
     {
         DrawImage image;
-        image = this.DrawInfra.ImageCreatePath("DemoData/image.jpg");
+        image = this.DrawInfra.ImageCreatePath(this.TextStringValue.Execute("DemoData/image.jpg"));
         return image;
     }
 
@@ -300,15 +301,34 @@ class Demo : Any
 
     private bool ExecuteConsole()
     {
-        this.Console.Out.Write("Console 水中\n");
-        this.Console.Out.Write("Input a: ");
-        string a;
+        this.Console.Out.Write(this.StringValue("Console 水中\n"));
+        this.Console.Out.Write(this.StringValue("Input a: "));
+
+        String a;
         a = this.Console.Inn.Read();
-        this.Console.Out.Write("a: " + a + "\n");
-        this.Console.Out.Write("Input aa: ");
-        string aa;
+
+        String ka;
+
+        this.StringJoin.Clear();        
+        
+        this.Append(this.StringValue("a: ")).Append(a).AppendChar('\n');
+        
+        ka = this.StringJoin.Result();
+
+        this.Console.Out.Write(ka);
+
+        this.Console.Out.Write(this.StringValue("Input aa: "));
+        
+        String aa;
         aa = this.Console.Inn.Read();
-        this.Console.Out.Write("aa: " + aa + "\n");
+
+        this.StringJoin.Clear();
+
+        this.Append(this.StringValue("aa: ")).Append(aa).AppendChar('\n');
+
+        ka = this.StringJoin.Result();
+        
+        this.Console.Out.Write(ka);
         return true;
     }
 
@@ -1413,6 +1433,23 @@ class Demo : Any
     {
         a.Final();
         return true;
+    }
+
+    public virtual Demo Append(String a)
+    {
+        this.InfraInfra.StringJoinString(this.StringJoin, a);
+        return this;
+    }
+
+    public virtual Demo AppendChar(uint a)
+    {
+        this.StringJoin.Append(a);
+        return this;
+    }
+
+    public virtual String StringValue(string o)
+    {
+        return this.TextStringValue.Execute(o);
     }
 
     public virtual long MathInt(long n)
