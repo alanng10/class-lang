@@ -202,7 +202,7 @@ Word "hor" has meaning that is frontal index;
 
 Word "size" has meaning that is length in dimensions.
 
-Word "wid" has meaning that is length horizontal.
+Word "wed" has meaning that is length horizontal.
 
 Word "het" has meaning that is length vertical.
 
