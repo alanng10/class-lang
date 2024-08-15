@@ -121,8 +121,8 @@ public class Frame : Comp
     private ulong InternTypeState { get; set; }
     private Handle InternHandle { get; set; }
     private DrawDraw FrameDraw { get; set; }
-    private DrawRectInt DestRect { get; set; }
-    private DrawRectInt SourceRect { get; set; }
+    private DrawRect DestRect { get; set; }
+    private DrawRect SourceRect { get; set; }
 
     protected virtual MathMath CreateMath()
     {
@@ -360,13 +360,13 @@ public class Frame : Comp
         return a;
     }
 
-    private DrawRectInt CreateFrameRect()
+    private DrawRect CreateFrameRect()
     {
         DrawSize size;
         size = this.Size;
 
-        DrawRectInt a;
-        a = this.DrawInfra.RectIntCreate(0, 0, this.MathInt(size.Width), this.MathInt(size.Height));
+        DrawRect a;
+        a = this.DrawInfra.RectCreate(0, 0, this.MathInt(size.Width), this.MathInt(size.Height));
         return a;
     }
 
