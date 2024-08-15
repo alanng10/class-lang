@@ -55,12 +55,12 @@ public class Arrange : Any
     private InternInfra InternInfra { get; set; }
     private ulong Intern { get; set; }
 
-    public virtual bool Rename(string path, string destPath)
+    public virtual bool Rename(String path, String destPath)
     {
         ulong pathU;
-        pathU = this.InternInfra.StringCreate(path);
+        pathU = this.InternInfra.StringCreate(path.Data.Value);
         ulong destPathU;
-        destPathU = this.InternInfra.StringCreate(destPath);
+        destPathU = this.InternInfra.StringCreate(destPath.Data.Value);
 
         ulong o;
         o = Extern.StorageArrange_Rename(this.Intern, pathU, destPathU);
@@ -73,12 +73,12 @@ public class Arrange : Any
         return a;
     }
 
-    public virtual bool FileCopy(string path, string destPath)
+    public virtual bool FileCopy(String path, String destPath)
     {
         ulong pathU;
-        pathU = this.InternInfra.StringCreate(path);
+        pathU = this.InternInfra.StringCreate(path.Data.Value);
         ulong destPathU;
-        destPathU = this.InternInfra.StringCreate(destPath);
+        destPathU = this.InternInfra.StringCreate(destPath.Data.Value);
 
         ulong o;
         o = Extern.StorageArrange_FileCopy(this.Intern, pathU, destPathU);
@@ -91,10 +91,10 @@ public class Arrange : Any
         return a;
     }
 
-    public virtual bool FileRemove(string path)
+    public virtual bool FileRemove(String path)
     {
         ulong pathU;
-        pathU = this.InternInfra.StringCreate(path);
+        pathU = this.InternInfra.StringCreate(path.Data.Value);
 
         ulong o;
         o = Extern.StorageArrange_FileRemove(this.Intern, pathU);
@@ -106,10 +106,10 @@ public class Arrange : Any
         return a;
     }
 
-    public virtual bool FoldCreate(string path)
+    public virtual bool FoldCreate(String path)
     {
         ulong pathU;
-        pathU = this.InternInfra.StringCreate(path);
+        pathU = this.InternInfra.StringCreate(path.Data.Value);
 
         ulong o;
         o = Extern.StorageArrange_FoldCreate(this.Intern, pathU);
@@ -121,12 +121,12 @@ public class Arrange : Any
         return a;
     }
 
-    public virtual bool FoldCopy(string path, string destPath)
+    public virtual bool FoldCopy(String path, String destPath)
     {
         ulong pathU;
-        pathU = this.InternInfra.StringCreate(path);
+        pathU = this.InternInfra.StringCreate(path.Data.Value);
         ulong destPathU;
-        destPathU = this.InternInfra.StringCreate(destPath);
+        destPathU = this.InternInfra.StringCreate(destPath.Data.Value);
 
         ulong o;
         o = Extern.StorageArrange_FoldCopy(this.Intern, pathU, destPathU);
@@ -139,10 +139,10 @@ public class Arrange : Any
         return a;
     }
 
-    public virtual bool FoldRemove(string path)
+    public virtual bool FoldRemove(String path)
     {
         ulong pathU;
-        pathU = this.InternInfra.StringCreate(path);
+        pathU = this.InternInfra.StringCreate(path.Data.Value);
 
         ulong o;
         o = Extern.StorageArrange_FoldRemove(this.Intern, pathU);
@@ -154,10 +154,10 @@ public class Arrange : Any
         return a;
     }
 
-    public virtual bool Exist(string path)
+    public virtual bool Exist(String path)
     {
         ulong pathU;
-        pathU = this.InternInfra.StringCreate(path);
+        pathU = this.InternInfra.StringCreate(path.Data.Value);
 
         ulong o;
         o = Extern.StorageArrange_Exist(this.Intern, pathU);
