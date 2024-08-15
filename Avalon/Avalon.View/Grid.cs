@@ -347,23 +347,23 @@ public class Grid : View
         long endRow;
         endRow = startRow + gridSize.Height;
 
-        int leftA;
+        long leftA;
         leftA = this.GridColLeft(startCol);
-        int upA;
+        long upA;
         upA = this.GridRowUp(startRow);
-        int left;
+        long left;
         left = leftA + draw.Pos.Col;
-        int up;
+        long up;
         up = upA + draw.Pos.Row;
-        
-        int right;
+
+        long right;
         right = this.GridColLeft(endCol);
-        int down;
+        long down;
         down = this.GridRowUp(endRow);
 
-        int width;
+        long width;
         width = right - leftA;
-        int height;
+        long height;
         height = down - upA;
 
         DrawRect rect;
@@ -407,12 +407,12 @@ public class Grid : View
         return a;
     }
 
-    protected virtual int GridColLeft(long col)
+    protected virtual long GridColLeft(long col)
     {
         return this.GridPosPixelPos(col, 0);
     }
 
-    protected virtual int GridRowUp(long row)
+    protected virtual long GridRowUp(long row)
     {
         return this.GridPosPixelPos(row, this.Col.Count);
     }
