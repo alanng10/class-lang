@@ -42,7 +42,7 @@ public class BrushLineList : Any
 
     protected virtual BrushLine AddItem(ulong o)
     {
-        int index;
+        long index;
         index = this.Index;
 
         BrushLine item;
@@ -65,13 +65,13 @@ public class BrushLineList : Any
 
     protected virtual Array Array { get; set; }
 
-    protected virtual int ArrayCount { get { return 5; } set { } }
+    protected virtual long ArrayCount { get { return 5; } set { } }
 
-    public virtual int Count { get; set; }
+    public virtual long Count { get; set; }
     
-    protected virtual int Index { get; set; }
+    protected virtual long Index { get; set; }
 
-    public virtual BrushLine Get(int index)
+    public virtual BrushLine Get(long index)
     {
         return (BrushLine)this.Array.GetAt(index);
     }

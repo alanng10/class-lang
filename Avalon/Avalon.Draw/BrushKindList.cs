@@ -38,7 +38,7 @@ public class BrushKindList : Any
 
     protected virtual BrushKind AddItem(ulong o)
     {
-        int index;
+        long index;
         index = this.Index;
 
         BrushKind item;
@@ -61,13 +61,13 @@ public class BrushKindList : Any
 
     protected virtual Array Array { get; set; }
 
-    protected virtual int ArrayCount { get { return 3; } set { } }
+    protected virtual long ArrayCount { get { return 3; } set { } }
 
-    public virtual int Count { get; set; }
+    public virtual long Count { get; set; }
     
-    protected virtual int Index { get; set; }
+    protected virtual long Index { get; set; }
 
-    public virtual BrushKind Get(int index)
+    public virtual BrushKind Get(long index)
     {
         return (BrushKind)this.Array.GetAt(index);
     }

@@ -38,7 +38,7 @@ public class BrushCapList : Any
 
     protected virtual BrushCap AddItem(ulong o)
     {
-        int index;
+        long index;
         index = this.Index;
 
         BrushCap item;
@@ -61,13 +61,13 @@ public class BrushCapList : Any
 
     protected virtual Array Array { get; set; }
 
-    protected virtual int ArrayCount { get { return 3; } set { } }
+    protected virtual long ArrayCount { get { return 3; } set { } }
 
-    public virtual int Count { get; set; }
+    public virtual long Count { get; set; }
     
-    protected virtual int Index { get; set; }
+    protected virtual long Index { get; set; }
 
-    public virtual BrushCap Get(int index)
+    public virtual BrushCap Get(long index)
     {
         return (BrushCap)this.Array.GetAt(index);
     }

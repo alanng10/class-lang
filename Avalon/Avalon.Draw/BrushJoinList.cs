@@ -40,7 +40,7 @@ public class BrushJoinList : Any
 
     protected virtual BrushJoin AddItem(ulong o)
     {
-        int index;
+        long index;
         index = this.Index;
 
         BrushJoin item;
@@ -63,13 +63,13 @@ public class BrushJoinList : Any
 
     protected virtual Array Array { get; set; }
 
-    protected virtual int ArrayCount { get { return 4; } set { } }
+    protected virtual long ArrayCount { get { return 4; } set { } }
 
-    public virtual int Count { get; set; }
+    public virtual long Count { get; set; }
     
-    protected virtual int Index { get; set; }
+    protected virtual long Index { get; set; }
 
-    public virtual BrushJoin Get(int index)
+    public virtual BrushJoin Get(long index)
     {
         return (BrushJoin)this.Array.GetAt(index);
     }
