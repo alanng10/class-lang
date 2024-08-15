@@ -41,7 +41,7 @@ public class CaseList : Any
 
     protected virtual Case AddItem()
     {
-        int index;
+        long index;
         index = this.Index;
 
         Case item;
@@ -63,13 +63,13 @@ public class CaseList : Any
 
     protected virtual Array Array { get; set; }
 
-    protected virtual int ArrayCount { get { return 7; } set { } }
+    protected virtual long ArrayCount { get { return 7; } set { } }
 
-    public virtual int Count { get; set; }
+    public virtual long Count { get; set; }
     
-    protected virtual int Index { get; set; }
+    protected virtual long Index { get; set; }
 
-    public virtual Case Get(int index)
+    public virtual Case Get(long index)
     {
         return (Case)this.Array.GetAt(index);
     }
