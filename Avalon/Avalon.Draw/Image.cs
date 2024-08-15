@@ -79,8 +79,15 @@ public class Image : Any
         ulong aa;
         aa = Extern.Data_ValueGet(this.InternData);
 
+        ulong widthU;
+        ulong colU;
+        ulong rowU;
+        widthU = (ulong)this.Size.Width;
+        colU = (ulong)pos.Col;
+        rowU = (ulong)pos.Row;
+
         uint u;
-        u = this.InternIntern.VideoDataColor(aa, this.Size.Width, pos.Col, pos.Row);
+        u = this.InternIntern.VideoDataColor(aa, widthU, colU, rowU);
 
         ulong ua;
         ua = u;
