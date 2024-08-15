@@ -111,29 +111,7 @@ public class Code : Any
         ulong resultIndexU;
         resultIndexU = (ulong)resultIndex;
 
-        Data k;
-        k = null;
-
-        bool b;
-        b = (data is StringData);
-
-        if (!b)
-        {
-            k = data;
-        }
-
-        if (b)
-        {
-            StringData stringData;
-            stringData = (StringData)data;
-
-            String dataString;
-            dataString = stringData.ValueString;
-
-            k = dataString.Data;
-        }
-
-        this.InternIntern.TextEncodeResultArrayArray(result.Value, resultIndexU, innKind.Intern, outKind.Intern, k.Value, dataIndexU, dataCountU);
+        this.InternIntern.TextEncodeResultArrayArray(result.Value, resultIndexU, innKind.Intern, outKind.Intern, data.Value, dataIndexU, dataCountU);
 
         return true;
     }
