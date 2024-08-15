@@ -72,7 +72,7 @@ class ThreadNetworkHostState : State
             k = "Fail";
         }
 
-        Console.This.Out.Write("Network Host " + k + ", code: " + o + "\n");
+        Console.This.Out.Write(this.Demo.StringValue("Network Host " + k + ", code: " + o + "\n"));
         return true;
     }
 
