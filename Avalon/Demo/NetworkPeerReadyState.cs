@@ -84,7 +84,7 @@ class NetworkPeerReadyState : State
             b = (kk == 58);
             if (b)
             {
-                Console.This.Out.Write("Network Host Case 0 Success\n");
+                Console.This.Out.Write(this.S("Network Host Case 0 Success\n"));
 
                 this.Case = 1;
 
@@ -94,7 +94,7 @@ class NetworkPeerReadyState : State
             }
             if (!b)
             {
-                Console.This.Err.Write("Network Host Case 0 Read Data Invalid\n");
+                Console.This.Err.Write(this.S("Network Host Case 0 Read Data Invalid\n"));
                 this.Status = 22;
                 return false;
             }
@@ -115,7 +115,7 @@ class NetworkPeerReadyState : State
             ba = (a0 == 11 & a1 == 57 & a2 == 98 & a3 == 149);
             if (ba)
             {
-                Console.This.Out.Write("Network Host Case 1 Success\n");
+                Console.This.Out.Write(this.S("Network Host Case 1 Success\n"));
 
                 this.Case = 2;
 
@@ -127,7 +127,7 @@ class NetworkPeerReadyState : State
             }
             if (!ba)
             {
-                Console.This.Err.Write("Network Host Case 1 Read Data Invalid\n");
+                Console.This.Err.Write(this.S("Network Host Case 1 Read Data Invalid\n"));
                 this.Status = 24;
                 return false;
             }
@@ -135,14 +135,51 @@ class NetworkPeerReadyState : State
 
         if (cc == 2)
         {
-            string ka;
-            ka = this.StringCreate.Data(data, null);
+            String ka;
+            ka = this.Demo.StringComp.CreateData(data, null);
 
-            Console.This.Out.Write("Network Host Case 2 Read Text: " + ka + "\n");
+            String kaa;
+            kaa = this.AddClear().AddValue("Network Host Case 2 Read Text: ").Add(ka).AddChar('\n').AddResult();
+
+            Console.This.Out.Write(kaa);
 
             this.HostState.ExitNetwork(0);
             return true;
         }
         return true;
+    }
+
+    public virtual NetworkPeerReadyState Add(String a)
+    {
+        this.Demo.Add(a);
+        return this;
+    }
+
+    public virtual NetworkPeerReadyState AddValue(string o)
+    {
+        this.Demo.AddValue(o);
+        return this;
+    }
+
+    public virtual NetworkPeerReadyState AddChar(uint a)
+    {
+        this.Demo.AddChar(a);
+        return this;
+    }
+
+    public virtual NetworkPeerReadyState AddClear()
+    {
+        this.Demo.AddClear();
+        return this;
+    }
+
+    public virtual String AddResult()
+    {
+        return this.Demo.AddResult();
+    }
+
+    public virtual String S(string o)
+    {
+        return this.Demo.StringValue(o);
     }
 }
