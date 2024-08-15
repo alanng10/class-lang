@@ -54,7 +54,7 @@ public class CompList : Any
 
     protected virtual Comp AddItem(ulong o)
     {
-        int index;
+        long index;
         index = this.Index;
 
         Comp item;
@@ -77,13 +77,13 @@ public class CompList : Any
 
     protected virtual Array Array { get; set; }
 
-    protected virtual int ArrayCount { get { return 11; } set { } }
+    protected virtual long ArrayCount { get { return 11; } set { } }
 
-    public virtual int Count { get; set; }
+    public virtual long Count { get; set; }
     
-    protected virtual int Index { get; set; }
+    protected virtual long Index { get; set; }
 
-    public virtual Comp Get(int index)
+    public virtual Comp Get(long index)
     {
         return (Comp)this.Array.GetAt(index);
     }
