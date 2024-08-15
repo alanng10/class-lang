@@ -29,9 +29,6 @@ public class View : Comp
         this.DrawRectC = this.CreateDrawRect();
         this.DrawRectD = this.CreateDrawRect();
 
-        this.DrawRectIntA = this.CreateDrawRectInt();
-        this.DrawRectIntB = this.CreateDrawRectInt();
-
         this.DrawPosA = this.CreateDrawPos();
 
         this.StackRect = this.CreateStackRect();
@@ -49,8 +46,6 @@ public class View : Comp
     protected virtual DrawRect DrawRectB { get; set; }    
     protected virtual DrawRect DrawRectC { get; set; }
     protected virtual DrawRect DrawRectD { get; set; }
-    protected virtual DrawRectInt DrawRectIntA { get; set; }
-    protected virtual DrawRectInt DrawRectIntB { get; set; }
     protected virtual DrawPos DrawPosA { get; set; }
     protected virtual DrawRect StackRect { get; set; }
     protected virtual DrawPos StackPos { get; set; }
@@ -134,13 +129,6 @@ public class View : Comp
     {
         DrawRect rect;
         rect = this.DrawInfra.RectCreate(0, 0, 0, 0);
-        return rect;
-    }
-
-    protected virtual DrawRectInt CreateDrawRectInt()
-    {
-        DrawRectInt rect;
-        rect = this.DrawInfra.RectIntCreate(0, 0, 0, 0);
         return rect;
     }
 
@@ -317,13 +305,13 @@ public class View : Comp
 
     protected virtual bool ExecuteDrawThis(DrawDraw draw)
     {
-        int left;
+        long left;
         left = this.Pos.Col;
-        int up;
+        long up;
         up = this.Pos.Row;
-        int width;
+        long width;
         width = this.Size.Width;
-        int height;
+        long height;
         height = this.Size.Height;
 
         long leftM;
@@ -331,8 +319,8 @@ public class View : Comp
         leftM = this.MathInt(left);
         upM = this.MathInt(up);
 
-        DrawRectInt rect;
-        rect = this.DrawRectIntA;
+        DrawRect rect;
+        rect = this.DrawRectA;
 
         rect.Pos.Col = leftM;
         rect.Pos.Row = upM;
@@ -364,16 +352,16 @@ public class View : Comp
 
     protected virtual bool ExecuteDrawChild(DrawDraw draw)
     {
-        int left;        
+        long left;        
         left = this.Pos.Col;
         left = left + draw.Pos.Col;
-        int up;
+        long up;
         up = this.Pos.Row;
         up = up + draw.Pos.Row;
 
-        int width;
+        long width;
         width = this.Size.Width;
-        int height;
+        long height;
         height = this.Size.Height;
 
         this.DrawRectA.Pos.Col = left;
@@ -418,13 +406,13 @@ public class View : Comp
         return a;
     }
 
-    protected virtual long MathValue(long significand, long exponent)
+    protected virtual long MathValue(long cand, long expo)
     {
         MathComp mathComp;
         mathComp = this.MathComp;
 
-        mathComp.Cand = significand;
-        mathComp.Expo = exponent;
+        mathComp.Cand = cand;
+        mathComp.Expo = expo;
 
         long a;
         a = this.Math.Value(mathComp);
