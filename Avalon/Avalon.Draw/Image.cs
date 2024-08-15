@@ -106,7 +106,7 @@ public class Image : Any
         long count;
         count = ka;
 
-        if (!this.InfraInfra.ValidRangeInt(data.Count, index, count))
+        if (!this.InfraInfra.ValidRange(data.Count, index, count))
         {
             return false;
         }
@@ -114,7 +114,12 @@ public class Image : Any
         ulong a;
         a = Extern.Data_ValueGet(this.InternData);
         
-        this.InternIntern.CopyToByteArray(a, data.Value, index, count);
+        ulong indexU;
+        ulong countU;
+        indexU = (ulong)index;
+        countU = (ulong)count;
+
+        this.InternIntern.CopyToByteArray(a, data.Value, indexU, countU);
         return true;
     }
 
@@ -135,7 +140,7 @@ public class Image : Any
         long count;
         count = ka;
 
-        if (!this.InfraInfra.ValidRangeInt(data.Count, index, count))
+        if (!this.InfraInfra.ValidRange(data.Count, index, count))
         {
             return false;
         }
@@ -143,7 +148,12 @@ public class Image : Any
         ulong a;
         a = Extern.Data_ValueGet(this.InternData);
 
-        this.InternIntern.CopyFromByteArray(a, data.Value, index, count);
+        ulong indexU;
+        ulong countU;
+        indexU = (ulong)index;
+        countU = (ulong)count;
+
+        this.InternIntern.CopyFromByteArray(a, data.Value, indexU, countU);
         return true;
     }
 }
