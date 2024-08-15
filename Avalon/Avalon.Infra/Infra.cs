@@ -34,13 +34,6 @@ public class Infra : Any
         return this.ValidRange(count, index, 1);
     }
 
-    public virtual bool IndexRange(Range range, int index)
-    {
-        range.Index = index;        
-        range.Count = 1;
-        return true;
-    }
-
     public virtual bool ValidRange(long totalCount, long index, long count)
     {
         if (totalCount < 0)
@@ -59,6 +52,13 @@ public class Infra : Any
         {
             return false;
         }
+        return true;
+    }
+
+    public virtual bool IndexRange(Range range, int index)
+    {
+        range.Index = index;
+        range.Count = 1;
         return true;
     }
 

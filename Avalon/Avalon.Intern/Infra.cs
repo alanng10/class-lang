@@ -15,9 +15,15 @@ public class Infra : object
     public virtual bool Init()
     {
         this.InternIntern = Intern.This;
+
+        long o;
+        o = 1;
+        o = o << 60;
+        this.IntCapValue = o;
         return true;
     }
 
+    protected virtual long IntCapValue { get; set; }
     protected virtual Intern InternIntern { get; set; }
 
     public virtual ulong StringCreate(byte[] value)
@@ -188,5 +194,122 @@ public class Infra : object
         Extern.Size_WidthSet(size, w);
         Extern.Size_HeightSet(size, h);
         return true;
+    }
+
+    public virtual bool ValidIndex(long count, long index)
+    {
+        return this.ValidRange(count, index, 1);
+    }
+
+    public virtual bool ValidRange(long totalCount, long index, long count)
+    {
+        if (totalCount < 0)
+        {
+            return false;
+        }
+        if (index < 0)
+        {
+            return false;
+        }
+        if (count < 0)
+        {
+            return false;
+        }
+        if (totalCount < index + count)
+        {
+            return false;
+        }
+        return true;
+    }
+
+    public virtual ulong DataByteListGet(byte[] data, long index, long count)
+    {
+        ulong oo;
+        oo = 0;
+
+        ulong o;
+        o = 0;
+        int shiftCount;
+        shiftCount = 0;
+        byte ob;
+        ob = 0;
+
+        long i;
+        i = 0;
+        while (i < count)
+        {
+            ob = (byte)data[index + i];
+
+            shiftCount = (int)(i * 8);
+
+            o = ob;
+            o = o << shiftCount;
+
+            oo = oo | o;
+
+            i = i + 1;
+        }
+        long d;
+        d = (this.IntCapValue - 1);
+        ulong da;
+        da = (ulong)d;
+        ulong a;
+        a = oo;
+        a = a & da;
+        return a;
+    }
+
+    public virtual bool DataByteListSet(byte[] data, long index, long count, ulong value)
+    {
+        long d;
+        d = this.IntCapValue - 1;
+        ulong da;
+        da = (ulong)d;
+        ulong oo;
+        oo = value;
+        oo = oo & da;
+
+        ulong o;
+        o = 0;
+        int shiftCount;
+        shiftCount = 0;
+        byte ob;
+        ob = 0;
+
+        long i;
+        i = 0;
+        while (i < count)
+        {
+            shiftCount = (int)(i * 8);
+
+            o = oo >> shiftCount;
+
+            ob = (byte)o;
+
+            data[index + i] = ob;
+
+            i = i + 1;
+        }
+        return true;
+    }
+    
+    public virtual uint DataMidGet(byte[] data, long index)
+    {
+        return (uint)this.DataByteListGet(data, index, sizeof(uint));
+    }
+
+    public virtual bool DataMidSet(byte[] data, long index, uint value)
+    {
+        return this.DataByteListSet(data, index, sizeof(uint), value);
+    }
+
+    public virtual uint DataCharGet(byte[] data, long index)
+    {
+        return this.DataMidGet(data, index);
+    }
+
+    public virtual bool DataCharSet(byte[] data, long index, uint value)
+    {
+        return this.DataMidSet(data, index, value);
     }
 }

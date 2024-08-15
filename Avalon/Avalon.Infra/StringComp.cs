@@ -17,18 +17,16 @@ public class StringComp : Any
     public override bool Init()
     {
         base.Init();
-        this.InternIntern = InternIntern.This;
-        this.InfraInfra = Infra.This;
+        this.InternInfra = InternInfra.This;
         return true;
     }
 
-    private InternIntern InternIntern { get; set; }
-    protected virtual Infra InfraInfra { get; set; }
+    private InternInfra InternInfra { get; set; }
 
     public virtual String CreateChar(uint c, long count)
     {
-        Infra infraInfra;
-        infraInfra = this.InfraInfra;
+        InternInfra internInfra;
+        internInfra = this.InternInfra;
 
         if (count < 0)
         {
@@ -40,7 +38,7 @@ public class StringComp : Any
 
         long ka;
         ka = count * ko;
-        
+
         Data data;
         data = new Data();
         data.Count = ka;
@@ -53,7 +51,7 @@ public class StringComp : Any
             long index;
             index = i * ko;
 
-            infraInfra.DataCharSet(data, index, c);
+            internInfra.DataCharSet(data.Value, index, c);
 
             i = i + 1;
         }
@@ -73,8 +71,8 @@ public class StringComp : Any
 
     public virtual String CreateData(Data data, Range range)
     {
-        Infra infraInfra;
-        infraInfra = this.InfraInfra;
+        InternInfra internInfra;
+        internInfra = this.InternInfra;
 
         long kka;
         kka = sizeof(uint);
@@ -99,7 +97,7 @@ public class StringComp : Any
         {
             index = range.Index;
             count = range.Count;
-            if (!infraInfra.ValidRange(totalCount, index, count))
+            if (!internInfra.ValidRange(totalCount, index, count))
             {
                 return null;
             }
@@ -120,9 +118,9 @@ public class StringComp : Any
             keb = i * kka;
 
             uint aa;
-            aa = infraInfra.DataCharGet(data, kea);
+            aa = internInfra.DataCharGet(data.Value, kea);
 
-            infraInfra.DataCharSet(dest, keb, aa);
+            internInfra.DataCharSet(dest.Value, keb, aa);
 
             i = i + 1;
         }
@@ -142,19 +140,19 @@ public class StringComp : Any
 
     public virtual long Char(String o, long index)
     {
-        Infra infraInfra;
-        infraInfra = this.InfraInfra;
+        InternInfra internInfra;
+        internInfra = this.InternInfra;
 
         long count;
         count = this.Count(o);
 
-        if (!infraInfra.ValidIndex(count, index))
+        if (!internInfra.ValidIndex(count, index))
         {
             return -1;
         }
 
         uint a;
-        a = infraInfra.DataCharGet(o.Data, index * sizeof(uint));
+        a = internInfra.DataCharGet(o.Data.Value, index * sizeof(uint));
         return a;
     }
 }

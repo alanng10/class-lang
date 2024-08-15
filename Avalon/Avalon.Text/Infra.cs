@@ -18,12 +18,10 @@ public class Infra : Any
     {
         base.Init();
         this.InfraInfra = InfraInfra.This;
-        StringComp stringComp;
-        stringComp = StringComp.This;
-        this.StringComp = stringComp;
+        this.StringComp = StringComp.This;
 
-        this.NewLine = stringComp.CreateChar("\n"[0], 1);
-        this.PathCombine = stringComp.CreateChar("/"[0], 1);
+        this.NewLine = this.StringComp.CreateChar('\n', 1);
+        this.PathCombine = this.StringComp.CreateChar('/', 1);
 
         StringValue k;
         k = StringValue.This;
