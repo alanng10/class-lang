@@ -75,7 +75,7 @@ public class StatusList : Any
 
     protected virtual Status AddItem()
     {
-        int index;
+        long index;
         index = this.Index;
 
         Status item;
@@ -97,13 +97,13 @@ public class StatusList : Any
 
     protected virtual Array Array { get; set; }
 
-    protected virtual int ArrayCount { get { return 24; } set { } }
+    protected virtual long ArrayCount { get { return 24; } set { } }
 
-    public virtual int Count { get; set; }
+    public virtual long Count { get; set; }
     
-    protected virtual int Index { get; set; }
+    protected virtual long Index { get; set; }
 
-    public virtual Status Get(int index)
+    public virtual Status Get(long index)
     {
         return (Status)this.Array.GetAt(index);
     }
