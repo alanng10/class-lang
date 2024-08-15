@@ -5,17 +5,17 @@ class ViewC : View
     public override bool Init()
     {
         base.Init();
-        this.Rect = this.DrawInfra.RectIntCreate(0, 0, 0, 0);
+        this.Rect = this.DrawInfra.RectCreate(0, 0, 0, 0);
         return true;
     }
 
-    public DrawRectInt EllipseRect { get; set; }
+    public DrawRect EllipseRect { get; set; }
     public DrawBrush EllipseBrush { get; set; }
     public DrawFace Face { get; set; }
     public DrawTextAlign TextAlign { get; set; }
     public Text Text { get; set; }
     public DrawBrush TextPen { get; set; }
-    private DrawRectInt Rect { get; set; }
+    private DrawRect Rect { get; set; }
 
     protected override bool ExecuteDrawThis(DrawDraw draw)
     {
@@ -29,7 +29,7 @@ class ViewC : View
 
         draw.Fill = null;
 
-        DrawRectInt rect;
+        DrawRect rect;
         rect = this.Rect;
         rect.Pos.Col = this.MathInt(this.Pos.Col + 150);
         rect.Pos.Row = this.MathInt(this.Pos.Row + 50);

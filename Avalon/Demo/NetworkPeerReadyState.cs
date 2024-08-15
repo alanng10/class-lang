@@ -77,7 +77,7 @@ class NetworkPeerReadyState : State
 
         if (cc == 0)
         {
-            int kk;
+            long kk;
             kk = data.Get(0);
 
             bool b;
@@ -102,10 +102,10 @@ class NetworkPeerReadyState : State
 
         if (cc == 1)
         {
-            int a0;
-            int a1;
-            int a2;
-            int a3;
+            long a0;
+            long a1;
+            long a2;
+            long a3;
             a0 = data.Get(0);
             a1 = data.Get(1);
             a2 = data.Get(2);

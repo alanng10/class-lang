@@ -70,7 +70,7 @@ public class NetworkReadyState : State
 
         if (cc == 0)
         {
-            int kk;
+            long kk;
             kk = data.Get(0);
 
             bool b;
@@ -100,7 +100,7 @@ public class NetworkReadyState : State
 
         if (cc == 1)
         {
-            int kk;
+            long kk;
             kk = data.Get(0);
 
             bool b;
