@@ -21,7 +21,7 @@ public class NetworkCaseState : State
             Data data;
             data = ka.Data;
 
-            DataRange range;
+            Range range;
             range = ka.Range;
 
             data.Set(0, 58);
