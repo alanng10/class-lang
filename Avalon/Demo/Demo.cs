@@ -683,16 +683,16 @@ class Demo : Any
         time = new Time();
         time.Init();
         
-        this.ConsoleWriteTime("Demo.ExecuteTime time init :", time);
+        this.ConsoleWriteTime("Demo.ExecuteTime time init : ", time);
         
         time.This();
-        this.ConsoleWriteTime("Demo.ExecuteTime time current :", time);
+        this.ConsoleWriteTime("Demo.ExecuteTime time current : ", time);
 
         time.ToPos(2 * 60 * 60);
-        this.ConsoleWriteTime("Demo.ExecuteTime time ToPos :", time);
+        this.ConsoleWriteTime("Demo.ExecuteTime time ToPos : ", time);
 
         time.AddMillisec(200 * 1000);
-        this.ConsoleWriteTime("Demo.ExecuteTime time AddMillisec :", time);
+        this.ConsoleWriteTime("Demo.ExecuteTime time AddMillisec : ", time);
 
         time.Final();
         return true;
@@ -703,6 +703,19 @@ class Demo : Any
 
     private bool ConsoleWriteTime(string prefix, Time time)
     {
+        long count;
+        count = this.ArgList.Count;
+        long i;
+        i = 0;
+        while (i < count)
+        {
+            TextFormatArg arg;
+            arg = (TextFormatArg)this.ArgList.GetAt(i);
+            arg.HasCount = false;
+
+            i = i + 1;
+        }
+
         String ka;
         ka = this.StringValue(prefix);
 
@@ -720,11 +733,11 @@ class Demo : Any
         this.ArgMillisec.Value.Int = time.Millisec;
         this.ArgPos.Value.Int = time.Pos;
 
-        long count;
-        count = this.TimeWrite.ExecuteCount(this.TimeWriteBase, this.ArgList);
+        long resultCount;
+        resultCount = this.TimeWrite.ExecuteCount(this.TimeWriteBase, this.ArgList);
 
         Text result;
-        result = this.TextInfra.TextCreate(count);
+        result = this.TextInfra.TextCreate(resultCount);
 
         this.TimeWrite.ExecuteResult(this.TimeWriteBase, this.ArgList, result);
 
@@ -746,6 +759,7 @@ class Demo : Any
         a.Pos = pos;
         a.Kind = 1;
         a.MaxWidth = -1;
+        a.Base = 10;
         return a;
     }
 
