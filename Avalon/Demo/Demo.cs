@@ -403,12 +403,27 @@ class Demo : Any
 
     private bool ConsoleWriteMathValue(string prefix, long value)
     {
+        StringJoin h;
+        h = this.StringJoin;
+
         this.Math.Comp(this.MathComp, value);
         
-        this.Console.Out.Write(prefix +
-        "Significand: " + this.MathComp.Cand.ToString("x") + ", " +
-        "Exponent: " + this.MathComp.Expo +
-        "\n");
+        String ka;
+
+        h.Clear();
+        this.Append(this.StringValue(prefix))
+            .Append(this.StringValue("Cand: "))
+            .Append(this.StringValue(this.MathComp.Cand.ToString("x")))
+            .Append(this.StringValue(", "))
+            .Append(this.StringValue("Expo: "))
+            .Append(this.StringValue(this.MathComp.Expo.ToString()))
+            .AppendChar('\n')
+            ;
+
+        ka = h.Result();
+
+        this.Console.Out.Write(ka);
+
         return true;
     }
 
