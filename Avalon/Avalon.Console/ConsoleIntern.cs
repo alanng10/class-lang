@@ -65,13 +65,29 @@ class ConsoleIntern : Any
         ulong dataCount;
         dataCount = count * sizeof(uint);
 
-        string a;
-        a = this.InternIntern.StringCreateUtf32(data, dataCount);
+        long ka;
+        ka = (long)dataCount;
+
+        Data k;
+        k = new Data();
+        k.Count = ka;
+        k.Init();
+
+        this.InternIntern.CopyToByteArray(data, k.Value, 0, dataCount);
+
+        long countA;
+        countA = (long)count;
+
+        String a;
+        a = new String();
+        a.Data = k;
+        a.Count = countA;
+        a.Init();
 
         Extern.String_Final(u);
         Extern.String_Delete(u);
 
         Extern.Delete(data);
-        return null;
+        return a;
     }
 }
