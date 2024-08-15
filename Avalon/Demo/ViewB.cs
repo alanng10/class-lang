@@ -10,33 +10,33 @@ class ViewB : View
     }
 
     public virtual DrawImage DrawImage { get; set; }
-    public virtual DrawRectInt SourceRect { get; set; }
+    public virtual DrawRect SourceRect { get; set; }
     public virtual DrawForm Form { get; set; }
     public virtual DrawImage ThreadDrawImage { get; set; }
-    public virtual DrawRectInt DestRectA { get; set; }
-    public virtual DrawRectInt SourceRectA { get; set; }
+    public virtual DrawRect DestRectA { get; set; }
+    public virtual DrawRect SourceRectA { get; set; }
 
     protected virtual DrawCompList DrawComp { get; set; }
 
     protected override bool ExecuteDrawThis(DrawDraw draw)
     {
-        int left;
+        long left;
         left = this.Pos.Col;
-        int up;
+        long up;
         up = this.Pos.Row;
-        int width;
+        long width;
         width = this.Size.Width;
-        int height;
+        long height;
         height = this.Size.Height;
 
-        DrawRectInt rect;
-        rect = this.DrawRectIntA;
+        DrawRect rect;
+        rect = this.DrawRectA;
         rect.Pos.Col = this.MathInt(left);
         rect.Pos.Row = this.MathInt(up);
         rect.Size.Width = this.MathInt(width);
         rect.Size.Height = this.MathInt(height);
 
-        DrawRectInt sourceRect;
+        DrawRect sourceRect;
         sourceRect = this.SourceRect;
 
         long angle;
