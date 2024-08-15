@@ -605,22 +605,42 @@ class Demo : Any
         a.Init();
 
         Text ooo;
-        ooo = this.TextInfra.TextCreateString("43695", null);
         long ooa;
+
+        ooo = this.TextInfra.TextCreateStringData(this.StringValue("43695"), null);        
         ooa = a.Execute(ooo, 10, false);
-        this.Console.Out.Write("Demo.ExecuteIntParse ooa: " + ooa.ToString() + "\n");
+        this.IntParseConsoleWrite(ooa);
 
-        ooo = this.TextInfra.TextCreateStringData("9E532F", null);
+        ooo = this.TextInfra.TextCreateStringData(this.StringValue("9E532F"), null);
         ooa = a.Execute(ooo, 16, true);
-        this.Console.Out.Write("Demo.ExecuteIntParse ooa: 0h" + ooa.ToString("x15") + "\n");
+        this.IntParseConsoleWrite(ooa);
 
-        ooo = this.TextInfra.TextCreateString("0000000000009294ef0d", null);
+        ooo = this.TextInfra.TextCreateStringData(this.StringValue("0000000000009294ef0d"), null);
         ooa = a.Execute(ooo, 16, false);
-        this.Console.Out.Write("Demo.ExecuteIntParse ooa: 0h" + ooa.ToString("x16") + "\n");
+        this.IntParseConsoleWrite(ooa);
 
-        ooo = this.TextInfra.TextCreateStringData("1000000000000000", null);
+        ooo = this.TextInfra.TextCreateStringData(this.StringValue("1000000000000000"), null);
         ooa = a.Execute(ooo, 16, true);
-        this.Console.Out.Write("Demo.ExecuteIntParse ooa: 0h" + ooa.ToString("x16") + "\n");
+        this.IntParseConsoleWrite(ooa);
+        return true;
+    }
+
+    private bool IntParseConsoleWrite(long a)
+    {
+        StringJoin h;
+        h = this.StringJoin;
+
+        String ka;
+
+        h.Clear();
+        this.Append(this.StringValue("Demo.ExecuteIntParse ooa: "))
+            .Append(this.StringValue(a.ToString("x16")))
+            .AppendChar('\n')
+            ;
+        ka = h.Result();
+
+        this.Console.Out.Write(ka);
+
         return true;
     }
 
