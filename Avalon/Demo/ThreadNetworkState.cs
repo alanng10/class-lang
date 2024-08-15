@@ -22,7 +22,7 @@ public class ThreadNetworkState : State
     public override bool Execute()
     {
         String hostName;
-        hostName = this.Value("localhost");
+        hostName = this.S("localhost");
         long hostPort;
         hostPort = 50400;
 
@@ -83,7 +83,7 @@ public class ThreadNetworkState : State
             k = "Fail";
         }
 
-        Console.This.Out.Write(this.Value("Network " + k + ", code: " + o + "\n"));
+        Console.This.Out.Write(this.S("Network " + k + ", code: " + o + "\n"));
         return true;
     }
 
@@ -108,7 +108,7 @@ public class ThreadNetworkState : State
         return true;
     }
 
-    protected virtual String Value(string o)
+    public virtual String S(string o)
     {
         return this.TextStringValue.Execute(o);
     }

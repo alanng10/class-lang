@@ -77,7 +77,7 @@ public class NetworkReadyState : State
             b = (kk == 1);
             if (b)
             {
-                Console.This.Out.Write("Network Case 0 Success\n");
+                Console.This.Out.Write(this.S("Network Case 0 Success\n"));
 
                 this.Case = 1;
 
@@ -92,7 +92,7 @@ public class NetworkReadyState : State
             }
             if (!b)
             {
-                Console.This.Err.Write("Network Case 0 Read Data Invalid\n");
+                Console.This.Err.Write(this.S("Network Case 0 Read Data Invalid\n"));
                 this.Status = 12;
                 return false;
             }
@@ -107,7 +107,7 @@ public class NetworkReadyState : State
             b = (kk == 2);
             if (b)
             {
-                Console.This.Out.Write("Network Case 1 Success\n");
+                Console.This.Out.Write(this.S("Network Case 1 Success\n"));
 
                 this.Case = 2;
 
@@ -140,11 +140,16 @@ public class NetworkReadyState : State
             }
             if (!b)
             {
-                Console.This.Err.Write("Network Case 1 Read Data Invalid\n");
+                Console.This.Err.Write(this.S("Network Case 1 Read Data Invalid\n"));
                 this.Status = 14;
                 return false;
             }
         }
         return true;
+    }
+
+    public virtual String S(string o)
+    {
+        return this.NetworkState.S(o);
     }
 }
