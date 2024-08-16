@@ -140,6 +140,34 @@ public class Infra : Any
         return a;
     }
 
+    public virtual Array TextSplitLineString(String text)
+    {
+        Text k;
+        k = this.TextInfra.TextCreateStringData(text, null);
+        
+        Array array;
+        array = this.TextSplitLine(k);
+
+        long count;
+        count = array.Count;
+        long i;
+        i = 0;
+        while (i < count)
+        {
+            Text ka;
+            ka = (Text)array.GetAt(i);
+
+            String a;
+            a = this.TextInfra.StringCreate(ka);
+
+            array.SetAt(i, a);
+
+            i = i + 1;
+        }
+
+        return array;
+    }
+
     public virtual Array TextSplitLine(Text text)
     {
         return this.TextSplit(text, this.TextNewLine);
