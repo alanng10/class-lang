@@ -8,7 +8,7 @@ public class Face : Any
         this.InternIntern = InternIntern.This;
         this.InternInfra = InternInfra.This;
 
-        this.InternFamily = this.InternInfra.StringCreate(this.Family.Data.Value);
+        this.InternFamily = this.InternInfra.StringCreate(this.Family.Value);
 
         ulong sizeU;
         sizeU = (ulong)(this.Size);
