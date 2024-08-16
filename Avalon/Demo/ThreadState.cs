@@ -36,7 +36,7 @@ class ThreadState : State
 
         String ka;
 
-        ka = this.AddClear().AddValue("ThreadRead.txt text: \n").Add(a).AddChar('\n').AddResult();
+        ka = this.AddClear().AddS("ThreadRead.txt text: \n").Add(a).AddS("\n").AddResult();
 
         console.Out.Write(ka);
 
@@ -57,7 +57,7 @@ class ThreadState : State
         {
             a = infra.TextRead(kkka);
 
-            ka = this.AddClear().AddValue("ThreadWrite.txt text: \n").Add(a).AddChar('\n').AddResult();
+            ka = this.AddClear().AddS("ThreadWrite.txt text: \n").Add(a).AddS("\n").AddResult();
         }
 
         ThreadThis varThis;
@@ -178,15 +178,9 @@ class ThreadState : State
         return this;
     }
 
-    public virtual ThreadState AddValue(string o)
+    public virtual ThreadState AddS(string o)
     {
         this.Demo.AddS(o);
-        return this;
-    }
-
-    public virtual ThreadState AddChar(uint a)
-    {
-        this.Demo.AddChar(a);
         return this;
     }
 

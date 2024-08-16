@@ -139,7 +139,7 @@ class NetworkPeerReadyState : State
             ka = this.Demo.StringComp.CreateData(data, null);
 
             String kaa;
-            kaa = this.AddClear().AddValue("Network Host Case 2 Read Text: ").Add(ka).AddChar('\n').AddResult();
+            kaa = this.AddClear().AddS("Network Host Case 2 Read Text: ").Add(ka).AddS("\n").AddResult();
 
             Console.This.Out.Write(kaa);
 
@@ -155,15 +155,9 @@ class NetworkPeerReadyState : State
         return this;
     }
 
-    public virtual NetworkPeerReadyState AddValue(string o)
+    public virtual NetworkPeerReadyState AddS(string o)
     {
         this.Demo.AddS(o);
-        return this;
-    }
-
-    public virtual NetworkPeerReadyState AddChar(uint a)
-    {
-        this.Demo.AddChar(a);
         return this;
     }
 
