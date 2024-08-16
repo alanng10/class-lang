@@ -152,8 +152,11 @@ public class Infra : Any
         long k;
         k = 0;
 
+        Range joinRange;
+        joinRange = join.Range;
+
         long joinCount;
-        joinCount = join.Range.Count;
+        joinCount = joinRange.Count;
 
         long count;
         count = array.Count;
@@ -161,13 +164,13 @@ public class Infra : Any
         i = 0;
         while (i < count)
         {
-            Text ka;
-            ka = (Text)array.GetAt(i);
-
             if (0 < i)
             {
                 k = k + joinCount;
             }
+
+            Text ka;
+            ka = (Text)array.GetAt(i);
 
             k = k + ka.Range.Count;
 
@@ -183,10 +186,20 @@ public class Infra : Any
         Data joinData;
         joinData = join.Data;
 
+        long joinIndex;
+        joinIndex = joinRange.Index;
+
         k = 0;
         i = 0;
         while (i < count)
         {
+            if (0 < i)
+            {
+                this.TextCopy(dest, k, joinData, joinIndex, joinCount);
+
+                k = k + joinCount;
+            }
+
             Text ka;
             ka = (Text)array.GetAt(i);
 
@@ -196,24 +209,30 @@ public class Infra : Any
             Range kaRange;
             kaRange = ka.Range;
 
-            if (0 < i)
-            {
-                this.TextCopy(dest, k, joinData, 0, joinCount);
+            long kaCount;
+            kaCount = kaRange.Count;
 
-                k = k + joinCount;
-            }
+            this.TextCopy(dest, k, kaData, kaRange.Index, kaCount);
 
-            long ke;
-            ke = kaRange.Count;
-
-            this.TextCopy(dest, k, kaData, kaRange.Index, ke);
-
-            k = k + ke;
+            k = k + kaCount;
 
             i = i + 1;
         }
 
         return text;
+    }
+
+    public virtual Text TextReplace(Text text, Text delimit, Text join)
+    {
+        Array array;
+        array = this.TextSplit(text, delimit);
+
+        Text k;
+        k = this.TextArrayJoin(array, join);
+        
+        Text a;
+        a = k;
+        return a;
     }
 
     public virtual bool TextCopy(Data dest, long destIndex, Data source, long sourceIndex, long count)
