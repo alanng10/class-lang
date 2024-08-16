@@ -33,7 +33,7 @@ class ConsoleIntern : Any
     public virtual bool OutWrite(String a)
     {
         ulong uo;
-        uo = this.InternInfra.StringCreate(a.Data.Value);
+        uo = this.InternInfra.StringCreate(a.Value);
         
         Extern.Console_OutWrite(this.Intern, uo);
 
@@ -44,7 +44,7 @@ class ConsoleIntern : Any
     public virtual bool ErrWrite(String a)
     {
         ulong uo;
-        uo = this.InternInfra.StringCreate(a.Data.Value);
+        uo = this.InternInfra.StringCreate(a.Value);
         
         Extern.Console_ErrWrite(this.Intern, uo);
 
@@ -68,19 +68,17 @@ class ConsoleIntern : Any
         long ka;
         ka = (long)dataCount;
 
-        Data k;
-        k = new Data();
-        k.Count = ka;
-        k.Init();
+        byte[] k;
+        k = new byte[ka];
 
-        this.InternIntern.CopyToByteArray(data, k.Value, 0, dataCount);
+        this.InternIntern.CopyToByteArray(data, k, 0, dataCount);
 
         long countA;
         countA = (long)count;
 
         String a;
         a = new String();
-        a.Data = k;
+        a.Value = k;
         a.Count = countA;
         a.Init();
 
