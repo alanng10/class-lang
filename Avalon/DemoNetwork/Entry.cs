@@ -2,7 +2,7 @@ namespace DemoNetwork;
 
 class Entry : EntryEntry
 {
-    protected override int ExecuteMain()
+    protected override long ExecuteMain()
     {
         Demo demo;
         demo = new Demo();
