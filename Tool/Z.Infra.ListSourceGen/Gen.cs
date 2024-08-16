@@ -120,17 +120,12 @@ public class Gen : Any
         String e;
         e = this.ToolInfra.StorageTextRead(this.InitMethodFileName);
 
-        Text ka;
-        ka = this.TextCreate(e);
-
-        Text kka;
-        kka = this.TextCreate(this.S("#InitFieldList#"));
-
-        Text kaa;
-        kaa = this.TextCreate(this.GetInitFieldList());
+        String kaa;
+        kaa = this.GetInitFieldList();
 
         Text k;
-        k = this.TextReplace(ka, kka, kaa);
+        k = this.TextCreate(e);
+        k = this.Replace(k, "#InitFieldList#", kaa);
 
         String a;
         a = this.StringCreate(k);
