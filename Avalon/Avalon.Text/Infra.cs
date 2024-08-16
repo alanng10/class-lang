@@ -199,7 +199,7 @@ public class Infra : Any
         return true;
     }
 
-    public virtual long DigitValue(uint oc, long varBase, bool upperCase)
+    public virtual long DigitValue(long oc, long varBase, bool upperCase)
     {
         long oa;
         oa = 0;
