@@ -28,7 +28,7 @@ public class Play : Any
     public virtual bool SourceSet()
     {
         ulong u;        
-        u = this.InternInfra.StringCreate(this.Source.Data.Value);
+        u = this.InternInfra.StringCreate(this.Source.Value);
 
         Extern.Play_SourceSet(this.Intern, u);
         Extern.Play_SourceThisSet(this.Intern);
