@@ -2,6 +2,6 @@ namespace Avalon.Type;
 
 public class Button : Any
 {
-    public virtual int Index { get; set; }
-    public virtual char Char { get; set; }
+    public virtual long Index { get; set; }
+    public virtual long Char { get; set; }
 }

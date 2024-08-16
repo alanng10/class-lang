@@ -250,7 +250,7 @@ public class ButtonList : Any
 
     protected virtual Button AddLetterButton()
     {
-        int index;
+        long index;
         index = this.LetterIndex + 'A';
         
         char oc;
@@ -264,7 +264,7 @@ public class ButtonList : Any
 
     protected virtual Button AddDigitButton()
     {
-        int index;
+        long index;
         index = this.DigitIndex + '0';
 
         char oc;
@@ -287,7 +287,7 @@ public class ButtonList : Any
 
     protected virtual Button AddControlButton()
     {
-        int index;
+        long index;
         index = this.ControlIndex + this.ControlStart;
         char oc;
         oc = (char)0;
@@ -297,7 +297,7 @@ public class ButtonList : Any
         return a;
     }
 
-    protected virtual Button AddButton(int index, char varChar)
+    protected virtual Button AddButton(long index, char varChar)
     {
         Button a;
         a = new Button();
@@ -308,49 +308,49 @@ public class ButtonList : Any
         return a;
     }
 
-    public virtual Button Get(int index)
+    public virtual Button Get(long index)
     {
         return (Button)this.Array.GetAt(index);
     }
 
-    public virtual bool IsLetterButton(int index)
+    public virtual bool IsLetterButton(long index)
     {
         char a;
         a = (char)index;
         return this.TextInfra.IsLetter(a, true);
     }
 
-    public virtual bool IsDigitButton(int index)
+    public virtual bool IsDigitButton(long index)
     {
         char a;
         a = (char)index;
         return this.TextInfra.IsDigit(a);
     }
 
-    public virtual Button LetterButton(int letterIndex)
+    public virtual Button LetterButton(long letterIndex)
     {
-        int start;
+        long start;
         start = 'A';
         return this.IndexButton(letterIndex, start);
     }
 
-    public virtual Button DigitButton(int digitIndex)
+    public virtual Button DigitButton(long digitIndex)
     {
-        int start;
+        long start;
         start = '0';
         return this.IndexButton(digitIndex, start);
     }
 
-    protected virtual Button IndexButton(int index, int start)
+    protected virtual Button IndexButton(long index, long start)
     {
-        int k;
+        long k;
         k = start + index;
         Button a;
         a = this.Get(k);
         return a;
     }
 
-    public virtual int Count
+    public virtual long Count
     {
         get
         {
@@ -362,11 +362,11 @@ public class ButtonList : Any
     }
 
     protected virtual Array Array { get; set; }
-    protected virtual int LetterIndex { get; set; }
-    protected virtual int DigitIndex { get; set; }
-    protected virtual int ControlIndex { get; set; }
+    protected virtual long LetterIndex { get; set; }
+    protected virtual long DigitIndex { get; set; }
+    protected virtual long ControlIndex { get; set; }
 
-    public virtual int ControlStart
+    public virtual long ControlStart
     {
         get
         {

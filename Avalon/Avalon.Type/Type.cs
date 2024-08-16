@@ -53,17 +53,16 @@ public class Type : Any
         return true;
     }
 
-
     protected virtual ChangeArg ChangeArg { get; set; }
 
-    public virtual bool Get(int index)
+    public virtual bool Get(long index)
     {
         Value a;
         a = (Value)this.FieldList.GetAt(index);
         return a.Bool;
     }
 
-    public virtual bool Set(int index, bool value)
+    public virtual bool Set(long index, bool value)
     {
         Button button;
         button = this.Button.Get(index);

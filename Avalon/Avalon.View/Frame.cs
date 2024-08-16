@@ -188,19 +188,19 @@ public class Frame : Comp
 
     private bool TypeChangeHandle(ulong index, ulong value)
     {
-        int indexA;
+        long indexA;
         indexA = (int)index;
         bool b;
         b = (!(value == 0));
 
-        int indexB;
+        long indexB;
         indexB = this.InternIntern.TypeIndexFromInternIndex(indexA);
 
         this.TypeChange(indexB, b);
         return true;
     }
 
-    protected virtual bool TypeChange(int index, bool value)
+    protected virtual bool TypeChange(long index, bool value)
     {
         if (!(this.Type == null))
         {
