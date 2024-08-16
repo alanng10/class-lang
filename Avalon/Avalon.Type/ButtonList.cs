@@ -253,8 +253,8 @@ public class ButtonList : Any
         long index;
         index = this.LetterIndex + 'A';
         
-        char oc;
-        oc = (char)index;
+        uint oc;
+        oc = (uint)index;
         Button a;
         a = this.AddButton(index, oc);
 
@@ -267,8 +267,8 @@ public class ButtonList : Any
         long index;
         index = this.DigitIndex + '0';
 
-        char oc;
-        oc = (char)index;
+        uint oc;
+        oc = (uint)index;
         Button a;
         a = this.AddButton(index, oc);
 
@@ -276,7 +276,7 @@ public class ButtonList : Any
         return a;
     }
 
-    protected virtual Button AddSignButton(char varChar)
+    protected virtual Button AddSignButton(uint varChar)
     {
         long index;
         index = varChar;
@@ -289,15 +289,15 @@ public class ButtonList : Any
     {
         long index;
         index = this.ControlIndex + this.ControlStart;
-        char oc;
-        oc = (char)0;
+        uint oc;
+        oc = 0;
         Button a;
         a = this.AddButton(index, oc);
         this.ControlIndex = this.ControlIndex + 1;
         return a;
     }
 
-    protected virtual Button AddButton(long index, char varChar)
+    protected virtual Button AddButton(long index, uint varChar)
     {
         Button a;
         a = new Button();
@@ -315,15 +315,15 @@ public class ButtonList : Any
 
     public virtual bool IsLetterButton(long index)
     {
-        char a;
-        a = (char)index;
+        uint a;
+        a = (uint)index;
         return this.TextInfra.IsLetter(a, true);
     }
 
     public virtual bool IsDigitButton(long index)
     {
-        char a;
-        a = (char)index;
+        uint a;
+        a = (uint)index;
         return this.TextInfra.IsDigit(a);
     }
 
