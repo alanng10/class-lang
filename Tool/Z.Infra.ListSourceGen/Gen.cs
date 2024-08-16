@@ -157,7 +157,7 @@ public class Gen : Any
     {
         this.AddIndent(2);
 
-        this.AddValue("this").AddChar('.').Add(index).AddChar(' ').AddChar(':').AddChar(' ').AddValue("this").AddChar('.');
+        this.AddS("this").AddChar('.').Add(index).AddChar(' ').AddChar(':').AddChar(' ').AddS("this").AddChar('.');
 
         this.AddInitFieldAddItem(index, value);
 
@@ -167,7 +167,7 @@ public class Gen : Any
 
     protected virtual bool AddInitFieldAddItem(String index, object value)
     {
-        this.AddValue("AddItem").AddChar('(').AddChar(')');
+        this.AddS("AddItem").AddChar('(').AddChar(')');
         return true;
     }
 
@@ -191,13 +191,12 @@ public class Gen : Any
         return a;
     }
 
-    protected virtual bool AppendField(StringBuilder sb, string item)
+    protected virtual bool AddField(String item)
     {
-        this.ToolInfra.AppendIndent(sb, 1);
-        sb
-            .Append("field").Append(" ").Append("prusate").Append(" ")
-            .Append(this.ItemClassName).Append(" ").Append(item).Append(" ")
-            .Append("{").Append(" ")
+        this.AddIndent(1)
+            .AddS("field").AddChar(' ').AddS("prusate").AddChar(' ')
+            .Add(this.ItemClassName).AddChar(' ').Add(item).AddChar(' ')
+            .AddChar('{').AddChar(' ')
             .Append("get").Append(" ").Append("{").Append(" ").Append("return").Append(" ").Append("data").Append(";").Append(" ").Append("}")
             .Append(" ")
             .Append("set").Append(" ").Append("{").Append(" ").Append("data").Append(" ").Append(":").Append(" ").Append("value").Append(";").Append(" ").Append("}")
@@ -286,7 +285,7 @@ public class Gen : Any
         return this;
     }
 
-    protected virtual Gen AddValue(string o)
+    protected virtual Gen AddS(string o)
     {
         this.ToolInfra.AddValue(o);
         return this;
