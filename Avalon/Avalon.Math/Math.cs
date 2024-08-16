@@ -64,7 +64,7 @@ public partial class Math : Any
         return true;
     }
 
-    public virtual int Less(long valueA, long valueB)
+    public virtual long Less(long valueA, long valueB)
     {
         ulong ua;
         ulong ub;
@@ -74,10 +74,10 @@ public partial class Math : Any
         ulong u;
         u = Extern.Math_Less(this.Intern, ua, ub);
 
-        int k;
-        k = (int)u;
+        long k;
+        k = (long)u;
 
-        int a;
+        long a;
         a = k;
         return a;
     }
