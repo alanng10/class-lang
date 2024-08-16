@@ -38,12 +38,12 @@ public class Infra : Any
     public virtual String NewLine { get; set; }
     public virtual String PathCombine { get; set; }
 
-    public virtual bool IsDigit(uint o)
+    public virtual bool IsDigit(long o)
     {
         return this.IsInRange('0', '9', o);
     }
 
-    public virtual bool IsHexLetter(uint o, bool upperCase)
+    public virtual bool IsHexLetter(long o, bool upperCase)
     {
         uint first;
         first = 'a';
@@ -57,7 +57,7 @@ public class Infra : Any
         return this.IsInRange(first, last, o);
     }
 
-    public virtual bool IsLetter(uint o, bool upperCase)
+    public virtual bool IsLetter(long o, bool upperCase)
     {
         uint first;
         first = 'a';
@@ -71,7 +71,7 @@ public class Infra : Any
         return this.IsInRange(first, last, o);
     }
 
-    public virtual bool IsInRange(uint first, uint last, uint o)
+    public virtual bool IsInRange(long first, long last, long o)
     {
         if (last < first)
         {

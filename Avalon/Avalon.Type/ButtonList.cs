@@ -252,11 +252,9 @@ public class ButtonList : Any
     {
         long index;
         index = this.LetterIndex + 'A';
-        
-        uint oc;
-        oc = (uint)index;
+
         Button a;
-        a = this.AddButton(index, oc);
+        a = this.AddButton(index, index);
 
         this.LetterIndex = this.LetterIndex + 1;
         return a;
@@ -267,16 +265,14 @@ public class ButtonList : Any
         long index;
         index = this.DigitIndex + '0';
 
-        uint oc;
-        oc = (uint)index;
         Button a;
-        a = this.AddButton(index, oc);
+        a = this.AddButton(index, index);
 
         this.DigitIndex = this.DigitIndex + 1;
         return a;
     }
 
-    protected virtual Button AddSignButton(uint varChar)
+    protected virtual Button AddSignButton(long varChar)
     {
         long index;
         index = varChar;
@@ -289,7 +285,7 @@ public class ButtonList : Any
     {
         long index;
         index = this.ControlIndex + this.ControlStart;
-        uint oc;
+        long oc;
         oc = 0;
         Button a;
         a = this.AddButton(index, oc);
