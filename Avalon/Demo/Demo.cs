@@ -324,7 +324,7 @@ class Demo : Any
         String a;
         a = this.Console.Inn.Read();
 
-        ka = this.AddClear().AddValue("a: ").Add(a).AddChar('\n').AddResult();
+        ka = this.AddClear().AddS("a: ").Add(a).AddChar('\n').AddResult();
 
         this.Console.Out.Write(ka);
 
@@ -333,7 +333,7 @@ class Demo : Any
         String aa;
         aa = this.Console.Inn.Read();
 
-        ka = this.AddClear().AddValue("aa: ").Add(aa).AddChar('\n').AddResult();
+        ka = this.AddClear().AddS("aa: ").Add(aa).AddChar('\n').AddResult();
         
         this.Console.Out.Write(ka);
         return true;
@@ -415,12 +415,12 @@ class Demo : Any
         String ka;
 
         ka = this.AddClear()
-            .AddValue(prefix)
-            .AddValue("Cand: ")
-            .AddValue(this.MathComp.Cand.ToString("x"))
-            .AddValue(", ")
-            .AddValue("Expo: ")
-            .AddValue(this.MathComp.Expo.ToString())
+            .AddS(prefix)
+            .AddS("Cand: ")
+            .AddS(this.MathComp.Cand.ToString("x"))
+            .AddS(", ")
+            .AddS("Expo: ")
+            .AddS(this.MathComp.Expo.ToString())
             .AddChar('\n')
             .AddResult()
             ;
@@ -444,8 +444,8 @@ class Demo : Any
         String ka;
 
         ka = this.AddClear()
-            .AddValue("Demo.ExecuteRand oa: 0h")
-            .AddValue(oa.ToString("x15"))
+            .AddS("Demo.ExecuteRand oa: 0h")
+            .AddS(oa.ToString("x15"))
             .AddChar('\n')
             .AddResult();
             ;
@@ -624,8 +624,8 @@ class Demo : Any
         String ka;
 
         ka = this.AddClear()
-            .AddValue("Demo.ExecuteIntParse ooa: ")
-            .AddValue(a.ToString("x16"))
+            .AddS("Demo.ExecuteIntParse ooa: ")
+            .AddS(a.ToString("x16"))
             .AddChar('\n')
             .AddResult()
             ;
@@ -776,7 +776,7 @@ class Demo : Any
         ba = infra.TextWrite(kou, this.StringValue("DEMO STORAGE WRITE AAA BBB"));
         if (!ba)
         {
-            ka = this.AddClear().AddValue("Write ").Add(kou).AddValue(" 1 Error\n").AddResult();
+            ka = this.AddClear().AddS("Write ").Add(kou).AddS(" 1 Error\n").AddResult();
 
             this.Console.Out.Write(ka);
             b = true;
@@ -788,7 +788,7 @@ class Demo : Any
             bb = infra.TextWrite(kou, this.StringValue("DEMO STORAGE WRITE 2 AAA"));
             if (!bb)
             {
-                ka = this.AddClear().AddValue("Write ").Add(kou).AddValue(" 3 Error\n").AddResult();
+                ka = this.AddClear().AddS("Write ").Add(kou).AddS(" 3 Error\n").AddResult();
 
                 this.Console.Out.Write(ka);
                 b = true;
@@ -799,7 +799,7 @@ class Demo : Any
         {
             k = infra.TextRead(kou);
 
-            ka = this.AddClear().Add(kou).AddValue(" text: \n").Add(k).AddChar('\n').AddResult();
+            ka = this.AddClear().Add(kou).AddS(" text: \n").Add(k).AddChar('\n').AddResult();
 
             this.Console.Out.Write(ka);
         }
@@ -817,7 +817,7 @@ class Demo : Any
         baa = infra.TextWrite(koua, this.StringValue("DEMO STORAGE WRITE DEMO ABCD"));
         if (!baa)
         {
-            ka = this.AddClear().AddValue("Write ").Add(koua).AddValue(" 1 Error\n").AddResult();
+            ka = this.AddClear().AddS("Write ").Add(koua).AddS(" 1 Error\n").AddResult();
 
             this.Console.Out.Write(ka);
             bo = true;
@@ -831,7 +831,7 @@ class Demo : Any
             bab = this.WriteStringPos(koua, koa, 19);
             if (!bab)
             {
-                ka = this.AddClear().AddValue("Write ").Add(koua).AddValue(" 2 Error\n").AddResult();
+                ka = this.AddClear().AddS("Write ").Add(koua).AddS(" 2 Error\n").AddResult();
 
                 this.Console.Out.Write(ka);
                 bo = true;
@@ -841,7 +841,7 @@ class Demo : Any
         {
             k = infra.TextRead(koua);
 
-            ka = this.AddClear().Add(koua).AddValue(" text: \n").Add(k).AddChar('\n').AddResult();
+            ka = this.AddClear().Add(koua).AddS(" text: \n").Add(k).AddChar('\n').AddResult();
 
             this.Console.Out.Write(ka);
         }
@@ -858,7 +858,7 @@ class Demo : Any
         bac = infra.TextWrite(koub, this.StringValue("Demo Storage Set Count aaaadda"));
         if (!bac)
         {
-            ka = this.AddClear().AddValue("Write ").Add(koub).AddValue(" Error\n").AddResult();
+            ka = this.AddClear().AddS("Write ").Add(koub).AddS(" Error\n").AddResult();
 
             this.Console.Out.Write(ka);
             bo = true;
@@ -869,7 +869,7 @@ class Demo : Any
             bd = infra.CountSet(koub, 22);
             if (!bd)
             {
-                ka = this.AddClear().AddValue("Set Count ").Add(koub).AddValue(" Error\n").AddResult();
+                ka = this.AddClear().AddS("Set Count ").Add(koub).AddS(" Error\n").AddResult();
 
                 this.Console.Out.Write(ka);
                 bo = true;
@@ -879,7 +879,7 @@ class Demo : Any
         {
             k = infra.TextRead(koub);
 
-            ka = this.AddClear().Add(koub).AddValue(" text: \n").Add(k).AddChar('\n').AddResult();
+            ka = this.AddClear().Add(koub).AddS(" text: \n").Add(k).AddChar('\n').AddResult();
 
             this.Console.Out.Write(ka);
         }
@@ -1584,7 +1584,7 @@ class Demo : Any
         return this;
     }
 
-    public virtual Demo AddValue(string o)
+    public virtual Demo AddS(string o)
     {
         this.Add(this.StringValue(o));
         return this;

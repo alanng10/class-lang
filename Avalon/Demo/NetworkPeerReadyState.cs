@@ -157,7 +157,7 @@ class NetworkPeerReadyState : State
 
     public virtual NetworkPeerReadyState AddValue(string o)
     {
-        this.Demo.AddValue(o);
+        this.Demo.AddS(o);
         return this;
     }
 

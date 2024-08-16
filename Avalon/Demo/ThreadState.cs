@@ -180,7 +180,7 @@ class ThreadState : State
 
     public virtual ThreadState AddValue(string o)
     {
-        this.Demo.AddValue(o);
+        this.Demo.AddS(o);
         return this;
     }
 
