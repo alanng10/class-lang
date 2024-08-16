@@ -297,8 +297,10 @@ public class ButtonList : Any
         return a;
     }
 
-    protected virtual Button AddButton(long index, uint varChar)
+    protected virtual Button AddButton(long index, long varChar)
     {
+        varChar = varChar & 0xff;
+
         Button a;
         a = new Button();
         a.Init();
