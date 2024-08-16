@@ -85,7 +85,7 @@ public class Gen : Any
         String a;
         a = this.ToolInfra.StorageTextRead(this.ItemListFileName);
 
-        this.LineArray = this.ToolInfra.TextSplitLine(a);
+        this.LineArray = this.ToolInfra.TextSplitLineString(a);
 
         this.ItemTable = this.ToolInfra.TableCreateStringCompare();
 
@@ -94,14 +94,11 @@ public class Gen : Any
         this.LineArray.IterSet(iter);
         while (iter.Next())
         {
-            Text line;
-            line = (Text)iter.Value;
-
-            String k;
-            k = this.StringCreate(line);
+            String line;
+            line = (String)iter.Value;
 
             TableEntry entry;
-            entry = this.GetItemEntry(k);
+            entry = this.GetItemEntry(line);
 
             this.ItemTable.Add(entry);
         }
