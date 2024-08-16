@@ -19,14 +19,13 @@ public class Infra : Any
         base.Init();
         this.InfraInfra = InfraInfra.This;
         this.TextInfra = TextInfra.This;
-        StringComp stringComp;
-        stringComp = StringComp.This;
-        this.StringComp = stringComp;
+        this.StringComp = StringComp.This;
+        this.TextCode = TextCode.This;
         this.StorageStatusList = StatusList.This;
         this.TextCodeKindList = TextCodeKindList.This;
-        this.TextSlash = this.TextInfra.TextCreateStringData(stringComp.CreateChar('/', 1), null);
-        this.TextDot = this.TextInfra.TextCreateStringData(stringComp.CreateChar('.', 1), null);
-        this.TextColon = this.TextInfra.TextCreateStringData(stringComp.CreateChar(':', 1), null);
+        this.TextSlash = this.TextInfra.TextCreateStringData(this.StringComp.CreateChar('/', 1), null);
+        this.TextDot = this.TextInfra.TextCreateStringData(this.StringComp.CreateChar('.', 1), null);
+        this.TextColon = this.TextInfra.TextCreateStringData(this.StringComp.CreateChar(':', 1), null);
         return true;
     }
 
@@ -36,6 +35,7 @@ public class Infra : Any
     protected virtual InfraInfra InfraInfra { get; set; }
     protected virtual TextInfra TextInfra { get; set; }
     protected virtual StringComp StringComp { get; set; }
+    protected virtual TextCode TextCode { get; set; }
     protected virtual StatusList StorageStatusList { get; set; }
     protected virtual TextCodeKindList TextCodeKindList { get; set; }
 
@@ -161,8 +161,7 @@ public class Infra : Any
         outKind = kindList.Utf32;
 
         TextCode code;
-        code = new TextCode();
-        code.Init();
+        code = this.TextCode;
 
         Range dataRange;
         dataRange = new Range();
@@ -203,8 +202,7 @@ public class Infra : Any
         outKind = kindList.Utf8;
 
         TextCode code;
-        code = new TextCode();
-        code.Init();
+        code = this.TextCode;
 
         Data data;
         data = this.TextInfra.StringDataCreateString(text);
