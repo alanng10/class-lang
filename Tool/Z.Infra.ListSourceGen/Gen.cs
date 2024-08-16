@@ -197,9 +197,9 @@ public class Gen : Any
             .AddS("field").AddC(' ').AddS("prusate").AddC(' ')
             .Add(this.ItemClassName).AddC(' ').Add(item).AddC(' ')
             .AddC('{').AddC(' ')
-            .Append("get").Append(" ").Append("{").Append(" ").Append("return").Append(" ").Append("data").Append(";").Append(" ").Append("}")
-            .Append(" ")
-            .Append("set").Append(" ").Append("{").Append(" ").Append("data").Append(" ").Append(":").Append(" ").Append("value").Append(";").Append(" ").Append("}")
+            .AddS("get").AddC(' ').AddC('{').AddC(' ').AddS("return").AddC(' ').AddS("data").AddC(';').AddC(' ').AddC('}')
+            .AddC(' ')
+            .AddS("set").AddC(' ').AddC('{').AddC(' ').AddS("data").Append(" ").Append(":").Append(" ").Append("value").Append(";").Append(" ").Append("}")
             .Append(" ")
             .Append("}")
             .Append(this.ToolInfra.NewLine);
