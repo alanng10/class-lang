@@ -19,6 +19,7 @@ public class Infra : Any
         base.Init();
         this.InfraInfra = InfraInfra.This;
         this.StringComp = StringComp.This;
+        this.TextCode = global::Avalon.Text.Code.This;
 
         this.NewLine = this.StringComp.CreateChar('\n', 1);
         this.PathCombine = this.StringComp.CreateChar('/', 1);
@@ -31,12 +32,13 @@ public class Infra : Any
         return true;
     }
 
-    protected virtual InfraInfra InfraInfra { get; set; }
-    protected virtual StringComp StringComp { get; set; }
     public virtual String BoolFalseString { get; set; }
     public virtual String BoolTrueString { get; set; }
     public virtual String NewLine { get; set; }
     public virtual String PathCombine { get; set; }
+    protected virtual InfraInfra InfraInfra { get; set; }
+    protected virtual StringComp StringComp { get; set; }
+    protected virtual Code TextCode { get; set; }
 
     public virtual bool IsDigit(long o)
     {
@@ -554,8 +556,7 @@ public class Infra : Any
         }
 
         Code code;
-        code = new Code();
-        code.Init();
+        code = this.TextCode;
 
         long resultCount;
         resultCount = code.ExecuteCount(innKind, outKind, data, range);
