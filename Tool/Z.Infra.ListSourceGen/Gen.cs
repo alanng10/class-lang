@@ -278,12 +278,6 @@ public class Gen : Any
         return this;
     }
 
-    protected virtual Gen AddC(uint a)
-    {
-        this.ToolInfra.AddChar(a);
-        return this;
-    }
-
     protected virtual Gen AddS(string o)
     {
         this.ToolInfra.AddValue(o);
