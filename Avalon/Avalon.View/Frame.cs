@@ -189,7 +189,7 @@ public class Frame : Comp
     private bool TypeChangeHandle(ulong index, ulong value)
     {
         long indexA;
-        indexA = (int)index;
+        indexA = (long)index;
         bool b;
         b = (!(value == 0));
 
