@@ -280,7 +280,7 @@ public class Gen : Any
 
     protected virtual Gen AddS(string o)
     {
-        this.ToolInfra.AddValue(o);
+        this.ToolInfra.AddS(o);
         return this;
     }
 
