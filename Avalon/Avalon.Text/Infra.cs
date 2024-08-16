@@ -596,7 +596,7 @@ public class Infra : Any
         {
             if (0 < i)
             {
-                this.TextCopy(dest, k, joinData, joinIndex, joinCount);
+                this.Copy(dest, k, joinData, joinIndex, joinCount);
 
                 k = k + joinCount;
             }
@@ -613,7 +613,7 @@ public class Infra : Any
             long kaCount;
             kaCount = kaRange.Count;
 
-            this.TextCopy(dest, k, kaData, kaRange.Index, kaCount);
+            this.Copy(dest, k, kaData, kaRange.Index, kaCount);
 
             k = k + kaCount;
 
@@ -636,7 +636,7 @@ public class Infra : Any
         return a;
     }
 
-    public virtual bool TextCopy(Data dest, long destIndex, Data source, long sourceIndex, long count)
+    public virtual bool Copy(Data dest, long destIndex, Data source, long sourceIndex, long count)
     {
         long ka;
         ka = sizeof(uint);
