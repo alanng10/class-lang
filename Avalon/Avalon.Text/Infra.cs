@@ -253,7 +253,7 @@ public class Infra : Any
         return oob + 10;
     }
 
-    public virtual uint DigitChar(long digit, uint letterStart)
+    public virtual uint DigitChar(long digit, long letterStart)
     {
         long n;
         n = 0;
