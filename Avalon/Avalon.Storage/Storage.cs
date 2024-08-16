@@ -61,7 +61,7 @@ public class Storage : Any
             return true;
         }
 
-        this.InternPath = this.InternInfra.StringCreate(this.Path.Data.Value);
+        this.InternPath = this.InternInfra.StringCreate(this.Path.Value);
         ulong modeU;
         modeU = this.GetInternMode(this.Mode);
         this.DataStream = this.CreateStream();
