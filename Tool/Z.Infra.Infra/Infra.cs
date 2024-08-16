@@ -142,121 +142,12 @@ public class Infra : Any
 
     public virtual Array TextSplit(Text text, Text delimit)
     {
-        Array array;
-        array = this.TextInfra.TextArraySplit(text, delimit, this.TextCompare);
-        return array;
-    }
-
-    public virtual Text TextArrayJoin(Array array, Text join)
-    {
-        long k;
-        k = 0;
-
-        Range joinRange;
-        joinRange = join.Range;
-
-        long joinCount;
-        joinCount = joinRange.Count;
-
-        long count;
-        count = array.Count;
-        long i;
-        i = 0;
-        while (i < count)
-        {
-            if (0 < i)
-            {
-                k = k + joinCount;
-            }
-
-            Text ka;
-            ka = (Text)array.GetAt(i);
-
-            k = k + ka.Range.Count;
-
-            i = i + 1;
-        }
-
-        Text text;
-        text = this.TextInfra.TextCreate(k);
-        
-        Data dest;
-        dest = text.Data;
-
-        Data joinData;
-        joinData = join.Data;
-
-        long joinIndex;
-        joinIndex = joinRange.Index;
-
-        k = 0;
-        i = 0;
-        while (i < count)
-        {
-            if (0 < i)
-            {
-                this.TextCopy(dest, k, joinData, joinIndex, joinCount);
-
-                k = k + joinCount;
-            }
-
-            Text ka;
-            ka = (Text)array.GetAt(i);
-
-            Data kaData;
-            kaData = ka.Data;
-
-            Range kaRange;
-            kaRange = ka.Range;
-
-            long kaCount;
-            kaCount = kaRange.Count;
-
-            this.TextCopy(dest, k, kaData, kaRange.Index, kaCount);
-
-            k = k + kaCount;
-
-            i = i + 1;
-        }
-
-        return text;
+        return this.TextInfra.TextArraySplit(text, delimit, this.TextCompare);
     }
 
     public virtual Text TextReplace(Text text, Text delimit, Text join)
     {
-        Array array;
-        array = this.TextSplit(text, delimit);
-
-        Text k;
-        k = this.TextArrayJoin(array, join);
-        
-        Text a;
-        a = k;
-        return a;
-    }
-
-    public virtual bool TextCopy(Data dest, long destIndex, Data source, long sourceIndex, long count)
-    {
-        long ka;
-        ka = sizeof(uint);
-
-        return this.DataCopy(dest, destIndex * ka, source, sourceIndex * ka, count * ka);
-    }
-
-    public virtual bool DataCopy(Data dest, long destIndex, Data source, long sourceIndex, long count)
-    {
-        long i;
-        i = 0;
-        while (i < count)
-        {
-            long n;
-            n = source.Get(sourceIndex + i);
-
-            dest.Set(destIndex + i, n);
-
-            i = i + 1;
-        }
-        return true;
+        return this.TextInfra.TextReplace(text, delimit, join, this.TextCompare);
     }
 
     public virtual bool GetBool(string a)
