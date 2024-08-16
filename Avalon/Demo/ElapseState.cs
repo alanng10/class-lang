@@ -5,10 +5,10 @@ class ElapseState : State
     public virtual Demo Demo { get; set; }
     public TimeEvent TimeEvent { get; set; }
     public ThreadThread Thread { get; set; }
-    public int ElapseCount { get; set; }
-    public int ExitCode { get; set; }
+    public long ElapseCount { get; set; }
+    public long ExitCode { get; set; }
 
-    private int Count { get; set; }
+    private long Count { get; set; }
     
     public override bool Execute()
     {

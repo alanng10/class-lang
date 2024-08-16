@@ -18,8 +18,8 @@ class NetworkPeerReadyState : State
 
     private Data Data { get; set; }
     private Range Range { get; set; }
-    private int Case { get; set; }
-    private int Status { get; set; }
+    private long Case { get; set; }
+    private long Status { get; set; }
 
     public override bool Execute()
     {
@@ -42,8 +42,8 @@ class NetworkPeerReadyState : State
 
         long count;
         count = 0;
-        
-        int cc;
+
+        long cc;
         cc = this.Case;
         if (cc == 0)
         {

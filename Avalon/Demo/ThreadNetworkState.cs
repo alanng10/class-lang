@@ -87,7 +87,7 @@ public class ThreadNetworkState : State
         return true;
     }
 
-    public bool ExitNetwork(int code)
+    public bool ExitNetwork(long code)
     {
         Network network;
         network = this.Network;

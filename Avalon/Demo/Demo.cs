@@ -225,8 +225,8 @@ class Demo : Any
         DrawImage image;
         image = this.ImageCreate();
 
-        int widthA;
-        int heightA;
+        long widthA;
+        long heightA;
         widthA = 400;
         heightA = 200;
         DrawRect sourceRect;
@@ -1273,7 +1273,7 @@ class Demo : Any
         return true;
     }
 
-    private bool ExecuteTimeEventOne(bool single, int elapseCount, long time, int exitCode)
+    private bool ExecuteTimeEventOne(bool single, long elapseCount, long time, long exitCode)
     {
         ThreadThread thread;
         thread = new ThreadThread();
@@ -1490,7 +1490,7 @@ class Demo : Any
         return true;
     }
 
-    private bool GradientStopSetPoint(DrawGradientStop stop, DrawGradientStopPoint aa, int index, long pos, DrawColor color)
+    private bool GradientStopSetPoint(DrawGradientStop stop, DrawGradientStopPoint aa, long index, long pos, DrawColor color)
     {
         aa.Pos = pos;
         aa.Color = color;

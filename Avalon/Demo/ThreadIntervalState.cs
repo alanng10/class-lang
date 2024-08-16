@@ -4,9 +4,9 @@ class ThreadIntervalState : State
 {
     public virtual Demo Demo { get; set; }
     public bool Single { get; set; }
-    public int ElapseCount { get; set; }
+    public long ElapseCount { get; set; }
     public long Time { get; set; }
-    public int ExitCode { get; set; }
+    public long ExitCode { get; set; }
 
     public override bool Execute()
     {

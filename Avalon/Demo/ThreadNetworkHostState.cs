@@ -76,7 +76,7 @@ class ThreadNetworkHostState : State
         return true;
     }
 
-    public bool ExitNetwork(int code)
+    public bool ExitNetwork(long code)
     {
         Network peer;
         peer = this.Demo.Peer;
