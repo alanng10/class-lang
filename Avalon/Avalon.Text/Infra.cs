@@ -623,7 +623,7 @@ public class Infra : Any
         return text;
     }
 
-    public virtual Text TextReplace(Text text, Text delimit, Text join, InfraCompare compare)
+    public virtual Text Replace(Text text, Text delimit, Text join, InfraCompare compare)
     {
         Array array;
         array = this.Split(text, delimit, compare);

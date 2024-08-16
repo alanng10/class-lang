@@ -153,7 +153,7 @@ public class Infra : Any
 
     public virtual Text TextReplace(Text text, Text delimit, Text join)
     {
-        return this.TextInfra.TextReplace(text, delimit, join, this.TextCompare);
+        return this.TextInfra.Replace(text, delimit, join, this.TextCompare);
     }
 
     public virtual bool GetBool(string a)
