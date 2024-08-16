@@ -11,7 +11,7 @@ public class Entry : Any
 
     private InternIntern InternIntern { get; set; }
 
-    public virtual long Execute()
+    public virtual int Execute()
     {
         this.MainBefore();
 
@@ -19,7 +19,10 @@ public class Entry : Any
         o = this.ExecuteMain();
 
         this.MainAfter();
-        return o;
+
+        int a;
+        a = (int)o;
+        return a;
     }
 
     protected virtual bool MainBefore()
