@@ -1240,7 +1240,7 @@ class Demo : Any
 
         thread.Wait();
 
-        int aa;
+        long aa;
         aa = thread.Status;
         this.Console.Out.Write(this.StringValue("Demo.ExecuteDemoThread Thread Status: 0h" + aa.ToString("x8") + "\n"));
 
@@ -1294,7 +1294,7 @@ class Demo : Any
 
         thread.Wait();
 
-        int o;
+        long o;
         o = thread.Status;
 
         thread.Final();
@@ -1332,7 +1332,7 @@ class Demo : Any
 
         thread.Wait();
 
-        int o;
+        long o;
         o = thread.Status;
 
         thread.Final();
