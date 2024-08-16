@@ -703,19 +703,6 @@ class Demo : Any
 
     private bool ConsoleWriteTime(string prefix, Time time)
     {
-        long count;
-        count = this.ArgList.Count;
-        long i;
-        i = 0;
-        while (i < count)
-        {
-            TextWriteArg arg;
-            arg = (TextWriteArg)this.ArgList.GetAt(i);
-            arg.HasCount = false;
-
-            i = i + 1;
-        }
-
         String ka;
         ka = this.StringValue(prefix);
 
