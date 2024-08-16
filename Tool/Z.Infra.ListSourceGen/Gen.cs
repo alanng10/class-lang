@@ -48,11 +48,17 @@ public class Gen : Any
         k = this.Replace(k, "#AnyClassName#", this.AnyClassName);
         k = this.Replace(k, "#BaseClassName#", this.BaseClassName);
 
-        string aa;
-        aa = "";
-        if (this.Export)
+        String aa;
+        aa = null;
+        bool ba;
+        ba = this.Export;
+        if (!ba)
         {
-            aa = "public ";
+            aa = this.S("");
+        }
+        if (ba)
+        {
+            aa = this.S("public ");
         }
 
         k = this.Replace(k, "#Export#", aa);
