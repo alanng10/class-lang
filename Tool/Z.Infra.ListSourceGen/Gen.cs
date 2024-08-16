@@ -250,7 +250,7 @@ public class Gen : Any
         k = this.Replace(k, "#ArrayCount#", aaa);
 
         String a;
-        a = this.StringCreate(k)
+        a = this.StringCreate(k);
         return a;
     }
 
