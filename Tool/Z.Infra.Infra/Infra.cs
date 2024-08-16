@@ -148,7 +148,7 @@ public class Infra : Any
 
     public virtual Array TextSplit(Text text, Text delimit)
     {
-        return this.TextInfra.TextArraySplit(text, delimit, this.TextCompare);
+        return this.TextInfra.Split(text, delimit, this.TextCompare);
     }
 
     public virtual Text TextReplace(Text text, Text delimit, Text join)
