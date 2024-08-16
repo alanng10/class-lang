@@ -105,8 +105,8 @@ public class Network : Any
         {
             ulong u;
             u = Extern.Network_StatusGet(this.Intern);
-            int o;
-            o = (int)u;
+            long o;
+            o = (long)u;
             Status a;
             a = this.NetworkStatusList.Get(o);
             return a;
@@ -127,8 +127,8 @@ public class Network : Any
                 return null;
             }
             u = u - 1;
-            int o;
-            o = (int)u;
+            long o;
+            o = (long)u;
             Case a;
             a = this.NetworkCaseList.Get(o);
             return a;
