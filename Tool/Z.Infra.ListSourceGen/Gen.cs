@@ -82,10 +82,10 @@ public class Gen : Any
 
     protected virtual bool ExecuteItemList()
     {
-        string a;
+        String a;
         a = this.ToolInfra.StorageTextRead(this.ItemListFileName);
 
-        this.LineArray = this.ToolInfra.SplitLineList(a);
+        this.LineArray = this.ToolInfra.TextSplitLine(a);
 
         this.ItemTable = this.ToolInfra.TableCreateStringCompare();
 
@@ -94,18 +94,21 @@ public class Gen : Any
         this.LineArray.IterSet(iter);
         while (iter.Next())
         {
-            string line;
-            line = (string)iter.Value;
+            Text line;
+            line = (Text)iter.Value;
+
+            String k;
+            k = this.StringCreate(line);
 
             TableEntry entry;
-            entry = this.GetItemEntry(line);
+            entry = this.GetItemEntry(k);
 
             this.ItemTable.Add(entry);
         }
         return true;
     }
 
-    protected virtual TableEntry GetItemEntry(string line)
+    protected virtual TableEntry GetItemEntry(String line)
     {
         TableEntry a;
         a = new TableEntry();

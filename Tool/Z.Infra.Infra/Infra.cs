@@ -140,6 +140,11 @@ public class Infra : Any
         return a;
     }
 
+    public virtual Array TextSplitLine(Text text)
+    {
+        return this.TextSplit(text, this.TextNewLine);
+    }
+
     public virtual Array TextSplit(Text text, Text delimit)
     {
         return this.TextInfra.Split(text, delimit, this.TextCompare);
