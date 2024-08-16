@@ -158,8 +158,8 @@ public class Stream : object
         {
             ulong u;
             u = Extern.Stream_StatusGet(this.Intern);
-            int o;
-            o = (int)u;
+            long o;
+            o = (long)u;
             return o;
         }
         set
