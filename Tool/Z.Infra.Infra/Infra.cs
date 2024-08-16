@@ -121,7 +121,10 @@ public class Infra : Any
 
         if (a == null)
         {
-            this.Console.Err.Write(this.S("Text File Read Error path: " + filePath + "\n"));
+            String k;
+            k = this.AddClear().AddValue("Text File Read Error path: ").Add(filePath).AddChar('\n').AddResult();
+
+            this.Console.Err.Write(k);
             global::System.Environment.Exit(300);
         }
         return a;
@@ -134,7 +137,10 @@ public class Infra : Any
 
         if (!a)
         {
-            this.Console.Err.Write(this.S("Text File Write Error path: " + filePath + "\n"));
+            String k;
+            k = this.AddClear().AddValue("Text File Write Error path: ").Add(filePath).AddChar('\n').AddResult();
+
+            this.Console.Err.Write(k);
             global::System.Environment.Exit(301);
         }
         return a;
