@@ -340,15 +340,15 @@ public class Intern : object
         return a;
     }
 
-    public virtual int TypeIndexFromInternIndex(int u)
+    public virtual long TypeIndexFromInternIndex(long u)
     {
-        int a;
+        long a;
         a = u;
 
-        int ua;
+        long ua;
         ua = 0x80;
 
-        int uu;
+        long uu;
         uu = 0x01000000;
 
         if (!(a < uu))
