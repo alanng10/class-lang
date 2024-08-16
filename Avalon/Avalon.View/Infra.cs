@@ -120,7 +120,7 @@ public class Infra : Any
         return true;
     }
 
-    public virtual Count CountCreate(int value)
+    public virtual Count CountCreate(long value)
     {
         Count a;
         a = new Count();
