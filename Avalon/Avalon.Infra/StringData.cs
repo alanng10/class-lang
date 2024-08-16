@@ -24,7 +24,7 @@ public class StringData : Data
 
             if (!(value == null))
             {
-                array = value.Data.Value;
+                array = value.Value;
                 count = value.Count * sizeof(uint);
             }
 
@@ -34,18 +34,6 @@ public class StringData : Data
     }
 
     internal virtual String ValueStringData { get; set; }
-
-    public override long Get(long index)
-    {
-        if (!this.Valid(index))
-        {
-            return -1;
-        }
-
-        long a;
-        a = this.ValueString.Data.Get(index);
-        return a;
-    }
 
     public override bool Set(long index, long value)
     {
