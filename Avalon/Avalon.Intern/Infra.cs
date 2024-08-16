@@ -227,21 +227,17 @@ public class Infra : object
         ulong oo;
         oo = 0;
 
-        ulong o;
-        o = 0;
-        int shiftCount;
-        shiftCount = 0;
-        byte ob;
-        ob = 0;
-
         long i;
         i = 0;
         while (i < count)
         {
-            ob = (byte)data[index + i];
+            byte ob;
+            ob = data[index + i];
 
+            int shiftCount;
             shiftCount = (int)(i * 8);
 
+            ulong o;
             o = ob;
             o = o << shiftCount;
 
@@ -269,21 +265,17 @@ public class Infra : object
         oo = value;
         oo = oo & da;
 
-        ulong o;
-        o = 0;
-        int shiftCount;
-        shiftCount = 0;
-        byte ob;
-        ob = 0;
-
         long i;
         i = 0;
         while (i < count)
         {
+            int shiftCount;
             shiftCount = (int)(i * 8);
 
+            ulong o;
             o = oo >> shiftCount;
 
+            byte ob;
             ob = (byte)o;
 
             data[index + i] = ob;
