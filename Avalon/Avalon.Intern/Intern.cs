@@ -233,46 +233,6 @@ public class Intern : object
         return true;
     }
 
-    public virtual string StringCreateUtf32(ulong data, ulong dataCount)
-    {
-        ulong share;
-        ulong stat;
-        share = Extern.Infra_Share();
-        stat = Extern.Share_Stat(share);
-
-        ulong innKind;
-        ulong outKind;
-        innKind = Extern.Stat_TextEncodeKindUtf32(stat);
-        outKind = Extern.Stat_TextEncodeKindUtf16(stat);
-
-        ulong resultCount;
-        resultCount = this.TextEncodeCount(innKind, outKind, data, 0, dataCount);
-
-        ulong result;
-        result = Extern.New(resultCount);
-
-        this.TextEncodeResult(result, 0, innKind, outKind, data, 0, dataCount);
-
-        ulong kk;
-        kk = resultCount / sizeof(char);
-
-        int count;
-        count = (int)kk;
-
-        string a;
-        unsafe
-        {
-            char* p;
-            p = (char*)result;
-
-            a = new string(p, 0, count);
-        }
-
-        Extern.Delete(result);
-
-        return a;
-    }
-
     public virtual string StringCreate(ulong data, int index, int count)
     {
         string a;
