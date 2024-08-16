@@ -66,13 +66,7 @@ public class Infra : Any
         return this;
     }
 
-    public virtual Infra AddChar(uint a)
-    {
-        this.StringJoin.Add(a);
-        return this;
-    }
-
-    public virtual Infra AddValue(string o)
+    public virtual Infra AddS(string o)
     {
         return this.Add(this.S(o));
     }
@@ -122,7 +116,7 @@ public class Infra : Any
         if (a == null)
         {
             String k;
-            k = this.AddClear().AddValue("Text File Read Error path: ").Add(filePath).AddChar('\n').AddResult();
+            k = this.AddClear().AddS("Text File Read Error path: ").Add(filePath).AddS("\n").AddResult();
 
             this.Console.Err.Write(k);
             global::System.Environment.Exit(300);
@@ -138,7 +132,7 @@ public class Infra : Any
         if (!a)
         {
             String k;
-            k = this.AddClear().AddValue("Text File Write Error path: ").Add(filePath).AddChar('\n').AddResult();
+            k = this.AddClear().AddS("Text File Write Error path: ").Add(filePath).AddS("\n").AddResult();
 
             this.Console.Err.Write(k);
             global::System.Environment.Exit(301);
