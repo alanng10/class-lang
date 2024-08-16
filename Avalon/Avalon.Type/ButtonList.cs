@@ -278,7 +278,7 @@ public class ButtonList : Any
 
     protected virtual Button AddSignButton(char varChar)
     {
-        int index;
+        long index;
         index = varChar;
         Button a;
         a = this.AddButton(index, varChar);
