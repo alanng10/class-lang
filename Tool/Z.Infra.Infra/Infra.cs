@@ -152,6 +152,9 @@ public class Infra : Any
         long k;
         k = 0;
 
+        long joinCount;
+        joinCount = join.Range.Count;
+
         long count;
         count = array.Count;
         long i;
@@ -163,7 +166,7 @@ public class Infra : Any
 
             if (0 < i)
             {
-                k = k + join.Range.Count;
+                k = k + joinCount;
             }
 
             k = k + ka.Range.Count;
@@ -174,6 +177,12 @@ public class Infra : Any
         Text text;
         text = this.TextInfra.TextCreate(k);
         
+        Data dest;
+        dest = text.Data;
+
+        Data joinData;
+        joinData = join.Data;
+
         k = 0;
         i = 0;
         while (i < count)
@@ -181,17 +190,38 @@ public class Infra : Any
             Text ka;
             ka = (Text)array.GetAt(i);
 
+            Data kaData;
+            kaData = ka.Data;
+
+            Range kaRange;
+            kaRange = ka.Range;
+
             if (0 < i)
             {
-                k = k + join.Range.Count;
+                this.TextCopy(dest, k, joinData, 0, joinCount);
+
+                k = k + joinCount;
             }
 
-            k = k + ka.Range.Count;
+            long ke;
+            ke = kaRange.Count;
+
+            this.TextCopy(dest, k, kaData, kaRange.Index, ke);
+
+            k = k + ke;
 
             i = i + 1;
         }
 
         return text;
+    }
+
+    public virtual bool TextCopy(Data dest, long destIndex, Data source, long sourceIndex, long count)
+    {
+        long ka;
+        ka = sizeof(uint);
+
+        return this.DataCopy(dest, destIndex * ka, source, sourceIndex * ka, count * ka);
     }
 
     public virtual bool DataCopy(Data dest, long destIndex, Data source, long sourceIndex, long count)
