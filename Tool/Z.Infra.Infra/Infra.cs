@@ -18,35 +18,82 @@ public class Infra : Any
     {
         base.Init();
         this.InfraInfra = InfraInfra.This;
+        this.TextInfra = TextInfra.This;
         this.StorageInfra = StorageInfra.This;
+        this.StringComp = StringComp.This;
+        this.StringValue = StringValue.This;
         this.Console = Console.This;
-        this.NewLine = "\n";
+
+        this.StringJoin = new StringJoin();
+        this.StringJoin.Init();
+
+        String k;
+        k = this.StringComp.CreateChar('\n', 1);
+        this.TextNewLine = this.TextInfra.TextCreateStringData(k, null);
+
+        this.Indent = this.StringComp.CreateChar(' ', 4);
+
+        this.CharCompare = new CompareInt();
+        this.CharCompare.Init();
+
+        this.CharForm = new CharForm();
+        this.CharForm.Init();
+
+        this.TextCompare = new TextCompare();
+        this.TextCompare.CharCompare = this.CharCompare;
+        this.TextCompare.LeftCharForm = this.CharForm;
+        this.TextCompare.RightCharForm = this.CharForm;
+        this.TextCompare.Init();
         return true;
     }
 
-    public virtual string NewLine { get; set; }
-    protected virtual InfraInfra InfraInfra { get; set; }
-    protected virtual StorageInfra StorageInfra { get; set; }
-    protected virtual Console Console { get; set; }
+    public virtual Text TextNewLine { get; set; }
+    public virtual String Indent { get; set; }
+    public virtual InfraInfra InfraInfra { get; set; }
+    public virtual TextInfra TextInfra { get; set; }
+    public virtual StorageInfra StorageInfra { get; set; }
+    public virtual StringComp StringComp { get; set; }
+    public virtual StringValue StringValue { get; set; }
+    public virtual Console Console { get; set; }
+    public virtual StringJoin StringJoin { get; set; }
+    public virtual TextCompare TextCompare { get; set; }
+    public virtual CompareInt CharCompare { get; set; }
+    public virtual CharForm CharForm { get; set; }
 
-    public virtual bool AppendIndent(StringBuilder sb, int indent)
+    public virtual Infra Add(String a)
     {
-        int count;
+        this.InfraInfra.StringJoinString(this.StringJoin, a);
+        return this;
+    }
+
+    public virtual Infra AddValue(string o)
+    {
+        return this.Add(this.S(o));
+    }
+
+    public virtual Infra AddClear()
+    {
+        this.StringJoin.Clear();
+        return this;
+    }
+
+    public virtual String AddResult()
+    {
+        return this.StringJoin.Result();
+    }
+
+    public virtual Infra AddIndent(long indent)
+    {
+        long count;
         count = indent;
-        int i;
+        long i;
         i = 0;
         while (i < count)
         {
-            sb.Append("    ");
+            this.Add(this.Indent);
             i = i + 1;
         }
-        return true;
-    }
-
-    public virtual bool Append(StringJoin h, string k)
-    {
-        this.InfraInfra.StringJoinString(h, k);
-        return true;
+        return this;
     }
 
     public virtual Table TableCreateStringCompare()
@@ -61,53 +108,36 @@ public class Infra : Any
         return a;
     }
 
-    public virtual string StorageTextRead(string filePath)
+    public virtual String StorageTextRead(String filePath)
     {
-        string a;
+        String a;
         a = this.StorageInfra.TextReadAny(filePath, true);
 
         if (a == null)
         {
-            this.Console.Err.Write("Text File Read Error path: " + filePath + "\n");
+            this.Console.Err.Write(this.S("Text File Read Error path: " + filePath + "\n"));
             global::System.Environment.Exit(400);
         }
         return a;
     }
 
-    public virtual bool StorageTextWrite(string filePath, string text)
+    public virtual bool StorageTextWrite(String filePath, String text)
     {
         bool a;
         a = this.StorageInfra.TextWriteAny(filePath, text, true);
 
         if (!a)
         {
-            this.Console.Err.Write("Text File Write Error path: " + filePath + "\n");
+            this.Console.Err.Write(this.S("Text File Write Error path: " + filePath + "\n"));
             global::System.Environment.Exit(401);
         }
         return a;
     }
 
-    public virtual Array SplitLineList(string text)
+    public virtual Array SplitLineList(Text text)
     {
-        string[] a;
-        a = text.Split('\n', StringSplitOption.None);
-
         Array array;
-        array = new Array();
-        array.Count = a.Length;
-        array.Init();
-
-        int count;
-        count = array.Count;
-        int i;
-        i = 0;
-        while (i < count)
-        {
-            string aa;
-            aa = a[i];
-            array.SetAt(i, aa);
-            i = i + 1;
-        }
+        array = this.TextInfra.TextArraySplit(text, this.TextNewLine, this.TextCompare);
         return array;
     }
 
@@ -131,5 +161,10 @@ public class Infra : Any
             u = "true";
         }
         return u;
+    }
+
+    public virtual String S(string o)
+    {
+        return this.StringValue.Execute(o);
     }
 }
