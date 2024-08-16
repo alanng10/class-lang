@@ -126,7 +126,7 @@ public class Code : Any
         return true;
     }
 
-    internal virtual bool ExecuteResultString(Data result, long resultIndex, CodeKind innKind, CodeKind outKind, string data, Range dataRange)
+    internal virtual bool ExecuteResultString(byte[] result, long resultIndex, CodeKind innKind, CodeKind outKind, string data, Range dataRange)
     {
         InfraInfra infraInfra;
         infraInfra = this.InfraInfra;
@@ -136,7 +136,7 @@ public class Code : Any
             return false;
         }
 
-        if (!infraInfra.ValidRange(result.Count, resultIndex, 0))
+        if (!infraInfra.ValidRange(result.LongLength, resultIndex, 0))
         {
             return false;
         }
@@ -162,7 +162,7 @@ public class Code : Any
         ulong resultIndexU;
         resultIndexU = (ulong)resultIndex;
 
-        this.InternIntern.TextEncodeResultStringArray(result.Value, resultIndexU, innKind.Intern, outKind.Intern, data, dataIndexU, dataCountU);
+        this.InternIntern.TextEncodeResultStringArray(result, resultIndexU, innKind.Intern, outKind.Intern, data, dataIndexU, dataCountU);
 
         return true;
     }
