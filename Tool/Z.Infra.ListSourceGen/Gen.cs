@@ -5,6 +5,7 @@ public class Gen : Any
     public override bool Init()
     {
         base.Init();
+        this.TextInfra = TextInfra.This;
         this.ToolInfra = ToolInfra.This;
 
         this.ClassFileName = this.S("ToolData/System/Class.txt");
@@ -28,6 +29,7 @@ public class Gen : Any
     public virtual String ArrayCompListFileName { get; set; }
     public virtual String ItemListFileName { get; set; }
     public virtual String OutputFilePath { get; set; }
+    protected virtual TextInfra TextInfra { get; set; }
     protected virtual ToolInfra ToolInfra { get; set; }
     protected virtual Array LineArray { get; set; }
     protected virtual Table ItemTable { get; set; }
@@ -113,21 +115,25 @@ public class Gen : Any
         return a;
     }
 
-    protected virtual string GetInitMethod()
+    protected virtual String GetInitMethod()
     {
         String e;
         e = this.ToolInfra.StorageTextRead(this.InitMethodFileName);
 
-        StringBuilder sb;
-        sb = new StringBuilder(e);
+        Text ka;
+        ka = this.TextCreateString(e);
 
-        String aa;
-        aa = this.GetInitFieldList();
+        Text kaa;
+        kaa = this.TextCreateString(this.GetInitFieldList());
 
-        sb.Replace("#InitFieldList#", aa);
+        Text kka;
+        kka = this.TextCreateString(this.S("#InitFieldList#"));
+        
+        Text k;
+        k = this.TextReplace(ka, kka, kaa);
 
-        string a;
-        a = sb.ToString();
+        String a;
+        a = this.StringCreate(k);
         return a;
     }
 
@@ -246,6 +252,26 @@ public class Gen : Any
         string a;
         a = sb.ToString();
         return a;
+    }
+
+    protected virtual Text TextCreateString(String o)
+    {
+        return this.TextInfra.TextCreateStringData(o, null);
+    }
+
+    protected virtual String StringCreate(Text text)
+    {
+        return this.TextInfra.StringCreate(text);
+    }
+
+    protected virtual Array TextSplit(Text text, Text delimit)
+    {
+        return this.ToolInfra.TextSplit(text, delimit);
+    }
+
+    protected virtual Text TextReplace(Text text, Text delimit, Text join)
+    {
+        return this.ToolInfra.TextReplace(text, delimit, join);
     }
 
     protected virtual Gen Add(String a)
