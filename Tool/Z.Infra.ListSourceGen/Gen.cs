@@ -115,13 +115,13 @@ public class Gen : Any
 
     protected virtual string GetInitMethod()
     {
-        string e;
+        String e;
         e = this.ToolInfra.StorageTextRead(this.InitMethodFileName);
 
         StringBuilder sb;
         sb = new StringBuilder(e);
 
-        string aa;
+        String aa;
         aa = this.GetInitFieldList();
 
         sb.Replace("#InitFieldList#", aa);
@@ -133,23 +133,22 @@ public class Gen : Any
 
     protected virtual String GetInitFieldList()
     {
-        StringBuilder sb;
-        sb = new StringBuilder();
+        this.AddClear();
 
         Iter iter;
         iter = this.ItemTable.IterCreate();
         this.ItemTable.IterSet(iter);
         while (iter.Next())
         {
-            string index;
-            index = (string)iter.Index;
+            String index;
+            index = (String)iter.Index;
             object value;
             value = iter.Value;
-            this.AppendInitField(sb, index, value);
+            this.AddInitField(index, value);
         }
 
-        string a;
-        a = sb.ToString();
+        String a;
+        a = this.AddResult();
         return a;
     }
 
