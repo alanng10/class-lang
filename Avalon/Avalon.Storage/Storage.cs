@@ -39,8 +39,8 @@ public class Storage : Any
         {
             ulong u;
             u = Extern.Storage_StatusGet(this.Intern);
-            int o;
-            o = (int)u;
+            long o;
+            o = (long)u;
             Status a;
             a = this.StorageStatusList.Get(o);
             return a;
