@@ -43,10 +43,10 @@ public class Frame : Comp
         w = Extern.Size_WidthGet(sizeU);
         ulong h;
         h = Extern.Size_HeightGet(sizeU);
-        int width;
-        width = (int)w;
-        int height;
-        height = (int)h;
+        long width;
+        width = (long)w;
+        long height;
+        height = (long)h;
         this.Size = new DrawSize();
         this.Size.Init();
         this.Size.Width = width;
