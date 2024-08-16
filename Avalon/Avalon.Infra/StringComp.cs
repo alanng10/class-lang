@@ -39,10 +39,8 @@ public class StringComp : Any
         long ka;
         ka = count * ko;
 
-        Data data;
-        data = new Data();
-        data.Count = ka;
-        data.Init();
+        byte[] data;
+        data = new byte[ka];
 
         long i;
         i = 0;
@@ -51,14 +49,14 @@ public class StringComp : Any
             long index;
             index = i * ko;
 
-            internInfra.DataCharSet(data.Value, index, c);
+            internInfra.DataCharSet(data, index, c);
 
             i = i + 1;
         }
 
         String a;
         a = new String();
-        a.Data = data;
+        a.Value = data;
         a.Count = count;
         a.Init();
         return a;
@@ -66,10 +64,15 @@ public class StringComp : Any
 
     public virtual String CreateString(String s, Range range)
     {
-        return this.CreateData(s.Data, range);
+        return this.CreateDataValue(s.Value, range);
     }
 
     public virtual String CreateData(Data data, Range range)
+    {
+        return this.CreateDataValue(data.Value, range);
+    }
+
+    private String CreateDataValue(byte[] data, Range range)
     {
         InternInfra internInfra;
         internInfra = this.InternInfra;
@@ -78,7 +81,7 @@ public class StringComp : Any
         kka = sizeof(uint);
 
         long dataCount;
-        dataCount = data.Count;
+        dataCount = data.LongLength;
         long totalCount;
         totalCount = dataCount / kka;
 
@@ -103,10 +106,8 @@ public class StringComp : Any
             }
         }
 
-        Data dest;
-        dest = new Data();
-        dest.Count = count * kka;
-        dest.Init();
+        byte[] dest;
+        dest = new byte[count * kka];
 
         long i;
         i = 0;
@@ -118,16 +119,16 @@ public class StringComp : Any
             keb = i * kka;
 
             uint aa;
-            aa = internInfra.DataCharGet(data.Value, kea);
+            aa = internInfra.DataCharGet(data, kea);
 
-            internInfra.DataCharSet(dest.Value, keb, aa);
+            internInfra.DataCharSet(dest, keb, aa);
 
             i = i + 1;
         }
 
         String a;
         a = new String();
-        a.Data = dest;
+        a.Value = dest;
         a.Count = count;
         a.Init();
         return a;
@@ -152,7 +153,7 @@ public class StringComp : Any
         }
 
         uint a;
-        a = internInfra.DataCharGet(o.Data.Value, index * sizeof(uint));
+        a = internInfra.DataCharGet(o.Value, index * sizeof(uint));
         return a;
     }
 }
