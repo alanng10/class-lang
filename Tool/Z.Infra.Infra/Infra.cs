@@ -27,11 +27,10 @@ public class Infra : Any
         this.StringJoin = new StringJoin();
         this.StringJoin.Init();
 
-        String k;
-        k = this.StringComp.CreateChar('\n', 1);
-        this.TextNewLine = this.TextInfra.TextCreateStringData(k, null);
-
+        this.NewLine = this.StringComp.CreateChar('\n', 1);
         this.Indent = this.StringComp.CreateChar(' ', 4);
+
+        this.TextNewLine = this.TextInfra.TextCreateStringData(this.NewLine, null);
 
         this.CharCompare = new CompareInt();
         this.CharCompare.Init();
@@ -48,6 +47,7 @@ public class Infra : Any
     }
 
     public virtual Text TextNewLine { get; set; }
+    public virtual String NewLine { get; set; }
     public virtual String Indent { get; set; }
     public virtual InfraInfra InfraInfra { get; set; }
     public virtual TextInfra TextInfra { get; set; }
@@ -63,6 +63,12 @@ public class Infra : Any
     public virtual Infra Add(String a)
     {
         this.InfraInfra.StringJoinString(this.StringJoin, a);
+        return this;
+    }
+
+    public virtual Infra AddChar(uint a)
+    {
+        this.StringJoin.Add(a);
         return this;
     }
 

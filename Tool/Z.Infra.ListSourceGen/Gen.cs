@@ -7,27 +7,27 @@ public class Gen : Any
         base.Init();
         this.ToolInfra = ToolInfra.This;
 
-        this.ClassFileName = "ToolData/System/Class.txt";
-        this.InitMethodFileName = "ToolData/System/InitMaide.txt";
-        this.AddMethodFileName = "ToolData/System/AddMaide.txt";
-        this.ArrayCompListFileName = "ToolData/System/ArrayCompList.txt";
-        this.ItemListFileName = "ToolData/System/ItemList.txt";
+        this.ClassFileName = this.S("ToolData/System/Class.txt");
+        this.InitMethodFileName = this.S("ToolData/System/InitMaide.txt");
+        this.AddMethodFileName = this.S("ToolData/System/AddMaide.txt");
+        this.ArrayCompListFileName = this.S("ToolData/System/ArrayCompList.txt");
+        this.ItemListFileName = this.S("ToolData/System/ItemList.txt");
         return true;
     }
 
-    public virtual string Namespace { get; set; }
-    public virtual string ClassName { get; set; }
-    public virtual string BaseClassName { get; set; }
-    public virtual string AnyClassName { get; set; }
+    public virtual String Namespace { get; set; }
+    public virtual String ClassName { get; set; }
+    public virtual String BaseClassName { get; set; }
+    public virtual String AnyClassName { get; set; }
     public virtual bool Export { get; set; }
-    public virtual string ItemClassName { get; set; }
-    public virtual string ArrayClassName { get; set; }
-    public virtual string ClassFileName { get; set; }
-    public virtual string InitMethodFileName { get; set; }
-    public virtual string AddMethodFileName { get; set; }
-    public virtual string ArrayCompListFileName { get; set; }
-    public virtual string ItemListFileName { get; set; }
-    public virtual string OutputFilePath { get; set; }
+    public virtual String ItemClassName { get; set; }
+    public virtual String ArrayClassName { get; set; }
+    public virtual String ClassFileName { get; set; }
+    public virtual String InitMethodFileName { get; set; }
+    public virtual String AddMethodFileName { get; set; }
+    public virtual String ArrayCompListFileName { get; set; }
+    public virtual String ItemListFileName { get; set; }
+    public virtual String OutputFilePath { get; set; }
     protected virtual ToolInfra ToolInfra { get; set; }
     protected virtual Array LineArray { get; set; }
     protected virtual Table ItemTable { get; set; }
@@ -36,7 +36,7 @@ public class Gen : Any
     {
         this.ExecuteItemList();
 
-        string a;
+        String a;
         a = this.ToolInfra.StorageTextRead(this.ClassFileName);
 
         StringBuilder sb;        
@@ -131,7 +131,7 @@ public class Gen : Any
         return a;
     }
 
-    protected virtual string GetInitFieldList()
+    protected virtual String GetInitFieldList()
     {
         StringBuilder sb;
         sb = new StringBuilder();
@@ -153,21 +153,21 @@ public class Gen : Any
         return a;
     }
 
-    protected virtual bool AppendInitField(StringBuilder sb, string index, object value)
+    protected virtual bool AddInitField(String index, object value)
     {
-        this.ToolInfra.AppendIndent(sb, 2);
+        this.AddIndent(2);
 
-        sb.Append("this").Append(".").Append(index).Append(" ").Append(":").Append(" ").Append("this").Append(".");
+        this.AddValue("this").AddChar('.').Add(index).AddChar(' ').AddChar(':').AddChar(' ').AddValue("this").AddChar('.');
 
-        this.AppendInitFieldAddItem(sb, index, value);
+        this.AddInitFieldAddItem(index, value);
 
-        sb.Append(";").Append(this.ToolInfra.NewLine);
+        this.AddChar(';').Add(this.ToolInfra.NewLine);
         return true;
     }
 
-    protected virtual bool AppendInitFieldAddItem(StringBuilder sb, string index, object value)
+    protected virtual bool AddInitFieldAddItem(String index, object value)
     {
-        sb.Append("AddItem").Append("(").Append(")");
+        this.AddValue("AddItem").AddChar('(').AddChar(')');
         return true;
     }
 
@@ -247,5 +247,45 @@ public class Gen : Any
         string a;
         a = sb.ToString();
         return a;
+    }
+
+    protected virtual Gen Add(String a)
+    {
+        this.ToolInfra.Add(a);
+        return this;
+    }
+
+    protected virtual Gen AddChar(uint a)
+    {
+        this.ToolInfra.AddChar(a);
+        return this;
+    }
+
+    protected virtual Gen AddValue(string o)
+    {
+        this.ToolInfra.AddValue(o);
+        return this;
+    }
+
+    protected virtual Gen AddClear()
+    {
+        this.ToolInfra.AddClear();
+        return this;
+    }
+
+    protected virtual String AddResult()
+    {
+        return this.ToolInfra.AddResult();
+    }
+
+    protected virtual Gen AddIndent(long indent)
+    {
+        this.ToolInfra.AddIndent(indent);
+        return this;
+    }
+    
+    protected virtual String S(string o)
+    {
+        return this.ToolInfra.S(o);
     }
 }
