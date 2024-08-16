@@ -17,14 +17,18 @@ public class StringValue : Any
     public override bool Init()
     {
         base.Init();
+        this.Code = Code.This;
         this.CodeKindList = CodeKindList.This;
         return true;
     }
 
+    protected virtual Code Code { get; set; }
     protected virtual CodeKindList CodeKindList { get; set; }
 
     public virtual String Execute(string o)
     {
+        Code code;
+        code = this.Code;
         CodeKindList codeKindList;
         codeKindList = this.CodeKindList;
 
@@ -33,24 +37,20 @@ public class StringValue : Any
         innKind = codeKindList.Utf16;
         outKind = codeKindList.Utf32;
 
-        Code encode;
-        encode = new Code();
-        encode.Init();
-
         Range range;
         range = new Range();
         range.Init();
         range.Count = o.Length * sizeof(char);
 
         long resultCount;
-        resultCount = encode.ExecuteCountString(innKind, outKind, o, range);
+        resultCount = code.ExecuteCountString(innKind, outKind, o, range);
 
         Data result;
         result = new Data();
         result.Count = resultCount;
         result.Init();
 
-        encode.ExecuteResultString(result, 0, innKind, outKind, o, range);
+        code.ExecuteResultString(result, 0, innKind, outKind, o, range);
 
         long count;
         count = resultCount / sizeof(uint);
