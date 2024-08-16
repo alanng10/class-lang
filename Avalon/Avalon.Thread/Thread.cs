@@ -117,16 +117,16 @@ public class Thread : Any
         return true;
     }
 
-    public virtual int ExecuteEventLoop()
+    public virtual long ExecuteEventLoop()
     {
         ulong u;
         u = Extern.Thread_ExecuteEventLoop(this.Intern);
-        int a;
-        a = (int)u;
+        long a;
+        a = (long)u;
         return a;
     }
 
-    public virtual bool ExitEventLoop(int code)
+    public virtual bool ExitEventLoop(long code)
     {
         ulong u;
         u = (ulong)code;
