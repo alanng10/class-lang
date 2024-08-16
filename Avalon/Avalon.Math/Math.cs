@@ -56,7 +56,7 @@ public partial class Math : Any
 
         long s;
         long e;
-        s = (long)(u.Significand);
+        s = (long)(u.Cand);
         e = (long)(u.Exponent);
 
         result.Cand = s;

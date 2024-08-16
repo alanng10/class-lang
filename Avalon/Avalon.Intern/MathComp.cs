@@ -7,7 +7,7 @@ public class MathComp : object
         return true;
     }
 
-    public virtual ulong Significand { get; set; }
+    public virtual ulong Cand { get; set; }
 
     public virtual ulong Exponent { get; set; }
 }
