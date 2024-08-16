@@ -95,10 +95,7 @@ public class Write : Any
             WriteArg arg;
             arg = (WriteArg)argList.GetAt(i);
             
-            if (!arg.HasCount)
-            {
-                this.ExecuteArgCount(arg);
-            }
+            this.ExecuteArgCount(arg);
 
             long ka;
             ka = arg.Count;
@@ -263,7 +260,6 @@ public class Write : Any
             }
         }
 
-        arg.HasCount = true;
         arg.ValueCount = valueCount;
         arg.Count = count;
         return true;
