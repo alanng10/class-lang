@@ -233,35 +233,6 @@ public class Intern : object
         return true;
     }
 
-    public virtual string StringCreate(ulong data, int index, int count)
-    {
-        string a;
-        unsafe
-        {
-            char* p;
-            p = (char*)data;
-
-            a = new string(p, index, count);
-        }
-        return a;
-    }
-
-    public virtual string StringCreateArray(byte[] data, int index, int count)
-    {
-        string a;
-        unsafe
-        {
-            fixed (byte* p = data)
-            {
-                ulong pa;
-                pa = (ulong)p;
-
-                a = this.StringCreate(pa, index, count);
-            }
-        }
-        return a;
-    }
-
     public virtual bool MathComp(ulong math, MathComp comp, long value)
     {
         ulong u;
