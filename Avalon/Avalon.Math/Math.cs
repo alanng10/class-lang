@@ -57,7 +57,7 @@ public partial class Math : Any
         long s;
         long e;
         s = (long)(u.Cand);
-        e = (long)(u.Exponent);
+        e = (long)(u.Expo);
 
         result.Cand = s;
         result.Expo = e;

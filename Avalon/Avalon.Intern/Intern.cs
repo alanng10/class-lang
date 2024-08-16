@@ -258,7 +258,7 @@ public class Intern : object
             Extern.Math_Comp(math, u, ua, ub);
 
             comp.Cand = oa;
-            comp.Exponent = ob;
+            comp.Expo = ob;
         }
         return true;
     }

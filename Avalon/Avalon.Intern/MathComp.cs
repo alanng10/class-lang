@@ -9,5 +9,5 @@ public class MathComp : object
 
     public virtual ulong Cand { get; set; }
 
-    public virtual ulong Exponent { get; set; }
+    public virtual ulong Expo { get; set; }
 }
