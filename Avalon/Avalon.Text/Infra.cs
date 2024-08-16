@@ -548,6 +548,102 @@ public class Infra : Any
         return array;
     }
 
+    public virtual Text TextArrayJoin(Array array, Text join)
+    {
+        long k;
+        k = 0;
+
+        Range joinRange;
+        joinRange = join.Range;
+
+        long joinCount;
+        joinCount = joinRange.Count;
+
+        long count;
+        count = array.Count;
+        long i;
+        i = 0;
+        while (i < count)
+        {
+            if (0 < i)
+            {
+                k = k + joinCount;
+            }
+
+            Text ka;
+            ka = (Text)array.GetAt(i);
+
+            k = k + ka.Range.Count;
+
+            i = i + 1;
+        }
+
+        Text text;
+        text = this.TextCreate(k);
+
+        Data dest;
+        dest = text.Data;
+
+        Data joinData;
+        joinData = join.Data;
+
+        long joinIndex;
+        joinIndex = joinRange.Index;
+
+        k = 0;
+        i = 0;
+        while (i < count)
+        {
+            if (0 < i)
+            {
+                this.TextCopy(dest, k, joinData, joinIndex, joinCount);
+
+                k = k + joinCount;
+            }
+
+            Text ka;
+            ka = (Text)array.GetAt(i);
+
+            Data kaData;
+            kaData = ka.Data;
+
+            Range kaRange;
+            kaRange = ka.Range;
+
+            long kaCount;
+            kaCount = kaRange.Count;
+
+            this.TextCopy(dest, k, kaData, kaRange.Index, kaCount);
+
+            k = k + kaCount;
+
+            i = i + 1;
+        }
+
+        return text;
+    }
+
+    public virtual Text TextReplace(Text text, Text delimit, Text join, InfraCompare compare)
+    {
+        Array array;
+        array = this.TextArraySplit(text, delimit, compare);
+
+        Text k;
+        k = this.TextArrayJoin(array, join);
+
+        Text a;
+        a = k;
+        return a;
+    }
+
+    public virtual bool TextCopy(Data dest, long destIndex, Data source, long sourceIndex, long count)
+    {
+        long ka;
+        ka = sizeof(uint);
+
+        return this.InfraInfra.DataCopy(dest, destIndex * ka, source, sourceIndex * ka, count * ka);
+    }
+
     public virtual Data Code(CodeKind innKind, CodeKind outKind, Data data, Range range)
     {
         if (!this.ValidCodeKind(innKind, outKind))

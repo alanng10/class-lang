@@ -165,6 +165,22 @@ public class Infra : Any
         return true;
     }
 
+    public virtual bool DataCopy(Data dest, long destIndex, Data source, long sourceIndex, long count)
+    {
+        long i;
+        i = 0;
+        while (i < count)
+        {
+            long n;
+            n = source.Get(sourceIndex + i);
+
+            dest.Set(destIndex + i, n);
+
+            i = i + 1;
+        }
+        return true;
+    }
+
     public virtual bool StringJoinString(StringJoin h, String a)
     {
         StringComp stringComp;
