@@ -157,52 +157,51 @@ public class Gen : Any
     {
         this.AddIndent(2);
 
-        this.AddS("this").AddC('.').Add(index).AddC(' ').AddC(':').AddC(' ').AddS("this").AddC('.');
+        this.AddS("this").AddS(".").Add(index).AddS(" ").AddS(":").AddS(" ").AddS("this").AddS(".");
 
         this.AddInitFieldAddItem(index, value);
 
-        this.AddC(';').Add(this.ToolInfra.NewLine);
+        this.AddS(";").Add(this.ToolInfra.NewLine);
         return true;
     }
 
     protected virtual bool AddInitFieldAddItem(String index, object value)
     {
-        this.AddS("AddItem").AddC('(').AddC(')');
+        this.AddS("AddItem").AddS("(").AddS(")");
         return true;
     }
 
-    protected virtual string GetFieldList()
+    protected virtual String GetFieldList()
     {
-        StringBuilder sb;
-        sb = new StringBuilder();
+        this.AddClear();
 
         Iter iter;
         iter = this.ItemTable.IterCreate();
         this.ItemTable.IterSet(iter);
         while (iter.Next())
         {
-            string item;
-            item = (string)iter.Index;
-            this.AppendField(sb, item);
+            String item;
+            item = (String)iter.Index;
+            this.AddField(item);
         }
 
-        string a;
-        a = sb.ToString();
+        String a;
+        a = this.AddResult();
         return a;
     }
 
     protected virtual bool AddField(String item)
     {
         this.AddIndent(1)
-            .AddS("field").AddC(' ').AddS("prusate").AddC(' ')
-            .Add(this.ItemClassName).AddC(' ').Add(item).AddC(' ')
-            .AddC('{').AddC(' ')
-            .AddS("get").AddC(' ').AddC('{').AddC(' ').AddS("return").AddC(' ').AddS("data").AddC(';').AddC(' ').AddC('}')
-            .AddC(' ')
-            .AddS("set").AddC(' ').AddC('{').AddC(' ').AddS("data").Append(" ").Append(":").Append(" ").Append("value").Append(";").Append(" ").Append("}")
-            .Append(" ")
-            .Append("}")
-            .Append(this.ToolInfra.NewLine);
+            .AddS("field").AddS(" ").AddS("prusate").AddS(" ")
+            .Add(this.ItemClassName).AddS(" ").Add(item).AddS(" ")
+            .AddS("{").AddS(" ")
+            .AddS("get").AddS(" ").AddS("{").AddS(" ").AddS("return").AddS(" ").AddS("data").AddS(";").AddS(" ").AddS("}")
+            .AddS(" ")
+            .AddS("set").AddS(" ").AddS("{").AddS(" ").AddS("data").AddS(" ").AddS(":").AddS(" ").AddS("value").AddS(";").AddS(" ").AddS("}")
+            .AddS(" ")
+            .AddS("}")
+            .Add(this.ToolInfra.NewLine);
         return true;
     }
 
