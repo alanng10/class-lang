@@ -548,7 +548,7 @@ public class Infra : Any
         return array;
     }
 
-    public virtual Text TextArrayJoin(Array array, Text join)
+    public virtual Text Join(Array array, Text join)
     {
         long k;
         k = 0;
@@ -629,7 +629,7 @@ public class Infra : Any
         array = this.Split(text, delimit, compare);
 
         Text k;
-        k = this.TextArrayJoin(array, join);
+        k = this.Join(array, join);
 
         Text a;
         a = k;
