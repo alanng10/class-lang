@@ -203,6 +203,6 @@ class TypeState : State
 
     protected virtual String S(string o)
     {
-        return this.Demo.StringValue(o);
+        return this.Demo.S(o);
     }
 }

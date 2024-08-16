@@ -16,7 +16,7 @@ class PostState : State
 
         Console console;
         console = Console.This;
-        console.Out.Write(this.Demo.StringValue("PostState.Execute Aaa\n"));
+        console.Out.Write(this.Demo.S("PostState.Execute Aaa\n"));
         return true;
     }
 }

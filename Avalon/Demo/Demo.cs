@@ -97,7 +97,7 @@ class Demo : Any
 
         this.Frame = new Frame();
         this.Frame.Init();
-        this.Frame.Title = this.StringValue("Avalon Demo");
+        this.Frame.Title = this.S("Avalon Demo");
         this.Frame.TitleSet();
 
         this.UpdateRect = new DrawRect();
@@ -303,7 +303,7 @@ class Demo : Any
     private DrawImage ImageCreate()
     {
         DrawImage image;
-        image = this.DrawInfra.ImageCreatePath(this.StringValue("DemoData/image.jpg"));
+        image = this.DrawInfra.ImageCreatePath(this.S("DemoData/image.jpg"));
         return image;
     }
 
@@ -315,9 +315,9 @@ class Demo : Any
 
     private bool ExecuteConsole()
     {
-        this.Console.Out.Write(this.StringValue("Console 水中\n"));
+        this.Console.Out.Write(this.S("Console 水中\n"));
 
-        this.Console.Out.Write(this.StringValue("Input a: "));
+        this.Console.Out.Write(this.S("Input a: "));
 
         String ka;
 
@@ -328,7 +328,7 @@ class Demo : Any
 
         this.Console.Out.Write(ka);
 
-        this.Console.Out.Write(this.StringValue("Input aa: "));
+        this.Console.Out.Write(this.S("Input aa: "));
         
         String aa;
         aa = this.Console.Inn.Read();
@@ -536,7 +536,7 @@ class Demo : Any
         argE.Init();
         argE.Pos = 10;
         argE.Kind = 3;
-        argE.Value.Any = this.TextInfra.TextCreateStringData(this.StringValue("F Hre a"), null);
+        argE.Value.Any = this.TextInfra.TextCreateStringData(this.S("F Hre a"), null);
         argE.AlignLeft = true;
         argE.FieldWidth = 11;
         argE.MaxWidth = 10;
@@ -566,7 +566,7 @@ class Demo : Any
         argList.SetAt(7, argF);
 
         Text varBase;
-        varBase = this.TextInfra.TextCreateStringData(this.StringValue("G H , j h\n\n"), null);
+        varBase = this.TextInfra.TextCreateStringData(this.S("G H , j h\n\n"), null);
 
         CharForm charForm;
         charForm = new CharForm();
@@ -601,19 +601,19 @@ class Demo : Any
         Text ooo;
         long ooa;
 
-        ooo = this.TextInfra.TextCreateStringData(this.StringValue("43695"), null);        
+        ooo = this.TextInfra.TextCreateStringData(this.S("43695"), null);        
         ooa = a.Execute(ooo, 10, false);
         this.ConsoleWriteIntParse(ooa);
 
-        ooo = this.TextInfra.TextCreateStringData(this.StringValue("9E532F"), null);
+        ooo = this.TextInfra.TextCreateStringData(this.S("9E532F"), null);
         ooa = a.Execute(ooo, 16, true);
         this.ConsoleWriteIntParse(ooa);
 
-        ooo = this.TextInfra.TextCreateStringData(this.StringValue("0000000000009294ef0d"), null);
+        ooo = this.TextInfra.TextCreateStringData(this.S("0000000000009294ef0d"), null);
         ooa = a.Execute(ooo, 16, false);
         this.ConsoleWriteIntParse(ooa);
 
-        ooo = this.TextInfra.TextCreateStringData(this.StringValue("1000000000000000"), null);
+        ooo = this.TextInfra.TextCreateStringData(this.S("1000000000000000"), null);
         ooa = a.Execute(ooo, 16, true);
         this.ConsoleWriteIntParse(ooa);
         return true;
@@ -638,7 +638,7 @@ class Demo : Any
     private bool ExecuteTime()
     {
         this.TimeWriteBase = this.TextInfra.TextCreateStringData(
-            this.StringValue("year: , month: , day: , hour: , min: , sec: , millisec: , pos: \n"), null);
+            this.S("year: , month: , day: , hour: , min: , sec: , millisec: , pos: \n"), null);
 
         TextWriteArg prefixArg;
         prefixArg = new TextWriteArg();
@@ -704,7 +704,7 @@ class Demo : Any
     private bool ConsoleWriteTime(string prefix, Time time)
     {
         String ka;
-        ka = this.StringValue(prefix);
+        ka = this.S(prefix);
 
         Text prefixText;
         prefixText = this.TextInfra.TextCreateStringData(ka, null);
@@ -758,22 +758,22 @@ class Demo : Any
         String ka;
         
         String k;
-        k = infra.TextRead(this.StringValue("DemoData/Demo.txt"));
-        this.Console.Out.Write(this.StringValue("Demo.txt text: \n"));
+        k = infra.TextRead(this.S("DemoData/Demo.txt"));
+        this.Console.Out.Write(this.S("Demo.txt text: \n"));
         this.Console.Out.Write(k);
-        this.Console.Out.Write(this.StringValue("\n"));
+        this.Console.Out.Write(this.S("\n"));
 
         string ou;
         ou = "DemoData/Demo2.txt";
         File.Delete(ou);
 
         String kou;
-        kou = this.StringValue(ou);
+        kou = this.S(ou);
 
         bool b;
         b = false;
         bool ba;
-        ba = infra.TextWrite(kou, this.StringValue("DEMO STORAGE WRITE AAA BBB"));
+        ba = infra.TextWrite(kou, this.S("DEMO STORAGE WRITE AAA BBB"));
         if (!ba)
         {
             ka = this.AddClear().AddS("Write ").Add(kou).AddS(" 1 Error\n").AddResult();
@@ -785,7 +785,7 @@ class Demo : Any
         if (ba)
         {
             bool bb;
-            bb = infra.TextWrite(kou, this.StringValue("DEMO STORAGE WRITE 2 AAA"));
+            bb = infra.TextWrite(kou, this.S("DEMO STORAGE WRITE 2 AAA"));
             if (!bb)
             {
                 ka = this.AddClear().AddS("Write ").Add(kou).AddS(" 3 Error\n").AddResult();
@@ -809,12 +809,12 @@ class Demo : Any
         File.Delete(oua);
 
         String koua;
-        koua = this.StringValue(oua);
+        koua = this.S(oua);
 
         bool bo;
         bo = false;
         bool baa;
-        baa = infra.TextWrite(koua, this.StringValue("DEMO STORAGE WRITE DEMO ABCD"));
+        baa = infra.TextWrite(koua, this.S("DEMO STORAGE WRITE DEMO ABCD"));
         if (!baa)
         {
             ka = this.AddClear().AddS("Write ").Add(koua).AddS(" 1 Error\n").AddResult();
@@ -825,7 +825,7 @@ class Demo : Any
         if (baa)
         {
             String koa;
-            koa = this.StringValue("OUHU");
+            koa = this.S("OUHU");
 
             bool bab;
             bab = this.WriteStringPos(koua, koa, 19);
@@ -851,11 +851,11 @@ class Demo : Any
         File.Delete(oub);
 
         String koub;
-        koub = this.StringValue(oub);
+        koub = this.S(oub);
 
         bo = false;
         bool bac;
-        bac = infra.TextWrite(koub, this.StringValue("Demo Storage Set Count aaaadda"));
+        bac = infra.TextWrite(koub, this.S("Demo Storage Set Count aaaadda"));
         if (!bac)
         {
             ka = this.AddClear().AddS("Write ").Add(koub).AddS(" Error\n").AddResult();
@@ -969,9 +969,9 @@ class Demo : Any
         {
         }
 
-        b = arrange.Rename(this.StringValue(pathA), this.StringValue(destPathA));
+        b = arrange.Rename(this.S(pathA), this.S(destPathA));
 
-        this.Console.Out.Write(this.StringValue("Rename File " + pathA + " " + this.StorageArrangeStatus(b) + "\n"));
+        this.Console.Out.Write(this.S("Rename File " + pathA + " " + this.StorageArrangeStatus(b) + "\n"));
 
         string pathAa;
         pathAa = "DemoData/FoldRename";
@@ -998,9 +998,9 @@ class Demo : Any
         {
         }
 
-        b = arrange.Rename(this.StringValue(pathAa), this.StringValue(destPathAa));
+        b = arrange.Rename(this.S(pathAa), this.S(destPathAa));
 
-        this.Console.Out.Write(this.StringValue("Rename Fold " + pathAa + " " + this.StorageArrangeStatus(b) + "\n"));
+        this.Console.Out.Write(this.S("Rename Fold " + pathAa + " " + this.StorageArrangeStatus(b) + "\n"));
 
         string path;
         path = "DemoData/DemoCopy.txt";
@@ -1008,9 +1008,9 @@ class Demo : Any
         destPath = "DemoData/DemoCopy_Copy.txt";
         File.Delete(destPath);
 
-        b = arrange.FileCopy(this.StringValue(path), this.StringValue(destPath));
+        b = arrange.FileCopy(this.S(path), this.S(destPath));
 
-        this.Console.Out.Write(this.StringValue("FileCopy " + path + " to " + destPath + " " + this.StorageArrangeStatus(b) + "\n"));
+        this.Console.Out.Write(this.S("FileCopy " + path + " to " + destPath + " " + this.StorageArrangeStatus(b) + "\n"));
 
         string pathB;
         pathB = "DemoData/Remove.txt";
@@ -1021,9 +1021,9 @@ class Demo : Any
         catch
         {
         }
-        b = arrange.FileRemove(this.StringValue(pathB));
+        b = arrange.FileRemove(this.S(pathB));
 
-        this.Console.Out.Write(this.StringValue("FileRemove " + pathB + " " + this.StorageArrangeStatus(b) + "\n"));
+        this.Console.Out.Write(this.S("FileRemove " + pathB + " " + this.StorageArrangeStatus(b) + "\n"));
 
 
         string pathC;
@@ -1038,9 +1038,9 @@ class Demo : Any
         {
         }
 
-        b = arrange.FoldCreate(this.StringValue(pathC));
+        b = arrange.FoldCreate(this.S(pathC));
 
-        this.Console.Out.Write(this.StringValue("FoldCreate " + pathC + " " + this.StorageArrangeStatus(b) + "\n"));
+        this.Console.Out.Write(this.S("FoldCreate " + pathC + " " + this.StorageArrangeStatus(b) + "\n"));
 
         string pathCa;
         pathCa = "DemoData/FoldCopy";
@@ -1055,9 +1055,9 @@ class Demo : Any
         {
         }
 
-        b = arrange.FoldCopy(this.StringValue(pathCa), this.StringValue(destPathCa));
+        b = arrange.FoldCopy(this.S(pathCa), this.S(destPathCa));
 
-        this.Console.Out.Write(this.StringValue("FoldCopy " + pathCa + " to " + destPathCa + " " + this.StorageArrangeStatus(b) + "\n"));
+        this.Console.Out.Write(this.S("FoldCopy " + pathCa + " to " + destPathCa + " " + this.StorageArrangeStatus(b) + "\n"));
 
         string pathCb;
         pathCb = "DemoData/RemoveFoldA";
@@ -1075,16 +1075,16 @@ class Demo : Any
         {
         }
 
-        b = arrange.FoldRemove(this.StringValue(pathCb));
+        b = arrange.FoldRemove(this.S(pathCb));
 
-        this.Console.Out.Write(this.StringValue("FoldRemove " + pathCb + " " + this.StorageArrangeStatus(b) + "\n"));
+        this.Console.Out.Write(this.S("FoldRemove " + pathCb + " " + this.StorageArrangeStatus(b) + "\n"));
 
         string pathE;
         pathE = "DemoData/image.jpg";
 
-        b = arrange.Exist(this.StringValue(pathE));
+        b = arrange.Exist(this.S(pathE));
 
-        this.Console.Out.Write(this.StringValue("Exist " + pathE + " " + b.ToString() + "\n"));
+        this.Console.Out.Write(this.S("Exist " + pathE + " " + b.ToString() + "\n"));
 
         arrange.Final();
         return true;
@@ -1103,7 +1103,7 @@ class Demo : Any
 
     private bool ExecuteNetwork()
     {
-        this.Console.Out.Write(this.StringValue("Network Start\n"));
+        this.Console.Out.Write(this.S("Network Start\n"));
 
         ThreadThread thread;
         thread = new ThreadThread();
@@ -1138,13 +1138,13 @@ class Demo : Any
         
         thread.Final();
 
-        this.Console.Out.Write(this.StringValue("Network End\n"));
+        this.Console.Out.Write(this.S("Network End\n"));
         return true;
     }
 
     private bool ExecuteNetworkProcess()
     {
-        this.Console.Out.Write(this.StringValue("NetworkProcess Start\n"));
+        this.Console.Out.Write(this.S("NetworkProcess Start\n"));
 
         ThreadThread thread;
         thread = new ThreadThread();
@@ -1166,7 +1166,7 @@ class Demo : Any
         Program program;
         program = new Program();
         program.Init();
-        program.Name = this.StringValue("DemoNetwork.exe");
+        program.Name = this.S("DemoNetwork.exe");
         program.Argue = list;
         program.WorkFold = null;
         program.Environ = null;
@@ -1181,7 +1181,7 @@ class Demo : Any
 
         thread.Final();
 
-        this.Console.Out.Write(this.StringValue("NetworkProcess End\n"));
+        this.Console.Out.Write(this.S("NetworkProcess End\n"));
         return true;
     }
 
@@ -1223,13 +1223,13 @@ class Demo : Any
 
         phore.Acquire();
 
-        this.Console.Out.Write(this.StringValue("Demo.ExecuteDemoThread phore Acquire Success\n"));
+        this.Console.Out.Write(this.S("Demo.ExecuteDemoThread phore Acquire Success\n"));
 
         thread.Wait();
 
         long aa;
         aa = thread.Status;
-        this.Console.Out.Write(this.StringValue("Demo.ExecuteDemoThread Thread Status: 0h" + aa.ToString("x8") + "\n"));
+        this.Console.Out.Write(this.S("Demo.ExecuteDemoThread Thread Status: 0h" + aa.ToString("x8") + "\n"));
 
         thread.Final();
 
@@ -1249,7 +1249,7 @@ class Demo : Any
         bool isMainThread;
         isMainThread = thread.Main;
 
-        this.Console.Out.Write(this.StringValue("This Thread is Main Thread: " + isMainThread.ToString() + "\n"));
+        this.Console.Out.Write(this.S("This Thread is Main Thread: " + isMainThread.ToString() + "\n"));
         return true;
     }
 
@@ -1286,7 +1286,7 @@ class Demo : Any
 
         thread.Final();
 
-        this.Console.Out.Write(this.StringValue("Demo.ExecuteTimeEventOne Thread Status: 0h" + o.ToString("x8") + "\n"));
+        this.Console.Out.Write(this.S("Demo.ExecuteTimeEventOne Thread Status: 0h" + o.ToString("x8") + "\n"));
         return true;
     }
 
@@ -1326,7 +1326,7 @@ class Demo : Any
 
         phore.Final();
 
-        this.Console.Out.Write(this.StringValue("Demo.ExecuteDemoPost Thread Status: 0h" + o.ToString("x8") + "\n"));
+        this.Console.Out.Write(this.S("Demo.ExecuteDemoPost Thread Status: 0h" + o.ToString("x8") + "\n"));
         return true;
     }
 
@@ -1350,7 +1350,7 @@ class Demo : Any
     {
         DrawFace a;
         a = new DrawFace();
-        a.Family = this.StringValue("Source Code Pro");
+        a.Family = this.S("Source Code Pro");
         a.Size = 20;
         a.Weight = 400;
         a.Italic = true;
@@ -1421,7 +1421,7 @@ class Demo : Any
         textAlignList = DrawTextAlignList.This;
 
         String oa;
-        oa = this.StringValue("G L 的哈gd@行 o #");
+        oa = this.S("G L 的哈gd@行 o #");
 
         Text text;
         text = this.TextInfra.TextCreateStringData(oa, null);
@@ -1535,7 +1535,7 @@ class Demo : Any
         Play a;
         a = new Play();
         a.Init();
-        a.Source = this.StringValue("file:DemoData/Video.mp4");
+        a.Source = this.S("file:DemoData/Video.mp4");
         a.SourceSet();
         a.VideoOut = videoOut;
         a.AudioOut = audioOut;
@@ -1586,7 +1586,7 @@ class Demo : Any
 
     public virtual Demo AddS(string o)
     {
-        this.Add(this.StringValue(o));
+        this.Add(this.S(o));
         return this;
     }
 
@@ -1607,7 +1607,7 @@ class Demo : Any
         return this.StringJoin.Result();
     }
 
-    public virtual String StringValue(string o)
+    public virtual String S(string o)
     {
         return this.TextStringValue.Execute(o);
     }
