@@ -168,14 +168,14 @@ public class Thread : Any
         }
     }
 
-    public virtual int Status
+    public virtual long Status
     {
         get
         {
             ulong u;
             u = Extern.Thread_StatusGet(this.Intern);
-            int o;
-            o = (int)u;
+            long o;
+            o = (long)u;
             return o;
         }
         set
