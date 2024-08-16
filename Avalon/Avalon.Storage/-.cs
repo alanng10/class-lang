@@ -14,5 +14,6 @@ global using TextText = Avalon.Text.Text;
 global using TextCode = Avalon.Text.Code;
 global using TextCodeKind = Avalon.Text.CodeKind;
 global using TextCodeKindList = Avalon.Text.CodeKindList;
+global using TextStringValue = Avalon.Text.StringValue;
 global using TextInfra = Avalon.Text.Infra;
 global using StreamStream = Avalon.Stream.Stream;
