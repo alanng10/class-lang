@@ -174,9 +174,9 @@ public class Thread : Any
         {
             ulong u;
             u = Extern.Thread_StatusGet(this.Intern);
-            long o;
-            o = (long)u;
-            return o;
+            long a;
+            a = (long)u;
+            return a;
         }
         set
         {
