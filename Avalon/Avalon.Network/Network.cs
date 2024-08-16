@@ -166,7 +166,7 @@ public class Network : Any
 
         this.LoadingOpen = true;
 
-        this.InternHostName = this.InternInfra.StringCreate(this.HostName.Data.Value);
+        this.InternHostName = this.InternInfra.StringCreate(this.HostName.Value);
         ulong hostPortU;
         hostPortU = (ulong)this.HostPort;
         this.DataStream = this.StreamCreate();
