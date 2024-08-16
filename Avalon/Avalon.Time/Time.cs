@@ -19,14 +19,14 @@ public class Time : Any
 
     private ulong Intern { get; set; }
 
-    public virtual int Year
+    public virtual long Year
     {
         get
         {
             ulong u;
             u = Extern.Time_YearGet(this.Intern);
-            int a;
-            a = (int)u;
+            long a;
+            a = (long)u;
             return a;
         }
         set
@@ -34,14 +34,14 @@ public class Time : Any
         }
     }
 
-    public virtual int Month
+    public virtual long Month
     {
         get
         {
             ulong u;
             u = Extern.Time_MonthGet(this.Intern);
-            int a;
-            a = (int)u;
+            long a;
+            a = (long)u;
             return a;
         }
         set
@@ -49,14 +49,14 @@ public class Time : Any
         }
     }
 
-    public virtual int Day
+    public virtual long Day
     {
         get
         {
             ulong u;
             u = Extern.Time_DayGet(this.Intern);
-            int a;
-            a = (int)u;
+            long a;
+            a = (long)u;
             return a;
         }
         set
@@ -64,14 +64,14 @@ public class Time : Any
         }
     }
 
-    public virtual int Hour
+    public virtual long Hour
     {
         get
         {
             ulong u;
             u = Extern.Time_HourGet(this.Intern);
-            int a;
-            a = (int)u;
+            long a;
+            a = (long)u;
             return a;
         }
         set
@@ -79,14 +79,14 @@ public class Time : Any
         }
     }
 
-    public virtual int Min
+    public virtual long Min
     {
         get
         {
             ulong u;
             u = Extern.Time_MinGet(this.Intern);
-            int a;
-            a = (int)u;
+            long a;
+            a = (long)u;
             return a;
         }
         set
@@ -94,14 +94,14 @@ public class Time : Any
         }
     }
 
-    public virtual int Sec
+    public virtual long Sec
     {
         get
         {
             ulong u;
             u = Extern.Time_SecGet(this.Intern);
-            int a;
-            a = (int)u;
+            long a;
+            a = (long)u;
             return a;
         }
         set
@@ -109,14 +109,14 @@ public class Time : Any
         }
     }
 
-    public virtual int Millisec
+    public virtual long Millisec
     {
         get
         {
             ulong u;
             u = Extern.Time_MillisecGet(this.Intern);
-            int a;
-            a = (int)u;
+            long a;
+            a = (long)u;
             return a;
         }
         set
@@ -124,14 +124,14 @@ public class Time : Any
         }
     }
 
-    public virtual int Pos
+    public virtual long Pos
     {
         get
         {
             ulong u;
             u = Extern.Time_PosGet(this.Intern);
-            int a;
-            a = (int)u;
+            long a;
+            a = (long)u;
             return a;
         }
         set
@@ -139,14 +139,14 @@ public class Time : Any
         }
     }
 
-    public virtual int YearDay
+    public virtual long YearDay
     {
         get
         {
             ulong u;
             u = Extern.Time_YearDayGet(this.Intern);
-            int a;
-            a = (int)u;
+            long a;
+            a = (long)u;
             return a;
         }
         set
@@ -154,14 +154,14 @@ public class Time : Any
         }
     }
 
-    public virtual int WeekDay
+    public virtual long WeekDay
     {
         get
         {
             ulong u;
             u = Extern.Time_WeekDayGet(this.Intern);
-            int a;
-            a = (int)u;
+            long a;
+            a = (long)u;
             return a;
         }
         set
@@ -169,14 +169,14 @@ public class Time : Any
         }
     }
 
-    public virtual int YearDayCount
+    public virtual long YearDayCount
     {
         get
         {
             ulong u;
             u = Extern.Time_YearDayCountGet(this.Intern);
-            int a;
-            a = (int)u;
+            long a;
+            a = (long)u;
             return a;
         }
         set
@@ -184,14 +184,14 @@ public class Time : Any
         }
     }
 
-    public virtual int MonthDayCount
+    public virtual long MonthDayCount
     {
         get
         {
             ulong u;
             u = Extern.Time_MonthDayCountGet(this.Intern);
-            int a;
-            a = (int)u;
+            long a;
+            a = (long)u;
             return a;
         }
         set
@@ -220,7 +220,7 @@ public class Time : Any
         return true;
     }
 
-    public virtual bool ToPos(int pos)
+    public virtual bool ToPos(long pos)
     {
         ulong u;
         u = (ulong)pos;
@@ -228,7 +228,7 @@ public class Time : Any
         return true;
     }
 
-    public virtual bool AddYear(int value)
+    public virtual bool AddYear(long value)
     {
         ulong u;
         u = (ulong)value;
@@ -236,7 +236,7 @@ public class Time : Any
         return true;
     }
 
-    public virtual bool AddMonth(int value)
+    public virtual bool AddMonth(long value)
     {
         ulong u;
         u = (ulong)value;
@@ -252,30 +252,6 @@ public class Time : Any
         return true;
     }
 
-    public virtual bool AddHour(long value)
-    {
-        ulong u;
-        u = (ulong)value;
-        Extern.Time_AddHour(this.Intern, u);
-        return true;
-    }
-
-    public virtual bool AddMin(long value)
-    {
-        ulong u;
-        u = (ulong)value;
-        Extern.Time_AddMin(this.Intern, u);
-        return true;
-    }
-
-    public virtual bool AddSec(long value)
-    {
-        ulong u;
-        u = (ulong)value;
-        Extern.Time_AddSec(this.Intern, u);
-        return true;
-    }
-
     public virtual bool AddMillisec(long value)
     {
         ulong u;
@@ -284,7 +260,7 @@ public class Time : Any
         return true;
     }
 
-    public virtual bool LeapYear(int year)
+    public virtual bool LeapYear(long year)
     {
         ulong ua;
         ua = (ulong)year;
@@ -296,7 +272,7 @@ public class Time : Any
         return a;
     }
 
-    public virtual bool ValidDate(int year, int month, int day)
+    public virtual bool ValidDate(long year, long month, long day)
     {
         ulong yearU;
         ulong monthU;
@@ -312,7 +288,7 @@ public class Time : Any
         return a;
     }
 
-    public virtual bool ValidTime(int hour, int min, int sec, int millisec)
+    public virtual bool ValidTime(long hour, long min, long sec, long millisec)
     {
         ulong hourU;
         ulong minU;
@@ -330,7 +306,7 @@ public class Time : Any
         return a;
     }
 
-    public virtual bool Set(int year, int month, int day, int hour, int min, int sec, int millisec, int pos)
+    public virtual bool Set(long year, long month, long day, long hour, long min, long sec, long millisec, long pos)
     {
         ulong yearU;
         ulong monthU;
