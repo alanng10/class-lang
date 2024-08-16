@@ -121,14 +121,14 @@ public class Gen : Any
         e = this.ToolInfra.StorageTextRead(this.InitMethodFileName);
 
         Text ka;
-        ka = this.TextCreateString(e);
-
-        Text kaa;
-        kaa = this.TextCreateString(this.GetInitFieldList());
+        ka = this.TextCreate(e);
 
         Text kka;
-        kka = this.TextCreateString(this.S("#InitFieldList#"));
-        
+        kka = this.TextCreate(this.S("#InitFieldList#"));
+
+        Text kaa;
+        kaa = this.TextCreate(this.GetInitFieldList());
+
         Text k;
         k = this.TextReplace(ka, kka, kaa);
 
@@ -229,32 +229,37 @@ public class Gen : Any
         return a;
     }
 
-    protected virtual string GetArrayCompList()
+    protected virtual String GetArrayCompList()
     {
-        string e;
+        String e;
         e = this.ToolInfra.StorageTextRead(this.ArrayCompListFileName);
+        
+        Text k;
+        k = this.TextCreate(e);
+        k = this.Replace(k, "#ItemClassName#", this.ItemClassName);
+        k = this.Replace(k, "#ArrayClassName#", this.ArrayClassName);
+        k = this.Replace(k, "#ClassName#", this.ClassName);
+        k = this.Replace(k, "#BaseClassName#", this.BaseClassName);
 
-        StringBuilder sb;
-        sb = new StringBuilder(e);
-        sb.Replace("#ItemClassName#", this.ItemClassName);
-        sb.Replace("#ArrayClassName#", this.ArrayClassName);
-        sb.Replace("#ClassName#", this.ClassName);
-        sb.Replace("#BaseClassName#", this.BaseClassName);
-
-        int count;
+        long count;
         count = this.ItemTable.Count;
 
-        string aaa;
-        aaa = count.ToString();
+        String aaa;
+        aaa = this.S(count.ToString());
 
-        sb.Replace("#ArrayCount#", aaa);
+        k = this.Replace(k, "#ArrayCount#", aaa);
 
-        string a;
-        a = sb.ToString();
+        String a;
+        a = this.StringCreate(k)
         return a;
     }
 
-    protected virtual Text TextCreateString(String o)
+    protected virtual Text Replace(Text text, string delimit, String join)
+    {
+        return this.TextReplace(text, this.TextCreate(this.S(delimit)), this.TextCreate(join));
+    }
+
+    protected virtual Text TextCreate(String o)
     {
         return this.TextInfra.TextCreateStringData(o, null);
     }
