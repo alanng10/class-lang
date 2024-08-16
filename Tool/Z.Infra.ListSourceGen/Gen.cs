@@ -212,20 +212,20 @@ public class Gen : Any
         return true;
     }
 
-    protected virtual string GetAddMethod()
+    protected virtual String GetAddMethod()
     {
-        string e;
+        String e;
         e = this.ToolInfra.StorageTextRead(this.AddMethodFileName);
 
-        StringBuilder sb;
-        sb = new StringBuilder(e);
-        sb.Replace("#ItemClassName#", this.ItemClassName);
-        sb.Replace("#ArrayClassName#", this.ArrayClassName);
-        sb.Replace("#ClassName#", this.ClassName);
-        sb.Replace("#BaseClassName#", this.BaseClassName);
+        Text k;
+        k = this.TextCreate(e);
+        k = this.Replace(k, "#ItemClassName#", this.ItemClassName);
+        k = this.Replace(k, "#ArrayClassName#", this.ArrayClassName);
+        k = this.Replace(k, "#ClassName#", this.ClassName);
+        k = this.Replace(k, "#BaseClassName#", this.BaseClassName);
 
-        string a;
-        a = sb.ToString();
+        String a;
+        a = this.StringCreate(k);
         return a;
     }
 
