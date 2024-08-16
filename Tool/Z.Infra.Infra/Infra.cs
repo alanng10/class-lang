@@ -140,11 +140,74 @@ public class Infra : Any
         return a;
     }
 
-    public virtual Array SplitLineList(Text text)
+    public virtual Array TextSplit(Text text, Text delimit)
     {
         Array array;
-        array = this.TextInfra.TextArraySplit(text, this.TextNewLine, this.TextCompare);
+        array = this.TextInfra.TextArraySplit(text, delimit, this.TextCompare);
         return array;
+    }
+
+    public virtual Text TextArrayJoin(Array array, Text join)
+    {
+        long k;
+        k = 0;
+
+        long count;
+        count = array.Count;
+        long i;
+        i = 0;
+        while (i < count)
+        {
+            Text ka;
+            ka = (Text)array.GetAt(i);
+
+            if (0 < i)
+            {
+                k = k + join.Range.Count;
+            }
+
+            k = k + ka.Range.Count;
+
+            i = i + 1;
+        }
+
+        Text text;
+        text = this.TextInfra.TextCreate(k);
+        
+        k = 0;
+        i = 0;
+        while (i < count)
+        {
+            Text ka;
+            ka = (Text)array.GetAt(i);
+
+            if (0 < i)
+            {
+                k = k + join.Range.Count;
+            }
+
+            k = k + ka.Range.Count;
+
+            i = i + 1;
+        }
+
+        return text;
+    }
+
+    public virtual bool DataCopy(Data dest, long destIndex, Data source, long sourceIndex, long count)
+    {
+        long i;
+        i = 0;
+        while (i < count)
+        {
+            long n;
+            n = source.Get(sourceIndex + i);
+
+            dest.Set(destIndex + i, n);
+
+            i = i + 1;
+        }
+        return true;
     }
 
     public virtual bool GetBool(string a)

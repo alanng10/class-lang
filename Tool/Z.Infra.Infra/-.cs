@@ -3,6 +3,7 @@ global using String = Avalon.Infra.String;
 global using StringComp = Avalon.Infra.StringComp;
 global using StringCompare = Avalon.Infra.StringCompare;
 global using StringJoin = Avalon.Infra.StringJoin;
+global using Data = Avalon.Infra.Data;
 global using CompareInt = Avalon.Infra.CompareInt;
 global using CharForm = Avalon.Infra.CharForm;
 global using InfraInfra = Avalon.Infra.Infra;
