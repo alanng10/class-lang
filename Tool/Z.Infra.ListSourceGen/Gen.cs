@@ -41,12 +41,12 @@ public class Gen : Any
         String a;
         a = this.ToolInfra.StorageTextRead(this.ClassFileName);
 
-        StringBuilder sb;        
-        sb = new StringBuilder(a);
-        sb.Replace("#Namespace#", this.Namespace);
-        sb.Replace("#ClassName#", this.ClassName);
-        sb.Replace("#AnyClassName#", this.AnyClassName);
-        sb.Replace("#BaseClassName#", this.BaseClassName);
+        Text k;        
+        k = this.TextCreate(a);
+        k = this.Replace(k, "#Namespace#", this.Namespace);
+        k = this.Replace(k, "#ClassName#", this.ClassName);
+        k = this.Replace(k, "#AnyClassName#", this.AnyClassName);
+        k = this.Replace(k, "#BaseClassName#", this.BaseClassName);
 
         string aa;
         aa = "";
@@ -55,26 +55,26 @@ public class Gen : Any
             aa = "public ";
         }
 
-        sb.Replace("#Export#", aa);
+        k = this.Replace(k, "#Export#", aa);
 
         string initMethodText;
         initMethodText = this.GetInitMethod();
-        sb.Replace("#InitMaide#", initMethodText);
+        k = this.Replace(k, "#InitMaide#", initMethodText);
 
         string fieldListText;
         fieldListText = this.GetFieldList();
-        sb.Replace("#FieldList#", fieldListText);
+        k = this.Replace(k, "#FieldList#", fieldListText);
 
         string addMethodText;
         addMethodText = this.GetAddMethod();
-        sb.Replace("#AddMaide#", addMethodText);
+        k = this.Replace(k, "#AddMaide#", addMethodText);
 
         string arrayCompListText;
         arrayCompListText = this.GetArrayCompList();
-        sb.Replace("#ArrayCompList#", arrayCompListText);
+        k = this.Replace(k, "#ArrayCompList#", arrayCompListText);
 
-        string ka;
-        ka = sb.ToString();
+        String ka;
+        ka = this.StringCreate(k);
 
         this.ToolInfra.StorageTextWrite(this.OutputFilePath, ka);
         return 0;
