@@ -324,7 +324,7 @@ class Demo : Any
         String a;
         a = this.Console.Inn.Read();
 
-        ka = this.AddClear().AddS("a: ").Add(a).AddChar('\n').AddResult();
+        ka = this.AddClear().AddS("a: ").Add(a).AddChar("\n").AddResult();
 
         this.Console.Out.Write(ka);
 
@@ -333,7 +333,7 @@ class Demo : Any
         String aa;
         aa = this.Console.Inn.Read();
 
-        ka = this.AddClear().AddS("aa: ").Add(aa).AddChar('\n').AddResult();
+        ka = this.AddClear().AddS("aa: ").Add(aa).AddChar("\n").AddResult();
         
         this.Console.Out.Write(ka);
         return true;
@@ -421,7 +421,7 @@ class Demo : Any
             .AddS(", ")
             .AddS("Expo: ")
             .AddS(this.MathComp.Expo.ToString())
-            .AddChar('\n')
+            .AddChar("\n")
             .AddResult()
             ;
 
@@ -446,7 +446,7 @@ class Demo : Any
         ka = this.AddClear()
             .AddS("Demo.ExecuteRand oa: 0h")
             .AddS(oa.ToString("x15"))
-            .AddChar('\n')
+            .AddChar("\n")
             .AddResult();
             ;
 
@@ -626,7 +626,7 @@ class Demo : Any
         ka = this.AddClear()
             .AddS("Demo.ExecuteIntParse ooa: ")
             .AddS(a.ToString("x16"))
-            .AddChar('\n')
+            .AddChar("\n")
             .AddResult()
             ;
 
@@ -799,7 +799,7 @@ class Demo : Any
         {
             k = infra.TextRead(kou);
 
-            ka = this.AddClear().Add(kou).AddS(" text: \n").Add(k).AddChar('\n').AddResult();
+            ka = this.AddClear().Add(kou).AddS(" text: \n").Add(k).AddChar("\n").AddResult();
 
             this.Console.Out.Write(ka);
         }
@@ -841,7 +841,7 @@ class Demo : Any
         {
             k = infra.TextRead(koua);
 
-            ka = this.AddClear().Add(koua).AddS(" text: \n").Add(k).AddChar('\n').AddResult();
+            ka = this.AddClear().Add(koua).AddS(" text: \n").Add(k).AddChar("\n").AddResult();
 
             this.Console.Out.Write(ka);
         }
@@ -879,7 +879,7 @@ class Demo : Any
         {
             k = infra.TextRead(koub);
 
-            ka = this.AddClear().Add(koub).AddS(" text: \n").Add(k).AddChar('\n').AddResult();
+            ka = this.AddClear().Add(koub).AddS(" text: \n").Add(k).AddChar("\n").AddResult();
 
             this.Console.Out.Write(ka);
         }
