@@ -45,10 +45,8 @@ public class StringValue : Any
         long resultCount;
         resultCount = code.ExecuteCountString(innKind, outKind, o, range);
 
-        Data result;
-        result = new Data();
-        result.Count = resultCount;
-        result.Init();
+        byte[] result;
+        result = new byte[resultCount];
 
         code.ExecuteResultString(result, 0, innKind, outKind, o, range);
 
@@ -57,7 +55,7 @@ public class StringValue : Any
 
         String a;
         a = new String();
-        a.Data = result;
+        a.Value = result;
         a.Count = count;
         a.Init();
         return a;
