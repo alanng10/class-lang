@@ -1,4 +1,4 @@
-namespace Z.Tool.System.ImageFormatList;
+namespace Z.Tool.System.ImageBinaryList;
 
 class Entry : EntryEntry
 {
