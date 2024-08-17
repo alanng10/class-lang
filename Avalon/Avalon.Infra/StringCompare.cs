@@ -1,6 +1,6 @@
 namespace Avalon.Infra;
 
-public class StringCompare : Compare
+public class StringCompare : Less
 {
     public override bool Init()
     {
