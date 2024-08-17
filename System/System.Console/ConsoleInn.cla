@@ -1,0 +1,9 @@
+class ConsoleInn : Inn
+{
+    field probate ConsoleIntern Intern { get { return data; } set { data : value; } }
+
+    maide prusate String Read()
+    {
+        return this.Intern.Read();
+    }
+}

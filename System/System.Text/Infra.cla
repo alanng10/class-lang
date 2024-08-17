@@ -1,0 +1,612 @@
+class Infra : Any
+{
+    maide prusate Bool Init()
+    {
+        base.Init();
+        this.InfraInfra : share InfraInfra;
+        this.StringComp : share StringComp;
+        this.Code : share Code;
+
+        this.NewLine : "\n";
+        this.PathCombine : "/";     
+        this.BoolFalseString : "false";
+        this.BoolTrueString : "true";
+        
+        var StringComp stringComp;
+        stringComp : this.StringComp;
+        this.LetterUpperA : stringComp.Char("A", 0);
+        this.LetterUpperZ : stringComp.Char("Z", 0);
+        this.LetterLowerA : stringComp.Char("a", 0);
+        this.LetterLowerZ : stringComp.Char("z", 0);
+        this.LetterUpperF : stringComp.Char("F", 0);
+        this.LetterLowerF : stringComp.Char("f", 0);
+        this.Digit0 : stringComp.Char("0", 0);
+        this.Digit9 : stringComp.Char("9", 0);
+        return true;
+    }
+
+    field prusate String NewLine { get { return data; } set { data : value; } }
+    field prusate String PathCombine { get { return data; } set { data : value; } }
+    field prusate String BoolFalseString { get { return data; } set { data : value; } }
+    field prusate String BoolTrueString { get { return data; } set { data : value; } }
+    field prusate Int LetterUpperA { get { return data; } set { data : value; } }
+    field prusate Int LetterUpperZ { get { return data; } set { data : value; } }
+    field prusate Int LetterLowerA { get { return data; } set { data : value; } }
+    field prusate Int LetterLowerZ { get { return data; } set { data : value; } }
+    field prusate Int LetterUpperF { get { return data; } set { data : value; } }
+    field prusate Int LetterLowerF { get { return data; } set { data : value; } }
+    field prusate Int Digit0 { get { return data; } set { data : value; } }
+    field prusate Int Digit9 { get { return data; } set { data : value; } }
+    field precate InfraInfra InfraInfra { get { return data; } set { data : value; } }
+    field precate StringComp StringComp { get { return data; } set { data : value; } }
+    field precate Code Code { get { return data; } set { data : value; } }
+
+    maide prusate Bool IsDigit(var Int o)
+    {
+        return this.IsInRange(this.Digit0, this.Digit9, o);
+    }
+
+    maide prusate Bool IsHexLetter(var Int o, var Bool upperCase)
+    {
+        var Int first;
+        var Int last;
+
+        inf (!upperCase)
+        {
+            first : this.LetterLowerA;
+            last : this.LetterLowerF;
+        }
+        inf (upperCase)
+        {
+            first : this.LetterUpperA;
+            last : this.LetterUpperF;
+        }
+        return this.IsInRange(first, last, o);
+    }
+
+    maide prusate Bool IsLetter(var Int o, var Bool upperCase)
+    {
+        var Int first;
+        var Int last;
+
+        inf (!upperCase)
+        {
+            first : this.LetterLowerA;
+            last : this.LetterLowerZ;
+        }
+        inf (upperCase)
+        {
+            first : this.LetterUpperA;
+            last : this.LetterUpperZ;
+        }
+        return this.IsInRange(first, last, o);
+    }
+
+    maide prusate Bool IsInRange(var Int first, var Int last, var Int o)
+    {
+        inf (last < first)
+        {
+            return false;
+        }
+        return !((o < first) | (last < o));
+    }
+
+    maide prusate Int DataCharGet(var Data data, var Int index)
+    {
+        var Int n;
+        n : index;
+        n : n * 4;
+        return this.InfraInfra.DataCharGet(data, n);
+    }
+
+    maide prusate Bool DataCharSet(var Data data, var Int index, var Int value)
+    {
+        var Int n;
+        n : index;
+        n : n * 4;
+        return this.InfraInfra.DataCharSet(data, n, value);
+    }
+
+    maide prusate Text TextCreate(var Int count)
+    {
+        inf (count < 0)
+        {
+            return null;
+        }
+
+        var Int oa;
+        oa : count;
+        oa : oa * 4;
+
+        var Text a;
+        a : new Text;
+        a.Init();
+        a.Data : new Data;
+        a.Data.Count : oa;
+        a.Data.Init();
+        a.Range : new Range;
+        a.Range.Init();
+        a.Range.Index : 0;
+        a.Range.Count : count;
+        return a;
+    }
+
+    maide prusate StringData StringDataCreateString(var String o)
+    {
+        var StringData a;
+        a : new StringData;
+        a.Init();
+        a.ValueString : o;
+        return a;
+    }
+
+    maide prusate Text TextCreateStringData(var String o, var Range range)
+    {
+        var StringComp stringComp;
+        stringComp : this.StringComp;
+
+        var Int totalCount;
+        totalCount : stringComp.Count(o);
+
+        var Int index;
+        var Int count;
+        index : 0;
+        count : 0;
+        var Bool b;
+        b : (range = null);
+        inf (b)
+        {
+            index : 0;
+            count : totalCount;
+        }
+        inf (!b)
+        {
+            index : range.Index;
+            count : range.Count;
+            inf (!this.InfraInfra.ValidRange(totalCount, index, count))
+            {
+                return null;
+            }
+        }
+
+        var StringData data;
+        data : this.StringDataCreateString(o);
+
+        var Range aa;
+        aa : new Range;
+        aa.Init();
+        aa.Index : index;
+        aa.Count : count;
+
+        var Text a;
+        a : new Text;
+        a.Init();
+        a.Data : data;
+        a.Range : aa;
+        return a;
+    }
+
+    maide prusate Bool ValidRange(var Text text)
+    {
+        var InfraInfra infraInfra;
+        infraInfra : this.InfraInfra;
+
+        var Data data;
+        data : text.Data;
+
+        var Range range;
+        range : text.Range;
+
+        var Int dataCount;
+        dataCount : data.Count;
+        var Int totalCount;
+        totalCount : dataCount / 4;
+        
+        inf (!infraInfra.ValidRange(totalCount, range.Index, range.Count))
+        {
+            return false;
+        }
+        return true;
+    }
+
+    maide prusate Int DigitValue(var Int oc, var Int varBase, var Bool upperCase)
+    {
+        var Int oa;
+        oa : 0;
+        var Bool b;
+        b : (varBase < 10);
+        inf (b)
+        {
+            oa : varBase;
+        }
+        inf (!b)
+        {
+            oa : 10;
+        }
+        var Int oaa;
+        oaa : 0;
+        inf (!b)
+        {
+            oaa : varBase - 10;
+        }
+        var Int oca;
+        inf (!upperCase)
+        {
+            oca : this.LetterLowerA;
+        }
+        inf (upperCase)
+        {
+            oca : this.LetterUpperA;
+        }
+
+        inf (this.IsDigit(oc))
+        {
+            var Int ooa;
+            ooa : oc - this.Digit0;
+            inf (!(ooa < oa))
+            {
+                return null;
+            }
+
+            return ooa;
+        }
+
+        inf (!this.IsLetter(oc, upperCase))
+        {
+            return null;
+        }
+
+        var Int oob;
+        oob : oc - oca;
+        inf (!(oob < oaa))
+        {
+            return null;
+        }
+
+        return oob + 10;
+    }
+
+    maide prusate Int DigitChar(var Int digit, var Int letterStart)
+    {
+        var Int n;
+        n : 0;
+        var Bool b;
+        b : (digit < 10);
+        inf (b)
+        {
+            n : this.Digit0 + digit;
+        }
+        inf (!b)
+        {
+            var Int m;
+            m : digit - 10;
+            n : letterStart + m;
+        }
+        
+        n : bit&(n, 0hffffffff);
+
+        var Int a;
+        a : n;
+        return a;
+    }
+
+    maide prusate String StringCreate(var Text text)
+    {
+        return this.StringComp.CreateData(text.Data, text.Range);
+    }
+
+    maide prusate bool Equal(var Text left, var Text right, var InfraLess less)
+    {
+        var Int o;
+        o : less.Execute(left, right);
+        return (o = 0);
+    }
+
+    maide prusate Bool Start(var Text text, var Text other, var InfraLess less)
+    {
+        var Range range;
+        range : text.Range;
+
+        var Int count;
+        count : range.Count;
+        var Int otherCount;
+        otherCount : other.Range.Count;
+        
+        inf (count < otherCount)
+        {
+            return false;
+        }
+
+        range.Count : otherCount;
+
+        var Bool a;
+        a : this.Equal(text, other, less);
+
+        range.Count : count;
+
+        return a;
+    }
+
+    maide prusate Bool End(var Text text, var Text other, var InfraLess less)
+    {
+        var Range range;
+        range : text.Range;
+
+        var Int count;
+        count : range.Count;
+        var Int otherCount;
+        otherCount : other.Range.Count;
+
+        inf (count < otherCount)
+        {
+            return false;
+        }
+
+        var Int index;
+        index : range.Index;
+        
+        var Int end;
+        end : index + count;
+
+        range.Index : end - otherCount;
+        range.Count : otherCount;
+
+        var Bool a;
+        a : this.Equal(text, other, less);
+
+        range.Index : index;
+        range.Count : count;
+
+        return a;
+    }
+
+    maide prusate Int Index(var Text text, var Text other, var InfraLess less)
+    {
+        inf (!this.ValidRange(text))
+        {
+            return null;
+        }
+        inf (!this.ValidRange(other))
+        {
+            return null;
+        }
+
+        var Range textRange;
+        textRange : text.Range;
+
+        var Int textIndex;
+        var Int textCount;
+        textIndex : textRange.Index;
+        textCount : textRange.Count;
+
+        var Int otherCount;
+        otherCount : other.Range.Count;
+
+        inf (textCount < otherCount)
+        {
+            return null;
+        }
+
+        var Int k;
+        
+        var Int count;
+        count : textCount - otherCount + 1;
+        var Int i;
+        i : 0;
+        while (k = null & i < count)
+        {
+            var Int index;
+            index : textIndex + i;
+
+            textRange.Index : index;
+            textRange.Count : otherCount;
+
+            var Bool b;
+            b : this.Equal(text, other, less);
+            inf (b)
+            {
+                k : i;
+            }
+            i : i + 1;
+        }
+
+        textRange.Index : textIndex;
+        textRange.Count : textCount;
+
+        return k;
+    }
+
+    maide prusate Int LastIndex(var Text text, var Text other, var InfraLess less)
+    {
+        inf (!this.ValidRange(text))
+        {
+            return null;
+        }
+        inf (!this.ValidRange(other))
+        {
+            return null;
+        }
+
+        var Range textRange;
+        textRange : text.Range;
+
+        var Int textIndex;
+        var Int textCount;
+        textIndex : textRange.Index;
+        textCount : textRange.Count;
+
+        var Int otherCount;
+        otherCount : other.Range.Count;
+
+        inf (textCount < otherCount)
+        {
+            return null;
+        }
+
+        var Int k;
+
+        var Int count;
+        count : textCount - otherCount + 1;
+        var Int i;
+        i : 0;
+        while (k = null & i < count)
+        {
+            var Int index;
+            index : textIndex + count - 1 - i;
+
+            textRange.Index : index;
+            textRange.Count : otherCount;
+
+            var Bool b;
+            b : this.Equal(text, other, less);
+            inf (b)
+            {
+                k : i;
+            }
+            i : i + 1;
+        }
+
+        textRange.Index : textIndex;
+        textRange.Count : textCount;
+
+        return k;
+    }
+
+    maide prusate Array Split(var Text text, var Text delimit, var InfraLess less)
+    {
+        var InfraInfra infraInfra;
+        infraInfra : this.InfraInfra;
+
+        var Data data;
+        data : text.Data;
+
+        var Range textRange;
+        textRange : text.Range;
+
+        var Int delimitCount;
+        delimitCount : delimit.Range.Count;
+
+        var Int kka;
+        kka : textRange.Index;
+
+        var Int kkb;
+        kkb : textRange.Count;
+
+        var Int count;
+        count : 0;
+
+        var Int oo;
+        oo : this.Index(text, delimit, less);
+        while (!(oo = null))
+        {
+            count : count + 1;
+
+            var Int kaa;
+            kaa : oo + delimitCount;
+
+            textRange.Index : textRange.Index + kaa;
+            textRange.Count : textRange.Count - kaa;
+
+            oo : this.Index(text, delimit, less);
+        }
+
+        var Array array;
+        array : new Array;
+        array.Count : count + 1;
+        array.Init();
+
+        var Range rangeA;
+        rangeA : new Range;
+        rangeA.Init();
+
+        textRange.Index : kka;
+        textRange.Count : kkb;
+
+        var Int i;
+        i : 0;
+        while (i < count)
+        {
+            oo : this.Index(text, delimit, less);
+
+            rangeA.Index : textRange.Index;
+            rangeA.Count : oo;
+
+            var Text line;
+            line : this.TextCreateDataRange(data, rangeA);
+
+            array.Set(i, line);
+
+            var Int kab;
+            kab : oo + delimitCount;
+
+            textRange.Index : textRange.Index + kab;
+            textRange.Count : textRange.Count - kab;
+
+            i : i + 1;
+        }
+
+        var Int ka;
+        ka : kka + kkb - textRange.Index;
+
+        rangeA.Index : textRange.Index;
+        rangeA.Count : ka;
+
+        textRange.Index : kka;
+        textRange.Count : kkb;
+
+        var Text lastLine;
+        lastLine : this.TextCreateDataRange(data, rangeA);
+
+        array.Set(count, lastLine);
+
+        return array;
+    }
+
+    maide prusate Data Code(var CodeKind innKind, var CodeKind outKind, var Data data, var Range range)
+    {
+        inf (!this.ValidCodeKind(innKind, outKind))
+        {
+            return null;
+        }
+
+        var Code code;
+        code : this.Code;
+
+        var Int resultCount;
+        resultCount : code.ExecuteCount(innKind, outKind, data, range);
+
+        var Data result;
+        result : new Data;
+        result.Count : resultCount;
+        result.Init();
+
+        code.ExecuteResult(result, 0, innKind, outKind, data, range);
+
+        return result;
+    }
+
+    maide prusate Bool ValidCodeKind(var CodeKind innKind, var CodeKind outKind)
+    {
+        inf (innKind = outKind)
+        {
+            return false;
+        }
+        return true;
+    }
+
+    maide private Text TextCreateDataRange(var Data data, var Range range)
+    {
+        var Range aa;
+        aa : new Range;
+        aa.Init();
+        aa.Index : range.Index;
+        aa.Count : range.Count;
+        
+        var Text a;
+        a : new Text;
+        a.Init();
+        a.Data : data;
+        a.Range : aa;
+        return a;
+    }
+}

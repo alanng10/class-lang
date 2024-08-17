@@ -1,0 +1,42 @@
+class Comp : Any
+{
+    maide prusate Bool Init()
+    {
+        base.Init();
+        this.ChangeArg : this.CreateChangeArg();
+        this.ChangeEvent : this.CreateChangeEvent();
+        return true;
+    }
+
+    maide precate Change CreateChangeArg()
+    {
+        var Change a;
+        a : new Change;
+        a.Init();
+        return a;
+    }
+    
+    maide precate EventEvent CreateChangeEvent()
+    {
+        var EventEvent a;
+        a : new EventEvent;
+        a.Init();
+        return a;
+    }
+
+    maide prusate Bool Change(var Field varField, var Change change)
+    {
+        return true;
+    }
+
+    maide precate Bool Event(var Field varField)
+    {
+        this.ChangeArg.Comp : this;
+        this.ChangeArg.Field : varField;
+        this.ChangeEvent.Execute(this.ChangeArg);
+        return true;
+    }
+
+    field prusate Change ChangeArg { get { return data; } set { data : value; } }
+    field prusate EventEvent ChangeEvent { get { return data; } set { data : value; } }
+}

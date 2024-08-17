@@ -1,0 +1,49 @@
+class Field : Any
+{
+    field prusate Comp Comp { get { return data; } set { data : value; } }
+    field prusate FieldState State { get { return data; } set { data : value; } }
+    field prusate Change SetChangeArg { get { return data; } set { data : value; } }
+    field precate Comp Value { get { return data; } set { data : value; } }
+    field precate Any ValueAny { get { return data; } set { data : value; } }
+
+    maide prusate Comp Get()
+    {
+        return this.Value;
+    }
+
+    maide prusate Bool Set(var Comp value)
+    {
+        inf (!(this.Value = null))
+        {
+            this.Value.ChangeEvent.State.RemoveState(this.State);
+        }
+
+        this.Value : value;
+
+        inf (!(this.Value = null))
+        {
+            this.Value.ChangeEvent.State.AddState(this.State);
+        }
+
+        this.SetChange();
+        return true;
+    }
+
+    maide prusate Any GetAny()
+    {
+        return this.ValueAny;
+    }
+
+    maide prusate Bool SetAny(var Any value)
+    {
+        this.ValueAny : value;
+        this.SetChange();
+        return true;
+    }
+
+    maide precate Bool SetChange()
+    {
+        this.Comp.Change(this, this.SetChangeArg);
+        return true;
+    }
+}

@@ -1,0 +1,64 @@
+class Math : Any
+{
+    maide prusate Bool Init()
+    {
+        base.Init();
+        this.InternIntern : share InternIntern;
+        this.Extern : share Extern;
+        this.InternComp : new InternMathComp;
+        this.InternComp.Init();
+        this.Intern : 0;
+        return true;
+    }
+
+    field private InternIntern InternIntern { get { return data; } set { data : value; } }
+    field private Extern Extern { get { return data; } set { data : value; } }
+    field private Int Intern { get { return data; } set { data : value; } }
+    field private InternMathComp InternComp { get { return data; } set { data : value; } }
+
+    maide prusate Int Value(var Comp comp)
+    {
+        var Int aa;
+        aa : comp.Cand;
+        var Int ab;
+        ab : comp.Expo;
+
+        var Int a;
+        a : this.Extern.Math_Value(this.Intern, aa, ab);
+
+        return a;
+    }
+
+    maide prusate Int ValueTen(var Int cand, var Int expoTen)
+    {
+        var Int a;
+        a : this.Extern.Math_ValueTen(this.Intern, cand, expoTen);
+        return a;
+    }
+
+    maide prusate Bool Comp(var Comp result, var Int value)
+    {
+        var InternMathComp u;
+        u : this.InternComp;
+        this.InternIntern.MathComp(this.Intern, u, value);
+
+        result.Cand : u.Cand;
+        result.Expo : u.Expo;
+        return true;
+    }
+
+    maide prusate Bool Less(var Int valueA, var Int valueB)
+    {
+        var Int u;
+        u = this.Extern.Math_Less(this.Intern, valueA, valueB);
+
+        inf (u = null)
+        {
+            return null;
+        }
+
+        var Bool a;
+        a : !(u = 0);
+        return a;
+    }
+}

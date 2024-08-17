@@ -1,0 +1,128 @@
+class Form : Any
+{
+    maide prusate Bool Init()
+    {
+        base.Init();
+        this.InternIntern : share InternIntern;
+        var Extern extern;
+        extern : share Extern;
+        this.Extern : extern;
+        this.InfraInfra : share InfraInfra;
+
+        this.Intern : extern.Form_New();
+        extern.Form_Init(this.Intern);
+        return true;
+    }
+
+    field private InternIntern InternIntern { get { return data; } set { data : value; } }
+    field private Extern Extern { get { return data; } set { data : value; } }
+    field precate InfraInfra InfraInfra { get { return data; } set { data : value; } }
+    field probate Int Intern { get { return data; } set { data : value; } }
+
+    maide prusate Bool Final()
+    {
+        var Extern extern;
+        extern : this.Extern;
+        
+        extern.Form_Final(this.Intern);
+        extern.Form_Delete(this.Intern);
+        return true;
+    }
+
+    maide prusate Int ValueGet(var Int row, var Int col)
+    {
+        inf (!this.ValidRow(row))
+        {
+            return null;
+        }
+        inf (!this.ValidCol(col))
+        {
+            return null;
+        }
+
+        var Int a;
+        a : this.Extern.Form_ValueGet(this.Intern, row, col);
+        return a;
+    }
+
+    maide prusate Bool ValueSet(var Int row, var Int col, var Int value)
+    {
+        inf (!this.ValidRow(row))
+        {
+            return false;
+        }
+        inf (!this.ValidCol(col))
+        {
+            return false;
+        }
+
+        var Int k;
+        k : this.Extern.Form_ValueSet(this.Intern, row, col, value);
+
+        var Bool a;
+        a : !(k = 0);
+        return a;
+    }
+
+    maide prusate Bool Reset()
+    {
+        this.Extern.Form_Reset(this.Intern);
+        return true;
+    }
+
+    maide prusate Bool IsIdentity()
+    {
+        var Int k;
+        k : this.Extern.Form_IsIdentity(this.Intern);
+        
+        var Bool a;
+        a : !(k = 0);
+        return a;
+    }
+
+    maide prusate Bool Offset(var Int col, var Int row)
+    {
+        var Int k;
+        k : this.Extern.Form_Offset(this.Intern, col, row);
+
+        var Bool a;
+        a : !(k = 0);
+        return a;
+    }
+
+    maide prusate Bool Rotate(var Int angle)
+    {
+        var Int k;
+        k : this.Extern.Form_Rotate(this.Intern, angle);
+
+        var Bool a;
+        a : !(k = 0);
+        return a;
+    }
+
+    maide prusate Bool Scale(var Int horizScale, var Int vertScale)
+    {
+        var Int k;
+        k : this.Extern.Form_Scale(this.Intern, horizScale, vertScale);
+
+        var Bool a;
+        a : !(k = 0);
+        return a;
+    }
+
+    maide prusate Bool Multiply(var Form other)
+    {
+        this.Extern.Form_Multiply(this.Intern, other.Intern);
+        return true;
+    }
+
+    maide prusate Bool ValidRow(var Int index)
+    {
+        return this.InfraInfra.ValidIndex(3, index);
+    }
+
+    maide prusate Bool ValidCol(var Int index)
+    {
+        return this.InfraInfra.ValidIndex(3, index);
+    }
+}

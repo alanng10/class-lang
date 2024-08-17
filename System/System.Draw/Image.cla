@@ -1,0 +1,155 @@
+class Image : Any
+{
+    maide prusate Bool Init()
+    {
+        base.Init();
+        this.InternIntern : share InternIntern;
+        var Extern extern;
+        extern : share Extern;
+        this.Extern : extern;
+        this.InfraInfra : share InfraInfra;
+        this.DrawInfra : share Infra;
+
+        var Size size;
+        size : new Size;
+        size.Init();
+        size.Col : 0;
+        size.Row : 0;
+        this.Size : size;
+
+        this.InternSize : extern.Size_New();
+        extern.Size_Init(this.InternSize);
+        this.InternData : extern.Data_New();
+        extern.Data_Init(this.InternData);
+        this.Intern : extern.Image_New();
+        extern.Image_SizeSet(this.Intern, this.InternSize);
+        extern.Image_DataSet(this.Intern, this.InternData);
+        extern.Image_Init(this.Intern);
+        this.Ident = this.Intern;
+        return true;
+    }
+
+    maide prusate Bool Final()
+    {
+        var Extern extern;
+        extern : this.Extern;
+        
+        extern.Image_Final(this.Intern);
+        extern.Image_Delete(this.Intern);
+
+        extern.Data_Final(this.InternData);
+        extern.Data_Delete(this.InternData);
+
+        extern.Size_Final(this.InternSize);
+        extern.Size_Delete(this.InternSize);
+        return true;
+    }
+    
+    field prusate Size Size { get { return data; } set { data : value; } }
+    field prusate Int Out
+    {
+        get
+        {
+            return this.Extern.Image_VideoOut(this.Intern);
+        }
+        set
+        {
+        }
+    }
+    field prusate Int Ident { get { return data; } set { data : value; } }
+
+    field private InternIntern InternIntern { get { return data; } set { data : value; } }
+    field private Extern Extern { get { return data; } set { data : value; } }
+    field precate InfraInfra InfraInfra { get { return data; } set { data : value; } }
+    field precate Infra DrawInfra { get { return data; } set { data : value; } }
+    field probate Int Intern { get { return data; } set { data : value; } }
+    field private Int InternData { get { return data; } set { data : value; } }
+    field private Int InternSize { get { return data; } set { data : value; } }
+    
+    maide prusate Bool DataCreate()
+    {
+        var Extern extern;
+        extern : this.Extern;
+        
+        var Int width;
+        var Int height;
+        width : this.Size.Width;
+        height : this.Size.Height;
+        
+        extern.Size_WidthSet(this.InternSize, width);
+        extern.Size_HeightSet(this.InternSize, height);
+
+        extern.Image_DataCreate(this.Intern);
+        return true;
+    }
+
+    maide prusate Bool Color(var Color result, var Pos pos)
+    {
+        var Int aa;
+        aa : this.Extern.Data_ValueGet(this.InternData);
+
+        var Int u;
+        u : this.InternIntern.VideoDataColor(aa, this.Size.Width, pos.Col, pos.Row);
+
+        this.DrawInfra.ColorSet(result, u);
+        return true;
+    }
+
+    maide prusate Bool DataGet(var Data data, var Int index)
+    {
+        var Int w;
+        var Int h;
+        w : this.Size.Width;
+        h : this.Size.Height;
+        var Int k;
+        k = this.DrawInfra.PixelByteCount;
+
+        var Int ka;
+        ka : w;
+        ka : ka * h;
+        ka : ka * k;
+
+        var Int count;
+        count : ka;
+
+        inf (!this.InfraInfra.ValidRange(data.Count, index, count))
+        {
+            return false;
+        }
+
+        var Int a;
+        a : this.Extern.Data_ValueGet(this.InternData);
+        
+        this.InternIntern.CopyToByteArray(a, data.Value, index, count);
+        return true;
+    }
+
+    maide prusate Bool DataSet(var Data data, var Int index)
+    {
+        var Int w;
+        var Int h;
+        w : this.Size.Width;
+        h : this.Size.Height;
+        var Int k;
+        k : this.DrawInfra.PixelByteCount;
+
+        var Int ka;
+        ka : w;
+        ka : ka * h;
+        ka : ka * k;
+
+        var Int count;
+        count : ka;
+
+        inf (!this.InfraInfra.ValidRangeInt(data.Count, index, count))
+        {
+            return false;
+        }
+
+        var Int a;
+        a : this.Extern.Data_ValueGet(this.InternData);
+
+        this.InternIntern.CopyFromByteArray(a, data.Value, index, count);
+        return true;
+    }
+}

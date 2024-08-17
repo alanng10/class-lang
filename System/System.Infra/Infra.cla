@@ -1,0 +1,178 @@
+class Infra : Any
+{
+    maide prusate Bool Init()
+    {
+        base.Init();
+        this.StringComp = share StringComp;
+
+        this.NewLine : "\n";
+        this.PathCombine : "/";
+        return true;
+    }
+
+    field prusate String NewLine { get { return data; } set { data : value; } }
+    field prusate String PathCombine { get { return data; } set { data : value; } }
+    field precate StringComp StringComp { get { return data; } set { data : value; } }
+
+    maide prusate Bool ValidIndex(var Int count, var Int index)
+    {
+        return this.ValidRange(count, index, 1);
+    }
+
+    maide prusate Bool ValidRange(var Int totalCount, var Int index, var Int count)
+    {
+        inf (totalCount = null)
+        {
+            return false;
+        }
+        inf (index = null)
+        {
+            return false;
+        }
+        inf (count = null)
+        {
+            return false;
+        }
+        inf (totalCount < index + count)
+        {
+            return false;
+        }
+        return true;
+    }
+
+    maide prusate Bool IndexRange(var Range range, var Int index)
+    {
+        range.Index : index;        
+        range.Count : 1;
+        return true;
+    }
+
+    maide prusate Int DataIntGet(var Data data, var Int index)
+    {
+        return this.DataByteListGet(data, index, 8);
+    }
+
+    maide prusate Int DataMidGet(var Data data, var Int index)
+    {
+        return this.DataByteListGet(data, index, 4);
+    }
+
+    maide prusate Int DataShortGet(var Data data, var Int index)
+    {
+        return this.DataByteListGet(data, index, 2);
+    }
+
+    maide prusate Int DataCharGet(var Data data, var Int index)
+    {
+        return this.DataMidGet(data, index);
+    }
+
+    maide prusate Bool DataIntSet(var Data data, var Int index, var Int value)
+    {
+        return this.DataByteListSet(data, index, 8, value);
+    }
+
+    maide prusate Bool DataMidSet(var Data data, var Int index, var Int value)
+    {
+        return this.DataByteListSet(data, index, 4, value);
+    }
+
+    maide prusate Bool DataShortSet(var Data data, var Int index, var Int value)
+    {
+        return this.DataByteListSet(data, index, 2, value);
+    }
+
+    maide prusate Bool DataCharSet(var Data data, var Int index, var Int value)
+    {
+        return this.DataMidSet(data, index, value);
+    }
+
+    maide prusate Int DataByteListGet(var Data data, var Int index, var Int count)
+    {
+        var Int oo;
+        oo : 0;
+
+        var Int i;
+        i : 0;
+        while (i < count)
+        {
+            var Int ob;
+            ob : data.Get(index + i);
+
+            var Int shiftCount;
+            shiftCount : i * 8;
+
+            var Int o;
+            o : bit<(ob, shiftCount);
+
+            oo : bit|(oo, o);
+
+            i : i + 1;
+        }
+        
+        var Int a;
+        a : oo;
+        return a;
+    }
+
+    maide prusate Bool DataByteListSet(var Data data, var Int index, var Int count, var Int value)
+    {
+        var Int oo;
+        oo : value;
+
+        var Int i;
+        i : 0;
+        while (i < count)
+        {
+            var Int shiftCount;
+            shiftCount : i * 8;
+
+            var Int o;
+            o : bit>(oo, shiftCount);
+
+            data.Set(index + i, o);
+
+            i : i + 1;
+        }
+        return true;
+    }
+
+    maide prusate Bool StringJoinString(var StringJoin h, var String a)
+    {
+        var StringComp stringComp;
+        stringComp : this.StringComp;
+        var Int count;
+        count : stringComp.Count(a);
+        var Int i;
+        i : 0;
+        while (i < count)
+        {
+            var Int oc;
+            oc : stringComp.Char(a, i);
+
+            h.Add(oc);
+
+            i : i + 1;
+        }
+        return true;
+    }
+
+    maide prusate StringLess StringLessCreate()
+    {
+        var IntLess charLess;
+        charLess : new IntLess;
+        charLess.Init();
+
+        var CharForm charForm;
+        charForm : new CharForm;
+        charForm.Init();
+
+        var StringLess a;
+        a : new StringLess;
+        a.CharLess : charLess;
+        a.LeftCharForm : charForm;
+        a.RightCharForm : charForm;
+        a.Init();
+        return a;
+    }
+}

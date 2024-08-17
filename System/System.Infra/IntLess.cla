@@ -1,0 +1,12 @@
+class IntLess : Less
+{
+    maide prusate Int Execute(var Any left, var Any right)
+    {
+        var Int leftInt;
+        var Int rightInt;
+        leftInt : cast Int(left);
+        rightInt : cast Int(right);
+        
+        return leftInt - rightInt;
+    }
+}

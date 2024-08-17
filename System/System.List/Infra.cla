@@ -1,0 +1,125 @@
+class Infra : Any
+{
+    maide prusate Bool Sort(var Array array, var Less less, var Range range, var Array copy)
+    {
+        var Int start;
+        var Int end;
+        start : range.Index;
+        end : start + range.Count;
+
+        this.CopyArray(copy, array, start, end);
+
+        this.SplitMerge(less, array, copy, start, end);
+
+        return true;
+    }
+
+    maide private Bool SplitMerge(var Less less, var Array dest, var Array source, var Int start, var Int end)
+    {
+        inf (end - start < 2)
+        {
+            return true;
+        }
+
+        var Int mid;
+        mid : (start + end) / 2;
+
+        this.SplitMerge(less, source, dest, start, mid);
+
+        this.SplitMerge(less, source, dest, mid, end);
+
+        this.Merge(less, dest, source, start, mid, end);
+
+        return true;
+    }
+
+    maide private Bool Merge(var Less less, var Array dest, var Array source, var Int start, var Int mid, var Int end)
+    {
+        var Int i;
+        var Int j;
+        i : start;
+        j : mid;
+
+        var Int k;
+        k : start;
+
+        while (i < mid & j < end)
+        {
+            var Any left;
+            var Any right;
+            left : source.Get(i);
+            right : source.Get(j);
+
+            var Int ke;
+            ke : less.Execute(left, right);
+
+            var Bool b;
+            b : (0 < ke);
+            
+            inf (!b)
+            {
+                dest.Set(k, left);
+
+                i : i + 1;
+            }
+
+            inf (b)
+            {
+                dest.Set(k, right);
+
+                j : j + 1;
+            }
+
+            k : k + 1;
+        }
+
+        while (i < mid)
+        {
+            var Any ka;
+            ka : source.Get(i);
+
+            dest.Set(k, ka);
+
+            i : i + 1;
+
+            k : k + 1;
+        }
+
+        while (j < end)
+        {
+            var Any kb;
+            kb : source.Get(j);
+
+            dest.Set(k, kb);
+
+            j : j + 1;
+
+            k : k + 1;
+        }
+
+        return true;
+    }
+
+
+    maide private Bool CopyArray(var Array dest, var Array source, var Int start, var Int end)
+    {
+        var Int count;
+        count : end - start;
+        
+        var Int i;
+        i : 0;
+        while (i < count)
+        {
+            var Int index;
+            index : start + i;
+
+            var Any a;
+            a : source.Get(index);
+            
+            dest.Set(index, a);
+
+            i : i + 1;
+        }
+        return true;
+    }
+}

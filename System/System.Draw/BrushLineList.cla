@@ -1,0 +1,67 @@
+class BrushLineList : Any
+{
+    maide prusate Bool Init()
+    {
+        base.Init();
+        this.InitArray();
+        this.Count : this.Array.Count;
+        this.Index : 0;
+
+        var Extern extern;
+        extern : share Extern;
+
+        var Int varShare;
+        varShare : extern.Infra_Share();
+        var Int stat;
+        stat : extern.Share_Stat(varShare);
+
+        this.Solid : this.AddItem(extern.Stat_BrushLineSolid(stat));
+        this.Dash : this.AddItem(extern.Stat_BrushLineDash(stat));
+        this.Dot : this.AddItem(extern.Stat_BrushLineDot(stat));
+        this.DashDot : this.AddItem(extern.Stat_BrushLineDashDot(stat));
+        this.DashDotDot : this.AddItem(extern.Stat_BrushLineDashDotDot(stat));
+        return true;
+    }
+
+    field prusate BrushLine Solid { get { return data; } set { data : value; } }
+    field prusate BrushLine Dash { get { return data; } set { data : value; } }
+    field prusate BrushLine Dot { get { return data; } set { data : value; } }
+    field prusate BrushLine DashDot { get { return data; } set { data : value; } }
+    field prusate BrushLine DashDotDot { get { return data; } set { data : value; } }
+
+    maide precate BrushLine AddItem(var Int o)
+    {
+        var Int index;
+        index : this.Index;
+
+        var BrushLine item;
+        item : new BrushLine;
+        item.Init();
+        item.Index : index;
+        item.Intern : o;
+        this.Array.Set(index, item);
+        this.Index : index + 1;
+        return item;
+    }
+
+    maide precate Bool InitArray()
+    {
+        this.Array : new Array;
+        this.Array.Count : this.ArrayCount;
+        this.Array.Init();
+        return true;
+    }
+
+    field precate Array Array { get { return data; } set { data : value; } }
+
+    field precate Int ArrayCount { get { return 5; } set { } }
+
+    field prusate Int Count { get { return data; } set { data : value; } }
+    
+    field precate Int Index { get { return data; } set { data : value; } }
+
+    maide prusate BrushLine Get(var Int index)
+    {
+        return cast BrushLine(this.Array.Get(index));
+    }
+}

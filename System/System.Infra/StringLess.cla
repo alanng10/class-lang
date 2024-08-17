@@ -1,0 +1,68 @@
+class StringLess : Less
+{
+    maide prusate Bool Init()
+    {
+        this.StringComp : share StringComp;
+        return true;
+    }
+    
+    field prusate IntLess CharLess { get { return data; } set { data : value; } }
+    field prusate CharForm LeftCharForm { get { return data; } set { data : value; } }
+    field prusate CharForm RightCharForm { get { return data; } set { data : value; } }
+    field precate StringComp StringComp { get { return data; } set { data : value; } }
+
+    maide prusate Int Execute(var Any left, var Any right)
+    {
+        var StringComp comp;
+        comp : this.StringComp;
+        
+        var String leftString;
+        var String rightString;
+        leftString : cast String(left);
+        rightString : cast String(right);
+
+        var Int leftCount;
+        var Int rightCount;
+        leftCount : comp.Count(leftString);
+        rightCount : comp.Count(rightString);
+
+        var IntLess charLess;
+        charLess : this.CharLess;
+
+        var CharForm leftCharForm;
+        var CharForm rightCharForm;
+        leftCharForm : this.LeftCharForm;
+        rightCharForm : this.RightCharForm;
+
+        var Int count;
+        count : leftCount;
+        inf (rightCount < count)
+        {
+            count : rightCount;
+        }
+
+        var Int i;
+        i : 0;
+        while (i < count)
+        {
+            var Int na;
+            var Int nb;
+            na : comp.Char(leftString, i);
+            nb : comp.Char(rightString, i);
+
+            na : leftCharForm.Execute(na);
+            nb : rightCharForm.Execute(nb);
+
+            var Int oo;
+            oo : charLess.Execute(na, nb);
+            inf (!(oo = 0))
+            {
+                return oo;
+            }
+
+            i : i + 1;
+        }
+
+        return leftCount - rightCount;
+    }
+}

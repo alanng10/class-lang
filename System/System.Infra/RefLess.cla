@@ -1,0 +1,16 @@
+class RefLess : Less
+{
+    maide prusate Bool Init()
+    {
+        base.Init();
+        this.InternIntern : share InternIntern;
+        return true;
+    }
+
+    field private InternIntern InternIntern { get { return data; } set { data : value; } }
+
+    maide prusate Int Execute(var Any left, var Any right)
+    {
+        return this.InternIntern.RefLess(left, right);
+    }
+}

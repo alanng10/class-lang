@@ -1,0 +1,61 @@
+class GradientKindList : Any
+{
+    maide prusate Bool Init()
+    {
+        base.Init();
+        this.InitArray();
+        this.Count : this.Array.Count;
+        this.Index : 0;
+
+        var Extern extern;
+        extern : share Extern;
+
+        var Int varShare;
+        varShare : extern.Infra_Share();
+        var Int stat;
+        stat : extern.Share_Stat(varShare);
+
+        this.Linear : this.AddItem(extern.Stat_GradientKindLinear(stat));
+        this.Radial : this.AddItem(extern.Stat_GradientKindRadial(stat));
+        return true;
+    }
+
+    field prusate GradientKind Linear { get { return data; } set { data : value; } }
+    field prusate GradientKind Radial { get { return data; } set { data : value; } }
+
+    maide precate GradientKind AddItem(var Int o)
+    {
+        var Int index;
+        index : this.Index;
+
+        var GradientKind item;
+        item : new GradientKind;
+        item.Init();
+        item.Index : index;
+        item.Intern : o;
+        this.Array.Set(index, item);
+        this.Index : index + 1;
+        return item;
+    }
+
+    maide precate Bool InitArray()
+    {
+        this.Array : new Array;
+        this.Array.Count : this.ArrayCount;
+        this.Array.Init();
+        return true;
+    }
+
+    field precate Array Array { get { return data; } set { data : value; } }
+
+    field precate Int ArrayCount { get { return 2; } set { } }
+
+    field prusate Int Count { get { return data; } set { data : value; } }
+    
+    field precate Int Index { get { return data; } set { data : value; } }
+
+    maide prusate GradientKind Get(var Int index)
+    {
+        return cast GradientKind(this.Array.Get(index));
+    }
+}

@@ -1,0 +1,93 @@
+class Less : InfraLess
+{
+    maide prusate Bool Init()
+    {
+        base.Init();
+        this.TextInfra : share Infra;
+        return true;
+    }
+
+    field prusate IntLess CharLess { get { return data; } set { data : value; } }
+    field prusate CharForm LeftCharForm { get { return data; } set { data : value; } }
+    field prusate CharForm RightCharForm { get { return data; } set { data : value; } }
+    field precate Infra TextInfra { get { return data; } set { data : value; } }
+
+    maide prusate Int Execute(var Any left, var Any right)
+    {
+        var Infra textInfra;
+        textInfra : this.TextInfra;
+
+        var Text leftText;
+        var Text rightText;
+        leftText : cast Text(left);
+        rightText : cast Text(right);
+
+        inf (!textInfra.ValidRange(leftText))
+        {
+            return null;
+        }
+        inf (!textInfra.ValidRange(rightText))
+        {
+            return null;
+        }
+
+        var Data leftData;
+        var Data rightData;
+        leftData : leftText.Data;
+        rightData : rightText.Data;
+
+        var Range leftRange;
+        var Range rightRange;
+        leftRange : leftText.Range;
+        rightRange : rightText.Range;
+
+        var Int leftIndex;
+        var Int leftCount;
+        leftIndex : leftRange.Index;
+        leftCount : leftRange.Count;
+
+        var Int rightIndex;
+        var Int rightCount;
+        rightIndex : rightRange.Index;
+        rightCount : rightRange.Count;
+        
+        var IntLess charLess;
+        charLess : this.CharLess;
+
+        var CharForm leftCharForm;
+        var CharForm rightCharForm;
+        leftCharForm : this.LeftCharForm;
+        rightCharForm : this.RightCharForm;
+
+        var Int count;
+        count : leftCount;
+        inf (rightCount < count)
+        {
+            count : rightCount;
+        }
+
+        var Int i;
+        i : 0;
+        while (i < count)
+        {
+            var Int oca;
+            var Int ocb;
+            oca : textInfra.DataCharGet(leftData, leftIndex + i);
+            ocb : textInfra.DataCharGet(rightData, rightIndex + i);
+
+            oca : leftCharForm.Execute(oca);
+            ocb : rightCharForm.Execute(ocb);
+
+            var Int oo;
+            oo : charLess.Execute(oca, ocb);
+            inf (!(oo = 0))
+            {
+                return oo;
+            }
+
+            i : i + 1;
+        }
+
+        return leftCount - rightCount;
+    }
+}

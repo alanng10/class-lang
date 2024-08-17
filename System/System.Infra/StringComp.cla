@@ -1,0 +1,187 @@
+class StringComp : Any
+{
+    maide prusate Bool Init()
+    {
+        base.Init();
+        this.InternIntern : share InternIntern;
+        this.InternInfra : share InternInfra;
+        return true;
+    }
+    
+    field private InternIntern InternIntern { get { return data; } set { data : value; } }
+    field private InternInfra InternInfra { get { return data; } set { data : value; } }
+    
+    maide prusate String CreateChar(var Int char, var Int count)
+    {
+        inf (char = null | count = null)
+        {
+            return null;
+        }
+
+        var String k;
+        k : this.InternIntern.StringNew();
+
+        var Int dataCount;
+        dataCount : count * 4;
+
+        var Any value;
+        value : this.InternIntern.ValueNew(dataCount);
+        
+        this.InternIntern.StringValueSet(k, value);
+        this.InternIntern.StringCountSet(k, count);
+
+        var InternInfra internInfra;
+        internInfra : this.InternInfra;
+
+        var Int i;
+        i : 0;
+        
+        while (i < count)
+        {
+            var Int index;
+            index : i * 4;
+            
+            internInfra.DataSetChar(value, index, char);
+
+            i : i + 1;
+        }
+
+        return k;
+    }
+    
+    maide prusate String CreateData(var Data data, var Range range)
+    {
+        inf (data = null)
+        {
+            return null;
+        }
+        
+        return this.CreateDataValue(data.Value, data.Count, range);
+    }
+    
+    maide prusate String CreateString(var String string, var Range range)
+    {
+        inf (string = null)
+        {
+            return null;
+        }
+        
+        var Any k;
+        k : this.InternIntern.StringValue(string);
+
+        var Int count;
+        count : this.Count(string);
+        count : count * 4;
+
+        return this.CreateDataValue(k, count, range);
+    }    
+    
+    maide private String CreateDataValue(var Any data, var Int dataCount, var Range range)
+    {
+        var InternIntern internIntern;
+        internIntern : this.InternIntern;
+        var InternInfra internInfra;
+        internInfra : this.InternInfra;
+        
+        var Int totalCount;
+        totalCount : dataCount / 4;
+
+        var Int index;
+        var Int count;
+
+        var Bool b;
+        b : range = null;
+
+        inf (b)
+        {
+            index : 0;
+            count : totalCount;
+            
+        }
+        inf (!b)
+        {
+            index : range.Index;
+            count : range.Count;
+    
+            inf (!internInfra.ValidRange(totalCount, index, count))
+            {
+                return null;
+            }
+        }
+
+        var String k;
+        k : internIntern.StringNew();
+
+        var Int valueCount;
+        valueCount : count * 4;
+
+        var Any value;
+        value : internIntern.ValueNew(valueCount);
+        
+        internIntern.StringValueSet(k, value);
+        internIntern.StringCountSet(k, count);
+
+        var Int i;
+        i : 0;
+        while (i < count)
+        {
+            var Int ka;
+            ka : (index + i) * 4;
+            var Int kb;
+            kb : i * 4;
+            
+            var Int n;
+            n = internInfra.DataCharGet(data, ka);
+            
+            internInfra.DataCharSet(value, kb, n);
+            
+            i : i + 1;
+        }
+
+        return k;
+    }
+    
+    maide prusate Int Count(var String string)
+    {
+        inf (string = null)
+        {
+            return null;
+        }
+        
+        return this.InternIntern.StringCountGet(string);
+    }
+    
+    maide prusate Int Char(var String string, var Int index)
+    {
+        inf (!this.Valid(string, index))
+        {
+            return null;
+        }
+        
+        var Any k;
+        k : this.InternIntern.StringValueGet(string);
+        
+        var Int ka;
+        ka : index * 4;
+        
+        return this.InternInfra.DataCharGet(k, ka);
+    }
+
+    maide prusate Bool Valid(var String string, var Int index)
+    {
+        inf (string = null | index = null)
+        {
+            return false;
+        }
+        
+        var Int totalCount;
+        totalCount : this.Count(string);
+        
+        inf (!this.InternInfra.ValidIndex(totalCount, index))
+        {
+            return false;
+        }
+
+        return true;
+    }
+}

@@ -1,0 +1,12 @@
+class FieldState : State
+{
+    field prusate Field Field { get { return data; } set { data : value; } }
+
+    maide prusate Bool Execute()
+    {
+        var Change change;
+        change : cast Change(this.Arg);
+        this.Field.Comp.Change(this.Field, change);
+        return true;
+    }
+}
