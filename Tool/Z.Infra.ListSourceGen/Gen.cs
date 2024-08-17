@@ -278,36 +278,36 @@ public class Gen : Any
         return this.ToolInfra.TextReplace(text, delimit, join);
     }
 
-    protected virtual Gen Add(String a)
+    public virtual Gen Add(String a)
     {
         this.ToolInfra.Add(a);
         return this;
     }
 
-    protected virtual Gen AddS(string o)
+    public virtual Gen AddS(string o)
     {
         this.ToolInfra.AddS(o);
         return this;
     }
 
-    protected virtual Gen AddClear()
+    public virtual Gen AddClear()
     {
         this.ToolInfra.AddClear();
         return this;
     }
 
-    protected virtual String AddResult()
+    public virtual String AddResult()
     {
         return this.ToolInfra.AddResult();
     }
 
-    protected virtual Gen AddIndent(long indent)
+    public virtual Gen AddIndent(long indent)
     {
         this.ToolInfra.AddIndent(indent);
         return this;
     }
-    
-    protected virtual String S(string o)
+
+    public virtual String S(string o)
     {
         return this.ToolInfra.S(o);
     }

@@ -5,23 +5,23 @@ public class AvalonGen : Gen
     public override bool Init()
     {
         base.Init();
-        this.ClassFileName = "ToolData/Avalon/Class.txt";
-        this.InitMethodFileName = "ToolData/Avalon/InitMaide.txt";
-        this.AddMethodFileName = "ToolData/Avalon/AddMaide.txt";
-        this.ArrayCompListFileName = "ToolData/Avalon/ArrayCompList.txt";
-        this.ItemListFileName = "ToolData/Avalon/ItemList.txt";
+        this.ClassFileName = this.S("ToolData/Avalon/Class.txt");
+        this.InitMethodFileName = this.S("ToolData/Avalon/InitMaide.txt");
+        this.AddMethodFileName = this.S("ToolData/Avalon/AddMaide.txt");
+        this.ArrayCompListFileName = this.S("ToolData/Avalon/ArrayCompList.txt");
+        this.ItemListFileName = this.S("ToolData/Avalon/ItemList.txt");
         return true;
     }
 
-    protected override bool AppendInitField(StringBuilder sb, string index, object value)
+    protected override bool AddInitField(String index, object value)
     {
-        this.ToolInfra.AppendIndent(sb, 2);
+        this.AddIndent(2);
 
-        sb.Append("this").Append(".").Append(index).Append(" ").Append("=").Append(" ").Append("this").Append(".");
+        this.AddS("this").AddS(".").Add(index).AddS(" ").AddS("=").AddS(" ").AddS("this").AddS(".");
 
-        this.AppendInitFieldAddItem(sb, index, value);
+        this.AddInitFieldAddItem(index, value);
 
-        sb.Append(";").Append(this.ToolInfra.NewLine);
+        this.AddS(";").Add(this.ToolInfra.NewLine);
         return true;
     }
 
