@@ -5,14 +5,14 @@ public class Gen : SourceGen
     public override bool Init()
     {
         base.Init();
-        this.Namespace = "System.Draw";
-        this.ClassName = "ImageFormatList";
-        this.BaseClassName = "Any";
-        this.AnyClassName = "Any";
-        this.ItemClassName = "ImageFormat";
-        this.ArrayClassName = "Array";
+        this.Namespace = this.S("System.Draw");
+        this.ClassName = this.S("ImageFormatList");
+        this.BaseClassName = this.S("Any");
+        this.AnyClassName = this.S("Any");
+        this.ItemClassName = this.S("ImageFormat");
+        this.ArrayClassName = this.S("Array");
         this.Export = true;
-        this.StatItemClassName = "ImageFormat";
+        this.StatItemClassName = this.S("ImageFormat");
         this.ItemListFileName = this.GetStatItemListFileName();
         return true;
     }
