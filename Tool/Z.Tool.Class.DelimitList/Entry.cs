@@ -2,7 +2,7 @@ namespace Z.Tool.Class.DelimitList;
 
 class Entry : EntryEntry
 {
-    protected override int ExecuteMain()
+    protected override long ExecuteMain()
     {
         Gen gen;
         gen = new Gen();
