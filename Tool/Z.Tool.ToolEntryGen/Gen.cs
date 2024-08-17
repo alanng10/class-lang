@@ -20,7 +20,7 @@ class Gen : ToolGen
         this.ExecuteOne("Avalon.DrawCompList");
         this.ExecuteOne("Avalon.GradientKindList");
         this.ExecuteOne("Avalon.GradientSpreadList");
-        this.ExecuteOne("Avalon.ImageFormatList");
+        this.ExecuteOne("Avalon.ImageBinaryList");
         this.ExecuteOne("Class.CountList");
         this.ExecuteOne("Class.DelimitList");
         this.ExecuteOne("Class.ErrorKindList");
@@ -39,7 +39,7 @@ class Gen : ToolGen
         this.ExecuteOne("System.DrawCompList");
         this.ExecuteOne("System.GradientKindList");
         this.ExecuteOne("System.GradientSpreadList");
-        this.ExecuteOne("System.ImageFormatList");
+        this.ExecuteOne("System.ImageBinaryList");
         this.ExecuteOne("Infra.StatThreadCase");
         this.ExecuteOne("Infra.StatStreamKind");
         this.ExecuteOne("Infra.StatNetworkCase");
