@@ -6,7 +6,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <ProjectReference Include="../Z.Tool.Avalon.TextEncodeKindList/Z.Tool.Avalon.TextEncodeKindList.csproj" />
+        <ProjectReference Include="../Z.Tool.Avalon.TextCodeKindList/Z.Tool.Avalon.TextCodeKindList.csproj" />
         <ProjectReference Include="../Z.Tool.Avalon.BrushKindList/Z.Tool.Avalon.BrushKindList.csproj" />
         <ProjectReference Include="../Z.Tool.Avalon.BrushLineList/Z.Tool.Avalon.BrushLineList.csproj" />
         <ProjectReference Include="../Z.Tool.Avalon.BrushCapList/Z.Tool.Avalon.BrushCapList.csproj" />
