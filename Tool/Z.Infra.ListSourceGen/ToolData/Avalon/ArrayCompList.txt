@@ -8,13 +8,13 @@
 
     protected virtual #ArrayClassName# Array { get; set; }
 
-    protected virtual int ArrayCount { get { return #ArrayCount#; } set { } }
+    protected virtual long ArrayCount { get { return #ArrayCount#; } set { } }
 
-    public virtual int Count { get; set; }
+    public virtual long Count { get; set; }
     
-    protected virtual int Index { get; set; }
+    protected virtual long Index { get; set; }
 
-    public virtual #ItemClassName# Get(int index)
+    public virtual #ItemClassName# Get(long index)
     {
         return (#ItemClassName#)this.Array.GetAt(index);
     }

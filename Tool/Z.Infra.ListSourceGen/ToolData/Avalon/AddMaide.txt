@@ -1,6 +1,6 @@
     protected virtual #ItemClassName# AddItem()
     {
-        int index;
+        long index;
         index = this.Index;
 
         #ItemClassName# item;
