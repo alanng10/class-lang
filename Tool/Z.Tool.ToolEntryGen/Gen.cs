@@ -1,17 +1,7 @@
 namespace Z.Tool.ToolEntryGen;
 
-class Gen : Any
+class Gen : ToolGen
 {
-    public override bool Init()
-    {
-        base.Init();
-        this.TextInfra = TextInfra.This;
-        this.ToolInfra = ToolInfra.This;
-        return true;
-    }
-
-    protected virtual TextInfra TextInfra { get; set; }
-    protected virtual ToolInfra ToolInfra { get; set; }
     protected virtual String SourceTemplate { get; set; }
 
     public virtual int Execute()
@@ -92,59 +82,5 @@ class Gen : Any
 
         this.ToolInfra.StorageTextWrite(path, a);
         return true;
-    }
-
-    protected virtual Text Replace(Text text, string delimit, String join)
-    {
-        return this.TextReplace(text, this.TextCreate(this.S(delimit)), this.TextCreate(join));
-    }
-
-    protected virtual Text TextCreate(String o)
-    {
-        return this.TextInfra.TextCreateStringData(o, null);
-    }
-
-    protected virtual String StringCreate(Text text)
-    {
-        return this.TextInfra.StringCreate(text);
-    }
-
-    protected virtual Text TextReplace(Text text, Text delimit, Text join)
-    {
-        return this.ToolInfra.TextReplace(text, delimit, join);
-    }
-
-    public virtual Gen Add(String a)
-    {
-        this.ToolInfra.Add(a);
-        return this;
-    }
-
-    public virtual Gen AddS(string o)
-    {
-        this.ToolInfra.AddS(o);
-        return this;
-    }
-
-    public virtual Gen AddClear()
-    {
-        this.ToolInfra.AddClear();
-        return this;
-    }
-
-    public virtual String AddResult()
-    {
-        return this.ToolInfra.AddResult();
-    }
-
-    public virtual Gen AddIndent(long indent)
-    {
-        this.ToolInfra.AddIndent(indent);
-        return this;
-    }
-
-    protected virtual String S(string o)
-    {
-        return this.ToolInfra.S(o);
     }
 }
