@@ -94,7 +94,7 @@ any one true, and untrue.
 Words "add", "sub", "mul" and "div" have meanings that are
 count more, count less, count times more, and count times of.
 
-Word "equal" has meaning that is same.
+Word "same" has meaning that is equal.
 
 Word "less" has meaning that is compared.
 
