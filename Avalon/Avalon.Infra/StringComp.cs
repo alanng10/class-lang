@@ -64,11 +64,19 @@ public class StringComp : Any
 
     public virtual String CreateString(String s, Range range)
     {
+        if (s == null)
+        {
+            return null;
+        }
         return this.CreateDataValue(s.Value, range);
     }
 
     public virtual String CreateData(Data data, Range range)
     {
+        if (data == null)
+        {
+            return null;
+        }
         return this.CreateDataValue(data.Value, range);
     }
 
