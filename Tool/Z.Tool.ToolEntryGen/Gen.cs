@@ -14,7 +14,7 @@ class Gen : Any
 
     public virtual int Execute()
     {
-        this.SourceTemplate = this.ToolInfra.StorageTextRead("ToolData/Entry.txt");
+        this.SourceTemplate = this.ToolInfra.StorageTextRead(this.S("ToolData/Entry.txt"));
 
         this.ExecuteOne("Avalon.TextEncodeKindList");
         this.ExecuteOne("Avalon.BrushKindList");
