@@ -5,14 +5,14 @@ public class Gen : SourceGen
     public override bool Init()
     {
         base.Init();
-        this.Namespace = "Avalon.Text";
-        this.ClassName = "EncodeKindList";
-        this.BaseClassName = "Any";
-        this.AnyClassName = "Any";
-        this.ItemClassName = "EncodeKind";
-        this.ArrayClassName = "Array";
+        this.Namespace = this.S("Avalon.Text");
+        this.ClassName = this.S("CodeKindList");
+        this.BaseClassName = this.S("Any");
+        this.AnyClassName = this.S("Any");
+        this.ItemClassName = this.S("CodeKind");
+        this.ArrayClassName = this.S("Array");
         this.Export = true;
-        this.StatItemClassName = "TextEncodeKind";
+        this.StatItemClassName = this.S("TextEncodeKind");
         this.ItemListFileName = this.GetStatItemListFileName();
         return true;
     }
