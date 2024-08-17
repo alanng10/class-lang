@@ -5,23 +5,23 @@ public class Gen : SourceGen
     public override bool Init()
     {
         base.Init();
-        this.Namespace = "Avalon.Network";
-        this.ClassName = "StatusList";
-        this.BaseClassName = "Any";
-        this.AnyClassName = "Any";
-        this.ItemClassName = "Status";
-        this.ArrayClassName = "Array";
+        this.Namespace = this.S("Avalon.Network");
+        this.ClassName = this.S("StatusList");
+        this.BaseClassName = this.S("Any");
+        this.AnyClassName = this.S("Any");
+        this.ItemClassName = this.S("Status");
+        this.ArrayClassName = this.S("Array");
         this.Export = true;
-        this.StatItemClassName = "NetworkStatus";
+        this.StatItemClassName = this.S("NetworkStatus");
         this.ItemListFileName = this.GetStatItemListFileName();
-        this.AddMethodFileName = "ToolData/Avalon/AddMaideNetworkStatus.txt";
-        this.InitMethodFileName = "ToolData/Avalon/InitMaide.txt";
+        this.AddMethodFileName = this.S("ToolData/Avalon/AddMaideNetworkStatus.txt");
+        this.InitMethodFileName = this.S("ToolData/Avalon/InitMaide.txt");
         return true;
     }
 
-    protected override bool AppendInitFieldAddItem(StringBuilder sb, string index, object value)
+    protected override bool AddInitFieldAddItem(String index, object value)
     {
-        sb.Append("AddItem").Append("(").Append(")");
+        this.AddS("AddItem").AddS("(").AddS(")");
         return true;
     }
 }
