@@ -94,6 +94,10 @@ any one true, and untrue.
 Words "add", "sub", "mul" and "div" have meanings that are
 count more, count less, count times more, and count times of.
 
+Word "equal" has meaning that is same.
+
+Word "less" has meaning that is compared.
+
 Word "out" has meaning that is output destination.
 
 Word "inn" has meaning that is input source.
