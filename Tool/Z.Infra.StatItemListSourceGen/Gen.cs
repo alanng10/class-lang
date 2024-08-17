@@ -5,8 +5,8 @@ public class Gen : SourceGen
     public override bool Init()
     {
         base.Init();
-        this.AddMethodFileName = "ToolData/System/AddMaideStatItem.txt";
-        this.InitMethodFileName = "ToolData/System/InitMaideStatItem.txt";
+        this.AddMethodFileName = this.S("ToolData/System/AddMaideStatItem.txt");
+        this.InitMethodFileName = this.S("ToolData/System/InitMaideStatItem.txt");
         return true;
     }
 
@@ -16,47 +16,87 @@ public class Gen : SourceGen
         return base.Execute();
     }
 
-    protected virtual string StatItemClassName { get; set; }
+    protected virtual String StatItemClassName { get; set; }
 
-    protected virtual string GetStatItemListFileName()
+    protected virtual String GetStatItemListFileName()
     {
-        return "ToolData/ItemList" + this.StatItemClassName + ".txt";
+        return this.AddClear().AddS("ToolData/ItemList").Add(this.StatItemClassName).AddS(".txt").AddResult();
     }
 
-    protected virtual string GetOutputFilePath()
+    protected virtual String GetOutputFilePath()
     {
-        return "../../../System/" + this.Namespace + "/" + this.ClassName + ".cla";
+        return this.AddClear().AddS("../../../System/").Add(this.Namespace).AddS("/").Add(this.ClassName).AddS(".cla").AddResult();
     }
 
-    protected override TableEntry GetItemEntry(string line)
+    protected override TableEntry GetItemEntry(String line)
     {
-        string name;
-        name = line;
-        string value;
-        value = line;
+        Text name;
+        name = null;
+        Text value;
+        value = null;
 
-        int uu;
-        uu = line.IndexOf(' ');
-        if (!(uu < 0))
+        Text k;
+        k = this.TextCreate(line);
+
+        Text ka;
+        ka = this.TextCreate(this.S(" "));
+
+        long n;
+        n = this.ToolInfra.TextIndex(k, ka);
+
+        bool b;
+        b = (n < 0);
+
+        if (b)
         {
-            name = line.Substring(0, uu);
-            value = line.Substring(uu + 1);
+            name = k;
+            value = k;
+        }
+
+        if (!b)
+        {
+            name = this.CreateText(k.Data, 0, n);
+
+            long index;
+            index = n + 1;
+            long end;
+            end = k.Range.Count;
+            long count;
+            count = end -  index;
+
+            value = this.CreateText(k.Data, n + 1, count);
         }
 
         TableEntry a;
         a = new TableEntry();
         a.Init();
-        a.Index = name;
-        a.Value = value;
+        a.Index = this.StringCreate(name);
+        a.Value = this.StringCreate(value);
         return a;
     }
 
-    protected override bool AppendInitFieldAddItem(StringBuilder sb, string index, object value)
+    protected override bool AddInitFieldAddItem(String index, object value)
     {
-        sb.Append("AddItem")
-            .Append("(")
-            .Append("extern.Stat_" + this.StatItemClassName + index).Append("(").Append("stat").Append(")")
-            .Append(")");
+        this.AddS("AddItem")
+            .AddS("(")
+            .AddS("extern.Stat_").Add(this.StatItemClassName).Add(index).AddS("(").AddS("stat").AddS(")")
+            .AddS(")");
         return true;
+    }
+
+    protected virtual Text CreateText(Data data, long index, long count)
+    {
+        Range range;
+        range = new Range();
+        range.Init();
+        range.Index = index;
+        range.Count = count;
+
+        Text text;
+        text = new Text();
+        text.Init();
+        text.Data = data;
+        text.Range = range;
+        return text;
     }
 }

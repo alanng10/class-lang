@@ -7,6 +7,7 @@ public class Gen : Any
         base.Init();
         this.TextInfra = TextInfra.This;
         this.ToolInfra = ToolInfra.This;
+        this.StringComp = StringComp.This;
 
         this.ClassFileName = this.S("ToolData/System/Class.txt");
         this.InitMethodFileName = this.S("ToolData/System/InitMaide.txt");
@@ -31,6 +32,7 @@ public class Gen : Any
     public virtual String OutputFilePath { get; set; }
     protected virtual TextInfra TextInfra { get; set; }
     protected virtual ToolInfra ToolInfra { get; set; }
+    protected virtual StringComp StringComp { get; set; }
     protected virtual Array LineArray { get; set; }
     protected virtual Table ItemTable { get; set; }
 

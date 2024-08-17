@@ -173,6 +173,11 @@ public class Infra : Any
         return this.TextSplit(text, this.TextNewLine);
     }
 
+    public virtual long TextIndex(Text text, Text other)
+    {
+        return this.TextInfra.Index(text, other, this.TextCompare);
+    }
+
     public virtual Array TextSplit(Text text, Text delimit)
     {
         return this.TextInfra.Split(text, delimit, this.TextCompare);
