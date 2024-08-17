@@ -1,6 +1,6 @@
 namespace Avalon.Infra;
 
-public class CompareInt : Any
+public class LessInt : Any
 {
     public virtual long Execute(long left, long right)
     {

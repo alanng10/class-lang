@@ -204,8 +204,8 @@ public class Infra : Any
 
     public virtual StringCompare StringCompareCreate()
     {
-        CompareInt charCompare;
-        charCompare = new CompareInt();
+        LessInt charCompare;
+        charCompare = new LessInt();
         charCompare.Init();
 
         CharForm charForm;
