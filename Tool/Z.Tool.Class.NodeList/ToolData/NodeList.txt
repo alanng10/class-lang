@@ -145,7 +145,7 @@ MaideName : Node
 VarName : Node
     String Value
 
-EqualOperate : Operate
+SameOperate : Operate
     Operate Left
     Operate Right
 
