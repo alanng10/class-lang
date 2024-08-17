@@ -54,16 +54,13 @@ public class CompList : Any
 
     protected virtual Comp AddItem(ulong o)
     {
-        long index;
-        index = this.Index;
-
         Comp item;
         item = new Comp();
         item.Init();
-        item.Index = index;
+        item.Index = this.Index;
         item.Intern = o;
-        this.Array.SetAt(index, item);
-        this.Index = index + 1;
+        this.Array.SetAt(item.Index, item);
+        this.Index = this.Index + 1;
         return item;
     }
 

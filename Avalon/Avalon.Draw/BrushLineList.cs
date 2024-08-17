@@ -42,16 +42,13 @@ public class BrushLineList : Any
 
     protected virtual BrushLine AddItem(ulong o)
     {
-        long index;
-        index = this.Index;
-
         BrushLine item;
         item = new BrushLine();
         item.Init();
-        item.Index = index;
+        item.Index = this.Index;
         item.Intern = o;
-        this.Array.SetAt(index, item);
-        this.Index = index + 1;
+        this.Array.SetAt(item.Index, item);
+        this.Index = this.Index + 1;
         return item;
     }
 

@@ -75,15 +75,12 @@ public class StatusList : Any
 
     protected virtual Status AddItem()
     {
-        long index;
-        index = this.Index;
-
         Status item;
         item = new Status();
         item.Init();
-        item.Index = index;
-        this.Array.SetAt(index, item);
-        this.Index = index + 1;
+        item.Index = this.Index;
+        this.Array.SetAt(item.Index, item);
+        this.Index = this.Index + 1;
         return item;
     }
 

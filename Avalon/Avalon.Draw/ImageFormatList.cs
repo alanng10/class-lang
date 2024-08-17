@@ -38,16 +38,13 @@ public class ImageFormatList : Any
 
     protected virtual ImageFormat AddItem(ulong o)
     {
-        long index;
-        index = this.Index;
-
         ImageFormat item;
         item = new ImageFormat();
         item.Init();
-        item.Index = index;
+        item.Index = this.Index;
         item.Intern = o;
-        this.Array.SetAt(index, item);
-        this.Index = index + 1;
+        this.Array.SetAt(item.Index, item);
+        this.Index = this.Index + 1;
         return item;
     }
 

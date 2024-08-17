@@ -40,16 +40,13 @@ public class BrushJoinList : Any
 
     protected virtual BrushJoin AddItem(ulong o)
     {
-        long index;
-        index = this.Index;
-
         BrushJoin item;
         item = new BrushJoin();
         item.Init();
-        item.Index = index;
+        item.Index = this.Index;
         item.Intern = o;
-        this.Array.SetAt(index, item);
-        this.Index = index + 1;
+        this.Array.SetAt(item.Index, item);
+        this.Index = this.Index + 1;
         return item;
     }
 
