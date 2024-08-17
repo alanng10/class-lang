@@ -1,12 +1,9 @@
     maide precate #ItemClassName# AddItem()
     {
-        var Int index;
-        index : this.Index;
-
         var #ItemClassName# item;
         item : new #ItemClassName#;
         item.Init();
-        this.Array.Set(index, item);
-        this.Index : index + 1;
+        this.Array.Set(this.Index, item);
+        this.Index : this.Index + 1;
         return item;
     }
