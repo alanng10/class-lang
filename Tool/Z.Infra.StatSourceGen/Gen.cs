@@ -22,9 +22,9 @@ public class Gen : Any
         return true;
     }
 
-    public virtual string ClassName { get; set; }
-    public virtual string ScopeName { get; set; }
-    public virtual string ScopeSeparator { get; set; }
+    public virtual String ClassName { get; set; }
+    public virtual String ScopeName { get; set; }
+    public virtual String ScopeSeparator { get; set; }
     public virtual string ValuePrefix { get; set; }
     public virtual string ValuePostfix { get; set; }
     public virtual string ValueOffset { get; set; }
