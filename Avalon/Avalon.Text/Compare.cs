@@ -1,6 +1,6 @@
 namespace Avalon.Text;
 
-public class Compare : InfraCompare
+public class Less : InfraCompare
 {
     public override bool Init()
     {
