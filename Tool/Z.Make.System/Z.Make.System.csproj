@@ -6,7 +6,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <ProjectReference Include="../Z.Tool.System.TextEncodeKindList/Z.Tool.System.TextEncodeKindList.csproj" />
+        <ProjectReference Include="../Z.Tool.System.TextCodeKindList/Z.Tool.System.TextCodeKindList.csproj" />
         <ProjectReference Include="../Z.Tool.System.StorageStatusList/Z.Tool.System.StorageStatusList.csproj" />
         <ProjectReference Include="../Z.Tool.System.NetworkCaseList/Z.Tool.System.NetworkCaseList.csproj" />
         <ProjectReference Include="../Z.Tool.System.NetworkPortKindList/Z.Tool.System.NetworkPortKindList.csproj" />
