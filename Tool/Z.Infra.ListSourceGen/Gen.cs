@@ -255,6 +255,22 @@ public class Gen : Any
         return a;
     }
 
+    protected virtual Text CreateText(Data data, long index, long count)
+    {
+        Range range;
+        range = new Range();
+        range.Init();
+        range.Index = index;
+        range.Count = count;
+
+        Text text;
+        text = new Text();
+        text.Init();
+        text.Data = data;
+        text.Range = range;
+        return text;
+    }
+
     protected virtual Text Replace(Text text, string delimit, String join)
     {
         return this.TextReplace(text, this.TextCreate(this.S(delimit)), this.TextCreate(join));

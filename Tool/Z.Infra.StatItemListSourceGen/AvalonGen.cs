@@ -30,24 +30,48 @@ public class AvalonGen : AvalonSourceGen
 
     protected override TableEntry GetItemEntry(String line)
     {
-        string name;
-        name = line;
-        string value;
-        value = line;
+        Text name;
+        name = null;
+        Text value;
+        value = null;
 
-        int uu;
-        uu = line.IndexOf(' ');
-        if (!(uu < 0))
+        Text k;
+        k = this.TextCreate(line);
+
+        Text ka;
+        ka = this.TextCreate(this.S(" "));
+
+        long n;
+        n = this.ToolInfra.TextIndex(k, ka);
+
+        bool b;
+        b = (n < 0);
+
+        if (b)
         {
-            name = line.Substring(0, uu);
-            value = line.Substring(uu + 1);
+            name = k;
+            value = k;
+        }
+
+        if (!b)
+        {
+            name = this.CreateText(k.Data, 0, n);
+
+            long index;
+            index = n + 1;
+            long end;
+            end = k.Range.Count;
+            long count;
+            count = end - index;
+
+            value = this.CreateText(k.Data, n + 1, count);
         }
 
         TableEntry a;
         a = new TableEntry();
         a.Init();
-        a.Index = name;
-        a.Value = value;
+        a.Index = this.StringCreate(name);
+        a.Value = this.StringCreate(value);
         return a;
     }
 
