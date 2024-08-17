@@ -25,7 +25,7 @@ public class Gen : SourceGen
 
     protected virtual String GetOutputFilePath()
     {
-        return this.AddClear().AddS("../../../System/").Add(this.Namespace).AddS("/").Add(this.ClassName).AddS(".cla").AddResult();
+        return this.AddClear().AddS("../../System/").Add(this.Namespace).AddS("/").Add(this.ClassName).AddS(".cla").AddResult();
     }
 
     protected override TableEntry GetItemEntry(String line)
