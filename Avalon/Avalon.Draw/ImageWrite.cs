@@ -19,14 +19,14 @@ public class ImageWrite : Any
 
     public virtual StreamStream Stream { get; set; }
     public virtual Image Image { get; set; }
-    public virtual ImageFormat Format { get; set; }
+    public virtual ImageBinary Binary { get; set; }
 
     private ulong Intern { get; set; }
 
     public virtual bool Execute()
     {
         Extern.ImageWrite_StreamSet(this.Intern, this.Stream.Ident);
-        Extern.ImageWrite_FormatSet(this.Intern, this.Format.Intern);
+        Extern.ImageWrite_FormatSet(this.Intern, this.Binary.Intern);
         Extern.ImageWrite_ImageSet(this.Intern, this.Image.Ident);
 
         ulong u;
