@@ -31,7 +31,6 @@ class Gen : Any
         this.ExecuteOne("Avalon.GradientKindList");
         this.ExecuteOne("Avalon.GradientSpreadList");
         this.ExecuteOne("Avalon.ImageFormatList");
-        this.ExecuteOne("Avalon.TextAlignList");
         this.ExecuteOne("Class.CountList");
         this.ExecuteOne("Class.DelimitList");
         this.ExecuteOne("Class.ErrorKindList");
