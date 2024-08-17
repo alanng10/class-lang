@@ -219,7 +219,7 @@ public class Infra : Any
         return image;
     }
 
-    public virtual bool ImageWrite(String path, Image image, ImageFormat format)
+    public virtual bool ImageWrite(String path, Image image, ImageBinary binary)
     {
         StorageStorage storage;
         storage = new StorageStorage();
@@ -243,7 +243,7 @@ public class Infra : Any
             imageWrite = new ImageWrite();
             imageWrite.Init();
             imageWrite.Stream = stream;
-            imageWrite.Format = format;
+            imageWrite.Binary = binary;
             imageWrite.Image = image;
             o = imageWrite.Execute();
             imageWrite.Final();
