@@ -5,23 +5,23 @@ public class Gen : SourceGen
     public override bool Init()
     {
         base.Init();
-        this.Namespace = "System.Storage";
-        this.ClassName = "StatusList";
-        this.BaseClassName = "Any";
-        this.AnyClassName = "Any";
-        this.ItemClassName = "Status";
-        this.ArrayClassName = "Array";
+        this.Namespace = this.S("System.Storage");
+        this.ClassName = this.S("StatusList");
+        this.BaseClassName = this.S("Any");
+        this.AnyClassName = this.S("Any");
+        this.ItemClassName = this.S("Status");
+        this.ArrayClassName = this.S("Array");
         this.Export = true;
-        this.StatItemClassName = "StorageStatus";
+        this.StatItemClassName = this.S("StorageStatus");
         this.ItemListFileName = this.GetStatItemListFileName();
-        this.AddMethodFileName = "ToolData/System/AddMaideStorageStatus.txt";
-        this.InitMethodFileName = "ToolData/System/InitMaide.txt";
+        this.AddMethodFileName = this.S("ToolData/System/AddMaideStorageStatus.txt");
+        this.InitMethodFileName = this.S("ToolData/System/InitMaide.txt");
         return true;
     }
 
-    protected override bool AppendInitFieldAddItem(StringBuilder sb, string index, object value)
+    protected override bool AddInitFieldAddItem(String index, object value)
     {
-        sb.Append("AddItem").Append("(").Append(")");
+        this.AddS("AddItem").AddS("(").AddS(")");
         return true;
     }
 }
