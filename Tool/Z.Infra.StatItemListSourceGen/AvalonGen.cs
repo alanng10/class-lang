@@ -5,8 +5,8 @@ public class AvalonGen : AvalonSourceGen
     public override bool Init()
     {
         base.Init();
-        this.AddMethodFileName = "ToolData/Avalon/AddMaideStatItem.txt";
-        this.InitMethodFileName = "ToolData/Avalon/InitMaideStatItem.txt";
+        this.AddMethodFileName = this.S("ToolData/Avalon/AddMaideStatItem.txt");
+        this.InitMethodFileName = this.S("ToolData/Avalon/InitMaideStatItem.txt");
         return true;
     }
 
@@ -16,19 +16,19 @@ public class AvalonGen : AvalonSourceGen
         return base.Execute();
     }
 
-    protected virtual string StatItemClassName { get; set; }
+    protected virtual String StatItemClassName { get; set; }
 
-    protected virtual string GetStatItemListFileName()
+    protected virtual String GetStatItemListFileName()
     {
-        return "ToolData/ItemList" + this.StatItemClassName + ".txt";
+        return this.AddClear().AddS("ToolData/ItemList").Add(this.StatItemClassName).AddS(".txt").AddResult();
     }
 
-    protected virtual string GetOutputFilePath()
+    protected virtual String GetOutputFilePath()
     {
-        return "../../Avalon/" + this.Namespace + "/" + this.ClassName + ".cs";
+        return this.AddClear().AddS("../../Avalon/").Add(this.Namespace).AddS("/").Add(this.ClassName).AddS(".cs").AddResult();
     }
 
-    protected override TableEntry GetItemEntry(string line)
+    protected override TableEntry GetItemEntry(String line)
     {
         string name;
         name = line;

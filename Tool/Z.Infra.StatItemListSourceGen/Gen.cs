@@ -62,7 +62,7 @@ public class Gen : SourceGen
             long end;
             end = k.Range.Count;
             long count;
-            count = end -  index;
+            count = end - index;
 
             value = this.CreateText(k.Data, n + 1, count);
         }
