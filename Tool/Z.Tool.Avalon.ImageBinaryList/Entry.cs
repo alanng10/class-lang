@@ -1,4 +1,4 @@
-namespace Z.Tool.Avalon.ImageFormatList;
+namespace Z.Tool.Avalon.ImageBinaryList;
 
 class Entry : EntryEntry
 {
