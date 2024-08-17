@@ -1,4 +1,4 @@
-namespace Z.Tool.Avalon.TextEncodeKindList;
+namespace Z.Tool.Avalon.TextCodeKindList;
 
 public class Gen : SourceGen
 {
