@@ -8,11 +8,11 @@ public class Gen : SourceGen
         this.Namespace = this.S("Avalon.Draw");
         this.ClassName = this.S("BrushKindList");
         this.BaseClassName = this.S("Any");
-        this.AnyClassName = "Any";
-        this.ItemClassName = "BrushKind";
-        this.ArrayClassName = "Array";
+        this.AnyClassName = this.S("Any");
+        this.ItemClassName = this.S("BrushKind");
+        this.ArrayClassName = this.S("Array");
         this.Export = true;
-        this.StatItemClassName = "BrushKind";
+        this.StatItemClassName = this.S("BrushKind");
         this.ItemListFileName = this.GetStatItemListFileName();
         return true;
     }
