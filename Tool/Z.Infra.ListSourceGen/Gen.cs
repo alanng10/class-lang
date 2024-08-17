@@ -63,19 +63,19 @@ public class Gen : Any
 
         k = this.Replace(k, "#Export#", aa);
 
-        string initMethodText;
+        String initMethodText;
         initMethodText = this.GetInitMethod();
         k = this.Replace(k, "#InitMaide#", initMethodText);
 
-        string fieldListText;
+        String fieldListText;
         fieldListText = this.GetFieldList();
         k = this.Replace(k, "#FieldList#", fieldListText);
 
-        string addMethodText;
+        String addMethodText;
         addMethodText = this.GetAddMethod();
         k = this.Replace(k, "#AddMaide#", addMethodText);
 
-        string arrayCompListText;
+        String arrayCompListText;
         arrayCompListText = this.GetArrayCompList();
         k = this.Replace(k, "#ArrayCompList#", arrayCompListText);
 
