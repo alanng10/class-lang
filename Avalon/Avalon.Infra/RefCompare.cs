@@ -1,6 +1,6 @@
 namespace Avalon.Infra;
 
-public class RefCompare : Less
+public class RefLess : Less
 {
     public override bool Init()
     {
