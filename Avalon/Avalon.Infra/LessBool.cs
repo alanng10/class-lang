@@ -1,6 +1,6 @@
 namespace Avalon.Infra;
 
-public class CompareBool : Any
+public class LessBool : Any
 {
     public virtual long Execute(bool left, bool right)
     {
