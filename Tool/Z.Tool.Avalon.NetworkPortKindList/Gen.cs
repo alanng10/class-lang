@@ -5,14 +5,14 @@ public class Gen : SourceGen
     public override bool Init()
     {
         base.Init();
-        this.Namespace = "Avalon.Network";
-        this.ClassName = "PortKindList";
-        this.BaseClassName = "Any";
-        this.AnyClassName = "Any";
-        this.ItemClassName = "PortKind";
-        this.ArrayClassName = "Array";
+        this.Namespace = this.S("Avalon.Network");
+        this.ClassName = this.S("PortKindList");
+        this.BaseClassName = this.S("Any");
+        this.AnyClassName = this.S("Any");
+        this.ItemClassName = this.S("PortKind");
+        this.ArrayClassName = this.S("Array");
         this.Export = true;
-        this.StatItemClassName = "NetworkPortKind";
+        this.StatItemClassName = this.S("NetworkPortKind");
         this.ItemListFileName = this.GetStatItemListFileName();
         return true;
     }
