@@ -1,4 +1,4 @@
-namespace Z.Tool.System.TextEncodeKindList;
+namespace Z.Tool.System.TextCodeKindList;
 
 class Entry : EntryEntry
 {
