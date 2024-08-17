@@ -25,14 +25,13 @@ public class AvalonGen : Gen
         return true;
     }
 
-    protected override bool AppendField(StringBuilder sb, string item)
+    protected override bool AddField(String item)
     {
-        this.ToolInfra.AppendIndent(sb, 1);
-        sb
-            .Append("public").Append(" ").Append("virtual").Append(" ")
-            .Append(this.ItemClassName).Append(" ").Append(item).Append(" ")
-            .Append("{").Append(" ").Append("get").Append(";").Append(" ").Append("set").Append(";").Append(" ").Append("}")
-            .Append(this.ToolInfra.NewLine);
+        this.AddIndent(1)
+            .AddS("public").AddS(" ").AddS("virtual").AddS(" ")
+            .Add(this.ItemClassName).AddS(" ").Add(item).AddS(" ")
+            .AddS("{").AddS(" ").AddS("get").AddS(";").AddS(" ").AddS("set").AddS(";").AddS(" ").AddS("}")
+            .Add(this.ToolInfra.NewLine);
         return true;
     }
 }
