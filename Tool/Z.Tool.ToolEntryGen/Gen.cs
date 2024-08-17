@@ -18,7 +18,7 @@ class Gen : Any
     {
         this.SourceTemplate = this.ToolInfra.StorageTextRead(this.S("ToolData/Entry.txt"));
 
-        this.ExecuteOne("Avalon.TextEncodeKindList");
+        this.ExecuteOne("Avalon.TextCodeKindList");
         this.ExecuteOne("Avalon.StorageStatusList");
         this.ExecuteOne("Avalon.NetworkCaseList");
         this.ExecuteOne("Avalon.NetworkPortKindList");
@@ -37,6 +37,19 @@ class Gen : Any
         this.ExecuteOne("Class.KeywordList");
         this.ExecuteOne("Class.NodeList");
         this.ExecuteOne("Class.TaskKindList");
+        this.ExecuteOne("System.TextCodeKindList");
+        this.ExecuteOne("System.StorageStatusList");
+        this.ExecuteOne("System.NetworkCaseList");
+        this.ExecuteOne("System.NetworkPortKindList");
+        this.ExecuteOne("System.NetworkStatusList");
+        this.ExecuteOne("System.BrushCapList");
+        this.ExecuteOne("System.BrushJoinList");
+        this.ExecuteOne("System.BrushKindList");
+        this.ExecuteOne("System.BrushLineList");
+        this.ExecuteOne("System.DrawCompList");
+        this.ExecuteOne("System.GradientKindList");
+        this.ExecuteOne("System.GradientSpreadList");
+        this.ExecuteOne("System.ImageFormatList");
         this.ExecuteOne("Infra.StatThreadCase");
         this.ExecuteOne("Infra.StatStreamKind");
         this.ExecuteOne("Infra.StatNetworkCase");
