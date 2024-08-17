@@ -75,12 +75,12 @@ public class AvalonGen : AvalonSourceGen
         return a;
     }
 
-    protected override bool AppendInitFieldAddItem(StringBuilder sb, string index, object value)
+    protected override bool AddInitFieldAddItem(String index, object value)
     {
-        sb.Append("AddItem")
-            .Append("(")
-            .Append("Extern.Stat_" + this.StatItemClassName + index).Append("(").Append("stat").Append(")")
-            .Append(")");
+        this.AddS("AddItem")
+            .AddS("(")
+            .AddS("Extern.Stat_").Add(this.StatItemClassName).Add(index).AddS("(").AddS("stat").AddS(")")
+            .AddS(")");
         return true;
     }
 }
