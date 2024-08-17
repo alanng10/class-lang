@@ -29,16 +29,13 @@ class BrushJoinList : Any
 
     maide precate BrushJoin AddItem(var Int o)
     {
-        var Int index;
-        index : this.Index;
-
         var BrushJoin item;
         item : new BrushJoin;
         item.Init();
-        item.Index : index;
+        item.Index : this.Index;
         item.Intern : o;
-        this.Array.Set(index, item);
-        this.Index : index + 1;
+        this.Array.Set(item.Index, item);
+        this.Index : this.Index + 1;
         return item;
     }
 
