@@ -19,9 +19,9 @@ public class Gen : SourceGen
         return true;
     }
 
-    protected override bool AppendInitFieldAddItem(StringBuilder sb, string index, object value)
+    protected override bool AddInitFieldAddItem(String index, object value)
     {
-        sb.Append("AddItem").Append("(").Append(")");
+        this.AddS("AddItem").AddS("(").AddS(")");
         return true;
     }
 }
