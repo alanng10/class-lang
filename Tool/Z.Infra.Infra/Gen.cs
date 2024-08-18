@@ -35,6 +35,16 @@ public class Gen : Any
         return this.ToolInfra.StringCreate(text);
     }
 
+    protected virtual Array TextSplitLineString(String text)
+    {
+        return this.ToolInfra.TextSplitLineString(text);
+    }
+
+    protected virtual Array TextSplitLine(Text text)
+    {
+        return this.ToolInfra.TextSplitLine(text);
+    }
+
     protected virtual Array TextSplit(Text text, Text delimit)
     {
         return this.ToolInfra.TextSplit(text, delimit);
