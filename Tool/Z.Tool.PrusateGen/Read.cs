@@ -36,17 +36,14 @@ class Read : ToolGen
 
     protected virtual bool SetClassTable()
     {
-        ToolInfra infra;
-        infra = ToolInfra.This;
-
         String ka;
-        ka = infra.StorageTextRead(this.S("ToolData/Prusate/ClassList.txt"));
+        ka = this.ToolInfra.StorageTextRead(this.S("ToolData/Prusate/ClassList.txt"));
 
         Array lineArray;        
         lineArray = this.TextSplitLineString(ka);
 
         Table table;
-        table = infra.TableCreateStringCompare();
+        table = this.ToolInfra.TableCreateStringCompare();
 
         this.ClassTable = table;
 
@@ -473,11 +470,8 @@ class Read : ToolGen
 
     protected virtual bool SetMaideArray()
     {
-        ToolInfra toolInfra;
-        toolInfra = ToolInfra.This;
-
         String ka;
-        ka = toolInfra.StorageTextRead(this.S("ToolData/Prusate/MaideList.txt"));
+        ka = this.ToolInfra.StorageTextRead(this.S("ToolData/Prusate/MaideList.txt"));
 
         Array lineArray;
         lineArray = this.TextSplitLineString(ka);
