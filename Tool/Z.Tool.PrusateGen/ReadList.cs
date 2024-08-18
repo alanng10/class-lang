@@ -2,7 +2,15 @@ namespace Z.Tool.PrusateGen;
 
 public class ReadList : ToolGen
 {
+    public override bool Init()
+    {
+        base.Init();
+        this.ListInfra = ListInfra.This;
+        return true;
+    }
+
     public virtual ReadResult ReadResult { get; set; }
+    protected virtual ListInfra ListInfra { get; set; }
     protected virtual List List { get; set; }
 
     public virtual bool Execute()
@@ -58,9 +66,7 @@ public class ReadList : ToolGen
         k = k + this.List.Count;
 
         Array array;
-        array = new Array();
-        array.Count = k;
-        array.Init();
+        array = this.ListInfra.ArrayCreate(k);
 
         long count;
         count = ka;
@@ -112,110 +118,56 @@ public class ReadList : ToolGen
         String classNameK;
         classNameK = this.S(className);
 
-        string listFilePath;
+        String listFilePath;
         listFilePath = this.GetListFilePath(classNameK);
 
-
-
-        string k;
-        
+        String k;
         k = this.ToolInfra.StorageTextRead(listFilePath);
 
-
-
         Array array;
+        array = this.TextSplitLineString(k);
 
-        array = this.ToolInfra.SplitLineList(k);
+        Text space;
+        space = this.TextCreate(this.S(" "));
 
-
-
-        int count;
-
+        long count;
         count = array.Count;
 
-
-
-        int i;
-
+        long i;
         i = 0;
-
-
         while (i < count)
         {
-            string a;
+            String a;
+            a = (String)array.GetAt(i);
 
+            Text ka;
+            ka = this.TextCreate(a);
 
-            a = (string)array.GetAt(i);
+            Array colArray;
+            colArray = this.TextSplit(ka, space);
 
+            Text kaa;
+            kaa = (Text)colArray.GetAt(0);
 
+            String name;
+            name = this.StringCreate(kaa);
 
-            string name;
-
-            name = a;
-
-
-
-            int uu;
-
-            uu = a.IndexOf(' ');
-
-
-            if (!(uu < 0))
-            {
-                int end;
-
-                end = uu;
-
-
-                name = a.Substring(0, end);
-            }
-
-
-
-
-            string methodName;
-
-            methodName = this.GetMethodName(className, name);
-
-
-
-
+            String maideName;
+            maideName = this.GetMethodName(classNameK, name);
 
             Array param;
+            param = this.ListInfra.ArrayCreate(0);
 
-            param = new Array();
+            Maide maide;
+            maide = new Maide();
+            maide.Init();
+            maide.Name = maideName;
+            maide.Param = param;
 
-            param.Count = 0;
-
-            param.Init();
-
-
-
-            Maide method;
-
-            method = new Maide();
-
-            method.Init();
-
-
-            method.Name = methodName;
-
-            method.Param = param;
-
-            
-            
-
-            this.List.Add(method);
-
-
-
-
+            this.List.Add(maide);
 
             i = i + 1;
         }
-
-
-
 
         return true;
     }
