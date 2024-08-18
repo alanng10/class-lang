@@ -26,9 +26,9 @@ public class CodeKindList : Any
         ulong stat;
         stat = Extern.Share_Stat(share);
 
-        this.Utf8 = this.AddItem(Extern.Stat_TextEncodeKindUtf8(stat));
-        this.Utf16 = this.AddItem(Extern.Stat_TextEncodeKindUtf16(stat));
-        this.Utf32 = this.AddItem(Extern.Stat_TextEncodeKindUtf32(stat));
+        this.Utf8 = this.AddItem(Extern.Stat_TextCodeKindUtf8(stat));
+        this.Utf16 = this.AddItem(Extern.Stat_TextCodeKindUtf16(stat));
+        this.Utf32 = this.AddItem(Extern.Stat_TextCodeKindUtf32(stat));
         return true;
     }
 
