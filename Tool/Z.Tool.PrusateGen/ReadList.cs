@@ -1,16 +1,8 @@
 namespace Z.Tool.PrusateGen;
 
-public class ReadList : Any
+public class ReadList : ToolGen
 {
-    public override bool Init()
-    {
-        base.Init();
-        this.ToolInfra = ToolInfra.This;
-        return true;
-    }
-
     public virtual ReadResult ReadResult { get; set; }
-    protected virtual ToolInfra ToolInfra { get; set; }
     protected virtual List List { get; set; }
 
     public virtual bool Execute()
@@ -58,96 +50,54 @@ public class ReadList : Any
             return false;
         }
 
-        int ka;
+        long ka;
         ka = statClass.Maide.Count;
 
-        int k;
+        long k;
         k = ka;
         k = k + this.List.Count;
 
-
-
         Array array;
-
         array = new Array();
-
         array.Count = k;
-
         array.Init();
 
-
-
-        int count;
-
+        long count;
         count = ka;
 
-
-        int i;
-
+        long i;
         i = 0;
-
-
         while (i < count)
         {
-            Maide method;
+            Maide maide;
+            maide = (Maide)statClass.Maide.GetAt(i);
 
-            method = (Maide)statClass.Maide.GetAt(i);
-
-
-            array.SetAt(i, method);
-
-
+            array.SetAt(i, maide);
 
             i = i + 1;
         }
 
-
-
-
-
-
         Iter iter;
-
         iter = this.List.IterCreate();
-
-
         this.List.IterSet(iter);
 
-
-
-
-        int start;
-
+        long start;
         start = ka;
-
-
 
         count = this.List.Count;
 
-
         i = 0;
-
-
         while (i < count)
         {
             iter.Next();
 
+            Maide maide;
+            maide = (Maide)iter.Value;
 
-            Maide method;
-
-            method = (Maide)iter.Value;
-
-
-
-            int index;
-
+            long index;
             index = start + i;
 
-
-
-            array.SetAt(index, method);
-
-
+            array.SetAt(index, maide);
 
             i = i + 1;
         }
