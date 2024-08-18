@@ -77,7 +77,6 @@ global using DrawCompList = Avalon.Draw.CompList;
 global using DrawColor = Avalon.Draw.Color;
 global using DrawFace = Avalon.Draw.Face;
 global using DrawTextAlign = Avalon.Draw.TextAlign;
-global using DrawTextAlignList = Avalon.Draw.TextAlignList;
 global using DrawRect = Avalon.Draw.Rect;
 global using DrawPos = Avalon.Draw.Pos;
 global using DrawSize = Avalon.Draw.Size;
