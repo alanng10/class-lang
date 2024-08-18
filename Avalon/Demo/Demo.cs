@@ -1417,8 +1417,11 @@ class Demo : Any
         DrawBrush textPen;
         textPen = this.TextPenCreate();
 
-        DrawTextAlignList textAlignList;
-        textAlignList = DrawTextAlignList.This;
+        DrawTextAlign align;
+        align = new DrawTextAlign();
+        align.Init();
+        align.Horiz = 2;
+        align.Vert = 1;
 
         String oa;
         oa = this.S("G L 的哈gd@行 o #");
@@ -1438,7 +1441,7 @@ class Demo : Any
         viewC.EllipseRect = this.DrawInfra.RectCreate(0, 0, this.MathInt(100), this.MathInt(50));
         viewC.Face = face;
         viewC.Text = text;
-        viewC.TextAlign = textAlignList.CenterUp;
+        viewC.TextAlign = align;
         viewC.TextPen = textPen;
         return viewC;
     }

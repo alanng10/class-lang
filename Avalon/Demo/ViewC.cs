@@ -39,7 +39,7 @@ class ViewC : View
         draw.Face = this.Face;
         draw.Stroke = this.TextPen;
 
-        draw.ExecuteText(this.Text, rect, this.TextAlign, false);
+        draw.ExecuteText(this.Text, this.TextAlign, false, rect);
 
         draw.Stroke = null;
         draw.Face = null;
