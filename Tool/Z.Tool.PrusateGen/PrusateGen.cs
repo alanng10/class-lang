@@ -189,7 +189,7 @@ class PrusateGen : ToolGen
     {
         this.MethodCallFunctionOperate.Class = varClass;
 
-        this.MethodCallFunctionOperate.Method = maide;
+        this.MethodCallFunctionOperate.Maide = maide;
 
         this.AddFunction(this.MethodCallFunctionOperate);
         return true;

@@ -2,7 +2,7 @@ namespace Z.Tool.PrusateGen;
 
 class MaideCallFunctionOperate : FunctionOperate
 {
-    public virtual Maide Method { get; set; }
+    public virtual Maide Maide { get; set; }
 
     public override bool ExecuteName()
     {
@@ -11,17 +11,17 @@ class MaideCallFunctionOperate : FunctionOperate
             this.Add(this.Class.Name).Add(this.Gen.Combine);
         }
                 
-        this.Add(this.Method.Name);
+        this.Add(this.Maide.Name);
         return true;
     }
 
     public override bool ExecuteParam()
     {
         Array param;
-        param = this.Method.Param;
+        param = this.Maide.Param;
 
         bool b;
-        b = this.Method.Static;
+        b = this.Maide.Static;
 
         if (b)
         {
