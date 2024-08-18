@@ -55,7 +55,7 @@ class PartGen : ToolGen
         {
             if (ba)
             {
-                this.Add(this.ToolInfra.NewLine);
+                this.AddNewLine();
             }
 
             Maide aa;
@@ -72,6 +72,12 @@ class PartGen : ToolGen
         String k;
         k = this.AddResult();
         return k;
+    }
+
+    protected virtual bool AddNewLine()
+    {
+        this.Add(this.ToolInfra.NewLine);
+        return true;
     }
 
     protected virtual String MaideString(Maide maide)
