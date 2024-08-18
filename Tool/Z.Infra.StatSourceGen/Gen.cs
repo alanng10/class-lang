@@ -142,27 +142,26 @@ public class Gen : ToolGen
         return a;
     }
 
-    protected virtual string GetShareVarList()
+    protected virtual String GetShareVarList()
     {
-        string shareVarText;
+        String shareVarText;
         shareVarText = this.ToolInfra.StorageTextRead(this.ShareVarFileName);
 
-        StringBuilder sa;
-        sa = new StringBuilder(shareVarText);
-        sa.Replace("#ClassName#", this.ClassName);
-        sa.Replace("#NamePrefix#", this.NamePrefix);
-        sa.Replace("#NamePostfix#", this.NamePostfix);
-        sa.Replace("#ScopeName#", this.ScopeName);
-        sa.Replace("#ScopeSeparator#", this.ScopeSeparator);
-        sa.Replace("#ValuePrefix#", this.ValuePrefix);
-        sa.Replace("#ValuePostfix#", this.ValuePostfix);
-        sa.Replace("#ValueOffset#", this.ValueOffset);
+        Text k;
+        k = this.TextCreate(shareVarText);
+        k = this.Replace(k, "#ClassName#", this.ClassName);
+        k = this.Replace(k, "#NamePrefix#", this.NamePrefix);
+        k = this.Replace(k, "#NamePostfix#", this.NamePostfix);
+        k = this.Replace(k, "#ScopeName#", this.ScopeName);
+        k = this.Replace(k, "#ScopeSeparator#", this.ScopeSeparator);
+        k = this.Replace(k, "#ValuePrefix#", this.ValuePrefix);
+        k = this.Replace(k, "#ValuePostfix#", this.ValuePostfix);
+        k = this.Replace(k, "#ValueOffset#", this.ValueOffset);
 
-        string oo;
-        oo = sa.ToString();
+        String oo;
+        oo = this.StringCreate(k);
 
-        StringBuilder sb;
-        sb = new StringBuilder();
+        this.AddClear();
 
         Iter iter;
         iter = this.ItemTable.IterCreate();
@@ -171,36 +170,39 @@ public class Gen : ToolGen
         i = 0;
         while (iter.Next())
         {
-            string k;
-            k = this.GetItemShareVar(oo, iter, i);
+            String kk;
+            kk = this.GetItemShareVar(oo, iter, i);
 
-            sb.Append(k);
+            this.Add(kk);
 
             i = i + 1;
         }
 
-        string ka;
-        ka = sb.ToString();
-        return ka;
+        String a;
+        a = this.AddResult();
+        return a;
     }
 
-    protected virtual string GetItemShareVar(string shareVar, Iter iter, int index)
+    protected virtual String GetItemShareVar(String shareVar, Iter iter, long index)
     {
-        string a;
-        a = (string)iter.Index;
+        String aa;
+        aa = (String)iter.Index;
 
-        string ka;
-        ka = (string)iter.Value;
+        String ka;
+        ka = (String)iter.Value;
 
-        string kb;
-        kb = index.ToString();
+        String kb;
+        kb = this.S(index.ToString());
 
-        string k;
-        k = shareVar;
-        k = k.Replace("#ItemName#", a);
-        k = k.Replace("#ItemValue#", ka);
-        k = k.Replace("#ItemIndex#", kb);
-        return k;
+        Text k;
+        k = this.TextCreate(shareVar);
+        k = this.Replace(k, "#ItemName#", aa);
+        k = this.Replace(k, "#ItemValue#", ka);
+        k = this.Replace(k, "#ItemIndex#", kb);
+
+        String a;
+        a = this.StringCreate(k);
+        return a;
     }
 
     protected virtual String GetItemMethod(String method, Iter iter, long index)
@@ -225,8 +227,8 @@ public class Gen : ToolGen
         return a;
     }
 
-    protected virtual string GetOutputFilePath()
+    protected virtual String GetOutputFilePath()
     {
-        return "../../Infra/Infra/Stat_" + this.ClassName + ".cpp";
+        return this.AddClear().AddS("../../Infra/Infra/Stat_").Add(this.ClassName).AddS(".cpp").AddResult();
     }
 }
