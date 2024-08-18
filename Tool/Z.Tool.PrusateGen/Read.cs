@@ -473,8 +473,6 @@ class Read : ToolGen
             String a;
             a = this.StringCreate(aa);
 
-            global::System.Console.Write("PrusateGen:Read.GetParam a is null: " + (a == null).ToString() + " a Count: " + this.StringCount(a).ToString() + "\n");
-
             array.SetAt(i, a);
         
             i = i + 1;
