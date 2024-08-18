@@ -115,6 +115,7 @@ SOURCES += \
     Size.c \
     Stat.cpp \
     Stat_PointData.cpp \
+    Stat_TextAlign.cpp \
     Stat_TextCodeKind.cpp \
     Stat_ThreadCase.cpp \
     Stat_StreamKind.cpp \
