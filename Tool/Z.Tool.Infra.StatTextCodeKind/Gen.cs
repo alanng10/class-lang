@@ -2,31 +2,24 @@ namespace Z.Tool.Infra.StatTextCodeKind;
 
 class Gen : StatGen
 {
-    public override int Execute()
+    public override long Execute()
     {
-        this.ClassName = "TextCodeKind";
+        this.ClassName = this.S("TextCodeKind");
+        this.ScopeName = this.S("");
+        this.ScopeSeparator = this.S("");
+        this.ItemListFileName = this.S("ToolData/Infra/ItemListTextCodeKind.txt");
+        this.MethodFileName = this.S("ToolData/Infra/MaideTextCodeKind.txt");
 
-        this.ScopeName = "";
-
-        this.ScopeSeparator = "";
-
-        this.ItemListFileName = "ToolData/ItemListTextEncodeKind.txt";
-
-        this.MethodFileName = "ToolData/MaideTextEncodeKind.txt";
-
-        int o;
-        o = base.Execute();
-
-        return o;
+        return base.Execute();
     }
 
-    protected override string GetItemMethod(string method, Iter iter, int index)
+    protected override String GetItemMethod(String method, Iter iter, long index)
     {
         return base.GetItemMethod(method, iter, index + 1);
     }
 
-    protected override string GetShareVarList()
+    protected override String GetShareVarList()
     {
-        return "";
+        return this.S("");
     }
 }
