@@ -2,15 +2,7 @@ namespace Z.Tool.MathGen;
 
 public class Read : ToolGen
 {
-    public override bool Init()
-    {
-        base.Init();
-        this.ListInfra = ListInfra.This;
-        return true;
-    }
-
     public virtual Table MaideTable { get; set; }
-    protected virtual ListInfra ListInfra { get; set; }
     protected virtual String TextTrigoList { get; set; }
     protected virtual String TextList { get; set; }
     protected virtual Table TrigoTable { get; set; }
@@ -83,6 +75,9 @@ public class Read : ToolGen
         Array array;
         array = this.LineList;
 
+        Text space;
+        space = this.TextCreate(this.S(" "));
+
         long count;
         count = array.Count;
         long i;
@@ -92,37 +87,53 @@ public class Read : ToolGen
             String a;
             a = (String)array.GetAt(i);
 
-            
+            Text k;
+            k = this.TextCreate(a);
 
-            string[] uu;
-            uu = a.Split(' ');
-            
-            if (!(uu.Length == 4))
+            Array uu;
+            uu = this.TextSplit(k, space);
+
+            if (!(uu.Count == 4))
             {
                 return false;
             }
 
-            string name;
-            name = uu[0];
+            Text textName;
+            textName = (Text)uu.GetAt(0);
 
-            string ka;
-            ka = uu[1];
+            Text textOperandTwo;
+            textOperandTwo = (Text)uu.GetAt(1);
 
-            string kb;
-            kb = uu[2];
+            Text textOperate;
+            textOperate = (Text)uu.GetAt(2);
+
+            Text textDelimit;
+            textDelimit = (Text)uu.GetAt(3);
+
+            String name;
+            name = this.StringCreate(textName);
+
+            String operandTwo;
+            operandTwo = this.StringCreate(textOperandTwo);
+
+            String operate;
+            operate = this.StringCreate(textOperate);
+
+            String delimit;
+            delimit = this.StringCreate(textDelimit);
 
             bool ba;
-            ba = toolInfra.GetBool(ka);
+            ba = toolInfra.GetBool(operandTwo);
 
             bool bb;
-            bb = toolInfra.GetBool(kb);
+            bb = toolInfra.GetBool(operate);
 
-            string kc;
+            String kc;
             kc = null;
             
             if (bb)
             {
-                kc = uu[3];
+                kc = delimit;
             }
 
             Maide maide;
@@ -148,17 +159,22 @@ public class Read : ToolGen
         Table table;
         table = this.MaideTable;
 
+        String preK;
+        String postK;
+        preK = this.S(pre);
+        postK = this.S(post);
+
         Iter iter;
         iter = this.TrigoTable.IterCreate();
         this.TrigoTable.IterSet(iter);
 
         while (iter.Next())
         {
-            string k;
-            k = (string)iter.Value;
+            String k;
+            k = (String)iter.Value;
 
-            string name;
-            name = pre + k + post;
+            String name;
+            name = this.AddClear().Add(preK).Add(k).Add(postK).AddResult();
 
             Maide maide;
             maide = this.CreateMaide(name, false, null);
@@ -173,7 +189,7 @@ public class Read : ToolGen
         return true;
     }
 
-    protected virtual Maide CreateMaide(string name, bool operandTwo, string operateDelimit)
+    protected virtual Maide CreateMaide(String name, bool operandTwo, String operateDelimit)
     {
         Maide a;
         a = new Maide();
@@ -197,14 +213,14 @@ public class Read : ToolGen
         Table table;
         table = toolInfra.TableCreateStringCompare();
 
-        int count;
+        long count;
         count = k.Count;
         int i;
         i = 0;
         while (i < count)
         {
-            string aa;
-            aa = (string)k.GetAt(i);
+            String aa;
+            aa = (String)k.GetAt(i);
 
             if (table.Valid(aa))
             {

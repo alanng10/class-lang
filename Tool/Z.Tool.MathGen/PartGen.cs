@@ -11,15 +11,15 @@ class PartGen : Any
 
     public virtual Table Maide { get; set; }
     protected virtual ToolInfra ToolInfra { get; set; }
-    protected virtual string PartFilePath { get; set; }
-    protected virtual string MaideFilePath { get; set; }
-    protected virtual string MaideTwoFilePath { get; set; }
-    protected virtual string MaideOperateFilePath { get; set; }
-    protected virtual string TextPart { get; set; }
-    protected virtual string TextMaide { get; set; }
-    protected virtual string TextMaideTwo { get; set; }
-    protected virtual string TextMaideOperate { get; set; }
-    protected virtual string OutputFilePath { get; set; }
+    protected virtual String PartFilePath { get; set; }
+    protected virtual String MaideFilePath { get; set; }
+    protected virtual String MaideTwoFilePath { get; set; }
+    protected virtual String MaideOperateFilePath { get; set; }
+    protected virtual String TextPart { get; set; }
+    protected virtual String TextMaide { get; set; }
+    protected virtual String TextMaideTwo { get; set; }
+    protected virtual String TextMaideOperate { get; set; }
+    protected virtual String OutputFilePath { get; set; }
 
     public virtual bool Execute()
     {
