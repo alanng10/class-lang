@@ -4,7 +4,7 @@ class Gen : Any
 {
     protected virtual Table Maide { get; set; }
 
-    public virtual int Execute()
+    public virtual long Execute()
     {
         Read read;
         read = new Read();
