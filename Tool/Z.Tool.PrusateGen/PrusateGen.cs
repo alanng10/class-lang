@@ -18,9 +18,9 @@ class PrusateGen : ToolGen
         this.FieldSetFunctionOperate.Init();
         this.FieldSetFunctionOperate.Gen = this;
 
-        this.MethodCallFunctionOperate = new MaideCallFunctionOperate();
-        this.MethodCallFunctionOperate.Init();
-        this.MethodCallFunctionOperate.Gen = this;
+        this.MaideCallFunctionOperate = new MaideCallFunctionOperate();
+        this.MaideCallFunctionOperate.Init();
+        this.MaideCallFunctionOperate.Gen = this;
 
         this.PrudateFileName = this.S("ToolData/Prusate/Prusate.txt");
 
@@ -36,7 +36,7 @@ class PrusateGen : ToolGen
     protected virtual String OutputFilePath { get; set; }
     protected virtual FieldGetFunctionOperate FieldGetFunctionOperate { get; set; }
     protected virtual FieldSetFunctionOperate FieldSetFunctionOperate { get; set; }
-    protected virtual MaideCallFunctionOperate MethodCallFunctionOperate { get; set; }
+    protected virtual MaideCallFunctionOperate MaideCallFunctionOperate { get; set; }
 
     public virtual bool Execute()
     {
@@ -187,11 +187,11 @@ class PrusateGen : ToolGen
 
     protected virtual bool AddMaide(Class varClass, Maide maide)
     {
-        this.MethodCallFunctionOperate.Class = varClass;
+        this.MaideCallFunctionOperate.Class = varClass;
 
-        this.MethodCallFunctionOperate.Maide = maide;
+        this.MaideCallFunctionOperate.Maide = maide;
 
-        this.AddFunction(this.MethodCallFunctionOperate);
+        this.AddFunction(this.MaideCallFunctionOperate);
         return true;
     }
 
