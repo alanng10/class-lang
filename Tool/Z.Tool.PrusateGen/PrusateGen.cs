@@ -43,8 +43,8 @@ class PrusateGen : ToolGen
         String classListString;
         classListString = this.GetClassListString();
 
-        String methodListString;
-        methodListString = this.GetMethodListString();
+        String maideListString;
+        maideListString = this.GetMaideListString();
 
         ToolInfra toolInfra;
         toolInfra = ToolInfra.This;
@@ -55,7 +55,7 @@ class PrusateGen : ToolGen
         Text k;
         k = this.TextCreate(ka);
         k = this.Replace(k, "#ClassList#", classListString);
-        k = this.Replace(k, "#MethodList#", methodListString);
+        k = this.Replace(k, "#MethodList#", maideListString);
 
         String a;
         a = this.StringCreate(k);
@@ -257,7 +257,7 @@ class PrusateGen : ToolGen
         return true;
     }
 
-    protected virtual String GetMethodListString()
+    protected virtual String GetMaideListString()
     {
         this.AddClear();
 
