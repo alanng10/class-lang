@@ -115,27 +115,22 @@ class Read : ToolGen
 
 
             this.FieldList = new List();
-
             this.FieldList.Init();
 
 
             this.MaideList = new List();
-
             this.MaideList.Init();
 
 
             this.StaticFieldList = new List();
-
             this.StaticFieldList.Init();
 
 
             this.StaticMaideList = new List();
-
             this.StaticMaideList.Init();
 
 
             this.DelegateList = new List();
-
             this.DelegateList.Init();
 
         }
@@ -356,24 +351,14 @@ class Read : ToolGen
         return varClass;
     }
 
-
-
-
-
-    protected virtual Field GetField(string a, bool isStatic)
+    protected virtual Field GetField(String o, bool isStatic)
     {
-        Field o;
-
-        o = new Field();
-
-        o.Init();
-
-        o.Name = a;
-
-        o.Static = isStatic;
-
-
-        return o;
+        Field a;
+        a = new Field();
+        a.Init();
+        a.Name = o;
+        a.Static = isStatic;
+        return a;
     }
 
 
