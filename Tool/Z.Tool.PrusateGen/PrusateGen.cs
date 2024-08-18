@@ -229,7 +229,7 @@ class PrusateGen : ToolGen
         this.AddS("(");
 
         this.AddDelegateParam(varDelegate.Param);
-        
+
         this.AddS(")").AddS(";").Add(this.NewLine);
         return true;
     }
