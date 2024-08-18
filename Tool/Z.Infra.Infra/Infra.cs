@@ -143,7 +143,7 @@ public class Infra : Any
     public virtual Array TextSplitLineString(String text)
     {
         Text k;
-        k = this.TextInfra.TextCreateStringData(text, null);
+        k = this.TextCreate(text);
         
         Array array;
         array = this.TextSplitLine(k);
@@ -158,7 +158,7 @@ public class Infra : Any
             ka = (Text)array.GetAt(i);
 
             String a;
-            a = this.TextInfra.StringCreate(ka);
+            a = this.StringCreate(ka);
 
             array.SetAt(i, a);
 
