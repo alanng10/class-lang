@@ -239,7 +239,7 @@ class Infra : Any
 
         var Int k;
         k : textInfra.Index(entryPath, this.TextSlash, less);
-        inf (k = 0sn1)
+        inf (k = null)
         {
             return true;
         }
