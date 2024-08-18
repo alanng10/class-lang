@@ -1,21 +1,12 @@
 namespace Z.Tool.PrusateGen;
 
-
-
-
 class FieldSetFunctionOperate : FunctionOperate
 {
     public virtual Field Field { get; set; }
 
-
-
-
-    public override bool ExecuteName(StringBuilder sb)
+    public override bool ExecuteName()
     {
-        sb.Append(this.Class.Name).Append(this.Gen.Combine).Append(this.Field.Name).Append("Set");
-
-
-
+        this.Add(this.Class.Name).Add(this.Gen.Combine).Add(this.Field.Name).AddS("Set");
         return true;
     }
 
