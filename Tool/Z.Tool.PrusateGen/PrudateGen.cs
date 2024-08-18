@@ -40,7 +40,7 @@ class PrudateGen : Any
 
 
 
-        this.MethodCallFunctionOperate = new MethodCallFunctionOperate();
+        this.MethodCallFunctionOperate = new MaideCallFunctionOperate();
 
         this.MethodCallFunctionOperate.Init();
 
@@ -163,7 +163,7 @@ class PrudateGen : Any
 
 
 
-    protected virtual MethodCallFunctionOperate MethodCallFunctionOperate { get; set; }
+    protected virtual MaideCallFunctionOperate MethodCallFunctionOperate { get; set; }
 
 
 

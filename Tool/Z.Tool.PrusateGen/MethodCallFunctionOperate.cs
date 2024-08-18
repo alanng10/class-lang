@@ -3,7 +3,7 @@ namespace Z.Tool.PrusateGen;
 
 
 
-class MethodCallFunctionOperate : FunctionOperate
+class MaideCallFunctionOperate : FunctionOperate
 {
     public virtual Maide Method { get; set; }
 
