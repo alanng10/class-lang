@@ -219,35 +219,18 @@ class PrusateGen : ToolGen
 
     protected virtual bool AddDelegate(Class varClass, Delegate varDelegate)
     {
-        this
-            .AddS("typedef").AddS(" ")
-            .Add(this.IntTypeName).AddS(" ")
+        this.AddS("typedef").AddS(" ").Add(this.IntTypeName).AddS(" ")
             .AddS("(").AddS("*");
 
-        this.AppendDelegateName(sb, varClass, varDelegate);
+        this.AddDelegateName(varClass, varDelegate);
 
+        this.AddS(")");
 
-        sb
-            .Append(")");
+        this.AddS("(");
 
-
-
-        sb
-            .Append("(");
-
-
-
-        this.AppendDelegateParam(sb, varDelegate.Param);
-
-
-    
-        sb
-            .Append(")")
-            .Append(";").Append(this.NewLine);
-
-
-
-
+        this.AddDelegateParam(varDelegate.Param);
+        
+        this.AddS(")").AddS(";").Add(this.NewLine);
         return true;
     }
 
