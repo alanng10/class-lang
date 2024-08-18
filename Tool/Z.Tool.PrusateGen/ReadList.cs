@@ -279,7 +279,7 @@ public class ReadList : Any
 
     protected virtual string GetListFilePath(string className)
     {
-        return "ToolData/ItemList" + className + ".txt";
+        return "ToolData/Infra/ItemList" + className + ".txt";
     }
 
 
