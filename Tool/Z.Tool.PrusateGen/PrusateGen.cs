@@ -25,13 +25,8 @@ class PrusateGen : ToolGen
         this.PrudateFileName = this.S("ToolData/Prusate/Prusate.txt");
 
         this.OutputFilePath = this.S("../../Infra/Infra/Prusate.h");
-
         return true;
     }
-    
-
-
-
 
     public virtual bool Execute()
     {
@@ -39,50 +34,23 @@ class PrusateGen : ToolGen
         classListString = this.GetClassListString();
 
         String methodListString;
-
         methodListString = this.GetMethodListString();
 
+        ToolInfra toolInfra;
+        toolInfra = ToolInfra.This;
 
+        String ka;
+        ka = toolInfra.StorageTextRead(this.PrudateFileName);
 
+        Text k;
+        k = this.TextCreate(ka);
+        k = this.Replace(k, "#ClassList#", classListString);
+        k = this.Replace(k, "#MethodList#", methodListString);
 
-        ToolInfra infra;
+        String a;
+        a = this.StringCreate(k);
 
-        infra = ToolInfra.This;
-
-
-
-        string ka;
-
-        ka = infra.StorageTextRead(this.PrudateFileName);
-
-
-        StringBuilder sb;
-
-        sb = new StringBuilder();
-
-
-        sb.Append(ka);
-
-
-        sb.Replace("#ClassList#", classListString);
-
-
-        sb.Replace("#MethodList#", methodListString);
-
-
-
-
-        string k;
-
-        k = sb.ToString();
-
-
-
-        infra.StorageTextWrite(this.OutputFilePath, k);
-
-
-
-
+        toolInfra.StorageTextWrite(this.OutputFilePath, a);
         return true;
     }
     
