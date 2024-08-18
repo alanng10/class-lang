@@ -406,94 +406,73 @@ class Read : ToolGen
         return o;
     }
 
-    protected virtual NameParamResult GetNameParamResult(string a)
+    protected virtual NameParamResult GetNameParamResult(String o)
     {
-        int paramEnd;
-
-        paramEnd = a.Length - 1;
-
+        long paramEnd;
+        paramEnd = this.StringComp.Count(o) - 1;
 
         if (paramEnd < 0)
         {
             return null;
         }
 
+        Text k;
+        k = this.TextCreate(o);
 
-        int uu;
+        Text leftBracket;
+        leftBracket = this.TextCreate(this.S("("));
 
-        uu = a.IndexOf('(');
-
+        long uu;
+        uu = this.TextIndex(k, leftBracket);
 
         if (uu < 0)
         {
             return null;
         }
 
-
-        int paramStart;
-
+        long paramStart;
         paramStart = uu + 1;
 
-
-
-        int nameStart;
-
+        long nameStart;
+        long nameEnd;
         nameStart = 0;
-
-
-        int nameEnd;
-
         nameEnd = uu;
 
-
-        int nameCount;
-
+        long nameCount;
         nameCount = nameEnd - nameStart;
 
+        Range range;
+        range = new Range();
+        range.Init();
+        range.Index = nameStart;
+        range.Count = nameCount;
 
+        String name;
+        name = this.StringComp.CreateString(o, range);
 
-        string name;
-
-        name = a.Substring(nameStart, nameCount);
-
-
-
-        int paramCount;
-
+        long paramCount;
         paramCount = paramEnd - paramStart;
 
+        range.Index = paramStart;
+        range.Count = paramCount;
 
-
-        string paramLine;
-
-        paramLine = a.Substring(paramStart, paramCount);
-
-
+        String paramLine;
+        paramLine = this.StringComp.CreateString(o, range);
 
         Array param;
-
         param = this.GetParam(paramLine);
-
 
         if (param == null)
         {
             return null;
         }
 
-
-
-        NameParamResult o;
-
-        o = new NameParamResult();
-
-        o.Init();
-
-        o.Name = name;
-
-        o.Param = param;
-
-
-        return o;
+        NameParamResult a;
+        a = new NameParamResult();
+        a.Init();
+        a.Name = name;
+        a.Param = param;
+        return a;
     }
 
     protected virtual Array GetParam(String o)
