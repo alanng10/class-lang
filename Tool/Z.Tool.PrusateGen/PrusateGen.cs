@@ -28,6 +28,16 @@ class PrusateGen : ToolGen
         return true;
     }
 
+    public virtual ReadResult ReadResult { get; set; }
+    public virtual String NewLine { get; set; }
+    public virtual String IntTypeName { get; set; }
+    public virtual String Combine { get; set; }
+    protected virtual String PrudateFileName { get; set; }
+    protected virtual String OutputFilePath { get; set; }
+    protected virtual FieldGetFunctionOperate FieldGetFunctionOperate { get; set; }
+    protected virtual FieldSetFunctionOperate FieldSetFunctionOperate { get; set; }
+    protected virtual MaideCallFunctionOperate MethodCallFunctionOperate { get; set; }
+
     public virtual bool Execute()
     {
         String classListString;
@@ -53,36 +63,6 @@ class PrusateGen : ToolGen
         toolInfra.StorageTextWrite(this.OutputFilePath, a);
         return true;
     }
-    
-
-
-
-
-    public virtual ReadResult ReadResult { get; set; }
-    public virtual String NewLine { get; set; }
-    public virtual String IntTypeName { get; set; }
-    public virtual String Combine { get; set; }
-    protected virtual String PrudateFileName { get; set; }
-    protected virtual String OutputFilePath { get; set; }
-
-
-
-
-
-
-    protected virtual FieldGetFunctionOperate FieldGetFunctionOperate { get; set; }
-
-
-
-    protected virtual FieldSetFunctionOperate FieldSetFunctionOperate { get; set; }
-
-
-
-    protected virtual MaideCallFunctionOperate MethodCallFunctionOperate { get; set; }
-
-
-
-
 
     protected virtual String GetClassListString()
     {
