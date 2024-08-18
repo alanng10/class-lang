@@ -78,11 +78,9 @@ class Read : ToolGen
 
     protected virtual bool SetClassArrayOneLine(String line)
     {
-        StringComp stringComp;
-        stringComp = this.StringComp;
-
         long lineCount;
-        lineCount = stringComp.Count(line);
+        lineCount = this.StringCount(line);
+
         if (lineCount == 0)
         {
             return true;
@@ -141,16 +139,10 @@ class Read : ToolGen
         if (b)
         {
             long ooCount;
-            ooCount = stringComp.Count(oo);
-
-            Range range;
-            range = new Range();
-            range.Init();
-            range.Index = ooCount;
-            range.Count = lineCount - ooCount;
+            ooCount = this.StringCount(oo);
 
             String compLine;
-            compLine = stringComp.CreateString(line, range);;
+            compLine = this.StringCreateIndex(line, ooCount);
 
             String ooa;
             ooa = this.S(" --");
@@ -174,11 +166,8 @@ class Read : ToolGen
                 long koa;
                 koa = compLineCount - ooaCount;
 
-                range.Index = 0;
-                range.Count = koa;
-
                 String aoa;
-                aoa = stringComp.CreateString(compLine, range);
+                aoa = this.StringCreateRange(compLine, 0, koa);
 
                 Delegate aa;
                 aa = this.GetDelegate(aoa);
