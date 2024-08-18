@@ -111,7 +111,7 @@ class PrusateGen : ToolGen
 
         this.AddNewLineIfNotEmpty(varClass.StaticMaide);
 
-        this.AppendDelegateArray(sb, varClass, varClass.Delegate);
+        this.AddDelegateArray(varClass, varClass.Delegate);
 
         this.AddNewLineIfNotEmpty(varClass.Delegate);
         return true;
