@@ -153,15 +153,15 @@ class Read : ToolGen
             Text textCompLine;
             textCompLine = this.TextCreate(compLine);
 
+            long compLineCount;
+            compLineCount = this.StringCount(compLine);
+
             bool boa;
             boa = this.TextEnd(textCompLine, ooak);
             if (boa)
             {
                 long ooaCount;
                 ooaCount = ooak.Range.Count;
-
-                long compLineCount;
-                compLineCount = textCompLine.Range.Count;
 
                 long koa;
                 koa = compLineCount - ooaCount;
@@ -189,62 +189,48 @@ class Read : ToolGen
                 oobk = this.TextCreate(oob);
 
                 bool bob;
-                bob = compLine.EndsWith(oob);
+                bob = this.TextEnd(textCompLine, oobk);
 
-
-
-                string ka;
-
+                String ka;
                 ka = compLine;
-
 
                 if (bob)
                 {
-                    int kob;
+                    long kob;
+                    kob = compLineCount - this.StringCount(oob);
 
-                    kob = compLine.Length - oob.Length;
-
-
-                    ka = compLine.Substring(0, kob);
+                    ka = this.StringCreateRange(compLine, 0, kob);
                 }
 
-
-
                 bool isStatic;
-
                 isStatic = bob;
 
+                Text rightBracket;
+                rightBracket = this.TextCreate(this.S(")"));
 
+                Text textKa;
+                textKa = this.TextCreate(ka);
 
                 bool isMethod;
-
-                isMethod = ka.EndsWith(')');
-
-
+                isMethod = this.TextEnd(textKa, rightBracket);
 
                 if (isMethod)
                 {
                     Maide oa;
-
                     oa = this.GetMethod(ka, isStatic);
-
 
                     if (oa == null)
                     {
                         return false;
                     }
 
-
                     List list;
-
                     list = this.MaideList;
-
 
                     if (isStatic)
                     {
                         list = this.StaticMaideList;
                     }
-
 
                     list.Add(oa);
                 }
@@ -253,34 +239,26 @@ class Read : ToolGen
                 if (!isMethod)
                 {
                     Field ob;
-
                     ob = this.GetField(ka, isStatic);
-
 
                     if (ob == null)
                     {
                         return false;
                     }
 
-
                     List list;
-
                     list = this.FieldList;
-
 
                     if (isStatic)
                     {
                         list = this.StaticFieldList;
                     }
 
-
                     list.Add(ob);
                 }
                     
             }
         }
-
-
 
         return true;
     }
