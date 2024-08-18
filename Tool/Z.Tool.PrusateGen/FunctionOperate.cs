@@ -3,7 +3,7 @@ namespace Z.Tool.PrusateGen;
 
 
 
-class FunctionOperate : Any
+class FunctionOperate : ToolGen
 {
     public virtual PrusateGen Gen { get; set; }
 
@@ -13,7 +13,7 @@ class FunctionOperate : Any
 
 
 
-    public virtual bool ExecuteName(StringBuilder sb)
+    public virtual bool ExecuteName()
     {
         return true;
     }

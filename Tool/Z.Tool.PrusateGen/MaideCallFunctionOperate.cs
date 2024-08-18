@@ -10,17 +10,14 @@ class MaideCallFunctionOperate : FunctionOperate
 
 
 
-    public override bool ExecuteName(StringBuilder sb)
+    public override bool ExecuteName()
     {
         if (!(this.Class == null))
         {
-            sb.Append(this.Class.Name).Append(this.Gen.Combine);
+            this.Add(this.Class.Name).Add(this.Gen.Combine);
         }
-        
-        
-        sb.Append(this.Method.Name);
-
-
+                
+        this.Add(this.Method.Name);
 
         return true;
     }

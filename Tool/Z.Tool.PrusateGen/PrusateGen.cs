@@ -1,62 +1,30 @@
 namespace Z.Tool.PrusateGen;
 
-
-
-
-
-class PrusateGen : Any
+class PrusateGen : ToolGen
 {
     public override bool Init()
     {
         base.Init();
 
-
-
-        this.NewLine = "\n";
-
-
-        this.IntTypeName = "Int";
-
-
-
-        this.Combine = "_";
-
-
-
+        this.NewLine = this.S("\n");
+        this.IntTypeName = this.S("Int");
+        this.Combine = this.S("_");
 
         this.FieldGetFunctionOperate = new FieldGetFunctionOperate();
-
         this.FieldGetFunctionOperate.Init();
-
         this.FieldGetFunctionOperate.Gen = this;
 
-
-
         this.FieldSetFunctionOperate = new FieldSetFunctionOperate();
-
         this.FieldSetFunctionOperate.Init();
-
         this.FieldSetFunctionOperate.Gen = this;
 
-
-
         this.MethodCallFunctionOperate = new MaideCallFunctionOperate();
-
         this.MethodCallFunctionOperate.Init();
-
         this.MethodCallFunctionOperate.Gen = this;
 
+        this.PrudateFileName = this.S("ToolData/Prusate/Prusate.txt");
 
-
-
-        this.PrudateFileName = "ToolData/Prusate/Prusate.txt";
-
-
-
-        this.OutputFilePath = "../../Infra/Infra/Prusate.h";
-        
-
-
+        this.OutputFilePath = this.S("../../Infra/Infra/Prusate.h");
 
         return true;
     }
@@ -126,30 +94,12 @@ class PrusateGen : Any
 
 
     public virtual ReadResult ReadResult { get; set; }
+    public virtual String NewLine { get; set; }
+    public virtual String IntTypeName { get; set; }
+    public virtual String Combine { get; set; }
+    protected virtual String PrudateFileName { get; set; }
+    protected virtual String OutputFilePath { get; set; }
 
-
-
-
-
-    protected virtual string PrudateFileName { get; set; }
-
-
-
-
-    protected virtual string OutputFilePath { get; set; }
-
-
-
-
-    public virtual string NewLine { get; set; }
-
-
-
-    public virtual string IntTypeName { get; set; }
-
-
-
-    public virtual string Combine { get; set; }
 
 
 
