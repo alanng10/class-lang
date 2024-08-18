@@ -35,13 +35,10 @@ class PrusateGen : ToolGen
 
     public virtual bool Execute()
     {
-        string classListString;
-
+        String classListString;
         classListString = this.GetClassListString();
 
-
-
-        string methodListString;
+        String methodListString;
 
         methodListString = this.GetMethodListString();
 
@@ -119,10 +116,9 @@ class PrusateGen : ToolGen
 
 
 
-    protected virtual string GetClassListString()
+    protected virtual String GetClassListString()
     {
-        StringBuilder sb;
-        sb = new StringBuilder();
+        this.AddClear();
 
         Table table;
         table = this.ReadResult.Class;
@@ -136,7 +132,7 @@ class PrusateGen : ToolGen
             Class varClass;
             varClass = (Class)iter.Value;
 
-            this.AppendClass(sb, varClass);
+            this.AddClass(varClass);
         }
 
         string o;
@@ -148,54 +144,32 @@ class PrusateGen : ToolGen
 
 
 
-    protected virtual bool AppendClass(StringBuilder sb, Class varClass)
+    protected virtual bool AddClass(Class varClass)
     {
         if (varClass.HasNew)
         {
-            this.AppendClassNew(sb, varClass);
+            this.AppendClassNew(varClass);
         }
-
-        
-
 
         this.AppendFieldArray(sb, varClass, varClass.Field);
 
-
-        this.AppendNewLineIfNotEmpty(sb, varClass.Field);
-
-
+        this.AddNewLineIfNotEmpty(varClass.Field);
 
         this.AppendMethodArray(sb, varClass, varClass.Maide);
 
-
-        this.AppendNewLineIfNotEmpty(sb, varClass.Maide);
-
-
-
+        this.AddNewLineIfNotEmpty(varClass.Maide);
 
         this.AppendFieldArray(sb, varClass, varClass.StaticField);
 
-
-        this.AppendNewLineIfNotEmpty(sb, varClass.StaticField);
-
-
+        this.AddNewLineIfNotEmpty(varClass.StaticField);
 
         this.AppendMethodArray(sb, varClass, varClass.StaticMaide);
 
-
-        this.AppendNewLineIfNotEmpty(sb, varClass.StaticMaide);
-
-
-
+        this.AddNewLineIfNotEmpty(varClass.StaticMaide);
 
         this.AppendDelegateArray(sb, varClass, varClass.Delegate);
 
-
-        this.AppendNewLineIfNotEmpty(sb, varClass.Delegate);
-
-
-
-
+        this.AddNewLineIfNotEmpty(varClass.Delegate);
         return true;
     }
 
@@ -566,44 +540,25 @@ class PrusateGen : ToolGen
         return true;
     }
 
-
-
-
-
-    protected virtual bool AppendNewLineIfNotEmpty(StringBuilder sb, Array array)
+    protected virtual bool AddNewLineIfNotEmpty(Array array)
     {
         if (array.Count == 0)
         {
             return true;
         }
 
-
-
-        sb.Append(this.NewLine);
-
-
-
+        this.Add(this.NewLine);
         return true;
     }
-
-
-
-
 
     public virtual String GetParamItem(Array param, long index)
     {
         return (String)param.GetAt(index);
     }
 
-
-
-
     protected virtual bool AppendClassNew(StringBuilder sb, Class varClass)
     {
         sb.Append("InfraApiNew").Append("(").Append(varClass.Name).Append(")").Append(this.NewLine);
-
-
-
         return true;
     }
 }
