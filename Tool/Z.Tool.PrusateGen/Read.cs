@@ -113,26 +113,20 @@ class Read : ToolGen
 
             this.ListInfra.TableAdd(this.ClassTable, this.Class.Name, this.Class);
 
-
             this.FieldList = new List();
             this.FieldList.Init();
-
 
             this.MaideList = new List();
             this.MaideList.Init();
 
-
             this.StaticFieldList = new List();
             this.StaticFieldList.Init();
-
 
             this.StaticMaideList = new List();
             this.StaticMaideList.Init();
 
-
             this.DelegateList = new List();
             this.DelegateList.Init();
-
         }
 
 
@@ -411,10 +405,6 @@ class Read : ToolGen
 
         return o;
     }
-
-
-
-
 
     protected virtual NameParamResult GetNameParamResult(string a)
     {
