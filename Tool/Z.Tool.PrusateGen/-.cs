@@ -10,5 +10,4 @@ global using EntryEntry = Avalon.Entry.Entry;
 global using ToolGen = Z.Infra.Infra.Gen;
 global using ToolInfra = Z.Infra.Infra.Infra;
 global using StringSplitOption = System.StringSplitOptions;
-global using StringBuilder = System.Text.StringBuilder;
 global using STAThreadAttribute = System.STAThreadAttribute;
