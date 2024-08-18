@@ -48,7 +48,7 @@ class Read : Any
         infra = ToolInfra.This;
 
         string ka;
-        ka = infra.StorageTextRead("ToolData/ClassList.txt");
+        ka = infra.StorageTextRead("ToolData/Prusate/ClassList.txt");
 
         Array lineArray;        
         lineArray = infra.SplitLineList(ka);
