@@ -608,8 +608,8 @@ Int Draw_TextSet(Int o, Int textData, Int textCount)
 
     Int innKind;
     Int outKind;
-    innKind = Stat_TextEncodeKindUtf32(stat);
-    outKind = Stat_TextEncodeKindUtf16(stat);
+    innKind = Stat_TextCodeKindUtf32(stat);
+    outKind = Stat_TextCodeKindUtf16(stat);
 
     Int resultCount;
     resultCount = TextEncode_ExecuteCount(0, innKind, outKind, dataValue, dataCount);
