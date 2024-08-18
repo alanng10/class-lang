@@ -225,7 +225,7 @@ public class Infra : Any
         Text ka;
         ka = this.TextCreate(this.TextInfra.BoolFalseString);
 
-        if (!(this.TextInfra.Equal(k, ka, this.TextCompare)))
+        if (!this.TextInfra.Equal(k, ka, this.TextCompare))
         {
             b = true;
         }
