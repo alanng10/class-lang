@@ -49,11 +49,11 @@ class PrusateGen : Any
 
 
 
-        this.PrudateFileName = "ToolData/Prudate.txt";
+        this.PrudateFileName = "ToolData/Prusate/Prusate.txt";
 
 
 
-        this.OutputFilePath = "../../Infra/Infra/Prudate.h";
+        this.OutputFilePath = "../../Infra/Infra/Prusate.h";
         
 
 
