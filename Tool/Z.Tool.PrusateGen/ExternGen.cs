@@ -59,12 +59,12 @@ class ExternGen : PrusateGen
         return true;
     }
 
-    protected virtual bool AddClassNewMethod(Maide method)
+    protected virtual bool AddClassNewMethod(Maide maide)
     {
         long index;
         index = this.ArrayIndex;
 
-        this.ClassNewMethodArray.SetAt(index, method);
+        this.ClassNewMethodArray.SetAt(index, maide);
 
         index = index + 1;
 
