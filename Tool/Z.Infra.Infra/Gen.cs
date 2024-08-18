@@ -37,6 +37,16 @@ public class Gen : Any
         return this.ToolInfra.StringCreate(text);
     }
 
+    protected virtual bool TextStart(Text text, Text other)
+    {
+        return this.ToolInfra.TextStart(text, other);
+    }
+
+    protected virtual long TextIndex(Text text, Text other)
+    {
+        return this.ToolInfra.TextIndex(text, other);
+    }
+
     protected virtual Array TextSplitLineString(String text)
     {
         return this.ToolInfra.TextSplitLineString(text);
