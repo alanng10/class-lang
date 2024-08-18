@@ -529,52 +529,27 @@ class PrusateGen : ToolGen
         return o;
     }
 
-
-
-
-
-
-    public virtual bool AppendParamWithOffset(StringBuilder sb, Array param, int offset)
+    public virtual bool AddParamWithOffset(Array param, long offset)
     {
-        int count;
-
+        long count;
         count = param.Count - offset;
 
-
-
-        int i;
-
+        long i;
         i = 0;
-
-
         while (i < count)
         {
-            int ia;
-
+            long ia;
             ia = i + offset;
 
-
-
-            string ka;
-
+            String ka;
             ka = this.GetParamItem(param, ia);
 
+            this.AddParamCombine();
 
-
-            
-            this.AppendParamCombine(sb);
-
-
-
-            this.AppendVarDeclare(sb, ka);
-
-
-
+            this.AddVarDeclare(ka);
 
             i = i + 1;
         }
-
-
 
         return true;
     }
@@ -584,9 +559,6 @@ class PrusateGen : ToolGen
         this.Add(this.IntTypeName).AddS(" ").Add(varName);
         return true;
     }
-
-
-
 
     public virtual bool AddParamCombine()
     {
@@ -618,9 +590,9 @@ class PrusateGen : ToolGen
 
 
 
-    public virtual string GetParamItem(Array param, int index)
+    public virtual String GetParamItem(Array param, long index)
     {
-        return (string)param.GetAt(index);
+        return (String)param.GetAt(index);
     }
 
 
