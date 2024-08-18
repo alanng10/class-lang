@@ -10,7 +10,7 @@ public class Gen : SourceGen
         return true;
     }
 
-    public override int Execute()
+    public override long Execute()
     {
         this.OutputFilePath = this.GetOutputFilePath();
         return base.Execute();
