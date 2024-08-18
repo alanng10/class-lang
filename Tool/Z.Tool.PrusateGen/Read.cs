@@ -374,36 +374,22 @@ class Read : ToolGen
         return a;
     }
 
-
-
-
-
-
-    protected virtual Delegate GetDelegate(string a)
+    protected virtual Delegate GetDelegate(String o)
     {
         NameParamResult u;
-
-        u = this.GetNameParamResult(a);
-
+        u = this.GetNameParamResult(o);
 
         if (u == null)
         {
             return null;
         }
 
-
-        Delegate o;
-
-        o = new Delegate();
-
-        o.Init();
-
-        o.Name = u.Name;
-
-        o.Param = u.Param;
-
-
-        return o;
+        Delegate a;
+        a = new Delegate();
+        a.Init();
+        a.Name = u.Name;
+        a.Param = u.Param;
+        return a;
     }
 
     protected virtual NameParamResult GetNameParamResult(String o)
