@@ -439,14 +439,27 @@ class Read : ToolGen
 
     protected virtual Array GetParam(String o)
     {
-        Text k;
-        k = this.TextCreate(o);
-
-        Text delimit;
-        delimit = this.TextCreate(this.S(", "));
-
         Array array;
-        array = this.TextSplit(k, delimit);
+        array = null;
+
+        bool ba;
+        ba = (this.StringCount(o) == 0);
+
+        if (ba) 
+        {
+            array = this.ListInfra.ArrayCreate(0);
+        }
+
+        if (!ba)
+        {
+            Text k;
+            k = this.TextCreate(o);
+
+            Text delimit;
+            delimit = this.TextCreate(this.S(", "));
+
+            array = this.TextSplit(k, delimit);
+        }
 
         long count;
         count = array.Count;
@@ -459,6 +472,8 @@ class Read : ToolGen
 
             String a;
             a = this.StringCreate(aa);
+
+            global::System.Console.Write("PrusateGen:Read.GetParam a is null: " + (a == null).ToString() + " a Count: " + this.StringCount(a).ToString() + "\n");
 
             array.SetAt(i, a);
         
