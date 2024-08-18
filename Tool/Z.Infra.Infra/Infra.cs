@@ -43,6 +43,9 @@ public class Infra : Any
         this.TextCompare.LeftCharForm = this.CharForm;
         this.TextCompare.RightCharForm = this.CharForm;
         this.TextCompare.Init();
+
+        this.Range = new Range();
+        this.Range.Init();
         return true;
     }
 
@@ -59,6 +62,7 @@ public class Infra : Any
     public virtual TextCompare TextCompare { get; set; }
     public virtual CompareInt CharCompare { get; set; }
     public virtual CharForm CharForm { get; set; }
+    public virtual Range Range { get; set; }
 
     public virtual Infra Add(String a)
     {
@@ -138,6 +142,27 @@ public class Infra : Any
             global::System.Environment.Exit(301);
         }
         return a;
+    }
+
+    public virtual long StringCount(String o)
+    {
+        return this.StringComp.Count(o);
+    }
+
+    public virtual String StringCreateRange(String o, long index, long count)
+    {
+        this.Range.Index = index;
+        this.Range.Count = count;
+
+        return this.StringComp.CreateString(o, this.Range);
+    }
+
+    public virtual String StringCreateIndex(String o, long index)
+    {
+        long count;
+        count = this.StringCount(o) - index;
+        
+        return this.StringCreateRange(o, index, count);
     }
 
     public virtual Array TextSplitLineString(String text)
