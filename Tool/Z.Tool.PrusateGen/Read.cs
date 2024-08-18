@@ -781,7 +781,7 @@ class Read : Any
 
 
 
-        this.Result.Method = array;
+        this.Result.Maide = array;
 
 
 

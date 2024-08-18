@@ -551,7 +551,7 @@ class PrusateGen : Any
 
         int count;
 
-        count = this.ReadResult.Method.Count;
+        count = this.ReadResult.Maide.Count;
 
 
         int i;
@@ -563,7 +563,7 @@ class PrusateGen : Any
         {
             Maide method;
 
-            method = (Maide)this.ReadResult.Method.GetAt(i);
+            method = (Maide)this.ReadResult.Maide.GetAt(i);
 
 
 

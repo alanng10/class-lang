@@ -10,7 +10,7 @@ public class ReadResult : Any
 
 
 
-    public virtual Array Method { get; set; }
+    public virtual Array Maide { get; set; }
 
 
 
