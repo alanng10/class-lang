@@ -361,38 +361,23 @@ class Read : ToolGen
         return a;
     }
 
-
-
-
-
-    protected virtual Maide GetMethod(string a, bool isStatic)
+    protected virtual Maide GetMethod(String o, bool isStatic)
     {
         NameParamResult u;
-
-        u = this.GetNameParamResult(a);
-
+        u = this.GetNameParamResult(o);
 
         if (u == null)
         {
             return null;
         }
 
-
-
-        Maide o;
-
-        o = new Maide();
-
-        o.Init();
-
-        o.Name = u.Name;
-
-        o.Param = u.Param;
-
-        o.Static = isStatic;
-
-
-        return o;
+        Maide a;
+        a = new Maide();
+        a.Init();
+        a.Name = u.Name;
+        a.Param = u.Param;
+        a.Static = isStatic;
+        return a;
     }
 
 
