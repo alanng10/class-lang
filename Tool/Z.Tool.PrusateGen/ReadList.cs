@@ -2,15 +2,7 @@ namespace Z.Tool.PrusateGen;
 
 public class ReadList : ToolGen
 {
-    public override bool Init()
-    {
-        base.Init();
-        this.ListInfra = ListInfra.This;
-        return true;
-    }
-
     public virtual ReadResult ReadResult { get; set; }
-    protected virtual ListInfra ListInfra { get; set; }
     protected virtual List List { get; set; }
 
     public virtual bool Execute()
