@@ -1,18 +1,16 @@
 namespace Z.Tool.PrusateGen;
 
-class MathAdd : Any
+class MathAdd : ToolGen
 {
     public override bool Init()
     {
         base.Init();
         this.ListInfra = ListInfra.This;
-        this.ToolInfra = ToolInfra.This;
         return true;
     }
 
     public virtual ReadResult ReadResult { get; set; }
     protected virtual ListInfra ListInfra { get; set; }
-    protected virtual ToolInfra ToolInfra { get; set; }
     protected virtual Table MaideTable { get; set; }
     protected virtual Array TrigoList { get; set; }
     protected virtual Array LineList { get; set; }
@@ -22,15 +20,15 @@ class MathAdd : Any
         ToolInfra toolInfra;
         toolInfra = this.ToolInfra;
 
-        string ka;
-        ka = toolInfra.StorageTextRead("ToolData/Math/TrigoList.txt");
+        String ka;
+        ka = toolInfra.StorageTextRead(this.S("ToolData/Math/TrigoList.txt"));
 
-        string kb;
-        kb = toolInfra.StorageTextRead("ToolData/Math/List.txt");
+        String kb;
+        kb = toolInfra.StorageTextRead(this.S("ToolData/Math/List.txt"));
 
-        this.TrigoList = toolInfra.SplitLineList(ka);
+        this.TrigoList = toolInfra.TextSplitLineString(ka);
 
-        this.LineList = toolInfra.SplitLineList(kb);
+        this.LineList = toolInfra.TextSplitLineString(kb);
 
         this.MaideTable = toolInfra.TableCreateStringCompare();
 
@@ -85,13 +83,13 @@ class MathAdd : Any
             return false;
         }
 
-        int ka;
+        long ka;
         ka = mathClass.Maide.Count;
 
-        int kb;
+        long kb;
         kb = this.MaideTable.Count;
 
-        int k;
+        long k;
         k = ka;
         k = k + kb;
 
@@ -100,9 +98,9 @@ class MathAdd : Any
         array.Count = k;
         array.Init();
 
-        int count;
+        long count;
         count = ka;
-        int i;
+        long i;
         i = 0;
         while (i < count)
         {
@@ -118,7 +116,7 @@ class MathAdd : Any
         iter = this.MaideTable.IterCreate();
         this.MaideTable.IterSet(iter);
 
-        int start;
+        long start;
         start = ka;
 
         count = kb;
@@ -130,7 +128,7 @@ class MathAdd : Any
             Maide method;
             method = (Maide)iter.Value;
 
-            int index;
+            long index;
             index = start + i;
 
             array.SetAt(index, method);
@@ -156,31 +154,43 @@ class MathAdd : Any
         bool b;
         b = false;
 
-        int count;
+        Text space;
+        space = this.TextCreate(this.S(" "));
+
+        long count;
         count = array.Count;
-        int i;
+        long i;
         i = 0;
         while (i < count)
         {
-            string a;
-            a = (string)array.GetAt(i);
+            String a;
+            a = (String)array.GetAt(i);
 
-            string[] uu;
-            uu = a.Split(' ');
+            Text k;
+            k = this.TextCreate(a);
 
-            if (!(uu.Length == 4))
+            Array uu;
+            uu = this.TextSplit(k, space);
+
+            if (!(uu.Count == 4))
             {
                 return false;
             }
 
-            string name;
-            name = uu[0];
+            Text textName;
+            textName = (Text)uu.GetAt(0);
 
-            string ka;
-            ka = uu[1];
+            Text textOperandTwo;
+            textOperandTwo = (Text)uu.GetAt(1);
+
+            String name;
+            name = this.StringCreate(textName);
+
+            String operandTwo;
+            operandTwo = this.StringCreate(textOperandTwo);
 
             bool ba;
-            ba = toolInfra.GetBool(ka);
+            ba = toolInfra.GetBool(operandTwo);
 
             b = this.TableAddMaide(table, name, ba);
             if (!b)
@@ -194,7 +204,7 @@ class MathAdd : Any
         return true;
     }
 
-    protected virtual bool TableAddMaide(Table table, string name, bool operandTwo)
+    protected virtual bool TableAddMaide(Table table, String name, bool operandTwo)
     {
         ListInfra listInfra;
         listInfra = this.ListInfra;
@@ -245,7 +255,7 @@ class MathAdd : Any
         return true;
     }
 
-    protected virtual Maide CreateMaide(string name, bool operandTwo)
+    protected virtual Maide CreateMaide(String name, bool operandTwo)
     {
         ListInfra listInfra;
         listInfra = this.ListInfra;
