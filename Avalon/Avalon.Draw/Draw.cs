@@ -354,7 +354,7 @@ public class Draw : Any
         ulong vr;
         hr = (ulong)horizRadius;
         vr = (ulong)vertRadius;
-        Extern.Draw_ExecuteRoundRect(this.Intern, this.InternRectA, hr, vr);
+        Extern.Draw_ExecuteRectRound(this.Intern, this.InternRectA, hr, vr);
         return true;
     }
 
@@ -362,7 +362,7 @@ public class Draw : Any
     {
         this.InternRectSetFromRect(this.InternRectA, rect);
 
-        Extern.Draw_ExecuteEllipse(this.Intern, this.InternRectA);
+        Extern.Draw_ExecuteRound(this.Intern, this.InternRectA);
         return true;
     }
 
@@ -372,7 +372,7 @@ public class Draw : Any
 
         this.InternRangeSetFromRange(this.InternRangeA, range);
 
-        Extern.Draw_ExecuteArc(this.Intern, this.InternRectA, this.InternRangeA);
+        Extern.Draw_ExecuteRoundLine(this.Intern, this.InternRectA, this.InternRangeA);
         return true;
     }
 
@@ -382,7 +382,7 @@ public class Draw : Any
 
         this.InternRangeSetFromRange(this.InternRangeA, range);
 
-        Extern.Draw_ExecutePie(this.Intern, this.InternRectA, this.InternRangeA);
+        Extern.Draw_ExecuteRoundPart(this.Intern, this.InternRectA, this.InternRangeA);
         return true;
     }
     
@@ -392,7 +392,7 @@ public class Draw : Any
 
         this.InternRangeSetFromRange(this.InternRangeA, range);
 
-        Extern.Draw_ExecuteChord(this.Intern, this.InternRectA, this.InternRangeA);
+        Extern.Draw_ExecuteRoundShape(this.Intern, this.InternRectA, this.InternRangeA);
         return true;
     }
 
@@ -410,7 +410,7 @@ public class Draw : Any
         ulong ka;
         ka = (ulong)pointList.Count;
 
-        Extern.Draw_ExecutePolygon(this.Intern, ka, pointList.Intern);
+        Extern.Draw_ExecuteShape(this.Intern, ka, pointList.Intern);
         return true;
     }
 
@@ -419,7 +419,7 @@ public class Draw : Any
         ulong ka;
         ka = (ulong)pointList.Count;
 
-        Extern.Draw_ExecutePolyline(this.Intern, ka, pointList.Intern);
+        Extern.Draw_ExecuteShapeLine(this.Intern, ka, pointList.Intern);
         return true;
     }
 
@@ -432,7 +432,7 @@ public class Draw : Any
         return true;
     }
 
-    public virtual bool ExecuteText(TextText text, Rect destRect, TextAlign align, bool wordWarp)
+    public virtual bool ExecuteText(TextText text, TextAlign align, bool wordWarp, Rect destRect)
     {
         long count;
         count = text.Range.Count;
@@ -445,14 +445,19 @@ public class Draw : Any
 
         this.InternRectSetFromRect(this.InternRectA, destRect);
 
-        ulong o;
-        o = align.Intern;
+        ulong kaa;
+        ulong kab;
+        kaa = (ulong)align.Horiz;
+        kab = (ulong)align.Vert;
+
+        ulong wordWrapU;
+        wordWrapU = 0;
         if (wordWarp)
         {
-            o = o | this.DrawInfra.InternWordWrap;
+            wordWrapU = 1;
         }
 
-        Extern.Draw_ExecuteText(this.Intern, this.InternRectA, o, this.InternText, this.InternRectB);
+        Extern.Draw_ExecuteText(this.Intern, this.InternText, kaa, kab, wordWrapU, this.InternRectA, this.InternRectB);
         return true;
     }
 
