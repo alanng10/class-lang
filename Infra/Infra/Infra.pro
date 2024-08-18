@@ -131,7 +131,7 @@ SOURCES += \
     Stat_GradientKind.cpp \
     Stat_GradientSpread.cpp \
     Stat_Comp.cpp \
-    Stat_ImageFormat.cpp \
+    Stat_ImageBinary.cpp \
     State.c \
     Storage.cpp \
     StorageArrange.cpp \
