@@ -1,4 +1,4 @@
-namespace Z.Tool.PrudateGen;
+namespace Z.Tool.PrusateGen;
 
 class Read : Any
 {
