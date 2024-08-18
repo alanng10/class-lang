@@ -5,7 +5,7 @@ namespace Z.Tool.PrusateGen;
 
 class FunctionOperate : Any
 {
-    public virtual PrudateGen Gen { get; set; }
+    public virtual PrusateGen Gen { get; set; }
 
 
     

@@ -43,14 +43,14 @@ class Gen : Any
             return 120;
         }
 
-        this.ExecutePrudateGen(new PrudateGen());
+        this.ExecutePrudateGen(new PrusateGen());
 
         this.ExecutePrudateGen(new ExternGen());
 
         return 0;
     }
 
-    protected virtual bool ExecutePrudateGen(PrudateGen gen)
+    protected virtual bool ExecutePrudateGen(PrusateGen gen)
     {
         gen.Init();
 

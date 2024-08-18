@@ -4,7 +4,7 @@ namespace Z.Tool.PrusateGen;
 
 
 
-class PrudateGen : Any
+class PrusateGen : Any
 {
     public override bool Init()
     {
