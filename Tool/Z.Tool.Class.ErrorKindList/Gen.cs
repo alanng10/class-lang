@@ -11,7 +11,7 @@ public class Gen : SourceGen
 
     protected virtual bool ExecuteOne(string name)
     {
-        this.Namespace = "Class." + name;
+        this.Module = "Class." + name;
         this.ClassName = "ErrorKindList";
         this.BaseClassName = "Any";
         this.AnyClassName = "Any";

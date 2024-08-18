@@ -5,7 +5,7 @@ public class NodeKindListGen : SourceGen
     public override bool Init()
     {
         base.Init();
-        this.Namespace = "Class.Node";
+        this.Module = "Class.Node";
         this.ClassName = "NodeKindList";
         this.BaseClassName = "Any";
         this.AnyClassName = "Any";

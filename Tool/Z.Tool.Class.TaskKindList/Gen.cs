@@ -5,7 +5,7 @@ public class Gen : SourceGen
     public override bool Init()
     {
         base.Init();
-        this.Namespace = "Class.Console";
+        this.Module = "Class.Console";
         this.ClassName = "TaskKindList";
         this.BaseClassName = "Any";
         this.AnyClassName = "Any";

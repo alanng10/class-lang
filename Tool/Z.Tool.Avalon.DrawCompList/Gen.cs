@@ -5,7 +5,7 @@ public class Gen : SourceGen
     public override bool Init()
     {
         base.Init();
-        this.Namespace = this.S("Avalon.Draw");
+        this.Module = this.S("Avalon.Draw");
         this.ClassName = this.S("CompList");
         this.BaseClassName = this.S("Any");
         this.AnyClassName = this.S("Any");

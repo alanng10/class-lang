@@ -13,7 +13,7 @@ public class Gen : ToolGen
         return true;
     }
 
-    public virtual String Namespace { get; set; }
+    public virtual String Module { get; set; }
     public virtual String ClassName { get; set; }
     public virtual String BaseClassName { get; set; }
     public virtual String AnyClassName { get; set; }
@@ -38,7 +38,7 @@ public class Gen : ToolGen
 
         Text k;        
         k = this.TextCreate(a);
-        k = this.Replace(k, "#Namespace#", this.Namespace);
+        k = this.Replace(k, "#Namespace#", this.Module);
         k = this.Replace(k, "#ClassName#", this.ClassName);
         k = this.Replace(k, "#AnyClassName#", this.AnyClassName);
         k = this.Replace(k, "#BaseClassName#", this.BaseClassName);

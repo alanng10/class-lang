@@ -25,7 +25,7 @@ public class AvalonGen : AvalonSourceGen
 
     protected virtual String GetOutputFilePath()
     {
-        return this.AddClear().AddS("../../Avalon/").Add(this.Namespace).AddS("/").Add(this.ClassName).AddS(".cs").AddResult();
+        return this.AddClear().AddS("../../Avalon/").Add(this.Module).AddS("/").Add(this.ClassName).AddS(".cs").AddResult();
     }
 
     protected override TableEntry GetItemEntry(String line)

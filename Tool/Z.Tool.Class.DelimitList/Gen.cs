@@ -5,7 +5,7 @@ public class Gen : SourceGen
     public override bool Init()
     {
         base.Init();
-        this.Namespace = "Class.Infra";
+        this.Module = "Class.Infra";
         this.ClassName = "DelimitList";
         this.BaseClassName = "Any";
         this.AnyClassName = "Any";

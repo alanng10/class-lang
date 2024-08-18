@@ -5,7 +5,7 @@ public class Gen : SourceGen
     public override bool Init()
     {
         base.Init();
-        this.Namespace = this.S("Avalon.Text");
+        this.Module = this.S("Avalon.Text");
         this.ClassName = this.S("CodeKindList");
         this.BaseClassName = this.S("Any");
         this.AnyClassName = this.S("Any");
