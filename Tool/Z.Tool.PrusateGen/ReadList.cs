@@ -145,7 +145,7 @@ public class ReadList : ToolGen
             name = this.StringCreate(kaa);
 
             String maideName;
-            maideName = this.GetMethodName(classNameK, name);
+            maideName = this.GetMaideName(classNameK, name);
 
             Array param;
             param = this.ListInfra.ArrayCreate(0);
@@ -169,7 +169,7 @@ public class ReadList : ToolGen
         return this.AddClear().AddS("ToolData/Infra/ItemList").Add(className).AddS(".txt").AddResult();
     }
 
-    protected virtual String GetMethodName(String className, String itemName)
+    protected virtual String GetMaideName(String className, String itemName)
     {
         return this.AddClear().Add(className).Add(itemName).AddResult();
     }
