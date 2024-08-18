@@ -2,15 +2,7 @@ namespace Z.Tool.PrusateGen;
 
 class MathAdd : ToolGen
 {
-    public override bool Init()
-    {
-        base.Init();
-        this.ListInfra = ListInfra.This;
-        return true;
-    }
-
     public virtual ReadResult ReadResult { get; set; }
-    protected virtual ListInfra ListInfra { get; set; }
     protected virtual Table MaideTable { get; set; }
     protected virtual Array TrigoList { get; set; }
     protected virtual Array LineList { get; set; }
