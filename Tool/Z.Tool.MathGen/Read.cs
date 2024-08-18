@@ -1,20 +1,18 @@
 namespace Z.Tool.MathGen;
 
-public class Read : Any
+public class Read : ToolGen
 {
     public override bool Init()
     {
         base.Init();
         this.ListInfra = ListInfra.This;
-        this.ToolInfra = ToolInfra.This;
         return true;
     }
 
     public virtual Table MaideTable { get; set; }
     protected virtual ListInfra ListInfra { get; set; }
-    protected virtual ToolInfra ToolInfra { get; set; }
-    protected virtual string TextTrigoList { get; set; }
-    protected virtual string TextList { get; set; }
+    protected virtual String TextTrigoList { get; set; }
+    protected virtual String TextList { get; set; }
     protected virtual Table TrigoTable { get; set; }
     protected virtual Array LineList { get; set; }
     protected virtual Array TrigoLineList { get; set; }
@@ -24,11 +22,11 @@ public class Read : Any
         ToolInfra toolInfra;
         toolInfra = this.ToolInfra;
 
-        this.TextList = toolInfra.StorageTextRead("ToolData/Math/List.txt");
-        this.TextTrigoList = toolInfra.StorageTextRead("ToolData/Math/TrigoList.txt");
+        this.TextList = toolInfra.StorageTextRead(this.S("ToolData/Math/List.txt"));
+        this.TextTrigoList = toolInfra.StorageTextRead(this.S("ToolData/Math/TrigoList.txt"));
 
-        this.LineList = toolInfra.SplitLineList(this.TextList);
-        this.TrigoLineList = toolInfra.SplitLineList(this.TextTrigoList);
+        this.LineList = toolInfra.TextSplitLineString(this.TextList);
+        this.TrigoLineList = toolInfra.TextSplitLineString(this.TextTrigoList);
 
         bool b;
         b = this.SetTrigoTable();
@@ -85,14 +83,16 @@ public class Read : Any
         Array array;
         array = this.LineList;
 
-        int count;
+        long count;
         count = array.Count;
-        int i;
+        long i;
         i = 0;
         while (i < count)
         {
-            string a;
-            a = (string)array.GetAt(i);
+            String a;
+            a = (String)array.GetAt(i);
+
+            
 
             string[] uu;
             uu = a.Split(' ');
