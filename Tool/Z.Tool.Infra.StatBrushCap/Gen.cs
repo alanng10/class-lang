@@ -2,7 +2,7 @@ namespace Z.Tool.Infra.StatBrushCap;
 
 class Gen : StatGen
 {
-    public override int Execute()
+    public override long Execute()
     {
         this.ClassName = this.S("BrushCap");
 
@@ -12,7 +12,7 @@ class Gen : StatGen
 
         this.ItemListFileName = this.S("ToolData/Infra/ItemListBrushCap.txt");
 
-        int o;
+        long o;
         o = base.Execute();
         return o;
     }
