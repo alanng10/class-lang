@@ -1,32 +1,13 @@
 namespace Z.Tool.Infra.StatStorageStatus;
 
-
-
-
-
 class Gen : StatGen
 {
-    public override int Execute()
+    public override long Execute()
     {
-        this.ClassName = "StorageStatus";
+        this.ClassName = this.S("StorageStatus");
+        this.ScopeName = this.S("QFileDevice");
+        this.ItemListFileName = this.S("ToolData/Infra/ItemListStorageStatus.txt");
 
-
-
-        this.ScopeName = "QFileDevice";
-        
-
-
-
-        this.ItemListFileName = "ToolData/ItemListStorageStatus.txt";
-
-
-
-
-        int o;
-        
-        o = base.Execute();
-
-
-        return o;
+        return base.Execute();
     }
 }
