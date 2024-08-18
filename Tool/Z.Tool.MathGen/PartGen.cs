@@ -23,15 +23,17 @@ class PartGen : ToolGen
         this.TextMaideTwo = toolInfra.StorageTextRead(this.MaideTwoFilePath);
         this.TextMaideOperate = toolInfra.StorageTextRead(this.MaideOperateFilePath);
 
-        string k;
-        k = this.GetPart();
+        String ka;
+        ka = this.GetPart();
 
-        string ka;
-        ka = this.TextPart;
-        ka = ka.Replace("#Part#", k);
+        Text k;
+        k = this.TextCreate(this.TextPart);
+        k = this.Replace(k, "#Part#", ka);
 
-        toolInfra.StorageTextWrite(this.OutputFilePath, ka);
+        String a;
+        a = this.StringCreate(k);
 
+        toolInfra.StorageTextWrite(this.OutputFilePath, a);
         return true;
     }
 
