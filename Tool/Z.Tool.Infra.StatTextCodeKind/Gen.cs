@@ -1,10 +1,10 @@
-namespace Z.Tool.Infra.StatTextEncodeKind;
+namespace Z.Tool.Infra.StatTextCodeKind;
 
 class Gen : StatGen
 {
     public override int Execute()
     {
-        this.ClassName = "TextEncodeKind";
+        this.ClassName = "TextCodeKind";
 
         this.ScopeName = "";
 

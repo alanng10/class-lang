@@ -1,4 +1,4 @@
-namespace Z.Tool.Infra.StatTextWrap;
+namespace Z.Tool.Infra.StatTextCodeKind;
 
 class Entry : EntryEntry
 {
