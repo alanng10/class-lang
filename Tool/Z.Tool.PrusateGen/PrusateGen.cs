@@ -182,19 +182,12 @@ class PrusateGen : ToolGen
         while (i < count)
         {
             Field field;
-
             field = (Field)fieldArray.GetAt(i);
 
-
-            this.AppendField(sb, varClass, field);
-
-
+            this.AddField(varClass, field);
 
             i = i + 1;
         }
-
-
-
         return true;
     }
 
@@ -385,52 +378,28 @@ class PrusateGen : ToolGen
         return true;
     }
 
-
-
-
-
-    protected virtual string GetMethodListString()
+    protected virtual String GetMethodListString()
     {
-        StringBuilder sb;
+        this.AddClear();
 
-        sb = new StringBuilder();
-
-
-
-        int count;
-
+        long count;
         count = this.ReadResult.Maide.Count;
 
-
-        int i;
-
+        long i;
         i = 0;
-
-
         while (i < count)
         {
-            Maide method;
+            Maide maide;
+            maide = (Maide)this.ReadResult.Maide.GetAt(i);
 
-            method = (Maide)this.ReadResult.Maide.GetAt(i);
-
-
-
-            this.AppendMethod(sb, null, method);
-
-
+            this.AddMethod(null, maide);
 
             i = i + 1;
         }
 
-
-
-        string o;
-
-        o = sb.ToString();
-
-
-
-        return o;
+        String a;
+        a = this.AddResult();
+        return a;
     }
 
     public virtual bool AddParamWithOffset(Array param, long offset)
