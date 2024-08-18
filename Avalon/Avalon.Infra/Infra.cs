@@ -218,7 +218,6 @@ public class Infra : Any
         a.LeftCharForm = charForm;
         a.RightCharForm = charForm;
         a.Init();
-
         return a;
     }
 }
