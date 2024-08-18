@@ -5,7 +5,6 @@ DEFINES += Infra_Module
 HEADERS += \
     AString.hpp \
     Array.h \
-    AudioEffect.hpp \
     AudioOut.hpp \
     Brush.hpp \
     Console.hpp \
@@ -69,7 +68,6 @@ HEADERS += \
 SOURCES += \
     AString.cpp \
     Array.c \
-    AudioEffect.cpp \
     AudioOut.cpp \
     Brush.cpp \
     Console.cpp \
