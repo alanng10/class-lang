@@ -1,4 +1,4 @@
-namespace Z.Tool.Infra.StatImageFormat;
+namespace Z.Tool.Infra.StatImageBinary;
 
 class Entry : EntryEntry
 {

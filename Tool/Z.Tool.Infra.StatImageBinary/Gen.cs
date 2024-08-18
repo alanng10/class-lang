@@ -1,14 +1,14 @@
-namespace Z.Tool.Infra.StatImageFormat;
+namespace Z.Tool.Infra.StatImageBinary;
 
 class Gen : StatGen
 {
     public override long Execute()
     {
-        this.ClassName = this.S("ImageFormat");
+        this.ClassName = this.S("ImageBinary");
         this.ScopeName = this.S("");
         this.ScopeSeparator = this.S("");
-        this.ItemListFileName = this.S("ToolData/Infra/ItemListImageFormat.txt");
-        this.MethodFileName = this.S("ToolData/Infra/MethodImageFormat.txt");
+        this.ItemListFileName = this.S("ToolData/Infra/ItemListImageBinary.txt");
+        this.MethodFileName = this.S("ToolData/Infra/MaideImageBinary.txt");
 
         return base.Execute();
     }
