@@ -138,7 +138,7 @@ Draw
     ExecuteShape(pointListCount, pointListData)
     ExecuteShapeLine(pointListCount, pointListData)
     ExecuteImage(image, destRect, sourceRect)
-    ExecuteText(destRect, flag, text, boundRect)
+    ExecuteText(text, horizAlign, vertAlign, wordWrap, destRect, boundRect)
 
 Brush
     Kind
