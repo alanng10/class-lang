@@ -78,7 +78,12 @@ class Read : ToolGen
 
     protected virtual bool SetClassArrayOneLine(String line)
     {
-        if (this.StringComp.Count(line) == 0)
+        StringComp stringComp;
+        stringComp = this.StringComp;
+
+        long lineCount;
+        lineCount = stringComp.Count(line);
+        if (lineCount == 0)
         {
             return true;
         }
@@ -86,11 +91,14 @@ class Read : ToolGen
         Text k;
         k = this.TextCreate(line);
 
-        Text oo;
-        oo = this.TextCreate(this.S("    "));
+        String oo;
+        oo = this.S("    ");
+
+        Text ook;
+        ook = this.TextCreate(oo);
 
         bool b;
-        b =  this.TextStart(k, oo);
+        b =  this.TextStart(k, ook);
 
         if (!b)
         {
@@ -132,47 +140,53 @@ class Read : ToolGen
 
         if (b)
         {
-            string compLine;
+            long ooCount;
+            ooCount = stringComp.Count(oo);
 
-            compLine = line.Substring(oo.Length);
+            Range range;
+            range = new Range();
+            range.Init();
+            range.Index = ooCount;
+            range.Count = lineCount - ooCount;
 
+            String compLine;
+            compLine = stringComp.CreateString(line, range);;
 
+            String ooa;
+            ooa = this.S(" --");
 
-            string ooa;
+            Text ooak;
+            ooak = this.TextCreate(ooa);
 
-            ooa = " --";
-
+            Text textCompLine;
+            textCompLine = this.TextCreate(compLine);
 
             bool boa;
-
-            boa = compLine.EndsWith(ooa);
-
-
-
+            boa = this.TextEnd(textCompLine, ooak);
             if (boa)
             {
-                int koa;
+                long ooaCount;
+                ooaCount = ooak.Range.Count;
 
-                koa = compLine.Length - ooa.Length;
+                long compLineCount;
+                compLineCount = textCompLine.Range.Count;
 
+                long koa;
+                koa = compLineCount - ooaCount;
 
-                string aoa;
-                
-                aoa = compLine.Substring(0, koa);
+                range.Index = 0;
+                range.Count = koa;
 
-
+                String aoa;
+                aoa = stringComp.CreateString(compLine, range);
 
                 Delegate aa;
-
                 aa = this.GetDelegate(aoa);
-
 
                 if (aa == null)
                 {
                     return false;
                 }
-
-
 
                 this.DelegateList.Add(aa);
             }
