@@ -43,7 +43,7 @@ public class ReadList : ToolGen
     protected virtual bool SetStatMethod()
     {
         Class statClass;
-        statClass = (Class)this.ReadResult.Class.Get("Stat");
+        statClass = (Class)this.ReadResult.Class.Get(this.S("Stat"));
 
         if (statClass == null)
         {
