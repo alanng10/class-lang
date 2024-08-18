@@ -1,35 +1,14 @@
 namespace Z.Tool.Infra.StatStorageMode;
 
-
-
-
-
 class Gen : StatGen
 {
-    public override int Execute()
+    public override long Execute()
     {
-        this.ClassName = "StorageMode";
+        this.ClassName = this.S("StorageMode");
+        this.ScopeName = this.S("QIODeviceBase");
+        this.ValuePostfix = this.S("Only");
+        this.ItemListFileName = this.S("ToolData/Infra/ItemListStorageMode.txt");
 
-
-
-        this.ScopeName = "QIODeviceBase";
-        
-
-
-        this.ValuePostfix = "Only";
-
-
-
-        this.ItemListFileName = "ToolData/ItemListStorageMode.txt";
-
-
-
-
-        int o;
-        
-        o = base.Execute();
-
-
-        return o;
+        return base.Execute();
     }
 }
