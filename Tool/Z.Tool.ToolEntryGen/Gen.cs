@@ -40,7 +40,7 @@ class Gen : ToolGen
         this.ExecuteOne("System.GradientKindList");
         this.ExecuteOne("System.GradientSpreadList");
         this.ExecuteOne("System.ImageBinaryList");
-        this.ExecuteOne("Infra.StatTextEncodeKind");
+        this.ExecuteOne("Infra.StatTextCodeKind");
         this.ExecuteOne("Infra.StatThreadCase");
         this.ExecuteOne("Infra.StatStreamKind");
         this.ExecuteOne("Infra.StatStorageMode");
@@ -55,9 +55,7 @@ class Gen : ToolGen
         this.ExecuteOne("Infra.StatComp");
         this.ExecuteOne("Infra.StatGradientKind");
         this.ExecuteOne("Infra.StatGradientSpread");
-        this.ExecuteOne("Infra.StatImageFormat");
-        this.ExecuteOne("Infra.StatTextAlign");
-        this.ExecuteOne("Infra.StatTextWrap");
+        this.ExecuteOne("Infra.StatImageBinary");
         this.ExecuteOne("MathGen");
         this.ExecuteOne("PrudateGen");
         this.ExecuteOne("ReferBinaryGen");

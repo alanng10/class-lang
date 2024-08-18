@@ -21,7 +21,7 @@
         <ProjectReference Include="../Z.Tool.Infra.StatComp/Z.Tool.Infra.StatComp.csproj" />
         <ProjectReference Include="../Z.Tool.Infra.StatGradientKind/Z.Tool.Infra.StatGradientKind.csproj" />
         <ProjectReference Include="../Z.Tool.Infra.StatGradientSpread/Z.Tool.Infra.StatGradientSpread.csproj" />
-        <ProjectReference Include="../Z.Tool.Infra.StatImageFormat/Z.Tool.Infra.StatImageFormat.csproj" />
+        <ProjectReference Include="../Z.Tool.Infra.StatImageBinary/Z.Tool.Infra.StatImageBinary.csproj" />
     </ItemGroup>
 
 </Project>
