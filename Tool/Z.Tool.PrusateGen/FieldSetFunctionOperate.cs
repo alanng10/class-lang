@@ -20,7 +20,6 @@ class FieldSetFunctionOperate : FunctionOperate
         }
 
         this.Gen.AddVarDeclare(this.S("value"));
-
         return true;
     }
 }
