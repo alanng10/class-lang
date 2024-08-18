@@ -102,25 +102,24 @@ public class Gen : ToolGen
 
     protected virtual String GetMethodList()
     {
-        string methodText;
-        methodText = this.ToolInfra.StorageTextRead(this.MethodFileName);
+        String maideText;
+        maideText = this.ToolInfra.StorageTextRead(this.MethodFileName);
 
-        StringBuilder sa;
-        sa = new StringBuilder(methodText);
-        sa.Replace("#ClassName#", this.ClassName);
-        sa.Replace("#NamePrefix#", this.NamePrefix);
-        sa.Replace("#NamePostfix#", this.NamePostfix);
-        sa.Replace("#ScopeName#", this.ScopeName);
-        sa.Replace("#ScopeSeparator#", this.ScopeSeparator);
-        sa.Replace("#ValuePrefix#", this.ValuePrefix);
-        sa.Replace("#ValuePostfix#", this.ValuePostfix);
-        sa.Replace("#ValueOffset#", this.ValueOffset);
+        Text ka;
+        ka = this.TextCreate(maideText);
+        ka = this.Replace(ka, "#ClassName#", this.ClassName);
+        ka = this.Replace(ka, "#NamePrefix#", this.NamePrefix);
+        ka = this.Replace(ka, "#NamePostfix#", this.NamePostfix);
+        ka = this.Replace(ka, "#ScopeName#", this.ScopeName);
+        ka = this.Replace(ka, "#ScopeSeparator#", this.ScopeSeparator);
+        ka = this.Replace(ka, "#ValuePrefix#", this.ValuePrefix);
+        ka = this.Replace(ka, "#ValuePostfix#", this.ValuePostfix);
+        ka = this.Replace(ka, "#ValueOffset#", this.ValueOffset);
 
-        string oo;
-        oo = sa.ToString();
+        String oo;
+        oo = this.StringCreate(ka);
 
-        StringBuilder sb;
-        sb = new StringBuilder();
+        this.AddClear();
 
         Iter iter;
         iter = this.ItemTable.IterCreate();
@@ -130,17 +129,17 @@ public class Gen : ToolGen
         i = 0;
         while (iter.Next())
         {
-            string k;
+            String k;
             k = this.GetItemMethod(oo, iter, i);
             
-            sb.Append(k);
+            this.Add(k);
 
             i = i + 1;
         }
 
-        string ka;
-        ka = sb.ToString();
-        return ka;
+        String a;
+        a = this.AddResult();
+        return a;
     }
 
     protected virtual string GetShareVarList()
@@ -204,23 +203,26 @@ public class Gen : ToolGen
         return k;
     }
 
-    protected virtual string GetItemMethod(string method, Iter iter, int index)
+    protected virtual String GetItemMethod(String method, Iter iter, long index)
     {
-        string a;
-        a = (string)iter.Index;
+        String aa;
+        aa = (String)iter.Index;
 
-        string ka;
-        ka = (string)iter.Value;
+        String ka;
+        ka = (String)iter.Value;
 
-        string kb;
-        kb = index.ToString();
+        String kb;
+        kb = this.S(index.ToString());
 
-        string k;
-        k = method;
-        k = k.Replace("#ItemName#", a);
-        k = k.Replace("#ItemValue#", ka);
-        k = k.Replace("#ItemIndex#", kb);
-        return k;
+        Text k;
+        k = this.TextCreate(method);
+        k = this.Replace(k, "#ItemName#", aa);
+        k = this.Replace(k, "#ItemValue#", ka);
+        k = this.Replace(k, "#ItemIndex#", kb);
+
+        String a;
+        a = this.StringCreate(k);
+        return a;
     }
 
     protected virtual string GetOutputFilePath()
