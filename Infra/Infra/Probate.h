@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Prudate.h"
+#include "Prusate.h"
 
 Int String_QStringSet(Int result, Int a);
 

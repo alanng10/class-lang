@@ -44,7 +44,7 @@ HEADERS += \
     Probate.hpp \
     Program.hpp \
     ProgramIntern.hpp \
-    Prudate.h \
+    Prusate.h \
     Rand.hpp \
     Range.h \
     Rect.h \
