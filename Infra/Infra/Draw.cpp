@@ -538,8 +538,8 @@ Int Draw_ExecuteText(Int o, Int text, Int horizAlign, Int vertAlign, Int wordWra
 
     Int flag;
     flag = 0;
-    flag = flag | Draw_TextAlignHoriz_Array[horizAlign];
-    flag = flag | Draw_TextAlignVert_Array[vertAlign];
+    flag = flag | Draw_TextAlignHoriz_Array[horizAlign - 1];
+    flag = flag | Draw_TextAlignVert_Array[vertAlign - 1];
 
     if (wordWrap)
     {
