@@ -1,40 +1,15 @@
 namespace Z.Tool.Infra.StatGradientSpread;
 
-
-
-
-
 class Gen : StatGen
 {
-    public override int Execute()
+    public override long Execute()
     {
-        this.ClassName = "GradientSpread";
+        this.ClassName = this.S("GradientSpread");
+        this.ScopeName = this.S("QGradient");
+        this.ValuePostfix = this.S("Spread");
+        this.ValueOffset = this.S(" + 1");
+        this.ItemListFileName = this.S("ToolData/Infra/ItemListGradientSpread.txt");
 
-
-
-        this.ScopeName = "QGradient";
-
-
-
-        this.ValuePostfix = "Spread";
-
-
-        
-        this.ValueOffset = " + 1";
-
-
-
-
-        this.ItemListFileName = "ToolData/ItemListGradientSpread.txt";
-
-
-
-
-        int o;
-        
-        o = base.Execute();
-
-
-        return o;
+        return base.Execute();
     }
 }
