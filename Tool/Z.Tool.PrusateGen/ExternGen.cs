@@ -1,212 +1,92 @@
 namespace Z.Tool.PrusateGen;
 
-
-
-
-
 class ExternGen : PrusateGen
 {
     public override bool Init()
     {
         base.Init();
 
+        this.PrudateFileName = this.S("ToolData/Prusate/Extern.txt");
 
+        this.OutputFilePath = this.S("../../Avalon/Avalon.Intern/Extern.cs");
 
-
-        this.PrudateFileName = "ToolData/Prusate/Extern.txt";
-
-
-        this.OutputFilePath = "../../Avalon/Avalon.Intern/Extern.cs";
-
-
-
-
-        this.IntTypeName = "ulong";
-
-
-
+        this.IntTypeName = this.S("ulong");
 
         this.InitClassNewMethodArray();
-
-
-
-
         return true;
     }
 
-
-
-
     protected virtual Array ClassNewMethodArray { get; set; }
-
-
-
-    protected virtual int ClassNewMethodIndex { get; set; }
-
-
-
+    protected virtual long ArrayIndex { get; set; }
 
     protected virtual bool InitClassNewMethodArray()
     {
         Maide newMethod;
-
         newMethod = new Maide();
-
         newMethod.Init();
-
-
-        newMethod.Name = "New";
-
+        newMethod.Name = this.S("New");
         newMethod.Param = this.CreateClassNewParam();
-        
-        
         newMethod.Static = true;
 
-        
-
-
         Array deleteParam;
+        deleteParam = this.ListInfra.ArrayCreate(1);
 
-        deleteParam = new Array();
-
-        deleteParam.Count = 1;
-
-        deleteParam.Init();
-
-
-        deleteParam.SetAt(0, "o");
-
-
-
+        deleteParam.SetAt(0, this.S("o"));
 
         Maide deleteMethod;
-
         deleteMethod = new Maide();
-
         deleteMethod.Init();
-
-
-        deleteMethod.Name = "Delete";
-
+        deleteMethod.Name = this.S("Delete");
         deleteMethod.Param = deleteParam;
-
-
         deleteMethod.Static = true;
 
-
-
-
         Maide initMethod;
-
         initMethod = this.CreateClassNewInstanceMethod("Init");
-
-
         Maide finalMethod;
-
         finalMethod = this.CreateClassNewInstanceMethod("Final");
 
-
-
         Array array;
-
-        array = new Array();
-
-        array.Count = 4;
-
-        array.Init();
-
-
+        array = this.ListInfra.ArrayCreate(4);
 
         this.ClassNewMethodArray = array;
 
-
+        this.ArrayIndex = 0;
 
         this.AddClassNewMethod(newMethod);
-
-
         this.AddClassNewMethod(deleteMethod);
-
-
         this.AddClassNewMethod(initMethod);
-
-
         this.AddClassNewMethod(finalMethod);
-
-
-
-
         return true;
     }
-
-
-
-
-
 
     protected virtual bool AddClassNewMethod(Maide method)
     {
-        int index;
-
-        index = this.ClassNewMethodIndex;
-
-
+        long index;
+        index = this.ArrayIndex;
 
         this.ClassNewMethodArray.SetAt(index, method);
 
-
-
         index = index + 1;
 
-
-
-        this.ClassNewMethodIndex = index;
-
-
-
+        this.ArrayIndex = index;
         return true;
     }
-    
-
-
-
 
     protected virtual Maide CreateClassNewInstanceMethod(string name)
     {
         Maide a;
-
         a = new Maide();
-
         a.Init();
-
-
-        a.Name = name;
-
-
+        a.Name = this.S(name);
         a.Param = this.CreateClassNewParam();
-
-
         a.Static = false;
-
-
-
         return a;
     }
-
-
-
 
     protected virtual Array CreateClassNewParam()
     {
         Array a;
-
-        a = new Array();
-
-        a.Count = 0;
-
-        a.Init();
-
-
-
+        a = this.ListInfra.ArrayCreate(0);
         return a;
     }
 
@@ -225,57 +105,27 @@ class ExternGen : PrusateGen
         return true;
     }
 
-
-
-
-
-    protected override bool AppendDelegate(StringBuilder sb, Class varClass, Delegate varDelegate)
+    protected override bool AddDelegate(Class varClass, Delegate varDelegate)
     {
-        ToolInfra infra;
+        this.AddIndent(1);
 
-        infra = ToolInfra.This;
+        this.AddS("public").AddS(" ").AddS("delegate").AddS(" ")
+            .Add(this.IntTypeName).AddS(" ");
 
+        this.AddDelegateName(varClass, varDelegate);
 
-        infra.AppendIndent(sb, 1);
+        this.AddS("(");
 
+        this.AddDelegateParam(varDelegate.Param);
 
-
-
-        sb
-            .Append("public").Append(" ").Append("delegate").Append(" ")
-            .Append(this.IntTypeName).Append(" ");
-
-
-        this.AppendDelegateName(sb, varClass, varDelegate);
-
-
-
-        sb
-            .Append("(");
-
-
-        this.AppendDelegateParam(sb, varDelegate.Param);
-
-
-        sb
-            .Append(")")
-            .Append(";").Append(this.NewLine);
-
-
-
-
+        this.AddS(")")
+            .AddS(";").Add(this.NewLine);
         return true;
     }
 
-
-
-
-    protected override bool AppendClassNew(StringBuilder sb, Class varClass)
+    protected override bool AddClassNew(Class varClass)
     {
-        this.AppendMethodArray(sb, varClass, this.ClassNewMethodArray);
-
-
-
+        this.AddMaideArray(varClass, this.ClassNewMethodArray);
         return true;
     }
 }
