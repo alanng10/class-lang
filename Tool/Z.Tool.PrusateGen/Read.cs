@@ -496,73 +496,33 @@ class Read : ToolGen
         return o;
     }
 
-
-
-
-
-    protected virtual Array GetParam(string a)
+    protected virtual Array GetParam(String o)
     {
-        string[] u;
+        Text k;
+        k = this.TextCreate(o);
 
-        u = null;
-
-
-
-        bool b;
-
-        b = (a.Length == 0);
-
-
-        if (b)
-        {
-            u = new string[0];
-        }
-
-
-        if (!b)
-        {
-            u = a.Split(", ", StringSplitOption.None);
-        }
-        
-        
-
-
-
-        int count;
-
-        count = u.Length;
-
+        Text delimit;
+        delimit = this.TextCreate(this.S(", "));
 
         Array array;
+        array = this.TextSplit(k, delimit);
 
-        array = new Array();
-
-        array.Count = count;
-
-        array.Init();
-
-
-
-        int i;
-
+        long count;
+        count = array.Count;
+        long i;
         i = 0;
-
         while (i < count)
         {
-            string o;
+            Text aa;
+            aa = (Text)array.GetAt(i);
 
+            String a;
+            a = this.StringCreate(aa);
 
-            o = u[i];
-
-
-            array.SetAt(i, o);
-
-
-
+            array.SetAt(i, a);
+        
             i = i + 1;
         }
-
-
 
         return array;
     }
