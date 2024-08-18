@@ -1,17 +1,9 @@
 namespace Z.Tool.PrusateGen;
 
-class Read : Any
+class Read : ToolGen
 {
-    public override bool Init()
-    {
-        base.Init();
-        this.ListInfra = ListInfra.This;
-        return true;
-    }
-
     public virtual ReadResult Result { get; set; }
 
-    protected virtual ListInfra ListInfra { get; set; }
     protected virtual Table ClassTable { get; set; }
     protected virtual Class Class { get; set; }
     protected virtual List FieldList { get; set; }
@@ -20,7 +12,7 @@ class Read : Any
     protected virtual List StaticMaideList { get; set; }
     protected virtual List DelegateList { get; set; }
 
-    public virtual int Execute()
+    public virtual long Execute()
     {
         this.Result = new ReadResult();
         this.Result.Init();
@@ -47,26 +39,26 @@ class Read : Any
         ToolInfra infra;
         infra = ToolInfra.This;
 
-        string ka;
-        ka = infra.StorageTextRead("ToolData/Prusate/ClassList.txt");
+        String ka;
+        ka = infra.StorageTextRead(this.S("ToolData/Prusate/ClassList.txt"));
 
         Array lineArray;        
-        lineArray = infra.SplitLineList(ka);
+        lineArray = this.TextSplitLineString(ka);
 
         Table table;
         table = infra.TableCreateStringCompare();
 
         this.ClassTable = table;
 
-        int count;
+        long count;
         count = lineArray.Count;
 
-        int i;
+        long i;
         i = 0;
         while (i < count)
         {
-            string line;
-            line = (string)lineArray.GetAt(i);
+            String line;
+            line = (String)lineArray.GetAt(i);
 
             bool b;
             b = this.SetClassArrayOneLine(line);
@@ -84,27 +76,21 @@ class Read : Any
         return true;
     }
 
-
-
-
-
-    protected virtual bool SetClassArrayOneLine(string line)
+    protected virtual bool SetClassArrayOneLine(String line)
     {
-        if (line.Length == 0)
+        if (this.StringComp.Count(line) == 0)
         {
             return true;
         }
 
+        Text k;
+        k = this.TextCreate(line);
 
-        string oo;
-
-        oo = "    ";
-
+        Text oo;
+        oo = this.TextCreate(this.S("    "));
 
         bool b;
-
-        b = line.StartsWith(oo);
-
+        b =  this.TextStart(k, oo);
 
         if (!b)
         {
@@ -309,9 +295,6 @@ class Read : Any
         return true;
     }
 
-
-
-
     protected virtual bool EndCurrentClass()
     {
         if (this.Class == null)
@@ -319,137 +302,57 @@ class Read : Any
             return true;
         }
 
-
-
-        this.Class.Field = this.CreateArray(this.FieldList);
-
-
-        this.Class.Maide = this.CreateArray(this.MaideList);
-
-
-        this.Class.StaticField = this.CreateArray(this.StaticFieldList);
-
-
-        this.Class.StaticMaide = this.CreateArray(this.StaticMaideList);
-
-
-        this.Class.Delegate = this.CreateArray(this.DelegateList);
-
+        this.Class.Field = this.ListInfra.ArrayCreateList(this.FieldList);
+        this.Class.Maide = this.ListInfra.ArrayCreateList(this.MaideList);
+        this.Class.StaticField = this.ListInfra.ArrayCreateList(this.StaticFieldList);
+        this.Class.StaticMaide = this.ListInfra.ArrayCreateList(this.StaticMaideList);
+        this.Class.Delegate = this.ListInfra.ArrayCreateList(this.DelegateList);
         this.Class = null;
-
         this.FieldList = null;
-
         this.MaideList = null;
-
         this.StaticFieldList = null;
-
         this.StaticMaideList = null;
-
         this.DelegateList = null;
         return true;
     }
 
-
-
-    protected virtual Array CreateArray(List list)
+    protected virtual Class GetClass(String line)
     {
-        Iter iter;
+        Text k;
+        k = this.TextCreate(line);
 
-        iter = list.IterCreate();
-
-
-        list.IterSet(iter);
-        
-
-
-        int count;
-
-        count = list.Count;
-
-
-        Array a;
-
-        a = new Array();
-
-        a.Count = count;
-
-        a.Init();
-
-
-        int i;
-
-        i = 0;
-
-
-        while (i < count & iter.Next())
-        {
-            object o;
-
-            o = iter.Value;
-
-
-            a.SetAt(i, o);
-
-
-
-            i = i + 1;
-        }
-
-
-
-        return a;
-    }
-
-
-
-
-    protected virtual Class GetClass(string a)
-    {
-        string ooo;
-
-        ooo = " -";
-
+        Text ooo;
+        ooo = this.TextCreate(this.S(" -"));
 
         bool ba;
+        ba = this.TextEnd(k, ooo);
 
-        ba = a.EndsWith(ooo);
+        String name;
+        name = null;
 
-
-
-        string name;
-
-        name = a;
-
+        if (!ba)
+        {
+            name = line;
+        }
 
         if (ba)
         {
-            int countA;
+            long countA;
+            countA = k.Range.Count - ooo.Range.Count;
 
-            countA = a.Length - ooo.Length;
+            k.Range.Count = countA;
 
-
-            name = a.Substring(0, countA);
+            name = this.StringCreate(k);
         }
 
-
-
         bool hasNew;
-
         hasNew = !ba;
 
-
-
         Class varClass;
-
         varClass = new Class();
-
         varClass.Init();
-
         varClass.Name = name;
-
         varClass.HasNew = hasNew;
-
-
         return varClass;
     }
 
