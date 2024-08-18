@@ -718,7 +718,7 @@ class Read : Any
 
         string ka;
 
-        ka = infra.StorageTextRead("ToolData/MaideList.txt");
+        ka = infra.StorageTextRead("ToolData/Prusate/MaideList.txt");
 
 
 
