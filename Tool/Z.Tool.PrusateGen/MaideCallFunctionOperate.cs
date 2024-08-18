@@ -12,7 +12,6 @@ class MaideCallFunctionOperate : FunctionOperate
         }
                 
         this.Add(this.Method.Name);
-
         return true;
     }
 
