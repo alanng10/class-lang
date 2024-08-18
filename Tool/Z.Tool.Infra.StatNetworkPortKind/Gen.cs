@@ -23,8 +23,11 @@ class Gen : StatGen
             String itemName;
             itemName = (String)iter.Index;
 
+            long ka;
+            ka = index + 1;
+
             String itemIndex;
-            itemIndex = this.S(index.ToString());
+            itemIndex = this.S(ka.ToString());
 
             Text k;
             k = this.TextCreate(this.TextShareVarA);
