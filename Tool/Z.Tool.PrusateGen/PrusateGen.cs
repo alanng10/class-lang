@@ -240,17 +240,12 @@ class PrusateGen : ToolGen
         return true;
     }
 
-
-
-
-
-    protected virtual bool AppendDelegate(StringBuilder sb, Class varClass, Delegate varDelegate)
+    protected virtual bool AddDelegate(Class varClass, Delegate varDelegate)
     {
-        sb
-            .Append("typedef").Append(" ")
-            .Append(this.IntTypeName).Append(" ")
-            .Append("(").Append("*");
-
+        this
+            .AddS("typedef").AddS(" ")
+            .Add(this.IntTypeName).AddS(" ")
+            .AddS("(").AddS("*");
 
         this.AppendDelegateName(sb, varClass, varDelegate);
 
@@ -279,46 +274,26 @@ class PrusateGen : ToolGen
         return true;
     }
 
-
-
-
-
-    protected virtual bool AppendDelegateName(StringBuilder sb, Class varClass, Delegate varDelegate)
+    protected virtual bool AddDelegateName(Class varClass, Delegate varDelegate)
     {
-        sb.Append(varClass.Name).Append(this.Combine).Append(varDelegate.Name).Append(this.Combine).Append("Maide");
-
-
+        this.Add(varClass.Name).Add(this.Combine).Add(varDelegate.Name).Add(this.Combine).AddS("Maide");
         return true;
     }
 
-
-
-
-
-    protected virtual bool AppendDelegateParam(StringBuilder sb, Array param)
+    protected virtual bool AddDelegateParam(Array param)
     {
         bool b;
-
         b = (param.Count == 0);
-
 
         if (!b)
         {
-            string oa;
-
+            String oa;
             oa = this.GetParamItem(param, 0);
 
+            this.AddVarDeclare(oa);
 
-
-            this.AppendVarDeclare(sb, oa);
-
-
-
-            this.AppendParamWithOffset(sb, param, 1);
+            this.AddParamWithOffset(param, 1);
         }
-
-
-
         return true;
     }
 
