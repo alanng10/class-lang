@@ -2,23 +2,22 @@ namespace Z.Tool.Infra.StatBrushKind;
 
 class Gen : StatGen
 {
-    public override int Execute()
+    public override long Execute()
     {
-        this.ClassName = "BrushKind";
-        this.ItemListFileName = "ToolData/ItemListBrushKind.txt";
-        this.MethodFileName = "ToolData/MaideBrushKind.txt";
-        int o;
-        o = base.Execute();
-        return o;
+        this.ClassName = this.S("BrushKind");
+        this.ItemListFileName = this.S("ToolData/Infra/ItemListBrushKind.txt");
+        this.MethodFileName = this.S("ToolData/Infra/MaideBrushKind.txt");
+        
+        return base.Execute();
     }
 
-    protected override string GetItemMethod(string method, Iter iter, int index)
+    protected override String GetItemMethod(String method, Iter iter, long index)
     {
         return base.GetItemMethod(method, iter, index + 1);
     }
 
-    protected override string GetShareVarList()
+    protected override String GetShareVarList()
     {
-        return "";
+        return this.S("");
     }
 }
