@@ -191,18 +191,18 @@ class PrusateGen : ToolGen
         return true;
     }
 
-    protected virtual bool AddMethodArray(Class varClass, Array methodArray)
+    protected virtual bool AddMaideArray(Class varClass, Array maideArray)
     {
         long count;
-        count = methodArray.Count;
+        count = maideArray.Count;
         long i;
         i = 0;
         while (i < count)
         {
-            Maide method;
-            method = (Maide)methodArray.GetAt(i);
+            Maide maide;
+            maide = (Maide)maideArray.GetAt(i);
 
-            this.AddMethod(varClass, method);
+            this.AddMaide(varClass, maide);
 
             i = i + 1;
         }
@@ -264,11 +264,11 @@ class PrusateGen : ToolGen
         return true;
     }
 
-    protected virtual bool AddMethod(Class varClass, Maide method)
+    protected virtual bool AddMaide(Class varClass, Maide maide)
     {
         this.MethodCallFunctionOperate.Class = varClass;
 
-        this.MethodCallFunctionOperate.Method = method;
+        this.MethodCallFunctionOperate.Method = maide;
 
         this.AddFunction(this.MethodCallFunctionOperate);
         return true;
