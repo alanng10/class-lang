@@ -7,7 +7,7 @@ class Entry : EntryEntry
         Gen gen;
         gen = new Gen();
         gen.Init();
-        int o;
+        long o;
         o = gen.Execute();
         return o;
     }
