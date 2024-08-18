@@ -153,46 +153,23 @@ class PrusateGen : ToolGen
         return true;
     }
 
-
-
-
-
-    protected virtual bool AppendDelegateArray(StringBuilder sb, Class varClass, Array delegateArray)
+    protected virtual bool AddDelegateArray(Class varClass, Array delegateArray)
     {
-        int count;
-
+        long count;
         count = delegateArray.Count;
-
-
-        int i;
-
+        long i;
         i = 0;
-
-
         while (i < count)
         {
             Delegate varDelegate;
-
             varDelegate = (Delegate)delegateArray.GetAt(i);
 
-
-
-            this.AppendDelegate(sb, varClass, varDelegate);
-
-
+            this.AddDelegate(varClass, varDelegate);
 
             i = i + 1;
         }
-
-
-
         return true;
     }
-
-
-
-
-
 
     protected virtual bool AddField(Class varClass, Field field)
     {
