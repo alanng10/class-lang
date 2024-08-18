@@ -4,58 +4,26 @@ class MathAdd : ToolGen
 {
     public virtual ReadResult ReadResult { get; set; }
     protected virtual Table MaideTable { get; set; }
-    protected virtual Array TrigoList { get; set; }
-    protected virtual Array LineList { get; set; }
 
     public virtual bool Execute()
     {
-        ToolInfra toolInfra;
-        toolInfra = this.ToolInfra;
+        MathRead read;
+        read = new MathRead();
+        read.Init();
 
-        String ka;
-        ka = toolInfra.StorageTextRead(this.S("ToolData/Math/TrigoList.txt"));
+        long o;
+        o = read.Execute();
 
-        String kb;
-        kb = toolInfra.StorageTextRead(this.S("ToolData/Math/List.txt"));
+        if (!(o == 0))
+        {
+            return false;
+        }
 
-        this.TrigoList = toolInfra.TextSplitLineString(ka);
+        this.MaideTable = read.MaideTable;
 
-        this.LineList = toolInfra.TextSplitLineString(kb);
-
-        this.MaideTable = toolInfra.TableCreateStringCompare();
-
+        read.MaideTable = null;
+        
         bool b;
-
-        b = this.AddMaideList();
-        if (!b)
-        {
-            return false;
-        }
-
-        b = this.AddTrigoMaideList("", "");
-        if (!b)
-        {
-            return false;
-        }
-
-        b = this.AddTrigoMaideList("A", "");
-        if (!b)
-        {
-            return false;
-        }
-
-        b = this.AddTrigoMaideList("", "H");
-        if (!b)
-        {
-            return false;
-        }
-        
-        b = this.AddTrigoMaideList("A", "H");
-        if (!b)
-        {
-            return false;
-        }
-        
         b = this.SetMathClass();
         if (!b)
         {
@@ -117,13 +85,16 @@ class MathAdd : ToolGen
         {
             iter.Next();
 
-            Maide method;
-            method = (Maide)iter.Value;
+            MathMaide mathMaide;
+            mathMaide = (MathMaide)iter.Value;
+
+            Maide maide;
+            maide = this.CreateMaide(mathMaide);
 
             long index;
             index = start + i;
 
-            array.SetAt(index, method);
+            array.SetAt(index, maide);
 
             i = i + 1;
         }
@@ -132,138 +103,18 @@ class MathAdd : ToolGen
         return true;
     }
 
-    protected virtual bool AddMaideList()
-    {
-        ToolInfra toolInfra;
-        toolInfra = this.ToolInfra;
-
-        Array array;
-        array = this.LineList;
-
-        Table table;
-        table = this.MaideTable;
-
-        bool b;
-        b = false;
-
-        Text space;
-        space = this.TextCreate(this.S(" "));
-
-        long count;
-        count = array.Count;
-        long i;
-        i = 0;
-        while (i < count)
-        {
-            String a;
-            a = (String)array.GetAt(i);
-
-            Text k;
-            k = this.TextCreate(a);
-
-            Array uu;
-            uu = this.TextSplit(k, space);
-
-            if (!(uu.Count == 4))
-            {
-                return false;
-            }
-
-            Text textName;
-            textName = (Text)uu.GetAt(0);
-
-            Text textOperandTwo;
-            textOperandTwo = (Text)uu.GetAt(1);
-
-            String name;
-            name = this.StringCreate(textName);
-
-            String operandTwo;
-            operandTwo = this.StringCreate(textOperandTwo);
-
-            bool ba;
-            ba = toolInfra.GetBool(operandTwo);
-
-            b = this.TableAddMaide(table, name, ba);
-            if (!b)
-            {
-                return false;
-            }
-
-            i = i + 1;
-        }
-
-        return true;
-    }
-
-    protected virtual bool TableAddMaide(Table table, String name, bool operandTwo)
-    {
-        ListInfra listInfra;
-        listInfra = this.ListInfra;
-
-        if (table.Valid(name))
-        {
-            return false;
-        }
-
-        Maide maide;
-        maide = this.CreateMaide(name, operandTwo);
-
-        listInfra.TableAdd(table, name, maide);
-        return true;
-    }
-
-    protected virtual bool AddTrigoMaideList(string pre, string post)
-    {
-        Array array;
-        array = this.TrigoList;
-
-        Table table;
-        table = this.MaideTable;
-
-        String preK;
-        String postK;
-        preK = this.S(pre);
-        postK = this.S(post);
-
-        bool b;
-        b = false;
-        
-        long count;
-        count = array.Count;
-        long i;
-        i = 0;
-        while (i < count)
-        {
-            String k;
-            k = (String)array.GetAt(i);
-
-            String name;
-            name = this.AddClear().Add(preK).Add(k).Add(postK).AddResult();
-
-            b = this.TableAddMaide(table, name, false);
-            if (!b)
-            {
-                return false;
-            }
-
-            i = i + 1;
-        }
-        return true;
-    }
-
-    protected virtual Maide CreateMaide(String name, bool operandTwo)
+    protected virtual Maide CreateMaide(MathMaide mathMaide)
     {
         ListInfra listInfra;
         listInfra = this.ListInfra;
 
         Array param;
-        param = this.CreateParam(operandTwo);
+        param = this.CreateParam(mathMaide.OperandTwo);
 
         Maide a;
         a = new Maide();
         a.Init();
-        a.Name = name;
+        a.Name = mathMaide.Name;
         a.Param = param;
         return a;
     }
