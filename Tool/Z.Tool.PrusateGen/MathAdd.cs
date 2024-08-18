@@ -36,7 +36,7 @@ class MathAdd : ToolGen
     protected virtual bool SetMathClass()
     {
         Class mathClass;
-        mathClass = (Class)this.ReadResult.Class.Get("Math");
+        mathClass = (Class)this.ReadResult.Class.Get(this.S("Math"));
 
         if (mathClass == null)
         {
