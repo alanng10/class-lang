@@ -1,16 +1,8 @@
 namespace Z.Tool.MathGen;
 
-class PartGen : Any
+class PartGen : ToolGen
 {
-    public override bool Init()
-    {
-        base.Init();
-        this.ToolInfra = ToolInfra.This;
-        return true;
-    }
-
     public virtual Table Maide { get; set; }
-    protected virtual ToolInfra ToolInfra { get; set; }
     protected virtual String PartFilePath { get; set; }
     protected virtual String MaideFilePath { get; set; }
     protected virtual String MaideTwoFilePath { get; set; }
@@ -43,14 +35,12 @@ class PartGen : Any
         return true;
     }
 
-    protected virtual string GetPart()
+    protected virtual String GetPart()
     {
         ToolInfra toolInfra;
         toolInfra = this.ToolInfra;
 
-        StringJoin h;
-        h = new StringJoin();
-        h.Init();
+        this.AddClear();
 
         bool ba;
         ba = false;
@@ -63,45 +53,35 @@ class PartGen : Any
         {
             if (ba)
             {
-                this.AppendNewLine(h);
+                this.Add(this.ToolInfra.NewLine);
             }
 
             Maide aa;
             aa = (Maide)iter.Value;
 
-            string a;
+            String a;
             a = this.MaideString(aa);
 
-            toolInfra.Append(h, a);
+            this.Add(a);
             
             ba = true;
         }
 
-        string k;
-        k = h.Result();
-
+        String k;
+        k = this.AddResult();
         return k;
     }
 
-    protected virtual bool AppendNewLine(StringJoin h)
+    protected virtual String MaideString(Maide maide)
     {
-        ToolInfra toolInfra;
-        toolInfra = this.ToolInfra;
-
-        string newLine;
-        newLine = toolInfra.NewLine;
-
-        toolInfra.Append(h, newLine);
-        return true;
-    }
-
-    protected virtual string MaideString(Maide maide)
-    {
-        string name;
+        String name;
         name = maide.Name;
 
-        string delimit;
+        String delimit;
         delimit = maide.OperateDelimit;
+
+        String empty;
+        empty = this.S("");
 
         bool b;
         b = maide.OperandTwo;
@@ -109,44 +89,48 @@ class PartGen : Any
         bool ba;
         ba = (delimit == null);
 
-        string k;
-        k = null;
+        String ka;
+        ka = null;
 
-        string func;
+        String func;
         func = null;
 
         if (ba)
         {
             if (!b)
             {
-                k = this.TextMaide;
+                ka = this.TextMaide;
             }
 
             if (b)
             {
-                k = this.TextMaideTwo;
+                ka = this.TextMaideTwo;
             }
 
-            delimit = "";
+            delimit = empty;
 
             func = this.FuncLibName(name);
         }
 
         if (!ba)
         {
-            k = this.TextMaideOperate;
+            ka = this.TextMaideOperate;
 
-            func = "";
+            func = empty;
         }
 
-        k = k.Replace("#Name#", name);
-        k = k.Replace("#Func#", func);
-        k = k.Replace("#Delimit#", delimit);
+        Text k;
+        k = this.TextCreate(ka);
+        k = this.Replace(k, "#Name#", name);
+        k = this.Replace(k, "#Func#", func);
+        k = this.Replace(k, "#Delimit#", delimit);
 
-        return k;
+        String a;
+        a = this.StringCreate(k);
+        return a;
     }
 
-    protected virtual string FuncLibName(string name)
+    protected virtual String FuncLibName(String name)
     {
         return name;
     }
