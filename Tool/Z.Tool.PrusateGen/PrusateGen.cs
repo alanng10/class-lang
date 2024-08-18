@@ -55,7 +55,7 @@ class PrusateGen : ToolGen
         Text k;
         k = this.TextCreate(ka);
         k = this.Replace(k, "#ClassList#", classListString);
-        k = this.Replace(k, "#MethodList#", maideListString);
+        k = this.Replace(k, "#MaideList#", maideListString);
 
         String a;
         a = this.StringCreate(k);
