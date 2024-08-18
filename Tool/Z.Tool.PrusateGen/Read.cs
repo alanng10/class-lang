@@ -191,17 +191,15 @@ class Read : ToolGen
                 this.DelegateList.Add(aa);
             }
 
-
             if (!boa)
             {
-                string oob;
+                String oob;
+                oob = this.S(" -");
 
-                oob = " -";
-
-
+                Text oobk;
+                oobk = this.TextCreate(oob);
 
                 bool bob;
-
                 bob = compLine.EndsWith(oob);
 
 
