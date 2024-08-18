@@ -18,35 +18,22 @@ public class ReadList : Any
         this.List = new List();
         this.List.Init();
 
-        this.ExecuteList("TextEncodeKind");
-
+        this.ExecuteList("TextCodeKind");
         this.ExecuteList("ThreadCase");
-
         this.ExecuteList("StreamKind");
-
         this.ExecuteList("StorageMode");
-
         this.ExecuteList("StorageStatus");
         this.ExecuteList("NetworkCase");
         this.ExecuteList("NetworkPortKind");
         this.ExecuteList("NetworkStatus");
-
         this.ExecuteList("BrushKind");
         this.ExecuteList("BrushLine");
         this.ExecuteList("BrushCap");
         this.ExecuteList("BrushJoin");
-        
-        this.ExecuteList("Comp");
-
         this.ExecuteList("GradientKind");
-
         this.ExecuteList("GradientSpread");
-
-        this.ExecuteList("TextAlign");
-
-        this.ExecuteList("TextWrap");
-
-        this.ExecuteList("ImageFormat");
+        this.ExecuteList("Comp");
+        this.ExecuteList("ImageBinary");
 
         bool b;
         b = this.SetStatMethod();
