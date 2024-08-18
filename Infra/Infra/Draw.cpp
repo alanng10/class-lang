@@ -2,6 +2,17 @@
 
 CppClassNew(Draw)
 
+Int Draw_TextAlignHoriz_Array[3] =
+{
+    Qt::AlignLeft, Qt::AlignHCenter, Qt::AlignRight
+};
+
+Int Draw_TextAlignVert_Array[3] =
+{
+    Qt::AlignTop, Qt::AlignVCenter, Qt::AlignBottom
+};
+
+
 Int Draw_Init(Int o)
 {
     Draw* m;
@@ -504,7 +515,7 @@ Int Draw_ExecuteImage(Int o, Int image, Int destRect, Int sourceRect)
     return true;
 }
 
-Int Draw_ExecuteText(Int o, Int destRect, Int flag, Int text, Int boundRect)
+Int Draw_ExecuteText(Int o, Int text, Int horizAlign, Int vertAlign, Int wordWrap, Int destRect, Int boundRect)
 {
     Draw* m;
     m = CP(o);
@@ -524,6 +535,16 @@ Int Draw_ExecuteText(Int o, Int destRect, Int flag, Int text, Int boundRect)
     InternRectValue(dest);
 
     InternRect(dest);
+
+    Int flag;
+    flag = 0;
+    flag = flag | Draw_TextAlignHoriz_Array[horizAlign];
+    flag = flag | Draw_TextAlignVert_Array[vertAlign];
+
+    if (wordWrap)
+    {
+        flag = flag | Qt::TextWordWrap;
+    }
 
     int flagU;
     flagU = (int)flag;
