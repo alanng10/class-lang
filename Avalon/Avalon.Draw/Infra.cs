@@ -62,12 +62,6 @@ public class Infra : Any
         long a;
         a = 1 << 20;
         this.ScaleFactor = a;
-
-        ulong share;
-        share = Extern.Infra_Share();
-        ulong stat;
-        stat = Extern.Share_Stat(share);
-        this.InternWordWrap = Extern.Stat_TextWrapWordWrap(stat);
         return true;
     }
 
@@ -85,10 +79,7 @@ public class Infra : Any
     protected virtual BrushLineList BrushLineList { get; set; }
     protected virtual BrushCapList BrushCapList { get; set; }
     protected virtual BrushJoinList BrushJoinList { get; set; }
-
     private BrushInfra BrushInfra { get; set; }
-
-    internal virtual ulong InternWordWrap { get; set; }
 
     public virtual Color ColorCreate(long alpha, long red, long green, long blue)
     {
