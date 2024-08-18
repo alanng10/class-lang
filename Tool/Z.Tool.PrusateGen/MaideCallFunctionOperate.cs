@@ -7,9 +7,6 @@ class MaideCallFunctionOperate : FunctionOperate
 {
     public virtual Maide Method { get; set; }
 
-
-
-
     public override bool ExecuteName()
     {
         if (!(this.Class == null))

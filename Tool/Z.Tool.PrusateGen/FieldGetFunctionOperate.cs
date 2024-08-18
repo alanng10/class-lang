@@ -10,15 +10,12 @@ class FieldGetFunctionOperate : FunctionOperate
         return true;
     }
 
-    public override bool ExecuteParam(StringBuilder sb)
+    public override bool ExecuteParam()
     {
         if (!this.Field.Static)
         {
-            this.Gen.AppendVarDeclare(sb, "o");
+            this.Gen.AddVarDeclare(this.S("o"));
         }
-
-
-
         return true;
     }
 }

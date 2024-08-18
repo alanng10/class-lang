@@ -579,27 +579,18 @@ class PrusateGen : ToolGen
         return true;
     }
 
-
-
-
-
-    public virtual bool AppendVarDeclare(StringBuilder sb, string varName)
+    public virtual bool AddVarDeclare(String varName)
     {
-        sb.Append(this.IntTypeName).Append(" ").Append(varName);
-
-
-
+        this.Add(this.IntTypeName).AddS(" ").Add(varName);
         return true;
     }
 
 
 
 
-    public virtual bool AppendParamCombine(StringBuilder sb)
+    public virtual bool AddParamCombine()
     {
-        sb.Append(",").Append(" ");
-
-
+        this.AddS(",").AddS(" ");
         return true;
     }
 
