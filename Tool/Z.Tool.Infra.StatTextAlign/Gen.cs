@@ -1,32 +1,12 @@
 namespace Z.Tool.Infra.StatTextAlign;
 
-
-
-
-
 class Gen : StatGen
 {
-    public override int Execute()
+    public override long Execute()
     {
-        this.ClassName = "TextAlign";
+        this.ClassName = this.S("TextAlign");
+        this.ValuePrefix = this.S("Align");
 
-
-
-        this.ValuePrefix = "Align";
-
-
-
-
-        this.ItemListFileName = "ToolData/ItemListTextAlign.txt";
-
-
-
-
-        int o;
-        
-        o = base.Execute();
-
-
-        return o;
+        return base.Execute();
     }
 }

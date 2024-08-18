@@ -1,7 +1,0 @@
-Left
-Right
-HCenter
-Justify
-Top
-Bottom
-VCenter
