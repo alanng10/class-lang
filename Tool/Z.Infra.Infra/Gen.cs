@@ -17,14 +17,29 @@ public class Gen : Any
     protected virtual Infra ToolInfra { get; set; }
     protected virtual StringComp StringComp { get; set; }
 
-    protected virtual Text CreateText(Data data, long index, long count)
+    public virtual Text CreateText(Data data, long index, long count)
     {
         return this.ToolInfra.CreateText(data, index, count);
     }
 
-    protected virtual Text Replace(Text text, string delimit, String join)
+    public virtual Text Replace(Text text, string delimit, String join)
     {
         return this.TextReplace(text, this.TextCreate(this.S(delimit)), this.TextCreate(join));
+    }
+
+    public virtual long StringCount(String o)
+    {
+        return this.ToolInfra.StringCount(o);
+    }
+
+    public virtual String StringCreateRange(String o, long index, long count)
+    {
+        return this.ToolInfra.StringCreateRange(o, index, count);
+    }
+
+    public virtual String StringCreateIndex(String o, long index)
+    {
+        return this.ToolInfra.StringCreateIndex(o, index);
     }
 
     public virtual Text TextLower(Text text)
@@ -32,47 +47,47 @@ public class Gen : Any
         return this.ToolInfra.TextLower(text);
     }
 
-    protected virtual Text TextCreate(String o)
+    public virtual Text TextCreate(String o)
     {
         return this.ToolInfra.TextCreate(o);
     }
 
-    protected virtual String StringCreate(Text text)
+    public virtual String StringCreate(Text text)
     {
         return this.ToolInfra.StringCreate(text);
     }
 
-    protected virtual bool TextStart(Text text, Text other)
+    public virtual bool TextStart(Text text, Text other)
     {
         return this.ToolInfra.TextStart(text, other);
     }
 
-    protected virtual bool TextEnd(Text text, Text other)
+    public virtual bool TextEnd(Text text, Text other)
     {
         return this.ToolInfra.TextEnd(text, other);
     }
 
-    protected virtual long TextIndex(Text text, Text other)
+    public virtual long TextIndex(Text text, Text other)
     {
         return this.ToolInfra.TextIndex(text, other);
     }
 
-    protected virtual Array TextSplitLineString(String text)
+    public virtual Array TextSplitLineString(String text)
     {
         return this.ToolInfra.TextSplitLineString(text);
     }
 
-    protected virtual Array TextSplitLine(Text text)
+    public virtual Array TextSplitLine(Text text)
     {
         return this.ToolInfra.TextSplitLine(text);
     }
 
-    protected virtual Array TextSplit(Text text, Text delimit)
+    public virtual Array TextSplit(Text text, Text delimit)
     {
         return this.ToolInfra.TextSplit(text, delimit);
     }
 
-    protected virtual Text TextReplace(Text text, Text delimit, Text join)
+    public virtual Text TextReplace(Text text, Text delimit, Text join)
     {
         return this.ToolInfra.TextReplace(text, delimit, join);
     }
