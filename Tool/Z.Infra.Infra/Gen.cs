@@ -17,18 +17,7 @@ public class Gen : Any
 
     protected virtual Text CreateText(Data data, long index, long count)
     {
-        Range range;
-        range = new Range();
-        range.Init();
-        range.Index = index;
-        range.Count = count;
-
-        Text text;
-        text = new Text();
-        text.Init();
-        text.Data = data;
-        text.Range = range;
-        return text;
+        return this.ToolInfra.CreateText(data, index, count);
     }
 
     protected virtual Text Replace(Text text, string delimit, String join)
@@ -38,12 +27,12 @@ public class Gen : Any
 
     protected virtual Text TextCreate(String o)
     {
-        return this.TextInfra.TextCreateStringData(o, null);
+        return this.ToolInfra.TextCreate(o);
     }
 
     protected virtual String StringCreate(Text text)
     {
-        return this.TextInfra.StringCreate(text);
+        return this.ToolInfra.StringCreate(text);
     }
 
     protected virtual Array TextSplit(Text text, Text delimit)

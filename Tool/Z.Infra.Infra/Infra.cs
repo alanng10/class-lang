@@ -188,24 +188,62 @@ public class Infra : Any
         return this.TextInfra.Replace(text, delimit, join, this.TextCompare);
     }
 
-    public virtual bool GetBool(string a)
+    public virtual Text TextCreate(String o)
+    {
+        return this.TextInfra.TextCreateStringData(o, null);
+    }
+
+    public virtual String StringCreate(Text text)
+    {
+        return this.TextInfra.StringCreate(text);
+    }
+
+    public virtual Text CreateText(Data data, long index, long count)
+    {
+        Range range;
+        range = new Range();
+        range.Init();
+        range.Index = index;
+        range.Count = count;
+
+        Text text;
+        text = new Text();
+        text.Init();
+        text.Data = data;
+        text.Range = range;
+        return text;
+    }
+
+    public virtual bool GetBool(String a)
     {
         bool b;
         b = false;
-        if (!(a == "false"))
+
+        Text k;
+        k = this.TextCreate(a);
+
+        Text ka;
+        ka = this.TextCreate(this.TextInfra.BoolFalseString);
+
+        if (!(this.TextInfra.Equal(k, ka, this.TextCompare)))
         {
             b = true;
         }
         return b;
     }
 
-    public virtual string GetBoolString(bool a)
+    public virtual String GetBoolString(bool a)
     {
-        string u;
-        u = "false";
+        String u;
+        u = null;
+
+        if (!a)
+        {
+            u = this.TextInfra.BoolFalseString;
+        }
         if (a)
         {
-            u = "true";
+            u = this.TextInfra.BoolTrueString;
         }
         return u;
     }
