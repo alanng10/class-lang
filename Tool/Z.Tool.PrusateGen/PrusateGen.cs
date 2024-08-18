@@ -361,24 +361,18 @@ class PrusateGen : ToolGen
 
 
 
-    protected virtual bool AppendFunction(StringBuilder sb, FunctionOperate functionOperate)
+    protected virtual bool AppendFunction(FunctionOperate functionOperate)
     {
         this.AppendFunctionHeader(sb);
         
 
 
 
-        sb.Append(this.IntTypeName).Append(" ");
-        
-        
+        this.Add(this.IntTypeName).AddS(" ");
 
-        functionOperate.ExecuteName(sb);
-        
-        
-        
-        sb.Append("(");
+        functionOperate.ExecuteName();
 
-        
+        this.AddS("(");
 
         functionOperate.ExecuteParam(sb);
         
