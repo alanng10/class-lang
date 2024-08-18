@@ -229,20 +229,25 @@ class MathAdd : ToolGen
         Table table;
         table = this.MaideTable;
 
+        String preK;
+        String postK;
+        preK = this.S(pre);
+        postK = this.S(post);
+
         bool b;
         b = false;
         
-        int count;
+        long count;
         count = array.Count;
-        int i;
+        long i;
         i = 0;
         while (i < count)
         {
-            string k;
-            k = (string)array.GetAt(i);
+            String k;
+            k = (String)array.GetAt(i);
 
-            string name;
-            name = pre + k + post;
+            String name;
+            name = this.AddClear().Add(preK).Add(k).Add(postK).AddResult();
 
             b = this.TableAddMaide(table, name, false);
             if (!b)
@@ -289,13 +294,13 @@ class MathAdd : ToolGen
 
         if (!b)
         {
-            param.SetAt(0, "value");
+            param.SetAt(0, this.S("value"));
         }
 
         if (b)
         {
-            param.SetAt(0, "valueA");
-            param.SetAt(1, "valueB");
+            param.SetAt(0, this.S("valueA"));
+            param.SetAt(1, this.S("valueB"));
         }
 
         return param;
