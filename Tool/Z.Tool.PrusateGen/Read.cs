@@ -471,88 +471,44 @@ class Read : ToolGen
         return array;
     }
 
-
-
-
-
     protected virtual bool SetMaideArray()
     {
-        ToolInfra infra;
+        ToolInfra toolInfra;
+        toolInfra = ToolInfra.This;
 
-        infra = ToolInfra.This;
-
-
-
-        string ka;
-
-        ka = infra.StorageTextRead("ToolData/Prusate/MaideList.txt");
-
-
+        String ka;
+        ka = toolInfra.StorageTextRead(this.S("ToolData/Prusate/MaideList.txt"));
 
         Array lineArray;
+        lineArray = this.TextSplitLineString(ka);
 
-        lineArray = infra.SplitLineList(ka);
-
-
-
-        int count;
-
+        long count;
         count = lineArray.Count;
 
-
-
         Array array;
+        array = this.ListInfra.ArrayCreate(count);
 
-        array = new Array();
-
-        array.Count = count;
-
-        array.Init();
-
-
-
-
-        int i;
-
+        long i;
         i = 0;
-
-
         while (i < count)
         {
-            string line;
+            String line;
+            line = (String)lineArray.GetAt(i);
 
+            Maide maide;
+            maide = this.GetMethod(line, true);
 
-            line = (string)lineArray.GetAt(i);
-
-
-
-            Maide method;
-
-            method = this.GetMethod(line, true);
-
-
-            if (method == null)
+            if (maide == null)
             {
                 return false;
             }
 
-
-
-            array.SetAt(i, method);
-
-
+            array.SetAt(i, maide);
 
             i = i + 1;
         }
 
-
-
-
         this.Result.Maide = array;
-
-
-
-
         return true;
     }
 }
