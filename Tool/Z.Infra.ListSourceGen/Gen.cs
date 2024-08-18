@@ -29,7 +29,7 @@ public class Gen : ToolGen
     protected virtual Array LineArray { get; set; }
     protected virtual Table ItemTable { get; set; }
 
-    public virtual int Execute()
+    public virtual long Execute()
     {
         this.ExecuteItemList();
 
