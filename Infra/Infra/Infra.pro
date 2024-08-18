@@ -114,25 +114,23 @@ SOURCES += \
     Share.cpp \
     Size.c \
     Stat.cpp \
-    Stat_GradientKind.cpp \
-    Stat_GradientSpread.cpp \
-    Stat_ImageFormat.cpp \
+    Stat_PointData.cpp \
+    Stat_TextCodeKind.cpp \
+    Stat_ThreadCase.cpp \
+    Stat_StreamKind.cpp \
+    Stat_StorageMode.cpp \
+    Stat_StorageStatus.cpp \
     Stat_NetworkCase.cpp \
     Stat_NetworkPortKind.cpp \
     Stat_NetworkStatus.cpp \
-    Stat_BrushKind.cpp \
-    Stat_BrushLine.cpp \
     Stat_BrushCap.cpp \
     Stat_BrushJoin.cpp \
-    Stat_PointData.cpp \
+    Stat_BrushKind.cpp \
+    Stat_BrushLine.cpp \
+    Stat_GradientKind.cpp \
+    Stat_GradientSpread.cpp \
     Stat_Comp.cpp \
-    Stat_StorageMode.cpp \
-    Stat_StorageStatus.cpp \
-    Stat_StreamKind.cpp \
-    Stat_TextAlign.cpp \
-    Stat_TextEncodeKind.cpp \
-    Stat_TextWrap.cpp \
-    Stat_ThreadCase.cpp \
+    Stat_ImageFormat.cpp \
     State.c \
     Storage.cpp \
     StorageArrange.cpp \
