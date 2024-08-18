@@ -4,13 +4,13 @@ class Gen : StatGen
 {
     public override int Execute()
     {
-        this.ClassName = "BrushCap";
+        this.ClassName = this.S("BrushCap");
 
-        this.ValuePostfix = "Cap";
+        this.ValuePostfix = this.S("Cap");
 
-        this.ValueOffset = " + 1";
+        this.ValueOffset = this.S(" + 1");
 
-        this.ItemListFileName = "ToolData/ItemListBrushCap.txt";
+        this.ItemListFileName = this.S("ToolData/Infra/ItemListBrushCap.txt");
 
         int o;
         o = base.Execute();
