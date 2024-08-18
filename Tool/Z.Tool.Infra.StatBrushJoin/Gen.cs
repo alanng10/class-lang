@@ -2,18 +2,16 @@ namespace Z.Tool.Infra.StatBrushJoin;
 
 class Gen : StatGen
 {
-    public override int Execute()
+    public override long Execute()
     {
-        this.ClassName = "BrushJoin";
+        this.ClassName = this.S("BrushJoin");
 
-        this.ValuePostfix = "Join";
+        this.ValuePostfix = this.S("Join");
 
-        this.ValueOffset = " + 1";
+        this.ValueOffset = this.S(" + 1");
 
-        this.ItemListFileName = "ToolData/ItemListBrushJoin.txt";
+        this.ItemListFileName = this.S("ToolData/Infra/ItemListBrushJoin.txt");
 
-        int o;      
-        o = base.Execute();
-        return o;
+        return base.Execute();
     }
 }

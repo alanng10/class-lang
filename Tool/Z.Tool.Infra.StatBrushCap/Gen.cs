@@ -12,8 +12,6 @@ class Gen : StatGen
 
         this.ItemListFileName = this.S("ToolData/Infra/ItemListBrushCap.txt");
 
-        long o;
-        o = base.Execute();
-        return o;
+        return base.Execute();
     }
 }
