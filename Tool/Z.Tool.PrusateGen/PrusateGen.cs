@@ -173,22 +173,12 @@ class PrusateGen : ToolGen
         return true;
     }
 
-
-
-
-
-    protected virtual bool AppendFieldArray(StringBuilder sb, Class varClass, Array fieldArray)
+    protected virtual bool AddFieldArray(Class varClass, Array fieldArray)
     {
-        int count;
-
+        long count;
         count = fieldArray.Count;
-
-
-        int i;
-
+        long i;
         i = 0;
-
-
         while (i < count)
         {
             Field field;
@@ -283,64 +273,33 @@ class PrusateGen : ToolGen
 
 
 
-    protected virtual bool AppendField(StringBuilder sb, Class varClass, Field field)
+    protected virtual bool AddField(Class varClass, Field field)
     {
         this.FieldGetFunctionOperate.Class = varClass;
-
         this.FieldGetFunctionOperate.Field = field;
 
-
-
         this.FieldSetFunctionOperate.Class = varClass;
-
         this.FieldSetFunctionOperate.Field = field;
 
+        this.AddFunction(this.FieldGetFunctionOperate);
 
-
-
-        this.AppendFunction(sb, this.FieldGetFunctionOperate);
-
-
-
-        this.AppendFunction(sb, this.FieldSetFunctionOperate);
-
-
-
-
+        this.AddFunction(this.FieldSetFunctionOperate);
         return true;
     }
 
-
-
-
-
-    protected virtual bool AppendMethod(StringBuilder sb, Class varClass, Maide method)
+    protected virtual bool AddMethod(Class varClass, Maide method)
     {
         this.MethodCallFunctionOperate.Class = varClass;
 
         this.MethodCallFunctionOperate.Method = method;
 
-
-
-        this.AppendFunction(sb, this.MethodCallFunctionOperate);
-
-
-
-
+        this.AddFunction(this.MethodCallFunctionOperate);
         return true;
     }
 
-
-
-
-
-
-    protected virtual bool AppendFunction(FunctionOperate functionOperate)
+    protected virtual bool AddFunction(FunctionOperate functionOperate)
     {
-        this.AppendFunctionHeader(sb);
-        
-
-
+        this.AddFunctionHeader();
 
         this.Add(this.IntTypeName).AddS(" ");
 
@@ -348,28 +307,15 @@ class PrusateGen : ToolGen
 
         this.AddS("(");
 
-        functionOperate.ExecuteParam(sb);
-        
-        
-        
-        sb.Append(")").Append(";").Append(this.NewLine);
+        functionOperate.ExecuteParam();
 
-
-
-
+        this.AddS(")").AddS(";").Add(this.NewLine);
         return true;
     }
 
-
-
-
-
-    protected virtual bool AppendFunctionHeader(StringBuilder sb)
+    protected virtual bool AddFunctionHeader()
     {
-        sb.Append("Infra_Api").Append(" ");
-
-
-
+        this.AddS("Infra_Api").AddS(" ");
         return true;
     }
 
