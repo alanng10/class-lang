@@ -5,12 +5,14 @@ public class Gen : Any
     public override bool Init()
     {
         base.Init();
+        this.ListInfra = ListInfra.This;
         this.TextInfra = TextInfra.This;
         this.ToolInfra = Infra.This;
         this.StringComp = StringComp.This;
         return true;
     }
 
+    protected virtual ListInfra ListInfra { get; set; }
     protected virtual TextInfra TextInfra { get; set; }
     protected virtual Infra ToolInfra { get; set; }
     protected virtual StringComp StringComp { get; set; }
