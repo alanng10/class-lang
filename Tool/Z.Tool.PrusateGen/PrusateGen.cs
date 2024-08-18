@@ -198,37 +198,21 @@ class PrusateGen : ToolGen
         return true;
     }
 
-
-
-
-
-    protected virtual bool AppendMethodArray(StringBuilder sb, Class varClass, Array methodArray)
+    protected virtual bool AddMethodArray(Class varClass, Array methodArray)
     {
-        int count;
-
+        long count;
         count = methodArray.Count;
-
-
-        int i;
-
+        long i;
         i = 0;
-
-
         while (i < count)
         {
             Maide method;
-
             method = (Maide)methodArray.GetAt(i);
 
-
-            this.AppendMethod(sb, varClass, method);
-
+            this.AddMethod(varClass, method);
 
             i = i + 1;
         }
-
-
-
         return true;
     }
 
