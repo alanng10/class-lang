@@ -2,15 +2,14 @@ namespace Z.Tool.Infra.StatComp;
 
 class Gen : StatGen
 {
-    public override int Execute()
+    public override long Execute()
     {
-        this.ClassName = "Comp";
-        this.ScopeName = "QPainter";
-        this.ValuePrefix = "CompositionMode_";
-        this.ValueOffset = " + 1";
-        this.ItemListFileName = "ToolData/ItemListComp.txt";
-        int o;
-        o = base.Execute();
-        return o;
+        this.ClassName = this.S("Comp");
+        this.ScopeName = this.S("QPainter");
+        this.ValuePrefix = this.S("CompositionMode_");
+        this.ValueOffset = this.S(" + 1");
+        this.ItemListFileName = this.S("ToolData/Infra/ItemListComp.txt");
+
+        return base.Execute();
     }
 }
