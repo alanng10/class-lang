@@ -233,13 +233,6 @@ AudioOut
     Muted
     Volume
 
-AudioEffect
-    Source
-    Volume
-    SourceThisSet()
-    Play()
-    Stop()
-
 Play
     Source
     SourceThisSet()
