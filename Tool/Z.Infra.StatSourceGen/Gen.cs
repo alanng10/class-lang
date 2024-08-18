@@ -1,41 +1,39 @@
 namespace Z.Infra.StatSourceGen;
 
-public class Gen : Any
+public class Gen : ToolGen
 {
     public override bool Init()
     {
         base.Init();
-        this.ToolInfra = ToolInfra.This;
-        this.SourceFileName = "ToolData/Source.txt";
-        this.MethodFileName = "ToolData/Method.txt";
-        this.ShareVarFileName = "ToolData/ShareVar.txt";
-        this.ItemListFileName = "ToolData/ItemList.txt";
+        this.SourceFileName = this.S("ToolData/Infra/Source.txt");
+        this.MethodFileName = this.S("ToolData/Infra/Method.txt");
+        this.ShareVarFileName = this.S("ToolData/Infra/ShareVar.txt");
+        this.ItemListFileName = this.S("ToolData/Infra/ItemList.txt");
 
-        this.ClassName = "";
-        this.ScopeName = "Qt";
-        this.ScopeSeparator = "::";
-        this.ValuePrefix = "";
-        this.ValuePostfix = "";
-        this.ValueOffset = "";
-        this.NamePrefix = "";
-        this.NamePostfix = "";
+        this.ClassName = this.S("");
+        this.ScopeName = this.S("Qt");
+        this.ScopeSeparator = this.S("::");
+        this.ValuePrefix = this.S("");
+        this.ValuePostfix = this.S("");
+        this.ValueOffset = this.S("");
+        this.NamePrefix = this.S("");
+        this.NamePostfix = this.S("");
         return true;
     }
 
     public virtual String ClassName { get; set; }
     public virtual String ScopeName { get; set; }
     public virtual String ScopeSeparator { get; set; }
-    public virtual string ValuePrefix { get; set; }
-    public virtual string ValuePostfix { get; set; }
-    public virtual string ValueOffset { get; set; }
-    public virtual string NamePrefix { get; set; }
-    public virtual string NamePostfix { get; set; }
-    public virtual string SourceFileName { get; set; }
-    public virtual string MethodFileName { get; set; }
-    public virtual string ShareVarFileName { get; set; }
-    public virtual string ItemListFileName { get; set; }
-    public virtual string OutputFilePath { get; set; }
-    protected virtual ToolInfra ToolInfra { get; set; }
+    public virtual String ValuePrefix { get; set; }
+    public virtual String ValuePostfix { get; set; }
+    public virtual String ValueOffset { get; set; }
+    public virtual String NamePrefix { get; set; }
+    public virtual String NamePostfix { get; set; }
+    public virtual String SourceFileName { get; set; }
+    public virtual String MethodFileName { get; set; }
+    public virtual String ShareVarFileName { get; set; }
+    public virtual String ItemListFileName { get; set; }
+    public virtual String OutputFilePath { get; set; }
     protected virtual Array LineArray { get; set; }
     protected virtual Table ItemTable { get; set; }
 
@@ -43,36 +41,36 @@ public class Gen : Any
     {
         this.ExecuteItemList();
 
-        string sourceText;
+        String sourceText;
         sourceText = this.ToolInfra.StorageTextRead(this.SourceFileName);
 
-        StringBuilder sa;
-        sa = new StringBuilder(sourceText);
+        Text k;
+        k = this.TextCreate(sourceText);
 
-        string methodList;
+        String methodList;
         methodList = this.GetMethodList();
 
-        string shareVarList;
+        String shareVarList;
         shareVarList = this.GetShareVarList();
 
-        sa.Replace("#ShareVarList#", shareVarList);
-        sa.Replace("#MethodList#", methodList);
+        k = this.Replace(k, "#ShareVarList#", shareVarList);
+        k = this.Replace(k, "#MethodList#", methodList);
 
-        string kk;
-        kk = sa.ToString();
+        String a;
+        a = this.StringCreate(k);
 
         this.OutputFilePath = this.GetOutputFilePath();
 
-        this.ToolInfra.StorageTextWrite(this.OutputFilePath, kk);
+        this.ToolInfra.StorageTextWrite(this.OutputFilePath, a);
         return 0;
     }
 
     protected virtual bool ExecuteItemList()
     {
-        string a;
+        String a;
         a = this.ToolInfra.StorageTextRead(this.ItemListFileName);
 
-        this.LineArray = this.ToolInfra.SplitLineList(a);
+        this.LineArray = this.ToolInfra.TextSplitLineString(a);
 
         this.ItemTable = this.ToolInfra.TableCreateStringCompare();
 
@@ -81,8 +79,8 @@ public class Gen : Any
         this.LineArray.IterSet(iter);
         while (iter.Next())
         {
-            string line;
-            line = (string)iter.Value;
+            String line;
+            line = (String)iter.Value;
 
             Entry entry;
             entry = this.GetItemEntry(line);
@@ -92,7 +90,7 @@ public class Gen : Any
         return true;
     }
 
-    protected virtual Entry GetItemEntry(string line)
+    protected virtual Entry GetItemEntry(String line)
     {
         Entry a;
         a = new Entry();
@@ -102,7 +100,7 @@ public class Gen : Any
         return a;
     }
 
-    protected virtual string GetMethodList()
+    protected virtual String GetMethodList()
     {
         string methodText;
         methodText = this.ToolInfra.StorageTextRead(this.MethodFileName);
