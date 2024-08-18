@@ -1,38 +1,18 @@
 #include "Stat.hpp"
 
-Int Stat_Var_TextAlignLeft = Qt::AlignLeft;
-Int Stat_Var_TextAlignRight = Qt::AlignRight;
-Int Stat_Var_TextAlignHCenter = Qt::AlignHCenter;
-Int Stat_Var_TextAlignJustify = Qt::AlignJustify;
-Int Stat_Var_TextAlignTop = Qt::AlignTop;
-Int Stat_Var_TextAlignBottom = Qt::AlignBottom;
-Int Stat_Var_TextAlignVCenter = Qt::AlignVCenter;
+Int Stat_Var_TextAlignStart = 0;
+Int Stat_Var_TextAlignMid = 1;
+Int Stat_Var_TextAlignEnd = 2;
 
-Int Stat_TextAlignLeft(Int o)
+Int Stat_TextAlignStart(Int o)
 {
-    return Stat_Var_TextAlignLeft;
+    return Stat_Var_TextAlignStart;
 }
-Int Stat_TextAlignRight(Int o)
+Int Stat_TextAlignMid(Int o)
 {
-    return Stat_Var_TextAlignRight;
+    return Stat_Var_TextAlignMid;
 }
-Int Stat_TextAlignHCenter(Int o)
+Int Stat_TextAlignEnd(Int o)
 {
-    return Stat_Var_TextAlignHCenter;
-}
-Int Stat_TextAlignJustify(Int o)
-{
-    return Stat_Var_TextAlignJustify;
-}
-Int Stat_TextAlignTop(Int o)
-{
-    return Stat_Var_TextAlignTop;
-}
-Int Stat_TextAlignBottom(Int o)
-{
-    return Stat_Var_TextAlignBottom;
-}
-Int Stat_TextAlignVCenter(Int o)
-{
-    return Stat_Var_TextAlignVCenter;
+    return Stat_Var_TextAlignEnd;
 }
