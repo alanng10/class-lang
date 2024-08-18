@@ -2,16 +2,14 @@ namespace Z.Tool.Infra.StatBrushLine;
 
 class Gen : StatGen
 {
-    public override int Execute()
+    public override long Execute()
     {
-        this.ClassName = "BrushLine";
+        this.ClassName = this.S("BrushLine");
         
-        this.ValuePostfix = "Line";
+        this.ValuePostfix = this.S("Line");
 
-        this.ItemListFileName = "ToolData/ItemListBrushLine.txt";
+        this.ItemListFileName = this.S("ToolData/Infra/ItemListBrushLine.txt");
 
-        int o;        
-        o = base.Execute();
-        return o;
+        return base.Execute();
     }
 }
