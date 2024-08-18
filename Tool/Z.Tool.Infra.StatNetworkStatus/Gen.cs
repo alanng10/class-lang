@@ -1,125 +1,35 @@
 namespace Z.Tool.Infra.StatNetworkStatus;
 
-
-
-
-
 class Gen : StatGen
 {
-    public override int Execute()
+    public override long Execute()
     {
-        this.ClassName = "NetworkStatus";
+        this.ClassName = this.S("NetworkStatus");
+        this.ScopeName = this.S("QAbstractSocket");
+        this.ValueOffset = this.S(" + 1");
+        this.ItemListFileName = this.S("ToolData/Infra/ItemListNetworkStatus.txt");
 
-
-
-        this.ScopeName = "QAbstractSocket";
-
-
-
-        this.ValueOffset = " + 1";
-
-
-
-
-        this.ItemListFileName = "ToolData/ItemListNetworkStatus.txt";
-
-
-
-
-        int o;
-        
-        o = base.Execute();
-
-
-        return o;
+        return base.Execute();
     }
 
-
-
-
-
-
-    protected override string GetItemShareVar(string shareVar, Iter iter, int index)
+    protected override String GetItemShareVar(String shareVar, Iter iter, long index)
     {
         if (index == 0)
         {
-            string k;
+            String ka;
+            ka = this.S("Int Stat_Var_NetworkStatus#ItemName# = QAbstractSocket::UnknownSocketError + 1;\n");
 
-            k = base.GetItemShareVar(shareVar, iter, index);
+            String itemName;
+            itemName = (String)iter.Index;
 
+            Text k;
+            k = this.TextCreate(ka);
+            k = this.Replace(k, "#ItemName#", itemName);
 
-
-            string ua;
-
-            ua = "::";
-
-
-            string ub;
-
-            ub = " ";
-
-
-
-            int oa;
-
-            oa = k.IndexOf(ua);
-
-            
-            if (oa < 0)
-            {
-                return "";
-            }
-
-
-
-            int oc;
-
-            oc = oa + ua.Length;
-
-
-
-            int ob;
-
-            ob = k.IndexOf(ub, oc);
-
-
-
-            if (ob < 0)
-            {
-                return "";
-            }
-
-
-
-            string ooa;
-
-            ooa = k.Substring(0, oc);
-
-
-            string oob;
-
-            oob = k.Substring(ob);
-
-
-
-            string ooc;
-
-            ooc = "UnknownSocketError";
-
-
-
-
-            string oo;
-
-            oo = ooa + ooc + oob;
-
-
-
-            return oo;
+            String a;
+            a = this.StringCreate(k);
+            return a;
         }
-
-
-
 
         return base.GetItemShareVar(shareVar, iter, index);
     }
