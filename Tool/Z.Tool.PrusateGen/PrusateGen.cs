@@ -83,14 +83,10 @@ class PrusateGen : ToolGen
             this.AddClass(varClass);
         }
 
-        string o;
-        o = sb.ToString();
-        return o;
+        String a;
+        a = this.AddResult();
+        return a;
     }
-
-
-
-
 
     protected virtual bool AddClass(Class varClass)
     {
