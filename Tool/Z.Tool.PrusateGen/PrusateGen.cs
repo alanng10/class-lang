@@ -336,7 +336,7 @@ class PrusateGen : ToolGen
             Maide maide;
             maide = (Maide)this.ReadResult.Maide.GetAt(i);
 
-            this.AddMethod(null, maide);
+            this.AddMaide(null, maide);
 
             i = i + 1;
         }
