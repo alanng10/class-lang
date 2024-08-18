@@ -22,7 +22,7 @@ class PrusateGen : ToolGen
         this.MaideCallFunctionOperate.Init();
         this.MaideCallFunctionOperate.Gen = this;
 
-        this.PrudateFileName = this.S("ToolData/Prusate/Prusate.txt");
+        this.PrusateFileName = this.S("ToolData/Prusate/Prusate.txt");
 
         this.OutputFilePath = this.S("../../Infra/Infra/Prusate.h");
         return true;
@@ -32,7 +32,7 @@ class PrusateGen : ToolGen
     public virtual String NewLine { get; set; }
     public virtual String IntTypeName { get; set; }
     public virtual String Combine { get; set; }
-    protected virtual String PrudateFileName { get; set; }
+    protected virtual String PrusateFileName { get; set; }
     protected virtual String OutputFilePath { get; set; }
     protected virtual FieldGetFunctionOperate FieldGetFunctionOperate { get; set; }
     protected virtual FieldSetFunctionOperate FieldSetFunctionOperate { get; set; }
@@ -50,7 +50,7 @@ class PrusateGen : ToolGen
         toolInfra = ToolInfra.This;
 
         String ka;
-        ka = toolInfra.StorageTextRead(this.PrudateFileName);
+        ka = toolInfra.StorageTextRead(this.PrusateFileName);
 
         Text k;
         k = this.TextCreate(ka);
