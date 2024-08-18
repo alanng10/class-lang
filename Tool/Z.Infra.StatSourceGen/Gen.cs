@@ -125,7 +125,7 @@ public class Gen : ToolGen
         iter = this.ItemTable.IterCreate();
         this.ItemTable.IterSet(iter);
 
-        int i;
+        long i;
         i = 0;
         while (iter.Next())
         {
@@ -166,7 +166,7 @@ public class Gen : ToolGen
         Iter iter;
         iter = this.ItemTable.IterCreate();
         this.ItemTable.IterSet(iter);
-        int i;
+        long i;
         i = 0;
         while (iter.Next())
         {
