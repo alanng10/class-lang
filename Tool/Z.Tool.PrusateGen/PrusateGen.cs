@@ -95,19 +95,19 @@ class PrusateGen : ToolGen
             this.AppendClassNew(varClass);
         }
 
-        this.AppendFieldArray(sb, varClass, varClass.Field);
+        this.AddFieldArray(varClass, varClass.Field);
 
         this.AddNewLineIfNotEmpty(varClass.Field);
 
-        this.AppendMethodArray(sb, varClass, varClass.Maide);
+        this.AddMaideArray(varClass, varClass.Maide);
 
         this.AddNewLineIfNotEmpty(varClass.Maide);
 
-        this.AppendFieldArray(sb, varClass, varClass.StaticField);
+        this.AddFieldArray(varClass, varClass.StaticField);
 
         this.AddNewLineIfNotEmpty(varClass.StaticField);
 
-        this.AppendMethodArray(sb, varClass, varClass.StaticMaide);
+        this.AddMaideArray(varClass, varClass.StaticMaide);
 
         this.AddNewLineIfNotEmpty(varClass.StaticMaide);
 
