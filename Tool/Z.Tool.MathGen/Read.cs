@@ -9,7 +9,7 @@ public class Read : ToolGen
     protected virtual Array LineList { get; set; }
     protected virtual Array TrigoLineList { get; set; }
 
-    public virtual int Execute()
+    public virtual long Execute()
     {
         ToolInfra toolInfra;
         toolInfra = this.ToolInfra;

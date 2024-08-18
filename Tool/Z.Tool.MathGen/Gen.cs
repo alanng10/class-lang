@@ -10,7 +10,7 @@ class Gen : Any
         read = new Read();
         read.Init();
         
-        int o;
+        long o;
         o = read.Execute();
         
         if (!(o == 0))
