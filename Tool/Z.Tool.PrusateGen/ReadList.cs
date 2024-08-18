@@ -107,16 +107,13 @@ public class ReadList : ToolGen
         return true;
     }
 
-
-
-
-
     protected virtual bool ExecuteList(string className)
     {
+        String classNameK;
+        classNameK = this.S(className);
+
         string listFilePath;
-
-
-        listFilePath = this.GetListFilePath(className);
+        listFilePath = this.GetListFilePath(classNameK);
 
 
 
@@ -223,20 +220,13 @@ public class ReadList : ToolGen
         return true;
     }
 
-
-
-
-
-    protected virtual string GetListFilePath(string className)
+    protected virtual String GetListFilePath(String className)
     {
-        return "ToolData/Infra/ItemList" + className + ".txt";
+        return this.AddClear().AddS("ToolData/Infra/ItemList").Add(className).AddS(".txt").AddResult();
     }
 
-
-
-
-    protected virtual string GetMethodName(string className, string itemName)
+    protected virtual String GetMethodName(String className, String itemName)
     {
-        return className + itemName;
+        return this.AddClear().Add(className).Add(itemName).AddResult();
     }
 }
