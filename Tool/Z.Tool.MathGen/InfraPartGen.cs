@@ -16,10 +16,28 @@ class InfraPartGen : PartGen
 
     protected override String FuncLibName(String name)
     {
-        string k;
-        k = name.ToLower();
+        Text k;
+        k = this.TextCreate(name);
+        k = this.TextLower(k);
 
-        return "std::" + k;
+        String ka;
+        ka = this.StringCreate(k);
+
+        StringJoin h;
+        h = new StringJoin();
+        h.Init();
+
+        StringJoin kk;
+        kk = this.ToolInfra.StringJoin;
+
+        this.ToolInfra.StringJoin = h;
+
+        String a;
+        a = this.AddClear().AddS("std::").Add(ka).AddResult();
+
+        this.ToolInfra.StringJoin = kk;
+
+        return a;
     }
 
     protected override bool AddNewLine()

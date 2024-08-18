@@ -211,44 +211,6 @@ public class Infra : Any
         return a;
     }
 
-    public virtual Text TextUpper(Text text)
-    {
-        TextInfra textInfra;
-        textInfra = this.TextInfra;
-
-        long index;
-        index = text.Range.Index;
-        long count;
-        count = text.Range.Count;
-
-        Text a;
-        a = textInfra.TextCreate(count);
-
-        Data source;
-        Data dest;
-        source = text.Data;
-        dest = a.Data;
-
-        long i;
-        i = 0;
-        while (i < count)
-        {
-            uint n;
-            n = textInfra.DataCharGet(source, index + i);
-
-            if (textInfra.IsLetter(n, false))
-            {
-                n = n - 'a' + 'A';
-            }
-
-            textInfra.DataCharSet(dest, i, n);
-
-            i = i + 1;
-        }
-
-        return a;
-    }
-
     public virtual bool TextStart(Text text, Text other)
     {
         return this.TextInfra.Start(text, other, this.TextCompare);

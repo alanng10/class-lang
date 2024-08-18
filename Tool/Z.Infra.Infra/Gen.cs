@@ -27,6 +27,11 @@ public class Gen : Any
         return this.TextReplace(text, this.TextCreate(this.S(delimit)), this.TextCreate(join));
     }
 
+    public virtual Text TextLower(Text text)
+    {
+        return this.ToolInfra.TextLower(text);
+    }
+
     protected virtual Text TextCreate(String o)
     {
         return this.ToolInfra.TextCreate(o);
