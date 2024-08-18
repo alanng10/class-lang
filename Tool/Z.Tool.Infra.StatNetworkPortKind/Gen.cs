@@ -1,125 +1,40 @@
 namespace Z.Tool.Infra.StatNetworkPortKind;
 
-
-
-
-
 class Gen : StatGen
 {
-    public override int Execute()
+    public override long Execute()
     {
-        this.ClassName = "NetworkPortKind";
+        this.ClassName = this.S("NetworkPortKind");
+        this.ScopeName = this.S("QHostAddress");
+        this.ValueOffset = this.S(" + 2");
+        this.ItemListFileName = this.S("ToolData/Infra/ItemListNetworkPortKind.txt");
 
+        this.TextShareVarA = this.S("Int Stat_Var_NetworkPortKind#ItemName# = #ItemIndex#;\n");
 
-
-        this.ScopeName = "QHostAddress";
-
-
-
-        this.ValueOffset = " + 2";
-
-
-
-
-        this.ItemListFileName = "ToolData/ItemListNetworkPortKind.txt";
-
-
-
-
-        int o;
-        
-        o = base.Execute();
-
-
-        return o;
+        return base.Execute();
     }
 
+    protected virtual String TextShareVarA { get; set; }
 
-
-
-
-
-    protected override string GetItemShareVar(string shareVar, Iter iter, int index)
+    protected override String GetItemShareVar(String shareVar, Iter iter, long index)
     {
         if (index < 2)
         {
-            string k;
+            String itemName;
+            itemName = (String)iter.Index;
 
-            k = base.GetItemShareVar(shareVar, iter, index);
+            String itemIndex;
+            itemIndex = this.S(index.ToString());
 
+            Text k;
+            k = this.TextCreate(this.TextShareVarA);
+            k = this.Replace(k, "#ItemName#", itemName);
+            k = this.Replace(k, "#ItemIndex#", itemIndex);
 
-
-            string ua;
-
-            ua = " = ";
-
-
-            string ub;
-
-            ub = ";";
-
-
-
-            int oa;
-
-            oa = k.IndexOf(ua);
-
-            
-            if (oa < 0)
-            {
-                return "";
-            }
-
-
-
-            int oc;
-
-            oc = oa + ua.Length;
-
-
-
-            int ob;
-
-            ob = k.IndexOf(ub, oc);
-
-
-
-            if (ob < 0)
-            {
-                return "";
-            }
-
-
-
-            string ooa;
-
-            ooa = k.Substring(0, oc);
-
-
-            string oob;
-
-            oob = k.Substring(ob);
-
-
-
-            string ooc;
-
-            ooc = (index + 1).ToString();
-
-
-
-
-            string oo;
-
-            oo = ooa + ooc + oob;
-
-
-
-            return oo;
+            String a;
+            a = this.StringCreate(k);
+            return a;
         }
-
-
-
 
         return base.GetItemShareVar(shareVar, iter, index);
     }
