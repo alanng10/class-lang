@@ -26,9 +26,9 @@ public class ImageBinaryList : Any
         ulong stat;
         stat = Extern.Share_Stat(share);
 
-        this.Bmp = this.AddItem(Extern.Stat_ImageFormatBmp(stat));
-        this.Jpg = this.AddItem(Extern.Stat_ImageFormatJpg(stat));
-        this.Png = this.AddItem(Extern.Stat_ImageFormatPng(stat));
+        this.Bmp = this.AddItem(Extern.Stat_ImageBinaryBmp(stat));
+        this.Jpg = this.AddItem(Extern.Stat_ImageBinaryJpg(stat));
+        this.Png = this.AddItem(Extern.Stat_ImageBinaryPng(stat));
         return true;
     }
 
