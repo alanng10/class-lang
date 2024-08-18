@@ -92,7 +92,7 @@ class PrusateGen : ToolGen
     {
         if (varClass.HasNew)
         {
-            this.AppendClassNew(varClass);
+            this.AddClassNew(varClass);
         }
 
         this.AddFieldArray(varClass, varClass.Field);
@@ -334,9 +334,9 @@ class PrusateGen : ToolGen
         return (String)param.GetAt(index);
     }
 
-    protected virtual bool AppendClassNew(StringBuilder sb, Class varClass)
+    protected virtual bool AddClassNew(Class varClass)
     {
-        sb.Append("InfraApiNew").Append("(").Append(varClass.Name).Append(")").Append(this.NewLine);
+        this.AddS("InfraApiNew").AddS("(").Add(varClass.Name).AddS(")").Add(this.NewLine);
         return true;
     }
 }
