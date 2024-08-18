@@ -42,6 +42,11 @@ public class Gen : Any
         return this.ToolInfra.TextStart(text, other);
     }
 
+    protected virtual bool TextEnd(Text text, Text other)
+    {
+        return this.ToolInfra.TextEnd(text, other);
+    }
+
     protected virtual long TextIndex(Text text, Text other)
     {
         return this.ToolInfra.TextIndex(text, other);

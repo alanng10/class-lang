@@ -178,6 +178,11 @@ public class Infra : Any
         return this.TextInfra.Start(text, other, this.TextCompare);
     }
 
+    public virtual bool TextEnd(Text text, Text other)
+    {
+        return this.TextInfra.End(text, other, this.TextCompare);
+    }
+
     public virtual long TextIndex(Text text, Text other)
     {
         return this.TextInfra.Index(text, other, this.TextCompare);
