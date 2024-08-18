@@ -210,32 +210,18 @@ class ExternGen : PrusateGen
         return a;
     }
 
-
-
-
-
-    protected override bool AppendFunctionHeader(StringBuilder sb)
+    protected override bool AddFunctionHeader()
     {
-        ToolInfra infra;
+        this.ToolInfra.AddIndent(1);
 
-        infra = ToolInfra.This;
-
-
-        infra.AppendIndent(sb, 1);
-
-
-
-        sb
-            .Append("[")
-            .Append("DllImport")
-            .Append("(").Append("InfraLib").Append(")")
-            .Append("]")
-            .Append(" ")
-            .Append("public").Append(" ").Append("extern").Append(" ").Append("static").Append(" ")
+        this
+            .AddS("[")
+            .AddS("DllImport")
+            .AddS("(").AddS("InfraLib").AddS(")")
+            .AddS("]")
+            .AddS(" ")
+            .AddS("public").AddS(" ").AddS("extern").AddS(" ").AddS("static").AddS(" ")
             ;
-        
-
-
         return true;
     }
 
