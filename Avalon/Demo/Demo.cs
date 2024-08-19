@@ -144,7 +144,7 @@ class Demo : Any
         penBrush.Kind = this.BrushKindList.Color;
         penBrush.Color = this.DrawInfra.ColorCreate(0xff, 0xff, 0, 0xff);
         penBrush.Line = this.BrushLineList.DashDotDot;
-        penBrush.Width = this.MathInt(11);
+        penBrush.Wed = this.MathInt(11);
         penBrush.Cap = this.BrushCapList.Round;
         penBrush.Join = this.BrushJoinList.Bevel;
         penBrush.Init();
@@ -1495,7 +1495,7 @@ class Demo : Any
         a.Kind = this.BrushKindList.Color;
         a.Color = this.DrawInfra.ColorCreate(0xff, 0, 0, 0xff);
         a.Line = this.BrushLineList.DashDotDot;
-        a.Width = this.MathInt(14);
+        a.Wed = this.MathInt(14);
         a.Cap = this.BrushCapList.Round;
         a.Join = this.BrushJoinList.Bevel;
         a.Init();

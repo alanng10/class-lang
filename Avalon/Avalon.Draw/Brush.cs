@@ -40,7 +40,7 @@ public class Brush : Any
         if (!(this.Line == null))
         {
             lineU = this.Line.Intern;
-            widthU = (ulong)(this.Width);
+            widthU = (ulong)(this.Wed);
             capU = this.Cap.Intern;
             joinU = this.Join.Intern;
         }
@@ -70,7 +70,7 @@ public class Brush : Any
     public virtual Gradient Gradient { get; set; }
     public virtual Image Image { get; set; }
     public virtual BrushLine Line { get; set; }
-    public virtual long Width { get; set; }
+    public virtual long Wed { get; set; }
     public virtual BrushCap Cap { get; set; }
     public virtual BrushJoin Join { get; set; }
     internal virtual ulong Intern { get; set; }    

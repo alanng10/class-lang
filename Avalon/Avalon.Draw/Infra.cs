@@ -100,7 +100,7 @@ public class Infra : Any
         a.Kind = this.BrushKindList.Color;
         a.Color = color;
         a.Line = this.BrushLineList.Solid;
-        a.Width = width;
+        a.Wed = width;
         a.Cap = this.BrushCapList.Flat;
         a.Join = this.BrushJoinList.Miter;
         a.Init();
