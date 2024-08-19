@@ -255,8 +255,8 @@ public class Draw : Any
         ulong h;
         w = (ulong)(this.Size.Width);
         h = (ulong)(this.Size.Height);
-        Extern.Size_WidthSet(this.InternSize, w);
-        Extern.Size_HeightSet(this.InternSize, h);
+        Extern.Size_WedSet(this.InternSize, w);
+        Extern.Size_HetSet(this.InternSize, h);
         return true;
     }
 
