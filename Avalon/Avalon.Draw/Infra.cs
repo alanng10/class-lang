@@ -246,31 +246,31 @@ public class Infra : Any
 
     public virtual bool BoundArea(Rect bound, Rect area)
     {
-        long left;
-        left = area.Pos.Col;
-        long up;
-        up = area.Pos.Row;
+        long lite;
+        lite = area.Pos.Col;
+        long nite;
+        nite = area.Pos.Row;
         long wed;
         wed = area.Size.Wed;
         long height;
         height = area.Size.Het;
         long right;
-        right = left + wed;
+        right = lite + wed;
         long down;
-        down = up + height;
+        down = nite + height;
 
         long boundRight;
         boundRight = bound.Pos.Col + bound.Size.Wed;
         long boundDown;
         boundDown = bound.Pos.Row + bound.Size.Het;
 
-        if (left < bound.Pos.Col)
+        if (lite < bound.Pos.Col)
         {
-            left = bound.Pos.Col;
+            lite = bound.Pos.Col;
         }
-        if (up < bound.Pos.Row)
+        if (nite < bound.Pos.Row)
         {
-            up = bound.Pos.Row;
+            nite = bound.Pos.Row;
         }
         if (boundRight < right)
         {
@@ -282,12 +282,12 @@ public class Infra : Any
         }
 
         long w;
-        w = this.BoundSub(right, left);
+        w = this.BoundSub(right, lite);
         long h;
-        h = this.BoundSub(down, up);
+        h = this.BoundSub(down, nite);
 
-        area.Pos.Col = left;
-        area.Pos.Row = up;
+        area.Pos.Col = lite;
+        area.Pos.Row = nite;
         area.Size.Wed = w;
         area.Size.Het = h;
         return true;
