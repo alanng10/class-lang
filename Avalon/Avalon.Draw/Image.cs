@@ -59,13 +59,13 @@ public class Image : Any
     
     public virtual bool DataCreate()
     {
-        long width;
+        long wed;
         long height;
-        width = this.Size.Wed;
+        wed = this.Size.Wed;
         height = this.Size.Het;
         ulong w;
         ulong h;
-        w = (ulong)width;
+        w = (ulong)wed;
         h = (ulong)height;
         Extern.Size_WedSet(this.InternSize, w);
         Extern.Size_HetSet(this.InternSize, h);
@@ -79,15 +79,15 @@ public class Image : Any
         ulong aa;
         aa = Extern.Data_ValueGet(this.InternData);
 
-        ulong widthU;
+        ulong wedU;
         ulong colU;
         ulong rowU;
-        widthU = (ulong)this.Size.Wed;
+        wedU = (ulong)this.Size.Wed;
         colU = (ulong)pos.Col;
         rowU = (ulong)pos.Row;
 
         uint u;
-        u = this.InternIntern.VideoDataColor(aa, widthU, colU, rowU);
+        u = this.InternIntern.VideoDataColor(aa, wedU, colU, rowU);
 
         ulong ua;
         ua = u;
