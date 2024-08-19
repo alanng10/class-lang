@@ -1,3 +1,10 @@
 Int RefCompare|Any left, Any right
-Int StringChar|String string, Int index
-Int StringCount|String string
+Int Memory|Any any
+Any DataValueNew|Int count
+Int DataValueGet|Int index
+Bool DataValueSet|Int index, Int value
+String StringNew|
+Any StringValueGet|String string
+Bool StringValueSet|String string, Any value
+Int StringCountGet|String string
+Bool StringCountSet|String string, Int value
