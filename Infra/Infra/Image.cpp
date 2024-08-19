@@ -69,23 +69,23 @@ Int Image_DataCreate(Int o)
     Int data;
     data = m->Data;
 
-    Int width;
-    Int height;
-    width = Size_WedGet(size);
-    height = Size_HetGet(size);
-    int widthU;
-    int heightU;
-    widthU = width;
-    heightU = height;
+    Int wed;
+    Int het;
+    wed = Size_WedGet(size);
+    het = Size_HetGet(size);
+    int wedU;
+    int hetU;
+    wedU = wed;
+    hetU = het;
 
     Int pixelByteCount;
     pixelByteCount = 4;
 
     Int rowByteCount;
-    rowByteCount = width * pixelByteCount;
+    rowByteCount = wed * pixelByteCount;
 
     Int dataCount;
-    dataCount = height * rowByteCount;
+    dataCount = het * rowByteCount;
 
     Int dataValue;
     dataValue = New(dataCount);
@@ -103,7 +103,7 @@ Int Image_DataCreate(Int o)
     format = Image_Var_Format;
 
     QImage u;
-    u = QImage(dataValueU, widthU, heightU, bytePerLine, format);
+    u = QImage(dataValueU, wedU, hetU, bytePerLine, format);
 
     (*(m->Intern)) = u;
     return true;
