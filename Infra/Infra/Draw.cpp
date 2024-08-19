@@ -259,10 +259,10 @@ Int Draw_AreaThisSet(Int o)
     int u;
     int w;
     int h;
-    l = aLeft;
-    u = aUp;
-    w = aWidth;
-    h = aHeight;
+    l = aCol;
+    u = aRow;
+    w = aWed;
+    h = aHet;
     if (l < 0)
     {
         l = 0;
@@ -292,15 +292,15 @@ Int Draw_Clear(Int o, Int color)
     m = CP(o);
     Int size;
     size = m->Size;
-    Int width;
-    Int height;
-    width = Size_WidthGet(size);
-    height = Size_HeightGet(size);
+    Int wed;
+    Int het;
+    wed = Size_WedGet(size);
+    het = Size_HetGet(size);
 
     int w;
     int h;
-    w = width;
-    h = height;
+    w = wed;
+    h = het;
 
     InternColor(color);
 
@@ -557,17 +557,17 @@ Int Draw_ExecuteText(Int o, Int text, Int horizAlign, Int vertAlign, Int wordWra
 
     m->InternText->setRawData(null, 0);
 
-    qreal boundL;
-    qreal boundU;
+    qreal boundC;
+    qreal boundR;
     qreal boundW;
     qreal boundH;
-    boundL = boundRectA.left();
-    boundU = boundRectA.top();
+    boundC = boundRectA.left();
+    boundR = boundRectA.top();
     boundW = boundRectA.width();
     boundH = boundRectA.height();
 
-    ValueFromInternValue(boundL);
-    ValueFromInternValue(boundU);
+    ValueFromInternValue(boundC);
+    ValueFromInternValue(boundR);
     ValueFromInternValue(boundW);
     ValueFromInternValue(boundH);
     
@@ -575,10 +575,10 @@ Int Draw_ExecuteText(Int o, Int text, Int horizAlign, Int vertAlign, Int wordWra
     boundPos = Rect_PosGet(boundRect);
     Int boundSize;
     boundSize = Rect_SizeGet(boundRect);
-    Pos_LeftSet(boundPos, boundLA);
-    Pos_UpSet(boundPos, boundUA);
-    Size_WidthSet(boundSize, boundWA);
-    Size_HeightSet(boundSize, boundHA);
+    Pos_ColSet(boundPos, boundCA);
+    Pos_RowSet(boundPos, boundRA);
+    Size_WedSet(boundSize, boundWA);
+    Size_HetSet(boundSize, boundHA);
     return true;
 }
 
