@@ -184,12 +184,12 @@ public class Infra : object
         return true;
     }
 
-    public virtual bool SizeSet(ulong size, long wed, long height)
+    public virtual bool SizeSet(ulong size, long wed, long het)
     {
         ulong w;
         ulong h;
         w = (ulong)wed;
-        h = (ulong)height;
+        h = (ulong)het;
 
         Extern.Size_WedSet(size, w);
         Extern.Size_HetSet(size, h);
