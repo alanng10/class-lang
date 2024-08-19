@@ -280,14 +280,14 @@ public class Grid : View
         long up;
         up = this.Dest.Pos.Row;
         up = up + draw.Pos.Row;
-        long width;
-        width = this.Dest.Size.Wed;
+        long wed;
+        wed = this.Dest.Size.Wed;
         long height;
         height = this.Dest.Size.Het;
 
         this.DrawRectA.Pos.Col = left;
         this.DrawRectA.Pos.Row = up;
-        this.DrawRectA.Size.Wed = width;
+        this.DrawRectA.Size.Wed = wed;
         this.DrawRectA.Size.Het = height;
 
         this.SetChildArea(this.DrawRectA);
@@ -361,8 +361,8 @@ public class Grid : View
         long down;
         down = this.GridRowUp(endRow);
 
-        long width;
-        width = right - leftA;
+        long wed;
+        wed = right - leftA;
         long height;
         height = down - upA;
 
@@ -370,7 +370,7 @@ public class Grid : View
         rect = this.DrawRectA;
         rect.Pos.Col = left;
         rect.Pos.Row = up;
-        rect.Size.Wed = width;
+        rect.Size.Wed = wed;
         rect.Size.Het = height;
 
         this.SetChildArea(rect);

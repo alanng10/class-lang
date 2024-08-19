@@ -309,8 +309,8 @@ public class View : Comp
         left = this.Pos.Col;
         long up;
         up = this.Pos.Row;
-        long width;
-        width = this.Size.Wed;
+        long wed;
+        wed = this.Size.Wed;
         long height;
         height = this.Size.Het;
 
@@ -324,7 +324,7 @@ public class View : Comp
 
         rect.Pos.Col = leftM;
         rect.Pos.Row = upM;
-        rect.Size.Wed = this.MathInt(width);
+        rect.Size.Wed = this.MathInt(wed);
         rect.Size.Het = this.MathInt(height);
 
         DrawBrush brush;
@@ -359,14 +359,14 @@ public class View : Comp
         up = this.Pos.Row;
         up = up + draw.Pos.Row;
 
-        long width;
-        width = this.Size.Wed;
+        long wed;
+        wed = this.Size.Wed;
         long height;
         height = this.Size.Het;
 
         this.DrawRectA.Pos.Col = left;
         this.DrawRectA.Pos.Row = up;
-        this.DrawRectA.Size.Wed = width;
+        this.DrawRectA.Size.Wed = wed;
         this.DrawRectA.Size.Het = height;
 
         this.SetChildArea(this.DrawRectA);

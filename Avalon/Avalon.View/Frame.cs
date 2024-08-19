@@ -43,13 +43,13 @@ public class Frame : Comp
         w = Extern.Size_WedGet(sizeU);
         ulong h;
         h = Extern.Size_HetGet(sizeU);
-        long width;
-        width = (long)w;
+        long wed;
+        wed = (long)w;
         long height;
         height = (long)h;
         this.Size = new DrawSize();
         this.Size.Init();
-        this.Size.Wed = width;
+        this.Size.Wed = wed;
         this.Size.Het = height;
 
         Extern.Frame_TypeStateSet(this.Intern, this.InternTypeState);
@@ -64,7 +64,7 @@ public class Frame : Comp
         DrawImage image;
         image = new DrawImage();
         image.Init();
-        image.Size.Wed = width;
+        image.Size.Wed = wed;
         image.Size.Het = height;
         image.DataCreate();
         this.DrawImage = image;
