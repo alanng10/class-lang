@@ -252,12 +252,12 @@ public class Infra : Any
         nite = area.Pos.Row;
         long wed;
         wed = area.Size.Wed;
-        long height;
-        height = area.Size.Het;
+        long het;
+        het = area.Size.Het;
         long rite;
         rite = lite + wed;
         long site;
-        site = nite + height;
+        site = nite + het;
 
         long boundLite;
         long boundNite;
