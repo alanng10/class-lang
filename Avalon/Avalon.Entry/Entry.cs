@@ -45,8 +45,6 @@ public class Entry : Any
 
         this.InternIntern.ModuleFoldPath = ka;
 
-        //Environment.SetEnvironmentVariable("QT_PLUGIN_PATH", "Avalon.Intern.data/Lib");
-
         ulong ua;
         ua = 1;
         Extern.Main_IsCSharpSet(ua);
