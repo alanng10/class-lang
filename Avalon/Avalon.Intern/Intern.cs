@@ -324,7 +324,7 @@ public class Intern : object
         return true;
     }
 
-    public virtual uint VideoDataColor(ulong data, ulong width, ulong left, ulong up)
+    public virtual uint VideoDataColor(ulong data, ulong wed, ulong left, ulong up)
     {
         uint a;
         unsafe
@@ -333,7 +333,7 @@ public class Intern : object
             p = (uint*)data;
 
             uint* d;
-            d = p + (up * width + left);
+            d = p + (up * wed + left);
 
             a = *d;
         }

@@ -93,14 +93,14 @@ public class Infra : Any
         return color;
     }
 
-    private Brush CreateBrush(Color color, long width)
+    private Brush CreateBrush(Color color, long wed)
     {
         Brush a;
         a = new Brush();
         a.Kind = this.BrushKindList.Color;
         a.Color = color;
         a.Line = this.BrushLineList.Solid;
-        a.Wed = width;
+        a.Wed = wed;
         a.Cap = this.BrushCapList.Flat;
         a.Join = this.BrushJoinList.Miter;
         a.Init();
@@ -131,23 +131,23 @@ public class Infra : Any
         return pos;
     }
 
-    public virtual Size SizeCreate(long width, long height)
+    public virtual Size SizeCreate(long wed, long height)
     {
         Size size;
         size = new Size();
         size.Init();
-        size.Wed = width;
+        size.Wed = wed;
         size.Het = height;
         return size;
     }
 
-    public virtual Rect RectCreate(long left, long up, long width, long height)
+    public virtual Rect RectCreate(long left, long up, long wed, long height)
     {
         Rect rect;
         rect = new Rect();
         rect.Init();
         rect.Pos = this.PosCreate(left, up);
-        rect.Size = this.SizeCreate(width, height);
+        rect.Size = this.SizeCreate(wed, height);
         return rect;
     }
 
@@ -250,12 +250,12 @@ public class Infra : Any
         left = area.Pos.Col;
         long up;
         up = area.Pos.Row;
-        long width;
-        width = area.Size.Wed;
+        long wed;
+        wed = area.Size.Wed;
         long height;
         height = area.Size.Het;
         long right;
-        right = left + width;
+        right = left + wed;
         long down;
         down = up + height;
 

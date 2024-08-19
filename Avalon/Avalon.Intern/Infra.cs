@@ -146,7 +146,7 @@ public class Infra : object
         return true;
     }
 
-    public virtual bool RectSet(ulong rect, long left, long up, long width, long height)
+    public virtual bool RectSet(ulong rect, long left, long up, long wed, long height)
     {
         ulong pos;
         pos = Extern.Rect_PosGet(rect);
@@ -156,7 +156,7 @@ public class Infra : object
         ulong size;
         size = Extern.Rect_SizeGet(rect);
 
-        this.SizeSet(size, width, height);
+        this.SizeSet(size, wed, height);
         return true;
     }
 
@@ -184,11 +184,11 @@ public class Infra : object
         return true;
     }
 
-    public virtual bool SizeSet(ulong size, long width, long height)
+    public virtual bool SizeSet(ulong size, long wed, long height)
     {
         ulong w;
         ulong h;
-        w = (ulong)width;
+        w = (ulong)wed;
         h = (ulong)height;
 
         Extern.Size_WedSet(size, w);
