@@ -121,10 +121,10 @@ Int Image_SetReadIntern(Int o, Int value)
     QImage* u;
     u = (QImage*)value;
 
-    int widthU;
-    int heightU;
-    widthU = u->width();
-    heightU = u->height();
+    int wedU;
+    int hetU;
+    wedU = u->width();
+    hetU = u->height();
 
     const uchar* bits;
     bits = u->constBits();
@@ -132,10 +132,10 @@ Int Image_SetReadIntern(Int o, Int value)
     qsizetype bytePerLine;
     bytePerLine = u->bytesPerLine();
 
-    Int width;
-    Int height;
-    width = widthU;
-    height = heightU;
+    Int wed;
+    Int het;
+    wed = wedU;
+    het = hetU;
     
     Int rowByteCount;
     rowByteCount = bytePerLine;
@@ -144,7 +144,7 @@ Int Image_SetReadIntern(Int o, Int value)
     pixelByteCount = 4;
 
     Int dataCount;
-    dataCount = width * height * pixelByteCount;
+    dataCount = wed * het * pixelByteCount;
 
     Int dataValue;
     dataValue = New(dataCount);
@@ -152,12 +152,12 @@ Int Image_SetReadIntern(Int o, Int value)
     Int source;
     source = CastInt(bits);
 
-    Image_DataCopy(o, dataValue, source, width, height, rowByteCount);
+    Image_DataCopy(o, dataValue, source, wed, het, rowByteCount);
     
     Int size;
     size = m->Size;
-    Size_WedSet(size, width);
-    Size_HetSet(size, height);
+    Size_WedSet(size, wed);
+    Size_HetSet(size, het);
 
     Int data;
     data = m->Data;
@@ -168,7 +168,7 @@ Int Image_SetReadIntern(Int o, Int value)
     dataValueU = (uchar*)dataValue;
 
     Int ka;
-    ka = width * pixelByteCount;
+    ka = wed * pixelByteCount;
     qsizetype uua;
     uua = ka;
 
@@ -176,7 +176,7 @@ Int Image_SetReadIntern(Int o, Int value)
     format = Image_Var_Format;
 
     QImage ua;
-    ua = QImage(dataValueU, widthU, heightU, uua, format);
+    ua = QImage(dataValueU, wedU, hetU, uua, format);
 
     (*(m->Intern)) = ua;
     return true;
