@@ -222,7 +222,7 @@ Word "tick" has meaning that is smallest duration.
 
 Word "year" has meaning that is date year.
 
-Word "month" has meaning that is date month.
+Word "mon" has meaning that is date month.
 
 Word "day" has meaning that is date day of month.
 
