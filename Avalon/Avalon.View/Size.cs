@@ -6,7 +6,7 @@ public class Size : Comp
     {
         base.Init();
         this.WedField = this.CreateWidthField();
-        this.HeightField = this.CreateHeightField();
+        this.HetField = this.CreateHeightField();
         return true;
     }
 
@@ -26,7 +26,7 @@ public class Size : Comp
         {
             this.ChangeWed(change);
         }
-        if (this.HeightField == varField)
+        if (this.HetField == varField)
         {
             this.ChangeHeight(change);
         }
@@ -54,24 +54,24 @@ public class Size : Comp
         return true;
     }
 
-    public virtual Field HeightField { get; set; }
+    public virtual Field HetField { get; set; }
 
     public virtual long Het
     {
         get
         {
-            return this.HeightField.GetInt();
+            return this.HetField.GetInt();
         }
 
         set
         {
-            this.HeightField.SetInt(value);
+            this.HetField.SetInt(value);
         }
     }
 
     protected virtual bool ChangeHeight(Change change)
     {
-        this.Event(this.HeightField);
+        this.Event(this.HetField);
         return true;
     }
 }
