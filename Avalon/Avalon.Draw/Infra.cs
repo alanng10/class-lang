@@ -264,9 +264,9 @@ public class Infra : Any
         boundLite = bound.Pos.Col;
         boundNite = bound.Pos.Row;
         long boundRite;
-        long boundDown;
+        long boundSite;
         boundRite = boundLite + bound.Size.Wed;
-        boundDown = boundNite + bound.Size.Het;
+        boundSite = boundNite + bound.Size.Het;
 
         if (lite < boundLite)
         {
@@ -280,9 +280,9 @@ public class Infra : Any
         {
             rite = boundRite;
         }
-        if (boundDown < site)
+        if (boundSite < site)
         {
-            site = boundDown;
+            site = boundSite;
         }
 
         long w;
