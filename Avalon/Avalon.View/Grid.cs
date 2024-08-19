@@ -438,9 +438,9 @@ public class Grid : View
             uu = this.InfraInfra.DataIntGet(this.ChildPosData, byteIndex);
             u = (long)uu;
         }
-        long ret;
-        ret = u;
-        return ret;
+        long a;
+        a = u;
+        return a;
     }
 
     protected virtual bool SetChildLeftArray()
