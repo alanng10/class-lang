@@ -77,8 +77,8 @@ public class PointList : Any
 
         ulong leftU;
         ulong upU;
-        leftU = Extern.Pos_LeftGet(pos);
-        upU = Extern.Pos_UpGet(pos);
+        leftU = Extern.Pos_ColGet(pos);
+        upU = Extern.Pos_RowGet(pos);
 
         long left;
         long up;

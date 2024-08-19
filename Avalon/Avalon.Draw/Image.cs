@@ -67,8 +67,8 @@ public class Image : Any
         ulong h;
         w = (ulong)width;
         h = (ulong)height;
-        Extern.Size_WidthSet(this.InternSize, w);
-        Extern.Size_HeightSet(this.InternSize, h);
+        Extern.Size_WedSet(this.InternSize, w);
+        Extern.Size_HetSet(this.InternSize, h);
 
         Extern.Image_DataCreate(this.Intern);
         return true;
