@@ -12,7 +12,7 @@ public class Gen : SourceGen
         this.ItemClassName = this.S("ImageBinary");
         this.ArrayClassName = this.S("Array");
         this.Export = true;
-        this.StatItemClassName = this.S("ImageFormat");
+        this.StatItemClassName = this.S("ImageBinary");
         this.ItemListFileName = this.GetStatItemListFileName();
         return true;
     }

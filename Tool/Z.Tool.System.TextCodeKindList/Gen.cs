@@ -12,7 +12,7 @@ public class Gen : SourceGen
         this.ItemClassName = this.S("CodeKind");
         this.ArrayClassName = this.S("Array");
         this.Export = true;
-        this.StatItemClassName = this.S("TextEncodeKind");
+        this.StatItemClassName = this.S("TextCodeKind");
         this.ItemListFileName = this.GetStatItemListFileName();
         return true;
     }
