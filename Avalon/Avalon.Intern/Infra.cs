@@ -172,15 +172,15 @@ public class Infra : object
         return true;
     }
 
-    public virtual bool PosSet(ulong pos, long left, long up)
+    public virtual bool PosSet(ulong pos, long col, long row)
     {
-        ulong l;
-        ulong u;
-        l = (ulong)left;
-        u = (ulong)up;
+        ulong c;
+        ulong r;
+        c = (ulong)col;
+        r = (ulong)row;
 
-        Extern.Pos_ColSet(pos, l);
-        Extern.Pos_RowSet(pos, u);
+        Extern.Pos_ColSet(pos, c);
+        Extern.Pos_RowSet(pos, r);
         return true;
     }
 
