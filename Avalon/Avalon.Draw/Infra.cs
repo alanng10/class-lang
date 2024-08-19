@@ -259,18 +259,22 @@ public class Infra : Any
         long site;
         site = nite + height;
 
+        long boundLite;
+        long boundNite;
+        boundLite = bound.Pos.Col;
+        boundNite = bound.Pos.Row;
         long boundRight;
-        boundRight = bound.Pos.Col + bound.Size.Wed;
         long boundDown;
-        boundDown = bound.Pos.Row + bound.Size.Het;
+        boundRight = boundLite + bound.Size.Wed;
+        boundDown = boundNite + bound.Size.Het;
 
-        if (lite < bound.Pos.Col)
+        if (lite < boundLite)
         {
-            lite = bound.Pos.Col;
+            lite = boundLite;
         }
-        if (nite < bound.Pos.Row)
+        if (nite < boundNite)
         {
-            nite = bound.Pos.Row;
+            nite = boundNite;
         }
         if (boundRight < rite)
         {
