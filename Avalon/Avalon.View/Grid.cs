@@ -350,7 +350,7 @@ public class Grid : View
         long lite;
         long nite;
         lite = this.GridPosCol(startCol);
-        nite = this.GridRowUp(startRow);
+        nite = this.GridPosRow(startRow);
         long col;
         long row;
         col = lite + draw.Pos.Col;
@@ -359,7 +359,7 @@ public class Grid : View
         long rite;
         long site;
         rite = this.GridPosCol(endCol);
-        site = this.GridRowUp(endRow);
+        site = this.GridPosRow(endRow);
 
         long wed;
         long het;
@@ -412,7 +412,7 @@ public class Grid : View
         return this.GridPosPixelPos(col, 0);
     }
 
-    protected virtual long GridRowUp(long row)
+    protected virtual long GridPosRow(long row)
     {
         return this.GridPosPixelPos(row, this.Col.Count);
     }
