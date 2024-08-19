@@ -8,16 +8,16 @@ Int PointData_PointGet(Int address, Int result)
     QPointF point;
     point = *u;
 
-    qreal left;
-    qreal up;
-    left = point.x();
-    up = point.y();
+    qreal col;
+    qreal row;
+    col = point.x();
+    row = point.y();
 
-    ValueFromInternValue(left);
-    ValueFromInternValue(up);
+    ValueFromInternValue(col);
+    ValueFromInternValue(row);
 
-    Pos_LeftSet(result, leftA);
-    Pos_UpSet(result, upA);
+    Pos_ColSet(result, colA);
+    Pos_RowSet(result, rowA);
     return true;
 }
 
