@@ -61,7 +61,7 @@ public class Image : Any
     {
         long width;
         long height;
-        width = this.Size.Width;
+        width = this.Size.Wed;
         height = this.Size.Height;
         ulong w;
         ulong h;
@@ -82,7 +82,7 @@ public class Image : Any
         ulong widthU;
         ulong colU;
         ulong rowU;
-        widthU = (ulong)this.Size.Width;
+        widthU = (ulong)this.Size.Wed;
         colU = (ulong)pos.Col;
         rowU = (ulong)pos.Row;
 
@@ -100,7 +100,7 @@ public class Image : Any
     {
         long w;
         long h;
-        w = this.Size.Width;
+        w = this.Size.Wed;
         h = this.Size.Height;
         long k;
         k = this.DrawInfra.PixelByteCount;
@@ -134,7 +134,7 @@ public class Image : Any
     {
         long w;
         long h;
-        w = this.Size.Width;
+        w = this.Size.Wed;
         h = this.Size.Height;
         long k;
         k = this.DrawInfra.PixelByteCount;

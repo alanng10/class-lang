@@ -222,7 +222,7 @@ public class Draw : Any
         area = this.Area;
         area.Pos.Col = 0;
         area.Pos.Row = 0;
-        area.Size.Width = this.Size.Width;
+        area.Size.Wed = this.Size.Wed;
         area.Size.Height = this.Size.Height;
         this.AreaSet();
 
@@ -253,7 +253,7 @@ public class Draw : Any
     {
         ulong w;
         ulong h;
-        w = (ulong)(this.Size.Width);
+        w = (ulong)(this.Size.Wed);
         h = (ulong)(this.Size.Height);
         Extern.Size_WedSet(this.InternSize, w);
         Extern.Size_HetSet(this.InternSize, h);
@@ -525,7 +525,7 @@ public class Draw : Any
         Size size;
         pos = rect.Pos;
         size = rect.Size;
-        this.InternInfra.RectSet(internRect, pos.Col, pos.Row, size.Width, size.Height);
+        this.InternInfra.RectSet(internRect, pos.Col, pos.Row, size.Wed, size.Height);
         return true;
     }
 }

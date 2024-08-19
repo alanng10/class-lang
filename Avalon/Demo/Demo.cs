@@ -106,7 +106,7 @@ class Demo : Any
         this.UpdateRect.Pos.Init();
         this.UpdateRect.Size = new DrawSize();
         this.UpdateRect.Size.Init();
-        this.UpdateRect.Size.Width = this.Frame.Size.Width;
+        this.UpdateRect.Size.Wed = this.Frame.Size.Wed;
         this.UpdateRect.Size.Height = this.Frame.Size.Height;
 
         Type type;

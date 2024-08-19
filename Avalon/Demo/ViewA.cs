@@ -22,7 +22,7 @@ class ViewA : View
         rect = this.DrawRectA;
         rect.Pos.Col = this.MathInt(left);
         rect.Pos.Row = this.MathInt(up);
-        rect.Size.Width = this.MathInt(width);
+        rect.Size.Wed = this.MathInt(width);
         rect.Size.Height = this.MathInt(height);
 
         DrawBrush brush;
@@ -48,7 +48,7 @@ class ViewA : View
         rectB = this.DrawRectB;
         rectB.Pos.Col = 0;
         rectB.Pos.Row = 0;
-        rectB.Size.Width = this.MathInt(playImage.Size.Width);
+        rectB.Size.Wed = this.MathInt(playImage.Size.Wed);
         rectB.Size.Height = this.MathInt(playImage.Size.Height);
 
         long ooa;

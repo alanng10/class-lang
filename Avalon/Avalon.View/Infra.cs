@@ -48,7 +48,7 @@ public class Infra : Any
         a.Pos.Row = rect.Pos.Row;
         a.Size = new DrawSize();
         a.Size.Init();
-        a.Size.Width = rect.Size.Width;
+        a.Size.Wed = rect.Size.Width;
         a.Size.Height = rect.Size.Height;
         return a;
     }
@@ -83,7 +83,7 @@ public class Infra : Any
 
     public virtual bool AssignDrawSizeValue(DrawSize dest, DrawSize source)
     {
-        dest.Width = source.Width;
+        dest.Wed = source.Wed;
         dest.Height = source.Height;
         return true;
     }

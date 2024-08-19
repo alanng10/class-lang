@@ -112,7 +112,7 @@ class ThreadState : State
         long height;
         left = 20;
         up = 20;
-        width = this.Image.Size.Width - 50;
+        width = this.Image.Size.Wed - 50;
         height = this.Image.Size.Height - 50;
 
         DrawRect rectA;
@@ -122,7 +122,7 @@ class ThreadState : State
         draw = new DrawDraw();
         draw.Init();
         draw.Out = this.Image.Out;
-        draw.Size.Width = this.Image.Size.Width;
+        draw.Size.Wed = this.Image.Size.Wed;
         draw.Size.Height = this.Image.Size.Height;
         draw.SizeSet();
         
@@ -139,7 +139,7 @@ class ThreadState : State
         h = height;
         h = h - 40;
 
-        rectA.Size.Width = this.MathInt(w);
+        rectA.Size.Wed = this.MathInt(w);
         rectA.Size.Height = this.MathInt(h);
 
         draw.Fill = brushA;
