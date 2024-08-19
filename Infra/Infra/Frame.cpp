@@ -31,12 +31,12 @@ Int Frame_Init(Int o)
     w = ua.width();
     h = ua.height();
 
-    Int width;
-    Int height;
-    width = w;
-    height = h;
-    Size_WidthSet(m->Size, width);
-    Size_HeightSet(m->Size, height);
+    Int wed;
+    Int het;
+    wed = w;
+    het = h;
+    Size_WedSet(m->Size, wed);
+    Size_HetSet(m->Size, het);
     return true;
 }
 
@@ -120,26 +120,26 @@ Int Frame_Update(Int o, Int rect)
 
     Int pos;
     pos = Rect_PosGet(rect);
-    Int left;
-    Int up;
-    left = Pos_LeftGet(pos);
-    up = Pos_UpGet(pos);
+    Int col;
+    Int row;
+    col = Pos_ColGet(pos);
+    row = Pos_RowGet(pos);
     Int size;
     size = Rect_SizeGet(rect);
-    Int width;
-    Int height;
-    width = Size_WidthGet(size);
-    height = Size_HeightGet(size);
+    Int wed;
+    Int het;
+    wed = Size_WedGet(size);
+    het = Size_HetGet(size);
 
-    int l;
-    int u;
+    int c;
+    int r;
     int w;
     int h;
-    l = left;
-    u = up;
-    w = width;
-    h = height;
-    m->Intern->update(l, u, w, h);
+    c = col;
+    r = row;
+    w = wed;
+    h = het;
+    m->Intern->update(c, r, w, h);
     return true;
 }
 
