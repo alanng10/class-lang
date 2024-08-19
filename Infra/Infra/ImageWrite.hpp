@@ -9,7 +9,7 @@
 struct ImageWrite
 {
     Int Stream;
-    Int Format;
+    Int Binary;
     Int Image;
     Int Quality;
     QImageWriter* Intern;
