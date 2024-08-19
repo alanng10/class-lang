@@ -13,8 +13,8 @@ class ViewA : View
         left = this.Pos.Col;
         long up;
         up = this.Pos.Row;
-        long width;
-        width = this.Size.Wed;
+        long wed;
+        wed = this.Size.Wed;
         long height;
         height = this.Size.Het;
 
@@ -22,7 +22,7 @@ class ViewA : View
         rect = this.DrawRectA;
         rect.Pos.Col = this.MathInt(left);
         rect.Pos.Row = this.MathInt(up);
-        rect.Size.Wed = this.MathInt(width);
+        rect.Size.Wed = this.MathInt(wed);
         rect.Size.Het = this.MathInt(height);
 
         DrawBrush brush;
