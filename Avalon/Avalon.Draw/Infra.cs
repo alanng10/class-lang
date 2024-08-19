@@ -256,8 +256,8 @@ public class Infra : Any
         height = area.Size.Het;
         long rite;
         rite = lite + wed;
-        long down;
-        down = nite + height;
+        long site;
+        site = nite + height;
 
         long boundRight;
         boundRight = bound.Pos.Col + bound.Size.Wed;
@@ -276,15 +276,15 @@ public class Infra : Any
         {
             rite = boundRight;
         }
-        if (boundDown < down)
+        if (boundDown < site)
         {
-            down = boundDown;
+            site = boundDown;
         }
 
         long w;
         w = this.BoundSub(rite, lite);
         long h;
-        h = this.BoundSub(down, nite);
+        h = this.BoundSub(site, nite);
 
         area.Pos.Col = lite;
         area.Pos.Row = nite;
@@ -293,13 +293,13 @@ public class Infra : Any
         return true;
     }
 
-    protected virtual long BoundSub(long left, long right)
+    protected virtual long BoundSub(long lite, long rite)
     {
         long k;
         k = 0;
-        if (!(left < right))
+        if (!(lite < rite))
         {
-            k = left - right;
+            k = lite - rite;
         }
         return k;
     }
