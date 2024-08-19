@@ -347,14 +347,14 @@ public class Grid : View
         long endRow;
         endRow = startRow + gridSize.Het;
 
-        long leftA;
-        leftA = this.GridColLeft(startCol);
-        long upA;
-        upA = this.GridRowUp(startRow);
-        long left;
-        left = leftA + draw.Pos.Col;
-        long up;
-        up = upA + draw.Pos.Row;
+        long lite;
+        long nite;
+        lite = this.GridColLeft(startCol);
+        nite = this.GridRowUp(startRow);
+        long col;
+        long row;
+        col = lite + draw.Pos.Col;
+        row = nite + draw.Pos.Row;
 
         long right;
         right = this.GridColLeft(endCol);
@@ -362,14 +362,14 @@ public class Grid : View
         down = this.GridRowUp(endRow);
 
         long wed;
-        wed = right - leftA;
+        wed = right - lite;
         long height;
-        height = down - upA;
+        height = down - nite;
 
         DrawRect rect;
         rect = this.DrawRectA;
-        rect.Pos.Col = left;
-        rect.Pos.Row = up;
+        rect.Pos.Col = col;
+        rect.Pos.Row = row;
         rect.Size.Wed = wed;
         rect.Size.Het = height;
 
