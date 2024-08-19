@@ -51,17 +51,17 @@ CppFieldSet(varClass, name)
 
 
 #define PosValue(prefix) \
-Int prefix##Left;\
-prefix##Left = Pos_LeftGet(prefix##Pos);\
-Int prefix##Up;\
-prefix##Up = Pos_UpGet(prefix##Pos);\
+Int prefix##Col;\
+prefix##Col = Pos_ColGet(prefix##Pos);\
+Int prefix##Row;\
+prefix##Row = Pos_RowGet(prefix##Pos);\
 
 
 #define SizeValue(prefix) \
-Int prefix##Width;\
-prefix##Width = Size_WidthGet(prefix##Size);\
-Int prefix##Height;\
-prefix##Height = Size_HeightGet(prefix##Size);\
+Int prefix##Wed;\
+prefix##Wed = Size_WedGet(prefix##Size);\
+Int prefix##Het;\
+prefix##Het = Size_HetGet(prefix##Size);\
 
 
 #define RectValue(prefix) \
@@ -81,13 +81,13 @@ a##U = CastIntToDouble(a##_u);\
 
 
 #define InternPosValue(prefix) \
-InternValue(prefix##Left);\
-InternValue(prefix##Up);\
+InternValue(prefix##Col);\
+InternValue(prefix##Row);\
 
 
 #define InternSizeValue(prefix) \
-InternValue(prefix##Width);\
-InternValue(prefix##Height);\
+InternValue(prefix##Wed);\
+InternValue(prefix##Het);\
 
 
 #define InternRectValue(prefix) \
@@ -95,9 +95,9 @@ InternPosValue(prefix);\
 InternSizeValue(prefix);\
 
 
-#define InternPos(prefix) QPointF prefix##PosU(prefix##LeftU, prefix##UpU);
+#define InternPos(prefix) QPointF prefix##PosU(prefix##ColU, prefix##RowU);
 
-#define InternRect(prefix) QRectF prefix##RectU(prefix##LeftU, prefix##UpU, prefix##WidthU, prefix##HeightU);
+#define InternRect(prefix) QRectF prefix##RectU(prefix##LeftU, prefix##UpU, prefix##WedU, prefix##HetU);
 
 #define ValueFromInternValue(a) \
 Int a##_u;\
