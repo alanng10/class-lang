@@ -18,14 +18,12 @@ class BrushJoinList : Any
         this.Miter : this.AddItem(extern.Stat_BrushJoinMiter(stat));
         this.Bevel : this.AddItem(extern.Stat_BrushJoinBevel(stat));
         this.Round : this.AddItem(extern.Stat_BrushJoinRound(stat));
-        this.SvgMiter : this.AddItem(extern.Stat_BrushJoinSvgMiter(stat));
         return true;
     }
 
     field prusate BrushJoin Miter { get { return data; } set { data : value; } }
     field prusate BrushJoin Bevel { get { return data; } set { data : value; } }
     field prusate BrushJoin Round { get { return data; } set { data : value; } }
-    field prusate BrushJoin SvgMiter { get { return data; } set { data : value; } }
 
     maide precate BrushJoin AddItem(var Int o)
     {
@@ -49,7 +47,7 @@ class BrushJoinList : Any
 
     field precate Array Array { get { return data; } set { data : value; } }
 
-    field precate Int ArrayCount { get { return 4; } set { } }
+    field precate Int ArrayCount { get { return 3; } set { } }
 
     field prusate Int Count { get { return data; } set { data : value; } }
     

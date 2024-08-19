@@ -15,9 +15,9 @@ class CodeKindList : Any
         var Int stat;
         stat : extern.Share_Stat(varShare);
 
-        this.Utf8 : this.AddItem(extern.Stat_TextEncodeKindUtf8(stat));
-        this.Utf16 : this.AddItem(extern.Stat_TextEncodeKindUtf16(stat));
-        this.Utf32 : this.AddItem(extern.Stat_TextEncodeKindUtf32(stat));
+        this.Utf8 : this.AddItem(extern.Stat_TextCodeKindUtf8(stat));
+        this.Utf16 : this.AddItem(extern.Stat_TextCodeKindUtf16(stat));
+        this.Utf32 : this.AddItem(extern.Stat_TextCodeKindUtf32(stat));
         return true;
     }
 

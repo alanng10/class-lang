@@ -15,9 +15,9 @@ class ImageBinaryList : Any
         var Int stat;
         stat : extern.Share_Stat(varShare);
 
-        this.Bmp : this.AddItem(extern.Stat_ImageFormatBmp(stat));
-        this.Jpg : this.AddItem(extern.Stat_ImageFormatJpg(stat));
-        this.Png : this.AddItem(extern.Stat_ImageFormatPng(stat));
+        this.Bmp : this.AddItem(extern.Stat_ImageBinaryBmp(stat));
+        this.Jpg : this.AddItem(extern.Stat_ImageBinaryJpg(stat));
+        this.Png : this.AddItem(extern.Stat_ImageBinaryPng(stat));
         return true;
     }
 
