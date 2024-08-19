@@ -54,8 +54,8 @@ Int Console_StreamWrite(Int o, Int text, Int stream)
 
     Int innKind;
     Int outKind;
-    innKind = Stat_TextEncodeKindUtf32(stat);
-    outKind = Stat_TextEncodeKindUtf8(stat);
+    innKind = Stat_TextCodeKindUtf32(stat);
+    outKind = Stat_TextCodeKindUtf8(stat);
 
     Int k;
     k = TextEncode_ExecuteCount(0, innKind, outKind, dataValue, dataCount);
@@ -120,8 +120,8 @@ Int Console_InnRead(Int o)
 
     Int innKind;
     Int outKind;
-    innKind = Stat_TextEncodeKindUtf8(stat);
-    outKind = Stat_TextEncodeKindUtf32(stat);
+    innKind = Stat_TextCodeKindUtf8(stat);
+    outKind = Stat_TextCodeKindUtf32(stat);
 
     Int resultCount;
     resultCount = TextEncode_ExecuteCount(0, innKind, outKind, dataValue, dataCount);

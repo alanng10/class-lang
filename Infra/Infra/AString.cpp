@@ -84,9 +84,9 @@ Int String_ConstantCreate(Int o)
     stat = Share_Stat(share);
 
     Int innKind;
-    innKind = Stat_TextEncodeKindUtf8(stat);
+    innKind = Stat_TextCodeKindUtf8(stat);
     Int outKind;
-    outKind = Stat_TextEncodeKindUtf32(stat);
+    outKind = Stat_TextCodeKindUtf32(stat);
 
     Int innDataValue;
     Int innDataCount;
