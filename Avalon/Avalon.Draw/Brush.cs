@@ -29,18 +29,18 @@ public class Brush : Any
         }
 
         ulong lineU;
-        ulong widthU;
+        ulong wedU;
         ulong capU;
         ulong joinU;
         lineU = 0;
-        widthU = 0;
+        wedU = 0;
         capU = 0;
         joinU = 0;
         
         if (!(this.Line == null))
         {
             lineU = this.Line.Intern;
-            widthU = (ulong)(this.Wed);
+            wedU = (ulong)(this.Wed);
             capU = this.Cap.Intern;
             joinU = this.Join.Intern;
         }
@@ -51,7 +51,7 @@ public class Brush : Any
         Extern.Brush_ImageSet(this.Intern, imageU);
         Extern.Brush_GradientSet(this.Intern, gradientU);
         Extern.Brush_LineSet(this.Intern, lineU);
-        Extern.Brush_WidthSet(this.Intern, widthU);
+        Extern.Brush_WidthSet(this.Intern, wedU);
         Extern.Brush_CapSet(this.Intern, capU);
         Extern.Brush_JoinSet(this.Intern, joinU);
         Extern.Brush_Init(this.Intern);
