@@ -146,17 +146,17 @@ public class Infra : object
         return true;
     }
 
-    public virtual bool RectSet(ulong rect, long left, long up, long wed, long height)
+    public virtual bool RectSet(ulong rect, long col, long row, long wed, long het)
     {
         ulong pos;
         pos = Extern.Rect_PosGet(rect);
 
-        this.PosSet(pos, left, up);
+        this.PosSet(pos, col, row);
 
         ulong size;
         size = Extern.Rect_SizeGet(rect);
 
-        this.SizeSet(size, wed, height);
+        this.SizeSet(size, wed, het);
         return true;
     }
 
