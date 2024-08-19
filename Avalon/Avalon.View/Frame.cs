@@ -40,9 +40,9 @@ public class Frame : Comp
         ulong sizeU;
         sizeU = Extern.Frame_SizeGet(this.Intern);
         ulong w;
-        w = Extern.Size_WidthGet(sizeU);
+        w = Extern.Size_WedGet(sizeU);
         ulong h;
-        h = Extern.Size_HeightGet(sizeU);
+        h = Extern.Size_HetGet(sizeU);
         long width;
         width = (long)w;
         long height;
