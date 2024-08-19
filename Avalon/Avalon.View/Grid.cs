@@ -349,7 +349,7 @@ public class Grid : View
 
         long lite;
         long nite;
-        lite = this.GridPosCol(startCol);
+        lite = this.GridPosColPixel(startCol);
         nite = this.GridPosRow(startRow);
         long col;
         long row;
@@ -358,7 +358,7 @@ public class Grid : View
 
         long rite;
         long site;
-        rite = this.GridPosCol(endCol);
+        rite = this.GridPosColPixel(endCol);
         site = this.GridPosRow(endRow);
 
         long wed;
@@ -407,7 +407,7 @@ public class Grid : View
         return a;
     }
 
-    protected virtual long GridPosCol(long col)
+    protected virtual long GridPosColPixel(long col)
     {
         return this.GridPosPixelPos(col, 0);
     }
