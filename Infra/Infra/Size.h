@@ -4,7 +4,7 @@
 
 typedef struct
 {
-    Int Width;
-    Int Height;
+    Int Wed;
+    Int Het;
 }
 Size;

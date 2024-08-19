@@ -12,5 +12,5 @@ Int Size_Final(Int o)
     return true;
 }
 
-Field(Size, Width)
-Field(Size, Height)
+Field(Size, Wed)
+Field(Size, Het)
