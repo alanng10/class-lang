@@ -90,15 +90,15 @@ public class Form : Any
         return a;
     }
 
-    public virtual bool Offset(long left, long up)
+    public virtual bool Offset(long col, long row)
     {
-        ulong leftU;
-        ulong upU;
-        leftU = (ulong)left;
-        upU = (ulong)up;
+        ulong colU;
+        ulong rowU;
+        colU = (ulong)col;
+        rowU = (ulong)row;
         
         ulong u;
-        u = Extern.Form_Offset(this.Intern, leftU, upU);
+        u = Extern.Form_Offset(this.Intern, colU, rowU);
 
         bool a;
         a = !(u == 0);
