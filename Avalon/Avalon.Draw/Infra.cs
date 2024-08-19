@@ -254,8 +254,8 @@ public class Infra : Any
         wed = area.Size.Wed;
         long height;
         height = area.Size.Het;
-        long right;
-        right = lite + wed;
+        long rite;
+        rite = lite + wed;
         long down;
         down = nite + height;
 
@@ -272,9 +272,9 @@ public class Infra : Any
         {
             nite = bound.Pos.Row;
         }
-        if (boundRight < right)
+        if (boundRight < rite)
         {
-            right = boundRight;
+            rite = boundRight;
         }
         if (boundDown < down)
         {
@@ -282,7 +282,7 @@ public class Infra : Any
         }
 
         long w;
-        w = this.BoundSub(right, lite);
+        w = this.BoundSub(rite, lite);
         long h;
         h = this.BoundSub(down, nite);
 
