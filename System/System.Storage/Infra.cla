@@ -197,6 +197,7 @@ class Infra : Any
         mode.Init();
         mode.Read : true;
         mode.Write : true;
+        mode.New : false;
         mode.Exist : true;
 
         storage.Path : filePath;
