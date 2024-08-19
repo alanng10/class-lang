@@ -60,12 +60,12 @@ public static class Extern
     [DllImport(InfraLib)] public extern static ulong Array_ItemGet(ulong o, ulong index);
     [DllImport(InfraLib)] public extern static ulong Array_ItemSet(ulong o, ulong index, ulong value);
 
-    [DllImport(InfraLib)] public extern static ulong TextEncode_New();
-    [DllImport(InfraLib)] public extern static ulong TextEncode_Delete(ulong o);
-    [DllImport(InfraLib)] public extern static ulong TextEncode_Init(ulong o);
-    [DllImport(InfraLib)] public extern static ulong TextEncode_Final(ulong o);
-    [DllImport(InfraLib)] public extern static ulong TextEncode_ExecuteCount(ulong o, ulong innKind, ulong outKind, ulong dataValue, ulong dataCount);
-    [DllImport(InfraLib)] public extern static ulong TextEncode_ExecuteResult(ulong o, ulong result, ulong innKind, ulong outKind, ulong dataValue, ulong dataCount);
+    [DllImport(InfraLib)] public extern static ulong TextCode_New();
+    [DllImport(InfraLib)] public extern static ulong TextCode_Delete(ulong o);
+    [DllImport(InfraLib)] public extern static ulong TextCode_Init(ulong o);
+    [DllImport(InfraLib)] public extern static ulong TextCode_Final(ulong o);
+    [DllImport(InfraLib)] public extern static ulong TextCode_ExecuteCount(ulong o, ulong innKind, ulong outKind, ulong dataValue, ulong dataCount);
+    [DllImport(InfraLib)] public extern static ulong TextCode_ExecuteResult(ulong o, ulong result, ulong innKind, ulong outKind, ulong dataValue, ulong dataCount);
 
     [DllImport(InfraLib)] public extern static ulong Format_New();
     [DllImport(InfraLib)] public extern static ulong Format_Delete(ulong o);
@@ -176,19 +176,19 @@ public static class Extern
     [DllImport(InfraLib)] public extern static ulong Pos_Delete(ulong o);
     [DllImport(InfraLib)] public extern static ulong Pos_Init(ulong o);
     [DllImport(InfraLib)] public extern static ulong Pos_Final(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Pos_LeftGet(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Pos_LeftSet(ulong o, ulong value);
-    [DllImport(InfraLib)] public extern static ulong Pos_UpGet(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Pos_UpSet(ulong o, ulong value);
+    [DllImport(InfraLib)] public extern static ulong Pos_ColGet(ulong o);
+    [DllImport(InfraLib)] public extern static ulong Pos_ColSet(ulong o, ulong value);
+    [DllImport(InfraLib)] public extern static ulong Pos_RowGet(ulong o);
+    [DllImport(InfraLib)] public extern static ulong Pos_RowSet(ulong o, ulong value);
 
     [DllImport(InfraLib)] public extern static ulong Size_New();
     [DllImport(InfraLib)] public extern static ulong Size_Delete(ulong o);
     [DllImport(InfraLib)] public extern static ulong Size_Init(ulong o);
     [DllImport(InfraLib)] public extern static ulong Size_Final(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Size_WidthGet(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Size_WidthSet(ulong o, ulong value);
-    [DllImport(InfraLib)] public extern static ulong Size_HeightGet(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Size_HeightSet(ulong o, ulong value);
+    [DllImport(InfraLib)] public extern static ulong Size_WedGet(ulong o);
+    [DllImport(InfraLib)] public extern static ulong Size_WedSet(ulong o, ulong value);
+    [DllImport(InfraLib)] public extern static ulong Size_HetGet(ulong o);
+    [DllImport(InfraLib)] public extern static ulong Size_HetSet(ulong o, ulong value);
 
     [DllImport(InfraLib)] public extern static ulong Data_New();
     [DllImport(InfraLib)] public extern static ulong Data_Delete(ulong o);
@@ -426,8 +426,8 @@ public static class Extern
     [DllImport(InfraLib)] public extern static ulong ImageWrite_StreamSet(ulong o, ulong value);
     [DllImport(InfraLib)] public extern static ulong ImageWrite_ImageGet(ulong o);
     [DllImport(InfraLib)] public extern static ulong ImageWrite_ImageSet(ulong o, ulong value);
-    [DllImport(InfraLib)] public extern static ulong ImageWrite_FormatGet(ulong o);
-    [DllImport(InfraLib)] public extern static ulong ImageWrite_FormatSet(ulong o, ulong value);
+    [DllImport(InfraLib)] public extern static ulong ImageWrite_BinaryGet(ulong o);
+    [DllImport(InfraLib)] public extern static ulong ImageWrite_BinarySet(ulong o, ulong value);
     [DllImport(InfraLib)] public extern static ulong ImageWrite_QualityGet(ulong o);
     [DllImport(InfraLib)] public extern static ulong ImageWrite_QualitySet(ulong o, ulong value);
 
@@ -761,6 +761,9 @@ public static class Extern
     [DllImport(InfraLib)] public extern static ulong Share_Stat(ulong o);
 
     [DllImport(InfraLib)] public extern static ulong Stat_PointDataCount(ulong o);
+    [DllImport(InfraLib)] public extern static ulong Stat_TextAlignStart(ulong o);
+    [DllImport(InfraLib)] public extern static ulong Stat_TextAlignMid(ulong o);
+    [DllImport(InfraLib)] public extern static ulong Stat_TextAlignEnd(ulong o);
     [DllImport(InfraLib)] public extern static ulong Stat_TextCodeKindUtf8(ulong o);
     [DllImport(InfraLib)] public extern static ulong Stat_TextCodeKindUtf16(ulong o);
     [DllImport(InfraLib)] public extern static ulong Stat_TextCodeKindUtf32(ulong o);

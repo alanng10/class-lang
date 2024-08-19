@@ -134,9 +134,9 @@ Infra_Api Int Array_CountSet(Int o, Int value);
 Infra_Api Int Array_ItemGet(Int o, Int index);
 Infra_Api Int Array_ItemSet(Int o, Int index, Int value);
 
-InfraApiNew(TextEncode)
-Infra_Api Int TextEncode_ExecuteCount(Int o, Int innKind, Int outKind, Int dataValue, Int dataCount);
-Infra_Api Int TextEncode_ExecuteResult(Int o, Int result, Int innKind, Int outKind, Int dataValue, Int dataCount);
+InfraApiNew(TextCode)
+Infra_Api Int TextCode_ExecuteCount(Int o, Int innKind, Int outKind, Int dataValue, Int dataCount);
+Infra_Api Int TextCode_ExecuteResult(Int o, Int result, Int innKind, Int outKind, Int dataValue, Int dataCount);
 
 InfraApiNew(Format)
 Infra_Api Int Format_ExecuteCount(Int o, Int varBase, Int argList);
@@ -226,16 +226,16 @@ Infra_Api Int Rect_SizeGet(Int o);
 Infra_Api Int Rect_SizeSet(Int o, Int value);
 
 InfraApiNew(Pos)
-Infra_Api Int Pos_LeftGet(Int o);
-Infra_Api Int Pos_LeftSet(Int o, Int value);
-Infra_Api Int Pos_UpGet(Int o);
-Infra_Api Int Pos_UpSet(Int o, Int value);
+Infra_Api Int Pos_ColGet(Int o);
+Infra_Api Int Pos_ColSet(Int o, Int value);
+Infra_Api Int Pos_RowGet(Int o);
+Infra_Api Int Pos_RowSet(Int o, Int value);
 
 InfraApiNew(Size)
-Infra_Api Int Size_WidthGet(Int o);
-Infra_Api Int Size_WidthSet(Int o, Int value);
-Infra_Api Int Size_HeightGet(Int o);
-Infra_Api Int Size_HeightSet(Int o, Int value);
+Infra_Api Int Size_WedGet(Int o);
+Infra_Api Int Size_WedSet(Int o, Int value);
+Infra_Api Int Size_HetGet(Int o);
+Infra_Api Int Size_HetSet(Int o, Int value);
 
 InfraApiNew(Data)
 Infra_Api Int Data_CountGet(Int o);
@@ -428,8 +428,8 @@ Infra_Api Int ImageWrite_StreamGet(Int o);
 Infra_Api Int ImageWrite_StreamSet(Int o, Int value);
 Infra_Api Int ImageWrite_ImageGet(Int o);
 Infra_Api Int ImageWrite_ImageSet(Int o, Int value);
-Infra_Api Int ImageWrite_FormatGet(Int o);
-Infra_Api Int ImageWrite_FormatSet(Int o, Int value);
+Infra_Api Int ImageWrite_BinaryGet(Int o);
+Infra_Api Int ImageWrite_BinarySet(Int o, Int value);
 Infra_Api Int ImageWrite_QualityGet(Int o);
 Infra_Api Int ImageWrite_QualitySet(Int o, Int value);
 
