@@ -14,7 +14,7 @@ class ViewA : View
         long up;
         up = this.Pos.Row;
         long width;
-        width = this.Size.Width;
+        width = this.Size.Wed;
         long height;
         height = this.Size.Height;
 

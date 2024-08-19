@@ -129,7 +129,7 @@ class Demo : Any
         view.Init();
         view.Pos.Col = 100;
         view.Pos.Row = 100;
-        view.Size.Width = 1600;
+        view.Size.Wed = 1600;
         view.Size.Height = 900;
         view.Back = brush;
 
@@ -161,7 +161,7 @@ class Demo : Any
         viewA.Init();
         viewA.Pos.Col = 0;
         viewA.Pos.Row = 0;
-        viewA.Size.Width = 600;
+        viewA.Size.Wed = 600;
         viewA.Size.Height = 400;
         viewA.Back = brushA;
         viewA.DrawPen = penBrush;
@@ -196,23 +196,23 @@ class Demo : Any
         childA = new GridChild();
         childA.Init();
         childA.View = viewA;
-        childA.Rect.Size.Width = 1;
+        childA.Rect.Size.Wed = 1;
         childA.Rect.Size.Height = 1;
         GridChild childB;
         childB = new GridChild();
         childB.Init();
         childB.View = viewC;
         childB.Rect.Pos.Col = 1;
-        childB.Rect.Size.Width = 1;
+        childB.Rect.Size.Wed = 1;
         childB.Rect.Size.Height = 1;
 
         grid.Pos.Col = 50;
         grid.Pos.Row = 50;
-        grid.Size.Width = 1500;
+        grid.Size.Wed = 1500;
         grid.Size.Height = 800;
         grid.Dest.Pos.Col = 0;
         grid.Dest.Pos.Row = 0;
-        grid.Dest.Size.Width = 1500;
+        grid.Dest.Size.Wed = 1500;
         grid.Dest.Size.Height = 800;
         grid.Row.Add(rowA);
         grid.Col.Add(colA);
@@ -247,7 +247,7 @@ class Demo : Any
         viewB.Init();
         viewB.Pos.Col = 60;
         viewB.Pos.Row = 40;
-        viewB.Size.Width = widthA;
+        viewB.Size.Wed = widthA;
         viewB.Size.Height = heightA;
         viewB.DrawImage = image;
         viewB.SourceRect = sourceRect;
@@ -1434,7 +1434,7 @@ class Demo : Any
         viewC.Init();
         viewC.Pos.Col = -300;
         viewC.Pos.Row = 0;
-        viewC.Size.Width = 500;
+        viewC.Size.Wed = 500;
         viewC.Size.Height = 400;
         viewC.Back = brush;
         viewC.EllipseBrush = ellipseBrush;

@@ -35,7 +35,7 @@ public class Size : Comp
 
     public virtual Field WidthField { get; set; }
 
-    public virtual long Width
+    public virtual long Wed
     {
         get
         {

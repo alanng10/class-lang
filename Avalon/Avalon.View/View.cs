@@ -106,7 +106,7 @@ public class View : Comp
         Size a;
         a = new Size();
         a.Init();
-        a.Width = 0;
+        a.Wed = 0;
         a.Height = 0;
         return a;
     }
@@ -310,7 +310,7 @@ public class View : Comp
         long up;
         up = this.Pos.Row;
         long width;
-        width = this.Size.Width;
+        width = this.Size.Wed;
         long height;
         height = this.Size.Height;
 
@@ -360,7 +360,7 @@ public class View : Comp
         up = up + draw.Pos.Row;
 
         long width;
-        width = this.Size.Width;
+        width = this.Size.Wed;
         long height;
         height = this.Size.Height;
 

@@ -48,7 +48,7 @@ public class Infra : Any
         a.Pos.Row = rect.Pos.Row;
         a.Size = new DrawSize();
         a.Size.Init();
-        a.Size.Wed = rect.Size.Width;
+        a.Size.Wed = rect.Size.Wed;
         a.Size.Het = rect.Size.Height;
         return a;
     }

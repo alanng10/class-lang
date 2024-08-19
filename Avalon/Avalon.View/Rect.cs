@@ -38,7 +38,7 @@ public class Rect : Comp
         Size a;
         a = new Size();
         a.Init();
-        a.Width = 0;
+        a.Wed = 0;
         a.Height = 0;
         return a;
     }
