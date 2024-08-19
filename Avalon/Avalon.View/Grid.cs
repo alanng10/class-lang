@@ -274,19 +274,19 @@ public class Grid : View
 
     protected virtual bool ExecuteDrawGridChildList(DrawDraw draw)
     {
-        long left;
-        left = this.Dest.Pos.Col;
-        left = left + draw.Pos.Col;
-        long up;
-        up = this.Dest.Pos.Row;
-        up = up + draw.Pos.Row;
+        long col;
+        col = this.Dest.Pos.Col;
+        col = col + draw.Pos.Col;
+        long row;
+        row = this.Dest.Pos.Row;
+        row = row + draw.Pos.Row;
         long wed;
         wed = this.Dest.Size.Wed;
         long height;
         height = this.Dest.Size.Het;
 
-        this.DrawRectA.Pos.Col = left;
-        this.DrawRectA.Pos.Row = up;
+        this.DrawRectA.Pos.Col = col;
+        this.DrawRectA.Pos.Row = row;
         this.DrawRectA.Size.Wed = wed;
         this.DrawRectA.Size.Het = height;
 
