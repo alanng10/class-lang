@@ -450,14 +450,14 @@ Bool DrawHandle(Int frame, Int arg)
 
     SetRange(RangeA, 100 * 16, 120 * 16);
 
-    Draw_ExecuteArc(Draw, RectA, RangeA);
+    Draw_ExecuteRoundLine(Draw, RectA, RangeA);
 
 
     SetRect(RectA, MathInt(500), MathInt(550), MathInt(100), MathInt(100));
 
     SetRange(RangeA, 120 * 16, 160 * 16);
 
-    Draw_ExecuteChord(Draw, RectA, RangeA);
+    Draw_ExecuteRoundShape(Draw, RectA, RangeA);
 
 
     Draw_StrokeSet(Draw, null);
@@ -466,14 +466,14 @@ Bool DrawHandle(Int frame, Int arg)
 
     SetRange(RangeA, 10 * 16, 80 * 16);
 
-    Draw_ExecutePie(Draw, RectA, RangeA);
+    Draw_ExecuteRoundPart(Draw, RectA, RangeA);
 
 
     Draw_StrokeSet(Draw, PenRect);
 
     SetRect(RectA, MathInt(130), MathInt(550), MathInt(150), MathInt(100));
 
-    Draw_ExecuteEllipse(Draw, RectA);
+    Draw_ExecuteRound(Draw, RectA);
 
 
     Int scaleFactor;
@@ -484,7 +484,7 @@ Bool DrawHandle(Int frame, Int arg)
 
     SetRect(RectA, MathInt(1400), MathInt(200), MathInt(250), MathInt(110));
 
-    Draw_ExecuteRoundRect(Draw, RectA, MathInt(30), MathInt(23));
+    Draw_ExecuteRectRound(Draw, RectA, MathInt(30), MathInt(23));
 
 
     Draw_FillSet(Draw, ImageBrush);
@@ -513,7 +513,7 @@ Bool DrawHandle(Int frame, Int arg)
 
     Draw_FormSet(Draw, Form);
 
-    Draw_ExecutePolygon(Draw, PointListCount, PointListData);
+    Draw_ExecuteShape(Draw, PointListCount, PointListData);
 
     Draw_FormSet(Draw, null);
 
@@ -529,7 +529,7 @@ Bool DrawHandle(Int frame, Int arg)
 
     Draw_FormSet(Draw, Form);
 
-    Draw_ExecutePolyline(Draw, PointListCount, PointListData);
+    Draw_ExecuteShapeLine(Draw, PointListCount, PointListData);
 
     Draw_FormSet(Draw, null);
 

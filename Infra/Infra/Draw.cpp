@@ -326,7 +326,7 @@ Int Draw_ExecuteLine(Int o, Int startPos, Int endPos)
     return true;
 }
 
-Int Draw_ExecuteArc(Int o, Int rect, Int angleRange)
+Int Draw_ExecuteRoundLine(Int o, Int rect, Int angleRange)
 {
     Draw* m;
     m = CP(o);
@@ -354,7 +354,7 @@ Int Draw_ExecuteArc(Int o, Int rect, Int angleRange)
     return true;
 }
 
-Int Draw_ExecuteChord(Int o, Int rect, Int angleRange)
+Int Draw_ExecuteRoundShape(Int o, Int rect, Int angleRange)
 {
     Draw* m;
     m = CP(o);
@@ -382,7 +382,7 @@ Int Draw_ExecuteChord(Int o, Int rect, Int angleRange)
     return true;
 }
 
-Int Draw_ExecutePie(Int o, Int rect, Int angleRange)
+Int Draw_ExecuteRoundPart(Int o, Int rect, Int angleRange)
 {
     Draw* m;
     m = CP(o);
@@ -410,7 +410,7 @@ Int Draw_ExecutePie(Int o, Int rect, Int angleRange)
     return true;
 }
 
-Int Draw_ExecuteEllipse(Int o, Int rect)
+Int Draw_ExecuteRound(Int o, Int rect)
 {
     Draw* m;
     m = CP(o);
@@ -442,7 +442,7 @@ Int Draw_ExecuteRect(Int o, Int rect)
     return true;
 }
 
-Int Draw_ExecuteRoundRect(Int o, Int rect, Int horizRadius, Int vertRadius)
+Int Draw_ExecuteRectRound(Int o, Int rect, Int horizRadius, Int vertRadius)
 {
     Draw* m;
     m = CP(o);
@@ -461,7 +461,7 @@ Int Draw_ExecuteRoundRect(Int o, Int rect, Int horizRadius, Int vertRadius)
     return true;
 }
 
-Int Draw_ExecutePolygon(Int o, Int pointListCount, Int pointListData)
+Int Draw_ExecuteShape(Int o, Int pointListCount, Int pointListData)
 {
     Draw* m;
     m = CP(o);
@@ -477,7 +477,7 @@ Int Draw_ExecutePolygon(Int o, Int pointListCount, Int pointListData)
     return true;
 }
 
-Int Draw_ExecutePolyline(Int o, Int pointListCount, Int pointListData)
+Int Draw_ExecuteShapeLine(Int o, Int pointListCount, Int pointListData)
 {
     Draw* m;
     m = CP(o);
