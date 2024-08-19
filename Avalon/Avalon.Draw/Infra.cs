@@ -121,33 +121,33 @@ public class Infra : Any
         return this.BrushInfra.InternColor(color);
     }
 
-    public virtual Pos PosCreate(long left, long up)
+    public virtual Pos PosCreate(long col, long row)
     {
         Pos pos;
         pos = new Pos();
         pos.Init();
-        pos.Col = left;
-        pos.Row = up;
+        pos.Col = col;
+        pos.Row = row;
         return pos;
     }
 
-    public virtual Size SizeCreate(long wed, long height)
+    public virtual Size SizeCreate(long wed, long het)
     {
         Size size;
         size = new Size();
         size.Init();
         size.Wed = wed;
-        size.Het = height;
+        size.Het = het;
         return size;
     }
 
-    public virtual Rect RectCreate(long left, long up, long wed, long height)
+    public virtual Rect RectCreate(long col, long row, long wed, long het)
     {
         Rect rect;
         rect = new Rect();
         rect.Init();
-        rect.Pos = this.PosCreate(left, up);
-        rect.Size = this.SizeCreate(wed, height);
+        rect.Pos = this.PosCreate(col, row);
+        rect.Size = this.SizeCreate(wed, het);
         return rect;
     }
 
