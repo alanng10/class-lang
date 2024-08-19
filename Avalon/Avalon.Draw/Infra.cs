@@ -162,7 +162,7 @@ public class Infra : Any
         return a; 
     }
 
-    public virtual Image ImageCreatePath(String path)
+    public virtual Image ImageCreateStorage(String path)
     {
         Image image;
         image = null;

@@ -303,7 +303,7 @@ class Demo : Any
     private DrawImage ImageCreate()
     {
         DrawImage image;
-        image = this.DrawInfra.ImageCreatePath(this.S("DemoData/image.jpg"));
+        image = this.DrawInfra.ImageCreateStorage(this.S("DemoData/image.jpg"));
         return image;
     }
 
