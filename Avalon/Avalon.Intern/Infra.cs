@@ -179,8 +179,8 @@ public class Infra : object
         l = (ulong)left;
         u = (ulong)up;
 
-        Extern.Pos_LeftSet(pos, l);
-        Extern.Pos_UpSet(pos, u);
+        Extern.Pos_ColSet(pos, l);
+        Extern.Pos_RowSet(pos, u);
         return true;
     }
 
@@ -191,8 +191,8 @@ public class Infra : object
         w = (ulong)width;
         h = (ulong)height;
 
-        Extern.Size_WidthSet(size, w);
-        Extern.Size_HeightSet(size, h);
+        Extern.Size_WedSet(size, w);
+        Extern.Size_HetSet(size, h);
         return true;
     }
 

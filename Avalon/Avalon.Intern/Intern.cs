@@ -77,7 +77,7 @@ public class Intern : object
         dataValue = data + dataIndex;
 
         ulong a;
-        a = Extern.TextEncode_ExecuteCount(0, innKind, outKind, dataValue, dataCount);
+        a = Extern.TextCode_ExecuteCount(0, innKind, outKind, dataValue, dataCount);
         return a;
     }
 
@@ -89,7 +89,7 @@ public class Intern : object
         ulong dataValue;
         dataValue = data + dataIndex;
 
-        Extern.TextEncode_ExecuteResult(0, resultValue, innKind, outKind, dataValue, dataCount);
+        Extern.TextCode_ExecuteResult(0, resultValue, innKind, outKind, dataValue, dataCount);
         return true;
     }
 
