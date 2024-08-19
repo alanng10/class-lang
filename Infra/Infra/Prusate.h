@@ -712,6 +712,9 @@ Infra_Api Int Infra_Share();
 Infra_Api Int Share_Stat(Int o);
 
 Infra_Api Int Stat_PointDataCount(Int o);
+Infra_Api Int Stat_TextAlignStart(Int o);
+Infra_Api Int Stat_TextAlignMid(Int o);
+Infra_Api Int Stat_TextAlignEnd(Int o);
 Infra_Api Int Stat_TextCodeKindUtf8(Int o);
 Infra_Api Int Stat_TextCodeKindUtf16(Int o);
 Infra_Api Int Stat_TextCodeKindUtf32(Int o);
