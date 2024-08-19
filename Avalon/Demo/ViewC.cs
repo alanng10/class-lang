@@ -34,7 +34,7 @@ class ViewC : View
         rect.Pos.Col = this.MathInt(this.Pos.Col + 150);
         rect.Pos.Row = this.MathInt(this.Pos.Row + 50);
         rect.Size.Wed = this.MathInt(300);
-        rect.Size.Height = this.MathInt(100);
+        rect.Size.Het = this.MathInt(100);
 
         draw.Face = this.Face;
         draw.Stroke = this.TextPen;

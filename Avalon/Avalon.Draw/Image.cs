@@ -62,7 +62,7 @@ public class Image : Any
         long width;
         long height;
         width = this.Size.Wed;
-        height = this.Size.Height;
+        height = this.Size.Het;
         ulong w;
         ulong h;
         w = (ulong)width;
@@ -101,7 +101,7 @@ public class Image : Any
         long w;
         long h;
         w = this.Size.Wed;
-        h = this.Size.Height;
+        h = this.Size.Het;
         long k;
         k = this.DrawInfra.PixelByteCount;
 
@@ -135,7 +135,7 @@ public class Image : Any
         long w;
         long h;
         w = this.Size.Wed;
-        h = this.Size.Height;
+        h = this.Size.Het;
         long k;
         k = this.DrawInfra.PixelByteCount;
 

@@ -34,7 +34,7 @@ class ViewB : View
         rect.Pos.Col = this.MathInt(left);
         rect.Pos.Row = this.MathInt(up);
         rect.Size.Wed = this.MathInt(width);
-        rect.Size.Height = this.MathInt(height);
+        rect.Size.Het = this.MathInt(height);
 
         DrawRect sourceRect;
         sourceRect = this.SourceRect;

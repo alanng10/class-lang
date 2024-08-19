@@ -137,7 +137,7 @@ public class Infra : Any
         size = new Size();
         size.Init();
         size.Wed = width;
-        size.Height = height;
+        size.Het = height;
         return size;
     }
 
@@ -157,7 +157,7 @@ public class Infra : Any
         a = new Image();
         a.Init();
         a.Size.Wed = size.Wed;
-        a.Size.Height = size.Height;
+        a.Size.Het = size.Het;
         a.DataCreate();
         return a; 
     }
@@ -253,7 +253,7 @@ public class Infra : Any
         long width;
         width = area.Size.Wed;
         long height;
-        height = area.Size.Height;
+        height = area.Size.Het;
         long right;
         right = left + width;
         long down;
@@ -262,7 +262,7 @@ public class Infra : Any
         long boundRight;
         boundRight = bound.Pos.Col + bound.Size.Wed;
         long boundDown;
-        boundDown = bound.Pos.Row + bound.Size.Height;
+        boundDown = bound.Pos.Row + bound.Size.Het;
 
         if (left < bound.Pos.Col)
         {
@@ -289,7 +289,7 @@ public class Infra : Any
         area.Pos.Col = left;
         area.Pos.Row = up;
         area.Size.Wed = w;
-        area.Size.Height = h;
+        area.Size.Het = h;
         return true;
     }
 

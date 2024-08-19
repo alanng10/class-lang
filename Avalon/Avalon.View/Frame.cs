@@ -50,7 +50,7 @@ public class Frame : Comp
         this.Size = new DrawSize();
         this.Size.Init();
         this.Size.Wed = width;
-        this.Size.Height = height;
+        this.Size.Het = height;
 
         Extern.Frame_TypeStateSet(this.Intern, this.InternTypeState);
         Extern.Frame_DrawStateSet(this.Intern, this.InternDrawState);
@@ -65,7 +65,7 @@ public class Frame : Comp
         image = new DrawImage();
         image.Init();
         image.Size.Wed = width;
-        image.Size.Height = height;
+        image.Size.Het = height;
         image.DataCreate();
         this.DrawImage = image;
 
@@ -270,7 +270,7 @@ public class Frame : Comp
     public virtual bool Update(DrawRect rect)
     {
         this.InternInfra.RectSet(this.InternUpdateRect, 
-            rect.Pos.Col, rect.Pos.Row, rect.Size.Wed, rect.Size.Height
+            rect.Pos.Col, rect.Pos.Row, rect.Size.Wed, rect.Size.Het
         );
 
         Extern.Frame_Update(this.Intern, this.InternUpdateRect);
@@ -366,7 +366,7 @@ public class Frame : Comp
         size = this.Size;
 
         DrawRect a;
-        a = this.DrawInfra.RectCreate(0, 0, this.MathInt(size.Wed), this.MathInt(size.Height));
+        a = this.DrawInfra.RectCreate(0, 0, this.MathInt(size.Wed), this.MathInt(size.Het));
         return a;
     }
 
@@ -377,7 +377,7 @@ public class Frame : Comp
 
         draw.Out = videoOut;
         draw.Size.Wed = size.Wed;
-        draw.Size.Height = size.Height;
+        draw.Size.Het = size.Het;
         draw.SizeSet();
 
         return true;

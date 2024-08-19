@@ -288,7 +288,7 @@ public class Grid : View
         this.DrawRectA.Pos.Col = left;
         this.DrawRectA.Pos.Row = up;
         this.DrawRectA.Size.Wed = width;
-        this.DrawRectA.Size.Height = height;
+        this.DrawRectA.Size.Het = height;
 
         this.SetChildArea(this.DrawRectA);
 
@@ -371,7 +371,7 @@ public class Grid : View
         rect.Pos.Col = left;
         rect.Pos.Row = up;
         rect.Size.Wed = width;
-        rect.Size.Height = height;
+        rect.Size.Het = height;
 
         this.SetChildArea(rect);
 
