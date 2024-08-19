@@ -28,7 +28,7 @@ Array
     ItemGet(index)
     ItemSet(index, value)
 
-TextEncode
+TextCode
     ExecuteCount(innKind, outKind, dataValue, dataCount)
     ExecuteResult(result, innKind, outKind, dataValue, dataCount)
 
@@ -72,12 +72,12 @@ Rect
     Size
 
 Pos
-    Left
-    Up
+    Col
+    Row
 
 Size
-    Width
-    Height
+    Wed
+    Het
 
 Data
     Count
@@ -211,7 +211,7 @@ ImageRead
 ImageWrite
     Stream
     Image
-    Format
+    Binary
     Quality
     Execute()
 
