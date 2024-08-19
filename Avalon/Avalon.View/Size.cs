@@ -24,7 +24,7 @@ public class Size : Comp
     {
         if (this.WedField == varField)
         {
-            this.ChangeWidth(change);
+            this.ChangeWed(change);
         }
         if (this.HeightField == varField)
         {
@@ -48,7 +48,7 @@ public class Size : Comp
         }
     }
 
-    protected virtual bool ChangeWidth(Change change)
+    protected virtual bool ChangeWed(Change change)
     {
         this.Event(this.WedField);
         return true;
