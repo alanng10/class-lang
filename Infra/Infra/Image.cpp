@@ -9,8 +9,8 @@ Int Image_Init(Int o)
     Image* m;
     m = CP(o);
 
-    Size_WidthSet(m->Size, 0);
-    Size_HeightSet(m->Size, 0);
+    Size_WedSet(m->Size, 0);
+    Size_HetSet(m->Size, 0);
 
     Int dataCount;
     dataCount = 0;
@@ -71,8 +71,8 @@ Int Image_DataCreate(Int o)
 
     Int width;
     Int height;
-    width = Size_WidthGet(size);
-    height = Size_HeightGet(size);
+    width = Size_WedGet(size);
+    height = Size_HetGet(size);
     int widthU;
     int heightU;
     widthU = width;
@@ -156,8 +156,8 @@ Int Image_SetReadIntern(Int o, Int value)
     
     Int size;
     size = m->Size;
-    Size_WidthSet(size, width);
-    Size_HeightSet(size, height);
+    Size_WedSet(size, width);
+    Size_HetSet(size, height);
 
     Int data;
     data = m->Data;
