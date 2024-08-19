@@ -75,18 +75,18 @@ public class PointList : Any
 
         Extern.PointData_PointGet(k, pos);
 
-        ulong leftU;
-        ulong upU;
-        leftU = Extern.Pos_ColGet(pos);
-        upU = Extern.Pos_RowGet(pos);
+        ulong colU;
+        ulong rowU;
+        colU = Extern.Pos_ColGet(pos);
+        rowU = Extern.Pos_RowGet(pos);
 
-        long left;
-        long up;
-        left = (long)leftU;
-        up = (long)upU;
+        long col;
+        long row;
+        col = (long)colU;
+        row = (long)rowU;
 
-        result.Col = left;
-        result.Row = up;
+        result.Col = col;
+        result.Row = row;
         return true;
     }
 
