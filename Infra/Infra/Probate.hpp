@@ -97,7 +97,7 @@ InternSizeValue(prefix);\
 
 #define InternPos(prefix) QPointF prefix##PosU(prefix##ColU, prefix##RowU);
 
-#define InternRect(prefix) QRectF prefix##RectU(prefix##LeftU, prefix##UpU, prefix##WedU, prefix##HetU);
+#define InternRect(prefix) QRectF prefix##RectU(prefix##ColU, prefix##RowU, prefix##WedU, prefix##HetU);
 
 #define ValueFromInternValue(a) \
 Int a##_u;\
