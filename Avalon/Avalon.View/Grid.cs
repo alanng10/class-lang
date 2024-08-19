@@ -356,22 +356,22 @@ public class Grid : View
         col = lite + draw.Pos.Col;
         row = nite + draw.Pos.Row;
 
-        long right;
-        right = this.GridColLeft(endCol);
-        long down;
-        down = this.GridRowUp(endRow);
+        long rite;
+        long site;
+        rite = this.GridColLeft(endCol);
+        site = this.GridRowUp(endRow);
 
         long wed;
-        wed = right - lite;
-        long height;
-        height = down - nite;
+        long het;
+        wed = rite - lite;
+        het = site - nite;
 
         DrawRect rect;
         rect = this.DrawRectA;
         rect.Pos.Col = col;
         rect.Pos.Row = row;
         rect.Size.Wed = wed;
-        rect.Size.Het = height;
+        rect.Size.Het = het;
 
         this.SetChildArea(rect);
 
