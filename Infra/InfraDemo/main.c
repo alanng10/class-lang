@@ -343,15 +343,15 @@ Bool SetRect(Int rect, Int left, Int up, Int width, Int height)
 
 Bool SetPos(Int pos, Int left, Int up)
 {
-    Pos_LeftSet(pos, left);
-    Pos_UpSet(pos, up);
+    Pos_ColSet(pos, left);
+    Pos_RowSet(pos, up);
     return true;
 }
 
 Bool SetSize(Int size, Int width, Int height)
 {
-    Size_WidthSet(size, width);
-    Size_HeightSet(size, height);
+    Size_WedSet(size, width);
+    Size_HetSet(size, height);
     return true;
 }
 
@@ -400,18 +400,18 @@ Bool DrawHandle(Int frame, Int arg)
     Int areaWidth;
     Int areaHeight;
 
-    areaLeft = Pos_LeftGet(areaPos);
-    areaUp = Pos_UpGet(areaPos);
-    areaWidth = Size_WidthGet(areaSize);
-    areaHeight = Size_HeightGet(areaSize);
+    areaLeft = Pos_ColGet(areaPos);
+    areaUp = Pos_RowGet(areaPos);
+    areaWidth = Size_WedGet(areaSize);
+    areaHeight = Size_HetGet(areaSize);
 
     Int aSize;
     aSize = Draw_SizeGet(Draw);
 
     Int aWidth;
     Int aHeight;
-    aWidth = Size_WidthGet(aSize);
-    aHeight = Size_HeightGet(aSize);
+    aWidth = Size_WedGet(aSize);
+    aHeight = Size_HetGet(aSize);
 
     areaLeft = AreaOffset;
     areaUp = AreaOffset;
@@ -1472,9 +1472,9 @@ int main(int argc, char* argv[])
 
     Pos_Init(gradientRadialCenterPos);
 
-    Pos_LeftSet(gradientRadialCenterPos, MathInt(1450));
+    Pos_ColSet(gradientRadialCenterPos, MathInt(1450));
 
-    Pos_UpSet(gradientRadialCenterPos, MathInt(250));
+    Pos_RowSet(gradientRadialCenterPos, MathInt(250));
 
 
 
@@ -1488,10 +1488,10 @@ int main(int argc, char* argv[])
     Pos_Init(gradientRadialFocusPos);
 
 
-    Pos_LeftSet(gradientRadialFocusPos, MathInt(1500));
+    Pos_ColSet(gradientRadialFocusPos, MathInt(1500));
 
 
-    Pos_UpSet(gradientRadialFocusPos, MathInt(250));
+    Pos_RowSet(gradientRadialFocusPos, MathInt(250));
 
 
 
