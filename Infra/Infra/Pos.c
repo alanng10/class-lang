@@ -12,5 +12,5 @@ Int Pos_Final(Int o)
     return true;
 }
 
-Field(Pos, Left)
-Field(Pos, Up)
+Field(Pos, Col)
+Field(Pos, Row)

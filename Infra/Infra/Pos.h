@@ -4,7 +4,7 @@
 
 typedef struct
 {
-    Int Left;
-    Int Up;
+    Int Col;
+    Int Row;
 }
 Pos;
