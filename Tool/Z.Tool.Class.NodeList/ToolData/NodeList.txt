@@ -146,71 +146,71 @@ VarName : Node
     String Value
 
 SameOperate : Operate
-    Operate Left
-    Operate Right
+    Operate Lite
+    Operate Rite
 
 AndOperate : Operate
-    Operate Left
-    Operate Right
+    Operate Lite
+    Operate Rite
 
 OrnOperate : Operate
-    Operate Left
-    Operate Right
+    Operate Lite
+    Operate Rite
 
 NotOperate : Operate
     Operate Value
 
 AddOperate : Operate
-    Operate Left
-    Operate Right
+    Operate Lite
+    Operate Rite
 
 SubOperate : Operate
-    Operate Left
-    Operate Right
+    Operate Lite
+    Operate Rite
 
 MulOperate : Operate
-    Operate Left
-    Operate Right
+    Operate Lite
+    Operate Rite
 
 DivOperate : Operate
-    Operate Left
-    Operate Right
+    Operate Lite
+    Operate Rite
 
 LessOperate : Operate
-    Operate Left
-    Operate Right
+    Operate Lite
+    Operate Rite
 
 SignMulOperate : Operate
-    Operate Left
-    Operate Right
+    Operate Lite
+    Operate Rite
 
 SignDivOperate : Operate
-    Operate Left
-    Operate Right
+    Operate Lite
+    Operate Rite
 
 SignLessOperate : Operate
-    Operate Left
-    Operate Right
+    Operate Lite
+    Operate Rite
 
 BitAndOperate : Operate
-    Operate Left
-    Operate Right
+    Operate Lite
+    Operate Rite
 
 BitOrnOperate : Operate
-    Operate Left
-    Operate Right
+    Operate Lite
+    Operate Rite
 
 BitNotOperate : Operate
     Operate Value
 
-BitLeftOperate : Operate
+BitLiteOperate : Operate
     Operate Value
     Operate Count
 
-BitRightOperate : Operate
+BitRiteOperate : Operate
     Operate Value
     Operate Count
 
-BitSignRightOperate : Operate
+BitSignRiteOperate : Operate
     Operate Value
     Operate Count
