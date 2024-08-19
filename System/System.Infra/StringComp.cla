@@ -131,7 +131,7 @@ class StringComp : Any
             kb : i * 4;
             
             var Int n;
-            n = internInfra.DataCharGet(data, ka);
+            n : internInfra.DataCharGet(data, ka);
             
             internInfra.DataCharSet(value, kb, n);
             
