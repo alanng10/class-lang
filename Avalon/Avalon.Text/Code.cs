@@ -48,7 +48,7 @@ public class Code : Any
         dataCountU = (ulong)dataCount;
 
         ulong u;
-        u = this.InternIntern.TextEncodeCountArray(innKind.Intern, outKind.Intern, data.Value, dataIndexU, dataCountU);
+        u = this.InternIntern.TextCodeCountArray(innKind.Intern, outKind.Intern, data.Value, dataIndexU, dataCountU);
 
         long a;
         a = (long)u;
@@ -81,7 +81,7 @@ public class Code : Any
         dataCountU = (ulong)dataCount;
 
         ulong u;
-        u = this.InternIntern.TextEncodeCountString(innKind.Intern, outKind.Intern, data, dataIndexU, dataCountU);
+        u = this.InternIntern.TextCodeCountString(innKind.Intern, outKind.Intern, data, dataIndexU, dataCountU);
 
         long a;
         a = (long)u;
@@ -121,7 +121,7 @@ public class Code : Any
         ulong resultIndexU;
         resultIndexU = (ulong)resultIndex;
 
-        this.InternIntern.TextEncodeResultArrayArray(result.Value, resultIndexU, innKind.Intern, outKind.Intern, data.Value, dataIndexU, dataCountU);
+        this.InternIntern.TextCodeResultArrayArray(result.Value, resultIndexU, innKind.Intern, outKind.Intern, data.Value, dataIndexU, dataCountU);
 
         return true;
     }
@@ -162,7 +162,7 @@ public class Code : Any
         ulong resultIndexU;
         resultIndexU = (ulong)resultIndex;
 
-        this.InternIntern.TextEncodeResultStringArray(result, resultIndexU, innKind.Intern, outKind.Intern, data, dataIndexU, dataCountU);
+        this.InternIntern.TextCodeResultStringArray(result, resultIndexU, innKind.Intern, outKind.Intern, data, dataIndexU, dataCountU);
 
         return true;
     }

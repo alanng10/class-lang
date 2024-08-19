@@ -71,7 +71,7 @@ public class Intern : object
         return true;
     }
 
-    public virtual ulong TextEncodeCount(ulong innKind, ulong outKind, ulong data, ulong dataIndex, ulong dataCount)
+    public virtual ulong TextCodeCount(ulong innKind, ulong outKind, ulong data, ulong dataIndex, ulong dataCount)
     {
         ulong dataValue;
         dataValue = data + dataIndex;
@@ -81,7 +81,7 @@ public class Intern : object
         return a;
     }
 
-    public virtual bool TextEncodeResult(ulong result, ulong resultIndex, ulong innKind, ulong outKind, ulong data, ulong dataIndex, ulong dataCount)
+    public virtual bool TextCodeResult(ulong result, ulong resultIndex, ulong innKind, ulong outKind, ulong data, ulong dataIndex, ulong dataCount)
     {
         ulong resultValue;
         resultValue = result + resultIndex;
@@ -93,7 +93,7 @@ public class Intern : object
         return true;
     }
 
-    public virtual ulong TextEncodeCountArray(ulong innKind, ulong outKind, byte[] data, ulong dataIndex, ulong dataCount)
+    public virtual ulong TextCodeCountArray(ulong innKind, ulong outKind, byte[] data, ulong dataIndex, ulong dataCount)
     {
         ulong a;
         a = 0;
@@ -105,13 +105,13 @@ public class Intern : object
                 ulong dataU;
                 dataU = (ulong)p;
 
-                a = this.TextEncodeCount(innKind, outKind, dataU, dataIndex, dataCount);
+                a = this.TextCodeCount(innKind, outKind, dataU, dataIndex, dataCount);
             }
         }
         return a;
     }
 
-    public virtual ulong TextEncodeCountString(ulong innKind, ulong outKind, string data, ulong dataIndex, ulong dataCount)
+    public virtual ulong TextCodeCountString(ulong innKind, ulong outKind, string data, ulong dataIndex, ulong dataCount)
     {
         ulong a;
         a = 0;
@@ -123,13 +123,13 @@ public class Intern : object
                 ulong dataU;
                 dataU = (ulong)p;
 
-                a = this.TextEncodeCount(innKind, outKind, dataU, dataIndex, dataCount);
+                a = this.TextCodeCount(innKind, outKind, dataU, dataIndex, dataCount);
             }
         }
         return a;
     }
 
-    public virtual bool TextEncodeResultArray(ulong result, ulong resultIndex, ulong innKind, ulong outKind, byte[] data, ulong dataIndex, ulong dataCount)
+    public virtual bool TextCodeResultArray(ulong result, ulong resultIndex, ulong innKind, ulong outKind, byte[] data, ulong dataIndex, ulong dataCount)
     {
         unsafe
         {
@@ -138,13 +138,13 @@ public class Intern : object
                 ulong dataU;
                 dataU = (ulong)p;
 
-                this.TextEncodeResult(result, resultIndex, innKind, outKind, dataU, dataIndex, dataCount);
+                this.TextCodeResult(result, resultIndex, innKind, outKind, dataU, dataIndex, dataCount);
             }
         }
         return true;
     }
 
-    public virtual bool TextEncodeResultString(ulong result, ulong resultIndex, ulong innKind, ulong outKind, string data, ulong dataIndex, ulong dataCount)
+    public virtual bool TextCodeResultString(ulong result, ulong resultIndex, ulong innKind, ulong outKind, string data, ulong dataIndex, ulong dataCount)
     {
         unsafe
         {
@@ -153,13 +153,13 @@ public class Intern : object
                 ulong dataU;
                 dataU = (ulong)p;
 
-                this.TextEncodeResult(result, resultIndex, innKind, outKind, dataU, dataIndex, dataCount);
+                this.TextCodeResult(result, resultIndex, innKind, outKind, dataU, dataIndex, dataCount);
             }
         }
         return true;
     }
 
-    public virtual bool TextEncodeResultArrayArray(byte[] result, ulong resultIndex, ulong innKind, ulong outKind, byte[] data, ulong dataIndex, ulong dataCount)
+    public virtual bool TextCodeResultArrayArray(byte[] result, ulong resultIndex, ulong innKind, ulong outKind, byte[] data, ulong dataIndex, ulong dataCount)
     {
         unsafe
         {
@@ -168,13 +168,13 @@ public class Intern : object
                 ulong resultU;
                 resultU = (ulong)p;
 
-                this.TextEncodeResultArray(resultU, resultIndex, innKind, outKind, data, dataIndex, dataCount);
+                this.TextCodeResultArray(resultU, resultIndex, innKind, outKind, data, dataIndex, dataCount);
             }
         }
         return true;
     }
 
-    public virtual bool TextEncodeResultStringArray(byte[] result, ulong resultIndex, ulong innKind, ulong outKind, string data, ulong dataIndex, ulong dataCount)
+    public virtual bool TextCodeResultStringArray(byte[] result, ulong resultIndex, ulong innKind, ulong outKind, string data, ulong dataIndex, ulong dataCount)
     {
         unsafe
         {
@@ -183,7 +183,7 @@ public class Intern : object
                 ulong resultU;
                 resultU = (ulong)p;
 
-                this.TextEncodeResultString(resultU, resultIndex, innKind, outKind, data, dataIndex, dataCount);
+                this.TextCodeResultString(resultU, resultIndex, innKind, outKind, data, dataIndex, dataCount);
             }
         }
         return true;
