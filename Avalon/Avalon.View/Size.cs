@@ -5,7 +5,7 @@ public class Size : Comp
     public override bool Init()
     {
         base.Init();
-        this.WidthField = this.CreateWidthField();
+        this.WedField = this.CreateWidthField();
         this.HeightField = this.CreateHeightField();
         return true;
     }
@@ -22,7 +22,7 @@ public class Size : Comp
 
     public override bool Change(Field varField, Change change)
     {
-        if (this.WidthField == varField)
+        if (this.WedField == varField)
         {
             this.ChangeWidth(change);
         }
@@ -33,24 +33,24 @@ public class Size : Comp
         return true;
     }
 
-    public virtual Field WidthField { get; set; }
+    public virtual Field WedField { get; set; }
 
     public virtual long Wed
     {
         get
         {
-            return this.WidthField.GetInt();
+            return this.WedField.GetInt();
         }
 
         set
         {
-            this.WidthField.SetInt(value);
+            this.WedField.SetInt(value);
         }
     }
 
     protected virtual bool ChangeWidth(Change change)
     {
-        this.Event(this.WidthField);
+        this.Event(this.WedField);
         return true;
     }
 
