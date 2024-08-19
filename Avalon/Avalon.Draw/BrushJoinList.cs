@@ -29,14 +29,12 @@ public class BrushJoinList : Any
         this.Miter = this.AddItem(Extern.Stat_BrushJoinMiter(stat));
         this.Bevel = this.AddItem(Extern.Stat_BrushJoinBevel(stat));
         this.Round = this.AddItem(Extern.Stat_BrushJoinRound(stat));
-        this.SvgMiter = this.AddItem(Extern.Stat_BrushJoinSvgMiter(stat));
         return true;
     }
 
     public virtual BrushJoin Miter { get; set; }
     public virtual BrushJoin Bevel { get; set; }
     public virtual BrushJoin Round { get; set; }
-    public virtual BrushJoin SvgMiter { get; set; }
 
     protected virtual BrushJoin AddItem(ulong o)
     {
@@ -60,7 +58,7 @@ public class BrushJoinList : Any
 
     protected virtual Array Array { get; set; }
 
-    protected virtual long ArrayCount { get { return 4; } set { } }
+    protected virtual long ArrayCount { get { return 3; } set { } }
 
     public virtual long Count { get; set; }
     
