@@ -94,14 +94,14 @@ Int String_ConstantCreate(Int o)
     innDataCount = count;
 
     Int k;
-    k = TextEncode_ExecuteCount(0, innKind, outKind, innDataValue, innDataCount);
+    k = TextCode_ExecuteCount(0, innKind, outKind, innDataValue, innDataCount);
 
     Int outDataValue;
     Int outDataCount;
     outDataValue = New(k);
     outDataCount = k;
 
-    TextEncode_ExecuteResult(0, outDataValue, innKind, outKind, innDataValue, innDataCount);
+    TextCode_ExecuteResult(0, outDataValue, innKind, outKind, innDataValue, innDataCount);
 
     Int stringCount;
     stringCount = outDataCount / sizeof(Char);

@@ -58,12 +58,12 @@ Int Console_StreamWrite(Int o, Int text, Int stream)
     outKind = Stat_TextCodeKindUtf8(stat);
 
     Int k;
-    k = TextEncode_ExecuteCount(0, innKind, outKind, dataValue, dataCount);
+    k = TextCode_ExecuteCount(0, innKind, outKind, dataValue, dataCount);
 
     Int result;
     result = New(k);
 
-    TextEncode_ExecuteResult(0, result, innKind, outKind, dataValue, dataCount);
+    TextCode_ExecuteResult(0, result, innKind, outKind, dataValue, dataCount);
 
     const char* p;
     p = (const char*)result;
@@ -124,12 +124,12 @@ Int Console_InnRead(Int o)
     outKind = Stat_TextCodeKindUtf32(stat);
 
     Int resultCount;
-    resultCount = TextEncode_ExecuteCount(0, innKind, outKind, dataValue, dataCount);
+    resultCount = TextCode_ExecuteCount(0, innKind, outKind, dataValue, dataCount);
 
     Int result;
     result = New(resultCount);
 
-    TextEncode_ExecuteResult(0, result, innKind, outKind, dataValue, dataCount);
+    TextCode_ExecuteResult(0, result, innKind, outKind, dataValue, dataCount);
 
     Int count;
     count = resultCount / sizeof(Char);

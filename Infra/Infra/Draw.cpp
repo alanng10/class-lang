@@ -612,9 +612,9 @@ Int Draw_TextSet(Int o, Int textData, Int textCount)
     outKind = Stat_TextCodeKindUtf16(stat);
 
     Int resultCount;
-    resultCount = TextEncode_ExecuteCount(0, innKind, outKind, dataValue, dataCount);
+    resultCount = TextCode_ExecuteCount(0, innKind, outKind, dataValue, dataCount);
 
-    TextEncode_ExecuteResult(0, m->TextData, innKind, outKind, dataValue, dataCount);
+    TextCode_ExecuteResult(0, m->TextData, innKind, outKind, dataValue, dataCount);
 
     Int ka;
     ka = resultCount / sizeof(Int16);
