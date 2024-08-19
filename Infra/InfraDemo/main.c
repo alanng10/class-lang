@@ -1681,20 +1681,21 @@ int main(int argc, char* argv[])
     soundUrlString = String_ConstantCreate(CastInt("file:../../DemoSound.wav"));
 
 
+    Int audioOut;
+    audioOut = AudioOut_New();
+
+    AudioOut_Init(audioOut);
+
 
     Play = Play_New();
 
-
     Play_Init(Play);
-
 
     Play_SourceSet(Play, soundUrlString);
 
-
-
     Play_SourceThisSet(Play);
 
-
+    Play_AudioOutSet(Play, audioOut);
 
 
 
@@ -1954,9 +1955,12 @@ int main(int argc, char* argv[])
 
     Play_Final(Play);
 
-
     Play_Delete(Play);
 
+
+    AudioOut_Final(audioOut);
+
+    AudioOut_Delete(audioOut);
 
 
     String_ConstantDelete(soundUrlString);
