@@ -5,24 +5,24 @@
 typedef struct
 {
 }
-TextEncode;
+TextCode;
 
-typedef Int (*TextEncode_CountMaide)(Int o, Int dataValue, Int dataCount);
-typedef Int (*TextEncode_ResultMaide)(Int o, Int result, Int dataValue, Int dataCount);
+typedef Int (*TextCode_CountMaide)(Int o, Int dataValue, Int dataCount);
+typedef Int (*TextCode_ResultMaide)(Int o, Int result, Int dataValue, Int dataCount);
 
-Int TextEncode_ExecuteCount32To8(Int o, Int dataValue, Int dataCount);
-Int TextEncode_ExecuteCount32To16(Int o, Int dataValue, Int dataCount);
-Int TextEncode_ExecuteCount16To8(Int o, Int dataValue, Int dataCount);
-Int TextEncode_ExecuteCount16To32(Int o, Int dataValue, Int dataCount);
-Int TextEncode_ExecuteCount8To16(Int o, Int dataValue, Int dataCount);
-Int TextEncode_ExecuteCount8To32(Int o, Int dataValue, Int dataCount);
+Int TextCode_ExecuteCount32To8(Int o, Int dataValue, Int dataCount);
+Int TextCode_ExecuteCount32To16(Int o, Int dataValue, Int dataCount);
+Int TextCode_ExecuteCount16To8(Int o, Int dataValue, Int dataCount);
+Int TextCode_ExecuteCount16To32(Int o, Int dataValue, Int dataCount);
+Int TextCode_ExecuteCount8To16(Int o, Int dataValue, Int dataCount);
+Int TextCode_ExecuteCount8To32(Int o, Int dataValue, Int dataCount);
 
-Int TextEncode_ExecuteResult32To8(Int o, Int result, Int dataValue, Int dataCount);
-Int TextEncode_ExecuteResult32To16(Int o, Int result, Int dataValue, Int dataCount);
-Int TextEncode_ExecuteResult16To8(Int o, Int result, Int dataValue, Int dataCount);
-Int TextEncode_ExecuteResult16To32(Int o, Int result, Int dataValue, Int dataCount);
-Int TextEncode_ExecuteResult8To16(Int o, Int result, Int dataValue, Int dataCount);
-Int TextEncode_ExecuteResult8To32(Int o, Int result, Int dataValue, Int dataCount);
+Int TextCode_ExecuteResult32To8(Int o, Int result, Int dataValue, Int dataCount);
+Int TextCode_ExecuteResult32To16(Int o, Int result, Int dataValue, Int dataCount);
+Int TextCode_ExecuteResult16To8(Int o, Int result, Int dataValue, Int dataCount);
+Int TextCode_ExecuteResult16To32(Int o, Int result, Int dataValue, Int dataCount);
+Int TextCode_ExecuteResult8To16(Int o, Int result, Int dataValue, Int dataCount);
+Int TextCode_ExecuteResult8To32(Int o, Int result, Int dataValue, Int dataCount);
 
 #define Read8 \
 {\
