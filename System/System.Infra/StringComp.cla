@@ -25,7 +25,7 @@ class StringComp : Any
         dataCount : count * 4;
 
         var Any value;
-        value : this.InternIntern.ValueNew(dataCount);
+        value : this.InternIntern.DataNew(dataCount);
         
         this.InternIntern.StringValueSet(k, value);
         this.InternIntern.StringCountSet(k, count);
@@ -116,7 +116,7 @@ class StringComp : Any
         valueCount : count * 4;
 
         var Any value;
-        value : internIntern.ValueNew(valueCount);
+        value : internIntern.DataNew(valueCount);
         
         internIntern.StringValueSet(k, value);
         internIntern.StringCountSet(k, count);
