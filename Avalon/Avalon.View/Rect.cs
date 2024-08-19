@@ -39,7 +39,7 @@ public class Rect : Comp
         a = new Size();
         a.Init();
         a.Wed = 0;
-        a.Height = 0;
+        a.Het = 0;
         return a;
     }
 

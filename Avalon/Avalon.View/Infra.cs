@@ -49,7 +49,7 @@ public class Infra : Any
         a.Size = new DrawSize();
         a.Size.Init();
         a.Size.Wed = rect.Size.Wed;
-        a.Size.Het = rect.Size.Height;
+        a.Size.Het = rect.Size.Het;
         return a;
     }
 

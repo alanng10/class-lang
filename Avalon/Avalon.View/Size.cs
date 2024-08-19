@@ -56,7 +56,7 @@ public class Size : Comp
 
     public virtual Field HeightField { get; set; }
 
-    public virtual long Height
+    public virtual long Het
     {
         get
         {

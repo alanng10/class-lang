@@ -16,7 +16,7 @@ class ViewA : View
         long width;
         width = this.Size.Wed;
         long height;
-        height = this.Size.Height;
+        height = this.Size.Het;
 
         DrawRect rect;
         rect = this.DrawRectA;
