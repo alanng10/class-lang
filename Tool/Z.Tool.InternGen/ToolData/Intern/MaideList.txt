@@ -1,4 +1,4 @@
-Int RefCompare|Any left, Any right
+Int RefLess|Any left, Any right
 Any DataNew|Int count
 Int DataGet|Any data, Int index
 Bool DataSet|Any data, Int index, Int value
