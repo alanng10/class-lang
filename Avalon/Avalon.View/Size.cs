@@ -28,7 +28,7 @@ public class Size : Comp
         }
         if (this.HetField == varField)
         {
-            this.ChangeHeight(change);
+            this.ChangeHet(change);
         }
         return true;
     }
@@ -69,7 +69,7 @@ public class Size : Comp
         }
     }
 
-    protected virtual bool ChangeHeight(Change change)
+    protected virtual bool ChangeHet(Change change)
     {
         this.Event(this.HetField);
         return true;
