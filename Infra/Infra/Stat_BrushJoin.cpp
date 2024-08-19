@@ -3,7 +3,6 @@
 Int Stat_Var_BrushJoinMiter = Qt::MiterJoin + 1;
 Int Stat_Var_BrushJoinBevel = Qt::BevelJoin + 1;
 Int Stat_Var_BrushJoinRound = Qt::RoundJoin + 1;
-Int Stat_Var_BrushJoinSvgMiter = Qt::SvgMiterJoin + 1;
 
 Int Stat_BrushJoinMiter(Int o)
 {
@@ -16,8 +15,4 @@ Int Stat_BrushJoinBevel(Int o)
 Int Stat_BrushJoinRound(Int o)
 {
     return Stat_Var_BrushJoinRound;
-}
-Int Stat_BrushJoinSvgMiter(Int o)
-{
-    return Stat_Var_BrushJoinSvgMiter;
 }
