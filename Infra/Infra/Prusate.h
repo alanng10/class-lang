@@ -798,7 +798,6 @@ Infra_Api Int Stat_BrushCapRound(Int o);
 Infra_Api Int Stat_BrushJoinMiter(Int o);
 Infra_Api Int Stat_BrushJoinBevel(Int o);
 Infra_Api Int Stat_BrushJoinRound(Int o);
-Infra_Api Int Stat_BrushJoinSvgMiter(Int o);
 Infra_Api Int Stat_GradientKindLinear(Int o);
 Infra_Api Int Stat_GradientKindRadial(Int o);
 Infra_Api Int Stat_GradientSpreadPad(Int o);

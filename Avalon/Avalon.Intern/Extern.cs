@@ -847,7 +847,6 @@ public static class Extern
     [DllImport(InfraLib)] public extern static ulong Stat_BrushJoinMiter(ulong o);
     [DllImport(InfraLib)] public extern static ulong Stat_BrushJoinBevel(ulong o);
     [DllImport(InfraLib)] public extern static ulong Stat_BrushJoinRound(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Stat_BrushJoinSvgMiter(ulong o);
     [DllImport(InfraLib)] public extern static ulong Stat_GradientKindLinear(ulong o);
     [DllImport(InfraLib)] public extern static ulong Stat_GradientKindRadial(ulong o);
     [DllImport(InfraLib)] public extern static ulong Stat_GradientSpreadPad(ulong o);
