@@ -98,6 +98,10 @@ Word "same" has meaning that is equal.
 
 Word "less" has meaning that is compared.
 
+Word "lite" has meaning that is left;
+
+Word "rite" has meaning that is right;
+
 Word "out" has meaning that is output destination.
 
 Word "inn" has meaning that is input source.
