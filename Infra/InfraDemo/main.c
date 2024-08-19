@@ -65,7 +65,8 @@ Int PointListData;
 Int Face;
 
 
-Int TextFlag;
+Int TextAlignHoriz;
+Int TextAlignVert;
 
 
 
@@ -101,7 +102,7 @@ SInt TextUp;
 
 
 
-Int AudioEffect;
+Int Play;
 
 
 
@@ -291,14 +292,14 @@ Bool TypeHandle(Int frame, Int index, Int field, Int arg)
 
         if (index == 'Y')
         {
-            AudioEffect_Play(AudioEffect);
+            Play_Execute(Play);
         }
 
 
 
         if (index == 'U')
         {
-            AudioEffect_Stop(AudioEffect);
+            Play_Stop(Play);
         }
 
 
@@ -555,7 +556,7 @@ Bool DrawHandle(Int frame, Int arg)
 
     SetRect(RectA, MathInt(400 + TextLeft), MathInt(400 + TextUp), MathInt(300), MathInt(100));
 
-    Draw_ExecuteText(Draw, RectA, TextFlag, Text, RectB);
+    Draw_ExecuteText(Draw, Text, TextAlignHoriz, TextAlignVert, false, RectA, RectB);
 
     Draw_FaceSet(Draw, null);
 
@@ -1253,7 +1254,8 @@ int main(int argc, char* argv[])
     Face_StrikeoutSet(Face, true);
     Face_Init(Face);
 
-    TextFlag = Stat_TextAlignRight(Stat) | Stat_TextAlignVCenter(Stat);
+    TextAlignHoriz = Stat_TextAlignEnd(Stat);
+    TextAlignVert = Stat_TextAlignMid(Stat);
 
 
     Int imagePath;
@@ -1680,17 +1682,17 @@ int main(int argc, char* argv[])
 
 
 
-    AudioEffect = AudioEffect_New();
+    Play = Play_New();
 
 
-    AudioEffect_Init(AudioEffect);
+    Play_Init(Play);
 
 
-    AudioEffect_SourceSet(AudioEffect, soundUrlString);
+    Play_SourceSet(Play, soundUrlString);
 
 
 
-    AudioEffect_SourceThisSet(AudioEffect);
+    Play_SourceThisSet(Play);
 
 
 
@@ -1950,10 +1952,10 @@ int main(int argc, char* argv[])
 
 
 
-    AudioEffect_Final(AudioEffect);
+    Play_Final(Play);
 
 
-    AudioEffect_Delete(AudioEffect);
+    Play_Delete(Play);
 
 
 
