@@ -12,9 +12,9 @@ public class Gen : SourceGen
         this.ItemClassName = this.S("Delimit");
         this.ArrayClassName = this.S("Array");
         this.Export = true;
-        this.ItemListFileName = "ToolData/Class/ItemListDelimit.txt";
-        this.AddMethodFileName = "ToolData/Class/AddMaideDelimit.txt";
-        this.OutputFilePath = "../../Class/Class.Infra/DelimitList.cs";
+        this.ItemListFileName = this.S("ToolData/Class/ItemListDelimit.txt");
+        this.AddMethodFileName = this.S("ToolData/Class/AddMaideDelimit.txt");
+        this.OutputFilePath = this.S("../../Class/Class.Infra/DelimitList.cs");
         return true;
     }
 
