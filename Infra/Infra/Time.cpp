@@ -448,7 +448,7 @@ Int Time_ValidDate(Int year, Int month, Int day)
     {
         return false;
     }
-    
+
     bool bu;
     bu = QDate::isValid(yearU, monthU, dayU);
     Bool a;
@@ -473,7 +473,7 @@ Int Time_ValidTime(Int hour, Int min, Int sec, Int millisec)
     return a;
 }
 
-Int Time_TotalMillisecIntern(Int u)
+Int Time_TotalMillisecIntern(Int o)
 {
     Int share;
     share = Infra_Share();
@@ -486,22 +486,22 @@ Int Time_TotalMillisecIntern(Int u)
     QDateTime* ua;
     ua = (QDateTime*)timeInit;
 
-    QDateTime* ka;
-    ka = (QDateTime*)u;
+    QDateTime* oa;
+    oa = (QDateTime*)o;
 
     qint64 uu;
-    uu = ua->msecsTo(*ka);
+    uu = ua->msecsTo(*oa);
 
-    SInt u;
-    u = uu;
+    SInt kka;
+    kka = uu;
 
-    if (u < 0)
+    if (kka < 0)
     {
-        u = -1;
+        kka = -1;
     }
 
     Int k;
-    k = u;
+    k = kka;
 
     Int a;
     a = k;
