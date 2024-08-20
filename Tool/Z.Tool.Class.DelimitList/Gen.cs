@@ -5,15 +5,15 @@ public class Gen : SourceGen
     public override bool Init()
     {
         base.Init();
-        this.Module = "Class.Infra";
-        this.ClassName = "DelimitList";
-        this.BaseClassName = "Any";
-        this.AnyClassName = "Any";
-        this.ItemClassName = "Delimit";
-        this.ArrayClassName = "Array";
+        this.Module = this.S("Class.Infra");
+        this.ClassName = this.S("DelimitList");
+        this.BaseClassName = this.S("Any");
+        this.AnyClassName = this.S("Any");
+        this.ItemClassName = this.S("Delimit");
+        this.ArrayClassName = this.S("Array");
         this.Export = true;
-        this.ItemListFileName = "ToolData/ItemListDelimit.txt";
-        this.AddMethodFileName = "ToolData/AddMethodDelimit.txt";
+        this.ItemListFileName = "ToolData/Class/ItemListDelimit.txt";
+        this.AddMethodFileName = "ToolData/Class/AddMaideDelimit.txt";
         this.OutputFilePath = "../../Class/Class.Infra/DelimitList.cs";
         return true;
     }
