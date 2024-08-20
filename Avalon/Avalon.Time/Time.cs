@@ -288,13 +288,13 @@ public class Time : Any
         return a;
     }
 
-    public virtual bool ValidDate(long year, long month, long day)
+    public virtual bool ValidDate(long yea, long mon, long day)
     {
         ulong yearU;
         ulong monthU;
         ulong dayU;
-        yearU = (ulong)year;
-        monthU = (ulong)month;
+        yearU = (ulong)yea;
+        monthU = (ulong)mon;
         dayU = (ulong)day;
         ulong u;
         u = Extern.Time_ValidDate(yearU, monthU, dayU);
@@ -304,13 +304,13 @@ public class Time : Any
         return a;
     }
 
-    public virtual bool ValidTime(long hour, long min, long sec, long millisec)
+    public virtual bool ValidTime(long our, long min, long sec, long millisec)
     {
         ulong hourU;
         ulong minU;
         ulong secU;
         ulong millisecU;
-        hourU = (ulong)hour;
+        hourU = (ulong)our;
         minU = (ulong)min;
         secU = (ulong)sec;
         millisecU = (ulong)millisec;
