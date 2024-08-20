@@ -109,14 +109,14 @@ class ThreadState : State
         long left;
         long up;
         long wed;
-        long height;
+        long het;
         left = 20;
         up = 20;
         wed = this.Image.Size.Wed - 50;
-        height = this.Image.Size.Het - 50;
+        het = this.Image.Size.Het - 50;
 
         DrawRect rectA;
-        rectA = drawInfra.RectCreate(this.MathInt(left), this.MathInt(up), this.MathInt(wed), this.MathInt(height));
+        rectA = drawInfra.RectCreate(this.MathInt(left), this.MathInt(up), this.MathInt(wed), this.MathInt(het));
 
         DrawDraw draw;
         draw = new DrawDraw();
@@ -136,7 +136,7 @@ class ThreadState : State
         w = w - 40;
 
         long h;
-        h = height;
+        h = het;
         h = h - 40;
 
         rectA.Size.Wed = this.MathInt(w);

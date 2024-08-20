@@ -226,11 +226,11 @@ class Demo : Any
         image = this.ImageCreate();
 
         long wedA;
-        long heightA;
+        long hetA;
         wedA = 400;
-        heightA = 200;
+        hetA = 200;
         DrawRect sourceRect;
-        sourceRect = this.DrawInfra.RectCreate(this.MathInt(1880), this.MathInt(910), this.MathInt(wedA), this.MathInt(heightA));
+        sourceRect = this.DrawInfra.RectCreate(this.MathInt(1880), this.MathInt(910), this.MathInt(wedA), this.MathInt(hetA));
 
         DrawForm formA;
         formA = new DrawForm();
@@ -248,7 +248,7 @@ class Demo : Any
         viewB.Pos.Col = 60;
         viewB.Pos.Row = 40;
         viewB.Size.Wed = wedA;
-        viewB.Size.Het = heightA;
+        viewB.Size.Het = hetA;
         viewB.DrawImage = image;
         viewB.SourceRect = sourceRect;
         viewB.Form = formA;
