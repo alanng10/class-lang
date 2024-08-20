@@ -107,21 +107,6 @@ Infra_Api Int String_Equal(Int o, Int other);
 Infra_Api Int String_ConstantCreate(Int o);
 Infra_Api Int String_ConstantDelete(Int o);
 
-InfraApiNew(Return)
-Infra_Api Int Return_StringGet(Int o);
-Infra_Api Int Return_StringSet(Int o, Int value);
-Infra_Api Int Return_StringListGet(Int o);
-Infra_Api Int Return_StringListSet(Int o, Int value);
-
-Infra_Api Int Return_StringStart(Int o);
-Infra_Api Int Return_StringEnd(Int o);
-Infra_Api Int Return_StringCount(Int o);
-Infra_Api Int Return_StringResult(Int o, Int result);
-Infra_Api Int Return_StringListStart(Int o);
-Infra_Api Int Return_StringListEnd(Int o);
-Infra_Api Int Return_StringListCount(Int o);
-Infra_Api Int Return_StringListItem(Int o, Int index);
-
 InfraApiNew(Console)
 Infra_Api Int Console_OutWrite(Int o, Int text);
 Infra_Api Int Console_ErrWrite(Int o, Int text);

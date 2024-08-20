@@ -24,24 +24,6 @@ public static class Extern
     [DllImport(InfraLib)] public extern static ulong String_ConstantCreate(ulong o);
     [DllImport(InfraLib)] public extern static ulong String_ConstantDelete(ulong o);
 
-    [DllImport(InfraLib)] public extern static ulong Return_New();
-    [DllImport(InfraLib)] public extern static ulong Return_Delete(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Return_Init(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Return_Final(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Return_StringGet(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Return_StringSet(ulong o, ulong value);
-    [DllImport(InfraLib)] public extern static ulong Return_StringListGet(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Return_StringListSet(ulong o, ulong value);
-
-    [DllImport(InfraLib)] public extern static ulong Return_StringStart(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Return_StringEnd(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Return_StringCount(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Return_StringResult(ulong o, ulong result);
-    [DllImport(InfraLib)] public extern static ulong Return_StringListStart(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Return_StringListEnd(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Return_StringListCount(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Return_StringListItem(ulong o, ulong index);
-
     [DllImport(InfraLib)] public extern static ulong Console_New();
     [DllImport(InfraLib)] public extern static ulong Console_Delete(ulong o);
     [DllImport(InfraLib)] public extern static ulong Console_Init(ulong o);
