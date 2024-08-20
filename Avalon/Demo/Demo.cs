@@ -638,7 +638,7 @@ class Demo : Any
     private bool ExecuteTime()
     {
         this.TimeWriteBase = this.TextInfra.TextCreateStringData(
-            this.S("year: , month: , day: , hour: , min: , sec: , millisec: , pos: \n"), null);
+            this.S("yea: , mon: , day: , our: , min: , sec: , millisec: , pos: \n"), null);
 
         TextWriteArg prefixArg;
         prefixArg = new TextWriteArg();
