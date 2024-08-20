@@ -60,13 +60,13 @@ public class Image : Any
     public virtual bool DataCreate()
     {
         long wed;
-        long height;
+        long het;
         wed = this.Size.Wed;
-        height = this.Size.Het;
+        het = this.Size.Het;
         ulong w;
         ulong h;
         w = (ulong)wed;
-        h = (ulong)height;
+        h = (ulong)het;
         Extern.Size_WedSet(this.InternSize, w);
         Extern.Size_HetSet(this.InternSize, h);
 
