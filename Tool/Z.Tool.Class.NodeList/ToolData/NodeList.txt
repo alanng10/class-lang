@@ -33,9 +33,9 @@ Count : Node
 
 PrusateCount : Count
 
-ProbateCount : Count
-
 PrecateCount : Count
+
+PronateCount : Count
 
 PrivateCount : Count
 
