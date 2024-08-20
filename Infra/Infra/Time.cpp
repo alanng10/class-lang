@@ -199,31 +199,12 @@ Int Time_TotalMillisecGet(Int o)
     Time* m;
     m = CP(o);
     
-    Int share;
-    share = Infra_Share();
-    Int stat;
-    stat = Share_Stat(share);
-
-    Int timeInit;
-    timeInit = Stat_TimeInit(stat);
-
-    QDateTime* ua;
-    ua = (QDateTime*)timeInit;
-
-    qint64 uu;
-    uu = ua->msecsTo(*(m->Intern));
-
-    SInt u;
-    u = uu;
-
-    if (u < 0)
-    {
-        u = -1;
-    }
-
+    Int ka;
+    ka = CastInt(m->Intern);
+    
     Int k;
-    k = u;
-
+    k = Time_TotalMillisecIntern(ka);
+    
     Int a;
     a = k;
     return a;
@@ -321,6 +302,21 @@ Int Time_AddYear(Int o, Int offset)
     ua = offset;
     QDateTime u;
     u = m->Intern->addYears(ua);
+
+    Int ka;
+    ka = CastInt(&u);
+
+    Int k;
+    k = Time_TotalMillisecIntern(ka);
+
+    SInt kka;
+    kka = k;
+
+    if (kka < 0)
+    {
+        return false;
+    }
+
     (*(m->Intern)) = u;
     return true;
 }
@@ -333,6 +329,21 @@ Int Time_AddMonth(Int o, Int offset)
     ua = offset;
     QDateTime u;
     u = m->Intern->addMonths(ua);
+
+    Int ka;
+    ka = CastInt(&u);
+
+    Int k;
+    k = Time_TotalMillisecIntern(ka);
+
+    SInt kka;
+    kka = k;
+
+    if (kka < 0)
+    {
+        return false;
+    }
+
     (*(m->Intern)) = u;
     return true;
 }
@@ -345,6 +356,21 @@ Int Time_AddDay(Int o, Int offset)
     ua = offset;
     QDateTime u;
     u = m->Intern->addDays(ua);
+
+    Int ka;
+    ka = CastInt(&u);
+
+    Int k;
+    k = Time_TotalMillisecIntern(ka);
+
+    SInt kka;
+    kka = k;
+
+    if (kka < 0)
+    {
+        return false;
+    }
+
     (*(m->Intern)) = u;
     return true;
 }
@@ -357,6 +383,21 @@ Int Time_AddMillisec(Int o, Int offset)
     offsetU = offset;
     QDateTime u;
     u = m->Intern->addMSecs(offsetU);
+
+    Int ka;
+    ka = CastInt(&u);
+
+    Int k;
+    k = Time_TotalMillisecIntern(ka);
+
+    SInt kka;
+    kka = k;
+
+    if (kka < 0)
+    {
+        return false;
+    }
+
     (*(m->Intern)) = u;
     return true;
 }
@@ -401,5 +442,40 @@ Int Time_ValidTime(Int hour, Int min, Int sec, Int millisec)
     bu = QTime::isValid(hourU, minuteU, secondU, millisecondU);
     Bool a;
     a = bu;
+    return a;
+}
+
+Int Time_TotalMillisecIntern(Int u)
+{
+    Int share;
+    share = Infra_Share();
+    Int stat;
+    stat = Share_Stat(share);
+
+    Int timeInit;
+    timeInit = Stat_TimeInit(stat);
+
+    QDateTime* ua;
+    ua = (QDateTime*)timeInit;
+
+    QDateTime* ka;
+    ka = (QDateTime*)u;
+
+    qint64 uu;
+    uu = ua->msecsTo(*ka);
+
+    SInt u;
+    u = uu;
+
+    if (u < 0)
+    {
+        u = -1;
+    }
+
+    Int k;
+    k = u;
+
+    Int a;
+    a = k;
     return a;
 }

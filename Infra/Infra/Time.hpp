@@ -12,3 +12,5 @@ struct Time
 };
 
 #define CP(a) ((Time*)(a))
+
+Int Time_TotalMillisecIntern(Int u);
