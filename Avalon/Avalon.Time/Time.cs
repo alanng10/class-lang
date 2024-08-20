@@ -19,7 +19,7 @@ public class Time : Any
 
     private ulong Intern { get; set; }
 
-    public virtual long Year
+    public virtual long Yea
     {
         get
         {
