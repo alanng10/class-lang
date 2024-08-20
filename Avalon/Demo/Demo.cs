@@ -35,10 +35,10 @@ class Demo : Any
     protected virtual MathComp MathComp { get; set; }
     private StringJoin StringJoin { get; set; }
     private TextWriteArg ArgPrefix { get; set; }
-    private TextWriteArg ArgYear { get; set; }
-    private TextWriteArg ArgMonth { get; set; }
+    private TextWriteArg ArgYea { get; set; }
+    private TextWriteArg ArgMon { get; set; }
     private TextWriteArg ArgDay { get; set; }
-    private TextWriteArg ArgHour { get; set; }
+    private TextWriteArg ArgOur { get; set; }
     private TextWriteArg ArgMin { get; set; }
     private TextWriteArg ArgSec { get; set; }
     private TextWriteArg ArgMillisec { get; set; }
@@ -648,10 +648,10 @@ class Demo : Any
         prefixArg.MaxWidth = -1;
         this.ArgPrefix = prefixArg;
 
-        this.ArgYear = this.CreateTimeWriteArg(6);
-        this.ArgMonth = this.CreateTimeWriteArg(15);
+        this.ArgYea = this.CreateTimeWriteArg(6);
+        this.ArgMon = this.CreateTimeWriteArg(15);
         this.ArgDay = this.CreateTimeWriteArg(22);
-        this.ArgHour = this.CreateTimeWriteArg(30);
+        this.ArgOur = this.CreateTimeWriteArg(30);
         this.ArgMin = this.CreateTimeWriteArg(37);
         this.ArgSec = this.CreateTimeWriteArg(44);
         this.ArgMillisec = this.CreateTimeWriteArg(56);
@@ -659,10 +659,10 @@ class Demo : Any
 
         this.ArgList = this.ListInfra.ArrayCreate(9);
         this.ArgList.SetAt(0, prefixArg);
-        this.ArgList.SetAt(1, this.ArgYear);
-        this.ArgList.SetAt(2, this.ArgMonth);
+        this.ArgList.SetAt(1, this.ArgYea);
+        this.ArgList.SetAt(2, this.ArgMon);
         this.ArgList.SetAt(3, this.ArgDay);
-        this.ArgList.SetAt(4, this.ArgHour);
+        this.ArgList.SetAt(4, this.ArgOur);
         this.ArgList.SetAt(5, this.ArgMin);
         this.ArgList.SetAt(6, this.ArgSec);
         this.ArgList.SetAt(7, this.ArgMillisec);
@@ -711,10 +711,10 @@ class Demo : Any
 
         this.ArgPrefix.Value.Any = prefixText;
 
-        this.ArgYear.Value.Int = time.Yea;
-        this.ArgMonth.Value.Int = time.Mon;
+        this.ArgYea.Value.Int = time.Yea;
+        this.ArgMon.Value.Int = time.Mon;
         this.ArgDay.Value.Int = time.Day;
-        this.ArgHour.Value.Int = time.Our;
+        this.ArgOur.Value.Int = time.Our;
         this.ArgMin.Value.Int = time.Min;
         this.ArgSec.Value.Int = time.Sec;
         this.ArgMillisec.Value.Int = time.Millisec;
