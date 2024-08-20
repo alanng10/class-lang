@@ -282,13 +282,13 @@ public class Grid : View
         row = row + draw.Pos.Row;
         long wed;
         wed = this.Dest.Size.Wed;
-        long height;
-        height = this.Dest.Size.Het;
+        long het;
+        het = this.Dest.Size.Het;
 
         this.DrawRectA.Pos.Col = col;
         this.DrawRectA.Pos.Row = row;
         this.DrawRectA.Size.Wed = wed;
-        this.DrawRectA.Size.Het = height;
+        this.DrawRectA.Size.Het = het;
 
         this.SetChildArea(this.DrawRectA);
 
