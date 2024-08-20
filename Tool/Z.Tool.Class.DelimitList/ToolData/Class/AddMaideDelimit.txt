@@ -1,4 +1,4 @@
-    protected virtual #ItemClassName# AddItem(string text)
+    protected virtual #ItemClassName# AddItem(String text)
     {
         #ItemClassName# item;
         item = new #ItemClassName#();
