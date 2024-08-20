@@ -322,7 +322,7 @@ public class Time : Any
         return a;
     }
 
-    public virtual bool Set(long year, long month, long day, long hour, long min, long sec, long millisec, long pos)
+    public virtual bool Set(long yea, long mon, long day, long our, long min, long sec, long millisec, long pos)
     {
         ulong yearU;
         ulong monthU;
@@ -332,10 +332,10 @@ public class Time : Any
         ulong secU;
         ulong millisecU;
         ulong posU;
-        yearU = (ulong)year;
-        monthU = (ulong)month;
+        yearU = (ulong)yea;
+        monthU = (ulong)mon;
         dayU = (ulong)day;
-        hourU = (ulong)hour;
+        hourU = (ulong)our;
         minU = (ulong)min;
         secU = (ulong)sec;
         millisecU = (ulong)millisec;
