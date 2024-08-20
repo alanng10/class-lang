@@ -435,6 +435,20 @@ Int Time_ValidDate(Int year, Int month, Int day)
     yearU = year;
     monthU = month;
     dayU = day;
+
+    if (yearU < 1)
+    {
+        return false;
+    }
+    if (monthU < 1)
+    {
+        return false;
+    }
+    if (dayU < 1)
+    {
+        return false;
+    }
+    
     bool bu;
     bu = QDate::isValid(yearU, monthU, dayU);
     Bool a;
