@@ -6,18 +6,6 @@ String
     ConstantCreate(o) -
     ConstantDelete(o) -
 
-Return
-    String
-    StringStart()
-    StringEnd()
-    StringCount()
-    StringResult(result)
-    StringList
-    StringListStart()
-    StringListEnd()
-    StringListCount()
-    StringListItem(index)
-
 Console
     OutWrite(text)
     ErrWrite(text)
