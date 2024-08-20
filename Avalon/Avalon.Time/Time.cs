@@ -276,10 +276,10 @@ public class Time : Any
         return a;
     }
 
-    public virtual bool LeapYear(long year)
+    public virtual bool LeapYea(long yea)
     {
         ulong ua;
-        ua = (ulong)year;
+        ua = (ulong)yea;
         ulong u;
         u = Extern.Time_LeapYear(ua);
 
