@@ -2,5 +2,5 @@ namespace Z.Tool.Class.DelimitList;
 
 class Value : Any
 {
-    public virtual string Text { get; set; }
+    public virtual String Text { get; set; }
 }
