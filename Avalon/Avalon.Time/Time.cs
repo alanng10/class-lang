@@ -34,7 +34,7 @@ public class Time : Any
         }
     }
 
-    public virtual long Month
+    public virtual long Mon
     {
         get
         {

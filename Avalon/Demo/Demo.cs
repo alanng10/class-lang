@@ -712,7 +712,7 @@ class Demo : Any
         this.ArgPrefix.Value.Any = prefixText;
 
         this.ArgYear.Value.Int = time.Yea;
-        this.ArgMonth.Value.Int = time.Month;
+        this.ArgMonth.Value.Int = time.Mon;
         this.ArgDay.Value.Int = time.Day;
         this.ArgHour.Value.Int = time.Hour;
         this.ArgMin.Value.Int = time.Min;
