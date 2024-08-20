@@ -230,34 +230,50 @@ public class Time : Any
 
     public virtual bool AddYear(long value)
     {
+        ulong valueU;
+        valueU = (ulong)value;
         ulong u;
-        u = (ulong)value;
-        Extern.Time_AddYear(this.Intern, u);
-        return true;
+        u = Extern.Time_AddYear(this.Intern, valueU);
+
+        bool a;
+        a = !(u == 0);
+        return a;
     }
 
     public virtual bool AddMonth(long value)
     {
+        ulong valueU;
+        valueU = (ulong)value;
         ulong u;
-        u = (ulong)value;
-        Extern.Time_AddMonth(this.Intern, u);
-        return true;
+        u = Extern.Time_AddMonth(this.Intern, valueU);
+
+        bool a;
+        a = !(u == 0);
+        return a;
     }
 
     public virtual bool AddDay(long value)
     {
+        ulong valueU;
+        valueU = (ulong)value;
         ulong u;
-        u = (ulong)value;
-        Extern.Time_AddDay(this.Intern, u);
-        return true;
+        u = Extern.Time_AddDay(this.Intern, valueU);
+
+        bool a;
+        a = !(u == 0);
+        return a;
     }
 
     public virtual bool AddMillisec(long value)
     {
+        ulong valueU;
+        valueU = (ulong)value;
         ulong u;
-        u = (ulong)value;
-        Extern.Time_AddMillisec(this.Intern, u);
-        return true;
+        u = Extern.Time_AddMillisec(this.Intern, valueU);
+
+        bool a;
+        a = !(u == 0);
+        return a;
     }
 
     public virtual bool LeapYear(long year)
@@ -325,7 +341,11 @@ public class Time : Any
         millisecU = (ulong)millisec;
         posU = (ulong)pos;
 
-        Extern.Time_Set(this.Intern, yearU, monthU, dayU, hourU, minU, secU, millisecU, posU);
-        return true;
+        ulong u;
+        u = Extern.Time_Set(this.Intern, yearU, monthU, dayU, hourU, minU, secU, millisecU, posU);
+        
+        bool a;
+        a = !(u == 0);
+        return a;
     }
 }
