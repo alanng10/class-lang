@@ -352,22 +352,22 @@ public class View : Comp
 
     protected virtual bool ExecuteDrawChild(DrawDraw draw)
     {
-        long left;        
-        left = this.Pos.Col;
-        left = left + draw.Pos.Col;
-        long up;
-        up = this.Pos.Row;
-        up = up + draw.Pos.Row;
+        long col;
+        col = this.Pos.Col;
+        col = col + draw.Pos.Col;
+        long row;
+        row = this.Pos.Row;
+        row = row + draw.Pos.Row;
 
         long wed;
         wed = this.Size.Wed;
-        long height;
-        height = this.Size.Het;
+        long het;
+        het = this.Size.Het;
 
-        this.DrawRectA.Pos.Col = left;
-        this.DrawRectA.Pos.Row = up;
+        this.DrawRectA.Pos.Col = col;
+        this.DrawRectA.Pos.Row = row;
         this.DrawRectA.Size.Wed = wed;
-        this.DrawRectA.Size.Het = height;
+        this.DrawRectA.Size.Het = het;
 
         this.SetChildArea(this.DrawRectA);
 
