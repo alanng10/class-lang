@@ -26,15 +26,15 @@ class ViewB : View
         up = this.Pos.Row;
         long wed;
         wed = this.Size.Wed;
-        long height;
-        height = this.Size.Het;
+        long het;
+        het = this.Size.Het;
 
         DrawRect rect;
         rect = this.DrawRectA;
         rect.Pos.Col = this.MathInt(left);
         rect.Pos.Row = this.MathInt(up);
         rect.Size.Wed = this.MathInt(wed);
-        rect.Size.Het = this.MathInt(height);
+        rect.Size.Het = this.MathInt(het);
 
         DrawRect sourceRect;
         sourceRect = this.SourceRect;
