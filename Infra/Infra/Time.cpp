@@ -72,6 +72,20 @@ Int Time_Set(Int o, Int year, Int month, Int day, Int hour, Int min, Int sec, In
         return true;
     }
 
+    Int ka;
+    ka = CastInt(&dtO);
+
+    Int k;
+    k = Time_TotalMillisecIntern(ka);
+
+    SInt kka;
+    kka = k;
+
+    if (kka < 0)
+    {
+        return false;
+    }
+
     (*(m->Intern)) = dtO;
     return true;
 }
