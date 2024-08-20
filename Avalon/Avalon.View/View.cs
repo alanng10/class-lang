@@ -305,34 +305,34 @@ public class View : Comp
 
     protected virtual bool ExecuteDrawThis(DrawDraw draw)
     {
-        long left;
-        left = this.Pos.Col;
-        long up;
-        up = this.Pos.Row;
+        long col;
+        col = this.Pos.Col;
+        long row;
+        row = this.Pos.Row;
         long wed;
         wed = this.Size.Wed;
-        long height;
-        height = this.Size.Het;
+        long het;
+        het = this.Size.Het;
 
-        long leftM;
-        long upM;
-        leftM = this.MathInt(left);
-        upM = this.MathInt(up);
+        long colM;
+        long rowM;
+        colM = this.MathInt(col);
+        rowM = this.MathInt(row);
 
         DrawRect rect;
         rect = this.DrawRectA;
 
-        rect.Pos.Col = leftM;
-        rect.Pos.Row = upM;
+        rect.Pos.Col = colM;
+        rect.Pos.Row = rowM;
         rect.Size.Wed = this.MathInt(wed);
-        rect.Size.Het = this.MathInt(height);
+        rect.Size.Het = this.MathInt(het);
 
         DrawBrush brush;
         brush = this.Back;
         draw.Fill = brush;
         
-        draw.FillPos.Col = leftM;
-        draw.FillPos.Row = upM;
+        draw.FillPos.Col = colM;
+        draw.FillPos.Row = rowM;
         draw.FillPosSet();
 
         draw.ExecuteRect(rect);
