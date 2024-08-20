@@ -215,11 +215,17 @@ Int Time_TotalMillisecGet(Int o)
 
     SInt u;
     u = uu;
-    u = u << 4;
-    u = u >> 4;
+
+    if (u < 0)
+    {
+        u = -1;
+    }
+
+    Int k;
+    k = u;
 
     Int a;
-    a = u;
+    a = k;
     return a;
 }
 
