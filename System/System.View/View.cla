@@ -104,8 +104,8 @@ class View : Comp
         var Size a;
         a : new Size;
         a.Init();
-        a.Width : 0;
-        a.Height : 0;
+        a.Wed : 0;
+        a.Het : 0;
         return a;
     }
 
@@ -307,10 +307,10 @@ class View : Comp
         var Int row;
         col : this.Pos.Col;
         row : this.Pos.Row;
-        var Int width;
-        var Int height;
-        width : this.Size.Width;
-        height : this.Size.Height;
+        var Int wed;
+        var Int het;
+        wed : this.Size.Wed;
+        het : this.Size.Het;
 
         var Int colM;
         var Int rowM;
@@ -322,8 +322,8 @@ class View : Comp
 
         rect.Pos.Col : colM;
         rect.Pos.Row : rowM;
-        rect.Size.Width : this.MathInt(width);
-        rect.Size.Height : this.MathInt(height);
+        rect.Size.Wed : this.MathInt(wed);
+        rect.Size.Het : this.MathInt(het);
 
         var DrawBrush brush;
         brush : this.Back;
@@ -357,17 +357,17 @@ class View : Comp
         row : this.Pos.Row;
         row : row + draw.Pos.Row;
 
-        var Int width;
-        var Int height;
-        width : this.Size.Width;
-        height : this.Size.Height;
+        var Int wed;
+        var Int het;
+        wed : this.Size.Wed;
+        het : this.Size.Het;
 
         var DrawRect rect;
         rect : this.DrawRectA;
         rect.Pos.Col : col;
         rect.Pos.Row : row;
-        rect.Size.Width : width;
-        rect.Size.Height : height;
+        rect.Size.Wed : wed;
+        rect.Size.Het : het;
 
         this.SetChildArea(rect);
 
