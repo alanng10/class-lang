@@ -64,7 +64,7 @@ public class Time : Any
         }
     }
 
-    public virtual long Hour
+    public virtual long Our
     {
         get
         {
