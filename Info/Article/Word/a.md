@@ -228,7 +228,7 @@ Word "tune" has meaning that is comp audio.
 
 Word "tick" has meaning that is smallest duration.
 
-Word "yar" has meaning that is date year.
+Word "yea" has meaning that is date year.
 
 Word "mon" has meaning that is date month.
 
