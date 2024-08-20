@@ -18,7 +18,7 @@ public class Gen : SourceGen
         return true;
     }
 
-    protected override TableEntry GetItemEntry(string line)
+    protected override TableEntry GetItemEntry(String line)
     {
         string[] ua;
         ua = line.Split(' ');
