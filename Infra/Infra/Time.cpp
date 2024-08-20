@@ -349,36 +349,6 @@ Int Time_AddDay(Int o, Int offset)
     return true;
 }
 
-Int Time_AddHour(Int o, Int offset)
-{
-    qint64 u;
-    u = offset;
-    u = u * 60 * 60 * 1000;
-    Int oa;
-    oa = u;
-    return Time_AddMillisec(o, oa);
-}
-
-Int Time_AddMin(Int o, Int offset)
-{
-    qint64 u;
-    u = offset;
-    u = u * 60 * 1000;
-    Int oa;
-    oa = u;
-    return Time_AddMillisec(o, oa);
-}
-
-Int Time_AddSec(Int o, Int offset)
-{
-    qint64 u;
-    u = offset;
-    u = u * 1000;
-    Int oa;
-    oa = u;
-    return Time_AddMillisec(o, oa);
-}
-
 Int Time_AddMillisec(Int o, Int offset)
 {
     Time* m;
