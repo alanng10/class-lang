@@ -86,7 +86,7 @@ Words "prusate", "precate", "pronate" and "private" have meanings that are appli
 to all, child, local, and self.
 
 Words "con", "lop" and "ret" have meanings that are conditionally,
-conditionally trigger again, and refer result.
+conditionally trigger again, and resulted.
 
 Words "and", "orn" and "not" have meanings that are both true,
 any one true, and untrue.
@@ -97,8 +97,6 @@ count more, count less, count times more, and count times of.
 Word "same" has meaning that is equal.
 
 Word "less" has meaning that is compared.
-
-Word "ret" has meaning that is resulted.
 
 Word "lite" has meaning that is left.
 
