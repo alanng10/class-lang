@@ -231,7 +231,7 @@ public class TraverseGen : ToolGen
         return a;
     }
 
-    protected virtual string FieldState(Class varClass, string varName)
+    protected virtual String FieldState(Class varClass, String varName)
     {
         StringJoin sj;
         sj = new StringJoin();
@@ -280,12 +280,15 @@ public class TraverseGen : ToolGen
         return a;
     }
 
-    protected virtual string ExecuteNode(string varName)
+    protected virtual String ExecuteNode(String varName)
     {
-        string k;
-        k = this.TextExecuteNode;
-        k = k.Replace("#VarName#", varName);
-        return k;
+        Text k;
+        k = this.TextCreate(this.TextExecuteNode);
+        k = this.Replace(k, "#VarName#", varName);
+
+        String a;
+        a = this.StringCreate(k);
+        return a;
     }
 
     protected virtual string Field(Field field, string varName)
