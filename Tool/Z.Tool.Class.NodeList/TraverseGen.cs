@@ -139,7 +139,7 @@ public class TraverseGen : ToolGen
             }
         }
 
-        string k;
+        String k;
         k = this.FieldState(varClass, varName);
         return k;
     }
