@@ -61,11 +61,9 @@ public class TraverseGen : ToolGen
         return true;
     }
 
-    protected virtual string NodeList()
+    protected virtual String NodeList()
     {
-        StringJoin sj;
-        sj = new StringJoin();
-        sj.Init();
+        this.AddClear();
 
         Table table;
         table = this.ClassTable;
@@ -79,39 +77,42 @@ public class TraverseGen : ToolGen
             Class varClass;
             varClass = (Class)iter.Value;
 
-            string nodeString;
+            String nodeString;
             nodeString = this.Node(varClass);
 
-            this.Append(sj, nodeString);
+            this.Add(nodeString);
         }
 
-        string a;
-        a = sj.Rest();
+        String a;
+        a = this.AddResult();
         return a;
     }
 
-    protected virtual string Node(Class varClass)
+    protected virtual String Node(Class varClass)
     {
-        string className;
+        String className;
         className = varClass.Name;
 
-        string declareClassName;
+        String declareClassName;
         declareClassName = this.DeclareClassName(className);
 
-        string varName;
+        String varName;
         varName = this.VarName(varClass.Name);
 
-        string state;
+        String state;
         state = this.State(varClass, varName);
 
-        string k;
-        k = this.TextNode;
-        k = k.Replace("#Virtual#", this.TextVirtual);
-        k = k.Replace("#ClassName#", className);
-        k = k.Replace("#DeclareClassName#", declareClassName);
-        k = k.Replace("#VarName#", varName);
-        k = k.Replace("#State#", state);
-        return k;
+        Text k;
+        k = this.TextCreate(this.TextNode);
+        k = this.Replace(k, "#Virtual#", this.TextVirtual);
+        k = this.Replace(k, "#ClassName#", className);
+        k = this.Replace(k, "#DeclareClassName#", declareClassName);
+        k = this.Replace(k, "#VarName#", varName);
+        k = this.Replace(k, "#State#", state);
+
+        String a;
+        a = this.StringCreate(k);
+        return a;
     }
 
     protected virtual string State(Class varClass, string varName)
