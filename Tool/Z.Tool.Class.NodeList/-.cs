@@ -19,4 +19,3 @@ global using ToolGen = Z.Infra.Infra.Gen;
 global using ToolInfra = Z.Infra.Infra.Infra;
 global using SourceGen = Z.Infra.ListSourceGen.AvalonGen;
 global using STAThreadAttribute = System.STAThreadAttribute;
-global using StringBuilder = System.Text.StringBuilder;
