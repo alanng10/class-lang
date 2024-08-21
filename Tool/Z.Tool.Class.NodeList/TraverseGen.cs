@@ -14,6 +14,8 @@ public class TraverseGen : ToolGen
         this.PathExecuteNode = this.GetPath(this.S("ExecuteNode"));
         this.PathArray = this.GetPath(this.S("Array"));
         this.PathField = this.GetPath(this.S("Field"));
+
+        this.ValueVirtual = this.S("virtual");
         return true;
     }
 
@@ -32,6 +34,7 @@ public class TraverseGen : ToolGen
     protected virtual String TextArray { get; set; }
     protected virtual String TextField { get; set; }
     protected virtual String TextVirtual { get; set; }
+    protected virtual String ValueVirtual { get; set; }
 
     public virtual bool Execute()
     {
@@ -44,14 +47,17 @@ public class TraverseGen : ToolGen
 
         this.TextVirtual = this.Virtual();
 
-        string nodeList;
+        String nodeList;
         nodeList = this.NodeList();
 
-        string k;
-        k = this.TextSource;
-        k = k.Replace("#NodeList#", nodeList);
+        Text k;
+        k = this.TextCreate(this.TextSource);
+        k = this.Replace(k, "#NodeList#", nodeList);
     
-        this.ToolInfra.StorageTextWrite(this.PathOutput, k);
+        String a;
+        a = this.StringCreate(k);
+
+        this.ToolInfra.StorageTextWrite(this.PathOutput, a);
         return true;
     }
 
@@ -286,9 +292,9 @@ public class TraverseGen : ToolGen
         return k;
     }
 
-    protected virtual string Virtual()
+    protected virtual String Virtual()
     {
-        return "virtual";
+        return this.ValueVirtual;
     }
 
     protected virtual bool IsDeriveState(Class varClass)
