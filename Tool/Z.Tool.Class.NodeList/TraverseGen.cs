@@ -144,16 +144,21 @@ public class TraverseGen : ToolGen
         return k;
     }
 
-    protected virtual string DeriveState(Class varClass, string varName)
+    protected virtual String DeriveState(Class varClass, String varName)
     {
-        StringJoin sj;
-        sj = new StringJoin();
-        sj.Init();
+        StringJoin h;
+        h = new StringJoin();
+        h.Init();
 
-        string newLine;
+        StringJoin hh;
+        hh = this.ToolInfra.StringJoin;
+
+        this.ToolInfra.StringJoin = h;
+
+        String newLine;
         newLine = this.ToolInfra.NewLine;
 
-        this.Append(sj, newLine);
+        this.Add(newLine);
 
         Table table;
         table = varClass.Derive; 
@@ -167,23 +172,29 @@ public class TraverseGen : ToolGen
             Class aa;
             aa = (Class)iter.Value;
 
-            string className;
+            String className;
             className = aa.Name;
 
-            string declareClassName;
+            String declareClassName;
             declareClassName = this.DeclareClassName(className);
 
-            string k;
-            k = this.TextDerive;
-            k = k.Replace("#VarName#", varName);
-            k = k.Replace("#DeriveClassName#", className);
-            k = k.Replace("#DeriveDeclareClassName#", declareClassName);
+            Text k;
+            k = this.TextCreate(this.TextDerive);
+            k = this.Replace(k, "#VarName#", varName);
+            k = this.Replace(k, "#DeriveClassName#", className);
+            k = this.Replace(k, "#DeriveDeclareClassName#", declareClassName);
 
-            this.Append(sj, k);
+            String ka;
+            ka = this.StringCreate(k);
+
+            this.Add(ka);
         }
 
-        string a;
-        a = sj.Rest();
+        String a;
+        a = this.AddResult();
+
+        this.ToolInfra.StringJoin = hh;
+
         return a;
     }
 
