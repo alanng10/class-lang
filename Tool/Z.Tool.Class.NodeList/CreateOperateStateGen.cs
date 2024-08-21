@@ -1,25 +1,17 @@
 namespace Z.Tool.Class.NodeList;
 
-public class CreateOperateStateGen : Any
+public class CreateOperateStateGen : ToolGen
 {
-    public override bool Init()
-    {
-        base.Init();
-        this.ToolInfra = ToolInfra.This;
-        return true;
-    }
-
     public virtual Table ClassTable { get; set; }
-    protected virtual ToolInfra ToolInfra { get; set; }
-    protected virtual string OutputFoldPath { get; set; }
-    protected virtual string SourceFileName { get; set; }
+    protected virtual String OutputFoldPath { get; set; }
+    protected virtual String SourceFileName { get; set; }
 
-    public virtual int Execute()
+    public virtual long Execute()
     {
-        this.SourceFileName = "ToolData/CreateOperateStateSource.txt";
-        this.OutputFoldPath = "../../Class/Class.Node";
+        this.SourceFileName = this.S("ToolData/Class/CreateOperateStateSource.txt");
+        this.OutputFoldPath = this.S("../../Class/Class.Node");
 
-        string kk;
+        String kk;
         kk = this.ToolInfra.StorageTextRead(this.SourceFileName);
 
         Table table;
@@ -34,25 +26,24 @@ public class CreateOperateStateGen : Any
             Class varClass;
             varClass = (Class)iter.Value;
 
-            string kind;
+            String kind;
             kind = varClass.Name;
 
-            string fieldSetListString;
+            String fieldSetListString;
             fieldSetListString = this.GetFieldSetListString(varClass.Field);
 
-            StringBuilder sb;
-            sb = new StringBuilder();
-            sb.Append(kk);
-            sb.Replace("#NodeKind#", kind);
-            sb.Replace("#FieldSetList#", fieldSetListString);
+            Text k;
+            k = this.TextCreate(kk);
+            k = this.Replace(k, "#NodeKind#", kind);
+            k = this.Replace(k, "#FieldSetList#", fieldSetListString);
 
-            string k;
-            k = sb.ToString();
+            String a;
+            a = this.StringCreate(k);
 
-            string path;
+            String path;
             path = this.GetOutputFilePath(kind);
 
-            this.ToolInfra.StorageTextWrite(path, k);
+            this.ToolInfra.StorageTextWrite(path, a);
         }
         return 0;
     }
@@ -163,13 +154,13 @@ public class CreateOperateStateGen : Any
         return k;
     }
 
-    protected virtual string GetOutputFilePath(string kind)
+    protected virtual String GetOutputFilePath(String kind)
     {
-        string fileName;
-        fileName = "Z_CreateOperateState_" + kind + ".cs";
+        String fileName;
+        fileName = this.AddClear().AddS("Z_CreateOperateState_").Add(kind).AddS(".cs").AddResult();
 
-        string filePath;
-        filePath = this.OutputFoldPath + "/" + fileName;
+        String filePath;
+        filePath = this.AddClear().Add(this.OutputFoldPath).AddS("/").Add(fileName).AddResult();
         return filePath;
     }
 }
