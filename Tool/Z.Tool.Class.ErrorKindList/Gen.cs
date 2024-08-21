@@ -28,11 +28,11 @@ public class Gen : SourceGen
         return true;
     }
 
-    protected override TableEntry GetItemEntry(string line)
+    protected override TableEntry GetItemEntry(String line)
     {
-        string index;
+        String index;
         index = line;
-        string text;        
+        String text;        
         text = index;
 
         Value value;
@@ -48,15 +48,15 @@ public class Gen : SourceGen
         return entry;
     }
 
-    protected override bool AppendInitFieldAddItem(StringBuilder sb, string index, object value)
+    protected override bool AddInitFieldAddItem(String index, object value)
     {
         Value a;
         a = (Value)value;
 
-        sb.Append("AddItem")
-            .Append("(")
-            .Append("\"").Append(a.Text).Append("\"")
-            .Append(")");
+        this.AddS("AddItem")
+            .AddS("(")
+            .AddS("\"").Add(a.Text).AddS("\"")
+            .AddS(")");
         return true;
     }
 }
