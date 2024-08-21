@@ -110,7 +110,7 @@ public class Gen : Any
         return this;
     }
 
-    public virtual String AddRet()
+    public virtual String AddResult()
     {
         return this.ToolInfra.AddResult();
     }

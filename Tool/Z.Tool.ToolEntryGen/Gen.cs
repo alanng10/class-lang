@@ -76,7 +76,7 @@ class Gen : ToolGen
         a = this.StringCreate(k);
 
         String path;
-        path = this.AddClear().AddS("../../Tool/Z.Tool.").Add(ka).AddS("/Entry.cs").AddRet();
+        path = this.AddClear().AddS("../../Tool/Z.Tool.").Add(ka).AddS("/Entry.cs").AddResult();
 
         this.ToolInfra.StorageTextWrite(path, a);
         return true;

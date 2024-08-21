@@ -150,7 +150,7 @@ public class Gen : ToolGen
         }
 
         String a;
-        a = this.AddRet();
+        a = this.AddResult();
         return a;
     }
 
@@ -187,7 +187,7 @@ public class Gen : ToolGen
         }
 
         String a;
-        a = this.AddRet();
+        a = this.AddResult();
         return a;
     }
 

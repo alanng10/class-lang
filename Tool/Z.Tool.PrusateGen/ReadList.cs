@@ -166,11 +166,11 @@ public class ReadList : ToolGen
 
     protected virtual String GetListFilePath(String className)
     {
-        return this.AddClear().AddS("ToolData/Infra/ItemList").Add(className).AddS(".txt").AddRet();
+        return this.AddClear().AddS("ToolData/Infra/ItemList").Add(className).AddS(".txt").AddResult();
     }
 
     protected virtual String GetMaideName(String className, String itemName)
     {
-        return this.AddClear().Add(className).Add(itemName).AddRet();
+        return this.AddClear().Add(className).Add(itemName).AddResult();
     }
 }

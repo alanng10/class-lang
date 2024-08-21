@@ -84,7 +84,7 @@ class PrusateGen : ToolGen
         }
 
         String a;
-        a = this.AddRet();
+        a = this.AddResult();
         return a;
     }
 
@@ -277,7 +277,7 @@ class PrusateGen : ToolGen
         }
 
         String a;
-        a = this.AddRet();
+        a = this.AddResult();
         return a;
     }
 

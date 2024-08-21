@@ -138,7 +138,7 @@ public class Gen : ToolGen
         }
 
         String a;
-        a = this.AddRet();
+        a = this.AddResult();
         return a;
     }
 
@@ -179,7 +179,7 @@ public class Gen : ToolGen
         }
 
         String a;
-        a = this.AddRet();
+        a = this.AddResult();
         return a;
     }
 
@@ -229,6 +229,6 @@ public class Gen : ToolGen
 
     protected virtual String GetOutputFilePath()
     {
-        return this.AddClear().AddS("../../Infra/Infra/Stat_").Add(this.ClassName).AddS(".cpp").AddRet();
+        return this.AddClear().AddS("../../Infra/Infra/Stat_").Add(this.ClassName).AddS(".cpp").AddResult();
     }
 }

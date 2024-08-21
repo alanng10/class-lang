@@ -33,7 +33,7 @@ class InfraPartGen : PartGen
         this.ToolInfra.StringJoin = h;
 
         String a;
-        a = this.AddClear().AddS("std::").Add(ka).AddRet();
+        a = this.AddClear().AddS("std::").Add(ka).AddResult();
 
         this.ToolInfra.StringJoin = kk;
 

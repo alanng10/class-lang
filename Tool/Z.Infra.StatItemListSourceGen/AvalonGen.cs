@@ -20,12 +20,12 @@ public class AvalonGen : AvalonSourceGen
 
     protected virtual String GetStatItemListFileName()
     {
-        return this.AddClear().AddS("ToolData/Infra/ItemList").Add(this.StatItemClassName).AddS(".txt").AddRet();
+        return this.AddClear().AddS("ToolData/Infra/ItemList").Add(this.StatItemClassName).AddS(".txt").AddResult();
     }
 
     protected virtual String GetOutputFilePath()
     {
-        return this.AddClear().AddS("../../Avalon/").Add(this.Module).AddS("/").Add(this.ClassName).AddS(".cs").AddRet();
+        return this.AddClear().AddS("../../Avalon/").Add(this.Module).AddS("/").Add(this.ClassName).AddS(".cs").AddResult();
     }
 
     protected override TableEntry GetItemEntry(String line)
