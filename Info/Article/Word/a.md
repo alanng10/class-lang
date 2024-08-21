@@ -98,7 +98,7 @@ Word "same" has meaning that is equal.
 
 Word "less" has meaning that is compared.
 
-Word "ret" has meaning that is resulted.
+Word "result" has meaning that is resulted.
 
 Word "lite" has meaning that is left.
 
