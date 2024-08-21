@@ -70,7 +70,7 @@ class PartGen : ToolGen
         }
 
         String k;
-        k = this.AddResult();
+        k = this.AddRet();
         return k;
     }
 

@@ -20,12 +20,12 @@ public class Gen : SourceGen
 
     protected virtual String GetStatItemListFileName()
     {
-        return this.AddClear().AddS("ToolData/Infra/ItemList").Add(this.StatItemClassName).AddS(".txt").AddResult();
+        return this.AddClear().AddS("ToolData/Infra/ItemList").Add(this.StatItemClassName).AddS(".txt").AddRet();
     }
 
     protected virtual String GetOutputFilePath()
     {
-        return this.AddClear().AddS("../../System/").Add(this.Module).AddS("/").Add(this.ClassName).AddS(".cla").AddResult();
+        return this.AddClear().AddS("../../System/").Add(this.Module).AddS("/").Add(this.ClassName).AddS(".cla").AddRet();
     }
 
     protected override TableEntry GetItemEntry(String line)

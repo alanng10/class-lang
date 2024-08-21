@@ -174,7 +174,7 @@ public class Read : ToolGen
             k = (String)iter.Value;
 
             String name;
-            name = this.AddClear().Add(preK).Add(k).Add(postK).AddResult();
+            name = this.AddClear().Add(preK).Add(k).Add(postK).AddRet();
 
             Maide maide;
             maide = this.CreateMaide(name, false, null);
