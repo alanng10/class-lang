@@ -99,7 +99,7 @@ public class NodeGen : ToolGen
         return true;
     }
 
-    protected virtual string GetGenFieldClassName(String fieldClassName)
+    protected virtual String GetGenFieldClassName(String fieldClassName)
     {
         String ka;
         ka = fieldClassName;
@@ -109,18 +109,31 @@ public class NodeGen : ToolGen
 
         String a;
         a = null;
+
         bool b;
         b = false;
-        if (!b & k == "Bool")
+        if (!b)
         {
-            k = "bool";
-            b = true;
+            if (this.TextSame(k, this.BoolClass))
+            {
+                a = this.BoolClassWord;
+                b = true;
+            }
         }
-        if (!b & k == "Int")
+        if (!b)
         {
-            k = "long";
-            b = true;
+            if (this.TextSame(k, this.IntClass))
+            {
+                a = this.IntClassWord;
+                b = true;
+            }
         }
-        return k;
+
+        if (!b)
+        {
+            a = ka;
+        }
+
+        return a;
     }
 }
