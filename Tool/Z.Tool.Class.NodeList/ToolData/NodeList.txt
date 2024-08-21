@@ -44,16 +44,16 @@ State : Node
 
 Execute : Node
 
-ConExecute : Execute
-    Operate Con
+InfExecute : Execute
+    Operate Cond
     State Then
 
-LopExecute : Execute
-    Operate Con
-    State Lop
+WhileExecute : Execute
+    Operate Cond
+    State Loop
 
-RetExecute : Execute
-    Operate Ret
+ReturnExecute : Execute
+    Operate Result
 
 ReferExecute : Execute
     Var Var
