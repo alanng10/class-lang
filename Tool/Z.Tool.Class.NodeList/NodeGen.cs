@@ -2,8 +2,22 @@ namespace Z.Tool.Class.NodeList;
 
 public class NodeGen : ToolGen
 {
+    public override bool Init()
+    {
+        base.Init();
+        this.BoolClass = this.TextCreate(this.S("Bool"));
+        this.IntClass = this.TextCreate(this.S("Int"));
+        this.BoolClassWord = this.S("bool");
+        this.IntClassWord = this.S("long");
+        return true;
+    }
+
     public virtual Table ClassTable { get; set; }
     protected virtual String NodeSourceText { get; set; }
+    protected virtual Text BoolClass { get; set; }
+    protected virtual Text IntClass { get; set; }
+    protected virtual String BoolClassWord { get; set; }
+    protected virtual String IntClassWord { get; set; }
 
     public virtual bool Execute()
     {
@@ -59,7 +73,7 @@ public class NodeGen : ToolGen
         {
             Field field;
             field = (Field)iter.Value;
-            this.AppendField(sb, field);
+            this.AddField(field);
         }
         
         String a;
@@ -67,11 +81,11 @@ public class NodeGen : ToolGen
         return a;
     }
 
-    protected virtual bool AppendField(StringBuilder sb, Field field)
+    protected virtual bool AddField(Field field)
     {
-        this.ToolInfra.AppendIndent(sb, 1);
+        this.AddIndent(1);
         
-        string className;
+        String className;
         className = this.GetGenFieldClassName(field.Class);
 
         sb
@@ -85,11 +99,16 @@ public class NodeGen : ToolGen
         return true;
     }
 
-    protected virtual string GetGenFieldClassName(string fieldClassName)
+    protected virtual string GetGenFieldClassName(String fieldClassName)
     {
-        string k;
-        k = fieldClassName;
+        String ka;
+        ka = fieldClassName;
 
+        Text k;
+        k = this.TextCreate(ka);
+
+        String a;
+        a = null;
         bool b;
         b = false;
         if (!b & k == "Bool")
@@ -100,11 +119,6 @@ public class NodeGen : ToolGen
         if (!b & k == "Int")
         {
             k = "long";
-            b = true;
-        }
-        if (!b & k == "String")
-        {
-            k = "string";
             b = true;
         }
         return k;
