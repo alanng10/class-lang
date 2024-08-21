@@ -1,25 +1,17 @@
 namespace Z.Tool.Class.NodeList;
 
-public class NodeStateGen : Any
+public class NodeStateGen : ToolGen
 {
-    public override bool Init()
-    {
-        base.Init();
-        this.ToolInfra = ToolInfra.This;
-        return true;
-    }
-
     public virtual Table ClassTable { get; set; }
-    protected virtual ToolInfra ToolInfra { get; set; }
-    private string OutputFoldPath { get; set; }
-    private string NodeStateSourceFileName { get; set; }
+    private String OutputFoldPath { get; set; }
+    private String NodeStateSourceFileName { get; set; }
 
     public virtual int Execute()
     {
-        this.NodeStateSourceFileName = "ToolData/NodeStateSource.txt";
-        this.OutputFoldPath = "../../Class/Class.Node";
+        this.NodeStateSourceFileName = this.S("ToolData/Class/NodeStateSource.txt");
+        this.OutputFoldPath = this.S("../../Class/Class.Node");
 
-        string kk;
+        String kk;
         kk = this.ToolInfra.StorageTextRead(this.NodeStateSourceFileName);
 
         Table table;
@@ -34,27 +26,31 @@ public class NodeStateGen : Any
             Class varClass;
             varClass = (Class)iter.Value;
 
-            string kind;
+            String kind;
             kind = varClass.Name;
 
-            string k;
-            k = kk.Replace("#NodeKind#", kind);
+            Text k;
+            k = this.TextCreate(kk);
+            k = this.Replace(k, "#NodeKind#", kind);
 
-            string path;
+            String a;
+            a = this.StringCreate(k);
+
+            String path;
             path = this.GetOutputFilePath(kind);
 
-            this.ToolInfra.StorageTextWrite(path, k);
+            this.ToolInfra.StorageTextWrite(path, a);
         }
         return 0;
     }
 
-    private string GetOutputFilePath(string kind)
+    private String GetOutputFilePath(String kind)
     {
-        string fileName;
-        fileName = "Z_NodeState_" + kind + ".cs";
+        String fileName;
+        fileName = this.AddClear().AddS("Z_NodeState_").Add(kind).AddS(".cs").AddResult();
 
-        string filePath;
-        filePath = this.OutputFoldPath + "/" + fileName;
+        String filePath;
+        filePath = this.AddClear().Add(this.OutputFoldPath).AddS("/").Add(fileName).AddResult();
         return filePath;
     }
 }
