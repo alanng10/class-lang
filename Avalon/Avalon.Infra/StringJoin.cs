@@ -8,6 +8,9 @@ public class StringJoin : Any
         this.InfraInfra = Infra.This;
         this.StringComp = StringComp.This;
 
+        this.Range = new Range();
+        this.Range.Init();
+
         long capacity;
         capacity = 16;
 
@@ -23,19 +26,18 @@ public class StringJoin : Any
 
     protected virtual Infra InfraInfra { get; set; }
     protected virtual StringComp StringComp { get; set; }
+    protected virtual Range Range { get; set; }
     private Data Data { get; set; }
     private long Count { get; set; }
     private long Capacity { get; set; }
 
     public virtual String Result()
     {
-        Range range;
-        range = new Range();
-        range.Init();
-        range.Count = this.Count;
+        this.Range.Index = 0;
+        this.Range.Count = this.Count;
 
         String a;
-        a = this.StringComp.CreateData(this.Data, range);
+        a = this.StringComp.CreateData(this.Data, this.Range);
         return a;
     }
 
