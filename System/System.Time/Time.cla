@@ -25,7 +25,7 @@ class Time : Any
     field private Extern Extern { get { return data; } set { data : value; } }
     field private Int Intern { get { return data; } set { data : value; } }
 
-    field prusate Int Year
+    field prusate Int Yea
     {
         get
         {
@@ -38,7 +38,7 @@ class Time : Any
         }
     }
 
-    field prusate Int Month
+    field prusate Int Mon
     {
         get
         {
@@ -64,7 +64,7 @@ class Time : Any
         }
     }
 
-    field prusate Int Hour
+    field prusate Int Our
     {
         get
         {
@@ -180,13 +180,13 @@ class Time : Any
         return true;
     }
 
-    maide prusate Bool AddYear(var Int value)
+    maide prusate Bool AddYea(var Int value)
     {
         this.Extern.Time_AddYear(this.Intern, value);
         return true;
     }
 
-    maide prusate Bool AddMonth(var Int value)
+    maide prusate Bool AddMon(var Int value)
     {
         this.Extern.Time_AddMonth(this.Intern, value);
         return true;
@@ -204,7 +204,7 @@ class Time : Any
         return true;
     }
 
-    maide prusate Bool LeapYear(var Int year)
+    maide prusate Bool LeapYear(var Int yea)
     {
         var Int k;
         k : this.Extern.Time_LeapYear(year);
@@ -214,7 +214,7 @@ class Time : Any
         return a;
     }
 
-    maide prusate Bool ValidDate(var Int year, var Int month, var Int day)
+    maide prusate Bool ValidDate(var Int yea, var Int mon, var Int day)
     {
         var Int k;
         k : this.Extern.Time_ValidDate(year, month, day);
@@ -224,7 +224,7 @@ class Time : Any
         return a;
     }
 
-    maide prusate Bool ValidTime(var Int hour, var Int min, var Int sec, var Int millisec)
+    maide prusate Bool ValidTime(var Int our, var Int min, var Int sec, var Int millisec)
     {
         var Int k;
         k : this.Extern.Time_ValidTime(hour, min, sec, millisec);
@@ -234,7 +234,7 @@ class Time : Any
         return a;
     }
 
-    maide prusate Bool Set(var Int year, var Int month, var Int day, var Int hour, var Int min, var Int sec, var Int millisec, var Int pos)
+    maide prusate Bool Set(var Int yea, var Int mon, var Int day, var Int our, var Int min, var Int sec, var Int millisec, var Int pos)
     {
         this.Extern.Time_Set(this.Intern, year, month, day, hour, min, sec, millisec, pos);
         return true;
