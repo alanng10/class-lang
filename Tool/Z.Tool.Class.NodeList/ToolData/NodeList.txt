@@ -52,8 +52,8 @@ WhileExecute : Execute
     Operate Cond
     State Loop
 
-RestExecute : Execute
-    Operate Rest
+RetExecute : Execute
+    Operate Ret
 
 ReferExecute : Execute
     Var Var
