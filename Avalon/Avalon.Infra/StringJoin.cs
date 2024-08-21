@@ -31,7 +31,7 @@ public class StringJoin : Any
     private long Count { get; set; }
     private long Capacity { get; set; }
 
-    public virtual String Result()
+    public virtual String Rest()
     {
         this.Range.Index = 0;
         this.Range.Count = this.Count;

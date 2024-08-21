@@ -82,7 +82,7 @@ public class TraverseGen : Any
         }
 
         string a;
-        a = sj.Result();
+        a = sj.Rest();
         return a;
     }
 
@@ -178,7 +178,7 @@ public class TraverseGen : Any
         }
 
         string a;
-        a = sj.Result();
+        a = sj.Rest();
         return a;
     }
 
@@ -211,7 +211,7 @@ public class TraverseGen : Any
         this.Append(sj, k);
 
         string a;
-        a = sj.Result();        
+        a = sj.Rest();        
         return a;
     }
 
@@ -260,7 +260,7 @@ public class TraverseGen : Any
         }
 
         string a;
-        a = sj.Result();
+        a = sj.Rest();
         return a;
     }
 

@@ -1607,7 +1607,7 @@ class Demo : Any
 
     public virtual String AddResult()
     {
-        return this.StringJoin.Result();
+        return this.StringJoin.Rest();
     }
 
     public virtual String S(string o)

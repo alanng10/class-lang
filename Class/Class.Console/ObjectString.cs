@@ -708,7 +708,7 @@ class ObjectString : Any
 
 
         string ret;
-        ret = h.Result();
+        ret = h.Rest();
 
         return ret;
     }

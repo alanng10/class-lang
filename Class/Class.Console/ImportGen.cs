@@ -62,7 +62,7 @@ public class ImportGen : Any
         }
 
         string kk;
-        kk = k.Result();
+        kk = k.Rest();
 
         string o;
         o = this.SourceTemplate;
