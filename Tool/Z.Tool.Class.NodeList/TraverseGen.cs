@@ -115,7 +115,7 @@ public class TraverseGen : ToolGen
         return a;
     }
 
-    protected virtual string State(Class varClass, string varName)
+    protected virtual string State(Class varClass, String varName)
     {
         if (this.IsDeriveState(varClass))
         {
