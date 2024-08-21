@@ -88,13 +88,11 @@ public class NodeGen : ToolGen
         String className;
         className = this.GetGenFieldClassName(field.Class);
 
-        sb
-            .Append("public").Append(" ").Append("virtual").Append(" ")
-            .Append(className).Append(" ").Append(field.Name).Append(" ")
-            .Append("{").Append(" ")
-            .Append("get").Append(";").Append(" ").Append("set").Append(";")
-            .Append(" ").Append("}")
-            .Append(this.ToolInfra.NewLine)
+        this
+            .AddS("public").AddS(" ").AddS("virtual").AddS(" ")
+            .Add(className).AddS(" ").Add(field.Name).AddS(" ")
+            .AddS("{ get; set; }")
+            .Add(this.ToolInfra.NewLine)
             ;
         return true;
     }
