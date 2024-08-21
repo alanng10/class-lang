@@ -233,16 +233,21 @@ public class TraverseGen : ToolGen
 
     protected virtual String FieldState(Class varClass, String varName)
     {
-        StringJoin sj;
-        sj = new StringJoin();
-        sj.Init();
+        StringJoin h;
+        h = new StringJoin();
+        h.Init();
 
-        string ka;
+        StringJoin hh;
+        hh = this.ToolInfra.StringJoin;
+
+        this.ToolInfra.StringJoin = h;
+
+        String ka;
         ka = this.ExecuteNode(varName);
 
-        this.Append(sj, ka);
+        this.Add(ka);
 
-        string newLine;
+        String newLine;
         newLine = this.ToolInfra.NewLine;
 
         bool ba;
@@ -275,8 +280,11 @@ public class TraverseGen : ToolGen
             }
         }
 
-        string a;
-        a = sj.Rest();
+        String a;
+        a = this.AddResult();
+
+        this.ToolInfra.StringJoin = hh;
+
         return a;
     }
 
