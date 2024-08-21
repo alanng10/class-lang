@@ -40,29 +40,29 @@ PronateCount : Count
 PrivateCount : Count
 
 State : Node
-    Array Execute Value
+    Array Exec Value
 
-Execute : Node
+Exec : Node
 
-InfExecute : Execute
+InfExec : Exec
     Operate Cond
     State Then
 
-WhileExecute : Execute
+WhileExec : Exec
     Operate Cond
     State Loop
 
-RetExecute : Execute
+RetExec : Exec
     Operate Ret
 
-ReferExecute : Execute
+ReferExec : Exec
     Var Var
 
-AreExecute : Execute
+AreExec : Exec
     Target Target
     Operate Value
 
-OperateExecute : Execute
+OperateExec : Exec
     Operate Any
 
 Argue : Node
