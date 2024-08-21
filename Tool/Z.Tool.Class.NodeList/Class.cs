@@ -8,5 +8,5 @@ public class Class : Any
     
     public virtual Table Derive { get; set; }
 
-    public virtual int AnyInt { get; set; }
+    public virtual long AnyInt { get; set; }
 }
