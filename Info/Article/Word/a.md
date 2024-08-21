@@ -130,7 +130,7 @@ Word "case" has meaning that is one of discrete choices.
 
 Word "refer" has meaning that is declaration.
 
-Word "oper" has meaning that is work.
+Word "ope" has meaning that is work.
 
 Word "are" has meaning that is already be.
 
