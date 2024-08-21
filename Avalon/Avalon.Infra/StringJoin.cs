@@ -83,10 +83,10 @@ public class StringJoin : Any
                 long index;
                 index = i * kka;
 
-                uint oc;
-                oc = infraInfra.DataCharGet(data, index);
+                uint nn;
+                nn = infraInfra.DataCharGet(data, index);
 
-                infraInfra.DataCharSet(k, index, oc);  
+                infraInfra.DataCharSet(k, index, nn);
 
                 i = i + 1;
             }
