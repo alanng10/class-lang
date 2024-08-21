@@ -6,79 +6,82 @@ public class TraverseClassPathGen : TraverseGen
     {
         base.Init();
         
-        this.PathOutput = "../../Class/Class.Console/ClassPathTraverse_Part.cs";
+        this.PathOutput = this.S("../../Class/Class.Console/ClassPathTraverse_Part.cs");
 
-        this.PathSource = this.GetPath("ClassPathSource");
-        this.PathArray = this.GetPath("ClassPathArray");
-        this.PathExecuteNode = this.GetPath("ClassPathExecuteNode");
-        this.PathField = this.GetPath("ClassPathField");
+        this.PathSource = this.GetPath(this.S("ClassPathSource"));
+        this.PathArray = this.GetPath(this.S("ClassPathArray"));
+        this.PathExecuteNode = this.GetPath(this.S("ClassPathExecuteNode"));
+        this.PathField = this.GetPath(this.S("ClassPathField"));
         return true;
     }
 
-    protected override string Node(Class varClass)
+    protected override String Node(Class varClass)
     {
         if (this.IsDeriveState(varClass))
         {
-            return "";
+            return this.S("");
         }
 
         return base.Node(varClass);
     }
 
-    protected override string ArrayState(Class varClass, Field field, string varName)
+    protected override String ArrayState(Class varClass, Field field, String varName)
     {
-        string itemClassName;
+        String itemClassName;
         itemClassName = field.ItemClass;
 
-        string itemDeclareClassName;
+        String itemDeclareClassName;
         itemDeclareClassName = this.DeclareClassName(itemClassName);
 
-        string k;
-        k = this.TextArray;
-        k = k.Replace("#VarName#", varName);
-        k = k.Replace("#ItemClassName#", itemClassName);
-        k = k.Replace("#ItemDeclareClassName#", itemDeclareClassName);
+        Text k;
+        k = this.TextCreate(this.TextArray);
+        k = this.Replace(k, "#VarName#", varName);
+        k = this.Replace(k, "#ItemClassName#", itemClassName);
+        k = this.Replace(k, "#ItemDeclareClassName#", itemDeclareClassName);
 
-        string a;
-        a = k;
+        String a;
+        a = this.StringCreate(k);
         return a;
     }
 
-    protected override string DeclareClassName(string className)
+    protected override String DeclareClassName(String className)
     {
+        Text k;
+        k = this.TextCreate(className);
+
         bool b;
         b = false;
         if (!b)
         {
-            if (className == "Class")
+            if (this.TextSame(k, this.TextCreate(this.S("Class"))))
             {
                 b = true;
             }
         }
         if (!b)
         {
-            if (className == "Field")
+            if (this.TextSame(k, this.TextCreate(this.S("Field"))))
             {
                 b = true;
             }
         }
         if (!b)
         {
-            if (className == "Maide")
+            if (this.TextSame(k, this.TextCreate(this.S("Maide"))))
             {
                 b = true;
             }
         }
         if (!b)
         {
-            if (className == "Var")
+            if (this.TextSame(k, this.TextCreate(this.S("Var"))))
             {
                 b = true;
             }
         }
         if (!b)
         {
-            if (className == "Count")
+            if (this.TextSame(k, this.TextCreate(this.S("Count"))))
             {
                 b = true;
             }
@@ -86,14 +89,31 @@ public class TraverseClassPathGen : TraverseGen
 
         if (b)
         {
-            return "Node" + className;
+            StringJoin h;
+            h = new StringJoin();
+            h.Init();
+
+            StringJoin hh;
+            hh = this.ToolInfra.StringJoin;
+
+            this.ToolInfra.StringJoin = h;
+
+            this.AddClear().AddS("Node").Add(className);
+
+            String a;
+            a = this.AddResult();
+
+            this.ToolInfra.StringJoin = hh;
+
+            return a;
+            
         }
 
         return className;
     }
 
-    protected override string Virtual()
+    protected override String Virtual()
     {
-        return "override";
+        return this.S("override");
     }
 }
