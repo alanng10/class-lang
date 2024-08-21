@@ -74,13 +74,7 @@ public class NodeKindListGen : SourceGen
     {
         String aa;
         aa = (String)value;
-        string newState;
-        newState = aa + "NewState";
-        string nodeState;
-        nodeState = aa + "NodeState";
-        string createOperateState;
-        createOperateState = aa + "CreateOperateState";
-        
+
         this
             .AddS("AddItem")
             .AddS("(")
