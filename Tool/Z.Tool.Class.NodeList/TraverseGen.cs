@@ -405,18 +405,21 @@ public class TraverseGen : ToolGen
 
         if (!b)
         {
-            String firstChar;
-            firstChar = this.StringCreateRange(className, 0, 1);
-            
             Text kk;
-            kk = this.TextCreate(firstChar);
+            kk = this.TextCreate(className);
+            kk.Range.Count = 1;
             kk = this.TextLower(kk);
             
             String kh;
             kh = this.StringCreate(kk);
 
+            Range range;
+            range = ka.Range;
+            range.Index = range.Index + 1;
+            range.Count = range.Count - 1;
+
             String ke;
-            ke = this.StringCreateIndex(className, 1);
+            ke = this.StringCreate(ka);
             
             a = this.AddClear().Add(kh).Add(ke).AddResult();
         }
