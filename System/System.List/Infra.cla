@@ -1,6 +1,6 @@
 class Infra : Any
 {
-    maide prusate Bool Sort(var Array array, var Less less, var Range range, var Array copy)
+    maide prusate Bool Sort(var Array array, var Range range, var Less less, var Array copy)
     {
         var Int start;
         var Int end;
@@ -9,12 +9,12 @@ class Infra : Any
 
         this.CopyArray(copy, array, start, end);
 
-        this.SplitMerge(less, array, copy, start, end);
+        this.SplitMerge(array, copy, less, start, end);
 
         return true;
     }
 
-    maide private Bool SplitMerge(var Less less, var Array dest, var Array source, var Int start, var Int end)
+    maide private Bool SplitMerge(var Array dest, var Array source, var Less less, var Int start, var Int end)
     {
         inf (end - start < 2)
         {
@@ -24,16 +24,16 @@ class Infra : Any
         var Int mid;
         mid : (start + end) / 2;
 
-        this.SplitMerge(less, source, dest, start, mid);
+        this.SplitMerge(source, dest, less, start, mid);
 
-        this.SplitMerge(less, source, dest, mid, end);
+        this.SplitMerge(source, dest, less, mid, end);
 
-        this.Merge(less, dest, source, start, mid, end);
+        this.Merge(dest, source, less, start, mid, end);
 
         return true;
     }
 
-    maide private Bool Merge(var Less less, var Array dest, var Array source, var Int start, var Int mid, var Int end)
+    maide private Bool Merge(var Array dest, var Array source, var Less less, var Int start, var Int mid, var Int end)
     {
         var Int i;
         var Int j;
