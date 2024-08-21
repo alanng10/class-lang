@@ -1,10 +1,13 @@
     protected virtual #ItemClassName# AddItem(string text)
     {
+        String k;
+        k = this.StringValue.Execute(text);
+
         #ItemClassName# item;
         item = new #ItemClassName#();
         item.Init();
         item.Index = this.Index;
-        item.Text = text;
+        item.Text = k;
         this.Array.SetAt(item.Index, item);
         this.Index = this.Index + 1;
         return item;

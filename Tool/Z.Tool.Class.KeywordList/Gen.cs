@@ -12,6 +12,8 @@ public class Gen : SourceGen
         this.ItemClassName = this.S("Keyword");
         this.ArrayClassName = this.S("Array");
         this.Export = true;
+        this.ClassFileName = this.S("ToolData/Class/ClassKeyword.txt");
+        this.InitMethodFileName = this.S("ToolData/Class/InitMaideKeyword.txt");
         this.ItemListFileName = this.S("ToolData/Class/ItemListKeyword.txt");
         this.AddMethodFileName = this.S("ToolData/Class/AddMaideKeyword.txt");
         this.OutputFilePath = this.S("../../Class/Class.Infra/KeywordList.cs");
