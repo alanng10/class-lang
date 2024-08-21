@@ -198,36 +198,47 @@ public class TraverseGen : ToolGen
         return a;
     }
 
-    protected virtual string ArrayState(Class varClass, Field field, string varName)
+    protected virtual String ArrayState(Class varClass, Field field, String varName)
     {
-        StringJoin sj;
-        sj = new StringJoin();
-        sj.Init();
+        StringJoin h;
+        h = new StringJoin();
+        h.Init();
 
-        string newLine;
+        StringJoin hh;
+        hh = this.ToolInfra.StringJoin;
+
+        this.ToolInfra.StringJoin = h;
+
+        String newLine;
         newLine = this.ToolInfra.NewLine;
 
-        string itemClassName;
+        String itemClassName;
         itemClassName = field.ItemClass;
 
-        string itemDeclareClassName;
+        String itemDeclareClassName;
         itemDeclareClassName = this.DeclareClassName(itemClassName);
 
-        string ka;
+        String ka;
         ka = this.ExecuteNode(varName);
 
-        string k;
-        k = this.TextArray;
-        k = k.Replace("#VarName#", varName);
-        k = k.Replace("#ItemClassName#", itemClassName);
-        k = k.Replace("#ItemDeclareClassName#", itemDeclareClassName);
+        Text k;
+        k = this.TextCreate(this.TextArray);
+        k = this.Replace(k, "#VarName#", varName);
+        k = this.Replace(k, "#ItemClassName#", itemClassName);
+        k = this.Replace(k, "#ItemDeclareClassName#", itemDeclareClassName);
 
-        this.Append(sj, ka);
-        this.Append(sj, newLine);
-        this.Append(sj, k);
+        String ke;
+        ke = this.StringCreate(k);
 
-        string a;
-        a = sj.Rest();        
+        this.Add(ka);
+        this.Add(newLine);
+        this.Add(ke);
+
+        String a;
+        a = this.AddResult();
+
+        this.ToolInfra.StringJoin = hh;
+
         return a;
     }
 
@@ -412,10 +423,5 @@ public class TraverseGen : ToolGen
     protected virtual String GetPath(String name)
     {
         return this.AddClear().AddS("ToolData/Class/Traverse").Add(name).AddS(".txt").AddResult();
-    }
-
-    protected virtual bool Append(StringJoin h, string k)
-    {
-        return this.ToolInfra.Append(h, k);
     }
 }
