@@ -299,20 +299,23 @@ public class TraverseGen : ToolGen
         return a;
     }
 
-    protected virtual string Field(Field field, string varName)
+    protected virtual String Field(Field field, String varName)
     {
-        string fieldClassName;
+        String fieldClassName;
         fieldClassName = field.Class;
 
-        string fieldName;
+        String fieldName;
         fieldName = field.Name;
 
-        string k;
-        k = this.TextField;
-        k = k.Replace("#FieldClassName#", fieldClassName);
-        k = k.Replace("#VarName#", varName);
-        k = k.Replace("#FieldName#", fieldName);
-        return k;
+        Text k;
+        k = this.TextCreate(this.TextField);
+        k = this.Replace(k, "#FieldClassName#", fieldClassName);
+        k = this.Replace(k, "#VarName#", varName);
+        k = this.Replace(k, "#FieldName#", fieldName);
+
+        String a;
+        a = this.StringCreate(k);
+        return a;
     }
 
     protected virtual String Virtual()
