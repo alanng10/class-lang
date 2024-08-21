@@ -112,7 +112,7 @@ public class CreateOperateStateGen : ToolGen
         {
             this.AddArgFieldName(index, className);
         }
-            
+
         this.AddS(";").Add(this.ToolInfra.NewLine);
 
         return true;
