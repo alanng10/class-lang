@@ -5,15 +5,15 @@ public class NodeKindListGen : SourceGen
     public override bool Init()
     {
         base.Init();
-        this.Module = "Class.Node";
-        this.ClassName = "NodeKindList";
-        this.BaseClassName = "Any";
-        this.AnyClassName = "Any";
-        this.ItemClassName = "NodeKind";
-        this.ArrayClassName = "Array";
+        this.Module = this.S("Class.Node");
+        this.ClassName = this.S("NodeKindList");
+        this.BaseClassName = this.S("Any");
+        this.AnyClassName = this.S("Any");
+        this.ItemClassName = this.S("NodeKind");
+        this.ArrayClassName = this.S("Array");
         this.Export = true;
-        this.AddMethodFileName = "ToolData/AddMethodNodeKind.txt";
-        this.OutputFilePath = "../../Class/Class.Node/NodeKindList.cs";
+        this.AddMethodFileName = this.S("ToolData/Class/AddMaideNodeKind.txt");
+        this.OutputFilePath = this.S("../../Class/Class.Node/NodeKindList.cs");
         return true;
     }
 
@@ -35,7 +35,7 @@ public class NodeKindListGen : SourceGen
             Class varClass;
             varClass = (Class)iter.Value;
 
-            string a;
+            String a;
             a = varClass.Name;
 
             TableEntry entry;
@@ -46,14 +46,22 @@ public class NodeKindListGen : SourceGen
         return true;
     }
 
-    protected override TableEntry GetItemEntry(string line)
+    protected override TableEntry GetItemEntry(String line)
     {
-        string index;
+        String index;
         index = line;
-        if (index == "Count")
+
+        Text k;
+        k = this.TextCreate(line);
+
+        Text ka;
+        ka = this.TextCreate(this.S("Count"));
+
+        if (this.TextSame(k, ka))
         {
-            index = "Item" + index;
+            index = this.AddClear().AddS("Item").Add(line).AddResult();
         }
+
         TableEntry a;
         a = new TableEntry();
         a.Init();
@@ -62,22 +70,23 @@ public class NodeKindListGen : SourceGen
         return a;
     }
 
-    protected override bool AppendInitFieldAddItem(StringBuilder sb, string index, object value)
+    protected override bool AddInitFieldAddItem(String index, object value)
     {
-        string aa;
-        aa = value.ToString();
+        String aa;
+        aa = (String)value;
         string newState;
         newState = aa + "NewState";
         string nodeState;
         nodeState = aa + "NodeState";
         string createOperateState;
         createOperateState = aa + "CreateOperateState";
-        sb
-            .Append("AddItem")
-            .Append("(")
-            .Append("\"").Append(aa).Append("\"").Append(",").Append(" ")
-            .Append("new").Append(" ").Append(aa).Append("(").Append(")").Append(",").Append(" ")
-            .Append("new").Append(" ").Append(newState).Append("(").Append(")").Append(",").Append(" ")
+        
+        this
+            .AddS("AddItem")
+            .AddS("(")
+            .AddS("\"").Add(aa).AddS("\"").AddS(",").AddS(" ")
+            .AddS("new").AddS(" ").Add(aa).AddS("(").AddS(")").AddS(",").AddS(" ")
+            .AddS("new").AddS(" ").Add(aa).AddS("NewState").AddS("(").AddS(")").AddS(",").AddS(" ")
             .Append("new").Append(" ").Append(nodeState).Append("(").Append(")").Append(",").Append(" ")
             .Append("new").Append(" ").Append(createOperateState).Append("(").Append(")")
             .Append(")")
