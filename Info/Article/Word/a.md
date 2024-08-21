@@ -42,7 +42,7 @@ Word "system" has meaning that is execute base.
 
 Word "thread" has meaning that is execute line.
 
-Word "exec" has meaning that is do until done.
+Word "execute" has meaning that is do until done.
 
 Word "port" has meaning that is represented entity.
 
@@ -85,7 +85,7 @@ Word "value" has meaning that is known data.
 Words "prusate", "precate", "pronate" and "private" have meanings that are applicable
 to all, child, local, and self.
 
-Words "con", "lop" and "ret" have meanings that are conditionally,
+Words "con", "eat" and "ret" have meanings that are conditionally,
 conditionally trigger again, and resulted.
 
 Words "and", "orn" and "not" have meanings that are both true,
@@ -130,7 +130,7 @@ Word "case" has meaning that is one of discrete choices.
 
 Word "refer" has meaning that is declaration.
 
-Word "ope" has meaning that is work.
+Word "operate" has meaning that is work.
 
 Word "are" has meaning that is already be.
 
