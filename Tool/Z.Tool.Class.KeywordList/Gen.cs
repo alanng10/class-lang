@@ -5,20 +5,20 @@ public class Gen : SourceGen
     public override bool Init()
     {
         base.Init();
-        this.Module = "Class.Infra";
-        this.ClassName = "KeywordList";
-        this.BaseClassName = "Any";
-        this.AnyClassName = "Any";
-        this.ItemClassName = "Keyword";
-        this.ArrayClassName = "Array";
+        this.Module = this.S("Class.Infra");
+        this.ClassName = this.S("KeywordList");
+        this.BaseClassName = this.S("Any");
+        this.AnyClassName = this.S("Any");
+        this.ItemClassName = this.S("Keyword");
+        this.ArrayClassName = this.S("Array");
         this.Export = true;
-        this.ItemListFileName = "ToolData/ItemListKeyword.txt";
-        this.AddMethodFileName = "ToolData/AddMethodKeyword.txt";
-        this.OutputFilePath = "../../Class/Class.Infra/KeywordList.cs";
+        this.ItemListFileName = this.S("ToolData/Class/ItemListKeyword.txt");
+        this.AddMethodFileName = this.S("ToolData/Class/AddMaideKeyword.txt");
+        this.OutputFilePath = this.S("../../Class/Class.Infra/KeywordList.cs");
         return true;
     }
 
-    protected override TableEntry GetItemEntry(string line)
+    protected override TableEntry GetItemEntry(String line)
     {
         string index;
         index = line;
