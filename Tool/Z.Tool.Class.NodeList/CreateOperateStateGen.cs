@@ -48,10 +48,9 @@ public class CreateOperateStateGen : ToolGen
         return 0;
     }
 
-    protected virtual string GetFieldSetListString(Table fieldList)
+    protected virtual String GetFieldSetListString(Table fieldList)
     {
-        StringBuilder sb;
-        sb = new StringBuilder();
+        this.AddClear();
 
         Iter iter;
         iter = fieldList.IterCreate();
@@ -68,9 +67,10 @@ public class CreateOperateStateGen : ToolGen
 
             i = i + 1;
         }
-        string k;
-        k = sb.ToString();
-        return k;
+
+        String a;
+        a = this.AddResult();
+        return a;
     }
 
     protected virtual bool AppendFieldSet(StringBuilder sb, Field field, int index)
