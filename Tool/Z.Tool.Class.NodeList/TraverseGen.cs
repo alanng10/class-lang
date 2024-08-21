@@ -267,16 +267,16 @@ public class TraverseGen : ToolGen
 
             if (!aa.AnyBool)
             {
-                string k;
+                String k;
                 k = this.Field(aa, varName);
 
                 if (!ba)
                 {
-                    this.Append(sj, newLine);
+                    this.Add(newLine);
                     ba = true;
                 }
 
-                this.Append(sj, k);
+                this.Add(k);
             }
         }
 
