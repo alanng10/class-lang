@@ -1,39 +1,37 @@
 namespace Z.Tool.Class.NodeList;
 
-public class TraverseGen : Any
+public class TraverseGen : ToolGen
 {
     public override bool Init()
     {
         base.Init();
-        this.ToolInfra = ToolInfra.This;
 
-        this.PathOutput = "../../Class/Class.Node/Traverse.cs";
+        this.PathOutput = this.S("../../Class/Class.Node/Traverse.cs");
 
-        this.PathSource = this.GetPath("Source");
-        this.PathNode = this.GetPath("Node");
-        this.PathDerive = this.GetPath("Derive");
-        this.PathExecuteNode = this.GetPath("ExecuteNode");
-        this.PathArray = this.GetPath("Array");
-        this.PathField = this.GetPath("Field");
+        this.PathSource = this.GetPath(this.S("Source"));
+        this.PathNode = this.GetPath(this.S("Node"));
+        this.PathDerive = this.GetPath(this.S("Derive"));
+        this.PathExecuteNode = this.GetPath(this.S("ExecuteNode"));
+        this.PathArray = this.GetPath(this.S("Array"));
+        this.PathField = this.GetPath(this.S("Field"));
         return true;
     }
 
     public virtual Table ClassTable { get; set; }
-    protected virtual ToolInfra ToolInfra { get; set; }
-    protected virtual string PathOutput { get; set; }
-    protected virtual string PathSource { get; set; }
-    protected virtual string PathNode { get; set; }
-    protected virtual string PathDerive { get; set; }
-    protected virtual string PathExecuteNode { get; set; }
-    protected virtual string PathArray { get; set; }
-    protected virtual string PathField { get; set; }
-    protected virtual string TextSource { get; set; }
-    protected virtual string TextNode { get; set; }
-    protected virtual string TextDerive { get; set; }
-    protected virtual string TextExecuteNode { get; set; }
-    protected virtual string TextArray { get; set; }
-    protected virtual string TextField { get; set; }
-    protected virtual string TextVirtual { get; set; }
+    protected virtual String PathOutput { get; set; }
+    protected virtual String PathSource { get; set; }
+    protected virtual String PathNode { get; set; }
+    protected virtual String PathDerive { get; set; }
+    protected virtual String PathExecuteNode { get; set; }
+    protected virtual String PathArray { get; set; }
+    protected virtual String PathField { get; set; }
+    protected virtual String TextSource { get; set; }
+    protected virtual String TextNode { get; set; }
+    protected virtual String TextDerive { get; set; }
+    protected virtual String TextExecuteNode { get; set; }
+    protected virtual String TextArray { get; set; }
+    protected virtual String TextField { get; set; }
+    protected virtual String TextVirtual { get; set; }
 
     public virtual bool Execute()
     {
@@ -353,9 +351,9 @@ public class TraverseGen : Any
         return a;
     }
 
-    protected virtual string GetPath(string name)
+    protected virtual String GetPath(String name)
     {
-        return "ToolData/Traverse" + name + ".txt";
+        return this.AddClear().AddS("ToolData/Class/Traverse").Add(name).AddS(".txt").AddResult();
     }
 
     protected virtual bool Append(StringJoin h, string k)
