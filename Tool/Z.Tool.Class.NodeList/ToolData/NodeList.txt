@@ -52,7 +52,7 @@ WhileExecute : Execute
     Operate Cond
     State Loop
 
-ReturnExecute : Execute
+RestExecute : Execute
     Operate Rest
 
 ReferExecute : Execute
