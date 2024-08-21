@@ -98,6 +98,8 @@ Word "same" has meaning that is equal.
 
 Word "less" has meaning that is compared.
 
+Word "rest" has meaning that is resulted.
+
 Word "lite" has meaning that is left.
 
 Word "rite" has meaning that is right.
