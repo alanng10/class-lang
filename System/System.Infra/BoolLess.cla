@@ -1,18 +1,18 @@
 class BoolLess : Less
 {
-    maide prusate Int Execute(var Any left, var Any right)
+    maide prusate Int Execute(var Any lite, var Any rite)
     {
-        var Bool leftBool;
-        var Bool righBool;
-        leftBool : cast Bool(left);
-        rightBool : cast Bool(right);
+        var Bool liteBool;
+        var Bool riteBool;
+        liteBool : cast Bool(lite);
+        riteBool : cast Bool(rite);
 
-        var Int leftInt;
-        var Int rightInt;
-        leftInt : this.BoolInt(leftBool);
-        rightInt : this.BoolInt(rightBool);
+        var Int liteInt;
+        var Int riteInt;
+        liteInt : this.BoolInt(liteBool);
+        riteInt : this.BoolInt(riteBool);
 
-        return leftInt - rightInt;
+        return liteInt - riteInt;
     }
 
     maide precate Int BoolInt(var Bool o)

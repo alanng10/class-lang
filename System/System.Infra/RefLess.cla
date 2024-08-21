@@ -9,8 +9,8 @@ class RefLess : Less
 
     field private InternIntern InternIntern { get { return data; } set { data : value; } }
 
-    maide prusate Int Execute(var Any left, var Any right)
+    maide prusate Int Execute(var Any lite, var Any rite)
     {
-        return this.InternIntern.RefLess(left, right);
+        return this.InternIntern.RefLess(lite, rite);
     }
 }
