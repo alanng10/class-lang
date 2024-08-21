@@ -20,14 +20,25 @@ public class Gen : SourceGen
 
     protected override TableEntry GetItemEntry(String line)
     {
-        string[] ua;
-        ua = line.Split(' ');
+        Text kka;
+        kka = this.TextCreate(this.S(" "));
 
-        string index;
-        index = ua[0];
+        Text k;
+        k = this.TextCreate(line);
 
-        string text;
-        text = ua[1];
+        Array array;
+        array = this.TextSplit(k, kka);
+        
+        Text ka;
+        Text kb;
+        ka = (Text)array.GetAt(0);
+        kb = (Text)array.GetAt(1);
+
+        String index;
+        index = this.StringCreate(ka);
+
+        String text;
+        text = this.StringCreate(kb);
 
         Value value;
         value = new Value();
@@ -42,14 +53,14 @@ public class Gen : SourceGen
         return entry;
     }
 
-    protected override bool AppendInitFieldAddItem(StringBuilder sb, string index, object value)
+    protected override bool AddInitFieldAddItem(String index, object value)
     {
         Value a;
         a = (Value)value;
-        sb.Append("AddItem")
-            .Append("(")
-            .Append("\"").Append(a.Text).Append("\"")
-            .Append(")");
+        this.AddS("AddItem")
+            .AddS("(")
+            .AddS("\"").Add(a.Text).AddS("\"")
+            .AddS(")");
         return true;
     }
 }
