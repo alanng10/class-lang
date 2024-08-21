@@ -42,7 +42,7 @@ Word "system" has meaning that is execute base.
 
 Word "thread" has meaning that is execute line.
 
-Word "execute" has meaning that is do until done.
+Word "exec" has meaning that is do until done.
 
 Word "port" has meaning that is represented entity.
 
