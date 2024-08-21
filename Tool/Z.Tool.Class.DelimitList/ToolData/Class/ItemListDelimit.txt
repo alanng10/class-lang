@@ -2,7 +2,7 @@ StopSign .
 PauseSign ,
 BaseSign :
 ExecuteSign ;
-EqualSign =
+SameSign =
 AddSign +
 SubSign -
 MulSign *
