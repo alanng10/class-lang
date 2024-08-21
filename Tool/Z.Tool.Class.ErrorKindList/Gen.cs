@@ -2,7 +2,7 @@ namespace Z.Tool.Class.ErrorKindList;
 
 public class Gen : SourceGen
 {
-    public override int Execute()
+    public override long Execute()
     {
         this.ExecuteOne("Node");
         this.ExecuteOne("Module");
@@ -22,8 +22,8 @@ public class Gen : SourceGen
         this.ArrayClassName = this.S("Array");
         this.Export = true;
         this.ItemListFileName = this.AddClear().AddS("ToolData/Infra/ItemListErrorKind").Add(k).AddS(".txt").AddResult();
-        this.AddMethodFileName = "ToolData/Infra/AddMaideErrorKind.txt";
-        this.OutputFilePath = "../../Class/Class." + name + "/ErrorKindList.cs";
+        this.AddMethodFileName = this.S("ToolData/Infra/AddMaideErrorKind.txt");
+        this.OutputFilePath = this.AddClear().AddS("../../Class/Class.").Add(k).AddS("/ErrorKindList.cs").AddResult();
         base.Execute();
         return true;
     }
