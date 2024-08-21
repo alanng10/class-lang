@@ -91,36 +91,30 @@ public class CreateOperateStateGen : ToolGen
         bool isValueClass;
         isValueClass = this.IsFieldValueClass(className);
 
-        string argFieldName;
-        argFieldName = null;
+        this.AddIndent(2);
+
+        this
+            .AddS("node").AddS(".").Add(field.Name)
+            .AddS(" ").AddS("=").AddS(" ");
+
+        if (!isValueClass)
+        {
+            this.AddS("(").Add(className).AddS(")");
+        }
+
+        this.AddS("arg").AddS(".");
 
         if (isValueClass)
         {
-            argFieldName = this.GetArgFieldNameValue(index, className);
+            this.AddArgFieldNameValue(index, className);
         }
         if (!isValueClass)
         {
-            argFieldName = this.GetArgFieldName(index, className);
+            this.AddArgFieldName(index, className);
         }
+            
+        this.AddS(";").Add(this.ToolInfra.NewLine);
 
-
-        this.ToolInfra.AppendIndent(sb, 2);
-        sb
-            .Append("node").Append(".").Append(field.Name)
-            .Append(" ").Append("=").Append(" ");
-
-        if (!isValueClass)
-        {
-            string castClassName;
-            castClassName = this.GetCastClassName(className);
-            sb.Append("(").Append(castClassName).Append(")");
-        }
-
-        sb
-            .Append("arg").Append(".").Append(argFieldName)
-            .Append(";")
-            .Append(this.ToolInfra.NewLine)
-            ;
         return true;
     }
 
@@ -148,29 +142,23 @@ public class CreateOperateStateGen : ToolGen
         return b;
     }
 
-    protected virtual string GetArgFieldNameValue(int index, string className)
+    protected virtual bool AddArgFieldNameValue(long index, String className)
     {
-        return "Field" + className;
+        this.AddS("Field").Add(className);
+        return true;
     }
 
-    protected virtual string GetArgFieldName(int index, string className)
+    protected virtual bool AddArgFieldName(long index, String className)
     {
-        string fieldIndex;
-        fieldIndex = index.ToString("x2");
-        string k;
-        k = "Field" + fieldIndex;
-        return k;
-    }
+        string u;
+        u = index.ToString("x2");
+        
+        String fieldIndex;
+        fieldIndex = this.S(u);
 
-    protected virtual string GetCastClassName(string className)
-    {
-        string k;
-        k = className;
-        if (k == "String")
-        {
-            k = "string";
-        }
-        return k;
+        this.AddS("Field").Add(fieldIndex);
+
+        return true;
     }
 
     protected virtual String GetOutputFilePath(String kind)
