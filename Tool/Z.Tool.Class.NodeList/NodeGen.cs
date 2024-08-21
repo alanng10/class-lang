@@ -1,21 +1,13 @@
 namespace Z.Tool.Class.NodeList;
 
-public class NodeGen : Any
+public class NodeGen : ToolGen
 {
-    public override bool Init()
-    {
-        base.Init();
-        this.ToolInfra = ToolInfra.This;
-        return true;
-    }
-
     public virtual Table ClassTable { get; set; }
-    protected virtual ToolInfra ToolInfra { get; set; }
-    protected virtual string NodeSourceText { get; set; }
+    protected virtual String NodeSourceText { get; set; }
 
     public virtual bool Execute()
     {
-        this.NodeSourceText = this.ToolInfra.StorageTextRead("ToolData/NodeSource.txt");
+        this.NodeSourceText = this.ToolInfra.StorageTextRead(this.S("ToolData/Class/NodeSource.txt"));
 
         Table table;
         table = this.ClassTable;
@@ -36,23 +28,22 @@ public class NodeGen : Any
 
     protected virtual bool ExecuteClass(Class varClass)
     {
-        string fieldListString;
+        String fieldListString;
         fieldListString = this.GetFieldListString(varClass.Field);
 
-        StringBuilder sb;
-        sb = new StringBuilder();
-        sb.Append(this.NodeSourceText);
-        sb.Replace("#ClassName#", varClass.Name);
-        sb.Replace("#BaseClassName#", varClass.Base);
-        sb.Replace("#FieldList#", fieldListString);
+        Text k;
+        k = this.TextCreate(this.NodeSourceText);
+        k = this.Replace(k, "#ClassName#", varClass.Name);
+        k = this.Replace(k, "#BaseClassName#", varClass.Base);
+        k = this.Replace(k, "#FieldList#", fieldListString);
 
-        string k;
-        k = sb.ToString();
+        String ka;
+        ka = this.StringCreate(k);
 
-        string outputFilePath;
-        outputFilePath = "../../Class/Class.Node/Z_Node_" + varClass.Name + ".cs";
+        String outputFilePath;
+        outputFilePath = this.AddClear().AddS("../../Class/Class.Node/Z_Node_").Add(varClass.Name).AddS(".cs").AddResult();
 
-        this.ToolInfra.StorageTextWrite(outputFilePath, k);
+        this.ToolInfra.StorageTextWrite(outputFilePath, ka);
         return true;
     }
 
