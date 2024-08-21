@@ -53,7 +53,7 @@ WhileExecute : Execute
     State Loop
 
 ReturnExecute : Execute
-    Operate Result
+    Operate Rest
 
 ReferExecute : Execute
     Var Var
