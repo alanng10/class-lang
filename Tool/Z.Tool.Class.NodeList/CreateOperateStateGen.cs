@@ -2,9 +2,19 @@ namespace Z.Tool.Class.NodeList;
 
 public class CreateOperateStateGen : ToolGen
 {
+    public override bool Init()
+    {
+        base.Init();
+        this.BoolClass = this.TextCreate(this.S("Bool"));
+        this.IntClass = this.TextCreate(this.S("Int"));
+        return true;
+    }
+
     public virtual Table ClassTable { get; set; }
     protected virtual String OutputFoldPath { get; set; }
     protected virtual String SourceFileName { get; set; }
+    protected virtual Text BoolClass { get; set; }
+    protected virtual Text IntClass { get; set; }
 
     public virtual long Execute()
     {
@@ -56,14 +66,14 @@ public class CreateOperateStateGen : ToolGen
         iter = fieldList.IterCreate();
         fieldList.IterSet(iter);
 
-        int i;
+        long i;
         i = 0;
         while (iter.Next())
         {
             Field field;
             field = (Field)iter.Value;
 
-            this.AppendFieldSet(sb, field, i);
+            this.AddFieldSet(field, i);
 
             i = i + 1;
         }
@@ -73,9 +83,9 @@ public class CreateOperateStateGen : ToolGen
         return a;
     }
 
-    protected virtual bool AppendFieldSet(StringBuilder sb, Field field, int index)
+    protected virtual bool AddFieldSet(Field field, long index)
     {
-        string className;
+        String className;
         className = field.Class;
 
         bool isValueClass;
@@ -114,17 +124,26 @@ public class CreateOperateStateGen : ToolGen
         return true;
     }
 
-    protected virtual bool IsFieldValueClass(string className)
+    protected virtual bool IsFieldValueClass(String className)
     {
+        Text k;
+        k = this.TextCreate(className);
+
         bool b;
         b = false;
-        if (!b & className == "Bool")
+        if (!b)
         {
-            b = true;
+            if (this.TextSame(k, this.BoolClass))
+            {
+                b = true;
+            }
         }
-        if (!b & className == "Int")
+        if (!b)
         {
-            b = true;
+            if (this.TextSame(k, this.IntClass))
+            {
+                b = true;
+            }
         }
         return b;
     }
