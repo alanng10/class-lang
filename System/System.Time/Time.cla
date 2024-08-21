@@ -129,7 +129,7 @@ class Time : Any
         }
     }
 
-    field prusate Int YearDay
+    field prusate Int YeaDay
     {
         get
         {
