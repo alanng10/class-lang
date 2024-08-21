@@ -47,10 +47,9 @@ public class NodeGen : ToolGen
         return true;
     }
 
-    protected virtual string GetFieldListString(Table fieldList)
+    protected virtual String GetFieldListString(Table fieldList)
     {
-        StringBuilder sb;
-        sb = new StringBuilder();
+        this.AddClear();
 
         Iter iter;
         iter = fieldList.IterCreate();
@@ -63,9 +62,9 @@ public class NodeGen : ToolGen
             this.AppendField(sb, field);
         }
         
-        string k;
-        k = sb.ToString();
-        return k;
+        String a;
+        a = this.AddResult();
+        return a;
     }
 
     protected virtual bool AppendField(StringBuilder sb, Field field)
