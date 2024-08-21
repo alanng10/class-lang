@@ -60,9 +60,7 @@ class Read : ToolGen
     }
 
     public virtual Table ClassTable { get; set; }
-    protected virtual ListInfra ListInfra { get; set; }
     protected virtual ClassInfra ClassInfra { get; set; }
-    protected virtual ToolInfra ToolInfra { get; set; }
     protected virtual NameCheck NameCheck { get; set; }
     protected virtual Text TextA { get; set; }
     protected virtual StringData StringDataA { get; set; }
