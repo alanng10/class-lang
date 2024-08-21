@@ -11,15 +11,18 @@ public class Gen : SourceGen
 
     protected virtual bool ExecuteOne(string name)
     {
-        this.Module = "Class." + name;
-        this.ClassName = "ErrorKindList";
-        this.BaseClassName = "Any";
-        this.AnyClassName = "Any";
-        this.ItemClassName = "ErrorKind";
-        this.ArrayClassName = "Array";
+        String k;
+        k = this.S(name);
+
+        this.Module = this.AddClear().AddS("Class.").Add(k).AddResult();
+        this.ClassName = this.S("ErrorKindList");
+        this.BaseClassName = this.S("Any");
+        this.AnyClassName = this.S("Any");
+        this.ItemClassName = this.S("ErrorKind");
+        this.ArrayClassName = this.S("Array");
         this.Export = true;
-        this.ItemListFileName = "ToolData/ItemListErrorKind" + name + ".txt";
-        this.AddMethodFileName = "ToolData/AddMethodErrorKind.txt";
+        this.ItemListFileName = this.AddClear().AddS("ToolData/Infra/ItemListErrorKind").Add(k).AddS(".txt").AddResult();
+        this.AddMethodFileName = "ToolData/Infra/AddMaideErrorKind.txt";
         this.OutputFilePath = "../../Class/Class." + name + "/ErrorKindList.cs";
         base.Execute();
         return true;
