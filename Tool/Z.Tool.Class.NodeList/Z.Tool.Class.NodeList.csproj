@@ -12,7 +12,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <Content Include="ToolData/*" CopyToOutputDirectory="PreserveNewest" />
+        <Content Include="ToolData/**/*" CopyToOutputDirectory="PreserveNewest" />
     </ItemGroup>
 
 </Project>
