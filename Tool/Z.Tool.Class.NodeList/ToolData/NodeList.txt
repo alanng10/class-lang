@@ -44,13 +44,13 @@ State : Node
 
 Exec : Node
 
-InfExec : Exec
-    Operate Cond
+ConExec : Exec
+    Operate Con
     State Then
 
-WhileExec : Exec
-    Operate Cond
-    State Loop
+LopExec : Exec
+    Operate Con
+    State Lop
 
 RetExec : Exec
     Operate Ret
