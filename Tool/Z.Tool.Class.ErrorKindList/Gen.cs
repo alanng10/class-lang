@@ -21,8 +21,10 @@ public class Gen : SourceGen
         this.ItemClassName = this.S("ErrorKind");
         this.ArrayClassName = this.S("Array");
         this.Export = true;
-        this.ItemListFileName = this.AddClear().AddS("ToolData/Infra/ItemListErrorKind").Add(k).AddS(".txt").AddResult();
-        this.AddMethodFileName = this.S("ToolData/Infra/AddMaideErrorKind.txt");
+        this.ClassFileName = this.S("ToolData/Class/ClassErrorKind.txt");
+        this.InitMethodFileName = this.S("ToolData/Class/InitMaideErrorKind.txt");
+        this.ItemListFileName = this.AddClear().AddS("ToolData/Class/ItemListErrorKind").Add(k).AddS(".txt").AddResult();
+        this.AddMethodFileName = this.S("ToolData/Class/AddMaideErrorKind.txt");
         this.OutputFilePath = this.AddClear().AddS("../../Class/Class.").Add(k).AddS("/ErrorKindList.cs").AddResult();
         base.Execute();
         return true;
