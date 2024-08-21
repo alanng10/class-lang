@@ -85,7 +85,7 @@ Word "value" has meaning that is known data.
 Words "prusate", "precate", "pronate" and "private" have meanings that are applicable
 to all, child, local, and self.
 
-Words "inf", "while" and "return" have meanings that are conditionally,
+Words "con", "lop" and "ret" have meanings that are conditionally,
 conditionally trigger again, and refer result.
 
 Words "and", "orn" and "not" have meanings that are both true,
