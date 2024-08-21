@@ -246,6 +246,11 @@ public class Infra : Any
         return this.TextInfra.End(text, other, this.TextCompare);
     }
 
+    public virtual bool TextSame(Text text, Text other)
+    {
+        return this.TextInfra.Equal(text, other, this.TextCompare);
+    }
+
     public virtual long TextIndex(Text text, Text other)
     {
         return this.TextInfra.Index(text, other, this.TextCompare);

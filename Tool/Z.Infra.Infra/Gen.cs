@@ -57,6 +57,11 @@ public class Gen : Any
         return this.ToolInfra.StringCreate(text);
     }
 
+    public virtual bool TextSame(Text text, Text other)
+    {
+        return this.ToolInfra.TextSame(text, other);
+    }
+
     public virtual bool TextStart(Text text, Text other)
     {
         return this.ToolInfra.TextStart(text, other);
