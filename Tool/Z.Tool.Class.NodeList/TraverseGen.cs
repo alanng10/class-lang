@@ -303,58 +303,84 @@ public class TraverseGen : ToolGen
         return 0 < varClass.Derive.Count;
     }
 
-    protected virtual string DeclareClassName(string className)
+    protected virtual String DeclareClassName(String className)
     {
         return className;
     }
 
-    protected virtual string VarName(string className)
+    protected virtual String VarName(String className)
     {
+        Text ka;
+        ka = this.TextCreate(className);
+
         bool b;
         b = false;
         if (!b)
         {
-            if (className == "Class")
+            if (this.TextSame(ka, this.TextCreate(this.S("Class"))))
             {
                 b = true;
             }
         }
         if (!b)
         {
-            if (className == "Field")
+            if (this.TextSame(ka, this.TextCreate(this.S("Field"))))
             {
                 b = true;
             }
         }
         if (!b)
         {
-            if (className == "Maide")
+            if (this.TextSame(ka, this.TextCreate(this.S("Maide"))))
             {
                 b = true;
             }
         }
         if (!b)
         {
-            if (className == "Var")
+            if (this.TextSame(ka, this.TextCreate(this.S("Var"))))
             {
                 b = true;
             }
         }
+
+        String a;
+        a = null;
+
+        StringJoin h;
+        h = new StringJoin();
+        h.Init();
+
+        StringJoin hh;
+        hh = this.ToolInfra.StringJoin;
+
+        this.ToolInfra.StringJoin = h;
 
         if (b)
         {
-            return "var" + className;
+            a = this.AddClear().AddS("var").Add(className).AddResult();   
         }
 
-        char firstChar;
-        firstChar = className[0];
-        firstChar = char.ToLower(firstChar);
+        if (!b)
+        {
+            String firstChar;
+            firstChar = this.StringCreateRange(className, 0, 1);
+            
+            Text kk;
+            kk = this.TextCreate(firstChar);
+            kk = this.TextLower(kk);
+            
+            String kh;
+            kh = this.StringCreate(kk);
 
-        string k;
-        k = firstChar + className.Substring(1);
-    
-        string a;
-        a = k;
+            String ke;
+            ke = this.StringCreateIndex(className, 1);
+            
+            a = this.AddClear().Add(kh).Add(ke).AddResult();
+        }
+
+        this.ToolInfra.StringJoin = hh;
+
         return a;
     }
 
