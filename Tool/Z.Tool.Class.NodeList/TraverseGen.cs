@@ -158,6 +158,8 @@ public class TraverseGen : ToolGen
         String newLine;
         newLine = this.ToolInfra.NewLine;
 
+        this.AddClear();
+
         this.Add(newLine);
 
         Table table;
@@ -209,6 +211,8 @@ public class TraverseGen : ToolGen
 
         this.ToolInfra.StringJoin = h;
 
+        this.AddClear();
+
         String newLine;
         newLine = this.ToolInfra.NewLine;
 
@@ -252,6 +256,8 @@ public class TraverseGen : ToolGen
         hh = this.ToolInfra.StringJoin;
 
         this.ToolInfra.StringJoin = h;
+
+        this.AddClear();
 
         String ka;
         ka = this.ExecuteNode(varName);
