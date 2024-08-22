@@ -1,9 +1,10 @@
 global using Any = Avalon.Infra.Any;
+global using String = Avalon.Infra.String;
 global using InfraRange = Avalon.Infra.Range;
 global using Data = Avalon.Infra.Data;
 global using StringData = Avalon.Infra.StringData;
 global using InfraState = Avalon.Infra.State;
-global using LessMid = Avalon.Infra.LessMid;
+global using LessMid = Avalon.Infra.LessInt;
 global using CharForm = Avalon.Infra.CharForm;
 global using InfraInfra = Avalon.Infra.Infra;
 global using Array = Avalon.List.Array;
