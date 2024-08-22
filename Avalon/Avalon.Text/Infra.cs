@@ -279,14 +279,14 @@ public class Infra : Any
         return this.StringComp.CreateData(text.Data, text.Range);
     }
 
-    public virtual bool Equal(Text left, Text right, InfraCompare compare)
+    public virtual bool Equal(Text left, Text right, InfraLess compare)
     {
         long o;
         o = compare.Execute(left, right);
         return (o == 0);
     }
 
-    public virtual bool Start(Text text, Text other, InfraCompare compare)
+    public virtual bool Start(Text text, Text other, InfraLess compare)
     {
         Range range;
         range = text.Range;
@@ -311,7 +311,7 @@ public class Infra : Any
         return a;
     }
 
-    public virtual bool End(Text text, Text other, InfraCompare compare)
+    public virtual bool End(Text text, Text other, InfraLess compare)
     {
         Range range;
         range = text.Range;
@@ -344,7 +344,7 @@ public class Infra : Any
         return a;
     }
 
-    public virtual long Index(Text text, Text other, InfraCompare compare)
+    public virtual long Index(Text text, Text other, InfraLess compare)
     {
         if (!this.ValidRange(text))
         {
@@ -401,7 +401,7 @@ public class Infra : Any
         return k;
     }
 
-    public virtual long LastIndex(Text text, Text other, InfraCompare compare)
+    public virtual long LastIndex(Text text, Text other, InfraLess compare)
     {
         if (!this.ValidRange(text))
         {
@@ -458,7 +458,7 @@ public class Infra : Any
         return k;
     }
 
-    public virtual Array Split(Text text, Text delimit, InfraCompare compare)
+    public virtual Array Split(Text text, Text delimit, InfraLess compare)
     {
         InfraInfra infraInfra;
         infraInfra = this.InfraInfra;
@@ -623,7 +623,7 @@ public class Infra : Any
         return text;
     }
 
-    public virtual Text Replace(Text text, Text delimit, Text join, InfraCompare compare)
+    public virtual Text Replace(Text text, Text delimit, Text join, InfraLess compare)
     {
         Array array;
         array = this.Split(text, delimit, compare);

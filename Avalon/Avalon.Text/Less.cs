@@ -1,6 +1,6 @@
 namespace Avalon.Text;
 
-public class Less : InfraCompare
+public class Less : InfraLess
 {
     public override bool Init()
     {
@@ -9,7 +9,7 @@ public class Less : InfraCompare
         return true;
     }
 
-    public virtual CompareInt CharCompare { get; set; }
+    public virtual LessInt CharLess { get; set; }
     public virtual CharForm LeftCharForm { get; set; }
     public virtual CharForm RightCharForm { get; set; }
     protected virtual Infra TextInfra { get; set; }
@@ -53,8 +53,8 @@ public class Less : InfraCompare
         rightIndex = rightRange.Index;
         rightCount = rightRange.Count;
 
-        CompareInt charCompare;
-        charCompare = this.CharCompare;
+        LessInt charLess;
+        charLess = this.CharLess;
 
         CharForm leftCharForm;
         CharForm rightCharForm;
@@ -81,7 +81,7 @@ public class Less : InfraCompare
             ocb = (uint)rightCharForm.Execute(ocb);
 
             long oo;
-            oo = charCompare.Execute(oca, ocb);
+            oo = charLess.Execute(oca, ocb);
             if (!(oo == 0))
             {
                 return oo;
