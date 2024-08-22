@@ -18,14 +18,18 @@ public class NameCheck : Any
         text.Range.Init();
         this.Text = text;
 
-        this.DotText = this.TextInfra.TextCreateStringData(".", null);
+        String o;
+        o = this.StringValue.Execute(".");
+
+        this.DotText = this.TextInfra.TextCreateStringData(o, null);
         return true;
     }
 
     public virtual TextLess TextLess { get; set; }
-    public virtual LessMid CharLess { get; set; }
+    public virtual LessInt CharLess { get; set; }
     public virtual CharForm CharForm { get; set; }
     protected virtual TextInfra TextInfra { get; set; }
+    protected virtual StringValue StringValue { get; set; }
     protected virtual KeywordList Keyword { get; set; }
     protected virtual StringData StringData { get; set; }
     protected virtual Text Text { get; set; }
