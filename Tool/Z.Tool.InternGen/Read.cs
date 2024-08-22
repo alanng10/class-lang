@@ -80,7 +80,7 @@ public class Read : Any
         lineArray = toolInfra.SplitLineList(ka);
 
         Table table;
-        table = this.ClassInfra.TableCreateStringCompare();
+        table = this.ClassInfra.TableCreateStringLess();
         this.MaideTable = table;
 
         int count;
@@ -174,7 +174,7 @@ public class Read : Any
         listInfra = this.ListInfra;
 
         Table table;
-        table = this.ClassInfra.TableCreateStringCompare();
+        table = this.ClassInfra.TableCreateStringLess();
 
         string[] u;
         u = o.Split(", ");

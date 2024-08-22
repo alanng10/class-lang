@@ -130,7 +130,7 @@ public class ModuleLoad : Any
         listInfra = this.ListInfra;
 
         Table classTable;
-        classTable = this.ClassInfra.TableCreateStringCompare();
+        classTable = this.ClassInfra.TableCreateStringLess();
         
         this.Module.Class = classTable;
 
@@ -507,7 +507,7 @@ public class ModuleLoad : Any
         listInfra = this.ListInfra;
 
         Table fieldTable;
-        fieldTable = this.ClassInfra.TableCreateStringCompare();
+        fieldTable = this.ClassInfra.TableCreateStringLess();
 
         varClass.Field = fieldTable;
 
@@ -562,7 +562,7 @@ public class ModuleLoad : Any
         listInfra = this.ListInfra;
 
         Table maideTable;
-        maideTable = this.ClassInfra.TableCreateStringCompare();
+        maideTable = this.ClassInfra.TableCreateStringLess();
         
         varClass.Maide = maideTable;
 
@@ -624,7 +624,7 @@ public class ModuleLoad : Any
         listInfra = this.ListInfra;
 
         Table varTable;
-        varTable = this.ClassInfra.TableCreateStringCompare();
+        varTable = this.ClassInfra.TableCreateStringLess();
         
         varMaide.Param = varTable;
 

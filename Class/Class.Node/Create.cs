@@ -249,7 +249,7 @@ public class Create : InfraCreate
 
     protected virtual bool InitNodeState()
     {
-        this.NodeStateTable = this.ClassInfra.TableCreateStringCompare();
+        this.NodeStateTable = this.ClassInfra.TableCreateStringLess();
 
         NodeKindList nodeKind;
         nodeKind = this.NodeKind;

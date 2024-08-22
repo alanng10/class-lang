@@ -86,10 +86,10 @@ public class CompTraverse : Traverse
         count = this.GetCount(nodeCount);
 
         Table varGet;
-        varGet = this.ClassInfra.TableCreateStringCompare();
+        varGet = this.ClassInfra.TableCreateStringLess();
 
         Table varSet;
-        varSet = this.ClassInfra.TableCreateStringCompare();
+        varSet = this.ClassInfra.TableCreateStringLess();
 
         int ka;
         ka = this.ThisClass.Field.Count;
@@ -179,10 +179,10 @@ public class CompTraverse : Traverse
         Count count;
         count = this.GetCount(nodeCount);
 
-        this.ParamVar = this.ClassInfra.TableCreateStringCompare();
+        this.ParamVar = this.ClassInfra.TableCreateStringLess();
 
         Table callVar;
-        callVar = this.ClassInfra.TableCreateStringCompare();
+        callVar = this.ClassInfra.TableCreateStringLess();
 
         this.ExecuteParam(param);
 

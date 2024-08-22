@@ -84,7 +84,7 @@ class Read : ToolGen
         Array lineArray;        
         lineArray = this.TextSplitLineString(ka);
 
-        this.ClassTable = this.ClassInfra.TableCreateStringCompare();
+        this.ClassTable = this.ClassInfra.TableCreateStringLess();
 
         long count;
         count = lineArray.Count;
@@ -222,8 +222,8 @@ class Read : ToolGen
         varClass.Init();
         varClass.Name = className;
         varClass.Base = baseClassName;
-        varClass.Field = this.ClassInfra.TableCreateStringCompare();
-        varClass.Derive = this.ClassInfra.TableCreateStringCompare();
+        varClass.Field = this.ClassInfra.TableCreateStringLess();
+        varClass.Derive = this.ClassInfra.TableCreateStringLess();
         return varClass;
     }
 

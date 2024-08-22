@@ -20,7 +20,7 @@ public class Test : Any
         
         this.Console = this.CreateConsole();
 
-        this.SetMap = this.ClassInfra.TableCreateStringCompare();
+        this.SetMap = this.ClassInfra.TableCreateStringLess();
 
         this.AddSetList();
         return true;

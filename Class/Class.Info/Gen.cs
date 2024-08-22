@@ -567,7 +567,7 @@ public class Gen : Any
         listInfra = this.ListInfra;
 
         Table table;
-        table = this.ClassInfra.TableCreateStringCompare();
+        table = this.ClassInfra.TableCreateStringLess();
 
         Array array;
         array = this.FoldList(foldPath);

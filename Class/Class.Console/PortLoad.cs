@@ -677,10 +677,10 @@ public class PortLoad : Any
         module = new ClassModule();
         module.Init();
         module.Ref = classInfra.ModuleRefCreate(moduleRef.Name, moduleRef.Version);
-        module.Class = classInfra.TableCreateStringCompare();
+        module.Class = classInfra.TableCreateStringLess();
         module.Import = classInfra.TableCreateModuleRefCompare();
-        module.Export = classInfra.TableCreateStringCompare();
-        module.Storage = classInfra.TableCreateStringCompare();
+        module.Export = classInfra.TableCreateStringLess();
+        module.Storage = classInfra.TableCreateStringLess();
 
         this.Module = module;
         return true;

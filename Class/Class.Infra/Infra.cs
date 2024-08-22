@@ -60,7 +60,7 @@ public class Infra : Any
         return this.InfraInfra.ValidRange(totalCount, start, count);
     }
 
-    public virtual Table TableCreateStringCompare()
+    public virtual Table TableCreateStringLess()
     {
         StringLess compare;
         compare = this.InfraInfra.StringLessCreate();

@@ -49,8 +49,8 @@ public class ClassTraverse : Traverse
         a.Init();
         a.Name = className;
         a.Base = null;
-        a.Field = this.ClassInfra.TableCreateStringCompare();
-        a.Maide = this.ClassInfra.TableCreateStringCompare();
+        a.Field = this.ClassInfra.TableCreateStringLess();
+        a.Maide = this.ClassInfra.TableCreateStringLess();
         a.Module = this.Module;
         a.Index = this.Source.Index;
         a.FieldRange = this.CreateRange();

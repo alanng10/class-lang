@@ -631,7 +631,7 @@ public class Console : Any
         Table moduleTable;
         moduleTable = this.CopyModuleRefTable(this.InitModuleTable);
         Table classTable;
-        classTable = this.ClassInfra.TableCreateStringCompare();
+        classTable = this.ClassInfra.TableCreateStringLess();
         
         this.BinaryTable = binaryTable;
         this.ModuleTable = moduleTable;

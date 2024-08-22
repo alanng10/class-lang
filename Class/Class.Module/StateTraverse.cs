@@ -93,7 +93,7 @@ public class StateTraverse : Traverse
         dataVar.Index = this.StateVar.Count;
 
         Table o;
-        o = this.ClassInfra.TableCreateStringCompare();
+        o = this.ClassInfra.TableCreateStringLess();
 
         this.ListInfra.TableAdd(this.StateVar, dataVar.Name, dataVar);
         this.ListInfra.TableAdd(o, dataVar.Name, dataVar);
@@ -135,7 +135,7 @@ public class StateTraverse : Traverse
         valueVar.Index = this.StateVar.Count;
         
         Table o;
-        o = this.ClassInfra.TableCreateStringCompare();
+        o = this.ClassInfra.TableCreateStringLess();
 
         this.ListInfra.TableAdd(this.StateVar, dataVar.Name, dataVar);
         this.ListInfra.TableAdd(this.StateVar, valueVar.Name, valueVar);
@@ -246,7 +246,7 @@ public class StateTraverse : Traverse
         }
 
         Table h;
-        h = this.ClassInfra.TableCreateStringCompare();
+        h = this.ClassInfra.TableCreateStringLess();
 
         this.VarStack.Push(h);
 
