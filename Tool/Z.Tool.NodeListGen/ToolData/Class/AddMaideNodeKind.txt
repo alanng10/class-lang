@@ -5,11 +5,14 @@
         nodeState.Init();
         createOperateState.Init();
 
+        String k;
+        k = this.StringValue.Execute(name);
+
         #ItemClassName# item;
         item = new #ItemClassName#();
         item.Init();
         item.Index = this.Index;
-        item.Name = name;
+        item.Name = k;
         item.Node = node;
         item.NewState = newState;
         item.NodeState = nodeState;

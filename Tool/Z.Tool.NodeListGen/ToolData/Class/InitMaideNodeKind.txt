@@ -1,0 +1,10 @@
+    public override bool Init()
+    {
+        base.Init();
+        this.StringValue = TextStringValue.This;
+        this.InitArray();
+        this.Count = this.Array.Count;
+        this.Index = 0;
+
+#InitFieldList#        return true;
+    }
