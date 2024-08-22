@@ -234,18 +234,18 @@ public class Infra : Any
             return true;
         }
 
-        if (count == countList.Probate)
+        if (count == countList.Precate)
         {
-            if (thisClass.Module == varClass.Module)
+            if (this.ValidClass(thisClass, triggerClass, anyClass, nullClass))
             {
                 return true;
             }
             return false;
         }
 
-        if (count == countList.Precate)
+        if (count == countList.Pronate)
         {
-            if (this.ValidClass(thisClass, triggerClass, anyClass, nullClass))
+            if (thisClass.Module == varClass.Module)
             {
                 return true;
             }
