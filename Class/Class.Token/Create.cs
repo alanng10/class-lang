@@ -312,9 +312,9 @@ public class Create : InfraCreate
         Array array;
         array = this.TokenArray;
 
-        int count;
+        long count;
         count = array.Count;
-        int i;
+        long i;
         i = 0;
         while (i < count)
         {
@@ -335,9 +335,9 @@ public class Create : InfraCreate
         Array array;
         array = this.InfoArray;
 
-        int count;
+        long count;
         count = array.Count;
-        int i;
+        long i;
         i = 0;
         while (i < count)
         {
@@ -364,17 +364,17 @@ public class Create : InfraCreate
         Data codeCountData;
         codeCountData = this.CodeCountData;
 
-        int oa;
-        oa = sizeof(uint);
+        long oa;
+        oa = sizeof(ulong);
 
-        int totalToken;
-        int totalInfo;
+        long totalToken;
+        long totalInfo;
         totalToken = 0;
         totalInfo = 0;
 
-        int count;
+        long count;
         count = codeArray.Count;
-        int i;
+        long i;
         i = 0;
         while (i < count)
         {
@@ -388,10 +388,10 @@ public class Create : InfraCreate
             oe = ob * oa;
             long of;
             of = (ob + 1) * oa;
-            int tokenCount;
-            int infoCount;
-            tokenCount = (int)infraInfra.DataMidGet(codeCountData, oe);
-            infoCount = (int)infraInfra.DataMidGet(codeCountData, of);
+            long tokenCount;
+            long infoCount;
+            tokenCount = (long)infraInfra.DataIntGet(codeCountData, oe);
+            infoCount = (long)infraInfra.DataIntGet(codeCountData, of);
 
             code.Token = listInfra.ArrayCreate(tokenCount);
             code.Info = listInfra.ArrayCreate(infoCount);
