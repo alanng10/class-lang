@@ -230,17 +230,13 @@ public class StringValueWrite : Any
         quote = (uint)stringComp.Char(classInfra.Quote, 0);
         uint newLine;
         newLine = (uint)stringComp.Char(classInfra.NewLine, 0);
-        uint uuu;
-        uuu = 0;
         
         long countA;
-        countA = 4;
+        countA = 8;
         long count;
         count = kk - 2;
         long start;
         start = range.Index + 1;
-        uint u;
-        uint escapeValue;
         long i;
         i = 0;
         while (i < count)
@@ -264,9 +260,11 @@ public class StringValueWrite : Any
                 {
                     long indexA;
                     indexA = start + j;
+                    uint u;
                     u = textInfra.DataCharGet(data, indexA);
 
-                    escapeValue = uuu;                    
+                    uint escapeValue;
+                    escapeValue = 0;
                     if (u == quote)
                     {
                         escapeValue = u;
@@ -281,47 +279,55 @@ public class StringValueWrite : Any
                     }
                     if (u == 'u')
                     {
-                        int ka;
+                        long ka;
                         ka = 0;
-                        int indexAa;
+                        long indexAa;
                         indexAa = start + j + 1;
-                        int iA;
+                        long iA;
                         iA = 0;
                         while (iA < countA)
                         {
-                            int oa;
+                            long oa;
                             oa = indexAa + iA;
-                            char ua;
+                            uint ua;
                             ua = textInfra.DataCharGet(data, oa);
 
-                            int od;
+                            long od;
                             od = textInfra.DigitValue(ua, 16, false);
 
-                            int na;
+                            long na;
                             na = countA - 1 - iA;
 
-                            int nn;
-                            nn = od << (na * 4);
+                            int shiftCount;
+                            shiftCount = (int)(na * 4);
+
+                            long nn;
+                            nn = od << shiftCount;
 
                             ka = ka | nn;
 
                             iA = iA + 1;
                         }
 
-                        char uu;
-                        uu = (char)ka;
+                        uint uu;
+                        uu = (uint)ka;
+
                         escapeValue = uu;
 
                         i = i + countA;
                     }
+
                     this.ExecuteValueChar(escapeValue);
+
                     i = i + 1;
                 }
             }
+
             if (!b)
             {
                 this.ExecuteValueChar(c);
             }
+
             i = i + 1;
         }
         return true;
