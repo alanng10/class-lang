@@ -214,50 +214,71 @@ class Read : ToolGen
         return varClass;
     }
 
-    protected virtual Field GetField(string a)
+    protected virtual Field GetField(String a)
     {
-        int uu;
-        uu = a.IndexOf(' ');
+        Text k;
+        k = this.TextCreate(a);
+
+        Text oo;
+        oo = this.TextCreate(this.S(" "));
+
+        long uu;
+        uu = this.TextIndex(k, oo);
 
         if (uu < 0)
         {
             return null;
         }
 
-        string className;
-        string itemClassName;
+        String className;
+        String itemClassName;
         itemClassName = null;
-        string fieldName;
+        String fieldName;
         fieldName = null;
 
-        className = a.Substring(0, uu);
+        className = this.StringCreateRange(a, 0, uu);
 
-        int ka;
-        ka = uu + 1;
+        long kka;
+        kka = oo.Range.Count;
+
+        long ka;
+        ka = uu + kka;
+
+        Text kk;
+        kk = this.TextCreate(className);
+
+        Text ooa;
+        ooa = this.TextCreate(this.S("Array"));
 
         bool b;
-        b = (className == "Array");
+        b = this.TextSame(kk, ooa);
         if (b)
-        {            
-            int ua;
-            ua = a.IndexOf(' ', ka);
+        {
+            Range kRange;
+            kRange = k.Range;
+
+            kRange.Index = kRange.Index + ka;
+            kRange.Count = kRange.Count - ka;
+
+            long ua;
+            ua = this.TextIndex(k, oo);
 
             if (ua < 0)
             {
                 return null;
             }
 
-            int kk;
-            kk = ua - ka;
+            long kc;
+            kc = ka + ua + kka;
 
-            itemClassName = a.Substring(ka, kk);
+            itemClassName = this.StringCreateRange(a, ka, ua);
 
-            fieldName = a.Substring(ua + 1);
+            fieldName = this.StringCreateIndex(a, kc);
         }
 
         if (!b)
         {
-            fieldName = a.Substring(uu + 1);
+            fieldName = this.StringCreateIndex(a, ka);
         }
 
         if (!this.CheckIsName(className))
@@ -304,7 +325,7 @@ class Read : ToolGen
             Class a;
             a = (Class)iter.Value;
 
-            string ka;
+            String ka;
             ka = a.Base;
 
             if (!(ka == "Node"))
