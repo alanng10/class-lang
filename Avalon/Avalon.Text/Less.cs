@@ -14,58 +14,58 @@ public class Less : InfraLess
     public virtual CharForm RiteCharForm { get; set; }
     protected virtual Infra TextInfra { get; set; }
 
-    public override long Execute(object left, object right)
+    public override long Execute(object lite, object rite)
     {
         Infra textInfra;
         textInfra = this.TextInfra;
 
-        Text leftText;
-        Text rightText;
-        leftText = (Text)left;
-        rightText = (Text)right;
+        Text liteText;
+        Text riteText;
+        liteText = (Text)lite;
+        riteText = (Text)rite;
 
-        if (!textInfra.ValidRange(leftText))
+        if (!textInfra.ValidRange(liteText))
         {
             return 0;
         }
-        if (!textInfra.ValidRange(rightText))
+        if (!textInfra.ValidRange(riteText))
         {
             return 0;
         }
 
-        Data leftData;
-        Data rightData;
-        leftData = leftText.Data;
-        rightData = rightText.Data;
+        Data liteData;
+        Data riteData;
+        liteData = liteText.Data;
+        riteData = riteText.Data;
 
-        Range leftRange;
-        Range rightRange;
-        leftRange = leftText.Range;
-        rightRange = rightText.Range;
+        Range liteRange;
+        Range riteRange;
+        liteRange = liteText.Range;
+        riteRange = riteText.Range;
 
-        long leftIndex;
-        long leftCount;
-        leftIndex = leftRange.Index;
-        leftCount = leftRange.Count;
+        long liteIndex;
+        long liteCount;
+        liteIndex = liteRange.Index;
+        liteCount = liteRange.Count;
 
-        long rightIndex;
-        long rightCount;
-        rightIndex = rightRange.Index;
-        rightCount = rightRange.Count;
+        long riteIndex;
+        long riteCount;
+        riteIndex = riteRange.Index;
+        riteCount = riteRange.Count;
 
         LessInt charLess;
         charLess = this.CharLess;
 
-        CharForm leftCharForm;
-        CharForm rightCharForm;
-        leftCharForm = this.LiteCharForm;
-        rightCharForm = this.RiteCharForm;
+        CharForm liteCharForm;
+        CharForm riteCharForm;
+        liteCharForm = this.LiteCharForm;
+        riteCharForm = this.RiteCharForm;
 
         long count;
-        count = leftCount;
-        if (rightCount < count)
+        count = liteCount;
+        if (riteCount < count)
         {
-            count = rightCount;
+            count = riteCount;
         }
 
         long i;
@@ -74,11 +74,11 @@ public class Less : InfraLess
         {
             uint oca;
             uint ocb;
-            oca = textInfra.DataCharGet(leftData, leftIndex + i);
-            ocb = textInfra.DataCharGet(rightData, rightIndex + i);
+            oca = textInfra.DataCharGet(liteData, liteIndex + i);
+            ocb = textInfra.DataCharGet(riteData, riteIndex + i);
 
-            oca = (uint)leftCharForm.Execute(oca);
-            ocb = (uint)rightCharForm.Execute(ocb);
+            oca = (uint)liteCharForm.Execute(oca);
+            ocb = (uint)riteCharForm.Execute(ocb);
 
             long oo;
             oo = charLess.Execute(oca, ocb);
@@ -91,7 +91,7 @@ public class Less : InfraLess
         }
 
         long k;
-        k = leftCount - rightCount;
+        k = liteCount - riteCount;
         
         long a;
         a = 0;
