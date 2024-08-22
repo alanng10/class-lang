@@ -1,6 +1,6 @@
 #pragma once
 
-#include <Infra/Prudate.h>
+#include <Infra/Prusate.h>
 
 #ifdef InfraIntern_Module
 #define Intern_Api ExportApi
