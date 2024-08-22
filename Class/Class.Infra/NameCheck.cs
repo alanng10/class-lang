@@ -81,13 +81,13 @@ public class NameCheck : Any
         bool b;
         b = false;
 
-        int count;
+        long count;
         count = text.Range.Count;
         count = count - 1;
 
         start = start + 1;
 
-        int i;
+        long i;
         i = 0;
         while (!b & i < count)
         {
