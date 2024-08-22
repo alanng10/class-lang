@@ -1,4 +1,4 @@
-namespace Z.Tool.Class.NodeList;
+namespace Z.Tool.NodeListGen;
 
 public class Gen : Any
 {
