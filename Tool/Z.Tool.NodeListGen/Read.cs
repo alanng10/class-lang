@@ -9,8 +9,8 @@ class Read : ToolGen
 
         this.NameCheck = new NameCheck();
         this.NameCheck.Init();
-        this.NameCheck.TextCompare = this.ToolInfra.TextCompare;
-        this.NameCheck.CharCompare = this.ToolInfra.CharCompare;
+        this.NameCheck.TextLess = this.ToolInfra.TextLess;
+        this.NameCheck.CharLess = this.ToolInfra.CharLess;
         this.NameCheck.CharForm = this.ToolInfra.CharForm;
 
         this.BoolClass = this.TextCreate(this.S("Bool"));
