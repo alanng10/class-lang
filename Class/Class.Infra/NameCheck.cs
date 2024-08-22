@@ -206,15 +206,15 @@ public class NameCheck : Any
 
         Text oo;
         oo = this.Text;
-        int count;
+        long count;
         count = keyword.Count;
-        int i;
+        long i;
         i = 0;
         while (i < count)
         {
             Keyword a;
             a = keyword.Get(i);
-            string o;
+            String o;
             o = a.Text;
 
             this.TextStringGet(oo, o);
