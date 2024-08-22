@@ -2,6 +2,6 @@ namespace Class.Infra;
 
 public class Range : Any
 {
-    public virtual int Start { get; set; }
-    public virtual int End { get; set; }
+    public virtual long Start { get; set; }
+    public virtual long End { get; set; }
 }
