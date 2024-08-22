@@ -9,29 +9,29 @@ public class CreateOperate : Any
         return null;
     }
 
-    public virtual int ExecuteListNew()
+    public virtual long ExecuteListNew()
     {
         return 0;
     }
 
-    public virtual Array ExecuteListGet(int index)
+    public virtual Array ExecuteListGet(long index)
     {
         return null;
     }
 
-    public virtual bool ExecuteListSetItem(int index, int itemIndex, object item)
+    public virtual bool ExecuteListSetItem(long index, long itemIndex, object item)
     {
-        return true;
+        return false;
     }
 
-    public virtual bool ExecuteListCount(int index, int count)
+    public virtual bool ExecuteListCount(long index, long count)
     {
-        return true;
+        return false;
     }
     
-    public virtual bool ExecuteError(ErrorKind kind, int start, int end)
+    public virtual bool ExecuteError(ErrorKind kind, long start, long end)
     {
-        return true;
+        return false;
     }
 
     public virtual string ExecuteNameValue(Text text)

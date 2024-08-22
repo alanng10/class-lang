@@ -10,6 +10,6 @@ public class CreateOperateArg : Any
     public virtual object Field04 { get; set; }
     public virtual bool FieldBool { get; set; }
     public virtual long FieldInt { get; set; }
-    public virtual int Start { get; set; }
-    public virtual int End { get; set; }
+    public virtual long Start { get; set; }
+    public virtual long End { get; set; }
 }
