@@ -29,8 +29,8 @@ public class StringLess : Less
         leftCount = stringComp.Count(leftString);
         rightCount = stringComp.Count(rightString);
 
-        LessInt charCompare;
-        charCompare = this.CharLess;
+        LessInt charLess;
+        charLess = this.CharLess;
 
         CharForm leftCharForm;
         CharForm rightCharForm;
@@ -57,7 +57,7 @@ public class StringLess : Less
             ocb = (uint)rightCharForm.Execute(ocb);
 
             long oo;
-            oo = charCompare.Execute(oca, ocb);
+            oo = charLess.Execute(oca, ocb);
             if (!(oo == 0))
             {
                 return oo;
