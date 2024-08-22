@@ -69,9 +69,16 @@ public class StringValueWrite : Any
 
     public virtual bool CheckValueString(Text text)
     {
+        TextInfra textInfra;
+        textInfra = this.TextInfra;
+        Infra classInfra;
+        classInfra = this.ClassInfra;
+        StringComp stringComp;
+        stringComp = this.StringComp;
+
         InfraRange range;
         range = text.Range;
-        int kk;
+        long kk;
         kk = range.Count;
         if (kk < 2)
         {
@@ -80,18 +87,15 @@ public class StringValueWrite : Any
 
         Data data;
         data = text.Data;
-        int rangeStart;
+        long rangeStart;
         rangeStart = range.Index;
-        int rangeEnd;
+        long rangeEnd;
         rangeEnd = range.Index + range.Count;
 
-        char quote;
-        quote = this.ClassInfra.Quote[0];
+        uint quote;
+        quote = (uint)stringComp.Char(classInfra.Quote, 0);
 
-        TextInfra textInfra;
-        textInfra = this.TextInfra;
-
-        char oc;
+        uint oc;
         oc = textInfra.DataCharGet(data, rangeStart);
         if (!(oc == quote))
         {
@@ -103,49 +107,45 @@ public class StringValueWrite : Any
             return false;
         }
 
-        char backSlash;
-        backSlash = this.ClassInfra.BackSlash[0];
-        char tab;
-        tab = this.ClassInfra.Tab[0];
-        char newLine;
-        newLine = this.ClassInfra.NewLine[0];
+        uint backSlash;
+        backSlash = (uint)stringComp.Char(classInfra.BackSlash, 0);
+        uint newLine;
+        newLine = (uint)stringComp.Char(classInfra.NewLine, 0);
 
-        int countA;
-        countA = 4;
+        long countA;
+        countA = 8;
 
-        int count;
+        long count;
         count = kk - 2;
-        int start;
+        long start;
         start = rangeStart + 1;
-        int index;
-        int indexA;
-        char c;
-        bool b;
-        bool bb;
-        bool bba;
-        int j;
-        char u;
-        int i;
+        long i;
         i = 0;
         while (i < count)
         {
+            long index;
             index = start + i;
 
+            uint c;
             c = textInfra.DataCharGet(data, index);
 
+            bool b;
             b = (c == backSlash);
             if (b)
             {
+                long j;
                 j = i + 1;
-                bb = (j < count);
-                if (!bb)
+                if (!(j < count))
                 {
                     return false;
                 }
+                long indexA;
                 indexA = start + j;
 
+                uint u;
                 u = textInfra.DataCharGet(data, indexA);
 
+                bool bba;
                 bba = false;                
                 if (u == quote)
                 {
@@ -161,21 +161,21 @@ public class StringValueWrite : Any
                 }
                 if (u == 'u')
                 {
-                    int k;
+                    long k;
                     k = j + countA;
                     if (!(k < count))
                     {
                         return false;
                     }
-                    int indexAa;
+                    long indexAa;
                     indexAa = start + j + 1;
-                    int iA;
+                    long iA;
                     iA = 0;
                     while (iA < countA)
                     {
-                        int oa;
+                        long oa;
                         oa = indexAa + iA;
-                        char ua;
+                        uint ua;
                         ua = textInfra.DataCharGet(data, oa);
 
                         if (!(textInfra.IsDigit(ua) | textInfra.IsHexLetter(ua, false)))
@@ -197,8 +197,7 @@ public class StringValueWrite : Any
             }
             if (!b)
             {
-                bb = (c == quote);
-                if (bb)
+                if (c == quote)
                 {
                     return false;
                 }                
