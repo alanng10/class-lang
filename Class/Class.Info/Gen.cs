@@ -318,7 +318,7 @@ public class Gen : Any
         this.Append(newLine);
 
         string a;
-        a = o.Rest();
+        a = o.Result();
 
         string combine;
         combine = this.InfraInfra.PathCombine;
@@ -342,7 +342,7 @@ public class Gen : Any
         this.Append(semicolon);
         this.Append(newLine);
 
-        a = o.Rest();
+        a = o.Result();
 
         outFilePath = this.DestFoldPath + combine + "articlevar.js";
 
@@ -491,7 +491,7 @@ public class Gen : Any
         }
 
         string a;
-        a = o.Rest();
+        a = o.Result();
         return a;
     }
 
@@ -526,7 +526,7 @@ public class Gen : Any
         this.AppendNodeNameValue(name);
         
         string aa;
-        aa = o.Rest();
+        aa = o.Result();
 
         a.NameString = aa;
 

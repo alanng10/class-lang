@@ -7,6 +7,7 @@ global using Compare = Avalon.Infra.Less;
 global using CompareInt = Avalon.Infra.LessInt;
 global using StringCompare = Avalon.Infra.StringLess;
 global using RefCompare = Avalon.Infra.RefLess;
+global using StringJoin = Avalon.Infra.StringJoin;
 global using CharForm = Avalon.Infra.CharForm;
 global using InfraInfra = Avalon.Infra.Infra;
 global using List = Avalon.List.List;

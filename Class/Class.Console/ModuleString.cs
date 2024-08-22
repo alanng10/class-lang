@@ -396,7 +396,7 @@ public class ModuleString : Any
     {
         string ret;
 
-        ret = this.StringJoin.Rest();
+        ret = this.StringJoin.Result();
 
 
 

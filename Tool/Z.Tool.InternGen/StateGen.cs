@@ -102,7 +102,7 @@ class StateGen : Any
         }
 
         string a;
-        a = h.Rest();
+        a = h.Result();
 
         return a;
     }
@@ -139,7 +139,7 @@ class StateGen : Any
         }
 
         string a;
-        a = h.Rest();
+        a = h.Result();
 
         return a;
     }

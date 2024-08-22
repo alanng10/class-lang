@@ -83,7 +83,7 @@ public class Infra : Any
 
     public virtual String AddResult()
     {
-        return this.StringJoin.Rest();
+        return this.StringJoin.Result();
     }
 
     public virtual Infra AddIndent(long indent)

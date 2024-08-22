@@ -28,6 +28,6 @@ public class StringOut : Out
 
     public virtual String Rest()
     {
-        return this.Sj.Rest();
+        return this.Sj.Result();
     }
 }

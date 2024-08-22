@@ -66,7 +66,7 @@ public class ErrorString : Any
         this.AppendBorder(h);
 
         string a;
-        a = h.Rest();
+        a = h.Result();
 
         return a;
     }
@@ -122,7 +122,7 @@ public class ErrorString : Any
         this.Append(h, ")");
 
         string a;
-        a = h.Rest();
+        a = h.Result();
 
         return a;
     }

@@ -102,7 +102,7 @@ public class Infra : Any
         return a;
     }
 
-    public virtual string VersionString(long o)
+    public virtual String VersionString(long o)
     {
         long ka;
         ka = this.InfraInfra.IntCapValue - 1;
@@ -178,10 +178,16 @@ public class Infra : Any
         oc = this.TextInfra.StringCreate(ac);
 
         String dot;
-        dot = ".";
+        dot = this.Dot;
 
-        string a;
-        a = major + dot + minor + dot + revision;
+        StringJoin h;
+        h = new StringJoin();
+        h.Init();
+
+        this.Add(h, oc).Add(h, dot).Add(h, ob).Add(h, dot).Add(h, oa);
+
+        String a;
+        a = h.Rest
         return a;
     }
 
@@ -324,5 +330,12 @@ public class Infra : Any
     private String S(string o)
     {
         return this.StringValue.Execute(o);
+    }
+
+    private Infra Add(StringJoin h, String o)
+    {
+        this.InfraInfra.StringJoinString(h, o);
+
+        return this;
     }
 }
