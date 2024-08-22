@@ -17,6 +17,7 @@ public class ErrorKindList : Any
     public override bool Init()
     {
         base.Init();
+        this.StringValue = StringValue.This;
         this.InitArray();
         this.Count = this.Array.Count;
         this.Index = 0;
@@ -77,13 +78,18 @@ public class ErrorKindList : Any
     public virtual ErrorKind EntryUndefined { get; set; }
     public virtual ErrorKind EntryUnachievable { get; set; }
 
+    protected virtual StringValue StringValue { get; set; }
+
     protected virtual ErrorKind AddItem(string text)
     {
+        String k;
+        k = this.StringValue.Execute(text);
+
         ErrorKind item;
         item = new ErrorKind();
         item.Init();
         item.Index = this.Index;
-        item.Text = text;
+        item.Text = k;
         this.Array.SetAt(item.Index, item);
         this.Index = this.Index + 1;
         return item;
@@ -99,13 +105,13 @@ public class ErrorKindList : Any
 
     protected virtual Array Array { get; set; }
 
-    protected virtual int ArrayCount { get { return 26; } set { } }
+    protected virtual long ArrayCount { get { return 26; } set { } }
 
-    public virtual int Count { get; set; }
+    public virtual long Count { get; set; }
     
-    protected virtual int Index { get; set; }
+    protected virtual long Index { get; set; }
 
-    public virtual ErrorKind Get(int index)
+    public virtual ErrorKind Get(long index)
     {
         return (ErrorKind)this.Array.GetAt(index);
     }
