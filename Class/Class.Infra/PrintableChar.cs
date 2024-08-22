@@ -23,10 +23,10 @@ public class PrintableChar : Any
 
     protected virtual TextInfra TextInfra { get; set; }
 
-    public virtual bool Get(char index)
+    public virtual bool Get(uint index)
     {
-        char first;
-        char last;
+        uint first;
+        uint last;
         first = ' ';
         last = '~';
 
