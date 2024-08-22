@@ -12,6 +12,8 @@ public class NodeKindListGen : SourceGen
         this.ItemClassName = this.S("NodeKind");
         this.ArrayClassName = this.S("Array");
         this.Export = true;
+        this.ClassFileName = this.S("ToolData/Class/ClassNodeKind.txt");
+        this.InitMethodFileName = this.S("ToolData/Class/InitMaideNodeKind.txt");
         this.AddMethodFileName = this.S("ToolData/Class/AddMaideNodeKind.txt");
         this.OutputFilePath = this.S("../../Class/Class.Node/NodeKindList.cs");
         return true;
