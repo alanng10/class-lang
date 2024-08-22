@@ -71,22 +71,22 @@ class Read : ToolGen
         ToolInfra infra;
         infra = this.ToolInfra;
 
-        string ka;
-        ka = infra.StorageTextRead("ToolData/NodeList.txt");
+        String ka;
+        ka = infra.StorageTextRead(this.S("ToolData/Class/NodeList.txt"));
 
         Array lineArray;        
-        lineArray = infra.SplitLineList(ka);
+        lineArray = this.TextSplitLineString(ka);
 
         this.ClassTable = this.ClassInfra.TableCreateStringCompare();
 
-        int count;
+        long count;
         count = lineArray.Count;
-        int i;
+        long i;
         i = 0;
         while (i < count)
         {
-            string line;
-            line = (string)lineArray.GetAt(i);
+            String line;
+            line = (String)lineArray.GetAt(i);
 
             bool b;
             b = this.SetClassTableOneLine(line);
@@ -102,18 +102,21 @@ class Read : ToolGen
         return true;
     }
 
-    protected virtual bool SetClassTableOneLine(string line)
+    protected virtual bool SetClassTableOneLine(String line)
     {
-        if (line.Length == 0)
+        if (this.StringCount(line) == 0)
         {
             return true;
         }
 
-        string oo;
-        oo = "    ";
+        Text oo;
+        oo = this.TextCreate(this.S("    "));
+
+        Text ka;
+        ka = this.TextCreate(line);
 
         bool b;
-        b = line.StartsWith(oo);
+        b = this.TextStart(ka, oo);
         if (!b)
         {
             this.EndCurrentClass();
@@ -141,8 +144,17 @@ class Read : ToolGen
                 return false;
             }
 
-            string compLine;
-            compLine = line.Substring(oo.Length);
+            long kka;
+            kka = oo.Range.Count;
+
+            Range range;
+            range = ka.Range;
+
+            range.Index = range.Index + kka;
+            range.Count = range.Count - kka;
+
+            String compLine;
+            compLine = this.StringCreate(ka);
 
             Field ob;
             ob = this.GetField(compLine);
@@ -167,23 +179,26 @@ class Read : ToolGen
         return true;
     }
 
-    protected virtual Class GetClass(string a)
+    protected virtual Class GetClass(String a)
     {
-        string uo;
-        uo = " : ";
+        Text uo;
+        uo = this.TextCreate(this.S(" : "));
 
-        int uu;
-        uu = a.IndexOf(uo);
+        Text k;
+        k = this.TextCreate(a);
+
+        long uu;
+        uu = this.TextIndex(k, uo);
         if (uu < 0)
         {
             return null;
         }
 
-        string className;
-        className = a.Substring(0, uu);
+        String className;
+        className = this.StringCreateRange(a, 0, uu);
 
-        string baseClassName;
-        baseClassName = a.Substring(uu + uo.Length);
+        String baseClassName;
+        baseClassName = this.StringCreateIndex(a, uu + uo.Range.Count);
 
         if (!this.CheckIsName(className))
         {
