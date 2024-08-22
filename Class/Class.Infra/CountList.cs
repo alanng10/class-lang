@@ -23,14 +23,14 @@ public class CountList : Any
 
         this.Prusate = this.AddItem();
         this.Precate = this.AddItem();
-        this.Probate = this.AddItem();
+        this.Pronate = this.AddItem();
         this.Private = this.AddItem();
         return true;
     }
 
     public virtual Count Prusate { get; set; }
     public virtual Count Precate { get; set; }
-    public virtual Count Probate { get; set; }
+    public virtual Count Pronate { get; set; }
     public virtual Count Private { get; set; }
 
     protected virtual Count AddItem()
@@ -54,13 +54,13 @@ public class CountList : Any
 
     protected virtual Array Array { get; set; }
 
-    protected virtual int ArrayCount { get { return 4; } set { } }
+    protected virtual long ArrayCount { get { return 4; } set { } }
 
-    public virtual int Count { get; set; }
+    public virtual long Count { get; set; }
     
-    protected virtual int Index { get; set; }
+    protected virtual long Index { get; set; }
 
-    public virtual Count Get(int index)
+    public virtual Count Get(long index)
     {
         return (Count)this.Array.GetAt(index);
     }

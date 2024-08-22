@@ -17,6 +17,7 @@ public class DelimitList : Any
     public override bool Init()
     {
         base.Init();
+        this.StringValue = StringValue.This;
         this.InitArray();
         this.Count = this.Array.Count;
         this.Index = 0;
@@ -25,7 +26,7 @@ public class DelimitList : Any
         this.PauseSign = this.AddItem(",");
         this.BaseSign = this.AddItem(":");
         this.ExecuteSign = this.AddItem(";");
-        this.EqualSign = this.AddItem("=");
+        this.SameSign = this.AddItem("=");
         this.AddSign = this.AddItem("+");
         this.SubSign = this.AddItem("-");
         this.MulSign = this.AddItem("*");
@@ -46,7 +47,7 @@ public class DelimitList : Any
     public virtual Delimit PauseSign { get; set; }
     public virtual Delimit BaseSign { get; set; }
     public virtual Delimit ExecuteSign { get; set; }
-    public virtual Delimit EqualSign { get; set; }
+    public virtual Delimit SameSign { get; set; }
     public virtual Delimit AddSign { get; set; }
     public virtual Delimit SubSign { get; set; }
     public virtual Delimit MulSign { get; set; }
@@ -61,13 +62,18 @@ public class DelimitList : Any
     public virtual Delimit LeftBrace { get; set; }
     public virtual Delimit RightBrace { get; set; }
 
+    protected virtual StringValue StringValue { get; set; }
+
     protected virtual Delimit AddItem(string text)
     {
+        String k;
+        k = this.StringValue.Execute(text);
+
         Delimit item;
         item = new Delimit();
         item.Init();
         item.Index = this.Index;
-        item.Text = text;
+        item.Text = k;
         this.Array.SetAt(item.Index, item);
         this.Index = this.Index + 1;
         return item;
@@ -83,13 +89,13 @@ public class DelimitList : Any
 
     protected virtual Array Array { get; set; }
 
-    protected virtual int ArrayCount { get { return 18; } set { } }
+    protected virtual long ArrayCount { get { return 18; } set { } }
 
-    public virtual int Count { get; set; }
+    public virtual long Count { get; set; }
     
-    protected virtual int Index { get; set; }
+    protected virtual long Index { get; set; }
 
-    public virtual Delimit Get(int index)
+    public virtual Delimit Get(long index)
     {
         return (Delimit)this.Array.GetAt(index);
     }

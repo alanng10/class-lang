@@ -17,6 +17,7 @@ public class KeywordList : Any
     public override bool Init()
     {
         base.Init();
+        this.StringValue = StringValue.This;
         this.InitArray();
         this.Count = this.Array.Count;
         this.Index = 0;
@@ -41,8 +42,8 @@ public class KeywordList : Any
         this.Sign = this.AddItem("sign");
         this.Bit = this.AddItem("bit");
         this.Prusate = this.AddItem("prusate");
-        this.Probate = this.AddItem("probate");
         this.Precate = this.AddItem("precate");
+        this.Pronate = this.AddItem("pronate");
         this.Private = this.AddItem("private");
         return true;
     }
@@ -67,17 +68,22 @@ public class KeywordList : Any
     public virtual Keyword Sign { get; set; }
     public virtual Keyword Bit { get; set; }
     public virtual Keyword Prusate { get; set; }
-    public virtual Keyword Probate { get; set; }
     public virtual Keyword Precate { get; set; }
+    public virtual Keyword Pronate { get; set; }
     public virtual Keyword Private { get; set; }
+
+    protected virtual StringValue StringValue { get; set; }
 
     protected virtual Keyword AddItem(string text)
     {
+        String k;
+        k = this.StringValue.Execute(text);
+
         Keyword item;
         item = new Keyword();
         item.Init();
         item.Index = this.Index;
-        item.Text = text;
+        item.Text = k;
         this.Array.SetAt(item.Index, item);
         this.Index = this.Index + 1;
         return item;
@@ -93,13 +99,13 @@ public class KeywordList : Any
 
     protected virtual Array Array { get; set; }
 
-    protected virtual int ArrayCount { get { return 23; } set { } }
+    protected virtual long ArrayCount { get { return 23; } set { } }
 
-    public virtual int Count { get; set; }
+    public virtual long Count { get; set; }
     
-    protected virtual int Index { get; set; }
+    protected virtual long Index { get; set; }
 
-    public virtual Keyword Get(int index)
+    public virtual Keyword Get(long index)
     {
         return (Keyword)this.Array.GetAt(index);
     }
