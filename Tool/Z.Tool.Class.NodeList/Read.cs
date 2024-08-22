@@ -12,6 +12,14 @@ class Read : ToolGen
         this.NameCheck.TextCompare = this.ToolInfra.TextCompare;
         this.NameCheck.CharCompare = this.ToolInfra.CharCompare;
         this.NameCheck.CharForm = this.ToolInfra.CharForm;
+
+        this.BoolClass = this.TextCreate(this.S("Bool"));
+        this.IntClass = this.TextCreate(this.S("Int"));
+        this.StringClass = this.TextCreate(this.S("String"));
+
+        this.TextA = this.CreateText();
+        this.StringDataA = new StringData();
+        this.StringDataA.Init();
         return true;
     }
 
@@ -59,6 +67,11 @@ class Read : ToolGen
     protected virtual ClassInfra ClassInfra { get; set; }
     protected virtual NameCheck NameCheck { get; set; }
     protected virtual Class Class { get; set; }
+    protected virtual Text BoolClass { get; set; }
+    protected virtual Text IntClass { get; set; }
+    protected virtual Text StringClass { get; set; }
+    protected virtual Text TextA { get; set; }
+    protected virtual StringData StringDataA { get; set; }
 
     protected virtual bool SetClassTable()
     {
@@ -447,28 +460,33 @@ class Read : ToolGen
                 Field aa;
                 aa = (Field)iterA.Value;
 
-                string fieldClassName;
+                String fieldClassName;
                 fieldClassName = aa.Class;
+
+                this.TextStringGet(fieldClassName);
+
+                Text k;
+                k = this.TextA;
 
                 bool b;
                 b = false;
                 if (!b)
                 {
-                    if (fieldClassName == "Bool")
+                    if (this.TextSame(k, this.BoolClass))
                     {
                         b = true;
                     }
                 }
                 if (!b)
                 {
-                    if (fieldClassName == "Int")
+                    if (this.TextSame(k, this.IntClass))
                     {
                         b = true;
                     }
                 }
                 if (!b)
                 {
-                    if (fieldClassName == "String")
+                    if (this.TextSame(k, this.StringClass))
                     {
                         b = true;
                     }
@@ -495,5 +513,20 @@ class Read : ToolGen
         a = this.TextCreate(value);
 
         return nameCheck.IsName(a);
+    }
+
+    protected virtual bool TextStringGet(String o)
+    {
+        Text text;
+        text = this.TextA;
+        StringData data;
+        data = this.StringDataA;
+        
+        data.ValueString = o;
+
+        text.Data = data;
+        text.Range.Index = 0;
+        text.Range.Count = this.StringCount(o);
+        return true;
     }
 }
