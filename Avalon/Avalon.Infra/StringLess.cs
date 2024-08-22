@@ -11,7 +11,7 @@ public class StringLess : Less
 
     public virtual LessInt CharLess { get; set; }
     public virtual CharForm LiteCharForm { get; set; }
-    public virtual CharForm RightCharForm { get; set; }
+    public virtual CharForm RiteCharForm { get; set; }
     protected virtual StringComp StringComp { get; set; }
 
     public override long Execute(object lite, object rite)
@@ -35,7 +35,7 @@ public class StringLess : Less
         CharForm liteCharForm;
         CharForm riteCharForm;
         liteCharForm = this.LiteCharForm;
-        riteCharForm = this.RightCharForm;
+        riteCharForm = this.RiteCharForm;
 
         long count;
         count = liteCount;
