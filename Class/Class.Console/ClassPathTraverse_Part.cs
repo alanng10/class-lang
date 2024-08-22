@@ -963,6 +963,32 @@ partial class ClassPathTraverse
         return true;
     }
 
+    public override bool ExecuteLessOperate(LessOperate lessOperate)
+    {
+        if (lessOperate == null)
+        {
+            return true;
+        }
+        this.ExecuteNode(lessOperate);
+
+        if (this.HasResult())
+        {
+            return true;
+        }
+
+        if (this.FieldEqual("Lite"))
+        {
+            this.ExecuteOperate(lessOperate.Lite);
+            return true;
+        }
+        if (this.FieldEqual("Rite"))
+        {
+            this.ExecuteOperate(lessOperate.Rite);
+            return true;
+        }
+        return true;
+    }
+
     public override bool ExecuteAddOperate(AddOperate addOperate)
     {
         if (addOperate == null)
@@ -1062,32 +1088,6 @@ partial class ClassPathTraverse
         if (this.FieldEqual("Rite"))
         {
             this.ExecuteOperate(divOperate.Rite);
-            return true;
-        }
-        return true;
-    }
-
-    public override bool ExecuteLessOperate(LessOperate lessOperate)
-    {
-        if (lessOperate == null)
-        {
-            return true;
-        }
-        this.ExecuteNode(lessOperate);
-
-        if (this.HasResult())
-        {
-            return true;
-        }
-
-        if (this.FieldEqual("Lite"))
-        {
-            this.ExecuteOperate(lessOperate.Lite);
-            return true;
-        }
-        if (this.FieldEqual("Rite"))
-        {
-            this.ExecuteOperate(lessOperate.Rite);
             return true;
         }
         return true;

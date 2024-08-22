@@ -17,6 +17,7 @@ public class NodeKindList : Any
     public override bool Init()
     {
         base.Init();
+        this.TextStringValue = TextStringValue.This;
         this.InitArray();
         this.Count = this.Array.Count;
         this.Index = 0;
@@ -72,11 +73,11 @@ public class NodeKindList : Any
         this.AndOperate = this.AddItem("AndOperate", new AndOperate(), new AndOperateNewState(), new AndOperateNodeState(), new AndOperateCreateOperateState());
         this.OrnOperate = this.AddItem("OrnOperate", new OrnOperate(), new OrnOperateNewState(), new OrnOperateNodeState(), new OrnOperateCreateOperateState());
         this.NotOperate = this.AddItem("NotOperate", new NotOperate(), new NotOperateNewState(), new NotOperateNodeState(), new NotOperateCreateOperateState());
+        this.LessOperate = this.AddItem("LessOperate", new LessOperate(), new LessOperateNewState(), new LessOperateNodeState(), new LessOperateCreateOperateState());
         this.AddOperate = this.AddItem("AddOperate", new AddOperate(), new AddOperateNewState(), new AddOperateNodeState(), new AddOperateCreateOperateState());
         this.SubOperate = this.AddItem("SubOperate", new SubOperate(), new SubOperateNewState(), new SubOperateNodeState(), new SubOperateCreateOperateState());
         this.MulOperate = this.AddItem("MulOperate", new MulOperate(), new MulOperateNewState(), new MulOperateNodeState(), new MulOperateCreateOperateState());
         this.DivOperate = this.AddItem("DivOperate", new DivOperate(), new DivOperateNewState(), new DivOperateNodeState(), new DivOperateCreateOperateState());
-        this.LessOperate = this.AddItem("LessOperate", new LessOperate(), new LessOperateNewState(), new LessOperateNodeState(), new LessOperateCreateOperateState());
         this.SignMulOperate = this.AddItem("SignMulOperate", new SignMulOperate(), new SignMulOperateNewState(), new SignMulOperateNodeState(), new SignMulOperateCreateOperateState());
         this.SignDivOperate = this.AddItem("SignDivOperate", new SignDivOperate(), new SignDivOperateNewState(), new SignDivOperateNodeState(), new SignDivOperateCreateOperateState());
         this.SignLessOperate = this.AddItem("SignLessOperate", new SignLessOperate(), new SignLessOperateNewState(), new SignLessOperateNodeState(), new SignLessOperateCreateOperateState());
@@ -140,11 +141,11 @@ public class NodeKindList : Any
     public virtual NodeKind AndOperate { get; set; }
     public virtual NodeKind OrnOperate { get; set; }
     public virtual NodeKind NotOperate { get; set; }
+    public virtual NodeKind LessOperate { get; set; }
     public virtual NodeKind AddOperate { get; set; }
     public virtual NodeKind SubOperate { get; set; }
     public virtual NodeKind MulOperate { get; set; }
     public virtual NodeKind DivOperate { get; set; }
-    public virtual NodeKind LessOperate { get; set; }
     public virtual NodeKind SignMulOperate { get; set; }
     public virtual NodeKind SignDivOperate { get; set; }
     public virtual NodeKind SignLessOperate { get; set; }
@@ -155,6 +156,8 @@ public class NodeKindList : Any
     public virtual NodeKind BitRiteOperate { get; set; }
     public virtual NodeKind BitSignRiteOperate { get; set; }
 
+    protected virtual TextStringValue TextStringValue { get; set; }
+
     protected virtual NodeKind AddItem(string name, Node node, InfraState newState, NodeState nodeState, CreateOperateState createOperateState)
     {
         node.Init();
@@ -162,11 +165,14 @@ public class NodeKindList : Any
         nodeState.Init();
         createOperateState.Init();
 
+        String k;
+        k = this.TextStringValue.Execute(name);
+
         NodeKind item;
         item = new NodeKind();
         item.Init();
         item.Index = this.Index;
-        item.Name = name;
+        item.Name = k;
         item.Node = node;
         item.NewState = newState;
         item.NodeState = nodeState;
