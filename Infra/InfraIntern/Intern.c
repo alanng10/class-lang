@@ -57,36 +57,6 @@ Int Intern_Intern_RefCompare(Eval* eval, Int frame)
     Return(ke, 2);
 }
 
-Int Intern_Intern_StringChar(Eval* eval, Int frame)
-{
-    Int s;
-    Int index;
-    s = eval->Stack[frame - 2];
-    index = eval->Stack[frame - 1];
-
-    Int k;
-    k = s;
-    RefMemoryAddress(k);
-
-    k = k + 2 * sizeof(Int);
-
-    Int32* p;
-    p = CastPointer(k);
-
-    Int ka;
-    ka = index;
-    RefKindClear(ka);
-
-    Int32 ko;
-    ko = p[ka];
-
-    Int ke;
-    ke = ko;
-    RefKindInt(ke);
-
-    Return(ke, 2);
-}
-
 Int Intern_Intern_StringCount(Eval* eval, Int frame)
 {
     Int s;
