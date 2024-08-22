@@ -2,8 +2,8 @@ namespace Class.Infra;
 
 public class WriteOperate : Any
 {
-    public virtual bool ExecuteChar(char oc)
+    public virtual bool ExecuteChar(uint n)
     {
-        return true;
+        return false;
     }
 }
