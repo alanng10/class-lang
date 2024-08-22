@@ -9,6 +9,7 @@ public class StringValueWrite : Any
         this.InfraInfra = InfraInfra.This;
         this.TextInfra = TextInfra.This;
         this.ClassInfra = Infra.This;
+        this.StringComp = StringComp.This;
 
         this.CountWriteOperate = new CountWriteOperate();
         this.CountWriteOperate.Write = this;
@@ -22,15 +23,16 @@ public class StringValueWrite : Any
     protected virtual InfraInfra InfraInfra { get; set; }
     protected virtual TextInfra TextInfra { get; set; }
     protected virtual Infra ClassInfra { get; set; }
+    protected virtual StringComp StringComp { get; set; }
     public virtual CountWriteOperate CountWriteOperate { get; set; }
     public virtual AddWriteOperate AddWriteOperate { get; set; }
 
     public virtual WriteOperate WriteOperate { get; set; }
 
     public virtual Data Data { get; set; }
-    public virtual int Index { get; set; }
+    public virtual long Index { get; set; }
 
-    public virtual string Value(Text text)
+    public virtual String Value(Text text)
     {
         bool b;
         b = this.CheckValueString(text);
@@ -43,12 +45,12 @@ public class StringValueWrite : Any
         this.Index = 0;
         this.ExecuteValueString(text);
 
-        int count;
+        long count;
         count = this.Index;
         
         long k;
         k = count;
-        k = k * sizeof(char);
+        k = k * sizeof(uint);
         this.Data = new Data();
         this.Data.Count = k;
         this.Data.Init();
@@ -57,17 +59,8 @@ public class StringValueWrite : Any
         this.Index = 0;
         this.ExecuteValueString(text);
 
-        Text oa;
-        oa = new Text();
-        oa.Init();
-        oa.Range = new InfraRange();
-        oa.Range.Init();
-        oa.Data = this.Data;
-        oa.Range.Index = 0;
-        oa.Range.Count = count;
-        
-        string a;
-        a = this.TextInfra.StringCreate(oa);
+        String a;
+        a = this.StringComp.CreateData(this.Data, null);
 
         this.Data = null;
         this.WriteOperate = null;
@@ -334,7 +327,7 @@ public class StringValueWrite : Any
         return true;
     }
 
-    protected virtual bool ExecuteValueChar(char oc)
+    protected virtual bool ExecuteValueChar(uint oc)
     {
         this.WriteOperate.ExecuteChar(oc);
         return true;
