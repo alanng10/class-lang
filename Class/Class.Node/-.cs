@@ -15,6 +15,7 @@ global using ListInfra = Avalon.List.Infra;
 global using Text = Avalon.Text.Text;
 global using TextLess = Avalon.Text.Less;
 global using TextIntParse = Avalon.Text.IntParse;
+global using TextStringValue = Avalon.Text.StringValue;
 global using TextInfra = Avalon.Text.Infra;
 global using InfraCreate = Class.Infra.Create;
 global using ClassInfra = Class.Infra.Infra;

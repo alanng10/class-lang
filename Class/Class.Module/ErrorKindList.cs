@@ -17,7 +17,7 @@ public class ErrorKindList : Any
     public override bool Init()
     {
         base.Init();
-        this.StringValue = StringValue.This;
+        this.StringValue = TextStringValue.This;
         this.InitArray();
         this.Count = this.Array.Count;
         this.Index = 0;
@@ -78,7 +78,7 @@ public class ErrorKindList : Any
     public virtual ErrorKind EntryUndefined { get; set; }
     public virtual ErrorKind EntryUnachievable { get; set; }
 
-    protected virtual StringValue StringValue { get; set; }
+    protected virtual TextStringValue StringValue { get; set; }
 
     protected virtual ErrorKind AddItem(string text)
     {
