@@ -5,11 +5,11 @@ public class List : Comp
     public override bool Init()
     {
         base.Init();
-        RefCompare compare;
-        compare = new RefCompare();
-        compare.Init();
+        RefLess less;
+        less = new RefLess();
+        less.Init();
         this.ItemTable = new Table();
-        this.ItemTable.Less = compare;
+        this.ItemTable.Less = less;
         this.ItemTable.Init();
         
         this.ItemIter = this.ItemTable.IterCreate();
