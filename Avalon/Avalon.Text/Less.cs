@@ -10,7 +10,7 @@ public class Less : InfraLess
     }
 
     public virtual LessInt CharLess { get; set; }
-    public virtual CharForm LeftCharForm { get; set; }
+    public virtual CharForm LiteCharForm { get; set; }
     public virtual CharForm RightCharForm { get; set; }
     protected virtual Infra TextInfra { get; set; }
 
@@ -58,7 +58,7 @@ public class Less : InfraLess
 
         CharForm leftCharForm;
         CharForm rightCharForm;
-        leftCharForm = this.LeftCharForm;
+        leftCharForm = this.LiteCharForm;
         rightCharForm = this.RightCharForm;
 
         long count;

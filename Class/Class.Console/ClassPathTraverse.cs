@@ -27,7 +27,7 @@ public partial class ClassPathTraverse : Traverse
         charForm.Init();
         this.TextLess = new TextLess();
         this.TextLess.CharLess = charLess;
-        this.TextLess.LeftCharForm = charForm;
+        this.TextLess.LiteCharForm = charForm;
         this.TextLess.RightCharForm = charForm;
         this.TextLess.Init();
 

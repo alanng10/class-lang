@@ -134,7 +134,7 @@ public class Console : Any
         TextLess a;
         a = new TextLess();
         a.CharLess = this.CharLess;
-        a.LeftCharForm = this.CharForm;
+        a.LiteCharForm = this.CharForm;
         a.RightCharForm = this.CharForm;
         a.Init();
         return a;

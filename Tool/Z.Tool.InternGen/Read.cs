@@ -18,7 +18,7 @@ public class Read : Any
         TextCompare compare;
         compare = new TextCompare();
         compare.CharCompare = charCompare;
-        compare.LeftCharForm = charForm;
+        compare.LiteCharForm = charForm;
         compare.RightCharForm = charForm;
         compare.Init();
 

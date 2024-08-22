@@ -21,7 +21,7 @@ public class Create : InfraCreate
         this.CharForm.Init();
         this.TextLess = new TextLess();
         this.TextLess.CharLess = this.CharLess;
-        this.TextLess.LeftCharForm = this.CharForm;
+        this.TextLess.LiteCharForm = this.CharForm;
         this.TextLess.RightCharForm = this.CharForm;
         this.TextLess.Init();
 
