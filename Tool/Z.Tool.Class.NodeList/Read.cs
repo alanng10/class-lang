@@ -316,6 +316,9 @@ class Read : ToolGen
         Table table;
         table = this.ClassTable;
 
+        Text oo;
+        oo = this.TextCreate(this.S("Node"));
+
         Iter iter;
         iter = table.IterCreate();
         table.IterSet(iter);
@@ -325,13 +328,16 @@ class Read : ToolGen
             Class a;
             a = (Class)iter.Value;
 
-            String ka;
-            ka = a.Base;
+            String varBase;
+            varBase = a.Base;
 
-            if (!(ka == "Node"))
+            Text ka;
+            ka = this.TextCreate(varBase);
+
+            if (!this.TextSame(ka, oo))
             {
                 Class k;
-                k = (Class)table.Get(ka);
+                k = (Class)table.Get(varBase);
 
                 if (k == null)
                 {
