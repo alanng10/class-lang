@@ -225,7 +225,7 @@ public class PortLoad : Any
         listInfra = this.ListInfra;
         
         Table table;
-        table = this.ClassInfra.TableCreateModuleRefCompare();
+        table = this.ClassInfra.TableCreateModuleRefLess();
 
         Array array;
         array = this.ImportModuleRefArray;
@@ -487,13 +487,13 @@ public class PortLoad : Any
         ClassInfra classInfra;
         classInfra = this.ClassInfra;
 
-        this.BinaryDependTable = classInfra.TableCreateModuleRefCompare();
+        this.BinaryDependTable = classInfra.TableCreateModuleRefLess();
 
         Array array;
         array = this.ImportModuleRefArray;
 
         Table table;
-        table = classInfra.TableCreateModuleRefCompare();
+        table = classInfra.TableCreateModuleRefLess();
 
         Iter iter;
         iter = this.TableIter;
@@ -557,7 +557,7 @@ public class PortLoad : Any
             return table;
         }
 
-        table = this.ClassInfra.TableCreateModuleRefCompare();
+        table = this.ClassInfra.TableCreateModuleRefLess();
 
         if (this.IsBuiltinModuleRef(moduleRef))
         {
@@ -678,7 +678,7 @@ public class PortLoad : Any
         module.Init();
         module.Ref = classInfra.ModuleRefCreate(moduleRef.Name, moduleRef.Version);
         module.Class = classInfra.TableCreateStringLess();
-        module.Import = classInfra.TableCreateModuleRefCompare();
+        module.Import = classInfra.TableCreateModuleRefLess();
         module.Export = classInfra.TableCreateStringLess();
         module.Storage = classInfra.TableCreateStringLess();
 

@@ -72,7 +72,7 @@ public class Infra : Any
         return a;
     }
 
-    public virtual Table TableCreateModuleRefCompare()
+    public virtual Table TableCreateModuleRefLess()
     {
         Table a;
         a = new Table();

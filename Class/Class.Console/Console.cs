@@ -35,8 +35,8 @@ public class Console : Any
         this.InfoGen = new InfoGen();
         this.InfoGen.Init();
 
-        this.InitModuleTable = this.ClassInfra.TableCreateModuleRefCompare();
-        this.InitBinaryTable = this.ClassInfra.TableCreateModuleRefCompare();
+        this.InitModuleTable = this.ClassInfra.TableCreateModuleRefLess();
+        this.InitBinaryTable = this.ClassInfra.TableCreateModuleRefLess();
 
         this.PortRead = new PortRead();
         this.PortRead.Init();
@@ -675,7 +675,7 @@ public class Console : Any
         listInfra = this.ListInfra;
         
         Table a;
-        a = this.ClassInfra.TableCreateModuleRefCompare();
+        a = this.ClassInfra.TableCreateModuleRefLess();
 
         Iter iter;
         iter = table.IterCreate();
