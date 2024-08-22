@@ -8,6 +8,7 @@ public class StoragePathCheck : Any
         this.InfraInfra = InfraInfra.This;
         this.TextInfra = TextInfra.This;
         this.StorageInfra = StorageInfra.This;
+        this.StringValue = StringValue.This;
 
         LessInt charLess;
         charLess = new LessInt();
@@ -22,16 +23,17 @@ public class StoragePathCheck : Any
         this.TextLess.Init();
 
         this.Combine = this.TextInfra.TextCreateStringData(this.TextInfra.PathCombine, null);
-        this.BackSlash = this.TextInfra.TextCreateStringData("\\", null);
-        this.SlashSlash = this.TextInfra.TextCreateStringData("//", null);
-        this.Dot = this.TextInfra.TextCreateStringData(".", null);
-        this.DotDot = this.TextInfra.TextCreateStringData("..", null);
+        this.BackSlash = this.TextInfra.TextCreateStringData(this.S("\\"), null);
+        this.SlashSlash = this.TextInfra.TextCreateStringData(this.S("//"), null);
+        this.Dot = this.TextInfra.TextCreateStringData(this.S("."), null);
+        this.DotDot = this.TextInfra.TextCreateStringData(this.S(".."), null);
         return true;
     }
 
     protected virtual InfraInfra InfraInfra { get; set; }
     protected virtual TextInfra TextInfra { get; set; }
     protected virtual StorageInfra StorageInfra { get; set; }
+    protected virtual StringValue StringValue { get; set; }
     protected virtual TextLess TextLess { get; set; }
     protected virtual Text Combine { get; set; }
     protected virtual Text BackSlash { get; set; }
@@ -44,7 +46,7 @@ public class StoragePathCheck : Any
         TextInfra textInfra;
         textInfra = this.TextInfra;
         
-        int k;
+        long k;
         k = textInfra.Index(text, this.BackSlash, this.TextLess);
 
         if (!(k == -1))
@@ -178,5 +180,10 @@ public class StoragePathCheck : Any
         }
 
         return false;
+    }
+
+    private String S(string o)
+    {
+        return this.StringValue.Execute(o);
     }
 }
