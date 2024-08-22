@@ -465,28 +465,14 @@ class Read : ToolGen
         return true;
     }
 
-    protected virtual bool CheckIsName(string value)
+    protected virtual bool CheckIsName(String value)
     {
         NameCheck nameCheck;
         nameCheck = this.NameCheck;
 
-        Text textA;
-        textA = this.TextA;
-        StringData stringDataA;
-        stringDataA = this.StringDataA;
+        Text a;
+        a = this.TextCreate(value);
 
-        this.TextStringGet(textA, stringDataA, value);
-
-        return nameCheck.IsName(textA);
-    }
-
-    protected virtual bool TextStringGet(Text text, StringData data, string o)
-    {
-        data.ValueString = o;
-
-        text.Data = data;
-        text.Range.Index = 0;
-        text.Range.Count = o.Length;
-        return true;
+        return nameCheck.IsName(a);
     }
 }
