@@ -31,8 +31,8 @@ public class Read : Any
         this.StringData = new StringData();
         this.StringData.Init();
 
-        LessMid charLess;
-        charLess = new LessMid();
+        LessInt charLess;
+        charLess = new LessInt();
         charLess.Init();
         CharForm charForm;
         charForm = new CharForm();
