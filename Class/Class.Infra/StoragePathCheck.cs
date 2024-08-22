@@ -102,25 +102,25 @@ public class StoragePathCheck : Any
         Text dotDot;
         dotDot = this.DotDot;
 
-        int combineCount;
+        long combineCount;
         combineCount = combine.Range.Count;
 
         InfraRange textRange;
         textRange = text.Range;
 
-        int kaa;
-        int kab;
+        long kaa;
+        long kab;
         kaa = textRange.Index;
         kab = textRange.Count;
 
         bool b;
         b = false;
 
-        int kk;
+        long kk;
         kk = textInfra.Index(text, combine, less);
         while (!b & !(kk == -1))
         {
-            int e;
+            long e;
             e = textRange.Count;
 
             textRange.Count = kk;
@@ -145,7 +145,7 @@ public class StoragePathCheck : Any
             {
                 textRange.Count = e;
 
-                int ka;
+                long ka;
                 ka = kk + combineCount;
 
                 textRange.Index = textRange.Index + ka;
