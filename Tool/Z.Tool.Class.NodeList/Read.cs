@@ -12,10 +12,6 @@ class Read : ToolGen
         this.NameCheck.TextCompare = this.ToolInfra.TextCompare;
         this.NameCheck.CharCompare = this.ToolInfra.CharCompare;
         this.NameCheck.CharForm = this.ToolInfra.CharForm;
-
-        this.TextA = this.CreateText();
-        this.StringDataA = new StringData();
-        this.StringDataA.Init();
         return true;
     }
 
@@ -62,8 +58,6 @@ class Read : ToolGen
     public virtual Table ClassTable { get; set; }
     protected virtual ClassInfra ClassInfra { get; set; }
     protected virtual NameCheck NameCheck { get; set; }
-    protected virtual Text TextA { get; set; }
-    protected virtual StringData StringDataA { get; set; }
     protected virtual Class Class { get; set; }
 
     protected virtual bool SetClassTable()
