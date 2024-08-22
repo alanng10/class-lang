@@ -236,7 +236,7 @@ public class NameCheck : Any
 
         text.Data = d;
         text.Range.Index = 0;
-        text.Range.Count = o.Length;
+        text.Range.Count = this.StringComp.Count(o);
         return true;
     }
 }
