@@ -9,7 +9,7 @@ public class StringLess : Less
         return true;
     }
 
-    public virtual LessInt CharCompare { get; set; }
+    public virtual LessInt CharLess { get; set; }
     public virtual CharForm LeftCharForm { get; set; }
     public virtual CharForm RightCharForm { get; set; }
     protected virtual StringComp StringComp { get; set; }
@@ -30,7 +30,7 @@ public class StringLess : Less
         rightCount = stringComp.Count(rightString);
 
         LessInt charCompare;
-        charCompare = this.CharCompare;
+        charCompare = this.CharLess;
 
         CharForm leftCharForm;
         CharForm rightCharForm;
