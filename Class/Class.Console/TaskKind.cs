@@ -1,8 +1,6 @@
 namespace Class.Console;
 
-
-
 public class TaskKind : Any
 {
-    public virtual int Index { get; set; }
+    public virtual long Index { get; set; }
 }
