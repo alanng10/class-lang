@@ -6,6 +6,8 @@ public class NameCheck : Any
     {
         base.Init();
         this.TextInfra = TextInfra.This;
+        this.StringComp = StringComp.This;
+        this.StringValue = StringValue.This;
         this.Keyword = KeywordList.This;
 
         this.StringData = new StringData();
@@ -29,6 +31,7 @@ public class NameCheck : Any
     public virtual LessInt CharLess { get; set; }
     public virtual CharForm CharForm { get; set; }
     protected virtual TextInfra TextInfra { get; set; }
+    protected virtual StringComp StringComp { get; set; }
     protected virtual StringValue StringValue { get; set; }
     protected virtual KeywordList Keyword { get; set; }
     protected virtual StringData StringData { get; set; }
@@ -60,15 +63,15 @@ public class NameCheck : Any
 
         Data data;
         data = text.Data;
-        int start;
+        long start;
         start = text.Range.Index;
 
-        int index;
+        long index;
         index = start;
-        char oc;
+        uint oc;
         oc = textInfra.DataCharGet(data, index);
 
-        oc = (char)charForm.Execute(oc);
+        oc = (uint)charForm.Execute(oc);
 
         if (!(textInfra.IsLetter(oc, true) | textInfra.IsLetter(oc, false)))
         {
@@ -225,7 +228,7 @@ public class NameCheck : Any
         return false;
     }
 
-    protected virtual bool TextStringGet(Text text, string o)
+    protected virtual bool TextStringGet(Text text, String o)
     {
         StringData d;
         d = this.StringData;

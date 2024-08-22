@@ -19,6 +19,7 @@ public class Infra : Any
         base.Init();
         this.InfraInfra = InfraInfra.This;
         this.TextInfra = TextInfra.This;
+        this.StringValue = StringValue.This;
         this.CountList = CountList.This;
 
         this.Quote = this.S("\"");
