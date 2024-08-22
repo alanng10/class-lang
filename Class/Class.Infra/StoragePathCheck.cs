@@ -9,8 +9,8 @@ public class StoragePathCheck : Any
         this.TextInfra = TextInfra.This;
         this.StorageInfra = StorageInfra.This;
 
-        LessMid charLess;
-        charLess = new LessMid();
+        LessInt charLess;
+        charLess = new LessInt();
         charLess.Init();
         CharForm charForm;
         charForm = new CharForm();
@@ -21,7 +21,7 @@ public class StoragePathCheck : Any
         this.TextLess.RightCharForm = charForm;
         this.TextLess.Init();
 
-        this.Combine = this.TextInfra.TextCreateStringData(this.InfraInfra.PathCombine, null);
+        this.Combine = this.TextInfra.TextCreateStringData(this.TextInfra.PathCombine, null);
         this.BackSlash = this.TextInfra.TextCreateStringData("\\", null);
         this.SlashSlash = this.TextInfra.TextCreateStringData("//", null);
         this.Dot = this.TextInfra.TextCreateStringData(".", null);
