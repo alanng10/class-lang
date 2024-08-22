@@ -1,22 +1,22 @@
 namespace Class.Infra;
 
-public class ModuleRefCompare : Compare
+public class ModuleRefLess : Less
 {
     public override bool Init()
     {
         base.Init();
         this.InfraInfra = InfraInfra.This;
 
-        this.StringCompare = this.InfraInfra.StringCompareCreate();
+        this.StringLess = this.InfraInfra.StringCompareCreate();
 
-        this.CompareInt = new CompareInt();
-        this.CompareInt.Init();
+        this.LessInt = new LessInt();
+        this.LessInt.Init();
         return true;
     }
 
     protected virtual InfraInfra InfraInfra { get; set; }
-    protected virtual StringCompare StringCompare { get; set; }
-    protected virtual CompareInt CompareInt { get; set; }
+    protected virtual StringLess StringLess { get; set; }
+    protected virtual LessInt LessInt { get; set; }
 
     public override long Execute(object left, object right)
     {
@@ -26,13 +26,13 @@ public class ModuleRefCompare : Compare
         rightA = (ModuleRef)right;
 
         long a;
-        a = this.StringCompare.Execute(leftA.Name, rightA.Name);
+        a = this.StringLess.Execute(leftA.Name, rightA.Name);
 
         if (!(a == 0))
         {
             return a;
         }
 
-        return this.CompareInt.Execute(leftA.Version, rightA.Version);
+        return this.LessInt.Execute(leftA.Version, rightA.Version);
     }
 }
