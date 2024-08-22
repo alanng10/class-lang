@@ -126,21 +126,21 @@ public class NameCheck : Any
         InfraRange range;
         range = text.Range;
 
-        int aa;
-        int ab;
+        long aa;
+        long ab;
         aa = range.Index;
         ab = range.Count;
-        int ac;
+        long ac;
         ac = aa + ab;
 
         bool b;
         b = false;
 
-        int u;
+        long u;
         u = textInfra.Index(text, dot, less);
 
-        int index;
-        int count;
+        long index;
+        long count;
         index = aa;
         count = ab;
         while (!b & !(u == -1))
