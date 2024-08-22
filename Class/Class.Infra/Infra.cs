@@ -42,21 +42,21 @@ public class Infra : Any
     protected virtual StringValue StringValue { get; set; }
     protected virtual CountList CountList { get; set; }
 
-    public virtual bool IndexRange(Range range, int index)
+    public virtual bool IndexRange(Range range, long index)
     {
         range.Start = index;
         range.End = index + 1;
         return true;
     }
 
-    public virtual int Count(int start, int end)
+    public virtual long Count(long start, long end)
     {
         return end - start;
     }
 
-    public virtual bool CheckRange(int totalCount, int start, int end)
+    public virtual bool CheckRange(long totalCount, long start, long end)
     {
-        int count;
+        long count;
         count = this.Count(start, end);
         return this.InfraInfra.ValidRange(totalCount, start, count);
     }
@@ -267,7 +267,7 @@ public class Infra : Any
         return true;
     }
 
-    public virtual object CompDefined(Class varClass, string name, Class anyClass)
+    public virtual object CompDefined(Class varClass, String name, Class anyClass)
     {
         Count privateCount;
         privateCount = this.CountList.Private;
