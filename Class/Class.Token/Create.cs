@@ -135,12 +135,12 @@ public class Create : InfraCreate
         Range range;
         range = this.Range;
 
-        int row;
+        long row;
         row = 0;
-        int col;
+        long col;
         col = 0;
 
-        int count;
+        long count;
         count = sourceText.Count;
         while (row < count)
         {
@@ -152,10 +152,10 @@ public class Create : InfraCreate
             Range ke;
             ke = line.Range;
             
-            int start;
+            long start;
             start = ke.Index;
 
-            int colCount;
+            long colCount;
             colCount = ke.Count;
 
             col = 0;
@@ -165,10 +165,10 @@ public class Create : InfraCreate
                 bool isValid;
                 isValid = false;
 
-                char c;
+                uint c;
                 c = textInfra.DataCharGet(data, start + col);
 
-                c = (char)charForm.Execute(c);
+                c = (uint)charForm.Execute(c);
 
                 if (c == '#')
                 {
@@ -201,17 +201,16 @@ public class Create : InfraCreate
                     this.Row = row;
                     range.Index = col;
 
-                    int cc;
+                    long cc;
                     cc = col + 1;
                     bool b;
                     b = false;
-                    int uu;
                     while (!b & cc < colCount)
                     {
-                        char oc;
+                        uint oc;
                         oc = textInfra.DataCharGet(data, start + cc);
 
-                        oc = (char)charForm.Execute(oc);
+                        oc = (uint)charForm.Execute(oc);
 
                         bool ba;
                         ba = (oc == '\"');
@@ -226,6 +225,7 @@ public class Create : InfraCreate
                             bb = (oc == '\\');
                             if (bb)
                             {
+                                long uu;
                                 uu = cc + 1;
                                 if (uu < colCount)
                                 {
@@ -420,7 +420,7 @@ public class Create : InfraCreate
         return true;
     }
 
-    protected virtual bool EndToken(int col)
+    protected virtual bool EndToken(long col)
     {
         if (!this.NullRange())
         {
