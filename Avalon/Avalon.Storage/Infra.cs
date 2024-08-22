@@ -270,27 +270,27 @@ public class Infra : Any
         return o;
     }
 
-    public virtual long EntryPathNameCombine(TextText entryPath, Compare compare)
+    public virtual long EntryPathNameCombine(TextText entryPath, Less less)
     {
         long a;
-        a = this.TextInfra.LastIndex(entryPath, this.TextSlash, compare);
+        a = this.TextInfra.LastIndex(entryPath, this.TextSlash, less);
         return a;
     }
 
-    public virtual long EntryNameExtensionDot(TextText entryName, Compare compare)
+    public virtual long EntryNameExtensionDot(TextText entryName, Less less)
     {
         long a;
-        a = this.TextInfra.LastIndex(entryName, this.TextDot, compare);
+        a = this.TextInfra.LastIndex(entryName, this.TextDot, less);
         return a;
     }
 
-    public virtual bool IsRelativePath(TextText entryPath, Compare compare)
+    public virtual bool IsRelativePath(TextText entryPath, Less less)
     {
         TextInfra textInfra;
         textInfra = this.TextInfra;
 
         long k;
-        k = textInfra.Index(entryPath, this.TextSlash, compare);
+        k = textInfra.Index(entryPath, this.TextSlash, less);
         if (k == -1)
         {
             return true;
@@ -319,7 +319,7 @@ public class Infra : Any
         range.Count = colonCount;
 
         bool b;
-        b = textInfra.Equal(entryPath, colon, compare);
+        b = textInfra.Equal(entryPath, colon, less);
         
         range.Index = indexA;
         range.Count = countA;
