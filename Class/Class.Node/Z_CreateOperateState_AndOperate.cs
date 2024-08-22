@@ -9,8 +9,8 @@ public class AndOperateCreateOperateState : CreateOperateState
         
         AndOperate node;
         node = (AndOperate)this.Node;
-        node.Left = (Operate)arg.Field00;
-        node.Right = (Operate)arg.Field01;
+        node.Lite = (Operate)arg.Field00;
+        node.Rite = (Operate)arg.Field01;
         return true;
     }
 }

@@ -202,13 +202,13 @@ partial class ClassPathTraverse
         return true;
     }
 
-    public override bool ExecuteProbateCount(ProbateCount probateCount)
+    public override bool ExecutePrecateCount(PrecateCount precateCount)
     {
-        if (probateCount == null)
+        if (precateCount == null)
         {
             return true;
         }
-        this.ExecuteNode(probateCount);
+        this.ExecuteNode(precateCount);
 
         if (this.HasResult())
         {
@@ -217,13 +217,13 @@ partial class ClassPathTraverse
         return true;
     }
 
-    public override bool ExecutePrecateCount(PrecateCount precateCount)
+    public override bool ExecutePronateCount(PronateCount pronateCount)
     {
-        if (precateCount == null)
+        if (pronateCount == null)
         {
             return true;
         }
-        this.ExecuteNode(precateCount);
+        this.ExecuteNode(pronateCount);
 
         if (this.HasResult())
         {
@@ -864,27 +864,27 @@ partial class ClassPathTraverse
         return true;
     }
 
-    public override bool ExecuteEqualOperate(EqualOperate equalOperate)
+    public override bool ExecuteSameOperate(SameOperate sameOperate)
     {
-        if (equalOperate == null)
+        if (sameOperate == null)
         {
             return true;
         }
-        this.ExecuteNode(equalOperate);
+        this.ExecuteNode(sameOperate);
 
         if (this.HasResult())
         {
             return true;
         }
 
-        if (this.FieldEqual("Left"))
+        if (this.FieldEqual("Lite"))
         {
-            this.ExecuteOperate(equalOperate.Left);
+            this.ExecuteOperate(sameOperate.Lite);
             return true;
         }
-        if (this.FieldEqual("Right"))
+        if (this.FieldEqual("Rite"))
         {
-            this.ExecuteOperate(equalOperate.Right);
+            this.ExecuteOperate(sameOperate.Rite);
             return true;
         }
         return true;
@@ -903,14 +903,14 @@ partial class ClassPathTraverse
             return true;
         }
 
-        if (this.FieldEqual("Left"))
+        if (this.FieldEqual("Lite"))
         {
-            this.ExecuteOperate(andOperate.Left);
+            this.ExecuteOperate(andOperate.Lite);
             return true;
         }
-        if (this.FieldEqual("Right"))
+        if (this.FieldEqual("Rite"))
         {
-            this.ExecuteOperate(andOperate.Right);
+            this.ExecuteOperate(andOperate.Rite);
             return true;
         }
         return true;
@@ -929,14 +929,14 @@ partial class ClassPathTraverse
             return true;
         }
 
-        if (this.FieldEqual("Left"))
+        if (this.FieldEqual("Lite"))
         {
-            this.ExecuteOperate(ornOperate.Left);
+            this.ExecuteOperate(ornOperate.Lite);
             return true;
         }
-        if (this.FieldEqual("Right"))
+        if (this.FieldEqual("Rite"))
         {
-            this.ExecuteOperate(ornOperate.Right);
+            this.ExecuteOperate(ornOperate.Rite);
             return true;
         }
         return true;
@@ -976,14 +976,14 @@ partial class ClassPathTraverse
             return true;
         }
 
-        if (this.FieldEqual("Left"))
+        if (this.FieldEqual("Lite"))
         {
-            this.ExecuteOperate(addOperate.Left);
+            this.ExecuteOperate(addOperate.Lite);
             return true;
         }
-        if (this.FieldEqual("Right"))
+        if (this.FieldEqual("Rite"))
         {
-            this.ExecuteOperate(addOperate.Right);
+            this.ExecuteOperate(addOperate.Rite);
             return true;
         }
         return true;
@@ -1002,14 +1002,14 @@ partial class ClassPathTraverse
             return true;
         }
 
-        if (this.FieldEqual("Left"))
+        if (this.FieldEqual("Lite"))
         {
-            this.ExecuteOperate(subOperate.Left);
+            this.ExecuteOperate(subOperate.Lite);
             return true;
         }
-        if (this.FieldEqual("Right"))
+        if (this.FieldEqual("Rite"))
         {
-            this.ExecuteOperate(subOperate.Right);
+            this.ExecuteOperate(subOperate.Rite);
             return true;
         }
         return true;
@@ -1028,14 +1028,14 @@ partial class ClassPathTraverse
             return true;
         }
 
-        if (this.FieldEqual("Left"))
+        if (this.FieldEqual("Lite"))
         {
-            this.ExecuteOperate(mulOperate.Left);
+            this.ExecuteOperate(mulOperate.Lite);
             return true;
         }
-        if (this.FieldEqual("Right"))
+        if (this.FieldEqual("Rite"))
         {
-            this.ExecuteOperate(mulOperate.Right);
+            this.ExecuteOperate(mulOperate.Rite);
             return true;
         }
         return true;
@@ -1054,14 +1054,14 @@ partial class ClassPathTraverse
             return true;
         }
 
-        if (this.FieldEqual("Left"))
+        if (this.FieldEqual("Lite"))
         {
-            this.ExecuteOperate(divOperate.Left);
+            this.ExecuteOperate(divOperate.Lite);
             return true;
         }
-        if (this.FieldEqual("Right"))
+        if (this.FieldEqual("Rite"))
         {
-            this.ExecuteOperate(divOperate.Right);
+            this.ExecuteOperate(divOperate.Rite);
             return true;
         }
         return true;
@@ -1080,14 +1080,14 @@ partial class ClassPathTraverse
             return true;
         }
 
-        if (this.FieldEqual("Left"))
+        if (this.FieldEqual("Lite"))
         {
-            this.ExecuteOperate(lessOperate.Left);
+            this.ExecuteOperate(lessOperate.Lite);
             return true;
         }
-        if (this.FieldEqual("Right"))
+        if (this.FieldEqual("Rite"))
         {
-            this.ExecuteOperate(lessOperate.Right);
+            this.ExecuteOperate(lessOperate.Rite);
             return true;
         }
         return true;
@@ -1106,14 +1106,14 @@ partial class ClassPathTraverse
             return true;
         }
 
-        if (this.FieldEqual("Left"))
+        if (this.FieldEqual("Lite"))
         {
-            this.ExecuteOperate(signMulOperate.Left);
+            this.ExecuteOperate(signMulOperate.Lite);
             return true;
         }
-        if (this.FieldEqual("Right"))
+        if (this.FieldEqual("Rite"))
         {
-            this.ExecuteOperate(signMulOperate.Right);
+            this.ExecuteOperate(signMulOperate.Rite);
             return true;
         }
         return true;
@@ -1132,14 +1132,14 @@ partial class ClassPathTraverse
             return true;
         }
 
-        if (this.FieldEqual("Left"))
+        if (this.FieldEqual("Lite"))
         {
-            this.ExecuteOperate(signDivOperate.Left);
+            this.ExecuteOperate(signDivOperate.Lite);
             return true;
         }
-        if (this.FieldEqual("Right"))
+        if (this.FieldEqual("Rite"))
         {
-            this.ExecuteOperate(signDivOperate.Right);
+            this.ExecuteOperate(signDivOperate.Rite);
             return true;
         }
         return true;
@@ -1158,14 +1158,14 @@ partial class ClassPathTraverse
             return true;
         }
 
-        if (this.FieldEqual("Left"))
+        if (this.FieldEqual("Lite"))
         {
-            this.ExecuteOperate(signLessOperate.Left);
+            this.ExecuteOperate(signLessOperate.Lite);
             return true;
         }
-        if (this.FieldEqual("Right"))
+        if (this.FieldEqual("Rite"))
         {
-            this.ExecuteOperate(signLessOperate.Right);
+            this.ExecuteOperate(signLessOperate.Rite);
             return true;
         }
         return true;
@@ -1184,14 +1184,14 @@ partial class ClassPathTraverse
             return true;
         }
 
-        if (this.FieldEqual("Left"))
+        if (this.FieldEqual("Lite"))
         {
-            this.ExecuteOperate(bitAndOperate.Left);
+            this.ExecuteOperate(bitAndOperate.Lite);
             return true;
         }
-        if (this.FieldEqual("Right"))
+        if (this.FieldEqual("Rite"))
         {
-            this.ExecuteOperate(bitAndOperate.Right);
+            this.ExecuteOperate(bitAndOperate.Rite);
             return true;
         }
         return true;
@@ -1210,14 +1210,14 @@ partial class ClassPathTraverse
             return true;
         }
 
-        if (this.FieldEqual("Left"))
+        if (this.FieldEqual("Lite"))
         {
-            this.ExecuteOperate(bitOrnOperate.Left);
+            this.ExecuteOperate(bitOrnOperate.Lite);
             return true;
         }
-        if (this.FieldEqual("Right"))
+        if (this.FieldEqual("Rite"))
         {
-            this.ExecuteOperate(bitOrnOperate.Right);
+            this.ExecuteOperate(bitOrnOperate.Rite);
             return true;
         }
         return true;
@@ -1244,13 +1244,13 @@ partial class ClassPathTraverse
         return true;
     }
 
-    public override bool ExecuteBitLeftOperate(BitLeftOperate bitLeftOperate)
+    public override bool ExecuteBitLiteOperate(BitLiteOperate bitLiteOperate)
     {
-        if (bitLeftOperate == null)
+        if (bitLiteOperate == null)
         {
             return true;
         }
-        this.ExecuteNode(bitLeftOperate);
+        this.ExecuteNode(bitLiteOperate);
 
         if (this.HasResult())
         {
@@ -1259,24 +1259,24 @@ partial class ClassPathTraverse
 
         if (this.FieldEqual("Value"))
         {
-            this.ExecuteOperate(bitLeftOperate.Value);
+            this.ExecuteOperate(bitLiteOperate.Value);
             return true;
         }
         if (this.FieldEqual("Count"))
         {
-            this.ExecuteOperate(bitLeftOperate.Count);
+            this.ExecuteOperate(bitLiteOperate.Count);
             return true;
         }
         return true;
     }
 
-    public override bool ExecuteBitRightOperate(BitRightOperate bitRightOperate)
+    public override bool ExecuteBitRiteOperate(BitRiteOperate bitRiteOperate)
     {
-        if (bitRightOperate == null)
+        if (bitRiteOperate == null)
         {
             return true;
         }
-        this.ExecuteNode(bitRightOperate);
+        this.ExecuteNode(bitRiteOperate);
 
         if (this.HasResult())
         {
@@ -1285,24 +1285,24 @@ partial class ClassPathTraverse
 
         if (this.FieldEqual("Value"))
         {
-            this.ExecuteOperate(bitRightOperate.Value);
+            this.ExecuteOperate(bitRiteOperate.Value);
             return true;
         }
         if (this.FieldEqual("Count"))
         {
-            this.ExecuteOperate(bitRightOperate.Count);
+            this.ExecuteOperate(bitRiteOperate.Count);
             return true;
         }
         return true;
     }
 
-    public override bool ExecuteBitSignRightOperate(BitSignRightOperate bitSignRightOperate)
+    public override bool ExecuteBitSignRiteOperate(BitSignRiteOperate bitSignRiteOperate)
     {
-        if (bitSignRightOperate == null)
+        if (bitSignRiteOperate == null)
         {
             return true;
         }
-        this.ExecuteNode(bitSignRightOperate);
+        this.ExecuteNode(bitSignRiteOperate);
 
         if (this.HasResult())
         {
@@ -1311,12 +1311,12 @@ partial class ClassPathTraverse
 
         if (this.FieldEqual("Value"))
         {
-            this.ExecuteOperate(bitSignRightOperate.Value);
+            this.ExecuteOperate(bitSignRiteOperate.Value);
             return true;
         }
         if (this.FieldEqual("Count"))
         {
-            this.ExecuteOperate(bitSignRightOperate.Count);
+            this.ExecuteOperate(bitSignRiteOperate.Count);
             return true;
         }
         return true;

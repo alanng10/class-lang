@@ -9,7 +9,7 @@ public class MaideNameCreateOperateState : CreateOperateState
         
         MaideName node;
         node = (MaideName)this.Node;
-        node.Value = (string)arg.Field00;
+        node.Value = (String)arg.Field00;
         return true;
     }
 }

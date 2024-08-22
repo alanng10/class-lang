@@ -9,7 +9,7 @@ public class VarNameCreateOperateState : CreateOperateState
         
         VarName node;
         node = (VarName)this.Node;
-        node.Value = (string)arg.Field00;
+        node.Value = (String)arg.Field00;
         return true;
     }
 }

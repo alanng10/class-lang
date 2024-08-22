@@ -139,13 +139,13 @@ public class Traverse : Any
         {
             this.ExecutePrusateCount((PrusateCount)count);
         }
-        if (count is ProbateCount)
-        {
-            this.ExecuteProbateCount((ProbateCount)count);
-        }
         if (count is PrecateCount)
         {
             this.ExecutePrecateCount((PrecateCount)count);
+        }
+        if (count is PronateCount)
+        {
+            this.ExecutePronateCount((PronateCount)count);
         }
         if (count is PrivateCount)
         {
@@ -164,16 +164,6 @@ public class Traverse : Any
         return true;
     }
 
-    public virtual bool ExecuteProbateCount(ProbateCount probateCount)
-    {
-        if (probateCount == null)
-        {
-            return true;
-        }
-        this.ExecuteNode(probateCount);
-        return true;
-    }
-
     public virtual bool ExecutePrecateCount(PrecateCount precateCount)
     {
         if (precateCount == null)
@@ -181,6 +171,16 @@ public class Traverse : Any
             return true;
         }
         this.ExecuteNode(precateCount);
+        return true;
+    }
+
+    public virtual bool ExecutePronateCount(PronateCount pronateCount)
+    {
+        if (pronateCount == null)
+        {
+            return true;
+        }
+        this.ExecuteNode(pronateCount);
         return true;
     }
 
@@ -437,9 +437,9 @@ public class Traverse : Any
         {
             this.ExecuteBracketOperate((BracketOperate)operate);
         }
-        if (operate is EqualOperate)
+        if (operate is SameOperate)
         {
-            this.ExecuteEqualOperate((EqualOperate)operate);
+            this.ExecuteSameOperate((SameOperate)operate);
         }
         if (operate is AndOperate)
         {
@@ -497,17 +497,17 @@ public class Traverse : Any
         {
             this.ExecuteBitNotOperate((BitNotOperate)operate);
         }
-        if (operate is BitLeftOperate)
+        if (operate is BitLiteOperate)
         {
-            this.ExecuteBitLeftOperate((BitLeftOperate)operate);
+            this.ExecuteBitLiteOperate((BitLiteOperate)operate);
         }
-        if (operate is BitRightOperate)
+        if (operate is BitRiteOperate)
         {
-            this.ExecuteBitRightOperate((BitRightOperate)operate);
+            this.ExecuteBitRiteOperate((BitRiteOperate)operate);
         }
-        if (operate is BitSignRightOperate)
+        if (operate is BitSignRiteOperate)
         {
-            this.ExecuteBitSignRightOperate((BitSignRightOperate)operate);
+            this.ExecuteBitSignRiteOperate((BitSignRiteOperate)operate);
         }
         return true;
     }
@@ -776,16 +776,16 @@ public class Traverse : Any
         return true;
     }
 
-    public virtual bool ExecuteEqualOperate(EqualOperate equalOperate)
+    public virtual bool ExecuteSameOperate(SameOperate sameOperate)
     {
-        if (equalOperate == null)
+        if (sameOperate == null)
         {
             return true;
         }
-        this.ExecuteNode(equalOperate);
+        this.ExecuteNode(sameOperate);
 
-        this.ExecuteOperate(equalOperate.Left);
-        this.ExecuteOperate(equalOperate.Right);
+        this.ExecuteOperate(sameOperate.Lite);
+        this.ExecuteOperate(sameOperate.Rite);
         return true;
     }
 
@@ -797,8 +797,8 @@ public class Traverse : Any
         }
         this.ExecuteNode(andOperate);
 
-        this.ExecuteOperate(andOperate.Left);
-        this.ExecuteOperate(andOperate.Right);
+        this.ExecuteOperate(andOperate.Lite);
+        this.ExecuteOperate(andOperate.Rite);
         return true;
     }
 
@@ -810,8 +810,8 @@ public class Traverse : Any
         }
         this.ExecuteNode(ornOperate);
 
-        this.ExecuteOperate(ornOperate.Left);
-        this.ExecuteOperate(ornOperate.Right);
+        this.ExecuteOperate(ornOperate.Lite);
+        this.ExecuteOperate(ornOperate.Rite);
         return true;
     }
 
@@ -835,8 +835,8 @@ public class Traverse : Any
         }
         this.ExecuteNode(addOperate);
 
-        this.ExecuteOperate(addOperate.Left);
-        this.ExecuteOperate(addOperate.Right);
+        this.ExecuteOperate(addOperate.Lite);
+        this.ExecuteOperate(addOperate.Rite);
         return true;
     }
 
@@ -848,8 +848,8 @@ public class Traverse : Any
         }
         this.ExecuteNode(subOperate);
 
-        this.ExecuteOperate(subOperate.Left);
-        this.ExecuteOperate(subOperate.Right);
+        this.ExecuteOperate(subOperate.Lite);
+        this.ExecuteOperate(subOperate.Rite);
         return true;
     }
 
@@ -861,8 +861,8 @@ public class Traverse : Any
         }
         this.ExecuteNode(mulOperate);
 
-        this.ExecuteOperate(mulOperate.Left);
-        this.ExecuteOperate(mulOperate.Right);
+        this.ExecuteOperate(mulOperate.Lite);
+        this.ExecuteOperate(mulOperate.Rite);
         return true;
     }
 
@@ -874,8 +874,8 @@ public class Traverse : Any
         }
         this.ExecuteNode(divOperate);
 
-        this.ExecuteOperate(divOperate.Left);
-        this.ExecuteOperate(divOperate.Right);
+        this.ExecuteOperate(divOperate.Lite);
+        this.ExecuteOperate(divOperate.Rite);
         return true;
     }
 
@@ -887,8 +887,8 @@ public class Traverse : Any
         }
         this.ExecuteNode(lessOperate);
 
-        this.ExecuteOperate(lessOperate.Left);
-        this.ExecuteOperate(lessOperate.Right);
+        this.ExecuteOperate(lessOperate.Lite);
+        this.ExecuteOperate(lessOperate.Rite);
         return true;
     }
 
@@ -900,8 +900,8 @@ public class Traverse : Any
         }
         this.ExecuteNode(signMulOperate);
 
-        this.ExecuteOperate(signMulOperate.Left);
-        this.ExecuteOperate(signMulOperate.Right);
+        this.ExecuteOperate(signMulOperate.Lite);
+        this.ExecuteOperate(signMulOperate.Rite);
         return true;
     }
 
@@ -913,8 +913,8 @@ public class Traverse : Any
         }
         this.ExecuteNode(signDivOperate);
 
-        this.ExecuteOperate(signDivOperate.Left);
-        this.ExecuteOperate(signDivOperate.Right);
+        this.ExecuteOperate(signDivOperate.Lite);
+        this.ExecuteOperate(signDivOperate.Rite);
         return true;
     }
 
@@ -926,8 +926,8 @@ public class Traverse : Any
         }
         this.ExecuteNode(signLessOperate);
 
-        this.ExecuteOperate(signLessOperate.Left);
-        this.ExecuteOperate(signLessOperate.Right);
+        this.ExecuteOperate(signLessOperate.Lite);
+        this.ExecuteOperate(signLessOperate.Rite);
         return true;
     }
 
@@ -939,8 +939,8 @@ public class Traverse : Any
         }
         this.ExecuteNode(bitAndOperate);
 
-        this.ExecuteOperate(bitAndOperate.Left);
-        this.ExecuteOperate(bitAndOperate.Right);
+        this.ExecuteOperate(bitAndOperate.Lite);
+        this.ExecuteOperate(bitAndOperate.Rite);
         return true;
     }
 
@@ -952,8 +952,8 @@ public class Traverse : Any
         }
         this.ExecuteNode(bitOrnOperate);
 
-        this.ExecuteOperate(bitOrnOperate.Left);
-        this.ExecuteOperate(bitOrnOperate.Right);
+        this.ExecuteOperate(bitOrnOperate.Lite);
+        this.ExecuteOperate(bitOrnOperate.Rite);
         return true;
     }
 
@@ -969,42 +969,42 @@ public class Traverse : Any
         return true;
     }
 
-    public virtual bool ExecuteBitLeftOperate(BitLeftOperate bitLeftOperate)
+    public virtual bool ExecuteBitLiteOperate(BitLiteOperate bitLiteOperate)
     {
-        if (bitLeftOperate == null)
+        if (bitLiteOperate == null)
         {
             return true;
         }
-        this.ExecuteNode(bitLeftOperate);
+        this.ExecuteNode(bitLiteOperate);
 
-        this.ExecuteOperate(bitLeftOperate.Value);
-        this.ExecuteOperate(bitLeftOperate.Count);
+        this.ExecuteOperate(bitLiteOperate.Value);
+        this.ExecuteOperate(bitLiteOperate.Count);
         return true;
     }
 
-    public virtual bool ExecuteBitRightOperate(BitRightOperate bitRightOperate)
+    public virtual bool ExecuteBitRiteOperate(BitRiteOperate bitRiteOperate)
     {
-        if (bitRightOperate == null)
+        if (bitRiteOperate == null)
         {
             return true;
         }
-        this.ExecuteNode(bitRightOperate);
+        this.ExecuteNode(bitRiteOperate);
 
-        this.ExecuteOperate(bitRightOperate.Value);
-        this.ExecuteOperate(bitRightOperate.Count);
+        this.ExecuteOperate(bitRiteOperate.Value);
+        this.ExecuteOperate(bitRiteOperate.Count);
         return true;
     }
 
-    public virtual bool ExecuteBitSignRightOperate(BitSignRightOperate bitSignRightOperate)
+    public virtual bool ExecuteBitSignRiteOperate(BitSignRiteOperate bitSignRiteOperate)
     {
-        if (bitSignRightOperate == null)
+        if (bitSignRiteOperate == null)
         {
             return true;
         }
-        this.ExecuteNode(bitSignRightOperate);
+        this.ExecuteNode(bitSignRiteOperate);
 
-        this.ExecuteOperate(bitSignRightOperate.Value);
-        this.ExecuteOperate(bitSignRightOperate.Count);
+        this.ExecuteOperate(bitSignRiteOperate.Value);
+        this.ExecuteOperate(bitSignRiteOperate.Count);
         return true;
     }
 

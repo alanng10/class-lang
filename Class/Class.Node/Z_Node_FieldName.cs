@@ -2,5 +2,5 @@ namespace Class.Node;
 
 public class FieldName : Node
 {
-    public virtual string Value { get; set; }
+    public virtual String Value { get; set; }
 }

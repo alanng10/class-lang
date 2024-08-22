@@ -30,8 +30,8 @@ public class NodeKindList : Any
         this.Var = this.AddItem("Var", new Var(), new VarNewState(), new VarNodeState(), new VarCreateOperateState());
         this.ItemCount = this.AddItem("Count", new Count(), new CountNewState(), new CountNodeState(), new CountCreateOperateState());
         this.PrusateCount = this.AddItem("PrusateCount", new PrusateCount(), new PrusateCountNewState(), new PrusateCountNodeState(), new PrusateCountCreateOperateState());
-        this.ProbateCount = this.AddItem("ProbateCount", new ProbateCount(), new ProbateCountNewState(), new ProbateCountNodeState(), new ProbateCountCreateOperateState());
         this.PrecateCount = this.AddItem("PrecateCount", new PrecateCount(), new PrecateCountNewState(), new PrecateCountNodeState(), new PrecateCountCreateOperateState());
+        this.PronateCount = this.AddItem("PronateCount", new PronateCount(), new PronateCountNewState(), new PronateCountNodeState(), new PronateCountCreateOperateState());
         this.PrivateCount = this.AddItem("PrivateCount", new PrivateCount(), new PrivateCountNewState(), new PrivateCountNodeState(), new PrivateCountCreateOperateState());
         this.State = this.AddItem("State", new State(), new StateNewState(), new StateNodeState(), new StateCreateOperateState());
         this.Execute = this.AddItem("Execute", new Execute(), new ExecuteNewState(), new ExecuteNodeState(), new ExecuteCreateOperateState());
@@ -68,7 +68,7 @@ public class NodeKindList : Any
         this.FieldName = this.AddItem("FieldName", new FieldName(), new FieldNameNewState(), new FieldNameNodeState(), new FieldNameCreateOperateState());
         this.MaideName = this.AddItem("MaideName", new MaideName(), new MaideNameNewState(), new MaideNameNodeState(), new MaideNameCreateOperateState());
         this.VarName = this.AddItem("VarName", new VarName(), new VarNameNewState(), new VarNameNodeState(), new VarNameCreateOperateState());
-        this.EqualOperate = this.AddItem("EqualOperate", new EqualOperate(), new EqualOperateNewState(), new EqualOperateNodeState(), new EqualOperateCreateOperateState());
+        this.SameOperate = this.AddItem("SameOperate", new SameOperate(), new SameOperateNewState(), new SameOperateNodeState(), new SameOperateCreateOperateState());
         this.AndOperate = this.AddItem("AndOperate", new AndOperate(), new AndOperateNewState(), new AndOperateNodeState(), new AndOperateCreateOperateState());
         this.OrnOperate = this.AddItem("OrnOperate", new OrnOperate(), new OrnOperateNewState(), new OrnOperateNodeState(), new OrnOperateCreateOperateState());
         this.NotOperate = this.AddItem("NotOperate", new NotOperate(), new NotOperateNewState(), new NotOperateNodeState(), new NotOperateCreateOperateState());
@@ -83,9 +83,9 @@ public class NodeKindList : Any
         this.BitAndOperate = this.AddItem("BitAndOperate", new BitAndOperate(), new BitAndOperateNewState(), new BitAndOperateNodeState(), new BitAndOperateCreateOperateState());
         this.BitOrnOperate = this.AddItem("BitOrnOperate", new BitOrnOperate(), new BitOrnOperateNewState(), new BitOrnOperateNodeState(), new BitOrnOperateCreateOperateState());
         this.BitNotOperate = this.AddItem("BitNotOperate", new BitNotOperate(), new BitNotOperateNewState(), new BitNotOperateNodeState(), new BitNotOperateCreateOperateState());
-        this.BitLeftOperate = this.AddItem("BitLeftOperate", new BitLeftOperate(), new BitLeftOperateNewState(), new BitLeftOperateNodeState(), new BitLeftOperateCreateOperateState());
-        this.BitRightOperate = this.AddItem("BitRightOperate", new BitRightOperate(), new BitRightOperateNewState(), new BitRightOperateNodeState(), new BitRightOperateCreateOperateState());
-        this.BitSignRightOperate = this.AddItem("BitSignRightOperate", new BitSignRightOperate(), new BitSignRightOperateNewState(), new BitSignRightOperateNodeState(), new BitSignRightOperateCreateOperateState());
+        this.BitLiteOperate = this.AddItem("BitLiteOperate", new BitLiteOperate(), new BitLiteOperateNewState(), new BitLiteOperateNodeState(), new BitLiteOperateCreateOperateState());
+        this.BitRiteOperate = this.AddItem("BitRiteOperate", new BitRiteOperate(), new BitRiteOperateNewState(), new BitRiteOperateNodeState(), new BitRiteOperateCreateOperateState());
+        this.BitSignRiteOperate = this.AddItem("BitSignRiteOperate", new BitSignRiteOperate(), new BitSignRiteOperateNewState(), new BitSignRiteOperateNodeState(), new BitSignRiteOperateCreateOperateState());
         return true;
     }
 
@@ -98,8 +98,8 @@ public class NodeKindList : Any
     public virtual NodeKind Var { get; set; }
     public virtual NodeKind ItemCount { get; set; }
     public virtual NodeKind PrusateCount { get; set; }
-    public virtual NodeKind ProbateCount { get; set; }
     public virtual NodeKind PrecateCount { get; set; }
+    public virtual NodeKind PronateCount { get; set; }
     public virtual NodeKind PrivateCount { get; set; }
     public virtual NodeKind State { get; set; }
     public virtual NodeKind Execute { get; set; }
@@ -136,7 +136,7 @@ public class NodeKindList : Any
     public virtual NodeKind FieldName { get; set; }
     public virtual NodeKind MaideName { get; set; }
     public virtual NodeKind VarName { get; set; }
-    public virtual NodeKind EqualOperate { get; set; }
+    public virtual NodeKind SameOperate { get; set; }
     public virtual NodeKind AndOperate { get; set; }
     public virtual NodeKind OrnOperate { get; set; }
     public virtual NodeKind NotOperate { get; set; }
@@ -151,9 +151,9 @@ public class NodeKindList : Any
     public virtual NodeKind BitAndOperate { get; set; }
     public virtual NodeKind BitOrnOperate { get; set; }
     public virtual NodeKind BitNotOperate { get; set; }
-    public virtual NodeKind BitLeftOperate { get; set; }
-    public virtual NodeKind BitRightOperate { get; set; }
-    public virtual NodeKind BitSignRightOperate { get; set; }
+    public virtual NodeKind BitLiteOperate { get; set; }
+    public virtual NodeKind BitRiteOperate { get; set; }
+    public virtual NodeKind BitSignRiteOperate { get; set; }
 
     protected virtual NodeKind AddItem(string name, Node node, InfraState newState, NodeState nodeState, CreateOperateState createOperateState)
     {
@@ -186,13 +186,13 @@ public class NodeKindList : Any
 
     protected virtual Array Array { get; set; }
 
-    protected virtual int ArrayCount { get { return 65; } set { } }
+    protected virtual long ArrayCount { get { return 65; } set { } }
 
-    public virtual int Count { get; set; }
+    public virtual long Count { get; set; }
     
-    protected virtual int Index { get; set; }
+    protected virtual long Index { get; set; }
 
-    public virtual NodeKind Get(int index)
+    public virtual NodeKind Get(long index)
     {
         return (NodeKind)this.Array.GetAt(index);
     }
