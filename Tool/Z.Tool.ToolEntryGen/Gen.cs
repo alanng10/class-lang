@@ -25,7 +25,6 @@ class Gen : ToolGen
         this.ExecuteOne("Class.DelimitList");
         this.ExecuteOne("Class.ErrorKindList");
         this.ExecuteOne("Class.KeywordList");
-        this.ExecuteOne("Class.NodeList");
         this.ExecuteOne("Class.TaskKindList");
         this.ExecuteOne("System.TextCodeKindList");
         this.ExecuteOne("System.StorageStatusList");
@@ -57,8 +56,8 @@ class Gen : ToolGen
         this.ExecuteOne("Infra.StatGradientSpread");
         this.ExecuteOne("Infra.StatImageBinary");
         this.ExecuteOne("MathGen");
-        this.ExecuteOne("PrudateGen");
-        this.ExecuteOne("ReferBinaryGen");
+        this.ExecuteOne("PrusateGen");
+        this.ExecuteOne("NodeListGen");
 
         return 0;
     }
