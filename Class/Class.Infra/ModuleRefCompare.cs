@@ -18,14 +18,14 @@ public class ModuleRefCompare : Compare
     protected virtual StringCompare StringCompare { get; set; }
     protected virtual CompareInt CompareInt { get; set; }
 
-    public override int Execute(object left, object right)
+    public override long Execute(object left, object right)
     {
         ModuleRef leftA;
         ModuleRef rightA;
         leftA = (ModuleRef)left;
         rightA = (ModuleRef)right;
 
-        int a;
+        long a;
         a = this.StringCompare.Execute(leftA.Name, rightA.Name);
 
         if (!(a == 0))
