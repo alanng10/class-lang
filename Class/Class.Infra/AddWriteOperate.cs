@@ -12,14 +12,14 @@ public class AddWriteOperate : WriteOperate
     public virtual StringValueWrite Write { get; set; }
     protected virtual TextInfra TextInfra { get; set; }
 
-    public override bool ExecuteChar(char oc)
+    public override bool ExecuteChar(uint n)
     {
-        int index;
+        long index;
         index = this.Write.Index;
 
         Data data;
         data = this.Write.Data;
-        this.TextInfra.DataCharSet(data, index, oc);
+        this.TextInfra.DataCharSet(data, index, n);
         
         index = index + 1;
 
