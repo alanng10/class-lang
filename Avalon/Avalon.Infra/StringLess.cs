@@ -14,34 +14,34 @@ public class StringLess : Less
     public virtual CharForm RightCharForm { get; set; }
     protected virtual StringComp StringComp { get; set; }
 
-    public override long Execute(object left, object right)
+    public override long Execute(object lite, object rite)
     {
         StringComp stringComp;
         stringComp = this.StringComp;
 
-        String leftString;
-        String rightString;
-        leftString = (String)left;
-        rightString = (String)right;
+        String liteString;
+        String riteString;
+        liteString = (String)lite;
+        riteString = (String)rite;
 
-        long leftCount;
-        long rightCount;
-        leftCount = stringComp.Count(leftString);
-        rightCount = stringComp.Count(rightString);
+        long liteCount;
+        long riteCount;
+        liteCount = stringComp.Count(liteString);
+        riteCount = stringComp.Count(riteString);
 
         LessInt charLess;
         charLess = this.CharLess;
 
-        CharForm leftCharForm;
-        CharForm rightCharForm;
-        leftCharForm = this.LeftCharForm;
-        rightCharForm = this.RightCharForm;
+        CharForm liteCharForm;
+        CharForm riteCharForm;
+        liteCharForm = this.LeftCharForm;
+        riteCharForm = this.RightCharForm;
 
         long count;
-        count = leftCount;
-        if (rightCount < count)
+        count = liteCount;
+        if (riteCount < count)
         {
-            count = rightCount;
+            count = riteCount;
         }
 
         long i;
@@ -50,11 +50,11 @@ public class StringLess : Less
         {
             uint oca;
             uint ocb;
-            oca = (uint)stringComp.Char(leftString, i);
-            ocb = (uint)stringComp.Char(rightString, i);
+            oca = (uint)stringComp.Char(liteString, i);
+            ocb = (uint)stringComp.Char(riteString, i);
 
-            oca = (uint)leftCharForm.Execute(oca);
-            ocb = (uint)rightCharForm.Execute(ocb);
+            oca = (uint)liteCharForm.Execute(oca);
+            ocb = (uint)riteCharForm.Execute(ocb);
 
             long oo;
             oo = charLess.Execute(oca, ocb);
@@ -67,7 +67,7 @@ public class StringLess : Less
         }
 
         long k;
-        k = leftCount - rightCount;
+        k = liteCount - riteCount;
         
         long a;
         a = 0;
