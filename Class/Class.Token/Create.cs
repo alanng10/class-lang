@@ -424,7 +424,7 @@ public class Create : InfraCreate
     {
         if (!this.NullRange())
         {
-            int count;
+            long count;
             count = this.ClassInfra.Count(this.Range.Index, col);
             this.Range.Count = count;
             this.AddToken();
