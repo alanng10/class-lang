@@ -15,15 +15,15 @@ public class Create : InfraCreate
         this.ErrorKind = ErrorKindList.This;
         this.NodeKind = NodeKindList.This;
 
-        this.CharCompare = new CompareMid();
-        this.CharCompare.Init();
+        this.CharLess = new LessMid();
+        this.CharLess.Init();
         this.CharForm = new CharForm();
         this.CharForm.Init();
-        this.TextCompare = new TextCompare();
-        this.TextCompare.CharCompare = this.CharCompare;
-        this.TextCompare.LeftCharForm = this.CharForm;
-        this.TextCompare.RightCharForm = this.CharForm;
-        this.TextCompare.Init();
+        this.TextLess = new TextLess();
+        this.TextLess.CharLess = this.CharLess;
+        this.TextLess.LeftCharForm = this.CharForm;
+        this.TextLess.RightCharForm = this.CharForm;
+        this.TextLess.Init();
 
         this.NameCheck = this.CreateNameCheck();
         this.StringValueWrite = this.CreateStringValueWrite();
@@ -103,8 +103,8 @@ public class Create : InfraCreate
     protected virtual Token TokenH { get; set; }
     protected virtual Token TokenI { get; set; }
 
-    protected virtual TextCompare TextCompare { get; set; }
-    protected virtual CompareMid CharCompare { get; set; }
+    protected virtual TextLess TextLess { get; set; }
+    protected virtual LessMid CharLess { get; set; }
     protected virtual CharForm CharForm { get; set; }
     protected virtual Text TextA { get; set; }
     protected virtual Text TextB { get; set; }
@@ -128,8 +128,8 @@ public class Create : InfraCreate
         NameCheck a;
         a = new NameCheck();
         a.Init();
-        a.TextCompare = this.TextCompare;
-        a.CharCompare = this.CharCompare;
+        a.TextLess = this.TextLess;
+        a.CharLess = this.CharLess;
         a.CharForm = this.CharForm;
         return a;
     }
@@ -1355,8 +1355,8 @@ public class Create : InfraCreate
         TextInfra textInfra;
         textInfra = this.TextInfra;
 
-        TextCompare compare;
-        compare = this.TextCompare;
+        TextLess less;
+        less = this.TextLess;
         TokenToken aa;
         aa = this.TokenToken(start);
         Text text;
@@ -1373,7 +1373,7 @@ public class Create : InfraCreate
         if (!b)
         {
             this.TextStringGet(textB, this.Keyword.True.Text);
-            if (textInfra.Equal(text, textB, compare))
+            if (textInfra.Equal(text, textB, less))
             {
                 value = true;
                 b = true;
@@ -1382,7 +1382,7 @@ public class Create : InfraCreate
         if (!b)
         {
             this.TextStringGet(textB, this.Keyword.False.Text);
-            if (textInfra.Equal(text, textB, compare))
+            if (textInfra.Equal(text, textB, less))
             {
                 value = false;
                 b = true;
@@ -4030,7 +4030,7 @@ public class Create : InfraCreate
         this.TextStringGet(textB, value);
 
         bool b;
-        b = this.TextInfra.Equal(text, textB, this.TextCompare);
+        b = this.TextInfra.Equal(text, textB, this.TextLess);
         bool a;
         a = b;
         return a;
@@ -4305,8 +4305,8 @@ public class Create : InfraCreate
         TokenToken aa;
         aa = this.TokenToken(index);
         
-        TextCompare compare;
-        compare = this.TextCompare;
+        TextLess less;
+        less = this.TextLess;
         Text text;
         text = this.TextA;
         this.TextGet(text, aa);
@@ -4314,7 +4314,7 @@ public class Create : InfraCreate
         textB = this.TextB;
 
         this.TextStringGet(textB, delimit.LeftBracket.Text);
-        if (textInfra.Equal(text, textB, compare))
+        if (textInfra.Equal(text, textB, less))
         {
             Token rightBracket;
             rightBracket = this.TokenMatchLeftBracket(this.TokenA, this.Range(this.RangeA, index + 1, end));
@@ -4325,7 +4325,7 @@ public class Create : InfraCreate
         }
 
         this.TextStringGet(textB, delimit.LeftBrace.Text);
-        if (textInfra.Equal(text, textB, compare))
+        if (textInfra.Equal(text, textB, less))
         {
             Token rightBrace;
             rightBrace = this.TokenMatchLeftBrace(this.TokenA, this.Range(this.RangeA, index + 1, end));
@@ -4350,8 +4350,8 @@ public class Create : InfraCreate
         TokenToken aa;
         aa = this.TokenToken(t);
 
-        TextCompare compare;
-        compare = this.TextCompare;
+        TextLess less;
+        less = this.TextLess;
         Text text;
         text = this.TextA;
         this.TextGet(text, aa);
@@ -4359,7 +4359,7 @@ public class Create : InfraCreate
         textB = this.TextB;
 
         this.TextStringGet(textB, delimit.RightBracket.Text);
-        if (textInfra.Equal(text, textB, compare))
+        if (textInfra.Equal(text, textB, less))
         {
             Token leftBracket;
             leftBracket = this.TokenMatchRightBracket(this.TokenA, this.Range(this.RangeA, start, t));
@@ -4370,7 +4370,7 @@ public class Create : InfraCreate
         }
 
         this.TextStringGet(textB, delimit.RightBrace.Text);
-        if (textInfra.Equal(text, textB, compare))
+        if (textInfra.Equal(text, textB, less))
         {
             Token leftBrace;
             leftBrace = this.TokenMatchRightBrace(this.TokenA, this.Range(this.RangeA, start, t));
@@ -4411,8 +4411,8 @@ public class Create : InfraCreate
         start = range.Start;
         end = range.End;
 
-        TextCompare compare;
-        compare = this.TextCompare;
+        TextLess less;
+        less = this.TextLess;
         Text text;
         text = this.TextA;
         Text textB;
@@ -4433,7 +4433,7 @@ public class Create : InfraCreate
             this.TextGet(text, aa);
             
             this.TextStringGet(textB, rightToken);
-            if (textInfra.Equal(text, textB, compare))
+            if (textInfra.Equal(text, textB, less))
             {
                 openCount = openCount - 1;
                 if (openCount == 0)
@@ -4444,7 +4444,7 @@ public class Create : InfraCreate
             }
 
             this.TextStringGet(textB, leftToken);
-            if (textInfra.Equal(text, textB, compare))
+            if (textInfra.Equal(text, textB, less))
             {
                 openCount = openCount + 1;
             }
@@ -4476,8 +4476,8 @@ public class Create : InfraCreate
         start = range.Start;
         end = range.End;
 
-        TextCompare compare;
-        compare = this.TextCompare;
+        TextLess less;
+        less = this.TextLess;
         Text text;
         text = this.TextA;
         Text textB;
@@ -4500,7 +4500,7 @@ public class Create : InfraCreate
             this.TextGet(text, aa);
 
             this.TextStringGet(textB, leftToken);
-            if (textInfra.Equal(text, textB, compare))
+            if (textInfra.Equal(text, textB, less))
             {
                 openCount = openCount - 1;
                 if (openCount == 0)
@@ -4511,7 +4511,7 @@ public class Create : InfraCreate
             }
 
             this.TextStringGet(textB, rightToken);
-            if (textInfra.Equal(text, textB, compare))
+            if (textInfra.Equal(text, textB, less))
             {
                 openCount = openCount + 1;
             }

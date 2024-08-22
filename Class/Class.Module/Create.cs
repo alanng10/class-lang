@@ -163,7 +163,7 @@ public class Create : InfraCreate
 
     protected virtual bool SetBaseTable()
     {
-        this.BaseTable = this.ClassInfra.TableCreateRefCompare();
+        this.BaseTable = this.ClassInfra.TableCreateRefLess();
 
         Iter iter;
         iter = this.Module.Class.IterCreate();
@@ -293,7 +293,7 @@ public class Create : InfraCreate
         baseTable = this.BaseTable;
 
         Table table;
-        table = this.ClassInfra.TableCreateRefCompare();
+        table = this.ClassInfra.TableCreateRefLess();
 
         listInfra.TableAdd(table, varClass, varClass);
 
@@ -338,7 +338,7 @@ public class Create : InfraCreate
         Table table;
         table = this.Module.Class;
 
-        this.RangeTable = this.ClassInfra.TableCreateRefCompare();
+        this.RangeTable = this.ClassInfra.TableCreateRefLess();
 
         Iter iter;
         iter = table.IterCreate();
@@ -584,7 +584,7 @@ public class Create : InfraCreate
         oo = (Table)module.Import.Get(o.Ref);
         if (oo == null)
         {
-            oo = this.ClassInfra.TableCreateRefCompare();
+            oo = this.ClassInfra.TableCreateRefLess();
             this.ListInfra.TableAdd(module.Import, o.Ref, oo);
         }
         

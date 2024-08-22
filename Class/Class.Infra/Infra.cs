@@ -62,12 +62,12 @@ public class Infra : Any
 
     public virtual Table TableCreateStringLess()
     {
-        StringLess compare;
-        compare = this.InfraInfra.StringLessCreate();
+        StringLess less;
+        less = this.InfraInfra.StringLessCreate();
         
         Table a;
         a = new Table();
-        a.Less = compare;
+        a.Less = less;
         a.Init();
         return a;
     }
@@ -82,7 +82,7 @@ public class Infra : Any
         return a;
     }
 
-    public virtual Table TableCreateRefCompare()
+    public virtual Table TableCreateRefLess()
     {
         Table a;
         a = new Table();

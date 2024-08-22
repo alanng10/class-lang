@@ -22,8 +22,8 @@ public class NameCheck : Any
         return true;
     }
 
-    public virtual TextCompare TextCompare { get; set; }
-    public virtual CompareMid CharCompare { get; set; }
+    public virtual TextLess TextLess { get; set; }
+    public virtual LessMid CharLess { get; set; }
     public virtual CharForm CharForm { get; set; }
     protected virtual TextInfra TextInfra { get; set; }
     protected virtual KeywordList Keyword { get; set; }
@@ -110,8 +110,8 @@ public class NameCheck : Any
         TextInfra textInfra;
         textInfra = this.TextInfra;
 
-        Compare compare;
-        compare = this.TextCompare;
+        Less less;
+        less = this.TextLess;
 
         Text dot;
         dot = this.DotText;
@@ -130,7 +130,7 @@ public class NameCheck : Any
         b = false;
 
         int u;
-        u = textInfra.Index(text, dot, compare);
+        u = textInfra.Index(text, dot, less);
 
         int index;
         int count;
@@ -154,7 +154,7 @@ public class NameCheck : Any
                 range.Index = index;
                 range.Count = count;
 
-                u = textInfra.Index(text, dot, compare);
+                u = textInfra.Index(text, dot, less);
             }
         }
 
@@ -194,8 +194,8 @@ public class NameCheck : Any
         KeywordList keyword;
         keyword = this.Keyword;
 
-        TextCompare compare;
-        compare = this.TextCompare;
+        TextLess less;
+        less = this.TextLess;
 
         Text oo;
         oo = this.Text;
@@ -212,7 +212,7 @@ public class NameCheck : Any
 
             this.TextStringGet(oo, o);
 
-            if (textInfra.Equal(text, oo, compare))
+            if (textInfra.Equal(text, oo, less))
             {
                 return true;
             }

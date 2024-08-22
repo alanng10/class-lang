@@ -16,9 +16,9 @@ public class Console : Any
 
         this.ErrorWrite = true;
 
-        this.CharCompare = this.CreateCharCompare();
+        this.CharLess = this.CreateCharLess();
         this.CharForm = this.CreateCharForm();
-        this.TextCompare = this.CreateTextCompare();
+        this.TextLess = this.CreateTextLess();
 
         this.NameCheck = this.CreateNameCheck();
 
@@ -43,8 +43,8 @@ public class Console : Any
 
         this.ModuleRef = this.ClassInfra.ModuleRefCreate(null, 0);
 
-        this.ModuleRefCompare = new ModuleRefCompare();
-        this.ModuleRefCompare.Init();
+        this.ModuleRefLess = new ModuleRefLess();
+        this.ModuleRefLess.Init();
 
         this.TextA = this.CreateText();
         this.TextB = this.CreateText();
@@ -97,15 +97,15 @@ public class Console : Any
     protected virtual ModuleLoad ModuleLoad { get; set; }
     protected virtual PortRead PortRead { get; set; }
     protected virtual PortLoad PortLoad { get; set; }
-    protected virtual TextCompare TextCompare { get; set; }
-    protected virtual CompareMid CharCompare { get; set; }
+    protected virtual TextLess TextLess { get; set; }
+    protected virtual LessMid CharLess { get; set; }
     protected virtual CharForm CharForm { get; set; }
     protected virtual NameCheck NameCheck { get; set; }
     protected virtual Table InitModuleTable { get; set; }
     protected virtual Table InitBinaryTable { get; set; }
     protected virtual PortPort Port { get; set; }
     protected virtual ModuleRef ModuleRef { get; set; }
-    protected virtual ModuleRefCompare ModuleRefCompare { get; set; }
+    protected virtual ModuleRefLess ModuleRefLess { get; set; }
     protected virtual Text TextA { get; set; }
     protected virtual Text TextB { get; set; }
     protected virtual StringData StringDataA { get; set; }
@@ -113,10 +113,10 @@ public class Console : Any
     protected virtual Text TextNewLine { get; set; }
     private StorageArrange StorageArrange { get; set; }
 
-    protected virtual CompareMid CreateCharCompare()
+    protected virtual LessMid CreateCharLess()
     {
-        CompareMid a;
-        a = new CompareMid();
+        LessMid a;
+        a = new LessMid();
         a.Init();
         return a;
     }
@@ -129,11 +129,11 @@ public class Console : Any
         return a;
     }
 
-    protected virtual TextCompare CreateTextCompare()
+    protected virtual TextLess CreateTextLess()
     {
-        TextCompare a;
-        a = new TextCompare();
-        a.CharCompare = this.CharCompare;
+        TextLess a;
+        a = new TextLess();
+        a.CharLess = this.CharLess;
         a.LeftCharForm = this.CharForm;
         a.RightCharForm = this.CharForm;
         a.Init();
@@ -145,8 +145,8 @@ public class Console : Any
         NameCheck a;
         a = new NameCheck();
         a.Init();
-        a.TextCompare = this.TextCompare;
-        a.CharCompare = this.CharCompare;
+        a.TextLess = this.TextLess;
+        a.CharLess = this.CharLess;
         a.CharForm = this.CharForm;
         return a;
     }
@@ -262,7 +262,7 @@ public class Console : Any
         ka = this.ModuleRef;
         ka.Name = moduleName;
 
-        if (!(this.ModuleRefCompare.Execute(ka, binary.Ref) == 0))
+        if (!(this.ModuleRefLess.Execute(ka, binary.Ref) == 0))
         {
             this.Status = 102;
             return false;
@@ -398,8 +398,8 @@ public class Console : Any
             StorageInfra storageInfra;
             storageInfra = this.StorageInfra;
 
-            TextCompare compare;
-            compare = this.TextCompare;
+            TextLess less;
+            less = this.TextLess;
 
             Text text;
             text = this.TextA;
@@ -413,7 +413,7 @@ public class Console : Any
             sourceFold = aaa;
 
             this.TextStringGet(text, data, sourceFold);
-            if (storageInfra.IsRelativePath(text, compare))
+            if (storageInfra.IsRelativePath(text, less))
             {
                 sourceFold = executeFoldPath + combine + sourceFold;
             }
@@ -422,7 +422,7 @@ public class Console : Any
             destFold = aab;
 
             this.TextStringGet(text, data, destFold);
-            if (storageInfra.IsRelativePath(text, compare))
+            if (storageInfra.IsRelativePath(text, less))
             {
                 destFold = executeFoldPath + combine + destFold;
             }
@@ -891,10 +891,10 @@ public class Console : Any
         range.Init();
         range.Count = count;
 
-        StringCompare compare;
-        compare = this.InfraInfra.StringLessCreate();
+        StringLess less;
+        less = this.InfraInfra.StringLessCreate();
 
-        array.Sort(range, compare);
+        array.Sort(range, less);
         return array;
     }
 
@@ -983,8 +983,8 @@ public class Console : Any
 
         Text newLine;
         newLine = this.TextNewLine;
-        Compare compare;
-        compare = this.TextCompare;
+        Less less;
+        less = this.TextLess;
         
         int count;
         count = array.Count;
@@ -1012,7 +1012,7 @@ public class Console : Any
             aa = textInfra.TextCreateStringData(h, null);
 
             Array text;
-            text = textInfra.Split(aa, newLine, compare);
+            text = textInfra.Split(aa, newLine, less);
             a.Text = text;
 
             i = i + 1;

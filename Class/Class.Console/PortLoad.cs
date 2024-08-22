@@ -47,7 +47,7 @@ public class PortLoad : Any
     protected virtual Text TextB { get; set; }
     protected virtual StringData StringDataA { get; set; }
     protected virtual StringData StringDataB { get; set; }
-    protected virtual TextCompare TextCompare { get; set; }
+    protected virtual TextLess TextLess { get; set; }
     protected virtual Iter TableIter { get; set; }
     protected virtual Array ImportModuleRefArray { get; set; }
     protected virtual Table ImportDependTable { get; set; }
@@ -85,7 +85,7 @@ public class PortLoad : Any
 
     protected virtual bool ExecuteSet()
     {
-        this.TextCompare = this.NameCheck.TextCompare;
+        this.TextLess = this.NameCheck.TextLess;
         return true;
     }
 
@@ -731,7 +731,7 @@ public class PortLoad : Any
             k = (ClassModule)moduleTable.Get(kk);
 
             Table a;
-            a = classInfra.TableCreateRefCompare();
+            a = classInfra.TableCreateRefLess();
             
             listInfra.TableAdd(module.Import, kk, a);
 
@@ -970,8 +970,8 @@ public class PortLoad : Any
         dataA = this.StringDataA;
         dataB = this.StringDataB;
 
-        Compare compare;
-        compare = this.TextCompare;
+        Less less;
+        less = this.TextLess;
 
         string name;
         name = moduleRef.Name;
@@ -984,7 +984,7 @@ public class PortLoad : Any
         if (!b)
         {
             this.TextStringGet(textB, dataB, this.SystemModuleSingle);
-            if (textInfra.Equal(textA, textB, compare))
+            if (textInfra.Equal(textA, textB, less))
             {
                 b = true;
             }
@@ -992,7 +992,7 @@ public class PortLoad : Any
         if (!b)
         {
             this.TextStringGet(textB, dataB, this.SystemModulePre);
-            if (textInfra.Start(textA, textB, compare))
+            if (textInfra.Start(textA, textB, less))
             {
                 b = true;
             }
@@ -1000,7 +1000,7 @@ public class PortLoad : Any
         if (!b)
         {
             this.TextStringGet(textB, dataB, this.ClassModuleSingle);
-            if (textInfra.Equal(textA, textB, compare))
+            if (textInfra.Equal(textA, textB, less))
             {
                 b = true;
             }
@@ -1008,7 +1008,7 @@ public class PortLoad : Any
         if (!b)
         {
             this.TextStringGet(textB, dataB, this.ClassModulePre);
-            if (textInfra.Start(textA, textB, compare))
+            if (textInfra.Start(textA, textB, less))
             {
                 b = true;
             }

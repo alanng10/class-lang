@@ -9,17 +9,17 @@ public class StoragePathCheck : Any
         this.TextInfra = TextInfra.This;
         this.StorageInfra = StorageInfra.This;
 
-        CompareMid charCompare;
-        charCompare = new CompareMid();
-        charCompare.Init();
+        LessMid charLess;
+        charLess = new LessMid();
+        charLess.Init();
         CharForm charForm;
         charForm = new CharForm();
         charForm.Init();
-        this.TextCompare = new TextCompare();
-        this.TextCompare.CharCompare = charCompare;
-        this.TextCompare.LeftCharForm = charForm;
-        this.TextCompare.RightCharForm = charForm;
-        this.TextCompare.Init();
+        this.TextLess = new TextLess();
+        this.TextLess.CharLess = charLess;
+        this.TextLess.LeftCharForm = charForm;
+        this.TextLess.RightCharForm = charForm;
+        this.TextLess.Init();
 
         this.Combine = this.TextInfra.TextCreateStringData(this.InfraInfra.PathCombine, null);
         this.BackSlash = this.TextInfra.TextCreateStringData("\\", null);
@@ -32,7 +32,7 @@ public class StoragePathCheck : Any
     protected virtual InfraInfra InfraInfra { get; set; }
     protected virtual TextInfra TextInfra { get; set; }
     protected virtual StorageInfra StorageInfra { get; set; }
-    protected virtual TextCompare TextCompare { get; set; }
+    protected virtual TextLess TextLess { get; set; }
     protected virtual Text Combine { get; set; }
     protected virtual Text BackSlash { get; set; }
     protected virtual Text SlashSlash { get; set; }
@@ -45,14 +45,14 @@ public class StoragePathCheck : Any
         textInfra = this.TextInfra;
         
         int k;
-        k = textInfra.Index(text, this.BackSlash, this.TextCompare);
+        k = textInfra.Index(text, this.BackSlash, this.TextLess);
 
         if (!(k == -1))
         {
             return false;
         }
 
-        k = textInfra.Index(text, this.SlashSlash, this.TextCompare);
+        k = textInfra.Index(text, this.SlashSlash, this.TextLess);
 
         if (!(k == -1))
         {
@@ -69,10 +69,10 @@ public class StoragePathCheck : Any
             return false;
         }
 
-        Compare compare;
-        compare = this.TextCompare;
+        Less less;
+        less = this.TextLess;
 
-        if (!this.StorageInfra.IsRelativePath(text, compare))
+        if (!this.StorageInfra.IsRelativePath(text, less))
         {
             return false;
         }
@@ -90,8 +90,8 @@ public class StoragePathCheck : Any
         TextInfra textInfra;
         textInfra = this.TextInfra;
 
-        Compare compare;
-        compare = this.TextCompare;
+        Less less;
+        less = this.TextLess;
 
         Text combine;
         combine = this.Combine;
@@ -115,7 +115,7 @@ public class StoragePathCheck : Any
         b = false;
 
         int kk;
-        kk = textInfra.Index(text, combine, compare);
+        kk = textInfra.Index(text, combine, less);
         while (!b & !(kk == -1))
         {
             int e;
@@ -125,7 +125,7 @@ public class StoragePathCheck : Any
 
             if (!b)
             {
-                if (textInfra.Equal(text, dot, compare))
+                if (textInfra.Equal(text, dot, less))
                 {
                     b = true;
                 }
@@ -133,7 +133,7 @@ public class StoragePathCheck : Any
 
             if (!b)
             {
-                if (textInfra.Equal(text, dotDot, compare))
+                if (textInfra.Equal(text, dotDot, less))
                 {
                     b = true;
                 }
@@ -149,13 +149,13 @@ public class StoragePathCheck : Any
                 textRange.Index = textRange.Index + ka;
                 textRange.Count = textRange.Count - ka;
 
-                kk = textInfra.Index(text, combine, compare);
+                kk = textInfra.Index(text, combine, less);
             }
         }
 
         if (!b)
         {
-            if (textInfra.Equal(text, dot, compare))
+            if (textInfra.Equal(text, dot, less))
             {
                 b = true;
             }
@@ -163,7 +163,7 @@ public class StoragePathCheck : Any
 
         if (!b)
         {
-            if (textInfra.Equal(text, dotDot, compare))
+            if (textInfra.Equal(text, dotDot, less))
             {
                 b = true;
             }

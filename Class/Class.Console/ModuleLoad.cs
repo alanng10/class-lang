@@ -247,7 +247,7 @@ public class ModuleLoad : Any
             }
 
             Table classTable;
-            classTable = classInfra.TableCreateRefCompare();
+            classTable = classInfra.TableCreateRefLess();
 
             listInfra.TableAdd(importTable, moduleRef, classTable);
             
@@ -413,7 +413,7 @@ public class ModuleLoad : Any
         module = this.Module;
 
         Table table;
-        table = this.ClassInfra.TableCreateRefCompare();
+        table = this.ClassInfra.TableCreateRefLess();
 
         while (!(varClass == null))
         {

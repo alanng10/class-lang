@@ -31,17 +31,17 @@ public class Read : Any
         this.StringData = new StringData();
         this.StringData.Init();
 
-        CompareMid charCompare;
-        charCompare = new CompareMid();
-        charCompare.Init();
+        LessMid charLess;
+        charLess = new LessMid();
+        charLess.Init();
         CharForm charForm;
         charForm = new CharForm();
         charForm.Init();
-        this.TextCompare = new TextCompare();
-        this.TextCompare.CharCompare = charCompare;
-        this.TextCompare.LeftCharForm = charForm;
-        this.TextCompare.RightCharForm = charForm;
-        this.TextCompare.Init();
+        this.TextLess = new TextLess();
+        this.TextLess.CharLess = charLess;
+        this.TextLess.LeftCharForm = charForm;
+        this.TextLess.RightCharForm = charForm;
+        this.TextLess.Init();
 
         this.TextNewLine = this.TextInfra.TextCreateStringData(this.ClassInfra.NewLine, null);
 
@@ -69,7 +69,7 @@ public class Read : Any
     protected virtual IntParse IntParse { get; set; }
     protected virtual Text Text { get; set; }
     protected virtual StringData StringData { get; set; }
-    protected virtual TextCompare TextCompare { get; set; }
+    protected virtual TextLess TextLess { get; set; }
     protected virtual Text TextNewLine { get; set; }
     protected virtual string Colon { get; set; }
     protected virtual string Dot { get; set; }
@@ -89,7 +89,7 @@ public class Read : Any
         Text aaa;
         aaa = this.TextInfra.TextCreateStringData(source, null);
 
-        this.LineList = this.TextInfra.Split(aaa, this.TextNewLine, this.TextCompare);
+        this.LineList = this.TextInfra.Split(aaa, this.TextNewLine, this.TextLess);
         
         ReadArg arg;
         arg = new ReadArg();
@@ -603,8 +603,8 @@ public class Read : Any
         textA = this.Text;
         Range rangeA;
         rangeA = textA.Range;
-        Compare compare;
-        compare = this.TextCompare;
+        Less less;
+        less = this.TextLess;
 
         int ka;
         ka = rangeA.Count;
@@ -634,7 +634,7 @@ public class Read : Any
             if (!b)
             {
                 range.Count = ka;
-                if (!textInfra.Equal(text, textA, compare))
+                if (!textInfra.Equal(text, textA, less))
                 {
                     b = true;
                 }
@@ -711,11 +711,11 @@ public class Read : Any
 
         Text textA;
         textA = this.Text;
-        Compare compare;
-        compare = this.TextCompare;
+        Less less;
+        less = this.TextLess;
 
         int u;
-        u = textInfra.Index(text, textA, compare);
+        u = textInfra.Index(text, textA, less);
         
         range.Index = index;
 
@@ -822,13 +822,13 @@ public class Read : Any
 
         Text textA;
         textA = this.Text;
-        Compare compare;
-        compare = this.TextCompare;
+        Less less;
+        less = this.TextLess;
 
         this.TextGet(this.Colon);
 
         int u;
-        u = textInfra.Index(text, textA, compare);
+        u = textInfra.Index(text, textA, less);
         if (u == -1)
         {
             return null;
@@ -903,8 +903,8 @@ public class Read : Any
 
         Text textA;
         textA = this.Text;
-        Compare compare;
-        compare = this.TextCompare;
+        Less less;
+        less = this.TextLess;
 
         int ka;
         ka = textA.Range.Count;
@@ -935,7 +935,7 @@ public class Read : Any
             if (!b)
             {
                 range.Count = ka;
-                if (!textInfra.Equal(text, textA, compare))
+                if (!textInfra.Equal(text, textA, less))
                 {
                     b = true;
                     o = i;
@@ -995,14 +995,14 @@ public class Read : Any
 
         Text textA;
         textA = this.Text;
-        Compare compare;
-        compare = this.TextCompare;
+        Less less;
+        less = this.TextLess;
 
         this.TextGet(this.SquareLeft);
 
         range.Count = 1;
 
-        if (!textInfra.Equal(line, textA, compare))
+        if (!textInfra.Equal(line, textA, less))
         {
             return false;
         }
@@ -1011,7 +1011,7 @@ public class Read : Any
 
         range.Index = index + count - 1;
 
-        if (!textInfra.Equal(line, textA, compare))
+        if (!textInfra.Equal(line, textA, less))
         {
             return false;
         }
@@ -1021,7 +1021,7 @@ public class Read : Any
         range.Index = index + 1;
         range.Count = count - 2;
 
-        if (!textInfra.Equal(line, textA, compare))
+        if (!textInfra.Equal(line, textA, less))
         {
             return false;
         }
@@ -1051,7 +1051,7 @@ public class Read : Any
         this.TextGet(this.Colon);
         
         int n;
-        n = textInfra.Index(text, textA, this.TextCompare);
+        n = textInfra.Index(text, textA, this.TextLess);
         bool b;
         b = (n == -1);
         if (b)
@@ -1122,8 +1122,8 @@ public class Read : Any
         intParse = this.IntParse;
         Text textA;
         textA = this.Text;
-        Compare compare;
-        compare = this.TextCompare;
+        Less less;
+        less = this.TextLess;
 
         Range range;
         range = text.Range;
@@ -1136,7 +1136,7 @@ public class Read : Any
         this.TextGet(this.Dot);
 
         int u;
-        u = textInfra.Index(text, textA, compare);
+        u = textInfra.Index(text, textA, less);
         if (u == -1)
         {
             return -1;
@@ -1149,7 +1149,7 @@ public class Read : Any
         ka = kka + 1;
         range.Index = index + ka;
         range.Count = count - ka;
-        u = textInfra.Index(text, textA, compare);
+        u = textInfra.Index(text, textA, less);
         if (!(u == 2))
         {
             return -1;

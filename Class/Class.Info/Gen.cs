@@ -16,15 +16,15 @@ public class Gen : Any
         this.StringJoin = new StringJoin();
         this.StringJoin.Init();
 
-        this.CharCompare = new CompareMid();
-        this.CharCompare.Init();
+        this.CharLess = new LessMid();
+        this.CharLess.Init();
         this.CharForm = new CharForm();
         this.CharForm.Init();
-        this.TextCompare = new TextCompare();
-        this.TextCompare.CharCompare = this.CharCompare;
-        this.TextCompare.LeftCharForm = this.CharForm;
-        this.TextCompare.RightCharForm = this.CharForm;
-        this.TextCompare.Init();
+        this.TextLess = new TextLess();
+        this.TextLess.CharLess = this.CharLess;
+        this.TextLess.LeftCharForm = this.CharForm;
+        this.TextLess.RightCharForm = this.CharForm;
+        this.TextLess.Init();
         return true;
     }
 
@@ -38,8 +38,8 @@ public class Gen : Any
     protected virtual StorageInfra StorageInfra { get; set; }
     protected virtual ClassInfra ClassInfra { get; set; }
     protected virtual StringJoin StringJoin { get; set; }
-    protected virtual TextCompare TextCompare { get; set; }
-    protected virtual CompareMid CharCompare { get; set; }
+    protected virtual TextLess TextLess { get; set; }
+    protected virtual LessMid CharLess { get; set; }
     protected virtual CharForm CharForm { get; set; }
     protected virtual string Ver { get; set; }
     protected virtual Node Root { get; set; }
@@ -227,7 +227,7 @@ public class Gen : Any
         oa = textInfra.TextCreateStringData(newLine, null);
 
         int u;
-        u = this.TextInfra.Index(o, oa, this.TextCompare);
+        u = this.TextInfra.Index(o, oa, this.TextLess);
         if (u < 0)
         {
             return false;
@@ -710,10 +710,10 @@ public class Gen : Any
         range.Init();
         range.Count = count;
 
-        StringCompare compare;
-        compare = this.InfraInfra.StringLessCreate();
+        StringLess less;
+        less = this.InfraInfra.StringLessCreate();
 
-        array.Sort(range, compare);
+        array.Sort(range, less);
 
         return array;
     }

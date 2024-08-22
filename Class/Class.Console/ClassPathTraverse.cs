@@ -19,17 +19,17 @@ public partial class ClassPathTraverse : Traverse
         this.StringDataB = new StringData();
         this.StringDataB.Init();
 
-        CompareMid charCompare;
-        charCompare = new CompareMid();
-        charCompare.Init();
+        LessMid charLess;
+        charLess = new LessMid();
+        charLess.Init();
         CharForm charForm;
         charForm = new CharForm();
         charForm.Init();
-        this.TextCompare = new TextCompare();
-        this.TextCompare.CharCompare = charCompare;
-        this.TextCompare.LeftCharForm = charForm;
-        this.TextCompare.RightCharForm = charForm;
-        this.TextCompare.Init();
+        this.TextLess = new TextLess();
+        this.TextLess.CharLess = charLess;
+        this.TextLess.LeftCharForm = charForm;
+        this.TextLess.RightCharForm = charForm;
+        this.TextLess.Init();
 
         this.Dot = this.TextInfra.TextCreateStringData(".", null);
         this.LeftSquare = this.TextInfra.TextCreateStringData("[", null);
@@ -50,7 +50,7 @@ public partial class ClassPathTraverse : Traverse
     protected virtual Text TextB { get; set; }
     protected virtual StringData StringDataA { get; set; }
     protected virtual StringData StringDataB { get; set; }
-    protected virtual TextCompare TextCompare { get; set; }
+    protected virtual TextLess TextLess { get; set; }
     protected virtual Text Dot { get; set; }
     protected virtual Text LeftSquare { get; set; }
     protected virtual Text RightSquare { get; set; }
@@ -104,7 +104,7 @@ public partial class ClassPathTraverse : Traverse
         range.Count = kb - start;
 
         int u;
-        u = this.TextInfra.Index(path, this.Dot, this.TextCompare);
+        u = this.TextInfra.Index(path, this.Dot, this.TextLess);
 
         bool b;
         b = (u < 0);
@@ -181,7 +181,7 @@ public partial class ClassPathTraverse : Traverse
     protected virtual int LeftSquareIndex(Text text)
     {
         int a;
-        a = this.TextInfra.Index(text, this.LeftSquare, this.TextCompare);
+        a = this.TextInfra.Index(text, this.LeftSquare, this.TextLess);
         return a;
     }
 
@@ -210,7 +210,7 @@ public partial class ClassPathTraverse : Traverse
         rangeA.Count = varField.Count;
 
         bool b;
-        b = this.TextInfra.End(textA, this.RightSquare, this.TextCompare);
+        b = this.TextInfra.End(textA, this.RightSquare, this.TextLess);
 
         if (!b)
         {
@@ -270,7 +270,7 @@ public partial class ClassPathTraverse : Traverse
         this.TextStringGet(textB, this.StringDataB, name);
 
         bool a;
-        a = this.TextInfra.Equal(textA, textB, this.TextCompare);
+        a = this.TextInfra.Equal(textA, textB, this.TextLess);
         return a;
     }
 
