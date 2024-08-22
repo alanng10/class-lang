@@ -2,6 +2,6 @@ namespace Class.Infra;
 
 public class Delimit : Any
 {
-    public virtual int Index { get; set; }
-    public virtual string Text { get; set; }
+    public virtual long Index { get; set; }
+    public virtual String Text { get; set; }
 }

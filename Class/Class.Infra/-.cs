@@ -1,4 +1,5 @@
 global using Any = Avalon.Infra.Any;
+global using String = Avalon.Infra.String;
 global using InfraRange = Avalon.Infra.Range;
 global using Data = Avalon.Infra.Data;
 global using StringData = Avalon.Infra.StringData;
@@ -15,5 +16,6 @@ global using Text = Avalon.Text.Text;
 global using TextCompare = Avalon.Text.Less;
 global using Format = Avalon.Text.Write;
 global using FormatArg = Avalon.Text.WriteArg;
+global using StringValue = Avalon.Text.StringValue;
 global using TextInfra = Avalon.Text.Infra;
 global using StorageInfra = Avalon.Storage.Infra;
