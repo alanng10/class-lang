@@ -62,7 +62,7 @@ public class Infra : Any
 
     public virtual Table TableCreateStringCompare()
     {
-        StringCompare compare;
+        StringLess compare;
         compare = this.InfraInfra.StringCompareCreate();
         
         Table a;
@@ -76,7 +76,7 @@ public class Infra : Any
     {
         Table a;
         a = new Table();
-        a.Compare = new ModuleRefCompare();
+        a.Compare = new ModuleRefLess();
         a.Compare.Init();
         a.Init();
         return a;
@@ -86,13 +86,13 @@ public class Infra : Any
     {
         Table a;
         a = new Table();
-        a.Compare = new RefCompare();
+        a.Compare = new RefLess();
         a.Compare.Init();
         a.Init();
         return a;
     }
 
-    public virtual ModuleRef ModuleRefCreate(string name, long version)
+    public virtual ModuleRef ModuleRefCreate(String name, long version)
     {
         ModuleRef a;
         a = new ModuleRef();
