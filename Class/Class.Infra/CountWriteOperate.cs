@@ -4,9 +4,9 @@ public class CountWriteOperate : WriteOperate
 {
     public virtual StringValueWrite Write { get; set; }
 
-    public override bool ExecuteChar(char oc)
+    public override bool ExecuteChar(uint n)
     {
-        int index;
+        long index;
         index = this.Write.Index;
         index = index + 1;
         this.Write.Index = index;
