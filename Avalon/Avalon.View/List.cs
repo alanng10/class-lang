@@ -9,7 +9,7 @@ public class List : Comp
         compare = new RefCompare();
         compare.Init();
         this.ItemTable = new Table();
-        this.ItemTable.Compare = compare;
+        this.ItemTable.Less = compare;
         this.ItemTable.Init();
         
         this.ItemIter = this.ItemTable.IterCreate();

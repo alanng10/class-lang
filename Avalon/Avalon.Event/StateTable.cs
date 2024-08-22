@@ -7,7 +7,7 @@ public class StateTable : Table
         RefCompare compare;
         compare = new RefCompare();
         compare.Init();
-        this.Compare = compare;
+        this.Less = compare;
         base.Init();
         return true;
     }

@@ -75,7 +75,7 @@ public class Infra : Any
         return true;
     }
 
-    public virtual bool Sort(Array array, Compare compare, Range range, Array copy)
+    public virtual bool Sort(Array array, Less compare, Range range, Array copy)
     {
         long start;
         long end;
@@ -89,7 +89,7 @@ public class Infra : Any
         return true;
     }
 
-    private bool SplitMerge(Array dest, Array source, Compare compare, long start, long end)
+    private bool SplitMerge(Array dest, Array source, Less compare, long start, long end)
     {
         if (end - start < 2)
         {
@@ -108,7 +108,7 @@ public class Infra : Any
         return true;
     }
 
-    private bool Merge(Array dest, Array source, Compare compare, long start, long mid, long end)
+    private bool Merge(Array dest, Array source, Less compare, long start, long mid, long end)
     {
         long i;
         long j;

@@ -10,7 +10,7 @@ class Tree : Any
         return true;
     }
 
-    public virtual Compare Compare { get; set; }
+    public virtual Less Compare { get; set; }
     private TreeNode Root { get; set; }
     private TreeNodeResult NodeResult { get; set; }
 
@@ -551,7 +551,7 @@ class Tree : Any
 
     public TreeNodeResult Node(object index)
     {
-        Compare compare;
+        Less compare;
         compare = this.Compare;
 
         TreeNode node;

@@ -5,14 +5,14 @@ public class Table : List
     public override bool Init()
     {
         this.Tree = new Tree();
-        this.Tree.Compare = this.Compare;
+        this.Tree.Compare = this.Less;
         this.Tree.Init();
         this.List = new List();
         this.List.Init();
         return true;
     }
 
-    public virtual Compare Compare { get; set; }
+    public virtual Less Less { get; set; }
     public override object FirstIndex { get { return null; } set { } }
     public override object LastIndex { get { return null; } set { } }
 
