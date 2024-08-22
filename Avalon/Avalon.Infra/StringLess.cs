@@ -10,7 +10,7 @@ public class StringLess : Less
     }
 
     public virtual LessInt CharLess { get; set; }
-    public virtual CharForm LeftCharForm { get; set; }
+    public virtual CharForm LiteCharForm { get; set; }
     public virtual CharForm RightCharForm { get; set; }
     protected virtual StringComp StringComp { get; set; }
 
@@ -34,7 +34,7 @@ public class StringLess : Less
 
         CharForm liteCharForm;
         CharForm riteCharForm;
-        liteCharForm = this.LeftCharForm;
+        liteCharForm = this.LiteCharForm;
         riteCharForm = this.RightCharForm;
 
         long count;

@@ -215,7 +215,7 @@ public class Infra : Any
         StringLess a;
         a = new StringLess();
         a.CharLess = charLess;
-        a.LeftCharForm = charForm;
+        a.LiteCharForm = charForm;
         a.RightCharForm = charForm;
         a.Init();
         return a;
