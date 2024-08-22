@@ -22,7 +22,7 @@ public class CountCreateOperate : CreateOperate
         CreateArg arg;
         arg = this.Create.Arg;
 
-        int index;
+        long index;
         index = arg.NodeIndex;
 
         index = index + 1;
@@ -34,15 +34,15 @@ public class CountCreateOperate : CreateOperate
         return a;
     }
 
-    public override int ExecuteListNew()
+    public override long ExecuteListNew()
     {
         CreateArg arg;
         arg = this.Create.Arg;
 
-        int index;
+        long index;
         index = arg.ListIndex;
 
-        int a;
+        long a;
         a = index;
 
         index = index + 1;
@@ -51,17 +51,17 @@ public class CountCreateOperate : CreateOperate
         return a;
     }
 
-    public override Array ExecuteListGet(int index)
+    public override Array ExecuteListGet(long index)
     {
         return this.List;
     }
 
-    public override bool ExecuteError(ErrorKind kind, int start, int end)
+    public override bool ExecuteError(ErrorKind kind, long start, long end)
     {
         CreateArg arg;
         arg = this.Create.Arg;
 
-        int index;
+        long index;
         index = arg.ErrorIndex;
 
         index = index + 1;
@@ -93,9 +93,9 @@ public class CountCreateOperate : CreateOperate
         CreateArg arg;
         arg = this.Create.Arg;
 
-        int index;
+        long index;
         index = arg.StringValueIndex;
-        int indexA;
+        long indexA;
         indexA = arg.StringValueTextIndex;
         
         StringValueWrite write;
@@ -103,7 +103,7 @@ public class CountCreateOperate : CreateOperate
         write.WriteOperate = write.CountWriteOperate;
         write.Index = 0;
         write.ExecuteValueString(text);
-        int count;
+        long count;
         count = write.Index;
         
         index = index + 1;
