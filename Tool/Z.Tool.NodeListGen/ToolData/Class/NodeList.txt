@@ -160,6 +160,10 @@ OrnOperate : Operate
 NotOperate : Operate
     Operate Value
 
+LessOperate : Operate
+    Operate Lite
+    Operate Rite
+
 AddOperate : Operate
     Operate Lite
     Operate Rite
@@ -173,10 +177,6 @@ MulOperate : Operate
     Operate Rite
 
 DivOperate : Operate
-    Operate Lite
-    Operate Rite
-
-LessOperate : Operate
     Operate Lite
     Operate Rite
 
