@@ -187,7 +187,7 @@ public class Infra : Any
         this.Add(h, oc).Add(h, dot).Add(h, ob).Add(h, dot).Add(h, oa);
 
         String a;
-        a = h.Rest
+        a = h.Result();
         return a;
     }
 
