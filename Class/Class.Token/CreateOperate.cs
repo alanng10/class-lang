@@ -12,12 +12,12 @@ public class CreateOperate : Any
         return false;
     }
 
-    public virtual bool ExecuteCodeStart(int index)
+    public virtual bool ExecuteCodeStart(long index)
     {
         return false;
     }
 
-    public virtual bool ExecuteCodeEnd(int index)
+    public virtual bool ExecuteCodeEnd(long index)
     {
         return false;
     }

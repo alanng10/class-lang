@@ -11,12 +11,12 @@ public class CountCreateOperate : CreateOperate
 
     public virtual Create Create { get; set; }
     protected virtual InfraInfra InfraInfra { get; set; }
-    protected virtual int CodeTokenStart { get; set; }
-    protected virtual int CodeCommentStart { get; set; }
+    protected virtual long CodeTokenStart { get; set; }
+    protected virtual long CodeCommentStart { get; set; }
 
     public override bool ExecuteToken()
     {
-        int index;
+        long index;
         index = this.Create.TokenIndex;
         index = index + 1;
         this.Create.TokenIndex = index;
@@ -25,34 +25,34 @@ public class CountCreateOperate : CreateOperate
 
     public override bool ExecuteComment()
     {
-        int index;
+        long index;
         index = this.Create.InfoIndex;
         index = index + 1;
         this.Create.InfoIndex = index;
         return true;
     }
 
-    public override bool ExecuteCodeStart(int index)
+    public override bool ExecuteCodeStart(long index)
     {
         this.CodeTokenStart = this.Create.TokenIndex;
         this.CodeCommentStart = this.Create.InfoIndex;
         return true;
     }
 
-    public override bool ExecuteCodeEnd(int index)
+    public override bool ExecuteCodeEnd(long index)
     {
         InfraInfra infraInfra;
         infraInfra = this.InfraInfra;
 
-        int tokenCount;
-        int commentCount;
+        long tokenCount;
+        long commentCount;
         tokenCount = this.Create.TokenIndex - this.CodeTokenStart;
         commentCount = this.Create.InfoIndex - this.CodeCommentStart;
 
         Data codeCountData;
         codeCountData = this.Create.CodeCountData;
-        int oa;
-        oa = sizeof(uint);
+        long oa;
+        oa = sizeof(ulong);
         long ob;
         ob = index;
         ob = ob * 2;
@@ -60,8 +60,8 @@ public class CountCreateOperate : CreateOperate
         oe = ob * oa;
         long of;
         of = (ob + 1) * oa;
-        infraInfra.DataMidSet(codeCountData, oe, (uint)tokenCount);
-        infraInfra.DataMidSet(codeCountData, of, (uint)commentCount);
+        infraInfra.DataIntSet(codeCountData, oe, (ulong)tokenCount);
+        infraInfra.DataIntSet(codeCountData, of, (ulong)commentCount);
 
         this.CodeTokenStart = 0;
         this.CodeCommentStart = 0;

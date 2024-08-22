@@ -40,11 +40,11 @@ public class Create : InfraCreate
 
     public virtual Code Code { get; set; }
     public virtual Source SourceItem { get; set; }
-    public virtual int Row { get; set; }
+    public virtual long Row { get; set; }
     public virtual Range Range { get; set; }
-    public virtual int TokenIndex { get; set; }
+    public virtual long TokenIndex { get; set; }
     public virtual Array TokenArray { get; set; }
-    public virtual int InfoIndex { get; set; }
+    public virtual long InfoIndex { get; set; }
     public virtual Array InfoArray { get; set; }
     public virtual Data CodeCountData { get; set; }
 
@@ -91,10 +91,10 @@ public class Create : InfraCreate
 
     public virtual bool ExecuteStage()
     {
-        int count;
+        long count;
         count = this.CodeArray.Count;
 
-        int i;
+        long i;
         i = 0;
         while (i < count)
         {
@@ -289,9 +289,9 @@ public class Create : InfraCreate
         Array array;
         array = this.ListInfra.ArrayCreate(this.Source.Count);
 
-        int count;
+        long count;
         count = array.Count;
-        int i;
+        long i;
         i = 0;
         while (i < count)
         {
