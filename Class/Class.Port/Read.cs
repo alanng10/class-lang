@@ -40,7 +40,7 @@ public class Read : Any
         this.TextLess = new TextLess();
         this.TextLess.CharLess = charLess;
         this.TextLess.LiteCharForm = charForm;
-        this.TextLess.RightCharForm = charForm;
+        this.TextLess.RiteCharForm = charForm;
         this.TextLess.Init();
 
         this.TextNewLine = this.TextInfra.TextCreateStringData(this.ClassInfra.NewLine, null);

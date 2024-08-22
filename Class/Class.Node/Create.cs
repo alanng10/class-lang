@@ -22,7 +22,7 @@ public class Create : InfraCreate
         this.TextLess = new TextLess();
         this.TextLess.CharLess = this.CharLess;
         this.TextLess.LiteCharForm = this.CharForm;
-        this.TextLess.RightCharForm = this.CharForm;
+        this.TextLess.RiteCharForm = this.CharForm;
         this.TextLess.Init();
 
         this.NameCheck = this.CreateNameCheck();

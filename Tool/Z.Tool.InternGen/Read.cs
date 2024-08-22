@@ -19,7 +19,7 @@ public class Read : Any
         compare = new TextCompare();
         compare.CharCompare = charCompare;
         compare.LiteCharForm = charForm;
-        compare.RightCharForm = charForm;
+        compare.RiteCharForm = charForm;
         compare.Init();
 
         this.NameCheck = new NameCheck();

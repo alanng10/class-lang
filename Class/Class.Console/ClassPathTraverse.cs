@@ -28,7 +28,7 @@ public partial class ClassPathTraverse : Traverse
         this.TextLess = new TextLess();
         this.TextLess.CharLess = charLess;
         this.TextLess.LiteCharForm = charForm;
-        this.TextLess.RightCharForm = charForm;
+        this.TextLess.RiteCharForm = charForm;
         this.TextLess.Init();
 
         this.Dot = this.TextInfra.TextCreateStringData(".", null);

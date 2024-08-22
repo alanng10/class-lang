@@ -23,7 +23,7 @@ public class Gen : Any
         this.TextLess = new TextLess();
         this.TextLess.CharLess = this.CharLess;
         this.TextLess.LiteCharForm = this.CharForm;
-        this.TextLess.RightCharForm = this.CharForm;
+        this.TextLess.RiteCharForm = this.CharForm;
         this.TextLess.Init();
         return true;
     }

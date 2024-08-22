@@ -41,7 +41,7 @@ public class Infra : Any
         this.TextCompare = new TextCompare();
         this.TextCompare.CharCompare = this.CharCompare;
         this.TextCompare.LiteCharForm = this.CharForm;
-        this.TextCompare.RightCharForm = this.CharForm;
+        this.TextCompare.RiteCharForm = this.CharForm;
         this.TextCompare.Init();
 
         this.Range = new Range();
