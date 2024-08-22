@@ -16,7 +16,7 @@ namespace #Namespace#;
 
 #InitMaide#
 #FieldList#
-    protected virtual StringValue StringValue { get; set; }
+    protected virtual TextStringValue StringValue { get; set; }
 
 #AddMaide#
 #ArrayCompList#}

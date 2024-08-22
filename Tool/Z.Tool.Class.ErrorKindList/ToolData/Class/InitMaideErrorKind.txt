@@ -1,7 +1,7 @@
     public override bool Init()
     {
         base.Init();
-        this.StringValue = StringValue.This;
+        this.StringValue = TextStringValue.This;
         this.InitArray();
         this.Count = this.Array.Count;
         this.Index = 0;
