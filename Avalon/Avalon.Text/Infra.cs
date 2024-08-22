@@ -279,14 +279,14 @@ public class Infra : Any
         return this.StringComp.CreateData(text.Data, text.Range);
     }
 
-    public virtual bool Equal(Text left, Text right, InfraLess compare)
+    public virtual bool Equal(Text left, Text right, InfraLess less)
     {
         long o;
-        o = compare.Execute(left, right);
+        o = less.Execute(left, right);
         return (o == 0);
     }
 
-    public virtual bool Start(Text text, Text other, InfraLess compare)
+    public virtual bool Start(Text text, Text other, InfraLess less)
     {
         Range range;
         range = text.Range;
@@ -304,14 +304,14 @@ public class Infra : Any
         range.Count = otherCount;
 
         bool a;
-        a = this.Equal(text, other, compare);
+        a = this.Equal(text, other, less);
 
         range.Count = count;
 
         return a;
     }
 
-    public virtual bool End(Text text, Text other, InfraLess compare)
+    public virtual bool End(Text text, Text other, InfraLess less)
     {
         Range range;
         range = text.Range;
@@ -336,7 +336,7 @@ public class Infra : Any
         range.Count = otherCount;
 
         bool a;
-        a = this.Equal(text, other, compare);
+        a = this.Equal(text, other, less);
 
         range.Index = index;
         range.Count = count;
@@ -344,7 +344,7 @@ public class Infra : Any
         return a;
     }
 
-    public virtual long Index(Text text, Text other, InfraLess compare)
+    public virtual long Index(Text text, Text other, InfraLess less)
     {
         if (!this.ValidRange(text))
         {
@@ -387,7 +387,7 @@ public class Infra : Any
             textRange.Count = otherCount;
 
             bool b;
-            b = this.Equal(text, other, compare);
+            b = this.Equal(text, other, less);
             if (b)
             {
                 k = i;
@@ -401,7 +401,7 @@ public class Infra : Any
         return k;
     }
 
-    public virtual long LastIndex(Text text, Text other, InfraLess compare)
+    public virtual long LastIndex(Text text, Text other, InfraLess less)
     {
         if (!this.ValidRange(text))
         {
@@ -444,7 +444,7 @@ public class Infra : Any
             textRange.Count = otherCount;
 
             bool b;
-            b = this.Equal(text, other, compare);
+            b = this.Equal(text, other, less);
             if (b)
             {
                 k = i;
@@ -458,7 +458,7 @@ public class Infra : Any
         return k;
     }
 
-    public virtual Array Split(Text text, Text delimit, InfraLess compare)
+    public virtual Array Split(Text text, Text delimit, InfraLess less)
     {
         InfraInfra infraInfra;
         infraInfra = this.InfraInfra;
@@ -482,7 +482,7 @@ public class Infra : Any
         count = 0;
 
         long oo;
-        oo = this.Index(text, delimit, compare);
+        oo = this.Index(text, delimit, less);
         while (!(oo < 0))
         {
             count = count + 1;
@@ -493,7 +493,7 @@ public class Infra : Any
             textRange.Index = textRange.Index + kaa;
             textRange.Count = textRange.Count - kaa;
 
-            oo = this.Index(text, delimit, compare);
+            oo = this.Index(text, delimit, less);
         }
 
         Array array;
@@ -512,7 +512,7 @@ public class Infra : Any
         i = 0;
         while (i < count)
         {
-            oo = this.Index(text, delimit, compare);
+            oo = this.Index(text, delimit, less);
 
             rangeA.Index = textRange.Index;
             rangeA.Count = oo;
@@ -623,10 +623,10 @@ public class Infra : Any
         return text;
     }
 
-    public virtual Text Replace(Text text, Text delimit, Text join, InfraLess compare)
+    public virtual Text Replace(Text text, Text delimit, Text join, InfraLess less)
     {
         Array array;
-        array = this.Split(text, delimit, compare);
+        array = this.Split(text, delimit, less);
 
         Text k;
         k = this.Join(array, join);
