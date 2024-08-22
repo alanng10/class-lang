@@ -27,7 +27,7 @@ public class Read : ToolGen
             return 450;
         }
 
-        this.MaideTable = toolInfra.TableCreateStringCompare();
+        this.MaideTable = toolInfra.TableCreateStringLess();
 
         b = this.ExecuteMaideList();
         if (!b)
@@ -211,7 +211,7 @@ public class Read : ToolGen
         k = this.TrigoLineList;
         
         Table table;
-        table = toolInfra.TableCreateStringCompare();
+        table = toolInfra.TableCreateStringLess();
 
         long count;
         count = k.Count;

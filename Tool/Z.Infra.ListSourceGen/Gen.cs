@@ -88,7 +88,7 @@ public class Gen : ToolGen
 
         this.LineArray = this.ToolInfra.TextSplitLineString(a);
 
-        this.ItemTable = this.ToolInfra.TableCreateStringCompare();
+        this.ItemTable = this.ToolInfra.TableCreateStringLess();
 
         Iter iter;
         iter = this.LineArray.IterCreate();

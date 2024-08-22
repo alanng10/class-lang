@@ -43,7 +43,7 @@ class Read : ToolGen
         lineArray = this.TextSplitLineString(ka);
 
         Table table;
-        table = this.ToolInfra.TableCreateStringCompare();
+        table = this.ToolInfra.TableCreateStringLess();
 
         this.ClassTable = table;
 
