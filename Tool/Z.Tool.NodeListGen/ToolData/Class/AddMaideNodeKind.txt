@@ -6,7 +6,7 @@
         createOperateState.Init();
 
         String k;
-        k = this.StringValue.Execute(name);
+        k = this.TextStringValue.Execute(name);
 
         #ItemClassName# item;
         item = new #ItemClassName#();
