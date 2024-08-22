@@ -6,7 +6,7 @@ public class SetCreateOperate : CreateOperate
 
     public override bool ExecuteToken()
     {
-        int index;
+        long index;
         index = this.Create.TokenIndex;
 
         Token token;
@@ -29,7 +29,7 @@ public class SetCreateOperate : CreateOperate
 
     public override bool ExecuteComment()
     {
-        int index;
+        long index;
         index = this.Create.InfoIndex;
 
         Info comment;
