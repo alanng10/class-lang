@@ -2,7 +2,7 @@ namespace Class.Infra;
 
 public class Class : Any
 {
-    public virtual string Name { get; set; }
+    public virtual String Name { get; set; }
 
     public virtual Class Base { get; set; }
 
@@ -16,7 +16,7 @@ public class Class : Any
 
     public virtual InfraRange MaideRange { get; set; }
 
-    public virtual int Index { get; set; }
+    public virtual long Index { get; set; }
 
     public virtual object Any { get; set; }
 }
