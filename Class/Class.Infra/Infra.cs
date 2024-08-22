@@ -21,24 +21,24 @@ public class Infra : Any
         this.TextInfra = TextInfra.This;
         this.CountList = CountList.This;
 
-        this.Quote = "\"";
-        this.BackSlash = "\\";
-        this.Tab = "\t";
-        this.NewLine = "\n";
+        this.Quote = this.S("\"");
+        this.BackSlash = this.S("\\");
+        this.NewLine = this.S("\n");
         this.IntSignValueNegativeMax = this.InfraInfra.IntCapValue / 2;
         this.IntSignValuePositiveMax = this.IntSignValueNegativeMax - 1;
         return true;
     }
 
-    public virtual string Quote { get; set; }
-    public virtual string BackSlash { get; set; }
-    public virtual string Tab { get; set; }
-    public virtual string NewLine { get; set; }
+    public virtual String Quote { get; set; }
+    public virtual String BackSlash { get; set; }
+    public virtual String NewLine { get; set; }
+    public virtual String Dot { get; set; }
     public virtual long IntSignValuePositiveMax { get; set; }
     public virtual long IntSignValueNegativeMax { get; set; }
 
     protected virtual InfraInfra InfraInfra { get; set; }
     protected virtual TextInfra TextInfra { get; set; }
+    protected virtual StringValue StringValue { get; set; }
     protected virtual CountList CountList { get; set; }
 
     public virtual bool IndexRange(Range range, int index)
@@ -139,7 +139,7 @@ public class Infra : Any
         arg.MaxWidth = 2;
         arg.FillChar = '0';
 
-        arg.ValueInt = revision;
+        arg.Value.Int = revision;
 
         format.ExecuteArgCount(arg);
 
@@ -148,10 +148,10 @@ public class Infra : Any
 
         format.ExecuteArgResult(arg, aa);
 
-        string oa;
+        String oa;
         oa = this.TextInfra.StringCreate(aa);
 
-        arg.ValueInt = minor;
+        arg.Value.Int = minor;
 
         format.ExecuteArgCount(arg);
 
@@ -160,12 +160,12 @@ public class Infra : Any
 
         format.ExecuteArgResult(arg, ab);
 
-        string ob;
+        String ob;
         ob = this.TextInfra.StringCreate(ab);
 
         arg.FieldWidth = 1;
         arg.MaxWidth = -1;
-        arg.ValueInt = major;
+        arg.Value.Int = major;
 
         format.ExecuteArgCount(arg);
 
@@ -174,10 +174,10 @@ public class Infra : Any
 
         format.ExecuteArgResult(arg, ac);
 
-        string oc;
+        String oc;
         oc = this.TextInfra.StringCreate(ac);
 
-        string dot;
+        String dot;
         dot = ".";
 
         string a;
@@ -319,5 +319,10 @@ public class Infra : Any
         }
 
         return k;
+    }
+
+    private String S(string o)
+    {
+        return this.StringValue.Execute(o);
     }
 }
