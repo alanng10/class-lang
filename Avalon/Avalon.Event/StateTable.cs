@@ -4,10 +4,10 @@ public class StateTable : Table
 {
     public override bool Init()
     {
-        RefCompare compare;
-        compare = new RefCompare();
-        compare.Init();
-        this.Less = compare;
+        RefLess less;
+        less = new RefLess();
+        less.Init();
+        this.Less = less;
         base.Init();
         return true;
     }
