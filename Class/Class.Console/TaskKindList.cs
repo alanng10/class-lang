@@ -58,13 +58,13 @@ public class TaskKindList : Any
 
     protected virtual Array Array { get; set; }
 
-    protected virtual int ArrayCount { get { return 6; } set { } }
+    protected virtual long ArrayCount { get { return 6; } set { } }
 
-    public virtual int Count { get; set; }
+    public virtual long Count { get; set; }
     
-    protected virtual int Index { get; set; }
+    protected virtual long Index { get; set; }
 
-    public virtual TaskKind Get(int index)
+    public virtual TaskKind Get(long index)
     {
         return (TaskKind)this.Array.GetAt(index);
     }
