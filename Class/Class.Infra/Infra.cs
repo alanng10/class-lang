@@ -67,7 +67,7 @@ public class Infra : Any
         
         Table a;
         a = new Table();
-        a.Compare = compare;
+        a.Less = compare;
         a.Init();
         return a;
     }
@@ -76,8 +76,8 @@ public class Infra : Any
     {
         Table a;
         a = new Table();
-        a.Compare = new ModuleRefLess();
-        a.Compare.Init();
+        a.Less = new ModuleRefLess();
+        a.Less.Init();
         a.Init();
         return a;
     }
@@ -86,8 +86,8 @@ public class Infra : Any
     {
         Table a;
         a = new Table();
-        a.Compare = new RefLess();
-        a.Compare.Init();
+        a.Less = new RefLess();
+        a.Less.Init();
         a.Init();
         return a;
     }

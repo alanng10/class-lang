@@ -107,7 +107,7 @@ public class Infra : Any
 
         Table a;
         a = new Table();
-        a.Compare = compare;
+        a.Less = compare;
         a.Init();
         return a;
     }
