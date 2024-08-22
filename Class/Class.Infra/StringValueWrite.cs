@@ -210,59 +210,59 @@ public class StringValueWrite : Any
 
     public virtual bool ExecuteValueString(Text text)
     {
-        Data data;
-        data = text.Data;
-        InfraRange range;
-        range = text.Range;
-        int kk;
-        kk = range.Count;
-
         TextInfra textInfra;
         textInfra = this.TextInfra;
         Infra classInfra;
         classInfra = this.ClassInfra;
+        StringComp stringComp;
+        stringComp = this.StringComp;
 
-        char backSlash;
-        backSlash = classInfra.BackSlash[0];
-        char quote;
-        quote = classInfra.Quote[0];
-        char tab;
-        tab = classInfra.Tab[0];
-        char newLine;
-        newLine = classInfra.NewLine[0];
-        char uuu;
-        uuu = (char)0;
+        Data data;
+        data = text.Data;
+        InfraRange range;
+        range = text.Range;
+        long kk;
+        kk = range.Count;
+
+        uint backSlash;
+        backSlash = (uint)stringComp.Char(classInfra.BackSlash, 0);
+        uint quote;
+        quote = (uint)stringComp.Char(classInfra.Quote, 0);
+        uint newLine;
+        newLine = (uint)stringComp.Char(classInfra.NewLine, 0);
+        uint uuu;
+        uuu = 0;
         
-        int countA;
+        long countA;
         countA = 4;
-        int count;
+        long count;
         count = kk - 2;
-        int start;
+        long start;
         start = range.Index + 1;
-        int index;
-        int indexA;
-        char c;
-        bool b;
-        bool bb;
-        int j;
-        char u;
-        char escapeValue;
-        int i;
+        uint u;
+        uint escapeValue;
+        long i;
         i = 0;
         while (i < count)
         {
+            long index;
             index = start + i;
 
+            uint c;
             c = textInfra.DataCharGet(data, index);
 
+            bool b;
             b = (c == backSlash);
             if (b)
             {
+                long j;
                 j = i + 1;
 
+                bool bb;
                 bb = (j < count);
                 if (bb)
                 {
+                    long indexA;
                     indexA = start + j;
                     u = textInfra.DataCharGet(data, indexA);
 
