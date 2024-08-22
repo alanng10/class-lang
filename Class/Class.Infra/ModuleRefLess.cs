@@ -18,21 +18,21 @@ public class ModuleRefLess : Less
     protected virtual StringLess StringLess { get; set; }
     protected virtual LessInt LessInt { get; set; }
 
-    public override long Execute(object left, object right)
+    public override long Execute(object lite, object rite)
     {
-        ModuleRef leftA;
-        ModuleRef rightA;
-        leftA = (ModuleRef)left;
-        rightA = (ModuleRef)right;
+        ModuleRef liteA;
+        ModuleRef riteA;
+        liteA = (ModuleRef)lite;
+        riteA = (ModuleRef)rite;
 
         long a;
-        a = this.StringLess.Execute(leftA.Name, rightA.Name);
+        a = this.StringLess.Execute(liteA.Name, riteA.Name);
 
         if (!(a == 0))
         {
             return a;
         }
 
-        return this.LessInt.Execute(leftA.Version, rightA.Version);
+        return this.LessInt.Execute(liteA.Version, riteA.Version);
     }
 }
