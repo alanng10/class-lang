@@ -32,17 +32,17 @@ public class Infra : Any
 
         this.TextNewLine = this.TextInfra.TextCreateStringData(this.NewLine, null);
 
-        this.CharCompare = new CompareInt();
-        this.CharCompare.Init();
+        this.CharLess = new LessInt();
+        this.CharLess.Init();
 
         this.CharForm = new CharForm();
         this.CharForm.Init();
 
-        this.TextCompare = new TextCompare();
-        this.TextCompare.CharCompare = this.CharCompare;
-        this.TextCompare.LiteCharForm = this.CharForm;
-        this.TextCompare.RiteCharForm = this.CharForm;
-        this.TextCompare.Init();
+        this.TextLess = new TextLess();
+        this.TextLess.CharLess = this.CharLess;
+        this.TextLess.LiteCharForm = this.CharForm;
+        this.TextLess.RiteCharForm = this.CharForm;
+        this.TextLess.Init();
 
         this.Range = new Range();
         this.Range.Init();
@@ -59,8 +59,8 @@ public class Infra : Any
     public virtual StringValue StringValue { get; set; }
     public virtual Console Console { get; set; }
     public virtual StringJoin StringJoin { get; set; }
-    public virtual TextCompare TextCompare { get; set; }
-    public virtual CompareInt CharCompare { get; set; }
+    public virtual TextLess TextLess { get; set; }
+    public virtual LessInt CharLess { get; set; }
     public virtual CharForm CharForm { get; set; }
     public virtual Range Range { get; set; }
 
@@ -100,14 +100,14 @@ public class Infra : Any
         return this;
     }
 
-    public virtual Table TableCreateStringCompare()
+    public virtual Table TableCreateStringLess()
     {
-        StringCompare compare;
-        compare = this.InfraInfra.StringLessCreate();
+        StringLess less;
+        less = this.InfraInfra.StringLessCreate();
 
         Table a;
         a = new Table();
-        a.Less = compare;
+        a.Less = less;
         a.Init();
         return a;
     }
@@ -238,32 +238,32 @@ public class Infra : Any
 
     public virtual bool TextStart(Text text, Text other)
     {
-        return this.TextInfra.Start(text, other, this.TextCompare);
+        return this.TextInfra.Start(text, other, this.TextLess);
     }
 
     public virtual bool TextEnd(Text text, Text other)
     {
-        return this.TextInfra.End(text, other, this.TextCompare);
+        return this.TextInfra.End(text, other, this.TextLess);
     }
 
     public virtual bool TextSame(Text text, Text other)
     {
-        return this.TextInfra.Equal(text, other, this.TextCompare);
+        return this.TextInfra.Equal(text, other, this.TextLess);
     }
 
     public virtual long TextIndex(Text text, Text other)
     {
-        return this.TextInfra.Index(text, other, this.TextCompare);
+        return this.TextInfra.Index(text, other, this.TextLess);
     }
 
     public virtual Array TextSplit(Text text, Text delimit)
     {
-        return this.TextInfra.Split(text, delimit, this.TextCompare);
+        return this.TextInfra.Split(text, delimit, this.TextLess);
     }
 
     public virtual Text TextReplace(Text text, Text delimit, Text join)
     {
-        return this.TextInfra.Replace(text, delimit, join, this.TextCompare);
+        return this.TextInfra.Replace(text, delimit, join, this.TextLess);
     }
 
     public virtual Text TextCreate(String o)
@@ -303,7 +303,7 @@ public class Infra : Any
         Text ka;
         ka = this.TextCreate(this.TextInfra.BoolFalseString);
 
-        if (!this.TextInfra.Equal(k, ka, this.TextCompare))
+        if (!this.TextInfra.Equal(k, ka, this.TextLess))
         {
             b = true;
         }
