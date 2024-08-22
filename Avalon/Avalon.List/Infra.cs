@@ -75,7 +75,7 @@ public class Infra : Any
         return true;
     }
 
-    public virtual bool Sort(Array array, Less compare, Range range, Array copy)
+    public virtual bool Sort(Array array, Less less, Range range, Array copy)
     {
         long start;
         long end;
@@ -84,12 +84,12 @@ public class Infra : Any
 
         this.CopyArray(copy, array, start, end);
 
-        this.SplitMerge(array, copy, compare, start, end);
+        this.SplitMerge(array, copy, less, start, end);
 
         return true;
     }
 
-    private bool SplitMerge(Array dest, Array source, Less compare, long start, long end)
+    private bool SplitMerge(Array dest, Array source, Less less, long start, long end)
     {
         if (end - start < 2)
         {
@@ -99,16 +99,16 @@ public class Infra : Any
         long mid;
         mid = (start + end) / 2;
 
-        this.SplitMerge(source, dest, compare, start, mid);
+        this.SplitMerge(source, dest, less, start, mid);
 
-        this.SplitMerge(source, dest, compare, mid, end);
+        this.SplitMerge(source, dest, less, mid, end);
 
-        this.Merge(dest, source, compare, start, mid, end);
+        this.Merge(dest, source, less, start, mid, end);
 
         return true;
     }
 
-    private bool Merge(Array dest, Array source, Less compare, long start, long mid, long end)
+    private bool Merge(Array dest, Array source, Less less, long start, long mid, long end)
     {
         long i;
         long j;
@@ -126,7 +126,7 @@ public class Infra : Any
             right = source.GetAt(j);
 
             long ke;
-            ke = compare.Execute(left, right);
+            ke = less.Execute(left, right);
 
             bool b;
             b = (0 < ke);

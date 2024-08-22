@@ -5,7 +5,7 @@ public class Table : List
     public override bool Init()
     {
         this.Tree = new Tree();
-        this.Tree.Compare = this.Less;
+        this.Tree.Less = this.Less;
         this.Tree.Init();
         this.List = new List();
         this.List.Init();
