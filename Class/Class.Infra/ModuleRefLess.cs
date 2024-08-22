@@ -7,7 +7,7 @@ public class ModuleRefLess : Less
         base.Init();
         this.InfraInfra = InfraInfra.This;
 
-        this.StringLess = this.InfraInfra.StringCompareCreate();
+        this.StringLess = this.InfraInfra.StringLessCreate();
 
         this.LessInt = new LessInt();
         this.LessInt.Init();

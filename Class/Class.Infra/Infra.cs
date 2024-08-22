@@ -63,7 +63,7 @@ public class Infra : Any
     public virtual Table TableCreateStringCompare()
     {
         StringLess compare;
-        compare = this.InfraInfra.StringCompareCreate();
+        compare = this.InfraInfra.StringLessCreate();
         
         Table a;
         a = new Table();

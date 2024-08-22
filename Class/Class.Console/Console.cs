@@ -892,7 +892,7 @@ public class Console : Any
         range.Count = count;
 
         StringCompare compare;
-        compare = this.InfraInfra.StringCompareCreate();
+        compare = this.InfraInfra.StringLessCreate();
 
         array.Sort(range, compare);
         return array;

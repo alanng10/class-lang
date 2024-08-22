@@ -202,11 +202,11 @@ public class Infra : Any
         return true;
     }
 
-    public virtual StringLess StringCompareCreate()
+    public virtual StringLess StringLessCreate()
     {
-        LessInt charCompare;
-        charCompare = new LessInt();
-        charCompare.Init();
+        LessInt charLess;
+        charLess = new LessInt();
+        charLess.Init();
 
         CharForm charForm;
         charForm = new CharForm();
@@ -214,7 +214,7 @@ public class Infra : Any
 
         StringLess a;
         a = new StringLess();
-        a.CharCompare = charCompare;
+        a.CharCompare = charLess;
         a.LeftCharForm = charForm;
         a.RightCharForm = charForm;
         a.Init();
