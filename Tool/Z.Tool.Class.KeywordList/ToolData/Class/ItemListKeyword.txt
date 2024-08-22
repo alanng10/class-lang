@@ -18,6 +18,6 @@ False
 Sign
 Bit
 Prusate
-Probate
 Precate
+Pronate
 Private
