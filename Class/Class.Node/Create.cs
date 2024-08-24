@@ -57,6 +57,10 @@ public class Create : InfraCreate
     public virtual Array Code { get; set; }
     public virtual string Task { get; set; }
     public virtual Result Result { get; set; }
+    public virtual Source SourceItem { get; set; }
+    public virtual CreateOperate Operate { get; set; }
+    public virtual CreateArg Arg { get; set; }
+    public virtual CreateSetArg SetArg { get; set; }
 
     protected virtual InfraInfra InfraInfra { get; set; }
     protected virtual ListInfra ListInfra { get; set; }
@@ -67,8 +71,6 @@ public class Create : InfraCreate
     protected virtual DelimitList Delimit { get; set; }
     protected virtual ErrorKindList ErrorKind { get; set; }
     protected virtual NodeKindList NodeKind { get; set; }
-
-    public virtual Source SourceItem { get; set; }
 
     protected virtual Array SourceText { get; set; }
     protected virtual Code CodeItem { get; set; }
@@ -106,17 +108,12 @@ public class Create : InfraCreate
     protected virtual StringData StringData { get; set; }
     protected virtual TextIntParse TextIntParse { get; set; }
 
-    public virtual CreateArg Arg { get; set; }
-    
     protected virtual CountCreateOperate CountOperate { get; set; }
     protected virtual KindCreateOperate KindOperate { get; set; }
     protected virtual SetCreateOperate SetOperate { get; set; }
 
     protected virtual NameCheck NameCheck { get; set; }
     public virtual StringValueWrite StringValueWrite { get; set; }
-
-    public virtual CreateOperate Operate { get; set; }
-    public virtual CreateSetArg SetArg { get; set; }
 
     protected virtual LessInt CreateCharLess()
     {
