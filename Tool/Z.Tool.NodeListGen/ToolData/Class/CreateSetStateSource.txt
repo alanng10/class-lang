@@ -1,14 +1,16 @@
 namespace Class.Node;
 
-public class #NodeKind#CreateOperateState : CreateOperateState
+public class #NodeKind#CreateSetState : CreateSetState
 {
     public override bool Execute()
     {
-        CreateOperateArg arg;
-        arg = (CreateOperateArg)this.Arg;
-        
+        CreateSetStateArg arg;
+        arg = (CreateSetStateArg)this.Arg;
+        CreateSetArg k;
+        k = arg.SetArg;
+
         #NodeKind# node;
-        node = (#NodeKind#)this.Node;
+        node = (#NodeKind#)arg.Node;
 #FieldSetList#        return true;
     }
 }

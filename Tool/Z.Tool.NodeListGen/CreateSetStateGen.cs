@@ -1,6 +1,6 @@
 namespace Z.Tool.NodeListGen;
 
-public class CreateOperateStateGen : ToolGen
+public class CreateSetStateGen : ToolGen
 {
     public override bool Init()
     {
@@ -18,7 +18,7 @@ public class CreateOperateStateGen : ToolGen
 
     public virtual long Execute()
     {
-        this.SourceFileName = this.S("ToolData/Class/CreateOperateStateSource.txt");
+        this.SourceFileName = this.S("ToolData/Class/CreateSetStateSource.txt");
         this.OutputFoldPath = this.S("../../Class/Class.Node");
 
         String kk;
@@ -102,7 +102,7 @@ public class CreateOperateStateGen : ToolGen
             this.AddS("(").Add(className).AddS(")");
         }
 
-        this.AddS("arg").AddS(".");
+        this.AddS("k").AddS(".");
 
         if (isValueClass)
         {
