@@ -10,6 +10,7 @@ public class Create : InfraCreate
         this.TextInfra = TextInfra.This;
         this.ListInfra = ListInfra.This;
         this.ClassInfra = ClassInfra.This;
+        this.StringComp = StringComp.This;
         this.Keyword = KeywordList.This;
         this.Delimit = DelimitList.This;
         this.ErrorKind = ErrorKindList.This;
@@ -57,14 +58,15 @@ public class Create : InfraCreate
     public virtual string Task { get; set; }
     public virtual Result Result { get; set; }
 
-    protected virtual KeywordList Keyword { get; set; }
-    protected virtual DelimitList Delimit { get; set; }
-    protected virtual ErrorKindList ErrorKind { get; set; }
-    protected virtual NodeKindList NodeKind { get; set; }
     protected virtual InfraInfra InfraInfra { get; set; }
     protected virtual ListInfra ListInfra { get; set; }
     protected virtual TextInfra TextInfra { get; set; }
     protected virtual ClassInfra ClassInfra { get; set; }
+    protected virtual StringComp StringComp { get; set; }
+    protected virtual KeywordList Keyword { get; set; }
+    protected virtual DelimitList Delimit { get; set; }
+    protected virtual ErrorKindList ErrorKind { get; set; }
+    protected virtual NodeKindList NodeKind { get; set; }
 
     public virtual Source SourceItem { get; set; }
 
