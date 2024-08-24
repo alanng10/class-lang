@@ -338,6 +338,7 @@ public class Create : InfraCreate
         this.Operate = this.CountOperate;
 
         this.ExecuteStage();
+        this.SetArgClear();
 
         Data nodeData;
         nodeData = new Data();
@@ -354,8 +355,8 @@ public class Create : InfraCreate
         this.Operate = this.KindOperate;
 
         this.ArgClearIndex();
-
         this.ExecuteStage();
+        this.SetArgClear();
 
         arg.NodeArray = listInfra.ArrayCreate(arg.NodeIndex);
         arg.ListArray = listInfra.ArrayCreate(arg.ListIndex);
@@ -372,8 +373,8 @@ public class Create : InfraCreate
         this.Operate = this.SetOperate;
 
         this.ArgClearIndex();
-
         this.ExecuteStage();
+        this.SetArgClear();
 
         this.Result.Error = arg.ErrorArray;
 
@@ -673,8 +674,6 @@ public class Create : InfraCreate
             this.Result.Root.SetAt(i, root);
             i = i + 1;
         }
-
-        this.SetArgClear();
         return true;
     }
 
