@@ -31,7 +31,7 @@ public class Create : InfraCreate
         this.CountOperate = this.CreateCountCreateOperate();
         this.KindOperate = this.CreateKindCreateOperate();
         this.SetOperate = this.CreateSetCreateOperate();
-        this.OperateArg = this.CreateCreateOperateArg();
+        this.SetArg = this.CreateCreateSetArg();
 
         this.RangeA = this.CreateRange();
         this.RangeB = this.CreateRange();
@@ -121,7 +121,7 @@ public class Create : InfraCreate
     public virtual StringValueWrite StringValueWrite { get; set; }
 
     public virtual CreateOperate Operate { get; set; }
-    public virtual CreateOperateArg OperateArg { get; set; }
+    public virtual CreateSetArg SetArg { get; set; }
 
     protected virtual NameCheck CreateNameCheck()
     {
@@ -169,10 +169,10 @@ public class Create : InfraCreate
         return a;
     }
 
-    protected virtual CreateOperateArg CreateCreateOperateArg()
+    protected virtual CreateSetArg CreateCreateSetArg()
     {
-        CreateOperateArg a;
-        a = new CreateOperateArg();
+        CreateSetArg a;
+        a = new CreateSetArg();
         a.Init();
         return a;
     }
