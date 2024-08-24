@@ -164,7 +164,7 @@ public class CreateSetStateGen : ToolGen
     protected virtual String GetOutputFilePath(String kind)
     {
         String fileName;
-        fileName = this.AddClear().AddS("Z_CreateOperateState_").Add(kind).AddS(".cs").AddResult();
+        fileName = this.AddClear().AddS("Z_CreateSetState_").Add(kind).AddS(".cs").AddResult();
 
         String filePath;
         filePath = this.AddClear().Add(this.OutputFoldPath).AddS("/").Add(fileName).AddResult();
