@@ -714,8 +714,8 @@ public class Create : InfraCreate
 
     public virtual Node ExecuteClass(Range range)
     {
-        int start;
-        int end;
+        long start;
+        long end;
         start = range.Start;
         end = range.End;
 
@@ -3996,14 +3996,14 @@ public class Create : InfraCreate
         return a;
     }
 
-    protected virtual TokenToken TokenToken(int index)
+    protected virtual TokenToken TokenToken(long index)
     {
         TokenToken token;
         token = (TokenToken)this.CodeItem.Token.GetAt(index);
         return token;
     }
 
-    protected virtual int Count(int start, int end)
+    protected virtual long Count(long start, long end)
     {
         return this.ClassInfra.Count(start, end);
     }
@@ -4020,7 +4020,7 @@ public class Create : InfraCreate
         return true;
     }
 
-    protected virtual bool TextStringGet(Text text, string o)
+    protected virtual bool TextStringGet(Text text, String o)
     {
         StringData d;
         d = this.StringData;
@@ -4045,7 +4045,7 @@ public class Create : InfraCreate
         return true;
     }
 
-    protected virtual bool IsText(string value, int index)
+    protected virtual bool IsText(String value, long index)
     {
         TokenToken aa;
         aa = this.TokenToken(index);
@@ -4084,7 +4084,7 @@ public class Create : InfraCreate
         return true;
     }
 
-    protected virtual Token Token(Token result, string value, Range range)
+    protected virtual Token Token(Token result, String value, Range range)
     {
         long start;
         long end;
