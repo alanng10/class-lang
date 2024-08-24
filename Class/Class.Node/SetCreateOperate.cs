@@ -6,10 +6,12 @@ public class SetCreateOperate : CreateOperate
     {
         base.Init();
         this.InfraInfra = InfraInfra.This;
+        this.StringComp = StringComp.This;
         return true;
     }
 
     protected virtual InfraInfra InfraInfra { get; set; }
+    protected virtual StringComp StringComp { get; set; }
 
     public override Node Execute()
     {
@@ -52,15 +54,15 @@ public class SetCreateOperate : CreateOperate
         return node;
     }
 
-    public override int ExecuteListNew()
+    public override long ExecuteListNew()
     {
         CreateArg arg;
         arg = this.Create.Arg;
 
-        int index;
+        long index;
         index = arg.ListIndex;
 
-        int a;
+        long a;
         a = index;
 
         index = index + 1;
@@ -69,12 +71,12 @@ public class SetCreateOperate : CreateOperate
         return a;
     }
 
-    public override Array ExecuteListGet(int index)
+    public override Array ExecuteListGet(long index)
     {
         return (Array)this.Create.Arg.ListArray.GetAt(index);
     }
 
-    public override bool ExecuteListSetItem(int index, int itemIndex, object item)
+    public override bool ExecuteListSetItem(long index, long itemIndex, object item)
     {
         Array array;
         array = (Array)this.Create.Arg.ListArray.GetAt(index);
@@ -83,14 +85,14 @@ public class SetCreateOperate : CreateOperate
         return true;
     }
     
-    public override bool ExecuteError(ErrorKind kind, int start, int end)
+    public override bool ExecuteError(ErrorKind kind, long start, long end)
     {
         Create create;
         create = this.Create;
         CreateArg arg;
         arg = create.Arg;
 
-        int index;
+        long index;
         index = arg.ErrorIndex;
 
         Error error;
@@ -106,42 +108,42 @@ public class SetCreateOperate : CreateOperate
         return true;
     }
 
-    public override string ExecuteNameValue(Text text)
+    public override String ExecuteNameValue(Text text)
     {
         CreateArg arg;
         arg = this.Create.Arg;
 
-        int index;
+        long index;
         index = arg.NameValueIndex;
-        int indexA;
+        long indexA;
         indexA = arg.NameValueTextIndex;
 
-        string a;
-        a = (string)arg.NameValueArray.GetAt(index);
+        String a;
+        a = (String)arg.NameValueArray.GetAt(index);
 
         index = index + 1;
-        indexA = indexA + a.Length;
+        indexA = indexA + this.StringComp.Count(a);
 
         arg.NameValueTextIndex = indexA;
         arg.NameValueIndex = index;
         return a;
     }
 
-    public override string ExecuteStringValue(Text text)
+    public override String ExecuteStringValue(Text text)
     {
         CreateArg arg;
         arg = this.Create.Arg;
 
-        int index;
+        long index;
         index = arg.StringValueIndex;
-        int indexA;
+        long indexA;
         indexA = arg.StringValueTextIndex;
 
-        string a;
-        a = (string)arg.StringValueArray.GetAt(index);
+        String a;
+        a = (String)arg.StringValueArray.GetAt(index);
 
         index = index + 1;
-        indexA = indexA + a.Length;
+        indexA = indexA + this.StringComp.Count(a);
 
         arg.StringValueTextIndex = indexA;
         arg.StringValueIndex = index;
