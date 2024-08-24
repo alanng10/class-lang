@@ -15,15 +15,9 @@ public class Create : InfraCreate
         this.ErrorKind = ErrorKindList.This;
         this.NodeKind = NodeKindList.This;
 
-        this.CharLess = new LessInt();
-        this.CharLess.Init();
-        this.CharForm = new CharForm();
-        this.CharForm.Init();
-        this.TextLess = new TextLess();
-        this.TextLess.CharLess = this.CharLess;
-        this.TextLess.LiteCharForm = this.CharForm;
-        this.TextLess.RiteCharForm = this.CharForm;
-        this.TextLess.Init();
+        this.CharLess = this.CreateCharLess();
+        this.CharForm = this.CreateCharForm();
+        this.TextLess = this.CreateTextLess();
 
         this.NameCheck = this.CreateNameCheck();
         this.StringValueWrite = this.CreateStringValueWrite();
@@ -49,8 +43,7 @@ public class Create : InfraCreate
 
         this.TextA = this.CreateText();
         this.TextB = this.CreateText();
-        this.StringData = new StringData();
-        this.StringData.Init();
+        this.StringData = this.CreateStringData();
         this.TextIntParse = this.CreateTextIntParse();
 
         this.InitListItemState();
@@ -104,7 +97,7 @@ public class Create : InfraCreate
     protected virtual Token TokenI { get; set; }
 
     protected virtual TextLess TextLess { get; set; }
-    protected virtual LessMid CharLess { get; set; }
+    protected virtual LessInt CharLess { get; set; }
     protected virtual CharForm CharForm { get; set; }
     protected virtual Text TextA { get; set; }
     protected virtual Text TextB { get; set; }
@@ -123,6 +116,33 @@ public class Create : InfraCreate
     public virtual CreateOperate Operate { get; set; }
     public virtual CreateSetArg SetArg { get; set; }
 
+    protected virtual LessInt CreateCharLess()
+    {
+        LessInt a;
+        a = new LessInt();
+        a.Init();
+        return a;
+    }
+
+    protected virtual CharForm CreateCharForm()
+    {
+        CharForm a;
+        a = new CharForm();
+        a.Init();
+        return a;
+    }
+
+    protected virtual TextLess CreateTextLess()
+    {
+        TextLess a;
+        a = new TextLess();
+        a.CharLess = this.CharLess;
+        a.LiteCharForm = this.CharForm;
+        a.RiteCharForm = this.CharForm;
+        a.Init();
+        return a;
+    }
+
     protected virtual NameCheck CreateNameCheck()
     {
         NameCheck a;
@@ -138,6 +158,14 @@ public class Create : InfraCreate
     {
         StringValueWrite a;
         a = new StringValueWrite();
+        a.Init();
+        return a;
+    }
+
+    protected virtual TextIntParse CreateTextIntParse()
+    {
+        TextIntParse a;
+        a = new TextIntParse();
         a.Init();
         return a;
     }
@@ -205,14 +233,14 @@ public class Create : InfraCreate
         return a;
     }
 
-    protected virtual TextIntParse CreateTextIntParse()
+    protected virtual StringData CreateStringData()
     {
-        TextIntParse a;
-        a = new TextIntParse();
+        StringData a;
+        a = new StringData();
         a.Init();
         return a;
     }
-
+    
     protected virtual bool InitListItemState()
     {
         this.PartItemRangeState = this.RangeStateSet(new PartItemRangeState());
