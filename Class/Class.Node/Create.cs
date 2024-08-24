@@ -623,28 +623,28 @@ public class Create : InfraCreate
         range.Index = 0;
         range.Count = 0;
 
-        int total;
+        long total;
         total = 0;
 
-        int count;
+        long count;
         count = array.Count;
-        int i;
+        long i;
         i = 0;
         while (i < count)
         {
             long index;
             index = i;
-            index = index * sizeof(uint);
+            index = index * sizeof(ulong);
             
-            uint u;
-            u = infraInfra.DataMidGet(data, index);
-            int oa;
-            oa = (int)u;
+            ulong u;
+            u = infraInfra.DataIntGet(data, index);
+            long oa;
+            oa = (long)u;
             
             range.Index = total;
             range.Count = oa;
             
-            string a;
+            String a;
             a = textInfra.StringCreate(text);
             
             array.SetAt(i, a);
@@ -658,9 +658,9 @@ public class Create : InfraCreate
 
     public virtual bool ExecuteStage()
     {
-        int count;
+        long count;
         count = this.Code.Count;
-        int i;
+        long i;
         i = 0;
         while (i < count)
         {
