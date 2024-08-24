@@ -7,5 +7,5 @@ public class NodeKind : Any
     public virtual Node Node { get; set; }
     public virtual InfraState NewState { get; set; }
     public virtual NodeState NodeState { get; set; }
-    public virtual CreateOperateState CreateOperateState { get; set; }
+    public virtual CreateSetState CreateSetState { get; set; }
 }

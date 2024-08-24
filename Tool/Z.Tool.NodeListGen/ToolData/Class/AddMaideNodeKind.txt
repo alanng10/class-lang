@@ -1,9 +1,9 @@
-    protected virtual #ItemClassName# AddItem(string name, Node node, InfraState newState, NodeState nodeState, CreateOperateState createOperateState)
+    protected virtual #ItemClassName# AddItem(string name, Node node, InfraState newState, NodeState nodeState, CreateSetState createSetState)
     {
         node.Init();
         newState.Init();
         nodeState.Init();
-        createOperateState.Init();
+        createSetState.Init();
 
         String k;
         k = this.TextStringValue.Execute(name);
@@ -16,7 +16,7 @@
         item.Node = node;
         item.NewState = newState;
         item.NodeState = nodeState;
-        item.CreateOperateState = createOperateState;
+        item.CreateSetState = createSetState;
         this.Array.SetAt(item.Index, item);
         this.Index = this.Index + 1;
         return item;
