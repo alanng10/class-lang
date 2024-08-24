@@ -15,17 +15,18 @@ public class Create : InfraCreate
         this.ErrorKind = ErrorKindList.This;
         this.NodeKind = NodeKindList.This;
 
+        this.CountOperate = this.CreateCountCreateOperate();
+        this.KindOperate = this.CreateKindCreateOperate();
+        this.SetOperate = this.CreateSetCreateOperate();
+        this.SetArg = this.CreateCreateSetArg();
+
         this.CharLess = this.CreateCharLess();
         this.CharForm = this.CreateCharForm();
         this.TextLess = this.CreateTextLess();
 
         this.NameCheck = this.CreateNameCheck();
         this.StringValueWrite = this.CreateStringValueWrite();
-
-        this.CountOperate = this.CreateCountCreateOperate();
-        this.KindOperate = this.CreateKindCreateOperate();
-        this.SetOperate = this.CreateSetCreateOperate();
-        this.SetArg = this.CreateCreateSetArg();
+        this.TextIntParse = this.CreateTextIntParse();
 
         this.RangeA = this.CreateRange();
         this.RangeB = this.CreateRange();
@@ -44,7 +45,6 @@ public class Create : InfraCreate
         this.TextA = this.CreateText();
         this.TextB = this.CreateText();
         this.StringData = this.CreateStringData();
-        this.TextIntParse = this.CreateTextIntParse();
 
         this.InitListItemState();
 
@@ -240,7 +240,7 @@ public class Create : InfraCreate
         a.Init();
         return a;
     }
-    
+
     protected virtual bool InitListItemState()
     {
         this.PartItemRangeState = this.RangeStateSet(new PartItemRangeState());
