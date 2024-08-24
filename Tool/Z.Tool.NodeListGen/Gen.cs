@@ -35,11 +35,11 @@ public class Gen : Any
         nodeStateGen.ClassTable = classTable;
         nodeStateGen.Execute();
 
-        CreateOperateStateGen createOperateStateGen;
-        createOperateStateGen = new CreateOperateStateGen();
-        createOperateStateGen.Init();
-        createOperateStateGen.ClassTable = classTable;
-        createOperateStateGen.Execute();
+        CreateSetStateGen createSetStateGen;
+        createSetStateGen = new CreateSetStateGen();
+        createSetStateGen.Init();
+        createSetStateGen.ClassTable = classTable;
+        createSetStateGen.Execute();
 
         NodeKindListGen nodeKindListGen;
         nodeKindListGen = new NodeKindListGen();
