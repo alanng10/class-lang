@@ -427,7 +427,7 @@ public class Create : InfraCreate
         return a;
     }
 
-    protected virtual Data TextDataCreate(int count)
+    protected virtual Data TextDataCreate(long count)
     {
         long o;
         o = count;
