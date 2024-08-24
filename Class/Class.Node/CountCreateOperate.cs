@@ -8,14 +8,14 @@ public class CountCreateOperate : CreateOperate
         this.ListInfra = ListInfra.This;
         this.TextInfra = TextInfra.This;
         this.List = this.ListInfra.ArrayCreate(0);
-        this.String = "";
+        this.String = this.TextInfra.Empty;
         return true;
     }
 
     protected virtual ListInfra ListInfra { get; set; }
     protected virtual TextInfra TextInfra { get; set; }
     protected virtual Array List { get; set; }
-    protected virtual string String { get; set; }
+    protected virtual String String { get; set; }
 
     public override Node Execute()
     {
@@ -70,7 +70,7 @@ public class CountCreateOperate : CreateOperate
         return true;
     }
 
-    public override string ExecuteNameValue(Text text)
+    public override String ExecuteNameValue(Text text)
     {
         CreateArg arg;
         arg = this.Create.Arg;
@@ -88,7 +88,7 @@ public class CountCreateOperate : CreateOperate
         return this.String;
     }
 
-    public override string ExecuteStringValue(Text text)
+    public override String ExecuteStringValue(Text text)
     {
         CreateArg arg;
         arg = this.Create.Arg;
