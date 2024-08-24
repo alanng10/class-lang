@@ -1,12 +1,12 @@
 namespace Class.Node;
 
-public class CreateOperateState : InfraState
+public class CreateSetState : InfraState
 {
     public override bool Init()
     {
         base.Init();
-        CreateOperateStateArg aa;
-        aa = new CreateOperateStateArg();
+        CreateSetStateArg aa;
+        aa = new CreateSetStateArg();
         aa.Init();
         this.Arg = aa;
         return true;

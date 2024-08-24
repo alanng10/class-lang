@@ -1,6 +1,6 @@
 namespace Class.Node;
 
-public class CreateOperateArg : Any
+public class CreateSetArg : Any
 {
     public virtual NodeKind Kind { get; set; }
     public virtual object Field00 { get; set; }
