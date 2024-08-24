@@ -688,9 +688,9 @@ public class Create : InfraCreate
     {
         Range range;
         range = this.RangeA;
-        int rangeStart;
+        long rangeStart;
         rangeStart = 0;
-        int rangeEnd;
+        long rangeEnd;
         rangeEnd = this.CodeItem.Token.Count;
         this.Range(range, rangeStart, rangeEnd);
 
@@ -699,8 +699,10 @@ public class Create : InfraCreate
 
         Node node;
         node = (Node)this.NodeState.Result;
-        this.NodeState.Arg = null;
+
         this.NodeState.Result = null;
+        this.NodeState.Arg = null;
+
         if (node == null)
         {
             this.Error(this.ErrorKind.Invalid, rangeStart, rangeEnd);
@@ -4070,13 +4072,13 @@ public class Create : InfraCreate
         return range;
     }
 
-    protected virtual Range IndexRange(Range range, int index)
+    protected virtual Range IndexRange(Range range, long index)
     {
         this.ClassInfra.IndexRange(range, index);
         return range;
     }
 
-    protected virtual bool Error(ErrorKind kind, int start, int end)
+    protected virtual bool Error(ErrorKind kind, long start, long end)
     {
         this.Operate.ExecuteError(kind, start, end);
         return true;
@@ -4084,8 +4086,8 @@ public class Create : InfraCreate
 
     protected virtual Token Token(Token result, string value, Range range)
     {
-        int start;
-        int end;
+        long start;
+        long end;
         start = range.Start;
         end = range.End;
 
