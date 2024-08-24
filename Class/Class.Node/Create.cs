@@ -4010,7 +4010,7 @@ public class Create : InfraCreate
         return this.NameCheck.IsName(this.TextA);
     }
 
-    public virtual bool NodeInfo(Node node, int start, int end)
+    public virtual bool NodeInfo(Node node, long start, long end)
     {
         this.Range(node.Range, start, end);
         return true;
@@ -4036,7 +4036,7 @@ public class Create : InfraCreate
         return a;
     }
 
-    protected virtual Range Range(Range range, int start, int end)
+    protected virtual Range Range(Range range, long start, long end)
     {
         range.Start = start;
         range.End = end;
