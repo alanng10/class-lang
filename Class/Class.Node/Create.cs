@@ -378,8 +378,6 @@ public class Create : InfraCreate
         this.Result.Error = arg.ErrorArray;
 
         this.Arg = null;
-
-        this.SetArgClear();
         return true;
     }
     
@@ -675,6 +673,8 @@ public class Create : InfraCreate
             this.Result.Root.SetAt(i, root);
             i = i + 1;
         }
+
+        this.SetArgClear();
         return true;
     }
 
