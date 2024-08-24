@@ -3976,22 +3976,22 @@ public class Create : InfraCreate
         return true;
     }
 
-    protected virtual bool IsIntSignChar(char oc)
+    protected virtual bool IsIntSignChar(uint oc)
     {
         return (oc == 'p') | (oc == 'n');
     }
 
-    protected virtual bool IsTokenSignNegative(TokenToken o, int index)
+    protected virtual bool IsTokenSignNegative(TokenToken o, long index)
     {
         Text line;
         line = (Text)this.SourceText.GetAt(o.Row);
 
         Data data;
         data = line.Data;
-        int start;
+        long start;
         start = line.Range.Index + o.Range.Index;
 
-        char oa;
+        uint oa;
         oa = this.TextInfra.DataCharGet(data, start + index);
         bool a;
         a = (oa == 'n');
