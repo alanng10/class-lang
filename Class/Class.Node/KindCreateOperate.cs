@@ -28,7 +28,7 @@ public class KindCreateOperate : CreateOperate
         arg = create.Arg;
         
         NodeKind kind;
-        kind = create.OperateArg.Kind;
+        kind = create.SetArg.Kind;
 
         long index;
         index = arg.NodeIndex;

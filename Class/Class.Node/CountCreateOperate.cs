@@ -30,7 +30,7 @@ public class CountCreateOperate : CreateOperate
         arg.NodeIndex = index;
 
         Node a;
-        a = this.Create.OperateArg.Kind.Node;
+        a = this.Create.SetArg.Kind.Node;
         return a;
     }
 

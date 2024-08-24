@@ -379,7 +379,7 @@ public class Create : InfraCreate
 
         this.Arg = null;
 
-        this.OperateArgClear();
+        this.SetArgClear();
         return true;
     }
     
@@ -398,10 +398,10 @@ public class Create : InfraCreate
         return true;
     }
 
-    protected virtual bool OperateArgClear()
+    protected virtual bool SetArgClear()
     {
-        CreateOperateArg a;
-        a = this.OperateArg;
+        CreateSetArg a;
+        a = this.SetArg;
         a.Kind = null;
         a.Field00 = null;
         a.Field01 = null;
@@ -453,13 +453,13 @@ public class Create : InfraCreate
         NodeKindList nodeKind;
         nodeKind = this.NodeKind;
 
-        int count;
+        long count;
         count = array.Count;
-        int i;
+        long i;
         i = 0;
         while (i < count)
         {
-            int oa;
+            long oa;
             oa = data.Get(i);
             NodeKind kind;
             kind = nodeKind.Get(oa);

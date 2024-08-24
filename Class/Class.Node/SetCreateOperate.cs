@@ -21,8 +21,8 @@ public class SetCreateOperate : CreateOperate
         CreateArg arg;
         arg = create.Arg;
 
-        CreateOperateArg o;
-        o = create.OperateArg;
+        CreateSetArg o;
+        o = create.SetArg;
 
         long index;
         index = arg.NodeIndex;
@@ -33,17 +33,17 @@ public class SetCreateOperate : CreateOperate
         NodeKind kind;
         kind = o.Kind;
 
-        CreateOperateState state;
-        state = kind.CreateOperateState;
+        CreateSetState state;
+        state = kind.CreateSetState;
 
-        CreateOperateStateArg stateArg;
-        stateArg = (CreateOperateStateArg)state.Arg;
+        CreateSetStateArg stateArg;
+        stateArg = (CreateSetStateArg)state.Arg;
         stateArg.Node = node;
-        stateArg.OperateArg = o;
+        stateArg.SetArg = o;
 
         state.Execute();
 
-        stateArg.OperateArg = null;
+        stateArg.SetArg = null;
         stateArg.Node = null;
 
         create.NodeInfo(node, o.Start, o.End);
