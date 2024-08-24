@@ -9,7 +9,7 @@ public class KindCreateOperate : CreateOperate
         this.ListInfra = ListInfra.This;
         this.TextInfra = TextInfra.This;
         this.List = this.ListInfra.ArrayCreate(0);
-        this.String = "";
+        this.String = this.TextInfra.Empty;
         return true;
     }
 
@@ -17,7 +17,7 @@ public class KindCreateOperate : CreateOperate
     protected virtual ListInfra ListInfra { get; set; }
     protected virtual TextInfra TextInfra { get; set; }
     protected virtual Array List { get; set; }
-    protected virtual string String { get; set; }
+    protected virtual String String { get; set; }
 
     public override Node Execute()
     {
@@ -30,7 +30,7 @@ public class KindCreateOperate : CreateOperate
         NodeKind kind;
         kind = create.OperateArg.Kind;
 
-        int index;
+        long index;
         index = arg.NodeIndex;
 
         arg.NodeData.Set(index, kind.Index);
@@ -44,15 +44,15 @@ public class KindCreateOperate : CreateOperate
         return a;
     }
 
-    public override int ExecuteListNew()
+    public override long ExecuteListNew()
     {
         CreateArg arg;
         arg = this.Create.Arg;
 
-        int index;
+        long index;
         index = arg.ListIndex;
 
-        int a;
+        long a;
         a = index;
 
         index = index + 1;
@@ -61,28 +61,28 @@ public class KindCreateOperate : CreateOperate
         return a;
     }
 
-    public override Array ExecuteListGet(int index)
+    public override Array ExecuteListGet(long index)
     {
         return this.List;
     }
 
-    public override bool ExecuteListCount(int index, int count)
+    public override bool ExecuteListCount(long index, long count)
     {
         long oa;
         oa = index;
-        oa = oa * sizeof(uint);
-        uint u;
-        u = (uint)count;
-        this.InfraInfra.DataMidSet(this.Create.Arg.ListData, oa, u);
+        oa = oa * sizeof(ulong);
+        ulong u;
+        u = (ulong)count;
+        this.InfraInfra.DataIntSet(this.Create.Arg.ListData, oa, u);
         return true;
     }
 
-    public override bool ExecuteError(ErrorKind kind, int start, int end)
+    public override bool ExecuteError(ErrorKind kind, long start, long end)
     {
         CreateArg arg;
         arg = this.Create.Arg;
 
-        int index;
+        long index;
         index = arg.ErrorIndex;
 
         index = index + 1;
@@ -91,35 +91,35 @@ public class KindCreateOperate : CreateOperate
         return true;
     }
 
-    public override string ExecuteNameValue(Text text)
+    public override String ExecuteNameValue(Text text)
     {
         CreateArg arg;
         arg = this.Create.Arg;
 
-        int index;
+        long index;
         index = arg.NameValueIndex;
-        int indexA;
+        long indexA;
         indexA = arg.NameValueTextIndex;
 
         InfraRange range;
         range = text.Range;
 
-        int count;
+        long count;
         count = range.Count;
-        uint u;
-        u = (uint)count;
+        ulong u;
+        u = (ulong)count;
         long oa;
         oa = index;
-        oa = oa * sizeof(uint);
-        this.InfraInfra.DataMidSet(arg.NameValueCountData, oa, u);
+        oa = oa * sizeof(ulong);
+        this.InfraInfra.DataIntSet(arg.NameValueCountData, oa, u);
 
         Data source;
         source = text.Data;
-        int sourceIndex;
+        long sourceIndex;
         sourceIndex = range.Index;
         Data dest;
         dest = arg.NameValueTextData;
-        int destIndex;
+        long destIndex;
         destIndex = indexA;
 
         this.CopyText(dest, destIndex, source, sourceIndex, count);
@@ -132,16 +132,16 @@ public class KindCreateOperate : CreateOperate
         return this.String;
     }
 
-    public override string ExecuteStringValue(Text text)
+    public override String ExecuteStringValue(Text text)
     {
         Create create;
         create = this.Create;
         CreateArg arg;
         arg = create.Arg;
 
-        int index;
+        long index;
         index = arg.StringValueIndex;
-        int indexA;
+        long indexA;
         indexA = arg.StringValueTextIndex;
 
         StringValueWrite write;
@@ -172,16 +172,16 @@ public class KindCreateOperate : CreateOperate
         return this.String;
     }
 
-    protected virtual bool CopyText(Data dest, int destIndex, Data source, int sourceIndex, int count)
+    protected virtual bool CopyText(Data dest, long destIndex, Data source, long sourceIndex, long count)
     {
         TextInfra textInfra;
         textInfra = this.TextInfra;
 
-        int i;
+        long i;
         i = 0;
         while (i < count)
         {
-            char oc;
+            uint oc;
             oc = textInfra.DataCharGet(source, sourceIndex + i);
 
             textInfra.DataCharSet(dest, destIndex + i, oc);
