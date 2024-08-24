@@ -15,7 +15,7 @@ public class Create : InfraCreate
         this.ErrorKind = ErrorKindList.This;
         this.NodeKind = NodeKindList.This;
 
-        this.CharLess = new LessMid();
+        this.CharLess = new LessInt();
         this.CharLess.Init();
         this.CharForm = new CharForm();
         this.CharForm.Init();
