@@ -496,19 +496,19 @@ public class Create : InfraCreate
         Array array;
         array = arg.ListArray;
 
-        int count;
+        long count;
         count = array.Count;
-        int i;
+        long i;
         i = 0;
         while (i < count)
         {
             long index;
             index = i;
-            index = index * sizeof(uint);
-            uint u;
-            u = this.InfraInfra.DataMidGet(data, index);
-            int oa;
-            oa = (int)u;
+            index = index * sizeof(ulong);
+            ulong u;
+            u = this.InfraInfra.DataIntGet(data, index);
+            long oa;
+            oa = (long)u;
 
             Array a;
             a = listInfra.ArrayCreate(oa);
@@ -524,9 +524,9 @@ public class Create : InfraCreate
         Array array;
         array = this.Arg.ErrorArray;
 
-        int count;
+        long count;
         count = array.Count;
-        int i;
+        long i;
         i = 0;
         while (i < count)
         {
