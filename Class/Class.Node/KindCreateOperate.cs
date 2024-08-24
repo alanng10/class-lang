@@ -149,14 +149,14 @@ public class KindCreateOperate : CreateOperate
         write.WriteOperate = write.CountWriteOperate;
         write.Index = 0;
         write.ExecuteValueString(text);
-        int count;
+        long count;
         count = write.Index;
-        uint u;
-        u = (uint)count;
+        ulong u;
+        u = (ulong)count;
         long oa;
         oa = index;
-        oa = oa * sizeof(uint);
-        this.InfraInfra.DataMidSet(arg.StringValueCountData, oa, u);
+        oa = oa * sizeof(ulong);
+        this.InfraInfra.DataIntSet(arg.StringValueCountData, oa, u);
         
         write.WriteOperate = write.AddWriteOperate;
         write.Index = indexA;
