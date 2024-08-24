@@ -282,7 +282,7 @@ public class Create : InfraCreate
         NodeKindList nodeKind;
         nodeKind = this.NodeKind;
 
-        int count;
+        long count;
         count = nodeKind.Count;
         int i;
         i = 0;
@@ -415,11 +415,11 @@ public class Create : InfraCreate
         return true;
     }
 
-    protected virtual Data CountDataCreate(int count)
+    protected virtual Data CountDataCreate(long count)
     {
         long o;
         o = count;
-        o = o * sizeof(uint);
+        o = o * sizeof(ulong);
         Data a;
         a = new Data();
         a.Count = o;
@@ -431,7 +431,7 @@ public class Create : InfraCreate
     {
         long o;
         o = count;
-        o = o * sizeof(char);
+        o = o * sizeof(uint);
         Data a;
         a = new Data();
         a.Count = o;
