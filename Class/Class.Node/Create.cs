@@ -4106,21 +4106,21 @@ public class Create : InfraCreate
 
     protected virtual Token TokenForwardNoSkip(Token result, String value, Range range)
     {
-        int start;
-        int end;
+        long start;
+        long end;
         start = range.Start;
         end = range.End;
-        string leftBracket;
-        string rightBracket;
+        String leftBracket;
+        String rightBracket;
         leftBracket = this.Delimit.LeftBracket.Text;
         rightBracket = this.Delimit.RightBracket.Text;
-        string leftBrace;
-        string rightBrace;
+        String leftBrace;
+        String rightBrace;
         leftBrace = this.Delimit.LeftBrace.Text;
         rightBrace = this.Delimit.RightBrace.Text;
-        int i;
+        long i;
         i = start;
-        int index;
+        long index;
         index = -1;
         bool varContinue;
         varContinue = (i < end);
@@ -4162,27 +4162,27 @@ public class Create : InfraCreate
 
     protected virtual Token TokenBackwardNoSkip(Token result, String value, Range range)
     {
-        int start;
-        int end;
+        long start;
+        long end;
         start = range.Start;
         end = range.End;
-        string leftBracket;
-        string rightBracket;
+        String leftBracket;
+        String rightBracket;
         leftBracket = this.Delimit.LeftBracket.Text;
         rightBracket = this.Delimit.RightBracket.Text;
-        string leftBrace;
-        string rightBrace;
+        String leftBrace;
+        String rightBrace;
         leftBrace = this.Delimit.LeftBrace.Text;
         rightBrace = this.Delimit.RightBrace.Text;
-        int i;
+        long i;
         i = end;
-        int index;
+        long index;
         index = -1;
         bool varContinue;
         varContinue = (start < i);
         while (varContinue)
         {
-            int j;
+            long j;
             j = i - 1;
             bool b;
             b = this.IsText(value, j);
