@@ -40,7 +40,7 @@ class Read : ToolGen
         ka = this.ToolInfra.StorageTextRead(this.S("ToolData/Prusate/ClassList.txt"));
 
         Array lineArray;        
-        lineArray = this.TextSplitLineString(ka);
+        lineArray = this.TextLimitLineString(ka);
 
         Table table;
         table = this.ToolInfra.TableCreateStringLess();
@@ -487,7 +487,7 @@ class Read : ToolGen
         ka = this.ToolInfra.StorageTextRead(this.S("ToolData/Prusate/MaideList.txt"));
 
         Array lineArray;
-        lineArray = this.TextSplitLineString(ka);
+        lineArray = this.TextLimitLineString(ka);
 
         long count;
         count = lineArray.Count;

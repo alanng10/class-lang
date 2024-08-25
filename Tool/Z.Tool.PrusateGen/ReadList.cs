@@ -117,7 +117,7 @@ public class ReadList : ToolGen
         k = this.ToolInfra.StorageTextRead(listFilePath);
 
         Array array;
-        array = this.TextSplitLineString(k);
+        array = this.TextLimitLineString(k);
 
         Text space;
         space = this.TextCreate(this.S(" "));

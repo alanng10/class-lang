@@ -77,7 +77,7 @@ public class Gen : Any
         return this.ToolInfra.TextIndex(text, other);
     }
 
-    public virtual Array TextSplitLineString(String text)
+    public virtual Array TextLimitLineString(String text)
     {
         return this.ToolInfra.TextSplitLineString(text);
     }

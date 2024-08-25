@@ -82,7 +82,7 @@ class Read : ToolGen
         ka = infra.StorageTextRead(this.S("ToolData/Class/NodeList.txt"));
 
         Array lineArray;        
-        lineArray = this.TextSplitLineString(ka);
+        lineArray = this.TextLimitLineString(ka);
 
         this.ClassTable = this.ClassInfra.TableCreateStringLess();
 
