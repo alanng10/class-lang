@@ -1,4 +1,4 @@
-namespace Z.Tool.Class.KeywordList;
+namespace Z.Tool.Class.IndexList;
 
 public class Gen : SourceGen
 {
@@ -6,17 +6,17 @@ public class Gen : SourceGen
     {
         base.Init();
         this.Module = this.S("Class.Infra");
-        this.ClassName = this.S("KeywordList");
+        this.ClassName = this.S("IndexList");
         this.BaseClassName = this.S("Any");
         this.AnyClassName = this.S("Any");
-        this.ItemClassName = this.S("Keyword");
+        this.ItemClassName = this.S("Index");
         this.ArrayClassName = this.S("Array");
         this.Export = true;
-        this.ClassFileName = this.S("ToolData/Class/ClassKeyword.txt");
-        this.InitMethodFileName = this.S("ToolData/Class/InitMaideKeyword.txt");
-        this.ItemListFileName = this.S("ToolData/Class/ItemListKeyword.txt");
-        this.AddMethodFileName = this.S("ToolData/Class/AddMaideKeyword.txt");
-        this.OutputFilePath = this.S("../../Class/Class.Infra/KeywordList.cs");
+        this.ClassFileName = this.S("ToolData/Class/ClassIndex.txt");
+        this.InitMethodFileName = this.S("ToolData/Class/InitMaideIndex.txt");
+        this.ItemListFileName = this.S("ToolData/Class/ItemListIndex.txt");
+        this.AddMethodFileName = this.S("ToolData/Class/AddMaideIndex.txt");
+        this.OutputFilePath = this.S("../../Class/Class.Infra/IndexList.cs");
         return true;
     }
 

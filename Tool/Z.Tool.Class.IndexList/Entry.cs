@@ -1,4 +1,4 @@
-namespace Z.Tool.Class.KeywordList;
+namespace Z.Tool.Class.IndexList;
 
 class Entry : EntryEntry
 {
