@@ -2886,7 +2886,7 @@ public class Create : InfraCreate
         return ret;
     }
 
-    protected virtual Node ExecuteLimitTwoOperand(NodeKind kind, Limit delimit, Range range)
+    protected virtual Node ExecuteLimitTwoOperand(NodeKind kind, Limit limit, Range range)
     {
         long start;
         long end;
@@ -2894,7 +2894,7 @@ public class Create : InfraCreate
         end = range.End;
 
         Token op;
-        op = this.TokenForward(this.TokenA, delimit.Text, this.Range(this.RangeA, start, end));
+        op = this.TokenForward(this.TokenA, limit.Text, this.Range(this.RangeA, start, end));
         if (op == null)
         {
             return null;
@@ -2933,7 +2933,7 @@ public class Create : InfraCreate
         return ret;
     }
 
-    protected virtual Node ExecuteLimitOneOperand(NodeKind kind, Limit delimit, Range range)
+    protected virtual Node ExecuteLimitOneOperand(NodeKind kind, Limit limit, Range range)
     {
         long start;
         long end;
@@ -2945,7 +2945,7 @@ public class Create : InfraCreate
             return null;
         }
         Token op;
-        op = this.Token(this.TokenA, delimit.Text, this.IndexRange(this.RangeA, start));
+        op = this.Token(this.TokenA, limit.Text, this.IndexRange(this.RangeA, start));
         if (op == null)
         {
             return null;
@@ -2972,7 +2972,7 @@ public class Create : InfraCreate
         return ret;
     }
 
-    protected virtual Node ExecuteWordLimitTwoOperand(NodeKind kind, Keyword word, Limit delimit, Range range)
+    protected virtual Node ExecuteWordLimitTwoOperand(NodeKind kind, Keyword word, Limit limit, Range range)
     {
         long start;
         long end;
@@ -2995,7 +2995,7 @@ public class Create : InfraCreate
             return null;
         }
         Token op;
-        op = this.Token(this.TokenB, delimit.Text, this.IndexRange(this.RangeA, wordToken.Range.End));
+        op = this.Token(this.TokenB, limit.Text, this.IndexRange(this.RangeA, wordToken.Range.End));
         if (op == null)
         {
             return null;
@@ -3064,7 +3064,7 @@ public class Create : InfraCreate
         return ret;
     }
 
-    protected virtual Node ExecuteWordLimitOneOperand(NodeKind kind, Keyword word, Limit delimit, Range range)
+    protected virtual Node ExecuteWordLimitOneOperand(NodeKind kind, Keyword word, Limit limit, Range range)
     {
         long start;
         long end;
@@ -3087,7 +3087,7 @@ public class Create : InfraCreate
             return null;
         }
         Token op;
-        op = this.Token(this.TokenB, delimit.Text, this.IndexRange(this.RangeA, wordToken.Range.End));
+        op = this.Token(this.TokenB, limit.Text, this.IndexRange(this.RangeA, wordToken.Range.End));
         if (op == null)
         {
             return null;
@@ -4326,8 +4326,8 @@ public class Create : InfraCreate
     {
         TextInfra textInfra;
         textInfra = this.TextInfra;
-        LimitList delimit;
-        delimit = this.Limit;
+        LimitList limit;
+        limit = this.Limit;
         long ret;
         ret = -1;
         TokenToken aa;
@@ -4341,7 +4341,7 @@ public class Create : InfraCreate
         Text textB;
         textB = this.TextB;
 
-        this.TextStringGet(textB, delimit.LeftBracket.Text);
+        this.TextStringGet(textB, limit.LeftBracket.Text);
         if (textInfra.Equal(text, textB, less))
         {
             Token rightBracket;
@@ -4352,7 +4352,7 @@ public class Create : InfraCreate
             }
         }
 
-        this.TextStringGet(textB, delimit.LeftBrace.Text);
+        this.TextStringGet(textB, limit.LeftBrace.Text);
         if (textInfra.Equal(text, textB, less))
         {
             Token rightBrace;
@@ -4369,8 +4369,8 @@ public class Create : InfraCreate
     {
         TextInfra textInfra;
         textInfra = this.TextInfra;
-        LimitList delimit;
-        delimit = this.Limit;
+        LimitList limit;
+        limit = this.Limit;
         long ret;
         ret = -1;
         long t;
@@ -4386,7 +4386,7 @@ public class Create : InfraCreate
         Text textB;
         textB = this.TextB;
 
-        this.TextStringGet(textB, delimit.RightBracket.Text);
+        this.TextStringGet(textB, limit.RightBracket.Text);
         if (textInfra.Equal(text, textB, less))
         {
             Token leftBracket;
@@ -4397,7 +4397,7 @@ public class Create : InfraCreate
             }
         }
 
-        this.TextStringGet(textB, delimit.RightBrace.Text);
+        this.TextStringGet(textB, limit.RightBrace.Text);
         if (textInfra.Equal(text, textB, less))
         {
             Token leftBrace;
