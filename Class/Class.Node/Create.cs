@@ -1183,12 +1183,12 @@ public class Create : InfraCreate
 
     public virtual Node ExecuteVar(Range range)
     {
-        int start;
-        int end;
+        long start;
+        long end;
         start = range.Start;
         end = range.End;
 
-        int count;
+        long count;
         count = this.Count(start, end);
 
         if (count < 1 | 3 < count)
@@ -1203,8 +1203,8 @@ public class Create : InfraCreate
             return null;
         }
 
-        int classStart;
-        int classEnd;
+        long classStart;
+        long classEnd;
         classStart = varToken.Range.End;
         classEnd = classStart + 1;
 
@@ -1213,8 +1213,8 @@ public class Create : InfraCreate
             classEnd = end;
         }
         
-        int nameStart;
-        int nameEnd;
+        long nameStart;
+        long nameEnd;
         nameStart = classEnd;
         nameEnd = end;
 
@@ -1284,8 +1284,8 @@ public class Create : InfraCreate
 
     public virtual Node ExecuteComp(Range range)
     {
-        int start;
-        int end;
+        long start;
+        long end;
         start = range.Start;
         end = range.End;
 
@@ -1304,8 +1304,8 @@ public class Create : InfraCreate
 
     public virtual Node ExecuteTarget(Range range)
     {
-        int start;
-        int end;
+        long start;
+        long end;
         start = range.Start;
         end = range.End;
 
@@ -1334,8 +1334,8 @@ public class Create : InfraCreate
 
     public virtual Node ExecuteValue(Range range)
     {
-        int start;
-        int end;
+        long start;
+        long end;
         start = range.Start;
         end = range.End;
 
@@ -1370,8 +1370,8 @@ public class Create : InfraCreate
 
     public virtual Node ExecuteBoolValue(Range range)
     {
-        int start;
-        int end;
+        long start;
+        long end;
         start = range.Start;
         end = range.End;
 
@@ -1433,8 +1433,8 @@ public class Create : InfraCreate
 
     public virtual Node ExecuteIntValue(Range range)
     {
-        int start;
-        int end;
+        long start;
+        long end;
         start = range.Start;
         end = range.End;
 
@@ -1473,8 +1473,8 @@ public class Create : InfraCreate
 
     public virtual Node ExecuteIntHexValue(Range range)
     {
-        int start;
-        int end;
+        long start;
+        long end;
         start = range.Start;
         end = range.End;
 
@@ -1517,8 +1517,8 @@ public class Create : InfraCreate
 
     public virtual Node ExecuteIntSignValue(Range range)
     {
-        int start;
-        int end;
+        long start;
+        long end;
         start = range.Start;
         end = range.End;
 
@@ -1591,8 +1591,8 @@ public class Create : InfraCreate
 
     public virtual Node ExecuteIntHexSignValue(Range range)
     {
-        int start;
-        int end;
+        long start;
+        long end;
         start = range.Start;
         end = range.End;
 
