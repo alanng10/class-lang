@@ -699,7 +699,7 @@ class ObjectString : Any
 
                 if (ba)
                 {
-                    h.Add(oc);
+                    h.Execute(oc);
                 }
             }
 
