@@ -1,6 +1,6 @@
 StopSign .
 PauseSign ,
-BaseSign :
+AreSign :
 ExecuteSign ;
 SameSign =
 AddSign +
@@ -12,7 +12,7 @@ OrnSign |
 NotSign !
 LessSign <
 MoreSign >
-LeftBracket (
-RightBracket )
+LeftBraceRound (
+RightBraceRound )
 LeftBrace {
 RightBrace }
