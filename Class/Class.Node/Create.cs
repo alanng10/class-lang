@@ -1701,8 +1701,8 @@ public class Create : InfraCreate
 
     public virtual Node ExecuteCount(Range range)
     {
-        int start;
-        int end;
+        long start;
+        long end;
         start = range.Start;
         end = range.End;
 
@@ -1718,7 +1718,7 @@ public class Create : InfraCreate
         }
         if (a == null)
         {
-            a = this.ExecuteProbateCount(this.Range(this.RangeA, start, end));
+            a = this.ExecutePronateCount(this.Range(this.RangeA, start, end));
         }
         if (a == null)
         {
