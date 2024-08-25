@@ -2810,8 +2810,8 @@ public class Create : InfraCreate
 
     protected virtual Node ExecuteVarNameResult(NodeKind kind, Range range)
     {
-        int start;
-        int end;
+        long start;
+        long end;
         start = range.Start;
         end = range.End;
 
@@ -2833,8 +2833,8 @@ public class Create : InfraCreate
 
     protected virtual Node ExecuteName(NodeKind kind, Range range)
     {
-        int start;
-        int end;
+        long start;
+        long end;
         start = range.Start;
         end = range.End;
 
@@ -2865,12 +2865,12 @@ public class Create : InfraCreate
 
     protected virtual Node ExecuteNameNode(NodeKind kind, Range range)
     {
-        int start;
-        int end;
+        long start;
+        long end;
         start = range.Start;
         end = range.End;
 
-        string value;
+        String value;
         value = this.ExecuteNameValue(this.Range(this.RangeA, start, end));
         if (value == null)
         {
@@ -2888,8 +2888,8 @@ public class Create : InfraCreate
 
     protected virtual Node ExecuteDelimitTwoOperand(NodeKind kind, Delimit delimit, Range range)
     {
-        int start;
-        int end;
+        long start;
+        long end;
         start = range.Start;
         end = range.End;
 
@@ -2900,12 +2900,12 @@ public class Create : InfraCreate
             return null;
         }
 
-        int leftStart;
-        int leftEnd;
+        long leftStart;
+        long leftEnd;
         leftStart = start;
         leftEnd = op.Range.Start;
-        int rightStart;
-        int rightEnd;
+        long rightStart;
+        long rightEnd;
         rightStart = op.Range.End;
         rightEnd = end;
 
@@ -2935,8 +2935,8 @@ public class Create : InfraCreate
 
     protected virtual Node ExecuteDelimitOneOperand(NodeKind kind, Delimit delimit, Range range)
     {
-        int start;
-        int end;
+        long start;
+        long end;
         start = range.Start;
         end = range.End;
 
@@ -2951,8 +2951,8 @@ public class Create : InfraCreate
             return null;
         }
 
-        int valueStart;
-        int valueEnd;
+        long valueStart;
+        long valueEnd;
         valueStart = op.Range.End;
         valueEnd = end;
 
