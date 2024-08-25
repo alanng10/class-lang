@@ -2337,17 +2337,17 @@ public class Create : InfraCreate
 
     public virtual Node ExecuteSameOperate(Range range)
     {
-        return this.ExecuteDelimitTwoOperand(this.NodeKind.SameOperate, this.Limit.SameSign, range);
+        return this.ExecuteLimitTwoOperand(this.NodeKind.SameOperate, this.Limit.SameSign, range);
     }
 
     public virtual Node ExecuteAndOperate(Range range)
     {
-        return this.ExecuteDelimitTwoOperand(this.NodeKind.AndOperate, this.Limit.AndSign, range);
+        return this.ExecuteLimitTwoOperand(this.NodeKind.AndOperate, this.Limit.AndSign, range);
     }
 
     public virtual Node ExecuteOrnOperate(Range range)
     {
-        return this.ExecuteDelimitTwoOperand(this.NodeKind.OrnOperate, this.Limit.OrnSign, range);
+        return this.ExecuteLimitTwoOperand(this.NodeKind.OrnOperate, this.Limit.OrnSign, range);
     }
 
     public virtual Node ExecuteNotOperate(Range range)
@@ -2357,27 +2357,27 @@ public class Create : InfraCreate
 
     public virtual Node ExecuteAddOperate(Range range)
     {
-        return this.ExecuteDelimitTwoOperand(this.NodeKind.AddOperate, this.Limit.AddSign, range);
+        return this.ExecuteLimitTwoOperand(this.NodeKind.AddOperate, this.Limit.AddSign, range);
     }
 
     public virtual Node ExecuteSubOperate(Range range)
     {
-        return this.ExecuteDelimitTwoOperand(this.NodeKind.SubOperate, this.Limit.SubSign, range);
+        return this.ExecuteLimitTwoOperand(this.NodeKind.SubOperate, this.Limit.SubSign, range);
     }
 
     public virtual Node ExecuteMulOperate(Range range)
     {
-        return this.ExecuteDelimitTwoOperand(this.NodeKind.MulOperate, this.Limit.MulSign, range);
+        return this.ExecuteLimitTwoOperand(this.NodeKind.MulOperate, this.Limit.MulSign, range);
     }
 
     public virtual Node ExecuteDivOperate(Range range)
     {
-        return this.ExecuteDelimitTwoOperand(this.NodeKind.DivOperate, this.Limit.DivSign, range);
+        return this.ExecuteLimitTwoOperand(this.NodeKind.DivOperate, this.Limit.DivSign, range);
     }
 
     public virtual Node ExecuteLessOperate(Range range)
     {
-        return this.ExecuteDelimitTwoOperand(this.NodeKind.LessOperate, this.Limit.LessSign, range);
+        return this.ExecuteLimitTwoOperand(this.NodeKind.LessOperate, this.Limit.LessSign, range);
     }
 
     public virtual Node ExecuteSignMulOperate(Range range)
@@ -2886,7 +2886,7 @@ public class Create : InfraCreate
         return ret;
     }
 
-    protected virtual Node ExecuteDelimitTwoOperand(NodeKind kind, Limit delimit, Range range)
+    protected virtual Node ExecuteLimitTwoOperand(NodeKind kind, Limit delimit, Range range)
     {
         long start;
         long end;
