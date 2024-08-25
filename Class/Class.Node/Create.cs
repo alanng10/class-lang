@@ -763,10 +763,10 @@ public class Create : InfraCreate
         long baseEnd;
         baseStart = colon.Range.End;
         baseEnd = leftBrace.Range.Start;
-        long memberStart;
-        long memberEnd;
-        memberStart = leftBrace.Range.End;
-        memberEnd = rightBrace.Range.Start;
+        long partStart;
+        long partEnd;
+        partStart = leftBrace.Range.End;
+        partEnd = rightBrace.Range.Start;
 
         Node name;
         name = this.ExecuteName(this.NodeKind.ClassName, this.Range(this.RangeA, nameStart, nameEnd));
@@ -782,11 +782,11 @@ public class Create : InfraCreate
             this.Error(this.ErrorKind.BaseInvalid, baseStart, baseEnd);
         }
 
-        Node member;
-        member = this.ExecutePart(this.Range(this.RangeA, memberStart, memberEnd));
-        if (member == null)
+        Node part;
+        part = this.ExecutePart(this.Range(this.RangeA, partStart, partEnd));
+        if (part == null)
         {
-            this.Error(this.ErrorKind.MemberInvalid, memberStart, memberEnd);
+            this.Error(this.ErrorKind.MemberInvalid, partStart, partEnd);
         }
 
         this.SetArg.Kind = this.NodeKind.Class;
@@ -794,7 +794,7 @@ public class Create : InfraCreate
         this.SetArg.End = end;
         this.SetArg.Field00 = name;
         this.SetArg.Field01 = varBase;
-        this.SetArg.Field02 = member;
+        this.SetArg.Field02 = part;
         Node ret;
         ret = this.ExecuteCreateOperate();
         return ret;
