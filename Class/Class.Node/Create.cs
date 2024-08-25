@@ -4430,12 +4430,12 @@ public class Create : InfraCreate
         return this.TokenMatchRightToken(result, this.Delimit.LeftBracket.Text, this.Delimit.RightBracket.Text, range);
     }
 
-    protected virtual Token TokenMatchLeftToken(Token result, string leftToken, string rightToken, Range range)
+    protected virtual Token TokenMatchLeftToken(Token result, String leftToken, String rightToken, Range range)
     {
         TextInfra textInfra;
         textInfra = this.TextInfra;
-        int start;
-        int end;
+        long start;
+        long end;
         start = range.Start;
         end = range.End;
 
@@ -4446,11 +4446,11 @@ public class Create : InfraCreate
         Text textB;
         textB = this.TextB;
 
-        int openCount;
+        long openCount;
         openCount = 1;
-        int index;
+        long index;
         index = -1;
-        int i;
+        long i;
         i = start;
         bool varContinue;
         varContinue = (i < end);
@@ -4495,12 +4495,12 @@ public class Create : InfraCreate
         return result;
     }
 
-    protected virtual Token TokenMatchRightToken(Token result, string leftToken, string rightToken, Range range)
+    protected virtual Token TokenMatchRightToken(Token result, String leftToken, String rightToken, Range range)
     {
         TextInfra textInfra;
         textInfra = this.TextInfra;
-        int start;
-        int end;
+        long start;
+        long end;
         start = range.Start;
         end = range.End;
 
@@ -4511,17 +4511,17 @@ public class Create : InfraCreate
         Text textB;
         textB = this.TextB;
 
-        int openCount;
+        long openCount;
         openCount = 1;
-        int index;
+        long index;
         index = -1;
-        int i;
+        long i;
         i = end;
         bool varContinue;
         varContinue = (i > start);
         while (varContinue)
         {
-            int t;
+            long t;
             t = i - 1;
             TokenToken aa;
             aa = this.TokenToken(t);
