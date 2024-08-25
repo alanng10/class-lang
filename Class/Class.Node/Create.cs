@@ -2094,7 +2094,7 @@ public class Create : InfraCreate
         }
         if (a == null)
         {
-            a = this.ExecuteBracketOperate(this.Range(this.RangeA, start, end));
+            a = this.ExecuteBraceOperate(this.Range(this.RangeA, start, end));
         }
         if (a == null)
         {
@@ -2284,7 +2284,7 @@ public class Create : InfraCreate
         return ret;
     }
 
-    public virtual Node ExecuteBracketOperate(Range range)
+    public virtual Node ExecuteBraceOperate(Range range)
     {
         long start;
         long end;
@@ -2326,7 +2326,7 @@ public class Create : InfraCreate
             this.Error(this.ErrorKind.AnyInvalid, anyStart, anyEnd);
         }
 
-        this.SetArg.Kind = this.NodeKind.BracketOperate;
+        this.SetArg.Kind = this.NodeKind.BraceOperate;
         this.SetArg.Start = start;
         this.SetArg.End = end;
         this.SetArg.Field00 = any;
