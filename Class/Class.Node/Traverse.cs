@@ -433,9 +433,9 @@ public class Traverse : Any
         {
             this.ExecuteValueOperate((ValueOperate)operate);
         }
-        if (operate is BracketOperate)
+        if (operate is BraceOperate)
         {
-            this.ExecuteBracketOperate((BracketOperate)operate);
+            this.ExecuteBraceOperate((BraceOperate)operate);
         }
         if (operate is SameOperate)
         {
@@ -630,15 +630,15 @@ public class Traverse : Any
         return true;
     }
 
-    public virtual bool ExecuteBracketOperate(BracketOperate bracketOperate)
+    public virtual bool ExecuteBraceOperate(BraceOperate braceOperate)
     {
-        if (bracketOperate == null)
+        if (braceOperate == null)
         {
             return true;
         }
-        this.ExecuteNode(bracketOperate);
+        this.ExecuteNode(braceOperate);
 
-        this.ExecuteOperate(bracketOperate.Any);
+        this.ExecuteOperate(braceOperate.Any);
         return true;
     }
 

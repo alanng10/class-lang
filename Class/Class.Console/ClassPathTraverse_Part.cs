@@ -693,13 +693,13 @@ partial class ClassPathTraverse
         return true;
     }
 
-    public override bool ExecuteBracketOperate(BracketOperate bracketOperate)
+    public override bool ExecuteBraceOperate(BraceOperate braceOperate)
     {
-        if (bracketOperate == null)
+        if (braceOperate == null)
         {
             return true;
         }
-        this.ExecuteNode(bracketOperate);
+        this.ExecuteNode(braceOperate);
 
         if (this.HasResult())
         {
@@ -708,7 +708,7 @@ partial class ClassPathTraverse
 
         if (this.FieldEqual("Any"))
         {
-            this.ExecuteOperate(bracketOperate.Any);
+            this.ExecuteOperate(braceOperate.Any);
             return true;
         }
         return true;

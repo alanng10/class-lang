@@ -57,7 +57,7 @@ public class NodeKindList : Any
         this.CastOperate = this.AddItem("CastOperate", new CastOperate(), new CastOperateNewState(), new CastOperateNodeState(), new CastOperateCreateSetState());
         this.VarOperate = this.AddItem("VarOperate", new VarOperate(), new VarOperateNewState(), new VarOperateNodeState(), new VarOperateCreateSetState());
         this.ValueOperate = this.AddItem("ValueOperate", new ValueOperate(), new ValueOperateNewState(), new ValueOperateNodeState(), new ValueOperateCreateSetState());
-        this.BracketOperate = this.AddItem("BracketOperate", new BracketOperate(), new BracketOperateNewState(), new BracketOperateNodeState(), new BracketOperateCreateSetState());
+        this.BraceOperate = this.AddItem("BraceOperate", new BraceOperate(), new BraceOperateNewState(), new BraceOperateNodeState(), new BraceOperateCreateSetState());
         this.Value = this.AddItem("Value", new Value(), new ValueNewState(), new ValueNodeState(), new ValueCreateSetState());
         this.BoolValue = this.AddItem("BoolValue", new BoolValue(), new BoolValueNewState(), new BoolValueNodeState(), new BoolValueCreateSetState());
         this.IntValue = this.AddItem("IntValue", new IntValue(), new IntValueNewState(), new IntValueNodeState(), new IntValueCreateSetState());
@@ -125,7 +125,7 @@ public class NodeKindList : Any
     public virtual NodeKind CastOperate { get; set; }
     public virtual NodeKind VarOperate { get; set; }
     public virtual NodeKind ValueOperate { get; set; }
-    public virtual NodeKind BracketOperate { get; set; }
+    public virtual NodeKind BraceOperate { get; set; }
     public virtual NodeKind Value { get; set; }
     public virtual NodeKind BoolValue { get; set; }
     public virtual NodeKind IntValue { get; set; }
