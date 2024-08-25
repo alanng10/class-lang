@@ -12,7 +12,7 @@ public class Create : InfraCreate
         this.ClassInfra = ClassInfra.This;
         this.StringComp = StringComp.This;
         this.Keyword = KeywordList.This;
-        this.Delimit = LimitList.This;
+        this.Limit = LimitList.This;
         this.ErrorKind = ErrorKindList.This;
         this.NodeKind = NodeKindList.This;
 
@@ -68,7 +68,7 @@ public class Create : InfraCreate
     protected virtual ClassInfra ClassInfra { get; set; }
     protected virtual StringComp StringComp { get; set; }
     protected virtual KeywordList Keyword { get; set; }
-    protected virtual LimitList Delimit { get; set; }
+    protected virtual LimitList Limit { get; set; }
     protected virtual ErrorKindList ErrorKind { get; set; }
     protected virtual NodeKindList NodeKind { get; set; }
 
@@ -730,14 +730,14 @@ public class Create : InfraCreate
         }
 
         Token colon;
-        colon = this.TokenForwardNoSkip(this.TokenB, this.Delimit.BaseSign.Text, this.Range(this.RangeA, classToken.Range.End, end));
+        colon = this.TokenForwardNoSkip(this.TokenB, this.Limit.BaseSign.Text, this.Range(this.RangeA, classToken.Range.End, end));
         if (colon == null)
         {
             return null;
         }
 
         Token leftBrace;
-        leftBrace = this.TokenForwardNoSkip(this.TokenC, this.Delimit.LeftBrace.Text, this.Range(this.RangeA, colon.Range.End, end));
+        leftBrace = this.TokenForwardNoSkip(this.TokenC, this.Limit.LeftBrace.Text, this.Range(this.RangeA, colon.Range.End, end));
         if (leftBrace == null)
         {
             return null;
@@ -820,7 +820,7 @@ public class Create : InfraCreate
         }
 
         Token leftBrace;
-        leftBrace = this.TokenForwardNoSkip(this.TokenB, this.Delimit.LeftBrace.Text, this.Range(this.RangeA, fieldToken.Range.End, end));
+        leftBrace = this.TokenForwardNoSkip(this.TokenB, this.Limit.LeftBrace.Text, this.Range(this.RangeA, fieldToken.Range.End, end));
         if (leftBrace == null)
         {
             return null;
@@ -923,7 +923,7 @@ public class Create : InfraCreate
         getLeftBrace = null;
         if (!b)
         {
-            getLeftBrace = this.Token(this.TokenE, this.Delimit.LeftBrace.Text, this.IndexRange(this.RangeA, getToken.Range.End));
+            getLeftBrace = this.Token(this.TokenE, this.Limit.LeftBrace.Text, this.IndexRange(this.RangeA, getToken.Range.End));
             if (getLeftBrace == null)
             {
                 b = true;
@@ -970,7 +970,7 @@ public class Create : InfraCreate
         setLeftBrace = null;
         if (!b)
         {
-            setLeftBrace = this.Token(this.TokenH, this.Delimit.LeftBrace.Text, this.IndexRange(this.RangeA, setToken.Range.End));
+            setLeftBrace = this.Token(this.TokenH, this.Limit.LeftBrace.Text, this.IndexRange(this.RangeA, setToken.Range.End));
             if (setLeftBrace == null)
             {
                 b = true;
@@ -1060,7 +1060,7 @@ public class Create : InfraCreate
         }
 
         Token leftBracket;
-        leftBracket = this.TokenForwardNoSkip(this.TokenB, this.Delimit.LeftBracket.Text, this.Range(this.RangeA, maideToken.Range.End, end));
+        leftBracket = this.TokenForwardNoSkip(this.TokenB, this.Limit.LeftBracket.Text, this.Range(this.RangeA, maideToken.Range.End, end));
         if (leftBracket == null)
         {
             return null;
@@ -1078,7 +1078,7 @@ public class Create : InfraCreate
             return null;
         }
         Token leftBrace;
-        leftBrace = this.Token(this.TokenD, this.Delimit.LeftBrace.Text, this.IndexRange(this.RangeA, rightBracket.Range.End));
+        leftBrace = this.Token(this.TokenD, this.Limit.LeftBrace.Text, this.IndexRange(this.RangeA, rightBracket.Range.End));
         if (leftBrace == null)
         {
             return null;
@@ -1818,7 +1818,7 @@ public class Create : InfraCreate
         long lastIndex;
         lastIndex = end - 1;
         Token semicolon;
-        semicolon = this.Token(this.TokenB, this.Delimit.ExecuteSign.Text, this.IndexRange(this.RangeA, lastIndex));
+        semicolon = this.Token(this.TokenB, this.Limit.ExecuteSign.Text, this.IndexRange(this.RangeA, lastIndex));
         if (semicolon == null)
         {
             return null;
@@ -1872,7 +1872,7 @@ public class Create : InfraCreate
         long lastIndex;
         lastIndex = end - 1;
         Token semicolon;
-        semicolon = this.Token(this.TokenB, this.Delimit.ExecuteSign.Text, this.IndexRange(this.RangeA, lastIndex));
+        semicolon = this.Token(this.TokenB, this.Limit.ExecuteSign.Text, this.IndexRange(this.RangeA, lastIndex));
         if (semicolon == null)
         {
             return null;
@@ -1914,14 +1914,14 @@ public class Create : InfraCreate
         long lastIndex;
         lastIndex = end - 1;
         Token semicolon;
-        semicolon = this.Token(this.TokenA, this.Delimit.ExecuteSign.Text, this.IndexRange(this.RangeA, lastIndex));
+        semicolon = this.Token(this.TokenA, this.Limit.ExecuteSign.Text, this.IndexRange(this.RangeA, lastIndex));
         if (semicolon == null)
         {
             return null;
         }
 
         Token colon;
-        colon = this.TokenForward(this.TokenB, this.Delimit.BaseSign.Text, this.Range(this.RangeA, start, semicolon.Range.Start));
+        colon = this.TokenForward(this.TokenB, this.Limit.BaseSign.Text, this.Range(this.RangeA, start, semicolon.Range.Start));
         if (colon == null)
         {
             return null;
@@ -1974,7 +1974,7 @@ public class Create : InfraCreate
         long lastIndex;
         lastIndex = end - 1;
         Token semicolon;
-        semicolon = this.Token(this.TokenA, this.Delimit.ExecuteSign.Text, this.IndexRange(this.RangeA, lastIndex));
+        semicolon = this.Token(this.TokenA, this.Limit.ExecuteSign.Text, this.IndexRange(this.RangeA, lastIndex));
         if (semicolon == null)
         {
             return null;
@@ -2205,7 +2205,7 @@ public class Create : InfraCreate
         }
 
         Token leftBracket;
-        leftBracket = this.TokenForwardNoSkip(this.TokenB, this.Delimit.LeftBracket.Text, this.Range(this.RangeA, castToken.Range.End, end));
+        leftBracket = this.TokenForwardNoSkip(this.TokenB, this.Limit.LeftBracket.Text, this.Range(this.RangeA, castToken.Range.End, end));
         if (leftBracket == null)
         {
             return null;
@@ -2296,7 +2296,7 @@ public class Create : InfraCreate
             return null;
         }
         Token leftBracket;
-        leftBracket = this.Token(this.TokenA, this.Delimit.LeftBracket.Text, this.IndexRange(this.RangeA, start));
+        leftBracket = this.Token(this.TokenA, this.Limit.LeftBracket.Text, this.IndexRange(this.RangeA, start));
         if (leftBracket == null)
         {
             return null;
@@ -2337,87 +2337,87 @@ public class Create : InfraCreate
 
     public virtual Node ExecuteSameOperate(Range range)
     {
-        return this.ExecuteDelimitTwoOperand(this.NodeKind.SameOperate, this.Delimit.SameSign, range);
+        return this.ExecuteDelimitTwoOperand(this.NodeKind.SameOperate, this.Limit.SameSign, range);
     }
 
     public virtual Node ExecuteAndOperate(Range range)
     {
-        return this.ExecuteDelimitTwoOperand(this.NodeKind.AndOperate, this.Delimit.AndSign, range);
+        return this.ExecuteDelimitTwoOperand(this.NodeKind.AndOperate, this.Limit.AndSign, range);
     }
 
     public virtual Node ExecuteOrnOperate(Range range)
     {
-        return this.ExecuteDelimitTwoOperand(this.NodeKind.OrnOperate, this.Delimit.OrnSign, range);
+        return this.ExecuteDelimitTwoOperand(this.NodeKind.OrnOperate, this.Limit.OrnSign, range);
     }
 
     public virtual Node ExecuteNotOperate(Range range)
     {
-        return this.ExecuteDelimitOneOperand(this.NodeKind.NotOperate, this.Delimit.NotSign, range);
+        return this.ExecuteDelimitOneOperand(this.NodeKind.NotOperate, this.Limit.NotSign, range);
     }
 
     public virtual Node ExecuteAddOperate(Range range)
     {
-        return this.ExecuteDelimitTwoOperand(this.NodeKind.AddOperate, this.Delimit.AddSign, range);
+        return this.ExecuteDelimitTwoOperand(this.NodeKind.AddOperate, this.Limit.AddSign, range);
     }
 
     public virtual Node ExecuteSubOperate(Range range)
     {
-        return this.ExecuteDelimitTwoOperand(this.NodeKind.SubOperate, this.Delimit.SubSign, range);
+        return this.ExecuteDelimitTwoOperand(this.NodeKind.SubOperate, this.Limit.SubSign, range);
     }
 
     public virtual Node ExecuteMulOperate(Range range)
     {
-        return this.ExecuteDelimitTwoOperand(this.NodeKind.MulOperate, this.Delimit.MulSign, range);
+        return this.ExecuteDelimitTwoOperand(this.NodeKind.MulOperate, this.Limit.MulSign, range);
     }
 
     public virtual Node ExecuteDivOperate(Range range)
     {
-        return this.ExecuteDelimitTwoOperand(this.NodeKind.DivOperate, this.Delimit.DivSign, range);
+        return this.ExecuteDelimitTwoOperand(this.NodeKind.DivOperate, this.Limit.DivSign, range);
     }
 
     public virtual Node ExecuteLessOperate(Range range)
     {
-        return this.ExecuteDelimitTwoOperand(this.NodeKind.LessOperate, this.Delimit.LessSign, range);
+        return this.ExecuteDelimitTwoOperand(this.NodeKind.LessOperate, this.Limit.LessSign, range);
     }
 
     public virtual Node ExecuteSignMulOperate(Range range)
     {
-        return this.ExecuteWordDelimitTwoOperand(this.NodeKind.SignMulOperate, this.Keyword.Sign, this.Delimit.MulSign, range);
+        return this.ExecuteWordDelimitTwoOperand(this.NodeKind.SignMulOperate, this.Keyword.Sign, this.Limit.MulSign, range);
     }
 
     public virtual Node ExecuteSignDivOperate(Range range)
     {
-        return this.ExecuteWordDelimitTwoOperand(this.NodeKind.SignDivOperate, this.Keyword.Sign, this.Delimit.DivSign, range);
+        return this.ExecuteWordDelimitTwoOperand(this.NodeKind.SignDivOperate, this.Keyword.Sign, this.Limit.DivSign, range);
     }
 
     public virtual Node ExecuteSignLessOperate(Range range)
     {
-        return this.ExecuteWordDelimitTwoOperand(this.NodeKind.SignLessOperate, this.Keyword.Sign, this.Delimit.LessSign, range);
+        return this.ExecuteWordDelimitTwoOperand(this.NodeKind.SignLessOperate, this.Keyword.Sign, this.Limit.LessSign, range);
     }
 
     public virtual Node ExecuteBitAndOperate(Range range)
     {
-        return this.ExecuteWordDelimitTwoOperand(this.NodeKind.BitAndOperate, this.Keyword.Bit, this.Delimit.AndSign, range);
+        return this.ExecuteWordDelimitTwoOperand(this.NodeKind.BitAndOperate, this.Keyword.Bit, this.Limit.AndSign, range);
     }
 
     public virtual Node ExecuteBitOrnOperate(Range range)
     {
-        return this.ExecuteWordDelimitTwoOperand(this.NodeKind.BitOrnOperate, this.Keyword.Bit, this.Delimit.OrnSign, range);
+        return this.ExecuteWordDelimitTwoOperand(this.NodeKind.BitOrnOperate, this.Keyword.Bit, this.Limit.OrnSign, range);
     }
 
     public virtual Node ExecuteBitNotOperate(Range range)
     {
-        return this.ExecuteWordDelimitOneOperand(this.NodeKind.BitNotOperate, this.Keyword.Bit, this.Delimit.NotSign, range);
+        return this.ExecuteWordDelimitOneOperand(this.NodeKind.BitNotOperate, this.Keyword.Bit, this.Limit.NotSign, range);
     }
 
     public virtual Node ExecuteBitLiteOperate(Range range)
     {
-        return this.ExecuteWordDelimitTwoOperand(this.NodeKind.BitLiteOperate, this.Keyword.Bit, this.Delimit.LessSign, range);
+        return this.ExecuteWordDelimitTwoOperand(this.NodeKind.BitLiteOperate, this.Keyword.Bit, this.Limit.LessSign, range);
     }
 
     public virtual Node ExecuteBitRiteOperate(Range range)
     {
-        return this.ExecuteWordDelimitTwoOperand(this.NodeKind.BitRiteOperate, this.Keyword.Bit, this.Delimit.MoreSign, range);
+        return this.ExecuteWordDelimitTwoOperand(this.NodeKind.BitRiteOperate, this.Keyword.Bit, this.Limit.MoreSign, range);
     }
 
     public virtual Node ExecuteBitSignRiteOperate(Range range)
@@ -2443,7 +2443,7 @@ public class Create : InfraCreate
             return null;
         }
         Token op;
-        op = this.Token(this.TokenB, this.Delimit.MoreSign.Text, this.IndexRange(this.RangeA, wordToken.Range.End));
+        op = this.Token(this.TokenB, this.Limit.MoreSign.Text, this.IndexRange(this.RangeA, wordToken.Range.End));
         if (op == null)
         {
             return null;
@@ -2454,7 +2454,7 @@ public class Create : InfraCreate
             return null;
         }
         Token opA;
-        opA = this.Token(this.TokenC, this.Delimit.MoreSign.Text, this.IndexRange(this.RangeA, op.Range.End));
+        opA = this.Token(this.TokenC, this.Limit.MoreSign.Text, this.IndexRange(this.RangeA, op.Range.End));
         if (opA == null)
         {
             return null;
@@ -2465,7 +2465,7 @@ public class Create : InfraCreate
             return null;
         }
         Token leftBracket;
-        leftBracket = this.Token(this.TokenA, this.Delimit.LeftBracket.Text, this.IndexRange(this.RangeA, opA.Range.End));
+        leftBracket = this.Token(this.TokenA, this.Limit.LeftBracket.Text, this.IndexRange(this.RangeA, opA.Range.End));
         if (leftBracket == null)
         {
             return null;
@@ -2479,7 +2479,7 @@ public class Create : InfraCreate
         }
 
         Token comma;
-        comma = this.TokenForward(this.TokenC, this.Delimit.PauseSign.Text, this.Range(this.RangeA, leftBracket.Range.End, rightBracket.Range.Start));
+        comma = this.TokenForward(this.TokenC, this.Limit.PauseSign.Text, this.Range(this.RangeA, leftBracket.Range.End, rightBracket.Range.Start));
         if (comma == null)
         {
             return null;
@@ -2546,7 +2546,7 @@ public class Create : InfraCreate
             return null;
         }
         Token leftBracket;
-        leftBracket = this.Token(this.TokenB, this.Delimit.LeftBracket.Text, this.IndexRange(this.RangeA, wordToken.Range.End));
+        leftBracket = this.Token(this.TokenB, this.Limit.LeftBracket.Text, this.IndexRange(this.RangeA, wordToken.Range.End));
         if (leftBracket == null)
         {
             return null;
@@ -2564,7 +2564,7 @@ public class Create : InfraCreate
             return null;
         }
         Token leftBrace;
-        leftBrace = this.Token(this.TokenD, this.Delimit.LeftBrace.Text, this.IndexRange(this.RangeA, rightBracket.Range.End));
+        leftBrace = this.Token(this.TokenD, this.Limit.LeftBrace.Text, this.IndexRange(this.RangeA, rightBracket.Range.End));
         if (leftBrace == null)
         {
             return null;
@@ -2688,7 +2688,7 @@ public class Create : InfraCreate
         end = range.End;
 
         Token dot;
-        dot = this.TokenBackwardNoSkip(this.TokenA, this.Delimit.StopSign.Text, this.Range(this.RangeA, start, end));
+        dot = this.TokenBackwardNoSkip(this.TokenA, this.Limit.StopSign.Text, this.Range(this.RangeA, start, end));
         if (dot == null)
         {
             return null;
@@ -2741,7 +2741,7 @@ public class Create : InfraCreate
         long lastIndex;
         lastIndex = end - 1;
         Token rightBracket;
-        rightBracket = this.Token(this.TokenA, this.Delimit.RightBracket.Text, this.IndexRange(this.RangeA, lastIndex));
+        rightBracket = this.Token(this.TokenA, this.Limit.RightBracket.Text, this.IndexRange(this.RangeA, lastIndex));
         if (rightBracket == null)
         {
             return null;
@@ -2755,7 +2755,7 @@ public class Create : InfraCreate
         }
 
         Token dot;
-        dot = this.TokenBackwardNoSkip(this.TokenC, this.Delimit.StopSign.Text, this.Range(this.RangeA, start, leftBracket.Range.Start));
+        dot = this.TokenBackwardNoSkip(this.TokenC, this.Limit.StopSign.Text, this.Range(this.RangeA, start, leftBracket.Range.Start));
         if (dot == null)
         {
             return null;
@@ -3006,7 +3006,7 @@ public class Create : InfraCreate
             return null;
         }
         Token leftBracket;
-        leftBracket = this.Token(this.TokenC, this.Delimit.LeftBracket.Text, this.IndexRange(this.RangeA, op.Range.End));
+        leftBracket = this.Token(this.TokenC, this.Limit.LeftBracket.Text, this.IndexRange(this.RangeA, op.Range.End));
         if (leftBracket == null)
         {
             return null;
@@ -3020,7 +3020,7 @@ public class Create : InfraCreate
         }
 
         Token comma;
-        comma = this.TokenForward(this.TokenA, this.Delimit.PauseSign.Text, this.Range(this.RangeA, leftBracket.Range.End, rightBracket.Range.Start));
+        comma = this.TokenForward(this.TokenA, this.Limit.PauseSign.Text, this.Range(this.RangeA, leftBracket.Range.End, rightBracket.Range.Start));
         if (comma == null)
         {
             return null;
@@ -3098,7 +3098,7 @@ public class Create : InfraCreate
             return null;
         }
         Token leftBracket;
-        leftBracket = this.Token(this.TokenC, this.Delimit.LeftBracket.Text, this.IndexRange(this.RangeA, op.Range.End));
+        leftBracket = this.Token(this.TokenC, this.Limit.LeftBracket.Text, this.IndexRange(this.RangeA, op.Range.End));
         if (leftBracket == null)
         {
             return null;
@@ -3443,7 +3443,7 @@ public class Create : InfraCreate
         }
 
         Token semicolon;
-        semicolon = this.TokenForward(this.TokenB, this.Delimit.ExecuteSign.Text, this.Range(this.RangeA, returnToken.Range.End, end));
+        semicolon = this.TokenForward(this.TokenB, this.Limit.ExecuteSign.Text, this.Range(this.RangeA, returnToken.Range.End, end));
         if (semicolon == null)
         {
             return null;
@@ -3486,7 +3486,7 @@ public class Create : InfraCreate
             return null;
         }
         Token leftBracket;
-        leftBracket = this.Token(this.TokenB, this.Delimit.LeftBracket.Text, this.IndexRange(this.RangeA, wordToken.Range.End));
+        leftBracket = this.Token(this.TokenB, this.Limit.LeftBracket.Text, this.IndexRange(this.RangeA, wordToken.Range.End));
         if (leftBracket == null)
         {
             return null;
@@ -3504,7 +3504,7 @@ public class Create : InfraCreate
             return null;
         }
         Token leftBrace;
-        leftBrace = this.Token(this.TokenD, this.Delimit.LeftBrace.Text, this.IndexRange(this.RangeA, rightBracket.Range.End));
+        leftBrace = this.Token(this.TokenD, this.Limit.LeftBrace.Text, this.IndexRange(this.RangeA, rightBracket.Range.End));
         if (leftBrace == null)
         {
             return null;
@@ -3541,7 +3541,7 @@ public class Create : InfraCreate
         }
 
         Token semicolon;
-        semicolon = this.TokenForward(this.TokenB, this.Delimit.ExecuteSign.Text, this.Range(this.RangeA, varToken.Range.End, end));
+        semicolon = this.TokenForward(this.TokenB, this.Limit.ExecuteSign.Text, this.Range(this.RangeA, varToken.Range.End, end));
         if (semicolon == null)
         {
             return null;
@@ -3564,14 +3564,14 @@ public class Create : InfraCreate
         }
 
         Token semicolon;
-        semicolon = this.TokenForward(this.TokenA, this.Delimit.ExecuteSign.Text, this.Range(this.RangeA, start, end));
+        semicolon = this.TokenForward(this.TokenA, this.Limit.ExecuteSign.Text, this.Range(this.RangeA, start, end));
         if (semicolon == null)
         {
             return null;
         }
 
         Token colon;
-        colon = this.TokenForward(this.TokenB, this.Delimit.BaseSign.Text, this.Range(this.RangeA, start, semicolon.Range.Start));
+        colon = this.TokenForward(this.TokenB, this.Limit.BaseSign.Text, this.Range(this.RangeA, start, semicolon.Range.Start));
         if (colon == null)
         {
             return null;
@@ -3589,7 +3589,7 @@ public class Create : InfraCreate
         end = range.End;
 
         Token semicolon;
-        semicolon = this.TokenForward(this.TokenA, this.Delimit.ExecuteSign.Text, this.Range(this.RangeA, start, end));
+        semicolon = this.TokenForward(this.TokenA, this.Limit.ExecuteSign.Text, this.Range(this.RangeA, start, end));
         if (semicolon == null)
         {
             return null;
@@ -3617,7 +3617,7 @@ public class Create : InfraCreate
         end = range.End;
 
         Token comma;
-        comma = this.TokenForward(this.TokenA, this.Delimit.PauseSign.Text, this.Range(this.RangeA, start, end));
+        comma = this.TokenForward(this.TokenA, this.Limit.PauseSign.Text, this.Range(this.RangeA, start, end));
         if (comma == null)
         {
             return null;
@@ -3666,7 +3666,7 @@ public class Create : InfraCreate
         }
 
         Token leftBrace;
-        leftBrace = this.TokenForwardNoSkip(this.TokenB, this.Delimit.LeftBrace.Text, this.Range(this.RangeA, fieldToken.Range.End, end));
+        leftBrace = this.TokenForwardNoSkip(this.TokenB, this.Limit.LeftBrace.Text, this.Range(this.RangeA, fieldToken.Range.End, end));
         if (leftBrace == null)
         {
             return null;
@@ -3703,7 +3703,7 @@ public class Create : InfraCreate
         }
 
         Token leftBracket;
-        leftBracket = this.TokenForwardNoSkip(this.TokenB, this.Delimit.LeftBracket.Text, this.Range(this.RangeA, maideToken.Range.End, end));
+        leftBracket = this.TokenForwardNoSkip(this.TokenB, this.Limit.LeftBracket.Text, this.Range(this.RangeA, maideToken.Range.End, end));
         if (leftBracket == null)
         {
             return null;
@@ -3721,7 +3721,7 @@ public class Create : InfraCreate
             return null;
         }
         Token leftBrace;
-        leftBrace = this.Token(this.TokenD, this.Delimit.LeftBrace.Text, this.IndexRange(this.RangeA, rightBracket.Range.End));
+        leftBrace = this.Token(this.TokenD, this.Limit.LeftBrace.Text, this.IndexRange(this.RangeA, rightBracket.Range.End));
         if (leftBrace == null)
         {
             return null;
@@ -4112,12 +4112,12 @@ public class Create : InfraCreate
         end = range.End;
         String leftBracket;
         String rightBracket;
-        leftBracket = this.Delimit.LeftBracket.Text;
-        rightBracket = this.Delimit.RightBracket.Text;
+        leftBracket = this.Limit.LeftBracket.Text;
+        rightBracket = this.Limit.RightBracket.Text;
         String leftBrace;
         String rightBrace;
-        leftBrace = this.Delimit.LeftBrace.Text;
-        rightBrace = this.Delimit.RightBrace.Text;
+        leftBrace = this.Limit.LeftBrace.Text;
+        rightBrace = this.Limit.RightBrace.Text;
         long i;
         i = start;
         long index;
@@ -4168,12 +4168,12 @@ public class Create : InfraCreate
         end = range.End;
         String leftBracket;
         String rightBracket;
-        leftBracket = this.Delimit.LeftBracket.Text;
-        rightBracket = this.Delimit.RightBracket.Text;
+        leftBracket = this.Limit.LeftBracket.Text;
+        rightBracket = this.Limit.RightBracket.Text;
         String leftBrace;
         String rightBrace;
-        leftBrace = this.Delimit.LeftBrace.Text;
-        rightBrace = this.Delimit.RightBrace.Text;
+        leftBrace = this.Limit.LeftBrace.Text;
+        rightBrace = this.Limit.RightBrace.Text;
         long i;
         i = end;
         long index;
@@ -4327,7 +4327,7 @@ public class Create : InfraCreate
         TextInfra textInfra;
         textInfra = this.TextInfra;
         LimitList delimit;
-        delimit = this.Delimit;
+        delimit = this.Limit;
         long ret;
         ret = -1;
         TokenToken aa;
@@ -4370,7 +4370,7 @@ public class Create : InfraCreate
         TextInfra textInfra;
         textInfra = this.TextInfra;
         LimitList delimit;
-        delimit = this.Delimit;
+        delimit = this.Limit;
         long ret;
         ret = -1;
         long t;
@@ -4412,22 +4412,22 @@ public class Create : InfraCreate
 
     protected virtual Token TokenMatchLeftBrace(Token result, Range range)
     {
-        return this.TokenMatchLeftToken(result, this.Delimit.LeftBrace.Text, this.Delimit.RightBrace.Text, range);
+        return this.TokenMatchLeftToken(result, this.Limit.LeftBrace.Text, this.Limit.RightBrace.Text, range);
     }
 
     protected virtual Token TokenMatchRightBrace(Token result, Range range)
     {
-        return this.TokenMatchRightToken(result, this.Delimit.LeftBrace.Text, this.Delimit.RightBrace.Text, range);
+        return this.TokenMatchRightToken(result, this.Limit.LeftBrace.Text, this.Limit.RightBrace.Text, range);
     }
 
     protected virtual Token TokenMatchLeftBracket(Token result, Range range)
     {
-        return this.TokenMatchLeftToken(result, this.Delimit.LeftBracket.Text, this.Delimit.RightBracket.Text, range);
+        return this.TokenMatchLeftToken(result, this.Limit.LeftBracket.Text, this.Limit.RightBracket.Text, range);
     }
 
     protected virtual Token TokenMatchRightBracket(Token result, Range range)
     {
-        return this.TokenMatchRightToken(result, this.Delimit.LeftBracket.Text, this.Delimit.RightBracket.Text, range);
+        return this.TokenMatchRightToken(result, this.Limit.LeftBracket.Text, this.Limit.RightBracket.Text, range);
     }
 
     protected virtual Token TokenMatchLeftToken(Token result, String leftToken, String rightToken, Range range)
