@@ -2,10 +2,10 @@ namespace Avalon.Thread;
 
 public class This : Any
 {
-    public virtual bool Wait(long timeMilliSecond)
+    public virtual bool Wait(long time)
     {
         ulong u;
-        u = (ulong)timeMilliSecond;
+        u = (ulong)time;
         Extern.Thread_Sleep(u);
         return true;
     }
