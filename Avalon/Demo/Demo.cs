@@ -1595,7 +1595,7 @@ class Demo : Any
 
     public virtual Demo AddChar(uint a)
     {
-        this.StringJoin.Add(a);
+        this.StringJoin.Execute(a);
         return this;
     }
 
