@@ -174,6 +174,12 @@ Word "table" has meaning that is entry map.
 
 Word "array" has meaning that is indexed list.
 
+Word "copy" has meaning that is clone.
+
+Word "iter" has meaning that is enumerate.
+
+Word "sort" has meaning that is less ordered.
+
 Word "math" has meaning that is calculate.
 
 Word "cand" has meaning that is represent significand.
