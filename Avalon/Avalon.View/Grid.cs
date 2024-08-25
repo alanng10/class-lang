@@ -478,8 +478,8 @@ public class Grid : View
         Iter iter;
         iter = this.RowIter;
         this.Row.IterSet(iter);
-        long up;
-        up = 0;
+        long row;
+        row = 0;
 
         long i;
         i = 0;
@@ -487,13 +487,13 @@ public class Grid : View
         {
             Count gridRow;
             gridRow = (Count)iter.Value;
-            up = up + gridRow.Value;
+            row = row + gridRow.Value;
 
             long index;
             index = start + i;
             long byteIndex;
             byteIndex = this.IntByteIndex(index);
-            this.InfraInfra.DataIntSet(this.ChildPosData, byteIndex, up);
+            this.InfraInfra.DataIntSet(this.ChildPosData, byteIndex, row);
             i = i + 1;
         }
         return true;
