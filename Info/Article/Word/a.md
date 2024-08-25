@@ -164,6 +164,8 @@ Word "final" has meaning that is finalized.
 
 Word "range" has meaning that is between start inclusive and end exclusive.
 
+Word "index" has meaning that is list item identifier.
+
 Word "list" has meaning that is integer multiple.
 
 Word "table" has meaning that is entry map.
