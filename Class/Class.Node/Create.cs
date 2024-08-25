@@ -802,8 +802,8 @@ public class Create : InfraCreate
 
     public virtual Node ExecuteField(Range range)
     {
-        int start;
-        int end;
+        long start;
+        long end;
         start = range.Start;
         end = range.End;
 
@@ -838,12 +838,12 @@ public class Create : InfraCreate
             return null;
         }
 
-        int countStart;
-        int countEnd;
+        long countStart;
+        long countEnd;
         countStart = fieldToken.Range.End;
         countEnd = countStart + 1;
 
-        int ke;
+        long ke;
         ke = leftBrace.Range.Start;
 
         if (ke < countEnd)
@@ -851,8 +851,8 @@ public class Create : InfraCreate
             countEnd = ke;
         }
 
-        int classStart;
-        int classEnd;
+        long classStart;
+        long classEnd;
         classStart = countEnd;
         classEnd = classStart + 1;
 
@@ -861,13 +861,13 @@ public class Create : InfraCreate
             classEnd = ke;
         }
 
-        int nameStart;
-        int nameEnd;
+        long nameStart;
+        long nameEnd;
         nameStart = classEnd;
         nameEnd = ke;
         
-        int oStart;
-        int oEnd;
+        long oStart;
+        long oEnd;
         oStart = leftBrace.Range.End;
         oEnd = rightBrace.Range.Start;
 
@@ -1003,12 +1003,12 @@ public class Create : InfraCreate
         varSet = null;
         if (!b)
         {
-            int getStart;
-            int getEnd;
+            long getStart;
+            long getEnd;
             getStart = getLeftBrace.Range.End;
             getEnd = getRightBrace.Range.Start;
-            int setStart;
-            int setEnd;
+            long setStart;
+            long setEnd;
             setStart = setLeftBrace.Range.End;
             setEnd = setRightBrace.Range.Start;
             
@@ -1042,8 +1042,8 @@ public class Create : InfraCreate
 
     public virtual Node ExecuteMaide(Range range)
     {
-        int start;
-        int end;
+        long start;
+        long end;
         start = range.Start;
         end = range.End;
 
@@ -1096,12 +1096,12 @@ public class Create : InfraCreate
             return null;
         }
 
-        int countStart;
-        int countEnd;
+        long countStart;
+        long countEnd;
         countStart = maideToken.Range.End;
         countEnd = countStart + 1;
 
-        int ke;
+        long ke;
         ke = leftBracket.Range.Start;
 
         if (ke < countEnd)
@@ -1109,8 +1109,8 @@ public class Create : InfraCreate
             countEnd = ke;
         }
 
-        int classStart;
-        int classEnd;
+        long classStart;
+        long classEnd;
         classStart = countEnd;
         classEnd = classStart + 1;
 
@@ -1119,17 +1119,17 @@ public class Create : InfraCreate
             classEnd = ke;
         }
 
-        int nameStart;
-        int nameEnd;
+        long nameStart;
+        long nameEnd;
         nameStart = classEnd;
         nameEnd = ke;
         
-        int paramStart;
-        int paramEnd;
+        long paramStart;
+        long paramEnd;
         paramStart = leftBracket.Range.End;
         paramEnd = rightBracket.Range.Start;
-        int callStart;
-        int callEnd;
+        long callStart;
+        long callEnd;
         callStart = leftBrace.Range.End;
         callEnd = rightBrace.Range.Start;
 
