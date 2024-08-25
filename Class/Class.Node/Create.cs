@@ -2352,7 +2352,7 @@ public class Create : InfraCreate
 
     public virtual Node ExecuteNotOperate(Range range)
     {
-        return this.ExecuteDelimitOneOperand(this.NodeKind.NotOperate, this.Limit.NotSign, range);
+        return this.ExecuteLimitOneOperand(this.NodeKind.NotOperate, this.Limit.NotSign, range);
     }
 
     public virtual Node ExecuteAddOperate(Range range)
@@ -2933,7 +2933,7 @@ public class Create : InfraCreate
         return ret;
     }
 
-    protected virtual Node ExecuteDelimitOneOperand(NodeKind kind, Limit delimit, Range range)
+    protected virtual Node ExecuteLimitOneOperand(NodeKind kind, Limit delimit, Range range)
     {
         long start;
         long end;
