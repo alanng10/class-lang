@@ -789,12 +789,12 @@ public class Create : InfraCreate
             this.Error(this.ErrorKind.MemberInvalid, memberStart, memberEnd);
         }
 
-        this.OperateArg.Kind = this.NodeKind.Class;
-        this.OperateArg.Start = start;
-        this.OperateArg.End = end;
-        this.OperateArg.Field00 = name;
-        this.OperateArg.Field01 = varBase;
-        this.OperateArg.Field02 = member;
+        this.SetArg.Kind = this.NodeKind.Class;
+        this.SetArg.Start = start;
+        this.SetArg.End = end;
+        this.SetArg.Field00 = name;
+        this.SetArg.Field01 = varBase;
+        this.SetArg.Field02 = member;
         Node ret;
         ret = this.ExecuteCreateOperate();
         return ret;
@@ -1027,14 +1027,14 @@ public class Create : InfraCreate
             this.Error(this.ErrorKind.SetInvalid, oStart, oEnd);
         }
 
-        this.OperateArg.Kind = this.NodeKind.Field;
-        this.OperateArg.Start = start;
-        this.OperateArg.End = end;
-        this.OperateArg.Field00 = varClass;
-        this.OperateArg.Field01 = name;
-        this.OperateArg.Field02 = count;
-        this.OperateArg.Field03 = varGet;
-        this.OperateArg.Field04 = varSet;
+        this.SetArg.Kind = this.NodeKind.Field;
+        this.SetArg.Start = start;
+        this.SetArg.End = end;
+        this.SetArg.Field00 = varClass;
+        this.SetArg.Field01 = name;
+        this.SetArg.Field02 = count;
+        this.SetArg.Field03 = varGet;
+        this.SetArg.Field04 = varSet;
         Node ret;
         ret = this.ExecuteCreateOperate();
         return ret;
@@ -1168,14 +1168,14 @@ public class Create : InfraCreate
             this.Error(this.ErrorKind.CallInvalid, callStart, callEnd);
         }
 
-        this.OperateArg.Kind = this.NodeKind.Maide;
-        this.OperateArg.Start = start;
-        this.OperateArg.End = end;
-        this.OperateArg.Field00 = varClass;
-        this.OperateArg.Field01 = name;
-        this.OperateArg.Field02 = count;
-        this.OperateArg.Field03 = param;
-        this.OperateArg.Field04 = call;
+        this.SetArg.Kind = this.NodeKind.Maide;
+        this.SetArg.Start = start;
+        this.SetArg.End = end;
+        this.SetArg.Field00 = varClass;
+        this.SetArg.Field01 = name;
+        this.SetArg.Field02 = count;
+        this.SetArg.Field03 = param;
+        this.SetArg.Field04 = call;
         Node ret;
         ret = this.ExecuteCreateOperate();
         return ret;
@@ -1232,11 +1232,11 @@ public class Create : InfraCreate
             this.Error(this.ErrorKind.NameInvalid, nameStart, nameEnd);
         }
 
-        this.OperateArg.Kind = this.NodeKind.Var;
-        this.OperateArg.Start = start;
-        this.OperateArg.End = end;
-        this.OperateArg.Field00 = varClass;
-        this.OperateArg.Field01 = name;
+        this.SetArg.Kind = this.NodeKind.Var;
+        this.SetArg.Start = start;
+        this.SetArg.End = end;
+        this.SetArg.Field00 = varClass;
+        this.SetArg.Field01 = name;
         Node ret;
         ret = this.ExecuteCreateOperate();
         return ret;
@@ -1422,10 +1422,10 @@ public class Create : InfraCreate
             return null;
         }
 
-        this.OperateArg.Kind = this.NodeKind.BoolValue;
-        this.OperateArg.Start = start;
-        this.OperateArg.End = end;
-        this.OperateArg.FieldBool = value;
+        this.SetArg.Kind = this.NodeKind.BoolValue;
+        this.SetArg.Start = start;
+        this.SetArg.End = end;
+        this.SetArg.FieldBool = value;
         Node ret;
         ret = this.ExecuteCreateOperate();
         return ret;
@@ -1462,10 +1462,10 @@ public class Create : InfraCreate
             return null;
         }
 
-        this.OperateArg.Kind = this.NodeKind.IntValue;
-        this.OperateArg.Start = start;
-        this.OperateArg.End = end;
-        this.OperateArg.FieldInt = value;
+        this.SetArg.Kind = this.NodeKind.IntValue;
+        this.SetArg.Start = start;
+        this.SetArg.End = end;
+        this.SetArg.FieldInt = value;
         Node ret;
         ret = this.ExecuteCreateOperate();
         return ret;
@@ -1506,10 +1506,10 @@ public class Create : InfraCreate
             return null;
         }
 
-        this.OperateArg.Kind = this.NodeKind.IntHexValue;
-        this.OperateArg.Start = start;
-        this.OperateArg.End = end;
-        this.OperateArg.FieldInt = value;
+        this.SetArg.Kind = this.NodeKind.IntHexValue;
+        this.SetArg.Start = start;
+        this.SetArg.End = end;
+        this.SetArg.FieldInt = value;
         Node ret;
         ret = this.ExecuteCreateOperate();
         return ret;
@@ -1580,10 +1580,10 @@ public class Create : InfraCreate
             value = -o;
         }
 
-        this.OperateArg.Kind = this.NodeKind.IntSignValue;
-        this.OperateArg.Start = start;
-        this.OperateArg.End = end;
-        this.OperateArg.FieldInt = value;
+        this.SetArg.Kind = this.NodeKind.IntSignValue;
+        this.SetArg.Start = start;
+        this.SetArg.End = end;
+        this.SetArg.FieldInt = value;
         Node ret;
         ret = this.ExecuteCreateOperate();
         return ret;
@@ -1653,10 +1653,10 @@ public class Create : InfraCreate
             value = -o;
         }
 
-        this.OperateArg.Kind = this.NodeKind.IntHexSignValue;
-        this.OperateArg.Start = start;
-        this.OperateArg.End = end;
-        this.OperateArg.FieldInt = value;
+        this.SetArg.Kind = this.NodeKind.IntHexSignValue;
+        this.SetArg.Start = start;
+        this.SetArg.End = end;
+        this.SetArg.FieldInt = value;
         Node ret;
         ret = this.ExecuteCreateOperate();
         return ret;
@@ -1690,10 +1690,10 @@ public class Create : InfraCreate
         string value;
         value = this.Operate.ExecuteStringValue(text);
 
-        this.OperateArg.Kind = this.NodeKind.StringValue;
-        this.OperateArg.Start = start;
-        this.OperateArg.End = end;
-        this.OperateArg.Field00 = value;
+        this.SetArg.Kind = this.NodeKind.StringValue;
+        this.SetArg.Start = start;
+        this.SetArg.End = end;
+        this.SetArg.Field00 = value;
         Node ret;
         ret = this.ExecuteCreateOperate();
         return ret;
@@ -1836,10 +1836,10 @@ public class Create : InfraCreate
             this.Error(this.ErrorKind.ResultInvalid, resultStart, resultEnd);
         }
 
-        this.OperateArg.Kind = this.NodeKind.ReturnExecute;
-        this.OperateArg.Start = start;
-        this.OperateArg.End = end;
-        this.OperateArg.Field00 = result;
+        this.SetArg.Kind = this.NodeKind.ReturnExecute;
+        this.SetArg.Start = start;
+        this.SetArg.End = end;
+        this.SetArg.Field00 = result;
         Node ret;
         ret = this.ExecuteCreateOperate();
         return ret;
@@ -1890,10 +1890,10 @@ public class Create : InfraCreate
             this.Error(this.ErrorKind.VarInvalid, varStart, varEnd);
         }
 
-        this.OperateArg.Kind = this.NodeKind.ReferExecute;
-        this.OperateArg.Start = start;
-        this.OperateArg.End = end;
-        this.OperateArg.Field00 = varVar;
+        this.SetArg.Kind = this.NodeKind.ReferExecute;
+        this.SetArg.Start = start;
+        this.SetArg.End = end;
+        this.SetArg.Field00 = varVar;
         Node ret;
         ret = this.ExecuteCreateOperate();
         return ret;
@@ -1950,11 +1950,11 @@ public class Create : InfraCreate
             this.Error(this.ErrorKind.ValueInvalid, valueStart, valueEnd);
         }
 
-        this.OperateArg.Kind = this.NodeKind.AreExecute;
-        this.OperateArg.Start = start;
-        this.OperateArg.End = end;
-        this.OperateArg.Field00 = target;
-        this.OperateArg.Field01 = value;
+        this.SetArg.Kind = this.NodeKind.AreExecute;
+        this.SetArg.Start = start;
+        this.SetArg.End = end;
+        this.SetArg.Field00 = target;
+        this.SetArg.Field01 = value;
         Node ret;
         ret = this.ExecuteCreateOperate();
         return ret;
@@ -1992,10 +1992,10 @@ public class Create : InfraCreate
             this.Error(this.ErrorKind.AnyInvalid, anyStart, anyEnd);
         }
 
-        this.OperateArg.Kind = this.NodeKind.OperateExecute;
-        this.OperateArg.Start = start;
-        this.OperateArg.End = end;
-        this.OperateArg.Field00 = any;
+        this.SetArg.Kind = this.NodeKind.OperateExecute;
+        this.SetArg.Start = start;
+        this.SetArg.End = end;
+        this.SetArg.Field00 = any;
         Node ret;
         ret = this.ExecuteCreateOperate();
         return ret;
@@ -2246,11 +2246,11 @@ public class Create : InfraCreate
             this.Error(this.ErrorKind.AnyInvalid, anyStart, anyEnd);
         }
 
-        this.OperateArg.Kind = this.NodeKind.CastOperate;
-        this.OperateArg.Start = start;
-        this.OperateArg.End = end;
-        this.OperateArg.Field00 = varClass;
-        this.OperateArg.Field01 = any;
+        this.SetArg.Kind = this.NodeKind.CastOperate;
+        this.SetArg.Start = start;
+        this.SetArg.End = end;
+        this.SetArg.Field00 = varClass;
+        this.SetArg.Field01 = any;
         Node ret;
         ret = this.ExecuteCreateOperate();
         return ret;
@@ -2275,10 +2275,10 @@ public class Create : InfraCreate
             return null;
         }
 
-        this.OperateArg.Kind = this.NodeKind.ValueOperate;
-        this.OperateArg.Start = start;
-        this.OperateArg.End = end;
-        this.OperateArg.Field00 = value;
+        this.SetArg.Kind = this.NodeKind.ValueOperate;
+        this.SetArg.Start = start;
+        this.SetArg.End = end;
+        this.SetArg.Field00 = value;
         Node ret;
         ret = this.ExecuteCreateOperate();
         return ret;
@@ -2326,10 +2326,10 @@ public class Create : InfraCreate
             this.Error(this.ErrorKind.AnyInvalid, anyStart, anyEnd);
         }
 
-        this.OperateArg.Kind = this.NodeKind.BracketOperate;
-        this.OperateArg.Start = start;
-        this.OperateArg.End = end;
-        this.OperateArg.Field00 = any;
+        this.SetArg.Kind = this.NodeKind.BracketOperate;
+        this.SetArg.Start = start;
+        this.SetArg.End = end;
+        this.SetArg.Field00 = any;
         Node ret;
         ret = this.ExecuteCreateOperate();
         return ret;
@@ -2513,11 +2513,11 @@ public class Create : InfraCreate
             this.Error(this.ErrorKind.OperandInvalid, rightStart, rightEnd);
         }
 
-        this.OperateArg.Kind = this.NodeKind.BitSignRightOperate;
-        this.OperateArg.Start = start;
-        this.OperateArg.End = end;
-        this.OperateArg.Field00 = left;
-        this.OperateArg.Field01 = right;
+        this.SetArg.Kind = this.NodeKind.BitSignRightOperate;
+        this.SetArg.Start = start;
+        this.SetArg.End = end;
+        this.SetArg.Field00 = left;
+        this.SetArg.Field01 = right;
         Node ret;
         ret = this.ExecuteCreateOperate();
         return ret;
@@ -2605,11 +2605,11 @@ public class Create : InfraCreate
             this.Error(this.ErrorKind.BodyInvalid, bodyStart, bodyEnd);
         }
 
-        this.OperateArg.Kind = kind;
-        this.OperateArg.Start = start;
-        this.OperateArg.End = end;
-        this.OperateArg.Field00 = cond;
-        this.OperateArg.Field01 = body;
+        this.SetArg.Kind = kind;
+        this.SetArg.Start = start;
+        this.SetArg.End = end;
+        this.SetArg.Field00 = cond;
+        this.SetArg.Field01 = body;
         Node ret;
         ret = this.ExecuteCreateOperate();
         return ret;
@@ -2617,8 +2617,8 @@ public class Create : InfraCreate
 
     protected virtual Node ExecuteOneWord(NodeKind kind, Keyword word, Range range)
     {
-        int start;
-        int end;
+        long start;
+        long end;
         start = range.Start;
         end = range.End;
 
@@ -2629,9 +2629,9 @@ public class Create : InfraCreate
             return null;
         }
 
-        this.OperateArg.Kind = kind;
-        this.OperateArg.Start = start;
-        this.OperateArg.End = end;
+        this.SetArg.Kind = kind;
+        this.SetArg.Start = start;
+        this.SetArg.End = end;
         Node ret;
         ret = this.ExecuteCreateOperate();
         return ret;
@@ -2671,10 +2671,10 @@ public class Create : InfraCreate
             this.Error(this.ErrorKind.ClassInvalid, classStart, classEnd);
         }
         
-        this.OperateArg.Kind = kind;
-        this.OperateArg.Start = start;
-        this.OperateArg.End = end;
-        this.OperateArg.Field00 = varClass;
+        this.SetArg.Kind = kind;
+        this.SetArg.Start = start;
+        this.SetArg.End = end;
+        this.SetArg.Field00 = varClass;
         Node ret;
         ret = this.ExecuteCreateOperate();
         return ret;
@@ -2717,11 +2717,11 @@ public class Create : InfraCreate
             this.Error(this.ErrorKind.FieldInvalid, fieldStart, fieldEnd);
         }
 
-        this.OperateArg.Kind = kind;
-        this.OperateArg.Start = start;
-        this.OperateArg.End = end;
-        this.OperateArg.Field00 = varThis;
-        this.OperateArg.Field01 = field;
+        this.SetArg.Kind = kind;
+        this.SetArg.Start = start;
+        this.SetArg.End = end;
+        this.SetArg.Field00 = varThis;
+        this.SetArg.Field01 = field;
         Node ret;
         ret = this.ExecuteCreateOperate();
         return ret;
@@ -2797,12 +2797,12 @@ public class Create : InfraCreate
             this.Error(this.ErrorKind.ArgueInvalid, argueStart, argueEnd);
         }
 
-        this.OperateArg.Kind = kind;
-        this.OperateArg.Start = start;
-        this.OperateArg.End = end;
-        this.OperateArg.Field00 = varThis;
-        this.OperateArg.Field01 = maide;
-        this.OperateArg.Field02 = argue;
+        this.SetArg.Kind = kind;
+        this.SetArg.Start = start;
+        this.SetArg.End = end;
+        this.SetArg.Field00 = varThis;
+        this.SetArg.Field01 = maide;
+        this.SetArg.Field02 = argue;
         Node ret;
         ret = this.ExecuteCreateOperate();
         return ret;
@@ -2822,10 +2822,10 @@ public class Create : InfraCreate
             return null;
         }
 
-        this.OperateArg.Kind = kind;
-        this.OperateArg.Start = start;
-        this.OperateArg.End = end;
-        this.OperateArg.Field00 = varVar;
+        this.SetArg.Kind = kind;
+        this.SetArg.Start = start;
+        this.SetArg.End = end;
+        this.SetArg.Field00 = varVar;
         Node ret;
         ret = this.ExecuteCreateOperate();
         return ret;
@@ -2877,10 +2877,10 @@ public class Create : InfraCreate
             return null;
         }
 
-        this.OperateArg.Kind = kind;
-        this.OperateArg.Start = start;
-        this.OperateArg.End = end;
-        this.OperateArg.Field00 = value;
+        this.SetArg.Kind = kind;
+        this.SetArg.Start = start;
+        this.SetArg.End = end;
+        this.SetArg.Field00 = value;
         Node ret;
         ret = this.ExecuteCreateOperate();
         return ret;
@@ -2923,11 +2923,11 @@ public class Create : InfraCreate
             this.Error(this.ErrorKind.OperandInvalid, rightStart, rightEnd);
         }
 
-        this.OperateArg.Kind = kind;
-        this.OperateArg.Start = start;
-        this.OperateArg.End = end;
-        this.OperateArg.Field00 = left;
-        this.OperateArg.Field01 = right;
+        this.SetArg.Kind = kind;
+        this.SetArg.Start = start;
+        this.SetArg.End = end;
+        this.SetArg.Field00 = left;
+        this.SetArg.Field01 = right;
         Node ret;
         ret = this.ExecuteCreateOperate();
         return ret;
@@ -2963,10 +2963,10 @@ public class Create : InfraCreate
             this.Error(this.ErrorKind.OperandInvalid, valueStart, valueEnd);
         }
 
-        this.OperateArg.Kind = kind;
-        this.OperateArg.Start = start;
-        this.OperateArg.End = end;
-        this.OperateArg.Field00 = value;
+        this.SetArg.Kind = kind;
+        this.SetArg.Start = start;
+        this.SetArg.End = end;
+        this.SetArg.Field00 = value;
         Node ret;
         ret = this.ExecuteCreateOperate();
         return ret;
@@ -3054,11 +3054,11 @@ public class Create : InfraCreate
             this.Error(this.ErrorKind.OperandInvalid, rightStart, rightEnd);
         }
 
-        this.OperateArg.Kind = kind;
-        this.OperateArg.Start = start;
-        this.OperateArg.End = end;
-        this.OperateArg.Field00 = left;
-        this.OperateArg.Field01 = right;
+        this.SetArg.Kind = kind;
+        this.SetArg.Start = start;
+        this.SetArg.End = end;
+        this.SetArg.Field00 = left;
+        this.SetArg.Field01 = right;
         Node ret;
         ret = this.ExecuteCreateOperate();
         return ret;
@@ -3128,10 +3128,10 @@ public class Create : InfraCreate
             this.Error(this.ErrorKind.OperandInvalid, valueStart, valueEnd);
         }
 
-        this.OperateArg.Kind = kind;
-        this.OperateArg.Start = start;
-        this.OperateArg.End = end;
-        this.OperateArg.Field00 = value;
+        this.SetArg.Kind = kind;
+        this.SetArg.Start = start;
+        this.SetArg.End = end;
+        this.SetArg.Field00 = value;
         Node ret;
         ret = this.ExecuteCreateOperate();
         return ret;
@@ -3151,10 +3151,10 @@ public class Create : InfraCreate
             return null;
         }
 
-        this.OperateArg.Kind = kind;
-        this.OperateArg.Start = start;
-        this.OperateArg.End = end;
-        this.OperateArg.Field00 = value;
+        this.SetArg.Kind = kind;
+        this.SetArg.Start = start;
+        this.SetArg.End = end;
+        this.SetArg.Field00 = value;
         Node ret;
         ret = this.ExecuteCreateOperate();
         return ret;
