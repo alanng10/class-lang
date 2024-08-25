@@ -465,9 +465,7 @@ public class Grid : View
             index = start + i;
             long byteIndex;
             byteIndex = this.IntByteIndex(index);
-            ulong u;
-            u = (ulong)left;
-            this.InfraInfra.DataIntSet(this.ChildPosData, byteIndex, u);
+            this.InfraInfra.DataIntSet(this.ChildPosData, byteIndex, left);
             i = i + 1;
         }
         return true;
@@ -495,9 +493,7 @@ public class Grid : View
             index = start + i;
             long byteIndex;
             byteIndex = this.IntByteIndex(index);
-            ulong u;
-            u = (ulong)up;
-            this.InfraInfra.DataIntSet(this.ChildPosData, byteIndex, u);
+            this.InfraInfra.DataIntSet(this.ChildPosData, byteIndex, up);
             i = i + 1;
         }
         return true;
