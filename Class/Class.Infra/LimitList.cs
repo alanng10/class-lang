@@ -1,13 +1,13 @@
 namespace Class.Infra;
 
-public class DelimitList : Any
+public class LimitList : Any
 {
-    public static DelimitList This { get; } = ShareCreate();
+    public static LimitList This { get; } = ShareCreate();
 
-    private static DelimitList ShareCreate()
+    private static LimitList ShareCreate()
     {
-        DelimitList share;
-        share = new DelimitList();
+        LimitList share;
+        share = new LimitList();
         Any a;
         a = share;
         a.Init();
@@ -43,34 +43,34 @@ public class DelimitList : Any
         return true;
     }
 
-    public virtual Delimit StopSign { get; set; }
-    public virtual Delimit PauseSign { get; set; }
-    public virtual Delimit BaseSign { get; set; }
-    public virtual Delimit ExecuteSign { get; set; }
-    public virtual Delimit SameSign { get; set; }
-    public virtual Delimit AddSign { get; set; }
-    public virtual Delimit SubSign { get; set; }
-    public virtual Delimit MulSign { get; set; }
-    public virtual Delimit DivSign { get; set; }
-    public virtual Delimit AndSign { get; set; }
-    public virtual Delimit OrnSign { get; set; }
-    public virtual Delimit NotSign { get; set; }
-    public virtual Delimit LessSign { get; set; }
-    public virtual Delimit MoreSign { get; set; }
-    public virtual Delimit LeftBracket { get; set; }
-    public virtual Delimit RightBracket { get; set; }
-    public virtual Delimit LeftBrace { get; set; }
-    public virtual Delimit RightBrace { get; set; }
+    public virtual Limit StopSign { get; set; }
+    public virtual Limit PauseSign { get; set; }
+    public virtual Limit BaseSign { get; set; }
+    public virtual Limit ExecuteSign { get; set; }
+    public virtual Limit SameSign { get; set; }
+    public virtual Limit AddSign { get; set; }
+    public virtual Limit SubSign { get; set; }
+    public virtual Limit MulSign { get; set; }
+    public virtual Limit DivSign { get; set; }
+    public virtual Limit AndSign { get; set; }
+    public virtual Limit OrnSign { get; set; }
+    public virtual Limit NotSign { get; set; }
+    public virtual Limit LessSign { get; set; }
+    public virtual Limit MoreSign { get; set; }
+    public virtual Limit LeftBracket { get; set; }
+    public virtual Limit RightBracket { get; set; }
+    public virtual Limit LeftBrace { get; set; }
+    public virtual Limit RightBrace { get; set; }
 
     protected virtual StringValue StringValue { get; set; }
 
-    protected virtual Delimit AddItem(string text)
+    protected virtual Limit AddItem(string text)
     {
         String k;
         k = this.StringValue.Execute(text);
 
-        Delimit item;
-        item = new Delimit();
+        Limit item;
+        item = new Limit();
         item.Init();
         item.Index = this.Index;
         item.Text = k;
@@ -95,8 +95,8 @@ public class DelimitList : Any
     
     protected virtual long Index { get; set; }
 
-    public virtual Delimit Get(long index)
+    public virtual Limit Get(long index)
     {
-        return (Delimit)this.Array.GetAt(index);
+        return (Limit)this.Array.GetAt(index);
     }
 }
