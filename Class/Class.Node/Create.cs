@@ -3920,18 +3920,18 @@ public class Create : InfraCreate
 
         Data data;
         data = text.Data;
-        int start;
+        long start;
         start = text.Range.Index;
-        int count;
+        long count;
         count = text.Range.Count;
-        int index;
-        char oc;
         int i;
         i = 0;
         while (i < count)
         {
+            long index;
             index = start + i;
 
+            uint oc;
             oc = textInfra.DataCharGet(data, index);
 
             if (!(textInfra.IsDigit(oc)))
@@ -3950,18 +3950,18 @@ public class Create : InfraCreate
 
         Data data;
         data = text.Data;
-        int start;
+        long start;
         start = text.Range.Index;
-        int count;
+        long count;
         count = text.Range.Count;
-        int index;
-        char oc;
-        int i;
+        long i;
         i = 0;
         while (i < count)
         {
+            long index;
             index = start + i;
 
+            uint oc;
             oc = textInfra.DataCharGet(data, index);
 
             if (!(textInfra.IsDigit(oc) | textInfra.IsHexLetter(oc, false)))
