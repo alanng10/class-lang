@@ -786,7 +786,7 @@ public class Create : InfraCreate
         part = this.ExecutePart(this.Range(this.RangeA, partStart, partEnd));
         if (part == null)
         {
-            this.Error(this.ErrorKind.MemberInvalid, partStart, partEnd);
+            this.Error(this.ErrorKind.PartInvalid, partStart, partEnd);
         }
 
         this.SetArg.Kind = this.NodeKind.Class;
