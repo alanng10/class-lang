@@ -165,7 +165,7 @@ public class Infra : Any
         return this.StringCreateRange(o, index, count);
     }
 
-    public virtual Array TextSplitLineString(String text)
+    public virtual Array TextLimitLineString(String text)
     {
         Text k;
         k = this.TextCreate(text);

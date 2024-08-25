@@ -70,7 +70,7 @@ public class Gen : ToolGen
         String a;
         a = this.ToolInfra.StorageTextRead(this.ItemListFileName);
 
-        this.LineArray = this.ToolInfra.TextSplitLineString(a);
+        this.LineArray = this.ToolInfra.TextLimitLineString(a);
 
         this.ItemTable = this.ToolInfra.TableCreateStringLess();
 

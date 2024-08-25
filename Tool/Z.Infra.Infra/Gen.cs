@@ -79,7 +79,7 @@ public class Gen : Any
 
     public virtual Array TextLimitLineString(String text)
     {
-        return this.ToolInfra.TextSplitLineString(text);
+        return this.ToolInfra.TextLimitLineString(text);
     }
 
     public virtual Array TextLimitLine(Text text)

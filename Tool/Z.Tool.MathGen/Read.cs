@@ -17,8 +17,8 @@ public class Read : ToolGen
         this.TextList = toolInfra.StorageTextRead(this.S("ToolData/Math/List.txt"));
         this.TextTrigoList = toolInfra.StorageTextRead(this.S("ToolData/Math/TrigoList.txt"));
 
-        this.LineList = toolInfra.TextSplitLineString(this.TextList);
-        this.TrigoLineList = toolInfra.TextSplitLineString(this.TextTrigoList);
+        this.LineList = toolInfra.TextLimitLineString(this.TextList);
+        this.TrigoLineList = toolInfra.TextLimitLineString(this.TextTrigoList);
 
         bool b;
         b = this.SetTrigoTable();
