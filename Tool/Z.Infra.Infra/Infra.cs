@@ -171,7 +171,7 @@ public class Infra : Any
         k = this.TextCreate(text);
         
         Array array;
-        array = this.TextSplitLine(k);
+        array = this.TextLimitLine(k);
 
         long count;
         count = array.Count;
@@ -193,7 +193,7 @@ public class Infra : Any
         return array;
     }
 
-    public virtual Array TextSplitLine(Text text)
+    public virtual Array TextLimitLine(Text text)
     {
         return this.TextLimit(text, this.TextNewLine);
     }
