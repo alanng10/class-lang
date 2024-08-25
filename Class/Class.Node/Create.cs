@@ -2003,8 +2003,8 @@ public class Create : InfraCreate
 
     public virtual Node ExecuteOperate(Range range)
     {
-        int start;
-        int end;
+        long start;
+        long end;
         start = range.Start;
         end = range.End;
 
@@ -2079,15 +2079,15 @@ public class Create : InfraCreate
                     }
                     if (a == null)
                     {
-                        a = this.ExecuteBitLeftOperate(this.Range(this.RangeA, start, end));
+                        a = this.ExecuteBitLiteOperate(this.Range(this.RangeA, start, end));
                     }
                     if (a == null)
                     {
-                        a = this.ExecuteBitRightOperate(this.Range(this.RangeA, start, end));
+                        a = this.ExecuteBitRiteOperate(this.Range(this.RangeA, start, end));
                     }
                     if (a == null)
                     {
-                        a = this.ExecuteBitSignRightOperate(this.Range(this.RangeA, start, end));
+                        a = this.ExecuteBitSignRiteOperate(this.Range(this.RangeA, start, end));
                     }
                 }
             }
@@ -2118,7 +2118,7 @@ public class Create : InfraCreate
         }
         if (a == null)
         {
-            a = this.ExecuteEqualOperate(this.Range(this.RangeA, start, end));
+            a = this.ExecuteSameOperate(this.Range(this.RangeA, start, end));
         }
         if (a == null)
         {
@@ -2188,8 +2188,8 @@ public class Create : InfraCreate
 
     public virtual Node ExecuteCastOperate(Range range)
     {
-        int start;
-        int end;
+        long start;
+        long end;
         start = range.Start;
         end = range.End;
 
@@ -2223,12 +2223,12 @@ public class Create : InfraCreate
             return null;
         }
 
-        int classStart;
-        int classEnd;
+        long classStart;
+        long classEnd;
         classStart = castToken.Range.End;
         classEnd = leftBracket.Range.Start;
-        int anyStart;
-        int anyEnd;
+        long anyStart;
+        long anyEnd;
         anyStart = leftBracket.Range.End;
         anyEnd = rightBracket.Range.Start;
 
