@@ -4104,7 +4104,7 @@ public class Create : InfraCreate
         return result;
     }
 
-    protected virtual Token TokenForwardNoSkip(Token result, string value, Range range)
+    protected virtual Token TokenForwardNoSkip(Token result, String value, Range range)
     {
         int start;
         int end;
@@ -4160,7 +4160,7 @@ public class Create : InfraCreate
         return result;
     }
 
-    protected virtual Token TokenBackwardNoSkip(Token result, string value, Range range)
+    protected virtual Token TokenBackwardNoSkip(Token result, String value, Range range)
     {
         int start;
         int end;
@@ -4218,16 +4218,16 @@ public class Create : InfraCreate
         return result;
     }
 
-    protected virtual Token TokenForward(Token result, string value, Range range)
+    protected virtual Token TokenForward(Token result, String value, Range range)
     {
-        int start;
-        int end;
+        long start;
+        long end;
         start = range.Start;
         end = range.End;
 
-        int i;
+        long i;
         i = start;
-        int index;
+        long index;
         index = -1;
         bool varContinue;
         varContinue = (i < end);
@@ -4242,7 +4242,7 @@ public class Create : InfraCreate
             }
             if (!b)
             {
-                int skipBracketIndex;
+                long skipBracketIndex;
                 skipBracketIndex = this.ForwardSkipBracket(i, end);
                 bool ba;
                 ba = (skipBracketIndex == -1);
@@ -4322,13 +4322,13 @@ public class Create : InfraCreate
         return result;
     }
 
-    protected virtual int ForwardSkipBracket(int index, int end)
+    protected virtual long ForwardSkipBracket(long index, long end)
     {
         TextInfra textInfra;
         textInfra = this.TextInfra;
         DelimitList delimit;
         delimit = this.Delimit;
-        int ret;
+        long ret;
         ret = -1;
         TokenToken aa;
         aa = this.TokenToken(index);
@@ -4365,15 +4365,15 @@ public class Create : InfraCreate
         return ret;
     }
 
-    protected virtual int BackwardSkipBracket(int index, int start)
+    protected virtual long BackwardSkipBracket(long index, long start)
     {
         TextInfra textInfra;
         textInfra = this.TextInfra;
         DelimitList delimit;
         delimit = this.Delimit;
-        int ret;
+        long ret;
         ret = -1;
-        int t;
+        long t;
         t = index - 1;
         TokenToken aa;
         aa = this.TokenToken(t);
