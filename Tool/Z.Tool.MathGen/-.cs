@@ -1,6 +1,6 @@
 global using Any = Avalon.Infra.Any;
 global using String = Avalon.Infra.String;
-global using StringJoin = Avalon.Infra.StringJoin;
+global using StringJoin = Avalon.Infra.StringAdd;
 global using Array = Avalon.List.Array;
 global using Table = Avalon.List.Table;
 global using Iter = Avalon.List.Iter;

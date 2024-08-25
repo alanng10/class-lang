@@ -181,7 +181,7 @@ public class Infra : Any
         return true;
     }
 
-    public virtual bool StringJoinString(StringJoin h, String a)
+    public virtual bool StringJoinString(StringAdd h, String a)
     {
         StringComp stringComp;
         stringComp = this.StringComp;

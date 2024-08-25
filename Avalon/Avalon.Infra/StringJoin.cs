@@ -1,6 +1,6 @@
 namespace Avalon.Infra;
 
-public class StringJoin : Any
+public class StringAdd : Any
 {
     public override bool Init()
     {
