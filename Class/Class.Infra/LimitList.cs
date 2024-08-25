@@ -24,7 +24,7 @@ public class LimitList : Any
 
         this.StopSign = this.AddItem(".");
         this.PauseSign = this.AddItem(",");
-        this.BaseSign = this.AddItem(":");
+        this.AreSign = this.AddItem(":");
         this.ExecuteSign = this.AddItem(";");
         this.SameSign = this.AddItem("=");
         this.AddSign = this.AddItem("+");
@@ -36,8 +36,8 @@ public class LimitList : Any
         this.NotSign = this.AddItem("!");
         this.LessSign = this.AddItem("<");
         this.MoreSign = this.AddItem(">");
-        this.LeftBracket = this.AddItem("(");
-        this.RightBracket = this.AddItem(")");
+        this.LeftBraceRound = this.AddItem("(");
+        this.RightBraceRound = this.AddItem(")");
         this.LeftBrace = this.AddItem("{");
         this.RightBrace = this.AddItem("}");
         return true;
@@ -45,7 +45,7 @@ public class LimitList : Any
 
     public virtual Limit StopSign { get; set; }
     public virtual Limit PauseSign { get; set; }
-    public virtual Limit BaseSign { get; set; }
+    public virtual Limit AreSign { get; set; }
     public virtual Limit ExecuteSign { get; set; }
     public virtual Limit SameSign { get; set; }
     public virtual Limit AddSign { get; set; }
@@ -57,8 +57,8 @@ public class LimitList : Any
     public virtual Limit NotSign { get; set; }
     public virtual Limit LessSign { get; set; }
     public virtual Limit MoreSign { get; set; }
-    public virtual Limit LeftBracket { get; set; }
-    public virtual Limit RightBracket { get; set; }
+    public virtual Limit LeftBraceRound { get; set; }
+    public virtual Limit RightBraceRound { get; set; }
     public virtual Limit LeftBrace { get; set; }
     public virtual Limit RightBrace { get; set; }
 
