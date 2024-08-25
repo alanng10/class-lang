@@ -2407,7 +2407,7 @@ public class Create : InfraCreate
 
     public virtual Node ExecuteBitNotOperate(Range range)
     {
-        return this.ExecuteWordDelimitOneOperand(this.NodeKind.BitNotOperate, this.Keyword.Bit, this.Limit.NotSign, range);
+        return this.ExecuteWordLimitOneOperand(this.NodeKind.BitNotOperate, this.Keyword.Bit, this.Limit.NotSign, range);
     }
 
     public virtual Node ExecuteBitLiteOperate(Range range)
@@ -3064,7 +3064,7 @@ public class Create : InfraCreate
         return ret;
     }
 
-    protected virtual Node ExecuteWordDelimitOneOperand(NodeKind kind, Keyword word, Limit delimit, Range range)
+    protected virtual Node ExecuteWordLimitOneOperand(NodeKind kind, Keyword word, Limit delimit, Range range)
     {
         long start;
         long end;
