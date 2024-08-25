@@ -2382,27 +2382,27 @@ public class Create : InfraCreate
 
     public virtual Node ExecuteSignMulOperate(Range range)
     {
-        return this.ExecuteWordDelimitTwoOperand(this.NodeKind.SignMulOperate, this.Keyword.Sign, this.Limit.MulSign, range);
+        return this.ExecuteWordLimitTwoOperand(this.NodeKind.SignMulOperate, this.Keyword.Sign, this.Limit.MulSign, range);
     }
 
     public virtual Node ExecuteSignDivOperate(Range range)
     {
-        return this.ExecuteWordDelimitTwoOperand(this.NodeKind.SignDivOperate, this.Keyword.Sign, this.Limit.DivSign, range);
+        return this.ExecuteWordLimitTwoOperand(this.NodeKind.SignDivOperate, this.Keyword.Sign, this.Limit.DivSign, range);
     }
 
     public virtual Node ExecuteSignLessOperate(Range range)
     {
-        return this.ExecuteWordDelimitTwoOperand(this.NodeKind.SignLessOperate, this.Keyword.Sign, this.Limit.LessSign, range);
+        return this.ExecuteWordLimitTwoOperand(this.NodeKind.SignLessOperate, this.Keyword.Sign, this.Limit.LessSign, range);
     }
 
     public virtual Node ExecuteBitAndOperate(Range range)
     {
-        return this.ExecuteWordDelimitTwoOperand(this.NodeKind.BitAndOperate, this.Keyword.Bit, this.Limit.AndSign, range);
+        return this.ExecuteWordLimitTwoOperand(this.NodeKind.BitAndOperate, this.Keyword.Bit, this.Limit.AndSign, range);
     }
 
     public virtual Node ExecuteBitOrnOperate(Range range)
     {
-        return this.ExecuteWordDelimitTwoOperand(this.NodeKind.BitOrnOperate, this.Keyword.Bit, this.Limit.OrnSign, range);
+        return this.ExecuteWordLimitTwoOperand(this.NodeKind.BitOrnOperate, this.Keyword.Bit, this.Limit.OrnSign, range);
     }
 
     public virtual Node ExecuteBitNotOperate(Range range)
@@ -2412,12 +2412,12 @@ public class Create : InfraCreate
 
     public virtual Node ExecuteBitLiteOperate(Range range)
     {
-        return this.ExecuteWordDelimitTwoOperand(this.NodeKind.BitLiteOperate, this.Keyword.Bit, this.Limit.LessSign, range);
+        return this.ExecuteWordLimitTwoOperand(this.NodeKind.BitLiteOperate, this.Keyword.Bit, this.Limit.LessSign, range);
     }
 
     public virtual Node ExecuteBitRiteOperate(Range range)
     {
-        return this.ExecuteWordDelimitTwoOperand(this.NodeKind.BitRiteOperate, this.Keyword.Bit, this.Limit.MoreSign, range);
+        return this.ExecuteWordLimitTwoOperand(this.NodeKind.BitRiteOperate, this.Keyword.Bit, this.Limit.MoreSign, range);
     }
 
     public virtual Node ExecuteBitSignRiteOperate(Range range)
@@ -2972,7 +2972,7 @@ public class Create : InfraCreate
         return ret;
     }
 
-    protected virtual Node ExecuteWordDelimitTwoOperand(NodeKind kind, Keyword word, Limit delimit, Range range)
+    protected virtual Node ExecuteWordLimitTwoOperand(NodeKind kind, Keyword word, Limit delimit, Range range)
     {
         long start;
         long end;
