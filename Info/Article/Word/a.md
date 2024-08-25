@@ -34,6 +34,8 @@ Word "comp" has meaning that is compose unit.
 
 Word "name" has meaning that is call word.
 
+Word "word" has meaning that is char list represent entity.
+
 Word "base" has meaning that is already base.
 
 Word "derive" has meaning that is derivative.
