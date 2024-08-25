@@ -91,7 +91,7 @@ public class Read : ToolGen
             k = this.TextCreate(a);
 
             Array uu;
-            uu = this.TextSplit(k, space);
+            uu = this.TextLimit(k, space);
 
             if (!(uu.Count == 4))
             {

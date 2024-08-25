@@ -29,7 +29,7 @@ public class Gen : SourceGen
         k = this.TextCreate(line);
 
         Array array;
-        array = this.TextSplit(k, kka);
+        array = this.TextLimit(k, kka);
         
         Text ka;
         Text kb;

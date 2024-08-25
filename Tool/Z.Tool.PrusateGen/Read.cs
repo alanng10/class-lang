@@ -458,7 +458,7 @@ class Read : ToolGen
             Text delimit;
             delimit = this.TextCreate(this.S(", "));
 
-            array = this.TextSplit(k, delimit);
+            array = this.TextLimit(k, delimit);
         }
 
         long count;

@@ -136,7 +136,7 @@ public class ReadList : ToolGen
             ka = this.TextCreate(a);
 
             Array colArray;
-            colArray = this.TextSplit(ka, space);
+            colArray = this.TextLimit(ka, space);
 
             Text kaa;
             kaa = (Text)colArray.GetAt(0);

@@ -87,7 +87,7 @@ public class Gen : Any
         return this.ToolInfra.TextSplitLine(text);
     }
 
-    public virtual Array TextSplit(Text text, Text delimit)
+    public virtual Array TextLimit(Text text, Text delimit)
     {
         return this.ToolInfra.TextLimit(text, delimit);
     }
