@@ -102,7 +102,7 @@ Word "result" has meaning that is resulted.
 
 Word "brace" has meaning that is open with close available.
 
-Word "delimit" has meaning that is split token.
+Word "limit" has meaning that is split.
 
 Word "lite" has meaning that is left.
 
