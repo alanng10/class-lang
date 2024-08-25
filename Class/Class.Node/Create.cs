@@ -2263,8 +2263,8 @@ public class Create : InfraCreate
 
     public virtual Node ExecuteValueOperate(Range range)
     {
-        int start;
-        int end;
+        long start;
+        long end;
         start = range.Start;
         end = range.End;
 
@@ -2286,8 +2286,8 @@ public class Create : InfraCreate
 
     public virtual Node ExecuteBracketOperate(Range range)
     {
-        int start;
-        int end;
+        long start;
+        long end;
         start = range.Start;
         end = range.End;
 
@@ -2314,8 +2314,8 @@ public class Create : InfraCreate
             return null;
         }
 
-        int anyStart;
-        int anyEnd;
+        long anyStart;
+        long anyEnd;
         anyStart = leftBracket.Range.End;
         anyEnd = rightBracket.Range.Start;
 
@@ -2335,9 +2335,9 @@ public class Create : InfraCreate
         return ret;
     }
 
-    public virtual Node ExecuteEqualOperate(Range range)
+    public virtual Node ExecuteSameOperate(Range range)
     {
-        return this.ExecuteDelimitTwoOperand(this.NodeKind.EqualOperate, this.Delimit.EqualSign, range);
+        return this.ExecuteDelimitTwoOperand(this.NodeKind.SameOperate, this.Delimit.SameSign, range);
     }
 
     public virtual Node ExecuteAndOperate(Range range)
@@ -2410,14 +2410,14 @@ public class Create : InfraCreate
         return this.ExecuteWordDelimitOneOperand(this.NodeKind.BitNotOperate, this.Keyword.Bit, this.Delimit.NotSign, range);
     }
 
-    public virtual Node ExecuteBitLeftOperate(Range range)
+    public virtual Node ExecuteBitLiteOperate(Range range)
     {
-        return this.ExecuteWordDelimitTwoOperand(this.NodeKind.BitLeftOperate, this.Keyword.Bit, this.Delimit.LessSign, range);
+        return this.ExecuteWordDelimitTwoOperand(this.NodeKind.BitLiteOperate, this.Keyword.Bit, this.Delimit.LessSign, range);
     }
 
-    public virtual Node ExecuteBitRightOperate(Range range)
+    public virtual Node ExecuteBitRiteOperate(Range range)
     {
-        return this.ExecuteWordDelimitTwoOperand(this.NodeKind.BitRightOperate, this.Keyword.Bit, this.Delimit.MoreSign, range);
+        return this.ExecuteWordDelimitTwoOperand(this.NodeKind.BitRiteOperate, this.Keyword.Bit, this.Delimit.MoreSign, range);
     }
 
     public virtual Node ExecuteBitSignRiteOperate(Range range)
