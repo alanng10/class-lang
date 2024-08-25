@@ -4269,22 +4269,22 @@ public class Create : InfraCreate
         return result;
     }
 
-    protected virtual Token TokenBackward(Token result, string value, Range range)
+    protected virtual Token TokenBackward(Token result, String value, Range range)
     {
-        int start;
-        int end;
+        long start;
+        long end;
         start = range.Start;
         end = range.End;
 
-        int i;
+        long i;
         i = end;
-        int index;
+        long index;
         index = -1;
         bool varContinue;
         varContinue = (start < i);
         while (varContinue)
         {
-            int j;
+            long j;
             j = i - 1;
             bool b;
             b = this.IsText(value, j);
@@ -4295,7 +4295,7 @@ public class Create : InfraCreate
             }
             if (!b)
             {
-                int skipBracketIndex;
+                long skipBracketIndex;
                 skipBracketIndex = this.BackwardSkipBracket(i, start);
                 bool ba;
                 ba = (skipBracketIndex == -1);
