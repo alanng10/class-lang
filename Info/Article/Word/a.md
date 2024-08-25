@@ -160,6 +160,8 @@ Word "task" has meaning that is to be done.
 
 Word "init" has meaning that is initialize.
 
+Word "final" has meaning that is finalize.
+
 Word "range" has meaning that is between start inclusive and end exclusive.
 
 Word "list" has meaning that is integer multiple.
