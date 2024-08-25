@@ -1664,8 +1664,8 @@ public class Create : InfraCreate
 
     public virtual Node ExecuteStringValue(Range range)
     {
-        int start;
-        int end;
+        long start;
+        long end;
         start = range.Start;
         end = range.End;
 
@@ -1687,7 +1687,7 @@ public class Create : InfraCreate
             return null;
         }
 
-        string value;
+        String value;
         value = this.Operate.ExecuteStringValue(text);
 
         this.SetArg.Kind = this.NodeKind.StringValue;
