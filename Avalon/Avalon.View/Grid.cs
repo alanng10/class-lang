@@ -257,7 +257,7 @@ public class Grid : View
         }
         
         this.SetChildColArray();
-        this.SetChildUpArray();
+        this.SetChildRowArray();
         return true;
     }
 
@@ -471,7 +471,7 @@ public class Grid : View
         return true;
     }
 
-    protected virtual bool SetChildUpArray()
+    protected virtual bool SetChildRowArray()
     {
         long start;
         start = this.Col.Count;
