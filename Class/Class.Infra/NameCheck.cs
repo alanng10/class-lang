@@ -198,8 +198,8 @@ public class NameCheck : Any
     {
         TextInfra textInfra;
         textInfra = this.TextInfra;
-        IndexList keyword;
-        keyword = this.Index;
+        IndexList index;
+        index = this.Index;
 
         TextLess less;
         less = this.TextLess;
@@ -207,13 +207,13 @@ public class NameCheck : Any
         Text oo;
         oo = this.Text;
         long count;
-        count = keyword.Count;
+        count = index.Count;
         long i;
         i = 0;
         while (i < count)
         {
             Index a;
-            a = keyword.Get(i);
+            a = index.Get(i);
             String o;
             o = a.Text;
 
