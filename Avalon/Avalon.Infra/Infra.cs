@@ -82,22 +82,22 @@ public class Infra : Any
         return this.DataMidGet(data, index);
     }
 
-    public virtual bool DataIntSet(Data data, long index, ulong value)
+    public virtual bool DataIntSet(Data data, long index, long value)
     {
         return this.DataByteListSet(data, index, sizeof(ulong), value);
     }
 
-    public virtual bool DataMidSet(Data data, long index, uint value)
+    public virtual bool DataMidSet(Data data, long index, long value)
     {
         return this.DataByteListSet(data, index, sizeof(uint), value);
     }
 
-    public virtual bool DataShortSet(Data data, long index, ushort value)
+    public virtual bool DataShortSet(Data data, long index, long value)
     {
         return this.DataByteListSet(data, index, sizeof(ushort), value);
     }
 
-    public virtual bool DataCharSet(Data data, long index, uint value)
+    public virtual bool DataCharSet(Data data, long index, long value)
     {
         return this.DataMidSet(data, index, value);
     }
@@ -135,14 +135,16 @@ public class Infra : Any
         return a;
     }
 
-    public virtual bool DataByteListSet(Data data, long index, long count, ulong value)
+    public virtual bool DataByteListSet(Data data, long index, long count, long value)
     {
         long d;
         d = this.IntCapValue - 1;
         ulong da;
         da = (ulong)d;
+        ulong db;
+        db =  (ulong)value;
         ulong oo;
-        oo = value;
+        oo = db;
         oo = oo & da;
 
         long i;

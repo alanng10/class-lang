@@ -47,7 +47,7 @@ public class StringAdd : Any
         return true;
     }
 
-    public virtual bool Execute(uint n)
+    public virtual bool Execute(long n)
     {
         Infra infraInfra;
         infraInfra = this.InfraInfra;
