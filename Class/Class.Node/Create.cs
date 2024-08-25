@@ -2525,8 +2525,8 @@ public class Create : InfraCreate
 
     protected virtual Node ExecuteWordBracketBody(NodeKind kind, Keyword word, Range range)
     {
-        int start;
-        int end;
+        long start;
+        long end;
         start = range.Start;
         end = range.End;
 
@@ -2582,12 +2582,12 @@ public class Create : InfraCreate
             return null;
         }
 
-        int condStart;
-        int condEnd;
+        long condStart;
+        long condEnd;
         condStart = leftBracket.Range.End;
         condEnd = rightBracket.Range.Start;
-        int bodyStart;
-        int bodyEnd;
+        long bodyStart;
+        long bodyEnd;
         bodyStart = leftBrace.Range.End;
         bodyEnd = rightBrace.Range.Start;
 
@@ -2639,12 +2639,12 @@ public class Create : InfraCreate
 
     protected virtual Node ExecuteWordClass(NodeKind kind, Keyword keyword, Range range)
     {
-        int start;
-        int end;
+        long start;
+        long end;
         start = range.Start;
         end = range.End;
 
-        int count;
+        long count;
         count = this.Count(start, end);
 
         if (count < 1 | 2 < count)
@@ -2659,8 +2659,8 @@ public class Create : InfraCreate
             return null;
         }
 
-        int classStart;
-        int classEnd;
+        long classStart;
+        long classEnd;
         classStart = wordToken.Range.End;
         classEnd = end;
 
@@ -2682,8 +2682,8 @@ public class Create : InfraCreate
 
     protected virtual Node ExecuteDotField(NodeKind kind, Range range)
     {
-        int start;
-        int end;
+        long start;
+        long end;
         start = range.Start;
         end = range.End;
 
@@ -2694,12 +2694,12 @@ public class Create : InfraCreate
             return null;
         }
 
-        int thisStart;
-        int thisEnd;
+        long thisStart;
+        long thisEnd;
         thisStart = start;
         thisEnd = dot.Range.Start;
-        int fieldStart;
-        int fieldEnd;
+        long fieldStart;
+        long fieldEnd;
         fieldStart = dot.Range.End;
         fieldEnd = end;
 
@@ -2729,8 +2729,8 @@ public class Create : InfraCreate
 
     protected virtual Node ExecuteDotMaideCall(NodeKind kind, Range range)
     {
-        int start;
-        int end;
+        long start;
+        long end;
         start = range.Start;
         end = range.End;
 
@@ -2738,7 +2738,7 @@ public class Create : InfraCreate
         {
             return null;
         }
-        int lastIndex;
+        long lastIndex;
         lastIndex = end - 1;
         Token rightBracket;
         rightBracket = this.Token(this.TokenA, this.Delimit.RightBracket.Text, this.IndexRange(this.RangeA, lastIndex));
@@ -2761,18 +2761,18 @@ public class Create : InfraCreate
             return null;
         }
 
-        int thisStart;
-        int thisEnd;
+        long thisStart;
+        long thisEnd;
         thisStart = start;
         thisEnd = dot.Range.Start;
 
-        int maideStart;
-        int maideEnd;
+        long maideStart;
+        long maideEnd;
         maideStart = dot.Range.End;
         maideEnd = leftBracket.Range.Start;
 
-        int argueStart;
-        int argueEnd;
+        long argueStart;
+        long argueEnd;
         argueStart = leftBracket.Range.End;
         argueEnd = rightBracket.Range.Start;
 
