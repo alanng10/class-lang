@@ -1737,9 +1737,9 @@ public class Create : InfraCreate
         return this.ExecuteOneWord(this.NodeKind.PrecateCount, this.Keyword.Precate, range);
     }
 
-    public virtual Node ExecuteProbateCount(Range range)
+    public virtual Node ExecutePronateCount(Range range)
     {
-        return this.ExecuteOneWord(this.NodeKind.ProbateCount, this.Keyword.Probate, range);
+        return this.ExecuteOneWord(this.NodeKind.PronateCount, this.Keyword.Pronate, range);
     }
 
     public virtual Node ExecutePrivateCount(Range range)
