@@ -3774,7 +3774,7 @@ public class Create : InfraCreate
 
     protected virtual bool IsIntHexValue(TokenToken aa)
     {
-        int count;
+        long count;
         count = aa.Range.Count;
 
         if (count < 3)
@@ -3787,7 +3787,7 @@ public class Create : InfraCreate
 
         Data data;
         data = line.Data;
-        int start;
+        long start;
         start = line.Range.Index + aa.Range.Index;
 
         if (!(this.TextInfra.DataCharGet(data, start) == '0'))
@@ -3799,9 +3799,9 @@ public class Create : InfraCreate
             return false;
         }
 
-        int startA;
+        long startA;
         startA = start + 2;
-        int countA;
+        long countA;
         countA = count - 2;
         this.TextA.Data = data;
         this.TextA.Range.Index = startA;
@@ -3815,7 +3815,7 @@ public class Create : InfraCreate
 
     protected virtual bool IsIntSignValue(TokenToken aa)
     {
-        int count;
+        long count;
         count = aa.Range.Count;
 
         if (count < 4)
@@ -3828,7 +3828,7 @@ public class Create : InfraCreate
 
         Data data;
         data = line.Data;
-        int start;
+        long start;
         start = line.Range.Index + aa.Range.Index;
 
         if (!(this.TextInfra.DataCharGet(data, start) == '0'))
@@ -3840,16 +3840,16 @@ public class Create : InfraCreate
             return false;
         }
 
-        char oa;
+        uint oa;
         oa = this.TextInfra.DataCharGet(data, start + 2);
         if (!this.IsIntSignChar(oa))
         {
             return false;
         }
 
-        int startA;
+        long startA;
         startA = start + 3;
-        int countA;
+        long countA;
         countA = count - 3;
         this.TextA.Data = data;
         this.TextA.Range.Index = startA;
@@ -3863,7 +3863,7 @@ public class Create : InfraCreate
 
     protected virtual bool IsIntHexSignValue(TokenToken aa)
     {
-        int count;
+        long count;
         count = aa.Range.Count;
 
         if (count < 5)
@@ -3876,7 +3876,7 @@ public class Create : InfraCreate
 
         Data data;
         data = line.Data;
-        int start;
+        long start;
         start = line.Range.Index + aa.Range.Index;
 
         if (!(this.TextInfra.DataCharGet(data, start) == '0'))
@@ -3892,16 +3892,16 @@ public class Create : InfraCreate
             return false;
         }
 
-        char oa;
+        uint oa;
         oa = this.TextInfra.DataCharGet(data, start + 3);
         if (!this.IsIntSignChar(oa))
         {
             return false;
         }
 
-        int startA;
+        long startA;
         startA = start + 4;
-        int countA;
+        long countA;
         countA = count - 4;
         this.TextA.Data = data;
         this.TextA.Range.Index = startA;
