@@ -40,7 +40,7 @@ public class NameCheck : Any
 
     public virtual bool IsName(Text text)
     {
-        if (this.IsKeyword(text))
+        if (this.IsIndex(text))
         {
             return false;
         }
@@ -194,7 +194,7 @@ public class NameCheck : Any
         return a;
     }
 
-    public virtual bool IsKeyword(Text text)
+    public virtual bool IsIndex(Text text)
     {
         TextInfra textInfra;
         textInfra = this.TextInfra;
