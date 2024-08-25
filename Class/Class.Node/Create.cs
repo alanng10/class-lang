@@ -12,7 +12,7 @@ public class Create : InfraCreate
         this.ClassInfra = ClassInfra.This;
         this.StringComp = StringComp.This;
         this.Keyword = KeywordList.This;
-        this.Delimit = DelimitList.This;
+        this.Delimit = LimitList.This;
         this.ErrorKind = ErrorKindList.This;
         this.NodeKind = NodeKindList.This;
 
@@ -68,7 +68,7 @@ public class Create : InfraCreate
     protected virtual ClassInfra ClassInfra { get; set; }
     protected virtual StringComp StringComp { get; set; }
     protected virtual KeywordList Keyword { get; set; }
-    protected virtual DelimitList Delimit { get; set; }
+    protected virtual LimitList Delimit { get; set; }
     protected virtual ErrorKindList ErrorKind { get; set; }
     protected virtual NodeKindList NodeKind { get; set; }
 
@@ -2886,7 +2886,7 @@ public class Create : InfraCreate
         return ret;
     }
 
-    protected virtual Node ExecuteDelimitTwoOperand(NodeKind kind, Delimit delimit, Range range)
+    protected virtual Node ExecuteDelimitTwoOperand(NodeKind kind, Limit delimit, Range range)
     {
         long start;
         long end;
@@ -2933,7 +2933,7 @@ public class Create : InfraCreate
         return ret;
     }
 
-    protected virtual Node ExecuteDelimitOneOperand(NodeKind kind, Delimit delimit, Range range)
+    protected virtual Node ExecuteDelimitOneOperand(NodeKind kind, Limit delimit, Range range)
     {
         long start;
         long end;
@@ -2972,7 +2972,7 @@ public class Create : InfraCreate
         return ret;
     }
 
-    protected virtual Node ExecuteWordDelimitTwoOperand(NodeKind kind, Keyword word, Delimit delimit, Range range)
+    protected virtual Node ExecuteWordDelimitTwoOperand(NodeKind kind, Keyword word, Limit delimit, Range range)
     {
         long start;
         long end;
@@ -3064,7 +3064,7 @@ public class Create : InfraCreate
         return ret;
     }
 
-    protected virtual Node ExecuteWordDelimitOneOperand(NodeKind kind, Keyword word, Delimit delimit, Range range)
+    protected virtual Node ExecuteWordDelimitOneOperand(NodeKind kind, Keyword word, Limit delimit, Range range)
     {
         long start;
         long end;
@@ -4326,7 +4326,7 @@ public class Create : InfraCreate
     {
         TextInfra textInfra;
         textInfra = this.TextInfra;
-        DelimitList delimit;
+        LimitList delimit;
         delimit = this.Delimit;
         long ret;
         ret = -1;
@@ -4369,7 +4369,7 @@ public class Create : InfraCreate
     {
         TextInfra textInfra;
         textInfra = this.TextInfra;
-        DelimitList delimit;
+        LimitList delimit;
         delimit = this.Delimit;
         long ret;
         ret = -1;
