@@ -178,6 +178,10 @@ Word "table" has meaning that is entry map.
 
 Word "array" has meaning that is indexed list.
 
+Word "first" has meaning that is first index.
+
+word "last" has meaning that is last index.
+
 Word "copy" has meaning that is clone.
 
 Word "iter" has meaning that is enumerate.
