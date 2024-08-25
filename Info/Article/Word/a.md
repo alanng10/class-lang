@@ -166,6 +166,8 @@ Word "range" has meaning that is between start inclusive and end exclusive.
 
 Word "index" has meaning that is list item identifier.
 
+Word "zero" has meaning that is empty effect.
+
 Word "list" has meaning that is integer multiple.
 
 Word "table" has meaning that is entry map.
