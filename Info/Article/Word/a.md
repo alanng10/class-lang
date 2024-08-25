@@ -100,6 +100,8 @@ Word "less" has meaning that is compared.
 
 Word "result" has meaning that is resulted.
 
+Word "brace" has meaning that is open with close available.
+
 Word "lite" has meaning that is left.
 
 Word "rite" has meaning that is right.
