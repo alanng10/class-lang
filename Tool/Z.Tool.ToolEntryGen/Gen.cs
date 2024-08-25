@@ -23,8 +23,8 @@ class Gen : ToolGen
         this.ExecuteOne("Avalon.ImageBinaryList");
         this.ExecuteOne("Class.CountList");
         this.ExecuteOne("Class.LimitList");
+        this.ExecuteOne("Class.IndexList");
         this.ExecuteOne("Class.ErrorKindList");
-        this.ExecuteOne("Class.KeywordList");
         this.ExecuteOne("Class.TaskKindList");
         this.ExecuteOne("System.TextCodeKindList");
         this.ExecuteOne("System.StorageStatusList");
