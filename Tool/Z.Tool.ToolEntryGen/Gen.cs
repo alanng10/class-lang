@@ -22,7 +22,7 @@ class Gen : ToolGen
         this.ExecuteOne("Avalon.GradientSpreadList");
         this.ExecuteOne("Avalon.ImageBinaryList");
         this.ExecuteOne("Class.CountList");
-        this.ExecuteOne("Class.DelimitList");
+        this.ExecuteOne("Class.LimitList");
         this.ExecuteOne("Class.ErrorKindList");
         this.ExecuteOne("Class.KeywordList");
         this.ExecuteOne("Class.TaskKindList");
