@@ -51,7 +51,7 @@ public class Infra : Any
 
         this.BlackBrush = this.CreateBrush(blackColor, k);
         this.WhiteBrush = this.CreateBrush(whiteColor, k);
-        this.TransparentBrush = this.CreateBrush(transparentColor, k);
+        this.ZeroBrush = this.CreateBrush(transparentColor, k);
 
         this.Font = new Face();
         this.Font.Family = this.TextStringValue.Execute("Source Sans 3");
@@ -69,7 +69,7 @@ public class Infra : Any
     public virtual long ColorCompMax { get; set; }
     public virtual Brush BlackBrush { get; set; }
     public virtual Brush WhiteBrush { get; set; }
-    public virtual Brush TransparentBrush { get; set; }
+    public virtual Brush ZeroBrush { get; set; }
     public virtual Face Font { get; set; }
     private long ScaleFactor { get; set; }
     protected virtual MathInfra MathInfra { get; set; }
