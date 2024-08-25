@@ -1,4 +1,4 @@
-namespace Z.Tool.Class.DelimitList;
+namespace Z.Tool.Class.LimitList;
 
 public class Gen : SourceGen
 {
@@ -6,17 +6,17 @@ public class Gen : SourceGen
     {
         base.Init();
         this.Module = this.S("Class.Infra");
-        this.ClassName = this.S("DelimitList");
+        this.ClassName = this.S("LimitList");
         this.BaseClassName = this.S("Any");
         this.AnyClassName = this.S("Any");
-        this.ItemClassName = this.S("Delimit");
+        this.ItemClassName = this.S("Limit");
         this.ArrayClassName = this.S("Array");
         this.Export = true;
-        this.ClassFileName = this.S("ToolData/Class/ClassDelimit.txt");
-        this.InitMethodFileName = this.S("ToolData/Class/InitMaideDelimit.txt");
-        this.ItemListFileName = this.S("ToolData/Class/ItemListDelimit.txt");
-        this.AddMethodFileName = this.S("ToolData/Class/AddMaideDelimit.txt");
-        this.OutputFilePath = this.S("../../Class/Class.Infra/DelimitList.cs");
+        this.ClassFileName = this.S("ToolData/Class/ClassLimit.txt");
+        this.InitMethodFileName = this.S("ToolData/Class/InitMaideLimit.txt");
+        this.ItemListFileName = this.S("ToolData/Class/ItemListLimit.txt");
+        this.AddMethodFileName = this.S("ToolData/Class/AddMaideLimit.txt");
+        this.OutputFilePath = this.S("../../Class/Class.Infra/LimitList.cs");
         return true;
     }
 

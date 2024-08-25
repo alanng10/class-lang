@@ -1,4 +1,4 @@
-namespace Z.Tool.Class.DelimitList;
+namespace Z.Tool.Class.LimitList;
 
 class Entry : EntryEntry
 {
