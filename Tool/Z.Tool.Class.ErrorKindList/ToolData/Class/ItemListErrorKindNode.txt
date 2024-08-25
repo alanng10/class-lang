@@ -1,7 +1,7 @@
 Invalid
 NameInvalid
 BaseInvalid
-MemberInvalid
+PartInvalid
 ClassInvalid
 CountInvalid
 GetInvalid
