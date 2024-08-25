@@ -755,16 +755,16 @@ public class Create : InfraCreate
             return null;
         }
 
-        int nameStart;
-        int nameEnd;
+        long nameStart;
+        long nameEnd;
         nameStart = classToken.Range.End;
         nameEnd = colon.Range.Start;
-        int baseStart;
-        int baseEnd;
+        long baseStart;
+        long baseEnd;
         baseStart = colon.Range.End;
         baseEnd = leftBrace.Range.Start;
-        int memberStart;
-        int memberEnd;
+        long memberStart;
+        long memberEnd;
         memberStart = leftBrace.Range.End;
         memberEnd = rightBrace.Range.Start;
 
