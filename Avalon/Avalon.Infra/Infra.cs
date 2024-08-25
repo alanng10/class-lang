@@ -183,7 +183,7 @@ public class Infra : Any
         return true;
     }
 
-    public virtual bool StringJoinString(StringAdd h, String a)
+    public virtual bool AddString(StringAdd h, String a)
     {
         StringComp stringComp;
         stringComp = this.StringComp;
@@ -194,8 +194,8 @@ public class Infra : Any
         i = 0;
         while (i < count)
         {
-            uint oc;
-            oc = (uint)stringComp.Char(a, i);
+            long oc;
+            oc = stringComp.Char(a, i);
 
             h.Execute(oc);
 

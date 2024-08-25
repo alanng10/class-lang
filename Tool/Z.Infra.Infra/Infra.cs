@@ -66,7 +66,7 @@ public class Infra : Any
 
     public virtual Infra Add(String a)
     {
-        this.InfraInfra.StringJoinString(this.StringJoin, a);
+        this.InfraInfra.AddString(this.StringJoin, a);
         return this;
     }
 

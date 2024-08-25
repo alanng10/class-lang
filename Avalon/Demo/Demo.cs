@@ -1583,7 +1583,7 @@ class Demo : Any
 
     public virtual Demo Add(String a)
     {
-        this.InfraInfra.StringJoinString(this.StringJoin, a);
+        this.InfraInfra.AddString(this.StringJoin, a);
         return this;
     }
 

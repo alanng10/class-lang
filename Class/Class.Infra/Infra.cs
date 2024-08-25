@@ -335,7 +335,7 @@ public class Infra : Any
 
     private Infra Add(StringJoin h, String o)
     {
-        this.InfraInfra.StringJoinString(h, o);
+        this.InfraInfra.AddString(h, o);
 
         return this;
     }

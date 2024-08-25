@@ -16,7 +16,7 @@ public class StringOut : Out
 
     public override bool Write(String o)
     {
-        this.InfraInfra.StringJoinString(this.Sj, o);
+        this.InfraInfra.AddString(this.Sj, o);
         return true;
     }
 
