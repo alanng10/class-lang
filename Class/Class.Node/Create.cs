@@ -3426,8 +3426,8 @@ public class Create : InfraCreate
 
     protected virtual Range ExecuteReturnExecuteRange(Range result, Range range)
     {
-        int start;
-        int end;
+        long start;
+        long end;
         start = range.Start;
         end = range.End;
 
@@ -3465,8 +3465,8 @@ public class Create : InfraCreate
 
     protected virtual Range ExecuteWordBracketRange(Range result, Keyword word, Range range)
     {
-        int start;
-        int end;
+        long start;
+        long end;
         start = range.Start;
         end = range.End;
 
@@ -3523,8 +3523,8 @@ public class Create : InfraCreate
 
     protected virtual Range ExecuteReferExecuteRange(Range result, Range range)
     {
-        int start;
-        int end;
+        long start;
+        long end;
         start = range.Start;
         end = range.End;
 
@@ -3553,8 +3553,8 @@ public class Create : InfraCreate
 
     protected virtual Range ExecuteAreExecuteRange(Range result, Range range)
     {
-        int start;
-        int end;
+        long start;
+        long end;
         start = range.Start;
         end = range.End;
 
@@ -3583,8 +3583,8 @@ public class Create : InfraCreate
 
     protected virtual Range ExecuteOperateExecuteRange(Range result, Range range)
     {
-        int start;
-        int end;
+        long start;
+        long end;
         start = range.Start;
         end = range.End;
 
@@ -3611,8 +3611,8 @@ public class Create : InfraCreate
 
     protected virtual Range ExecuteEndAtCommaRange(Range result, Range range)
     {
-        int start;
-        int end;
+        long start;
+        long end;
         start = range.Start;
         end = range.End;
 
@@ -3628,8 +3628,8 @@ public class Create : InfraCreate
 
     public virtual Range ExecuteCompRange(Range result, Range range)
     {
-        int start;
-        int end;
+        long start;
+        long end;
         start = range.Start;
         end = range.End;
 
@@ -3648,8 +3648,8 @@ public class Create : InfraCreate
 
     protected virtual Range ExecuteFieldRange(Range result, Range range)
     {
-        int start;
-        int end;
+        long start;
+        long end;
         start = range.Start;
         end = range.End;
 
@@ -3685,8 +3685,8 @@ public class Create : InfraCreate
 
     protected virtual Range ExecuteMaideRange(Range result, Range range)
     {
-        int start;
-        int end;
+        long start;
+        long end;
         start = range.Start;
         end = range.End;
 
@@ -3738,10 +3738,10 @@ public class Create : InfraCreate
         return result;
     }
 
-    protected virtual string ExecuteNameValue(Range range)
+    protected virtual String ExecuteNameValue(Range range)
     {
-        int start;
-        int end;
+        long start;
+        long end;
         start = range.Start;
         end = range.End;
 
@@ -3756,7 +3756,7 @@ public class Create : InfraCreate
         text = this.TextA;
         this.TextGet(text, aa);
 
-        string a;
+        String a;
         a = this.Operate.ExecuteNameValue(text);
         return a;
     }
