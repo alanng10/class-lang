@@ -2974,8 +2974,8 @@ public class Create : InfraCreate
 
     protected virtual Node ExecuteWordDelimitTwoOperand(NodeKind kind, Keyword word, Delimit delimit, Range range)
     {
-        int start;
-        int end;
+        long start;
+        long end;
         start = range.Start;
         end = range.End;
 
@@ -3031,12 +3031,12 @@ public class Create : InfraCreate
             return null;
         }
 
-        int leftStart;
-        int leftEnd;
+        long leftStart;
+        long leftEnd;
         leftStart = leftBracket.Range.End;
         leftEnd = comma.Range.Start;
-        int rightStart;
-        int rightEnd;
+        long rightStart;
+        long rightEnd;
         rightStart = comma.Range.End;
         rightEnd = rightBracket.Range.Start;
 
@@ -3066,8 +3066,8 @@ public class Create : InfraCreate
 
     protected virtual Node ExecuteWordDelimitOneOperand(NodeKind kind, Keyword word, Delimit delimit, Range range)
     {
-        int start;
-        int end;
+        long start;
+        long end;
         start = range.Start;
         end = range.End;
 
@@ -3116,8 +3116,8 @@ public class Create : InfraCreate
             return null;
         }
 
-        int valueStart;
-        int valueEnd;
+        long valueStart;
+        long valueEnd;
         valueStart = leftBracket.Range.End;
         valueEnd = rightBracket.Range.Start;
 
