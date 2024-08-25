@@ -164,6 +164,10 @@ Word "final" has meaning that is finalized.
 
 Word "range" has meaning that is between start inclusive and end exclusive.
 
+Word "start" has meaning that is first at sequence.
+
+Word "end" has meaning that is one after last at sequence.
+
 Word "index" has meaning that is list item identifier.
 
 Word "zero" has meaning that is empty effect.
