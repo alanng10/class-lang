@@ -3162,8 +3162,8 @@ public class Create : InfraCreate
 
     protected virtual Node ExecuteListComma(NodeKind kind, RangeState rangeState, NodeState nodeState, Range range)
     {
-        int start;
-        int end;
+        long start;
+        long end;
         start = range.Start;
         end = range.End;
 
@@ -3174,10 +3174,10 @@ public class Create : InfraCreate
             return null;
         }
 
-        this.OperateArg.Kind = kind;
-        this.OperateArg.Start = start;
-        this.OperateArg.End = end;
-        this.OperateArg.Field00 = value;
+        this.SetArg.Kind = kind;
+        this.SetArg.Start = start;
+        this.SetArg.End = end;
+        this.SetArg.Field00 = value;
         Node ret;
         ret = this.ExecuteCreateOperate();
         return ret;
@@ -3371,8 +3371,8 @@ public class Create : InfraCreate
 
     protected virtual Range ExecuteNameRange(Range result, Range range)
     {
-        int start;
-        int end;
+        long start;
+        long end;
         start = range.Start;
         end = range.End;
 
@@ -3390,8 +3390,8 @@ public class Create : InfraCreate
 
     public virtual Range ExecuteExecuteRange(Range result, Range range)
     {
-        int start;
-        int end;
+        long start;
+        long end;
         start = range.Start;
         end = range.End;
 
