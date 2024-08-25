@@ -11,7 +11,7 @@ public class Create : InfraCreate
         this.ListInfra = ListInfra.This;
         this.ClassInfra = ClassInfra.This;
         this.StringComp = StringComp.This;
-        this.Keyword = IndexList.This;
+        this.Index = IndexList.This;
         this.Limit = LimitList.This;
         this.ErrorKind = ErrorKindList.This;
         this.NodeKind = NodeKindList.This;
@@ -67,7 +67,7 @@ public class Create : InfraCreate
     protected virtual TextInfra TextInfra { get; set; }
     protected virtual ClassInfra ClassInfra { get; set; }
     protected virtual StringComp StringComp { get; set; }
-    protected virtual IndexList Keyword { get; set; }
+    protected virtual IndexList Index { get; set; }
     protected virtual LimitList Limit { get; set; }
     protected virtual ErrorKindList ErrorKind { get; set; }
     protected virtual NodeKindList NodeKind { get; set; }
@@ -723,7 +723,7 @@ public class Create : InfraCreate
             return null;
         }
         Token classToken;
-        classToken = this.Token(this.TokenA, this.Keyword.Class.Text, this.IndexRange(this.RangeA, start));
+        classToken = this.Token(this.TokenA, this.Index.Class.Text, this.IndexRange(this.RangeA, start));
         if (classToken == null)
         {
             return null;
@@ -813,7 +813,7 @@ public class Create : InfraCreate
         }
 
         Token fieldToken;
-        fieldToken = this.Token(this.TokenA, this.Keyword.Field.Text, this.IndexRange(this.RangeA, start));
+        fieldToken = this.Token(this.TokenA, this.Index.Field.Text, this.IndexRange(this.RangeA, start));
         if (fieldToken == null)
         {
             return null;
@@ -905,7 +905,7 @@ public class Create : InfraCreate
         getToken = null;
         if (!b)
         {
-            getToken = this.Token(this.TokenD, this.Keyword.ItemGet.Text, this.IndexRange(this.RangeA, oStart));
+            getToken = this.Token(this.TokenD, this.Index.ItemGet.Text, this.IndexRange(this.RangeA, oStart));
             if (getToken == null)
             {
                 b = true;
@@ -952,7 +952,7 @@ public class Create : InfraCreate
         setToken = null;
         if (!b)
         {
-            setToken = this.Token(this.TokenG, this.Keyword.Set.Text, this.IndexRange(this.RangeA, getRightBrace.Range.End));
+            setToken = this.Token(this.TokenG, this.Index.Set.Text, this.IndexRange(this.RangeA, getRightBrace.Range.End));
             if (setToken == null)
             {
                 b = true;
@@ -1053,7 +1053,7 @@ public class Create : InfraCreate
         }
 
         Token maideToken;
-        maideToken = this.Token(this.TokenA, this.Keyword.Maide.Text, this.IndexRange(this.RangeA, start));
+        maideToken = this.Token(this.TokenA, this.Index.Maide.Text, this.IndexRange(this.RangeA, start));
         if (maideToken == null)
         {
             return null;
@@ -1197,7 +1197,7 @@ public class Create : InfraCreate
         }
 
         Token varToken;
-        varToken = this.Token(this.TokenA, this.Keyword.Var.Text, this.IndexRange(this.RangeA, start));
+        varToken = this.Token(this.TokenA, this.Index.Var.Text, this.IndexRange(this.RangeA, start));
         if (varToken == null)
         {
             return null;
@@ -1400,7 +1400,7 @@ public class Create : InfraCreate
         b = false;
         if (!b)
         {
-            this.TextStringGet(textB, this.Keyword.True.Text);
+            this.TextStringGet(textB, this.Index.True.Text);
             if (textInfra.Equal(text, textB, less))
             {
                 value = true;
@@ -1409,7 +1409,7 @@ public class Create : InfraCreate
         }
         if (!b)
         {
-            this.TextStringGet(textB, this.Keyword.False.Text);
+            this.TextStringGet(textB, this.Index.False.Text);
             if (textInfra.Equal(text, textB, less))
             {
                 value = false;
@@ -1729,22 +1729,22 @@ public class Create : InfraCreate
 
     public virtual Node ExecutePrusateCount(Range range)
     {
-        return this.ExecuteOneWord(this.NodeKind.PrusateCount, this.Keyword.Prusate, range);
+        return this.ExecuteOneWord(this.NodeKind.PrusateCount, this.Index.Prusate, range);
     }
 
     public virtual Node ExecutePrecateCount(Range range)
     {
-        return this.ExecuteOneWord(this.NodeKind.PrecateCount, this.Keyword.Precate, range);
+        return this.ExecuteOneWord(this.NodeKind.PrecateCount, this.Index.Precate, range);
     }
 
     public virtual Node ExecutePronateCount(Range range)
     {
-        return this.ExecuteOneWord(this.NodeKind.PronateCount, this.Keyword.Pronate, range);
+        return this.ExecuteOneWord(this.NodeKind.PronateCount, this.Index.Pronate, range);
     }
 
     public virtual Node ExecutePrivateCount(Range range)
     {
-        return this.ExecuteOneWord(this.NodeKind.PrivateCount, this.Keyword.Private, range);
+        return this.ExecuteOneWord(this.NodeKind.PrivateCount, this.Index.Private, range);
     }
 
     public virtual Node ExecuteExecute(Range range)
@@ -1785,12 +1785,12 @@ public class Create : InfraCreate
 
     public virtual Node ExecuteInfExecute(Range range)
     {
-        return this.ExecuteWordBracketBody(this.NodeKind.InfExecute, this.Keyword.Inf, range);
+        return this.ExecuteWordBracketBody(this.NodeKind.InfExecute, this.Index.Inf, range);
     }
 
     public virtual Node ExecuteWhileExecute(Range range)
     {
-        return this.ExecuteWordBracketBody(this.NodeKind.WhileExecute, this.Keyword.While, range);
+        return this.ExecuteWordBracketBody(this.NodeKind.WhileExecute, this.Index.While, range);
     }
 
     public virtual Node ExecuteReturnExecute(Range range)
@@ -1805,7 +1805,7 @@ public class Create : InfraCreate
             return null;
         }
         Token returnToken;
-        returnToken = this.Token(this.TokenA, this.Keyword.Return.Text, this.IndexRange(this.RangeA, start));
+        returnToken = this.Token(this.TokenA, this.Index.Return.Text, this.IndexRange(this.RangeA, start));
         if (returnToken == null)
         {
             return null;
@@ -1858,7 +1858,7 @@ public class Create : InfraCreate
         }
 
         Token varToken;
-        varToken = this.Token(this.TokenA, this.Keyword.Var.Text, this.IndexRange(this.RangeA, start));
+        varToken = this.Token(this.TokenA, this.Index.Var.Text, this.IndexRange(this.RangeA, start));
         if (varToken == null)
         {
             return null;
@@ -2039,7 +2039,7 @@ public class Create : InfraCreate
             if (!(start == end))
             {
                 Token wordTokenA;
-                wordTokenA = this.Token(this.TokenA, this.Keyword.Sign.Text, this.IndexRange(this.RangeA, start));
+                wordTokenA = this.Token(this.TokenA, this.Index.Sign.Text, this.IndexRange(this.RangeA, start));
                 if (!(wordTokenA == null))
                 {
                     if (a == null)
@@ -2062,7 +2062,7 @@ public class Create : InfraCreate
             if (!(start == end))
             {
                 Token wordTokenB;
-                wordTokenB = this.Token(this.TokenA, this.Keyword.Bit.Text, this.IndexRange(this.RangeA, start));
+                wordTokenB = this.Token(this.TokenA, this.Index.Bit.Text, this.IndexRange(this.RangeA, start));
                 if (!(wordTokenB == null))
                 {
                     if (a == null)
@@ -2163,27 +2163,27 @@ public class Create : InfraCreate
 
     public virtual Node ExecuteThisOperate(Range range)
     {
-        return this.ExecuteOneWord(this.NodeKind.ThisOperate, this.Keyword.ItemThis, range);
+        return this.ExecuteOneWord(this.NodeKind.ThisOperate, this.Index.ItemThis, range);
     }
 
     public virtual Node ExecuteBaseOperate(Range range)
     {
-        return this.ExecuteOneWord(this.NodeKind.BaseOperate, this.Keyword.Base, range);
+        return this.ExecuteOneWord(this.NodeKind.BaseOperate, this.Index.Base, range);
     }
 
     public virtual Node ExecuteNullOperate(Range range)
     {
-        return this.ExecuteOneWord(this.NodeKind.NullOperate, this.Keyword.Null, range);
+        return this.ExecuteOneWord(this.NodeKind.NullOperate, this.Index.Null, range);
     }
 
     public virtual Node ExecuteNewOperate(Range range)
     {
-        return this.ExecuteWordClass(this.NodeKind.NewOperate, this.Keyword.New, range);
+        return this.ExecuteWordClass(this.NodeKind.NewOperate, this.Index.New, range);
     }
 
     public virtual Node ExecuteShareOperate(Range range)
     {
-        return this.ExecuteWordClass(this.NodeKind.ShareOperate, this.Keyword.Share, range);
+        return this.ExecuteWordClass(this.NodeKind.ShareOperate, this.Index.Share, range);
     }
 
     public virtual Node ExecuteCastOperate(Range range)
@@ -2198,7 +2198,7 @@ public class Create : InfraCreate
             return null;
         }
         Token castToken;
-        castToken = this.Token(this.TokenA, this.Keyword.Cast.Text, this.IndexRange(this.RangeA, start));
+        castToken = this.Token(this.TokenA, this.Index.Cast.Text, this.IndexRange(this.RangeA, start));
         if (castToken == null)
         {
             return null;
@@ -2382,42 +2382,42 @@ public class Create : InfraCreate
 
     public virtual Node ExecuteSignMulOperate(Range range)
     {
-        return this.ExecuteWordLimitTwoOperand(this.NodeKind.SignMulOperate, this.Keyword.Sign, this.Limit.MulSign, range);
+        return this.ExecuteWordLimitTwoOperand(this.NodeKind.SignMulOperate, this.Index.Sign, this.Limit.MulSign, range);
     }
 
     public virtual Node ExecuteSignDivOperate(Range range)
     {
-        return this.ExecuteWordLimitTwoOperand(this.NodeKind.SignDivOperate, this.Keyword.Sign, this.Limit.DivSign, range);
+        return this.ExecuteWordLimitTwoOperand(this.NodeKind.SignDivOperate, this.Index.Sign, this.Limit.DivSign, range);
     }
 
     public virtual Node ExecuteSignLessOperate(Range range)
     {
-        return this.ExecuteWordLimitTwoOperand(this.NodeKind.SignLessOperate, this.Keyword.Sign, this.Limit.LessSign, range);
+        return this.ExecuteWordLimitTwoOperand(this.NodeKind.SignLessOperate, this.Index.Sign, this.Limit.LessSign, range);
     }
 
     public virtual Node ExecuteBitAndOperate(Range range)
     {
-        return this.ExecuteWordLimitTwoOperand(this.NodeKind.BitAndOperate, this.Keyword.Bit, this.Limit.AndSign, range);
+        return this.ExecuteWordLimitTwoOperand(this.NodeKind.BitAndOperate, this.Index.Bit, this.Limit.AndSign, range);
     }
 
     public virtual Node ExecuteBitOrnOperate(Range range)
     {
-        return this.ExecuteWordLimitTwoOperand(this.NodeKind.BitOrnOperate, this.Keyword.Bit, this.Limit.OrnSign, range);
+        return this.ExecuteWordLimitTwoOperand(this.NodeKind.BitOrnOperate, this.Index.Bit, this.Limit.OrnSign, range);
     }
 
     public virtual Node ExecuteBitNotOperate(Range range)
     {
-        return this.ExecuteWordLimitOneOperand(this.NodeKind.BitNotOperate, this.Keyword.Bit, this.Limit.NotSign, range);
+        return this.ExecuteWordLimitOneOperand(this.NodeKind.BitNotOperate, this.Index.Bit, this.Limit.NotSign, range);
     }
 
     public virtual Node ExecuteBitLiteOperate(Range range)
     {
-        return this.ExecuteWordLimitTwoOperand(this.NodeKind.BitLiteOperate, this.Keyword.Bit, this.Limit.LessSign, range);
+        return this.ExecuteWordLimitTwoOperand(this.NodeKind.BitLiteOperate, this.Index.Bit, this.Limit.LessSign, range);
     }
 
     public virtual Node ExecuteBitRiteOperate(Range range)
     {
-        return this.ExecuteWordLimitTwoOperand(this.NodeKind.BitRiteOperate, this.Keyword.Bit, this.Limit.MoreSign, range);
+        return this.ExecuteWordLimitTwoOperand(this.NodeKind.BitRiteOperate, this.Index.Bit, this.Limit.MoreSign, range);
     }
 
     public virtual Node ExecuteBitSignRiteOperate(Range range)
@@ -2432,7 +2432,7 @@ public class Create : InfraCreate
             return null;
         }
         Token wordToken;
-        wordToken = this.Token(this.TokenA, this.Keyword.Bit.Text, this.IndexRange(this.RangeA, start));
+        wordToken = this.Token(this.TokenA, this.Index.Bit.Text, this.IndexRange(this.RangeA, start));
         if (wordToken == null)
         {
             return null;
@@ -3436,7 +3436,7 @@ public class Create : InfraCreate
             return null;
         }
         Token returnToken;
-        returnToken = this.Token(this.TokenA, this.Keyword.Return.Text, this.IndexRange(this.RangeA, start));
+        returnToken = this.Token(this.TokenA, this.Index.Return.Text, this.IndexRange(this.RangeA, start));
         if (returnToken == null)
         {
             return null;
@@ -3455,12 +3455,12 @@ public class Create : InfraCreate
 
     protected virtual Range ExecuteInfExecuteRange(Range result, Range range)
     {
-        return this.ExecuteWordBracketRange(result, this.Keyword.Inf, range);
+        return this.ExecuteWordBracketRange(result, this.Index.Inf, range);
     }
 
     protected virtual Range ExecuteWhileExecuteRange(Range result, Range range)
     {
-        return this.ExecuteWordBracketRange(result, this.Keyword.While, range);
+        return this.ExecuteWordBracketRange(result, this.Index.While, range);
     }
 
     protected virtual Range ExecuteWordBracketRange(Range result, Index word, Range range)
@@ -3534,7 +3534,7 @@ public class Create : InfraCreate
         }
 
         Token varToken;
-        varToken = this.Token(this.TokenA, this.Keyword.Var.Text, this.IndexRange(this.RangeA, start));
+        varToken = this.Token(this.TokenA, this.Index.Var.Text, this.IndexRange(this.RangeA, start));
         if (varToken == null)
         {
             return null;
@@ -3659,7 +3659,7 @@ public class Create : InfraCreate
         }
 
         Token fieldToken;
-        fieldToken = this.Token(this.TokenA, this.Keyword.Field.Text, this.IndexRange(this.RangeA, start));
+        fieldToken = this.Token(this.TokenA, this.Index.Field.Text, this.IndexRange(this.RangeA, start));
         if (fieldToken == null)
         {
             return null;
@@ -3696,7 +3696,7 @@ public class Create : InfraCreate
         }
 
         Token maideToken;
-        maideToken = this.Token(this.TokenA, this.Keyword.Maide.Text, this.IndexRange(this.RangeA, start));
+        maideToken = this.Token(this.TokenA, this.Index.Maide.Text, this.IndexRange(this.RangeA, start));
         if (maideToken == null)
         {
             return null;
