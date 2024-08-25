@@ -1749,8 +1749,8 @@ public class Create : InfraCreate
 
     public virtual Node ExecuteExecute(Range range)
     {
-        int start;
-        int end;
+        long start;
+        long end;
         start = range.Start;
         end = range.End;
 
@@ -1795,8 +1795,8 @@ public class Create : InfraCreate
 
     public virtual Node ExecuteReturnExecute(Range range)
     {
-        int start;
-        int end;
+        long start;
+        long end;
         start = range.Start;
         end = range.End;
 
@@ -1815,7 +1815,7 @@ public class Create : InfraCreate
         {
             return null;
         }
-        int lastIndex;
+        long lastIndex;
         lastIndex = end - 1;
         Token semicolon;
         semicolon = this.Token(this.TokenB, this.Delimit.ExecuteSign.Text, this.IndexRange(this.RangeA, lastIndex));
@@ -1824,8 +1824,8 @@ public class Create : InfraCreate
             return null;
         }
 
-        int resultStart;
-        int resultEnd;
+        long resultStart;
+        long resultEnd;
         resultStart = returnToken.Range.End;
         resultEnd = semicolon.Range.Start;
 
@@ -1847,8 +1847,8 @@ public class Create : InfraCreate
 
     public virtual Node ExecuteReferExecute(Range range)
     {
-        int start;
-        int end;
+        long start;
+        long end;
         start = range.Start;
         end = range.End;
 
@@ -1869,7 +1869,7 @@ public class Create : InfraCreate
             return null;
         }
 
-        int lastIndex;
+        long lastIndex;
         lastIndex = end - 1;
         Token semicolon;
         semicolon = this.Token(this.TokenB, this.Delimit.ExecuteSign.Text, this.IndexRange(this.RangeA, lastIndex));
@@ -1878,8 +1878,8 @@ public class Create : InfraCreate
             return null;
         }
 
-        int varStart;
-        int varEnd;
+        long varStart;
+        long varEnd;
         varStart = start;
         varEnd = semicolon.Range.Start;
 
@@ -1901,8 +1901,8 @@ public class Create : InfraCreate
 
     public virtual Node ExecuteAreExecute(Range range)
     {
-        int start;
-        int end;
+        long start;
+        long end;
         start = range.Start;
         end = range.End;
 
@@ -1911,7 +1911,7 @@ public class Create : InfraCreate
             return null;
         }
 
-        int lastIndex;
+        long lastIndex;
         lastIndex = end - 1;
         Token semicolon;
         semicolon = this.Token(this.TokenA, this.Delimit.ExecuteSign.Text, this.IndexRange(this.RangeA, lastIndex));
@@ -1927,12 +1927,12 @@ public class Create : InfraCreate
             return null;
         }
 
-        int targetStart;
-        int targetEnd;
+        long targetStart;
+        long targetEnd;
         targetStart = start;
         targetEnd = colon.Range.Start;
-        int valueStart;
-        int valueEnd;
+        long valueStart;
+        long valueEnd;
         valueStart = colon.Range.End;
         valueEnd = semicolon.Range.Start;
 
@@ -1962,8 +1962,8 @@ public class Create : InfraCreate
 
     public virtual Node ExecuteOperateExecute(Range range)
     {
-        int start;
-        int end;
+        long start;
+        long end;
         start = range.Start;
         end = range.End;
 
@@ -1971,7 +1971,7 @@ public class Create : InfraCreate
         {
             return null;
         }
-        int lastIndex;
+        long lastIndex;
         lastIndex = end - 1;
         Token semicolon;
         semicolon = this.Token(this.TokenA, this.Delimit.ExecuteSign.Text, this.IndexRange(this.RangeA, lastIndex));
@@ -1980,8 +1980,8 @@ public class Create : InfraCreate
             return null;
         }
 
-        int anyStart;
-        int anyEnd;
+        long anyStart;
+        long anyEnd;
         anyStart = start;
         anyEnd = semicolon.Range.Start;
 
