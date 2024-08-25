@@ -256,7 +256,7 @@ public class Grid : View
             this.ChildPosData = data;
         }
         
-        this.SetChildLeftArray();
+        this.SetChildColArray();
         this.SetChildUpArray();
         return true;
     }
@@ -443,15 +443,15 @@ public class Grid : View
         return a;
     }
 
-    protected virtual bool SetChildLeftArray()
+    protected virtual bool SetChildColArray()
     {
         long start;
         start = 0;
         Iter iter;
         iter = this.ColIter;
         this.Col.IterSet(iter);
-        long left;
-        left = 0;
+        long col;
+        col = 0;
 
         long i;
         i = 0;
@@ -459,13 +459,13 @@ public class Grid : View
         {
             Count gridCol;
             gridCol = (Count)iter.Value;
-            left = left + gridCol.Value;
+            col = col + gridCol.Value;
 
             long index;
             index = start + i;
             long byteIndex;
             byteIndex = this.IntByteIndex(index);
-            this.InfraInfra.DataIntSet(this.ChildPosData, byteIndex, left);
+            this.InfraInfra.DataIntSet(this.ChildPosData, byteIndex, col);
             i = i + 1;
         }
         return true;
