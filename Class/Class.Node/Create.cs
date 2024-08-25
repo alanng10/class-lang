@@ -11,7 +11,7 @@ public class Create : InfraCreate
         this.ListInfra = ListInfra.This;
         this.ClassInfra = ClassInfra.This;
         this.StringComp = StringComp.This;
-        this.Keyword = KeywordList.This;
+        this.Keyword = IndexList.This;
         this.Limit = LimitList.This;
         this.ErrorKind = ErrorKindList.This;
         this.NodeKind = NodeKindList.This;
@@ -67,7 +67,7 @@ public class Create : InfraCreate
     protected virtual TextInfra TextInfra { get; set; }
     protected virtual ClassInfra ClassInfra { get; set; }
     protected virtual StringComp StringComp { get; set; }
-    protected virtual KeywordList Keyword { get; set; }
+    protected virtual IndexList Keyword { get; set; }
     protected virtual LimitList Limit { get; set; }
     protected virtual ErrorKindList ErrorKind { get; set; }
     protected virtual NodeKindList NodeKind { get; set; }
@@ -2523,7 +2523,7 @@ public class Create : InfraCreate
         return ret;
     }
 
-    protected virtual Node ExecuteWordBracketBody(NodeKind kind, Keyword word, Range range)
+    protected virtual Node ExecuteWordBracketBody(NodeKind kind, Index word, Range range)
     {
         long start;
         long end;
@@ -2615,7 +2615,7 @@ public class Create : InfraCreate
         return ret;
     }
 
-    protected virtual Node ExecuteOneWord(NodeKind kind, Keyword word, Range range)
+    protected virtual Node ExecuteOneWord(NodeKind kind, Index word, Range range)
     {
         long start;
         long end;
@@ -2637,7 +2637,7 @@ public class Create : InfraCreate
         return ret;
     }
 
-    protected virtual Node ExecuteWordClass(NodeKind kind, Keyword keyword, Range range)
+    protected virtual Node ExecuteWordClass(NodeKind kind, Index keyword, Range range)
     {
         long start;
         long end;
@@ -2972,7 +2972,7 @@ public class Create : InfraCreate
         return ret;
     }
 
-    protected virtual Node ExecuteWordLimitTwoOperand(NodeKind kind, Keyword word, Limit limit, Range range)
+    protected virtual Node ExecuteWordLimitTwoOperand(NodeKind kind, Index word, Limit limit, Range range)
     {
         long start;
         long end;
@@ -3064,7 +3064,7 @@ public class Create : InfraCreate
         return ret;
     }
 
-    protected virtual Node ExecuteWordLimitOneOperand(NodeKind kind, Keyword word, Limit limit, Range range)
+    protected virtual Node ExecuteWordLimitOneOperand(NodeKind kind, Index word, Limit limit, Range range)
     {
         long start;
         long end;
@@ -3463,7 +3463,7 @@ public class Create : InfraCreate
         return this.ExecuteWordBracketRange(result, this.Keyword.While, range);
     }
 
-    protected virtual Range ExecuteWordBracketRange(Range result, Keyword word, Range range)
+    protected virtual Range ExecuteWordBracketRange(Range result, Index word, Range range)
     {
         long start;
         long end;
