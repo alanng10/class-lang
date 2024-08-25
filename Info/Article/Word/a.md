@@ -158,9 +158,9 @@ Word "ver" has meaning that is version.
 
 Word "task" has meaning that is to be done.
 
-Word "init" has meaning that is initialize.
+Word "init" has meaning that is initialized.
 
-Word "final" has meaning that is finalize.
+Word "final" has meaning that is finalized.
 
 Word "range" has meaning that is between start inclusive and end exclusive.
 
