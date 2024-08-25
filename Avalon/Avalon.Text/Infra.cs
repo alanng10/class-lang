@@ -460,7 +460,7 @@ public class Infra : Any
         return k;
     }
 
-    public virtual Array Split(Text text, Text delimit, InfraLess less)
+    public virtual Array Split(Text text, Text limit, InfraLess less)
     {
         InfraInfra infraInfra;
         infraInfra = this.InfraInfra;
@@ -472,7 +472,7 @@ public class Infra : Any
         textRange = text.Range;
 
         long delimitCount;
-        delimitCount = delimit.Range.Count;
+        delimitCount = limit.Range.Count;
 
         long kka;
         kka = textRange.Index;
@@ -484,7 +484,7 @@ public class Infra : Any
         count = 0;
 
         long oo;
-        oo = this.Index(text, delimit, less);
+        oo = this.Index(text, limit, less);
         while (!(oo < 0))
         {
             count = count + 1;
@@ -495,7 +495,7 @@ public class Infra : Any
             textRange.Index = textRange.Index + kaa;
             textRange.Count = textRange.Count - kaa;
 
-            oo = this.Index(text, delimit, less);
+            oo = this.Index(text, limit, less);
         }
 
         Array array;
@@ -514,7 +514,7 @@ public class Infra : Any
         i = 0;
         while (i < count)
         {
-            oo = this.Index(text, delimit, less);
+            oo = this.Index(text, limit, less);
 
             rangeA.Index = textRange.Index;
             rangeA.Count = oo;
