@@ -3185,17 +3185,17 @@ public class Create : InfraCreate
 
     protected virtual Array ExecuteListValue(RangeState rangeState, NodeState nodeState, Range range)
     {
-        int start;
-        int end;
+        long start;
+        long end;
         start = range.Start;
         end = range.End;
 
-        int listIndex;
+        long listIndex;
         listIndex = this.Operate.ExecuteListNew();
 
-        int count;
+        long count;
         count = 0;
-        int index;
+        long index;
         index = start;
         while (index < end)
         {
@@ -3217,8 +3217,8 @@ public class Create : InfraCreate
             b = (itemRange == null);
             if (b)
             {
-                int aStart;
-                int aEnd;
+                long aStart;
+                long aEnd;
                 aStart = index;
                 aEnd = end;
                 this.Error(this.ErrorKind.ItemInvalid, aStart, aEnd);
@@ -3231,8 +3231,8 @@ public class Create : InfraCreate
 
             if (!b)
             {
-                int itemStart;
-                int itemEnd;
+                long itemStart;
+                long itemEnd;
                 itemStart = itemRange.Start;
                 itemEnd = itemRange.End;
 
@@ -3269,21 +3269,21 @@ public class Create : InfraCreate
 
     protected virtual Array ExecuteListValueComma(RangeState rangeState, NodeState nodeState, Range range)
     {
-        int start;
-        int end;
+        long start;
+        long end;
         start = range.Start;
         end = range.End;
 
-        int listIndex;
+        long listIndex;
         listIndex = this.Operate.ExecuteListNew();
 
-        int count;
+        long count;
         count = 0;
 
         bool hasNextItem;
         hasNextItem = false;
 
-        int index;
+        long index;
         index = start;
         while (index < end)
         {
@@ -3302,8 +3302,8 @@ public class Create : InfraCreate
             arg.Result = null;
             arg.Range = null;
 
-            int aStart;
-            int aEnd;
+            long aStart;
+            long aEnd;
             aStart = 0;
             aEnd = 0;
 
