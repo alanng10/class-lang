@@ -36,10 +36,10 @@ public class LimitList : Any
         this.NotSign = this.AddItem("!");
         this.LessSign = this.AddItem("<");
         this.MoreSign = this.AddItem(">");
-        this.LeftBraceRound = this.AddItem("(");
-        this.RightBraceRound = this.AddItem(")");
-        this.LeftBrace = this.AddItem("{");
-        this.RightBrace = this.AddItem("}");
+        this.BraceRoundLite = this.AddItem("(");
+        this.BraceRoundRite = this.AddItem(")");
+        this.BraceLite = this.AddItem("{");
+        this.BraceRite = this.AddItem("}");
         return true;
     }
 
@@ -57,10 +57,10 @@ public class LimitList : Any
     public virtual Limit NotSign { get; set; }
     public virtual Limit LessSign { get; set; }
     public virtual Limit MoreSign { get; set; }
-    public virtual Limit LeftBraceRound { get; set; }
-    public virtual Limit RightBraceRound { get; set; }
-    public virtual Limit LeftBrace { get; set; }
-    public virtual Limit RightBrace { get; set; }
+    public virtual Limit BraceRoundLite { get; set; }
+    public virtual Limit BraceRoundRite { get; set; }
+    public virtual Limit BraceLite { get; set; }
+    public virtual Limit BraceRite { get; set; }
 
     protected virtual StringValue StringValue { get; set; }
 
