@@ -2741,7 +2741,7 @@ public class Create : InfraCreate
         long lastIndex;
         lastIndex = end - 1;
         Token rightBracket;
-        rightBracket = this.Token(this.TokenA, this.Limit.RightBraceRound.Text, this.IndexRange(this.RangeA, lastIndex));
+        rightBracket = this.Token(this.TokenA, this.Limit.BraceRoundRite.Text, this.IndexRange(this.RangeA, lastIndex));
         if (rightBracket == null)
         {
             return null;
@@ -4113,7 +4113,7 @@ public class Create : InfraCreate
         String leftBracket;
         String rightBracket;
         leftBracket = this.Limit.BraceRoundLite.Text;
-        rightBracket = this.Limit.RightBraceRound.Text;
+        rightBracket = this.Limit.BraceRoundRite.Text;
         String leftBrace;
         String rightBrace;
         leftBrace = this.Limit.BraceLite.Text;
@@ -4169,7 +4169,7 @@ public class Create : InfraCreate
         String leftBracket;
         String rightBracket;
         leftBracket = this.Limit.BraceRoundLite.Text;
-        rightBracket = this.Limit.RightBraceRound.Text;
+        rightBracket = this.Limit.BraceRoundRite.Text;
         String leftBrace;
         String rightBrace;
         leftBrace = this.Limit.BraceLite.Text;
@@ -4386,7 +4386,7 @@ public class Create : InfraCreate
         Text textB;
         textB = this.TextB;
 
-        this.TextStringGet(textB, limit.RightBraceRound.Text);
+        this.TextStringGet(textB, limit.BraceRoundRite.Text);
         if (textInfra.Equal(text, textB, less))
         {
             Token leftBracket;
@@ -4422,12 +4422,12 @@ public class Create : InfraCreate
 
     protected virtual Token TokenMatchLeftBracket(Token result, Range range)
     {
-        return this.TokenMatchLeftToken(result, this.Limit.BraceRoundLite.Text, this.Limit.RightBraceRound.Text, range);
+        return this.TokenMatchLeftToken(result, this.Limit.BraceRoundLite.Text, this.Limit.BraceRoundRite.Text, range);
     }
 
     protected virtual Token TokenMatchRightBracket(Token result, Range range)
     {
-        return this.TokenMatchRightToken(result, this.Limit.BraceRoundLite.Text, this.Limit.RightBraceRound.Text, range);
+        return this.TokenMatchRightToken(result, this.Limit.BraceRoundLite.Text, this.Limit.BraceRoundRite.Text, range);
     }
 
     protected virtual Token TokenMatchLeftToken(Token result, String leftToken, String rightToken, Range range)
