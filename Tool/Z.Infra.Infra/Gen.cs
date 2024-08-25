@@ -89,7 +89,7 @@ public class Gen : Any
 
     public virtual Array TextSplit(Text text, Text delimit)
     {
-        return this.ToolInfra.TextSplit(text, delimit);
+        return this.ToolInfra.TextLimit(text, delimit);
     }
 
     public virtual Text TextReplace(Text text, Text delimit, Text join)

@@ -195,7 +195,7 @@ public class Infra : Any
 
     public virtual Array TextSplitLine(Text text)
     {
-        return this.TextSplit(text, this.TextNewLine);
+        return this.TextLimit(text, this.TextNewLine);
     }
 
     public virtual Text TextLower(Text text)
@@ -256,7 +256,7 @@ public class Infra : Any
         return this.TextInfra.Index(text, other, this.TextLess);
     }
 
-    public virtual Array TextSplit(Text text, Text delimit)
+    public virtual Array TextLimit(Text text, Text delimit)
     {
         return this.TextInfra.Limit(text, delimit, this.TextLess);
     }
