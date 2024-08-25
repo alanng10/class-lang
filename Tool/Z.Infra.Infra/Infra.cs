@@ -258,7 +258,7 @@ public class Infra : Any
 
     public virtual Array TextSplit(Text text, Text delimit)
     {
-        return this.TextInfra.Split(text, delimit, this.TextLess);
+        return this.TextInfra.Limit(text, delimit, this.TextLess);
     }
 
     public virtual Text TextReplace(Text text, Text delimit, Text join)

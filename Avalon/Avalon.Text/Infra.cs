@@ -460,7 +460,7 @@ public class Infra : Any
         return k;
     }
 
-    public virtual Array Split(Text text, Text limit, InfraLess less)
+    public virtual Array Limit(Text text, Text limit, InfraLess less)
     {
         InfraInfra infraInfra;
         infraInfra = this.InfraInfra;
@@ -628,7 +628,7 @@ public class Infra : Any
     public virtual Text Replace(Text text, Text delimit, Text join, InfraLess less)
     {
         Array array;
-        array = this.Split(text, delimit, less);
+        array = this.Limit(text, delimit, less);
 
         Text k;
         k = this.Join(array, join);

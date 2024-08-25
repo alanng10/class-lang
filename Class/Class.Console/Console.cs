@@ -1012,7 +1012,7 @@ public class Console : Any
             aa = textInfra.TextCreateStringData(h, null);
 
             Array text;
-            text = textInfra.Split(aa, newLine, less);
+            text = textInfra.Limit(aa, newLine, less);
             a.Text = text;
 
             i = i + 1;

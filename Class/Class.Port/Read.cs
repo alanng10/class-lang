@@ -89,7 +89,7 @@ public class Read : Any
         Text aaa;
         aaa = this.TextInfra.TextCreateStringData(source, null);
 
-        this.LineList = this.TextInfra.Split(aaa, this.TextNewLine, this.TextLess);
+        this.LineList = this.TextInfra.Limit(aaa, this.TextNewLine, this.TextLess);
         
         ReadArg arg;
         arg = new ReadArg();
