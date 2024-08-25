@@ -8,7 +8,7 @@ public class NameCheck : Any
         this.TextInfra = TextInfra.This;
         this.StringComp = StringComp.This;
         this.StringValue = StringValue.This;
-        this.Keyword = KeywordList.This;
+        this.Keyword = IndexList.This;
 
         this.StringData = new StringData();
         this.StringData.Init();
@@ -33,7 +33,7 @@ public class NameCheck : Any
     protected virtual TextInfra TextInfra { get; set; }
     protected virtual StringComp StringComp { get; set; }
     protected virtual StringValue StringValue { get; set; }
-    protected virtual KeywordList Keyword { get; set; }
+    protected virtual IndexList Keyword { get; set; }
     protected virtual StringData StringData { get; set; }
     protected virtual Text Text { get; set; }
     protected virtual Text DotText { get; set; }
@@ -198,7 +198,7 @@ public class NameCheck : Any
     {
         TextInfra textInfra;
         textInfra = this.TextInfra;
-        KeywordList keyword;
+        IndexList keyword;
         keyword = this.Keyword;
 
         TextLess less;
@@ -212,7 +212,7 @@ public class NameCheck : Any
         i = 0;
         while (i < count)
         {
-            Keyword a;
+            Index a;
             a = keyword.Get(i);
             String o;
             o = a.Text;
