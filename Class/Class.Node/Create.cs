@@ -2420,10 +2420,10 @@ public class Create : InfraCreate
         return this.ExecuteWordDelimitTwoOperand(this.NodeKind.BitRightOperate, this.Keyword.Bit, this.Delimit.MoreSign, range);
     }
 
-    public virtual Node ExecuteBitSignRightOperate(Range range)
+    public virtual Node ExecuteBitSignRiteOperate(Range range)
     {
-        int start;
-        int end;
+        long start;
+        long end;
         start = range.Start;
         end = range.End;
 
@@ -2490,12 +2490,12 @@ public class Create : InfraCreate
             return null;
         }
 
-        int leftStart;
-        int leftEnd;
+        long leftStart;
+        long leftEnd;
         leftStart = leftBracket.Range.End;
         leftEnd = comma.Range.Start;
-        int rightStart;
-        int rightEnd;
+        long rightStart;
+        long rightEnd;
         rightStart = comma.Range.End;
         rightEnd = rightBracket.Range.Start;
 
@@ -2513,7 +2513,7 @@ public class Create : InfraCreate
             this.Error(this.ErrorKind.OperandInvalid, rightStart, rightEnd);
         }
 
-        this.SetArg.Kind = this.NodeKind.BitSignRightOperate;
+        this.SetArg.Kind = this.NodeKind.BitSignRiteOperate;
         this.SetArg.Start = start;
         this.SetArg.End = end;
         this.SetArg.Field00 = left;
