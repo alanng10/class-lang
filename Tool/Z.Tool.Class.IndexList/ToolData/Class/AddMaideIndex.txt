@@ -6,9 +6,9 @@
         #ItemClassName# item;
         item = new #ItemClassName#();
         item.Init();
-        item.Index = this.Index;
+        item.IndexList = this.Index;
         item.Text = k;
-        this.Array.SetAt(item.Index, item);
+        this.Array.SetAt(item.IndexList, item);
         this.Index = this.Index + 1;
         return item;
     }
