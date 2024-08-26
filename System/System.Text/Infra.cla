@@ -14,14 +14,14 @@ class Infra : Any
         
         var StringComp stringComp;
         stringComp : this.StringComp;
-        this.LetterUpperA : stringComp.Char("A", 0);
-        this.LetterUpperZ : stringComp.Char("Z", 0);
-        this.LetterLowerA : stringComp.Char("a", 0);
-        this.LetterLowerZ : stringComp.Char("z", 0);
-        this.LetterUpperF : stringComp.Char("F", 0);
-        this.LetterLowerF : stringComp.Char("f", 0);
-        this.Digit0 : stringComp.Char("0", 0);
-        this.Digit9 : stringComp.Char("9", 0);
+        this.LetterUpperA : "A";
+        this.LetterUpperZ : "Z";
+        this.LetterLowerA : "a";
+        this.LetterLowerZ : "z";
+        this.LetterUpperF : "F";
+        this.LetterLowerF : "f";
+        this.Digit0 : "0";
+        this.Digit9 : "9";
         return true;
     }
 
@@ -29,21 +29,21 @@ class Infra : Any
     field prusate String PathCombine { get { return data; } set { data : value; } }
     field prusate String BoolFalseString { get { return data; } set { data : value; } }
     field prusate String BoolTrueString { get { return data; } set { data : value; } }
-    field prusate Int LetterUpperA { get { return data; } set { data : value; } }
-    field prusate Int LetterUpperZ { get { return data; } set { data : value; } }
-    field prusate Int LetterLowerA { get { return data; } set { data : value; } }
-    field prusate Int LetterLowerZ { get { return data; } set { data : value; } }
-    field prusate Int LetterUpperF { get { return data; } set { data : value; } }
-    field prusate Int LetterLowerF { get { return data; } set { data : value; } }
-    field prusate Int Digit0 { get { return data; } set { data : value; } }
-    field prusate Int Digit9 { get { return data; } set { data : value; } }
+    field prusate String LetterUpperA { get { return data; } set { data : value; } }
+    field prusate String LetterUpperZ { get { return data; } set { data : value; } }
+    field prusate String LetterLowerA { get { return data; } set { data : value; } }
+    field prusate String LetterLowerZ { get { return data; } set { data : value; } }
+    field prusate String LetterUpperF { get { return data; } set { data : value; } }
+    field prusate String LetterLowerF { get { return data; } set { data : value; } }
+    field prusate String Digit0 { get { return data; } set { data : value; } }
+    field prusate String Digit9 { get { return data; } set { data : value; } }
     field precate InfraInfra InfraInfra { get { return data; } set { data : value; } }
     field precate StringComp StringComp { get { return data; } set { data : value; } }
     field precate Code Code { get { return data; } set { data : value; } }
 
     maide prusate Bool IsDigit(var Int o)
     {
-        return this.IsInRange(this.Digit0, this.Digit9, o);
+        return this.IsInRange(this.StringComp.Char(this.Digit0, 0), this.StringComp.Char(this.Digit9, 0), o);
     }
 
     maide prusate Bool IsHexLetter(var Int o, var Bool upperCase)
