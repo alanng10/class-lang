@@ -53,13 +53,13 @@ class Infra : Any
 
         inf (!upperCase)
         {
-            first : this.LetterLowerA;
-            last : this.LetterLowerF;
+            first : this.StringComp.Char(this.LetterLowerA, 0);
+            last : this.StringComp.Char(this.LetterLowerF, 0);
         }
         inf (upperCase)
         {
-            first : this.LetterUpperA;
-            last : this.LetterUpperF;
+            first : this.StringComp.Char(this.LetterUpperA, 0);
+            last : this.StringComp.Char(this.LetterUpperF, 0);
         }
         return this.IsInRange(first, last, o);
     }
@@ -71,13 +71,13 @@ class Infra : Any
 
         inf (!upperCase)
         {
-            first : this.LetterLowerA;
-            last : this.LetterLowerZ;
+            first : this.StringComp.Char(this.LetterLowerA, 0);
+            last : this.StringComp.Char(this.LetterLowerZ, 0);
         }
         inf (upperCase)
         {
-            first : this.LetterUpperA;
-            last : this.LetterUpperZ;
+            first : this.StringComp.Char(this.LetterUpperA, 0);
+            last : this.StringComp.Char(this.LetterUpperZ, 0);
         }
         return this.IsInRange(first, last, o);
     }
