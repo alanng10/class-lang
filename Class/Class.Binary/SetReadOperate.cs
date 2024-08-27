@@ -8,7 +8,7 @@ public class SetReadOperate : ReadOperate
     {
         ReadArg arg;
         arg = this.Read.Arg;
-        int index;
+        long index;
         index = arg.BinaryIndex;
         Binary a;
         a = (Binary)arg.BinaryArray.GetAt(index);
@@ -20,7 +20,7 @@ public class SetReadOperate : ReadOperate
     {
         ReadArg arg;
         arg = this.Read.Arg;
-        int index;
+        long index;
         index = arg.ClassIndex;
         Class a;
         a = (Class)arg.ClassArray.GetAt(index);
@@ -32,7 +32,7 @@ public class SetReadOperate : ReadOperate
     {
         ReadArg arg;
         arg = this.Read.Arg;
-        int index;
+        long index;
         index = arg.ImportIndex;
         Import a;
         a = (Import)arg.ImportArray.GetAt(index);
@@ -44,7 +44,7 @@ public class SetReadOperate : ReadOperate
     {
         ReadArg arg;
         arg = this.Read.Arg;
-        int index;
+        long index;
         index = arg.PartIndex;
         Part a;
         a = (Part)arg.PartArray.GetAt(index);
@@ -56,7 +56,7 @@ public class SetReadOperate : ReadOperate
     {
         ReadArg arg;
         arg = this.Read.Arg;
-        int index;
+        long index;
         index = arg.FieldIndex;
         Field a;
         a = (Field)arg.FieldArray.GetAt(index);
@@ -68,7 +68,7 @@ public class SetReadOperate : ReadOperate
     {
         ReadArg arg;
         arg = this.Read.Arg;
-        int index;
+        long index;
         index = arg.MaideIndex;
         Maide a;
         a = (Maide)arg.MaideArray.GetAt(index);
@@ -80,7 +80,7 @@ public class SetReadOperate : ReadOperate
     {
         ReadArg arg;
         arg = this.Read.Arg;
-        int index;
+        long index;
         index = arg.VarIndex;
         Var a;
         a = (Var)arg.VarArray.GetAt(index);
@@ -92,7 +92,7 @@ public class SetReadOperate : ReadOperate
     {
         ReadArg arg;
         arg = this.Read.Arg;
-        int index;
+        long index;
         index = arg.ClassIndexIndex;
         Value a;
         a = (Value)arg.ClassIndexArray.GetAt(index);
@@ -104,7 +104,7 @@ public class SetReadOperate : ReadOperate
     {
         ReadArg arg;
         arg = this.Read.Arg;
-        int index;
+        long index;
         index = arg.ModuleRefIndex;
         ModuleRef a;
         a = (ModuleRef)arg.ModuleRefArray.GetAt(index);
@@ -116,7 +116,7 @@ public class SetReadOperate : ReadOperate
     {
         ReadArg arg;
         arg = this.Read.Arg;
-        int index;
+        long index;
         index = arg.RangeIndex;
         Range a;
         a = (Range)arg.RangeArray.GetAt(index);
@@ -124,14 +124,14 @@ public class SetReadOperate : ReadOperate
         return a;
     }
 
-    public override string ExecuteString(int count)
+    public override String ExecuteString(long count)
     {
         ReadArg arg;
         arg = this.Read.Arg;
-        int oa;
+        long oa;
         oa = arg.StringIndex;
-        string a;
-        a = (string)arg.StringArray.GetAt(oa);
+        String a;
+        a = (String)arg.StringArray.GetAt(oa);
         
         arg.Index = arg.Index + count;
         arg.StringIndex = oa + 1;
@@ -139,11 +139,11 @@ public class SetReadOperate : ReadOperate
         return a;
     }
 
-    public override Array ExecuteArray(int count)
+    public override Array ExecuteArray(long count)
     {
         ReadArg arg;
         arg = this.Read.Arg;
-        int index;
+        long index;
         index = arg.ArrayIndex;
         Array a;
         a = (Array)arg.ArrayArray.GetAt(index);
@@ -151,7 +151,7 @@ public class SetReadOperate : ReadOperate
         return a;
     }
 
-    public override bool ExecuteArrayItemSet(Array array, int index, object value)
+    public override bool ExecuteArrayItemSet(Array array, long index, object value)
     {
         array.SetAt(index, value);
         return true;
