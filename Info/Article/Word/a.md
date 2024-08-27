@@ -188,6 +188,8 @@ Word "iter" has meaning that is enumerate.
 
 Word "sort" has meaning that is less ordered.
 
+Word "find" has meaning that is find by less ordered.
+
 Word "math" has meaning that is calculate.
 
 Word "cand" has meaning that is represent significand.
