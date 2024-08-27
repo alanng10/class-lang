@@ -210,24 +210,14 @@ public class Read : ToolGen
             String className;
             String varName;
 
-            long oa;
-            oa = ka.Range.Index;
-            long oo;
-            oo = ka.Range.Count;
-
-            ka.Range.Count = ua;
-
-            className = this.StringCreate(ka);
+            className = this.StringCreateTextRange(ka, ka.Range.Index, ua);
         
             if (!this.CheckIsName(className))
             {
                 return null;
             }
 
-            ka.Range.Index = oa + ua + kka.Range.Count;
-            ka.Range.Count = oa + oo - ka.Range.Index;
-
-            varName = this.StringCreate(ka);
+            varName = this.StringCreateTextIndex(ka, ka.Range.Index + ua + kka.Range.Count);
 
             if (!this.CheckIsName(varName))
             {
