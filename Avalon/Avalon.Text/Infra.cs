@@ -648,13 +648,13 @@ public class Infra : Any
 
     public virtual Data Code(CodeKind innKind, CodeKind outKind, Data data, Range range)
     {
-        if (!this.ValidCodeKind(innKind, outKind))
+        Code code;
+        code = this.TextCode;
+
+        if (!code.ValidCodeKind(innKind, outKind))
         {
             return null;
         }
-
-        Code code;
-        code = this.TextCode;
 
         long resultCount;
         resultCount = code.ExecuteCount(innKind, outKind, data, range);
@@ -667,15 +667,6 @@ public class Infra : Any
         code.ExecuteResult(result, 0, innKind, outKind, data, range);
 
         return result;
-    }
-
-    public virtual bool ValidCodeKind(CodeKind innKind, CodeKind outKind)
-    {
-        if (innKind == outKind)
-        {
-            return false;
-        }
-        return true;
     }
 
     private Text TextCreateDataRange(Data data, Range range)
