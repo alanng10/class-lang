@@ -140,38 +140,33 @@ public class StringReadOperate : ReadOperate
         TextInfra textInfra;
         textInfra = this.TextInfra;
 
-        int index;
+        long index;
         index = arg.Index;
-        int stringIndex;
+        long stringIndex;
         stringIndex = arg.StringIndex;
 
         long nn;
         nn = stringIndex;
-        nn = nn * sizeof(uint);
-        uint countU;
-        countU = (uint)count;
-        this.InfraInfra.DataMidSet(arg.StringCountData, nn, countU);
+        nn = nn * sizeof(ulong);
+        this.InfraInfra.DataIntSet(arg.StringCountData, nn, count);
 
         Data data;
         data = read.Data;
         Data stringTextData;
         stringTextData = arg.StringTextData;
 
-        int oo;
-        oo = 0;
-        byte ooa;
-        ooa = 0;
-        char oob;
-        oob = (char)0;
-        int oa;
+        long oa;
         oa = arg.StringTextIndex;
-        int i;
+        long i;
         i = 0;
         while (i < count)
         {
+            long oo;
             oo = data.Get(index + i);
+            byte ooa;
             ooa = (byte)oo;
-            oob = (char)ooa;
+            uint oob;
+            oob = ooa;
             textInfra.DataCharSet(stringTextData, oa + i, oob);
             i = i + 1;
         }
@@ -189,15 +184,13 @@ public class StringReadOperate : ReadOperate
         ReadArg arg;
         arg = read.Arg;
 
-        int arrayIndex;
+        long arrayIndex;
         arrayIndex = arg.ArrayIndex;
 
         long nn;
         nn = arrayIndex;
-        nn = nn * sizeof(uint);
-        uint countU;
-        countU = (uint)count;
-        this.InfraInfra.DataMidSet(arg.ArrayCountData, nn, countU);
+        nn = nn * sizeof(ulong);
+        this.InfraInfra.DataIntSet(arg.ArrayCountData, nn, count);
 
         arg.ArrayIndex = arrayIndex + 1;
         return this.Array;
