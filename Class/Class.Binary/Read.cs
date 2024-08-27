@@ -151,25 +151,25 @@ public class Read : Any
         text.Range = new Range();
         text.Range.Init();
         text.Data = arg.StringTextData;
-        int total;
+        long total;
         total = 0;
 
-        int count;
+        long count;
         count = array.Count;
-        int i;
+        long i;
         i = 0;
         while (i < count)
         {
             long index;
             index = i;
-            index = index * sizeof(uint);
-            uint u;
-            u = infraInfra.DataMidGet(countData, index);
-            int oa;
-            oa = (int)u;
+            index = index * sizeof(ulong);
+            ulong u;
+            u = infraInfra.DataIntGet(countData, index);
+            long oa;
+            oa = (long)u;
             text.Range.Index = total;
             text.Range.Count = oa;
-            string oo;
+            String oo;
             oo = textInfra.StringCreate(text);
             array.SetAt(i, oo);
             total = total + oa;
