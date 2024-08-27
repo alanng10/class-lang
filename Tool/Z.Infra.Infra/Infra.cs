@@ -165,6 +165,44 @@ public class Infra : Any
         return this.StringCreateRange(o, index, count);
     }
 
+    public virtual String StringCreateTextRange(Text o, long index, long count)
+    {
+        long aa;
+        long ab;
+        aa = o.Range.Index;
+        ab = o.Range.Count;
+
+        o.Range.Index = index;
+        o.Range.Count = count;
+
+        String a;
+        a = this.StringCreate(o);
+
+        o.Range.Index = aa;
+        o.Range.Count = ab;
+
+        return a;
+    }
+
+    public virtual String StringCreateTextIndex(Text o, long index)
+    {
+        long aa;
+        long ab;
+        aa = o.Range.Index;
+        ab = o.Range.Count;
+
+        o.Range.Index = index;
+        o.Range.Count = aa + ab - index;
+
+        String a;
+        a = this.StringCreate(o);
+
+        o.Range.Index = aa;
+        o.Range.Count = ab;
+
+        return a;
+    }
+
     public virtual Array TextLimitLineString(String text)
     {
         Text k;
