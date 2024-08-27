@@ -52,17 +52,17 @@ public class ReadOperate : Any
         return null;
     }
 
-    public virtual string ExecuteString(int count)
+    public virtual string ExecuteString(long count)
     {
         return null;
     }
 
-    public virtual Array ExecuteArray(int count)
+    public virtual Array ExecuteArray(long count)
     {
         return null;
     }
 
-    public virtual bool ExecuteArrayItemSet(Array array, int index, object value)
+    public virtual bool ExecuteArrayItemSet(Array array, long index, object value)
     {
         return true;
     }
