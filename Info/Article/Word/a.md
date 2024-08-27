@@ -210,6 +210,8 @@ Word "read" has meaning that is got info from medium.
 
 Word "write" has meaning that is set info to medium.
 
+Word "has" heas meaning that is got.
+
 Word "face" has meaning that is char style.
 
 Word "phore" has meaning that is thread synchronization.
