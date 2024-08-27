@@ -290,7 +290,7 @@ class Infra : Any
         return this.StringComp.CreateData(text.Data, text.Range);
     }
 
-    maide prusate bool Equal(var Text left, var Text right, var InfraLess less)
+    maide prusate bool Same(var Text left, var Text right, var InfraLess less)
     {
         var Int o;
         o : less.Execute(left, right);
@@ -315,7 +315,7 @@ class Infra : Any
         range.Count : otherCount;
 
         var Bool a;
-        a : this.Equal(text, other, less);
+        a : this.Same(text, other, less);
 
         range.Count : count;
 
@@ -347,7 +347,7 @@ class Infra : Any
         range.Count : otherCount;
 
         var Bool a;
-        a : this.Equal(text, other, less);
+        a : this.Same(text, other, less);
 
         range.Index : index;
         range.Count : count;
@@ -397,7 +397,7 @@ class Infra : Any
             textRange.Count : otherCount;
 
             var Bool b;
-            b : this.Equal(text, other, less);
+            b : this.Same(text, other, less);
             inf (b)
             {
                 k : i;
@@ -453,7 +453,7 @@ class Infra : Any
             textRange.Count : otherCount;
 
             var Bool b;
-            b : this.Equal(text, other, less);
+            b : this.Same(text, other, less);
             inf (b)
             {
                 k : i;

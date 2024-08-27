@@ -267,7 +267,7 @@ class Infra : Any
         range.Count : colonCount;
 
         var Bool b;
-        b : textInfra.Equal(entryPath, colon, less);
+        b : textInfra.Same(entryPath, colon, less);
         
         range.Index : indexA;
         range.Count : countA;
