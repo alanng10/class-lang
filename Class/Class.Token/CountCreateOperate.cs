@@ -60,8 +60,8 @@ public class CountCreateOperate : CreateOperate
         oe = ob * oa;
         long of;
         of = (ob + 1) * oa;
-        infraInfra.DataIntSet(codeCountData, oe, (ulong)tokenCount);
-        infraInfra.DataIntSet(codeCountData, of, (ulong)commentCount);
+        infraInfra.DataIntSet(codeCountData, oe, tokenCount);
+        infraInfra.DataIntSet(codeCountData, of, commentCount);
 
         this.CodeTokenStart = 0;
         this.CodeCommentStart = 0;
