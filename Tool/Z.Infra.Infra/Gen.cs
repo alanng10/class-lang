@@ -97,14 +97,14 @@ public class Gen : Any
         return this.ToolInfra.TextLimitLine(text);
     }
 
-    public virtual Array TextLimit(Text text, Text delimit)
+    public virtual Array TextLimit(Text text, Text limit)
     {
-        return this.ToolInfra.TextLimit(text, delimit);
+        return this.ToolInfra.TextLimit(text, limit);
     }
 
-    public virtual Text TextReplace(Text text, Text delimit, Text join)
+    public virtual Text TextReplace(Text text, Text limit, Text join)
     {
-        return this.ToolInfra.TextReplace(text, delimit, join);
+        return this.ToolInfra.TextReplace(text, limit, join);
     }
 
     public virtual Gen Add(String a)
