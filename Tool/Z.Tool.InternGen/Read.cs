@@ -174,41 +174,61 @@ public class Read : ToolGen
         Table table;
         table = this.ClassInfra.TableCreateStringLess();
 
-        string[] u;
-        u = o.Split(", ");
-        
-        if (u == null)
+        Text k;
+        k = this.TextCreate(o);
+
+        if (k.Range.Count == 0)
         {
             return table;
         }
 
-        int count;
-        count = u.Length;
-        int i;
+        Text limit;
+        limit = this.TextCreate(this.S(", "));
+
+        Array u;
+        u = this.TextLimit(k, limit);
+
+        Text kka;
+        kka = this.TextCreate(this.S(" "));
+
+        long count;
+        count = u.Count;
+        long i;
         i = 0;
         while (i < count)
         {
-            string ka;
-            ka = u[i];
+            Text ka;
+            ka = (Text)u.GetAt(i);
 
-            int ua;
-            ua = ka.IndexOf(' ');
+            long ua;
+            ua = this.TextIndex(ka, kka);
 
             if (ua < 0)
             {
                 return null;
             }
 
-            string className;
-            string varName;
-            className = ka.Substring(0, ua);
+            String className;
+            String varName;
+
+            long oa;
+            oa = ka.Range.Index;
+            long oo;
+            oo = ka.Range.Count;
+
+            ka.Range.Count = ua;
+
+            className = this.StringCreate(ka);
         
             if (!this.CheckIsName(className))
             {
                 return null;
             }
 
-            varName = ka.Substring(ua + 1);
+            ka.Range.Index = oa + ua + kka.Range.Count;
+            ka.Range.Count = oa + oo - ka.Range.Index;
+
+            varName = this.StringCreate(ka);
 
             if (!this.CheckIsName(varName))
             {
