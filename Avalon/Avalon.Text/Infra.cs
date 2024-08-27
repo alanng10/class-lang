@@ -651,7 +651,7 @@ public class Infra : Any
         Code code;
         code = this.TextCode;
 
-        if (!code.ValidCodeKind(innKind, outKind))
+        if (!code.ValidKind(innKind, outKind))
         {
             return null;
         }

@@ -27,7 +27,7 @@ public class Code : Any
 
     public virtual long ExecuteCount(CodeKind innKind, CodeKind outKind, Data data, Range dataRange)
     {
-        if (!this.ValidCodeKind(innKind, outKind))
+        if (!this.ValidKind(innKind, outKind))
         {
             return -1;
         }
@@ -57,7 +57,7 @@ public class Code : Any
 
     internal virtual long ExecuteCountString(CodeKind innKind, CodeKind outKind, string data, Range dataRange)
     {
-        if (!this.ValidCodeKind(innKind, outKind))
+        if (!this.ValidKind(innKind, outKind))
         {
             return -1;
         }
@@ -93,7 +93,7 @@ public class Code : Any
         InfraInfra infraInfra;
         infraInfra = this.InfraInfra;
 
-        if (!this.ValidCodeKind(innKind, outKind))
+        if (!this.ValidKind(innKind, outKind))
         {
             return false;
         }
@@ -131,7 +131,7 @@ public class Code : Any
         InfraInfra infraInfra;
         infraInfra = this.InfraInfra;
 
-        if (!this.ValidCodeKind(innKind, outKind))
+        if (!this.ValidKind(innKind, outKind))
         {
             return false;
         }
@@ -167,7 +167,7 @@ public class Code : Any
         return true;
     }
 
-    public virtual bool ValidCodeKind(CodeKind innKind, CodeKind outKind)
+    public virtual bool ValidKind(CodeKind innKind, CodeKind outKind)
     {
         if (innKind == outKind)
         {
