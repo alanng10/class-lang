@@ -84,6 +84,8 @@ Word "false" has meaning that is bool false.
 
 Word "value" has meaning that is known data.
 
+Word "hex" has meaning that is hexadecimal.
+
 Words "prusate", "precate", "pronate" and "private" have meanings that are applicable
 to all, child, local, and self.
 
