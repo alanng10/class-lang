@@ -467,7 +467,7 @@ class Infra : Any
         return k;
     }
 
-    maide prusate Array Split(var Text text, var Text delimit, var InfraLess less)
+    maide prusate Array Limit(var Text text, var Text limit, var InfraLess less)
     {
         var InfraInfra infraInfra;
         infraInfra : this.InfraInfra;
@@ -478,8 +478,8 @@ class Infra : Any
         var Range textRange;
         textRange : text.Range;
 
-        var Int delimitCount;
-        delimitCount : delimit.Range.Count;
+        var Int limitCount;
+        limitCount : limit.Range.Count;
 
         var Int kka;
         kka : textRange.Index;
@@ -491,18 +491,18 @@ class Infra : Any
         count : 0;
 
         var Int oo;
-        oo : this.Index(text, delimit, less);
+        oo : this.Index(text, limit, less);
         while (!(oo = null))
         {
             count : count + 1;
 
             var Int kaa;
-            kaa : oo + delimitCount;
+            kaa : oo + limitCount;
 
             textRange.Index : textRange.Index + kaa;
             textRange.Count : textRange.Count - kaa;
 
-            oo : this.Index(text, delimit, less);
+            oo : this.Index(text, limit, less);
         }
 
         var Array array;
@@ -521,7 +521,7 @@ class Infra : Any
         i : 0;
         while (i < count)
         {
-            oo : this.Index(text, delimit, less);
+            oo : this.Index(text, limit, less);
 
             rangeA.Index : textRange.Index;
             rangeA.Count : oo;
@@ -532,7 +532,7 @@ class Infra : Any
             array.Set(i, line);
 
             var Int kab;
-            kab : oo + delimitCount;
+            kab : oo + limitCount;
 
             textRange.Index : textRange.Index + kab;
             textRange.Count : textRange.Count - kab;
