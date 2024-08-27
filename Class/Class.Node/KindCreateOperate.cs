@@ -71,9 +71,7 @@ public class KindCreateOperate : CreateOperate
         long oa;
         oa = index;
         oa = oa * sizeof(ulong);
-        ulong u;
-        u = (ulong)count;
-        this.InfraInfra.DataIntSet(this.Create.Arg.ListData, oa, u);
+        this.InfraInfra.DataIntSet(this.Create.Arg.ListData, oa, count);
         return true;
     }
 
@@ -106,12 +104,10 @@ public class KindCreateOperate : CreateOperate
 
         long count;
         count = range.Count;
-        ulong u;
-        u = (ulong)count;
         long oa;
         oa = index;
         oa = oa * sizeof(ulong);
-        this.InfraInfra.DataIntSet(arg.NameValueCountData, oa, u);
+        this.InfraInfra.DataIntSet(arg.NameValueCountData, oa, count);
 
         Data source;
         source = text.Data;
@@ -151,12 +147,10 @@ public class KindCreateOperate : CreateOperate
         write.ExecuteValueString(text);
         long count;
         count = write.Index;
-        ulong u;
-        u = (ulong)count;
         long oa;
         oa = index;
         oa = oa * sizeof(ulong);
-        this.InfraInfra.DataIntSet(arg.StringValueCountData, oa, u);
+        this.InfraInfra.DataIntSet(arg.StringValueCountData, oa, count);
         
         write.WriteOperate = write.AddWriteOperate;
         write.Index = indexA;
