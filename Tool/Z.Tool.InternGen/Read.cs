@@ -136,14 +136,14 @@ public class Read : ToolGen
 
         className = this.StringCreateTextRange(kaa, 0, ua);
 
-        if (!this.CheckIsName(className))
+        if (!this.ValidIsName(className))
         {
             return null;
         }
 
         maideName = this.StringCreateTextIndex(kaa, ua + kka.Range.Count);
 
-        if (!this.CheckIsName(maideName))
+        if (!this.ValidIsName(maideName))
         {
             return null;
         }
@@ -212,14 +212,14 @@ public class Read : ToolGen
 
             className = this.StringCreateTextRange(ka, ka.Range.Index, ua);
         
-            if (!this.CheckIsName(className))
+            if (!this.ValidIsName(className))
             {
                 return null;
             }
 
             varName = this.StringCreateTextIndex(ka, ka.Range.Index + ua + kka.Range.Count);
 
-            if (!this.CheckIsName(varName))
+            if (!this.ValidIsName(varName))
             {
                 return null;
             }
@@ -243,7 +243,7 @@ public class Read : ToolGen
         return table;
     }
 
-    protected virtual bool CheckIsName(String value)
+    protected virtual bool ValidIsName(String value)
     {
         NameCheck nameCheck;
         nameCheck = this.NameCheck;
