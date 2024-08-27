@@ -1,9 +1,15 @@
 #include "Class.h"
 
-Int Intern_Intern_MaideCall[4] = 
+Int Intern_Intern_MaideCall[10] = 
 { 
     CastInt(Intern_Any_Init),
-    CastInt(Intern_Intern_RefCompare),
-    CastInt(Intern_Intern_StringChar),
-    CastInt(Intern_Intern_StringCount)
+    CastInt(Intern_Intern_RefLess),
+    CastInt(Intern_Intern_DataNew),
+    CastInt(Intern_Intern_DataGet),
+    CastInt(Intern_Intern_DataSet),
+    CastInt(Intern_Intern_StringNew),
+    CastInt(Intern_Intern_StringValueGet),
+    CastInt(Intern_Intern_StringValueSet),
+    CastInt(Intern_Intern_StringCountGet),
+    CastInt(Intern_Intern_StringCountSet)
 };
