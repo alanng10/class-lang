@@ -112,16 +112,20 @@ public class Read : ToolGen
             return null;
         }
 
-        k.Range.Count = uu;
+        String ka;
+        ka = this.StringCreateTextRange(k, 0, uu);
         
         String paramLine;
-        paramLine = this.StringCreateIndex(o, uu + kkk.Range.Count);
+        paramLine = this.StringCreateTextIndex(k, uu + kkk.Range.Count);
 
         Text kka;
         kka = this.TextCreate(this.S(" "));
 
+        Text kaa;
+        kaa = this.TextCreate(ka);
+
         long ua;
-        ua = this.TextIndex(k, kka);
+        ua = this.TextIndex(kaa, kka);
         if (ua < 0)
         {
             return null;
@@ -130,19 +134,14 @@ public class Read : ToolGen
         String className;
         String maideName;
 
-        k.Range.Count = ua;
-
-        className = this.StringCreate(k);
+        className = this.StringCreateTextRange(kaa, 0, ua);
 
         if (!this.CheckIsName(className))
         {
             return null;
         }
 
-        k.Range.Index = ua + kka.Range.Count;
-        k.Range.Count = uu - k.Range.Index;
-
-        maideName = this.StringCreate(k);
+        maideName = this.StringCreateTextIndex(kaa, ua + kka.Range.Count);
 
         if (!this.CheckIsName(maideName))
         {
