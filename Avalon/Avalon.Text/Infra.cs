@@ -281,10 +281,10 @@ public class Infra : Any
         return this.StringComp.CreateData(text.Data, text.Range);
     }
 
-    public virtual bool Same(Text left, Text right, InfraLess less)
+    public virtual bool Same(Text lite, Text rite, InfraLess less)
     {
         long o;
-        o = less.Execute(left, right);
+        o = less.Execute(lite, rite);
         return (o == 0);
     }
 
