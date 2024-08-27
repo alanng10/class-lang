@@ -13,7 +13,7 @@ class Code : Any
 
     maide prusate Int ExecuteCount(var CodeKind innKind, var CodeKind outKind, var Data data, var Range range)
     {
-        inf (!this.ValidCodeKind(innKind, outKind))
+        inf (!this.ValidKind(innKind, outKind))
         {
             return null;
         }
@@ -41,7 +41,7 @@ class Code : Any
         var InfraInfra infraInfra;
         infraInfra : this.InfraInfra;
 
-        inf (!this.ValidCodeKind(innKind, outKind))
+        inf (!this.ValidKind(innKind, outKind))
         {
             return false;
         }
@@ -66,7 +66,7 @@ class Code : Any
         return true;
     }
 
-    maide prusate Bool ValidCodeKind(var CodeKind innKind, var CodeKind outKind)
+    maide prusate Bool ValidKind(var CodeKind innKind, var CodeKind outKind)
     {
         inf (innKind = outKind)
         {

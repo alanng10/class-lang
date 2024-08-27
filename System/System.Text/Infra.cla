@@ -559,13 +559,13 @@ class Infra : Any
 
     maide prusate Data Code(var CodeKind innKind, var CodeKind outKind, var Data data, var Range range)
     {
-        inf (!this.ValidCodeKind(innKind, outKind))
+        var Code code;
+        code : this.Code;
+
+        inf (!code.ValidKind(innKind, outKind))
         {
             return null;
         }
-
-        var Code code;
-        code : this.Code;
 
         var Int resultCount;
         resultCount : code.ExecuteCount(innKind, outKind, data, range);
@@ -578,15 +578,6 @@ class Infra : Any
         code.ExecuteResult(result, 0, innKind, outKind, data, range);
 
         return result;
-    }
-
-    maide prusate Bool ValidCodeKind(var CodeKind innKind, var CodeKind outKind)
-    {
-        inf (innKind = outKind)
-        {
-            return false;
-        }
-        return true;
     }
 
     maide private Text TextCreateDataRange(var Data data, var Range range)
