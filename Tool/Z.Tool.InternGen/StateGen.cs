@@ -1,18 +1,16 @@
 namespace Z.Tool.InternGen;
 
-class StateGen : Any
+class StateGen : ToolGen
 {
     public override bool Init()
     {
         base.Init();
         this.InfraInfra = InfraInfra.This;
-        this.ToolInfra = ToolInfra.This;
         return true;
     }
 
     public virtual Table MaideTable { get; set; }
     protected virtual InfraInfra InfraInfra { get; set; }
-    protected virtual ToolInfra ToolInfra { get; set; }
 
     public virtual bool Execute()
     {
@@ -27,20 +25,23 @@ class StateGen : Any
         ToolInfra toolInfra;
         toolInfra = this.ToolInfra;
 
-        string textProbate;
-        textProbate = toolInfra.StorageTextRead("ToolData/Intern/Probate.txt");
+        String textPronate;
+        textPronate = toolInfra.StorageTextRead(this.S("ToolData/Intern/Pronate.txt"));
 
-        string referList;
+        String referList;
         referList = this.GetReferList();
 
-        string k;
-        k = textProbate;
-        k = k.Replace("#ReferList#", referList);
+        Text k;
+        k = this.TextCreate(textPronate);
+        k = this.Replace(k, "#ReferList#", referList);
 
-        string outputPath;
-        outputPath = "../../Infra/InfraIntern/Probate_Part.h";
+        String a;
+        a = this.StringCreate(k);
 
-        toolInfra.StorageTextWrite(outputPath, k);
+        String outputPath;
+        outputPath = this.S("../../Infra/InfraIntern/Probate_Part.h");
+
+        toolInfra.StorageTextWrite(outputPath, a);
         return true;
     }
 
