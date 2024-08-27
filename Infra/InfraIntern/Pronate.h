@@ -2,7 +2,7 @@
 
 #include "Prusate.h"
 
-#include "Probate_Part.h"
+#include "Pronate_Part.h"
 
 extern Int Intern_Intern_MaideCall[];
 
