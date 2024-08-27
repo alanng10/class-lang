@@ -290,10 +290,10 @@ class Infra : Any
         return this.StringComp.CreateData(text.Data, text.Range);
     }
 
-    maide prusate bool Same(var Text left, var Text right, var InfraLess less)
+    maide prusate bool Same(var Text lite, var Text rite, var InfraLess less)
     {
         var Int o;
-        o : less.Execute(left, right);
+        o : less.Execute(lite, rite);
         return (o = 0);
     }
 
