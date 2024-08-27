@@ -50,34 +50,37 @@ class StateGen : ToolGen
         ToolInfra toolInfra;
         toolInfra = this.ToolInfra;
 
-        string textState;
-        textState = toolInfra.StorageTextRead("ToolData/Intern/State.txt");
+        String textState;
+        textState = toolInfra.StorageTextRead(this.S("ToolData/Intern/State.txt"));
 
-        int kka;
+        long kka;
         kka = this.MaideTable.Count;
         kka = kka + 1;
 
-        string ka;
-        ka = kka.ToString();
+        String ka;
+        ka = this.S(kka.ToString());
 
-        string nameList;
+        String nameList;
         nameList = this.GetNameList();
 
-        string k;
-        k = textState;
-        k = k.Replace("#Count#", ka);
-        k = k.Replace("#NameList#", nameList);
+        Text k;
+        k = this.TextCreate(textState);
+        k = this.Replace(k, "#Count#", ka);
+        k = this.Replace(k, "#NameList#", nameList);
 
-        string outputPath;
-        outputPath = "../../Infra/InfraIntern/Class_Part.c";
+        String a;
+        a = this.StringCreate(k);
 
-        toolInfra.StorageTextWrite(outputPath, k);
+        String outputPath;
+        outputPath = this.S("../../Infra/InfraIntern/Class_Part.c");
+
+        toolInfra.StorageTextWrite(outputPath, a);
         return true;
     }
 
     protected virtual string GetReferList()
     {
-        string newLine;
+        String newLine;
         newLine = this.ToolInfra.NewLine;
 
         StringJoin h;
@@ -143,11 +146,5 @@ class StateGen : ToolGen
         a = h.Result();
 
         return a;
-    }
-
-    protected virtual bool Append(StringJoin h, string o)
-    {
-        this.InfraInfra.StringJoinString(h, o);
-        return true;
     }
 }
