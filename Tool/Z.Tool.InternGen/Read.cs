@@ -1,32 +1,17 @@
 namespace Z.Tool.InternGen;
 
-public class Read : Any
+public class Read : ToolGen
 {
     public override bool Init()
     {
         base.Init();
-        this.ListInfra = ListInfra.This;
         this.ClassInfra = ClassInfra.This;
-        this.ToolInfra = ToolInfra.This;
-
-        CompareMid charCompare;
-        charCompare = new CompareMid();
-        charCompare.Init();
-        CharForm charForm;
-        charForm = new CharForm();
-        charForm.Init();
-        TextCompare compare;
-        compare = new TextCompare();
-        compare.CharCompare = charCompare;
-        compare.LiteCharForm = charForm;
-        compare.RiteCharForm = charForm;
-        compare.Init();
 
         this.NameCheck = new NameCheck();
         this.NameCheck.Init();
-        this.NameCheck.TextCompare = compare;
-        this.NameCheck.CharCompare = charCompare;
-        this.NameCheck.CharForm = charForm;
+        this.NameCheck.TextLess = this.ToolInfra.TextLess;
+        this.NameCheck.CharLess = this.ToolInfra.CharLess;
+        this.NameCheck.CharForm = this.ToolInfra.CharForm;
 
         this.TextA = this.CreateText();
         this.StringDataA = new StringData();
@@ -44,7 +29,7 @@ public class Read : Any
         return a;
     }
 
-    public virtual int Execute()
+    public virtual long Execute()
     {
         bool b;
 
@@ -59,9 +44,7 @@ public class Read : Any
     }
 
     public virtual Table MaideTable { get; set; }
-    protected virtual ListInfra ListInfra { get; set; }
     protected virtual ClassInfra ClassInfra { get; set; }
-    protected virtual ToolInfra ToolInfra { get; set; }
     protected virtual NameCheck NameCheck { get; set; }
     protected virtual Text TextA { get; set; }
     protected virtual StringData StringDataA { get; set; }
@@ -73,24 +56,24 @@ public class Read : Any
         ToolInfra toolInfra;
         toolInfra = this.ToolInfra;
 
-        string ka;
-        ka = toolInfra.StorageTextRead("ToolData/Intern/MaideList.txt");
+        String ka;
+        ka = toolInfra.StorageTextRead(this.S("ToolData/Intern/MaideList.txt"));
 
         Array lineArray;        
-        lineArray = toolInfra.SplitLineList(ka);
+        lineArray = toolInfra.TextLimitLineString(ka);
 
         Table table;
         table = this.ClassInfra.TableCreateStringLess();
         this.MaideTable = table;
 
-        int count;
+        long count;
         count = lineArray.Count;
-        int i;
+        long i;
         i = 0;
         while (i < count)
         {
-            string line;
-            line = (string)lineArray.GetAt(i);
+            String line;
+            line = (String)lineArray.GetAt(i);
 
             Maide maide;
             maide = this.GetMaide(line);
@@ -113,38 +96,53 @@ public class Read : Any
     }
 
 
-    protected virtual Maide GetMaide(string o)
+    protected virtual Maide GetMaide(String o)
     {
-        int uu;
-        uu = o.IndexOf('|');
+        Text kkk;
+        kkk = this.TextCreate(this.S("|"));
+        
+        Text k;
+        k = this.TextCreate(o);
+
+        long uu;
+        uu = this.TextIndex(k, kkk);
 
         if (uu < 0)
         {
             return null;
         }
 
-        string ka;
-        string kb;
-        ka = o.Substring(0, uu);
-        kb = o.Substring(uu + 1);
+        k.Range.Count = uu;
+        
+        String paramLine;
+        paramLine = this.StringCreateIndex(o, uu + kkk.Range.Count);
 
-        int ua;
-        ua = ka.IndexOf(' ');
+        Text kka;
+        kka = this.TextCreate(this.S(" "));
+
+        long ua;
+        ua = this.TextIndex(k, kka);
         if (ua < 0)
         {
             return null;
         }
 
-        string className;
-        string maideName;
+        String className;
+        String maideName;
 
-        className = ka.Substring(0, ua);
+        k.Range.Count = ua;
+
+        className = this.StringCreate(k);
+
         if (!this.CheckIsName(className))
         {
             return null;
         }
 
-        maideName = ka.Substring(ua + 1);
+        k.Range.Index = ua + kka.Range.Count;
+        k.Range.Count = uu - k.Range.Index;
+
+        maideName = this.StringCreate(k);
 
         if (!this.CheckIsName(maideName))
         {
@@ -152,7 +150,7 @@ public class Read : Any
         }
         
         Table param;
-        param = this.GetParam(kb);
+        param = this.GetParam(paramLine);
 
         if (param == null)
         {
@@ -168,7 +166,7 @@ public class Read : Any
         return a;
     }
 
-    protected virtual Table GetParam(string o)
+    protected virtual Table GetParam(String o)
     {
         ListInfra listInfra;
         listInfra = this.ListInfra;
@@ -236,7 +234,7 @@ public class Read : Any
         return table;
     }
 
-    protected virtual bool CheckIsName(string value)
+    protected virtual bool CheckIsName(String value)
     {
         NameCheck nameCheck;
         nameCheck = this.NameCheck;
@@ -251,13 +249,13 @@ public class Read : Any
         return nameCheck.IsName(textA);
     }
 
-    protected virtual bool TextStringGet(Text text, StringData data, string o)
+    protected virtual bool TextStringGet(Text text, StringData data, String o)
     {
         data.ValueString = o;
 
         text.Data = data;
         text.Range.Index = 0;
-        text.Range.Count = o.Length;
+        text.Range.Count = this.StringComp.Count(o);
         return true;
     }
 }

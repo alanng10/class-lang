@@ -2,12 +2,12 @@ namespace Z.Tool.InternGen;
 
 class Gen : Any
 {
-    public virtual int Execute()
+    public virtual long Execute()
     {
         Read read;
         read = new Read();
         read.Init();
-        int o;
+        long o;
         o = read.Execute();
 
         if (!(o == 0))

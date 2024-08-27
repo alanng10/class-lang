@@ -1,4 +1,5 @@
 global using Any = Avalon.Infra.Any;
+global using String = Avalon.Infra.String;
 global using Range = Avalon.Infra.Range;
 global using StringData = Avalon.Infra.StringData;
 global using StringJoin = Avalon.Infra.StringAdd;
@@ -14,5 +15,6 @@ global using TextCompare = Avalon.Text.Less;
 global using EntryEntry = Avalon.Entry.Entry;
 global using NameCheck = Class.Infra.NameCheck;
 global using ClassInfra = Class.Infra.Infra;
+global using ToolGen = Z.Infra.Infra.Gen;
 global using ToolInfra = Z.Infra.Infra.Infra;
 global using STAThreadAttribute = System.STAThreadAttribute;
