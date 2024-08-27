@@ -270,7 +270,7 @@ public partial class ClassPathTraverse : Traverse
         this.TextStringGet(textB, this.StringDataB, name);
 
         bool a;
-        a = this.TextInfra.Equal(textA, textB, this.TextLess);
+        a = this.TextInfra.Same(textA, textB, this.TextLess);
         return a;
     }
 

@@ -219,7 +219,7 @@ public class NameCheck : Any
 
             this.TextStringGet(oo, o);
 
-            if (textInfra.Equal(text, oo, less))
+            if (textInfra.Same(text, oo, less))
             {
                 return true;
             }

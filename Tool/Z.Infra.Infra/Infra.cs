@@ -286,7 +286,7 @@ public class Infra : Any
 
     public virtual bool TextSame(Text text, Text other)
     {
-        return this.TextInfra.Equal(text, other, this.TextLess);
+        return this.TextInfra.Same(text, other, this.TextLess);
     }
 
     public virtual long TextIndex(Text text, Text other)
@@ -341,7 +341,7 @@ public class Infra : Any
         Text ka;
         ka = this.TextCreate(this.TextInfra.BoolFalseString);
 
-        if (!this.TextInfra.Equal(k, ka, this.TextLess))
+        if (!this.TextInfra.Same(k, ka, this.TextLess))
         {
             b = true;
         }

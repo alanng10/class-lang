@@ -984,7 +984,7 @@ public class PortLoad : Any
         if (!b)
         {
             this.TextStringGet(textB, dataB, this.SystemModuleSingle);
-            if (textInfra.Equal(textA, textB, less))
+            if (textInfra.Same(textA, textB, less))
             {
                 b = true;
             }
@@ -1000,7 +1000,7 @@ public class PortLoad : Any
         if (!b)
         {
             this.TextStringGet(textB, dataB, this.ClassModuleSingle);
-            if (textInfra.Equal(textA, textB, less))
+            if (textInfra.Same(textA, textB, less))
             {
                 b = true;
             }

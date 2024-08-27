@@ -634,7 +634,7 @@ public class Read : Any
             if (!b)
             {
                 range.Count = ka;
-                if (!textInfra.Equal(text, textA, less))
+                if (!textInfra.Same(text, textA, less))
                 {
                     b = true;
                 }
@@ -935,7 +935,7 @@ public class Read : Any
             if (!b)
             {
                 range.Count = ka;
-                if (!textInfra.Equal(text, textA, less))
+                if (!textInfra.Same(text, textA, less))
                 {
                     b = true;
                     o = i;
@@ -1002,7 +1002,7 @@ public class Read : Any
 
         range.Count = 1;
 
-        if (!textInfra.Equal(line, textA, less))
+        if (!textInfra.Same(line, textA, less))
         {
             return false;
         }
@@ -1011,7 +1011,7 @@ public class Read : Any
 
         range.Index = index + count - 1;
 
-        if (!textInfra.Equal(line, textA, less))
+        if (!textInfra.Same(line, textA, less))
         {
             return false;
         }
@@ -1021,7 +1021,7 @@ public class Read : Any
         range.Index = index + 1;
         range.Count = count - 2;
 
-        if (!textInfra.Equal(line, textA, less))
+        if (!textInfra.Same(line, textA, less))
         {
             return false;
         }

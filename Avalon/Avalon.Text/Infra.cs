@@ -281,7 +281,7 @@ public class Infra : Any
         return this.StringComp.CreateData(text.Data, text.Range);
     }
 
-    public virtual bool Equal(Text left, Text right, InfraLess less)
+    public virtual bool Same(Text left, Text right, InfraLess less)
     {
         long o;
         o = less.Execute(left, right);
@@ -306,7 +306,7 @@ public class Infra : Any
         range.Count = otherCount;
 
         bool a;
-        a = this.Equal(text, other, less);
+        a = this.Same(text, other, less);
 
         range.Count = count;
 
@@ -338,7 +338,7 @@ public class Infra : Any
         range.Count = otherCount;
 
         bool a;
-        a = this.Equal(text, other, less);
+        a = this.Same(text, other, less);
 
         range.Index = index;
         range.Count = count;
@@ -389,7 +389,7 @@ public class Infra : Any
             textRange.Count = otherCount;
 
             bool b;
-            b = this.Equal(text, other, less);
+            b = this.Same(text, other, less);
             if (b)
             {
                 k = i;
@@ -446,7 +446,7 @@ public class Infra : Any
             textRange.Count = otherCount;
 
             bool b;
-            b = this.Equal(text, other, less);
+            b = this.Same(text, other, less);
             if (b)
             {
                 k = i;

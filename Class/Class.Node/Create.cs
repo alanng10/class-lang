@@ -1401,7 +1401,7 @@ public class Create : InfraCreate
         if (!b)
         {
             this.TextStringGet(textB, this.Index.True.Text);
-            if (textInfra.Equal(text, textB, less))
+            if (textInfra.Same(text, textB, less))
             {
                 value = true;
                 b = true;
@@ -1410,7 +1410,7 @@ public class Create : InfraCreate
         if (!b)
         {
             this.TextStringGet(textB, this.Index.False.Text);
-            if (textInfra.Equal(text, textB, less))
+            if (textInfra.Same(text, textB, less))
             {
                 value = false;
                 b = true;
@@ -4058,7 +4058,7 @@ public class Create : InfraCreate
         this.TextStringGet(textB, value);
 
         bool b;
-        b = this.TextInfra.Equal(text, textB, this.TextLess);
+        b = this.TextInfra.Same(text, textB, this.TextLess);
         bool a;
         a = b;
         return a;
@@ -4342,7 +4342,7 @@ public class Create : InfraCreate
         textB = this.TextB;
 
         this.TextStringGet(textB, limit.BraceRoundLite.Text);
-        if (textInfra.Equal(text, textB, less))
+        if (textInfra.Same(text, textB, less))
         {
             Token rightBracket;
             rightBracket = this.TokenMatchLeftBracket(this.TokenA, this.Range(this.RangeA, index + 1, end));
@@ -4353,7 +4353,7 @@ public class Create : InfraCreate
         }
 
         this.TextStringGet(textB, limit.BraceLite.Text);
-        if (textInfra.Equal(text, textB, less))
+        if (textInfra.Same(text, textB, less))
         {
             Token rightBrace;
             rightBrace = this.TokenMatchLeftBrace(this.TokenA, this.Range(this.RangeA, index + 1, end));
@@ -4387,7 +4387,7 @@ public class Create : InfraCreate
         textB = this.TextB;
 
         this.TextStringGet(textB, limit.BraceRoundRite.Text);
-        if (textInfra.Equal(text, textB, less))
+        if (textInfra.Same(text, textB, less))
         {
             Token leftBracket;
             leftBracket = this.TokenMatchRightBracket(this.TokenA, this.Range(this.RangeA, start, t));
@@ -4398,7 +4398,7 @@ public class Create : InfraCreate
         }
 
         this.TextStringGet(textB, limit.BraceRite.Text);
-        if (textInfra.Equal(text, textB, less))
+        if (textInfra.Same(text, textB, less))
         {
             Token leftBrace;
             leftBrace = this.TokenMatchRightBrace(this.TokenA, this.Range(this.RangeA, start, t));
@@ -4461,7 +4461,7 @@ public class Create : InfraCreate
             this.TextGet(text, aa);
             
             this.TextStringGet(textB, rightToken);
-            if (textInfra.Equal(text, textB, less))
+            if (textInfra.Same(text, textB, less))
             {
                 openCount = openCount - 1;
                 if (openCount == 0)
@@ -4472,7 +4472,7 @@ public class Create : InfraCreate
             }
 
             this.TextStringGet(textB, leftToken);
-            if (textInfra.Equal(text, textB, less))
+            if (textInfra.Same(text, textB, less))
             {
                 openCount = openCount + 1;
             }
@@ -4528,7 +4528,7 @@ public class Create : InfraCreate
             this.TextGet(text, aa);
 
             this.TextStringGet(textB, leftToken);
-            if (textInfra.Equal(text, textB, less))
+            if (textInfra.Same(text, textB, less))
             {
                 openCount = openCount - 1;
                 if (openCount == 0)
@@ -4539,7 +4539,7 @@ public class Create : InfraCreate
             }
 
             this.TextStringGet(textB, rightToken);
-            if (textInfra.Equal(text, textB, less))
+            if (textInfra.Same(text, textB, less))
             {
                 openCount = openCount + 1;
             }

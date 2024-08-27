@@ -127,7 +127,7 @@ public class StoragePathCheck : Any
 
             if (!b)
             {
-                if (textInfra.Equal(text, dot, less))
+                if (textInfra.Same(text, dot, less))
                 {
                     b = true;
                 }
@@ -135,7 +135,7 @@ public class StoragePathCheck : Any
 
             if (!b)
             {
-                if (textInfra.Equal(text, dotDot, less))
+                if (textInfra.Same(text, dotDot, less))
                 {
                     b = true;
                 }
@@ -157,7 +157,7 @@ public class StoragePathCheck : Any
 
         if (!b)
         {
-            if (textInfra.Equal(text, dot, less))
+            if (textInfra.Same(text, dot, less))
             {
                 b = true;
             }
@@ -165,7 +165,7 @@ public class StoragePathCheck : Any
 
         if (!b)
         {
-            if (textInfra.Equal(text, dotDot, less))
+            if (textInfra.Same(text, dotDot, less))
             {
                 b = true;
             }

@@ -319,7 +319,7 @@ public class Infra : Any
         range.Count = colonCount;
 
         bool b;
-        b = textInfra.Equal(entryPath, colon, less);
+        b = textInfra.Same(entryPath, colon, less);
         
         range.Index = indexA;
         range.Count = countA;
