@@ -42,6 +42,16 @@ public class Gen : Any
         return this.ToolInfra.StringCreateIndex(o, index);
     }
 
+    public virtual String StringCreateTextRange(Text o, long index, long count)
+    {
+        return this.ToolInfra.StringCreateTextRange(o, index, count);
+    }
+
+    public virtual String StringCreateTextIndex(Text o, long index)
+    {
+        return this.ToolInfra.StringCreateTextIndex(o, index);
+    }
+
     public virtual Text TextLower(Text text)
     {
         return this.ToolInfra.TextLower(text);
