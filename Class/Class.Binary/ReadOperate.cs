@@ -52,7 +52,7 @@ public class ReadOperate : Any
         return null;
     }
 
-    public virtual string ExecuteString(long count)
+    public virtual String ExecuteString(long count)
     {
         return null;
     }

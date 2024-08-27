@@ -6,6 +6,7 @@ public class CountReadOperate : ReadOperate
     {
         base.Init();
         this.ListInfra = ListInfra.This;
+        this.TextInfra = TextInfra.This;
         this.Binary = new Binary();
         this.Binary.Init();
         this.Class = new Class();
@@ -26,13 +27,14 @@ public class CountReadOperate : ReadOperate
         this.ModuleRef.Init();
         this.Range = new Range();
         this.Range.Init();
-        this.String = "";
+        this.String = this.TextInfra.Empty;
         this.Array = this.ListInfra.ArrayCreate(0);
         return true;
     }
 
     public virtual Read Read { get; set; }
     protected virtual ListInfra ListInfra { get; set; }
+    protected virtual TextInfra TextInfra { get; set; }
     protected virtual Binary Binary { get; set; }
     protected virtual Class Class { get; set; }
     protected virtual Import Import { get; set; }
@@ -43,7 +45,7 @@ public class CountReadOperate : ReadOperate
     protected virtual Value ClassIndex { get; set; }
     protected virtual ModuleRef ModuleRef { get; set; }
     protected virtual Range Range { get; set; }
-    protected virtual string String { get; set; }
+    protected virtual String String { get; set; }
     protected virtual Array Array { get; set; }
 
     public override Binary ExecuteBinary()
@@ -126,7 +128,7 @@ public class CountReadOperate : ReadOperate
         return this.Range;
     }
 
-    public override string ExecuteString(int count)
+    public override String ExecuteString(long count)
     {
         ReadArg arg;
         arg = this.Read.Arg;
@@ -136,7 +138,7 @@ public class CountReadOperate : ReadOperate
         return this.String;
     }
 
-    public override Array ExecuteArray(int count)
+    public override Array ExecuteArray(long count)
     {
         ReadArg arg;
         arg = this.Read.Arg;
@@ -144,7 +146,7 @@ public class CountReadOperate : ReadOperate
         return this.Array;
     }
 
-    public override bool ExecuteArrayItemSet(Array array, int index, object value)
+    public override bool ExecuteArrayItemSet(Array array, long index, object value)
     {
         return true;
     }
