@@ -39,7 +39,7 @@ class StateGen : ToolGen
         a = this.StringCreate(k);
 
         String outputPath;
-        outputPath = this.S("../../Infra/InfraIntern/Probate_Part.h");
+        outputPath = this.S("../../Infra/InfraIntern/Pronate_Part.h");
 
         toolInfra.StorageTextWrite(outputPath, a);
         return true;
