@@ -78,7 +78,38 @@ class StateGen : ToolGen
         return true;
     }
 
-    protected virtual string GetReferList()
+    protected virtual String GetReferList()
+    {
+        String newLine;
+        newLine = this.ToolInfra.NewLine;
+
+        this.AddClear();
+
+        Table table;
+        table = this.MaideTable;
+
+        Iter iter;
+        iter = table.IterCreate();
+        table.IterSet(iter);
+
+        while (iter.Next())
+        {
+            Maide maide;
+            maide = (Maide)iter.Value;
+
+            this.AddS("Int Intern_Intern_");
+            this.Add(maide.Name);
+            this.AddS("(Eval* eval, Int frame);");
+            this.Add(newLine);
+        }
+
+        String a;
+        a = this.AddResult();
+
+        return a;
+    }
+
+    protected virtual String GetNameList()
     {
         String newLine;
         newLine = this.ToolInfra.NewLine;
@@ -99,51 +130,18 @@ class StateGen : ToolGen
             Maide maide;
             maide = (Maide)iter.Value;
 
-            this.Append(h, "Int Intern_Intern_");
-            this.Append(h, maide.Name);
-            this.Append(h, "(Eval* eval, Int frame);");
-            this.Append(h, newLine);
+            this.AddS(",");
+            this.Add(newLine);
+            this.AddS("    ");
+            this.AddS("CastInt");
+            this.AddS("(");
+            this.AddS("Intern_Intern_");
+            this.Add(maide.Name);
+            this.AddS(")");
         }
 
-        string a;
-        a = h.Result();
-
-        return a;
-    }
-
-    protected virtual string GetNameList()
-    {
-        string newLine;
-        newLine = this.ToolInfra.NewLine;
-
-        StringJoin h;
-        h = new StringJoin();
-        h.Init();
-
-        Table table;
-        table = this.MaideTable;
-
-        Iter iter;
-        iter = table.IterCreate();
-        table.IterSet(iter);
-
-        while (iter.Next())
-        {
-            Maide maide;
-            maide = (Maide)iter.Value;
-
-            this.Append(h, ",");
-            this.Append(h, newLine);
-            this.Append(h, "    ");
-            this.Append(h, "CastInt");
-            this.Append(h, "(");
-            this.Append(h, "Intern_Intern_");
-            this.Append(h, maide.Name);
-            this.Append(h, ")");
-        }
-
-        string a;
-        a = h.Result();
+        String a;
+        a = this.AddResult();
 
         return a;
     }
