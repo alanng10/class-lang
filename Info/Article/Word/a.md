@@ -212,6 +212,8 @@ Word "write" has meaning that is set info to medium.
 
 Word "has" has meaning that is got.
 
+Word "can" has meaning that is option available.
+
 Word "face" has meaning that is char style.
 
 Word "phore" has meaning that is thread synchronization.
