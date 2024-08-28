@@ -1012,15 +1012,15 @@ public class Read : Any
         return this.Operate.ExecuteArray(count);
     }
 
-    protected virtual string ExecuteString()
+    protected virtual String ExecuteString()
     {
-        int o;
+        long o;
         o = this.ExecuteCount();
         if (o == -1)
         {
             return null;
         }
-        int count;
+        long count;
         count = o;
         
         if (!this.CheckCount(count))
@@ -1028,7 +1028,7 @@ public class Read : Any
             return null;
         }
 
-        string a;
+        String a;
         a = this.Operate.ExecuteString(count);
         return a;
     }
