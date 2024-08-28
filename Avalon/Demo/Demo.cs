@@ -1206,7 +1206,7 @@ class Demo : Any
         phore = new ThreadPhore();
         phore.InitCount = 1;
         phore.Init();
-        phore.Acquire();
+        phore.Open();
 
         ThreadState state;
         state = new ThreadState();
@@ -1221,7 +1221,7 @@ class Demo : Any
         thread.ExecuteState = state;
         thread.Execute();
 
-        phore.Acquire();
+        phore.Open();
 
         this.Console.Out.Write(this.S("Demo.ExecuteDemoThread phore Acquire Success\n"));
 
@@ -1313,7 +1313,7 @@ class Demo : Any
         thread.ExecuteState = state;
         thread.Execute();
 
-        phore.Acquire();
+        phore.Open();
 
         state.Post.Execute();
 

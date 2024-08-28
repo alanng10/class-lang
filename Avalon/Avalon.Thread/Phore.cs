@@ -23,7 +23,7 @@ public class Phore : Any
     public virtual long InitCount { get; set; }
     private ulong Intern { get; set; }
 
-    public virtual bool Acquire()
+    public virtual bool Open()
     {
         Extern.Phore_Acquire(this.Intern);
         return true;
