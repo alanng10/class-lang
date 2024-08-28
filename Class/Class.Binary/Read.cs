@@ -908,13 +908,13 @@ public class Read : Any
 
     protected virtual Array ExecuteClassIndexArray()
     {
-        int o;
+        long o;
         o = this.ExecuteCount();
         if (o == -1)
         {
             return null;
         }
-        int count;
+        long count;
         count = o;
 
         Array array;
@@ -924,7 +924,7 @@ public class Read : Any
             return null;
         }
 
-        int i;
+        long i;
         i = 0;
         while (i < count)
         {
@@ -942,17 +942,17 @@ public class Read : Any
 
     protected virtual Value ExecuteClassIndex()
     {
-        int u;
+        long u;
         u = this.ExecuteIndex();
         if (u == -1)
         {
             return null;
         }
-        int value;
+        long value;
         value = u;
         Value a;
         a = this.Operate.ExecuteClassIndex();
-        a.Mid = value;
+        a.Int = value;
         return a;
     }
 
@@ -1007,7 +1007,7 @@ public class Read : Any
         return a;
     }
 
-    protected virtual Array ExecuteArray(int count)
+    protected virtual Array ExecuteArray(long count)
     {
         return this.Operate.ExecuteArray(count);
     }
