@@ -480,7 +480,7 @@ public class Read : Any
 
     protected virtual Array ExecuteClassArray()
     {
-        int o;
+        long o;
         o = this.ExecuteCount();
         if (o == -1)
         {
@@ -1033,14 +1033,14 @@ public class Read : Any
         return a;
     }
 
-    public virtual int ExecuteCount()
+    public virtual long ExecuteCount()
     {
-        return (int)this.ExecuteInt();
+        return this.ExecuteInt();
     }
 
-    public virtual int ExecuteIndex()
+    public virtual long ExecuteIndex()
     {
-        return (int)this.ExecuteInt();
+        return this.ExecuteInt();
     }
 
     public virtual long ExecuteInt()
@@ -1055,7 +1055,7 @@ public class Read : Any
         infraInfra = this.InfraInfra;
         ReadArg arg;
         arg = this.Arg;
-        int index;
+        long index;
         index = arg.Index;
         ulong u;
         u = infraInfra.DataIntGet(this.Data, index);
@@ -1066,7 +1066,7 @@ public class Read : Any
         return a;
     }
 
-    public virtual int ExecuteByte()
+    public virtual long ExecuteByte()
     {
         if (!(this.CheckCount(1)))
         {
@@ -1074,31 +1074,31 @@ public class Read : Any
         }
         ReadArg arg;
         arg = this.Arg;
-        int index;
+        long index;
         index = arg.Index;
-        int a;
+        long a;
         a = this.Data.Get(index);
         index = index + 1;
         arg.Index = index;
         return a;
     }
 
-    protected virtual bool CheckCount(int count)
+    protected virtual bool CheckCount(long count)
     {
         Range range;
         range = this.Range;
-        int index;
-        int countA;
+        long index;
+        long countA;
         index = range.Index;
         countA = range.Count;
 
-        int kk;
+        long kk;
         kk = index + countA;
         
-        int ka;
+        long ka;
         ka = index + this.Arg.Index;
 
-        int kb;
+        long kb;
         kb = ka + count;
 
         return !(kk < kb);
