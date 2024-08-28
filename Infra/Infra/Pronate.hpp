@@ -2,7 +2,7 @@
 
 extern "C"
 {
-#include "Probate.h"
+#include "Pronate.h"
 }
 
 #define CppClassNew(varClass) \

@@ -39,8 +39,8 @@ HEADERS += \
     Pos.h \
     Post.hpp \
     PostIntern.hpp \
-    Probate.h \
-    Probate.hpp \
+    Pronate.h \
+    Pronate.hpp \
     Program.hpp \
     ProgramIntern.hpp \
     Prusate.h \
