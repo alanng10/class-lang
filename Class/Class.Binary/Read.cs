@@ -298,9 +298,9 @@ public class Read : Any
         Array array;
         array = this.Arg.FieldArray;
 
-        int count;
+        long count;
         count = array.Count;
-        int i;
+        long i;
         i = 0;
         while (i < count)
         {
@@ -318,9 +318,9 @@ public class Read : Any
         Array array;
         array = this.Arg.MaideArray;
 
-        int count;
+        long count;
         count = array.Count;
-        int i;
+        long i;
         i = 0;
         while (i < count)
         {
@@ -338,9 +338,9 @@ public class Read : Any
         Array array;
         array = this.Arg.VarArray;
 
-        int count;
+        long count;
         count = array.Count;
-        int i;
+        long i;
         i = 0;
         while (i < count)
         {
@@ -358,9 +358,9 @@ public class Read : Any
         Array array;
         array = this.Arg.ClassIndexArray;
 
-        int count;
+        long count;
         count = array.Count;
-        int i;
+        long i;
         i = 0;
         while (i < count)
         {
