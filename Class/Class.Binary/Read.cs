@@ -958,7 +958,7 @@ public class Read : Any
 
     protected virtual ModuleRef ExecuteModuleRef()
     {
-        string name;
+        String name;
         name = this.ExecuteString();
         if (name == null)
         {
@@ -983,13 +983,13 @@ public class Read : Any
 
     protected virtual Range ExecuteRange()
     {
-        int u;
+        long u;
         u = this.ExecuteIndex();
         if (u == -1)
         {
             return null;
         }
-        int index;
+        long index;
         index = u;
 
         u = this.ExecuteCount();
@@ -997,7 +997,7 @@ public class Read : Any
         {
             return null;
         }
-        int count;
+        long count;
         count = u;
 
         Range a;
