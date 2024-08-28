@@ -240,7 +240,7 @@ public class Time : Any
         return a;
     }
 
-    public virtual bool AddMonth(long value)
+    public virtual bool AddMon(long value)
     {
         ulong valueU;
         valueU = (ulong)value;
