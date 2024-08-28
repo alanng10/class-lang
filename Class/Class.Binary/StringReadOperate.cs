@@ -165,7 +165,7 @@ public class StringReadOperate : ReadOperate
             oo = data.Get(index + i);
             byte ooa;
             ooa = (byte)oo;
-            uint oob;
+            long oob;
             oob = ooa;
             textInfra.DataCharSet(stringTextData, oa + i, oob);
             i = i + 1;
