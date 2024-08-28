@@ -93,8 +93,9 @@ public class Write : Any
             WriteArg arg;
             arg = (WriteArg)argList.GetAt(i);
             
-            long ka;
-            ka = this.ExecuteArgCount(arg);
+            this.ExecuteArgCount(arg);
+
+
 
             k = k + ka;
 
@@ -226,11 +227,38 @@ public class Write : Any
         Value aa;
         aa = (Value)state.Result;
 
-        long a;
-        a = aa.Int;
+        long valueCount;
+        valueCount = aa.Int;
 
-        arg.Count = a;
+        long fieldWidth;
+        fieldWidth = arg.FieldWidth;
 
+        long maxWidth;
+        maxWidth = arg.MaxWidth;
+
+        long u;
+        u = maxWidth;
+        u = u << 4;
+        u = u >> 4;
+
+        long count;
+        count = valueCount;
+
+        if (count < fieldWidth)
+        {
+            count = fieldWidth;
+        }
+
+        if (!(u == -1))
+        {
+            if (maxWidth < count)
+            {
+                count = maxWidth;
+            }
+        }
+
+        arg.ValueCount = valueCount;
+        arg.Count = count;
         return true;
     }
 
