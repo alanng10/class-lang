@@ -92,10 +92,11 @@ public class Write : Any
         {
             WriteArg arg;
             arg = (WriteArg)argList.GetAt(i);
-            
+
             this.ExecuteArgCount(arg);
 
-
+            long ka;
+            ka = arg.Count;
 
             k = k + ka;
 
