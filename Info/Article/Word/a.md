@@ -242,11 +242,13 @@ Word "valid" has meaning that is can accept.
 
 Word "draw" has meaning that is comp video.
 
-Word "brush" has meaning that is draw comp applied.
+Word "brush" has meaning that is draw applied.
 
 Word "round" has meaning that is sphere.
 
 Word "shape" has meaning that is draw any.
+
+Word "line" has meaning that is region line.
 
 Word "pos" has meaning that is position in signed int.
 
