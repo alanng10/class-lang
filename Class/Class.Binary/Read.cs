@@ -378,9 +378,9 @@ public class Read : Any
         Array array;
         array = this.Arg.ModuleRefArray;
 
-        int count;
+        long count;
         count = array.Count;
-        int i;
+        long i;
         i = 0;
         while (i < count)
         {
@@ -398,9 +398,9 @@ public class Read : Any
         Array array;
         array = this.Arg.RangeArray;
 
-        int count;
+        long count;
         count = array.Count;
-        int i;
+        long i;
         i = 0;
         while (i < count)
         {
@@ -464,8 +464,8 @@ public class Read : Any
         {
             return null;
         }
-        int entry;
-        entry = (int)u;
+        long entry;
+        entry = u;
 
         Binary a;
         a = this.Operate.ExecuteBinary();
