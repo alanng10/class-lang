@@ -324,25 +324,25 @@ public class Time : Any
 
     public virtual bool Set(long yea, long mon, long day, long our, long min, long sec, long millisec, long pos)
     {
-        ulong yearU;
-        ulong monthU;
+        ulong yeaU;
+        ulong monU;
         ulong dayU;
-        ulong hourU;
+        ulong ourU;
         ulong minU;
         ulong secU;
         ulong millisecU;
         ulong posU;
-        yearU = (ulong)yea;
-        monthU = (ulong)mon;
+        yeaU = (ulong)yea;
+        monU = (ulong)mon;
         dayU = (ulong)day;
-        hourU = (ulong)our;
+        ourU = (ulong)our;
         minU = (ulong)min;
         secU = (ulong)sec;
         millisecU = (ulong)millisec;
         posU = (ulong)pos;
 
         ulong u;
-        u = Extern.Time_Set(this.Intern, yearU, monthU, dayU, hourU, minU, secU, millisecU, posU);
+        u = Extern.Time_Set(this.Intern, yeaU, monU, dayU, ourU, minU, secU, millisecU, posU);
         
         bool a;
         a = !(u == 0);
