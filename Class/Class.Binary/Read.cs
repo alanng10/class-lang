@@ -486,7 +486,7 @@ public class Read : Any
         {
             return null;
         }
-        int count;
+        long count;
         count = o;
 
         Array array;
@@ -496,7 +496,7 @@ public class Read : Any
             return null;
         }
 
-        int i;
+        long i;
         i = 0;
         while (i < count)
         {
@@ -514,7 +514,7 @@ public class Read : Any
 
     protected virtual Class ExecuteClass()
     {
-        string name;
+        String name;
         name = this.ExecuteString();
         if (name == null)
         {
@@ -529,13 +529,13 @@ public class Read : Any
 
     protected virtual Array ExecuteImportArray()
     {
-        int o;
+        long o;
         o = this.ExecuteCount();
         if (o == -1)
         {
             return null;
         }
-        int count;
+        long count;
         count = o;
 
         Array array;
@@ -545,7 +545,7 @@ public class Read : Any
             return null;
         }
 
-        int i;
+        long i;
         i = 0;
         while (i < count)
         {
