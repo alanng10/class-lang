@@ -679,7 +679,8 @@ class Demo : Any
             .AddS(", min: ").Add(this.IntString(time.Min))
             .AddS(", sec: ").Add(this.IntString(time.Sec))
             .AddS(", millisec: ").Add(this.IntString(time.Millisec))
-            .AddS(", pos: ").Add(this.IntString(time.Pos));
+            .AddS(", pos: ").Add(this.IntString(time.Pos))
+            .AddS("\n");
 
         String k;
         k = this.AddResult();
