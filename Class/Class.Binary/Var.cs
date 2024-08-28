@@ -2,7 +2,7 @@ namespace Class.Binary;
 
 public class Var : Any
 {
-    public virtual int Class { get; set; }
+    public virtual long Class { get; set; }
 
-    public virtual string Name { get; set; }
+    public virtual String Name { get; set; }
 }
