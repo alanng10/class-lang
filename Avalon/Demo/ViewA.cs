@@ -30,7 +30,7 @@ class ViewA : View
         draw.Fill = brush;
         DrawBrush pen;
         pen = this.DrawPen;
-        draw.Stroke = pen;
+        draw.Line = pen;
 
         draw.FillPos.Col = this.MathInt(left);
         draw.FillPos.Row = this.MathInt(up);
@@ -83,7 +83,7 @@ class ViewA : View
         
         draw.Fill = null;
 
-        draw.Stroke = null;
+        draw.Line = null;
         return true;
     }
 }

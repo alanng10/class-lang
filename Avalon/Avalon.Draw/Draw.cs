@@ -123,7 +123,7 @@ public class Draw : Any
 
     protected virtual Brush FillData { get; set; }
 
-    public virtual Brush Stroke
+    public virtual Brush Line
     {
         get
         {
@@ -233,7 +233,7 @@ public class Draw : Any
         this.PosSet();
 
         this.Fill = null;
-        this.Stroke = null;
+        this.Line = null;
         this.Comp = null;
         this.FillPos.Col = 0;
         this.FillPos.Row = 0;

@@ -37,11 +37,11 @@ class ViewC : View
         rect.Size.Het = this.MathInt(100);
 
         draw.Face = this.Face;
-        draw.Stroke = this.TextPen;
+        draw.Line = this.TextPen;
 
         draw.ExecuteText(this.Text, this.TextAlign, false, rect);
 
-        draw.Stroke = null;
+        draw.Line = null;
         draw.Face = null;
         return true;
     }
