@@ -7,38 +7,38 @@ class StringLess : Less
     }
     
     field prusate IntLess CharLess { get { return data; } set { data : value; } }
-    field prusate CharForm LeftCharForm { get { return data; } set { data : value; } }
-    field prusate CharForm RightCharForm { get { return data; } set { data : value; } }
+    field prusate CharForm LiteCharForm { get { return data; } set { data : value; } }
+    field prusate CharForm RiteCharForm { get { return data; } set { data : value; } }
     field precate StringComp StringComp { get { return data; } set { data : value; } }
 
-    maide prusate Int Execute(var Any left, var Any right)
+    maide prusate Int Execute(var Any lite, var Any rite)
     {
         var StringComp comp;
         comp : this.StringComp;
         
-        var String leftString;
-        var String rightString;
-        leftString : cast String(left);
-        rightString : cast String(right);
+        var String liteString;
+        var String riteString;
+        liteString : cast String(lite);
+        riteString : cast String(rite);
 
-        var Int leftCount;
-        var Int rightCount;
-        leftCount : comp.Count(leftString);
-        rightCount : comp.Count(rightString);
+        var Int liteCount;
+        var Int riteCount;
+        liteCount : comp.Count(liteString);
+        riteCount : comp.Count(riteString);
 
         var IntLess charLess;
         charLess : this.CharLess;
 
-        var CharForm leftCharForm;
-        var CharForm rightCharForm;
-        leftCharForm : this.LeftCharForm;
-        rightCharForm : this.RightCharForm;
+        var CharForm liteCharForm;
+        var CharForm riteCharForm;
+        liteCharForm : this.LiteCharForm;
+        riteCharForm : this.RiteCharForm;
 
         var Int count;
-        count : leftCount;
-        inf (rightCount < count)
+        count : liteCount;
+        inf (riteCount < count)
         {
-            count : rightCount;
+            count : riteCount;
         }
 
         var Int i;
@@ -47,11 +47,11 @@ class StringLess : Less
         {
             var Int na;
             var Int nb;
-            na : comp.Char(leftString, i);
-            nb : comp.Char(rightString, i);
+            na : comp.Char(liteString, i);
+            nb : comp.Char(riteString, i);
 
-            na : leftCharForm.Execute(na);
-            nb : rightCharForm.Execute(nb);
+            na : liteCharForm.Execute(na);
+            nb : riteCharForm.Execute(nb);
 
             var Int oo;
             oo : charLess.Execute(na, nb);
@@ -63,6 +63,6 @@ class StringLess : Less
             i : i + 1;
         }
 
-        return leftCount - rightCount;
+        return liteCount - riteCount;
     }
 }
