@@ -139,7 +139,7 @@ public class Time : Any
         }
     }
 
-    public virtual long YearDay
+    public virtual long YeaDay
     {
         get
         {
