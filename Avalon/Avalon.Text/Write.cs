@@ -507,7 +507,7 @@ public class Write : Any
         return true;
     }
 
-    public virtual bool ResultFill(Text dest, long fillIndex, long fillCount, uint fillChar)
+    public virtual bool ResultFill(Text dest, long fillIndex, long fillCount, long fillChar)
     {
         Infra textInfra;
         textInfra = this.TextInfra;
