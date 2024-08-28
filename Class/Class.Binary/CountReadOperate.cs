@@ -27,7 +27,7 @@ public class CountReadOperate : ReadOperate
         this.ModuleRef.Init();
         this.Range = new Range();
         this.Range.Init();
-        this.String = this.TextInfra.Empty;
+        this.String = this.TextInfra.Zero;
         this.Array = this.ListInfra.ArrayCreate(0);
         return true;
     }

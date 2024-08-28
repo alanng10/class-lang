@@ -23,7 +23,7 @@ public class Infra : Any
 
         this.NewLine = this.StringComp.CreateChar('\n', 1);
         this.PathCombine = this.StringComp.CreateChar('/', 1);
-        this.Empty = this.StringComp.CreateChar(0, 0);
+        this.Zero = this.StringComp.CreateChar(0, 0);
 
         StringValue k;
         k = StringValue.This;
@@ -37,7 +37,7 @@ public class Infra : Any
     public virtual String BoolTrueString { get; set; }
     public virtual String NewLine { get; set; }
     public virtual String PathCombine { get; set; }
-    public virtual String Empty { get; set; }
+    public virtual String Zero { get; set; }
     protected virtual InfraInfra InfraInfra { get; set; }
     protected virtual StringComp StringComp { get; set; }
     protected virtual Code TextCode { get; set; }

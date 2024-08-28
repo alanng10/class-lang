@@ -8,7 +8,7 @@ public class CountCreateOperate : CreateOperate
         this.ListInfra = ListInfra.This;
         this.TextInfra = TextInfra.This;
         this.List = this.ListInfra.ArrayCreate(0);
-        this.String = this.TextInfra.Empty;
+        this.String = this.TextInfra.Zero;
         return true;
     }
 
