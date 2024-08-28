@@ -127,23 +127,23 @@ public class Draw : Any
     {
         get
         {
-            return this.StrokeData;
+            return this.LineData;
         }
         set
         {
-            this.StrokeData = value;
+            this.LineData = value;
 
             ulong uu;
             uu = 0;
-            if (!(this.StrokeData == null))
+            if (!(this.LineData == null))
             {
-                uu = this.StrokeData.Intern;
+                uu = this.LineData.Intern;
             }
             Extern.Draw_StrokeSet(this.Intern, uu);
         }
     }
 
-    protected virtual Brush StrokeData { get; set; }
+    protected virtual Brush LineData { get; set; }
 
     public virtual Face Face
     {
