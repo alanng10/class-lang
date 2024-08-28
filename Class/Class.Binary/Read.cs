@@ -669,13 +669,13 @@ public class Read : Any
 
     protected virtual Array ExecuteFieldArray()
     {
-        int o;
+        long o;
         o = this.ExecuteCount();
         if (o == -1)
         {
             return null;
         }
-        int count;
+        long count;
         count = o;
 
         Array array;
@@ -685,7 +685,7 @@ public class Read : Any
             return null;
         }
 
-        int i;
+        long i;
         i = 0;
         while (i < count)
         {
