@@ -6,7 +6,7 @@
 #include <QDir>
 #include <QStringList>
 
-#include "Probate.hpp"
+#include "Pronate.hpp"
 
 struct StorageArrange
 {

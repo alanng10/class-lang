@@ -2,7 +2,7 @@
 
 #include "FrameIntern.hpp"
 
-#include "Probate.hpp"
+#include "Pronate.hpp"
 
 struct Frame
 {

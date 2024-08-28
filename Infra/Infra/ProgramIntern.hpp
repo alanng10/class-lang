@@ -2,7 +2,7 @@
 
 #include <QProcess>
 
-#include "Probate.hpp"
+#include "Pronate.hpp"
 
 class ProgramIntern : public QProcess
 {

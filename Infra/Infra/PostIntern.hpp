@@ -3,7 +3,7 @@
 #include <QObject>
 #include <QEvent>
 
-#include "Probate.hpp"
+#include "Pronate.hpp"
 
 class PostIntern : public QObject
 {

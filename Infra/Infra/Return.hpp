@@ -3,7 +3,7 @@
 #include <QString>
 #include <QStringList>
 
-#include "Probate.hpp"
+#include "Pronate.hpp"
 
 struct Return
 {

@@ -4,7 +4,7 @@
 #include <QImage>
 #include <QIODevice>
 
-#include "Probate.hpp"
+#include "Pronate.hpp"
 
 struct ImageWrite
 {

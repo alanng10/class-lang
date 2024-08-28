@@ -7,7 +7,7 @@
 
 #include "ThreadIntern.hpp"
 
-#include "Probate.hpp"
+#include "Pronate.hpp"
 
 struct Thread
 {

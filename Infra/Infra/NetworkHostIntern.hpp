@@ -2,7 +2,7 @@
 
 #include <QTcpServer>
 
-#include "Probate.hpp"
+#include "Pronate.hpp"
 
 class NetworkHostIntern : public QTcpServer
 {

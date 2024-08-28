@@ -4,7 +4,7 @@
 #include <QLatin1String>
 #include <QFont>
 
-#include "Probate.hpp"
+#include "Pronate.hpp"
 
 struct Face
 {

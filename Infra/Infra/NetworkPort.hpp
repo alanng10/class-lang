@@ -2,7 +2,7 @@
 
 #include <QHostAddress>
 
-#include "Probate.hpp"
+#include "Pronate.hpp"
 
 struct NetworkPort
 {

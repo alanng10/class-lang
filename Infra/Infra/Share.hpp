@@ -2,7 +2,7 @@
 
 #include <QThreadStorage>
 
-#include "Probate.hpp"
+#include "Pronate.hpp"
 
 struct Share
 {

@@ -2,7 +2,7 @@
 
 #include <cmath>
 
-#include "Probate.hpp"
+#include "Pronate.hpp"
 
 struct Math
 {

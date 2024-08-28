@@ -4,7 +4,7 @@
 #include <QDate>
 #include <QTime>
 
-#include "Probate.hpp"
+#include "Pronate.hpp"
 
 struct Time
 {

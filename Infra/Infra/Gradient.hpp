@@ -2,7 +2,7 @@
 
 #include <QGradient>
 
-#include "Probate.hpp"
+#include "Pronate.hpp"
 
 struct Gradient
 {

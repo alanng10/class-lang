@@ -4,7 +4,7 @@
 #include <QPaintEvent>
 #include <QPainter>
 
-#include "Probate.hpp"
+#include "Pronate.hpp"
 
 class FrameIntern : public QWidget
 {

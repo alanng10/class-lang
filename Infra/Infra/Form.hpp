@@ -2,7 +2,7 @@
 
 #include <QTransform>
 
-#include "Probate.hpp"
+#include "Pronate.hpp"
 
 struct Form
 {

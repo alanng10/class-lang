@@ -2,7 +2,7 @@
 
 #include <QThread>
 
-#include "Probate.hpp"
+#include "Pronate.hpp"
 
 class ThreadIntern : public QThread
 {

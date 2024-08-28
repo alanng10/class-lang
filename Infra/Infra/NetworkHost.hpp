@@ -4,7 +4,7 @@
 
 #include "NetworkHostIntern.hpp"
 
-#include "Probate.hpp"
+#include "Pronate.hpp"
 
 struct NetworkHost
 {

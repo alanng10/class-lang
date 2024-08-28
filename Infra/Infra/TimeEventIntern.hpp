@@ -2,7 +2,7 @@
 
 #include <QTimer>
 
-#include "Probate.hpp"
+#include "Pronate.hpp"
 
 class TimeEventIntern : public QTimer
 {

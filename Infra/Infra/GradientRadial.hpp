@@ -2,7 +2,7 @@
 
 #include <QRadialGradient>
 
-#include "Probate.hpp"
+#include "Pronate.hpp"
 
 struct GradientRadial
 {

@@ -4,7 +4,7 @@
 
 #include <QString>
 
-#include "Probate.hpp"
+#include "Pronate.hpp"
 
 struct Console
 {

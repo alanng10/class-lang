@@ -2,7 +2,7 @@
 
 #include <QLinearGradient>
 
-#include "Probate.hpp"
+#include "Pronate.hpp"
 
 struct GradientLinear
 {

@@ -2,7 +2,7 @@
 
 #include <QBuffer>
 
-#include "Probate.hpp"
+#include "Pronate.hpp"
 
 struct Memory
 {

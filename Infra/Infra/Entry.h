@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Probate.h"
+#include "Pronate.h"
 
 typedef struct
 {

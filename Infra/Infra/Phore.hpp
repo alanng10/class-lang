@@ -2,7 +2,7 @@
 
 #include <QSemaphore>
 
-#include "Probate.hpp"
+#include "Pronate.hpp"
 
 struct Phore
 {

@@ -2,7 +2,7 @@
 
 #include <QVideoFrame>
 
-#include "Probate.hpp"
+#include "Pronate.hpp"
 
 struct VideoFrame
 {

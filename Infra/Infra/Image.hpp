@@ -2,7 +2,7 @@
 
 #include <QImage>
 
-#include "Probate.hpp"
+#include "Pronate.hpp"
 
 struct Image
 {

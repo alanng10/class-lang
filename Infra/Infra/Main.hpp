@@ -4,7 +4,7 @@
 
 #include <QApplication>
 
-#include "Probate.hpp"
+#include "Pronate.hpp"
 
 struct Main
 {

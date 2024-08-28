@@ -10,7 +10,7 @@
 #include <QAbstractSocket>
 #include <QHostAddress>
 
-#include "Probate.hpp"
+#include "Pronate.hpp"
 
 struct Stat
 {

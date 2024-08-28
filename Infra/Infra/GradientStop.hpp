@@ -2,7 +2,7 @@
 
 #include <QBrush>
 
-#include "Probate.hpp"
+#include "Pronate.hpp"
 
 struct GradientStop
 {

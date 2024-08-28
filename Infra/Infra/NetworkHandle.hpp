@@ -3,7 +3,7 @@
 #include <QAbstractSocket>
 #include <QTcpSocket>
 
-#include "Probate.hpp"
+#include "Pronate.hpp"
 
 class NetworkHandle : public QObject
 {

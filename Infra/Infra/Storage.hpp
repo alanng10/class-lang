@@ -4,7 +4,7 @@
 #include <QFile>
 #include <QIODevice>
 
-#include "Probate.hpp"
+#include "Pronate.hpp"
 
 struct Storage
 {

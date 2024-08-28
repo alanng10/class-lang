@@ -2,7 +2,7 @@
 
 #include <QRandomGenerator>
 
-#include "Probate.hpp"
+#include "Pronate.hpp"
 
 struct Rand
 {

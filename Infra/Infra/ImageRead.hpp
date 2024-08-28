@@ -2,7 +2,7 @@
 
 #include <QImageReader>
 
-#include "Probate.hpp"
+#include "Pronate.hpp"
 
 struct ImageRead
 {

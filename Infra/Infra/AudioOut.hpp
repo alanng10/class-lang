@@ -2,7 +2,7 @@
 
 #include <QAudioOutput>
 
-#include "Probate.hpp"
+#include "Pronate.hpp"
 
 struct AudioOut
 {
