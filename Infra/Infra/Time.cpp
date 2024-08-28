@@ -248,7 +248,7 @@ Int Time_ToPos(Int o, Int pos)
     return true;
 }
 
-Int Time_YearDayGet(Int o)
+Int Time_YeaDayGet(Int o)
 {
     Time* m;
     m = CP(o);
@@ -261,7 +261,7 @@ Int Time_YearDayGet(Int o)
     return a;
 }
 
-FieldDefaultSet(Time, YearDay)
+FieldDefaultSet(Time, YeaDay)
 
 Int Time_WeekDayGet(Int o)
 {
@@ -278,7 +278,7 @@ Int Time_WeekDayGet(Int o)
 
 FieldDefaultSet(Time, WeekDay)
 
-Int Time_YearDayCountGet(Int o)
+Int Time_YeaDayCountGet(Int o)
 {
     Time* m;
     m = CP(o);
@@ -291,9 +291,9 @@ Int Time_YearDayCountGet(Int o)
     return a;
 }
 
-FieldDefaultSet(Time, YearDayCount)
+FieldDefaultSet(Time, YeaDayCount)
 
-Int Time_MonthDayCountGet(Int o)
+Int Time_MonDayCountGet(Int o)
 {
     Time* m;
     m = CP(o);
@@ -306,9 +306,9 @@ Int Time_MonthDayCountGet(Int o)
     return a;
 }
 
-FieldDefaultSet(Time, MonthDayCount)
+FieldDefaultSet(Time, MonDayCount)
 
-Int Time_AddYear(Int o, Int offset)
+Int Time_AddYea(Int o, Int offset)
 {
     Time* m;
     m = CP(o);
@@ -335,7 +335,7 @@ Int Time_AddYear(Int o, Int offset)
     return true;
 }
 
-Int Time_AddMonth(Int o, Int offset)
+Int Time_AddMon(Int o, Int offset)
 {
     Time* m;
     m = CP(o);
@@ -416,10 +416,10 @@ Int Time_AddMillisec(Int o, Int offset)
     return true;
 }
 
-Int Time_LeapYear(Int year)
+Int Time_LeapYea(Int yea)
 {
     int yearU;
-    yearU = year;
+    yearU = yea;
     bool bu;
     bu = QDate::isLeapYear(yearU);
     Bool a;
@@ -427,13 +427,13 @@ Int Time_LeapYear(Int year)
     return a;
 }
 
-Int Time_ValidDate(Int year, Int month, Int day)
+Int Time_ValidDate(Int yea, Int mon, Int day)
 {
     int yearU;
     int monthU;
     int dayU;
-    yearU = year;
-    monthU = month;
+    yearU = yea;
+    monthU = mon;
     dayU = day;
 
     if (yearU < 1)
@@ -456,13 +456,13 @@ Int Time_ValidDate(Int year, Int month, Int day)
     return a;
 }
 
-Int Time_ValidTime(Int hour, Int min, Int sec, Int millisec)
+Int Time_ValidTime(Int our, Int min, Int sec, Int millisec)
 {
     int hourU;
     int minuteU;
     int secondU;
     int millisecondU;
-    hourU = hour;
+    hourU = our;
     minuteU = min;
     secondU = sec;
     millisecondU = millisec;
