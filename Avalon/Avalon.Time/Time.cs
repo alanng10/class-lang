@@ -169,7 +169,7 @@ public class Time : Any
         }
     }
 
-    public virtual long YearDayCount
+    public virtual long YeaDayCount
     {
         get
         {
