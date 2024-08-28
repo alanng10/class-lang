@@ -82,10 +82,10 @@ Int Math_GetValueFromInternValue(Int o, Int u)
     return a;
 }
 
-Int Math_GetValueFromComp(Int o, Int significand, Int exponent)
+Int Math_GetValueFromComp(Int o, Int cand, Int exponent)
 {
     SInt aa;
-    aa = significand;
+    aa = cand;
     aa = aa << 4;
     aa = aa >> 4;
 
@@ -118,7 +118,7 @@ Int Math_GetValueFromComp(Int o, Int significand, Int exponent)
     return k;
 }
 
-Int Math_Comp(Int o, Int value, Int significand, Int exponent)
+Int Math_Comp(Int o, Int value, Int cand, Int exponent)
 {
     SInt aa;
     aa = value;
@@ -136,7 +136,7 @@ Int Math_Comp(Int o, Int value, Int significand, Int exponent)
     ob = ab;
 
     Int* ua;
-    ua = (Int*)significand;
+    ua = (Int*)cand;
     Int* ub;
     ub = (Int*)exponent;
 
@@ -145,10 +145,10 @@ Int Math_Comp(Int o, Int value, Int significand, Int exponent)
     return true;
 }
 
-Int Math_Value(Int o, Int significand, Int exponent)
+Int Math_Value(Int o, Int cand, Int exponent)
 {
     SInt aa;
-    aa = significand;
+    aa = cand;
     aa = aa << 4;
     aa = aa >> 4;
     SInt ab;
@@ -173,10 +173,10 @@ Int Math_Value(Int o, Int significand, Int exponent)
 }
 
 
-Int Math_ValueTen(Int o, Int significand, Int exponentTen)
+Int Math_ValueTen(Int o, Int cand, Int exponentTen)
 {
     SInt aa;
-    aa = significand;
+    aa = cand;
     aa = aa << 4;
     aa = aa >> 4;
     SInt ab;
