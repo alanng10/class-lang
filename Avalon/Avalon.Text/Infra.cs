@@ -92,7 +92,7 @@ public class Infra : Any
         return this.InfraInfra.DataCharGet(data, n);
     }
 
-    public virtual bool DataCharSet(Data data, long index, uint value)
+    public virtual bool DataCharSet(Data data, long index, long value)
     {
         long n;
         n = index;
