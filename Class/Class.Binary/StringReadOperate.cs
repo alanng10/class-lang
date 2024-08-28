@@ -28,7 +28,7 @@ public class StringReadOperate : ReadOperate
         this.ModuleRef.Init();
         this.Range = new Range();
         this.Range.Init();
-        this.String = "";
+        this.String = this.TextInfra.Zero;
         this.Array = this.ListInfra.ArrayCreate(0);
         return true;
     }
@@ -47,7 +47,7 @@ public class StringReadOperate : ReadOperate
     protected virtual Value ClassIndex { get; set; }
     protected virtual ModuleRef ModuleRef { get; set; }
     protected virtual Range Range { get; set; }
-    protected virtual string String { get; set; }
+    protected virtual String String { get; set; }
     protected virtual Array Array { get; set; }
 
     public override Binary ExecuteBinary()
@@ -130,7 +130,7 @@ public class StringReadOperate : ReadOperate
         return this.Range;
     }
 
-    public override string ExecuteString(int count)
+    public override String ExecuteString(long count)
     {
         Read read;
         read = this.Read;
@@ -177,7 +177,7 @@ public class StringReadOperate : ReadOperate
         return this.String;
     }
 
-    public override Array ExecuteArray(int count)
+    public override Array ExecuteArray(long count)
     {
         Read read;
         read = this.Read;
@@ -196,7 +196,7 @@ public class StringReadOperate : ReadOperate
         return this.Array;
     }
 
-    public override bool ExecuteArrayItemSet(Array array, int index, object value)
+    public override bool ExecuteArrayItemSet(Array array, long index, object value)
     {
         return true;
     }
