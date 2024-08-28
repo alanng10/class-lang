@@ -208,11 +208,11 @@ public class Write : Any
         return true;
     }
 
-    public virtual long ExecuteArgCount(WriteArg arg)
+    public virtual bool ExecuteArgCount(WriteArg arg)
     {
         if (!this.ValidArg(arg))
         {
-            return -1;
+            return false;
         }
 
         long kind;
@@ -229,7 +229,9 @@ public class Write : Any
         long a;
         a = aa.Int;
 
-        return a;
+        arg.Count = a;
+
+        return true;
     }
 
     public virtual bool ExecuteArgResult(WriteArg arg, Text result)
