@@ -32,7 +32,7 @@ Int Time_Final(Int o)
     return true;
 }
 
-Int Time_Set(Int o, Int year, Int month, Int day, Int hour, Int min, Int sec, Int millisec, Int pos)
+Int Time_Set(Int o, Int yea, Int mon, Int day, Int our, Int min, Int sec, Int millisec, Int pos)
 {
     Time* m;
     m = CP(o);
@@ -47,8 +47,8 @@ Int Time_Set(Int o, Int year, Int month, Int day, Int hour, Int min, Int sec, In
     int yearU;
     int monthU;
     int dayU;
-    yearU = year;
-    monthU = month;
+    yearU = yea;
+    monthU = mon;
     dayU = day;
 
     QDate dateO(yearU, monthU, dayU);
@@ -57,7 +57,7 @@ Int Time_Set(Int o, Int year, Int month, Int day, Int hour, Int min, Int sec, In
     int minU;
     int secU;
     int millisecU;
-    hourU = hour;
+    hourU = our;
     minU = min;
     secU = sec;
     millisecU = millisec;
@@ -90,7 +90,7 @@ Int Time_Set(Int o, Int year, Int month, Int day, Int hour, Int min, Int sec, In
     return true;
 }
 
-Int Time_YearGet(Int o)
+Int Time_YeaGet(Int o)
 {
     Time* m;
     m = CP(o);
@@ -103,9 +103,9 @@ Int Time_YearGet(Int o)
     return a;
 }
 
-FieldDefaultSet(Time, Year)
+FieldDefaultSet(Time, Yea)
 
-Int Time_MonthGet(Int o)
+Int Time_MonGet(Int o)
 {
     Time* m;
     m = CP(o);
@@ -118,7 +118,7 @@ Int Time_MonthGet(Int o)
     return a;
 }
 
-FieldDefaultSet(Time, Month)
+FieldDefaultSet(Time, Mon)
 
 Int Time_DayGet(Int o)
 {
@@ -135,7 +135,7 @@ Int Time_DayGet(Int o)
 
 FieldDefaultSet(Time, Day)
 
-Int Time_HourGet(Int o)
+Int Time_OurGet(Int o)
 {
     Time* m;
     m = CP(o);
@@ -148,7 +148,7 @@ Int Time_HourGet(Int o)
     return a;
 }
 
-FieldDefaultSet(Time, Hour)
+FieldDefaultSet(Time, Our)
 
 Int Time_MinGet(Int o)
 {
