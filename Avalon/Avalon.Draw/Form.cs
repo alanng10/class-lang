@@ -90,7 +90,7 @@ public class Form : Any
         return a;
     }
 
-    public virtual bool Offset(long col, long row)
+    public virtual bool Pos(long col, long row)
     {
         ulong colU;
         ulong rowU;

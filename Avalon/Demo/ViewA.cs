@@ -69,7 +69,7 @@ class ViewA : View
 
         this.Form.Reset();
 
-        this.Form.Offset(ooa, oob);
+        this.Form.Pos(ooa, oob);
 
         this.Form.Rotate(angle);
 
