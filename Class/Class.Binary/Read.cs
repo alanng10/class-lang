@@ -218,9 +218,9 @@ public class Read : Any
         Array array;
         array = this.Arg.BinaryArray;
 
-        int count;
+        long count;
         count = array.Count;
-        int i;
+        long i;
         i = 0;
         while (i < count)
         {
@@ -238,9 +238,9 @@ public class Read : Any
         Array array;
         array = this.Arg.ClassArray;
 
-        int count;
+        long count;
         count = array.Count;
-        int i;
+        long i;
         i = 0;
         while (i < count)
         {
