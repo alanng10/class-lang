@@ -703,13 +703,13 @@ public class Read : Any
 
     protected virtual Field ExecuteField()
     {
-        int u;
+        long u;
         u = this.ExecuteIndex();
         if (u == -1)
         {
             return null;
         }
-        int varClass;
+        long varClass;
         varClass = u;
 
         u = this.ExecuteByte();
@@ -717,7 +717,7 @@ public class Read : Any
         {
             return null;
         }
-        int count;
+        long count;
         count = u;
 
         u = this.ExecuteIndex();
@@ -725,7 +725,7 @@ public class Read : Any
         {
             return null;
         }
-        int varVirtual;
+        long varVirtual;
         varVirtual = u;
 
         u = this.ExecuteIndex();
@@ -733,10 +733,10 @@ public class Read : Any
         {
             return null;
         }
-        int index;
+        long index;
         index = u;
 
-        string name;
+        String name;
         name = this.ExecuteString();
         if (name == null)
         {
@@ -755,13 +755,13 @@ public class Read : Any
 
     protected virtual Array ExecuteMaideArray()
     {
-        int o;
+        long o;
         o = this.ExecuteCount();
         if (o == -1)
         {
             return null;
         }
-        int count;
+        long count;
         count = o;
 
         Array array;
@@ -771,7 +771,7 @@ public class Read : Any
             return null;
         }
 
-        int i;
+        long i;
         i = 0;
         while (i < count)
         {
