@@ -18,7 +18,7 @@ public class Write : Any
     protected virtual InfraInfra InfraInfra { get; set; }
     protected virtual Infra TextInfra { get; set; }
     protected virtual StringComp StringComp { get; set; }
-    protected virtual long KindCount { get { return 4; } set { } }
+    protected virtual long KindCount { get { return 3; } set { } }
     protected virtual Array CountState { get; set; }
     protected virtual Array ResultState { get; set; }
     protected virtual Array Array { get; set; }
@@ -35,7 +35,6 @@ public class Write : Any
 
         this.CountStateAdd(new BoolWriteCountState());
         this.CountStateAdd(new IntWriteCountState());
-        this.CountStateAdd(new SIntWriteCountState());
         this.CountStateAdd(new TextWriteCountState());
         return true;
     }
@@ -51,7 +50,6 @@ public class Write : Any
 
         this.ResultStateAdd(new BoolWriteResultState());
         this.ResultStateAdd(new IntWriteResultState());
-        this.ResultStateAdd(new SIntWriteResultState());
         this.ResultStateAdd(new TextWriteResultState());
         return true;
     }
@@ -95,10 +93,8 @@ public class Write : Any
             WriteArg arg;
             arg = (WriteArg)argList.GetAt(i);
             
-            this.ExecuteArgCount(arg);
-
-            long ka;
-            ka = arg.Count;
+            long 
+            ka = this.ExecuteArgCount(arg);
 
             k = k + ka;
 
@@ -212,11 +208,11 @@ public class Write : Any
         return true;
     }
 
-    public virtual bool ExecuteArgCount(WriteArg arg)
+    public virtual long ExecuteArgCount(WriteArg arg)
     {
         if (!this.ValidArg(arg))
         {
-            return false;
+            return -1;
         }
 
         long kind;
@@ -230,39 +226,10 @@ public class Write : Any
         Value aa;
         aa = (Value)state.Result;
 
-        long valueCount;
-        valueCount = aa.Int;
+        long a;
+        a = aa.Int;
 
-        long fieldWidth;
-        fieldWidth = arg.FieldWidth;
-
-        long maxWidth;
-        maxWidth = arg.MaxWidth;
-
-        long u;
-        u = maxWidth;
-        u = u << 4;
-        u = u >> 4;
-
-        long count;
-        count = valueCount;
-
-        if (count < fieldWidth)
-        {
-            count = fieldWidth;
-        }
-
-        if (!(u == -1))
-        {
-            if (maxWidth < count)
-            {
-                count = maxWidth;
-            }
-        }
-
-        arg.ValueCount = valueCount;
-        arg.Count = count;
-        return true;
+        return a;
     }
 
     public virtual bool ExecuteArgResult(WriteArg arg, Text result)
