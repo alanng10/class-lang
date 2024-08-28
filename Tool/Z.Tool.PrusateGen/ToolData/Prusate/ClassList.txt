@@ -328,29 +328,29 @@ Phore
     Release()
 
 Time
-    Year
-    Month
+    Yea
+    Mon
     Day
-    Hour
+    Our
     Min
     Sec
     Millisec
     Pos
-    YearDay
+    YeaDay
     WeekDay
-    YearDayCount
-    MonthDayCount
+    YeaDayCount
+    MonDayCount
     TotalMillisec
-    AddYear(value)
-    AddMonth(value)
+    AddYea(value)
+    AddMon(value)
     AddDay(value)
     AddMillisec(value)
     This()
     ToPos(pos)
-    Set(year, month, day, hour, min, sec, millisec, pos)
-    LeapYear(year) -
-    ValidDate(year, month, day) -
-    ValidTime(hour, minute, sec, millisec) -
+    Set(yea, mon, day, our, min, sec, millisec, pos)
+    LeapYea(yea) -
+    ValidDate(yea, mon, day) -
+    ValidTime(our, min, sec, millisec) -
 
 TimeEvent
     Start()
