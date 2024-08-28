@@ -59,15 +59,15 @@ public class Read : Any
         this.ExecuteStage();
 
         arg.StringCountData = new Data();
-        arg.StringCountData.Count = arg.StringIndex * sizeof(uint);
+        arg.StringCountData.Count = arg.StringIndex * sizeof(ulong);
         arg.StringCountData.Init();
 
         arg.StringTextData = new Data();
-        arg.StringTextData.Count = arg.StringTextIndex * sizeof(char);
+        arg.StringTextData.Count = arg.StringTextIndex * sizeof(uint);
         arg.StringTextData.Init();
 
         arg.ArrayCountData = new Data();
-        arg.ArrayCountData.Count = arg.ArrayIndex * sizeof(uint);
+        arg.ArrayCountData.Count = arg.ArrayIndex * sizeof(ulong);
         arg.ArrayCountData.Init();
 
         this.Operate = this.StringOperate;
@@ -192,19 +192,19 @@ public class Read : Any
         Data countData;
         countData = arg.ArrayCountData;
 
-        int count;
+        long count;
         count = array.Count;
-        int i;
+        long i;
         i = 0;
         while (i < count)
         {
             long index;
             index = i;
-            index = index * sizeof(uint);
-            uint u;
-            u = infraInfra.DataMidGet(countData, index);
-            int oa;
-            oa = (int)u;
+            index = index * sizeof(ulong);
+            ulong u;
+            u = infraInfra.DataIntGet(countData, index);
+            long oa;
+            oa = (long)u;
             Array o;
             o = listInfra.ArrayCreate(oa);
             array.SetAt(i, o);
