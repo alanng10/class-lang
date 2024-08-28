@@ -184,7 +184,7 @@ public class Time : Any
         }
     }
 
-    public virtual long MonthDayCount
+    public virtual long MonDayCount
     {
         get
         {
