@@ -20,5 +20,6 @@ public class WriteArg : Any
     public virtual long Case { get; set; }
     public virtual long Sign { get; set; }
     public virtual long FillChar { get; set; }
+    public virtual long ValueCount { get; set; }
     public virtual long Count { get; set; }
 }
