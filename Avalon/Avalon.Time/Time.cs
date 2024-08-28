@@ -216,8 +216,12 @@ public class Time : Any
 
     public virtual bool This()
     {
-        Extern.Time_This(this.Intern);
-        return true;
+        ulong u;
+        u = Extern.Time_This(this.Intern);
+
+        bool a;
+        a = !(u == 0);
+        return a;
     }
 
     public virtual bool ToPos(long pos)
