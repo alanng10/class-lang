@@ -70,7 +70,7 @@ class ThreadState : State
 
         console.Out.Write(this.S("ThreadState.Execute ThreadThis Wait END\n"));
 
-        this.Phore.Release();
+        this.Phore.Close();
         
         this.Draw();
 

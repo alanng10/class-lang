@@ -29,7 +29,7 @@ public class Phore : Any
         return true;
     }
 
-    public virtual bool Release()
+    public virtual bool Close()
     {
         Extern.Phore_Release(this.Intern);
         return true;

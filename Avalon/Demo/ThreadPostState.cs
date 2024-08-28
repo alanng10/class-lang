@@ -22,7 +22,7 @@ class ThreadPostState : State
 
         this.Post = post;
 
-        this.Phore.Release();
+        this.Phore.Close();
 
         long o;
         o = thread.ExecuteEventLoop();
