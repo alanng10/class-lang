@@ -244,6 +244,10 @@ Word "draw" has meaning that is comp video.
 
 Word "brush" has meaning that is draw comp applied.
 
+Word "round" has meaning that is sphere.
+
+Word "shape" has meaning that is draw any.
+
 Word "pos" has meaning that is position in signed int.
 
 Word "row" has meaning that is vertical index.
