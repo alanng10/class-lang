@@ -34,16 +34,8 @@ class Demo : Any
     public virtual MathMath Math { get; set; }
     protected virtual MathComp MathComp { get; set; }
     private StringJoin StringJoin { get; set; }
-    private TextWriteArg ArgPrefix { get; set; }
-    private TextWriteArg ArgYea { get; set; }
-    private TextWriteArg ArgMon { get; set; }
-    private TextWriteArg ArgDay { get; set; }
-    private TextWriteArg ArgOur { get; set; }
-    private TextWriteArg ArgMin { get; set; }
-    private TextWriteArg ArgSec { get; set; }
-    private TextWriteArg ArgMillisec { get; set; }
-    private TextWriteArg ArgPos { get; set; }
-    private Array ArgList { get; set; }
+    private TextWrite TextWrite { get; set; }
+    private TextWriteArg TextWriteArg { get; set; }
 
     public bool Execute()
     {
@@ -637,37 +629,6 @@ class Demo : Any
 
     private bool ExecuteTime()
     {
-        this.TimeWriteBase = this.TextInfra.TextCreateStringData(
-            this.S("yea: , mon: , day: , our: , min: , sec: , millisec: , pos: \n"), null);
-
-        TextWriteArg prefixArg;
-        prefixArg = new TextWriteArg();
-        prefixArg.Init();
-        prefixArg.Pos = 0;
-        prefixArg.Kind = 3;
-        prefixArg.MaxWidth = -1;
-        this.ArgPrefix = prefixArg;
-
-        this.ArgYea = this.CreateTimeWriteArg(6);
-        this.ArgMon = this.CreateTimeWriteArg(15);
-        this.ArgDay = this.CreateTimeWriteArg(22);
-        this.ArgOur = this.CreateTimeWriteArg(30);
-        this.ArgMin = this.CreateTimeWriteArg(37);
-        this.ArgSec = this.CreateTimeWriteArg(44);
-        this.ArgMillisec = this.CreateTimeWriteArg(56);
-        this.ArgPos = this.CreateTimeWriteArg(63);
-
-        this.ArgList = this.ListInfra.ArrayCreate(9);
-        this.ArgList.SetAt(0, prefixArg);
-        this.ArgList.SetAt(1, this.ArgYea);
-        this.ArgList.SetAt(2, this.ArgMon);
-        this.ArgList.SetAt(3, this.ArgDay);
-        this.ArgList.SetAt(4, this.ArgOur);
-        this.ArgList.SetAt(5, this.ArgMin);
-        this.ArgList.SetAt(6, this.ArgSec);
-        this.ArgList.SetAt(7, this.ArgMillisec);
-        this.ArgList.SetAt(8, this.ArgPos);
-
         CharForm charForm;
         charForm = new CharForm();
         charForm.Init();
@@ -677,7 +638,16 @@ class Demo : Any
         write.Init();
         write.CharForm = charForm;
 
-        this.TimeWrite = write;
+        this.TextWrite = write;
+
+        TextWriteArg arg;
+        arg = new TextWriteArg();
+        arg.Init();
+        arg.Kind = 1;
+        arg.Base = 10;
+        arg.MaxWidth = -1;
+        arg.FieldWidth = 1;
+        this.TextWriteArg = arg;
 
         Time time;
         time = new Time();
@@ -698,55 +668,41 @@ class Demo : Any
         return true;
     }
 
-    private Text TimeWriteBase { get; set; }
-    private TextWrite TimeWrite { get; set; }
-
     private bool ConsoleWriteTime(string prefix, Time time)
     {
-        String ka;
-        ka = this.S(prefix);
+        this.AddClear().AddS(prefix);
 
-        Text prefixText;
-        prefixText = this.TextInfra.TextCreateStringData(ka, null);
+        this.AddS("yea: ").Add(this.IntString(time.Yea))
+            .AddS(", mon: ").Add(this.IntString(time.Mon))
+            .AddS(", day: ").Add(this.IntString(time.Day))
+            .AddS(", our: ").Add(this.IntString(time.Our))
+            .AddS(", min: ").Add(this.IntString(time.Min))
+            .AddS(", sec: ").Add(this.IntString(time.Sec))
+            .AddS(", millisec: ").Add(this.IntString(time.Millisec))
+            .AddS(", pos: ").Add(this.IntString(time.Pos));
 
-        this.ArgPrefix.Value.Any = prefixText;
+        String k;
+        k = this.AddResult();
 
-        this.ArgYea.Value.Int = time.Yea;
-        this.ArgMon.Value.Int = time.Mon;
-        this.ArgDay.Value.Int = time.Day;
-        this.ArgOur.Value.Int = time.Our;
-        this.ArgMin.Value.Int = time.Min;
-        this.ArgSec.Value.Int = time.Sec;
-        this.ArgMillisec.Value.Int = time.Millisec;
-        this.ArgPos.Value.Int = time.Pos;
-
-        long resultCount;
-        resultCount = this.TimeWrite.ExecuteCount(this.TimeWriteBase, this.ArgList);
-
-        Text result;
-        result = this.TextInfra.TextCreate(resultCount);
-
-        this.TimeWrite.ExecuteResult(this.TimeWriteBase, this.ArgList, result);
-
-        this.ArgPrefix.Value.Any = null;
-
-        String a;
-        a = this.TextInfra.StringCreate(result);
-
-        this.Console.Out.Write(a);
+        this.Console.Out.Write(k);
 
         return true;
     }
 
-    private TextWriteArg CreateTimeWriteArg(long pos)
+    private String IntString(long o)
     {
-        TextWriteArg a;
-        a = new TextWriteArg();
-        a.Init();
-        a.Pos = pos;
-        a.Kind = 1;
-        a.MaxWidth = -1;
-        a.Base = 10;
+        this.TextWriteArg.Value.Int = o;
+
+        this.TextWrite.ExecuteArgCount(this.TextWriteArg);
+
+        Text text;
+        text = this.TextInfra.TextCreate(this.TextWriteArg.Count);
+
+        this.TextWrite.ExecuteArgResult(this.TextWriteArg, text);
+
+        String a;
+        a = this.TextInfra.StringCreate(text);
+
         return a;
     }
 
@@ -1590,12 +1546,6 @@ class Demo : Any
     public virtual Demo AddS(string o)
     {
         this.Add(this.S(o));
-        return this;
-    }
-
-    public virtual Demo AddChar(uint a)
-    {
-        this.StringJoin.Execute(a);
         return this;
     }
 
