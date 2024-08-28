@@ -232,6 +232,21 @@ Int Time_This(Int o)
     m = CP(o);
     QDateTime u;
     u = QDateTime::currentDateTime();
+
+    Int ka;
+    ka = CastInt(&u);
+
+    Int k;
+    k = Time_TotalMillisecIntern(ka);
+
+    SInt kka;
+    kka = k;
+
+    if (kka < 0)
+    {
+        return false;
+    }
+
     (*(m->Intern)) = u;
     return true;
 }
