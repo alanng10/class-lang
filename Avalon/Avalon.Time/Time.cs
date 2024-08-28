@@ -24,7 +24,7 @@ public class Time : Any
         get
         {
             ulong u;
-            u = Extern.Time_YearGet(this.Intern);
+            u = Extern.Time_YeaGet(this.Intern);
             long a;
             a = (long)u;
             return a;
@@ -39,7 +39,7 @@ public class Time : Any
         get
         {
             ulong u;
-            u = Extern.Time_MonthGet(this.Intern);
+            u = Extern.Time_MonGet(this.Intern);
             long a;
             a = (long)u;
             return a;
@@ -69,7 +69,7 @@ public class Time : Any
         get
         {
             ulong u;
-            u = Extern.Time_HourGet(this.Intern);
+            u = Extern.Time_OurGet(this.Intern);
             long a;
             a = (long)u;
             return a;
@@ -144,7 +144,7 @@ public class Time : Any
         get
         {
             ulong u;
-            u = Extern.Time_YearDayGet(this.Intern);
+            u = Extern.Time_YeaDayGet(this.Intern);
             long a;
             a = (long)u;
             return a;
@@ -174,7 +174,7 @@ public class Time : Any
         get
         {
             ulong u;
-            u = Extern.Time_YearDayCountGet(this.Intern);
+            u = Extern.Time_YeaDayCountGet(this.Intern);
             long a;
             a = (long)u;
             return a;
@@ -189,7 +189,7 @@ public class Time : Any
         get
         {
             ulong u;
-            u = Extern.Time_MonthDayCountGet(this.Intern);
+            u = Extern.Time_MonDayCountGet(this.Intern);
             long a;
             a = (long)u;
             return a;
@@ -228,12 +228,12 @@ public class Time : Any
         return true;
     }
 
-    public virtual bool AddYear(long value)
+    public virtual bool AddYea(long value)
     {
         ulong valueU;
         valueU = (ulong)value;
         ulong u;
-        u = Extern.Time_AddYear(this.Intern, valueU);
+        u = Extern.Time_AddYea(this.Intern, valueU);
 
         bool a;
         a = !(u == 0);
@@ -245,7 +245,7 @@ public class Time : Any
         ulong valueU;
         valueU = (ulong)value;
         ulong u;
-        u = Extern.Time_AddMonth(this.Intern, valueU);
+        u = Extern.Time_AddMon(this.Intern, valueU);
 
         bool a;
         a = !(u == 0);
@@ -281,7 +281,7 @@ public class Time : Any
         ulong ua;
         ua = (ulong)yea;
         ulong u;
-        u = Extern.Time_LeapYear(ua);
+        u = Extern.Time_LeapYea(ua);
 
         bool a;
         a = (!(u == 0));
