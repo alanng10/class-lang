@@ -429,18 +429,18 @@ Int Time_LeapYea(Int yea)
 
 Int Time_ValidDate(Int yea, Int mon, Int day)
 {
-    int yearU;
-    int monthU;
+    int yeaU;
+    int monU;
     int dayU;
-    yearU = yea;
-    monthU = mon;
+    yeaU = yea;
+    monU = mon;
     dayU = day;
 
-    if (yearU < 1)
+    if (yeaU < 1)
     {
         return false;
     }
-    if (monthU < 1)
+    if (monU < 1)
     {
         return false;
     }
@@ -450,7 +450,7 @@ Int Time_ValidDate(Int yea, Int mon, Int day)
     }
 
     bool bu;
-    bu = QDate::isValid(yearU, monthU, dayU);
+    bu = QDate::isValid(yeaU, monU, dayU);
     Bool a;
     a = bu;
     return a;
