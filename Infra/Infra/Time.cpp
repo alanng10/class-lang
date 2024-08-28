@@ -44,25 +44,25 @@ Int Time_Set(Int o, Int yea, Int mon, Int day, Int our, Int min, Int sec, Int mi
 
     dtO = dtO.toOffsetFromUtc(offsetUtcU);
 
-    int yearU;
-    int monthU;
+    int yeaU;
+    int monU;
     int dayU;
-    yearU = yea;
-    monthU = mon;
+    yeaU = yea;
+    monU = mon;
     dayU = day;
 
-    QDate dateO(yearU, monthU, dayU);
+    QDate dateO(yeaU, monU, dayU);
 
-    int hourU;
+    int ourU;
     int minU;
     int secU;
     int millisecU;
-    hourU = our;
+    ourU = our;
     minU = min;
     secU = sec;
     millisecU = millisec;
 
-    QTime timeO(hourU, minU, secU, millisecU);
+    QTime timeO(ourU, minU, secU, millisecU);
 
     dtO.setDate(dateO);
     dtO.setTime(timeO);
