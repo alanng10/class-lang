@@ -849,13 +849,13 @@ public class Read : Any
 
     protected virtual Array ExecuteVarArray()
     {
-        int o;
+        long o;
         o = this.ExecuteCount();
         if (o == -1)
         {
             return null;
         }
-        int count;
+        long count;
         count = o;
 
         Array array;
@@ -865,7 +865,7 @@ public class Read : Any
             return null;
         }
 
-        int i;
+        long i;
         i = 0;
         while (i < count)
         {
@@ -883,16 +883,16 @@ public class Read : Any
 
     protected virtual Var ExecuteVar()
     {
-        int u;
+        long u;
         u = this.ExecuteIndex();
         if (u == -1)
         {
             return null;
         }
-        int varClass;
+        long varClass;
         varClass = u;
 
-        string name;
+        String name;
         name = this.ExecuteString();
         if (name == null)
         {
