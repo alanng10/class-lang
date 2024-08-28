@@ -204,6 +204,8 @@ Word "text" has meaning that is string lines.
 
 Word "char" has meaning that is character code.
 
+Word "fill" has meaning that is set value in entire range.
+
 Word "stream" has meaning that is serial.
 
 Word "read" has meaning that is got info from medium.
@@ -239,6 +241,8 @@ Word "error" has meaning that is invalid.
 Word "valid" has meaning that is can accept.
 
 Word "draw" has meaning that is comp video.
+
+Word "brush" has meaning that is draw comp applied.
 
 Word "pos" has meaning that is position in signed int.
 
