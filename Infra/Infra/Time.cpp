@@ -458,16 +458,16 @@ Int Time_ValidDate(Int yea, Int mon, Int day)
 
 Int Time_ValidTime(Int our, Int min, Int sec, Int millisec)
 {
-    int hourU;
-    int minuteU;
-    int secondU;
-    int millisecondU;
-    hourU = our;
-    minuteU = min;
-    secondU = sec;
-    millisecondU = millisec;
+    int ourU;
+    int minU;
+    int secU;
+    int millisecU;
+    ourU = our;
+    minU = min;
+    secU = sec;
+    millisecU = millisec;
     bool bu;
-    bu = QTime::isValid(hourU, minuteU, secondU, millisecondU);
+    bu = QTime::isValid(ourU, minU, secU, millisecU);
     Bool a;
     a = bu;
     return a;
