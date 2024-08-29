@@ -28,7 +28,7 @@ Int Intern_Intern_RefLess(Eval* eval, Int frame)
     Return(ke, 2);
 }
 
-Int Intern_Intern_StringCount(Eval* eval, Int frame)
+Int Intern_Intern_StringCountGet(Eval* eval, Int frame)
 {
     Int s;
     s = eval->Stack[frame - 1];
@@ -46,6 +46,31 @@ Int Intern_Intern_StringCount(Eval* eval, Int frame)
     ke = *p;
 
     Return(ke, 1);
+}
+
+Int Intern_Intern_StringCountSet(Eval* eval, Int frame)
+{
+    Int s;
+    s = eval->Stack[frame - 2];
+
+    Int value;
+    value = eval->Stack[frame - 1];
+
+    Int k;
+    k = s;
+    RefMemoryAddress(k);
+
+    k = k + sizeof(Int);
+
+    Int* p;
+    p = CastPointer(k);
+
+    *p = value;
+
+    Int ke;
+    ke = BoolTrue;
+
+    Return(ke, 2);
 }
 
 Int Intern_Any_Init(Eval* eval, Int frame)
