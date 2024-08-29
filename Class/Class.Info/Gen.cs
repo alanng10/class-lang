@@ -274,13 +274,13 @@ public class Gen : Any
         String pageRootPath;
         pageRootPath = this.PageRootPath(level);
         
-        string a;
-        a = this.PageTemplate;
-        a = a.Replace("#AssetVer#", this.Ver);
-        a = a.Replace("#ArticleTitle#", title);
-        a = a.Replace("#ArticleInner#", inner);
-        a = a.Replace("#PageRootPath#", pageRootPath);
-        a = a.Replace("#PagePath#", pagePath);
+        Text a;
+        a = this.TextCreate(this.PageTemplate);
+        a = this.Replace(a, "#AssetVer#", this.Ver);
+        a = this.Replace(a, "#ArticleTitle#", title);
+        a = this.Replace(a, "#ArticleInner#", inner);
+        a = this.Replace(a, "#PageRootPath#", pageRootPath);
+        a = this.Replace(a, "#PagePath#", pagePath);
 
         string pathKk;
         pathKk = path.ToLower();
@@ -728,6 +728,11 @@ public class Gen : Any
         array.Sort(range, less);
 
         return array;
+    }
+
+    protected virtual Text Replace(Text text, string limit, String join)
+    {
+        return this.TextReplace(text, this.TextCreate(this.S(limit)), this.TextCreate(join));
     }
 
     protected virtual Text TextCreate(String o)
