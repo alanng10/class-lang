@@ -1,6 +1,6 @@
 #include "Intern.h"
 
-Int Intern_Intern_RefCompare(Eval* eval, Int frame)
+Int Intern_Intern_RefLess(Eval* eval, Int frame)
 {
     Int ka;
     Int kb;
