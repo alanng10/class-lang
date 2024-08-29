@@ -6,8 +6,9 @@ public class CountReadOperate : ReadOperate
     {
         base.Init();
         this.ListInfra = ListInfra.This;
+        this.TextInfra = TextInfra.This;
         this.ClassInfra = ClassInfra.This;
-        this.String = "";
+        this.String = this.TextInfra.Zero;
         this.Array = this.ListInfra.ArrayCreate(0);
         this.Port = new Port();
         this.Port.Init();
@@ -25,8 +26,9 @@ public class CountReadOperate : ReadOperate
 
     public virtual Read Read { get; set; }
     protected virtual ListInfra ListInfra { get; set; }
+    protected virtual TextInfra TextInfra { get; set; }
     protected virtual ClassInfra ClassInfra { get; set; }
-    protected virtual string String { get; set; }
+    protected virtual String String { get; set; }
     protected virtual Array Array { get; set; }
     protected virtual Port Port { get; set; }
     protected virtual ModuleRef ModuleRef { get; set; }
@@ -35,7 +37,7 @@ public class CountReadOperate : ReadOperate
     protected virtual Export Export { get; set; }
     protected virtual Storage Storage { get; set; }
 
-    public override string ExecuteString(int row, Range range)
+    public override String ExecuteString(long row, Range range)
     {
         ReadArg arg;
         arg = this.Read.Arg;
@@ -43,7 +45,7 @@ public class CountReadOperate : ReadOperate
         return this.String;
     }
 
-    public override Array ExecuteArray(int count)
+    public override Array ExecuteArray(long count)
     {
         ReadArg arg;
         arg = this.Read.Arg;

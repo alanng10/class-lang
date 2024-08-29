@@ -2,17 +2,17 @@ namespace Class.Port;
 
 public class ReadOperate : Any
 {
-    public virtual string ExecuteString(int row, Range range)
+    public virtual String ExecuteString(long row, Range range)
     {
         return null;
     }
 
-    public virtual Array ExecuteArray(int count)
+    public virtual Array ExecuteArray(long count)
     {
         return null;
     }
 
-    public virtual bool ExecuteArrayItemSet(Array array, int index, object value)
+    public virtual bool ExecuteArrayItemSet(Array array, long index, object value)
     {
         return false;
     }
