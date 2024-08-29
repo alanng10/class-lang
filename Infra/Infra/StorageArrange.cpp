@@ -278,6 +278,15 @@ Int StorageArrange_FoldList(Int o, Int path)
         QString fold;
         fold = foldList.at(indexU);
 
-        
+        Int ka;
+        ka = CastInt(&fold);
+
+        Int a;
+        a = StorageArrange_StringCreate(o, ka);
     }
+}
+
+Int StorageArrange_StringCreate(Int o, Int u)
+{
+
 }
