@@ -178,6 +178,10 @@ Word "clear" has meaning that is empty list.
 
 Word "short" has meaning that is half of mid.
 
+Word "mid" has meaning that is half of long.
+
+Word "long" has meaning that is system int.
+
 Word "list" has meaning that is integer multiple.
 
 Word "table" has meaning that is entry map.
