@@ -9,6 +9,7 @@ public class Read : Any
         this.ListInfra = ListInfra.This;
         this.TextInfra = TextInfra.This;
         this.ClassInfra = ClassInfra.This;
+        this.TextStringValue = TextStringValue.This;
 
         this.CountOperate = new CountReadOperate();
         this.CountOperate.Read = this;
@@ -45,22 +46,23 @@ public class Read : Any
 
         this.TextNewLine = this.TextInfra.TextCreateStringData(this.ClassInfra.NewLine, null);
 
-        this.Colon = ":";
-        this.Dot = ".";
-        this.SquareLeft = "[";
-        this.SquareRight = "]";
-        this.Space = " ";
-        this.Indent = "    ";
+        this.Colon = this.S(":");
+        this.Dot = this.S(".");
+        this.SquareLeft = this.S("[");
+        this.SquareRight = this.S("]");
+        this.Space = this.S(" ");
+        this.Indent = this.S("    ");
         return true;
     }
 
-    public virtual string Source { get; set; }
+    public virtual String Source { get; set; }
     public virtual Port Port { get; set; }
     public virtual ReadArg Arg { get; set; }
     protected virtual InfraInfra InfraInfra { get; set; }
     protected virtual ListInfra ListInfra { get; set; }
     protected virtual TextInfra TextInfra { get; set; }
     protected virtual ClassInfra ClassInfra { get; set; }
+    protected virtual TextStringValue TextStringValue { get; set; }
     protected virtual Array LineList { get; set; }
     protected virtual ReadOperate Operate { get; set; }
     protected virtual CountReadOperate CountOperate { get; set; }
@@ -71,19 +73,19 @@ public class Read : Any
     protected virtual StringData StringData { get; set; }
     protected virtual TextLess TextLess { get; set; }
     protected virtual Text TextNewLine { get; set; }
-    protected virtual string Colon { get; set; }
-    protected virtual string Dot { get; set; }
-    protected virtual string SquareLeft { get; set; }
-    protected virtual string SquareRight { get; set; }
-    protected virtual string Space { get; set; }
-    protected virtual string Indent { get; set; }
+    protected virtual String Colon { get; set; }
+    protected virtual String Dot { get; set; }
+    protected virtual String SquareLeft { get; set; }
+    protected virtual String SquareRight { get; set; }
+    protected virtual String Space { get; set; }
+    protected virtual String Indent { get; set; }
 
     public virtual bool Execute()
     {
         ListInfra listInfra;
         listInfra = this.ListInfra;
 
-        string source;
+        String source;
         source = this.Source;
 
         Text aaa;
@@ -103,10 +105,10 @@ public class Read : Any
 
         long aa;
         aa = arg.StringIndex;
-        aa = aa * sizeof(uint) * 3;
+        aa = aa * sizeof(ulong) * 3;
         arg.StringTextData = this.CreateData(aa);
         aa = arg.ArrayIndex;
-        aa = aa * sizeof(uint);
+        aa = aa * sizeof(ulong);
         arg.ArrayCountData = this.CreateData(aa);
 
         this.Operate = this.StringOperate;
@@ -171,35 +173,35 @@ public class Read : Any
         range = text.Range;
         Data textData;
         textData = arg.StringTextData;
-        int ka;
-        ka = sizeof(uint);
+        long ka;
+        ka = sizeof(ulong);
         Array array;
         array = arg.StringArray;
-        int count;
+        long count;
         count = array.Count;
-        int i;
+        long i;
         i = 0;
         while (i < count)
         {
             long nn;
             nn = i;
             nn = nn * 3;
-            int row;
-            int index;
-            int countA;
+            long row;
+            long index;
+            long countA;
             long na;
             na = nn * ka;
-            uint u;
-            u = infraInfra.DataMidGet(textData, na);
-            row = (int)u;
+            ulong u;
+            u = infraInfra.DataIntGet(textData, na);
+            row = (long)u;
             
             na = (nn + 1) * ka;
-            u = infraInfra.DataMidGet(textData, na);
-            index = (int)u;
+            u = infraInfra.DataIntGet(textData, na);
+            index = (long)u;
             
             na = (nn + 2) * ka;
-            u = infraInfra.DataMidGet(textData, na);
-            countA = (int)u;
+            u = infraInfra.DataIntGet(textData, na);
+            countA = (long)u;
 
             Text line;
             line = this.LineText(row);
@@ -208,7 +210,7 @@ public class Read : Any
             range.Index = index;
             range.Count = countA;
 
-            string a;
+            String a;
             a = textInfra.StringCreate(text);
             text.Data = null;
 
@@ -1250,5 +1252,10 @@ public class Read : Any
         this.Text.Range.Index = 0;
         this.Text.Range.Count = o.Length;
         return true;
+    }
+
+    private String S(string o)
+    {
+        return this.TextStringValue.Execute(o);
     }
 }
