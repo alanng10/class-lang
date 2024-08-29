@@ -176,6 +176,8 @@ Word "zero" has meaning that is empty effect.
 
 Word "clear" has meaning that is empty list.
 
+Word "short" has meaning that is half of mid.
+
 Word "list" has meaning that is integer multiple.
 
 Word "table" has meaning that is entry map.
@@ -258,7 +260,7 @@ Word "row" has meaning that is vertical index.
 
 Word "col" has meaning that is horizontal index.
 
-Word "hor" has meaning that is frontal index;
+Word "hor" has meaning that is frontal index.
 
 Word "size" has meaning that is length in dimensions.
 
