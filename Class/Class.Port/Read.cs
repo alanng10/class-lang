@@ -1036,7 +1036,7 @@ public class Read : Any
         return true;
     }
 
-    protected virtual ModuleRef ExecuteModuleRef(int row)
+    protected virtual ModuleRef ExecuteModuleRef(long row)
     {
         TextInfra textInfra;
         textInfra = this.TextInfra;
@@ -1050,14 +1050,14 @@ public class Read : Any
         Range rangeA;
         rangeA = textA.Range;
 
-        int nameCount;
+        long nameCount;
         long version;
         nameCount = 0;
         version = 0;
         
         this.TextGet(this.Colon);
         
-        int n;
+        long n;
         n = textInfra.Index(text, textA, this.TextLess);
         bool b;
         b = (n == -1);
@@ -1070,11 +1070,11 @@ public class Read : Any
         {
             nameCount = n - range.Index;
 
-            int aa;
-            int ab;
+            long aa;
+            long ab;
             aa = range.Index;
             ab = range.Count;
-            int oo;
+            long oo;
             oo = n + 1;
             range.Index = aa + oo;
             range.Count = ab - oo;
@@ -1092,7 +1092,7 @@ public class Read : Any
 
         rangeA.Index = range.Index;
         rangeA.Count = nameCount;
-        string name;
+        String name;
         name = this.ExecuteString(row, rangeA);
         
         ModuleRef a;
