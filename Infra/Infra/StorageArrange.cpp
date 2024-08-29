@@ -288,5 +288,49 @@ Int StorageArrange_FoldList(Int o, Int path)
 
 Int StorageArrange_StringCreate(Int o, Int u)
 {
+    QString* ka;
+    ka = (QString*)u;
 
+    QList<uint> kk;
+    kk = ka->toUcs4();
+
+    qsizetype countU;
+    countU = kk.size();
+
+    Int count;
+    count = countU;
+
+    Int dataCount;
+    dataCount = count * Constant_CharByteCount();
+
+    Int data;
+    data = New(dataCount);
+
+    Char* p;
+    p = (Char*)data;
+
+    Int i;
+    i = 0;
+    while (i < count)
+    {
+        qsizetype iU;
+        iU = i;
+        
+        uint n;
+        n = kk.at(iU);
+
+        p[i] = n;
+
+        i = i + 1;
+    }
+
+    Int k;
+    k = String_New();
+    String_Init(k);
+    String_DataSet(k, data);
+    String_CountSet(k, count);
+
+    Int a;
+    a = k;
+    return a;
 }
