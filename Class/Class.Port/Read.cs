@@ -837,7 +837,7 @@ public class Read : Any
 
         this.TextGet(this.Colon);
 
-        int u;
+        long u;
         u = textInfra.Index(text, textA, less);
         if (u == -1)
         {
@@ -850,15 +850,15 @@ public class Read : Any
         range.Index = 0;
         range.Count = u;
         
-        string path;
+        String path;
         path = this.ExecuteString(row, range);
 
-        int k;
+        long k;
         k = u + 1;
         range.Index = k;
         range.Count = text.Range.Count - k;
 
-        string sourcePath;
+        String sourcePath;
         sourcePath = this.ExecuteString(row, range);
 
         Storage a;
