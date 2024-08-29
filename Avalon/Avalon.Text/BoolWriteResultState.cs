@@ -39,7 +39,7 @@ public class BoolWriteResultState : WriteResultState
 
         long varCase;
         varCase = arg.Case;
-        uint fillChar;
+        long fillChar;
         fillChar = arg.FillChar;
         
         long fillStart;
