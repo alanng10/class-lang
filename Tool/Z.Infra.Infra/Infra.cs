@@ -299,9 +299,9 @@ public class Infra : Any
         return this.TextInfra.Limit(text, delimit, this.TextLess);
     }
 
-    public virtual Text TextReplace(Text text, Text delimit, Text join)
+    public virtual Text TextReplace(Text text, Text limit, Text join)
     {
-        return this.TextInfra.Replace(text, delimit, join, this.TextLess);
+        return this.TextInfra.Replace(text, limit, join, this.TextLess);
     }
 
     public virtual Text TextCreate(String o)
