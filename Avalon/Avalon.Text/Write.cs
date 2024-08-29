@@ -564,14 +564,14 @@ public class Write : Any
             return false;
         }
 
-        if (kind == 1 | kind == 2)
+        if (kind == 1)
         {
             if (!this.ValidIntBase(arg.Base))
             {
                 return false;
             }
         }
-        if (kind == 3)
+        if (kind == 2)
         {
             object aa;
             aa = arg.Value.Any;
