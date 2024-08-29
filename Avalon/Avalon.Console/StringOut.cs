@@ -26,7 +26,7 @@ public class StringOut : Out
         return true;
     }
 
-    public virtual String Rest()
+    public virtual String Result()
     {
         return this.StringAdd.Result();
     }

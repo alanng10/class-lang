@@ -257,8 +257,8 @@ public class Test : Any
         string actualOut;
         string actualErr;
 
-        actualOut = this.Out.Rest();
-        actualErr = this.Err.Rest();
+        actualOut = this.Out.Result();
+        actualErr = this.Err.Result();
         actual = actualErr + actualOut;
 
         string actualFile;
