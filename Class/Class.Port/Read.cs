@@ -409,7 +409,7 @@ public class Read : Any
         return true;
     }
 
-    protected virtual Port ExecutePort(int row)
+    protected virtual Port ExecutePort(long row)
     {
         bool b;
         b = this.CheckHead(row, "Module");
@@ -957,7 +957,7 @@ public class Read : Any
         return o;
     }
 
-    protected virtual bool CheckHead(int row, string head)
+    protected virtual bool CheckHead(long row, String head)
     {
         Text line;
         line = this.LineText(row);
@@ -965,8 +965,8 @@ public class Read : Any
         Range range;
         range = line.Range;
 
-        int index;
-        int count;
+        long index;
+        long count;
         index = range.Index;
         count = range.Count;
 
@@ -979,7 +979,7 @@ public class Read : Any
         return a;
     }
 
-    protected virtual bool CheckHeadAll(Text line, string head)
+    protected virtual bool CheckHeadAll(Text line, String head)
     {
         TextInfra textInfra;
         textInfra = this.TextInfra;
@@ -987,12 +987,15 @@ public class Read : Any
         Range range;
         range = line.Range;
 
-        int index;
-        int count;
+        long index;
+        long count;
         index = range.Index;
         count = range.Count;
 
-        if (!((head.Length + 2) == count))
+        long kk;
+        kk = this.StringComp.Count(head);
+
+        if (!((kk + 2) == count))
         {
             return false;
         }
