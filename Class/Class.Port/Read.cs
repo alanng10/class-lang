@@ -541,7 +541,7 @@ public class Read : Any
 
         row = row + 1;
 
-        string entry;
+        String entry;
         entry = null;
         if (this.CheckRow(row))
         {
@@ -568,22 +568,22 @@ public class Read : Any
         return a;
     }
 
-    protected virtual Array ExecuteImportArray(int row, int lineCount)
+    protected virtual Array ExecuteImportArray(long row, long lineCount)
     {
-        int count;
+        long count;
         count = this.ImportCount(row, lineCount);
         Array array;
         array = this.Operate.ExecuteArray(count);
-        int k;
+        long k;
         k = row;
-        int i;
+        long i;
         i = 0;
         while (i < count)
         {
-            int kk;
+            long kk;
             kk = k + 1;
 
-            int ka;
+            long ka;
             ka = this.SubSectionLineCount(kk);
 
             Import a;
