@@ -35,5 +35,5 @@ Int Intern_Intern_Base[2] =
 
 Int Intern_Intern_Class[3] =
 {
-    CastInt(Intern_Intern_Base), 0x1000000, 0
+    CastInt(Intern_Intern_Base), 0x1000000000000, 0
 };
