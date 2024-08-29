@@ -174,6 +174,8 @@ Word "index" has meaning that is list item identifier.
 
 Word "zero" has meaning that is empty effect.
 
+Word "clear" has meaning that is empty list.
+
 Word "list" has meaning that is integer multiple.
 
 Word "table" has meaning that is entry map.
