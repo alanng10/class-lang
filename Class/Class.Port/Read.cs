@@ -1107,8 +1107,8 @@ public class Read : Any
         Range range;
         range = text.Range;
 
-        int index;
-        int count;
+        long index;
+        long count;
         index = range.Index;
         count = range.Count;
         
