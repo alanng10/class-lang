@@ -18,7 +18,7 @@ public class Write : Any
     protected virtual InfraInfra InfraInfra { get; set; }
     protected virtual Infra TextInfra { get; set; }
     protected virtual StringComp StringComp { get; set; }
-    protected virtual long KindCount { get { return 4; } set { } }
+    protected virtual long KindCount { get { return 3; } set { } }
     protected virtual Array CountState { get; set; }
     protected virtual Array ResultState { get; set; }
     protected virtual Array Array { get; set; }
@@ -35,7 +35,6 @@ public class Write : Any
 
         this.CountStateAdd(new BoolWriteCountState());
         this.CountStateAdd(new IntWriteCountState());
-        this.CountStateAdd(new SIntWriteCountState());
         this.CountStateAdd(new TextWriteCountState());
         return true;
     }
@@ -51,7 +50,6 @@ public class Write : Any
 
         this.ResultStateAdd(new BoolWriteResultState());
         this.ResultStateAdd(new IntWriteResultState());
-        this.ResultStateAdd(new SIntWriteResultState());
         this.ResultStateAdd(new TextWriteResultState());
         return true;
     }
