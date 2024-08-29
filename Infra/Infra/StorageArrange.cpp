@@ -244,3 +244,40 @@ Int StorageArrange_LinkTarget(Int o, Int path)
     a = CastInt(ub);
     return a;
 }
+
+Int StorageArrange_FoldList(Int o, Int path)
+{
+    QString pathU;
+    Int ua;
+    ua = CastInt(&pathU);
+    String_QStringSet(ua, path);
+
+    QDir dirA(pathU);
+
+    QStringList foldList;
+    foldList = dirA.entryList(QDir::Dirs | QDir::NoDotAndDotDot);
+
+    qsizetype countU;
+    countU = foldList.count();
+    
+    Int count;
+    count = countU;
+
+    Int array;
+    array = Array_New();
+    Array_CountSet(array, count);
+    Array_Init(array);
+    
+    Int i;
+    i = 0;
+    while (i < count)
+    {
+        qsizetype indexU;
+        indexU = i;
+
+        QString fold;
+        fold = foldList.at(indexU);
+
+        
+    }
+}
