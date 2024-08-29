@@ -784,12 +784,12 @@ public class Read : Any
         return array;
     }
 
-    protected virtual Export ExecuteExport(int row)
+    protected virtual Export ExecuteExport(long row)
     {
         Text text;
         text = this.LineText(row);
 
-        string varClass;
+        String varClass;
         varClass = this.ExecuteString(row, text.Range);
 
         Export a;
