@@ -269,9 +269,9 @@ public class Read : Any
         Array array;
         array = arg.PortArray;
 
-        int count;
+        long count;
         count = array.Count;
-        int i;
+        long i;
         i = 0;
         while (i < count)
         {
@@ -291,9 +291,9 @@ public class Read : Any
         Array array;
         array = arg.ModuleRefArray;
 
-        int count;
+        long count;
         count = array.Count;
-        int i;
+        long i;
         i = 0;
         while (i < count)
         {
@@ -313,9 +313,9 @@ public class Read : Any
         Array array;
         array = arg.ImportArray;
 
-        int count;
+        long count;
         count = array.Count;
-        int i;
+        long i;
         i = 0;
         while (i < count)
         {
@@ -335,9 +335,9 @@ public class Read : Any
         Array array;
         array = arg.ImportClassArray;
 
-        int count;
+        long count;
         count = array.Count;
-        int i;
+        long i;
         i = 0;
         while (i < count)
         {
@@ -357,9 +357,9 @@ public class Read : Any
         Array array;
         array = arg.ExportArray;
 
-        int count;
+        long count;
         count = array.Count;
-        int i;
+        long i;
         i = 0;
         while (i < count)
         {
