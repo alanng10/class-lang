@@ -2,8 +2,8 @@ namespace Class.Binary;
 
 public class WriteOperate : Any
 {
-    public virtual bool ExecuteByte(int value)
+    public virtual bool ExecuteByte(long value)
     {
-        return true;
+        return false;
     }
 }

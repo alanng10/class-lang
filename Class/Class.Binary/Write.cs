@@ -16,7 +16,7 @@ public class Write : Any
 
     public virtual Binary Binary { get; set; }
     public virtual Data Data { get; set; }
-    public virtual int Index { get; set; }
+    public virtual long Index { get; set; }
     
     protected virtual CountWriteOperate CountOperate { get; set; }
     protected virtual SetWriteOperate SetOperate { get; set; }
@@ -29,7 +29,7 @@ public class Write : Any
 
         this.ExecuteStage();
 
-        int count;
+        long count;
         count = this.Index;
         this.Data = new Data();
         this.Data.Count = count;
@@ -65,10 +65,10 @@ public class Write : Any
 
     protected virtual bool ExecuteClassArray(Array array)
     {
-        int count;
+        long count;
         count = array.Count;
         this.ExecuteCount(count);
-        int i;
+        long i;
         i = 0;
         while (i < count)
         {
@@ -282,12 +282,12 @@ public class Write : Any
         return true;
     }
 
-    protected virtual bool ExecuteCount(int value)
+    protected virtual bool ExecuteCount(long value)
     {
         return this.ExecuteInt(value);
     }
 
-    protected virtual bool ExecuteIndex(int value)
+    protected virtual bool ExecuteIndex(long value)
     {
         return this.ExecuteInt(value);
     }
@@ -299,14 +299,17 @@ public class Write : Any
         k = k << 4;
         k = k >> 4;
 
-        int count;
+        long count;
         count = sizeof(ulong);
-        int i;
+        long i;
         i = 0;
         while (i < count)
         {
+            int shiftCount;
+            shiftCount = (int)(i * 8);
+
             ulong ka;
-            ka = (k >> (i * 8)) & 0xff;
+            ka = (k >> shiftCount) & 0xff;
 
             byte a;
             a = (byte)ka;
@@ -318,7 +321,7 @@ public class Write : Any
         return true;
     }
 
-    protected virtual bool ExecuteByte(int value)
+    protected virtual bool ExecuteByte(long value)
     {
         this.Operate.ExecuteByte(value);
         return true;

@@ -12,9 +12,9 @@ public class SetWriteOperate : WriteOperate
     public virtual Write Write { get; set; }
     protected virtual InfraInfra InfraInfra { get; set; }
 
-    public override bool ExecuteByte(int value)
+    public override bool ExecuteByte(long value)
     {
-        int index;
+        long index;
         index = this.Write.Index;
         Data data;
         data = this.Write.Data;
