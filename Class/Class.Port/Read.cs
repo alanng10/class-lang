@@ -660,7 +660,7 @@ public class Read : Any
         return k;
     }
 
-    protected virtual Import ExecuteImport(int row, int subsectionLineCount)
+    protected virtual Import ExecuteImport(long row, long subsectionLineCount)
     {
         ModuleRef module;
         module = this.ExecuteModuleRef(row);
@@ -671,12 +671,12 @@ public class Read : Any
 
         row = row + 1;
 
-        int count;
+        long count;
         count = subsectionLineCount;
 
         Array array;
         array = this.Operate.ExecuteArray(count);
-        int i;
+        long i;
         i = 0;
         while (i < count)
         {
@@ -698,7 +698,7 @@ public class Read : Any
         return a;
     }
 
-    protected virtual ImportClass ExecuteImportClass(int row)
+    protected virtual ImportClass ExecuteImportClass(long row)
     {
         TextInfra textInfra;
         textInfra = this.TextInfra;
@@ -710,9 +710,9 @@ public class Read : Any
 
         Range range;
         range = text.Range;
-        int index;
+        long index;
         index = range.Index;
-        int indexA;
+        long indexA;
         indexA = index + 4;
 
         range.Index = indexA;
@@ -722,7 +722,7 @@ public class Read : Any
         Less less;
         less = this.TextLess;
 
-        int u;
+        long u;
         u = textInfra.Index(text, textA, less);
         
         range.Index = index;
@@ -738,17 +738,17 @@ public class Read : Any
         rangeA.Index = indexA;
         rangeA.Count = u;
 
-        string name;
+        String name;
         name = this.ExecuteString(row, rangeA);
 
-        int k;
+        long k;
         k = u + 1;
-        int ka;
+        long ka;
         ka = indexA + k;
         rangeA.Index = ka;
         rangeA.Count = text.Range.Count - ka;
 
-        string varClass;
+        String varClass;
         varClass = this.ExecuteString(row, rangeA);
         
         ImportClass a;
