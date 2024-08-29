@@ -5,6 +5,7 @@ public class Write : Any
     public override bool Init()
     {
         base.Init();
+        this.StringComp = StringComp.This;
         this.CountOperate = new CountWriteOperate();
         this.CountOperate.Write = this;
         this.CountOperate.Init();
@@ -17,7 +18,7 @@ public class Write : Any
     public virtual Binary Binary { get; set; }
     public virtual Data Data { get; set; }
     public virtual long Index { get; set; }
-    
+    protected virtual StringComp StringComp { get; set; }
     protected virtual CountWriteOperate CountOperate { get; set; }
     protected virtual SetWriteOperate SetOperate { get; set; }
     protected virtual WriteOperate Operate { get; set; }
@@ -258,25 +259,27 @@ public class Write : Any
         return true;
     }
 
-    protected virtual bool ExecuteName(string name)
+    protected virtual bool ExecuteName(String name)
     {
         return this.ExecuteString(name);
     }
 
-    protected virtual bool ExecuteString(string value)
+    protected virtual bool ExecuteString(String value)
     {
-        int count;
-        count = value.Length;
+        StringComp stringComp;
+        stringComp = this.StringComp;
+
+        long count;
+        count = stringComp.Count(value);
         this.ExecuteCount(count);
         int i;
         i = 0;
         while (i < count)
         {
-            char oc;
-            oc = value[i];
-            byte ob;
-            ob = (byte)oc;
-            this.ExecuteByte(ob);
+            long oc;
+            oc = stringComp.Char(value, i);
+
+            this.ExecuteByte(oc);
             i = i + 1;
         }
         return true;
