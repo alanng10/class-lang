@@ -4,23 +4,23 @@ public class SetReadOperate : ReadOperate
 {
     public virtual Read Read { get; set; }
 
-    public override string ExecuteString(int row, Range range)
+    public override String ExecuteString(long row, Range range)
     {
         ReadArg arg;
         arg = this.Read.Arg;
-        int index;
+        long index;
         index = arg.StringIndex;
-        string a;
-        a = (string)arg.StringArray.GetAt(index);
+        String a;
+        a = (String)arg.StringArray.GetAt(index);
         arg.StringIndex = index + 1;
         return a;
     }
 
-    public override Array ExecuteArray(int count)
+    public override Array ExecuteArray(long count)
     {
         ReadArg arg;
         arg = this.Read.Arg;
-        int index;
+        long index;
         index = arg.ArrayIndex;
         Array a;
         a = (Array)arg.ArrayArray.GetAt(index);
@@ -28,7 +28,7 @@ public class SetReadOperate : ReadOperate
         return a;
     }
 
-    public override bool ExecuteArrayItemSet(Array array, int index, object value)
+    public override bool ExecuteArrayItemSet(Array array, long index, object value)
     {
         array.SetAt(index, value);
         return true;
@@ -38,7 +38,7 @@ public class SetReadOperate : ReadOperate
     {
         ReadArg arg;
         arg = this.Read.Arg;
-        int index;
+        long index;
         index = arg.PortIndex;
         Port a;
         a = (Port)arg.PortArray.GetAt(index);
@@ -50,7 +50,7 @@ public class SetReadOperate : ReadOperate
     {
         ReadArg arg;
         arg = this.Read.Arg;
-        int index;
+        long index;
         index = arg.ModuleRefIndex;
         ModuleRef a;
         a = (ModuleRef)arg.ModuleRefArray.GetAt(index);
@@ -62,7 +62,7 @@ public class SetReadOperate : ReadOperate
     {
         ReadArg arg;
         arg = this.Read.Arg;
-        int index;
+        long index;
         index = arg.ImportIndex;
         Import a;
         a = (Import)arg.ImportArray.GetAt(index);
@@ -74,7 +74,7 @@ public class SetReadOperate : ReadOperate
     {
         ReadArg arg;
         arg = this.Read.Arg;
-        int index;
+        long index;
         index = arg.ImportClassIndex;
         ImportClass a;
         a = (ImportClass)arg.ImportClassArray.GetAt(index);
@@ -86,7 +86,7 @@ public class SetReadOperate : ReadOperate
     {
         ReadArg arg;
         arg = this.Read.Arg;
-        int index;
+        long index;
         index = arg.ExportIndex;
         Export a;
         a = (Export)arg.ExportArray.GetAt(index);
@@ -98,7 +98,7 @@ public class SetReadOperate : ReadOperate
     {
         ReadArg arg;
         arg = this.Read.Arg;
-        int index;
+        long index;
         index = arg.StorageIndex;
         Storage a;
         a = (Storage)arg.StorageArray.GetAt(index);
