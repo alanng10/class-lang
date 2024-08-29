@@ -30,6 +30,8 @@ public class Gen : Any
 
         this.Range = new Range();
         this.Range.Init();
+
+        this.Indent = this.StringComp.CreateChar(' ', 4);
         return true;
     }
 
@@ -52,6 +54,7 @@ public class Gen : Any
     protected virtual String Ver { get; set; }
     protected virtual Node Root { get; set; }
     protected virtual String PageTemplate { get; set; }
+    protected virtual String Indent { get; set; }
     private StorageArrange StorageArrange { get; set; }
 
     public virtual bool Load()
@@ -379,53 +382,53 @@ public class Gen : Any
 
     protected virtual bool ExecuteNaviNode(int level, Node a)
     {
-        string newLine;
-        newLine = "\n";
-        string colon;
-        colon = ":";
-        string comma;
-        comma = ",";
-        string leftBrace;
-        leftBrace = "{";
-        string rightBrace;
-        rightBrace = "}";
-        string space;
-        space = " ";
-        string quote;
-        quote = "\"";
+        String newLine;
+        newLine = this.S("\n");
+        String colon;
+        colon = this.S(":");
+        String comma;
+        comma = this.S(",");
+        String leftBrace;
+        leftBrace = this.S("{");
+        String rightBrace;
+        rightBrace = this.S("}");
+        String space;
+        space = this.S(" ");
+        String quote;
+        quote = this.S("\"");
 
         StringJoin o;
         o = this.StringJoin;
 
-        int indent;
+        long indent;
         indent = level * 2;
 
-        this.AppendIndent(indent);
-        this.Append(leftBrace);
-        this.Append(newLine);
+        this.AddIndent(indent);
+        this.Add(leftBrace);
+        this.Add(newLine);
 
-        this.AppendIndent(indent + 1);
-        this.Append(quote);
-        this.Append("Name");
-        this.Append(quote);
-        this.Append(colon);
-        this.Append(space);
-        this.Append(quote);
-        this.Append(a.NameString);
-        this.Append(quote);
-        this.Append(comma);
-        this.Append(newLine);
+        this.AddIndent(indent + 1);
+        this.Add(quote);
+        this.AddS("Name");
+        this.Add(quote);
+        this.Add(colon);
+        this.Add(space);
+        this.Add(quote);
+        this.Add(a.NameString);
+        this.Add(quote);
+        this.Add(comma);
+        this.Add(newLine);
 
-        this.AppendIndent(indent + 1);
-        this.Append(quote);
-        this.Append("Child");
-        this.Append(quote);
-        this.Append(colon);
-        this.Append(newLine);
+        this.AddIndent(indent + 1);
+        this.Add(quote);
+        this.AddS("Child");
+        this.Add(quote);
+        this.Add(colon);
+        this.Add(newLine);
 
-        this.AppendIndent(indent + 1);
-        this.Append(leftBrace);
-        this.Append(newLine);
+        this.AddIndent(indent + 1);
+        this.Add(leftBrace);
+        this.Add(newLine);
 
         Iter iter;
         iter = a.Child.IterCreate();
@@ -435,25 +438,25 @@ public class Gen : Any
             Node aa;
             aa = (Node)iter.Value;
 
-            this.AppendIndent(indent + 2);
-            this.Append(quote);
-            this.Append(aa.NameString);
-            this.Append(quote);
-            this.Append(colon);
-            this.Append(newLine);
+            this.AddIndent(indent + 2);
+            this.Add(quote);
+            this.Add(aa.NameString);
+            this.Add(quote);
+            this.Add(colon);
+            this.Add(newLine);
 
             this.ExecuteNaviNode(level + 1, aa);
 
-            this.Append(comma);
-            this.Append(newLine);
+            this.Add(comma);
+            this.Add(newLine);
         }
 
-        this.AppendIndent(indent + 1);
-        this.Append(rightBrace);
-        this.Append(newLine);
+        this.AddIndent(indent + 1);
+        this.Add(rightBrace);
+        this.Add(newLine);
 
-        this.AppendIndent(indent);
-        this.Append(rightBrace);
+        this.AddIndent(indent);
+        this.Add(rightBrace);
         return true;
     }
 
@@ -815,6 +818,20 @@ public class Gen : Any
         count = this.StringCount(o) - index;
 
         return this.StringCreateRange(o, index, count);
+    }
+
+    protected virtual Gen AddIndent(long indent)
+    {
+        long count;
+        count = indent;
+        long i;
+        i = 0;
+        while (i < count)
+        {
+            this.Add(this.Indent);
+            i = i + 1;
+        }
+        return this;
     }
 
     protected virtual Gen Add(String a)
