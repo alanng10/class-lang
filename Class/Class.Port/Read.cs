@@ -796,13 +796,13 @@ public class Read : Any
         return a;
     }
 
-    protected virtual Array ExecuteStorageArray(int row, int lineCount)
+    protected virtual Array ExecuteStorageArray(long row, long lineCount)
     {
-        int count;
+        long count;
         count = lineCount;
         Array array;
         array = this.Operate.ExecuteArray(count);
-        int i;
+        long i;
         i = 0;
         while (i < count)
         {
@@ -820,7 +820,7 @@ public class Read : Any
         return array;
     }
 
-    protected virtual Storage ExecuteStorage(int row)
+    protected virtual Storage ExecuteStorage(long row)
     {
         TextInfra textInfra;
         textInfra = this.TextInfra;
