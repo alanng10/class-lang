@@ -10,13 +10,14 @@ public class Gen : Any
         this.TextInfra = TextInfra.This;
         this.StorageInfra = StorageInfra.This;
         this.ClassInfra = ClassInfra.This;
+        this.TextStringValue = TextStringValue.This;
 
         this.StorageArrange = StorageArrange.This;
 
         this.StringJoin = new StringJoin();
         this.StringJoin.Init();
 
-        this.CharLess = new LessMid();
+        this.CharLess = new LessInt();
         this.CharLess.Init();
         this.CharForm = new CharForm();
         this.CharForm.Init();
@@ -37,19 +38,20 @@ public class Gen : Any
     protected virtual TextInfra TextInfra { get; set; }
     protected virtual StorageInfra StorageInfra { get; set; }
     protected virtual ClassInfra ClassInfra { get; set; }
+    protected virtual TextStringValue TextStringValue { get; set; }
     protected virtual StringJoin StringJoin { get; set; }
     protected virtual TextLess TextLess { get; set; }
-    protected virtual LessMid CharLess { get; set; }
+    protected virtual LessInt CharLess { get; set; }
     protected virtual CharForm CharForm { get; set; }
-    protected virtual string Ver { get; set; }
+    protected virtual String Ver { get; set; }
     protected virtual Node Root { get; set; }
-    protected virtual string PageTemplate { get; set; }
+    protected virtual String PageTemplate { get; set; }
     private StorageArrange StorageArrange { get; set; }
 
     public virtual bool Load()
     {
-        string k;
-        k = this.StorageInfra.TextReadAny("Class.Info.data/a.html", true);
+        String k;
+        k = this.StorageInfra.TextReadAny(this.S("Class.Info.data/a.html"), true);
 
         if (k == null)
         {
@@ -123,7 +125,7 @@ public class Gen : Any
         arg = new FormatArg();
         arg.Init();
         arg.Kind = 1;
-        arg.ValueInt = aa;
+        arg.Value.Int = aa;
         arg.Base = 16;
         arg.Case = 0;
         arg.AlignLeft = false;
@@ -138,7 +140,7 @@ public class Gen : Any
 
         format.ExecuteArgResult(arg, a);
 
-        string o;
+        String o;
         o = this.TextInfra.StringCreate(a);
 
         this.Ver = o;
@@ -716,5 +718,10 @@ public class Gen : Any
         array.Sort(range, less);
 
         return array;
+    }
+
+    private String S(string o)
+    {
+        return this.TextStringValue.Execute(o);
     }
 }
