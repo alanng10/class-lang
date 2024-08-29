@@ -7,49 +7,20 @@ Int Intern_Intern_RefCompare(Eval* eval, Int frame)
     ka = eval->Stack[frame - 2];
     kb = eval->Stack[frame - 1];
 
-    Int kka;
-    Int kkb;
-    kka = ka >> 60;
-    kkb = kb >> 60;
-
     SInt kc;
-    kc = kka - kkb;
+    kc = 0;
 
-    if (!(kc == 0))
+    if (ka < kb)
     {
-        Int kca;
-        kca = kc;
-        
-        RefKindClear(kca);
-        RefKindInt(kca);
-
-        Return(kca, 2);
+        kc = -1;
     }
-    
-    Int kda;
-    Int kdb;
-    kda = ka;
-    kdb = kb;
-    RefKindClear(kda);
-    RefKindClear(kdb);
-
-    SInt kdo;
-    kdo = kda - kdb;
-
-    SInt kea;
-    kea = 0;
-
-    if (kdo < 0)
+    if (kb < ka)
     {
-        kea = -1;
-    }
-    if (0 < kdo)
-    {
-        kea = 1;
+        kc = 1;
     }
 
     Int ke;
-    ke = kea;
+    ke = kc;
 
     RefKindClear(ke);
     RefKindInt(ke);
