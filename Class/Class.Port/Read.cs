@@ -868,18 +868,18 @@ public class Read : Any
         return a;
     }
 
-    protected virtual int SectionLineCount(int row)
+    protected virtual long SectionLineCount(long row)
     {
-        int lineCount;
+        long lineCount;
         lineCount = this.LineList.Count;
 
-        int o;
+        long o;
         o = -1;
         bool b;
         b = false;
-        int count;
+        long count;
         count = lineCount - row;
-        int i;
+        long i;
         i = 0;
         while (!b & i < count)
         {
