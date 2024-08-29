@@ -520,14 +520,14 @@ public class Gen : Any
 
     protected virtual bool ExecuteNode()
     {
-        string nodePath;
+        String nodePath;
         nodePath = this.SourceFoldPath;
 
         Node a;
         a = new Node();
         a.Init();
-        a.Name = "";
-        a.NameString = "";
+        a.Name = this.TextInfra.Zero;
+        a.NameString = this.TextInfra.Zero;
 
         a.Child = this.CreateChild(nodePath);
 
@@ -535,33 +535,31 @@ public class Gen : Any
         return true;
     }
 
-    protected virtual Node CreateNode(string foldPath, string name)
+    protected virtual Node CreateNode(String foldPath, String name)
     {
         Node a;
         a = new Node();
         a.Init();
         a.Name = name;
         
-        StringJoin o;
-        o = this.StringJoin;
+        this.AddClear();
+
+        this.AddNodeNameValue(name);
         
-        o.Clear();
-        this.AppendNodeNameValue(name);
-        
-        string aa;
-        aa = o.Result();
+        String aa;
+        aa = this.AddResult();
 
         a.NameString = aa;
 
-        string nodePath;
-        nodePath = foldPath + this.InfraInfra.PathCombine + name;
+        String nodePath;
+        nodePath = this.AddClear().Add(foldPath).Add(this.TextInfra.PathCombine).Add(name).AddResult();
 
         a.Child = this.CreateChild(nodePath);
 
         return a;
     }
 
-    protected virtual Table CreateChild(string nodePath)
+    protected virtual Table CreateChild(String nodePath)
     {
         Table child;
         child = this.ChildTable(nodePath);
@@ -572,8 +570,8 @@ public class Gen : Any
 
         while (iter.Next())
         {
-            string kk;
-            kk = (string)iter.Index;
+            String kk;
+            kk = (String)iter.Index;
 
             Node aa;
             aa = this.CreateNode(nodePath, kk);
@@ -584,7 +582,7 @@ public class Gen : Any
         return child;
     }
 
-    protected virtual Table ChildTable(string foldPath)
+    protected virtual Table ChildTable(String foldPath)
     {
         ListInfra listInfra;
         listInfra = this.ListInfra;
@@ -611,19 +609,16 @@ public class Gen : Any
         return table;
     }
 
-    protected virtual bool AppendNodeNameValue(string name)
+    protected virtual bool AddNodeNameValue(String name)
     {
-        StringJoin o;
-        o = this.StringJoin;
-
-        int count;
-        count = name.Length;
-        int i;
+        long count;
+        count = this.StringComp.Count(name);
+        long i;
         i = 0;
         while (i < count)
         {
-            char oc;
-            oc = name[i];
+            long oc;
+            oc = this.StringComp.Char(name, i);
 
             bool b;
             b = false;
@@ -631,7 +626,7 @@ public class Gen : Any
             {
                 if (oc == '\\')
                 {
-                    this.Append("\\\\");
+                    this.AddS("\\\\");
                     b = true;
                 }
             }
@@ -639,7 +634,7 @@ public class Gen : Any
             {
                 if (oc == '\"')
                 {
-                    this.Append("\\\"");
+                    this.AddS("\\\"");
                     b = true;
                 }
             }
@@ -647,13 +642,13 @@ public class Gen : Any
             {
                 if (oc == '\'')
                 {
-                    this.Append("\\\'");
+                    this.AddS("\\\'");
                     b = true;
                 }
             }
             if (!b)
             {
-                o.Execute(oc);
+                this.AddChar(oc);
             }
 
             i = i + 1;
@@ -837,6 +832,12 @@ public class Gen : Any
     protected virtual Gen Add(String a)
     {
         this.InfraInfra.AddString(this.StringJoin, a);
+        return this;
+    }
+
+    protected virtual Gen AddChar(long n)
+    {
+        this.StringJoin.Execute(n);
         return this;
     }
 
