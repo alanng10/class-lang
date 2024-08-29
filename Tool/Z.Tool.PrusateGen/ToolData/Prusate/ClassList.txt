@@ -269,6 +269,8 @@ StorageArrange
     FoldCopy(path, destPath)
     FoldRemove(path)
     Exist(path)
+    FoldList(path)
+    FileList(path)
 
 Network
     HostName
