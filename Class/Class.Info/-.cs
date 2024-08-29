@@ -2,6 +2,7 @@ global using Any = Avalon.Infra.Any;
 global using String = Avalon.Infra.String;
 global using StringComp = Avalon.Infra.StringComp;
 global using Range = Avalon.Infra.Range;
+global using Data = Avalon.Infra.Data;
 global using LessInt = Avalon.Infra.LessInt;
 global using StringLess = Avalon.Infra.StringLess;
 global using CharForm = Avalon.Infra.CharForm;

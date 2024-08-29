@@ -266,27 +266,37 @@ public class Gen : Any
         Text join;
         join = this.TextCreate(kd);
 
-        Text aa;
-        aa = this.TextCreate(inner);
+        Text kka;
+        kka = this.TextCreate(inner);
 
-        aa = this.TextReplace(aa, limit, join);
+        kka = this.TextReplace(kka, limit, join);
         
+        String innerK;
+        innerK = this.StringCreate(kka);
+
         String pageRootPath;
         pageRootPath = this.PageRootPath(level);
         
-        Text a;
-        a = this.TextCreate(this.PageTemplate);
-        a = this.Replace(a, "#AssetVer#", this.Ver);
-        a = this.Replace(a, "#ArticleTitle#", title);
-        a = this.Replace(a, "#ArticleInner#", inner);
-        a = this.Replace(a, "#PageRootPath#", pageRootPath);
-        a = this.Replace(a, "#PagePath#", pagePath);
+        Text k;
+        k = this.TextCreate(this.PageTemplate);
+        k = this.Replace(k, "#AssetVer#", this.Ver);
+        k = this.Replace(k, "#ArticleTitle#", title);
+        k = this.Replace(k, "#ArticleInner#", innerK);
+        k = this.Replace(k, "#PageRootPath#", pageRootPath);
+        k = this.Replace(k, "#PagePath#", pagePath);
 
-        string pathKk;
-        pathKk = path.ToLower();
+        String a;
+        a = this.StringCreate(k);
 
-        string foldPath;
-        foldPath = this.DestFoldPath + combine + pathKk;
+        Text kaa;
+        kaa = this.TextCreate(path);
+        kaa = this.TextLower(kaa);
+
+        String pathKk;
+        pathKk = this.StringCreate(kaa);
+
+        String foldPath;
+        foldPath = this.AddClear().Add(this.DestFoldPath).Add(combine).Add(pathKk).AddResult();
 
         bool b;
 
@@ -296,8 +306,8 @@ public class Gen : Any
             return false;
         }
 
-        string outFilePath;
-        outFilePath = foldPath + combine + "index.html";
+        String outFilePath;
+        outFilePath = this.AddClear().Add(foldPath).Add(combine).AddS("index.html").AddResult();
 
         b = this.StorageInfra.TextWriteAny(outFilePath, a, true);
         if (!b)
@@ -733,6 +743,49 @@ public class Gen : Any
     protected virtual Text Replace(Text text, string limit, String join)
     {
         return this.TextReplace(text, this.TextCreate(this.S(limit)), this.TextCreate(join));
+    }
+
+    protected virtual String StringCreate(Text text)
+    {
+        return this.TextInfra.StringCreate(text);
+    }
+
+    protected virtual Text TextLower(Text text)
+    {
+        TextInfra textInfra;
+        textInfra = this.TextInfra;
+
+        long index;
+        index = text.Range.Index;
+        long count;
+        count = text.Range.Count;
+
+        Text a;
+        a = textInfra.TextCreate(count);
+
+        Data source;
+        Data dest;
+        source = text.Data;
+        dest = a.Data;
+
+        long i;
+        i = 0;
+        while (i < count)
+        {
+            uint n;
+            n = textInfra.DataCharGet(source, index + i);
+
+            if (textInfra.IsLetter(n, true))
+            {
+                n = n - 'A' + 'a';
+            }
+
+            textInfra.DataCharSet(dest, i, n);
+
+            i = i + 1;
+        }
+
+        return a;
     }
 
     protected virtual Text TextCreate(String o)
