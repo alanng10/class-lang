@@ -448,7 +448,7 @@ public class Read : Any
             return null;
         }
 
-        b = this.CheckHead(row, "Import");
+        b = this.CheckHead(row, this.HeadImport);
         if (!b)
         {
             return null;
@@ -477,7 +477,7 @@ public class Read : Any
             return null;
         }
 
-        b = this.CheckHead(row, "Export");
+        b = this.CheckHead(row, this.HeadExport);
         if (!b)
         {
             return null;
@@ -505,7 +505,7 @@ public class Read : Any
             return null;
         }
 
-        b = this.CheckHead(row, "Storage");
+        b = this.CheckHead(row, this.HeadStorage);
         if (!b)
         {
             return null;
@@ -533,7 +533,7 @@ public class Read : Any
             return null;
         }
 
-        b = this.CheckHead(row, "Entry");
+        b = this.CheckHead(row, this.HeadEntry);
         if (!b)
         {
             return null;
