@@ -89,10 +89,10 @@ public class Write : Any
 
     protected virtual bool ExecuteImportArray(Array array)
     {
-        int count;
+        long count;
         count = array.Count;
         this.ExecuteCount(count);
-        int i;
+        long i;
         i = 0;
         while (i < count)
         {
@@ -113,10 +113,10 @@ public class Write : Any
 
     protected virtual bool ExecuteClassIndexArray(Array array)
     {
-        int count;
+        long count;
         count = array.Count;
         this.ExecuteCount(count);
-        int i;
+        long i;
         i = 0;
         while (i < count)
         {
@@ -130,7 +130,7 @@ public class Write : Any
 
     protected virtual bool ExecuteClassIndex(Value classIndex)
     {
-        this.ExecuteIndex(classIndex.Mid);
+        this.ExecuteIndex(classIndex.Int);
         return true;
     }
 
@@ -141,10 +141,10 @@ public class Write : Any
 
     protected virtual bool ExecutePartArray(Array array)
     {
-        int count;
+        long count;
         count = array.Count;
         this.ExecuteCount(count);
-        int i;
+        long i;
         i = 0;
         while (i < count)
         {
@@ -168,10 +168,10 @@ public class Write : Any
 
     protected virtual bool ExecuteFieldArray(Array array)
     {
-        int count;
+        long count;
         count = array.Count;
         this.ExecuteCount(count);
-        int i;
+        long i;
         i = 0;
         while (i < count)
         {
@@ -195,10 +195,10 @@ public class Write : Any
 
     protected virtual bool ExecuteMaideArray(Array array)
     {
-        int count;
+        long count;
         count = array.Count;
         this.ExecuteCount(count);
-        int i;
+        long i;
         i = 0;
         while (i < count)
         {
@@ -223,10 +223,10 @@ public class Write : Any
 
     protected virtual bool ExecuteVarArray(Array array)
     {
-        int count;
+        long count;
         count = array.Count;
         this.ExecuteCount(count);
-        int i;
+        long i;
         i = 0;
         while (i < count)
         {
