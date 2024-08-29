@@ -10,6 +10,7 @@ public class Gen : Any
         this.TextInfra = TextInfra.This;
         this.StorageInfra = StorageInfra.This;
         this.ClassInfra = ClassInfra.This;
+        this.StringComp = StringComp.This;
         this.TextStringValue = TextStringValue.This;
 
         this.StorageArrange = StorageArrange.This;
@@ -26,11 +27,14 @@ public class Gen : Any
         this.TextLess.LiteCharForm = this.CharForm;
         this.TextLess.RiteCharForm = this.CharForm;
         this.TextLess.Init();
+
+        this.Range = new Range();
+        this.Range.Init();
         return true;
     }
 
-    public virtual string SourceFoldPath { get; set; }
-    public virtual string DestFoldPath { get; set; }
+    public virtual String SourceFoldPath { get; set; }
+    public virtual String DestFoldPath { get; set; }
     public virtual bool LinkFileName { get; set; }
     public virtual Table ModuleTable { get; set; }
     protected virtual InfraInfra InfraInfra { get; set; }
@@ -38,11 +42,13 @@ public class Gen : Any
     protected virtual TextInfra TextInfra { get; set; }
     protected virtual StorageInfra StorageInfra { get; set; }
     protected virtual ClassInfra ClassInfra { get; set; }
+    protected virtual StringComp StringComp { get; set; }
     protected virtual TextStringValue TextStringValue { get; set; }
     protected virtual StringJoin StringJoin { get; set; }
     protected virtual TextLess TextLess { get; set; }
     protected virtual LessInt CharLess { get; set; }
     protected virtual CharForm CharForm { get; set; }
+    protected virtual Range Range { get; set; }
     protected virtual String Ver { get; set; }
     protected virtual Node Root { get; set; }
     protected virtual String PageTemplate { get; set; }
@@ -197,21 +203,21 @@ public class Gen : Any
         return true;
     }
 
-    protected virtual bool GenArticle(int level, string path, string pagePath)
+    protected virtual bool GenArticle(long level, String path, String pagePath)
     {
-        InfraInfra infraInfra;
-        infraInfra = this.InfraInfra;
+        TextInfra textInfra;
+        textInfra = this.TextInfra;
 
-        string combine;
-        combine = infraInfra.PathCombine;
+        String combine;
+        combine = textInfra.PathCombine;
 
-        string newLine;
-        newLine = "\n";
+        String newLine;
+        newLine = this.S("\n");
 
-        string filePath;
-        filePath = this.SourceFoldPath + combine + path + combine + "a.md";
+        String filePath;
+        filePath = this.AddClear().Add(this.SourceFoldPath).Add(combine).Add(path).Add(combine).AddS("a.md").AddResult();
 
-        string oo;
+        String oo;
         oo = this.StorageInfra.TextReadAny(filePath, true);
 
         if (oo == null)
@@ -219,43 +225,40 @@ public class Gen : Any
             return false;
         }
 
-        TextInfra textInfra;
-        textInfra = this.TextInfra;
-
         Text o;
         o = textInfra.TextCreateStringData(oo, null);
 
         Text oa;
         oa = textInfra.TextCreateStringData(newLine, null);
 
-        int u;
+        long u;
         u = this.TextInfra.Index(o, oa, this.TextLess);
         if (u < 0)
         {
             return false;
         }
 
-        int kk;
+        long kk;
         kk = u;
-        int ka;
+        long ka;
         ka = 2;
-        int count;
+        long count;
         count = kk - ka;
         
-        string title;
-        title = oo.Substring(ka, count);
+        String title;
+        title = this.StringCreateRange(oo, ka, count);
 
-        string inner;
-        inner = oo.Substring(kk + 1);
+        String inner;
+        inner = this.StringCreateIndex(oo, kk + 1);
 
-        string kb;
-        kb = newLine + newLine;
+        String kb;
+        kb = this.AddClear().Add(newLine).Add(newLine).AddResult();
 
-        string kc;
-        kc = "<br />";
+        String kc;
+        kc = this.S("<br />");
 
-        string kd;
-        kd = kc + kc + newLine;
+        String kd;
+        kd = this.AddClear().Add(kc).Add(kc).Add(newLine).AddResult();
 
         inner = inner.Replace(kb, kd);
         
@@ -720,29 +723,60 @@ public class Gen : Any
         return array;
     }
 
-    private Gen Add(String a)
+    protected virtual Text TextCreate(String o)
+    {
+        return this.TextInfra.TextCreateStringData(o, null);
+    }
+
+    protected virtual Text TextReplace(Text text, Text limit, Text join)
+    {
+        return this.TextInfra.Replace(text, limit, join, this.TextLess);
+    }
+
+    protected virtual long StringCount(String o)
+    {
+        return this.StringComp.Count(o);
+    }
+
+    protected virtual String StringCreateRange(String o, long index, long count)
+    {
+        this.Range.Index = index;
+        this.Range.Count = count;
+
+        return this.StringComp.CreateString(o, this.Range);
+    }
+
+    protected virtual String StringCreateIndex(String o, long index)
+    {
+        long count;
+        count = this.StringCount(o) - index;
+
+        return this.StringCreateRange(o, index, count);
+    }
+
+    protected virtual Gen Add(String a)
     {
         this.InfraInfra.AddString(this.StringJoin, a);
         return this;
     }
 
-    private Gen AddS(string o)
+    protected virtual Gen AddS(string o)
     {
         return this.Add(this.S(o));
     }
 
-    private Gen AddClear()
+    protected virtual Gen AddClear()
     {
         this.StringJoin.Clear();
         return this;
     }
 
-    private String AddResult()
+    protected virtual String AddResult()
     {
         return this.StringJoin.Result();
     }
 
-    private String S(string o)
+    protected virtual String S(string o)
     {
         return this.TextStringValue.Execute(o);
     }
