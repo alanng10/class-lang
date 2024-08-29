@@ -28,37 +28,24 @@ Int Intern_Intern_RefLess(Eval* eval, Int frame)
     Return(ke, 2);
 }
 
+Int Intern_Intern_StringValueGet(Eval* eval, Int frame)
+{
+    return Intern_Intern_FieldGet(eval, frame, 0);
+}
+
+Int Intern_Intern_StringValueSet(Eval* eval, Int frame)
+{
+    return Intern_Intern_FieldSet(eval, frame, 0);
+}
+
 Int Intern_Intern_StringCountGet(Eval* eval, Int frame)
 {
-    Int s;
-    s = eval->Stack[frame - 1];
-
-    Int* p;
-    p = Intern_Intern_FieldMemory(s, 0);
-
-    Int ke;
-    ke = *p;
-
-    Return(ke, 1);
+    return Intern_Intern_FieldGet(eval, frame, 1);
 }
 
 Int Intern_Intern_StringCountSet(Eval* eval, Int frame)
 {
-    Int s;
-    s = eval->Stack[frame - 2];
-
-    Int value;
-    value = eval->Stack[frame - 1];
-
-    Int* p;
-    p = Intern_Intern_FieldMemory(s, 0);
-
-    *p = value;
-
-    Int ke;
-    ke = BoolTrue;
-
-    Return(ke, 2);
+    return Intern_Intern_FieldSet(eval, frame, 1);
 }
 
 Int Intern_Any_Init(Eval* eval, Int frame)
@@ -67,6 +54,39 @@ Int Intern_Any_Init(Eval* eval, Int frame)
     k = BoolTrue;
 
     Return(k, 0);
+}
+
+Int Intern_Intern_FieldGet(Eval* eval, Int frame, Int index)
+{
+    Int s;
+    s = eval->Stack[frame - 1];
+
+    Int* p;
+    p = Intern_Intern_FieldMemory(s, index);
+
+    Int ke;
+    ke = *p;
+
+    Return(ke, 1);
+}
+
+Int Intern_Intern_FieldSet(Eval* eval, Int frame, Int index)
+{
+    Int s;
+    s = eval->Stack[frame - 2];
+
+    Int value;
+    value = eval->Stack[frame - 1];
+
+    Int* p;
+    p = Intern_Intern_FieldMemory(s, index);
+
+    *p = value;
+
+    Int ke;
+    ke = BoolTrue;
+
+    Return(ke, 2);
 }
 
 Int* Intern_Intern_FieldMemory(Int o, Int index)

@@ -17,4 +17,8 @@ eval->Stack[frame - (paramCount + 1)] = ret;\
 eval->Index = frame - paramCount;\
 return 0;\
 
+
+Int Intern_Intern_FieldGet(Eval* eval, Int frame, Int index);
+Int Intern_Intern_FieldSet(Eval* eval, Int frame, Int index);
+
 Int* Intern_Intern_FieldMemory(Int o, Int index);
