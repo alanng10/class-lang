@@ -238,22 +238,22 @@ public class Read : Any
         Array array;
         array = arg.ArrayArray;
         
-        int ka;
-        ka = sizeof(uint);
-        int count;
+        long ka;
+        ka = sizeof(ulong);
+        long count;
         count = array.Count;
-        int i;
+        long i;
         i = 0;
         while (i < count)
         {
             long nn;
             nn = i;
             nn = nn * ka;
-            uint u;
-            u = infraInfra.DataMidGet(data, nn);
-            int k;
-            k = (int)u;
-            
+            ulong u;
+            u = infraInfra.DataIntGet(data, nn);
+            long k;
+            k = (long)u;
+
             Array a;
             a = listInfra.ArrayCreate(k);
             array.SetAt(i, a);
