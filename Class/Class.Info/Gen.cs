@@ -593,14 +593,14 @@ public class Gen : Any
         Array array;
         array = this.FoldList(foldPath);
 
-        int count;
+        long count;
         count = array.Count;
-        int i;
+        long i;
         i = 0;
         while (i < count)
         {
-            string name;
-            name = (string)array.GetAt(i);
+            String name;
+            name = (String)array.GetAt(i);
 
             listInfra.TableAdd(table, name, null);
 
