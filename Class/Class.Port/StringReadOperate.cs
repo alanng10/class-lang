@@ -6,8 +6,9 @@ public class StringReadOperate : ReadOperate
     {
         base.Init();
         this.ListInfra = ListInfra.This;
+        this.TextInfra = TextInfra.This;
         this.ClassInfra = ClassInfra.This;
-        this.String = "";
+        this.String = this.TextInfra.Zero;
         this.Array = this.ListInfra.ArrayCreate(0);
         this.Port = new Port();
         this.Port.Init();
@@ -26,8 +27,9 @@ public class StringReadOperate : ReadOperate
     public virtual Read Read { get; set; }
     protected virtual InfraInfra InfraInfra { get; set; }
     protected virtual ListInfra ListInfra { get; set; }
+    protected virtual TextInfra TextInfra { get; set; }
     protected virtual ClassInfra ClassInfra { get; set; }
-    protected virtual string String { get; set; }
+    protected virtual String String { get; set; }
     protected virtual Array Array { get; set; }
     protected virtual Port Port { get; set; }
     protected virtual ModuleRef ModuleRef { get; set; }
@@ -36,14 +38,14 @@ public class StringReadOperate : ReadOperate
     protected virtual Export Export { get; set; }
     protected virtual Storage Storage { get; set; }
 
-    public override string ExecuteString(int row, Range range)
+    public override String ExecuteString(long row, Range range)
     {
         InfraInfra infraInfra;
         infraInfra = this.InfraInfra;
 
         ReadArg arg;
         arg = this.Read.Arg;
-        int index;
+        long index;
         index = arg.StringIndex;
 
         Data data;
@@ -51,39 +53,36 @@ public class StringReadOperate : ReadOperate
         long nn;
         nn = index;
         nn = nn * 3;
-        int ka;
-        ka = sizeof(uint);
+        long ka;
+        ka = sizeof(ulong);
         
         long na;
         na = nn * ka;
-        uint u;
-        u = (uint)row;
-        infraInfra.DataMidSet(data, na, u);
+        infraInfra.DataIntSet(data, na, row);
+
         na = (nn + 1) * ka;
-        u = (uint)range.Index;
-        infraInfra.DataMidSet(data, na, u);
+        infraInfra.DataIntSet(data, na, range.Index);
+
         na = (nn + 2) * ka;
-        u = (uint)range.Count;
-        infraInfra.DataMidSet(data, na, u);
+        infraInfra.DataIntSet(data, na, range.Count);
 
         arg.StringIndex = index + 1;
         return this.String;
     }
 
-    public override Array ExecuteArray(int count)
+    public override Array ExecuteArray(long count)
     {
         ReadArg arg;
         arg = this.Read.Arg;
 
-        int index;
+        long index;
         index = arg.ArrayIndex;
 
         long nn;
         nn = index;
-        nn = nn * sizeof(uint);
-        uint u;
-        u = (uint)count;
-        this.InfraInfra.DataMidSet(arg.ArrayCountData, nn, u);
+        nn = nn * sizeof(ulong);
+
+        this.InfraInfra.DataIntSet(arg.ArrayCountData, nn, count);
 
         arg.ArrayIndex = index + 1;
         return this.Array;
