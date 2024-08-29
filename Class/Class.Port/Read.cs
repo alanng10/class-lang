@@ -602,7 +602,7 @@ public class Read : Any
         return array;
     }
 
-    protected virtual int ImportCount(int row, int lineCount)
+    protected virtual long ImportCount(long row, long lineCount)
     {
         TextInfra textInfra;
         textInfra = this.TextInfra;
@@ -616,15 +616,15 @@ public class Read : Any
         Less less;
         less = this.TextLess;
 
-        int ka;
+        long ka;
         ka = rangeA.Count;
 
-        int k;
+        long k;
         k = 0;
 
-        int count;
+        long count;
         count = lineCount;
-        int i;
+        long i;
         i = 0;
         while (i < count)
         {
@@ -632,7 +632,7 @@ public class Read : Any
             text = this.LineText(row + i);
             Range range;
             range = text.Range;
-            int kk;
+            long kk;
             kk = range.Count;
 
             bool b;
@@ -643,12 +643,10 @@ public class Read : Any
             }
             if (!b)
             {
-                range.Count = ka;
-                if (!textInfra.Same(text, textA, less))
+                if (!textInfra.Start(text, textA, less))
                 {
                     b = true;
                 }
-                range.Count = kk;
             }
 
             if (b)
