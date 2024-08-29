@@ -658,17 +658,17 @@ public class Gen : Any
         return true;
     }
 
-    protected virtual string BoolValueString(bool o)
+    protected virtual String BoolValueString(bool o)
     {
-        string k;
+        String k;
         k = null;
         if (o)
         {
-            k = "true";
+            k = this.TextInfra.BoolTrueString;
         }
         if (!o)
         {
-            k = "false";
+            k = this.TextInfra.BoolFalseString;
         }
         return k;
     }
