@@ -455,7 +455,7 @@ public class Read : Any
         }
 
         row = row + 1;
-        int ka;
+        long ka;
         ka = this.SectionLineCount(row);
 
         Array import;
