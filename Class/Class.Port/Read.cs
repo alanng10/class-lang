@@ -83,6 +83,10 @@ public class Read : Any
     protected virtual String Space { get; set; }
     protected virtual String Indent { get; set; }
     protected virtual String HeadModule { get; set; }
+    protected virtual String HeadImport { get; set; }
+    protected virtual String HeadExport { get; set; }
+    protected virtual String HeadStorage { get; set; }
+    protected virtual String HeadEntry { get; set; }
 
     public virtual bool Execute()
     {
