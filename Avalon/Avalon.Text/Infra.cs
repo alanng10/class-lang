@@ -286,41 +286,6 @@ public class Infra : Any
         return this.StringComp.CreateData(text.Data, text.Range);
     }
 
-    public virtual Text IntText(long n, long varBase, bool upperCase)
-    {
-        long ka;
-        ka = 0;
-        if (upperCase)
-        {
-            ka = 1;
-        }
-
-        WriteArg arg;
-        arg = new WriteArg();
-        arg.Init();
-        arg.Kind = 1;
-        arg.Value.Int = n;
-        arg.Base = varBase;
-        arg.Case = ka;
-        arg.MaxWidth = -1;
-        arg.FieldWidth = 1;
-
-        Write write;
-        write = new Write();
-        write.Init();
-
-        write.ExecuteArgCount(arg);
-
-        Text result;
-        result = this.TextCreate(arg.Count);
-
-        write.ExecuteArgResult(arg, result);
-
-        Text a;
-        a = result;
-        return a;
-    }
-
     public virtual bool Same(Text lite, Text rite, InfraLess less)
     {
         long o;
