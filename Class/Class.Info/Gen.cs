@@ -260,9 +260,18 @@ public class Gen : Any
         String kd;
         kd = this.AddClear().Add(kc).Add(kc).Add(newLine).AddResult();
 
-        inner = inner.Replace(kb, kd);
+        Text limit;
+        limit = this.TextCreate(kb);
+
+        Text join;
+        join = this.TextCreate(kd);
+
+        Text aa;
+        aa = this.TextCreate(inner);
+
+        aa = this.TextReplace(aa, limit, join);
         
-        string pageRootPath;
+        String pageRootPath;
         pageRootPath = this.PageRootPath(level);
         
         string a;
@@ -476,27 +485,25 @@ public class Gen : Any
         return true;
     }
 
-    protected virtual string PageRootPath(int level)
+    protected virtual String PageRootPath(long level)
     {
-        StringJoin o;
-        o = this.StringJoin;
-        o.Clear();
+        this.AddClear();
 
-        this.Append(".");
+        this.AddS(".");
 
-        int count;
+        long count;
         count = level;
-        int i;
+        long i;
         i = 0;
         while (i < count)
         {
-            this.Append("/..");
+            this.AddS("/..");
 
             i = i + 1;
         }
 
-        string a;
-        a = o.Result();
+        String a;
+        a = this.AddResult();
         return a;
     }
 
