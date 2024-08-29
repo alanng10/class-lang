@@ -10,5 +10,5 @@ public class Port : Any
 
     public virtual Array Storage { get; set; }
 
-    public virtual string Entry { get; set; }
+    public virtual String Entry { get; set; }
 }
