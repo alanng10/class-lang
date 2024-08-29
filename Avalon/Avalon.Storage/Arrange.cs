@@ -168,4 +168,16 @@ public class Arrange : Any
         a = (!(o == 0));
         return a;
     }
+
+    public virtual Array FoldList(String path)
+    {
+        ulong pathU;
+        pathU = this.InternInfra.StringCreate(path.Value);
+
+        ulong o;
+        o = Extern.StorageArrange_FoldList(this.Intern, pathU);
+
+        this.InternInfra.StringDelete(pathU);
+        return true;
+    }
 }
