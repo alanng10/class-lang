@@ -6,28 +6,28 @@ public class StringOut : Out
     {
         base.Init();
         this.InfraInfra = InfraInfra.This;
-        this.Sj = new StringJoin();
-        this.Sj.Init();
+        this.StringAdd = new StringAdd();
+        this.StringAdd.Init();
         return true;
     }
 
     protected virtual InfraInfra InfraInfra { get; set; }
-    private StringJoin Sj { get; set; }
+    private StringAdd StringAdd { get; set; }
 
     public override bool Write(String o)
     {
-        this.InfraInfra.AddString(this.Sj, o);
+        this.InfraInfra.AddString(this.StringAdd, o);
         return true;
     }
 
     public virtual bool Clear()
     {
-        this.Sj.Clear();
+        this.StringAdd.Clear();
         return true;
     }
 
     public virtual String Rest()
     {
-        return this.Sj.Result();
+        return this.StringAdd.Result();
     }
 }
