@@ -323,32 +323,30 @@ public class Gen : Any
         StorageInfra storageInfra;
         storageInfra = this.StorageInfra;
 
-        string newLine;
-        newLine = "\n";
-        string semicolon;
-        semicolon = ";";
+        String newLine;
+        newLine = this.S("\n");
+        String semicolon;
+        semicolon = this.S(";");
 
-        StringJoin o;
-        o = this.StringJoin;
-        o.Clear();
+        this.AddClear();
 
-        string ka;
+        String ka;
         ka = this.BoolValueString(this.LinkFileName);
 
-        this.Append("var LinkFileName;\n");
-        this.Append("LinkFileName = ");
-        this.Append(ka);
-        this.Append(semicolon);
-        this.Append(newLine);
+        this.AddS("var LinkFileName;\n");
+        this.AddS("LinkFileName = ");
+        this.Add(ka);
+        this.Add(semicolon);
+        this.Add(newLine);
 
-        string a;
-        a = o.Result();
+        String a;
+        a = this.AddResult();
 
-        string combine;
-        combine = this.InfraInfra.PathCombine;
+        String combine;
+        combine = this.TextInfra.PathCombine;
 
-        string outFilePath;
-        outFilePath = this.DestFoldPath + combine + "var.js";
+        String outFilePath;
+        outFilePath = this.AddClear().Add(this.DestFoldPath).Add(combine).AddS("var.js").AddResult();
 
         bool b;
         b = storageInfra.TextWriteAny(outFilePath, a, true);
@@ -357,18 +355,18 @@ public class Gen : Any
             return false;
         }
 
-        o.Clear();
-        this.Append("var NaviTree;\n");
-        this.Append("NaviTree =\n");
+        this.AddClear();
+        this.AddS("var NaviTree;\n");
+        this.AddS("NaviTree =\n");
 
         this.ExecuteNaviNode(0, this.Root);
 
-        this.Append(semicolon);
-        this.Append(newLine);
+        this.Add(semicolon);
+        this.Add(newLine);
 
-        a = o.Result();
+        a = this.AddResult();
 
-        outFilePath = this.DestFoldPath + combine + "articlevar.js";
+        outFilePath = this.AddClear().Add(this.DestFoldPath).Add(combine).AddS("articlevar.js").AddResult();
 
         b = storageInfra.TextWriteAny(outFilePath, a, true);
         if (!b)
