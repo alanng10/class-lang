@@ -33,14 +33,8 @@ Int Intern_Intern_StringCountGet(Eval* eval, Int frame)
     Int s;
     s = eval->Stack[frame - 1];
 
-    Int k;
-    k = s;
-    RefMemoryAddress(k);
-
-    k = k + sizeof(Int);
-
     Int* p;
-    p = CastPointer(k);
+    p = Intern_Intern_FieldMemory(s, 0);
 
     Int ke;
     ke = *p;
@@ -56,14 +50,8 @@ Int Intern_Intern_StringCountSet(Eval* eval, Int frame)
     Int value;
     value = eval->Stack[frame - 1];
 
-    Int k;
-    k = s;
-    RefMemoryAddress(k);
-
-    k = k + sizeof(Int);
-
     Int* p;
-    p = CastPointer(k);
+    p = Intern_Intern_FieldMemory(s, 0);
 
     *p = value;
 
@@ -79,4 +67,21 @@ Int Intern_Any_Init(Eval* eval, Int frame)
     k = BoolTrue;
 
     Return(k, 0);
+}
+
+Int* Intern_Intern_FieldMemory(Int o, Int index)
+{
+    Int k;
+    k = o;
+    RefMemory(k);
+
+    Int* a;
+    a = CastPointer(k);
+
+    Int ka;
+    ka = index + 1;
+
+    a = a + ka;
+
+    return a;
 }
