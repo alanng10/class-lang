@@ -230,6 +230,10 @@ Word "phore" has meaning that is thread synchronization.
 
 Word "post" has meaning that is queued event.
 
+Word "file" has meaning that is storage node data.
+
+Word "fold" has meaning that is storage node list.
+
 Word "entry" has meaning that is associate entity.
 
 Word "view" has meaning that is presentation.
