@@ -53,6 +53,7 @@ public class Read : Any
         this.SquareRight = this.S("]");
         this.Space = this.S(" ");
         this.Indent = this.S("    ");
+        this.HeadModule = this.S("Module");
         return true;
     }
 
@@ -81,6 +82,7 @@ public class Read : Any
     protected virtual String SquareRight { get; set; }
     protected virtual String Space { get; set; }
     protected virtual String Indent { get; set; }
+    protected virtual String HeadModule { get; set; }
 
     public virtual bool Execute()
     {
@@ -412,7 +414,7 @@ public class Read : Any
     protected virtual Port ExecutePort(long row)
     {
         bool b;
-        b = this.CheckHead(row, "Module");
+        b = this.CheckHead(row, this.HeadModule);
         if (!b)
         {
             return null;
