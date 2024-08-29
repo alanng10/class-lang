@@ -9,6 +9,7 @@ public class Read : Any
         this.ListInfra = ListInfra.This;
         this.TextInfra = TextInfra.This;
         this.ClassInfra = ClassInfra.This;
+        this.StringComp = StringComp.This;
         this.TextStringValue = TextStringValue.This;
 
         this.CountOperate = new CountReadOperate();
@@ -62,6 +63,7 @@ public class Read : Any
     protected virtual ListInfra ListInfra { get; set; }
     protected virtual TextInfra TextInfra { get; set; }
     protected virtual ClassInfra ClassInfra { get; set; }
+    protected virtual StringComp StringComp { get; set; }
     protected virtual TextStringValue TextStringValue { get; set; }
     protected virtual Array LineList { get; set; }
     protected virtual ReadOperate Operate { get; set; }
@@ -1215,19 +1217,19 @@ public class Read : Any
         return a;
     }
 
-    protected virtual Text LineText(int row)
+    protected virtual Text LineText(long row)
     {
         return (Text)this.LineList.GetAt(row);
     }
 
-    protected virtual bool CheckRow(int row)
+    protected virtual bool CheckRow(long row)
     {
         return this.InfraInfra.ValidIndex(this.LineList.Count, row);
     }
 
-    protected virtual int NextRow(int row)
+    protected virtual long NextRow(long row)
     {
-        int a;
+        long a;
         a = row;
         a = a + 1;
  
@@ -1238,19 +1240,19 @@ public class Read : Any
         return a;
     }
 
-    protected virtual string ExecuteString(int row, Range range)
+    protected virtual String ExecuteString(long row, Range range)
     {
-        string a;
+        String a;
         a = this.Operate.ExecuteString(row, range);
         return a;
     }
 
-    protected virtual bool TextGet(string o)
+    protected virtual bool TextGet(String o)
     {
         this.StringData.ValueString = o;
         this.Text.Data = this.StringData;
         this.Text.Range.Index = 0;
-        this.Text.Range.Count = o.Length;
+        this.Text.Range.Count = this.StringComp.Count(o);
         return true;
     }
 
