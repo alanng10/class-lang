@@ -901,12 +901,12 @@ public class Read : Any
         return o;
     }
 
-    protected virtual int SubSectionLineCount(int row)
+    protected virtual long SubSectionLineCount(long row)
     {
         TextInfra textInfra;
         textInfra = this.TextInfra;
 
-        int lineCount;
+        long lineCount;
         lineCount = this.LineList.Count;
 
         this.TextGet(this.Space);
@@ -916,16 +916,16 @@ public class Read : Any
         Less less;
         less = this.TextLess;
 
-        int ka;
+        long ka;
         ka = textA.Range.Count;
 
-        int o;
+        long o;
         o = -1;
         bool b;
         b = false;
-        int count;
+        long count;
         count = lineCount - row;
-        int i;
+        long i;
         i = 0;
         while (!b & i < count)
         {
@@ -933,7 +933,7 @@ public class Read : Any
             text = this.LineText(row + i);
             Range range;
             range = text.Range;
-            int kk;
+            long kk;
             kk = range.Count;
 
             if (kk < ka)
