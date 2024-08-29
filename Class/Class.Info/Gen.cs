@@ -463,12 +463,12 @@ public class Gen : Any
     protected virtual bool ExecuteAsset()
     {
         bool b;
-        b = this.CopyAsset("style.css");
+        b = this.CopyAsset(this.S("style.css"));
         if (!b)
         {
             return false;
         }
-        b = this.CopyAsset("script.js");
+        b = this.CopyAsset(this.S("script.js"));
         if (!b)
         {
             return false;
@@ -476,16 +476,16 @@ public class Gen : Any
         return true;
     }
 
-    protected virtual bool CopyAsset(string fileName)
+    protected virtual bool CopyAsset(String fileName)
     {
-        string combine;
-        combine = this.InfraInfra.PathCombine;
+        String combine;
+        combine = this.TextInfra.PathCombine;
 
-        string aa;
-        aa = "Class.Info.data" + combine + fileName;
+        String aa;
+        aa = this.AddClear().AddS("Class.Info.data").Add(combine).Add(fileName).AddResult();
 
-        string ab;
-        ab = this.DestFoldPath + combine + fileName;
+        String ab;
+        ab = this.AddClear().Add(this.DestFoldPath).Add(combine).Add(fileName).AddResult();
 
         bool b;
         b = this.StorageArrange.FileCopy(aa, ab);
