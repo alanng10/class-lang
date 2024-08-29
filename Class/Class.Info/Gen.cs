@@ -153,7 +153,7 @@ public class Gen : Any
         root = this.Root;
 
         bool b;
-        b = this.ExecuteArticleNode(root, 0, ".", ".");
+        b = this.ExecuteArticleNode(root, 0, this.S("."), this.S("."));
         if (!b)
         {
             return false;
@@ -161,7 +161,7 @@ public class Gen : Any
         return true;
     }
 
-    protected virtual bool ExecuteArticleNode(Node node, int level, string path, string pagePath)
+    protected virtual bool ExecuteArticleNode(Node node, long level, String path, String pagePath)
     {
         bool b;
         b = this.GenArticle(level, path, pagePath);
@@ -170,8 +170,8 @@ public class Gen : Any
             return false;
         }
 
-        string combine;
-        combine = this.InfraInfra.PathCombine;
+        String combine;
+        combine = this.TextInfra.PathCombine;
 
         Iter iter;
         iter = node.Child.IterCreate();
@@ -182,11 +182,11 @@ public class Gen : Any
             Node aa;
             aa = (Node)iter.Value;
             
-            string ka;
-            ka = path + combine + aa.Name;
+            String ka;
+            ka = this.AddClear().Add(path).Add(combine).Add(aa.Name).AddResult();
             
-            string kk;
-            kk = pagePath + combine + aa.NameString;
+            String kk;
+            kk = this.AddClear().Add(pagePath).Add(combine).Add(aa.NameString).AddResult();
 
             b = this.ExecuteArticleNode(aa, level + 1, ka, kk);
             if (!b)
@@ -718,6 +718,28 @@ public class Gen : Any
         array.Sort(range, less);
 
         return array;
+    }
+
+    private Gen Add(String a)
+    {
+        this.InfraInfra.AddString(this.StringJoin, a);
+        return this;
+    }
+
+    private Gen AddS(string o)
+    {
+        return this.Add(this.S(o));
+    }
+
+    private Gen AddClear()
+    {
+        this.StringJoin.Clear();
+        return this;
+    }
+
+    private String AddResult()
+    {
+        return this.StringJoin.Result();
     }
 
     private String S(string o)
