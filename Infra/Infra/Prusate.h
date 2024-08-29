@@ -513,6 +513,8 @@ Infra_Api Int StorageArrange_FoldCreate(Int o, Int path);
 Infra_Api Int StorageArrange_FoldCopy(Int o, Int path, Int destPath);
 Infra_Api Int StorageArrange_FoldRemove(Int o, Int path);
 Infra_Api Int StorageArrange_Exist(Int o, Int path);
+Infra_Api Int StorageArrange_FoldList(Int o, Int path);
+Infra_Api Int StorageArrange_FileList(Int o, Int path);
 
 InfraApiNew(Network)
 Infra_Api Int Network_HostNameGet(Int o);

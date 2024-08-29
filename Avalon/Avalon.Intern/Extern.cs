@@ -532,6 +532,8 @@ public static class Extern
     [DllImport(InfraLib)] public extern static ulong StorageArrange_FoldCopy(ulong o, ulong path, ulong destPath);
     [DllImport(InfraLib)] public extern static ulong StorageArrange_FoldRemove(ulong o, ulong path);
     [DllImport(InfraLib)] public extern static ulong StorageArrange_Exist(ulong o, ulong path);
+    [DllImport(InfraLib)] public extern static ulong StorageArrange_FoldList(ulong o, ulong path);
+    [DllImport(InfraLib)] public extern static ulong StorageArrange_FileList(ulong o, ulong path);
 
     [DllImport(InfraLib)] public extern static ulong Network_New();
     [DllImport(InfraLib)] public extern static ulong Network_Delete(ulong o);
