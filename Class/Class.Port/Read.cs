@@ -1135,24 +1135,24 @@ public class Read : Any
         Range range;
         range = text.Range;
 
-        int index;
-        int count;
+        long index;
+        long count;
         index = range.Index;
         count = range.Count;
 
         this.TextGet(this.Dot);
 
-        int u;
+        long u;
         u = textInfra.Index(text, textA, less);
         if (u == -1)
         {
             return -1;
         }
 
-        int kka;
+        long kka;
         kka = u;
 
-        int ka;
+        long ka;
         ka = kka + 1;
         range.Index = index + ka;
         range.Count = count - ka;
@@ -1162,12 +1162,12 @@ public class Read : Any
             return -1;
         }
 
-        int kkb;
+        long kkb;
         kkb = u;
-        int kb;
+        long kb;
         kb = ka + kkb + 1;
 
-        int ku;
+        long ku;
         ku = kb + 2;
         if (!(ku == count))
         {
