@@ -10,6 +10,7 @@ global using Less = Avalon.Infra.Less;
 global using StringComp = Avalon.Infra.StringComp;
 global using InfraInfra = Avalon.Infra.Infra;
 global using Array = Avalon.List.Array;
+global using ListInfra = Avalon.List.Infra;
 global using TextText = Avalon.Text.Text;
 global using TextCode = Avalon.Text.Code;
 global using TextCodeKind = Avalon.Text.CodeKind;

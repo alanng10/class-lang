@@ -19,6 +19,7 @@ public class Arrange : Any
         base.Init();
         this.InternIntern = InternIntern.This;
         this.InternInfra = InternInfra.This;
+        this.ListInfra = ListInfra.This;
         this.Intern = Extern.StorageArrange_New();
         Extern.StorageArrange_Init(this.Intern);
         return true;
@@ -53,6 +54,7 @@ public class Arrange : Any
     }
     private InternIntern InternIntern { get; set; }
     private InternInfra InternInfra { get; set; }
+    protected virtual ListInfra ListInfra { get; set; }
     private ulong Intern { get; set; }
 
     public virtual bool Rename(String path, String destPath)
@@ -171,13 +173,59 @@ public class Arrange : Any
 
     public virtual Array FoldList(String path)
     {
+        InternInfra internInfra;
+        internInfra = this.InternInfra;
+
         ulong pathU;
-        pathU = this.InternInfra.StringCreate(path.Value);
+        pathU = internInfra.StringCreate(path.Value);
 
         ulong o;
         o = Extern.StorageArrange_FoldList(this.Intern, pathU);
 
-        this.InternInfra.StringDelete(pathU);
-        return true;
+        internInfra.StringDelete(pathU);
+
+        ulong countU;
+        countU = Extern.Array_CountGet(o);
+
+        long count;
+        count = (long)countU;
+
+        Array array;
+        array = this.ListInfra.ArrayCreate(count);
+
+        long i;
+        i = 0;
+        while (i < count)
+        {
+            ulong index;
+            index = (ulong)i;
+
+            ulong u;
+            u = Extern.Array_ItemGet(o, index);
+
+            byte[] k;
+            k = internInfra.ByteArrayCreateReturnString(u);
+
+            long dataCount;
+            dataCount = k.LongLength;
+
+            long countA;
+            countA = dataCount / sizeof(uint);
+
+            String a;
+            a = new String();
+            a.Value = k;
+            a.Count = countA;
+            a.Init();
+
+            array.SetAt(i, a);
+
+            i = i + 1;
+        }
+
+        Extern.Array_Final(o);
+        Extern.Array_Delete(o);
+
+        return array;
     }
 }
