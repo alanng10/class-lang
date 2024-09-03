@@ -125,13 +125,13 @@ public class Gen : Any
         charForm = new CharForm();
         charForm.Init();
 
-        Format format;
-        format = new Format();
-        format.Init();
-        format.CharForm = charForm;
+        Write write;
+        write = new Write();
+        write.Init();
+        write.CharForm = charForm;
 
-        FormatArg arg;
-        arg = new FormatArg();
+        WriteArg arg;
+        arg = new WriteArg();
         arg.Init();
         arg.Kind = 1;
         arg.Value.Int = aa;
@@ -142,12 +142,12 @@ public class Gen : Any
         arg.MaxWidth = 15;
         arg.FillChar = '0';
 
-        format.ExecuteArgCount(arg);
+        write.ExecuteArgCount(arg);
 
         Text a;
         a = this.TextInfra.TextCreate(arg.Count);
 
-        format.ExecuteArgResult(arg, a);
+        write.ExecuteArgResult(arg, a);
 
         String o;
         o = this.TextInfra.StringCreate(a);
