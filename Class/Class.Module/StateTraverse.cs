@@ -8,6 +8,7 @@ public class StateTraverse : Traverse
         this.ListInfra = ListInfra.This;
         this.TextInfra = TextInfra.This;
         this.ClassInfra = ClassInfra.This;
+        this.TextStringValue = TextStringValue.This;
 
         this.System = this.Create.SystemClass;
         this.NullClass = this.Create.NullClass;
@@ -21,12 +22,16 @@ public class StateTraverse : Traverse
         this.ParamIter.Init();
         this.ArgueIter = new ArrayIter();
         this.ArgueIter.Init();
+
+        this.SData = this.S("data");
+        this.SValue = this.S("value");
         return true;
     }
 
     protected virtual ListInfra ListInfra { get; set; }
     protected virtual TextInfra TextInfra { get; set; }
     protected virtual ClassInfra ClassInfra { get; set; }
+    protected virtual TextStringValue TextStringValue { get; set; }
     protected virtual SystemClass System { get; set; }
     protected virtual ClassClass NullClass { get; set; }
     protected virtual ClassClass ThisClass { get; set; }
@@ -36,6 +41,8 @@ public class StateTraverse : Traverse
     protected virtual Iter VarStackIter { get; set; }
     protected virtual Iter ParamIter { get; set; }
     protected virtual Iter ArgueIter { get; set; }
+    protected virtual String SData { get; set; }
+    protected virtual String SValue { get; set; }
 
     public override bool ExecuteClass(NodeClass varClass)
     {
@@ -88,7 +95,7 @@ public class StateTraverse : Traverse
         Var dataVar;
         dataVar = new Var();
         dataVar.Init();
-        dataVar.Name = "data";
+        dataVar.Name = this.SData;
         dataVar.Class = varField.Class;
         dataVar.Index = this.StateVar.Count;
 
@@ -123,14 +130,14 @@ public class StateTraverse : Traverse
         Var dataVar;
         dataVar = new Var();
         dataVar.Init();
-        dataVar.Name = "data";
+        dataVar.Name = this.SData;
         dataVar.Class = varField.Class;
         dataVar.Index = this.StateVar.Count;
 
         Var valueVar;
         valueVar = new Var();
         valueVar.Init();
-        valueVar.Name = "value";
+        valueVar.Name = this.SValue;
         valueVar.Class = varField.Class;
         valueVar.Index = this.StateVar.Count;
         
@@ -1514,5 +1521,10 @@ public class StateTraverse : Traverse
             }
         }
         return null;
+    }
+
+    private String S(string o)
+    {
+        return this.TextStringValue.Execute(o);
     }
 }
