@@ -1137,7 +1137,7 @@ public class StateTraverse : Traverse
 
     protected virtual bool WordClassOperate(Operate operate, ClassName nodeClass)
     {
-        string className;
+        String className;
         className = null;
         if (!(nodeClass == null))
         {
@@ -1161,7 +1161,7 @@ public class StateTraverse : Traverse
 
     protected virtual ClassClass ExecuteVarNameNode(NodeNode node, VarName name)
     {
-        string varName;
+        String varName;
         varName = name.Value;
         
         Var varVar;
@@ -1196,7 +1196,7 @@ public class StateTraverse : Traverse
             }
         }
 
-        string fieldName;
+        String fieldName;
         fieldName = null;
         if (!(nodeField == null))
         {
@@ -1425,7 +1425,7 @@ public class StateTraverse : Traverse
         return true;
     }
 
-    protected virtual Var VarStackVar(string name)
+    protected virtual Var VarStackVar(String name)
     {
         Iter iter;
         iter = this.VarStackIter;
