@@ -1,13 +1,13 @@
 namespace Avalon.Storage;
 
-public class Arrange : Any
+public class Comp : Any
 {
-    public static Arrange This { get; } = ShareCreate();
+    public static Comp This { get; } = ShareCreate();
 
-    private static Arrange ShareCreate()
+    private static Comp ShareCreate()
     {
-        Arrange share;
-        share = new Arrange();
+        Comp share;
+        share = new Comp();
         Any a;
         a = share;
         a.Init();
