@@ -8,6 +8,7 @@ public class Create : InfraCreate
         this.ListInfra = ListInfra.This;
         this.TextInfra = TextInfra.This;
         this.ClassInfra = ClassInfra.This;
+        this.TextStringValue = TextStringValue.This;
 
         this.ErrorKind = this.CreateErrorKindList();
         this.Count = this.CreateCountList();
