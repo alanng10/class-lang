@@ -505,16 +505,16 @@ Infra_Api Int Storage_CountSet(Int o, Int value);
 Infra_Api Int Storage_Open(Int o);
 Infra_Api Int Storage_Close(Int o);
 
-InfraApiNew(StorageArrange)
-Infra_Api Int StorageArrange_Rename(Int o, Int path, Int destPath);
-Infra_Api Int StorageArrange_FileCopy(Int o, Int path, Int destPath);
-Infra_Api Int StorageArrange_FileRemove(Int o, Int path);
-Infra_Api Int StorageArrange_FoldCreate(Int o, Int path);
-Infra_Api Int StorageArrange_FoldCopy(Int o, Int path, Int destPath);
-Infra_Api Int StorageArrange_FoldRemove(Int o, Int path);
-Infra_Api Int StorageArrange_Exist(Int o, Int path);
-Infra_Api Int StorageArrange_FoldList(Int o, Int path);
-Infra_Api Int StorageArrange_FileList(Int o, Int path);
+InfraApiNew(StorageComp)
+Infra_Api Int StorageComp_Rename(Int o, Int path, Int destPath);
+Infra_Api Int StorageComp_FileCopy(Int o, Int path, Int destPath);
+Infra_Api Int StorageComp_FileRemove(Int o, Int path);
+Infra_Api Int StorageComp_FoldCreate(Int o, Int path);
+Infra_Api Int StorageComp_FoldCopy(Int o, Int path, Int destPath);
+Infra_Api Int StorageComp_FoldRemove(Int o, Int path);
+Infra_Api Int StorageComp_Exist(Int o, Int path);
+Infra_Api Int StorageComp_FoldList(Int o, Int path);
+Infra_Api Int StorageComp_FileList(Int o, Int path);
 
 InfraApiNew(Network)
 Infra_Api Int Network_HostNameGet(Int o);
