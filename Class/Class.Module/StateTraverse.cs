@@ -1000,39 +1000,39 @@ public class StateTraverse : Traverse
         return true;
     }
 
-    public override bool ExecuteBitRightOperate(BitRightOperate bitRightOperate)
+    public override bool ExecuteBitRiteOperate(BitRiteOperate bitRiteOperate)
     {
-        if (bitRightOperate == null)
+        if (bitRiteOperate == null)
         {
             return true;
         }
 
         Operate value;
-        value = bitRightOperate.Value;
+        value = bitRiteOperate.Value;
         Operate count;
-        count = bitRightOperate.Count;
+        count = bitRiteOperate.Count;
 
-        base.ExecuteBitRightOperate(bitRightOperate);
+        base.ExecuteBitRiteOperate(bitRiteOperate);
 
-        this.ExecuteTwoOperandOperate(bitRightOperate, value, count, this.System.Int, this.System.Int);
+        this.ExecuteTwoOperandOperate(bitRiteOperate, value, count, this.System.Int, this.System.Int);
         return true;
     }
 
-    public override bool ExecuteBitSignRightOperate(BitSignRightOperate bitSignRightOperate)
+    public override bool ExecuteBitSignRiteOperate(BitSignRiteOperate bitSignRiteOperate)
     {
-        if (bitSignRightOperate == null)
+        if (bitSignRiteOperate == null)
         {
             return true;
         }
 
         Operate value;
-        value = bitSignRightOperate.Value;
+        value = bitSignRiteOperate.Value;
         Operate count;
-        count = bitSignRightOperate.Count;
+        count = bitSignRiteOperate.Count;
 
-        base.ExecuteBitSignRightOperate(bitSignRightOperate);
+        base.ExecuteBitSignRiteOperate(bitSignRiteOperate);
 
-        this.ExecuteTwoOperandOperate(bitSignRightOperate, value, count, this.System.Int, this.System.Int);
+        this.ExecuteTwoOperandOperate(bitSignRiteOperate, value, count, this.System.Int, this.System.Int);
         return true;
     }
 
