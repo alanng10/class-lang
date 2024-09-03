@@ -1,4 +1,4 @@
     public virtual bool InitString()
     {
-#StringFieldSetList#    return true;
-}
+#StringFieldSetList#        return true;
+    }
