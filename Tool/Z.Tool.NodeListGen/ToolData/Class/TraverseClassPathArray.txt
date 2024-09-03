@@ -1,5 +1,5 @@
 
-        int k;
+        long k;
         k = this.Index;
 
         Array array;

@@ -1,4 +1,4 @@
-        if (this.FieldEqual("#FieldName#"))
+        if (this.FieldEqual(this.SField#FieldName#))
         {
             this.Execute#FieldClassName#(#VarName#.#FieldName#);
             return true;
