@@ -445,8 +445,16 @@ class Read : ToolGen
             Class a;
             a = (Class)iter.Value;
 
-            int n;
-            n = 0;
+            long n;
+            n = -1;
+
+            if (n == -1)
+            {
+                if (0 < a.Derive.Count)
+                {
+                    n = 1;
+                }
+            }
 
             Table tableA;
             tableA = a.Field;
@@ -457,11 +465,11 @@ class Read : ToolGen
 
             while (iterA.Next())
             {
-                Field aa;
-                aa = (Field)iterA.Value;
+                Field field;
+                field = (Field)iterA.Value;
 
                 String fieldClassName;
-                fieldClassName = aa.Class;
+                fieldClassName = field.Class;
 
                 this.TextStringGet(fieldClassName);
 
@@ -494,9 +502,21 @@ class Read : ToolGen
 
                 if (b)
                 {
-                    aa.AnyBool = true;
-                    n = n + 1;
+                    field.AnyBool = true;
                 }
+
+                if (n == -1)
+                {
+                    if (!(field.ItemClass == null))
+                    {
+                        n = 2;
+                    }
+                }
+            }
+
+            if (n == -1)
+            {
+                n = 0;
             }
 
             a.AnyInt = n;
