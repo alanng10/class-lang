@@ -721,19 +721,19 @@ public class StateTraverse : Traverse
         return true;
     }
 
-    public override bool ExecuteEqualOperate(EqualOperate equalOperate)
+    public override bool ExecuteSameOperate(SameOperate sameOperate)
     {
-        if (equalOperate == null)
+        if (sameOperate == null)
         {
             return true;
         }
 
         Operate left;
-        left = equalOperate.Left;
+        left = sameOperate.Left;
         Operate right;
-        right = equalOperate.Right;
+        right = sameOperate.Right;
 
-        base.ExecuteEqualOperate(equalOperate);
+        base.ExecuteSameOperate(sameOperate);
 
         bool hasOperandUndefined;
         hasOperandUndefined = false;
@@ -745,7 +745,7 @@ public class StateTraverse : Traverse
             leftClass = this.Info(left).OperateClass;
             if (leftClass == null)
             {
-                hasOperandUndefined = this.UniqueError(this.ErrorKind.OperandUndefined, equalOperate, hasOperandUndefined);
+                hasOperandUndefined = this.UniqueError(this.ErrorKind.OperandUndefined, sameOperate, hasOperandUndefined);
             }
         }
 
@@ -756,7 +756,7 @@ public class StateTraverse : Traverse
             rightClass = this.Info(right).OperateClass;
             if (rightClass == null)
             {
-                hasOperandUndefined = this.UniqueError(this.ErrorKind.OperandUndefined, equalOperate, hasOperandUndefined);
+                hasOperandUndefined = this.UniqueError(this.ErrorKind.OperandUndefined, sameOperate, hasOperandUndefined);
             }
         }
 
@@ -773,7 +773,7 @@ public class StateTraverse : Traverse
                     b = true;
                     if (boolCount == 1)
                     {
-                        this.Error(this.ErrorKind.EqualUnachievable, equalOperate);
+                        this.Error(this.ErrorKind.EqualUnachievable, sameOperate);
                     }
                 }
             }
@@ -786,13 +786,13 @@ public class StateTraverse : Traverse
                     b = true;
                     if (intCount == 1)
                     {
-                        this.Error(this.ErrorKind.EqualUnachievable, equalOperate);
+                        this.Error(this.ErrorKind.EqualUnachievable, sameOperate);
                     }
                 }
             }
         }
 
-        this.Info(equalOperate).OperateClass = this.System.Bool;
+        this.Info(sameOperate).OperateClass = this.System.Bool;
         return true;
     }
 
