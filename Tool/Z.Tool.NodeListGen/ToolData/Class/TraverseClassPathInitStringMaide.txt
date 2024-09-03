@@ -1,0 +1,3 @@
+    public virtual bool InitString()
+    {
+        #StringFieldSetList#    }
