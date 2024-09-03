@@ -2,6 +2,6 @@ namespace Class.Console;
 
 partial class ClassPathTraverse
 {
-#InitStringFieldMaide#
+#InitStringMaide#
 #StringFieldList#
 #NodeList#}
