@@ -786,7 +786,7 @@ public class Create : InfraCreate
         ClassModule module;
         module = this.Module;
 
-        string entry;
+        String entry;
         entry = module.Entry;
         if (entry == null)
         {
@@ -802,9 +802,9 @@ public class Create : InfraCreate
         }
 
         ClassModule h;
-        h = this.ModuleGet("System.Entry");
+        h = this.ModuleGet(this.S("System.Entry"));
         ClassClass entryClass;
-        entryClass = this.ModuleClassGet(h, "Entry");
+        entryClass = this.ModuleClassGet(h, this.S("Entry"));
 
         bool b;
         b = false;
