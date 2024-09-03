@@ -61,7 +61,7 @@ public class Infra : object
         return true;
     }
 
-    public virtual byte[] ByteArrayCreateReturnString(ulong u)
+    public virtual byte[] ByteArrayCreateString(ulong u)
     {
         ulong data;
         ulong count;
