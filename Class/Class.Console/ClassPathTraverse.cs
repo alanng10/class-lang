@@ -37,6 +37,8 @@ public partial class ClassPathTraverse : Traverse
         this.Dot = this.TextInfra.TextCreateStringData(this.S("."), null);
         this.LeftSquare = this.TextInfra.TextCreateStringData(this.S("["), null);
         this.RightSquare = this.TextInfra.TextCreateStringData(this.S("]"), null);
+
+        this.InitString();
         return true;
     }
 
