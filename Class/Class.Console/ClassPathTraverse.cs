@@ -48,8 +48,8 @@ public partial class ClassPathTraverse : Traverse
     protected virtual TextStringValue TextStringValue { get; set; }
     protected virtual InfraRange Field { get; set; }
     protected virtual InfraRange FieldName { get; set; }
-    protected virtual int Index { get; set; }
-    protected virtual int CurrentIndex { get; set; }
+    protected virtual long Index { get; set; }
+    protected virtual long CurrentIndex { get; set; }
     protected virtual IntParse IntParse { get; set; }
     protected virtual Text TextA { get; set; }
     protected virtual Text TextB { get; set; }
@@ -88,10 +88,10 @@ public partial class ClassPathTraverse : Traverse
 
     protected virtual bool SetField()
     {
-        int start;
+        long start;
         start = this.CurrentIndex;
 
-        int end;
+        long end;
         end = 0;
 
         Text path;
@@ -100,15 +100,15 @@ public partial class ClassPathTraverse : Traverse
         InfraRange range;
         range = path.Range;
 
-        int ka;
-        int kb;
+        long ka;
+        long kb;
         ka = range.Index;
         kb = range.Count;
 
         range.Index = ka + start;
         range.Count = kb - start;
 
-        int u;
+        long u;
         u = this.TextInfra.Index(path, this.Dot, this.TextLess);
 
         bool b;
@@ -122,7 +122,7 @@ public partial class ClassPathTraverse : Traverse
             end = start + u;
         }
 
-        int count;
+        long count;
         count = end - start;
 
         range.Index = ka;
@@ -156,7 +156,7 @@ public partial class ClassPathTraverse : Traverse
         rangeA.Index = range.Index + field.Index;
         rangeA.Count = field.Count;
 
-        int u;
+        long u;
         u = this.LeftSquareIndex(textA);
 
         bool b;
@@ -164,7 +164,7 @@ public partial class ClassPathTraverse : Traverse
 
         if (!b)
         {
-            int leftSquareIndex;
+            long leftSquareIndex;
             leftSquareIndex = u;
 
             this.Index = this.GetIndex(this.Field, leftSquareIndex);
@@ -183,14 +183,14 @@ public partial class ClassPathTraverse : Traverse
         return true;
     }
 
-    protected virtual int LeftSquareIndex(Text text)
+    protected virtual long LeftSquareIndex(Text text)
     {
-        int a;
+        long a;
         a = this.TextInfra.Index(text, this.LeftSquare, this.TextLess);
         return a;
     }
 
-    protected virtual int GetIndex(InfraRange varField, int leftSquareIndex)
+    protected virtual long GetIndex(InfraRange varField, long leftSquareIndex)
     {
         if (varField.Count < 1)
         {
@@ -222,13 +222,13 @@ public partial class ClassPathTraverse : Traverse
             return -1;
         }
 
-        int start;
+        long start;
         start = leftSquareIndex + this.LeftSquare.Range.Count;
 
-        int end;
+        long end;
         end = varField.Count - this.RightSquare.Range.Count;
 
-        int count;
+        long count;
         count = end - start;
 
         rangeA.Index = rangeA.Index + start;
@@ -242,8 +242,8 @@ public partial class ClassPathTraverse : Traverse
             return -1;
         }
 
-        int a;
-        a = (int)n;
+        long a;
+        a = n;
         return a;
     }
 
