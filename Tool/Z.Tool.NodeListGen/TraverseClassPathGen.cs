@@ -115,6 +115,15 @@ public class TraverseClassPathGen : TraverseGen
 
     protected virtual String StringFieldSetList()
     {
+        String ka;
+        ka = this.S("this.S");
+
+        String kb;
+        kb = this.S(" = this.S(\"");
+
+        String kc;
+        kc = this.S("\");\n");
+        
         this.AddClear();
 
         Iter iter;
@@ -126,7 +135,7 @@ public class TraverseClassPathGen : TraverseGen
             String k;
             k = (String)iter.Value;
 
-            this.AddIndent(2).AddS("this.S").Add(k).AddS(" = this.S(\"").Add(k).AddS("\");\n");
+            this.AddIndent(2).Add(ka).Add(k).Add(kb).Add(k).Add(kc);
         }
 
         String a;
