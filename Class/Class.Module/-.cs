@@ -1,4 +1,5 @@
 global using Any = Avalon.Infra.Any;
+global using String = Avalon.Infra.String;
 global using Range = Avalon.Infra.Range;
 global using RefLess = Avalon.Infra.RefLess;
 global using List = Avalon.List.List;

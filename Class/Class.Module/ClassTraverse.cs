@@ -23,7 +23,7 @@ public class ClassTraverse : Traverse
         ClassName name;
         name = nodeClass.Name;
 
-        string className;
+        String className;
         className = null;
         if (!(name == null))
         {
