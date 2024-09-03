@@ -52,7 +52,7 @@ HEADERS += \
     Stat.hpp \
     State.h \
     Storage.hpp \
-    StorageArrange.hpp \
+    StorageComp.hpp \
     Stream.hpp \
     TextCode.h \
     Thread.hpp \
@@ -130,7 +130,7 @@ SOURCES += \
     Stat_ImageBinary.cpp \
     State.c \
     Storage.cpp \
-    StorageArrange.cpp \
+    StorageComp.cpp \
     Stream.cpp \
     TextCode.c \
     Thread.cpp \
