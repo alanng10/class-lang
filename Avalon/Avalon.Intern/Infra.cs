@@ -60,6 +60,31 @@ public class Infra : object
         Extern.Delete(data);
         return true;
     }
+
+    public virtual byte[] ByteArrayCreateReturnString(ulong u)
+    {
+        ulong data;
+        ulong count;
+        data = Extern.String_DataGet(u);
+        count = Extern.String_CountGet(u);
+
+        ulong dataCount;
+        dataCount = count * sizeof(uint);
+
+        long ka;
+        ka = (long)dataCount;
+
+        byte[] k;
+        k = new byte[ka];
+
+        this.InternIntern.CopyToByteArray(data, k, 0, dataCount);
+
+        Extern.String_Final(u);
+        Extern.String_Delete(u);
+
+        Extern.Delete(data);
+        return k;
+    }
     
     public virtual ulong StateCreate(MaideAddress maideAddress, ulong arg)
     {
