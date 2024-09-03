@@ -34,6 +34,7 @@ public class Create : InfraCreate
     protected virtual ListInfra ListInfra { get; set; }
     protected virtual TextInfra TextInfra { get; set; }
     protected virtual ClassInfra ClassInfra { get; set; }
+    protected virtual TextStringValue TextStringValue { get; set; }
     protected virtual List ErrorList { get; set; }
     protected virtual Table BaseTable { get; set; }
     protected virtual Table RangeTable { get; set; }
@@ -44,7 +45,7 @@ public class Create : InfraCreate
         ClassClass a;
         a = new ClassClass();
         a.Init();
-        a.Name = "_";
+        a.Name = this.S("_");
         this.NullClass = a;
         return true;
     }
@@ -937,5 +938,10 @@ public class Create : InfraCreate
 
         this.ErrorList.Add(a);
         return true;
+    }
+
+    private String S(string o)
+    {
+        return this.TextStringValue.Execute(o);
     }
 }
