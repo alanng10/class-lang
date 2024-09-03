@@ -611,9 +611,9 @@ public class Create : InfraCreate
         iterB = varB.IterCreate();
         varB.IterSet(iterB);
 
-        int count;
+        long count;
         count = varA.Count;
-        int i;
+        long i;
         i = 0;
         while (i < count)
         {
@@ -671,8 +671,8 @@ public class Create : InfraCreate
         table.IterSet(iter);
         while (iter.Next())
         {
-            string name;
-            name = (string)iter.Index;
+            String name;
+            name = (String)iter.Index;
 
             ClassClass varClass;
             varClass = this.ModuleClassGet(module, name);
@@ -927,7 +927,7 @@ public class Create : InfraCreate
         return true;
     }
 
-    public virtual bool ErrorModule(ErrorKind kind, string name)
+    public virtual bool ErrorModule(ErrorKind kind, String name)
     {
         Error a;
         a = new Error();
