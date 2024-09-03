@@ -1353,7 +1353,7 @@ public class StateTraverse : Traverse
 
     protected virtual bool ArgueMatch(Maide varMaide, Argue argue)
     {
-        int count;
+        long count;
         count = varMaide.Param.Count;
 
         bool countEqual;
@@ -1371,7 +1371,7 @@ public class StateTraverse : Traverse
         argueIter = this.ArgueIter;
         argue.Value.IterSet(argueIter);
 
-        int i;
+        long i;
         i = 0;
         while (i < count)
         {
