@@ -346,11 +346,6 @@ public class TraverseGen : ToolGen
         return this.ValueVirtual;
     }
 
-    protected virtual bool IsDeriveState(Class varClass)
-    {
-        return 0 < varClass.Derive.Count;
-    }
-
     protected virtual String DeclareClassName(String className)
     {
         return className;

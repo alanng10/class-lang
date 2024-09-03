@@ -17,16 +17,25 @@ public class TraverseClassPathGen : TraverseGen
 
     protected override String Node(Class varClass)
     {
-        if (this.IsDeriveState(varClass))
+        if (varClass.AnyInt == 1)
         {
-            return this.S("");
+            return this.TextInfra.Zero;
         }
 
         return base.Node(varClass);
     }
 
-    protected override String ArrayState(Class varClass, Field field, String varName)
+    protected override String ArrayState(Class varClass, String varName)
     {
+        Iter iter;
+        iter = varClass.Field.IterCreate();
+        varClass.Field.IterSet(iter);
+
+        iter.Next();
+
+        Field field;
+        field = (Field)iter.Value;
+
         String itemClassName;
         itemClassName = field.ItemClass;
 
