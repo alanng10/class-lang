@@ -261,7 +261,7 @@ Storage
     Open()
     Close()
 
-StorageArrange
+StorageComp
     Rename(path, destPath)
     FileCopy(path, destPath)
     FileRemove(path)
