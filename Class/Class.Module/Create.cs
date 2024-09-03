@@ -833,9 +833,9 @@ public class Create : InfraCreate
 
     protected virtual bool ExecuteRootTraverse(Traverse traverse)
     {
-        int count;
+        long count;
         count = this.Source.Count;
-        int i;
+        long i;
         i = 0;
         while (i < count)
         {
