@@ -27,8 +27,8 @@ partial class ClassPathTraverse
         this.SFieldArgue = this.S("Argue");
         this.SFieldLite = this.S("Lite");
         this.SFieldRite = this.S("Rite");
-    return true;
-}
+        return true;
+    }
 
     protected virtual String SFieldName { get; set; }
     protected virtual String SFieldBase { get; set; }
