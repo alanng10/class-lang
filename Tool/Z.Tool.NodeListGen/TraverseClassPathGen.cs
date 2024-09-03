@@ -35,12 +35,16 @@ public class TraverseClassPathGen : TraverseGen
         String initStringMaide;
         initStringMaide = this.InitStringMaide();
 
+        String stringFieldList;
+        stringFieldList = this.StringFieldList();
+
         String nodeList;
         nodeList = this.NodeList();
 
         Text k;
         k = this.TextCreate(this.TextSource);
         k = this.Replace(k, "#InitStringMaide#", initStringMaide);
+        k = this.Replace(k, "#StringFieldList#", stringFieldList);
         k = this.Replace(k, "#NodeList#", nodeList);
 
         String a;
@@ -123,6 +127,27 @@ public class TraverseClassPathGen : TraverseGen
             k = (String)iter.Value;
 
             this.AddIndent(2).AddS("this.S").Add(k).AddS(" = this.S(\"").Add(k).AddS("\");\n");
+        }
+
+        String a;
+        a = this.AddResult();
+        return a;
+    }
+
+    protected virtual String StringFieldList()
+    {
+        this.AddClear();
+
+        Iter iter;
+        iter = this.FieldTable.IterCreate();
+        this.FieldTable.IterSet(iter);
+
+        while (iter.Next())
+        {
+            String k;
+            k = (String)iter.Value;
+
+            this.AddIndent(1).AddS("protected virtual String S").Add(k).AddS(" { get; set; }\n");
         }
 
         String a;
