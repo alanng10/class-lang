@@ -8,6 +8,7 @@ global using Iter = Avalon.List.Iter;
 global using ArrayIter = Avalon.List.ArrayIter;
 global using TableIter = Avalon.List.TableIter;
 global using ListInfra = Avalon.List.Infra;
+global using TextStringValue = Avalon.Text.StringValue;
 global using TextInfra = Avalon.Text.Infra;
 global using InfraCreate = Class.Infra.Create;
 global using Source = Class.Infra.Source;
