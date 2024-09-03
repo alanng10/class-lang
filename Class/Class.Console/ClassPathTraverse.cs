@@ -8,6 +8,9 @@ public partial class ClassPathTraverse : Traverse
         this.InfraInfra = InfraInfra.This;
         this.TextInfra = TextInfra.This;
 
+        this.StringComp = StringComp.This;
+        this.TextStringValue = TextStringValue.This;
+
         this.IntParse = new IntParse();
         this.IntParse.Init();
 
@@ -19,8 +22,8 @@ public partial class ClassPathTraverse : Traverse
         this.StringDataB = new StringData();
         this.StringDataB.Init();
 
-        LessMid charLess;
-        charLess = new LessMid();
+        LessInt charLess;
+        charLess = new LessInt();
         charLess.Init();
         CharForm charForm;
         charForm = new CharForm();
@@ -31,9 +34,9 @@ public partial class ClassPathTraverse : Traverse
         this.TextLess.RiteCharForm = charForm;
         this.TextLess.Init();
 
-        this.Dot = this.TextInfra.TextCreateStringData(".", null);
-        this.LeftSquare = this.TextInfra.TextCreateStringData("[", null);
-        this.RightSquare = this.TextInfra.TextCreateStringData("]", null);
+        this.Dot = this.TextInfra.TextCreateStringData(this.S("."), null);
+        this.LeftSquare = this.TextInfra.TextCreateStringData(this.S("["), null);
+        this.RightSquare = this.TextInfra.TextCreateStringData(this.S("]"), null);
         return true;
     }
 
@@ -41,6 +44,8 @@ public partial class ClassPathTraverse : Traverse
     public virtual Text Path { get; set; }
     protected virtual InfraInfra InfraInfra { get; set; }
     protected virtual TextInfra TextInfra { get; set; }
+    protected virtual StringComp StringComp { get; set; }
+    protected virtual TextStringValue TextStringValue { get; set; }
     protected virtual InfraRange Field { get; set; }
     protected virtual InfraRange FieldName { get; set; }
     protected virtual int Index { get; set; }
@@ -247,7 +252,7 @@ public partial class ClassPathTraverse : Traverse
         return !(this.Result == null);
     }
 
-    protected virtual bool FieldEqual(string name)
+    protected virtual bool FieldEqual(String name)
     {
         Text path;
         path = this.Path;
@@ -274,13 +279,18 @@ public partial class ClassPathTraverse : Traverse
         return a;
     }
 
-    protected virtual bool TextStringGet(Text text, StringData data, string o)
+    protected virtual bool TextStringGet(Text text, StringData data, String o)
     {
         data.ValueString = o;
 
         text.Data = data;
         text.Range.Index = 0;
-        text.Range.Count = o.Length;
+        text.Range.Count = this.StringComp.Count(o);
         return true;
+    }
+
+    private String S(string o)
+    {
+        return this.TextStringValue.Execute(o);
     }
 }
