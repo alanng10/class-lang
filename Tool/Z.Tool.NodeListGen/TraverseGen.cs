@@ -117,31 +117,28 @@ public class TraverseGen : ToolGen
 
     protected virtual String State(Class varClass, String varName)
     {
-        if (this.IsDeriveState(varClass))
+        long n;
+        n = varClass.AnyInt;
+
+        String a;
+        a = null;
+
+        if (n == 0)
         {
-            return this.DeriveState(varClass, varName);
+            a = this.FieldState(varClass, varName);
         }
 
-        if (varClass.Field.Count == 1)
+        if (n == 1)
         {
-            Iter iter;
-            iter = varClass.Field.IterCreate();
-            varClass.Field.IterSet(iter);
-
-            iter.Next();
-            
-            Field field;
-            field = (Field)iter.Value;
-
-            if (!(field.ItemClass == null))
-            {
-                return this.ArrayState(varClass, field, varName);
-            }
+            a = this.DeriveState(varClass, varName);
         }
 
-        String k;
-        k = this.FieldState(varClass, varName);
-        return k;
+        if (n == 2)
+        {
+            a = this.ArrayState(varClass, varName);
+        }
+        
+        return a;
     }
 
     protected virtual String DeriveState(Class varClass, String varName)
@@ -200,7 +197,7 @@ public class TraverseGen : ToolGen
         return a;
     }
 
-    protected virtual String ArrayState(Class varClass, Field field, String varName)
+    protected virtual String ArrayState(Class varClass, String varName)
     {
         StringJoin h;
         h = new StringJoin();
@@ -215,6 +212,15 @@ public class TraverseGen : ToolGen
 
         String newLine;
         newLine = this.ToolInfra.NewLine;
+
+        Iter iter;
+        iter = varClass.Field.IterCreate();
+        varClass.Field.IterSet(iter);
+
+        iter.Next();
+
+        Field field;
+        field = (Field)iter.Value;
 
         String itemClassName;
         itemClassName = field.ItemClass;
