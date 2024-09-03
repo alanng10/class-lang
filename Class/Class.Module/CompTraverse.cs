@@ -91,7 +91,7 @@ public class CompTraverse : Traverse
         Table varSet;
         varSet = this.ClassInfra.TableCreateStringLess();
 
-        int ka;
+        long ka;
         ka = this.ThisClass.Field.Count;
 
         Field a;
@@ -140,14 +140,14 @@ public class CompTraverse : Traverse
         State call;
         call = nodeMaide.Call;
 
-        string maideName;
+        String maideName;
         maideName = null;
         if (!(name == null))
         {
             maideName = name.Value;
         }
 
-        string className;
+        String className;
         className = null;
         if (!(nodeClass == null))
         {
@@ -186,7 +186,7 @@ public class CompTraverse : Traverse
 
         this.ExecuteParam(param);
 
-        int ka;
+        long ka;
         ka = this.ThisClass.Maide.Count;
 
         Maide a;
@@ -231,10 +231,10 @@ public class CompTraverse : Traverse
         ClassName nodeClass;
         nodeClass = nodeVar.Class;
 
-        string varName;
+        String varName;
         varName = name.Value;
 
-        string className;
+        String className;
         className = nodeClass.Value;
 
         if (this.ParamVar.Valid(varName))
@@ -269,21 +269,33 @@ public class CompTraverse : Traverse
         Count a;
         a = null;
 
-        if ((a == null) & (nodeCount is PrusateCount))
+        if (a == null)
         {
-            a = this.Count.Prusate;
+            if (nodeCount is PrusateCount)
+            {
+                a = this.Count.Prusate;
+            }
         }
-        if ((a == null) & (nodeCount is PrecateCount))
+        if (a == null)
         {
-            a = this.Count.Precate;
+            if (nodeCount is PrecateCount)
+            {
+                a = this.Count.Precate;
+            }
         }
-        if ((a == null) & (nodeCount is ProbateCount))
+        if (a == null)
         {
-            a = this.Count.Probate;
+            if (nodeCount is PronateCount)
+            {
+                a = this.Count.Pronate;
+            }
         }
-        if ((a == null) & (nodeCount is PrivateCount))
+        if (a == null)
         {
-            a = this.Count.Private;
+            if (nodeCount is PrivateCount)
+            {
+                a = this.Count.Private;
+            }
         }
         return a;
     }
