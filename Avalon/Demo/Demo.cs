@@ -1047,7 +1047,26 @@ class Demo : Any
         Array foldList;
         foldList = arrange.FoldList(foldListPath);
 
+        this.AddClear().AddS("Fold List: \n");
 
+        long count;
+        count = foldList.Count;
+        long i;
+        i = 0;
+        while (i < count)
+        {
+            String fold;
+            fold = (String)foldList.GetAt(i);
+
+            this.Add(fold).Add(this.TextInfra.NewLine);
+
+            i = i + 1;
+        }
+
+        String aaka;
+        aaka = this.AddResult();
+
+        this.Console.Out.Write(aaka);
 
         arrange.Final();
         return true;
