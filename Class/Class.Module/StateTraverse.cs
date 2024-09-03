@@ -741,14 +741,14 @@ public class StateTraverse : Traverse
             return true;
         }
 
-        Operate left;
-        left = andOperate.Lite;
+        Operate lite;
+        lite = andOperate.Lite;
         Operate right;
         right = andOperate.Rite;
 
         base.ExecuteAndOperate(andOperate);
 
-        this.ExecuteTwoOperandOperate(andOperate, left, right, this.System.Bool, this.System.Bool);
+        this.ExecuteTwoOperandOperate(andOperate, lite, right, this.System.Bool, this.System.Bool);
         return true;
     }
 
@@ -759,14 +759,14 @@ public class StateTraverse : Traverse
             return true;
         }
 
-        Operate left;
-        left = ornOperate.Lite;
+        Operate lite;
+        lite = ornOperate.Lite;
         Operate right;
         right = ornOperate.Rite;
 
         base.ExecuteOrnOperate(ornOperate);
 
-        this.ExecuteTwoOperandOperate(ornOperate, left, right, this.System.Bool, this.System.Bool);
+        this.ExecuteTwoOperandOperate(ornOperate, lite, right, this.System.Bool, this.System.Bool);
         return true;
     }
 
@@ -793,14 +793,14 @@ public class StateTraverse : Traverse
             return true;
         }
 
-        Operate left;
-        left = lessOperate.Lite;
+        Operate lite;
+        lite = lessOperate.Lite;
         Operate right;
         right = lessOperate.Rite;
 
         base.ExecuteLessOperate(lessOperate);
 
-        this.ExecuteTwoOperandOperate(lessOperate, left, right, this.System.Bool, this.System.Int);
+        this.ExecuteTwoOperandOperate(lessOperate, lite, right, this.System.Bool, this.System.Int);
         return true;
     }
 
@@ -811,14 +811,14 @@ public class StateTraverse : Traverse
             return true;
         }
 
-        Operate left;
-        left = addOperate.Lite;
+        Operate lite;
+        lite = addOperate.Lite;
         Operate right;
         right = addOperate.Rite;
 
         base.ExecuteAddOperate(addOperate);
 
-        this.ExecuteTwoOperandOperate(addOperate, left, right, this.System.Int, this.System.Int);
+        this.ExecuteTwoOperandOperate(addOperate, lite, right, this.System.Int, this.System.Int);
         return true;
     }
 
@@ -829,14 +829,14 @@ public class StateTraverse : Traverse
             return true;
         }
 
-        Operate left;
-        left = subOperate.Lite;
+        Operate lite;
+        lite = subOperate.Lite;
         Operate right;
         right = subOperate.Rite;
 
         base.ExecuteSubOperate(subOperate);
 
-        this.ExecuteTwoOperandOperate(subOperate, left, right, this.System.Int, this.System.Int);
+        this.ExecuteTwoOperandOperate(subOperate, lite, right, this.System.Int, this.System.Int);
         return true;
     }
 
@@ -847,14 +847,14 @@ public class StateTraverse : Traverse
             return true;
         }
 
-        Operate left;
-        left = mulOperate.Lite;
+        Operate lite;
+        lite = mulOperate.Lite;
         Operate right;
         right = mulOperate.Rite;
 
         base.ExecuteMulOperate(mulOperate);
 
-        this.ExecuteTwoOperandOperate(mulOperate, left, right, this.System.Int, this.System.Int);
+        this.ExecuteTwoOperandOperate(mulOperate, lite, right, this.System.Int, this.System.Int);
         return true;
     }
 
@@ -865,14 +865,14 @@ public class StateTraverse : Traverse
             return true;
         }
 
-        Operate left;
-        left = divOperate.Lite;
+        Operate lite;
+        lite = divOperate.Lite;
         Operate right;
         right = divOperate.Rite;
 
         base.ExecuteDivOperate(divOperate);
     
-        this.ExecuteTwoOperandOperate(divOperate, left, right, this.System.Int, this.System.Int);
+        this.ExecuteTwoOperandOperate(divOperate, lite, right, this.System.Int, this.System.Int);
         return true;
     }
 
@@ -883,14 +883,14 @@ public class StateTraverse : Traverse
             return true;
         }
 
-        Operate left;
-        left = signLessOperate.Lite;
+        Operate lite;
+        lite = signLessOperate.Lite;
         Operate right;
         right = signLessOperate.Rite;
 
         base.ExecuteSignLessOperate(signLessOperate);
 
-        this.ExecuteTwoOperandOperate(signLessOperate, left, right, this.System.Bool, this.System.Int);
+        this.ExecuteTwoOperandOperate(signLessOperate, lite, right, this.System.Bool, this.System.Int);
         return true;
     }
 
@@ -901,14 +901,14 @@ public class StateTraverse : Traverse
             return true;
         }
 
-        Operate left;
-        left = signMulOperate.Lite;
+        Operate lite;
+        lite = signMulOperate.Lite;
         Operate right;
         right = signMulOperate.Rite;
 
         base.ExecuteSignMulOperate(signMulOperate);
 
-        this.ExecuteTwoOperandOperate(signMulOperate, left, right, this.System.Int, this.System.Int);
+        this.ExecuteTwoOperandOperate(signMulOperate, lite, right, this.System.Int, this.System.Int);
         return true;
     }
 
@@ -919,14 +919,14 @@ public class StateTraverse : Traverse
             return true;
         }
 
-        Operate left;
-        left = signDivOperate.Lite;
+        Operate lite;
+        lite = signDivOperate.Lite;
         Operate right;
         right = signDivOperate.Rite;
 
         base.ExecuteSignDivOperate(signDivOperate);
 
-        this.ExecuteTwoOperandOperate(signDivOperate, left, right, this.System.Int, this.System.Int);
+        this.ExecuteTwoOperandOperate(signDivOperate, lite, right, this.System.Int, this.System.Int);
         return true;
     }
 
@@ -937,14 +937,14 @@ public class StateTraverse : Traverse
             return true;
         }
 
-        Operate left;
-        left = bitAndOperate.Lite;
+        Operate lite;
+        lite = bitAndOperate.Lite;
         Operate right;
         right = bitAndOperate.Rite;
 
         base.ExecuteBitAndOperate(bitAndOperate);
 
-        this.ExecuteTwoOperandOperate(bitAndOperate, left, right, this.System.Int, this.System.Int);
+        this.ExecuteTwoOperandOperate(bitAndOperate, lite, right, this.System.Int, this.System.Int);
         return true;
     }
 
@@ -955,14 +955,14 @@ public class StateTraverse : Traverse
             return true;
         }
 
-        Operate left;
-        left = bitOrnOperate.Lite;
+        Operate lite;
+        lite = bitOrnOperate.Lite;
         Operate right;
         right = bitOrnOperate.Rite;
 
         base.ExecuteBitOrnOperate(bitOrnOperate);
 
-        this.ExecuteTwoOperandOperate(bitOrnOperate, left, right, this.System.Int, this.System.Int);
+        this.ExecuteTwoOperandOperate(bitOrnOperate, lite, right, this.System.Int, this.System.Int);
         return true;
     }
 
@@ -1061,7 +1061,7 @@ public class StateTraverse : Traverse
         return true;
     }
 
-    protected virtual bool ExecuteTwoOperandOperate(Operate operate, Operate left, Operate right, ClassClass resultClass, ClassClass operandClass)
+    protected virtual bool ExecuteTwoOperandOperate(Operate operate, Operate lite, Operate right, ClassClass resultClass, ClassClass operandClass)
     {
         bool hasOperandUndefined;
         hasOperandUndefined = false;
@@ -1071,9 +1071,9 @@ public class StateTraverse : Traverse
 
         ClassClass leftClass;
         leftClass = null;
-        if (!(left == null))
+        if (!(lite == null))
         {
-            leftClass = this.Info(left).OperateClass;
+            leftClass = this.Info(lite).OperateClass;
             if (leftClass == null)
             {
                 hasOperandUndefined = this.UniqueError(this.ErrorKind.OperandUndefined, operate, hasOperandUndefined);
