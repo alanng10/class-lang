@@ -498,6 +498,9 @@ public class Gen : Any
 
     protected virtual String PageRootPath(long level)
     {
+        String ka;
+        ka = this.S("/..");
+
         this.AddClear();
 
         this.AddS(".");
@@ -508,7 +511,7 @@ public class Gen : Any
         i = 0;
         while (i < count)
         {
-            this.AddS("/..");
+            this.Add(ka);
 
             i = i + 1;
         }
