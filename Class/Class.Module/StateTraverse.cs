@@ -609,7 +609,7 @@ public class StateTraverse : Traverse
             }
         }
 
-        string className;
+        String className;
         className = null;
         if (!(nodeClass == null))
         {
@@ -694,17 +694,17 @@ public class StateTraverse : Traverse
         return true;
     }
 
-    public override bool ExecuteBracketOperate(BracketOperate bracketOperate)
+    public override bool ExecuteBraceOperate(BracketOperate braceOperate)
     {
-        if (bracketOperate == null)
+        if (braceOperate == null)
         {
             return true;
         }
 
         Operate any;
-        any = bracketOperate.Any;
+        any = braceOperate.Any;
 
-        base.ExecuteBracketOperate(bracketOperate);
+        base.ExecuteBraceOperate(braceOperate);
 
         ClassClass anyClass;
         anyClass = null;
@@ -713,11 +713,11 @@ public class StateTraverse : Traverse
             anyClass = this.Info(any).OperateClass;
             if (anyClass == null)
             {
-                this.Error(this.ErrorKind.AnyUndefined, bracketOperate);
+                this.Error(this.ErrorKind.AnyUndefined, braceOperate);
             }
         }
 
-        this.Info(bracketOperate).OperateClass = anyClass;
+        this.Info(braceOperate).OperateClass = anyClass;
         return true;
     }
 
