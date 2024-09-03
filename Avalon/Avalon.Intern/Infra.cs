@@ -78,11 +78,6 @@ public class Infra : object
         k = new byte[ka];
 
         this.InternIntern.CopyToByteArray(data, k, 0, dataCount);
-
-        Extern.String_Final(u);
-        Extern.String_Delete(u);
-
-        Extern.Delete(data);
         return k;
     }
     
