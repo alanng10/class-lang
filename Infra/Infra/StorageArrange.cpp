@@ -285,6 +285,8 @@ Int StorageArrange_FoldList(Int o, Int path)
         a = StorageArrange_StringCreate(o, ka);
 
         Array_ItemSet(array, i, a);
+
+        i = i + 1;
     }
     
     return array;
