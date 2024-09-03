@@ -22,7 +22,7 @@ public class Traverse : NodeTraverse
         return (Info)node.NodeAny;
     }
 
-    protected virtual ClassClass Class(string name)
+    protected virtual ClassClass Class(String name)
     {
         ClassClass a;
         a = this.Create.Class(name);

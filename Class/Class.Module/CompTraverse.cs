@@ -46,14 +46,14 @@ public class CompTraverse : Traverse
         State nodeSet;
         nodeSet = nodeField.Set;
 
-        string fieldName;
+        String fieldName;
         fieldName = null;
         if (!(name == null))
         {
             fieldName = name.Value;
         }
 
-        string className;
+        String className;
         className = null;
         if (!(nodeClass == null))
         {
