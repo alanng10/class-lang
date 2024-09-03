@@ -1041,6 +1041,14 @@ class Demo : Any
 
         this.Console.Out.Write(this.S("Exist " + pathE + " " + b.ToString() + "\n"));
 
+        String foldListPath;
+        foldListPath = this.S("DemoData/FoldCopy/FoldA");
+
+        Array foldList;
+        foldList = arrange.FoldList(foldListPath);
+
+
+
         arrange.Final();
         return true;
     }
