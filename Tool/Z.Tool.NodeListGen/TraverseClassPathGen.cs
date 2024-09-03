@@ -118,7 +118,7 @@ public class TraverseClassPathGen : TraverseGen
         String ka;
         String kb;
         String kc;
-        ka = this.S("this.S");
+        ka = this.S("this.SField");
         kb = this.S(" = this.S(\"");
         kc = this.S("\");\n");
         
@@ -145,7 +145,7 @@ public class TraverseClassPathGen : TraverseGen
     {
         String ka;
         String kb;
-        ka = this.S("protected virtual String S");
+        ka = this.S("protected virtual String SField");
         kb = this.S(" { get; set; }\n");
 
         this.AddClear();
