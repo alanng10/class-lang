@@ -1036,21 +1036,6 @@ public class StateTraverse : Traverse
         return true;
     }
 
-    protected virtual int ClassEqualCount(ClassClass left, ClassClass right, ClassClass equalClass)
-    {
-        int a;
-        a = 0;
-        if (left == equalClass)
-        {
-            a = a + 1;
-        }
-        if (right == equalClass)
-        {
-            a = a + 1;
-        }
-        return a;
-    }
-
     protected virtual bool ExecuteOneOperandOperate(Operate operate, Operate value, ClassClass resultClass, ClassClass operandClass)
     {
         ClassClass valueClass;
