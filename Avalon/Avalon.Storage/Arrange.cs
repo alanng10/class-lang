@@ -223,6 +223,29 @@ public class Arrange : Any
             i = i + 1;
         }
 
+        i = 0;
+        while (i < count)
+        {
+            long indexA;
+            indexA = count - 1 - i;
+
+            ulong indexAU;
+            indexAU = (ulong)indexA;
+
+            ulong ua;
+            ua = Extern.Array_ItemGet(o, indexAU);
+
+            ulong dataA;
+            dataA = Extern.String_DataGet(ua);
+
+            Extern.String_Final(ua);
+            Extern.String_Delete(ua);
+
+            Extern.Delete(dataA);
+
+            i = i + 1;
+        }
+
         Extern.Array_Final(o);
         Extern.Array_Delete(o);
 
