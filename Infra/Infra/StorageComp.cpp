@@ -1,18 +1,18 @@
-#include "StorageArrange.hpp"
+#include "StorageComp.hpp"
 
-CppClassNew(StorageArrange)
+CppClassNew(StorageComp)
 
-Int StorageArrange_Init(Int o)
+Int StorageComp_Init(Int o)
 {
     return true;
 }
 
-Int StorageArrange_Final(Int o)
+Int StorageComp_Final(Int o)
 {
     return true;
 }
 
-Int StorageArrange_Rename(Int o, Int path, Int destPath)
+Int StorageComp_Rename(Int o, Int path, Int destPath)
 {
     QString pathU;
     Int ua;
@@ -34,7 +34,7 @@ Int StorageArrange_Rename(Int o, Int path, Int destPath)
     return a;
 }
 
-Int StorageArrange_FileCopy(Int o, Int path, Int destPath)
+Int StorageComp_FileCopy(Int o, Int path, Int destPath)
 {
     QString pathU;
     Int ua;
@@ -54,7 +54,7 @@ Int StorageArrange_FileCopy(Int o, Int path, Int destPath)
     return a;
 }
 
-Int StorageArrange_FileRemove(Int o, Int path)
+Int StorageComp_FileRemove(Int o, Int path)
 {
     QString pathU;
     Int ua;
@@ -70,7 +70,7 @@ Int StorageArrange_FileRemove(Int o, Int path)
 }
 
 
-Int StorageArrange_FoldCreate(Int o, Int path)
+Int StorageComp_FoldCreate(Int o, Int path)
 {
     QString pathU;
     Int ua;
@@ -87,7 +87,7 @@ Int StorageArrange_FoldCreate(Int o, Int path)
     return a;
 }
 
-Int StorageArrange_FoldCopy(Int o, Int path, Int destPath)
+Int StorageComp_FoldCopy(Int o, Int path, Int destPath)
 {
     QString pathU;
     Int ua;
@@ -100,11 +100,11 @@ Int StorageArrange_FoldCopy(Int o, Int path, Int destPath)
     String_QStringSet(ub, destPath);
 
     Bool a;
-    a = StorageArrange_FoldCopyRecurse(o, ua, ub);
+    a = StorageComp_FoldCopyRecurse(o, ua, ub);
     return a;
 }
 
-Int StorageArrange_FoldCopyRecurse(Int o, Int path, Int destPath)
+Int StorageComp_FoldCopyRecurse(Int o, Int path, Int destPath)
 {
     QString pathA;
     QString destPathA;
@@ -152,7 +152,7 @@ Int StorageArrange_FoldCopyRecurse(Int o, Int path, Int destPath)
         uub = CastInt(&newDestPath);
         
         Bool ba;
-        ba = StorageArrange_FoldCopyRecurse(o, uua, uub);
+        ba = StorageComp_FoldCopyRecurse(o, uua, uub);
         if (!ba)
         {
             return false;
@@ -195,7 +195,7 @@ Int StorageArrange_FoldCopyRecurse(Int o, Int path, Int destPath)
     return true;
 }
 
-Int StorageArrange_FoldRemove(Int o, Int path)
+Int StorageComp_FoldRemove(Int o, Int path)
 {
     QString pathU;
     Int ua;
@@ -212,7 +212,7 @@ Int StorageArrange_FoldRemove(Int o, Int path)
     return a;
 }
 
-Int StorageArrange_Exist(Int o, Int path)
+Int StorageComp_Exist(Int o, Int path)
 {
     QString pathU;
     Int ua;
@@ -227,7 +227,7 @@ Int StorageArrange_Exist(Int o, Int path)
     return a;
 }
 
-Int StorageArrange_LinkTarget(Int o, Int path)
+Int StorageComp_LinkTarget(Int o, Int path)
 {
     QString pathU;
     Int ua;
@@ -245,7 +245,7 @@ Int StorageArrange_LinkTarget(Int o, Int path)
     return a;
 }
 
-Int StorageArrange_FoldList(Int o, Int path)
+Int StorageComp_FoldList(Int o, Int path)
 {
     QString pathU;
     Int ua;
@@ -282,7 +282,7 @@ Int StorageArrange_FoldList(Int o, Int path)
         ka = CastInt(&fold);
 
         Int a;
-        a = StorageArrange_StringCreate(o, ka);
+        a = StorageComp_StringCreate(o, ka);
 
         Array_ItemSet(array, i, a);
 
@@ -292,7 +292,7 @@ Int StorageArrange_FoldList(Int o, Int path)
     return array;
 }
 
-Int StorageArrange_StringCreate(Int o, Int u)
+Int StorageComp_StringCreate(Int o, Int u)
 {
     QString* ka;
     ka = (QString*)u;
