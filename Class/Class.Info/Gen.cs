@@ -397,9 +397,6 @@ public class Gen : Any
         String quote;
         quote = this.S("\"");
 
-        StringAdd o;
-        o = this.StringAdd;
-
         long indent;
         indent = level * 2;
 
