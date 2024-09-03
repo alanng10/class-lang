@@ -78,16 +78,16 @@ public class Create : InfraCreate
     protected virtual bool SystemClassSet()
     {
         ClassModule d;
-        d = this.ModuleGet("System.Infra");
+        d = this.ModuleGet(this.S("System.Infra"));
 
-        this.SystemClass.Any = this.ModuleClassGet(d, "Any");
-        this.SystemClass.Bool = this.ModuleClassGet(d, "Bool");
-        this.SystemClass.Int = this.ModuleClassGet(d, "Int");
-        this.SystemClass.String = this.ModuleClassGet(d, "String");
+        this.SystemClass.Any = this.ModuleClassGet(d, this.S("Any"));
+        this.SystemClass.Bool = this.ModuleClassGet(d, this.S("Bool"));
+        this.SystemClass.Int = this.ModuleClassGet(d, this.S("Int"));
+        this.SystemClass.String = this.ModuleClassGet(d, this.S("String"));
         return true;
     }
 
-    protected virtual ClassModule ModuleGet(string moduleName)
+    protected virtual ClassModule ModuleGet(String moduleName)
     {
         this.ModuleRef.Name = moduleName;
         ClassModule a;
@@ -95,7 +95,7 @@ public class Create : InfraCreate
         return a;
     }
 
-    protected virtual ClassClass ModuleClassGet(ClassModule module, string className)
+    protected virtual ClassClass ModuleClassGet(ClassModule module, String className)
     {
         return (ClassClass)module.Class.Get(className);
     }
@@ -186,7 +186,7 @@ public class Create : InfraCreate
         ClassName nodeBase;
         nodeBase = nodeClass.Base;
 
-        string baseName;
+        String baseName;
         baseName = null;
         if (!(nodeBase == null))
         {
@@ -385,7 +385,7 @@ public class Create : InfraCreate
         return true;
     }
 
-    protected virtual bool SetClassRangeOne(Range ka, Range kb, int count)
+    protected virtual bool SetClassRangeOne(Range ka, Range kb, long count)
     {
         ka.Index = kb.Index + kb.Count;
         ka.Count = count;
@@ -884,14 +884,14 @@ public class Create : InfraCreate
         return true;
     }
 
-    public virtual ClassClass Class(string name)
+    public virtual ClassClass Class(String name)
     {
         ClassClass a;
         a = (ClassClass)this.ClassTable.Get(name);
         return a;
     }
 
-    public virtual bool MemberNameDefined(ClassClass varClass, string name)
+    public virtual bool MemberNameDefined(ClassClass varClass, String name)
     {
         bool ba;
         ba = varClass.Field.Valid(name);
@@ -903,12 +903,12 @@ public class Create : InfraCreate
         return a;
     }
 
-    public virtual object CompDefined(ClassClass varClass, string name)
+    public virtual object CompDefined(ClassClass varClass, String name)
     {
         return this.ClassInfra.CompDefined(varClass, name, this.SystemClass.Any);
     }
 
-    protected virtual Source SourceGet(int index)
+    protected virtual Source SourceGet(long index)
     {
         return (Source)this.Source.GetAt(index);
     }
