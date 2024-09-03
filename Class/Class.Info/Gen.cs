@@ -15,8 +15,8 @@ public class Gen : Any
 
         this.StorageArrange = StorageArrange.This;
 
-        this.StringJoin = new StringJoin();
-        this.StringJoin.Init();
+        this.StringAdd = new StringAdd();
+        this.StringAdd.Init();
 
         this.CharLess = new LessInt();
         this.CharLess.Init();
@@ -46,7 +46,7 @@ public class Gen : Any
     protected virtual ClassInfra ClassInfra { get; set; }
     protected virtual StringComp StringComp { get; set; }
     protected virtual TextStringValue TextStringValue { get; set; }
-    protected virtual StringJoin StringJoin { get; set; }
+    protected virtual StringAdd StringAdd { get; set; }
     protected virtual TextLess TextLess { get; set; }
     protected virtual LessInt CharLess { get; set; }
     protected virtual CharForm CharForm { get; set; }
@@ -397,8 +397,8 @@ public class Gen : Any
         String quote;
         quote = this.S("\"");
 
-        StringJoin o;
-        o = this.StringJoin;
+        StringAdd o;
+        o = this.StringAdd;
 
         long indent;
         indent = level * 2;
@@ -783,13 +783,13 @@ public class Gen : Any
 
     protected virtual Gen Add(String a)
     {
-        this.InfraInfra.AddString(this.StringJoin, a);
+        this.InfraInfra.AddString(this.StringAdd, a);
         return this;
     }
 
     protected virtual Gen AddChar(long n)
     {
-        this.StringJoin.Execute(n);
+        this.StringAdd.Execute(n);
         return this;
     }
 
@@ -800,13 +800,13 @@ public class Gen : Any
 
     protected virtual Gen AddClear()
     {
-        this.StringJoin.Clear();
+        this.StringAdd.Clear();
         return this;
     }
 
     protected virtual String AddResult()
     {
-        return this.StringJoin.Result();
+        return this.StringAdd.Result();
     }
 
     protected virtual String S(string o)
