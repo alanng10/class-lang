@@ -255,7 +255,7 @@ Int StorageArrange_FoldList(Int o, Int path)
     QDir dirA(pathU);
 
     QStringList foldList;
-    foldList = dirA.entryList(QDir::Dirs | QDir::NoDotAndDotDot);
+    foldList = dirA.entryList(QDir::Dirs | QDir::NoDotAndDotDot, QDir::Name);
 
     qsizetype countU;
     countU = foldList.count();
