@@ -204,7 +204,7 @@ public class Arrange : Any
             u = Extern.Array_ItemGet(o, index);
 
             byte[] k;
-            k = internInfra.ByteArrayCreateReturnString(u);
+            k = internInfra.ByteArrayCreateString(u);
 
             long dataCount;
             dataCount = k.LongLength;
