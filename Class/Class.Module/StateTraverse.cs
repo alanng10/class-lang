@@ -208,9 +208,9 @@ public class StateTraverse : Traverse
         ClassName nodeClass;
         nodeClass = nodeVar.Class;
 
-        string varName;
+        String varName;
         varName = name.Value;
-        string className;
+        String className;
         className = nodeClass.Value;
 
         if (this.StateVar.Valid(varName))
@@ -480,7 +480,7 @@ public class StateTraverse : Traverse
             }
         }
 
-        string maideName;
+        String maideName;
         maideName = null;
         if (!(nodeMaide == null))
         {
@@ -1301,7 +1301,7 @@ public class StateTraverse : Traverse
         return this.ClassInfra.ValidClass(varClass, requiredClass, this.System.Any, this.NullClass);
     }
 
-    protected virtual Field Field(ClassClass varClass, string name)
+    protected virtual Field Field(ClassClass varClass, String name)
     {
         if (varClass == this.NullClass)
         {
@@ -1362,7 +1362,7 @@ public class StateTraverse : Traverse
         return d;
     }
 
-    protected virtual Maide Maide(ClassClass varClass, string name)
+    protected virtual Maide Maide(ClassClass varClass, String name)
     {
         if (varClass == this.NullClass)
         {
