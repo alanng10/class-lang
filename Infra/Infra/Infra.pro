@@ -47,7 +47,6 @@ HEADERS += \
     Rand.hpp \
     Range.h \
     Rect.h \
-    Return.hpp \
     Share.hpp \
     Size.h \
     Stat.hpp \
@@ -108,7 +107,6 @@ SOURCES += \
     Rand.cpp \
     Range.c \
     Rect.c \
-    Return.cpp \
     Share.cpp \
     Size.c \
     Stat.cpp \
