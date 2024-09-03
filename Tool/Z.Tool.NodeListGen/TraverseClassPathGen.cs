@@ -16,6 +16,7 @@ public class TraverseClassPathGen : TraverseGen
     }
 
     protected virtual String TextInitStringMaide { get; set; }
+    protected virtual Table FieldTable { get; set; }
 
     public override bool Execute()
     {
@@ -29,11 +30,17 @@ public class TraverseClassPathGen : TraverseGen
 
         this.TextVirtual = this.Virtual();
 
+        this.SetFieldTable();
+
+        String initStringMaide;
+        initStringMaide = this.InitStringMaide();
+
         String nodeList;
         nodeList = this.NodeList();
 
         Text k;
         k = this.TextCreate(this.TextSource);
+        k = this.Replace(k, "#InitStringMaide#", initStringMaide);
         k = this.Replace(k, "#NodeList#", nodeList);
 
         String a;
@@ -51,6 +58,76 @@ public class TraverseClassPathGen : TraverseGen
         }
 
         return base.Node(varClass);
+    }
+
+    protected virtual bool SetFieldTable()
+    {
+        Table table;
+        table = this.ToolInfra.TableCreateStringLess();
+
+        Table classTable;
+        classTable = this.ClassTable;
+
+        Iter iter;
+        iter = classTable.IterCreate();
+        classTable.IterSet(iter);
+
+        while (iter.Next())
+        {
+            Class varClass;
+            varClass = (Class)iter.Value;
+
+            Iter iterA;
+            iterA = varClass.Field.IterCreate();
+            varClass.Field.IterSet(iterA);
+
+            while (iterA.Next())
+            {
+                Field field;
+                field = (Field)iterA.Value;
+
+                this.ListInfra.TableAdd(table, field.Name, field.Name);
+            }
+        }
+
+        this.FieldTable = table;
+        return true;
+    }
+
+    protected virtual String InitStringMaide()
+    {
+        String ka;
+        ka = this.StringFieldSetList();
+
+        Text k;
+        k = this.TextCreate(this.TextInitStringMaide);
+        k = this.Replace(k, "#StringFieldSetList#", ka);
+
+        String a;
+        a = this.StringCreate(k);
+
+        return a;
+    }
+
+    protected virtual String StringFieldSetList()
+    {
+        this.AddClear();
+
+        Iter iter;
+        iter = this.FieldTable.IterCreate();
+        this.FieldTable.IterSet(iter);
+
+        while (iter.Next())
+        {
+            String k;
+            k = (String)iter.Value;
+
+            this.AddIndent(2).AddS("this.S").Add(k).AddS(" = this.S(\"").Add(k).AddS("\");\n");
+        }
+
+        String a;
+        a = this.AddResult();
+        return a;
     }
 
     protected override String ArrayState(Class varClass, String varName)
