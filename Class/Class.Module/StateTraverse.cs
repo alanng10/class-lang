@@ -982,21 +982,21 @@ public class StateTraverse : Traverse
         return true;
     }
 
-    public override bool ExecuteBitLeftOperate(BitLeftOperate bitLeftOperate)
+    public override bool ExecuteBitLiteOperate(BitLiteOperate bitLiteOperate)
     {
-        if (bitLeftOperate == null)
+        if (bitLiteOperate == null)
         {
             return true;
         }
 
         Operate value;
-        value = bitLeftOperate.Value;
+        value = bitLiteOperate.Value;
         Operate count;
-        count = bitLeftOperate.Count;
+        count = bitLiteOperate.Count;
 
-        base.ExecuteBitLeftOperate(bitLeftOperate);
+        base.ExecuteBitLiteOperate(bitLiteOperate);
 
-        this.ExecuteTwoOperandOperate(bitLeftOperate, value, count, this.System.Int, this.System.Int);
+        this.ExecuteTwoOperandOperate(bitLiteOperate, value, count, this.System.Int, this.System.Int);
         return true;
     }
 
