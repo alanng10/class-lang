@@ -15,6 +15,34 @@ public class TraverseClassPathGen : TraverseGen
         return true;
     }
 
+    protected virtual String TextInitStringMaide { get; set; }
+
+    public override bool Execute()
+    {
+        this.TextSource = this.ToolInfra.StorageTextRead(this.PathSource);
+        this.TextNode = this.ToolInfra.StorageTextRead(this.PathNode);
+        this.TextDerive = this.ToolInfra.StorageTextRead(this.PathDerive);
+        this.TextExecuteNode = this.ToolInfra.StorageTextRead(this.PathExecuteNode);
+        this.TextArray = this.ToolInfra.StorageTextRead(this.PathArray);
+        this.TextField = this.ToolInfra.StorageTextRead(this.PathField);
+        this.TextInitStringMaide = this.ToolInfra.StorageTextRead(this.GetPath(this.S("ClassPathInitStringMaide")));
+
+        this.TextVirtual = this.Virtual();
+
+        String nodeList;
+        nodeList = this.NodeList();
+
+        Text k;
+        k = this.TextCreate(this.TextSource);
+        k = this.Replace(k, "#NodeList#", nodeList);
+
+        String a;
+        a = this.StringCreate(k);
+
+        this.ToolInfra.StorageTextWrite(this.PathOutput, a);
+        return true;
+    }
+
     protected override String Node(Class varClass)
     {
         if (varClass.AnyInt == 1)
