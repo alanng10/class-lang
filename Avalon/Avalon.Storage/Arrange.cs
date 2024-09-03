@@ -197,11 +197,11 @@ public class Arrange : Any
         i = 0;
         while (i < count)
         {
-            ulong index;
-            index = (ulong)i;
+            ulong indexU;
+            indexU = (ulong)i;
 
             ulong u;
-            u = Extern.Array_ItemGet(o, index);
+            u = Extern.Array_ItemGet(o, indexU);
 
             byte[] k;
             k = internInfra.ByteArrayCreateString(u);
