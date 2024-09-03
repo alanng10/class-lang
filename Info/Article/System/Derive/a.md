@@ -12,6 +12,8 @@ It also does not have builtin media creation effect to be used by modules.
 
 This system derive uses millisecond as the smallest time unit.
 
+This system derive does not have highest develop order as it does not have all ideal builtin.
+
 This system derive takes up space when it is not being used.
 This system derive has weight.
 This system derive consumes energy when it is operating.
