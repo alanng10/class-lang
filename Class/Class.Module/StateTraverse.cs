@@ -742,9 +742,9 @@ public class StateTraverse : Traverse
         }
 
         Operate left;
-        left = andOperate.Left;
+        left = andOperate.Lite;
         Operate right;
-        right = andOperate.Right;
+        right = andOperate.Rite;
 
         base.ExecuteAndOperate(andOperate);
 
@@ -760,9 +760,9 @@ public class StateTraverse : Traverse
         }
 
         Operate left;
-        left = ornOperate.Left;
+        left = ornOperate.Lite;
         Operate right;
-        right = ornOperate.Right;
+        right = ornOperate.Rite;
 
         base.ExecuteOrnOperate(ornOperate);
 
@@ -794,9 +794,9 @@ public class StateTraverse : Traverse
         }
 
         Operate left;
-        left = lessOperate.Left;
+        left = lessOperate.Lite;
         Operate right;
-        right = lessOperate.Right;
+        right = lessOperate.Rite;
 
         base.ExecuteLessOperate(lessOperate);
 
@@ -812,9 +812,9 @@ public class StateTraverse : Traverse
         }
 
         Operate left;
-        left = addOperate.Left;
+        left = addOperate.Lite;
         Operate right;
-        right = addOperate.Right;
+        right = addOperate.Rite;
 
         base.ExecuteAddOperate(addOperate);
 
@@ -830,9 +830,9 @@ public class StateTraverse : Traverse
         }
 
         Operate left;
-        left = subOperate.Left;
+        left = subOperate.Lite;
         Operate right;
-        right = subOperate.Right;
+        right = subOperate.Rite;
 
         base.ExecuteSubOperate(subOperate);
 
@@ -848,9 +848,9 @@ public class StateTraverse : Traverse
         }
 
         Operate left;
-        left = mulOperate.Left;
+        left = mulOperate.Lite;
         Operate right;
-        right = mulOperate.Right;
+        right = mulOperate.Rite;
 
         base.ExecuteMulOperate(mulOperate);
 
@@ -866,9 +866,9 @@ public class StateTraverse : Traverse
         }
 
         Operate left;
-        left = divOperate.Left;
+        left = divOperate.Lite;
         Operate right;
-        right = divOperate.Right;
+        right = divOperate.Rite;
 
         base.ExecuteDivOperate(divOperate);
     
@@ -884,9 +884,9 @@ public class StateTraverse : Traverse
         }
 
         Operate left;
-        left = signLessOperate.Left;
+        left = signLessOperate.Lite;
         Operate right;
-        right = signLessOperate.Right;
+        right = signLessOperate.Rite;
 
         base.ExecuteSignLessOperate(signLessOperate);
 
@@ -902,9 +902,9 @@ public class StateTraverse : Traverse
         }
 
         Operate left;
-        left = signMulOperate.Left;
+        left = signMulOperate.Lite;
         Operate right;
-        right = signMulOperate.Right;
+        right = signMulOperate.Rite;
 
         base.ExecuteSignMulOperate(signMulOperate);
 
@@ -920,9 +920,9 @@ public class StateTraverse : Traverse
         }
 
         Operate left;
-        left = signDivOperate.Left;
+        left = signDivOperate.Lite;
         Operate right;
-        right = signDivOperate.Right;
+        right = signDivOperate.Rite;
 
         base.ExecuteSignDivOperate(signDivOperate);
 
@@ -938,9 +938,9 @@ public class StateTraverse : Traverse
         }
 
         Operate left;
-        left = bitAndOperate.Left;
+        left = bitAndOperate.Lite;
         Operate right;
-        right = bitAndOperate.Right;
+        right = bitAndOperate.Rite;
 
         base.ExecuteBitAndOperate(bitAndOperate);
 
@@ -956,9 +956,9 @@ public class StateTraverse : Traverse
         }
 
         Operate left;
-        left = bitOrnOperate.Left;
+        left = bitOrnOperate.Lite;
         Operate right;
-        right = bitOrnOperate.Right;
+        right = bitOrnOperate.Rite;
 
         base.ExecuteBitOrnOperate(bitOrnOperate);
 
