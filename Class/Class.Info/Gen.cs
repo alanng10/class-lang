@@ -611,6 +611,13 @@ public class Gen : Any
 
     protected virtual bool AddNodeNameValue(String name)
     {
+        String escapeBackSlash;
+        escapeBackSlash = this.S("\\\\");
+        String escapeQuote;
+        escapeQuote = this.S("\\\"");
+        String escapeSingleQuote;
+        escapeSingleQuote = this.S("\\\'");
+
         long count;
         count = this.StringComp.Count(name);
         long i;
@@ -626,7 +633,7 @@ public class Gen : Any
             {
                 if (oc == '\\')
                 {
-                    this.AddS("\\\\");
+                    this.Add(escapeBackSlash);
                     b = true;
                 }
             }
@@ -634,7 +641,7 @@ public class Gen : Any
             {
                 if (oc == '\"')
                 {
-                    this.AddS("\\\"");
+                    this.Add(escapeQuote);
                     b = true;
                 }
             }
@@ -642,7 +649,7 @@ public class Gen : Any
             {
                 if (oc == '\'')
                 {
-                    this.AddS("\\\'");
+                    this.Add(escapeSingleQuote);
                     b = true;
                 }
             }
