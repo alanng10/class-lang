@@ -18,7 +18,12 @@ class ObjectString : ClassInfraGen
         this.SQuote = this.S("\"");
         this.SColon = this.S(":");
         this.SBraceLite = this.S("{");
+        this.SBraceRite = this.S("}");
+        this.SBraceSquareLite = this.S("[");
+        this.SBraceSquareRite = this.S("]");
         this.SNull = this.S("null");
+        this.SEscapeBackSlash = this.S("\\\\");
+        this.SEscapeQuote = this.S("\\\"");
 
         this.IndentSize = 4;
         return true;
@@ -31,7 +36,12 @@ class ObjectString : ClassInfraGen
     private String SColon { get; set; }
     private String SBraceLite { get; set; }
     private String SBraceRite { get; set; }
+    private String SBraceSquareLite { get; set; }
+    private String SBraceSquareRite { get; set; }
     private String SNull { get; set; }
+    private String SEscapeBackSlash { get; set; }
+    private String SEscapeQuote { get; set; }
+    private String SEscapeNewLine { get; set; }
     private long IndentSize { get; set; }
     private long SpaceCount { get; set; }
     private Type NodeType { get; set; }
@@ -198,9 +208,7 @@ class ObjectString : ClassInfraGen
             list = (List)fieldGetValue;
 
             Iter iter;
-
             iter = list.IterCreate();
-
 
             this.ExecuteList(fieldName, list, iter);
 
@@ -223,112 +231,63 @@ class ObjectString : ClassInfraGen
         return true;
     }
 
-
-
-
-
-    protected virtual bool ExecuteList(string fieldName, List list, Iter iter)
+    protected virtual bool ExecuteList(String fieldName, List list, Iter iter)
     {
-        int lastSpaceCount;
-
-
+        long lastSpaceCount;
         lastSpaceCount = this.SpaceCount;
 
+        this.SpaceCount = this.SpaceCount + this.StringCount(fieldName) + 3;
 
-
-
-        this.SpaceCount = this.SpaceCount + fieldName.Length + 3;
-
-
-
-
-        this.Append("[").AppendLine();
-
-
+        this.Add(this.SBraceSquareLite).AddLine();
 
         this.SpaceCount = this.SpaceCount + this.IndentSize;
 
-
-
-
         list.IterSet(iter);
-
-
 
         while (iter.Next())
         {
             object o;
-
             o = iter.Value;
 
-            this.AppendSpace();
-            this.ExecuteObject(o);
+            this.AddSpace();
+
+            this.ExecuteAny(o);
         }
-
-
-
 
         this.SpaceCount = this.SpaceCount - this.IndentSize;
 
 
 
 
-        this.AppendSpace().Append("]").Append(",").AppendLine();
-
-
-
+        this.AddSpace();
+        this.Add(this.SBraceSquareRite).Add(this.SComma).AddLine();
 
         this.SpaceCount = lastSpaceCount;
-
-
-
-
         return true;
     }
 
-
-
-
     private bool IsType(Type objectType, Type type)
     {
-        bool b;
-
-
-        b = type.IsAssignableFrom(objectType);
-
-
-
-        bool ret;
-
-        ret = b;
-
-        return ret;
+        bool a;
+        a = type.IsAssignableFrom(objectType);
+        return a;
     }
 
-
-
-
-    public string EscapeString(string o)
+    public virtual ObjectString AddEscapeString(String o)
     {
         TextInfra textInfra;
         textInfra = this.TextInfra;
         PrintableChar printableChar;
         printableChar = this.PrintableChar;
-        StringCreate stringCreate;
-        stringCreate = this.StringCreate;
 
-        StringJoin h;
-        h = new StringJoin();
-        h.Init();
-
-        int count;
-        count = o.Length;
-        int i;
+        long count;
+        count = this.StringCount(o);
+        long i;
         i = 0;
         while (i < count)
         {
-            char oc;
-            oc = o[i];
+            long oc;
+            oc = this.StringComp.Char(o, i);
 
             bool b;
             b = false;
@@ -336,7 +295,7 @@ class ObjectString : ClassInfraGen
             {
                 if (oc == '\\')
                 {
-                    this.JoinAppend(h, "\\\\");
+                    this.Add(this.SEscapeBackSlash);
                     b = true;
                 }
             }
@@ -344,15 +303,7 @@ class ObjectString : ClassInfraGen
             {
                 if (oc == '\"')
                 {
-                    this.JoinAppend(h, "\\\"");
-                    b = true;
-                }
-            }
-            if (!b)
-            {
-                if (oc == '\t')
-                {
-                    this.JoinAppend(h, "\\t");
+                    this.Add(this.SEscapeQuote);
                     b = true;
                 }
             }
