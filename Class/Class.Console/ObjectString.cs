@@ -1,141 +1,60 @@
 namespace Class.Console;
 
-
-
-
-class ObjectString : Any
+class ObjectString : ClassInfraGen
 {
     public override bool Init()
     {
         base.Init();
-        this.InfraInfra = InfraInfra.This;
-        this.TextInfra = TextInfra.This;
         this.PrintableChar = PrintableChar.This;
-        this.StringCreate = new StringCreate();
-        this.StringCreate.Init();
 
 
         this.NodeType = typeof(NodeNode);
-
-
-
         this.CodeType = typeof(Code);
-
-
-
         this.TokenType = typeof(TokenToken);
-
-
-
         this.CommentType = typeof(TokenInfo);
 
-
-        this.CharSpace = ' ';
-
-
+        this.SComma = this.S(",");
+        this.SSpace = this.S(" ");
+        this.SNull = this.S("null");
 
         this.IndentSize = 4;
-
-
-
-
-        this.TrueString = "true";
-
-
-        this.FalseString = "false";
         return true;
     }
 
-    protected virtual InfraInfra InfraInfra { get; set; }
-    protected virtual TextInfra TextInfra { get; set; }
     protected virtual PrintableChar PrintableChar { get; set; }
-    protected virtual StringCreate StringCreate { get; set; }
-
-
-    private char CharSpace { get; set; }
-
-
-
-    private int IndentSize { get; set; }
-
-
-
-
-    private StringBuilder StringBuilder { get; set; }
-
-
-
-    private int SpaceCount { get; set; }
-
-
-
-
-
+    private String SComma { get; set; }
+    private String SSpace { get; set; }
+    private String SNull { get; set; }
+    private long IndentSize { get; set; }
+    private long SpaceCount { get; set; }
     private Type NodeType { get; set; }
-
-
-
     private Type CodeType { get; set; }
-
-
-
     private Type TokenType { get; set; }
-
-
-
     private Type CommentType { get; set; }
 
-
-
-
-    private string TrueString { get; set; }
-
-
-
-    private string FalseString { get; set; }
-
-
-
-
-
-
-    public string Result()
+    public virtual String Result()
     {
-        return this.StringBuilder.ToString();
+        return this.AddResult();
     }
 
-
-
-    public bool Execute(object varObject)
+    public virtual bool Execute(object any)
     {
-        this.StringBuilder = new StringBuilder();
-
-
+        this.AddClear();
 
         this.SpaceCount = 0;
 
-
-
-        this.ExecuteObject(varObject);
-
-
-
+        this.ExecuteAny(any);
         return true;
     }
 
-
-
-
-    private bool ExecuteObject(object varObject)
+    public virtual bool ExecuteAny(object any)
     {
-        if (varObject == null)
+        if (any == null)
         {
-            this.Append("null").Append(",").AppendLine();
+            this.Add(this.SNull).Add(this.SComma).AddLine();
 
             return true;
         }
-
-
 
         if (varObject is bool)
         {
@@ -713,42 +632,18 @@ class ObjectString : Any
         return ret;
     }
 
-    protected virtual bool JoinAppend(StringJoin h, string text)
+    public virtual ObjectString AddSpace()
     {
-        this.InfraInfra.StringJoinString(h, text);
-        return true;
-    }
+        long count;
+        count = this.SpaceCount;
+        long i;
+        i = 0;
+        while (i < count)
+        {
+            this.Add(this.SSpace);
 
-    private ObjectString Append(string s)
-    {
-        StringBuilder.Append(s);
-
+            i = i + 1;
+        }
         return this;
-    }
-
-
-
-    private ObjectString AppendLine()
-    {
-        this.Append('\n', 1);
-
-
-        return this;
-    }
-
-
-
-    private ObjectString Append(char c, int count)
-    {
-        StringBuilder.Append(c, count);
-
-        return this;
-    }
-
-
-
-    private ObjectString AppendSpace()
-    {
-        return this.Append(CharSpace, this.SpaceCount);
     }
 }

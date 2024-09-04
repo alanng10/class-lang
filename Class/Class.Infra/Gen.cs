@@ -146,6 +146,12 @@ public class Gen : Any
         return this;
     }
 
+    public virtual Gen AddLine()
+    {
+        this.Add(this.TextInfra.NewLine);
+        return this;
+    }
+
     public virtual Gen AddS(string o)
     {
         return this.Add(this.S(o));
