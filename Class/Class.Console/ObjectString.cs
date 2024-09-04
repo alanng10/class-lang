@@ -15,6 +15,8 @@ class ObjectString : ClassInfraGen
 
         this.SComma = this.S(",");
         this.SSpace = this.S(" ");
+        this.SQuote = this.S("\"");
+        this.SBraceLite = this.S("{");
         this.SNull = this.S("null");
 
         this.IndentSize = 4;
@@ -24,6 +26,9 @@ class ObjectString : ClassInfraGen
     protected virtual PrintableChar PrintableChar { get; set; }
     private String SComma { get; set; }
     private String SSpace { get; set; }
+    private String SQuote { get; set; }
+    private String SBraceLite { get; set; }
+    private String SBraceRite { get; set; }
     private String SNull { get; set; }
     private long IndentSize { get; set; }
     private long SpaceCount { get; set; }
@@ -81,67 +86,47 @@ class ObjectString : ClassInfraGen
             long kb;
             kb = (long)any;
 
-            this.Append(k.ToString()).Append(",").AppendLine();
+            String kba;
+            kba = this.IntString(kb);
 
+            this.Add(kba).Add(this.SComma).AddLine();
 
             return true;
         }
-        if (varObject is string)
+        if (any is String)
         {
-            string s;
-            
-            s = (string)varObject;
+            String kc;
+            kc = (String)any;
 
+            kc = this.EscapeString(kc);
 
-            s = this.EscapeString(s);
-
-
-            this.Append("\"").Append(s).Append("\"").Append(",").AppendLine();
-
+            this.Add(this.SQuote).Add(kc).Add(this.SQuote).Add(this.SComma).AddLine();
 
             return true;
         }
-
-
 
         Type objectType;
         
-        objectType = varObject.GetType();
+        objectType = any.GetType();
 
+        String objectTypeName;
+        objectTypeName = this.S(objectType.Name);
 
-        string objectTypeName;
-        
-        objectTypeName = objectType.Name;
-
-
-
-        this.Append(objectTypeName).AppendLine();
+        this.Add(objectTypeName).AddLine();
             
 
-        this.AppendSpace().Append("{").AppendLine();
-
+        this.AddSpace();
+        this.Add(this.SBraceLite).AddLine();
 
         this.SpaceCount = this.SpaceCount + this.IndentSize;
 
-            
-
-
-
-        this.PropertyList(objectType, varObject);
+        this.PropertyList(objectType, any);
         
-
-
-
-
-
-
-
         this.SpaceCount = this.SpaceCount - this.IndentSize;
 
 
-        this.AppendSpace().Append("}").Append(",").AppendLine();
-
-
+        this.AddSpace();
+        this.Add(this.SBraceRite).Add(this.SComma).AddLine();
 
         return true;
     }
