@@ -56,67 +56,30 @@ class ObjectString : ClassInfraGen
             return true;
         }
 
-        if (varObject is bool)
+        if (any is bool)
         {
-            bool k;
+            bool ka;
+            ka = (bool)any;
 
-            k = (bool)varObject;
-
-
-
-            string aa;
-
+            String aa;
             aa = null;
-
-
-            if (k)
+            if (ka)
             {
-                aa = this.TrueString;
+                aa = this.TextInfra.BoolTrueString;
+            }
+            if (!ka)
+            {
+                aa = this.TextInfra.BoolFalseString;
             }
 
-
-            if (!k)
-            {
-                aa = this.FalseString;
-            }
-
-
-            
-
-            this.Append(aa).Append(",").AppendLine();
-
+            this.Add(aa).Add(this.SComma).AddLine();
 
             return true;
         }
-        if (varObject is int)
+        if (any is long)
         {
-            int k;
-
-            k = (int)varObject;
-
-
-            this.Append(k.ToString()).Append(",").AppendLine();
-
-            return true;
-        }
-        if (varObject is ulong)
-        {
-            ulong k;
-
-            k = (ulong)varObject;
-
-
-            this.Append(k.ToString()).Append(",").AppendLine();
-
-
-            return true;
-        }
-        if (varObject is long)
-        {
-            long k;
-
-            k = (long)varObject;
-
+            long kb;
+            kb = (long)any;
 
             this.Append(k.ToString()).Append(",").AppendLine();
 
