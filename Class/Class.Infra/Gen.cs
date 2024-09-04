@@ -26,6 +26,23 @@ public class Gen : Any
         this.Range = new InfraRange();
         this.Range.Init();
 
+        this.Write = new Write();
+        this.Write.Init();
+        this.Write.CharForm = this.CharForm;
+
+        WriteArg arg;
+        arg = new WriteArg();
+        arg.Init();
+
+        arg.Kind = 1;
+        arg.Base = 10;
+        arg.Case = 0;
+        arg.AlignLeft = false;
+        arg.FieldWidth = 1;
+        arg.MaxWidth = -1;
+
+        this.WriteArg = arg;
+
         this.Indent = this.StringComp.CreateChar(' ', 4);
         return true;
     }
@@ -39,7 +56,26 @@ public class Gen : Any
     protected virtual LessInt CharLess { get; set; }
     protected virtual CharForm CharForm { get; set; }
     protected virtual InfraRange Range { get; set; }
+    protected virtual Write Write { get; set; }
+    protected virtual WriteArg WriteArg { get; set; }
     protected virtual String Indent { get; set; }
+
+    public virtual String IntString(long n)
+    {
+        this.WriteArg.Value.Int = n;
+
+        this.Write.ExecuteArgCount(this.WriteArg);
+
+        Text aa;
+        aa = this.TextInfra.TextCreate(this.WriteArg.Count);
+
+        this.Write.ExecuteArgResult(this.WriteArg, aa);
+
+        String a;
+        a = this.StringCreate(aa);
+
+        return a;
+    }
 
     public virtual Text Replace(Text text, string limit, String join)
     {

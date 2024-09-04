@@ -123,13 +123,13 @@ public class Infra : Any
         charForm = new CharForm();
         charForm.Init();
 
-        Format format;
-        format = new Format();
-        format.Init();
-        format.CharForm = charForm;
+        Write write;
+        write = new Write();
+        write.Init();
+        write.CharForm = charForm;
 
-        FormatArg arg;
-        arg = new FormatArg();
+        WriteArg arg;
+        arg = new WriteArg();
         arg.Init();
 
         arg.Kind = 1;
@@ -142,24 +142,24 @@ public class Infra : Any
 
         arg.Value.Int = revision;
 
-        format.ExecuteArgCount(arg);
+        write.ExecuteArgCount(arg);
 
         Text aa;
         aa = this.TextInfra.TextCreate(arg.Count);
 
-        format.ExecuteArgResult(arg, aa);
+        write.ExecuteArgResult(arg, aa);
 
         String oa;
         oa = this.TextInfra.StringCreate(aa);
 
         arg.Value.Int = minor;
 
-        format.ExecuteArgCount(arg);
+        write.ExecuteArgCount(arg);
 
         Text ab;
         ab = this.TextInfra.TextCreate(arg.Count);
 
-        format.ExecuteArgResult(arg, ab);
+        write.ExecuteArgResult(arg, ab);
 
         String ob;
         ob = this.TextInfra.StringCreate(ab);
@@ -168,12 +168,12 @@ public class Infra : Any
         arg.MaxWidth = -1;
         arg.Value.Int = major;
 
-        format.ExecuteArgCount(arg);
+        write.ExecuteArgCount(arg);
 
         Text ac;
         ac = this.TextInfra.TextCreate(arg.Count);
 
-        format.ExecuteArgResult(arg, ac);
+        write.ExecuteArgResult(arg, ac);
 
         String oc;
         oc = this.TextInfra.StringCreate(ac);
