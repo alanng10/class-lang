@@ -181,8 +181,8 @@ public class Infra : Any
         String dot;
         dot = this.Dot;
 
-        StringJoin h;
-        h = new StringJoin();
+        StringAdd h;
+        h = new StringAdd();
         h.Init();
 
         this.Add(h, oc).Add(h, dot).Add(h, ob).Add(h, dot).Add(h, oa);
@@ -333,7 +333,7 @@ public class Infra : Any
         return this.StringValue.Execute(o);
     }
 
-    private Infra Add(StringJoin h, String o)
+    private Infra Add(StringAdd h, String o)
     {
         this.InfraInfra.AddString(h, o);
 
