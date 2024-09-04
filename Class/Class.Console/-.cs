@@ -47,6 +47,7 @@ global using ClassStorage = Class.Infra.Storage;
 global using NameCheck = Class.Infra.NameCheck;
 global using StoragePathCheck = Class.Infra.StoragePathCheck;
 global using PrintableChar = Class.Infra.PrintableChar;
+global using ClassInfraGen = Class.Infra.Gen;
 global using ClassInfra = Class.Infra.Infra;
 global using BinaryBinary = Class.Binary.Binary;
 global using BinaryClass = Class.Binary.Class;
