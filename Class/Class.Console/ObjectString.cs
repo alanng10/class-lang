@@ -16,6 +16,7 @@ class ObjectString : ClassInfraGen
         this.SComma = this.S(",");
         this.SSpace = this.S(" ");
         this.SQuote = this.S("\"");
+        this.SColon = this.S(":");
         this.SBraceLite = this.S("{");
         this.SNull = this.S("null");
 
@@ -27,6 +28,7 @@ class ObjectString : ClassInfraGen
     private String SComma { get; set; }
     private String SSpace { get; set; }
     private String SQuote { get; set; }
+    private String SColon { get; set; }
     private String SBraceLite { get; set; }
     private String SBraceRite { get; set; }
     private String SNull { get; set; }
@@ -131,25 +133,13 @@ class ObjectString : ClassInfraGen
         return true;
     }
 
-
-
-
-
-
     private bool PropertyList(Type objectType, object varObject)
     {
         IEnumerablePropertyInfo propertyInfoList;
-
-
         propertyInfoList = objectType.GetProperties(BindingFlags.Public | BindingFlags.Instance);
 
-
-
-        PropertyInfoDictionary dictionary;
-        
+        PropertyInfoDictionary dictionary;        
         dictionary = new PropertyInfoDictionary();
-
-
 
         foreach (PropertyInfo propertyInfo in propertyInfoList)
         {
@@ -159,35 +149,22 @@ class ObjectString : ClassInfraGen
             }
         }
 
-
-
         propertyInfoList = dictionary.Values;
-
-
-
 
         foreach (PropertyInfo propertyInfo in propertyInfoList)
         {
-            string fieldName;
-                
+            string fieldName;                
             fieldName = propertyInfo.Name;
 
-
-            Type resultType;
-                
+            Type resultType;                
             resultType = propertyInfo.PropertyType;
 
-
-
             object fieldGetValue;
-
-
             fieldGetValue = propertyInfo.GetValue(varObject);
-
-
 
             bool b;
             b = false;
+
             bool objectIsNode;
             objectIsNode = this.IsType(objectType, this.NodeType);
             if (objectIsNode)
@@ -200,151 +177,21 @@ class ObjectString : ClassInfraGen
 
             if (!b)
             {
-                this.Field(fieldName, resultType, fieldGetValue);
+                this.Field(this.S(fieldName), resultType, fieldGetValue);
             }
         }
-
-
 
         return true;
     }
 
-
-
-
-
-
-
-    private bool Fields(Type objectType, object varObject)
+    private bool Field(String fieldName, Type resultType, object fieldGetValue)
     {
-        IEnumerableFieldInfo fieldInfos;
-
-
-        fieldInfos = objectType.GetFields(BindingFlags.Public | BindingFlags.Instance);
-
-
-
-        FieldInfoDictionary dictionary;
-        
-        dictionary = new FieldInfoDictionary();
-
-
-
-        foreach (FieldInfo fieldInfo in fieldInfos)
-        {
-            if (!dictionary.ContainsKey(fieldInfo.Name))
-            {
-                dictionary.Add(fieldInfo.Name, fieldInfo);
-            }
-        }
-
-
-
-        fieldInfos = dictionary.Values;
-
-
-
-
-        foreach (FieldInfo fieldInfo in fieldInfos)
-        {
-            string fieldName;
-                
-            fieldName = fieldInfo.Name;
-
-
-            Type resultType;
-                
-            resultType = fieldInfo.FieldType;
-
-
-
-            object fieldGetValue;
-
-
-            fieldGetValue = fieldInfo.GetValue(varObject);
-
-
-
-
-            bool objectIsNode;
-
-            objectIsNode = this.IsType(objectType, this.NodeType);
-
-
-
-            if (objectIsNode)
-            {
-                if (fieldName == "Range" | fieldName == "Id")
-                {
-                    continue;
-                }
-            }
-
-
-
-            this.Field(fieldName, resultType, fieldGetValue);
-        }
-
-
-
-        return true;
-    }
-
-
-
-
-    private bool Field(string fieldName, Type resultType, object fieldGetValue)
-    {
-        this.AppendSpace().Append(fieldName).Append(" ").Append(":").Append(" ");
-
+        this.AddSpace();
+        this.Add(fieldName).Add(this.SSpace).Add(this.SColon).Add(this.SSpace);
 
         bool b;
         b = false;
 
-        if (!b & this.IsType(resultType, typeof(IEnumerable)) & !resultType.Equals(typeof(string)))
-        {
-            int lastSpaceCount = this.SpaceCount;
-
-
-            this.SpaceCount = this.SpaceCount + fieldName.Length + 3;
-
-
-            this.Append("[").AppendLine();
-
-
-            this.SpaceCount = this.SpaceCount + this.IndentSize;
-
-
-            IEnumerable objects;
-            objects = (IEnumerable)fieldGetValue;
-
-
-            IEnumerator enumerator;
-            enumerator = objects.GetEnumerator();
-
-            while (enumerator.MoveNext())
-            {
-                object o;
-                o = enumerator.Current;
-
-
-                this.AppendSpace();
-
-
-                this.ExecuteObject(o);
-            }
-
-
-            this.SpaceCount = this.SpaceCount - this.IndentSize;
-
-
-            this.AppendSpace().Append("]").Append(",").AppendLine();
-
-
-            this.SpaceCount = lastSpaceCount;
-
-            b = true;
-        }
         if (!b & this.IsType(resultType, typeof(List)))
         {
             List list;
@@ -361,15 +208,15 @@ class ObjectString : ClassInfraGen
         }
         if (!b)
         {
-            int lastSpaceCount = this.SpaceCount;
+            long lastSpaceCount;
+            lastSpaceCount = this.SpaceCount;
 
+            this.SpaceCount = this.SpaceCount + this.StringCount(fieldName) + 3;
 
-            this.SpaceCount = this.SpaceCount + fieldName.Length + 3;
+            object any;
+            any = fieldGetValue;
 
-            object n;
-            n = fieldGetValue;
-            this.ExecuteObject(n);
-
+            this.ExecuteAny(any);
 
             this.SpaceCount = lastSpaceCount;
         }
