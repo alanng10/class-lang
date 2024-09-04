@@ -2,7 +2,7 @@ namespace Class.Console;
 
 public class Entry : EntryEntry
 {
-    protected override int ExecuteMain()
+    protected override long ExecuteMain()
     {
         Console console;
         console = new Console();
