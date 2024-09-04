@@ -20,4 +20,5 @@ global using TextInfra = Avalon.Text.Infra;
 global using Time = Avalon.Time.Time;
 global using StorageArrange = Avalon.Storage.Comp;
 global using StorageInfra = Avalon.Storage.Infra;
+global using ClassGen = Class.Infra.Gen;
 global using ClassInfra = Class.Infra.Infra;
