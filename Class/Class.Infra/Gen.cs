@@ -5,6 +5,7 @@ public class Gen : Any
     public override bool Init()
     {
         base.Init();
+        this.InfraInfra = InfraInfra.This;
         this.TextInfra = TextInfra.This;
         this.StringComp = StringComp.This;
         this.TextStringValue = StringValue.This;
@@ -29,6 +30,7 @@ public class Gen : Any
         return true;
     }
 
+    protected virtual InfraInfra InfraInfra { get; set; }
     protected virtual TextInfra TextInfra { get; set; }
     protected virtual StringComp StringComp { get; set; }
     protected virtual StringValue TextStringValue { get; set; }
@@ -39,17 +41,17 @@ public class Gen : Any
     protected virtual InfraRange Range { get; set; }
     protected virtual String Indent { get; set; }
 
-    protected virtual Text Replace(Text text, string limit, String join)
+    public virtual Text Replace(Text text, string limit, String join)
     {
         return this.TextReplace(text, this.TextCreate(this.S(limit)), this.TextCreate(join));
     }
 
-    protected virtual String StringCreate(Text text)
+    public virtual String StringCreate(Text text)
     {
         return this.TextInfra.StringCreate(text);
     }
 
-    protected virtual Text TextLower(Text text)
+    public virtual Text TextLower(Text text)
     {
         TextInfra textInfra;
         textInfra = this.TextInfra;
@@ -87,22 +89,22 @@ public class Gen : Any
         return a;
     }
 
-    protected virtual Text TextCreate(String o)
+    public virtual Text TextCreate(String o)
     {
         return this.TextInfra.TextCreateStringData(o, null);
     }
 
-    protected virtual Text TextReplace(Text text, Text limit, Text join)
+    public virtual Text TextReplace(Text text, Text limit, Text join)
     {
         return this.TextInfra.Replace(text, limit, join, this.TextLess);
     }
 
-    protected virtual long StringCount(String o)
+    public virtual long StringCount(String o)
     {
         return this.StringComp.Count(o);
     }
 
-    protected virtual String StringCreateRange(String o, long index, long count)
+    public virtual String StringCreateRange(String o, long index, long count)
     {
         this.Range.Index = index;
         this.Range.Count = count;
@@ -110,7 +112,7 @@ public class Gen : Any
         return this.StringComp.CreateString(o, this.Range);
     }
 
-    protected virtual String StringCreateIndex(String o, long index)
+    public virtual String StringCreateIndex(String o, long index)
     {
         long count;
         count = this.StringCount(o) - index;
@@ -118,7 +120,7 @@ public class Gen : Any
         return this.StringCreateRange(o, index, count);
     }
 
-    protected virtual Gen AddIndent(long indent)
+    public virtual Gen AddIndent(long indent)
     {
         long count;
         count = indent;
@@ -132,35 +134,35 @@ public class Gen : Any
         return this;
     }
 
-    protected virtual Gen Add(String a)
+    public virtual Gen Add(String a)
     {
         this.InfraInfra.AddString(this.StringAdd, a);
         return this;
     }
 
-    protected virtual Gen AddChar(long n)
+    public virtual Gen AddChar(long n)
     {
         this.StringAdd.Execute(n);
         return this;
     }
 
-    protected virtual Gen AddS(string o)
+    public virtual Gen AddS(string o)
     {
         return this.Add(this.S(o));
     }
 
-    protected virtual Gen AddClear()
+    public virtual Gen AddClear()
     {
         this.StringAdd.Clear();
         return this;
     }
 
-    protected virtual String AddResult()
+    public virtual String AddResult()
     {
         return this.StringAdd.Result();
     }
 
-    protected virtual String S(string o)
+    public virtual String S(string o)
     {
         return this.TextStringValue.Execute(o);
     }

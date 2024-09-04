@@ -5,7 +5,6 @@ public class Gen : ClassGen
     public override bool Init()
     {
         base.Init();
-        this.InfraInfra = InfraInfra.This;
         this.ListInfra = ListInfra.This;
         this.StorageInfra = StorageInfra.This;
         this.ClassInfra = ClassInfra.This;
@@ -18,7 +17,6 @@ public class Gen : ClassGen
     public virtual String DestFoldPath { get; set; }
     public virtual bool LinkFileName { get; set; }
     public virtual Table ModuleTable { get; set; }
-    protected virtual InfraInfra InfraInfra { get; set; }
     protected virtual ListInfra ListInfra { get; set; }
     protected virtual StorageInfra StorageInfra { get; set; }
     protected virtual ClassInfra ClassInfra { get; set; }
