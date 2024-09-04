@@ -5,7 +5,7 @@ public class ShareGen : Any
     public override bool Init()
     {
         base.Init();
-        this.InfraInfra = InfraInfra.This;
+        this.TextInfra = TextInfra.This;
         this.StorageInfra = StorageInfra.This;
 
         this.InitSourceTemplate();
@@ -14,15 +14,15 @@ public class ShareGen : Any
 
     public virtual ClassClass Class { get; set; }
     public virtual bool Export { get; set; }
-    public virtual string Source { get; set; }
-    protected virtual InfraInfra InfraInfra { get; set; }
+    public virtual String Source { get; set; }
+    protected virtual TextInfra TextInfra { get; set; }
     protected virtual StorageInfra StorageInfra { get; set; }
-    protected virtual string SourceTemplate { get; set; }
+    protected virtual String SourceTemplate { get; set; }
 
     protected virtual bool InitSourceTemplate()
     {
-        string k;
-        k = this.InfraInfra.PathCombine;
+        String k;
+        k = this.TextInfra.PathCombine;
 
         this.SourceTemplate = this.StorageInfra.TextReadAny("Class.Console.data" + k + "ClassShare.txt", true);
         return true;
