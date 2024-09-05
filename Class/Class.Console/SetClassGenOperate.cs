@@ -11,12 +11,12 @@ public class SetClassGenOperate : ClassGenOperate
         charForm = new CharForm();
         charForm.Init();
 
-        this.Format = new Format();
-        this.Format.Init();
-        this.Format.CharForm = charForm;
+        this.Write = new Write();
+        this.Write.Init();
+        this.Write.CharForm = charForm;
 
-        FormatArg e;
-        e = new FormatArg();
+        WriteArg e;
+        e = new WriteArg();
         e.Init();
         e.Kind = 1;
         e.Base = 16;
@@ -25,19 +25,19 @@ public class SetClassGenOperate : ClassGenOperate
         e.FieldWidth = 15;
         e.MaxWidth = 15;
         e.FillChar = '0';
-        this.FormatArgInt = e;
+        this.WriteArgInt = e;
 
-        this.FormatText = new Text();
-        this.FormatText.Init();
-        this.FormatText.Range = new InfraRange();
-        this.FormatText.Range.Init();
+        this.Text = new Text();
+        this.Text.Init();
+        this.Text.Range = new InfraRange();
+        this.Text.Range.Init();
         return true;
     }
 
     protected virtual TextInfra TextInfra { get; set; }
-    protected virtual Format Format { get; set; }
-    protected virtual FormatArg FormatArgInt { get; set; }
-    protected virtual Text FormatText { get; set; }
+    protected virtual Write Write { get; set; }
+    protected virtual WriteArg WriteArgInt { get; set; }
+    protected virtual Text Text { get; set; }
 
     public override bool ExecuteChar(long o)
     {
@@ -61,24 +61,24 @@ public class SetClassGenOperate : ClassGenOperate
         long index;
         index = arg.Index;
 
-        Format format;
-        format = this.Format;
+        Write write;
+        write = this.Write;
 
-        FormatArg e;
-        e = this.FormatArgInt;
+        WriteArg e;
+        e = this.WriteArgInt;
 
         Text kk;
-        kk = this.FormatText;
+        kk = this.Text;
 
         e.Value.Int = o;
 
-        format.ExecuteArgCount(e);
+        write.ExecuteArgCount(e);
 
         kk.Data = arg.Data;
         kk.Range.Index = index;
         kk.Range.Count = e.Count;
 
-        format.ExecuteArgResult(e, kk);
+        write.ExecuteArgResult(e, kk);
 
         e.Count = 0;
         e.ValueCount = 0;

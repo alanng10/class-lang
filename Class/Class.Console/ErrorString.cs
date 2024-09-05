@@ -1,14 +1,10 @@
 namespace Class.Console;
 
-public class ErrorString : Any
+public class ErrorString : ClassInfraGen
 {
     public override bool Init()
     {
         base.Init();
-        this.InfraInfra = InfraInfra.This;
-        this.TextInfra = TextInfra.This;
-        this.NewLine = this.InfraInfra.NewLine;
-
         CharForm charForm;
         charForm = new CharForm();
         charForm.Init();
@@ -19,19 +15,13 @@ public class ErrorString : Any
         this.FormatArg = new FormatArg();
         this.FormatArg.Init();
 
-        StringCreate kk;
-        kk = new StringCreate();
-        kk.Init();
-        this.BorderLine = kk.Char('-', 50);
+        this.BorderLine = this.StringComp.CreateChar('-', 50);
         return true;
     }
 
-    protected virtual InfraInfra InfraInfra { get; set; }
-    protected virtual TextInfra TextInfra { get; set; }
     protected virtual Format Format { get; set; }
     protected virtual FormatArg FormatArg { get; set; }
-    protected virtual string NewLine { get; set; }
-    protected virtual string BorderLine { get; set; }
+    protected virtual String BorderLine { get; set; }
 
     public virtual string Execute(Error error)
     {
