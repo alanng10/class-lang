@@ -1134,11 +1134,11 @@ public class ClassGen : ClassInfraGen
     {
         this.ClassName(varClass);
 
-        this.Text("_");
+        this.Text(this.NameCombine);
 
-        this.Text(compName);
+        this.NameSymbolString(compName);
 
-        this.Text("_");
+        this.Text(this.NameCombine);
 
         this.Text(state);
         return true;
