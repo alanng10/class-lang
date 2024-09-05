@@ -211,10 +211,10 @@ public class ClassGen : ClassInfraGen
 
     public virtual bool ExecuteVirtualCall(long thisEvalIndex, long stateKind, long stateIndex)
     {
-        string varA;
-        string varB;
-        string varC;
-        string varD;
+        String varA;
+        String varB;
+        String varC;
+        String varD;
         varA = this.VarA;
         varB = this.VarB;
         varC = this.VarC;
@@ -744,7 +744,7 @@ public class ClassGen : ClassInfraGen
         return true;
     }
 
-    public virtual bool VarSet(string dest, string value)
+    public virtual bool VarSet(String dest, String value)
     {
         this.TextIndent();
 
@@ -761,22 +761,19 @@ public class ClassGen : ClassInfraGen
         return true;
     }
 
-    public virtual bool VarSetPos(string dest, string value, long pos)
+    public virtual bool VarSetPos(String dest, String value, long pos)
     {
-        string k;
-        k = this.Space;
-
         this.TextIndent();
 
         this.Text(dest);
 
-        this.Text(k);
+        this.Text(this.Space);
         this.Text(this.DelimitAre);
-        this.Text(k);
+        this.Text(this.Space);
 
         this.Text(value);
 
-        this.Text(k);
+        this.Text(this.Space);
 
         this.TextPos(pos);
 
@@ -977,7 +974,7 @@ public class ClassGen : ClassInfraGen
         return true;
     }
 
-    public virtual bool EvalValueGet(long index, string varVar)
+    public virtual bool EvalValueGet(long index, String varVar)
     {
         this.TextIndent();
         
@@ -994,7 +991,7 @@ public class ClassGen : ClassInfraGen
         return true;
     }
 
-    public virtual bool EvalValueSet(long index, string varVar)
+    public virtual bool EvalValueSet(long index, String varVar)
     {
         this.TextIndent();
 
@@ -1029,7 +1026,7 @@ public class ClassGen : ClassInfraGen
         return true;
     }
 
-    public virtual bool EvalFrameValueGet(long pos, string arg)
+    public virtual bool EvalFrameValueGet(long pos, String arg)
     {
         this.TextIndent();
 
@@ -1046,7 +1043,7 @@ public class ClassGen : ClassInfraGen
         return true;
     }
 
-    public virtual bool EvalFrameValueSet(long pos, string arg)
+    public virtual bool EvalFrameValueSet(long pos, String arg)
     {
         this.TextIndent();
 
@@ -1236,7 +1233,7 @@ public class ClassGen : ClassInfraGen
 
     public virtual bool TextIndent()
     {
-        string indent;
+        String indent;
         indent = this.Indent;
         long count;
         count = this.IndentCount;
@@ -1256,7 +1253,7 @@ public class ClassGen : ClassInfraGen
         o = this.Operate;
 
         long count;
-        count = text.Length;
+        count = this.StringCount(text);
         long i;
         i = 0;
         while (i < count)
