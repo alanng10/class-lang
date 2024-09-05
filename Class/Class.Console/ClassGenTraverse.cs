@@ -355,17 +355,17 @@ public class ClassGenTraverse : Traverse
         return true;
     }
 
-    public override bool ExecuteBitLeftOperate(BitLeftOperate bitLeftOperate)
+    public override bool ExecuteBitLiteOperate(BitLiteOperate bitLiteOperate)
     {
-        base.ExecuteBitLeftOperate(bitLeftOperate);
+        base.ExecuteBitLiteOperate(bitLiteOperate);
 
         this.Gen.ExecuteOperateDelimitAA(this.Gen.DelimitBitLeft);
         return true;
     }
 
-    public override bool ExecuteBitRightOperate(BitRightOperate bitRightOperate)
+    public override bool ExecuteBitRiteOperate(BitRiteOperate bitRiteOperate)
     {
-        base.ExecuteBitRightOperate(bitRightOperate);
+        base.ExecuteBitRiteOperate(bitRiteOperate);
 
         this.Gen.ExecuteOperateDelimitAB(this.Gen.DelimitBitRight);
         return true;
