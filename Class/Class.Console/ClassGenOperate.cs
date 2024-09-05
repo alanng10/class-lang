@@ -4,7 +4,7 @@ public class ClassGenOperate : Any
 {
     public virtual ClassGen Gen { get; set; }
 
-    public virtual bool ExecuteChar(char o)
+    public virtual bool ExecuteChar(long o)
     {
         return false;
     }

@@ -1258,8 +1258,8 @@ public class ClassGen : ClassInfraGen
         i = 0;
         while (i < count)
         {
-            char oc;
-            oc = text[i];
+            long oc;
+            oc = this.StringChar(text, i);
 
             o.ExecuteChar(oc);
 

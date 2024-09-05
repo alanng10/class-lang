@@ -39,12 +39,12 @@ public class SetClassGenOperate : ClassGenOperate
     protected virtual FormatArg FormatArgInt { get; set; }
     protected virtual Text FormatText { get; set; }
 
-    public override bool ExecuteChar(char o)
+    public override bool ExecuteChar(long o)
     {
         GenArg arg;
         arg = this.Gen.Arg;
 
-        int index;
+        long index;
         index = arg.Index;
 
         this.TextInfra.DataCharSet(arg.Data, index, o);
@@ -58,7 +58,7 @@ public class SetClassGenOperate : ClassGenOperate
     {
         GenArg arg;
         arg = this.Gen.Arg;
-        int index;
+        long index;
         index = arg.Index;
 
         Format format;
@@ -70,7 +70,7 @@ public class SetClassGenOperate : ClassGenOperate
         Text kk;
         kk = this.FormatText;
 
-        e.ValueInt = o;
+        e.Value.Int = o;
 
         format.ExecuteArgCount(e);
 
@@ -80,10 +80,9 @@ public class SetClassGenOperate : ClassGenOperate
 
         format.ExecuteArgResult(e, kk);
 
-        e.HasCount = false;
         e.Count = 0;
         e.ValueCount = 0;
-        e.ValueInt = 0;
+        e.Value.Int = 0;
         
         kk.Data = null;
         kk.Range.Index = 0;

@@ -2,11 +2,11 @@ namespace Class.Console;
 
 public class CountClassGenOperate : ClassGenOperate
 {
-    public override bool ExecuteChar(char o)
+    public override bool ExecuteChar(long o)
     {
         GenArg arg;
         arg = this.Gen.Arg;
-        int index;
+        long index;
         index = arg.Index;
         index = index + 1;
         arg.Index = index;
@@ -17,7 +17,7 @@ public class CountClassGenOperate : ClassGenOperate
     {
         GenArg arg;
         arg = this.Gen.Arg;
-        int index;
+        long index;
         index = arg.Index;
         index = index + 15;
         arg.Index = index;
