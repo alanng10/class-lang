@@ -172,7 +172,7 @@ public class ClassGen : ClassInfraGen
 
         long nn;
         nn = this.Arg.Index;
-        nn = nn * sizeof(char);
+        nn = nn * sizeof(uint);
         Data data;
         data = new Data();
         data.Count = nn;
@@ -187,8 +187,8 @@ public class ClassGen : ClassInfraGen
         this.Operate = null;
         this.Arg = null;
 
-        string o;
-        o = this.StringCreate.Data(data, null);
+        String o;
+        o = this.StringComp.CreateData(data, null);
 
         this.Source = o;
         return true;
