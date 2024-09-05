@@ -614,7 +614,7 @@ public class ClassGen : ClassInfraGen
         return true;
     }
 
-    public virtual bool ExecuteOperateDelimitBool(String delimit)
+    public virtual bool ExecuteOperateLimitBool(String delimit)
     {
         String varA;
         String varB;
@@ -625,8 +625,6 @@ public class ClassGen : ClassInfraGen
         this.EvalValueGet(1, varB);
 
         this.OperateLimit(varA, varA, varB, delimit);
-
-        this.VarMaskSet(varA, this.RefKindBoolMask);
 
         this.EvalValueSet(2, varA);
 
