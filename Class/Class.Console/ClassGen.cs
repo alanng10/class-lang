@@ -55,8 +55,8 @@ public class ClassGen : ClassInfraGen
         this.KeywordReturn = this.S("return");
         this.DelimitDot = this.S(".");
         this.DelimitDotPointer = this.S("->");
-        this.DelimitBraceLite = this.S("(");
-        this.DelimitBraceRite = this.S(")");
+        this.DelimitBraceRoundLite = this.S("(");
+        this.DelimitBraceRoundRite = this.S(")");
         this.DelimitBraceSquareLite = this.S("[");
         this.DelimitBraceSquareRite = this.S("]");
         this.DelimitSemicolon = this.S(";");
@@ -135,8 +135,8 @@ public class ClassGen : ClassInfraGen
     public virtual String KeywordReturn { get; set; }
     public virtual String DelimitDot { get; set; }
     public virtual String DelimitDotPointer { get; set; }
-    public virtual String DelimitBraceLite { get; set; }
-    public virtual String DelimitBraceRite { get; set; }
+    public virtual String DelimitBraceRoundLite { get; set; }
+    public virtual String DelimitBraceRoundRite { get; set; }
     public virtual String DelimitBraceSquareLite { get; set; }
     public virtual String DelimitBraceSquareRite { get; set; }
     public virtual String DelimitSemicolon { get; set; }
@@ -715,15 +715,15 @@ public class ClassGen : ClassInfraGen
         return true;
     }
 
-    public virtual bool CallCompState(string compState)
+    public virtual bool CallCompState(String compState)
     {
-        string kk;
+        String kk;
         kk = this.Space;
 
-        string ka;
-        string kb;
-        ka = this.DelimitSquareLeft;
-        kb = this.DelimitSquareRight;
+        String ka;
+        String kb;
+        ka = this.DelimitBraceRoundLite;
+        kb = this.DelimitBraceRoundRite;
 
         this.TextIndent();
 
@@ -792,6 +792,11 @@ public class ClassGen : ClassInfraGen
 
     public virtual bool VarSetDeref(String dest, String value, long pos)
     {
+        String ka;
+        String kb;
+        ka = this.DelimitBraceRoundLite;
+        kb = this.DelimitBraceRoundRite;
+
         this.TextIndent();
 
         this.Text(dest);
@@ -802,24 +807,24 @@ public class ClassGen : ClassInfraGen
 
         this.Text(this.DelimitAsterisk);
 
-        this.Text(this.DelimitBraceSquareLite);
+        this.Text(ka);
 
-        this.Text(this.DelimitBraceSquareLite);
+        this.Text(ka);
 
-        this.Text(this.DelimitBraceSquareLite);
+        this.Text(ka);
         this.Text(this.ClassInt);
         this.Text(this.DelimitAsterisk);
-        this.Text(this.DelimitBraceSquareRite);
+        this.Text(kb);
 
         this.Text(value);
 
-        this.Text(this.DelimitBraceSquareRite);
+        this.Text(kb);
 
         this.Text(this.Space);
 
         this.TextPos(pos);
 
-        this.Text(this.DelimitBraceSquareRite);
+        this.Text(kb);
 
         this.Text(this.DelimitSemicolon);
         this.Text(this.NewLine);
