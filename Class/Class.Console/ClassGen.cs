@@ -48,6 +48,9 @@ public class ClassGen : ClassInfraGen
         this.MemoryIndexMask = this.S("0x000fffffffffffff");
         this.ClassInt = this.S("Int");
         this.ClassCompState = this.S("CompState");
+        this.StateGet = this.S("G");
+        this.StateSet = this.S("S");
+        this.StateCall = this.S("C");
         this.NameCombine = this.S("_");
         this.KeywordReturn = this.S("return");
         this.DelimitDot = this.S(".");
@@ -125,6 +128,9 @@ public class ClassGen : ClassInfraGen
     public virtual String MemoryIndexMask { get; set; }
     public virtual String ClassInt { get; set; }
     public virtual String ClassCompState { get; set; }
+    public virtual String StateGet { get; set; }
+    public virtual String StateSet { get; set; }
+    public virtual String StateCall { get; set; }
     public virtual String NameCombine { get; set; }
     public virtual String KeywordReturn { get; set; }
     public virtual String DelimitDot { get; set; }
@@ -1117,17 +1123,17 @@ public class ClassGen : ClassInfraGen
 
     public virtual bool FieldGetMaideName(Field varField)
     {
-        return this.CompStateMaideName(varField.Parent, varField.Name, "G");
+        return this.CompStateMaideName(varField.Parent, varField.Name, this.StateGet);
     }
 
     public virtual bool FieldSetMaideName(Field varField)
     {
-        return this.CompStateMaideName(varField.Parent, varField.Name, "S");
+        return this.CompStateMaideName(varField.Parent, varField.Name, this.StateSet);
     }
 
     public virtual bool MaideCallMaideName(Maide varMaide)
     {
-        return this.CompStateMaideName(varMaide.Parent, varMaide.Name, "C");
+        return this.CompStateMaideName(varMaide.Parent, varMaide.Name, this.StateCall);
     }
 
     public virtual bool CompStateMaideName(ClassClass varClass, String compName, String state)
