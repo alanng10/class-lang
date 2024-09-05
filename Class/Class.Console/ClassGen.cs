@@ -1,6 +1,6 @@
 namespace Class.Console;
 
-public class ClassGen : Any
+public class ClassGen : ClassInfraGen
 {
     public override bool Init()
     {
@@ -17,9 +17,6 @@ public class ClassGen : Any
         this.Traverse = new ClassGenTraverse();
         this.Traverse.Gen = this;
         this.Traverse.Init();
-        
-        this.StringCreate = new StringCreate();
-        this.StringCreate.Init();
 
         this.StateKindGet = 0;
         this.StateKindSet = 1;
@@ -87,13 +84,12 @@ public class ClassGen : Any
     public virtual BuiltinClass System { get; set; }
     public virtual GenArg Arg { get; set; }
     public virtual ClassGenOperate Operate { get; set; }
-    public virtual string Source { get; set; }
+    public virtual String Source { get; set; }
     public virtual ClassInfra ClassInfra { get; set; }
     public virtual CountClassGenOperate CountOperate { get; set; }
     public virtual SetClassGenOperate SetOperate { get; set; }
     public virtual ClassGenTraverse Traverse { get; set; }
-    public virtual StringCreate StringCreate { get; set; }
-    public virtual int BaseIndex { get; set; }
+    public virtual long BaseIndex { get; set; }
     public virtual string ClassBaseMask { get; set; }
     public virtual Field ThisField { get; set; }
     public virtual int CompStateKind { get; set; }
@@ -156,7 +152,7 @@ public class ClassGen : Any
 
     public virtual bool Execute()
     {
-        int k;
+        long k;
         k = this.BaseIndexGet();
         
         if (!this.ValidBaseIndex(k))
@@ -1137,7 +1133,7 @@ public class ClassGen : Any
         return this.CompStateMaideName(varMaide.Parent, varMaide.Name, "C");
     }
 
-    public virtual bool CompStateMaideName(ClassClass varClass, string compName, string state)
+    public virtual bool CompStateMaideName(ClassClass varClass, String compName, String state)
     {
         this.ClassName(varClass);
 
@@ -1256,7 +1252,7 @@ public class ClassGen : Any
         return true;
     }
 
-    public virtual bool Text(string text)
+    public virtual bool Text(String text)
     {
         ClassGenOperate o;
         o = this.Operate;
@@ -1277,14 +1273,14 @@ public class ClassGen : Any
         return true;
     }
 
-    public virtual bool ValidBaseIndex(int index)
+    public virtual bool ValidBaseIndex(long index)
     {
         if (index < 0)
         {
             return false;
         }
         
-        if (!(index < 0x1000))
+        if (!(index < 0x100))
         {
             return false;
         }
@@ -1292,9 +1288,9 @@ public class ClassGen : Any
         return true;
     }
 
-    public virtual string ClassBaseMaskGet(int index)
+    public virtual String ClassBaseMaskGet(long index)
     {
-        int ka;
+        long ka;
         ka = index;
         
         if (0 < ka)
@@ -1305,15 +1301,15 @@ public class ClassGen : Any
         ulong k;
         k = (ulong)ka;
 
-        k = k & 0xfff;
-        k = k << 48;
+        k = k & 0xff;
+        k = k << 52;
 
         string a;
         a = k.ToString("x16");
         return a;
     }
 
-    public virtual int BaseIndexGet()
+    public virtual long BaseIndexGet()
     {
         ClassClass anyClass;
         anyClass = this.System.Any;
@@ -1321,7 +1317,7 @@ public class ClassGen : Any
         ClassClass c;
         c = this.Class;
 
-        int k;
+        long k;
         k = 0;
 
         ClassClass ka;
