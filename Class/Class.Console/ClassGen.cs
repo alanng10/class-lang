@@ -936,7 +936,7 @@ public class ClassGen : ClassInfraGen
         return true;
     }
 
-    public virtual bool VarMaskClear(string varVar, string mask)
+    public virtual bool VarMaskClear(String varVar, String mask)
     {
         this.TextIndent();
 
@@ -959,7 +959,7 @@ public class ClassGen : ClassInfraGen
         return true;
     }
 
-    public virtual bool VarMaskSet(string varVar, string mask)
+    public virtual bool VarMaskSet(String varVar, String mask)
     {
         this.TextIndent();
 
