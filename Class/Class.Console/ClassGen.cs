@@ -1184,7 +1184,7 @@ public class ClassGen : ClassInfraGen
     
     public virtual bool ModuleVer(long ver)
     {
-        this.Operate.ExecuteIntFormat(ver);
+        this.Operate.ExecuteIntText(ver);
         return true;
     }
 
@@ -1216,7 +1216,7 @@ public class ClassGen : ClassInfraGen
     {
         this.Text(this.IntValuePre);
         
-        this.Operate.ExecuteIntFormat(n);
+        this.Operate.ExecuteIntText(n);
 
         this.Text(this.IntValuePost);
         return true;

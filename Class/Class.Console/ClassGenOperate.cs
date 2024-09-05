@@ -9,7 +9,7 @@ public class ClassGenOperate : Any
         return false;
     }
 
-    public virtual bool ExecuteIntFormat(long o)
+    public virtual bool ExecuteIntText(long o)
     {
         return false;
     }

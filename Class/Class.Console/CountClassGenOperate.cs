@@ -13,7 +13,7 @@ public class CountClassGenOperate : ClassGenOperate
         return true;
     }
 
-    public override bool ExecuteIntFormat(long o)
+    public override bool ExecuteIntText(long o)
     {
         GenArg arg;
         arg = this.Gen.Arg;
