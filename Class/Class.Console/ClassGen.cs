@@ -264,7 +264,7 @@ public class ClassGen : ClassInfraGen
 
     public virtual bool ExecuteVarGet(Var varVar)
     {
-        string varA;
+        String varA;
         varA = this.VarA;
 
         long stateKind;
@@ -365,8 +365,8 @@ public class ClassGen : ClassInfraGen
 
     public virtual bool ExecuteVarSet(Var varVar)
     {
-        string varA;
-        string varB;
+        String varA;
+        String varB;
         varA = this.VarA;
         varB = this.VarB;
 
