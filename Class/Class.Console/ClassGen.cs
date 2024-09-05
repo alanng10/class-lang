@@ -48,6 +48,7 @@ public class ClassGen : ClassInfraGen
         this.MemoryIndexMask = this.S("0x000fffffffffffff");
         this.ClassInt = this.S("Int");
         this.ClassCompState = this.S("CompState");
+        this.NameCombine = this.S("_");
         this.KeywordReturn = this.S("return");
         this.DelimitDot = this.S(".");
         this.DelimitDotPointer = this.S("->");
@@ -124,6 +125,7 @@ public class ClassGen : ClassInfraGen
     public virtual String MemoryIndexMask { get; set; }
     public virtual String ClassInt { get; set; }
     public virtual String ClassCompState { get; set; }
+    public virtual String NameCombine { get; set; }
     public virtual String KeywordReturn { get; set; }
     public virtual String DelimitDot { get; set; }
     public virtual String DelimitDotPointer { get; set; }
@@ -1144,29 +1146,29 @@ public class ClassGen : ClassInfraGen
 
     public virtual bool ClassName(ClassClass varClass)
     {
-        ModuleRef moduleRef;
-        moduleRef = varClass.Module.Ref;
+        this.ModuleRef(varClass.Module.Ref);
 
-        this.ModuleRef(moduleRef);
+        this.Text(this.NameCombine);
 
-        this.Text("__");
-
-        this.Text(varClass.Name);
+        this.NameSymbolString(varClass.Name);
         return true;
     }
 
     public virtual bool ModuleRef(ModuleRef moduleRef)
     {
-        this.ModuleName(moduleRef.Name);
+        this.NameSymbolString(moduleRef.Name);
         
-        this.Text("__");
+        this.Text(this.NameCombine);
 
-        this.ModuleVer(moduleRef.Version);
+        this.TextInt(moduleRef.Version);
         return true;
     }
 
-    public virtual bool ModuleName(String name)
+    public virtual bool NameSymbolString(String name)
     {
+        long letterStart;
+        letterStart = 'a';
+
         long count;
         count = this.StringCount(name);
         long i;
@@ -1176,12 +1178,22 @@ public class ClassGen : ClassInfraGen
             long oc;
             oc = this.StringChar(name, i);
 
-            if (oc == '.')
-            {
-                oc = '_';    
-            }
+            long k;
+            k = oc & 0xff;
 
-            this.ExecuteChar(oc);
+            long lowerHex;
+            lowerHex = k & 0xf;
+
+            long upperHex;
+            upperHex = k >> 4;
+
+            long ka;
+            long kb;
+            ka = this.TextInfra.DigitChar(upperHex, letterStart);
+            kb = this.TextInfra.DigitChar(lowerHex, letterStart);
+
+            this.ExecuteChar(ka);
+            this.ExecuteChar(kb);
 
             i = i + 1;
         }
