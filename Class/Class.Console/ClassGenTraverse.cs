@@ -285,7 +285,7 @@ public class ClassGenTraverse : Traverse
     {
         base.ExecuteNotOperate(notOperate);
 
-        this.Gen.ExecuteOperateDelimitBoolOne(this.Gen.LimitNot);
+        this.Gen.ExecuteOperateLimitBoolOne(this.Gen.LimitNot);
         return true;
     }
 

@@ -637,7 +637,7 @@ public class ClassGen : ClassInfraGen
         return true;
     }
 
-    public virtual bool ExecuteOperateDelimitBoolOne(String delimit)
+    public virtual bool ExecuteOperateLimitBoolOne(String delimit)
     {
         String varA;
         varA = this.VarA;
