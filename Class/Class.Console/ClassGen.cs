@@ -607,8 +607,6 @@ public class ClassGen : ClassInfraGen
 
         this.OperateLimit(varA, varA, varB, delimit);
 
-        this.VarMaskSet(varA, this.RefKindIntMask);
-
         this.EvalValueSet(2, varA);
 
         this.EvalIndexPosSet(-1);
