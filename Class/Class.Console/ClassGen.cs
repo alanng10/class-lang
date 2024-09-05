@@ -1292,20 +1292,19 @@ public class ClassGen : ClassInfraGen
     {
         long ka;
         ka = index;
-        
+
         if (0 < ka)
         {
             ka = ka - 1;
         }
 
-        ulong k;
-        k = (ulong)ka;
-
+        long k;
+        k = ka;
         k = k & 0xff;
         k = k << 52;
 
-        string a;
-        a = k.ToString("x16");
+        String a;
+        a = this.IntStringHex(k);
         return a;
     }
 
