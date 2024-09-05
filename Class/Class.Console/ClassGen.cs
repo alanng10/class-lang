@@ -69,12 +69,12 @@ public class ClassGen : ClassInfraGen
         this.LimitLess = this.S("<");
         this.LimitAnd = this.S("&");
         this.LimitOrn = this.S("|");
-        this.DelimitNot = this.S("!");
-        this.DelimitAdd = this.S("+");
-        this.DelimitSub = this.S("-");
-        this.DelimitMul = this.S("*");
-        this.DelimitDiv = this.S("/");
-        this.DelimitBitNot = this.S("~");
+        this.LimitNot = this.S("!");
+        this.LimitAdd = this.S("+");
+        this.LimitSub = this.S("-");
+        this.LimitMul = this.S("*");
+        this.LimitDiv = this.S("/");
+        this.LimitBitNot = this.S("~");
         this.DelimitBitLeft = this.S("<<");
         this.DelimitBitRight = this.S(">>");
         return true;
@@ -151,12 +151,12 @@ public class ClassGen : ClassInfraGen
     public virtual String LimitLess { get; set; }
     public virtual String LimitAnd { get; set; }
     public virtual String LimitOrn { get; set; }
-    public virtual String DelimitNot { get; set; }
-    public virtual String DelimitAdd { get; set; }
-    public virtual String DelimitSub { get; set; }
-    public virtual String DelimitMul { get; set; }
-    public virtual String DelimitDiv { get; set; }
-    public virtual String DelimitBitNot { get; set; }
+    public virtual String LimitNot { get; set; }
+    public virtual String LimitAdd { get; set; }
+    public virtual String LimitSub { get; set; }
+    public virtual String LimitMul { get; set; }
+    public virtual String LimitDiv { get; set; }
+    public virtual String LimitBitNot { get; set; }
     public virtual String DelimitBitLeft { get; set; }
     public virtual String DelimitBitRight { get; set; }
 
@@ -866,7 +866,7 @@ public class ClassGen : ClassInfraGen
         this.Text(kb);
 
         this.Text(this.Space);
-        this.Text(this.DelimitAdd);
+        this.Text(this.LimitAdd);
         this.Text(this.Space);
 
         this.Text(varPos);
@@ -1000,7 +1000,7 @@ public class ClassGen : ClassInfraGen
         this.EvalIndex();
 
         this.Text(this.Space);
-        this.Text(this.DelimitSub);
+        this.Text(this.LimitSub);
         this.Text(this.Space);
         
         this.TextInt(index);
@@ -1194,7 +1194,7 @@ public class ClassGen : ClassInfraGen
         b = (n < 0);
 
         String ka;
-        ka = this.DelimitAdd;
+        ka = this.LimitAdd;
 
         long k;
         k = n;
@@ -1203,7 +1203,7 @@ public class ClassGen : ClassInfraGen
         {
             k = -k;
 
-            ka = this.DelimitSub;
+            ka = this.LimitSub;
         }
 
         this.Text(ka);

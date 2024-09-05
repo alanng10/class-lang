@@ -285,7 +285,7 @@ public class ClassGenTraverse : Traverse
     {
         base.ExecuteNotOperate(notOperate);
 
-        this.Gen.ExecuteOperateDelimitBoolOne(this.Gen.DelimitNot);
+        this.Gen.ExecuteOperateDelimitBoolOne(this.Gen.LimitNot);
         return true;
     }
 
@@ -293,7 +293,7 @@ public class ClassGenTraverse : Traverse
     {
         base.ExecuteAddOperate(addOperate);
 
-        this.Gen.ExecuteOperateDelimit(this.Gen.DelimitAdd);
+        this.Gen.ExecuteOperateDelimit(this.Gen.LimitAdd);
         return true;
     }
 
@@ -301,7 +301,7 @@ public class ClassGenTraverse : Traverse
     {
         base.ExecuteSubOperate(subOperate);
 
-        this.Gen.ExecuteOperateDelimit(this.Gen.DelimitSub);
+        this.Gen.ExecuteOperateDelimit(this.Gen.LimitSub);
         return true;
     }
 
@@ -309,7 +309,7 @@ public class ClassGenTraverse : Traverse
     {
         base.ExecuteMulOperate(mulOperate);
 
-        this.Gen.ExecuteOperateDelimit(this.Gen.DelimitMul);
+        this.Gen.ExecuteOperateDelimit(this.Gen.LimitMul);
         return true;
     }
 
@@ -344,7 +344,7 @@ public class ClassGenTraverse : Traverse
 
         gen.EvalValueGet(1, varA);
 
-        gen.OperateDelimitOne(varA, varA, gen.DelimitBitNot);
+        gen.OperateDelimitOne(varA, varA, gen.LimitBitNot);
 
         gen.VarMaskClear(varA, ka);
 
