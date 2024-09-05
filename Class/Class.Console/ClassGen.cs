@@ -878,8 +878,8 @@ public class ClassGen : ClassInfraGen
     {
         String ka;
         String kb;
-        ka = this.DelimitBraceSquareLite;
-        kb = this.DelimitBraceSquareRite;
+        ka = this.DelimitBraceRoundLite;
+        kb = this.DelimitBraceRoundRite;
 
         this.TextIndent();
 
