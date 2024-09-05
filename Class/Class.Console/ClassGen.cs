@@ -616,7 +616,7 @@ public class ClassGen : ClassInfraGen
         return true;
     }
 
-    public virtual bool ExecuteOperateDelimitBool(String delimit)
+    public virtual bool ExecuteOperateLimitBool(String delimit)
     {
         String varA;
         String varB;
