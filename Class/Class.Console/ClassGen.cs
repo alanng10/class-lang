@@ -75,7 +75,7 @@ public class ClassGen : ClassInfraGen
         this.LimitMul = this.S("*");
         this.LimitDiv = this.S("/");
         this.LimitBitNot = this.S("~");
-        this.DelimitBitLeft = this.S("<<");
+        this.LimitBitLite = this.S("<<");
         this.DelimitBitRight = this.S(">>");
         return true;
     }
@@ -157,7 +157,7 @@ public class ClassGen : ClassInfraGen
     public virtual String LimitMul { get; set; }
     public virtual String LimitDiv { get; set; }
     public virtual String LimitBitNot { get; set; }
-    public virtual String DelimitBitLeft { get; set; }
+    public virtual String LimitBitLite { get; set; }
     public virtual String DelimitBitRight { get; set; }
 
     public virtual bool Execute()
