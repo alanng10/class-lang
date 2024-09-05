@@ -511,7 +511,7 @@ public class ClassGen : ClassInfraGen
         return true;
     }
 
-    public virtual bool ExecuteOperateLimit(String delimit)
+    public virtual bool ExecuteOperateLimit(String limit)
     {
         String varA;
         String varB;
@@ -527,7 +527,7 @@ public class ClassGen : ClassInfraGen
         this.VarMaskClear(varA, ka);
         this.VarMaskClear(varB, ka);
 
-        this.OperateLimit(varA, varA, varB, delimit);
+        this.OperateLimit(varA, varA, varB, limit);
 
         this.VarMaskClear(varA, ka);
 
@@ -540,7 +540,7 @@ public class ClassGen : ClassInfraGen
         return true;
     }
 
-    public virtual bool ExecuteOperateLimitAA(String delimit)
+    public virtual bool ExecuteOperateLimitAA(String limit)
     {
         String varA;
         String varB;
@@ -555,7 +555,7 @@ public class ClassGen : ClassInfraGen
 
         this.VarMaskClear(varB, ka);
 
-        this.OperateLimit(varA, varA, varB, delimit);
+        this.OperateLimit(varA, varA, varB, limit);
 
         this.VarMaskClear(varA, ka);
 
@@ -568,7 +568,7 @@ public class ClassGen : ClassInfraGen
         return true;
     }
 
-    public virtual bool ExecuteOperateLimitAB(String delimit)
+    public virtual bool ExecuteOperateLimitAB(String limit)
     {
         String varA;
         String varB;
@@ -584,7 +584,7 @@ public class ClassGen : ClassInfraGen
         this.VarMaskClear(varA, ka);
         this.VarMaskClear(varB, ka);
 
-        this.OperateLimit(varA, varA, varB, delimit);
+        this.OperateLimit(varA, varA, varB, limit);
 
         this.VarMaskSet(varA, this.RefKindIntMask);
 
@@ -595,7 +595,7 @@ public class ClassGen : ClassInfraGen
         return true;
     }
 
-    public virtual bool ExecuteOperateLimitA(String delimit)
+    public virtual bool ExecuteOperateLimitA(String limit)
     {
         String varA;
         String varB;
@@ -605,7 +605,7 @@ public class ClassGen : ClassInfraGen
         this.EvalValueGet(2, varA);
         this.EvalValueGet(1, varB);
 
-        this.OperateLimit(varA, varA, varB, delimit);
+        this.OperateLimit(varA, varA, varB, limit);
 
         this.VarMaskSet(varA, this.RefKindIntMask);
 
@@ -616,7 +616,7 @@ public class ClassGen : ClassInfraGen
         return true;
     }
 
-    public virtual bool ExecuteOperateLimitBool(String delimit)
+    public virtual bool ExecuteOperateLimitBool(String limit)
     {
         String varA;
         String varB;
@@ -626,7 +626,7 @@ public class ClassGen : ClassInfraGen
         this.EvalValueGet(2, varA);
         this.EvalValueGet(1, varB);
 
-        this.OperateLimit(varA, varA, varB, delimit);
+        this.OperateLimit(varA, varA, varB, limit);
 
         this.VarMaskSet(varA, this.RefKindBoolMask);
 
@@ -637,7 +637,7 @@ public class ClassGen : ClassInfraGen
         return true;
     }
 
-    public virtual bool ExecuteOperateLimitBoolOne(String delimit)
+    public virtual bool ExecuteOperateLimitBoolOne(String limit)
     {
         String varA;
         varA = this.VarA;
@@ -649,7 +649,7 @@ public class ClassGen : ClassInfraGen
 
         this.VarMaskClear(varA, ka);
 
-        this.OperateLimitOne(varA, varA, delimit);
+        this.OperateLimitOne(varA, varA, limit);
 
         this.VarMaskSet(varA, this.RefKindBoolMask);
 
@@ -658,7 +658,7 @@ public class ClassGen : ClassInfraGen
         return true;
     }
 
-    public virtual bool OperateLimit(String dest, String left, String right, String delimit)
+    public virtual bool OperateLimit(String dest, String left, String right, String limit)
     {
         String space;
         space = this.Space;
@@ -674,7 +674,7 @@ public class ClassGen : ClassInfraGen
         this.Text(left);
 
         this.Text(space);
-        this.Text(delimit);
+        this.Text(limit);
         this.Text(space);
 
         this.Text(right);
@@ -684,7 +684,7 @@ public class ClassGen : ClassInfraGen
         return true;
     }
 
-    public virtual bool OperateLimitOne(String dest, String value, String delimit)
+    public virtual bool OperateLimitOne(String dest, String value, String limit)
     {
         this.TextIndent();
 
@@ -694,7 +694,7 @@ public class ClassGen : ClassInfraGen
         this.Text(this.LimitAre);
         this.Text(this.Space);
 
-        this.Text(delimit);
+        this.Text(limit);
         this.Text(this.Space);
 
         this.Text(value);
