@@ -14,10 +14,10 @@ public class ClassGenTraverse : Traverse
         string varA;
         varA = gen.VarA;
 
-        int k;
+        long k;
         k = gen.ParamCount;
 
-        int ka;
+        long ka;
         ka = gen.LocalVarCount + k;
 
         gen.EvalValueGet(1, varA);
@@ -67,11 +67,11 @@ public class ClassGenTraverse : Traverse
             ClassClass varClass;
             varClass = varField.Parent;
 
-            int kk;
+            long kk;
             kk = varClass.FieldRange.Index;
             kk = kk + varField.BinaryIndex;
 
-            int k;
+            long k;
             k = 2;
 
             gen.ExecuteVirtualCall(k, gen.StateKindSet, kk);
@@ -94,11 +94,11 @@ public class ClassGenTraverse : Traverse
         ClassClass varClass;
         varClass = varField.Parent;
 
-        int kk;
+        long kk;
         kk = varClass.FieldRange.Index;
         kk = kk + varField.BinaryIndex;
 
-        int k;
+        long k;
         k = 1;
 
         ClassGen gen;
@@ -123,11 +123,11 @@ public class ClassGenTraverse : Traverse
         ClassClass varClass;
         varClass = varMaide.Parent;
 
-        int kk;
+        long kk;
         kk = varClass.MaideRange.Index;
         kk = kk + varMaide.BinaryIndex;
 
-        int k;
+        long k;
         k = varMaide.Param.Count;
         k = k + 1;
 
@@ -155,7 +155,7 @@ public class ClassGenTraverse : Traverse
         string varA;
         varA = gen.VarA;
 
-        int k;
+        long k;
         k = gen.ParamCount;
         k = -k;
 
@@ -175,7 +175,7 @@ public class ClassGenTraverse : Traverse
         string varA;
         varA = gen.VarA;
 
-        int k;
+        long k;
         k = gen.ParamCount;
         k = -k;
 
