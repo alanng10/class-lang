@@ -55,10 +55,10 @@ public class ClassGen : ClassInfraGen
         this.KeywordReturn = this.S("return");
         this.LimitDot = this.S(".");
         this.LimitDotPointer = this.S("->");
-        this.DelimitBraceRoundLite = this.S("(");
-        this.DelimitBraceRoundRite = this.S(")");
-        this.DelimitBraceSquareLite = this.S("[");
-        this.DelimitBraceSquareRite = this.S("]");
+        this.LimitBraceRoundLite = this.S("(");
+        this.LimitBraceRoundRite = this.S(")");
+        this.LimitBraceSquareLite = this.S("[");
+        this.LimitBraceSquareRite = this.S("]");
         this.DelimitSemicolon = this.S(";");
         this.DelimitComma = this.S(",");
         this.DelimitAsterisk = this.S("*");
@@ -135,10 +135,10 @@ public class ClassGen : ClassInfraGen
     public virtual String KeywordReturn { get; set; }
     public virtual String LimitDot { get; set; }
     public virtual String LimitDotPointer { get; set; }
-    public virtual String DelimitBraceRoundLite { get; set; }
-    public virtual String DelimitBraceRoundRite { get; set; }
-    public virtual String DelimitBraceSquareLite { get; set; }
-    public virtual String DelimitBraceSquareRite { get; set; }
+    public virtual String LimitBraceRoundLite { get; set; }
+    public virtual String LimitBraceRoundRite { get; set; }
+    public virtual String LimitBraceSquareLite { get; set; }
+    public virtual String LimitBraceSquareRite { get; set; }
     public virtual String DelimitSemicolon { get; set; }
     public virtual String DelimitComma { get; set; }
     public virtual String DelimitAsterisk { get; set; }
@@ -722,8 +722,8 @@ public class ClassGen : ClassInfraGen
 
         String ka;
         String kb;
-        ka = this.DelimitBraceRoundLite;
-        kb = this.DelimitBraceRoundRite;
+        ka = this.LimitBraceRoundLite;
+        kb = this.LimitBraceRoundRite;
 
         this.TextIndent();
 
@@ -794,8 +794,8 @@ public class ClassGen : ClassInfraGen
     {
         String ka;
         String kb;
-        ka = this.DelimitBraceRoundLite;
-        kb = this.DelimitBraceRoundRite;
+        ka = this.LimitBraceRoundLite;
+        kb = this.LimitBraceRoundRite;
 
         this.TextIndent();
 
@@ -835,8 +835,8 @@ public class ClassGen : ClassInfraGen
     {
         String ka;
         String kb;
-        ka = this.DelimitBraceRoundLite;
-        kb = this.DelimitBraceRoundRite;
+        ka = this.LimitBraceRoundLite;
+        kb = this.LimitBraceRoundRite;
 
         this.TextIndent();
 
@@ -878,8 +878,8 @@ public class ClassGen : ClassInfraGen
     {
         String ka;
         String kb;
-        ka = this.DelimitBraceRoundLite;
-        kb = this.DelimitBraceRoundRite;
+        ka = this.LimitBraceRoundLite;
+        kb = this.LimitBraceRoundRite;
 
         this.TextIndent();
 
@@ -991,7 +991,7 @@ public class ClassGen : ClassInfraGen
     {
         this.EvalStack();
         
-        this.Text(this.DelimitBraceSquareLite);
+        this.Text(this.LimitBraceSquareLite);
         
         this.EvalIndex();
 
@@ -1001,7 +1001,7 @@ public class ClassGen : ClassInfraGen
         
         this.TextInt(index);
         
-        this.Text(this.DelimitBraceSquareRite);
+        this.Text(this.LimitBraceSquareRite);
         return true;
     }
 
@@ -1043,7 +1043,7 @@ public class ClassGen : ClassInfraGen
     {
         this.EvalStack();
 
-        this.Text(this.DelimitBraceSquareLite);
+        this.Text(this.LimitBraceSquareLite);
 
         this.Text(this.EvalFrameVar);
 
@@ -1051,7 +1051,7 @@ public class ClassGen : ClassInfraGen
 
         this.TextPos(pos);
 
-        this.Text(this.DelimitBraceSquareRite);
+        this.Text(this.LimitBraceSquareRite);
         return true;
     }
 
