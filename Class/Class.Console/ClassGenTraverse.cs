@@ -11,7 +11,7 @@ public class ClassGenTraverse : Traverse
         ClassGen gen;
         gen = this.Gen;
 
-        string varA;
+        String varA;
         varA = gen.VarA;
 
         long k;
@@ -152,7 +152,7 @@ public class ClassGenTraverse : Traverse
         ClassGen gen;
         gen = this.Gen;
 
-        string varA;
+        String varA;
         varA = gen.VarA;
 
         long k;
@@ -172,7 +172,7 @@ public class ClassGenTraverse : Traverse
         ClassGen gen;
         gen = this.Gen;
 
-        string varA;
+        String varA;
         varA = gen.VarA;
 
         long k;
@@ -196,7 +196,7 @@ public class ClassGenTraverse : Traverse
         ClassGen gen;
         gen = this.Gen;
 
-        string varA;
+        String varA;
         varA = gen.VarA;
 
         gen.VarSet(varA, gen.Zero);
@@ -214,8 +214,8 @@ public class ClassGenTraverse : Traverse
         ClassGen gen;
         gen = this.Gen;
 
-        string varA;
-        string varB;
+        String varA;
+        String varB;
         varA = gen.VarA;
         varB = gen.VarB;
 
@@ -240,12 +240,12 @@ public class ClassGenTraverse : Traverse
         ClassGen gen;
         gen = this.Gen;
 
-        string varA;
-        string varB;
+        String varA;
+        String varB;
         varA = gen.VarA;
         varB = gen.VarB;
 
-        string ka;
+        String ka;
         ka = gen.RefKindClearMask;
 
         gen.EvalValueGet(2, varA);
@@ -336,10 +336,10 @@ public class ClassGenTraverse : Traverse
         ClassGen gen;
         gen = this.Gen;
 
-        string varA;
+        String varA;
         varA = gen.VarA;
 
-        string ka;
+        String ka;
         ka = gen.RefKindClearMask;
 
         gen.EvalValueGet(1, varA);
