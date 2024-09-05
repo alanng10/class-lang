@@ -5,31 +5,23 @@ public class ErrorString : ClassInfraGen
     public override bool Init()
     {
         base.Init();
-        CharForm charForm;
-        charForm = new CharForm();
-        charForm.Init();
-
-        this.Format = new Format();
-        this.Format.Init();
-        this.Format.CharForm = charForm;
-        this.FormatArg = new FormatArg();
-        this.FormatArg.Init();
-
         this.BorderLine = this.StringComp.CreateChar('-', 50);
+        this.SSpace = this.S(" ");
+        this.SComma = this.S(",");
+        this.SBraceRoundLite = this.S("(");
+        this.SBraceRoundRite = this.S(")");
         return true;
     }
 
-    protected virtual Format Format { get; set; }
-    protected virtual FormatArg FormatArg { get; set; }
     protected virtual String BorderLine { get; set; }
+    protected virtual String SSpace { get; set; }
+    protected virtual String SComma { get; set; }
+    protected virtual String SBraceRoundLite { get; set; }
+    protected virtual String SBraceRoundRite { get; set; }
 
-    public virtual string Execute(Error error)
+    public virtual String Execute(Error error)
     {
-        StringJoin h;
-        h = new StringJoin();
-        h.Init();
-
-        this.AppendBorder(h);
+        this.AddBorder();
 
         this.AppendField(h, "Kind", this.KindString(error));
 
@@ -53,18 +45,17 @@ public class ErrorString : ClassInfraGen
             this.AppendField(h, "Source", this.SourceString(error));
         }
 
-        this.AppendBorder(h);
+        this.AddBorder();
 
-        string a;
-        a = h.Result();
+        String a;
+        a = this.AddResult();
 
         return a;
     }
 
-    protected virtual bool AppendBorder(StringJoin h)
+    protected virtual bool AddBorder()
     {
-        this.Append(h, this.BorderLine);
-        this.Append(h, this.NewLine);
+        this.Add(this.BorderLine).AddLine();
         return true;
     }
 
@@ -78,83 +69,61 @@ public class ErrorString : ClassInfraGen
         return true;
     }
 
-    protected virtual string KindString(Error error)
+    protected virtual String KindString(Error error)
     {
         ErrorKind errorKind;
         errorKind = error.Kind;
                 
-        string a;
+        String a;
         a = errorKind.Text;
 
         return a;
     }
 
-    protected virtual string RangeString(Error error)
+    protected virtual String RangeString(Error error)
     {
+        StringAdd hh;
+        hh = this.StringAdd;
+
         Range range;
         range = error.Range;
 
-        StringJoin h;
-        h = new StringJoin();
+        StringAdd h;
+        h = new StringAdd();
         h.Init();
 
-        string ka;
+        this.StringAdd = h;
+
+        String ka;
         ka = this.IntString(range.Start);
 
-        string kb;
+        String kb;
         kb = this.IntString(range.End);
 
-        this.Append(h, "(");
-        this.Append(h, ka);
-        this.Append(h, ",");
-        this.Append(h, " ");
-        this.Append(h, kb);
-        this.Append(h, ")");
+        this.AddClear();
 
-        string a;
-        a = h.Result();
+        this.Add(this.SBraceRoundLite);
+        this.Add(ka);
+        this.Add(this.SComma);
+        this.Add(this.SSpace);
+        this.Add(kb);
+        this.Add(this.SBraceRoundRite);
+
+        String a;
+        a = this.AddResult();
+
+        this.StringAdd = hh;
 
         return a;
     }
 
-    protected virtual string SourceString(Error error)
+    protected virtual String SourceString(Error error)
     {
         Source aa;
         aa = error.Source;
 
-        string a;
+        String a;
         a = aa.Name;
         return a;
-    }
-
-    protected virtual string IntString(int value)
-    {
-        FormatArg e;
-        e = this.FormatArg;
-
-        e.Kind = 1;
-        e.Base = 10;
-        e.Case = 0;
-        e.AlignLeft = false;
-        e.FieldWidth = 0;
-        e.MaxWidth = -1;
-        e.ValueInt = value;
-
-        this.Format.ExecuteArgCount(e);
-
-        Text text;
-        text = this.TextInfra.TextCreate(e.Count);
-
-        this.Format.ExecuteArgResult(e, text);
-
-        string a;
-        a = this.TextInfra.StringCreate(text);
-        return a;
-    }
-
-    protected virtual bool Append(StringJoin h, string text)
-    {
-        this.InfraInfra.StringJoinString(h, text);
-        return true;
     }
 }
