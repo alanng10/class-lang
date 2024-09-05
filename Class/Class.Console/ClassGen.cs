@@ -507,14 +507,14 @@ public class ClassGen : ClassInfraGen
         return true;
     }
 
-    public virtual bool ExecuteOperateDelimit(string delimit)
+    public virtual bool ExecuteOperateDelimit(String delimit)
     {
-        string varA;
-        string varB;
+        String varA;
+        String varB;
         varA = this.VarA;
         varB = this.VarB;
 
-        string ka;
+        String ka;
         ka = this.RefKindClearMask;
 
         this.EvalValueGet(2, varA);
@@ -536,14 +536,14 @@ public class ClassGen : ClassInfraGen
         return true;
     }
 
-    public virtual bool ExecuteOperateDelimitAA(string delimit)
+    public virtual bool ExecuteOperateDelimitAA(String delimit)
     {
-        string varA;
-        string varB;
+        String varA;
+        String varB;
         varA = this.VarA;
         varB = this.VarB;
 
-        string ka;
+        String ka;
         ka = this.RefKindClearMask;
 
         this.EvalValueGet(2, varA);
@@ -564,14 +564,14 @@ public class ClassGen : ClassInfraGen
         return true;
     }
 
-    public virtual bool ExecuteOperateDelimitAB(string delimit)
+    public virtual bool ExecuteOperateDelimitAB(String delimit)
     {
-        string varA;
-        string varB;
+        String varA;
+        String varB;
         varA = this.VarA;
         varB = this.VarB;
 
-        string ka;
+        String ka;
         ka = this.RefKindClearMask;
 
         this.EvalValueGet(2, varA);
@@ -591,10 +591,10 @@ public class ClassGen : ClassInfraGen
         return true;
     }
 
-    public virtual bool ExecuteOperateDelimitA(string delimit)
+    public virtual bool ExecuteOperateDelimitA(String delimit)
     {
-        string varA;
-        string varB;
+        String varA;
+        String varB;
         varA = this.VarA;
         varB = this.VarB;
 
@@ -612,10 +612,10 @@ public class ClassGen : ClassInfraGen
         return true;
     }
 
-    public virtual bool ExecuteOperateDelimitBool(string delimit)
+    public virtual bool ExecuteOperateDelimitBool(String delimit)
     {
-        string varA;
-        string varB;
+        String varA;
+        String varB;
         varA = this.VarA;
         varB = this.VarB;
 
@@ -633,12 +633,12 @@ public class ClassGen : ClassInfraGen
         return true;
     }
 
-    public virtual bool ExecuteOperateDelimitBoolOne(string delimit)
+    public virtual bool ExecuteOperateDelimitBoolOne(String delimit)
     {
-        string varA;
+        String varA;
         varA = this.VarA;
 
-        string ka;
+        String ka;
         ka = this.RefKindClearMask;
 
         this.EvalValueGet(1, varA);
