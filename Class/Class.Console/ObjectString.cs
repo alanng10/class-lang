@@ -24,6 +24,8 @@ class ObjectString : ClassInfraGen
         this.SNull = this.S("null");
         this.SEscapeBackSlash = this.S("\\\\");
         this.SEscapeQuote = this.S("\\\"");
+        this.SEscapeNewLine = this.S("\\n");
+        this.SEscapeCode = this.S("\\u");
 
         this.IndentSize = 4;
         return true;
@@ -42,6 +44,7 @@ class ObjectString : ClassInfraGen
     private String SEscapeBackSlash { get; set; }
     private String SEscapeQuote { get; set; }
     private String SEscapeNewLine { get; set; }
+    private String SEscapeCode { get; set; }
     private long IndentSize { get; set; }
     private long SpaceCount { get; set; }
     private Type NodeType { get; set; }
@@ -110,9 +113,11 @@ class ObjectString : ClassInfraGen
             String kc;
             kc = (String)any;
 
-            kc = this.EscapeString(kc);
-
-            this.Add(this.SQuote).Add(kc).Add(this.SQuote).Add(this.SComma).AddLine();
+            this.Add(this.SQuote);
+            
+            this.AddEscapeString(kc);
+            
+            this.Add(this.SQuote).Add(this.SComma).AddLine();
 
             return true;
         }
@@ -308,7 +313,7 @@ class ObjectString : ClassInfraGen
             {
                 if (oc == '\n')
                 {
-                    this.JoinAppend(h, "\\n");
+                    this.Add(this.SEscapeNewLine);
                     b = true;
                 }
             }
@@ -319,60 +324,50 @@ class ObjectString : ClassInfraGen
 
                 if (!ba)
                 {
-                    int k;
+                    this.Add(this.SEscapeCode);
+
+                    long k;
                     k = oc;
 
-                    char letterStart;
+                    long letterStart;
                     letterStart = 'a';
 
-                    int countA;
-                    countA = sizeof(char) * 2;
+                    long countA;
+                    countA = 8;
 
-                    Data data;
-                    data = new Data();
-                    data.Count = countA * sizeof(char);
-                    data.Init();
-
-                    int iA;
+                    long iA;
                     iA = 0;
                     while (iA < countA)
                     {
-                        int index;
+                        long index;
                         index = countA - 1 - iA;
 
-                        int ka;
-                        ka = k >> (index * 4);
+                        int shift;
+                        shift = (int)(index * 4);
+
+                        long ka;
+                        ka = k >> shift;
                         ka = ka & 0xf;
 
-                        char kb;
-                        kb = textInfra.DigitChar(ka, letterStart);
+                        long ke;
+                        ke = textInfra.DigitChar(ka, letterStart);
                         
-                        textInfra.DataCharSet(data, iA, kb);
+                        this.AddChar(ke);
 
                         iA = iA + 1;
                     }
-
-                    string kk;
-                    kk = stringCreate.Data(data, null);
-
-                    this.JoinAppend(h, "\\u");
-                    this.JoinAppend(h, kk);
                 }
 
                 if (ba)
                 {
-                    h.Execute(oc);
+                    this.AddChar(oc);
                 }
             }
 
             i = i + 1;
         }
 
-
-        string ret;
-        ret = h.Result();
-
-        return ret;
+        return this;
     }
 
     public virtual ObjectString AddSpace()
