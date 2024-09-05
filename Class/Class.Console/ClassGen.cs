@@ -468,7 +468,7 @@ public class ClassGen : ClassInfraGen
 
     public virtual bool ExecuteThisFieldData()
     {
-        string varA;
+        String varA;
         varA = this.VarA;
 
         Field varField;
@@ -492,7 +492,7 @@ public class ClassGen : ClassInfraGen
         return true;
     }
 
-    public virtual bool ExecuteFieldData(string varVar, long fieldIndex)
+    public virtual bool ExecuteFieldData(String varVar, long fieldIndex)
     {
         long kk;
         kk = fieldIndex;
