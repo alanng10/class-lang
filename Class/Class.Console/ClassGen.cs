@@ -65,7 +65,7 @@ public class ClassGen : ClassInfraGen
         this.LimitComma = this.S(",");
         this.LimitAsterisk = this.S("*");
         this.LimitAre = this.S("=");
-        this.LimitEqual = this.S("==");
+        this.LimitSame = this.S("==");
         this.LimitLess = this.S("<");
         this.DelimitAnd = this.S("&");
         this.DelimitOrn = this.S("|");
@@ -147,7 +147,7 @@ public class ClassGen : ClassInfraGen
     public virtual String LimitComma { get; set; }
     public virtual String LimitAsterisk { get; set; }
     public virtual String LimitAre { get; set; }
-    public virtual String LimitEqual { get; set; }
+    public virtual String LimitSame { get; set; }
     public virtual String LimitLess { get; set; }
     public virtual String DelimitAnd { get; set; }
     public virtual String DelimitOrn { get; set; }

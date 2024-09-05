@@ -222,7 +222,7 @@ public class ClassGenTraverse : Traverse
         gen.EvalValueGet(2, varA);
         gen.EvalValueGet(1, varB);
 
-        gen.OperateDelimit(varA, varA, varB, gen.LimitEqual);
+        gen.OperateDelimit(varA, varA, varB, gen.LimitSame);
 
         gen.VarMaskSet(varA, gen.RefKindBoolMask);
 
