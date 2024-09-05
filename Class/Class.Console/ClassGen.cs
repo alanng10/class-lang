@@ -246,7 +246,7 @@ public class ClassGen : ClassInfraGen
 
         this.VarMaskClear(varD, this.BaseMask);
 
-        this.OperateDelimit(varD, varD, this.BaseBitRightCount, this.LimitBitRite);
+        this.OperateLimit(varD, varD, this.BaseBitRightCount, this.LimitBitRite);
 
         this.VarSetDerefVar(varC, varC, varD);
 
@@ -527,7 +527,7 @@ public class ClassGen : ClassInfraGen
         this.VarMaskClear(varA, ka);
         this.VarMaskClear(varB, ka);
 
-        this.OperateDelimit(varA, varA, varB, delimit);
+        this.OperateLimit(varA, varA, varB, delimit);
 
         this.VarMaskClear(varA, ka);
 
@@ -555,7 +555,7 @@ public class ClassGen : ClassInfraGen
 
         this.VarMaskClear(varB, ka);
 
-        this.OperateDelimit(varA, varA, varB, delimit);
+        this.OperateLimit(varA, varA, varB, delimit);
 
         this.VarMaskClear(varA, ka);
 
@@ -584,7 +584,7 @@ public class ClassGen : ClassInfraGen
         this.VarMaskClear(varA, ka);
         this.VarMaskClear(varB, ka);
 
-        this.OperateDelimit(varA, varA, varB, delimit);
+        this.OperateLimit(varA, varA, varB, delimit);
 
         this.VarMaskSet(varA, this.RefKindIntMask);
 
@@ -605,7 +605,7 @@ public class ClassGen : ClassInfraGen
         this.EvalValueGet(2, varA);
         this.EvalValueGet(1, varB);
 
-        this.OperateDelimit(varA, varA, varB, delimit);
+        this.OperateLimit(varA, varA, varB, delimit);
 
         this.VarMaskSet(varA, this.RefKindIntMask);
 
@@ -626,7 +626,7 @@ public class ClassGen : ClassInfraGen
         this.EvalValueGet(2, varA);
         this.EvalValueGet(1, varB);
 
-        this.OperateDelimit(varA, varA, varB, delimit);
+        this.OperateLimit(varA, varA, varB, delimit);
 
         this.VarMaskSet(varA, this.RefKindBoolMask);
 
@@ -658,7 +658,7 @@ public class ClassGen : ClassInfraGen
         return true;
     }
 
-    public virtual bool OperateDelimit(String dest, String left, String right, String delimit)
+    public virtual bool OperateLimit(String dest, String left, String right, String delimit)
     {
         String space;
         space = this.Space;
