@@ -654,9 +654,9 @@ public class ClassGen : ClassInfraGen
         return true;
     }
 
-    public virtual bool OperateDelimit(string dest, string left, string right, string delimit)
+    public virtual bool OperateDelimit(String dest, String left, String right, String delimit)
     {
-        string space;
+        String space;
         space = this.Space;
 
         this.TextIndent();
