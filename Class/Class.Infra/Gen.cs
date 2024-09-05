@@ -160,6 +160,11 @@ public class Gen : Any
         return this.StringComp.Count(o);
     }
 
+    public virtual long StringChar(String o, long index)
+    {
+        return this.StringComp.Char(o, index);
+    }
+
     public virtual String StringCreateRange(String o, long index, long count)
     {
         this.Range.Index = index;
