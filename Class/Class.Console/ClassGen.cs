@@ -83,7 +83,7 @@ public class ClassGen : ClassInfraGen
     public virtual BuiltinClass System { get; set; }
     public virtual GenArg Arg { get; set; }
     public virtual ClassGenOperate Operate { get; set; }
-    public virtual String Source { get; set; }
+    public virtual String Result { get; set; }
     public virtual ClassInfra ClassInfra { get; set; }
     public virtual CountClassGenOperate CountOperate { get; set; }
     public virtual SetClassGenOperate SetOperate { get; set; }
@@ -190,7 +190,7 @@ public class ClassGen : ClassInfraGen
         String o;
         o = this.StringComp.CreateData(data, null);
 
-        this.Source = o;
+        this.Result = o;
         return true;
     }
 
