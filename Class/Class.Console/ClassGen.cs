@@ -1202,7 +1202,7 @@ public class ClassGen : ClassInfraGen
         bool b;
         b = (n < 0);
 
-        string ka;
+        String ka;
         ka = this.DelimitAdd;
 
         long k;
