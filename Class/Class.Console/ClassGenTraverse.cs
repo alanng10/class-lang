@@ -293,7 +293,7 @@ public class ClassGenTraverse : Traverse
     {
         base.ExecuteAddOperate(addOperate);
 
-        this.Gen.ExecuteOperateDelimit(this.Gen.LimitAdd);
+        this.Gen.ExecuteOperateLimit(this.Gen.LimitAdd);
         return true;
     }
 
@@ -301,7 +301,7 @@ public class ClassGenTraverse : Traverse
     {
         base.ExecuteSubOperate(subOperate);
 
-        this.Gen.ExecuteOperateDelimit(this.Gen.LimitSub);
+        this.Gen.ExecuteOperateLimit(this.Gen.LimitSub);
         return true;
     }
 
@@ -309,7 +309,7 @@ public class ClassGenTraverse : Traverse
     {
         base.ExecuteMulOperate(mulOperate);
 
-        this.Gen.ExecuteOperateDelimit(this.Gen.LimitMul);
+        this.Gen.ExecuteOperateLimit(this.Gen.LimitMul);
         return true;
     }
 
