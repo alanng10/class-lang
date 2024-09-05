@@ -1033,7 +1033,7 @@ public class ClassGen : ClassInfraGen
     {
         this.EvalStack();
 
-        this.Text(this.DelimitSquareLeft);
+        this.Text(this.DelimitBraceSquareLite);
 
         this.Text(this.EvalFrameVar);
 
@@ -1041,7 +1041,7 @@ public class ClassGen : ClassInfraGen
 
         this.TextPos(pos);
 
-        this.Text(this.DelimitSquareRight);
+        this.Text(this.DelimitBraceSquareRite);
         return true;
     }
 
