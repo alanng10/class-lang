@@ -1165,26 +1165,23 @@ public class ClassGen : ClassInfraGen
         return true;
     }
 
-    public virtual bool ModuleName(string name)
+    public virtual bool ModuleName(String name)
     {
-        ClassGenOperate o;
-        o = this.Operate;
-
         long count;
-        count = name.Length;
+        count = this.StringCount(name);
         long i;
         i = 0;
         while (i < count)
         {
-            char oc;
-            oc = name[i];
+            long oc;
+            oc = this.StringChar(name, i);
 
             if (oc == '.')
             {
                 oc = '_';    
             }
 
-            o.ExecuteChar(oc);
+            this.ExecuteChar(oc);
 
             i = i + 1;
         }
@@ -1249,9 +1246,6 @@ public class ClassGen : ClassInfraGen
 
     public virtual bool Text(String text)
     {
-        ClassGenOperate o;
-        o = this.Operate;
-
         long count;
         count = this.StringCount(text);
         long i;
@@ -1261,11 +1255,16 @@ public class ClassGen : ClassInfraGen
             long oc;
             oc = this.StringChar(text, i);
 
-            o.ExecuteChar(oc);
+            this.ExecuteChar(oc);
 
             i = i + 1;
         }
         return true;
+    }
+
+    public virtual bool ExecuteChar(long n)
+    {
+        return this.Operate.ExecuteChar(n);
     }
 
     public virtual bool ValidBaseIndex(long index)
