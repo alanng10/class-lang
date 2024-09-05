@@ -680,7 +680,7 @@ public class ClassGen : ClassInfraGen
         return true;
     }
 
-    public virtual bool OperateDelimitOne(string dest, string value, string delimit)
+    public virtual bool OperateDelimitOne(String dest, String value, String delimit)
     {
         this.TextIndent();
 
