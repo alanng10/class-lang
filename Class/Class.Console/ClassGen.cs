@@ -55,6 +55,8 @@ public class ClassGen : ClassInfraGen
         this.KeywordReturn = this.S("return");
         this.LimitDot = this.S(".");
         this.LimitDotPointer = this.S("->");
+        this.LimitBraceLite = this.S("{");
+        this.LimitBraceRite = this.S("}");
         this.LimitBraceRoundLite = this.S("(");
         this.LimitBraceRoundRite = this.S(")");
         this.LimitBraceSquareLite = this.S("[");
@@ -135,6 +137,8 @@ public class ClassGen : ClassInfraGen
     public virtual String KeywordReturn { get; set; }
     public virtual String LimitDot { get; set; }
     public virtual String LimitDotPointer { get; set; }
+    public virtual String LimitBraceLite { get; set; }
+    public virtual String LimitBraceRite { get; set; }
     public virtual String LimitBraceRoundLite { get; set; }
     public virtual String LimitBraceRoundRite { get; set; }
     public virtual String LimitBraceSquareLite { get; set; }
