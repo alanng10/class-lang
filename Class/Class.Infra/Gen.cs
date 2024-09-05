@@ -33,15 +33,24 @@ public class Gen : Any
         WriteArg arg;
         arg = new WriteArg();
         arg.Init();
-
         arg.Kind = 1;
         arg.Base = 10;
         arg.Case = 0;
         arg.AlignLeft = false;
         arg.FieldWidth = 1;
         arg.MaxWidth = -1;
+        this.WriteArgInt = arg;
 
-        this.WriteArg = arg;
+        arg = new WriteArg();
+        arg.Init();
+        arg.Kind = 1;
+        arg.Base = 16;
+        arg.Case = 0;
+        arg.AlignLeft = false;
+        arg.FieldWidth = 15;
+        arg.MaxWidth = 15;
+        arg.FillChar = '0';
+        this.WriteArgIntHex = arg;
 
         this.Indent = this.StringComp.CreateChar(' ', 4);
         return true;
@@ -57,19 +66,30 @@ public class Gen : Any
     protected virtual CharForm CharForm { get; set; }
     protected virtual InfraRange Range { get; set; }
     protected virtual Write Write { get; set; }
-    protected virtual WriteArg WriteArg { get; set; }
+    protected virtual WriteArg WriteArgInt { get; set; }
+    protected virtual WriteArg WriteArgIntHex { get; set; }
     protected virtual String Indent { get; set; }
 
     public virtual String IntString(long n)
     {
-        this.WriteArg.Value.Int = n;
+        return this.IntStringArg(n, this.WriteArgInt);
+    }
 
-        this.Write.ExecuteArgCount(this.WriteArg);
+    public virtual String IntStringHex(long n)
+    {
+        return this.IntStringArg(n, this.WriteArgIntHex);
+    }
+
+    public virtual String IntStringArg(long n, WriteArg arg)
+    {
+        arg.Value.Int = n;
+
+        this.Write.ExecuteArgCount(arg);
 
         Text aa;
-        aa = this.TextInfra.TextCreate(this.WriteArg.Count);
+        aa = this.TextInfra.TextCreate(arg.Count);
 
-        this.Write.ExecuteArgResult(this.WriteArg, aa);
+        this.Write.ExecuteArgResult(arg, aa);
 
         String a;
         a = this.StringCreate(aa);
