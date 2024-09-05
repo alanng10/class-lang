@@ -344,7 +344,7 @@ public class ClassGenTraverse : Traverse
 
         gen.EvalValueGet(1, varA);
 
-        gen.OperateDelimitOne(varA, varA, gen.LimitBitNot);
+        gen.OperateLimitOne(varA, varA, gen.LimitBitNot);
 
         gen.VarMaskClear(varA, ka);
 

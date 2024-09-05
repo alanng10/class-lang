@@ -649,7 +649,7 @@ public class ClassGen : ClassInfraGen
 
         this.VarMaskClear(varA, ka);
 
-        this.OperateDelimitOne(varA, varA, delimit);
+        this.OperateLimitOne(varA, varA, delimit);
 
         this.VarMaskSet(varA, this.RefKindBoolMask);
 
@@ -684,7 +684,7 @@ public class ClassGen : ClassInfraGen
         return true;
     }
 
-    public virtual bool OperateDelimitOne(String dest, String value, String delimit)
+    public virtual bool OperateLimitOne(String dest, String value, String delimit)
     {
         this.TextIndent();
 
