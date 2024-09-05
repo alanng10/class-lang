@@ -22,56 +22,55 @@ public class ClassGen : ClassInfraGen
         this.StateKindSet = 1;
         this.StateKindCall = 2;
 
-        this.Space = " ";
-        this.NewLine = "\n";
-        this.Indent = new string(' ', 4);
-        this.Zero = "0";
-        string k;
-        k = "v";
-        this.VarA = k + "A";
-        this.VarB = k + "B";
-        this.VarC = k + "C";
-        this.VarD = k + "D";
-        this.VarSA = k + "SA";
-        this.VarSB = k + "SB";
-        this.Eval = "e";
-        this.EvalStackVar = "S";
-        this.EvalIndexVar = "N";
-        this.EvalFrameVar = "f";
-        this.IntValuePre = "0x";
-        this.IntValuePost = "ULL";
-        this.BaseBitRightCount = "48";
-        this.RefKindClearMask = "0xfffffffffffffff";
-        this.RefKindBoolMask = "0x2000000000000000";
-        this.RefKindIntMask = "0x3000000000000000";
-        this.BaseClearMask = "0xf000ffffffffffff";
-        this.BaseMask = "0x0fff000000000000";
-        this.MemoryIndexMask = "0x0000ffffffffffff";
-        this.ClassInt = "Int";
-        this.ClassCompState = "CompState";
-        this.KeywordReturn = "return";
-        this.DelimitDot = ".";
-        this.DelimitDotPointer = "->";
-        this.DelimitBracketLeft = "(";
-        this.DelimitBracketRight = ")";
-        this.DelimitSquareLeft = "[";
-        this.DelimitSquareRight = "]";
-        this.DelimitSemicolon = ";";
-        this.DelimitComma = ",";
-        this.DelimitAsterisk = "*";
-        this.DelimitAre = "=";
-        this.DelimitEqual = "==";
-        this.DelimitLess = "<";
-        this.DelimitAnd = "&";
-        this.DelimitOrn = "|";
-        this.DelimitNot = "!";
-        this.DelimitAdd = "+";
-        this.DelimitSub = "-";
-        this.DelimitMul = "*";
-        this.DelimitDiv = "/";
-        this.DelimitBitNot = "~";
-        this.DelimitBitLeft = "<<";
-        this.DelimitBitRight = ">>";
+        this.Space = this.S(" ");
+        this.NewLine = this.S("\n");
+        this.Zero = this.S("0");
+        String k;
+        k = this.S("v");
+        this.VarA = this.InitVar(k, "A");
+        this.VarB = this.InitVar(k, "B");
+        this.VarC = this.InitVar(k, "C");
+        this.VarD = this.InitVar(k, "D");
+        this.VarSA = this.InitVar(k, "SA");
+        this.VarSB = this.InitVar(k, "SB");
+        this.Eval = this.S("e");
+        this.EvalStackVar = this.S("S");
+        this.EvalIndexVar = this.S("N");
+        this.EvalFrameVar = this.S("f");
+        this.IntValuePre = this.S("0x");
+        this.IntValuePost = this.S("ULL");
+        this.BaseBitRightCount = this.S("52");
+        this.RefKindClearMask = this.S("0x0fffffffffffffff");
+        this.RefKindBoolMask = this.S("0x2000000000000000");
+        this.RefKindIntMask = this.S("0x3000000000000000");
+        this.BaseClearMask = this.S("0xf00fffffffffffff");
+        this.BaseMask = this.S("0x0ff0000000000000");
+        this.MemoryIndexMask = this.S("0x000fffffffffffff");
+        this.ClassInt = this.S("Int");
+        this.ClassCompState = this.S("CompState");
+        this.KeywordReturn = this.S("return");
+        this.DelimitDot = this.S(".");
+        this.DelimitDotPointer = this.S("->");
+        this.DelimitBracketLeft = this.S("(");
+        this.DelimitBracketRight = this.S(")");
+        this.DelimitSquareLeft = this.S("[");
+        this.DelimitSquareRight = this.S("]");
+        this.DelimitSemicolon = this.S(";");
+        this.DelimitComma = this.S(",");
+        this.DelimitAsterisk = this.S("*");
+        this.DelimitAre = this.S("=");
+        this.DelimitEqual = this.S("==");
+        this.DelimitLess = this.S("<");
+        this.DelimitAnd = this.S("&");
+        this.DelimitOrn = this.S("|");
+        this.DelimitNot = this.S("!");
+        this.DelimitAdd = this.S("+");
+        this.DelimitSub = this.S("-");
+        this.DelimitMul = this.S("*");
+        this.DelimitDiv = this.S("/");
+        this.DelimitBitNot = this.S("~");
+        this.DelimitBitLeft = this.S("<<");
+        this.DelimitBitRight = this.S(">>");
         return true;
     }
 
@@ -103,7 +102,6 @@ public class ClassGen : ClassInfraGen
     public virtual long StateKindCall { get; set; }
     public virtual String Space { get; set; }
     public virtual String NewLine { get; set; }
-    public virtual String Indent { get; set; }
     public virtual String Zero { get; set; }
     public virtual String VarA { get; set; }
     public virtual String VarB { get; set; }
@@ -1340,5 +1338,10 @@ public class ClassGen : ClassInfraGen
         }
 
         return k;
+    }
+
+    protected virtual String InitVar(String prefix, string name)
+    {
+        return this.AddClear().Add(prefix).AddS(name).AddResult();
     }
 }
