@@ -207,9 +207,9 @@ public class ClassGenTraverse : Traverse
         return true;
     }
 
-    public override bool ExecuteEqualOperate(EqualOperate equalOperate)
+    public override bool ExecuteSameOperate(SameOperate sameOperate)
     {
-        base.ExecuteEqualOperate(equalOperate);
+        base.ExecuteSameOperate(sameOperate);
 
         ClassGen gen;
         gen = this.Gen;
