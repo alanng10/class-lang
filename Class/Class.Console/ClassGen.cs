@@ -67,8 +67,8 @@ public class ClassGen : ClassInfraGen
         this.LimitAre = this.S("=");
         this.LimitSame = this.S("==");
         this.LimitLess = this.S("<");
-        this.DelimitAnd = this.S("&");
-        this.DelimitOrn = this.S("|");
+        this.LimitAnd = this.S("&");
+        this.LimitOrn = this.S("|");
         this.DelimitNot = this.S("!");
         this.DelimitAdd = this.S("+");
         this.DelimitSub = this.S("-");
@@ -149,8 +149,8 @@ public class ClassGen : ClassInfraGen
     public virtual String LimitAre { get; set; }
     public virtual String LimitSame { get; set; }
     public virtual String LimitLess { get; set; }
-    public virtual String DelimitAnd { get; set; }
-    public virtual String DelimitOrn { get; set; }
+    public virtual String LimitAnd { get; set; }
+    public virtual String LimitOrn { get; set; }
     public virtual String DelimitNot { get; set; }
     public virtual String DelimitAdd { get; set; }
     public virtual String DelimitSub { get; set; }
@@ -924,7 +924,7 @@ public class ClassGen : ClassInfraGen
         this.Text(varVar);
 
         this.Text(this.Space);
-        this.Text(this.DelimitAnd);
+        this.Text(this.LimitAnd);
         this.Text(this.Space);
 
         this.Text(mask);
@@ -947,7 +947,7 @@ public class ClassGen : ClassInfraGen
         this.Text(varVar);
 
         this.Text(this.Space);
-        this.Text(this.DelimitOrn);
+        this.Text(this.LimitOrn);
         this.Text(this.Space);
 
         this.Text(mask);
