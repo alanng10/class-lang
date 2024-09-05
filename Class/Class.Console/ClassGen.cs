@@ -55,10 +55,10 @@ public class ClassGen : ClassInfraGen
         this.KeywordReturn = this.S("return");
         this.DelimitDot = this.S(".");
         this.DelimitDotPointer = this.S("->");
-        this.DelimitBracketLeft = this.S("(");
-        this.DelimitBracketRight = this.S(")");
-        this.DelimitSquareLeft = this.S("[");
-        this.DelimitSquareRight = this.S("]");
+        this.DelimitBraceLite = this.S("(");
+        this.DelimitBraceRite = this.S(")");
+        this.DelimitBraceSquareLite = this.S("[");
+        this.DelimitBraceSquareRite = this.S("]");
         this.DelimitSemicolon = this.S(";");
         this.DelimitComma = this.S(",");
         this.DelimitAsterisk = this.S("*");
@@ -135,10 +135,10 @@ public class ClassGen : ClassInfraGen
     public virtual String KeywordReturn { get; set; }
     public virtual String DelimitDot { get; set; }
     public virtual String DelimitDotPointer { get; set; }
-    public virtual String DelimitBracketLeft { get; set; }
-    public virtual String DelimitBracketRight { get; set; }
-    public virtual String DelimitSquareLeft { get; set; }
-    public virtual String DelimitSquareRight { get; set; }
+    public virtual String DelimitBraceLite { get; set; }
+    public virtual String DelimitBraceRite { get; set; }
+    public virtual String DelimitBraceSquareLite { get; set; }
+    public virtual String DelimitBraceSquareRite { get; set; }
     public virtual String DelimitSemicolon { get; set; }
     public virtual String DelimitComma { get; set; }
     public virtual String DelimitAsterisk { get; set; }
