@@ -1180,6 +1180,7 @@ public class ClassGen : ClassInfraGen
     
     public virtual bool ModuleVer(long ver)
     {
+        this.Operate.ExecuteIntFormat(ver);
         return true;
     }
 
