@@ -256,9 +256,6 @@ class ObjectString : ClassInfraGen
 
         this.SpaceCount = this.SpaceCount - this.IndentSize;
 
-
-
-
         this.AddSpace();
         this.Add(this.SBraceSquareRite).Add(this.SComma).AddLine();
 
