@@ -833,6 +833,11 @@ public class ClassGen : ClassInfraGen
 
     public virtual bool VarSetDerefVar(String dest, String value, String varPos)
     {
+        String ka;
+        String kb;
+        ka = this.DelimitBraceRoundLite;
+        kb = this.DelimitBraceRoundRite;
+
         this.TextIndent();
 
         this.Text(dest);
@@ -843,18 +848,18 @@ public class ClassGen : ClassInfraGen
 
         this.Text(this.DelimitAsterisk);
 
-        this.Text(this.DelimitBraceSquareLite);
+        this.Text(ka);
 
-        this.Text(this.DelimitBraceSquareLite);
+        this.Text(ka);
 
-        this.Text(this.DelimitBraceSquareLite);
+        this.Text(ka);
         this.Text(this.ClassInt);
         this.Text(this.DelimitAsterisk);
-        this.Text(this.DelimitBraceSquareRite);
+        this.Text(kb);
 
         this.Text(value);
 
-        this.Text(this.DelimitBraceSquareRite);
+        this.Text(kb);
 
         this.Text(this.Space);
         this.Text(this.DelimitAdd);
@@ -862,7 +867,7 @@ public class ClassGen : ClassInfraGen
 
         this.Text(varPos);
 
-        this.Text(this.DelimitBraceSquareRite);
+        this.Text(kb);
 
         this.Text(this.DelimitSemicolon);
         this.Text(this.NewLine);
