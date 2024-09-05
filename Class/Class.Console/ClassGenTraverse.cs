@@ -359,7 +359,7 @@ public class ClassGenTraverse : Traverse
     {
         base.ExecuteBitLiteOperate(bitLiteOperate);
 
-        this.Gen.ExecuteOperateDelimitAA(this.Gen.LimitBitLite);
+        this.Gen.ExecuteOperateLimitAA(this.Gen.LimitBitLite);
         return true;
     }
 
