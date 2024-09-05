@@ -61,12 +61,12 @@ public class ClassGen : ClassInfraGen
         this.LimitBraceRoundRite = this.S(")");
         this.LimitBraceSquareLite = this.S("[");
         this.LimitBraceSquareRite = this.S("]");
-        this.DelimitSemicolon = this.S(";");
-        this.DelimitComma = this.S(",");
-        this.DelimitAsterisk = this.S("*");
-        this.DelimitAre = this.S("=");
-        this.DelimitEqual = this.S("==");
-        this.DelimitLess = this.S("<");
+        this.LimitSemicolon = this.S(";");
+        this.LimitComma = this.S(",");
+        this.LimitAsterisk = this.S("*");
+        this.LimitAre = this.S("=");
+        this.LimitEqual = this.S("==");
+        this.LimitLess = this.S("<");
         this.DelimitAnd = this.S("&");
         this.DelimitOrn = this.S("|");
         this.DelimitNot = this.S("!");
@@ -143,12 +143,12 @@ public class ClassGen : ClassInfraGen
     public virtual String LimitBraceRoundRite { get; set; }
     public virtual String LimitBraceSquareLite { get; set; }
     public virtual String LimitBraceSquareRite { get; set; }
-    public virtual String DelimitSemicolon { get; set; }
-    public virtual String DelimitComma { get; set; }
-    public virtual String DelimitAsterisk { get; set; }
-    public virtual String DelimitAre { get; set; }
-    public virtual String DelimitEqual { get; set; }
-    public virtual String DelimitLess { get; set; }
+    public virtual String LimitSemicolon { get; set; }
+    public virtual String LimitComma { get; set; }
+    public virtual String LimitAsterisk { get; set; }
+    public virtual String LimitAre { get; set; }
+    public virtual String LimitEqual { get; set; }
+    public virtual String LimitLess { get; set; }
     public virtual String DelimitAnd { get; set; }
     public virtual String DelimitOrn { get; set; }
     public virtual String DelimitNot { get; set; }
@@ -668,7 +668,7 @@ public class ClassGen : ClassInfraGen
         this.Text(dest);
         
         this.Text(space);
-        this.Text(this.DelimitAre);
+        this.Text(this.LimitAre);
         this.Text(space);
 
         this.Text(left);
@@ -679,7 +679,7 @@ public class ClassGen : ClassInfraGen
 
         this.Text(right);
 
-        this.Text(this.DelimitSemicolon);
+        this.Text(this.LimitSemicolon);
         this.Text(this.NewLine);
         return true;
     }
@@ -691,7 +691,7 @@ public class ClassGen : ClassInfraGen
         this.Text(dest);
 
         this.Text(this.Space);
-        this.Text(this.DelimitAre);
+        this.Text(this.LimitAre);
         this.Text(this.Space);
 
         this.Text(delimit);
@@ -699,7 +699,7 @@ public class ClassGen : ClassInfraGen
 
         this.Text(value);
 
-        this.Text(this.DelimitSemicolon);
+        this.Text(this.LimitSemicolon);
         this.Text(this.NewLine);
         return true;
     }
@@ -714,7 +714,7 @@ public class ClassGen : ClassInfraGen
 
         this.Text(this.Zero);
 
-        this.Text(this.DelimitSemicolon);
+        this.Text(this.LimitSemicolon);
         this.Text(this.NewLine);
         return true;
     }
@@ -744,14 +744,14 @@ public class ClassGen : ClassInfraGen
         this.Text(ka);
         this.Text(this.Eval);
 
-        this.Text(this.DelimitComma);
+        this.Text(this.LimitComma);
         this.Text(kk);
 
         this.EvalIndex();
     
         this.Text(kb);
 
-        this.Text(this.DelimitSemicolon);
+        this.Text(this.LimitSemicolon);
         this.Text(this.NewLine);
         return true;
     }
@@ -763,12 +763,12 @@ public class ClassGen : ClassInfraGen
         this.Text(dest);
 
         this.Text(this.Space);
-        this.Text(this.DelimitAre);
+        this.Text(this.LimitAre);
         this.Text(this.Space);
 
         this.Text(value);
 
-        this.Text(this.DelimitSemicolon);
+        this.Text(this.LimitSemicolon);
         this.Text(this.NewLine);
         return true;
     }
@@ -780,7 +780,7 @@ public class ClassGen : ClassInfraGen
         this.Text(dest);
 
         this.Text(this.Space);
-        this.Text(this.DelimitAre);
+        this.Text(this.LimitAre);
         this.Text(this.Space);
 
         this.Text(value);
@@ -789,7 +789,7 @@ public class ClassGen : ClassInfraGen
 
         this.TextPos(pos);
 
-        this.Text(this.DelimitSemicolon);
+        this.Text(this.LimitSemicolon);
         this.Text(this.NewLine);
         return true;
     }
@@ -806,10 +806,10 @@ public class ClassGen : ClassInfraGen
         this.Text(dest);
 
         this.Text(this.Space);
-        this.Text(this.DelimitAre);
+        this.Text(this.LimitAre);
         this.Text(this.Space);
 
-        this.Text(this.DelimitAsterisk);
+        this.Text(this.LimitAsterisk);
 
         this.Text(ka);
 
@@ -817,7 +817,7 @@ public class ClassGen : ClassInfraGen
 
         this.Text(ka);
         this.Text(this.ClassInt);
-        this.Text(this.DelimitAsterisk);
+        this.Text(this.LimitAsterisk);
         this.Text(kb);
 
         this.Text(value);
@@ -830,7 +830,7 @@ public class ClassGen : ClassInfraGen
 
         this.Text(kb);
 
-        this.Text(this.DelimitSemicolon);
+        this.Text(this.LimitSemicolon);
         this.Text(this.NewLine);
         return true;
     }
@@ -847,10 +847,10 @@ public class ClassGen : ClassInfraGen
         this.Text(dest);
 
         this.Text(this.Space);
-        this.Text(this.DelimitAre);
+        this.Text(this.LimitAre);
         this.Text(this.Space);
 
-        this.Text(this.DelimitAsterisk);
+        this.Text(this.LimitAsterisk);
 
         this.Text(ka);
 
@@ -858,7 +858,7 @@ public class ClassGen : ClassInfraGen
 
         this.Text(ka);
         this.Text(this.ClassInt);
-        this.Text(this.DelimitAsterisk);
+        this.Text(this.LimitAsterisk);
         this.Text(kb);
 
         this.Text(value);
@@ -873,7 +873,7 @@ public class ClassGen : ClassInfraGen
 
         this.Text(kb);
 
-        this.Text(this.DelimitSemicolon);
+        this.Text(this.LimitSemicolon);
         this.Text(this.NewLine);
         return true;
     }
@@ -887,13 +887,13 @@ public class ClassGen : ClassInfraGen
 
         this.TextIndent();
 
-        this.Text(this.DelimitAsterisk);
+        this.Text(this.LimitAsterisk);
 
         this.Text(ka);
 
         this.Text(ka);
         this.Text(this.ClassInt);
-        this.Text(this.DelimitAsterisk);
+        this.Text(this.LimitAsterisk);
         this.Text(kb);
 
         this.Text(dest);
@@ -901,12 +901,12 @@ public class ClassGen : ClassInfraGen
         this.Text(kb);
 
         this.Text(this.Space);
-        this.Text(this.DelimitAre);
+        this.Text(this.LimitAre);
         this.Text(this.Space);
 
         this.Text(value);
 
-        this.Text(this.DelimitSemicolon);
+        this.Text(this.LimitSemicolon);
         this.Text(this.NewLine);
         return true;
     }
@@ -918,7 +918,7 @@ public class ClassGen : ClassInfraGen
         this.Text(varVar);
 
         this.Text(this.Space);
-        this.Text(this.DelimitAre);
+        this.Text(this.LimitAre);
         this.Text(this.Space);
 
         this.Text(varVar);
@@ -929,7 +929,7 @@ public class ClassGen : ClassInfraGen
 
         this.Text(mask);
 
-        this.Text(this.DelimitSemicolon);
+        this.Text(this.LimitSemicolon);
         this.Text(this.NewLine);
         return true;
     }
@@ -941,7 +941,7 @@ public class ClassGen : ClassInfraGen
         this.Text(varVar);
 
         this.Text(this.Space);
-        this.Text(this.DelimitAre);
+        this.Text(this.LimitAre);
         this.Text(this.Space);
 
         this.Text(varVar);
@@ -952,7 +952,7 @@ public class ClassGen : ClassInfraGen
 
         this.Text(mask);
 
-        this.Text(this.DelimitSemicolon);
+        this.Text(this.LimitSemicolon);
         this.Text(this.NewLine);
         return true;
     }
@@ -964,12 +964,12 @@ public class ClassGen : ClassInfraGen
         this.Text(varVar);
 
         this.Text(this.Space);
-        this.Text(this.DelimitAre);
+        this.Text(this.LimitAre);
         this.Text(this.Space);
         
         this.EvalValue(index);
         
-        this.Text(this.DelimitSemicolon);
+        this.Text(this.LimitSemicolon);
         this.Text(this.NewLine);
         return true;
     }
@@ -981,12 +981,12 @@ public class ClassGen : ClassInfraGen
         this.EvalValue(index);
 
         this.Text(this.Space);
-        this.Text(this.DelimitAre);
+        this.Text(this.LimitAre);
         this.Text(this.Space);
 
         this.Text(varVar);
 
-        this.Text(this.DelimitSemicolon);
+        this.Text(this.LimitSemicolon);
         this.Text(this.NewLine);
         return true;
     }
@@ -1016,12 +1016,12 @@ public class ClassGen : ClassInfraGen
         this.Text(arg);
 
         this.Text(this.Space);
-        this.Text(this.DelimitAre);
+        this.Text(this.LimitAre);
         this.Text(this.Space);
 
         this.EvalFrameValue(pos);
 
-        this.Text(this.DelimitSemicolon);
+        this.Text(this.LimitSemicolon);
         this.Text(this.NewLine);
         return true;
     }
@@ -1033,12 +1033,12 @@ public class ClassGen : ClassInfraGen
         this.EvalFrameValue(pos);
 
         this.Text(this.Space);
-        this.Text(this.DelimitAre);
+        this.Text(this.LimitAre);
         this.Text(this.Space);
 
         this.Text(arg);
 
-        this.Text(this.DelimitSemicolon);
+        this.Text(this.LimitSemicolon);
         this.Text(this.NewLine);
         return true;
     }
@@ -1066,7 +1066,7 @@ public class ClassGen : ClassInfraGen
         this.EvalIndex();
 
         this.Text(this.Space);
-        this.Text(this.DelimitAre);
+        this.Text(this.LimitAre);
         this.Text(this.Space);
 
         this.EvalIndex();
@@ -1075,7 +1075,7 @@ public class ClassGen : ClassInfraGen
 
         this.TextPos(pos);
 
-        this.Text(this.DelimitSemicolon);
+        this.Text(this.LimitSemicolon);
         this.Text(this.NewLine);
         return true;
     }
