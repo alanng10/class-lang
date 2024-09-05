@@ -90,17 +90,17 @@ public class ClassGen : ClassInfraGen
     public virtual SetClassGenOperate SetOperate { get; set; }
     public virtual ClassGenTraverse Traverse { get; set; }
     public virtual long BaseIndex { get; set; }
-    public virtual string ClassBaseMask { get; set; }
+    public virtual String ClassBaseMask { get; set; }
     public virtual Field ThisField { get; set; }
-    public virtual int CompStateKind { get; set; }
-    public virtual int ParamCount { get; set; }
-    public virtual int LocalVarCount { get; set; }
-    public virtual int IndentCount { get; set; }
+    public virtual long CompStateKind { get; set; }
+    public virtual long ParamCount { get; set; }
+    public virtual long LocalVarCount { get; set; }
+    public virtual long IndentCount { get; set; }
     public virtual Data BlockStack { get; set; }
-    public virtual int BlockStackIndex { get; set; }
-    public virtual int StateKindGet { get; set; }
-    public virtual int StateKindSet { get; set; }
-    public virtual int StateKindCall { get; set; }
+    public virtual long BlockStackIndex { get; set; }
+    public virtual long StateKindGet { get; set; }
+    public virtual long StateKindSet { get; set; }
+    public virtual long StateKindCall { get; set; }
     public virtual string Space { get; set; }
     public virtual string NewLine { get; set; }
     public virtual string Indent { get; set; }
@@ -211,7 +211,7 @@ public class ClassGen : ClassInfraGen
         return true;
     }
 
-    public virtual bool ExecuteVirtualCall(int thisEvalIndex, int stateKind, int stateIndex)
+    public virtual bool ExecuteVirtualCall(long thisEvalIndex, long stateKind, long stateIndex)
     {
         string varA;
         string varB;
@@ -261,13 +261,13 @@ public class ClassGen : ClassInfraGen
         string varA;
         varA = this.VarA;
 
-        int stateKind;
+        long stateKind;
         stateKind = this.CompStateKind;
 
-        int k;
+        long k;
         k = this.ParamCount;
 
-        int kk;
+        long kk;
         kk = varVar.Index;
 
         if (stateKind == this.StateKindGet)
@@ -284,7 +284,7 @@ public class ClassGen : ClassInfraGen
 
             if (!ba)
             {
-                int posA;
+                long posA;
                 posA = kk - 1;
 
                 this.EvalFrameValueGet(posA, varA);
@@ -307,7 +307,7 @@ public class ClassGen : ClassInfraGen
 
             if (bd)
             {
-                int posB;
+                long posB;
                 posB = -1;
 
                 this.EvalFrameValueGet(posB, varA);
@@ -315,7 +315,7 @@ public class ClassGen : ClassInfraGen
 
             if (!(bc | bd))
             {
-                int posC;
+                long posC;
                 posC = kk - 2;
 
                 this.EvalFrameValueGet(posC, varA);
@@ -324,18 +324,18 @@ public class ClassGen : ClassInfraGen
 
         if (stateKind == this.StateKindCall)
         {
-            int ka;
+            long ka;
             ka = k - 1;
 
             bool b;
             b = (kk < ka);
             if (b)
             {
-                int kkk;
+                long kkk;
                 kkk = ka - kk;
                 kkk = -kkk;
 
-                int posD;
+                long posD;
                 posD = kkk;
 
                 this.EvalFrameValueGet(posD, varA);
@@ -343,7 +343,7 @@ public class ClassGen : ClassInfraGen
 
             if (!b)
             {
-                int posE;
+                long posE;
                 posE = kk - ka;
 
                 this.EvalFrameValueGet(posE, varA);
@@ -364,13 +364,13 @@ public class ClassGen : ClassInfraGen
         varA = this.VarA;
         varB = this.VarB;
 
-        int stateKind;
+        long stateKind;
         stateKind = this.CompStateKind;
 
-        int k;
+        long k;
         k = this.ParamCount;
 
-        int kk;
+        long kk;
         kk = varVar.Index;
 
         this.EvalValueSet(1, varB);
@@ -389,7 +389,7 @@ public class ClassGen : ClassInfraGen
 
             if (!ba)
             {
-                int posA;
+                long posA;
                 posA = kk - 1;
 
                 this.EvalFrameValueSet(posA, varB);
@@ -412,7 +412,7 @@ public class ClassGen : ClassInfraGen
 
             if (bd)
             {
-                int posB;
+                long posB;
                 posB = -1;
 
                 this.EvalFrameValueSet(posB, varB);
@@ -420,7 +420,7 @@ public class ClassGen : ClassInfraGen
 
             if (!(bc | bd))
             {
-                int posC;
+                long posC;
                 posC = kk - 2;
 
                 this.EvalFrameValueSet(posC, varB);
@@ -429,18 +429,18 @@ public class ClassGen : ClassInfraGen
 
         if (stateKind == this.StateKindCall)
         {
-            int ka;
+            long ka;
             ka = k - 1;
 
             bool b;
             b = (kk < ka);
             if (b)
             {
-                int kkk;
+                long kkk;
                 kkk = ka - kk;
                 kkk = -kkk;
 
-                int posD;
+                long posD;
                 posD = kkk;
 
                 this.EvalFrameValueSet(posD, varB);
@@ -448,7 +448,7 @@ public class ClassGen : ClassInfraGen
 
             if (!b)
             {
-                int posE;
+                long posE;
                 posE = kk - ka;
 
                 this.EvalFrameValueSet(posE, varB);
@@ -471,11 +471,11 @@ public class ClassGen : ClassInfraGen
         ClassClass varClass;
         varClass = this.Class;
 
-        int k;
+        long k;
         k = this.ParamCount;
         k = -k;
 
-        int kk;
+        long kk;
         kk = varClass.FieldRange.Index;
         kk = kk + varField.BinaryIndex;
 
@@ -486,13 +486,13 @@ public class ClassGen : ClassInfraGen
         return true;
     }
 
-    public virtual bool ExecuteFieldData(string varVar, int fieldIndex)
+    public virtual bool ExecuteFieldData(string varVar, long fieldIndex)
     {
-        int kk;
+        long kk;
         kk = fieldIndex;
         kk = kk + 1;
 
-        int pos;
+        long pos;
         pos = kk * sizeof(ulong);
 
         this.VarMaskClear(varVar, this.MemoryIndexMask);
@@ -763,7 +763,7 @@ public class ClassGen : ClassInfraGen
         return true;
     }
 
-    public virtual bool VarSetPos(string dest, string value, int pos)
+    public virtual bool VarSetPos(string dest, string value, long pos)
     {
         string k;
         k = this.Space;
@@ -787,7 +787,7 @@ public class ClassGen : ClassInfraGen
         return true;
     }
 
-    public virtual bool VarSetDeref(string dest, string value, int pos)
+    public virtual bool VarSetDeref(string dest, string value, long pos)
     {
         string kk;
         kk = this.Space;
@@ -979,7 +979,7 @@ public class ClassGen : ClassInfraGen
         return true;
     }
 
-    public virtual bool EvalValueGet(int index, string varVar)
+    public virtual bool EvalValueGet(long index, string varVar)
     {
         this.TextIndent();
         
@@ -996,7 +996,7 @@ public class ClassGen : ClassInfraGen
         return true;
     }
 
-    public virtual bool EvalValueSet(int index, string varVar)
+    public virtual bool EvalValueSet(long index, string varVar)
     {
         this.TextIndent();
 
@@ -1013,7 +1013,7 @@ public class ClassGen : ClassInfraGen
         return true;
     }
 
-    public virtual bool EvalValue(int index)
+    public virtual bool EvalValue(long index)
     {
         this.EvalStack();
         
@@ -1031,7 +1031,7 @@ public class ClassGen : ClassInfraGen
         return true;
     }
 
-    public virtual bool EvalFrameValueGet(int pos, string arg)
+    public virtual bool EvalFrameValueGet(long pos, string arg)
     {
         this.TextIndent();
 
@@ -1048,7 +1048,7 @@ public class ClassGen : ClassInfraGen
         return true;
     }
 
-    public virtual bool EvalFrameValueSet(int pos, string arg)
+    public virtual bool EvalFrameValueSet(long pos, string arg)
     {
         this.TextIndent();
 
@@ -1065,7 +1065,7 @@ public class ClassGen : ClassInfraGen
         return true;
     }
 
-    public virtual bool EvalFrameValue(int pos)
+    public virtual bool EvalFrameValue(long pos)
     {
         this.EvalStack();
 
@@ -1081,7 +1081,7 @@ public class ClassGen : ClassInfraGen
         return true;
     }
 
-    public virtual bool EvalIndexPosSet(int pos)
+    public virtual bool EvalIndexPosSet(long pos)
     {
         this.TextIndent();
 
@@ -1175,9 +1175,9 @@ public class ClassGen : ClassInfraGen
         ClassGenOperate o;
         o = this.Operate;
 
-        int count;
+        long count;
         count = name.Length;
-        int i;
+        long i;
         i = 0;
         while (i < count)
         {
@@ -1240,9 +1240,9 @@ public class ClassGen : ClassInfraGen
     {
         string indent;
         indent = this.Indent;
-        int count;
+        long count;
         count = this.IndentCount;
-        int i;
+        long i;
         i = 0;
         while (i < count)
         {
@@ -1257,9 +1257,9 @@ public class ClassGen : ClassInfraGen
         ClassGenOperate o;
         o = this.Operate;
 
-        int count;
+        long count;
         count = text.Length;
-        int i;
+        long i;
         i = 0;
         while (i < count)
         {
