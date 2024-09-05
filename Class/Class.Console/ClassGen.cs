@@ -864,15 +864,12 @@ public class ClassGen : ClassInfraGen
         return true;
     }
 
-    public virtual bool VarDerefSet(string dest, string value)
+    public virtual bool VarDerefSet(String dest, String value)
     {
-        string kk;
-        kk = this.Space;
-
-        string ka;
-        string kb;
-        ka = this.DelimitSquareLeft;
-        kb = this.DelimitSquareRight;
+        String ka;
+        String kb;
+        ka = this.DelimitBraceSquareLite;
+        kb = this.DelimitBraceSquareRite;
 
         this.TextIndent();
 
@@ -889,34 +886,14 @@ public class ClassGen : ClassInfraGen
 
         this.Text(kb);
 
-        this.Text(kk);
+        this.Text(this.Space);
         this.Text(this.DelimitAre);
-        this.Text(kk);
+        this.Text(this.Space);
 
         this.Text(value);
 
         this.Text(this.DelimitSemicolon);
         this.Text(this.NewLine);
-        return true;
-    }
-
-    public virtual bool ClassFieldStart(ClassClass varClass)
-    {
-        this.ClassName(varClass);
-
-        this.Text("__");
-
-        this.Text("F");
-        return true;
-    }
-
-    public virtual bool ClassMaideStart(ClassClass varClass)
-    {
-        this.ClassName(varClass);
-
-        this.Text("__");
-
-        this.Text("M");
         return true;
     }
 
@@ -1004,7 +981,7 @@ public class ClassGen : ClassInfraGen
     {
         this.EvalStack();
         
-        this.Text(this.DelimitSquareLeft);
+        this.Text(this.DelimitBraceSquareLite);
         
         this.EvalIndex();
 
@@ -1014,7 +991,7 @@ public class ClassGen : ClassInfraGen
         
         this.TextInt(index);
         
-        this.Text(this.DelimitSquareRight);
+        this.Text(this.DelimitBraceSquareRite);
         return true;
     }
 
