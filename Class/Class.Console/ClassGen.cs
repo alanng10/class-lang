@@ -53,8 +53,8 @@ public class ClassGen : ClassInfraGen
         this.StateCall = this.S("C");
         this.NameCombine = this.S("_");
         this.KeywordReturn = this.S("return");
-        this.DelimitDot = this.S(".");
-        this.DelimitDotPointer = this.S("->");
+        this.LimitDot = this.S(".");
+        this.LimitDotPointer = this.S("->");
         this.DelimitBraceRoundLite = this.S("(");
         this.DelimitBraceRoundRite = this.S(")");
         this.DelimitBraceSquareLite = this.S("[");
@@ -133,8 +133,8 @@ public class ClassGen : ClassInfraGen
     public virtual String StateCall { get; set; }
     public virtual String NameCombine { get; set; }
     public virtual String KeywordReturn { get; set; }
-    public virtual String DelimitDot { get; set; }
-    public virtual String DelimitDotPointer { get; set; }
+    public virtual String LimitDot { get; set; }
+    public virtual String LimitDotPointer { get; set; }
     public virtual String DelimitBraceRoundLite { get; set; }
     public virtual String DelimitBraceRoundRite { get; set; }
     public virtual String DelimitBraceSquareLite { get; set; }
@@ -1079,7 +1079,7 @@ public class ClassGen : ClassInfraGen
     public virtual bool EvalStack()
     {
         this.Text(this.Eval);
-        this.Text(this.DelimitDotPointer);
+        this.Text(this.LimitDotPointer);
         this.Text(this.EvalStackVar);
         return true;
     }
@@ -1087,7 +1087,7 @@ public class ClassGen : ClassInfraGen
     public virtual bool EvalIndex()
     {
         this.Text(this.Eval);
-        this.Text(this.DelimitDotPointer);
+        this.Text(this.LimitDotPointer);
         this.Text(this.EvalIndexVar);
         return true;
     }
