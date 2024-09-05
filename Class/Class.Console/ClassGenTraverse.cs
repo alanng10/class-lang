@@ -367,7 +367,7 @@ public class ClassGenTraverse : Traverse
     {
         base.ExecuteBitRiteOperate(bitRiteOperate);
 
-        this.Gen.ExecuteOperateDelimitAB(this.Gen.DelimitBitRight);
+        this.Gen.ExecuteOperateDelimitAB(this.Gen.LimitBitRite);
         return true;
     }
 

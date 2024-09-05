@@ -76,7 +76,7 @@ public class ClassGen : ClassInfraGen
         this.LimitDiv = this.S("/");
         this.LimitBitNot = this.S("~");
         this.LimitBitLite = this.S("<<");
-        this.DelimitBitRight = this.S(">>");
+        this.LimitBitRite = this.S(">>");
         return true;
     }
 
@@ -158,7 +158,7 @@ public class ClassGen : ClassInfraGen
     public virtual String LimitDiv { get; set; }
     public virtual String LimitBitNot { get; set; }
     public virtual String LimitBitLite { get; set; }
-    public virtual String DelimitBitRight { get; set; }
+    public virtual String LimitBitRite { get; set; }
 
     public virtual bool Execute()
     {
@@ -246,7 +246,7 @@ public class ClassGen : ClassInfraGen
 
         this.VarMaskClear(varD, this.BaseMask);
 
-        this.OperateDelimit(varD, varD, this.BaseBitRightCount, this.DelimitBitRight);
+        this.OperateDelimit(varD, varD, this.BaseBitRightCount, this.LimitBitRite);
 
         this.VarSetDerefVar(varC, varC, varD);
 
