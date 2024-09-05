@@ -52,7 +52,7 @@ public class ClassGen : ClassInfraGen
         this.StateSet = this.S("S");
         this.StateCall = this.S("C");
         this.NameCombine = this.S("_");
-        this.KeywordReturn = this.S("return");
+        this.IndexReturn = this.S("return");
         this.LimitDot = this.S(".");
         this.LimitDotPointer = this.S("->");
         this.LimitBraceLite = this.S("{");
@@ -134,7 +134,7 @@ public class ClassGen : ClassInfraGen
     public virtual String StateSet { get; set; }
     public virtual String StateCall { get; set; }
     public virtual String NameCombine { get; set; }
-    public virtual String KeywordReturn { get; set; }
+    public virtual String IndexReturn { get; set; }
     public virtual String LimitDot { get; set; }
     public virtual String LimitDotPointer { get; set; }
     public virtual String LimitBraceLite { get; set; }
@@ -708,7 +708,7 @@ public class ClassGen : ClassInfraGen
     {
         this.TextIndent();
 
-        this.Text(this.KeywordReturn);
+        this.Text(this.IndexReturn);
 
         this.Text(this.Space);
 
