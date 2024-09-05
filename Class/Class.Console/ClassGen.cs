@@ -826,46 +826,38 @@ public class ClassGen : ClassInfraGen
         return true;
     }
 
-    public virtual bool VarSetDerefVar(string dest, string value, string varPos)
+    public virtual bool VarSetDerefVar(String dest, String value, String varPos)
     {
-        string kk;
-        kk = this.Space;
-
-        string ka;
-        string kb;
-        ka = this.DelimitSquareLeft;
-        kb = this.DelimitSquareRight;
-
         this.TextIndent();
 
         this.Text(dest);
 
-        this.Text(kk);
+        this.Text(this.Space);
         this.Text(this.DelimitAre);
-        this.Text(kk);
+        this.Text(this.Space);
 
         this.Text(this.DelimitAsterisk);
 
-        this.Text(ka);
+        this.Text(this.DelimitBraceSquareLite);
 
-        this.Text(ka);
+        this.Text(this.DelimitBraceSquareLite);
 
-        this.Text(ka);
+        this.Text(this.DelimitBraceSquareLite);
         this.Text(this.ClassInt);
         this.Text(this.DelimitAsterisk);
-        this.Text(kb);
+        this.Text(this.DelimitBraceSquareRite);
 
         this.Text(value);
 
-        this.Text(kb);
+        this.Text(this.DelimitBraceSquareRite);
 
-        this.Text(kk);
+        this.Text(this.Space);
         this.Text(this.DelimitAdd);
-        this.Text(kk);
+        this.Text(this.Space);
 
         this.Text(varPos);
 
-        this.Text(kb);
+        this.Text(this.DelimitBraceSquareRite);
 
         this.Text(this.DelimitSemicolon);
         this.Text(this.NewLine);
