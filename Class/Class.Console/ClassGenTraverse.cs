@@ -269,7 +269,7 @@ public class ClassGenTraverse : Traverse
     {
         base.ExecuteAndOperate(andOperate);
 
-        this.Gen.ExecuteOperateLimitBool(this.Gen.LimitAnd);
+        this.Gen.ExecuteOperateDelimitBool(this.Gen.LimitAnd);
         return true;
     }
 
@@ -277,7 +277,7 @@ public class ClassGenTraverse : Traverse
     {
         base.ExecuteOrnOperate(ornOperate);
 
-        this.Gen.ExecuteOperateLimitBool(this.Gen.LimitOrn);
+        this.Gen.ExecuteOperateDelimitBool(this.Gen.LimitOrn);
         return true;
     }
 
@@ -317,7 +317,7 @@ public class ClassGenTraverse : Traverse
     {
         base.ExecuteBitAndOperate(bitAndOperate);
 
-        this.Gen.ExecuteOperateLimitA(this.Gen.LimitAnd);
+        this.Gen.ExecuteOperateDelimitA(this.Gen.LimitAnd);
         return true;
     }
 
@@ -325,7 +325,7 @@ public class ClassGenTraverse : Traverse
     {
         base.ExecuteBitOrnOperate(bitOrnOperate);
 
-        this.Gen.ExecuteOperateLimitA(this.Gen.LimitOrn);
+        this.Gen.ExecuteOperateDelimitA(this.Gen.LimitOrn);
         return true;
     }
 
