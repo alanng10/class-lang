@@ -20,6 +20,7 @@ public class Infra : Any
         this.InfraInfra = InfraInfra.This;
         this.StringComp = StringComp.This;
         this.TextCode = global::Avalon.Text.Code.This;
+        this.StringValue = StringValue.This;
 
         this.NewLine = this.StringComp.CreateChar('\n', 1);
         this.PathCombine = this.StringComp.CreateChar('/', 1);
@@ -28,11 +29,8 @@ public class Infra : Any
         this.PosAddSign = this.StringComp.CreateChar('+', 1);
         this.PosSubSign = this.StringComp.CreateChar('-', 1);
 
-        StringValue k;
-        k = StringValue.This;
-
-        this.BoolFalseString = k.Execute("false");
-        this.BoolTrueString = k.Execute("true");
+        this.BoolFalseString = this.S("false");
+        this.BoolTrueString = this.S("true");
         return true;
     }
 
@@ -46,6 +44,7 @@ public class Infra : Any
     protected virtual InfraInfra InfraInfra { get; set; }
     protected virtual StringComp StringComp { get; set; }
     protected virtual Code TextCode { get; set; }
+    protected virtual StringValue StringValue { get; set; }
 
     public virtual bool IsDigit(long o)
     {
@@ -688,5 +687,10 @@ public class Infra : Any
         a.Data = data;
         a.Range = aa;
         return a;
+    }
+
+    public virtual String S(string o)
+    {
+        return this.StringValue.Execute(o);
     }
 }
