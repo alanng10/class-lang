@@ -81,16 +81,12 @@ public class ClassGen : ClassBase
     }
 
     public virtual ClassClass Class { get; set; }
-    public virtual Table ModuleTable { get; set; }
     public virtual bool Export { get; set; }
-    public virtual Table ClassImportName { get; set; }
-    public virtual Table ClassShare { get; set; }
     public virtual ClassClass NullClass { get; set; }
     public virtual BuiltinClass System { get; set; }
     public virtual GenArg Arg { get; set; }
     public virtual ClassGenOperate Operate { get; set; }
     public virtual String Result { get; set; }
-    public virtual ClassInfra ClassInfra { get; set; }
     public virtual CountClassGenOperate CountOperate { get; set; }
     public virtual SetClassGenOperate SetOperate { get; set; }
     public virtual ClassGenTraverse Traverse { get; set; }
