@@ -106,6 +106,26 @@ public class Gen : Any
         return a;
     }
 
+    public virtual Text TSA(String o)
+    {
+        return this.TS(o, this.TA, this.DA);
+    }
+
+    public virtual Text TSB(String o)
+    {
+        return this.TS(o, this.TB, this.DB);
+    }
+
+    public virtual Text TSC(String o)
+    {
+        return this.TS(o, this.TC, this.DC);
+    }
+
+    public virtual Text TSD(String o)
+    {
+        return this.TS(o, this.TD, this.DD);
+    }
+
     public virtual Text TS(String o, Text text, StringData data)
     {
         data.ValueString = o;
