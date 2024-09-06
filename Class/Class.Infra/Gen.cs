@@ -102,7 +102,7 @@ public class Gen : Any
         return a;
     }
 
-    public virtual bool TextStringGet(Text text, StringData data, String o)
+    public virtual bool TextString(Text text, StringData data, String o)
     {
         data.ValueString = o;
 

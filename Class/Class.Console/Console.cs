@@ -47,6 +47,8 @@ public class Console : ClassInfraGen
         this.ModuleRefLess.Init();
 
         this.TextNewLine = this.TextInfra.TextCreateStringData(this.ClassInfra.NewLine, null);
+
+        this.SInfo = this.S("info");
         return true;
     }
 
@@ -81,6 +83,7 @@ public class Console : ClassInfraGen
     protected virtual ModuleRef ModuleRef { get; set; }
     protected virtual ModuleRefLess ModuleRefLess { get; set; }
     protected virtual Text TextNewLine { get; set; }
+    protected virtual String SInfo { get; set; }
     private StorageArrange StorageArrange { get; set; }
 
     protected virtual LessInt CreateCharLess()
@@ -326,6 +329,9 @@ public class Console : ClassInfraGen
         {
             aa = (String)arg.GetAt(0);
         }
+
+        this.TextString(this.TextA, this.StringDataA, aa);
+        this.TextString(this.TextB, this.StringDataB, this.SInfo);
 
         bool ba;
         ba = (aa == "info");
