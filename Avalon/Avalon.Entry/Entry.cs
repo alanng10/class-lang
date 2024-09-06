@@ -6,10 +6,12 @@ public class Entry : Any
     {
         base.Init();
         this.InternIntern = InternIntern.This;
+        this.TextStringValue = TextStringValue.This;
         return true;
     }
 
     private InternIntern InternIntern { get; set; }
+    protected virtual TextStringValue TextStringValue { get; set; }
 
     public virtual int Execute()
     {
@@ -91,13 +93,21 @@ public class Entry : Any
         i = 0;
         while (i < count)
         {
-            string a;
-            a = arg[i];
+            string ku;
+            ku = arg[i];
+
+            String a;
+            a = this.S(ku);
 
             array.SetAt(i, a);
             i = i + 1;
         }
         this.Arg = array;
         return true;
+    }
+
+    protected virtual String S(string o)
+    {
+        return this.TextStringValue.Execute(o);
     }
 }
