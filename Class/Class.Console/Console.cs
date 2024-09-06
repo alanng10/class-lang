@@ -687,9 +687,9 @@ public class Console : ClassBase
 
     protected virtual bool WriteErrorList(Array errorList)
     {
-        int count;
+        long count;
         count = errorList.Count;
-        int i;
+        long i;
         i = 0;
         while (i < count)
         {
@@ -703,7 +703,7 @@ public class Console : ClassBase
 
     protected virtual bool WriteError(Error error)
     {
-        string a;
+        String a;
         a = this.ErrorString.Execute(error);
         this.Err.Write(a);
         return true;
@@ -711,17 +711,6 @@ public class Console : ClassBase
 
     protected virtual bool PrintModuleResult()
     {
-        ModuleString a;
-        a = this.CreateModuleString();
-        a.Path = this.Task.Path;
-        a.ModuleResult = this.Result.Module;
-        a.NodeResult = this.Result.Node;
-        a.Execute();
-
-        string e;
-        e = a.Result();
-
-        this.Out.Write(e);
         return true;
     }
 
@@ -742,7 +731,7 @@ public class Console : ClassBase
 
             objectString.Execute(root);
 
-            string a;
+            String a;
             a = objectString.Result();
 
             this.Out.Write(a);
@@ -766,7 +755,7 @@ public class Console : ClassBase
             
             objectString.Execute(code);
             
-            string a;
+            String a;
             a = objectString.Result();
 
             this.Out.Write(a);
