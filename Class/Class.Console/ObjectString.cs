@@ -7,7 +7,6 @@ class ObjectString : ClassBase
         base.Init();
         this.PrintableChar = PrintableChar.This;
 
-
         this.NodeType = typeof(NodeNode);
         this.CodeType = typeof(Code);
         this.TokenType = typeof(TokenToken);
