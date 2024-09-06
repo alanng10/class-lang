@@ -12,7 +12,7 @@ struct StorageComp
 {
 };
 
-#define CP(a) ((StorageOrder*)(a))
+#define CP(a) ((StorageComp*)(a))
 
 Int StorageComp_FoldCopyRecurse(Int o, Int path, Int destPath);
 
