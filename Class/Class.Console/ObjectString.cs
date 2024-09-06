@@ -1,6 +1,6 @@
 namespace Class.Console;
 
-class ObjectString : ClassInfraGen
+class ObjectString : ClassBase
 {
     public override bool Init()
     {
