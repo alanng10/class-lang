@@ -144,11 +144,6 @@ public class Gen : Any
         return this.TextReplace(text, this.TextCreate(this.S(limit)), this.TextCreate(join));
     }
 
-    public virtual String StringCreate(Text text)
-    {
-        return this.TextInfra.StringCreate(text);
-    }
-
     public virtual Text TextLower(Text text)
     {
         TextInfra textInfra;
@@ -187,9 +182,39 @@ public class Gen : Any
         return a;
     }
 
+    public virtual String StringCreate(Text text)
+    {
+        return this.TextInfra.StringCreate(text);
+    }
+
     public virtual Text TextCreate(String o)
     {
         return this.TextInfra.TextCreateStringData(o, null);
+    }
+
+    public virtual bool TextStart(Text text, Text other)
+    {
+        return this.TextInfra.Start(text, other, this.TextLess);
+    }
+
+    public virtual bool TextEnd(Text text, Text other)
+    {
+        return this.TextInfra.End(text, other, this.TextLess);
+    }
+
+    public virtual bool TextSame(Text text, Text other)
+    {
+        return this.TextInfra.Same(text, other, this.TextLess);
+    }
+
+    public virtual long TextIndex(Text text, Text other)
+    {
+        return this.TextInfra.Index(text, other, this.TextLess);
+    }
+
+    public virtual Array TextLimit(Text text, Text delimit)
+    {
+        return this.TextInfra.Limit(text, delimit, this.TextLess);
     }
 
     public virtual Text TextReplace(Text text, Text limit, Text join)
@@ -221,6 +246,44 @@ public class Gen : Any
         count = this.StringCount(o) - index;
 
         return this.StringCreateRange(o, index, count);
+    }
+
+    public virtual String StringCreateTextRange(Text o, long index, long count)
+    {
+        long aa;
+        long ab;
+        aa = o.Range.Index;
+        ab = o.Range.Count;
+
+        o.Range.Index = index;
+        o.Range.Count = count;
+
+        String a;
+        a = this.StringCreate(o);
+
+        o.Range.Index = aa;
+        o.Range.Count = ab;
+
+        return a;
+    }
+
+    public virtual String StringCreateTextIndex(Text o, long index)
+    {
+        long aa;
+        long ab;
+        aa = o.Range.Index;
+        ab = o.Range.Count;
+
+        o.Range.Index = index;
+        o.Range.Count = aa + ab - index;
+
+        String a;
+        a = this.StringCreate(o);
+
+        o.Range.Index = aa;
+        o.Range.Count = ab;
+
+        return a;
     }
 
     public virtual Gen AddIndent(long indent)
