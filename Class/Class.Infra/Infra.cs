@@ -126,7 +126,6 @@ public class Infra : Any
         Write write;
         write = new Write();
         write.Init();
-        write.CharForm = charForm;
 
         WriteArg arg;
         arg = new WriteArg();
