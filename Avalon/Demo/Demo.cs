@@ -1048,7 +1048,7 @@ class Demo : Any
             String fold;
             fold = (String)foldList.GetAt(i);
 
-            this.Add(fold).Add(this.TextInfra.NewLine);
+            this.Add(fold).AddLine();
 
             i = i + 1;
         }
@@ -1057,6 +1057,31 @@ class Demo : Any
         aaka = this.AddResult();
 
         this.Console.Out.Write(aaka);
+
+        String fileListPath;
+        fileListPath = this.S("DemoData/FoldCopy/FoldA/FoldB");
+
+        Array fileList;
+        fileList = arrange.FileList(fileListPath);
+
+        this.AddClear().AddS("File List: \n");
+
+        count = fileList.Count;
+        i = 0;
+        while (i < count)
+        {
+            String file;
+            file = (String)fileList.GetAt(i);
+
+            this.Add(file).AddLine();
+
+            i = i + 1;
+        }
+
+        String aakb;
+        aakb = this.AddResult();
+
+        this.Console.Out.Write(aakb);
 
         arrange.Final();
         return true;
@@ -1557,6 +1582,11 @@ class Demo : Any
     {
         this.InfraInfra.AddString(this.StringJoin, a);
         return this;
+    }
+
+    public virtual Demo AddLine()
+    {
+        return this.Add(this.TextInfra.NewLine);
     }
 
     public virtual Demo AddS(string o)
