@@ -1,6 +1,6 @@
 namespace Class.Console;
 
-public class ErrorString : ClassInfraGen
+public class ErrorString : ClassBase
 {
     public override bool Init()
     {
