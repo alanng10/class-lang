@@ -20,7 +20,7 @@ public class Entry : EntryEntry
             }
         }
 
-        int a;
+        long a;
         a = console.Status;
         return a;
     }
