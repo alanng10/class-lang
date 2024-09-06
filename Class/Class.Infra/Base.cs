@@ -1,6 +1,6 @@
 namespace Class.Infra;
 
-public class Gen : Any
+public class Base : Any
 {
     public override bool Init()
     {
