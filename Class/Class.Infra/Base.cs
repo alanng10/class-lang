@@ -215,9 +215,9 @@ public class Base : Any
         return a;
     }
 
-    public virtual Text Replace(Text text, string limit, String join)
+    public virtual Text Replace(Text text, String limit, String join)
     {
-        return this.TextReplace(text, this.TextCreate(this.S(limit)), this.TextCreate(join));
+        return this.TextReplace(text, this.TA(limit), this.TB(join));
     }
 
     public virtual Text TextLower(Text text)
@@ -362,7 +362,7 @@ public class Base : Any
         return a;
     }
 
-    public virtual Gen AddIndent(long indent)
+    public virtual Base AddIndent(long indent)
     {
         long count;
         count = indent;
@@ -376,30 +376,30 @@ public class Base : Any
         return this;
     }
 
-    public virtual Gen Add(String a)
+    public virtual Base Add(String a)
     {
         this.InfraInfra.AddString(this.StringAdd, a);
         return this;
     }
 
-    public virtual Gen AddChar(long n)
+    public virtual Base AddChar(long n)
     {
         this.StringAdd.Execute(n);
         return this;
     }
 
-    public virtual Gen AddLine()
+    public virtual Base AddLine()
     {
         this.Add(this.TextInfra.NewLine);
         return this;
     }
 
-    public virtual Gen AddS(string o)
+    public virtual Base AddS(string o)
     {
         return this.Add(this.S(o));
     }
 
-    public virtual Gen AddClear()
+    public virtual Base AddClear()
     {
         this.StringAdd.Clear();
         return this;
