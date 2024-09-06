@@ -8,7 +8,7 @@ public class Gen : ClassBase
         this.StorageInfra = StorageInfra.This;
         this.ClassInfra = ClassInfra.This;
 
-        this.StorageArrange = StorageArrange.This;
+        this.StorageComp = StorageComp.This;
         return true;
     }
 
@@ -21,7 +21,7 @@ public class Gen : ClassBase
     protected virtual String Ver { get; set; }
     protected virtual Node Root { get; set; }
     protected virtual String PageTemplate { get; set; }
-    private StorageArrange StorageArrange { get; set; }
+    private StorageComp StorageComp { get; set; }
 
     public virtual bool Load()
     {
@@ -241,7 +241,7 @@ public class Gen : ClassBase
 
         bool b;
 
-        b = this.StorageArrange.FoldCreate(foldPath);
+        b = this.StorageComp.FoldCreate(foldPath);
         if (!b)
         {
             return false;
@@ -423,7 +423,7 @@ public class Gen : ClassBase
         ab = this.AddClear().Add(this.DestFoldPath).Add(combine).Add(fileName).AddResult();
 
         bool b;
-        b = this.StorageArrange.FileCopy(aa, ab);
+        b = this.StorageComp.FileCopy(aa, ab);
         if (!b)
         {
             return false;
@@ -619,7 +619,7 @@ public class Gen : ClassBase
     protected virtual Array FoldList(String foldPath)
     {
         Array a;
-        a = this.StorageArrange.FoldList(foldPath);
+        a = this.StorageComp.FoldList(foldPath);
         return a;
     }
 }
