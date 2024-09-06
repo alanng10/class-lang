@@ -17,9 +17,6 @@ public class Gen : Any
         this.CharForm = this.CreateCharForm();
         this.TextLess = this.CreateTextLess();
 
-        this.Range = new InfraRange();
-        this.Range.Init();
-
         this.TextA = this.CreateText();
         this.TextB = this.CreateText();
         this.TextC = this.CreateText();
@@ -29,6 +26,8 @@ public class Gen : Any
         this.StringDataB = this.CreateStringData();
         this.StringDataC = this.CreateStringData();
         this.StringDataD = this.CreateStringData();
+
+        this.Range = this.CreateInfraRange();
 
         this.Write = new Write();
         this.Write.Init();
@@ -132,6 +131,14 @@ public class Gen : Any
     {
         StringData a;
         a = new StringData();
+        a.Init();
+        return a;
+    }
+
+    protected virtual InfraRange CreateInfraRange()
+    {
+        InfraRange a;
+        a = new InfraRange();
         a.Init();
         return a;
     }
