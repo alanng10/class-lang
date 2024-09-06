@@ -1,6 +1,6 @@
 namespace Class.Console;
 
-public class ClassGen : ClassInfraGen
+public class ClassGen : ClassBase
 {
     public override bool Init()
     {
