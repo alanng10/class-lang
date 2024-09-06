@@ -13,6 +13,8 @@ public class Gen : Any
 
         this.StringAdd = this.CreateStringAdd();
 
+        this.Write = this.CreateWrite();
+
         this.CharLess = this.CreateCharLess();
         this.CharForm = this.CreateCharForm();
         this.TextLess = this.CreateTextLess();
@@ -28,10 +30,6 @@ public class Gen : Any
         this.StringDataD = this.CreateStringData();
 
         this.Range = this.CreateInfraRange();
-
-        this.Write = new Write();
-        this.Write.Init();
-        this.Write.CharForm = this.CharForm;
 
         WriteArg arg;
         arg = new WriteArg();
@@ -86,6 +84,14 @@ public class Gen : Any
     {
         StringAdd a;
         a = new StringAdd();
+        a.Init();
+        return a;
+    }
+
+    protected virtual Write CreateWrite()
+    {
+        Write a;
+        a = new Write();
         a.Init();
         return a;
     }
