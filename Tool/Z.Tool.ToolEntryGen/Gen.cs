@@ -4,7 +4,7 @@ class Gen : ToolGen
 {
     protected virtual String SourceTemplate { get; set; }
 
-    public virtual int Execute()
+    public virtual long Execute()
     {
         this.SourceTemplate = this.ToolInfra.StorageTextRead(this.S("ToolData/Entry.txt"));
 

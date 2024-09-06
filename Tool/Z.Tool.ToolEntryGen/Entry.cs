@@ -7,17 +7,18 @@ class Entry : EntryEntry
         Gen gen;
         gen = new Gen();
         gen.Init();
-        int o;
+        long o;
         o = gen.Execute();
         return o;
     }
 
     [STAThread]
-    static int Main()
+    static int Main(string[] arg)
     {
         EntryEntry a;
         a = new Entry();
         a.Init();
+        a.ArgSet(arg);
         int o;
         o = a.Execute();
         return o;
