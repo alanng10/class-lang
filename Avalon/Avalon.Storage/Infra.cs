@@ -24,15 +24,22 @@ public class Infra : Any
         this.TextCodeKindList = TextCodeKindList.This;
         this.TextStringValue = TextStringValue.This;
         this.StorageStatusList = StatusList.This;
-        this.TextSlash = this.TextInfra.TextCreateStringData(this.TextStringValue.Execute("/"), null);
-        this.TextDot = this.TextInfra.TextCreateStringData(this.TextStringValue.Execute("."), null);
-        this.TextColon = this.TextInfra.TextCreateStringData(this.TextStringValue.Execute(":"), null);
+
+        this.SSlash = this.S("/");
+        this.SDot = this.S(".");
+        this.SColon = this.S(":");
+        this.TextSlash = this.TextInfra.TextCreateStringData(this.SSlash, null);
+        this.TextDot = this.TextInfra.TextCreateStringData(this.SDot, null);
+        this.TextColon = this.TextInfra.TextCreateStringData(this.SColon, null);
         return true;
     }
 
     public virtual TextText TextSlash { get; set; }
     public virtual TextText TextDot { get; set; }
     public virtual TextText TextColon { get; set; }
+    public virtual String SSlash { get; set; }
+    public virtual String SDot { get; set; }
+    public virtual String SColon { get; set; }
     protected virtual InfraInfra InfraInfra { get; set; }
     protected virtual TextInfra TextInfra { get; set; }
     protected virtual StringComp StringComp { get; set; }
@@ -327,5 +334,10 @@ public class Infra : Any
         bool a;
         a = !b;
         return a;
+    }
+
+    private String S(string o)
+    {
+        return this.TextStringValue.Execute(o);
     }
 }
