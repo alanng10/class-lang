@@ -31,14 +31,10 @@ public class Gen : Any
         this.TC = this.CreateText();
         this.TD = this.CreateText();
 
-        this.DA = new StringData();
-        this.DA.Init();
-        this.DB = new StringData();
-        this.DB.Init();
-        this.DC = new StringData();
-        this.DC.Init();
-        this.DD = new StringData();
-        this.DD.Init();
+        this.DA = this.CreateStringData();
+        this.DB = this.CreateStringData();
+        this.DC = this.CreateStringData();
+        this.DD = this.CreateStringData();
 
         this.Write = new Write();
         this.Write.Init();
@@ -99,6 +95,14 @@ public class Gen : Any
         a.Init();
         a.Range = new InfraRange();
         a.Range.Init();
+        return a;
+    }
+
+    protected virtual StringData CreateStringData()
+    {
+        StringData a;
+        a = new StringData();
+        a.Init();
         return a;
     }
 
