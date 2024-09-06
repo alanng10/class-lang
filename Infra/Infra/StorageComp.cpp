@@ -247,6 +247,22 @@ Int StorageComp_LinkTarget(Int o, Int path)
 
 Int StorageComp_FoldList(Int o, Int path)
 {
+    Int ka;
+    ka = QDir::Dirs | QDir::NoDotAndDotDot;
+
+    return StorageComp_EntryList(o, path, ka);
+}
+
+Int StorageComp_FileList(Int o, Int path)
+{
+    Int ka;
+    ka = QDir::Files;
+
+    return StorageComp_EntryList(o, path, ka);
+}
+
+Int StorageComp_EntryList(Int o, Int path, Int filter)
+{
     QString pathU;
     Int ua;
     ua = CastInt(&pathU);
@@ -254,11 +270,17 @@ Int StorageComp_FoldList(Int o, Int path)
 
     QDir dirA(pathU);
 
-    QStringList foldList;
-    foldList = dirA.entryList(QDir::Dirs | QDir::NoDotAndDotDot, QDir::Name);
+    QDir::Filter filterU;
+    filterU = (QDir::Filter)filter;
+
+    QDir::Filters ka;
+    ka = QDir::Filters(filterU);
+
+    QStringList entryList;
+    entryList = dirA.entryList(ka, QDir::Name);
 
     qsizetype countU;
-    countU = foldList.count();
+    countU = entryList.count();
     
     Int count;
     count = countU;
@@ -275,11 +297,11 @@ Int StorageComp_FoldList(Int o, Int path)
         qsizetype indexU;
         indexU = i;
 
-        QString fold;
-        fold = foldList.at(indexU);
+        QString entry;
+        entry = entryList.at(indexU);
 
         Int ka;
-        ka = CastInt(&fold);
+        ka = CastInt(&entry);
 
         Int a;
         a = StorageComp_StringCreate(o, ka);

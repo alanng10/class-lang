@@ -16,4 +16,6 @@ struct StorageComp
 
 Int StorageComp_FoldCopyRecurse(Int o, Int path, Int destPath);
 
+Int StorageComp_EntryList(Int o, Int path, Int filter);
+
 Int StorageComp_StringCreate(Int o, Int u);
