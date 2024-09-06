@@ -10,7 +10,6 @@ public class Base : Any
         this.TextInfra = TextInfra.This;
         this.ClassInfra = Infra.This;
         this.StringComp = StringComp.This;
-        this.TextStringValue = StringValue.This;
 
         this.StringAdd = this.CreateStringAdd();
 
@@ -43,7 +42,6 @@ public class Base : Any
     protected virtual TextInfra TextInfra { get; set; }
     protected virtual Infra ClassInfra { get; set; }
     protected virtual StringComp StringComp { get; set; }
-    protected virtual StringValue TextStringValue { get; set; }
     protected virtual StringAdd StringAdd { get; set; }
     protected virtual TextLess TextLess { get; set; }
     protected virtual LessInt CharLess { get; set; }
@@ -414,6 +412,6 @@ public class Base : Any
 
     public virtual String S(string o)
     {
-        return this.TextStringValue.Execute(o);
+        return this.TextInfra.S(o);
     }
 }
