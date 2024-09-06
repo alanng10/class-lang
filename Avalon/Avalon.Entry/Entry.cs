@@ -6,12 +6,12 @@ public class Entry : Any
     {
         base.Init();
         this.InternIntern = InternIntern.This;
-        this.TextStringValue = TextStringValue.This;
         return true;
     }
 
     private InternIntern InternIntern { get; set; }
     protected virtual TextStringValue TextStringValue { get; set; }
+    private string[] InternArg { get; set; }
 
     public virtual int Execute()
     {
@@ -55,6 +55,10 @@ public class Entry : Any
         ThreadThread o;
         o = new ThreadThread();
         o.InitMainThread();
+        
+        this.TextStringValue = TextStringValue.This;
+
+        this.ArrayArg();
         return true;
     }
 
@@ -67,6 +71,35 @@ public class Entry : Any
     protected virtual long ExecuteMain()
     {
         return 0;
+    }
+
+    protected virtual bool ArrayArg()
+    {
+        string[] ao;
+        ao = this.InternArg;
+
+        long count;
+        count = ao.LongLength;
+        Array array;
+        array = new Array();
+        array.Count = count;
+        array.Init();
+        long i;
+        i = 0;
+        while (i < count)
+        {
+            string ku;
+            ku = ao[i];
+
+            String a;
+            a = this.S(ku);
+
+            array.SetAt(i, a);
+            i = i + 1;
+        }
+        this.Arg = array;
+
+        return true;
     }
     
     public virtual Array Arg
@@ -83,26 +116,7 @@ public class Entry : Any
 
     public virtual bool ArgSet(string[] arg)
     {
-        long count;
-        count = arg.Length;
-        Array array;
-        array = new Array();
-        array.Count = count;
-        array.Init();
-        long i;
-        i = 0;
-        while (i < count)
-        {
-            string ku;
-            ku = arg[i];
-
-            String a;
-            a = this.S(ku);
-
-            array.SetAt(i, a);
-            i = i + 1;
-        }
-        this.Arg = array;
+        this.InternArg = arg;
         return true;
     }
 
