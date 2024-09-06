@@ -558,14 +558,9 @@ class Demo : Any
         Text varBase;
         varBase = this.TextInfra.TextCreateStringData(this.S("G H , j h\n\n"), null);
 
-        CharForm charForm;
-        charForm = new CharForm();
-        charForm.Init();
-
         TextWrite format;
         format = new TextWrite();
         format.Init();
-        format.CharForm = charForm;
 
         long count;
         count = format.ExecuteCount(varBase, argList);
@@ -627,14 +622,9 @@ class Demo : Any
 
     private bool ExecuteTime()
     {
-        CharForm charForm;
-        charForm = new CharForm();
-        charForm.Init();
-
         TextWrite write;
         write = new TextWrite();
         write.Init();
-        write.CharForm = charForm;
 
         this.TextWrite = write;
 
