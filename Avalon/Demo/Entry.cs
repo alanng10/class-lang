@@ -17,6 +17,7 @@ class Entry : EntryEntry
         EntryEntry a;
         a = new Entry();
         a.Init();
+        a.ArgSet(arg);
         int o;
         o = a.Execute();
         return o;
