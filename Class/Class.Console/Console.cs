@@ -42,6 +42,7 @@ public class Console : ClassBase
         this.SInfo = this.S("info");
         this.SFlagD = this.S("-d");
         this.SClassDotPort = this.S("Class.Port");
+        this.SDotCla = this.S(".cla");
         return true;
     }
 
@@ -77,6 +78,7 @@ public class Console : ClassBase
     protected virtual String SInfo { get; set; }
     protected virtual String SFlagD { get; set; }
     protected virtual String SClassDotPort { get; set; }
+    protected virtual String SDotCla { get; set; }
     private StorageComp StorageComp { get; set; }
     
     protected virtual NameCheck CreateNameCheck()
@@ -765,50 +767,12 @@ public class Console : ClassBase
         return true;
     }
 
-    protected virtual Array GetFileList(string foldPath)
+    protected virtual Array GetFileList(String foldPath)
     {
-        string[] u;
-        u = Directory.GetFiles(foldPath);
+        Array a;
+        a = this.StorageComp.FileList(foldPath);
 
-        int count;
-        count = u.Length;
-        int i;
-        i = 0;
-        while (i < count)
-        {
-            string path;
-            path = u[i];
-            string name;
-            name = Path.GetFileName(path);
-            u[i] = name;
-            i = i + 1;
-        }
-
-        Array array;
-        array = new Array();
-        array.Count = u.Length;
-        array.Init();
-
-        count = array.Count;
-        i = 0;
-        while (i < count)
-        {
-            string k;
-            k = u[i];
-            array.SetAt(i, k);
-            i = i + 1;
-        }
-
-        InfraRange range;
-        range = new InfraRange();
-        range.Init();
-        range.Count = count;
-
-        StringLess less;
-        less = this.InfraInfra.StringLessCreate();
-
-        array.Sort(range, less);
-        return array;
+        return a;
     }
 
     protected virtual Array GetSourceNameList(String foldPath)
@@ -820,25 +784,28 @@ public class Console : ClassBase
         list = new List();
         list.Init();
 
-        string ka;
-        ka = ".cla";
+        String ka;
+        ka = this.SDotCla;
 
-        int count;
+        long count;
         count = fileArray.Count;
-        int i;
+        long i;
         i = 0;
         while (i < count)
         {
-            string fileName;
-            fileName = (string)fileArray.GetAt(i);
+            String fileName;
+            fileName = (String)fileArray.GetAt(i);
 
-            string k;
-            k = fileName.ToLower();
+            Text k;
+            k = this.TextLower(this.TA(fileName));
 
-            if (k.EndsWith(ka))
+            if (this.TextEnd(k, this.TB(ka)))
             {
-                string name;
-                name = fileName.Substring(0, k.Length - ka.Length);
+                long ke;
+                ke = k.Range.Count - this.StringCount(ka);
+
+                String name;
+                name = this.StringCreateTextRange(k, 0, ke);
 
                 list.Add(name);
             }
