@@ -26,6 +26,20 @@ public class Gen : Any
         this.Range = new InfraRange();
         this.Range.Init();
 
+        this.TextA = this.CreateText();
+        this.TextB = this.CreateText();
+        this.TextC = this.CreateText();
+        this.TextD = this.CreateText();
+
+        this.StringDataA = new StringData();
+        this.StringDataA.Init();
+        this.StringDataB = new StringData();
+        this.StringDataB.Init();
+        this.StringDataC = new StringData();
+        this.StringDataC.Init();
+        this.StringDataD = new StringData();
+        this.StringDataD.Init();
+
         this.Write = new Write();
         this.Write.Init();
         this.Write.CharForm = this.CharForm;
@@ -65,10 +79,38 @@ public class Gen : Any
     protected virtual LessInt CharLess { get; set; }
     protected virtual CharForm CharForm { get; set; }
     protected virtual InfraRange Range { get; set; }
+    protected virtual Text TextA { get; set; }
+    protected virtual Text TextB { get; set; }
+    protected virtual Text TextC { get; set; }
+    protected virtual Text TextD { get; set; }
+    protected virtual StringData StringDataA { get; set; }
+    protected virtual StringData StringDataB { get; set; }
+    protected virtual StringData StringDataC { get; set; }
+    protected virtual StringData StringDataD { get; set; }
     protected virtual Write Write { get; set; }
     protected virtual WriteArg WriteArgInt { get; set; }
     protected virtual WriteArg WriteArgIntHex { get; set; }
     protected virtual String Indent { get; set; }
+
+    protected virtual Text CreateText()
+    {
+        Text a;
+        a = new Text();
+        a.Init();
+        a.Range = new InfraRange();
+        a.Range.Init();
+        return a;
+    }
+
+    public virtual bool TextStringGet(Text text, StringData data, String o)
+    {
+        data.ValueString = o;
+
+        text.Data = data;
+        text.Range.Index = 0;
+        text.Range.Count = this.StringCount(o);
+        return true;
+    }
 
     public virtual String IntString(long n)
     {

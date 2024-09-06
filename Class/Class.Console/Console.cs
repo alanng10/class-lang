@@ -46,14 +46,6 @@ public class Console : ClassInfraGen
         this.ModuleRefLess = new ModuleRefLess();
         this.ModuleRefLess.Init();
 
-        this.TextA = this.CreateText();
-        this.TextB = this.CreateText();
-
-        this.StringDataA = new StringData();
-        this.StringDataA.Init();
-        this.StringDataB = new StringData();
-        this.StringDataB.Init();
-
         this.TextNewLine = this.TextInfra.TextCreateStringData(this.ClassInfra.NewLine, null);
         return true;
     }
@@ -88,10 +80,6 @@ public class Console : ClassInfraGen
     protected virtual PortPort Port { get; set; }
     protected virtual ModuleRef ModuleRef { get; set; }
     protected virtual ModuleRefLess ModuleRefLess { get; set; }
-    protected virtual Text TextA { get; set; }
-    protected virtual Text TextB { get; set; }
-    protected virtual StringData StringDataA { get; set; }
-    protected virtual StringData StringDataB { get; set; }
     protected virtual Text TextNewLine { get; set; }
     private StorageArrange StorageArrange { get; set; }
 
@@ -319,16 +307,6 @@ public class Console : ClassInfraGen
         a = new PortLoad();
         a.Init();
         a.NameCheck = this.NameCheck;
-        return a;
-    }
-    
-    private Text CreateText()
-    {
-        Text a;
-        a = new Text();
-        a.Init();
-        a.Range = new InfraRange();
-        a.Range.Init();
         return a;
     }
 
@@ -997,16 +975,6 @@ public class Console : ClassInfraGen
     protected virtual bool Error(string message)
     {
         this.Err.Write(message + "\n");
-        return true;
-    }
-
-    protected virtual bool TextStringGet(Text text, StringData data, String o)
-    {
-        data.ValueString = o;
-
-        text.Data = data;
-        text.Range.Index = 0;
-        text.Range.Count = this.StringCount(o);
         return true;
     }
 }
