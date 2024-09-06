@@ -55,7 +55,7 @@ public class Create : InfraCreate
 
     public virtual Array Source { get; set; }
     public virtual Array Code { get; set; }
-    public virtual string Task { get; set; }
+    public virtual String Task { get; set; }
     public virtual Result Result { get; set; }
     public virtual Source SourceItem { get; set; }
     public virtual CreateOperate Operate { get; set; }

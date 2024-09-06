@@ -1,6 +1,6 @@
 namespace Class.Console;
 
-public class Console : Any
+public class Console : ClassInfraGen
 {
     public override bool Init()
     {
@@ -80,26 +80,21 @@ public class Console : Any
 
     private ErrorString ErrorString { get; set; }
 
-    public virtual string SourceFold { get; set; }
+    public virtual String SourceFold { get; set; }
 
-    public virtual int Status { get; set; }
+    public virtual long Status { get; set; }
 
     public virtual ClassModule PortModule { get; set; }
     public virtual Table ModuleTable { get; set; }
     public virtual Table BinaryTable { get; set; }
     public virtual Table ClassTable { get; set; }
-    protected virtual InfraInfra InfraInfra { get; set; }
     protected virtual ListInfra ListInfra { get; set; }
-    protected virtual TextInfra TextInfra { get; set; }
     protected virtual StorageInfra StorageInfra { get; set; }
     protected virtual ClassInfra ClassInfra { get; set; }
     protected virtual BinaryRead BinaryRead { get; set; }
     protected virtual ModuleLoad ModuleLoad { get; set; }
     protected virtual PortRead PortRead { get; set; }
     protected virtual PortLoad PortLoad { get; set; }
-    protected virtual TextLess TextLess { get; set; }
-    protected virtual LessMid CharLess { get; set; }
-    protected virtual CharForm CharForm { get; set; }
     protected virtual NameCheck NameCheck { get; set; }
     protected virtual Table InitModuleTable { get; set; }
     protected virtual Table InitBinaryTable { get; set; }
@@ -113,10 +108,10 @@ public class Console : Any
     protected virtual Text TextNewLine { get; set; }
     private StorageArrange StorageArrange { get; set; }
 
-    protected virtual LessMid CreateCharLess()
+    protected virtual LessInt CreateCharLess()
     {
-        LessMid a;
-        a = new LessMid();
+        LessInt a;
+        a = new LessInt();
         a.Init();
         return a;
     }
@@ -215,10 +210,10 @@ public class Console : Any
         return true;
     }
 
-    protected virtual bool InitBinary(string moduleName)
+    protected virtual bool InitBinary(String moduleName)
     {
-        string filePath;
-        filePath = moduleName + ".ref";
+        String filePath;
+        filePath = this.AddClear().Add(moduleName).AddS(".ref").AddResult();
 
         Data data;
         data = this.StorageInfra.DataReadAny(filePath, true);
@@ -842,14 +837,6 @@ public class Console : Any
             this.Out.Write(a);
         }
         return true;
-    }
-
-    protected virtual ModuleString CreateModuleString()
-    {
-        ModuleString a;
-        a = new ModuleString();
-        a.Init();
-        return a;
     }
 
     protected virtual Array GetFileList(string foldPath)
