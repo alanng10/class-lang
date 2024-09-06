@@ -21,9 +21,9 @@ public class Infra : Any
         this.TextInfra = TextInfra.This;
         this.StringComp = StringComp.This;
         this.TextCode = TextCode.This;
+        this.TextCodeKindList = TextCodeKindList.This;
         this.TextStringValue = TextStringValue.This;
         this.StorageStatusList = StatusList.This;
-        this.TextCodeKindList = TextCodeKindList.This;
         this.TextSlash = this.TextInfra.TextCreateStringData(this.TextStringValue.Execute("/"), null);
         this.TextDot = this.TextInfra.TextCreateStringData(this.TextStringValue.Execute("."), null);
         this.TextColon = this.TextInfra.TextCreateStringData(this.TextStringValue.Execute(":"), null);
@@ -37,9 +37,9 @@ public class Infra : Any
     protected virtual TextInfra TextInfra { get; set; }
     protected virtual StringComp StringComp { get; set; }
     protected virtual TextCode TextCode { get; set; }
+    protected virtual TextCodeKindList TextCodeKindList { get; set; }
     protected virtual TextStringValue TextStringValue { get; set; }
     protected virtual StatusList StorageStatusList { get; set; }
-    protected virtual TextCodeKindList TextCodeKindList { get; set; }
 
     public virtual Data DataRead(String filePath)
     {
