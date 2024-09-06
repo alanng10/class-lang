@@ -20,6 +20,11 @@ public class Comp : Any
         this.InternIntern = InternIntern.This;
         this.InternInfra = InternInfra.This;
         this.ListInfra = ListInfra.This;
+        this.TextStringValue = TextStringValue.This;
+
+        this.ModuleFoldPath = this.S(this.InternIntern.ModuleFoldPath);
+        this.ExecuteFoldPath = this.S(this.InternIntern.ExecuteFoldPath);
+
         this.Intern = Extern.StorageComp_New();
         Extern.StorageComp_Init(this.Intern);
         return true;
@@ -32,29 +37,12 @@ public class Comp : Any
         return true;
     }
 
-    public virtual string ModuleFoldPath
-    {
-        get
-        {
-            return this.InternIntern.ModuleFoldPath;
-        }
-        set
-        {
-        }
-    }
-    public virtual string ExecuteFoldPath
-    {
-        get
-        {
-            return this.InternIntern.ExecuteFoldPath;
-        }
-        set
-        {
-        }
-    }
+    public virtual String ModuleFoldPath { get; set; }
+    public virtual String ExecuteFoldPath { get; set; }
     private InternIntern InternIntern { get; set; }
     private InternInfra InternInfra { get; set; }
     protected virtual ListInfra ListInfra { get; set; }
+    protected virtual TextStringValue TextStringValue { get; set; }
     private ulong Intern { get; set; }
 
     public virtual bool Rename(String path, String destPath)
@@ -250,5 +238,10 @@ public class Comp : Any
         Extern.Array_Delete(o);
 
         return array;
+    }
+
+    protected virtual String S(string o)
+    {
+        return this.TextStringValue.Execute(o);
     }
 }
