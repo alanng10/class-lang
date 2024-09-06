@@ -1,25 +1,16 @@
 namespace Class.Console;
 
-public class Console : ClassInfraGen
+public class Console : ClassBase
 {
     public override bool Init()
     {
         base.Init();
 
-        this.InfraInfra = InfraInfra.This;
-        this.ListInfra = ListInfra.This;
-        this.TextInfra = TextInfra.This;
         this.StorageInfra = StorageInfra.This;
-        this.ClassInfra = ClassInfra.This;
-        this.StorageArrange = StorageArrange.This;
+        this.StorageComp = StorageComp.This;
         this.TaskKind = TaskKindList.This;
 
         this.ErrorWrite = true;
-
-        this.CharLess = this.CreateCharLess();
-        this.CharForm = this.CreateCharForm();
-        this.TextLess = this.CreateTextLess();
-
         this.NameCheck = this.CreateNameCheck();
 
         this.BinaryRead = this.CreateBinaryRead();
@@ -68,9 +59,7 @@ public class Console : ClassInfraGen
     public virtual Table BinaryTable { get; set; }
     public virtual Table ClassTable { get; set; }
     public virtual bool ErrorWrite { get; set; }
-    protected virtual ListInfra ListInfra { get; set; }
     protected virtual StorageInfra StorageInfra { get; set; }
-    protected virtual ClassInfra ClassInfra { get; set; }
     protected virtual BinaryRead BinaryRead { get; set; }
     protected virtual ModuleLoad ModuleLoad { get; set; }
     protected virtual PortRead PortRead { get; set; }
@@ -86,34 +75,7 @@ public class Console : ClassInfraGen
     protected virtual Text TextNewLine { get; set; }
     protected virtual String SInfo { get; set; }
     protected virtual String SFlagD { get; set; }
-    private StorageArrange StorageArrange { get; set; }
-
-    protected virtual LessInt CreateCharLess()
-    {
-        LessInt a;
-        a = new LessInt();
-        a.Init();
-        return a;
-    }
-
-    protected virtual CharForm CreateCharForm()
-    {
-        CharForm a;
-        a = new CharForm();
-        a.Init();
-        return a;
-    }
-
-    protected virtual TextLess CreateTextLess()
-    {
-        TextLess a;
-        a = new TextLess();
-        a.CharLess = this.CharLess;
-        a.LiteCharForm = this.CharForm;
-        a.RiteCharForm = this.CharForm;
-        a.Init();
-        return a;
-    }
+    private StorageComp StorageComp { get; set; }
     
     protected virtual NameCheck CreateNameCheck()
     {
@@ -355,7 +317,7 @@ public class Console : ClassInfraGen
             }
 
             String executeFoldPath;
-            executeFoldPath = this.StorageArrange.ExecuteFoldPath;
+            executeFoldPath = this.StorageComp.ExecuteFoldPath;
 
             String combine;
             combine = this.TextInfra.PathCombine;
@@ -464,7 +426,7 @@ public class Console : ClassInfraGen
         sourceNameList = null;
         if (ba)
         {
-            string file;
+            String file;
             file = this.Task.Source;
 
             string fileName;
