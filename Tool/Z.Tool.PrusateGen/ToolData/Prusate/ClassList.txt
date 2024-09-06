@@ -269,7 +269,8 @@ StorageComp
     FoldCopy(path, destPath)
     FoldRemove(path)
     Exist(path)
-    EntryList(path, fold, file)
+    FoldList(path)
+    FileList(path)
 
 Network
     HostName
