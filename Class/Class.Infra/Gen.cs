@@ -102,14 +102,14 @@ public class Gen : Any
         return a;
     }
 
-    public virtual bool TextString(Text text, StringData data, String o)
+    public virtual Text TextString(Text text, StringData data, String o)
     {
         data.ValueString = o;
 
         text.Data = data;
         text.Range.Index = 0;
         text.Range.Count = this.StringCount(o);
-        return true;
+        return text;
     }
 
     public virtual String IntString(long n)
