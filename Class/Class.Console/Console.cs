@@ -49,6 +49,7 @@ public class Console : ClassInfraGen
         this.TextNewLine = this.TextInfra.TextCreateStringData(this.ClassInfra.NewLine, null);
 
         this.SInfo = this.S("info");
+        this.SFlagD = this.S("-d");
         return true;
     }
 
@@ -84,6 +85,7 @@ public class Console : ClassInfraGen
     protected virtual ModuleRefLess ModuleRefLess { get; set; }
     protected virtual Text TextNewLine { get; set; }
     protected virtual String SInfo { get; set; }
+    protected virtual String SFlagD { get; set; }
     private StorageArrange StorageArrange { get; set; }
 
     protected virtual LessInt CreateCharLess()
@@ -330,11 +332,8 @@ public class Console : ClassInfraGen
             aa = (String)arg.GetAt(0);
         }
 
-        this.TextString(this.TextA, this.StringDataA, aa);
-        this.TextString(this.TextB, this.StringDataB, this.SInfo);
-
         bool ba;
-        ba = (aa == "info");
+        ba = this.TextSame(this.TS(this.TA, this.DA, aa), this.TS(this.TB, this.DB, this.SInfo));
         if (ba)
         {
             bool baa;
@@ -348,18 +347,18 @@ public class Console : ClassInfraGen
             String aab;
             aab = (String)arg.GetAt(2);
 
-            string aac;
+            String aac;
             aac = null;
             if (3 < arg.Count)
             {
-                aac = (string)arg.GetAt(3);
+                aac = (String)arg.GetAt(3);
             }
 
-            string executeFoldPath;
+            String executeFoldPath;
             executeFoldPath = this.StorageArrange.ExecuteFoldPath;
 
-            string combine;
-            combine = this.InfraInfra.PathCombine;
+            String combine;
+            combine = this.TextInfra.PathCombine;
 
             StorageInfra storageInfra;
             storageInfra = this.StorageInfra;
@@ -367,37 +366,27 @@ public class Console : ClassInfraGen
             TextLess less;
             less = this.TextLess;
 
-            Text text;
-            text = this.TextA;
-            StringData data;
-            data = this.StringDataA;
-
-            aaa = aaa.Replace('\\', '/');
-            aab = aab.Replace('\\', '/');
-
-            string sourceFold;
+            String sourceFold;
             sourceFold = aaa;
 
-            this.TextStringGet(text, data, sourceFold);
-            if (storageInfra.IsRelativePath(text, less))
+            if (storageInfra.IsRelativePath(this.TS(this.TA, this.DA, sourceFold), less))
             {
-                sourceFold = executeFoldPath + combine + sourceFold;
+                sourceFold = this.AddClear().Add(executeFoldPath).Add(combine).Add(sourceFold).AddResult();
             }
 
-            string destFold;
+            String destFold;
             destFold = aab;
 
-            this.TextStringGet(text, data, destFold);
-            if (storageInfra.IsRelativePath(text, less))
+            if (storageInfra.IsRelativePath(this.TS(this.TA, this.DA, destFold), less))
             {
-                destFold = executeFoldPath + combine + destFold;
+                destFold = this.AddClear().Add(executeFoldPath).Add(combine).Add(destFold).AddResult();
             }
 
             bool linkFileName;
             linkFileName = true;
             if (!(aac == null))
             {
-                if (aac == "-d")
+                if (this.TextSame(this.TS(this.TA, this.DA, aac), this.TS(this.TB, this.DB, this.SFlagD)))
                 {
                     linkFileName = false;
                 }

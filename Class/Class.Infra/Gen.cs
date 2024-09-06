@@ -26,19 +26,19 @@ public class Gen : Any
         this.Range = new InfraRange();
         this.Range.Init();
 
-        this.TextA = this.CreateText();
-        this.TextB = this.CreateText();
-        this.TextC = this.CreateText();
-        this.TextD = this.CreateText();
+        this.TA = this.CreateText();
+        this.TB = this.CreateText();
+        this.TC = this.CreateText();
+        this.TD = this.CreateText();
 
-        this.StringDataA = new StringData();
-        this.StringDataA.Init();
-        this.StringDataB = new StringData();
-        this.StringDataB.Init();
-        this.StringDataC = new StringData();
-        this.StringDataC.Init();
-        this.StringDataD = new StringData();
-        this.StringDataD.Init();
+        this.DA = new StringData();
+        this.DA.Init();
+        this.DB = new StringData();
+        this.DB.Init();
+        this.DC = new StringData();
+        this.DC.Init();
+        this.DD = new StringData();
+        this.DD.Init();
 
         this.Write = new Write();
         this.Write.Init();
@@ -79,14 +79,14 @@ public class Gen : Any
     protected virtual LessInt CharLess { get; set; }
     protected virtual CharForm CharForm { get; set; }
     protected virtual InfraRange Range { get; set; }
-    protected virtual Text TextA { get; set; }
-    protected virtual Text TextB { get; set; }
-    protected virtual Text TextC { get; set; }
-    protected virtual Text TextD { get; set; }
-    protected virtual StringData StringDataA { get; set; }
-    protected virtual StringData StringDataB { get; set; }
-    protected virtual StringData StringDataC { get; set; }
-    protected virtual StringData StringDataD { get; set; }
+    protected virtual Text TA { get; set; }
+    protected virtual Text TB { get; set; }
+    protected virtual Text TC { get; set; }
+    protected virtual Text TD { get; set; }
+    protected virtual StringData DA { get; set; }
+    protected virtual StringData DB { get; set; }
+    protected virtual StringData DC { get; set; }
+    protected virtual StringData DD { get; set; }
     protected virtual Write Write { get; set; }
     protected virtual WriteArg WriteArgInt { get; set; }
     protected virtual WriteArg WriteArgIntHex { get; set; }
@@ -102,7 +102,7 @@ public class Gen : Any
         return a;
     }
 
-    public virtual Text TextString(Text text, StringData data, String o)
+    public virtual Text TS(Text text, StringData data, String o)
     {
         data.ValueString = o;
 
