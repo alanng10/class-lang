@@ -437,8 +437,8 @@ public class Console : ClassInfraGen
 
         if (bb)
         {
-            string sourceFoldPath;
-            string destFoldPath;
+            String sourceFoldPath;
+            String destFoldPath;
             sourceFoldPath = this.Task.Source;
             destFoldPath = this.Task.Dest;
             bool linkFileName;
