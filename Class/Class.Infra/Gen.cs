@@ -14,6 +14,8 @@ public class Gen : Any
         this.StringAdd = this.CreateStringAdd();
 
         this.Write = this.CreateWrite();
+        this.WriteArgInt = this.CreateWriteArgInt();
+        this.WriteArgIntHex = this.CreateWriteArgIntHex();
 
         this.CharLess = this.CreateCharLess();
         this.CharForm = this.CreateCharForm();
@@ -30,28 +32,6 @@ public class Gen : Any
         this.StringDataD = this.CreateStringData();
 
         this.Range = this.CreateInfraRange();
-
-        WriteArg arg;
-        arg = new WriteArg();
-        arg.Init();
-        arg.Kind = 1;
-        arg.Base = 10;
-        arg.Case = 0;
-        arg.AlignLeft = false;
-        arg.FieldWidth = 1;
-        arg.MaxWidth = -1;
-        this.WriteArgInt = arg;
-
-        arg = new WriteArg();
-        arg.Init();
-        arg.Kind = 1;
-        arg.Base = 16;
-        arg.Case = 0;
-        arg.AlignLeft = false;
-        arg.FieldWidth = 15;
-        arg.MaxWidth = 15;
-        arg.FillChar = '0';
-        this.WriteArgIntHex = arg;
 
         this.Indent = this.StringComp.CreateChar(' ', 4);
         return true;
@@ -93,6 +73,35 @@ public class Gen : Any
         Write a;
         a = new Write();
         a.Init();
+        return a;
+    }
+
+    protected virtual WriteArg CreateWriteArgInt()
+    {
+        WriteArg a;
+        a = new WriteArg();
+        a.Init();
+        a.Kind = 1;
+        a.Base = 10;
+        a.Case = 0;
+        a.AlignLeft = false;
+        a.FieldWidth = 1;
+        a.MaxWidth = -1;
+        return a;
+    }
+
+    protected virtual WriteArg CreateWriteArgIntHex()
+    {
+        WriteArg a;
+        a = new WriteArg();
+        a.Init();
+        a.Kind = 1;
+        a.Base = 16;
+        a.Case = 0;
+        a.AlignLeft = false;
+        a.FieldWidth = 15;
+        a.MaxWidth = 15;
+        a.FillChar = '0';
         return a;
     }
 
