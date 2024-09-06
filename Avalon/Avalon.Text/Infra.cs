@@ -642,6 +642,52 @@ public class Infra : Any
         return a;
     }
 
+    public virtual bool Form(Text dest, Text source, CharForm form)
+    {
+        if (!this.ValidRange(dest))
+        {
+            return false;
+        }
+        if (!this.ValidRange(source))
+        {
+            return false;
+        }
+
+        long count;
+        count = dest.Range.Count;
+
+        if (!(count == source.Range.Count))
+        {
+            return false;
+        }
+
+        Data sourceData;
+        Data destData;
+        sourceData = source.Data;
+        destData = dest.Data;
+
+        long sourceIndex;
+        long destIndex;
+        sourceIndex = source.Range.Index;
+        destIndex = dest.Range.Index;
+
+        long i;
+        i = 0;
+        while (i < count)
+        {
+            long n;
+            n = this.DataCharGet(sourceData, sourceIndex + i);
+
+            n = form.Execute(n);
+
+            this.DataCharSet(destData, destIndex + i, n);
+
+            i = i + 1;
+        }
+
+        return true;
+    }
+
     public virtual bool Copy(Data dest, long destIndex, Data source, long sourceIndex, long count)
     {
         long ka;
