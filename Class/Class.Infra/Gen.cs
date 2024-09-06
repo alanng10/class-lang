@@ -14,15 +14,9 @@ public class Gen : Any
         this.StringAdd = new StringAdd();
         this.StringAdd.Init();
 
-        this.CharLess = new LessInt();
-        this.CharLess.Init();
-        this.CharForm = new CharForm();
-        this.CharForm.Init();
-        this.TextLess = new TextLess();
-        this.TextLess.CharLess = this.CharLess;
-        this.TextLess.LiteCharForm = this.CharForm;
-        this.TextLess.RiteCharForm = this.CharForm;
-        this.TextLess.Init();
+        this.CharLess = this.CreateCharLess();
+        this.CharForm = this.CreateCharForm();
+        this.TextLess = this.CreateTextLess();
 
         this.Range = new InfraRange();
         this.Range.Init();
@@ -89,6 +83,33 @@ public class Gen : Any
     protected virtual WriteArg WriteArgInt { get; set; }
     protected virtual WriteArg WriteArgIntHex { get; set; }
     protected virtual String Indent { get; set; }
+
+    protected virtual LessInt CreateCharLess()
+    {
+        LessInt a;
+        a = new LessInt();
+        a.Init();
+        return a;
+    }
+
+    protected virtual CharForm CreateCharForm()
+    {
+        CharForm a;
+        a = new CharForm();
+        a.Init();
+        return a;
+    }
+
+    protected virtual TextLess CreateTextLess()
+    {
+        TextLess a;
+        a = new TextLess();
+        a.CharLess = this.CharLess;
+        a.LiteCharForm = this.CharForm;
+        a.RiteCharForm = this.CharForm;
+        a.Init();
+        return a;
+    }
 
     protected virtual Text CreateText()
     {
