@@ -558,17 +558,17 @@ class Demo : Any
         Text varBase;
         varBase = this.TextInfra.TextCreateStringData(this.S("G H , j h\n\n"), null);
 
-        TextWrite format;
-        format = new TextWrite();
-        format.Init();
+        TextWrite write;
+        write = new TextWrite();
+        write.Init();
 
         long count;
-        count = format.ExecuteCount(varBase, argList);
+        count = write.ExecuteCount(varBase, argList);
 
         Text text;
         text = this.TextInfra.TextCreate(count);
 
-        format.ExecuteResult(varBase, argList, text);
+        write.ExecuteResult(varBase, argList, text);
 
         String a;
         a = this.TextInfra.StringCreate(text);
