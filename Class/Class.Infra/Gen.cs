@@ -11,8 +11,7 @@ public class Gen : Any
         this.StringComp = StringComp.This;
         this.TextStringValue = StringValue.This;
 
-        this.StringAdd = new StringAdd();
-        this.StringAdd.Init();
+        this.StringAdd = this.CreateStringAdd();
 
         this.CharLess = this.CreateCharLess();
         this.CharForm = this.CreateCharForm();
@@ -83,6 +82,14 @@ public class Gen : Any
     protected virtual WriteArg WriteArgInt { get; set; }
     protected virtual WriteArg WriteArgIntHex { get; set; }
     protected virtual String Indent { get; set; }
+
+    protected virtual StringAdd CreateStringAdd()
+    {
+        StringAdd a;
+        a = new StringAdd();
+        a.Init();
+        return a;
+    }
 
     protected virtual LessInt CreateCharLess()
     {
