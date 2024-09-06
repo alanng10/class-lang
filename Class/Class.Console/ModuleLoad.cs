@@ -1,12 +1,10 @@
 namespace Class.Console;
 
-public class ModuleLoad : Any
+public class ModuleLoad : ClassBase
 {
     public override bool Init()
     {
         base.Init();
-        this.ListInfra = ListInfra.This;
-        this.ClassInfra = ClassInfra.This;
         this.CountList = CountList.This;
 
         this.StringData = new StringData();
@@ -23,16 +21,12 @@ public class ModuleLoad : Any
     public virtual Table BinaryTable { get; set; }
     public virtual ModuleRef ModuleRef { get; set; }
     public virtual ClassModule Module { get; set; }
-    public virtual int Status { get; set; }
+    public virtual long Status { get; set; }
     public virtual NameCheck NameCheck { get; set; }
-    protected virtual ListInfra ListInfra { get; set; }
-    protected virtual ClassInfra ClassInfra { get; set; }
     protected virtual CountList CountList { get; set; }
     protected virtual BinaryBinary Binary { get; set; }
     protected virtual Array ClassArray { get; set; }
     protected virtual Array ImportArray { get; set; }
-    protected virtual Text Text { get; set; }
-    protected virtual StringData StringData { get; set; }
     protected virtual ClassClass AnyClass { get; set; }
 
     public virtual bool Execute()
@@ -66,8 +60,7 @@ public class ModuleLoad : Any
             return false;
         }
 
-        this.TextGet(o.Name);
-        if (!this.NameCheck.IsModuleName(this.Text))
+        if (!this.NameCheck.IsModuleName(this.TA(o.Name)))
         {
             this.Status = 2;
             return false;
@@ -876,10 +869,10 @@ public class ModuleLoad : Any
     
     protected virtual bool SetEntry()
     {
-        string entry;
+        String entry;
         entry = null;
 
-        int f;
+        long f;
         f = this.Binary.Entry;
         if (!(f == -1))
         {
@@ -897,14 +890,14 @@ public class ModuleLoad : Any
         return true;
     }
 
-    protected virtual bool MemberNameDefined(ClassClass varClass, string name)
+    protected virtual bool MemberNameDefined(ClassClass varClass, String name)
     {
         return (varClass.Field.Valid(name) | varClass.Maide.Valid(name));
     }
 
     protected virtual bool ValidVirtualMaideParam(Table param, Table virtualParam)
     {
-        int count;
+        long count;
         count = param.Count;
 
         if (!(count == virtualParam.Count))
@@ -920,7 +913,7 @@ public class ModuleLoad : Any
         iterA = virtualParam.IterCreate();
         virtualParam.IterSet(iterA);
 
-        int i;
+        long i;
         i = 0;
         while (i < count)
         {
@@ -953,22 +946,12 @@ public class ModuleLoad : Any
         return a;
     }
 
-    protected virtual bool CheckName(string o)
+    protected virtual bool CheckName(String o)
     {
-        this.TextGet(o);
-        return this.NameCheck.IsName(this.Text);
+        return this.NameCheck.IsName(this.TA(o));
     }
 
-    protected virtual bool TextGet(string o)
-    {
-        this.StringData.ValueString = o;
-
-        this.Text.Range.Count = o.Length;
-
-        return true;
-    }
-
-    protected virtual ClassClass ClassGetIndex(int index)
+    protected virtual ClassClass ClassGetIndex(long index)
     {
         Array classArray;
         classArray = this.ClassArray;
@@ -983,7 +966,7 @@ public class ModuleLoad : Any
         }
         if (!b)
         {
-            int oa;
+            long oa;
             oa = index - classArray.Count;
             if (!this.ImportArray.ValidAt(oa))
             {
@@ -1001,14 +984,14 @@ public class ModuleLoad : Any
         return a;
     }
 
-    protected virtual ClassClass ModuleClassGet(ClassModule module, string className)
+    protected virtual ClassClass ModuleClassGet(ClassModule module, String className)
     {
         ClassClass a;
         a = (ClassClass)module.Class.Get(className);
         return a;
     }
 
-    protected virtual ClassClass ClassGet(ModuleRef moduleRef, string className)
+    protected virtual ClassClass ClassGet(ModuleRef moduleRef, String className)
     {
         ClassModule ae;
         ae = this.ModuleGet(moduleRef);
