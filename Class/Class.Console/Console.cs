@@ -465,7 +465,6 @@ public class Console : ClassBase
 
             if (this.SourceFold == null)
             {
-                this.Error("Source Fold Invalid");
                 this.Status = 1001;
                 return false;;
             }
@@ -474,7 +473,6 @@ public class Console : ClassBase
             baa = this.ReadPort();
             if (!baa)
             {
-                this.Error("Port Invalid");
                 this.Status = 1002;
                 return false;
             }
