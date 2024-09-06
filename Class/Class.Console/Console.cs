@@ -58,36 +58,21 @@ public class Console : ClassInfraGen
         return true;
     }
 
-    public virtual Array Source { get; set; }
-
-    public virtual bool ErrorWrite { get; set; }
-
-    public virtual Array Arg { get; set; }
-
-    public virtual Task Task { get; set; }
-
-    public virtual Result Result { get; set; }
-
-    public virtual TaskKindList TaskKind { get; set; }
-
-    protected virtual Out Out { get; set; }
-    protected virtual Out Err { get; set; }
-
-    public virtual Create Create { get; set; }
-
-    public virtual InfoGen InfoGen { get; set; }
-
-
-    private ErrorString ErrorString { get; set; }
-
-    public virtual String SourceFold { get; set; }
-
     public virtual long Status { get; set; }
-
+    public virtual Array Arg { get; set; }
+    public virtual Task Task { get; set; }
+    public virtual Array Source { get; set; }
+    public virtual String SourceFold { get; set; }
+    public virtual Create Create { get; set; }
+    public virtual Result Result { get; set; }
+    public virtual InfoGen InfoGen { get; set; }
     public virtual ClassModule PortModule { get; set; }
+    public virtual ErrorString ErrorString { get; set; }
+    public virtual TaskKindList TaskKind { get; set; }
     public virtual Table ModuleTable { get; set; }
     public virtual Table BinaryTable { get; set; }
     public virtual Table ClassTable { get; set; }
+    public virtual bool ErrorWrite { get; set; }
     protected virtual ListInfra ListInfra { get; set; }
     protected virtual StorageInfra StorageInfra { get; set; }
     protected virtual ClassInfra ClassInfra { get; set; }
@@ -96,6 +81,8 @@ public class Console : ClassInfraGen
     protected virtual PortRead PortRead { get; set; }
     protected virtual PortLoad PortLoad { get; set; }
     protected virtual NameCheck NameCheck { get; set; }
+    protected virtual Out Out { get; set; }
+    protected virtual Out Err { get; set; }
     protected virtual Table InitModuleTable { get; set; }
     protected virtual Table InitBinaryTable { get; set; }
     protected virtual PortPort Port { get; set; }
