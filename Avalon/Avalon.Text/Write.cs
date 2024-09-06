@@ -14,7 +14,6 @@ public class Write : Any
         return true;
     }
 
-    public virtual CharForm CharForm { get; set; }
     protected virtual InfraInfra InfraInfra { get; set; }
     protected virtual Infra TextInfra { get; set; }
     protected virtual StringComp StringComp { get; set; }
@@ -298,8 +297,6 @@ public class Write : Any
 
         StringComp stringComp;
         stringComp = this.StringComp;
-        CharForm charForm;
-        charForm = this.CharForm;
 
         Data destData;
         destData = result.Data;
@@ -347,8 +344,6 @@ public class Write : Any
             uint oc;
             oc = (uint)aa;
 
-            oc = (uint)charForm.Execute(oc);
-
             textInfra.DataCharSet(destData, destIndex + i, oc);
 
             i = i + 1;
@@ -360,9 +355,6 @@ public class Write : Any
     {
         Infra textInfra;
         textInfra = this.TextInfra;
-
-        CharForm charForm;
-        charForm = this.CharForm;
 
         Data destData;
         destData = result.Data;
@@ -378,8 +370,6 @@ public class Write : Any
             {
                 uint occ;
                 occ = '0';
-
-                occ = (uint)charForm.Execute(occ);
 
                 textInfra.DataCharSet(destData, destIndex, occ);
             }
@@ -428,8 +418,6 @@ public class Write : Any
                 uint c;
                 c = textInfra.DigitChar(digit, letterDigitStart);
 
-                c = (uint)charForm.Execute(c);
-
                 long oa;
                 oa = index - valueIndex;
 
@@ -447,9 +435,6 @@ public class Write : Any
     {
         Infra textInfra;
         textInfra = this.TextInfra;
-
-        CharForm charForm;
-        charForm = this.CharForm;
 
         Data sourceData;
         sourceData = value.Data;
@@ -495,8 +480,6 @@ public class Write : Any
 
             uint oc;
             oc = (uint)aa;
-
-            oc = (uint)charForm.Execute(oc);
 
             textInfra.DataCharSet(destData, destIndex + i, oc);
 
