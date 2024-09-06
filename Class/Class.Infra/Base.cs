@@ -8,6 +8,7 @@ public class Base : Any
         this.InfraInfra = InfraInfra.This;
         this.ListInfra = ListInfra.This;
         this.TextInfra = TextInfra.This;
+        this.ClassInfra = Infra.This;
         this.StringComp = StringComp.This;
         this.TextStringValue = StringValue.This;
 
@@ -40,6 +41,7 @@ public class Base : Any
     protected virtual InfraInfra InfraInfra { get; set; }
     protected virtual ListInfra ListInfra { get; set; }
     protected virtual TextInfra TextInfra { get; set; }
+    protected virtual Infra ClassInfra { get; set; }
     protected virtual StringComp StringComp { get; set; }
     protected virtual StringValue TextStringValue { get; set; }
     protected virtual StringAdd StringAdd { get; set; }
