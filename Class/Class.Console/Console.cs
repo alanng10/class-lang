@@ -429,14 +429,27 @@ public class Console : ClassBase
             String file;
             file = this.Task.Source;
 
-            string fileName;
-            fileName = Path.GetFileName(file);
+            long combineIndex;
+            combineIndex = this.StorageInfra.EntryPathNameCombine(this.TA(file), this.TextLess);
 
-            this.SourceFold = Path.GetDirectoryName(file);
+            String fileName;
+            fileName = null;
 
-            if (this.SourceFold.Length == 0)
+            bool baaa;
+            baaa = (combineIndex < 0);
+
+            if (baaa)
             {
-                this.SourceFold = ".";
+                fileName = file;
+
+                this.SourceFold = this.StorageInfra.SDot;
+            }
+
+            if (!baaa)
+            {
+                fileName = this.StringCreateIndex(file, combineIndex + 1);
+
+                this.SourceFold = this.StringCreateRange(file, 0, combineIndex);
             }
 
             sourceNameList = new Array();
@@ -807,7 +820,7 @@ public class Console : ClassBase
         return array;
     }
 
-    protected virtual Array GetSourceNameList(string foldPath)
+    protected virtual Array GetSourceNameList(String foldPath)
     {
         Array fileArray;
         fileArray = this.GetFileList(foldPath);
