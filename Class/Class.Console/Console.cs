@@ -41,6 +41,7 @@ public class Console : ClassBase
 
         this.SInfo = this.S("info");
         this.SFlagD = this.S("-d");
+        this.SClassDotPort = this.S("Class.Port");
         return true;
     }
 
@@ -75,6 +76,7 @@ public class Console : ClassBase
     protected virtual Text TextNewLine { get; set; }
     protected virtual String SInfo { get; set; }
     protected virtual String SFlagD { get; set; }
+    protected virtual String SClassDotPort { get; set; }
     private StorageComp StorageComp { get; set; }
     
     protected virtual NameCheck CreateNameCheck()
@@ -516,16 +518,16 @@ public class Console : ClassBase
 
     protected virtual bool ReadPort()
     {
-        string combine;
-        combine = this.InfraInfra.PathCombine;
+        String combine;
+        combine = this.TextInfra.PathCombine;
 
-        string fileName;
-        fileName = "Class.Port";
+        String fileName;
+        fileName = this.SClassDotPort;
 
-        string filePath;
-        filePath = this.SourceFold + combine + fileName;
+        String filePath;
+        filePath = this.AddClear().Add(this.SourceFold).Add(combine).Add(fileName).AddResult();
 
-        string source;
+        String source;
         source = this.StorageInfra.TextReadAny(filePath, true);
 
         if (source == null)
