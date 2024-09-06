@@ -78,6 +78,11 @@ public class Entry : Any
         string[] ao;
         ao = this.InternArg;
 
+        if (ao == null)
+        {
+            return true;
+        }
+
         long count;
         count = ao.LongLength;
         Array array;
