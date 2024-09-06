@@ -273,11 +273,11 @@ Int StorageComp_EntryList(Int o, Int path, Int filter)
     QDir::Filter filterU;
     filterU = (QDir::Filter)filter;
 
-    QDir::Filters ka;
-    ka = QDir::Filters(filterU);
+    QDir::Filters kk;
+    kk = QDir::Filters(filterU);
 
     QStringList entryList;
-    entryList = dirA.entryList(ka, QDir::Name);
+    entryList = dirA.entryList(kk, QDir::Name);
 
     qsizetype countU;
     countU = entryList.count();
