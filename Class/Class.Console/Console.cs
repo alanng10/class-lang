@@ -336,7 +336,7 @@ public class Console : ClassInfraGen
     {
         this.Arg = arg;
 
-        string aa;
+        String aa;
         aa = null;
         bool b;
         b = (0 < arg.Count);
@@ -346,7 +346,7 @@ public class Console : ClassInfraGen
         }
         if (b)
         {
-            aa = (string)arg.GetAt(0);
+            aa = (String)arg.GetAt(0);
         }
 
         bool ba;
@@ -359,10 +359,10 @@ public class Console : ClassInfraGen
             {
                 return false;
             }
-            string aaa;
-            aaa = (string)arg.GetAt(1);
-            string aab;
-            aab = (string)arg.GetAt(2);
+            String aaa;
+            aaa = (String)arg.GetAt(1);
+            String aab;
+            aab = (String)arg.GetAt(2);
 
             string aac;
             aac = null;
@@ -1000,13 +1000,13 @@ public class Console : ClassInfraGen
         return true;
     }
 
-    protected virtual bool TextStringGet(Text text, StringData data, string o)
+    protected virtual bool TextStringGet(Text text, StringData data, String o)
     {
         data.ValueString = o;
 
         text.Data = data;
         text.Range.Index = 0;
-        text.Range.Count = o.Length;
+        text.Range.Count = this.StringCount(o);
         return true;
     }
 }
