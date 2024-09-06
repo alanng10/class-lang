@@ -230,6 +230,8 @@ Word "phore" has meaning that is thread synchronization.
 
 Word "post" has meaning that is queued event.
 
+Word "path" has meaning that is way.
+
 Word "file" has meaning that is storage node data.
 
 Word "fold" has meaning that is storage node list.
