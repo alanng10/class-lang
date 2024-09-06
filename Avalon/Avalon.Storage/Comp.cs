@@ -159,7 +159,17 @@ public class Comp : Any
         return a;
     }
 
+    public virtual Array FileList(String path)
+    {
+        return this.EntryList(path, false);
+    }
+
     public virtual Array FoldList(String path)
+    {
+        return this.EntryList(path, true);
+    }
+
+    protected virtual Array EntryList(String path, bool fold)
     {
         InternInfra internInfra;
         internInfra = this.InternInfra;
@@ -168,7 +178,15 @@ public class Comp : Any
         pathU = internInfra.StringCreate(path.Value);
 
         ulong o;
-        o = Extern.StorageComp_FoldList(this.Intern, pathU);
+        o = 0;
+        if (!fold)
+        {
+            o = Extern.StorageComp_FileList(this.Intern, pathU);
+        }
+        if (fold)
+        {
+            o = Extern.StorageComp_FoldList(this.Intern, pathU);
+        }
 
         internInfra.StringDelete(pathU);
 
