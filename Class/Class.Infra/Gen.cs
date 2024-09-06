@@ -26,15 +26,15 @@ public class Gen : Any
         this.Range = new InfraRange();
         this.Range.Init();
 
-        this.TA = this.CreateText();
-        this.TB = this.CreateText();
-        this.TC = this.CreateText();
-        this.TD = this.CreateText();
+        this.TextA = this.CreateText();
+        this.TextB = this.CreateText();
+        this.TextC = this.CreateText();
+        this.TextD = this.CreateText();
 
-        this.DA = this.CreateStringData();
-        this.DB = this.CreateStringData();
-        this.DC = this.CreateStringData();
-        this.DD = this.CreateStringData();
+        this.StringDataA = this.CreateStringData();
+        this.StringDataB = this.CreateStringData();
+        this.StringDataC = this.CreateStringData();
+        this.StringDataD = this.CreateStringData();
 
         this.Write = new Write();
         this.Write.Init();
@@ -75,14 +75,14 @@ public class Gen : Any
     protected virtual LessInt CharLess { get; set; }
     protected virtual CharForm CharForm { get; set; }
     protected virtual InfraRange Range { get; set; }
-    protected virtual Text TA { get; set; }
-    protected virtual Text TB { get; set; }
-    protected virtual Text TC { get; set; }
-    protected virtual Text TD { get; set; }
-    protected virtual StringData DA { get; set; }
-    protected virtual StringData DB { get; set; }
-    protected virtual StringData DC { get; set; }
-    protected virtual StringData DD { get; set; }
+    protected virtual Text TextA { get; set; }
+    protected virtual Text TextB { get; set; }
+    protected virtual Text TextC { get; set; }
+    protected virtual Text TextD { get; set; }
+    protected virtual StringData StringDataA { get; set; }
+    protected virtual StringData StringDataB { get; set; }
+    protected virtual StringData StringDataC { get; set; }
+    protected virtual StringData StringDataD { get; set; }
     protected virtual Write Write { get; set; }
     protected virtual WriteArg WriteArgInt { get; set; }
     protected virtual WriteArg WriteArgIntHex { get; set; }
@@ -106,27 +106,27 @@ public class Gen : Any
         return a;
     }
 
-    public virtual Text TSA(String o)
+    public virtual Text TA(String o)
     {
-        return this.TS(o, this.TA, this.DA);
+        return this.TextString(o, this.TextA, this.StringDataA);
     }
 
-    public virtual Text TSB(String o)
+    public virtual Text TB(String o)
     {
-        return this.TS(o, this.TB, this.DB);
+        return this.TextString(o, this.TextB, this.StringDataB);
     }
 
-    public virtual Text TSC(String o)
+    public virtual Text TC(String o)
     {
-        return this.TS(o, this.TC, this.DC);
+        return this.TextString(o, this.TextC, this.StringDataC);
     }
 
-    public virtual Text TSD(String o)
+    public virtual Text TD(String o)
     {
-        return this.TS(o, this.TD, this.DD);
+        return this.TextString(o, this.TextD, this.StringDataD);
     }
 
-    public virtual Text TS(String o, Text text, StringData data)
+    public virtual Text TextString(String o, Text text, StringData data)
     {
         data.ValueString = o;
 
