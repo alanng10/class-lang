@@ -14,6 +14,7 @@ global using InfraInfra = Avalon.Infra.Infra;
 global using List = Avalon.List.List;
 global using Array = Avalon.List.Array;
 global using Table = Avalon.List.Table;
+global using ListInfra = Avalon.List.Infra;
 global using Text = Avalon.Text.Text;
 global using TextLess = Avalon.Text.Less;
 global using Write = Avalon.Text.Write;
