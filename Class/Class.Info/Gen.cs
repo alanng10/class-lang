@@ -1,11 +1,10 @@
 namespace Class.Info;
 
-public class Gen : ClassGen
+public class Gen : ClassBase
 {
     public override bool Init()
     {
         base.Init();
-        this.ListInfra = ListInfra.This;
         this.StorageInfra = StorageInfra.This;
         this.ClassInfra = ClassInfra.This;
 
@@ -88,36 +87,8 @@ public class Gen : ClassGen
 
         time.Final();
 
-        CharForm charForm;
-        charForm = new CharForm();
-        charForm.Init();
-
-        Write write;
-        write = new Write();
-        write.Init();
-        write.CharForm = charForm;
-
-        WriteArg arg;
-        arg = new WriteArg();
-        arg.Init();
-        arg.Kind = 1;
-        arg.Value.Int = aa;
-        arg.Base = 16;
-        arg.Case = 0;
-        arg.AlignLeft = false;
-        arg.FieldWidth = 15;
-        arg.MaxWidth = 15;
-        arg.FillChar = '0';
-
-        write.ExecuteArgCount(arg);
-
-        Text a;
-        a = this.TextInfra.TextCreate(arg.Count);
-
-        write.ExecuteArgResult(arg, a);
-
         String o;
-        o = this.TextInfra.StringCreate(a);
+        o = this.IntStringHex(aa);
 
         this.Ver = o;
         return true;

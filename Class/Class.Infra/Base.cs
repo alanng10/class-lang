@@ -215,9 +215,9 @@ public class Base : Any
         return a;
     }
 
-    public virtual Text Replace(Text text, String limit, String join)
+    public virtual Text Replace(Text text, string limit, String join)
     {
-        return this.TextReplace(text, this.TA(limit), this.TB(join));
+        return this.TextReplace(text, this.TA(this.S(limit)), this.TB(join));
     }
 
     public virtual Text TextLower(Text text)
