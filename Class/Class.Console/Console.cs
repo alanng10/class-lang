@@ -37,8 +37,6 @@ public class Console : ClassBase
         this.ModuleRefLess = new ModuleRefLess();
         this.ModuleRefLess.Init();
 
-        this.TextNewLine = this.TextInfra.TextCreateStringData(this.ClassInfra.NewLine, null);
-
         this.SInfo = this.S("info");
         this.SFlagD = this.S("-d");
         this.SClassDotPort = this.S("Class.Port");
@@ -74,7 +72,6 @@ public class Console : ClassBase
     protected virtual PortPort Port { get; set; }
     protected virtual ModuleRef ModuleRef { get; set; }
     protected virtual ModuleRefLess ModuleRefLess { get; set; }
-    protected virtual Text TextNewLine { get; set; }
     protected virtual String SInfo { get; set; }
     protected virtual String SFlagD { get; set; }
     protected virtual String SClassDotPort { get; set; }
@@ -820,14 +817,14 @@ public class Console : ClassBase
 
     protected virtual bool SetSource(Array array)
     {
-        int count;
+        long count;
         count = array.Count;
-        int i;
+        long i;
         i = 0;
         while (i < count)
         {
-            string name;
-            name = (string)array.GetAt(i);
+            String name;
+            name = (String)array.GetAt(i);
 
             Source a;
             a = new Source();
@@ -847,52 +844,47 @@ public class Console : ClassBase
     {
         InfraInfra infraInfra;
         infraInfra = this.InfraInfra;
-
-        StorageInfra storageInfra;
-        storageInfra = this.StorageInfra;
         TextInfra textInfra;
         textInfra = this.TextInfra;
+        StorageInfra storageInfra;
+        storageInfra = this.StorageInfra;
 
         Array array;
         array = this.Source;
-        string sourceFold;
+        String sourceFold;
         sourceFold = this.SourceFold;
 
-        string combine;
-        combine = infraInfra.PathCombine;
-
-        Text newLine;
-        newLine = this.TextNewLine;
-        Less less;
-        less = this.TextLess;
+        String combine;
+        combine = textInfra.PathCombine;
         
-        int count;
+        long count;
         count = array.Count;
-        int i;
+        long i;
         i = 0;
         while (i < count)
         {
             Source a;
             a = (Source)array.GetAt(i);
 
-            string k;
-            k = "";
+            String k;
+            k = textInfra.Zero;
             if (hasFileExtension)
             {
-                k = ".cla";
+                k = this.SDotCla;
             }
 
-            string filePath;
-            filePath = sourceFold + combine + a.Name + k;
+            String filePath;
+            filePath = this.AddClear().Add(sourceFold).Add(combine).Add(a.Name).Add(k).AddResult();
 
-            string h;
+            String h;
             h = storageInfra.TextReadAny(filePath, true);
 
             Text aa;
             aa = textInfra.TextCreateStringData(h, null);
 
             Array text;
-            text = textInfra.Limit(aa, newLine, less);
+            text = this.TextLimit(aa, this.TA(this.ClassInfra.NewLine));
+   
             a.Text = text;
 
             i = i + 1;
@@ -900,9 +892,9 @@ public class Console : ClassBase
         return true;
     }
 
-    protected virtual bool Error(string message)
+    protected virtual bool Error(String message)
     {
-        this.Err.Write(message + "\n");
+        this.Err.Write(this.AddClear().Add(message).Add(this.ClassInfra.NewLine).AddResult());
         return true;
     }
 }
