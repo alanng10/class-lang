@@ -6,7 +6,6 @@ public class Gen : ClassBase
     {
         base.Init();
         this.StorageInfra = StorageInfra.This;
-        this.ClassInfra = ClassInfra.This;
 
         this.StorageComp = StorageComp.This;
         return true;
@@ -17,7 +16,6 @@ public class Gen : ClassBase
     public virtual bool LinkFileName { get; set; }
     public virtual Table ModuleTable { get; set; }
     protected virtual StorageInfra StorageInfra { get; set; }
-    protected virtual ClassInfra ClassInfra { get; set; }
     protected virtual String Ver { get; set; }
     protected virtual Node Root { get; set; }
     protected virtual String PageTemplate { get; set; }
