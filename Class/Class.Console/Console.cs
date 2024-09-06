@@ -369,7 +369,7 @@ public class Console : ClassInfraGen
             String sourceFold;
             sourceFold = aaa;
 
-            if (storageInfra.IsRelativePath(this.TS(sourceFold, this.TA, this.DA), less))
+            if (storageInfra.IsRelativePath(this.TSA(sourceFold), less))
             {
                 sourceFold = this.AddClear().Add(executeFoldPath).Add(combine).Add(sourceFold).AddResult();
             }
@@ -377,7 +377,7 @@ public class Console : ClassInfraGen
             String destFold;
             destFold = aab;
 
-            if (storageInfra.IsRelativePath(this.TS(destFold, this.TA, this.DA), less))
+            if (storageInfra.IsRelativePath(this.TSA(destFold), less))
             {
                 destFold = this.AddClear().Add(executeFoldPath).Add(combine).Add(destFold).AddResult();
             }
@@ -386,7 +386,7 @@ public class Console : ClassInfraGen
             linkFileName = true;
             if (!(aac == null))
             {
-                if (this.TextSame(this.TS(aac, this.TA, this.DA), this.TS(this.SFlagD, this.TB, this.DB)))
+                if (this.TextSame(this.TSA(aac), this.TSB(this.SFlagD)))
                 {
                     linkFileName = false;
                 }
