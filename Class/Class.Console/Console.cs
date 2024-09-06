@@ -583,7 +583,6 @@ public class Console : ClassBase
 
         if (!b)
         {
-            this.Error("Port Module Load Fail");
             this.Status = 1800 + portLoad.Status;
             return false;
         }
