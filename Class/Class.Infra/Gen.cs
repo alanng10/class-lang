@@ -106,7 +106,7 @@ public class Gen : Any
         return a;
     }
 
-    public virtual Text TS(Text text, StringData data, String o)
+    public virtual Text TS(String o, Text text, StringData data)
     {
         data.ValueString = o;
 
