@@ -7,10 +7,6 @@ public class SetClassGenOperate : ClassGenOperate
         base.Init();
         this.TextInfra = TextInfra.This;
 
-        CharForm charForm;
-        charForm = new CharForm();
-        charForm.Init();
-
         this.Write = new Write();
         this.Write.Init();
 
