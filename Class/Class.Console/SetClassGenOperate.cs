@@ -13,7 +13,6 @@ public class SetClassGenOperate : ClassGenOperate
 
         this.Write = new Write();
         this.Write.Init();
-        this.Write.CharForm = charForm;
 
         WriteArg e;
         e = new WriteArg();
