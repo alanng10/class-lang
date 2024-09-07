@@ -31,7 +31,7 @@ public class PrintableChar : Any
         last = '~';
 
         bool a;
-        a = this.TextInfra.IsInRange(first, last, index);
+        a = this.TextInfra.Range(first, last, index);
 
         return a;
     }

@@ -70,7 +70,7 @@ public class Infra : Any
         return this.CharFormInfra.Alpha(o, upperCase);
     }
 
-    public virtual bool IsInRange(long first, long last, long o)
+    public virtual bool Range(long first, long last, long o)
     {
         return this.CharFormInfra.IsInRange(first, last, o);
     }
