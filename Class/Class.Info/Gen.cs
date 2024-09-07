@@ -229,7 +229,7 @@ public class Gen : ClassBase
 
         Text kaa;
         kaa = this.TextCreate(path);
-        kaa = this.TextLower(kaa);
+        kaa = this.TextAlphaSite(kaa);
 
         String pathKk;
         pathKk = this.StringCreate(kaa);
