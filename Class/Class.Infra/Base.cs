@@ -83,7 +83,6 @@ public class Base : Any
         a.Init();
         a.Kind = 1;
         a.Base = 10;
-        a.Case = 0;
         a.AlignLeft = false;
         a.FieldWidth = 1;
         a.MaxWidth = -1;
@@ -97,7 +96,6 @@ public class Base : Any
         a.Init();
         a.Kind = 1;
         a.Base = 16;
-        a.Case = 0;
         a.AlignLeft = false;
         a.FieldWidth = 15;
         a.MaxWidth = 15;
