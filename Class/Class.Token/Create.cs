@@ -59,7 +59,7 @@ public class Create : InfraCreate
         this.Result.Error = this.ListInfra.ArrayCreate(0);
 
         this.CodeCountData = new Data();
-        this.CodeCountData.Count = this.CodeArray.Count * 2 * sizeof(uint);
+        this.CodeCountData.Count = this.CodeArray.Count * 2 * sizeof(ulong);
         this.CodeCountData.Init();
 
         this.Operate = this.CountOperate;
