@@ -8,8 +8,8 @@ Kind: OperandInvalid
 Range: (1, 1)
 Source: Code
 --------------------------------------------------
-EqualOperate
+SameOperate
 {
-    Left : null,
-    Right : null,
+    Lite : null,
+    Rite : null,
 },
