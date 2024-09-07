@@ -28,6 +28,7 @@ public class PortLoad : ClassBase
     public virtual Table BinaryTable { get; set; }
     public virtual Table ClassTable { get; set; }
     public virtual Table ImportTable { get; set; }
+    public virtual Table ExportTable { get; set; }
     public virtual NameCheck NameCheck { get; set; }
     protected virtual StorageInfra StorageInfra { get; set; }
     protected virtual StoragePathCheck StoragePathCheck { get; set; }
@@ -752,35 +753,27 @@ public class PortLoad : ClassBase
         classTable = this.ClassTable;
 
         Table exportTable;
-        exportTable = module.Export;
+        exportTable = this.ExportTable;
 
         NameCheck nameCheck;
         nameCheck = this.NameCheck;
 
-        Text textA;
-        textA = this.TextA;
-
-        StringData stringDataA;
-        stringDataA = this.StringDataA;
-
         Array array;
         array = this.Port.Export;
 
-        int count;
+        long count;
         count = array.Count;
-        int i;
+        long i;
         i = 0;
         while (i < count)
         {
             PortExport a;
             a = (PortExport)array.GetAt(i);
 
-            string name;
+            String name;
             name = a.Class;
 
-            this.TextStringGet(textA, stringDataA, name);
-
-            if (!nameCheck.IsName(textA))
+            if (!nameCheck.IsName(this.TA(name)))
             {
                 this.Status = 85;
                 return false;
