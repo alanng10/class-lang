@@ -226,25 +226,13 @@ public class PortLoad : ClassBase
         textInfra = this.TextInfra;
         ClassInfra classInfra;
         classInfra = this.ClassInfra;
-        
-        Text textA;
-        Text textB;
-        textA = this.TextA;
-        textB = this.TextB;
 
-        StringData dataA;
-        StringData dataB;
-        dataA = this.StringDataA;
-        dataB = this.StringDataB;
-
-        string name;
+        String name;
         name = module.Name;
         long version;
         version = module.Version;
 
-        this.TextStringGet(textA, dataA, name);
-
-        if (!(this.NameCheck.IsModuleName(textA)))
+        if (!(this.NameCheck.IsModuleName(this.TA(name))))
         {
             this.Status = 1;
             return false;
