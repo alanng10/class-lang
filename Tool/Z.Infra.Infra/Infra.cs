@@ -46,7 +46,7 @@ public class Infra : Any
 
         this.Range = this.CreateInfraRange();
 
-        this.NewLine = this.StringComp.CreateChar('\n', 1);
+        this.NewLine = this.TextInfra.NewLine;
         this.Indent = this.StringComp.CreateChar(' ', 4);
         return true;
     }
@@ -508,7 +508,7 @@ public class Infra : Any
 
     public virtual Infra AddLine()
     {
-        this.Add(this.TextInfra.NewLine);
+        this.Add(this.NewLine);
         return this;
     }
 
