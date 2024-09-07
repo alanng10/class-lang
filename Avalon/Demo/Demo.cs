@@ -530,8 +530,8 @@ class Demo : Any
         argE.AlignLeft = true;
         argE.FieldWidth = 11;
         argE.MaxWidth = 10;
-        argE.Case = 2;
         argE.FillChar = '=';
+        argE.Form = this.TextInfra.NiteCharForm;
 
         TextWriteArg argF;
         argF = new TextWriteArg();
