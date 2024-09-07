@@ -19,7 +19,6 @@ public class Infra : Any
         base.Init();
         this.InfraInfra = InfraInfra.This;
         this.TextInfra = TextInfra.This;
-        this.StringValue = StringValue.This;
         this.CountList = CountList.This;
 
         this.Quote = this.S("\"");
@@ -40,7 +39,6 @@ public class Infra : Any
 
     protected virtual InfraInfra InfraInfra { get; set; }
     protected virtual TextInfra TextInfra { get; set; }
-    protected virtual StringValue StringValue { get; set; }
     protected virtual CountList CountList { get; set; }
 
     public virtual bool IndexRange(Range range, long index)
@@ -330,7 +328,7 @@ public class Infra : Any
 
     private String S(string o)
     {
-        return this.StringValue.Execute(o);
+        return this.TextInfra.S(o);
     }
 
     private Infra Add(StringAdd h, String o)
