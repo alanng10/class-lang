@@ -92,7 +92,7 @@ public class Base : Any
         return this.ToolInfra.TextIndex(text, other);
     }
 
-    public virtual Array TextLimitLineString(String text)
+    public virtual Array TextLimitLineString(Text text)
     {
         return this.ToolInfra.TextLimitLineString(text);
     }
@@ -115,6 +115,12 @@ public class Base : Any
     public virtual Base Add(String a)
     {
         this.ToolInfra.Add(a);
+        return this;
+    }
+
+    public virtual Base AddChar(long a)
+    {
+        this.ToolInfra.AddChar(a);
         return this;
     }
 
