@@ -33,10 +33,10 @@ public class Infra : Any
         this.BoolFalseString = this.S("false");
         this.BoolTrueString = this.S("true");
 
-        this.NiteCharForm = new AlphaNiteForm();
-        this.NiteCharForm.Init();
-        this.SiteCharForm = new AlphaSiteForm();
-        this.SiteCharForm.Init();
+        this.AlphaNiteForm = new AlphaNiteForm();
+        this.AlphaNiteForm.Init();
+        this.AlphaSiteForm = new AlphaSiteForm();
+        this.AlphaSiteForm.Init();
         return true;
     }
 
@@ -47,8 +47,8 @@ public class Infra : Any
     public virtual String Zero { get; set; }
     public virtual String PosAddSign { get; set; }
     public virtual String PosSubSign { get; set; }
-    public virtual Form NiteCharForm { get; set; }
-    public virtual Form SiteCharForm { get; set; }
+    public virtual Form AlphaNiteForm { get; set; }
+    public virtual Form AlphaSiteForm { get; set; }
     protected virtual InfraInfra InfraInfra { get; set; }
     private FormInfra CharFormInfra { get; set; }
     protected virtual StringComp StringComp { get; set; }

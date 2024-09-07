@@ -459,7 +459,7 @@ class Demo : Any
         argA.FieldWidth = 6;
         argA.MaxWidth = -1;
         argA.FillChar = ' ';
-        argA.Form = this.TextInfra.NiteCharForm;
+        argA.Form = this.TextInfra.AlphaNiteForm;
 
         TextWriteArg argB;
         argB = new TextWriteArg();
@@ -496,7 +496,7 @@ class Demo : Any
         argD.MaxWidth = 6;
         argD.Base = 16;
         argD.FillChar = ' ';
-        argD.Form = this.TextInfra.NiteCharForm;
+        argD.Form = this.TextInfra.AlphaNiteForm;
 
         TextWriteArg argDA;
         argDA = new TextWriteArg();
@@ -531,7 +531,7 @@ class Demo : Any
         argE.FieldWidth = 11;
         argE.MaxWidth = 10;
         argE.FillChar = '=';
-        argE.Form = this.TextInfra.NiteCharForm;
+        argE.Form = this.TextInfra.AlphaNiteForm;
 
         TextWriteArg argF;
         argF = new TextWriteArg();

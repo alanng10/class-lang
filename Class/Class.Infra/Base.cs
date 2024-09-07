@@ -220,12 +220,12 @@ public class Base : Any
 
     public virtual Text TextAlphaNite(Text text)
     {
-        return this.TextForm(text, this.TextInfra.NiteCharForm);
+        return this.TextForm(text, this.TextInfra.AlphaNiteForm);
     }
 
     public virtual Text TextAlphaSite(Text text)
     {
-        return this.TextForm(text, this.TextInfra.SiteCharForm);
+        return this.TextForm(text, this.TextInfra.AlphaSiteForm);
     }
 
     public virtual Text TextForm(Text text, CharForm form)
