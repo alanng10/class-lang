@@ -38,21 +38,20 @@ public class Infra : Any
         this.TextB = this.CreateText();
         this.TextC = this.CreateText();
         this.TextD = this.CreateText();
+        this.TextAA = this.CreateText();
 
         this.StringDataA = this.CreateStringData();
         this.StringDataB = this.CreateStringData();
         this.StringDataC = this.CreateStringData();
         this.StringDataD = this.CreateStringData();
+        this.StringDataAA = this.CreateStringData();
 
         this.Range = this.CreateInfraRange();
 
-        this.NewLine = this.TextInfra.NewLine;
         this.Indent = this.StringComp.CreateChar(' ', 4);
         return true;
     }
 
-    public virtual Text TextNewLine { get; set; }
-    public virtual String NewLine { get; set; }
     public virtual String Indent { get; set; }
     public virtual InfraInfra InfraInfra { get; set; }
     public virtual TextInfra TextInfra { get; set; }
@@ -69,10 +68,12 @@ public class Infra : Any
     public virtual Text TextB { get; set; }
     public virtual Text TextC { get; set; }
     public virtual Text TextD { get; set; }
+    public virtual Text TextAA { get; set; }
     public virtual StringData StringDataA { get; set; }
     public virtual StringData StringDataB { get; set; }
     public virtual StringData StringDataC { get; set; }
     public virtual StringData StringDataD { get; set; }
+    public virtual StringData StringDataAA { get; set; }
     public virtual Write Write { get; set; }
     public virtual WriteArg WriteArgInt { get; set; }
     public virtual WriteArg WriteArgIntHex { get; set; }
@@ -334,13 +335,10 @@ public class Infra : Any
         return a;
     }
 
-    public virtual Array TextLimitLineString(String text)
+    public virtual Array TextLimitLineString(Text text)
     {
-        Text k;
-        k = this.TextCreate(text);
-        
         Array array;
-        array = this.TextLimitLine(k);
+        array = this.TextLimitLine(text);
 
         long count;
         count = array.Count;
@@ -364,7 +362,7 @@ public class Infra : Any
 
     public virtual Array TextLimitLine(Text text)
     {
-        return this.TextLimit(text, this.TextNewLine);
+        return this.TextLimit(text, this.TextString(this.TextInfra.NewLine, this.TextAA, this.StringDataAA));
     }
 
     public virtual Text TextAlphaNite(Text text)
@@ -508,7 +506,7 @@ public class Infra : Any
 
     public virtual Infra AddLine()
     {
-        this.Add(this.NewLine);
+        this.Add(this.TextInfra.NewLine);
         return this;
     }
 
