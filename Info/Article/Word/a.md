@@ -212,6 +212,8 @@ Word "text" has meaning that is string lines.
 
 Word "char" has meaning that is character code.
 
+Word "letter" has meaning that is alphabet character.
+
 Word "fill" has meaning that is set value in entire range.
 
 Word "stream" has meaning that is serial.
