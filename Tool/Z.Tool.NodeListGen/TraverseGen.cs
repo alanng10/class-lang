@@ -386,9 +386,9 @@ public class TraverseGen : ToolBase
         h.Init();
 
         StringJoin hh;
-        hh = this.ToolInfra.StringJoin;
+        hh = this.ToolInfra.StringAdd;
 
-        this.ToolInfra.StringJoin = h;
+        this.ToolInfra.StringAdd = h;
 
         if (b)
         {
@@ -400,7 +400,7 @@ public class TraverseGen : ToolBase
             Text kk;
             kk = this.TextCreate(className);
             kk.Range.Count = 1;
-            kk = this.TextLower(kk);
+            kk = this.TextAlphaSite(kk);
             
             String kh;
             kh = this.StringCreate(kk);
@@ -416,7 +416,7 @@ public class TraverseGen : ToolBase
             a = this.AddClear().Add(kh).Add(ke).AddResult();
         }
 
-        this.ToolInfra.StringJoin = hh;
+        this.ToolInfra.StringAdd = hh;
 
         return a;
     }
