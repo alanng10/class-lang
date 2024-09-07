@@ -11,6 +11,7 @@ public class Entry : Any
 
     private InternIntern InternIntern { get; set; }
     protected virtual TextStringValue TextStringValue { get; set; }
+    private StorageComp StorageComp { get; set; }
     private string[] InternArg { get; set; }
 
     public virtual int Execute()
@@ -56,9 +57,10 @@ public class Entry : Any
         o = new ThreadThread();
         o.InitMainThread();
 
-        
-
         this.TextStringValue = TextStringValue.This;
+        this.StorageComp = StorageComp.This;
+
+        this.StorageComp.CurrentFoldSet(this.StorageComp.ModuleFoldPath);
 
         this.ArrayArg();
         return true;
