@@ -43,7 +43,7 @@ public class Gen : SourceGen
             range.Count = range.Count - kk;
         }
 
-        k = this.TextLower(k);
+        k = this.TextAlphaSite(k);
 
         String text;        
         text = this.StringCreate(k);
