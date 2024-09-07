@@ -37,8 +37,6 @@ public class BoolWriteResultState : WriteResultState
             clampCount = valueCount - count;
         }
 
-        long varCase;
-        varCase = arg.Case;
         long fillChar;
         fillChar = arg.FillChar;
         
@@ -66,7 +64,7 @@ public class BoolWriteResultState : WriteResultState
             valueIndex = clampCount;
         }
 
-        format.ResultBool(result, arg.Form, value, varCase, valueWriteCount, valueStart, valueIndex);
+        format.ResultBool(result, arg.Form, value, valueWriteCount, valueStart, valueIndex);
 
         format.ResultFill(result, fillStart, fillCount, fillChar);
         return true;
