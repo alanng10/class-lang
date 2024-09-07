@@ -212,7 +212,7 @@ Word "text" has meaning that is string lines.
 
 Word "char" has meaning that is character code.
 
-Word "letter" has meaning that is alphabet character.
+Word "alpha" has meaning that is alphabet character.
 
 Word "digit" has meaning that is number character. 
 
