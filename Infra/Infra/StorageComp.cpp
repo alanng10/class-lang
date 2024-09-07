@@ -335,6 +335,21 @@ Int StorageComp_CurrentFoldGet(Int o)
     return a;
 }
 
+Int StorageComp_CurrentFoldSet(Int o, Int path)
+{
+    QString pathU;
+    Int ka;
+    ka = CastInt(&pathU);
+    String_QStringSet(ka, path);
+
+    bool k;
+    k = QDir::setCurrent(pathU);
+
+    Bool a;
+    a = k;
+    return a;
+}
+
 Int StorageComp_StringCreate(Int o, Int u)
 {
     QString* ka;
