@@ -5,6 +5,7 @@ public class Base : Any
     public override bool Init()
     {
         base.Init();
+        this.InfraInfra = InfraInfra.This;
         this.ListInfra = ListInfra.This;
         this.TextInfra = TextInfra.This;
         this.ToolInfra = Infra.This;
@@ -12,6 +13,7 @@ public class Base : Any
         return true;
     }
 
+    protected virtual InfraInfra InfraInfra { get; set; }
     protected virtual ListInfra ListInfra { get; set; }
     protected virtual TextInfra TextInfra { get; set; }
     protected virtual Infra ToolInfra { get; set; }
