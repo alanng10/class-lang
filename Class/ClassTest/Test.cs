@@ -18,6 +18,8 @@ public class Test : ClassBase
         this.SPath = this.S("Path");
         this.SSource = this.S("Source");
         this.SCode = this.S("Code");
+        this.SPass = this.S("Pass");
+        this.SFail = this.S("Fail");
         this.SSpace = this.S(" ");
 
         this.LanguageName = this.CreateLanguageName();
@@ -55,6 +57,8 @@ public class Test : ClassBase
     private String SPath { get; set; }
     private String SSource { get; set; }
     private String SCode { get; set; }
+    private String SPass { get; set; }
+    private String SFail { get; set; }
     private String SSpace { get; set; }
 
     protected virtual string DataRootDirectory()
@@ -293,11 +297,11 @@ public class Test : ClassBase
         b = pass;
         if (b)
         {
-            a = "Pass";
+            a = this.SPass;
         }
         if (!b)
         {
-            a = "Fail";
+            a = this.SFail;
         }
 
         string u;
