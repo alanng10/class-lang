@@ -204,7 +204,7 @@ public class Test : ClassBase
 
     private bool ExecuteSet()
     {
-        this.WriteHeader(this.Set.Name);
+        this.WriteHead(this.Set.Name);
 
         this.PassCount = 0;
         this.UnitIndex = 0;
