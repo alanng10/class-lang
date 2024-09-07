@@ -21,7 +21,7 @@ public class AvalonGen : Gen
 
         this.AddInitFieldAddItem(index, value);
 
-        this.AddS(";").Add(this.ToolInfra.NewLine);
+        this.AddS(";").AddLine();
         return true;
     }
 
@@ -31,7 +31,7 @@ public class AvalonGen : Gen
             .AddS("public").AddS(" ").AddS("virtual").AddS(" ")
             .Add(this.ItemClassName).AddS(" ").Add(item).AddS(" ")
             .AddS("{").AddS(" ").AddS("get").AddS(";").AddS(" ").AddS("set").AddS(";").AddS(" ").AddS("}")
-            .Add(this.ToolInfra.NewLine);
+            .AddLine();
         return true;
     }
 }
