@@ -86,7 +86,7 @@ public class Gen : ToolBase
         String a;
         a = this.ToolInfra.StorageTextRead(this.ItemListFileName);
 
-        this.LineArray = this.TextLimitLineString(a);
+        this.LineArray = this.TextLimitLineString(this.TA(a));
 
         this.ItemTable = this.ToolInfra.TableCreateStringLess();
 
@@ -162,7 +162,7 @@ public class Gen : ToolBase
 
         this.AddInitFieldAddItem(index, value);
 
-        this.AddS(";").Add(this.ToolInfra.NewLine);
+        this.AddS(";").AddLine();
         return true;
     }
 
@@ -202,7 +202,7 @@ public class Gen : ToolBase
             .AddS("set").AddS(" ").AddS("{").AddS(" ").AddS("data").AddS(" ").AddS(":").AddS(" ").AddS("value").AddS(";").AddS(" ").AddS("}")
             .AddS(" ")
             .AddS("}")
-            .Add(this.ToolInfra.NewLine);
+            .AddLine();
         return true;
     }
 

@@ -151,6 +151,12 @@ public class Base : Any
         return this;
     }
 
+    public virtual Base AddLine()
+    {
+        this.ToolInfra.AddLine();
+        return this;
+    }
+
     public virtual Base AddS(string o)
     {
         this.ToolInfra.AddS(o);
