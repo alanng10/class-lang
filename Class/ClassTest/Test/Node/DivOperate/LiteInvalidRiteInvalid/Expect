@@ -10,6 +10,6 @@ Source: Code
 --------------------------------------------------
 DivOperate
 {
-    Left : null,
-    Right : null,
+    Lite : null,
+    Rite : null,
 },
