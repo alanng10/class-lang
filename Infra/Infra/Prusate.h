@@ -515,6 +515,8 @@ Infra_Api Int StorageComp_FoldRemove(Int o, Int path);
 Infra_Api Int StorageComp_Exist(Int o, Int path);
 Infra_Api Int StorageComp_FoldList(Int o, Int path);
 Infra_Api Int StorageComp_FileList(Int o, Int path);
+Infra_Api Int StorageComp_CurrentFoldGet(Int o);
+Infra_Api Int StorageComp_CurrentFoldSet(Int o, Int path);
 
 InfraApiNew(Network)
 Infra_Api Int Network_HostNameGet(Int o);
