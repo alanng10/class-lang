@@ -2,25 +2,17 @@ namespace Z.Tool.InternGen;
 
 class StateGen : ToolBase
 {
-    public override bool Init()
-    {
-        base.Init();
-        this.InfraInfra = InfraInfra.This;
-        return true;
-    }
-
     public virtual Table MaideTable { get; set; }
-    protected virtual InfraInfra InfraInfra { get; set; }
 
     public virtual bool Execute()
     {
         this.ExecuteMaideCallArray();
 
-        this.ExecuteProbateRefer();
+        this.ExecutePronateRefer();
         return true;
     }
 
-    protected virtual bool ExecuteProbateRefer()
+    protected virtual bool ExecutePronateRefer()
     {
         ToolInfra toolInfra;
         toolInfra = this.ToolInfra;
@@ -80,9 +72,6 @@ class StateGen : ToolBase
 
     protected virtual String GetReferList()
     {
-        String newLine;
-        newLine = this.ToolInfra.NewLine;
-
         this.AddClear();
 
         Table table;
@@ -100,7 +89,7 @@ class StateGen : ToolBase
             this.AddS("Int Intern_Intern_");
             this.Add(maide.Name);
             this.AddS("(Eval* eval, Int frame);");
-            this.Add(newLine);
+            this.AddLine();
         }
 
         String a;
@@ -111,12 +100,7 @@ class StateGen : ToolBase
 
     protected virtual String GetNameList()
     {
-        String newLine;
-        newLine = this.ToolInfra.NewLine;
-
-        StringJoin h;
-        h = new StringJoin();
-        h.Init();
+        this.AddClear();
 
         Table table;
         table = this.MaideTable;
@@ -131,7 +115,7 @@ class StateGen : ToolBase
             maide = (Maide)iter.Value;
 
             this.AddS(",");
-            this.Add(newLine);
+            this.AddLine();
             this.AddS("    ");
             this.AddS("CastInt");
             this.AddS("(");

@@ -60,7 +60,7 @@ public class Read : ToolBase
         ka = toolInfra.StorageTextRead(this.S("ToolData/Intern/MaideList.txt"));
 
         Array lineArray;        
-        lineArray = toolInfra.TextLimitLineString(ka);
+        lineArray = toolInfra.TextLimitLineString(this.TA(ka));
 
         Table table;
         table = this.ClassInfra.TableCreateStringLess();
