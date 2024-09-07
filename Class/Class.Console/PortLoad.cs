@@ -467,9 +467,6 @@ public class PortLoad : ClassBase
         Table table;
         table = classInfra.TableCreateModuleRefLess();
 
-        Iter iter;
-        iter = this.TableIter;
-
         int count;
         count = array.Count;
         int i;
@@ -486,7 +483,10 @@ public class PortLoad : ClassBase
                 return false;
             }
 
+            Iter iter;
+            iter = aa.IterCreate();
             aa.IterSet(iter);
+
             while (iter.Next())
             {
                 ModuleRef oo;
@@ -543,9 +543,6 @@ public class PortLoad : ClassBase
         Array array;
         array = binary.Import;
 
-        Iter iter;
-        iter = this.TableIter;
-
         int count;
         count = array.Count;
         int i;
@@ -566,7 +563,10 @@ public class PortLoad : ClassBase
                 return null;
             }
 
+            Iter iter;
+            iter = aa.IterCreate();
             aa.IterSet(iter);
+
             while (iter.Next())
             {
                 ModuleRef oo;
