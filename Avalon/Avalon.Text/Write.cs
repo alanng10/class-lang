@@ -290,7 +290,7 @@ public class Write : Any
         return true;
     }
 
-    public virtual bool ResultBool(Text result, CharForm form, bool value, long valueWriteCount, long valueStart, long valueIndex)
+    public virtual bool ResultBool(Text result, Form form, bool value, long valueWriteCount, long valueStart, long valueIndex)
     {
         Infra textInfra;
         textInfra = this.TextInfra;
@@ -343,7 +343,7 @@ public class Write : Any
         return true;
     }
 
-    public virtual bool ResultInt(Text result, CharForm form, ulong value, long varBase, long valueCount, long valueWriteCount, long valueStart, long valueIndex)
+    public virtual bool ResultInt(Text result, Form form, ulong value, long varBase, long valueCount, long valueWriteCount, long valueStart, long valueIndex)
     {
         Infra textInfra;
         textInfra = this.TextInfra;
@@ -432,7 +432,7 @@ public class Write : Any
         return true;
     }
 
-    public virtual bool ResultText(Text result, CharForm form, Text value, long valueWriteCount, long valueStart, long valueIndex)
+    public virtual bool ResultText(Text result, Form form, Text value, long valueWriteCount, long valueStart, long valueIndex)
     {
         Infra textInfra;
         textInfra = this.TextInfra;
