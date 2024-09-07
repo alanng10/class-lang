@@ -47,8 +47,8 @@ public class Infra : Any
     public virtual String Zero { get; set; }
     public virtual String PosAddSign { get; set; }
     public virtual String PosSubSign { get; set; }
-    public virtual NiteCharForm NiteCharForm { get; set; }
-    public virtual SiteCharForm SiteCharForm { get; set; }
+    public virtual CharForm NiteCharForm { get; set; }
+    public virtual CharForm SiteCharForm { get; set; }
     protected virtual InfraInfra InfraInfra { get; set; }
     private CharFormInfra CharFormInfra { get; set; }
     protected virtual StringComp StringComp { get; set; }
