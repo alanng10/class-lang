@@ -587,19 +587,19 @@ class Demo : Any
         long ooa;
 
         ooo = this.TextInfra.TextCreateStringData(this.S("43695"), null);        
-        ooa = a.Execute(ooo, 10, false);
+        ooa = a.Execute(ooo, 10, false, null);
         this.ConsoleWriteIntParse(ooa);
 
         ooo = this.TextInfra.TextCreateStringData(this.S("9E532F"), null);
-        ooa = a.Execute(ooo, 16, true);
+        ooa = a.Execute(ooo, 16, true, null);
         this.ConsoleWriteIntParse(ooa);
 
         ooo = this.TextInfra.TextCreateStringData(this.S("0000000000009294ef0d"), null);
-        ooa = a.Execute(ooo, 16, false);
+        ooa = a.Execute(ooo, 16, false, null);
         this.ConsoleWriteIntParse(ooa);
 
         ooo = this.TextInfra.TextCreateStringData(this.S("1000000000000000"), null);
-        ooa = a.Execute(ooo, 16, true);
+        ooa = a.Execute(ooo, 16, true, null);
         this.ConsoleWriteIntParse(ooa);
         return true;
     }
