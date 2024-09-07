@@ -314,6 +314,22 @@ Int StorageComp_EntryList(Int o, Int path, Int filter)
     return array;
 }
 
+Int StorageComp_CurrentFoldGet(Int o)
+{
+    QString k;
+    k = QDir::currentPath();
+
+    k.replace('\\', '/');
+
+    Int ka;
+    ka = CastInt(&k);
+
+    Int a;
+    a = StorageComp_StringCreate(o, ka);
+
+    return a;
+}
+
 Int StorageComp_StringCreate(Int o, Int u)
 {
     QString* ka;
