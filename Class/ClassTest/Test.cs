@@ -327,7 +327,7 @@ public class Test : ClassBase
         number = this.UnitIndex + 1;
 
         String p;
-        p = this.IntStringArg(number, 10, false, 3, -1, '0');
+        p = this.StringIntArg(number, 10, false, 3, -1, '0');
 
         String t;
         t = this.ResultSpace;

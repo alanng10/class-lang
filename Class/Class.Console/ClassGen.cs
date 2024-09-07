@@ -1288,7 +1288,7 @@ public class ClassGen : ClassBase
         k = k << 52;
 
         String a;
-        a = this.IntStringHex(k);
+        a = this.StringIntHex(k);
         return a;
     }
 

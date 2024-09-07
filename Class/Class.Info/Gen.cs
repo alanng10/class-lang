@@ -86,7 +86,7 @@ public class Gen : ClassBase
         time.Final();
 
         String o;
-        o = this.IntStringHex(aa);
+        o = this.StringIntHex(aa);
 
         this.Ver = o;
         return true;

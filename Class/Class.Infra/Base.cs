@@ -167,15 +167,15 @@ public class Base : Any
 
     public virtual String IntString(long n)
     {
-        return this.IntStringArg(n, 10, false, 1, -1, 0);
+        return this.StringIntArg(n, 10, false, 1, -1, 0);
     }
 
-    public virtual String IntStringHex(long n)
+    public virtual String StringIntHex(long n)
     {
-        return this.IntStringArg(n, 16, false, 15, 15, '0');
+        return this.StringIntArg(n, 16, false, 15, 15, '0');
     }
 
-    public virtual String IntStringArg(long n, long varBase, bool alignLeft, long fieldWidth, long maxWidth, long fillChar)
+    public virtual String StringIntArg(long n, long varBase, bool alignLeft, long fieldWidth, long maxWidth, long fillChar)
     {
         WriteArg arg;
         arg = this.WriteArg;
