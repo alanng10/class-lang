@@ -13,7 +13,7 @@ public class IntParse : Any
     protected virtual InfraInfra InfraInfra { get; set; }
     protected virtual Infra TextInfra { get; set; }
 
-    public virtual long Execute(Text text, long varBase, bool upperCase, CharForm form)
+    public virtual long Execute(Text text, long varBase, bool upperCase, Form form)
     {
         Infra textInfra;
         textInfra = this.TextInfra;
