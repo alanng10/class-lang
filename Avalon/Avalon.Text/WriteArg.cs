@@ -17,7 +17,6 @@ public class WriteArg : Any
     public virtual long FieldWidth { get; set; }
     public virtual long MaxWidth { get; set; }
     public virtual long Base { get; set; }
-    public virtual long Case { get; set; }
     public virtual long FillChar { get; set; }
     public virtual long ValueCount { get; set; }
     public virtual long Count { get; set; }
