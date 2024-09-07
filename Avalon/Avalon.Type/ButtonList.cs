@@ -318,7 +318,7 @@ public class ButtonList : Any
 
     public virtual bool IsDigitButton(long index)
     {
-        return this.TextInfra.IsDigit(index);
+        return this.TextInfra.Digit(index);
     }
 
     public virtual Button LetterButton(long letterIndex)

@@ -178,7 +178,7 @@ public class StringValueWrite : Any
                         uint ua;
                         ua = textInfra.DataCharGet(data, oa);
 
-                        if (!(textInfra.IsDigit(ua) | textInfra.IsHexAlpha(ua, false)))
+                        if (!(textInfra.Digit(ua) | textInfra.IsHexAlpha(ua, false)))
                         {
                             return false;
                         }

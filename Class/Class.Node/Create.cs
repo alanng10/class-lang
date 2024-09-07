@@ -3934,7 +3934,7 @@ public class Create : InfraCreate
             uint oc;
             oc = textInfra.DataCharGet(data, index);
 
-            if (!(textInfra.IsDigit(oc)))
+            if (!(textInfra.Digit(oc)))
             {
                 return false;
             }
@@ -3964,7 +3964,7 @@ public class Create : InfraCreate
             uint oc;
             oc = textInfra.DataCharGet(data, index);
 
-            if (!(textInfra.IsDigit(oc) | textInfra.IsHexAlpha(oc, false)))
+            if (!(textInfra.Digit(oc) | textInfra.IsHexAlpha(oc, false)))
             {
                 return false;
             }

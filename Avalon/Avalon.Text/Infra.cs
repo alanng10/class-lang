@@ -55,7 +55,7 @@ public class Infra : Any
     protected virtual Code TextCode { get; set; }
     protected virtual StringValue StringValue { get; set; }
 
-    public virtual bool IsDigit(long o)
+    public virtual bool Digit(long o)
     {
         return this.CharFormInfra.IsDigit(o);
     }
@@ -219,7 +219,7 @@ public class Infra : Any
             oca = 'A';
         }
 
-        if (this.IsDigit(oc))
+        if (this.Digit(oc))
         {
             long ooa;
             ooa = oc - '0';
