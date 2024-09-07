@@ -49,7 +49,7 @@ public class Test : ClassBase
     private String UnitFold { get; set; }
     private StringOut Out { get; set; }
     private StringOut Err { get; set; }
-    private string InitialCurrentDirectory { get; set; }
+    private String InitialCurrentDirectory { get; set; }
     private String ResultSpace { get; set; }
     private long UnitIndex { get; set; }
     private bool UnitPass { get; set; }
@@ -63,9 +63,9 @@ public class Test : ClassBase
     private String SAll { get; set; }
     private String SSpace { get; set; }
 
-    protected virtual string DataRootDirectory()
+    protected virtual String DataRootDirectory()
     {
-        return "../../Class/ClassTest/Test";
+        return this.S("../../Class/ClassTest/Test");
     }
 
     protected virtual bool AddSetList()
@@ -93,9 +93,12 @@ public class Test : ClassBase
 
     protected virtual bool SetWorkFold()
     {
-        string oo = this.DataRootDirectory();
-        Directory.SetCurrentDirectory(oo);
-        this.InitialCurrentDirectory = Directory.GetCurrentDirectory();
+        String k;
+        k = this.DataRootDirectory();
+        
+        this.StorageComp.CurrentFoldSet(k);
+        
+        this.InitialCurrentDirectory = this.StorageComp.CurrentFoldGet();
         return true;
     }
 
@@ -238,17 +241,17 @@ public class Test : ClassBase
 
     private bool ExecuteUnit()
     {
-        string c;
-        c = this.InfraInfra.PathCombine;
+        String c;
+        c = this.TextInfra.PathCombine;
 
-        this.UnitFold = this.DataFold + c + this.Unit.Set.Name + c + this.Unit.Kind + c + this.Unit.Name;
+        this.UnitFold = this.AddClear().Add(this.DataFold).Add(c).Add(this.Unit.Set.Name).Add(c).Add(this.Unit.Kind).Add(c).Add(this.Unit.Name).AddResult();
 
         this.Out = new StringOut();
         this.Out.Init();
         this.Err = new StringOut();
         this.Err.Init();
 
-        Directory.SetCurrentDirectory(this.UnitFold);
+        this.StorageComp.CurrentFoldSet(this.UnitFold);
 
         Task task;
         task = this.CreateTask();
@@ -256,7 +259,7 @@ public class Test : ClassBase
     
         this.Console.Execute();
 
-        Directory.SetCurrentDirectory(this.InitialCurrentDirectory);
+        this.StorageComp.CurrentFoldSet(this.InitialCurrentDirectory);
 
         string actual;
         string actualOut;
