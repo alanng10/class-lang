@@ -65,7 +65,7 @@ public class Infra : Any
         return this.CharFormInfra.IsHexAlpha(o, upperCase);
     }
 
-    public virtual bool IsAlpha(long o, bool upperCase)
+    public virtual bool Alpha(long o, bool upperCase)
     {
         return this.CharFormInfra.IsLetter(o, upperCase);
     }
@@ -231,7 +231,7 @@ public class Infra : Any
             return ooa;
         }
 
-        if (!this.IsAlpha(oc, upperCase))
+        if (!this.Alpha(oc, upperCase))
         {
             return -1;
         }

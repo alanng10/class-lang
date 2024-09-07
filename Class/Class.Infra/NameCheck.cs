@@ -73,7 +73,7 @@ public class NameCheck : Any
 
         oc = (uint)charForm.Execute(oc);
 
-        if (!(textInfra.IsAlpha(oc, true) | textInfra.IsAlpha(oc, false)))
+        if (!(textInfra.Alpha(oc, true) | textInfra.Alpha(oc, false)))
         {
             return false;
         }
@@ -98,7 +98,7 @@ public class NameCheck : Any
             oc = (char)charForm.Execute(oc);
 
             bool ba;
-            ba = textInfra.IsAlpha(oc, true) | textInfra.IsAlpha(oc, false) | textInfra.Digit(oc) | oc == '_';
+            ba = textInfra.Alpha(oc, true) | textInfra.Alpha(oc, false) | textInfra.Digit(oc) | oc == '_';
 
             if (!ba)
             {

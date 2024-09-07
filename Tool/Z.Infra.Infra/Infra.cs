@@ -261,7 +261,7 @@ public class Infra : Any
             uint n;
             n = textInfra.DataCharGet(source, index + i);
 
-            if (textInfra.IsAlpha(n, true))
+            if (textInfra.Alpha(n, true))
             {
                 n = n - 'A' + 'a';
             }
