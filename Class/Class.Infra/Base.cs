@@ -201,7 +201,7 @@ public class Base : Any
         return a;
     }
 
-    public virtual String TextStringArg(String o, bool alignLeft, long fieldWidth, long maxWidth, long fillChar)
+    public virtual String StringTextArg(String o, bool alignLeft, long fieldWidth, long maxWidth, long fillChar)
     {
         WriteArg arg;
         arg = this.WriteArg;

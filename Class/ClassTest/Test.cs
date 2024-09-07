@@ -315,10 +315,10 @@ public class Test : ClassBase
         }
 
         String u;
-        u = this.TextStringArg(set, true, 8, -1, ' ');
+        u = this.StringTextArg(set, true, 8, -1, ' ');
 
         String k;
-        k = this.TextStringArg(kind, true, 24, -1, ' ');
+        k = this.StringTextArg(kind, true, 24, -1, ' ');
 
         String j;
         j = unit;
