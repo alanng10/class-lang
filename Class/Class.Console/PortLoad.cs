@@ -10,9 +10,6 @@ public class PortLoad : ClassBase
         this.StoragePathCheck = new StoragePathCheck();
         this.StoragePathCheck.Init();
 
-        this.TableIter = new TableIter();
-        this.TableIter.Init();
-
         this.SystemModuleSingle = this.S("System");
         this.SystemModulePre = this.AddClear().Add(this.SystemModuleSingle).Add(this.ClassInfra.Dot).AddResult();
         this.ClassModuleSingle = this.S("Class");
@@ -30,7 +27,6 @@ public class PortLoad : ClassBase
     public virtual NameCheck NameCheck { get; set; }
     protected virtual StorageInfra StorageInfra { get; set; }
     protected virtual StoragePathCheck StoragePathCheck { get; set; }
-    protected virtual Iter TableIter { get; set; }
     protected virtual Array ImportModuleRefArray { get; set; }
     protected virtual Table ImportDependTable { get; set; }
     protected virtual Table BinaryDependTable { get; set; }
@@ -607,7 +603,7 @@ public class PortLoad : ClassBase
         table = this.ModuleTable;
 
         Iter iter;
-        iter = this.TableIter;
+        iter = this.ImportDependTable.IterCreate();
         this.ImportDependTable.IterSet(iter);
 
         while (iter.Next())
