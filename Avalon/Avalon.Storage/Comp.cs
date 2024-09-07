@@ -182,13 +182,17 @@ public class Comp : Any
         return a;
     }
 
+    public virtual bool CurrentFoldSet(String path)
+    {
+
+        
+        return false;
+    }
+
     protected virtual Array EntryList(String path, bool fold)
     {
-        InternInfra internInfra;
-        internInfra = this.InternInfra;
-
         ulong pathU;
-        pathU = internInfra.StringCreate(path.Value);
+        pathU = this.InternInfra.StringCreate(path.Value);
 
         ulong o;
         o = 0;
@@ -201,7 +205,7 @@ public class Comp : Any
             o = Extern.StorageComp_FoldList(this.Intern, pathU);
         }
 
-        internInfra.StringDelete(pathU);
+        this.InternInfra.StringDelete(pathU);
 
         ulong countU;
         countU = Extern.Array_CountGet(o);
