@@ -10,8 +10,8 @@ public class StringLess : InfraLess
     }
 
     public virtual LessInt CharLess { get; set; }
-    public virtual Form LiteCharForm { get; set; }
-    public virtual Form RiteCharForm { get; set; }
+    public virtual Form LiteForm { get; set; }
+    public virtual Form RiteForm { get; set; }
     protected virtual StringComp StringComp { get; set; }
 
     public override long Execute(object lite, object rite)
@@ -34,8 +34,8 @@ public class StringLess : InfraLess
 
         Form liteCharForm;
         Form riteCharForm;
-        liteCharForm = this.LiteCharForm;
-        riteCharForm = this.RiteCharForm;
+        liteCharForm = this.LiteForm;
+        riteCharForm = this.RiteForm;
 
         long count;
         count = liteCount;
