@@ -1,0 +1,10 @@
+BraceOperate
+{
+    Any : ValueOperate
+          {
+              Value : IntValue
+                      {
+                          Value : 1,
+                      },
+          },
+},
