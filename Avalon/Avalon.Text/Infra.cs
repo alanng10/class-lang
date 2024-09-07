@@ -67,7 +67,7 @@ public class Infra : Any
 
     public virtual bool Alpha(long o, bool upperCase)
     {
-        return this.CharFormInfra.IsLetter(o, upperCase);
+        return this.CharFormInfra.Alpha(o, upperCase);
     }
 
     public virtual bool IsInRange(long first, long last, long o)

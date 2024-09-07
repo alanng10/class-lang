@@ -13,7 +13,7 @@ public class SiteCharForm : CharForm
 
     public override long Execute(long n)
     {
-        if (this.CharFormInfra.IsLetter(n, true))
+        if (this.CharFormInfra.Alpha(n, true))
         {
             n = n - 'A' + 'a';
         }

@@ -33,7 +33,7 @@ class CharFormInfra : Any
         return this.IsInRange(first, last, o);
     }
 
-    public virtual bool IsLetter(long o, bool upperCase)
+    public virtual bool Alpha(long o, bool upperCase)
     {
         uint first;
         first = 'a';

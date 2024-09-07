@@ -13,7 +13,7 @@ public class NiteCharForm : CharForm
 
     public override long Execute(long n)
     {
-        if (this.CharFormInfra.IsLetter(n, false))
+        if (this.CharFormInfra.Alpha(n, false))
         {
             n = n - 'a' + 'A';
         }
