@@ -290,7 +290,7 @@ public class Write : Any
         return true;
     }
 
-    public virtual bool ResultBool(Text result, bool value, long varCase, long valueWriteCount, long valueStart, long valueIndex)
+    public virtual bool ResultBool(Text result, CharForm form, bool value, long varCase, long valueWriteCount, long valueStart, long valueIndex)
     {
         Infra textInfra;
         textInfra = this.TextInfra;
@@ -313,6 +313,9 @@ public class Write : Any
         {
             source = textInfra.BoolTrueString;
         }
+
+        bool baa;
+        baa = (form == null);
 
         long destIndex;
         destIndex = destStart + valueStart;
@@ -344,14 +347,22 @@ public class Write : Any
             uint oc;
             oc = (uint)aa;
 
-            textInfra.DataCharSet(destData, destIndex + i, oc);
+            long n;
+            n = oc;
+
+            if (!baa)
+            {
+                n = form.Execute(n);
+            }
+
+            textInfra.DataCharSet(destData, destIndex + i, n);
 
             i = i + 1;
         }
         return true;
     }
 
-    public virtual bool ResultInt(Text result, ulong value, long varBase, long varCase, long valueCount, long valueWriteCount, long valueStart, long valueIndex)
+    public virtual bool ResultInt(Text result, CharForm form, ulong value, long varBase, long varCase, long valueCount, long valueWriteCount, long valueStart, long valueIndex)
     {
         Infra textInfra;
         textInfra = this.TextInfra;
@@ -364,14 +375,22 @@ public class Write : Any
         long destIndex;
         destIndex = destStart + valueStart;
 
+        bool baa;
+        baa = (form == null);
+
         if (value == 0)
         {
             if (!(valueWriteCount == 0))
             {
-                uint occ;
-                occ = '0';
+                long na;
+                na = '0';
+                
+                if (!baa)
+                {
+                    na = form.Execute(na);
+                }
 
-                textInfra.DataCharSet(destData, destIndex, occ);
+                textInfra.DataCharSet(destData, destIndex, na);
             }
             return true;
         }
