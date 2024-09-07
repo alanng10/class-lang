@@ -313,23 +313,26 @@ public class Test : ClassBase
             a = this.SFail;
         }
 
-        string u;
-        u = string.Format("{0,-8}", set);
+        String u;
+        u = this.TextStringArg(set, false, 8, -1, ' ');
 
-        string k;
-        k = string.Format("{0,-24}", kind);
+        String k;
+        k = this.TextStringArg(kind, false, 24, -1, ' ');
 
-        string j;
+        String j;
         j = unit;
 
-        int number;
+        long number;
         number = this.UnitIndex + 1;
 
-        string p;
-        p = number.ToString("D3");
+        String p;
+        p = this.IntStringArg(number, 10, false, 3, -1, '0');
 
-        string s;
-        s = p + this.ResultSpace + a + this.ResultSpace + u + this.ResultSpace + k + " " + j + "\n";
+        String t;
+        t = this.ResultSpace;
+
+        String s;
+        s = this.AddClear().Add(p).Add(t).Add(a).Add(t).Add(u).Add(t).Add(k).Add(this.SSpace).Add(j).AddLine().AddResult();
 
         this.SystemConsole.Out.Write(s);
         return true;
