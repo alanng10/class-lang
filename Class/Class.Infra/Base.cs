@@ -220,15 +220,15 @@ public class Base : Any
 
     public virtual Text TextAlphaNite(Text text)
     {
-        return this.TextForm(text, this.TextInfra.AlphaNiteForm);
+        return this.TextCreateForm(text, this.TextInfra.AlphaNiteForm);
     }
 
     public virtual Text TextAlphaSite(Text text)
     {
-        return this.TextForm(text, this.TextInfra.AlphaSiteForm);
+        return this.TextCreateForm(text, this.TextInfra.AlphaSiteForm);
     }
 
-    public virtual Text TextForm(Text text, TextForm form)
+    public virtual Text TextCreateForm(Text text, TextForm form)
     {
         long count;
         count = text.Range.Count;
