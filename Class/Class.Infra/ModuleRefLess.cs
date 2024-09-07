@@ -5,16 +5,16 @@ public class ModuleRefLess : Less
     public override bool Init()
     {
         base.Init();
-        this.InfraInfra = InfraInfra.This;
+        this.TextInfra = TextInfra.This;
 
-        this.StringLess = this.InfraInfra.StringLessCreate();
+        this.StringLess = this.TextInfra.StringLessCreate();
 
         this.LessInt = new LessInt();
         this.LessInt.Init();
         return true;
     }
 
-    protected virtual InfraInfra InfraInfra { get; set; }
+    protected virtual TextInfra TextInfra { get; set; }
     protected virtual StringLess StringLess { get; set; }
     protected virtual LessInt LessInt { get; set; }
 
