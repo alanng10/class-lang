@@ -218,40 +218,25 @@ public class Base : Any
         return this.TextReplace(text, this.TA(this.S(limit)), this.TB(join));
     }
 
-    public virtual Text TextLower(Text text)
+    public virtual Text TextAlphaNite(Text text)
     {
-        TextInfra textInfra;
-        textInfra = this.TextInfra;
+        return this.TextForm(text, this.TextInfra.NiteCharForm);
+    }
 
-        long index;
-        index = text.Range.Index;
+    public virtual Text TextAlphaSite(Text text)
+    {
+        return this.TextForm(text, this.TextInfra.SiteCharForm);
+    }
+
+    public virtual Text TextForm(Text text, CharForm form)
+    {
         long count;
         count = text.Range.Count;
 
         Text a;
-        a = textInfra.TextCreate(count);
+        a = this.TextInfra.TextCreate(count);
 
-        Data source;
-        Data dest;
-        source = text.Data;
-        dest = a.Data;
-
-        long i;
-        i = 0;
-        while (i < count)
-        {
-            uint n;
-            n = textInfra.DataCharGet(source, index + i);
-
-            if (textInfra.Alpha(n, true))
-            {
-                n = n - 'A' + 'a';
-            }
-
-            textInfra.DataCharSet(dest, i, n);
-
-            i = i + 1;
-        }
+        this.TextInfra.Form(a, text, form);
 
         return a;
     }
