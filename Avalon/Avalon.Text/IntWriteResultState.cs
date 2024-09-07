@@ -53,8 +53,6 @@ public class IntWriteResultState : WriteResultState
 
         long varBase;
         varBase = arg.Base;
-        long varCase;
-        varCase = arg.Case;
         long fillChar;
         fillChar = arg.FillChar;
 
@@ -85,7 +83,7 @@ public class IntWriteResultState : WriteResultState
         ulong valueA;
         valueA = (ulong)value;
 
-        format.ResultInt(result, arg.Form, valueA, varBase, varCase, valueCount, valueWriteCount, valueStart, valueIndex);
+        format.ResultInt(result, arg.Form, valueA, varBase, valueCount, valueWriteCount, valueStart, valueIndex);
 
         format.ResultFill(result, fillStart, fillCount, fillChar);
         return true;
