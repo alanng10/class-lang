@@ -92,7 +92,7 @@ public class NodeGen : ToolBase
             .AddS("public").AddS(" ").AddS("virtual").AddS(" ")
             .Add(className).AddS(" ").Add(field.Name).AddS(" ")
             .AddS("{ get; set; }")
-            .Add(this.ToolInfra.NewLine)
+            .AddLine()
             ;
         return true;
     }

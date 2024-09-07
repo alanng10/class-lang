@@ -113,7 +113,7 @@ public class CreateSetStateGen : ToolBase
             this.AddArgFieldName(index, className);
         }
 
-        this.AddS(";").Add(this.ToolInfra.NewLine);
+        this.AddS(";").AddLine();
 
         return true;
     }
