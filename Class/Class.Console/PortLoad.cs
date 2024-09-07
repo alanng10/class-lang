@@ -27,6 +27,7 @@ public class PortLoad : ClassBase
     public virtual Table ModuleTable { get; set; }
     public virtual Table BinaryTable { get; set; }
     public virtual Table ClassTable { get; set; }
+    public virtual Table ImportTable { get; set; }
     public virtual NameCheck NameCheck { get; set; }
     protected virtual StorageInfra StorageInfra { get; set; }
     protected virtual StoragePathCheck StoragePathCheck { get; set; }
@@ -629,8 +630,6 @@ public class PortLoad : ClassBase
         module.Init();
         module.Ref = classInfra.ModuleRefCreate(moduleRef.Name, moduleRef.Version);
         module.Class = classInfra.TableCreateStringLess();
-        module.Import = classInfra.TableCreateModuleRefLess();
-        module.Export = classInfra.TableCreateStringLess();
         module.Storage = classInfra.TableCreateStringLess();
 
         this.Module = module;
@@ -653,6 +652,9 @@ public class PortLoad : ClassBase
 
         Table classTable;
         classTable = this.ClassTable;
+
+        Table importTable;
+        importTable = this.ImportTable;
 
         NameCheck nameCheck;
         nameCheck = this.NameCheck;
@@ -678,7 +680,7 @@ public class PortLoad : ClassBase
             Table a;
             a = classInfra.TableCreateRefLess();
             
-            listInfra.TableAdd(module.Import, kk, a);
+            listInfra.TableAdd(importTable, kk, a);
 
             PortImport kkk;
             kkk = (PortImport)array.GetAt(i);
