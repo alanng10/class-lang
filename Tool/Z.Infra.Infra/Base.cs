@@ -17,6 +17,31 @@ public class Base : Any
     protected virtual Infra ToolInfra { get; set; }
     protected virtual StringComp StringComp { get; set; }
 
+    public virtual Text TA(String o)
+    {
+        return this.ToolInfra.TA(o);
+    }
+
+    public virtual Text TB(String o)
+    {
+        return this.ToolInfra.TB(o);
+    }
+
+    public virtual Text TC(String o)
+    {
+        return this.ToolInfra.TC(o);
+    }
+
+    public virtual Text TD(String o)
+    {
+        return this.ToolInfra.TD(o);
+    }
+
+    public virtual Text TextString(String o, Text text, StringData data)
+    {
+        return this.ToolInfra.TextString(o, text, data);
+    }
+
     public virtual Text CreateText(Data data, long index, long count)
     {
         return this.ToolInfra.CreateText(data, index, count);
