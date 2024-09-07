@@ -230,7 +230,7 @@ public class Console : ClassBase
             b = this.ModuleLoad.Execute();
             if (!b)
             {
-                int o;
+                long o;
                 o = this.ModuleLoad.Status;
                 if (!(o == 0))
                 {
