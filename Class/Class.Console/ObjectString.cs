@@ -100,8 +100,21 @@ class ObjectString : ClassBase
             long kb;
             kb = (long)any;
 
+            bool baaa;
+            baaa = (kb < 0);
+
+            if (baaa)
+            {
+                kb = -kb;
+            }
+
             String kba;
             kba = this.StringInt(kb);
+
+            if (baaa)
+            {
+                this.Add(this.TextInfra.PosSubSign);
+            }
 
             this.Add(kba).Add(this.SComma).AddLine();
 
