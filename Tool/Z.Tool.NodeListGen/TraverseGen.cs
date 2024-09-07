@@ -148,16 +148,13 @@ public class TraverseGen : ToolBase
         h.Init();
 
         StringJoin hh;
-        hh = this.ToolInfra.StringJoin;
+        hh = this.ToolInfra.StringAdd;
 
-        this.ToolInfra.StringJoin = h;
-
-        String newLine;
-        newLine = this.ToolInfra.NewLine;
+        this.ToolInfra.StringAdd = h;
 
         this.AddClear();
 
-        this.Add(newLine);
+        this.AddLine();
 
         Table table;
         table = varClass.Derive; 
@@ -192,7 +189,7 @@ public class TraverseGen : ToolBase
         String a;
         a = this.AddResult();
 
-        this.ToolInfra.StringJoin = hh;
+        this.ToolInfra.StringAdd = hh;
 
         return a;
     }
@@ -204,14 +201,11 @@ public class TraverseGen : ToolBase
         h.Init();
 
         StringJoin hh;
-        hh = this.ToolInfra.StringJoin;
+        hh = this.ToolInfra.StringAdd;
 
-        this.ToolInfra.StringJoin = h;
+        this.ToolInfra.StringAdd = h;
 
         this.AddClear();
-
-        String newLine;
-        newLine = this.ToolInfra.NewLine;
 
         Iter iter;
         iter = varClass.Field.IterCreate();
@@ -241,13 +235,13 @@ public class TraverseGen : ToolBase
         ke = this.StringCreate(k);
 
         this.Add(ka);
-        this.Add(newLine);
+        this.AddLine();
         this.Add(ke);
 
         String a;
         a = this.AddResult();
 
-        this.ToolInfra.StringJoin = hh;
+        this.ToolInfra.StringAdd = hh;
 
         return a;
     }
@@ -259,9 +253,9 @@ public class TraverseGen : ToolBase
         h.Init();
 
         StringJoin hh;
-        hh = this.ToolInfra.StringJoin;
+        hh = this.ToolInfra.StringAdd;
 
-        this.ToolInfra.StringJoin = h;
+        this.ToolInfra.StringAdd = h;
 
         this.AddClear();
 
@@ -269,9 +263,6 @@ public class TraverseGen : ToolBase
         ka = this.ExecuteNode(varName);
 
         this.Add(ka);
-
-        String newLine;
-        newLine = this.ToolInfra.NewLine;
 
         bool ba;
         ba = false;
@@ -295,7 +286,7 @@ public class TraverseGen : ToolBase
 
                 if (!ba)
                 {
-                    this.Add(newLine);
+                    this.AddLine();
                     ba = true;
                 }
 
@@ -306,7 +297,7 @@ public class TraverseGen : ToolBase
         String a;
         a = this.AddResult();
 
-        this.ToolInfra.StringJoin = hh;
+        this.ToolInfra.StringAdd = hh;
 
         return a;
     }
