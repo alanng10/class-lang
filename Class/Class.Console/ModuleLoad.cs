@@ -618,9 +618,9 @@ public class ModuleLoad : ClassBase
         
         varMaide.Param = varTable;
 
-        int count;
+        long count;
         count = binaryVar.Count;
-        int i;
+        long i;
         i = 0;
         while (i < count)
         {
@@ -634,7 +634,7 @@ public class ModuleLoad : ClassBase
                 return false;
             }
 
-            string name;
+            String name;
             name = ua.Name;
             if (!this.CheckName(name))
             {
@@ -667,9 +667,9 @@ public class ModuleLoad : ClassBase
         Array classArray;
         classArray = this.ClassArray;
 
-        int count;
+        long count;
         count = array.Count;
-        int i;
+        long i;
         i = 0;
         while (i < count)
         {
