@@ -1,6 +1,6 @@
 namespace Z.Tool.PrusateGen;
 
-public class ReadList : ToolGen
+public class ReadList : ToolBase
 {
     public virtual ReadResult ReadResult { get; set; }
     protected virtual List List { get; set; }

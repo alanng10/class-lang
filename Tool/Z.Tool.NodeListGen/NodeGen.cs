@@ -1,6 +1,6 @@
 namespace Z.Tool.NodeListGen;
 
-public class NodeGen : ToolGen
+public class NodeGen : ToolBase
 {
     public override bool Init()
     {

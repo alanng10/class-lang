@@ -1,6 +1,6 @@
 namespace Z.Tool.PrusateGen;
 
-class FunctionOperate : ToolGen
+class FunctionOperate : ToolBase
 {
     public virtual PrusateGen Gen { get; set; }
     public virtual Class Class { get; set; }

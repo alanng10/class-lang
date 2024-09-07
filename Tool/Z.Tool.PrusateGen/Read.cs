@@ -1,6 +1,6 @@
 namespace Z.Tool.PrusateGen;
 
-class Read : ToolGen
+class Read : ToolBase
 {
     public virtual ReadResult Result { get; set; }
 

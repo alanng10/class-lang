@@ -1,6 +1,6 @@
 namespace Z.Tool.NodeListGen;
 
-class Read : ToolGen
+class Read : ToolBase
 {
     public override bool Init()
     {

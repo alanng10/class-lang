@@ -1,6 +1,6 @@
 namespace Z.Tool.ToolEntryGen;
 
-class Gen : ToolGen
+class Gen : ToolBase
 {
     protected virtual String SourceTemplate { get; set; }
 

@@ -1,6 +1,6 @@
 namespace Z.Tool.InternGen;
 
-public class Read : ToolGen
+public class Read : ToolBase
 {
     public override bool Init()
     {

@@ -1,6 +1,6 @@
 namespace Z.Tool.MathGen;
 
-public class Read : ToolGen
+public class Read : ToolBase
 {
     public virtual Table MaideTable { get; set; }
     protected virtual String TextTrigoList { get; set; }

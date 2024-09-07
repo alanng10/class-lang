@@ -1,6 +1,6 @@
 namespace Z.Tool.InternGen;
 
-class StateGen : ToolGen
+class StateGen : ToolBase
 {
     public override bool Init()
     {

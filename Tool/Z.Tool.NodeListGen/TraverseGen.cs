@@ -1,6 +1,6 @@
 namespace Z.Tool.NodeListGen;
 
-public class TraverseGen : ToolGen
+public class TraverseGen : ToolBase
 {
     public override bool Init()
     {

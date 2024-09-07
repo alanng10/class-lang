@@ -1,6 +1,6 @@
 namespace Z.Tool.MathGen;
 
-class PartGen : ToolGen
+class PartGen : ToolBase
 {
     public virtual Table Maide { get; set; }
     protected virtual String PartFilePath { get; set; }

@@ -1,6 +1,6 @@
 namespace Z.Tool.NodeListGen;
 
-public class NewStateGen : ToolGen
+public class NewStateGen : ToolBase
 {
     public virtual Table ClassTable { get; set; }
     private String OutputFoldPath { get; set; }

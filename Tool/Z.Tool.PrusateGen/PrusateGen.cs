@@ -1,6 +1,6 @@
 namespace Z.Tool.PrusateGen;
 
-class PrusateGen : ToolGen
+class PrusateGen : ToolBase
 {
     public override bool Init()
     {

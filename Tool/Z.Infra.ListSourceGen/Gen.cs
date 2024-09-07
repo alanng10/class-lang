@@ -1,6 +1,6 @@
 namespace Z.Infra.ListSourceGen;
 
-public class Gen : ToolGen
+public class Gen : ToolBase
 {
     public override bool Init()
     {

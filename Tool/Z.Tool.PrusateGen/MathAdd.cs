@@ -1,6 +1,6 @@
 namespace Z.Tool.PrusateGen;
 
-class MathAdd : ToolGen
+class MathAdd : ToolBase
 {
     public virtual ReadResult ReadResult { get; set; }
     protected virtual Table MaideTable { get; set; }
