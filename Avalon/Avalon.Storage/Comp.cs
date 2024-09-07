@@ -59,7 +59,7 @@ public class Comp : Any
         this.InternInfra.StringDelete(pathU);
 
         bool a;
-        a = (!(o == 0));
+        a = !(o == 0);
         return a;
     }
 
@@ -77,7 +77,7 @@ public class Comp : Any
         this.InternInfra.StringDelete(pathU);
 
         bool a;
-        a = (!(o == 0));
+        a = !(o == 0);
         return a;
     }
 
@@ -92,7 +92,7 @@ public class Comp : Any
         this.InternInfra.StringDelete(pathU);
 
         bool a;
-        a = (!(o == 0));
+        a = !(o == 0);
         return a;
     }
 
@@ -107,7 +107,7 @@ public class Comp : Any
         this.InternInfra.StringDelete(pathU);
 
         bool a;
-        a = (!(o == 0));
+        a = !(o == 0);
         return a;
     }
 
@@ -125,7 +125,7 @@ public class Comp : Any
         this.InternInfra.StringDelete(pathU);
 
         bool a;
-        a = (!(o == 0));
+        a = !(o == 0);
         return a;
     }
 
@@ -140,7 +140,7 @@ public class Comp : Any
         this.InternInfra.StringDelete(pathU);
 
         bool a;
-        a = (!(o == 0));
+        a = !(o == 0);
         return a;
     }
 
@@ -155,7 +155,7 @@ public class Comp : Any
         this.InternInfra.StringDelete(pathU);
 
         bool a;
-        a = (!(o == 0));
+        a = !(o == 0);
         return a;
     }
 
@@ -184,9 +184,17 @@ public class Comp : Any
 
     public virtual bool CurrentFoldSet(String path)
     {
+        ulong pathU;
+        pathU = this.InternInfra.StringCreate(path.Value);
 
-        
-        return false;
+        ulong o;
+        o = Extern.StorageComp_CurrentFoldSet(this.Intern, pathU);
+
+        this.InternInfra.StringDelete(pathU);
+
+        bool a;
+        a = !(o == 0);
+        return a;
     }
 
     protected virtual Array EntryList(String path, bool fold)
