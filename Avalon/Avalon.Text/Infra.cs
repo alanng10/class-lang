@@ -18,7 +18,7 @@ public class Infra : Any
     {
         base.Init();
         this.InfraInfra = InfraInfra.This;
-        this.CharFormInfra = FormInfra.This;
+        this.FormInfra = FormInfra.This;
         this.StringComp = StringComp.This;
         this.TextCode = global::Avalon.Text.Code.This;
         this.StringValue = StringValue.This;
@@ -50,29 +50,29 @@ public class Infra : Any
     public virtual Form AlphaNiteForm { get; set; }
     public virtual Form AlphaSiteForm { get; set; }
     protected virtual InfraInfra InfraInfra { get; set; }
-    private FormInfra CharFormInfra { get; set; }
+    private FormInfra FormInfra { get; set; }
     protected virtual StringComp StringComp { get; set; }
     protected virtual Code TextCode { get; set; }
     protected virtual StringValue StringValue { get; set; }
 
     public virtual bool Digit(long o)
     {
-        return this.CharFormInfra.Digit(o);
+        return this.FormInfra.Digit(o);
     }
 
     public virtual bool HexAlpha(long o, bool upperCase)
     {
-        return this.CharFormInfra.HexAlpha(o, upperCase);
+        return this.FormInfra.HexAlpha(o, upperCase);
     }
 
     public virtual bool Alpha(long o, bool upperCase)
     {
-        return this.CharFormInfra.Alpha(o, upperCase);
+        return this.FormInfra.Alpha(o, upperCase);
     }
 
     public virtual bool Range(long first, long last, long o)
     {
-        return this.CharFormInfra.Range(first, last, o);
+        return this.FormInfra.Range(first, last, o);
     }
 
     public virtual uint DataCharGet(Data data, long index)
