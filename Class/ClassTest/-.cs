@@ -1,7 +1,5 @@
 global using Any = Avalon.Infra.Any;
 global using String = Avalon.Infra.String;
-global using Range = Avalon.Infra.Range;
-global using StringCompare = Avalon.Infra.StringLess;
 global using List = Avalon.List.List;
 global using Table = Avalon.List.Table;
 global using Array = Avalon.List.Array;
@@ -17,4 +15,3 @@ global using Task = Class.Console.Task;
 global using TaskKind = Class.Console.TaskKind;
 global using TaskKindList = Class.Console.TaskKindList;
 global using Directory = System.IO.Directory;
-global using Path = System.IO.Path;
