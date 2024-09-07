@@ -45,7 +45,7 @@ public class Base : Any
     protected virtual StringAdd StringAdd { get; set; }
     protected virtual TextLess TextLess { get; set; }
     protected virtual LessInt CharLess { get; set; }
-    protected virtual CharForm CharForm { get; set; }
+    protected virtual TextForm CharForm { get; set; }
     protected virtual InfraRange Range { get; set; }
     protected virtual Text TextA { get; set; }
     protected virtual Text TextB { get; set; }
@@ -111,10 +111,10 @@ public class Base : Any
         return a;
     }
 
-    protected virtual CharForm CreateCharForm()
+    protected virtual TextForm CreateCharForm()
     {
-        CharForm a;
-        a = new CharForm();
+        TextForm a;
+        a = new TextForm();
         a.Init();
         return a;
     }
