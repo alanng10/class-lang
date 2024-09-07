@@ -440,7 +440,15 @@ public class Write : Any
                 long oa;
                 oa = index - valueIndex;
 
-                textInfra.DataCharSet(destData, destIndex + oa, c);
+                long n;
+                n = c;
+
+                if (!baa)
+                {
+                    n = form.Execute(n);
+                }
+
+                textInfra.DataCharSet(destData, destIndex + oa, n);
             }
 
             k = j;
