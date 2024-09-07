@@ -9,13 +9,15 @@ public class Test : ClassBase
         this.SystemConsole = ConsoleConsole.This;
         this.TaskKindList = TaskKindList.This;
 
-        this.LanguageName = this.CreateLanguageName();
-
         this.DataFold = this.ClassInfra.Dot;
 
         this.ResultSpace = this.StringComp.CreateChar(' ', 4);
-        
+
+        this.SClass = this.S("Class");
         this.SExpect = this.S("Expect");
+        this.SPath = this.S("Path");
+
+        this.LanguageName = this.CreateLanguageName();
 
         this.Console = this.CreateConsole();
 
@@ -34,19 +36,12 @@ public class Test : ClassBase
     protected virtual String LanguageName { get; set; }
 
     private String DataFold { get; set; }
-
     private List UnitList { get; set; }
-
     private Table SetMap { get; set; }
-
     private Set Set { get; set; }
-
     private Unit Unit { get; set; }
-
     private long PassCount { get; set; }
-
     private ClassConsole Console { get; set; }
-
     private String UnitFold { get; set; }
     private StringOut Out { get; set; }
     private StringOut Err { get; set; }
@@ -54,7 +49,9 @@ public class Test : ClassBase
     private String ResultSpace { get; set; }
     private long UnitIndex { get; set; }
     private bool UnitPass { get; set; }
+    private String SClass { get; set; }
     private String SExpect { get; set; }
+    private String SPath { get; set; }
 
     protected virtual string DataRootDirectory()
     {
@@ -177,8 +174,9 @@ public class Test : ClassBase
                 path = null;
                 if (this.Set.AddPathAfterTaskArg)
                 {
-                    string pathFile;
-                    pathFile = unitFold + this.InfraInfra.PathCombine + "Path";
+                    String pathFile;
+                    pathFile = this.AddClear().Add(unitFold).Add(combine).Add(this.SPath).AddResult();
+
                     path = this.StorageInfra.TextReadAny(pathFile, true);
                 }
                 
@@ -271,9 +269,9 @@ public class Test : ClassBase
         return true;
     }
 
-    protected virtual string CreateLanguageName()
+    protected virtual String CreateLanguageName()
     {
-        return "Class";
+        return this.SClass;
     }
 
     private bool WriteUnitResult()
@@ -343,7 +341,7 @@ public class Test : ClassBase
         return true;
     }
 
-    private bool WriteHeader(string setName)
+    private bool WriteHead(String setName)
     {
         string s;
         s = this.LanguageName.ToUpper();
