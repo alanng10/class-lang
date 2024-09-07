@@ -20,6 +20,7 @@ public class Test : ClassBase
         this.SCode = this.S("Code");
         this.SPass = this.S("Pass");
         this.SFail = this.S("Fail");
+        this.SAll = this.S("All");
         this.SSpace = this.S(" ");
 
         this.LanguageName = this.CreateLanguageName();
@@ -59,6 +60,7 @@ public class Test : ClassBase
     private String SCode { get; set; }
     private String SPass { get; set; }
     private String SFail { get; set; }
+    private String SAll { get; set; }
     private String SSpace { get; set; }
 
     protected virtual string DataRootDirectory()
@@ -338,7 +340,7 @@ public class Test : ClassBase
         b = (this.PassCount == unitCount);
         if (b)
         {
-            o = "All";
+            o = this.SAll;
         }
         if (!b)
         {
