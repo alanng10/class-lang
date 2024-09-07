@@ -72,7 +72,7 @@ public class Infra : Any
 
     public virtual bool Range(long first, long last, long o)
     {
-        return this.CharFormInfra.IsInRange(first, last, o);
+        return this.CharFormInfra.Range(first, last, o);
     }
 
     public virtual uint DataCharGet(Data data, long index)

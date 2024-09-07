@@ -16,7 +16,7 @@ class CharFormInfra : Any
 
     public virtual bool Digit(long o)
     {
-        return this.IsInRange('0', '9', o);
+        return this.Range('0', '9', o);
     }
 
     public virtual bool HexAlpha(long o, bool upperCase)
@@ -30,7 +30,7 @@ class CharFormInfra : Any
             first = 'A';
             last = 'F';
         }
-        return this.IsInRange(first, last, o);
+        return this.Range(first, last, o);
     }
 
     public virtual bool Alpha(long o, bool upperCase)
@@ -44,10 +44,10 @@ class CharFormInfra : Any
             first = 'A';
             last = 'Z';
         }
-        return this.IsInRange(first, last, o);
+        return this.Range(first, last, o);
     }
 
-    public virtual bool IsInRange(long first, long last, long o)
+    public virtual bool Range(long first, long last, long o)
     {
         if (last < first)
         {
