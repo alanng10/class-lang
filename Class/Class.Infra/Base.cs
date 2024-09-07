@@ -228,7 +228,7 @@ public class Base : Any
         return this.TextForm(text, this.TextInfra.AlphaSiteForm);
     }
 
-    public virtual Text TextForm(Text text, CharForm form)
+    public virtual Text TextForm(Text text, TextForm form)
     {
         long count;
         count = text.Range.Count;
