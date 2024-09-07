@@ -15,6 +15,7 @@ public class Test : ClassBase
 
         this.SClass = this.S("Class");
         this.SExpect = this.S("Expect");
+        this.SActual = this.S("Actual");
         this.SPath = this.S("Path");
         this.SSource = this.S("Source");
         this.SCode = this.S("Code");
@@ -55,6 +56,7 @@ public class Test : ClassBase
     private bool UnitPass { get; set; }
     private String SClass { get; set; }
     private String SExpect { get; set; }
+    private String SActual { get; set; }
     private String SPath { get; set; }
     private String SSource { get; set; }
     private String SCode { get; set; }
@@ -261,23 +263,25 @@ public class Test : ClassBase
 
         this.StorageComp.CurrentFoldSet(this.InitialCurrentDirectory);
 
-        string actual;
-        string actualOut;
-        string actualErr;
+        String actual;
+        String actualOut;
+        String actualErr;
 
         actualOut = this.Out.Result();
         actualErr = this.Err.Result();
-        actual = actualErr + actualOut;
 
-        string actualFile;
-        actualFile = this.UnitFold + c + "Actual";
+        actual = this.AddClear().Add(actualErr).Add(actualOut).AddResult();
+
+        String actualFile;
+        actualFile = this.AddClear().Add(this.UnitFold).Add(c).Add(this.SActual).AddResult();
 
         this.StorageInfra.TextWriteAny(actualFile, actual, true);
 
         this.Unit.Actual = actual;
 
         bool pass;
-        pass = (this.Unit.Actual == this.Unit.Expect);
+        pass = this.TextSame(this.TA(this.Unit.Actual), this.TB(this.Unit.Expect));
+
         this.UnitPass = pass;
         return true;
     }
