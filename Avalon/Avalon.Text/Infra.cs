@@ -60,7 +60,7 @@ public class Infra : Any
         return this.CharFormInfra.IsDigit(o);
     }
 
-    public virtual bool IsHexAlpha(long o, bool upperCase)
+    public virtual bool HexAlpha(long o, bool upperCase)
     {
         return this.CharFormInfra.IsHexAlpha(o, upperCase);
     }
