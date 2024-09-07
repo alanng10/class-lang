@@ -35,13 +35,13 @@ public class Infra : Any
         this.CharLess = new LessInt();
         this.CharLess.Init();
 
-        this.CharForm = new CharForm();
-        this.CharForm.Init();
+        this.TextForm = new TextForm();
+        this.TextForm.Init();
 
         this.TextLess = new TextLess();
         this.TextLess.CharLess = this.CharLess;
-        this.TextLess.LiteForm = this.CharForm;
-        this.TextLess.RiteForm = this.CharForm;
+        this.TextLess.LiteForm = this.TextForm;
+        this.TextLess.RiteForm = this.TextForm;
         this.TextLess.Init();
 
         this.Range = new Range();
@@ -61,7 +61,7 @@ public class Infra : Any
     public virtual StringJoin StringJoin { get; set; }
     public virtual TextLess TextLess { get; set; }
     public virtual LessInt CharLess { get; set; }
-    public virtual CharForm CharForm { get; set; }
+    public virtual TextForm TextForm { get; set; }
     public virtual Range Range { get; set; }
 
     public virtual Infra Add(String a)

@@ -11,7 +11,7 @@ class Read : ToolGen
         this.NameCheck.Init();
         this.NameCheck.TextLess = this.ToolInfra.TextLess;
         this.NameCheck.CharLess = this.ToolInfra.CharLess;
-        this.NameCheck.CharForm = this.ToolInfra.CharForm;
+        this.NameCheck.CharForm = this.ToolInfra.TextForm;
 
         this.BoolClass = this.TextCreate(this.S("Bool"));
         this.IntClass = this.TextCreate(this.S("Int"));
