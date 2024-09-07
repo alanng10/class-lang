@@ -58,6 +58,8 @@ public class Console : ClassBase
     public virtual Table ModuleTable { get; set; }
     public virtual Table BinaryTable { get; set; }
     public virtual Table ClassTable { get; set; }
+    public virtual Table ImportTable { get; set; }
+    public virtual Table ExportTable { get; set; }
     public virtual bool ErrorWrite { get; set; }
     protected virtual StorageInfra StorageInfra { get; set; }
     protected virtual BinaryRead BinaryRead { get; set; }
@@ -555,16 +557,11 @@ public class Console : ClassBase
 
     protected virtual bool PortModuleLoad()
     {
-        Table binaryTable;
-        binaryTable = this.CopyModuleRefTable(this.InitBinaryTable);
-        Table moduleTable;
-        moduleTable = this.CopyModuleRefTable(this.InitModuleTable);
-        Table classTable;
-        classTable = this.ClassInfra.TableCreateStringLess();
-        
-        this.BinaryTable = binaryTable;
-        this.ModuleTable = moduleTable;
-        this.ClassTable = classTable;
+        this.BinaryTable = this.CopyModuleRefTable(this.InitBinaryTable);
+        this.ModuleTable = this.CopyModuleRefTable(this.InitModuleTable);
+        this.ClassTable = this.ClassInfra.TableCreateStringLess();
+        this.ImportTable = this.ClassInfra.TableCreateModuleRefLess();
+        this.ExportTable = this.ClassInfra.TableCreateStringLess();
 
         PortLoad portLoad;
         portLoad = this.PortLoad;
@@ -572,9 +569,11 @@ public class Console : ClassBase
         portLoad.Port = this.Port;
         portLoad.BinaryRead = this.BinaryRead;
         portLoad.ModuleLoad = this.ModuleLoad;
-        portLoad.BinaryTable = binaryTable;
-        portLoad.ModuleTable = moduleTable;
-        portLoad.ClassTable = classTable;
+        portLoad.BinaryTable = this.BinaryTable;
+        portLoad.ModuleTable = this.ModuleTable;
+        portLoad.ClassTable = this.ClassTable;
+        portLoad.ImportTable = this.ImportTable;
+        portLoad.ExportTable = this.ExportTable;
 
         bool b;
         b = portLoad.Execute();
@@ -588,6 +587,8 @@ public class Console : ClassBase
         this.PortModule = portLoad.Module;
 
         portLoad.Module = null;
+        portLoad.ExportTable = null;
+        portLoad.ImportTable = null;
         portLoad.ClassTable = null;
         portLoad.ModuleTable = null;
         portLoad.BinaryTable = null;
