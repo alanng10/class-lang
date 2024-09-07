@@ -16,6 +16,7 @@ public class Test : ClassBase
         this.SClass = this.S("Class");
         this.SExpect = this.S("Expect");
         this.SPath = this.S("Path");
+        this.SSpace = this.S(" ");
 
         this.LanguageName = this.CreateLanguageName();
 
@@ -52,6 +53,7 @@ public class Test : ClassBase
     private String SClass { get; set; }
     private String SExpect { get; set; }
     private String SPath { get; set; }
+    private String SSpace { get; set; }
 
     protected virtual string DataRootDirectory()
     {
@@ -343,13 +345,24 @@ public class Test : ClassBase
 
     private bool WriteHead(String setName)
     {
-        string s;
-        s = this.LanguageName.ToUpper();
+        String s;
+        s = this.StringCreate(this.TextAlphaNite(this.TA(this.LanguageName)));
 
-        string k;
-        k = setName.ToUpper();
+        String k;
+        k = this.StringCreate(this.TextAlphaNite(this.TA(setName)));
 
-        this.SystemConsole.Out.Write("==============================" + " " + s + " " + k + " " + "TEST" + " " + "===============================" + "\n");
+        String line;
+        line = this.S("==============================");
+
+        String a;
+        a = this.AddClear()
+            .Add(line)
+            .Add(this.SSpace).Add(s).Add(this.SSpace).Add(k).Add(this.SSpace).AddS("TEST").Add(this.SSpace)
+            .Add(line)
+            .AddLine()
+            .AddResult();
+
+        this.SystemConsole.Out.Write(a);
         return true;
     }
 
