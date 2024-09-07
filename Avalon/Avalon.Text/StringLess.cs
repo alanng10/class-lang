@@ -1,6 +1,6 @@
-namespace Avalon.Infra;
+namespace Avalon.Text;
 
-public class StringLess : Less
+public class StringLess : InfraLess
 {
     public override bool Init()
     {
@@ -10,8 +10,8 @@ public class StringLess : Less
     }
 
     public virtual LessInt CharLess { get; set; }
-    public virtual CharForm LiteCharForm { get; set; }
-    public virtual CharForm RiteCharForm { get; set; }
+    public virtual Form LiteCharForm { get; set; }
+    public virtual Form RiteCharForm { get; set; }
     protected virtual StringComp StringComp { get; set; }
 
     public override long Execute(object lite, object rite)
@@ -32,8 +32,8 @@ public class StringLess : Less
         LessInt charLess;
         charLess = this.CharLess;
 
-        CharForm liteCharForm;
-        CharForm riteCharForm;
+        Form liteCharForm;
+        Form riteCharForm;
         liteCharForm = this.LiteCharForm;
         riteCharForm = this.RiteCharForm;
 
