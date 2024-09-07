@@ -1182,7 +1182,7 @@ public class Read : Any
         range.Count = kka;
 
         long major;
-        major = intParse.Execute(text, 10, false);
+        major = intParse.Execute(text, 10, false, null);
         if (major == -1)
         {
             return -1;
@@ -1200,7 +1200,7 @@ public class Read : Any
         range.Count = kkb;
 
         long minor;
-        minor = intParse.Execute(text, 10, false);
+        minor = intParse.Execute(text, 10, false, null);
         if (minor == -1)
         {
             return -1;
@@ -1210,7 +1210,7 @@ public class Read : Any
         range.Count = 2;
 
         long revision;
-        revision = intParse.Execute(text, 10, false);
+        revision = intParse.Execute(text, 10, false, null);
         if (revision == -1)
         {
             return -1;
