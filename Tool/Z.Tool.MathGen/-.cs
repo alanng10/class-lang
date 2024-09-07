@@ -7,6 +7,6 @@ global using Iter = Avalon.List.Iter;
 global using ListInfra = Avalon.List.Infra;
 global using Text = Avalon.Text.Text;
 global using EntryEntry = Avalon.Entry.Entry;
-global using ToolGen = Z.Infra.Infra.Base;
+global using ToolBase = Z.Infra.Infra.Base;
 global using ToolInfra = Z.Infra.Infra.Infra;
 global using STAThreadAttribute = System.STAThreadAttribute;
