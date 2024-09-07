@@ -792,7 +792,7 @@ public class Console : ClassBase
             fileName = (String)fileArray.GetAt(i);
 
             Text k;
-            k = this.TextLower(this.TA(fileName));
+            k = this.TextAlphaSite(this.TA(fileName));
 
             if (this.TextEnd(k, this.TB(ka)))
             {
