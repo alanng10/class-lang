@@ -3,7 +3,7 @@ Kind: AnyInvalid
 Range: (1, 1)
 Source: Code
 --------------------------------------------------
-BracketOperate
+BraceOperate
 {
     Any : null,
 },
