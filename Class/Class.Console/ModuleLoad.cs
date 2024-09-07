@@ -439,7 +439,7 @@ public class ModuleLoad : ClassBase
         Array classArray;
         classArray = this.ClassArray;
 
-        int count;
+        long count;
         count = array.Count;
         if (!(count == classArray.Count))
         {
@@ -447,7 +447,7 @@ public class ModuleLoad : ClassBase
             return false;
         }
 
-        int i;
+        long i;
         i = 0;
         while (i < count)
         {
@@ -501,7 +501,7 @@ public class ModuleLoad : ClassBase
 
         varClass.Field = fieldTable;
 
-        int count;
+        long count;
         count = binaryField.Count;
         int i;
         i = 0;
@@ -517,7 +517,7 @@ public class ModuleLoad : ClassBase
                 return false;
             }
 
-            string name;
+            String name;
             name = ua.Name;
             if (!this.CheckName(name))
             {
@@ -556,9 +556,9 @@ public class ModuleLoad : ClassBase
         
         varClass.Maide = maideTable;
 
-        int count;
+        long count;
         count = binaryMaide.Count;
-        int i;
+        long i;
         i = 0;
         while (i < count)
         {
@@ -572,7 +572,7 @@ public class ModuleLoad : ClassBase
                 return false;
             }
 
-            string name;
+            String name;
             name = ua.Name;
             if (!this.CheckName(name))
             {
