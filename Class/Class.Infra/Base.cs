@@ -14,7 +14,7 @@ public class Base : Any
         this.StringAdd = this.CreateStringAdd();
 
         this.Write = this.CreateWrite();
-        this.WriteArgInt = this.CreateWriteArgInt();
+        this.WriteArg = this.CreateWriteArg();
 
         this.CharLess = this.CreateCharLess();
         this.TextForm = this.CreateCharForm();
@@ -55,8 +55,7 @@ public class Base : Any
     protected virtual StringData StringDataC { get; set; }
     protected virtual StringData StringDataD { get; set; }
     protected virtual Write Write { get; set; }
-    protected virtual WriteArg WriteArgInt { get; set; }
-    protected virtual WriteArg WriteArgIntHex { get; set; }
+    protected virtual WriteArg WriteArg { get; set; }
     protected virtual String Indent { get; set; }
 
     protected virtual StringAdd CreateStringAdd()
@@ -75,12 +74,11 @@ public class Base : Any
         return a;
     }
 
-    protected virtual WriteArg CreateWriteArgInt()
+    protected virtual WriteArg CreateWriteArg()
     {
         WriteArg a;
         a = new WriteArg();
         a.Init();
-        a.Kind = 1;
         return a;
     }
 
@@ -180,10 +178,37 @@ public class Base : Any
     public virtual String IntStringArg(long n, long varBase, bool alignLeft, long fieldWidth, long maxWidth, long fillChar)
     {
         WriteArg arg;
-        arg = this.WriteArgInt;
+        arg = this.WriteArg;
 
+        arg.Kind = 1;
         arg.Value.Int = n;
         arg.Base = varBase;
+        arg.AlignLeft = alignLeft;
+        arg.FieldWidth = fieldWidth;
+        arg.MaxWidth = maxWidth;
+        arg.FillChar = fillChar;
+
+        this.Write.ExecuteArgCount(arg);
+
+        Text aa;
+        aa = this.TextInfra.TextCreate(arg.Count);
+
+        this.Write.ExecuteArgResult(arg, aa);
+
+        String a;
+        a = this.StringCreate(aa);
+
+        return a;
+    }
+
+    public virtual String TextStringArg(String o, bool alignLeft, long fieldWidth, long maxWidth, long fillChar)
+    {
+        WriteArg arg;
+        arg = this.WriteArg;
+
+        arg.Kind = 2;
+        arg.Value.Any = this.TA(o);
+        arg.Base = 0;
         arg.AlignLeft = alignLeft;
         arg.FieldWidth = fieldWidth;
         arg.MaxWidth = maxWidth;
