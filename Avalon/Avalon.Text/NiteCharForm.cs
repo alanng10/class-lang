@@ -1,6 +1,6 @@
 namespace Avalon.Text;
 
-public class NiteCharForm : CharForm
+public class NiteCharForm : Form
 {
     public override bool Init()
     {
