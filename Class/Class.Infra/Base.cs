@@ -15,7 +15,6 @@ public class Base : Any
 
         this.Write = this.CreateWrite();
         this.WriteArgInt = this.CreateWriteArgInt();
-        this.WriteArgIntHex = this.CreateWriteArgIntHex();
 
         this.CharLess = this.CreateCharLess();
         this.TextForm = this.CreateCharForm();
@@ -82,24 +81,6 @@ public class Base : Any
         a = new WriteArg();
         a.Init();
         a.Kind = 1;
-        a.Base = 10;
-        a.AlignLeft = false;
-        a.FieldWidth = 1;
-        a.MaxWidth = -1;
-        return a;
-    }
-
-    protected virtual WriteArg CreateWriteArgIntHex()
-    {
-        WriteArg a;
-        a = new WriteArg();
-        a.Init();
-        a.Kind = 1;
-        a.Base = 16;
-        a.AlignLeft = false;
-        a.FieldWidth = 15;
-        a.MaxWidth = 15;
-        a.FillChar = '0';
         return a;
     }
 
@@ -188,17 +169,25 @@ public class Base : Any
 
     public virtual String IntString(long n)
     {
-        return this.IntStringArg(n, this.WriteArgInt);
+        return this.IntStringArg(n, 10, false, 1, -1, 0);
     }
 
     public virtual String IntStringHex(long n)
     {
-        return this.IntStringArg(n, this.WriteArgIntHex);
+        return this.IntStringArg(n, 16, false, 15, 15, '0');
     }
 
-    public virtual String IntStringArg(long n, WriteArg arg)
+    public virtual String IntStringArg(long n, long varBase, bool alignLeft, long fieldWidth, long maxWidth, long fillChar)
     {
+        WriteArg arg;
+        arg = this.WriteArgInt;
+
         arg.Value.Int = n;
+        arg.Base = varBase;
+        arg.AlignLeft = alignLeft;
+        arg.FieldWidth = fieldWidth;
+        arg.MaxWidth = maxWidth;
+        arg.FillChar = fillChar;
 
         this.Write.ExecuteArgCount(arg);
 
