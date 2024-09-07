@@ -22,7 +22,7 @@ public class Create : InfraCreate
         this.SetArg = this.CreateCreateSetArg();
 
         this.CharLess = this.CreateCharLess();
-        this.CharForm = this.CreateCharForm();
+        this.TextForm = this.CreateTextForm();
         this.TextLess = this.CreateTextLess();
 
         this.NameCheck = this.CreateNameCheck();
@@ -102,7 +102,7 @@ public class Create : InfraCreate
 
     protected virtual TextLess TextLess { get; set; }
     protected virtual LessInt CharLess { get; set; }
-    protected virtual CharForm CharForm { get; set; }
+    protected virtual TextForm TextForm { get; set; }
     protected virtual Text TextA { get; set; }
     protected virtual Text TextB { get; set; }
     protected virtual StringData StringData { get; set; }
@@ -123,10 +123,10 @@ public class Create : InfraCreate
         return a;
     }
 
-    protected virtual CharForm CreateCharForm()
+    protected virtual TextForm CreateTextForm()
     {
-        CharForm a;
-        a = new CharForm();
+        TextForm a;
+        a = new TextForm();
         a.Init();
         return a;
     }
@@ -136,8 +136,8 @@ public class Create : InfraCreate
         TextLess a;
         a = new TextLess();
         a.CharLess = this.CharLess;
-        a.LiteForm = this.CharForm;
-        a.RiteForm = this.CharForm;
+        a.LiteForm = this.TextForm;
+        a.RiteForm = this.TextForm;
         a.Init();
         return a;
     }
@@ -149,7 +149,7 @@ public class Create : InfraCreate
         a.Init();
         a.TextLess = this.TextLess;
         a.CharLess = this.CharLess;
-        a.CharForm = this.CharForm;
+        a.CharForm = this.TextForm;
         return a;
     }
 
