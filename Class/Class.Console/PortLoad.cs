@@ -445,9 +445,9 @@ public class PortLoad : ClassBase
         Table table;
         table = classInfra.TableCreateModuleRefLess();
 
-        int count;
+        long count;
         count = array.Count;
-        int i;
+        long i;
         i = 0;
         while (i < count)
         {
@@ -521,9 +521,9 @@ public class PortLoad : ClassBase
         Array array;
         array = binary.Import;
 
-        int count;
+        long count;
         count = array.Count;
-        int i;
+        long i;
         i = 0;
         while (i < count)
         {
