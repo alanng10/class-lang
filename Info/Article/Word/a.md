@@ -214,6 +214,8 @@ Word "char" has meaning that is character code.
 
 Word "letter" has meaning that is alphabet character.
 
+Word "digit" has meaning that is number character. 
+
 Word "fill" has meaning that is set value in entire range.
 
 Word "stream" has meaning that is serial.
