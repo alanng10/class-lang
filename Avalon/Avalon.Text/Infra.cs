@@ -35,7 +35,7 @@ public class Infra : Any
 
         this.NiteCharForm = new AlphaNiteForm();
         this.NiteCharForm.Init();
-        this.SiteCharForm = new SiteCharForm();
+        this.SiteCharForm = new AlphaSiteForm();
         this.SiteCharForm.Init();
         return true;
     }
