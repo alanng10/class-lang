@@ -10,8 +10,8 @@ public class Less : InfraLess
     }
 
     public virtual LessInt CharLess { get; set; }
-    public virtual CharForm LiteCharForm { get; set; }
-    public virtual CharForm RiteCharForm { get; set; }
+    public virtual Form LiteForm { get; set; }
+    public virtual Form RiteForm { get; set; }
     protected virtual Infra TextInfra { get; set; }
 
     public override long Execute(object lite, object rite)
@@ -56,10 +56,10 @@ public class Less : InfraLess
         LessInt charLess;
         charLess = this.CharLess;
 
-        CharForm liteCharForm;
-        CharForm riteCharForm;
-        liteCharForm = this.LiteCharForm;
-        riteCharForm = this.RiteCharForm;
+        Form liteForm;
+        Form riteForm;
+        liteForm = this.LiteForm;
+        riteForm = this.RiteForm;
 
         long count;
         count = liteCount;
@@ -72,16 +72,16 @@ public class Less : InfraLess
         i = 0;
         while (i < count)
         {
-            uint oca;
-            uint ocb;
-            oca = textInfra.DataCharGet(liteData, liteIndex + i);
-            ocb = textInfra.DataCharGet(riteData, riteIndex + i);
+            long na;
+            long nb;
+            na = textInfra.DataCharGet(liteData, liteIndex + i);
+            nb = textInfra.DataCharGet(riteData, riteIndex + i);
 
-            oca = (uint)liteCharForm.Execute(oca);
-            ocb = (uint)riteCharForm.Execute(ocb);
+            na = liteForm.Execute(na);
+            nb = riteForm.Execute(nb);
 
             long oo;
-            oo = charLess.Execute(oca, ocb);
+            oo = charLess.Execute(na, nb);
             if (!(oo == 0))
             {
                 return oo;

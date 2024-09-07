@@ -18,8 +18,8 @@ public class StoragePathCheck : Any
         charForm.Init();
         this.TextLess = new TextLess();
         this.TextLess.CharLess = charLess;
-        this.TextLess.LiteCharForm = charForm;
-        this.TextLess.RiteCharForm = charForm;
+        this.TextLess.LiteForm = charForm;
+        this.TextLess.RiteForm = charForm;
         this.TextLess.Init();
 
         this.Combine = this.TextInfra.TextCreateStringData(this.TextInfra.PathCombine, null);

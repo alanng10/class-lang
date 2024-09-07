@@ -136,8 +136,8 @@ public class Create : InfraCreate
         TextLess a;
         a = new TextLess();
         a.CharLess = this.CharLess;
-        a.LiteCharForm = this.CharForm;
-        a.RiteCharForm = this.CharForm;
+        a.LiteForm = this.CharForm;
+        a.RiteForm = this.CharForm;
         a.Init();
         return a;
     }

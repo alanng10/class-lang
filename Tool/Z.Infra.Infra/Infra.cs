@@ -40,8 +40,8 @@ public class Infra : Any
 
         this.TextLess = new TextLess();
         this.TextLess.CharLess = this.CharLess;
-        this.TextLess.LiteCharForm = this.CharForm;
-        this.TextLess.RiteCharForm = this.CharForm;
+        this.TextLess.LiteForm = this.CharForm;
+        this.TextLess.RiteForm = this.CharForm;
         this.TextLess.Init();
 
         this.Range = new Range();
