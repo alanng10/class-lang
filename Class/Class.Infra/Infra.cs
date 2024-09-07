@@ -118,10 +118,6 @@ public class Infra : Any
         long major;
         major = o >> 16;
 
-        CharForm charForm;
-        charForm = new CharForm();
-        charForm.Init();
-
         Write write;
         write = new Write();
         write.Init();
@@ -132,7 +128,6 @@ public class Infra : Any
 
         arg.Kind = 1;
         arg.Base = 10;
-        arg.Case = 0;
         arg.AlignLeft = false;
         arg.FieldWidth = 2;
         arg.MaxWidth = 2;
