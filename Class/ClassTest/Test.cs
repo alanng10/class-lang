@@ -328,10 +328,10 @@ public class Test : ClassBase
 
     private bool WriteTotalResult()
     {
-        string o;
+        String o;
         o = null;
 
-        int unitCount;
+        long unitCount;
         unitCount = this.UnitIndex;
         
         bool b;
@@ -342,7 +342,7 @@ public class Test : ClassBase
         }
         if (!b)
         {
-            o = this.PassCount.ToString();
+            o = this.IntString(this.PassCount);
         }
 
         this.SystemConsole.Out.Write(o + " " + "Pass" + "\n");
