@@ -860,7 +860,7 @@ public class PortLoad : ClassBase
 
     protected virtual bool SetModuleEntry()
     {
-        string entry;
+        String entry;
         entry = this.Port.Entry;
 
         if (entry == null)
@@ -868,10 +868,7 @@ public class PortLoad : ClassBase
             return true;
         }
 
-        Table export;
-        export = this.Module.Export;
-
-        if (!export.Valid(entry))
+        if (!this.ExportTable.Valid(entry))
         {
             this.Status = 95;
             return false;
