@@ -6,6 +6,7 @@ global using List = Avalon.List.List;
 global using Table = Avalon.List.Table;
 global using Array = Avalon.List.Array;
 global using Iter = Avalon.List.Iter;
+global using StorageComp = Avalon.Storage.Comp;
 global using StorageInfra = Avalon.Storage.Infra;
 global using ConsoleConsole = Avalon.Console.Console;
 global using StringOut = Avalon.Console.StringOut;

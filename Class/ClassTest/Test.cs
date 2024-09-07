@@ -15,6 +15,8 @@ public class Test : ClassBase
 
         this.ResultSpace = this.StringComp.CreateChar(' ', 4);
         
+        this.SExpect = this.S("Expect");
+
         this.Console = this.CreateConsole();
 
         this.SetMap = this.ClassInfra.TableCreateStringLess();
@@ -46,17 +48,13 @@ public class Test : ClassBase
     private ClassConsole Console { get; set; }
 
     private String UnitFold { get; set; }
-
     private StringOut Out { get; set; }
     private StringOut Err { get; set; }
-
     private string InitialCurrentDirectory { get; set; }
-
     private String ResultSpace { get; set; }
-
     private long UnitIndex { get; set; }
-
     private bool UnitPass { get; set; }
+    private String SExpect { get; set; }
 
     protected virtual string DataRootDirectory()
     {
@@ -132,47 +130,50 @@ public class Test : ClassBase
         this.UnitList = new List();
         this.UnitList.Init();
 
+        String combine;
+        combine = this.TextInfra.PathCombine;
+
         String set;
         set = this.Set.Name;
 
         String setFold;            
-        setFold = this.AddClear().Add(this.DataFold).Add(this.TextInfra.PathCombine).Add(set).AddResult();
+        setFold = this.AddClear().Add(this.DataFold).Add(combine).Add(set).AddResult();
 
         Array kindList;
-        kindList = this.GetFoldList(setFold);
+        kindList = this.FoldList(setFold);
 
         Iter kindIter;
         kindIter = kindList.IterCreate();
         kindList.IterSet(kindIter);
         while (kindIter.Next())
         {
-            string kind;
-            kind = (string)kindIter.Value;
+            String kind;
+            kind = (String)kindIter.Value;
 
-            string kindFold;
-            kindFold = setFold + this.InfraInfra.PathCombine + kind;
+            String kindFold;
+            kindFold = this.AddClear().Add(setFold).Add(combine).Add(kind).AddResult();
 
             Array unitList;            
-            unitList = this.GetFoldList(kindFold);
+            unitList = this.FoldList(kindFold);
 
             Iter unitIter;
             unitIter = unitList.IterCreate();
             unitList.IterSet(unitIter);
             while (unitIter.Next())
             {
-                string unit;
-                unit = (string)unitIter.Value;
+                String unit;
+                unit = (String)unitIter.Value;
 
-                string unitFold;
-                unitFold = kindFold + this.InfraInfra.PathCombine + unit;
+                String unitFold;
+                unitFold = this.AddClear().Add(kindFold).Add(combine).Add(unit).AddResult();
 
-                string expectFile;                
-                expectFile = unitFold + this.InfraInfra.PathCombine + "Expect";
+                String expectFile;                
+                expectFile = this.AddClear().Add(unitFold).Add(combine).Add(this.SExpect).AddResult();
 
-                string expect;                
+                String expect;                
                 expect = this.StorageInfra.TextReadAny(expectFile, true);
 
-                string path;
+                String path;
                 path = null;
                 if (this.Set.AddPathAfterTaskArg)
                 {
@@ -409,10 +410,10 @@ public class Test : ClassBase
         return a;
     }
 
-    private Array GetFoldList(string foldPath)
+    protected virtual Array FoldList(String foldPath)
     {
         Array a;
-        a = 
-        return array;
+        a = this.StorageComp.FoldList(foldPath);
+        return a;
     }
 }
