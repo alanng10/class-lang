@@ -1,6 +1,6 @@
-namespace Avalon.Infra;
+namespace Avalon.Text;
 
-public class CharForm : Any
+public class Form : Any
 {
     public virtual long Execute(long n)
     {

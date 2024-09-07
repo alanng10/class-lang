@@ -7,7 +7,6 @@ global using Range = Avalon.Infra.Range;
 global using State = Avalon.Infra.State;
 global using InfraLess = Avalon.Infra.Less;
 global using LessInt = Avalon.Infra.LessInt;
-global using CharForm = Avalon.Infra.CharForm;
 global using Data = Avalon.Infra.Data;
 global using StringData = Avalon.Infra.StringData;
 global using Value = Avalon.Infra.Value;
