@@ -103,10 +103,10 @@ public class ErrorString : ClassBase
         this.StringAdd = h;
 
         String ka;
-        ka = this.IntString(range.Start);
+        ka = this.StringInt(range.Start);
 
         String kb;
-        kb = this.IntString(range.End);
+        kb = this.StringInt(range.End);
 
         this.AddClear();
 

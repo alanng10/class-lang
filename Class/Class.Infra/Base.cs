@@ -165,7 +165,7 @@ public class Base : Any
         return text;
     }
 
-    public virtual String IntString(long n)
+    public virtual String StringInt(long n)
     {
         return this.StringIntArg(n, 10, false, 1, -1, 0);
     }

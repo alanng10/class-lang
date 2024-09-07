@@ -355,7 +355,7 @@ public class Test : ClassBase
         }
         if (!b)
         {
-            o = this.IntString(this.PassCount);
+            o = this.StringInt(this.PassCount);
         }
 
         String a;

@@ -101,7 +101,7 @@ class ObjectString : ClassBase
             kb = (long)any;
 
             String kba;
-            kba = this.IntString(kb);
+            kba = this.StringInt(kb);
 
             this.Add(kba).Add(this.SComma).AddLine();
 
