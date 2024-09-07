@@ -62,7 +62,7 @@ public class Infra : Any
 
     public virtual bool IsHexAlpha(long o, bool upperCase)
     {
-        return this.CharFormInfra.IsHexLetter(o, upperCase);
+        return this.CharFormInfra.IsHexAlpha(o, upperCase);
     }
 
     public virtual bool IsLetter(long o, bool upperCase)

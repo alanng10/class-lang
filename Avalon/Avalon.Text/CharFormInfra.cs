@@ -19,7 +19,7 @@ class CharFormInfra : Any
         return this.IsInRange('0', '9', o);
     }
 
-    public virtual bool IsHexLetter(long o, bool upperCase)
+    public virtual bool IsHexAlpha(long o, bool upperCase)
     {
         uint first;
         first = 'a';
