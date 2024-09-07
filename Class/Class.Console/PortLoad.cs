@@ -874,75 +874,44 @@ public class PortLoad : ClassBase
 
     protected virtual bool IsBuiltinModuleRef(ModuleRef moduleRef)
     {
-        TextInfra textInfra;
-        textInfra = this.TextInfra;
-        ClassInfra classInfra;
-        classInfra = this.ClassInfra;
-
-        Text textA;
-        Text textB;
-        textA = this.TextA;
-        textB = this.TextB;
-
-        StringData dataA;
-        StringData dataB;
-        dataA = this.StringDataA;
-        dataB = this.StringDataB;
-
-        Less less;
-        less = this.TextLess;
-
-        string name;
+        String name;
         name = moduleRef.Name;
 
-        this.TextStringGet(textA, dataA, name);
+        Text textName;
+        textName = this.TA(name);
 
         bool b;
         b = false;
 
         if (!b)
         {
-            this.TextStringGet(textB, dataB, this.SystemModuleSingle);
-            if (textInfra.Same(textA, textB, less))
+            if (this.TextSame(textName, this.TB(this.SystemModuleSingle)))
             {
                 b = true;
             }
         }
         if (!b)
         {
-            this.TextStringGet(textB, dataB, this.SystemModulePre);
-            if (textInfra.Start(textA, textB, less))
+            if (this.TextStart(textName, this.TB(this.SystemModulePre)))
             {
                 b = true;
             }
         }
         if (!b)
         {
-            this.TextStringGet(textB, dataB, this.ClassModuleSingle);
-            if (textInfra.Same(textA, textB, less))
+            if (this.TextSame(textName, this.TB(this.ClassModuleSingle)))
             {
                 b = true;
             }
         }
         if (!b)
         {
-            this.TextStringGet(textB, dataB, this.ClassModulePre);
-            if (textInfra.Start(textA, textB, less))
+            if (this.TextStart(textName, this.TB(this.ClassModulePre)))
             {
                 b = true;
             }
         }
 
         return b;
-    }
-
-    protected virtual bool TextStringGet(Text text, StringData data, string o)
-    {
-        data.ValueString = o;
-
-        text.Data = data;
-        text.Range.Index = 0;
-        text.Range.Count = o.Length;
-        return true;
     }
 }
