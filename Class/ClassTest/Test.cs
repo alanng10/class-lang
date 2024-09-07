@@ -7,6 +7,7 @@ public class Test : ClassBase
         base.Init();
         this.StorageInfra = StorageInfra.This;
         this.SystemConsole = ConsoleConsole.This;
+        this.StorageComp = StorageComp.This;
         this.TaskKindList = TaskKindList.This;
 
         this.DataFold = this.ClassInfra.Dot;
