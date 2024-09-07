@@ -1456,7 +1456,7 @@ public class Create : InfraCreate
         this.TextGet(text, aa);
         
         long value;
-        value = this.TextIntParse.Execute(text, 10, false);
+        value = this.TextIntParse.Execute(text, 10, false, null);
         if (value == -1)
         {
             return null;
@@ -1500,7 +1500,7 @@ public class Create : InfraCreate
         text.Range.Count = aa.Range.Count - 2;
 
         long value;
-        value = this.TextIntParse.Execute(text, 16, false);
+        value = this.TextIntParse.Execute(text, 16, false, null);
         if (value == -1)
         {
             return null;
@@ -1546,7 +1546,7 @@ public class Create : InfraCreate
         text.Range.Count = aa.Range.Count - 3;
 
         long o;
-        o = this.TextIntParse.Execute(text, 10, false);
+        o = this.TextIntParse.Execute(text, 10, false, null);
 
         if (o == -1)
         {
@@ -1620,7 +1620,7 @@ public class Create : InfraCreate
         text.Range.Count = aa.Range.Count - 4;
 
         long o;
-        o = this.TextIntParse.Execute(text, 16, false);
+        o = this.TextIntParse.Execute(text, 16, false, null);
         if (o == -1)
         {
             return null;
