@@ -154,9 +154,9 @@ public class PortLoad : ClassBase
         Array array;
         array = listInfra.ArrayCreate(import.Count);
 
-        int count;
+        long count;
         count = array.Count;
-        int i;
+        long i;
         i = 0;
         while (i < count)
         {
@@ -166,7 +166,7 @@ public class PortLoad : ClassBase
             ModuleRef aa;
             aa = o.Module;
 
-            string name;
+            String name;
             name = aa.Name;
             long version;
             version = aa.Version;
@@ -198,9 +198,9 @@ public class PortLoad : ClassBase
         Array array;
         array = this.ImportModuleRefArray;
 
-        int count;
+        long count;
         count = array.Count;
-        int i;
+        long i;
         i = 0;
         while (i < count)
         {
