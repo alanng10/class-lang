@@ -290,7 +290,7 @@ public class Write : Any
         return true;
     }
 
-    public virtual bool ResultBool(Text result, CharForm form, bool value, long varCase, long valueWriteCount, long valueStart, long valueIndex)
+    public virtual bool ResultBool(Text result, CharForm form, bool value, long valueWriteCount, long valueStart, long valueIndex)
     {
         Infra textInfra;
         textInfra = this.TextInfra;
@@ -328,27 +328,8 @@ public class Write : Any
             long index;
             index = i + valueIndex;
 
-            uint ouc;
-            ouc = (uint)stringComp.Char(source, index);
-            long aa;
-            aa = ouc;
-
-            if (varCase == 1)
-            {
-                if (index == 0)
-                {
-                    aa = ouc - 'a' + 'A';
-                }
-            }
-            if (varCase == 2)
-            {
-                aa = ouc - 'a' + 'A';
-            }
-            uint oc;
-            oc = (uint)aa;
-
             long n;
-            n = oc;
+            n = stringComp.Char(source, index);
 
             if (!baa)
             {
