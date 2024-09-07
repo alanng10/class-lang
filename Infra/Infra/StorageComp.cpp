@@ -319,7 +319,12 @@ Int StorageComp_CurrentFoldGet(Int o)
     QString k;
     k = QDir::currentPath();
 
-    k.replace('\\', '/');
+    QChar before;
+    QChar after;
+    before = '\\';
+    after = '/';
+
+    k.replace(before, after);
 
     Int ka;
     ka = CastInt(&k);
