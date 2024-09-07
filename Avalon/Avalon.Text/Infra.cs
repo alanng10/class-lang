@@ -33,7 +33,7 @@ public class Infra : Any
         this.BoolFalseString = this.S("false");
         this.BoolTrueString = this.S("true");
 
-        this.NiteCharForm = new NiteCharForm();
+        this.NiteCharForm = new AlphaNiteForm();
         this.NiteCharForm.Init();
         this.SiteCharForm = new SiteCharForm();
         this.SiteCharForm.Init();
