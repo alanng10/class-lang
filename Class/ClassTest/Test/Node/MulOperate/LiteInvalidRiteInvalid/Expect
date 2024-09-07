@@ -10,6 +10,6 @@ Source: Code
 --------------------------------------------------
 MulOperate
 {
-    Left : null,
-    Right : null,
+    Lite : null,
+    Rite : null,
 },
