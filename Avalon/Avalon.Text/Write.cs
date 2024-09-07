@@ -458,7 +458,7 @@ public class Write : Any
         return true;
     }
 
-    public virtual bool ResultText(Text result, Text value, long varCase, long valueWriteCount, long valueStart, long valueIndex)
+    public virtual bool ResultText(Text result, CharForm form, Text value, long varCase, long valueWriteCount, long valueStart, long valueIndex)
     {
         Infra textInfra;
         textInfra = this.TextInfra;
@@ -477,6 +477,9 @@ public class Write : Any
         sourceIndex = sourceStart + valueIndex;
         long destIndex;
         destIndex = destStart + valueStart;
+
+        bool baa;
+        baa = (form == null);
 
         long count;
         count = valueWriteCount;
@@ -508,7 +511,15 @@ public class Write : Any
             uint oc;
             oc = (uint)aa;
 
-            textInfra.DataCharSet(destData, destIndex + i, oc);
+            long n;
+            n = oc;
+
+            if (!baa)
+            {
+                n = form.Execute(n);
+            }
+
+            textInfra.DataCharSet(destData, destIndex + i, n);
 
             i = i + 1;
         }
