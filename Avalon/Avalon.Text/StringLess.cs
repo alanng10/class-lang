@@ -32,10 +32,10 @@ public class StringLess : InfraLess
         LessInt charLess;
         charLess = this.CharLess;
 
-        Form liteCharForm;
-        Form riteCharForm;
-        liteCharForm = this.LiteForm;
-        riteCharForm = this.RiteForm;
+        Form liteForm;
+        Form riteForm;
+        liteForm = this.LiteForm;
+        riteForm = this.RiteForm;
 
         long count;
         count = liteCount;
@@ -53,8 +53,8 @@ public class StringLess : InfraLess
             oca = stringComp.Char(liteString, i);
             ocb = stringComp.Char(riteString, i);
 
-            oca = liteCharForm.Execute(oca);
-            ocb = riteCharForm.Execute(ocb);
+            oca = liteForm.Execute(oca);
+            ocb = riteForm.Execute(ocb);
 
             long oo;
             oo = charLess.Execute(oca, ocb);
