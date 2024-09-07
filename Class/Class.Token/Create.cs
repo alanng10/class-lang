@@ -17,7 +17,7 @@ public class Create : InfraCreate
         this.SetOperate.Create = this;
         this.SetOperate.Init();
 
-        this.CharForm = new CharForm();
+        this.CharForm = new TextForm();
         this.CharForm.Init();
 
         this.Range = new Range();
@@ -36,7 +36,7 @@ public class Create : InfraCreate
     protected virtual SetCreateOperate SetOperate { get; set; }
     protected virtual CreateOperate Operate { get; set; }
     protected virtual Array CodeArray { get; set; }
-    protected virtual CharForm CharForm { get; set; }
+    protected virtual TextForm CharForm { get; set; }
 
     public virtual Code Code { get; set; }
     public virtual Source SourceItem { get; set; }
@@ -126,7 +126,7 @@ public class Create : InfraCreate
 
         this.Reset();
 
-        CharForm charForm;
+        TextForm charForm;
         charForm = this.CharForm;
 
         Array sourceText;
