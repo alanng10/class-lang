@@ -1,13 +1,11 @@
 namespace Class.Console;
 
-public class PortLoad : Any
+public class PortLoad : ClassBase
 {
     public override bool Init()
     {
         base.Init();
-        this.TextInfra = TextInfra.This;
         this.StorageInfra = StorageInfra.This;
-        this.ClassInfra = ClassInfra.This;
 
         this.StoragePathCheck = new StoragePathCheck();
         this.StoragePathCheck.Init();
@@ -23,39 +21,31 @@ public class PortLoad : Any
         this.TableIter = new TableIter();
         this.TableIter.Init();
 
-        this.SystemModuleSingle = "System";
-        this.SystemModulePre = this.SystemModuleSingle + ".";
-        this.ClassModuleSingle = "Class";
-        this.ClassModulePre = this.ClassModuleSingle + ".";
+        this.SystemModuleSingle = this.S("System");
+        this.SystemModulePre = this.AddClear().Add(this.SystemModuleSingle).Add(this.ClassInfra.Dot).AddResult();
+        this.ClassModuleSingle = this.S("Class");
+        this.ClassModulePre = this.AddClear().Add(this.ClassModuleSingle).Add(this.ClassInfra.Dot).AddResult();
         return true;
     }
     public virtual PortPort Port { get; set; }
     public virtual ClassModule Module { get; set; }
-    public virtual int Status { get; set; }
+    public virtual long Status { get; set; }
     public virtual ModuleLoad ModuleLoad { get; set; }
     public virtual BinaryRead BinaryRead { get; set; }
     public virtual Table ModuleTable { get; set; }
     public virtual Table BinaryTable { get; set; }
     public virtual Table ClassTable { get; set; }
     public virtual NameCheck NameCheck { get; set; }
-    protected virtual ListInfra ListInfra { get; set; }
-    protected virtual TextInfra TextInfra { get; set; }
     protected virtual StorageInfra StorageInfra { get; set; }
-    protected virtual ClassInfra ClassInfra { get; set; }
     protected virtual StoragePathCheck StoragePathCheck { get; set; }
-    protected virtual Text TextA { get; set; }
-    protected virtual Text TextB { get; set; }
-    protected virtual StringData StringDataA { get; set; }
-    protected virtual StringData StringDataB { get; set; }
-    protected virtual TextLess TextLess { get; set; }
     protected virtual Iter TableIter { get; set; }
     protected virtual Array ImportModuleRefArray { get; set; }
     protected virtual Table ImportDependTable { get; set; }
     protected virtual Table BinaryDependTable { get; set; }
-    protected virtual string SystemModuleSingle { get; set; }
-    protected virtual string SystemModulePre { get; set; }
-    protected virtual string ClassModuleSingle { get; set; }
-    protected virtual string ClassModulePre { get; set; }
+    protected virtual String SystemModuleSingle { get; set; }
+    protected virtual String SystemModulePre { get; set; }
+    protected virtual String ClassModuleSingle { get; set; }
+    protected virtual String ClassModulePre { get; set; }
 
     private Text CreateText()
     {

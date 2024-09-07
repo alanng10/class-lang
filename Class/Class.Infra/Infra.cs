@@ -25,6 +25,7 @@ public class Infra : Any
         this.Quote = this.S("\"");
         this.BackSlash = this.S("\\");
         this.NewLine = this.S("\n");
+        this.Dot = this.S(".");
         this.IntSignValueNegativeMax = this.InfraInfra.IntCapValue / 2;
         this.IntSignValuePositiveMax = this.IntSignValueNegativeMax - 1;
         return true;
