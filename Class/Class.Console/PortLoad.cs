@@ -255,9 +255,9 @@ public class PortLoad : ClassBase
 
     protected virtual bool CheckImportArrayModuleRef(Array array)
     {
-        int count;
+        long count;
         count = array.Count;
-        int i;
+        long i;
         i = 0;
         while (i < count)
         {
@@ -280,23 +280,12 @@ public class PortLoad : ClassBase
         ClassInfra classInfra;
         classInfra = this.ClassInfra;
 
-        Text textA;
-        Text textB;
-        textA = this.TextA;
-        textB = this.TextB;
-
-        StringData dataA;
-        StringData dataB;
-        dataA = this.StringDataA;
-        dataB = this.StringDataB;
-
-        string name;
+        String name;
         name = moduleRef.Name;
         long version;
         version = moduleRef.Version;
 
-        this.TextStringGet(textA, dataA, name);
-        if (!(this.NameCheck.IsModuleName(textA)))
+        if (!(this.NameCheck.IsModuleName(this.TA(name))))
         {
             return false;
         }
