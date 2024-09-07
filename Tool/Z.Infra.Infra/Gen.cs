@@ -1,6 +1,6 @@
 namespace Z.Infra.Infra;
 
-public class Gen : Any
+public class Base : Any
 {
     public override bool Init()
     {
@@ -107,19 +107,19 @@ public class Gen : Any
         return this.ToolInfra.TextReplace(text, limit, join);
     }
 
-    public virtual Gen Add(String a)
+    public virtual Base Add(String a)
     {
         this.ToolInfra.Add(a);
         return this;
     }
 
-    public virtual Gen AddS(string o)
+    public virtual Base AddS(string o)
     {
         this.ToolInfra.AddS(o);
         return this;
     }
 
-    public virtual Gen AddClear()
+    public virtual Base AddClear()
     {
         this.ToolInfra.AddClear();
         return this;
@@ -130,7 +130,7 @@ public class Gen : Any
         return this.ToolInfra.AddResult();
     }
 
-    public virtual Gen AddIndent(long indent)
+    public virtual Base AddIndent(long indent)
     {
         this.ToolInfra.AddIndent(indent);
         return this;
