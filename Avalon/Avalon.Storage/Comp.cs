@@ -209,20 +209,8 @@ public class Comp : Any
             ulong u;
             u = Extern.Array_ItemGet(o, indexU);
 
-            byte[] k;
-            k = internInfra.ByteArrayCreateString(u);
-
-            long dataCount;
-            dataCount = k.LongLength;
-
-            long countA;
-            countA = dataCount / sizeof(uint);
-
             String a;
-            a = new String();
-            a.Value = k;
-            a.Count = countA;
-            a.Init();
+            a = this.StringCreateIntern(u);
 
             array.SetAt(i, a);
 
@@ -256,6 +244,25 @@ public class Comp : Any
         Extern.Array_Delete(o);
 
         return array;
+    }
+
+    private String StringCreateIntern(ulong o)
+    {
+        byte[] k;
+        k = this.InternInfra.ByteArrayCreateString(o);
+
+        long dataCount;
+        dataCount = k.LongLength;
+
+        long countA;
+        countA = dataCount / sizeof(uint);
+
+        String a;
+        a = new String();
+        a.Value = k;
+        a.Count = countA;
+        a.Init();
+        return a;
     }
 
     protected virtual String S(string o)
