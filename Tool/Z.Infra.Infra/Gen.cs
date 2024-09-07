@@ -52,9 +52,14 @@ public class Base : Any
         return this.ToolInfra.StringCreateTextIndex(o, index);
     }
 
-    public virtual Text TextLower(Text text)
+    public virtual Text TextAlphaNite(Text text)
     {
-        return this.ToolInfra.TextLower(text);
+        return this.ToolInfra.TextAlphaNite(text);
+    }
+
+    public virtual Text TextAlphaSite(Text text)
+    {
+        return this.ToolInfra.TextAlphaSite(text);
     }
 
     public virtual Text TextCreate(String o)
