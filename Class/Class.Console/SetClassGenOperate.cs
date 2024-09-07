@@ -15,7 +15,6 @@ public class SetClassGenOperate : ClassGenOperate
         e.Init();
         e.Kind = 1;
         e.Base = 16;
-        e.Case = 0;
         e.AlignLeft = false;
         e.FieldWidth = 15;
         e.MaxWidth = 15;
