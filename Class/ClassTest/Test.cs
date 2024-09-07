@@ -16,6 +16,8 @@ public class Test : ClassBase
         this.SClass = this.S("Class");
         this.SExpect = this.S("Expect");
         this.SPath = this.S("Path");
+        this.SSource = this.S("Source");
+        this.SCode = this.S("Code");
         this.SSpace = this.S(" ");
 
         this.LanguageName = this.CreateLanguageName();
@@ -32,8 +34,6 @@ public class Test : ClassBase
     protected virtual ConsoleConsole SystemConsole { get; set; }
     protected virtual StorageComp StorageComp { get; set; }
     protected virtual TaskKindList TaskKindList { get; set; }
-
-
     protected virtual String LanguageName { get; set; }
 
     private String DataFold { get; set; }
@@ -53,6 +53,8 @@ public class Test : ClassBase
     private String SClass { get; set; }
     private String SExpect { get; set; }
     private String SPath { get; set; }
+    private String SSource { get; set; }
+    private String SCode { get; set; }
     private String SSpace { get; set; }
 
     protected virtual string DataRootDirectory()
@@ -381,7 +383,7 @@ public class Test : ClassBase
         }
         if (!ba)
         {
-            task.Node = "Class";
+            task.Node = this.SClass;
         }
 
         if (this.Set.AddPathAfterTaskArg)
@@ -391,17 +393,17 @@ public class Test : ClassBase
 
         task.Print = true;
 
-        string source;
+        String source;
         source = null;
         bool b;
         b = this.Set.SourceFold;
         if (b)
         {
-            source = "Source";
+            source = this.SSource;
         }
         if (!b)
         {
-            source = "Code";
+            source = this.SCode;
         }
         task.Source = source;
 
