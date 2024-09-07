@@ -343,7 +343,7 @@ public class Write : Any
         return true;
     }
 
-    public virtual bool ResultInt(Text result, CharForm form, ulong value, long varBase, long varCase, long valueCount, long valueWriteCount, long valueStart, long valueIndex)
+    public virtual bool ResultInt(Text result, CharForm form, ulong value, long varBase, long valueCount, long valueWriteCount, long valueStart, long valueIndex)
     {
         Infra textInfra;
         textInfra = this.TextInfra;
@@ -378,16 +378,9 @@ public class Write : Any
 
         long end;
         end = valueIndex + valueWriteCount;
-
-        bool upperCase;
-        upperCase = !(varCase == 0);
         
         uint letterDigitStart;
         letterDigitStart = 'a';
-        if (upperCase)
-        {
-            letterDigitStart = 'A';
-        }
         
         ulong ca;
         ca = (ulong)varBase;
