@@ -14,6 +14,9 @@ public class PortLoad : ClassBase
         this.SystemModulePre = this.AddClear().Add(this.SystemModuleSingle).Add(this.ClassInfra.Dot).AddResult();
         this.ClassModuleSingle = this.S("Class");
         this.ClassModulePre = this.AddClear().Add(this.ClassModuleSingle).Add(this.ClassInfra.Dot).AddResult();
+
+        this.SHyphen = this.S("-");
+        this.SDotRef = this.S(".ref");
         return true;
     }
     public virtual PortPort Port { get; set; }
@@ -34,6 +37,8 @@ public class PortLoad : ClassBase
     protected virtual String SystemModulePre { get; set; }
     protected virtual String ClassModuleSingle { get; set; }
     protected virtual String ClassModulePre { get; set; }
+    protected virtual String SHyphen { get; set; }
+    protected virtual String SDotRef { get; set; }
 
     public virtual bool Execute()
     {
@@ -306,9 +311,9 @@ public class PortLoad : ClassBase
         Array array;
         array = this.ImportModuleRefArray;
 
-        int count;
+        long count;
         count = array.Count;
-        int i;
+        long i;
         i = 0;
         while (i < count)
         {
@@ -346,9 +351,9 @@ public class PortLoad : ClassBase
 
         Array array;
         array = binary.Import;
-        int count;
+        long count;
         count = array.Count;
-        int i;
+        long i;
         i = 0;
         while (i < count)
         {
@@ -370,19 +375,19 @@ public class PortLoad : ClassBase
 
     protected virtual bool BinaryLoad(ModuleRef moduleRef)
     {
-        string moduleName;
+        String moduleName;
         moduleName = moduleRef.Name;
         long version;
         version = moduleRef.Version;
 
-        string versionString;
+        String versionString;
         versionString = this.ClassInfra.VersionString(version);
     
-        string moduleRefString;
-        moduleRefString = moduleName + "-" + versionString;
+        String moduleRefString;
+        moduleRefString = this.AddClear().Add(moduleName).Add(this.SHyphen).Add(versionString).AddResult();
 
-        string filePath;
-        filePath = moduleRefString + ".ref";
+        String filePath;
+        filePath = this.AddClear().Add(moduleRefString).Add(this.SDotRef).AddResult();
 
         Data data;
         data = this.StorageInfra.DataReadAny(filePath, true);
@@ -393,8 +398,8 @@ public class PortLoad : ClassBase
             return false;
         }
 
-        int kk;
-        kk = (int)data.Count;
+        long kk;
+        kk = data.Count;
 
         InfraRange range;
         range = new InfraRange();
