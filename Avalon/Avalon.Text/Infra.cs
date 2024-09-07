@@ -18,7 +18,7 @@ public class Infra : Any
     {
         base.Init();
         this.InfraInfra = InfraInfra.This;
-        this.CharFormInfra = CharFormInfra.This;
+        this.CharFormInfra = FormInfra.This;
         this.StringComp = StringComp.This;
         this.TextCode = global::Avalon.Text.Code.This;
         this.StringValue = StringValue.This;
@@ -50,7 +50,7 @@ public class Infra : Any
     public virtual Form NiteCharForm { get; set; }
     public virtual Form SiteCharForm { get; set; }
     protected virtual InfraInfra InfraInfra { get; set; }
-    private CharFormInfra CharFormInfra { get; set; }
+    private FormInfra CharFormInfra { get; set; }
     protected virtual StringComp StringComp { get; set; }
     protected virtual Code TextCode { get; set; }
     protected virtual StringValue StringValue { get; set; }

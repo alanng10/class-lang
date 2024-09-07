@@ -5,11 +5,11 @@ public class AlphaNiteForm : Form
     public override bool Init()
     {
         base.Init();
-        this.CharFormInfra = CharFormInfra.This;
+        this.CharFormInfra = FormInfra.This;
         return true;
     }
 
-    internal virtual CharFormInfra CharFormInfra { get; set; }
+    internal virtual FormInfra CharFormInfra { get; set; }
 
     public override long Execute(long n)
     {

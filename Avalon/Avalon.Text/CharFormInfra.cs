@@ -1,13 +1,13 @@
 namespace Avalon.Text;
 
-class CharFormInfra : Any
+class FormInfra : Any
 {
-    public static CharFormInfra This { get; } = ShareCreate();
+    public static FormInfra This { get; } = ShareCreate();
 
-    private static CharFormInfra ShareCreate()
+    private static FormInfra ShareCreate()
     {
-        CharFormInfra share;
-        share = new CharFormInfra();
+        FormInfra share;
+        share = new FormInfra();
         Any a;
         a = share;
         a.Init();
