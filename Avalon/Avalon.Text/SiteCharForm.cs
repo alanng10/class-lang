@@ -1,6 +1,6 @@
 namespace Avalon.Text;
 
-public class SiteCharForm : CharForm
+public class SiteCharForm : Form
 {
     public override bool Init()
     {
