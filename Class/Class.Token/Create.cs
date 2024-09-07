@@ -245,7 +245,7 @@ public class Create : InfraCreate
                     isValid = true;
                 }
 
-                if (textInfra.IsLetter(c, false) | textInfra.IsLetter(c, true) | textInfra.IsDigit(c) | c == '_')
+                if (textInfra.IsAlpha(c, false) | textInfra.IsAlpha(c, true) | textInfra.IsDigit(c) | c == '_')
                 {
                     if (this.NullRange())
                     {

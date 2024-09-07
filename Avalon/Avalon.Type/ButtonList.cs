@@ -313,7 +313,7 @@ public class ButtonList : Any
 
     public virtual bool IsLetterButton(long index)
     {
-        return this.TextInfra.IsLetter(index, true);
+        return this.TextInfra.IsAlpha(index, true);
     }
 
     public virtual bool IsDigitButton(long index)

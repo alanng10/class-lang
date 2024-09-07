@@ -245,7 +245,7 @@ public class Base : Any
             uint n;
             n = textInfra.DataCharGet(source, index + i);
 
-            if (textInfra.IsLetter(n, true))
+            if (textInfra.IsAlpha(n, true))
             {
                 n = n - 'A' + 'a';
             }
