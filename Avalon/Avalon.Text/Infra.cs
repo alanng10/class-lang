@@ -57,7 +57,7 @@ public class Infra : Any
 
     public virtual bool Digit(long o)
     {
-        return this.CharFormInfra.IsDigit(o);
+        return this.CharFormInfra.Digit(o);
     }
 
     public virtual bool HexAlpha(long o, bool upperCase)

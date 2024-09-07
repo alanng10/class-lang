@@ -14,7 +14,7 @@ class CharFormInfra : Any
         return share;
     }
 
-    public virtual bool IsDigit(long o)
+    public virtual bool Digit(long o)
     {
         return this.IsInRange('0', '9', o);
     }
