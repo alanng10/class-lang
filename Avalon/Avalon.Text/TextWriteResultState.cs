@@ -38,8 +38,6 @@ public class TextWriteResultState : WriteResultState
             clampCount = valueCount - count;
         }
 
-        long varCase;
-        varCase = arg.Case;
         long fillChar;
         fillChar = arg.FillChar;
 
@@ -67,7 +65,7 @@ public class TextWriteResultState : WriteResultState
             valueIndex = clampCount;
         }
 
-        format.ResultText(result, arg.Form, value, varCase, valueWriteCount, valueStart, valueIndex);
+        format.ResultText(result, arg.Form, value, valueWriteCount, valueStart, valueIndex);
 
         format.ResultFill(result, fillStart, fillCount, fillChar);
         return true;
