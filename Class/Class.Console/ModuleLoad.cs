@@ -212,15 +212,15 @@ public class ModuleLoad : ClassBase
 
         this.Module.Import = importTable;
         
-        int importTotal;
+        long importTotal;
         importTotal = 0;
 
         Array array;
         array = this.Binary.Import;
 
-        int count;
+        long count;
         count = array.Count;
-        int i;
+        long i;
         i = 0;
         while (i < count)
         {
@@ -259,9 +259,9 @@ public class ModuleLoad : ClassBase
 
             Array oa;
             oa = o.Class;
-            int countA;
+            long countA;
             countA = oa.Count;
-            int iA;
+            long iA;
             iA = 0;
             while (iA < countA)
             {
@@ -269,14 +269,14 @@ public class ModuleLoad : ClassBase
                 oe = (InfraValue)oa.GetAt(iA);
 
                 BinaryClass of;
-                of = (BinaryClass)oo.Class.GetAt(oe.Mid);
+                of = (BinaryClass)oo.Class.GetAt(oe.Int);
                 if (of == null)
                 {
                     this.Status = 23;
                     return false;
                 }
 
-                string className;
+                String className;
                 className = of.Name;
 
                 ClassClass varClass;
@@ -306,7 +306,7 @@ public class ModuleLoad : ClassBase
         Array importArray;
         importArray = listInfra.ArrayCreate(importTotal);
 
-        int oi;
+        long oi;
         oi = 0;
         Iter iter;
         iter = importTable.IterCreate();
