@@ -809,40 +809,30 @@ public class PortLoad : ClassBase
         Table table;
         table = this.Module.Storage;
 
-        Text textA;
-        textA = this.TextA;
-
-        StringData stringDataA;
-        stringDataA = this.StringDataA;
-
         Array array;
         array = this.Port.Storage;
 
-        int count;
+        long count;
         count = array.Count;
-        int i;
+        long i;
         i = 0;
         while (i < count)
         {
             ClassStorage a;
             a = (ClassStorage)array.GetAt(i);
 
-            string sourcePath;
-            string destPath;
+            String sourcePath;
+            String destPath;
             sourcePath = a.SourcePath;
             destPath = a.Path;
 
-            this.TextStringGet(textA, stringDataA, sourcePath);
-
-            if (!pathCheck.IsValidSourcePath(textA))
+            if (!pathCheck.IsValidSourcePath(this.TA(sourcePath)))
             {
                 this.Status = 90;
                 return false;
             }
 
-            this.TextStringGet(textA, stringDataA, destPath);
-
-            if (!pathCheck.IsValidDestPath(textA))
+            if (!pathCheck.IsValidDestPath(this.TA(destPath)))
             {
                 this.Status = 91;
                 return false;
