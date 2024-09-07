@@ -342,7 +342,7 @@ public class ModuleLoad : ClassBase
         Array classArray;
         classArray = this.ClassArray;
 
-        int count;
+        long count;
         count = array.Count;
         if (!(count == classArray.Count))
         {
@@ -350,7 +350,7 @@ public class ModuleLoad : ClassBase
             return false;
         }
 
-        int i;
+        long i;
         i = 0;
         while (i < count)
         {
@@ -361,7 +361,7 @@ public class ModuleLoad : ClassBase
             a = (InfraValue)array.GetAt(i);
 
             ClassClass baseClass;
-            baseClass = this.ClassGetIndex(a.Mid);
+            baseClass = this.ClassGetIndex(a.Int);
 
             if (baseClass == null)
             {
