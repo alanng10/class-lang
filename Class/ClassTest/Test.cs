@@ -284,9 +284,9 @@ public class Test : ClassBase
         return true;
     }
 
-    private bool WriteResultLine(bool pass, string set, string kind, string unit)
+    private bool WriteResultLine(bool pass, String set, String kind, String unit)
     {
-        string a;
+        String a;
         a = null;
 
         bool b;
