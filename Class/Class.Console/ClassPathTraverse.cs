@@ -25,13 +25,13 @@ public partial class ClassPathTraverse : Traverse
         LessInt charLess;
         charLess = new LessInt();
         charLess.Init();
-        CharForm charForm;
-        charForm = new CharForm();
-        charForm.Init();
+        TextForm textForm;
+        textForm = new TextForm();
+        textForm.Init();
         this.TextLess = new TextLess();
         this.TextLess.CharLess = charLess;
-        this.TextLess.LiteForm = charForm;
-        this.TextLess.RiteForm = charForm;
+        this.TextLess.LiteForm = textForm;
+        this.TextLess.RiteForm = textForm;
         this.TextLess.Init();
 
         this.Dot = this.TextInfra.TextCreateStringData(this.S("."), null);
@@ -237,7 +237,7 @@ public partial class ClassPathTraverse : Traverse
         rangeA.Count = count;
 
         long n;
-        n = this.IntParse.Execute(textA, 10, false);
+        n = this.IntParse.Execute(textA, 10, false, null);
 
         if (n == -1)
         {
