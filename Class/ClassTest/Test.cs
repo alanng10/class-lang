@@ -347,7 +347,10 @@ public class Test : ClassBase
             o = this.IntString(this.PassCount);
         }
 
-        this.SystemConsole.Out.Write(o + " " + "Pass" + "\n");
+        String a;
+        a = this.AddClear().Add(o).Add(this.SSpace).Add(this.SPass).AddLine().AddResult();
+
+        this.SystemConsole.Out.Write(a);
         return true;
     }
 
