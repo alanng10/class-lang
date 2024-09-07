@@ -21,4 +21,5 @@ public class WriteArg : Any
     public virtual long FillChar { get; set; }
     public virtual long ValueCount { get; set; }
     public virtual long Count { get; set; }
+    public virtual CharForm Form { get; set; }
 }
