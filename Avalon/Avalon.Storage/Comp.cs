@@ -176,6 +176,9 @@ public class Comp : Any
 
         String a;
         a = this.StringCreateIntern(o);
+
+        this.DeleteInternString(o);
+
         return a;
     }
 
