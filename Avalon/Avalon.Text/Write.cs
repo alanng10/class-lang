@@ -432,7 +432,7 @@ public class Write : Any
         return true;
     }
 
-    public virtual bool ResultText(Text result, CharForm form, Text value, long varCase, long valueWriteCount, long valueStart, long valueIndex)
+    public virtual bool ResultText(Text result, CharForm form, Text value, long valueWriteCount, long valueStart, long valueIndex)
     {
         Infra textInfra;
         textInfra = this.TextInfra;
@@ -461,29 +461,8 @@ public class Write : Any
         i = 0;
         while (i < count)
         {
-            uint ouc;
-            ouc = textInfra.DataCharGet(sourceData, sourceIndex + i);
-
-            long aa;
-            aa = ouc;
-
-            if (varCase == 1)
-            {
-                if (textInfra.IsLetter(ouc, true))
-                {
-                    aa = ouc - 'A' + 'a';
-                }
-            }
-            if (varCase == 2)
-            {
-                if (textInfra.IsLetter(ouc, false))
-                {
-                    aa = ouc - 'a' + 'A';
-                }
-            }
-
             uint oc;
-            oc = (uint)aa;
+            oc = textInfra.DataCharGet(sourceData, sourceIndex + i);
 
             long n;
             n = oc;
