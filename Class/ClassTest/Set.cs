@@ -2,7 +2,7 @@ namespace Class.Test;
 
 class Set : Any
 {
-    public virtual string Name { get; set; }
+    public virtual String Name { get; set; }
 
     public virtual TaskKind TaskKind { get; set; }
 

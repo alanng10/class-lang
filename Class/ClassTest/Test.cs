@@ -1,22 +1,19 @@
 namespace Class.Test;
 
-public class Test : Any
+public class Test : ClassBase
 {
     public override bool Init()
     {
         base.Init();
-        this.InfraInfra = InfraInfra.This;
-        this.ListInfra = ListInfra.This;
         this.StorageInfra = StorageInfra.This;
         this.SystemConsole = ConsoleConsole.This;
-        this.ClassInfra = ClassInfra.This;
         this.TaskKindList = TaskKindList.This;
 
         this.LanguageName = this.CreateLanguageName();
 
-        this.DataFold = ".";
+        this.DataFold = this.ClassInfra.Dot;
 
-        this.ResultSpace = new string(' ', 4);
+        this.ResultSpace = this.StringComp.CreateChar(' ', 4);
         
         this.Console = this.CreateConsole();
 
@@ -26,16 +23,15 @@ public class Test : Any
         return true;
     }
 
-    protected virtual InfraInfra InfraInfra { get; set; }
-    protected virtual ListInfra ListInfra { get; set; }
     protected virtual StorageInfra StorageInfra { get; set; }
-    protected virtual ClassInfra ClassInfra { get; set; }
     protected virtual ConsoleConsole SystemConsole { get; set; }
+    protected virtual StorageComp StorageComp { get; set; }
     protected virtual TaskKindList TaskKindList { get; set; }
 
-    protected virtual string LanguageName { get; set; }
 
-    private string DataFold { get; set; }
+    protected virtual String LanguageName { get; set; }
+
+    private String DataFold { get; set; }
 
     private List UnitList { get; set; }
 
@@ -45,20 +41,20 @@ public class Test : Any
 
     private Unit Unit { get; set; }
 
-    private int PassCount { get; set; }
+    private long PassCount { get; set; }
 
     private ClassConsole Console { get; set; }
 
-    private string UnitFold { get; set; }
+    private String UnitFold { get; set; }
 
     private StringOut Out { get; set; }
     private StringOut Err { get; set; }
 
     private string InitialCurrentDirectory { get; set; }
 
-    private string ResultSpace { get; set; }
+    private String ResultSpace { get; set; }
 
-    private int UnitIndex { get; set; }
+    private long UnitIndex { get; set; }
 
     private bool UnitPass { get; set; }
 
@@ -80,7 +76,7 @@ public class Test : Any
         Set set;
         set = new Set();
         set.Init();
-        set.Name = name;
+        set.Name = this.S(name);
         set.TaskKind = taskKind;
         set.AddKindAfterTaskArg = addKindAfterTaskArg;
         set.AddPathAfterTaskArg = addPathAfterTaskArg;
@@ -98,7 +94,7 @@ public class Test : Any
         return true;
     }
 
-    public virtual int Execute()
+    public virtual long Execute()
     {
         bool b;
         b = this.Console.Load();
@@ -136,11 +132,11 @@ public class Test : Any
         this.UnitList = new List();
         this.UnitList.Init();
 
-        string set;
+        String set;
         set = this.Set.Name;
 
-        string setFold;            
-        setFold = this.DataFold + this.InfraInfra.PathCombine + set;
+        String setFold;            
+        setFold = this.AddClear().Add(this.DataFold).Add(this.TextInfra.PathCombine).Add(set).AddResult();
 
         Array kindList;
         kindList = this.GetFoldList(setFold);
@@ -415,47 +411,8 @@ public class Test : Any
 
     private Array GetFoldList(string foldPath)
     {
-        string[] u; 
-        u = Directory.GetDirectories(foldPath);
-
-        int count;
-        count = u.Length;
-        int i;
-        i = 0;
-        while (i < count)
-        {
-            string path;
-            path = u[i];
-
-            string name;
-            name = Path.GetFileName(path);
-
-            u[i] = name;
-            i = i + 1;
-        }
-
-        Array array;
-        array = this.ListInfra.ArrayCreate(count);
-
-        i = 0;
-        while (i < count)
-        {
-            string k;
-            k = u[i];
-
-            array.SetAt(i, k);
-            i = i + 1;
-        }
-
-        Range range;
-        range = new Range();
-        range.Init();
-        range.Count = count;
-
-        StringCompare compare;
-        compare = this.InfraInfra.StringLessCreate();
-
-        array.Sort(range, compare);
+        Array a;
+        a = 
         return array;
     }
 }

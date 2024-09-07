@@ -3,9 +3,9 @@ namespace Class.Test;
 class Unit : Any
 {
     public virtual Set Set { get; set; }
-    public virtual string Kind { get; set; }
-    public virtual string Name { get; set; }
-    public virtual string Expect { get; set; }
-    public virtual string Actual { get; set; }
-    public virtual string Path { get; set; }
+    public virtual String Kind { get; set; }
+    public virtual String Name { get; set; }
+    public virtual String Expect { get; set; }
+    public virtual String Actual { get; set; }
+    public virtual String Path { get; set; }
 }
