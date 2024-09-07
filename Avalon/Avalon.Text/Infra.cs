@@ -50,44 +50,22 @@ public class Infra : Any
 
     public virtual bool IsDigit(long o)
     {
-        return this.IsInRange('0', '9', o);
+        return this.CharFormInfra.IsDigit(o);
     }
 
     public virtual bool IsHexLetter(long o, bool upperCase)
     {
-        uint first;
-        first = 'a';
-        uint last;
-        last = 'f';
-        if (upperCase)
-        {
-            first = 'A';
-            last = 'F';
-        }
-        return this.IsInRange(first, last, o);
+        return this.CharFormInfra.IsHexLetter(o, upperCase);
     }
 
     public virtual bool IsLetter(long o, bool upperCase)
     {
-        uint first;
-        first = 'a';
-        uint last;
-        last = 'z';
-        if (upperCase)
-        {
-            first = 'A';
-            last = 'Z';
-        }
-        return this.IsInRange(first, last, o);
+        return this.CharFormInfra.IsLetter(o, upperCase);
     }
 
     public virtual bool IsInRange(long first, long last, long o)
     {
-        if (last < first)
-        {
-            return false;
-        }
-        return !((o < first) | (last < o));
+        return this.CharFormInfra.IsInRange(first, last, o);
     }
 
     public virtual uint DataCharGet(Data data, long index)
