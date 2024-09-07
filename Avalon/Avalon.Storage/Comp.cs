@@ -169,6 +169,16 @@ public class Comp : Any
         return this.EntryList(path, true);
     }
 
+    public virtual String CurrentFoldGet()
+    {
+        ulong o;
+        o = Extern.StorageComp_CurrentFoldGet(this.Intern);
+
+        String a;
+        a = this.StringCreateIntern(o);
+        return a;
+    }
+
     protected virtual Array EntryList(String path, bool fold)
     {
         InternInfra internInfra;
@@ -229,13 +239,7 @@ public class Comp : Any
             ulong ua;
             ua = Extern.Array_ItemGet(o, indexAU);
 
-            ulong dataA;
-            dataA = Extern.String_DataGet(ua);
-
-            Extern.String_Final(ua);
-            Extern.String_Delete(ua);
-
-            Extern.Delete(dataA);
+            this.DeleteInternString(ua);
 
             i = i + 1;
         }
@@ -263,6 +267,18 @@ public class Comp : Any
         a.Count = countA;
         a.Init();
         return a;
+    }
+
+    private bool DeleteInternString(ulong o)
+    {
+        ulong data;
+        data = Extern.String_DataGet(o);
+
+        Extern.String_Final(o);
+        Extern.String_Delete(o);
+
+        Extern.Delete(data);
+        return true;
     }
 
     protected virtual String S(string o)
