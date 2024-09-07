@@ -13,13 +13,13 @@ public class StoragePathCheck : Any
         LessInt charLess;
         charLess = new LessInt();
         charLess.Init();
-        CharForm charForm;
-        charForm = new CharForm();
-        charForm.Init();
+        TextForm textForm;
+        textForm = new TextForm();
+        textForm.Init();
         this.TextLess = new TextLess();
         this.TextLess.CharLess = charLess;
-        this.TextLess.LiteForm = charForm;
-        this.TextLess.RiteForm = charForm;
+        this.TextLess.LiteForm = textForm;
+        this.TextLess.RiteForm = textForm;
         this.TextLess.Init();
 
         this.Combine = this.TextInfra.TextCreateStringData(this.TextInfra.PathCombine, null);
