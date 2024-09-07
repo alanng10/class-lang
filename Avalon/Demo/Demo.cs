@@ -458,8 +458,8 @@ class Demo : Any
         argA.Value.Bool = true;
         argA.FieldWidth = 6;
         argA.MaxWidth = -1;
-        argA.Case = 1;
         argA.FillChar = ' ';
+        argA.Form = this.TextInfra.NiteCharForm;
 
         TextWriteArg argB;
         argB = new TextWriteArg();
@@ -495,8 +495,8 @@ class Demo : Any
         argD.FieldWidth = 8;
         argD.MaxWidth = 6;
         argD.Base = 16;
-        argD.Case = 1;
         argD.FillChar = ' ';
+        argD.Form = this.TextInfra.NiteCharForm;
 
         TextWriteArg argDA;
         argDA = new TextWriteArg();
