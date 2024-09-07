@@ -18,7 +18,7 @@ class InfraPartGen : PartGen
     {
         Text k;
         k = this.TextCreate(name);
-        k = this.TextLower(k);
+        k = this.TextAlphaSite(k);
 
         String ka;
         ka = this.StringCreate(k);
@@ -28,14 +28,14 @@ class InfraPartGen : PartGen
         h.Init();
 
         StringJoin kk;
-        kk = this.ToolInfra.StringJoin;
+        kk = this.ToolInfra.StringAdd;
 
-        this.ToolInfra.StringJoin = h;
+        this.ToolInfra.StringAdd = h;
 
         String a;
         a = this.AddClear().AddS("std::").Add(ka).AddResult();
 
-        this.ToolInfra.StringJoin = kk;
+        this.ToolInfra.StringAdd = kk;
 
         return a;
     }

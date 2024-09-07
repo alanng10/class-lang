@@ -17,8 +17,8 @@ public class Read : ToolBase
         this.TextList = toolInfra.StorageTextRead(this.S("ToolData/Math/List.txt"));
         this.TextTrigoList = toolInfra.StorageTextRead(this.S("ToolData/Math/TrigoList.txt"));
 
-        this.LineList = toolInfra.TextLimitLineString(this.TextList);
-        this.TrigoLineList = toolInfra.TextLimitLineString(this.TextTrigoList);
+        this.LineList = toolInfra.TextLimitLineString(this.TA(this.TextList));
+        this.TrigoLineList = toolInfra.TextLimitLineString(this.TA(this.TextTrigoList));
 
         bool b;
         b = this.SetTrigoTable();

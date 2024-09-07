@@ -76,7 +76,7 @@ class PartGen : ToolBase
 
     protected virtual bool AddNewLine()
     {
-        this.Add(this.ToolInfra.NewLine);
+        this.AddLine();
         return true;
     }
 
