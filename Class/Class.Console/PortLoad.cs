@@ -660,18 +660,12 @@ public class PortLoad : ClassBase
         Array importModuleRef;
         importModuleRef = this.ImportModuleRefArray;
 
-        Text textA;
-        textA = this.TextA;
-
-        StringData stringDataA;
-        stringDataA = this.StringDataA;
-
         Array array;
         array = this.Port.Import;
 
-        int count;
+        long count;
         count = array.Count;
-        int i;
+        long i;
         i = 0;
         while (i < count)
         {
@@ -692,20 +686,19 @@ public class PortLoad : ClassBase
             Array importClassArray;
             importClassArray = kkk.Class;
 
-            int countA;
+            long countA;
             countA = importClassArray.Count;
-            int iA;
+            long iA;
             iA = 0;
             while (iA < countA)
             {
                 PortImportClass importClass;
                 importClass = (PortImportClass)importClassArray.GetAt(iA);
 
-                string className;
+                String className;
                 className = importClass.Class;
 
-                this.TextStringGet(textA, stringDataA, className);
-                if (!nameCheck.IsName(textA))
+                if (!nameCheck.IsName(this.TA(className)))
                 {
                     this.Status = 80;
                     return false;
@@ -722,11 +715,10 @@ public class PortLoad : ClassBase
 
                 listInfra.TableAdd(a, varClass, varClass);
 
-                string name;
+                String name;
                 name = importClass.Name;
                 
-                this.TextStringGet(textA, stringDataA, name);
-                if (!nameCheck.IsName(textA))
+                if (!nameCheck.IsName(this.TA(name)))
                 {
                     this.Status = 82;
                     return false;
