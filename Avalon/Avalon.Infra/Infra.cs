@@ -203,23 +203,4 @@ public class Infra : Any
         }
         return true;
     }
-
-    public virtual StringLess StringLessCreate()
-    {
-        LessInt charLess;
-        charLess = new LessInt();
-        charLess.Init();
-
-        CharForm charForm;
-        charForm = new CharForm();
-        charForm.Init();
-
-        StringLess a;
-        a = new StringLess();
-        a.CharLess = charLess;
-        a.LiteCharForm = charForm;
-        a.RiteCharForm = charForm;
-        a.Init();
-        return a;
-    }
 }

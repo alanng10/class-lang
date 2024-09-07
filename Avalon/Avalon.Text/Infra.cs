@@ -675,6 +675,25 @@ public class Infra : Any
         return true;
     }
 
+    public virtual StringLess StringLessCreate()
+    {
+        LessInt charLess;
+        charLess = new LessInt();
+        charLess.Init();
+
+        Form form;
+        form = new Form();
+        form.Init();
+
+        StringLess a;
+        a = new StringLess();
+        a.CharLess = charLess;
+        a.LiteForm = form;
+        a.RiteForm = form;
+        a.Init();
+        return a;
+    }
+
     public virtual bool Copy(Data dest, long destIndex, Data source, long sourceIndex, long count)
     {
         long ka;
