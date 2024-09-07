@@ -18,7 +18,7 @@ public class Base : Any
         this.WriteArgIntHex = this.CreateWriteArgIntHex();
 
         this.CharLess = this.CreateCharLess();
-        this.CharForm = this.CreateCharForm();
+        this.TextForm = this.CreateCharForm();
         this.TextLess = this.CreateTextLess();
 
         this.TextA = this.CreateText();
@@ -45,7 +45,7 @@ public class Base : Any
     protected virtual StringAdd StringAdd { get; set; }
     protected virtual TextLess TextLess { get; set; }
     protected virtual LessInt CharLess { get; set; }
-    protected virtual TextForm CharForm { get; set; }
+    protected virtual TextForm TextForm { get; set; }
     protected virtual InfraRange Range { get; set; }
     protected virtual Text TextA { get; set; }
     protected virtual Text TextB { get; set; }
@@ -124,8 +124,8 @@ public class Base : Any
         TextLess a;
         a = new TextLess();
         a.CharLess = this.CharLess;
-        a.LiteForm = this.CharForm;
-        a.RiteForm = this.CharForm;
+        a.LiteForm = this.TextForm;
+        a.RiteForm = this.TextForm;
         a.Init();
         return a;
     }

@@ -87,7 +87,7 @@ public class Console : ClassBase
         a.Init();
         a.TextLess = this.TextLess;
         a.CharLess = this.CharLess;
-        a.CharForm = this.CharForm;
+        a.CharForm = this.TextForm;
         return a;
     }
 
