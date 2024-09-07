@@ -645,9 +645,6 @@ public class PortLoad : ClassBase
         ClassInfra classInfra;
         classInfra = this.ClassInfra;
 
-        ClassModule module;
-        module = this.Module;
-
         Table moduleTable;
         moduleTable = this.ModuleTable;
 
@@ -745,9 +742,6 @@ public class PortLoad : ClassBase
     {
         ListInfra listInfra;
         listInfra = this.ListInfra;
-
-        ClassModule module;
-        module = this.Module;
 
         Table classTable;
         classTable = this.ClassTable;
