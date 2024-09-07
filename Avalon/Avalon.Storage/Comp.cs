@@ -258,13 +258,13 @@ public class Comp : Any
         long dataCount;
         dataCount = k.LongLength;
 
-        long countA;
-        countA = dataCount / sizeof(uint);
+        long count;
+        count = dataCount / sizeof(uint);
 
         String a;
         a = new String();
         a.Value = k;
-        a.Count = countA;
+        a.Count = count;
         a.Init();
         return a;
     }
