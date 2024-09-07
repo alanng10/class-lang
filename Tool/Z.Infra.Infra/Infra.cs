@@ -24,28 +24,30 @@ public class Infra : Any
         this.StringValue = StringValue.This;
         this.Console = Console.This;
 
-        this.StringJoin = new StringJoin();
-        this.StringJoin.Init();
+        this.StringAdd = this.CreateStringAdd();
+
+        this.Write = this.CreateWrite();
+        this.WriteArgInt = this.CreateWriteArgInt();
+        this.WriteArgIntHex = this.CreateWriteArgIntHex();
+
+        this.CharLess = this.CreateCharLess();
+        this.TextForm = this.CreateCharForm();
+        this.TextLess = this.CreateTextLess();
+
+        this.TextA = this.CreateText();
+        this.TextB = this.CreateText();
+        this.TextC = this.CreateText();
+        this.TextD = this.CreateText();
+
+        this.StringDataA = this.CreateStringData();
+        this.StringDataB = this.CreateStringData();
+        this.StringDataC = this.CreateStringData();
+        this.StringDataD = this.CreateStringData();
+
+        this.Range = this.CreateInfraRange();
 
         this.NewLine = this.StringComp.CreateChar('\n', 1);
         this.Indent = this.StringComp.CreateChar(' ', 4);
-
-        this.TextNewLine = this.TextInfra.TextCreateStringData(this.NewLine, null);
-
-        this.CharLess = new LessInt();
-        this.CharLess.Init();
-
-        this.TextForm = new TextForm();
-        this.TextForm.Init();
-
-        this.TextLess = new TextLess();
-        this.TextLess.CharLess = this.CharLess;
-        this.TextLess.LiteForm = this.TextForm;
-        this.TextLess.RiteForm = this.TextForm;
-        this.TextLess.Init();
-
-        this.Range = new Range();
-        this.Range.Init();
         return true;
     }
 
@@ -58,46 +60,175 @@ public class Infra : Any
     public virtual StringComp StringComp { get; set; }
     public virtual StringValue StringValue { get; set; }
     public virtual Console Console { get; set; }
-    public virtual StringJoin StringJoin { get; set; }
+    public virtual StringAdd StringAdd { get; set; }
     public virtual TextLess TextLess { get; set; }
     public virtual LessInt CharLess { get; set; }
     public virtual TextForm TextForm { get; set; }
-    public virtual Range Range { get; set; }
+    public virtual InfraRange Range { get; set; }
+    public virtual Text TextA { get; set; }
+    public virtual Text TextB { get; set; }
+    public virtual Text TextC { get; set; }
+    public virtual Text TextD { get; set; }
+    public virtual StringData StringDataA { get; set; }
+    public virtual StringData StringDataB { get; set; }
+    public virtual StringData StringDataC { get; set; }
+    public virtual StringData StringDataD { get; set; }
+    public virtual Write Write { get; set; }
+    public virtual WriteArg WriteArgInt { get; set; }
+    public virtual WriteArg WriteArgIntHex { get; set; }
 
-    public virtual Infra Add(String a)
+    protected virtual StringAdd CreateStringAdd()
     {
-        this.InfraInfra.AddString(this.StringJoin, a);
-        return this;
+        StringAdd a;
+        a = new StringAdd();
+        a.Init();
+        return a;
     }
 
-    public virtual Infra AddS(string o)
+    protected virtual Write CreateWrite()
     {
-        return this.Add(this.S(o));
+        Write a;
+        a = new Write();
+        a.Init();
+        return a;
     }
 
-    public virtual Infra AddClear()
+    protected virtual WriteArg CreateWriteArgInt()
     {
-        this.StringJoin.Clear();
-        return this;
+        WriteArg a;
+        a = new WriteArg();
+        a.Init();
+        a.Kind = 1;
+        a.Base = 10;
+        a.AlignLeft = false;
+        a.FieldWidth = 1;
+        a.MaxWidth = -1;
+        return a;
     }
 
-    public virtual String AddResult()
+    protected virtual WriteArg CreateWriteArgIntHex()
     {
-        return this.StringJoin.Result();
+        WriteArg a;
+        a = new WriteArg();
+        a.Init();
+        a.Kind = 1;
+        a.Base = 16;
+        a.AlignLeft = false;
+        a.FieldWidth = 15;
+        a.MaxWidth = 15;
+        a.FillChar = '0';
+        return a;
     }
 
-    public virtual Infra AddIndent(long indent)
+
+    protected virtual LessInt CreateCharLess()
     {
-        long count;
-        count = indent;
-        long i;
-        i = 0;
-        while (i < count)
-        {
-            this.Add(this.Indent);
-            i = i + 1;
-        }
-        return this;
+        LessInt a;
+        a = new LessInt();
+        a.Init();
+        return a;
+    }
+
+    protected virtual TextForm CreateCharForm()
+    {
+        TextForm a;
+        a = new TextForm();
+        a.Init();
+        return a;
+    }
+
+    protected virtual TextLess CreateTextLess()
+    {
+        TextLess a;
+        a = new TextLess();
+        a.CharLess = this.CharLess;
+        a.LiteForm = this.TextForm;
+        a.RiteForm = this.TextForm;
+        a.Init();
+        return a;
+    }
+
+    protected virtual Text CreateText()
+    {
+        Text a;
+        a = new Text();
+        a.Init();
+        a.Range = new InfraRange();
+        a.Range.Init();
+        return a;
+    }
+
+    protected virtual StringData CreateStringData()
+    {
+        StringData a;
+        a = new StringData();
+        a.Init();
+        return a;
+    }
+
+    protected virtual InfraRange CreateInfraRange()
+    {
+        InfraRange a;
+        a = new InfraRange();
+        a.Init();
+        return a;
+    }
+    
+    public virtual Text TA(String o)
+    {
+        return this.TextString(o, this.TextA, this.StringDataA);
+    }
+
+    public virtual Text TB(String o)
+    {
+        return this.TextString(o, this.TextB, this.StringDataB);
+    }
+
+    public virtual Text TC(String o)
+    {
+        return this.TextString(o, this.TextC, this.StringDataC);
+    }
+
+    public virtual Text TD(String o)
+    {
+        return this.TextString(o, this.TextD, this.StringDataD);
+    }
+
+    public virtual Text TextString(String o, Text text, StringData data)
+    {
+        data.ValueString = o;
+
+        text.Data = data;
+        text.Range.Index = 0;
+        text.Range.Count = this.StringCount(o);
+        return text;
+    }
+
+    public virtual String IntString(long n)
+    {
+        return this.IntStringArg(n, this.WriteArgInt);
+    }
+
+    public virtual String IntStringHex(long n)
+    {
+        return this.IntStringArg(n, this.WriteArgIntHex);
+    }
+
+    public virtual String IntStringArg(long n, WriteArg arg)
+    {
+        arg.Value.Int = n;
+
+        this.Write.ExecuteArgCount(arg);
+
+        Text aa;
+        aa = this.TextInfra.TextCreate(arg.Count);
+
+        this.Write.ExecuteArgResult(arg, aa);
+
+        String a;
+        a = this.StringCreate(aa);
+
+        return a;
     }
 
     public virtual Table TableCreateStringLess()
@@ -301,8 +432,8 @@ public class Infra : Any
 
     public virtual Text CreateText(Data data, long index, long count)
     {
-        Range range;
-        range = new Range();
+        InfraRange range;
+        range = new InfraRange();
         range.Init();
         range.Index = index;
         range.Count = count;
@@ -349,8 +480,56 @@ public class Infra : Any
         return u;
     }
 
+    public virtual Infra AddIndent(long indent)
+    {
+        long count;
+        count = indent;
+        long i;
+        i = 0;
+        while (i < count)
+        {
+            this.Add(this.Indent);
+            i = i + 1;
+        }
+        return this;
+    }
+
+    public virtual Infra Add(String a)
+    {
+        this.InfraInfra.AddString(this.StringAdd, a);
+        return this;
+    }
+
+    public virtual Infra AddChar(long n)
+    {
+        this.StringAdd.Execute(n);
+        return this;
+    }
+
+    public virtual Infra AddLine()
+    {
+        this.Add(this.TextInfra.NewLine);
+        return this;
+    }
+
+    public virtual Infra AddS(string o)
+    {
+        return this.Add(this.S(o));
+    }
+
+    public virtual Infra AddClear()
+    {
+        this.StringAdd.Clear();
+        return this;
+    }
+
+    public virtual String AddResult()
+    {
+        return this.StringAdd.Result();
+    }
+
     public virtual String S(string o)
     {
-        return this.StringValue.Execute(o);
+        return this.TextInfra.S(o);
     }
 }
