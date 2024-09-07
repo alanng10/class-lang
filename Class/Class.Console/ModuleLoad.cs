@@ -7,13 +7,8 @@ public class ModuleLoad : ClassBase
         base.Init();
         this.CountList = CountList.This;
 
-        this.StringData = new StringData();
-        this.StringData.Init();
-
-        this.Text = new Text();
-        this.Text.Data = this.StringData;
-        this.Text.Range = new InfraRange();
-        this.Text.Range.Init();
+        this.SSystemDotInfra = this.S("System.Infra");
+        this.SAny = this.S("Any");
         return true;
     }
 
@@ -28,6 +23,8 @@ public class ModuleLoad : ClassBase
     protected virtual Array ClassArray { get; set; }
     protected virtual Array ImportArray { get; set; }
     protected virtual ClassClass AnyClass { get; set; }
+    protected virtual String SSystemDotInfra { get; set; }
+    protected virtual String SAny { get; set; }
 
     public virtual bool Execute()
     {
@@ -129,16 +126,16 @@ public class ModuleLoad : ClassBase
 
         Array array;
         array = this.Binary.Class;
-        int count;
+        long count;
         count = array.Count;
-        int i;
+        long i;
         i = 0;
         while (i < count)
         {
             BinaryClass o;
             o = (BinaryClass)array.GetAt(i);
 
-            string name;
+            String name;
             name = o.Name;
 
             if (!this.CheckName(name))
@@ -165,10 +162,10 @@ public class ModuleLoad : ClassBase
             i = i + 1;
         }
 
-        if (this.Module.Ref.Name == "System.Infra")
+        if (this.TextSame(this.TA(this.Module.Ref.Name), this.TB(this.SSystemDotInfra)))
         {
             ClassClass oo;
-            oo = (ClassClass)classTable.Get("Any");
+            oo = (ClassClass)classTable.Get(this.SAny);
             if (oo == null)
             {
                 this.Status = 12;
