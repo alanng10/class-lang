@@ -48,13 +48,13 @@ public class StringLess : InfraLess
         i = 0;
         while (i < count)
         {
-            uint oca;
-            uint ocb;
-            oca = (uint)stringComp.Char(liteString, i);
-            ocb = (uint)stringComp.Char(riteString, i);
+            long oca;
+            long ocb;
+            oca = stringComp.Char(liteString, i);
+            ocb = stringComp.Char(riteString, i);
 
-            oca = (uint)liteCharForm.Execute(oca);
-            ocb = (uint)riteCharForm.Execute(ocb);
+            oca = liteCharForm.Execute(oca);
+            ocb = riteCharForm.Execute(ocb);
 
             long oo;
             oo = charLess.Execute(oca, ocb);
