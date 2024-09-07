@@ -245,16 +245,16 @@ public class TraverseClassPathGen : TraverseGen
             h.Init();
 
             StringJoin hh;
-            hh = this.ToolInfra.StringJoin;
+            hh = this.ToolInfra.StringAdd;
 
-            this.ToolInfra.StringJoin = h;
+            this.ToolInfra.StringAdd = h;
 
             this.AddClear().AddS("Node").Add(className);
 
             String a;
             a = this.AddResult();
 
-            this.ToolInfra.StringJoin = hh;
+            this.ToolInfra.StringAdd = hh;
 
             return a;
             
