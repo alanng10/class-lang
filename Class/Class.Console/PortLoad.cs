@@ -596,7 +596,7 @@ public class PortLoad : ClassBase
             moduleLoad.ModuleRef = moduleRef;
             moduleLoad.Execute();
 
-            int o;
+            long o;
             o = moduleLoad.Status;
             if (!(o == 0))
             {
@@ -608,6 +608,7 @@ public class PortLoad : ClassBase
             a = moduleLoad.Module;
 
             moduleLoad.Module = null;
+            moduleLoad.ModuleRef = null;
 
             listInfra.TableAdd(table, a.Ref, a);
         }
