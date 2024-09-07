@@ -47,8 +47,8 @@ public class Infra : Any
     public virtual String Zero { get; set; }
     public virtual String PosAddSign { get; set; }
     public virtual String PosSubSign { get; set; }
-    public virtual CharForm NiteCharForm { get; set; }
-    public virtual CharForm SiteCharForm { get; set; }
+    public virtual Form NiteCharForm { get; set; }
+    public virtual Form SiteCharForm { get; set; }
     protected virtual InfraInfra InfraInfra { get; set; }
     private CharFormInfra CharFormInfra { get; set; }
     protected virtual StringComp StringComp { get; set; }
@@ -629,7 +629,7 @@ public class Infra : Any
         return a;
     }
 
-    public virtual bool Form(Text dest, Text source, CharForm form)
+    public virtual bool Form(Text dest, Text source, Form form)
     {
         if (!this.ValidRange(dest))
         {
