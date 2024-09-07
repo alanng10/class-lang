@@ -103,7 +103,7 @@ public class Infra : Any
     public virtual Table TableCreateStringLess()
     {
         StringLess less;
-        less = this.InfraInfra.StringLessCreate();
+        less = this.TextInfra.StringLessCreate();
 
         Table a;
         a = new Table();
