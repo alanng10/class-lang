@@ -10,14 +10,6 @@ public class PortLoad : ClassBase
         this.StoragePathCheck = new StoragePathCheck();
         this.StoragePathCheck.Init();
 
-        this.TextA = this.CreateText();
-        this.TextB = this.CreateText();
-
-        this.StringDataA = new StringData();
-        this.StringDataA.Init();
-        this.StringDataB = new StringData();
-        this.StringDataB.Init();
-
         this.TableIter = new TableIter();
         this.TableIter.Init();
 
@@ -46,16 +38,6 @@ public class PortLoad : ClassBase
     protected virtual String SystemModulePre { get; set; }
     protected virtual String ClassModuleSingle { get; set; }
     protected virtual String ClassModulePre { get; set; }
-
-    private Text CreateText()
-    {
-        Text a;
-        a = new Text();
-        a.Init();
-        a.Range = new InfraRange();
-        a.Range.Init();
-        return a;
-    }
 
     public virtual bool Execute()
     {
