@@ -5,15 +5,15 @@ public class AlphaNiteForm : Form
     public override bool Init()
     {
         base.Init();
-        this.CharFormInfra = FormInfra.This;
+        this.FormInfra = FormInfra.This;
         return true;
     }
 
-    internal virtual FormInfra CharFormInfra { get; set; }
+    internal virtual FormInfra FormInfra { get; set; }
 
     public override long Execute(long n)
     {
-        if (this.CharFormInfra.Alpha(n, false))
+        if (this.FormInfra.Alpha(n, false))
         {
             n = n - 'a' + 'A';
         }
