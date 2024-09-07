@@ -55,7 +55,9 @@ public class Entry : Any
         ThreadThread o;
         o = new ThreadThread();
         o.InitMainThread();
+
         
+
         this.TextStringValue = TextStringValue.This;
 
         this.ArrayArg();

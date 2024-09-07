@@ -11,6 +11,7 @@
         <ProjectReference Include="../Avalon.List/Avalon.List.csproj" />
         <ProjectReference Include="../Avalon.Text/Avalon.Text.csproj" />
         <ProjectReference Include="../Avalon.Thread/Avalon.Thread.csproj" />
+        <ProjectReference Include="../Avalon.Storage/Avalon.Storage.csproj" />
     </ItemGroup>
 
 </Project>
