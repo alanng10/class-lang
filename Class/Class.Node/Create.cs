@@ -4304,7 +4304,7 @@ public class Create : InfraCreate
 
     protected virtual Token TokenMatchRightBrace(Token result, Range range)
     {
-        return this.TokenMatchRightToken(result, this.Limit.BraceLite.Text, this.Limit.BraceRite.Text, range);
+        return this.TokenMatchRiteToken(result, this.Limit.BraceLite.Text, this.Limit.BraceRite.Text, range);
     }
 
     protected virtual Token TokenMatchLeftBraceRound(Token result, Range range)
@@ -4314,7 +4314,7 @@ public class Create : InfraCreate
 
     protected virtual Token TokenMatchRightBraceRound(Token result, Range range)
     {
-        return this.TokenMatchRightToken(result, this.Limit.BraceRoundLite.Text, this.Limit.BraceRoundRite.Text, range);
+        return this.TokenMatchRiteToken(result, this.Limit.BraceRoundLite.Text, this.Limit.BraceRoundRite.Text, range);
     }
 
     protected virtual Token TokenMatchLiteToken(Token result, String liteToken, String riteToken, Range range)
@@ -4373,7 +4373,7 @@ public class Create : InfraCreate
         return result;
     }
 
-    protected virtual Token TokenMatchRightToken(Token result, String leftToken, String rightToken, Range range)
+    protected virtual Token TokenMatchRiteToken(Token result, String leftToken, String rightToken, Range range)
     {
         long start;
         long end;
