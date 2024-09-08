@@ -1,6 +1,6 @@
 class ConsoleInn : Inn
 {
-    field probate ConsoleIntern Intern { get { return data; } set { data : value; } }
+    field pronate ConsoleIntern Intern { get { return data; } set { data : value; } }
 
     maide prusate String Read()
     {

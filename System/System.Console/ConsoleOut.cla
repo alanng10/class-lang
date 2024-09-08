@@ -1,8 +1,8 @@
 class ConsoleOut : Out
 {
-    field probate ConsoleIntern Intern { get { return data; } set { data : value; } }
+    field pronate ConsoleIntern Intern { get { return data; } set { data : value; } }
 
-    field probate Int Stream { get { return data; } set { data : value; } }
+    field pronate Int Stream { get { return data; } set { data : value; } }
 
     maide prusate Bool Write(var String o)
     {
