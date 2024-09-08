@@ -32,7 +32,7 @@ public class Base : Any
 
         this.Range = this.CreateInfraRange();
 
-        this.Indent = this.StringComp.CreateChar(' ', 4);
+        this.Indent = this.CreateIndent();
         return true;
     }
 
@@ -133,6 +133,11 @@ public class Base : Any
         a = new InfraRange();
         a.Init();
         return a;
+    }
+
+    protected virtual String CreateIndent()
+    {
+        return this.StringComp.CreateChar(' ', 4);
     }
 
     public virtual Text TA(String o)
