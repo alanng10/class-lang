@@ -1,27 +1,27 @@
 AndOperate
 {
-    Left : OrnOperate
+    Lite : OrnOperate
            {
-               Left : ValueOperate
+               Lite : ValueOperate
                       {
                           Value : BoolValue
                                   {
                                       Value : true,
                                   },
                       },
-               Right : ValueOperate
+               Rite : ValueOperate
+                      {
+                          Value : BoolValue
+                                  {
+                                      Value : false,
+                                  },
+                      },
+           },
+    Rite : ValueOperate
+           {
+               Value : BoolValue
                        {
-                           Value : BoolValue
-                                   {
-                                       Value : false,
-                                   },
+                           Value : true,
                        },
            },
-    Right : ValueOperate
-            {
-                Value : BoolValue
-                        {
-                            Value : true,
-                        },
-            },
 },
