@@ -14,14 +14,6 @@ class Infra : Any
         
         var StringComp stringComp;
         stringComp : this.StringComp;
-        this.LetterUpperA : "A";
-        this.LetterUpperZ : "Z";
-        this.LetterLowerA : "a";
-        this.LetterLowerZ : "z";
-        this.LetterUpperF : "F";
-        this.LetterLowerF : "f";
-        this.Digit0 : "0";
-        this.Digit9 : "9";
         return true;
     }
 
@@ -29,60 +21,52 @@ class Infra : Any
     field prusate String PathCombine { get { return data; } set { data : value; } }
     field prusate String BoolFalseString { get { return data; } set { data : value; } }
     field prusate String BoolTrueString { get { return data; } set { data : value; } }
-    field prusate String LetterUpperA { get { return data; } set { data : value; } }
-    field prusate String LetterUpperZ { get { return data; } set { data : value; } }
-    field prusate String LetterLowerA { get { return data; } set { data : value; } }
-    field prusate String LetterLowerZ { get { return data; } set { data : value; } }
-    field prusate String LetterUpperF { get { return data; } set { data : value; } }
-    field prusate String LetterLowerF { get { return data; } set { data : value; } }
-    field prusate String Digit0 { get { return data; } set { data : value; } }
-    field prusate String Digit9 { get { return data; } set { data : value; } }
     field precate InfraInfra InfraInfra { get { return data; } set { data : value; } }
     field precate StringComp StringComp { get { return data; } set { data : value; } }
     field precate Code Code { get { return data; } set { data : value; } }
 
-    maide prusate Bool IsDigit(var Int o)
+    maide prusate Bool Digit(var Int o)
     {
-        return this.IsInRange(this.StringComp.Char(this.Digit0, 0), this.StringComp.Char(this.Digit9, 0), o);
+        return this.Range(this.StringComp.Char("0", 0), this.StringComp.Char("9", 0), o);
     }
 
-    maide prusate Bool IsHexLetter(var Int o, var Bool upperCase)
-    {
-        var Int first;
-        var Int last;
-
-        inf (!upperCase)
-        {
-            first : this.StringComp.Char(this.LetterLowerA, 0);
-            last : this.StringComp.Char(this.LetterLowerF, 0);
-        }
-        inf (upperCase)
-        {
-            first : this.StringComp.Char(this.LetterUpperA, 0);
-            last : this.StringComp.Char(this.LetterUpperF, 0);
-        }
-        return this.IsInRange(first, last, o);
-    }
-
-    maide prusate Bool IsLetter(var Int o, var Bool upperCase)
+    maide prusate Bool HexAlpha(var Int o, var Bool upperCase)
     {
         var Int first;
         var Int last;
 
         inf (!upperCase)
         {
-            first : this.StringComp.Char(this.LetterLowerA, 0);
-            last : this.StringComp.Char(this.LetterLowerZ, 0);
+            first : this.StringComp.Char("a", 0);
+            last : this.StringComp.Char("f", 0);
         }
         inf (upperCase)
         {
-            first : this.StringComp.Char(this.LetterUpperA, 0);
-            last : this.StringComp.Char(this.LetterUpperZ, 0);
+            first : this.StringComp.Char("A", 0);
+            last : this.StringComp.Char("F", 0);
         }
-        return this.IsInRange(first, last, o);
+        return this.Range(first, last, o);
     }
 
-    maide prusate Bool IsInRange(var Int first, var Int last, var Int o)
+    maide prusate Bool Alpha(var Int o, var Bool upperCase)
+    {
+        var Int first;
+        var Int last;
+
+        inf (!upperCase)
+        {
+            first : this.StringComp.Char("a", 0);
+            last : this.StringComp.Char("z", 0);
+        }
+        inf (upperCase)
+        {
+            first : this.StringComp.Char("A", 0);
+            last : this.StringComp.Char("Z", 0);
+        }
+        return this.Range(first, last, o);
+    }
+
+    maide prusate Bool Range(var Int first, var Int last, var Int o)
     {
         inf (last < first)
         {
