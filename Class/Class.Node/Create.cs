@@ -4373,7 +4373,7 @@ public class Create : InfraCreate
         return result;
     }
 
-    protected virtual Token TokenMatchRiteToken(Token result, String leftToken, String rightToken, Range range)
+    protected virtual Token TokenMatchRiteToken(Token result, String liteToken, String rightToken, Range range)
     {
         long start;
         long end;
@@ -4398,7 +4398,7 @@ public class Create : InfraCreate
             Text ka;
             ka = this.TAToken(token);
 
-            if (this.TextSame(ka, this.TB(leftToken)))
+            if (this.TextSame(ka, this.TB(liteToken)))
             {
                 openCount = openCount - 1;
                 if (openCount == 0)
