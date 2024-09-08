@@ -1378,7 +1378,7 @@ public class Create : InfraCreate
 
         Text text;
         text = this.TAToken(token);
-        
+
         long value;
         value = this.TextIntParse.Execute(text, 10, false, null);
         if (value == -1)
