@@ -6,11 +6,6 @@ public class Create : InfraCreate
     {
         base.Init();
 
-        this.InfraInfra = InfraInfra.This;
-        this.TextInfra = TextInfra.This;
-        this.ListInfra = ListInfra.This;
-        this.ClassInfra = ClassInfra.This;
-        this.StringComp = StringComp.This;
         this.Index = IndexList.This;
         this.Limit = LimitList.This;
         this.ErrorKind = ErrorKindList.This;
@@ -20,10 +15,6 @@ public class Create : InfraCreate
         this.KindOperate = this.CreateKindCreateOperate();
         this.SetOperate = this.CreateSetCreateOperate();
         this.SetArg = this.CreateCreateSetArg();
-
-        this.CharLess = this.CreateCharLess();
-        this.TextForm = this.CreateTextForm();
-        this.TextLess = this.CreateTextLess();
 
         this.NameCheck = this.CreateNameCheck();
         this.StringValueWrite = this.CreateStringValueWrite();
@@ -43,10 +34,6 @@ public class Create : InfraCreate
         this.TokenH = this.CreateToken();
         this.TokenI = this.CreateToken();
 
-        this.TextA = this.CreateText();
-        this.TextB = this.CreateText();
-        this.StringData = this.CreateStringData();
-
         this.InitListItemState();
 
         this.InitNodeState();
@@ -62,11 +49,6 @@ public class Create : InfraCreate
     public virtual CreateArg Arg { get; set; }
     public virtual CreateSetArg SetArg { get; set; }
 
-    protected virtual InfraInfra InfraInfra { get; set; }
-    protected virtual ListInfra ListInfra { get; set; }
-    protected virtual TextInfra TextInfra { get; set; }
-    protected virtual ClassInfra ClassInfra { get; set; }
-    protected virtual StringComp StringComp { get; set; }
     protected virtual IndexList Index { get; set; }
     protected virtual LimitList Limit { get; set; }
     protected virtual ErrorKindList ErrorKind { get; set; }
@@ -100,12 +82,6 @@ public class Create : InfraCreate
     protected virtual Token TokenH { get; set; }
     protected virtual Token TokenI { get; set; }
 
-    protected virtual TextLess TextLess { get; set; }
-    protected virtual LessInt CharLess { get; set; }
-    protected virtual TextForm TextForm { get; set; }
-    protected virtual Text TextA { get; set; }
-    protected virtual Text TextB { get; set; }
-    protected virtual StringData StringData { get; set; }
     protected virtual TextIntParse TextIntParse { get; set; }
 
     protected virtual CountCreateOperate CountOperate { get; set; }
@@ -115,41 +91,14 @@ public class Create : InfraCreate
     protected virtual NameCheck NameCheck { get; set; }
     public virtual StringValueWrite StringValueWrite { get; set; }
 
-    protected virtual LessInt CreateCharLess()
-    {
-        LessInt a;
-        a = new LessInt();
-        a.Init();
-        return a;
-    }
-
-    protected virtual TextForm CreateTextForm()
-    {
-        TextForm a;
-        a = new TextForm();
-        a.Init();
-        return a;
-    }
-
-    protected virtual TextLess CreateTextLess()
-    {
-        TextLess a;
-        a = new TextLess();
-        a.CharLess = this.CharLess;
-        a.LiteForm = this.TextForm;
-        a.RiteForm = this.TextForm;
-        a.Init();
-        return a;
-    }
-
     protected virtual NameCheck CreateNameCheck()
     {
         NameCheck a;
         a = new NameCheck();
         a.Init();
-        a.TextLess = this.TextLess;
+        a.TextLess = this.TLess;
         a.CharLess = this.CharLess;
-        a.CharForm = this.TextForm;
+        a.CharForm = this.TForm;
         return a;
     }
 
@@ -219,24 +168,6 @@ public class Create : InfraCreate
         a.Init();
         a.Range = new Range();
         a.Range.Init();
-        return a;
-    }
-
-    protected virtual Text CreateText()
-    {
-        Text a;
-        a = new Text();
-        a.Init();
-        a.Range = new InfraRange();
-        a.Range.Init();
-        return a;
-    }
-
-    protected virtual StringData CreateStringData()
-    {
-        StringData a;
-        a = new StringData();
-        a.Init();
         return a;
     }
 
