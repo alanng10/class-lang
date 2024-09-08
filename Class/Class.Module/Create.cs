@@ -5,10 +5,6 @@ public class Create : InfraCreate
     public override bool Init()
     {
         base.Init();
-        this.ListInfra = ListInfra.This;
-        this.TextInfra = TextInfra.This;
-        this.ClassInfra = ClassInfra.This;
-        this.TextStringValue = TextStringValue.This;
 
         this.ErrorKind = this.CreateErrorKindList();
         this.Count = this.CreateCountList();
@@ -32,10 +28,6 @@ public class Create : InfraCreate
     public virtual ErrorKindList ErrorKind { get; set; }
     public virtual CountList Count { get; set; }
     public virtual ClassClass NullClass { get; set; }
-    protected virtual ListInfra ListInfra { get; set; }
-    protected virtual TextInfra TextInfra { get; set; }
-    protected virtual ClassInfra ClassInfra { get; set; }
-    protected virtual TextStringValue TextStringValue { get; set; }
     protected virtual List ErrorList { get; set; }
     protected virtual Table BaseTable { get; set; }
     protected virtual Table RangeTable { get; set; }
@@ -939,10 +931,5 @@ public class Create : InfraCreate
 
         this.ErrorList.Add(a);
         return true;
-    }
-
-    private String S(string o)
-    {
-        return this.TextStringValue.Execute(o);
     }
 }
