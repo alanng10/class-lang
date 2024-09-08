@@ -64,7 +64,7 @@ public class Create : InfraCreate
 
         this.Operate = this.CountOperate;
 
-        this.ArgClearIndex();
+        this.ArgIndexClear();
         this.ExecuteStage();
 
         arg.TokenArray = this.ListInfra.ArrayCreate(arg.TokenIndex);
@@ -76,14 +76,14 @@ public class Create : InfraCreate
 
         this.Operate = this.SetOperate;
 
-        this.ArgClearIndex();
+        this.ArgIndexClear();
         this.ExecuteStage();
 
         this.Arg = null;
         return true;
     }
 
-    public virtual bool ArgClearIndex()
+    public virtual bool ArgIndexClear()
     {
         this.Arg.TokenIndex = 0;
         this.Arg.InfoIndex = 0;
