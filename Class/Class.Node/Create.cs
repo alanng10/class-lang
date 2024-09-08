@@ -1368,17 +1368,16 @@ public class Create : InfraCreate
             return null;
         }
 
-        TokenToken aa;
-        aa = this.TokenToken(start);
+        TokenToken token;
+        token = this.TokenToken(start);
 
-        if (!this.IsIntValue(aa))
+        if (!this.IsIntValue(token))
         {
             return null;
         }
 
         Text text;
-        text = this.TextA;
-        this.TextTokenA(text, aa);
+        text = this.TAToken(token);
         
         long value;
         value = this.TextIntParse.Execute(text, 10, false, null);
