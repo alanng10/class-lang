@@ -1314,15 +1314,12 @@ public class Create : InfraCreate
         TextInfra textInfra;
         textInfra = this.TextInfra;
 
-        TextLess less;
-        less = this.TextLess;
         TokenToken aa;
         aa = this.TokenToken(start);
+
         Text text;
         text = this.TextA;
         this.TextGet(text, aa);
-        Text textB;
-        textB = this.TextB;
 
         bool value;
         value = false;
@@ -1331,8 +1328,7 @@ public class Create : InfraCreate
         b = false;
         if (!b)
         {
-            this.TextStringGet(textB, this.Index.True.Text);
-            if (textInfra.Same(text, textB, less))
+            if (this.TextSame(text, this.TB(this.Index.True.Text)))
             {
                 value = true;
                 b = true;
@@ -1340,8 +1336,7 @@ public class Create : InfraCreate
         }
         if (!b)
         {
-            this.TextStringGet(textB, this.Index.False.Text);
-            if (textInfra.Same(text, textB, less))
+            if (this.TextSame(text, this.TB(this.Index.False.Text)))
             {
                 value = false;
                 b = true;
@@ -3947,18 +3942,6 @@ public class Create : InfraCreate
         text.Data = line.Data;
         text.Range.Index = line.Range.Index + range.Index;
         text.Range.Count = range.Count;
-        return true;
-    }
-
-    protected virtual bool TextStringGet(Text text, String o)
-    {
-        StringData d;
-        d = this.StringData;
-        d.ValueString = o;
-
-        text.Data = d;
-        text.Range.Index = 0;
-        text.Range.Count = this.StringComp.Count(o);
         return true;
     }
 
