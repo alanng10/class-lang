@@ -3950,9 +3950,7 @@ public class Create : InfraCreate
 
     protected virtual bool IsName(TokenToken token)
     {
-        this.TextTokenA(this.TextA, token);
-
-        return this.NameCheck.IsName(this.TextA);
+        return this.NameCheck.IsName(this.TAToken(token));
     }
 
     public virtual bool NodeInfo(Node node, long start, long end)
