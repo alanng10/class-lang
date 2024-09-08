@@ -285,6 +285,11 @@ public class Base : Any
         return this.TextInfra.Index(text, other, this.TextLess);
     }
 
+    public virtual long TextLastIndex(Text text, Text other)
+    {
+        return this.TextInfra.LastIndex(text, other, this.TextLess);
+    }
+
     public virtual Array TextLimit(Text text, Text delimit)
     {
         return this.TextInfra.Limit(text, delimit, this.TextLess);
