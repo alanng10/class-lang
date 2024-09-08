@@ -176,7 +176,7 @@ public class Create : InfraCreate
                     this.Row = row;
                     range.Index = col;
                     range.Count = classInfra.Count(col, colCount);
-                    this.AddComment();
+                    this.AddInfo();
 
                     col = colCount;
                     this.Reset();
@@ -414,7 +414,7 @@ public class Create : InfraCreate
         return true;
     }
 
-    protected virtual bool AddComment()
+    protected virtual bool AddInfo()
     {
         this.Operate.ExecuteComment();
         return true;
