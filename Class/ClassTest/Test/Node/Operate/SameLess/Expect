@@ -1,27 +1,27 @@
-EqualOperate
+SameOperate
 {
-    Left : LessOperate
+    Lite : LessOperate
            {
-               Left : ValueOperate
+               Lite : ValueOperate
                       {
                           Value : IntValue
                                   {
                                       Value : 1,
                                   },
                       },
-               Right : ValueOperate
+               Rite : ValueOperate
+                      {
+                          Value : IntValue
+                                  {
+                                      Value : 2,
+                                  },
+                      },
+           },
+    Rite : ValueOperate
+           {
+               Value : BoolValue
                        {
-                           Value : IntValue
-                                   {
-                                       Value : 2,
-                                   },
+                           Value : true,
                        },
            },
-    Right : ValueOperate
-            {
-                Value : BoolValue
-                        {
-                            Value : true,
-                        },
-            },
 },
