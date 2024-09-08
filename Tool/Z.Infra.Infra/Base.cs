@@ -51,7 +51,7 @@ public class Base : Any
 
     public virtual Text Replace(Text text, string delimit, String join)
     {
-        return this.TextReplace(text, this.TextCreate(this.S(delimit)), this.TextCreate(join));
+        return this.TextReplace(text, this.TB(this.S(delimit)), this.TC(join));
     }
 
     public virtual long StringCount(String o)
