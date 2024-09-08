@@ -4299,7 +4299,7 @@ public class Create : InfraCreate
 
     protected virtual Token TokenMatchLeftBrace(Token result, Range range)
     {
-        return this.TokenMatchLeftToken(result, this.Limit.BraceLite.Text, this.Limit.BraceRite.Text, range);
+        return this.TokenMatchLiteToken(result, this.Limit.BraceLite.Text, this.Limit.BraceRite.Text, range);
     }
 
     protected virtual Token TokenMatchRightBrace(Token result, Range range)
@@ -4309,7 +4309,7 @@ public class Create : InfraCreate
 
     protected virtual Token TokenMatchLeftBraceRound(Token result, Range range)
     {
-        return this.TokenMatchLeftToken(result, this.Limit.BraceRoundLite.Text, this.Limit.BraceRoundRite.Text, range);
+        return this.TokenMatchLiteToken(result, this.Limit.BraceRoundLite.Text, this.Limit.BraceRoundRite.Text, range);
     }
 
     protected virtual Token TokenMatchRightBraceRound(Token result, Range range)
@@ -4317,7 +4317,7 @@ public class Create : InfraCreate
         return this.TokenMatchRightToken(result, this.Limit.BraceRoundLite.Text, this.Limit.BraceRoundRite.Text, range);
     }
 
-    protected virtual Token TokenMatchLeftToken(Token result, String liteToken, String riteToken, Range range)
+    protected virtual Token TokenMatchLiteToken(Token result, String liteToken, String riteToken, Range range)
     {
         long start;
         long end;
