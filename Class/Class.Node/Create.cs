@@ -3933,7 +3933,7 @@ public class Create : InfraCreate
         return this.ClassInfra.Count(start, end);
     }
 
-    protected virtual Text TTokenA(TokenToken token)
+    protected virtual Text TAToken(TokenToken token)
     {
         Text line;
         line = (Text)this.SourceText.GetAt(token.Row);
@@ -4246,7 +4246,7 @@ public class Create : InfraCreate
         TokenToken aa;
         aa = this.TokenToken(index);
 
-        if (this.TextSame(this.TTokenA(aa), this.TB(limit.BraceRoundLite.Text)))
+        if (this.TextSame(this.TAToken(aa), this.TB(limit.BraceRoundLite.Text)))
         {
             Token rightBracket;
             rightBracket = this.TokenMatchLeftBracket(this.TokenA, this.Range(this.RangeA, index + 1, end));
@@ -4256,7 +4256,7 @@ public class Create : InfraCreate
             }
         }
 
-        if (this.TextSame(this.TTokenA(aa), this.TB(limit.BraceLite.Text)))
+        if (this.TextSame(this.TAToken(aa), this.TB(limit.BraceLite.Text)))
         {
             Token rightBrace;
             rightBrace = this.TokenMatchLeftBrace(this.TokenA, this.Range(this.RangeA, index + 1, end));
