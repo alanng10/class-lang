@@ -81,5 +81,5 @@ class Brush : Any
     field prusate BrushCap Cap { get { return data; } set { data : value; } }
     field prusate BrushJoin Join { get { return data; } set { data : value; } }
     field private Extern Extern { get { return data; } set { data : value; } }
-    field probate Int Intern { get { return data; } set { data : value; } }    
+    field pronate Int Intern { get { return data; } set { data : value; } }    
 }

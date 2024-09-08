@@ -60,5 +60,5 @@ class Gradient : Any
     field private InternIntern InternIntern { get { return data; } set { data : value; } }
     field private Extern Extern { get { return data; } set { data : value; } }
     field precate GradientKindList KindList { get { return data; } set { data : value; } }
-    field probate Int Intern { get { return data; } set { data : value; } }
+    field pronate Int Intern { get { return data; } set { data : value; } }
 }

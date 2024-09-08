@@ -67,6 +67,6 @@ class Face : Any
 
     field private Extern Extern { get { return data; } set { data : value; } }
     field private InternInfra InternInfra { get { return data; } set { data : value; } }
-    field probate Int Intern { get { return data; } set { data : value; } }
+    field pronate Int Intern { get { return data; } set { data : value; } }
     field private Int InternFamily { get { return data; } set { data : value; } }
 }
