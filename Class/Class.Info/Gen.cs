@@ -171,7 +171,7 @@ public class Gen : ClassBase
         oa = textInfra.TextCreateStringData(newLine, null);
 
         long u;
-        u = this.TextInfra.Index(o, oa, this.TextLess);
+        u = this.TextIndex(o, oa);
         if (u < 0)
         {
             return false;
