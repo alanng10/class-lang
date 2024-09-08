@@ -193,38 +193,33 @@ public class Base : Any
         arg.MaxWidth = maxWidth;
         arg.FillChar = fillChar;
 
-        this.Write.ExecuteArgCount(arg);
-
-        Text aa;
-        aa = this.TextInfra.TextCreate(arg.Count);
-
-        this.Write.ExecuteArgResult(arg, aa);
-
-        String a;
-        a = this.StringCreate(aa);
-
-        return a;
+        return this.StringWrite();
     }
 
-    public virtual String StringTextArg(String o, bool alignLeft, long fieldWidth, long maxWidth, long fillChar)
+    public virtual String StringTextArg(Text text, bool alignLeft, long fieldWidth, long maxWidth, long fillChar)
     {
         WriteArg arg;
         arg = this.WriteArg;
 
         arg.Kind = 2;
-        arg.Value.Any = this.TA(o);
+        arg.Value.Any = text;
         arg.Base = 0;
         arg.AlignLeft = alignLeft;
         arg.FieldWidth = fieldWidth;
         arg.MaxWidth = maxWidth;
         arg.FillChar = fillChar;
 
-        this.Write.ExecuteArgCount(arg);
+        return this.StringWrite();
+    }
+
+    public virtual String StringWrite()
+    {
+        this.Write.ExecuteArgCount(this.WriteArg);
 
         Text aa;
-        aa = this.TextInfra.TextCreate(arg.Count);
+        aa = this.TextInfra.TextCreate(this.WriteArg.Count);
 
-        this.Write.ExecuteArgResult(arg, aa);
+        this.Write.ExecuteArgResult(this.WriteArg, aa);
 
         String a;
         a = this.StringCreate(aa);
