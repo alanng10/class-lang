@@ -1,27 +1,27 @@
 AddOperate
 {
-    Left : SubOperate
+    Lite : SubOperate
            {
-               Left : ValueOperate
+               Lite : ValueOperate
                       {
                           Value : IntValue
                                   {
                                       Value : 3,
                                   },
                       },
-               Right : ValueOperate
+               Rite : ValueOperate
+                      {
+                          Value : IntValue
+                                  {
+                                      Value : 1,
+                                  },
+                      },
+           },
+    Rite : ValueOperate
+           {
+               Value : IntValue
                        {
-                           Value : IntValue
-                                   {
-                                       Value : 1,
-                                   },
+                           Value : 2,
                        },
            },
-    Right : ValueOperate
-            {
-                Value : IntValue
-                        {
-                            Value : 2,
-                        },
-            },
 },
