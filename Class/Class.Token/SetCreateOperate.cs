@@ -6,11 +6,13 @@ public class SetCreateOperate : CreateOperate
 
     public override bool ExecuteToken()
     {
+        CreateArg arg;
+        arg = this.Create.Arg;
         long index;
-        index = this.Create.TokenIndex;
+        index = arg.TokenIndex;
 
         Token token;
-        token = (Token)this.Create.TokenArray.GetAt(index);
+        token = (Token)arg.TokenArray.GetAt(index);
         token.Row = this.Create.Row;
 
         Range aa;
@@ -23,17 +25,19 @@ public class SetCreateOperate : CreateOperate
 
         index = index + 1;
 
-        this.Create.TokenIndex = index;
+        arg.TokenIndex = index;
         return true;
     }
 
     public override bool ExecuteInfo()
     {
+        CreateArg arg;
+        arg = this.Create.Arg;
         long index;
-        index = this.Create.InfoIndex;
+        index = arg.InfoIndex;
 
         Info info;
-        info = (Info)this.Create.InfoArray.GetAt(index);
+        info = (Info)arg.InfoArray.GetAt(index);
         info.Row = this.Create.Row;
 
         Range aa;
@@ -46,7 +50,7 @@ public class SetCreateOperate : CreateOperate
 
         index = index + 1;
 
-        this.Create.InfoIndex = index;
+        arg.InfoIndex = index;
         return true;
     }
 }
