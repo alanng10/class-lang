@@ -1,17 +1,17 @@
 AndOperate
 {
-    Left : ValueOperate
+    Lite : ValueOperate
            {
                Value : BoolValue
                        {
                            Value : true,
                        },
            },
-    Right : ValueOperate
-            {
-                Value : BoolValue
-                        {
-                            Value : true,
-                        },
-            },
+    Rite : ValueOperate
+           {
+               Value : BoolValue
+                       {
+                           Value : true,
+                       },
+           },
 },
