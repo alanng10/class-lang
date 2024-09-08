@@ -1,6 +1,6 @@
 OrnOperate
 {
-    Left : NotOperate
+    Lite : NotOperate
            {
                Value : ValueOperate
                        {
@@ -10,11 +10,11 @@ OrnOperate
                                    },
                        },
            },
-    Right : ValueOperate
-            {
-                Value : BoolValue
-                        {
-                            Value : true,
-                        },
-            },
+    Rite : ValueOperate
+           {
+               Value : BoolValue
+                       {
+                           Value : true,
+                       },
+           },
 },
