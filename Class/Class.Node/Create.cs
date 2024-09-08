@@ -4330,11 +4330,6 @@ public class Create : InfraCreate
         start = range.Start;
         end = range.End;
 
-        Text text;
-        text = this.TextA;
-        Text textB;
-        textB = this.TextB;
-
         long openCount;
         openCount = 1;
         long index;
