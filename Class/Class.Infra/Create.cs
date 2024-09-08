@@ -1,6 +1,6 @@
 namespace Class.Infra;
 
-public class Create : Any
+public class Create : Base
 {
     public virtual Stage Stage { get; set; }
 
