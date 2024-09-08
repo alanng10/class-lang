@@ -8,7 +8,7 @@ Kind: OperandInvalid
 Range: (5, 5)
 Source: Code
 --------------------------------------------------
-BitSignRightOperate
+BitSignRiteOperate
 {
     Value : null,
     Count : null,
