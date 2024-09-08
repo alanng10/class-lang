@@ -998,7 +998,7 @@ public class Create : InfraCreate
         }
 
         Token rightBracket;
-        rightBracket = this.TokenMatchLeftBracket(this.TokenC, this.Range(this.RangeA, leftBracket.Range.End, end));
+        rightBracket = this.TokenMatchLeftBraceRound(this.TokenC, this.Range(this.RangeA, leftBracket.Range.End, end));
         if (rightBracket == null)
         {
             return null;
@@ -2136,7 +2136,7 @@ public class Create : InfraCreate
         }
 
         Token rightBracket;
-        rightBracket = this.TokenMatchLeftBracket(this.TokenC, this.Range(this.RangeA, leftBracket.Range.End, end));
+        rightBracket = this.TokenMatchLeftBraceRound(this.TokenC, this.Range(this.RangeA, leftBracket.Range.End, end));
         if (rightBracket == null)
         {
             return null;
@@ -2227,7 +2227,7 @@ public class Create : InfraCreate
         }
 
         Token rightBracket;
-        rightBracket = this.TokenMatchLeftBracket(this.TokenB, this.Range(this.RangeA, leftBracket.Range.End, end));
+        rightBracket = this.TokenMatchLeftBraceRound(this.TokenB, this.Range(this.RangeA, leftBracket.Range.End, end));
         if (rightBracket == null)
         {
             return null;
@@ -2396,7 +2396,7 @@ public class Create : InfraCreate
         }
 
         Token rightBracket;
-        rightBracket = this.TokenMatchLeftBracket(this.TokenB, this.Range(this.RangeA, leftBracket.Range.End, end));
+        rightBracket = this.TokenMatchLeftBraceRound(this.TokenB, this.Range(this.RangeA, leftBracket.Range.End, end));
         if (rightBracket == null)
         {
             return null;
@@ -2477,7 +2477,7 @@ public class Create : InfraCreate
         }
 
         Token rightBracket;
-        rightBracket = this.TokenMatchLeftBracket(this.TokenC, this.Range(this.RangeA, leftBracket.Range.End, end));
+        rightBracket = this.TokenMatchLeftBraceRound(this.TokenC, this.Range(this.RangeA, leftBracket.Range.End, end));
         if (rightBracket == null)
         {
             return null;
@@ -2672,7 +2672,7 @@ public class Create : InfraCreate
         }
 
         Token leftBracket;
-        leftBracket = this.TokenMatchRightBracket(this.TokenB, this.Range(this.RangeA, start, rightBracket.Range.Start));
+        leftBracket = this.TokenMatchRightBraceRound(this.TokenB, this.Range(this.RangeA, start, rightBracket.Range.Start));
         if (leftBracket == null)
         {
             return null;
@@ -2937,7 +2937,7 @@ public class Create : InfraCreate
         }
 
         Token rightBracket;
-        rightBracket = this.TokenMatchLeftBracket(this.TokenD, this.Range(this.RangeA, leftBracket.Range.End, end));
+        rightBracket = this.TokenMatchLeftBraceRound(this.TokenD, this.Range(this.RangeA, leftBracket.Range.End, end));
         if (rightBracket == null)
         {
             return null;
@@ -3029,7 +3029,7 @@ public class Create : InfraCreate
         }
 
         Token rightBracket;
-        rightBracket = this.TokenMatchLeftBracket(this.TokenD, this.Range(this.RangeA, leftBracket.Range.End, end));
+        rightBracket = this.TokenMatchLeftBraceRound(this.TokenD, this.Range(this.RangeA, leftBracket.Range.End, end));
         if (rightBracket == null)
         {
             return null;
@@ -3417,7 +3417,7 @@ public class Create : InfraCreate
         }
 
         Token rightBracket;
-        rightBracket = this.TokenMatchLeftBracket(this.TokenC, this.Range(this.RangeA, leftBracket.Range.End, end));
+        rightBracket = this.TokenMatchLeftBraceRound(this.TokenC, this.Range(this.RangeA, leftBracket.Range.End, end));
         if (rightBracket == null)
         {
             return null;
@@ -3634,7 +3634,7 @@ public class Create : InfraCreate
         }
 
         Token rightBracket;
-        rightBracket = this.TokenMatchLeftBracket(this.TokenC, this.Range(this.RangeA, leftBracket.Range.End, end));
+        rightBracket = this.TokenMatchLeftBraceRound(this.TokenC, this.Range(this.RangeA, leftBracket.Range.End, end));
         if (rightBracket == null)
         {
             return null;
@@ -4241,7 +4241,7 @@ public class Create : InfraCreate
         if (this.TextSame(this.TAToken(token), this.TB(limit.BraceRoundLite.Text)))
         {
             Token rightBracket;
-            rightBracket = this.TokenMatchLeftBracket(this.TokenA, this.Range(this.RangeA, index + 1, end));
+            rightBracket = this.TokenMatchLeftBraceRound(this.TokenA, this.Range(this.RangeA, index + 1, end));
             if (!(rightBracket == null))
             {
                 ret = rightBracket.Range.End;
@@ -4278,7 +4278,7 @@ public class Create : InfraCreate
         if (this.TextSame(this.TAToken(token), this.TB(limit.BraceRoundRite.Text)))
         {
             Token leftBracket;
-            leftBracket = this.TokenMatchRightBracket(this.TokenA, this.Range(this.RangeA, start, t));
+            leftBracket = this.TokenMatchRightBraceRound(this.TokenA, this.Range(this.RangeA, start, t));
             if (!(leftBracket == null))
             {
                 ret = leftBracket.Range.Start;
@@ -4307,12 +4307,12 @@ public class Create : InfraCreate
         return this.TokenMatchRightToken(result, this.Limit.BraceLite.Text, this.Limit.BraceRite.Text, range);
     }
 
-    protected virtual Token TokenMatchLeftBracket(Token result, Range range)
+    protected virtual Token TokenMatchLeftBraceRound(Token result, Range range)
     {
         return this.TokenMatchLeftToken(result, this.Limit.BraceRoundLite.Text, this.Limit.BraceRoundRite.Text, range);
     }
 
-    protected virtual Token TokenMatchRightBracket(Token result, Range range)
+    protected virtual Token TokenMatchRightBraceRound(Token result, Range range)
     {
         return this.TokenMatchRightToken(result, this.Limit.BraceRoundLite.Text, this.Limit.BraceRoundRite.Text, range);
     }
