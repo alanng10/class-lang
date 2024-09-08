@@ -18,7 +18,7 @@ public class SetCreateOperate : CreateOperate
         Range aa;
         aa = token.Range; 
         Range ab;
-        ab = this.Create.Range;
+        ab = this.Create.LineRange;
         
         aa.Index = ab.Index;
         aa.Count = ab.Count;
@@ -43,7 +43,7 @@ public class SetCreateOperate : CreateOperate
         Range aa;
         aa = info.Range;
         Range ab;
-        ab = this.Create.Range;
+        ab = this.Create.LineRange;
 
         aa.Index = ab.Index;
         aa.Count = ab.Count;

@@ -20,8 +20,8 @@ public class Create : InfraCreate
         this.CharForm = new TextForm();
         this.CharForm.Init();
 
-        this.Range = new Range();
-        this.Range.Init();
+        this.LineRange = new Range();
+        this.LineRange.Init();
         return true;
     }
 
@@ -29,12 +29,8 @@ public class Create : InfraCreate
     public virtual Result Result { get; set; }
     public virtual Code Code { get; set; }
     public virtual long Row { get; set; }
-    public virtual Range Range { get; set; }
+    public virtual Range LineRange { get; set; }
     public virtual CreateArg Arg { get; set; }
-    protected virtual InfraInfra InfraInfra { get; set; }
-    protected virtual ListInfra ListInfra { get; set; }
-    protected virtual TextInfra TextInfra { get; set; }
-    protected virtual ClassInfra ClassInfra { get; set; }
     protected virtual CountCreateOperate CountOperate { get; set; }
     protected virtual SetCreateOperate SetOperate { get; set; }
     protected virtual CreateOperate Operate { get; set; }
@@ -134,7 +130,7 @@ public class Create : InfraCreate
         sourceText = this.SourceItem.Text;
 
         Range range;
-        range = this.Range;
+        range = this.LineRange;
 
         long row;
         row = 0;
@@ -431,8 +427,8 @@ public class Create : InfraCreate
         if (!this.NullRange())
         {
             long count;
-            count = this.ClassInfra.Count(this.Range.Index, col);
-            this.Range.Count = count;
+            count = this.ClassInfra.Count(this.LineRange.Index, col);
+            this.LineRange.Count = count;
             this.AddToken();
         }
         return true;
