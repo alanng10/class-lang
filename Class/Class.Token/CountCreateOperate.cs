@@ -16,26 +16,32 @@ public class CountCreateOperate : CreateOperate
 
     public override bool ExecuteToken()
     {
+        CreateArg arg;
+        arg = this.Create.Arg;
         long index;
-        index = this.Create.TokenIndex;
+        index = arg.TokenIndex;
         index = index + 1;
-        this.Create.TokenIndex = index;
+        arg.TokenIndex = index;
         return true;
     }
 
     public override bool ExecuteInfo()
     {
+        CreateArg arg;
+        arg = this.Create.Arg;
         long index;
-        index = this.Create.InfoIndex;
+        index = arg.InfoIndex;
         index = index + 1;
-        this.Create.InfoIndex = index;
+        arg.InfoIndex = index;
         return true;
     }
 
     public override bool ExecuteCodeStart(long index)
     {
-        this.CodeTokenStart = this.Create.TokenIndex;
-        this.CodeCommentStart = this.Create.InfoIndex;
+        CreateArg arg;
+        arg = this.Create.Arg;
+        this.CodeTokenStart = arg.TokenIndex;
+        this.CodeCommentStart = arg.InfoIndex;
         return true;
     }
 
@@ -44,13 +50,16 @@ public class CountCreateOperate : CreateOperate
         InfraInfra infraInfra;
         infraInfra = this.InfraInfra;
 
+        CreateArg arg;
+        arg = this.Create.Arg;
+
         long tokenCount;
         long commentCount;
-        tokenCount = this.Create.TokenIndex - this.CodeTokenStart;
-        commentCount = this.Create.InfoIndex - this.CodeCommentStart;
+        tokenCount = arg.TokenIndex - this.CodeTokenStart;
+        commentCount = arg.InfoIndex - this.CodeCommentStart;
 
         Data codeCountData;
-        codeCountData = this.Create.CodeCountData;
+        codeCountData = arg.CodeCountData;
         long oa;
         oa = sizeof(ulong);
         long ob;
