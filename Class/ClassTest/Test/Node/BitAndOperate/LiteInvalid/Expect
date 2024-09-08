@@ -5,12 +5,12 @@ Source: Code
 --------------------------------------------------
 BitAndOperate
 {
-    Left : null,
-    Right : ValueOperate
-            {
-                Value : IntValue
-                        {
-                            Value : 9,
-                        },
-            },
+    Lite : null,
+    Rite : ValueOperate
+           {
+               Value : IntValue
+                       {
+                           Value : 9,
+                       },
+           },
 },
