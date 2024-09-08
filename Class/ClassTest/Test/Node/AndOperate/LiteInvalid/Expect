@@ -5,12 +5,12 @@ Source: Code
 --------------------------------------------------
 AndOperate
 {
-    Left : null,
-    Right : ValueOperate
-            {
-                Value : BoolValue
-                        {
-                            Value : true,
-                        },
-            },
+    Lite : null,
+    Rite : ValueOperate
+           {
+               Value : BoolValue
+                       {
+                           Value : true,
+                       },
+           },
 },
