@@ -5,12 +5,12 @@ Source: Code
 --------------------------------------------------
 BitOrnOperate
 {
-    Left : ValueOperate
+    Lite : ValueOperate
            {
                Value : IntValue
                        {
                            Value : 10,
                        },
            },
-    Right : null,
+    Rite : null,
 },
