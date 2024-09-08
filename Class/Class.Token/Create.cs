@@ -27,7 +27,11 @@ public class Create : InfraCreate
 
     public virtual Array Source { get; set; }
     public virtual Result Result { get; set; }
-
+    public virtual Code Code { get; set; }
+    public virtual Source SourceItem { get; set; }
+    public virtual long Row { get; set; }
+    public virtual Range Range { get; set; }
+    public virtual CreateArg Arg { get; set; }
     protected virtual InfraInfra InfraInfra { get; set; }
     protected virtual ListInfra ListInfra { get; set; }
     protected virtual TextInfra TextInfra { get; set; }
@@ -37,16 +41,6 @@ public class Create : InfraCreate
     protected virtual CreateOperate Operate { get; set; }
     protected virtual Array CodeArray { get; set; }
     protected virtual TextForm CharForm { get; set; }
-
-    public virtual Code Code { get; set; }
-    public virtual Source SourceItem { get; set; }
-    public virtual long Row { get; set; }
-    public virtual Range Range { get; set; }
-    public virtual long TokenIndex { get; set; }
-    public virtual Array TokenArray { get; set; }
-    public virtual long InfoIndex { get; set; }
-    public virtual Array InfoArray { get; set; }
-    public virtual Data CodeCountData { get; set; }
 
     public override bool Execute()
     {
@@ -58,19 +52,23 @@ public class Create : InfraCreate
         this.Result.Code = this.CodeArray;
         this.Result.Error = this.ListInfra.ArrayCreate(0);
 
-        this.CodeCountData = new Data();
-        this.CodeCountData.Count = this.CodeArray.Count * 2 * sizeof(ulong);
-        this.CodeCountData.Init();
+        CreateArg arg;
+        arg = new CreateArg();
+        arg.Init();
+
+        this.Arg = arg;
+
+        arg.CodeCountData = new Data();
+        arg.CodeCountData.Count = this.CodeArray.Count * 2 * sizeof(ulong);
+        arg.CodeCountData.Init();
 
         this.Operate = this.CountOperate;
 
-        this.TokenIndex = 0;
-        this.InfoIndex = 0;
-
+        this.ArgClearIndex();
         this.ExecuteStage();
 
-        this.TokenArray = this.ListInfra.ArrayCreate(this.TokenIndex);
-        this.InfoArray = this.ListInfra.ArrayCreate(this.InfoIndex);
+        arg.TokenArray = this.ListInfra.ArrayCreate(arg.TokenIndex);
+        arg.InfoArray = this.ListInfra.ArrayCreate(arg.InfoIndex);
 
         this.ExecuteTokenCreate();
         this.ExecuteInfoCreate();
@@ -78,14 +76,17 @@ public class Create : InfraCreate
 
         this.Operate = this.SetOperate;
 
-        this.TokenIndex = 0;
-        this.InfoIndex = 0;
-        
+        this.ArgClearIndex();
         this.ExecuteStage();
 
-        this.TokenArray = null;
-        this.InfoArray = null;
-        this.CodeCountData = null;
+        this.Arg = null;
+        return true;
+    }
+
+    public virtual bool ArgClearIndex()
+    {
+        this.Arg.TokenIndex = 0;
+        this.Arg.InfoIndex = 0;
         return true;
     }
 
@@ -310,7 +311,7 @@ public class Create : InfraCreate
     protected virtual bool ExecuteTokenCreate()
     {
         Array array;
-        array = this.TokenArray;
+        array = this.Arg.TokenArray;
 
         long count;
         count = array.Count;
@@ -333,7 +334,7 @@ public class Create : InfraCreate
     protected virtual bool ExecuteInfoCreate()
     {
         Array array;
-        array = this.InfoArray;
+        array = this.Arg.InfoArray;
 
         long count;
         count = array.Count;
@@ -362,7 +363,12 @@ public class Create : InfraCreate
         Array codeArray;
         codeArray = this.CodeArray;
         Data codeCountData;
-        codeCountData = this.CodeCountData;
+        codeCountData = this.Arg.CodeCountData;
+
+        Array tokenArray;
+        Array infoArray;
+        tokenArray = this.Arg.TokenArray;
+        infoArray = this.Arg.InfoArray;
 
         long oa;
         oa = sizeof(ulong);
@@ -396,8 +402,8 @@ public class Create : InfraCreate
             code.Token = listInfra.ArrayCreate(tokenCount);
             code.Info = listInfra.ArrayCreate(infoCount);
 
-            listInfra.ArrayCopy(code.Token, 0, this.TokenArray, totalToken, tokenCount);
-            listInfra.ArrayCopy(code.Info, 0, this.InfoArray, totalInfo, infoCount);
+            listInfra.ArrayCopy(code.Token, 0, tokenArray, totalToken, tokenCount);
+            listInfra.ArrayCopy(code.Info, 0, infoArray, totalInfo, infoCount);
 
             totalToken = totalToken + tokenCount;
             totalInfo = totalInfo + infoCount;
