@@ -4241,12 +4241,14 @@ public class Create : InfraCreate
         textInfra = this.TextInfra;
         LimitList limit;
         limit = this.Limit;
+
         long ret;
         ret = -1;
-        TokenToken aa;
-        aa = this.TokenToken(index);
 
-        if (this.TextSame(this.TAToken(aa), this.TB(limit.BraceRoundLite.Text)))
+        TokenToken token;
+        token = this.TokenToken(index);
+
+        if (this.TextSame(this.TAToken(token), this.TB(limit.BraceRoundLite.Text)))
         {
             Token rightBracket;
             rightBracket = this.TokenMatchLeftBracket(this.TokenA, this.Range(this.RangeA, index + 1, end));
@@ -4256,7 +4258,7 @@ public class Create : InfraCreate
             }
         }
 
-        if (this.TextSame(this.TAToken(aa), this.TB(limit.BraceLite.Text)))
+        if (this.TextSame(this.TAToken(token), this.TB(limit.BraceLite.Text)))
         {
             Token rightBrace;
             rightBrace = this.TokenMatchLeftBrace(this.TokenA, this.Range(this.RangeA, index + 1, end));
@@ -4274,23 +4276,16 @@ public class Create : InfraCreate
         textInfra = this.TextInfra;
         LimitList limit;
         limit = this.Limit;
+
         long ret;
         ret = -1;
         long t;
         t = index - 1;
-        TokenToken aa;
-        aa = this.TokenToken(t);
 
-        TextLess less;
-        less = this.TextLess;
-        Text text;
-        text = this.TextA;
-        this.TextTokenA(text, aa);
-        Text textB;
-        textB = this.TextB;
+        TokenToken token;
+        token = this.TokenToken(t);
 
-        this.TextStringGet(textB, limit.BraceRoundRite.Text);
-        if (textInfra.Same(text, textB, less))
+        if (this.TextSame(this.TAToken(token), this.TB(limit.BraceRoundRite.Text)))
         {
             Token leftBracket;
             leftBracket = this.TokenMatchRightBracket(this.TokenA, this.Range(this.RangeA, start, t));
@@ -4300,8 +4295,7 @@ public class Create : InfraCreate
             }
         }
 
-        this.TextStringGet(textB, limit.BraceRite.Text);
-        if (textInfra.Same(text, textB, less))
+        if (this.TextSame(this.TAToken(token), this.TB(limit.BraceRite.Text)))
         {
             Token leftBrace;
             leftBrace = this.TokenMatchRightBrace(this.TokenA, this.Range(this.RangeA, start, t));
