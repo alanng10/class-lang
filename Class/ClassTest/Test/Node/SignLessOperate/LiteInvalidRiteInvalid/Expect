@@ -10,6 +10,6 @@ Source: Code
 --------------------------------------------------
 SignLessOperate
 {
-    Left : null,
-    Right : null,
+    Lite : null,
+    Rite : null,
 },
