@@ -32,12 +32,12 @@ public class SetCreateOperate : CreateOperate
         long index;
         index = this.Create.InfoIndex;
 
-        Info comment;
-        comment = (Info)this.Create.InfoArray.GetAt(index);
-        comment.Row = this.Create.Row;
+        Info info;
+        info = (Info)this.Create.InfoArray.GetAt(index);
+        info.Row = this.Create.Row;
 
         Range aa;
-        aa = comment.Range;
+        aa = info.Range;
         Range ab;
         ab = this.Create.Range;
 
