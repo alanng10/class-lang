@@ -3967,12 +3967,8 @@ public class Create : InfraCreate
         text = this.TextA;
         this.TextGet(text, aa);
 
-        Text textB;
-        textB = this.TextB;
-        this.TextStringGet(textB, value);
-
         bool b;
-        b = this.TextInfra.Same(text, textB, this.TextLess);
+        b = this.TextSame(text, this.TB(value));
         bool a;
         a = b;
         return a;
