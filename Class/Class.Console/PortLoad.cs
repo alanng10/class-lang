@@ -44,8 +44,6 @@ public class PortLoad : ClassBase
 
     public virtual bool Execute()
     {
-        this.ExecuteSet();
-
         bool b;
         b = this.ExecuteAll();
 
@@ -56,12 +54,6 @@ public class PortLoad : ClassBase
         this.ModuleLoad.ModuleTable = null;
 
         return b;
-    }
-
-    protected virtual bool ExecuteSet()
-    {
-        this.TextLess = this.NameCheck.TextLess;
-        return true;
     }
 
     protected virtual bool ExecuteAll()
