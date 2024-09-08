@@ -4317,7 +4317,7 @@ public class Create : InfraCreate
         return this.TokenMatchRightToken(result, this.Limit.BraceRoundLite.Text, this.Limit.BraceRoundRite.Text, range);
     }
 
-    protected virtual Token TokenMatchLeftToken(Token result, String leftToken, String rightToken, Range range)
+    protected virtual Token TokenMatchLeftToken(Token result, String liteToken, String rightToken, Range range)
     {
         long start;
         long end;
@@ -4350,7 +4350,7 @@ public class Create : InfraCreate
                 }
             }
 
-            if (this.TextSame(ka, this.TB(leftToken)))
+            if (this.TextSame(ka, this.TB(liteToken)))
             {
                 openCount = openCount + 1;
             }
