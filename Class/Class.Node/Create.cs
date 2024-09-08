@@ -4243,16 +4243,11 @@ public class Create : InfraCreate
         TokenToken aa;
         aa = this.TokenToken(index);
         
-        TextLess less;
-        less = this.TextLess;
         Text text;
         text = this.TextA;
         this.TextGet(text, aa);
-        Text textB;
-        textB = this.TextB;
 
-        this.TextStringGet(textB, limit.BraceRoundLite.Text);
-        if (textInfra.Same(text, textB, less))
+        if (this.TextSame(text, this.TB(limit.BraceRoundLite.Text)))
         {
             Token rightBracket;
             rightBracket = this.TokenMatchLeftBracket(this.TokenA, this.Range(this.RangeA, index + 1, end));
@@ -4262,8 +4257,7 @@ public class Create : InfraCreate
             }
         }
 
-        this.TextStringGet(textB, limit.BraceLite.Text);
-        if (textInfra.Same(text, textB, less))
+        if (this.TextSame(text, this.TB(limit.BraceLite.Text)))
         {
             Token rightBrace;
             rightBrace = this.TokenMatchLeftBrace(this.TokenA, this.Range(this.RangeA, index + 1, end));
