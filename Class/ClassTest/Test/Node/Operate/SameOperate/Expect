@@ -1,0 +1,17 @@
+SameOperate
+{
+    Lite : ValueOperate
+           {
+               Value : IntValue
+                       {
+                           Value : 1,
+                       },
+           },
+    Rite : ValueOperate
+           {
+               Value : IntValue
+                       {
+                           Value : 1,
+                       },
+           },
+},
