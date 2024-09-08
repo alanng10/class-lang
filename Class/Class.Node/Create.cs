@@ -4379,19 +4379,10 @@ public class Create : InfraCreate
 
     protected virtual Token TokenMatchRightToken(Token result, String leftToken, String rightToken, Range range)
     {
-        TextInfra textInfra;
-        textInfra = this.TextInfra;
         long start;
         long end;
         start = range.Start;
         end = range.End;
-
-        TextLess less;
-        less = this.TextLess;
-        Text text;
-        text = this.TextA;
-        Text textB;
-        textB = this.TextB;
 
         long openCount;
         openCount = 1;
@@ -4405,12 +4396,13 @@ public class Create : InfraCreate
         {
             long t;
             t = i - 1;
-            TokenToken aa;
-            aa = this.TokenToken(t);
-            this.TextTokenA(text, aa);
+            TokenToken token;
+            token = this.TokenToken(t);
 
-            this.TextStringGet(textB, leftToken);
-            if (textInfra.Same(text, textB, less))
+            Text ka;
+            ka = this.TAToken(token);
+
+            if (this.TextSame(ka, this.TB(leftToken)))
             {
                 openCount = openCount - 1;
                 if (openCount == 0)
@@ -4420,8 +4412,7 @@ public class Create : InfraCreate
                 }
             }
 
-            this.TextStringGet(textB, rightToken);
-            if (textInfra.Same(text, textB, less))
+            if (this.TextSame(ka, this.TB(rightToken)))
             {
                 openCount = openCount + 1;
             }
