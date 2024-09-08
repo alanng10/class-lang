@@ -54,9 +54,9 @@ public class CountCreateOperate : CreateOperate
         arg = this.Create.Arg;
 
         long tokenCount;
-        long commentCount;
+        long infoCount;
         tokenCount = arg.TokenIndex - this.CodeTokenStart;
-        commentCount = arg.InfoIndex - this.CodeInfoStart;
+        infoCount = arg.InfoIndex - this.CodeInfoStart;
 
         Data codeCountData;
         codeCountData = arg.CodeCountData;
@@ -70,7 +70,7 @@ public class CountCreateOperate : CreateOperate
         long of;
         of = (ob + 1) * oa;
         infraInfra.DataIntSet(codeCountData, oe, tokenCount);
-        infraInfra.DataIntSet(codeCountData, of, commentCount);
+        infraInfra.DataIntSet(codeCountData, of, infoCount);
 
         this.CodeTokenStart = 0;
         this.CodeInfoStart = 0;
