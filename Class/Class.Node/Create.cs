@@ -4323,8 +4323,6 @@ public class Create : InfraCreate
 
     protected virtual Token TokenMatchLeftToken(Token result, String leftToken, String rightToken, Range range)
     {
-        TextInfra textInfra;
-        textInfra = this.TextInfra;
         long start;
         long end;
         start = range.Start;
