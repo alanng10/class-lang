@@ -64,9 +64,20 @@ class ConsoleIntern : Any
         var Int count;
         data : extern.String_DataGet(u);
         count : extern.String_CountGet(u);
-        
+
+        var Int dataCount;
+        dataCount : count * 4;
+
+        var Any k;
+        k : this.InternIntern.DataNew(dataCount);
+
+        this.InternIntern.CopyToDataValue(data, k, 0, dataCount);
+
         var String a;
-        a : this.InternIntern.StringCreateUtf32(data, count);
+        a : this.InternIntern.StringNew();
+        
+        this.InternIntern.StringValueSet(a, k);
+        this.InternIntern.StringCountSet(a, count);
 
         extern.String_Final(u);
         extern.String_Delete(u);
