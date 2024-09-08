@@ -47,7 +47,7 @@ public class Create : InfraCreate
         this.Result = new Result();
         this.Result.Init();
 
-        this.CodeArray = this.CodeArrayCreate();
+        this.CodeArray = this.CreateCodeArray();
 
         this.Result.Code = this.CodeArray;
         this.Result.Error = this.ListInfra.ArrayCreate(0);
@@ -285,7 +285,7 @@ public class Create : InfraCreate
         return true;
     }
 
-    protected virtual Array CodeArrayCreate()
+    protected virtual Array CreateCodeArray()
     {
         Array array;
         array = this.ListInfra.ArrayCreate(this.Source.Count);
