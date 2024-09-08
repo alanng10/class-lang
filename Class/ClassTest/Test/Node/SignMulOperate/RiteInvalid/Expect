@@ -5,12 +5,12 @@ Source: Code
 --------------------------------------------------
 SignMulOperate
 {
-    Left : ValueOperate
+    Lite : ValueOperate
            {
                Value : IntValue
                        {
                            Value : 1,
                        },
            },
-    Right : null,
+    Rite : null,
 },

@@ -10,6 +10,6 @@ Source: Code
 --------------------------------------------------
 SignMulOperate
 {
-    Left : null,
-    Right : null,
+    Lite : null,
+    Rite : null,
 },
