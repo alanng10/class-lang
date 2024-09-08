@@ -3,7 +3,7 @@ Kind: OperandInvalid
 Range: (3, 3)
 Source: Code
 --------------------------------------------------
-BitLeftOperate
+BitLiteOperate
 {
     Value : null,
     Count : ValueOperate

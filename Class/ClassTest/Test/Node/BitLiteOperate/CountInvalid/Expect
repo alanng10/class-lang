@@ -3,7 +3,7 @@ Kind: OperandInvalid
 Range: (5, 5)
 Source: Code
 --------------------------------------------------
-BitLeftOperate
+BitLiteOperate
 {
     Value : ValueOperate
             {
