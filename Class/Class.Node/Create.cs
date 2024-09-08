@@ -1319,7 +1319,7 @@ public class Create : InfraCreate
 
         Text text;
         text = this.TextA;
-        this.TextGet(text, aa);
+        this.TextTokenA(text, aa);
 
         bool value;
         value = false;
@@ -1379,7 +1379,7 @@ public class Create : InfraCreate
 
         Text text;
         text = this.TextA;
-        this.TextGet(text, aa);
+        this.TextTokenA(text, aa);
         
         long value;
         value = this.TextIntParse.Execute(text, 10, false, null);
@@ -1604,7 +1604,7 @@ public class Create : InfraCreate
         aa = this.TokenToken(start);
         Text text;
         text = this.TextA;
-        this.TextGet(text, aa);
+        this.TextTokenA(text, aa);
 
         bool b;
         b = this.StringValueWrite.CheckValueString(text);
@@ -3680,7 +3680,7 @@ public class Create : InfraCreate
         aa = this.TokenToken(start);
         Text text;
         text = this.TextA;
-        this.TextGet(text, aa);
+        this.TextTokenA(text, aa);
 
         String a;
         a = this.Operate.ExecuteNameValue(text);
@@ -3689,7 +3689,7 @@ public class Create : InfraCreate
 
     protected virtual bool IsIntValue(TokenToken aa)
     {
-        this.TextGet(this.TextA, aa);
+        this.TextTokenA(this.TextA, aa);
 
         if (!this.IsIntChar(this.TextA))
         {
@@ -3933,21 +3933,24 @@ public class Create : InfraCreate
         return this.ClassInfra.Count(start, end);
     }
 
-    protected virtual bool TextGet(Text text, TokenToken token)
+    protected virtual Text TextTokenA(TokenToken token)
     {
         Text line;
         line = (Text)this.SourceText.GetAt(token.Row);
         InfraRange range;
         range = token.Range;
+
+        Text text;
+        text = this.TextA;
         text.Data = line.Data;
         text.Range.Index = line.Range.Index + range.Index;
         text.Range.Count = range.Count;
-        return true;
+        return text;
     }
 
     protected virtual bool IsName(TokenToken token)
     {
-        this.TextGet(this.TextA, token);
+        this.TextTokenA(this.TextA, token);
 
         return this.NameCheck.IsName(this.TextA);
     }
@@ -3965,7 +3968,7 @@ public class Create : InfraCreate
         
         Text text;
         text = this.TextA;
-        this.TextGet(text, aa);
+        this.TextTokenA(text, aa);
 
         bool b;
         b = this.TextSame(text, this.TB(value));
@@ -4242,12 +4245,8 @@ public class Create : InfraCreate
         ret = -1;
         TokenToken aa;
         aa = this.TokenToken(index);
-        
-        Text text;
-        text = this.TextA;
-        this.TextGet(text, aa);
 
-        if (this.TextSame(text, this.TB(limit.BraceRoundLite.Text)))
+        if (this.TextSame(this.TextTokenA(aa), this.TB(limit.BraceRoundLite.Text)))
         {
             Token rightBracket;
             rightBracket = this.TokenMatchLeftBracket(this.TokenA, this.Range(this.RangeA, index + 1, end));
@@ -4257,7 +4256,7 @@ public class Create : InfraCreate
             }
         }
 
-        if (this.TextSame(text, this.TB(limit.BraceLite.Text)))
+        if (this.TextSame(this.TextTokenA(aa), this.TB(limit.BraceLite.Text)))
         {
             Token rightBrace;
             rightBrace = this.TokenMatchLeftBrace(this.TokenA, this.Range(this.RangeA, index + 1, end));
@@ -4286,7 +4285,7 @@ public class Create : InfraCreate
         less = this.TextLess;
         Text text;
         text = this.TextA;
-        this.TextGet(text, aa);
+        this.TextTokenA(text, aa);
         Text textB;
         textB = this.TextB;
 
@@ -4362,7 +4361,7 @@ public class Create : InfraCreate
         {
             TokenToken aa;
             aa = this.TokenToken(i);
-            this.TextGet(text, aa);
+            this.TextTokenA(text, aa);
             
             this.TextStringGet(textB, rightToken);
             if (textInfra.Same(text, textB, less))
@@ -4429,7 +4428,7 @@ public class Create : InfraCreate
             t = i - 1;
             TokenToken aa;
             aa = this.TokenToken(t);
-            this.TextGet(text, aa);
+            this.TextTokenA(text, aa);
 
             this.TextStringGet(textB, leftToken);
             if (textInfra.Same(text, textB, less))
