@@ -325,7 +325,7 @@ public class Create : InfraCreate
             a.Range = new Range();
             a.Range.Init();
             array.SetAt(i, a);
-            
+
             i = i + 1;
         }
         return true;
