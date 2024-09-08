@@ -3687,11 +3687,9 @@ public class Create : InfraCreate
         return a;
     }
 
-    protected virtual bool IsIntValue(TokenToken aa)
+    protected virtual bool IsIntValue(TokenToken token)
     {
-        this.TextTokenA(this.TextA, aa);
-
-        if (!this.IsIntChar(this.TextA))
+        if (!this.IsIntChar(this.TAToken(token)))
         {
             return false;
         }
