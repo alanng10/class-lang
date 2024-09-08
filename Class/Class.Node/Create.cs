@@ -4330,8 +4330,6 @@ public class Create : InfraCreate
         start = range.Start;
         end = range.End;
 
-        TextLess less;
-        less = this.TextLess;
         Text text;
         text = this.TextA;
         Text textB;
@@ -4347,12 +4345,13 @@ public class Create : InfraCreate
         varContinue = (i < end);
         while (varContinue)
         {
-            TokenToken aa;
-            aa = this.TokenToken(i);
-            this.TextTokenA(text, aa);
+            TokenToken token;
+            token = this.TokenToken(i);
+
+            Text ka;
+            ka = this.TAToken(token);
             
-            this.TextStringGet(textB, rightToken);
-            if (textInfra.Same(text, textB, less))
+            if (this.TextSame(ka, this.TB(rightToken)))
             {
                 openCount = openCount - 1;
                 if (openCount == 0)
@@ -4362,8 +4361,7 @@ public class Create : InfraCreate
                 }
             }
 
-            this.TextStringGet(textB, leftToken);
-            if (textInfra.Same(text, textB, less))
+            if (this.TextSame(ka, this.TB(leftToken)))
             {
                 openCount = openCount + 1;
             }
