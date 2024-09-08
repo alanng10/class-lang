@@ -23,7 +23,7 @@ public class CountCreateOperate : CreateOperate
         return true;
     }
 
-    public override bool ExecuteComment()
+    public override bool ExecuteInfo()
     {
         long index;
         index = this.Create.InfoIndex;
