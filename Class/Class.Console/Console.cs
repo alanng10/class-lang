@@ -85,9 +85,9 @@ public class Console : ClassBase
         NameCheck a;
         a = new NameCheck();
         a.Init();
-        a.TextLess = this.TextLess;
+        a.TextLess = this.TLess;
         a.CharLess = this.CharLess;
-        a.CharForm = this.TextForm;
+        a.CharForm = this.TForm;
         return a;
     }
 
@@ -329,7 +329,7 @@ public class Console : ClassBase
             storageInfra = this.StorageInfra;
 
             TextLess less;
-            less = this.TextLess;
+            less = this.TLess;
 
             String sourceFold;
             sourceFold = aaa;
@@ -433,7 +433,7 @@ public class Console : ClassBase
             file = this.Task.Source;
 
             long combineIndex;
-            combineIndex = this.StorageInfra.EntryPathNameCombine(this.TA(file), this.TextLess);
+            combineIndex = this.StorageInfra.EntryPathNameCombine(this.TA(file), this.TLess);
 
             String fileName;
             fileName = null;
