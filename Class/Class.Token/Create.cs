@@ -71,7 +71,7 @@ public class Create : InfraCreate
         arg.InfoArray = this.ListInfra.ArrayCreate(arg.InfoIndex);
 
         this.ExecuteCreateToken();
-        this.ExecuteInfoCreate();
+        this.ExecuteCreateInfo();
         this.ExecuteCodeArraySet();
 
         this.Operate = this.SetOperate;
@@ -331,7 +331,7 @@ public class Create : InfraCreate
         return true;
     }
 
-    protected virtual bool ExecuteInfoCreate()
+    protected virtual bool ExecuteCreateInfo()
     {
         Array array;
         array = this.Arg.InfoArray;
