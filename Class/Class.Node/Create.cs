@@ -1314,12 +1314,11 @@ public class Create : InfraCreate
         TextInfra textInfra;
         textInfra = this.TextInfra;
 
-        TokenToken aa;
-        aa = this.TokenToken(start);
+        TokenToken token;
+        token = this.TokenToken(start);
 
         Text text;
-        text = this.TextA;
-        this.TextTokenA(text, aa);
+        text = this.TAToken(token);
 
         bool value;
         value = false;
