@@ -3961,15 +3961,11 @@ public class Create : InfraCreate
 
     protected virtual bool IsText(String value, long index)
     {
-        TokenToken aa;
-        aa = this.TokenToken(index);
-        
-        Text text;
-        text = this.TextA;
-        this.TextTokenA(text, aa);
+        TokenToken token;
+        token = this.TokenToken(index);
 
         bool b;
-        b = this.TextSame(text, this.TB(value));
+        b = this.TextSame(this.TAToken(token), this.TB(value));
         bool a;
         a = b;
         return a;
