@@ -28,7 +28,6 @@ public class Create : InfraCreate
     public virtual Array Source { get; set; }
     public virtual Result Result { get; set; }
     public virtual Code Code { get; set; }
-    public virtual Source SourceItem { get; set; }
     public virtual long Row { get; set; }
     public virtual Range Range { get; set; }
     public virtual CreateArg Arg { get; set; }
@@ -40,6 +39,7 @@ public class Create : InfraCreate
     protected virtual SetCreateOperate SetOperate { get; set; }
     protected virtual CreateOperate Operate { get; set; }
     protected virtual Array CodeArray { get; set; }
+    protected virtual Source SourceItem { get; set; }
     protected virtual TextForm CharForm { get; set; }
 
     public override bool Execute()
