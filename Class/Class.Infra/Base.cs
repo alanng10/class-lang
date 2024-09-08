@@ -17,7 +17,7 @@ public class Base : Any
         this.WriteArg = this.CreateWriteArg();
 
         this.CharLess = this.CreateCharLess();
-        this.TextForm = this.CreateCharForm();
+        this.TextForm = this.CreateTextForm();
         this.TextLess = this.CreateTextLess();
 
         this.TextA = this.CreateText();
@@ -90,7 +90,7 @@ public class Base : Any
         return a;
     }
 
-    protected virtual TextForm CreateCharForm()
+    protected virtual TextForm CreateTextForm()
     {
         TextForm a;
         a = new TextForm();
