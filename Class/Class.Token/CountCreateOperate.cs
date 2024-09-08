@@ -12,7 +12,7 @@ public class CountCreateOperate : CreateOperate
     public virtual Create Create { get; set; }
     protected virtual InfraInfra InfraInfra { get; set; }
     protected virtual long CodeTokenStart { get; set; }
-    protected virtual long CodeCommentStart { get; set; }
+    protected virtual long CodeInfoStart { get; set; }
 
     public override bool ExecuteToken()
     {
@@ -41,7 +41,7 @@ public class CountCreateOperate : CreateOperate
         CreateArg arg;
         arg = this.Create.Arg;
         this.CodeTokenStart = arg.TokenIndex;
-        this.CodeCommentStart = arg.InfoIndex;
+        this.CodeInfoStart = arg.InfoIndex;
         return true;
     }
 
@@ -56,7 +56,7 @@ public class CountCreateOperate : CreateOperate
         long tokenCount;
         long commentCount;
         tokenCount = arg.TokenIndex - this.CodeTokenStart;
-        commentCount = arg.InfoIndex - this.CodeCommentStart;
+        commentCount = arg.InfoIndex - this.CodeInfoStart;
 
         Data codeCountData;
         codeCountData = arg.CodeCountData;
@@ -73,7 +73,7 @@ public class CountCreateOperate : CreateOperate
         infraInfra.DataIntSet(codeCountData, of, commentCount);
 
         this.CodeTokenStart = 0;
-        this.CodeCommentStart = 0;
+        this.CodeInfoStart = 0;
         return true;
     }
 }
