@@ -17,8 +17,8 @@ public class Base : Any
         this.WriteArg = this.CreateWriteArg();
 
         this.CharLess = this.CreateCharLess();
-        this.TextForm = this.CreateTextForm();
-        this.TextLess = this.CreateTextLess();
+        this.TForm = this.CreateTextForm();
+        this.TLess = this.CreateTextLess();
 
         this.TextA = this.CreateText();
         this.TextB = this.CreateText();
@@ -42,9 +42,9 @@ public class Base : Any
     protected virtual Infra ClassInfra { get; set; }
     protected virtual StringComp StringComp { get; set; }
     protected virtual StringAdd StringAdd { get; set; }
-    protected virtual TextLess TextLess { get; set; }
+    protected virtual TextLess TLess { get; set; }
     protected virtual LessInt CharLess { get; set; }
-    protected virtual TextForm TextForm { get; set; }
+    protected virtual TextForm TForm { get; set; }
     protected virtual InfraRange Range { get; set; }
     protected virtual Text TextA { get; set; }
     protected virtual Text TextB { get; set; }
@@ -103,8 +103,8 @@ public class Base : Any
         TextLess a;
         a = new TextLess();
         a.CharLess = this.CharLess;
-        a.LiteForm = this.TextForm;
-        a.RiteForm = this.TextForm;
+        a.LiteForm = this.TForm;
+        a.RiteForm = this.TForm;
         a.Init();
         return a;
     }
@@ -234,15 +234,15 @@ public class Base : Any
 
     public virtual Text TextAlphaNite(Text text)
     {
-        return this.TextCreateForm(text, this.TextInfra.AlphaNiteForm);
+        return this.TextForm(text, this.TextInfra.AlphaNiteForm);
     }
 
     public virtual Text TextAlphaSite(Text text)
     {
-        return this.TextCreateForm(text, this.TextInfra.AlphaSiteForm);
+        return this.TextForm(text, this.TextInfra.AlphaSiteForm);
     }
 
-    public virtual Text TextCreateForm(Text text, TextForm form)
+    public virtual Text TextForm(Text text, TextForm form)
     {
         long count;
         count = text.Range.Count;
@@ -267,37 +267,42 @@ public class Base : Any
 
     public virtual bool TextStart(Text text, Text other)
     {
-        return this.TextInfra.Start(text, other, this.TextLess);
+        return this.TextInfra.Start(text, other, this.TLess);
     }
 
     public virtual bool TextEnd(Text text, Text other)
     {
-        return this.TextInfra.End(text, other, this.TextLess);
+        return this.TextInfra.End(text, other, this.TLess);
     }
 
     public virtual bool TextSame(Text text, Text other)
     {
-        return this.TextInfra.Same(text, other, this.TextLess);
+        return this.TextInfra.Same(text, other, this.TLess);
+    }
+
+    public virtual long TextLess(Text lite, Text rite)
+    {
+        return this.TLess.Execute(lite, rite);
     }
 
     public virtual long TextIndex(Text text, Text other)
     {
-        return this.TextInfra.Index(text, other, this.TextLess);
+        return this.TextInfra.Index(text, other, this.TLess);
     }
 
     public virtual long TextLastIndex(Text text, Text other)
     {
-        return this.TextInfra.LastIndex(text, other, this.TextLess);
+        return this.TextInfra.LastIndex(text, other, this.TLess);
     }
 
     public virtual Array TextLimit(Text text, Text delimit)
     {
-        return this.TextInfra.Limit(text, delimit, this.TextLess);
+        return this.TextInfra.Limit(text, delimit, this.TLess);
     }
 
     public virtual Text TextReplace(Text text, Text limit, Text join)
     {
-        return this.TextInfra.Replace(text, limit, join, this.TextLess);
+        return this.TextInfra.Replace(text, limit, join, this.TLess);
     }
 
     public virtual long StringCount(String o)
