@@ -120,27 +120,27 @@ public class Infra : Any
 
         while (i < mid & j < end)
         {
-            object left;
-            object right;
-            left = source.GetAt(i);
-            right = source.GetAt(j);
+            object lite;
+            object rite;
+            lite = source.GetAt(i);
+            rite = source.GetAt(j);
 
             long ke;
-            ke = less.Execute(left, right);
+            ke = less.Execute(lite, rite);
 
             bool b;
             b = (0 < ke);
 
             if (!b)
             {
-                dest.SetAt(k, left);
+                dest.SetAt(k, lite);
 
                 i = i + 1;
             }
 
             if (b)
             {
-                dest.SetAt(k, right);
+                dest.SetAt(k, rite);
 
                 j = j + 1;
             }
