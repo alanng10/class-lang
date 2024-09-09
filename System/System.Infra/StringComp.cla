@@ -96,7 +96,6 @@ class StringComp : Any
         {
             index : 0;
             count : totalCount;
-            
         }
         inf (!b)
         {
