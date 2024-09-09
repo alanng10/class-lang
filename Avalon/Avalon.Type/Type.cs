@@ -31,25 +31,9 @@ public class Type : Any
 
     protected virtual bool InitFieldList()
     {
-        this.FieldList = new Array();
-        this.FieldList.Count = this.Button.Count;
-        this.FieldList.Init();
-
-        Array array;
-        array = this.FieldList;
-
-        long count;
-        count = array.Count;
-        long i;
-        i = 0;
-        while (i < count)
-        {
-            Value a;
-            a = new Value();
-            a.Init();
-            array.SetAt(i, a);
-            i = i + 1;
-        }
+        this.FieldData = new Data();
+        this.FieldData.Count = this.Button.Count;
+        this.FieldData.Init();
         return true;
     }
 
@@ -57,9 +41,13 @@ public class Type : Any
 
     public virtual bool Get(long index)
     {
-        Value a;
-        a = (Value)this.FieldList.GetAt(index);
-        return a.Bool;
+        long k;
+        k = this.FieldData.Get(index);
+
+        bool a;
+        a = !(k == 0);
+
+        return a;
     }
 
     public virtual bool Set(long index, bool value)
@@ -72,15 +60,23 @@ public class Type : Any
             return true;
         }
 
-        Value a;
-        a = (Value)this.FieldList.GetAt(index);
+        bool ka;
+        ka = this.Get(index);
 
-        if (a.Bool == value)
+        if (ka == value)
         {
             return true;
         }
 
-        a.Bool = value;
+        long k;
+        k = 0;
+        if (value)
+        {
+            k = 1;
+        }
+
+        this.FieldData.Set(index, k);
+
         this.ChangeArg.Button = button;
         this.ChangeArg.Field = value;
         this.Change.Execute(this.ChangeArg);
@@ -89,5 +85,5 @@ public class Type : Any
 
     public virtual ButtonList Button { get; set; }
     public virtual EventEvent Change { get; set; }
-    protected virtual Array FieldList { get; set; }
+    protected virtual Data FieldData { get; set; }
 }
