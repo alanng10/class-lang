@@ -72,7 +72,7 @@ class Tree : Any
         {
             // Loop (possibly up to the root)
             // BF(X) has to be updated:
-            if (Z == X.RightChild)
+            if (Z == X.ChildRite)
             {
                 // The right subtree increases
                 direction = -DirectionValue;
@@ -122,13 +122,13 @@ class Tree : Any
 
             if (G != null)
             {
-                if (X == G.LeftChild)
+                if (X == G.ChildLite)
                 {
-                    G.LeftChild = N;
+                    G.ChildLite = N;
                 }
                 else
                 {
-                    G.RightChild = N;
+                    G.ChildRite = N;
                 }
             }
             else
@@ -157,7 +157,7 @@ class Tree : Any
             // Loop (possibly up to the root)
             G = X.Parent; // Save parent of X around rotations
                            // BF(X) has not yet been updated!
-            if (N == X.LeftChild)
+            if (N == X.ChildLite)
             {
                 direction = - DirectionValue;
             }
@@ -177,11 +177,11 @@ class Tree : Any
                 if (direction == -DirectionValue)
                 {
 
-                    Z = X.RightChild; // Sibling of N (higher by 2)
+                    Z = X.ChildRite; // Sibling of N (higher by 2)
                 }
                 else
                 {
-                    Z = X.LeftChild; // Sibling of N (higher by 2)
+                    Z = X.ChildLite; // Sibling of N (higher by 2)
                 }
 
                 b = Z.BalanceFactor;
@@ -220,13 +220,13 @@ class Tree : Any
 
             if (G != null)
             {
-                if (X == G.LeftChild)
+                if (X == G.ChildLite)
                 {
-                    G.LeftChild = N;
+                    G.ChildLite = N;
                 }
                 else
                 {
-                    G.RightChild = N;
+                    G.ChildRite = N;
                 }
             }
             else
@@ -271,12 +271,12 @@ class Tree : Any
         {
             if (t.ParentLeft)
             {
-                t.ParentNode.LeftChild = node;
+                t.ParentNode.ChildLite = node;
             }
 
             if (! t.ParentLeft)
             {
-                t.ParentNode.RightChild = node;
+                t.ParentNode.ChildRite = node;
             }
 
             node.Parent = t.ParentNode;
@@ -374,12 +374,12 @@ class Tree : Any
 
         if (b)
         {
-            Y = Z.LeftChild; // Inner child of Z
+            Y = Z.ChildLite; // Inner child of Z
         }
 
         if (! b)
         {
-            Y = Z.RightChild;
+            Y = Z.ChildRite;
         }
         
         // Y is by 1 higher than sibling
@@ -420,16 +420,16 @@ class Tree : Any
 
         // Z is by 2 higher than its sibling
 
-        t23 = Z.LeftChild; // Inner child of Z
+        t23 = Z.ChildLite; // Inner child of Z
 
-        X.RightChild = t23;
+        X.ChildRite = t23;
 
         if (t23 != null)
         {
             t23.Parent = X;
         }
         
-        Z.LeftChild = X;
+        Z.ChildLite = X;
 
         X.Parent = Z;
         return true;
@@ -441,16 +441,16 @@ class Tree : Any
 
         // Z is by 2 higher than its sibling
 
-        t23 = Z.RightChild; // Inner child of Z
+        t23 = Z.ChildRite; // Inner child of Z
 
-        X.LeftChild = t23;
+        X.ChildLite = t23;
 
         if (t23 != null)
         {
             t23.Parent = X;
         }
         
-        Z.RightChild = X;
+        Z.ChildRite = X;
 
         X.Parent = Z;
         return true;
@@ -458,13 +458,13 @@ class Tree : Any
 
     private bool TreeRemove(TreeNode z)
     {
-        if (z.LeftChild == null)
+        if (z.ChildLite == null)
         {
-            this.SubtreeShift(z, z.RightChild);
+            this.SubtreeShift(z, z.ChildRite);
         }
-        else if (z.RightChild == null)
+        else if (z.ChildRite == null)
         {
-            this.SubtreeShift(z, z.LeftChild);
+            this.SubtreeShift(z, z.ChildLite);
         }
         else
         {
@@ -474,18 +474,18 @@ class Tree : Any
 
             if (y.Parent != z)
             {
-                this.SubtreeShift(y, y.RightChild);
+                this.SubtreeShift(y, y.ChildRite);
 
-                y.RightChild = z.RightChild;
+                y.ChildRite = z.ChildRite;
 
-                y.RightChild.Parent = y;
+                y.ChildRite.Parent = y;
             }
 
             this.SubtreeShift(z, y);
 
-            y.LeftChild = z.LeftChild;
+            y.ChildLite = z.ChildLite;
 
-            y.LeftChild.Parent = y;
+            y.ChildLite.Parent = y;
         }
 
         return true;
@@ -497,13 +497,13 @@ class Tree : Any
         {
             this.Root = v;
         }
-        else if (u == u.Parent.LeftChild)
+        else if (u == u.Parent.ChildLite)
         {
-            u.Parent.LeftChild = v;
+            u.Parent.ChildLite = v;
         }
         else
         {
-            u.Parent.RightChild = v;
+            u.Parent.ChildRite = v;
         }
 
         if (v != null)
@@ -516,16 +516,16 @@ class Tree : Any
 
     private TreeNode Successor(TreeNode x)
     {
-        if (!(x.RightChild == null))
+        if (!(x.ChildRite == null))
         {
-            return this.Minimum(x.RightChild);
+            return this.Minimum(x.ChildRite);
         }
 
         TreeNode y;
 
         y = x.Parent;
 
-        while ((!(y == null)) && x == y.RightChild)
+        while ((!(y == null)) && x == y.ChildRite)
         {
             x = y;
 
@@ -541,9 +541,9 @@ class Tree : Any
 
         t = x;
 
-        while (!(t.LeftChild == null))
+        while (!(t.ChildLite == null))
         {
-            t = t.LeftChild;
+            t = t.ChildLite;
         }
 
         return t;
@@ -593,7 +593,7 @@ class Tree : Any
 
                 parentLeft = true;
 
-                currentNode = currentNode.LeftChild;
+                currentNode = currentNode.ChildLite;
             }
 
             if (0 < t)
@@ -602,7 +602,7 @@ class Tree : Any
 
                 parentLeft = false;
 
-                currentNode = currentNode.RightChild;
+                currentNode = currentNode.ChildRite;
             }
         }
 
