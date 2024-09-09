@@ -2,10 +2,10 @@ namespace Avalon.Infra;
 
 public class LessInt : Any
 {
-    public virtual long Execute(long left, long right)
+    public virtual long Execute(long lite, long rite)
     {
         long a;
-        a = left - right;
+        a = lite - rite;
         return a;
     }
 }
