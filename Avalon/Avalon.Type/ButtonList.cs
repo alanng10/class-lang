@@ -22,32 +22,32 @@ public class ButtonList : Any
         this.Array.Count = this.Count;
         this.Array.Init();
         
-        this.LetterA = this.AddLetterButton();
-        this.LetterB = this.AddLetterButton();
-        this.LetterC = this.AddLetterButton();
-        this.LetterD = this.AddLetterButton();
-        this.LetterE = this.AddLetterButton();
-        this.LetterF = this.AddLetterButton();
-        this.LetterG = this.AddLetterButton();
-        this.LetterH = this.AddLetterButton();
-        this.LetterI = this.AddLetterButton();
-        this.LetterJ = this.AddLetterButton();
-        this.LetterK = this.AddLetterButton();
-        this.LetterL = this.AddLetterButton();
-        this.LetterM = this.AddLetterButton();
-        this.LetterN = this.AddLetterButton();
-        this.LetterO = this.AddLetterButton();
-        this.LetterP = this.AddLetterButton();
-        this.LetterQ = this.AddLetterButton();
-        this.LetterR = this.AddLetterButton();
-        this.LetterS = this.AddLetterButton();
-        this.LetterT = this.AddLetterButton();
-        this.LetterU = this.AddLetterButton();
-        this.LetterV = this.AddLetterButton();
-        this.LetterW = this.AddLetterButton();
-        this.LetterX = this.AddLetterButton();
-        this.LetterY = this.AddLetterButton();
-        this.LetterZ = this.AddLetterButton();
+        this.LetterA = this.AddAlphaButton();
+        this.LetterB = this.AddAlphaButton();
+        this.LetterC = this.AddAlphaButton();
+        this.LetterD = this.AddAlphaButton();
+        this.LetterE = this.AddAlphaButton();
+        this.LetterF = this.AddAlphaButton();
+        this.LetterG = this.AddAlphaButton();
+        this.LetterH = this.AddAlphaButton();
+        this.LetterI = this.AddAlphaButton();
+        this.LetterJ = this.AddAlphaButton();
+        this.LetterK = this.AddAlphaButton();
+        this.LetterL = this.AddAlphaButton();
+        this.LetterM = this.AddAlphaButton();
+        this.LetterN = this.AddAlphaButton();
+        this.LetterO = this.AddAlphaButton();
+        this.LetterP = this.AddAlphaButton();
+        this.LetterQ = this.AddAlphaButton();
+        this.LetterR = this.AddAlphaButton();
+        this.LetterS = this.AddAlphaButton();
+        this.LetterT = this.AddAlphaButton();
+        this.LetterU = this.AddAlphaButton();
+        this.LetterV = this.AddAlphaButton();
+        this.LetterW = this.AddAlphaButton();
+        this.LetterX = this.AddAlphaButton();
+        this.LetterY = this.AddAlphaButton();
+        this.LetterZ = this.AddAlphaButton();
 
         this.Digit0 = this.AddDigitButton();
         this.Digit1 = this.AddDigitButton();
@@ -248,7 +248,7 @@ public class ButtonList : Any
 
     protected virtual TextInfra TextInfra { get; set; }
 
-    protected virtual Button AddLetterButton()
+    protected virtual Button AddAlphaButton()
     {
         long index;
         index = this.LetterIndex + 'A';
