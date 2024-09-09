@@ -28,7 +28,7 @@ class TypeState : State
         Button a;
         a = aa.Button;
 
-        if (a == d.LetterB & o)
+        if (a == d.AlphaB & o)
         {
             this.Demo.Frame.Close();
         }
@@ -41,7 +41,7 @@ class TypeState : State
         bool b;
         b = false;
     
-        if (a == d.LetterI & o)
+        if (a == d.AlphaI & o)
         {
             long k;
             k = this.Demo.ViewA.Pos.Row;
@@ -49,7 +49,7 @@ class TypeState : State
             this.Demo.ViewA.Pos.Row = k;
             b = true;
         }
-        if (a == d.LetterK & o)
+        if (a == d.AlphaK & o)
         {
             long k;
             k = this.Demo.ViewA.Pos.Row;
@@ -57,7 +57,7 @@ class TypeState : State
             this.Demo.ViewA.Pos.Row = k;
             b = true;
         }
-        if (a == d.LetterJ & o)
+        if (a == d.AlphaJ & o)
         {
             long k;
             k = this.Demo.ViewA.Pos.Col;
@@ -65,7 +65,7 @@ class TypeState : State
             this.Demo.ViewA.Pos.Col = k;
             b = true;
         }
-        if (a == d.LetterL & o)
+        if (a == d.AlphaL & o)
         {
             long k;
             k = this.Demo.ViewA.Pos.Col;
@@ -74,7 +74,7 @@ class TypeState : State
             b = true;
         }
 
-        if (a == d.LetterU & o)
+        if (a == d.AlphaU & o)
         {
             bool bo;
             bo = this.Demo.ViewA.Visible;
@@ -83,7 +83,7 @@ class TypeState : State
             b = true;
         }
 
-        if (a == d.LetterF & o)
+        if (a == d.AlphaF & o)
         {
             long k;
             k = this.Demo.ViewA.RotateValue;
@@ -94,7 +94,7 @@ class TypeState : State
 
         bool ba;
         ba = false;
-        if (a == d.LetterW & o)
+        if (a == d.AlphaW & o)
         {
             long k;
             k = this.Demo.ViewC.Pos.Row;
@@ -102,7 +102,7 @@ class TypeState : State
             this.Demo.ViewC.Pos.Row = k;
             ba = true;
         }
-        if (a == d.LetterS & o)
+        if (a == d.AlphaS & o)
         {
             long k;
             k = this.Demo.ViewC.Pos.Row;
@@ -110,7 +110,7 @@ class TypeState : State
             this.Demo.ViewC.Pos.Row = k;
             ba = true;
         }
-        if (a == d.LetterA & o)
+        if (a == d.AlphaA & o)
         {
             long k;
             k = this.Demo.ViewC.Pos.Col;
@@ -120,7 +120,7 @@ class TypeState : State
 
             ba = true;
         }
-        if (a == d.LetterD & o)
+        if (a == d.AlphaD & o)
         {
             long k;
             k = this.Demo.ViewC.Pos.Col;
@@ -129,7 +129,7 @@ class TypeState : State
             ba = true;
         }
 
-        if (a == d.LetterH & o)
+        if (a == d.AlphaH & o)
         {
             bool baa;
             baa = this.Demo.Play.AudioOut.Muted;
@@ -140,7 +140,7 @@ class TypeState : State
         long scaleFactor;
         scaleFactor = 1 << 20;
 
-        if (a == d.LetterC & o)
+        if (a == d.AlphaC & o)
         {
             long k;
             k = this.Demo.Play.AudioOut.Volume;
@@ -152,7 +152,7 @@ class TypeState : State
             this.Demo.Play.AudioOut.Volume = k;
         }
 
-        if (a == d.LetterV & o)
+        if (a == d.AlphaV & o)
         {
             long k;
             k = this.Demo.Play.AudioOut.Volume;
@@ -164,17 +164,17 @@ class TypeState : State
             this.Demo.Play.AudioOut.Volume = k;
         }
 
-        if (a == d.LetterE & o)
+        if (a == d.AlphaE & o)
         {
             this.Demo.Play.Execute();
         }
 
-        if (a == d.LetterR & o)
+        if (a == d.AlphaR & o)
         {
             this.Demo.Play.Pause();
         }
 
-        if (a == d.LetterN & o)
+        if (a == d.AlphaN & o)
         {
             String frameTitle;
             frameTitle = this.S("Avalon Demo " + this.TitleIndex.ToString("x4"));
