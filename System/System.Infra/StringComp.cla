@@ -67,7 +67,7 @@ class StringComp : Any
         }
         
         var Any k;
-        k : this.InternIntern.StringValue(string);
+        k : this.InternIntern.StringValueGet(string);
 
         var Int count;
         count : this.Count(string);
