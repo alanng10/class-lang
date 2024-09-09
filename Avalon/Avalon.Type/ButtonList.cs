@@ -22,32 +22,32 @@ public class ButtonList : Any
         this.Array.Count = this.Count;
         this.Array.Init();
         
-        this.LetterA = this.AddAlphaButton();
-        this.LetterB = this.AddAlphaButton();
-        this.LetterC = this.AddAlphaButton();
-        this.LetterD = this.AddAlphaButton();
-        this.LetterE = this.AddAlphaButton();
-        this.LetterF = this.AddAlphaButton();
-        this.LetterG = this.AddAlphaButton();
-        this.LetterH = this.AddAlphaButton();
-        this.LetterI = this.AddAlphaButton();
-        this.LetterJ = this.AddAlphaButton();
-        this.LetterK = this.AddAlphaButton();
-        this.LetterL = this.AddAlphaButton();
-        this.LetterM = this.AddAlphaButton();
-        this.LetterN = this.AddAlphaButton();
-        this.LetterO = this.AddAlphaButton();
-        this.LetterP = this.AddAlphaButton();
-        this.LetterQ = this.AddAlphaButton();
-        this.LetterR = this.AddAlphaButton();
-        this.LetterS = this.AddAlphaButton();
-        this.LetterT = this.AddAlphaButton();
-        this.LetterU = this.AddAlphaButton();
-        this.LetterV = this.AddAlphaButton();
-        this.LetterW = this.AddAlphaButton();
-        this.LetterX = this.AddAlphaButton();
-        this.LetterY = this.AddAlphaButton();
-        this.LetterZ = this.AddAlphaButton();
+        this.AlphaA = this.AddAlphaButton();
+        this.AlphaB = this.AddAlphaButton();
+        this.AlphaC = this.AddAlphaButton();
+        this.AlphaD = this.AddAlphaButton();
+        this.AlphaE = this.AddAlphaButton();
+        this.AlphaF = this.AddAlphaButton();
+        this.AlphaG = this.AddAlphaButton();
+        this.AlphaH = this.AddAlphaButton();
+        this.AlphaI = this.AddAlphaButton();
+        this.AlphaJ = this.AddAlphaButton();
+        this.AlphaK = this.AddAlphaButton();
+        this.AlphaL = this.AddAlphaButton();
+        this.AlphaM = this.AddAlphaButton();
+        this.AlphaN = this.AddAlphaButton();
+        this.AlphaO = this.AddAlphaButton();
+        this.AlphaP = this.AddAlphaButton();
+        this.AlphaQ = this.AddAlphaButton();
+        this.AlphaR = this.AddAlphaButton();
+        this.AlphaS = this.AddAlphaButton();
+        this.AlphaT = this.AddAlphaButton();
+        this.AlphaU = this.AddAlphaButton();
+        this.AlphaV = this.AddAlphaButton();
+        this.AlphaW = this.AddAlphaButton();
+        this.AlphaX = this.AddAlphaButton();
+        this.AlphaY = this.AddAlphaButton();
+        this.AlphaZ = this.AddAlphaButton();
 
         this.Digit0 = this.AddDigitButton();
         this.Digit1 = this.AddDigitButton();
@@ -139,32 +139,32 @@ public class ButtonList : Any
         return true;
     }
 
-    public virtual Button LetterA { get; set; }
-    public virtual Button LetterB { get; set; }
-    public virtual Button LetterC { get; set; }
-    public virtual Button LetterD { get; set; }
-    public virtual Button LetterE { get; set; }
-    public virtual Button LetterF { get; set; }
-    public virtual Button LetterG { get; set; }
-    public virtual Button LetterH { get; set; }
-    public virtual Button LetterI { get; set; }
-    public virtual Button LetterJ { get; set; }
-    public virtual Button LetterK { get; set; }
-    public virtual Button LetterL { get; set; }
-    public virtual Button LetterM { get; set; }
-    public virtual Button LetterN { get; set; }
-    public virtual Button LetterO { get; set; }
-    public virtual Button LetterP { get; set; }
-    public virtual Button LetterQ { get; set; }
-    public virtual Button LetterR { get; set; }
-    public virtual Button LetterS { get; set; }
-    public virtual Button LetterT { get; set; }
-    public virtual Button LetterU { get; set; }
-    public virtual Button LetterV { get; set; }
-    public virtual Button LetterW { get; set; }
-    public virtual Button LetterX { get; set; }
-    public virtual Button LetterY { get; set; }
-    public virtual Button LetterZ { get; set; }
+    public virtual Button AlphaA { get; set; }
+    public virtual Button AlphaB { get; set; }
+    public virtual Button AlphaC { get; set; }
+    public virtual Button AlphaD { get; set; }
+    public virtual Button AlphaE { get; set; }
+    public virtual Button AlphaF { get; set; }
+    public virtual Button AlphaG { get; set; }
+    public virtual Button AlphaH { get; set; }
+    public virtual Button AlphaI { get; set; }
+    public virtual Button AlphaJ { get; set; }
+    public virtual Button AlphaK { get; set; }
+    public virtual Button AlphaL { get; set; }
+    public virtual Button AlphaM { get; set; }
+    public virtual Button AlphaN { get; set; }
+    public virtual Button AlphaO { get; set; }
+    public virtual Button AlphaP { get; set; }
+    public virtual Button AlphaQ { get; set; }
+    public virtual Button AlphaR { get; set; }
+    public virtual Button AlphaS { get; set; }
+    public virtual Button AlphaT { get; set; }
+    public virtual Button AlphaU { get; set; }
+    public virtual Button AlphaV { get; set; }
+    public virtual Button AlphaW { get; set; }
+    public virtual Button AlphaX { get; set; }
+    public virtual Button AlphaY { get; set; }
+    public virtual Button AlphaZ { get; set; }
 
     public virtual Button Digit0 { get; set; }
     public virtual Button Digit1 { get; set; }
@@ -251,12 +251,12 @@ public class ButtonList : Any
     protected virtual Button AddAlphaButton()
     {
         long index;
-        index = this.LetterIndex + 'A';
+        index = this.AlphaIndex + 'A';
 
         Button a;
         a = this.AddButton(index, index);
 
-        this.LetterIndex = this.LetterIndex + 1;
+        this.AlphaIndex = this.AlphaIndex + 1;
         return a;
     }
 
@@ -311,7 +311,7 @@ public class ButtonList : Any
         return (Button)this.Array.GetAt(index);
     }
 
-    public virtual bool IsLetterButton(long index)
+    public virtual bool IsAlphaButton(long index)
     {
         return this.TextInfra.Alpha(index, true);
     }
@@ -321,7 +321,7 @@ public class ButtonList : Any
         return this.TextInfra.Digit(index);
     }
 
-    public virtual Button LetterButton(long letterIndex)
+    public virtual Button AlphaButton(long letterIndex)
     {
         long start;
         start = 'A';
@@ -356,7 +356,7 @@ public class ButtonList : Any
     }
 
     protected virtual Array Array { get; set; }
-    protected virtual long LetterIndex { get; set; }
+    protected virtual long AlphaIndex { get; set; }
     protected virtual long DigitIndex { get; set; }
     protected virtual long ControlIndex { get; set; }
 
