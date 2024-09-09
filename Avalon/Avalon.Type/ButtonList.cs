@@ -79,8 +79,8 @@ public class ButtonList : Any
         this.SignBraceRite = this.AddSignButton('}');
         this.SignBraceRoundLite = this.AddSignButton('(');
         this.SignBraceRoundRite = this.AddSignButton(')');
-        this.SignLeftSquare = this.AddSignButton('[');
-        this.SignRightSquare = this.AddSignButton(']');
+        this.SignBraceSquareLite = this.AddSignButton('[');
+        this.SignBraceSquareRite = this.AddSignButton(']');
         this.SignSemiColon = this.AddSignButton(';');
         this.SignColon = this.AddSignButton(':');
         this.SignSingleQuote = this.AddSignButton('\'');
@@ -194,9 +194,9 @@ public class ButtonList : Any
     public virtual Button SignUnderscore { get; set; }
     public virtual Button SignEqual { get; set; }
     public virtual Button SignPlus { get; set; }
-    public virtual Button SignLeftSquare { get; set; }
+    public virtual Button SignBraceSquareLite { get; set; }
     public virtual Button SignBraceLite { get; set; }
-    public virtual Button SignRightSquare { get; set; }
+    public virtual Button SignBraceSquareRite { get; set; }
     public virtual Button SignBraceRite { get; set; }
     public virtual Button SignSemiColon { get; set; }
     public virtual Button SignColon { get; set; }
