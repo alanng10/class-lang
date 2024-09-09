@@ -181,20 +181,7 @@ public class Infra : Any
         long count;
         count = end - start;
 
-        long i;
-        i = 0;
-        while (i < count)
-        {
-            long index;
-            index = start + i;
-
-            object a;
-            a = source.GetAt(index);
-
-            dest.SetAt(index, a);
-
-            i = i + 1;
-        }
+        this.ArrayCopy(dest, start, source, start, count);
         return true;
     }
 }
