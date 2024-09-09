@@ -71,16 +71,16 @@ public class ButtonList : Any
         this.SignCaret = this.AddSignButton('^');
         this.SignAmpersand = this.AddSignButton('&');
         this.SignAsterisk = this.AddSignButton('*');
-        this.SignLeftBracket = this.AddSignButton('(');
-        this.SignRightBracket = this.AddSignButton(')');
         this.SignDash = this.AddSignButton('-');
         this.SignUnderscore = this.AddSignButton('_');
         this.SignEqual = this.AddSignButton('=');
         this.SignPlus = this.AddSignButton('+');
+        this.SignBraceLite = this.AddSignButton('{');
+        this.SignBraceRite = this.AddSignButton('}');
+        this.SignBraceRoundLite = this.AddSignButton('(');
+        this.SignBraceRoundRite = this.AddSignButton(')');
         this.SignLeftSquare = this.AddSignButton('[');
-        this.SignLeftBrace = this.AddSignButton('{');
         this.SignRightSquare = this.AddSignButton(']');
-        this.SignRightBrace = this.AddSignButton('}');
         this.SignSemiColon = this.AddSignButton(';');
         this.SignColon = this.AddSignButton(':');
         this.SignSingleQuote = this.AddSignButton('\'');
@@ -188,16 +188,16 @@ public class ButtonList : Any
     public virtual Button SignCaret { get; set; }
     public virtual Button SignAmpersand { get; set; }
     public virtual Button SignAsterisk { get; set; }
-    public virtual Button SignLeftBracket { get; set; }
-    public virtual Button SignRightBracket { get; set; }
+    public virtual Button SignBraceRoundLite { get; set; }
+    public virtual Button SignBraceRoundRite { get; set; }
     public virtual Button SignDash { get; set; }
     public virtual Button SignUnderscore { get; set; }
     public virtual Button SignEqual { get; set; }
     public virtual Button SignPlus { get; set; }
     public virtual Button SignLeftSquare { get; set; }
-    public virtual Button SignLeftBrace { get; set; }
+    public virtual Button SignBraceLite { get; set; }
     public virtual Button SignRightSquare { get; set; }
-    public virtual Button SignRightBrace { get; set; }
+    public virtual Button SignBraceRite { get; set; }
     public virtual Button SignSemiColon { get; set; }
     public virtual Button SignColon { get; set; }
     public virtual Button SignSingleQuote { get; set; }
