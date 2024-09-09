@@ -11,9 +11,9 @@ public class RefLess : Less
 
     private ReferenceEqualityComparer Comparer { get; set; }
 
-    public override long Execute(object left, object right)
+    public override long Execute(object lite, object rite)
     {
-        if (left == null | right == null)
+        if (lite == null | rite == null)
         {
             return 0;
         }
@@ -23,8 +23,8 @@ public class RefLess : Less
 
         long lu;
         long ru;
-        lu = comparer.GetHashCode(left);
-        ru = comparer.GetHashCode(right);
+        lu = comparer.GetHashCode(lite);
+        ru = comparer.GetHashCode(rite);
         long a;
         a = lu - ru;
         return a;
