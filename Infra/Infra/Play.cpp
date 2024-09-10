@@ -27,13 +27,14 @@ Int Play_SourceThisSet(Int o)
     Play* m;
     m = CP(o);
 
-    QString urlString;
+    QString filePath;
     Int ua;
-    ua = CastInt(&urlString);
+    ua = CastInt(&filePath);
 
     String_QStringSet(ua, m->Source);
 
-    QUrl url(urlString, QUrl::StrictMode);
+    QUrl url;
+    url = QUrl::fromLocalFile(filePath);
 
     if (!url.isValid())
     {
