@@ -1535,7 +1535,7 @@ class Demo : Any
         Play a;
         a = new Play();
         a.Init();
-        a.Source = this.S("file:DemoData/Video.mp4");
+        a.Source = this.S("DemoData/Video.mp4");
         a.SourceSet();
         a.VideoOut = videoOut;
         a.AudioOut = audioOut;
