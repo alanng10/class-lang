@@ -20,7 +20,6 @@ class Demo : Any
     public virtual DrawInfra DrawInfra { get; set; }
     public virtual StringComp StringComp { get; set; }
     public virtual TextCodeKindList TextCodeKindList { get; set; }
-    public virtual TextStringValue TextStringValue { get; set; }
     public virtual StorageStatusList StorageStatusList { get; set; }
     public virtual NetworkPortKindList NetworkPortKindList { get; set; }
     public virtual NetworkCaseList NetworkCaseList { get; set; }
@@ -33,7 +32,7 @@ class Demo : Any
 
     public virtual MathMath Math { get; set; }
     protected virtual MathComp MathComp { get; set; }
-    private StringJoin StringJoin { get; set; }
+    private StringAdd StringAdd { get; set; }
     private TextWrite TextWrite { get; set; }
     private TextWriteArg TextWriteArg { get; set; }
 
@@ -46,7 +45,6 @@ class Demo : Any
         this.DrawInfra = DrawInfra.This;
         this.StringComp = StringComp.This;
         this.TextCodeKindList = TextCodeKindList.This;
-        this.TextStringValue = TextStringValue.This;
         this.StorageStatusList = StorageStatusList.This;
         this.NetworkPortKindList = NetworkPortKindList.This;
         this.NetworkCaseList = NetworkCaseList.This;
@@ -57,8 +55,8 @@ class Demo : Any
         this.BrushJoinList = DrawBrushJoinList.This;
         this.Console = Console.This;
 
-        this.StringJoin = new StringJoin();
-        this.StringJoin.Init();
+        this.StringAdd = new StringAdd();
+        this.StringAdd.Init();
 
         ThreadThis varThis;
         varThis = new ThreadThis();
@@ -1580,7 +1578,7 @@ class Demo : Any
 
     public virtual Demo Add(String a)
     {
-        this.InfraInfra.AddString(this.StringJoin, a);
+        this.InfraInfra.AddString(this.StringAdd, a);
         return this;
     }
 
@@ -1597,18 +1595,18 @@ class Demo : Any
 
     public virtual Demo AddClear()
     {
-        this.StringJoin.Clear();
+        this.StringAdd.Clear();
         return this;
     }
 
     public virtual String AddResult()
     {
-        return this.StringJoin.Result();
+        return this.StringAdd.Result();
     }
 
     public virtual String S(string o)
     {
-        return this.TextStringValue.Execute(o);
+        return this.TextInfra.S(o);
     }
 
     public virtual long MathInt(long n)
