@@ -9,7 +9,6 @@ Log false false 0
 Log10 false false 0
 Log2 false false 0
 Pow true false 0
-Sqrt false false 0
 Ceil false false 0
 Floor false false 0
 Trunc false false 0
