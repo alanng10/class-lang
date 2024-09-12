@@ -21,6 +21,7 @@ class Demo : Any
     public virtual StringComp StringComp { get; set; }
     public virtual TextCodeKindList TextCodeKindList { get; set; }
     public virtual StorageStatusList StorageStatusList { get; set; }
+    public virtual StorageComp StorageComp { get; set; }
     public virtual NetworkPortKindList NetworkPortKindList { get; set; }
     public virtual NetworkCaseList NetworkCaseList { get; set; }
     public virtual NetworkStatusList NetworkStatusList { get; set; }
@@ -46,6 +47,7 @@ class Demo : Any
         this.StringComp = StringComp.This;
         this.TextCodeKindList = TextCodeKindList.This;
         this.StorageStatusList = StorageStatusList.This;
+        this.StorageComp = StorageComp.This;
         this.NetworkPortKindList = NetworkPortKindList.This;
         this.NetworkCaseList = NetworkCaseList.This;
         this.NetworkStatusList = NetworkStatusList.This;
@@ -885,9 +887,8 @@ class Demo : Any
 
     private bool ExecuteStorageArrange()
     {
-        StorageArrange arrange;
-        arrange = new StorageArrange();
-        arrange.Init();
+        StorageComp storageComp;
+        storageComp = this.StorageComp;
 
         bool b;
 
@@ -912,7 +913,7 @@ class Demo : Any
         {
         }
 
-        b = arrange.Rename(this.S(pathA), this.S(destPathA));
+        b = storageComp.Rename(this.S(pathA), this.S(destPathA));
 
         this.Console.Out.Write(this.S("Rename File " + pathA + " " + this.StorageArrangeStatus(b) + "\n"));
 
@@ -941,7 +942,7 @@ class Demo : Any
         {
         }
 
-        b = arrange.Rename(this.S(pathAa), this.S(destPathAa));
+        b = storageComp.Rename(this.S(pathAa), this.S(destPathAa));
 
         this.Console.Out.Write(this.S("Rename Fold " + pathAa + " " + this.StorageArrangeStatus(b) + "\n"));
 
@@ -951,7 +952,7 @@ class Demo : Any
         destPath = "DemoData/DemoCopy_Copy.txt";
         File.Delete(destPath);
 
-        b = arrange.FileCopy(this.S(path), this.S(destPath));
+        b = storageComp.FileCopy(this.S(path), this.S(destPath));
 
         this.Console.Out.Write(this.S("FileCopy " + path + " to " + destPath + " " + this.StorageArrangeStatus(b) + "\n"));
 
@@ -964,7 +965,7 @@ class Demo : Any
         catch
         {
         }
-        b = arrange.FileRemove(this.S(pathB));
+        b = storageComp.FileRemove(this.S(pathB));
 
         this.Console.Out.Write(this.S("FileRemove " + pathB + " " + this.StorageArrangeStatus(b) + "\n"));
 
@@ -981,7 +982,7 @@ class Demo : Any
         {
         }
 
-        b = arrange.FoldCreate(this.S(pathC));
+        b = storageComp.FoldCreate(this.S(pathC));
 
         this.Console.Out.Write(this.S("FoldCreate " + pathC + " " + this.StorageArrangeStatus(b) + "\n"));
 
@@ -998,7 +999,7 @@ class Demo : Any
         {
         }
 
-        b = arrange.FoldCopy(this.S(pathCa), this.S(destPathCa));
+        b = storageComp.FoldCopy(this.S(pathCa), this.S(destPathCa));
 
         this.Console.Out.Write(this.S("FoldCopy " + pathCa + " to " + destPathCa + " " + this.StorageArrangeStatus(b) + "\n"));
 
@@ -1018,14 +1019,14 @@ class Demo : Any
         {
         }
 
-        b = arrange.FoldRemove(this.S(pathCb));
+        b = storageComp.FoldRemove(this.S(pathCb));
 
         this.Console.Out.Write(this.S("FoldRemove " + pathCb + " " + this.StorageArrangeStatus(b) + "\n"));
 
         string pathE;
         pathE = "DemoData/image.jpg";
 
-        b = arrange.Exist(this.S(pathE));
+        b = storageComp.Exist(this.S(pathE));
 
         this.Console.Out.Write(this.S("Exist " + pathE + " " + b.ToString() + "\n"));
 
@@ -1033,7 +1034,7 @@ class Demo : Any
         foldListPath = this.S("DemoData/FoldCopy/FoldA");
 
         Array foldList;
-        foldList = arrange.FoldList(foldListPath);
+        foldList = storageComp.FoldList(foldListPath);
 
         this.AddClear().AddS("Fold List: \n");
 
@@ -1060,7 +1061,7 @@ class Demo : Any
         fileListPath = this.S("DemoData/FoldCopy/FoldA/FoldB");
 
         Array fileList;
-        fileList = arrange.FileList(fileListPath);
+        fileList = storageComp.FileList(fileListPath);
 
         this.AddClear().AddS("File List: \n");
 
@@ -1081,7 +1082,7 @@ class Demo : Any
 
         this.Console.Out.Write(aakb);
 
-        arrange.Final();
+        storageComp.Final();
         return true;
     }
 
