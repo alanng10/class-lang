@@ -13,13 +13,11 @@ public class View : Comp
 
         this.PosField = this.CreatePosField();
         this.SizeField = this.CreateSizeField();
-        this.BackField = this.CreateBackField();
         this.VisibleField = this.CreateVisibleField();
         this.ChildField = this.CreateChildField();
 
         this.Pos = this.CreatePos();
         this.Size = this.CreateSize();
-        this.Back = this.CreateBack();
         this.Visible = true;
 
         this.Area = this.CreateArea();
@@ -75,11 +73,6 @@ public class View : Comp
     {
         return this.ViewInfra.FieldCreate(this);
     }
-
-    protected virtual Field CreateBackField()
-    {
-        return this.ViewInfra.FieldCreate(this);
-    }
     
     protected virtual Field CreateVisibleField()
     {
@@ -108,13 +101,6 @@ public class View : Comp
         a.Init();
         a.Wed = 0;
         a.Het = 0;
-        return a;
-    }
-
-    protected virtual DrawBrush CreateBack()
-    {
-        DrawBrush a;
-        a = this.DrawInfra.WhiteBrush;
         return a;
     }
 
@@ -193,26 +179,6 @@ public class View : Comp
         return true;
     }
 
-    public virtual Field BackField { get; set; }
-
-    public virtual DrawBrush Back
-    {
-        get
-        {
-            return (DrawBrush)this.BackField.GetAny();
-        }
-        set
-        {
-            this.BackField.SetAny(value);
-        }
-    }
-
-    protected virtual bool ChangeBack(Change change)
-    {
-        this.Event(this.BackField);
-        return true;
-    }
-
     public virtual Field VisibleField { get; set; }
 
     public virtual bool Visible
@@ -263,10 +229,6 @@ public class View : Comp
         {
             this.ChangePos(change);
         }
-        if (this.BackField == varField)
-        {
-            this.ChangeBack(change);
-        }
         if (this.VisibleField == varField)
         {
             this.ChangeVisible(change);
@@ -305,44 +267,7 @@ public class View : Comp
 
     protected virtual bool ExecuteDrawThis(DrawDraw draw)
     {
-        long col;
-        col = this.Pos.Col;
-        long row;
-        row = this.Pos.Row;
-        long wed;
-        wed = this.Size.Wed;
-        long het;
-        het = this.Size.Het;
-
-        long colM;
-        long rowM;
-        colM = this.MathInt(col);
-        rowM = this.MathInt(row);
-
-        DrawRect rect;
-        rect = this.DrawRectA;
-
-        rect.Pos.Col = colM;
-        rect.Pos.Row = rowM;
-        rect.Size.Wed = this.MathInt(wed);
-        rect.Size.Het = this.MathInt(het);
-
-        DrawBrush brush;
-        brush = this.Back;
-        draw.Fill = brush;
-        
-        draw.FillPos.Col = colM;
-        draw.FillPos.Row = rowM;
-        draw.FillPosSet();
-
-        draw.ExecuteRect(rect);
-        
-        draw.FillPos.Col = 0;
-        draw.FillPos.Row = 0;
-        draw.FillPosSet();
-
-        draw.Fill = null;
-        return true;
+        return false;
     }
 
     protected virtual bool ValidDrawChild()
