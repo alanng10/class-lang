@@ -211,17 +211,17 @@ class Infra : Any
         var Int oca;
         inf (!upperCase)
         {
-            oca : this.StringComp.Char(this.LetterLowerA, 0);
+            oca : this.StringComp.Char("a", 0);
         }
         inf (upperCase)
         {
-            oca : this.StringComp.Char(this.LetterUpperA, 0);
+            oca : this.StringComp.Char("A", 0);
         }
 
         inf (this.IsDigit(oc))
         {
             var Int ooa;
-            ooa : oc - this.StringComp.Char(this.Digit0, 0);
+            ooa : oc - this.StringComp.Char("0", 0);
             inf (!(ooa < oa))
             {
                 return null;
@@ -253,7 +253,7 @@ class Infra : Any
         b : (digit < 10);
         inf (b)
         {
-            n : this.StringComp.Char(this.Digit0, 0) + digit;
+            n : this.StringComp.Char("0", 0) + digit;
         }
         inf (!b)
         {
