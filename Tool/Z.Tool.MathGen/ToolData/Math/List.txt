@@ -13,4 +13,3 @@ Ceil false false 0
 Floor false false 0
 Trunc false false 0
 Round false false 0
-ATan2 true false 0

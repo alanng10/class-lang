@@ -133,17 +133,6 @@ partial class Math
         return a;
     }
 
-    public virtual long Sqrt(long value)
-    {
-        ulong ua;
-        ua = (ulong)value;
-        ulong u;
-        u = Extern.Math_Sqrt(this.Intern, ua);
-        long a;
-        a = (long)u;
-        return a;
-    }
-
     public virtual long Ceil(long value)
     {
         ulong ua;
@@ -183,19 +172,6 @@ partial class Math
         ua = (ulong)value;
         ulong u;
         u = Extern.Math_Round(this.Intern, ua);
-        long a;
-        a = (long)u;
-        return a;
-    }
-
-    public virtual long ATan2(long valueA, long valueB)
-    {
-        ulong ua;
-        ulong ub;
-        ua = (ulong)valueA;
-        ub = (ulong)valueB;
-        ulong u;
-        u = Extern.Math_ATan2(this.Intern, ua, ub);
         long a;
         a = (long)u;
         return a;
