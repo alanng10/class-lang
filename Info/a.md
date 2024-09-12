@@ -2,7 +2,7 @@
 
 Class is an all purpose programming language.
 Class is used to create modules.
-Class consists of compiler modules, system modules, documentation, source code.
+Class consists of compiler modules, infra modules, documentation, source code.
 Class is open source.
 Permission is granted to every person to use any copy of this software in any way.
 
