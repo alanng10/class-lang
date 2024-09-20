@@ -248,7 +248,7 @@ public class Write : Any
     protected virtual bool ExecuteModuleRef(ModuleRef varRef)
     {
         this.ExecuteName(varRef.Name);
-        this.ExecuteInt(varRef.Version);
+        this.ExecuteInt(varRef.Ver);
         return true;
     }
 

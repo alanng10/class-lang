@@ -1137,7 +1137,7 @@ public class ClassGen : ClassBase
         
         this.Text(this.NameCombine);
 
-        this.TextInt(moduleRef.Version);
+        this.TextInt(moduleRef.Ver);
         return true;
     }
 

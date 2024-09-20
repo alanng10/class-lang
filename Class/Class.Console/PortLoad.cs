@@ -168,7 +168,7 @@ public class PortLoad : ClassBase
             String name;
             name = aa.Name;
             long version;
-            version = aa.Version;
+            version = aa.Ver;
             if (version == -1)
             {
                 version = 0;
@@ -229,7 +229,7 @@ public class PortLoad : ClassBase
         String name;
         name = module.Name;
         long version;
-        version = module.Version;
+        version = module.Ver;
 
         if (!(this.NameCheck.IsModuleName(this.TA(name))))
         {
@@ -282,7 +282,7 @@ public class PortLoad : ClassBase
         String name;
         name = moduleRef.Name;
         long version;
-        version = moduleRef.Version;
+        version = moduleRef.Ver;
 
         if (!(this.NameCheck.IsModuleName(this.TA(name))))
         {
@@ -372,7 +372,7 @@ public class PortLoad : ClassBase
         String moduleName;
         moduleName = moduleRef.Name;
         long version;
-        version = moduleRef.Version;
+        version = moduleRef.Ver;
 
         String versionString;
         versionString = this.ClassInfra.VersionString(version);
@@ -621,7 +621,7 @@ public class PortLoad : ClassBase
         ClassModule module;
         module = new ClassModule();
         module.Init();
-        module.Ref = classInfra.ModuleRefCreate(moduleRef.Name, moduleRef.Version);
+        module.Ref = classInfra.ModuleRefCreate(moduleRef.Name, moduleRef.Ver);
         module.Class = classInfra.TableCreateStringLess();
         module.Storage = classInfra.TableCreateStringLess();
 

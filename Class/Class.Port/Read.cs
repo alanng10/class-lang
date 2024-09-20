@@ -1102,7 +1102,7 @@ public class Read : Any
         ModuleRef a;
         a = this.Operate.ExecuteModuleRef();
         a.Name = name;
-        a.Version = version;
+        a.Ver = version;
         return a;
     }
 

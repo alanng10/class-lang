@@ -66,7 +66,7 @@ public class ModuleLoad : ClassBase
         ClassModule a;
         a = new ClassModule();
         a.Init();
-        a.Ref = this.ClassInfra.ModuleRefCreate(o.Name, o.Version);
+        a.Ref = this.ClassInfra.ModuleRefCreate(o.Name, o.Ver);
 
         this.Module = a;
 

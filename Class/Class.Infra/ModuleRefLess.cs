@@ -33,6 +33,6 @@ public class ModuleRefLess : Less
             return a;
         }
 
-        return this.LessInt.Execute(liteA.Version, riteA.Version);
+        return this.LessInt.Execute(liteA.Ver, riteA.Ver);
     }
 }
