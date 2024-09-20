@@ -375,7 +375,7 @@ public class PortLoad : ClassBase
         version = moduleRef.Ver;
 
         String versionString;
-        versionString = this.ClassInfra.VersionString(version);
+        versionString = this.ClassInfra.VerString(version);
     
         String moduleRefString;
         moduleRefString = this.AddClear().Add(moduleName).Add(this.SHyphen).Add(versionString).AddResult();

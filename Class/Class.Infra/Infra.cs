@@ -102,7 +102,7 @@ public class Infra : Any
         return a;
     }
 
-    public virtual String VersionString(long o)
+    public virtual String VerString(long o)
     {
         long ka;
         ka = this.InfraInfra.IntCapValue - 1;
