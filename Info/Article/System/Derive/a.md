@@ -9,7 +9,7 @@ Modules made from module sources in Class, layers on top of this system.
 This system derive, does not have builtin audio tune effect to be used by modules.
 It also does not have builtin video 3D draw effect to be used by modules.
 It also does not have builtin media creation effect to be used by modules.
-It also doest not have builtin stream play effect to be used by moudles.
+It also does not have builtin stream play effect to be used by moudles.
 
 This system derive uses millisecond as the smallest time unit.
 
