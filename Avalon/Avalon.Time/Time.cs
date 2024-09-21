@@ -109,12 +109,13 @@ public class Time : Any
         }
     }
 
-    public virtual long Millisec
+    public virtual long Tick
     {
         get
         {
             ulong u;
-            u = Extern.Time_MillisecGet(this.Intern);
+            u = 0;
+            //u = Extern.Time_TickGet(this.Intern);
             long a;
             a = (long)u;
             return a;
@@ -199,12 +200,13 @@ public class Time : Any
         }
     }
 
-    public virtual long TotalMillisec
+    public virtual long TotalTick
     {
         get
         {
             ulong u;
-            u = Extern.Time_TotalMillisecGet(this.Intern);
+            u = 0;
+            //u = Extern.Time_TotalTickGet(this.Intern);
             long a;
             a = (long)u;
             return a;

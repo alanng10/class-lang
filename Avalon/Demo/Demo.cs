@@ -666,7 +666,7 @@ class Demo : Any
             .AddS(", our: ").Add(this.IntString(time.Our))
             .AddS(", min: ").Add(this.IntString(time.Min))
             .AddS(", sec: ").Add(this.IntString(time.Sec))
-            .AddS(", millisec: ").Add(this.IntString(time.Millisec))
+            .AddS(", millisec: ").Add(this.IntString(time.Tick))
             .AddS(", pos: ").Add(this.IntString(time.Pos))
             .AddS("\n");
 
