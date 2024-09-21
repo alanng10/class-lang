@@ -310,25 +310,25 @@ public class Time : Any
         return a;
     }
 
-    public virtual bool ValidTime(long our, long min, long sec, long millisec)
+    public virtual bool ValidTime(long our, long min, long sec, long tick)
     {
         ulong hourU;
         ulong minU;
         ulong secU;
-        ulong millisecU;
+        ulong tickU;
         hourU = (ulong)our;
         minU = (ulong)min;
         secU = (ulong)sec;
-        millisecU = (ulong)millisec;
+        tickU = (ulong)tick;
         ulong u;
-        u = Extern.Time_ValidTime(hourU, minU, secU, millisecU);
+        u = Extern.Time_ValidTime(hourU, minU, secU, tickU);
 
         bool a;
         a = (!(u == 0));
         return a;
     }
 
-    public virtual bool Set(long yea, long mon, long day, long our, long min, long sec, long millisec, long pos)
+    public virtual bool Set(long yea, long mon, long day, long our, long min, long sec, long tick, long pos)
     {
         ulong yeaU;
         ulong monU;
@@ -336,7 +336,7 @@ public class Time : Any
         ulong ourU;
         ulong minU;
         ulong secU;
-        ulong millisecU;
+        ulong tickU;
         ulong posU;
         yeaU = (ulong)yea;
         monU = (ulong)mon;
@@ -344,11 +344,11 @@ public class Time : Any
         ourU = (ulong)our;
         minU = (ulong)min;
         secU = (ulong)sec;
-        millisecU = (ulong)millisec;
+        tickU = (ulong)tick;
         posU = (ulong)pos;
 
         ulong u;
-        u = Extern.Time_Set(this.Intern, yeaU, monU, dayU, ourU, minU, secU, millisecU, posU);
+        u = Extern.Time_Set(this.Intern, yeaU, monU, dayU, ourU, minU, secU, tickU, posU);
         
         bool a;
         a = !(u == 0);
