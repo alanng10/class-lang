@@ -79,10 +79,6 @@ SOURCES += \
     FormatArg.c \
     Frame.cpp \
     FrameIntern.cpp \
-    Polate.cpp \
-    PolateLinear.cpp \
-    PolateRadial.cpp \
-    PolateStop.cpp \
     Image.cpp \
     ImageRead.cpp \
     ImageWrite.cpp \
@@ -99,6 +95,10 @@ SOURCES += \
     Phore.cpp \
     Play.cpp \
     PointData.cpp \
+    Polate.cpp \
+    PolateLinear.cpp \
+    PolateRadial.cpp \
+    PolateStop.cpp \
     Pos.c \
     Post.cpp \
     PostIntern.cpp \
