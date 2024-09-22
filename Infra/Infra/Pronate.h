@@ -35,13 +35,13 @@ Int Face_Intern(Int o);
 
 Int Form_Intern(Int o);
 
-Int Gradient_Intern(Int o);
+Int Polate_Intern(Int o);
 
-Int GradientLinear_Intern(Int o);
+Int PolateLinear_Intern(Int o);
 
-Int GradientRadial_Intern(Int o);
+Int PolateRadial_Intern(Int o);
 
-Int GradientStop_Intern(Int o);
+Int PolateStop_Intern(Int o);
 
 Int VideoOut_Intern(Int o);
 Int VideoOut_FrameChange(Int o);
