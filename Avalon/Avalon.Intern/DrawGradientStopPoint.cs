@@ -1,6 +1,6 @@
 namespace Avalon.Intern;
 
-public class DrawGradientStopPoint : object
+public class DrawPolateStopPoint : object
 {
     public virtual bool Init()
     {
