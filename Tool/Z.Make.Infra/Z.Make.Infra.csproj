@@ -19,8 +19,8 @@
         <ProjectReference Include="../Z.Tool.Infra.StatBrushCap/Z.Tool.Infra.StatBrushCap.csproj" />
         <ProjectReference Include="../Z.Tool.Infra.StatBrushJoin/Z.Tool.Infra.StatBrushJoin.csproj" />
         <ProjectReference Include="../Z.Tool.Infra.StatComp/Z.Tool.Infra.StatComp.csproj" />
-        <ProjectReference Include="../Z.Tool.Infra.StatGradientKind/Z.Tool.Infra.StatGradientKind.csproj" />
-        <ProjectReference Include="../Z.Tool.Infra.StatGradientSpread/Z.Tool.Infra.StatGradientSpread.csproj" />
+        <ProjectReference Include="../Z.Tool.Infra.StatPolateKind/Z.Tool.Infra.StatPolateKind.csproj" />
+        <ProjectReference Include="../Z.Tool.Infra.StatPolateSpread/Z.Tool.Infra.StatPolateSpread.csproj" />
         <ProjectReference Include="../Z.Tool.Infra.StatImageBinary/Z.Tool.Infra.StatImageBinary.csproj" />
     </ItemGroup>
 
