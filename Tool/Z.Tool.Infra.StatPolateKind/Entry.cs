@@ -1,4 +1,4 @@
-namespace Z.Tool.Infra.StatGradientKind;
+namespace Z.Tool.Infra.StatPolateKind;
 
 class Entry : EntryEntry
 {
