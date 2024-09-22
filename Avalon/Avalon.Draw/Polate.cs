@@ -6,20 +6,20 @@ public class Polate : Any
     {
         base.Init();
         this.InternIntern = InternIntern.This;
-        // this.KindList = GradientKindList.This;
+        this.KindList = PolateKindList.This;
 
         ulong kindU;
         kindU = this.Kind.Intern;
         ulong valueU;
         valueU = 0;
-        // if (this.Kind == this.KindList.Linear)
-        // {
-        //     valueU = this.Linear.Intern;
-        // }
-        // if (this.Kind == this.KindList.Radial)
-        // {
-        //     valueU = this.Radial.Intern;
-        // }
+        if (this.Kind == this.KindList.Linear)
+        {
+            valueU = this.Linear.Intern;
+        }
+        if (this.Kind == this.KindList.Radial)
+        {
+            valueU = this.Radial.Intern;
+        }
         ulong stopU;
         stopU = this.Stop.Intern;
         ulong spreadU;
@@ -45,9 +45,9 @@ public class Polate : Any
     public virtual PolateLinear Linear { get; set; }
     public virtual PolateRadial Radial { get; set; }
     public virtual PolateStop Stop { get; set; }
-    public virtual GradientSpread Spread { get; set; }
+    public virtual PolateSpread Spread { get; set; }
 
     private InternIntern InternIntern { get; set; }
-    // protected virtual GradientKindList KindList { get; set; }
+    protected virtual PolateKindList KindList { get; set; }
     internal virtual ulong Intern { get; set; }
 }
