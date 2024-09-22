@@ -1,4 +1,4 @@
-namespace Z.Tool.Avalon.GradientSpreadList;
+namespace Z.Tool.Avalon.PolateSpreadList;
 
 class Entry : EntryEntry
 {
