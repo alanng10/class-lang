@@ -1,4 +1,4 @@
-namespace Z.Tool.Avalon.GradientKindList;
+namespace Z.Tool.Avalon.PolateKindList;
 
 public class Gen : SourceGen
 {
@@ -6,13 +6,13 @@ public class Gen : SourceGen
     {
         base.Init();
         this.Module = this.S("Avalon.Draw");
-        this.ClassName = this.S("GradientKindList");
+        this.ClassName = this.S("PolateKindList");
         this.BaseClassName = this.S("Any");
         this.AnyClassName = this.S("Any");
-        this.ItemClassName = this.S("GradientKind");
+        this.ItemClassName = this.S("PolateKind");
         this.ArrayClassName = this.S("Array");
         this.Export = true;
-        this.StatItemClassName = this.S("GradientKind");
+        this.StatItemClassName = this.S("PolateKind");
         this.ItemListFileName = this.GetStatItemListFileName();
         return true;
     }

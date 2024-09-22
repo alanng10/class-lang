@@ -1,4 +1,4 @@
-namespace Z.Tool.Avalon.GradientKindList;
+namespace Z.Tool.Avalon.PolateKindList;
 
 class Entry : EntryEntry
 {
