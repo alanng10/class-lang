@@ -49,7 +49,7 @@ public class Brush : Any
         Extern.Brush_KindSet(this.Intern, kindU);
         Extern.Brush_ColorSet(this.Intern, colorU);
         Extern.Brush_ImageSet(this.Intern, imageU);
-        Extern.Brush_GradientSet(this.Intern, gradientU);
+        Extern.Brush_PolateSet(this.Intern, gradientU);
         Extern.Brush_LineSet(this.Intern, lineU);
         Extern.Brush_WidthSet(this.Intern, wedU);
         Extern.Brush_CapSet(this.Intern, capU);
