@@ -2,9 +2,9 @@
 
 CppClassNew(GradientStop)
 
-Int GradientStop_Init(Int o)
+Int PolateStop_Init(Int o)
 {
-    GradientStop* m;
+    PolateStop* m;
     m = CP(o);
     Int count;
     count = m->Count;
@@ -14,9 +14,9 @@ Int GradientStop_Init(Int o)
     return true;
 }
 
-Int GradientStop_Final(Int o)
+Int PolateStop_Final(Int o)
 {
-    GradientStop* m;
+    PolateStop* m;
     m = CP(o);
     
     delete m->Intern;
@@ -26,9 +26,9 @@ Int GradientStop_Final(Int o)
 
 CppField(GradientStop, Count)
 
-Int GradientStop_PointGet(Int o, Int index, Int pos, Int color)
+Int PolateStop_PointGet(Int o, Int index, Int pos, Int color)
 {
-    GradientStop* m;
+    PolateStop* m;
     m = CP(o);
 
     qsizetype indexU;
@@ -61,9 +61,9 @@ Int GradientStop_PointGet(Int o, Int index, Int pos, Int color)
     return true;
 }
 
-Int GradientStop_PointSet(Int o, Int index, Int pos, Int color)
+Int PolateStop_PointSet(Int o, Int index, Int pos, Int color)
 {
-    GradientStop* m;
+    PolateStop* m;
     m = CP(o);
 
     qsizetype indexU;
@@ -83,9 +83,9 @@ Int GradientStop_PointSet(Int o, Int index, Int pos, Int color)
     return true;
 }
 
-Int GradientStop_Intern(Int o)
+Int PolateStop_Intern(Int o)
 {
-    GradientStop* m;
+    PolateStop* m;
     m = CP(o);
     Int a;
     a = CastInt(m->Intern);

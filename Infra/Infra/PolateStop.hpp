@@ -4,10 +4,10 @@
 
 #include "Pronate.hpp"
 
-struct GradientStop
+struct PolateStop
 {
     Int Count;
     QGradientStops* Intern;
 };
 
-#define CP(a) ((GradientStop*)(a))
+#define CP(a) ((PolateStop*)(a))
