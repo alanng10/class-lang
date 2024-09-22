@@ -35,7 +35,7 @@ public class GradientStop : Any
     internal virtual ulong Intern { get; set; }
     private InternDrawGradientStopPoint InternDrawGradientStopPoint { get; set; }
 
-    public virtual bool PointSet(long index, GradientStopPoint point)
+    public virtual bool PointSet(long index, PolateStopPoint point)
     {
         ulong indexU;
         ulong posU;
@@ -47,7 +47,7 @@ public class GradientStop : Any
         return true;
     }
 
-    public virtual bool PointGet(long index, GradientStopPoint result)
+    public virtual bool PointGet(long index, PolateStopPoint result)
     {
         InternDrawGradientStopPoint u;
         u = this.InternDrawGradientStopPoint;
