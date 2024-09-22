@@ -1,10 +1,10 @@
-#include "GradientLinear.hpp"
+#include "PolateLinear.hpp"
 
-CppClassNew(GradientLinear)
+CppClassNew(PolateLinear)
 
-Int GradientLinear_Init(Int o)
+Int PolateLinear_Init(Int o)
 {
-    GradientLinear* m;
+    PolateLinear* m;
     m = CP(o);
 
     Int startPos;
@@ -27,21 +27,21 @@ Int GradientLinear_Init(Int o)
     return true;
 }
 
-Int GradientLinear_Final(Int o)
+Int PolateLinear_Final(Int o)
 {
-    GradientLinear* m;
+    PolateLinear* m;
     m = CP(o);
 
     delete m->Intern;
     return true;
 }
 
-CppField(GradientLinear, StartPos)
-CppField(GradientLinear, EndPos)
+CppField(PolateLinear, StartPos)
+CppField(PolateLinear, EndPos)
 
-Int GradientLinear_Intern(Int o)
+Int PolateLinear_Intern(Int o)
 {
-    GradientLinear* m;
+    PolateLinear* m;
     m = CP(o);
     Int a;
     a = CastInt(m->Intern);

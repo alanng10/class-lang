@@ -4,11 +4,11 @@
 
 #include "Pronate.hpp"
 
-struct GradientLinear
+struct PolateLinear
 {
     Int StartPos;
     Int EndPos;
     QLinearGradient* Intern;
 };
 
-#define CP(a) ((GradientLinear*)(a))
+#define CP(a) ((PolateLinear*)(a))
