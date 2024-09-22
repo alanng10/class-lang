@@ -22,8 +22,8 @@ public class ReadList : ToolBase
         this.ExecuteList("BrushLine");
         this.ExecuteList("BrushCap");
         this.ExecuteList("BrushJoin");
-        this.ExecuteList("GradientKind");
-        this.ExecuteList("GradientSpread");
+        this.ExecuteList("PolateKind");
+        this.ExecuteList("PolateSpread");
         this.ExecuteList("Comp");
         this.ExecuteList("ImageBinary");
 
