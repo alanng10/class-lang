@@ -1,6 +1,6 @@
 namespace Avalon.Draw;
 
-public class Gradient : Any
+public class Polate : Any
 {
     public override bool Init()
     {

@@ -67,7 +67,7 @@ public class Brush : Any
 
     public virtual BrushKind Kind { get; set; }
     public virtual Color Color { get; set; }
-    public virtual Gradient Gradient { get; set; }
+    public virtual Polate Gradient { get; set; }
     public virtual Image Image { get; set; }
     public virtual BrushLine Line { get; set; }
     public virtual long Wed { get; set; }
