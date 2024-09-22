@@ -70,24 +70,6 @@ public class Event : Any
         }
     }
 
-    public virtual bool Single
-    {
-        get
-        {
-            ulong u;
-            u = Extern.TimeEvent_SingleGet(this.Intern);
-            bool b;
-            b = (!(u == 0));
-            return b;
-        }
-        set
-        {
-            ulong u;
-            u = (ulong)(value ? 1 : 0);
-            Extern.TimeEvent_SingleSet(this.Intern, u);
-        }
-    }
-
     public virtual bool Start()
     {
         Extern.TimeEvent_Start(this.Intern);
