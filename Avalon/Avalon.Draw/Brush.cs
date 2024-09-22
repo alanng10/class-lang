@@ -23,9 +23,9 @@ public class Brush : Any
         }
         ulong gradientU;
         gradientU = 0;
-        if (!(this.Gradient == null))
+        if (!(this.Polate == null))
         {
-            gradientU = this.Gradient.Intern;
+            gradientU = this.Polate.Intern;
         }
 
         ulong lineU;
@@ -67,7 +67,7 @@ public class Brush : Any
 
     public virtual BrushKind Kind { get; set; }
     public virtual Color Color { get; set; }
-    public virtual Polate Gradient { get; set; }
+    public virtual Polate Polate { get; set; }
     public virtual Image Image { get; set; }
     public virtual BrushLine Line { get; set; }
     public virtual long Wed { get; set; }

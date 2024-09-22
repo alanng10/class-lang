@@ -1401,7 +1401,7 @@ class Demo : Any
         DrawBrush brush;
         brush = new DrawBrush();
         brush.Kind = this.BrushKindList.Gradient;
-        brush.Gradient = gradient;
+        brush.Polate = gradient;
         brush.Init();
 
         DrawBrush ellipseBrush;
@@ -1451,7 +1451,7 @@ class Demo : Any
         DrawBrush brush;
         brush = a.Back;
         DrawGradient gradient;
-        gradient = brush.Gradient;
+        gradient = brush.Polate;
         DrawGradientStop gradientStop;
         gradientStop = gradient.Stop;
         DrawGradientLinear gradientLinear;
