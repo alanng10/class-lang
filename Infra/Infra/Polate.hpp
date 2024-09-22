@@ -4,7 +4,7 @@
 
 #include "Pronate.hpp"
 
-struct Gradient
+struct Polate
 {
     Int Kind;
     Int Value;
@@ -13,4 +13,4 @@ struct Gradient
     QGradient* Intern;
 };
 
-#define CP(a) ((Gradient*)(a))
+#define CP(a) ((Polate*)(a))

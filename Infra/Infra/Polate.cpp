@@ -1,10 +1,10 @@
-#include "Gradient.hpp"
+#include "Polate.hpp"
 
-CppClassNew(Gradient)
+CppClassNew(Polate)
 
-Int Gradient_Init(Int o)
+Int Polate_Init(Int o)
 {
-    Gradient* m;
+    Polate* m;
     m = CP(o);
 
     Int kind;
@@ -62,19 +62,19 @@ Int Gradient_Init(Int o)
     return true;
 }
 
-Int Gradient_Final(Int o)
+Int Polate_Final(Int o)
 {
     return true;
 }
 
-CppField(Gradient, Kind)
-CppField(Gradient, Value)
-CppField(Gradient, Stop)
-CppField(Gradient, Spread)
+CppField(Polate, Kind)
+CppField(Polate, Value)
+CppField(Polate, Stop)
+CppField(Polate, Spread)
 
-Int Gradient_Intern(Int o)
+Int Polate_Intern(Int o)
 {
-    Gradient* m;
+    Polate* m;
     m = CP(o);
     Int a;
     a = CastInt(m->Intern);
