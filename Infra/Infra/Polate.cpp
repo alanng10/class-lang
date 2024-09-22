@@ -26,7 +26,7 @@ Int Polate_Init(Int o)
 
     Int uo;
     uo = 0;
-    if (kind == Stat_GradientKindLinear(stat))
+    if (kind == Stat_PolateKindLinear(stat))
     {
         uo = GradientLinear_Intern(value);
 
@@ -35,7 +35,7 @@ Int Polate_Init(Int o)
 
         u = ua;
     }
-    if (kind == Stat_GradientKindRadial(stat))
+    if (kind == Stat_PolateKindRadial(stat))
     {
         uo = GradientRadial_Intern(value);
 
