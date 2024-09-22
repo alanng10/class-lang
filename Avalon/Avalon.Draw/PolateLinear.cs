@@ -17,17 +17,17 @@ public class PolateLinear : Any
         this.InternEndPos = this.InternInfra.PosCreate();
         this.InternInfra.PosSet(this.InternEndPos, pos.Col, pos.Row);
 
-        this.Intern = Extern.GradientLinear_New();
-        Extern.GradientLinear_StartPosSet(this.Intern, this.InternStartPos);
-        Extern.GradientLinear_EndPosSet(this.Intern, this.InternEndPos);
-        Extern.GradientLinear_Init(this.Intern);
+        this.Intern = Extern.PolateLinear_New();
+        Extern.PolateLinear_StartPosSet(this.Intern, this.InternStartPos);
+        Extern.PolateLinear_EndPosSet(this.Intern, this.InternEndPos);
+        Extern.PolateLinear_Init(this.Intern);
         return true;
     }
 
     public virtual bool Final()
     {
-        Extern.GradientLinear_Final(this.Intern);
-        Extern.GradientLinear_Delete(this.Intern);
+        Extern.PolateLinear_Final(this.Intern);
+        Extern.PolateLinear_Delete(this.Intern);
 
         this.InternInfra.PosDelete(this.InternEndPos);
 

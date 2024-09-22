@@ -22,19 +22,19 @@ public class PolateRadial : Any
         ulong focusRadiusU;
         focusRadiusU = (ulong)(this.FocusRadius);
 
-        this.Intern = Extern.GradientRadial_New();
-        Extern.GradientRadial_CenterPosSet(this.Intern, this.InternCenterPos);
-        Extern.GradientRadial_CenterRadiusSet(this.Intern, centerRadiusU);
-        Extern.GradientRadial_FocusPosSet(this.Intern, this.InternFocusPos);
-        Extern.GradientRadial_FocusRadiusSet(this.Intern, focusRadiusU);
-        Extern.GradientRadial_Init(this.Intern);
+        this.Intern = Extern.PolateRadial_New();
+        Extern.PolateRadial_CenterPosSet(this.Intern, this.InternCenterPos);
+        Extern.PolateRadial_CenterRadiusSet(this.Intern, centerRadiusU);
+        Extern.PolateRadial_FocusPosSet(this.Intern, this.InternFocusPos);
+        Extern.PolateRadial_FocusRadiusSet(this.Intern, focusRadiusU);
+        Extern.PolateRadial_Init(this.Intern);
         return true;
     }
 
     public virtual bool Final()
     {
-        Extern.GradientRadial_Final(this.Intern);
-        Extern.GradientRadial_Delete(this.Intern);
+        Extern.PolateRadial_Final(this.Intern);
+        Extern.PolateRadial_Delete(this.Intern);
 
         this.InternInfra.PosDelete(this.InternFocusPos);
 

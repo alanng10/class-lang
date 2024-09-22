@@ -25,19 +25,19 @@ public class Polate : Any
         ulong spreadU;
         spreadU = this.Spread.Intern;
 
-        this.Intern = Extern.Gradient_New();
-        Extern.Gradient_KindSet(this.Intern, kindU);
-        Extern.Gradient_ValueSet(this.Intern, valueU);
-        Extern.Gradient_StopSet(this.Intern, stopU);
-        Extern.Gradient_SpreadSet(this.Intern, spreadU);
-        Extern.Gradient_Init(this.Intern);
+        this.Intern = Extern.Polate_New();
+        Extern.Polate_KindSet(this.Intern, kindU);
+        Extern.Polate_ValueSet(this.Intern, valueU);
+        Extern.Polate_StopSet(this.Intern, stopU);
+        Extern.Polate_SpreadSet(this.Intern, spreadU);
+        Extern.Polate_Init(this.Intern);
         return true;
     }
 
     public virtual bool Final()
     {
-        Extern.Gradient_Final(this.Intern);
-        Extern.Gradient_Delete(this.Intern);
+        Extern.Polate_Final(this.Intern);
+        Extern.Polate_Delete(this.Intern);
         return true;
     }
 

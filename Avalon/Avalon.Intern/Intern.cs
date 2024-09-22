@@ -280,7 +280,7 @@ public class Intern : object
             ua = (ulong)posU;
             ub = (ulong)colorU;
 
-            Extern.GradientStop_PointGet(intern, index, ua, ub);
+            Extern.PolateStop_PointGet(intern, index, ua, ub);
 
             result.Pos = pos;
             result.Color = color;

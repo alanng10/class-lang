@@ -15,16 +15,16 @@ public class GradientStop : Any
         count = this.Count;
         ulong countU;
         countU = (ulong)count;
-        this.Intern = Extern.GradientStop_New();
-        Extern.GradientStop_CountSet(this.Intern, countU);
-        Extern.GradientStop_Init(this.Intern);
+        this.Intern = Extern.PolateStop_New();
+        Extern.PolateStop_CountSet(this.Intern, countU);
+        Extern.PolateStop_Init(this.Intern);
         return true;
     }
 
     public virtual bool Final()
     {
-        Extern.GradientStop_Final(this.Intern);
-        Extern.GradientStop_Delete(this.Intern);
+        Extern.PolateStop_Final(this.Intern);
+        Extern.PolateStop_Delete(this.Intern);
         return true;
     }
 
@@ -43,7 +43,7 @@ public class GradientStop : Any
         indexU = (ulong)index;
         posU = (ulong)(point.Pos);
         colorU = this.DrawInfra.InternColor(point.Color);
-        Extern.GradientStop_PointSet(this.Intern, indexU, posU, colorU);
+        Extern.PolateStop_PointSet(this.Intern, indexU, posU, colorU);
         return true;
     }
 
