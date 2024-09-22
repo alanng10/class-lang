@@ -1,4 +1,4 @@
-namespace Z.Tool.Infra.StatGradientSpread;
+namespace Z.Tool.Infra.StatPolateSpread;
 
 class Entry : EntryEntry
 {
