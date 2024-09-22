@@ -1,6 +1,6 @@
-#include "GradientStop.hpp"
+#include "PolateStop.hpp"
 
-CppClassNew(GradientStop)
+CppClassNew(PolateStop)
 
 Int PolateStop_Init(Int o)
 {
@@ -24,7 +24,7 @@ Int PolateStop_Final(Int o)
     return true;
 }
 
-CppField(GradientStop, Count)
+CppField(PolateStop, Count)
 
 Int PolateStop_PointGet(Int o, Int index, Int pos, Int color)
 {
