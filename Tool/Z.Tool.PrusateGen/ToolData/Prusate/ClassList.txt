@@ -131,7 +131,7 @@ Draw
 Brush
     Kind
     Color
-    Gradient
+    Polate
     Image
     Line
     Width
@@ -170,23 +170,23 @@ Form
     Invert(result)
     Transpose(result)
 
-Gradient
+Polate
     Kind
     Value
     Stop
     Spread
 
-GradientLinear
+PolateLinear
     StartPos
     EndPos
 
-GradientRadial
+PolateRadial
     CenterPos
     CenterRadius
     FocusPos
     FocusRadius
 
-GradientStop
+PolateStop
     Count
     PointGet(index, pos, color)
     PointSet(index, pos, color)
