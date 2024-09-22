@@ -173,12 +173,10 @@ Infra_Api Int Math_Log(Int o, Int value);
 Infra_Api Int Math_Log10(Int o, Int value);
 Infra_Api Int Math_Log2(Int o, Int value);
 Infra_Api Int Math_Pow(Int o, Int valueA, Int valueB);
-Infra_Api Int Math_Sqrt(Int o, Int value);
 Infra_Api Int Math_Ceil(Int o, Int value);
 Infra_Api Int Math_Floor(Int o, Int value);
 Infra_Api Int Math_Trunc(Int o, Int value);
 Infra_Api Int Math_Round(Int o, Int value);
-Infra_Api Int Math_ATan2(Int o, Int valueA, Int valueB);
 Infra_Api Int Math_Sin(Int o, Int value);
 Infra_Api Int Math_Cos(Int o, Int value);
 Infra_Api Int Math_Tan(Int o, Int value);
@@ -313,8 +311,8 @@ Infra_Api Int Brush_KindGet(Int o);
 Infra_Api Int Brush_KindSet(Int o, Int value);
 Infra_Api Int Brush_ColorGet(Int o);
 Infra_Api Int Brush_ColorSet(Int o, Int value);
-Infra_Api Int Brush_GradientGet(Int o);
-Infra_Api Int Brush_GradientSet(Int o, Int value);
+Infra_Api Int Brush_PolateGet(Int o);
+Infra_Api Int Brush_PolateSet(Int o, Int value);
 Infra_Api Int Brush_ImageGet(Int o);
 Infra_Api Int Brush_ImageSet(Int o, Int value);
 Infra_Api Int Brush_LineGet(Int o);
@@ -367,38 +365,38 @@ Infra_Api Int Form_IsInvertible(Int o);
 Infra_Api Int Form_Invert(Int o, Int result);
 Infra_Api Int Form_Transpose(Int o, Int result);
 
-InfraApiNew(Gradient)
-Infra_Api Int Gradient_KindGet(Int o);
-Infra_Api Int Gradient_KindSet(Int o, Int value);
-Infra_Api Int Gradient_ValueGet(Int o);
-Infra_Api Int Gradient_ValueSet(Int o, Int value);
-Infra_Api Int Gradient_StopGet(Int o);
-Infra_Api Int Gradient_StopSet(Int o, Int value);
-Infra_Api Int Gradient_SpreadGet(Int o);
-Infra_Api Int Gradient_SpreadSet(Int o, Int value);
+InfraApiNew(Polate)
+Infra_Api Int Polate_KindGet(Int o);
+Infra_Api Int Polate_KindSet(Int o, Int value);
+Infra_Api Int Polate_ValueGet(Int o);
+Infra_Api Int Polate_ValueSet(Int o, Int value);
+Infra_Api Int Polate_StopGet(Int o);
+Infra_Api Int Polate_StopSet(Int o, Int value);
+Infra_Api Int Polate_SpreadGet(Int o);
+Infra_Api Int Polate_SpreadSet(Int o, Int value);
 
-InfraApiNew(GradientLinear)
-Infra_Api Int GradientLinear_StartPosGet(Int o);
-Infra_Api Int GradientLinear_StartPosSet(Int o, Int value);
-Infra_Api Int GradientLinear_EndPosGet(Int o);
-Infra_Api Int GradientLinear_EndPosSet(Int o, Int value);
+InfraApiNew(PolateLinear)
+Infra_Api Int PolateLinear_StartPosGet(Int o);
+Infra_Api Int PolateLinear_StartPosSet(Int o, Int value);
+Infra_Api Int PolateLinear_EndPosGet(Int o);
+Infra_Api Int PolateLinear_EndPosSet(Int o, Int value);
 
-InfraApiNew(GradientRadial)
-Infra_Api Int GradientRadial_CenterPosGet(Int o);
-Infra_Api Int GradientRadial_CenterPosSet(Int o, Int value);
-Infra_Api Int GradientRadial_CenterRadiusGet(Int o);
-Infra_Api Int GradientRadial_CenterRadiusSet(Int o, Int value);
-Infra_Api Int GradientRadial_FocusPosGet(Int o);
-Infra_Api Int GradientRadial_FocusPosSet(Int o, Int value);
-Infra_Api Int GradientRadial_FocusRadiusGet(Int o);
-Infra_Api Int GradientRadial_FocusRadiusSet(Int o, Int value);
+InfraApiNew(PolateRadial)
+Infra_Api Int PolateRadial_CenterPosGet(Int o);
+Infra_Api Int PolateRadial_CenterPosSet(Int o, Int value);
+Infra_Api Int PolateRadial_CenterRadiusGet(Int o);
+Infra_Api Int PolateRadial_CenterRadiusSet(Int o, Int value);
+Infra_Api Int PolateRadial_FocusPosGet(Int o);
+Infra_Api Int PolateRadial_FocusPosSet(Int o, Int value);
+Infra_Api Int PolateRadial_FocusRadiusGet(Int o);
+Infra_Api Int PolateRadial_FocusRadiusSet(Int o, Int value);
 
-InfraApiNew(GradientStop)
-Infra_Api Int GradientStop_CountGet(Int o);
-Infra_Api Int GradientStop_CountSet(Int o, Int value);
+InfraApiNew(PolateStop)
+Infra_Api Int PolateStop_CountGet(Int o);
+Infra_Api Int PolateStop_CountSet(Int o, Int value);
 
-Infra_Api Int GradientStop_PointGet(Int o, Int index, Int pos, Int color);
-Infra_Api Int GradientStop_PointSet(Int o, Int index, Int pos, Int color);
+Infra_Api Int PolateStop_PointGet(Int o, Int index, Int pos, Int color);
+Infra_Api Int PolateStop_PointSet(Int o, Int index, Int pos, Int color);
 
 InfraApiNew(ImageRead)
 Infra_Api Int ImageRead_StreamGet(Int o);
@@ -787,11 +785,11 @@ Infra_Api Int Stat_BrushCapRound(Int o);
 Infra_Api Int Stat_BrushJoinMiter(Int o);
 Infra_Api Int Stat_BrushJoinBevel(Int o);
 Infra_Api Int Stat_BrushJoinRound(Int o);
-Infra_Api Int Stat_GradientKindLinear(Int o);
-Infra_Api Int Stat_GradientKindRadial(Int o);
-Infra_Api Int Stat_GradientSpreadPad(Int o);
-Infra_Api Int Stat_GradientSpreadReflect(Int o);
-Infra_Api Int Stat_GradientSpreadRepeat(Int o);
+Infra_Api Int Stat_PolateKindLinear(Int o);
+Infra_Api Int Stat_PolateKindRadial(Int o);
+Infra_Api Int Stat_PolateSpreadPad(Int o);
+Infra_Api Int Stat_PolateSpreadReflect(Int o);
+Infra_Api Int Stat_PolateSpreadRepeat(Int o);
 Infra_Api Int Stat_CompSourceOver(Int o);
 Infra_Api Int Stat_CompDestinationOver(Int o);
 Infra_Api Int Stat_CompClear(Int o);
