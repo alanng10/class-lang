@@ -44,7 +44,7 @@ public class Polate : Any
     public virtual PolateKind Kind { get; set; }
     public virtual PolateLinear Linear { get; set; }
     public virtual PolateRadial Radial { get; set; }
-    public virtual GradientStop Stop { get; set; }
+    public virtual PolateStop Stop { get; set; }
     public virtual GradientSpread Spread { get; set; }
 
     private InternIntern InternIntern { get; set; }
