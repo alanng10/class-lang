@@ -300,6 +300,8 @@ Word "center" has meaning that is center in whole.
 
 Word "focus" has meaning that is focus in whole.
 
+Word "tangent" has meaning that is round radius.
+
 Word "tune" has meaning that is comp audio.
 
 Word "tick" has meaning that is smallest duration.
