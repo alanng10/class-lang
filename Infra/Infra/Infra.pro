@@ -17,10 +17,6 @@ HEADERS += \
     FormatArg.h \
     Frame.hpp \
     FrameIntern.hpp \
-    Gradient.hpp \
-    GradientLinear.hpp \
-    GradientRadial.hpp \
-    GradientStop.hpp \
     Image.hpp \
     ImageRead.hpp \
     ImageWrite.hpp \
@@ -36,6 +32,10 @@ HEADERS += \
     Phore.hpp \
     Play.hpp \
     PointData.hpp \
+    Polate.hpp \
+    PolateLinear.hpp \
+    PolateRadial.hpp \
+    PolateStop.hpp \
     Pos.h \
     Post.hpp \
     PostIntern.hpp \
@@ -79,10 +79,10 @@ SOURCES += \
     FormatArg.c \
     Frame.cpp \
     FrameIntern.cpp \
-    Gradient.cpp \
-    GradientLinear.cpp \
-    GradientRadial.cpp \
-    GradientStop.cpp \
+    Polate.cpp \
+    PolateLinear.cpp \
+    PolateRadial.cpp \
+    PolateStop.cpp \
     Image.cpp \
     ImageRead.cpp \
     ImageWrite.cpp \
