@@ -28,7 +28,7 @@ Int Polate_Init(Int o)
     uo = 0;
     if (kind == Stat_PolateKindLinear(stat))
     {
-        uo = GradientLinear_Intern(value);
+        uo = PolateLinear_Intern(value);
 
         QLinearGradient* ua;
         ua = (QLinearGradient*)uo;
@@ -37,7 +37,7 @@ Int Polate_Init(Int o)
     }
     if (kind == Stat_PolateKindRadial(stat))
     {
-        uo = GradientRadial_Intern(value);
+        uo = PolateRadial_Intern(value);
 
         QRadialGradient* ua;
         ua = (QRadialGradient*)uo;
@@ -46,7 +46,7 @@ Int Polate_Init(Int o)
     }
 
     Int uaa;
-    uaa = GradientStop_Intern(stop);
+    uaa = PolateStop_Intern(stop);
 
     QGradientStops* stopU;
     stopU = (QGradientStops*)uaa;
