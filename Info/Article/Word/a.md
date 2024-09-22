@@ -292,6 +292,8 @@ Word "rect" has meaning that is rectangle.
 
 Word "form" has meaning that is transform.
 
+Word "polate" has meaning that is interpolate.
+
 Word "tune" has meaning that is comp audio.
 
 Word "tick" has meaning that is smallest duration.
