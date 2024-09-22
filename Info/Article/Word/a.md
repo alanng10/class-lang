@@ -296,6 +296,10 @@ Word "polate" has meaning that is interpolate.
 
 Word "spread" has meaning that is spreading over length.
 
+Word "center" has meaning that is center in whole.
+
+Word "focus" has meaning that is focus in whole.
+
 Word "tune" has meaning that is comp audio.
 
 Word "tick" has meaning that is smallest duration.
