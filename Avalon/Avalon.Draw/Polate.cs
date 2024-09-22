@@ -42,7 +42,7 @@ public class Polate : Any
     }
 
     public virtual GradientKind Kind { get; set; }
-    public virtual GradientLinear Linear { get; set; }
+    public virtual PolateLinear Linear { get; set; }
     public virtual GradientRadial Radial { get; set; }
     public virtual GradientStop Stop { get; set; }
     public virtual GradientSpread Spread { get; set; }
