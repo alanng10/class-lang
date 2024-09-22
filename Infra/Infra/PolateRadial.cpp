@@ -1,10 +1,10 @@
-#include "GradientRadial.hpp"
+#include "PolateRadial.hpp"
 
-CppClassNew(GradientRadial)
+CppClassNew(PolateRadial)
 
-Int GradientRadial_Init(Int o)
+Int PolateRadial_Init(Int o)
 {
-    GradientRadial* m;
+    PolateRadial* m;
     m = CP(o);
     Int centerPos;
     centerPos = m->CenterPos;
@@ -33,23 +33,23 @@ Int GradientRadial_Init(Int o)
     return true;
 }
 
-Int GradientRadial_Final(Int o)
+Int PolateRadial_Final(Int o)
 {
-    GradientRadial* m;
+    PolateRadial* m;
     m = CP(o);
 
     delete m->Intern;
     return true;
 }
 
-CppField(GradientRadial, CenterPos)
-CppField(GradientRadial, CenterRadius)
-CppField(GradientRadial, FocusPos)
-CppField(GradientRadial, FocusRadius)
+CppField(PolateRadial, CenterPos)
+CppField(PolateRadial, CenterRadius)
+CppField(PolateRadial, FocusPos)
+CppField(PolateRadial, FocusRadius)
 
-Int GradientRadial_Intern(Int o)
+Int PolateRadial_Intern(Int o)
 {
-    GradientRadial* m;
+    PolateRadial* m;
     m = CP(o);
     Int a;
     a = CastInt(m->Intern);
