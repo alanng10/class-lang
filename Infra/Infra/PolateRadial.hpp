@@ -4,7 +4,7 @@
 
 #include "Pronate.hpp"
 
-struct GradientRadial
+struct PolateRadial
 {
     Int CenterPos;
     Int CenterRadius;
@@ -13,4 +13,4 @@ struct GradientRadial
     QRadialGradient* Intern;
 };
 
-#define CP(a) ((GradientRadial*)(a))
+#define CP(a) ((PolateRadial*)(a))
