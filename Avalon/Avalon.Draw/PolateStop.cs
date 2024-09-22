@@ -54,7 +54,7 @@ public class PolateStop : Any
 
         ulong indexU;
         indexU = (ulong)index;
-        this.InternIntern.DrawGradientStopPointGet(this.Intern, indexU, u);
+        this.InternIntern.DrawPolateStopPointGet(this.Intern, indexU, u);
 
         ulong ua;
         ua = u.Pos;

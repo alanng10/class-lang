@@ -263,7 +263,7 @@ public class Intern : object
         return true;
     }
 
-    public virtual bool DrawGradientStopPointGet(ulong intern, ulong index, DrawPolateStopPoint result)
+    public virtual bool DrawPolateStopPointGet(ulong intern, ulong index, DrawPolateStopPoint result)
     {
         unsafe
         {
