@@ -14,7 +14,7 @@ Int ImageBrush;
 
 
 
-Int GradientBrush;
+Int PolateBrush;
 
 
 
@@ -480,7 +480,7 @@ Bool DrawHandle(Int frame, Int arg)
 
     scaleFactor = (1 << 20);
 
-    Draw_FillSet(Draw, GradientBrush);
+    Draw_FillSet(Draw, PolateBrush);
 
     SetRect(RectA, MathInt(1400), MathInt(200), MathInt(250), MathInt(110));
 
@@ -1499,22 +1499,22 @@ int main(int argc, char* argv[])
 
     Int gradientRadial;
 
-    gradientRadial = GradientRadial_New();
+    gradientRadial = PolateRadial_New();
 
 
-    GradientRadial_CenterPosSet(gradientRadial, gradientRadialCenterPos);
+    PolateRadial_CenterPosSet(gradientRadial, gradientRadialCenterPos);
 
 
-    GradientRadial_CenterRadiusSet(gradientRadial, MathInt(100));
+    PolateRadial_CenterRadiusSet(gradientRadial, MathInt(100));
 
 
-    GradientRadial_FocusPosSet(gradientRadial, gradientRadialFocusPos);
+    PolateRadial_FocusPosSet(gradientRadial, gradientRadialFocusPos);
 
 
-    GradientRadial_FocusRadiusSet(gradientRadial, MathInt(20));
+    PolateRadial_FocusRadiusSet(gradientRadial, MathInt(20));
 
 
-    GradientRadial_Init(gradientRadial);
+    PolateRadial_Init(gradientRadial);
 
 
 
@@ -1522,23 +1522,23 @@ int main(int argc, char* argv[])
 
     Int gradientStop;
 
-    gradientStop = GradientStop_New();
+    gradientStop = PolateStop_New();
 
 
-    GradientStop_CountSet(gradientStop, 3);
+    PolateStop_CountSet(gradientStop, 3);
 
 
-    GradientStop_Init(gradientStop);
+    PolateStop_Init(gradientStop);
 
 
 
-    GradientStop_PointSet(gradientStop, 0, MathInt(0), 0xffff0000);
+    PolateStop_PointSet(gradientStop, 0, MathInt(0), 0xffff0000);
 
 
-    GradientStop_PointSet(gradientStop, 1, Math_Value(0, scaleFactor / 2, -20), 0xff00ff00);
+    PolateStop_PointSet(gradientStop, 1, Math_Value(0, scaleFactor / 2, -20), 0xff00ff00);
 
 
-    GradientStop_PointSet(gradientStop, 2, MathInt(1), 0xff0000ff);
+    PolateStop_PointSet(gradientStop, 2, MathInt(1), 0xff0000ff);
 
 
 
@@ -1546,29 +1546,29 @@ int main(int argc, char* argv[])
 
     Int gradientKind;
 
-    gradientKind = Stat_GradientKindRadial(Stat);
+    gradientKind = Stat_PolateKindRadial(Stat);
 
 
 
 
     Int gradient;
 
-    gradient = Gradient_New();
+    gradient = Polate_New();
 
 
-    Gradient_KindSet(gradient, gradientKind);
+    Polate_KindSet(gradient, gradientKind);
 
 
-    Gradient_ValueSet(gradient, gradientRadial);
+    Polate_ValueSet(gradient, gradientRadial);
 
 
-    Gradient_StopSet(gradient, gradientStop);
+    Polate_StopSet(gradient, gradientStop);
 
 
-    Gradient_SpreadSet(gradient, Stat_GradientSpreadReflect(Stat));
+    Polate_SpreadSet(gradient, Stat_PolateSpreadReflect(Stat));
 
 
-    Gradient_Init(gradient);
+    Polate_Init(gradient);
 
 
 
@@ -1576,20 +1576,20 @@ int main(int argc, char* argv[])
 
     Int gradientBrushKind;
 
-    gradientBrushKind = Stat_BrushKindGradient(Stat);
+    gradientBrushKind = Stat_BrushKindPolate(Stat);
 
 
 
-    GradientBrush = Brush_New();
+    PolateBrush = Brush_New();
 
 
-    Brush_KindSet(GradientBrush, gradientBrushKind);
+    Brush_KindSet(PolateBrush, gradientBrushKind);
 
 
-    Brush_GradientSet(GradientBrush, gradient);
+    Brush_PolateSet(PolateBrush, gradient);
 
 
-    Brush_Init(GradientBrush);
+    Brush_Init(PolateBrush);
 
 
 
@@ -2012,35 +2012,35 @@ int main(int argc, char* argv[])
 
 
 
-    Brush_Final(GradientBrush);
+    Brush_Final(PolateBrush);
 
 
-    Brush_Delete(GradientBrush);
-
-
-
-
-    Gradient_Final(gradient);
-
-
-    Gradient_Delete(gradient);
+    Brush_Delete(PolateBrush);
 
 
 
 
-    GradientStop_Final(gradientStop);
+    Polate_Final(gradient);
 
 
-    GradientStop_Delete(gradientStop);
-
-
-
-
-    GradientRadial_Final(gradientRadial);
+    Polate_Delete(gradient);
 
 
 
-    GradientRadial_Delete(gradientRadial);
+
+    PolateStop_Final(gradientStop);
+
+
+    PolateStop_Delete(gradientStop);
+
+
+
+
+    PolateRadial_Final(gradientRadial);
+
+
+
+    PolateRadial_Delete(gradientRadial);
 
 
 
