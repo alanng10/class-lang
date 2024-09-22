@@ -124,8 +124,8 @@ SOURCES += \
     Stat_BrushJoin.cpp \
     Stat_BrushKind.cpp \
     Stat_BrushLine.cpp \
-    Stat_GradientKind.cpp \
-    Stat_GradientSpread.cpp \
+    Stat_PolateKind.cpp \
+    Stat_PolateSpread.cpp \
     Stat_Comp.cpp \
     Stat_ImageBinary.cpp \
     State.c \
