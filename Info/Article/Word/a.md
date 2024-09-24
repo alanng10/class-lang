@@ -302,6 +302,8 @@ Word "focus" has meaning that is focus in whole.
 
 Word "tangent" has meaning that is round radius.
 
+Word "angle" has meaning that is direct.
+
 Word "tune" has meaning that is comp audio.
 
 Word "tick" has meaning that is smallest duration.
