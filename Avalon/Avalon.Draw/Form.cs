@@ -126,7 +126,7 @@ public class Form : Any
         return a;
     }
 
-    public virtual bool Scale(long col, long row, long hor)
+    public virtual bool Time(long col, long row, long hor)
     {
         ulong colU;
         ulong rowU;
