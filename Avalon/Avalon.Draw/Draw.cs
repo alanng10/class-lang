@@ -20,8 +20,6 @@ public class Draw : Any
         this.Area.Size.Init();
         this.Pos = new Pos();
         this.Pos.Init();
-        this.FillPos = new Pos();
-        this.FillPos.Init();
         
         this.Math = new MathMath();
         this.Math.Init();
@@ -112,11 +110,21 @@ public class Draw : Any
 
             ulong uu;
             uu = 0;
+
+            long fillCol;
+            long fillRow;
+            fillCol = 0;
+            fillRow = 0;
+
             if (!(this.FillData == null))
             {
                 uu = this.FillData.Intern;
+                fillCol = this.FillData.FillPos.Col;
+                fillRow = this.FillData.FillPos.Row;
             }
             Extern.Draw_FillSet(this.Intern, uu);
+
+            this.FillPosSet(fillCol, fillRow);
         }
     }
 
@@ -234,9 +242,7 @@ public class Draw : Any
         this.Fill = null;
         this.Line = null;
         this.Comp = null;
-        this.FillPos.Col = 0;
-        this.FillPos.Row = 0;
-        this.FillPosSet();
+        this.FillPosSet(0, 0);
         this.Form = null;
         this.FormSet();
         return true;
@@ -267,15 +273,8 @@ public class Draw : Any
         return true;
     }
 
-    public virtual bool FillPosSet()
+    protected virtual bool FillPosSet(long col, long row)
     {
-        Pos k;
-        k = this.FillPos;
-
-        long col;
-        long row;
-        col = k.Col;
-        row = k.Row;
         this.InternInfra.PosSet(this.InternFillPos, col, row);
 
         Extern.Draw_FillPosThisSet(this.Intern);
