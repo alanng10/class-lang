@@ -108,7 +108,7 @@ public class Form : Any
         return a;
     }
 
-    public virtual bool Rotate(long angle, long angle, long angle)
+    public virtual bool Rotate(long col, long row, long hor)
     {
         ulong colU;
         ulong rowU;
