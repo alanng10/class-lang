@@ -325,7 +325,7 @@ public class Draw : Any
         col = pos.Col;
         row = pos.Row;
 
-        this.WorldForm.Pos(col, row);
+        this.WorldForm.Pos(col, row, 0);
         return true;
     }
     
