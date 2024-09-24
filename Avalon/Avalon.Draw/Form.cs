@@ -90,28 +90,36 @@ public class Form : Any
         return a;
     }
 
-    public virtual bool Pos(long col, long row)
+    public virtual bool Pos(long col, long row, long hor)
     {
         ulong colU;
         ulong rowU;
+        ulong horU;
         colU = (ulong)col;
         rowU = (ulong)row;
+        horU = (ulong)hor;
         
         ulong u;
-        u = Extern.Form_Offset(this.Intern, colU, rowU);
+        u = 0;
+        //u = Extern.Form_Offset(this.Intern, colU, rowU, horU);
 
         bool a;
         a = !(u == 0);
         return a;
     }
 
-    public virtual bool Rotate(long angle)
+    public virtual bool Rotate(long col, long row, long hor)
     {
-        ulong angleU;
-        angleU = (ulong)angle;
+        ulong colU;
+        ulong rowU;
+        ulong horU;
+        colU = (ulong)col;
+        rowU = (ulong)row;
+        horU = (ulong)hor;
 
         ulong u;
-        u = Extern.Form_Rotate(this.Intern, angleU);
+        u = 0;
+        //u = Extern.Form_Rotate(this.Intern, colU, rowU, horU);
 
         bool a;
         a = !(u == 0);
@@ -141,11 +149,11 @@ public class Form : Any
 
     public virtual bool ValidRow(long index)
     {
-        return this.InfraInfra.ValidIndex(3, index);
+        return this.InfraInfra.ValidIndex(4, index);
     }
 
     public virtual bool ValidCol(long index)
     {
-        return this.InfraInfra.ValidIndex(3, index);
+        return this.InfraInfra.ValidIndex(4, index);
     }
 }
