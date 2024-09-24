@@ -461,6 +461,11 @@ public class Draw : Any
         return true;
     }
 
+    public virtual bool ExecuteQuad(Data quad, Array brush)
+    {
+        return true;
+    }
+
     private bool TextSet(TextText text)
     {
         long count;
