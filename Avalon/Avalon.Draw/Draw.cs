@@ -309,7 +309,7 @@ public class Draw : Any
 
         if (!(this.FormA == null))
         {
-            this.WorldForm.Multiply(this.FormA);
+            this.WorldForm.Mul(this.FormA);
         }
 
         this.FormA = null;

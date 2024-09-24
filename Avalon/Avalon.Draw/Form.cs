@@ -144,7 +144,7 @@ public class Form : Any
         return a;
     }
 
-    public virtual bool Multiply(Form other)
+    public virtual bool Mul(Form other)
     {
         Extern.Form_Multiply(this.Intern, other.Intern);
         return true;
