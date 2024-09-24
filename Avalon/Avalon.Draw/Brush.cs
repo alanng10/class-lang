@@ -73,5 +73,6 @@ public class Brush : Any
     public virtual long Wed { get; set; }
     public virtual BrushCap Cap { get; set; }
     public virtual BrushJoin Join { get; set; }
+    public virtual Pos FillPos { get; set; }
     internal virtual ulong Intern { get; set; }    
 }

@@ -99,7 +99,6 @@ public class Draw : Any
     public virtual Size Size { get; set; }
     public virtual Rect Area { get; set; }
     public virtual Pos Pos { get; set; }
-    public virtual Pos FillPos { get; set; }
 
     public virtual Brush Fill
     {
