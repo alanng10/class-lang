@@ -304,6 +304,8 @@ Word "tangent" has meaning that is round radius.
 
 Word "angle" has meaning that is direct.
 
+Word "quad" has meaning that is four point shape.
+
 Word "tune" has meaning that is comp audio.
 
 Word "tick" has meaning that is smallest duration.
