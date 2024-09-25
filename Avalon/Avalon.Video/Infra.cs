@@ -17,19 +17,9 @@ public class Infra : Any
     public override bool Init()
     {
         base.Init();
-        this.MathInfra = MathInfra.This;
 
         this.PixelByteCount = 4;
         this.ColorCompMax = byte.MaxValue;
-
-        Color blackColor;
-        blackColor = this.ColorCreate(this.ColorCompMax, 0, 0, 0);
-
-        Color whiteColor;
-        whiteColor = this.ColorCreate(this.ColorCompMax, this.ColorCompMax, this.ColorCompMax, this.ColorCompMax);
-        
-        Color transparentColor;
-        transparentColor = this.ColorCreate(0, 0, 0, 0);
         return true;
     }
 
