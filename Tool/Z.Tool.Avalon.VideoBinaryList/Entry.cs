@@ -1,4 +1,4 @@
-namespace Z.Tool.Avalon.ImageBinaryList;
+namespace Z.Tool.Avalon.VideoBinaryList;
 
 class Entry : EntryEntry
 {
