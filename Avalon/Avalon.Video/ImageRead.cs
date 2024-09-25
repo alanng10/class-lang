@@ -1,6 +1,6 @@
-namespace Avalon.Draw;
+namespace Avalon.Video;
 
-public class ImageRead : Any
+public class VideoRead : Any
 {
     public override bool Init()
     {
@@ -19,7 +19,7 @@ public class ImageRead : Any
     }
 
     public virtual StreamStream Stream { get; set; }
-    public virtual Image Image { get; set; }
+    public virtual Video Video { get; set; }
 
     private InternIntern InternIntern { get; set; }
     private ulong Intern { get; set; }
@@ -27,7 +27,7 @@ public class ImageRead : Any
     public virtual bool Execute()
     {
         Extern.ImageRead_StreamSet(this.Intern, this.Stream.Ident);
-        Extern.ImageRead_ImageSet(this.Intern, this.Image.Ident);
+        Extern.ImageRead_ImageSet(this.Intern, this.Video.Ident);
 
         ulong u;        
         u = Extern.ImageRead_Execute(this.Intern);

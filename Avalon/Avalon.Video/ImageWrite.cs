@@ -1,6 +1,6 @@
-namespace Avalon.Draw;
+namespace Avalon.Video;
 
-public class ImageWrite : Any
+public class VideoWrite : Any
 {
     public override bool Init()
     {
@@ -18,8 +18,8 @@ public class ImageWrite : Any
     }
 
     public virtual StreamStream Stream { get; set; }
-    public virtual Image Image { get; set; }
-    public virtual ImageBinary Binary { get; set; }
+    public virtual Video Video { get; set; }
+    public virtual VideoBinary Binary { get; set; }
 
     private ulong Intern { get; set; }
 
@@ -27,7 +27,7 @@ public class ImageWrite : Any
     {
         Extern.ImageWrite_StreamSet(this.Intern, this.Stream.Ident);
         Extern.ImageWrite_BinarySet(this.Intern, this.Binary.Intern);
-        Extern.ImageWrite_ImageSet(this.Intern, this.Image.Ident);
+        Extern.ImageWrite_ImageSet(this.Intern, this.Video.Ident);
 
         ulong u;
         u = Extern.ImageWrite_Execute(this.Intern);
