@@ -10,7 +10,7 @@ struct Brush
 {
     Int Kind;
     Int Color;
-    Int Gradient;
+    Int Polate;
     Int Image;
     Int Line;
     Int Width;

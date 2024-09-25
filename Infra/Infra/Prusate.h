@@ -772,7 +772,7 @@ Infra_Api Int Stat_NetworkStatusSslInternalError(Int o);
 Infra_Api Int Stat_NetworkStatusSslInvalidUserDataError(Int o);
 Infra_Api Int Stat_NetworkStatusTemporaryError(Int o);
 Infra_Api Int Stat_BrushKindColor(Int o);
-Infra_Api Int Stat_BrushKindGradient(Int o);
+Infra_Api Int Stat_BrushKindPolate(Int o);
 Infra_Api Int Stat_BrushKindImage(Int o);
 Infra_Api Int Stat_BrushLineSolid(Int o);
 Infra_Api Int Stat_BrushLineDash(Int o);

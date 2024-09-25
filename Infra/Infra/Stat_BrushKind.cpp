@@ -5,7 +5,7 @@ Int Stat_BrushKindColor(Int o)
 {
     return 1;
 }
-Int Stat_BrushKindGradient(Int o)
+Int Stat_BrushKindPolate(Int o)
 {
     return 2;
 }

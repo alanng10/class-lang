@@ -11,8 +11,8 @@ Int Brush_Init(Int o)
     kind = m->Kind;
     Int color;
     color = m->Color;
-    Int gradient;
-    gradient = m->Gradient;
+    Int polate;
+    polate = m->Polate;
     Int image;
     image = m->Image;
     Int line;
@@ -36,13 +36,13 @@ Int Brush_Init(Int o)
         m->InternBrush = new QBrush(colorU);
     }
 
-    if (kind == Stat_BrushKindGradient(stat))
+    if (kind == Stat_BrushKindPolate(stat))
     {
-        Int gradientU;
-        gradientU = Gradient_Intern(gradient);
+        Int polateU;
+        polateU = Polate_Intern(polate);
 
         QGradient* ua;
-        ua = (QGradient*)gradientU;
+        ua = (QGradient*)polateU;
 
         m->InternBrush = new QBrush(*ua);
     }
@@ -94,7 +94,7 @@ Int Brush_Final(Int o)
 
 CppField(Brush, Kind)
 CppField(Brush, Color)
-CppField(Brush, Gradient)
+CppField(Brush, Polate)
 CppField(Brush, Image)
 CppField(Brush, Line)
 CppField(Brush, Width)
