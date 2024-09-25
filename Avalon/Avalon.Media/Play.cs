@@ -19,22 +19,22 @@ public class Play : Any
         return true;
     }
 
-    public virtual String Source { get; set; }
+    public virtual StreamStream Stream { get; set; }
 
     private InternIntern InternIntern { get; set; }
     private InternInfra InternInfra { get; set; }
     private ulong Intern { get; set; }
 
-    public virtual bool SourceSet()
+    public virtual bool StreamSet()
     {
         ulong u;
-        u = this.InternInfra.StringCreate(this.Source.Value);
-
-        Extern.Play_SourceSet(this.Intern, u);
-        Extern.Play_SourceThisSet(this.Intern);
-        Extern.Play_SourceSet(this.Intern, 0);
-
-        this.InternInfra.StringDelete(u);
+        u = 0;
+        if (!(this.Stream == null))
+        {
+            u = this.Stream.Ident;
+        }
+        // Extern.Play_StreamSet(this.Intern, u);
+        // Extern.Play_StreamThisSet(this.Intern);
         return true;
     }
 
