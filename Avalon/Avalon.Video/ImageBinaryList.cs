@@ -32,14 +32,14 @@ public class ImageBinaryList : Any
         return true;
     }
 
-    public virtual ImageBinary Bmp { get; set; }
-    public virtual ImageBinary Jpg { get; set; }
-    public virtual ImageBinary Png { get; set; }
+    public virtual VideoBinary Bmp { get; set; }
+    public virtual VideoBinary Jpg { get; set; }
+    public virtual VideoBinary Png { get; set; }
 
-    protected virtual ImageBinary AddItem(ulong o)
+    protected virtual VideoBinary AddItem(ulong o)
     {
-        ImageBinary item;
-        item = new ImageBinary();
+        VideoBinary item;
+        item = new VideoBinary();
         item.Init();
         item.Index = this.Index;
         item.Intern = o;
@@ -64,8 +64,8 @@ public class ImageBinaryList : Any
     
     protected virtual long Index { get; set; }
 
-    public virtual ImageBinary Get(long index)
+    public virtual VideoBinary Get(long index)
     {
-        return (ImageBinary)this.Array.GetAt(index);
+        return (VideoBinary)this.Array.GetAt(index);
     }
 }

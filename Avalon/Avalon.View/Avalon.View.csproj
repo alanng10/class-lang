@@ -14,6 +14,7 @@
         <ProjectReference Include="../Avalon.Event/Avalon.Event.csproj" />
         <ProjectReference Include="../Avalon.Comp/Avalon.Comp.csproj" />
         <ProjectReference Include="../Avalon.Type/Avalon.Type.csproj" />
+        <ProjectReference Include="../Avalon.Video/Avalon.Video.csproj" />
         <ProjectReference Include="../Avalon.Draw/Avalon.Draw.csproj" />
     </ItemGroup>
 
