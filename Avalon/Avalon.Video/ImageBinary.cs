@@ -1,6 +1,6 @@
 namespace Avalon.Video;
 
-public class ImageBinary : Any
+public class VideoBinary : Any
 {
     public virtual long Index { get; set; }
     internal virtual ulong Intern { get; set; }
