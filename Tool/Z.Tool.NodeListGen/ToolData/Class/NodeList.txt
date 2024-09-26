@@ -59,7 +59,7 @@ ReferExecute : Execute
     Var Var
 
 AreExecute : Execute
-    Target Target
+    Mark Mark
     Operate Value
 
 OperateExecute : Execute
@@ -68,12 +68,12 @@ OperateExecute : Execute
 Argue : Node
     Array Operate Value
 
-Target : Node
+Mark : Node
 
-VarTarget : Target
+VarMark : Mark
     VarName Var
 
-SetTarget : Target
+SetMark : Mark
     Operate This
     FieldName Field
 
