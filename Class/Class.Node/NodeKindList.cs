@@ -43,9 +43,9 @@ public class NodeKindList : Any
         this.AreExecute = this.AddItem("AreExecute", new AreExecute(), new AreExecuteNewState(), new AreExecuteNodeState(), new AreExecuteCreateSetState());
         this.OperateExecute = this.AddItem("OperateExecute", new OperateExecute(), new OperateExecuteNewState(), new OperateExecuteNodeState(), new OperateExecuteCreateSetState());
         this.Argue = this.AddItem("Argue", new Argue(), new ArgueNewState(), new ArgueNodeState(), new ArgueCreateSetState());
-        this.Target = this.AddItem("Target", new Target(), new TargetNewState(), new TargetNodeState(), new TargetCreateSetState());
-        this.VarTarget = this.AddItem("VarTarget", new VarTarget(), new VarTargetNewState(), new VarTargetNodeState(), new VarTargetCreateSetState());
-        this.SetTarget = this.AddItem("SetTarget", new SetTarget(), new SetTargetNewState(), new SetTargetNodeState(), new SetTargetCreateSetState());
+        this.Mark = this.AddItem("Mark", new Mark(), new MarkNewState(), new MarkNodeState(), new MarkCreateSetState());
+        this.VarMark = this.AddItem("VarMark", new VarMark(), new VarMarkNewState(), new VarMarkNodeState(), new VarMarkCreateSetState());
+        this.SetMark = this.AddItem("SetMark", new SetMark(), new SetMarkNewState(), new SetMarkNodeState(), new SetMarkCreateSetState());
         this.Operate = this.AddItem("Operate", new Operate(), new OperateNewState(), new OperateNodeState(), new OperateCreateSetState());
         this.GetOperate = this.AddItem("GetOperate", new GetOperate(), new GetOperateNewState(), new GetOperateNodeState(), new GetOperateCreateSetState());
         this.CallOperate = this.AddItem("CallOperate", new CallOperate(), new CallOperateNewState(), new CallOperateNodeState(), new CallOperateCreateSetState());
@@ -111,9 +111,9 @@ public class NodeKindList : Any
     public virtual NodeKind AreExecute { get; set; }
     public virtual NodeKind OperateExecute { get; set; }
     public virtual NodeKind Argue { get; set; }
-    public virtual NodeKind Target { get; set; }
-    public virtual NodeKind VarTarget { get; set; }
-    public virtual NodeKind SetTarget { get; set; }
+    public virtual NodeKind Mark { get; set; }
+    public virtual NodeKind VarMark { get; set; }
+    public virtual NodeKind SetMark { get; set; }
     public virtual NodeKind Operate { get; set; }
     public virtual NodeKind GetOperate { get; set; }
     public virtual NodeKind CallOperate { get; set; }

@@ -1,6 +1,6 @@
 namespace Class.Node;
 
-public class AreExecuteCreateSetState : CreateSetState
+public class VarMarkCreateSetState : CreateSetState
 {
     public override bool Execute()
     {
@@ -9,10 +9,9 @@ public class AreExecuteCreateSetState : CreateSetState
         CreateSetArg k;
         k = arg.SetArg;
 
-        AreExecute node;
-        node = (AreExecute)arg.Node;
-        node.Mark = (Mark)k.Field00;
-        node.Value = (Operate)k.Field01;
+        VarMark node;
+        node = (VarMark)arg.Node;
+        node.Var = (VarName)k.Field00;
         return true;
     }
 }

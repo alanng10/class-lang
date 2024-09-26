@@ -306,7 +306,7 @@ public class Traverse : Any
         }
         this.ExecuteNode(areExecute);
 
-        this.ExecuteTarget(areExecute.Target);
+        this.ExecuteMark(areExecute.Mark);
         this.ExecuteOperate(areExecute.Value);
         return true;
     }
@@ -343,46 +343,46 @@ public class Traverse : Any
         return true;
     }
 
-    public virtual bool ExecuteTarget(Target target)
+    public virtual bool ExecuteMark(Mark mark)
     {
-        if (target == null)
+        if (mark == null)
         {
             return true;
         }
 
-        if (target is VarTarget)
+        if (mark is VarMark)
         {
-            this.ExecuteVarTarget((VarTarget)target);
+            this.ExecuteVarMark((VarMark)mark);
         }
-        if (target is SetTarget)
+        if (mark is SetMark)
         {
-            this.ExecuteSetTarget((SetTarget)target);
+            this.ExecuteSetMark((SetMark)mark);
         }
         return true;
     }
 
-    public virtual bool ExecuteVarTarget(VarTarget varTarget)
+    public virtual bool ExecuteVarMark(VarMark varMark)
     {
-        if (varTarget == null)
+        if (varMark == null)
         {
             return true;
         }
-        this.ExecuteNode(varTarget);
+        this.ExecuteNode(varMark);
 
-        this.ExecuteVarName(varTarget.Var);
+        this.ExecuteVarName(varMark.Var);
         return true;
     }
 
-    public virtual bool ExecuteSetTarget(SetTarget setTarget)
+    public virtual bool ExecuteSetMark(SetMark setMark)
     {
-        if (setTarget == null)
+        if (setMark == null)
         {
             return true;
         }
-        this.ExecuteNode(setTarget);
+        this.ExecuteNode(setMark);
 
-        this.ExecuteOperate(setTarget.This);
-        this.ExecuteFieldName(setTarget.Field);
+        this.ExecuteOperate(setMark.This);
+        this.ExecuteFieldName(setMark.Field);
         return true;
     }
 
