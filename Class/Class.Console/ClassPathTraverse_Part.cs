@@ -19,7 +19,7 @@ partial class ClassPathTraverse
         this.SFieldLoop = this.S("Loop");
         this.SFieldResult = this.S("Result");
         this.SFieldVar = this.S("Var");
-        this.SFieldTarget = this.S("Target");
+        this.SFieldMark = this.S("Mark");
         this.SFieldAny = this.S("Any");
         this.SFieldThis = this.S("This");
         this.SFieldField = this.S("Field");
@@ -45,7 +45,7 @@ partial class ClassPathTraverse
     protected virtual String SFieldLoop { get; set; }
     protected virtual String SFieldResult { get; set; }
     protected virtual String SFieldVar { get; set; }
-    protected virtual String SFieldTarget { get; set; }
+    protected virtual String SFieldMark { get; set; }
     protected virtual String SFieldAny { get; set; }
     protected virtual String SFieldThis { get; set; }
     protected virtual String SFieldField { get; set; }
@@ -429,9 +429,9 @@ partial class ClassPathTraverse
             return true;
         }
 
-        if (this.FieldEqual(this.SFieldTarget))
+        if (this.FieldEqual(this.SFieldMark))
         {
-            this.ExecuteTarget(areExecute.Target);
+            this.ExecuteMark(areExecute.Mark);
             return true;
         }
         if (this.FieldEqual(this.SFieldValue))
@@ -486,13 +486,13 @@ partial class ClassPathTraverse
         return true;
     }
 
-    public override bool ExecuteVarTarget(VarTarget varTarget)
+    public override bool ExecuteVarMark(VarMark varMark)
     {
-        if (varTarget == null)
+        if (varMark == null)
         {
             return true;
         }
-        this.ExecuteNode(varTarget);
+        this.ExecuteNode(varMark);
 
         if (this.HasResult())
         {
@@ -501,19 +501,19 @@ partial class ClassPathTraverse
 
         if (this.FieldEqual(this.SFieldVar))
         {
-            this.ExecuteVarName(varTarget.Var);
+            this.ExecuteVarName(varMark.Var);
             return true;
         }
         return true;
     }
 
-    public override bool ExecuteSetTarget(SetTarget setTarget)
+    public override bool ExecuteSetMark(SetMark setMark)
     {
-        if (setTarget == null)
+        if (setMark == null)
         {
             return true;
         }
-        this.ExecuteNode(setTarget);
+        this.ExecuteNode(setMark);
 
         if (this.HasResult())
         {
@@ -522,12 +522,12 @@ partial class ClassPathTraverse
 
         if (this.FieldEqual(this.SFieldThis))
         {
-            this.ExecuteOperate(setTarget.This);
+            this.ExecuteOperate(setMark.This);
             return true;
         }
         if (this.FieldEqual(this.SFieldField))
         {
-            this.ExecuteFieldName(setTarget.Field);
+            this.ExecuteFieldName(setMark.Field);
             return true;
         }
         return true;
