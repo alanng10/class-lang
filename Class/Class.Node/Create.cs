@@ -1851,20 +1851,20 @@ public class Create : InfraCreate
             return null;
         }
 
-        long targetStart;
-        long targetEnd;
-        targetStart = start;
-        targetEnd = colon.Range.Start;
+        long markStart;
+        long markEnd;
+        markStart = start;
+        markEnd = colon.Range.Start;
         long valueStart;
         long valueEnd;
         valueStart = colon.Range.End;
         valueEnd = semicolon.Range.Start;
 
         Node mark;
-        mark = this.ExecuteMark(this.Range(this.RangeA, targetStart, targetEnd));
+        mark = this.ExecuteMark(this.Range(this.RangeA, markStart, markEnd));
         if (mark == null)
         {
-            this.Error(this.ErrorKind.TargetInvalid, targetStart, targetEnd);
+            this.Error(this.ErrorKind.TargetInvalid, markStart, markEnd);
         }
 
         Node value;
