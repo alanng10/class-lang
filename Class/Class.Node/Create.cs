@@ -1864,7 +1864,7 @@ public class Create : InfraCreate
         mark = this.ExecuteMark(this.Range(this.RangeA, markStart, markEnd));
         if (mark == null)
         {
-            this.Error(this.ErrorKind.TargetInvalid, markStart, markEnd);
+            this.Error(this.ErrorKind.MarkInvalid, markStart, markEnd);
         }
 
         Node value;
