@@ -1233,7 +1233,7 @@ public class Create : InfraCreate
        return a;
     }
 
-    public virtual Node ExecuteTarget(Range range)
+    public virtual Node ExecuteMark(Range range)
     {
         long start;
         long end;
@@ -1244,23 +1244,23 @@ public class Create : InfraCreate
         a = null;
         if (a == null)
         {
-            a = this.ExecuteVarTarget(this.Range(this.RangeA, start, end));
+            a = this.ExecuteVarMark(this.Range(this.RangeA, start, end));
         }
         if (a == null)
         {
-            a = this.ExecuteSetTarget(this.Range(this.RangeA, start, end));
+            a = this.ExecuteSetMark(this.Range(this.RangeA, start, end));
         }
         return a;
     }
 
-    public virtual Node ExecuteVarTarget(Range range)
+    public virtual Node ExecuteVarMark(Range range)
     {
-        return this.ExecuteVarNameResult(this.NodeKind.VarTarget, range);
+        return this.ExecuteVarNameResult(this.NodeKind.VarMark, range);
     }
 
-    public virtual Node ExecuteSetTarget(Range range)
+    public virtual Node ExecuteSetMark(Range range)
     {
-        return this.ExecuteDotField(this.NodeKind.SetTarget, range);
+        return this.ExecuteDotField(this.NodeKind.SetMark, range);
     }
 
     public virtual Node ExecuteValue(Range range)
@@ -1860,9 +1860,9 @@ public class Create : InfraCreate
         valueStart = colon.Range.End;
         valueEnd = semicolon.Range.Start;
 
-        Node target;
-        target = this.ExecuteTarget(this.Range(this.RangeA, targetStart, targetEnd));
-        if (target == null)
+        Node mark;
+        mark = this.ExecuteMark(this.Range(this.RangeA, targetStart, targetEnd));
+        if (mark == null)
         {
             this.Error(this.ErrorKind.TargetInvalid, targetStart, targetEnd);
         }
@@ -1877,7 +1877,7 @@ public class Create : InfraCreate
         this.SetArg.Kind = this.NodeKind.AreExecute;
         this.SetArg.Start = start;
         this.SetArg.End = end;
-        this.SetArg.Field00 = target;
+        this.SetArg.Field00 = mark;
         this.SetArg.Field01 = value;
         Node ret;
         ret = this.ExecuteCreateOperate();
