@@ -267,7 +267,7 @@ public class Frame : Comp
         return true;
     }
 
-    public virtual bool Update(DrawRect rect)
+    public virtual bool Area(DrawRect rect)
     {
         this.InternInfra.RectSet(this.InternUpdateRect, 
             rect.Pos.Col, rect.Pos.Row, rect.Size.Wed, rect.Size.Het
