@@ -459,7 +459,7 @@ public class Draw : Any
         return true;
     }
 
-    public virtual bool ExecuteQuad(Data quad, Range dataRange, Array brush, long arrayIndex)
+    public virtual bool ExecuteQuad(Data quad, Array brush, long dataIndex, long arrayIndex, long count)
     {
         return true;
     }
