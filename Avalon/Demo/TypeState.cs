@@ -189,14 +189,14 @@ class TypeState : State
         {
             this.ViewInfra.AssignDrawRectValue(this.Demo.UpdateRect, this.Demo.ViewA.Area);
 
-            this.Demo.Frame.Update(this.Demo.UpdateRect);
+            this.Demo.Frame.Area(this.Demo.UpdateRect);
         }
 
         if (ba)
         {
             this.ViewInfra.AssignDrawRectValue(this.Demo.UpdateRect, this.Demo.ViewC.Area);
 
-            this.Demo.Frame.Update(this.Demo.UpdateRect);
+            this.Demo.Frame.Area(this.Demo.UpdateRect);
         }
         return true;
     }
