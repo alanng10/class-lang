@@ -36,7 +36,7 @@ public class ErrorKindList : Any
         this.MaideInvalid = this.AddItem("MaideInvalid");
         this.VarInvalid = this.AddItem("VarInvalid");
         this.OperandInvalid = this.AddItem("OperandInvalid");
-        this.TargetInvalid = this.AddItem("TargetInvalid");
+        this.MarkInvalid = this.AddItem("MarkInvalid");
         this.ValueInvalid = this.AddItem("ValueInvalid");
         this.ThisInvalid = this.AddItem("ThisInvalid");
         this.AnyInvalid = this.AddItem("AnyInvalid");
@@ -62,7 +62,7 @@ public class ErrorKindList : Any
     public virtual ErrorKind MaideInvalid { get; set; }
     public virtual ErrorKind VarInvalid { get; set; }
     public virtual ErrorKind OperandInvalid { get; set; }
-    public virtual ErrorKind TargetInvalid { get; set; }
+    public virtual ErrorKind MarkInvalid { get; set; }
     public virtual ErrorKind ValueInvalid { get; set; }
     public virtual ErrorKind ThisInvalid { get; set; }
     public virtual ErrorKind AnyInvalid { get; set; }
