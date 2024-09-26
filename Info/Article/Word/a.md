@@ -236,6 +236,10 @@ Word "post" has meaning that is queued event.
 
 Word "path" has meaning that is way.
 
+Word "open" has meaning that is hold start.
+
+Word "close" has meaning that is hold end.
+
 Word "file" has meaning that is storage node data.
 
 Word "fold" has meaning that is storage node list.
