@@ -16,5 +16,4 @@ global using TextLess = Avalon.Text.Less;
 global using TextStringValue = Avalon.Text.StringValue;
 global using TextInfra = Avalon.Text.Infra;
 global using ModuleRef = Class.Infra.ModuleRef;
-global using Storage = Class.Infra.Storage;
 global using ClassInfra = Class.Infra.Infra;

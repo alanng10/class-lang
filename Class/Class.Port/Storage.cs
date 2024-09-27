@@ -1,4 +1,4 @@
-namespace Class.Infra;
+namespace Class.Port;
 
 public class Storage : Any
 {
