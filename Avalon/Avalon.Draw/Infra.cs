@@ -38,7 +38,6 @@ public class Infra : Any
         Color transparentColor;
         transparentColor = this.ColorCreate(0, 0, 0, 0);
 
-
         MathMath math;
         math = new MathMath();
         math.Init();
