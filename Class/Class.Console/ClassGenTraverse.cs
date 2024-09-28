@@ -37,27 +37,27 @@ public class ClassGenTraverse : Traverse
         ClassGen gen;
         gen = this.Gen;
 
-        Target target;
-        target = areExecute.Target;
+        Mark mark;
+        mark = areExecute.Mark;
 
-        if (target is VarTarget)
+        if (mark is VarMark)
         {
-            VarTarget varTarget;
-            varTarget = (VarTarget)target;
+            VarMark varMark;
+            varMark = (VarMark)mark;
 
             Var varVar;
-            varVar = this.Info(varTarget).Var;
+            varVar = this.Info(varMark).Var;
 
             gen.ExecuteVarSet(varVar);
         }
 
-        if (target is SetTarget)
+        if (mark is SetMark)
         {
-            SetTarget setTarget;
-            setTarget = (SetTarget)target;
+            SetMark setMark;
+            setMark = (SetMark)mark;
 
             Field varField;
-            varField = this.Info(setTarget).SetField;
+            varField = this.Info(setMark).SetField;
 
             if (!(varField.Virtual == null))
             {
