@@ -9,8 +9,6 @@ Int Stat_Var_CompSourceIn = QPainter::CompositionMode_SourceIn + 1;
 Int Stat_Var_CompDestinationIn = QPainter::CompositionMode_DestinationIn + 1;
 Int Stat_Var_CompSourceOut = QPainter::CompositionMode_SourceOut + 1;
 Int Stat_Var_CompDestinationOut = QPainter::CompositionMode_DestinationOut + 1;
-Int Stat_Var_CompSourceAtop = QPainter::CompositionMode_SourceAtop + 1;
-Int Stat_Var_CompDestinationAtop = QPainter::CompositionMode_DestinationAtop + 1;
 
 Int Stat_CompSourceOver(Int o)
 {
@@ -47,12 +45,4 @@ Int Stat_CompSourceOut(Int o)
 Int Stat_CompDestinationOut(Int o)
 {
     return Stat_Var_CompDestinationOut;
-}
-Int Stat_CompSourceAtop(Int o)
-{
-    return Stat_Var_CompSourceAtop;
-}
-Int Stat_CompDestinationAtop(Int o)
-{
-    return Stat_Var_CompDestinationAtop;
 }
