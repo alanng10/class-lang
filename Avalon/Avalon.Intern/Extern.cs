@@ -845,8 +845,6 @@ public static class Extern
     [DllImport(InfraLib)] public extern static ulong Stat_CompDestinationIn(ulong o);
     [DllImport(InfraLib)] public extern static ulong Stat_CompSourceOut(ulong o);
     [DllImport(InfraLib)] public extern static ulong Stat_CompDestinationOut(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Stat_CompSourceAtop(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Stat_CompDestinationAtop(ulong o);
     [DllImport(InfraLib)] public extern static ulong Stat_ImageBinaryBmp(ulong o);
     [DllImport(InfraLib)] public extern static ulong Stat_ImageBinaryJpg(ulong o);
     [DllImport(InfraLib)] public extern static ulong Stat_ImageBinaryPng(ulong o);

@@ -799,8 +799,6 @@ Infra_Api Int Stat_CompSourceIn(Int o);
 Infra_Api Int Stat_CompDestinationIn(Int o);
 Infra_Api Int Stat_CompSourceOut(Int o);
 Infra_Api Int Stat_CompDestinationOut(Int o);
-Infra_Api Int Stat_CompSourceAtop(Int o);
-Infra_Api Int Stat_CompDestinationAtop(Int o);
 Infra_Api Int Stat_ImageBinaryBmp(Int o);
 Infra_Api Int Stat_ImageBinaryJpg(Int o);
 Infra_Api Int Stat_ImageBinaryPng(Int o);
