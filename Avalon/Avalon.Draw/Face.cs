@@ -32,7 +32,7 @@ public class Face : Any
 
         this.Intern = Extern.Face_New();
         // Extern.Face_StreamSet(this.Intern, streamU);
-        Extern.Face_FamilySet(this.Intern, this.InternName);
+        // Extern.Face_NameSet(this.Intern, this.InternName);
         Extern.Face_SizeSet(this.Intern, sizeU);
         Extern.Face_WeightSet(this.Intern, weightU);
         Extern.Face_ItalicSet(this.Intern, italicU);
