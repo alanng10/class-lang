@@ -818,7 +818,7 @@ public static class Extern
     [DllImport(InfraLib)] public extern static ulong Stat_NetworkStatusSslInvalidUserDataError(ulong o);
     [DllImport(InfraLib)] public extern static ulong Stat_NetworkStatusTemporaryError(ulong o);
     [DllImport(InfraLib)] public extern static ulong Stat_BrushKindColor(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Stat_BrushKindGradient(ulong o);
+    [DllImport(InfraLib)] public extern static ulong Stat_BrushKindPolate(ulong o);
     [DllImport(InfraLib)] public extern static ulong Stat_BrushKindImage(ulong o);
     [DllImport(InfraLib)] public extern static ulong Stat_BrushLineSolid(ulong o);
     [DllImport(InfraLib)] public extern static ulong Stat_BrushLineDash(ulong o);
