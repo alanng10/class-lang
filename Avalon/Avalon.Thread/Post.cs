@@ -54,8 +54,14 @@ public class Post : Any
 
         Post a;
         a = (Post)ao;
-        a.State.Execute();
+        a.StateExecute();
         return 1;
+    }
+
+    private bool StateExecute()
+    {
+        this.State.Execute();
+        return true;
     }
 
     public virtual bool Execute()
