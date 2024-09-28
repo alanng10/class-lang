@@ -54,7 +54,7 @@ public class Infra : Any
         this.ZeroBrush = this.CreateBrush(transparentColor, k);
 
         this.Font = new Face();
-        this.Font.Family = this.TextStringValue.Execute("Source Sans 3");
+        this.Font.Name = this.TextStringValue.Execute("Source Sans 3");
         this.Font.Size = 10;
         this.Font.Weight = 400;
         this.Font.Init();

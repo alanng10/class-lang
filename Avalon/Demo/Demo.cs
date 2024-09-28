@@ -1346,7 +1346,7 @@ class Demo : Any
     {
         DrawFace a;
         a = new DrawFace();
-        a.Family = this.S("Source Code Pro");
+        a.Name = this.S("Source Code Pro");
         a.Size = 20;
         a.Weight = 400;
         a.Italic = true;
