@@ -7,5 +7,3 @@ SourceIn
 DestinationIn
 SourceOut
 DestinationOut
-SourceAtop
-DestinationAtop
