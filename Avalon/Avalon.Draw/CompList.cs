@@ -35,8 +35,6 @@ public class CompList : Any
         this.DestinationIn = this.AddItem(Extern.Stat_CompDestinationIn(stat));
         this.SourceOut = this.AddItem(Extern.Stat_CompSourceOut(stat));
         this.DestinationOut = this.AddItem(Extern.Stat_CompDestinationOut(stat));
-        this.SourceAtop = this.AddItem(Extern.Stat_CompSourceAtop(stat));
-        this.DestinationAtop = this.AddItem(Extern.Stat_CompDestinationAtop(stat));
         return true;
     }
 
@@ -49,8 +47,6 @@ public class CompList : Any
     public virtual Comp DestinationIn { get; set; }
     public virtual Comp SourceOut { get; set; }
     public virtual Comp DestinationOut { get; set; }
-    public virtual Comp SourceAtop { get; set; }
-    public virtual Comp DestinationAtop { get; set; }
 
     protected virtual Comp AddItem(ulong o)
     {
@@ -74,7 +70,7 @@ public class CompList : Any
 
     protected virtual Array Array { get; set; }
 
-    protected virtual long ArrayCount { get { return 11; } set { } }
+    protected virtual long ArrayCount { get { return 9; } set { } }
 
     public virtual long Count { get; set; }
     
