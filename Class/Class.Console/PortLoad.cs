@@ -804,8 +804,8 @@ public class PortLoad : ClassBase
         i = 0;
         while (i < count)
         {
-            ClassStorage a;
-            a = (ClassStorage)array.GetAt(i);
+            PortStorage a;
+            a = (PortStorage)array.GetAt(i);
 
             String sourcePath;
             String destPath;
@@ -830,8 +830,8 @@ public class PortLoad : ClassBase
                 return false;
             }
 
-            ClassStorage m;
-            m = new ClassStorage();
+            PortStorage m;
+            m = new PortStorage();
             m.Init();
             m.Path = destPath;
             m.SourcePath = sourcePath;
