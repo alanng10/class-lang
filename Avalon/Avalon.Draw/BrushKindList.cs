@@ -27,13 +27,13 @@ public class BrushKindList : Any
         stat = Extern.Share_Stat(share);
 
         this.Color = this.AddItem(Extern.Stat_BrushKindColor(stat));
-        this.Gradient = this.AddItem(Extern.Stat_BrushKindGradient(stat));
+        this.Polate = this.AddItem(Extern.Stat_BrushKindPolate(stat));
         this.Image = this.AddItem(Extern.Stat_BrushKindImage(stat));
         return true;
     }
 
     public virtual BrushKind Color { get; set; }
-    public virtual BrushKind Gradient { get; set; }
+    public virtual BrushKind Polate { get; set; }
     public virtual BrushKind Image { get; set; }
 
     protected virtual BrushKind AddItem(ulong o)
