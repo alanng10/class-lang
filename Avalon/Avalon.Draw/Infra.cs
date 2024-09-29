@@ -150,10 +150,10 @@ public class Infra : Any
         return rect;
     }
 
-    public virtual Image ImageCreateSize(Size size)
+    public virtual VideoVideo ImageCreateSize(Size size)
     {
-        Image a;
-        a = new Image();
+        VideoVideo a;
+        a = new VideoVideo();
         a.Init();
         a.Size.Wed = size.Wed;
         a.Size.Het = size.Het;
