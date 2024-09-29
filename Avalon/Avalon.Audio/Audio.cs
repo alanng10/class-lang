@@ -12,9 +12,9 @@ public class Audio : Any
         this.InternData = Extern.Data_New();
         Extern.Data_Init(this.InternData);
 
-        this.Intern = Extern.Audio_New();
-        Extern.Audio_DataSet(this.Intern, this.InternData);
-        Extern.Audio_Init(this.Intern);
+        // this.Intern = Extern.Audio_New();
+        // Extern.Audio_DataSet(this.Intern, this.InternData);
+        // Extern.Audio_Init(this.Intern);
         this.Ident = this.Intern;
         return true;
     }
@@ -35,7 +35,8 @@ public class Audio : Any
     {
         get
         {
-            return Extern.Audio_AudioOut(this.Intern);
+            // return Extern.Audio_AudioOut(this.Intern);
+            return 0;
         }
         set
         {
@@ -59,10 +60,10 @@ public class Audio : Any
         countU = (ulong)count;
         ulong timeU;
         timeU = (ulong)time;
-        Extern.Audio_CountSet(this.Intern, countU);
-        Extern.Audio_TimeSet(this.Intern, timeU);
+        // Extern.Audio_CountSet(this.Intern, countU);
+        // Extern.Audio_TimeSet(this.Intern, timeU);
 
-        Extern.Audio_DataCreate(this.Intern);
+        // Extern.Audio_DataCreate(this.Intern);
         return true;
     }
 
