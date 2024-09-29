@@ -61,7 +61,7 @@ public class Tune : Any
         return true;
     }
 
-    public virtual bool ExecuteWave(long waveLength, long amplitude, Range destRange)
+    public virtual bool ExecuteWave(long waveCount, long amplitude, Range destRange)
     {
         return true;
     }
