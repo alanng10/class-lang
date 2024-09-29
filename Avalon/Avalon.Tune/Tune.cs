@@ -18,6 +18,30 @@ public class Tune : Any
     }
 
     public virtual ulong Out { get; set; }
+
+    public virtual Comp Comp
+    {
+        get
+        {
+            return this.CompData;
+        }
+        set
+        {
+            this.CompData = value;
+
+            ulong uu;
+            uu = 0;
+            if (!(this.CompData == null))
+            {
+                uu = this.CompData.Intern;
+            }
+            // Extern.Tune_CompSet(this.Intern, uu);
+        }
+    }
+
+    protected virtual Comp CompData { get; set; }
+
+
     private ulong Intern { get; set; }
 
     public virtual bool Start()
