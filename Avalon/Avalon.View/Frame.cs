@@ -296,6 +296,8 @@ public class Frame : Comp
 
         tune.Start();
 
+        tune.Clear();
+
         tune.End();
         return true;
     }
