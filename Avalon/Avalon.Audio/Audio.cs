@@ -5,6 +5,10 @@ public class Audio : Any
     public override bool Init()
     {
         base.Init();
+        this.InternIntern = InternIntern.This;
+        this.InfraInfra = InfraInfra.This;
+        this.AudioInfra = Infra.This;
+
         this.InternData = Extern.Data_New();
         Extern.Data_Init(this.InternData);
 
@@ -38,6 +42,9 @@ public class Audio : Any
         }
     }
     public virtual ulong Ident { get; set; }
+    private InternIntern InternIntern { get; set; }
+    protected virtual InfraInfra InfraInfra { get; set; }
+    protected virtual Infra AudioInfra { get; set; }
     private ulong Intern { get; set; }
     private ulong InternData { get; set; }
 
@@ -61,14 +68,13 @@ public class Audio : Any
 
     public virtual bool DataGet(Data data, long index)
     {
-        long w;
-        w = this.Count;
+        long pointCount;
+        pointCount = this.Count;
         long k;
-        k = this.DrawInfra.PixelByteCount;
+        k = this.AudioInfra.PixelByteCount;
 
         long ka;
-        ka = w;
-        ka = ka * h;
+        ka = pointCount;
         ka = ka * k;
 
         long count;
