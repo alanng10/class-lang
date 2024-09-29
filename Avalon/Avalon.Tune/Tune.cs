@@ -61,6 +61,11 @@ public class Tune : Any
         return true;
     }
 
+    public virtual bool ExecuteWave(long waveLength, long amplitude, Range destRange)
+    {
+        return true;
+    }
+
     public virtual bool ExecuteAudio(AudioAudio audio, Range destRange, Range sourceRange)
     {
         return true;
