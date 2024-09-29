@@ -99,16 +99,13 @@ public class Audio : Any
 
     public virtual bool DataSet(Data data, long index)
     {
-        long w;
-        long h;
-        w = this.Size.Wed;
-        h = this.Size.Het;
+        long pointCount;
+        pointCount = this.Count;
         long k;
-        k = this.DrawInfra.PixelByteCount;
+        k = this.AudioInfra.PixelByteCount;
 
         long ka;
-        ka = w;
-        ka = ka * h;
+        ka = pointCount;
         ka = ka * k;
 
         long count;
