@@ -18,7 +18,7 @@ public class Infra : Any
     {
         base.Init();
 
-        this.PixelByteCount = 4;
+        this.PixelByteCount = 2;
         return true;
     }
 
