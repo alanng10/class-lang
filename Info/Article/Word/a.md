@@ -158,6 +158,12 @@ Word "ref" has meaning that is refer value.
 
 Word "ver" has meaning that is version.
 
+Word "major" has meaning that is major comp.
+
+Word "minor" has meaning that is minor comp.
+
+Word "vise" has meaning that is vise comp.
+
 Word "task" has meaning that is to be done.
 
 Word "init" has meaning that is initialized.
