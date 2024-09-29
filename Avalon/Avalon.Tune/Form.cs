@@ -5,7 +5,6 @@ public class Form : Any
     public override bool Init()
     {
         base.Init();
-        this.InternIntern = InternIntern.This;
         this.InfraInfra = InfraInfra.This;
 
         // this.Intern = Extern.TuneForm_New();
@@ -13,7 +12,6 @@ public class Form : Any
         return true;
     }
 
-    private InternIntern InternIntern { get; set; }
     protected virtual InfraInfra InfraInfra { get; set; }
     internal virtual ulong Intern { get; set; }
 
