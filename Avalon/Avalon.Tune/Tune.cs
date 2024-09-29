@@ -41,7 +41,6 @@ public class Tune : Any
 
     protected virtual Comp CompData { get; set; }
 
-
     private ulong Intern { get; set; }
 
     public virtual bool Start()
