@@ -254,6 +254,20 @@ public class Frame : Comp
         return 1;
     }
 
+    internal static ulong InternTune(ulong frame, ulong arg)
+    {
+        InternIntern internIntern;
+        internIntern = InternIntern.This;
+
+        object ao;
+        ao = internIntern.HandleTarget(arg);
+
+        Frame a;
+        a = (Frame)ao;
+        a.ExecuteFrameTune();
+        return 1;
+    }
+
     private bool ExecuteFrameDraw()
     {
         DrawDraw draw;
@@ -266,6 +280,23 @@ public class Frame : Comp
         draw.ExecuteVideo(this.DrawImage, this.DestRect, this.SourceRect);
 
         draw.End();
+        return true;
+    }
+
+    private bool ExecuteFrameTune()
+    {
+        this.ExecuteTune();
+        return true;
+    }
+
+    protected virtual bool ExecuteTune()
+    {
+        TuneTune tune;
+        tune = this.Tune;
+
+        tune.Start();
+
+        tune.End();
         return true;
     }
 
