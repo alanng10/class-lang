@@ -20,6 +20,18 @@ public class Tune : Any
     public virtual ulong Out { get; set; }
     private ulong Intern { get; set; }
 
+    public virtual bool Start()
+    {
+        // Extern.Tune_Start(this.Intern);
+        return true;
+    }
+
+    public virtual bool End()
+    {
+        // Extern.Tune_End(this.Intern);
+        return true;
+    }
+
     public virtual bool ExecuteAudio(AudioAudio audio, Range destRange, Range sourceRange)
     {
         return true;
