@@ -17,9 +17,9 @@ public class Brush : Any
         }
         ulong imageU;
         imageU = 0;
-        if (!(this.Image == null))
+        if (!(this.Video == null))
         {
-            imageU = this.Image.Ident;
+            imageU = this.Video.Ident;
         }
         ulong gradientU;
         gradientU = 0;
@@ -68,7 +68,7 @@ public class Brush : Any
     public virtual BrushKind Kind { get; set; }
     public virtual Color Color { get; set; }
     public virtual Polate Polate { get; set; }
-    public virtual Image Image { get; set; }
+    public virtual VideoVideo Video { get; set; }
     public virtual BrushLine Line { get; set; }
     public virtual long Wed { get; set; }
     public virtual BrushCap Cap { get; set; }
