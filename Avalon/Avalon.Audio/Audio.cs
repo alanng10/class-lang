@@ -27,6 +27,17 @@ public class Audio : Any
 
     public virtual long Count { get; set; }
     public virtual long Time { get; set; }
+    public virtual ulong Out
+    {
+        get
+        {
+            return Extern.Audio_AudioOut(this.Intern);
+        }
+        set
+        {
+        }
+    }
+    public virtual ulong Ident { get; set; }
     private ulong Intern { get; set; }
     private ulong InternData { get; set; }
 
