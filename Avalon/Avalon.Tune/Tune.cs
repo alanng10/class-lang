@@ -32,6 +32,12 @@ public class Tune : Any
         return true;
     }
 
+    public virtual bool Clear()
+    {
+        // Extern.Tune_Clear(this.Intern);
+        return true;
+    }
+
     public virtual bool ExecuteAudio(AudioAudio audio, Range destRange, Range sourceRange)
     {
         return true;
