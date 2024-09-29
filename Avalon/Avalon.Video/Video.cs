@@ -7,7 +7,7 @@ public class Video : Any
         base.Init();
         this.InternIntern = InternIntern.This;
         this.InfraInfra = InfraInfra.This;
-        this.DrawInfra = Infra.This;
+        this.VideoInfra = Infra.This;
 
         this.Size = new Size();
         this.Size.Init();
@@ -52,7 +52,7 @@ public class Video : Any
 
     private InternIntern InternIntern { get; set; }
     protected virtual InfraInfra InfraInfra { get; set; }
-    protected virtual Infra DrawInfra { get; set; }
+    protected virtual Infra VideoInfra { get; set; }
     internal virtual ulong Intern { get; set; }
     private ulong InternData { get; set; }
     private ulong InternSize { get; set; }
@@ -92,7 +92,7 @@ public class Video : Any
         ulong ua;
         ua = u;
 
-        this.DrawInfra.ColorSet(result, ua);
+        this.VideoInfra.ColorSet(result, ua);
         return true;
     }
 
@@ -103,7 +103,7 @@ public class Video : Any
         w = this.Size.Wed;
         h = this.Size.Het;
         long k;
-        k = this.DrawInfra.PixelByteCount;
+        k = this.VideoInfra.PixelByteCount;
 
         long ka;
         ka = w;
@@ -137,7 +137,7 @@ public class Video : Any
         w = this.Size.Wed;
         h = this.Size.Het;
         long k;
-        k = this.DrawInfra.PixelByteCount;
+        k = this.VideoInfra.PixelByteCount;
 
         long ka;
         ka = w;

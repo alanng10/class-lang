@@ -58,4 +58,70 @@ public class Audio : Any
         Extern.Audio_DataCreate(this.Intern);
         return true;
     }
+
+    public virtual bool DataGet(Data data, long index)
+    {
+        long w;
+        w = this.Count;
+        long k;
+        k = this.DrawInfra.PixelByteCount;
+
+        long ka;
+        ka = w;
+        ka = ka * h;
+        ka = ka * k;
+
+        long count;
+        count = ka;
+
+        if (!this.InfraInfra.ValidRange(data.Count, index, count))
+        {
+            return false;
+        }
+
+        ulong a;
+        a = Extern.Data_ValueGet(this.InternData);
+
+        ulong indexU;
+        ulong countU;
+        indexU = (ulong)index;
+        countU = (ulong)count;
+
+        this.InternIntern.CopyToByteArray(a, data.Value, indexU, countU);
+        return true;
+    }
+
+    public virtual bool DataSet(Data data, long index)
+    {
+        long w;
+        long h;
+        w = this.Size.Wed;
+        h = this.Size.Het;
+        long k;
+        k = this.DrawInfra.PixelByteCount;
+
+        long ka;
+        ka = w;
+        ka = ka * h;
+        ka = ka * k;
+
+        long count;
+        count = ka;
+
+        if (!this.InfraInfra.ValidRange(data.Count, index, count))
+        {
+            return false;
+        }
+
+        ulong a;
+        a = Extern.Data_ValueGet(this.InternData);
+
+        ulong indexU;
+        ulong countU;
+        indexU = (ulong)index;
+        countU = (ulong)count;
+
+        this.InternIntern.CopyFromByteArray(a, data.Value, indexU, countU);
+        return true;
+    }
 }
