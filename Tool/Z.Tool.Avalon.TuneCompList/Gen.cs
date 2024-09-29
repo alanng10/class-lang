@@ -1,4 +1,4 @@
-namespace Z.Tool.Class.CountList;
+namespace Z.Tool.Avalon.TuneCompList;
 
 public class Gen : SourceGen
 {
