@@ -232,7 +232,7 @@ public class Frame : Comp
 
         this.ExecuteDraw();
 
-        draw.ExecuteImage(this.DrawImage, this.DestRect, this.SourceRect);
+        draw.ExecuteVideo(this.DrawImage, this.DestRect, this.SourceRect);
 
         draw.End();
         return true;
