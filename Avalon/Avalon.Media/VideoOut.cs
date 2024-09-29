@@ -39,21 +39,21 @@ public class VideoOut : Any
     {
         get
         {
-            return __D_Frame;
+            return FrameData;
         }
         set
         {
-            __D_Frame = value;
+            FrameData = value;
             ulong u;
             u = 0;
-            if (!(__D_Frame == null))
+            if (!(FrameData == null))
             {
-                u = __D_Frame.Intern;
+                u = FrameData.Intern;
             }
             Extern.VideoOut_FrameSet(this.Intern, u);
         }
     }
-    protected VideoFrame __D_Frame;
+    protected VideoFrame FrameData { get; set; }
 
     public virtual State FrameState { get; set; }
 
