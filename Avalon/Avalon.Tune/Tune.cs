@@ -20,7 +20,7 @@ public class Tune : Any
     public virtual ulong Out { get; set; }
     private ulong Intern { get; set; }
 
-    public virtual bool ExecuteAudio(AudioAudio audio)
+    public virtual bool ExecuteAudio(AudioAudio audio, Range destRange, Range sourceRange)
     {
         return true;
     }
