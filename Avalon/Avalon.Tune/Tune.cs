@@ -47,6 +47,28 @@ public class Tune : Any
 
     protected virtual Comp CompData { get; set; }
 
+    public virtual Form Form
+    {
+        get
+        {
+            return this.FormData;
+        }
+        set
+        {
+            this.FormData = value;
+
+            ulong u;
+            u = 0;
+            if (!(this.FormData == null))
+            {
+                u = this.FormData.Intern;
+            }
+            // Extern.Tune_FormSet(this.Intern, u);
+        }
+    }
+
+    protected virtual Form FormData { get; set; }
+
     protected virtual MathInfra MathInfra { get; set; }
     protected virtual MathMath Math { get; set; }
     protected virtual MathComp MathComp { get; set; }
