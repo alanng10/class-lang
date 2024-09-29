@@ -5,6 +5,12 @@ public class Tune : Any
     public override bool Init()
     {
         base.Init();
+        this.MathInfra = MathInfra.This;
+
+        this.Math = new MathMath();
+        this.Math.Init();
+        this.MathComp = new MathComp();
+        this.MathComp.Init();
         // this.Intern = Extern.Tune_New();
         // Extern.Tune_Init(this.Intern);
         return true;
@@ -41,6 +47,9 @@ public class Tune : Any
 
     protected virtual Comp CompData { get; set; }
 
+    protected virtual MathInfra MathInfra { get; set; }
+    protected virtual MathMath Math { get; set; }
+    protected virtual MathComp MathComp { get; set; }
     private ulong Intern { get; set; }
 
     public virtual bool Start()
@@ -69,5 +78,34 @@ public class Tune : Any
     public virtual bool ExecuteAudio(AudioAudio audio, Range destRange, Range sourceRange)
     {
         return true;
+    }
+
+    protected virtual long MathInt(long n)
+    {
+        MathInfra mathInfra;
+        mathInfra = this.MathInfra;
+
+        MathMath math;
+        math = this.Math;
+
+        MathComp mathComp;
+        mathComp = this.MathComp;
+
+        long a;
+        a = mathInfra.Int(math, mathComp, n);
+        return a;
+    }
+
+    protected virtual long MathValue(long cand, long expo)
+    {
+        MathComp mathComp;
+        mathComp = this.MathComp;
+
+        mathComp.Cand = cand;
+        mathComp.Expo = expo;
+
+        long a;
+        a = this.Math.Value(mathComp);
+        return a;
     }
 }
