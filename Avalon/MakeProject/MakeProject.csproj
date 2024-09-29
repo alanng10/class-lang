@@ -23,6 +23,7 @@
         <ProjectReference Include="../Avalon.Network/Avalon.Network.csproj" />
         <ProjectReference Include="../Avalon.Console/Avalon.Console.csproj" />
         <ProjectReference Include="../Avalon.Draw/Avalon.Draw.csproj" />
+        <ProjectReference Include="../Avalon.Tune/Avalon.Tune.csproj" />
         <ProjectReference Include="../Avalon.View/Avalon.View.csproj" />
         <ProjectReference Include="../Avalon.Media/Avalon.Media.csproj" />
         <ProjectReference Include="../Avalon.Entry/Avalon.Entry.csproj" />
