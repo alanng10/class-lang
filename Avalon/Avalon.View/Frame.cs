@@ -78,11 +78,11 @@ public class Frame : Comp
         this.Draw = this.CreateDraw();
         this.DrawSet(this.Draw, image.Out);
 
-        ulong audioCountU;
-        audioCountU = 0;
-        // audioCountU = Extern.Frame_AudioCountGet(this.Intern);
+        ulong tuneCountU;
+        tuneCountU = 0;
+        // tuneCountU = Extern.Frame_TuneCountGet(this.Intern);
 
-        this.AudioCount = (long)audioCountU;
+        this.TuneCount = (long)tuneCountU;
 
         ulong audioOut;
         audioOut = 0;
@@ -117,7 +117,7 @@ public class Frame : Comp
     }
 
     public virtual DrawSize Size { get; set; }
-    public virtual long AudioCount { get; set; }
+    public virtual long TuneCount { get; set; }
     public virtual String Title { get; set; }
     public virtual TypeType Type { get; set; }
     public virtual DrawImage DrawImage { get; set; }
