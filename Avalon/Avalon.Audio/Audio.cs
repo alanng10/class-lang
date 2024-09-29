@@ -52,15 +52,10 @@ public class Audio : Any
     {
         long count;
         count = this.Count;
-        long time;
-        time = this.Time;
 
         ulong countU;
         countU = (ulong)count;
-        ulong timeU;
-        timeU = (ulong)time;
         // Extern.Audio_CountSet(this.Intern, countU);
-        // Extern.Audio_TimeSet(this.Intern, timeU);
 
         // Extern.Audio_DataCreate(this.Intern);
         return true;
