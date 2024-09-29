@@ -19,6 +19,7 @@
         <ProjectReference Include="../Z.Tool.Avalon.DrawCompList/Z.Tool.Avalon.DrawCompList.csproj" />
         <ProjectReference Include="../Z.Tool.Avalon.PolateKindList/Z.Tool.Avalon.PolateKindList.csproj" />
         <ProjectReference Include="../Z.Tool.Avalon.PolateSpreadList/Z.Tool.Avalon.PolateSpreadList.csproj" />
+        <ProjectReference Include="../Z.Tool.Avalon.TuneCompList/Z.Tool.Avalon.TuneCompList.csproj" />
     </ItemGroup>
 
 </Project>
