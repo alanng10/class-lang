@@ -88,15 +88,15 @@ public class Frame : Comp
         audioOut = 0;
         // audioOut = Extern.Frame_AudioOut(this.Intern);
 
-        AudioAudio audio;
-        audio = new AudioAudio();
-        audio.Init();
-        audio.Count = this.AudioCount;
+        this.Tune = this.CreateTune();
+        this.Tune.Out = audioOut;
         return true;
     }
 
     public virtual bool Final()
     {
+        this.FinalTune(this.Tune);
+
         this.FinalDraw(this.Draw);
 
         this.FrameDraw.Final();
@@ -130,6 +130,7 @@ public class Frame : Comp
     protected virtual MathMath Math { get; set; }
     protected virtual MathComp MathComp { get; set; }
     protected virtual DrawDraw Draw { get; set; }
+    protected virtual TuneTune Tune { get; set; }
     private ulong Intern { get; set; }
     private ulong InternTitle { get; set; }
     private ulong InternUpdateRect { get; set; }
