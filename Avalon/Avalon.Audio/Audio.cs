@@ -68,12 +68,9 @@ public class Audio : Any
         long k;
         k = this.AudioInfra.PointByteCount;
 
-        long ka;
-        ka = pointCount;
-        ka = ka * k;
-
         long count;
-        count = ka;
+        count = pointCount;
+        count = count * k;
 
         if (!this.InfraInfra.ValidRange(data.Count, index, count))
         {
@@ -99,12 +96,9 @@ public class Audio : Any
         long k;
         k = this.AudioInfra.PointByteCount;
 
-        long ka;
-        ka = pointCount;
-        ka = ka * k;
-
         long count;
-        count = ka;
+        count = pointCount;
+        count = count * k;
 
         if (!this.InfraInfra.ValidRange(data.Count, index, count))
         {
