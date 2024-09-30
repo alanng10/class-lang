@@ -66,7 +66,7 @@ public class Audio : Any
         long pointCount;
         pointCount = this.Count;
         long k;
-        k = this.AudioInfra.PixelByteCount;
+        k = this.AudioInfra.PointByteCount;
 
         long ka;
         ka = pointCount;
@@ -97,7 +97,7 @@ public class Audio : Any
         long pointCount;
         pointCount = this.Count;
         long k;
-        k = this.AudioInfra.PixelByteCount;
+        k = this.AudioInfra.PointByteCount;
 
         long ka;
         ka = pointCount;

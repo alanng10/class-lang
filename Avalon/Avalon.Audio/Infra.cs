@@ -18,9 +18,9 @@ public class Infra : Any
     {
         base.Init();
 
-        this.PixelByteCount = 2;
+        this.PointByteCount = 2;
         return true;
     }
 
-    public virtual long PixelByteCount { get; set; }
+    public virtual long PointByteCount { get; set; }
 }
