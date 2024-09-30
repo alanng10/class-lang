@@ -6,7 +6,7 @@ Class layers on top of these in system architecture.
 The system architecture is a derive of the ideal system architecture.
 Modules made from module sources in Class, layers on top of this system.
 
-This system derive does not have highest develop speed order as it does not have all ideal builtin.
+This system derive have highest develop speed order as it has all ideal builtin.
 
 This system derive takes up space when it is not being used.
 This system derive has weight.
