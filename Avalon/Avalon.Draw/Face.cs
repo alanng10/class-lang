@@ -8,13 +8,6 @@ public class Face : Any
         this.InternIntern = InternIntern.This;
         this.InternInfra = InternInfra.This;
 
-        ulong streamU;
-        streamU = 0;
-        if (!(this.Stream == null))
-        {
-            streamU = this.Stream.Ident;
-        }
-
         this.InternName = this.InternInfra.StringCreate(this.Name.Value);
 
         ulong sizeU;
@@ -31,7 +24,6 @@ public class Face : Any
         strikeoutU = (ulong)(this.Strikeout ? 1 : 0);
 
         this.Intern = Extern.Face_New();
-        // Extern.Face_StreamSet(this.Intern, streamU);
         // Extern.Face_NameSet(this.Intern, this.InternName);
         Extern.Face_SizeSet(this.Intern, sizeU);
         Extern.Face_WeightSet(this.Intern, weightU);
@@ -52,7 +44,6 @@ public class Face : Any
         return true;
     }
 
-    public virtual StreamStream Stream { get; set; }
     public virtual String Name { get; set; }
     public virtual long Size { get; set; }
     public virtual long Weight { get; set; }
