@@ -5,9 +5,8 @@ public class Comp : Any
     public override bool Init()
     {
         base.Init();
+        this.ChangeEvent = this.CreateChangeEvent();
         this.ChangeArg = this.CreateChangeArg();
-        this.ChangeEvent = new EventEvent();
-        this.ChangeEvent.Init();
         return true;
     }
 
@@ -15,6 +14,14 @@ public class Comp : Any
     {
         Change a;
         a = new Change();
+        a.Init();
+        return a;
+    }
+
+    protected virtual EventEvent CreateChangeEvent()
+    {
+        EventEvent a;
+        a = new EventEvent();
         a.Init();
         return a;
     }
