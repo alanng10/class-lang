@@ -97,6 +97,11 @@ public class Tune : Any
         return true;
     }
 
+    public virtual bool ExecuteAmplitude(long amplitude, long count, long destIndex)
+    {
+        return true;
+    }
+
     public virtual bool ExecuteAudio(AudioAudio audio, Range destRange, Range sourceRange)
     {
         return true;
