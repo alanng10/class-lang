@@ -1,8 +1,8 @@
 SourceOver
-DestinationOver
+DestOver
 Source
-Destination
+Dest
 SourceIn
-DestinationIn
+DestIn
 SourceOut
-DestinationOut
+DestOut
