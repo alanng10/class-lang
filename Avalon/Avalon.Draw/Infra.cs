@@ -26,7 +26,6 @@ public class Infra : Any
         this.BrushCapList = BrushCapList.This;
         this.BrushJoinList = BrushJoinList.This;
 
-        this.PixelByteCount = 4;
         this.ColorCompMax = byte.MaxValue;
 
         Color blackColor;
@@ -64,7 +63,6 @@ public class Infra : Any
         return true;
     }
 
-    public virtual long PixelByteCount { get; set; }
     public virtual long ColorCompMax { get; set; }
     public virtual Brush BlackBrush { get; set; }
     public virtual Brush WhiteBrush { get; set; }
