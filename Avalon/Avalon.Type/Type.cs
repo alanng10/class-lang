@@ -17,8 +17,7 @@ public class Type : Any
     public override bool Init()
     {
         base.Init();
-        this.Button = new ButtonList();
-        this.Button.Init();
+        this.Button = ButtonList.This;
 
         this.InitFieldList();
         
