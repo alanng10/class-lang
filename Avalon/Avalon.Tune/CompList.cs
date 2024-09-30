@@ -22,12 +22,16 @@ public class CompList : Any
         this.Index = 0;
 
         this.Add = this.AddItem();
+        this.AddNot = this.AddItem();
         this.Set = this.AddItem();
+        this.SetNot = this.AddItem();
         return true;
     }
 
     public virtual Comp Add { get; set; }
+    public virtual Comp AddNot { get; set; }
     public virtual Comp Set { get; set; }
+    public virtual Comp SetNot { get; set; }
 
     protected virtual Comp AddItem()
     {
@@ -50,7 +54,7 @@ public class CompList : Any
 
     protected virtual Array Array { get; set; }
 
-    protected virtual long ArrayCount { get { return 2; } set { } }
+    protected virtual long ArrayCount { get { return 4; } set { } }
 
     public virtual long Count { get; set; }
     
