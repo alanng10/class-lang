@@ -1,6 +1,5 @@
 SourceOver
 DestinationOver
-Clear
 Source
 Destination
 SourceIn
