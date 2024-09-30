@@ -20,12 +20,31 @@ public class Type : Any
         this.Button = ButtonList.This;
 
         this.InitFieldList();
-        
-        this.ChangeArg = new ChangeArg();
-        this.ChangeArg.Init();
-        this.Change = new EventEvent();
-        this.Change.Init();
+
+        this.Change = this.CreateChangeEvent();
+        this.ChangeArg = this.CreateChangeArg();
         return true;
+    }
+
+    public virtual ButtonList Button { get; set; }
+    public virtual EventEvent Change { get; set; }
+    protected virtual ChangeArg ChangeArg { get; set; }
+    protected virtual Data FieldData { get; set; }
+    
+    protected virtual EventEvent CreateChangeEvent()
+    {
+        EventEvent a;
+        a = new EventEvent();
+        a.Init();
+        return a;
+    }
+
+    protected virtual ChangeArg CreateChangeArg()
+    {
+        ChangeArg a;
+        a = new ChangeArg();
+        a.Init();
+        return a;
     }
 
     protected virtual bool InitFieldList()
@@ -35,8 +54,6 @@ public class Type : Any
         this.FieldData.Init();
         return true;
     }
-
-    protected virtual ChangeArg ChangeArg { get; set; }
 
     public virtual bool Get(long index)
     {
@@ -81,8 +98,4 @@ public class Type : Any
         this.Change.Execute(this.ChangeArg);
         return true;
     }
-
-    public virtual ButtonList Button { get; set; }
-    public virtual EventEvent Change { get; set; }
-    protected virtual Data FieldData { get; set; }
 }
