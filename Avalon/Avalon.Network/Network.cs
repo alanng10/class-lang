@@ -79,9 +79,6 @@ public class Network : Any
     public virtual ulong HostPeer { get; set; }
     public virtual String HostName { get; set; }
     public virtual long HostPort { get; set; }
-    public virtual State StatusChangeState { get; set; }
-    public virtual State CaseChangeState { get; set; }
-    public virtual State ReadyReadState { get; set; }
     public virtual StreamStream Stream { get; set; }
     protected virtual StreamStream DataStream { get; set; }
     public virtual bool LoadingOpen { get; set; }
@@ -225,10 +222,6 @@ public class Network : Any
 
     protected virtual bool ExecuteStatusChangeState()
     {
-        if (!(this.StatusChangeState == null))
-        {
-            this.StatusChangeState.Execute();
-        }
         return true;
     }
 
@@ -252,19 +245,11 @@ public class Network : Any
 
     protected virtual bool ExecuteCaseChangeState()
     {
-        if (!(this.CaseChangeState == null))
-        {
-            this.CaseChangeState.Execute();
-        }
         return true;
     }
 
     protected virtual bool ExecuteReadyReadState()
     {
-        if (!(this.ReadyReadState == null))
-        {
-            this.ReadyReadState.Execute();
-        }
         return true;
     }
 
