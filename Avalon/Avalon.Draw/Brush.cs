@@ -21,12 +21,6 @@ public class Brush : Any
         {
             imageU = this.Video.Ident;
         }
-        ulong polateU;
-        polateU = 0;
-        if (!(this.Polate == null))
-        {
-            polateU = this.Polate.Intern;
-        }
 
         ulong lineU;
         ulong wedU;
@@ -49,7 +43,6 @@ public class Brush : Any
         Extern.Brush_KindSet(this.Intern, kindU);
         Extern.Brush_ColorSet(this.Intern, colorU);
         Extern.Brush_ImageSet(this.Intern, imageU);
-        Extern.Brush_PolateSet(this.Intern, polateU);
         Extern.Brush_LineSet(this.Intern, lineU);
         Extern.Brush_WidthSet(this.Intern, wedU);
         Extern.Brush_CapSet(this.Intern, capU);
@@ -67,7 +60,6 @@ public class Brush : Any
 
     public virtual BrushKind Kind { get; set; }
     public virtual Color Color { get; set; }
-    public virtual Polate Polate { get; set; }
     public virtual VideoVideo Video { get; set; }
     public virtual BrushLine Line { get; set; }
     public virtual long Wed { get; set; }
