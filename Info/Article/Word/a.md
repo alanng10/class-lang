@@ -318,6 +318,8 @@ Word "quad" has meaning that is four point shape.
 
 Word "tune" has meaning that is comp audio.
 
+Word "wave" has meaning that is wave time line.
+
 Word "tick" has meaning that is smallest duration.
 
 Word "yea" has meaning that is date year.
