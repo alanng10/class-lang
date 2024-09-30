@@ -29,5 +29,5 @@ Class as a platform is best platform to develop because it has best and easiest 
 Class has highest develop speed order.
 It is also best to make abstract.
 Class modules can abstract any effect. It is best to abstract any effect.
-  
+
 Class is a tool to humans.
