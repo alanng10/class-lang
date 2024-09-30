@@ -302,16 +302,6 @@ Word "rect" has meaning that is rectangle.
 
 Word "form" has meaning that is transform.
 
-Word "polate" has meaning that is interpolate.
-
-Word "spread" has meaning that is spreading over length.
-
-Word "center" has meaning that is center in whole.
-
-Word "focus" has meaning that is focus in whole.
-
-Word "tangent" has meaning that is round radius.
-
 Word "angle" has meaning that is direct.
 
 Word "quad" has meaning that is four point shape.
