@@ -18,7 +18,7 @@ class Infra : Any
     {
         base.Init();
         VideoOutFrameMaide maideA;
-        maideA = new VideoOutFrameMaide(VideoOut.InternFrame);
+        maideA = new VideoOutFrameMaide(VideoOut.InternFrameEvent);
         this.VideoOutFrameMaideAddress = new MaideAddress();
         this.VideoOutFrameMaideAddress.Delegate = maideA;
         this.VideoOutFrameMaideAddress.Init();

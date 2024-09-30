@@ -18,9 +18,14 @@ public class VideoOut : Any
         arg = this.InternHandle.ULong();
         this.InternFrameState = this.InternInfra.StateCreate(ua, arg);
 
+        this.InternFrame = Extern.VideoFrame_New();
+        Extern.VideoFrame_Init(this.InternFrame);
+
         this.Intern = Extern.VideoOut_New();
         Extern.VideoOut_Init(this.Intern);
         Extern.VideoOut_FrameStateSet(this.Intern, this.InternFrameState);
+
+        Extern.VideoOut_FrameSet(this.Intern, this.InternFrame);
         return true;
     }
     
@@ -29,31 +34,14 @@ public class VideoOut : Any
         Extern.VideoOut_Final(this.Intern);
         Extern.VideoOut_Delete(this.Intern);
 
+        Extern.VideoFrame_Final(this.InternFrame);
+        Extern.VideoFrame_Delete(this.InternFrame);
+
         this.InternInfra.StateDelete(this.InternFrameState);
 
         this.InternHandle.Final();
         return true;
     }
-
-    public virtual VideoFrame Frame
-    {
-        get
-        {
-            return FrameData;
-        }
-        set
-        {
-            FrameData = value;
-            ulong u;
-            u = 0;
-            if (!(FrameData == null))
-            {
-                u = FrameData.Intern;
-            }
-            Extern.VideoOut_FrameSet(this.Intern, u);
-        }
-    }
-    protected VideoFrame FrameData { get; set; }
 
     public virtual State FrameState { get; set; }
 
@@ -62,10 +50,11 @@ public class VideoOut : Any
     private Infra MediaInfra { get; set; }
 
     internal virtual ulong Intern { get; set; }
+    internal virtual ulong InternFrame { get; set; }
     private ulong InternFrameState { get; set; }
     private Handle InternHandle { get; set; }
 
-    internal static ulong InternFrame(ulong videoOut, ulong frame, ulong arg)
+    internal static ulong InternFrameEvent(ulong videoOut, ulong frame, ulong arg)
     {
         InternIntern internIntern;
         internIntern = InternIntern.This;
@@ -85,6 +74,12 @@ public class VideoOut : Any
         {
             this.FrameState.Execute();
         }
+        return true;
+    }
+
+    public virtual bool Image(VideoVideo video)
+    {
+        Extern.VideoFrame_Image(this.InternFrame, video.Ident);
         return true;
     }
 }
