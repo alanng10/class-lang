@@ -19,9 +19,9 @@ public class VideoFrame : Any
 
     internal virtual ulong Intern { get; set; }
 
-    public virtual bool Image(Image image)
+    public virtual bool Image(VideoVideo video)
     {
-        Extern.VideoFrame_Image(this.Intern, image.Ident);
+        Extern.VideoFrame_Image(this.Intern, video.Ident);
         return true;
     }
 }

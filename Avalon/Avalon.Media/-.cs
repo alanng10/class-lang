@@ -7,4 +7,4 @@ global using Handle = Avalon.Intern.Handle;
 global using Any = Avalon.Infra.Any;
 global using State = Avalon.Infra.State;
 global using StreamStream = Avalon.Stream.Stream;
-global using Image = Avalon.Video.Video;
+global using VideoVideo = Avalon.Video.Video;
