@@ -97,7 +97,7 @@ public class Tune : Any
         return true;
     }
 
-    public virtual bool ExecuteAmplitude(long amplitude, long count, long destIndex)
+    public virtual bool ExecutePlane(long amplitude, long count, long destIndex)
     {
         return true;
     }
