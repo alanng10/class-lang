@@ -837,14 +837,13 @@ public static class Extern
     [DllImport(InfraLib)] public extern static ulong Stat_PolateSpreadReflect(ulong o);
     [DllImport(InfraLib)] public extern static ulong Stat_PolateSpreadRepeat(ulong o);
     [DllImport(InfraLib)] public extern static ulong Stat_CompSourceOver(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Stat_CompDestinationOver(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Stat_CompClear(ulong o);
+    [DllImport(InfraLib)] public extern static ulong Stat_CompDestOver(ulong o);
     [DllImport(InfraLib)] public extern static ulong Stat_CompSource(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Stat_CompDestination(ulong o);
+    [DllImport(InfraLib)] public extern static ulong Stat_CompDest(ulong o);
     [DllImport(InfraLib)] public extern static ulong Stat_CompSourceIn(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Stat_CompDestinationIn(ulong o);
+    [DllImport(InfraLib)] public extern static ulong Stat_CompDestIn(ulong o);
     [DllImport(InfraLib)] public extern static ulong Stat_CompSourceOut(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Stat_CompDestinationOut(ulong o);
+    [DllImport(InfraLib)] public extern static ulong Stat_CompDestOut(ulong o);
     [DllImport(InfraLib)] public extern static ulong Stat_ImageBinaryBmp(ulong o);
     [DllImport(InfraLib)] public extern static ulong Stat_ImageBinaryJpg(ulong o);
     [DllImport(InfraLib)] public extern static ulong Stat_ImageBinaryPng(ulong o);
