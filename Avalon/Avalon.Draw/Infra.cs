@@ -25,50 +25,9 @@ public class Infra : Any
         this.BrushLineList = BrushLineList.This;
         this.BrushCapList = BrushCapList.This;
         this.BrushJoinList = BrushJoinList.This;
-
-        this.ColorCompMax = byte.MaxValue;
-
-        Color blackColor;
-        blackColor = this.ColorCreate(this.ColorCompMax, 0, 0, 0);
-
-        Color whiteColor;
-        whiteColor = this.ColorCreate(this.ColorCompMax, this.ColorCompMax, this.ColorCompMax, this.ColorCompMax);
-        
-        Color transparentColor;
-        transparentColor = this.ColorCreate(0, 0, 0, 0);
-
-        MathMath math;
-        math = new MathMath();
-        math.Init();
-        MathComp ka;
-        ka = new MathComp();
-        ka.Init();
-
-        long k;
-        k = this.MathInfra.Int(math, ka, 1);
-
-        this.BlackBrush = this.CreateBrush(blackColor, k);
-        this.WhiteBrush = this.CreateBrush(whiteColor, k);
-        this.ZeroBrush = this.CreateBrush(transparentColor, k);
-
-        this.Font = new Face();
-        this.Font.Name = this.TextStringValue.Execute("Source Sans 3");
-        this.Font.Size = 10;
-        this.Font.Weight = 400;
-        this.Font.Init();
-
-        long a;
-        a = 1 << 20;
-        this.ScaleFactor = a;
         return true;
     }
 
-    public virtual long ColorCompMax { get; set; }
-    public virtual Brush BlackBrush { get; set; }
-    public virtual Brush WhiteBrush { get; set; }
-    public virtual Brush ZeroBrush { get; set; }
-    public virtual Face Font { get; set; }
-    private long ScaleFactor { get; set; }
     protected virtual MathInfra MathInfra { get; set; }
     protected virtual TextStringValue TextStringValue { get; set; }
     protected virtual StorageStatusList StorageStatusList { get; set; }
@@ -88,20 +47,6 @@ public class Infra : Any
         color.Green = green;
         color.Blue = blue;
         return color;
-    }
-
-    private Brush CreateBrush(Color color, long wed)
-    {
-        Brush a;
-        a = new Brush();
-        a.Kind = this.BrushKindList.Color;
-        a.Color = color;
-        a.Line = this.BrushLineList.Solid;
-        a.Wed = wed;
-        a.Cap = this.BrushCapList.Flat;
-        a.Join = this.BrushJoinList.Miter;
-        a.Init();
-        return a;
     }
 
     internal virtual bool ColorSet(Color color, ulong internColor)
@@ -147,99 +92,6 @@ public class Infra : Any
         rect.Size = this.SizeCreate(wed, het);
         return rect;
     }
-
-    public virtual VideoVideo ImageCreateSize(Size size)
-    {
-        VideoVideo a;
-        a = new VideoVideo();
-        a.Init();
-        a.Size.Wed = size.Wed;
-        a.Size.Het = size.Het;
-        a.DataCreate();
-        return a; 
-    }
-
-    // public virtual Image ImageCreateStorage(String path)
-    // {
-    //     Image image;
-    //     image = null;
-    //     StorageStorage storage;
-    //     storage = new StorageStorage();
-    //     storage.Init();
-    //     StorageMode mode;
-    //     mode = new StorageMode();
-    //     mode.Init();
-    //     mode.Read = true;
-    //     storage.Path = path;
-    //     storage.Mode = mode;
-
-    //     storage.Open();
-
-    //     if (storage.Status == this.StorageStatusList.NoError)
-    //     {
-    //         StreamStream stream;
-    //         stream = storage.Stream;
-
-    //         Image aa;
-    //         aa = new Image();
-    //         aa.Init();
-
-    //         ImageRead imageRead;
-    //         imageRead = new ImageRead();
-    //         imageRead.Init();
-    //         imageRead.Stream = stream;
-    //         imageRead.Image = aa;
-
-    //         bool b;
-    //         b = imageRead.Execute();
-    //         if (b)
-    //         {
-    //             image = aa;
-    //         }
-    //         if (!b)
-    //         {
-    //             aa.Final();
-    //         }
-    //         imageRead.Final();
-    //     }
-    //     storage.Close();
-    //     storage.Final();
-    //     return image;
-    // }
-
-    // public virtual bool ImageWrite(String path, Image image, ImageBinary binary)
-    // {
-    //     StorageStorage storage;
-    //     storage = new StorageStorage();
-    //     storage.Init();
-    //     StorageMode mode;
-    //     mode = new StorageMode();
-    //     mode.Init();
-    //     mode.Write = true;
-    //     storage.Path = path;
-    //     storage.Mode = mode;
-    //     storage.Open();
-
-    //     bool o;
-    //     o = false;
-    //     if (storage.Status == this.StorageStatusList.NoError)
-    //     {
-    //         StreamStream stream;
-    //         stream = storage.Stream;
-
-    //         ImageWrite imageWrite;
-    //         imageWrite = new ImageWrite();
-    //         imageWrite.Init();
-    //         imageWrite.Stream = stream;
-    //         imageWrite.Binary = binary;
-    //         imageWrite.Image = image;
-    //         o = imageWrite.Execute();
-    //         imageWrite.Final();
-    //     }
-    //     storage.Close();
-    //     storage.Final();
-    //     return o;
-    // }
 
     public virtual bool BoundArea(Rect bound, Rect area)
     {
