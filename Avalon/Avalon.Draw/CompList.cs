@@ -27,26 +27,24 @@ public class CompList : Any
         stat = Extern.Share_Stat(share);
 
         this.SourceOver = this.AddItem(Extern.Stat_CompSourceOver(stat));
-        this.DestinationOver = this.AddItem(Extern.Stat_CompDestinationOver(stat));
-        this.Clear = this.AddItem(Extern.Stat_CompClear(stat));
+        this.DestOver = this.AddItem(Extern.Stat_CompDestOver(stat));
         this.Source = this.AddItem(Extern.Stat_CompSource(stat));
-        this.Destination = this.AddItem(Extern.Stat_CompDestination(stat));
+        this.Dest = this.AddItem(Extern.Stat_CompDest(stat));
         this.SourceIn = this.AddItem(Extern.Stat_CompSourceIn(stat));
-        this.DestinationIn = this.AddItem(Extern.Stat_CompDestinationIn(stat));
+        this.DestIn = this.AddItem(Extern.Stat_CompDestIn(stat));
         this.SourceOut = this.AddItem(Extern.Stat_CompSourceOut(stat));
-        this.DestinationOut = this.AddItem(Extern.Stat_CompDestinationOut(stat));
+        this.DestOut = this.AddItem(Extern.Stat_CompDestOut(stat));
         return true;
     }
 
     public virtual Comp SourceOver { get; set; }
-    public virtual Comp DestinationOver { get; set; }
-    public virtual Comp Clear { get; set; }
+    public virtual Comp DestOver { get; set; }
     public virtual Comp Source { get; set; }
-    public virtual Comp Destination { get; set; }
+    public virtual Comp Dest { get; set; }
     public virtual Comp SourceIn { get; set; }
-    public virtual Comp DestinationIn { get; set; }
+    public virtual Comp DestIn { get; set; }
     public virtual Comp SourceOut { get; set; }
-    public virtual Comp DestinationOut { get; set; }
+    public virtual Comp DestOut { get; set; }
 
     protected virtual Comp AddItem(ulong o)
     {
@@ -70,7 +68,7 @@ public class CompList : Any
 
     protected virtual Array Array { get; set; }
 
-    protected virtual long ArrayCount { get { return 9; } set { } }
+    protected virtual long ArrayCount { get { return 8; } set { } }
 
     public virtual long Count { get; set; }
     
