@@ -44,7 +44,6 @@ public class Host : Any
     }
 
     public virtual Port Port { get; set; }
-    public virtual State NewPeerState { get; set; }
     public virtual bool IsOpen { get; set; }
     private InternIntern InternIntern { get; set; }
     private InternInfra InternInfra { get; set; }
@@ -149,10 +148,6 @@ public class Host : Any
 
     protected virtual bool ExecuteNewPeerState()
     {
-        if (!(this.NewPeerState == null))
-        {
-            this.NewPeerState.Execute();
-        }
         return true;
     }
 
