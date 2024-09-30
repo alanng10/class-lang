@@ -18,12 +18,12 @@ public class Infra : Any
     {
         base.Init();
 
-        this.PixelByteCount = 4;
+        this.PointByteCount = 4;
         this.ColorCompMax = byte.MaxValue;
         return true;
     }
 
-    public virtual long PixelByteCount { get; set; }
+    public virtual long PointByteCount { get; set; }
     public virtual long ColorCompMax { get; set; }
 
 

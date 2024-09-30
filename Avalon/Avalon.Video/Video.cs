@@ -103,7 +103,7 @@ public class Video : Any
         w = this.Size.Wed;
         h = this.Size.Het;
         long k;
-        k = this.VideoInfra.PixelByteCount;
+        k = this.VideoInfra.PointByteCount;
 
         long ka;
         ka = w;
@@ -137,7 +137,7 @@ public class Video : Any
         w = this.Size.Wed;
         h = this.Size.Het;
         long k;
-        k = this.VideoInfra.PixelByteCount;
+        k = this.VideoInfra.PointByteCount;
 
         long ka;
         ka = w;
