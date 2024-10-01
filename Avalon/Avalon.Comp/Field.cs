@@ -35,7 +35,7 @@ public class Field : Any
             this.Value.ModEvent.State.AddState(this.State);
         }
 
-        this.SetChange();
+        this.SetMod();
         return true;
     }
 
@@ -47,7 +47,7 @@ public class Field : Any
     public virtual bool SetBool(bool value)
     {
         this.ValueAny.Bool = value;
-        this.SetChange();
+        this.SetMod();
         return true;
     }
 
@@ -59,7 +59,7 @@ public class Field : Any
     public virtual bool SetInt(long value)
     {
         this.ValueAny.Int = value;
-        this.SetChange();
+        this.SetMod();
         return true;
     }
 
@@ -71,11 +71,11 @@ public class Field : Any
     public virtual bool SetAny(object value)
     {
         this.ValueAny.Any = value;
-        this.SetChange();
+        this.SetMod();
         return true;
     }
 
-    protected virtual bool SetChange()
+    protected virtual bool SetMod()
     {
         this.Comp.Mod(this, this.SetModArg);
         return true;
