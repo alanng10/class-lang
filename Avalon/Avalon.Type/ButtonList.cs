@@ -83,7 +83,7 @@ public class ButtonList : Any
         this.SignBraceSquareRite = this.AddSignButton(']');
         this.SignExecute = this.AddSignButton(';');
         this.SignAre = this.AddSignButton(':');
-        this.SignQuoteOne = this.AddSignButton('\'');
+        this.SignTail = this.AddSignButton('\'');
         this.SignQuote = this.AddSignButton('"');
         this.SignPause = this.AddSignButton(',');
         this.SignLessNite = this.AddSignButton('<');
@@ -200,7 +200,7 @@ public class ButtonList : Any
     public virtual Button SignBraceRite { get; set; }
     public virtual Button SignExecute { get; set; }
     public virtual Button SignAre { get; set; }
-    public virtual Button SignQuoteOne { get; set; }
+    public virtual Button SignTail { get; set; }
     public virtual Button SignQuote { get; set; }
     public virtual Button SignPause { get; set; }
     public virtual Button SignLessNite { get; set; }
