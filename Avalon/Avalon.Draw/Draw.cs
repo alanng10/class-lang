@@ -152,28 +152,6 @@ public class Draw : Any
 
     protected virtual Brush LineData { get; set; }
 
-    public virtual Face Face
-    {
-        get
-        {
-            return this.FaceData;
-        }
-        set
-        {
-            this.FaceData = value;
-
-            ulong u;
-            u = 0;
-            if (!(this.FaceData == null))
-            {
-                u = this.FaceData.Intern;
-            }
-            Extern.Draw_FaceSet(this.Intern, u);
-        }
-    }
-
-    protected virtual Face FaceData { get; set; }
-
     public virtual Comp Comp
     {
         get
@@ -336,91 +314,6 @@ public class Draw : Any
         return true;
     }
 
-    public virtual bool ExecuteRect(Rect rect)
-    {
-        this.InternRectSetFromRect(this.InternRectA, rect);
-
-        Extern.Draw_ExecuteRect(this.Intern, this.InternRectA);
-        return true;
-    }
-
-    public virtual bool ExecuteRectRound(Rect rect, long horizRadius, long vertRadius)
-    {
-        this.InternRectSetFromRect(this.InternRectA, rect);
-
-        ulong hr;
-        ulong vr;
-        hr = (ulong)horizRadius;
-        vr = (ulong)vertRadius;
-        Extern.Draw_ExecuteRectRound(this.Intern, this.InternRectA, hr, vr);
-        return true;
-    }
-
-    public virtual bool ExecuteRound(Rect rect)
-    {
-        this.InternRectSetFromRect(this.InternRectA, rect);
-
-        Extern.Draw_ExecuteRound(this.Intern, this.InternRectA);
-        return true;
-    }
-
-    public virtual bool ExecuteRoundLine(Rect rect, Range range)
-    {
-        this.InternRectSetFromRect(this.InternRectA, rect);
-
-        this.InternRangeSetFromRange(this.InternRangeA, range);
-
-        Extern.Draw_ExecuteRoundLine(this.Intern, this.InternRectA, this.InternRangeA);
-        return true;
-    }
-
-    public virtual bool ExecuteRoundPart(Rect rect, Range range)
-    {
-        this.InternRectSetFromRect(this.InternRectA, rect);
-
-        this.InternRangeSetFromRange(this.InternRangeA, range);
-
-        Extern.Draw_ExecuteRoundPart(this.Intern, this.InternRectA, this.InternRangeA);
-        return true;
-    }
-    
-    public virtual bool ExecuteRoundShape(Rect rect, Range range)
-    {
-        this.InternRectSetFromRect(this.InternRectA, rect);
-
-        this.InternRangeSetFromRange(this.InternRangeA, range);
-
-        Extern.Draw_ExecuteRoundShape(this.Intern, this.InternRectA, this.InternRangeA);
-        return true;
-    }
-
-    public virtual bool ExecuteLine(Pos startPos, Pos endPos)
-    {
-        this.InternPosSetFromPos(this.InternPosA, startPos);
-        this.InternPosSetFromPos(this.InternPosB, endPos);
-
-        Extern.Draw_ExecuteLine(this.Intern, this.InternPosA, this.InternPosB);
-        return true;
-    }
-
-    public virtual bool ExecuteShape(PointList pointList)
-    {
-        ulong ka;
-        ka = (ulong)pointList.Count;
-
-        Extern.Draw_ExecuteShape(this.Intern, ka, pointList.Intern);
-        return true;
-    }
-
-    public virtual bool ExecuteShapeLine(PointList pointList)
-    {
-        ulong ka;
-        ka = (ulong)pointList.Count;
-
-        Extern.Draw_ExecuteShapeLine(this.Intern, ka, pointList.Intern);
-        return true;
-    }
-
     public virtual bool ExecuteVideo(VideoVideo image, Rect destRect, Rect sourceRect)
     {
         this.InternRectSetFromRect(this.InternRectA, destRect);
@@ -430,54 +323,8 @@ public class Draw : Any
         return true;
     }
 
-    public virtual bool ExecuteText(TextText text, TextAlign align, bool wordWarp, Rect destRect)
-    {
-        long count;
-        count = text.Range.Count;
-        if (this.TextCount < count)
-        {
-            return false;
-        }
-
-        this.TextSet(text);        
-
-        this.InternRectSetFromRect(this.InternRectA, destRect);
-
-        ulong kaa;
-        ulong kab;
-        kaa = (ulong)align.Horiz;
-        kab = (ulong)align.Vert;
-
-        ulong wordWrapU;
-        wordWrapU = 0;
-        if (wordWarp)
-        {
-            wordWrapU = 1;
-        }
-
-        Extern.Draw_ExecuteText(this.Intern, this.InternText, kaa, kab, wordWrapU, this.InternRectA, this.InternRectB);
-        return true;
-    }
-
     public virtual bool ExecuteQuad(Data quad, Array brush, long dataIndex, long arrayIndex, long count)
     {
-        return true;
-    }
-
-    private bool TextSet(TextText text)
-    {
-        long count;
-        count = text.Range.Count;
-
-        ulong countA;
-        countA = (ulong)count;
-
-        ulong dataCount;
-        dataCount = countA * sizeof(uint);
-
-        this.InternIntern.CopyFromByteArray(this.InternTextData, text.Data.Value, 0, dataCount);
-        
-        Extern.String_CountSet(this.InternText, countA);
         return true;
     }
 

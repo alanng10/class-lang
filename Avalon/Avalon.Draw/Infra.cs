@@ -21,20 +21,12 @@ public class Infra : Any
         this.TextStringValue = TextStringValue.This;
         this.StorageStatusList = StorageStatusList.This;
         this.BrushInfra = BrushInfra.This;
-        this.BrushKindList = BrushKindList.This;
-        this.BrushLineList = BrushLineList.This;
-        this.BrushCapList = BrushCapList.This;
-        this.BrushJoinList = BrushJoinList.This;
         return true;
     }
 
     protected virtual MathInfra MathInfra { get; set; }
     protected virtual TextStringValue TextStringValue { get; set; }
     protected virtual StorageStatusList StorageStatusList { get; set; }
-    protected virtual BrushKindList BrushKindList { get; set; }
-    protected virtual BrushLineList BrushLineList { get; set; }
-    protected virtual BrushCapList BrushCapList { get; set; }
-    protected virtual BrushJoinList BrushJoinList { get; set; }
     private BrushInfra BrushInfra { get; set; }
 
     public virtual Color ColorCreate(long alpha, long red, long green, long blue)
