@@ -1,6 +1,6 @@
-namespace Avalon.View;
+namespace Avalon.Frame;
 
-public class Frame : Comp
+public class Frame : CompComp
 {
     public override bool Init()
     {
@@ -10,20 +10,19 @@ public class Frame : Comp
         this.MathInfra = MathInfra.This;
         this.VideoInfra = VideoInfra.This;
         this.DrawInfra = DrawInfra.This;
+        this.FrameInfra = Infra.This;
         this.StringValue = StringValue.This;
         this.Math = this.CreateMath();
         this.MathComp = this.CreateMathComp();
-
-        this.ViewField = this.CreateViewField();
 
         this.InternHandle = new Handle();        
         this.InternHandle.Any = this;
         this.InternHandle.Init();
 
         MaideAddress ua;
-        ua = this.ViewInfra.FrameTypeMaideAddress;
+        ua = this.FrameInfra.FrameTypeMaideAddress;
         MaideAddress ub;
-        ub = this.ViewInfra.FrameDrawMaideAddress;
+        ub = this.FrameInfra.FrameDrawMaideAddress;
         ulong arg;
         arg = this.InternHandle.ULong();
 
@@ -136,6 +135,7 @@ public class Frame : Comp
     protected virtual DrawDraw Draw { get; set; }
     protected virtual TuneTune Tune { get; set; }
     protected virtual VideoColor DrawClearColor { get; set; }
+    private Infra FrameInfra { get; set; }
     private ulong Intern { get; set; }
     private ulong InternTitle { get; set; }
     private ulong InternUpdateRect { get; set; }
@@ -199,11 +199,6 @@ public class Frame : Comp
     {
         a.Final();
         return true;
-    }
-    
-    protected virtual Field CreateViewField()
-    {
-        return this.ViewInfra.FieldCreate(this);
     }
 
     public virtual bool TitleSet()
@@ -327,23 +322,7 @@ public class Frame : Comp
 
         draw.Clear(this.DrawClearColor);
 
-        if (this.ValidDrawView())
-        {
-            this.ExecuteDrawView(draw);
-        }
-
         draw.End();
-        return true;
-    }
-
-    protected virtual bool ValidDrawView()
-    {
-        return !(this.View == null);
-    }
-
-    protected virtual bool ExecuteDrawView(DrawDraw draw)
-    {
-        this.View.ExecuteDraw(draw);
         return true;
     }
 
@@ -368,36 +347,6 @@ public class Frame : Comp
     public virtual bool Close()
     {
         Extern.Frame_Close(this.Intern);
-        return true;
-    }
-
-    public virtual Field ViewField { get; set; }
-
-    public virtual View View
-    {
-        get
-        {
-            return (View)this.ViewField.Get();
-        }
-
-        set
-        {
-            this.ViewField.Set(value);
-        }
-    }
-
-    protected virtual bool ChangeView(Change change)
-    {
-        this.Event(this.ViewField);
-        return true;
-    }
-
-    public override bool Change(Field varField, Change change)
-    {
-        if (this.ViewField == varField)
-        {
-            this.ChangeView(change);
-        }
         return true;
     }
 
