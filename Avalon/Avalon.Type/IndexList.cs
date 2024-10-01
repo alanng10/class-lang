@@ -97,7 +97,7 @@ public class IndexList : Any
         //this.ControlEscape = this.AddControlButton();
         this.InnTab = this.AddInnIndex();
         this.InnIndex = 0x03;
-        this.InnBackSpace = this.AddInnIndex();
+        this.InnRemove = this.AddInnIndex();
         this.InnEnter = this.AddInnIndex();
         this.InnIndex = 0x06;
         //this.ControlInsert = this.AddControlButton();
@@ -213,7 +213,7 @@ public class IndexList : Any
 
     // public virtual Button ControlEscape { get; set; }
     public virtual Index InnTab { get; set; }
-    public virtual Index InnBackSpace { get; set; }
+    public virtual Index InnRemove { get; set; }
     public virtual Index InnEnter { get; set; }
     // public virtual Button ControlInsert { get; set; }
     // public virtual Button ControlDelete { get; set; }
