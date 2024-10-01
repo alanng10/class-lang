@@ -98,60 +98,6 @@ public class Draw : Any
     public virtual Rect Area { get; set; }
     public virtual Pos Pos { get; set; }
 
-    public virtual Brush Fill
-    {
-        get
-        {
-            return this.FillData;
-        }
-        set
-        {
-            this.FillData = value;
-
-            ulong uu;
-            uu = 0;
-
-            long fillCol;
-            long fillRow;
-            fillCol = 0;
-            fillRow = 0;
-
-            if (!(this.FillData == null))
-            {
-                uu = this.FillData.Intern;
-                fillCol = this.FillData.FillPos.Col;
-                fillRow = this.FillData.FillPos.Row;
-            }
-            Extern.Draw_FillSet(this.Intern, uu);
-
-            this.FillPosSet(fillCol, fillRow);
-        }
-    }
-
-    protected virtual Brush FillData { get; set; }
-
-    public virtual Brush Line
-    {
-        get
-        {
-            return this.LineData;
-        }
-        set
-        {
-            this.LineData = value;
-
-            ulong uu;
-            uu = 0;
-            if (!(this.LineData == null))
-            {
-                uu = this.LineData.Intern;
-            }
-            Extern.Draw_StrokeSet(this.Intern, uu);
-        }
-    }
-
-    protected virtual Brush LineData { get; set; }
-
     public virtual Comp Comp
     {
         get
@@ -217,10 +163,7 @@ public class Draw : Any
         pos.Row = 0;
         this.PosSet();
 
-        this.Fill = null;
-        this.Line = null;
         this.Comp = null;
-        this.FillPosSet(0, 0);
         this.Form = null;
         this.FormSet();
         return true;
