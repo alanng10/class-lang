@@ -328,7 +328,7 @@ public class IndexList : Any
         return this.PosIndex(index, start);
     }
 
-    public virtual Index DigitButton(long digitIndex)
+    public virtual Index Digit(long digitIndex)
     {
         long start;
         start = '0';
