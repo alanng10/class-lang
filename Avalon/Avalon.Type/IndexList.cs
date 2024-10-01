@@ -328,11 +328,11 @@ public class IndexList : Any
         return this.PosIndex(index, start);
     }
 
-    public virtual Index Digit(long digitIndex)
+    public virtual Index Digit(long index)
     {
         long start;
         start = '0';
-        return this.PosIndex(digitIndex, start);
+        return this.PosIndex(index, start);
     }
 
     protected virtual Index PosIndex(long index, long start)
