@@ -69,7 +69,7 @@ public class ButtonList : Any
         //this.SignDollar = this.AddSignButton('$');
         this.SignPercent = this.AddSignButton('%');
         this.SignCaret = this.AddSignButton('^');
-        this.SignAmpersand = this.AddSignButton('&');
+        this.SignAnd = this.AddSignButton('&');
         this.SignAsterisk = this.AddSignButton('*');
         this.SignDash = this.AddSignButton('-');
         this.SignUnderscore = this.AddSignButton('_');
@@ -92,7 +92,7 @@ public class ButtonList : Any
         this.SignSlash = this.AddSignButton('/');
         this.SignQuestion = this.AddSignButton('?');
         this.SignBackSlash = this.AddSignButton('\\');
-        this.SignVerticalBar = this.AddSignButton('|');
+        this.SignOrn = this.AddSignButton('|');
 
         //this.ControlEscape = this.AddControlButton();
         this.ControlTab = this.AddControlButton();
@@ -186,7 +186,7 @@ public class ButtonList : Any
     // public virtual Button SignDollar { get; set; }
     public virtual Button SignPercent { get; set; }
     public virtual Button SignCaret { get; set; }
-    public virtual Button SignAmpersand { get; set; }
+    public virtual Button SignAnd { get; set; }
     public virtual Button SignAsterisk { get; set; }
     public virtual Button SignBraceRoundLite { get; set; }
     public virtual Button SignBraceRoundRite { get; set; }
@@ -209,7 +209,7 @@ public class ButtonList : Any
     public virtual Button SignSlash { get; set; }
     public virtual Button SignQuestion { get; set; }
     public virtual Button SignBackSlash { get; set; }
-    public virtual Button SignVerticalBar { get; set; }
+    public virtual Button SignOrn { get; set; }
 
     // public virtual Button ControlEscape { get; set; }
     public virtual Button ControlTab { get; set; }
