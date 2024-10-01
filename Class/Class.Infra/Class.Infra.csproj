@@ -22,7 +22,6 @@
         <ProjectReference Include="../../Avalon/Avalon.Console/Avalon.Console.csproj" />
         <ProjectReference Include="../../Avalon/Avalon.Draw/Avalon.Draw.csproj" />
         <ProjectReference Include="../../Avalon/Avalon.View/Avalon.View.csproj" />
-        <ProjectReference Include="../../Avalon/Avalon.Media/Avalon.Media.csproj" />
         <ProjectReference Include="../../Avalon/Avalon.Entry/Avalon.Entry.csproj" />
     </ItemGroup>
 
