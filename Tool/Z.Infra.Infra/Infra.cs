@@ -21,6 +21,8 @@ public class Infra : Any
         this.TextInfra = TextInfra.This;
         this.StorageInfra = StorageInfra.This;
         this.StringComp = StringComp.This;
+        this.TextCode = TextCode.This;
+        this.TextCodeKindList = TextCodeKindList.This;
         this.StringValue = StringValue.This;
         this.Console = Console.This;
 
@@ -58,12 +60,14 @@ public class Infra : Any
     public virtual StorageInfra StorageInfra { get; set; }
     public virtual StringComp StringComp { get; set; }
     public virtual StringValue StringValue { get; set; }
+    public virtual TextCode TextCode { get; set; }
+    public virtual TextCodeKindList  TextCodeKindList { get; set; }
     public virtual Console Console { get; set; }
     public virtual StringAdd StringAdd { get; set; }
     public virtual TextLess TextLess { get; set; }
     public virtual LessInt CharLess { get; set; }
     public virtual TextForm TextForm { get; set; }
-    public virtual InfraRange Range { get; set; }
+    public virtual Range Range { get; set; }
     public virtual Text TextA { get; set; }
     public virtual Text TextB { get; set; }
     public virtual Text TextC { get; set; }
@@ -154,7 +158,7 @@ public class Infra : Any
         Text a;
         a = new Text();
         a.Init();
-        a.Range = new InfraRange();
+        a.Range = new Range();
         a.Range.Init();
         return a;
     }
@@ -167,10 +171,10 @@ public class Infra : Any
         return a;
     }
 
-    protected virtual InfraRange CreateInfraRange()
+    protected virtual Range CreateInfraRange()
     {
-        InfraRange a;
-        a = new InfraRange();
+        Range a;
+        a = new Range();
         a.Init();
         return a;
     }
@@ -247,7 +251,7 @@ public class Infra : Any
     public virtual String StorageTextRead(String filePath)
     {
         String a;
-        a = this.StorageInfra.TextReadAny(filePath, true);
+        a = this.TextReadAny(filePath, true);
 
         if (a == null)
         {
@@ -263,7 +267,7 @@ public class Infra : Any
     public virtual bool StorageTextWrite(String filePath, String text)
     {
         bool a;
-        a = this.StorageInfra.TextWriteAny(filePath, text, true);
+        a = this.TextWriteAny(filePath, text, true);
 
         if (!a)
         {
@@ -273,6 +277,85 @@ public class Infra : Any
             this.Console.Err.Write(k);
             global::System.Environment.Exit(301);
         }
+        return a;
+    }
+
+    protected virtual String TextReadAny(String filePath, bool anyNode)
+    {
+        TextCodeKindList kindList;
+        kindList = this.TextCodeKindList;
+
+        Data data;
+        data = this.StorageInfra.DataReadAny(filePath, anyNode);
+        if (data == null)
+        {
+            return null;
+        }
+
+        TextCodeKind innKind;
+        TextCodeKind outKind;
+        innKind = kindList.Utf8;
+        outKind = kindList.Utf32;
+
+        TextCode code;
+        code = this.TextCode;
+
+        Range dataRange;
+        dataRange = new Range();
+        dataRange.Init();
+        dataRange.Count = data.Count;
+
+        long resultCount;
+        resultCount = code.ExecuteCount(innKind, outKind, data, dataRange);
+
+        Data result;
+        result = new Data();
+        result.Count = resultCount;
+        result.Init();
+
+        code.ExecuteResult(result, 0, innKind, outKind, data, dataRange);
+
+        String k;
+        k = this.StringComp.CreateData(result, null);
+
+        String a;
+        a = k;
+        return a;
+    }
+
+    public virtual bool TextWriteAny(String filePath, String text, bool anyNode)
+    {
+        TextCodeKindList kindList;
+        kindList = this.TextCodeKindList;
+
+        TextCodeKind innKind;
+        TextCodeKind outKind;
+        innKind = kindList.Utf32;
+        outKind = kindList.Utf8;
+
+        TextCode code;
+        code = this.TextCode;
+
+        Data data;
+        data = this.TextInfra.StringDataCreateString(text);
+
+        Range dataRange;
+        dataRange = new Range();
+        dataRange.Init();
+        dataRange.Count = data.Count;
+
+        long resultCount;
+        resultCount = code.ExecuteCount(innKind, outKind, data, dataRange);
+
+        Data result;
+        result = new Data();
+        result.Count = resultCount;
+        result.Init();
+
+        code.ExecuteResult(result, 0, innKind, outKind, data, dataRange);
+
+        bool a;
+        a = this.StorageInfra.DataWriteAny(filePath, result, anyNode);
         return a;
     }
 
@@ -430,8 +513,8 @@ public class Infra : Any
 
     public virtual Text CreateText(Data data, long index, long count)
     {
-        InfraRange range;
-        range = new InfraRange();
+        Range range;
+        range = new Range();
         range.Init();
         range.Index = index;
         range.Count = count;
