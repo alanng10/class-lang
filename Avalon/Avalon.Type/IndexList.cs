@@ -60,39 +60,39 @@ public class IndexList : Any
         this.Digit8 = this.AddDigitIndex();
         this.Digit9 = this.AddDigitIndex();
         
-        this.SignSpace = this.AddSignButton(' ');
+        this.SignSpace = this.AddSignIndex(' ');
         //this.SignBackTick = this.AddSignButton('`');
-        this.SignTilde = this.AddSignButton('~');
-        this.SignNot = this.AddSignButton('!');
+        this.SignTilde = this.AddSignIndex('~');
+        this.SignNot = this.AddSignIndex('!');
         //this.SignAt = this.AddSignButton('@');
-        this.SignHash = this.AddSignButton('#');
+        this.SignHash = this.AddSignIndex('#');
         //this.SignDollar = this.AddSignButton('$');
-        this.SignPercent = this.AddSignButton('%');
-        this.SignExpo = this.AddSignButton('^');
-        this.SignAnd = this.AddSignButton('&');
-        this.SignMul = this.AddSignButton('*');
-        this.SignSub = this.AddSignButton('-');
-        this.SignLine = this.AddSignButton('_');
-        this.SignSame = this.AddSignButton('=');
-        this.SignAdd = this.AddSignButton('+');
-        this.SignBraceLite = this.AddSignButton('{');
-        this.SignBraceRite = this.AddSignButton('}');
-        this.SignBraceRoundLite = this.AddSignButton('(');
-        this.SignBraceRoundRite = this.AddSignButton(')');
-        this.SignBraceSquareLite = this.AddSignButton('[');
-        this.SignBraceSquareRite = this.AddSignButton(']');
-        this.SignExecute = this.AddSignButton(';');
-        this.SignAre = this.AddSignButton(':');
-        this.SignTail = this.AddSignButton('\'');
-        this.SignQuote = this.AddSignButton('"');
-        this.SignPause = this.AddSignButton(',');
-        this.SignLessNite = this.AddSignButton('<');
-        this.SignLessSite = this.AddSignButton('>');
-        this.SignStop = this.AddSignButton('.');
-        this.SignDiv = this.AddSignButton('/');
-        this.SignQuest = this.AddSignButton('?');
-        this.SignBackSlash = this.AddSignButton('\\');
-        this.SignOrn = this.AddSignButton('|');
+        this.SignPercent = this.AddSignIndex('%');
+        this.SignExpo = this.AddSignIndex('^');
+        this.SignAnd = this.AddSignIndex('&');
+        this.SignMul = this.AddSignIndex('*');
+        this.SignSub = this.AddSignIndex('-');
+        this.SignLine = this.AddSignIndex('_');
+        this.SignSame = this.AddSignIndex('=');
+        this.SignAdd = this.AddSignIndex('+');
+        this.SignBraceLite = this.AddSignIndex('{');
+        this.SignBraceRite = this.AddSignIndex('}');
+        this.SignBraceRoundLite = this.AddSignIndex('(');
+        this.SignBraceRoundRite = this.AddSignIndex(')');
+        this.SignBraceSquareLite = this.AddSignIndex('[');
+        this.SignBraceSquareRite = this.AddSignIndex(']');
+        this.SignExecute = this.AddSignIndex(';');
+        this.SignAre = this.AddSignIndex(':');
+        this.SignTail = this.AddSignIndex('\'');
+        this.SignQuote = this.AddSignIndex('"');
+        this.SignPause = this.AddSignIndex(',');
+        this.SignLessNite = this.AddSignIndex('<');
+        this.SignLessSite = this.AddSignIndex('>');
+        this.SignStop = this.AddSignIndex('.');
+        this.SignDiv = this.AddSignIndex('/');
+        this.SignQuest = this.AddSignIndex('?');
+        this.SignBackSlash = this.AddSignIndex('\\');
+        this.SignOrn = this.AddSignIndex('|');
 
         //this.ControlEscape = this.AddControlButton();
         this.ControlTab = this.AddControlButton();
@@ -272,7 +272,7 @@ public class IndexList : Any
         return a;
     }
 
-    protected virtual Index AddSignButton(long varChar)
+    protected virtual Index AddSignIndex(long varChar)
     {
         long index;
         index = varChar;
