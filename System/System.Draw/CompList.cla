@@ -16,30 +16,24 @@ class CompList : Any
         stat : extern.Share_Stat(varShare);
 
         this.SourceOver : this.AddItem(extern.Stat_CompSourceOver(stat));
-        this.DestinationOver : this.AddItem(extern.Stat_CompDestinationOver(stat));
-        this.Clear : this.AddItem(extern.Stat_CompClear(stat));
+        this.DestOver : this.AddItem(extern.Stat_CompDestOver(stat));
         this.Source : this.AddItem(extern.Stat_CompSource(stat));
-        this.Destination : this.AddItem(extern.Stat_CompDestination(stat));
+        this.Dest : this.AddItem(extern.Stat_CompDest(stat));
         this.SourceIn : this.AddItem(extern.Stat_CompSourceIn(stat));
-        this.DestinationIn : this.AddItem(extern.Stat_CompDestinationIn(stat));
+        this.DestIn : this.AddItem(extern.Stat_CompDestIn(stat));
         this.SourceOut : this.AddItem(extern.Stat_CompSourceOut(stat));
-        this.DestinationOut : this.AddItem(extern.Stat_CompDestinationOut(stat));
-        this.SourceAtop : this.AddItem(extern.Stat_CompSourceAtop(stat));
-        this.DestinationAtop : this.AddItem(extern.Stat_CompDestinationAtop(stat));
+        this.DestOut : this.AddItem(extern.Stat_CompDestOut(stat));
         return true;
     }
 
     field prusate Comp SourceOver { get { return data; } set { data : value; } }
-    field prusate Comp DestinationOver { get { return data; } set { data : value; } }
-    field prusate Comp Clear { get { return data; } set { data : value; } }
+    field prusate Comp DestOver { get { return data; } set { data : value; } }
     field prusate Comp Source { get { return data; } set { data : value; } }
-    field prusate Comp Destination { get { return data; } set { data : value; } }
+    field prusate Comp Dest { get { return data; } set { data : value; } }
     field prusate Comp SourceIn { get { return data; } set { data : value; } }
-    field prusate Comp DestinationIn { get { return data; } set { data : value; } }
+    field prusate Comp DestIn { get { return data; } set { data : value; } }
     field prusate Comp SourceOut { get { return data; } set { data : value; } }
-    field prusate Comp DestinationOut { get { return data; } set { data : value; } }
-    field prusate Comp SourceAtop { get { return data; } set { data : value; } }
-    field prusate Comp DestinationAtop { get { return data; } set { data : value; } }
+    field prusate Comp DestOut { get { return data; } set { data : value; } }
 
     maide precate Comp AddItem(var Int o)
     {
@@ -63,7 +57,7 @@ class CompList : Any
 
     field precate Array Array { get { return data; } set { data : value; } }
 
-    field precate Int ArrayCount { get { return 11; } set { } }
+    field precate Int ArrayCount { get { return 8; } set { } }
 
     field prusate Int Count { get { return data; } set { data : value; } }
     

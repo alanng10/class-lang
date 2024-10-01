@@ -16,13 +16,13 @@ class BrushKindList : Any
         stat : extern.Share_Stat(varShare);
 
         this.Color : this.AddItem(extern.Stat_BrushKindColor(stat));
-        this.Gradient : this.AddItem(extern.Stat_BrushKindGradient(stat));
+        this.Polate : this.AddItem(extern.Stat_BrushKindPolate(stat));
         this.Image : this.AddItem(extern.Stat_BrushKindImage(stat));
         return true;
     }
 
     field prusate BrushKind Color { get { return data; } set { data : value; } }
-    field prusate BrushKind Gradient { get { return data; } set { data : value; } }
+    field prusate BrushKind Polate { get { return data; } set { data : value; } }
     field prusate BrushKind Image { get { return data; } set { data : value; } }
 
     maide precate BrushKind AddItem(var Int o)
