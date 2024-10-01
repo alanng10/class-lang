@@ -527,7 +527,7 @@ public class Console : ClassBase
         filePath = this.AddClear().Add(this.SourceFold).Add(combine).Add(fileName).AddResult();
 
         String source;
-        source = this.StorageInfra.TextReadAny(filePath, true);
+        source = this.ClassInfra.StorageTextReadAny(filePath, true);
 
         if (source == null)
         {

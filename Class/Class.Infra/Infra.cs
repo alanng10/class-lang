@@ -110,7 +110,7 @@ public class Infra : Any
         return a;
     }
 
-    protected virtual String StorageTextReadAny(String filePath, bool anyNode)
+    public virtual String StorageTextReadAny(String filePath, bool anyNode)
     {
         TextCodeKindList kindList;
         kindList = this.TextCodeKindList;
