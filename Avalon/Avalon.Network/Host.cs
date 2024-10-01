@@ -146,7 +146,13 @@ public class Host : Any
         return true;
     }
 
-    protected virtual bool ExecuteNewPeerState()
+    private bool PrivateNewPeer()
+    {
+        this.PeerEvent();
+        return true;
+    }
+
+    protected virtual bool PeerEvent()
     {
         return true;
     }
@@ -161,7 +167,7 @@ public class Host : Any
 
         Host a;
         a = (Host)ao;
-        a.ExecuteNewPeerState();
+        a.PrivateNewPeer();
 
         return 1;
     }
