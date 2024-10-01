@@ -240,6 +240,8 @@ Word "face" has meaning that is char style.
 
 Word "phore" has meaning that is thread synchronization.
 
+Word "square" has meaning that is cube.
+
 Word "post" has meaning that is queued event.
 
 Word "path" has meaning that is way.
