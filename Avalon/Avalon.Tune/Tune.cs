@@ -92,11 +92,6 @@ public class Tune : Any
         return true;
     }
 
-    public virtual bool ExecuteWave(long waveCount, long amplitude, long destIndex, Range sourceRange)
-    {
-        return true;
-    }
-
     public virtual bool ExecutePlane(long amplitude, long count, long destIndex)
     {
         return true;
