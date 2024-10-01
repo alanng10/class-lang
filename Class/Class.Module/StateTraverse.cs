@@ -340,7 +340,7 @@ public class StateTraverse : Traverse
         }
 
         Target target;            
-        target = areExecute.Target;
+        target = areExecute.Mark;
         Operate value;
         value = areExecute.Value;
 
@@ -407,7 +407,7 @@ public class StateTraverse : Traverse
         FieldName nodeField;
         nodeField = setTarget.Field;
 
-        base.ExecuteSetTarget(setTarget);
+        base.ExecuteSetMark(setTarget);
 
         Field field;
         field = this.ExecuteThisFieldNode(setTarget, varThis, nodeField);
@@ -624,20 +624,6 @@ public class StateTraverse : Traverse
             if (varClass == null)
             {
                 this.Error(this.ErrorKind.ClassUndefined, castOperate);
-            }
-        }
-
-        if (!(anyClass == null))
-        {
-            if (!(varClass == null))
-            {
-                if (!this.ValidClass(anyClass, varClass))
-                {
-                    if (!this.ValidClass(varClass, anyClass))
-                    {
-                        this.Error(this.ErrorKind.CastUnachievable, castOperate);
-                    }
-                }
             }
         }
 
