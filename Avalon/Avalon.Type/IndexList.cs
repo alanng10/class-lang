@@ -91,7 +91,7 @@ public class IndexList : Any
         this.SignStop = this.AddSignIndex('.');
         this.SignDiv = this.AddSignIndex('/');
         // this.SignQuest = this.AddSignIndex('?');
-        this.SignBackSlash = this.AddSignIndex('\\');
+        this.SignNext = this.AddSignIndex('\\');
         this.SignOrn = this.AddSignIndex('|');
 
         //this.ControlEscape = this.AddControlButton();
@@ -208,7 +208,7 @@ public class IndexList : Any
     public virtual Index SignStop { get; set; }
     public virtual Index SignDiv { get; set; }
     // public virtual Index SignQuest { get; set; }
-    public virtual Index SignBackSlash { get; set; }
+    public virtual Index SignNext { get; set; }
     public virtual Index SignOrn { get; set; }
 
     // public virtual Button ControlEscape { get; set; }
