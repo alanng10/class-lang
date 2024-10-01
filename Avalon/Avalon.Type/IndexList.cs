@@ -316,7 +316,7 @@ public class IndexList : Any
         return this.TextInfra.Alpha(index, true);
     }
 
-    public virtual bool IsDigitButton(long index)
+    public virtual bool IsDigitIndex(long index)
     {
         return this.TextInfra.Digit(index);
     }
