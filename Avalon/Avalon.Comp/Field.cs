@@ -12,7 +12,7 @@ public class Field : Any
 
     public virtual Comp Comp { get; set; }
     public virtual FieldState State { get; set; }
-    public virtual Mod SetChangeArg { get; set; }
+    public virtual Mod SetModArg { get; set; }
     protected virtual Comp Value { get; set; }
     protected virtual InfraValue ValueAny { get; set; }
 
@@ -77,7 +77,7 @@ public class Field : Any
 
     protected virtual bool SetChange()
     {
-        this.Comp.Mod(this, this.SetChangeArg);
+        this.Comp.Mod(this, this.SetModArg);
         return true;
     }
 }
