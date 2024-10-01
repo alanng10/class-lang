@@ -198,6 +198,8 @@ Word "ins" has meaning that is insert.
 
 Word "rem" has meaning that is remove.
 
+Word "mod" has meaning that is change.
+
 Word "first" has meaning that is first index.
 
 word "last" has meaning that is last index.
