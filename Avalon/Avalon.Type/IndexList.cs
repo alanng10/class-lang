@@ -95,10 +95,10 @@ public class IndexList : Any
         this.SignOrn = this.AddSignIndex('|');
 
         //this.ControlEscape = this.AddControlButton();
-        this.ControlTab = this.AddControlButton();
+        this.ControlTab = this.AddControlIndex();
         this.ControlIndex = 0x03;
-        this.ControlBackSpace = this.AddControlButton();
-        this.ControlEnter = this.AddControlButton();
+        this.ControlBackSpace = this.AddControlIndex();
+        this.ControlEnter = this.AddControlIndex();
         this.ControlIndex = 0x06;
         //this.ControlInsert = this.AddControlButton();
         //this.ControlDelete = this.AddControlButton();
@@ -115,8 +115,8 @@ public class IndexList : Any
         //this.ControlPageDown = this.AddControlButton();
 
         this.ControlIndex = 0x20;
-        this.ControlShift = this.AddControlButton();
-        this.ControlControl = this.AddControlButton();
+        this.ControlShift = this.AddControlIndex();
+        this.ControlControl = this.AddControlIndex();
         this.ControlIndex = 0x23;
         //this.ControlAlt = this.AddControlButton();
         //this.ControlCapsLock = this.AddControlButton();
@@ -281,7 +281,7 @@ public class IndexList : Any
         return a;
     }
 
-    protected virtual Index AddControlButton()
+    protected virtual Index AddControlIndex()
     {
         long index;
         index = this.ControlIndex + this.ControlStart;
