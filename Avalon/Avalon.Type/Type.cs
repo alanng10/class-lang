@@ -21,7 +21,7 @@ public class Type : Any
 
         this.InitFieldList();
 
-        this.Mod = this.CreateChangeEvent();
+        this.Mod = this.CreateModEvent();
         this.ModArg = this.CreateChangeArg();
         return true;
     }
@@ -31,7 +31,7 @@ public class Type : Any
     protected virtual ModArg ModArg { get; set; }
     protected virtual Data FieldData { get; set; }
     
-    protected virtual EventEvent CreateChangeEvent()
+    protected virtual EventEvent CreateModEvent()
     {
         EventEvent a;
         a = new EventEvent();
