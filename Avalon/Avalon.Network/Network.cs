@@ -222,11 +222,11 @@ public class Network : Any
 
     private bool PrivateStatusChange()
     {
-        this.StatusChange();
+        this.StatusEvent();
         return true;
     }
 
-    protected virtual bool StatusChange()
+    protected virtual bool StatusEvent()
     {
         return true;
     }
@@ -245,11 +245,11 @@ public class Network : Any
             this.LoadingOpen = false;
         }
 
-        this.CaseChange();
+        this.CaseEvent();
         return true;
     }
 
-    protected virtual bool CaseChange()
+    protected virtual bool CaseEvent()
     {
         return true;
     }
