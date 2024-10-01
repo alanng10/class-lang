@@ -311,7 +311,7 @@ public class IndexList : Any
         return (Index)this.Array.GetAt(index);
     }
 
-    public virtual bool IsAlphaButton(long index)
+    public virtual bool IsAlphaIndex(long index)
     {
         return this.TextInfra.Alpha(index, true);
     }
