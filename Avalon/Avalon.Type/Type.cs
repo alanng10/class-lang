@@ -17,7 +17,7 @@ public class Type : Any
     public override bool Init()
     {
         base.Init();
-        this.Button = IndexList.This;
+        this.Index = IndexList.This;
 
         this.InitFieldList();
 
@@ -26,7 +26,7 @@ public class Type : Any
         return true;
     }
 
-    public virtual IndexList Button { get; set; }
+    public virtual IndexList Index { get; set; }
     public virtual EventEvent Change { get; set; }
     protected virtual ChangeArg ChangeArg { get; set; }
     protected virtual Data FieldData { get; set; }
@@ -50,7 +50,7 @@ public class Type : Any
     protected virtual bool InitFieldList()
     {
         this.FieldData = new Data();
-        this.FieldData.Count = this.Button.Count;
+        this.FieldData.Count = this.Index.Count;
         this.FieldData.Init();
         return true;
     }
@@ -69,7 +69,7 @@ public class Type : Any
     public virtual bool Set(long index, bool value)
     {
         Index button;
-        button = this.Button.Get(index);
+        button = this.Index.Get(index);
         
         if (button == null)
         {

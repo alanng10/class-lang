@@ -23,7 +23,7 @@ class TypeState : State
         o = aa.Field;
 
         ButtonList d;
-        d = this.Demo.Frame.Type.Button;
+        d = this.Demo.Frame.Type.Index;
 
         Button a;
         a = aa.Button;
