@@ -22,7 +22,7 @@ public class Type : Any
         this.InitFieldList();
 
         this.Mod = this.CreateModEvent();
-        this.ModArg = this.CreateChangeArg();
+        this.ModArg = this.CreateModArg();
         return true;
     }
 
@@ -39,7 +39,7 @@ public class Type : Any
         return a;
     }
 
-    protected virtual ModArg CreateChangeArg()
+    protected virtual ModArg CreateModArg()
     {
         ModArg a;
         a = new ModArg();
