@@ -251,7 +251,7 @@ public class Infra : Any
     public virtual String StorageTextRead(String filePath)
     {
         String a;
-        a = this.TextReadAny(filePath, true);
+        a = this.StorageTextReadAny(filePath, true);
 
         if (a == null)
         {
@@ -267,7 +267,7 @@ public class Infra : Any
     public virtual bool StorageTextWrite(String filePath, String text)
     {
         bool a;
-        a = this.TextWriteAny(filePath, text, true);
+        a = this.StorageTextWriteAny(filePath, text, true);
 
         if (!a)
         {
@@ -280,7 +280,7 @@ public class Infra : Any
         return a;
     }
 
-    protected virtual String TextReadAny(String filePath, bool anyNode)
+    protected virtual String StorageTextReadAny(String filePath, bool anyNode)
     {
         TextCodeKindList kindList;
         kindList = this.TextCodeKindList;
@@ -323,7 +323,7 @@ public class Infra : Any
         return a;
     }
 
-    public virtual bool TextWriteAny(String filePath, String text, bool anyNode)
+    public virtual bool StorageTextWriteAny(String filePath, String text, bool anyNode)
     {
         TextCodeKindList kindList;
         kindList = this.TextCodeKindList;
