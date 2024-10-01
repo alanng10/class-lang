@@ -96,15 +96,15 @@ public class IndexList : Any
 
         //this.ControlEscape = this.AddControlButton();
         this.ControlTab = this.AddInnIndex();
-        this.ControlIndex = 0x03;
+        this.InnIndex = 0x03;
         this.ControlBackSpace = this.AddInnIndex();
         this.InnEnter = this.AddInnIndex();
-        this.ControlIndex = 0x06;
+        this.InnIndex = 0x06;
         //this.ControlInsert = this.AddControlButton();
         //this.ControlDelete = this.AddControlButton();
         //this.ControlPause = this.AddControlButton();
         //this.ControlPrint = this.AddControlButton();
-        this.ControlIndex = 0x10;
+        this.InnIndex = 0x10;
         //this.ControlHome = this.AddControlButton();
         //this.ControlEnd = this.AddControlButton();
         //this.ControlLeft = this.AddControlButton();
@@ -114,16 +114,16 @@ public class IndexList : Any
         //this.ControlPageUp = this.AddControlButton();
         //this.ControlPageDown = this.AddControlButton();
 
-        this.ControlIndex = 0x20;
+        this.InnIndex = 0x20;
         this.ControlShift = this.AddInnIndex();
         this.ControlControl = this.AddInnIndex();
-        this.ControlIndex = 0x23;
+        this.InnIndex = 0x23;
         //this.ControlAlt = this.AddControlButton();
         //this.ControlCapsLock = this.AddControlButton();
         //this.ControlNumLock = this.AddControlButton();
         //this.ControlScrollLock = this.AddControlButton();
 
-        this.ControlIndex = 0x30;
+        this.InnIndex = 0x30;
         // this.ControlF1 = this.AddControlButton();
         // this.ControlF2 = this.AddControlButton();
         // this.ControlF3 = this.AddControlButton();
@@ -284,12 +284,12 @@ public class IndexList : Any
     protected virtual Index AddInnIndex()
     {
         long index;
-        index = this.ControlIndex + this.ControlStart;
+        index = this.InnIndex + this.ControlStart;
         long oc;
         oc = 0;
         Index a;
         a = this.AddIndex(index, oc);
-        this.ControlIndex = this.ControlIndex + 1;
+        this.InnIndex = this.InnIndex + 1;
         return a;
     }
 
@@ -358,7 +358,7 @@ public class IndexList : Any
     protected virtual Array Array { get; set; }
     protected virtual long AlphaIndex { get; set; }
     protected virtual long DigitIndex { get; set; }
-    protected virtual long ControlIndex { get; set; }
+    protected virtual long InnIndex { get; set; }
 
     public virtual long ControlStart
     {
