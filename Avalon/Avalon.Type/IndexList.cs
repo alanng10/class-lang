@@ -325,17 +325,17 @@ public class IndexList : Any
     {
         long start;
         start = 'A';
-        return this.IndexButton(letterIndex, start);
+        return this.PosIndex(letterIndex, start);
     }
 
     public virtual Index DigitButton(long digitIndex)
     {
         long start;
         start = '0';
-        return this.IndexButton(digitIndex, start);
+        return this.PosIndex(digitIndex, start);
     }
 
-    protected virtual Index IndexButton(long index, long start)
+    protected virtual Index PosIndex(long index, long start)
     {
         long k;
         k = start + index;
