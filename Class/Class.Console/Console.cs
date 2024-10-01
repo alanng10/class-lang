@@ -844,8 +844,8 @@ public class Console : ClassBase
         infraInfra = this.InfraInfra;
         TextInfra textInfra;
         textInfra = this.TextInfra;
-        StorageInfra storageInfra;
-        storageInfra = this.StorageInfra;
+        ClassInfra classInfra;
+        classInfra = this.ClassInfra;
 
         Array array;
         array = this.Source;
@@ -875,7 +875,7 @@ public class Console : ClassBase
             filePath = this.AddClear().Add(sourceFold).Add(combine).Add(a.Name).Add(k).AddResult();
 
             String h;
-            h = storageInfra.TextReadAny(filePath, true);
+            h = classInfra.StorageTextReadAny(filePath, true);
 
             Text aa;
             aa = textInfra.TextCreateStringData(h, null);
