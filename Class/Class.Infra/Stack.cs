@@ -16,7 +16,7 @@ public class Stack : List
         {
             return false;
         }
-        this.Remove(e);
+        this.Rem(e);
         return true;
     }
     

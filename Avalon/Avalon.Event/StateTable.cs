@@ -25,7 +25,7 @@ public class StateTable : Table
 
     public virtual bool RemoveState(State state)
     {
-        this.Remove(state);
+        this.Rem(state);
         return true;
     }
 }

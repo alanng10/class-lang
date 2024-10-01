@@ -29,7 +29,7 @@ public class Array : List
         return null;
     }
 
-    public override bool Remove(object index)
+    public override bool Rem(object index)
     {
         return false;
     }

@@ -127,7 +127,7 @@ public class Table : List
         return ret;
     }
 
-    public override bool Remove(object index)
+    public override bool Rem(object index)
     {
         ListNode node;
         node = this.ListNode(index);
@@ -136,7 +136,7 @@ public class Table : List
             return false;
         }
 
-        this.List.Remove(node);
+        this.List.Rem(node);
 
         this.Tree.Remove(index);
 

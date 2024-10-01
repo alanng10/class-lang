@@ -106,7 +106,7 @@ public class List : Any
         return ret;
     }
 
-    public virtual bool Remove(object index)
+    public virtual bool Rem(object index)
     {
         if (index == null)
         {
