@@ -85,7 +85,7 @@ public class ButtonList : Any
         this.SignAre = this.AddSignButton(':');
         this.SignSingleQuote = this.AddSignButton('\'');
         this.SignDoubleQuote = this.AddSignButton('"');
-        this.SignComma = this.AddSignButton(',');
+        this.SignPause = this.AddSignButton(',');
         this.SignLessNite = this.AddSignButton('<');
         this.SignLessSite = this.AddSignButton('>');
         this.SignStop = this.AddSignButton('.');
@@ -202,7 +202,7 @@ public class ButtonList : Any
     public virtual Button SignAre { get; set; }
     public virtual Button SignSingleQuote { get; set; }
     public virtual Button SignDoubleQuote { get; set; }
-    public virtual Button SignComma { get; set; }
+    public virtual Button SignPause { get; set; }
     public virtual Button SignLessNite { get; set; }
     public virtual Button SignLessSite { get; set; }
     public virtual Button SignStop { get; set; }
