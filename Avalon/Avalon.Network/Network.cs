@@ -220,7 +220,13 @@ public class Network : Any
         return o;
     }
 
-    protected virtual bool ExecuteStatusChangeState()
+    private bool PrivateStatusChange()
+    {
+        this.StatusChange();
+        return true;
+    }
+
+    protected virtual bool StatusChange()
     {
         return true;
     }
@@ -269,7 +275,7 @@ public class Network : Any
 
         Network a;
         a = (Network)ao;
-        a.ExecuteStatusChangeState();
+        a.PrivateStatusChange();
 
         return 1;
     }
