@@ -68,7 +68,7 @@ public class ButtonList : Any
         this.SignHash = this.AddSignButton('#');
         //this.SignDollar = this.AddSignButton('$');
         this.SignPercent = this.AddSignButton('%');
-        this.SignCaret = this.AddSignButton('^');
+        this.SignExpo = this.AddSignButton('^');
         this.SignAnd = this.AddSignButton('&');
         this.SignMul = this.AddSignButton('*');
         this.SignSub = this.AddSignButton('-');
@@ -185,7 +185,7 @@ public class ButtonList : Any
     public virtual Button SignHash { get; set; }
     // public virtual Button SignDollar { get; set; }
     public virtual Button SignPercent { get; set; }
-    public virtual Button SignCaret { get; set; }
+    public virtual Button SignExpo { get; set; }
     public virtual Button SignAnd { get; set; }
     public virtual Button SignMul { get; set; }
     public virtual Button SignBraceRoundLite { get; set; }
