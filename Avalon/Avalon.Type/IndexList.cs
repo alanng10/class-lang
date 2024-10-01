@@ -22,32 +22,32 @@ public class IndexList : Any
         this.Array.Count = this.Count;
         this.Array.Init();
         
-        this.AlphaA = this.AddAlphaButton();
-        this.AlphaB = this.AddAlphaButton();
-        this.AlphaC = this.AddAlphaButton();
-        this.AlphaD = this.AddAlphaButton();
-        this.AlphaE = this.AddAlphaButton();
-        this.AlphaF = this.AddAlphaButton();
-        this.AlphaG = this.AddAlphaButton();
-        this.AlphaH = this.AddAlphaButton();
-        this.AlphaI = this.AddAlphaButton();
-        this.AlphaJ = this.AddAlphaButton();
-        this.AlphaK = this.AddAlphaButton();
-        this.AlphaL = this.AddAlphaButton();
-        this.AlphaM = this.AddAlphaButton();
-        this.AlphaN = this.AddAlphaButton();
-        this.AlphaO = this.AddAlphaButton();
-        this.AlphaP = this.AddAlphaButton();
-        this.AlphaQ = this.AddAlphaButton();
-        this.AlphaR = this.AddAlphaButton();
-        this.AlphaS = this.AddAlphaButton();
-        this.AlphaT = this.AddAlphaButton();
-        this.AlphaU = this.AddAlphaButton();
-        this.AlphaV = this.AddAlphaButton();
-        this.AlphaW = this.AddAlphaButton();
-        this.AlphaX = this.AddAlphaButton();
-        this.AlphaY = this.AddAlphaButton();
-        this.AlphaZ = this.AddAlphaButton();
+        this.AlphaA = this.AddAlphaIndex();
+        this.AlphaB = this.AddAlphaIndex();
+        this.AlphaC = this.AddAlphaIndex();
+        this.AlphaD = this.AddAlphaIndex();
+        this.AlphaE = this.AddAlphaIndex();
+        this.AlphaF = this.AddAlphaIndex();
+        this.AlphaG = this.AddAlphaIndex();
+        this.AlphaH = this.AddAlphaIndex();
+        this.AlphaI = this.AddAlphaIndex();
+        this.AlphaJ = this.AddAlphaIndex();
+        this.AlphaK = this.AddAlphaIndex();
+        this.AlphaL = this.AddAlphaIndex();
+        this.AlphaM = this.AddAlphaIndex();
+        this.AlphaN = this.AddAlphaIndex();
+        this.AlphaO = this.AddAlphaIndex();
+        this.AlphaP = this.AddAlphaIndex();
+        this.AlphaQ = this.AddAlphaIndex();
+        this.AlphaR = this.AddAlphaIndex();
+        this.AlphaS = this.AddAlphaIndex();
+        this.AlphaT = this.AddAlphaIndex();
+        this.AlphaU = this.AddAlphaIndex();
+        this.AlphaV = this.AddAlphaIndex();
+        this.AlphaW = this.AddAlphaIndex();
+        this.AlphaX = this.AddAlphaIndex();
+        this.AlphaY = this.AddAlphaIndex();
+        this.AlphaZ = this.AddAlphaIndex();
 
         this.Digit0 = this.AddDigitButton();
         this.Digit1 = this.AddDigitButton();
@@ -248,7 +248,7 @@ public class IndexList : Any
 
     protected virtual TextInfra TextInfra { get; set; }
 
-    protected virtual Index AddAlphaButton()
+    protected virtual Index AddAlphaIndex()
     {
         long index;
         index = this.AlphaIndex + 'A';
