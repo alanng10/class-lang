@@ -321,7 +321,7 @@ public class IndexList : Any
         return this.TextInfra.Digit(index);
     }
 
-    public virtual Index AlphaButton(long letterIndex)
+    public virtual Index Alpha(long letterIndex)
     {
         long start;
         start = 'A';
