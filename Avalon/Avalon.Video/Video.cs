@@ -74,28 +74,6 @@ public class Video : Any
         return true;
     }
 
-    public virtual bool Color(Color result, Pos pos)
-    {
-        ulong aa;
-        aa = Extern.Data_ValueGet(this.InternData);
-
-        ulong wedU;
-        ulong colU;
-        ulong rowU;
-        wedU = (ulong)this.Size.Wed;
-        colU = (ulong)pos.Col;
-        rowU = (ulong)pos.Row;
-
-        uint u;
-        u = this.InternIntern.VideoDataColor(aa, wedU, colU, rowU);
-
-        ulong ua;
-        ua = u;
-
-        this.VideoInfra.ColorSet(result, ua);
-        return true;
-    }
-
     public virtual bool DataGet(Data data, long index)
     {
         long w;
