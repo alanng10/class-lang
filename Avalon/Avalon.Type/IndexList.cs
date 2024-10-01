@@ -90,7 +90,7 @@ public class IndexList : Any
         this.SignLessSite = this.AddSignIndex('>');
         this.SignStop = this.AddSignIndex('.');
         this.SignDiv = this.AddSignIndex('/');
-        this.SignQuest = this.AddSignIndex('?');
+        // this.SignQuest = this.AddSignIndex('?');
         this.SignBackSlash = this.AddSignIndex('\\');
         this.SignOrn = this.AddSignIndex('|');
 
@@ -207,7 +207,7 @@ public class IndexList : Any
     public virtual Index SignLessSite { get; set; }
     public virtual Index SignStop { get; set; }
     public virtual Index SignDiv { get; set; }
-    public virtual Index SignQuest { get; set; }
+    // public virtual Index SignQuest { get; set; }
     public virtual Index SignBackSlash { get; set; }
     public virtual Index SignOrn { get; set; }
 
