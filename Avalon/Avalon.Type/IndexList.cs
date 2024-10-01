@@ -321,11 +321,11 @@ public class IndexList : Any
         return this.TextInfra.Digit(index);
     }
 
-    public virtual Index Alpha(long letterIndex)
+    public virtual Index Alpha(long index)
     {
         long start;
         start = 'A';
-        return this.PosIndex(letterIndex, start);
+        return this.PosIndex(index, start);
     }
 
     public virtual Index DigitButton(long digitIndex)
