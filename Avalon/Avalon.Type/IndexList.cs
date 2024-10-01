@@ -184,7 +184,7 @@ public class IndexList : Any
     // public virtual Button SignAt { get; set; }
     public virtual Index SignHash { get; set; }
     // public virtual Button SignDollar { get; set; }
-    public virtual Index SignPercent { get; set; }
+    // public virtual Index SignPercent { get; set; }
     public virtual Index SignExpo { get; set; }
     public virtual Index SignAnd { get; set; }
     public virtual Index SignMul { get; set; }
