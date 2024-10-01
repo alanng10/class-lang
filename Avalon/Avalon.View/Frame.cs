@@ -347,12 +347,6 @@ public class Frame : Comp
         return true;
     }
 
-    public virtual bool EventDraw()
-    {
-        // Extern.Frame_EventDraw(this.Intern);
-        return true;
-    }
-
     public virtual bool Visible
     {
         get
