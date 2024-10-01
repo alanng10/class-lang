@@ -77,7 +77,7 @@ public class Field : Any
 
     protected virtual bool SetChange()
     {
-        this.Comp.Change(this, this.SetChangeArg);
+        this.Comp.Mod(this, this.SetChangeArg);
         return true;
     }
 }

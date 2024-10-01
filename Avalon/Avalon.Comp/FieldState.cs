@@ -8,7 +8,7 @@ public class FieldState : State
     {
         Mod change;
         change = (Mod)this.Arg;
-        this.Field.Comp.Change(this.Field, change);
+        this.Field.Comp.Mod(this.Field, change);
         return true;
     }
 }
