@@ -74,7 +74,7 @@ public class ButtonList : Any
         this.SignDash = this.AddSignButton('-');
         this.SignUnderscore = this.AddSignButton('_');
         this.SignSame = this.AddSignButton('=');
-        this.SignPlus = this.AddSignButton('+');
+        this.SignAdd = this.AddSignButton('+');
         this.SignBraceLite = this.AddSignButton('{');
         this.SignBraceRite = this.AddSignButton('}');
         this.SignBraceRoundLite = this.AddSignButton('(');
@@ -193,7 +193,7 @@ public class ButtonList : Any
     public virtual Button SignDash { get; set; }
     public virtual Button SignUnderscore { get; set; }
     public virtual Button SignSame { get; set; }
-    public virtual Button SignPlus { get; set; }
+    public virtual Button SignAdd { get; set; }
     public virtual Button SignBraceSquareLite { get; set; }
     public virtual Button SignBraceLite { get; set; }
     public virtual Button SignBraceSquareRite { get; set; }
