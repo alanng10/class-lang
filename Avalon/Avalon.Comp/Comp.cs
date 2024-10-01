@@ -5,8 +5,8 @@ public class Comp : Any
     public override bool Init()
     {
         base.Init();
-        this.ChangeEvent = this.CreateChangeEvent();
-        this.ChangeArg = this.CreateChangeArg();
+        this.ModEvent = this.CreateChangeEvent();
+        this.ModArg = this.CreateChangeArg();
         return true;
     }
 
@@ -33,12 +33,12 @@ public class Comp : Any
 
     protected virtual bool Event(Field varField)
     {
-        this.ChangeArg.Comp = this;
-        this.ChangeArg.Field = varField;
-        this.ChangeEvent.Execute(this.ChangeArg);
+        this.ModArg.Comp = this;
+        this.ModArg.Field = varField;
+        this.ModEvent.Execute(this.ModArg);
         return true;
     }
 
-    public virtual Mod ChangeArg { get; set; }
-    public virtual EventEvent ChangeEvent { get; set; }
+    public virtual Mod ModArg { get; set; }
+    public virtual EventEvent ModEvent { get; set; }
 }

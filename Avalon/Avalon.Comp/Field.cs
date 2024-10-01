@@ -25,14 +25,14 @@ public class Field : Any
     {
         if (!(this.Value == null))
         {
-            this.Value.ChangeEvent.State.RemoveState(this.State);
+            this.Value.ModEvent.State.RemoveState(this.State);
         }
 
         this.Value = value;
 
         if (!(this.Value == null))
         {
-            this.Value.ChangeEvent.State.AddState(this.State);
+            this.Value.ModEvent.State.AddState(this.State);
         }
 
         this.SetChange();
