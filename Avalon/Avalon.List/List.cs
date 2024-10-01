@@ -27,14 +27,14 @@ public class List : Any
     {
         get
         {
-            return this.Last;
+            return this.LastNode;
         }
         set
         {
         }
     }
     private ListNode FirstNode { get; set; }
-    private ListNode Last { get; set; }
+    private ListNode LastNode { get; set; }
     private ListNodeRef NodeRef { get; set; }
 
     public virtual object Add(object item)
@@ -45,10 +45,10 @@ public class List : Any
         node.Ref = this.NodeRef;
         node.Value = item;
 
-        if (!(this.Last == null))
+        if (!(this.LastNode == null))
         {
-            node.Previous = this.Last;
-            this.Last.Next = node;
+            node.Previous = this.LastNode;
+            this.LastNode.Next = node;
         }
 
         if (this.FirstNode == null)
@@ -56,7 +56,7 @@ public class List : Any
             this.FirstNode = node;
         }
         
-        this.Last = node;
+        this.LastNode = node;
 
         this.Count = this.Count + 1;
 
@@ -124,9 +124,9 @@ public class List : Any
             this.FirstNode = node.Next;
         }
 
-        if (this.Last == node)
+        if (this.LastNode == node)
         {
-            this.Last = node.Previous;
+            this.LastNode = node.Previous;
         }
 
         if (!(node.Next == null))
@@ -148,7 +148,7 @@ public class List : Any
     public virtual bool Clear()
     {
         this.FirstNode = null;
-        this.Last = null;
+        this.LastNode = null;
 
         this.Count = 0;
 
