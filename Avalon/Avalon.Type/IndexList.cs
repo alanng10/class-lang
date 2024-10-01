@@ -284,7 +284,7 @@ public class IndexList : Any
     protected virtual Index AddInnIndex()
     {
         long index;
-        index = this.InnIndex + this.ControlStart;
+        index = this.InnIndex + this.InnStart;
         long oc;
         oc = 0;
         Index a;
@@ -360,7 +360,7 @@ public class IndexList : Any
     protected virtual long DigitIndex { get; set; }
     protected virtual long InnIndex { get; set; }
 
-    public virtual long ControlStart
+    public virtual long InnStart
     {
         get
         {
