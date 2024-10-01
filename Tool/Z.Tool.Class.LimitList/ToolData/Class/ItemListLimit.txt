@@ -9,7 +9,7 @@ MulSign *
 DivSign /
 AndSign &
 OrnSign |
-NotSign !
+NotSign ~
 LessSign <
 MoreSign >
 BraceRoundLite (
