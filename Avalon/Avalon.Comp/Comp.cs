@@ -10,10 +10,10 @@ public class Comp : Any
         return true;
     }
 
-    protected virtual Change CreateChangeArg()
+    protected virtual Mod CreateChangeArg()
     {
-        Change a;
-        a = new Change();
+        Mod a;
+        a = new Mod();
         a.Init();
         return a;
     }
@@ -26,7 +26,7 @@ public class Comp : Any
         return a;
     }
 
-    public virtual bool Change(Field varField, Change change)
+    public virtual bool Change(Field varField, Mod change)
     {
         return true;
     }
@@ -39,6 +39,6 @@ public class Comp : Any
         return true;
     }
 
-    public virtual Change ChangeArg { get; set; }
+    public virtual Mod ChangeArg { get; set; }
     public virtual EventEvent ChangeEvent { get; set; }
 }

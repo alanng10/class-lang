@@ -6,8 +6,8 @@ public class FieldState : State
 
     public override bool Execute()
     {
-        Change change;
-        change = (Change)this.Arg;
+        Mod change;
+        change = (Mod)this.Arg;
         this.Field.Comp.Change(this.Field, change);
         return true;
     }
