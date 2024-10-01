@@ -33,7 +33,7 @@ public class LimitList : Any
         this.DivSign = this.AddItem("/");
         this.AndSign = this.AddItem("&");
         this.OrnSign = this.AddItem("|");
-        this.NotSign = this.AddItem("!");
+        this.NotSign = this.AddItem("~");
         this.LessSign = this.AddItem("<");
         this.MoreSign = this.AddItem(">");
         this.BraceRoundLite = this.AddItem("(");
