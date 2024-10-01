@@ -246,6 +246,8 @@ Word "enter" has meaning that is inn finish.
 
 Word "shift" has meaning that is alter.
 
+Word "block" has meaning that is group block.
+
 Word "post" has meaning that is queued event.
 
 Word "path" has meaning that is way.
