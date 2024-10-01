@@ -16,7 +16,7 @@ public class List : Any
     {
         get
         {
-            return this.First;
+            return this.FirstNode;
         }
         set
         {
@@ -33,7 +33,7 @@ public class List : Any
         {
         }
     }
-    private ListNode First { get; set; }
+    private ListNode FirstNode { get; set; }
     private ListNode Last { get; set; }
     private ListNodeRef NodeRef { get; set; }
 
@@ -51,9 +51,9 @@ public class List : Any
             this.Last.Next = node;
         }
 
-        if (this.First == null)
+        if (this.FirstNode == null)
         {
-            this.First = node;
+            this.FirstNode = node;
         }
         
         this.Last = node;
@@ -85,9 +85,9 @@ public class List : Any
         node.Ref = this.NodeRef;
         node.Value = item;
 
-        if (this.First == t)
+        if (this.FirstNode == t)
         {
-            this.First = node;
+            this.FirstNode = node;
         }
 
         if (!(t.Previous == null))
@@ -119,9 +119,9 @@ public class List : Any
             return false;
         }
 
-        if (this.First == node)
+        if (this.FirstNode == node)
         {
-            this.First = node.Next;
+            this.FirstNode = node.Next;
         }
 
         if (this.Last == node)
@@ -147,7 +147,7 @@ public class List : Any
 
     public virtual bool Clear()
     {
-        this.First = null;
+        this.FirstNode = null;
         this.Last = null;
 
         this.Count = 0;
@@ -219,7 +219,7 @@ public class List : Any
     public virtual bool IterSet(Iter iter)
     {
         iter.CurrentNode = null;
-        iter.Node = this.First;
+        iter.Node = this.FirstNode;
         return true;
     }
 
