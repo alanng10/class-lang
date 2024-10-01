@@ -70,7 +70,7 @@ public class ButtonList : Any
         this.SignPercent = this.AddSignButton('%');
         this.SignCaret = this.AddSignButton('^');
         this.SignAnd = this.AddSignButton('&');
-        this.SignAsterisk = this.AddSignButton('*');
+        this.SignMul = this.AddSignButton('*');
         this.SignDash = this.AddSignButton('-');
         this.SignUnderscore = this.AddSignButton('_');
         this.SignEqual = this.AddSignButton('=');
@@ -187,7 +187,7 @@ public class ButtonList : Any
     public virtual Button SignPercent { get; set; }
     public virtual Button SignCaret { get; set; }
     public virtual Button SignAnd { get; set; }
-    public virtual Button SignAsterisk { get; set; }
+    public virtual Button SignMul { get; set; }
     public virtual Button SignBraceRoundLite { get; set; }
     public virtual Button SignBraceRoundRite { get; set; }
     public virtual Button SignDash { get; set; }
