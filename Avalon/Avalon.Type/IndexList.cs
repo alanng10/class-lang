@@ -63,7 +63,7 @@ public class IndexList : Any
         this.SignSpace = this.AddSignIndex(' ');
         //this.SignBackTick = this.AddSignButton('`');
         this.SignTilde = this.AddSignIndex('~');
-        this.SignNot = this.AddSignIndex('!');
+        // this.SignNot = this.AddSignIndex('!');
         //this.SignAt = this.AddSignButton('@');
         this.SignHash = this.AddSignIndex('#');
         //this.SignDollar = this.AddSignButton('$');
