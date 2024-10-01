@@ -244,6 +244,8 @@ Word "square" has meaning that is cube.
 
 Word "enter" has meaning that is inn finish.
 
+Word "shift" has meaning that is alter.
+
 Word "post" has meaning that is queued event.
 
 Word "path" has meaning that is way.
