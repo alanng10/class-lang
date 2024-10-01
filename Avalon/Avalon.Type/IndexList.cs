@@ -49,16 +49,16 @@ public class IndexList : Any
         this.AlphaY = this.AddAlphaIndex();
         this.AlphaZ = this.AddAlphaIndex();
 
-        this.Digit0 = this.AddDigitButton();
-        this.Digit1 = this.AddDigitButton();
-        this.Digit2 = this.AddDigitButton();
-        this.Digit3 = this.AddDigitButton();
-        this.Digit4 = this.AddDigitButton();
-        this.Digit5 = this.AddDigitButton();
-        this.Digit6 = this.AddDigitButton();
-        this.Digit7 = this.AddDigitButton();
-        this.Digit8 = this.AddDigitButton();
-        this.Digit9 = this.AddDigitButton();
+        this.Digit0 = this.AddDigitIndex();
+        this.Digit1 = this.AddDigitIndex();
+        this.Digit2 = this.AddDigitIndex();
+        this.Digit3 = this.AddDigitIndex();
+        this.Digit4 = this.AddDigitIndex();
+        this.Digit5 = this.AddDigitIndex();
+        this.Digit6 = this.AddDigitIndex();
+        this.Digit7 = this.AddDigitIndex();
+        this.Digit8 = this.AddDigitIndex();
+        this.Digit9 = this.AddDigitIndex();
         
         this.SignSpace = this.AddSignButton(' ');
         //this.SignBackTick = this.AddSignButton('`');
@@ -260,7 +260,7 @@ public class IndexList : Any
         return a;
     }
 
-    protected virtual Index AddDigitButton()
+    protected virtual Index AddDigitIndex()
     {
         long index;
         index = this.DigitIndex + '0';
