@@ -5,23 +5,23 @@ public class Comp : Any
     public override bool Init()
     {
         base.Init();
-        this.ModEvent = this.CreateChangeEvent();
+        this.ModEvent = this.CreateModEvent();
         this.ModArg = this.CreateChangeArg();
         return true;
+    }
+
+    protected virtual EventEvent CreateModEvent()
+    {
+        EventEvent a;
+        a = new EventEvent();
+        a.Init();
+        return a;
     }
 
     protected virtual Mod CreateChangeArg()
     {
         Mod a;
         a = new Mod();
-        a.Init();
-        return a;
-    }
-
-    protected virtual EventEvent CreateChangeEvent()
-    {
-        EventEvent a;
-        a = new EventEvent();
         a.Init();
         return a;
     }
