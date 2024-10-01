@@ -19,6 +19,10 @@ public class Infra : Any
         base.Init();
         this.InfraInfra = InfraInfra.This;
         this.TextInfra = TextInfra.This;
+        this.StorageInfra = StorageInfra.This;
+        this.StringComp = StringComp.This;
+        this.TextCode = TextCode.This;
+        this.TextCodeKindList = TextCodeKindList.This;
         this.CountList = CountList.This;
 
         this.Quote = this.S("\"");
@@ -39,6 +43,10 @@ public class Infra : Any
 
     protected virtual InfraInfra InfraInfra { get; set; }
     protected virtual TextInfra TextInfra { get; set; }
+    protected virtual StorageInfra StorageInfra { get; set; }
+    protected virtual StringComp StringComp { get; set; }
+    protected virtual TextCode TextCode { get; set; }
+    protected virtual TextCodeKindList TextCodeKindList { get; set; }
     protected virtual CountList CountList { get; set; }
 
     public virtual bool IndexRange(Range range, long index)
@@ -99,6 +107,85 @@ public class Infra : Any
         a.Init();
         a.Name = name;
         a.Ver = version;
+        return a;
+    }
+
+    protected virtual String StorageTextReadAny(String filePath, bool anyNode)
+    {
+        TextCodeKindList kindList;
+        kindList = this.TextCodeKindList;
+
+        Data data;
+        data = this.StorageInfra.DataReadAny(filePath, anyNode);
+        if (data == null)
+        {
+            return null;
+        }
+
+        TextCodeKind innKind;
+        TextCodeKind outKind;
+        innKind = kindList.Utf8;
+        outKind = kindList.Utf32;
+
+        TextCode code;
+        code = this.TextCode;
+
+        InfraRange dataRange;
+        dataRange = new InfraRange();
+        dataRange.Init();
+        dataRange.Count = data.Count;
+
+        long resultCount;
+        resultCount = code.ExecuteCount(innKind, outKind, data, dataRange);
+
+        Data result;
+        result = new Data();
+        result.Count = resultCount;
+        result.Init();
+
+        code.ExecuteResult(result, 0, innKind, outKind, data, dataRange);
+
+        String k;
+        k = this.StringComp.CreateData(result, null);
+
+        String a;
+        a = k;
+        return a;
+    }
+
+    public virtual bool StorageTextWriteAny(String filePath, String text, bool anyNode)
+    {
+        TextCodeKindList kindList;
+        kindList = this.TextCodeKindList;
+
+        TextCodeKind innKind;
+        TextCodeKind outKind;
+        innKind = kindList.Utf32;
+        outKind = kindList.Utf8;
+
+        TextCode code;
+        code = this.TextCode;
+
+        Data data;
+        data = this.TextInfra.StringDataCreateString(text);
+
+        InfraRange dataRange;
+        dataRange = new InfraRange();
+        dataRange.Init();
+        dataRange.Count = data.Count;
+
+        long resultCount;
+        resultCount = code.ExecuteCount(innKind, outKind, data, dataRange);
+
+        Data result;
+        result = new Data();
+        result.Count = resultCount;
+        result.Init();
+
+        code.ExecuteResult(result, 0, innKind, outKind, data, dataRange);
+
+        bool a;
+        a = this.StorageInfra.DataWriteAny(filePath, result, anyNode);
         return a;
     }
 
