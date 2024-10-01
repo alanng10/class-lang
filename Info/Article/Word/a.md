@@ -242,6 +242,8 @@ Word "phore" has meaning that is thread synchronization.
 
 Word "square" has meaning that is cube.
 
+Word "enter" has meaning that is inn finish.
+
 Word "post" has meaning that is queued event.
 
 Word "path" has meaning that is way.
