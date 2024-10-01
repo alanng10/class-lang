@@ -347,13 +347,9 @@ public class Frame : Comp
         return true;
     }
 
-    public virtual bool Area(DrawRect rect)
+    public virtual bool EventDraw()
     {
-        this.InternInfra.RectSet(this.InternUpdateRect, 
-            rect.Pos.Col, rect.Pos.Row, rect.Size.Wed, rect.Size.Het
-        );
-
-        Extern.Frame_Update(this.Intern, this.InternUpdateRect);
+        // Extern.Frame_EventDraw(this.Intern);
         return true;
     }
 
