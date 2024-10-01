@@ -300,9 +300,9 @@ public class ButtonList : Any
         Button a;
         a = new Button();
         a.Init();
-        a.Index = index;
+        a.IndexList = index;
         a.Char = varChar;
-        this.Array.SetAt(a.Index, a);
+        this.Array.SetAt(a.IndexList, a);
         return a;
     }
 
