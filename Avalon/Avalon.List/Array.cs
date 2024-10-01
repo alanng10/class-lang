@@ -24,7 +24,7 @@ public class Array : List
         return null;
     }
 
-    public override object Insert(object index, object item)
+    public override object Ins(object index, object item)
     {
         return null;
     }

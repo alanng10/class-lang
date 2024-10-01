@@ -85,7 +85,7 @@ public class Table : List
         return ret;
     }
 
-    public override object Insert(object index, object item)
+    public override object Ins(object index, object item)
     {
         ListNode node;        
         node = this.ListNode(index);
@@ -114,7 +114,7 @@ public class Table : List
         }
 
         object o;
-        o = this.List.Insert(node, entry);
+        o = this.List.Ins(node, entry);
         ListNode oo;
         oo = (ListNode)o;
 

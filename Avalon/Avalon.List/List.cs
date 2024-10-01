@@ -65,7 +65,7 @@ public class List : Any
         return ret;
     }
 
-    public virtual object Insert(object index, object item)
+    public virtual object Ins(object index, object item)
     {
         if (index == null)
         {
