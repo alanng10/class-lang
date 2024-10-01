@@ -17,7 +17,7 @@ public class Type : Any
     public override bool Init()
     {
         base.Init();
-        this.Button = ButtonList.This;
+        this.Button = IndexList.This;
 
         this.InitFieldList();
 
@@ -26,7 +26,7 @@ public class Type : Any
         return true;
     }
 
-    public virtual ButtonList Button { get; set; }
+    public virtual IndexList Button { get; set; }
     public virtual EventEvent Change { get; set; }
     protected virtual ChangeArg ChangeArg { get; set; }
     protected virtual Data FieldData { get; set; }

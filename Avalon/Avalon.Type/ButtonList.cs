@@ -1,13 +1,13 @@
 namespace Avalon.Type;
 
-public class ButtonList : Any
+public class IndexList : Any
 {
-    public static ButtonList This { get; } = ShareCreate();
+    public static IndexList This { get; } = ShareCreate();
 
-    private static ButtonList ShareCreate()
+    private static IndexList ShareCreate()
     {
-        ButtonList share;
-        share = new ButtonList();
+        IndexList share;
+        share = new IndexList();
         Any a;
         a = share;
         a.Init();
