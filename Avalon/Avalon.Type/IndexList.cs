@@ -67,7 +67,7 @@ public class IndexList : Any
         //this.SignAt = this.AddSignButton('@');
         this.SignHash = this.AddSignIndex('#');
         //this.SignDollar = this.AddSignButton('$');
-        this.SignPercent = this.AddSignIndex('%');
+        // this.SignPercent = this.AddSignIndex('%');
         this.SignExpo = this.AddSignIndex('^');
         this.SignAnd = this.AddSignIndex('&');
         this.SignMul = this.AddSignIndex('*');
