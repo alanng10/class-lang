@@ -13,7 +13,7 @@ public class Array : List
         return true;
     }
 
-    public override object FirstIndex { get { return null; } set { } }
+    public override object Start { get { return null; } set { } }
     public override object LastIndex { get { return null; } set { } }
 
     protected virtual InfraInfra InfraInfra { get; set; }

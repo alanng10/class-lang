@@ -12,7 +12,7 @@ public class List : Any
 
     public virtual long Count { get; set; }
 
-    public virtual object FirstIndex
+    public virtual object Start
     {
         get
         {

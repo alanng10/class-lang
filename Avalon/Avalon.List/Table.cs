@@ -13,7 +13,7 @@ public class Table : List
     }
 
     public virtual Less Less { get; set; }
-    public override object FirstIndex { get { return null; } set { } }
+    public override object Start { get { return null; } set { } }
     public override object LastIndex { get { return null; } set { } }
 
     private Tree Tree { get; set; }
