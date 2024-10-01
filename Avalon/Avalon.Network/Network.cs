@@ -248,7 +248,13 @@ public class Network : Any
         return true;
     }
 
-    protected virtual bool ExecuteReadyRead()
+    private bool PrivateReadyRead()
+    {
+        this.ReadyRead();
+        return true;
+    }
+
+    protected virtual bool ReadyRead()
     {
         return true;
     }
@@ -293,7 +299,7 @@ public class Network : Any
 
         Network a;
         a = (Network)ao;
-        a.ExecuteReadyRead();
+        a.PrivateReadyRead();
 
         return 1;
     }
