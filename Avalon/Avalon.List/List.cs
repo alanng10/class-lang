@@ -23,7 +23,7 @@ public class List : Any
         }
     }
 
-    public virtual object LastIndex
+    public virtual object End
     {
         get
         {

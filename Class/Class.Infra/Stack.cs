@@ -11,7 +11,7 @@ public class Stack : List
     public virtual bool Pop()
     {
         object e;
-        e = this.LastIndex;
+        e = this.End;
         if (e == null)
         {
             return false;
@@ -25,7 +25,7 @@ public class Stack : List
         get
         {
             object e;
-            e = this.LastIndex;
+            e = this.End;
             if (e == null)
             {
                 return null;

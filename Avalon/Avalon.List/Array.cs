@@ -14,7 +14,7 @@ public class Array : List
     }
 
     public override object Start { get { return null; } set { } }
-    public override object LastIndex { get { return null; } set { } }
+    public override object End { get { return null; } set { } }
 
     protected virtual InfraInfra InfraInfra { get; set; }
     private object[] Value { get; set; }
