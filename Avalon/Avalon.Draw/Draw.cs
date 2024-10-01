@@ -12,14 +12,6 @@ public class Draw : Any
 
         this.Size = new Size();
         this.Size.Init();
-        this.Area = new Rect();
-        this.Area.Init();
-        this.Area.Pos = new Pos();
-        this.Area.Pos.Init();
-        this.Area.Size = new Size();
-        this.Area.Size.Init();
-        this.Pos = new Pos();
-        this.Pos.Init();
         
         this.Math = new MathMath();
         this.Math.Init();
@@ -30,18 +22,6 @@ public class Draw : Any
         this.PosA.Init();
         this.WorldForm = new Form();
         this.WorldForm.Init();
-
-        this.TextCount = 1024;
-
-        ulong oa;
-        oa = (ulong)this.TextCount;
-        oa = oa * sizeof(uint);
-        this.InternTextData = Extern.New(oa);
-
-        this.InternText = Extern.String_New();
-        Extern.String_Init(this.InternText);
-        Extern.String_DataSet(this.InternText, this.InternTextData);
-        Extern.String_CountSet(this.InternText, 0);
 
         this.InternRangeA = this.InternInfra.RangeCreate();
         this.InternRectA = this.InternInfra.RectCreate();
@@ -84,19 +64,12 @@ public class Draw : Any
         this.InternInfra.RectDelete(this.InternRectA);
         this.InternInfra.RangeDelete(this.InternRangeA);
 
-        Extern.String_Final(this.InternText);
-        Extern.String_Delete(this.InternText);
-
-        Extern.Delete(this.InternTextData);
-
         this.WorldForm.Final();
         return true;
     }
 
     public virtual ulong Out { get; set; }
     public virtual Size Size { get; set; }
-    public virtual Rect Area { get; set; }
-    public virtual Pos Pos { get; set; }
 
     public virtual Comp Comp
     {
@@ -149,20 +122,6 @@ public class Draw : Any
         Extern.Draw_OutSet(this.Intern, this.Out);
         Extern.Draw_Start(this.Intern);
 
-        Rect area;
-        area = this.Area;
-        area.Pos.Col = 0;
-        area.Pos.Row = 0;
-        area.Size.Wed = this.Size.Wed;
-        area.Size.Het = this.Size.Het;
-        this.AreaSet();
-
-        Pos pos;
-        pos = this.Pos;
-        pos.Col = 0;
-        pos.Row = 0;
-        this.PosSet();
-
         this.Comp = null;
         this.Form = null;
         this.FormSet();
@@ -186,30 +145,11 @@ public class Draw : Any
         return true;
     }
 
-    public virtual bool AreaSet()
-    {
-        this.InternRectSetFromRect(this.InternArea, this.Area);
-
-        Extern.Draw_AreaThisSet(this.Intern);
-        return true;
-    }
-
     protected virtual bool FillPosSet(long col, long row)
     {
         this.InternInfra.PosSet(this.InternFillPos, col, row);
 
         Extern.Draw_FillPosThisSet(this.Intern);
-        return true;
-    }
-
-    public virtual bool PosSet()
-    {
-        Pos k;
-        k = this.Pos;
-
-        this.PosA.Col = this.MathInt(k.Col);
-        this.PosA.Row = this.MathInt(k.Row);
-        this.DrawFormSet();
         return true;
     }
 
@@ -223,8 +163,6 @@ public class Draw : Any
     protected virtual bool DrawFormSet()
     {
         this.WorldForm.Reset();
-
-        this.WorldFormPosOffsetSet(this.PosA);
 
         if (!(this.FormA == null))
         {
