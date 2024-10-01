@@ -68,10 +68,10 @@ public class Type : Any
 
     public virtual bool Set(long index, bool value)
     {
-        Index button;
-        button = this.Index.Get(index);
+        Index k;
+        k = this.Index.Get(index);
         
-        if (button == null)
+        if (k == null)
         {
             return true;
         }
@@ -84,16 +84,16 @@ public class Type : Any
             return true;
         }
 
-        long k;
-        k = 0;
+        long ke;
+        ke = 0;
         if (value)
         {
-            k = 1;
+            ke = 1;
         }
 
-        this.FieldData.Set(index, k);
+        this.FieldData.Set(index, ke);
 
-        this.ChangeArg.Button = button;
+        this.ChangeArg.Button = k;
         this.ChangeArg.Field = value;
         this.Change.Execute(this.ChangeArg);
         return true;
