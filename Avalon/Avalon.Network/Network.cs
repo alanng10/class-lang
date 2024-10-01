@@ -256,11 +256,11 @@ public class Network : Any
 
     private bool PrivateReadyRead()
     {
-        this.ReadyEvent();
+        this.DataEvent();
         return true;
     }
 
-    protected virtual bool ReadyEvent()
+    protected virtual bool DataEvent()
     {
         return true;
     }
