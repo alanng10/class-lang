@@ -339,7 +339,7 @@ public class StateTraverse : Traverse
             return true;
         }
 
-        Target target;            
+        Mark target;            
         target = areExecute.Mark;
         Operate value;
         value = areExecute.Value;
@@ -378,7 +378,7 @@ public class StateTraverse : Traverse
         return true;
     }
 
-    public override bool ExecuteVarTarget(VarTarget varTarget)
+    public override bool ExecuteVarMark(VarMark varTarget)
     {
         if (varTarget == null)
         {
@@ -395,7 +395,7 @@ public class StateTraverse : Traverse
         return true;
     }
 
-    public override bool ExecuteSetTarget(SetTarget setTarget)
+    public override bool ExecuteSetMark(SetMark setTarget)
     {
         if (setTarget == null)
         {
