@@ -35,7 +35,6 @@ public class ErrorKindList : Any
         this.MaideUndefined = this.AddItem("MaideUndefined");
         this.ArgueUnassignable = this.AddItem("ArgueUnassignable");
         this.AnyUndefined = this.AddItem("AnyUndefined");
-        this.EqualUnachievable = this.AddItem("EqualUnachievable");
         this.CondUndefined = this.AddItem("CondUndefined");
         this.CondUnassignable = this.AddItem("CondUnassignable");
         this.ResultUndefined = this.AddItem("ResultUndefined");
@@ -63,7 +62,6 @@ public class ErrorKindList : Any
     public virtual ErrorKind MaideUndefined { get; set; }
     public virtual ErrorKind ArgueUnassignable { get; set; }
     public virtual ErrorKind AnyUndefined { get; set; }
-    public virtual ErrorKind EqualUnachievable { get; set; }
     public virtual ErrorKind CondUndefined { get; set; }
     public virtual ErrorKind CondUnassignable { get; set; }
     public virtual ErrorKind ResultUndefined { get; set; }
@@ -103,7 +101,7 @@ public class ErrorKindList : Any
 
     protected virtual Array Array { get; set; }
 
-    protected virtual long ArrayCount { get { return 25; } set { } }
+    protected virtual long ArrayCount { get { return 24; } set { } }
 
     public virtual long Count { get; set; }
     
