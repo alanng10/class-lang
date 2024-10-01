@@ -6,7 +6,7 @@ public class Comp : Any
     {
         base.Init();
         this.ModEvent = this.CreateModEvent();
-        this.ModArg = this.CreateChangeArg();
+        this.ModArg = this.CreateModArg();
         return true;
     }
 
@@ -18,7 +18,7 @@ public class Comp : Any
         return a;
     }
 
-    protected virtual Mod CreateChangeArg()
+    protected virtual Mod CreateModArg()
     {
         Mod a;
         a = new Mod();
