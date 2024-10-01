@@ -254,7 +254,7 @@ public class IndexList : Any
         index = this.AlphaIndex + 'A';
 
         Index a;
-        a = this.AddButton(index, index);
+        a = this.AddIndex(index, index);
 
         this.AlphaIndex = this.AlphaIndex + 1;
         return a;
@@ -266,7 +266,7 @@ public class IndexList : Any
         index = this.DigitIndex + '0';
 
         Index a;
-        a = this.AddButton(index, index);
+        a = this.AddIndex(index, index);
 
         this.DigitIndex = this.DigitIndex + 1;
         return a;
@@ -277,7 +277,7 @@ public class IndexList : Any
         long index;
         index = varChar;
         Index a;
-        a = this.AddButton(index, varChar);
+        a = this.AddIndex(index, varChar);
         return a;
     }
 
@@ -288,12 +288,12 @@ public class IndexList : Any
         long oc;
         oc = 0;
         Index a;
-        a = this.AddButton(index, oc);
+        a = this.AddIndex(index, oc);
         this.ControlIndex = this.ControlIndex + 1;
         return a;
     }
 
-    protected virtual Index AddButton(long index, long varChar)
+    protected virtual Index AddIndex(long index, long varChar)
     {
         varChar = varChar & 0xff;
 
