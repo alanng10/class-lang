@@ -248,7 +248,7 @@ public class Network : Any
         return true;
     }
 
-    protected virtual bool ExecuteReadyReadState()
+    protected virtual bool ExecuteReadyRead()
     {
         return true;
     }
@@ -293,7 +293,7 @@ public class Network : Any
 
         Network a;
         a = (Network)ao;
-        a.ExecuteReadyReadState();
+        a.ExecuteReadyRead();
 
         return 1;
     }
