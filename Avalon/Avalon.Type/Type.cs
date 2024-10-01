@@ -68,7 +68,7 @@ public class Type : Any
 
     public virtual bool Set(long index, bool value)
     {
-        Button button;
+        Index button;
         button = this.Button.Get(index);
         
         if (button == null)

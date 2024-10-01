@@ -139,82 +139,82 @@ public class ButtonList : Any
         return true;
     }
 
-    public virtual Button AlphaA { get; set; }
-    public virtual Button AlphaB { get; set; }
-    public virtual Button AlphaC { get; set; }
-    public virtual Button AlphaD { get; set; }
-    public virtual Button AlphaE { get; set; }
-    public virtual Button AlphaF { get; set; }
-    public virtual Button AlphaG { get; set; }
-    public virtual Button AlphaH { get; set; }
-    public virtual Button AlphaI { get; set; }
-    public virtual Button AlphaJ { get; set; }
-    public virtual Button AlphaK { get; set; }
-    public virtual Button AlphaL { get; set; }
-    public virtual Button AlphaM { get; set; }
-    public virtual Button AlphaN { get; set; }
-    public virtual Button AlphaO { get; set; }
-    public virtual Button AlphaP { get; set; }
-    public virtual Button AlphaQ { get; set; }
-    public virtual Button AlphaR { get; set; }
-    public virtual Button AlphaS { get; set; }
-    public virtual Button AlphaT { get; set; }
-    public virtual Button AlphaU { get; set; }
-    public virtual Button AlphaV { get; set; }
-    public virtual Button AlphaW { get; set; }
-    public virtual Button AlphaX { get; set; }
-    public virtual Button AlphaY { get; set; }
-    public virtual Button AlphaZ { get; set; }
+    public virtual Index AlphaA { get; set; }
+    public virtual Index AlphaB { get; set; }
+    public virtual Index AlphaC { get; set; }
+    public virtual Index AlphaD { get; set; }
+    public virtual Index AlphaE { get; set; }
+    public virtual Index AlphaF { get; set; }
+    public virtual Index AlphaG { get; set; }
+    public virtual Index AlphaH { get; set; }
+    public virtual Index AlphaI { get; set; }
+    public virtual Index AlphaJ { get; set; }
+    public virtual Index AlphaK { get; set; }
+    public virtual Index AlphaL { get; set; }
+    public virtual Index AlphaM { get; set; }
+    public virtual Index AlphaN { get; set; }
+    public virtual Index AlphaO { get; set; }
+    public virtual Index AlphaP { get; set; }
+    public virtual Index AlphaQ { get; set; }
+    public virtual Index AlphaR { get; set; }
+    public virtual Index AlphaS { get; set; }
+    public virtual Index AlphaT { get; set; }
+    public virtual Index AlphaU { get; set; }
+    public virtual Index AlphaV { get; set; }
+    public virtual Index AlphaW { get; set; }
+    public virtual Index AlphaX { get; set; }
+    public virtual Index AlphaY { get; set; }
+    public virtual Index AlphaZ { get; set; }
 
-    public virtual Button Digit0 { get; set; }
-    public virtual Button Digit1 { get; set; }
-    public virtual Button Digit2 { get; set; }
-    public virtual Button Digit3 { get; set; }
-    public virtual Button Digit4 { get; set; }
-    public virtual Button Digit5 { get; set; }
-    public virtual Button Digit6 { get; set; }
-    public virtual Button Digit7 { get; set; }
-    public virtual Button Digit8 { get; set; }
-    public virtual Button Digit9 { get; set; }
+    public virtual Index Digit0 { get; set; }
+    public virtual Index Digit1 { get; set; }
+    public virtual Index Digit2 { get; set; }
+    public virtual Index Digit3 { get; set; }
+    public virtual Index Digit4 { get; set; }
+    public virtual Index Digit5 { get; set; }
+    public virtual Index Digit6 { get; set; }
+    public virtual Index Digit7 { get; set; }
+    public virtual Index Digit8 { get; set; }
+    public virtual Index Digit9 { get; set; }
 
-    public virtual Button SignSpace { get; set; }
+    public virtual Index SignSpace { get; set; }
     // public virtual Button SignBackTick { get; set; }
-    public virtual Button SignTilde { get; set; }
-    public virtual Button SignNot { get; set; }
+    public virtual Index SignTilde { get; set; }
+    public virtual Index SignNot { get; set; }
     // public virtual Button SignAt { get; set; }
-    public virtual Button SignHash { get; set; }
+    public virtual Index SignHash { get; set; }
     // public virtual Button SignDollar { get; set; }
-    public virtual Button SignPercent { get; set; }
-    public virtual Button SignExpo { get; set; }
-    public virtual Button SignAnd { get; set; }
-    public virtual Button SignMul { get; set; }
-    public virtual Button SignBraceRoundLite { get; set; }
-    public virtual Button SignBraceRoundRite { get; set; }
-    public virtual Button SignSub { get; set; }
-    public virtual Button SignLine { get; set; }
-    public virtual Button SignSame { get; set; }
-    public virtual Button SignAdd { get; set; }
-    public virtual Button SignBraceSquareLite { get; set; }
-    public virtual Button SignBraceLite { get; set; }
-    public virtual Button SignBraceSquareRite { get; set; }
-    public virtual Button SignBraceRite { get; set; }
-    public virtual Button SignExecute { get; set; }
-    public virtual Button SignAre { get; set; }
-    public virtual Button SignTail { get; set; }
-    public virtual Button SignQuote { get; set; }
-    public virtual Button SignPause { get; set; }
-    public virtual Button SignLessNite { get; set; }
-    public virtual Button SignLessSite { get; set; }
-    public virtual Button SignStop { get; set; }
-    public virtual Button SignDiv { get; set; }
-    public virtual Button SignQuest { get; set; }
-    public virtual Button SignBackSlash { get; set; }
-    public virtual Button SignOrn { get; set; }
+    public virtual Index SignPercent { get; set; }
+    public virtual Index SignExpo { get; set; }
+    public virtual Index SignAnd { get; set; }
+    public virtual Index SignMul { get; set; }
+    public virtual Index SignBraceRoundLite { get; set; }
+    public virtual Index SignBraceRoundRite { get; set; }
+    public virtual Index SignSub { get; set; }
+    public virtual Index SignLine { get; set; }
+    public virtual Index SignSame { get; set; }
+    public virtual Index SignAdd { get; set; }
+    public virtual Index SignBraceSquareLite { get; set; }
+    public virtual Index SignBraceLite { get; set; }
+    public virtual Index SignBraceSquareRite { get; set; }
+    public virtual Index SignBraceRite { get; set; }
+    public virtual Index SignExecute { get; set; }
+    public virtual Index SignAre { get; set; }
+    public virtual Index SignTail { get; set; }
+    public virtual Index SignQuote { get; set; }
+    public virtual Index SignPause { get; set; }
+    public virtual Index SignLessNite { get; set; }
+    public virtual Index SignLessSite { get; set; }
+    public virtual Index SignStop { get; set; }
+    public virtual Index SignDiv { get; set; }
+    public virtual Index SignQuest { get; set; }
+    public virtual Index SignBackSlash { get; set; }
+    public virtual Index SignOrn { get; set; }
 
     // public virtual Button ControlEscape { get; set; }
-    public virtual Button ControlTab { get; set; }
-    public virtual Button ControlBackSpace { get; set; }
-    public virtual Button ControlEnter { get; set; }
+    public virtual Index ControlTab { get; set; }
+    public virtual Index ControlBackSpace { get; set; }
+    public virtual Index ControlEnter { get; set; }
     // public virtual Button ControlInsert { get; set; }
     // public virtual Button ControlDelete { get; set; }
     // public virtual Button ControlPause { get; set; }
@@ -227,8 +227,8 @@ public class ButtonList : Any
     // public virtual Button ControlDown { get; set; }
     // public virtual Button ControlPageUp { get; set; }
     // public virtual Button ControlPageDown { get; set; }
-    public virtual Button ControlShift { get; set; }
-    public virtual Button ControlControl { get; set; }
+    public virtual Index ControlShift { get; set; }
+    public virtual Index ControlControl { get; set; }
     // public virtual Button ControlAlt { get; set; }
     // public virtual Button ControlCapsLock { get; set; }
     // public virtual Button ControlNumLock { get; set; }
@@ -248,57 +248,57 @@ public class ButtonList : Any
 
     protected virtual TextInfra TextInfra { get; set; }
 
-    protected virtual Button AddAlphaButton()
+    protected virtual Index AddAlphaButton()
     {
         long index;
         index = this.AlphaIndex + 'A';
 
-        Button a;
+        Index a;
         a = this.AddButton(index, index);
 
         this.AlphaIndex = this.AlphaIndex + 1;
         return a;
     }
 
-    protected virtual Button AddDigitButton()
+    protected virtual Index AddDigitButton()
     {
         long index;
         index = this.DigitIndex + '0';
 
-        Button a;
+        Index a;
         a = this.AddButton(index, index);
 
         this.DigitIndex = this.DigitIndex + 1;
         return a;
     }
 
-    protected virtual Button AddSignButton(long varChar)
+    protected virtual Index AddSignButton(long varChar)
     {
         long index;
         index = varChar;
-        Button a;
+        Index a;
         a = this.AddButton(index, varChar);
         return a;
     }
 
-    protected virtual Button AddControlButton()
+    protected virtual Index AddControlButton()
     {
         long index;
         index = this.ControlIndex + this.ControlStart;
         long oc;
         oc = 0;
-        Button a;
+        Index a;
         a = this.AddButton(index, oc);
         this.ControlIndex = this.ControlIndex + 1;
         return a;
     }
 
-    protected virtual Button AddButton(long index, long varChar)
+    protected virtual Index AddButton(long index, long varChar)
     {
         varChar = varChar & 0xff;
 
-        Button a;
-        a = new Button();
+        Index a;
+        a = new Index();
         a.Init();
         a.IndexList = index;
         a.Char = varChar;
@@ -306,9 +306,9 @@ public class ButtonList : Any
         return a;
     }
 
-    public virtual Button Get(long index)
+    public virtual Index Get(long index)
     {
-        return (Button)this.Array.GetAt(index);
+        return (Index)this.Array.GetAt(index);
     }
 
     public virtual bool IsAlphaButton(long index)
@@ -321,25 +321,25 @@ public class ButtonList : Any
         return this.TextInfra.Digit(index);
     }
 
-    public virtual Button AlphaButton(long letterIndex)
+    public virtual Index AlphaButton(long letterIndex)
     {
         long start;
         start = 'A';
         return this.IndexButton(letterIndex, start);
     }
 
-    public virtual Button DigitButton(long digitIndex)
+    public virtual Index DigitButton(long digitIndex)
     {
         long start;
         start = '0';
         return this.IndexButton(digitIndex, start);
     }
 
-    protected virtual Button IndexButton(long index, long start)
+    protected virtual Index IndexButton(long index, long start)
     {
         long k;
         k = start + index;
-        Button a;
+        Index a;
         a = this.Get(k);
         return a;
     }
