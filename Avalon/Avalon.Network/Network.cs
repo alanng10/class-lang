@@ -225,7 +225,7 @@ public class Network : Any
         return true;
     }
 
-    protected virtual bool CaseChange()
+    private bool PrivateCaseChange()
     {
         CaseList caseList;
         caseList = this.NetworkCaseList;
@@ -239,11 +239,11 @@ public class Network : Any
             this.LoadingOpen = false;
         }
 
-        this.ExecuteCaseChangeState();
+        this.CaseChange();
         return true;
     }
 
-    protected virtual bool ExecuteCaseChangeState()
+    protected virtual bool CaseChange()
     {
         return true;
     }
@@ -284,7 +284,7 @@ public class Network : Any
 
         Network a;
         a = (Network)ao;
-        a.CaseChange();
+        a.PrivateCaseChange();
 
         return 1;
     }
