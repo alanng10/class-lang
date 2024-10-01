@@ -107,7 +107,7 @@ class Demo : Any
         state = new TypeState();
         state.Init();
         state.Demo = this;
-        type.Change.State.AddState(state);
+        type.Mod.State.AddState(state);
         this.Frame.Type = type;
 
         DrawBrush brush;

@@ -21,13 +21,13 @@ public class Type : Any
 
         this.InitFieldList();
 
-        this.Change = this.CreateChangeEvent();
+        this.Mod = this.CreateChangeEvent();
         this.ModArg = this.CreateChangeArg();
         return true;
     }
 
     public virtual IndexList Index { get; set; }
-    public virtual EventEvent Change { get; set; }
+    public virtual EventEvent Mod { get; set; }
     protected virtual ModArg ModArg { get; set; }
     protected virtual Data FieldData { get; set; }
     
@@ -95,7 +95,7 @@ public class Type : Any
 
         this.ModArg.Button = k;
         this.ModArg.Field = value;
-        this.Change.Execute(this.ModArg);
+        this.Mod.Execute(this.ModArg);
         return true;
     }
 }
