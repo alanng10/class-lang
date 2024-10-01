@@ -63,7 +63,7 @@ public class ButtonList : Any
         this.SignSpace = this.AddSignButton(' ');
         //this.SignBackTick = this.AddSignButton('`');
         this.SignTilde = this.AddSignButton('~');
-        this.SignExclamate = this.AddSignButton('!');
+        this.SignNot = this.AddSignButton('!');
         //this.SignAt = this.AddSignButton('@');
         this.SignHash = this.AddSignButton('#');
         //this.SignDollar = this.AddSignButton('$');
@@ -180,7 +180,7 @@ public class ButtonList : Any
     public virtual Button SignSpace { get; set; }
     // public virtual Button SignBackTick { get; set; }
     public virtual Button SignTilde { get; set; }
-    public virtual Button SignExclamate { get; set; }
+    public virtual Button SignNot { get; set; }
     // public virtual Button SignAt { get; set; }
     public virtual Button SignHash { get; set; }
     // public virtual Button SignDollar { get; set; }
