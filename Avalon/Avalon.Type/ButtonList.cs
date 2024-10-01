@@ -90,7 +90,7 @@ public class ButtonList : Any
         this.SignLessSite = this.AddSignButton('>');
         this.SignStop = this.AddSignButton('.');
         this.SignDiv = this.AddSignButton('/');
-        this.SignQuestion = this.AddSignButton('?');
+        this.SignQuest = this.AddSignButton('?');
         this.SignBackSlash = this.AddSignButton('\\');
         this.SignOrn = this.AddSignButton('|');
 
@@ -207,7 +207,7 @@ public class ButtonList : Any
     public virtual Button SignLessSite { get; set; }
     public virtual Button SignStop { get; set; }
     public virtual Button SignDiv { get; set; }
-    public virtual Button SignQuestion { get; set; }
+    public virtual Button SignQuest { get; set; }
     public virtual Button SignBackSlash { get; set; }
     public virtual Button SignOrn { get; set; }
 
