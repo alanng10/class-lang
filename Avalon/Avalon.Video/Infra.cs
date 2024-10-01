@@ -19,13 +19,10 @@ public class Infra : Any
         base.Init();
 
         this.PointByteCount = 4;
-        this.ColorCompMax = byte.MaxValue;
         return true;
     }
 
     public virtual long PointByteCount { get; set; }
-    public virtual long ColorCompMax { get; set; }
-
 
     public virtual Color ColorCreate(long alpha, long red, long green, long blue)
     {

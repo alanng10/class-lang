@@ -8,6 +8,7 @@ public class Frame : Comp
         this.InternIntern = InternIntern.This;
         this.InternInfra = InternInfra.This;
         this.MathInfra = MathInfra.This;
+        this.VideoInfra = VideoInfra.This;
         this.DrawInfra = DrawInfra.This;
         this.StringValue = StringValue.This;
         this.Math = this.CreateMath();
@@ -78,6 +79,8 @@ public class Frame : Comp
         this.Draw = this.CreateDraw();
         this.DrawSet(this.Draw, image.Out);
 
+        this.DrawClearColor = this.CreateDrawClearColor();
+
         ulong tuneCountU;
         tuneCountU = 0;
         // tuneCountU = Extern.Frame_TuneCountGet(this.Intern);
@@ -125,12 +128,14 @@ public class Frame : Comp
     private InternIntern InternIntern { get; set; }
     private InternInfra InternInfra { get; set; }
     protected virtual MathInfra MathInfra { get; set; }
+    protected virtual VideoInfra VideoInfra { get; set; }
     protected virtual DrawInfra DrawInfra { get; set; }
     protected virtual StringValue StringValue { get; set; }
     protected virtual MathMath Math { get; set; }
     protected virtual MathComp MathComp { get; set; }
     protected virtual DrawDraw Draw { get; set; }
     protected virtual TuneTune Tune { get; set; }
+    protected virtual VideoColor DrawClearColor { get; set; }
     private ulong Intern { get; set; }
     private ulong InternTitle { get; set; }
     private ulong InternUpdateRect { get; set; }
@@ -169,6 +174,17 @@ public class Frame : Comp
     {
         a.Final();
         return true;
+    }
+
+    protected virtual VideoColor CreateDrawClearColor()
+    {
+        VideoColor a;
+
+        byte ou;
+        ou = byte.MaxValue;
+
+        a = this.VideoInfra.ColorCreate(ou, ou, ou, ou);
+        return a;
     }
 
     protected virtual TuneTune CreateTune()
@@ -309,7 +325,7 @@ public class Frame : Comp
 
         draw.Start();
 
-        draw.Clear(this.DrawInfra.WhiteBrush.Color);
+        draw.Clear(this.DrawClearColor);
 
         if (this.ValidDrawView())
         {
