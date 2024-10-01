@@ -26,7 +26,7 @@ public class Comp : Any
         return a;
     }
 
-    public virtual bool Mod(Field varField, Mod change)
+    public virtual bool Mod(Field varField, Mod mod)
     {
         return true;
     }
