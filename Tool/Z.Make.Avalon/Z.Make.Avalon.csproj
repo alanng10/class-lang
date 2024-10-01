@@ -7,18 +7,11 @@
 
     <ItemGroup>
         <ProjectReference Include="../Z.Tool.Avalon.TextCodeKindList/Z.Tool.Avalon.TextCodeKindList.csproj" />
-        <ProjectReference Include="../Z.Tool.Avalon.VideoBinaryList/Z.Tool.Avalon.VideoBinaryList.csproj" />
         <ProjectReference Include="../Z.Tool.Avalon.NetworkCaseList/Z.Tool.Avalon.NetworkCaseList.csproj" />
         <ProjectReference Include="../Z.Tool.Avalon.NetworkPortKindList/Z.Tool.Avalon.NetworkPortKindList.csproj" />
         <ProjectReference Include="../Z.Tool.Avalon.NetworkStatusList/Z.Tool.Avalon.NetworkStatusList.csproj" />
         <ProjectReference Include="../Z.Tool.Avalon.StorageStatusList/Z.Tool.Avalon.StorageStatusList.csproj" />
-        <ProjectReference Include="../Z.Tool.Avalon.BrushKindList/Z.Tool.Avalon.BrushKindList.csproj" />
-        <ProjectReference Include="../Z.Tool.Avalon.BrushLineList/Z.Tool.Avalon.BrushLineList.csproj" />
-        <ProjectReference Include="../Z.Tool.Avalon.BrushCapList/Z.Tool.Avalon.BrushCapList.csproj" />
-        <ProjectReference Include="../Z.Tool.Avalon.BrushJoinList/Z.Tool.Avalon.BrushJoinList.csproj" />
         <ProjectReference Include="../Z.Tool.Avalon.DrawCompList/Z.Tool.Avalon.DrawCompList.csproj" />
-        <ProjectReference Include="../Z.Tool.Avalon.PolateKindList/Z.Tool.Avalon.PolateKindList.csproj" />
-        <ProjectReference Include="../Z.Tool.Avalon.PolateSpreadList/Z.Tool.Avalon.PolateSpreadList.csproj" />
         <ProjectReference Include="../Z.Tool.Avalon.TuneCompList/Z.Tool.Avalon.TuneCompList.csproj" />
     </ItemGroup>
 
