@@ -28,7 +28,7 @@ public class Type : Any
 
     public virtual IndexList Index { get; set; }
     public virtual EventEvent Change { get; set; }
-    protected virtual ChangeArg ChangeArg { get; set; }
+    protected virtual ModArg ChangeArg { get; set; }
     protected virtual Data FieldData { get; set; }
     
     protected virtual EventEvent CreateChangeEvent()
@@ -39,10 +39,10 @@ public class Type : Any
         return a;
     }
 
-    protected virtual ChangeArg CreateChangeArg()
+    protected virtual ModArg CreateChangeArg()
     {
-        ChangeArg a;
-        a = new ChangeArg();
+        ModArg a;
+        a = new ModArg();
         a.Init();
         return a;
     }
