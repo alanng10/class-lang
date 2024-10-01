@@ -239,7 +239,7 @@ public class Network : Any
         Case k;
         k = this.Case;
         
-        if (k == caseList.Connected)
+        if (k == caseList.Open)
         {
             this.Stream = this.DataStream;
             this.LoadingOpen = false;
