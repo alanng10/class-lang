@@ -80,11 +80,11 @@ public class Frame : CompComp
 
         this.DrawClearColor = this.CreateDrawClearColor();
 
-        ulong tuneCountU;
-        tuneCountU = 0;
-        // tuneCountU = Extern.Frame_TuneCountGet(this.Intern);
+        ulong audioCountU;
+        audioCountU = 0;
+        // audioCountU = Extern.Frame_AudioCountGet(this.Intern);
 
-        this.AudioCount = (long)tuneCountU;
+        this.AudioCount = (long)audioCountU;
 
         ulong audioOut;
         audioOut = 0;
