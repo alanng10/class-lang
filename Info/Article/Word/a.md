@@ -228,7 +228,7 @@ Word "fill" has meaning that is set value in entire range.
 
 Word "join" has meaning that is combine.
 
-Word "replace" has meaning that is replacement.
+Word "place" has meaning that is replacement.
 
 Word "stream" has meaning that is serial.
 
