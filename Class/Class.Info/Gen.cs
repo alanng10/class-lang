@@ -208,7 +208,7 @@ public class Gen : ClassBase
         Text kka;
         kka = this.TextCreate(inner);
 
-        kka = this.TextReplace(kka, limit, join);
+        kka = this.TextPlace(kka, limit, join);
         
         String innerK;
         innerK = this.StringCreate(kka);

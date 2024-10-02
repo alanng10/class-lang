@@ -229,7 +229,7 @@ public class Base : Any
 
     public virtual Text Replace(Text text, string limit, String join)
     {
-        return this.TextReplace(text, this.TA(this.S(limit)), this.TB(join));
+        return this.TextPlace(text, this.TA(this.S(limit)), this.TB(join));
     }
 
     public virtual Text TextAlphaNite(Text text)
@@ -300,7 +300,7 @@ public class Base : Any
         return this.TextInfra.Limit(text, delimit, this.TLess);
     }
 
-    public virtual Text TextReplace(Text text, Text limit, Text join)
+    public virtual Text TextPlace(Text text, Text limit, Text join)
     {
         return this.TextInfra.Place(text, limit, join, this.TLess);
     }
