@@ -37,7 +37,7 @@ class ThreadIntervalState : State
         varEvent.Start();
 
         long o;        
-        o = thread.ExecuteEventLoop();
+        o = thread.ExecuteMain();
 
         varEvent.Final();
         

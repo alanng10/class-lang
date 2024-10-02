@@ -264,7 +264,7 @@ class Demo : Any
         ThreadThread thread;
         thread = varThis.Thread;
         
-        thread.ExecuteEventLoop();
+        thread.ExecuteMain();
 
         this.PlayFinal(this.Play);
 

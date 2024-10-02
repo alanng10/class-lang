@@ -25,7 +25,7 @@ class ThreadPostState : State
         this.Phore.Close();
 
         long o;
-        o = thread.ExecuteEventLoop();
+        o = thread.ExecuteMain();
 
         post.Final();
 

@@ -55,7 +55,7 @@ class ThreadNetworkHostState : State
         thread = varThis.Thread;
 
         long o;
-        o = thread.ExecuteEventLoop();
+        o = thread.ExecuteMain();
 
         varEvent.Final();
 

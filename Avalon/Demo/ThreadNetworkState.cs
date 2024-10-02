@@ -68,7 +68,7 @@ public class ThreadNetworkState : State
         thread = varThis.Thread;
 
         long o;
-        o = thread.ExecuteEventLoop();
+        o = thread.ExecuteMain();
 
         string k;
         k = null;

@@ -117,7 +117,7 @@ public class Thread : Any
         return true;
     }
 
-    public virtual long ExecuteEventLoop()
+    public virtual long ExecuteMain()
     {
         ulong u;
         u = Extern.Thread_ExecuteEventLoop(this.Intern);
