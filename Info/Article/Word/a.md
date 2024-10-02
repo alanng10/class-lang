@@ -232,6 +232,8 @@ Word "place" has meaning that is replacement.
 
 Word "main" has meaning that is thread loop.
 
+Word "exit" has meaning that is out of main.
+
 Word "stream" has meaning that is serial.
 
 Word "read" has meaning that is got info from medium.
