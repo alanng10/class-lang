@@ -501,6 +501,9 @@ public class Infra : Any
         textRange.Index = kka;
         textRange.Count = kkb;
 
+        Text kk;
+        kk = null;
+
         long i;
         i = 0;
         while (i < count)
@@ -510,10 +513,9 @@ public class Infra : Any
             rangeA.Index = textRange.Index;
             rangeA.Count = oo;
 
-            Text line;
-            line = this.TextCreateDataRange(data, rangeA);
+            kk = this.TextCreateDataRange(data, rangeA);
 
-            array.SetAt(i, line);
+            array.SetAt(i, kk);
 
             long kab;
             kab = oo + delimitCount;
@@ -533,10 +535,9 @@ public class Infra : Any
         textRange.Index = kka;
         textRange.Count = kkb;
 
-        Text lastLine;
-        lastLine = this.TextCreateDataRange(data, rangeA);
+        kk = this.TextCreateDataRange(data, rangeA);
 
-        array.SetAt(count, lastLine);
+        array.SetAt(count, kk);
 
         return array;
     }
