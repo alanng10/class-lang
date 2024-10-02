@@ -326,6 +326,18 @@ public class Frame : CompComp
         return true;
     }
 
+    public virtual bool EventDraw()
+    {
+        // Extern.Frame_EventDraw(this.Intern);
+        return true;
+    }
+
+    public virtual bool EventTune()
+    {
+        // Extern.Frame_EventTune(this.Intern);
+        return true;
+    }
+
     public virtual bool Visible
     {
         get
