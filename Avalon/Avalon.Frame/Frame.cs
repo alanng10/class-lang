@@ -338,13 +338,13 @@ public class Frame : CompComp
         return true;
     }
 
-    public virtual bool VideoOn
+    public virtual bool Video
     {
         get
         {
             ulong u;
             u = 0;
-            // u = Extern.Frame_VideoOnGet(this.Intern);
+            // u = Extern.Frame_VideoBoolGet(this.Intern);
             bool a;
             a = (!(u == 0));
             return a;
@@ -353,7 +353,7 @@ public class Frame : CompComp
         {
             ulong u;
             u = (ulong)(value ? 1 : 0);
-            // Extern.Frame_VideoOnSet(this.Intern, u);
+            // Extern.Frame_VideoBoolSet(this.Intern, u);
         }
     }
 
