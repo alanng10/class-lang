@@ -230,6 +230,8 @@ Word "join" has meaning that is combine.
 
 Word "place" has meaning that is replacement.
 
+Word "main" has meaning that is thread loop.
+
 Word "stream" has meaning that is serial.
 
 Word "read" has meaning that is got info from medium.
