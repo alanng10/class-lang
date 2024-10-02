@@ -29,7 +29,7 @@ class ElapseState : State
                 console.Out.Write(this.S("ElapseState.Execute Time Event Stop\n"));
             }
 
-            this.Thread.ExitEventLoop(this.ExitCode);
+            this.Thread.Exit(this.ExitCode);
         }
 
         console.Out.Write(this.S("ElapseState.Execute END\n"));

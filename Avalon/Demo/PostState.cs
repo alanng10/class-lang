@@ -12,7 +12,7 @@ class PostState : State
 
         ThreadThread thread;
         thread = varThis.Thread;
-        thread.ExitEventLoop(0x89f6);
+        thread.Exit(0x89f6);
 
         Console console;
         console = Console.This;

@@ -104,7 +104,7 @@ public class ThreadNetworkState : State
         ThreadThread thread;
         thread = varThis.Thread;
 
-        thread.ExitEventLoop(code);
+        thread.Exit(code);
         return true;
     }
 

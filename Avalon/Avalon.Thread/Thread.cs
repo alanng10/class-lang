@@ -126,7 +126,7 @@ public class Thread : Any
         return a;
     }
 
-    public virtual bool ExitEventLoop(long code)
+    public virtual bool Exit(long code)
     {
         ulong u;
         u = (ulong)code;
