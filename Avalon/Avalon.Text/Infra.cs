@@ -617,10 +617,10 @@ public class Infra : Any
         return text;
     }
 
-    public virtual Text Replace(Text text, Text delimit, Text join, InfraLess less)
+    public virtual Text Replace(Text text, Text limit, Text join, InfraLess less)
     {
         Array array;
-        array = this.Limit(text, delimit, less);
+        array = this.Limit(text, limit, less);
 
         Text k;
         k = this.Join(array, join);
