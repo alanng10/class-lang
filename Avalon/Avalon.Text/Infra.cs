@@ -462,8 +462,8 @@ public class Infra : Any
         Range textRange;
         textRange = text.Range;
 
-        long delimitCount;
-        delimitCount = limit.Range.Count;
+        long limitCount;
+        limitCount = limit.Range.Count;
 
         long kka;
         kka = textRange.Index;
@@ -481,7 +481,7 @@ public class Infra : Any
             count = count + 1;
 
             long kaa;
-            kaa = oo + delimitCount;
+            kaa = oo + limitCount;
 
             textRange.Index = textRange.Index + kaa;
             textRange.Count = textRange.Count - kaa;
@@ -518,7 +518,7 @@ public class Infra : Any
             array.SetAt(i, kk);
 
             long kab;
-            kab = oo + delimitCount;
+            kab = oo + limitCount;
 
             textRange.Index = textRange.Index + kab;
             textRange.Count = textRange.Count - kab;
