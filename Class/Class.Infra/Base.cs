@@ -295,9 +295,9 @@ public class Base : Any
         return this.TextInfra.LastIndex(text, other, this.TLess);
     }
 
-    public virtual Array TextLimit(Text text, Text delimit)
+    public virtual Array TextLimit(Text text, Text limit)
     {
-        return this.TextInfra.Limit(text, delimit, this.TLess);
+        return this.TextInfra.Limit(text, limit, this.TLess);
     }
 
     public virtual Text TextPlace(Text text, Text limit, Text join)
