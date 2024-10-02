@@ -126,10 +126,10 @@ public class Thread : Any
         return a;
     }
 
-    public virtual bool Exit(long code)
+    public virtual bool Exit(long status)
     {
         ulong u;
-        u = (ulong)code;
+        u = (ulong)status;
 
         Extern.Thread_ExitEventLoop(this.Intern, u);
         return true;
