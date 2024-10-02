@@ -226,6 +226,8 @@ Word "digit" has meaning that is number character.
 
 Word "fill" has meaning that is set value in entire range.
 
+Word "comb" has meaning that is combine.
+
 Word "stream" has meaning that is serial.
 
 Word "read" has meaning that is got info from medium.
