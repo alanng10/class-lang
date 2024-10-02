@@ -266,6 +266,8 @@ Word "fold" has meaning that is storage node list.
 
 Word "entry" has meaning that is associate entity.
 
+Word "host" has meaning that is site hold.
+
 Word "view" has meaning that is presentation.
 
 Word "child" has meaning that is sub entity.
