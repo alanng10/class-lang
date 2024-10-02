@@ -357,13 +357,13 @@ public class Frame : CompComp
         }
     }
 
-    public virtual bool AudioOn
+    public virtual bool Audio
     {
         get
         {
             ulong u;
             u = 0;
-            // u = Extern.Frame_AudioOnGet(this.Intern);
+            // u = Extern.Frame_AudioBoolGet(this.Intern);
             bool a;
             a = (!(u == 0));
             return a;
@@ -372,7 +372,7 @@ public class Frame : CompComp
         {
             ulong u;
             u = (ulong)(value ? 1 : 0);
-            // Extern.Frame_AudioOnSet(this.Intern, u);
+            // Extern.Frame_AudioBoolSet(this.Intern, u);
         }
     }
 
