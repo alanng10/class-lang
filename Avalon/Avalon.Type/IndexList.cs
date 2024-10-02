@@ -116,7 +116,7 @@ public class IndexList : Any
 
         this.InnGroupIndex = 0x20;
         this.InnShift = this.AddInnIndex();
-        this.InnInn = this.AddInnIndex();
+        this.InnIndex = this.AddInnIndex();
         this.InnGroupIndex = 0x23;
         //this.ControlAlt = this.AddControlButton();
         //this.ControlCapsLock = this.AddControlButton();
@@ -228,7 +228,7 @@ public class IndexList : Any
     // public virtual Button ControlPageUp { get; set; }
     // public virtual Button ControlPageDown { get; set; }
     public virtual Index InnShift { get; set; }
-    public virtual Index InnInn { get; set; }
+    public virtual Index InnIndex { get; set; }
     // public virtual Button ControlAlt { get; set; }
     // public virtual Button ControlCapsLock { get; set; }
     // public virtual Button ControlNumLock { get; set; }
