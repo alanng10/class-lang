@@ -617,7 +617,7 @@ public class Infra : Any
         return text;
     }
 
-    public virtual Text Replace(Text text, Text limit, Text join, InfraLess less)
+    public virtual Text Place(Text text, Text limit, Text join, InfraLess less)
     {
         Array array;
         array = this.Limit(text, limit, less);

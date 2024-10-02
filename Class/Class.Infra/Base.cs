@@ -302,7 +302,7 @@ public class Base : Any
 
     public virtual Text TextReplace(Text text, Text limit, Text join)
     {
-        return this.TextInfra.Replace(text, limit, join, this.TLess);
+        return this.TextInfra.Place(text, limit, join, this.TLess);
     }
 
     public virtual long StringCount(String o)
