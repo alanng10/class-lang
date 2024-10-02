@@ -343,7 +343,8 @@ public class Frame : CompComp
         get
         {
             ulong u;
-            u = Extern.Frame_VisibleGet(this.Intern);
+            u = 0;
+            // u = Extern.Frame_VideoOnGet(this.Intern);
             bool a;
             a = (!(u == 0));
             return a;
@@ -352,7 +353,26 @@ public class Frame : CompComp
         {
             ulong u;
             u = (ulong)(value ? 1 : 0);
-            Extern.Frame_VisibleSet(this.Intern, u);
+            // Extern.Frame_VideoOnSet(this.Intern, u);
+        }
+    }
+
+    public virtual bool AudioOn
+    {
+        get
+        {
+            ulong u;
+            u = 0;
+            // u = Extern.Frame_AudioOnGet(this.Intern);
+            bool a;
+            a = (!(u == 0));
+            return a;
+        }
+        set
+        {
+            ulong u;
+            u = (ulong)(value ? 1 : 0);
+            // Extern.Frame_AudioOnSet(this.Intern, u);
         }
     }
 
