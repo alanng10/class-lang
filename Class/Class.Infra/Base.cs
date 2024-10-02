@@ -227,7 +227,7 @@ public class Base : Any
         return a;
     }
 
-    public virtual Text Replace(Text text, string limit, String join)
+    public virtual Text Place(Text text, string limit, String join)
     {
         return this.TextPlace(text, this.TA(this.S(limit)), this.TB(join));
     }

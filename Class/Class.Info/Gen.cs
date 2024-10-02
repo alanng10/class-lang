@@ -218,11 +218,11 @@ public class Gen : ClassBase
         
         Text k;
         k = this.TextCreate(this.PageTemplate);
-        k = this.Replace(k, "#AssetVer#", this.Ver);
-        k = this.Replace(k, "#ArticleTitle#", title);
-        k = this.Replace(k, "#ArticleInner#", innerK);
-        k = this.Replace(k, "#PageRootPath#", pageRootPath);
-        k = this.Replace(k, "#PagePath#", pagePath);
+        k = this.Place(k, "#AssetVer#", this.Ver);
+        k = this.Place(k, "#ArticleTitle#", title);
+        k = this.Place(k, "#ArticleInner#", innerK);
+        k = this.Place(k, "#PageRootPath#", pageRootPath);
+        k = this.Place(k, "#PagePath#", pagePath);
 
         String a;
         a = this.StringCreate(k);
