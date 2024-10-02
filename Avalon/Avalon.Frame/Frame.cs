@@ -338,7 +338,7 @@ public class Frame : CompComp
         return true;
     }
 
-    public virtual bool Visible
+    public virtual bool VideoOn
     {
         get
         {
