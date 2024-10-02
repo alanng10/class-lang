@@ -24,11 +24,15 @@ public class Base : Any
         this.TextB = this.CreateText();
         this.TextC = this.CreateText();
         this.TextD = this.CreateText();
+        this.TextE = this.CreateText();
+        this.TextF = this.CreateText();
 
         this.StringDataA = this.CreateStringData();
         this.StringDataB = this.CreateStringData();
         this.StringDataC = this.CreateStringData();
         this.StringDataD = this.CreateStringData();
+        this.StringDataE = this.CreateStringData();
+        this.StringDataF = this.CreateStringData();
 
         this.TRange = this.CreateInfraRange();
 
@@ -50,10 +54,14 @@ public class Base : Any
     protected virtual Text TextB { get; set; }
     protected virtual Text TextC { get; set; }
     protected virtual Text TextD { get; set; }
+    protected virtual Text TextE { get; set; }
+    protected virtual Text TextF { get; set; }
     protected virtual StringData StringDataA { get; set; }
     protected virtual StringData StringDataB { get; set; }
     protected virtual StringData StringDataC { get; set; }
     protected virtual StringData StringDataD { get; set; }
+    protected virtual StringData StringDataE { get; set; }
+    protected virtual StringData StringDataF { get; set; }
     protected virtual Write Write { get; set; }
     protected virtual WriteArg WriteArg { get; set; }
     protected virtual String Indent { get; set; }
@@ -160,6 +168,16 @@ public class Base : Any
         return this.TextString(o, this.TextD, this.StringDataD);
     }
 
+    public virtual Text TE(String o)
+    {
+        return this.TextString(o, this.TextE, this.StringDataE);
+    }
+
+    public virtual Text TF(String o)
+    {
+        return this.TextString(o, this.TextF, this.StringDataF);
+    }
+
     public virtual Text TextString(String o, Text text, StringData data)
     {
         data.ValueString = o;
@@ -229,7 +247,7 @@ public class Base : Any
 
     public virtual Text Place(Text text, string limit, String join)
     {
-        return this.TextPlace(text, this.TA(this.S(limit)), this.TB(join));
+        return this.TextPlace(text, this.TE(this.S(limit)), this.TF(join));
     }
 
     public virtual Text TextAlphaNite(Text text)
