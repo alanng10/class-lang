@@ -15,7 +15,7 @@ public class Frame : CompComp
         this.Math = this.CreateMath();
         this.MathComp = this.CreateMathComp();
 
-        this.InternHandle = new Handle();        
+        this.InternHandle = new Handle();
         this.InternHandle.Any = this;
         this.InternHandle.Init();
 
