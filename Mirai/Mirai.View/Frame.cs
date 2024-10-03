@@ -5,11 +5,11 @@ public class Frame : FrameFrame
     public override bool Init()
     {
         base.Init();
-        this.ViewInfra = Infra.This;
+        this.ViewInfra = ViewInfra.This;
         return true;
     }
 
-    protected virtual Infra ViewInfra { get; set; }
+    protected virtual ViewInfra ViewInfra { get; set; }
 
     public virtual View View { get; set; }
 

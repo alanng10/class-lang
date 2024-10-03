@@ -1,6 +1,6 @@
 namespace Mirai.Frame;
 
-public class Frame : CompComp
+public class Frame : Any
 {
     public override bool Init()
     {
