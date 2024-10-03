@@ -16,3 +16,4 @@ global using Video = Avalon.Video.Video;
 global using Size = Avalon.Video.Size;
 global using Pos = Avalon.Video.Pos;
 global using Rect = Avalon.Video.Rect;
+global using StorageStatusList = Avalon.Storage.StatusList;
