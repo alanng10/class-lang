@@ -6,8 +6,8 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <ProjectReference Include="../Z.Tool.Avalon.BrushCapList/Z.Tool.Avalon.BrushCapList.csproj" />
-        <ProjectReference Include="../Z.Tool.Avalon.PolateKindList/Z.Tool.Avalon.PolateKindList.csproj" />
+        <ProjectReference Include="../Z.Tool.Avalon.BrushCapList/Z.Tool.Mirai.BrushCapList.csproj" />
+        <ProjectReference Include="../Z.Tool.Mirai.PolateKindList/Z.Tool.Mirai.PolateKindList.csproj" />
     </ItemGroup>
 
 </Project>
