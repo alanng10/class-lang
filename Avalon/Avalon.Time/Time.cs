@@ -114,8 +114,7 @@ public class Time : Any
         get
         {
             ulong u;
-            u = 0;
-            //u = Extern.Time_TickGet(this.Intern);
+            u = Extern.Time_MillisecGet(this.Intern);
             long a;
             a = (long)u;
             return a;
@@ -205,8 +204,7 @@ public class Time : Any
         get
         {
             ulong u;
-            u = 0;
-            //u = Extern.Time_TotalTickGet(this.Intern);
+            u = Extern.Time_TotalMillisecGet(this.Intern);
             long a;
             a = (long)u;
             return a;
@@ -270,7 +268,7 @@ public class Time : Any
         return a;
     }
 
-    public virtual bool AddMillisec(long value)
+    public virtual bool AddTick(long value)
     {
         ulong valueU;
         valueU = (ulong)value;
