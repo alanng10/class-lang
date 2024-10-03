@@ -20,22 +20,22 @@ public class Pos : Comp
         return this.ViewInfra.FieldCreate(this);
     }
 
-    public override bool Change(Field field, Change change)
+    public override bool Mod(Field field, Mod mod)
     {
         if (this.LeftField == field)
         {
-            this.ChangeLeft(change);
+            this.ModLeft(mod);
         }
         if (this.UpField == field)
         {
-            this.ChangeUp(change);
+            this.ModUp(mod);
         }
         return true;
     }
 
     public virtual Field LeftField { get; set; }
 
-    public virtual int Left
+    public virtual long Left
     {
         get
         {
@@ -48,15 +48,15 @@ public class Pos : Comp
         }
     }
 
-    protected virtual bool ChangeLeft(Change change)
+    protected virtual bool ModLeft(Mod mod)
     {
-        this.Trigger(this.LeftField);
+        this.Event(this.LeftField);
         return true;
     }
 
     public virtual Field UpField { get; set; }
 
-    public virtual int Up
+    public virtual long Up
     {
         get
         {
@@ -69,9 +69,9 @@ public class Pos : Comp
         }
     }
 
-    protected virtual bool ChangeUp(Change change)
+    protected virtual bool ModUp(Mod mod)
     {
-        this.Trigger(this.UpField);
+        this.Event(this.UpField);
         return true;
     }
 }
