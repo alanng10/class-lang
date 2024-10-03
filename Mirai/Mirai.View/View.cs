@@ -6,7 +6,6 @@ public class View : Comp
     {
         base.Init();
         this.DrawInfra = DrawInfra.This;
-        this.ViewInfra = Infra.This;
 
         this.PosField = this.CreatePosField();
         this.SizeField = this.CreateSizeField();
@@ -36,7 +35,6 @@ public class View : Comp
     public virtual DrawRect Area { get; set; }
 
     protected virtual DrawInfra DrawInfra { get; set; }
-    protected virtual Infra ViewInfra { get; set; }
     protected virtual DrawRect DrawRectA { get; set; }
     protected virtual DrawRect DrawRectB { get; set; }
     protected virtual DrawRect DrawRectC { get; set; }
@@ -284,37 +282,37 @@ public class View : Comp
 
     protected virtual bool ExecuteDrawThis(DrawDraw draw)
     {
-        int left;
+        long left;
         left = this.Pos.Left;
-        int up;
+        long up;
         up = this.Pos.Up;
-        int width;
+        long width;
         width = this.Size.Width;
-        int height;
+        long height;
         height = this.Size.Height;
 
-        this.DrawRectA.Pos.Left = left;
-        this.DrawRectA.Pos.Up = up;
-        this.DrawRectA.Size.Width = width;
-        this.DrawRectA.Size.Height = height;
+        this.DrawRectA.Pos.Col = left;
+        this.DrawRectA.Pos.Row = up;
+        this.DrawRectA.Size.Wed = width;
+        this.DrawRectA.Size.Het = height;
 
         DrawRect rect;
         rect = this.DrawRectA;
         DrawBrush brush;
         brush = this.Back;
-        draw.Brush = brush;
+        draw.Fill = brush;
 
-        draw.FillPos.Left = left;
-        draw.FillPos.Up = up;
-        draw.SetFillPos();
+        draw.FillPos.Col = left;
+        draw.FillPos.Row = up;
+        draw.FillPosSet();
 
         draw.ExecuteRect(rect);
 
-        draw.FillPos.Left = 0;
-        draw.FillPos.Up = 0;
-        draw.SetFillPos();
+        draw.FillPos.Col = 0;
+        draw.FillPos.Row = 0;
+        draw.FillPosSet();
 
-        draw.Brush = null;
+        draw.Fill = null;
         return true;
     }
 
