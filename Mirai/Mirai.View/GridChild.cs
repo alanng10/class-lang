@@ -21,10 +21,10 @@ public class GridChild : Comp
         return this.ViewInfra.FieldCreate(this);
     }
 
-    protected virtual GridRect CreateRect()
+    protected virtual Rect CreateRect()
     {
-        GridRect a;
-        a = new GridRect();
+        Rect a;
+        a = new Rect();
         a.Init();
         return a;
     }
