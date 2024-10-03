@@ -19,23 +19,10 @@ public class Infra : Any
         base.Init();
         this.DrawInfra = DrawInfra.This;
 
-        FrameTypeMaide maideA;
-        maideA = new FrameTypeMaide(Frame.InternType);
-        this.FrameTypeMaideAddress = new MaideAddress();
-        this.FrameTypeMaideAddress.Delegate = maideA;
-        this.FrameTypeMaideAddress.Init();
-        FrameDrawMaide maideB;
-        maideB = new FrameDrawMaide(Frame.InternDraw);
-        this.FrameDrawMaideAddress = new MaideAddress();
-        this.FrameDrawMaideAddress.Delegate = maideB;
-        this.FrameDrawMaideAddress.Init();
         return true;
     }
 
     protected virtual DrawInfra DrawInfra { get; set; }
-
-    internal virtual MaideAddress FrameTypeMaideAddress { get; set; }
-    internal virtual MaideAddress FrameDrawMaideAddress { get; set; }
 
     internal virtual DrawRect DrawRect(Rect rect)
     {
@@ -62,8 +49,8 @@ public class Infra : Any
         a.State = new FieldState();
         a.State.Init();
         a.State.Field = a;
-        a.SetChangeArg = new Change();
-        a.SetChangeArg.Init();
+        a.SetModArg = new Change();
+        a.SetModArg.Init();
         return a;
     }
 
