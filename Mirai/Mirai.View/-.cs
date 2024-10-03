@@ -35,4 +35,5 @@ global using Rect = Mirai.Infra.Rect;
 global using Pos = Mirai.Infra.Pos;
 global using Size = Mirai.Infra.Size;
 global using List = Mirai.Infra.List;
+global using Count = Mirai.Infra.Count;
 global using ViewInfra = Mirai.Infra.Infra;
