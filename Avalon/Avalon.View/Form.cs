@@ -1,4 +1,4 @@
-namespace Avalon.Draw;
+namespace Avalon.View;
 
 public class Form : Any
 {
