@@ -282,19 +282,19 @@ public class View : Comp
 
     protected virtual bool ExecuteDrawThis(DrawDraw draw)
     {
-        long left;
-        long up;
-        left = this.Pos.Col;
-        up = this.Pos.Row;
-        long width;
-        long height;
-        width = this.Size.Wed;
-        height = this.Size.Het;
+        long col;
+        long row;
+        col = this.Pos.Col;
+        row = this.Pos.Row;
+        long wed;
+        long het;
+        wed = this.Size.Wed;
+        het = this.Size.Het;
 
-        this.DrawRectA.Pos.Col = left;
-        this.DrawRectA.Pos.Row = up;
-        this.DrawRectA.Size.Wed = width;
-        this.DrawRectA.Size.Het = height;
+        this.DrawRectA.Pos.Col = col;
+        this.DrawRectA.Pos.Row = row;
+        this.DrawRectA.Size.Wed = wed;
+        this.DrawRectA.Size.Het = het;
 
         DrawRect rect;
         rect = this.DrawRectA;
@@ -302,8 +302,8 @@ public class View : Comp
         brush = this.Back;
         draw.Fill = brush;
 
-        draw.FillPos.Col = left;
-        draw.FillPos.Row = up;
+        draw.FillPos.Col = col;
+        draw.FillPos.Row = row;
         draw.FillPosSet();
 
         draw.ExecuteRect(rect);
