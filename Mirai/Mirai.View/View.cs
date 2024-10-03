@@ -47,27 +47,27 @@ public class View : Comp
 
     protected virtual Field CreatePosField()
     {
-        return this.ViewInfra.FieldCreate(this);
+        return this.CompInfra.FieldCreate(this);
     }
 
     protected virtual Field CreateSizeField()
     {
-        return this.ViewInfra.FieldCreate(this);
+        return this.CompInfra.FieldCreate(this);
     }
 
     protected virtual Field CreateBackField()
     {
-        return this.ViewInfra.FieldCreate(this);
+        return this.CompInfra.FieldCreate(this);
     }
 
     protected virtual Field CreateVisibleField()
     {
-        return this.ViewInfra.FieldCreate(this);
+        return this.CompInfra.FieldCreate(this);
     }
 
     protected virtual Field CreateChildField()
     {
-        return this.ViewInfra.FieldCreate(this);
+        return this.CompInfra.FieldCreate(this);
     }
 
     protected virtual Pos CreatePos()

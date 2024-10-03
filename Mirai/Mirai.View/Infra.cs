@@ -40,20 +40,6 @@ public class Infra : Any
         return a;
     }
 
-    public virtual Field FieldCreate(CompComp comp)
-    {
-        Field a;
-        a = new Field();
-        a.Init();
-        a.Comp = comp;
-        a.State = new FieldState();
-        a.State.Init();
-        a.State.Field = a;
-        a.SetModArg = new Mod();
-        a.SetModArg.Init();
-        return a;
-    }
-
     public virtual bool AssignDrawRectValue(DrawRect dest, DrawRect source)
     {
         this.AssignDrawPosValue(dest.Pos, source.Pos);
