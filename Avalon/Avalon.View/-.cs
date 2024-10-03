@@ -1,13 +1,9 @@
 global using InternIntern = Avalon.Intern.Intern;
 global using InternInfra = Avalon.Intern.Infra;
 global using Extern = Avalon.Intern.Extern;
-global using FrameTypeMaide = Avalon.Intern.Extern.Frame_Type_Maide;
-global using FrameDrawMaide = Avalon.Intern.Extern.Frame_Draw_Maide;
-global using MaideAddress = Avalon.Intern.MaideAddress;
-global using Handle = Avalon.Intern.Handle;
 global using Any = Avalon.Infra.Any;
 global using State = Avalon.Infra.State;
-global using RefCompare = Avalon.Infra.RefLess;
+global using RefLess = Avalon.Infra.RefLess;
 global using Data = Avalon.Infra.Data;
 global using InfraRange = Avalon.Infra.Range;
 global using InfraInfra = Avalon.Infra.Infra;
