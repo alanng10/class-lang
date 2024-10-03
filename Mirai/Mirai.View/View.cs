@@ -302,8 +302,8 @@ public class View : Comp
         brush = this.Back;
         draw.Fill = brush;
 
-        draw.FillPos.Col = col;
-        draw.FillPos.Row = row;
+        draw.FillPos.Col = this.MathInt(col);
+        draw.FillPos.Row = this.MathInt(row);
         draw.FillPosSet();
 
         draw.ExecuteRect(rect);
