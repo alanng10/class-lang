@@ -7,6 +7,7 @@
 
     <ItemGroup>
         <ProjectReference Include="../Z.Tool.Mirai.BrushCapList/Z.Tool.Mirai.BrushCapList.csproj" />
+        <ProjectReference Include="../Z.Tool.Mirai.BrushJoinList/Z.Tool.Mirai.BrushJoinList.csproj" />
         <ProjectReference Include="../Z.Tool.Mirai.PolateKindList/Z.Tool.Mirai.PolateKindList.csproj" />
     </ItemGroup>
 
