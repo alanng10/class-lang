@@ -1,4 +1,4 @@
-namespace Avalon.View;
+namespace Mirai.View;
 
 public class Grid : View
 {
