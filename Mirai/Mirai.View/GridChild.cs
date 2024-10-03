@@ -43,19 +43,19 @@ public class GridChild : Comp
         }
     }
 
-    protected virtual bool ChangeView(Change change)
+    protected virtual bool ModView(Mod mod)
     {
-        this.Trigger(this.ViewField);
+        this.Event(this.ViewField);
         return true;
     }
 
     public virtual Field RectField { get; set; }
 
-    public virtual GridRect Rect
+    public virtual Rect Rect
     {
         get
         {
-            return (GridRect)this.RectField.Get();
+            return (Rect)this.RectField.Get();
         }
         set
         {
@@ -63,21 +63,21 @@ public class GridChild : Comp
         }
     }
 
-    protected virtual bool ChangeRect(Change change)
+    protected virtual bool ModRect(Mod mod)
     {
-        this.Trigger(this.RectField);
+        this.Event(this.RectField);
         return true;
     }
 
-    public override bool Change(Field field, Change change)
+    public override bool Mod(Field field, Mod mod)
     {
         if (this.ViewField == field)
         {
-            this.ChangeView(change);
+            this.ModView(mod);
         }
         if (this.RectField == field)
         {
-            this.ChangeRect(change);
+            this.ModRect(mod);
         }
         return true;
     }
