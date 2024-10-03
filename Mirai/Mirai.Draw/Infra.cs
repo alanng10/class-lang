@@ -1,13 +1,13 @@
-namespace Avalon.View;
+namespace Mirai.Draw;
 
-public class DrawInfra : Any
+public class Infra : Any
 {
-    public static DrawInfra This { get; } = ShareCreate();
+    public static Infra This { get; } = ShareCreate();
 
-    private static DrawInfra ShareCreate()
+    private static Infra ShareCreate()
     {
-        DrawInfra share;
-        share = new DrawInfra();
+        Infra share;
+        share = new Infra();
         Any a;
         a = share;
         a.Init();
