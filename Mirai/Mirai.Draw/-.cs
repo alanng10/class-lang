@@ -3,6 +3,7 @@ global using Extern = Avalon.Intern.Extern;
 global using InternInfra = Avalon.Intern.Infra;
 global using InternPolateStopPoint = Avalon.Intern.DrawPolateStopPoint;
 global using Any = Avalon.Infra.Any;
+global using String = Avalon.Infra.String;
 global using Array = Avalon.List.Array;
 global using MathMath = Avalon.Math.Math;
 global using MathComp = Avalon.Math.Comp;
