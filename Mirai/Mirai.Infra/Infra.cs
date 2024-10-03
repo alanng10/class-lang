@@ -38,7 +38,6 @@ public class Infra : Any
         return a;
     }
 
-
     internal virtual DrawRect DrawRect(Rect rect)
     {
         DrawRect a;
@@ -46,12 +45,12 @@ public class Infra : Any
         a.Init();
         a.Pos = new DrawPos();
         a.Pos.Init();
-        a.Pos.Left = rect.Pos.Left;
-        a.Pos.Up = rect.Pos.Up;
+        a.Pos.Col = rect.Pos.Left;
+        a.Pos.Row = rect.Pos.Up;
         a.Size = new DrawSize();
         a.Size.Init();
-        a.Size.Width = rect.Size.Width;
-        a.Size.Height = rect.Size.Height;
+        a.Size.Wed = rect.Size.Width;
+        a.Size.Het = rect.Size.Height;
         return a;
     }
 
@@ -64,15 +63,15 @@ public class Infra : Any
 
     public virtual bool AssignDrawPosValue(DrawPos dest, DrawPos source)
     {
-        dest.Left = source.Left;
-        dest.Up = source.Up;
+        dest.Col = source.Col;
+        dest.Row = source.Row;
         return true;
     }
 
     public virtual bool AssignDrawSizeValue(DrawSize dest, DrawSize source)
     {
-        dest.Width = source.Width;
-        dest.Height = source.Height;
+        dest.Wed = source.Wed;
+        dest.Het = source.Het;
         return true;
     }
 
@@ -86,13 +85,13 @@ public class Infra : Any
 
         this.AssignDrawRectValue(draw.Area, rect);
 
-        draw.SetArea();
+        draw.AreaSet();
 
         this.AssignDrawPosValue(stackPos, draw.Pos);
 
         this.AssignDrawPosValue(draw.Pos, pos);
 
-        draw.SetPos();
+        draw.PosSet();
         return true;
     }
 
@@ -100,29 +99,20 @@ public class Infra : Any
     {
         this.AssignDrawPosValue(draw.Pos, stackPos);
 
-        draw.SetPos();
+        draw.PosSet();
 
         this.AssignDrawRectValue(draw.Area, stackRect);
 
-        draw.SetArea();
+        draw.AreaSet();
         return true;
     }
 
-    public virtual GridCol GridColCreate(int width)
+    public virtual Count CountCreate(long value)
     {
-        GridCol a;
-        a = new GridCol();
+        Count a;
+        a = new Count();
         a.Init();
-        a.Width = width;
-        return a;
-    }
-
-    public virtual GridRow GridRowCreate(int height)
-    {
-        GridRow a;
-        a = new GridRow();
-        a.Init();
-        a.Height = height;
+        a.Value = value;
         return a;
     }
 }
