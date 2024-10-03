@@ -11,6 +11,7 @@ global using MathMath = Avalon.Math.Math;
 global using MathComp = Avalon.Math.Comp;
 global using MathInfra = Avalon.Math.Infra;
 global using TextText = Avalon.Text.Text;
+global using TextInfra = Avalon.Text.Infra;
 global using Color = Avalon.Video.Color;
 global using Video = Avalon.Video.Video;
 global using Size = Avalon.Video.Size;

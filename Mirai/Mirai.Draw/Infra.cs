@@ -18,7 +18,7 @@ public class Infra : Any
     {
         base.Init();
         this.MathInfra = MathInfra.This;
-        this.TextStringValue = TextStringValue.This;
+        this.TextInfra = TextInfra.This;
         this.StorageStatusList = StorageStatusList.This;
         this.BrushInfra = BrushInfra.This;
         this.BrushKindList = BrushKindList.This;
@@ -52,7 +52,7 @@ public class Infra : Any
         this.ZeroBrush = this.CreateBrush(transparentColor, k);
 
         this.Font = new Face();
-        this.Font.Name = this.TextStringValue.Execute("Source Sans 3");
+        this.Font.Name = this.TextInfra.S("Source Sans 3");
         this.Font.Size = 10;
         this.Font.Weight = 400;
         this.Font.Init();
@@ -70,7 +70,7 @@ public class Infra : Any
     public virtual Face Font { get; set; }
     private long ScaleFactor { get; set; }
     protected virtual MathInfra MathInfra { get; set; }
-    protected virtual TextStringValue TextStringValue { get; set; }
+    protected virtual TextInfra TextInfra { get; set; }
     protected virtual StorageStatusList StorageStatusList { get; set; }
     protected virtual BrushKindList BrushKindList { get; set; }
     protected virtual BrushLineList BrushLineList { get; set; }
@@ -148,10 +148,10 @@ public class Infra : Any
         return rect;
     }
 
-    public virtual VideoVideo ImageCreateSize(Size size)
+    public virtual Video ImageCreateSize(Size size)
     {
-        VideoVideo a;
-        a = new VideoVideo();
+        Video a;
+        a = new Video();
         a.Init();
         a.Size.Wed = size.Wed;
         a.Size.Het = size.Het;
