@@ -256,8 +256,8 @@ public class Grid : View
             this.ChildPosData = data;
         }
 
-        this.SetChildColArray();
-        this.SetChildRowArray();
+        this.SetChildCountArray(this.Col, this.ColIter, 0);
+        this.SetChildCountArray(this.Row, this.RowIter, this.Col.Count);
         return true;
     }
 
@@ -443,57 +443,29 @@ public class Grid : View
         return a;
     }
 
-    protected virtual bool SetChildColArray()
+    protected virtual bool SetChildCountArray(List list, Iter iter, long start)
     {
-        long start;
-        start = 0;
-        Iter iter;
-        iter = this.ColIter;
-        this.Col.IterSet(iter);
-        long col;
-        col = 0;
+        InfraInfra infraInfra;
+        infraInfra = this.InfraInfra;
+
+        list.IterSet(iter);
+        long k;
+        k = 0;
 
         long i;
         i = 0;
         while (iter.Next())
         {
-            Count gridCol;
-            gridCol = (Count)iter.Value;
-            col = col + gridCol.Value;
+            Count count;
+            count = (Count)iter.Value;
+            k = k + count.Value;
 
             long index;
             index = start + i;
             long byteIndex;
             byteIndex = this.IntByteIndex(index);
-            this.InfraInfra.DataIntSet(this.ChildPosData, byteIndex, col);
-            i = i + 1;
-        }
-        return true;
-    }
 
-    protected virtual bool SetChildRowArray()
-    {
-        long start;
-        start = this.Col.Count;
-        Iter iter;
-        iter = this.RowIter;
-        this.Row.IterSet(iter);
-        long row;
-        row = 0;
-
-        long i;
-        i = 0;
-        while (iter.Next())
-        {
-            Count gridRow;
-            gridRow = (Count)iter.Value;
-            row = row + gridRow.Value;
-
-            long index;
-            index = start + i;
-            long byteIndex;
-            byteIndex = this.IntByteIndex(index);
-            this.InfraInfra.DataIntSet(this.ChildPosData, byteIndex, row);
+            infraInfra.DataIntSet(this.ChildPosData, byteIndex, k);
             i = i + 1;
         }
         return true;
