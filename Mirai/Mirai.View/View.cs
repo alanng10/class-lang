@@ -271,7 +271,7 @@ public class View : Comp
 
         this.ExecuteDrawThis(draw);
 
-        if (!this.CheckDrawChild())
+        if (!this.ValidDrawChild())
         {
             return true;
         }
@@ -283,13 +283,13 @@ public class View : Comp
     protected virtual bool ExecuteDrawThis(DrawDraw draw)
     {
         long left;
-        left = this.Pos.Left;
         long up;
-        up = this.Pos.Up;
+        left = this.Pos.Col;
+        up = this.Pos.Row;
         long width;
-        width = this.Size.Width;
         long height;
-        height = this.Size.Height;
+        width = this.Size.Wed;
+        height = this.Size.Het;
 
         this.DrawRectA.Pos.Col = left;
         this.DrawRectA.Pos.Row = up;
@@ -324,16 +324,16 @@ public class View : Comp
     protected virtual bool ExecuteDrawChild(DrawDraw draw)
     {
         long left;
+        long up;
         left = this.Pos.Col;
         left = left + draw.Pos.Col;
-        long up;
         up = this.Pos.Row;
         up = up + draw.Pos.Row;
 
         long width;
-        width = this.Size.Width;
         long height;
-        height = this.Size.Height;
+        width = this.Size.Wed;
+        height = this.Size.Het;
 
         this.DrawRectA.Pos.Col = left;
         this.DrawRectA.Pos.Row = up;
