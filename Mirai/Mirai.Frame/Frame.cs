@@ -274,8 +274,7 @@ public class Frame : Any
         get
         {
             ulong u;
-            u = 0;
-            // u = Extern.Frame_VideoBoolGet(this.Intern);
+            u = Extern.Frame_VisibleGet(this.Intern);
             bool a;
             a = (!(u == 0));
             return a;
@@ -284,7 +283,7 @@ public class Frame : Any
         {
             ulong u;
             u = (ulong)(value ? 1 : 0);
-            // Extern.Frame_VideoBoolSet(this.Intern, u);
+            Extern.Frame_VisibleSet(this.Intern, u);
         }
     }
 
