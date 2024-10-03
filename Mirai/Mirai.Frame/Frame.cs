@@ -8,10 +8,11 @@ public class Frame : Any
         this.InternIntern = InternIntern.This;
         this.InternInfra = InternInfra.This;
         this.MathInfra = MathInfra.This;
+        this.TextInfra = TextInfra.This;
         this.VideoInfra = VideoInfra.This;
         this.DrawInfra = DrawInfra.This;
         this.FrameInfra = Infra.This;
-        this.StringValue = StringValue.This;
+
         this.Math = this.CreateMath();
         this.MathComp = this.CreateMathComp();
 
@@ -34,7 +35,7 @@ public class Frame : Any
         this.Intern = Extern.Frame_New();
         Extern.Frame_Init(this.Intern);
 
-        this.Title = this.StringValue.Execute("Frame");
+        this.Title = this.TextInfra.S("Frame");
         this.TitleSet();
 
         ulong sizeU;
@@ -112,9 +113,9 @@ public class Frame : Any
     private InternIntern InternIntern { get; set; }
     private InternInfra InternInfra { get; set; }
     protected virtual MathInfra MathInfra { get; set; }
+    protected virtual TextInfra TextInfra { get; set; }
     protected virtual VideoInfra VideoInfra { get; set; }
     protected virtual DrawInfra DrawInfra { get; set; }
-    protected virtual StringValue StringValue { get; set; }
     protected virtual MathMath Math { get; set; }
     protected virtual MathComp MathComp { get; set; }
     protected virtual DrawDraw Draw { get; set; }
