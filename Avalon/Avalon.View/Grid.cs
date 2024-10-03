@@ -163,14 +163,14 @@ public class Grid : View
         }
     }
 
-    protected virtual bool ChangeRow(Change change)
+    protected virtual bool ModRow(Mod mod)
     {
-        if ((this.Row == null) | (this.Col == null) | (this.Child == null))
+        if ((this.Row == null) | (this.Col == null) | (this.ChildList == null))
         {
             return true;
         }
         this.UpdateLayout();
-        this.Trigger(this.RowField);
+        this.Event(this.RowField);
         return true;
     }
 
@@ -189,39 +189,39 @@ public class Grid : View
         }
     }
 
-    protected virtual bool ChangeCol(Change change)
+    protected virtual bool ModCol(Mod mod)
     {
-        if ((this.Row == null) | (this.Col == null) | (this.Child == null))
+        if ((this.Row == null) | (this.Col == null) | (this.ChildList == null))
         {
             return true;
         }
         this.UpdateLayout();
-        this.Trigger(this.ColField);
+        this.Event(this.ColField);
         return true;
     }
 
-    public new virtual Field ChildField { get; set; }
+    public virtual Field ChildListField { get; set; }
 
-    public new virtual List Child
+    public virtual List ChildList
     {
         get
         {
-            return (List)this.ChildField.Get();
+            return (List)this.ChildListField.Get();
         }
 
         set
         {
-            this.ChildField.Set(value);
+            this.ChildListField.Set(value);
         }
     }
 
-    protected new virtual bool ChangeChild(Change change)
+    protected virtual bool ModChildList(Mod mod)
     {
-        if ((this.Row == null) | (this.Col == null) | (this.Child == null))
+        if ((this.Row == null) | (this.Col == null) | (this.ChildList == null))
         {
             return true;
         }
-        this.Trigger(this.ChildField);
+        this.Event(this.ChildListField);
         return true;
     }
 
@@ -239,9 +239,9 @@ public class Grid : View
         }
     }
 
-    protected virtual bool ChangeDest(Change change)
+    protected virtual bool ModDest(Mod mod)
     {
-        this.Trigger(this.DestField);
+        this.Event(this.DestField);
         return true;
     }
 
@@ -519,20 +519,20 @@ public class Grid : View
         return true;
     }
 
-    public override bool Change(Field field, Change change)
+    public override bool Mod(Field field, Mod mod)
     {
-        base.Change(field, change);
+        base.Change(field, mod);
         if (this.RowField == field)
         {
-            this.ChangeRow(change);
+            this.ChangeRow(mod);
         }
         if (this.ColField == field)
         {
-            this.ChangeCol(change);
+            this.ChangeCol(mod);
         }
         if (this.ChildField == field)
         {
-            this.ChangeChild(change);
+            this.ChangeChild(mod);
         }
         return true;
     }

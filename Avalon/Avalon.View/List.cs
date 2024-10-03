@@ -5,11 +5,11 @@ public class List : Comp
     public override bool Init()
     {
         base.Init();
-        RefCompare compare;
-        compare = new RefCompare();
-        compare.Init();
+        RefLess less;
+        less = new RefLess();
+        less.Init();
         this.ItemTable = new Table();
-        this.ItemTable.Compare = compare;
+        this.ItemTable.Less = less;
         this.ItemTable.Init();
 
         this.ItemIter = this.ItemTable.IterCreate();
@@ -18,7 +18,7 @@ public class List : Comp
         this.EventState.Init();
         this.EventState.List = this;
 
-        this.ListTriggerArg = (ListChange)this.TriggerArg;
+        this.ListTriggerArg = (ListChange)this.ModArg;
         return true;
     }
 
@@ -27,15 +27,15 @@ public class List : Comp
     protected virtual ListState EventState { get; set; }
     protected virtual ListChange ListTriggerArg { get; set; }
 
-    protected override Change CreateTriggerArg()
+    protected override Mod CreateModArg()
     {
-        Change a;
+        Mod a;
         a = new ListChange();
         a.Init();
         return a;
     }
 
-    public virtual int Count
+    public virtual long Count
     {
         get
         {
@@ -71,7 +71,7 @@ public class List : Comp
 
         this.ItemTable.Add(entry);
 
-        item.ChangeEvent.State.AddState(this.EventState);
+        item.ModEvent.State.AddState(this.EventState);
 
         this.TriggerList();
         return true;
@@ -86,7 +86,7 @@ public class List : Comp
         {
             Comp item;
             item = (Comp)iter.Value;
-            item.ChangeEvent.State.RemoveState(this.EventState);
+            item.ModEvent.State.RemoveState(this.EventState);
         }
 
         this.ItemTable.Clear();
@@ -113,9 +113,9 @@ public class List : Comp
         entry.Index = item;
         entry.Value = item;
 
-        this.ItemTable.Insert(index, entry);
+        this.ItemTable.Ins(index, entry);
 
-        item.ChangeEvent.State.AddState(this.EventState);
+        item.ModEvent.State.AddState(this.EventState);
 
         this.TriggerList();
         return true;
@@ -130,9 +130,9 @@ public class List : Comp
             return true;
         }
 
-        this.ItemTable.Remove(item);
+        this.ItemTable.Rem(item);
 
-        item.ChangeEvent.State.RemoveState(this.EventState);
+        item.ModEvent.State.RemoveState(this.EventState);
 
         this.TriggerList();
         return true;
@@ -159,7 +159,7 @@ public class List : Comp
 
     protected virtual bool TriggerList()
     {
-        this.Trigger(null);
+        this.Event(null);
         return true;
     }
 
