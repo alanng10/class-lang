@@ -8,17 +8,17 @@ public class Grid : View
         this.InfraInfra = InfraInfra.This;
         this.RowField = this.CreateRowField();
         this.ColField = this.CreateColField();
-        this.ChildField = this.CreateGridChildField();
+        this.ChildListField = this.CreateChildListField();
         this.DestField = this.CreateDestField();
         this.Row = this.CreateRow();
         this.Col = this.CreateCol();
-        this.Child = this.CreateChild();
+        this.ChildList = this.CreateChildList();
         this.Dest = this.CreateDest();
         this.RangeA = this.CreateRangeA();
         this.ChildPosData = this.CreateChildPosList();
         this.RowIter = this.Row.IterCreate();
         this.ColIter = this.Col.IterCreate();
-        this.ChildIter = this.Child.IterCreate();
+        this.ChildIter = this.ChildList.IterCreate();
 
         this.StackGridChildListRect = this.CreateStackGridChildListRect();
         this.StackGridChildListPos = this.CreateStackGridChildListPos();
@@ -49,7 +49,7 @@ public class Grid : View
         return this.ViewInfra.FieldCreate(this);
     }
 
-    protected virtual Field CreateGridChildField()
+    protected virtual Field CreateChildListField()
     {
         return this.ViewInfra.FieldCreate(this);
     }
@@ -75,7 +75,7 @@ public class Grid : View
         return a;
     }
 
-    protected virtual List CreateChild()
+    protected virtual List CreateChildList()
     {
         List a;
         a = new List();
