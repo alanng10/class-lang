@@ -247,16 +247,14 @@ public class Grid : View
 
     protected virtual bool UpdateLayout()
     {
-        int count;
+        long count;
         count = this.Col.Count + this.Row.Count;
 
-        int oa;
-        oa = count * sizeof(uint);
+        long oa;
+        oa = count * sizeof(ulong);
         long oo;
         oo = this.ChildPosData.Count;
-        int ob;
-        ob = (int)oo;
-        if (ob < oa)
+        if (oo < oa)
         {
             Data data;
             data = new Data();
