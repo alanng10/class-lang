@@ -50,13 +50,13 @@ public class Comp : CompComp
         return a;
     }
 
-    protected virtual long MathValue(long significand, long exponent)
+    protected virtual long MathValue(long cand, long expo)
     {
         MathComp mathComp;
         mathComp = this.MathComp;
 
-        mathComp.Cand = significand;
-        mathComp.Expo = exponent;
+        mathComp.Cand = cand;
+        mathComp.Expo = expo;
 
         long a;
         a = this.Math.Value(mathComp);
