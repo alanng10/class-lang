@@ -1,4 +1,4 @@
-namespace Z.Tool.Avalon.BrushKindList;
+namespace Z.Tool.Mirai.BrushKindList;
 
 class Entry : EntryEntry
 {
