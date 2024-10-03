@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <OutputPath>../../Out</OutputPath>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="../Z.Tool.Avalon.BrushCapList/Z.Tool.Avalon.BrushCapList.csproj" />
+        <ProjectReference Include="../Z.Tool.Avalon.PolateKindList/Z.Tool.Avalon.PolateKindList.csproj" />
+    </ItemGroup>
+
+</Project>
