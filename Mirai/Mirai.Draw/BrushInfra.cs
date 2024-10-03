@@ -1,4 +1,4 @@
-namespace Avalon.Draw;
+namespace Mirai.Draw;
 
 class BrushInfra : Any
 {
