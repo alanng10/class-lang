@@ -5,8 +5,6 @@ public class Brush : Any
     public override bool Init()
     {
         base.Init();
-        BrushInfra infra;
-        infra = BrushInfra.This;
 
         ulong imageU;
         imageU = 0;
