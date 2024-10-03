@@ -521,7 +521,7 @@ public class Grid : View
 
     public override bool Mod(Field field, Mod mod)
     {
-        base.Change(field, mod);
+        base.Mod(field, mod);
         if (this.RowField == field)
         {
             this.ChangeRow(mod);
