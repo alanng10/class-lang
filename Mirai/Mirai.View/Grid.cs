@@ -499,9 +499,9 @@ public class Grid : View
         return true;
     }
 
-    public override bool Change(Field varField, Change change)
+    public override bool Mod(Field varField, Mod change)
     {
-        base.Change(varField, change);
+        base.Mod(varField, change);
         if (this.RowField == varField)
         {
             this.ChangeRow(change);
