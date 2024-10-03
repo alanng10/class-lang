@@ -1,4 +1,4 @@
-namespace Avalon.View;
+namespace Mirai.Draw;
 
 public class Form : Any
 {
