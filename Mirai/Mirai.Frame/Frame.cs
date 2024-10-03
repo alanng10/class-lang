@@ -263,9 +263,13 @@ public class Frame : Any
         return true;
     }
 
-    public virtual bool EventDraw()
+    public virtual bool EventDraw(DrawRect rect)
     {
-        // Extern.Frame_EventDraw(this.Intern);
+        this.InternInfra.RectSet(this.InternUpdateRect,
+            rect.Pos.Col, rect.Pos.Row, rect.Size.Wed, rect.Size.Het
+        );
+
+        Extern.Frame_Update(this.Intern, this.InternUpdateRect);
         return true;
     }
 
