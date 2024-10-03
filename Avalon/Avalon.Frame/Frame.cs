@@ -265,6 +265,20 @@ public class Frame : CompComp
         return 1;
     }
 
+    internal static ulong InternTune(ulong frame, ulong arg)
+    {
+        InternIntern internIntern;
+        internIntern = InternIntern.This;
+
+        object ao;
+        ao = internIntern.HandleTarget(arg);
+
+        Frame a;
+        a = (Frame)ao;
+        a.ExecuteFrameTune();
+        return 1;
+    }
+
     private bool ExecuteFrameDraw()
     {
         DrawDraw draw;
@@ -277,6 +291,25 @@ public class Frame : CompComp
         draw.ExecuteVideo(this.DrawImage, this.DestRect, this.SourceRect);
 
         draw.End();
+        return true;
+    }
+
+    private bool ExecuteFrameTune()
+    {
+        this.ExecuteTune();
+        return true;
+    }
+
+    protected virtual bool ExecuteTune()
+    {
+        TuneTune tune;
+        tune = this.Tune;
+
+        tune.Start();
+
+        tune.Clear();
+
+        tune.End();
         return true;
     }
 
@@ -299,6 +332,12 @@ public class Frame : CompComp
         return true;
     }
 
+    public virtual bool EventTune()
+    {
+        // Extern.Frame_EventTune(this.Intern);
+        return true;
+    }
+
     public virtual bool Video
     {
         get
@@ -315,6 +354,25 @@ public class Frame : CompComp
             ulong u;
             u = (ulong)(value ? 1 : 0);
             // Extern.Frame_VideoBoolSet(this.Intern, u);
+        }
+    }
+
+    public virtual bool Audio
+    {
+        get
+        {
+            ulong u;
+            u = 0;
+            // u = Extern.Frame_AudioBoolGet(this.Intern);
+            bool a;
+            a = (!(u == 0));
+            return a;
+        }
+        set
+        {
+            ulong u;
+            u = (ulong)(value ? 1 : 0);
+            // Extern.Frame_AudioBoolSet(this.Intern, u);
         }
     }
 
