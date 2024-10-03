@@ -43,15 +43,15 @@ public class Rect : Comp
         return a;
     }
 
-    public override bool Change(Field field, Change change)
+    public override bool Mod(Field field, Mod mod)
     {
         if (this.PosField == field)
         {
-            this.ChangePos(change);
+            this.ModPos(mod);
         }
         if (this.SizeField == field)
         {
-            this.ChangeSize(change);
+            this.ModSize(mod);
         }
         return true;
     }
@@ -71,9 +71,9 @@ public class Rect : Comp
         }
     }
 
-    protected virtual bool ChangePos(Change change)
+    protected virtual bool ModPos(Mod change)
     {
-        this.Trigger(this.PosField);
+        this.Event(this.PosField);
         return true;
     }
 
@@ -92,9 +92,9 @@ public class Rect : Comp
         }
     }
 
-    protected virtual bool ChangeSize(Change change)
+    protected virtual bool ModSize(Mod change)
     {
-        this.Trigger(this.SizeField);
+        this.Event(this.SizeField);
         return true;
     }
 }
