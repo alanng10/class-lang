@@ -38,22 +38,6 @@ public class Infra : Any
         return a;
     }
 
-    internal virtual DrawRect DrawRect(Rect rect)
-    {
-        DrawRect a;
-        a = new DrawRect();
-        a.Init();
-        a.Pos = new DrawPos();
-        a.Pos.Init();
-        a.Pos.Col = rect.Pos.Left;
-        a.Pos.Row = rect.Pos.Up;
-        a.Size = new DrawSize();
-        a.Size.Init();
-        a.Size.Wed = rect.Size.Width;
-        a.Size.Het = rect.Size.Height;
-        return a;
-    }
-
     public virtual bool AssignDrawRectValue(DrawRect dest, DrawRect source)
     {
         this.AssignDrawPosValue(dest.Pos, source.Pos);
