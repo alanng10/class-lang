@@ -1,11 +1,11 @@
-namespace Z.Tool.Avalon.BrushCapList;
+namespace Z.Tool.Mirai.BrushCapList;
 
 public class Gen : SourceGen
 {
     public override bool Init()
     {
         base.Init();
-        this.Module = this.S("Avalon.Draw");
+        this.Module = this.S("Mirai.Draw");
         this.ClassName = this.S("BrushCapList");
         this.BaseClassName = this.S("Any");
         this.AnyClassName = this.S("Any");

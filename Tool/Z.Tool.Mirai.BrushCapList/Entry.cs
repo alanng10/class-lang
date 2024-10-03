@@ -1,4 +1,4 @@
-namespace Z.Tool.Avalon.BrushCapList;
+namespace Z.Tool.Mirai.BrushCapList;
 
 class Entry : EntryEntry
 {
