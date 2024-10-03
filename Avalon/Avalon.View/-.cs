@@ -25,6 +25,5 @@ global using DrawSize = Avalon.Video.Size;
 global using DrawPos = Avalon.Video.Pos;
 global using DrawRect = Avalon.Video.Rect;
 global using DrawImage = Avalon.Video.Video;
-global using DrawColor = Avalon.Video.Color;
-global using DrawInfra = Avalon.Draw.Infra;
+global using Color = Avalon.Video.Color;
 global using FrameFrame = Avalon.Frame.Frame;
