@@ -5,9 +5,9 @@ public class Comp : CompComp
     public override bool Init()
     {
         base.Init();
-        this.ViewInfra = Infra.This;
+        this.CompInfra = Infra.This;
         return true;
     }
 
-    protected virtual Infra ViewInfra { get; set; }
+    protected virtual Infra CompInfra { get; set; }
 }
