@@ -6,13 +6,13 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <ProjectReference Include="../Avalon.Intern/Avalon.Intern.csproj" />
-        <ProjectReference Include="../Avalon.Infra/Avalon.Infra.csproj" />
-        <ProjectReference Include="../Avalon.Math/Avalon.Math.csproj" />
-        <ProjectReference Include="../Avalon.Text/Avalon.Text.csproj" />
-        <ProjectReference Include="../Avalon.Stream/Avalon.Stream.csproj" />
-        <ProjectReference Include="../Avalon.Video/Avalon.Video.csproj" />
-        <ProjectReference Include="../Avalon.Storage/Avalon.Storage.csproj" />
+        <ProjectReference Include="../../Avalon/Avalon.Intern/Avalon.Intern.csproj" />
+        <ProjectReference Include="../../Avalon/Avalon.Infra/Avalon.Infra.csproj" />
+        <ProjectReference Include="../../Avalon/Avalon.Math/Avalon.Math.csproj" />
+        <ProjectReference Include="../../Avalon/Avalon.Text/Avalon.Text.csproj" />
+        <ProjectReference Include="../../Avalon/Avalon.Stream/Avalon.Stream.csproj" />
+        <ProjectReference Include="../../Avalon/Avalon.Video/Avalon.Video.csproj" />
+        <ProjectReference Include="../../Avalon/Avalon.Storage/Avalon.Storage.csproj" />
     </ItemGroup>
     
 </Project>
