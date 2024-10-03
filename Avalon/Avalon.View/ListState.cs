@@ -6,10 +6,10 @@ public class ListState : State
 
     public override bool Execute()
     {
-        Change change;
-        change = (Change)this.Arg;
+        Mod mod;
+        mod = (Mod)this.Arg;
         CompComp a;
-        a = change.Comp;
+        a = mod.Comp;
         Comp item;
         item = (Comp)a;
         this.List.ItemChange(item);
