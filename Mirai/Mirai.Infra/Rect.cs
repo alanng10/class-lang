@@ -1,4 +1,4 @@
-namespace Avalon.View;
+namespace Mirai.Infra;
 
 public class Rect : Comp
 {
