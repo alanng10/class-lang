@@ -73,8 +73,8 @@ public class View : Comp
         Pos a;
         a = new Pos();
         a.Init();
-        a.Left = 0;
-        a.Up = 0;
+        a.Col = 0;
+        a.Row = 0;
         return a;
     }
 
@@ -83,8 +83,8 @@ public class View : Comp
         Size a;
         a = new Size();
         a.Init();
-        a.Width = 0;
-        a.Height = 0;
+        a.Wed = 0;
+        a.Het = 0;
         return a;
     }
 
