@@ -8,8 +8,8 @@ public class PolateStop : Any
 
         this.InternIntern = InternIntern.This;
         this.DrawInfra = Infra.This;
-        this.InternDrawPolateStopPoint = new InternDrawPolateStopPoint();
-        this.InternDrawPolateStopPoint.Init();
+        this.InternPolateStopPoint = new InternPolateStopPoint();
+        this.InternPolateStopPoint.Init();
 
         long count;
         count = this.Count;
@@ -33,7 +33,7 @@ public class PolateStop : Any
     private InternIntern InternIntern { get; set; }
     protected virtual Infra DrawInfra { get; set; }
     internal virtual ulong Intern { get; set; }
-    private InternDrawPolateStopPoint InternDrawPolateStopPoint { get; set; }
+    private InternPolateStopPoint InternPolateStopPoint { get; set; }
 
     public virtual bool PointSet(long index, PolateStopPoint point)
     {
@@ -49,8 +49,8 @@ public class PolateStop : Any
 
     public virtual bool PointGet(long index, PolateStopPoint result)
     {
-        InternDrawPolateStopPoint u;
-        u = this.InternDrawPolateStopPoint;
+        InternPolateStopPoint u;
+        u = this.InternPolateStopPoint;
 
         ulong indexU;
         indexU = (ulong)index;
