@@ -30,3 +30,4 @@ global using DrawBrush = Avalon.Draw.Brush;
 global using DrawImage = Avalon.Video.Video;
 global using DrawColor = Avalon.Video.Color;
 global using DrawInfra = Avalon.Draw.Infra;
+global using FrameFrame = Avalon.Frame.Frame;
