@@ -17,6 +17,7 @@
         <ProjectReference Include="../../Avalon/Avalon.Video/Avalon.Video.csproj" />
         <ProjectReference Include="../../Avalon/Avalon.Audio/Avalon.Audio.csproj" />
         <ProjectReference Include="../../Avalon/Avalon.Frame/Avalon.Frame.csproj" />
+        <ProjectReference Include="../Mirai.Draw/Mirai.Draw.csproj" />
     </ItemGroup>
 
 </Project>
