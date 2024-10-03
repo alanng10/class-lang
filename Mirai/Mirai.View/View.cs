@@ -144,9 +144,9 @@ public class View : Comp
         }
     }
 
-    protected virtual bool ChangePos(Change change)
+    protected virtual bool ModPos(Mod mod)
     {
-        this.Trigger(this.PosField);
+        this.Event(this.PosField);
         return true;
     }
 
@@ -164,9 +164,9 @@ public class View : Comp
         }
     }
 
-    protected virtual bool ChangeSize(Change change)
+    protected virtual bool ModSize(Mod mod)
     {
-        this.Trigger(this.SizeField);
+        this.Event(this.SizeField);
         return true;
     }
 
@@ -184,9 +184,9 @@ public class View : Comp
         }
     }
 
-    protected virtual bool ChangeBack(Change change)
+    protected virtual bool ModBack(Mod mod)
     {
-        this.Trigger(this.BackField);
+        this.Event(this.BackField);
         return true;
     }
 
@@ -204,9 +204,9 @@ public class View : Comp
         }
     }
 
-    protected virtual bool ChangeVisible(Change change)
+    protected virtual bool ModVisible(Mod mod)
     {
-        this.Trigger(this.VisibleField);
+        this.Event(this.VisibleField);
         return true;
     }
 
@@ -224,33 +224,33 @@ public class View : Comp
         }
     }
 
-    protected virtual bool ChangeChild(Change change)
+    protected virtual bool ModChild(Mod mod)
     {
-        this.Trigger(this.ChildField);
+        this.Event(this.ChildField);
         return true;
     }
 
-    public override bool Change(Field field, Change change)
+    public override bool Mod(Field field, Mod mod)
     {
         if (this.SizeField == field)
         {
-            this.ChangeSize(change);
+            this.ModSize(mod);
         }
         if (this.PosField == field)
         {
-            this.ChangePos(change);
+            this.ModPos(mod);
         }
         if (this.BackField == field)
         {
-            this.ChangeBack(change);
+            this.ModBack(mod);
         }
         if (this.VisibleField == field)
         {
-            this.ChangeVisible(change);
+            this.ModVisible(mod);
         }
         if (this.ChildField == field)
         {
-            this.ChangeChild(change);
+            this.ModChild(mod);
         }
         return true;
     }
