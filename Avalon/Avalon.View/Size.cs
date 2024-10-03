@@ -20,22 +20,22 @@ public class Size : Comp
         return this.ViewInfra.FieldCreate(this);
     }
 
-    public override bool Change(Field field, Change change)
+    public override bool Mod(Field field, Mod mod)
     {
         if (this.WidthField == field)
         {
-            this.ChangeWidth(change);
+            this.ModWidth(mod);
         }
         if (this.HeightField == field)
         {
-            this.ChangeHeight(change);
+            this.ModHeight(mod);
         }
         return true;
     }
 
     public virtual Field WidthField { get; set; }
 
-    public virtual int Width
+    public virtual long Width
     {
         get
         {
@@ -48,15 +48,15 @@ public class Size : Comp
         }
     }
 
-    protected virtual bool ChangeWidth(Change change)
+    protected virtual bool ModWidth(Mod mod)
     {
-        this.Trigger(this.WidthField);
+        this.Event(this.WidthField);
         return true;
     }
 
     public virtual Field HeightField { get; set; }
 
-    public virtual int Height
+    public virtual long Height
     {
         get
         {
@@ -69,9 +69,9 @@ public class Size : Comp
         }
     }
 
-    protected virtual bool ChangeHeight(Change change)
+    protected virtual bool ModHeight(Mod mod)
     {
-        this.Trigger(this.HeightField);
+        this.Event(this.HeightField);
         return true;
     }
 }
