@@ -1,11 +1,11 @@
-namespace Z.Tool.Avalon.BrushJoinList;
+namespace Z.Tool.Mirai.BrushJoinList;
 
 public class Gen : SourceGen
 {
     public override bool Init()
     {
         base.Init();
-        this.Module = this.S("Avalon.Draw");
+        this.Module = this.S("Mirai.Draw");
         this.ClassName = this.S("BrushJoinList");
         this.BaseClassName = this.S("Any");
         this.AnyClassName = this.S("Any");

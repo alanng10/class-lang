@@ -1,4 +1,4 @@
-namespace Z.Tool.Avalon.BrushJoinList;
+namespace Z.Tool.Mirai.BrushJoinList;
 
 class Entry : EntryEntry
 {
