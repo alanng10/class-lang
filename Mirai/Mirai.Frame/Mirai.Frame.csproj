@@ -6,16 +6,16 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <ProjectReference Include="../Avalon.Intern/Avalon.Intern.csproj" />
-        <ProjectReference Include="../Avalon.Infra/Avalon.Infra.csproj" />
-        <ProjectReference Include="../Avalon.List/Avalon.List.csproj" />
-        <ProjectReference Include="../Avalon.Math/Avalon.Math.csproj" />
-        <ProjectReference Include="../Avalon.Text/Avalon.Text.csproj" />
-        <ProjectReference Include="../Avalon.Event/Avalon.Event.csproj" />
-        <ProjectReference Include="../Avalon.Comp/Avalon.Comp.csproj" />
-        <ProjectReference Include="../Avalon.Type/Avalon.Type.csproj" />
-        <ProjectReference Include="../Avalon.Video/Avalon.Video.csproj" />
-        <ProjectReference Include="../../Mirai/Mirai.Draw/Mirai.Draw.csproj" />
+        <ProjectReference Include="../../Avalon/Avalon.Intern/Avalon.Intern.csproj" />
+        <ProjectReference Include="../../Avalon/Avalon.Infra/Avalon.Infra.csproj" />
+        <ProjectReference Include="../../Avalon/Avalon.List/Avalon.List.csproj" />
+        <ProjectReference Include="../../Avalon/Avalon.Math/Avalon.Math.csproj" />
+        <ProjectReference Include="../../Avalon/Avalon.Text/Avalon.Text.csproj" />
+        <ProjectReference Include="../../Avalon/Avalon.Event/Avalon.Event.csproj" />
+        <ProjectReference Include="../../Avalon/Avalon.Comp/Avalon.Comp.csproj" />
+        <ProjectReference Include="../../Avalon/Avalon.Type/Avalon.Type.csproj" />
+        <ProjectReference Include="../../Avalon/Avalon.Video/Avalon.Video.csproj" />
+        <ProjectReference Include="../Mirai.Draw/Mirai.Draw.csproj" />
     </ItemGroup>
 
 </Project>
