@@ -16,8 +16,6 @@
         <ProjectReference Include="../Avalon.Type/Avalon.Type.csproj" />
         <ProjectReference Include="../Avalon.Video/Avalon.Video.csproj" />
         <ProjectReference Include="../Avalon.Audio/Avalon.Audio.csproj" />
-        <ProjectReference Include="../Avalon.Draw/Avalon.Draw.csproj" />
-        <ProjectReference Include="../Avalon.Tune/Avalon.Tune.csproj" />
         <ProjectReference Include="../Avalon.Frame/Avalon.Frame.csproj" />
     </ItemGroup>
 
