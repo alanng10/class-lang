@@ -1,4 +1,4 @@
-namespace Z.Tool.Avalon.PolateKindList;
+namespace Z.Tool.Mirai.PolateKindList;
 
 class Entry : EntryEntry
 {
