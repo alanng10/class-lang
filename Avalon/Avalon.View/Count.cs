@@ -30,17 +30,17 @@ public class Count : Comp
         }
     }
 
-    protected virtual bool ChangeValue(Change change)
+    protected virtual bool ModValue(Mod change)
     {
         this.Event(this.ValueField);
         return true;
     }
 
-    public override bool Change(Field varField, Change change)
+    public override bool Mod(Field varField, Mod mod)
     {
         if (this.ValueField == varField)
         {
-            this.ChangeValue(change);
+            this.ModValue(mod);
         }
         return true;
     }
