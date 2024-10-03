@@ -31,4 +31,4 @@ global using DrawPos = Avalon.Video.Pos;
 global using DrawSize = Avalon.Video.Size;
 global using DrawDraw = Mirai.Draw.Draw;
 global using DrawBrush = Mirai.Draw.Brush;
-global using DrawInfra = Avalon.Draw.Infra;
+global using DrawInfra = Mirai.Draw.Infra;
