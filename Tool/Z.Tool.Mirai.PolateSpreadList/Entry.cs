@@ -1,4 +1,4 @@
-namespace Z.Tool.Avalon.PolateSpreadList;
+namespace Z.Tool.Mirai.PolateSpreadList;
 
 class Entry : EntryEntry
 {
