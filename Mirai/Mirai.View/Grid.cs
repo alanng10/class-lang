@@ -8,17 +8,19 @@ public class Grid : View
         this.InfraInfra = InfraInfra.This;
         this.RowField = this.CreateRowField();
         this.ColField = this.CreateColField();
-        this.ChildListField = this.CreateChildListField();
+        this.ChildListField = this.CreateGridChildField();
         this.DestField = this.CreateDestField();
         this.Row = this.CreateRow();
         this.Col = this.CreateCol();
         this.ChildList = this.CreateChildList();
         this.Dest = this.CreateDest();
-        this.RangeA = this.CreateRangeA();
+
+        this.Back = this.DrawInfra.ZeroBrush;
+
         this.ChildPosData = this.CreateChildPosList();
         this.RowIter = this.Row.IterCreate();
         this.ColIter = this.Col.IterCreate();
-        this.ChildIter = this.ChildList.IterCreate();
+        this.ChildListIter = this.ChildList.IterCreate();
 
         this.StackGridChildListRect = this.CreateStackGridChildListRect();
         this.StackGridChildListPos = this.CreateStackGridChildListPos();
@@ -27,11 +29,10 @@ public class Grid : View
         return true;
     }
 
+    protected virtual InfraInfra InfraInfra { get; set; }
     protected virtual Iter RowIter { get; set; }
     protected virtual Iter ColIter { get; set; }
-    protected virtual Iter ChildIter { get; set; }
-    protected virtual InfraInfra InfraInfra { get; set; }
-    protected virtual InfraRange RangeA { get; set; }
+    protected virtual Iter ChildListIter { get; set; }
     protected virtual Data ChildPosData { get; set; }
 
     protected virtual DrawRect StackGridChildListRect { get; set; }
@@ -49,7 +50,7 @@ public class Grid : View
         return this.ViewInfra.FieldCreate(this);
     }
 
-    protected virtual Field CreateChildListField()
+    protected virtual Field CreateGridChildField()
     {
         return this.ViewInfra.FieldCreate(this);
     }
@@ -87,14 +88,6 @@ public class Grid : View
     {
         Rect a;
         a = new Rect();
-        a.Init();
-        return a;
-    }
-
-    protected virtual InfraRange CreateRangeA()
-    {
-        InfraRange a;
-        a = new InfraRange();
         a.Init();
         return a;
     }
@@ -163,7 +156,7 @@ public class Grid : View
         }
     }
 
-    protected virtual bool ModRow(Mod mod)
+    protected virtual bool ChangeRow(Mod change)
     {
         if ((this.Row == null) | (this.Col == null) | (this.ChildList == null))
         {
@@ -189,7 +182,7 @@ public class Grid : View
         }
     }
 
-    protected virtual bool ModCol(Mod mod)
+    protected virtual bool ChangeCol(Mod change)
     {
         if ((this.Row == null) | (this.Col == null) | (this.ChildList == null))
         {
@@ -215,7 +208,7 @@ public class Grid : View
         }
     }
 
-    protected virtual bool ModChildList(Mod mod)
+    protected virtual bool ChangeChildList(Mod change)
     {
         if ((this.Row == null) | (this.Col == null) | (this.ChildList == null))
         {
@@ -239,7 +232,7 @@ public class Grid : View
         }
     }
 
-    protected virtual bool ModDest(Mod mod)
+    protected virtual bool ChangeDest(Mod change)
     {
         this.Event(this.DestField);
         return true;
@@ -263,17 +256,12 @@ public class Grid : View
             this.ChildPosData = data;
         }
 
-        this.SetChildLeftArray();
-        this.SetChildUpArray();
+        this.SetChildColArray();
+        this.SetChildRowArray();
         return true;
     }
 
-    protected override bool ExecuteDrawThis(DrawDraw draw)
-    {
-        return true;
-    }
-
-    protected override bool CheckDrawChild()
+    protected override bool ValidDrawChild()
     {
         return true;
     }
@@ -286,21 +274,21 @@ public class Grid : View
 
     protected virtual bool ExecuteDrawGridChildList(DrawDraw draw)
     {
-        int left;
-        left = this.Dest.Pos.Left;
-        left = left + draw.Pos.Left;
-        int up;
-        up = this.Dest.Pos.Up;
-        up = up + draw.Pos.Up;
-        int width;
-        width = this.Dest.Size.Width;
-        int height;
-        height = this.Dest.Size.Height;
+        long col;
+        col = this.Dest.Pos.Col;
+        col = col + draw.Pos.Col;
+        long row;
+        row = this.Dest.Pos.Row;
+        row = row + draw.Pos.Row;
+        long wed;
+        wed = this.Dest.Size.Wed;
+        long het;
+        het = this.Dest.Size.Het;
 
-        this.DrawRectA.Pos.Left = left;
-        this.DrawRectA.Pos.Up = up;
-        this.DrawRectA.Size.Width = width;
-        this.DrawRectA.Size.Height = height;
+        this.DrawRectA.Pos.Col = col;
+        this.DrawRectA.Pos.Row = row;
+        this.DrawRectA.Size.Wed = wed;
+        this.DrawRectA.Size.Het = het;
 
         this.SetChildArea(this.DrawRectA);
 
@@ -315,14 +303,14 @@ public class Grid : View
     protected virtual bool ExecuteGridChildListDraw(DrawDraw draw)
     {
         Iter iter;
-        iter = this.ChildIter;
-        this.Child.IterSet(iter);
+        iter = this.ChildListIter;
+        this.ChildList.IterSet(iter);
         while (iter.Next())
         {
             GridChild child;
             child = (GridChild)iter.Value;
 
-            if (this.CheckDrawGridChild(child))
+            if (this.ValidDrawGridChild(child))
             {
                 this.ExecuteDrawGridChild(draw, child);
             }
@@ -330,62 +318,64 @@ public class Grid : View
         return true;
     }
 
-    protected virtual bool CheckDrawGridChild(GridChild child)
+    protected virtual bool ValidDrawGridChild(GridChild child)
     {
         return !(child.View == null);
     }
 
     protected virtual bool ExecuteDrawGridChild(DrawDraw draw, GridChild child)
     {
-        GridRect gridRect;
+        Rect gridRect;
         gridRect = child.Rect;
 
-        if (!this.CheckGridRect(gridRect))
+        if (!this.ValidGridRect(gridRect))
         {
-            return true;
+            return false;
         }
 
-        GridPos gridPos;
+        Pos gridPos;
         gridPos = gridRect.Pos;
-        GridSize gridSize;
+        Size gridSize;
         gridSize = gridRect.Size;
 
-        int startCol;
+        long startCol;
         startCol = gridPos.Col;
-        int endCol;
-        endCol = startCol + gridSize.Width;
-        int startRow;
+        long endCol;
+        endCol = startCol + gridSize.Wed;
+        long startRow;
         startRow = gridPos.Row;
-        int endRow;
-        endRow = startRow + gridSize.Height;
+        long endRow;
+        endRow = startRow + gridSize.Het;
 
-        int leftA;
-        leftA = this.GridColLeft(startCol);
-        int upA;
-        upA = this.GridRowUp(startRow);
-        int left;
-        left = leftA + draw.Pos.Left;
-        int up;
-        up = upA + draw.Pos.Up;
+        long lite;
+        long nite;
+        lite = this.GridPosColPixel(startCol);
+        nite = this.GridPosRowPixel(startRow);
+        long col;
+        long row;
+        col = lite + draw.Pos.Col;
+        row = nite + draw.Pos.Row;
 
-        int right;
-        right = this.GridColLeft(endCol);
-        int down;
-        down = this.GridRowUp(endRow);
+        long rite;
+        long site;
+        rite = this.GridPosColPixel(endCol);
+        site = this.GridPosRowPixel(endRow);
 
-        int width;
-        width = right - leftA;
-        int height;
-        height = down - upA;
+        long wed;
+        long het;
+        wed = rite - lite;
+        het = site - nite;
 
-        this.DrawRectA.Pos.Left = left;
-        this.DrawRectA.Pos.Up = up;
-        this.DrawRectA.Size.Width = width;
-        this.DrawRectA.Size.Height = height;
+        DrawRect rect;
+        rect = this.DrawRectA;
+        rect.Pos.Col = col;
+        rect.Pos.Row = row;
+        rect.Size.Wed = wed;
+        rect.Size.Het = het;
 
-        this.SetChildArea(this.DrawRectA);
+        this.SetChildArea(rect);
 
-        this.ViewInfra.StackPushChild(draw, this.StackGridChildRect, this.StackGridChildPos, this.DrawRectA, this.DrawPosA);
+        this.ViewInfra.StackPushChild(draw, this.StackGridChildRect, this.StackGridChildPos, rect, this.DrawPosA);
 
         this.ExecuteGridChildDraw(draw, child);
 
@@ -399,144 +389,140 @@ public class Grid : View
         return true;
     }
 
-    protected virtual bool CheckGridRect(GridRect rect)
+    protected virtual bool ValidGridRect(Rect rect)
     {
-        GridPos pos;
+        Pos pos;
         pos = rect.Pos;
-        GridSize size;
+        Size size;
         size = rect.Size;
 
-        this.RangeA.Index = pos.Col;
-        this.RangeA.Count = size.Width;
         bool ba;
-        ba = this.InfraInfra.CheckRange(this.Col.Count, this.RangeA);
+        ba = this.InfraInfra.ValidRange(this.Col.Count, pos.Col, size.Wed);
 
-        this.RangeA.Index = pos.Row;
-        this.RangeA.Count = pos.Row + size.Height;
         bool bb;
-        bb = this.InfraInfra.CheckRange(this.Row.Count, this.RangeA);
+        bb = this.InfraInfra.ValidRange(this.Row.Count, pos.Row, size.Het);
 
         bool a;
         a = ba & bb;
         return a;
     }
 
-    protected virtual int GridColLeft(int col)
+    protected virtual long GridPosColPixel(long col)
     {
         return this.GridPosPixelPos(col, 0);
     }
 
-    protected virtual int GridRowUp(int row)
+    protected virtual long GridPosRowPixel(long row)
     {
         return this.GridPosPixelPos(row, this.Col.Count);
     }
 
-    protected virtual int GridPosPixelPos(int pos, int start)
+    protected virtual long GridPosPixelPos(long pos, long start)
     {
-        int t;
+        long t;
         t = pos;
         bool b;
-        int u;
+        long u;
         u = 0;
 
         b = (t < 1);
         if (!b)
         {
             t = t - 1;
-            int index;
+            long index;
             index = start + t;
-            int byteIndex;
+            long byteIndex;
             byteIndex = this.IntByteIndex(index);
 
-            uint uu;
-            uu = this.InfraInfra.DataMidGet(this.ChildPosData, byteIndex);
-            u = (int)uu;
+            ulong uu;
+            uu = this.InfraInfra.DataIntGet(this.ChildPosData, byteIndex);
+            u = (long)uu;
         }
-        int ret;
-        ret = u;
-        return ret;
+        long a;
+        a = u;
+        return a;
     }
 
-    protected virtual bool SetChildLeftArray()
+    protected virtual bool SetChildColArray()
     {
-        int start;
+        long start;
         start = 0;
         Iter iter;
         iter = this.ColIter;
         this.Col.IterSet(iter);
-        int left;
-        left = 0;
+        long col;
+        col = 0;
 
-        int i;
+        long i;
         i = 0;
         while (iter.Next())
         {
-            GridCol gridCol;
-            gridCol = (GridCol)iter.Value;
-            left = left + gridCol.Width;
+            Count gridCol;
+            gridCol = (Count)iter.Value;
+            col = col + gridCol.Value;
 
-            int index;
+            long index;
             index = start + i;
-            int byteIndex;
+            long byteIndex;
             byteIndex = this.IntByteIndex(index);
-            uint u;
-            u = (uint)left;
-            this.InfraInfra.DataMidSet(this.ChildPosData, byteIndex, u);
+            this.InfraInfra.DataIntSet(this.ChildPosData, byteIndex, col);
             i = i + 1;
         }
         return true;
     }
 
-    protected virtual bool SetChildUpArray()
+    protected virtual bool SetChildRowArray()
     {
-        int start;
+        long start;
         start = this.Col.Count;
         Iter iter;
         iter = this.RowIter;
         this.Row.IterSet(iter);
-        int up;
-        up = 0;
+        long row;
+        row = 0;
 
-        int i;
+        long i;
         i = 0;
         while (iter.Next())
         {
-            GridRow gridRow;
-            gridRow = (GridRow)iter.Value;
-            up = up + gridRow.Height;
+            Count gridRow;
+            gridRow = (Count)iter.Value;
+            row = row + gridRow.Value;
 
-            int index;
+            long index;
             index = start + i;
-            int byteIndex;
+            long byteIndex;
             byteIndex = this.IntByteIndex(index);
-            uint u;
-            u = (uint)up;
-            this.InfraInfra.DataMidSet(this.ChildPosData, byteIndex, u);
+            this.InfraInfra.DataIntSet(this.ChildPosData, byteIndex, row);
             i = i + 1;
         }
         return true;
     }
 
-    public override bool Mod(Field field, Mod mod)
+    public override bool Change(Field varField, Change change)
     {
-        base.Mod(field, mod);
-        if (this.RowField == field)
+        base.Change(varField, change);
+        if (this.RowField == varField)
         {
-            this.ChangeRow(mod);
+            this.ChangeRow(change);
         }
-        if (this.ColField == field)
+        if (this.ColField == varField)
         {
-            this.ChangeCol(mod);
+            this.ChangeCol(change);
         }
-        if (this.ChildField == field)
+        if (this.ChildListField == varField)
         {
-            this.ChangeChild(mod);
+            this.ChangeChildList(change);
+        }
+        if (this.DestField == varField)
+        {
+            this.ChangeDest(change);
         }
         return true;
     }
 
-    protected virtual int IntByteIndex(int index)
+    protected virtual long IntByteIndex(long index)
     {
-        return index * sizeof(uint);
+        return index * sizeof(ulong);
     }
 }

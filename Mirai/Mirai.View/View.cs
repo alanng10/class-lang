@@ -316,7 +316,7 @@ public class View : Comp
         return true;
     }
 
-    protected virtual bool CheckDrawChild()
+    protected virtual bool ValidDrawChild()
     {
         return !(this.Child == null);
     }
@@ -324,10 +324,10 @@ public class View : Comp
     protected virtual bool ExecuteDrawChild(DrawDraw draw)
     {
         long left;
-        left = this.Pos.Left;
+        left = this.Pos.Col;
         left = left + draw.Pos.Col;
         long up;
-        up = this.Pos.Up;
+        up = this.Pos.Row;
         up = up + draw.Pos.Row;
 
         long width;

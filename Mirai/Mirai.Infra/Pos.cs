@@ -35,7 +35,7 @@ public class Pos : Comp
 
     public virtual Field LeftField { get; set; }
 
-    public virtual long Left
+    public virtual long Col
     {
         get
         {
@@ -56,7 +56,7 @@ public class Pos : Comp
 
     public virtual Field UpField { get; set; }
 
-    public virtual long Up
+    public virtual long Row
     {
         get
         {
