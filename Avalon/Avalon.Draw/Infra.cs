@@ -20,14 +20,12 @@ public class Infra : Any
         this.MathInfra = MathInfra.This;
         this.TextStringValue = TextStringValue.This;
         this.StorageStatusList = StorageStatusList.This;
-        this.BrushInfra = BrushInfra.This;
         return true;
     }
 
     protected virtual MathInfra MathInfra { get; set; }
     protected virtual TextStringValue TextStringValue { get; set; }
     protected virtual StorageStatusList StorageStatusList { get; set; }
-    private BrushInfra BrushInfra { get; set; }
 
     public virtual Color ColorCreate(long alpha, long red, long green, long blue)
     {
@@ -52,7 +50,13 @@ public class Infra : Any
 
     internal virtual ulong InternColor(Color color)
     {
-        return this.BrushInfra.InternColor(color);
+        ulong k;
+        k = 0;
+        k = k | ((((ulong)color.Blue) & 0xff) << (0 * 8));
+        k = k | ((((ulong)color.Green) & 0xff) << (1 * 8));
+        k = k | ((((ulong)color.Red) & 0xff) << (2 * 8));
+        k = k | ((((ulong)color.Alpha) & 0xff) << (3 * 8));
+        return k;
     }
 
     public virtual Pos PosCreate(long col, long row)
