@@ -6,7 +6,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <ProjectReference Include="../Class.Console/Class.Console.csproj" />
+        <ProjectReference Include="../Saber.Console/Saber.Console.csproj" />
     </ItemGroup>
 
 </Project>

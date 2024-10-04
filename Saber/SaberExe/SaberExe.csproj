@@ -9,7 +9,7 @@
 
     <ItemGroup>
         <ProjectReference Include="../../Avalon/Avalon.Entry/Avalon.Entry.csproj" />
-        <ProjectReference Include="../Class.Console/Class.Console.csproj" />
+        <ProjectReference Include="../Saber.Console/Saber.Console.csproj" />
     </ItemGroup>
 
 </Project>
