@@ -17,14 +17,11 @@ class VideoFrameState : State
 
     public override bool Execute()
     {
-        VideoFrame frame;        
-        frame = this.Demo.Play.VideoOut.Frame;
-
-        frame.Image(this.Demo.PlayImage);
+        this.Demo.Play.VideoOut.Image(this.Demo.PlayImage);
 
         this.ViewInfra.AssignDrawRectValue(this.Demo.UpdateRect, this.Demo.ViewA.Area);
 
-        this.Demo.Frame.Update(this.Demo.UpdateRect);
+        this.Demo.Frame.EventDraw(this.Demo.UpdateRect);
         return true;
     }
 }
