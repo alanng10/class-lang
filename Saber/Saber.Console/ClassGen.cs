@@ -553,13 +553,15 @@ public class ClassGen : ClassBase
         this.EvalValueGet(2, varA);
         this.EvalValueGet(1, varB);
 
-        this.VarMaskClear(varA, this.RefKindClearMask);
-        this.VarMaskClear(varB, this.RefKindClearMask);
-
         this.VarSet(varSA, varA);
         this.VarSet(varSB, varB);
 
+        this.SignExtend(varSA);
+        this.SignExtend(varSB);
+
         this.OperateLimit(varSA, varSA, varSB, limit);
+
+        this.SignExtend(varSA);
 
         this.VarSet(varA, varSA);
 
