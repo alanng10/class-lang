@@ -26,6 +26,5 @@ global using DrawPos = Avalon.Video.Pos;
 global using DrawRect = Avalon.Video.Rect;
 global using DrawImage = Avalon.Video.Video;
 global using Color = Avalon.Video.Color;
-global using FrameFrame = Avalon.Frame.Frame;
 global using DrawDraw = Mirai.Draw.Draw;
 global using DrawInfra = Mirai.Draw.Infra;
