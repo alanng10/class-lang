@@ -1,11 +1,11 @@
 --------------------------------------------------
-Kind: TargetInvalid
+Kind: MarkInvalid
 Range: (0, 0)
 Source: Code
 --------------------------------------------------
 AreExecute
 {
-    Target : null,
+    Mark : null,
     Value : ValueOperate
             {
                 Value : IntValue
