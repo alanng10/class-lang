@@ -3,7 +3,7 @@ Kind: ThisInvalid
 Range: (0, 0)
 Source: Code
 --------------------------------------------------
-SetTarget
+SetMark
 {
     This : null,
     Field : FieldName

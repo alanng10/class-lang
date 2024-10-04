@@ -8,7 +8,7 @@ Kind: FieldInvalid
 Range: (1, 1)
 Source: Code
 --------------------------------------------------
-SetTarget
+SetMark
 {
     This : null,
     Field : null,

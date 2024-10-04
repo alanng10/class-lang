@@ -3,7 +3,7 @@ Kind: FieldInvalid
 Range: (2, 2)
 Source: Code
 --------------------------------------------------
-SetTarget
+SetMark
 {
     This : VarOperate
            {
