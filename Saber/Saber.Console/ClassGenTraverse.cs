@@ -313,6 +313,50 @@ public class ClassGenTraverse : Traverse
         return true;
     }
 
+    public override bool ExecuteSignMulOperate(SignMulOperate signMulOperate)
+    {
+        base.ExecuteSignMulOperate(signMulOperate);
+
+        ClassGen gen;
+        gen = this.Gen;
+
+        String varA;
+        String varB;
+        varA = gen.VarA;
+        varB = gen.VarB;
+
+        String varSA;
+        String varSB;
+        varSA = gen.VarSA;
+        varSB = gen.VarSB;
+
+        String ka;
+        ka = gen.RefKindClearMask;
+
+        gen.EvalValueGet(2, varA);
+        gen.EvalValueGet(1, varB);
+
+        gen.VarMaskClear(varA, ka);
+        gen.VarMaskClear(varB, ka);
+
+        gen.VarSet(varSA, varA);
+        gen.VarSet(varSB, varB);
+
+        gen.OperateLimit(varSA, varSA, varSB, gen.LimitMul);
+
+        gen.VarSet(varA, varSA);
+
+        gen.VarMaskClear(varA, ka);
+
+        gen.VarMaskSet(varA, gen.RefKindIntMask);
+
+        gen.EvalValueSet(2, varA);
+
+        gen.EvalIndexPosSet(-1);
+
+        return true;
+    }
+
     public override bool ExecuteBitAndOperate(BitAndOperate bitAndOperate)
     {
         base.ExecuteBitAndOperate(bitAndOperate);
