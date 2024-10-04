@@ -57,7 +57,7 @@ class ViewB : View
         draw.Form = this.Form;
         draw.FormSet();
 
-        draw.ExecuteImage(this.DrawImage, rect, sourceRect);
+        draw.ExecuteVideo(this.DrawImage, rect, sourceRect);
 
         draw.Form = null;
         draw.FormSet();
@@ -67,7 +67,7 @@ class ViewB : View
 
         draw.Comp = this.DrawComp.SourceOver;
 
-        draw.ExecuteImage(this.ThreadDrawImage, this.DestRectA, this.SourceRectA);
+        draw.ExecuteVideo(this.ThreadDrawImage, this.DestRectA, this.SourceRectA);
 
         draw.Comp = null;
         return true;

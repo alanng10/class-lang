@@ -76,7 +76,7 @@ class ViewA : View
         draw.Form = this.Form;
         draw.FormSet();
 
-        draw.ExecuteImage(playImage, rect, rectB);
+        draw.ExecuteVideo(playImage, rect, rectB);
 
         draw.Form = null;
         draw.FormSet();
