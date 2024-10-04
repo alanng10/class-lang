@@ -1,4 +1,4 @@
-namespace ClassExe;
+namespace SaberExe;
 
 class Entry
 {
