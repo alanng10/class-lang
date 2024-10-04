@@ -82,6 +82,4 @@ global using Grid = Mirai.View.Grid;
 global using GridChild = Mirai.View.GridChild;
 global using EntryEntry = Avalon.Entry.Entry;
 global using STAThreadAttribute = System.STAThreadAttribute;
-global using Encoding = System.Text.Encoding;
 global using File = System.IO.File;
-global using Directory = System.IO.Directory;
