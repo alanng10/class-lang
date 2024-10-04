@@ -33,11 +33,6 @@ class TypeState : State
             this.Demo.Frame.Close();
         }
 
-        if (a == d.SignPercent & o)
-        {
-            this.Console.Out.Write(this.S("Type Button Sign Percent Pressed\n"));
-        }
-
         bool b;
         b = false;
     
@@ -189,14 +184,14 @@ class TypeState : State
         {
             this.ViewInfra.AssignDrawRectValue(this.Demo.UpdateRect, this.Demo.ViewA.Area);
 
-            this.Demo.Frame.Area(this.Demo.UpdateRect);
+            this.Demo.Frame.EventDraw(this.Demo.UpdateRect);
         }
 
         if (ba)
         {
             this.ViewInfra.AssignDrawRectValue(this.Demo.UpdateRect, this.Demo.ViewC.Area);
 
-            this.Demo.Frame.Area(this.Demo.UpdateRect);
+            this.Demo.Frame.EventDraw(this.Demo.UpdateRect);
         }
         return true;
     }
