@@ -207,39 +207,39 @@ public class Infra : Any
         return image;
     }
 
-    // public virtual bool ImageWrite(String path, Image image, ImageBinary binary)
-    // {
-    //     StorageStorage storage;
-    //     storage = new StorageStorage();
-    //     storage.Init();
-    //     StorageMode mode;
-    //     mode = new StorageMode();
-    //     mode.Init();
-    //     mode.Write = true;
-    //     storage.Path = path;
-    //     storage.Mode = mode;
-    //     storage.Open();
+    public virtual bool ImageWrite(String path, Video image, VideoBinary binary)
+    {
+        Storage storage;
+        storage = new Storage();
+        storage.Init();
+        StorageMode mode;
+        mode = new StorageMode();
+        mode.Init();
+        mode.Write = true;
+        storage.Path = path;
+        storage.Mode = mode;
+        storage.Open();
 
-    //     bool o;
-    //     o = false;
-    //     if (storage.Status == this.StorageStatusList.NoError)
-    //     {
-    //         StreamStream stream;
-    //         stream = storage.Stream;
+        bool o;
+        o = false;
+        if (storage.Status == this.StorageStatusList.NoError)
+        {
+            Stream stream;
+            stream = storage.Stream;
 
-    //         ImageWrite imageWrite;
-    //         imageWrite = new ImageWrite();
-    //         imageWrite.Init();
-    //         imageWrite.Stream = stream;
-    //         imageWrite.Binary = binary;
-    //         imageWrite.Image = image;
-    //         o = imageWrite.Execute();
-    //         imageWrite.Final();
-    //     }
-    //     storage.Close();
-    //     storage.Final();
-    //     return o;
-    // }
+            VideoWrite imageWrite;
+            imageWrite = new VideoWrite();
+            imageWrite.Init();
+            imageWrite.Stream = stream;
+            imageWrite.Binary = binary;
+            imageWrite.Video = image;
+            o = imageWrite.Execute();
+            imageWrite.Final();
+        }
+        storage.Close();
+        storage.Final();
+        return o;
+    }
 
     public virtual bool BoundArea(Rect bound, Rect area)
     {
