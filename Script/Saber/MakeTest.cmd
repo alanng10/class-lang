@@ -1,6 +1,6 @@
 @echo off
 
 echo Make Test
-pushd Class\ClassTestExe
+pushd Saber\SaberTestExe
 dotnet build -v quiet
 popd
