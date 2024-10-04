@@ -39,6 +39,7 @@ public class ClassGen : ClassBase
         this.EvalFrameVar = this.S("f");
         this.IntValuePre = this.S("0x");
         this.IntValuePost = this.S("ULL");
+        this.RefBitCount = this.S("4");
         this.BaseBitRightCount = this.S("52");
         this.RefKindClearMask = this.S("0x0fffffffffffffff");
         this.RefKindBoolMask = this.S("0x2000000000000000");
@@ -118,6 +119,7 @@ public class ClassGen : ClassBase
     public virtual String IntValuePre { get; set; }
     public virtual String IntValuePost { get; set; }
     public virtual String BaseBitRightCount { get; set; }
+    public virtual String RefBitCount { get; set; }
     public virtual String RefKindClearMask { get; set; }
     public virtual String RefKindBoolMask { get; set; }
     public virtual String RefKindIntMask { get; set; }
@@ -733,6 +735,14 @@ public class ClassGen : ClassBase
 
         this.Text(this.LimitSemicolon);
         this.Text(this.NewLine);
+        return true;
+    }
+
+    public virtual bool SignExtend(String varVar)
+    {
+        this.OperateLimit(varVar, varVar, this.RefBitCount, this.LimitBitLite);
+
+        this.OperateLimit(varVar, varVar, this.RefBitCount, this.LimitBitRite);
         return true;
     }
 
