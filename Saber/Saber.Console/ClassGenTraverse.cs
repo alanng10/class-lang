@@ -313,6 +313,43 @@ public class ClassGenTraverse : Traverse
         return true;
     }
 
+    public override bool ExecuteSignLessOperate(SignLessOperate signLessOperate)
+    {
+        base.ExecuteSignLessOperate(signLessOperate);
+
+        ClassGen gen;
+        gen = this.Gen;
+
+        String varA;
+        String varB;
+        varA = gen.VarA;
+        varB = gen.VarB;
+
+        String varSA;
+        String varSB;
+        varSA = gen.VarSA;
+        varSB = gen.VarSB;
+
+        gen.EvalValueGet(2, varA);
+        gen.EvalValueGet(1, varB);
+
+        gen.VarSet(varSA, varA);
+        gen.VarSet(varSB, varB);
+
+        gen.SignExtend(varSA);
+        gen.SignExtend(varSB);
+
+        gen.OperateLimit(varA, varSA, varSB, gen.LimitLess);
+
+        gen.VarMaskSet(varA, gen.RefKindBoolMask);
+
+        gen.EvalValueSet(2, varA);
+
+        gen.EvalIndexPosSet(-1);
+
+        return true;
+    }
+
     public override bool ExecuteSignMulOperate(SignMulOperate signMulOperate)
     {
         base.ExecuteSignMulOperate(signMulOperate);
