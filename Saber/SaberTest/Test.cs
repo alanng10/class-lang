@@ -68,7 +68,7 @@ public class Test : ClassBase
 
     protected virtual String DataRootDirectory()
     {
-        return this.S("../../Class/ClassTest/Test");
+        return this.S("../../Saber/SaberTest/Test");
     }
 
     protected virtual bool AddSetList()
