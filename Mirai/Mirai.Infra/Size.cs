@@ -5,12 +5,12 @@ public class Size : Comp
     public override bool Init()
     {
         base.Init();
-        this.WedField = this.CreateWidthField();
+        this.WedField = this.CreateWedField();
         this.HeightField = this.CreateHeightField();
         return true;
     }
 
-    protected virtual Field CreateWidthField()
+    protected virtual Field CreateWedField()
     {
         return this.ViewInfra.FieldCreate(this);
     }
