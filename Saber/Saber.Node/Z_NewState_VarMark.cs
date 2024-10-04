@@ -1,4 +1,4 @@
-namespace Class.Node;
+namespace Saber.Node;
 
 public class VarMarkNewState : InfraState
 {

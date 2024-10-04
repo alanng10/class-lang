@@ -1,4 +1,4 @@
-namespace Class.Binary;
+namespace Saber.Binary;
 
 public class Field : Any
 {

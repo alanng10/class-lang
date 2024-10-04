@@ -1,4 +1,4 @@
-namespace Class.Infra;
+namespace Saber.Infra;
 
 public class Field : Any
 {

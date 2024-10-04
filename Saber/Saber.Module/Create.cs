@@ -1,4 +1,4 @@
-namespace Class.Module;
+namespace Saber.Module;
 
 public class Create : InfraCreate
 {

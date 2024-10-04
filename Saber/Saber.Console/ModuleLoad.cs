@@ -1,4 +1,4 @@
-namespace Class.Console;
+namespace Saber.Console;
 
 public class ModuleLoad : ClassBase
 {

@@ -1,4 +1,4 @@
-namespace Class.Test.Exe;
+namespace Saber.Test.Exe;
 
 class Entry
 {

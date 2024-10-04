@@ -1,4 +1,4 @@
-namespace Class.Token;
+namespace Saber.Token;
 
 public class SetCreateOperate : CreateOperate
 {

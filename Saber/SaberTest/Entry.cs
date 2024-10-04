@@ -1,4 +1,4 @@
-namespace Class.Test;
+namespace Saber.Test;
 
 public class Entry : EntryEntry
 {
