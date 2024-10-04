@@ -43,9 +43,6 @@ class Demo : Any
         this.TextCodeKindList = TextCodeKindList.This;
         this.StorageStatusList = StorageStatusList.This;
         this.StorageComp = StorageComp.This;
-        this.NetworkPortKindList = NetworkPortKindList.This;
-        this.NetworkCaseList = NetworkCaseList.This;
-        this.NetworkStatusList = NetworkStatusList.This;
         this.BrushKindList = DrawBrushKindList.This;
         this.BrushLineList = DrawBrushLineList.This;
         this.BrushCapList = DrawBrushCapList.This;
@@ -79,8 +76,8 @@ class Demo : Any
         this.UpdateRect.Pos.Init();
         this.UpdateRect.Size = new DrawSize();
         this.UpdateRect.Size.Init();
-        this.UpdateRect.Size.Wed = this.Frame.DrawSize.Wed;
-        this.UpdateRect.Size.Het = this.Frame.DrawSize.Het;
+        this.UpdateRect.Size.Wed = this.Frame.VideoSize.Wed;
+        this.UpdateRect.Size.Het = this.Frame.VideoSize.Het;
 
         Type type;
         type = Type.This;
@@ -240,7 +237,7 @@ class Demo : Any
         this.ViewC = viewC;
 
         this.Frame.View = this.View;
-        this.Frame.Visible = true;
+        this.Frame.Video = true;
 
         ThreadThread thread;
         thread = varThis.Thread;
@@ -601,64 +598,6 @@ class Demo : Any
         return true;
     }
 
-    private bool ExecuteTime()
-    {
-        TextWrite write;
-        write = new TextWrite();
-        write.Init();
-
-        this.TextWrite = write;
-
-        TextWriteArg arg;
-        arg = new TextWriteArg();
-        arg.Init();
-        arg.Kind = 1;
-        arg.Base = 10;
-        arg.MaxWidth = -1;
-        arg.FieldWidth = 1;
-        this.TextWriteArg = arg;
-
-        Time time;
-        time = new Time();
-        time.Init();
-        
-        this.ConsoleWriteTime("Demo.ExecuteTime time init : ", time);
-        
-        time.This();
-        this.ConsoleWriteTime("Demo.ExecuteTime time current : ", time);
-
-        time.ToPos(2 * 60 * 60);
-        this.ConsoleWriteTime("Demo.ExecuteTime time ToPos : ", time);
-
-        time.AddMillisec(200 * 1000);
-        this.ConsoleWriteTime("Demo.ExecuteTime time AddMillisec : ", time);
-
-        time.Final();
-        return true;
-    }
-
-    private bool ConsoleWriteTime(string prefix, Time time)
-    {
-        this.AddClear().AddS(prefix);
-
-        this.AddS("yea: ").Add(this.IntString(time.Yea))
-            .AddS(", mon: ").Add(this.IntString(time.Mon))
-            .AddS(", day: ").Add(this.IntString(time.Day))
-            .AddS(", our: ").Add(this.IntString(time.Our))
-            .AddS(", min: ").Add(this.IntString(time.Min))
-            .AddS(", sec: ").Add(this.IntString(time.Sec))
-            .AddS(", millisec: ").Add(this.IntString(time.Tick))
-            .AddS(", pos: ").Add(this.IntString(time.Pos))
-            .AddS("\n");
-
-        String k;
-        k = this.AddResult();
-
-        this.Console.Out.Write(k);
-
-        return true;
-    }
-
     private String IntString(long o)
     {
         this.TextWriteArg.Value.Int = o;
@@ -674,492 +613,6 @@ class Demo : Any
         a = this.TextInfra.StringCreate(text);
 
         return a;
-    }
-
-    private bool ExecuteStorage()
-    {
-        StorageInfra infra;
-        infra = StorageInfra.This;
-
-        String ka;
-        
-        String k;
-        k = infra.TextRead(this.S("DemoData/Demo.txt"));
-        this.Console.Out.Write(this.S("Demo.txt text: \n"));
-        this.Console.Out.Write(k);
-        this.Console.Out.Write(this.S("\n"));
-
-        string ou;
-        ou = "DemoData/Demo2.txt";
-        File.Delete(ou);
-
-        String kou;
-        kou = this.S(ou);
-
-        bool b;
-        b = false;
-        bool ba;
-        ba = infra.TextWrite(kou, this.S("DEMO STORAGE WRITE AAA BBB"));
-        if (!ba)
-        {
-            ka = this.AddClear().AddS("Write ").Add(kou).AddS(" 1 Error\n").AddResult();
-
-            this.Console.Out.Write(ka);
-            b = true;
-        }
-
-        if (ba)
-        {
-            bool bb;
-            bb = infra.TextWrite(kou, this.S("DEMO STORAGE WRITE 2 AAA"));
-            if (!bb)
-            {
-                ka = this.AddClear().AddS("Write ").Add(kou).AddS(" 3 Error\n").AddResult();
-
-                this.Console.Out.Write(ka);
-                b = true;
-            }
-        }
-
-        if (!b)
-        {
-            k = infra.TextRead(kou);
-
-            ka = this.AddClear().Add(kou).AddS(" text: \n").Add(k).AddS("\n").AddResult();
-
-            this.Console.Out.Write(ka);
-        }
-
-        string oua;
-        oua = "DemoData/Demo3.txt";
-        File.Delete(oua);
-
-        String koua;
-        koua = this.S(oua);
-
-        bool bo;
-        bo = false;
-        bool baa;
-        baa = infra.TextWrite(koua, this.S("DEMO STORAGE WRITE DEMO ABCD"));
-        if (!baa)
-        {
-            ka = this.AddClear().AddS("Write ").Add(koua).AddS(" 1 Error\n").AddResult();
-
-            this.Console.Out.Write(ka);
-            bo = true;
-        }
-        if (baa)
-        {
-            String koa;
-            koa = this.S("OUHU");
-
-            bool bab;
-            bab = this.WriteStringPos(koua, koa, 19);
-            if (!bab)
-            {
-                ka = this.AddClear().AddS("Write ").Add(koua).AddS(" 2 Error\n").AddResult();
-
-                this.Console.Out.Write(ka);
-                bo = true;
-            }
-        }
-        if (!bo)
-        {
-            k = infra.TextRead(koua);
-
-            ka = this.AddClear().Add(koua).AddS(" text: \n").Add(k).AddS("\n").AddResult();
-
-            this.Console.Out.Write(ka);
-        }
-
-        string oub;
-        oub = "DemoData/Demo4.txt";
-        File.Delete(oub);
-
-        String koub;
-        koub = this.S(oub);
-
-        bo = false;
-        bool bac;
-        bac = infra.TextWrite(koub, this.S("Demo Storage Set Count aaaadda"));
-        if (!bac)
-        {
-            ka = this.AddClear().AddS("Write ").Add(koub).AddS(" Error\n").AddResult();
-
-            this.Console.Out.Write(ka);
-            bo = true;
-        }
-        if (bac)
-        {
-            bool bd;
-            bd = infra.CountSet(koub, 22);
-            if (!bd)
-            {
-                ka = this.AddClear().AddS("Set Count ").Add(koub).AddS(" Error\n").AddResult();
-
-                this.Console.Out.Write(ka);
-                bo = true;
-            }
-        }
-        if (!bo)
-        {
-            k = infra.TextRead(koub);
-
-            ka = this.AddClear().Add(koub).AddS(" text: \n").Add(k).AddS("\n").AddResult();
-
-            this.Console.Out.Write(ka);
-        }
-        return true;
-    }
-
-    private bool WriteStringPos(String filePath, String text, long pos)
-    {
-        TextCodeKindList list;
-        list = this.TextCodeKindList;
-
-        Data data;
-        data = this.TextInfra.StringDataCreateString(text);
-
-        Range range;
-        range = new Range();
-        range.Init();
-        range.Count = data.Count;
-
-        Data resultData;
-        resultData = this.TextInfra.Code(list.Utf32, list.Utf8, data, range);
-
-        Range resultRange;
-        resultRange = new Range();
-        resultRange.Init();
-        resultRange.Count = resultData.Count;
-
-        Storage storage;
-        storage = new Storage();
-        storage.Init();
-        StorageMode mode;
-        mode = new StorageMode();
-        mode.Init();
-        mode.Read = true;
-        mode.Write = true;
-        storage.Path = filePath;
-        storage.Mode = mode;
-        storage.Open();
-
-        bool o;
-        o = false;
-        if (storage.Status == this.StorageStatusList.NoError)
-        {
-            Stream stream;
-            stream = storage.Stream;
-            stream.PosSet(pos);
-            if (stream.Status == 0)
-            {
-                stream.Write(resultData, resultRange);
-                if (stream.Status == 0)
-                {
-                    o = true;
-                }
-            }
-        }
-        storage.Close();
-        storage.Final();
-        return o;
-    }
-
-    private bool ExecuteStorageArrange()
-    {
-        StorageComp storageComp;
-        storageComp = this.StorageComp;
-
-        bool b;
-
-        string pathA;        
-        pathA = "DemoData/DemoRename.txt";
-        string destPathA;
-        destPathA = "DemoData/Rename/Demo_a.txt";
-
-        try
-        {
-            File.Create(pathA).Dispose();
-        }
-        catch
-        {
-        }
-        try
-        {
-            Directory.CreateDirectory("DemoData/Rename");
-            File.Delete(destPathA);
-        }
-        catch
-        {
-        }
-
-        b = storageComp.Rename(this.S(pathA), this.S(destPathA));
-
-        this.Console.Out.Write(this.S("Rename File " + pathA + " " + this.StorageArrangeStatus(b) + "\n"));
-
-        string pathAa;
-        pathAa = "DemoData/FoldRename";
-        string pathAaa;
-        pathAaa = pathAa + "/FoldAa";
-        string pathAab;
-        pathAab = pathAaa + "/FileA";
-        string destPathAa;
-        destPathAa = "DemoData/FoldRenameDest";
-
-        try
-        {
-            Directory.Delete(destPathAa);
-        }
-        catch
-        {
-        }
-        try
-        {
-            Directory.CreateDirectory(pathAaa);
-            File.Create(pathAab).Dispose();
-        }
-        catch
-        {
-        }
-
-        b = storageComp.Rename(this.S(pathAa), this.S(destPathAa));
-
-        this.Console.Out.Write(this.S("Rename Fold " + pathAa + " " + this.StorageArrangeStatus(b) + "\n"));
-
-        string path;
-        path = "DemoData/DemoCopy.txt";
-        string destPath;
-        destPath = "DemoData/DemoCopy_Copy.txt";
-        File.Delete(destPath);
-
-        b = storageComp.FileCopy(this.S(path), this.S(destPath));
-
-        this.Console.Out.Write(this.S("FileCopy " + path + " to " + destPath + " " + this.StorageArrangeStatus(b) + "\n"));
-
-        string pathB;
-        pathB = "DemoData/Remove.txt";
-        try
-        {
-            File.Create(pathB).Dispose();
-        }
-        catch
-        {
-        }
-        b = storageComp.FileRemove(this.S(pathB));
-
-        this.Console.Out.Write(this.S("FileRemove " + pathB + " " + this.StorageArrangeStatus(b) + "\n"));
-
-
-        string pathC;
-        pathC = "DemoData/FoldA/FoldB";
-
-        try
-        {
-            Directory.Delete(pathC);
-            Directory.Delete("DemoData/FoldA");
-        }
-        catch
-        {
-        }
-
-        b = storageComp.FoldCreate(this.S(pathC));
-
-        this.Console.Out.Write(this.S("FoldCreate " + pathC + " " + this.StorageArrangeStatus(b) + "\n"));
-
-        string pathCa;
-        pathCa = "DemoData/FoldCopy";
-        string destPathCa;
-        destPathCa = "DemoData/FoldCopyDest";
-        
-        try
-        {
-            Directory.Delete(destPathCa, true);
-        }
-        catch
-        {
-        }
-
-        b = storageComp.FoldCopy(this.S(pathCa), this.S(destPathCa));
-
-        this.Console.Out.Write(this.S("FoldCopy " + pathCa + " to " + destPathCa + " " + this.StorageArrangeStatus(b) + "\n"));
-
-        string pathCb;
-        pathCb = "DemoData/RemoveFoldA";
-        string pathCba;
-        pathCba = pathCb + "/FoldB";
-        string pathCbb;
-        pathCbb = pathCba + "/FileA";
-        try
-        {
-            Directory.CreateDirectory(pathCba);
-
-            File.Create(pathCbb).Dispose();
-        }
-        catch
-        {
-        }
-
-        b = storageComp.FoldRemove(this.S(pathCb));
-
-        this.Console.Out.Write(this.S("FoldRemove " + pathCb + " " + this.StorageArrangeStatus(b) + "\n"));
-
-        string pathE;
-        pathE = "DemoData/image.jpg";
-
-        b = storageComp.Exist(this.S(pathE));
-
-        this.Console.Out.Write(this.S("Exist " + pathE + " " + b.ToString() + "\n"));
-
-        String foldListPath;
-        foldListPath = this.S("DemoData/FoldCopy/FoldA");
-
-        Array foldList;
-        foldList = storageComp.FoldList(foldListPath);
-
-        this.AddClear().AddS("Fold List: \n");
-
-        long count;
-        count = foldList.Count;
-        long i;
-        i = 0;
-        while (i < count)
-        {
-            String fold;
-            fold = (String)foldList.GetAt(i);
-
-            this.Add(fold).AddLine();
-
-            i = i + 1;
-        }
-
-        String aaka;
-        aaka = this.AddResult();
-
-        this.Console.Out.Write(aaka);
-
-        String fileListPath;
-        fileListPath = this.S("DemoData/FoldCopy/FoldA/FoldB");
-
-        Array fileList;
-        fileList = storageComp.FileList(fileListPath);
-
-        this.AddClear().AddS("File List: \n");
-
-        count = fileList.Count;
-        i = 0;
-        while (i < count)
-        {
-            String file;
-            file = (String)fileList.GetAt(i);
-
-            this.Add(file).AddLine();
-
-            i = i + 1;
-        }
-
-        String aakb;
-        aakb = this.AddResult();
-
-        this.Console.Out.Write(aakb);
-
-        storageComp.Final();
-        return true;
-    }
-
-    private string StorageArrangeStatus(bool b)
-    {
-        string k;
-        k = "Success";
-        if (!b)
-        {
-            k = "Error";
-        }
-        return k;
-    }
-
-    private bool ExecuteNetwork()
-    {
-        this.Console.Out.Write(this.S("Network Start\n"));
-
-        ThreadThread thread;
-        thread = new ThreadThread();
-        thread.Init();
-
-        ThreadNetworkHostState state;
-        state = new ThreadNetworkHostState();
-        state.Demo = this;
-        state.Init();
-
-        thread.ExecuteState = state;
-        
-        thread.Execute();
-
-        ThreadThread peerThread;
-        peerThread = new ThreadThread();
-        peerThread.Init();
-
-        ThreadNetworkState aa;
-        aa = new ThreadNetworkState();
-        aa.Init();
-
-        peerThread.ExecuteState = aa;
-
-        peerThread.Execute();
-
-        peerThread.Wait();
-
-        thread.Wait();
-
-        peerThread.Final();
-        
-        thread.Final();
-
-        this.Console.Out.Write(this.S("Network End\n"));
-        return true;
-    }
-
-    private bool ExecuteNetworkProcess()
-    {
-        this.Console.Out.Write(this.S("NetworkProcess Start\n"));
-
-        ThreadThread thread;
-        thread = new ThreadThread();
-        thread.Init();
-
-        ThreadNetworkHostState state;
-        state = new ThreadNetworkHostState();
-        state.Demo = this;
-        state.Init();
-
-        thread.ExecuteState = state;
-
-        thread.Execute();
-
-        List list;
-        list = new List();
-        list.Init();
-
-        Program program;
-        program = new Program();
-        program.Init();
-        program.Name = this.S("DemoNetwork.exe");
-        program.Argue = list;
-        program.WorkFold = null;
-        program.Environ = null;
-
-        program.Execute();
-
-        program.Wait();
-
-        thread.Wait();
-
-        program.Final();
-
-        thread.Final();
-
-        this.Console.Out.Write(this.S("NetworkProcess End\n"));
-        return true;
     }
 
     private DrawImage ThreadDrawImageCreate()
@@ -1304,7 +757,7 @@ class Demo : Any
 
         DrawBrush brush;
         brush = new DrawBrush();
-        brush.Kind = this.BrushKindList.Gradient;
+        brush.Kind = this.BrushKindList.Polate;
         brush.Polate = gradient;
         brush.Init();
 
@@ -1410,9 +863,6 @@ class Demo : Any
 
     private Play PlayCreate()
     {
-        VideoFrame videoFrame;
-        videoFrame = new VideoFrame();
-        videoFrame.Init();
         VideoFrameState frameState;
         frameState = new VideoFrameState();
         frameState.Init();
@@ -1421,7 +871,6 @@ class Demo : Any
         VideoOut videoOut;
         videoOut = new VideoOut();
         videoOut.Init();
-        videoOut.Frame = videoFrame;
         videoOut.FrameState = frameState;
 
         long scaleFactor;        
@@ -1451,8 +900,6 @@ class Demo : Any
     {
         VideoOut videoOut;
         videoOut = a.VideoOut;
-        VideoFrame videoFrame;
-        videoFrame = videoOut.Frame;
 
         AudioOut audioOut;
         audioOut = a.AudioOut;
@@ -1462,8 +909,6 @@ class Demo : Any
         audioOut.Final();
 
         videoOut.Final();
-
-        videoFrame.Final();
         return true;
     }
 
