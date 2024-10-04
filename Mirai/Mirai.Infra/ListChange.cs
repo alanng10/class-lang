@@ -1,6 +1,6 @@
 namespace Mirai.Infra;
 
-public class ListChange : Mod
+public class ListMod : Mod
 {
     public virtual Comp Item { get; set; }
 }

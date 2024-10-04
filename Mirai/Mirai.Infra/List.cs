@@ -18,19 +18,19 @@ public class List : Comp
         this.EventState.Init();
         this.EventState.List = this;
 
-        this.ListTriggerArg = (ListChange)this.ModArg;
+        this.ListTriggerArg = (ListMod)this.ModArg;
         return true;
     }
 
     protected virtual Table ItemTable { get; set; }
     protected virtual Iter ItemIter { get; set; }
     protected virtual ListState EventState { get; set; }
-    protected virtual ListChange ListTriggerArg { get; set; }
+    protected virtual ListMod ListTriggerArg { get; set; }
 
     protected override Mod CreateModArg()
     {
         Mod a;
-        a = new ListChange();
+        a = new ListMod();
         a.Init();
         return a;
     }
