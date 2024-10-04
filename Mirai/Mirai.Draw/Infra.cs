@@ -159,53 +159,53 @@ public class Infra : Any
         return a;
     }
 
-    // public virtual Image ImageCreateStorage(String path)
-    // {
-    //     Image image;
-    //     image = null;
-    //     StorageStorage storage;
-    //     storage = new StorageStorage();
-    //     storage.Init();
-    //     StorageMode mode;
-    //     mode = new StorageMode();
-    //     mode.Init();
-    //     mode.Read = true;
-    //     storage.Path = path;
-    //     storage.Mode = mode;
+    public virtual Video ImageCreateStorage(String path)
+    {
+        Video image;
+        image = null;
+        Storage storage;
+        storage = new Storage();
+        storage.Init();
+        StorageMode mode;
+        mode = new StorageMode();
+        mode.Init();
+        mode.Read = true;
+        storage.Path = path;
+        storage.Mode = mode;
 
-    //     storage.Open();
+        storage.Open();
 
-    //     if (storage.Status == this.StorageStatusList.NoError)
-    //     {
-    //         StreamStream stream;
-    //         stream = storage.Stream;
+        if (storage.Status == this.StorageStatusList.NoError)
+        {
+            Stream stream;
+            stream = storage.Stream;
 
-    //         Image aa;
-    //         aa = new Image();
-    //         aa.Init();
+            Video aa;
+            aa = new Video();
+            aa.Init();
 
-    //         ImageRead imageRead;
-    //         imageRead = new ImageRead();
-    //         imageRead.Init();
-    //         imageRead.Stream = stream;
-    //         imageRead.Image = aa;
+            VideoRead imageRead;
+            imageRead = new VideoRead();
+            imageRead.Init();
+            imageRead.Stream = stream;
+            imageRead.Video = aa;
 
-    //         bool b;
-    //         b = imageRead.Execute();
-    //         if (b)
-    //         {
-    //             image = aa;
-    //         }
-    //         if (!b)
-    //         {
-    //             aa.Final();
-    //         }
-    //         imageRead.Final();
-    //     }
-    //     storage.Close();
-    //     storage.Final();
-    //     return image;
-    // }
+            bool b;
+            b = imageRead.Execute();
+            if (b)
+            {
+                image = aa;
+            }
+            if (!b)
+            {
+                aa.Final();
+            }
+            imageRead.Final();
+        }
+        storage.Close();
+        storage.Final();
+        return image;
+    }
 
     // public virtual bool ImageWrite(String path, Image image, ImageBinary binary)
     // {
