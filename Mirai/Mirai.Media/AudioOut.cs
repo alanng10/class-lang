@@ -1,4 +1,4 @@
-namespace Avalon.Media;
+namespace Mirai.Media;
 
 public class AudioOut : Any
 {
