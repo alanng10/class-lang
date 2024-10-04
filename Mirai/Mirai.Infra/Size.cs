@@ -6,7 +6,7 @@ public class Size : Comp
     {
         base.Init();
         this.WedField = this.CreateWedField();
-        this.HeightField = this.CreateHeightField();
+        this.HetField = this.CreateHetField();
         return true;
     }
 
@@ -15,7 +15,7 @@ public class Size : Comp
         return this.ViewInfra.FieldCreate(this);
     }
 
-    protected virtual Field CreateHeightField()
+    protected virtual Field CreateHetField()
     {
         return this.ViewInfra.FieldCreate(this);
     }
@@ -26,9 +26,9 @@ public class Size : Comp
         {
             this.ModWed(mod);
         }
-        if (this.HeightField == field)
+        if (this.HetField == field)
         {
-            this.ModHeight(mod);
+            this.ModHet(mod);
         }
         return true;
     }
@@ -54,24 +54,24 @@ public class Size : Comp
         return true;
     }
 
-    public virtual Field HeightField { get; set; }
+    public virtual Field HetField { get; set; }
 
     public virtual long Het
     {
         get
         {
-            return this.HeightField.GetInt();
+            return this.HetField.GetInt();
         }
 
         set
         {
-            this.HeightField.SetInt(value);
+            this.HetField.SetInt(value);
         }
     }
 
-    protected virtual bool ModHeight(Mod mod)
+    protected virtual bool ModHet(Mod mod)
     {
-        this.Event(this.HeightField);
+        this.Event(this.HetField);
         return true;
     }
 }
