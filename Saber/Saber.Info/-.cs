@@ -9,5 +9,5 @@ global using TextInfra = Avalon.Text.Infra;
 global using Time = Avalon.Time.Time;
 global using StorageComp = Avalon.Storage.Comp;
 global using StorageInfra = Avalon.Storage.Infra;
-global using ClassBase = Class.Infra.Base;
-global using ClassInfra = Class.Infra.Infra;
+global using ClassBase = Saber.Infra.Base;
+global using ClassInfra = Saber.Infra.Infra;

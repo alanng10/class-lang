@@ -9,4 +9,4 @@ global using Array = Avalon.List.Array;
 global using ListInfra = Avalon.List.Infra;
 global using Text = Avalon.Text.Text;
 global using TextInfra = Avalon.Text.Infra;
-global using ModuleRef = Class.Infra.ModuleRef;
+global using ModuleRef = Saber.Infra.ModuleRef;
