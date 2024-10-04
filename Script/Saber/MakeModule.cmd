@@ -2,7 +2,7 @@
 
 echo Make Module
 set DotNetModuleOutFold=.\Out\net8.0
-pushd Class\SaberExe
+pushd Saber\SaberExe
 dotnet build -v quiet
 popd
 pushd %DotNetModuleOutFold%
