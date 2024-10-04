@@ -9,8 +9,7 @@ public class Create : InfraCreate
         this.ErrorKind = this.CreateErrorKindList();
         this.Count = this.CreateCountList();
 
-        this.SystemClass = new SystemClass();
-        this.SystemClass.Init();
+        this.InitSystemClass();
 
         this.ModuleRef = this.ClassInfra.ModuleRefCreate(null, 0);
 
@@ -32,6 +31,32 @@ public class Create : InfraCreate
     protected virtual Table BaseTable { get; set; }
     protected virtual Table RangeTable { get; set; }
     protected virtual ModuleRef ModuleRef { get; set; }
+
+    protected virtual bool InitSystemClass()
+    {
+        this.SystemClass = new SystemClass();
+        this.SystemClass.Init();
+
+        ClassClass anyClass;
+        anyClass = this.AnySystemClass(this.S("Any"), null);
+        anyClass.Base = anyClass;
+
+        this.SystemClass.Any = anyClass;
+        this.SystemClass.Bool = this.AnySystemClass(this.S("Bool"), anyClass);
+        this.SystemClass.Int = this.AnySystemClass(this.S("Int"), anyClass);
+        this.SystemClass.String = this.AnySystemClass(this.S("String"), anyClass);
+        return true;
+    }
+
+    protected virtual ClassClass AnySystemClass(String name, ClassClass baseClass)
+    {
+        ClassClass a;
+        a = new ClassClass();
+        a.Init();
+        a.Name = name;
+        a.Base = baseClass;
+        return a;
+    }
 
     protected virtual bool InitNullClass()
     {
