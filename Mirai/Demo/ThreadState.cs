@@ -26,8 +26,6 @@ class ThreadState : State
         console = Console.This;
         console.Out.Write(this.S("ThreadState.Execute START\n"));
 
-        this.Demo.ExecuteDemoThisThread();
-
         ThreadThis varThis;
         varThis = new ThreadThis();
         varThis.Init();
