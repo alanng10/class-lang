@@ -641,13 +641,13 @@ class Demo : Any
         return a;
     }
 
-    public virtual long MathValue(long significand, long exponent)
+    public virtual long MathValue(long cand, long expo)
     {
         MathComp mathComp;
         mathComp = this.MathComp;
 
-        mathComp.Cand = significand;
-        mathComp.Expo = exponent;
+        mathComp.Cand = cand;
+        mathComp.Expo = expo;
 
         long a;
         a = this.Math.Value(mathComp);
