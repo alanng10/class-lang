@@ -28,38 +28,6 @@ class ThreadState : State
 
         this.Demo.ExecuteDemoThisThread();
 
-        StorageInfra infra;
-        infra = StorageInfra.This;
-
-        String a;
-        a = infra.TextRead(this.S("DemoData/ThreadRead.txt"));
-
-        String ka;
-
-        ka = this.AddClear().AddS("ThreadRead.txt text: \n").Add(a).AddS("\n").AddResult();
-
-        console.Out.Write(ka);
-
-        string writeFilePath;
-        writeFilePath = "DemoData/ThreadWrite.txt";
-        File.Delete(writeFilePath);
-
-        String kkka;
-        kkka = this.S(writeFilePath);
-
-        bool b;        
-        b = infra.TextWrite(kkka, this.S("阿 了 水 GR 8 &\nEu #@ ?\n卡"));
-        if (!b)
-        {
-            console.Out.Write(this.S("ThreadWrite.txt write error\n"));
-        }
-        if (b)
-        {
-            a = infra.TextRead(kkka);
-
-            ka = this.AddClear().AddS("ThreadWrite.txt text: \n").Add(a).AddS("\n").AddResult();
-        }
-
         ThreadThis varThis;
         varThis = new ThreadThis();
         varThis.Init();
@@ -143,7 +111,7 @@ class ThreadState : State
         rectA.Size.Het = this.MathInt(h);
 
         draw.Fill = brushA;
-        draw.Comp = compList.DestinationOut;
+        draw.Comp = compList.DestOut;
         draw.ExecuteRect(rectA);
         draw.Comp = null;
         draw.End();
