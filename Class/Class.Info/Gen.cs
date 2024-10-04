@@ -24,7 +24,7 @@ public class Gen : ClassBase
     public virtual bool Load()
     {
         String k;
-        k = this.StorageInfra.TextReadAny(this.S("Class.Info.data/a.html"), true);
+        k = this.ClassInfra.StorageTextReadAny(this.S("Class.Info.data/a.html"), true);
 
         if (k == null)
         {
@@ -81,7 +81,7 @@ public class Gen : ClassBase
         time.This();
 
         long aa;
-        aa = time.TotalMillisec;
+        aa = time.TotalTick;
 
         time.Final();
 
@@ -157,7 +157,7 @@ public class Gen : ClassBase
         filePath = this.AddClear().Add(this.SourceFoldPath).Add(combine).Add(path).Add(combine).AddS("a.md").AddResult();
 
         String oo;
-        oo = this.StorageInfra.TextReadAny(filePath, true);
+        oo = this.ClassInfra.StorageTextReadAny(filePath, true);
 
         if (oo == null)
         {
@@ -248,7 +248,7 @@ public class Gen : ClassBase
         String outFilePath;
         outFilePath = this.AddClear().Add(foldPath).Add(combine).AddS("index.html").AddResult();
 
-        b = this.StorageInfra.TextWriteAny(outFilePath, a, true);
+        b = this.ClassInfra.StorageTextWriteAny(outFilePath, a, true);
         if (!b)
         {
             return false;
@@ -259,9 +259,6 @@ public class Gen : ClassBase
 
     protected virtual bool ExecuteVar()
     {
-        StorageInfra storageInfra;
-        storageInfra = this.StorageInfra;
-
         String newLine;
         newLine = this.S("\n");
         String semicolon;
@@ -288,7 +285,7 @@ public class Gen : ClassBase
         outFilePath = this.AddClear().Add(this.DestFoldPath).Add(combine).AddS("var.js").AddResult();
 
         bool b;
-        b = storageInfra.TextWriteAny(outFilePath, a, true);
+        b = this.ClassInfra.StorageTextWriteAny(outFilePath, a, true);
         if (!b)
         {
             return false;
@@ -307,7 +304,7 @@ public class Gen : ClassBase
 
         outFilePath = this.AddClear().Add(this.DestFoldPath).Add(combine).AddS("articlevar.js").AddResult();
 
-        b = storageInfra.TextWriteAny(outFilePath, a, true);
+        b = this.ClassInfra.StorageTextWriteAny(outFilePath, a, true);
         if (!b)
         {
             return false;
