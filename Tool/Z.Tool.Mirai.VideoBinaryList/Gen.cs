@@ -5,7 +5,7 @@ public class Gen : SourceGen
     public override bool Init()
     {
         base.Init();
-        this.Module = this.S("Mirai.Video");
+        this.Module = this.S("Mirai.Draw");
         this.ClassName = this.S("VideoBinaryList");
         this.BaseClassName = this.S("Any");
         this.AnyClassName = this.S("Any");
