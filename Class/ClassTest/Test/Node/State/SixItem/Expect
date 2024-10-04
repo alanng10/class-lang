@@ -67,13 +67,13 @@ State
                 },
                 AreExecute
                 {
-                    Target : VarTarget
-                             {
-                                 Var : VarName
-                                       {
-                                           Value : "d",
-                                       },
-                             },
+                    Mark : VarMark
+                           {
+                               Var : VarName
+                                     {
+                                         Value : "d",
+                                     },
+                           },
                     Value : ThisOperate
                             {
                             },
