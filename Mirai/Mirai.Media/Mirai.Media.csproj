@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <OutputPath>../../Out</OutputPath>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="../../Avalon/Avalon.Intern/Avalon.Intern.csproj" />
+        <ProjectReference Include="../../Avalon/Avalon.Infra/Avalon.Infra.csproj" />
+        <ProjectReference Include="../../Avalon/Avalon.Stream/Avalon.Stream.csproj" />
+        <ProjectReference Include="../../Avalon/Avalon.Video/Avalon.Video.csproj" />
+        <ProjectReference Include="../../Avalon/Avalon.Draw/Avalon.Draw.csproj" />
+    </ItemGroup>
+
+</Project>
