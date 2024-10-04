@@ -96,7 +96,7 @@ public class Create : InfraCreate
         this.ErrorList = new List();
         this.ErrorList.Init();
 
-        this.SystemClassSet();
+        this.ClassTableSet();
 
         this.ExecuteInit();
         this.ExecuteClass();
@@ -113,15 +113,22 @@ public class Create : InfraCreate
         return true;
     }
 
-    protected virtual bool SystemClassSet()
+    protected virtual bool ClassTableSet()
     {
-        ClassModule d;
-        d = this.ModuleGet(this.S("System.Infra"));
+        if (this.TextSame(this.TA(this.Module.Ref.Name), this.TB(this.S("System.Infra"))))
+        {
+            this.ClassTableAdd(this.SystemClass.Any);
+            this.ClassTableAdd(this.SystemClass.Bool);
+            this.ClassTableAdd(this.SystemClass.Int);
+            this.ClassTableAdd(this.SystemClass.String);
+        }
 
-        this.SystemClass.Any = this.ModuleClassGet(d, this.S("Any"));
-        this.SystemClass.Bool = this.ModuleClassGet(d, this.S("Bool"));
-        this.SystemClass.Int = this.ModuleClassGet(d, this.S("Int"));
-        this.SystemClass.String = this.ModuleClassGet(d, this.S("String"));
+        return true;
+    }
+
+    protected virtual bool ClassTableAdd(ClassClass varClass)
+    {
+        this.ListInfra.TableAdd(this.ClassTable, varClass.Name, varClass);
         return true;
     }
 
