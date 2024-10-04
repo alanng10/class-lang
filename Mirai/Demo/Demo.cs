@@ -273,7 +273,7 @@ class Demo : Any
     private DrawImage ImageCreate()
     {
         DrawImage image;
-        image = this.DrawInfra.ImageCreateStorage(this.S("DemoData/image.jpg"));
+        image = this.DrawInfra.ImageCreateStorage(this.S("MiraiDemoData/image.jpg"));
         return image;
     }
 
@@ -553,7 +553,7 @@ class Demo : Any
         Play a;
         a = new Play();
         a.Init();
-        a.Source = this.S("DemoData/Video.mp4");
+        a.Source = this.S("MiraiDemoData/Video.mp4");
         a.SourceSet();
         a.VideoOut = videoOut;
         a.AudioOut = audioOut;
