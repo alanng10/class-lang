@@ -5,73 +5,73 @@ public class Pos : Comp
     public override bool Init()
     {
         base.Init();
-        this.LeftField = this.CreateLeftField();
-        this.UpField = this.CreateUpField();
+        this.ColField = this.CreateColField();
+        this.RowField = this.CreateRowField();
         return true;
     }
 
-    protected virtual Field CreateLeftField()
+    protected virtual Field CreateColField()
     {
         return this.ViewInfra.FieldCreate(this);
     }
 
-    protected virtual Field CreateUpField()
+    protected virtual Field CreateRowField()
     {
         return this.ViewInfra.FieldCreate(this);
     }
 
     public override bool Mod(Field field, Mod mod)
     {
-        if (this.LeftField == field)
+        if (this.ColField == field)
         {
-            this.ModLeft(mod);
+            this.ModCol(mod);
         }
-        if (this.UpField == field)
+        if (this.RowField == field)
         {
-            this.ModUp(mod);
+            this.ModRow(mod);
         }
         return true;
     }
 
-    public virtual Field LeftField { get; set; }
+    public virtual Field ColField { get; set; }
 
     public virtual long Col
     {
         get
         {
-            return this.LeftField.GetInt();
+            return this.ColField.GetInt();
         }
 
         set
         {
-            this.LeftField.SetInt(value);
+            this.ColField.SetInt(value);
         }
     }
 
-    protected virtual bool ModLeft(Mod mod)
+    protected virtual bool ModCol(Mod mod)
     {
-        this.Event(this.LeftField);
+        this.Event(this.ColField);
         return true;
     }
 
-    public virtual Field UpField { get; set; }
+    public virtual Field RowField { get; set; }
 
     public virtual long Row
     {
         get
         {
-            return this.UpField.GetInt();
+            return this.RowField.GetInt();
         }
 
         set
         {
-            this.UpField.SetInt(value);
+            this.RowField.SetInt(value);
         }
     }
 
-    protected virtual bool ModUp(Mod mod)
+    protected virtual bool ModRow(Mod mod)
     {
-        this.Event(this.UpField);
+        this.Event(this.RowField);
         return true;
     }
 }
