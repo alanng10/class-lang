@@ -1,9 +1,9 @@
 @echo off
 
-call Script\Class\CleanModule
+call Script\Saber\CleanModule
 echo:
-call Script\Class\CleanTest
+call Script\Saber\CleanTest
 echo:
-call Script\Class\MakeModule
+call Script\Saber\MakeModule
 echo:
-call Script\Class\MakeTest
+call Script\Saber\MakeTest
