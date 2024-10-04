@@ -5,12 +5,12 @@ Source: Code
 --------------------------------------------------
 AreExecute
 {
-    Target : VarTarget
-             {
-                 Var : VarName
-                       {
-                           Value : "i",
-                       },
-             },
+    Mark : VarMark
+           {
+               Var : VarName
+                     {
+                         Value : "i",
+                     },
+           },
     Value : null,
 },
