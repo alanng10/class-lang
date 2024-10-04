@@ -45,6 +45,11 @@ public class Create : InfraCreate
         this.SystemClass.Bool = this.AnySystemClass(this.S("Bool"), anyClass);
         this.SystemClass.Int = this.AnySystemClass(this.S("Int"), anyClass);
         this.SystemClass.String = this.AnySystemClass(this.S("String"), anyClass);
+
+        Maide initMaide;
+        initMaide = this.CreateInitMaide(this.SystemClass.Bool);
+
+        this.ListInfra.TableAdd(this.SystemClass.Any.Maide, initMaide.Name, initMaide);
         return true;
     }
 
@@ -55,6 +60,21 @@ public class Create : InfraCreate
         a.Init();
         a.Name = name;
         a.Base = baseClass;
+        a.Field = this.ClassInfra.TableCreateStringLess();
+        a.Maide = this.ClassInfra.TableCreateStringLess();
+        return a;
+    }
+
+    protected virtual Maide CreateInitMaide(ClassClass boolClass)
+    {
+        Maide a;
+        a = new Maide();
+        a.Init();
+        a.Name = this.S("Init");
+        a.Class = boolClass;
+        a.Count = this.Count.Prusate;
+        a.Param = this.ClassInfra.TableCreateStringLess();
+        a.Call = this.ClassInfra.TableCreateStringLess();
         return a;
     }
 
