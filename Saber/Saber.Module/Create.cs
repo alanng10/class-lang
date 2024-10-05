@@ -9,7 +9,8 @@ public class Create : InfraCreate
         this.ErrorKind = this.CreateErrorKindList();
         this.Count = this.CreateCountList();
 
-        this.InitSystemClass();
+        this.SystemClass = new SystemClass();
+        this.SystemClass.Init();
 
         this.ModuleRef = this.ClassInfra.ModuleRefCreate(null, 0);
 
@@ -32,52 +33,6 @@ public class Create : InfraCreate
     protected virtual Table RangeTable { get; set; }
     protected virtual ModuleRef ModuleRef { get; set; }
 
-    protected virtual bool InitSystemClass()
-    {
-        this.SystemClass = new SystemClass();
-        this.SystemClass.Init();
-
-        ClassClass anyClass;
-        anyClass = this.AnySystemClass(this.S("Any"), null);
-        anyClass.Base = anyClass;
-
-        this.SystemClass.Any = anyClass;
-        this.SystemClass.Bool = this.AnySystemClass(this.S("Bool"), anyClass);
-        this.SystemClass.Int = this.AnySystemClass(this.S("Int"), anyClass);
-        this.SystemClass.String = this.AnySystemClass(this.S("String"), anyClass);
-
-        Maide initMaide;
-        initMaide = this.CreateInitMaide(this.SystemClass.Bool);
-
-        this.ListInfra.TableAdd(this.SystemClass.Any.Maide, initMaide.Name, initMaide);
-        return true;
-    }
-
-    protected virtual ClassClass AnySystemClass(String name, ClassClass baseClass)
-    {
-        ClassClass a;
-        a = new ClassClass();
-        a.Init();
-        a.Name = name;
-        a.Base = baseClass;
-        a.Field = this.ClassInfra.TableCreateStringLess();
-        a.Maide = this.ClassInfra.TableCreateStringLess();
-        return a;
-    }
-
-    protected virtual Maide CreateInitMaide(ClassClass boolClass)
-    {
-        Maide a;
-        a = new Maide();
-        a.Init();
-        a.Name = this.S("Init");
-        a.Class = boolClass;
-        a.Count = this.Count.Prusate;
-        a.Param = this.ClassInfra.TableCreateStringLess();
-        a.Call = this.ClassInfra.TableCreateStringLess();
-        return a;
-    }
-
     protected virtual bool InitNullClass()
     {
         ClassClass a;
@@ -96,7 +51,7 @@ public class Create : InfraCreate
         this.ErrorList = new List();
         this.ErrorList.Init();
 
-        this.ClassTableSet();
+        this.SystemClassSet();
 
         this.ExecuteInit();
         this.ExecuteClass();
@@ -113,22 +68,15 @@ public class Create : InfraCreate
         return true;
     }
 
-    protected virtual bool ClassTableSet()
+    protected virtual bool SystemClassSet()
     {
-        if (this.TextSame(this.TA(this.Module.Ref.Name), this.TB(this.S("System.Infra"))))
-        {
-            this.ClassTableAdd(this.SystemClass.Any);
-            this.ClassTableAdd(this.SystemClass.Bool);
-            this.ClassTableAdd(this.SystemClass.Int);
-            this.ClassTableAdd(this.SystemClass.String);
-        }
+        ClassModule d;
+        d = this.ModuleGet(this.S("System.Infra"));
 
-        return true;
-    }
-
-    protected virtual bool ClassTableAdd(ClassClass varClass)
-    {
-        this.ListInfra.TableAdd(this.ClassTable, varClass.Name, varClass);
+        this.SystemClass.Any = this.ModuleClassGet(d, this.S("Any"));
+        this.SystemClass.Bool = this.ModuleClassGet(d, this.S("Bool"));
+        this.SystemClass.Int = this.ModuleClassGet(d, this.S("Int"));
+        this.SystemClass.String = this.ModuleClassGet(d, this.S("String"));
         return true;
     }
 
@@ -420,7 +368,7 @@ public class Create : InfraCreate
         baseClass = varClass.Base;
 
         this.SetClassRangeClass(baseClass);
-        
+
         this.SetClassRangeOne(varClass.FieldRange, baseClass.FieldRange, varClass.Field.Count);
 
         this.SetClassRangeOne(varClass.MaideRange, baseClass.MaideRange, varClass.Maide.Count);
@@ -467,7 +415,7 @@ public class Create : InfraCreate
         {
             Field a;
             a = (Field)iter.Value;
-            
+
             if (!(a.Virtual == null))
             {
                 this.AddVirtualImport(a.Virtual.Parent);
@@ -562,7 +510,7 @@ public class Create : InfraCreate
         {
             return true;
         }
-        
+
         if (ka is Field)
         {
             return false;
@@ -589,7 +537,7 @@ public class Create : InfraCreate
                 b = true;
             }
         }
-        
+
         if (!b)
         {
             if (!this.VarSameClass(a.Param, k.Param))
@@ -633,7 +581,7 @@ public class Create : InfraCreate
             oo = this.ClassInfra.TableCreateRefLess();
             this.ListInfra.TableAdd(module.Import, o.Ref, oo);
         }
-        
+
         if (!oo.Valid(a))
         {
             this.ListInfra.TableAdd(oo, a, a);
