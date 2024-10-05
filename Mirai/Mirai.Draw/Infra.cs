@@ -210,7 +210,7 @@ public class Infra : Any
         return image;
     }
 
-    public virtual bool ImageWrite(String path, Image image, VideoBinary binary)
+    public virtual bool ImageWrite(String path, Image image, ImageBinary binary)
     {
         Storage storage;
         storage = new Storage();

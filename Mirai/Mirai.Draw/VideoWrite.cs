@@ -19,7 +19,7 @@ public class ImageWrite : Any
 
     public virtual Stream Stream { get; set; }
     public virtual Image Image { get; set; }
-    public virtual VideoBinary Binary { get; set; }
+    public virtual ImageBinary Binary { get; set; }
 
     private ulong Intern { get; set; }
 
