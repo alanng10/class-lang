@@ -440,6 +440,12 @@ public class ClassGenTraverse : Traverse
         return true;
     }
 
+    public override bool ExecuteBoolValue(BoolValue boolValue)
+    {
+        this.Gen.BoolValueRef(boolValue.Value);
+        return true;
+    }
+
     public override bool ExecuteIntValue(IntValue intValue)
     {
         this.Gen.IntValueRef(intValue.Value);
