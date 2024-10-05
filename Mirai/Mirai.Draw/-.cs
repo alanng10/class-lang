@@ -5,6 +5,7 @@ global using InternPolateStopPoint = Avalon.Intern.DrawPolateStopPoint;
 global using Any = Avalon.Infra.Any;
 global using String = Avalon.Infra.String;
 global using Range = Avalon.Infra.Range;
+global using Data = Avalon.Infra.Data;
 global using InfraInfra = Avalon.Infra.Infra;
 global using Array = Avalon.List.Array;
 global using MathMath = Avalon.Math.Math;
