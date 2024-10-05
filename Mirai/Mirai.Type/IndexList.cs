@@ -61,10 +61,10 @@ public class IndexList : Any
         this.Digit9 = this.AddDigitIndex();
         
         this.SignSpace = this.AddSignIndex(' ');
-        //this.SignBackTick = this.AddSignButton('`');
+        this.SignBackTick = this.AddSignIndex('`');
         this.SignNot = this.AddSignIndex('~');
         this.SignExclamate = this.AddSignIndex('!');
-        //this.SignAt = this.AddSignButton('@');
+        this.SignAt = this.AddSignIndex('@');
         this.SignHash = this.AddSignIndex('#');
         this.SignDollar = this.AddSignIndex('$');
         this.SignPercent = this.AddSignIndex('%');
@@ -178,10 +178,10 @@ public class IndexList : Any
     public virtual Index Digit9 { get; set; }
 
     public virtual Index SignSpace { get; set; }
-    // public virtual Button SignBackTick { get; set; }
+    public virtual Index SignBackTick { get; set; }
     public virtual Index SignNot { get; set; }
     public virtual Index SignExclamate { get; set; }
-    // public virtual Button SignAt { get; set; }
+    public virtual Index SignAt { get; set; }
     public virtual Index SignHash { get; set; }
     public virtual Index SignDollar { get; set; }
     public virtual Index SignPercent { get; set; }
