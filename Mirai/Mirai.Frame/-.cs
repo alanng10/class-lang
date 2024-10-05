@@ -25,7 +25,6 @@ global using Change = Avalon.Comp.Mod;
 global using TypeType = Mirai.Type.Type;
 global using DrawImage = Mirai.Draw.Video;
 global using VideoColor = Mirai.Draw.Color;
-global using VideoInfra = Mirai.Draw.Infra;
 global using DrawRect = Mirai.Draw.Rect;
 global using DrawPos = Mirai.Draw.Pos;
 global using DrawSize = Mirai.Draw.Size;

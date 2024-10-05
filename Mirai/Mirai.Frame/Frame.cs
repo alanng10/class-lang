@@ -9,7 +9,6 @@ public class Frame : Any
         this.InternInfra = InternInfra.This;
         this.MathInfra = MathInfra.This;
         this.TextInfra = TextInfra.This;
-        this.VideoInfra = VideoInfra.This;
         this.DrawInfra = DrawInfra.This;
         this.FrameInfra = Infra.This;
 
@@ -114,7 +113,6 @@ public class Frame : Any
     private InternInfra InternInfra { get; set; }
     protected virtual MathInfra MathInfra { get; set; }
     protected virtual TextInfra TextInfra { get; set; }
-    protected virtual VideoInfra VideoInfra { get; set; }
     protected virtual DrawInfra DrawInfra { get; set; }
     protected virtual MathMath Math { get; set; }
     protected virtual MathComp MathComp { get; set; }
@@ -168,7 +166,7 @@ public class Frame : Any
         byte ou;
         ou = byte.MaxValue;
 
-        a = this.VideoInfra.ColorCreate(ou, ou, ou, ou);
+        a = this.DrawInfra.ColorCreate(ou, ou, ou, ou);
         return a;
     }
 
@@ -274,7 +272,7 @@ public class Frame : Any
         return true;
     }
 
-    public virtual bool Video
+    public virtual bool Visible
     {
         get
         {
