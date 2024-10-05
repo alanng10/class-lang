@@ -416,6 +416,17 @@ public class ClassGenTraverse : Traverse
         return true;
     }
 
+    public override bool ExecuteStringValue(StringValue stringValue)
+    {
+        long index;
+        index = this.Gen.StringValueIndex;
+
+        index = index + 1;
+
+        this.Gen.StringValueIndex = index;
+        return true;
+    }
+
     protected virtual ModuleInfo Info(NodeNode node)
     {
         return (ModuleInfo)node.NodeAny;
