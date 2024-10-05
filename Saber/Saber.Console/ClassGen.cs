@@ -39,15 +39,16 @@ public class ClassGen : ClassBase
         this.EvalFrameVar = this.S("f");
         this.IntValuePre = this.S("0x");
         this.IntValuePost = this.S("ULL");
-        this.RefBitCount = this.S("4");
         this.BaseBitRightCount = this.S("52");
+        this.RefBitCount = this.S("4");
+        this.RefKindBoolDigit = this.S("2");
+        this.RefKindIntDigit = this.S("3");
         this.RefKindClearMask = this.S("0x0fffffffffffffff");
-        this.RefKindBoolMask = this.S("0x2000000000000000");
-        this.RefKindIntMask = this.S("0x3000000000000000");
+        this.RefKindBoolMask = this.RefKindMask(this.RefKindBoolDigit);
+        this.RefKindIntMask = this.RefKindMask(this.RefKindIntDigit);
         this.BaseClearMask = this.S("0xf00fffffffffffff");
         this.BaseMask = this.S("0x0ff0000000000000");
         this.MemoryIndexMask = this.S("0x000fffffffffffff");
-        this.RefKindIntDigit = this.S("3");
         this.ClassInt = this.S("Int");
         this.ClassCompState = this.S("CompState");
         this.StateGet = this.S("G");
@@ -124,13 +125,14 @@ public class ClassGen : ClassBase
     public virtual String IntValuePost { get; set; }
     public virtual String BaseBitRightCount { get; set; }
     public virtual String RefBitCount { get; set; }
+    public virtual String RefKindBoolDigit { get; set; }
+    public virtual String RefKindIntDigit { get; set; }
     public virtual String RefKindClearMask { get; set; }
     public virtual String RefKindBoolMask { get; set; }
     public virtual String RefKindIntMask { get; set; }
     public virtual String BaseClearMask { get; set; }
     public virtual String BaseMask { get; set; }
     public virtual String MemoryIndexMask { get; set; }
-    public virtual String RefKindIntDigit { get; set; }
     public virtual String ClassInt { get; set; }
     public virtual String ClassCompState { get; set; }
     public virtual String StateGet { get; set; }
@@ -163,6 +165,11 @@ public class ClassGen : ClassBase
     public virtual String LimitBitNot { get; set; }
     public virtual String LimitBitLite { get; set; }
     public virtual String LimitBitRite { get; set; }
+
+    protected virtual String RefKindMask(String kindHexDigit)
+    {
+        return this.AddClear().Add(this.IntValuePre).Add(kindHexDigit).AddS("000000000000000").AddResult();
+    }
 
     public virtual bool Execute()
     {
