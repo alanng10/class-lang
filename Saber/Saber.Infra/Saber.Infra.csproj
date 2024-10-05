@@ -15,12 +15,10 @@
         <ProjectReference Include="../../Avalon/Avalon.Comp/Avalon.Comp.csproj" />
         <ProjectReference Include="../../Avalon/Avalon.Thread/Avalon.Thread.csproj" />
         <ProjectReference Include="../../Avalon/Avalon.Stream/Avalon.Stream.csproj" />
-        <ProjectReference Include="../../Avalon/Avalon.Type/Avalon.Type.csproj" />
         <ProjectReference Include="../../Avalon/Avalon.Time/Avalon.Time.csproj" />
         <ProjectReference Include="../../Avalon/Avalon.Storage/Avalon.Storage.csproj" />
         <ProjectReference Include="../../Avalon/Avalon.Network/Avalon.Network.csproj" />
         <ProjectReference Include="../../Avalon/Avalon.Console/Avalon.Console.csproj" />
-        <ProjectReference Include="../../Avalon/Avalon.Draw/Avalon.Draw.csproj" />
         <ProjectReference Include="../../Avalon/Avalon.Entry/Avalon.Entry.csproj" />
     </ItemGroup>
 
