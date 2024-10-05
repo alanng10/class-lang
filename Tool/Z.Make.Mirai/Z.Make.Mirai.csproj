@@ -10,9 +10,9 @@
         <ProjectReference Include="../Z.Tool.Mirai.BrushJoinList/Z.Tool.Mirai.BrushJoinList.csproj" />
         <ProjectReference Include="../Z.Tool.Mirai.BrushKindList/Z.Tool.Mirai.BrushKindList.csproj" />
         <ProjectReference Include="../Z.Tool.Mirai.BrushLineList/Z.Tool.Mirai.BrushLineList.csproj" />
+        <ProjectReference Include="../Z.Tool.Mirai.ImageBinaryList/Z.Tool.Mirai.ImageBinaryList.csproj" />
         <ProjectReference Include="../Z.Tool.Mirai.PolateKindList/Z.Tool.Mirai.PolateKindList.csproj" />
         <ProjectReference Include="../Z.Tool.Mirai.PolateSpreadList/Z.Tool.Mirai.PolateSpreadList.csproj" />
-        <ProjectReference Include="../Z.Tool.Mirai.VideoBinaryList/Z.Tool.Mirai.VideoBinaryList.csproj" />
     </ItemGroup>
 
 </Project>
