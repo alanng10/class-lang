@@ -19,7 +19,7 @@ public class VideoRead : Any
     }
 
     public virtual Stream Stream { get; set; }
-    public virtual Image Video { get; set; }
+    public virtual Image Image { get; set; }
 
     private InternIntern InternIntern { get; set; }
     private ulong Intern { get; set; }
@@ -27,7 +27,7 @@ public class VideoRead : Any
     public virtual bool Execute()
     {
         Extern.ImageRead_StreamSet(this.Intern, this.Stream.Ident);
-        Extern.ImageRead_ImageSet(this.Intern, this.Video.Ident);
+        Extern.ImageRead_ImageSet(this.Intern, this.Image.Ident);
 
         ulong u;
         u = Extern.ImageRead_Execute(this.Intern);

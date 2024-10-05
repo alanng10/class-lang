@@ -191,7 +191,7 @@ public class Infra : Any
             imageRead = new VideoRead();
             imageRead.Init();
             imageRead.Stream = stream;
-            imageRead.Video = aa;
+            imageRead.Image = aa;
 
             bool b;
             b = imageRead.Execute();
