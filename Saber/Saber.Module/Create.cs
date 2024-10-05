@@ -15,6 +15,8 @@ public class Create : InfraCreate
         this.ModuleRef = this.ClassInfra.ModuleRefCreate(null, 0);
 
         this.InitNullClass();
+
+        this.SSystemInfra = this.S("System.Infra");
         return true;
     }
 
@@ -32,6 +34,8 @@ public class Create : InfraCreate
     protected virtual Table BaseTable { get; set; }
     protected virtual Table RangeTable { get; set; }
     protected virtual ModuleRef ModuleRef { get; set; }
+    protected virtual bool SystemInfraModule { get; set; }
+    protected virtual String SSystemInfra { get; set; }
 
     protected virtual bool InitNullClass()
     {
@@ -51,6 +55,10 @@ public class Create : InfraCreate
         this.ErrorList = new List();
         this.ErrorList.Init();
 
+        this.SystemInfraModule = this.IsSystemInfraModule();
+
+        this.SystemClassSet();
+        
         this.ExecuteInit();
         this.ExecuteClass();
         this.ExecuteBase();
@@ -68,13 +76,32 @@ public class Create : InfraCreate
 
     protected virtual bool SystemClassSet()
     {
+        if (this.SystemInfraModule)
+        {
+            return true;
+        }
+
         ClassModule d;
-        d = this.ModuleGet(this.S("System.Infra"));
+        d = this.ModuleGet(this.SSystemInfra);
 
         this.SystemClass.Any = this.ModuleClassGet(d, this.S("Any"));
         this.SystemClass.Bool = this.ModuleClassGet(d, this.S("Bool"));
         this.SystemClass.Int = this.ModuleClassGet(d, this.S("Int"));
         this.SystemClass.String = this.ModuleClassGet(d, this.S("String"));
+        return true;
+    }
+
+    protected virtual bool SystemClassInfraSet()
+    {
+        if (!this.SystemInfraModule)
+        {
+            return true;
+        }
+
+        this.SystemClass.Any = this.ModuleClassGet(this.Module, this.S("Any"));
+        this.SystemClass.Bool = this.ModuleClassGet(this.Module, this.S("Bool"));
+        this.SystemClass.Int = this.ModuleClassGet(this.Module, this.S("Int"));
+        this.SystemClass.String = this.ModuleClassGet(this.Module, this.S("String"));
         return true;
     }
 
@@ -89,6 +116,11 @@ public class Create : InfraCreate
     protected virtual ClassClass ModuleClassGet(ClassModule module, String className)
     {
         return (ClassClass)module.Class.Get(className);
+    }
+
+    protected virtual bool IsSystemInfraModule()
+    {
+        return this.TextSame(this.TA(this.Module.Ref.Name), this.TB(this.SSystemInfra));
     }
 
     protected virtual ErrorKindList CreateErrorKindList()
@@ -132,7 +164,7 @@ public class Create : InfraCreate
         traverse = this.ClassTraverse();
         this.ExecuteRootTraverse(traverse);
 
-        this.SystemClassSet();
+        this.SystemClassInfraSet();
         return true;
     }
 
