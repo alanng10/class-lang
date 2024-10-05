@@ -1,4 +1,4 @@
-namespace Z.Tool.Mirai.VideoBinaryList;
+namespace Z.Tool.Mirai.ImageBinaryList;
 
 public class Gen : SourceGen
 {
@@ -6,10 +6,10 @@ public class Gen : SourceGen
     {
         base.Init();
         this.Module = this.S("Mirai.Draw");
-        this.ClassName = this.S("VideoBinaryList");
+        this.ClassName = this.S("ImageBinaryList");
         this.BaseClassName = this.S("Any");
         this.AnyClassName = this.S("Any");
-        this.ItemClassName = this.S("VideoBinary");
+        this.ItemClassName = this.S("ImageBinary");
         this.ArrayClassName = this.S("Array");
         this.Export = true;
         this.StatItemClassName = this.S("ImageBinary");

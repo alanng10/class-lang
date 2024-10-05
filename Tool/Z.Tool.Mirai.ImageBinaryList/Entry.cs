@@ -1,4 +1,4 @@
-namespace Z.Tool.Mirai.VideoBinaryList;
+namespace Z.Tool.Mirai.ImageBinaryList;
 
 class Entry : EntryEntry
 {
