@@ -18,7 +18,7 @@ public class VideoWrite : Any
     }
 
     public virtual Stream Stream { get; set; }
-    public virtual Image Video { get; set; }
+    public virtual Image Image { get; set; }
     public virtual VideoBinary Binary { get; set; }
 
     private ulong Intern { get; set; }
@@ -27,7 +27,7 @@ public class VideoWrite : Any
     {
         Extern.ImageWrite_StreamSet(this.Intern, this.Stream.Ident);
         Extern.ImageWrite_BinarySet(this.Intern, this.Binary.Intern);
-        Extern.ImageWrite_ImageSet(this.Intern, this.Video.Ident);
+        Extern.ImageWrite_ImageSet(this.Intern, this.Image.Ident);
 
         ulong u;
         u = Extern.ImageWrite_Execute(this.Intern);

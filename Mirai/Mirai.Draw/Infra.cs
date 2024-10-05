@@ -235,7 +235,7 @@ public class Infra : Any
             imageWrite.Init();
             imageWrite.Stream = stream;
             imageWrite.Binary = binary;
-            imageWrite.Video = image;
+            imageWrite.Image = image;
             o = imageWrite.Execute();
             imageWrite.Final();
         }
