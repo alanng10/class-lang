@@ -230,8 +230,8 @@ public class Infra : Any
             Stream stream;
             stream = storage.Stream;
 
-            VideoWrite imageWrite;
-            imageWrite = new VideoWrite();
+            ImageWrite imageWrite;
+            imageWrite = new ImageWrite();
             imageWrite.Init();
             imageWrite.Stream = stream;
             imageWrite.Binary = binary;
