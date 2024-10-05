@@ -91,6 +91,8 @@ public class ClassGen : ClassBase
     public virtual CountClassGenOperate CountOperate { get; set; }
     public virtual SetClassGenOperate SetOperate { get; set; }
     public virtual ClassGenTraverse Traverse { get; set; }
+    public virtual Array StringValue { get; set; }
+    public virtual long StringValueIndex { get; set; }
     public virtual long BaseIndex { get; set; }
     public virtual String ClassBaseMask { get; set; }
     public virtual Field ThisField { get; set; }
@@ -212,6 +214,8 @@ public class ClassGen : ClassBase
 
     public virtual bool ExecuteStage()
     {
+        this.StringValueIndex = 0;
+
         NodeClass nodeClass;
         nodeClass = (NodeClass)this.Class.Any;
 
