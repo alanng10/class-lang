@@ -63,11 +63,11 @@ public class IndexList : Any
         this.SignSpace = this.AddSignIndex(' ');
         //this.SignBackTick = this.AddSignButton('`');
         this.SignNot = this.AddSignIndex('~');
-        // this.SignExclamate = this.AddSignIndex('!');
+        this.SignExclamate = this.AddSignIndex('!');
         //this.SignAt = this.AddSignButton('@');
         this.SignHash = this.AddSignIndex('#');
-        //this.SignDollar = this.AddSignButton('$');
-        // this.SignPercent = this.AddSignIndex('%');
+        this.SignDollar = this.AddSignIndex('$');
+        this.SignPercent = this.AddSignIndex('%');
         this.SignExpo = this.AddSignIndex('^');
         this.SignAnd = this.AddSignIndex('&');
         this.SignMul = this.AddSignIndex('*');
@@ -90,7 +90,7 @@ public class IndexList : Any
         this.SignLessSite = this.AddSignIndex('>');
         this.SignStop = this.AddSignIndex('.');
         this.SignDiv = this.AddSignIndex('/');
-        // this.SignQuest = this.AddSignIndex('?');
+        this.SignQuest = this.AddSignIndex('?');
         this.SignNext = this.AddSignIndex('\\');
         this.SignOrn = this.AddSignIndex('|');
 
@@ -180,11 +180,11 @@ public class IndexList : Any
     public virtual Index SignSpace { get; set; }
     // public virtual Button SignBackTick { get; set; }
     public virtual Index SignNot { get; set; }
-    // public virtual Index SignExclamate { get; set; }
+    public virtual Index SignExclamate { get; set; }
     // public virtual Button SignAt { get; set; }
     public virtual Index SignHash { get; set; }
-    // public virtual Button SignDollar { get; set; }
-    // public virtual Index SignPercent { get; set; }
+    public virtual Index SignDollar { get; set; }
+    public virtual Index SignPercent { get; set; }
     public virtual Index SignExpo { get; set; }
     public virtual Index SignAnd { get; set; }
     public virtual Index SignMul { get; set; }
@@ -207,7 +207,7 @@ public class IndexList : Any
     public virtual Index SignLessSite { get; set; }
     public virtual Index SignStop { get; set; }
     public virtual Index SignDiv { get; set; }
-    // public virtual Index SignQuest { get; set; }
+    public virtual Index SignQuest { get; set; }
     public virtual Index SignNext { get; set; }
     public virtual Index SignOrn { get; set; }
 
