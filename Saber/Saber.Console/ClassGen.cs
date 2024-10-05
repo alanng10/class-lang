@@ -47,6 +47,7 @@ public class ClassGen : ClassBase
         this.BaseClearMask = this.S("0xf00fffffffffffff");
         this.BaseMask = this.S("0x0ff0000000000000");
         this.MemoryIndexMask = this.S("0x000fffffffffffff");
+        this.RefKindIntDigit = this.S("3");
         this.ClassInt = this.S("Int");
         this.ClassCompState = this.S("CompState");
         this.StateGet = this.S("G");
@@ -129,6 +130,7 @@ public class ClassGen : ClassBase
     public virtual String BaseClearMask { get; set; }
     public virtual String BaseMask { get; set; }
     public virtual String MemoryIndexMask { get; set; }
+    public virtual String RefKindIntDigit { get; set; }
     public virtual String ClassInt { get; set; }
     public virtual String ClassCompState { get; set; }
     public virtual String StateGet { get; set; }
@@ -1254,6 +1256,18 @@ public class ClassGen : ClassBase
     public virtual bool ModuleVer(long ver)
     {
         this.Operate.ExecuteIntText(ver);
+        return true;
+    }
+
+    public virtual bool IntValueRef(long value)
+    {
+        this.Text(this.IntValuePre);
+
+        this.Text(this.RefKindIntDigit);
+
+        this.Operate.ExecuteIntText(value);
+
+        this.Text(this.IntValuePost);
         return true;
     }
 
