@@ -272,7 +272,7 @@ public class Frame : Any
         return true;
     }
 
-    public virtual bool Visible
+    public virtual bool Video
     {
         get
         {
