@@ -7,4 +7,4 @@ global using Handle = Avalon.Intern.Handle;
 global using Any = Avalon.Infra.Any;
 global using String = Avalon.Infra.String;
 global using State = Avalon.Infra.State;
-global using VideoVideo = Avalon.Video.Video;
+global using VideoVideo = Mirai.Draw.Video;
