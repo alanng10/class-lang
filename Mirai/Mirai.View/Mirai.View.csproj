@@ -13,10 +13,6 @@
         <ProjectReference Include="../../Avalon/Avalon.Text/Avalon.Text.csproj" />
         <ProjectReference Include="../../Avalon/Avalon.Event/Avalon.Event.csproj" />
         <ProjectReference Include="../../Avalon/Avalon.Comp/Avalon.Comp.csproj" />
-        <ProjectReference Include="../../Avalon/Avalon.Type/Avalon.Type.csproj" />
-        <ProjectReference Include="../../Avalon/Avalon.Video/Avalon.Video.csproj" />
-        <ProjectReference Include="../../Avalon/Avalon.Audio/Avalon.Audio.csproj" />
-        <ProjectReference Include="../../Avalon/Avalon.Frame/Avalon.Frame.csproj" />
         <ProjectReference Include="../Mirai.Infra/Mirai.Infra.csproj" />
     </ItemGroup>
 
