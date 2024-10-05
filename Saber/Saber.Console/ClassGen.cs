@@ -1266,6 +1266,25 @@ public class ClassGen : ClassBase
         return true;
     }
 
+    public virtual bool BoolValueRef(bool value)
+    {
+        this.Text(this.IntValuePre);
+
+        this.Text(this.RefKindBoolDigit);
+
+        long k;
+        k = 0;
+        if (value)
+        {
+            k = 1;
+        }
+
+        this.Operate.ExecuteIntText(k);
+
+        this.Text(this.IntValuePost);
+        return true;
+    }
+
     public virtual bool IntValueRef(long value)
     {
         this.Text(this.IntValuePre);
