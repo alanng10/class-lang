@@ -6,15 +6,10 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <ProjectReference Include="../../Avalon/Avalon.Intern/Avalon.Intern.csproj" />
         <ProjectReference Include="../../Avalon/Avalon.Infra/Avalon.Infra.csproj" />
         <ProjectReference Include="../../Avalon/Avalon.List/Avalon.List.csproj" />
-        <ProjectReference Include="../../Avalon/Avalon.Math/Avalon.Math.csproj" />
         <ProjectReference Include="../../Avalon/Avalon.Text/Avalon.Text.csproj" />
         <ProjectReference Include="../../Avalon/Avalon.Event/Avalon.Event.csproj" />
-        <ProjectReference Include="../../Avalon/Avalon.Comp/Avalon.Comp.csproj" />
-        <ProjectReference Include="../Mirai.Type/Mirai.Type.csproj" />
-        <ProjectReference Include="../Mirai.Draw/Mirai.Draw.csproj" />
     </ItemGroup>
 
 </Project>
