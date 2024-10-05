@@ -1,6 +1,6 @@
 namespace Mirai.Draw;
 
-public class VideoRead : Any
+public class ImageRead : Any
 {
     public override bool Init()
     {
