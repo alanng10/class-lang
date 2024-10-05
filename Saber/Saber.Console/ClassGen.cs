@@ -823,6 +823,25 @@ public class ClassGen : ClassBase
         return true;
     }
 
+    public virtual bool VarSetPre(String dest)
+    {
+        this.TextIndent();
+
+        this.Text(dest);
+
+        this.Text(this.Space);
+        this.Text(this.LimitAre);
+        this.Text(this.Space);
+        return true;
+    }
+
+    public virtual bool VarSetPost()
+    {
+        this.Text(this.LimitSemicolon);
+        this.Text(this.NewLine);
+        return true;
+    }
+
     public virtual bool VarSetPos(String dest, String value, long pos)
     {
         this.TextIndent();

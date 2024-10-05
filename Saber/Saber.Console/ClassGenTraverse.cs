@@ -416,10 +416,36 @@ public class ClassGenTraverse : Traverse
         return true;
     }
 
+    public override bool ExecuteValueOperate(ValueOperate valueOperate)
+    {
+        Value value;
+        value = valueOperate.Value;
+
+        ClassGen gen;
+        gen = this.Gen;
+
+        String varA;
+        varA = gen.VarA;
+
+        gen.VarSetPre(varA);
+
+        base.ExecuteValueOperate(valueOperate);
+
+        gen.VarSetPost();
+
+        gen.EvalValueSet(0, varA);
+
+        gen.EvalIndexPosSet(1);
+
+        return true;
+    }
+
     public override bool ExecuteStringValue(StringValue stringValue)
     {
         long index;
         index = this.Gen.StringValueIndex;
+
+        this.Gen.StringValueRef(index);
 
         index = index + 1;
 
