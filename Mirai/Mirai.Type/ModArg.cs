@@ -1,4 +1,4 @@
-namespace Avalon.Type;
+namespace Mirai.Type;
 
 public class ModArg : Any
 {
