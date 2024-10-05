@@ -18,7 +18,7 @@ public class VideoWrite : Any
     }
 
     public virtual Stream Stream { get; set; }
-    public virtual Video Video { get; set; }
+    public virtual Image Video { get; set; }
     public virtual VideoBinary Binary { get; set; }
 
     private ulong Intern { get; set; }

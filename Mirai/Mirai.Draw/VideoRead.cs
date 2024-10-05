@@ -19,7 +19,7 @@ public class VideoRead : Any
     }
 
     public virtual Stream Stream { get; set; }
-    public virtual Video Video { get; set; }
+    public virtual Image Video { get; set; }
 
     private InternIntern InternIntern { get; set; }
     private ulong Intern { get; set; }

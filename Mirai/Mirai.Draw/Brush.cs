@@ -68,7 +68,7 @@ public class Brush : Any
     public virtual BrushKind Kind { get; set; }
     public virtual Color Color { get; set; }
     public virtual Polate Polate { get; set; }
-    public virtual Video Video { get; set; }
+    public virtual Image Video { get; set; }
     public virtual BrushLine Line { get; set; }
     public virtual long Wed { get; set; }
     public virtual BrushCap Cap { get; set; }

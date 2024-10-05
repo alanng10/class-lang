@@ -151,10 +151,10 @@ public class Infra : Any
         return rect;
     }
 
-    public virtual Video ImageCreateSize(Size size)
+    public virtual Image ImageCreateSize(Size size)
     {
-        Video a;
-        a = new Video();
+        Image a;
+        a = new Image();
         a.Init();
         a.Size.Wed = size.Wed;
         a.Size.Het = size.Het;
@@ -162,9 +162,9 @@ public class Infra : Any
         return a;
     }
 
-    public virtual Video ImageCreateStorage(String path)
+    public virtual Image ImageCreateStorage(String path)
     {
-        Video image;
+        Image image;
         image = null;
         Storage storage;
         storage = new Storage();
@@ -183,8 +183,8 @@ public class Infra : Any
             Stream stream;
             stream = storage.Stream;
 
-            Video aa;
-            aa = new Video();
+            Image aa;
+            aa = new Image();
             aa.Init();
 
             VideoRead imageRead;
@@ -210,7 +210,7 @@ public class Infra : Any
         return image;
     }
 
-    public virtual bool ImageWrite(String path, Video image, VideoBinary binary)
+    public virtual bool ImageWrite(String path, Image image, VideoBinary binary)
     {
         Storage storage;
         storage = new Storage();

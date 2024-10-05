@@ -423,7 +423,7 @@ public class Draw : Any
         return true;
     }
 
-    public virtual bool ExecuteVideo(Video image, Rect destRect, Rect sourceRect)
+    public virtual bool ExecuteVideo(Image image, Rect destRect, Rect sourceRect)
     {
         this.InternRectSetFromRect(this.InternRectA, destRect);
         this.InternRectSetFromRect(this.InternRectB, sourceRect);
