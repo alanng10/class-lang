@@ -1,4 +1,4 @@
-namespace Avalon.Video;
+namespace Mirai.Draw;
 
 public class Video : Any
 {
