@@ -15,7 +15,6 @@
         <ProjectReference Include="../Avalon.Comp/Avalon.Comp.csproj" />
         <ProjectReference Include="../Avalon.Thread/Avalon.Thread.csproj" />
         <ProjectReference Include="../Avalon.Stream/Avalon.Stream.csproj" />
-        <ProjectReference Include="../Avalon.Type/Avalon.Type.csproj" />
         <ProjectReference Include="../Avalon.Time/Avalon.Time.csproj" />
         <ProjectReference Include="../Avalon.Storage/Avalon.Storage.csproj" />
         <ProjectReference Include="../Avalon.Network/Avalon.Network.csproj" />
