@@ -56,8 +56,6 @@ public class Create : InfraCreate
         this.ErrorList.Init();
 
         this.SystemInfraModule = this.IsSystemInfraModule();
-
-        this.SystemClassSet();
         
         this.ExecuteInit();
         this.ExecuteClass();
@@ -76,32 +74,22 @@ public class Create : InfraCreate
 
     protected virtual bool SystemClassSet()
     {
+        ClassModule d;
+        d = null;
+
         if (this.SystemInfraModule)
         {
-            return true;
+            d = this.Module;
         }
-
-        ClassModule d;
-        d = this.ModuleGet(this.SSystemInfra);
+        if (!this.SystemInfraModule)
+        {
+            d = this.ModuleGet(this.SSystemInfra);
+        }
 
         this.SystemClass.Any = this.ModuleClassGet(d, this.S("Any"));
         this.SystemClass.Bool = this.ModuleClassGet(d, this.S("Bool"));
         this.SystemClass.Int = this.ModuleClassGet(d, this.S("Int"));
         this.SystemClass.String = this.ModuleClassGet(d, this.S("String"));
-        return true;
-    }
-
-    protected virtual bool SystemClassInfraSet()
-    {
-        if (!this.SystemInfraModule)
-        {
-            return true;
-        }
-
-        this.SystemClass.Any = this.ModuleClassGet(this.Module, this.S("Any"));
-        this.SystemClass.Bool = this.ModuleClassGet(this.Module, this.S("Bool"));
-        this.SystemClass.Int = this.ModuleClassGet(this.Module, this.S("Int"));
-        this.SystemClass.String = this.ModuleClassGet(this.Module, this.S("String"));
         return true;
     }
 
@@ -164,7 +152,7 @@ public class Create : InfraCreate
         traverse = this.ClassTraverse();
         this.ExecuteRootTraverse(traverse);
 
-        this.SystemClassInfraSet();
+        this.SystemClassSet();
         return true;
     }
 
