@@ -51,8 +51,6 @@ public class Create : InfraCreate
         this.ErrorList = new List();
         this.ErrorList.Init();
 
-        this.SystemClassSet();
-
         this.ExecuteInit();
         this.ExecuteClass();
         this.ExecuteBase();
@@ -133,6 +131,8 @@ public class Create : InfraCreate
         Traverse traverse;
         traverse = this.ClassTraverse();
         this.ExecuteRootTraverse(traverse);
+
+        this.SystemClassSet();
         return true;
     }
 
