@@ -272,7 +272,20 @@ public class Create : InfraCreate
             varClass = (ClassClass)iter.Index;
 
             bool b;
-            b = this.ValidClassDependency(varClass);
+            b = false;
+
+            bool ba;
+            ba = (varClass == anyClass);
+
+            if (ba)
+            {
+                b = true;
+            }
+
+            if (!ba)
+            {
+                b = this.ValidClassDependency(varClass);
+            }
 
             ClassClass a;
             a = null;
