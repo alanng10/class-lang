@@ -30,7 +30,6 @@ class Demo : Any
         this.ListInfra = ListInfra.This;
         this.TextInfra = TextInfra.This;
         this.MathInfra = MathInfra.This;
-        this.DrawInfra = DrawInfra.This;
         this.StringComp = StringComp.This;
         this.TextCodeKindList = TextCodeKindList.This;
         this.StorageStatusList = StorageStatusList.This;
@@ -38,10 +37,6 @@ class Demo : Any
         this.NetworkPortKindList = NetworkPortKindList.This;
         this.NetworkCaseList = NetworkCaseList.This;
         this.NetworkStatusList = NetworkStatusList.This;
-        this.BrushKindList = DrawBrushKindList.This;
-        this.BrushLineList = DrawBrushLineList.This;
-        this.BrushCapList = DrawBrushCapList.This;
-        this.BrushJoinList = DrawBrushJoinList.This;
         this.Console = Console.This;
 
         this.StringAdd = new StringAdd();
@@ -65,8 +60,6 @@ class Demo : Any
         this.ExecuteStorage();
         this.ExecuteStorageArrange();
 
-        this.ThreadDrawImage = this.ThreadDrawImageCreate();
-
         this.ExecuteDemoThread();
         this.ExecuteTimeEvent();
         this.ExecutePost();
@@ -74,208 +67,10 @@ class Demo : Any
         // this.ExecuteNetwork();
         // this.ExecuteNetworkProcess();
 
-        this.Frame = new Frame();
-        this.Frame.Init();
-        this.Frame.Title = this.S("Avalon Demo");
-        this.Frame.TitleSet();
-
-        this.UpdateRect = new DrawRect();
-        this.UpdateRect.Init();
-        this.UpdateRect.Pos = new DrawPos();
-        this.UpdateRect.Pos.Init();
-        this.UpdateRect.Size = new DrawSize();
-        this.UpdateRect.Size.Init();
-        this.UpdateRect.Size.Wed = this.Frame.DrawSize.Wed;
-        this.UpdateRect.Size.Het = this.Frame.DrawSize.Het;
-
-        Type type;
-        type = Type.This;
-        TypeState state;
-        state = new TypeState();
-        state.Init();
-        state.Demo = this;
-        type.Mod.State.AddState(state);
-        this.Frame.Type = type;
-
-        DrawBrush brush;
-        brush = new DrawBrush();
-        brush.Kind = this.BrushKindList.Color;
-        brush.Color = this.DrawInfra.ColorCreate(0xff, 0, 0xff, 0);
-        brush.Init();
-
-        View view;
-        view = new View();
-        view.Init();
-        view.Pos.Col = 100;
-        view.Pos.Row = 100;
-        view.Size.Wed = 1600;
-        view.Size.Het = 900;
-        view.Back = brush;
-
-        DrawBrush brushA;
-        brushA = new DrawBrush();
-        brushA.Kind = this.BrushKindList.Color;
-        brushA.Color = this.DrawInfra.ColorCreate(0xff, 0, 0, 0xff);
-        brushA.Init();
-
-        DrawBrush penBrush;
-        penBrush = new DrawBrush();
-        penBrush.Kind = this.BrushKindList.Color;
-        penBrush.Color = this.DrawInfra.ColorCreate(0xff, 0xff, 0, 0xff);
-        penBrush.Line = this.BrushLineList.DashDotDot;
-        penBrush.Wed = this.MathInt(11);
-        penBrush.Cap = this.BrushCapList.Round;
-        penBrush.Join = this.BrushJoinList.Bevel;
-        penBrush.Init();
-
-        ViewC viewC;
-        viewC = this.ViewCCreate();
-
-        DrawForm viewAForm;
-        viewAForm = new DrawForm();
-        viewAForm.Init();
-
-        ViewA viewA;
-        viewA = new ViewA();
-        viewA.Init();
-        viewA.Pos.Col = 0;
-        viewA.Pos.Row = 0;
-        viewA.Size.Wed = 600;
-        viewA.Size.Het = 400;
-        viewA.Back = brushA;
-        viewA.DrawPen = penBrush;
-        viewA.Form = viewAForm;
-        viewA.Demo = this;
-
-        DrawBrush gridBrush;
-        gridBrush = new DrawBrush();
-        gridBrush.Kind = this.BrushKindList.Color;
-        gridBrush.Color = this.DrawInfra.ColorCreate(0x80, 0, 0, 0);
-        gridBrush.Init();
-
-        Grid grid;
-        grid = new Grid();
-        grid.Init();
-
-        grid.Back = gridBrush;
-
-        ViewCount colA;
-        colA = new ViewCount();
-        colA.Init();
-        colA.Value = 600;
-        ViewCount colB;
-        colB = new ViewCount();
-        colB.Init();
-        colB.Value = 600;
-        ViewCount rowA;
-        rowA = new ViewCount();
-        rowA.Init();
-        rowA.Value = 600;
-        GridChild childA;
-        childA = new GridChild();
-        childA.Init();
-        childA.View = viewA;
-        childA.Rect.Size.Wed = 1;
-        childA.Rect.Size.Het = 1;
-        GridChild childB;
-        childB = new GridChild();
-        childB.Init();
-        childB.View = viewC;
-        childB.Rect.Pos.Col = 1;
-        childB.Rect.Size.Wed = 1;
-        childB.Rect.Size.Het = 1;
-
-        grid.Pos.Col = 50;
-        grid.Pos.Row = 50;
-        grid.Size.Wed = 1500;
-        grid.Size.Het = 800;
-        grid.Dest.Pos.Col = 0;
-        grid.Dest.Pos.Row = 0;
-        grid.Dest.Size.Wed = 1500;
-        grid.Dest.Size.Het = 800;
-        grid.Row.Add(rowA);
-        grid.Col.Add(colA);
-        grid.Col.Add(colB);
-        grid.ChildList.Add(childA);
-        grid.ChildList.Add(childB);
-
-        view.Child = grid;
-
-        DrawImage image;
-        image = this.ImageCreate();
-
-        long wedA;
-        long hetA;
-        wedA = 400;
-        hetA = 200;
-        DrawRect sourceRect;
-        sourceRect = this.DrawInfra.RectCreate(this.MathInt(1880), this.MathInt(910), this.MathInt(wedA), this.MathInt(hetA));
-
-        DrawForm formA;
-        formA = new DrawForm();
-        formA.Init();
-
-        DrawRect destRectA;
-        destRectA = this.DrawInfra.RectCreate(0, 0, this.MathInt(200), this.MathInt(200));
-
-        DrawRect sourceRectA;
-        sourceRectA = this.DrawInfra.RectCreate(0, 0, this.MathInt(200), this.MathInt(200));
-
-        ViewB viewB;
-        viewB = new ViewB();
-        viewB.Init();
-        viewB.Pos.Col = 60;
-        viewB.Pos.Row = 40;
-        viewB.Size.Wed = wedA;
-        viewB.Size.Het = hetA;
-        viewB.DrawImage = image;
-        viewB.SourceRect = sourceRect;
-        viewB.Form = formA;
-        viewB.ThreadDrawImage = this.ThreadDrawImage;
-        viewB.DestRectA = destRectA;
-        viewB.SourceRectA = sourceRectA;
-
-        viewA.Child = viewB;
-
-        this.PlayImage = this.PlayImageCreate();
-
-        this.Play = this.PlayCreate();
-
-        this.ViewA = viewA;
-        this.View = view;
-        this.ViewC = viewC;
-
-        this.Frame.View = this.View;
-        this.Frame.Visible = true;
-
         ThreadThread thread;
         thread = varThis.Thread;
         
         thread.ExecuteMain();
-
-        this.PlayFinal(this.Play);
-
-        this.PlayImageFinal(this.PlayImage);
-
-        formA.Final();
-
-        this.ImageFinal(image);
-
-        gridBrush.Final();
-
-        viewAForm.Final();
-
-        this.ViewCFinal(viewC);
-
-        penBrush.Final();
-
-        brushA.Final();
-
-        brush.Final();
-
-        this.Frame.Final();
-
-        this.ThreadDrawImageFinal(this.ThreadDrawImage);
         return true;
     }
 
