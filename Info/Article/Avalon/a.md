@@ -27,6 +27,4 @@ the Thread is the thread that Post class Any is Init.
 Post class Any Execute method is call to queue event. When the event loop execute the event, it will execute a State Any in Post class Any.
 The Execute method can be call from any Thread.
 
-Avalon.Storage module Storage class has field AnyNode that is type "bool" to set the Storage Any to accept any storage nodes.
-
 Avalon has text with each char unit in 32 bits Int. Avalon has String with char in 32 bits Int.
