@@ -3,7 +3,7 @@ namespace Demo;
 class Demo : Any
 {
     public NetworkNetwork Peer { get; set; }
-    public NetworkHost Host { get; set; }
+    public NetworkHostA Host { get; set; }
 
     public virtual InfraInfra InfraInfra { get; set; }
     public virtual ListInfra ListInfra { get; set; }
