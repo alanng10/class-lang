@@ -15,7 +15,7 @@ class ThreadNetworkHostState : State
         port = new NetworkPort();
         port.Init();
         port.Kind = portKindList.LocalHost;
-        port.Host = 50900;
+        port.Host = 50920;
 
         NetworkHostA host;
         host = new NetworkHostA();

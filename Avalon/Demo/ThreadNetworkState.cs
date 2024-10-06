@@ -21,7 +21,7 @@ public class ThreadNetworkState : State
         String hostName;
         hostName = this.S("localhost");
         long hostPort;
-        hostPort = 50400;
+        hostPort = 50920;
 
         NetworkA network;
         network = new NetworkA();
