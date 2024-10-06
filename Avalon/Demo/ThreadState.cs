@@ -33,7 +33,7 @@ class ThreadState : State
         infra = StorageInfra.This;
 
         String a;
-        a = this.StorageInfra.TextReadAny(this.S("DemoData/ThreadRead.txt"), true);
+        a = this.StorageInfra.TextRead(this.S("DemoData/ThreadRead.txt"));
 
         String ka;
 
@@ -49,14 +49,14 @@ class ThreadState : State
         kkka = this.S(writeFilePath);
 
         bool b;        
-        b = this.StorageInfra.TextWriteAny(kkka, this.S("阿 了 水 GR 8 &\nEu #@ ?\n卡"), true);
+        b = this.StorageInfra.TextWrite(kkka, this.S("阿 了 水 GR 8 &\nEu #@ ?\n卡"));
         if (!b)
         {
             console.Out.Write(this.S("ThreadWrite.txt write error\n"));
         }
         if (b)
         {
-            a = this.StorageInfra.TextReadAny(kkka, true);
+            a = this.StorageInfra.TextRead(kkka);
 
             ka = this.AddClear().AddS("ThreadWrite.txt text: \n").Add(a).AddS("\n").AddResult();
         }
