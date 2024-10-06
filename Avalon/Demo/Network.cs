@@ -21,7 +21,7 @@ public class Network : NetworkNetwork
     public virtual ThreadNetworkState ThreadState { get; set; }
 
     public virtual long StatusCode { get; set; }
-    public virtual long ProtocolCase { get; set; }
+    public virtual long Stage { get; set; }
 
     protected virtual TextInfra TextInfra { get; set; }
 
@@ -97,7 +97,7 @@ public class Network : NetworkNetwork
         count = 0;
 
         long cc;
-        cc = this.ProtocolCase;
+        cc = this.Stage;
         if (cc == 0)
         {
             count = 1;
@@ -133,7 +133,7 @@ public class Network : NetworkNetwork
             {
                 Console.This.Out.Write(this.S("Network Case 0 Success\n"));
 
-                this.ProtocolCase = 1;
+                this.Stage = 1;
 
                 data.Set(0, 11);
                 data.Set(1, 57);
@@ -163,7 +163,7 @@ public class Network : NetworkNetwork
             {
                 Console.This.Out.Write(this.S("Network Case 1 Success\n"));
 
-                this.ProtocolCase = 2;
+                this.Stage = 2;
 
                 TextInfra textInfra;
                 textInfra = this.TextInfra;
