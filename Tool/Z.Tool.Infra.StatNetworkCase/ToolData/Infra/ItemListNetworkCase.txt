@@ -1,2 +1,7 @@
-Close
-Open
+Unconnected
+HostLookup
+Connecting
+Connected
+Bound
+Listening
+Closing
