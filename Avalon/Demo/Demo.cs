@@ -471,7 +471,7 @@ class Demo : Any
         String ka;
         
         String k;
-        k = infra.TextReadAny(this.S("DemoData/Demo.txt"), true);
+        k = infra.TextRead(this.S("DemoData/Demo.txt"));
         this.Console.Out.Write(this.S("Demo.txt text: \n"));
         this.Console.Out.Write(k);
         this.Console.Out.Write(this.S("\n"));
@@ -486,7 +486,7 @@ class Demo : Any
         bool b;
         b = false;
         bool ba;
-        ba = infra.TextWriteAny(kou, this.S("DEMO STORAGE WRITE AAA BBB"), true);
+        ba = infra.TextWrite(kou, this.S("DEMO STORAGE WRITE AAA BBB"));
         if (!ba)
         {
             ka = this.AddClear().AddS("Write ").Add(kou).AddS(" 1 Error\n").AddResult();
@@ -498,7 +498,7 @@ class Demo : Any
         if (ba)
         {
             bool bb;
-            bb = infra.TextWriteAny(kou, this.S("DEMO STORAGE WRITE 2 AAA"), true);
+            bb = infra.TextWrite(kou, this.S("DEMO STORAGE WRITE 2 AAA"));
             if (!bb)
             {
                 ka = this.AddClear().AddS("Write ").Add(kou).AddS(" 3 Error\n").AddResult();
@@ -510,7 +510,7 @@ class Demo : Any
 
         if (!b)
         {
-            k = infra.TextReadAny(kou, true);
+            k = infra.TextRead(kou);
 
             ka = this.AddClear().Add(kou).AddS(" text: \n").Add(k).AddS("\n").AddResult();
 
