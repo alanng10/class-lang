@@ -18,6 +18,7 @@ class Infra : Any
     {
         base.Init();
         this.CaseList = CaseList.This;
+        this.StatusList = StatusList.This;
 
         NetworkStatusChangeMaide maideA;
         maideA = new NetworkStatusChangeMaide(Network.InternStatusChange);
@@ -47,6 +48,7 @@ class Infra : Any
     public virtual MaideAddress NetworkReadyReadMaideAddress { get; set; }
     public virtual MaideAddress HostNewPeerMaideAddress { get; set; }
     protected virtual CaseList CaseList { get; set; }
+    protected virtual StatusList StatusList { get; set; }
 
     public virtual Case CaseFromInternCase(long internCase)
     {
