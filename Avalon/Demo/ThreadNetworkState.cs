@@ -35,20 +35,6 @@ public class ThreadNetworkState : State
 
         this.Network = network;
 
-        NetworkStatusState aa;
-        aa = new NetworkStatusState();
-        aa.NetworkState = this;
-        aa.Init();
-
-        network.StatusChangeState = aa;
-
-        NetworkCaseState ab;
-        ab = new NetworkCaseState();
-        ab.NetworkState = this;
-        ab.Init();
-
-        network.CaseChangeState = ab;
-
         NetworkReadyState ac;
         ac = new NetworkReadyState();
         ac.NetworkState = this;
