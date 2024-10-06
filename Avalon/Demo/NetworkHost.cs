@@ -17,21 +17,6 @@ class NetworkHostA : NetworkHost
         network = this.Demo.Host.OpenPeer();
 
         this.Demo.Peer = network;
-
-        NetworkPeerReadyState state;
-        state = new NetworkPeerReadyState();
-        state.Demo = this.Demo;
-        state.HostState = this.HostState;
-        state.Init();
-
-        NetworkPeerStatusState stateA;
-        stateA = new NetworkPeerStatusState();
-        stateA.HostState = this.HostState;
-        stateA.Init();
-
-        network.StatusChangeState = stateA;
-
-        network.ReadyReadState = state;
         return true;
     }
 }
