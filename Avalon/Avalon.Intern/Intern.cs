@@ -20,8 +20,8 @@ public class Intern : object
     [SystemThreadStatic]
     public static object ThisThread = null;
 
-    public virtual string ModuleFoldPath { get; set; }
-    public virtual string ExecuteFoldPath { get; set; }
+    public virtual object ModuleFoldPath { get; set; }
+    public virtual object ExecuteFoldPath { get; set; }
 
     public virtual ulong MaidePointer(SystemDelegate d)
     {

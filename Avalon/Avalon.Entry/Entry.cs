@@ -35,7 +35,7 @@ public class Entry : Any
         
         kk = this.SlashCombine(kk);
 
-        this.InternIntern.ExecuteFoldPath = kk;
+        this.InternIntern.ExecuteFoldPath = this.S(kk);
 
         string k;
         k = typeof(Any).Assembly.Location;
@@ -46,7 +46,7 @@ public class Entry : Any
 
         ka = this.SlashCombine(ka);
 
-        this.InternIntern.ModuleFoldPath = ka;
+        this.InternIntern.ModuleFoldPath = this.S(ka);
 
         ulong ua;
         ua = 1;
