@@ -47,10 +47,10 @@ public class Frame : Any
         wed = (long)w;
         long het;
         het = (long)h;
-        this.VideoSize = new DrawSize();
-        this.VideoSize.Init();
-        this.VideoSize.Wed = wed;
-        this.VideoSize.Het = het;
+        this.Size = new DrawSize();
+        this.Size.Init();
+        this.Size.Wed = wed;
+        this.Size.Het = het;
 
         Extern.Frame_TypeStateSet(this.Intern, this.InternTypeState);
         Extern.Frame_DrawStateSet(this.Intern, this.InternDrawState);
@@ -103,8 +103,7 @@ public class Frame : Any
         return true;
     }
 
-    public virtual DrawSize VideoSize { get; set; }
-    public virtual long AudioCount { get; set; }
+    public virtual DrawSize Size { get; set; }
     public virtual String Title { get; set; }
     public virtual TypeType Type { get; set; }
     public virtual DrawImage DrawImage { get; set; }
@@ -328,7 +327,7 @@ public class Frame : Any
     private DrawRect CreateFrameRect()
     {
         DrawSize size;
-        size = this.VideoSize;
+        size = this.Size;
 
         DrawRect a;
         a = this.DrawInfra.RectCreate(0, 0, this.MathInt(size.Wed), this.MathInt(size.Het));
@@ -338,7 +337,7 @@ public class Frame : Any
     private bool DrawSet(DrawDraw draw, ulong videoOut)
     {
         DrawSize size;
-        size = this.VideoSize;
+        size = this.Size;
 
         draw.Out = videoOut;
         draw.Size.Wed = size.Wed;

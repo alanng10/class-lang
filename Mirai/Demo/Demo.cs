@@ -76,8 +76,8 @@ class Demo : Any
         this.UpdateRect.Pos.Init();
         this.UpdateRect.Size = new DrawSize();
         this.UpdateRect.Size.Init();
-        this.UpdateRect.Size.Wed = this.Frame.VideoSize.Wed;
-        this.UpdateRect.Size.Het = this.Frame.VideoSize.Het;
+        this.UpdateRect.Size.Wed = this.Frame.Size.Wed;
+        this.UpdateRect.Size.Het = this.Frame.Size.Het;
 
         Type type;
         type = Type.This;
