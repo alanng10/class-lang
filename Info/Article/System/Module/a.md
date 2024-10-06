@@ -17,4 +17,4 @@ The entities also have highest modularity.
 Modularity is grouping of entities for different purposes of uses.
 The grouping in the system modules is for the easiest uses for human minds use tools.
 
-System infra modules abstracts are not tagged with the existence of specific operating system, or system programming language.
+System infra modules abstracts are not tagged with the existence of specific operating system, specific framework, or system programming language.
