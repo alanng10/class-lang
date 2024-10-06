@@ -24,7 +24,7 @@ public class Gen : ClassBase
     public virtual bool Load()
     {
         String k;
-        k = this.StorageInfra.TextReadAny(this.S("Class.Info.data/a.html"), true);
+        k = this.StorageInfra.TextRead(this.S("Class.Info.data/a.html"));
 
         if (k == null)
         {
