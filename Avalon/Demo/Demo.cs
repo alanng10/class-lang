@@ -69,7 +69,7 @@ class Demo : Any
         this.ExecutePost();
 
         this.ExecuteNetwork();
-        // this.ExecuteNetworkProcess();
+        this.ExecuteNetworkProcess();
         return true;
     }
 
@@ -910,18 +910,18 @@ class Demo : Any
     {
         this.Console.Out.Write(this.S("NetworkProcess Start\n"));
 
-        ThreadThread thread;
-        thread = new ThreadThread();
-        thread.Init();
+        ThreadThread hostThread;
+        hostThread = new ThreadThread();
+        hostThread.Init();
 
         ThreadNetworkHostState state;
         state = new ThreadNetworkHostState();
         state.Demo = this;
         state.Init();
 
-        thread.ExecuteState = state;
+        hostThread.ExecuteState = state;
 
-        thread.Execute();
+        hostThread.Execute();
 
         List list;
         list = new List();
@@ -939,11 +939,11 @@ class Demo : Any
 
         program.Wait();
 
-        thread.Wait();
+        hostThread.Wait();
 
         program.Final();
 
-        thread.Final();
+        hostThread.Final();
 
         this.Console.Out.Write(this.S("NetworkProcess End\n"));
         return true;
