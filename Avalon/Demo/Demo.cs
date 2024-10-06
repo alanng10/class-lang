@@ -874,18 +874,18 @@ class Demo : Any
     {
         this.Console.Out.Write(this.S("Network Start\n"));
 
-        ThreadThread thread;
-        thread = new ThreadThread();
-        thread.Init();
+        ThreadThread hostThread;
+        hostThread = new ThreadThread();
+        hostThread.Init();
 
         ThreadNetworkHostState state;
         state = new ThreadNetworkHostState();
         state.Demo = this;
         state.Init();
 
-        thread.ExecuteState = state;
-        
-        thread.Execute();
+        hostThread.ExecuteState = state;
+
+        hostThread.Execute();
 
         ThreadThread networkThread;
         networkThread = new ThreadThread();
@@ -901,11 +901,11 @@ class Demo : Any
 
         networkThread.Wait();
 
-        thread.Wait();
+        hostThread.Wait();
 
         networkThread.Final();
-        
-        thread.Final();
+
+        hostThread.Final();
 
         this.Console.Out.Write(this.S("Network End\n"));
         return true;
