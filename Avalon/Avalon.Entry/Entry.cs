@@ -35,8 +35,6 @@ public class Entry : Any
         
         kk = this.SlashCombine(kk);
 
-        this.InternIntern.ExecuteFoldPath = this.S(kk);
-
         string k;
         k = typeof(Any).Assembly.Location;
         string ka;
@@ -45,8 +43,6 @@ public class Entry : Any
         Directiory.SetCurrentDirectory(ka);
 
         ka = this.SlashCombine(ka);
-
-        this.InternIntern.ModuleFoldPath = this.S(ka);
 
         ulong ua;
         ua = 1;
@@ -58,6 +54,10 @@ public class Entry : Any
         o.InitMainThread();
 
         this.TextStringValue = TextStringValue.This;
+
+        this.InternIntern.ExecuteFoldPath = this.S(kk);
+        this.InternIntern.ModuleFoldPath = this.S(ka);
+
         this.StorageComp = StorageComp.This;
 
         this.StorageComp.CurrentFoldSet(this.StorageComp.ModuleFoldPath);
