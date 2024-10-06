@@ -14,7 +14,7 @@ class NetworkHostA : NetworkHost
         }
 
         NetworkNetwork network;
-        network = this.Demo.Host.OpenPeer();
+        network = this.OpenPeer();
 
         this.Demo.Peer = network;
         return true;
