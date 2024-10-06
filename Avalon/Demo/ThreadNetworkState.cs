@@ -27,6 +27,8 @@ public class ThreadNetworkState : State
         network = new NetworkA();
         network.Init();
 
+        network.ThreadState = this;
+
         network.HostName = hostName;
         network.HostPort = hostPort;
 
