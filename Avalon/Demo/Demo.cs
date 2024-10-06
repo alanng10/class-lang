@@ -2,7 +2,7 @@ namespace Demo;
 
 class Demo : Any
 {
-    public Network Peer { get; set; }
+    public NetworkNetwork Peer { get; set; }
     public NetworkHost Host { get; set; }
 
     public virtual InfraInfra InfraInfra { get; set; }
