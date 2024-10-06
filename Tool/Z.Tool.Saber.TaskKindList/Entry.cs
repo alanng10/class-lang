@@ -1,4 +1,4 @@
-namespace Z.Tool.Class.TaskKindList;
+namespace Z.Tool.Saber.TaskKindList;
 
 class Entry : EntryEntry
 {
