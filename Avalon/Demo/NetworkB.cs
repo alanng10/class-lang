@@ -4,6 +4,8 @@ class NetworkB : NetworkNetwork
 {
     public override bool Init()
     {
+        base.Init();
+
         this.Data = new Data();
         this.Data.Count = 10;
         this.Data.Init();
