@@ -1025,7 +1025,6 @@ class Demo : Any
         state = new ThreadIntervalState();
         state.Init();
         state.Demo = this;
-        state.Single = single;
         state.ElapseCount = elapseCount;
         state.Time = time;
         state.ExitCode = exitCode;
