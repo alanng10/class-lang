@@ -226,7 +226,7 @@ public class Network : Any
         return true;
     }
 
-    protected virtual bool StatusEvent()
+    public virtual bool StatusEvent()
     {
         return true;
     }
@@ -249,7 +249,7 @@ public class Network : Any
         return true;
     }
 
-    protected virtual bool CaseEvent()
+    public virtual bool CaseEvent()
     {
         return true;
     }
@@ -260,7 +260,7 @@ public class Network : Any
         return true;
     }
 
-    protected virtual bool DataEvent()
+    public virtual bool DataEvent()
     {
         return true;
     }
