@@ -1,6 +1,6 @@
 namespace Demo;
 
-class NetworkPeer : NetworkNetwork
+class NetworkB : NetworkNetwork
 {
     public override bool Init()
     {
@@ -171,19 +171,19 @@ class NetworkPeer : NetworkNetwork
         return true;
     }
 
-    public virtual NetworkPeer Add(String a)
+    public virtual NetworkB Add(String a)
     {
         this.Demo.Add(a);
         return this;
     }
 
-    public virtual NetworkPeer AddS(string o)
+    public virtual NetworkB AddS(string o)
     {
         this.Demo.AddS(o);
         return this;
     }
 
-    public virtual NetworkPeer AddClear()
+    public virtual NetworkB AddClear()
     {
         this.Demo.AddClear();
         return this;
