@@ -251,7 +251,7 @@ public class Infra : Any
     public virtual String StorageTextRead(String filePath)
     {
         String a;
-        a = this.StorageTextReadAny(filePath, true);
+        a = this.StorageInfra.TextRead(filePath);
 
         if (a == null)
         {
@@ -267,7 +267,7 @@ public class Infra : Any
     public virtual bool StorageTextWrite(String filePath, String text)
     {
         bool a;
-        a = this.StorageTextWriteAny(filePath, text, true);
+        a = this.StorageInfra.TextWrite(filePath, text);
 
         if (!a)
         {
@@ -277,85 +277,6 @@ public class Infra : Any
             this.Console.Err.Write(k);
             global::System.Environment.Exit(301);
         }
-        return a;
-    }
-
-    public virtual String StorageTextReadAny(String filePath, bool anyNode)
-    {
-        TextCodeKindList kindList;
-        kindList = this.TextCodeKindList;
-
-        Data data;
-        data = this.StorageInfra.DataReadAny(filePath, anyNode);
-        if (data == null)
-        {
-            return null;
-        }
-
-        TextCodeKind innKind;
-        TextCodeKind outKind;
-        innKind = kindList.Utf8;
-        outKind = kindList.Utf32;
-
-        TextCode code;
-        code = this.TextCode;
-
-        Range dataRange;
-        dataRange = new Range();
-        dataRange.Init();
-        dataRange.Count = data.Count;
-
-        long resultCount;
-        resultCount = code.ExecuteCount(innKind, outKind, data, dataRange);
-
-        Data result;
-        result = new Data();
-        result.Count = resultCount;
-        result.Init();
-
-        code.ExecuteResult(result, 0, innKind, outKind, data, dataRange);
-
-        String k;
-        k = this.StringComp.CreateData(result, null);
-
-        String a;
-        a = k;
-        return a;
-    }
-
-    public virtual bool StorageTextWriteAny(String filePath, String text, bool anyNode)
-    {
-        TextCodeKindList kindList;
-        kindList = this.TextCodeKindList;
-
-        TextCodeKind innKind;
-        TextCodeKind outKind;
-        innKind = kindList.Utf32;
-        outKind = kindList.Utf8;
-
-        TextCode code;
-        code = this.TextCode;
-
-        Data data;
-        data = this.TextInfra.StringDataCreateString(text);
-
-        Range dataRange;
-        dataRange = new Range();
-        dataRange.Init();
-        dataRange.Count = data.Count;
-
-        long resultCount;
-        resultCount = code.ExecuteCount(innKind, outKind, data, dataRange);
-
-        Data result;
-        result = new Data();
-        result.Count = resultCount;
-        result.Init();
-
-        code.ExecuteResult(result, 0, innKind, outKind, data, dataRange);
-
-        bool a;
-        a = this.StorageInfra.DataWriteAny(filePath, result, anyNode);
         return a;
     }
 
