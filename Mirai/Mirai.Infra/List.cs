@@ -95,7 +95,7 @@ public class List : Comp
         return true;
     }
 
-    public virtual bool Insert(Comp index, Comp item)
+    public virtual bool Ins(Comp index, Comp item)
     {
         if (!this.Valid(index))
         {
