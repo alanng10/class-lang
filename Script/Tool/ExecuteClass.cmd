@@ -1,7 +1,7 @@
 @echo off
 
 pushd Tool
-for /d %%a in ("Z.Tool.Class.*") do (
+for /d %%a in ("Z.Tool.Saber.*") do (
 
     pushd ..\Out\net8.0
     echo Execute "%%~nxa"
