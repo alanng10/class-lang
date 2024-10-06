@@ -6,6 +6,7 @@ class ThreadState : State
     {
         base.Init();
         this.MathInfra = MathInfra.This;
+        this.StorageInfra = StorageInfra.This;
         this.Math = new MathMath();
         this.Math.Init();
         this.MathComp = new MathComp();
@@ -16,6 +17,7 @@ class ThreadState : State
     public Demo Demo { get; set; }
     public ThreadPhore Phore { get; set; }
     protected virtual MathInfra MathInfra { get; set; }
+    protected virtual StorageInfra StorageInfra { get; set; }
     protected virtual MathMath Math { get; set; }
     protected virtual MathComp MathComp { get; set; }
 
@@ -31,7 +33,7 @@ class ThreadState : State
         infra = StorageInfra.This;
 
         String a;
-        a = this.Demo.StorageTextReadAny(this.S("DemoData/ThreadRead.txt"), true);
+        a = this.StorageInfra.TextReadAny(this.S("DemoData/ThreadRead.txt"), true);
 
         String ka;
 
@@ -47,14 +49,14 @@ class ThreadState : State
         kkka = this.S(writeFilePath);
 
         bool b;        
-        b = this.Demo.StorageTextWriteAny(kkka, this.S("阿 了 水 GR 8 &\nEu #@ ?\n卡"), true);
+        b = this.StorageInfra.TextWriteAny(kkka, this.S("阿 了 水 GR 8 &\nEu #@ ?\n卡"), true);
         if (!b)
         {
             console.Out.Write(this.S("ThreadWrite.txt write error\n"));
         }
         if (b)
         {
-            a = this.Demo.StorageTextReadAny(kkka, true);
+            a = this.StorageInfra.TextReadAny(kkka, true);
 
             ka = this.AddClear().AddS("ThreadWrite.txt text: \n").Add(a).AddS("\n").AddResult();
         }
