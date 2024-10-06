@@ -573,7 +573,7 @@ class Demo : Any
 
         bo = false;
         bool bac;
-        bac = infra.TextWrite(koub, this.S("Demo Storage Set Count aaaadda"));
+        bac = this.StorageTextWriteAny(koub, this.S("Demo Storage Set Count aaaadda"), true);
         if (!bac)
         {
             ka = this.AddClear().AddS("Write ").Add(koub).AddS(" Error\n").AddResult();
