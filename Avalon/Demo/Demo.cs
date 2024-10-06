@@ -70,11 +70,6 @@ class Demo : Any
 
         this.ExecuteNetwork();
         // this.ExecuteNetworkProcess();
-
-        ThreadThread thread;
-        thread = varThis.Thread;
-        
-        thread.ExecuteMain();
         return true;
     }
 
