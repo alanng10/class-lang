@@ -142,6 +142,9 @@ Int Network_Close(Int o)
 {
     Network* m;
     m = CP(o);
+
+    m->Handle->Close(); 
+    
     Int stream;
     stream = m->Stream;
     Int openSocket;
@@ -161,15 +164,6 @@ Int Network_Close(Int o)
     socket->deleteLater();
 
     m->OpenSocket = null;
-    return true;
-}
-
-Int Network_CloseUnconnected(Int o)
-{
-    Network* m;
-    m = CP(o);
-    
-    m->Handle->Close(); 
     return true;
 }
 
@@ -316,10 +310,6 @@ Int Network_CaseChange(Int o)
         }
     }
 
-    if (oa == QAbstractSocket::UnconnectedState)
-    {
-        Network_CloseUnconnected(o);
-    }
     return true;
 }
 
