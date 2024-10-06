@@ -152,7 +152,7 @@ public class Host : Any
         return true;
     }
 
-    protected virtual bool PeerEvent()
+    public virtual bool PeerEvent()
     {
         return true;
     }
