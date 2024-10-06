@@ -4,6 +4,8 @@ public class NetworkA : NetworkNetwork
 {
     public override bool Init()
     {
+        base.Init();
+
         this.TextInfra = TextInfra.This;
 
         this.Data = new Data();
