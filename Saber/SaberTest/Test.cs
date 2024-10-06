@@ -184,7 +184,7 @@ public class Test : ClassBase
                 expectFile = this.AddClear().Add(unitFold).Add(combine).Add(this.SExpect).AddResult();
 
                 String expect;                
-                expect = this.StorageInfra.TextReadAny(expectFile, true);
+                expect = this.StorageInfra.TextRead(expectFile);
 
                 String path;
                 path = null;
@@ -193,7 +193,7 @@ public class Test : ClassBase
                     String pathFile;
                     pathFile = this.AddClear().Add(unitFold).Add(combine).Add(this.SPath).AddResult();
 
-                    path = this.StorageInfra.TextReadAny(pathFile, true);
+                    path = this.StorageInfra.TextRead(pathFile);
                 }
                 
                 Unit a;
@@ -276,7 +276,7 @@ public class Test : ClassBase
         String actualFile;
         actualFile = this.AddClear().Add(this.UnitFold).Add(c).Add(this.SActual).AddResult();
 
-        this.StorageInfra.TextWriteAny(actualFile, actual, true);
+        this.StorageInfra.TextWrite(actualFile, actual);
 
         this.Unit.Actual = actual;
 
