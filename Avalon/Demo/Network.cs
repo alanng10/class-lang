@@ -25,7 +25,7 @@ public class Network : NetworkNetwork
 
     protected virtual TextInfra TextInfra { get; set; }
 
-    protected override bool CaseEvent()
+    public override bool CaseEvent()
     {
         NetworkCaseList caseList;
         caseList = this.ThreadState.NetworkCaseList;
@@ -52,7 +52,7 @@ public class Network : NetworkNetwork
         return true;
     }
 
-    protected override bool StatusEvent()
+    public override bool StatusEvent()
     {
         bool b;
         b = this.StatusExecute();
@@ -77,7 +77,7 @@ public class Network : NetworkNetwork
         return true;
     }
 
-    protected override bool DataEvent()
+    public override bool DataEvent()
     {
         bool b;
         b = this.DataExecute();
