@@ -237,7 +237,7 @@ class Demo : Any
         this.ViewC = viewC;
 
         this.Frame.View = this.View;
-        this.Frame.Video = true;
+        this.Frame.Visible = true;
 
         ThreadThread thread;
         thread = varThis.Thread;
