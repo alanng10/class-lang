@@ -26,6 +26,7 @@ class NetworkHostA : NetworkHost
         a = new NetworkB();
         a.HostPeer = peer;
         a.Init();
+        a.ThreadState = this.HostState;
         return a;
     }
 }
