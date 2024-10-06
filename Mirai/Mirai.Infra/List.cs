@@ -121,7 +121,7 @@ public class List : Comp
         return true;
     }
 
-    public virtual bool Remove(Comp comp)
+    public virtual bool Rem(Comp comp)
     {
         Comp item;
         item = this.Get(comp);
