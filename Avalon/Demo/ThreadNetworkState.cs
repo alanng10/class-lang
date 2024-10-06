@@ -6,18 +6,15 @@ public class ThreadNetworkState : State
     {
         base.Init();
         this.TextInfra = TextInfra.This;
-        this.TextStringValue = TextStringValue.This;
         this.NetworkStatusList = NetworkStatusList.This;
         this.NetworkCaseList = NetworkCaseList.This;
         return true;
     }
 
     public TextInfra TextInfra { get; set; }
-    public TextStringValue TextStringValue { get; set; }
     public NetworkStatusList NetworkStatusList { get; set; }
     public NetworkCaseList NetworkCaseList { get; set; }
     public Network Network { get; set; }
-    public NetworkReadyState ReadyState { get; set; }
 
     public override bool Execute()
     {
@@ -34,15 +31,6 @@ public class ThreadNetworkState : State
         network.HostPort = hostPort;
 
         this.Network = network;
-
-        NetworkReadyState ac;
-        ac = new NetworkReadyState();
-        ac.NetworkState = this;
-        ac.Init();
-
-        network.ReadyReadState = ac;
-
-        this.ReadyState = ac;
 
         network.Open();
 
@@ -94,8 +82,8 @@ public class ThreadNetworkState : State
         return true;
     }
 
-    public virtual String S(string o)
+    private String S(string o)
     {
-        return this.TextStringValue.Execute(o);
+        return this.TextInfra.S(o);
     }
 }

@@ -4,6 +4,8 @@ public class Network : NetworkNetwork
 {
     public override bool Init()
     {
+        this.TextInfra = TextInfra.This;
+
         this.Data = new Data();
         this.Data.Count = 10;
         this.Data.Init();
@@ -19,6 +21,9 @@ public class Network : NetworkNetwork
     public virtual ThreadNetworkState ThreadState { get; set; }
 
     public virtual long StatusCode { get; set; }
+    public virtual long ProtocolCase { get; set; }
+
+    protected virtual TextInfra TextInfra { get; set; }
 
     protected override bool CaseEvent()
     {
@@ -27,14 +32,11 @@ public class Network : NetworkNetwork
 
         if (this.Case == caseList.Connected)
         {
-            NetworkReadyState ka;
-            ka = this.ThreadState.ReadyState;
-
             Data data;
-            data = ka.Data;
+            data = this.Data;
 
             Range range;
-            range = ka.Range;
+            range = this.Range;
 
             data.Set(0, 58);
 
@@ -88,17 +90,14 @@ public class Network : NetworkNetwork
 
     private bool DataExecute()
     {
-        Network network;
-        network = this.NetworkState.Network;
-
         long a;
-        a = network.ReadyCount;
+        a = this.ReadyCount;
 
         long count;
         count = 0;
 
         long cc;
-        cc = this.Case;
+        cc = this.ProtocolCase;
         if (cc == 0)
         {
             count = 1;
@@ -121,7 +120,7 @@ public class Network : NetworkNetwork
         range.Index = 0;
         range.Count = count;
 
-        network.Stream.Read(data, range);
+        this.Stream.Read(data, range);
 
         if (cc == 0)
         {
@@ -134,7 +133,7 @@ public class Network : NetworkNetwork
             {
                 Console.This.Out.Write(this.S("Network Case 0 Success\n"));
 
-                this.Case = 1;
+                this.ProtocolCase = 1;
 
                 data.Set(0, 11);
                 data.Set(1, 57);
@@ -143,12 +142,12 @@ public class Network : NetworkNetwork
 
                 range.Count = 4;
 
-                network.Stream.Write(data, range);
+                this.Stream.Write(data, range);
             }
             if (!b)
             {
                 Console.This.Err.Write(this.S("Network Case 0 Read Data Invalid\n"));
-                this.Status = 12;
+                this.StatusCode = 12;
                 return false;
             }
         }
@@ -164,10 +163,10 @@ public class Network : NetworkNetwork
             {
                 Console.This.Out.Write(this.S("Network Case 1 Success\n"));
 
-                this.Case = 2;
+                this.ProtocolCase = 2;
 
                 TextInfra textInfra;
-                textInfra = this.NetworkState.TextInfra;
+                textInfra = this.TextInfra;
 
                 string oo;
                 oo = "Fy Oi";
@@ -188,23 +187,23 @@ public class Network : NetworkNetwork
 
                 range.Count = 10;
 
-                network.Stream.Write(data, range);
+                this.Stream.Write(data, range);
 
-                this.NetworkState.ExitNetwork(0);
+                this.ThreadState.ExitNetwork(0);
                 return true;
             }
             if (!b)
             {
                 Console.This.Err.Write(this.S("Network Case 1 Read Data Invalid\n"));
-                this.Status = 14;
+                this.StatusCode = 14;
                 return false;
             }
         }
         return true;
     }
 
-    public virtual String S(string o)
+    private String S(string o)
     {
-        return this.NetworkState.S(o);
+        return this.TextInfra.S(o);
     }
 }
