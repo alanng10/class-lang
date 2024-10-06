@@ -1,4 +1,4 @@
-namespace Z.Tool.Class.ErrorKindList;
+namespace Z.Tool.Saber.ErrorKindList;
 
 class Entry : EntryEntry
 {

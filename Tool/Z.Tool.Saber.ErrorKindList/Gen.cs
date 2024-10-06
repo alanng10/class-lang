@@ -1,4 +1,4 @@
-namespace Z.Tool.Class.ErrorKindList;
+namespace Z.Tool.Saber.ErrorKindList;
 
 public class Gen : SourceGen
 {
@@ -14,7 +14,7 @@ public class Gen : SourceGen
         String k;
         k = this.S(name);
 
-        this.Module = this.AddClear().AddS("Class.").Add(k).AddResult();
+        this.Module = this.AddClear().AddS("Saber.").Add(k).AddResult();
         this.ClassName = this.S("ErrorKindList");
         this.BaseClassName = this.S("Any");
         this.AnyClassName = this.S("Any");
@@ -25,7 +25,7 @@ public class Gen : SourceGen
         this.InitMethodFileName = this.S("ToolData/Class/InitMaideErrorKind.txt");
         this.ItemListFileName = this.AddClear().AddS("ToolData/Class/ItemListErrorKind").Add(k).AddS(".txt").AddResult();
         this.AddMethodFileName = this.S("ToolData/Class/AddMaideErrorKind.txt");
-        this.OutputFilePath = this.AddClear().AddS("../../Class/Class.").Add(k).AddS("/ErrorKindList.cs").AddResult();
+        this.OutputFilePath = this.AddClear().AddS("../../Saber/Saber.").Add(k).AddS("/ErrorKindList.cs").AddResult();
         base.Execute();
         return true;
     }
