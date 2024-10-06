@@ -4,6 +4,8 @@ class ThreadNetworkHostState : State
 {
     public Demo Demo { get; set; }
 
+    public virtual TimeEvent TimeEvent { get; set; }
+
     public override bool Execute()
     {
         NetworkPortKindList portKindList;
@@ -34,9 +36,9 @@ class ThreadNetworkHostState : State
         TimeEvent varEvent;
         varEvent = new TimeEvent();
         varEvent.Init();
-
-        varEvent.Single = true;
         varEvent.Time = 0;
+
+        this.TimeEvent = varEvent;
 
         NetworkHostOpenState openState;
         openState = new NetworkHostOpenState();
