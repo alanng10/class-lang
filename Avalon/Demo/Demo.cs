@@ -471,7 +471,7 @@ class Demo : Any
         String ka;
         
         String k;
-        k = this.StorageTextReadAny(this.S("DemoData/Demo.txt"), true);
+        k = infra.TextReadAny(this.S("DemoData/Demo.txt"), true);
         this.Console.Out.Write(this.S("Demo.txt text: \n"));
         this.Console.Out.Write(k);
         this.Console.Out.Write(this.S("\n"));
@@ -486,7 +486,7 @@ class Demo : Any
         bool b;
         b = false;
         bool ba;
-        ba = this.StorageTextWriteAny(kou, this.S("DEMO STORAGE WRITE AAA BBB"), true);
+        ba = infra.TextWriteAny(kou, this.S("DEMO STORAGE WRITE AAA BBB"), true);
         if (!ba)
         {
             ka = this.AddClear().AddS("Write ").Add(kou).AddS(" 1 Error\n").AddResult();
@@ -498,7 +498,7 @@ class Demo : Any
         if (ba)
         {
             bool bb;
-            bb = this.StorageTextWriteAny(kou, this.S("DEMO STORAGE WRITE 2 AAA"), true);
+            bb = infra.TextWriteAny(kou, this.S("DEMO STORAGE WRITE 2 AAA"), true);
             if (!bb)
             {
                 ka = this.AddClear().AddS("Write ").Add(kou).AddS(" 3 Error\n").AddResult();
@@ -510,7 +510,7 @@ class Demo : Any
 
         if (!b)
         {
-            k = this.StorageTextReadAny(kou, true);
+            k = infra.TextReadAny(kou, true);
 
             ka = this.AddClear().Add(kou).AddS(" text: \n").Add(k).AddS("\n").AddResult();
 
@@ -527,7 +527,7 @@ class Demo : Any
         bool bo;
         bo = false;
         bool baa;
-        baa = this.StorageTextWriteAny(koua, this.S("DEMO STORAGE WRITE DEMO ABCD"), true);
+        baa = infra.TextWriteAny(koua, this.S("DEMO STORAGE WRITE DEMO ABCD"), true);
         if (!baa)
         {
             ka = this.AddClear().AddS("Write ").Add(koua).AddS(" 1 Error\n").AddResult();
@@ -552,7 +552,7 @@ class Demo : Any
         }
         if (!bo)
         {
-            k = this.StorageTextReadAny(koua, true);
+            k = infra.TextReadAny(koua, true);
 
             ka = this.AddClear().Add(koua).AddS(" text: \n").Add(k).AddS("\n").AddResult();
 
@@ -568,7 +568,7 @@ class Demo : Any
 
         bo = false;
         bool bac;
-        bac = this.StorageTextWriteAny(koub, this.S("Demo Storage Set Count aaaadda"), true);
+        bac = infra.TextWriteAny(koub, this.S("Demo Storage Set Count aaaadda"), true);
         if (!bac)
         {
             ka = this.AddClear().AddS("Write ").Add(koub).AddS(" Error\n").AddResult();
@@ -590,7 +590,7 @@ class Demo : Any
         }
         if (!bo)
         {
-            k = this.StorageTextReadAny(koub, true);
+            k = infra.TextReadAny(koub, true);
 
             ka = this.AddClear().Add(koub).AddS(" text: \n").Add(k).AddS("\n").AddResult();
 
@@ -1077,85 +1077,6 @@ class Demo : Any
 
         this.Console.Out.Write(this.S("Demo.ExecuteDemoPost Thread Status: 0h" + o.ToString("x8") + "\n"));
         return true;
-    }
-
-    public virtual String StorageTextReadAny(String filePath, bool anyNode)
-    {
-        TextCodeKindList kindList;
-        kindList = this.TextCodeKindList;
-
-        Data data;
-        data = this.StorageInfra.DataReadAny(filePath, anyNode);
-        if (data == null)
-        {
-            return null;
-        }
-
-        TextCodeKind innKind;
-        TextCodeKind outKind;
-        innKind = kindList.Utf8;
-        outKind = kindList.Utf32;
-
-        TextCode code;
-        code = this.TextCode;
-
-        Range dataRange;
-        dataRange = new Range();
-        dataRange.Init();
-        dataRange.Count = data.Count;
-
-        long resultCount;
-        resultCount = code.ExecuteCount(innKind, outKind, data, dataRange);
-
-        Data result;
-        result = new Data();
-        result.Count = resultCount;
-        result.Init();
-
-        code.ExecuteResult(result, 0, innKind, outKind, data, dataRange);
-
-        String k;
-        k = this.StringComp.CreateData(result, null);
-
-        String a;
-        a = k;
-        return a;
-    }
-
-    public virtual bool StorageTextWriteAny(String filePath, String text, bool anyNode)
-    {
-        TextCodeKindList kindList;
-        kindList = this.TextCodeKindList;
-
-        TextCodeKind innKind;
-        TextCodeKind outKind;
-        innKind = kindList.Utf32;
-        outKind = kindList.Utf8;
-
-        TextCode code;
-        code = this.TextCode;
-
-        Data data;
-        data = this.TextInfra.StringDataCreateString(text);
-
-        Range dataRange;
-        dataRange = new Range();
-        dataRange.Init();
-        dataRange.Count = data.Count;
-
-        long resultCount;
-        resultCount = code.ExecuteCount(innKind, outKind, data, dataRange);
-
-        Data result;
-        result = new Data();
-        result.Count = resultCount;
-        result.Init();
-
-        code.ExecuteResult(result, 0, innKind, outKind, data, dataRange);
-
-        bool a;
-        a = this.StorageInfra.DataWriteAny(filePath, result, anyNode);
-        return a;
     }
 
     public virtual Demo Add(String a)
