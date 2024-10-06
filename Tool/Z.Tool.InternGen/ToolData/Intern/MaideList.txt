@@ -1,4 +1,4 @@
-Int RefLess|Any left, Any right
+Int RefLess|Any lite, Any rite
 Any DataNew|Int count
 Int DataGet|Any data, Int index
 Bool DataSet|Any data, Int index, Int value
