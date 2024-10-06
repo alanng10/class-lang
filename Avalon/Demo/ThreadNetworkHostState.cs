@@ -20,6 +20,8 @@ class ThreadNetworkHostState : State
         NetworkHostA host;
         host = new NetworkHostA();
         host.Init();
+        host.ThreadState = this;
+        host.Demo = this.Demo;
 
         this.Demo.Host = host;
 

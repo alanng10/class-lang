@@ -3,7 +3,7 @@ namespace Demo;
 class NetworkHostA : NetworkHost
 {
     public Demo Demo { get; set; }
-    public ThreadNetworkHostState HostState { get; set; }
+    public ThreadNetworkHostState ThreadState { get; set; }
 
     public override bool PeerEvent()
     {
@@ -26,7 +26,7 @@ class NetworkHostA : NetworkHost
         a = new NetworkB();
         a.HostPeer = peer;
         a.Init();
-        a.ThreadState = this.HostState;
+        a.ThreadState = this.ThreadState;
         return a;
     }
 }
