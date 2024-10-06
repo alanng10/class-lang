@@ -887,23 +887,23 @@ class Demo : Any
         
         thread.Execute();
 
-        ThreadThread peerThread;
-        peerThread = new ThreadThread();
-        peerThread.Init();
+        ThreadThread networkThread;
+        networkThread = new ThreadThread();
+        networkThread.Init();
 
         ThreadNetworkState aa;
         aa = new ThreadNetworkState();
         aa.Init();
 
-        peerThread.ExecuteState = aa;
+        networkThread.ExecuteState = aa;
 
-        peerThread.Execute();
+        networkThread.Execute();
 
-        peerThread.Wait();
+        networkThread.Wait();
 
         thread.Wait();
 
-        peerThread.Final();
+        networkThread.Final();
         
         thread.Final();
 
