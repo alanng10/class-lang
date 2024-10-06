@@ -17,6 +17,8 @@ class Infra : Any
     public override bool Init()
     {
         base.Init();
+        this.CaseList = CaseList.This;
+
         NetworkStatusChangeMaide maideA;
         maideA = new NetworkStatusChangeMaide(Network.InternStatusChange);
         this.NetworkStatusChangeMaideAddress = new MaideAddress();
@@ -44,4 +46,32 @@ class Infra : Any
     public virtual MaideAddress NetworkCaseChangeMaideAddress { get; set; }
     public virtual MaideAddress NetworkReadyReadMaideAddress { get; set; }
     public virtual MaideAddress HostNewPeerMaideAddress { get; set; }
+    protected virtual CaseList CaseList { get; set; }
+
+    public virtual Case CaseFromInternCase(long internCase)
+    {
+        ulong share;
+        share = Extern.Infra_Share();
+        ulong stat;
+        stat = Extern.Share_Stat(share);
+
+        ulong u;
+        u = Extern.Stat_NetworkCaseConnected(stat);
+
+        long k;
+        k = (long)u;
+
+        long ke;
+        ke = 0;
+
+        if (internCase == k)
+        {
+            ke = 1;
+        }
+
+        Case a;
+        a = this.CaseList.Get(ke);
+
+        return a;
+    }
 }

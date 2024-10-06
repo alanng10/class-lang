@@ -123,11 +123,12 @@ public class Network : Any
             {
                 return null;
             }
-            u = u - 1;
-            long o;
-            o = (long)u;
+            
+            long k;
+            k = (long)u;
+
             Case a;
-            a = this.NetworkCaseList.Get(o);
+            a = this.NetworkInfra.CaseFromInternCase(k);
             return a;
         }
         set
