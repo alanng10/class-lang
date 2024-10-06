@@ -157,7 +157,7 @@ public class Gen : ClassBase
         filePath = this.AddClear().Add(this.SourceFoldPath).Add(combine).Add(path).Add(combine).AddS("a.md").AddResult();
 
         String oo;
-        oo = this.StorageInfra.TextReadAny(filePath, true);
+        oo = this.StorageInfra.TextRead(filePath);
 
         if (oo == null)
         {
@@ -248,7 +248,7 @@ public class Gen : ClassBase
         String outFilePath;
         outFilePath = this.AddClear().Add(foldPath).Add(combine).AddS("index.html").AddResult();
 
-        b = this.StorageInfra.TextWriteAny(outFilePath, a, true);
+        b = this.StorageInfra.TextWrite(outFilePath, a);
         if (!b)
         {
             return false;
@@ -285,7 +285,7 @@ public class Gen : ClassBase
         outFilePath = this.AddClear().Add(this.DestFoldPath).Add(combine).AddS("var.js").AddResult();
 
         bool b;
-        b = this.StorageInfra.TextWriteAny(outFilePath, a, true);
+        b = this.StorageInfra.TextWrite(outFilePath, a);
         if (!b)
         {
             return false;
@@ -304,7 +304,7 @@ public class Gen : ClassBase
 
         outFilePath = this.AddClear().Add(this.DestFoldPath).Add(combine).AddS("articlevar.js").AddResult();
 
-        b = this.StorageInfra.TextWriteAny(outFilePath, a, true);
+        b = this.StorageInfra.TextWrite(outFilePath, a);
         if (!b)
         {
             return false;
