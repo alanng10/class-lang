@@ -1,6 +1,6 @@
 namespace Demo;
 
-public class Network : NetworkNetwork
+public class NetworkA : NetworkNetwork
 {
     public override bool Init()
     {

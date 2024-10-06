@@ -14,7 +14,7 @@ public class ThreadNetworkState : State
     public TextInfra TextInfra { get; set; }
     public NetworkStatusList NetworkStatusList { get; set; }
     public NetworkCaseList NetworkCaseList { get; set; }
-    public Network Network { get; set; }
+    public NetworkA Network { get; set; }
 
     public override bool Execute()
     {
@@ -23,8 +23,8 @@ public class ThreadNetworkState : State
         long hostPort;
         hostPort = 50400;
 
-        Network network;
-        network = new Network();
+        NetworkA network;
+        network = new NetworkA();
         network.Init();
 
         network.HostName = hostName;
@@ -63,7 +63,7 @@ public class ThreadNetworkState : State
 
     public bool ExitNetwork(long code)
     {
-        Network network;
+        NetworkA network;
         network = this.Network;
 
         network.Close();
