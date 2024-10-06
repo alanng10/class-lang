@@ -4,15 +4,14 @@ public class Network : NetworkNetwork
 {
     public virtual ThreadNetworkState ThreadState { get; set; }
 
+    public virtual long StatusCode { get; set; }
+
     protected override bool CaseEvent()
     {
         NetworkCaseList caseList;
         caseList = this.ThreadState.NetworkCaseList;
 
-        Network network;
-        network = this.ThreadState.Network;
-
-        if (network.Case == caseList.Connected)
+        if (this.Case == caseList.Connected)
         {
             NetworkReadyState ka;
             ka = this.ThreadState.ReadyState;
@@ -27,11 +26,36 @@ public class Network : NetworkNetwork
 
             range.Count = 1;
 
-            network.Stream.Write(data, range);
+            this.Stream.Write(data, range);
         }
 
-        if (network.Case == caseList.Unconnected)
+        if (this.Case == caseList.Unconnected)
         {
+        }
+
+        return true;
+    }
+
+    protected override bool StatusEvent()
+    {
+        bool b;
+        b = this.StatusExecute();
+        if (!b)
+        {
+            this.ThreadState.ExitNetwork(this.StatusCode);
+        }
+        return true;
+    }
+
+    private bool StatusExecute()
+    {
+        NetworkStatusList statusList;
+        statusList = this.ThreadState.NetworkStatusList;
+
+        if (!(this.Status == statusList.NoError))
+        {
+            this.StatusCode = 130;
+            return false;
         }
 
         return true;
