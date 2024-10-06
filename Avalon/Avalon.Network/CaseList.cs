@@ -21,13 +21,23 @@ public class CaseList : Any
         this.Count = this.Array.Count;
         this.Index = 0;
 
-        this.Close = this.AddItem();
-        this.Open = this.AddItem();
+        this.Unconnected = this.AddItem();
+        this.HostLookup = this.AddItem();
+        this.Connecting = this.AddItem();
+        this.Connected = this.AddItem();
+        this.Bound = this.AddItem();
+        this.Listening = this.AddItem();
+        this.Closing = this.AddItem();
         return true;
     }
 
-    public virtual Case Close { get; set; }
-    public virtual Case Open { get; set; }
+    public virtual Case Unconnected { get; set; }
+    public virtual Case HostLookup { get; set; }
+    public virtual Case Connecting { get; set; }
+    public virtual Case Connected { get; set; }
+    public virtual Case Bound { get; set; }
+    public virtual Case Listening { get; set; }
+    public virtual Case Closing { get; set; }
 
     protected virtual Case AddItem()
     {
@@ -50,7 +60,7 @@ public class CaseList : Any
 
     protected virtual Array Array { get; set; }
 
-    protected virtual long ArrayCount { get { return 2; } set { } }
+    protected virtual long ArrayCount { get { return 7; } set { } }
 
     public virtual long Count { get; set; }
     
