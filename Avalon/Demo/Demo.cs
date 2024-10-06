@@ -68,7 +68,7 @@ class Demo : Any
         this.ExecuteTimeEvent();
         this.ExecutePost();
 
-        // this.ExecuteNetwork();
+        this.ExecuteNetwork();
         // this.ExecuteNetworkProcess();
 
         ThreadThread thread;
