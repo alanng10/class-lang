@@ -1,11 +1,11 @@
-namespace Z.Tool.Class.IndexList;
+namespace Z.Tool.Saber.IndexList;
 
 public class Gen : SourceGen
 {
     public override bool Init()
     {
         base.Init();
-        this.Module = this.S("Class.Infra");
+        this.Module = this.S("Saber.Infra");
         this.ClassName = this.S("IndexList");
         this.BaseClassName = this.S("Any");
         this.AnyClassName = this.S("Any");
@@ -16,7 +16,7 @@ public class Gen : SourceGen
         this.InitMethodFileName = this.S("ToolData/Class/InitMaideIndex.txt");
         this.ItemListFileName = this.S("ToolData/Class/ItemListIndex.txt");
         this.AddMethodFileName = this.S("ToolData/Class/AddMaideIndex.txt");
-        this.OutputFilePath = this.S("../../Class/Class.Infra/IndexList.cs");
+        this.OutputFilePath = this.S("../../Saber/Saber.Infra/IndexList.cs");
         return true;
     }
 

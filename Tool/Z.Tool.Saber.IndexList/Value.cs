@@ -1,4 +1,4 @@
-namespace Z.Tool.Class.IndexList;
+namespace Z.Tool.Saber.IndexList;
 
 class Value : Any
 {
