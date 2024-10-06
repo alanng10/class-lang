@@ -17,7 +17,7 @@ Int Main_Init()
     char** argv;
     argv = m->Argv;
 
-    QCoreApplication::addLibraryPath("./Lib");
+    QCoreApplication::addLibraryPath(".");
 
     m->Intern = new QApplication(argc, argv);
 
