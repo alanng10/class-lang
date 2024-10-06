@@ -532,7 +532,7 @@ class Demo : Any
         bool bo;
         bo = false;
         bool baa;
-        baa = infra.TextWrite(koua, this.S("DEMO STORAGE WRITE DEMO ABCD"));
+        baa = this.StorageTextWriteAny(koua, this.S("DEMO STORAGE WRITE DEMO ABCD"), true);
         if (!baa)
         {
             ka = this.AddClear().AddS("Write ").Add(koua).AddS(" 1 Error\n").AddResult();
