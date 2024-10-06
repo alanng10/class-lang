@@ -527,7 +527,7 @@ class Demo : Any
         bool bo;
         bo = false;
         bool baa;
-        baa = infra.TextWriteAny(koua, this.S("DEMO STORAGE WRITE DEMO ABCD"), true);
+        baa = infra.TextWrite(koua, this.S("DEMO STORAGE WRITE DEMO ABCD"));
         if (!baa)
         {
             ka = this.AddClear().AddS("Write ").Add(koua).AddS(" 1 Error\n").AddResult();
@@ -552,7 +552,7 @@ class Demo : Any
         }
         if (!bo)
         {
-            k = infra.TextReadAny(koua, true);
+            k = infra.TextRead(koua);
 
             ka = this.AddClear().Add(koua).AddS(" text: \n").Add(k).AddS("\n").AddResult();
 
@@ -568,7 +568,7 @@ class Demo : Any
 
         bo = false;
         bool bac;
-        bac = infra.TextWriteAny(koub, this.S("Demo Storage Set Count aaaadda"), true);
+        bac = infra.TextWrite(koub, this.S("Demo Storage Set Count aaaadda"));
         if (!bac)
         {
             ka = this.AddClear().AddS("Write ").Add(koub).AddS(" Error\n").AddResult();
@@ -590,7 +590,7 @@ class Demo : Any
         }
         if (!bo)
         {
-            k = infra.TextReadAny(koub, true);
+            k = infra.TextRead(koub);
 
             ka = this.AddClear().Add(koub).AddS(" text: \n").Add(k).AddS("\n").AddResult();
 
