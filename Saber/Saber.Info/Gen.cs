@@ -24,7 +24,7 @@ public class Gen : ClassBase
     public virtual bool Load()
     {
         String k;
-        k = this.StorageInfra.TextRead(this.S("Class.Info.data/a.html"));
+        k = this.StorageInfra.TextRead(this.S("Saber.Info.data/a.html"));
 
         if (k == null)
         {
@@ -412,7 +412,7 @@ public class Gen : ClassBase
         combine = this.TextInfra.PathCombine;
 
         String aa;
-        aa = this.AddClear().AddS("Class.Info.data").Add(combine).Add(fileName).AddResult();
+        aa = this.AddClear().AddS("Saber.Info.data").Add(combine).Add(fileName).AddResult();
 
         String ab;
         ab = this.AddClear().Add(this.DestFoldPath).Add(combine).Add(fileName).AddResult();
