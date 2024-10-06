@@ -15,7 +15,6 @@ class NetworkB : NetworkNetwork
         return true;
     }
 
-    public Demo Demo { get; set; }
     public ThreadNetworkHostState ThreadState { get; set; }
 
     private Data Data { get; set; }
@@ -160,7 +159,7 @@ class NetworkB : NetworkNetwork
         if (cc == 2)
         {
             String ka;
-            ka = this.Demo.StringComp.CreateData(data, null);
+            ka = this.ThreadState.Demo.StringComp.CreateData(data, null);
 
             String kaa;
             kaa = this.AddClear().AddS("Network Host Case 2 Read Text: ").Add(ka).AddS("\n").AddResult();
@@ -175,29 +174,29 @@ class NetworkB : NetworkNetwork
 
     public virtual NetworkB Add(String a)
     {
-        this.Demo.Add(a);
+        this.ThreadState.Demo.Add(a);
         return this;
     }
 
     public virtual NetworkB AddS(string o)
     {
-        this.Demo.AddS(o);
+        this.ThreadState.Demo.AddS(o);
         return this;
     }
 
     public virtual NetworkB AddClear()
     {
-        this.Demo.AddClear();
+        this.ThreadState.Demo.AddClear();
         return this;
     }
 
     public virtual String AddResult()
     {
-        return this.Demo.AddResult();
+        return this.ThreadState.Demo.AddResult();
     }
 
     public virtual String S(string o)
     {
-        return this.Demo.S(o);
+        return this.ThreadState.Demo.S(o);
     }
 }
