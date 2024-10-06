@@ -384,7 +384,7 @@ public class PortLoad : ClassBase
         filePath = this.AddClear().Add(moduleRefString).Add(this.SDotRef).AddResult();
 
         Data data;
-        data = this.StorageInfra.DataReadAny(filePath, true);
+        data = this.StorageInfra.DataRead(filePath);
 
         if (data == null)
         {
