@@ -968,7 +968,6 @@ class Demo : Any
         state = new ThreadState();
         state.Init();
         state.Demo = this;
-        state.Image = this.ThreadDrawImage;
         state.Phore = phore;
 
         ThreadThread thread;
