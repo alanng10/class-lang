@@ -22,12 +22,9 @@ class ElapseState : State
          
         if (!(this.Count < this.ElapseCount))
         {
-            if (!this.TimeEvent.Single)
-            {
-                this.TimeEvent.Stop();
+            this.TimeEvent.Stop();
 
-                console.Out.Write(this.S("ElapseState.Execute Time Event Stop\n"));
-            }
+            console.Out.Write(this.S("ElapseState.Execute Time Event Stop\n"));
 
             this.Thread.Exit(this.ExitCode);
         }

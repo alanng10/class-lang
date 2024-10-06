@@ -2,14 +2,6 @@ namespace Demo;
 
 class Demo : Any
 {
-    public Frame Frame { get; set; }
-    public View View { get; set; }
-    public ViewA ViewA { get; set; }
-    public ViewC ViewC { get; set; }
-    public DrawRect UpdateRect { get; set; }
-    public DrawImage ThreadDrawImage { get; set; }
-    public Play Play { get; set; }
-    public DrawImage PlayImage { get; set; }
     public Network Peer { get; set; }
     public NetworkHost Host { get; set; }
 
@@ -17,7 +9,6 @@ class Demo : Any
     public virtual ListInfra ListInfra { get; set; }
     public virtual MathInfra MathInfra { get; set; }
     public virtual TextInfra TextInfra { get; set; }
-    public virtual DrawInfra DrawInfra { get; set; }
     public virtual StringComp StringComp { get; set; }
     public virtual TextCodeKindList TextCodeKindList { get; set; }
     public virtual StorageStatusList StorageStatusList { get; set; }
@@ -25,10 +16,6 @@ class Demo : Any
     public virtual NetworkPortKindList NetworkPortKindList { get; set; }
     public virtual NetworkCaseList NetworkCaseList { get; set; }
     public virtual NetworkStatusList NetworkStatusList { get; set; }
-    public virtual DrawBrushKindList BrushKindList { get; set; }
-    public virtual DrawBrushLineList BrushLineList { get; set; }
-    public virtual DrawBrushCapList BrushCapList { get; set; }
-    public virtual DrawBrushJoinList BrushJoinList { get; set; }
     public virtual Console Console { get; set; }
 
     public virtual MathMath Math { get; set; }
