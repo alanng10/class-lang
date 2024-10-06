@@ -527,7 +527,7 @@ public class Console : ClassBase
         filePath = this.AddClear().Add(this.SourceFold).Add(combine).Add(fileName).AddResult();
 
         String source;
-        source = this.ClassInfra.StorageTextReadAny(filePath, true);
+        source = this.StorageInfra.TextReadAny(filePath, true);
 
         if (source == null)
         {
@@ -875,7 +875,7 @@ public class Console : ClassBase
             filePath = this.AddClear().Add(sourceFold).Add(combine).Add(a.Name).Add(k).AddResult();
 
             String h;
-            h = classInfra.StorageTextReadAny(filePath, true);
+            h = this.StorageInfra.TextReadAny(filePath, true);
 
             Text aa;
             aa = textInfra.TextCreateStringData(h, null);
