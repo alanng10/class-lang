@@ -50,15 +50,9 @@ public class Infra : Any
 
     public virtual Data DataRead(String filePath)
     {
-        return this.DataReadAny(filePath, false);
-    }
-
-    public virtual Data DataReadAny(String filePath, bool anyNode)
-    {
         Storage storage;
         storage = new Storage();
         storage.Init();
-        storage.AnyNode = anyNode;
 
         Mode mode;
         mode = new Mode();
@@ -101,15 +95,9 @@ public class Infra : Any
 
     public virtual bool DataWrite(String filePath, Data data)
     {
-        return this.DataWriteAny(filePath, data, false);
-    }
-
-    public virtual bool DataWriteAny(String filePath, Data data, bool anyNode)
-    {
         Storage storage;
         storage = new Storage();
         storage.Init();
-        storage.AnyNode = anyNode;
 
         Mode mode;
         mode = new Mode();
@@ -149,16 +137,11 @@ public class Infra : Any
 
     public virtual String TextRead(String filePath)
     {
-        return this.TextReadAny(filePath, false);
-    }
-
-    public virtual String TextReadAny(String filePath, bool anyNode)
-    {
         TextCodeKindList kindList;
         kindList = this.TextCodeKindList;
 
         Data data;
-        data = this.DataReadAny(filePath, anyNode);
+        data = this.DataRead(filePath);
         if (data == null)
         {
             return null;
@@ -197,11 +180,6 @@ public class Infra : Any
 
     public virtual bool TextWrite(String filePath, String text)
     {
-        return this.TextWriteAny(filePath, text, false);
-    }
-
-    public virtual bool TextWriteAny(String filePath, String text, bool anyNode)
-    {
         TextCodeKindList kindList;
         kindList = this.TextCodeKindList;
 
@@ -232,16 +210,11 @@ public class Infra : Any
         code.ExecuteResult(result, 0, innKind, outKind, data, dataRange);
 
         bool a;
-        a = this.DataWriteAny(filePath, result, anyNode);
+        a = this.DataWrite(filePath, result);
         return a;
     }
 
     public virtual bool CountSet(String filePath, long value)
-    {
-        return this.CountSetAny(filePath, value, false);
-    }
-
-    public virtual bool CountSetAny(String filePath, long value, bool anyNode)
     {
         StatusList statusList;
         statusList = this.StorageStatusList;
@@ -249,7 +222,6 @@ public class Infra : Any
         Storage storage;
         storage = new Storage();
         storage.Init();
-        storage.AnyNode = anyNode;
 
         Mode mode;
         mode = new Mode();
