@@ -72,7 +72,7 @@ public class NetworkA : NetworkNetwork
 
         if (!(this.Status == statusList.NoError))
         {
-            this.StatusCode = 130;
+            this.StatusCode = 4000 + this.Status.Index;
             return false;
         }
 
