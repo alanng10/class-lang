@@ -557,7 +557,7 @@ class Demo : Any
         }
         if (!bo)
         {
-            k = infra.TextRead(koua);
+            k = this.StorageTextReadAny(koua, true);
 
             ka = this.AddClear().Add(koua).AddS(" text: \n").Add(k).AddS("\n").AddResult();
 
