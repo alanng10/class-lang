@@ -1,4 +1,4 @@
-namespace Z.Tool.Class.LimitList;
+namespace Z.Tool.Saber.LimitList;
 
 class Value : Any
 {

@@ -1,11 +1,11 @@
-namespace Z.Tool.Class.LimitList;
+namespace Z.Tool.Saber.LimitList;
 
 public class Gen : SourceGen
 {
     public override bool Init()
     {
         base.Init();
-        this.Module = this.S("Class.Infra");
+        this.Module = this.S("Saber.Infra");
         this.ClassName = this.S("LimitList");
         this.BaseClassName = this.S("Any");
         this.AnyClassName = this.S("Any");
@@ -16,7 +16,7 @@ public class Gen : SourceGen
         this.InitMethodFileName = this.S("ToolData/Class/InitMaideLimit.txt");
         this.ItemListFileName = this.S("ToolData/Class/ItemListLimit.txt");
         this.AddMethodFileName = this.S("ToolData/Class/AddMaideLimit.txt");
-        this.OutputFilePath = this.S("../../Class/Class.Infra/LimitList.cs");
+        this.OutputFilePath = this.S("../../Saber/Saber.Infra/LimitList.cs");
         return true;
     }
 
