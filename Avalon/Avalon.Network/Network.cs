@@ -123,12 +123,11 @@ public class Network : Any
             {
                 return null;
             }
-            
-            long k;
-            k = (long)u;
-
+            u = u - 1;
+            long o;
+            o = (long)u;
             Case a;
-            a = this.NetworkInfra.CaseFromInternCase(k);
+            a = this.NetworkCaseList.Get(o);
             return a;
         }
         set
@@ -179,7 +178,7 @@ public class Network : Any
     public virtual bool Close()
     {
         this.LoadingOpen = false;
-        
+
         Extern.Network_Close(this.Intern);
 
         Extern.Network_StreamSet(this.Intern, 0);
@@ -189,7 +188,7 @@ public class Network : Any
         this.DataStream.Final();
         this.DataStream = null;
         this.Stream = null;
-        
+
         this.InternInfra.StringDelete(this.InternHostName);
         return true;
     }
@@ -239,8 +238,8 @@ public class Network : Any
 
         Case k;
         k = this.Case;
-        
-        if (k == caseList.Open)
+
+        if (k == caseList.Connected)
         {
             this.Stream = this.DataStream;
             this.LoadingOpen = false;
