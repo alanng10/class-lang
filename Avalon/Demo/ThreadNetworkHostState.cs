@@ -25,14 +25,6 @@ class ThreadNetworkHostState : State
 
         host.Port = port;
 
-        NetworkNewPeerState state;
-        state = new NetworkNewPeerState();
-        state.Demo = this.Demo;
-        state.HostState = this;
-        state.Init();
-
-        host.NewPeerState = state;
-
         TimeEvent varEvent;
         varEvent = new TimeEvent();
         varEvent.Init();
@@ -80,7 +72,7 @@ class ThreadNetworkHostState : State
 
     public bool ExitNetwork(long code)
     {
-        Network peer;
+        NetworkNetwork peer;
         peer = this.Demo.Peer;
 
         this.Demo.Host.ClosePeer(peer);

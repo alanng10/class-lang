@@ -5,7 +5,6 @@ class NetworkHostA : NetworkHost
     public Demo Demo { get; set; }
     public ThreadNetworkHostState HostState { get; set; }
 
-
     public override bool PeerEvent()
     {
         if (!(this.Demo.Peer == null))
