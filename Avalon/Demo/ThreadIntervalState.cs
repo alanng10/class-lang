@@ -3,7 +3,6 @@ namespace Demo;
 class ThreadIntervalState : State
 {
     public virtual Demo Demo { get; set; }
-    public bool Single { get; set; }
     public long ElapseCount { get; set; }
     public long Time { get; set; }
     public long ExitCode { get; set; }
@@ -31,7 +30,6 @@ class ThreadIntervalState : State
         state.ExitCode = this.ExitCode;
 
         varEvent.Time = this.Time;
-        varEvent.Single = this.Single;
         varEvent.Elapse.State.AddState(state);
 
         varEvent.Start();
