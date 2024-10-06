@@ -19,4 +19,13 @@ class NetworkHostA : NetworkHost
         this.Demo.Peer = network;
         return true;
     }
+
+    protected override NetworkNetwork CreatePeer(ulong peer)
+    {
+        NetworkB a;
+        a = new NetworkB();
+        a.HostPeer = peer;
+        a.Init();
+        return a;
+    }
 }
