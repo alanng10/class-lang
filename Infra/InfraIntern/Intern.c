@@ -138,6 +138,36 @@ Int Intern_Intern_ArrayGet(Eval* eval, Int frame)
     Return(ke, 2);
 }
 
+Int Intern_Intern_ArraySet(Eval* eval, Int frame)
+{
+    Int s;
+    s = eval->S[frame - 3];
+
+    Int sa;
+    sa = eval->S[frame - 2];
+
+    Int sb;
+    sb = eval->S[frame - 1];
+
+    Int k;
+    k = s;
+    RefMemory(k);
+
+    Int* a;
+    a = CastPointer(k);
+
+    RefKindClear(sa);
+
+    a = a + 1 + sa;
+
+    *a = sb;
+
+    Int ke;
+    ke = BoolTrue;
+
+    Return(ke, 3);
+}
+
 Int Intern_Intern_StringNew(Eval* eval, Int frame)
 {
     Intern_New(1, 0, eval);
