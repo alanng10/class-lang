@@ -11,7 +11,7 @@
 typedef struct
 {
     Int Index;
-    Int* Stack;
+    Int* S;
 }
 Eval;
 

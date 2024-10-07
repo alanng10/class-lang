@@ -4,8 +4,8 @@ Int Intern_Intern_RefLess(Eval* eval, Int frame)
 {
     Int ka;
     Int kb;
-    ka = eval->Stack[frame - 2];
-    kb = eval->Stack[frame - 1];
+    ka = eval->S[frame - 2];
+    kb = eval->S[frame - 1];
 
     SInt kc;
     kc = 0;
@@ -59,7 +59,7 @@ Int Intern_Any_Init(Eval* eval, Int frame)
 Int Intern_Intern_FieldGet(Eval* eval, Int frame, Int index)
 {
     Int s;
-    s = eval->Stack[frame - 1];
+    s = eval->S[frame - 1];
 
     Int* p;
     p = Intern_Intern_FieldMemory(s, index);
@@ -73,10 +73,10 @@ Int Intern_Intern_FieldGet(Eval* eval, Int frame, Int index)
 Int Intern_Intern_FieldSet(Eval* eval, Int frame, Int index)
 {
     Int s;
-    s = eval->Stack[frame - 2];
+    s = eval->S[frame - 2];
 
     Int value;
-    value = eval->Stack[frame - 1];
+    value = eval->S[frame - 1];
 
     Int* p;
     p = Intern_Intern_FieldMemory(s, index);

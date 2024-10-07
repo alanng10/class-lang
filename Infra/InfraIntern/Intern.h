@@ -13,7 +13,7 @@
 #define RefMemory(name) name = name & 0x000fffffffffffff;
 
 #define Return(ret, paramCount) \
-eval->Stack[frame - (paramCount + 1)] = ret;\
+eval->S[frame - (paramCount + 1)] = ret;\
 eval->Index = frame - paramCount;\
 return 0;\
 
