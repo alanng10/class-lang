@@ -23,7 +23,7 @@ public class StateTable : Table
         return true;
     }
 
-    public virtual bool RemoveState(State state)
+    public virtual bool RemState(State state)
     {
         this.Rem(state);
         return true;

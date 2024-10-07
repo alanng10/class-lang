@@ -86,7 +86,7 @@ public class List : Comp
         {
             Comp item;
             item = (Comp)iter.Value;
-            item.ModEvent.State.RemoveState(this.EventState);
+            item.ModEvent.State.RemState(this.EventState);
         }
 
         this.ItemTable.Clear();
@@ -132,7 +132,7 @@ public class List : Comp
 
         this.ItemTable.Rem(item);
 
-        item.ModEvent.State.RemoveState(this.EventState);
+        item.ModEvent.State.RemState(this.EventState);
 
         this.TriggerList();
         return true;

@@ -25,7 +25,7 @@ public class Field : Any
     {
         if (!(this.Value == null))
         {
-            this.Value.ModEvent.State.RemoveState(this.State);
+            this.Value.ModEvent.State.RemState(this.State);
         }
 
         this.Value = value;
