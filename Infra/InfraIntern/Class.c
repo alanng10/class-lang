@@ -1,11 +1,11 @@
 #include "Class.h"
 
-Int Intern_Intern_FieldGet[0] = { };
-Int Intern_Intern_FieldSet[0] = { };
+Int Intern_Intern_StateFieldGet[0] = { };
+Int Intern_Intern_StateFieldSet[0] = { };
 
 Int Intern_Intern_State[3] = 
 {
-    CastInt(Intern_Intern_FieldGet), CastInt(Intern_Intern_FieldSet), CastInt(Intern_Intern_MaideCall)
+    CastInt(Intern_Intern_StateFieldGet), CastInt(Intern_Intern_StateFieldSet), CastInt(Intern_Intern_MaideCall)
 };
 
 Int Intern_Intern_Base[2] =
