@@ -127,7 +127,7 @@ public class Comp : Any
         return a;
     }
 
-    public virtual bool FoldRemove(String path)
+    public virtual bool FoldRem(String path)
     {
         ulong pathU;
         pathU = this.InternInfra.StringCreate(path.Value);

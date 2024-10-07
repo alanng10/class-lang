@@ -787,7 +787,7 @@ class Demo : Any
         {
         }
 
-        b = storageComp.FoldRemove(this.S(pathCb));
+        b = storageComp.FoldRem(this.S(pathCb));
 
         this.Console.Out.Write(this.S("FoldRemove " + pathCb + " " + this.StorageArrangeStatus(b) + "\n"));
 
