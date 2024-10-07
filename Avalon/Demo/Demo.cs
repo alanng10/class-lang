@@ -733,7 +733,7 @@ class Demo : Any
         catch
         {
         }
-        b = storageComp.FileRemove(this.S(pathB));
+        b = storageComp.FileRem(this.S(pathB));
 
         this.Console.Out.Write(this.S("FileRemove " + pathB + " " + this.StorageArrangeStatus(b) + "\n"));
 

@@ -79,7 +79,7 @@ public class Comp : Any
         return a;
     }
 
-    public virtual bool FileRemove(String path)
+    public virtual bool FileRem(String path)
     {
         ulong pathU;
         pathU = this.InternInfra.StringCreate(path.Value);
