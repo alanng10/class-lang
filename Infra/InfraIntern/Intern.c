@@ -38,12 +38,17 @@ Int Intern_Intern_RefLess(Eval* eval, Int frame)
 
 Int Intern_Intern_DataNew(Eval* eval, Int frame)
 {
-    Intern_New(0, 2, eval);
+    Int ka;
+    ka = eval->S[frame - 1];
+
+    RefKindClear(ka);
+
+    Intern_New(ka, 2, eval);
 
     Int ke;
     ke = eval->S[frame];
 
-    Return(ke, 0);
+    Return(ke, 1);
 }
 
 Int Intern_Intern_DataGet(Eval* eval, Int frame)
