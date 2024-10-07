@@ -43,12 +43,61 @@ Int Intern_Intern_DataNew(Eval* eval, Int frame)
 
 Int Intern_Intern_DataGet(Eval* eval, Int frame)
 {
-    return 0;
+    Int s;
+    s = eval->S[frame - 2];
+
+    Int sa;
+    sa = eval->S[frame - 1];
+
+    Int k;
+    k = s;
+    RefMemory(k);
+
+    Byte* a;
+    a = CastPointer(k);
+
+    RefKindClear(sa);
+
+    a = a + sa;
+
+    Int ke;
+    ke = *a;
+
+    RefKindInt(ke);
+
+    Return(ke, 2);
 }
 
 Int Intern_Intern_DataSet(Eval* eval, Int frame)
 {
-    return 0;
+    Int s;
+    s = eval->S[frame - 3];
+
+    Int sa;
+    sa = eval->S[frame - 2];
+
+    Int sb;
+    sb = eval->S[frame - 1];
+
+    Int k;
+    k = s;
+    RefMemory(k);
+
+    Byte* a;
+    a = CastPointer(k);
+
+    RefKindClear(sa);
+
+    RefKindClear(sb);
+
+    a = a + sa;
+
+    *a = sb;
+
+    Int ke;
+    ke = BoolTrue;
+
+    Return(ke, 3);
 }
 
 Int Intern_Intern_StringNew(Eval* eval, Int frame)
