@@ -3,8 +3,8 @@ Any DataNew|Int count
 Int DataGet|Any data, Int index
 Bool DataSet|Any data, Int index, Int value
 Any ArrayNew|Int count
-Any ItemGet|Any array, Int index
-Bool ItemSet|Any array, Int index, Any value
+Any ArrayGet|Any array, Int index
+Bool ArraySet|Any array, Int index, Any value
 String StringNew|
 Any StringValueGet|String string
 Bool StringValueSet|String string, Any value
