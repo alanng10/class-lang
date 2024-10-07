@@ -18,3 +18,5 @@ Eval;
 typedef Int (*Intern_State)(Eval* eval, Int frame);
 
 Intern_Api extern Int Intern_Intern_Class[];
+
+Intern_Api Int Intern_New(Int info, Int kind, Eval* eval);
