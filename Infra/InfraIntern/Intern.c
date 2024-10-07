@@ -43,7 +43,7 @@ Int Intern_Intern_DataNew(Eval* eval, Int frame)
 
     RefKindClear(ka);
 
-    Intern_New(ka, 2, eval);
+    Intern_New(2, ka, eval);
 
     Int ke;
     ke = eval->S[frame];
@@ -115,7 +115,7 @@ Int Intern_Intern_DataSet(Eval* eval, Int frame)
 
 Int Intern_Intern_StringNew(Eval* eval, Int frame)
 {
-    Intern_New(0, 1, eval);
+    Intern_New(1, 0, eval);
 
     Int ke;
     ke = eval->S[frame];
