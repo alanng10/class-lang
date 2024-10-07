@@ -733,7 +733,7 @@ class Demo : Any
         catch
         {
         }
-        b = storageComp.FileRem(this.S(pathB));
+        b = storageComp.FileDelete(this.S(pathB));
 
         this.Console.Out.Write(this.S("FileRemove " + pathB + " " + this.StorageArrangeStatus(b) + "\n"));
 
@@ -787,7 +787,7 @@ class Demo : Any
         {
         }
 
-        b = storageComp.FoldRem(this.S(pathCb));
+        b = storageComp.FoldDelete(this.S(pathCb));
 
         this.Console.Out.Write(this.S("FoldRemove " + pathCb + " " + this.StorageArrangeStatus(b) + "\n"));
 
