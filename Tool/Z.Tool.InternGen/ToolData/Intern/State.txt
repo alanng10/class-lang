@@ -2,5 +2,5 @@
 
 Int Intern_Intern_MaideCall[#Count#] = 
 { 
-    CastInt(Intern_Any_Init)#NameList#
+    CastInt(Intern_Intern_Init)#NameList#
 };
