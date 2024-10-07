@@ -97,7 +97,10 @@ Int Intern_Intern_DataSet(Eval* eval, Int frame)
 
     a = a + sa;
 
-    *a = sb;
+    Byte kaa;
+    kaa = sb;
+
+    *a = kaa;
 
     Int ke;
     ke = BoolTrue;
