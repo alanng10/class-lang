@@ -28,6 +28,26 @@ Int Intern_Intern_RefLess(Eval* eval, Int frame)
     Return(ke, 2);
 }
 
+Int Intern_Intern_DataNew(Eval* eval, Int frame)
+{
+    return 0;
+}
+
+Int Intern_Intern_DataGet(Eval* eval, Int frame)
+{
+    return 0;
+}
+
+Int Intern_Intern_DataSet(Eval* eval, Int frame)
+{
+    return 0;
+}
+
+Int Intern_Intern_StringNew(Eval* eval, Int frame)
+{
+    return 0;
+}
+
 Int Intern_Intern_StringValueGet(Eval* eval, Int frame)
 {
     return Intern_Intern_FieldGet(eval, frame, 0);
@@ -46,14 +66,6 @@ Int Intern_Intern_StringCountGet(Eval* eval, Int frame)
 Int Intern_Intern_StringCountSet(Eval* eval, Int frame)
 {
     return Intern_Intern_FieldSet(eval, frame, 1);
-}
-
-Int Intern_Any_Init(Eval* eval, Int frame)
-{
-    Int k;
-    k = BoolTrue;
-
-    Return(k, 0);
 }
 
 Int Intern_Intern_FieldGet(Eval* eval, Int frame, Int index)

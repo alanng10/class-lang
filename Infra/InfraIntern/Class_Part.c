@@ -2,7 +2,7 @@
 
 Int Intern_Intern_MaideCall[10] = 
 { 
-    CastInt(Intern_Any_Init),
+    0,
     CastInt(Intern_Intern_RefLess),
     CastInt(Intern_Intern_DataNew),
     CastInt(Intern_Intern_DataGet),
