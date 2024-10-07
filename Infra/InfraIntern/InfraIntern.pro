@@ -11,6 +11,7 @@ HEADERS += \
     Class.h
 
 SOURCES += \
+    Event.c \
     Intern.c \
     New.c \
     Class.c \
