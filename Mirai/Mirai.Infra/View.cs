@@ -1,4 +1,4 @@
-namespace Mirai.View;
+namespace Mirai.Infra;
 
 public class View : Comp
 {

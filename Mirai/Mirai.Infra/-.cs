@@ -24,4 +24,6 @@ global using DrawRect = Mirai.Draw.Rect;
 global using DrawImage = Mirai.Draw.Image;
 global using Color = Mirai.Draw.Color;
 global using DrawDraw = Mirai.Draw.Draw;
+global using DrawBrush = Mirai.Draw.Brush;
 global using DrawInfra = Mirai.Draw.Infra;
+global using FrameFrame = Mirai.Frame.Frame;

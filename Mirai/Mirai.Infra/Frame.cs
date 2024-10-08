@@ -1,15 +1,15 @@
-namespace Mirai.View;
+namespace Mirai.Infra;
 
 public class Frame : FrameFrame
 {
     public override bool Init()
     {
         base.Init();
-        this.ViewInfra = ViewInfra.This;
+        this.ViewInfra = Infra.This;
         return true;
     }
 
-    protected virtual ViewInfra ViewInfra { get; set; }
+    protected virtual Infra ViewInfra { get; set; }
 
     public virtual View View { get; set; }
 
