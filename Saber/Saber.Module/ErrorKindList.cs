@@ -39,6 +39,7 @@ public class ErrorKindList : Any
         this.CondUnassignable = this.AddItem("CondUnassignable");
         this.ResultUndefined = this.AddItem("ResultUndefined");
         this.ResultUnassignable = this.AddItem("ResultUnassignable");
+        this.CastUnachievable = this.AddItem("CastUnachievable");
         this.VarUndefined = this.AddItem("VarUndefined");
         this.ExportUndefined = this.AddItem("ExportUndefined");
         this.ClassUnexportable = this.AddItem("ClassUnexportable");
@@ -66,6 +67,7 @@ public class ErrorKindList : Any
     public virtual ErrorKind CondUnassignable { get; set; }
     public virtual ErrorKind ResultUndefined { get; set; }
     public virtual ErrorKind ResultUnassignable { get; set; }
+    public virtual ErrorKind CastUnachievable { get; set; }
     public virtual ErrorKind VarUndefined { get; set; }
     public virtual ErrorKind ExportUndefined { get; set; }
     public virtual ErrorKind ClassUnexportable { get; set; }
@@ -101,7 +103,7 @@ public class ErrorKindList : Any
 
     protected virtual Array Array { get; set; }
 
-    protected virtual long ArrayCount { get { return 24; } set { } }
+    protected virtual long ArrayCount { get { return 25; } set { } }
 
     public virtual long Count { get; set; }
     
