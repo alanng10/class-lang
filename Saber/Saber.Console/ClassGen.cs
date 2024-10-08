@@ -18,9 +18,9 @@ public class ClassGen : ClassBase
         this.Traverse.Gen = this;
         this.Traverse.Init();
 
-        this.StateKindGet = 0;
-        this.StateKindSet = 1;
-        this.StateKindCall = 2;
+        this.StateKindGet = 1;
+        this.StateKindSet = 2;
+        this.StateKindCall = 3;
 
         this.Space = this.S(" ");
         this.NewLine = this.S("\n");
