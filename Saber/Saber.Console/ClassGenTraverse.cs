@@ -79,6 +79,14 @@ public class ClassGenTraverse : Traverse
         return true;
     }
 
+    public override bool ExecuteOperateExecute(OperateExecute operateExecute)
+    {
+        base.ExecuteOperateExecute(operateExecute);
+
+        this.Gen.EvalIndexPosSet(-1);
+        return true;
+    }
+
     public override bool ExecuteGetOperate(GetOperate getOperate)
     {
         base.ExecuteGetOperate(getOperate);
