@@ -255,10 +255,7 @@ Int* Intern_Intern_FieldMemory(Int o, Int index)
     Int* a;
     a = CastPointer(k);
 
-    Int ka;
-    ka = index + 1;
-
-    a = a + ka;
+    a = a + index;
 
     return a;
 }
