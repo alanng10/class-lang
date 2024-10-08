@@ -8,7 +8,7 @@
 
     <ItemGroup>
         <ProjectReference Include="../../Avalon/MakeProject/MakeProject.csproj" />
-        <ProjectReference Include="../Mirai.View/Mirai.View.csproj" />
+        <ProjectReference Include="../Mirai.Infra/Mirai.Infra.csproj" />
     </ItemGroup>
 
     <ItemGroup>
