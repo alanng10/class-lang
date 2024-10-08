@@ -3,9 +3,9 @@
 Int Intern_Intern_StateFieldGet[0] = { };
 Int Intern_Intern_StateFieldSet[0] = { };
 
-Int Intern_Intern_State[3] = 
+Int Intern_Intern_State[4] = 
 {
-    CastInt(Intern_Intern_StateFieldGet), CastInt(Intern_Intern_StateFieldSet), CastInt(Intern_Intern_MaideCall)
+    0, CastInt(Intern_Intern_StateFieldGet), CastInt(Intern_Intern_StateFieldSet), CastInt(Intern_Intern_MaideCall)
 };
 
 Int Intern_Intern_Base[2] =
