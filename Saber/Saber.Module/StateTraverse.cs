@@ -627,11 +627,16 @@ public class StateTraverse : Traverse
             }
         }
 
+        bool b;
+        b = false;
+
         if (!(anyClass == null))
         {
             if (!(varClass == null))
             {
-                if (!this.ValidClass(anyClass, varClass))
+                b = this.ValidClass(anyClass, varClass);
+
+                if (!b)
                 {
                     if (!this.ValidClass(varClass, anyClass))
                     {
@@ -642,6 +647,7 @@ public class StateTraverse : Traverse
         }
 
         this.Info(castOperate).OperateClass = varClass;
+        this.Info(castOperate).CastBase = b;
         return true;
     }
 
