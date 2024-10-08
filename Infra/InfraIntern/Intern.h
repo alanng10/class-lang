@@ -14,7 +14,7 @@
 
 #define Return(ret, paramCount) \
 eval->S[frame - (paramCount + 1)] = ret;\
-eval->Index = frame - paramCount;\
+eval->N = frame - paramCount;\
 return 0;\
 
 

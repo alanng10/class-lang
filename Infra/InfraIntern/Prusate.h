@@ -10,7 +10,7 @@
 
 typedef struct
 {
-    Int Index;
+    Int N;
     Int* S;
 }
 Eval;
