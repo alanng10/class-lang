@@ -15,7 +15,7 @@ public class StateTraverse : Traverse
 
         this.VarStack = new Stack();
         this.VarStack.Init();
-        
+
         this.VarStackIter = new Iter();
         this.VarStackIter.Init();
         this.ParamIter = new TableIter();
@@ -140,7 +140,7 @@ public class StateTraverse : Traverse
         valueVar.Name = this.SValue;
         valueVar.Class = varField.Class;
         valueVar.Index = this.StateVar.Count;
-        
+
         Table o;
         o = this.ClassInfra.TableCreateStringLess();
 
@@ -339,7 +339,7 @@ public class StateTraverse : Traverse
             return true;
         }
 
-        Mark target;            
+        Mark target;
         target = areExecute.Mark;
         Operate value;
         value = areExecute.Value;
@@ -627,16 +627,11 @@ public class StateTraverse : Traverse
             }
         }
 
-        bool b;
-        b = false;
-
         if (!(anyClass == null))
         {
             if (!(varClass == null))
             {
-                b = this.ValidClass(anyClass, varClass);
-
-                if (!b)
+                if (!this.ValidClass(anyClass, varClass))
                 {
                     if (!this.ValidClass(varClass, anyClass))
                     {
@@ -647,7 +642,6 @@ public class StateTraverse : Traverse
         }
 
         this.Info(castOperate).OperateClass = varClass;
-        this.Info(castOperate).CastBase = b;
         return true;
     }
 
@@ -877,7 +871,7 @@ public class StateTraverse : Traverse
         rite = divOperate.Rite;
 
         base.ExecuteDivOperate(divOperate);
-    
+
         this.ExecuteTwoOperandOperate(divOperate, lite, rite, this.System.Int, this.System.Int);
         return true;
     }
@@ -1169,7 +1163,7 @@ public class StateTraverse : Traverse
     {
         String varName;
         varName = name.Value;
-        
+
         Var varVar;
         varVar = this.VarStackVar(varName);
         if (varVar == null)
@@ -1236,7 +1230,7 @@ public class StateTraverse : Traverse
         {
             return null;
         }
-        
+
         ClassClass anyClass;
         anyClass = this.System.Any;
 
