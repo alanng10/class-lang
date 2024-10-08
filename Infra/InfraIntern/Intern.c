@@ -113,6 +113,21 @@ Int Intern_Intern_DataSet(Eval* eval, Int frame)
     Return(ke, 3);
 }
 
+Int Intern_Intern_ArrayNew(Eval* eval, Int frame)
+{
+    Int ka;
+    ka = eval->S[frame - 1];
+
+    RefKindClear(ka);
+
+    Intern_New(3, ka, eval);
+
+    Int ke;
+    ke = eval->S[frame];
+
+    Return(ke, 1);
+}
+
 Int Intern_Intern_ArrayGet(Eval* eval, Int frame)
 {
     Int s;
