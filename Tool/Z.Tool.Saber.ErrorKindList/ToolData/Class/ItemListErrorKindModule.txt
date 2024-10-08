@@ -15,6 +15,7 @@ CondUndefined
 CondUnassignable
 ResultUndefined
 ResultUnassignable
+CastUnachievable
 VarUndefined
 ExportUndefined
 ClassUnexportable
