@@ -5,7 +5,7 @@ Class is used to create modules.
 Class consists of compiler modules, infra modules, documentation, source code.
 Class is open source.
 Permission is granted to every person to use any copy of this software in any way.
- 
+
 Class is an object oriented programming language.
 It uses classes to define any entity.
 Any entity can be defined by a class.
