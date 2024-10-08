@@ -5,7 +5,7 @@ Int Intern_Intern_StateFieldSet[0] = { };
 
 Int Intern_Intern_BaseClass[4] = 
 {
-    0, CastInt(Intern_Intern_StateFieldGet), CastInt(Intern_Intern_StateFieldSet), CastInt(Intern_Intern_MaideCall)
+    CastInt(&Intern_Intern_Class), CastInt(Intern_Intern_StateFieldGet), CastInt(Intern_Intern_StateFieldSet), CastInt(Intern_Intern_MaideCall)
 };
 
 Int Intern_Intern_Base[2] =
