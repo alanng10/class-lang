@@ -14,7 +14,9 @@ Int Intern_Intern_Base[2] =
     CastInt(Intern_Intern_State)
 };
 
-Int Intern_Intern_Class[3] =
+Int Intern_Intern_ClassAny[3] =
 {
     CastInt(Intern_Intern_Base), 0x10000000000000, 0
 };
+
+Int Intern_Intern_Class = CastInt(Intern_Intern_ClassAny);
