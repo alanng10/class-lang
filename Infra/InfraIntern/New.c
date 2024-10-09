@@ -111,6 +111,15 @@ Bool Intern_New_PauseOtherThread()
 
 Bool Intern_New_QueueAllRoot()
 {
+    Intern_New_QueueAllThreadEvalStack();
+
+    Intern_New_QueueClassShare();
+
+    return true;
+}
+
+Bool Intern_New_QueueAllThreadEvalStack()
+{
     InternNewData* m;
     m = CastPointer(NewData);
 
