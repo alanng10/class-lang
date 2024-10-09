@@ -90,7 +90,5 @@ Bool Intern_New_PauseOtherThread()
         i = i + 1;
     }
 
-
-
     return true;
 }
