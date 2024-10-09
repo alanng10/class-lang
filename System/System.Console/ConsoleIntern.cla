@@ -71,7 +71,7 @@ class ConsoleIntern : Any
         var Any k;
         k : this.InternIntern.DataNew(dataCount);
 
-        this.InternIntern.CopyToDataValue(data, k, 0, dataCount);
+        this.InternInfra.CopyToDataValue(data, k, 0, dataCount);
 
         var String a;
         a : this.InternIntern.StringNew();
