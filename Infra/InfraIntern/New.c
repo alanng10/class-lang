@@ -135,5 +135,34 @@ Bool Intern_New_QueueAllRoot()
 
 Bool Intern_New_QueueEvalStack(Eval* eval)
 {
+    Int count;
+    count = eval->N;
 
+    Int i;
+    i = 0;
+
+    while (i < count)
+    {
+        Int ka;
+        ka = eval->S[i];
+
+        Int refKind;
+        refKind = ka >> 60;
+
+        if (refKind == 1 | refKind == 4 | refKind == 5 | refKind == 6)
+        {
+            Int p;
+            p = ka & 0x000fffffffffffff;
+
+            p = p - 3 * Constant_IntByteCount();
+
+            NodeFieldFlag(p) = 1;
+        
+            
+        }
+
+        i = i + 1;
+    }
+
+    return true;
 }
