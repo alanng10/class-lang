@@ -2,24 +2,22 @@
 
 #include "Pronate.h"
 
-struct InternNewNode_T;
-
-typedef struct InternNewNode_T
-{
-    struct InternNewNode_T* Next;
-    struct InternNewNode_T* Previous;
-    Int Flag;
-}
-InternNewNode;
-
 typedef struct
 {
     Int AllocCap;
     Int TotalAllocCount;
     Int Phore;
-    InternNewNode* FirstNode;
-    InternNewNode* LastNode;
-    InternNewNode* QueueFirstNode;
-    InternNewNode* QueueLastNode;
+    Int FirstNode;
+    Int LastNode;
+    Int QueueFirstNode;
+    Int QueueLastNode;
 }
 InternNewData;
+
+#define NodeField(n, index) (((Int*)(n))[index])
+
+#define NodeFieldNext(n) NodeField(n, 0)
+
+#define NodeFieldPrevious(n) NodeField(n, 1)
+
+#define NodeFieldFlag(n) NodeField(n, 2)

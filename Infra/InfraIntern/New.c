@@ -29,21 +29,21 @@ Int Intern_New(Int kind, Int info, Eval* eval)
     Int p;
     p = New(dataCount);
 
-    InternNewNode* node;
-    node = CastPointer(p);
+    Int n;
+    n = p;
 
     if (!(m->LastNode == null))
     {
-        node->Previous = m->LastNode;
-        m->LastNode->Next = node;
+        NodeFieldPrevious(n) = m->LastNode;
+        NodeFieldNext(m->LastNode) = n;
     }
 
     if (m->FirstNode == null)
     {
-        m->FirstNode = node;
+        m->FirstNode = n;
     }
     
-    m->LastNode = node;
+    m->LastNode = n;
 
     Int ka;
     ka = dataCount + m->TotalAllocCount;
@@ -52,7 +52,7 @@ Int Intern_New(Int kind, Int info, Eval* eval)
 
     if (m->AllocCap < ka)
     {
-        
+
     }
 
 
