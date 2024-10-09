@@ -604,6 +604,8 @@ public class Create : InfraCreate
             this.Result.Root.SetAt(i, root);
             i = i + 1;
         }
+
+        this.ClearData();
         return true;
     }
 
