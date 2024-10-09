@@ -64,6 +64,8 @@ InternNewData;
 
 Bool Intern_New_PauseOtherThread();
 
+Bool Intern_New_ResumeOtherThread();
+
 Bool Intern_New_QueueAllRoot();
 
 Bool Intern_New_QueueAllThreadEvalStack();
