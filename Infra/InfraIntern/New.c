@@ -162,21 +162,24 @@ Bool Intern_New_QueueEvalStack(Eval* eval)
             Int node;
             node = p;
 
-            NodeFieldFlag(node) = 1;
-        
-            if (!(m->QueueLastNode == null))
+            if ((NodeFieldFlag(node) & 1) == 0)
             {
-                NodeFieldPrevious(node) = m->QueueLastNode;
-                
-                NodeFieldNext(m->QueueLastNode) = node;
-            }
-
-            if (m->QueueFirstNode == null)
-            {
-                m->QueueFirstNode = node;
-            }
+                NodeFieldFlag(node) = 1;
             
-            m->QueueLastNode = node;
+                if (!(m->QueueLastNode == null))
+                {
+                    NodeFieldPrevious(node) = m->QueueLastNode;
+                    
+                    NodeFieldNext(m->QueueLastNode) = node;
+                }
+
+                if (m->QueueFirstNode == null)
+                {
+                    m->QueueFirstNode = node;
+                }
+                
+                m->QueueLastNode = node;
+            }
         }
 
         i = i + 1;
