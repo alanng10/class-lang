@@ -123,7 +123,7 @@ Bool Intern_New_QueueAllRoot()
                 Eval* ka;
                 ka = CastPointer(oo);
 
-
+                Intern_New_QueueEvalStack(ka);
             }
         }
 
@@ -131,4 +131,9 @@ Bool Intern_New_QueueAllRoot()
     }
 
     return true;
+}
+
+Bool Intern_New_QueueEvalStack(Eval* eval)
+{
+
 }
