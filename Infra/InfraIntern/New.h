@@ -24,6 +24,41 @@ InternNewData;
 
 #define NodeFieldFlag(n) NodeField(n, 2)
 
+#define QueueRoot \
+        Int refKind;\
+        refKind = ka >> 60;\
+\
+        if (refKind == 1 | refKind == 4 | refKind == 6 | refKind == 7)\
+        {\
+            Int p;\
+            p = ka & RefMaskMemoryClear;\
+\
+            p = p - 3 * Constant_IntByteCount();\
+\
+            Int node;\
+            node = p;\
+\
+            if ((NodeFieldFlag(node) & 1) == 0)\
+            {\
+                NodeFieldFlag(node) = 1;\
+\
+                if (!(m->QueueLastNode == null))\
+                {\
+                    NodeFieldPrevious(node) = m->QueueLastNode;\
+\
+                    NodeFieldNext(m->QueueLastNode) = node;
+                }
+
+                if (m->QueueFirstNode == null)
+                {
+                    m->QueueFirstNode = node;
+                }
+                
+                m->QueueLastNode = node;
+            }
+        }
+
+
 Bool Intern_New_PauseOtherThread();
 
 Bool Intern_New_QueueAllRoot();
