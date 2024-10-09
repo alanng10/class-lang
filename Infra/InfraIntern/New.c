@@ -169,6 +169,9 @@ Bool Intern_New_QueueClassShare()
 
 Bool Intern_New_QueueClassShareModule(Module* module)
 {
+    InternNewData* m;
+    m = CastPointer(NewData);
+
     Int* array;
     array = CastPointer(module->ClassArray);
 
@@ -188,7 +191,9 @@ Bool Intern_New_QueueClassShareModule(Module* module)
         Int share;
         share = p[3];
 
-
+        Int ka;
+        ka = share;
+        QueueRoot;
 
         i = i + 1;
     } 
