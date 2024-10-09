@@ -45,6 +45,15 @@ Int Intern_New(Int kind, Int info, Eval* eval)
     
     m->LastNode = node;
 
+    Int ka;
+    ka = dataCount + m->TotalAllocCount;
+
+    m->TotalAllocCount = ka;
+
+    if (m->AllocCap < ka)
+    {
+        
+    }
 
 
     Phore_Release(m->Phore);

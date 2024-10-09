@@ -14,6 +14,7 @@ InternNewNode;
 
 typedef struct
 {
+    Int AllocCap;
     Int TotalAllocCount;
     Int Phore;
     InternNewNode* FirstNode;
