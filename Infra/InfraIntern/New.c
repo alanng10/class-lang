@@ -135,6 +135,9 @@ Bool Intern_New_QueueAllRoot()
 
 Bool Intern_New_QueueEvalStack(Eval* eval)
 {
+    InternNewData* m;
+    m = CastPointer(NewData);
+
     Int count;
     count = eval->N;
 
@@ -156,9 +159,24 @@ Bool Intern_New_QueueEvalStack(Eval* eval)
 
             p = p - 3 * Constant_IntByteCount();
 
-            NodeFieldFlag(p) = 1;
+            Int node;
+            node = p;
+
+            NodeFieldFlag(node) = 1;
         
+            if (!(m->QueueLastNode == null))
+            {
+                NodeFieldPrevious(node) = m->QueueLastNode;
+                
+                NodeFieldNext(m->QueueLastNode) = node;
+            }
+
+            if (m->QueueFirstNode == null)
+            {
+                m->QueueFirstNode = node;
+            }
             
+            m->QueueLastNode = node;
         }
 
         i = i + 1;
