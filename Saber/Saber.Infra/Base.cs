@@ -188,6 +188,36 @@ public class Base : Any
         return text;
     }
 
+    public virtual bool ClearText(Text text)
+    {
+        text.Data = null;
+        return true;
+    }
+
+    public virtual bool ClearStringData(StringData stringData)
+    {
+        stringData.ValueString = null;
+        return true;
+    }
+
+    public virtual bool ClearData()
+    {
+        this.ClearText(this.TextA);
+        this.ClearText(this.TextB);
+        this.ClearText(this.TextC);
+        this.ClearText(this.TextD);
+        this.ClearText(this.TextE);
+        this.ClearText(this.TextF);
+
+        this.ClearStringData(this.StringDataA);
+        this.ClearStringData(this.StringDataB);
+        this.ClearStringData(this.StringDataC);
+        this.ClearStringData(this.StringDataD);
+        this.ClearStringData(this.StringDataE);
+        this.ClearStringData(this.StringDataF);
+        return true;
+    }
+
     public virtual String StringInt(long n)
     {
         return this.StringIntArg(n, 10, false, 1, -1, 0);
