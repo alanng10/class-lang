@@ -49,6 +49,14 @@ Int Intern_New(Int kind, Int info, Eval* eval)
 
     if (m->AllocCap < m->TotalAllocCount)
     {
+        Int threadThis;
+        threadThis = Thread_This();
+
+        Int thisIdent;
+        thisIdent = Thread_IdentGet(threadThis);
+
+        m->ThisThreadIdent = thisIdent;
+
         Intern_New_PauseOtherThread();
 
         Intern_New_QueueAllRoot();
@@ -64,14 +72,6 @@ Bool Intern_New_PauseOtherThread()
     InternNewData* m;
     m = CastPointer(NewData);
 
-    Int threadThis;
-    threadThis = Thread_This();
-
-    Int thisIdent;
-    thisIdent = Thread_IdentGet(threadThis);
-
-    m->ThisThreadIdent = thisIdent;
-
     Int count;
     count = 1024;
 
@@ -80,7 +80,7 @@ Bool Intern_New_PauseOtherThread()
 
     while (i < count)
     {
-        if (!(i == thisIdent))
+        if (!(i == m->ThisThreadIdent))
         {
             Int thread;
             thread = m->Thread[i * 2];
