@@ -7,6 +7,7 @@ typedef struct
     Int AllocCap;
     Int TotalAllocCount;
     Int Phore;
+    Int ThisThreadIdent;
     Int FirstNode;
     Int LastNode;
     Int QueueFirstNode;
