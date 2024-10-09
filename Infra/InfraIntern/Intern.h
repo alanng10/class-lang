@@ -10,7 +10,7 @@
 
 #define RefKindInt(name) name = name | 0x3000000000000000;
 
-#define RefMemory(name) name = name & 0x000fffffffffffff;
+#define RefMemory(name) name = name & RefMaskMemory;
 
 #define Return(ret, paramCount) \
 eval->S[frame - (paramCount + 1)] = ret;\
