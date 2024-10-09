@@ -155,7 +155,7 @@ Bool Intern_New_QueueEvalStack(Eval* eval)
         if (refKind == 1 | refKind == 4 | refKind == 5 | refKind == 6)
         {
             Int p;
-            p = ka & 0x000fffffffffffff;
+            p = ka & RefMaskMemoryClear;
 
             p = p - 3 * Constant_IntByteCount();
 
