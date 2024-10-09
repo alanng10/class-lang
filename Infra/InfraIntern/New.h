@@ -11,6 +11,7 @@ typedef struct
     Int LastNode;
     Int QueueFirstNode;
     Int QueueLastNode;
+    Int Thread[1024 * 2];
 }
 InternNewData;
 
@@ -21,3 +22,7 @@ InternNewData;
 #define NodeFieldPrevious(n) NodeField(n, 1)
 
 #define NodeFieldFlag(n) NodeField(n, 2)
+
+Bool Intern_New_PauseOtherThread();
+
+Bool Intern_New_QueueAllRoot();
