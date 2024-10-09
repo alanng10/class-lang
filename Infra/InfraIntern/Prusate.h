@@ -21,4 +21,6 @@ Intern_Api extern Int Intern_Intern_Class;
 
 Intern_Api extern Int Intern_Extern_Class;
 
+Intern_Api extern Int Intern_Entry_Module;
+
 Intern_Api Int Intern_New(Int kind, Int info, Eval* eval);
