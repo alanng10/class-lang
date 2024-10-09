@@ -19,5 +19,7 @@ typedef struct
     Int Phore;
     InternNewNode* FirstNode;
     InternNewNode* LastNode;
+    InternNewNode* QueueFirstNode;
+    InternNewNode* QueueLastNode;
 }
 InternNewData;
