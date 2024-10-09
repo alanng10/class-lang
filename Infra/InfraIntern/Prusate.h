@@ -15,6 +15,16 @@ typedef struct
 }
 Eval;
 
+typedef struct
+{
+    Int ImportArray;
+    Int ImportArrayCount;
+    Int ClassArray;
+    Int ClassArrayCount;
+    Int Flag;
+}
+Module;
+
 typedef Int (*Intern_State)(Eval* eval, Int frame);
 
 Intern_Api extern Int Intern_Intern_Class;
