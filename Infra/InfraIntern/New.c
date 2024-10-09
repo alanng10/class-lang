@@ -47,6 +47,18 @@ Int Intern_New(Int kind, Int info, Eval* eval)
 
     m->TotalAllocCount = m->TotalAllocCount + dataCount;
 
+    Int kk;
+    kk = n + 3 * Constant_IntByteCount();
+
+    if (kind == 0)
+    {
+        kk = kk | RefKindAny;
+    }
+
+    eval->S[eval->N] = kk;
+
+    eval->N = eval->N + 1;
+
     if (m->AllocCap < m->TotalAllocCount)
     {
         Int threadThis;
@@ -110,21 +122,18 @@ Bool Intern_New_QueueAllRoot()
 
     while (i < count)
     {
-        if (!(i == m->ThisThreadIdent))
+        Int thread;
+        thread = m->Thread[i * 2];
+
+        Int oo;
+        oo = m->Thread[i * 2 + 1];
+
+        if (!(thread == null))
         {
-            Int thread;
-            thread = m->Thread[i * 2];
+            Eval* ka;
+            ka = CastPointer(oo);
 
-            Int oo;
-            oo = m->Thread[i * 2 + 1];
-
-            if (!(thread == null))
-            {
-                Eval* ka;
-                ka = CastPointer(oo);
-
-                Intern_New_QueueEvalStack(ka);
-            }
+            Intern_New_QueueEvalStack(ka);
         }
 
         i = i + 1;
