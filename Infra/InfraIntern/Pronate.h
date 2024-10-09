@@ -4,7 +4,7 @@
 
 #include "Pronate_Part.h"
 
-#define RefMaskMemoryClear 0x000fffffffffffff
+#define RefMaskMemoryClear (0x000fffffffffffff)
 
 extern Int Intern_Intern_MaideCall[];
 
