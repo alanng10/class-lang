@@ -84,7 +84,10 @@ Bool Intern_New_PauseOtherThread()
             Int thread;
             thread = m->Thread[i * 2];
 
-            Thread_Pause(thread);
+            if (!(thread == null))
+            {
+                Thread_Pause(thread);
+            }
         }
 
         i = i + 1;
