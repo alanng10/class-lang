@@ -1,10 +1,13 @@
 #include "New.h"
 
-Int Intern_New_Phore;
+Int NewData;
 
 Int Intern_New(Int kind, Int info, Eval* eval)
 {
-    Phore_Acquire(Intern_New_Phore);
+    InternNewData* m;
+    m = CastPointer(NewData);
+
+    Phore_Acquire(m->Phore);
 
     Int kk;
     kk = 0;
@@ -26,8 +29,7 @@ Int Intern_New(Int kind, Int info, Eval* eval)
     Int p;
     p = New(dataCount);
 
-
-    Phore_Release(Intern_New_Phore);
+    Phore_Release(m->Phore);
 
     return 0;
 }
