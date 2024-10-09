@@ -17,11 +17,8 @@ Eval;
 
 typedef struct
 {
-    Int ImportArray;
-    Int ImportArrayCount;
     Int ClassArray;
     Int ClassArrayCount;
-    Int Flag;
 }
 Module;
 
@@ -31,6 +28,6 @@ Intern_Api extern Int Intern_Intern_Class;
 
 Intern_Api extern Int Intern_Extern_Class;
 
-Intern_Api extern Int Intern_Entry_Module;
+Intern_Api extern Int Intern_Module_Array;
 
 Intern_Api Int Intern_New(Int kind, Int info, Eval* eval);

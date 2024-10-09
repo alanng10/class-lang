@@ -14,9 +14,9 @@ Int Intern_Intern_Base[2] =
     CastInt(Intern_Intern_BaseClass)
 };
 
-Int Intern_Intern_ClassAny[4] =
+Int Intern_Intern_ClassAny[5] =
 {
-    CastInt(Intern_Intern_Base), 0x10000000000000, 0, 0
+    CastInt(Intern_Intern_Base), 0x10000000000000, 0, 0, 0
 };
 
 Int Intern_Intern_Class = CastInt(Intern_Intern_ClassAny);
@@ -36,9 +36,9 @@ Int Intern_Extern_Base[2] =
     CastInt(Intern_Extern_BaseClass)
 };
 
-Int Intern_Extern_ClassAny[4] =
+Int Intern_Extern_ClassAny[5] =
 {
-    CastInt(Intern_Extern_Base), 0x10000000000000, 0, 0
+    CastInt(Intern_Extern_Base), 0x10000000000000, 0, 0, 0
 };
 
 Int Intern_Extern_Class = CastInt(Intern_Extern_ClassAny);

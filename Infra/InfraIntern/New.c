@@ -142,6 +142,60 @@ Bool Intern_New_QueueAllRoot()
     return true;
 }
 
+Bool Intern_New_QueueClassShare()
+{
+    Int array;
+    array = Intern_Module_Array;
+
+    Int count;
+    count = Array_CountGet(array);
+    Int i;
+    i = 0;
+    while (i < count)
+    {
+        Int a;
+        a = Array_ItemGet(array, i);
+
+        Module* module;
+        module = CastPointer(a);
+
+        Intern_New_QueueClassShareModule(module);
+
+        i = i + 1;
+    }
+
+    return true;
+}
+
+Bool Intern_New_QueueClassShareModule(Module* module)
+{
+    Int* array;
+    array = CastPointer(module->ClassArray);
+
+    Int count;
+    count = module->ClassArrayCount;
+
+    Int i;
+    i = 0;
+    while (i < count)
+    {
+        Int a;
+        a = array[i];
+
+        Int* p;
+        p = CastPointer(a);
+
+        Int share;
+        share = p[3];
+
+        
+
+        i = i + 1;
+    } 
+
+    return true;
+}
+
 Bool Intern_New_QueueEvalStack(Eval* eval)
 {
     InternNewData* m;
