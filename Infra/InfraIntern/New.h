@@ -25,6 +25,7 @@ InternNewData;
 #define NodeFieldFlag(n) NodeField(n, 2)
 
 #define QueueRoot \
+{\
         Int refKind;\
         refKind = ka >> 60;\
 \
@@ -46,17 +47,19 @@ InternNewData;
                 {\
                     NodeFieldPrevious(node) = m->QueueLastNode;\
 \
-                    NodeFieldNext(m->QueueLastNode) = node;
-                }
+                    NodeFieldNext(m->QueueLastNode) = node;\
+                }\
+\
+                if (m->QueueFirstNode == null)\
+                {\
+                    m->QueueFirstNode = node;\
+                }\
+\
+                m->QueueLastNode = node;\
+            }\
+        }\
+}\
 
-                if (m->QueueFirstNode == null)
-                {
-                    m->QueueFirstNode = node;
-                }
-                
-                m->QueueLastNode = node;
-            }
-        }
 
 
 Bool Intern_New_PauseOtherThread();
