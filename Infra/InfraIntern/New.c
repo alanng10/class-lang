@@ -193,6 +193,7 @@ Bool Intern_New_QueueClassShareModule(Module* module)
 
         Int ka;
         ka = share;
+
         QueueRoot;
 
         i = i + 1;
