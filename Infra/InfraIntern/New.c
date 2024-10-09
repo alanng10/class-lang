@@ -4,9 +4,10 @@ Int Intern_New_Phore;
 
 Int Intern_New(Int kind, Int info, Eval* eval)
 {
-    Phore_Open(Intern_New_Phore);
+    Phore_Acquire(Intern_New_Phore);
 
     Int kk;
+    kk = 0;
 
     if (kind == 0)
     {
@@ -22,10 +23,11 @@ Int Intern_New(Int kind, Int info, Eval* eval)
     Int dataCount;
     dataCount = intCount * Constant_IntByteCount();
 
-    
+    Int p;
+    p = New(dataCount);
 
 
-    Phore_Close(Intern_New_Phore);
+    Phore_Release(Intern_New_Phore);
 
     return 0;
 }
