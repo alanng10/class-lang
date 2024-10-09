@@ -31,13 +31,13 @@ InternNewData;
 \
         if (refKind == 1 | refKind == 4 | refKind == 6 | refKind == 7)\
         {\
-            Int p;\
-            p = ka & RefMaskMemoryClear;\
+            Int puu;\
+            puu = ka & RefMaskMemoryClear;\
 \
-            p = p - 3 * Constant_IntByteCount();\
+            puu = puu - 3 * Constant_IntByteCount();\
 \
             Int node;\
-            node = p;\
+            node = puu;\
 \
             if ((NodeFieldFlag(node) & 1) == 0)\
             {\

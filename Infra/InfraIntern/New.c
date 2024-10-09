@@ -212,7 +212,7 @@ Bool Intern_New_QueueEvalStack(Eval* eval)
         Int ka;
         ka = eval->S[i];
 
-
+        QueueRoot;
 
         i = i + 1;
     }
