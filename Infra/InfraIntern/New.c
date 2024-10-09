@@ -72,6 +72,8 @@ Int Intern_New(Int kind, Int info, Eval* eval)
         Intern_New_PauseOtherThread();
 
         Intern_New_QueueAllRoot();
+
+        Intern_New_ResumeOtherThread();
     }
 
     Phore_Release(m->Phore);
@@ -100,6 +102,36 @@ Bool Intern_New_PauseOtherThread()
             if (!(thread == null))
             {
                 Thread_Pause(thread);
+            }
+        }
+
+        i = i + 1;
+    }
+
+    return true;
+}
+
+Bool Intern_New_ResumeOtherThread()
+{
+    InternNewData* m;
+    m = CastPointer(NewData);
+
+    Int count;
+    count = 1024;
+
+    Int i;
+    i = 0;
+
+    while (i < count)
+    {
+        if (!(i == m->ThisThreadIdent))
+        {
+            Int thread;
+            thread = m->Thread[i * 2];
+
+            if (!(thread == null))
+            {
+                Thread_Resume(thread);
             }
         }
 
