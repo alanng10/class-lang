@@ -29,6 +29,24 @@ Int Intern_New(Int kind, Int info, Eval* eval)
     Int p;
     p = New(dataCount);
 
+    InternNewNode* node;
+    node = CastPointer(p);
+
+    if (!(m->LastNode == null))
+    {
+        node->Previous = m->LastNode;
+        m->LastNode->Next = node;
+    }
+
+    if (m->FirstNode == null)
+    {
+        m->FirstNode = node;
+    }
+    
+    m->LastNode = node;
+
+
+
     Phore_Release(m->Phore);
 
     return 0;
