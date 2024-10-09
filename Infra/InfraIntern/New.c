@@ -45,12 +45,9 @@ Int Intern_New(Int kind, Int info, Eval* eval)
     
     m->LastNode = n;
 
-    Int ka;
-    ka = dataCount + m->TotalAllocCount;
+    m->TotalAllocCount = m->TotalAllocCount + dataCount;
 
-    m->TotalAllocCount = ka;
-
-    if (m->AllocCap < ka)
+    if (m->AllocCap < m->TotalAllocCount)
     {
 
     }
