@@ -43,7 +43,7 @@ Int Intern_Intern_DataNew(Eval* eval, Int frame)
 
     RefKindClear(ka);
 
-    Intern_New(2, ka, eval);
+    Intern_New(RefKindData, ka, eval);
 
     Int ke;
     ke = eval->S[frame];
@@ -120,7 +120,7 @@ Int Intern_Intern_ArrayNew(Eval* eval, Int frame)
 
     RefKindClear(ka);
 
-    Intern_New(3, ka, eval);
+    Intern_New(RefKindArray, ka, eval);
 
     Int ke;
     ke = eval->S[frame];
@@ -185,7 +185,7 @@ Int Intern_Intern_ArraySet(Eval* eval, Int frame)
 
 Int Intern_Intern_StringNew(Eval* eval, Int frame)
 {
-    Intern_New(1, 0, eval);
+    Intern_New(RefKindString, 0, eval);
 
     Int ke;
     ke = eval->S[frame];
