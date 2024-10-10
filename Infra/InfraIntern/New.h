@@ -49,7 +49,7 @@ flagU = 0;\
 {\
         refKindU = ka >> 60;\
 \
-        if (refKindU == RefKindAny | refKindU == RefKindString | refKindU == RefKindData | refKindU == RefKindArray)\
+        if ((refKindU == RefKindAny) | (refKindU == RefKindString) | (refKindU == RefKindData) | (refKindU == RefKindArray))\
         {\
             puu = ka & RefMaskMemoryClear;\
 \
