@@ -28,6 +28,4 @@ Intern_Api extern Int Intern_Intern_Class;
 
 Intern_Api extern Int Intern_Extern_Class;
 
-Intern_Api extern Int Intern_Module_Array;
-
 Intern_Api Int Intern_New(Int kind, Int info, Eval* eval);

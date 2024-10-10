@@ -12,6 +12,7 @@ typedef struct
     Int LastNode;
     Int QueueFirstNode;
     Int QueueLastNode;
+    Int ModuleArray;
     Int Thread[1024 * 2];
 }
 InternNewData;
