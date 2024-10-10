@@ -111,6 +111,8 @@ Int Intern_New(Int kind, Int info, Eval* eval)
 
         Intern_New_Traverse();
 
+        Intern_New_DeleteUnused();
+
         Intern_New_ResumeOtherThread();
 
         m->ThisThreadIdent = 0;
@@ -278,6 +280,9 @@ Bool Intern_New_DeleteUnused()
     InternNewData* m;
     m = CastPointer(NewData);
 
+    Int totalDataCount;
+    totalDataCount = 0;
+
     Int node;
     node = m->FirstNode;
 
@@ -291,7 +296,7 @@ Bool Intern_New_DeleteUnused()
         
         Int nextNode;
         nextNode = NodeFieldNext(node);
-            
+
         if (b)
         {
             Int previousNode;
@@ -324,11 +329,24 @@ Bool Intern_New_DeleteUnused()
         {
             flag = flag & 0xffff;
 
+            Int dataCount;
+            dataCount = NodeFieldSize(node);
+
+            totalDataCount = totalDataCount + dataCount;
+            
+
             NodeFieldFlag(node) = flag;
         }
 
         node = nextNode;
     }
+
+    m->TotalAllocCount = totalDataCount;
+
+    Int capCount;
+    capCount = 2 * (m->TotalAllocCount);
+
+    m->AllocCap = capCount;
 
     return true;
 }
