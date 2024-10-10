@@ -26,43 +26,51 @@ InternNewData;
 
 #define NodeFieldFlag(n) NodeField(n, 3)
 
+#define QueueNodeVar \
+Int refKindU;\
+refKindU = 0;\
+Int puu;\
+puu = 0;\
+Int nodeU;\
+nodeU = 0;\
+Int flagU;\
+flagU = 0;\
+\
+
+
 #define QueueNode \
 {\
-        Int refKind;\
-        refKind = ka >> 60;\
+        refKindU = ka >> 60;\
 \
-        if (refKind == 1 | refKind == 4 | refKind == 6 | refKind == 7)\
+        if (refKindU == 1 | refKindU == 4 | refKindU == 6 | refKindU == 7)\
         {\
-            Int puu;\
             puu = ka & RefMaskMemoryClear;\
 \
             puu = puu - 3 * Constant_IntByteCount();\
 \
-            Int node;\
-            node = puu;\
+            nodeU = puu;\
 \
-            Int flagE;\
-            flagE = NodeFieldFlag(node);\
+            flagU = NodeFieldFlag(nodeU);\
 \
-            if ((flagE & 0x10000) == 0)\
+            if ((flagU & 0x10000) == 0)\
             {\
-                flagE = flagE | 0x10000;\
+                flagU = flagU | 0x10000;\
 \
-                NodeFieldFlag(node) = flagE;\
+                NodeFieldFlag(nodeU) = flagU;\
 \
                 if (!(m->QueueLastNode == null))\
                 {\
-                    NodeFieldPrevious(node) = m->QueueLastNode;\
+                    NodeFieldPrevious(nodeU) = m->QueueLastNode;\
 \
-                    NodeFieldNext(m->QueueLastNode) = node;\
+                    NodeFieldNext(m->QueueLastNode) = nodeU;\
                 }\
 \
                 if (m->QueueFirstNode == null)\
                 {\
-                    m->QueueFirstNode = node;\
+                    m->QueueFirstNode = nodeU;\
                 }\
 \
-                m->QueueLastNode = node;\
+                m->QueueLastNode = nodeU;\
             }\
         }\
 }\
