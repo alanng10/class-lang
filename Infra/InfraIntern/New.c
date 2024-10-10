@@ -165,11 +165,11 @@ Bool Intern_New_Travarse()
         node = m->QueueFirstNode;
 
         Int nextNode;
-        nextNode = NodeFieldNext(node);
+        nextNode = NodeFieldQueueNext(node);
 
         if (!(nextNode == null))
         {
-            NodeFieldPrevious(nextNode) = null;
+            NodeFieldQueuePrevious(nextNode) = null;
         }
 
         m->QueueFirstNode = nextNode;
