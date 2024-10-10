@@ -45,17 +45,28 @@ Int Intern_New(Int kind, Int info, Eval* eval)
     
     m->LastNode = n;
 
-    m->TotalAllocCount = m->TotalAllocCount + dataCount;
+    NodeFieldSize(n) = dataCount;
 
-    Int kk;
-    kk = n + 3 * Constant_IntByteCount();
+    NodeFieldFlag(n) = kind << 8;
+
+    Int* pa;
+    pa = CastPoiner(n);
+
+    pa = pa + 4;
+
+    Int ke;
+    ke = CastInt(pa);
 
     if (kind == 0)
     {
-        kk = kk | RefKindAny;
+        *pa = info;
+
+        ke = ke | RefKindAny;
     }
 
-    eval->S[eval->N] = kk;
+    m->TotalAllocCount = m->TotalAllocCount + dataCount;
+
+    eval->S[eval->N] = ke;
 
     eval->N = eval->N + 1;
 
