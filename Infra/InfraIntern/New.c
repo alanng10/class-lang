@@ -19,6 +19,10 @@ Int Intern_New(Int kind, Int info, Eval* eval)
 
         kk = cc[2];
     }
+    if (kind == RefKindString)
+    {
+        kk = 2;
+    }
 
     Int intCount;
     intCount = kk + 6;
