@@ -75,9 +75,9 @@ Int Intern_New(Int kind, Int info, Eval* eval)
     NodeFieldFlag(n) = kind;
 
     Int* pa;
-    pa = CastPoiner(n);
+    pa = CastPointer(n);
 
-    pa = pa + 6;
+    pa = pa + NodeFieldCount;
 
     if (kind == RefKindAny | kind == RefKindArray)
     {
