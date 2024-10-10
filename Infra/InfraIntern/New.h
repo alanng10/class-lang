@@ -24,7 +24,7 @@ InternNewData;
 
 #define NodeFieldFlag(n) NodeField(n, 2)
 
-#define QueueRoot \
+#define QueueNode \
 {\
         Int refKind;\
         refKind = ka >> 60;\

@@ -235,7 +235,7 @@ Bool Intern_New_QueueClassShareModule(Module* module)
         Int ka;
         ka = share;
 
-        QueueRoot;
+        QueueNode;
 
         i = i + 1;
     } 
@@ -259,7 +259,7 @@ Bool Intern_New_QueueEvalStack(Eval* eval)
         Int ka;
         ka = eval->S[i];
 
-        QueueRoot;
+        QueueNode;
 
         i = i + 1;
     }
