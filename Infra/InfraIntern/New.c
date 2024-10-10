@@ -18,6 +18,7 @@ Int Intern_New(Int kind, Int info, Eval* eval)
         cc = CastPointer(info);
 
         kk = cc[2];
+        kk = kk + 1;
     }
     if (kind == RefKindString)
     {
