@@ -46,7 +46,7 @@ Int Intern_New(Int kind, Int info, Eval* eval)
     }
 
     Int intCount;
-    intCount = kk + 6;
+    intCount = kk + NodeFieldCount;
 
     Int dataCount;
     dataCount = intCount * Constant_IntByteCount();
