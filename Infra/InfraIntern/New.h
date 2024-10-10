@@ -82,7 +82,7 @@ flagU = 0;\
         }\
 }\
 
-
+Bool Intern_New_AutoDelete();
 
 Bool Intern_New_PauseOtherThread();
 

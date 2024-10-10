@@ -97,30 +97,40 @@ Int Intern_New(Int kind, Int info, Eval* eval)
 
     if (m->AllocCap < m->TotalAllocCount)
     {
-        Int threadThis;
-        threadThis = Thread_This();
-
-        Int thisIdent;
-        thisIdent = Thread_IdentGet(threadThis);
-
-        m->ThisThreadIdent = thisIdent;
-
-        Intern_New_PauseOtherThread();
-
-        Intern_New_QueueAllRoot();
-
-        Intern_New_Traverse();
-
-        Intern_New_DeleteUnused();
-
-        Intern_New_ResumeOtherThread();
-
-        m->ThisThreadIdent = 0;
+        Intern_New_AutoDelete();
     }
 
     Phore_Release(m->Phore);
 
     return 0;
+}
+
+Bool Intern_New_AutoDelete()
+{
+    InternNewData* m;
+    m = CastPointer(NewData);
+
+    Int threadThis;
+    threadThis = Thread_This();
+
+    Int thisIdent;
+    thisIdent = Thread_IdentGet(threadThis);
+
+    m->ThisThreadIdent = thisIdent;
+
+    Intern_New_PauseOtherThread();
+
+    Intern_New_QueueAllRoot();
+
+    Intern_New_Traverse();
+
+    Intern_New_DeleteUnused();
+
+    Intern_New_ResumeOtherThread();
+
+    m->ThisThreadIdent = 0;
+
+    return true;
 }
 
 Bool Intern_New_PauseOtherThread()
