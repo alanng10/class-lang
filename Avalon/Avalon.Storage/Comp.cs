@@ -173,7 +173,7 @@ public class Comp : Any
         String a;
         a = this.StringCreateIntern(o);
 
-        this.DeleteInternString(o);
+        this.InternInfra.StringDelete(o);
 
         return a;
     }
@@ -250,7 +250,7 @@ public class Comp : Any
             ulong ua;
             ua = Extern.Array_ItemGet(o, indexAU);
 
-            this.DeleteInternString(ua);
+            this.InternInfra.StringDelete(ua);
 
             i = i + 1;
         }
@@ -278,17 +278,5 @@ public class Comp : Any
         a.Count = count;
         a.Init();
         return a;
-    }
-
-    private bool DeleteInternString(ulong o)
-    {
-        ulong data;
-        data = Extern.String_DataGet(o);
-
-        Extern.String_Final(o);
-        Extern.String_Delete(o);
-
-        Extern.Delete(data);
-        return true;
     }
 }
