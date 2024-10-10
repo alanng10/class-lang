@@ -220,7 +220,7 @@ Bool Intern_New_Traverse()
 
         Int* p;
         p = CastPointer(node);
-        p = p + 6;
+        p = p + NodeFieldCount;
 
         Int ka;
         ka = null;
