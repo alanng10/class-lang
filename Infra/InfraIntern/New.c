@@ -86,8 +86,12 @@ Int Intern_New(Int kind, Int info, Eval* eval)
 
     Int ke;
     ke = CastInt(pa);
+
+    Int kka;
+    kka = kind;
+    kka = kka << 60;
     
-    ke = ke | (kind << 60);
+    ke = ke | kka;
 
     m->TotalAllocCount = m->TotalAllocCount + dataCount;
 
