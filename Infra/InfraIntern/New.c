@@ -291,6 +291,9 @@ Bool Intern_New_DeleteUnused()
     Int totalDataCount;
     totalDataCount = 0;
 
+    Int previousNode;
+    previousNode = null;
+
     Int node;
     node = m->FirstNode;
 
@@ -307,17 +310,9 @@ Bool Intern_New_DeleteUnused()
 
         if (b)
         {
-            Int previousNode;
-            previousNode = NodeFieldPrevious(node);
-
             if (!(previousNode == null))
             {
                 NodeFieldNext(previousNode) = nextNode;
-            }
-
-            if (!(nextNode == null))
-            {
-                NodeFieldPrevious(nextNode) = previousNode;
             }
 
             if (m->FirstNode == node)
