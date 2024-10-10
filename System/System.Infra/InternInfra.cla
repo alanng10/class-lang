@@ -3,24 +3,16 @@ class InternInfra : Any
     maide prusate Bool Init()
     {
         base.Init();
-        this.InternIntern = share InternIntern;
+        this.InternIntern : share InternIntern;
         return true;
     }
     
     field precate InternIntern InternIntern { get { return data; } set { data : value; } }
     
-    maide prusate Int DataValueMemory(var Any data)
-    {
-        var Int k;
-        k : this.InternIntern.Memory(data);
-        k : k + 8;
-        return k;
-    }
-    
     maide prusate Int TextCodeCount(var Int innKind, var Int outKind, var Any data, var Int dataIndex, var Int dataCount)
     {
         var Int dataValue;
-        dataValue : this.DataValueMemory(data);
+        dataValue : this.InternIntern.Memory(data);
         dataValue : dataValue + dataIndex;
         
         var Int k;
@@ -31,11 +23,11 @@ class InternInfra : Any
     maide prusate Bool TextCodeResult(var Any result, var Int resultIndex, var Int innKind, var Int outKind, var Any data, var Int dataIndex, var Int dataCount)
     {
         var Int dataValue;
-        dataValue : this.DataValueMemory(data);
+        dataValue : this.InternIntern.Memory(data);
         dataValue : dataValue + dataIndex;
 
         var Int resultValue;
-        resultValue : this.DataValueMemory(result);
+        resultValue : this.InternIntern.Memory(result);
         resultValue : resultValue + resultIndex;
         
         this.Extern.TextCode_ExecuteResult(resultValue, innKind, outKind, dataValue, dataCount);
