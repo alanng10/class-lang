@@ -179,7 +179,7 @@ Bool Intern_New_ResumeOtherThread()
     return true;
 }
 
-Bool Intern_New_Travarse()
+Bool Intern_New_Traverse()
 {
     InternNewData* m;
     m = CastPointer(NewData);
@@ -315,8 +315,11 @@ Bool Intern_New_QueueAllThreadEvalStack()
 
 Bool Intern_New_QueueClassShare()
 {
+    InternNewData* m;
+    m = CastPointer(NewData);
+
     Int array;
-    array = Intern_Module_Array;
+    array = m->ModuleArray;
 
     Int count;
     count = Array_CountGet(array);
