@@ -21,7 +21,7 @@ Int Intern_New(Int kind, Int info, Eval* eval)
     }
 
     Int intCount;
-    intCount = kk + 3;
+    intCount = kk + 4;
 
     Int dataCount;
     dataCount = intCount * Constant_IntByteCount();
@@ -150,6 +150,18 @@ Bool Intern_New_Travarse()
     {
         Int node;
         node = m->QueueFirstNode;
+
+        Int nextNode;
+        nextNode = NodeFieldNext(node);
+
+        NodeFieldPrevious(nextNode) = null;
+
+        m->QueueFirstNode = nextNode;
+
+        Int ka;
+        ka = node + 4 * Constant_IntByteCount();
+
+        
     }
 
     return true;

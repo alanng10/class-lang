@@ -22,6 +22,8 @@ InternNewData;
 
 #define NodeFieldPrevious(n) NodeField(n, 1)
 
+#define NodeFieldSize(n) NodeField(n, 2)
+
 #define NodeFieldFlag(n) NodeField(n, 3)
 
 #define QueueNode \
