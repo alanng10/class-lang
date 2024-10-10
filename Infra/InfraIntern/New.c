@@ -273,6 +273,66 @@ Bool Intern_New_Traverse()
     return true;
 }
 
+Bool Intern_New_DeleteUnused()
+{
+    InternNewData* m;
+    m = CastPointer(NewData);
+
+    Int node;
+    node = m->FirstNode;
+
+    while (!(node == null))
+    {
+        Int flag;
+        flag = NodeFieldFlag(node);
+
+        Bool b;
+        b = ((flag & QueueFlag) == 0);
+        
+        Int nextNode;
+        nextNode = NodeFieldNext(node);
+            
+        if (b)
+        {
+            Int previousNode;
+            previousNode = NodeFieldPrevious(node);
+
+            if (!(previousNode == null))
+            {
+                NodeFieldNext(previousNode) = nextNode;
+            }
+
+            if (!(nextNode == null))
+            {
+                NodeFieldPrevious(nextNode) = previousNode;
+            }
+
+            if (m->FirstNode == node)
+            {
+                m->FirstNode = nextNode;
+            }
+
+            if (m->LastNode == node)
+            {
+                m->LastNode = previousNode;
+            }
+
+            Delete(node);
+        }
+
+        if (!b)
+        {
+            flag = flag & 0xffff;
+
+            NodeFieldFlag(node) = flag;
+        }
+
+        node = nextNode;
+    }
+
+    return true;
+}
+
 Bool Intern_New_QueueAllRoot()
 {
     Intern_New_QueueAllThreadEvalStack();
