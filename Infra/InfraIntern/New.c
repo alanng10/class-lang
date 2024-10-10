@@ -61,7 +61,7 @@ Int Intern_New(Int kind, Int info, Eval* eval)
     {
         *pa = info;
 
-        ke = ke | RefKindAny;
+        ke = ke | RefKindMaskAny;
     }
 
     m->TotalAllocCount = m->TotalAllocCount + dataCount;

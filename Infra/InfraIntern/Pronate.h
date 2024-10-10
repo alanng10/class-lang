@@ -6,7 +6,10 @@
 
 #define RefMaskMemoryClear (0x000fffffffffffff)
 
-#define RefKindAny (0x1000000000000000)
+#define RefKindAny (0x1ULL)
+
+#define RefKindMaskAny (RefKindAny << 60)
+
 
 extern Int Intern_Intern_MaideCall[];
 
