@@ -29,6 +29,8 @@ InternNewData;
 
 #define NodeFieldQueueNext(n) NodeField(n, 4)
 
+#define NodeFieldCount (5)
+
 #define QueueFlag (0x10000)
 
 #define QueueNodeVar \
@@ -51,7 +53,7 @@ flagU = 0;\
         {\
             puu = ka & RefMaskMemoryClear;\
 \
-            puu = puu - 6 * Constant_IntByteCount();\
+            puu = puu - NodeFieldCount * Constant_IntByteCount();\
 \
             nodeU = puu;\
 \
