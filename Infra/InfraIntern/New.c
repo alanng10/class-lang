@@ -12,7 +12,7 @@ Int Intern_New(Int kind, Int info, Eval* eval)
     Int kk;
     kk = 0;
 
-    if (kind == 0)
+    if (kind == RefKindAny)
     {
         Int* cc;
         cc = CastPointer(info);
