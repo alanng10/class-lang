@@ -112,6 +112,8 @@ Int Intern_New(Int kind, Int info, Eval* eval)
         Intern_New_Traverse();
 
         Intern_New_ResumeOtherThread();
+
+        m->ThisThreadIdent = 0;
     }
 
     Phore_Release(m->Phore);
