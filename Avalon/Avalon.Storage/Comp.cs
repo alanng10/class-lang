@@ -22,7 +22,6 @@ public class Comp : Any
         this.ListInfra = ListInfra.This;
 
         this.ModuleFoldPath = (String)this.InternIntern.ModuleFoldPath;
-        this.ExecuteFoldPath = (String)this.InternIntern.ExecuteFoldPath;
 
         this.Intern = Extern.StorageComp_New();
         Extern.StorageComp_Init(this.Intern);
@@ -37,7 +36,6 @@ public class Comp : Any
     }
 
     public virtual String ModuleFoldPath { get; set; }
-    public virtual String ExecuteFoldPath { get; set; }
     private InternIntern InternIntern { get; set; }
     private InternInfra InternInfra { get; set; }
     protected virtual ListInfra ListInfra { get; set; }
