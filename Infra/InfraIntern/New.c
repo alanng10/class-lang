@@ -158,10 +158,50 @@ Bool Intern_New_Travarse()
 
         m->QueueFirstNode = nextNode;
 
-        Int ka;
-        ka = node + 4 * Constant_IntByteCount();
-
+        Int flag;
+        flag = NodeFieldFlag(node);
         
+        Int kind;
+        kind = flag >> 8;
+
+        Int* p;
+        p = CastPointer(node);
+        p = p + 4;
+
+        Int ka;
+        ka = null;
+
+        if (kind == 0)
+        {
+            Int kaa;
+            kaa = *p;
+
+            Int* paa;
+            paa = CastPointer(kaa);
+            
+            Int countA;
+            countA = paa[2];
+
+            Int* pa;
+            pa = p + 1;
+
+            Int iA;
+            iA = 0;
+            while (iA < countA)
+            {
+                ka = pa[iA];
+
+                QueueNode;
+
+                iA = iA + 1;
+            }
+        }
+        if (kind == 1)
+        {
+            ka = *p;
+
+            QueueNode;
+        }
     }
 
     return true;
