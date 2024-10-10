@@ -1,12 +1,12 @@
 Int RefLess|Any lite, Any rite
+String StringNew|
+Any StringValueGet|String string
+Bool StringValueSet|String string, Any value
+Int StringCountGet|String string
+Bool StringCountSet|String string, Int value
 Any DataNew|Int count
 Int DataGet|Any data, Int index
 Bool DataSet|Any data, Int index, Int value
 Any ArrayNew|Int count
 Any ArrayGet|Any array, Int index
 Bool ArraySet|Any array, Int index, Any value
-String StringNew|
-Any StringValueGet|String string
-Bool StringValueSet|String string, Any value
-Int StringCountGet|String string
-Bool StringCountSet|String string, Int value
