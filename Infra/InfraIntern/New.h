@@ -67,7 +67,6 @@ flagU = 0;\
 \
                 if (!(m->QueueLastNode == null))\
                 {\
-\
                     NodeFieldQueueNext(m->QueueLastNode) = nodeU;\
                 }\
 \
