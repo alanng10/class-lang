@@ -142,7 +142,7 @@ Bool Intern_New_PauseOtherThread()
     m = CastPointer(NewData);
 
     Int count;
-    count = 1024;
+    count = ThreadCountMax;
 
     Int i;
     i = 0;
@@ -178,7 +178,7 @@ Bool Intern_New_ResumeOtherThread()
     m = CastPointer(NewData);
 
     Int count;
-    count = 1024;
+    count = ThreadCountMax;
 
     Int i;
     i = 0;
@@ -382,7 +382,7 @@ Bool Intern_New_QueueAllThreadEvalStack()
     m = CastPointer(NewData);
 
     Int count;
-    count = 1024;
+    count = ThreadCountMax;
 
     Int i;
     i = 0;
