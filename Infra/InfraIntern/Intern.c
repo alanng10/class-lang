@@ -31,7 +31,7 @@ Int Intern_Intern_RefLess(Eval* eval, Int frame)
     ke = kc;
 
     RefKindClear(ke);
-    RefKindInt(ke);
+    RefKindSet(ke, RefKindInt);
 
     Return(ke, 2);
 }
@@ -73,7 +73,7 @@ Int Intern_Intern_DataGet(Eval* eval, Int frame)
     Int ke;
     ke = *a;
 
-    RefKindInt(ke);
+    RefKindSet(ke, RefKindInt);
 
     Return(ke, 2);
 }
