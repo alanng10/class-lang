@@ -663,7 +663,6 @@ class Demo : Any
 
         this.Console.Out.Write(kaaaa);
 
-
         bool b;
 
         string pathA;        
