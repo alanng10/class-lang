@@ -21,15 +21,13 @@ InternNewData;
 
 #define NodeFieldNext(n) NodeField(n, 0)
 
-#define NodeFieldPrevious(n) NodeField(n, 1)
+#define NodeFieldQueueNext(n) NodeField(n, 1)
 
 #define NodeFieldSize(n) NodeField(n, 2)
 
 #define NodeFieldFlag(n) NodeField(n, 3)
 
-#define NodeFieldQueueNext(n) NodeField(n, 4)
-
-#define NodeFieldCount (5)
+#define NodeFieldCount (4)
 
 #define QueueFlag (0x10000)
 
