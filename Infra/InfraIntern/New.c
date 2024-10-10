@@ -184,6 +184,8 @@ Bool Intern_New_Travarse()
         Int ka;
         ka = null;
 
+        QueueNodeVar;
+
         if (kind == 0)
         {
             Int kaa;
@@ -295,6 +297,8 @@ Bool Intern_New_QueueClassShareModule(Module* module)
     Int* array;
     array = CastPointer(module->ClassArray);
 
+    QueueNodeVar;
+
     Int count;
     count = module->ClassArrayCount;
 
@@ -326,6 +330,8 @@ Bool Intern_New_QueueEvalStack(Eval* eval)
 {
     InternNewData* m;
     m = CastPointer(NewData);
+
+    QueueNodeVar;
 
     Int count;
     count = eval->N;
