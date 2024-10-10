@@ -8,7 +8,7 @@
 
 #define RefKindClear(name) name = name & 0x0fffffffffffffff;
 
-#define RefKindInt(name) name = name | 0x3000000000000000;
+#define RefKindSet(name, kind) name = name | (kind << 60);
 
 #define RefMemory(name) name = name & RefMaskMemoryClear;
 
