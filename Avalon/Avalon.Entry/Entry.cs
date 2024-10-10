@@ -35,15 +35,6 @@ public class Entry : Any
         
         kk = this.SlashCombine(kk);
 
-        string k;
-        k = typeof(Any).Assembly.Location;
-        string ka;
-        ka = Path.GetDirectoryName(k);
-
-        Directiory.SetCurrentDirectory(ka);
-
-        ka = this.SlashCombine(ka);
-
         ulong ua;
         ua = 1;
         Extern.Main_IsCSharpSet(ua);
@@ -55,8 +46,7 @@ public class Entry : Any
 
         this.TextStringValue = TextStringValue.This;
 
-        this.InternIntern.ExecuteFoldPath = this.S(kk);
-        this.InternIntern.ModuleFoldPath = this.S(ka);
+        this.InternIntern.ModuleFoldPath = this.S(kk);
 
         this.StorageComp = StorageComp.This;
 
