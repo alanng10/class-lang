@@ -23,7 +23,6 @@ typedef struct
 {
     Int Index;
     Int Thread;
-    Int ThreadAny;
     Int Eval;
 }
 ThreadData;
