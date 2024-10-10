@@ -59,7 +59,6 @@ Int Intern_New(Int kind, Int info, Eval* eval)
 
     if (!(m->LastNode == null))
     {
-        NodeFieldPrevious(n) = m->LastNode;
         NodeFieldNext(m->LastNode) = n;
     }
 
