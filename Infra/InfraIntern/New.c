@@ -181,11 +181,17 @@ Bool Intern_New_ResumeOtherThread()
     {
         if (!(i == m->ThisThreadIdent))
         {
-            Int thread;
-            thread = m->Thread[i * 2];
+            Int ka;
+            ka = m->Thread[i];
 
-            if (!(thread == null))
+            if (!(ka == null))
             {
+                ThreadData* p;
+                p = CastPoiner(ka);
+
+                Int thread;
+                thread = p->Thread;
+
                 Thread_Resume(thread);
             }
         }
@@ -377,18 +383,18 @@ Bool Intern_New_QueueAllThreadEvalStack()
 
     while (i < count)
     {
-        Int thread;
-        thread = m->Thread[i * 2];
+        Int ka;
+        ka = m->Thread[i];
 
-        Int oo;
-        oo = m->Thread[i * 2 + 1];
-
-        if (!(thread == null))
+        if (!(ka == null))
         {
-            Eval* ka;
-            ka = CastPointer(oo);
+            ThreadData* p;
+            p = CastPoiner(ka);
 
-            Intern_New_QueueEvalStack(ka);
+            Eval* k;
+            k = p->Eval;
+
+            Intern_New_QueueEvalStack(k);
         }
 
         i = i + 1;
