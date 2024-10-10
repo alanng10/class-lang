@@ -46,7 +46,7 @@ flagU = 0;\
 {\
         refKindU = ka >> 60;\
 \
-        if (refKindU == 1 | refKindU == 4 | refKindU == 6 | refKindU == 7)\
+        if (refKindU == RefKindAny | refKindU == RefKindString | refKindU == RefKindData | refKindU == RefKindArray)\
         {\
             puu = ka & RefMaskMemoryClear;\
 \
