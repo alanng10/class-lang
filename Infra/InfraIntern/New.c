@@ -373,6 +373,8 @@ Bool Intern_New_QueueAllRoot()
 
     Intern_New_QueueClassShare();
 
+    Intern_New_QueueAllThreadAny();
+
     return true;
 }
 
@@ -493,6 +495,41 @@ Bool Intern_New_QueueEvalStack(Eval* eval)
         ka = eval->S[i];
 
         QueueNode;
+
+        i = i + 1;
+    }
+
+    return true;
+}
+
+Bool Intern_New_QueueAllThreadAny()
+{
+    InternNewData* m;
+    m = CastPointer(NewData);
+
+    Int count;
+    count = ThreadCountMax;
+
+    Int i;
+    i = 0;
+
+    while (i < count)
+    {
+        Int kk;
+        kk = m->Thread[i];
+
+        if (!(kk == null))
+        {
+            ThreadData* p;
+            p = CastPoiner(kk);
+
+            Int ka;
+            ka = p->ThreadAny;
+
+            QueueNodeVar;
+
+            QueueNode;
+        }
 
         i = i + 1;
     }
