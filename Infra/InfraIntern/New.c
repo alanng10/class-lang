@@ -79,7 +79,7 @@ Int Intern_New(Int kind, Int info, Eval* eval)
 
     pa = pa + NodeFieldCount;
 
-    if (kind == RefKindAny | kind == RefKindArray)
+    if ((kind == RefKindAny) | (kind == RefKindArray))
     {
         *pa = info;
     }
