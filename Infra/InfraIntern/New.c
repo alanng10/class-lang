@@ -210,11 +210,6 @@ Bool Intern_New_Traverse()
         Int nextNode;
         nextNode = NodeFieldQueueNext(node);
 
-        if (!(nextNode == null))
-        {
-            NodeFieldQueuePrevious(nextNode) = null;
-        }
-
         m->QueueFirstNode = nextNode;
 
         Int flag;
