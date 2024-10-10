@@ -141,6 +141,20 @@ Bool Intern_New_ResumeOtherThread()
     return true;
 }
 
+Bool Intern_New_Travarse()
+{
+    InternNewData* m;
+    m = CastPointer(NewData);
+
+    while (!(m->QueueFirstNode == null))
+    {
+        Int node;
+        node = m->QueueFirstNode;
+    }
+
+    return true;
+}
+
 Bool Intern_New_QueueAllRoot()
 {
     Intern_New_QueueAllThreadEvalStack();
