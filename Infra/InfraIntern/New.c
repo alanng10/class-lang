@@ -21,7 +21,7 @@ Int Intern_New(Int kind, Int info, Eval* eval)
     }
 
     Int intCount;
-    intCount = kk + 4;
+    intCount = kk + 6;
 
     Int dataCount;
     dataCount = intCount * Constant_IntByteCount();
@@ -47,12 +47,12 @@ Int Intern_New(Int kind, Int info, Eval* eval)
 
     NodeFieldSize(n) = dataCount;
 
-    NodeFieldFlag(n) = kind << 8;
+    NodeFieldFlag(n) = kind;
 
     Int* pa;
     pa = CastPoiner(n);
 
-    pa = pa + 4;
+    pa = pa + 6;
 
     Int ke;
     ke = CastInt(pa);
@@ -178,7 +178,7 @@ Bool Intern_New_Travarse()
         flag = NodeFieldFlag(node);
         
         Int kind;
-        kind = flag >> 8;
+        kind = flag & 0xffff;
 
         Int* p;
         p = CastPointer(node);
