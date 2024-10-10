@@ -62,7 +62,7 @@ class Demo : Any
         this.ExecuteIntParse();
         this.ExecuteTime();
         this.ExecuteStorage();
-        this.ExecuteStorageArrange();
+        this.ExecuteStorageComp();
 
         this.ExecuteDemoThread();
         this.ExecuteTimeEvent();
@@ -653,7 +653,7 @@ class Demo : Any
         return o;
     }
 
-    private bool ExecuteStorageArrange()
+    private bool ExecuteStorageComp()
     {
         StorageComp storageComp;
         storageComp = this.StorageComp;
