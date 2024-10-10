@@ -41,9 +41,14 @@ InternNewData;
             Int node;\
             node = puu;\
 \
-            if ((NodeFieldFlag(node) & 1) == 0)\
+            Int flagE;\
+            flagE = NodeFieldFlag(node);\
+\
+            if ((flagE & 0x10000) == 0)\
             {\
-                NodeFieldFlag(node) = 1;\
+                flagE = flagE | 0x10000;\
+\
+                NodeFieldFlag(node) = flagE;\
 \
                 if (!(m->QueueLastNode == null))\
                 {\
