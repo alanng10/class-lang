@@ -31,6 +31,8 @@ InternNewData;
 
 #define NodeFieldQueuePrevious(n) NodeField(n, 5)
 
+#define QueueFlag (0x10000)
+
 #define QueueNodeVar \
 Int refKindU;\
 refKindU = 0;\
@@ -57,9 +59,9 @@ flagU = 0;\
 \
             flagU = NodeFieldFlag(nodeU);\
 \
-            if ((flagU & 0x10000) == 0)\
+            if ((flagU & QueueFlag) == 0)\
             {\
-                flagU = flagU | 0x10000;\
+                flagU = flagU | QueueFlag;\
 \
                 NodeFieldFlag(nodeU) = flagU;\
 \
