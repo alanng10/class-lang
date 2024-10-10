@@ -24,6 +24,21 @@ Int Intern_New(Int kind, Int info, Eval* eval)
     {
         kk = 2;
     }
+    if (kind == RefKindData)
+    {
+        Int kaa;
+        kaa = info / Constant_IntByteCount();
+        
+        Int kae;
+        kae = kaa * Constant_IntByteCount();
+
+        kk = kaa;
+
+        if (kae < info)
+        {
+            kk = kk + 1;
+        }
+    }
     if (kind == RefKindArray)
     {
         kk = info;
