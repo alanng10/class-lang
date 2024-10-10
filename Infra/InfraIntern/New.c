@@ -336,9 +336,10 @@ Bool Intern_New_DeleteUnused()
             dataCount = NodeFieldSize(node);
 
             totalDataCount = totalDataCount + dataCount;
-            
 
             NodeFieldFlag(node) = flag;
+
+            previousNode = node;
         }
 
         node = nextNode;
