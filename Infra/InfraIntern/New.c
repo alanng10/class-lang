@@ -371,9 +371,9 @@ Bool Intern_New_QueueAllRoot()
 {
     Intern_New_QueueAllThreadEvalStack();
 
-    Intern_New_QueueClassShare();
-
     Intern_New_QueueAllThreadAny();
+
+    Intern_New_QueueClassShare();
 
     return true;
 }
