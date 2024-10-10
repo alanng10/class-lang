@@ -658,6 +658,12 @@ class Demo : Any
         StorageComp storageComp;
         storageComp = this.StorageComp;
 
+        String kaaaa;
+        kaaaa = this.AddClear().AddS("Module Fold Path: ").Add(storageComp.ModuleFoldPath).AddLine().AddResult();
+
+        this.Console.Out.Write(kaaaa);
+
+
         bool b;
 
         string pathA;        
