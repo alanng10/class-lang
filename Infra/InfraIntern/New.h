@@ -2,6 +2,8 @@
 
 #include "Pronate.h"
 
+#define ThreadCountMax (1024)
+
 typedef struct
 {
     Int AllocCap;
@@ -13,7 +15,7 @@ typedef struct
     Int QueueFirstNode;
     Int QueueLastNode;
     Int ModuleArray;
-    Int Thread[1024];
+    Int Thread[ThreadCountMax];
 }
 InternNewData;
 
