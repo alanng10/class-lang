@@ -189,7 +189,7 @@ Bool Intern_New_Travarse()
 
         QueueNodeVar;
 
-        if (kind == 0)
+        if (kind == RefKindAny)
         {
             Int kaa;
             kaa = *p;
@@ -215,14 +215,14 @@ Bool Intern_New_Travarse()
             }
         }
 
-        if (kind == 1)
+        if (kind == RefKindString)
         {
             ka = *p;
 
             QueueNode;
         }
 
-        if (kind == 3)
+        if (kind == RefKindArray)
         {
             Int countB;
             countB = *p;
