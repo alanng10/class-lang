@@ -211,11 +211,32 @@ Bool Intern_New_Travarse()
                 iA = iA + 1;
             }
         }
+
         if (kind == 1)
         {
             ka = *p;
 
             QueueNode;
+        }
+
+        if (kind == 3)
+        {
+            Int countB;
+            countB = *p;
+
+            Int* pb;
+            pb = p + 1;
+
+            Int iB;
+            iB = 0;
+            while (iB < countB)
+            {
+                ka = pb[iB];
+
+                QueueNode;
+
+                iB = iB + 1;
+            }
         }
     }
 
