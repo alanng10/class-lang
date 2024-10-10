@@ -182,7 +182,7 @@ Bool Intern_New_Travarse()
 
         Int* p;
         p = CastPointer(node);
-        p = p + 4;
+        p = p + 6;
 
         Int ka;
         ka = null;
