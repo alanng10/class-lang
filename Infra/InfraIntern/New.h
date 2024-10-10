@@ -50,7 +50,7 @@ flagU = 0;\
         {\
             puu = ka & RefMaskMemoryClear;\
 \
-            puu = puu - 3 * Constant_IntByteCount();\
+            puu = puu - 6 * Constant_IntByteCount();\
 \
             nodeU = puu;\
 \
