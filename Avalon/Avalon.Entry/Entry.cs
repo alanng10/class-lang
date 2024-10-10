@@ -30,11 +30,6 @@ public class Entry : Any
 
     protected virtual bool MainBefore()
     {
-        string kk;
-        kk = Directiory.GetCurrentDirectory();
-        
-        kk = this.SlashCombine(kk);
-
         ulong ua;
         ua = 1;
         Extern.Main_IsCSharpSet(ua);
@@ -46,11 +41,14 @@ public class Entry : Any
 
         this.TextStringValue = TextStringValue.This;
 
-        this.InternIntern.ModuleFoldPath = this.S(kk);
-
         this.StorageComp = StorageComp.This;
 
-        this.StorageComp.CurrentFoldSet(this.StorageComp.ModuleFoldPath);
+        String kk;
+        kk = this.StorageComp.CurrentFoldGet();
+
+        this.InternIntern.ModuleFoldPath = kk;
+
+        this.StorageComp.ModuleFoldPath = kk;
 
         this.ArrayArg();
         return true;
