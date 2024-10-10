@@ -13,9 +13,17 @@ typedef struct
     Int QueueFirstNode;
     Int QueueLastNode;
     Int ModuleArray;
-    Int Thread[1024 * 2];
+    Int Thread[1024];
 }
 InternNewData;
+
+typedef struct
+{
+    Int Index;
+    Int Thread;
+    Int Eval;
+}
+ThreadData;
 
 #define NodeField(n, index) (((Int*)(n))[index])
 
