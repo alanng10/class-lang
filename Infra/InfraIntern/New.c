@@ -151,11 +151,17 @@ Bool Intern_New_PauseOtherThread()
     {
         if (!(i == m->ThisThreadIdent))
         {
-            Int thread;
-            thread = m->Thread[i * 2];
+            Int ka;
+            ka = m->Thread[i];
 
-            if (!(thread == null))
+            if (!(ka == null))
             {
+                ThreadData* p;
+                p = CastPoiner(ka);
+
+                Int thread;
+                thread = p->Thread;
+
                 Thread_Pause(thread);
             }
         }
