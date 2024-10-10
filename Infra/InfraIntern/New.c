@@ -167,7 +167,10 @@ Bool Intern_New_Travarse()
         Int nextNode;
         nextNode = NodeFieldNext(node);
 
-        NodeFieldPrevious(nextNode) = null;
+        if (!(nextNode == null))
+        {
+            NodeFieldPrevious(nextNode) = null;
+        }
 
         m->QueueFirstNode = nextNode;
 

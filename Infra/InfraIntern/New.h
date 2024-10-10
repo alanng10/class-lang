@@ -26,6 +26,10 @@ InternNewData;
 
 #define NodeFieldFlag(n) NodeField(n, 3)
 
+#define NodeFieldQueueNext(n) NodeField(n, 4)
+
+#define NodeFieldQueuePrevious(n) NodeField(n, 5)
+
 #define QueueNodeVar \
 Int refKindU;\
 refKindU = 0;\
@@ -60,9 +64,9 @@ flagU = 0;\
 \
                 if (!(m->QueueLastNode == null))\
                 {\
-                    NodeFieldPrevious(nodeU) = m->QueueLastNode;\
+                    NodeFieldQueuePrevious(nodeU) = m->QueueLastNode;\
 \
-                    NodeFieldNext(m->QueueLastNode) = nodeU;\
+                    NodeFieldQueueNext(m->QueueLastNode) = nodeU;\
                 }\
 \
                 if (m->QueueFirstNode == null)\
