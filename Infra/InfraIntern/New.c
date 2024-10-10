@@ -79,15 +79,15 @@ Int Intern_New(Int kind, Int info, Eval* eval)
 
     pa = pa + 6;
 
-    Int ke;
-    ke = CastInt(pa);
-
-    if (kind == 0)
+    if (kind == RefKindAny | kind == RefKindArray)
     {
         *pa = info;
-
-        ke = ke | RefKindMaskAny;
     }
+
+    Int ke;
+    ke = CastInt(pa);
+    
+    ke = ke | (kind << 60);
 
     m->TotalAllocCount = m->TotalAllocCount + dataCount;
 
