@@ -21,7 +21,6 @@ public class Intern : object
     public static object ThisThread = null;
 
     public virtual object ModuleFoldPath { get; set; }
-    public virtual object ExecuteFoldPath { get; set; }
 
     public virtual ulong MaidePointer(SystemDelegate d)
     {
