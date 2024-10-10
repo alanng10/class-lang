@@ -78,4 +78,4 @@ Bool Intern_New_QueueClassShare();
 
 Bool Intern_New_QueueClassShareModule(Module* module);
 
-Bool Intern_New_Travarse();
+Bool Intern_New_Traverse();
