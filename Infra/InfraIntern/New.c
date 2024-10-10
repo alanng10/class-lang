@@ -24,6 +24,11 @@ Int Intern_New(Int kind, Int info, Eval* eval)
     {
         kk = 2;
     }
+    if (kind == RefKindArray)
+    {
+        kk = info;
+        kk = kk + 1;
+    }
 
     Int intCount;
     intCount = kk + 6;
