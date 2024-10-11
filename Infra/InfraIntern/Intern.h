@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Pronate.h"
+#include "Prusate_Part.h"
 
 #define BoolFalse 0x2000000000000000
 

@@ -2,8 +2,6 @@
 
 #include "Prusate.h"
 
-#include "Pronate_Part.h"
-
 #define RefMaskMemoryClear (0x000fffffffffffff)
 
 #define RefKindNull (0x0ULL)
