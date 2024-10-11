@@ -118,12 +118,9 @@ class StateGen : ToolBase
 
     protected virtual String GetMaide(Maide maide)
     {
-        String space;
-        space = this.ToolInfra.SSpace;
-
         this.AddIndent(1).Add(maide.Class).Add(space).Add(maide.Name).AddS("(");
 
-        
+
 
         this.AddS(")").AddLine();
         return true;
