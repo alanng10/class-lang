@@ -157,7 +157,7 @@ Bool Intern_New_PauseOtherThread()
             if (!(ka == null))
             {
                 ThreadData* p;
-                p = CastPoiner(ka);
+                p = CastPointer(ka);
 
                 Int thread;
                 thread = p->Thread;
@@ -193,7 +193,7 @@ Bool Intern_New_ResumeOtherThread()
             if (!(ka == null))
             {
                 ThreadData* p;
-                p = CastPoiner(ka);
+                p = CastPointer(ka);
 
                 Int thread;
                 thread = p->Thread;
