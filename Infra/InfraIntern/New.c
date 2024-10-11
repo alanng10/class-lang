@@ -400,7 +400,7 @@ Bool Intern_New_QueueAllThreadEvalStack()
             p = CastPointer(ka);
 
             Eval* k;
-            k = p->Eval;
+            k = CastPointer(p->Eval);
 
             Intern_New_QueueEvalStack(k);
         }
