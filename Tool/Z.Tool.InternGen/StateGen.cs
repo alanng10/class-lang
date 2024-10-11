@@ -101,12 +101,22 @@ class StateGen : ToolBase
         iter = table.IterCreate();
         table.IterSet(iter);
 
+        bool b;
+        b = false;
+
         while (iter.Next())
         {
+            if (b)
+            {
+                this.AddLine();
+            }
+            
             Maide maide;
             maide = (Maide)iter.Value;
 
             this.AddMaide(maide);
+
+            b = true;
         }
 
         String a;
@@ -143,7 +153,7 @@ class StateGen : ToolBase
         }
 
 
-        this.AddS(")").AddS(" { }").AddLine().AddLine();
+        this.AddS(")").AddS(" { }").AddLine();
 
         return true;
     }
