@@ -16,3 +16,5 @@
 #define RefKindMaskAny (RefKindAny << 60)
 
 extern Int NewData;
+
+extern Int ThreadArray;

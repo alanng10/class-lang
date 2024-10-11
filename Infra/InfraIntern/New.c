@@ -1,5 +1,7 @@
 #include "New.h"
 
+Int ThreadArray;
+
 Int NewData;
 
 Int Intern_New(Int kind, Int info, Eval* eval)
@@ -144,6 +146,9 @@ Bool Intern_New_PauseOtherThread()
     Int count;
     count = ThreadCountMax;
 
+    Int* array;
+    array = CastPointer(ThreadArray);
+
     Int i;
     i = 0;
 
@@ -152,7 +157,7 @@ Bool Intern_New_PauseOtherThread()
         if (!(i == m->ThisThreadIdent))
         {
             Int ka;
-            ka = m->Thread[i];
+            ka = array[i];
 
             if (!(ka == null))
             {
@@ -180,6 +185,9 @@ Bool Intern_New_ResumeOtherThread()
     Int count;
     count = ThreadCountMax;
 
+    Int* array;
+    array = CastPointer(ThreadArray);
+
     Int i;
     i = 0;
 
@@ -188,7 +196,7 @@ Bool Intern_New_ResumeOtherThread()
         if (!(i == m->ThisThreadIdent))
         {
             Int ka;
-            ka = m->Thread[i];
+            ka = array[i];
 
             if (!(ka == null))
             {
@@ -386,13 +394,16 @@ Bool Intern_New_QueueAllThreadEvalStack()
     Int count;
     count = ThreadCountMax;
 
+    Int* array;
+    array = CastPointer(ThreadArray);
+
     Int i;
     i = 0;
 
     while (i < count)
     {
         Int ka;
-        ka = m->Thread[i];
+        ka = array[i];
 
         if (!(ka == null))
         {
@@ -510,13 +521,16 @@ Bool Intern_New_QueueAllThreadAny()
     Int count;
     count = ThreadCountMax;
 
+    Int* array;
+    array = CastPointer(ThreadArray);
+
     Int i;
     i = 0;
 
     while (i < count)
     {
         Int kk;
-        kk = m->Thread[i];
+        kk = array[i];
 
         if (!(kk == null))
         {

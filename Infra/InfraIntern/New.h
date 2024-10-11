@@ -15,7 +15,6 @@ typedef struct
     Int QueueFirstNode;
     Int QueueLastNode;
     Int ModuleArray;
-    Int Thread[ThreadCountMax];
 }
 InternNewData;
 
