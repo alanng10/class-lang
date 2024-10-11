@@ -51,6 +51,8 @@ public class Infra : Any
         this.Range = this.CreateInfraRange();
 
         this.Indent = this.StringComp.CreateChar(' ', 4);
+
+        this.SSpace = this.S(" ");
         return true;
     }
 
@@ -81,6 +83,7 @@ public class Infra : Any
     public virtual Write Write { get; set; }
     public virtual WriteArg WriteArgInt { get; set; }
     public virtual WriteArg WriteArgIntHex { get; set; }
+    public virtual String SSpace { get; set; }
 
     protected virtual StringAdd CreateStringAdd()
     {

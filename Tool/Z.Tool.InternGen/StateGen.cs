@@ -62,4 +62,70 @@ class StateGen : ToolBase
 
         return a;
     }
+
+    protected virtual bool ExecuteClassMaide()
+    {
+        ToolInfra toolInfra;
+        toolInfra = this.ToolInfra;
+
+        String textClass;
+        textClass = toolInfra.StorageTextRead(this.S("ToolData/Intern/Class.txt"));
+
+        String maideList;
+        maideList = this.GetMaideList();
+
+        Text k;
+        k = this.TextCreate(textClass);
+        k = this.Replace(k, "#MaideList#", maideList);
+
+        String a;
+        a = this.StringCreate(k);
+
+        String outputPath;
+        outputPath = this.S("../../System/System.Infra/Intern.cla");
+
+        toolInfra.StorageTextWrite(outputPath, a);
+        return true;
+    }
+
+    protected virtual String GetMaideList()
+    {
+        this.AddClear();
+
+        Table table;
+        table = this.MaideTable;
+
+        Iter iter;
+        iter = table.IterCreate();
+        table.IterSet(iter);
+
+        while (iter.Next())
+        {
+            Maide maide;
+            maide = (Maide)iter.Value;
+
+            this.AddS("Intern_Api Int Intern_Intern_");
+            this.Add(maide.Name);
+            this.AddS("(Eval* eval, Int frame);");
+            this.AddLine();
+        }
+
+        String a;
+        a = this.AddResult();
+
+        return a;
+    }
+
+    protected virtual String GetMaide(Maide maide)
+    {
+        String space;
+        space = this.ToolInfra.SSpace;
+
+        this.AddIndent(1).Add(maide.Class).Add(space).Add(maide.Name).AddS("(");
+
+        
+
+        this.AddS(")").AddLine();
+        return true;
+    }
 }
