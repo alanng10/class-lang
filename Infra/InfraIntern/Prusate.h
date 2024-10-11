@@ -24,8 +24,4 @@ Module;
 
 typedef Int (*Intern_State)(Eval* eval, Int frame);
 
-Intern_Api extern Int Intern_Intern_Class;
-
-Intern_Api extern Int Intern_Extern_Class;
-
 Intern_Api Int Intern_New(Int kind, Int info, Eval* eval);

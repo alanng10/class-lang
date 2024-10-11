@@ -16,7 +16,3 @@
 #define RefKindMaskAny (RefKindAny << 60)
 
 extern Int NewData;
-
-extern Int Intern_Intern_MaideCall[];
-
-Int Intern_Intern_Init(Eval* eval, Int frame);

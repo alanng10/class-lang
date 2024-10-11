@@ -22,34 +22,6 @@ Int Intern_Intern_Memory(Eval* eval, Int frame)
     Return(ke, 1);
 }
 
-Int Intern_Intern_RefLess(Eval* eval, Int frame)
-{
-    Int ka;
-    Int kb;
-    ka = eval->S[frame - 2];
-    kb = eval->S[frame - 1];
-
-    SInt kc;
-    kc = 0;
-
-    if (ka < kb)
-    {
-        kc = -1;
-    }
-    if (kb < ka)
-    {
-        kc = 1;
-    }
-
-    Int ke;
-    ke = kc;
-
-    RefKindClear(ke);
-    RefKindSet(ke, RefKindInt);
-
-    Return(ke, 2);
-}
-
 Int Intern_Intern_DataNew(Eval* eval, Int frame)
 {
     Int ka;
@@ -272,4 +244,37 @@ Int* Intern_Intern_FieldMemory(Int o, Int index)
     a = a + index;
 
     return a;
+}
+
+Int Intern_Intern_RefLess(Eval* eval, Int frame)
+{
+    Int ka;
+    Int kb;
+    ka = eval->S[frame - 2];
+    kb = eval->S[frame - 1];
+
+    SInt kc;
+    kc = 0;
+
+    if (ka < kb)
+    {
+        kc = -1;
+    }
+    if (kb < ka)
+    {
+        kc = 1;
+    }
+
+    Int ke;
+    ke = kc;
+
+    RefKindClear(ke);
+    RefKindSet(ke, RefKindInt);
+
+    Return(ke, 2);
+}
+
+Int Intern_Intern_ThisThread(Eval* eval, Int frame)
+{
+    
 }
