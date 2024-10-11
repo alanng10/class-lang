@@ -49,4 +49,25 @@ class SystemExternGen : ExternGen
         return true;
     }
 
+    protected override bool AddFunction(FunctionOperate functionOperate)
+    {
+        this.AddFunctionHeader();
+
+        this.Add(this.IntTypeName).AddS(" ");
+
+        functionOperate.ExecuteName();
+
+        this.AddS("(");
+
+        functionOperate.ExecuteParam();
+
+        this.AddS(")").AddS(" { }").Add(this.NewLine);
+        return true;
+    }
+
+    public override bool AddVarDeclare(String varName)
+    {
+        this.AddS("var ").Add(this.IntTypeName).AddS(" ").Add(varName);
+        return true;
+    }
 }
