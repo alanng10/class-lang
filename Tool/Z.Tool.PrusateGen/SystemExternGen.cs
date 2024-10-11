@@ -13,4 +13,14 @@ class SystemExternGen : ExternGen
         this.IntTypeName = this.S("Int");
         return true;
     }
+
+    protected override bool AddFunctionHeader()
+    {
+        this.AddIndent(1);
+
+        this
+            .AddS("maide prusate ")
+            ;
+        return true;
+    }
 }
