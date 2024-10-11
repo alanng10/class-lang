@@ -6,19 +6,17 @@ class StateGen : ToolBase
 
     public virtual bool Execute()
     {
-        this.ExecuteMaideCallArray();
-
-        this.ExecutePronateRefer();
+        this.ExecutePrusateRefer();
         return true;
     }
 
-    protected virtual bool ExecutePronateRefer()
+    protected virtual bool ExecutePrusateRefer()
     {
         ToolInfra toolInfra;
         toolInfra = this.ToolInfra;
 
         String textPronate;
-        textPronate = toolInfra.StorageTextRead(this.S("ToolData/Intern/Pronate.txt"));
+        textPronate = toolInfra.StorageTextRead(this.S("ToolData/Intern/Prusate.txt"));
 
         String referList;
         referList = this.GetReferList();
@@ -31,40 +29,7 @@ class StateGen : ToolBase
         a = this.StringCreate(k);
 
         String outputPath;
-        outputPath = this.S("../../Infra/InfraIntern/Pronate_Part.h");
-
-        toolInfra.StorageTextWrite(outputPath, a);
-        return true;
-    }
-
-    protected virtual bool ExecuteMaideCallArray()
-    {
-        ToolInfra toolInfra;
-        toolInfra = this.ToolInfra;
-
-        String textState;
-        textState = toolInfra.StorageTextRead(this.S("ToolData/Intern/State.txt"));
-
-        long kka;
-        kka = this.MaideTable.Count;
-        kka = kka + 1;
-
-        String ka;
-        ka = this.S(kka.ToString());
-
-        String nameList;
-        nameList = this.GetNameList();
-
-        Text k;
-        k = this.TextCreate(textState);
-        k = this.Replace(k, "#Count#", ka);
-        k = this.Replace(k, "#NameList#", nameList);
-
-        String a;
-        a = this.StringCreate(k);
-
-        String outputPath;
-        outputPath = this.S("../../Infra/InfraIntern/Class_Part.c");
+        outputPath = this.S("../../Infra/InfraIntern/Prusate_Part.h");
 
         toolInfra.StorageTextWrite(outputPath, a);
         return true;
@@ -90,38 +55,6 @@ class StateGen : ToolBase
             this.Add(maide.Name);
             this.AddS("(Eval* eval, Int frame);");
             this.AddLine();
-        }
-
-        String a;
-        a = this.AddResult();
-
-        return a;
-    }
-
-    protected virtual String GetNameList()
-    {
-        this.AddClear();
-
-        Table table;
-        table = this.MaideTable;
-
-        Iter iter;
-        iter = table.IterCreate();
-        table.IterSet(iter);
-
-        while (iter.Next())
-        {
-            Maide maide;
-            maide = (Maide)iter.Value;
-
-            this.AddS(",");
-            this.AddLine();
-            this.AddS("    ");
-            this.AddS("CastInt");
-            this.AddS("(");
-            this.AddS("Intern_Intern_");
-            this.Add(maide.Name);
-            this.AddS(")");
         }
 
         String a;
