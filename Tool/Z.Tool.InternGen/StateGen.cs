@@ -143,7 +143,7 @@ class StateGen : ToolBase
         }
 
 
-        this.AddS(")").AddS("{ }").AddLine().AddLine();
+        this.AddS(")").AddS(" { }").AddLine().AddLine();
 
         return true;
     }
