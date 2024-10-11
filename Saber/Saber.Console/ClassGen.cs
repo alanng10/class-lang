@@ -849,6 +849,32 @@ public class ClassGen : ClassBase
         return true;
     }
 
+    public virtual bool InternNewString(String k)
+    {
+        this.TextIndent();
+
+        this.Text(this.InternNewMaide);
+        this.Text(this.LimitBraceRoundLite);
+
+        this.Text(this.One);
+
+        this.Text(this.LimitComma);
+        this.Text(this.Space);
+
+        this.Text(k);
+
+        this.Text(this.LimitComma);
+        this.Text(this.Space);
+
+        this.Text(this.EvalVar);
+
+        this.Text(this.LimitBraceRoundRite);
+
+        this.Text(this.LimitSemicolon);
+        this.Text(this.NewLine);
+        return true;
+    }
+
     public virtual bool VarSet(String dest, String value)
     {
         this.TextIndent();
