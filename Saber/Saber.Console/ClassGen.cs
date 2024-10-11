@@ -25,6 +25,7 @@ public class ClassGen : ClassBase
         this.Space = this.S(" ");
         this.NewLine = this.S("\n");
         this.Zero = this.S("0");
+        this.One = this.S("1");
         String k;
         k = this.S("v");
         this.VarA = this.InitVar(k, "A");
@@ -33,7 +34,7 @@ public class ClassGen : ClassBase
         this.VarD = this.InitVar(k, "D");
         this.VarSA = this.InitVar(k, "SA");
         this.VarSB = this.InitVar(k, "SB");
-        this.Eval = this.S("e");
+        this.EvalVar = this.S("e");
         this.EvalStackVar = this.S("S");
         this.EvalIndexVar = this.S("N");
         this.EvalFrameVar = this.S("f");
@@ -113,13 +114,14 @@ public class ClassGen : ClassBase
     public virtual String Space { get; set; }
     public virtual String NewLine { get; set; }
     public virtual String Zero { get; set; }
+    public virtual String One { get; set; }
     public virtual String VarA { get; set; }
     public virtual String VarB { get; set; }
     public virtual String VarC { get; set; }
     public virtual String VarD { get; set; }
     public virtual String VarSA { get; set; }
     public virtual String VarSB { get; set; }
-    public virtual String Eval { get; set; }
+    public virtual String EvalVar { get; set; }
     public virtual String EvalStackVar { get; set; }
     public virtual String EvalIndexVar { get; set; }
     public virtual String EvalFrameVar { get; set; }
@@ -805,7 +807,7 @@ public class ClassGen : ClassBase
         this.Text(kb);
 
         this.Text(ka);
-        this.Text(this.Eval);
+        this.Text(this.EvalVar);
 
         this.Text(this.LimitComma);
         this.Text(kk);
@@ -814,6 +816,30 @@ public class ClassGen : ClassBase
     
         this.Text(kb);
 
+        this.Text(this.LimitSemicolon);
+        this.Text(this.NewLine);
+        return true;
+    }
+
+    public virtual bool InternNew(ClassClass varClass)
+    {
+        this.TextIndent();
+
+        this.Text(this.InternNewMaide);
+        this.Text(this.LimitBraceRoundLite);
+
+        this.Text(this.One);
+        this.Text(this.LimitComma);
+        this.Text(this.Space);
+
+        this.ClassName(varClass);
+        this.Text(this.NameCombine);
+        this.Text(this.ClassVarPost);
+        this.Text(this.LimitComma);
+        this.Text(this.Space);
+
+        this.Text(this.EvalVar);
+        this.Text(this.LimitBraceRoundRite);
         this.Text(this.LimitSemicolon);
         this.Text(this.NewLine);
         return true;
@@ -1164,7 +1190,7 @@ public class ClassGen : ClassBase
 
     public virtual bool EvalStack()
     {
-        this.Text(this.Eval);
+        this.Text(this.EvalVar);
         this.Text(this.LimitDotPointer);
         this.Text(this.EvalStackVar);
         return true;
@@ -1172,7 +1198,7 @@ public class ClassGen : ClassBase
 
     public virtual bool EvalIndex()
     {
-        this.Text(this.Eval);
+        this.Text(this.EvalVar);
         this.Text(this.LimitDotPointer);
         this.Text(this.EvalIndexVar);
         return true;
