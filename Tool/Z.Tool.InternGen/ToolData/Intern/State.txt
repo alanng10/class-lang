@@ -1,6 +1,0 @@
-#include "Class.h"
-
-Int Intern_Intern_MaideCall[#Count#] = 
-{ 
-    CastInt(Intern_Intern_Init)#NameList#
-};

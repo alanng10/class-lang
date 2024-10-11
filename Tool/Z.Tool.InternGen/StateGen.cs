@@ -86,7 +86,7 @@ class StateGen : ToolBase
             Maide maide;
             maide = (Maide)iter.Value;
 
-            this.AddS("Int Intern_Intern_");
+            this.AddS("Intern_Api Int Intern_Intern_");
             this.Add(maide.Name);
             this.AddS("(Eval* eval, Int frame);");
             this.AddLine();
