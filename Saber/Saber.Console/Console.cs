@@ -319,9 +319,6 @@ public class Console : ClassBase
                 aac = (String)arg.GetAt(3);
             }
 
-            String executeFoldPath;
-            executeFoldPath = this.StorageComp.ExecuteFoldPath;
-
             String combine;
             combine = this.TextInfra.PathCombine;
 
@@ -334,18 +331,8 @@ public class Console : ClassBase
             String sourceFold;
             sourceFold = aaa;
 
-            if (storageInfra.IsRelativePath(this.TA(sourceFold), less))
-            {
-                sourceFold = this.AddClear().Add(executeFoldPath).Add(combine).Add(sourceFold).AddResult();
-            }
-
             String destFold;
             destFold = aab;
-
-            if (storageInfra.IsRelativePath(this.TA(destFold), less))
-            {
-                destFold = this.AddClear().Add(executeFoldPath).Add(combine).Add(destFold).AddResult();
-            }
 
             bool linkFileName;
             linkFileName = true;
