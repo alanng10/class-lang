@@ -104,10 +104,7 @@ class StateGen : ToolBase
             Maide maide;
             maide = (Maide)iter.Value;
 
-            this.AddS("Intern_Api Int Intern_Intern_");
-            this.Add(maide.Name);
-            this.AddS("(Eval* eval, Int frame);");
-            this.AddLine();
+            this.AddMaide(maide);
         }
 
         String a;
@@ -116,13 +113,36 @@ class StateGen : ToolBase
         return a;
     }
 
-    protected virtual String GetMaide(Maide maide)
+    protected virtual bool AddMaide(Maide maide)
     {
-        this.AddIndent(1).Add(maide.Class).Add(space).Add(maide.Name).AddS("(");
+        this.AddIndent(1).AddS("maide prusate ").Add(maide.Class).AddS(" ").Add(maide.Name).AddS("(");
+
+        bool b;
+        b = false;
+
+        Iter iter;
+        iter = maide.Param.IterCreate();
+
+        maide.Param.IterSet(iter);
+
+        while (iter.Next())
+        {
+            if (!b)
+            {
+                this.AddS(", ");
+
+                b = true;
+            }
+
+            Var ka;
+            ka = (Var)iter.Value;
+
+            this.AddS("var").AddS(" ").Add(ka.Class).AddS(" ").Add(ka.Name);
+        }
 
 
+        this.AddS(")").AddS("{ }").AddLine();
 
-        this.AddS(")").AddLine();
         return true;
     }
 }
