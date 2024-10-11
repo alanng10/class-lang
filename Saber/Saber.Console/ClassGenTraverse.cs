@@ -159,6 +159,40 @@ public class ClassGenTraverse : Traverse
     {
         ClassClass ka;
         ka = this.Info(newOperate).OperateClass;
+
+        ClassGen gen;
+        gen = this.Gen;
+
+        bool b;
+        b = false;
+
+        if (!b)
+        {
+            if (!(gen.InternClass == null))
+            {
+                if (gen.InternClass == ka)
+                {
+
+                    b = true;
+                }
+            }
+        }
+        if (!b)
+        {
+            if (!(gen.ExternClass == null))
+            {
+                if (gen.ExternClass == ka)
+                {
+
+                    b = true;
+                }
+            }
+        }
+
+        if (!b)
+        {
+            gen.InternNew(ka);
+        }
         return true;
     }
 
