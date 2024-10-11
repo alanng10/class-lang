@@ -7,6 +7,8 @@ class StateGen : ToolBase
     public virtual bool Execute()
     {
         this.ExecutePrusateRefer();
+
+        this.ExecuteClassMaide();
         return true;
     }
 
