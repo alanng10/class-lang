@@ -18,9 +18,7 @@ class SystemExternGen : ExternGen
     {
         this.AddIndent(1);
 
-        this
-            .AddS("maide prusate ")
-            ;
+        this.AddS("maide prusate ");
         return true;
     }
 
