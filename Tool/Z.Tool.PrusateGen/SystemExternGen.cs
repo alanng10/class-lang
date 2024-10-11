@@ -23,4 +23,30 @@ class SystemExternGen : ExternGen
             ;
         return true;
     }
+
+    protected override bool AddClass(Class varClass)
+    {
+        if (varClass.HasNew)
+        {
+            this.AddClassNew(varClass);
+        }
+
+        this.AddFieldArray(varClass, varClass.Field);
+
+        this.AddNewLineIfNotEmpty(varClass.Field);
+
+        this.AddMaideArray(varClass, varClass.Maide);
+
+        this.AddNewLineIfNotEmpty(varClass.Maide);
+
+        this.AddFieldArray(varClass, varClass.StaticField);
+
+        this.AddNewLineIfNotEmpty(varClass.StaticField);
+
+        this.AddMaideArray(varClass, varClass.StaticMaide);
+
+        this.AddNewLineIfNotEmpty(varClass.StaticMaide);
+        return true;
+    }
+
 }
