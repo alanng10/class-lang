@@ -10,3 +10,4 @@ Bool DataSet|Any data, Int index, Int value
 Any ArrayNew|Int count
 Any ArrayGet|Any array, Int index
 Bool ArraySet|Any array, Int index, Any value
+Any ThisThread|
