@@ -155,6 +155,13 @@ public class ClassGenTraverse : Traverse
         return true;
     }
 
+    public override bool ExecuteNewOperate(NewOperate newOperate)
+    {
+        ClassClass ka;
+        ka = this.Info(newOperate).OperateClass;
+        return true;
+    }
+
     public override bool ExecuteThisOperate(ThisOperate thisOperate)
     {
         ClassGen gen;
