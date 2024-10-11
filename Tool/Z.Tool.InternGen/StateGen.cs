@@ -129,21 +129,21 @@ class StateGen : ToolBase
 
         while (iter.Next())
         {
-            if (!b)
+            if (b)
             {
                 this.AddS(", ");
-
-                b = true;
             }
 
             Var ka;
             ka = (Var)iter.Value;
 
             this.AddS("var").AddS(" ").Add(ka.Class).AddS(" ").Add(ka.Name);
+
+            b = true;
         }
 
 
-        this.AddS(")").AddS("{ }").AddLine();
+        this.AddS(")").AddS("{ }").AddLine().AddLine();
 
         return true;
     }
