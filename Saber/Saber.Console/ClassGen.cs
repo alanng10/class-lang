@@ -53,8 +53,6 @@ public class ClassGen : ClassBase
         this.ClassInt = this.S("Int");
         this.ClassCompState = this.S("CompState");
         this.InternNewMaide = this.S("Intern_New");
-        this.InternClassVar = this.S("Intern_Intern_Class");
-        this.ExternClassVar = this.S("Intern_Extern_Class");
         this.ClassVarPost = this.S("Class");
         this.StateGet = this.S("G");
         this.StateSet = this.S("S");
@@ -96,8 +94,6 @@ public class ClassGen : ClassBase
     public virtual GenArg Arg { get; set; }
     public virtual ClassGenOperate Operate { get; set; }
     public virtual String Result { get; set; }
-    public virtual ClassClass InternClass { get; set; }
-    public virtual ClassClass ExternClass { get; set; }
     public virtual CountClassGenOperate CountOperate { get; set; }
     public virtual SetClassGenOperate SetOperate { get; set; }
     public virtual ClassGenTraverse Traverse { get; set; }
@@ -144,8 +140,6 @@ public class ClassGen : ClassBase
     public virtual String ClassInt { get; set; }
     public virtual String ClassCompState { get; set; }
     public virtual String InternNewMaide { get; set; }
-    public virtual String InternClassVar { get; set; }
-    public virtual String ExternClassVar { get; set; }
     public virtual String ClassVarPost { get; set; }
     public virtual String StateGet { get; set; }
     public virtual String StateSet { get; set; }
@@ -842,32 +836,6 @@ public class ClassGen : ClassBase
         this.ClassName(varClass);
         this.Text(this.NameCombine);
         this.Text(this.ClassVarPost);
-
-        this.Text(this.LimitComma);
-        this.Text(this.Space);
-
-        this.Text(this.EvalVar);
-
-        this.Text(this.LimitBraceRoundRite);
-
-        this.Text(this.LimitSemicolon);
-        this.Text(this.NewLine);
-        return true;
-    }
-
-    public virtual bool InternNewString(String k)
-    {
-        this.TextIndent();
-
-        this.Text(this.InternNewMaide);
-        this.Text(this.LimitBraceRoundLite);
-
-        this.Text(this.One);
-
-        this.Text(this.LimitComma);
-        this.Text(this.Space);
-
-        this.Text(k);
 
         this.Text(this.LimitComma);
         this.Text(this.Space);

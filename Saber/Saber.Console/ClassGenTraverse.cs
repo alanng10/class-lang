@@ -160,42 +160,8 @@ public class ClassGenTraverse : Traverse
         ClassClass ka;
         ka = this.Info(newOperate).OperateClass;
 
-        ClassGen gen;
-        gen = this.Gen;
-
-        bool b;
-        b = false;
-
-        if (!b)
-        {
-            if (!(gen.InternClass == null))
-            {
-                if (gen.InternClass == ka)
-                {
-
-                    gen.InternNewString(gen.InternClassVar);
-
-                    b = true;
-                }
-            }
-        }
-        if (!b)
-        {
-            if (!(gen.ExternClass == null))
-            {
-                if (gen.ExternClass == ka)
-                {
-                    gen.InternNewString(gen.ExternClassVar);
-
-                    b = true;
-                }
-            }
-        }
-
-        if (!b)
-        {
-            gen.InternNew(ka);
-        }
+        this.Gen.InternNew(ka);
+        
         return true;
     }
 
