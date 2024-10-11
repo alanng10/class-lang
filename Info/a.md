@@ -24,7 +24,7 @@ The module binary is a machine code library.
 The module binary is executed with an associated executable file.
 
 Class has documentation that includes programming guide, system architecture, and API reference.
-
+ 
 Class as a platform is best platform to develop because it has best and easiest use lang elements and builtin infra.
 Class has highest develop speed order.
 It is also best to make abstract.
