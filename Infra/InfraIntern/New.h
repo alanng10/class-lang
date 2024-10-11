@@ -18,15 +18,6 @@ typedef struct
 }
 InternNewData;
 
-typedef struct
-{
-    Int Index;
-    Int Thread;
-    Int ThreadAny;
-    Int Eval;
-}
-ThreadData;
-
 #define NodeField(n, index) (((Int*)(n))[index])
 
 #define NodeFieldNext(n) NodeField(n, 0)

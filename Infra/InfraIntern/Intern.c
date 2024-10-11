@@ -276,5 +276,23 @@ Int Intern_Intern_RefLess(Eval* eval, Int frame)
 
 Int Intern_Intern_ThisThread(Eval* eval, Int frame)
 {
-    
+    Int threadThis;
+    threadThis = Thread_This();
+
+    Int ident;
+    ident = Thread_IdentGet(threadThis);
+
+    Int* array;
+    array = CastPointer(ThreadArray);
+
+    Int ka;
+    ka = array[ident];
+
+    ThreadData* kk;
+    kk = CastPointer(ka);
+
+    Int ke;
+    ke = kk->ThreadAny;
+
+    Return(ke, 0);
 }

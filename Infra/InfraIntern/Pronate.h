@@ -15,6 +15,15 @@
 
 #define RefKindMaskAny (RefKindAny << 60)
 
+typedef struct
+{
+    Int Index;
+    Int Thread;
+    Int ThreadAny;
+    Int Eval;
+}
+ThreadData;
+
 extern Int NewData;
 
 extern Int ThreadArray;
