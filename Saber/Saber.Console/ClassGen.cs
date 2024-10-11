@@ -829,17 +829,21 @@ public class ClassGen : ClassBase
         this.Text(this.LimitBraceRoundLite);
 
         this.Text(this.One);
+
         this.Text(this.LimitComma);
         this.Text(this.Space);
 
         this.ClassName(varClass);
         this.Text(this.NameCombine);
         this.Text(this.ClassVarPost);
+
         this.Text(this.LimitComma);
         this.Text(this.Space);
 
         this.Text(this.EvalVar);
+
         this.Text(this.LimitBraceRoundRite);
+
         this.Text(this.LimitSemicolon);
         this.Text(this.NewLine);
         return true;
