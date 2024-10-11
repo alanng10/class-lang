@@ -4,8 +4,8 @@ DEFINES += InfraIntern_Module
 
 HEADERS += \
     Prusate.h \
+    Prusate_Part.h \
     Pronate.h \
-    Pronate_Part.h \
     Intern.h \
     New.h
 
