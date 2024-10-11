@@ -1,31 +1,31 @@
 class Intern : Any
 {
-    maide prusate Int Memory(var Any any){ }
+    maide prusate Int Memory(var Any any) { }
 
-    maide prusate String StringNew(){ }
+    maide prusate String StringNew() { }
 
-    maide prusate Any StringValueGet(var String string){ }
+    maide prusate Any StringValueGet(var String string) { }
 
-    maide prusate Bool StringValueSet(var String string, var Any value){ }
+    maide prusate Bool StringValueSet(var String string, var Any value) { }
 
-    maide prusate Int StringCountGet(var String string){ }
+    maide prusate Int StringCountGet(var String string) { }
 
-    maide prusate Bool StringCountSet(var String string, var Int value){ }
+    maide prusate Bool StringCountSet(var String string, var Int value) { }
 
-    maide prusate Any DataNew(var Int count){ }
+    maide prusate Any DataNew(var Int count) { }
 
-    maide prusate Int DataGet(var Any data, var Int index){ }
+    maide prusate Int DataGet(var Any data, var Int index) { }
 
-    maide prusate Bool DataSet(var Any data, var Int index, var Int value){ }
+    maide prusate Bool DataSet(var Any data, var Int index, var Int value) { }
 
-    maide prusate Any ArrayNew(var Int count){ }
+    maide prusate Any ArrayNew(var Int count) { }
 
-    maide prusate Any ArrayGet(var Any array, var Int index){ }
+    maide prusate Any ArrayGet(var Any array, var Int index) { }
 
-    maide prusate Bool ArraySet(var Any array, var Int index, var Any value){ }
+    maide prusate Bool ArraySet(var Any array, var Int index, var Any value) { }
 
-    maide prusate Int RefLess(var Any lite, var Any rite){ }
+    maide prusate Int RefLess(var Any lite, var Any rite) { }
 
-    maide prusate Any ThisThread(){ }
+    maide prusate Any ThisThread() { }
 
 }
