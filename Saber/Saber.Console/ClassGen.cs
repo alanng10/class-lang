@@ -94,6 +94,8 @@ public class ClassGen : ClassBase
     public virtual GenArg Arg { get; set; }
     public virtual ClassGenOperate Operate { get; set; }
     public virtual String Result { get; set; }
+    public virtual ClassClass InternClass { get; set; }
+    public virtual ClassClass ExternClass { get; set; }
     public virtual CountClassGenOperate CountOperate { get; set; }
     public virtual SetClassGenOperate SetOperate { get; set; }
     public virtual ClassGenTraverse Traverse { get; set; }
