@@ -27,5 +27,4 @@ class Intern : Any
     maide prusate Int RefLess(var Any lite, var Any rite) { }
 
     maide prusate Any ThisThread() { }
-
 }
