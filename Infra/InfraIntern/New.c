@@ -397,7 +397,7 @@ Bool Intern_New_QueueAllThreadEvalStack()
         if (!(ka == null))
         {
             ThreadData* p;
-            p = CastPoiner(ka);
+            p = CastPointer(ka);
 
             Eval* k;
             k = p->Eval;
@@ -521,7 +521,7 @@ Bool Intern_New_QueueAllThreadAny()
         if (!(kk == null))
         {
             ThreadData* p;
-            p = CastPoiner(kk);
+            p = CastPointer(kk);
 
             Int ka;
             ka = p->ThreadAny;
