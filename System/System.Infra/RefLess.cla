@@ -3,11 +3,11 @@ class RefLess : Less
     maide prusate Bool Init()
     {
         base.Init();
-        this.InternIntern : share InternIntern;
+        this.InternIntern : share Intern;
         return true;
     }
 
-    field private InternIntern InternIntern { get { return data; } set { data : value; } }
+    field private Intern InternIntern { get { return data; } set { data : value; } }
 
     maide prusate Int Execute(var Any lite, var Any rite)
     {
