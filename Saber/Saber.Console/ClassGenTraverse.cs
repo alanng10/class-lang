@@ -173,6 +173,8 @@ public class ClassGenTraverse : Traverse
                 if (gen.InternClass == ka)
                 {
 
+                    gen.InternNewString(gen.InternClassVar);
+
                     b = true;
                 }
             }
@@ -183,6 +185,7 @@ public class ClassGenTraverse : Traverse
             {
                 if (gen.ExternClass == ka)
                 {
+                    gen.InternNewString(gen.ExternClassVar);
 
                     b = true;
                 }
