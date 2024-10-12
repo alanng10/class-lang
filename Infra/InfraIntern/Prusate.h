@@ -27,6 +27,8 @@ Module;
 
 typedef Int (*Intern_State)(Eval* eval, Int frame);
 
+typedef Int (*Intern_ModuleInit_ModuleMaide)(Int module); 
+
 Intern_Api Int Intern_New(Int kind, Int info, Eval* eval);
 
 Intern_Api Int Intern_Init(Int entryClass, Int entryModuleInit);
@@ -36,3 +38,5 @@ Intern_Api Int Intern_Execute(Int eval);
 Intern_Api Int Intern_Final(Int eval);
 
 Intern_Api Int Intern_ModuleInitStage();
+
+Intern_Api Int Intern_ModuleInitMaide();

@@ -2,13 +2,13 @@
 
 Int Intern_ModuleInitStageIndex;
 
+Int Intern_ModuleInitStageMaide;
+
 Int Intern_Init(Int entryClass, Int entryModuleInit)
 {
     Main_Init();
 
-    Intern_ModuleInit_Maide moduleInit;
-    moduleInit = (Intern_ModuleInit_Maide)entryModuleInit;
-    moduleInit();
+    Intern_ModuleInit(entryModuleInit);
 
     Int ka;
     ka = Intern_InitMainThread();
@@ -49,8 +49,22 @@ Int Intern_Final(Int eval)
     return true;
 }
 
-
 Int Intern_ModuleInitStage()
 {
     return Intern_ModuleInitStageIndex;
+}
+
+Int Intern_ModuleInitMaide()
+{
+    return Intern_ModuleInitStageMaide;
+}
+
+Bool Intern_ModuleInit(Int entryModuleInit)
+{
+    Intern_ModuleInit_Maide moduleInit;
+    moduleInit = (Intern_ModuleInit_Maide)entryModuleInit;
+
+
+    Intern_ModuleInitStageIndex = 0;
+    moduleInit();
 }
