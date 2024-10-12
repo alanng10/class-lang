@@ -150,24 +150,6 @@ public class Thread : Any
         }
     }
 
-    public virtual long Ident
-    {
-        get
-        {
-            ulong u;
-            u = Extern.Thread_IdentGet(this.Intern);
-            long o;
-            o = (long)u;
-            return o;
-        }
-        set
-        {
-            ulong u;
-            u = (ulong)value;
-            Extern.Thread_IdentSet(this.Intern, u);
-        }
-    }
-
     public virtual long Status
     {
         get
