@@ -14,7 +14,7 @@ Int Intern_New(Int kind, Int info, Eval* eval)
     InternNewData* m;
     m = CastPointer(NewData);
 
-    Phore_Acquire(m->Phore);
+    Intern_New_Open();
 
     Int kk;
     kk = 0;
@@ -110,9 +110,9 @@ Int Intern_New(Int kind, Int info, Eval* eval)
         Intern_New_AutoDelete();
     }
 
-    Phore_Release(m->Phore);
+    Intern_New_Close();
 
-    return 0;
+    return true;
 }
 
 Bool Intern_New_AutoDelete()
@@ -559,5 +559,25 @@ Bool Intern_New_QueueAllThreadAny()
         i = i + 1;
     }
 
+    return true;
+}
+
+Bool Intern_New_Open()
+{
+    InternNewData* m;
+    m = CastPointer(NewData);
+
+    Phore_Acquire(m->Phore);
+    
+    return true;
+}
+
+Bool Intern_New_Close()
+{
+    InternNewData* m;
+    m = CastPointer(NewData);
+
+    Phore_Release(m->Phore);
+    
     return true;
 }
