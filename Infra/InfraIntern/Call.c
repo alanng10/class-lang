@@ -23,9 +23,9 @@ Bool Intern_Call(Eval* eval, Int thisEvalIndex, Int stateKind, Int stateIndex)
 
     varD = varB;
 
-        this.VarMaskClear(varD, this.BaseMask);
+    varD = varD & RefMaskBaseClear;
 
-        this.OperateLimit(varD, varD, this.BaseBitRightCount, this.LimitBitRite);
+    varD = varD >> 52;
 
         this.VarSetDerefVar(varC, varC, varD);
 

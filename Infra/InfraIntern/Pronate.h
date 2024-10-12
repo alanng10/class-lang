@@ -4,6 +4,8 @@
 
 #define RefMaskMemoryClear (0x000fffffffffffff)
 
+#define RefMaskBaseClear (0x0ff0000000000000)
+
 #define RefKindNull (0x0ULL)
 #define RefKindAny (0x1ULL)
 #define RefKindBool (0x2ULL)
