@@ -14,6 +14,8 @@ Int Intern_Init(Int entryClass, Int entryModuleInit)
 
     Intern_ModuleInit(entryModuleInit);
 
+    Intern_ClassSharePhoreInit();
+
     Int ka;
     ka = Intern_InitMainThread();
 
@@ -49,6 +51,64 @@ Int Intern_Execute(Int eval)
 Int Intern_Final(Int eval)
 {
     Main_Final();
+
+    return true;
+}
+
+Bool Intern_ClassSharePhoreInit()
+{
+    Int array;
+    array = ModuleArray;
+
+    Int count;
+    count = Array_CountGet(array);
+    Int i;
+    i = 0;
+    while (i < count)
+    {
+        Int a;
+        a = Array_ItemGet(array, i);
+
+        Module* module;
+        module = CastPointer(a);
+
+        Intern_ClassSharePhoreInitModule(module);
+
+        i = i + 1;
+    }
+
+    return true;
+}
+
+Bool Intern_ClassSharePhoreInitModule(Module* module)
+{
+    Int* array;
+    array = CastPointer(module->ClassArray);
+
+    Int count;
+    count = module->ClassArrayCount;
+
+    Int i;
+    i = 0;
+    while (i < count)
+    {
+        Int a;
+        a = array[i];
+
+        Int* p;
+        p = CastPointer(a);
+
+        Int phore;
+        phore = Phore_New();
+
+        Phore_InitCountSet(phore, 1);
+
+        Phore_Init(phore);
+
+        p[4] = phore;
+
+        i = i + 1;
+    } 
 
     return true;
 }
