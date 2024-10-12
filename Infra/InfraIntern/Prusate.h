@@ -12,6 +12,7 @@ typedef struct
 {
     Int N;
     Int* S;
+    Int Thread;
 }
 Eval;
 
