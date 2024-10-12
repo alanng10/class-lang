@@ -169,10 +169,13 @@ Bool Intern_New_PauseOtherThread()
                 ThreadData* p;
                 p = CastPointer(ka);
 
-                Int thread;
-                thread = p->Thread;
+                if (!(p->Flag == 0))
+                {
+                    Int thread;
+                    thread = p->Thread;
 
-                Thread_Pause(thread);
+                    Thread_Pause(thread);
+                }
             }
         }
 
@@ -208,10 +211,13 @@ Bool Intern_New_ResumeOtherThread()
                 ThreadData* p;
                 p = CastPointer(ka);
 
-                Int thread;
-                thread = p->Thread;
+                if (!(p->Flag == 0))
+                {
+                    Int thread;
+                    thread = p->Thread;
 
-                Thread_Resume(thread);
+                    Thread_Pause(thread);
+                }
             }
         }
 
@@ -412,10 +418,13 @@ Bool Intern_New_QueueAllThreadEvalStack()
             ThreadData* p;
             p = CastPointer(ka);
 
-            Eval* k;
-            k = CastPointer(p->Eval);
+            if (!(p->Flag == 0))
+            {
+                Eval* k;
+                k = CastPointer(p->Eval);
 
-            Intern_New_QueueEvalStack(k);
+                Intern_New_QueueEvalStack(k);
+            }
         }
 
         i = i + 1;
