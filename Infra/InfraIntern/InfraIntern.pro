@@ -6,12 +6,14 @@ HEADERS += \
     Prusate.h \
     Prusate_Part.h \
     Pronate.h \
+    Init.h \
     Intern.h \
     New.h \
     Thread.h
 
 SOURCES += \
     Event.c \
+    Init.c \
     Intern.c \
     New.c \
     Thread.c
