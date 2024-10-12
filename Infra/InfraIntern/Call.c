@@ -29,12 +29,11 @@ Bool Intern_Call(Eval* eval, Int thisEvalIndex, Int stateKind, Int stateIndex)
 
     VarSetDeref(varC, varC, varD);
 
-    varC = *(((Int*)varC) + stateKind);
+    VarSetDeref(varC, varC, stateKind);
 
-    varC = *(((Int*)varC) + stateIndex);
+    VarSetDeref(varC, varC, stateIndex);
 
-    varD = *(((Int*)varA) + 1);
-
+    VarSetDeref(varD, varA, 1);
 
         this.VarMaskClear(varB, this.BaseClearMask);
 
