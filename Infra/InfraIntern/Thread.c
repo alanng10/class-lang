@@ -11,7 +11,48 @@ Int Intern_InitMainThread()
     Int thread;
     thread = Thread_This();
 
-    Intern_InitThread(thread, 0);
+    Int index;
+    index = Intern_InitThread(thread, 0);
+
+    Int* array;
+    array = CastPointer(ThreadArray);
+
+    Int kk;
+    kk = array[index];
+
+    Int evalStackCount;
+    evalStackCount = 512;
+
+    Int kaa;
+    kaa = evalStackCount * Constant_IntByteCount();
+
+    Int p;
+    p = New(kaa);
+
+    Int* stack;
+    stack = CastPointer(p);
+
+    Int kab;
+    kab = sizeof(Eval);
+
+    Int pa;
+    pa = New(kab);
+
+    Eval* eval;
+    eval = CastPointer(pa);
+
+    eval->S = stack;
+    eval->Thread = kk;
+
+    ThreadData* threadData;
+    threadData = CastPointer(kk);
+
+    threadData->Eval = eval;
+    threadData->Flag = 1;
+
+    Int a;
+    a = pa;
+    return a;
 }
 
 Int Intern_InitThread(Int thread, Int threadAny)
