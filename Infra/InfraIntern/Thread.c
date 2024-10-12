@@ -6,7 +6,7 @@ Int Var_ThreadArray[ThreadCountMax];
 Int ThreadArray = CastInt(&Var_ThreadArray);
 
 
-Bool Intern_InitThread(Int thread, Int threadAny)
+Int Intern_InitThread(Int thread, Int threadAny)
 {
     Int dataCount;
     dataCount = sizeof(ThreadData);
@@ -59,7 +59,9 @@ Bool Intern_InitThread(Int thread, Int threadAny)
 
     Intern_New_Close();
 
-    return true;
+    Int a;
+    a = index;
+    return a;
 }
 
 Bool Intern_FinalThread(Int thread)
