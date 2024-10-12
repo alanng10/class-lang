@@ -302,13 +302,11 @@ Intern_Api Int Intern_Intern_MainThreadSet(Eval* eval, Int frame)
 Int Intern_Intern_InitThread(Eval* eval, Int frame)
 {
     Int thread;
-    thread = eval->S[frame - 1];
+    thread = eval->S[frame - 2];
+    Int threadIntern;
+    threadIntern = eval->S[frame - 1];
 
-    Int* array;
-    array = CastPointer(ThreadArray);
-
-    
-
+    RefKindClear(threadIntern);
 
     Int dataCount;
     dataCount = sizeof(ThreadData);
@@ -316,8 +314,53 @@ Int Intern_Intern_InitThread(Eval* eval, Int frame)
     Int p;
     p = New(dataCount);
 
+    Int* array;
+    array = CastPointer(ThreadArray);
+
+    Intern_New_Open();
+
+    Bool b;
+    b = false;
+
+    Int index;
+    index = 0;
+
+    Int count;
+    count = ThreadCountMax;
+
+    Int i;
+    i = 0;
+    while ((!b) & (i < count))
+    {
+        if (array[i] == null)
+        {
+            index = i;
+            b = true;
+        }
+
+        i = i + 1;
+    }
+
+    if (!b)
+    {
+        Exit(30);
+    }
+
     ThreadData* kk;
     kk = CastPointer(p);
 
+    kk->Index = index;
     kk->ThreadAny = thread;
+    kk->Thread = threadIntern;
+    
+    array[index] = p;
+
+    Thread_IdentSet(threadIntern, index);
+
+    Intern_New_Close();
+
+    Int ke;
+    ke = BoolTrue;
+
+    Return(ke, 2);
 }

@@ -15,6 +15,8 @@
 
 #define RefKindMaskAny (RefKindAny << 60)
 
+#define ThreadCountMax (1024)
+
 typedef struct
 {
     Int Index;

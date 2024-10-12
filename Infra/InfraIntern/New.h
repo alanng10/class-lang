@@ -2,8 +2,6 @@
 
 #include "Pronate.h"
 
-#define ThreadCountMax (1024)
-
 typedef struct
 {
     Int AllocCap;
