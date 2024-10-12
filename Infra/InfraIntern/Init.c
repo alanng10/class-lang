@@ -11,4 +11,6 @@ Int Intern_Init(Int entryClass)
     eval = CastPointer(ka);
 
     Intern_New(RefKindAny, entryClass, eval);
+
+    Intern_Call(eval, 1, 3, 0);
 }
