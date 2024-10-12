@@ -1,4 +1,4 @@
-#include "Init.h"
+#include "Main.h"
 
 Int Intern_Init(Int entryClass)
 {
