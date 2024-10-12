@@ -12,3 +12,4 @@ Any ArrayGet|Any array, Int index
 Bool ArraySet|Any array, Int index, Any value
 Int RefLess|Any lite, Any rite
 Any ThisThread|
+Bool MainThreadSet|Any thread
