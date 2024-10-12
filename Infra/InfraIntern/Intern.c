@@ -298,3 +298,26 @@ Intern_Api Int Intern_Intern_MainThreadSet(Eval* eval, Int frame)
 
     Return(ke, 1);
 }
+
+Int Intern_Intern_InitThread(Eval* eval, Int frame)
+{
+    Int thread;
+    thread = eval->S[frame - 1];
+
+    Int* array;
+    array = CastPointer(ThreadArray);
+
+    
+
+
+    Int dataCount;
+    dataCount = sizeof(ThreadData);
+
+    Int p;
+    p = New(dataCount);
+
+    ThreadData* kk;
+    kk = CastPointer(p);
+
+    kk->ThreadAny = thread;
+}
