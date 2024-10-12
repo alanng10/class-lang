@@ -393,9 +393,6 @@ Bool Intern_New_QueueAllRoot()
 
 Bool Intern_New_QueueAllThreadEvalStack()
 {
-    InternNewData* m;
-    m = CastPointer(NewData);
-
     Int count;
     count = ThreadCountMax;
 
