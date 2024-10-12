@@ -23,6 +23,8 @@ typedef struct
 }
 Module;
 
+#define EvalStackCount (512 * 1024)
+
 typedef Int (*Intern_State)(Eval* eval, Int frame);
 
 Intern_Api Int Intern_New(Int kind, Int info, Eval* eval);

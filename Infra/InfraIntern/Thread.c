@@ -20,11 +20,11 @@ Int Intern_InitMainThread()
     Int kk;
     kk = array[index];
 
-    Int evalStackCount;
-    evalStackCount = 512 * 1024;
+    Int count;
+    count = EvalStackCount;
 
     Int kaa;
-    kaa = evalStackCount * Constant_IntByteCount();
+    kaa = count * Constant_IntByteCount();
 
     Int p;
     p = New(kaa);
