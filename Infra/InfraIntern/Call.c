@@ -27,7 +27,7 @@ Bool Intern_Call(Eval* eval, Int thisEvalIndex, Int stateKind, Int stateIndex)
 
     varD = varD >> 52;
 
-        this.VarSetDerefVar(varC, varC, varD);
+    varC = *(((Int*)varC) + varD);
 
         this.VarSetDeref(varC, varC, stateKind);
 
