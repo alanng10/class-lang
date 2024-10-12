@@ -303,10 +303,10 @@ Int Intern_Intern_InitThread(Eval* eval, Int frame)
 {
     Int thread;
     thread = eval->S[frame - 2];
-    Int threadIntern;
-    threadIntern = eval->S[frame - 1];
+    Int threadAny;
+    threadAny = eval->S[frame - 1];
 
-    RefKindClear(threadIntern);
+    RefKindClear(thread);
 
     Int dataCount;
     dataCount = sizeof(ThreadData);
@@ -350,12 +350,12 @@ Int Intern_Intern_InitThread(Eval* eval, Int frame)
     kk = CastPointer(p);
 
     kk->Index = index;
-    kk->ThreadAny = thread;
-    kk->Thread = threadIntern;
+    kk->ThreadAny = threadAny;
+    kk->Thread = thread;
     
     array[index] = p;
 
-    Thread_IdentSet(threadIntern, index);
+    Thread_IdentSet(thread, index);
 
     Intern_New_Close();
 
@@ -367,5 +367,5 @@ Int Intern_Intern_InitThread(Eval* eval, Int frame)
 
 Intern_Api Int Intern_Intern_FinalThread(Eval* eval, Int frame)
 {
-    
+
 }
