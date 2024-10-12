@@ -1,10 +1,6 @@
 #include "New.h"
 
 
-Int Var_ThreadArray[ThreadCountMax];
-
-Int ThreadArray = CastInt(&Var_ThreadArray);
-
 InternNewData Var_NewData;
 
 Int NewData = CastInt(&Var_NewData);
