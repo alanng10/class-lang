@@ -37,7 +37,7 @@ Bool Intern_Call(Eval* eval, Int thisEvalIndex, Int stateKind, Int stateIndex)
 
     MaskClear(varB, RefMaskBaseClear);
 
-        this.VarMaskSet(varB, varD);
+    MaskSet(varB, varD);
 
         this.EvalValueSet(thisEvalIndex, varB);
 
