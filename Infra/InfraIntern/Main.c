@@ -1,5 +1,7 @@
 #include "Main.h"
 
+Int Intern_ModuleInitStageIndex;
+
 Int Intern_Init(Int entryClass, Int entryModuleInit)
 {
     Main_Init();
@@ -45,4 +47,10 @@ Int Intern_Final(Int eval)
     Main_Final();
 
     return true;
+}
+
+
+Int Intern_ModuleInitStage()
+{
+    return Intern_ModuleInitStageIndex;
 }

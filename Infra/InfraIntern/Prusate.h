@@ -34,3 +34,5 @@ Intern_Api Int Intern_Init(Int entryClass, Int entryModuleInit);
 Intern_Api Int Intern_Execute(Int eval);
 
 Intern_Api Int Intern_Final(Int eval);
+
+Intern_Api Int Intern_ModuleInitStage();
