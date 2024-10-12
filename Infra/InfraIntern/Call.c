@@ -17,9 +17,9 @@ Bool Intern_Call(Eval* eval, Int thisEvalIndex, Int stateKind, Int stateIndex)
 
     varA = varA & RefMaskMemoryClear;
 
-    varA = *(((Int*)varA) + 0);
+    VarSetDeref(varA, varA, 0);
 
-    varC = *(((Int*)varA) + 0);
+    VarSetDeref(varC, varA, 0);
 
     varD = varB;
 
@@ -27,7 +27,7 @@ Bool Intern_Call(Eval* eval, Int thisEvalIndex, Int stateKind, Int stateIndex)
 
     varD = varD >> 52;
 
-    varC = *(((Int*)varC) + varD);
+    VarSetDeref(varC, varC, varD);
 
     varC = *(((Int*)varC) + stateKind);
 
