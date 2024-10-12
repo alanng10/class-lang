@@ -32,7 +32,7 @@ class Intern : Any
 
     maide prusate Bool MainThreadSet(var Any thread) { }
 
-    maide prusate Bool InitThread(var Any thread, var Int threadIntern) { }
+    maide prusate Bool InitThread(var Int thread, var Any threadAny) { }
 
-    maide prusate Bool FinalThread(var Any thread) { }
+    maide prusate Bool FinalThread(var Int thread) { }
 }

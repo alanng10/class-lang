@@ -13,5 +13,5 @@ Bool ArraySet|Any array, Int index, Any value
 Int RefLess|Any lite, Any rite
 Any ThisThread|
 Bool MainThreadSet|Any thread
-Bool InitThread|Any thread, Int threadIntern
-Bool FinalThread|Any thread
+Bool InitThread|Int thread, Any threadAny
+Bool FinalThread|Int thread

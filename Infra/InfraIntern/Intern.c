@@ -364,3 +364,8 @@ Int Intern_Intern_InitThread(Eval* eval, Int frame)
 
     Return(ke, 2);
 }
+
+Intern_Api Int Intern_Intern_FinalThread(Eval* eval, Int frame)
+{
+    
+}
