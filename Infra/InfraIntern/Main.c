@@ -6,6 +6,7 @@ Int Intern_ModuleInitStageMaide;
 
 Int Intern_ModuleInitArgIndex;
 
+Int ModuleArray;
 
 Int Intern_Init(Int entryClass, Int entryModuleInit)
 {
