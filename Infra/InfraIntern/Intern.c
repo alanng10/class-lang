@@ -387,7 +387,12 @@ Intern_Api Int Intern_Intern_FinalThread(Eval* eval, Int frame)
 
     array[index] = null;
 
-    Thread_IdentSet(thread, 0);
+    SInt kk;
+    kk = -1;
+    Int kka;
+    kka = kk;
+
+    Thread_IdentSet(thread, kka);
 
     Intern_New_Close();
 
