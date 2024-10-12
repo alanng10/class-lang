@@ -431,11 +431,8 @@ Bool Intern_New_QueueAllThreadEvalStack()
 
 Bool Intern_New_QueueClassShare()
 {
-    InternNewData* m;
-    m = CastPointer(NewData);
-
     Int array;
-    array = m->ModuleArray;
+    array = ModuleArray;
 
     Int count;
     count = Array_CountGet(array);
