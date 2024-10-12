@@ -29,4 +29,6 @@ class Intern : Any
     maide prusate Int RefLess(var Any lite, var Any rite) { }
 
     maide prusate Any ThisThread() { }
+
+    maide prusate Bool MainThreadSet(var Any thread) { }
 }

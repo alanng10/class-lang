@@ -16,3 +16,4 @@ Intern_Api Int Intern_Intern_ArrayGet(Eval* eval, Int frame);
 Intern_Api Int Intern_Intern_ArraySet(Eval* eval, Int frame);
 Intern_Api Int Intern_Intern_RefLess(Eval* eval, Int frame);
 Intern_Api Int Intern_Intern_ThisThread(Eval* eval, Int frame);
+Intern_Api Int Intern_Intern_MainThreadSet(Eval* eval, Int frame);
