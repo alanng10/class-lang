@@ -30,3 +30,7 @@ ThreadData;
 extern Int NewData;
 
 extern Int ThreadArray;
+
+Bool Intern_InitThread(Int thread, Int threadAny);
+
+Bool Intern_FinalThread(Int thread);
