@@ -2,9 +2,10 @@
 
 #include "Prusate.h"
 
-#define RefMaskMemoryClear (0x000fffffffffffff)
+#define RefMaskMemory (0x000fffffffffffff)
 
-#define RefMaskBaseClear (0x0ff0000000000000)
+#define RefMaskBase (0x0ff0000000000000)
+#define RefMaskBaseClear (0xf00fffffffffffff)
 
 #define RefKindNull (0x0ULL)
 #define RefKindAny (0x1ULL)

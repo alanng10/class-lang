@@ -15,7 +15,7 @@ Bool Intern_Call(Eval* eval, Int thisEvalIndex, Int stateKind, Int stateIndex)
 
     varB = varA;
 
-    varA = varA & RefMaskMemoryClear;
+    MaskClear(varA, RefMaskMemory);
 
     VarSetDeref(varA, varA, 0);
 
@@ -23,7 +23,7 @@ Bool Intern_Call(Eval* eval, Int thisEvalIndex, Int stateKind, Int stateIndex)
 
     varD = varB;
 
-    varD = varD & RefMaskBaseClear;
+    MaskClear(varD, RefMaskBase);
 
     varD = varD >> 52;
 
@@ -35,7 +35,7 @@ Bool Intern_Call(Eval* eval, Int thisEvalIndex, Int stateKind, Int stateIndex)
 
     VarSetDeref(varD, varA, 1);
 
-        this.VarMaskClear(varB, this.BaseClearMask);
+    MaskClear(varB, RefMaskBaseClear);
 
         this.VarMaskSet(varB, varD);
 
