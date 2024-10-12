@@ -17,11 +17,11 @@ Bool Intern_Call(Eval* eval, Int thisEvalIndex, Int stateKind, Int stateIndex)
 
     varA = varA & RefMaskMemoryClear;
 
-        this.VarSetDeref(varA, varA, 0);
+    varA = *(((Int*)varA) + 0);
 
-        this.VarSetDeref(varC, varA, 0);
+    varC = *(((Int*)varA) + 0);
 
-        this.VarSet(varD, varB);
+    varD = varB;
 
         this.VarMaskClear(varD, this.BaseMask);
 
