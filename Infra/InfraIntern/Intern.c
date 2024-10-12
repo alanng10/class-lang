@@ -323,31 +323,7 @@ Intern_Api Int Intern_Intern_FinalThread(Eval* eval, Int frame)
 
     RefKindClear(thread);
 
-    Int index;
-    index = Thread_IdentGet(thread);
-
-    Int* array;
-    array = CastPointer(ThreadArray);
-
-    Int ka;
-    ka = null;
-
-    Intern_New_Open();
-
-    ka = array[index];
-
-    array[index] = null;
-
-    SInt kk;
-    kk = -1;
-    Int kka;
-    kka = kk;
-
-    Thread_IdentSet(thread, kka);
-
-    Intern_New_Close();
-
-    Delete(ka);
+    Intern_FinalThread(thread);
 
     Int ke;
     ke = BoolTrue;
