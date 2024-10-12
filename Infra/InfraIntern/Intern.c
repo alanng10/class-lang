@@ -279,3 +279,22 @@ Int Intern_Intern_ThisThread(Eval* eval, Int frame)
 
     Return(ke, 0);
 }
+
+Intern_Api Int Intern_Intern_MainThreadSet(Eval* eval, Int frame)
+{
+    Int thread;
+    thread = eval->S[frame - 1];
+
+    Int ka;
+    ka = eval->Thread;
+
+    ThreadData* kk;
+    kk = CastPointer(ka);
+
+    kk->ThreadAny = thread;
+
+    Int ke;
+    ke = BoolTrue;
+
+    Return(ke, 1);
+}
