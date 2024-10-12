@@ -6,6 +6,11 @@ Int Var_ThreadArray[ThreadCountMax];
 Int ThreadArray = CastInt(&Var_ThreadArray);
 
 
+Int Intern_InitMainThread()
+{
+    
+}
+
 Int Intern_InitThread(Int thread, Int threadAny)
 {
     Int dataCount;
