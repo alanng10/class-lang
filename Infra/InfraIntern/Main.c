@@ -4,6 +4,9 @@ Int Intern_ModuleInitStageIndex;
 
 Int Intern_ModuleInitStageMaide;
 
+Int Intern_ModuleInitArgIndex;
+
+
 Int Intern_Init(Int entryClass, Int entryModuleInit)
 {
     Main_Init();
@@ -71,12 +74,25 @@ Bool Intern_ModuleInit(Int entryModuleInit)
 
     Intern_ModuleInitStageMaide = maide;
     Intern_ModuleInitStageIndex = 0;
+    Intern_ModuleInitArgIndex = 0;
+
     moduleInit();
+
+    Int count;
+    count = Intern_ModuleInitArgIndex;
+
+    Int array;
+    array = Array_New();
+    Array_CountSet(array, count);
+    Array_Init(array);
+    ModuleArray = array;
 
     maide = CastInt(Intern_ModuleInit_ModuleSet);
 
     Intern_ModuleInitStageMaide = maide;
     Intern_ModuleInitStageIndex = 1;
+    Intern_ModuleInitArgIndex = 0;
+
     moduleInit();
 
     return true;
@@ -84,10 +100,17 @@ Bool Intern_ModuleInit(Int entryModuleInit)
 
 Int Intern_ModuleInit_ModuleCount(Int module)
 {
+    Intern_ModuleInitArgIndex = Intern_ModuleInitArgIndex + 1;
     return true;
 }
 
 Int Intern_ModuleInit_ModuleSet(Int module)
 {
+    Int index;
+    index = Intern_ModuleInitArgIndex;
+
+    Array_ItemSet(ModuleArray, index, module);
+
+    Intern_ModuleInitArgIndex = index + 1;
     return true;
 }
