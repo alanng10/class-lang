@@ -30,3 +30,5 @@ typedef Int (*Intern_State)(Eval* eval, Int frame);
 Intern_Api Int Intern_New(Int kind, Int info, Eval* eval);
 
 Intern_Api Int Intern_Init(Int entryClass);
+
+Intern_Api Int Intern_Execute(Int eval);
