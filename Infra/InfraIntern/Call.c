@@ -39,8 +39,12 @@ Bool Intern_Call(Eval* eval, Int thisEvalIndex, Int stateKind, Int stateIndex)
 
     MaskSet(varB, varD);
 
-        this.EvalValueSet(thisEvalIndex, varB);
+    eval->S[eval->N - thisEvalIndex] = varB;
 
-        this.CallCompState(varC);
+    Intern_State state;
+    state = (Intern_State)varC;
+
+    state(eval, eval->N);
+
     return true;
 }
