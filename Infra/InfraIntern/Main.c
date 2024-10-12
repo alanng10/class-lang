@@ -1,8 +1,12 @@
 #include "Main.h"
 
-Int Intern_Init(Int entryClass)
+Int Intern_Init(Int entryClass, Int entryModuleInit)
 {
     Main_Init();
+
+    Intern_ModuleInit_Maide moduleInit;
+    moduleInit = (Intern_ModuleInit_Maide)entryModuleInit;
+    moduleInit();
 
     Int ka;
     ka = Intern_InitMainThread();
