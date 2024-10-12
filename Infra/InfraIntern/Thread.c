@@ -8,7 +8,10 @@ Int ThreadArray = CastInt(&Var_ThreadArray);
 
 Int Intern_InitMainThread()
 {
-    
+    Int thread;
+    thread = Thread_This();
+
+    Intern_InitThread(thread, 0);
 }
 
 Int Intern_InitThread(Int thread, Int threadAny)
