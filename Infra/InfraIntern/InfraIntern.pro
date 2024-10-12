@@ -7,12 +7,14 @@ HEADERS += \
     Prusate_Part.h \
     Pronate.h \
     Intern.h \
-    New.h
+    New.h \
+    Thread.h
 
 SOURCES += \
     Event.c \
     Intern.c \
-    New.c
+    New.c \
+    Thread.c
 
 LIBS += -L$$PWD/../../Out/Infra-Windows-Release/release/
 
