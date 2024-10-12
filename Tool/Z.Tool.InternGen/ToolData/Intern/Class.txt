@@ -1,3 +1,5 @@
 class Intern : Any
 {
+    field prusate String ModuleFoldPath { get { return data; } set { data : value; } }
+
 #MaideList#}
