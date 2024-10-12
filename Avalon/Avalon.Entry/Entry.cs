@@ -46,6 +46,8 @@ public class Entry : Any
         String kk;
         kk = this.StorageComp.CurrentFoldGet();
 
+        this.InternIntern.ModuleFoldPath = kk;
+
         this.StorageComp.ModuleFoldPath = kk;
 
         this.ArrayArg();

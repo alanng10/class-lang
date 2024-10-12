@@ -21,6 +21,8 @@ public class Comp : Any
         this.InternInfra = InternInfra.This;
         this.ListInfra = ListInfra.This;
 
+        this.ModuleFoldPath = (String)this.InternIntern.ModuleFoldPath;
+
         this.Intern = Extern.StorageComp_New();
         Extern.StorageComp_Init(this.Intern);
         return true;
