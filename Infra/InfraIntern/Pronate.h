@@ -21,6 +21,7 @@ typedef struct
     Int Thread;
     Int ThreadAny;
     Int Eval;
+    Int Flag;
 }
 ThreadData;
 
