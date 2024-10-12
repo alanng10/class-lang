@@ -1,13 +1,5 @@
 #include "Intern.h"
 
-Int Intern_Intern_Init(Eval* eval, Int frame)
-{
-    Int k;
-    k = BoolTrue;
-
-    Return(k, 0);
-}
-
 Int Intern_Intern_Memory(Eval* eval, Int frame)
 {
     Int ka;
