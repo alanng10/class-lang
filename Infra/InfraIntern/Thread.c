@@ -47,7 +47,7 @@ Int Intern_InitMainThread()
     ThreadData* threadData;
     threadData = CastPointer(kk);
 
-    threadData->Eval = eval;
+    threadData->Eval = pa;
     threadData->Flag = 1;
 
     Int a;

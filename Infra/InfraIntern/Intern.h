@@ -11,7 +11,7 @@
 
 #define RefKindSet(name, kind) name = name | (kind << 60);
 
-#define RefMemory(name) name = name & RefMaskMemoryClear;
+#define RefMemory(name) name = name & RefMaskMemory;
 
 #define Return(ret, paramCount) \
 eval->S[frame - (paramCount + 1)] = ret;\

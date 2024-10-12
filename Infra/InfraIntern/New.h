@@ -48,7 +48,7 @@ flagU = 0;\
 \
         if ((refKindU == RefKindAny) | (refKindU == RefKindString) | (refKindU == RefKindData) | (refKindU == RefKindArray))\
         {\
-            puu = ka & RefMaskMemoryClear;\
+            puu = ka & RefMaskMemory;\
 \
             puu = puu - NodeFieldCount * Constant_IntByteCount();\
 \
