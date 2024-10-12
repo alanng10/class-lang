@@ -35,3 +35,10 @@ Int Intern_Execute(Int eval)
 
     return true;
 }
+
+Int Intern_Final(Int eval)
+{
+    Main_Final();
+
+    return true;
+}
