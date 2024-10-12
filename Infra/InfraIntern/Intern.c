@@ -367,5 +367,34 @@ Int Intern_Intern_InitThread(Eval* eval, Int frame)
 
 Intern_Api Int Intern_Intern_FinalThread(Eval* eval, Int frame)
 {
+    Int thread;
+    thread = eval->S[frame - 1];
 
+    RefKindClear(thread);
+
+    Int index;
+    index = Thread_IdentGet(thread);
+
+    Int* array;
+    array = CastPointer(ThreadArray);
+
+    Int ka;
+    ka = null;
+
+    Intern_New_Open();
+
+    ka = array[index];
+
+    array[index] = null;
+
+    Thread_IdentSet(thread, 0);
+
+    Intern_New_Close();
+
+    Delete(ka);
+
+    Int ke;
+    ke = BoolTrue;
+
+    Return(ke, 1);
 }
