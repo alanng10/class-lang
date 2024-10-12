@@ -31,4 +31,8 @@ class Intern : Any
     maide prusate Any ThisThread() { }
 
     maide prusate Bool MainThreadSet(var Any thread) { }
+
+    maide prusate Bool InitThread(var Any thread) { }
+
+    maide prusate Bool FinalThread(var Any thread) { }
 }
