@@ -64,7 +64,30 @@ Bool Intern_ModuleInit(Int entryModuleInit)
     Intern_ModuleInit_Maide moduleInit;
     moduleInit = (Intern_ModuleInit_Maide)entryModuleInit;
 
+    Int maide;
+    maide = 0;
 
+    maide = CastInt(Intern_ModuleInit_ModuleCount);
+
+    Intern_ModuleInitStageMaide = maide;
     Intern_ModuleInitStageIndex = 0;
     moduleInit();
+
+    maide = CastInt(Intern_ModuleInit_ModuleSet);
+
+    Intern_ModuleInitStageMaide = maide;
+    Intern_ModuleInitStageIndex = 1;
+    moduleInit();
+
+    return true;
+}
+
+Int Intern_ModuleInit_ModuleCount(Int module)
+{
+    return true;
+}
+
+Int Intern_ModuleInit_ModuleSet(Int module)
+{
+    return true;
 }
