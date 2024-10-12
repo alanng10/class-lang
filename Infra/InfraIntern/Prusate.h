@@ -29,4 +29,4 @@ typedef Int (*Intern_State)(Eval* eval, Int frame);
 
 Intern_Api Int Intern_New(Int kind, Int info, Eval* eval);
 
-Intern_Api Int Intern_InitMainThread();
+Intern_Api Int Intern_Init();
