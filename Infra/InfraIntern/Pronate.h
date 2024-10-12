@@ -33,6 +33,8 @@ ThreadData;
 
 typedef Int (*Intern_ModuleInit_Maide)();
 
+extern Int ModuleArray;
+
 extern Int NewData;
 
 extern Int ThreadArray;

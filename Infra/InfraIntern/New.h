@@ -12,7 +12,6 @@ typedef struct
     Int LastNode;
     Int QueueFirstNode;
     Int QueueLastNode;
-    Int ModuleArray;
 }
 InternNewData;
 
