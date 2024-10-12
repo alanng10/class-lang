@@ -216,7 +216,7 @@ Bool Intern_New_ResumeOtherThread()
                     Int thread;
                     thread = p->Thread;
 
-                    Thread_Pause(thread);
+                    Thread_Resume(thread);
                 }
             }
         }
