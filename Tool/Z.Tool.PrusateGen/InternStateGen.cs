@@ -4,6 +4,8 @@ class InternStateGen : ExternGen
 {
     protected virtual String TextInternState { get; set; }
 
+    protected virtual bool AddNewLine { get; set; }
+
     public override bool Execute()
     {
         this.TextInternState = this.ToolInfra.StorageTextRead(this.S("ToolData/Prusate/InternExtern.txt"));
@@ -19,19 +21,11 @@ class InternStateGen : ExternGen
 
         this.AddFieldArray(varClass, varClass.Field);
 
-        this.AddNewLineIfNotEmpty(varClass.Field);
-
         this.AddMaideArray(varClass, varClass.Maide);
-
-        this.AddNewLineIfNotEmpty(varClass.Maide);
 
         this.AddFieldArray(varClass, varClass.StaticField);
 
-        this.AddNewLineIfNotEmpty(varClass.StaticField);
-
         this.AddMaideArray(varClass, varClass.StaticMaide);
-
-        this.AddNewLineIfNotEmpty(varClass.StaticMaide);
         return true;
     }
 
@@ -109,11 +103,26 @@ class InternStateGen : ExternGen
         String argueString;
         argueString = this.AddResult();
 
-        
+        Text k;
+        k = this.TextCreate(this.TextInternState);
+        k = this.Replace(k, "#Name#", name);
+        k = this.Replace(k, "#ParamCount#", paramCountString);
+        k = this.Replace(k, "#Param#", paramString);
+        k = this.Replace(k, "#Argue#", argueString);
 
-
+        String a;
+        a = this.StringCreate(k);
 
         this.ToolInfra.StringAdd = ke;
+
+        this.Add(a);
+
+        if (this.AddNewLine)
+        {
+            this.AddLine();
+        }
+
+        this.AddNewLine = true;
         return true;
     }
 }
