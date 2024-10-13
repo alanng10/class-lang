@@ -9,6 +9,7 @@ public class Draw : Any
         this.InternInfra = InternInfra.This;
         this.MathInfra = MathInfra.This;
         this.DrawInfra = Infra.This;
+        this.Math = MathMath.This;
 
         this.Size = new Size();
         this.Size.Init();
@@ -23,7 +24,6 @@ public class Draw : Any
         this.FillPos = new Pos();
         this.FillPos.Init();
 
-        this.Math = MathMath.This;
         this.MathComp = new MathComp();
         this.MathComp.Init();
 
