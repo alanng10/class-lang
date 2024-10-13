@@ -17,6 +17,7 @@ class Demo : Any
     public virtual TextInfra TextInfra { get; set; }
     public virtual DrawInfra DrawInfra { get; set; }
     public virtual StringComp StringComp { get; set; }
+    public virtual MathMath Math { get; set; }
     public virtual TextCodeKindList TextCodeKindList { get; set; }
     public virtual StorageStatusList StorageStatusList { get; set; }
     public virtual StorageComp StorageComp { get; set; }
@@ -26,7 +27,6 @@ class Demo : Any
     public virtual DrawBrushJoinList BrushJoinList { get; set; }
     public virtual Console Console { get; set; }
 
-    public virtual MathMath Math { get; set; }
     protected virtual MathComp MathComp { get; set; }
     private StringAdd StringAdd { get; set; }
     private TextWrite TextWrite { get; set; }
@@ -40,6 +40,7 @@ class Demo : Any
         this.MathInfra = MathInfra.This;
         this.DrawInfra = DrawInfra.This;
         this.StringComp = StringComp.This;
+        this.Math = MathMath.This;
         this.TextCodeKindList = TextCodeKindList.This;
         this.StorageStatusList = StorageStatusList.This;
         this.StorageComp = StorageComp.This;
@@ -56,8 +57,6 @@ class Demo : Any
         varThis = new ThreadThis();
         varThis.Init();
         
-        this.Math = new MathMath();
-        this.Math.Init();
         this.MathComp = new MathComp();
         this.MathComp.Init();
 
@@ -630,14 +629,11 @@ class Demo : Any
         MathInfra mathInfra;
         mathInfra = this.MathInfra;
 
-        MathMath math;
-        math = this.Math;
-
         MathComp mathComp;
         mathComp = this.MathComp;
 
         long a;
-        a = mathInfra.Int(math, mathComp, n);
+        a = mathInfra.Int(mathComp, n);
         return a;
     }
 
