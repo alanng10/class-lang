@@ -49,17 +49,16 @@ public class PolateStop : Any
 
     public virtual bool PointGet(long index, PolateStopPoint result)
     {
-        InternPolateStopPoint u;
-        u = this.InternPolateStopPoint;
-
         ulong indexU;
         indexU = (ulong)index;
-        this.InternIntern.DrawPolateStopPointGet(this.Intern, indexU, u);
 
         ulong ua;
-        ua = u.Pos;
         ulong ub;
-        ub = u.Color;
+
+        ua = Extern.PolateStop_PointGetPos(this.Intern, indexU);
+
+        ub = Extern.PolateStop_PointGetColor(this.Intern, indexU);
+
         long pos;
         pos = (long)(ua);
         result.Pos = pos;
