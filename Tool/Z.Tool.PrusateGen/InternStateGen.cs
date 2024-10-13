@@ -54,6 +54,20 @@ class InternStateGen : ExternGen
         name = this.AddResult();
 
 
+        long paramCount;
+        paramCount = functionOperate.ParamCount();
+
+        bool ba;
+        ba = functionOperate.Static();
+        
+        if (!ba)
+        {
+            paramCount = paramCount + 1;
+        }
+
+        String paramCountString;
+        paramCountString = 
+
         this.AddFunctionHeader();
 
         this.Add(this.IntTypeName).AddS(" ");

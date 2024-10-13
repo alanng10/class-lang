@@ -27,4 +27,9 @@ class FieldSetFunctionOperate : FunctionOperate
     {
         return 1;
     }
+
+    public override bool Static()
+    {
+        return this.Field.Static;
+    }
 }

@@ -23,4 +23,9 @@ class FieldGetFunctionOperate : FunctionOperate
     {
         return 0;
     }
+
+    public override bool Static()
+    {
+        return this.Field.Static;
+    }
 }

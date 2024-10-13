@@ -52,4 +52,9 @@ class MaideCallFunctionOperate : FunctionOperate
     {
         return this.Maide.Param.Count;
     }
+
+    public override bool Static()
+    {
+        return this.Maide.Static;
+    }
 }

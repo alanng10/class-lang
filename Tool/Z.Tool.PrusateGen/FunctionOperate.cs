@@ -19,4 +19,9 @@ class FunctionOperate : ToolBase
     {
         return 0;
     }
+
+    public virtual bool Static()
+    {
+        return false;
+    }
 }
