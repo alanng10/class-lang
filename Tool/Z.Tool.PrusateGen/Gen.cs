@@ -49,6 +49,8 @@ class Gen : Any
 
         this.ExecutePrusateGen(new SystemExternGen());
 
+        this.ExecutePrusateGen(new InternStateGen());
+
         return 0;
     }
 
