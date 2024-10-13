@@ -68,17 +68,49 @@ class InternStateGen : ExternGen
         String paramCountString;
         paramCountString = this.StringInt(paramCount);
 
-        this.AddFunctionHeader();
+        this.AddClear();
 
-        this.Add(this.IntTypeName).AddS(" ");
+        long count;
+        count = paramCount;
+        long i;
+        i = 0;
+        while (i < count)
+        {
+            String kaa;
+            kaa = this.StringInt(i);
 
-        functionOperate.ExecuteName();
+            this.AddIndent(1).AddS("Param(").Add(kaa).AddS(");").AddLine();
 
-        this.AddS("(");
+            i = i + 1;
+        }
 
-        functionOperate.ExecuteParam();
+        String paramString;
+        paramString = this.AddResult();
 
-        this.AddS(")").AddS(";").Add(this.NewLine);
+
+        this.AddClear();
+
+        i = 0;
+        while (i < count)
+        {
+            String kab;
+            kab = this.StringInt(i);
+
+            if (0 < i)
+            {
+                this.AddS(", ");
+            }
+
+            this.AddS("a").Add(kab);
+
+            i = i + 1;
+        }
+
+        String argueString;
+        argueString = this.AddResult();
+
+        
+
 
 
         this.ToolInfra.StringAdd = ke;
