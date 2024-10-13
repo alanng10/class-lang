@@ -5,13 +5,10 @@ Int #Name#(Eval* eval, Int frame)
     Int a;
     a = #Name#(#Argue#);
 
-    SInt aa;
-    aa = a;
-
     Int ke;
     ke = 0;
 
-    if (!(aa == -1))
+    if (!(a == IntNull))
     {
         ke = a;
         RefKindSet(ke, RefKindInt);
