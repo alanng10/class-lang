@@ -26,7 +26,7 @@ Int PolateStop_Final(Int o)
 
 CppField(PolateStop, Count)
 
-Int PolateStop_PointGet(Int o, Int index, Int pos, Int color)
+Int PolateStop_PointGetPos(Int o, Int index)
 {
     PolateStop* m;
     m = CP(o);
@@ -39,10 +39,27 @@ Int PolateStop_PointGet(Int o, Int index, Int pos, Int color)
 
     qreal posU;
     posU = uu->first;
-    QColor colorU;
-    colorU = uu->second;
 
     ValueFromInternValue(posU);
+
+    Int a;
+    a = posUA;
+    return a;
+}
+
+Int PolateStop_PointGetColor(Int o, Int index)
+{
+    PolateStop* m;
+    m = CP(o);
+
+    qsizetype indexU;
+    indexU = index;
+
+    QGradientStop* uu;
+    uu = (QGradientStop*)(&(m->Intern->at(indexU)));
+
+    QColor colorU;
+    colorU = uu->second;
 
     QRgb colorUu;
     colorUu = colorU.rgba();
@@ -51,14 +68,9 @@ Int PolateStop_PointGet(Int o, Int index, Int pos, Int color)
     Int colorA;
     colorA = colorUa;
 
-    Int* posAa;
-    Int* colorAa;
-    posAa = (Int*)pos;
-    colorAa = (Int*)color;
-
-    *posAa = posUA;
-    *colorAa = colorA;
-    return true;
+    Int a;
+    a = colorA;
+    return a;
 }
 
 Int PolateStop_PointSet(Int o, Int index, Int pos, Int color)
