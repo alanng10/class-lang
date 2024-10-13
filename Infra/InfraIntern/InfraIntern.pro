@@ -7,6 +7,7 @@ HEADERS += \
     Prusate_Part.h \
     Pronate.h \
     Call.h \
+    Extern.h \
     Intern.h \
     Main.h \
     New.h \
@@ -15,6 +16,7 @@ HEADERS += \
 SOURCES += \
     Call.c \
     Event.c \
+    Extern.c \
     Intern.c \
     Main.c \
     New.c \
