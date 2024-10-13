@@ -2,6 +2,18 @@ namespace Avalon.Math;
 
 public partial class Math : Any
 {
+    public static Math This { get; } = ShareCreate();
+
+    private static Math ShareCreate()
+    {
+        Math share;
+        share = new Math();
+        Any a;
+        a = share;
+        a.Init();
+        return share;
+    }
+
     private ulong Intern { get; set; }
 
     public virtual long Value(Comp comp)
