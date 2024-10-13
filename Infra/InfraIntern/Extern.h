@@ -25,7 +25,7 @@ arg##index = eval->S[frame - (paramCount - index)];\
 Int a##index;\
 a##index = IntNull;\
 \
-if (!(arg##index == null))\
+if (!(arg##index == 0))\
 {\
     a##index = arg##index;\
     RefKindClear(a##index);\
