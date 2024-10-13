@@ -6,14 +6,11 @@ public partial class Math : Any
     {
         base.Init();
         this.InternIntern = InternIntern.This;
-        this.InternComp = new InternMathComp();
-        this.InternComp.Init();
         return true;
     }
 
     private InternIntern InternIntern { get; set; }
     private ulong Intern { get; set; }
-    private InternMathComp InternComp { get; set; }
 
     public virtual long Value(Comp comp)
     {
