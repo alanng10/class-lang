@@ -193,12 +193,6 @@ public class Network : Any
         return true;
     }
 
-    public virtual bool Abort()
-    {
-        Extern.Network_Abort(this.Intern);
-        return true;
-    }
-
     private StreamStream StreamCreateIntern(ulong u)
     {
         Stream a;
