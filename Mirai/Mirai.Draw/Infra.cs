@@ -39,15 +39,12 @@ public class Infra : Any
         Color transparentColor;
         transparentColor = this.ColorCreate(0, 0, 0, 0);
 
-        MathMath math;
-        math = new MathMath();
-        math.Init();
         MathComp ka;
         ka = new MathComp();
         ka.Init();
 
         long k;
-        k = this.MathInfra.Int(math, ka, 1);
+        k = this.MathInfra.Int(ka, 1);
 
         this.BlackBrush = this.CreateBrush(blackColor, k);
         this.WhiteBrush = this.CreateBrush(whiteColor, k);

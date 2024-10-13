@@ -12,7 +12,7 @@ public class Frame : Any
         this.DrawInfra = DrawInfra.This;
         this.FrameInfra = Infra.This;
 
-        this.Math = this.CreateMath();
+        this.Math = MathMath.This;
         this.MathComp = this.CreateMathComp();
 
         this.InternHandle = new Handle();
@@ -127,14 +127,6 @@ public class Frame : Any
     private DrawDraw FrameDraw { get; set; }
     private DrawRect DestRect { get; set; }
     private DrawRect SourceRect { get; set; }
-
-    protected virtual MathMath CreateMath()
-    {
-        MathMath a;
-        a = new MathMath();
-        a.Init();
-        return a;
-    }
 
     protected virtual MathComp CreateMathComp()
     {
@@ -300,14 +292,11 @@ public class Frame : Any
         MathInfra mathInfra;
         mathInfra = this.MathInfra;
 
-        MathMath math;
-        math = this.Math;
-
         MathComp mathComp;
         mathComp = this.MathComp;
 
         long a;
-        a = mathInfra.Int(math, mathComp, n);
+        a = mathInfra.Int(mathComp, n);
         return a;
     }
 
