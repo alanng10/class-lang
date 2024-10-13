@@ -44,7 +44,6 @@ FormatArg
 Math
     Value(cand, expo)
     ValueTen(cand, expoTen)
-    Comp(value, cand, expo)
     Less(valueA, valueB)
 
 Rand
