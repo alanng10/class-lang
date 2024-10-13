@@ -99,9 +99,9 @@ public class Test : ClassBase
         String k;
         k = this.DataRootDirectory();
         
-        this.StorageComp.CurrentFoldSet(k);
+        this.StorageComp.WorkFoldSet(k);
         
-        this.InitialCurrentDirectory = this.StorageComp.CurrentFoldGet();
+        this.InitialCurrentDirectory = this.StorageComp.WorkFoldGet();
         return true;
     }
 
@@ -254,7 +254,7 @@ public class Test : ClassBase
         this.Err = new StringOut();
         this.Err.Init();
 
-        this.StorageComp.CurrentFoldSet(this.UnitFold);
+        this.StorageComp.WorkFoldSet(this.UnitFold);
 
         Task task;
         task = this.CreateTask();
@@ -262,7 +262,7 @@ public class Test : ClassBase
     
         this.Console.Execute();
 
-        this.StorageComp.CurrentFoldSet(this.InitialCurrentDirectory);
+        this.StorageComp.WorkFoldSet(this.InitialCurrentDirectory);
 
         String actual;
         String actualOut;

@@ -165,7 +165,7 @@ public class Comp : Any
         return this.EntryList(path, true);
     }
 
-    public virtual String CurrentFoldGet()
+    public virtual String WorkFoldGet()
     {
         ulong o;
         o = Extern.StorageComp_CurrentFoldGet(this.Intern);
@@ -178,7 +178,7 @@ public class Comp : Any
         return a;
     }
 
-    public virtual bool CurrentFoldSet(String path)
+    public virtual bool WorkFoldSet(String path)
     {
         ulong pathU;
         pathU = this.InternInfra.StringCreate(path.Value);

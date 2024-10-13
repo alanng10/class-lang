@@ -44,7 +44,7 @@ public class Entry : Any
         this.StorageComp = StorageComp.This;
 
         String kk;
-        kk = this.StorageComp.CurrentFoldGet();
+        kk = this.StorageComp.WorkFoldGet();
 
         this.InternIntern.ModuleFoldPath = kk;
 
