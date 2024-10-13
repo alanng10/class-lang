@@ -187,7 +187,8 @@ PolateRadial
 
 PolateStop
     Count
-    PointGet(index, pos, color)
+    PointGetPos(index)
+    PointGetColor(index)
     PointSet(index, pos, color)
 
 ImageRead
