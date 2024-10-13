@@ -232,36 +232,6 @@ public class Intern : object
         return true;
     }
 
-    public virtual bool MathComp(ulong math, MathComp comp, long value)
-    {
-        ulong u;
-        u = (ulong)value;
-
-        unsafe
-        {
-            ulong oa;
-            ulong ob;
-            oa = 0;
-            ob = 0;
-
-            ulong* pa;
-            ulong* pb;
-            pa = &oa;
-            pb = &ob;
-
-            ulong ua;
-            ulong ub;
-            ua = (ulong)pa;
-            ub = (ulong)pb;
-
-            Extern.Math_Comp(math, u, ua, ub);
-
-            comp.Cand = oa;
-            comp.Expo = ob;
-        }
-        return true;
-    }
-
     public virtual bool DrawPolateStopPointGet(ulong intern, ulong index, DrawPolateStopPoint result)
     {
         unsafe

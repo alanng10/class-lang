@@ -50,17 +50,18 @@ public partial class Math : Any
 
     public virtual bool Comp(Comp result, long value)
     {
-        InternMathComp u;
-        u = this.InternComp;
-        this.InternIntern.MathComp(this.Intern, u, value);
+        long ka;
+        ka = value;
+        ka = ka << 14;
+        ka = ka >> 14;
 
-        long s;
-        long e;
-        s = (long)(u.Cand);
-        e = (long)(u.Expo);
+        long kb;
+        kb = value;
+        kb = kb << 4;
+        kb = kb >> 54;
 
-        result.Cand = s;
-        result.Expo = e;
+        result.Cand = ka;
+        result.Expo = kb;
         return true;
     }
 
