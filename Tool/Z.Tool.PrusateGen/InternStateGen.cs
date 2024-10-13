@@ -66,7 +66,7 @@ class InternStateGen : ExternGen
         }
 
         String paramCountString;
-        paramCountString = 
+        paramCountString = this.StringInt(paramCount);
 
         this.AddFunctionHeader();
 
