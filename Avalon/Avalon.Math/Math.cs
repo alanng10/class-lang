@@ -2,14 +2,6 @@ namespace Avalon.Math;
 
 public partial class Math : Any
 {
-    public override bool Init()
-    {
-        base.Init();
-        this.InternIntern = InternIntern.This;
-        return true;
-    }
-
-    private InternIntern InternIntern { get; set; }
     private ulong Intern { get; set; }
 
     public virtual long Value(Comp comp)
