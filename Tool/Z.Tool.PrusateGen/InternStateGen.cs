@@ -81,7 +81,6 @@ class InternStateGen : ExternGen
         String paramString;
         paramString = this.AddResult();
 
-
         this.AddClear();
 
         i = 0;
