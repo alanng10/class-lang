@@ -14,13 +14,22 @@ public class Infra : Any
         return share;
     }
 
-    public virtual long Int(Math math, Comp comp, long value)
+    public override bool Init()
+    {
+        base.Init();
+        this.MathMath = Math.This;
+        return true;
+    }
+
+    protected virtual Math MathMath { get; set; }
+
+    public virtual long Int(Comp comp, long value)
     {
         comp.Cand = value;
         comp.Expo = 0;
 
         long a;
-        a = math.Value(comp);
+        a = this.MathMath.Value(comp);
         return a;
     }
 }
