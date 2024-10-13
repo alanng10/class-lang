@@ -1087,22 +1087,6 @@ Int Intern_Extern_Math_ValueTen(Eval* eval, Int frame)
     Return;
 }
 
-Int Intern_Extern_Math_Comp(Eval* eval, Int frame)
-{
-    Int paramCount;
-    paramCount = 4;
-
-    Param(0);
-    Param(1);
-    Param(2);
-    Param(3);
-
-    Int a;
-    a = Math_Comp(a0, a1, a2, a3);
-
-    Return;
-}
-
 Int Intern_Extern_Math_Less(Eval* eval, Int frame)
 {
     Int paramCount;

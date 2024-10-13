@@ -91,7 +91,6 @@ class Extern : Any
     maide prusate Int Math_Final(var Int o) { }
     maide prusate Int Math_Value(var Int o, var Int cand, var Int expo) { }
     maide prusate Int Math_ValueTen(var Int o, var Int cand, var Int expoTen) { }
-    maide prusate Int Math_Comp(var Int o, var Int value, var Int cand, var Int expo) { }
     maide prusate Int Math_Less(var Int o, var Int valueA, var Int valueB) { }
     maide prusate Int Math_Add(var Int o, var Int valueA, var Int valueB) { }
     maide prusate Int Math_Sub(var Int o, var Int valueA, var Int valueB) { }
