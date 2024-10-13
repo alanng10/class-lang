@@ -29,8 +29,7 @@ public class Infra : Any
         this.StringAdd = this.CreateStringAdd();
 
         this.Write = this.CreateWrite();
-        this.WriteArgInt = this.CreateWriteArgInt();
-        this.WriteArgIntHex = this.CreateWriteArgIntHex();
+        this.WriteArg = this.CreateWriteArg();
 
         this.CharLess = this.CreateCharLess();
         this.TextForm = this.CreateCharForm();
@@ -79,8 +78,7 @@ public class Infra : Any
     public virtual StringData StringDataD { get; set; }
     public virtual StringData StringDataAA { get; set; }
     public virtual Write Write { get; set; }
-    public virtual WriteArg WriteArgInt { get; set; }
-    public virtual WriteArg WriteArgIntHex { get; set; }
+    public virtual WriteArg WriteArg { get; set; }
 
     protected virtual StringAdd CreateStringAdd()
     {
@@ -98,33 +96,13 @@ public class Infra : Any
         return a;
     }
 
-    protected virtual WriteArg CreateWriteArgInt()
+    protected virtual WriteArg CreateWriteArg()
     {
         WriteArg a;
         a = new WriteArg();
         a.Init();
-        a.Kind = 1;
-        a.Base = 10;
-        a.AlignLeft = false;
-        a.FieldWidth = 1;
-        a.MaxWidth = -1;
         return a;
     }
-
-    protected virtual WriteArg CreateWriteArgIntHex()
-    {
-        WriteArg a;
-        a = new WriteArg();
-        a.Init();
-        a.Kind = 1;
-        a.Base = 16;
-        a.AlignLeft = false;
-        a.FieldWidth = 15;
-        a.MaxWidth = 15;
-        a.FillChar = '0';
-        return a;
-    }
-
 
     protected virtual LessInt CreateCharLess()
     {
@@ -209,26 +187,56 @@ public class Infra : Any
         return text;
     }
 
-    public virtual String IntString(long n)
+    public virtual String StringInt(long n)
     {
-        return this.IntStringArg(n, this.WriteArgInt);
+        return this.StringIntArg(n, 10, false, 1, -1, 0);
     }
 
-    public virtual String IntStringHex(long n)
+    public virtual String StringIntHex(long n)
     {
-        return this.IntStringArg(n, this.WriteArgIntHex);
+        return this.StringIntArg(n, 16, false, 15, 15, '0');
     }
 
-    public virtual String IntStringArg(long n, WriteArg arg)
+    public virtual String StringIntArg(long n, long varBase, bool alignLeft, long fieldWidth, long maxWidth, long fillChar)
     {
+        WriteArg arg;
+        arg = this.WriteArg;
+
+        arg.Kind = 1;
         arg.Value.Int = n;
+        arg.Base = varBase;
+        arg.AlignLeft = alignLeft;
+        arg.FieldWidth = fieldWidth;
+        arg.MaxWidth = maxWidth;
+        arg.FillChar = fillChar;
 
-        this.Write.ExecuteArgCount(arg);
+        return this.StringWrite();
+    }
+
+    public virtual String StringTextArg(Text text, bool alignLeft, long fieldWidth, long maxWidth, long fillChar)
+    {
+        WriteArg arg;
+        arg = this.WriteArg;
+
+        arg.Kind = 2;
+        arg.Value.Any = text;
+        arg.Base = 0;
+        arg.AlignLeft = alignLeft;
+        arg.FieldWidth = fieldWidth;
+        arg.MaxWidth = maxWidth;
+        arg.FillChar = fillChar;
+
+        return this.StringWrite();
+    }
+
+    public virtual String StringWrite()
+    {
+        this.Write.ExecuteArgCount(this.WriteArg);
 
         Text aa;
-        aa = this.TextInfra.TextCreate(arg.Count);
+        aa = this.TextInfra.TextCreate(this.WriteArg.Count);
 
-        this.Write.ExecuteArgResult(arg, aa);
+        this.Write.ExecuteArgResult(this.WriteArg, aa);
 
         String a;
         a = this.StringCreate(aa);
