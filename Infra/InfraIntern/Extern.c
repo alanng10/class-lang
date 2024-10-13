@@ -4518,18 +4518,30 @@ Int Intern_Extern_PolateStop_CountSet(Eval* eval, Int frame)
     Return;
 }
 
-Int Intern_Extern_PolateStop_PointGet(Eval* eval, Int frame)
+Int Intern_Extern_PolateStop_PointGetPos(Eval* eval, Int frame)
 {
     Int paramCount;
-    paramCount = 4;
+    paramCount = 2;
 
     Param(0);
     Param(1);
-    Param(2);
-    Param(3);
 
     Int a;
-    a = PolateStop_PointGet(a0, a1, a2, a3);
+    a = PolateStop_PointGetPos(a0, a1);
+
+    Return;
+}
+
+Int Intern_Extern_PolateStop_PointGetColor(Eval* eval, Int frame)
+{
+    Int paramCount;
+    paramCount = 2;
+
+    Param(0);
+    Param(1);
+
+    Int a;
+    a = PolateStop_PointGetColor(a0, a1);
 
     Return;
 }

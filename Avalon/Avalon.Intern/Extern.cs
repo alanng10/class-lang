@@ -383,7 +383,8 @@ public static class Extern
     [DllImport(InfraLib)] public extern static ulong PolateStop_CountGet(ulong o);
     [DllImport(InfraLib)] public extern static ulong PolateStop_CountSet(ulong o, ulong value);
 
-    [DllImport(InfraLib)] public extern static ulong PolateStop_PointGet(ulong o, ulong index, ulong pos, ulong color);
+    [DllImport(InfraLib)] public extern static ulong PolateStop_PointGetPos(ulong o, ulong index);
+    [DllImport(InfraLib)] public extern static ulong PolateStop_PointGetColor(ulong o, ulong index);
     [DllImport(InfraLib)] public extern static ulong PolateStop_PointSet(ulong o, ulong index, ulong pos, ulong color);
 
     [DllImport(InfraLib)] public extern static ulong ImageRead_New();

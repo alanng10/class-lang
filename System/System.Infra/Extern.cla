@@ -374,7 +374,8 @@ class Extern : Any
     maide prusate Int PolateStop_CountGet(var Int o) { }
     maide prusate Int PolateStop_CountSet(var Int o, var Int value) { }
 
-    maide prusate Int PolateStop_PointGet(var Int o, var Int index, var Int pos, var Int color) { }
+    maide prusate Int PolateStop_PointGetPos(var Int o, var Int index) { }
+    maide prusate Int PolateStop_PointGetColor(var Int o, var Int index) { }
     maide prusate Int PolateStop_PointSet(var Int o, var Int index, var Int pos, var Int color) { }
 
     maide prusate Int ImageRead_New() { }

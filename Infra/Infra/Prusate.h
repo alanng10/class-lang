@@ -394,7 +394,8 @@ InfraApiNew(PolateStop)
 Infra_Api Int PolateStop_CountGet(Int o);
 Infra_Api Int PolateStop_CountSet(Int o, Int value);
 
-Infra_Api Int PolateStop_PointGet(Int o, Int index, Int pos, Int color);
+Infra_Api Int PolateStop_PointGetPos(Int o, Int index);
+Infra_Api Int PolateStop_PointGetColor(Int o, Int index);
 Infra_Api Int PolateStop_PointSet(Int o, Int index, Int pos, Int color);
 
 InfraApiNew(ImageRead)
