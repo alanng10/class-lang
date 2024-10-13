@@ -7,8 +7,7 @@ class ThreadState : State
         base.Init();
         this.MathInfra = MathInfra.This;
         this.StorageInfra = StorageInfra.This;
-        this.Math = new MathMath();
-        this.Math.Init();
+        this.Math = MathMath.This;
         this.MathComp = new MathComp();
         this.MathComp.Init();
         return true;
@@ -89,14 +88,11 @@ class ThreadState : State
         MathInfra mathInfra;
         mathInfra = this.MathInfra;
 
-        MathMath math;
-        math = this.Math;
-
         MathComp mathComp;
         mathComp = this.MathComp;
 
         long a;
-        a = mathInfra.Int(math, mathComp, n);
+        a = mathInfra.Int(mathComp, n);
         return a;
     }
 

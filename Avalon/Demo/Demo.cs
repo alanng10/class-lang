@@ -1122,14 +1122,11 @@ class Demo : Any
         MathInfra mathInfra;
         mathInfra = this.MathInfra;
 
-        MathMath math;
-        math = this.Math;
-
         MathComp mathComp;
         mathComp = this.MathComp;
 
         long a;
-        a = mathInfra.Int(math, mathComp, n);
+        a = mathInfra.Int(mathComp, n);
         return a;
     }
 
