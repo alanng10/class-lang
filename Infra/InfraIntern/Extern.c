@@ -4904,33 +4904,6 @@ Int Intern_Extern_VideoOut_Final(Eval* eval, Int frame)
     Return;
 }
 
-Int Intern_Extern_VideoOut_SizeGet(Eval* eval, Int frame)
-{
-    Int paramCount;
-    paramCount = 1;
-
-    Param(0);
-
-    Int a;
-    a = VideoOut_SizeGet(a0);
-
-    Return;
-}
-
-Int Intern_Extern_VideoOut_SizeSet(Eval* eval, Int frame)
-{
-    Int paramCount;
-    paramCount = 2;
-
-    Param(0);
-    Param(1);
-
-    Int a;
-    a = VideoOut_SizeSet(a0, a1);
-
-    Return;
-}
-
 Int Intern_Extern_VideoOut_FrameGet(Eval* eval, Int frame)
 {
     Int paramCount;
@@ -4958,33 +4931,6 @@ Int Intern_Extern_VideoOut_FrameSet(Eval* eval, Int frame)
     Return;
 }
 
-Int Intern_Extern_VideoOut_SubtitleGet(Eval* eval, Int frame)
-{
-    Int paramCount;
-    paramCount = 1;
-
-    Param(0);
-
-    Int a;
-    a = VideoOut_SubtitleGet(a0);
-
-    Return;
-}
-
-Int Intern_Extern_VideoOut_SubtitleSet(Eval* eval, Int frame)
-{
-    Int paramCount;
-    paramCount = 2;
-
-    Param(0);
-    Param(1);
-
-    Int a;
-    a = VideoOut_SubtitleSet(a0, a1);
-
-    Return;
-}
-
 Int Intern_Extern_VideoOut_FrameStateGet(Eval* eval, Int frame)
 {
     Int paramCount;
@@ -5008,46 +4954,6 @@ Int Intern_Extern_VideoOut_FrameStateSet(Eval* eval, Int frame)
 
     Int a;
     a = VideoOut_FrameStateSet(a0, a1);
-
-    Return;
-}
-
-Int Intern_Extern_VideoOut_SizeStateGet(Eval* eval, Int frame)
-{
-    Int paramCount;
-    paramCount = 1;
-
-    Param(0);
-
-    Int a;
-    a = VideoOut_SizeStateGet(a0);
-
-    Return;
-}
-
-Int Intern_Extern_VideoOut_SizeStateSet(Eval* eval, Int frame)
-{
-    Int paramCount;
-    paramCount = 2;
-
-    Param(0);
-    Param(1);
-
-    Int a;
-    a = VideoOut_SizeStateSet(a0, a1);
-
-    Return;
-}
-
-Int Intern_Extern_VideoOut_SubtitleThisSet(Eval* eval, Int frame)
-{
-    Int paramCount;
-    paramCount = 1;
-
-    Param(0);
-
-    Int a;
-    a = VideoOut_SubtitleThisSet(a0);
 
     Return;
 }
@@ -6558,19 +6464,6 @@ Int Intern_Extern_Network_Close(Eval* eval, Int frame)
 
     Int a;
     a = Network_Close(a0);
-
-    Return;
-}
-
-Int Intern_Extern_Network_Abort(Eval* eval, Int frame)
-{
-    Int paramCount;
-    paramCount = 1;
-
-    Param(0);
-
-    Int a;
-    a = Network_Abort(a0);
 
     Return;
 }

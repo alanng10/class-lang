@@ -417,18 +417,10 @@ public static class Extern
     [DllImport(InfraLib)] public extern static ulong VideoOut_Delete(ulong o);
     [DllImport(InfraLib)] public extern static ulong VideoOut_Init(ulong o);
     [DllImport(InfraLib)] public extern static ulong VideoOut_Final(ulong o);
-    [DllImport(InfraLib)] public extern static ulong VideoOut_SizeGet(ulong o);
-    [DllImport(InfraLib)] public extern static ulong VideoOut_SizeSet(ulong o, ulong value);
     [DllImport(InfraLib)] public extern static ulong VideoOut_FrameGet(ulong o);
     [DllImport(InfraLib)] public extern static ulong VideoOut_FrameSet(ulong o, ulong value);
-    [DllImport(InfraLib)] public extern static ulong VideoOut_SubtitleGet(ulong o);
-    [DllImport(InfraLib)] public extern static ulong VideoOut_SubtitleSet(ulong o, ulong value);
     [DllImport(InfraLib)] public extern static ulong VideoOut_FrameStateGet(ulong o);
     [DllImport(InfraLib)] public extern static ulong VideoOut_FrameStateSet(ulong o, ulong value);
-    [DllImport(InfraLib)] public extern static ulong VideoOut_SizeStateGet(ulong o);
-    [DllImport(InfraLib)] public extern static ulong VideoOut_SizeStateSet(ulong o, ulong value);
-
-    [DllImport(InfraLib)] public extern static ulong VideoOut_SubtitleThisSet(ulong o);
 
     public delegate ulong VideoOut_Frame_Maide(ulong videoOut, ulong frame, ulong arg);
     public delegate ulong VideoOut_Size_Maide(ulong videoOut, ulong size, ulong arg);
@@ -560,7 +552,6 @@ public static class Extern
 
     [DllImport(InfraLib)] public extern static ulong Network_Open(ulong o);
     [DllImport(InfraLib)] public extern static ulong Network_Close(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Network_Abort(ulong o);
 
     public delegate ulong Network_CaseChange_Maide(ulong network, ulong arg);
     public delegate ulong Network_StatusChange_Maide(ulong network, ulong arg);

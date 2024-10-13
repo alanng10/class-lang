@@ -408,18 +408,10 @@ class Extern : Any
     maide prusate Int VideoOut_Delete(var Int o) { }
     maide prusate Int VideoOut_Init(var Int o) { }
     maide prusate Int VideoOut_Final(var Int o) { }
-    maide prusate Int VideoOut_SizeGet(var Int o) { }
-    maide prusate Int VideoOut_SizeSet(var Int o, var Int value) { }
     maide prusate Int VideoOut_FrameGet(var Int o) { }
     maide prusate Int VideoOut_FrameSet(var Int o, var Int value) { }
-    maide prusate Int VideoOut_SubtitleGet(var Int o) { }
-    maide prusate Int VideoOut_SubtitleSet(var Int o, var Int value) { }
     maide prusate Int VideoOut_FrameStateGet(var Int o) { }
     maide prusate Int VideoOut_FrameStateSet(var Int o, var Int value) { }
-    maide prusate Int VideoOut_SizeStateGet(var Int o) { }
-    maide prusate Int VideoOut_SizeStateSet(var Int o, var Int value) { }
-
-    maide prusate Int VideoOut_SubtitleThisSet(var Int o) { }
 
     maide prusate Int VideoFrame_New() { }
     maide prusate Int VideoFrame_Delete(var Int o) { }
@@ -548,7 +540,6 @@ class Extern : Any
 
     maide prusate Int Network_Open(var Int o) { }
     maide prusate Int Network_Close(var Int o) { }
-    maide prusate Int Network_Abort(var Int o) { }
 
     maide prusate Int NetworkHost_New() { }
     maide prusate Int NetworkHost_Delete(var Int o) { }

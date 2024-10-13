@@ -419,18 +419,10 @@ Infra_Api Int ImageWrite_QualitySet(Int o, Int value);
 Infra_Api Int ImageWrite_Execute(Int o);
 
 InfraApiNew(VideoOut)
-Infra_Api Int VideoOut_SizeGet(Int o);
-Infra_Api Int VideoOut_SizeSet(Int o, Int value);
 Infra_Api Int VideoOut_FrameGet(Int o);
 Infra_Api Int VideoOut_FrameSet(Int o, Int value);
-Infra_Api Int VideoOut_SubtitleGet(Int o);
-Infra_Api Int VideoOut_SubtitleSet(Int o, Int value);
 Infra_Api Int VideoOut_FrameStateGet(Int o);
 Infra_Api Int VideoOut_FrameStateSet(Int o, Int value);
-Infra_Api Int VideoOut_SizeStateGet(Int o);
-Infra_Api Int VideoOut_SizeStateSet(Int o, Int value);
-
-Infra_Api Int VideoOut_SubtitleThisSet(Int o);
 
 typedef Int (*VideoOut_Frame_Maide)(Int videoOut, Int frame, Int arg);
 typedef Int (*VideoOut_Size_Maide)(Int videoOut, Int size, Int arg);
@@ -538,7 +530,6 @@ Infra_Api Int Network_ReadyReadStateSet(Int o, Int value);
 
 Infra_Api Int Network_Open(Int o);
 Infra_Api Int Network_Close(Int o);
-Infra_Api Int Network_Abort(Int o);
 
 typedef Int (*Network_CaseChange_Maide)(Int network, Int arg);
 typedef Int (*Network_StatusChange_Maide)(Int network, Int arg);
