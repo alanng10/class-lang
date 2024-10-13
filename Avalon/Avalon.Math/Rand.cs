@@ -36,7 +36,6 @@ public class Rand : Any
             Extern.Rand_SeedSet(this.Intern, u);
         }
     }
-    protected long __D_Seed;
 
     public virtual long Execute()
     {
