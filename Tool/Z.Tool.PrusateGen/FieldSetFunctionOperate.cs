@@ -22,4 +22,9 @@ class FieldSetFunctionOperate : FunctionOperate
         this.Gen.AddVarDeclare(this.S("value"));
         return true;
     }
+
+    public override long ParamCount()
+    {
+        return 1;
+    }
 }

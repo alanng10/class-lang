@@ -18,4 +18,9 @@ class FieldGetFunctionOperate : FunctionOperate
         }
         return true;
     }
+
+    public override long ParamCount()
+    {
+        return 0;
+    }
 }

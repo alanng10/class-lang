@@ -47,4 +47,9 @@ class MaideCallFunctionOperate : FunctionOperate
         }
         return true;
     }
+
+    public override long ParamCount()
+    {
+        return this.Maide.Param.Count;
+    }
 }

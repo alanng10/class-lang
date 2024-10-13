@@ -37,6 +37,23 @@ class InternStateGen : ExternGen
 
     protected override bool AddFunction(FunctionOperate functionOperate)
     {
+        StringAdd kk;
+        kk = new StringAdd();
+        kk.Init();
+
+        StringAdd ke;
+        ke = this.ToolInfra.StringAdd;
+
+        this.ToolInfra.StringAdd = kk;
+
+        this.AddClear();
+        
+        functionOperate.ExecuteName();
+        
+        String name;
+        name = this.AddResult();
+
+
         this.AddFunctionHeader();
 
         this.Add(this.IntTypeName).AddS(" ");
@@ -48,6 +65,9 @@ class InternStateGen : ExternGen
         functionOperate.ExecuteParam();
 
         this.AddS(")").AddS(";").Add(this.NewLine);
+
+
+        this.ToolInfra.StringAdd = ke;
         return true;
     }
 }

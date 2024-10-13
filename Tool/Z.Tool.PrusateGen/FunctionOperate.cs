@@ -14,4 +14,9 @@ class FunctionOperate : ToolBase
     {
         return false;
     }
+
+    public virtual long ParamCount()
+    {
+        return 0;
+    }
 }
