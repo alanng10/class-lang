@@ -293,22 +293,6 @@ public class Intern : object
         return true;
     }
 
-    public virtual uint VideoDataColor(ulong data, ulong wed, ulong col, ulong row)
-    {
-        uint a;
-        unsafe
-        {
-            uint* p;
-            p = (uint*)data;
-
-            uint* d;
-            d = p + (row * wed + col);
-
-            a = *d;
-        }
-        return a;
-    }
-
     public virtual long TypeIndexFromInternIndex(long u)
     {
         long a;
