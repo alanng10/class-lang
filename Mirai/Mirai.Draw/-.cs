@@ -1,7 +1,6 @@
 global using InternIntern = Avalon.Intern.Intern;
 global using Extern = Avalon.Intern.Extern;
 global using InternInfra = Avalon.Intern.Infra;
-global using InternPolateStopPoint = Avalon.Intern.DrawPolateStopPoint;
 global using Any = Avalon.Infra.Any;
 global using String = Avalon.Infra.String;
 global using Range = Avalon.Infra.Range;

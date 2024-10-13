@@ -232,31 +232,6 @@ public class Intern : object
         return true;
     }
 
-    public virtual bool DrawPolateStopPointGet(ulong intern, ulong index, DrawPolateStopPoint result)
-    {
-        unsafe
-        {
-            ulong pos;
-            ulong color;
-
-            ulong* posU;
-            ulong* colorU;
-            posU = &pos;
-            colorU = &color;
-
-            ulong ua;
-            ulong ub;
-            ua = (ulong)posU;
-            ub = (ulong)colorU;
-
-            Extern.PolateStop_PointGet(intern, index, ua, ub);
-
-            result.Pos = pos;
-            result.Color = color;
-        }
-        return true;
-    }
-
     public virtual bool CopyToByteArray(ulong source, byte[] dest, ulong index, ulong count)
     {
         unsafe
