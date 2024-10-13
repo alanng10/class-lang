@@ -5,11 +5,7 @@ public class PolateStop : Any
     public override bool Init()
     {
         base.Init();
-
-        this.InternIntern = InternIntern.This;
         this.DrawInfra = Infra.This;
-        this.InternPolateStopPoint = new InternPolateStopPoint();
-        this.InternPolateStopPoint.Init();
 
         long count;
         count = this.Count;
@@ -30,10 +26,8 @@ public class PolateStop : Any
 
     public virtual long Count { get; set; }
 
-    private InternIntern InternIntern { get; set; }
     protected virtual Infra DrawInfra { get; set; }
     internal virtual ulong Intern { get; set; }
-    private InternPolateStopPoint InternPolateStopPoint { get; set; }
 
     public virtual bool PointSet(long index, PolateStopPoint point)
     {
