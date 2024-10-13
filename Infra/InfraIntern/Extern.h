@@ -2,7 +2,7 @@
 
 #include "Pronate.h"
 
-#define Return(paramCount) \
+#define Return \
 Int ke;\
 ke = 0;\
 \
