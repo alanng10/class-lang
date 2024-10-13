@@ -1,4 +1,4 @@
-Int #Name#(Eval* eval, Int frame)
+Int Intern_Extern_#Name#(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = #ParamCount#;
