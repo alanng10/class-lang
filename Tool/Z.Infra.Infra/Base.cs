@@ -54,6 +54,31 @@ public class Base : Any
         return this.TextReplace(text, this.TextCreate(this.S(delimit)), this.TextCreate(join));
     }
 
+    public virtual String StringInt(long n)
+    {
+        return this.ToolInfra.StringInt(n);
+    }
+
+    public virtual String StringIntHex(long n)
+    {
+        return this.ToolInfra.StringIntHex(n);
+    }
+
+    public virtual String StringIntArg(long n, long varBase, bool alignLeft, long fieldWidth, long maxWidth, long fillChar)
+    {
+        return this.ToolInfra.StringIntArg(n, varBase, alignLeft, fieldWidth, maxWidth, fillChar);
+    }
+
+    public virtual String StringTextArg(Text text, bool alignLeft, long fieldWidth, long maxWidth, long fillChar)
+    {
+        return this.ToolInfra.StringTextArg(text, alignLeft, fieldWidth, maxWidth, fillChar);
+    }
+
+    public virtual String StringWrite()
+    {
+        return this.ToolInfra.StringWrite();
+    }
+
     public virtual long StringCount(String o)
     {
         return this.ToolInfra.StringCount(o);
