@@ -204,12 +204,8 @@ ImageWrite
     Execute()
 
 VideoOut
-    Size
     Frame
-    Subtitle
-    SubtitleThisSet()
     FrameState
-    SizeState
     Frame(videoOut, frame, arg) --
     Size(videoOut, size, arg) --
 
@@ -283,7 +279,6 @@ Network
     Case
     Open()
     Close()
-    Abort()
     CaseChangeState
     CaseChange(network, arg) --
     StatusChangeState
