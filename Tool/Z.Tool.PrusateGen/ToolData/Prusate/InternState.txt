@@ -3,9 +3,7 @@ Int Intern_Extern_#Name#(Eval* eval, Int frame)
     Int paramCount;
     paramCount = #ParamCount#;
 
-#Param#
-
-    Int a;
+#Param#    Int a;
     a = #Name#(#Argue#);
 
     Return;

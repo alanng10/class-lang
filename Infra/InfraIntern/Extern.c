@@ -62,8 +62,6 @@ Int Intern_Extern_String_New(Eval* eval, Int frame)
     Int paramCount;
     paramCount = 0;
 
-
-
     Int a;
     a = String_New();
 
@@ -221,8 +219,6 @@ Int Intern_Extern_Console_New(Eval* eval, Int frame)
     Int paramCount;
     paramCount = 0;
 
-
-
     Int a;
     a = Console_New();
 
@@ -313,8 +309,6 @@ Int Intern_Extern_Array_New(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 0;
-
-
 
     Int a;
     a = Array_New();
@@ -422,8 +416,6 @@ Int Intern_Extern_TextCode_New(Eval* eval, Int frame)
     Int paramCount;
     paramCount = 0;
 
-
-
     Int a;
     a = TextCode_New();
 
@@ -508,8 +500,6 @@ Int Intern_Extern_Format_New(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 0;
-
-
 
     Int a;
     a = Format_New();
@@ -620,8 +610,6 @@ Int Intern_Extern_FormatArg_New(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 0;
-
-
 
     Int a;
     a = FormatArg_New();
@@ -1023,8 +1011,6 @@ Int Intern_Extern_Math_New(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 0;
-
-
 
     Int a;
     a = Math_New();
@@ -1520,8 +1506,6 @@ Int Intern_Extern_Rand_New(Eval* eval, Int frame)
     Int paramCount;
     paramCount = 0;
 
-
-
     Int a;
     a = Rand_New();
 
@@ -1611,8 +1595,6 @@ Int Intern_Extern_Range_New(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 0;
-
-
 
     Int a;
     a = Range_New();
@@ -1718,8 +1700,6 @@ Int Intern_Extern_Rect_New(Eval* eval, Int frame)
     Int paramCount;
     paramCount = 0;
 
-
-
     Int a;
     a = Rect_New();
 
@@ -1823,8 +1803,6 @@ Int Intern_Extern_Pos_New(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 0;
-
-
 
     Int a;
     a = Pos_New();
@@ -1930,8 +1908,6 @@ Int Intern_Extern_Size_New(Eval* eval, Int frame)
     Int paramCount;
     paramCount = 0;
 
-
-
     Int a;
     a = Size_New();
 
@@ -2035,8 +2011,6 @@ Int Intern_Extern_Data_New(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 0;
-
-
 
     Int a;
     a = Data_New();
@@ -2142,8 +2116,6 @@ Int Intern_Extern_Entry_New(Eval* eval, Int frame)
     Int paramCount;
     paramCount = 0;
 
-
-
     Int a;
     a = Entry_New();
 
@@ -2247,8 +2219,6 @@ Int Intern_Extern_State_New(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 0;
-
-
 
     Int a;
     a = State_New();
@@ -2354,8 +2324,6 @@ Int Intern_Extern_Main_TerminateStateGet(Eval* eval, Int frame)
     Int paramCount;
     paramCount = 0;
 
-
-
     Int a;
     a = Main_TerminateStateGet();
 
@@ -2380,8 +2348,6 @@ Int Intern_Extern_Main_Init(Eval* eval, Int frame)
     Int paramCount;
     paramCount = 0;
 
-
-
     Int a;
     a = Main_Init();
 
@@ -2392,8 +2358,6 @@ Int Intern_Extern_Main_Final(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 0;
-
-
 
     Int a;
     a = Main_Final();
@@ -2419,8 +2383,6 @@ Int Intern_Extern_Main_ExecuteEventLoop(Eval* eval, Int frame)
     Int paramCount;
     paramCount = 0;
 
-
-
     Int a;
     a = Main_ExecuteEventLoop();
 
@@ -2444,8 +2406,6 @@ Int Intern_Extern_Frame_New(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 0;
-
-
 
     Int a;
     a = Frame_New();
@@ -2684,8 +2644,6 @@ Int Intern_Extern_Draw_New(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 0;
-
-
 
     Int a;
     a = Draw_New();
@@ -3215,8 +3173,6 @@ Int Intern_Extern_Brush_New(Eval* eval, Int frame)
     Int paramCount;
     paramCount = 0;
 
-
-
     Int a;
     a = Brush_New();
 
@@ -3511,8 +3467,6 @@ Int Intern_Extern_Image_New(Eval* eval, Int frame)
     Int paramCount;
     paramCount = 0;
 
-
-
     Int a;
     a = Image_New();
 
@@ -3642,8 +3596,6 @@ Int Intern_Extern_Face_New(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 0;
-
-
 
     Int a;
     a = Face_New();
@@ -3884,8 +3836,6 @@ Int Intern_Extern_Form_New(Eval* eval, Int frame)
     Int paramCount;
     paramCount = 0;
 
-
-
     Int a;
     a = Form_New();
 
@@ -4092,8 +4042,6 @@ Int Intern_Extern_Polate_New(Eval* eval, Int frame)
     Int paramCount;
     paramCount = 0;
 
-
-
     Int a;
     a = Polate_New();
 
@@ -4252,8 +4200,6 @@ Int Intern_Extern_PolateLinear_New(Eval* eval, Int frame)
     Int paramCount;
     paramCount = 0;
 
-
-
     Int a;
     a = PolateLinear_New();
 
@@ -4357,8 +4303,6 @@ Int Intern_Extern_PolateRadial_New(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 0;
-
-
 
     Int a;
     a = PolateRadial_New();
@@ -4518,8 +4462,6 @@ Int Intern_Extern_PolateStop_New(Eval* eval, Int frame)
     Int paramCount;
     paramCount = 0;
 
-
-
     Int a;
     a = PolateStop_New();
 
@@ -4628,8 +4570,6 @@ Int Intern_Extern_ImageRead_New(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 0;
-
-
 
     Int a;
     a = ImageRead_New();
@@ -4747,8 +4687,6 @@ Int Intern_Extern_ImageWrite_New(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 0;
-
-
 
     Int a;
     a = ImageWrite_New();
@@ -4920,8 +4858,6 @@ Int Intern_Extern_VideoOut_New(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 0;
-
-
 
     Int a;
     a = VideoOut_New();
@@ -5121,8 +5057,6 @@ Int Intern_Extern_VideoFrame_New(Eval* eval, Int frame)
     Int paramCount;
     paramCount = 0;
 
-
-
     Int a;
     a = VideoFrame_New();
 
@@ -5213,8 +5147,6 @@ Int Intern_Extern_AudioOut_New(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 0;
-
-
 
     Int a;
     a = AudioOut_New();
@@ -5319,8 +5251,6 @@ Int Intern_Extern_Play_New(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 0;
-
-
 
     Int a;
     a = Play_New();
@@ -5585,8 +5515,6 @@ Int Intern_Extern_Stream_New(Eval* eval, Int frame)
     Int paramCount;
     paramCount = 0;
 
-
-
     Int a;
     a = Stream_New();
 
@@ -5813,8 +5741,6 @@ Int Intern_Extern_Memory_New(Eval* eval, Int frame)
     Int paramCount;
     paramCount = 0;
 
-
-
     Int a;
     a = Memory_New();
 
@@ -5917,8 +5843,6 @@ Int Intern_Extern_Storage_New(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 0;
-
-
 
     Int a;
     a = Storage_New();
@@ -6117,8 +6041,6 @@ Int Intern_Extern_StorageComp_New(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 0;
-
-
 
     Int a;
     a = StorageComp_New();
@@ -6325,8 +6247,6 @@ Int Intern_Extern_Network_New(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 0;
-
-
 
     Int a;
     a = Network_New();
@@ -6660,8 +6580,6 @@ Int Intern_Extern_NetworkHost_New(Eval* eval, Int frame)
     Int paramCount;
     paramCount = 0;
 
-
-
     Int a;
     a = NetworkHost_New();
 
@@ -6818,8 +6736,6 @@ Int Intern_Extern_NetworkPort_New(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 0;
-
-
 
     Int a;
     a = NetworkPort_New();
@@ -7018,8 +6934,6 @@ Int Intern_Extern_Thread_New(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 0;
-
-
 
     Int a;
     a = Thread_New();
@@ -7297,8 +7211,6 @@ Int Intern_Extern_Thread_This(Eval* eval, Int frame)
     Int paramCount;
     paramCount = 0;
 
-
-
     Int a;
     a = Thread_This();
 
@@ -7309,8 +7221,6 @@ Int Intern_Extern_Phore_New(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 0;
-
-
 
     Int a;
     a = Phore_New();
@@ -7441,8 +7351,6 @@ Int Intern_Extern_Time_New(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 0;
-
-
 
     Int a;
     a = Time_New();
@@ -7993,8 +7901,6 @@ Int Intern_Extern_TimeEvent_New(Eval* eval, Int frame)
     Int paramCount;
     paramCount = 0;
 
-
-
     Int a;
     a = TimeEvent_New();
 
@@ -8179,8 +8085,6 @@ Int Intern_Extern_Post_New(Eval* eval, Int frame)
     Int paramCount;
     paramCount = 0;
 
-
-
     Int a;
     a = Post_New();
 
@@ -8270,8 +8174,6 @@ Int Intern_Extern_Program_New(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 0;
-
-
 
     Int a;
     a = Program_New();
@@ -8604,8 +8506,6 @@ Int Intern_Extern_Infra_Share(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 0;
-
-
 
     Int a;
     a = Infra_Share();

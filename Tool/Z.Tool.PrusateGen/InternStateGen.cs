@@ -95,6 +95,11 @@ class InternStateGen : ExternGen
             i = i + 1;
         }
 
+        if (0 < count)
+        {
+            this.AddLine().AddLine();
+        }
+
         String paramString;
         paramString = this.AddResult();
 
