@@ -85,7 +85,12 @@ class InternStateGen : ExternGen
             String kaa;
             kaa = this.StringInt(i);
 
-            this.AddIndent(1).AddS("Param(").Add(kaa).AddS(");").AddLine();
+            if (0 < i)
+            {
+                this.AddLine();
+            }
+
+            this.AddIndent(1).AddS("Param(").Add(kaa).AddS(");");
 
             i = i + 1;
         }
