@@ -5,14 +5,5 @@ Int #Name#(Eval* eval, Int frame)
     Int a;
     a = #Name#(#Argue#);
 
-    Int ke;
-    ke = 0;
-
-    if (!(a == IntNull))
-    {
-        ke = a;
-        RefKindSet(ke, RefKindInt);
-    }
-
-    Return(ke, #ParamCount#);
+    Return(#ParamCount#);
 }
