@@ -80,4 +80,5 @@ Int Math_##name(Int o, Int valueA, Int valueB)\
 }\
 
 
+Int Math_Comp(Int o, Int value, Int cand, Int expo);
 Int Math_GetValueFromComp(Int o, Int significand, Int exponent);

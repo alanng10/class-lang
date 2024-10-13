@@ -118,7 +118,7 @@ Int Math_GetValueFromComp(Int o, Int cand, Int exponent)
     return k;
 }
 
-Int Math_Comp(Int o, Int value, Int cand, Int exponent)
+Int Math_Comp(Int o, Int value, Int cand, Int expo)
 {
     SInt aa;
     aa = value;
@@ -138,7 +138,7 @@ Int Math_Comp(Int o, Int value, Int cand, Int exponent)
     Int* ua;
     ua = (Int*)cand;
     Int* ub;
-    ub = (Int*)exponent;
+    ub = (Int*)expo;
 
     *ua = oa;
     *ub = ob;
