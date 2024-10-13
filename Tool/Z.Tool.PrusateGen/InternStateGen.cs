@@ -20,7 +20,7 @@ class InternStateGen : ExternGen
 
     public override bool Execute()
     {
-        this.TextInternState = this.ToolInfra.StorageTextRead(this.S("ToolData/Prusate/InternExtern.txt"));
+        this.TextInternState = this.ToolInfra.StorageTextRead(this.S("ToolData/Prusate/InternState.txt"));
         return base.Execute();
     }
 
