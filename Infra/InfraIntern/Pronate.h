@@ -20,6 +20,10 @@
 
 #define ThreadCountMax (1024)
 
+#define RefKindClear(name) name = name & 0x0fffffffffffffff;
+
+#define RefKindSet(name, kind) name = name | (kind << 60);
+
 typedef struct
 {
     Int Index;
