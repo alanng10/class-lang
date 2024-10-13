@@ -2,6 +2,18 @@ namespace Z.Tool.PrusateGen;
 
 class InternStateGen : ExternGen
 {
+    public override bool Init()
+    {
+        base.Init();
+
+        this.PrusateFileName = this.S("ToolData/Prusate/InternExtern.txt");
+
+        this.OutputFilePath = this.S("../../Infra/InfraIntern/Extern.c");
+
+        this.IntTypeName = this.S("Int");
+        return true;
+    }
+
     protected virtual String TextInternState { get; set; }
 
     protected virtual bool AddNewLine { get; set; }
