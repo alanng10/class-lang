@@ -7,7 +7,7 @@ class StringInn : Inn
 
         this.StringData : new StringData;
         this.StringData.Init();
-                
+
         this.Text : new TextText;
         this.Text.Init();
         this.Text.Data : this.StringData;
