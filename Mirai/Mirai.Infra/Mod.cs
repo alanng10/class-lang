@@ -1,4 +1,4 @@
-namespace Avalon.Comp;
+namespace Mirai.Infra;
 
 public class Mod : Any
 {
