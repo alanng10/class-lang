@@ -189,5 +189,10 @@ Bool Intern_NewInit()
 
     Intern_New_PhoreSet(phore);
 
+    Int count;
+    count = 2 * 1024 * 1024;
+
+    Intern_New_AllocCapSet(count);
+
     return true;
 }
