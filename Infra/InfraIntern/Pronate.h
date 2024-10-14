@@ -49,6 +49,8 @@ Bool Intern_New_Close();
 
 Bool Intern_New_PhoreSet(Int value);
 
+Bool Intern_New_AllocCapSet(Int value);
+
 Int Intern_InitThread(Int thread, Int threadAny);
 
 Bool Intern_FinalThread(Int thread);

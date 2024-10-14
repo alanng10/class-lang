@@ -583,3 +583,12 @@ Bool Intern_New_PhoreSet(Int value)
     m->Phore = value;
     return true;
 }
+
+Bool Intern_New_AllocCapSet(Int value)
+{
+    InternNewData* m;
+    m = CastPointer(NewData);
+
+    m->AllocCap = value;
+    return true;
+}
