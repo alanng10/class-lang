@@ -172,7 +172,7 @@ class TypeState : State
         if (a == d.AlphaN & o)
         {
             String frameTitle;
-            frameTitle = this.S("Avalon Demo " + this.TitleIndex.ToString("x4"));
+            frameTitle = this.S("Mirai Demo " + this.TitleIndex.ToString("x4"));
 
             this.Demo.Frame.Title = frameTitle;
             this.Demo.Frame.TitleSet();
