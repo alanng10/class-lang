@@ -369,7 +369,7 @@ Program
     Name
     Argue
     WorkFold
-    Environment
+    Environ
     Execute()
     Ident
     Wait()
