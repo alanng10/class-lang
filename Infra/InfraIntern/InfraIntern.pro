@@ -4,7 +4,7 @@ DEFINES += InfraIntern_Module
 
 HEADERS += \
     Prusate.h \
-    Prusate_Part.h \
+    Prusate_Intern.h \
     Pronate.h \
     Call.h \
     Extern.h \
