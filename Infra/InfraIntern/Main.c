@@ -12,6 +12,8 @@ Int Intern_Init(Int entryClass, Int entryModuleInit)
 {
     Main_Init();
 
+    Intern_NewInit();
+
     Intern_ModuleInit(entryModuleInit);
 
     Intern_ClassSharePhoreInit();
@@ -173,5 +175,19 @@ Int Intern_ModuleInit_ModuleSet(Int module)
     Array_ItemSet(ModuleArray, index, module);
 
     Intern_ModuleInitArgIndex = index + 1;
+    return true;
+}
+
+Bool Intern_NewInit()
+{
+    Int phore;
+    phore = Phore_New();
+
+    Phore_InitCountSet(phore, 1);
+
+    Phore_Init(phore);
+
+    Intern_New_PhoreSet(phore);
+
     return true;
 }

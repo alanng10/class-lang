@@ -97,5 +97,3 @@ Bool Intern_New_QueueClassShareModule(Module* module);
 Bool Intern_New_QueueAllThreadAny();
 
 Bool Intern_New_Traverse();
-
-Bool Intern_New_PhoreSet(Int value);
