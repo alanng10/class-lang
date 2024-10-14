@@ -574,3 +574,12 @@ Bool Intern_New_Close()
     
     return true;
 }
+
+Bool Intern_New_PhoreSet(Int value)
+{
+    InternNewData* m;
+    m = CastPointer(NewData);
+
+    m->Phore = value;
+    return true;
+}
