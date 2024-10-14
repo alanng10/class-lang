@@ -1,6 +1,6 @@
 namespace Mirai.Infra;
 
-public class Comp : CompComp
+public class Comp : Any
 {
     public override bool Init()
     {
@@ -9,19 +9,31 @@ public class Comp : CompComp
         this.ViewInfra = Infra.This;
         this.Math = MathMath.This;
 
+        this.ModEvent = this.CreateModEvent();
+        this.ModArg = this.CreateModArg();
         this.MathComp = this.CreateMathComp();
         return true;
     }
 
+    public virtual Mod ModArg { get; set; }
+    public virtual EventEvent ModEvent { get; set; }
     protected virtual MathInfra MathInfra { get; set; }
     protected virtual Infra ViewInfra { get; set; }
     protected virtual MathMath Math { get; set; }
     protected virtual MathComp MathComp { get; set; }
 
-    protected virtual MathMath CreateMath()
+    protected virtual EventEvent CreateModEvent()
     {
-        MathMath a;
-        a = new MathMath();
+        EventEvent a;
+        a = new EventEvent();
+        a.Init();
+        return a;
+    }
+
+    protected virtual Mod CreateModArg()
+    {
+        Mod a;
+        a = new Mod();
         a.Init();
         return a;
     }
@@ -32,6 +44,19 @@ public class Comp : CompComp
         a = new MathComp();
         a.Init();
         return a;
+    }
+
+    public virtual bool Mod(Field varField, Mod mod)
+    {
+        return true;
+    }
+
+    protected virtual bool Event(Field varField)
+    {
+        this.ModArg.Comp = this;
+        this.ModArg.Field = varField;
+        this.ModEvent.Execute(this.ModArg);
+        return true;
     }
 
     protected virtual long MathInt(long n)
