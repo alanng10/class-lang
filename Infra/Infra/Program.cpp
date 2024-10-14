@@ -24,7 +24,7 @@ Int Program_Final(Int o)
 CppField(Program, Name)
 CppField(Program, Argue)
 CppField(Program, WorkFold)
-CppField(Program, Environment)
+CppField(Program, Environ)
 
 Int Program_Execute(Int o)
 {
@@ -37,7 +37,7 @@ Int Program_Execute(Int o)
     Int workFold;
     workFold = m->WorkFold;
     Int environment;
-    environment = m->Environment;
+    environment = m->Environ;
 
     QString nameU;
     Int ua;
