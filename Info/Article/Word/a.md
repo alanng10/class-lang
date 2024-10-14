@@ -274,6 +274,8 @@ Word "host" has meaning that is site hold.
 
 Word "peer" has meaning that is co op.
 
+Word "environ" has meaning that is environment.
+
 Word "view" has meaning that is presentation.
 
 Word "child" has meaning that is sub entity.
