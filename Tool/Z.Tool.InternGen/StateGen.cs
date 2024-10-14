@@ -31,7 +31,7 @@ class StateGen : ToolBase
         a = this.StringCreate(k);
 
         String outputPath;
-        outputPath = this.S("../../Infra/InfraIntern/Prusate_Part.h");
+        outputPath = this.S("../../Infra/InfraIntern/Prusate_Intern.h");
 
         toolInfra.StorageTextWrite(outputPath, a);
         return true;
