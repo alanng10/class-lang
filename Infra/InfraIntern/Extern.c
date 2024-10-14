@@ -8190,7 +8190,7 @@ Int Intern_Extern_Program_WorkFoldSet(Eval* eval, Int frame)
     Return;
 }
 
-Int Intern_Extern_Program_EnvironmentGet(Eval* eval, Int frame)
+Int Intern_Extern_Program_EnvironGet(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 1;
@@ -8198,12 +8198,12 @@ Int Intern_Extern_Program_EnvironmentGet(Eval* eval, Int frame)
     Param(0);
 
     Int a;
-    a = Program_EnvironmentGet(a0);
+    a = Program_EnvironGet(a0);
 
     Return;
 }
 
-Int Intern_Extern_Program_EnvironmentSet(Eval* eval, Int frame)
+Int Intern_Extern_Program_EnvironSet(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 2;
@@ -8212,7 +8212,7 @@ Int Intern_Extern_Program_EnvironmentSet(Eval* eval, Int frame)
     Param(1);
 
     Int a;
-    a = Program_EnvironmentSet(a0, a1);
+    a = Program_EnvironSet(a0, a1);
 
     Return;
 }

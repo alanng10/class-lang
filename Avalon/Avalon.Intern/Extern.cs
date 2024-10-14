@@ -711,8 +711,8 @@ public static class Extern
     [DllImport(InfraLib)] public extern static ulong Program_ArgueSet(ulong o, ulong value);
     [DllImport(InfraLib)] public extern static ulong Program_WorkFoldGet(ulong o);
     [DllImport(InfraLib)] public extern static ulong Program_WorkFoldSet(ulong o, ulong value);
-    [DllImport(InfraLib)] public extern static ulong Program_EnvironmentGet(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Program_EnvironmentSet(ulong o, ulong value);
+    [DllImport(InfraLib)] public extern static ulong Program_EnvironGet(ulong o);
+    [DllImport(InfraLib)] public extern static ulong Program_EnvironSet(ulong o, ulong value);
     [DllImport(InfraLib)] public extern static ulong Program_IdentGet(ulong o);
     [DllImport(InfraLib)] public extern static ulong Program_IdentSet(ulong o, ulong value);
     [DllImport(InfraLib)] public extern static ulong Program_StatusGet(ulong o);
