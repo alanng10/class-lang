@@ -8,10 +8,8 @@ public class ListState : State
     {
         Mod mod;
         mod = (Mod)this.Arg;
-        CompComp a;
-        a = mod.Comp;
         Comp item;
-        item = (Comp)a;
+        item = mod.Comp;
         this.List.ItemChange(item);
         return true;
     }

@@ -24,7 +24,7 @@ public class Infra : Any
 
     protected virtual DrawInfra DrawInfra { get; set; }
 
-    public virtual Field FieldCreate(CompComp comp)
+    public virtual Field FieldCreate(Comp comp)
     {
         Field a;
         a = new Field();
