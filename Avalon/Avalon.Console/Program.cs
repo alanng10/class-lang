@@ -193,11 +193,11 @@ public class Program : Any
         Extern.Program_NameSet(this.Intern, nameU);
         Extern.Program_ArgueSet(this.Intern, argueU);
         Extern.Program_WorkFoldSet(this.Intern, workFoldU);
-        Extern.Program_EnvironmentSet(this.Intern, environmentU);
+        Extern.Program_EnvironSet(this.Intern, environmentU);
 
         Extern.Program_Execute(this.Intern);
 
-        Extern.Program_EnvironmentSet(this.Intern, 0);
+        Extern.Program_EnvironSet(this.Intern, 0);
         Extern.Program_WorkFoldSet(this.Intern, 0);
         Extern.Program_ArgueSet(this.Intern, 0);
         Extern.Program_NameSet(this.Intern, 0);
