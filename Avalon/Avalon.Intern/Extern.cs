@@ -202,6 +202,7 @@ public static class Extern
     [DllImport(InfraLib)] public extern static ulong Main_Init();
     [DllImport(InfraLib)] public extern static ulong Main_Final();
     [DllImport(InfraLib)] public extern static ulong Main_IsCSharpSet(ulong value);
+    [DllImport(InfraLib)] public extern static ulong Main_Arg();
     [DllImport(InfraLib)] public extern static ulong Main_ExecuteEventLoop();
     [DllImport(InfraLib)] public extern static ulong Main_ExitEventLoop(ulong code);
 

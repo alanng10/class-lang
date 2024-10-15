@@ -2362,6 +2362,17 @@ Int Intern_Extern_Main_IsCSharpSet(Eval* eval, Int frame)
     Return;
 }
 
+Int Intern_Extern_Main_Arg(Eval* eval, Int frame)
+{
+    Int paramCount;
+    paramCount = 0;
+
+    Int a;
+    a = Main_Arg();
+
+    Return;
+}
+
 Int Intern_Extern_Main_ExecuteEventLoop(Eval* eval, Int frame)
 {
     Int paramCount;

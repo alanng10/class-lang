@@ -243,6 +243,7 @@ Infra_Api Int Main_TerminateStateSet(Int value);
 Infra_Api Int Main_Init();
 Infra_Api Int Main_Final();
 Infra_Api Int Main_IsCSharpSet(Int value);
+Infra_Api Int Main_Arg();
 Infra_Api Int Main_ExecuteEventLoop();
 Infra_Api Int Main_ExitEventLoop(Int code);
 

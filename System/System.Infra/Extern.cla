@@ -198,6 +198,7 @@ class Extern : Any
     maide prusate Int Main_Init() { }
     maide prusate Int Main_Final() { }
     maide prusate Int Main_IsCSharpSet(var Int value) { }
+    maide prusate Int Main_Arg() { }
     maide prusate Int Main_ExecuteEventLoop() { }
     maide prusate Int Main_ExitEventLoop(var Int code) { }
 
