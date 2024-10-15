@@ -19,3 +19,5 @@ Intern_Api Int Intern_Intern_ThisThread(Eval* eval, Int frame);
 Intern_Api Int Intern_Intern_MainThreadSet(Eval* eval, Int frame);
 Intern_Api Int Intern_Intern_InitThread(Eval* eval, Int frame);
 Intern_Api Int Intern_Intern_FinalThread(Eval* eval, Int frame);
+Intern_Api Int Intern_Intern_ArgCount(Eval* eval, Int frame);
+Intern_Api Int Intern_Intern_Arg(Eval* eval, Int frame);

@@ -35,4 +35,8 @@ class Intern : Any
     maide prusate Bool InitThread(var Int thread, var Any threadAny) { }
 
     maide prusate Bool FinalThread(var Int thread) { }
+
+    maide prusate Int ArgCount() { }
+
+    maide prusate String Arg(var Int index) { }
 }
