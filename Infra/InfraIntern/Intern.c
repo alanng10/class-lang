@@ -344,3 +344,29 @@ Int Intern_Intern_ArgCount(Eval* eval, Int frame)
 
     Return(ke, 0);
 }
+
+Int Intern_Intern_Arg(Eval* eval, Int frame)
+{
+    Int ka;
+    ka = eval->S[frame - 1];
+
+    RefKindClear(ka);
+
+    Int* p;
+    p = CastPointer(ArgArray);
+
+    Int kaa;
+    kaa = ka * 2;
+
+    p = p + kaa;
+
+    Int k;
+    k = CastInt(p);
+
+    RefKindSet(k, RefKindStringValue);
+
+    Int ke;
+    ke = k;
+
+    Return(ke, 1);
+}
