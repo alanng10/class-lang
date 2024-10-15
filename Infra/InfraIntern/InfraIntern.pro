@@ -11,7 +11,8 @@ HEADERS += \
     Intern.h \
     Main.h \
     New.h \
-    Thread.h
+    Thread.h \
+    Value.h
 
 SOURCES += \
     Call.c \
@@ -20,7 +21,8 @@ SOURCES += \
     Intern.c \
     Main.c \
     New.c \
-    Thread.c
+    Thread.c \
+    Value.c
 
 LIBS += -L$$PWD/../../Out/Infra-Windows-Release/release/
 
