@@ -82,6 +82,7 @@ Main -
     Init() -
     Final() -
     IsCSharpSet(value) -
+    Arg() -
     ExecuteEventLoop() -
     ExitEventLoop(code) -
     TerminateState -
