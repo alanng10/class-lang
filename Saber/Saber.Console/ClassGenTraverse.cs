@@ -146,32 +146,21 @@ public class ClassGenTraverse : Traverse
 
         ClassClass thisClass;
         thisClass = this.Info(callOperate.This).OperateClass;
-        
-        bool b;
-        b = (thisClass == gen.System.Any & varMaide == gen.InitMaide);
 
-        if (b)
+        if (varMaide == gen.InitMaide)
         {
-            String varA;
-            String varB;
-            String varC;
-            varA = gen.VarA;
-            varB = gen.VarB;
-            varC = gen.VarC;
-
-            gen.OperateLimit(varA, varA, gen.RefKindBitRightCount, gen.LimitBitRite);
-
-            gen.OperateLimit(varB, varA, gen.RefKindAnyDigit, gen.LimitSame);
-
-            gen.OperateLimit(varC, varA, gen.RefKindNullDigit, gen.LimitSame);
-
-            gen.OperateLimit(varA, varB, varC, gen.LimitOrn);
-
-            gen.EvalValueGet(k, varB);
-
-            gen.CondSet(varB, varA, varB, gen.InternValueRef);
-
-            gen.EvalValueSet(k, varB);
+            if (thisClass == gen.System.Any)
+            {
+                gen.ExecuteValueMaideCallThisCond(gen.RefKindAnyDigit, k);
+            }
+            if (thisClass == gen.System.Bool)
+            {
+                gen.ExecuteValueMaideCallThisCond(gen.RefKindBoolDigit, k);
+            }
+            if (thisClass == gen.System.Int)
+            {
+                gen.ExecuteValueMaideCallThisCond(gen.RefKindIntDigit, k);
+            }
         }
 
         gen.ExecuteVirtualCall(k, gen.StateKindCall, kk);

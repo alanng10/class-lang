@@ -867,6 +867,32 @@ public class ClassGen : ClassBase
         return true;
     }
 
+    public virtual bool ExecuteValueMaideCallThisCond(String refKind, long thisEvalIndex)
+    {
+        String varA;
+        String varB;
+        String varC;
+        varA = this.VarA;
+        varB = this.VarB;
+        varC = this.VarC;
+
+        this.OperateLimit(varA, varA, this.RefKindBitRightCount, this.LimitBitRite);
+
+        this.OperateLimit(varB, varA, refKind, this.LimitSame);
+
+        this.OperateLimit(varC, varA, this.RefKindNullDigit, this.LimitSame);
+
+        this.OperateLimit(varA, varB, varC, this.LimitOrn);
+
+        this.EvalValueGet(thisEvalIndex, varB);
+
+        this.CondSet(varB, varA, varB, this.InternValueRef);
+
+        this.EvalValueSet(thisEvalIndex, varB);
+
+        return true;
+    }
+
     public virtual bool CondSet(String dest, String cond, String trueValue, String falseValue)
     {
         this.TextIndent();
