@@ -91,7 +91,7 @@ Int Main_OS_Arg()
 
         String_CountSet(a, stringCount);
 
-        Array_ItemSet(array, index, a);
+        Array_ItemSet(array, i, a);
 
         i = i + 1;
     }
