@@ -20,8 +20,15 @@ Int Main_OS_Arg()
         return null;
     }
 
+    if (countA < 1)
+    {
+        return null;
+    }
+
     Int count;
     count = countA;
+
+    count = count - 1;
 
     Int array;
     array = Array_New();
@@ -46,8 +53,11 @@ Int Main_OS_Arg()
 
     while (i < count)
     {
+        Int index;
+        index = i + 1;
+
         LPWSTR arg;
-        arg = argv[i];
+        arg = argv[index];
 
         int kaa;
         kaa = lstrlenW(arg);
