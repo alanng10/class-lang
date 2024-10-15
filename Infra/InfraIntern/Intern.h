@@ -3,10 +3,6 @@
 #include "Pronate.h"
 #include "Prusate_Intern.h"
 
-#define BoolFalse 0x2000000000000000
-
-#define BoolTrue 0x2000000000000001
-
 #define RefMemory(name) name = name & RefMaskMemory;
 
 #define Return(ret, paramCount) \

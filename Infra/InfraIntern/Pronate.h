@@ -18,11 +18,15 @@
 
 #define RefKindMaskAny (RefKindAny << 60)
 
-#define ThreadCountMax (1024)
+#define BoolFalse 0x2000000000000000
+
+#define BoolTrue 0x2000000000000001
 
 #define RefKindClear(name) name = name & 0x0fffffffffffffff;
 
 #define RefKindSet(name, kind) name = name | (kind << 60);
+
+#define ThreadCountMax (1024)
 
 typedef struct
 {
