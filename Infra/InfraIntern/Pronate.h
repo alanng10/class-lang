@@ -43,6 +43,10 @@ extern Int NewData;
 
 extern Int ThreadArray;
 
+extern Int ArgArray;
+
+extern Int ArgCount;
+
 Bool Intern_New_Open();
 
 Bool Intern_New_Close();
