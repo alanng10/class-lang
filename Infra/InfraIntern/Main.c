@@ -236,7 +236,7 @@ Bool Intern_ArgInit()
         Int count;
         count = String_CountGet(a);
 
-        RefKindSet(value, RefKindInt);
+        RefKindSet(value, RefKindStringValueData);
 
         RefKindClear(count);
         RefKindSet(count, RefKindInt);
