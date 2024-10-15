@@ -44,4 +44,4 @@ Int Intern_Value_Any[1] =
     CastInt(Intern_Value_Class)
 };
 
-Int Intern_Value_Ref = CastInt(Intern_Value_Any);
+Int Intern_Value_Ref = (CastInt(Intern_Value_Any)) + (RefKindAny << 60);
