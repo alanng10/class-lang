@@ -84,6 +84,8 @@ public class ClassGen : ClassBase
         this.LimitBitNot = this.S("~");
         this.LimitBitLite = this.S("<<");
         this.LimitBitRite = this.S(">>");
+
+        this.SInit = this.S("Init");
         return true;
     }
 
@@ -91,6 +93,7 @@ public class ClassGen : ClassBase
     public virtual bool Export { get; set; }
     public virtual ClassClass NullClass { get; set; }
     public virtual BuiltinClass System { get; set; }
+    public virtual Maide InitMaide { get; set; }
     public virtual GenArg Arg { get; set; }
     public virtual ClassGenOperate Operate { get; set; }
     public virtual String Result { get; set; }
@@ -171,6 +174,7 @@ public class ClassGen : ClassBase
     public virtual String LimitBitNot { get; set; }
     public virtual String LimitBitLite { get; set; }
     public virtual String LimitBitRite { get; set; }
+    protected virtual String SInit { get; set; }
 
     protected virtual String RefKindMask(String kindHexDigit)
     {
@@ -179,6 +183,8 @@ public class ClassGen : ClassBase
 
     public virtual bool Execute()
     {
+        this.InitMaide = (Maide)this.System.Any.Maide.Get(this.SInit);
+
         long k;
         k = this.BaseIndexGet();
         
