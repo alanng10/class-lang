@@ -15,3 +15,5 @@ Any ThisThread|
 Bool MainThreadSet|Any thread
 Bool InitThread|Int thread, Any threadAny
 Bool FinalThread|Int thread
+Int ArgCount|
+String Arg|Int index
