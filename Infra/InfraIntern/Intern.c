@@ -48,8 +48,11 @@ Int Intern_Intern_DataGet(Eval* eval, Int frame)
 
     a = a + sa;
 
+    Byte kk;
+    kk = *a;
+
     Int ke;
-    ke = *a;
+    ke = kk;
 
     RefKindSet(ke, RefKindInt);
 
