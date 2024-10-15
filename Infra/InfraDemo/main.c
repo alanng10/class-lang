@@ -926,7 +926,6 @@ int main(int argc, char* argv[])
 
 
 
-
     Main_Terminate_Maide terminateMaide;
 
     terminateMaide = &TerminateHandle;
@@ -974,6 +973,26 @@ int main(int argc, char* argv[])
     Console = Console_New();
 
     Console_Init(Console);
+    
+    Int argArray;
+    argArray = Main_Arg();
+
+    Int argCount;
+    argCount = Array_CountGet(argArray);
+
+    Int argIndex;
+    argIndex = 0;
+    while (argIndex < argCount)
+    {
+        Int argA;
+        argA = Array_ItemGet(argArray, argIndex);
+        
+        Console_OutWrite(Console, argA);
+
+        ConsoleWriteConstant("\n");
+
+        argIndex = argIndex + 1;
+    }
 
     ConsoleWriteConstant("DEMO HELLO\n");
 
