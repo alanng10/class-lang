@@ -51,6 +51,16 @@ Int Main_IsCSharpSet(Int value)
     return true;
 }
 
+Int Main_Arg()
+{
+    Main* m;
+    m = &D_Var;
+
+    Int a;
+    a = m->Arg;
+    return a;
+}
+
 Int Main_InitArg()
 {
     Main* m;
