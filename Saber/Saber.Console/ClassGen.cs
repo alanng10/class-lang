@@ -402,7 +402,7 @@ public class ClassGen : ClassBase
         long kk;
         kk = varVar.Index;
 
-        this.EvalValueSet(1, varB);
+        this.EvalValueGet(1, varB);
 
         if (stateKind == this.StateKindGet)
         {
