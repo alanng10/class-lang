@@ -11,4 +11,5 @@ public class Info : Any
     public virtual Field GetField { get; set; }
     public virtual Field SetField { get; set; }
     public virtual Maide CallMaide { get; set; }
+    public virtual Table StateVar { get; set; }
 }
