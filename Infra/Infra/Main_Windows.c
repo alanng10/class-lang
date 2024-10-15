@@ -26,7 +26,9 @@ Int Main_OS_Arg()
 
     Int array;
     array = Array_New();
+
     Array_CountSet(array, count);
+
     Array_Init(array);
 
     Int share;
@@ -76,11 +78,14 @@ Int Main_OS_Arg()
         
         String_Init(a);
         
+        String_DataSet(a, result);
 
+        String_CountSet(a, stringCount);
+
+        Array_ItemSet(array, i, a);
 
         i = i + 1;
     }
-
 
     return array;
 }
