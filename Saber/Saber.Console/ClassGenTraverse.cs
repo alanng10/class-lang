@@ -154,12 +154,18 @@ public class ClassGenTraverse : Traverse
         {
             String varA;
             String varB;
+            String varC;
             varA = gen.VarA;
             varB = gen.VarB;
+            varC = gen.VarC;
 
             gen.OperateLimit(varA, varA, gen.RefKindBitRightCount, gen.LimitBitRite);
 
-            gen.OperateLimit(varA, varA, gen.One, gen.LimitSame);
+            gen.OperateLimit(varB, varA, gen.RefKindAnyDigit, gen.LimitSame);
+
+            gen.OperateLimit(varC, varA, gen.RefKindNullDigit, gen.LimitSame);
+
+            gen.OperateLimit(varA, varB, varC, gen.LimitOrn);
 
             gen.EvalValueGet(k, varB);
 
