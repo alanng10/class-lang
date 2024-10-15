@@ -259,6 +259,8 @@ public class StateTraverse : Traverse
 
         base.ExecuteState(state);
 
+        this.Info(state).StateVar = h;
+
         this.VarStack.Pop();
         return true;
     }
