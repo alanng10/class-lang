@@ -86,5 +86,7 @@ Int Main_OS_Arg()
         i = i + 1;
     }
 
+    LocalFree(argv);
+
     return array;
 }
