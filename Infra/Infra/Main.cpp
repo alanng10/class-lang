@@ -25,6 +25,8 @@ Int Main_Init()
     Thread_InitMainThread(m->MainThread);
 
     Console_OS_Init();
+
+    Main_InitArg();
     return true;
 }
 
@@ -32,6 +34,8 @@ Int Main_Final()
 {
     Main* m;
     m = &D_Var;
+
+    Main_FinalArg();
 
     Thread_FinalMainThread(m->MainThread);
     Thread_Delete(m->MainThread);
