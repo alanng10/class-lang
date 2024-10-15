@@ -15,6 +15,7 @@
 #define RefKindStringValue (0x5ULL)
 #define RefKindData (0x6ULL)
 #define RefKindArray (0x7ULL)
+#define RefKindStringValueData (0x8ULL)
 
 #define RefKindMaskAny (RefKindAny << 60)
 
