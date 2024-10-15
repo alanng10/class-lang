@@ -10,6 +10,8 @@ Int Main_Init()
     m->Share = Share_New();
     Share_Init(m->Share);
 
+    Main_InitArg();
+
     m->Argv[0] = (char*)"Application";
 
     int argc;
@@ -25,8 +27,6 @@ Int Main_Init()
     Thread_InitMainThread(m->MainThread);
 
     Console_OS_Init();
-
-    Main_InitArg();
     return true;
 }
 
@@ -35,12 +35,12 @@ Int Main_Final()
     Main* m;
     m = &D_Var;
 
-    Main_FinalArg();
-
     Thread_FinalMainThread(m->MainThread);
     Thread_Delete(m->MainThread);
 
     delete m->Intern;
+
+    Main_FinalArg();
 
     Share_Final(m->Share);
     Share_Delete(m->Share);
