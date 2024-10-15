@@ -147,10 +147,12 @@ SOURCES += \
 win32 {
 
 HEADERS += \
+    Main_Windows.h \
     Thread_Windows.h \
     Console_Windows.h
 
 SOURCES += \
+    Main_Windows.c \
     Thread_Windows.c \
     Console_Windows.c
 
