@@ -8,9 +8,13 @@ Int Intern_ModuleInitArgIndex;
 
 Int ModuleArray;
 
+Int ArgArray;
+
 Int Intern_Init(Int entryClass, Int entryModuleInit)
 {
     Main_Init();
+
+    Intern_ArgInit();
 
     Intern_NewInit();
 
@@ -194,5 +198,54 @@ Bool Intern_NewInit()
 
     Intern_New_AllocCapSet(count);
 
+    return true;
+}
+
+Bool Intern_ArgInit()
+{
+    Int array;
+    array = Main_Arg();
+
+    Int count;
+    count = Array_CountGet(array);
+
+    Int intCount;
+    intCount = count * 2;
+
+    Int ka;
+    ka = intCount * Constant_IntByteCount();
+
+    Int k;
+    k = New(ka);
+
+    Int* p;
+    p = CastPointer(k);
+
+    Int i;
+    i = 0;
+    while (i < count)
+    {
+        Int a;
+        a = Array_ItemGet(array, i);
+
+        Int value;
+        value = String_DataGet(a);
+
+        Int count;
+        count = String_CountGet(a);
+
+        RefKindSet(count, RefKindInt);
+
+        Int ka;
+        ka = i * 2;
+
+        p[ka] = value;
+
+        p[ka + 1] = count;
+
+        i = i + 1;
+    }
+
+    ArgArray = k;
     return true;
 }
