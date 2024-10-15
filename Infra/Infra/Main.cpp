@@ -51,6 +51,61 @@ Int Main_IsCSharpSet(Int value)
     return true;
 }
 
+Int Main_InitArg()
+{
+    Main* m;
+    m = &D_Var;
+
+    Int a;
+    a = Main_OS_Arg();
+
+    m->Arg = a;
+
+    return true;
+}
+
+Int Main_FinalArg()
+{
+    Main* m;
+    m = &D_Var;
+
+    Int array;
+    array = m->Arg;
+
+    Int count;
+    count = Array_CountGet(array);
+
+    Int i;
+    i = 0;
+    while (i < count)
+    {
+        Int index;
+        index = count - 1 - i;
+
+        Int a;
+        a = Array_ItemGet(array, index);
+
+        Int data;
+        data = String_DataGet(a);
+
+        String_Final(a);
+
+        String_Delete(a);
+
+        Delete(data);
+
+        i = i + 1;
+    }
+
+    Array_Final(array);
+
+    Array_Delete(array);
+
+    return true;
+}
+
+
+
 Int Main_ExecuteEventLoop()
 {
     int u;
