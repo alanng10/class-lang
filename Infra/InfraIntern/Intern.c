@@ -330,3 +330,17 @@ Int Intern_Intern_FinalThread(Eval* eval, Int frame)
 
     Return(ke, 1);
 }
+
+Int Intern_Intern_ArgCount(Eval* eval, Int frame)
+{
+    Int ka;
+    ka = ArgCount;
+
+    RefKindClear(ka);
+    RefKindSet(ka, RefKindInt);
+
+    Int ke;
+    ke = ka;
+
+    Return(ke, 0);
+}
