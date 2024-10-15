@@ -75,6 +75,8 @@ Int Main_CurrentThreadSignalHandleSet();
 
 Int Console_OS_Init();
 
+Int Main_OS_Arg();
+
 Int HasFlag(Int value, Int flag);
 
 Int Share_New();
