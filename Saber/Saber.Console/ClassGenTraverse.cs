@@ -153,14 +153,6 @@ public class ClassGenTraverse : Traverse
             {
                 gen.ExecuteValueMaideCallThisCond(gen.RefKindAnyDigit, k);
             }
-            if (thisClass == gen.System.Bool)
-            {
-                gen.ExecuteValueMaideCallThisCond(gen.RefKindBoolDigit, k);
-            }
-            if (thisClass == gen.System.Int)
-            {
-                gen.ExecuteValueMaideCallThisCond(gen.RefKindIntDigit, k);
-            }
         }
 
         gen.ExecuteVirtualCall(k, gen.StateKindCall, kk);
