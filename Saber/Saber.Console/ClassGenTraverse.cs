@@ -159,7 +159,13 @@ public class ClassGenTraverse : Traverse
 
             gen.OperateLimit(varA, varA, gen.RefKindBitRightCount, gen.LimitBitRite);
 
-            gen.OperateLimit(varB, varA, gen.One, gen.LimitSame);
+            gen.OperateLimit(varA, varA, gen.One, gen.LimitSame);
+
+            gen.EvalValueGet(k, varB);
+
+            gen.CondSet(varB, varA, varB, gen.InternValueRef);
+
+            gen.EvalValueSet(k, varB);
         }
 
         gen.ExecuteVirtualCall(k, gen.StateKindCall, kk);

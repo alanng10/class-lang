@@ -54,6 +54,7 @@ public class ClassGen : ClassBase
         this.ClassInt = this.S("Int");
         this.ClassCompState = this.S("CompState");
         this.InternNewMaide = this.S("Intern_New");
+        this.InternValueRef = this.S("Intern_Value_Ref");
         this.ClassVarPost = this.S("Class");
         this.StateGet = this.S("G");
         this.StateSet = this.S("S");
@@ -145,6 +146,7 @@ public class ClassGen : ClassBase
     public virtual String ClassInt { get; set; }
     public virtual String ClassCompState { get; set; }
     public virtual String InternNewMaide { get; set; }
+    public virtual String InternValueRef { get; set; }
     public virtual String ClassVarPost { get; set; }
     public virtual String StateGet { get; set; }
     public virtual String StateSet { get; set; }
