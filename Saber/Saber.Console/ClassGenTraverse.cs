@@ -75,6 +75,8 @@ public class ClassGenTraverse : Traverse
             k = 2;
 
             gen.ExecuteVirtualCall(k, gen.StateKindSet, kk);
+
+            gen.EvalIndexPosSet(-1);
         }
         return true;
     }
