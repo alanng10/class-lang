@@ -236,12 +236,12 @@ Bool Intern_ArgInit()
 
         RefKindSet(count, RefKindInt);
 
-        Int ka;
-        ka = i * 2;
+        Int kaa;
+        kaa = i * 2;
 
-        p[ka] = value;
+        p[kaa] = value;
 
-        p[ka + 1] = count;
+        p[kaa + 1] = count;
 
         i = i + 1;
     }
