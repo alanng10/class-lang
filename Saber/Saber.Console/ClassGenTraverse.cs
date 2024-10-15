@@ -143,6 +143,25 @@ public class ClassGenTraverse : Traverse
 
         ClassGen gen;
         gen = this.Gen;
+
+        ClassClass thisClass;
+        thisClass = this.Info(callOperate.This).OperateClass;
+        
+        bool b;
+        b = (thisClass == gen.System.Any & varMaide == gen.InitMaide);
+
+        if (b)
+        {
+            String varA;
+            String varB;
+            varA = gen.VarA;
+            varB = gen.VarB;
+
+            gen.OperateLimit(varA, varA, gen.RefKindBitRightCount, gen.LimitBitRite);
+
+            gen.OperateLimit(varB, varA, gen.One, gen.LimitSame);
+        }
+
         gen.ExecuteVirtualCall(k, gen.StateKindCall, kk);
 
         return true;

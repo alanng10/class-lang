@@ -41,6 +41,7 @@ public class ClassGen : ClassBase
         this.IntValuePre = this.S("0x");
         this.IntValuePost = this.S("ULL");
         this.BaseBitRightCount = this.S("52");
+        this.RefKindBitRightCount = this.S("60");
         this.RefBitCount = this.S("4");
         this.RefKindBoolDigit = this.S("2");
         this.RefKindIntDigit = this.S("3");
@@ -131,6 +132,7 @@ public class ClassGen : ClassBase
     public virtual String IntValuePre { get; set; }
     public virtual String IntValuePost { get; set; }
     public virtual String BaseBitRightCount { get; set; }
+    public virtual String RefKindBitRightCount { get; set; }
     public virtual String RefBitCount { get; set; }
     public virtual String RefKindBoolDigit { get; set; }
     public virtual String RefKindIntDigit { get; set; }
