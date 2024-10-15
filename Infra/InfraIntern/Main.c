@@ -10,6 +10,8 @@ Int ModuleArray;
 
 Int ArgArray;
 
+Int ArgCount;
+
 Int Intern_Init(Int entryClass, Int entryModuleInit)
 {
     Main_Init();
@@ -247,5 +249,7 @@ Bool Intern_ArgInit()
     }
 
     ArgArray = k;
+
+    ArgCount = count;
     return true;
 }
