@@ -151,7 +151,7 @@ public class ClassGenTraverse : Traverse
         {
             if (thisClass == gen.System.Any)
             {
-                gen.ExecuteValueMaideCallThisCond(gen.RefKindAnyDigit, k);
+                gen.ExecuteValueMaideCallThisCond(gen.One, k);
             }
 
             if (thisClass == gen.System.Bool | thisClass == gen.System.Int | thisClass == gen.System.String)

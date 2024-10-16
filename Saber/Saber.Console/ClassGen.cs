@@ -882,7 +882,7 @@ public class ClassGen : ClassBase
 
         this.OperateLimit(varB, varA, refKind, this.LimitSame);
 
-        this.OperateLimit(varA, varA, this.RefKindNullDigit, this.LimitSame);
+        this.OperateLimit(varA, varA, this.Zero, this.LimitSame);
 
         this.OperateLimit(varA, varA, varB, this.LimitOrn);
 
