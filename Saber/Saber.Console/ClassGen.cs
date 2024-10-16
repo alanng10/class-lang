@@ -43,6 +43,7 @@ public class ClassGen : ClassBase
         this.BaseBitRightCount = this.S("52");
         this.RefKindBitRightCount = this.S("60");
         this.RefBitCount = this.S("4");
+        this.RefKindAny = this.S("1");
         this.RefKindBool = this.S("2");
         this.RefKindInt = this.S("3");
         this.RefKindString = this.S("4");
@@ -136,6 +137,7 @@ public class ClassGen : ClassBase
     public virtual String BaseBitRightCount { get; set; }
     public virtual String RefKindBitRightCount { get; set; }
     public virtual String RefBitCount { get; set; }
+    public virtual String RefKindAny { get; set; }
     public virtual String RefKindBool { get; set; }
     public virtual String RefKindInt { get; set; }
     public virtual String RefKindString { get; set; }
@@ -906,6 +908,32 @@ public class ClassGen : ClassBase
 
     public virtual bool ExecuteCast(ClassClass varClass)
     {
+        String varA;
+        String varB;
+        String varC;
+        varA = this.VarA;
+        varB = this.VarB;
+        varC = this.VarC;
+
+        this.EvalValueGet(1, varA);
+
+        this.VarSet(varB, varA);
+
+        this.OperateLimit(varB, varB, this.RefKindBitRightCount, this.LimitBitRite);
+
+        this.OperateLimit(varB, varB, this.RefKindAny, this.LimitSame);
+
+        this.CondSet(varA, varB, varA, this.InternValueRef);
+
+        this.VarSet(varB, varA);
+
+        this.VarMaskClear(varB, this.MemoryIndexMask);
+
+        this.VarSetDeref(varB, varB, 0);
+
+        this.VarSetDeref(varB, varB, 1);
+
+
         return true;
     }
 
