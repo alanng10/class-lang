@@ -17,9 +17,11 @@ Int Intern_Value_MaideCall[1] =
     CastInt(Intern_Value_Init)
 };
 
+extern Int Intern_Value_Class;
+
 Int Intern_Value_BaseItem[4] =
 {
-    0,
+    CastInt(&Intern_Value_Class),
     CastInt(Intern_Value_FieldGet),
     CastInt(Intern_Value_FieldSet),
     CastInt(Intern_Value_MaideCall),
@@ -30,7 +32,7 @@ Int Intern_Value_Base[1] =
     CastInt(Intern_Value_BaseItem)
 };
 
-Int Intern_Value_Class[5] =
+Int Intern_Value_ClassAny[5] =
 {
     CastInt(Intern_Value_Base),
     0,
@@ -39,9 +41,11 @@ Int Intern_Value_Class[5] =
     0
 };
 
+Int Intern_Value_Class = CastInt(Intern_Value_ClassAny);
+
 Int Intern_Value_Any[1] =
 {
-    CastInt(Intern_Value_Class)
+    CastInt(Intern_Value_ClassAny)
 };
 
 Int Intern_Value_Ref = (CastInt(Intern_Value_Any)) + (RefKindValueAny << 60);
