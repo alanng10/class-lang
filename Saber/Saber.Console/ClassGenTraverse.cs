@@ -209,6 +209,11 @@ public class ClassGenTraverse : Traverse
             gen.ExecuteCondRefKind(gen.RefKindInt);
         }
 
+        if (ka == gen.System.String)
+        {
+            gen.ExecuteCondRefKindA(gen.RefKindString, gen.RefKindStringValue);
+        }
+
         return true;
     }
 
