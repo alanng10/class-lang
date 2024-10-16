@@ -43,11 +43,11 @@ public class ClassGen : ClassBase
         this.BaseBitRightCount = this.S("52");
         this.RefKindBitRightCount = this.S("60");
         this.RefBitCount = this.S("4");
-        this.RefKindBoolDigit = this.S("2");
-        this.RefKindIntDigit = this.S("3");
+        this.RefKindBool = this.S("2");
+        this.RefKindInt = this.S("3");
         this.RefKindClearMask = this.S("0x0fffffffffffffff");
-        this.RefKindBoolMask = this.RefKindMask(this.RefKindBoolDigit);
-        this.RefKindIntMask = this.RefKindMask(this.RefKindIntDigit);
+        this.RefKindBoolMask = this.RefKindMask(this.RefKindBool);
+        this.RefKindIntMask = this.RefKindMask(this.RefKindInt);
         this.BaseClearMask = this.S("0xf00fffffffffffff");
         this.BaseMask = this.S("0x0ff0000000000000");
         this.MemoryIndexMask = this.S("0x000fffffffffffff");
@@ -134,8 +134,8 @@ public class ClassGen : ClassBase
     public virtual String BaseBitRightCount { get; set; }
     public virtual String RefKindBitRightCount { get; set; }
     public virtual String RefBitCount { get; set; }
-    public virtual String RefKindBoolDigit { get; set; }
-    public virtual String RefKindIntDigit { get; set; }
+    public virtual String RefKindBool { get; set; }
+    public virtual String RefKindInt { get; set; }
     public virtual String RefKindClearMask { get; set; }
     public virtual String RefKindBoolMask { get; set; }
     public virtual String RefKindIntMask { get; set; }
@@ -1425,7 +1425,7 @@ public class ClassGen : ClassBase
     {
         this.Text(this.IntValuePre);
 
-        this.Text(this.RefKindBoolDigit);
+        this.Text(this.RefKindBool);
 
         long k;
         k = 0;
@@ -1444,7 +1444,7 @@ public class ClassGen : ClassBase
     {
         this.Text(this.IntValuePre);
 
-        this.Text(this.RefKindIntDigit);
+        this.Text(this.RefKindInt);
 
         this.Operate.ExecuteIntText(value);
 
