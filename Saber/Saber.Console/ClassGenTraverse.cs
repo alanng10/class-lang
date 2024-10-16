@@ -235,6 +235,11 @@ public class ClassGenTraverse : Traverse
             }
         }
 
+        if (!b)
+        {
+            gen.ExecuteCast(ka);
+        }
+
         return true;
     }
 

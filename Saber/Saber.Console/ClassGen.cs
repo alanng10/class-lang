@@ -904,6 +904,11 @@ public class ClassGen : ClassBase
         return true;
     }
 
+    public virtual bool ExecuteCast(ClassClass varClass)
+    {
+        return true;
+    }
+
     public virtual bool ExecuteCondRefKind(String refKind)
     {
         String varA;
