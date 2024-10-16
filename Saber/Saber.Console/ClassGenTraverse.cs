@@ -201,7 +201,12 @@ public class ClassGenTraverse : Traverse
 
         if (ka == gen.System.Bool)
         {
+            gen.ExecuteCondRefKind(gen.RefKindBool);
+        }
 
+        if (ka == gen.System.Int)
+        {
+            gen.ExecuteCondRefKind(gen.RefKindInt);
         }
 
         return true;
