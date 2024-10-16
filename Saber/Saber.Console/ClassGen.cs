@@ -971,6 +971,8 @@ public class ClassGen : ClassBase
 
         this.CondSet(varD, varC, varD, this.Zero);
 
+        this.CondSet(varB, varC, varB, this.InternValueClass);
+
         this.VarSetDeref(varC, varB, 0);
 
         this.VarSetDerefVar(varC, varC, varD);
