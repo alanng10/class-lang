@@ -937,9 +937,11 @@ public class ClassGen : ClassBase
         String varA;
         String varB;
         String varC;
+        String varD;
         varA = this.VarA;
         varB = this.VarB;
         varC = this.VarC;
+        varD = this.VarD;
 
         this.EvalValueGet(1, varA);
 
@@ -951,15 +953,26 @@ public class ClassGen : ClassBase
 
         this.CondSet(varA, varB, varA, this.InternValueRef);
 
-        this.VarSet(varB, varA);
+        this.VarSet(varC, varA);
 
-        this.VarMaskClear(varB, this.MemoryIndexMask);
+        this.VarMaskClear(varC, this.MemoryIndexMask);
 
-        this.VarSetDeref(varB, varB, 0);
+        this.VarSetDeref(varC, varC, 0);
 
-        this.VarSetDeref(varB, varB, 1);
+        this.VarSet(varD, varC);
 
-        this.OperateLimitInt(varB, varB, varClass.BaseIndex, this.LimitLess);
+        this.VarSetDeref(varC, varC, 1);
+
+        this.VarSetPre(varB);
+        this.TextInt(varClass.BaseIndex);
+        this.VarSetPost();
+
+        this.OperateLimit(varC, varC, varB, this.LimitLess);
+
+        this.OperateLimitOne(varC, varC, this.LimitNot);
+
+        this.CondSet(varB, varC, varB, this.Zero);
+
         return true;
     }
 
