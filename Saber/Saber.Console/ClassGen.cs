@@ -951,27 +951,39 @@ public class ClassGen : ClassBase
 
         this.OperateLimit(varB, varB, this.RefKindAny, this.LimitSame);
 
-        this.CondSet(varA, varB, varA, this.InternValueRef);
-
-        this.VarSet(varC, varA);
+        this.CondSet(varC, varB, varA, this.InternValueRef);
 
         this.VarMaskClear(varC, this.MemoryIndexMask);
 
         this.VarSetDeref(varC, varC, 0);
 
-        this.VarSet(varD, varC);
-
         this.VarSetDeref(varC, varC, 1);
 
-        this.VarSetPre(varB);
+        this.VarSetPre(varD);
         this.TextInt(varClass.BaseIndex);
         this.VarSetPost();
 
-        this.OperateLimit(varC, varC, varB, this.LimitLess);
+        this.OperateLimit(varC, varC, varD, this.LimitLess);
 
         this.OperateLimitOne(varC, varC, this.LimitNot);
 
-        this.CondSet(varB, varC, varB, this.Zero);
+        this.OperateLimit(varB, varB, varC, this.LimitAnd);
+
+        this.CondSet(varB, varB, varA, this.InternValueRef);
+
+        this.CondSet(varD, varC, varD, this.Zero);
+
+        this.VarMaskClear(varB, this.MemoryIndexMask);
+
+        this.VarSetDeref(varB, varB, 0);
+
+        this.VarSetDeref(varB, varB, 0);
+
+        this.VarSetDerefVar(varB, varB, varD);
+
+        this.VarSetDeref(varB, varB, 0);
+
+        
 
         return true;
     }
