@@ -969,7 +969,7 @@ public class ClassGen : ClassBase
 
         this.CondSet(varB, varB, varA, this.InternValueRef);
 
-        this.CondSet(varD, varC, varD, this.Zero);
+        this.CondSet(varD, varB, varD, this.Zero);
 
         this.VarMaskClear(varB, this.MemoryIndexMask);
 
