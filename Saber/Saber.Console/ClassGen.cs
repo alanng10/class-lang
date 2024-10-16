@@ -104,7 +104,6 @@ public class ClassGen : ClassBase
     public virtual ClassGenTraverse Traverse { get; set; }
     public virtual Array StringValue { get; set; }
     public virtual long StringValueIndex { get; set; }
-    public virtual long BaseIndex { get; set; }
     public virtual String ClassBaseMask { get; set; }
     public virtual Field ThisField { get; set; }
     public virtual long CompStateKind { get; set; }
@@ -190,14 +189,12 @@ public class ClassGen : ClassBase
         this.InitMaide = (Maide)this.System.Any.Maide.Get(this.SInit);
 
         long k;
-        k = this.BaseIndexGet();
+        k = this.Class.BaseIndex;
         
         if (!this.ValidBaseIndex(k))
         {
             return false;
         }
-
-        this.BaseIndex = k;
 
         this.ClassBaseMask = this.ClassBaseMaskGet(k);
 
@@ -1553,39 +1550,39 @@ public class ClassGen : ClassBase
         return a;
     }
 
-    public virtual long BaseIndexGet()
-    {
-        ClassClass anyClass;
-        anyClass = this.System.Any;
+    // public virtual long BaseIndexGet()
+    // {
+    //     ClassClass anyClass;
+    //     anyClass = this.System.Any;
 
-        ClassClass c;
-        c = this.Class;
+    //     ClassClass c;
+    //     c = this.Class;
 
-        long k;
-        k = 0;
+    //     long k;
+    //     k = 0;
 
-        ClassClass ka;
-        ka = null;
-        if (!(c == anyClass))
-        {
-            ka = c.Base;
-        }
-        c = ka;
+    //     ClassClass ka;
+    //     ka = null;
+    //     if (!(c == anyClass))
+    //     {
+    //         ka = c.Base;
+    //     }
+    //     c = ka;
 
-        while (!(c == null))
-        {
-            k = k + 1;
+    //     while (!(c == null))
+    //     {
+    //         k = k + 1;
 
-            ka = null;
-            if (!(c == anyClass))
-            {
-                ka = c.Base;
-            }
-            c = ka;
-        }
+    //         ka = null;
+    //         if (!(c == anyClass))
+    //         {
+    //             ka = c.Base;
+    //         }
+    //         c = ka;
+    //     }
 
-        return k;
-    }
+    //     return k;
+    // }
 
     protected virtual String InitVar(String prefix, string name)
     {
