@@ -900,6 +900,28 @@ public class ClassGen : ClassBase
         return true;
     }
 
+    public virtual bool ExecuteCondRefKind(String refKind)
+    {
+        String varA;
+        String varB;
+        varA = this.VarA;
+        varB = this.VarB;
+
+        this.EvalValueGet(1, varA);
+
+        this.VarSet(varB, varA);
+
+        this.OperateLimit(varB, varB, this.RefKindBitRightCount, this.LimitBitRite);
+
+        this.OperateLimit(varB, varB, refKind, this.LimitSame);
+
+        this.CondSet(varA, varB, varA, this.Zero);
+
+        this.EvalValueSet(1, varA);
+
+        return true;
+    }
+
     public virtual bool CondSet(String dest, String cond, String trueValue, String falseValue)
     {
         this.TextIndent();
