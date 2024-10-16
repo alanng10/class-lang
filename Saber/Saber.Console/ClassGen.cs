@@ -893,6 +893,24 @@ public class ClassGen : ClassBase
         return true;
     }
 
+    public virtual bool ExecuteValueMaideCallThisCondA(long thisEvalIndex)
+    {
+        String varA;
+        String varB;
+        varA = this.VarA;
+        varB = this.VarB;
+
+        this.OperateLimit(varA, varA, this.Zero, this.LimitSame);
+
+        this.EvalValueGet(thisEvalIndex, varB);
+
+        this.CondSet(varB, varA, varB, this.InternValueRef);
+
+        this.EvalValueSet(thisEvalIndex, varB);
+
+        return true;
+    }
+
     public virtual bool CondSet(String dest, String cond, String trueValue, String falseValue)
     {
         this.TextIndent();
