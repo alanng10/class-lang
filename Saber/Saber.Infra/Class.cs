@@ -12,6 +12,8 @@ public class Class : Any
 
     public virtual Module Module { get; set; }
 
+    public virtual long BaseIndex { get; set; }
+
     public virtual InfraRange FieldRange { get; set; }
 
     public virtual InfraRange MaideRange { get; set; }
