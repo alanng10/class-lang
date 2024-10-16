@@ -900,9 +900,9 @@ public class ClassGen : ClassBase
         varA = this.VarA;
         varB = this.VarB;
 
-        this.OperateLimit(varA, varA, this.Zero, this.LimitSame);
-
         this.EvalValueGet(thisEvalIndex, varB);
+
+        this.OperateLimit(varA, varB, this.Zero, this.LimitSame);
 
         this.CondSet(varB, varA, varB, this.InternValueRef);
 
