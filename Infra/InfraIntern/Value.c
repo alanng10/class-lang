@@ -17,8 +17,6 @@ Int Intern_Value_MaideCall[1] =
     CastInt(Intern_Value_Init)
 };
 
-extern Int Intern_Value_Class;
-
 Int Intern_Value_BaseItem[4] =
 {
     CastInt(&Intern_Value_Class),
