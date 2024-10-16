@@ -774,6 +774,32 @@ public class ClassGen : ClassBase
         return true;
     }
 
+    public virtual bool OperateLimitInt(String dest, String lite, long rite, String limit)
+    {
+        String space;
+        space = this.Space;
+
+        this.TextIndent();
+
+        this.Text(dest);
+
+        this.Text(space);
+        this.Text(this.LimitAre);
+        this.Text(space);
+
+        this.Text(lite);
+
+        this.Text(space);
+        this.Text(limit);
+        this.Text(space);
+
+        this.TextInt(rite);
+
+        this.Text(this.LimitSemicolon);
+        this.Text(this.NewLine);
+        return true;
+    }
+
     public virtual bool SignExtend(String varVar)
     {
         this.OperateLimit(varVar, varVar, this.RefBitCount, this.LimitBitLite);
@@ -933,7 +959,7 @@ public class ClassGen : ClassBase
 
         this.VarSetDeref(varB, varB, 1);
 
-
+        this.OperateLimitInt(varB, varB, varClass.BaseIndex, this.LimitLess);
         return true;
     }
 
