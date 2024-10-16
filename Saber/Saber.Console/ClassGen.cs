@@ -922,6 +922,34 @@ public class ClassGen : ClassBase
         return true;
     }
 
+    public virtual bool ExecuteCondRefKindA(String refKindA, String refKindB)
+    {
+        String varA;
+        String varB;
+        String varC;
+        varA = this.VarA;
+        varB = this.VarB;
+        varC = this.VarC;
+
+        this.EvalValueGet(1, varA);
+
+        this.VarSet(varB, varA);
+
+        this.OperateLimit(varB, varB, this.RefKindBitRightCount, this.LimitBitRite);
+
+        this.OperateLimit(varC, varB, refKindA, this.LimitSame);
+
+        this.OperateLimit(varB, varB, refKindB, this.LimitSame);
+
+        this.OperateLimit(varB, varB, varC, this.LimitOrn);
+
+        this.CondSet(varA, varB, varA, this.Zero);
+
+        this.EvalValueSet(1, varA);
+
+        return true;
+    }
+
     public virtual bool CondSet(String dest, String cond, String trueValue, String falseValue)
     {
         this.TextIndent();
