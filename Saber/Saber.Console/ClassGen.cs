@@ -43,12 +43,8 @@ public class ClassGen : ClassBase
         this.BaseBitRightCount = this.S("52");
         this.RefKindBitRightCount = this.S("60");
         this.RefBitCount = this.S("4");
-        this.RefKindNullDigit = this.S("0");
-        this.RefKindAnyDigit = this.S("1");
         this.RefKindBoolDigit = this.S("2");
         this.RefKindIntDigit = this.S("3");
-        this.RefKindStringDigit = this.S("4");
-        this.RefKindStringValueDigit = this.S("5");
         this.RefKindClearMask = this.S("0x0fffffffffffffff");
         this.RefKindBoolMask = this.RefKindMask(this.RefKindBoolDigit);
         this.RefKindIntMask = this.RefKindMask(this.RefKindIntDigit);
@@ -139,12 +135,8 @@ public class ClassGen : ClassBase
     public virtual String BaseBitRightCount { get; set; }
     public virtual String RefKindBitRightCount { get; set; }
     public virtual String RefBitCount { get; set; }
-    public virtual String RefKindNullDigit { get; set; }
-    public virtual String RefKindAnyDigit { get; set; }
     public virtual String RefKindBoolDigit { get; set; }
     public virtual String RefKindIntDigit { get; set; }
-    public virtual String RefKindStringDigit { get; set; }
-    public virtual String RefKindStringValueDigit { get; set; }
     public virtual String RefKindClearMask { get; set; }
     public virtual String RefKindBoolMask { get; set; }
     public virtual String RefKindIntMask { get; set; }
