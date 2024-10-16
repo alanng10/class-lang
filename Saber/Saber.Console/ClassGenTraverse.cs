@@ -191,11 +191,22 @@ public class ClassGenTraverse : Traverse
         ClassClass ka;
         ka = this.Info(castOperate).OperateClass;
 
+        ClassClass kb;
+        kb = this.Info(castOperate.Any).OperateClass;
+
         ClassGen gen;
         gen = this.Gen;
 
         bool b;
         b = false;
+
+        if (!b)
+        {
+            if (ka == kb)
+            {
+                b = true;
+            }
+        }
 
         if (!b)
         {
