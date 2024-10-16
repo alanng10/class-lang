@@ -156,12 +156,7 @@ public class ClassGenTraverse : Traverse
 
             if (thisClass == gen.System.Bool | thisClass == gen.System.Int | thisClass == gen.System.String)
             {
-                String varA;
-                varA = gen.VarA;
-
-                gen.VarSet(varA, gen.InternValueRef);
-
-                gen.EvalValueSet(k, varA);
+                gen.ExecuteValueMaideCallThisCondA(k);
             }
         }
 
