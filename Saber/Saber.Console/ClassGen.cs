@@ -967,9 +967,9 @@ public class ClassGen : ClassBase
 
         this.OperateLimit(varB, varB, varC, this.LimitAnd);
 
-        this.CondSet(varB, varB, varA, this.InternValueRef);
-
         this.CondSet(varD, varB, varD, this.Zero);
+
+        this.CondSet(varB, varB, varA, this.InternValueRef);
 
         this.VarMaskClear(varB, this.MemoryIndexMask);
 
