@@ -184,6 +184,29 @@ public class ClassGenTraverse : Traverse
         return true;
     }
 
+    public override bool ExecuteCastOperate(CastOperate castOperate)
+    {
+        base.ExecuteCastOperate(castOperate);
+
+        ClassClass ka;
+        ka = this.Info(castOperate).OperateClass;
+
+        ClassGen gen;
+        gen = this.Gen;
+
+        if (ka == gen.System.Any)
+        {
+            return true;
+        }
+
+        if (ka == gen.System.Bool)
+        {
+
+        }
+
+        return true;
+    }
+
     public override bool ExecuteThisOperate(ThisOperate thisOperate)
     {
         ClassGen gen;
