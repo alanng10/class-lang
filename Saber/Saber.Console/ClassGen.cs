@@ -774,7 +774,7 @@ public class ClassGen : ClassBase
         return true;
     }
 
-    public virtual bool OperateLimitInt(String dest, String lite, long rite, String limit)
+    public virtual bool OperateLimitClass(String dest, String lite, ClassClass varClass, String limit)
     {
         String space;
         space = this.Space;
@@ -793,7 +793,7 @@ public class ClassGen : ClassBase
         this.Text(limit);
         this.Text(space);
 
-        this.TextInt(rite);
+        this.ClassVar(varClass);
 
         this.Text(this.LimitSemicolon);
         this.Text(this.NewLine);
@@ -872,9 +872,7 @@ public class ClassGen : ClassBase
         this.Text(this.LimitComma);
         this.Text(this.Space);
 
-        this.ClassName(varClass);
-        this.Text(this.NameCombine);
-        this.Text(this.ClassVarPost);
+        this.ClassVar(varClass);
 
         this.Text(this.LimitComma);
         this.Text(this.Space);
@@ -983,7 +981,9 @@ public class ClassGen : ClassBase
 
         this.VarSetDeref(varB, varB, 0);
 
-        
+        this.VarSetDeref(varB, varB, 0);
+
+        this.OperateLimit(varC, varB ,)
 
         return true;
     }
@@ -1471,6 +1471,17 @@ public class ClassGen : ClassBase
         this.Text(this.NameCombine);
 
         this.Text(state);
+        return true;
+    }
+
+    public virtual bool ClassVar(ClassClass varClass)
+    {
+        this.ClassName(varClass);
+
+        this.Text(this.NameCombine);
+
+        this.Text(this.ClassVarPost);
+
         return true;
     }
 
