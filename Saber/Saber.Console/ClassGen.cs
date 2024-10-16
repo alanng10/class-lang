@@ -876,19 +876,19 @@ public class ClassGen : ClassBase
         varB = this.VarB;
         varC = this.VarC;
 
-        this.OperateLimit(varA, varA, this.RefKindBitRightCount, this.LimitBitRite);
+        this.EvalValueGet(thisEvalIndex, varC);
+
+        this.OperateLimit(varA, varC, this.RefKindBitRightCount, this.LimitBitRite);
 
         this.OperateLimit(varB, varA, refKind, this.LimitSame);
 
-        this.OperateLimit(varC, varA, this.RefKindNullDigit, this.LimitSame);
+        this.OperateLimit(varA, varA, this.RefKindNullDigit, this.LimitSame);
 
-        this.OperateLimit(varA, varB, varC, this.LimitOrn);
+        this.OperateLimit(varA, varA, varB, this.LimitOrn);
 
-        this.EvalValueGet(thisEvalIndex, varB);
+        this.CondSet(varC, varA, varC, this.InternValueRef);
 
-        this.CondSet(varB, varA, varB, this.InternValueRef);
-
-        this.EvalValueSet(thisEvalIndex, varB);
+        this.EvalValueSet(thisEvalIndex, varC);
 
         return true;
     }
