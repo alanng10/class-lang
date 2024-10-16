@@ -194,24 +194,45 @@ public class ClassGenTraverse : Traverse
         ClassGen gen;
         gen = this.Gen;
 
-        if (ka == gen.System.Any)
+        bool b;
+        b = false;
+
+        if (!b)
         {
-            return true;
+            if (ka == gen.System.Any)
+            {
+                b = true;
+            }
         }
 
-        if (ka == gen.System.Bool)
+        if (!b)
         {
-            gen.ExecuteCondRefKind(gen.RefKindBool);
+            if (ka == gen.System.Bool)
+            {
+                gen.ExecuteCondRefKind(gen.RefKindBool);
+        
+                b = true;
+            }
+        }
+        
+        if (!b)
+        {
+            if (ka == gen.System.Int)
+            {
+                gen.ExecuteCondRefKind(gen.RefKindInt);
+            
+                b = true;
+            }
         }
 
-        if (ka == gen.System.Int)
+        if (!b)
         {
-            gen.ExecuteCondRefKind(gen.RefKindInt);
-        }
-
-        if (ka == gen.System.String)
-        {
-            gen.ExecuteCondRefKindA(gen.RefKindString, gen.RefKindStringValue);
+            if (ka == gen.System.String)
+            {
+                gen.ExecuteCondRefKindA(gen.RefKindString, gen.RefKindStringValue);
+            
+                b = true;
+            }
         }
 
         return true;
