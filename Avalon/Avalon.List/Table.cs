@@ -171,7 +171,6 @@ public class Table : List
         TableIter aa;
         aa = new TableIter();
         aa.Init();
-        aa.ListIter = this.List.IterCreate();
         Iter a;
         a = aa;
         return a;

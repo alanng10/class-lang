@@ -2,6 +2,14 @@ namespace Avalon.List;
 
 public class TableIter : Iter
 {
+    public override bool Init()
+    {
+        base.Init();
+        this.ListIter = new Iter();
+        this.ListIter.Init();
+        return true;
+    }
+
     internal virtual Iter ListIter { get; set; }
 
     public override bool Next()
