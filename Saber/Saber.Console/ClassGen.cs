@@ -18,6 +18,9 @@ public class ClassGen : ClassBase
         this.Traverse.Gen = this;
         this.Traverse.Init();
 
+        this.TableIter = new TableIter();
+        this.TableIter.Init();
+
         this.StateKindGet = 1;
         this.StateKindSet = 2;
         this.StateKindCall = 3;
@@ -111,6 +114,7 @@ public class ClassGen : ClassBase
     public virtual long StringValueIndex { get; set; }
     public virtual String ClassBaseMask { get; set; }
     public virtual Field ThisField { get; set; }
+    public virtual Iter TableIter { get; set; }
     public virtual long CompStateKind { get; set; }
     public virtual long ParamCount { get; set; }
     public virtual long LocalVarCount { get; set; }

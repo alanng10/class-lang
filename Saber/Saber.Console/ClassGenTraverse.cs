@@ -4,6 +4,27 @@ public class ClassGenTraverse : Traverse
 {
     public virtual ClassGen Gen { get; set; }
 
+    public override bool ExecuteState(State state)
+    {
+        ClassGen gen;
+        gen = this.Gen;
+
+        Table ka;
+        ka = this.Info(state).StateVar;
+
+        gen.IndentCount = gen.IndentCount + 1;
+
+        Iter iter;
+        iter = gen.TableIter;
+
+
+        base.ExecuteState(state);
+
+        gen.IndentCount = gen.IndentCount - 1;
+
+        return true;
+    }
+
     public override bool ExecuteReturnExecute(ReturnExecute returnExecute)
     {
         base.ExecuteReturnExecute(returnExecute);
