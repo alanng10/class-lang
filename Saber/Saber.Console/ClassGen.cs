@@ -576,6 +576,33 @@ public class ClassGen : ClassBase
 
     public virtual bool ExecuteOperateLimitCond(String limit)
     {
+        String varA;
+        String varB;
+        String varC;
+        varA = this.VarA;
+        varB = this.VarB;
+        varC = this.VarC;
+
+        this.EvalValueGet(2, varA);
+        this.EvalValueGet(1, varB);
+
+        this.VarMaskClear(varA, this.RefKindClearMask);
+        this.VarMaskClear(varB, this.RefKindClearMask);
+
+        this.OperateLimit(varC, varB, this.Zero, this.LimitSame);
+
+        this.OperateLimit(varB, varB, varC, this.LimitAdd);
+
+        this.OperateLimit(varA, varA, varB, limit);
+
+        this.CondSet(varA, varC, this.Zero, varA);
+
+        this.VarMaskSet(varA, this.RefKindIntMask);
+
+        this.EvalValueSet(2, varA);
+
+        this.EvalIndexPosSet(-1);
+
         return true;
     }
 
