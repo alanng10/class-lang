@@ -420,6 +420,14 @@ public class ClassGenTraverse : Traverse
         return true;
     }
 
+    public override bool ExecuteDivOperate(DivOperate divOperate)
+    {
+        base.ExecuteDivOperate(divOperate);
+
+        this.Gen.ExecuteOperateLimitCond(this.Gen.LimitDiv);
+        return true;
+    }
+
     public override bool ExecuteSignLessOperate(SignLessOperate signLessOperate)
     {
         base.ExecuteSignLessOperate(signLessOperate);

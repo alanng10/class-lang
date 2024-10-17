@@ -574,6 +574,11 @@ public class ClassGen : ClassBase
         return true;
     }
 
+    public virtual bool ExecuteOperateLimitCond(String limit)
+    {
+        return true;
+    }
+
     public virtual bool ExecuteOperateLimitSign(String limit)
     {
         String varA;
