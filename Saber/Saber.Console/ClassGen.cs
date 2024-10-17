@@ -34,6 +34,7 @@ public class ClassGen : ClassBase
         this.VarD = this.InitVar(k, "D");
         this.VarSA = this.InitVar(k, "SA");
         this.VarSB = this.InitVar(k, "SB");
+        this.VarSC = this.InitVar(k, "SC");
         this.EvalVar = this.S("e");
         this.EvalStackVar = this.S("S");
         this.EvalIndexVar = this.S("N");
@@ -129,6 +130,7 @@ public class ClassGen : ClassBase
     public virtual String VarD { get; set; }
     public virtual String VarSA { get; set; }
     public virtual String VarSB { get; set; }
+    public virtual String VarSC { get; set; }
     public virtual String EvalVar { get; set; }
     public virtual String EvalStackVar { get; set; }
     public virtual String EvalIndexVar { get; set; }
