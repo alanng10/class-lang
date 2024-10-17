@@ -507,14 +507,11 @@ public class ClassGenTraverse : Traverse
         String varA;
         varA = gen.VarA;
 
-        String ka;
-        ka = gen.RefKindClearMask;
-
         gen.EvalValueGet(1, varA);
 
         gen.OperateLimitOne(varA, varA, gen.LimitBitNot);
 
-        gen.VarMaskClear(varA, ka);
+        gen.VarMaskClear(varA, gen.RefKindClearMask);
 
         gen.VarMaskSet(varA, gen.RefKindIntMask);
 
