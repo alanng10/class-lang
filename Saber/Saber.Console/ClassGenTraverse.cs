@@ -473,6 +473,14 @@ public class ClassGenTraverse : Traverse
         return true;
     }
 
+    public override bool ExecuteSignDivOperate(SignDivOperate signDivOperate)
+    {
+        base.ExecuteSignDivOperate(signDivOperate);
+
+        this.Gen.ExecuteOperateLimitSignCond(this.Gen.LimitDiv);
+        return true;
+    }
+
     public override bool ExecuteBitAndOperate(BitAndOperate bitAndOperate)
     {
         base.ExecuteBitAndOperate(bitAndOperate);
