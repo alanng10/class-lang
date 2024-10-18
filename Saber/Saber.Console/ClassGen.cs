@@ -121,8 +121,7 @@ public class ClassGen : ClassBase
     public virtual long ParamCount { get; set; }
     public virtual long LocalVarCount { get; set; }
     public virtual long IndentCount { get; set; }
-    public virtual Data BlockStack { get; set; }
-    public virtual long BlockStackIndex { get; set; }
+    public virtual long WhileIndex { get; set; }
     public virtual long StateKindGet { get; set; }
     public virtual long StateKindSet { get; set; }
     public virtual long StateKindCall { get; set; }
@@ -256,6 +255,8 @@ public class ClassGen : ClassBase
     public virtual bool ExecuteStage()
     {
         this.StringValueIndex = 0;
+
+        this.WhileIndex = 0;
 
         NodeClass nodeClass;
         nodeClass = (NodeClass)this.Class.Any;
