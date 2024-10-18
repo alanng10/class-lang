@@ -80,6 +80,7 @@ public class ClassGen : ClassBase
         this.LimitBraceRoundRite = this.S(")");
         this.LimitBraceSquareLite = this.S("[");
         this.LimitBraceSquareRite = this.S("]");
+        this.LimitColon = this.S(":");
         this.LimitSemicolon = this.S(";");
         this.LimitComma = this.S(",");
         this.LimitAsterisk = this.S("*");
@@ -179,6 +180,7 @@ public class ClassGen : ClassBase
     public virtual String LimitBraceRoundRite { get; set; }
     public virtual String LimitBraceSquareLite { get; set; }
     public virtual String LimitBraceSquareRite { get; set; }
+    public virtual String LimitColon { get; set; }
     public virtual String LimitSemicolon { get; set; }
     public virtual String LimitComma { get; set; }
     public virtual String LimitAsterisk { get; set; }
@@ -1269,6 +1271,18 @@ public class ClassGen : ClassBase
         this.Text(this.WhileLabelPre);
 
         this.Operate.ExecuteIntText(whileIndex);
+        return true;
+    }
+
+    public virtual bool WhileLabelLine(long whileIndex)
+    {
+        this.TextIndent();
+
+        this.WhileLabel(whileIndex);
+
+        this.Text(this.LimitColon);
+
+        this.Text(this.NewLine);
         return true;
     }
 
