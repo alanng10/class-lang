@@ -580,6 +580,27 @@ public class ClassGen : ClassBase
         return ka;
     }
 
+    public virtual bool TableVarLocalVarSetNull(Table table)
+    {
+        Iter iter;
+        iter = this.TableIter;
+
+        table.IterSet(iter);
+
+        while (iter.Next())
+        {
+            Var kk;
+            kk = (Var)iter.Value;
+
+            long ka;
+            ka = this.LocalVarFrameValueIndex(kk.Index);
+
+            this.EvalFrameValueSet(ka, this.Zero);
+        }
+
+        return true;
+    }
+
     public virtual bool ExecuteOperateLimit(String limit)
     {
         String varA;

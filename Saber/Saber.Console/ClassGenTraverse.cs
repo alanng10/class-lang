@@ -9,24 +9,16 @@ public class ClassGenTraverse : Traverse
         ClassGen gen;
         gen = this.Gen;
 
-        Table ka;
-        ka = this.Info(state).StateVar;
+        Table table;
+        table = this.Info(state).StateVar;
 
         gen.IndentCount = gen.IndentCount + 1;
 
-        Iter iter;
-        iter = gen.TableIter;
-
-        ka.IterSet(iter);
-
-        while (iter.Next())
-        {
-            Var kk;
-            kk = (Var)iter.Value;
-        }
-
+        gen.TableVarLocalVarSetNull(table);
 
         base.ExecuteState(state);
+
+        gen.TableVarLocalVarSetNull(table);
 
         gen.IndentCount = gen.IndentCount - 1;
 
