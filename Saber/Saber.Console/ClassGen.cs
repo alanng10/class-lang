@@ -70,6 +70,7 @@ public class ClassGen : ClassBase
         this.NameCombine = this.S("_");
         this.StringValueArray = this.S("StringValue");
         this.IndexReturn = this.S("return");
+        this.IndexInf = this.S("if");
         this.LimitDot = this.S(".");
         this.LimitDotPointer = this.S("->");
         this.LimitBraceLite = this.S("{");
@@ -168,6 +169,7 @@ public class ClassGen : ClassBase
     public virtual String NameCombine { get; set; }
     public virtual String StringValueArray { get; set; }
     public virtual String IndexReturn { get; set; }
+    public virtual String IndexInf { get; set; }
     public virtual String LimitDot { get; set; }
     public virtual String LimitDotPointer { get; set; }
     public virtual String LimitBraceLite { get; set; }
@@ -1217,6 +1219,44 @@ public class ClassGen : ClassBase
         this.Text(this.LimitBraceRoundRite);
 
         this.Text(this.LimitSemicolon);
+        this.Text(this.NewLine);
+        return true;
+    }
+
+    public virtual bool InfStart(String cond)
+    {
+        this.TextIndent();
+
+        this.Text(this.IndexInf);
+        this.Text(this.Space);
+
+        this.Text(this.LimitBraceRoundLite);
+
+        this.Text(cond);
+
+        this.Text(this.LimitBraceRoundRite);
+
+        this.Text(this.NewLine);
+
+        return true;
+    }
+
+    public virtual bool BlockStart()
+    {
+        this.TextIndent();
+
+        this.Text(this.LimitBraceLite);
+
+        this.Text(this.NewLine);
+        return true;
+    }
+
+    public virtual bool BlockEnd()
+    {
+        this.TextIndent();
+
+        this.Text(this.LimitBraceRite);
+
         this.Text(this.NewLine);
         return true;
     }

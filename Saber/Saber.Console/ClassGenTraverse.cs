@@ -34,6 +34,36 @@ public class ClassGenTraverse : Traverse
         return true;
     }
 
+    public override bool ExecuteInfExecute(InfExecute infExecute)
+    {
+        ClassGen gen;
+        gen = this.Gen;
+
+        Operate cond;
+        cond = infExecute.Cond;
+        State then;
+        then = infExecute.Then;
+
+        this.ExecuteOperate(cond);
+
+        String varA;
+        varA = gen.VarA;
+
+        gen.EvalValueGet(1, varA);
+
+        gen.VarMaskClear(varA, gen.RefKindClearMask);
+
+        gen.InfStart(varA);
+
+        gen.BlockStart();
+
+        this.ExecuteState(then);
+
+        gen.BlockEnd();
+
+        return true;
+    }
+
     public override bool ExecuteReturnExecute(ReturnExecute returnExecute)
     {
         base.ExecuteReturnExecute(returnExecute);
