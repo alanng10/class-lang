@@ -551,6 +551,35 @@ public class ClassGen : ClassBase
         return true;
     }
 
+    public virtual long LocalVarFrameValueIndex(long varIndex)
+    {
+        long stateKind;
+        stateKind = this.CompStateKind;
+
+        long k;
+        k = this.ParamCount - 1;
+
+        long ka;
+        ka = 0;
+
+        if (stateKind == this.StateKindGet)
+        {
+            ka = varIndex - 1;
+        }
+
+        if (stateKind == this.StateKindSet)
+        {
+            ka = varIndex - 2;
+        }
+
+        if (stateKind == this.StateKindCall)
+        {
+            ka = varIndex - k;
+        }
+
+        return ka;
+    }
+
     public virtual bool ExecuteOperateLimit(String limit)
     {
         String varA;

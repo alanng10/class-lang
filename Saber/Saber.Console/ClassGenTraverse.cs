@@ -17,6 +17,14 @@ public class ClassGenTraverse : Traverse
         Iter iter;
         iter = gen.TableIter;
 
+        ka.IterSet(iter);
+
+        while (iter.Next())
+        {
+            Var kk;
+            kk = (Var)iter.Value;
+        }
+
 
         base.ExecuteState(state);
 
