@@ -1266,7 +1266,9 @@ public class ClassGen : ClassBase
 
     public virtual bool WhileLabel(long whileIndex)
     {
-        
+        this.Text(this.WhileLabelPre);
+
+        this.Operate.ExecuteIntText(whileIndex);
         return true;
     }
 
