@@ -1102,11 +1102,9 @@ public class ClassGen : ClassBase
 
         this.OperateLimit(varC, varC, varD, this.LimitLess);
 
-        this.OperateLimitOne(varC, varC, this.LimitNot);
+        this.CondSet(varD, varC, this.Zero, varD);
 
-        this.CondSet(varD, varC, varD, this.Zero);
-
-        this.CondSet(varB, varC, varB, this.InternValueClass);
+        this.CondSet(varB, varC, this.InternValueClass, varB);
 
         this.VarSetDeref(varC, varB, 0);
 
