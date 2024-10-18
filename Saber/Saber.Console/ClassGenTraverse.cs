@@ -96,6 +96,8 @@ public class ClassGenTraverse : Traverse
 
         this.ExecuteState(loop);
 
+        gen.GotoWhileLabel(ka);
+
         gen.BlockEnd();
 
         return true;
