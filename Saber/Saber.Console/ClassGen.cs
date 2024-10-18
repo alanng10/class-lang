@@ -608,6 +608,8 @@ public class ClassGen : ClassBase
             this.EvalFrameValueSet(ka, this.Zero);
         }
 
+        iter.Clear();
+
         return true;
     }
 
