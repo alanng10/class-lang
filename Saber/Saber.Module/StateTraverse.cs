@@ -1406,6 +1406,11 @@ public class StateTraverse : Traverse
             }
             i = i + 1;
         }
+
+        paramIter.Clear();
+
+        argueIter.Clear();
+
         return true;
     }
 
@@ -1445,6 +1450,9 @@ public class StateTraverse : Traverse
                 return varVar;
             }
         }
+
+        iter.Clear();
+
         return null;
     }
 
