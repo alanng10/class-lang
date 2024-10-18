@@ -44,10 +44,10 @@ public class ClassGenTraverse : Traverse
         State then;
         then = infExecute.Then;
 
-        this.ExecuteOperate(cond);
-
         String varA;
         varA = gen.VarA;
+
+        this.ExecuteOperate(cond);
 
         gen.EvalValueGet(1, varA);
 
@@ -74,9 +74,31 @@ public class ClassGenTraverse : Traverse
         State loop;
         loop = whileExecute.Loop;
 
+        String varA;
+        varA = gen.VarA;
+
+        long ka;
+        ka = gen.WhileIndex;
+
+        gen.WhileIndex = ka + 1;
+
+        gen.WhileLabelLine(ka);
+
         this.ExecuteOperate(cond);
 
-        
+        gen.EvalValueGet(1, varA);
+
+        gen.VarMaskClear(varA, gen.RefKindClearMask);
+
+        gen.InfStart(varA);
+
+        gen.BlockStart();
+
+        this.ExecuteState(loop);
+
+        gen.BlockEnd();
+
+        return true;
     }
 
     public override bool ExecuteReturnExecute(ReturnExecute returnExecute)

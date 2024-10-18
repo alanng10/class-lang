@@ -1286,6 +1286,18 @@ public class ClassGen : ClassBase
         return true;
     }
 
+    public virtual bool GotoWhileLabel(long whileIndex)
+    {
+        this.TextIndent();
+
+        this.WhileLabel(whileIndex);
+
+        this.Text(this.LimitSemicolon);
+
+        this.Text(this.NewLine);
+        return true;
+    }
+
     public virtual bool VarSet(String dest, String value)
     {
         this.TextIndent();
