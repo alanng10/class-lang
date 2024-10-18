@@ -39,4 +39,11 @@ public class Iter : Any
         {
         }
     }
+
+    public virtual bool Clear()
+    {
+        this.CurrentNode = null;
+        this.Node = null;
+        return true;
+    }
 }
