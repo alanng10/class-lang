@@ -45,4 +45,10 @@ public class TableIter : Iter
         a = (Entry)this.ListIter.Value;
         return a;
     }
+
+    public override bool Clear()
+    {
+        this.ListIter.Clear();
+        return true;
+    }
 }
