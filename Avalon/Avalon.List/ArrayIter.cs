@@ -71,4 +71,12 @@ public class ArrayIter : Iter
         {
         }
     }
+
+    public override bool Clear()
+    {
+        this.Array = null;
+        this.IntIndex = 0;
+        this.CurrentIndex = -1;
+        return true;
+    }
 }
