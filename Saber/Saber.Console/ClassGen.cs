@@ -69,6 +69,7 @@ public class ClassGen : ClassBase
         this.StateCall = this.S("C");
         this.NameCombine = this.S("_");
         this.StringValueArray = this.S("StringValue");
+        this.WhileLabelPre = this.S("W_");
         this.IndexReturn = this.S("return");
         this.IndexInf = this.S("if");
         this.LimitDot = this.S(".");
@@ -167,6 +168,7 @@ public class ClassGen : ClassBase
     public virtual String StateCall { get; set; }
     public virtual String NameCombine { get; set; }
     public virtual String StringValueArray { get; set; }
+    public virtual String WhileLabelPre { get; set; }
     public virtual String IndexReturn { get; set; }
     public virtual String IndexInf { get; set; }
     public virtual String LimitDot { get; set; }
@@ -1259,6 +1261,12 @@ public class ClassGen : ClassBase
         this.Text(this.LimitBraceRite);
 
         this.Text(this.NewLine);
+        return true;
+    }
+
+    public virtual bool WhileLabel(long whileIndex)
+    {
+        
         return true;
     }
 

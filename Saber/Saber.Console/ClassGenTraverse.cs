@@ -64,6 +64,21 @@ public class ClassGenTraverse : Traverse
         return true;
     }
 
+    public override bool ExecuteWhileExecute(WhileExecute whileExecute)
+    {
+        ClassGen gen;
+        gen = this.Gen;
+
+        Operate cond;
+        cond = whileExecute.Cond;
+        State loop;
+        loop = whileExecute.Loop;
+
+        this.ExecuteOperate(cond);
+
+        
+    }
+
     public override bool ExecuteReturnExecute(ReturnExecute returnExecute)
     {
         base.ExecuteReturnExecute(returnExecute);
