@@ -12,13 +12,22 @@ public class ClassGenTraverse : Traverse
         Table table;
         table = this.Info(state).StateVar;
 
+        bool b;
+        b = !(state == gen.CompState);
+
         gen.IndentCount = gen.IndentCount + 1;
 
-        gen.TableVarLocalVarSetNull(table);
+        if (b)
+        {
+            gen.TableVarLocalVarSetNull(table);
+        }
 
         base.ExecuteState(state);
 
-        gen.TableVarLocalVarSetNull(table);
+        if (b)
+        {
+            gen.TableVarLocalVarSetNull(table);
+        }
 
         gen.IndentCount = gen.IndentCount - 1;
 

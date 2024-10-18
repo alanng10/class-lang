@@ -113,6 +113,7 @@ public class ClassGen : ClassBase
     public virtual Array StringValue { get; set; }
     public virtual long StringValueIndex { get; set; }
     public virtual String ClassBaseMask { get; set; }
+    public virtual State CompState { get; set; }
     public virtual Field ThisField { get; set; }
     public virtual Iter TableIter { get; set; }
     public virtual long CompStateKind { get; set; }
