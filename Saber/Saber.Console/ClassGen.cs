@@ -72,6 +72,7 @@ public class ClassGen : ClassBase
         this.WhileLabelPre = this.S("W_");
         this.IndexReturn = this.S("return");
         this.IndexInf = this.S("if");
+        this.IndexGoto = this.S("goto");
         this.LimitDot = this.S(".");
         this.LimitDotPointer = this.S("->");
         this.LimitBraceLite = this.S("{");
@@ -172,6 +173,7 @@ public class ClassGen : ClassBase
     public virtual String WhileLabelPre { get; set; }
     public virtual String IndexReturn { get; set; }
     public virtual String IndexInf { get; set; }
+    public virtual String IndexGoto { get; set; }
     public virtual String LimitDot { get; set; }
     public virtual String LimitDotPointer { get; set; }
     public virtual String LimitBraceLite { get; set; }
@@ -1289,6 +1291,10 @@ public class ClassGen : ClassBase
     public virtual bool GotoWhileLabel(long whileIndex)
     {
         this.TextIndent();
+
+        this.Text(this.IndexGoto);
+
+        this.Text(this.Space);
 
         this.WhileLabel(whileIndex);
 
