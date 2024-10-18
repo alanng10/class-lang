@@ -42,6 +42,7 @@ public class Traverse : Any
             item = (Comp)iter.Value;
             this.ExecuteComp(item);
         }
+        iter.Clear();
         return true;
     }
 
@@ -112,6 +113,7 @@ public class Traverse : Any
             item = (Var)iter.Value;
             this.ExecuteVar(item);
         }
+        iter.Clear();
         return true;
     }
 
@@ -211,6 +213,7 @@ public class Traverse : Any
             item = (Execute)iter.Value;
             this.ExecuteExecute(item);
         }
+        iter.Clear();
         return true;
     }
 
@@ -340,6 +343,7 @@ public class Traverse : Any
             item = (Operate)iter.Value;
             this.ExecuteOperate(item);
         }
+        iter.Clear();
         return true;
     }
 
