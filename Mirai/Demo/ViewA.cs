@@ -2,7 +2,7 @@ namespace Demo;
 
 class ViewA : View
 {
-    public virtual DrawBrush DrawPen { get; set; }
+    public virtual DrawSlash DrawPen { get; set; }
     public virtual Demo Demo { get; set; }
     public virtual DrawForm Form { get; set; }
     public virtual long RotateValue { get; set; }
@@ -28,7 +28,7 @@ class ViewA : View
         DrawBrush brush;
         brush = this.Back;
         draw.Fill = brush;
-        DrawBrush pen;
+        DrawSlash pen;
         pen = this.DrawPen;
         draw.Line = pen;
 

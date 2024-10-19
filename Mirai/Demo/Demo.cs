@@ -112,11 +112,16 @@ class Demo : Any
         penBrush = new DrawBrush();
         penBrush.Kind = this.BrushKindList.Color;
         penBrush.Color = this.DrawInfra.ColorCreate(0xff, 0xff, 0, 0xff);
-        penBrush.Line = this.SlashLineList.DashDotDot;
-        penBrush.Wed = this.MathInt(11);
-        penBrush.Cap = this.SlashCapList.Round;
-        penBrush.Join = this.SlashJoinList.Bevel;
         penBrush.Init();
+
+        DrawSlash pen;
+        pen = new DrawSlash();
+        pen.Brush = penBrush;
+        pen.Line = this.SlashLineList.DashDotDot;
+        pen.Wed = this.MathInt(11);
+        pen.Cap = this.SlashCapList.Round;
+        pen.Join = this.SlashJoinList.Bevel;
+        pen.Init();
 
         ViewC viewC;
         viewC = this.ViewCCreate();
@@ -133,7 +138,7 @@ class Demo : Any
         viewA.Size.Wed = 600;
         viewA.Size.Het = 400;
         viewA.Back = brushA;
-        viewA.DrawPen = penBrush;
+        viewA.DrawPen = pen;
         viewA.Form = viewAForm;
         viewA.Demo = this;
 
@@ -256,6 +261,8 @@ class Demo : Any
         viewAForm.Final();
 
         this.ViewCFinal(viewC);
+
+        pen.Final();
 
         penBrush.Final();
 
@@ -466,7 +473,7 @@ class Demo : Any
 
     private bool ViewCFinal(ViewC a)
     {
-        DrawBrush textPen;
+        DrawSlash textPen;
         textPen = a.TextPen;
         DrawBrush ellipseBrush;
         ellipseBrush = a.EllipseBrush;
