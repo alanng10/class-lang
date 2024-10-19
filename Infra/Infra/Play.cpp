@@ -27,8 +27,14 @@ Int Play_SourceThisSet(Int o)
     Play* m;
     m = CP(o);
 
+    Int stream;
+    stream = m->Source;
+
+    Int ka;
+    ka = Stream_Intern(stream);
+
     QIODevice* u;
-    u = (QIODevice*)m->Source;
+    u = (QIODevice*)ka;
 
     m->Intern->setSourceDevice(u);
     return true;
