@@ -19,9 +19,9 @@ public class ReadList : ToolBase
         this.ExecuteList("NetworkPortKind");
         this.ExecuteList("NetworkStatus");
         this.ExecuteList("BrushKind");
-        this.ExecuteList("BrushLine");
-        this.ExecuteList("BrushCap");
-        this.ExecuteList("BrushJoin");
+        this.ExecuteList("SlashLine");
+        this.ExecuteList("SlashCap");
+        this.ExecuteList("SlashJoin");
         this.ExecuteList("PolateKind");
         this.ExecuteList("PolateSpread");
         this.ExecuteList("Comp");
