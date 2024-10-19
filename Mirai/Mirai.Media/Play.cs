@@ -81,4 +81,13 @@ public class Play : Any
         Extern.Play_VideoOutSet(this.Intern, u);
         return true;
     }
+
+    public virtual bool PosSet(long pos)
+    {
+        ulong u;
+        u = (ulong)pos;
+
+        Extern.Play_PosSet(this.Intern, u);
+        return true;
+    }
 }
