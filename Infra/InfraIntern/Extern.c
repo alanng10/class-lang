@@ -3371,6 +3371,33 @@ Int Intern_Extern_Slash_Final(Eval* eval, Int frame)
     Return;
 }
 
+Int Intern_Extern_Slash_BrushGet(Eval* eval, Int frame)
+{
+    Int paramCount;
+    paramCount = 1;
+
+    Param(0);
+
+    Int a;
+    a = Slash_BrushGet(a0);
+
+    Return;
+}
+
+Int Intern_Extern_Slash_BrushSet(Eval* eval, Int frame)
+{
+    Int paramCount;
+    paramCount = 2;
+
+    Param(0);
+    Param(1);
+
+    Int a;
+    a = Slash_BrushSet(a0, a1);
+
+    Return;
+}
+
 Int Intern_Extern_Slash_LineGet(Eval* eval, Int frame)
 {
     Int paramCount;
