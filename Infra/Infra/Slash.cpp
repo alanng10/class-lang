@@ -32,7 +32,7 @@ Int Slash_Init(Int o)
     styleU = (Qt::PenStyle)line;
 
     InternValue(width);
-    
+
     Qt::PenCapStyle capStyleU;
     capStyleU = (Qt::PenCapStyle)(cap - 1);
 
