@@ -120,10 +120,10 @@ SOURCES += \
     Stat_NetworkCase.cpp \
     Stat_NetworkPortKind.cpp \
     Stat_NetworkStatus.cpp \
-    Stat_BrushCap.cpp \
-    Stat_BrushJoin.cpp \
     Stat_BrushKind.cpp \
-    Stat_BrushLine.cpp \
+    Stat_SlashCap.cpp \
+    Stat_SlashJoin.cpp \
+    Stat_SlashLine.cpp \
     Stat_PolateKind.cpp \
     Stat_PolateSpread.cpp \
     Stat_Comp.cpp \
