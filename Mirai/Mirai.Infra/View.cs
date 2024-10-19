@@ -91,7 +91,7 @@ public class View : Comp
     protected virtual DrawBrush CreateBack()
     {
         DrawBrush a;
-        a = this.DrawInfra.WhiteBrush;
+        a = this.DrawInfra.WhiteSlash.Brush;
         return a;
     }
 
