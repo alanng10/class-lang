@@ -279,6 +279,8 @@ class Extern : Any
     maide prusate Int Slash_Delete(var Int o) { }
     maide prusate Int Slash_Init(var Int o) { }
     maide prusate Int Slash_Final(var Int o) { }
+    maide prusate Int Slash_BrushGet(var Int o) { }
+    maide prusate Int Slash_BrushSet(var Int o, var Int value) { }
     maide prusate Int Slash_LineGet(var Int o) { }
     maide prusate Int Slash_LineSet(var Int o, var Int value) { }
     maide prusate Int Slash_WidthGet(var Int o) { }
