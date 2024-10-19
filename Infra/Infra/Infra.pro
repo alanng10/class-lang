@@ -49,6 +49,7 @@ HEADERS += \
     Rect.h \
     Share.hpp \
     Size.h \
+    Slash.hpp \
     Stat.hpp \
     State.h \
     Storage.hpp \
@@ -109,6 +110,7 @@ SOURCES += \
     Rect.c \
     Share.cpp \
     Size.c \
+    Slash.cpp \
     Stat.cpp \
     Stat_PointData.cpp \
     Stat_TextAlign.cpp \
