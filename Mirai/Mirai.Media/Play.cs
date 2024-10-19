@@ -82,12 +82,23 @@ public class Play : Any
         return true;
     }
 
-    public virtual bool PosSet(long pos)
+    public virtual long Pos
     {
-        ulong u;
-        u = (ulong)pos;
+        get
+        {
+            ulong u;
+            u = Extern.Play_PosGet(this.Intern);
+            long a;
+            a = (long)u;
+            return a;
+        }
+        set
+        {
+            ulong u;
+            u = (ulong)value;
 
-        Extern.Play_PosSet(this.Intern, u);
-        return true;
+            Extern.Play_PosSet(this.Intern, u);
+            return true;
+        }
     }
 }
