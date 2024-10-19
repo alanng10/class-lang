@@ -1,6 +1,6 @@
 namespace Mirai.Draw;
 
-public class BrushLine : Any
+public class SlashLine : Any
 {
     public virtual long Index { get; set; }
     internal virtual ulong Intern { get; set; }
