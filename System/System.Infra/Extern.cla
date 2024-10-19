@@ -236,8 +236,8 @@ class Extern : Any
     maide prusate Int Draw_FillSet(var Int o, var Int value) { }
     maide prusate Int Draw_FillPosGet(var Int o) { }
     maide prusate Int Draw_FillPosSet(var Int o, var Int value) { }
-    maide prusate Int Draw_StrokeGet(var Int o) { }
-    maide prusate Int Draw_StrokeSet(var Int o, var Int value) { }
+    maide prusate Int Draw_LineGet(var Int o) { }
+    maide prusate Int Draw_LineSet(var Int o, var Int value) { }
     maide prusate Int Draw_FaceGet(var Int o) { }
     maide prusate Int Draw_FaceSet(var Int o, var Int value) { }
     maide prusate Int Draw_FormGet(var Int o) { }
@@ -274,14 +274,19 @@ class Extern : Any
     maide prusate Int Brush_PolateSet(var Int o, var Int value) { }
     maide prusate Int Brush_ImageGet(var Int o) { }
     maide prusate Int Brush_ImageSet(var Int o, var Int value) { }
-    maide prusate Int Brush_LineGet(var Int o) { }
-    maide prusate Int Brush_LineSet(var Int o, var Int value) { }
-    maide prusate Int Brush_WidthGet(var Int o) { }
-    maide prusate Int Brush_WidthSet(var Int o, var Int value) { }
-    maide prusate Int Brush_CapGet(var Int o) { }
-    maide prusate Int Brush_CapSet(var Int o, var Int value) { }
-    maide prusate Int Brush_JoinGet(var Int o) { }
-    maide prusate Int Brush_JoinSet(var Int o, var Int value) { }
+
+    maide prusate Int Slash_New() { }
+    maide prusate Int Slash_Delete(var Int o) { }
+    maide prusate Int Slash_Init(var Int o) { }
+    maide prusate Int Slash_Final(var Int o) { }
+    maide prusate Int Slash_LineGet(var Int o) { }
+    maide prusate Int Slash_LineSet(var Int o, var Int value) { }
+    maide prusate Int Slash_WidthGet(var Int o) { }
+    maide prusate Int Slash_WidthSet(var Int o, var Int value) { }
+    maide prusate Int Slash_CapGet(var Int o) { }
+    maide prusate Int Slash_CapSet(var Int o, var Int value) { }
+    maide prusate Int Slash_JoinGet(var Int o) { }
+    maide prusate Int Slash_JoinSet(var Int o, var Int value) { }
 
     maide prusate Int PointData_PointGet(var Int address, var Int result) { }
     maide prusate Int PointData_PointSet(var Int address, var Int pos) { }
@@ -785,17 +790,17 @@ class Extern : Any
     maide prusate Int Stat_BrushKindColor(var Int o) { }
     maide prusate Int Stat_BrushKindPolate(var Int o) { }
     maide prusate Int Stat_BrushKindImage(var Int o) { }
-    maide prusate Int Stat_BrushLineSolid(var Int o) { }
-    maide prusate Int Stat_BrushLineDash(var Int o) { }
-    maide prusate Int Stat_BrushLineDot(var Int o) { }
-    maide prusate Int Stat_BrushLineDashDot(var Int o) { }
-    maide prusate Int Stat_BrushLineDashDotDot(var Int o) { }
-    maide prusate Int Stat_BrushCapFlat(var Int o) { }
-    maide prusate Int Stat_BrushCapSquare(var Int o) { }
-    maide prusate Int Stat_BrushCapRound(var Int o) { }
-    maide prusate Int Stat_BrushJoinMiter(var Int o) { }
-    maide prusate Int Stat_BrushJoinBevel(var Int o) { }
-    maide prusate Int Stat_BrushJoinRound(var Int o) { }
+    maide prusate Int Stat_SlashLineSolid(var Int o) { }
+    maide prusate Int Stat_SlashLineDash(var Int o) { }
+    maide prusate Int Stat_SlashLineDot(var Int o) { }
+    maide prusate Int Stat_SlashLineDashDot(var Int o) { }
+    maide prusate Int Stat_SlashLineDashDotDot(var Int o) { }
+    maide prusate Int Stat_SlashCapFlat(var Int o) { }
+    maide prusate Int Stat_SlashCapSquare(var Int o) { }
+    maide prusate Int Stat_SlashCapRound(var Int o) { }
+    maide prusate Int Stat_SlashJoinMiter(var Int o) { }
+    maide prusate Int Stat_SlashJoinBevel(var Int o) { }
+    maide prusate Int Stat_SlashJoinRound(var Int o) { }
     maide prusate Int Stat_PolateKindLinear(var Int o) { }
     maide prusate Int Stat_PolateKindRadial(var Int o) { }
     maide prusate Int Stat_PolateSpreadPad(var Int o) { }

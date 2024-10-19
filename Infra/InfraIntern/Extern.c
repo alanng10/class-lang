@@ -2820,7 +2820,7 @@ Int Intern_Extern_Draw_FillPosSet(Eval* eval, Int frame)
     Return;
 }
 
-Int Intern_Extern_Draw_StrokeGet(Eval* eval, Int frame)
+Int Intern_Extern_Draw_LineGet(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 1;
@@ -2828,12 +2828,12 @@ Int Intern_Extern_Draw_StrokeGet(Eval* eval, Int frame)
     Param(0);
 
     Int a;
-    a = Draw_StrokeGet(a0);
+    a = Draw_LineGet(a0);
 
     Return;
 }
 
-Int Intern_Extern_Draw_StrokeSet(Eval* eval, Int frame)
+Int Intern_Extern_Draw_LineSet(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 2;
@@ -2842,7 +2842,7 @@ Int Intern_Extern_Draw_StrokeSet(Eval* eval, Int frame)
     Param(1);
 
     Int a;
-    a = Draw_StrokeSet(a0, a1);
+    a = Draw_LineSet(a0, a1);
 
     Return;
 }
@@ -3321,7 +3321,18 @@ Int Intern_Extern_Brush_ImageSet(Eval* eval, Int frame)
     Return;
 }
 
-Int Intern_Extern_Brush_LineGet(Eval* eval, Int frame)
+Int Intern_Extern_Slash_New(Eval* eval, Int frame)
+{
+    Int paramCount;
+    paramCount = 0;
+
+    Int a;
+    a = Slash_New();
+
+    Return;
+}
+
+Int Intern_Extern_Slash_Delete(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 1;
@@ -3329,12 +3340,51 @@ Int Intern_Extern_Brush_LineGet(Eval* eval, Int frame)
     Param(0);
 
     Int a;
-    a = Brush_LineGet(a0);
+    a = Slash_Delete(a0);
 
     Return;
 }
 
-Int Intern_Extern_Brush_LineSet(Eval* eval, Int frame)
+Int Intern_Extern_Slash_Init(Eval* eval, Int frame)
+{
+    Int paramCount;
+    paramCount = 1;
+
+    Param(0);
+
+    Int a;
+    a = Slash_Init(a0);
+
+    Return;
+}
+
+Int Intern_Extern_Slash_Final(Eval* eval, Int frame)
+{
+    Int paramCount;
+    paramCount = 1;
+
+    Param(0);
+
+    Int a;
+    a = Slash_Final(a0);
+
+    Return;
+}
+
+Int Intern_Extern_Slash_LineGet(Eval* eval, Int frame)
+{
+    Int paramCount;
+    paramCount = 1;
+
+    Param(0);
+
+    Int a;
+    a = Slash_LineGet(a0);
+
+    Return;
+}
+
+Int Intern_Extern_Slash_LineSet(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 2;
@@ -3343,12 +3393,12 @@ Int Intern_Extern_Brush_LineSet(Eval* eval, Int frame)
     Param(1);
 
     Int a;
-    a = Brush_LineSet(a0, a1);
+    a = Slash_LineSet(a0, a1);
 
     Return;
 }
 
-Int Intern_Extern_Brush_WidthGet(Eval* eval, Int frame)
+Int Intern_Extern_Slash_WidthGet(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 1;
@@ -3356,12 +3406,12 @@ Int Intern_Extern_Brush_WidthGet(Eval* eval, Int frame)
     Param(0);
 
     Int a;
-    a = Brush_WidthGet(a0);
+    a = Slash_WidthGet(a0);
 
     Return;
 }
 
-Int Intern_Extern_Brush_WidthSet(Eval* eval, Int frame)
+Int Intern_Extern_Slash_WidthSet(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 2;
@@ -3370,12 +3420,12 @@ Int Intern_Extern_Brush_WidthSet(Eval* eval, Int frame)
     Param(1);
 
     Int a;
-    a = Brush_WidthSet(a0, a1);
+    a = Slash_WidthSet(a0, a1);
 
     Return;
 }
 
-Int Intern_Extern_Brush_CapGet(Eval* eval, Int frame)
+Int Intern_Extern_Slash_CapGet(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 1;
@@ -3383,12 +3433,12 @@ Int Intern_Extern_Brush_CapGet(Eval* eval, Int frame)
     Param(0);
 
     Int a;
-    a = Brush_CapGet(a0);
+    a = Slash_CapGet(a0);
 
     Return;
 }
 
-Int Intern_Extern_Brush_CapSet(Eval* eval, Int frame)
+Int Intern_Extern_Slash_CapSet(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 2;
@@ -3397,12 +3447,12 @@ Int Intern_Extern_Brush_CapSet(Eval* eval, Int frame)
     Param(1);
 
     Int a;
-    a = Brush_CapSet(a0, a1);
+    a = Slash_CapSet(a0, a1);
 
     Return;
 }
 
-Int Intern_Extern_Brush_JoinGet(Eval* eval, Int frame)
+Int Intern_Extern_Slash_JoinGet(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 1;
@@ -3410,12 +3460,12 @@ Int Intern_Extern_Brush_JoinGet(Eval* eval, Int frame)
     Param(0);
 
     Int a;
-    a = Brush_JoinGet(a0);
+    a = Slash_JoinGet(a0);
 
     Return;
 }
 
-Int Intern_Extern_Brush_JoinSet(Eval* eval, Int frame)
+Int Intern_Extern_Slash_JoinSet(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 2;
@@ -3424,7 +3474,7 @@ Int Intern_Extern_Brush_JoinSet(Eval* eval, Int frame)
     Param(1);
 
     Int a;
-    a = Brush_JoinSet(a0, a1);
+    a = Slash_JoinSet(a0, a1);
 
     Return;
 }
@@ -9414,7 +9464,7 @@ Int Intern_Extern_Stat_BrushKindImage(Eval* eval, Int frame)
     Return;
 }
 
-Int Intern_Extern_Stat_BrushLineSolid(Eval* eval, Int frame)
+Int Intern_Extern_Stat_SlashLineSolid(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 1;
@@ -9422,12 +9472,12 @@ Int Intern_Extern_Stat_BrushLineSolid(Eval* eval, Int frame)
     Param(0);
 
     Int a;
-    a = Stat_BrushLineSolid(a0);
+    a = Stat_SlashLineSolid(a0);
 
     Return;
 }
 
-Int Intern_Extern_Stat_BrushLineDash(Eval* eval, Int frame)
+Int Intern_Extern_Stat_SlashLineDash(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 1;
@@ -9435,12 +9485,12 @@ Int Intern_Extern_Stat_BrushLineDash(Eval* eval, Int frame)
     Param(0);
 
     Int a;
-    a = Stat_BrushLineDash(a0);
+    a = Stat_SlashLineDash(a0);
 
     Return;
 }
 
-Int Intern_Extern_Stat_BrushLineDot(Eval* eval, Int frame)
+Int Intern_Extern_Stat_SlashLineDot(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 1;
@@ -9448,12 +9498,12 @@ Int Intern_Extern_Stat_BrushLineDot(Eval* eval, Int frame)
     Param(0);
 
     Int a;
-    a = Stat_BrushLineDot(a0);
+    a = Stat_SlashLineDot(a0);
 
     Return;
 }
 
-Int Intern_Extern_Stat_BrushLineDashDot(Eval* eval, Int frame)
+Int Intern_Extern_Stat_SlashLineDashDot(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 1;
@@ -9461,12 +9511,12 @@ Int Intern_Extern_Stat_BrushLineDashDot(Eval* eval, Int frame)
     Param(0);
 
     Int a;
-    a = Stat_BrushLineDashDot(a0);
+    a = Stat_SlashLineDashDot(a0);
 
     Return;
 }
 
-Int Intern_Extern_Stat_BrushLineDashDotDot(Eval* eval, Int frame)
+Int Intern_Extern_Stat_SlashLineDashDotDot(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 1;
@@ -9474,12 +9524,12 @@ Int Intern_Extern_Stat_BrushLineDashDotDot(Eval* eval, Int frame)
     Param(0);
 
     Int a;
-    a = Stat_BrushLineDashDotDot(a0);
+    a = Stat_SlashLineDashDotDot(a0);
 
     Return;
 }
 
-Int Intern_Extern_Stat_BrushCapFlat(Eval* eval, Int frame)
+Int Intern_Extern_Stat_SlashCapFlat(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 1;
@@ -9487,12 +9537,12 @@ Int Intern_Extern_Stat_BrushCapFlat(Eval* eval, Int frame)
     Param(0);
 
     Int a;
-    a = Stat_BrushCapFlat(a0);
+    a = Stat_SlashCapFlat(a0);
 
     Return;
 }
 
-Int Intern_Extern_Stat_BrushCapSquare(Eval* eval, Int frame)
+Int Intern_Extern_Stat_SlashCapSquare(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 1;
@@ -9500,12 +9550,12 @@ Int Intern_Extern_Stat_BrushCapSquare(Eval* eval, Int frame)
     Param(0);
 
     Int a;
-    a = Stat_BrushCapSquare(a0);
+    a = Stat_SlashCapSquare(a0);
 
     Return;
 }
 
-Int Intern_Extern_Stat_BrushCapRound(Eval* eval, Int frame)
+Int Intern_Extern_Stat_SlashCapRound(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 1;
@@ -9513,12 +9563,12 @@ Int Intern_Extern_Stat_BrushCapRound(Eval* eval, Int frame)
     Param(0);
 
     Int a;
-    a = Stat_BrushCapRound(a0);
+    a = Stat_SlashCapRound(a0);
 
     Return;
 }
 
-Int Intern_Extern_Stat_BrushJoinMiter(Eval* eval, Int frame)
+Int Intern_Extern_Stat_SlashJoinMiter(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 1;
@@ -9526,12 +9576,12 @@ Int Intern_Extern_Stat_BrushJoinMiter(Eval* eval, Int frame)
     Param(0);
 
     Int a;
-    a = Stat_BrushJoinMiter(a0);
+    a = Stat_SlashJoinMiter(a0);
 
     Return;
 }
 
-Int Intern_Extern_Stat_BrushJoinBevel(Eval* eval, Int frame)
+Int Intern_Extern_Stat_SlashJoinBevel(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 1;
@@ -9539,12 +9589,12 @@ Int Intern_Extern_Stat_BrushJoinBevel(Eval* eval, Int frame)
     Param(0);
 
     Int a;
-    a = Stat_BrushJoinBevel(a0);
+    a = Stat_SlashJoinBevel(a0);
 
     Return;
 }
 
-Int Intern_Extern_Stat_BrushJoinRound(Eval* eval, Int frame)
+Int Intern_Extern_Stat_SlashJoinRound(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 1;
@@ -9552,7 +9602,7 @@ Int Intern_Extern_Stat_BrushJoinRound(Eval* eval, Int frame)
     Param(0);
 
     Int a;
-    a = Stat_BrushJoinRound(a0);
+    a = Stat_SlashJoinRound(a0);
 
     Return;
 }
