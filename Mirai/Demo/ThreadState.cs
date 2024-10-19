@@ -96,6 +96,8 @@ class ThreadState : State
         draw.Fill = brush;
         draw.ExecuteRect(rectA);
 
+        draw.Fill = null;
+
         long w;
         w = wed;
         w = w - 40;
@@ -107,13 +109,34 @@ class ThreadState : State
         rectA.Size.Wed = this.MathInt(w);
         rectA.Size.Het = this.MathInt(h);
 
-        draw.Fill = brushA;
+        Text text;
+        text = this.Demo.TextInfra.TextCreateStringData(this.S("C hr"), null);
+
+        DrawTextAlign textAlign;
+        textAlign = new DrawTextAlign();
+        textAlign.Init();
+        textAlign.Horiz = 1;
+        textAlign.Vert = 1;
+
+        DrawSlash slash;
+        slash = new DrawSlash();
+        slash.Brush = brushA;
+        slash.Line = this.Demo.SlashLineList.DashDotDot;
+        slash.Cap = this.Demo.SlashCapList.Round;
+        slash.Join = this.Demo.SlashJoinList.Miter;
+        slash.Wed = this.MathInt(5);
+        slash.Init();
+
+        draw.Face = this.Demo.DrawInfra.Font;
+        draw.Line = slash;
         draw.Comp = compList.DestOut;
-        draw.ExecuteRect(rectA);
-        draw.Comp = null;
+        draw.ExecuteText(text, textAlign, false, rectA);
+
         draw.End();
 
         draw.Final();
+
+        slash.Final();
 
         brushA.Final();
 
