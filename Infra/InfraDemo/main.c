@@ -2147,6 +2147,9 @@ int main(int argc, char* argv[])
 
     Brush_Delete(penTextBrush);
 
+    Slash_Final(PenRect);
+
+    Slash_Delete(PenRect);
 
     Brush_Final(penRectBrush);
 
