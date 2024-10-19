@@ -172,23 +172,16 @@ class TypeState : State
         if (a == d.AlphaG & o)
         {
             long kaaa;
-            //global::System.Console.Write("Demo Play Pos Get Before\n");
             kaaa = this.Demo.Play.Pos;
-            //global::System.Console.Write("Demo Play Pos Get After, value: " + kaaa + "\n");
 
             long kkaa;
             kkaa = kaaa + 10 * 1000;
-            //global::System.Console.Write("Demo Play New Pos, value: " + kkaa + "\n");
 
             long time;
-            //global::System.Console.Write("Demo Play Time Get Before\n");
             time = this.Demo.Play.Time;
-            //global::System.Console.Write("Demo Play Time Get After, value: " + time + "\n");
             if (!(time < kkaa))
             {
-                //global::System.Console.Write("Demo Play Pos Set Before\n");
                 this.Demo.Play.Pos = kkaa;
-                //global::System.Console.Write("Demo Play Pos Set After\n");
             }
         }
 
