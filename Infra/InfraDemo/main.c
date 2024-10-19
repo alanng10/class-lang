@@ -808,60 +808,25 @@ Int ThreadIntervalElapseHandle(Int interval, Int arg)
     return true;
 }
 
-
-
-
-
-
 int main(int argc, char* argv[])
 {
     Main_Init();
 
-
-
     Main_Terminate_Maide terminateMaide;
-
     terminateMaide = &TerminateHandle;
 
-
-
     Int uaaa;
-
     uaaa = CastInt(terminateMaide);
 
-
-
     Int terminateState;
-
     terminateState = State_New();
-
-
     State_Init(terminateState);
-
-
     State_MaideSet(terminateState, uaaa);
-
-
-
 
     Main_TerminateStateSet(terminateState);
 
-
-
-
-
-
-
     MainThread = Thread_This();
-
-
-
     Thread_IdentSet(MainThread, 1024);
-
-
-
-
-
 
     Console = Console_New();
 
