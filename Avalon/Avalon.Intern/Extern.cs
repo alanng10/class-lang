@@ -288,6 +288,8 @@ public static class Extern
     [DllImport(InfraLib)] public extern static ulong Slash_Delete(ulong o);
     [DllImport(InfraLib)] public extern static ulong Slash_Init(ulong o);
     [DllImport(InfraLib)] public extern static ulong Slash_Final(ulong o);
+    [DllImport(InfraLib)] public extern static ulong Slash_BrushGet(ulong o);
+    [DllImport(InfraLib)] public extern static ulong Slash_BrushSet(ulong o, ulong value);
     [DllImport(InfraLib)] public extern static ulong Slash_LineGet(ulong o);
     [DllImport(InfraLib)] public extern static ulong Slash_LineSet(ulong o, ulong value);
     [DllImport(InfraLib)] public extern static ulong Slash_WidthGet(ulong o);
