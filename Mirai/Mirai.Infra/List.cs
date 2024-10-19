@@ -143,7 +143,6 @@ public class List : Comp
         ListIter iter;
         iter = new ListIter();
         iter.Init();
-        iter.Iter = this.ItemTable.IterCreate();
         Iter a;
         a = iter;
         return a;

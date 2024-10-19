@@ -2,6 +2,14 @@ namespace Mirai.Infra;
 
 public class ListIter : Iter
 {
+    public override bool Init()
+    {
+        base.Init();
+        this.Iter = new TableIter();
+        this.Iter.Init();
+        return true;
+    }
+
     internal virtual Iter Iter { get; set; }
 
     public override bool Next()
@@ -29,5 +37,11 @@ public class ListIter : Iter
         set
         {
         }
+    }
+
+    public override bool Clear()
+    {
+        this.Iter.Clear();
+        return true;
     }
 }
