@@ -31,6 +31,7 @@ class Demo : Any
     private StringAdd StringAdd { get; set; }
     private TextWrite TextWrite { get; set; }
     private TextWriteArg TextWriteArg { get; set; }
+    private Stream MediaStream { get; set; }
 
     public bool Execute()
     {
@@ -234,6 +235,20 @@ class Demo : Any
 
         this.PlayImage = this.PlayImageCreate();
 
+        StorageMode mediaStorageMode;
+        mediaStorageMode = new StorageMode();
+        mediaStorageMode.Init();
+        mediaStorageMode.Read = true;
+
+        Storage mediaStorage;
+        mediaStorage = new Storage();
+        mediaStorage.Init();
+        mediaStorage.Path = this.S("MiraiDemoData/Video.mp4");
+        mediaStorage.Mode = mediaStorageMode;
+        mediaStorage.Open();
+
+        this.MediaStream = mediaStorage.Stream;
+
         this.Play = this.PlayCreate();
 
         this.ViewA = viewA;
@@ -249,6 +264,10 @@ class Demo : Any
         thread.ExecuteMain();
 
         this.PlayFinal(this.Play);
+
+        mediaStorage.Close();
+
+        mediaStorage.Final();
 
         this.PlayImageFinal(this.PlayImage);
 
@@ -569,7 +588,7 @@ class Demo : Any
         Play a;
         a = new Play();
         a.Init();
-        a.Source = this.S("MiraiDemoData/Video.mp4");
+        a.Source = this.MediaStream;
         a.SourceSet();
         a.VideoOut = videoOut;
         a.AudioOut = audioOut;
