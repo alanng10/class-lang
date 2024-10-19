@@ -48,6 +48,7 @@ global using DrawImageFormatList = Mirai.Draw.ImageBinaryList;
 global using DrawBrush = Mirai.Draw.Brush;
 global using DrawBrushKind = Mirai.Draw.BrushKind;
 global using DrawBrushKindList = Mirai.Draw.BrushKindList;
+global using DrawSlash = Mirai.Draw.Slash;
 global using DrawSlashLine = Mirai.Draw.SlashLine;
 global using DrawSlashLineList = Mirai.Draw.SlashLineList;
 global using DrawSlashCap = Mirai.Draw.SlashCap;

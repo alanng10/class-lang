@@ -14,7 +14,7 @@ class ViewC : View
     public DrawFace Face { get; set; }
     public DrawTextAlign TextAlign { get; set; }
     public Text Text { get; set; }
-    public DrawBrush TextPen { get; set; }
+    public DrawSlash TextPen { get; set; }
     private DrawRect Rect { get; set; }
 
     protected override bool ExecuteDrawThis(DrawDraw draw)
