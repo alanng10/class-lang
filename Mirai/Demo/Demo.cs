@@ -22,9 +22,9 @@ class Demo : Any
     public virtual StorageStatusList StorageStatusList { get; set; }
     public virtual StorageComp StorageComp { get; set; }
     public virtual DrawBrushKindList BrushKindList { get; set; }
-    public virtual DrawBrushLineList BrushLineList { get; set; }
-    public virtual DrawBrushCapList BrushCapList { get; set; }
-    public virtual DrawBrushJoinList BrushJoinList { get; set; }
+    public virtual DrawSlashLineList SlashLineList { get; set; }
+    public virtual DrawSlashCapList SlashCapList { get; set; }
+    public virtual DrawSlashJoinList SlashJoinList { get; set; }
     public virtual Console Console { get; set; }
 
     protected virtual MathComp MathComp { get; set; }
@@ -45,9 +45,9 @@ class Demo : Any
         this.StorageStatusList = StorageStatusList.This;
         this.StorageComp = StorageComp.This;
         this.BrushKindList = DrawBrushKindList.This;
-        this.BrushLineList = DrawBrushLineList.This;
-        this.BrushCapList = DrawBrushCapList.This;
-        this.BrushJoinList = DrawBrushJoinList.This;
+        this.SlashLineList = DrawSlashLineList.This;
+        this.SlashCapList = DrawSlashCapList.This;
+        this.SlashJoinList = DrawSlashJoinList.This;
         this.Console = Console.This;
 
         this.StringAdd = new StringAdd();
@@ -112,10 +112,10 @@ class Demo : Any
         penBrush = new DrawBrush();
         penBrush.Kind = this.BrushKindList.Color;
         penBrush.Color = this.DrawInfra.ColorCreate(0xff, 0xff, 0, 0xff);
-        penBrush.Line = this.BrushLineList.DashDotDot;
+        penBrush.Line = this.SlashLineList.DashDotDot;
         penBrush.Wed = this.MathInt(11);
-        penBrush.Cap = this.BrushCapList.Round;
-        penBrush.Join = this.BrushJoinList.Bevel;
+        penBrush.Cap = this.SlashCapList.Round;
+        penBrush.Join = this.SlashJoinList.Bevel;
         penBrush.Init();
 
         ViewC viewC;
@@ -512,10 +512,10 @@ class Demo : Any
         a = new DrawBrush();
         a.Kind = this.BrushKindList.Color;
         a.Color = this.DrawInfra.ColorCreate(0xff, 0, 0, 0xff);
-        a.Line = this.BrushLineList.DashDotDot;
+        a.Line = this.SlashLineList.DashDotDot;
         a.Wed = this.MathInt(14);
-        a.Cap = this.BrushCapList.Round;
-        a.Join = this.BrushJoinList.Bevel;
+        a.Cap = this.SlashCapList.Round;
+        a.Join = this.SlashJoinList.Bevel;
         a.Init();
         return a;
     }
