@@ -26,7 +26,7 @@ Int NetworkPort_InternAddress(Int o);
 Int Draw_Intern(Int o);
 
 Int Brush_Intern(Int o);
-Int Brush_InternBrush(Int o);
+Int Slash_Intern(Int o);
 
 Int Image_Intern(Int o);
 Int Image_SetReadIntern(Int o, Int value);
