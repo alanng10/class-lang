@@ -6,10 +6,10 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <ProjectReference Include="../Z.Tool.Mirai.BrushCapList/Z.Tool.Mirai.BrushCapList.csproj" />
-        <ProjectReference Include="../Z.Tool.Mirai.BrushJoinList/Z.Tool.Mirai.BrushJoinList.csproj" />
         <ProjectReference Include="../Z.Tool.Mirai.BrushKindList/Z.Tool.Mirai.BrushKindList.csproj" />
-        <ProjectReference Include="../Z.Tool.Mirai.BrushLineList/Z.Tool.Mirai.BrushLineList.csproj" />
+        <ProjectReference Include="../Z.Tool.Mirai.SlashCapList/Z.Tool.Mirai.SlashCapList.csproj" />
+        <ProjectReference Include="../Z.Tool.Mirai.SlashJoinList/Z.Tool.Mirai.SlashJoinList.csproj" />
+        <ProjectReference Include="../Z.Tool.Mirai.SlashLineList/Z.Tool.Mirai.SlashLineList.csproj" />
         <ProjectReference Include="../Z.Tool.Mirai.DrawCompList/Z.Tool.Mirai.DrawCompList.csproj" />
         <ProjectReference Include="../Z.Tool.Mirai.ImageBinaryList/Z.Tool.Mirai.ImageBinaryList.csproj" />
         <ProjectReference Include="../Z.Tool.Mirai.PolateKindList/Z.Tool.Mirai.PolateKindList.csproj" />
