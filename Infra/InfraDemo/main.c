@@ -721,73 +721,37 @@ Bool TerminateHandle()
 Bool MainThreadExecute()
 {
     Int stringA;
-
-
     stringA = String_ConstantCreate(CastInt("DEMO Main Thread\n"));
 
-
-
-
-
     Int count;
-
     count = 5;
 
-
     Int i;
-
     i = 0;
-
-
     while (i < count)
     {
         Console_OutWrite(Console, stringA);
 
-
         Thread_Sleep(2 * 1000);
-
-
 
         i = i + 1;
     }
 
-
-
-
     String_ConstantDelete(stringA);
-
-
-
-
     return true;
 }
-
-
-
-
 
 Bool ThreadAExecute(Int thread, Int arg)
 {
     Thread_Sleep(1000);
 
-
     Thread_Pause(MainThread);
-
 
     Thread_Sleep(3000);
 
-
     Thread_Resume(MainThread);
-
-
-
     return true;
 }
-
-
-
-
-
 
 Int ThreadIntervalExecute(Int thread, Int arg)
 {
@@ -795,123 +759,52 @@ Int ThreadIntervalExecute(Int thread, Int arg)
 
     maide = &ThreadIntervalElapseHandle;
 
-
-
     Int ua;
-
     ua = CastInt(maide);
 
-
     Int ub;
-
     ub = thread;
 
-
-
     Int intervalElapseState;
-
     intervalElapseState = State_New();
-
-
     State_Init(intervalElapseState);
-
-
     State_MaideSet(intervalElapseState, ua);
-
-
     State_ArgSet(intervalElapseState, ub);
 
-
-
-
     Int interval;
-
-
     interval = TimeEvent_New();
-
-
     TimeEvent_Init(interval);
-
-
-
     TimeEvent_SingleSet(interval, false);
-
-
     TimeEvent_TimeSet(interval, 100);
-
-
-
-
     TimeEvent_ElapseStateSet(interval, intervalElapseState);
-
-
-
-
     TimeEvent_Start(interval);
-
-
-
-
     Thread_ExecuteEventLoop(thread);
-
-
-
 
     TimeEvent_Final(interval);
 
-
     TimeEvent_Delete(interval);
-
-
 
     State_Final(intervalElapseState);
 
-
     State_Delete(intervalElapseState);
-
-
-
-
-
     return 100;
 }
-
-
-
-
 
 Int ThreadIntervalElapseHandle(Int interval, Int arg)
 {
     ConsoleWriteConstant("Thread Interval Elapse\n");
 
-
-
-
     IntervalElapseCount = IntervalElapseCount + 1;
-
-
-
 
     if (!(IntervalElapseCount < 3))
     {
         TimeEvent_Stop(interval);
 
-
-
-
         Int thread;
-
         thread = arg;
-
 
         Thread_ExitEventLoop(thread, 0);
     }
-
-
-
-
-
-
     return true;
 }
 
