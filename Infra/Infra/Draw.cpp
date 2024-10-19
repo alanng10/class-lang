@@ -121,35 +121,28 @@ Int Draw_FillSet(Int o, Int value)
     }
 
     Int u;
-    u = Brush_InternBrush(m->Fill);
+    u = Brush_Intern(m->Fill);
     QBrush* uu;
     uu = (QBrush*)u;
     m->Intern->setBrush(*uu);
     return true;
 }
 
-CppFieldGet(Draw, Stroke)
+CppFieldGet(Draw, Line)
 
-Int Draw_StrokeSet(Int o, Int value)
+Int Draw_LineSet(Int o, Int value)
 {
     Draw* m;
     m = CP(o);
-    m->Stroke = value;
-    if (m->Stroke == null)
+    m->Line = value;
+    if (m->Line == null)
     {
         m->Intern->setPen(Qt::NoPen);
         return true;
     }
 
     Int u;
-    u = Brush_Intern(m->Stroke);
-
-    if (u == null)
-    {
-        m->Intern->setPen(Qt::NoPen);
-        return true;
-    }
-    
+    u = Slash_Intern(m->Line);    
     QPen* uu;
     uu = (QPen*)u;
     m->Intern->setPen(*uu);

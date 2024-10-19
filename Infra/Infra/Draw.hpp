@@ -16,7 +16,7 @@ struct Draw
     Int Size;
     Int Out;
     Int Fill;
-    Int Stroke;
+    Int Line;
     Int Face;
     Int Form;
     Int Comp;
