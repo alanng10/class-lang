@@ -975,22 +975,22 @@ int main(int argc, char* argv[])
 
 
 
-    Int penRectKind;
-    penRectKind = Stat_BrushKindColor(Stat);
+    Int penRectBrushKind;
+    penRectBrushKind = Stat_BrushKindColor(Stat);
 
     Int penRectLine;
-    penRectLine = Stat_BrushLineDashDot(Stat);
+    penRectLine = Stat_SlashLineDashDot(Stat);
 
     Int penRectCap;
-    penRectCap = Stat_BrushCapRound(Stat);
+    penRectCap = Stat_SlashCapRound(Stat);
 
     Int penRectJoin;
-    penRectJoin = Stat_BrushJoinBevel(Stat);
+    penRectJoin = Stat_SlashJoinBevel(Stat);
 
     Int penRectBrush;
     penRectBrush = Brush_New();
 
-    Brush_KindSet(penRectBrush, penRectKind);
+    Brush_KindSet(penRectBrush, penRectBrushKind);
 
     Brush_ColorSet(penRectBrush, 0xff00ff00);
 
@@ -1015,13 +1015,13 @@ int main(int argc, char* argv[])
     penTextBrushKind = Stat_BrushKindColor(Stat);
 
     Int penTextLine;
-    penTextLine = Stat_BrushLineSolid(Stat);
+    penTextLine = Stat_SlashLineSolid(Stat);
 
     Int penTextCap;
-    penTextCap = Stat_BrushCapSquare(Stat);
+    penTextCap = Stat_SlashCapSquare(Stat);
 
     Int penTextJoin;
-    penTextJoin = Stat_BrushJoinMiter(Stat);
+    penTextJoin = Stat_SlashJoinMiter(Stat);
 
 
     Int penTextBrush;

@@ -317,6 +317,8 @@ Infra_Api Int Brush_ImageGet(Int o);
 Infra_Api Int Brush_ImageSet(Int o, Int value);
 
 InfraApiNew(Slash)
+Infra_Api Int Slash_BrushGet(Int o);
+Infra_Api Int Slash_BrushSet(Int o, Int value);
 Infra_Api Int Slash_LineGet(Int o);
 Infra_Api Int Slash_LineSet(Int o, Int value);
 Infra_Api Int Slash_WidthGet(Int o);
