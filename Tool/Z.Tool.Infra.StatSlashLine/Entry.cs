@@ -1,4 +1,4 @@
-namespace Z.Tool.Infra.StatBrushLine;
+namespace Z.Tool.Infra.StatSlashLine;
 
 class Entry : EntryEntry
 {
