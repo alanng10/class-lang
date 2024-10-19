@@ -122,7 +122,7 @@ public class Draw : Any
 
     protected virtual Brush FillData { get; set; }
 
-    public virtual Brush Line
+    public virtual Slash Line
     {
         get
         {
@@ -138,11 +138,11 @@ public class Draw : Any
             {
                 uu = this.LineData.Intern;
             }
-            Extern.Draw_StrokeSet(this.Intern, uu);
+            Extern.Draw_LineSet(this.Intern, uu);
         }
     }
 
-    protected virtual Brush LineData { get; set; }
+    protected virtual Slash LineData { get; set; }
 
     public virtual Face Face
     {
