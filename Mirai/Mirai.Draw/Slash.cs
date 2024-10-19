@@ -35,9 +35,9 @@ public class Slash : Any
     }
 
     public virtual Brush Brush { get; set; }
-    public virtual BrushLine Line { get; set; }
+    public virtual SlashLine Line { get; set; }
     public virtual long Wed { get; set; }
-    public virtual BrushCap Cap { get; set; }
-    public virtual BrushJoin Join { get; set; }
+    public virtual SlashCap Cap { get; set; }
+    public virtual SlashJoin Join { get; set; }
     internal virtual ulong Intern { get; set; }
 }
