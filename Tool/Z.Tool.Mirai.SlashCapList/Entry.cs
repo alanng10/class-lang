@@ -1,4 +1,4 @@
-namespace Z.Tool.Mirai.BrushCapList;
+namespace Z.Tool.Mirai.SlashCapList;
 
 class Entry : EntryEntry
 {
