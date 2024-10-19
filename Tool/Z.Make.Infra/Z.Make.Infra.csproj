@@ -15,7 +15,7 @@
         <ProjectReference Include="../Z.Tool.Infra.StatNetworkPortKind/Z.Tool.Infra.StatNetworkPortKind.csproj" />
         <ProjectReference Include="../Z.Tool.Infra.StatNetworkStatus/Z.Tool.Infra.StatNetworkStatus.csproj" />
         <ProjectReference Include="../Z.Tool.Infra.StatBrushKind/Z.Tool.Infra.StatBrushKind.csproj" />
-        <ProjectReference Include="../Z.Tool.Infra.StatBrushLine/Z.Tool.Infra.StatBrushLine.csproj" />
+        <ProjectReference Include="../Z.Tool.Infra.StatSlashLine/Z.Tool.Infra.StatSlashLine.csproj" />
         <ProjectReference Include="../Z.Tool.Infra.StatSlashCap/Z.Tool.Infra.StatSlashCap.csproj" />
         <ProjectReference Include="../Z.Tool.Infra.StatSlashJoin/Z.Tool.Infra.StatSlashJoin.csproj" />
         <ProjectReference Include="../Z.Tool.Infra.StatComp/Z.Tool.Infra.StatComp.csproj" />
