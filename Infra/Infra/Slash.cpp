@@ -18,11 +18,6 @@ Int Slash_Init(Int o)
     Int join;
     join = m->Join;
 
-    Int share;
-    share = Infra_Share();
-    Int stat;
-    stat = Share_Stat(share);
-
     Int brushU;
     brushU = Brush_Intern(brush);
     QBrush* brushUu;
