@@ -22,9 +22,9 @@ public class Infra : Any
         this.StorageStatusList = StorageStatusList.This;
         this.BrushInfra = BrushInfra.This;
         this.BrushKindList = BrushKindList.This;
-        this.BrushLineList = BrushLineList.This;
-        this.BrushCapList = BrushCapList.This;
-        this.BrushJoinList = BrushJoinList.This;
+        this.SlashLineList = SlashLineList.This;
+        this.SlashCapList = SlashCapList.This;
+        this.SlashJoinList = SlashJoinList.This;
 
         this.PixelByteCount = 4;
 
@@ -46,9 +46,9 @@ public class Infra : Any
         long k;
         k = this.MathInfra.Int(ka, 1);
 
-        this.BlackBrush = this.CreateBrush(blackColor, k);
-        this.WhiteBrush = this.CreateBrush(whiteColor, k);
-        this.ZeroBrush = this.CreateBrush(transparentColor, k);
+        this.BlackSlash = this.CreateSlash(blackColor, k);
+        this.WhiteSlash = this.CreateSlash(whiteColor, k);
+        this.ZeroSlash = this.CreateSlash(transparentColor, k);
 
         this.Font = new Face();
         this.Font.Name = this.TextInfra.S("Source Sans 3");
@@ -64,18 +64,18 @@ public class Infra : Any
 
     public virtual long PixelByteCount { get; set; }
     public virtual long ColorCompMax { get; set; }
-    public virtual Brush BlackBrush { get; set; }
-    public virtual Brush WhiteBrush { get; set; }
-    public virtual Brush ZeroBrush { get; set; }
+    public virtual Slash BlackSlash { get; set; }
+    public virtual Slash WhiteSlash { get; set; }
+    public virtual Slash ZeroSlash { get; set; }
     public virtual Face Font { get; set; }
     private long ScaleFactor { get; set; }
     protected virtual MathInfra MathInfra { get; set; }
     protected virtual TextInfra TextInfra { get; set; }
     protected virtual StorageStatusList StorageStatusList { get; set; }
     protected virtual BrushKindList BrushKindList { get; set; }
-    protected virtual BrushLineList BrushLineList { get; set; }
-    protected virtual BrushCapList BrushCapList { get; set; }
-    protected virtual BrushJoinList BrushJoinList { get; set; }
+    protected virtual SlashLineList SlashLineList { get; set; }
+    protected virtual SlashCapList SlashCapList { get; set; }
+    protected virtual SlashJoinList SlashJoinList { get; set; }
     private BrushInfra BrushInfra { get; set; }
 
     public virtual Color ColorCreate(long alpha, long red, long green, long blue)
@@ -90,16 +90,21 @@ public class Infra : Any
         return color;
     }
 
-    private Brush CreateBrush(Color color, long wed)
+    private Slash CreateSlash(Color color, long wed)
     {
-        Brush a;
-        a = new Brush();
-        a.Kind = this.BrushKindList.Color;
-        a.Color = color;
-        a.Line = this.BrushLineList.Solid;
+        Brush ka;
+        ka = new Brush();
+        ka.Kind = this.BrushKindList.Color;
+        ka.Color = color;
+        ka.Init();
+
+        Slash a;
+        a = new Slash();
+        a.Brush = ka;
+        a.Line = this.SlashLineList.Solid;
         a.Wed = wed;
-        a.Cap = this.BrushCapList.Flat;
-        a.Join = this.BrushJoinList.Miter;
+        a.Cap = this.SlashCapList.Flat;
+        a.Join = this.SlashJoinList.Miter;
         a.Init();
         return a;
     }
