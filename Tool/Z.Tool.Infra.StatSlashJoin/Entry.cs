@@ -1,4 +1,4 @@
-namespace Z.Tool.Infra.StatBrushJoin;
+namespace Z.Tool.Infra.StatSlashJoin;
 
 class Entry : EntryEntry
 {
