@@ -135,6 +135,7 @@ Brush
     Image
 
 Slash
+    Brush
     Line
     Width
     Cap
