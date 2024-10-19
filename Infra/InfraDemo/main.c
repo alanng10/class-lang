@@ -430,7 +430,7 @@ Bool DrawHandle(Int frame, Int arg)
 
     Draw_FillSet(Draw, Brush);
 
-    Draw_StrokeSet(Draw, PenRect);
+    Draw_LineSet(Draw, PenRect);
 
     SetRect(RectA, MathInt(100), MathInt(100), MathInt(200), MathInt(200));
 
@@ -444,7 +444,7 @@ Bool DrawHandle(Int frame, Int arg)
     Draw_ExecuteLine(Draw, PosA, PosB);
 
 
-    Draw_StrokeSet(Draw, PenRect);
+    Draw_LineSet(Draw, PenRect);
 
     SetRect(RectA, MathInt(500), MathInt(350), MathInt(100), MathInt(100));
 
@@ -460,7 +460,7 @@ Bool DrawHandle(Int frame, Int arg)
     Draw_ExecuteRoundShape(Draw, RectA, RangeA);
 
 
-    Draw_StrokeSet(Draw, null);
+    Draw_LineSet(Draw, null);
 
     SetRect(RectA, MathInt(500), MathInt(200), MathInt(100), MathInt(100));
 
@@ -469,7 +469,7 @@ Bool DrawHandle(Int frame, Int arg)
     Draw_ExecuteRoundPart(Draw, RectA, RangeA);
 
 
-    Draw_StrokeSet(Draw, PenRect);
+    Draw_LineSet(Draw, PenRect);
 
     SetRect(RectA, MathInt(130), MathInt(550), MathInt(150), MathInt(100));
 
@@ -497,7 +497,7 @@ Bool DrawHandle(Int frame, Int arg)
     Draw_FillPosThisSet(Draw);
 
 
-    Draw_StrokeSet(Draw, PenRect);
+    Draw_LineSet(Draw, PenRect);
 
 
     Form_Reset(Form);
@@ -543,7 +543,7 @@ Bool DrawHandle(Int frame, Int arg)
 
     Draw_FillSet(Draw, null);
 
-    Draw_StrokeSet(Draw, PenRect);
+    Draw_LineSet(Draw, PenRect);
 
     SetRect(RectA, MathInt(400 + TextLeft), MathInt(400 + TextUp), MathInt(300), MathInt(100));
 
@@ -552,7 +552,7 @@ Bool DrawHandle(Int frame, Int arg)
 
     Draw_FaceSet(Draw, Face);
 
-    Draw_StrokeSet(Draw, PenText);
+    Draw_LineSet(Draw, PenText);
 
     SetRect(RectA, MathInt(400 + TextLeft), MathInt(400 + TextUp), MathInt(300), MathInt(100));
 
