@@ -1,7 +1,6 @@
 #pragma once
 
 #include <QBrush>
-#include <QPen>
 #include <QGradient>
 
 #include "Pronate.hpp"
@@ -12,12 +11,7 @@ struct Brush
     Int Color;
     Int Polate;
     Int Image;
-    Int Line;
-    Int Width;
-    Int Cap;
-    Int Join;
-    QBrush* InternBrush;
-    QPen* Intern;
+    QBrush* Intern;
 };
 
 #define CP(a) ((Brush*)(a))

@@ -15,14 +15,6 @@ Int Brush_Init(Int o)
     polate = m->Polate;
     Int image;
     image = m->Image;
-    Int line;
-    line = m->Line;
-    Int width;
-    width = m->Width;
-    Int cap;
-    cap = m->Cap;
-    Int join;
-    join = m->Join;
 
     Int share;
     share = Infra_Share();
@@ -33,7 +25,7 @@ Int Brush_Init(Int o)
     {
         InternColor(color);
         
-        m->InternBrush = new QBrush(colorU);
+        m->Intern = new QBrush(colorU);
     }
 
     if (kind == Stat_BrushKindPolate(stat))
@@ -44,7 +36,7 @@ Int Brush_Init(Int o)
         QGradient* ua;
         ua = (QGradient*)polateU;
 
-        m->InternBrush = new QBrush(*ua);
+        m->Intern = new QBrush(*ua);
     }
     
     if (kind == Stat_BrushKindImage(stat))
@@ -55,28 +47,9 @@ Int Brush_Init(Int o)
         QImage* ub;
         ub = (QImage*)imageU;
 
-        m->InternBrush = new QBrush(*ub);
+        m->Intern = new QBrush(*ub);
     }
 
-    if (line == null)
-    {
-        return true;
-    }
-
-    Qt::PenStyle styleU;
-    styleU = (Qt::PenStyle)line;
-
-    InternValue(width);
-    
-    Qt::PenCapStyle capStyleU;
-    capStyleU = (Qt::PenCapStyle)(cap - 1);
-
-    Qt::PenJoinStyle joinStyleU;
-    joinStyleU = (Qt::PenJoinStyle)(join - 1);
-
-    QPen* u;
-    u = new QPen(*(m->InternBrush), widthU, styleU, capStyleU, joinStyleU);
-    m->Intern = u;
     return true;
 }
 
@@ -86,9 +59,6 @@ Int Brush_Final(Int o)
     m = CP(o);
 
     delete m->Intern;
-
-    delete m->InternBrush;
-
     return true;
 }
 
@@ -96,10 +66,6 @@ CppField(Brush, Kind)
 CppField(Brush, Color)
 CppField(Brush, Polate)
 CppField(Brush, Image)
-CppField(Brush, Line)
-CppField(Brush, Width)
-CppField(Brush, Cap)
-CppField(Brush, Join)
 
 Int Brush_Intern(Int o)
 {
@@ -107,14 +73,5 @@ Int Brush_Intern(Int o)
     m = CP(o);
     Int a;
     a = CastInt(m->Intern);
-    return a;
-}
-
-Int Brush_InternBrush(Int o)
-{
-    Brush* m;
-    m = CP(o);
-    Int a;
-    a = CastInt(m->InternBrush);
     return a;
 }
