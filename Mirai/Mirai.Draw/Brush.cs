@@ -28,32 +28,11 @@ public class Brush : Any
             polateU = this.Polate.Intern;
         }
 
-        ulong lineU;
-        ulong wedU;
-        ulong capU;
-        ulong joinU;
-        lineU = 0;
-        wedU = 0;
-        capU = 0;
-        joinU = 0;
-
-        if (!(this.Line == null))
-        {
-            lineU = this.Line.Intern;
-            wedU = (ulong)(this.Wed);
-            capU = this.Cap.Intern;
-            joinU = this.Join.Intern;
-        }
-
         this.Intern = Extern.Brush_New();
         Extern.Brush_KindSet(this.Intern, kindU);
         Extern.Brush_ColorSet(this.Intern, colorU);
         Extern.Brush_ImageSet(this.Intern, imageU);
         Extern.Brush_PolateSet(this.Intern, polateU);
-        Extern.Brush_LineSet(this.Intern, lineU);
-        Extern.Brush_WidthSet(this.Intern, wedU);
-        Extern.Brush_CapSet(this.Intern, capU);
-        Extern.Brush_JoinSet(this.Intern, joinU);
         Extern.Brush_Init(this.Intern);
         return true;
     }
@@ -69,9 +48,5 @@ public class Brush : Any
     public virtual Color Color { get; set; }
     public virtual Polate Polate { get; set; }
     public virtual Image Video { get; set; }
-    public virtual BrushLine Line { get; set; }
-    public virtual long Wed { get; set; }
-    public virtual BrushCap Cap { get; set; }
-    public virtual BrushJoin Join { get; set; }
     internal virtual ulong Intern { get; set; }
 }
