@@ -27,21 +27,10 @@ Int Play_SourceThisSet(Int o)
     Play* m;
     m = CP(o);
 
-    QString filePath;
-    Int ua;
-    ua = CastInt(&filePath);
+    QIODevice* u;
+    u = (QIODevice*)m->Source;
 
-    String_QStringSet(ua, m->Source);
-
-    QUrl url;
-    url = QUrl::fromLocalFile(filePath);
-
-    if (!url.isValid())
-    {
-        return false;
-    }
-
-    m->Intern->setSource(url);
+    m->Intern->setSourceDevice(u);
     return true;
 }
 

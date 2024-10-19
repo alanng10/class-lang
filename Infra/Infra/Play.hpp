@@ -2,6 +2,7 @@
 
 #include <QMediaPlayer>
 #include <QAudioOutput>
+#include <QIODevice>
 
 #include "VideoOutIntern.hpp"
 
