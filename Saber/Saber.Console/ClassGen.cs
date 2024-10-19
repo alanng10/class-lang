@@ -1123,8 +1123,6 @@ public class ClassGen : ClassBase
 
         this.VarSetDeref(varC, varC, 0);
 
-        this.VarSetDeref(varC, varC, 0);
-
         this.OperateLimitClass(varC, varC, varClass, this.LimitSame);
 
         this.CondSet(varA, varC, varA, this.Zero);
