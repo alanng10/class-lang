@@ -179,10 +179,12 @@ class TypeState : State
 
             long time;
             time = this.Demo.Play.Time;
-            if (!(time < kkaa))
+            if (time < kkaa)
             {
-                this.Demo.Play.Pos = kkaa;
+                kkaa = time;
             }
+
+            this.Demo.Play.Pos = kkaa;
         }
 
         if (a == d.AlphaN & o)
