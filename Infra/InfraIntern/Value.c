@@ -8,6 +8,9 @@ Int Intern_Value_Init(Eval* eval, Int frame)
     Return(ke, 1);
 }
 
+
+extern Int Intern_Value_ClassAny[5];
+
 Int Intern_Value_FieldGet[0] = { };
 
 Int Intern_Value_FieldSet[0] = { };
@@ -19,7 +22,7 @@ Int Intern_Value_MaideCall[1] =
 
 Int Intern_Value_BaseItem[4] =
 {
-    CastInt(&Intern_Value_Class),
+    CastInt(Intern_Value_ClassAny),
     CastInt(Intern_Value_FieldGet),
     CastInt(Intern_Value_FieldSet),
     CastInt(Intern_Value_MaideCall),
