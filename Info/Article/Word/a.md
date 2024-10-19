@@ -296,7 +296,9 @@ Word "valid" has meaning that is can accept.
 
 Word "draw" has meaning that is comp video.
 
-Word "brush" has meaning that is draw applied.
+Word "brush" has meaning that is draw fill applied.
+
+Word "slash" has meaning that is draw line applied.
 
 Word "round" has meaning that is sphere.
 
