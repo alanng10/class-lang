@@ -1,4 +1,4 @@
-namespace Z.Tool.Mirai.BrushJoinList;
+namespace Z.Tool.Mirai.SlashJoinList;
 
 public class Gen : SourceGen
 {
@@ -6,13 +6,13 @@ public class Gen : SourceGen
     {
         base.Init();
         this.Module = this.S("Mirai.Draw");
-        this.ClassName = this.S("BrushJoinList");
+        this.ClassName = this.S("SlashJoinList");
         this.BaseClassName = this.S("Any");
         this.AnyClassName = this.S("Any");
-        this.ItemClassName = this.S("BrushJoin");
+        this.ItemClassName = this.S("SlashJoin");
         this.ArrayClassName = this.S("Array");
         this.Export = true;
-        this.StatItemClassName = this.S("BrushJoin");
+        this.StatItemClassName = this.S("SlashJoin");
         this.ItemListFileName = this.GetStatItemListFileName();
         return true;
     }

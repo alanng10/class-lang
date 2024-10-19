@@ -1,4 +1,4 @@
-namespace Z.Tool.Mirai.BrushJoinList;
+namespace Z.Tool.Mirai.SlashJoinList;
 
 class Entry : EntryEntry
 {
