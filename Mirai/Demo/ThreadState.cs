@@ -127,7 +127,18 @@ class ThreadState : State
         slash.Wed = this.MathInt(5);
         slash.Init();
 
-        draw.Face = this.Demo.DrawInfra.Font;
+        DrawFace face;
+        face = new DrawFace();
+        face.Name = this.Demo.DrawInfra.Font.Name;
+        face.Size = 30;
+        face.Weight = 400;
+        face.Italic = false;
+        face.Overline = false;
+        face.Underline = false;
+        face.Strikeout = false;
+        face.Init();
+
+        draw.Face = face;
         draw.Line = slash;
         draw.Comp = compList.DestOut;
         draw.ExecuteText(text, textAlign, false, rectA);
@@ -135,6 +146,8 @@ class ThreadState : State
         draw.End();
 
         draw.Final();
+
+        face.Final();
 
         slash.Final();
 
