@@ -109,7 +109,7 @@ Draw
     End()
     Fill
     FillPos
-    Stroke
+    Line
     Face
     Form
     Comp
