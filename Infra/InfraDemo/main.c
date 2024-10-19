@@ -1564,6 +1564,29 @@ int main(int argc, char* argv[])
 
     soundFilePath = String_ConstantCreate(CastInt("../../DemoSound.wav"));
 
+    Int audioStream;
+
+    audioStream = Stream_New();
+
+    Stream_Init(audioStream);
+
+
+    Int audioStorageMode;
+    audioStorageMode = Stat_StorageModeRead(Stat);
+
+    Int audioStorage;
+    audioStorage = Storage_New();
+
+    Storage_Init(audioStorage);
+
+    Storage_PathSet(audioStorage, soundFilePath);
+
+    Storage_ModeSet(audioStorage, audioStorageMode);
+
+    Storage_StreamSet(audioStorage, audioStream);
+
+    Storage_Open(audioStorage);
+
 
     Int audioOut;
     audioOut = AudioOut_New();
@@ -1575,7 +1598,7 @@ int main(int argc, char* argv[])
 
     Play_Init(Play);
 
-    Play_SourceSet(Play, soundFilePath);
+    Play_SourceSet(Play, audioStream);
 
     Play_SourceThisSet(Play);
 
@@ -1834,34 +1857,26 @@ int main(int argc, char* argv[])
 
     Pos_Delete(areaPos);
 
-
-
-
     Play_Final(Play);
-
     Play_Delete(Play);
 
-
     AudioOut_Final(audioOut);
-
     AudioOut_Delete(audioOut);
 
+    Storage_Close(audioStorage);
+
+    Storage_Final(audioStorage);
+    Storage_Delete(audioStorage);
+
+    Stream_Final(audioStream);
+    Stream_Delete(audioStream);
 
     String_ConstantDelete(soundFilePath);
 
-
-
-
     Rect_Final(UpdateRect);
-
-
     Rect_Delete(UpdateRect);
 
-
-
     Pos_Final(updatePos);
-
-
     Pos_Delete(updatePos);
 
 
