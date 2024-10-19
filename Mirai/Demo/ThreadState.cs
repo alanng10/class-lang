@@ -130,8 +130,8 @@ class ThreadState : State
         DrawFace face;
         face = new DrawFace();
         face.Name = this.Demo.DrawInfra.Font.Name;
-        face.Size = 30;
-        face.Weight = 400;
+        face.Size = 38;
+        face.Weight = 700;
         face.Italic = false;
         face.Overline = false;
         face.Underline = false;
