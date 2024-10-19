@@ -161,6 +161,8 @@ class TypeState : State
 
         if (a == d.AlphaE & o)
         {
+            this.Demo.Play.PosSet(2 * 60 * 1000);
+
             this.Demo.Play.Execute();
         }
 
