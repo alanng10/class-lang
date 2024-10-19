@@ -82,6 +82,21 @@ public class Play : Any
         return true;
     }
 
+    public virtual long Time
+    {
+        get
+        {
+            ulong u;
+            u = Extern.Play_TimeGet(this.Intern);
+            long a;
+            a = (long)u;
+            return a;
+        }
+        set
+        {
+        }
+    }
+
     public virtual long Pos
     {
         get
@@ -98,7 +113,6 @@ public class Play : Any
             u = (ulong)value;
 
             Extern.Play_PosSet(this.Intern, u);
-            return true;
         }
     }
 }
