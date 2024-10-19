@@ -133,6 +133,8 @@ Brush
     Color
     Polate
     Image
+
+Slash
     Line
     Width
     Cap
