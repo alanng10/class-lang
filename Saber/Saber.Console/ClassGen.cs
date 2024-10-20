@@ -319,10 +319,58 @@ public class ClassGen : ClassBase
     {
         this.Text(this.ClassInt);
         this.Text(this.Space);
+        this.ClassInitVarName(this.Class);
+        this.Text(this.LimitSemicolon);
+        this.Text(this.NewLine);
+        this.Text(this.NewLine);
+
         this.Text(this.ClassInt);
         this.Text(this.Space);
+        this.ClassInitName(this.Class);
+        this.Text(this.LimitBraceRoundLite);
+        this.Text(this.LimitBraceRoundRite);
+        this.Text(this.NewLine);
 
+        this.Text(this.LimitBraceLite);
+        this.Text(this.NewLine);
 
+        this.IndentCount = this.IndentCount + 1;
+
+        this.TextIndent();
+        this.Text(this.IndexInf);
+        this.Text(this.Space);
+        this.Text(this.LimitBraceRoundLite);
+        this.ClassInitVarName(this.Class);
+        this.Text(this.LimitBraceRoundRite);
+        this.Text(this.NewLine);
+
+        this.TextIndent();
+        this.Text(this.LimitBraceLite);
+        this.Text(this.NewLine);
+
+        this.IndentCount = this.IndentCount + 1;
+
+        this.TextIndent();
+        this.Text(this.IndexReturn);
+        this.Text(this.Space);
+        this.Text(this.Zero);
+        this.Text(this.LimitSemicolon);
+        this.Text(this.NewLine);
+
+        this.IndentCount = this.IndentCount - 1;
+
+        this.TextIndent();
+        this.Text(this.LimitBraceRite);
+        this.Text(this.NewLine);
+
+        this.TextIndent();
+        
+
+        this.IndentCount = this.IndentCount - 1;
+
+        this.Text(this.LimitBraceRite);
+
+        this.Text(this.NewLine);
         return true;
     }
 
