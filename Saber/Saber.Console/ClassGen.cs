@@ -330,7 +330,6 @@ public class ClassGen : ClassBase
 
         this.ClassBaseItemCompList(this.Class, this.StateCall);
 
-
         this.IndentCount = this.IndentCount - 1;
 
         this.Text(this.LimitBraceRite);
