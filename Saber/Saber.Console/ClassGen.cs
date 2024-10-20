@@ -308,6 +308,29 @@ public class ClassGen : ClassBase
 
     public virtual bool BaseArraySet()
     {
+        Array array;
+        array = this.BaseArray;
+
+        long count;
+        count = array.Count;
+
+        ClassClass c;
+        c = this.Class;
+
+        long i;
+        i = 0;
+        while (i < count)
+        {
+            long index;
+            index = count - 1 - i;
+
+            array.SetAt(index, c);
+
+            c = c.Base;
+
+            i = i + 1;
+        }
+
         return true;
     }
 
