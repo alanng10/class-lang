@@ -403,9 +403,9 @@ public class ModuleLoad : ClassBase
 
     protected virtual bool SetPart(ClassClass varClass, BinaryPart part)
     {
-        varClass.FieldRange = this.CreateRange(part.FieldRange);
+        varClass.FieldStart = part.FieldStart;
 
-        varClass.MaideRange = this.CreateRange(part.MaideRange);
+        varClass.MaideStart = part.MaideStart;
 
         bool b;
         
@@ -803,16 +803,6 @@ public class ModuleLoad : ClassBase
             i = i + 1;
         }
         return true;
-    }
-
-    protected virtual InfraRange CreateRange(InfraRange range)
-    {
-        InfraRange a;
-        a = new InfraRange();
-        a.Init();
-        a.Index = range.Index;
-        a.Count = range.Count;
-        return a;
     }
 
     protected virtual ClassClass ClassGetIndex(long index)

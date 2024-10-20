@@ -14,9 +14,9 @@ public class Class : Any
 
     public virtual long BaseIndex { get; set; }
 
-    public virtual InfraRange FieldRange { get; set; }
+    public virtual long FieldStart { get; set; }
 
-    public virtual InfraRange MaideRange { get; set; }
+    public virtual long MaideStart { get; set; }
 
     public virtual long Index { get; set; }
 
