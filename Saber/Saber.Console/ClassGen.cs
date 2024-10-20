@@ -68,10 +68,10 @@ public class ClassGen : ClassBase
         this.StateSet = this.S("S");
         this.StateCall = this.S("C");
         this.NameCombine = this.S("_");
-        this.ListName = this.S("List");
-        this.BaseName = this.S("Base");
-        this.ItemName = this.S("Item");
-        this.AnyName = this.S("Any");
+        this.ListWord = this.S("List");
+        this.BaseWord = this.S("Base");
+        this.ItemWord = this.S("Item");
+        this.AnyWord = this.S("Any");
         this.CastInt = this.S("CastInt");
         this.StringValueArray = this.S("StringValue");
         this.WhileLabelPre = this.S("W_");
@@ -176,10 +176,10 @@ public class ClassGen : ClassBase
     public virtual String StateSet { get; set; }
     public virtual String StateCall { get; set; }
     public virtual String NameCombine { get; set; }
-    public virtual String ListName { get; set; }
-    public virtual String BaseName { get; set; }
-    public virtual String ItemName { get; set; }
-    public virtual String AnyName { get; set; }
+    public virtual String ListWord { get; set; }
+    public virtual String BaseWord { get; set; }
+    public virtual String ItemWord { get; set; }
+    public virtual String AnyWord { get; set; }
     public virtual String CastInt { get; set; }
     public virtual String StringValueArray { get; set; }
     public virtual String WhileLabelPre { get; set; }
@@ -297,6 +297,15 @@ public class ClassGen : ClassBase
         return true;
     }
 
+    public virtual bool ExecuteClassBase()
+    {
+        long count;
+        count = this.BaseArray.Count;
+
+
+        return true;
+    }
+
     public virtual bool ExecuteClassBaseItem()
     {
         this.Text(this.ClassInt);
@@ -408,7 +417,15 @@ public class ClassGen : ClassBase
         this.ClassName(varClass);
         this.Text(this.NameCombine);
         this.Text(this.ClassWord);
-        this.Text(this.AnyName);
+        this.Text(this.AnyWord);
+        return true;
+    }
+
+    public virtual bool ClassBaseName(ClassClass varClass)
+    {
+        this.ClassName(varClass);
+        this.Text(this.NameCombine);
+        this.Text(this.BaseWord);
         return true;
     }
 
@@ -416,8 +433,8 @@ public class ClassGen : ClassBase
     {
         this.ClassName(varClass);
         this.Text(this.NameCombine);
-        this.Text(this.BaseName);
-        this.Text(this.ItemName);
+        this.Text(this.BaseWord);
+        this.Text(this.ItemWord);
         return true;
     }
 
@@ -427,7 +444,7 @@ public class ClassGen : ClassBase
         this.Text(this.NameCombine);
         this.Text(stateKind);
         this.Text(this.NameCombine);
-        this.Text(this.ListName);
+        this.Text(this.ListWord);
         return true;
     }
 
