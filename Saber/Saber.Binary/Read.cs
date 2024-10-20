@@ -733,14 +733,6 @@ public class Read : Any
         long count;
         count = u;
 
-        u = this.ExecuteIndex();
-        if (u == -1)
-        {
-            return null;
-        }
-        long index;
-        index = u;
-
         String name;
         name = this.ExecuteString();
         if (name == null)
@@ -752,7 +744,6 @@ public class Read : Any
         a = this.Operate.ExecuteField();
         a.Class = varClass;
         a.Count = count;
-        a.Index = index;
         a.Name = name;
         return a;
     }
@@ -810,14 +801,6 @@ public class Read : Any
         long count;
         count = u;
 
-        u = this.ExecuteIndex();
-        if (u == -1)
-        {
-            return null;
-        }
-        long index;
-        index = u;
-
         String name;
         name = this.ExecuteString();
         if (name == null)
@@ -836,7 +819,6 @@ public class Read : Any
         a = this.Operate.ExecuteMaide();
         a.Class = varClass;
         a.Count = count;
-        a.Index = index;
         a.Name = name;
         a.Param = param;
         return a;
