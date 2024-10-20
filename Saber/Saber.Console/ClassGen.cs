@@ -361,6 +361,8 @@ public class ClassGen : ClassBase
             ClassClass kk;
             kk = (ClassClass)array.GetAt(i);
 
+            this.ClassCompSetClass(k, kk);
+
             i = i + 1;
         }
 
