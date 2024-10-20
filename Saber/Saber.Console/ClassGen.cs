@@ -421,7 +421,7 @@ public class ClassGen : ClassBase
     public virtual bool ExecuteClassAny()
     {
         long fieldCount;
-        fieldCount = this.Class.FieldRange.Index + this.Class.FieldRange.Count;
+        fieldCount = this.Class.FieldStart + this.Class.Field.Count;
 
         this.Text(this.ClassInt);
         this.Text(this.Space);
@@ -1007,7 +1007,7 @@ public class ClassGen : ClassBase
         k = -k;
 
         long kk;
-        kk = varClass.FieldRange.Index;
+        kk = varClass.FieldStart;
         kk = kk + varField.Index;
 
         this.EvalFrameValueGet(k, varA);
