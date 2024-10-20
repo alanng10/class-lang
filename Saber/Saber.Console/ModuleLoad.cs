@@ -792,34 +792,11 @@ public class ModuleLoad : ClassBase
                 k = (Maide)kk;
             }
 
-            BinaryMaide ae;
-            ae = (BinaryMaide)binaryMaide.GetAt(a.Index);
-
             bool ba;
             ba = (k == null);
-            bool bb;
-            bb = (ae.Virtual == -1);
-
-            if (!(ba == bb))
-            {
-                return false;
-            }
 
             if (!ba)
             {
-                ClassClass af;
-                af = this.ClassGetIndex(ae.Virtual);
-
-                if (af == null)
-                {
-                    return false;
-                }
-
-                if (!(af == k.Parent))
-                {
-                    return false;
-                }
-
                 if (!(a.Count == k.Count))
                 {
                     return false;
