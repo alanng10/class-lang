@@ -27,8 +27,6 @@ public class PortLoad : ClassBase
     public virtual Table ModuleTable { get; set; }
     public virtual Table BinaryTable { get; set; }
     public virtual Table ClassTable { get; set; }
-    public virtual Table ImportTable { get; set; }
-    public virtual Table ExportTable { get; set; }
     public virtual NameCheck NameCheck { get; set; }
     protected virtual StorageInfra StorageInfra { get; set; }
     protected virtual StoragePathCheck StoragePathCheck { get; set; }
@@ -624,6 +622,8 @@ public class PortLoad : ClassBase
         module.Ref = classInfra.ModuleRefCreate(moduleRef.Name, moduleRef.Ver);
         module.Class = classInfra.TableCreateStringLess();
         module.Storage = classInfra.TableCreateStringLess();
+        module.Import = classInfra.TableCreateModuleRefLess();
+        module.Export = classInfra.TableCreateStringLess();
 
         this.Module = module;
         return true;
@@ -644,7 +644,7 @@ public class PortLoad : ClassBase
         classTable = this.ClassTable;
 
         Table importTable;
-        importTable = this.ImportTable;
+        importTable = this.Module.Import;
 
         NameCheck nameCheck;
         nameCheck = this.NameCheck;
@@ -739,7 +739,7 @@ public class PortLoad : ClassBase
         classTable = this.ClassTable;
 
         Table exportTable;
-        exportTable = this.ExportTable;
+        exportTable = this.Module.Export;
 
         NameCheck nameCheck;
         nameCheck = this.NameCheck;
@@ -852,12 +852,6 @@ public class PortLoad : ClassBase
         if (entry == null)
         {
             return true;
-        }
-
-        if (!this.ExportTable.Valid(entry))
-        {
-            this.Status = 95;
-            return false;
         }
 
         this.Module.Entry = entry;

@@ -546,9 +546,6 @@ public class Console : ClassBase
         this.BinaryTable = this.CopyModuleRefTable(this.InitBinaryTable);
         this.ModuleTable = this.CopyModuleRefTable(this.InitModuleTable);
         this.ClassTable = this.ClassInfra.TableCreateStringLess();
-        this.ImportTable = this.ClassInfra.TableCreateModuleRefLess();
-        this.ExportTable = this.ClassInfra.TableCreateStringLess();
-
         PortLoad portLoad;
         portLoad = this.PortLoad;
 
@@ -558,8 +555,6 @@ public class Console : ClassBase
         portLoad.BinaryTable = this.BinaryTable;
         portLoad.ModuleTable = this.ModuleTable;
         portLoad.ClassTable = this.ClassTable;
-        portLoad.ImportTable = this.ImportTable;
-        portLoad.ExportTable = this.ExportTable;
 
         bool b;
         b = portLoad.Execute();
@@ -573,8 +568,6 @@ public class Console : ClassBase
         this.PortModule = portLoad.Module;
 
         portLoad.Module = null;
-        portLoad.ExportTable = null;
-        portLoad.ImportTable = null;
         portLoad.ClassTable = null;
         portLoad.ModuleTable = null;
         portLoad.BinaryTable = null;
