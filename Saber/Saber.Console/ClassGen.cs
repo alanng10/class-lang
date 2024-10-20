@@ -392,6 +392,60 @@ public class ClassGen : ClassBase
         return true;
     }
 
+    public virtual bool ExecuteClassAny()
+    {
+        this.Text(this.ClassInt);
+        this.Text(this.Space);
+
+        this.ClassAnyName(this.Class);
+        this.Text(this.LimitBraceSquareLite);
+        this.TextInt(5);
+        this.Text(this.LimitBraceSquareRite);
+
+        this.Text(this.Space);
+        this.Text(this.LimitAre);
+        this.Text(this.NewLine);
+
+        this.Text(this.LimitBraceLite);
+        this.Text(this.NewLine);
+
+        this.IndentCount = this.IndentCount + 1;
+
+        this.TextIndent();
+
+        this.Text(this.CastInt);
+        this.Text(this.LimitBraceRoundLite);
+        this.ClassAnyName(this.Class);
+        this.Text(this.LimitBraceRoundRite);
+        this.Text(this.LimitComma);
+        this.Text(this.Space);
+
+        this.Text(this.Zero);
+        this.Text(this.LimitComma);
+        this.Text(this.Space);
+
+        this.Text(this.Zero);
+        this.Text(this.LimitComma);
+        this.Text(this.Space);
+
+
+        this.Text(this.Zero);
+        this.Text(this.LimitComma);
+        this.Text(this.Space);
+
+        this.Text(this.Zero);
+
+        this.Text(this.NewLine);
+
+        this.IndentCount = this.IndentCount - 1;
+
+        this.Text(this.LimitBraceRite);
+        this.Text(this.LimitSemicolon);
+        this.Text(this.NewLine);
+        this.Text(this.NewLine);
+        return true;
+    }
+
     public virtual bool BaseItemCompList(ClassClass varClass, String stateKind)
     {
         this.TextIndent();
