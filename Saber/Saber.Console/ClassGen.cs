@@ -296,6 +296,10 @@ public class ClassGen : ClassBase
         this.ExecuteBaseItem();
         
         this.ExecuteBase();
+
+        this.ExecuteClassAny();
+
+        this.ExecuteClassInt();
         return true;
     }
 
@@ -440,6 +444,28 @@ public class ClassGen : ClassBase
         this.IndentCount = this.IndentCount - 1;
 
         this.Text(this.LimitBraceRite);
+        this.Text(this.LimitSemicolon);
+        this.Text(this.NewLine);
+        this.Text(this.NewLine);
+        return true;
+    }
+
+    public virtual bool ExecuteClassInt()
+    {
+        this.Text(this.ClassInt);
+        this.Text(this.Space);
+
+        this.ClassVar(this.Class);
+
+        this.Text(this.Space);
+        this.Text(this.LimitAre);
+        this.Text(this.Space);
+
+        this.Text(this.CastInt);
+        this.Text(this.LimitBraceRoundLite);
+        this.ClassAnyName(this.Class);
+        this.Text(this.LimitBraceRoundRite);
+
         this.Text(this.LimitSemicolon);
         this.Text(this.NewLine);
         this.Text(this.NewLine);
