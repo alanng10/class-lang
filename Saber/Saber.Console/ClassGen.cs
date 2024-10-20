@@ -63,16 +63,17 @@ public class ClassGen : ClassBase
         this.InternNewMaide = this.S("Intern_New");
         this.InternValueRef = this.S("Intern_Value_Ref");
         this.InternValueClass = this.S("Intern_Value_Class");
-        this.ClassWord = this.S("Class");
         this.StateGet = this.S("G");
         this.StateSet = this.S("S");
         this.StateCall = this.S("C");
         this.NameCombine = this.S("_");
+        this.ClassWord = this.S("Class");
         this.ListWord = this.S("List");
         this.BaseWord = this.S("Base");
         this.ItemWord = this.S("Item");
         this.AnyWord = this.S("Any");
         this.InitWord = this.S("Init");
+        this.VarWord = this.S("Var");
         this.CastInt = this.S("CastInt");
         this.StringValueArray = this.S("StringValue");
         this.WhileLabelPre = this.S("W_");
@@ -181,6 +182,7 @@ public class ClassGen : ClassBase
     public virtual String ItemWord { get; set; }
     public virtual String AnyWord { get; set; }
     public virtual String InitWord { get; set; }
+    public virtual String VarWord { get; set; }
     public virtual String CastInt { get; set; }
     public virtual String StringValueArray { get; set; }
     public virtual String WhileLabelPre { get; set; }
@@ -315,6 +317,12 @@ public class ClassGen : ClassBase
 
     public virtual bool ExecuteClassInit()
     {
+        this.Text(this.ClassInt);
+        this.Text(this.Space);
+        this.Text(this.ClassInt);
+        this.Text(this.Space);
+
+
         return true;
     }
 
