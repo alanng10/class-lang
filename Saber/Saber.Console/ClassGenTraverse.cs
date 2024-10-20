@@ -172,7 +172,7 @@ public class ClassGenTraverse : Traverse
 
             long kk;
             kk = varClass.FieldRange.Index;
-            kk = kk + varField.BinaryIndex;
+            kk = kk + varField.Index;
 
             long k;
             k = 2;
@@ -209,7 +209,7 @@ public class ClassGenTraverse : Traverse
 
         long kk;
         kk = varClass.FieldRange.Index;
-        kk = kk + varField.BinaryIndex;
+        kk = kk + varField.Index;
 
         long k;
         k = 1;
@@ -238,7 +238,7 @@ public class ClassGenTraverse : Traverse
 
         long kk;
         kk = varClass.MaideRange.Index;
-        kk = kk + varMaide.BinaryIndex;
+        kk = kk + varMaide.Index;
 
         long k;
         k = varMaide.Param.Count;

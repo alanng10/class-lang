@@ -10,6 +10,5 @@ public class Field : Any
     public virtual Table Set { get; set; }
     public virtual Class Parent { get; set; }
     public virtual long Index { get; set; }
-    public virtual long BinaryIndex { get; set; }
     public virtual object Any { get; set; }
 }

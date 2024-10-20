@@ -460,8 +460,7 @@ public class ModuleLoad : ClassBase
             Field a;
             a = new Field();
             a.Init();
-            a.Index = fieldTable.Count;
-            a.BinaryIndex = ua.Index;
+            a.Index = i;
             a.Name = name;
             a.Class = c;
             a.Count = this.CountList.Get(ua.Count);
