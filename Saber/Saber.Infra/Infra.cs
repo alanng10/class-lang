@@ -268,9 +268,15 @@ public class Infra : Any
         return true;
     }
 
-    public virtual object CompDefined(Class varClass, String name, Class anyClass)
+    public virtual object CompDefined(Class varClass, String name, Module module, Class anyClass)
     {
+        Count prusateCount;
+        Count precateCount;
+        Count pronateCount;
         Count privateCount;
+        prusateCount = this.CountList.Prusate;
+        precateCount = this.CountList.Precate;
+        pronateCount = this.CountList.Pronate;
         privateCount = this.CountList.Private;
 
         object k;
@@ -291,10 +297,21 @@ public class Infra : Any
 
                 if (!(field == null))
                 {
-                    if (!(field.Count == privateCount))
+                    Count ka;
+                    ka = field.Count;
+                    if (ka == prusateCount | ka == precateCount)
                     {
                         k = field;
                         b = true;
+                    }
+
+                    if (ka == pronateCount)
+                    {
+                        if (c.Module == module)
+                        {
+                            k = field;
+                            b = true;
+                        }
                     }
                 }
             }
