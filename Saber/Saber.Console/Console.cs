@@ -57,9 +57,7 @@ public class Console : ClassBase
     public virtual TaskKindList TaskKind { get; set; }
     public virtual Table ModuleTable { get; set; }
     public virtual Table BinaryTable { get; set; }
-    public virtual Table ClassTable { get; set; }
-    public virtual Table ImportTable { get; set; }
-    public virtual Table ExportTable { get; set; }
+    public virtual Table ImportClass { get; set; }
     public virtual bool ErrorWrite { get; set; }
     protected virtual StorageInfra StorageInfra { get; set; }
     protected virtual BinaryRead BinaryRead { get; set; }
@@ -545,7 +543,7 @@ public class Console : ClassBase
     {
         this.BinaryTable = this.CopyModuleRefTable(this.InitBinaryTable);
         this.ModuleTable = this.CopyModuleRefTable(this.InitModuleTable);
-        this.ClassTable = this.ClassInfra.TableCreateStringLess();
+        this.ImportClass = this.ClassInfra.TableCreateStringLess();
         PortLoad portLoad;
         portLoad = this.PortLoad;
 
@@ -554,7 +552,7 @@ public class Console : ClassBase
         portLoad.ModuleLoad = this.ModuleLoad;
         portLoad.BinaryTable = this.BinaryTable;
         portLoad.ModuleTable = this.ModuleTable;
-        portLoad.ClassTable = this.ClassTable;
+        portLoad.ClassTable = this.ImportClass;
 
         bool b;
         b = portLoad.Execute();

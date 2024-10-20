@@ -26,7 +26,7 @@ public class PortLoad : ClassBase
     public virtual BinaryRead BinaryRead { get; set; }
     public virtual Table ModuleTable { get; set; }
     public virtual Table BinaryTable { get; set; }
-    public virtual Table ClassTable { get; set; }
+    public virtual Table ImportClass { get; set; }
     public virtual NameCheck NameCheck { get; set; }
     protected virtual StorageInfra StorageInfra { get; set; }
     protected virtual StoragePathCheck StoragePathCheck { get; set; }
@@ -640,12 +640,6 @@ public class PortLoad : ClassBase
         Table moduleTable;
         moduleTable = this.ModuleTable;
 
-        Table classTable;
-        classTable = this.ClassTable;
-
-        Table importTable;
-        importTable = this.Module.Import;
-
         NameCheck nameCheck;
         nameCheck = this.NameCheck;
 
@@ -670,7 +664,7 @@ public class PortLoad : ClassBase
             Table a;
             a = classInfra.TableCreateRefLess();
             
-            listInfra.TableAdd(importTable, kk, a);
+            listInfra.TableAdd(this.Module.Import, kk, a);
 
             PortImport kkk;
             kkk = (PortImport)array.GetAt(i);
@@ -716,13 +710,13 @@ public class PortLoad : ClassBase
                     return false;
                 }
                 
-                if (classTable.Valid(name))
+                if (this.ImportClass.Valid(name))
                 {
                     this.Status = 83;
                     return false;
                 }
 
-                listInfra.TableAdd(classTable, name, varClass);
+                listInfra.TableAdd(this.ImportClass, name, varClass);
 
                 iA = iA + 1;
             }
@@ -734,9 +728,6 @@ public class PortLoad : ClassBase
     {
         ListInfra listInfra;
         listInfra = this.ListInfra;
-
-        Table classTable;
-        classTable = this.ClassTable;
 
         Table exportTable;
         exportTable = this.Module.Export;
@@ -765,7 +756,7 @@ public class PortLoad : ClassBase
                 return false;
             }
 
-            if (classTable.Valid(name))
+            if (this.ImportClass.Valid(name))
             {
                 this.Status = 86;
                 return false;
