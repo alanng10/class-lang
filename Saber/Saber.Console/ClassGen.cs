@@ -537,11 +537,14 @@ public class ClassGen : ClassBase
             String name;
             name = (String)iter.Index;
 
+            ClassClass varClass;
+            varClass = (ClassClass)iter.Value;
+
             this.TextIndent();
 
             this.Text(this.CastInt);
             this.Text(this.LimitBraceRoundLite);
-            this.CompStateMaideName(this.Class, name, stateKind);
+            this.CompStateMaideName(varClass, name, stateKind);
             this.Text(this.LimitBraceRoundRite);
 
             this.Text(this.LimitComma);
