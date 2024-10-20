@@ -8,6 +8,8 @@ public class Binary : Any
 
     public virtual Array Import { get; set; }
 
+    public virtual Array Export { get; set; }
+
     public virtual Array Base { get; set; }
 
     public virtual Array Part { get; set; }
