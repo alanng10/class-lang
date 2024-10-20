@@ -68,6 +68,8 @@ public class ClassGen : ClassBase
         this.StateSet = this.S("S");
         this.StateCall = this.S("C");
         this.NameCombine = this.S("_");
+        this.ListName = this.S("List");
+        this.CastInt = this.S("CastInt");
         this.StringValueArray = this.S("StringValue");
         this.WhileLabelPre = this.S("W_");
         this.IndexReturn = this.S("return");
@@ -170,6 +172,8 @@ public class ClassGen : ClassBase
     public virtual String StateSet { get; set; }
     public virtual String StateCall { get; set; }
     public virtual String NameCombine { get; set; }
+    public virtual String ListName { get; set; }
+    public virtual String CastInt { get; set; }
     public virtual String StringValueArray { get; set; }
     public virtual String WhileLabelPre { get; set; }
     public virtual String IndexReturn { get; set; }
@@ -276,6 +280,70 @@ public class ClassGen : ClassBase
 
     public virtual bool ExecuteRefer()
     {
+        this.ExecuteReferCompList(this.ClassComp.Field, this.StateGet);
+
+        this.ExecuteReferCompList(this.ClassComp.Field, this.StateSet);
+
+        this.ExecuteReferCompList(this.ClassComp.Maide, this.StateCall);
+
+        return true;
+    }
+
+    public virtual bool ExecuteReferCompList(Table table, String stateKind)
+    {
+        this.Text(this.ClassInt);
+        this.Text(this.Space);
+        
+        this.ClassName(this.Class);
+        this.Text(this.NameCombine);
+        this.Text(stateKind);
+        this.Text(this.NameCombine);
+        this.Text(this.ListName);
+
+        this.Text(this.Space);
+        this.Text(this.LimitAre);
+        this.Text(this.NewLine);
+
+        this.Text(this.LimitBraceSquareLite);
+        this.Text(this.NewLine);
+
+        this.IndentCount = this.IndentCount + 1;
+        Iter iter;
+        iter = this.TableIter;
+
+        table.IterSet(iter);
+
+        bool b;
+        b = false;
+
+        while (iter.Next())
+        {
+            String name;
+            name = (String)iter.Index;
+
+            if (b)
+            {
+                this.Text(this.LimitComma);
+                this.Text(this.NewLine);
+            }
+
+            this.TextIndent();
+
+            this.Text(this.CastInt);
+            this.Text(this.LimitBraceRoundLite);
+            this.CompStateMaideName(this.Class, name, stateKind);
+            this.Text(this.LimitBraceRoundRite);
+
+            b = true;
+        }
+
+        this.IndentCount = this.IndentCount - 1;
+
+        this.Text(this.LimitBraceSquareRite);
+        this.Text(this.LimitSemicolon);
+        this.Text(this.NewLine);
+        this.Text(this.NewLine);
+
         return true;
     }
 
@@ -1671,19 +1739,19 @@ public class ClassGen : ClassBase
         return true;
     }
 
-    public virtual bool FieldGetMaideName(Field varField)
+    public virtual bool FieldGetMaideName(ClassClass varClass, String compName)
     {
-        return this.CompStateMaideName(varField.Parent, varField.Name, this.StateGet);
+        return this.CompStateMaideName(varClass, compName, this.StateGet);
     }
 
-    public virtual bool FieldSetMaideName(Field varField)
+    public virtual bool FieldSetMaideName(ClassClass varClass, String compName)
     {
-        return this.CompStateMaideName(varField.Parent, varField.Name, this.StateSet);
+        return this.CompStateMaideName(varClass, compName, this.StateSet);
     }
 
-    public virtual bool MaideCallMaideName(Maide varMaide)
+    public virtual bool MaideCallMaideName(ClassClass varClass, String compName)
     {
-        return this.CompStateMaideName(varMaide.Parent, varMaide.Name, this.StateCall);
+        return this.CompStateMaideName(varClass, compName, this.StateCall);
     }
 
     public virtual bool CompStateMaideName(ClassClass varClass, String compName, String state)
