@@ -61,7 +61,6 @@ public class Create : InfraCreate
         this.ExecuteClass();
         this.ExecuteBase();
         this.ExecuteComp();
-        this.ExecuteImport();
         this.ExecuteExport();
         this.ExecuteEntry();
         this.ExecuteState();
@@ -418,63 +417,6 @@ public class Create : InfraCreate
         return true;
     }
 
-    protected virtual bool ExecuteImport()
-    {
-        Iter iter;
-        iter = this.Module.Class.IterCreate();
-        this.Module.Class.IterSet(iter);
-        while (iter.Next())
-        {
-            ClassClass a;
-            a = (ClassClass)iter.Value;
-            this.ExecuteImportClass(a);
-        }
-        return true;
-    }
-
-    protected virtual bool ExecuteImportClass(ClassClass varClass)
-    {
-        this.ExecuteImportField(varClass.Field);
-        this.ExecuteImportMaide(varClass.Maide);
-        return true;
-    }
-
-    protected virtual bool ExecuteImportField(Table varField)
-    {
-        Iter iter;
-        iter = varField.IterCreate();
-        varField.IterSet(iter);
-        while (iter.Next())
-        {
-            Field a;
-            a = (Field)iter.Value;
-
-            if (!(a.Virtual == null))
-            {
-                this.AddVirtualImport(a.Virtual.Parent);
-            }
-        }
-        return true;
-    }
-
-    protected virtual bool ExecuteImportMaide(Table varMaide)
-    {
-        Iter iter;
-        iter = varMaide.IterCreate();
-        varMaide.IterSet(iter);
-        while (iter.Next())
-        {
-            Maide a;
-            a = (Maide)iter.Value;
-
-            if (!(a.Virtual == null))
-            {
-                this.AddVirtualImport(a.Virtual.Parent);
-            }
-        }
-        return true;
-    }
-
     public virtual bool VirtualField(Field a)
     {
         ClassClass varClass;
@@ -592,33 +534,6 @@ public class Create : InfraCreate
         }
 
         a.Virtual = h;
-        return true;
-    }
-
-    protected virtual bool AddVirtualImport(ClassClass a)
-    {
-        ClassModule module;
-        module = this.Module;
-        ClassModule o;
-        o = a.Module;
-
-        if (o == module)
-        {
-            return true;
-        }
-
-        Table oo;
-        oo = (Table)module.Import.Get(o.Ref);
-        if (oo == null)
-        {
-            oo = this.ClassInfra.TableCreateRefLess();
-            this.ListInfra.TableAdd(module.Import, o.Ref, oo);
-        }
-
-        if (!oo.Valid(a))
-        {
-            this.ListInfra.TableAdd(oo, a, a);
-        }
         return true;
     }
 
