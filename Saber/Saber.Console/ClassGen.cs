@@ -335,8 +335,116 @@ public class ClassGen : ClassBase
 
     public virtual bool ClassCompSet()
     {
+        long fieldCount;
+        fieldCount = this.Class.FieldStart + this.Class.Field.Count;
+        long maideCount;
+        maideCount = this.Class.MaideStart + this.Class.Maide.Count;
+
+        ClassComp k;
+        k = new ClassComp();
+        k.Init();
+        this.ClassComp = k;
+
+        k.Field = this.ListInfra.ArrayCreate(fieldCount);
+        k.Maide = this.ListInfra.ArrayCreate(maideCount);
+
+        Array array;
+        array = this.BaseArray;
+
+        long count;
+        count = array.Count;
+
+        long i;
+        i = 0;
+        while (i < count)
+        {
+            ClassClass kk;
+            kk = (ClassClass)array.GetAt(i);
+
+            i = i + 1;
+        }
+
         return true;
     }
+
+    public virtual bool ClassCompSetClass(ClassComp classComp, ClassClass c)
+    {
+        this.ClassCompSetClassField(classComp.Field, c);
+
+        this.ClassCompSetClassMaide(classComp.Maide, c);
+        return true;
+    }
+
+    public virtual bool ClassCompSetClassField(Array array, ClassClass c)
+    {
+        Iter iter;
+        iter = this.TableIter;
+
+        c.Field.IterSet(iter);
+
+        while (iter.Next())
+        {
+            Field field;
+            field = (Field)iter.Value;
+
+            Field k;
+            k = field;
+
+            if (!(field.Virtual == null))
+            {
+                k = field.Virtual;    
+            }
+
+            ClassClass ka;
+            ka = k.Parent;
+
+            long kk;
+            kk = ka.FieldStart;
+            kk = kk + k.Index;
+
+            array.SetAt(kk, field);
+        }
+
+        iter.Clear();
+
+        return true;
+    }
+
+    public virtual bool ClassCompSetClassMaide(Array array, ClassClass c)
+    {
+        Iter iter;
+        iter = this.TableIter;
+
+        c.Maide.IterSet(iter);
+
+        while (iter.Next())
+        {
+            Maide maide;
+            maide = (Maide)iter.Value;
+
+            Maide k;
+            k = maide;
+
+            if (!(maide.Virtual == null))
+            {
+                k = maide.Virtual;
+            }
+
+            ClassClass ka;
+            ka = k.Parent;
+
+            long kk;
+            kk = ka.MaideStart;
+            kk = kk + k.Index;
+
+            array.SetAt(kk, maide);
+        }
+
+        iter.Clear();
+
+        return true;
+    }
+    
 
     public virtual bool ExecuteRefer()
     {
