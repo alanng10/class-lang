@@ -104,7 +104,6 @@ public class CompTraverse : Traverse
         a.Set = varSet;
         a.Parent = this.ThisClass;
         a.Index = ka;
-        a.BinaryIndex = ka;
         a.Any = nodeField;
 
         bool b;
