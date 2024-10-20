@@ -249,6 +249,10 @@ public class ClassGen : ClassBase
 
         this.ClassBaseMask = this.ClassBaseMaskGet(k);
 
+        this.BaseArray = this.ListInfra.ArrayCreate(baseCount);
+
+        this.BaseArraySet();
+
         this.Arg = new GenArg();
         this.Arg.Init();
 
@@ -299,6 +303,11 @@ public class ClassGen : ClassBase
         nodeClass = (NodeClass)this.Class.Any;
 
         this.Traverse.ExecuteClass(nodeClass);
+        return true;
+    }
+
+    public virtual bool BaseArraySet()
+    {
         return true;
     }
 
