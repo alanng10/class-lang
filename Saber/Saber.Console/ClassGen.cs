@@ -339,6 +339,7 @@ public class ClassGen : ClassBase
 
         this.IndentCount = this.IndentCount - 1;
 
+        this.Text(this.NewLine);
         this.Text(this.LimitBraceSquareRite);
         this.Text(this.LimitSemicolon);
         this.Text(this.NewLine);
