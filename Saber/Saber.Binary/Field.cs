@@ -6,7 +6,5 @@ public class Field : Any
 
     public virtual long Count { get; set; }
 
-    public virtual long Index { get; set; }
-
     public virtual String Name { get; set; }
 }

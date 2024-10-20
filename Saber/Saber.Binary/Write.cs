@@ -193,7 +193,6 @@ public class Write : Any
     {
         this.ExecuteIndex(varField.Class);
         this.ExecuteByte(varField.Count);
-        this.ExecuteIndex(varField.Index);
         this.ExecuteName(varField.Name);
         return true;
     }
@@ -219,7 +218,6 @@ public class Write : Any
     {
         this.ExecuteIndex(varMaide.Class);
         this.ExecuteByte(varMaide.Count);
-        this.ExecuteIndex(varMaide.Index);
         this.ExecuteName(varMaide.Name);
         this.ExecuteVarArray(varMaide.Param);
         return true;
