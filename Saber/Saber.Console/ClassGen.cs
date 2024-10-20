@@ -290,11 +290,11 @@ public class ClassGen : ClassBase
 
     public virtual bool ExecuteRefer()
     {
-        this.ExecuteCompList(this.ClassComp.Field, this.StateGet);
+        this.ExecuteCompList(this.ClassComp.Field, true, this.StateGet);
 
-        this.ExecuteCompList(this.ClassComp.Field, this.StateSet);
+        this.ExecuteCompList(this.ClassComp.Field, true, this.StateSet);
 
-        this.ExecuteCompList(this.ClassComp.Maide, this.StateCall);
+        this.ExecuteCompList(this.ClassComp.Maide, false, this.StateCall);
 
         this.ExecuteExternClassAny();
 
@@ -510,7 +510,7 @@ public class ClassGen : ClassBase
         return true;
     }
 
-    public virtual bool ExecuteCompList(Array array, String stateKind)
+    public virtual bool ExecuteCompList(Array array, bool field, String stateKind)
     {
         long count;
         count = array.Count;
@@ -532,6 +532,9 @@ public class ClassGen : ClassBase
 
         this.IndentCount = this.IndentCount + 1;
 
+        bool b;
+        b = field;
+
         long i;
         i = 0;
         while (i < count)
@@ -544,8 +547,6 @@ public class ClassGen : ClassBase
             varClass = null;
             name = null;
 
-            bool b;
-            b = (k is Field);
             if (b)
             {
                 Field ka;
