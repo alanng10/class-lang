@@ -302,6 +302,47 @@ public class ClassGen : ClassBase
         long count;
         count = this.BaseArray.Count;
 
+        this.Text(this.ClassInt);
+        this.Text(this.Space);
+
+        this.BaseName(this.Class);
+        this.Text(this.LimitBraceSquareLite);
+        this.TextInt(count);
+        this.Text(this.LimitBraceSquareRite);
+
+        this.Text(this.Space);
+        this.Text(this.LimitAre);
+        this.Text(this.NewLine);
+
+        this.Text(this.LimitBraceLite);
+        this.Text(this.NewLine);
+
+        this.IndentCount = this.IndentCount + 1;
+
+        long i;
+        i = 0;
+        while (i < count)
+        {
+            ClassClass varClass;
+            varClass = (ClassClass)this.BaseArray.GetAt(i);
+
+            this.TextIndent();
+            this.Text(this.CastInt);
+            this.Text(this.LimitBraceRoundLite);
+            this.BaseItemName(varClass);
+            this.Text(this.LimitBraceRoundRite);
+            this.Text(this.LimitComma);
+            this.Text(this.NewLine);
+
+            i = i + 1;
+        }
+
+        this.IndentCount = this.IndentCount - 1;
+
+        this.Text(this.LimitBraceRite);
+        this.Text(this.LimitSemicolon);
+        this.Text(this.NewLine);
+        this.Text(this.NewLine);
 
         return true;
     }
