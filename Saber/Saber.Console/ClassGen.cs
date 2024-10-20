@@ -234,9 +234,12 @@ public class ClassGen : ClassBase
     {
         this.InitMaide = (Maide)this.System.Any.Maide.Get(this.InitWord);
 
-        long k;
-        k = this.BaseArray.Count - 1;
+        long baseCount;
+        baseCount = this.BaseCountGet();
         
+        long k;
+        k = baseCount - 1;
+
         if (!this.ValidBaseIndex(k))
         {
             return false;
@@ -2391,39 +2394,32 @@ public class ClassGen : ClassBase
         return a;
     }
 
-    // public virtual long BaseIndexGet()
-    // {
-    //     ClassClass anyClass;
-    //     anyClass = this.System.Any;
+    public virtual long BaseCountGet()
+    {
+        ClassClass anyClass;
+        anyClass = this.System.Any;
 
-    //     ClassClass c;
-    //     c = this.Class;
+        ClassClass c;
+        c = this.Class;
 
-    //     long k;
-    //     k = 0;
+        long k;
+        k = 0;
 
-    //     ClassClass ka;
-    //     ka = null;
-    //     if (!(c == anyClass))
-    //     {
-    //         ka = c.Base;
-    //     }
-    //     c = ka;
+        while (!(c == null))
+        {
+            k = k + 1;
 
-    //     while (!(c == null))
-    //     {
-    //         k = k + 1;
+            ClassClass ka;
+            ka = null;
+            if (!(c == anyClass))
+            {
+                ka = c.Base;
+            }
+            c = ka;
+        }
 
-    //         ka = null;
-    //         if (!(c == anyClass))
-    //         {
-    //             ka = c.Base;
-    //         }
-    //         c = ka;
-    //     }
-
-    //     return k;
-    // }
+        return k;
+    }
 
     protected virtual String InitVar(String prefix, string name)
     {
