@@ -309,6 +309,13 @@ public class ClassGen : ClassBase
         this.ExecuteClassAny();
 
         this.ExecuteClassInt();
+
+        this.ExecuteClassInit();
+        return true;
+    }
+
+    public virtual bool ExecuteClassInit()
+    {
         return true;
     }
 
