@@ -115,7 +115,7 @@ public class ClassGen : ClassBase
 
     public virtual ClassClass Class { get; set; }
     public virtual ClassComp ClassComp { get; set; }
-    public virtual long BaseIndex { get; set; }
+    public virtual long BaseCount { get; set; }
     public virtual Array BaseArray { get; set; }
     public virtual bool Export { get; set; }
     public virtual ClassClass NullClass { get; set; }
@@ -234,24 +234,21 @@ public class ClassGen : ClassBase
     {
         this.InitMaide = (Maide)this.System.Any.Maide.Get(this.InitWord);
 
-        long baseCount;
-        baseCount = this.BaseCountGet();
+        this.BaseCount = this.BaseCountGet();
         
         long k;
-        k = baseCount - 1;
+        k = this.BaseCount - 1;
 
         if (!this.ValidBaseIndex(k))
         {
             return false;
         }
 
-        this.BaseIndex = k;
-
         this.ClassBaseMask = this.ClassBaseMaskGet(k);
 
-        this.BaseArray = this.ListInfra.ArrayCreate(baseCount);
-
         this.BaseArraySet();
+
+        this.ClassCompSet();
 
         this.Arg = new GenArg();
         this.Arg.Init();
@@ -308,11 +305,13 @@ public class ClassGen : ClassBase
 
     public virtual bool BaseArraySet()
     {
-        Array array;
-        array = this.BaseArray;
-
         long count;
-        count = array.Count;
+        count = this.BaseCount;
+
+        Array array;
+        array = this.ListInfra.ArrayCreate(count);
+
+        this.BaseArray = array;
 
         ClassClass c;
         c = this.Class;
@@ -331,6 +330,11 @@ public class ClassGen : ClassBase
             i = i + 1;
         }
 
+        return true;
+    }
+
+    public virtual bool ClassCompSet()
+    {
         return true;
     }
 
@@ -458,6 +462,9 @@ public class ClassGen : ClassBase
 
     public virtual bool ExecuteClassAny()
     {
+        long baseIndex;
+        baseIndex = this.BaseCount - 1;
+
         long fieldCount;
         fieldCount = this.Class.FieldStart + this.Class.Field.Count;
 
@@ -487,7 +494,7 @@ public class ClassGen : ClassBase
         this.Text(this.LimitComma);
         this.Text(this.Space);
 
-        this.TextInt(this.BaseIndex);
+        this.TextInt(baseIndex);
         this.Text(this.LimitComma);
         this.Text(this.Space);
 
