@@ -824,11 +824,6 @@ public class ModuleLoad : ClassBase
         return a;
     }
 
-    protected virtual bool CheckName(String o)
-    {
-        return this.NameCheck.IsName(this.TA(o));
-    }
-
     protected virtual ClassClass ClassGetIndex(long index)
     {
         Array classArray;
