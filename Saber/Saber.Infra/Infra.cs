@@ -273,11 +273,9 @@ public class Infra : Any
         Count prusateCount;
         Count precateCount;
         Count pronateCount;
-        Count privateCount;
         prusateCount = this.CountList.Prusate;
         precateCount = this.CountList.Precate;
         pronateCount = this.CountList.Pronate;
-        privateCount = this.CountList.Private;
 
         object k;
         k = null;
@@ -323,10 +321,21 @@ public class Infra : Any
 
                 if (!(maide == null))
                 {
-                    if (!(maide.Count == privateCount))
+                    Count kb;
+                    kb = maide.Count;
+                    if (kb == prusateCount | kb == precateCount)
                     {
                         k = maide;
                         b = true;
+                    }
+
+                    if (kb == pronateCount)
+                    {
+                        if (c.Module == module)
+                        {
+                            k = maide;
+                            b = true;
+                        }
                     }
                 }
             }
