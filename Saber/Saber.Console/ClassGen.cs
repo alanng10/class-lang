@@ -264,10 +264,17 @@ public class ClassGen : ClassBase
 
         this.WhileIndex = 0;
 
+        this.ExecuteRefer();
+
         NodeClass nodeClass;
         nodeClass = (NodeClass)this.Class.Any;
 
         this.Traverse.ExecuteClass(nodeClass);
+        return true;
+    }
+
+    public virtual bool ExecuteRefer()
+    {
         return true;
     }
 
