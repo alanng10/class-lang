@@ -74,6 +74,9 @@ public class ClassGen : ClassBase
         this.AnyWord = this.S("Any");
         this.InitWord = this.S("Init");
         this.VarWord = this.S("Var");
+        this.ImportWord = this.S("Import");
+        this.ExportWord = this.S("Export");
+        this.ApiWord = this.S("Api");
         this.CastInt = this.S("CastInt");
         this.StringValueArray = this.S("StringValue");
         this.WhileLabelPre = this.S("W_");
@@ -183,6 +186,9 @@ public class ClassGen : ClassBase
     public virtual String AnyWord { get; set; }
     public virtual String InitWord { get; set; }
     public virtual String VarWord { get; set; }
+    public virtual String ImportWord { get; set; }
+    public virtual String ExportWord { get; set; }
+    public virtual String ApiWord { get; set; }
     public virtual String CastInt { get; set; }
     public virtual String StringValueArray { get; set; }
     public virtual String WhileLabelPre { get; set; }
@@ -508,6 +514,76 @@ public class ClassGen : ClassBase
         this.Text(this.LimitComma);
         this.Text(this.NewLine);
         return true;
+    }
+
+    public virtual bool ExecuteExternCompList(Array array, bool field, String stateKind)
+    {
+        bool b;
+        b = field;
+
+        long count;
+        count = array.Count;
+
+        long i;
+        i = 0;
+        while (i < count)
+        {
+            object k;
+            k = array.GetAt(i);
+
+            ClassClass varClass;
+            String name;
+            varClass = null;
+            name = null;
+
+            if (b)
+            {
+                Field ka;
+                ka = (Field)k;
+                name = ka.Name;
+                varClass = ka.Parent;
+            }
+            if (!b)
+            {
+                Maide kb;
+                kb = (Maide)k;
+                name = kb.Name;
+                varClass = kb.Parent;
+            }
+
+            bool export;
+            export = (varClass.Module == this.Class.Module);
+            
+            String kka;
+            kka = null;
+
+            if (!export)
+            {
+                kka = this.ImportWord;
+            }
+
+            if (export)
+            {
+                kka = this.ExportWord;
+            }
+
+            this.Text(kka);
+            this.Text(this.ApiWord);
+
+            this.Text(this.Space);
+
+            this.Text(this.ClassInt);
+
+            this.Text(this.Space);
+
+            this.CompStateMaideName(varClass, name, stateKind);
+
+
+            this.Text(this.LimitSemicolon);
+            this.Text(this.NewLine);
+
+            i = i + 1;
+        }
     }
 
     public virtual bool ExecuteCompList(Array array, bool field, String stateKind)
