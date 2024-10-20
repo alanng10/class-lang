@@ -725,14 +725,6 @@ public class Read : Any
         {
             return null;
         }
-        long varVirtual;
-        varVirtual = u;
-
-        u = this.ExecuteIndex();
-        if (u == -1)
-        {
-            return null;
-        }
         long index;
         index = u;
 
@@ -747,7 +739,6 @@ public class Read : Any
         a = this.Operate.ExecuteField();
         a.Class = varClass;
         a.Count = count;
-        a.Virtual = varVirtual;
         a.Index = index;
         a.Name = name;
         return a;
@@ -811,14 +802,6 @@ public class Read : Any
         {
             return null;
         }
-        long varVirtual;
-        varVirtual = u;
-
-        u = this.ExecuteIndex();
-        if (u == -1)
-        {
-            return null;
-        }
         long index;
         index = u;
 
@@ -840,7 +823,6 @@ public class Read : Any
         a = this.Operate.ExecuteMaide();
         a.Class = varClass;
         a.Count = count;
-        a.Virtual = varVirtual;
         a.Index = index;
         a.Name = name;
         a.Param = param;
