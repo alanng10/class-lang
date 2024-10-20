@@ -115,6 +115,7 @@ public class ClassGen : ClassBase
 
     public virtual ClassClass Class { get; set; }
     public virtual ClassComp ClassComp { get; set; }
+    public virtual long BaseIndex { get; set; }
     public virtual Array BaseArray { get; set; }
     public virtual bool Export { get; set; }
     public virtual ClassClass NullClass { get; set; }
@@ -240,6 +241,8 @@ public class ClassGen : ClassBase
         {
             return false;
         }
+
+        this.BaseIndex = k;
 
         this.ClassBaseMask = this.ClassBaseMaskGet(k);
 
@@ -449,7 +452,7 @@ public class ClassGen : ClassBase
         this.Text(this.LimitComma);
         this.Text(this.Space);
 
-        this.TextInt(this.Class.BaseIndex);
+        this.TextInt(this.BaseIndex);
         this.Text(this.LimitComma);
         this.Text(this.Space);
 
