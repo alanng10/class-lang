@@ -421,7 +421,7 @@ public class ClassGen : ClassBase
         return true;
     }
 
-    public virtual bool ClassBaseName(ClassClass varClass)
+    public virtual bool BaseName(ClassClass varClass)
     {
         this.ClassName(varClass);
         this.Text(this.NameCombine);
