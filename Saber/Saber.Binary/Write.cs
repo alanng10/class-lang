@@ -58,6 +58,7 @@ public class Write : Any
         this.ExecuteModuleRef(binary.Ref);
         this.ExecuteClassArray(binary.Class);
         this.ExecuteImportArray(binary.Import);
+        this.ExecuteExportArray(binary.Export);
         this.ExecuteBaseArray(binary.Base);
         this.ExecutePartArray(binary.Part);
         this.ExecuteIndex(binary.Entry);
@@ -109,6 +110,11 @@ public class Write : Any
         this.ExecuteModuleRef(import.Module);
         this.ExecuteClassIndexArray(import.Class);
         return true;
+    }
+
+    protected virtual bool ExecuteExportArray(Array array)
+    {
+        return this.ExecuteClassIndexArray(array);
     }
 
     protected virtual bool ExecuteClassIndexArray(Array array)
