@@ -509,14 +509,17 @@ public class ClassGen : ClassBase
         return true;
     }
 
-    public virtual bool ExecuteCompList(Table table, String stateKind)
+    public virtual bool ExecuteCompList(Array array, String stateKind)
     {
+        long count;
+        count = array.Count;
+
         this.Text(this.ClassInt);
         this.Text(this.Space);
         
         this.CompListName(this.Class, stateKind);
         this.Text(this.LimitBraceSquareLite);
-        this.TextInt(table.Count);
+        this.TextInt(count);
         this.Text(this.LimitBraceSquareRite);
 
         this.Text(this.Space);
@@ -527,18 +530,35 @@ public class ClassGen : ClassBase
         this.Text(this.NewLine);
 
         this.IndentCount = this.IndentCount + 1;
-        Iter iter;
-        iter = this.TableIter;
-
-        table.IterSet(iter);
-
-        while (iter.Next())
+        
+        long i;
+        i = 0;
+        while (i < count)
         {
-            String name;
-            name = (String)iter.Index;
+            object k;
+            k = array.GetAt(i);
 
             ClassClass varClass;
-            varClass = (ClassClass)iter.Value;
+            String name;
+            varClass = null;
+            name = null;
+
+            bool b;
+            b = (k is Field);
+            if (b)
+            {
+                Field ka;
+                ka = (Field)k;
+                name = ka.Name;
+                varClass = ka.Parent;
+            }
+            if (!b)
+            {
+                Maide kb;
+                kb = (Maide)k;
+                name = kb.Name;
+                varClass = kb.Parent;
+            }
 
             this.TextIndent();
 
@@ -550,8 +570,6 @@ public class ClassGen : ClassBase
             this.Text(this.LimitComma);
             this.Text(this.NewLine);
         }
-
-        iter.Clear();
 
         this.IndentCount = this.IndentCount - 1;
 
