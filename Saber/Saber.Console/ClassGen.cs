@@ -332,6 +332,8 @@ public class ClassGen : ClassBase
             this.Text(this.NewLine);
         }
 
+        iter.Clear();
+
         this.IndentCount = this.IndentCount - 1;
 
         this.Text(this.NewLine);
