@@ -552,7 +552,7 @@ public class Console : ClassBase
         portLoad.ModuleLoad = this.ModuleLoad;
         portLoad.BinaryTable = this.BinaryTable;
         portLoad.ModuleTable = this.ModuleTable;
-        portLoad.ClassTable = this.ImportClass;
+        portLoad.ImportClass = this.ImportClass;
 
         bool b;
         b = portLoad.Execute();
@@ -566,7 +566,7 @@ public class Console : ClassBase
         this.PortModule = portLoad.Module;
 
         portLoad.Module = null;
-        portLoad.ClassTable = null;
+        portLoad.ImportClass = null;
         portLoad.ModuleTable = null;
         portLoad.BinaryTable = null;
         portLoad.ModuleLoad = null;
