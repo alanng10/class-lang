@@ -84,7 +84,6 @@ public class Read : Any
         arg.VarArray = listInfra.ArrayCreate(arg.VarIndex);
         arg.ClassIndexArray = listInfra.ArrayCreate(arg.ClassIndexIndex);
         arg.ModuleRefArray = listInfra.ArrayCreate(arg.ModuleRefIndex);
-        arg.RangeArray = listInfra.ArrayCreate(arg.RangeIndex);
         arg.StringArray = listInfra.ArrayCreate(arg.StringIndex);
         arg.ArrayArray = listInfra.ArrayCreate(arg.ArrayIndex);
 
@@ -97,7 +96,6 @@ public class Read : Any
         this.ExecuteCreateVar();
         this.ExecuteCreateClassIndex();
         this.ExecuteCreateModuleRef();
-        this.ExecuteCreateRange();
         this.ExecuteCreateString();
         this.ExecuteCreateArray();
 
@@ -124,7 +122,6 @@ public class Read : Any
         a.VarIndex = 0;
         a.ClassIndexIndex = 0;
         a.ModuleRefIndex = 0;
-        a.RangeIndex = 0;
         a.StringIndex = 0;
         a.StringTextIndex = 0;
         a.ArrayIndex = 0;
@@ -388,28 +385,6 @@ public class Read : Any
             o = new ModuleRef();
             o.Init();
             array.SetAt(i, o);
-            i = i + 1;
-        }
-        return true;
-    }
-
-    protected virtual bool ExecuteCreateRange()
-    {
-        Array array;
-        array = this.Arg.RangeArray;
-
-        long count;
-        count = array.Count;
-        long i;
-        i = 0;
-        while (i < count)
-        {
-            Range a;
-            a = new Range();
-            a.Init();
-            
-            array.SetAt(i, a);
-
             i = i + 1;
         }
         return true;
