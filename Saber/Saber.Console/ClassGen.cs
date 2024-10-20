@@ -904,7 +904,7 @@ public class ClassGen : ClassBase
 
         long kk;
         kk = varClass.FieldRange.Index;
-        kk = kk + varField.BinaryIndex;
+        kk = kk + varField.Index;
 
         this.EvalFrameValueGet(k, varA);
 
