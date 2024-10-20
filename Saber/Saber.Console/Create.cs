@@ -108,7 +108,7 @@ public class Create : Any
         this.Module.Source = this.Console.Source;
         this.Module.RootNode = this.Result.Node.Root;
         this.Module.ModuleTable = this.Console.ModuleTable;
-        this.Module.ImportClass = this.Console.ClassTable;
+        this.Module.ImportClass = this.Console.ImportClass;
         this.Module.Module = this.Console.PortModule;
         this.Module.Execute();
         this.Result.Module = this.Module.Result;
