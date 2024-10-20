@@ -35,10 +35,9 @@ public class ClassTraverse : Traverse
             return true;
         }
 
-        Table table;
-        table = this.Create.ClassTable;
-
-        if (table.Valid(className))
+        ClassClass ka;
+        ka = this.Create.Class(className);
+        if (!(ka == null))
         {
             this.Error(this.ErrorKind.NameUnavailable, nodeClass);
             return true;
@@ -58,7 +57,6 @@ public class ClassTraverse : Traverse
         a.Any = nodeClass;
         
         this.ListInfra.TableAdd(this.Module.Class, a.Name, a);
-        this.ListInfra.TableAdd(table, a.Name, a);
 
         this.Info(nodeClass).Class = a;
         return true;
