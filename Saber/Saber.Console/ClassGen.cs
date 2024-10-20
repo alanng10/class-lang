@@ -72,6 +72,7 @@ public class ClassGen : ClassBase
         this.BaseWord = this.S("Base");
         this.ItemWord = this.S("Item");
         this.AnyWord = this.S("Any");
+        this.InitWord = this.S("Init");
         this.CastInt = this.S("CastInt");
         this.StringValueArray = this.S("StringValue");
         this.WhileLabelPre = this.S("W_");
@@ -104,8 +105,6 @@ public class ClassGen : ClassBase
         this.LimitBitNot = this.S("~");
         this.LimitBitLite = this.S("<<");
         this.LimitBitRite = this.S(">>");
-
-        this.SInit = this.S("Init");
         return true;
     }
 
@@ -181,6 +180,7 @@ public class ClassGen : ClassBase
     public virtual String BaseWord { get; set; }
     public virtual String ItemWord { get; set; }
     public virtual String AnyWord { get; set; }
+    public virtual String InitWord { get; set; }
     public virtual String CastInt { get; set; }
     public virtual String StringValueArray { get; set; }
     public virtual String WhileLabelPre { get; set; }
@@ -213,7 +213,6 @@ public class ClassGen : ClassBase
     public virtual String LimitBitNot { get; set; }
     public virtual String LimitBitLite { get; set; }
     public virtual String LimitBitRite { get; set; }
-    protected virtual String SInit { get; set; }
 
     protected virtual String RefKindMask(String kindHexDigit)
     {
@@ -222,7 +221,7 @@ public class ClassGen : ClassBase
 
     public virtual bool Execute()
     {
-        this.InitMaide = (Maide)this.System.Any.Maide.Get(this.SInit);
+        this.InitMaide = (Maide)this.System.Any.Maide.Get(this.InitWord);
 
         long k;
         k = this.Class.BaseIndex;
