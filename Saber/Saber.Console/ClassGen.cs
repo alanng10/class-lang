@@ -293,11 +293,13 @@ public class ClassGen : ClassBase
 
         this.ExecuteReferCompList(this.ClassComp.Maide, this.StateCall);
 
-        this.ExecuteClassBaseItem();
+        this.ExecuteBaseItem();
+        
+        this.ExecuteBase();
         return true;
     }
 
-    public virtual bool ExecuteClassBase()
+    public virtual bool ExecuteBase()
     {
         long count;
         count = this.BaseArray.Count;
@@ -347,7 +349,7 @@ public class ClassGen : ClassBase
         return true;
     }
 
-    public virtual bool ExecuteClassBaseItem()
+    public virtual bool ExecuteBaseItem()
     {
         this.Text(this.ClassInt);
         this.Text(this.Space);
