@@ -2555,7 +2555,8 @@ public class ClassGen : ClassBase
         k = k << 52;
 
         String a;
-        a = this.StringIntHex(k);
+        a = this.AddClear().Add(this.IntValuePre).Add(this.StringIntHex(k)).Add(this.IntValuePost).AddResult();
+        
         return a;
     }
 
