@@ -402,6 +402,9 @@ public class ClassGen : ClassBase
 
     public virtual bool ExecuteClassAny()
     {
+        long fieldCount;
+        fieldCount = this.Class.FieldRange.Index + this.Class.FieldRange.Count;
+
         this.Text(this.ClassInt);
         this.Text(this.Space);
 
@@ -428,11 +431,11 @@ public class ClassGen : ClassBase
         this.Text(this.LimitComma);
         this.Text(this.Space);
 
-        this.Text(this.Zero);
+        this.TextInt(this.Class.BaseIndex);
         this.Text(this.LimitComma);
         this.Text(this.Space);
 
-        this.Text(this.Zero);
+        this.TextInt(fieldCount);
         this.Text(this.LimitComma);
         this.Text(this.Space);
 
