@@ -376,11 +376,11 @@ public class ClassGen : ClassBase
         this.Text(this.LimitComma);
         this.Text(this.NewLine);
 
-        this.ClassBaseItemCompList(this.Class, this.StateGet);
+        this.BaseItemCompList(this.Class, this.StateGet);
 
-        this.ClassBaseItemCompList(this.Class, this.StateSet);
+        this.BaseItemCompList(this.Class, this.StateSet);
 
-        this.ClassBaseItemCompList(this.Class, this.StateCall);
+        this.BaseItemCompList(this.Class, this.StateCall);
 
         this.IndentCount = this.IndentCount - 1;
 
@@ -392,7 +392,7 @@ public class ClassGen : ClassBase
         return true;
     }
 
-    public virtual bool ClassBaseItemCompList(ClassClass varClass, String stateKind)
+    public virtual bool BaseItemCompList(ClassClass varClass, String stateKind)
     {
         this.TextIndent();
         this.Text(this.CastInt);
