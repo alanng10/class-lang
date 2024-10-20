@@ -171,7 +171,7 @@ public class ClassGenTraverse : Traverse
             varClass = varField.Parent;
 
             long kk;
-            kk = varClass.FieldRange.Index;
+            kk = varClass.FieldStart;
             kk = kk + varField.Index;
 
             long k;
@@ -208,7 +208,7 @@ public class ClassGenTraverse : Traverse
         varClass = varField.Parent;
 
         long kk;
-        kk = varClass.FieldRange.Index;
+        kk = varClass.FieldStart;
         kk = kk + varField.Index;
 
         long k;
@@ -237,7 +237,7 @@ public class ClassGenTraverse : Traverse
         varClass = varMaide.Parent;
 
         long kk;
-        kk = varClass.MaideRange.Index;
+        kk = varClass.MaideStart;
         kk = kk + varMaide.Index;
 
         long k;
