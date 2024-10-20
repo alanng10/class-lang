@@ -364,7 +364,15 @@ public class ClassGen : ClassBase
         this.Text(this.NewLine);
 
         this.TextIndent();
-        
+        this.ClassInitVarName(this.Class);
+
+        this.Text(this.Space);
+        this.Text(this.LimitAre);
+        this.Text(this.Space);
+
+        this.Text(this.One);
+        this.Text(this.LimitSemicolon);
+        this.Text(this.NewLine);
 
         this.IndentCount = this.IndentCount - 1;
 
