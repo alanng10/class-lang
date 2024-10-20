@@ -69,6 +69,7 @@ public class ClassGen : ClassBase
         this.StateCall = this.S("C");
         this.NameCombine = this.S("_");
         this.ListName = this.S("List");
+        this.BaseName = this.S("Base");
         this.CastInt = this.S("CastInt");
         this.StringValueArray = this.S("StringValue");
         this.WhileLabelPre = this.S("W_");
@@ -173,6 +174,7 @@ public class ClassGen : ClassBase
     public virtual String StateCall { get; set; }
     public virtual String NameCombine { get; set; }
     public virtual String ListName { get; set; }
+    public virtual String BaseName { get; set; }
     public virtual String CastInt { get; set; }
     public virtual String StringValueArray { get; set; }
     public virtual String WhileLabelPre { get; set; }
