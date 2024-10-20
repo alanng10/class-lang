@@ -17,7 +17,6 @@ public class ModuleLoad : ClassBase
     public virtual ModuleRef ModuleRef { get; set; }
     public virtual ClassModule Module { get; set; }
     public virtual long Status { get; set; }
-    public virtual NameCheck NameCheck { get; set; }
     protected virtual CountList CountList { get; set; }
     protected virtual BinaryBinary Binary { get; set; }
     protected virtual Array ClassArray { get; set; }
@@ -54,12 +53,6 @@ public class ModuleLoad : ClassBase
         if (this.ModuleTable.Valid(o))
         {
             this.Status = 1;
-            return false;
-        }
-
-        if (!this.NameCheck.IsModuleName(this.TA(o.Name)))
-        {
-            this.Status = 2;
             return false;
         }
 
