@@ -234,7 +234,7 @@ public class ClassGen : ClassBase
         this.InitMaide = (Maide)this.System.Any.Maide.Get(this.InitWord);
 
         long k;
-        k = this.Class.BaseIndex;
+        k = this.BaseArray.Count - 1;
         
         if (!this.ValidBaseIndex(k))
         {
