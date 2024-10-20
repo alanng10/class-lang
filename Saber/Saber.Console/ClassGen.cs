@@ -289,11 +289,11 @@ public class ClassGen : ClassBase
 
     public virtual bool ExecuteRefer()
     {
-        this.ExecuteReferCompList(this.ClassComp.Field, this.StateGet);
+        this.ExecuteCompList(this.ClassComp.Field, this.StateGet);
 
-        this.ExecuteReferCompList(this.ClassComp.Field, this.StateSet);
+        this.ExecuteCompList(this.ClassComp.Field, this.StateSet);
 
-        this.ExecuteReferCompList(this.ClassComp.Maide, this.StateCall);
+        this.ExecuteCompList(this.ClassComp.Maide, this.StateCall);
 
         this.ExecuteExternClassAny();
 
@@ -502,19 +502,19 @@ public class ClassGen : ClassBase
         this.TextIndent();
         this.Text(this.CastInt);
         this.Text(this.LimitBraceRoundLite);
-        this.ReferCompListName(varClass, stateKind);
+        this.CompListName(varClass, stateKind);
         this.Text(this.LimitBraceRoundRite);
         this.Text(this.LimitComma);
         this.Text(this.NewLine);
         return true;
     }
 
-    public virtual bool ExecuteReferCompList(Table table, String stateKind)
+    public virtual bool ExecuteCompList(Table table, String stateKind)
     {
         this.Text(this.ClassInt);
         this.Text(this.Space);
         
-        this.ReferCompListName(this.Class, stateKind);
+        this.CompListName(this.Class, stateKind);
         this.Text(this.LimitBraceSquareLite);
         this.TextInt(table.Count);
         this.Text(this.LimitBraceSquareRite);
@@ -586,7 +586,7 @@ public class ClassGen : ClassBase
         return true;
     }
 
-    public virtual bool ReferCompListName(ClassClass varClass, String stateKind)
+    public virtual bool CompListName(ClassClass varClass, String stateKind)
     {
         this.ClassName(varClass);
         this.Text(this.NameCombine);
