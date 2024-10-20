@@ -299,12 +299,15 @@ public class ClassGen : ClassBase
         this.Text(stateKind);
         this.Text(this.NameCombine);
         this.Text(this.ListName);
+        this.Text(this.LimitBraceSquareLite);
+        this.TextInt(table.Count);
+        this.Text(this.LimitBraceSquareRite);
 
         this.Text(this.Space);
         this.Text(this.LimitAre);
         this.Text(this.NewLine);
 
-        this.Text(this.LimitBraceSquareLite);
+        this.Text(this.LimitBraceLite);
         this.Text(this.NewLine);
 
         this.IndentCount = this.IndentCount + 1;
@@ -313,19 +316,10 @@ public class ClassGen : ClassBase
 
         table.IterSet(iter);
 
-        bool b;
-        b = false;
-
         while (iter.Next())
         {
             String name;
             name = (String)iter.Index;
-
-            if (b)
-            {
-                this.Text(this.LimitComma);
-                this.Text(this.NewLine);
-            }
 
             this.TextIndent();
 
@@ -334,13 +328,14 @@ public class ClassGen : ClassBase
             this.CompStateMaideName(this.Class, name, stateKind);
             this.Text(this.LimitBraceRoundRite);
 
-            b = true;
+            this.Text(this.LimitComma);
+            this.Text(this.NewLine);
         }
 
         this.IndentCount = this.IndentCount - 1;
 
         this.Text(this.NewLine);
-        this.Text(this.LimitBraceSquareRite);
+        this.Text(this.LimitBraceRite);
         this.Text(this.LimitSemicolon);
         this.Text(this.NewLine);
         this.Text(this.NewLine);
