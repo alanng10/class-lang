@@ -697,71 +697,77 @@ public class ClassGen : ClassBase
             object k;
             k = array.GetAt(i);
 
-            ClassClass varClass;
-            String name;
-            varClass = null;
-            name = null;
+            bool ba;
+            ba = (k == null);
 
-            if (b)
+            if (!ba)
             {
-                Field ka;
-                ka = (Field)k;
-                name = ka.Name;
-                varClass = ka.Parent;
+                ClassClass varClass;
+                String name;
+                varClass = null;
+                name = null;
+
+                if (b)
+                {
+                    Field ka;
+                    ka = (Field)k;
+                    name = ka.Name;
+                    varClass = ka.Parent;
+                }
+                if (!b)
+                {
+                    Maide kb;
+                    kb = (Maide)k;
+                    name = kb.Name;
+                    varClass = kb.Parent;
+                }
+
+                bool export;
+                export = (varClass.Module == this.Class.Module);
+                
+                String kka;
+                kka = null;
+
+                if (!export)
+                {
+                    kka = this.ImportWord;
+                }
+
+                if (export)
+                {
+                    kka = this.ExportWord;
+                }
+
+                this.Text(kka);
+                this.Text(this.ApiWord);
+
+                this.Text(this.Space);
+
+                this.Text(this.ClassInt);
+
+                this.Text(this.Space);
+
+                this.CompStateMaideName(varClass, name, stateKind);
+
+                this.Text(this.LimitBraceRoundLite);
+
+                this.Text(this.ClassEval);
+                this.Text(this.LimitAsterisk);
+                this.Text(this.Space);
+                this.Text(this.EvalVar);
+
+                this.Text(this.LimitComma);
+                this.Text(this.Space);
+
+                this.Text(this.ClassInt);
+                this.Text(this.Space);
+                this.Text(this.EvalFrameVar);
+
+                this.Text(this.LimitBraceRoundRite);
+
+                this.Text(this.LimitSemicolon);
+                this.Text(this.NewLine);
             }
-            if (!b)
-            {
-                Maide kb;
-                kb = (Maide)k;
-                name = kb.Name;
-                varClass = kb.Parent;
-            }
-
-            bool export;
-            export = (varClass.Module == this.Class.Module);
-            
-            String kka;
-            kka = null;
-
-            if (!export)
-            {
-                kka = this.ImportWord;
-            }
-
-            if (export)
-            {
-                kka = this.ExportWord;
-            }
-
-            this.Text(kka);
-            this.Text(this.ApiWord);
-
-            this.Text(this.Space);
-
-            this.Text(this.ClassInt);
-
-            this.Text(this.Space);
-
-            this.CompStateMaideName(varClass, name, stateKind);
-
-            this.Text(this.LimitBraceRoundLite);
-
-            this.Text(this.ClassEval);
-            this.Text(this.LimitAsterisk);
-            this.Text(this.Space);
-            this.Text(this.EvalVar);
-
-            this.Text(this.LimitComma);
-            this.Text(this.Space);
-
-            this.Text(this.ClassInt);
-            this.Text(this.Space);
-            this.Text(this.EvalFrameVar);
-
-            this.Text(this.LimitBraceRoundRite);
-
-            this.Text(this.LimitSemicolon);
-            this.Text(this.NewLine);
 
             i = i + 1;
         }
@@ -801,35 +807,46 @@ public class ClassGen : ClassBase
             object k;
             k = array.GetAt(i);
 
-            ClassClass varClass;
-            String name;
-            varClass = null;
-            name = null;
-
-            if (b)
-            {
-                Field ka;
-                ka = (Field)k;
-                name = ka.Name;
-                varClass = ka.Parent;
-            }
-            if (!b)
-            {
-                Maide kb;
-                kb = (Maide)k;
-                name = kb.Name;
-                varClass = kb.Parent;
-            }
+            bool ba;
+            ba = (k == null);
 
             this.TextIndent();
 
-            this.Text(this.CastInt);
-            this.Text(this.LimitBraceRoundLite);
-            this.CompStateMaideName(varClass, name, stateKind);
-            this.Text(this.LimitBraceRoundRite);
+            if (ba)
+            {
+                this.Text(this.Zero);
+            }
+            if (!ba)
+            {
+                ClassClass varClass;
+                String name;
+                varClass = null;
+                name = null;
 
+                if (b)
+                {
+                    Field ka;
+                    ka = (Field)k;
+                    name = ka.Name;
+                    varClass = ka.Parent;
+                }
+                if (!b)
+                {
+                    Maide kb;
+                    kb = (Maide)k;
+                    name = kb.Name;
+                    varClass = kb.Parent;
+                }
+
+                this.Text(this.CastInt);
+                this.Text(this.LimitBraceRoundLite);
+                this.CompStateMaideName(varClass, name, stateKind);
+                this.Text(this.LimitBraceRoundRite);
+            }
             this.Text(this.LimitComma);
             this.Text(this.NewLine);
+
+            i = i + 1;
         }
 
         this.IndentCount = this.IndentCount - 1;
