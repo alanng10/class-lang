@@ -961,32 +961,6 @@ public class Read : Any
         return a;
     }
 
-    protected virtual Range ExecuteRange()
-    {
-        long u;
-        u = this.ExecuteIndex();
-        if (u == -1)
-        {
-            return null;
-        }
-        long index;
-        index = u;
-
-        u = this.ExecuteCount();
-        if (u == -1)
-        {
-            return null;
-        }
-        long count;
-        count = u;
-
-        Range a;
-        a = this.Operate.ExecuteRange();
-        a.Index = index;
-        a.Count = count;
-        return a;
-    }
-
     protected virtual Array ExecuteArray(long count)
     {
         return this.Operate.ExecuteArray(count);

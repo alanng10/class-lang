@@ -254,13 +254,6 @@ public class Write : Any
         return true;
     }
 
-    protected virtual bool ExecuteRange(Range range)
-    {
-        this.ExecuteIndex(range.Index);
-        this.ExecuteCount(range.Count);
-        return true;
-    }
-
     protected virtual bool ExecuteName(String name)
     {
         return this.ExecuteString(name);
