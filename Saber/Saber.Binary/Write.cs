@@ -164,8 +164,8 @@ public class Write : Any
 
     protected virtual bool ExecutePart(Part part)
     {
-        this.ExecuteRange(part.FieldRange);
-        this.ExecuteRange(part.MaideRange);
+        this.ExecuteIndex(part.FieldStart);
+        this.ExecuteIndex(part.MaideStart);
         
         this.ExecuteFieldArray(part.Field);
         this.ExecuteMaideArray(part.Maide);
