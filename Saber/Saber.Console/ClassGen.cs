@@ -110,6 +110,7 @@ public class ClassGen : ClassBase
 
     public virtual ClassClass Class { get; set; }
     public virtual ClassComp ClassComp { get; set; }
+    public virtual Array BaseArray { get; set; }
     public virtual bool Export { get; set; }
     public virtual ClassClass NullClass { get; set; }
     public virtual BuiltinClass System { get; set; }
