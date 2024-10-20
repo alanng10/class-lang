@@ -199,7 +199,6 @@ public class CompTraverse : Traverse
         a.Call = callVar;
         a.Parent = this.ThisClass;
         a.Index = ka;
-        a.BinaryIndex = ka;
         a.Any = nodeMaide;
 
         this.ParamVar = null;
