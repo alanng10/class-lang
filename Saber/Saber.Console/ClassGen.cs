@@ -59,6 +59,7 @@ public class ClassGen : ClassBase
         this.BaseMask = this.S("0x0ff0000000000000");
         this.MemoryIndexMask = this.S("0x000fffffffffffff");
         this.ClassInt = this.S("Int");
+        this.ClassEval = this.S("Eval");
         this.ClassCompState = this.S("CompState");
         this.InternNewMaide = this.S("Intern_New");
         this.InternValueRef = this.S("Intern_Value_Ref");
@@ -171,6 +172,7 @@ public class ClassGen : ClassBase
     public virtual String BaseMask { get; set; }
     public virtual String MemoryIndexMask { get; set; }
     public virtual String ClassInt { get; set; }
+    public virtual String ClassEval { get; set; }
     public virtual String ClassCompState { get; set; }
     public virtual String InternNewMaide { get; set; }
     public virtual String InternValueRef { get; set; }
@@ -296,6 +298,15 @@ public class ClassGen : ClassBase
 
     public virtual bool ExecuteRefer()
     {
+        this.ExecuteExternCompList(this.ClassComp.Field, true, this.StateGet);
+        this.Text(this.NewLine);
+
+        this.ExecuteExternCompList(this.ClassComp.Field, true, this.StateSet);
+        this.Text(this.NewLine);
+
+        this.ExecuteExternCompList(this.ClassComp.Maide, false, this.StateCall);
+        this.Text(this.NewLine);
+
         this.ExecuteCompList(this.ClassComp.Field, true, this.StateGet);
 
         this.ExecuteCompList(this.ClassComp.Field, true, this.StateSet);
@@ -578,12 +589,29 @@ public class ClassGen : ClassBase
 
             this.CompStateMaideName(varClass, name, stateKind);
 
+            this.Text(this.LimitBraceRoundLite);
+
+            this.Text(this.ClassEval);
+            this.Text(this.LimitAsterisk);
+            this.Text(this.Space);
+            this.Text(this.EvalVar);
+
+            this.Text(this.LimitComma);
+            this.Text(this.Space);
+
+            this.Text(this.ClassInt);
+            this.Text(this.Space);
+            this.Text(this.EvalFrameVar);
+
+            this.Text(this.LimitBraceRoundRite);
 
             this.Text(this.LimitSemicolon);
             this.Text(this.NewLine);
 
             i = i + 1;
         }
+
+        return true;
     }
 
     public virtual bool ExecuteCompList(Array array, bool field, String stateKind)
