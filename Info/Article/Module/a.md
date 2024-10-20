@@ -14,7 +14,7 @@ Module ref is displayed with the module name, then a hypen sign, then the versio
 
 A module associated files and directories, 
 have 1 module binary file that is a machine code library binary, 
-1 refer binary file that is the declaration of the module,
+1 refer binary file that is the exported declaration of the module,
 1 data directory that contains all the module associated data files and directories.
 These 2 files and 1 directory have names that are the displayed module ref of the module, followed with a dot sign and a extension name.
 The module binary file, refer binary file, and data directory have extension names that are "dll", "ref, and "data".
