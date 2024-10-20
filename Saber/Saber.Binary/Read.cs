@@ -444,6 +444,13 @@ public class Read : Any
             return null;
         }
 
+        Array export;
+        export = this.ExecuteExportArray();
+        if (export == null)
+        {
+            return null;
+        }
+
         Array varBase;
         varBase = this.ExecuteBaseArray();
         if (varBase == null)
@@ -472,6 +479,7 @@ public class Read : Any
         a.Ref = varRef;
         a.Class = varClass;
         a.Import = import;
+        a.Export = export;
         a.Base = varBase;
         a.Part = part;
         a.Entry = entry;
@@ -585,6 +593,11 @@ public class Read : Any
     }
 
     protected virtual Array ExecuteImportClassArray()
+    {
+        return this.ExecuteClassIndexArray();
+    }
+
+    protected virtual Array ExecuteExportArray()
     {
         return this.ExecuteClassIndexArray();
     }
