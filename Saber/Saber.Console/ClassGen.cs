@@ -75,6 +75,7 @@ public class ClassGen : ClassBase
         this.CastInt = this.S("CastInt");
         this.StringValueArray = this.S("StringValue");
         this.WhileLabelPre = this.S("W_");
+        this.IndexExtern = this.S("extern");
         this.IndexReturn = this.S("return");
         this.IndexInf = this.S("if");
         this.IndexGoto = this.S("goto");
@@ -183,6 +184,7 @@ public class ClassGen : ClassBase
     public virtual String CastInt { get; set; }
     public virtual String StringValueArray { get; set; }
     public virtual String WhileLabelPre { get; set; }
+    public virtual String IndexExtern { get; set; }
     public virtual String IndexReturn { get; set; }
     public virtual String IndexInf { get; set; }
     public virtual String IndexGoto { get; set; }
@@ -444,6 +446,25 @@ public class ClassGen : ClassBase
         this.IndentCount = this.IndentCount - 1;
 
         this.Text(this.LimitBraceRite);
+        this.Text(this.LimitSemicolon);
+        this.Text(this.NewLine);
+        this.Text(this.NewLine);
+        return true;
+    }
+
+    public virtual bool ExecuteExternClassAny()
+    {
+        this.Text(this.IndexExtern);
+        this.Text(this.Space);
+
+        this.Text(this.ClassInt);
+        this.Text(this.Space);
+
+        this.ClassAnyName(this.Class);
+        this.Text(this.LimitBraceSquareLite);
+        this.TextInt(5);
+        this.Text(this.LimitBraceSquareRite);
+
         this.Text(this.LimitSemicolon);
         this.Text(this.NewLine);
         this.Text(this.NewLine);
