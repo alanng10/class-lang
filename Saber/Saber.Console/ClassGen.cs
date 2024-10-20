@@ -439,7 +439,6 @@ public class ClassGen : ClassBase
         this.Text(this.LimitComma);
         this.Text(this.Space);
 
-
         this.Text(this.Zero);
         this.Text(this.LimitComma);
         this.Text(this.Space);
