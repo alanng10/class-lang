@@ -51,6 +51,8 @@ public class ClassGenTraverse : Traverse
 
         gen.EvalValueGet(1, varA);
 
+        gen.EvalIndexPosSet(-1);
+
         gen.VarMaskClear(varA, gen.RefKindClearMask);
 
         gen.InfStart(varA);
@@ -87,6 +89,8 @@ public class ClassGenTraverse : Traverse
         this.ExecuteOperate(cond);
 
         gen.EvalValueGet(1, varA);
+
+        gen.EvalIndexPosSet(-1);
 
         gen.VarMaskClear(varA, gen.RefKindClearMask);
 
