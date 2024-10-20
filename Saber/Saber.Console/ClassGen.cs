@@ -295,6 +295,8 @@ public class ClassGen : ClassBase
 
         this.ExecuteReferCompList(this.ClassComp.Maide, this.StateCall);
 
+        this.ExecuteExternClassAny();
+
         this.ExecuteBaseItem();
         
         this.ExecuteBase();
