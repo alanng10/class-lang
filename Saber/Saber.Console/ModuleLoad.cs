@@ -138,12 +138,6 @@ public class ModuleLoad : ClassBase
             String name;
             name = o.Name;
 
-            if (!this.CheckName(name))
-            {
-                this.Status = 10;
-                return false;
-            }
-
             if (classTable.Valid(name))
             {
                 this.Status = 11;
@@ -464,10 +458,6 @@ public class ModuleLoad : ClassBase
 
             String name;
             name = ua.Name;
-            if (!this.CheckName(name))
-            {
-                return false;
-            }
 
             if (this.MemberNameDefined(varClass, name))
             {
@@ -519,10 +509,6 @@ public class ModuleLoad : ClassBase
 
             String name;
             name = ua.Name;
-            if (!this.CheckName(name))
-            {
-                return false;
-            }
 
             if (this.MemberNameDefined(varClass, name))
             {
@@ -581,10 +567,6 @@ public class ModuleLoad : ClassBase
 
             String name;
             name = ua.Name;
-            if (!this.CheckName(name))
-            {
-                return false;
-            }
 
             if (varTable.Valid(name))
             {
