@@ -756,13 +756,6 @@ public class Create : InfraCreate
                 b = true;
             }
         }
-        if (!b)
-        {
-            if (!module.Export.Valid(entry))
-            {
-                b = true;
-            }
-        }
         if (b)
         {
             NodeClass aa;
