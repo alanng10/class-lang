@@ -21,8 +21,6 @@ public class ReadArg : Any
     public virtual Array ClassIndexArray { get; set; }
     public virtual long ModuleRefIndex { get; set; }
     public virtual Array ModuleRefArray { get; set; }
-    public virtual long RangeIndex { get; set; }
-    public virtual Array RangeArray { get; set; }
     public virtual long StringIndex { get; set; }
     public virtual Data StringCountData { get; set; }
     public virtual long StringTextIndex { get; set; }

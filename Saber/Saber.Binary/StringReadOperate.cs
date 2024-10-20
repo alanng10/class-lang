@@ -26,8 +26,6 @@ public class StringReadOperate : ReadOperate
         this.ClassIndex.Init();
         this.ModuleRef = new ModuleRef();
         this.ModuleRef.Init();
-        this.Range = new Range();
-        this.Range.Init();
         this.String = this.TextInfra.Zero;
         this.Array = this.ListInfra.ArrayCreate(0);
         return true;
@@ -46,7 +44,6 @@ public class StringReadOperate : ReadOperate
     protected virtual Var Var { get; set; }
     protected virtual Value ClassIndex { get; set; }
     protected virtual ModuleRef ModuleRef { get; set; }
-    protected virtual Range Range { get; set; }
     protected virtual String String { get; set; }
     protected virtual Array Array { get; set; }
 
@@ -120,14 +117,6 @@ public class StringReadOperate : ReadOperate
         arg = this.Read.Arg;
         arg.ModuleRefIndex = arg.ModuleRefIndex + 1;
         return this.ModuleRef;
-    }
-
-    public override Range ExecuteRange()
-    {
-        ReadArg arg;
-        arg = this.Read.Arg;
-        arg.RangeIndex = arg.RangeIndex + 1;
-        return this.Range;
     }
 
     public override String ExecuteString(long count)
