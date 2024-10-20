@@ -373,61 +373,6 @@ public class ModuleLoad : ClassBase
 
             i = i + 1;
         }
-
-        i = 0;
-        while (i < count)
-        {
-            ClassClass varClass;
-            varClass = (ClassClass)classArray.GetAt(i);
-
-            if (!this.CheckBaseDepend(varClass))
-            {
-                this.Status = 32;
-                return false;
-            }
-
-            i = i + 1;
-        }
-        return true;
-    }
-
-    protected virtual bool CheckBaseDepend(ClassClass varClass)
-    {
-        ListInfra listInfra;
-        listInfra = this.ListInfra;
-
-        ClassClass anyClass;
-        anyClass = this.AnyClass;
-
-        ClassModule module;
-        module = this.Module;
-
-        Table table;
-        table = this.ClassInfra.TableCreateRefLess();
-
-        while (!(varClass == null))
-        {
-            if (!(varClass.Module == module))
-            {
-                return true;
-            }
-            
-            if (table.Valid(varClass))
-            {
-                return false;
-            }
-
-            listInfra.TableAdd(table, varClass, varClass);
-
-            ClassClass a;
-            a = null;
-            if (!(varClass == anyClass))
-            {
-                a = varClass.Base;
-            }
-            varClass = a;
-        }
-
         return true;
     }
 
