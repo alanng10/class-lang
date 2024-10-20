@@ -112,18 +112,6 @@ public class SetReadOperate : ReadOperate
         return a;
     }
 
-    public override Range ExecuteRange()
-    {
-        ReadArg arg;
-        arg = this.Read.Arg;
-        long index;
-        index = arg.RangeIndex;
-        Range a;
-        a = (Range)arg.RangeArray.GetAt(index);
-        arg.RangeIndex = index + 1;
-        return a;
-    }
-
     public override String ExecuteString(long count)
     {
         ReadArg arg;
