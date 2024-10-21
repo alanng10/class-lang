@@ -28,9 +28,6 @@ public class Console : ClassBase
         this.InfoGen = new InfoGen();
         this.InfoGen.Init();
 
-        this.InitModuleTable = this.ClassInfra.TableCreateModuleRefLess();
-        this.InitBinaryTable = this.ClassInfra.TableCreateModuleRefLess();
-
         this.PortRead = new PortRead();
         this.PortRead.Init();
 
@@ -73,9 +70,8 @@ public class Console : ClassBase
     protected virtual NameCheck NameCheck { get; set; }
     protected virtual Out Out { get; set; }
     protected virtual Out Err { get; set; }
-    protected virtual Table InitModuleTable { get; set; }
-    protected virtual Table InitBinaryTable { get; set; }
     protected virtual PortPort Port { get; set; }
+    protected virtual bool MakeSystemModule { get; set; }
     protected virtual ModuleRef ModuleRef { get; set; }
     protected virtual ModuleRefLess ModuleRefLess { get; set; }
     protected virtual String SInfo { get; set; }
@@ -353,6 +349,8 @@ public class Console : ClassBase
         {
             this.SourceFold = this.Task.Source;
 
+            this.MakeSystemModule = this.Task.ArgBool;
+
             if (this.SourceFold == null)
             {
                 this.Status = 1001;
@@ -465,6 +463,7 @@ public class Console : ClassBase
         portLoad.BinaryTable = this.BinaryTable;
         portLoad.ModuleTable = this.ModuleTable;
         portLoad.ImportClass = this.ImportClass;
+        portLoad.SystemModule = this.MakeSystemModule;
 
         bool b;
         b = portLoad.Execute();
@@ -478,6 +477,7 @@ public class Console : ClassBase
         this.PortModule = portLoad.Module;
 
         portLoad.Module = null;
+        portLoad.SystemModule = false;
         portLoad.ImportClass = null;
         portLoad.ModuleTable = null;
         portLoad.BinaryTable = null;

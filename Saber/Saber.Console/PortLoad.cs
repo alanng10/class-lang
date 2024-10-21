@@ -20,6 +20,7 @@ public class PortLoad : ClassBase
         return true;
     }
     public virtual PortPort Port { get; set; }
+    public virtual bool SystemModule { get; set; }
     public virtual ClassModule Module { get; set; }
     public virtual long Status { get; set; }
     public virtual ModuleLoad ModuleLoad { get; set; }
