@@ -300,6 +300,11 @@ public class ClassGen : ClassBase
 
         this.ExecuteRefer();
 
+        if (this.Class == this.InternClass | this.Class == this.ExternClass)
+        {
+            return true;
+        }
+
         NodeClass nodeClass;
         nodeClass = (NodeClass)this.Class.Any;
 

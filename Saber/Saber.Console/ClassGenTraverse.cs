@@ -9,11 +9,6 @@ public class ClassGenTraverse : Traverse
         ClassGen gen;
         gen = this.Gen;
 
-        if (gen.Class == gen.InternClass | gen.Class == gen.ExternClass)
-        {
-            return true;
-        }
-
         State call;
         call = varMaide.Call;
 
