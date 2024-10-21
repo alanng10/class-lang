@@ -54,6 +54,10 @@ public class Read : Any
         this.Space = this.S(" ");
         this.Indent = this.S("    ");
         this.HeadModule = this.S("Module");
+        this.HeadImport = this.S("Import");
+        this.HeadExport = this.S("Export");
+        this.HeadStorage = this.S("Storage");
+        this.HeadEntry = this.S("Entry");
         return true;
     }
 
