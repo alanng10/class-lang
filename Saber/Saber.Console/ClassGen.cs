@@ -464,6 +464,10 @@ public class ClassGen : ClassBase
         this.ExecuteCompList(this.ClassComp.Maide, false, this.StateCall);
 
         this.ExecuteExternClassAny();
+        this.Text(this.NewLine);
+
+        this.ExecuteExternBaseItemList();
+        this.Text(this.NewLine);
 
         this.ExecuteBaseItem();
         
@@ -568,6 +572,58 @@ public class ClassGen : ClassBase
         return true;
     }
 
+    public virtual bool ExecuteExternBaseItemList()
+    {
+        long count;
+        count = this.BaseArray.Count;
+
+        long i;
+        i = 0;
+        while (i < count)
+        {
+            ClassClass varClass;
+            varClass = (ClassClass)this.BaseArray.GetAt(i);
+
+            bool export;
+            export = (varClass.Module == this.Class.Module);
+
+            String kka;
+            kka = null;
+
+            if (!export)
+            {
+                kka = this.ImportWord;
+            }
+
+            if (export)
+            {
+                kka = this.ExportWord;
+            }
+
+            this.Text(kka);
+            this.Text(this.ApiWord);
+
+            this.Text(this.Space);
+
+            this.Text(this.ClassInt);
+
+            this.Text(this.Space);
+
+            this.BaseItemName(varClass);
+
+            this.Text(this.LimitBraceSquareLite);
+            this.TextInt(4);
+            this.Text(this.LimitBraceSquareRite);
+
+            this.Text(this.LimitSemicolon);
+            this.Text(this.NewLine);
+
+            i = i + 1;
+        }
+
+        return true;
+    }
+
     public virtual bool ExecuteClassAny()
     {
         long baseIndex;
@@ -641,7 +697,6 @@ public class ClassGen : ClassBase
         this.Text(this.LimitBraceSquareRite);
 
         this.Text(this.LimitSemicolon);
-        this.Text(this.NewLine);
         this.Text(this.NewLine);
         return true;
     }
