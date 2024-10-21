@@ -59,12 +59,4 @@ public class ClassTraverse : Traverse
         this.Info(nodeClass).Class = a;
         return true;
     }
-
-    private Range CreateRange()
-    {
-        Range a;
-        a = new Range();
-        a.Init();
-        return a;
-    }
 }
