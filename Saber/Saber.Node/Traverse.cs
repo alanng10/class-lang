@@ -334,16 +334,19 @@ public class Traverse : Any
         }
         this.ExecuteNode(argue);
 
-        Iter iter;
-        iter = this.Iter;
-        argue.Value.IterSet(iter);
-        while (iter.Next())
+        long count;
+        count = argue.Value.Count;
+        long i;
+        i = 0;
+        while (i < count)
         {
             Operate item;
-            item = (Operate)iter.Value;
+            item = (Operate)argue.Value.GetAt(i);
+
             this.ExecuteOperate(item);
+
+            i = i + 1;
         }
-        iter.Clear();
         return true;
     }
 
