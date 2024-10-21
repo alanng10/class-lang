@@ -18,6 +18,8 @@ public class Console : ClassBase
 
         this.PortLoad = this.CreatePortLoad();
 
+        this.ClassGen = this.CreateClassGen();
+
         this.ErrorString = new ErrorString();
         this.ErrorString.Init();
 
@@ -64,6 +66,7 @@ public class Console : ClassBase
     protected virtual ModuleLoad ModuleLoad { get; set; }
     protected virtual PortRead PortRead { get; set; }
     protected virtual PortLoad PortLoad { get; set; }
+    protected virtual ClassGen ClassGen { get; set; }
     protected virtual NameCheck NameCheck { get; set; }
     protected virtual Out Out { get; set; }
     protected virtual Out Err { get; set; }
@@ -274,6 +277,14 @@ public class Console : ClassBase
         a = new PortLoad();
         a.Init();
         a.NameCheck = this.NameCheck;
+        return a;
+    }
+
+    protected virtual ClassGen CreateClassGen()
+    {
+        ClassGen a;
+        a = new ClassGen();
+        a.Init();
         return a;
     }
 
