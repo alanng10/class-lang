@@ -5,6 +5,7 @@ public class StringReadOperate : ReadOperate
     public override bool Init()
     {
         base.Init();
+        this.InfraInfra = InfraInfra.This;
         this.ListInfra = ListInfra.This;
         this.TextInfra = TextInfra.This;
         this.ClassInfra = ClassInfra.This;
