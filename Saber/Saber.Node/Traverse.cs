@@ -2,15 +2,6 @@ namespace Saber.Node;
 
 public class Traverse : Any
 {
-    public override bool Init()
-    {
-        this.Iter = new ArrayIter();
-        this.Iter.Init();
-        return true;
-    }
-
-    protected virtual Iter Iter { get; set; }
-
     public virtual bool ExecuteClass(Class varClass)
     {
         if (varClass == null)
@@ -33,16 +24,19 @@ public class Traverse : Any
         }
         this.ExecuteNode(part);
 
-        Iter iter;
-        iter = this.Iter;
-        part.Value.IterSet(iter);
-        while (iter.Next())
+        long count;
+        count = part.Value.Count;
+        long i;
+        i = 0;
+        while (i < count)
         {
             Comp item;
-            item = (Comp)iter.Value;
+            item = (Comp)part.Value.GetAt(i);
+            
             this.ExecuteComp(item);
+
+            i = i + 1;
         }
-        iter.Clear();
         return true;
     }
 
@@ -104,16 +98,19 @@ public class Traverse : Any
         }
         this.ExecuteNode(param);
 
-        Iter iter;
-        iter = this.Iter;
-        param.Value.IterSet(iter);
-        while (iter.Next())
+        long count;
+        count = param.Value.Count;
+        long i;
+        i = 0;
+        while (i < count)
         {
             Var item;
-            item = (Var)iter.Value;
+            item = (Var)param.Value.GetAt(i);
+            
             this.ExecuteVar(item);
+            
+            i = i + 1;
         }
-        iter.Clear();
         return true;
     }
 
