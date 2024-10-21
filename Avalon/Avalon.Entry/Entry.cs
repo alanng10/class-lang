@@ -5,11 +5,11 @@ public class Entry : Any
     public override bool Init()
     {
         base.Init();
-        this.InternIntern = InternIntern.This;
+        this.InternInfra = InternInfra.This;
         return true;
     }
 
-    private InternIntern InternIntern { get; set; }
+    private InternInfra InternInfra { get; set; }
     protected virtual TextStringValue TextStringValue { get; set; }
     private StorageComp StorageComp { get; set; }
     private string[] InternArg { get; set; }
@@ -46,7 +46,7 @@ public class Entry : Any
         String kk;
         kk = this.StorageComp.WorkFoldGet();
 
-        this.InternIntern.ModuleFoldPath = kk;
+        this.InternInfra.ModuleFoldPath = kk;
 
         this.StorageComp.ModuleFoldPath = kk;
 
