@@ -99,13 +99,6 @@ public class Entry : Any
         get; set;
     }
 
-    protected virtual string SlashCombine(string path)
-    {
-        string a;
-        a = path.Replace('\\', '/');
-        return a;
-    }
-
     public virtual bool ArgSet(string[] arg)
     {
         this.InternArg = arg;
