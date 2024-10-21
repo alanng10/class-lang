@@ -42,6 +42,7 @@ public class Console : ClassBase
         this.SInfo = this.S("info");
         this.SMake = this.S("make");
         this.SFlagD = this.S("-d");
+        this.SFlagM = this.S("-m");
         this.SClassDotPort = this.S("Class.Port");
         this.SDotCla = this.S(".cla");
         return true;
@@ -80,6 +81,7 @@ public class Console : ClassBase
     protected virtual String SInfo { get; set; }
     protected virtual String SMake { get; set; }
     protected virtual String SFlagD { get; set; }
+    protected virtual String SFlagM { get; set; }
     protected virtual String SClassDotPort { get; set; }
     protected virtual String SDotCla { get; set; }
     
@@ -179,15 +181,6 @@ public class Console : ClassBase
                 aac = (String)arg.GetAt(3);
             }
 
-            String combine;
-            combine = this.TextInfra.PathCombine;
-
-            StorageInfra storageInfra;
-            storageInfra = this.StorageInfra;
-
-            TextLess less;
-            less = this.TLess;
-
             String sourceFold;
             sourceFold = aaa;
 
@@ -214,6 +207,54 @@ public class Console : ClassBase
             task.Source = sourceFold;
             task.Dest = destFold;
             task.ArgBool = linkFileName;
+            task.Out = oo.Out;
+            task.Err = oo.Err;
+
+            this.Task = task;
+        }
+
+        bool bb;
+        bb = this.TextSame(this.TA(aa), this.TB(this.SMake));
+        if (bb)
+        {
+            bool bba;
+            bba = (1 < arg.Count);
+            if (!bba)
+            {
+                return false;
+            }
+            String aba;
+            aba = (String)arg.GetAt(1);
+
+            String abb;
+            abb = null;
+            if (2 < arg.Count)
+            {
+                abb = (String)arg.GetAt(2);
+            }
+
+            String sourceFold;
+            sourceFold = aba;
+
+            bool systemModule;
+            systemModule = false;
+            if (!(abb == null))
+            {
+                if (this.TextSame(this.TA(abb), this.TB(this.SFlagM)))
+                {
+                    systemModule = true;
+                }
+            }
+
+            ConsoleConsole oo;
+            oo = ConsoleConsole.This;
+
+            Task task;
+            task = new Task();
+            task.Init();
+            task.Kind = this.TaskKind.Console;
+            task.Source = sourceFold;
+            task.ArgBool = systemModule;
             task.Out = oo.Out;
             task.Err = oo.Err;
 
