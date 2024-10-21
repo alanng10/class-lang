@@ -481,6 +481,14 @@ public class Console : ClassBase
 
         this.WriteAllError();
 
+        if (kind == kindList.Module)
+        {
+            if (this.CanGen())
+            {
+                this.ExecuteGen();
+            }
+        }
+
         if (this.Task.Print)
         {
             if (kind == kindList.Token)
@@ -610,6 +618,11 @@ public class Console : ClassBase
         return true;
     }
 
+    protected virtual bool ExecuteGen()
+    {
+        return true;
+    }
+
     protected virtual Create CreateCreate()
     {
         Create a;
@@ -617,6 +630,35 @@ public class Console : ClassBase
         a.Console = this;
         a.Init();
         return a;
+    }
+
+    protected virtual bool CanGen()
+    {
+        if (!(this.Result.Token == null))
+        {
+            if (0 < this.Result.Token.Error.Count)
+            {
+                return false;
+            }
+        }
+
+        if (!(this.Result.Node == null))
+        {
+            if (0 < this.Result.Node.Error.Count)
+            {
+                return false;
+            }
+        }
+
+        if (!(this.Result.Module == null))
+        {
+            if (0 < this.Result.Module.Error.Count)
+            {
+                return false;
+            }
+        }
+
+        return true;
     }
 
     protected virtual bool WriteAllError()
