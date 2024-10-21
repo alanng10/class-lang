@@ -36,6 +36,7 @@ public class Console : ClassBase
         this.ModuleRefLess = new ModuleRefLess();
         this.ModuleRefLess.Init();
 
+        this.SClass = this.S("Class");
         this.SInfo = this.S("info");
         this.SMake = this.S("make");
         this.SFlagD = this.S("-d");
@@ -74,6 +75,7 @@ public class Console : ClassBase
     protected virtual bool MakeSystemModule { get; set; }
     protected virtual ModuleRef ModuleRef { get; set; }
     protected virtual ModuleRefLess ModuleRefLess { get; set; }
+    protected virtual String SClass { get; set; }
     protected virtual String SInfo { get; set; }
     protected virtual String SMake { get; set; }
     protected virtual String SFlagD { get; set; }
@@ -251,6 +253,7 @@ public class Console : ClassBase
             task.Kind = this.TaskKind.Console;
             task.Source = sourceFold;
             task.ArgBool = systemModule;
+            task.Node = this.SClass;
             task.Out = oo.Out;
             task.Err = oo.Err;
 
@@ -397,7 +400,7 @@ public class Console : ClassBase
             {
                 this.PrintTokenResult();
             }
-            if (kind == kindList.Node)
+            if (kind == kindList.Node | kind == kindList.Console)
             {
                 this.PrintNodeResult();
             }
@@ -723,7 +726,7 @@ public class Console : ClassBase
                 ke = k.Range.Count - this.StringCount(ka);
 
                 String name;
-                name = this.StringCreateTextRange(k, 0, ke);
+                name = this.StringCreateTextRange(this.TA(fileName), 0, ke);
 
                 list.Add(name);
             }
