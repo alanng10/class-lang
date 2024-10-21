@@ -401,19 +401,12 @@ public class Create : InfraCreate
 
         this.SetClassRangeClass(baseClass);
 
-        this.SetClassRangeOne(varClass.FieldRange, baseClass.FieldRange, varClass.Field.Count);
+        varClass.FieldStart = baseClass.FieldStart + baseClass.Field.Count;
 
-        this.SetClassRangeOne(varClass.MaideRange, baseClass.MaideRange, varClass.Maide.Count);
+        varClass.MaideStart = baseClass.MaideStart + baseClass.Maide.Count;
 
         this.ListInfra.TableAdd(k, varClass, varClass);
 
-        return true;
-    }
-
-    protected virtual bool SetClassRangeOne(Range ka, Range kb, long count)
-    {
-        ka.Index = kb.Index + kb.Count;
-        ka.Count = count;
         return true;
     }
 
