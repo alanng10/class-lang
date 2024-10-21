@@ -318,16 +318,22 @@ public class Create : InfraCreate
         Table baseTable;
         baseTable = this.BaseTable;
 
+        ClassClass anyClass;
+        anyClass = this.SystemClass.Any;
+
         Table table;
         table = this.ClassInfra.TableCreateRefLess();
 
-        listInfra.TableAdd(table, varClass, varClass);
-
         ClassClass a;
-        a = (ClassClass)baseTable.Get(varClass);
+        a = varClass;
 
-        while (a.Module == module)
+        while (!(a == null))
         {
+            if (!(a.Module == module))
+            {
+                return true;
+            }
+
             if (table.Valid(a))
             {
                 return false;
@@ -335,7 +341,13 @@ public class Create : InfraCreate
 
             listInfra.TableAdd(table, a, a);
 
-            a = (ClassClass)baseTable.Get(a);
+            ClassClass ka;
+            ka = null;
+            if (!(a == anyClass))
+            {
+                ka = (ClassClass)baseTable.Get(a);
+            }
+            a = ka;
         }
         return true;
     }
