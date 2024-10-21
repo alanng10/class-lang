@@ -780,9 +780,17 @@ public class ClassGen : ClassBase
                     varClass = kb.Parent;
                 }
 
+                bool baa;
+                baa = (varClass == this.InternClass | varClass == this.ExternClass);
+
                 bool export;
-                export = (varClass.Module == this.Class.Module);
-                
+                export = false;
+
+                if (!baa)
+                {
+                    export = (varClass.Module == this.Class.Module);
+                }
+
                 String kka;
                 kka = null;
 
