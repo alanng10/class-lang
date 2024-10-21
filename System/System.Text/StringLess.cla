@@ -55,7 +55,7 @@ class StringLess : Less
 
             var Int oo;
             oo : charLess.Execute(na, nb);
-            inf (!(oo = 0))
+            inf (~(oo = 0))
             {
                 return oo;
             }

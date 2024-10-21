@@ -22,11 +22,11 @@ class Less : InfraLess
         leftText : cast Text(left);
         rightText : cast Text(right);
 
-        inf (!textInfra.ValidRange(leftText))
+        inf (~textInfra.ValidRange(leftText))
         {
             return null;
         }
-        inf (!textInfra.ValidRange(rightText))
+        inf (~textInfra.ValidRange(rightText))
         {
             return null;
         }
@@ -80,7 +80,7 @@ class Less : InfraLess
 
             var Int oo;
             oo : charLess.Execute(oca, ocb);
-            inf (!(oo = 0))
+            inf (~(oo = 0))
             {
                 return oo;
             }

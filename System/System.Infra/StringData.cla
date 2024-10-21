@@ -22,7 +22,7 @@ class StringData : Data
             n : 0;
             var Any aa;
 
-            inf (!(data = null))
+            inf (~(data = null))
             {
                 n : this.StringComp.Count(data);
                 n : n * 4;

@@ -23,7 +23,7 @@ class ConsoleIntern : Any
         {
             this.OutWrite(a);
         }
-        inf (!b)
+        inf (~b)
         {
             this.ErrWrite(a);
         }

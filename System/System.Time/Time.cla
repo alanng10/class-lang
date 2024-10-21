@@ -210,7 +210,7 @@ class Time : Any
         k : this.Extern.Time_LeapYear(year);
 
         var Bool a;
-        a : !(k = 0);
+        a : ~(k = 0);
         return a;
     }
 
@@ -220,7 +220,7 @@ class Time : Any
         k : this.Extern.Time_ValidDate(year, month, day);
 
         var Bool a;
-        a : !(k = 0);
+        a : ~(k = 0);
         return a;
     }
 
@@ -230,7 +230,7 @@ class Time : Any
         k : this.Extern.Time_ValidTime(hour, min, sec, millisec);
 
         var Bool a;
-        a : !(u = 0);
+        a : ~(u = 0);
         return a;
     }
 

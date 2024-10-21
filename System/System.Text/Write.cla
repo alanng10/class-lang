@@ -91,7 +91,7 @@ class Write : Any
             var WriteArg arg;
             arg : cast WriteArg(argList.Get(i));
             
-            inf (!arg.HasCount)
+            inf (~arg.HasCount)
             {
                 this.ExecuteArgCount(arg);
             }
@@ -118,11 +118,11 @@ class Write : Any
     {
         var Infra textInfra;
         textInfra : this.TextInfra;
-        inf (!textInfra.ValidRange(varBase))
+        inf (~textInfra.ValidRange(varBase))
         {
             return false;
         }
-        inf (!textInfra.ValidRange(result))
+        inf (~textInfra.ValidRange(result))
         {
             return false;
         }
@@ -161,7 +161,7 @@ class Write : Any
             var Bool b;
             b : false;
 
-            while ((!b) & (argIndex < argCount))
+            while ((~b) & (argIndex < argCount))
             {
                 var WriteArg arg;
                 arg : cast WriteArg(argList.Get(argIndex));
@@ -190,13 +190,13 @@ class Write : Any
 
                     argIndex : argIndex + 1;
                 }
-                inf (!ba)
+                inf (~ba)
                 {
                     b : true;
                 }
             }
 
-            inf (!(i = baseCount))
+            inf (~(i = baseCount))
             {
                 var Int oc;
                 oc : textInfra.DataCharGet(baseData, baseStart + i);
@@ -213,7 +213,7 @@ class Write : Any
 
     maide prusate Bool ExecuteArgCount(var WriteArg arg)
     {
-        inf (!this.ValidArg(arg))
+        inf (~this.ValidArg(arg))
         {
             return false;
         }
@@ -246,7 +246,7 @@ class Write : Any
             count : fieldWidth;
         }
 
-        inf (!(maxWidth = null))
+        inf (~(maxWidth = null))
         {
             inf (maxWidth < count)
             {
@@ -262,11 +262,11 @@ class Write : Any
 
     maide prusate Bool ExecuteArgResult(var WriteArg arg, var Text result)
     {
-        inf (!this.ValidArg(arg))
+        inf (~this.ValidArg(arg))
         {
             return false;
         }
-        inf (!this.TextInfra.ValidRange(result))
+        inf (~this.TextInfra.ValidRange(result))
         {
             return false;
         }
@@ -300,7 +300,7 @@ class Write : Any
         destStart : result.Range.Index;
 
         var String source;
-        inf (!value)
+        inf (~value)
         {
             source : textInfra.BoolFalseString;
         }
@@ -374,7 +374,7 @@ class Write : Any
 
         inf (value = 0)
         {
-            inf (!(valueWriteCount = 0))
+            inf (~(valueWriteCount = 0))
             {
                 var Int occ;
                 occ : "0".Char(0);
@@ -390,7 +390,7 @@ class Write : Any
         end : valueIndex + valueWriteCount;
 
         var Bool upperCase;
-        upperCase : !(varCase = 0);
+        upperCase : ~(varCase = 0);
         var Int letterDigitStart;
         letterDigitStart : "a".Char(0);
         inf (upperCase)
@@ -422,7 +422,7 @@ class Write : Any
 
             index : (count - 1) - i;
 
-            inf ((!(index < valueIndex)) & index < end)
+            inf ((~(index < valueIndex)) & index < end)
             {
                 ka : k - j * varBase;
 
@@ -564,7 +564,7 @@ class Write : Any
         var Int kind;
         kind : arg.Kind;
 
-        inf (!this.ValidKind(kind))
+        inf (~this.ValidKind(kind))
         {
             return false;
         }
@@ -595,7 +595,7 @@ class Write : Any
 
             inf (kind = 1 | kind = 2)
             {
-                inf (!this.ValidIntBase(arg.Base))
+                inf (~this.ValidIntBase(arg.Base))
                 {
                     return false;
                 }
@@ -610,7 +610,7 @@ class Write : Any
                 return false;   
             }
             
-            inf (!this.TextInfra.ValidRange(aac))
+            inf (~this.TextInfra.ValidRange(aac))
             {
                 return false;
             }
@@ -625,6 +625,6 @@ class Write : Any
 
     maide prusate Bool ValidIntBase(var Int varBase)
     {
-        return !(varBase < 2 | 16 < varBase);
+        return ~(varBase < 2 | 16 < varBase);
     }
 }

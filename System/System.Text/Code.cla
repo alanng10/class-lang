@@ -13,7 +13,7 @@ class Code : Any
 
     maide prusate Int ExecuteCount(var CodeKind innKind, var CodeKind outKind, var Data data, var Range range)
     {
-        inf (!this.ValidKind(innKind, outKind))
+        inf (~this.ValidKind(innKind, outKind))
         {
             return null;
         }
@@ -23,7 +23,7 @@ class Code : Any
         dataIndex : dataRange.Index;
         dataCount : dataRange.Count;
 
-        inf (!this.InfraInfra.ValidRange(data.Count, dataIndex, dataCount))
+        inf (~this.InfraInfra.ValidRange(data.Count, dataIndex, dataCount))
         {
             return null;
         }
@@ -41,12 +41,12 @@ class Code : Any
         var InfraInfra infraInfra;
         infraInfra : this.InfraInfra;
 
-        inf (!this.ValidKind(innKind, outKind))
+        inf (~this.ValidKind(innKind, outKind))
         {
             return false;
         }
 
-        inf (!infraInfra.ValidRange(result.Count, resultIndex, 0))
+        inf (~infraInfra.ValidRange(result.Count, resultIndex, 0))
         {
             return false;
         }
@@ -56,7 +56,7 @@ class Code : Any
         dataIndex : dataRange.Index;
         dataCount : dataRange.Count;
 
-        inf (!infraInfra.ValidRange(data.Count, dataIndex, dataCount))
+        inf (~infraInfra.ValidRange(data.Count, dataIndex, dataCount))
         {
             return false;
         }

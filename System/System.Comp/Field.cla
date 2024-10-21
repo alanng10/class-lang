@@ -13,14 +13,14 @@ class Field : Any
 
     maide prusate Bool Set(var Comp value)
     {
-        inf (!(this.Value = null))
+        inf (~(this.Value = null))
         {
             this.Value.ChangeEvent.State.RemoveState(this.State);
         }
 
         this.Value : value;
 
-        inf (!(this.Value = null))
+        inf (~(this.Value = null))
         {
             this.Value.ChangeEvent.State.AddState(this.State);
         }

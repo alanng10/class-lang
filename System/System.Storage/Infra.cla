@@ -273,7 +273,7 @@ class Infra : Any
         range.Count : countA;
 
         var Bool a;
-        a : !b;
+        a : ~b;
         return a;
     }
 }

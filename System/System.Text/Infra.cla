@@ -35,7 +35,7 @@ class Infra : Any
         var Int first;
         var Int last;
 
-        inf (!upperCase)
+        inf (~upperCase)
         {
             first : this.StringComp.Char("a", 0);
             last : this.StringComp.Char("f", 0);
@@ -53,7 +53,7 @@ class Infra : Any
         var Int first;
         var Int last;
 
-        inf (!upperCase)
+        inf (~upperCase)
         {
             first : this.StringComp.Char("a", 0);
             last : this.StringComp.Char("z", 0);
@@ -72,7 +72,7 @@ class Infra : Any
         {
             return false;
         }
-        return !((o < first) | (last < o));
+        return ~((o < first) | (last < o));
     }
 
     maide prusate Int DataCharGet(var Data data, var Int index)
@@ -138,11 +138,11 @@ class Infra : Any
             index : 0;
             count : totalCount;
         }
-        inf (!b)
+        inf (~b)
         {
             index : range.Index;
             count : range.Count;
-            inf (!this.InfraInfra.ValidRange(totalCount, index, count))
+            inf (~this.InfraInfra.ValidRange(totalCount, index, count))
             {
                 return null;
             }
@@ -181,7 +181,7 @@ class Infra : Any
         var Int totalCount;
         totalCount : dataCount / 4;
         
-        inf (!infraInfra.ValidRange(totalCount, range.Index, range.Count))
+        inf (~infraInfra.ValidRange(totalCount, range.Index, range.Count))
         {
             return false;
         }
@@ -198,18 +198,18 @@ class Infra : Any
         {
             oa : varBase;
         }
-        inf (!b)
+        inf (~b)
         {
             oa : 10;
         }
         var Int oaa;
         oaa : 0;
-        inf (!b)
+        inf (~b)
         {
             oaa : varBase - 10;
         }
         var Int oca;
-        inf (!upperCase)
+        inf (~upperCase)
         {
             oca : this.StringComp.Char("a", 0);
         }
@@ -222,7 +222,7 @@ class Infra : Any
         {
             var Int ooa;
             ooa : oc - this.StringComp.Char("0", 0);
-            inf (!(ooa < oa))
+            inf (~(ooa < oa))
             {
                 return null;
             }
@@ -230,14 +230,14 @@ class Infra : Any
             return ooa;
         }
 
-        inf (!this.IsLetter(oc, upperCase))
+        inf (~this.IsLetter(oc, upperCase))
         {
             return null;
         }
 
         var Int oob;
         oob : oc - oca;
-        inf (!(oob < oaa))
+        inf (~(oob < oaa))
         {
             return null;
         }
@@ -255,7 +255,7 @@ class Infra : Any
         {
             n : this.StringComp.Char("0", 0) + digit;
         }
-        inf (!b)
+        inf (~b)
         {
             var Int m;
             m : digit - 10;
@@ -341,11 +341,11 @@ class Infra : Any
 
     maide prusate Int Index(var Text text, var Text other, var InfraLess less)
     {
-        inf (!this.ValidRange(text))
+        inf (~this.ValidRange(text))
         {
             return null;
         }
-        inf (!this.ValidRange(other))
+        inf (~this.ValidRange(other))
         {
             return null;
         }
@@ -397,11 +397,11 @@ class Infra : Any
 
     maide prusate Int LastIndex(var Text text, var Text other, var InfraLess less)
     {
-        inf (!this.ValidRange(text))
+        inf (~this.ValidRange(text))
         {
             return null;
         }
-        inf (!this.ValidRange(other))
+        inf (~this.ValidRange(other))
         {
             return null;
         }
@@ -476,7 +476,7 @@ class Infra : Any
 
         var Int oo;
         oo : this.Index(text, limit, less);
-        while (!(oo = null))
+        while (~(oo = null))
         {
             count : count + 1;
 
@@ -546,7 +546,7 @@ class Infra : Any
         var Code code;
         code : this.Code;
 
-        inf (!code.ValidKind(innKind, outKind))
+        inf (~code.ValidKind(innKind, outKind))
         {
             return null;
         }

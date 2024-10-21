@@ -58,7 +58,7 @@ class Math : Any
         }
 
         var Bool a;
-        a : !(u = 0);
+        a : ~(u = 0);
         return a;
     }
 }

@@ -41,7 +41,7 @@ class List : Any
         node.Ref : this.NodeRef;
         node.Value : item;
 
-        inf (!(this.Last = null))
+        inf (~(this.Last = null))
         {
             node.Previous : this.Last;
             this.Last.Next : node;
@@ -86,7 +86,7 @@ class List : Any
             this.First : node;
         }
 
-        inf (!(t.Previous = null))
+        inf (~(t.Previous = null))
         {
             t.Previous.Next : node;
             node.Previous : t.Previous;
@@ -125,12 +125,12 @@ class List : Any
             this.Last : node.Previous;
         }
 
-        inf (!(node.Next = null))
+        inf (~(node.Next = null))
         {
             node.Next.Previous : node.Previous;
         }
 
-        inf (!(node.Previous = null))
+        inf (~(node.Previous = null))
         {
             node.Previous.Next : node.Next;
         }
@@ -229,7 +229,7 @@ class List : Any
 
         var Bool b;
         b : (node.Ref = this.NodeRef);
-        inf (!b)
+        inf (~b)
         {
             return null;
         }

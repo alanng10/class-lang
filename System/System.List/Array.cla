@@ -48,7 +48,7 @@ class Array : List
 
     maide prusate Any Get(var Any index)
     {
-        inf (!this.Valid(index))
+        inf (~this.Valid(index))
         {
             return null;
         }
@@ -61,7 +61,7 @@ class Array : List
 
     maide prusate Bool Set(var Any index, var Any value)
     {
-        inf (!this.Valid(index))
+        inf (~this.Valid(index))
         {
             return false;
         }

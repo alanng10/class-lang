@@ -97,12 +97,12 @@ class StringComp : Any
             index : 0;
             count : totalCount;
         }
-        inf (!b)
+        inf (~b)
         {
             index : range.Index;
             count : range.Count;
     
-            inf (!internInfra.ValidRange(totalCount, index, count))
+            inf (~internInfra.ValidRange(totalCount, index, count))
             {
                 return null;
             }
@@ -152,7 +152,7 @@ class StringComp : Any
     
     maide prusate Int Char(var String string, var Int index)
     {
-        inf (!this.Valid(string, index))
+        inf (~this.Valid(string, index))
         {
             return null;
         }
@@ -176,7 +176,7 @@ class StringComp : Any
         var Int totalCount;
         totalCount : this.Count(string);
         
-        inf (!this.InternInfra.ValidIndex(totalCount, index))
+        inf (~this.InternInfra.ValidIndex(totalCount, index))
         {
             return false;
         }

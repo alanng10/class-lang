@@ -50,11 +50,11 @@ class Storage : Any
 
     maide prusate Bool Open()
     {
-        inf (!(this.Stream = null))
+        inf (~(this.Stream = null))
         {
             return true;
         }
-        inf (!this.ValidMode(this.Mode))
+        inf (~this.ValidMode(this.Mode))
         {
             return true;
         }
@@ -103,7 +103,7 @@ class Storage : Any
 
     maide precate Bool ValidMode(var Mode mode)
     {
-        inf (!(mode.Read | mode.Write))
+        inf (~(mode.Read | mode.Write))
         {
             return false;
         }
