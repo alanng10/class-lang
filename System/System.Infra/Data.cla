@@ -22,7 +22,7 @@ class Data : Any
 
     maide prusate Int Get(var Int index)
     {
-        inf (!this.Valid(index))
+        inf (~this.Valid(index))
         {
             return null;
         }
@@ -31,7 +31,7 @@ class Data : Any
 
     maide prusate Bool Set(var Int index, var Int value)
     {
-        inf (!this.Valid(index))
+        inf (~this.Valid(index))
         {
             return false;
         }
