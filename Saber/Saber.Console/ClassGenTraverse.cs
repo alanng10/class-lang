@@ -4,6 +4,24 @@ public class ClassGenTraverse : Traverse
 {
     public virtual ClassGen Gen { get; set; }
 
+    public override bool ExecuteMaide(NodeMaide varMaide)
+    {
+        State call;
+        call = varMaide.Call;
+
+        ClassGen gen;
+        gen = this.Gen;
+
+        gen.CompState = call;
+
+        this.ExecuteState(call);
+
+        gen.CompState = null;
+
+        return true;
+    }
+
+
     public override bool ExecuteState(State state)
     {
         ClassGen gen;
