@@ -624,16 +624,15 @@ public class PortLoad : ClassBase
         module = new ClassModule();
         module.Init();
         module.Ref = classInfra.ModuleRefCreate(moduleRef.Name, moduleRef.Ver);
+        module.Class = classInfra.TableCreateStringLess();
+        module.Import = classInfra.TableCreateModuleRefLess();
+        module.Export = classInfra.TableCreateStringLess();
+        module.Storage = classInfra.TableCreateStringLess();
 
         if (this.SystemModule)
         {
             module.Ref.Ver = 0;
         }
-
-        module.Class = classInfra.TableCreateStringLess();
-        module.Storage = classInfra.TableCreateStringLess();
-        module.Import = classInfra.TableCreateModuleRefLess();
-        module.Export = classInfra.TableCreateStringLess();
 
         this.Module = module;
         return true;
