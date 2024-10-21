@@ -2391,25 +2391,28 @@ public class ClassGen : ClassBase
     {
         if (varClass == this.InternClass | varClass == this.ExternClass)
         {
-            this.Text(this.InternWord);
-
-            this.Text(this.NameCombine);
-
-            String k;
-            k = this.InternWord;
-
-            if (varClass == this.ExternClass)
+            if (this.StringChar(state, 0) == 'C')
             {
-                k = this.ExternWord;
+                this.Text(this.InternWord);
+
+                this.Text(this.NameCombine);
+
+                String k;
+                k = this.InternWord;
+
+                if (varClass == this.ExternClass)
+                {
+                    k = this.ExternWord;
+                }
+
+                this.Text(k);
+
+                this.Text(this.NameCombine);
+
+                this.Text(compName);
+
+                return true;
             }
-
-            this.Text(k);
-
-            this.Text(this.NameCombine);
-
-            this.Text(compName);
-
-            return true;
         }
 
 
