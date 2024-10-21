@@ -78,6 +78,8 @@ public class ClassGen : ClassBase
         this.ImportWord = this.S("Import");
         this.ExportWord = this.S("Export");
         this.ApiWord = this.S("Api");
+        this.InternWord = this.S("Intern");
+        this.ExternWord = this.S("Extern");
         this.CastInt = this.S("CastInt");
         this.StringValueArray = this.S("StringValue");
         this.WhileLabelPre = this.S("W_");
@@ -119,6 +121,8 @@ public class ClassGen : ClassBase
     public virtual Array BaseArray { get; set; }
     public virtual BuiltinClass System { get; set; }
     public virtual Maide InitMaide { get; set; }
+    public virtual ClassClass InternClass { get; set; }
+    public virtual ClassClass ExternClass { get; set; }
     public virtual GenArg Arg { get; set; }
     public virtual ClassGenOperate Operate { get; set; }
     public virtual String Result { get; set; }
@@ -190,6 +194,8 @@ public class ClassGen : ClassBase
     public virtual String ImportWord { get; set; }
     public virtual String ExportWord { get; set; }
     public virtual String ApiWord { get; set; }
+    public virtual String InternWord { get; set; }
+    public virtual String ExternWord { get; set; }
     public virtual String CastInt { get; set; }
     public virtual String StringValueArray { get; set; }
     public virtual String WhileLabelPre { get; set; }
@@ -2375,6 +2381,30 @@ public class ClassGen : ClassBase
 
     public virtual bool CompStateMaideName(ClassClass varClass, String compName, String state)
     {
+        if (varClass == this.InternClass | varClass == this.ExternClass)
+        {
+            this.Text(this.InternWord);
+
+            this.Text(this.NameCombine);
+
+            String k;
+            k = this.InternWord;
+
+            if (varClass == this.ExternClass)
+            {
+                k = this.ExternWord;
+            }
+
+            this.Text(k);
+
+            this.Text(this.NameCombine);
+
+            this.Text(compName);
+
+            return true;
+        }
+
+
         this.ClassName(varClass);
 
         this.Text(this.NameCombine);
