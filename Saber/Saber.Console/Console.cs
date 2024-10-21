@@ -453,8 +453,8 @@ public class Console : ClassBase
 
     protected virtual bool PortModuleLoad()
     {
-        this.BinaryTable = this.CopyModuleRefTable(this.InitBinaryTable);
-        this.ModuleTable = this.CopyModuleRefTable(this.InitModuleTable);
+        this.BinaryTable = this.ClassInfra.TableCreateModuleRefLess();
+        this.ModuleTable = this.ClassInfra.TableCreateModuleRefLess();
         this.ImportClass = this.ClassInfra.TableCreateStringLess();
         PortLoad portLoad;
         portLoad = this.PortLoad;
