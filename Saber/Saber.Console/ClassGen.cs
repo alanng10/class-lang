@@ -444,7 +444,6 @@ public class ClassGen : ClassBase
 
         return true;
     }
-    
 
     public virtual bool ExecuteRefer()
     {
