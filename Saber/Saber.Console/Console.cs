@@ -40,6 +40,7 @@ public class Console : ClassBase
         this.ModuleRefLess.Init();
 
         this.SInfo = this.S("info");
+        this.SMake = this.S("make");
         this.SFlagD = this.S("-d");
         this.SClassDotPort = this.S("Class.Port");
         this.SDotCla = this.S(".cla");
@@ -62,6 +63,7 @@ public class Console : ClassBase
     public virtual Table ImportClass { get; set; }
     public virtual bool ErrorWrite { get; set; }
     protected virtual StorageInfra StorageInfra { get; set; }
+    protected virtual StorageComp StorageComp { get; set; }
     protected virtual BinaryRead BinaryRead { get; set; }
     protected virtual ModuleLoad ModuleLoad { get; set; }
     protected virtual PortRead PortRead { get; set; }
@@ -76,10 +78,10 @@ public class Console : ClassBase
     protected virtual ModuleRef ModuleRef { get; set; }
     protected virtual ModuleRefLess ModuleRefLess { get; set; }
     protected virtual String SInfo { get; set; }
+    protected virtual String SMake { get; set; }
     protected virtual String SFlagD { get; set; }
     protected virtual String SClassDotPort { get; set; }
     protected virtual String SDotCla { get; set; }
-    private StorageComp StorageComp { get; set; }
     
     protected virtual NameCheck CreateNameCheck()
     {
