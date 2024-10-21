@@ -201,16 +201,19 @@ public class Traverse : Any
         }
         this.ExecuteNode(state);
 
-        Iter iter;
-        iter = this.Iter;
-        state.Value.IterSet(iter);
-        while (iter.Next())
+        long count;
+        count = state.Value.Count;
+        long i;
+        i = 0;
+        while (i < count)
         {
             Execute item;
-            item = (Execute)iter.Value;
+            item = (Execute)state.Value.GetAt(i);
+
             this.ExecuteExecute(item);
+
+            i = i + 1;
         }
-        iter.Clear();
         return true;
     }
 
