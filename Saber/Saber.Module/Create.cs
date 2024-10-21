@@ -396,14 +396,26 @@ public class Create : InfraCreate
             return true;
         }
 
-        ClassClass baseClass;
-        baseClass = varClass.Base;
+        bool b;
+        b = (varClass == this.SystemClass.Any);
 
-        this.SetClassRangeClass(baseClass);
+        if (b)
+        {
+            varClass.FieldStart = 0;
 
-        varClass.FieldStart = baseClass.FieldStart + baseClass.Field.Count;
+            varClass.MaideStart = 0;
+        }
+        if (!b)
+        {
+            ClassClass baseClass;
+            baseClass = varClass.Base;
 
-        varClass.MaideStart = baseClass.MaideStart + baseClass.Maide.Count;
+            this.SetClassRangeClass(baseClass);
+
+            varClass.FieldStart = baseClass.FieldStart + baseClass.Field.Count;
+
+            varClass.MaideStart = baseClass.MaideStart + baseClass.Maide.Count;
+        }
 
         this.ListInfra.TableAdd(k, varClass, varClass);
 
