@@ -236,16 +236,19 @@ public class PortLoad : ClassBase
             return false;
         }
 
-        if (version == -1)
+        if (!this.SystemModule)
         {
-            this.Status = 2;
-            return false;
-        }
+            if (version == -1)
+            {
+                this.Status = 2;
+                return false;
+            }
 
-        if (this.IsBuiltinModuleRef(module))
-        {
-            this.Status = 3;
-            return false;
+            if (this.IsBuiltinModuleRef(module))
+            {
+                this.Status = 3;
+                return false;
+            }
         }
 
         return true;
