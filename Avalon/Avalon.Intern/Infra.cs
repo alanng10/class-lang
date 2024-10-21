@@ -23,6 +23,7 @@ public class Infra : object
         return true;
     }
 
+    public virtual object ModuleFoldPath { get; set; }
     protected virtual long IntCapValue { get; set; }
     protected virtual Intern InternIntern { get; set; }
 
