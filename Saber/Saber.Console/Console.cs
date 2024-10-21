@@ -385,7 +385,7 @@ public class Console : ClassBase
 
         this.WriteAllError();
 
-        if (kind == kindList.Module)
+        if (kind == kindList.Console)
         {
             if (this.CanGen())
             {
@@ -471,7 +471,7 @@ public class Console : ClassBase
 
         if (!b)
         {
-            this.Status = 1800 + portLoad.Status;
+            this.Status = 3000 + portLoad.Status;
             return false;
         }
 
