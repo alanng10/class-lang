@@ -17,11 +17,10 @@ public class Comp : Any
     public override bool Init()
     {
         base.Init();
-        this.InternIntern = InternIntern.This;
         this.InternInfra = InternInfra.This;
         this.ListInfra = ListInfra.This;
 
-        this.ModuleFoldPath = (String)this.InternIntern.ModuleFoldPath;
+        this.ModuleFoldPath = (String)this.InternInfra.ModuleFoldPath;
 
         this.Intern = Extern.StorageComp_New();
         Extern.StorageComp_Init(this.Intern);
@@ -36,7 +35,6 @@ public class Comp : Any
     }
 
     public virtual String ModuleFoldPath { get; set; }
-    private InternIntern InternIntern { get; set; }
     private InternInfra InternInfra { get; set; }
     protected virtual ListInfra ListInfra { get; set; }
     private ulong Intern { get; set; }
