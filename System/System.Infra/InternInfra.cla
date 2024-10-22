@@ -4,11 +4,13 @@ class InternInfra : Any
     {
         base.Init();
         this.InternIntern : share Intern;
+        this.Extern : share Extern;
         return true;
     }
     
     field precate Intern InternIntern { get { return data; } set { data : value; } }
-    
+    field precate Extern Extern { get { return data; } set { data : value; } }
+
     maide prusate Int TextCodeCount(var Int innKind, var Int outKind, var Any data, var Int dataIndex, var Int dataCount)
     {
         var Int dataValue;
@@ -16,7 +18,7 @@ class InternInfra : Any
         dataValue : dataValue + dataIndex;
         
         var Int k;
-        k : this.Extern.TextCode_ExecuteCount(innKind, outKind, dataValue, dataCount);
+        k : this.Extern.TextCode_ExecuteCount(0, innKind, outKind, dataValue, dataCount);
         return k;
     }
 
@@ -30,7 +32,7 @@ class InternInfra : Any
         resultValue : this.InternIntern.Memory(result);
         resultValue : resultValue + resultIndex;
         
-        this.Extern.TextCode_ExecuteResult(resultValue, innKind, outKind, dataValue, dataCount);
+        this.Extern.TextCode_ExecuteResult(0, resultValue, innKind, outKind, dataValue, dataCount);
         return true;
     }   
 }
