@@ -2014,7 +2014,7 @@ public class ClassGen : ClassBase
     {
         this.Text(this.WhileLabelPre);
 
-        this.Operate.ExecuteIntText(whileIndex);
+        this.Operate.ExecuteIntTextHex(whileIndex);
         return true;
     }
 
@@ -2489,7 +2489,7 @@ public class ClassGen : ClassBase
         
         this.Text(this.NameCombine);
 
-        this.Operate.ExecuteIntText(moduleRef.Ver);
+        this.Operate.ExecuteIntTextHex(moduleRef.Ver);
         return true;
     }
 
@@ -2532,7 +2532,7 @@ public class ClassGen : ClassBase
     
     public virtual bool ModuleVer(long ver)
     {
-        this.Operate.ExecuteIntText(ver);
+        this.Operate.ExecuteIntTextHex(ver);
         return true;
     }
 
@@ -2549,7 +2549,7 @@ public class ClassGen : ClassBase
             k = 1;
         }
 
-        this.Operate.ExecuteIntText(k);
+        this.Operate.ExecuteIntTextHex(k);
 
         this.Text(this.IntValuePost);
         return true;
@@ -2561,7 +2561,7 @@ public class ClassGen : ClassBase
 
         this.Text(this.RefKindInt);
 
-        this.Operate.ExecuteIntText(value);
+        this.Operate.ExecuteIntTextHex(value);
 
         this.Text(this.IntValuePost);
         return true;
@@ -2607,7 +2607,7 @@ public class ClassGen : ClassBase
     {
         this.Text(this.IntValuePre);
         
-        this.Operate.ExecuteIntText(n);
+        this.Operate.ExecuteIntTextHex(n);
 
         this.Text(this.IntValuePost);
         return true;

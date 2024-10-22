@@ -9,7 +9,7 @@ public class ClassGenOperate : Any
         return false;
     }
 
-    public virtual bool ExecuteIntText(long o)
+    public virtual bool ExecuteIntTextHex(long o)
     {
         return false;
     }
