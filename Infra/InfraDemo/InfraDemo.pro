@@ -6,7 +6,7 @@ HEADERS += \
 SOURCES += \
     main.c
 
-LIBS += -L$$PWD/../../Out/Infra-Windows-Release/release/
+LIBS += -L$$PWD/../../Out/InfraDeploy/
 
 LIBS += -lInfra
 
