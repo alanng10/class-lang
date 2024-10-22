@@ -78,7 +78,7 @@ class StringComp : Any
     
     maide private String CreateDataValue(var Any data, var Int dataCount, var Range range)
     {
-        var InternIntern internIntern;
+        var Intern internIntern;
         internIntern : this.InternIntern;
         var InternInfra internInfra;
         internInfra : this.InternInfra;
