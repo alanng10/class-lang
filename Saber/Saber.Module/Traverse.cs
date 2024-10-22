@@ -19,7 +19,7 @@ public class Traverse : NodeTraverse
 
     protected virtual Info Info(NodeNode node)
     {
-        return (Info)node.NodeAny;
+        return this.Create.Info(node);
     }
 
     protected virtual ClassClass Class(String name)

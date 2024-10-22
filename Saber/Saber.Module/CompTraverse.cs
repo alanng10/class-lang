@@ -116,8 +116,6 @@ public class CompTraverse : Traverse
         }
 
         this.ListInfra.TableAdd(this.ThisClass.Field, a.Name, a);
-
-        this.Info(nodeField).Field = a;
         return true;
     }
 

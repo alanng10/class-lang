@@ -33,6 +33,7 @@ public class Create : InfraCreate
     protected virtual List ErrorList { get; set; }
     protected virtual Table BaseTable { get; set; }
     protected virtual Table RangeTable { get; set; }
+    protected virtual Table ClassVirtualTable { get; set; }
     protected virtual ModuleRef ModuleRef { get; set; }
     protected virtual bool SystemInfraModule { get; set; }
     protected virtual String SSystemInfra { get; set; }
@@ -61,6 +62,7 @@ public class Create : InfraCreate
         this.ExecuteClass();
         this.ExecuteBase();
         this.ExecuteComp();
+        this.ExecuteVirtual();
         this.ExecuteExport();
         this.ExecuteEntry();
         this.ExecuteState();
@@ -418,9 +420,101 @@ public class Create : InfraCreate
         Traverse traverse;
         traverse = this.CompTraverse();
         this.ExecuteClassTraverse(traverse);
-
-        this.SetClassRange();
         return true;
+    }
+
+    protected virtual bool ClassVirtualSet()
+    {
+        Table table;
+        table = this.Module.Class;
+
+        this.ClassVirtualTable = this.ClassInfra.TableCreateRefLess();
+
+        Iter iter;
+        iter = table.IterCreate();
+        table.IterSet(iter);
+        while (iter.Next())
+        {
+            ClassClass a;
+            a = (ClassClass)iter.Value;
+
+            this.ClassVirtualSetClass(a);
+        }
+
+        this.ClassVirtualTable = null;
+
+        return true;
+    }
+
+    protected virtual bool ClassVirtualSetClass(ClassClass varClass)
+    {
+        Table k;
+        k = this.ClassVirtualTable;
+
+        if (k.Valid(varClass))
+        {
+            return true;
+        }
+
+        if (!(varClass.Module == this.Module))
+        {
+            return true;
+        }
+
+        bool b;
+        b = (varClass == this.SystemClass.Any);
+
+        if (b)
+        {
+        }
+        if (!b)
+        {
+            ClassClass baseClass;
+            baseClass = varClass.Base;
+
+            this.ClassVirtualSetClass(baseClass);
+
+            Table fieldTable;
+            fieldTable = this.ClassInfra.TableCreateStringLess();
+
+            Iter iter;
+            iter = varClass.Field.IterCreate();
+            varClass.Field.IterSet(iter);
+            while (iter.Next())
+            {
+                Field field;
+                field = (Field)iter.Value;
+
+                bool ba;
+                ba = this.VirtualField(field);
+
+                NodeNode node;
+                node = (NodeNode)field.Any;
+
+                if (!ba)
+                {
+                    this.Error(this.ErrorKind.FieldUndefined, node, this.SourceGet(varClass.Index));
+                }
+
+                if (ba)
+                {
+                    field.Index = fieldTable.Count;
+
+                    this.Info(node).Field = field;
+
+                    this.ListInfra.TableAdd(fieldTable, field.Name, field);
+                }
+            }
+        }
+
+        this.ListInfra.TableAdd(k, varClass, varClass);
+
+        return true;
+    }
+
+    public virtual Info Info(NodeNode node)
+    {
+        return (Info)node.NodeAny;
     }
 
     protected virtual Traverse CompTraverse()
