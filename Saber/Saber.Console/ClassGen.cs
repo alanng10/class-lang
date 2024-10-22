@@ -1358,6 +1358,21 @@ public class ClassGen : ClassBase
         return true;
     }
 
+    public virtual bool CompStateStart(ClassClass varClass, String name, String stateKind, long localVarCount)
+    {
+        this.CompStateHead(varClass, name, stateKind);
+
+        this.Text(this.NewLine);
+
+        this.Text(this.LimitBraceRoundLite);
+        this.Text(this.NewLine);
+
+        this.IndentCount = this.IndentCount + 1;
+
+        this.InitLocalVarList(localVarCount);
+        return true;
+    }
+
     public virtual bool ExecuteOperateLimit(String limit)
     {
         String varA;
@@ -2052,7 +2067,7 @@ public class ClassGen : ClassBase
         return true;
     }
 
-    public virtual bool LocalVarListZero(long count)
+    public virtual bool InitLocalVarList(long count)
     {
         long i;
         i = 0;
@@ -2062,6 +2077,8 @@ public class ClassGen : ClassBase
 
             i = i + 1;
         }
+
+        this.EvalIndexPosSet(count);
         return true;
     }
 
