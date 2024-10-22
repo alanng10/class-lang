@@ -1373,6 +1373,17 @@ public class ClassGen : ClassBase
         return true;
     }
 
+    public virtual bool CompStateEnd()
+    {
+        
+
+        this.IndentCount = this.IndentCount - 1;
+
+        this.Text(this.LimitBraceRoundRite);
+        this.Text(this.NewLine);
+        return true;
+    }
+
     public virtual bool ExecuteOperateLimit(String limit)
     {
         String varA;
