@@ -161,8 +161,8 @@ public class ErrorString : ClassBase
     {
         String row;
         String col;
-        row = this.StringInt(pos.Row);
-        col = this.StringInt(pos.Col);
+        row = this.StringInt(pos.Row + 1);
+        col = this.StringInt(pos.Col + 1);
 
         this.Add(this.SBraceRoundLite);
         this.Add(this.SRow);
