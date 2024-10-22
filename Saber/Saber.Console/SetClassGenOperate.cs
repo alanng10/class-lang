@@ -45,7 +45,7 @@ public class SetClassGenOperate : ClassGenOperate
         return true;
     }
 
-    public override bool ExecuteIntText(long o)
+    public override bool ExecuteTextInt(long o)
     {
         GenArg arg;
         arg = this.Gen.Arg;
@@ -90,7 +90,7 @@ public class SetClassGenOperate : ClassGenOperate
         return true;
     }
 
-    public override bool ExecuteIntTextHex(long o)
+    public override bool ExecuteTextIntHex(long o)
     {
         GenArg arg;
         arg = this.Gen.Arg;

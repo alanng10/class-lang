@@ -42,8 +42,8 @@ public class ClassGen : ClassBase
         this.EvalStackVar = this.S("S");
         this.EvalIndexVar = this.S("N");
         this.EvalFrameVar = this.S("f");
-        this.IntValuePre = this.S("0x");
-        this.IntValuePost = this.S("ULL");
+        this.IntValueHexPre = this.S("0x");
+        this.IntValueHexPost = this.S("ULL");
         this.BaseBitRightCount = this.S("52");
         this.RefKindBitRightCount = this.S("60");
         this.RefBitCount = this.S("4");
@@ -161,8 +161,8 @@ public class ClassGen : ClassBase
     public virtual String EvalStackVar { get; set; }
     public virtual String EvalIndexVar { get; set; }
     public virtual String EvalFrameVar { get; set; }
-    public virtual String IntValuePre { get; set; }
-    public virtual String IntValuePost { get; set; }
+    public virtual String IntValueHexPre { get; set; }
+    public virtual String IntValueHexPost { get; set; }
     public virtual String BaseBitRightCount { get; set; }
     public virtual String RefKindBitRightCount { get; set; }
     public virtual String RefBitCount { get; set; }
@@ -238,7 +238,7 @@ public class ClassGen : ClassBase
 
     protected virtual String RefKindMask(String kindHexDigit)
     {
-        return this.AddClear().Add(this.IntValuePre).Add(kindHexDigit).AddS("000000000000000").AddResult();
+        return this.AddClear().Add(this.IntValueHexPre).Add(kindHexDigit).AddS("000000000000000").AddResult();
     }
 
     public virtual bool Execute()
@@ -2014,7 +2014,7 @@ public class ClassGen : ClassBase
     {
         this.Text(this.WhileLabelPre);
 
-        this.Operate.ExecuteIntTextHex(whileIndex);
+        this.Operate.ExecuteTextIntHex(whileIndex);
         return true;
     }
 
@@ -2489,7 +2489,7 @@ public class ClassGen : ClassBase
         
         this.Text(this.NameCombine);
 
-        this.Operate.ExecuteIntTextHex(moduleRef.Ver);
+        this.Operate.ExecuteTextIntHex(moduleRef.Ver);
         return true;
     }
 
@@ -2532,13 +2532,13 @@ public class ClassGen : ClassBase
     
     public virtual bool ModuleVer(long ver)
     {
-        this.Operate.ExecuteIntTextHex(ver);
+        this.Operate.ExecuteTextIntHex(ver);
         return true;
     }
 
     public virtual bool BoolValueRef(bool value)
     {
-        this.Text(this.IntValuePre);
+        this.Text(this.IntValueHexPre);
 
         this.Text(this.RefKindBool);
 
@@ -2549,21 +2549,21 @@ public class ClassGen : ClassBase
             k = 1;
         }
 
-        this.Operate.ExecuteIntTextHex(k);
+        this.Operate.ExecuteTextIntHex(k);
 
-        this.Text(this.IntValuePost);
+        this.Text(this.IntValueHexPost);
         return true;
     }
 
     public virtual bool IntValueRef(long value)
     {
-        this.Text(this.IntValuePre);
+        this.Text(this.IntValueHexPre);
 
         this.Text(this.RefKindInt);
 
-        this.Operate.ExecuteIntTextHex(value);
+        this.Operate.ExecuteTextIntHex(value);
 
-        this.Text(this.IntValuePost);
+        this.Text(this.IntValueHexPost);
         return true;
     }
 
@@ -2605,17 +2605,17 @@ public class ClassGen : ClassBase
 
     public virtual bool TextInt(long n)
     {
-        this.Operate.ExecuteIntText(n);
+        this.Operate.ExecuteTextInt(n);
         return true;
     }
 
     public virtual bool TextIntHex(long n)
     {
-        this.Text(this.IntValuePre);
+        this.Text(this.IntValueHexPre);
         
-        this.Operate.ExecuteIntTextHex(n);
+        this.Operate.ExecuteTextIntHex(n);
 
-        this.Text(this.IntValuePost);
+        this.Text(this.IntValueHexPost);
         return true;
     }
 
@@ -2689,7 +2689,7 @@ public class ClassGen : ClassBase
         k = k << 52;
 
         String a;
-        a = this.AddClear().Add(this.IntValuePre).Add(this.StringIntHex(k)).Add(this.IntValuePost).AddResult();
+        a = this.AddClear().Add(this.IntValueHexPre).Add(this.StringIntHex(k)).Add(this.IntValueHexPost).AddResult();
         
         return a;
     }

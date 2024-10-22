@@ -9,12 +9,12 @@ public class ClassGenOperate : Any
         return false;
     }
 
-    public virtual bool ExecuteIntText(long o)
+    public virtual bool ExecuteTextInt(long o)
     {
         return false;
     }
 
-    public virtual bool ExecuteIntTextHex(long o)
+    public virtual bool ExecuteTextIntHex(long o)
     {
         return false;
     }
