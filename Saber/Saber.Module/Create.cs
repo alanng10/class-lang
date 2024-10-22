@@ -171,7 +171,68 @@ public class Create : InfraCreate
         this.AddBaseList();
 
         this.BaseTable = null;
+
+        this.BaseCountSet();
         return true;
+    }
+
+    protected virtual bool BaseCountSet()
+    {
+        Iter iter;
+        iter = this.Module.Class.IterCreate();
+        this.Module.Class.IterSet(iter);
+        while (iter.Next())
+        {
+            ClassClass ca;
+            ca = (ClassClass)iter.Value;
+
+            long ka;
+            ka = this.BaseCount(ca);
+
+            ca.BaseCount = ka;
+        }
+
+        iter = this.ImportClass.IterCreate();
+        this.ImportClass.IterSet(iter);
+        while (iter.Next())
+        {
+            ClassClass cb;
+            cb = (ClassClass)iter.Value;
+
+            long kb;
+            kb = this.BaseCount(cb);
+
+            cb.BaseCount = kb;
+        }
+
+        return true;
+    }
+
+    protected virtual long BaseCount(ClassClass varClass)
+    {
+        ClassClass anyClass;
+        anyClass = this.SystemClass.Any;
+
+        ClassClass c;
+        c = varClass;
+
+        long k;
+        k = 0;
+
+        while (!(c == null))
+        {
+            k = k + 1;
+
+            ClassClass ka;
+            ka = null;
+            if (!(c == anyClass))
+            {
+                ka = c.Base;
+            }
+            c = ka;
+        }
+
+        return k;
     }
 
     protected virtual bool SetBaseTable()

@@ -12,7 +12,7 @@ public class Class : Any
 
     public virtual Module Module { get; set; }
 
-    public virtual long BaseIndex { get; set; }
+    public virtual long BaseCount { get; set; }
 
     public virtual long FieldStart { get; set; }
 
