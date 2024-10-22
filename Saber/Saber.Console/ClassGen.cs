@@ -116,12 +116,12 @@ public class ClassGen : ClassBase
     }
 
     public virtual ClassClass Class { get; set; }
-    public virtual ClassComp ClassComp { get; set; }
-    public virtual Array BaseArray { get; set; }
     public virtual BuiltinClass System { get; set; }
-    public virtual Maide InitMaide { get; set; }
     public virtual ClassClass InternClass { get; set; }
     public virtual ClassClass ExternClass { get; set; }
+    public virtual ClassComp ClassComp { get; set; }
+    public virtual Array BaseArray { get; set; }
+    public virtual Maide InitMaide { get; set; }
     public virtual GenArg Arg { get; set; }
     public virtual ClassGenOperate Operate { get; set; }
     public virtual String Result { get; set; }
