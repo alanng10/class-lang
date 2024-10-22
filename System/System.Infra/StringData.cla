@@ -3,8 +3,13 @@ class StringData : Data
     maide prusate Bool Init()
     {
         base.Init();
-        this.InternIntern : share InternIntern;
+        this.InternIntern : share Intern;
         this.StringComp : share StringComp;
+        return true;
+    }
+
+    maide precate Bool InitValue()
+    {
         return true;
     }
     
@@ -18,29 +23,25 @@ class StringData : Data
         {
             data : value;
             
-            var Int n;
-            n : 0;
             var Any aa;
+            var Int count;
+            count : 0;
 
             inf (~(data = null))
             {
-                n : this.StringComp.Count(data);
-                n : n * 4;
-                
                 aa : this.InternIntern.StringValue(data);
+
+                count : this.StringComp.Count(data);
+                count : count * 4;                
             }
             
-            this.Count : n;
             this.Value : aa;
+            this.Count : count;
         }
     }
 
-    field private InternIntern InternIntern { get { return data; } set { data : value; } }
+    field private Intern InternIntern { get { return data; } set { data : value; } }
     field precate StringComp StringComp { get { return data; } set { data : value; } }
-    
-    maide precate Bool InitValue()
-    {
-    }
 
     maide prusate Bool Set(var Int index, var Int value)
     {
