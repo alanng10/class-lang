@@ -18,6 +18,8 @@ public class ClassGenTraverse : Traverse
         Field field;
         field = this.Info(varField).Field;
 
+        gen.ThisField = field;
+
         gen.CompStateKind = gen.StateKindGet;
 
         gen.ParamCount = 1;
@@ -45,6 +47,8 @@ public class ClassGenTraverse : Traverse
         gen.CompStateEnd();
 
         gen.Text(gen.NewLine);
+
+        gen.ThisField = null;
 
         return true;
     }
