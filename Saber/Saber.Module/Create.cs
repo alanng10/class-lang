@@ -643,6 +643,11 @@ public class Create : InfraCreate
         ClassClass varClass;
         varClass = a.Parent;
 
+        if (varClass == this.SystemClass.Any)
+        {
+            return true;
+        }
+
         object ka;
         ka = this.CompDefined(varClass.Base, a.Name);
 
@@ -698,6 +703,11 @@ public class Create : InfraCreate
     {
         ClassClass varClass;
         varClass = a.Parent;
+
+        if (varClass == this.SystemClass.Any)
+        {
+            return true;
+        }
 
         object ka;
         ka = this.CompDefined(varClass.Base, a.Name);
