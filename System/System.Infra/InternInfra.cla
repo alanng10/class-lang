@@ -11,6 +11,95 @@ class InternInfra : Any
     field precate Intern InternIntern { get { return data; } set { data : value; } }
     field precate Extern Extern { get { return data; } set { data : value; } }
 
+    maide prusate Bool ValidIndex(var Int count, var Int index)
+    {
+        return this.ValidRange(count, index, 1);
+    }
+
+    maide prusate Bool ValidRange(var Int totalCount, var Int index, var Int count)
+    {
+        inf (totalCount = null)
+        {
+            return false;
+        }
+        inf (index = null)
+        {
+            return false;
+        }
+        inf (count = null)
+        {
+            return false;
+        }
+        inf (totalCount < index + count)
+        {
+            return false;
+        }
+        return true;
+    }
+
+    public virtual ulong DataByteListGet(byte[] data, long index, long count)
+    {
+        ulong oo;
+        oo = 0;
+
+        long i;
+        i = 0;
+        while (i < count)
+        {
+            byte ob;
+            ob = data[index + i];
+
+            int shiftCount;
+            shiftCount = (int)(i * 8);
+
+            ulong o;
+            o = ob;
+            o = o << shiftCount;
+
+            oo = oo | o;
+
+            i = i + 1;
+        }
+        long d;
+        d = (this.IntCapValue - 1);
+        ulong da;
+        da = (ulong)d;
+        ulong a;
+        a = oo;
+        a = a & da;
+        return a;
+    }
+
+    public virtual bool DataByteListSet(byte[] data, long index, long count, ulong value)
+    {
+        long d;
+        d = this.IntCapValue - 1;
+        ulong da;
+        da = (ulong)d;
+        ulong oo;
+        oo = value;
+        oo = oo & da;
+
+        long i;
+        i = 0;
+        while (i < count)
+        {
+            int shiftCount;
+            shiftCount = (int)(i * 8);
+
+            ulong o;
+            o = oo >> shiftCount;
+
+            byte ob;
+            ob = (byte)o;
+
+            data[index + i] = ob;
+
+            i = i + 1;
+        }
+        return true;
+    }
+
     maide prusate Int TextCodeCount(var Int innKind, var Int outKind, var Any data, var Int dataIndex, var Int dataCount)
     {
         var Int dataValue;
