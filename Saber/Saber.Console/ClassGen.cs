@@ -827,27 +827,7 @@ public class ClassGen : ClassBase
 
                 this.Text(this.Space);
 
-                this.Text(this.ClassInt);
-
-                this.Text(this.Space);
-
-                this.CompStateMaideName(varClass, name, stateKind);
-
-                this.Text(this.LimitBraceRoundLite);
-
-                this.Text(this.ClassEval);
-                this.Text(this.LimitAsterisk);
-                this.Text(this.Space);
-                this.Text(this.EvalVar);
-
-                this.Text(this.LimitComma);
-                this.Text(this.Space);
-
-                this.Text(this.ClassInt);
-                this.Text(this.Space);
-                this.Text(this.EvalFrameVar);
-
-                this.Text(this.LimitBraceRoundRite);
+                this.CompStateStart(varClass, name, stateKind);
 
                 this.Text(this.LimitSemicolon);
                 this.Text(this.NewLine);
@@ -1349,6 +1329,32 @@ public class ClassGen : ClassBase
 
         iter.Clear();
 
+        return true;
+    }
+
+    public virtual bool CompStateStart(ClassClass varClass, String name, String stateKind)
+    {
+        this.Text(this.ClassInt);
+
+        this.Text(this.Space);
+
+        this.CompStateMaideName(varClass, name, stateKind);
+
+        this.Text(this.LimitBraceRoundLite);
+
+        this.Text(this.ClassEval);
+        this.Text(this.LimitAsterisk);
+        this.Text(this.Space);
+        this.Text(this.EvalVar);
+
+        this.Text(this.LimitComma);
+        this.Text(this.Space);
+
+        this.Text(this.ClassInt);
+        this.Text(this.Space);
+        this.Text(this.EvalFrameVar);
+
+        this.Text(this.LimitBraceRoundRite);
         return true;
     }
 
@@ -2046,6 +2052,19 @@ public class ClassGen : ClassBase
         return true;
     }
 
+    public virtual bool LocalVarListZero(long count)
+    {
+        long i;
+        i = 0;
+        while (i < count)
+        {
+            this.EvalFrameValueSet(i, this.Zero);
+
+            i = i + 1;
+        }
+        return true;
+    }
+
     public virtual bool VarSet(String dest, String value)
     {
         this.TextIndent();
@@ -2420,7 +2439,7 @@ public class ClassGen : ClassBase
         return this.CompStateMaideName(varClass, compName, this.StateCall);
     }
 
-    public virtual bool CompStateMaideName(ClassClass varClass, String compName, String state)
+    public virtual bool CompStateMaideName(ClassClass varClass, String compName, String stateKind)
     {
         if (varClass == this.InternClass | varClass == this.ExternClass)
         {
@@ -2454,7 +2473,7 @@ public class ClassGen : ClassBase
 
         this.Text(this.NameCombine);
 
-        this.Text(state);
+        this.Text(stateKind);
         return true;
     }
 

@@ -12,6 +12,8 @@ public class ClassGenTraverse : Traverse
         State call;
         call = varMaide.Call;
 
+
+
         gen.CompState = call;
 
         this.ExecuteState(call);
