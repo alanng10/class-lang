@@ -43,7 +43,6 @@ public class ClassGen : ClassBase
         this.EvalIndexVar = this.S("N");
         this.EvalFrameVar = this.S("f");
         this.IntValueHexPre = this.S("0x");
-        this.IntValueHexPost = this.S("ULL");
         this.BaseBitRightCount = this.S("52");
         this.RefKindBitRightCount = this.S("60");
         this.RefBitCount = this.S("4");
@@ -161,7 +160,6 @@ public class ClassGen : ClassBase
     public virtual String EvalIndexVar { get; set; }
     public virtual String EvalFrameVar { get; set; }
     public virtual String IntValueHexPre { get; set; }
-    public virtual String IntValueHexPost { get; set; }
     public virtual String BaseBitRightCount { get; set; }
     public virtual String RefKindBitRightCount { get; set; }
     public virtual String RefBitCount { get; set; }
@@ -2633,8 +2631,6 @@ public class ClassGen : ClassBase
         }
 
         this.Operate.ExecuteTextIntHex(k);
-
-        this.Text(this.IntValueHexPost);
         return true;
     }
 
@@ -2645,8 +2641,6 @@ public class ClassGen : ClassBase
         this.Text(this.RefKindInt);
 
         this.Operate.ExecuteTextIntHex(value);
-
-        this.Text(this.IntValueHexPost);
         return true;
     }
 
@@ -2697,8 +2691,6 @@ public class ClassGen : ClassBase
         this.Text(this.IntValueHexPre);
         
         this.Operate.ExecuteTextIntHex(n);
-
-        this.Text(this.IntValueHexPost);
         return true;
     }
 
@@ -2772,7 +2764,7 @@ public class ClassGen : ClassBase
         k = k << 52;
 
         String a;
-        a = this.AddClear().Add(this.IntValueHexPre).Add(this.StringIntHex(k)).Add(this.IntValueHexPost).AddResult();
+        a = this.AddClear().Add(this.IntValueHexPre).Add(this.StringIntHex(k)).AddResult();
         
         return a;
     }
