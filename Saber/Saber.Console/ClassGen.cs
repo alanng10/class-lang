@@ -1369,6 +1369,21 @@ public class ClassGen : ClassBase
 
         this.IndentCount = this.IndentCount + 1;
 
+        this.DeclareVar(this.VarA);
+        this.DeclareVar(this.VarB);
+        this.DeclareVar(this.VarC);
+        this.DeclareVar(this.VarD);
+        this.DeclareVar(this.VarSA);
+        this.DeclareVar(this.VarSB);
+        this.DeclareVar(this.VarSC);
+        this.VarSet(this.VarA, this.Zero);
+        this.VarSet(this.VarB, this.Zero);
+        this.VarSet(this.VarC, this.Zero);
+        this.VarSet(this.VarD, this.Zero);
+        this.VarSet(this.VarSA, this.Zero);
+        this.VarSet(this.VarSB, this.Zero);
+        this.VarSet(this.VarSC, this.Zero);
+
         this.InitLocalVarList(localVarCount);
         return true;
     }
@@ -2100,6 +2115,21 @@ public class ClassGen : ClassBase
         }
 
         this.EvalIndexPosSet(count);
+        return true;
+    }
+
+    public virtual bool DeclareVar(String varVar)
+    {
+        this.TextIndent();
+
+        this.Text(this.ClassInt);
+
+        this.Text(this.Space);
+
+        this.Text(varVar);
+
+        this.Text(this.LimitSemicolon);
+        this.Text(this.NewLine);
         return true;
     }
 
