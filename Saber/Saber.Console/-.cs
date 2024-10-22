@@ -40,6 +40,7 @@ global using CountList = Saber.Infra.CountList;
 global using Error = Saber.Infra.Error;
 global using ErrorKind = Saber.Infra.ErrorKind;
 global using Range = Saber.Infra.Range;
+global using Pos = Saber.Infra.Pos;
 global using ModuleRef = Saber.Infra.ModuleRef;
 global using ModuleRefLess = Saber.Infra.ModuleRefLess;
 global using NameCheck = Saber.Infra.NameCheck;
