@@ -3,7 +3,7 @@ class Data : Any
     maide prusate Bool Init()
     {
         base.Init();
-        this.InternIntern : share InternIntern;
+        this.InternIntern : share Intern;
         this.InfraInfra : share Infra;
         this.InitValue();
         return true;
