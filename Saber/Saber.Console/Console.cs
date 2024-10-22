@@ -589,6 +589,8 @@ public class Console : ClassBase
         String genModuleFoldPath;
         genModuleFoldPath = this.AddClear().Add(genFoldPath).Add(combine).Add(moduleRefString).AddResult();
 
+        this.StorageComp.FoldDelete(genModuleFoldPath);
+
         bool baa;
         baa = this.StorageComp.FoldCreate(genModuleFoldPath);
 
