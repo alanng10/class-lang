@@ -620,6 +620,9 @@ public class Console : ClassBase
             String k;
             k = this.ClassGen.Result;
 
+            this.ClassGen.Result = null;
+            this.ClassGen.Class = null;
+
             String ka;
             ka = this.StringIntHex(i);
 
@@ -637,9 +640,6 @@ public class Console : ClassBase
                 this.Status = 5000 + 10;
                 return false;
             }
-
-            this.ClassGen.Result = null;
-            this.ClassGen.Class = null;
 
             i = i + 1;
         }
