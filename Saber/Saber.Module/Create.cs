@@ -474,75 +474,81 @@ public class Create : InfraCreate
 
             this.ClassVirtualSetClass(baseClass);
 
-            Table fieldTable;
-            fieldTable = this.ClassInfra.TableCreateStringLess();
 
-            Table maideTable;
-            maideTable = this.ClassInfra.TableCreateStringLess();
-
-            Iter iter;
-            iter = varClass.Field.IterCreate();
-            varClass.Field.IterSet(iter);
-            while (iter.Next())
-            {
-                Field field;
-                field = (Field)iter.Value;
-
-                bool ba;
-                ba = this.VirtualField(field);
-
-                NodeField node;
-                node = (NodeField)field.Any;
-
-                if (!ba)
-                {
-                    this.Error(this.ErrorKind.FieldUndefined, node, this.SourceGet(varClass.Index));
-                }
-
-                if (ba)
-                {
-                    field.Index = fieldTable.Count;
-
-                    this.Info(node).Field = field;
-
-                    this.ListInfra.TableAdd(fieldTable, field.Name, field);
-                }
-            }
-
-            iter = varClass.Maide.IterCreate();
-            varClass.Maide.IterSet(iter);
-            while (iter.Next())
-            {
-                Maide maide;
-                maide = (Maide)iter.Value;
-
-                bool bb;
-                bb = this.VirtualMaide(maide);
-
-                NodeMaide node;
-                node = (NodeMaide)maide.Any;
-
-                if (!bb)
-                {
-                    this.Error(this.ErrorKind.MaideUndefined, node, this.SourceGet(varClass.Index));
-                }
-
-                if (bb)
-                {
-                    maide.Index = maideTable.Count;
-
-                    this.Info(node).Maide = maide;
-
-                    this.ListInfra.TableAdd(maideTable, maide.Name, maide);
-                }
-            }
-
-            varClass.Field = fieldTable;
-            varClass.Maide = maideTable;
         }
 
         this.ListInfra.TableAdd(k, varClass, varClass);
 
+        return true;
+    }
+
+    protected virtual bool ClassVirtualSetClassComp(ClassClass varClass)
+    {
+        Table fieldTable;
+        fieldTable = this.ClassInfra.TableCreateStringLess();
+
+        Table maideTable;
+        maideTable = this.ClassInfra.TableCreateStringLess();
+
+        Iter iter;
+        iter = varClass.Field.IterCreate();
+        varClass.Field.IterSet(iter);
+        while (iter.Next())
+        {
+            Field field;
+            field = (Field)iter.Value;
+
+            bool ba;
+            ba = this.VirtualField(field);
+
+            NodeField node;
+            node = (NodeField)field.Any;
+
+            if (!ba)
+            {
+                this.Error(this.ErrorKind.FieldUndefined, node, this.SourceGet(varClass.Index));
+            }
+
+            if (ba)
+            {
+                field.Index = fieldTable.Count;
+
+                this.Info(node).Field = field;
+
+                this.ListInfra.TableAdd(fieldTable, field.Name, field);
+            }
+        }
+
+        iter = varClass.Maide.IterCreate();
+        varClass.Maide.IterSet(iter);
+        while (iter.Next())
+        {
+            Maide maide;
+            maide = (Maide)iter.Value;
+
+            bool bb;
+            bb = this.VirtualMaide(maide);
+
+            NodeMaide node;
+            node = (NodeMaide)maide.Any;
+
+            if (!bb)
+            {
+                this.Error(this.ErrorKind.MaideUndefined, node, this.SourceGet(varClass.Index));
+            }
+
+            if (bb)
+            {
+                maide.Index = maideTable.Count;
+
+                this.Info(node).Maide = maide;
+
+                this.ListInfra.TableAdd(maideTable, maide.Name, maide);
+            }
+        }
+
+        varClass.Field = fieldTable;
+        varClass.Maide = maideTable;
         return true;
     }
 
