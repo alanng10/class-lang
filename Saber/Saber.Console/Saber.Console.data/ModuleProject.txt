@@ -1,0 +1,11 @@
+include(../module.pri)
+
+HEADERS += 
+SOURCES += \
+    *.c
+
+LIBS += -L$$PWD/../../Out/Infra-Windows-Release/release/
+
+LIBS += -lInfra
+
+INCLUDEPATH += $$PWD/..
