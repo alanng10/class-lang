@@ -49,6 +49,7 @@ public class Console : ClassBase
         this.SIntern = this.S("Intern");
         this.SExtern = this.S("Extern");
         this.SC = this.S("c");
+        this.SModule = this.S("Module");
         return true;
     }
 
@@ -93,6 +94,7 @@ public class Console : ClassBase
     protected virtual String SIntern { get; set; }
     protected virtual String SExtern { get; set; }
     protected virtual String SC { get; set; }
+    protected virtual String SModule { get; set; }
 
     protected virtual NameCheck CreateNameCheck()
     {
@@ -656,6 +658,32 @@ public class Console : ClassBase
             }
 
             i = i + 1;
+        }
+
+        this.ModuleGen.Gen = this.ClassGen;
+        this.ModuleGen.Module = this.Result.Module.Module;
+
+        this.ModuleGen.Execute();
+        String kf;
+        kf = this.ModuleGen.Result;
+
+        this.ModuleGen.Result = null;
+        this.ModuleGen.Module = null;
+        this.ModuleGen.Gen = null;
+
+        String fileNameA;
+        fileNameA = this.AddClear().Add(this.SModule).Add(this.ClassInfra.Dot).Add(this.SC).AddResult();
+
+        String filePathA;
+        filePathA = this.AddClear().Add(genModuleFoldPath).Add(combine).Add(fileNameA).AddResult();
+
+        bool bb;
+        bb = this.StorageInfra.TextWrite(filePathA, kf);
+
+        if (!bb)
+        {
+            this.Status = 5000 + 20;
+            return false;
         }
         return true;
     }
