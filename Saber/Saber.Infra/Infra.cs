@@ -29,6 +29,7 @@ public class Infra : Any
         this.BackSlash = this.S("\\");
         this.NewLine = this.S("\n");
         this.Dot = this.S(".");
+        this.Hyphen = this.S("-");
         this.IntSignValueNegativeMax = this.InfraInfra.IntCapValue / 2;
         this.IntSignValuePositiveMax = this.IntSignValueNegativeMax - 1;
         return true;
@@ -38,6 +39,7 @@ public class Infra : Any
     public virtual String BackSlash { get; set; }
     public virtual String NewLine { get; set; }
     public virtual String Dot { get; set; }
+    public virtual String Hyphen { get; set; }
     public virtual long IntSignValuePositiveMax { get; set; }
     public virtual long IntSignValueNegativeMax { get; set; }
 
@@ -107,6 +109,19 @@ public class Infra : Any
         a.Init();
         a.Name = name;
         a.Ver = version;
+        return a;
+    }
+
+    public virtual String ModuleRefString(String name, String verString)
+    {
+        StringAdd h;
+        h = new StringAdd();
+        h.Init();
+
+        this.Add(h, name).Add(h, this.Hyphen).Add(h, verString);
+
+        String a;
+        a = h.Result();
         return a;
     }
 
