@@ -3,7 +3,7 @@ class Infra : Any
     maide prusate Bool Init()
     {
         base.Init();
-        this.StringComp = share StringComp;
+        this.StringComp : share StringComp;
         return true;
     }
 
@@ -132,10 +132,11 @@ class Infra : Any
         return true;
     }
 
-    maide prusate Bool StringJoinString(var StringJoin h, var String a)
+    maide prusate Bool AddString(var StringAdd h, var String a)
     {
         var StringComp stringComp;
         stringComp : this.StringComp;
+
         var Int count;
         count : stringComp.Count(a);
         var Int i;
@@ -145,29 +146,10 @@ class Infra : Any
             var Int oc;
             oc : stringComp.Char(a, i);
 
-            h.Add(oc);
+            h.Execute(oc);
 
             i : i + 1;
         }
         return true;
-    }
-
-    maide prusate StringLess StringLessCreate()
-    {
-        var IntLess charLess;
-        charLess : new IntLess;
-        charLess.Init();
-
-        var CharForm charForm;
-        charForm : new CharForm;
-        charForm.Init();
-
-        var StringLess a;
-        a : new StringLess;
-        a.CharLess : charLess;
-        a.LeftCharForm : charForm;
-        a.RightCharForm : charForm;
-        a.Init();
-        return a;
     }
 }
