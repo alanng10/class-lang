@@ -68,30 +68,25 @@ class InternInfra : Any
         return a;
     }
 
-    public virtual bool DataByteListSet(byte[] data, long index, long count, ulong value)
+    maide prusate Bool DataByteListSet(var Any data, var Int index, var Int count, var Int value)
     {
-        long d;
-        d = this.IntCapValue - 1;
-        ulong da;
-        da = (ulong)d;
-        ulong oo;
-        oo = value;
-        oo = oo & da;
+        var Intern internIntern;
+        internIntern : this.InternIntern;
 
-        long i;
-        i = 0;
+        var Int oo;
+        oo : value;
+
+        var Int i;
+        i : 0;
         while (i < count)
         {
-            int shiftCount;
-            shiftCount = (int)(i * 8);
+            var Int shiftCount;
+            shiftCount : i * 8;
 
-            ulong o;
-            o = oo >> shiftCount;
+            var Int o;
+            o : bit>(oo, shiftCount);
 
-            byte ob;
-            ob = (byte)o;
-
-            data[index + i] = ob;
+            internIntern.DataSet(data, index + i, o);
 
             i = i + 1;
         }
