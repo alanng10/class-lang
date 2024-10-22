@@ -29,7 +29,7 @@ class StringData : Data
 
             inf (~(data = null))
             {
-                aa : this.InternIntern.StringValue(data);
+                aa : this.InternIntern.StringValueGet(data);
 
                 count : this.StringComp.Count(data);
                 count : count * 4;                
