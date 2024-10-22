@@ -46,6 +46,7 @@ public class Console : ClassBase
         this.SSystemDotInfra = this.S("System.Infra");
         this.SIntern = this.S("Intern");
         this.SExtern = this.S("Extern");
+        this.SC = this.S("c");
         return true;
     }
 
@@ -88,6 +89,7 @@ public class Console : ClassBase
     protected virtual String SSystemDotInfra { get; set; }
     protected virtual String SIntern { get; set; }
     protected virtual String SExtern { get; set; }
+    protected virtual String SC { get; set; }
 
     protected virtual NameCheck CreateNameCheck()
     {
@@ -394,7 +396,12 @@ public class Console : ClassBase
         {
             if (this.CanGen())
             {
-                this.ExecuteGen();
+                bool bea;
+                bea = this.ExecuteGen();
+                if (!bea)
+                {
+                    return false;
+                }
             }
 
             this.ErrorString.RangePos = true;
@@ -567,7 +574,75 @@ public class Console : ClassBase
         this.ClassGen.ExternClass = externClass;
         this.ClassGen.System = this.Create.Module.SystemClass;
 
+        String genFoldPath;
+        genFoldPath = this.S("Saber.Console.Data/Gen");
+
+        String verString;
+        verString = this.ClassInfra.VerString(module.Ref.Ver);
+
+        String moduleRefString;
+        moduleRefString = this.ClassInfra.ModuleRefString(module.Ref.Name, verString);
+
+        String combine;
+        combine = this.TextInfra.PathCombine;
+
+        String genModuleFoldPath;
+        genModuleFoldPath = this.AddClear().Add(genFoldPath).Add(combine).Add(moduleRefString).AddResult();
+
+        bool baa;
+        baa = this.StorageComp.FoldCreate(genModuleFoldPath);
+
+        if (!baa)
+        {
+            this.Status = 5000 + 1;
+            return false;
+        }
+
+        Iter iter;
+        iter = module.Class.IterCreate();
+        module.Class.IterSet(iter);
         
+        long count;
+        count = module.Class.Count;
+        long i;
+        i = 0;
+        while (i < count)
+        {
+            iter.Next();
+
+            ClassClass varClass;
+            varClass = (ClassClass)iter.Value;
+
+            this.ClassGen.Class = varClass;
+
+            this.ClassGen.Execute();
+
+            String k;
+            k = this.ClassGen.Result;
+
+            String ka;
+            ka = this.StringIntHex(i);
+
+            String fileName;
+            fileName = this.AddClear().AddChar('C').Add(ka).Add(this.ClassInfra.Dot).Add(this.SC).AddResult();
+
+            String filePath;
+            filePath = this.AddClear().Add(genModuleFoldPath).Add(combine).Add(fileName).AddResult();
+
+            bool ba;    
+            ba = this.StorageInfra.TextWrite(filePath, k);
+
+            if (!ba)
+            {
+                this.Status = 5000 + 10;
+                return false;
+            }
+
+            this.ClassGen.Result = null;
+            this.ClassGen.Class = null;
+
+            i = i + 1;
+        }
         return true;
     }
 
