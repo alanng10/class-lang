@@ -60,7 +60,7 @@ public class ClassGen : ClassBase
         this.MemoryIndexMask = this.S("0x000fffffffffffff");
         this.ClassInt = this.S("Int");
         this.ClassEval = this.S("Eval");
-        this.ClassCompState = this.S("CompState");
+        this.ClassCompState = this.S("Intern_State");
         this.InternNewMaide = this.S("Intern_New");
         this.InternValueRef = this.S("Intern_Value_Ref");
         this.InternValueClass = this.S("Intern_Value_Class");
@@ -1769,9 +1769,6 @@ public class ClassGen : ClassBase
 
     public virtual bool CallCompState(String compState)
     {
-        String kk;
-        kk = this.Space;
-
         String ka;
         String kb;
         ka = this.LimitBraceRoundLite;
@@ -1793,7 +1790,7 @@ public class ClassGen : ClassBase
         this.Text(this.EvalVar);
 
         this.Text(this.LimitComma);
-        this.Text(kk);
+        this.Text(this.Space);
 
         this.EvalIndex();
     
