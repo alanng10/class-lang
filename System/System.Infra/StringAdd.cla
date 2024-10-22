@@ -3,8 +3,8 @@ class StringAdd : Any
     maide prusate Bool Init()
     {
         base.Init();
-        this.InfraInfra : Infra.This;
-        this.StringComp : StringComp.This;
+        this.InfraInfra : share Infra;
+        this.StringComp : share StringComp;
 
         this.Range : new Range;
         this.Range.Init();
