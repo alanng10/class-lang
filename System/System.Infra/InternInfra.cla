@@ -108,7 +108,7 @@ class InternInfra : Any
         return this.DataMidGet(data, index);
     }
 
-    maide prusate bool DataCharSet(var Any data, var Int index, var Int value)
+    maide prusate Bool DataCharSet(var Any data, var Int index, var Int value)
     {
         return this.DataMidSet(data, index, value);
     }
