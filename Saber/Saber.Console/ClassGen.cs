@@ -672,7 +672,7 @@ public class ClassGen : ClassBase
 
         this.Text(this.CastInt);
         this.Text(this.LimitBraceRoundLite);
-        this.ClassAnyName(this.Class);
+        this.BaseName(this.Class);
         this.Text(this.LimitBraceRoundRite);
         this.Text(this.LimitComma);
         this.Text(this.Space);
