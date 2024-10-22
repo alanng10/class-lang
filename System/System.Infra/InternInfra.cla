@@ -93,6 +93,26 @@ class InternInfra : Any
         return true;
     }
 
+    maide prusate Int DataMidGet(var Any data, var Int index)
+    {
+        return this.DataByteListGet(data, index, 4);
+    }
+
+    maide prusate Bool DataMidSet(var Any data, var Int index, var Int value)
+    {
+        return this.DataByteListSet(data, index, 4, value);
+    }
+
+    public virtual uint DataCharGet(byte[] data, long index)
+    {
+        return this.DataMidGet(data, index);
+    }
+
+    public virtual bool DataCharSet(byte[] data, long index, uint value)
+    {
+        return this.DataMidSet(data, index, value);
+    }
+
     maide prusate Int TextCodeCount(var Int innKind, var Int outKind, var Any data, var Int dataIndex, var Int dataCount)
     {
         var Int dataValue;
