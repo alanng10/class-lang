@@ -483,7 +483,7 @@ public class ClassGen : ClassBase
 
         this.ExecuteCompList(this.ClassComp.Maide, false, this.StateCall);
 
-        this.ExecuteExternClassAny();
+        this.ExecuteExternClassAny(this.Class);
         this.Text(this.NewLine);
 
         this.ExecuteExternBaseItemList();
@@ -707,7 +707,7 @@ public class ClassGen : ClassBase
         return true;
     }
 
-    public virtual bool ExecuteExternClassAny()
+    public virtual bool ExecuteExternClassAny(ClassClass varClass)
     {
         this.Text(this.IndexExtern);
         this.Text(this.Space);
@@ -715,7 +715,7 @@ public class ClassGen : ClassBase
         this.Text(this.ClassInt);
         this.Text(this.Space);
 
-        this.ClassAnyName(this.Class);
+        this.ClassAnyName(varClass);
         this.Text(this.LimitBraceSquareLite);
         this.TextInt(5);
         this.Text(this.LimitBraceSquareRite);
