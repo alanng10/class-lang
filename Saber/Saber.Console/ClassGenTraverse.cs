@@ -12,13 +12,18 @@ public class ClassGenTraverse : Traverse
         State call;
         call = varMaide.Call;
 
+        Maide maide;
+        maide = this.Info(varMaide).Maide;
 
+        gen.ParamCount = maide.Param.Count + 1;
 
-        gen.CompState = call;
+        gen.CompStateStart(gen.Class, maide.Name, gen.StateCall, 0);
 
-        this.ExecuteState(call);
+        base.ExecuteState(call);
 
-        gen.CompState = null;
+        gen.CompStateEnd();
+
+        gen.Text(gen.NewLine);
 
         return true;
     }
