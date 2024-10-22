@@ -3,11 +3,11 @@ class InternInfra : Any
     maide prusate Bool Init()
     {
         base.Init();
-        this.InternIntern : share InternIntern;
+        this.InternIntern : share Intern;
         return true;
     }
     
-    field precate InternIntern InternIntern { get { return data; } set { data : value; } }
+    field precate Intern InternIntern { get { return data; } set { data : value; } }
     
     maide prusate Int TextCodeCount(var Int innKind, var Int outKind, var Any data, var Int dataIndex, var Int dataCount)
     {
