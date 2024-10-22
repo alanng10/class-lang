@@ -827,7 +827,7 @@ public class ClassGen : ClassBase
 
                 this.Text(this.Space);
 
-                this.CompStateStart(varClass, name, stateKind);
+                this.CompStateHead(varClass, name, stateKind);
 
                 this.Text(this.LimitSemicolon);
                 this.Text(this.NewLine);
@@ -1332,7 +1332,7 @@ public class ClassGen : ClassBase
         return true;
     }
 
-    public virtual bool CompStateStart(ClassClass varClass, String name, String stateKind)
+    public virtual bool CompStateHead(ClassClass varClass, String name, String stateKind)
     {
         this.Text(this.ClassInt);
 
