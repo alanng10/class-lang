@@ -37,7 +37,7 @@ class StringComp : Any
             var Int index;
             index : i * ko;
             
-            internInfra.DataSetChar(value, index, char);
+            internInfra.DataCharSet(value, index, char);
 
             i : i + 1;
         }
@@ -83,8 +83,11 @@ class StringComp : Any
         var InternInfra internInfra;
         internInfra : this.InternInfra;
         
+        var Int kka;
+        kka : 4;
+
         var Int totalCount;
-        totalCount : dataCount / 4;
+        totalCount : dataCount / kka;
 
         var Int index;
         var Int count;
@@ -108,26 +111,20 @@ class StringComp : Any
             }
         }
 
-        var String k;
-        k : internIntern.StringNew();
-
         var Int valueCount;
-        valueCount : count * 4;
+        valueCount : count * kka;
 
         var Any value;
         value : internIntern.DataNew(valueCount);
-        
-        internIntern.StringValueSet(k, value);
-        internIntern.StringCountSet(k, count);
 
         var Int i;
         i : 0;
         while (i < count)
         {
             var Int ka;
-            ka : (index + i) * 4;
             var Int kb;
-            kb : i * 4;
+            ka : (index + i) * kka;
+            kb : i * kka;
             
             var Int n;
             n : internInfra.DataCharGet(data, ka);
@@ -137,6 +134,11 @@ class StringComp : Any
             i : i + 1;
         }
 
+
+        var String a;
+        a : internIntern.StringNew();
+        internIntern.StringValueSet(a, value);
+        internIntern.StringCountSet(a, count);
         return k;
     }
     

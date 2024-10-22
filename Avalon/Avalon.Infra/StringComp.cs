@@ -114,29 +114,32 @@ public class StringComp : Any
             }
         }
 
-        byte[] dest;
-        dest = new byte[count * kka];
+        long valueCount;
+        valueCount = count * kka;
+
+        byte[] value;
+        value = new byte[valueCount];
 
         long i;
         i = 0;
         while (i < count)
         {
-            long kea;
-            long keb;
-            kea = (i + index) * kka;
-            keb = i * kka;
+            long ka;
+            long kb;
+            ka = (index + i) * kka;
+            kb = i * kka;
 
-            uint aa;
-            aa = internInfra.DataCharGet(data, kea);
+            uint n;
+            n = internInfra.DataCharGet(data, ka);
 
-            internInfra.DataCharSet(dest, keb, aa);
+            internInfra.DataCharSet(value, kb, n);
 
             i = i + 1;
         }
 
         String a;
         a = new String();
-        a.Value = dest;
+        a.Value = value;
         a.Count = count;
         a.Init();
         return a;
