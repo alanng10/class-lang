@@ -423,6 +423,14 @@ public class Create : InfraCreate
         return true;
     }
 
+    protected virtual bool ExecuteVirtual()
+    {
+        this.ClassVirtualSet();
+
+        this.SetClassRange();
+        return true;
+    }
+
     protected virtual bool ClassVirtualSet()
     {
         Table table;
@@ -474,7 +482,7 @@ public class Create : InfraCreate
 
             this.ClassVirtualSetClass(baseClass);
 
-
+            this.ClassVirtualSetClassComp(varClass);
         }
 
         this.ListInfra.TableAdd(k, varClass, varClass);
