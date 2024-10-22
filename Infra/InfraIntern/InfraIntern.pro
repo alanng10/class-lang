@@ -11,6 +11,7 @@ HEADERS += \
     Intern.h \
     Main.h \
     New.h \
+    Share.h \
     Thread.h \
     Value.h
 
@@ -21,6 +22,7 @@ SOURCES += \
     Intern.c \
     Main.c \
     New.c \
+    Share.c \
     Thread.c \
     Value.c
 
