@@ -2108,7 +2108,7 @@ public class ClassGen : ClassBase
             i = i + 1;
         }
 
-        this.EvalIndexPosSet(count);
+        this.EvalIndexFramePosSet(count);
         return true;
     }
 
