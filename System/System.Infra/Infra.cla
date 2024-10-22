@@ -4,14 +4,9 @@ class Infra : Any
     {
         base.Init();
         this.StringComp = share StringComp;
-
-        this.NewLine : "\n";
-        this.PathCombine : "/";
         return true;
     }
 
-    field prusate String NewLine { get { return data; } set { data : value; } }
-    field prusate String PathCombine { get { return data; } set { data : value; } }
     field precate StringComp StringComp { get { return data; } set { data : value; } }
 
     maide prusate Bool ValidIndex(var Int count, var Int index)
