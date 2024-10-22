@@ -37,36 +37,34 @@ class InternInfra : Any
         return true;
     }
 
-    public virtual ulong DataByteListGet(byte[] data, long index, long count)
+    maide prusate Int DataByteListGet(var Any data, var Int index, var Int count)
     {
-        ulong oo;
-        oo = 0;
+        var Intern internIntern;
+        internIntern : this.InternIntern;
 
-        long i;
-        i = 0;
+        var Int oo;
+        oo : 0;
+
+        var Int i;
+        i : 0;
         while (i < count)
         {
-            byte ob;
-            ob = data[index + i];
+            var Int ob;
+            ob : internIntern.DataGet(data, index + i);
 
-            int shiftCount;
-            shiftCount = (int)(i * 8);
+            var Int shiftCount;
+            shiftCount : i * 8;
 
-            ulong o;
-            o = ob;
-            o = o << shiftCount;
+            var Int o;
+            o : bit<(ob, shiftCount);
 
-            oo = oo | o;
+            oo : bit|(oo, o);
 
-            i = i + 1;
+            i : i + 1;
         }
-        long d;
-        d = (this.IntCapValue - 1);
-        ulong da;
-        da = (ulong)d;
-        ulong a;
-        a = oo;
-        a = a & da;
+        
+        var Int a;
+        a : oo;
         return a;
     }
 
