@@ -508,7 +508,7 @@ public class ClassGen : ClassBase
 
         this.BaseName(this.Class);
         this.Text(this.LimitBraceSquareLite);
-        this.TextIntHex(count);
+        this.TextInt(count);
         this.Text(this.LimitBraceSquareRite);
 
         this.Text(this.Space);
@@ -555,7 +555,7 @@ public class ClassGen : ClassBase
 
         this.BaseItemName(this.Class);
         this.Text(this.LimitBraceSquareLite);
-        this.TextIntHex(4);
+        this.TextInt(4);
         this.Text(this.LimitBraceSquareRite);
 
         this.Text(this.Space);
@@ -635,7 +635,7 @@ public class ClassGen : ClassBase
             this.BaseItemName(varClass);
 
             this.Text(this.LimitBraceSquareLite);
-            this.TextIntHex(4);
+            this.TextInt(4);
             this.Text(this.LimitBraceSquareRite);
 
             this.Text(this.LimitSemicolon);
@@ -660,7 +660,7 @@ public class ClassGen : ClassBase
 
         this.ClassAnyName(this.Class);
         this.Text(this.LimitBraceSquareLite);
-        this.TextIntHex(5);
+        this.TextInt(5);
         this.Text(this.LimitBraceSquareRite);
 
         this.Text(this.Space);
@@ -685,7 +685,7 @@ public class ClassGen : ClassBase
         this.Text(this.LimitComma);
         this.Text(this.Space);
 
-        this.TextIntHex(fieldCount);
+        this.TextInt(fieldCount);
         this.Text(this.LimitComma);
         this.Text(this.Space);
 
@@ -716,7 +716,7 @@ public class ClassGen : ClassBase
 
         this.ClassAnyName(this.Class);
         this.Text(this.LimitBraceSquareLite);
-        this.TextIntHex(5);
+        this.TextInt(5);
         this.Text(this.LimitBraceSquareRite);
 
         this.Text(this.LimitSemicolon);
@@ -869,7 +869,7 @@ public class ClassGen : ClassBase
 
         this.CompListName(this.Class, stateKind);
         this.Text(this.LimitBraceSquareLite);
-        this.TextIntHex(count);
+        this.TextInt(count);
         this.Text(this.LimitBraceSquareRite);
 
         this.Text(this.Space);
@@ -2312,7 +2312,7 @@ public class ClassGen : ClassBase
         this.Text(this.LimitSub);
         this.Text(this.Space);
         
-        this.TextIntHex(index);
+        this.TextInt(index);
         
         this.Text(this.LimitBraceSquareRite);
         return true;
@@ -2599,7 +2599,13 @@ public class ClassGen : ClassBase
 
         this.Text(ka);
         this.Text(this.Space);
-        this.TextIntHex(k);
+        this.TextInt(k);
+        return true;
+    }
+
+    public virtual bool TextInt(long n)
+    {
+        this.Operate.ExecuteIntText(n);
         return true;
     }
 
