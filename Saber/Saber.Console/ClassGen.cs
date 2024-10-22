@@ -755,6 +755,32 @@ public class ClassGen : ClassBase
         return true;
     }
 
+    public virtual bool ExternClassList()
+    {
+        ClassModule module;
+        module = this.Class.Module;
+
+        Iter iter;
+        iter = this.TableIter;
+        module.Class.IterSet(iter);
+        while (iter.Next())
+        {
+            ClassClass c;
+            c = (ClassClass)iter.Value;
+
+            this.Text(this.ExportWord);
+            this.Text(this.ApiWord);
+
+            this.Text(this.Space);
+
+            this.ClassVar(c);
+            this.Text(this.LimitSemicolon);
+            this.Text(this.NewLine);
+        }
+        iter.Clear();
+        return true;
+    }
+
     public virtual bool ExecuteExternCompList(Array array, bool field, String stateKind)
     {
         bool b;
