@@ -103,12 +103,12 @@ class InternInfra : Any
         return this.DataByteListSet(data, index, 4, value);
     }
 
-    public virtual uint DataCharGet(byte[] data, long index)
+    maide prusate Int DataCharGet(var Any data, var Int index)
     {
         return this.DataMidGet(data, index);
     }
 
-    public virtual bool DataCharSet(byte[] data, long index, uint value)
+    maide prusate bool DataCharSet(var Any data, var Int index, var Int value)
     {
         return this.DataMidSet(data, index, value);
     }
