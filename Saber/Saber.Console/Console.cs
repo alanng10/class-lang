@@ -43,6 +43,9 @@ public class Console : ClassBase
         this.SFlagM = this.S("-m");
         this.SClassDotPort = this.S("Class.Port");
         this.SDotCla = this.S(".cla");
+        this.SSystemDotInfra = this.S("System.Infra");
+        this.SIntern = this.S("Intern");
+        this.SExtern = this.S("Extern");
         return true;
     }
 
@@ -82,7 +85,10 @@ public class Console : ClassBase
     protected virtual String SFlagM { get; set; }
     protected virtual String SClassDotPort { get; set; }
     protected virtual String SDotCla { get; set; }
-    
+    protected virtual String SSystemDotInfra { get; set; }
+    protected virtual String SIntern { get; set; }
+    protected virtual String SExtern { get; set; }
+
     protected virtual NameCheck CreateNameCheck()
     {
         NameCheck a;
@@ -530,6 +536,38 @@ public class Console : ClassBase
 
     protected virtual bool ExecuteGen()
     {
+        ClassModule module;
+        module = this.Result.Module.Module;
+
+        ClassModule systemInfraModule;
+        systemInfraModule = null;
+
+        bool b;
+        b = this.TextSame(this.TA(module.Ref.Name), this.TB(this.SSystemDotInfra));
+
+        if (b)
+        {
+            systemInfraModule = module;
+        }
+
+        if (!b)
+        {
+            this.ModuleRef.Name = this.SSystemDotInfra;
+            this.ModuleRef.Ver = 0;
+
+            systemInfraModule = (ClassModule)this.ModuleTable.Get(this.ModuleRef);
+        }
+
+        ClassClass internClass;
+        ClassClass externClass;
+        internClass = (ClassClass)systemInfraModule.Class.Get(this.SIntern);
+        externClass = (ClassClass)systemInfraModule.Class.Get(this.SExtern);
+
+        this.ClassGen.InternClass = internClass;
+        this.ClassGen.ExternClass = externClass;
+        this.ClassGen.System = this.Create.Module.SystemClass;
+
+        
         return true;
     }
 
