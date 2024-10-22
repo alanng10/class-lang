@@ -2470,6 +2470,27 @@ public class ClassGen : ClassBase
         return true;
     }
 
+    public virtual bool EvalIndexFramePosSet(long pos)
+    {
+        this.TextIndent();
+
+        this.EvalIndex();
+
+        this.Text(this.Space);
+        this.Text(this.LimitAre);
+        this.Text(this.Space);
+
+        this.Text(this.EvalFrameVar);
+
+        this.Text(this.Space);
+
+        this.TextPos(pos);
+
+        this.Text(this.LimitSemicolon);
+        this.Text(this.NewLine);
+        return true;
+    }
+
     public virtual bool EvalStack()
     {
         this.Text(this.EvalVar);
