@@ -91,9 +91,6 @@ public class CompTraverse : Traverse
         Table varSet;
         varSet = this.ClassInfra.TableCreateStringLess();
 
-        long ka;
-        ka = this.ThisClass.Field.Count;
-
         Field a;
         a = new Field();
         a.Init();
@@ -103,7 +100,6 @@ public class CompTraverse : Traverse
         a.Get = varGet;
         a.Set = varSet;
         a.Parent = this.ThisClass;
-        a.Index = ka;
         a.Any = nodeField;
 
         bool b;
@@ -183,9 +179,6 @@ public class CompTraverse : Traverse
 
         this.ExecuteParam(param);
 
-        long ka;
-        ka = this.ThisClass.Maide.Count;
-
         Maide a;
         a = new Maide();
         a.Init();
@@ -195,7 +188,6 @@ public class CompTraverse : Traverse
         a.Param = this.ParamVar;
         a.Call = callVar;
         a.Parent = this.ThisClass;
-        a.Index = ka;
         a.Any = nodeMaide;
 
         this.ParamVar = null;
