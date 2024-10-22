@@ -18,6 +18,8 @@ public class ClassGenTraverse : Traverse
         Field field;
         field = this.Info(varField).Field;
 
+        gen.CompStateKind = gen.StateKindGet;
+
         gen.ParamCount = 1;
 
         gen.LocalVarCount = field.Get.Count - 1;
@@ -29,6 +31,8 @@ public class ClassGenTraverse : Traverse
         gen.CompStateEnd();
 
         gen.Text(gen.NewLine);
+
+        gen.CompStateKind = gen.StateKindSet;
 
         gen.ParamCount = 2;
 
@@ -55,6 +59,8 @@ public class ClassGenTraverse : Traverse
 
         Maide maide;
         maide = this.Info(varMaide).Maide;
+
+        gen.CompStateKind = gen.StateKindCall;
 
         gen.ParamCount = maide.Param.Count + 1;
 
