@@ -68,6 +68,7 @@ public class ClassGen : ClassBase
         this.StateSet = this.S("S");
         this.StateCall = this.S("C");
         this.NameCombine = this.S("_");
+        this.NamePre = this.S("C");
         this.ClassWord = this.S("Class");
         this.ListWord = this.S("List");
         this.BaseWord = this.S("Base");
@@ -179,11 +180,12 @@ public class ClassGen : ClassBase
     public virtual String InternNewMaide { get; set; }
     public virtual String InternValueRef { get; set; }
     public virtual String InternValueClass { get; set; }
-    public virtual String ClassWord { get; set; }
     public virtual String StateGet { get; set; }
     public virtual String StateSet { get; set; }
     public virtual String StateCall { get; set; }
     public virtual String NameCombine { get; set; }
+    public virtual String NamePre { get; set; }
+    public virtual String ClassWord { get; set; }
     public virtual String ListWord { get; set; }
     public virtual String BaseWord { get; set; }
     public virtual String ItemWord { get; set; }
@@ -2453,6 +2455,10 @@ public class ClassGen : ClassBase
 
     public virtual bool ModuleRef(ModuleRef moduleRef)
     {
+        this.Text(this.NamePre);
+
+        this.Text(this.NameCombine);
+
         this.NameSymbolString(moduleRef.Name);
         
         this.Text(this.NameCombine);
