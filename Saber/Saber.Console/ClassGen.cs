@@ -624,6 +624,10 @@ public class ClassGen : ClassBase
 
             this.Text(this.Space);
 
+            this.Text(this.IndexExtern);
+
+            this.Text(this.Space);
+
             this.Text(this.ClassInt);
 
             this.Text(this.Space);
