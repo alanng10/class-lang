@@ -16,13 +16,6 @@ typedef struct
 }
 Eval;
 
-typedef struct
-{
-    Int ClassArray;
-    Int ClassArrayCount;
-}
-Module;
-
 #define EvalStackCount (512 * 1024)
 
 typedef Int (*Intern_State)(Eval* eval, Int frame);

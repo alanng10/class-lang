@@ -1,18 +1,22 @@
 #include "Main.h"
 
 Int ModuleArray;
+Int ModuleArrayCount;
 
 Int ArgArray;
 
 Int ArgCount;
 
-Int Intern_Init(Int entryClass, Int entryModuleInit)
+Int Intern_Init(Int entryClass, Int entryModuleArray, Int entryModuleArrayCount)
 {
     Main_Init();
 
     Intern_ArgInit();
 
     Intern_NewInit();
+
+    ModuleArray = entryModuleArray;
+    ModuleArrayCount = entryModuleArrayCount;
 
     Intern_ClassSharePhoreInit();
 
@@ -61,16 +65,17 @@ Bool Intern_ClassSharePhoreInit()
     array = ModuleArray;
 
     Int count;
-    count = Array_CountGet(array);
+    count = ModuleArrayCount;
+
+    Int* p;
+    p = CastPointer(array);
+
     Int i;
     i = 0;
     while (i < count)
     {
-        Int a;
-        a = Array_ItemGet(array, i);
-
-        Module* module;
-        module = CastPointer(a);
+        Int module;
+        module = p[i];
 
         Intern_ClassSharePhoreInitModule(module);
 
@@ -80,13 +85,19 @@ Bool Intern_ClassSharePhoreInit()
     return true;
 }
 
-Bool Intern_ClassSharePhoreInitModule(Module* module)
+Bool Intern_ClassSharePhoreInitModule(Int module)
 {
+    Int* kk;
+    kk = CastPointer(module);
+
+    Int ka;
+    ka = kk[0];
+
     Int* array;
-    array = CastPointer(module->ClassArray);
+    array = CastPointer(ka);
 
     Int count;
-    count = module->ClassArrayCount;
+    count = kk[1];
 
     Int i;
     i = 0;
