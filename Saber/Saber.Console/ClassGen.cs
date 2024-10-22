@@ -120,6 +120,7 @@ public class ClassGen : ClassBase
 
     public virtual ClassClass Class { get; set; }
     public virtual BuiltinClass System { get; set; }
+    public virtual Table ImportClass { get; set; }
     public virtual ClassClass InternClass { get; set; }
     public virtual ClassClass ExternClass { get; set; }
     public virtual ClassComp ClassComp { get; set; }
@@ -464,6 +465,9 @@ public class ClassGen : ClassBase
         this.Include(this.IncludeValueInfraIntern);
         this.Text(this.NewLine);
 
+        this.ExecuteExternClassList();
+        this.Text(this.NewLine);
+
         this.ExecuteExternCompList(this.ClassComp.Field, true, this.StateGet);
         this.Text(this.NewLine);
 
@@ -755,7 +759,7 @@ public class ClassGen : ClassBase
         return true;
     }
 
-    public virtual bool ExternClassList()
+    public virtual bool ExecuteExternClassList()
     {
         ClassModule module;
         module = this.Class.Module;
@@ -773,10 +777,39 @@ public class ClassGen : ClassBase
 
             this.Text(this.Space);
 
+            this.Text(this.IndexExtern);
+            this.Text(this.Space);
+
+            this.Text(this.ClassInt);
+            this.Text(this.Space);
+
             this.ClassVar(c);
             this.Text(this.LimitSemicolon);
             this.Text(this.NewLine);
         }
+
+        this.ImportClass.IterSet(iter);
+        while (iter.Next())
+        {
+            ClassClass c;
+            c = (ClassClass)iter.Value;
+
+            this.Text(this.ImportWord);
+            this.Text(this.ApiWord);
+
+            this.Text(this.Space);
+
+            this.Text(this.IndexExtern);
+            this.Text(this.Space);
+
+            this.Text(this.ClassInt);
+            this.Text(this.Space);
+
+            this.ClassVar(c);
+            this.Text(this.LimitSemicolon);
+            this.Text(this.NewLine);
+        }
+
         iter.Clear();
         return true;
     }
