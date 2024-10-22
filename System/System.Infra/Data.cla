@@ -11,7 +11,7 @@ class Data : Any
 
     field prusate Any Value { get { return data; } set { data : value; } }
     field prusate Int Count { get { return data; } set { data : value; } }
-    field private InternIntern InternIntern { get { return data; } set { data : value; } }
+    field private Intern InternIntern { get { return data; } set { data : value; } }
     field precate Infra InfraInfra { get { return data; } set { data : value; } }
 
     maide precate Bool InitValue()
