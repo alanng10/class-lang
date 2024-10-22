@@ -56,6 +56,9 @@ public class ModuleGen : ClassBase
         ClassGen gen;
         gen = this.Gen;
 
+        this.ExecuteExternClassAnyList();
+        gen.Text(gen.NewLine);
+
         this.ExecuteClassList();
         gen.Text(gen.NewLine);
 
@@ -110,6 +113,26 @@ public class ModuleGen : ClassBase
         gen.Text(gen.LimitBraceRite);
         gen.Text(gen.LimitSemicolon);
         gen.Text(gen.NewLine);
+        return true;
+    }
+
+    public virtual bool ExecuteExternClassAnyList()
+    {
+        ClassGen gen;
+        gen = this.Gen;
+        Iter iter;
+        iter = gen.TableIter;
+
+        this.Module.Class.IterSet(iter);
+
+        while (iter.Next())
+        {
+            ClassClass varClass;
+            varClass = (ClassClass)iter.Value;
+
+            gen.ExecuteExternClassAny(varClass);
+        }
+        iter.Clear();
         return true;
     }
 
