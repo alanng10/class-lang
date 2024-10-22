@@ -24,7 +24,7 @@ SOURCES += \
     Thread.c \
     Value.c
 
-LIBS += -L$$PWD/../../Out/Infra-Windows-Release/release/
+LIBS += -L$$PWD/../../Out/InfraDeploy/
 
 LIBS += -lInfra
 
