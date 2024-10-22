@@ -13,7 +13,7 @@ public class ClassGenTraverse : Traverse
         varGet = varField.Get;
 
         State varSet;
-        varSet = varField.Get;
+        varSet = varField.Set;
 
         Field field;
         field = this.Info(varField).Field;
