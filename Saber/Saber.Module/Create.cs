@@ -477,6 +477,9 @@ public class Create : InfraCreate
             Table fieldTable;
             fieldTable = this.ClassInfra.TableCreateStringLess();
 
+            Table maideTable;
+            maideTable = this.ClassInfra.TableCreateStringLess();
+
             Iter iter;
             iter = varClass.Field.IterCreate();
             varClass.Field.IterSet(iter);
@@ -488,8 +491,8 @@ public class Create : InfraCreate
                 bool ba;
                 ba = this.VirtualField(field);
 
-                NodeNode node;
-                node = (NodeNode)field.Any;
+                NodeField node;
+                node = (NodeField)field.Any;
 
                 if (!ba)
                 {
@@ -505,6 +508,37 @@ public class Create : InfraCreate
                     this.ListInfra.TableAdd(fieldTable, field.Name, field);
                 }
             }
+
+            iter = varClass.Maide.IterCreate();
+            varClass.Maide.IterSet(iter);
+            while (iter.Next())
+            {
+                Maide maide;
+                maide = (Maide)iter.Value;
+
+                bool bb;
+                bb = this.VirtualMaide(maide);
+
+                NodeMaide node;
+                node = (NodeMaide)maide.Any;
+
+                if (!bb)
+                {
+                    this.Error(this.ErrorKind.MaideUndefined, node, this.SourceGet(varClass.Index));
+                }
+
+                if (bb)
+                {
+                    maide.Index = maideTable.Count;
+
+                    this.Info(node).Maide = maide;
+
+                    this.ListInfra.TableAdd(maideTable, maide.Name, maide);
+                }
+            }
+
+            varClass.Field = fieldTable;
+            varClass.Maide = maideTable;
         }
 
         this.ListInfra.TableAdd(k, varClass, varClass);

@@ -102,15 +102,6 @@ public class CompTraverse : Traverse
         a.Parent = this.ThisClass;
         a.Any = nodeField;
 
-        bool b;
-        b = this.Create.VirtualField(a);
-
-        if (!b)
-        {
-            this.Error(this.ErrorKind.FieldUndefined, nodeField);
-            return true;
-        }
-
         this.ListInfra.TableAdd(this.ThisClass.Field, a.Name, a);
         return true;
     }
