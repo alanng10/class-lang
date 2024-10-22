@@ -14,10 +14,7 @@ public class SetClassGenOperate : ClassGenOperate
         e = new WriteArg();
         e.Init();
         e.Kind = 1;
-        e.Base = 16;
         e.AlignLeft = false;
-        e.FieldWidth = 15;
-        e.MaxWidth = 15;
         e.FillChar = '0';
         this.WriteArgInt = e;
 
@@ -48,6 +45,51 @@ public class SetClassGenOperate : ClassGenOperate
         return true;
     }
 
+    public override bool ExecuteIntText(long o)
+    {
+        GenArg arg;
+        arg = this.Gen.Arg;
+        long index;
+        index = arg.Index;
+
+        Write write;
+        write = this.Write;
+
+        WriteArg e;
+        e = this.WriteArgInt;
+
+        Text kk;
+        kk = this.Text;
+
+        e.Base = 10;
+        e.FieldWidth = 0;
+        e.MaxWidth = -1;
+        e.Value.Int = o;
+
+        write.ExecuteArgCount(e);
+
+        long count;
+        count = e.Count;
+
+        kk.Data = arg.Data;
+        kk.Range.Index = index;
+        kk.Range.Count = count;
+
+        write.ExecuteArgResult(e, kk);
+
+        e.Count = 0;
+        e.ValueCount = 0;
+        e.Value.Int = 0;
+
+        kk.Data = null;
+        kk.Range.Index = 0;
+        kk.Range.Count = 0;
+
+        index = index + count;
+        arg.Index = index;
+        return true;
+    }
+
     public override bool ExecuteIntTextHex(long o)
     {
         GenArg arg;
@@ -64,6 +106,9 @@ public class SetClassGenOperate : ClassGenOperate
         Text kk;
         kk = this.Text;
 
+        e.Base = 16;
+        e.FieldWidth = 15;
+        e.MaxWidth = 15;
         e.Value.Int = o;
 
         write.ExecuteArgCount(e);

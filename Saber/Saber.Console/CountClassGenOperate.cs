@@ -18,7 +18,7 @@ public class CountClassGenOperate : ClassGenOperate
         e.AlignLeft = false;
         e.FieldWidth = 0;
         e.MaxWidth = -1;
-        e.FillChar = 0;
+        e.FillChar = '0';
         this.WriteArgInt = e;
         return true;
     }
