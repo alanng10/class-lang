@@ -29,59 +29,59 @@ class StringAdd : Any
     field private long Count { get { return data; } set { data : value; } }
     field private long Capacity { get { return data; } set { data : value; } }
 
-    public virtual String Result()
+    maide prusate String Result()
     {
         this.Range.Index : 0;
         this.Range.Count : this.Count;
 
-        String a;
+        var String a;
         a : this.StringComp.CreateData(this.Data, this.Range);
         return a;
     }
 
-    public virtual bool Clear()
+    maide prusate Bool Clear()
     {
         this.Count : 0;
         return true;
     }
 
-    public virtual bool Execute(long n)
+    maide prusate Bool Execute(var Int n)
     {
-        Infra infraInfra;
+        var Infra infraInfra;
         infraInfra : this.InfraInfra;
 
-        long count;
-        long capacity;
+        var Int count;
+        var Int capacity;
         count : this.Count;
         capacity : this.Capacity;
 
-        Data data;
+        var Data data;
         data : this.Data;
 
-        long kka;
-        kka : sizeof(uint);
+        var Int kka;
+        kka : 4;
 
-        if (!(count < capacity))
+        inf (~(count < capacity))
         {
-            long ka;
+            var Int ka;
             ka : capacity * 2;
             
-            long kd;
+            var Int kd;
             kd : ka * kka;
 
-            Data k;
-            k : new Data();
+            var Data k;
+            k : new Data;
             k.Count : kd;
             k.Init();
 
-            long i;
+            var Int i;
             i : 0;
             while (i < count)
             {
-                long index;
+                var Int index;
                 index : i * kka;
 
-                uint nn;
+                var Int nn;
                 nn : infraInfra.DataCharGet(data, index);
 
                 infraInfra.DataCharSet(k, index, nn);
@@ -98,7 +98,7 @@ class StringAdd : Any
             this.Capacity : capacity;
         }
 
-        long ke;
+        var Int ke;
         ke : count * kka;
 
         infraInfra.DataCharSet(data, ke, n);
