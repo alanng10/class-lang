@@ -474,6 +474,7 @@ public class Create : InfraCreate
 
         if (b)
         {
+            this.ClassVirtualSetClassComp(varClass);
         }
         if (!b)
         {
