@@ -4,6 +4,47 @@ public class ClassGenTraverse : Traverse
 {
     public virtual ClassGen Gen { get; set; }
 
+    public override bool ExecuteField(NodeField varField)
+    {
+        ClassGen gen;
+        gen = this.Gen;
+
+        State varGet;
+        varGet = varField.Get;
+
+        State varSet;
+        varSet = varField.Get;
+
+        Field field;
+        field = this.Info(varField).Field;
+
+        gen.ParamCount = 1;
+
+        gen.LocalVarCount = field.Get.Count - 1;
+
+        gen.CompStateStart(gen.Class, field.Name, gen.StateGet, gen.LocalVarCount);
+
+        base.ExecuteState(varGet);
+
+        gen.CompStateEnd();
+
+        gen.Text(gen.NewLine);
+
+        gen.ParamCount = 2;
+
+        gen.LocalVarCount = field.Set.Count - 2;
+
+        gen.CompStateStart(gen.Class, field.Name, gen.StateSet, gen.LocalVarCount);
+
+        base.ExecuteState(varSet);
+
+        gen.CompStateEnd();
+
+        gen.Text(gen.NewLine);
+
+        return true;
+    }
+
     public override bool ExecuteMaide(NodeMaide varMaide)
     {
         ClassGen gen;
