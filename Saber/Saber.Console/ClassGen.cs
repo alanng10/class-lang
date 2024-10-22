@@ -1212,8 +1212,7 @@ public class ClassGen : ClassBase
             if (b)
             {
                 long kkk;
-                kkk = ka - kk;
-                kkk = -kkk;
+                kkk = kk - ka;
 
                 long posD;
                 posD = kkk;
