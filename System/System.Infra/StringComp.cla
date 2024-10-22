@@ -3,12 +3,12 @@ class StringComp : Any
     maide prusate Bool Init()
     {
         base.Init();
-        this.InternIntern : share InternIntern;
+        this.InternIntern : share Intern;
         this.InternInfra : share InternInfra;
         return true;
     }
     
-    field private InternIntern InternIntern { get { return data; } set { data : value; } }
+    field private Intern InternIntern { get { return data; } set { data : value; } }
     field private InternInfra InternInfra { get { return data; } set { data : value; } }
     
     maide prusate String CreateChar(var Int char, var Int count)
