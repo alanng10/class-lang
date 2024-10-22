@@ -147,6 +147,11 @@ public class StringComp : Any
 
     public virtual long Count(String o)
     {
+        if (o == null)
+        {
+            return -1;
+        }
+
         return o.Count;
     }
 
