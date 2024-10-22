@@ -573,6 +573,7 @@ public class Console : ClassBase
         this.ClassGen.InternClass = internClass;
         this.ClassGen.ExternClass = externClass;
         this.ClassGen.System = this.Create.Module.SystemClass;
+        this.ClassGen.ImportClass = this.ImportClass;
 
         String genFoldPath;
         genFoldPath = this.S("Saber.Console.Data/Gen");
