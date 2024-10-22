@@ -2457,7 +2457,7 @@ public class ClassGen : ClassBase
         
         this.Text(this.NameCombine);
 
-        this.TextInt(moduleRef.Ver);
+        this.Operate.ExecuteIntText(moduleRef.Ver);
         return true;
     }
 
