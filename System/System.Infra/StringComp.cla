@@ -154,7 +154,13 @@ class StringComp : Any
     
     maide prusate Int Char(var String string, var Int index)
     {
-        inf (~this.Valid(string, index))
+        var InternInfra internInfra;
+        internInfra : this.InternInfra;
+
+        var Int count;
+        count = this.Count(string);
+
+        inf (~internInfra.ValidIndex(count, index))
         {
             return null;
         }
@@ -165,24 +171,8 @@ class StringComp : Any
         var Int ka;
         ka : index * 4;
         
-        return this.InternInfra.DataCharGet(k, ka);
-    }
-
-    maide prusate Bool Valid(var String string, var Int index)
-    {
-        inf (string = null | index = null)
-        {
-            return false;
-        }
-        
-        var Int totalCount;
-        totalCount : this.Count(string);
-        
-        inf (~this.InternInfra.ValidIndex(totalCount, index))
-        {
-            return false;
-        }
-
-        return true;
+        var Int a;
+        a : internInfra.DataCharGet(k, ka);
+        return a;
     }
 }

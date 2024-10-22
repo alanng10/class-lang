@@ -161,7 +161,7 @@ public class StringComp : Any
         internInfra = this.InternInfra;
 
         long count;
-        count = o.Count;
+        count = this.Count(o);
 
         if (!internInfra.ValidIndex(count, index))
         {
