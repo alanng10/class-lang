@@ -15,7 +15,11 @@ public class ModuleGen : ClassBase
 
     public virtual bool ExecuteStage()
     {
+        ClassGen gen;
+        gen = this.Gen;
+
         this.ExecuteClassList();
+        gen.Text(gen.NewLine);
 
         this.ExecuteModule();
         return true;
@@ -26,7 +30,48 @@ public class ModuleGen : ClassBase
         ClassGen gen;
         gen = this.Gen;
 
+        long count;
+        count = this.Module.Class.Count;
 
+        gen.Text(gen.ExportWord);
+        gen.Text(gen.ApiWord);
+
+        gen.Text(gen.Space);
+
+        gen.Text(gen.ClassInt);
+        gen.Text(gen.Space);
+
+        this.ModuleName(this.Module);
+        gen.Text(gen.LimitBraceSquareLite);
+        gen.TextInt(2);
+        gen.Text(gen.LimitBraceSquareRite);
+
+        gen.Text(gen.Space);
+        gen.Text(gen.LimitAre);
+        gen.Text(gen.NewLine);
+
+        gen.Text(gen.LimitBraceLite);
+        gen.Text(gen.NewLine);
+
+        gen.IndentCount = gen.IndentCount + 1;
+
+        gen.TextIndent();
+        gen.Text(gen.CastInt);
+        gen.Text(gen.LimitBraceRoundLite);
+        this.ClassListName(this.Module);
+        gen.Text(gen.LimitBraceRoundRite);
+        gen.Text(gen.LimitComma);
+        gen.Text(gen.NewLine);
+
+        gen.TextIndent();
+        gen.TextInt(count);
+        gen.Text(gen.NewLine);
+
+        gen.IndentCount = gen.IndentCount - 1;
+
+        gen.Text(gen.LimitBraceRite);
+        gen.Text(gen.LimitSemicolon);
+        gen.Text(gen.NewLine);
         return true;
     }
 
@@ -78,6 +123,7 @@ public class ModuleGen : ClassBase
         gen.IndentCount = gen.IndentCount - 1;
 
         gen.Text(gen.LimitBraceRite);
+        gen.Text(gen.LimitSemicolon);
         gen.Text(gen.NewLine);
         return true;
     }
