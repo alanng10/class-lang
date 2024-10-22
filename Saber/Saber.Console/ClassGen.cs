@@ -117,7 +117,6 @@ public class ClassGen : ClassBase
 
     public virtual ClassClass Class { get; set; }
     public virtual ClassComp ClassComp { get; set; }
-    public virtual long BaseCount { get; set; }
     public virtual Array BaseArray { get; set; }
     public virtual BuiltinClass System { get; set; }
     public virtual Maide InitMaide { get; set; }
@@ -237,11 +236,9 @@ public class ClassGen : ClassBase
     public virtual bool Execute()
     {
         this.InitMaide = (Maide)this.System.Any.Maide.Get(this.InitWord);
-
-        this.BaseCount = this.BaseCountGet();
         
         long k;
-        k = this.BaseCount - 1;
+        k = this.Class.BaseCount - 1;
 
         if (!this.ValidBaseIndex(k))
         {
@@ -315,7 +312,7 @@ public class ClassGen : ClassBase
     public virtual bool BaseArraySet()
     {
         long count;
-        count = this.BaseCount;
+        count = this.Class.BaseCount;
 
         Array array;
         array = this.ListInfra.ArrayCreate(count);
@@ -637,7 +634,7 @@ public class ClassGen : ClassBase
     public virtual bool ExecuteClassAny()
     {
         long baseIndex;
-        baseIndex = this.BaseCount - 1;
+        baseIndex = this.Class.BaseCount - 1;
 
         long fieldCount;
         fieldCount = this.Class.FieldStart + this.Class.Field.Count;
@@ -2654,33 +2651,6 @@ public class ClassGen : ClassBase
         a = this.AddClear().Add(this.IntValuePre).Add(this.StringIntHex(k)).Add(this.IntValuePost).AddResult();
         
         return a;
-    }
-
-    public virtual long BaseCountGet()
-    {
-        ClassClass anyClass;
-        anyClass = this.System.Any;
-
-        ClassClass c;
-        c = this.Class;
-
-        long k;
-        k = 0;
-
-        while (!(c == null))
-        {
-            k = k + 1;
-
-            ClassClass ka;
-            ka = null;
-            if (!(c == anyClass))
-            {
-                ka = c.Base;
-            }
-            c = ka;
-        }
-
-        return k;
     }
 
     protected virtual String InitVar(String prefix, string name)
