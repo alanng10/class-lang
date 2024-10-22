@@ -14,8 +14,6 @@ Int Intern_Init(Int entryClass, Int entryModuleInit)
 
     Intern_NewInit();
 
-    Intern_ModuleInit(entryModuleInit);
-
     Intern_ClassSharePhoreInit();
 
     Int ka;
