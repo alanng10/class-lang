@@ -384,15 +384,18 @@ public class Console : ClassBase
 
         this.ExecuteCreate();
 
-        this.WriteAllError();
-
         if (kind == kindList.Console)
         {
             if (this.CanGen())
             {
                 this.ExecuteGen();
             }
+
+            this.ErrorString.RangePos = true;
+            this.ErrorString.CodeArray = this.Result.Token.Code;
         }
+
+        this.WriteAllError();
 
         if (this.Task.Print)
         {
