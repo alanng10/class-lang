@@ -132,6 +132,22 @@ class Infra : Any
         return true;
     }
 
+    maide prusate Bool DataCopy(var Data dest, var Int destIndex, var Data source, var Int sourceIndex, var Int count)
+    {
+        var Int i;
+        i : 0;
+        while (i < count)
+        {
+            var Int n;
+            n : source.Get(sourceIndex + i);
+
+            dest.Set(destIndex + i, n);
+
+            i : i + 1;
+        }
+        return true;
+    }
+
     maide prusate Bool AddString(var StringAdd h, var String a)
     {
         var StringComp stringComp;
