@@ -76,20 +76,9 @@ public class StringAdd : Any
             k.Count = kd;
             k.Init();
 
-            long i;
-            i = 0;
-            while (i < count)
-            {
-                long index;
-                index = i * kka;
-
-                uint nn;
-                nn = infraInfra.DataCharGet(data, index);
-
-                infraInfra.DataCharSet(k, index, nn);
-
-                i = i + 1;
-            }
+            long kk;
+            kk = count * kka;
+            infraInfra.DataCopy(k, 0, data, 0, kk);
 
             data = k;
 
