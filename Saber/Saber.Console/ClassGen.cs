@@ -2489,7 +2489,7 @@ public class ClassGen : ClassBase
         
         this.Text(this.NameCombine);
 
-        this.Operate.ExecuteTextIntHex(moduleRef.Ver);
+        this.ModuleVer(moduleRef.Ver);
         return true;
     }
 
