@@ -224,6 +224,7 @@ public class CompTraverse : Traverse
         a.Init();
         a.Name = varName;
         a.Class = varClass;
+        a.Index =  this.ParamVar.Count;
         a.Any = nodeVar;
 
         this.ListInfra.TableAdd(this.ParamVar, a.Name, a);
