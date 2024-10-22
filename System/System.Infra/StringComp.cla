@@ -13,40 +13,40 @@ class StringComp : Any
     
     maide prusate String CreateChar(var Int char, var Int count)
     {
+        var InternInfra internInfra;
+        internInfra : this.InternInfra;
+
         inf (char = null | count = null)
         {
             return null;
         }
 
-        var String k;
-        k : this.InternIntern.StringNew();
+        var Int ko;
+        ko : 4;
 
         var Int dataCount;
-        dataCount : count * 4;
+        dataCount : count * ko;
 
         var Any value;
         value : this.InternIntern.DataNew(dataCount);
-        
-        this.InternIntern.StringValueSet(k, value);
-        this.InternIntern.StringCountSet(k, count);
-
-        var InternInfra internInfra;
-        internInfra : this.InternInfra;
 
         var Int i;
         i : 0;
-        
         while (i < count)
         {
             var Int index;
-            index : i * 4;
+            index : i * ko;
             
             internInfra.DataSetChar(value, index, char);
 
             i : i + 1;
         }
 
-        return k;
+        var String a;
+        a : this.InternIntern.StringNew();
+        this.InternIntern.StringValueSet(a, value);
+        this.InternIntern.StringCountSet(a, count);
+        return a;
     }
     
     maide prusate String CreateData(var Data data, var Range range)

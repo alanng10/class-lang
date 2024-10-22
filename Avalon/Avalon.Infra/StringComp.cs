@@ -36,11 +36,11 @@ public class StringComp : Any
         long ko;
         ko = sizeof(uint);
 
-        long ka;
-        ka = count * ko;
+        long dataCount;
+        dataCount = count * ko;
 
-        byte[] data;
-        data = new byte[ka];
+        byte[] value;
+        value = new byte[dataCount];
 
         long i;
         i = 0;
@@ -49,14 +49,14 @@ public class StringComp : Any
             long index;
             index = i * ko;
 
-            internInfra.DataCharSet(data, index, c);
+            internInfra.DataCharSet(value, index, c);
 
             i = i + 1;
         }
 
         String a;
         a = new String();
-        a.Value = data;
+        a.Value = value;
         a.Count = count;
         a.Init();
         return a;
