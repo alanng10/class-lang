@@ -9,6 +9,11 @@ public class ClassGenOperate : Any
         return false;
     }
 
+    public virtual bool ExecuteIntText(long o)
+    {
+        return false;
+    }
+
     public virtual bool ExecuteIntTextHex(long o)
     {
         return false;
