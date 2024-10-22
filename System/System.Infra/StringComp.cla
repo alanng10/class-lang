@@ -139,7 +139,7 @@ class StringComp : Any
         a : internIntern.StringNew();
         internIntern.StringValueSet(a, value);
         internIntern.StringCountSet(a, count);
-        return k;
+        return a;
     }
     
     maide prusate Int Count(var String string)
