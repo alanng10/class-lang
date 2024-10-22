@@ -1364,7 +1364,7 @@ public class ClassGen : ClassBase
 
         this.Text(this.NewLine);
 
-        this.Text(this.LimitBraceRoundLite);
+        this.Text(this.LimitBraceLite);
         this.Text(this.NewLine);
 
         this.IndentCount = this.IndentCount + 1;
@@ -1389,7 +1389,7 @@ public class ClassGen : ClassBase
 
         this.IndentCount = this.IndentCount - 1;
 
-        this.Text(this.LimitBraceRoundRite);
+        this.Text(this.LimitBraceRite);
         this.Text(this.NewLine);
         return true;
     }
