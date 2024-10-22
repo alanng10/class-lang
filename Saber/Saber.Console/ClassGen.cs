@@ -84,6 +84,8 @@ public class ClassGen : ClassBase
         this.CastInt = this.S("CastInt");
         this.StringValueArray = this.S("StringValue");
         this.WhileLabelPre = this.S("W_");
+        this.DirectiveInclude = this.S("#include");
+        this.IncludeValueInfra = this.S("<Infra/Prusate.h>");
         this.IndexExtern = this.S("extern");
         this.IndexReturn = this.S("return");
         this.IndexInf = this.S("if");
@@ -200,6 +202,8 @@ public class ClassGen : ClassBase
     public virtual String CastInt { get; set; }
     public virtual String StringValueArray { get; set; }
     public virtual String WhileLabelPre { get; set; }
+    public virtual String DirectiveInclude { get; set; }
+    public virtual String IncludeValueInfra { get; set; }
     public virtual String IndexExtern { get; set; }
     public virtual String IndexReturn { get; set; }
     public virtual String IndexInf { get; set; }
@@ -457,6 +461,8 @@ public class ClassGen : ClassBase
 
     public virtual bool ExecuteRefer()
     {
+        this.Include(this.IncludeValueInfra);
+
         this.ExecuteExternCompList(this.ClassComp.Field, true, this.StateGet);
         this.Text(this.NewLine);
 
@@ -981,6 +987,18 @@ public class ClassGen : ClassBase
         this.Text(stateKind);
         this.Text(this.NameCombine);
         this.Text(this.ListWord);
+        return true;
+    }
+
+    public virtual bool Include(String value)
+    {
+        this.Text(this.DirectiveInclude);
+
+        this.Text(this.Space);
+
+        this.Text(value);
+
+        this.Text(this.NewLine);
         return true;
     }
 
