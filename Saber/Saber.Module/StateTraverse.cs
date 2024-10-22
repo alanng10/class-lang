@@ -99,10 +99,12 @@ public class StateTraverse : Traverse
         dataVar.Class = varField.Class;
         dataVar.Index = this.StateVar.Count;
 
+        this.ListInfra.TableAdd(this.StateVar, dataVar.Name, dataVar);
+
         Table o;
         o = this.ClassInfra.TableCreateStringLess();
 
-        this.ListInfra.TableAdd(this.StateVar, dataVar.Name, dataVar);
+        
         this.ListInfra.TableAdd(o, dataVar.Name, dataVar);
 
         this.VarStack.Push(o);
@@ -134,6 +136,8 @@ public class StateTraverse : Traverse
         dataVar.Class = varField.Class;
         dataVar.Index = this.StateVar.Count;
 
+        this.ListInfra.TableAdd(this.StateVar, dataVar.Name, dataVar);
+
         Var valueVar;
         valueVar = new Var();
         valueVar.Init();
@@ -141,11 +145,11 @@ public class StateTraverse : Traverse
         valueVar.Class = varField.Class;
         valueVar.Index = this.StateVar.Count;
 
+        this.ListInfra.TableAdd(this.StateVar, valueVar.Name, valueVar);
+
         Table o;
         o = this.ClassInfra.TableCreateStringLess();
-
-        this.ListInfra.TableAdd(this.StateVar, dataVar.Name, dataVar);
-        this.ListInfra.TableAdd(this.StateVar, valueVar.Name, valueVar);
+        
         this.ListInfra.TableAdd(o, dataVar.Name, dataVar);
         this.ListInfra.TableAdd(o, valueVar.Name, valueVar);
 
