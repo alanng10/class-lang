@@ -17,7 +17,9 @@ public class ClassGenTraverse : Traverse
 
         gen.ParamCount = maide.Param.Count + 1;
 
-        gen.CompStateStart(gen.Class, maide.Name, gen.StateCall, 0);
+        gen.LocalVarCount = maide.Call.Count - maide.Param.Count;
+
+        gen.CompStateStart(gen.Class, maide.Name, gen.StateCall, gen.LocalVarCount);
 
         base.ExecuteState(call);
 
