@@ -1791,6 +1791,9 @@ public class ClassGen : ClassBase
 
     public virtual bool ExecuteCast(ClassClass varClass)
     {
+        long baseIndex;
+        baseIndex = varClass.BaseCount - 1;
+
         String varA;
         String varB;
         String varC;
@@ -1819,7 +1822,7 @@ public class ClassGen : ClassBase
         this.VarSetDeref(varC, varC, 1);
 
         this.VarSetPre(varD);
-        this.TextInt(varClass.BaseIndex);
+        this.TextInt(baseIndex);
         this.VarSetPost();
 
         this.OperateLimit(varC, varC, varD, this.LimitLess);
