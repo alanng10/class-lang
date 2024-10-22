@@ -92,7 +92,7 @@ Bool Intern_New_QueueEvalStack(Eval* eval);
 
 Bool Intern_New_QueueClassShare();
 
-Bool Intern_New_QueueClassShareModule(Module* module);
+Bool Intern_New_QueueClassShareModule(Int module);
 
 Bool Intern_New_QueueAllThreadAny();
 

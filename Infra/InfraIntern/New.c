@@ -435,18 +435,19 @@ Bool Intern_New_QueueClassShare()
     array = ModuleArray;
 
     Int count;
-    count = Array_CountGet(array);
+    count = ModuleArrayCount;
+
+    Int* p;
+    p = CastPointer(array);
+
     Int i;
     i = 0;
     while (i < count)
     {
         Int a;
-        a = Array_ItemGet(array, i);
+        a = p[i];
 
-        Module* module;
-        module = CastPointer(a);
-
-        Intern_New_QueueClassShareModule(module);
+        Intern_New_QueueClassShareModule(a);
 
         i = i + 1;
     }
@@ -454,18 +455,24 @@ Bool Intern_New_QueueClassShare()
     return true;
 }
 
-Bool Intern_New_QueueClassShareModule(Module* module)
+Bool Intern_New_QueueClassShareModule(Int module)
 {
     InternNewData* m;
     m = CastPointer(NewData);
 
-    Int* array;
-    array = CastPointer(module->ClassArray);
+    Int* kk;
+    kk = CastPointer(module);
 
-    QueueNodeVar;
+    Int kka;
+    kka = kk[0];
+
+    Int* array;
+    array = CastPointer(kka);
 
     Int count;
-    count = module->ClassArrayCount;
+    count = kk[1];
+
+    QueueNodeVar;
 
     Int i;
     i = 0;
