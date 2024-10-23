@@ -1,0 +1,20 @@
+[Module]
+System.List
+
+[Import]
+System.Infra
+    Any Any
+    Bool Bool
+    Int Int
+    Less Less
+    Intern Intern
+    InfraInfra Infra
+
+[Export]
+    List
+    Array
+    Infra
+
+[Storage]
+
+[Entry]
