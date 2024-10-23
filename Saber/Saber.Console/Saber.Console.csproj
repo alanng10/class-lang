@@ -39,4 +39,11 @@
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </None>
     </ItemGroup>
+
+    <ItemGroup>
+        <None Include="../../Script/Infra/QtRootPathWindows.txt">
+            <Link>$(AssemblyName).data/QtRootPathWindows.txt</Link>
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+    </ItemGroup>
 </Project>
