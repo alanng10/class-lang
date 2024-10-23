@@ -1,3 +1,3 @@
 @echo off
 
-call Script\System\MakeModule
+call Script\System\MakeModule Infra
