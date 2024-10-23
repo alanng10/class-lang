@@ -8,4 +8,4 @@ LIBS += -L$$PWD/../../Out/Infra-Windows-Release/release/
 
 LIBS += -lInfra
 
-INCLUDEPATH += $$PWD/..
+INCLUDEPATH += $$PWD/../..

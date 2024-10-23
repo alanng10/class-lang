@@ -21,14 +21,14 @@
 
     <ItemGroup>
         <None Include="../../Infra/Infra/Prusate.h">
-            <Link>$(AssemblyName).data/Infra_Prusate.h</Link>
+            <Link>$(AssemblyName).data/Infra/Prusate.h</Link>
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </None>
     </ItemGroup>
 
     <ItemGroup>
         <None Include="../../Infra/InfraIntern/Prusate.h">
-            <Link>$(AssemblyName).data/InfraIntern_Prusate.h</Link>
+            <Link>$(AssemblyName).data/InfraIntern/Prusate.h</Link>
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </None>
     </ItemGroup>
