@@ -2,8 +2,8 @@
 
 call Var
 
-set ModuleRef=%~1
+set Module=%~1
 
-call CleanModule %ModuleRef%
-call MakeModuleProject %ModuleRef%
-call MakeModule %ModuleRef%
+call CleanModule %Module%
+call MakeModuleProject %Module%
+call MakeModule %Module%
