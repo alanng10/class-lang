@@ -28,6 +28,7 @@ global using StorageComp = Avalon.Storage.Comp;
 global using StorageInfra = Avalon.Storage.Infra;
 global using Out = Avalon.Console.Out;
 global using ConsoleConsole = Avalon.Console.Console;
+global using Program = Avalon.Console.Program;
 global using EntryEntry = Avalon.Entry.Entry;
 global using Source = Saber.Infra.Source;
 global using ClassClass = Saber.Infra.Class;

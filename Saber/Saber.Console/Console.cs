@@ -684,6 +684,13 @@ public class Console : ClassBase
             return false;
         }
 
+        bool bd;
+        bd = this.ExecuteGenMake(moduleRefString);
+        if (!bd)
+        {
+            return false;
+        }
+
         return true;
     }
 
@@ -740,6 +747,40 @@ public class Console : ClassBase
         if (!b)
         {
             this.Status = 5000 + 30;
+            return false;
+        }
+
+        return true;
+    }
+
+    protected virtual bool ExecuteGenMake(String moduleRefString)
+    {
+        List list;
+        list = new List();
+        list.Init();
+        list.Add(this.S("/c"));
+        list.Add(this.AddClear().AddS("Make.cmd ").Add(moduleRefString).AddResult());
+
+        Program program;
+        program = new Program();
+        program.Init();
+        program.Name = this.S("cmd.exe");
+        program.Argue = list;
+        program.WorkFold = this.S("Saber.Console.data");
+        program.Environ = null;
+
+        program.Execute();
+
+        program.Wait();
+
+        long k;
+        k = program.Status;
+
+        program.Final();
+
+        if (!(k == 0))
+        {
+            this.Status = 5000 + 40;
             return false;
         }
 
