@@ -1,11 +1,12 @@
-include(../module.pri)
+include(../../module.pri)
 
 HEADERS += 
 SOURCES += \
     *.c
 
-LIBS += -L$$PWD/../../Out/Infra-Windows-Release/release/
+LIBS += -L$$PWD/../../../../../Out/net8.0/
 
-LIBS += -lInfra
+LIBS += -lInfra \
+    -lInfraIntern#Import#
 
 INCLUDEPATH += $$PWD/../..
