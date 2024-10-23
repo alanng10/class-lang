@@ -1,6 +1,6 @@
 @echo off
 
-call Script\Infra\Var
+call Saber.Console.data\Var
 
 set ModuleRef=%~1
 
