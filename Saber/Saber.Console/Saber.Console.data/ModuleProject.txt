@@ -1,6 +1,7 @@
 include(../../module.pri)
 
-HEADERS += 
+TARGET = #Name#
+
 SOURCES += \
     *.c
 
