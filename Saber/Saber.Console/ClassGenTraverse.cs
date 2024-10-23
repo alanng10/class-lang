@@ -748,7 +748,7 @@ public class ClassGenTraverse : Traverse
 
     public override bool ExecuteBitSignRiteOperate(BitSignRiteOperate bitSignRiteOperate)
     {
-        return base.ExecuteBitSignRiteOperate(bitSignRiteOperate);
+        base.ExecuteBitSignRiteOperate(bitSignRiteOperate);
 
         this.Gen.ExecuteOperateLimitAC(this.Gen.LimitBitRite);
         return true;
