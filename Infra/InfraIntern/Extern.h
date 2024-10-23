@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Pronate.h"
+#include "Prusate_Extern.h"
 
 #define Return \
 Int ke;\
