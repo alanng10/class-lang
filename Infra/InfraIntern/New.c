@@ -132,6 +132,11 @@ Bool Intern_New_AutoDelete()
 
     Intern_New_DeleteUnused();
 
+    Int capCount;
+    capCount = 2 * (m->TotalAllocCount);
+
+    m->AllocCap = capCount;
+
     Intern_New_ResumeOtherThread();
 
     m->ThisThreadIdent = 0;
@@ -373,11 +378,6 @@ Bool Intern_New_DeleteUnused()
     }
 
     m->TotalAllocCount = totalDataCount;
-
-    Int capCount;
-    capCount = 2 * (m->TotalAllocCount);
-
-    m->AllocCap = capCount;
 
     return true;
 }
