@@ -1891,6 +1891,39 @@ public class ClassGen : ClassBase
         return true;
     }
 
+    public virtual bool InternValue(String dest, ClassClass varClass)
+    {
+        String k;
+        k = null;
+
+        if (varClass == this.System.Bool)
+        {
+            k = this.InternValueBool;
+        }
+        if (varClass == this.System.Int)
+        {
+            k = this.InternValueInt;
+        }
+        if (varClass == this.System.String)
+        {
+            k = this.InternValueString;
+        }
+
+        this.TextIndent();
+        this.Text(dest);
+
+        this.Text(this.Space);
+        this.Text(this.LimitAre);
+        this.Text(this.Space);
+
+        this.Text(k);
+        this.Text(this.LimitBraceRoundLite);
+        this.Text(this.LimitBraceRoundRite);
+        this.Text(this.LimitSemicolon);
+        this.Text(this.NewLine);
+        return true;
+    }
+
     public virtual bool ExecuteValueMaideCallThisCond(String refKind, long thisEvalIndex)
     {
         String varA;
