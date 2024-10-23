@@ -16,8 +16,6 @@ class InternExternGen : ExternGen
 
     protected override bool AddFunctionHeader()
     {
-        this.AddIndent(1);
-
         this.AddS("Intern_Api Int Intern_Extern_");
         return true;
     }
