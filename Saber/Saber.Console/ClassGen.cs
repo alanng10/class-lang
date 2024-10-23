@@ -1536,8 +1536,6 @@ public class ClassGen : ClassBase
 
         this.OperateLimit(varSA, varSA, varSB, limit);
 
-        this.SignExtend(varSA);
-
         this.VarSet(varA, varSA);
 
         this.VarMaskClear(varA, this.RefKindClearMask);
