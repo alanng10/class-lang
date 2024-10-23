@@ -4,7 +4,7 @@
 
 Bool Intern_ClassSharePhoreInit();
 
-Bool Intern_ClassSharePhoreInitModule(Module* module);
+Bool Intern_ClassSharePhoreInitModule(Int module);
 
 Bool Intern_NewInit();
 

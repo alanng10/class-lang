@@ -20,15 +20,13 @@ Eval;
 
 typedef Int (*Intern_State)(Eval* eval, Int frame);
 
-typedef Int (*Intern_ModuleInit_ModuleMaide)(Int module); 
-
 Intern_Api extern Int Intern_Value_Ref;
 
 Intern_Api extern Int Intern_Value_Class;
 
 Intern_Api Int Intern_New(Int kind, Int info, Eval* eval);
 
-Intern_Api Int Intern_Init(Int entryClass, Int entryModuleInit);
+Intern_Api Int Intern_Init(Int entryClass, Int entryModuleArray, Int entryModuleArrayCount);
 
 Intern_Api Int Intern_Execute(Int eval);
 
