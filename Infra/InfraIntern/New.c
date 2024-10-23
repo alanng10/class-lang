@@ -108,7 +108,7 @@ Int Intern_New(Int kind, Int info, Eval* eval)
 
     Intern_New_Close();
 
-    return true;
+    return 0;
 }
 
 Bool Intern_New_AutoDelete()
