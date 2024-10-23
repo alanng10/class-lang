@@ -49,6 +49,7 @@ public class Console : ClassBase
         this.SIntern = this.S("Intern");
         this.SExtern = this.S("Extern");
         this.SC = this.S("c");
+        this.SPro = this.S("pro");
         this.SModule = this.S("Module");
         return true;
     }
@@ -95,6 +96,7 @@ public class Console : ClassBase
     protected virtual String SIntern { get; set; }
     protected virtual String SExtern { get; set; }
     protected virtual String SC { get; set; }
+    protected virtual String SPro { get; set; }
     protected virtual String SModule { get; set; }
 
     protected virtual NameCheck CreateNameCheck()
@@ -668,31 +670,79 @@ public class Console : ClassBase
             i = i + 1;
         }
 
+        bool bb;
+        bb = this.GenModuleSource(genModuleFoldPath);
+        if (!bb)
+        {
+            return false;
+        }
+
+        bool bc;
+        bc = this.GenProjectFile(moduleRefString, genModuleFoldPath);
+        if (!bc)
+        {
+            return false;
+        }
+
+        return true;
+    }
+
+    protected virtual bool GenModuleSource(String genModuleFoldPath)
+    {
         this.ModuleGen.Gen = this.ClassGen;
         this.ModuleGen.Module = this.Result.Module.Module;
 
         this.ModuleGen.Execute();
-        String kf;
-        kf = this.ModuleGen.Result;
+        String k;
+        k = this.ModuleGen.Result;
 
         this.ModuleGen.Result = null;
         this.ModuleGen.Module = null;
         this.ModuleGen.Gen = null;
 
-        String fileNameA;
-        fileNameA = this.AddClear().Add(this.SModule).Add(this.ClassInfra.Dot).Add(this.SC).AddResult();
+        String fileName;
+        fileName = this.AddClear().Add(this.SModule).Add(this.ClassInfra.Dot).Add(this.SC).AddResult();
 
-        String filePathA;
-        filePathA = this.AddClear().Add(genModuleFoldPath).Add(combine).Add(fileNameA).AddResult();
+        String filePath;
+        filePath = this.AddClear().Add(genModuleFoldPath).Add(this.TextInfra.PathCombine).Add(fileName).AddResult();
 
-        bool bb;
-        bb = this.StorageInfra.TextWrite(filePathA, kf);
+        bool b;
+        b = this.StorageInfra.TextWrite(filePath, k);
 
-        if (!bb)
+        if (!b)
         {
             this.Status = 5000 + 20;
             return false;
         }
+
+        return true;
+    }
+
+    protected virtual bool GenProjectFile(String moduleRefString, String genModuleFoldPath)
+    {
+        Text k;
+        k = this.TA(this.ModuleProjectText);
+        k = this.Place(k, "#Name#", moduleRefString);
+        k = this.Place(k, "#Import#", this.TextInfra.Zero);
+
+        String ka;
+        ka = this.StringCreate(k);
+
+        String fileName;
+        fileName = this.AddClear().Add(this.SModule).Add(this.ClassInfra.Dot).Add(this.SPro).AddResult();
+
+        String filePath;
+        filePath = this.AddClear().Add(genModuleFoldPath).Add(this.TextInfra.PathCombine).Add(fileName).AddResult();
+
+        bool b;
+        b = this.StorageInfra.TextWrite(filePath, ka);
+
+        if (!b)
+        {
+            this.Status = 5000 + 30;
+            return false;
+        }
+
         return true;
     }
 
