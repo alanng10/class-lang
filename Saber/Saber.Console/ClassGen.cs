@@ -64,6 +64,9 @@ public class ClassGen : ClassBase
         this.InternShareMaide = this.S("Intern_Share");
         this.InternValueRef = this.S("Intern_Value_Ref");
         this.InternValueClass = this.S("Intern_Value_Class");
+        this.InternValueBool = this.S("Intern_Value_Bool");
+        this.InternValueInt = this.S("Intern_Value_Int");
+        this.InternValueString = this.S("Intern_Value_String");
         this.StateGet = this.S("G");
         this.StateSet = this.S("S");
         this.StateCall = this.S("C");
@@ -183,6 +186,9 @@ public class ClassGen : ClassBase
     public virtual String InternShareMaide { get; set; }
     public virtual String InternValueRef { get; set; }
     public virtual String InternValueClass { get; set; }
+    public virtual String InternValueBool { get; set; }
+    public virtual String InternValueInt { get; set; }
+    public virtual String InternValueString { get; set; }
     public virtual String StateGet { get; set; }
     public virtual String StateSet { get; set; }
     public virtual String StateCall { get; set; }
