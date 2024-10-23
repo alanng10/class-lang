@@ -2,6 +2,7 @@
 
 call Script\Infra\CleanModule
 call Script\Infra\CleanDemo
+call Script\Infra\CleanIntern
 call Script\Infra\CleanDeploy
 call Script\Infra\MakeModuleProject
 call Script\Infra\MakeModule
