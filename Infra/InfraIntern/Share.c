@@ -8,31 +8,34 @@ Int Intern_Share(Int info, Eval* eval)
     Int phore;
     phore = p[4];
 
-    Phore_Open(phore);
+    Phore_Acquire(phore);
 
     Int share;
     share = p[3];
 
-    if (!(share == null))
+    Bool b;
+    b = (share == null);
+
+    if (!b)
     {
         eval->S[eval->N] = share;
 
         eval->N = eval->N + 1;
-
-        Phore_Close(phore);
-        return 0;
     }
 
-    Intern_New(1, info, eval);
+    if (b)
+    {
+        Intern_New(1, info, eval);
 
-    Int k;
-    k = eval->S[eval->N - 1];
+        Int k;
+        k = eval->S[eval->N - 1];
 
-    p[3] = k;
+        p[3] = k;
 
-    Intern_Call(eval, 1, 3, 0);
+        Intern_Call(eval, 1, 3, 0);
+    }
 
-    Phore_Close(phore);
+    Phore_Release(phore);
 
     return 0;
 }
