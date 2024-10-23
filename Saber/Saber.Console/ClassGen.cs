@@ -1582,8 +1582,6 @@ public class ClassGen : ClassBase
 
         this.CondSet(varSA, varSC, this.Zero, varSA);
 
-        this.SignExtend(varSA);
-
         this.VarSet(varA, varSA);
 
         this.VarMaskClear(varA, this.RefKindClearMask);
@@ -1642,6 +1640,39 @@ public class ClassGen : ClassBase
         this.VarMaskClear(varB, ka);
 
         this.OperateLimit(varA, varA, varB, limit);
+
+        this.VarMaskSet(varA, this.RefKindIntMask);
+
+        this.EvalValueSet(2, varA);
+
+        this.EvalIndexPosSet(-1);
+
+        return true;
+    }
+
+    public virtual bool ExecuteOperateLimitAC(String limit)
+    {
+        String varA;
+        String varB;
+        String varSA;
+        varA = this.VarA;
+        varB = this.VarB;
+        varSA = this.VarSA;
+
+        this.EvalValueGet(2, varA);
+        this.EvalValueGet(1, varB);
+
+        this.VarSet(varSA, varA);
+
+        this.SignExtend(varSA);
+        
+        this.VarMaskClear(varB, this.RefKindClearMask);
+
+        this.OperateLimit(varSA, varSA, varB, limit);
+
+        this.VarSet(varA, varSA);
+
+        this.VarMaskClear(varA, this.RefKindClearMask);
 
         this.VarMaskSet(varA, this.RefKindIntMask);
 
