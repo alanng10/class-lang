@@ -7,7 +7,6 @@ typedef struct
     Int AllocCap;
     Int TotalAllocCount;
     Int Phore;
-    Int ThisThreadIdent;
     Int FirstNode;
     Int LastNode;
     Int QueueFirstNode;
@@ -80,9 +79,9 @@ Bool Intern_New_AutoDelete();
 
 Bool Intern_New_DeleteUnused();
 
-Bool Intern_New_PauseOtherThread();
+Bool Intern_New_PauseOtherThread(Int thisThreadIdent);
 
-Bool Intern_New_ResumeOtherThread();
+Bool Intern_New_ResumeOtherThread(Int thisThreadIdent);
 
 Bool Intern_New_QueueAllRoot();
 

@@ -122,9 +122,7 @@ Bool Intern_New_AutoDelete()
     Int thisIdent;
     thisIdent = Thread_IdentGet(threadThis);
 
-    m->ThisThreadIdent = thisIdent;
-
-    Intern_New_PauseOtherThread();
+    Intern_New_PauseOtherThread(thisIdent);
 
     Intern_New_QueueAllRoot();
 
@@ -137,14 +135,12 @@ Bool Intern_New_AutoDelete()
 
     m->AllocCap = capCount;
 
-    Intern_New_ResumeOtherThread();
-
-    m->ThisThreadIdent = 0;
+    Intern_New_ResumeOtherThread(thisIdent);
 
     return true;
 }
 
-Bool Intern_New_PauseOtherThread()
+Bool Intern_New_PauseOtherThread(Int thisThreadIdent)
 {
     InternNewData* m;
     m = CastPointer(NewData);
@@ -160,7 +156,7 @@ Bool Intern_New_PauseOtherThread()
 
     while (i < count)
     {
-        if (!(i == m->ThisThreadIdent))
+        if (!(i == thisThreadIdent))
         {
             Int ka;
             ka = array[i];
@@ -186,7 +182,7 @@ Bool Intern_New_PauseOtherThread()
     return true;
 }
 
-Bool Intern_New_ResumeOtherThread()
+Bool Intern_New_ResumeOtherThread(Int thisThreadIdent)
 {
     InternNewData* m;
     m = CastPointer(NewData);
@@ -202,7 +198,7 @@ Bool Intern_New_ResumeOtherThread()
 
     while (i < count)
     {
-        if (!(i == m->ThisThreadIdent))
+        if (!(i == thisThreadIdent))
         {
             Int ka;
             ka = array[i];
