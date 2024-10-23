@@ -1,9 +1,9 @@
 @echo off
 
-call Saber.Console.data\Var
+call Var
 
 set ModuleRef=%~1
 
-call Saber.Console.data\CleanModule %ModuleRef%
-call Saber.Console.data\MakeModuleProject %ModuleRef%
-call Saber.Console.data\MakeModule %ModuleRef%
+call CleanModule %ModuleRef%
+call MakeModuleProject %ModuleRef%
+call MakeModule %ModuleRef%

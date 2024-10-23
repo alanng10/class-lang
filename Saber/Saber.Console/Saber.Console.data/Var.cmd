@@ -4,7 +4,7 @@ set VarIsSet=0
 set WorkingFold=%cd%
 
 if "%QtRoot%" == "" (
-    set /p QtRoot=<Saber.Console.data\QtRootPathWindows.txt
+    set /p QtRoot=<QtRootPathWindows.txt
     set VarIsSet=1
 )
 
