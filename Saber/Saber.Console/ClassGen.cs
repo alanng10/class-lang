@@ -1891,6 +1891,19 @@ public class ClassGen : ClassBase
         return true;
     }
 
+    public virtual bool ExecuteInternValue(ClassClass varClass)
+    {
+        String varA;
+        varA = this.VarA;
+
+        this.InternValue(varA, varClass);
+
+        this.EvalValueSet(0, varA);
+
+        this.EvalIndexPosSet(1);
+        return true;
+    }
+
     public virtual bool InternValue(String dest, ClassClass varClass)
     {
         String k;
