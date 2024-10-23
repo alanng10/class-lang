@@ -351,7 +351,21 @@ public class ClassGenTraverse : Traverse
         ClassClass ka;
         ka = this.Info(newOperate).OperateClass;
 
-        this.Gen.InternNew(ka);
+        ClassGen gen;
+        gen = this.Gen;
+
+        bool b;
+        b = (ka == gen.System.Bool | ka == gen.System.Int | ka == gen.System.String);
+
+        if (b)
+        {
+            gen.ExecuteInternValue(ka);
+        }
+
+        if (!b)
+        {
+            this.Gen.InternNew(ka);
+        }
         
         return true;
     }
@@ -361,7 +375,21 @@ public class ClassGenTraverse : Traverse
         ClassClass ka;
         ka = this.Info(shareOperate).OperateClass;
 
-        this.Gen.InternShare(ka);
+        ClassGen gen;
+        gen = this.Gen;
+
+        bool b;
+        b = (ka == gen.System.Bool | ka == gen.System.Int | ka == gen.System.String);
+
+        if (b)
+        {
+            gen.ExecuteInternValue(ka);
+        }
+
+        if (!b)
+        {
+            this.Gen.InternShare(ka);
+        }
 
         return true;
     }
