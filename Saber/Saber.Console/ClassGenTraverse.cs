@@ -356,6 +356,16 @@ public class ClassGenTraverse : Traverse
         return true;
     }
 
+    public override bool ExecuteShareOperate(ShareOperate shareOperate)
+    {
+        ClassClass ka;
+        ka = this.Info(shareOperate).OperateClass;
+
+        this.Gen.InternShare(ka);
+
+        return true;
+    }
+
     public override bool ExecuteCastOperate(CastOperate castOperate)
     {
         base.ExecuteCastOperate(castOperate);
