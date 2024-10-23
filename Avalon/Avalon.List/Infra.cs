@@ -184,4 +184,66 @@ public class Infra : Any
         this.ArrayCopy(dest, start, source, start, count);
         return true;
     }
+
+    public virtual long Find(Array array, object any, Less less, Range range)
+    {
+        long start;
+        long end;
+        start = range.Index;
+        end = start + range.Count;
+
+        return this.BinaryFind(array, any, less, start, end);
+    }
+
+    private long BinaryFind(Array array, object any, Less less, long start, long end)
+    {
+        long count;
+        count = end - start;
+        if (count < 1)
+        {
+            return -1;
+        }
+
+        if (count == 1)
+        {
+            object ka;
+            ka = array.GetAt(start);
+
+            long kea;
+            kea = less.Execute(any, ka);
+
+            bool baa;
+            baa = (kea == 0);
+
+            if (baa)
+            {
+                return start;
+            }
+            if (!baa)
+            {
+                return -1;
+            }
+        }
+
+        long mid;
+        mid = (start + end) / 2;
+
+        object k;
+        k = array.GetAt(mid);
+
+        long ke;
+        ke = less.Execute(any, k);
+
+        bool b;
+        b = (ke < 0);
+        if (b)
+        {
+            return this.BinaryFind(array, any, less, start, mid);
+        }
+        if (!b)
+        {
+            return this.BinaryFind(array, any, less, mid, end);
+        }
+        return -1;
+    }
 }
