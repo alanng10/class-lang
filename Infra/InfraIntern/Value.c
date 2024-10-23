@@ -50,3 +50,37 @@ Int Intern_Value_Any[1] =
 };
 
 Int Intern_Value_Ref = (CastInt(Intern_Value_Any)) + (RefKindValueAny << 60);
+
+Int Intern_Value_StringData[0] =
+{
+};
+
+Int Intern_Value_StringAny[2] =
+{
+    CastInt(Intern_Value_StringData) + (RefKindStringValueData << 60),
+    (RefKindInt << 60),
+};
+
+Int Intern_Value_String_Ref = CastInt(Intern_Value_StringAny) + (RefKindStringValue << 60);
+
+Int Intern_Value_Bool()
+{
+    Int a;
+    a = BoolFalse;
+    return a;
+}
+
+Int Intern_Value_Int()
+{
+    Int a;
+    a = 0;
+    RefKindSet(a, RefKindInt);
+    return a;
+}
+
+Int Intern_Value_String()
+{
+    Int a;
+    a = Intern_Value_String_Ref;
+    return a;
+}
