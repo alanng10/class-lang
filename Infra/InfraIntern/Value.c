@@ -51,6 +51,8 @@ Int Intern_Value_Any[1] =
 
 Int Intern_Value_Ref = (CastInt(Intern_Value_Any)) + (RefKindValueAny << 60);
 
+Int Intern_Value_Int_Ref = (RefKindInt << 60);
+
 Int Intern_Value_StringData[0] =
 {
 };
@@ -73,8 +75,7 @@ Int Intern_Value_Bool()
 Int Intern_Value_Int()
 {
     Int a;
-    a = 0;
-    RefKindSet(a, RefKindInt);
+    a = Intern_Value_Int_Ref;
     return a;
 }
 
