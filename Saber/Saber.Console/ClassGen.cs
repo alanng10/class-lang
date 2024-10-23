@@ -1864,6 +1864,27 @@ public class ClassGen : ClassBase
         return true;
     }
 
+    public virtual bool InternShare(ClassClass varClass)
+    {
+        this.TextIndent();
+
+        this.Text(this.InternShareMaide);
+        this.Text(this.LimitBraceRoundLite);
+
+        this.ClassVar(varClass);
+
+        this.Text(this.LimitComma);
+        this.Text(this.Space);
+
+        this.Text(this.EvalVar);
+
+        this.Text(this.LimitBraceRoundRite);
+
+        this.Text(this.LimitSemicolon);
+        this.Text(this.NewLine);
+        return true;
+    }
+
     public virtual bool ExecuteValueMaideCallThisCond(String refKind, long thisEvalIndex)
     {
         String varA;
