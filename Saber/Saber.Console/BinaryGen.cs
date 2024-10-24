@@ -288,24 +288,60 @@ public class BinaryGen : Any
         fieldStart = varClass.FieldStart;
         maideStart = varClass.MaideStart;
 
+        Array field;
+        field = this.ExecuteFieldArray(varClass.Field);
+
         BinaryPart a;
         a = new BinaryPart();
         a.Init();
         a.FieldStart = fieldStart;
         a.MaideStart = maideStart;
+        a.Field = field;
         return a;
     }
 
-    public virtual BinaryField ExecuteField(Field field)
+    public virtual Array ExecuteFieldArray(Table table)
+    {
+        long count;
+        count = table.Count;
+
+        Array array;
+        array = this.ListInfra.ArrayCreate(count);
+
+        Iter iter;
+        iter = table.IterCreate();
+        table.IterSet(iter);
+
+        long i;
+        i = 0;
+        while (i < count)
+        {
+            iter.Next();
+
+            Field ka;
+            ka = (Field)iter.Value;
+
+            BinaryField a;
+            a = this.ExecuteField(ka);
+
+            array.SetAt(i, a);
+
+            i = i + 1;
+        }
+
+        return array;
+    }
+
+    public virtual BinaryField ExecuteField(Field ka)
     {
         long varClass;
-        varClass = this.ClassIndex(field.Class);
+        varClass = this.ClassIndex(ka.Class);
 
         long count;
-        count = field.Count.Index;
+        count = ka.Count.Index;
 
         String name;
-        name = field.Name;
+        name = ka.Name;
 
         BinaryField a;
         a = new BinaryField();
