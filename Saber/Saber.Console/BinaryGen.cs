@@ -2,9 +2,18 @@ namespace Saber.Console;
 
 public class BinaryGen : Any
 {
+    public override bool Init()
+    {
+        base.Init();
+        this.ListInfra = ListInfra.This;
+        this.ClassInfra = ClassInfra.This;
+        return true;
+    }
+
     public virtual ClassModule Module { get; set; }
     public virtual BinaryBinary Result { get; set; }
     protected virtual ListInfra ListInfra { get; set; }
+    protected virtual ClassInfra ClassInfra { get; set; }
 
     public virtual bool Execute()
     {
@@ -12,11 +21,14 @@ public class BinaryGen : Any
         binary = new BinaryBinary();
         binary.Init();
 
-        this.ExecuteClass(binary);
+        binary.Ref = this.ExecuteModuleRef(this.Module.Ref);
+        binary.Class = this.ExecuteClass();
+
+        this.Result = binary;
         return true;
     }
 
-    public virtual bool ExecuteClass(BinaryBinary binary)
+    public virtual Array ExecuteClass()
     {
         long count;
         count = this.Module.Class.Count;
@@ -46,8 +58,13 @@ public class BinaryGen : Any
             i = i + 1;
         }
 
-        binary.Class = array;
+        return array;
+    }
 
-        return true;
+    public virtual ModuleRef ExecuteModuleRef(ModuleRef kn)
+    {
+        ModuleRef a;
+        a = this.ClassInfra.ModuleRefCreate(kn.Name, kn.Ver);
+        return a;
     }
 }
