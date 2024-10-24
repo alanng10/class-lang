@@ -1158,16 +1158,16 @@ public class Read : ClassBase
         range.Index = index + kb;
         range.Count = 2;
 
-        long revision;
-        revision = intParse.Execute(text, 10, false, null);
-        if (revision == -1)
+        long vise;
+        vise = intParse.Execute(text, 10, false, null);
+        if (vise == -1)
         {
             return -1;
         }
 
         long a;
         a = 0;
-        a = a | revision;
+        a = a | vise;
         a = a | (minor << 8);
         a = a | (major << 16);
         return a;
