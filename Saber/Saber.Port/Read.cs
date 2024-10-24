@@ -542,10 +542,13 @@ public class Read : ClassBase
     {
         long count;
         count = this.ImportCount(row, lineCount);
+        
         Array array;
         array = this.Operate.ExecuteArray(count);
+        
         long k;
         k = row;
+
         long i;
         i = 0;
         while (i < count)
