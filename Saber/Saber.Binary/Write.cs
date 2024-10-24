@@ -61,7 +61,7 @@ public class Write : Any
         this.ExecuteExportArray(binary.Export);
         this.ExecuteBaseArray(binary.Base);
         this.ExecutePartArray(binary.Part);
-        this.ExecuteIndex(binary.Entry);
+        this.ExecuteEntry(binary.Entry);
         return true;
     }
 
@@ -244,6 +244,17 @@ public class Write : Any
     {
         this.ExecuteIndex(varVar.Class);
         this.ExecuteName(varVar.Name);
+        return true;
+    }
+
+    protected virtual bool ExecuteEntry(long entry)
+    {
+        if (entry == -1)
+        {
+            return true;
+        }
+
+        this.ExecuteIndex(entry);
         return true;
     }
 
