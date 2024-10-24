@@ -48,7 +48,6 @@ public class Read : ClassBase
     protected virtual IntParse IntParse { get; set; }
     protected virtual Text Text { get; set; }
     protected virtual StringData StringData { get; set; }
-    protected virtual Text TextNewLine { get; set; }
     protected virtual String SColon { get; set; }
     protected virtual String SDot { get; set; }
     protected virtual String SBraceSquareLite { get; set; }
@@ -69,7 +68,7 @@ public class Read : ClassBase
         String source;
         source = this.Source;
 
-        this.LineList = this.TextLimit(this.TA(source), this.TextNewLine);
+        this.LineList = this.TextLimit(this.TA(source), this.TA(this.ClassInfra.NewLine));
         
         ReadArg arg;
         arg = new ReadArg();
