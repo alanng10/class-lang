@@ -15,7 +15,6 @@ public class PortLoad : ClassBase
         this.ClassModuleSingle = this.S("Class");
         this.ClassModulePre = this.AddClear().Add(this.ClassModuleSingle).Add(this.ClassInfra.Dot).AddResult();
 
-        this.SHyphen = this.S("-");
         this.SDotRef = this.S(".ref");
         return true;
     }
@@ -38,7 +37,6 @@ public class PortLoad : ClassBase
     protected virtual String SystemModulePre { get; set; }
     protected virtual String ClassModuleSingle { get; set; }
     protected virtual String ClassModulePre { get; set; }
-    protected virtual String SHyphen { get; set; }
     protected virtual String SDotRef { get; set; }
 
     public virtual bool Execute()
