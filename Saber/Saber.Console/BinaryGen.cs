@@ -281,6 +281,38 @@ public class BinaryGen : Any
         return array;
     }
 
+    public virtual Array ExecutePartArray()
+    {
+        long count;
+        count = this.Module.Class.Count;
+
+        Array array;
+        array = this.ListInfra.ArrayCreate(count);
+
+        Iter iter;
+        iter = this.Module.Class.IterCreate();
+        this.Module.Class.IterSet(iter);
+
+        long i;
+        i = 0;
+        while (i < count)
+        {
+            iter.Next();
+
+            ClassClass ka;
+            ka = (ClassClass)iter.Value;
+
+            BinaryPart a;
+            a = this.ExecutePart(ka);
+
+            array.SetAt(i, a);
+
+            i = i + 1;
+        }
+
+        return array;
+    }
+
     public virtual BinaryPart ExecutePart(ClassClass varClass)
     {
         long fieldStart;
