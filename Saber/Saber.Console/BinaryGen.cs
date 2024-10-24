@@ -28,6 +28,7 @@ public class BinaryGen : Any
         binary.Class = this.ExecuteClassArray();
         binary.Import = this.ExecuteImportArray();
         binary.Export = this.ExecuteExportArray();
+        binary.Base = this.ExecuteBaseArray();
 
         this.Result = binary;
 
@@ -226,6 +227,43 @@ public class BinaryGen : Any
 
             long n;
             n = ka.Index;
+
+            InfraValue value;
+            value = new InfraValue();
+            value.Init();
+            value.Int = n;
+
+            array.SetAt(i, value);
+
+            i = i + 1;
+        }
+
+        return array;
+    }
+
+    public virtual Array ExecuteBaseArray()
+    {
+        long count;
+        count = this.Module.Class.Count;
+
+        Array array;
+        array = this.ListInfra.ArrayCreate(count);
+
+        Iter iter;
+        iter = this.Module.Class.IterCreate();
+        this.Module.Class.IterSet(iter);
+
+        long i;
+        i = 0;
+        while (i < count)
+        {
+            iter.Next();
+
+            ClassClass ka;
+            ka = (ClassClass)iter.Value;
+
+            long n;
+            n = this.ClassIndex(ka);
 
             InfraValue value;
             value = new InfraValue();
