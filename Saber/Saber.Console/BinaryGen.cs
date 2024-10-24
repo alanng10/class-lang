@@ -278,6 +278,24 @@ public class BinaryGen : Any
         return array;
     }
 
+    public virtual BinaryPart ExecutePart(ClassClass varClass)
+    {
+        long fieldStart;
+        long maideStart;
+        fieldStart = varClass.FieldStart;
+        maideStart = varClass.MaideStart;
+
+        BinaryPart a;
+        a = new BinaryPart();
+        a.Init();
+        a.FieldStart = fieldStart;
+        a.MaideStart = maideStart;
+        return a;
+    }
+
+    
+
+
     public virtual ModuleRef ExecuteModuleRef(ModuleRef ks)
     {
         ModuleRef a;
