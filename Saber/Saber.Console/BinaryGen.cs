@@ -246,4 +246,15 @@ public class BinaryGen : Any
         a = this.ClassInfra.ModuleRefCreate(ks.Name, ks.Ver);
         return a;
     }
+
+    public virtual long ClassIndex(ClassClass varClass)
+    {
+        InfraValue k;
+        k = (InfraValue)this.IndexTable.Get(varClass);
+
+        long n;
+        n = k.Int;
+
+        return n;
+    }
 }
