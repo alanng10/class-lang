@@ -970,35 +970,24 @@ public class Read : ClassBase
             return false;
         }
 
-        Text textA;
-        textA = this.Text;
-        Less less;
-        less = this.TextLess;
-
-        this.TextGet(this.SquareLeft);
-
         range.Count = 1;
 
-        if (!textInfra.Same(line, textA, less))
+        if (!this.TextSame(line, this.TA(this.SSquareLeft)))
         {
             return false;
         }
-
-        this.TextGet(this.SquareRight);
 
         range.Index = index + count - 1;
 
-        if (!textInfra.Same(line, textA, less))
+        if (!this.TextSame(line, this.TA(this.SSquareRight)))
         {
             return false;
         }
-        
-        this.TextGet(head);
 
         range.Index = index + 1;
         range.Count = count - 2;
 
-        if (!textInfra.Same(line, textA, less))
+        if (!this.TextSame(line, this.TA(head)))
         {
             return false;
         }
