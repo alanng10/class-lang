@@ -844,54 +844,30 @@ public class Read : ClassBase
 
     protected virtual long SubSectionLineCount(long row)
     {
-        TextInfra textInfra;
-        textInfra = this.TextInfra;
-
         long lineCount;
         lineCount = this.LineList.Count;
 
-        this.TextGet(this.Space);
-
-        Text textA;
-        textA = this.Text;
-        Less less;
-        less = this.TextLess;
-
-        long ka;
-        ka = textA.Range.Count;
-
         long o;
         o = -1;
+
         bool b;
         b = false;
+        
         long count;
         count = lineCount - row;
+
         long i;
         i = 0;
+        
         while (!b & i < count)
         {
             Text text;
             text = this.LineText(row + i);
-            Range range;
-            range = text.Range;
-            long kk;
-            kk = range.Count;
 
-            if (kk < ka)
+            if (!this.TextStart(text, this.TA(this.SSpace)))
             {
                 b = true;
                 o = i;
-            }
-            
-            if (!b)
-            {
-                range.Count = ka;
-                if (!textInfra.Same(text, textA, less))
-                {
-                    b = true;
-                    o = i;
-                }
-                range.Count = kk;
             }
 
             i = i + 1;
@@ -899,8 +875,9 @@ public class Read : ClassBase
 
         if (!b)
         {
-            return i;
+            return count;
         }
+
         return o;
     }
 
