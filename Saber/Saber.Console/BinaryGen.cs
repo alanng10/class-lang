@@ -262,8 +262,11 @@ public class BinaryGen : Any
             ClassClass ka;
             ka = (ClassClass)iter.Value;
 
+            ClassClass baseClass;
+            baseClass = ka.Base;
+
             long n;
-            n = this.ClassIndex(ka);
+            n = this.ClassIndex(baseClass);
 
             InfraValue value;
             value = new InfraValue();
@@ -293,7 +296,7 @@ public class BinaryGen : Any
         return a;
     }
 
-    
+
 
 
     public virtual ModuleRef ExecuteModuleRef(ModuleRef ks)
