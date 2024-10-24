@@ -12,8 +12,8 @@ public class BinaryGen : Any
 
     public virtual ClassModule Module { get; set; }
     public virtual BinaryBinary Result { get; set; }
-    protected virtual ListInfra ListInfra { get; set; }
-    protected virtual ClassInfra ClassInfra { get; set; }
+    public virtual ListInfra ListInfra { get; set; }
+    public virtual ClassInfra ClassInfra { get; set; }
     public virtual Table IndexTable { get; set; }
 
     public virtual bool Execute()
