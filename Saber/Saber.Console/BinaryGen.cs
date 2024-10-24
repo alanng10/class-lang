@@ -352,6 +352,30 @@ public class BinaryGen : Any
         return a;
     }
 
+    public virtual BinaryMaide ExecuteMaide(Maide ka)
+    {
+        long varClass;
+        varClass = this.ClassIndex(ka.Class);
+
+        long count;
+        count = ka.Count.Index;
+
+        String name;
+        name = ka.Name;
+
+        Array param;
+        param = this.ExecuteVarArray(ka.Param);
+
+        BinaryMaide a;
+        a = new BinaryMaide();
+        a.Init();
+        a.Class = varClass;
+        a.Count = count;
+        a.Name = name;
+        a.Param = param;
+        return a;
+    }
+
     public virtual Array ExecuteVarArray(Table table)
     {
         long count;
