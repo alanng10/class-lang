@@ -816,12 +816,16 @@ public class Read : ClassBase
 
         long o;
         o = -1;
+
         bool b;
         b = false;
+
         long count;
         count = lineCount - row;
+
         long i;
         i = 0;
+
         while (!b & i < count)
         {
             Text text;
@@ -837,7 +841,7 @@ public class Read : ClassBase
         
         if (!b)
         {
-            return i;
+            return count;
         }
         return o;
     }
