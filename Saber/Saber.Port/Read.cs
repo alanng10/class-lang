@@ -1036,7 +1036,7 @@ public class Read : ClassBase
             range.Index = aa + oo;
             range.Count = ab - oo;
 
-            version = this.ExecuteModuleVersion(text);
+            version = this.ExecuteModuleVer(text);
 
             range.Index = aa;
             range.Count = ab;
@@ -1061,7 +1061,7 @@ public class Read : ClassBase
         return a;
     }
 
-    protected virtual long ExecuteModuleVersion(Text text)
+    protected virtual long ExecuteModuleVer(Text text)
     {
         Range range;
         range = text.Range;
@@ -1072,14 +1072,14 @@ public class Read : ClassBase
         count = range.Count;
         
         long a;
-        a = this.ExecuteModuleVersionAll(text);
+        a = this.ExecuteModuleVerAll(text);
 
         range.Index = index;
         range.Count = count;
         return a;
     }
 
-    protected virtual long ExecuteModuleVersionAll(Text text)
+    protected virtual long ExecuteModuleVerAll(Text text)
     {
         TextInfra textInfra;
         textInfra = this.TextInfra;
