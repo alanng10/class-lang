@@ -16,6 +16,9 @@ public class Read : ClassBase
         this.SetOperate.Read = this;
         this.SetOperate.Init();
 
+        this.Range = new Range();
+        this.Range.Init();
+
         this.IntParse = new IntParse();
         this.IntParse.Init();
 
@@ -41,6 +44,7 @@ public class Read : ClassBase
     protected virtual CountReadOperate CountOperate { get; set; }
     protected virtual StringReadOperate StringOperate { get; set; }
     protected virtual SetReadOperate SetOperate { get; set; }
+    protected virtual Range Range { get; set; }
     protected virtual IntParse IntParse { get; set; }
     protected virtual Text Text { get; set; }
     protected virtual StringData StringData { get; set; }
@@ -1004,20 +1008,14 @@ public class Read : ClassBase
         text = this.LineText(row);
         Range range;
         range = text.Range;
-        Text textA;
-        textA = this.Text;
-        Range rangeA;
-        rangeA = textA.Range;
 
         long nameCount;
         long version;
         nameCount = 0;
         version = 0;
         
-        this.TextGet(this.Colon);
-        
         long n;
-        n = textInfra.Index(text, textA, this.TextLess);
+        n = this.TextIndex(text, this.TA(this.SColon));
         bool b;
         b = (n == -1);
         if (b)
@@ -1049,10 +1047,12 @@ public class Read : ClassBase
             }
         }
 
-        rangeA.Index = range.Index;
-        rangeA.Count = nameCount;
+        Range kkk;
+        kkk = this.Range;
+        kkk.Index = range.Index;
+        kkk.Count = nameCount;
         String name;
-        name = this.ExecuteString(row, rangeA);
+        name = this.ExecuteString(row, kkk);
         
         ModuleRef a;
         a = this.Operate.ExecuteModuleRef();
@@ -1207,14 +1207,5 @@ public class Read : ClassBase
         String a;
         a = this.Operate.ExecuteString(row, range);
         return a;
-    }
-
-    protected virtual bool TextGet(String o)
-    {
-        this.StringData.ValueString = o;
-        this.Text.Data = this.StringData;
-        this.Text.Range.Index = 0;
-        this.Text.Range.Count = this.StringComp.Count(o);
-        return true;
     }
 }
