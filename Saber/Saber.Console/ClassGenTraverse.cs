@@ -92,8 +92,6 @@ public class ClassGenTraverse : Traverse
 
         gen.IndentCount = gen.IndentCount + 1;
 
-        gen.TableVarLocalVarSetNull(table);
-
         base.ExecuteState(state);
 
         gen.TableVarLocalVarSetNull(table);
