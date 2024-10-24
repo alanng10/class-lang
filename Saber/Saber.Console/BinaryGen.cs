@@ -296,8 +296,25 @@ public class BinaryGen : Any
         return a;
     }
 
+    public virtual BinaryField ExecuteField(Field field)
+    {
+        long varClass;
+        varClass = this.ClassIndex(field.Class);
 
+        long count;
+        count = field.Count.Index;
 
+        String name;
+        name = field.Name;
+
+        BinaryField a;
+        a = new BinaryField();
+        a.Init();
+        a.Class = varClass;
+        a.Count = count;
+        a.Name = name;
+        return a;
+    }
 
     public virtual ModuleRef ExecuteModuleRef(ModuleRef ks)
     {
