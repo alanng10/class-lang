@@ -613,6 +613,20 @@ public class Console : ClassBase
             systemInfraModule = (ClassModule)this.ModuleTable.Get(this.ModuleRef);
         }
 
+        String verString;
+        verString = this.ClassInfra.VerString(module.Ref.Ver);
+
+        String moduleRefString;
+        moduleRefString = this.ClassInfra.ModuleRefString(module.Ref.Name, verString);
+
+        bool ba;
+        ba = this.ExecuteGenBinary(moduleRefString);
+        
+        if (!ba)
+        {
+            return false;
+        }
+
         ClassClass internClass;
         ClassClass externClass;
         internClass = (ClassClass)systemInfraModule.Class.Get(this.SIntern);
@@ -625,12 +639,6 @@ public class Console : ClassBase
 
         String genFoldPath;
         genFoldPath = this.S("Saber.Console.Data/Gen");
-
-        String verString;
-        verString = this.ClassInfra.VerString(module.Ref.Ver);
-
-        String moduleRefString;
-        moduleRefString = this.ClassInfra.ModuleRefString(module.Ref.Name, verString);
 
         String combine;
         combine = this.TextInfra.PathCombine;
@@ -645,7 +653,7 @@ public class Console : ClassBase
 
         if (!baa)
         {
-            this.Status = 5000 + 1;
+            this.Status = 5000 + 15;
             return false;
         }
 
@@ -683,12 +691,12 @@ public class Console : ClassBase
             String filePath;
             filePath = this.AddClear().Add(genModuleFoldPath).Add(combine).Add(fileName).AddResult();
 
-            bool ba;    
-            ba = this.StorageInfra.TextWrite(filePath, k);
+            bool bab;
+            bab = this.StorageInfra.TextWrite(filePath, k);
 
-            if (!ba)
+            if (!bab)
             {
-                this.Status = 5000 + 10;
+                this.Status = 5000 + 20;
                 return false;
             }
 
@@ -744,11 +752,17 @@ public class Console : ClassBase
         this.BinaryWrite.Data = null;
         this.BinaryWrite.Binary = null;
 
-
         String filePath;
-        filePath = this.AddClear().Add(moduleRefString).Add(this.ClassInfra.Dot).Add(this.SC).AddResult();
+        filePath = this.AddClear().Add(moduleRefString).Add(this.ClassInfra.Dot).Add(this.SRef).AddResult();
 
+        bool b;
+        b = this.StorageInfra.DataWrite(filePath, data);
 
+        if (!b)
+        {
+            this.Status = 5000 + 10;
+            return false;
+        }
 
         return true;
     }
@@ -778,7 +792,7 @@ public class Console : ClassBase
 
         if (!b)
         {
-            this.Status = 5000 + 20;
+            this.Status = 5000 + 30;
             return false;
         }
 
@@ -806,7 +820,7 @@ public class Console : ClassBase
 
         if (!b)
         {
-            this.Status = 5000 + 30;
+            this.Status = 5000 + 40;
             return false;
         }
 
@@ -840,7 +854,7 @@ public class Console : ClassBase
 
         if (!(k == 0))
         {
-            this.Status = 5000 + 40;
+            this.Status = 5000 + 50;
             return false;
         }
 
