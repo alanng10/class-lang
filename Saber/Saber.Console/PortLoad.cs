@@ -380,7 +380,7 @@ public class PortLoad : ClassBase
         versionString = this.ClassInfra.VerString(version);
     
         String moduleRefString;
-        moduleRefString = this.AddClear().Add(moduleName).Add(this.SHyphen).Add(versionString).AddResult();
+        moduleRefString = this.ClassInfra.ModuleRefString(moduleName, versionString);
 
         String filePath;
         filePath = this.AddClear().Add(moduleRefString).Add(this.SDotRef).AddResult();
