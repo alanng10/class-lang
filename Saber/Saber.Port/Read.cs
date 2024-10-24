@@ -1,16 +1,10 @@
 namespace Saber.Port;
 
-public class Read : Any
+public class Read : ClassBase
 {
     public override bool Init()
     {
         base.Init();
-        this.InfraInfra = InfraInfra.This;
-        this.ListInfra = ListInfra.This;
-        this.TextInfra = TextInfra.This;
-        this.ClassInfra = ClassInfra.This;
-        this.StringComp = StringComp.This;
-        this.TextStringValue = TextStringValue.This;
 
         this.CountOperate = new CountReadOperate();
         this.CountOperate.Read = this;
@@ -25,34 +19,12 @@ public class Read : Any
         this.IntParse = new IntParse();
         this.IntParse.Init();
 
-        this.Text = new Text();
-        this.Text.Init();
-        this.Text.Range = new Range();
-        this.Text.Range.Init();
-
-        this.StringData = new StringData();
-        this.StringData.Init();
-
-        LessInt charLess;
-        charLess = new LessInt();
-        charLess.Init();
-        TextForm textForm;
-        textForm = new TextForm();
-        textForm.Init();
-        this.TextLess = new TextLess();
-        this.TextLess.CharLess = charLess;
-        this.TextLess.LiteForm = textForm;
-        this.TextLess.RiteForm = textForm;
-        this.TextLess.Init();
-
-        this.TextNewLine = this.TextInfra.TextCreateStringData(this.ClassInfra.NewLine, null);
-
-        this.Colon = this.S(":");
-        this.Dot = this.S(".");
-        this.SquareLeft = this.S("[");
-        this.SquareRight = this.S("]");
-        this.Space = this.S(" ");
-        this.Indent = this.S("    ");
+        this.SColon = this.S(":");
+        this.SDot = this.S(".");
+        this.SSquareLeft = this.S("[");
+        this.SSquareRight = this.S("]");
+        this.SSpace = this.S(" ");
+        this.SIndent = this.S("    ");
         this.HeadModule = this.S("Module");
         this.HeadImport = this.S("Import");
         this.HeadExport = this.S("Export");
@@ -64,12 +36,6 @@ public class Read : Any
     public virtual String Source { get; set; }
     public virtual Port Port { get; set; }
     public virtual ReadArg Arg { get; set; }
-    protected virtual InfraInfra InfraInfra { get; set; }
-    protected virtual ListInfra ListInfra { get; set; }
-    protected virtual TextInfra TextInfra { get; set; }
-    protected virtual ClassInfra ClassInfra { get; set; }
-    protected virtual StringComp StringComp { get; set; }
-    protected virtual TextStringValue TextStringValue { get; set; }
     protected virtual Array LineList { get; set; }
     protected virtual ReadOperate Operate { get; set; }
     protected virtual CountReadOperate CountOperate { get; set; }
@@ -78,14 +44,13 @@ public class Read : Any
     protected virtual IntParse IntParse { get; set; }
     protected virtual Text Text { get; set; }
     protected virtual StringData StringData { get; set; }
-    protected virtual TextLess TextLess { get; set; }
     protected virtual Text TextNewLine { get; set; }
-    protected virtual String Colon { get; set; }
-    protected virtual String Dot { get; set; }
-    protected virtual String SquareLeft { get; set; }
-    protected virtual String SquareRight { get; set; }
-    protected virtual String Space { get; set; }
-    protected virtual String Indent { get; set; }
+    protected virtual String SColon { get; set; }
+    protected virtual String SDot { get; set; }
+    protected virtual String SSquareLeft { get; set; }
+    protected virtual String SSquareRight { get; set; }
+    protected virtual String SSpace { get; set; }
+    protected virtual String SIndent { get; set; }
     protected virtual String HeadModule { get; set; }
     protected virtual String HeadImport { get; set; }
     protected virtual String HeadExport { get; set; }
@@ -100,10 +65,7 @@ public class Read : Any
         String source;
         source = this.Source;
 
-        Text aaa;
-        aaa = this.TextInfra.TextCreateStringData(source, null);
-
-        this.LineList = this.TextInfra.Limit(aaa, this.TextNewLine, this.TextLess);
+        this.LineList = this.TextLimit(this.TA(source), this.TextNewLine);
         
         ReadArg arg;
         arg = new ReadArg();
@@ -1265,10 +1227,5 @@ public class Read : Any
         this.Text.Range.Index = 0;
         this.Text.Range.Count = this.StringComp.Count(o);
         return true;
-    }
-
-    private String S(string o)
-    {
-        return this.TextStringValue.Execute(o);
     }
 }

@@ -16,4 +16,5 @@ global using TextLess = Avalon.Text.Less;
 global using TextStringValue = Avalon.Text.StringValue;
 global using TextInfra = Avalon.Text.Infra;
 global using ModuleRef = Saber.Infra.ModuleRef;
+global using ClassBase = Saber.Infra.Base;
 global using ClassInfra = Saber.Infra.Infra;
