@@ -352,6 +352,22 @@ public class BinaryGen : Any
         return a;
     }
 
+    public virtual BinaryVar ExecuteVar(Var ka)
+    {
+        long varClass;
+        varClass = this.ClassIndex(ka.Class);
+
+        String name;
+        name = ka.Name;
+
+        BinaryVar a;
+        a = new BinaryVar();
+        a.Init();
+        a.Class = varClass;
+        a.Name = name;
+        return a;
+    }
+
     public virtual ModuleRef ExecuteModuleRef(ModuleRef ks)
     {
         ModuleRef a;
