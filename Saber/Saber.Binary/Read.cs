@@ -440,14 +440,8 @@ public class Read : Any
             return null;
         }
 
-        long u;
-        u = this.ExecuteInt();
-        if (u == -1)
-        {
-            return null;
-        }
         long entry;
-        entry = u;
+        entry = this.ExecuteEntry();
 
         Binary a;
         a = this.Operate.ExecuteBinary();
@@ -859,6 +853,28 @@ public class Read : Any
         a.Class = varClass;
         a.Name = name;
         return a;
+    }
+
+    protected virtual long ExecuteEntry()
+    {
+        long u;
+        u = this.ExecuteInt();
+        if (u == -1)
+        {
+            return -1;
+        }
+
+        long n;
+        n = u;
+        n = n << 4;
+        n = n >> 4;
+
+        if (n == -1)
+        {
+            return -1;
+        }
+
+        return n;
     }
 
     protected virtual Array ExecuteClassIndexArray()
