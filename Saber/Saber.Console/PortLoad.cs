@@ -750,6 +750,8 @@ public class PortLoad : ClassBase
 
                 iA = iA + 1;
             }
+
+            i = i + 1;
         }
         return true;
     }
