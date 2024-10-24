@@ -14,9 +14,12 @@ public class BinaryGen : Any
     public virtual BinaryBinary Result { get; set; }
     protected virtual ListInfra ListInfra { get; set; }
     protected virtual ClassInfra ClassInfra { get; set; }
+    public virtual Table IndexTable { get; set; }
 
     public virtual bool Execute()
     {
+        this.IndexTableSet();
+        
         BinaryBinary binary;
         binary = new BinaryBinary();
         binary.Init();
@@ -27,6 +30,65 @@ public class BinaryGen : Any
         binary.Export = this.ExecuteExportArray();
 
         this.Result = binary;
+
+        this.IndexTable = null;
+        return true;
+    }
+
+    public virtual bool IndexTableSet()
+    {
+        this.IndexTable = this.ClassInfra.TableCreateRefLess();
+
+        Iter iter;
+        iter = new TableIter();
+        iter.Init();
+        
+        this.Module.Class.IterSet(iter);
+
+        while (iter.Next())
+        {
+            ClassClass ka;
+            ka = (ClassClass)iter.Value;
+
+            this.IndexTableAdd(ka);
+        }
+
+        this.Module.Import.IterSet(iter);
+
+        while (iter.Next())
+        {
+            Table kk;
+            kk = (Table)iter.Value;
+
+            Iter iterA;
+            iterA = new TableIter();
+            iterA.Init();
+
+            kk.IterSet(iterA);
+
+            while (iterA.Next())
+            {
+                ClassClass kb;
+                kb = (ClassClass)iterA.Value;
+
+                this.IndexTableAdd(kb);
+            }
+        }
+
+        return true;
+    }
+
+    public virtual bool IndexTableAdd(ClassClass ka)
+    {
+        long n;
+        n = this.IndexTable.Count;
+
+        InfraValue value;
+        value = new InfraValue();
+        value.Init();
+        value.Int = n;
+
+        this.ListInfra.TableAdd(this.IndexTable, ka, value);
         return true;
     }
 
