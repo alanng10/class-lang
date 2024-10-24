@@ -352,6 +352,38 @@ public class BinaryGen : Any
         return a;
     }
 
+    public virtual Array ExecuteVarArray(Table table)
+    {
+        long count;
+        count = table.Count;
+
+        Array array;
+        array = this.ListInfra.ArrayCreate(count);
+
+        Iter iter;
+        iter = table.IterCreate();
+        table.IterSet(iter);
+
+        long i;
+        i = 0;
+        while (i < count)
+        {
+            iter.Next();
+
+            Var ka;
+            ka = (Var)iter.Value;
+
+            BinaryVar a;
+            a = this.ExecuteVar(ka);
+
+            array.SetAt(i, a);
+
+            i = i + 1;
+        }
+
+        return array;
+    }
+
     public virtual BinaryVar ExecuteVar(Var ka)
     {
         long varClass;
