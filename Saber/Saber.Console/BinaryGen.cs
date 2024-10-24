@@ -24,6 +24,7 @@ public class BinaryGen : Any
         binary.Ref = this.ExecuteModuleRef(this.Module.Ref);
         binary.Class = this.ExecuteClassArray();
         binary.Import = this.ExecuteImportArray();
+        binary.Export = this.ExecuteExportArray();
 
         this.Result = binary;
         return true;
@@ -139,6 +140,42 @@ public class BinaryGen : Any
         a.Module = moduleRef;
         a.Class = array;
         return a;
+    }
+
+    public virtual Array ExecuteExportArray()
+    {
+        long count;
+        count = this.Module.Export.Count;
+
+        Array array;
+        array = this.ListInfra.ArrayCreate(count);
+
+        Iter iter;
+        iter = this.Module.Export.IterCreate();
+        this.Module.Export.IterSet(iter);
+
+        long i;
+        i = 0;
+        while (i < count)
+        {
+            iter.Next();
+            ClassClass ka;
+            ka = (ClassClass)iter.Value;
+
+            long n;
+            n = ka.Index;
+
+            InfraValue value;
+            value = new InfraValue();
+            value.Init();
+            value.Int = n;
+
+            array.SetAt(i, value);
+
+            i = i + 1;
+        }
+
+        return array;
     }
 
     public virtual ModuleRef ExecuteModuleRef(ModuleRef ks)
