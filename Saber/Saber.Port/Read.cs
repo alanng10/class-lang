@@ -19,6 +19,11 @@ public class Read : ClassBase
         this.Range = new Range();
         this.Range.Init();
 
+        this.Text = new Text();
+        this.Text.Init();
+        this.Text.Range = new Range();
+        this.Text.Range.Init();
+
         this.IntParse = new IntParse();
         this.IntParse.Init();
 
