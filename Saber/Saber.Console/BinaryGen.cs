@@ -106,6 +106,7 @@ public class BinaryGen : Any
         Iter iter;
         iter = this.Module.Class.IterCreate();
         this.Module.Class.IterSet(iter);
+
         long i;
         i = 0;
         while (i < count)
