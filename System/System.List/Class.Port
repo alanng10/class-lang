@@ -11,9 +11,9 @@ System.Infra
     InfraInfra Infra
 
 [Export]
-    List
-    Array
-    Infra
+List
+Array
+Infra
 
 [Storage]
 
