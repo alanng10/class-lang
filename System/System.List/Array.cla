@@ -2,7 +2,7 @@ class Array : List
 {
     maide prusate Bool Init()
     {
-        this.InternIntern : share InternIntern;
+        this.InternIntern : share Intern;
         this.InfraInfra : share InfraInfra;
 
         var Int k;
@@ -14,7 +14,7 @@ class Array : List
 
     field prusate Any FirstIndex { get { } set { } }
     field prusate Any LastIndex { get { } set { } }
-    field private InternIntern InternIntern { get { return data; } set { data : value; } }
+    field private Intern InternIntern { get { return data; } set { data : value; } }
     field precate InfraInfra InfraInfra { get { return data; } set { data : value; } }
     field private Any Value { get { return data; } set { data : value; } }
 
