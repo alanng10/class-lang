@@ -20,19 +20,10 @@ public class BinaryGen : Any
     {
         this.IndexTableSet();
         
-        BinaryBinary binary;
-        binary = new BinaryBinary();
-        binary.Init();
+        BinaryBinary a;
+        a = this.ExecuteBinary();
 
-        binary.Ref = this.ExecuteModuleRef(this.Module.Ref);
-        binary.Class = this.ExecuteClassArray();
-        binary.Import = this.ExecuteImportArray();
-        binary.Export = this.ExecuteExportArray();
-        binary.Base = this.ExecuteBaseArray();
-        binary.Part = this.ExecutePartArray();
-        binary.Entry = this.ExecuteEntry();
-
-        this.Result = binary;
+        this.Result = a;
 
         this.IndexTable = null;
         return true;
@@ -93,6 +84,22 @@ public class BinaryGen : Any
 
         this.ListInfra.TableAdd(this.IndexTable, ka, value);
         return true;
+    }
+
+    public virtual BinaryBinary ExecuteBinary()
+    {
+        BinaryBinary a;
+        a = new BinaryBinary();
+        a.Init();
+
+        a.Ref = this.ExecuteModuleRef(this.Module.Ref);
+        a.Class = this.ExecuteClassArray();
+        a.Import = this.ExecuteImportArray();
+        a.Export = this.ExecuteExportArray();
+        a.Base = this.ExecuteBaseArray();
+        a.Part = this.ExecutePartArray();
+        a.Entry = this.ExecuteEntry();
+        return a;
     }
 
     public virtual Array ExecuteClassArray()
