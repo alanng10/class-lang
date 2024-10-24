@@ -117,9 +117,7 @@ public class BinaryGen : Any
             varClass = (ClassClass)iter.Value;
 
             BinaryClass a;
-            a = new BinaryClass();
-            a.Init();
-            a.Name = varClass.Name;
+            a = this.ExecuteClass(varClass);
 
             array.SetAt(i, a);
 
@@ -127,6 +125,18 @@ public class BinaryGen : Any
         }
 
         return array;
+    }
+
+    public virtual BinaryClass ExecuteClass(ClassClass ka)
+    {
+        String name;
+        name = ka.Name;
+
+        BinaryClass a;
+        a = new BinaryClass();
+        a.Init();
+        a.Name = name;
+        return a;
     }
 
     public virtual Array ExecuteImportArray()
