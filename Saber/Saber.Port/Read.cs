@@ -652,24 +652,18 @@ public class Read : ClassBase
         Text text;
         text = this.LineText(row);
 
-        this.TextGet(this.Space);
-
         Range range;
         range = text.Range;
         long index;
         index = range.Index;
+
         long indexA;
         indexA = index + 4;
 
         range.Index = indexA;
 
-        Text textA;
-        textA = this.Text;
-        Less less;
-        less = this.TextLess;
-
         long u;
-        u = textInfra.Index(text, textA, less);
+        u = this.TextIndex(text, this.TA(this.SSpace));
         
         range.Index = index;
 
@@ -679,7 +673,7 @@ public class Read : ClassBase
         }
 
         Range rangeA;
-        rangeA = textA.Range;
+        rangeA = this.Range;
 
         rangeA.Index = indexA;
         rangeA.Count = u;
@@ -692,7 +686,7 @@ public class Read : ClassBase
         long ka;
         ka = indexA + k;
         rangeA.Index = ka;
-        rangeA.Count = text.Range.Count - ka;
+        rangeA.Count = text.Range.Count - k - 4;
 
         String varClass;
         varClass = this.ExecuteString(row, rangeA);
