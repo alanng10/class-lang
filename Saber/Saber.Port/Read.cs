@@ -652,13 +652,21 @@ public class Read : ClassBase
         Text text;
         text = this.LineText(row);
 
+        if (!this.TextStart(text, this.TA(this.SIndent)))
+        {
+            return null;
+        }
+
+        long kaa;
+        kaa = this.StringCount(this.SIndent);
+
         Range range;
         range = text.Range;
         long index;
         index = range.Index;
 
         long indexA;
-        indexA = index + 4;
+        indexA = index + kaa;
 
         range.Index = indexA;
 
@@ -686,7 +694,7 @@ public class Read : ClassBase
         long ka;
         ka = indexA + k;
         rangeA.Index = ka;
-        rangeA.Count = text.Range.Count - k - 4;
+        rangeA.Count = text.Range.Count - k - kaa;
 
         String varClass;
         varClass = this.ExecuteString(row, rangeA);
