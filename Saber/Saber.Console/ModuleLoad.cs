@@ -452,11 +452,6 @@ public class ModuleLoad : ClassBase
             String name;
             name = ua.Name;
 
-            if (this.MemberNameDefined(varClass, name))
-            {
-                return false;
-            }
-
             Field a;
             a = new Field();
             a.Init();
@@ -501,11 +496,6 @@ public class ModuleLoad : ClassBase
 
             String name;
             name = ua.Name;
-
-            if (this.MemberNameDefined(varClass, name))
-            {
-                return false;
-            }
 
             Maide a;
             a = new Maide();
@@ -558,11 +548,6 @@ public class ModuleLoad : ClassBase
 
             String name;
             name = ua.Name;
-
-            if (varTable.Valid(name))
-            {
-                return false;
-            }
             
             Var a;
             a = new Var();
@@ -757,11 +742,6 @@ public class ModuleLoad : ClassBase
 
         this.Module.Entry = entry;
         return true;
-    }
-
-    protected virtual bool MemberNameDefined(ClassClass varClass, String name)
-    {
-        return (varClass.Field.Valid(name) | varClass.Maide.Valid(name));
     }
 
     protected virtual bool ValidVirtualMaideParam(Table param, Table virtualParam)
