@@ -29,6 +29,7 @@ public class BinaryGen : Any
         binary.Import = this.ExecuteImportArray();
         binary.Export = this.ExecuteExportArray();
         binary.Base = this.ExecuteBaseArray();
+        binary.Part = this.ExecutePartArray();
 
         this.Result = binary;
 
