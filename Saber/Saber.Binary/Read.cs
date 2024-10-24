@@ -857,6 +857,11 @@ public class Read : Any
 
     protected virtual long ExecuteEntry()
     {
+        if (!this.CheckCount(1))
+        {
+            return -1;
+        }
+
         long u;
         u = this.ExecuteInt();
         if (u == -1)
@@ -864,17 +869,14 @@ public class Read : Any
             return -1;
         }
 
-        long n;
-        n = u;
-        n = n << 4;
-        n = n >> 4;
+        ulong d;
+        d = (ulong)u;
+        d = d << 4;
+        d = d >> 4;
 
-        if (n == -1)
-        {
-            return -1;
-        }
-
-        return n;
+        long a;
+        a = (long)d;
+        return a;
     }
 
     protected virtual Array ExecuteClassIndexArray()
