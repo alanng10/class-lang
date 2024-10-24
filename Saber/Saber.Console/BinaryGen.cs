@@ -291,12 +291,16 @@ public class BinaryGen : Any
         Array field;
         field = this.ExecuteFieldArray(varClass.Field);
 
+        Array maide;
+        maide = this.ExecuteMaideArray(varClass.Maide);
+
         BinaryPart a;
         a = new BinaryPart();
         a.Init();
         a.FieldStart = fieldStart;
         a.MaideStart = maideStart;
         a.Field = field;
+        a.Maide = maide;
         return a;
     }
 
@@ -350,6 +354,38 @@ public class BinaryGen : Any
         a.Count = count;
         a.Name = name;
         return a;
+    }
+
+    public virtual Array ExecuteMaideArray(Table table)
+    {
+        long count;
+        count = table.Count;
+
+        Array array;
+        array = this.ListInfra.ArrayCreate(count);
+
+        Iter iter;
+        iter = table.IterCreate();
+        table.IterSet(iter);
+
+        long i;
+        i = 0;
+        while (i < count)
+        {
+            iter.Next();
+
+            Maide ka;
+            ka = (Maide)iter.Value;
+
+            BinaryMaide a;
+            a = this.ExecuteMaide(ka);
+
+            array.SetAt(i, a);
+
+            i = i + 1;
+        }
+
+        return array;
     }
 
     public virtual BinaryMaide ExecuteMaide(Maide ka)
