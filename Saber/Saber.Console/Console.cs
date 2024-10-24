@@ -72,9 +72,11 @@ public class Console : ClassBase
     protected virtual StorageInfra StorageInfra { get; set; }
     protected virtual StorageComp StorageComp { get; set; }
     protected virtual BinaryRead BinaryRead { get; set; }
+    protected virtual BinaryWrite BinaryWrite { get; set; }
     protected virtual ModuleLoad ModuleLoad { get; set; }
     protected virtual PortRead PortRead { get; set; }
     protected virtual PortLoad PortLoad { get; set; }
+    protected virtual BinaryGen BinaryGen { get; set; }
     protected virtual ClassGen ClassGen { get; set; }
     protected virtual ModuleGen ModuleGen { get; set; }
     protected virtual NameCheck NameCheck { get; set; }
