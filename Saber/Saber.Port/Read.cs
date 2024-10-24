@@ -66,7 +66,19 @@ public class Read : ClassBase
         String source;
         source = this.Source;
 
-        this.LineList = this.TextLimit(this.TA(source), this.TA(this.ClassInfra.NewLine));
+        Text text;
+        text = new Text();
+        text.Init();
+        text.Range = new Range();
+        text.Range.Init();
+
+        StringData stringData;
+        stringData = new StringData();
+        stringData.Init();
+
+        this.TextString(source, text, stringData);
+
+        this.LineList = this.TextLimit(text, this.TA(this.ClassInfra.NewLine));
         
         ReadArg arg;
         arg = new ReadArg();
@@ -115,8 +127,6 @@ public class Read : ClassBase
 
         this.Arg = null;
         this.LineList = null;
-
-        this.ClearData();
         return true;
     }
 
@@ -381,6 +391,8 @@ public class Read : ClassBase
     protected virtual bool ExecuteStage()
     {
         this.Port = this.ExecutePort(0);
+
+        this.ClearData();
         return true;
     }
 
@@ -909,9 +921,6 @@ public class Read : ClassBase
 
     protected virtual bool CheckHeadAll(Text line, String head)
     {
-        TextInfra textInfra;
-        textInfra = this.TextInfra;
-        
         Range range;
         range = line.Range;
 
