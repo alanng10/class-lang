@@ -717,6 +717,38 @@ public class Console : ClassBase
         return true;
     }
 
+    protected virtual bool ExecuteGenBinary(String moduleRefString)
+    {
+        ClassModule module;
+        module = this.Result.Module.Module;
+
+        this.BinaryGen.Module = module;
+
+        this.BinaryGen.Execute();
+
+        BinaryBinary binary;
+        binary = this.BinaryGen.Result;
+
+        this.BinaryGen.Result = null;
+        this.BinaryGen.Module = null;
+
+        this.BinaryWrite.Binary = binary;
+
+        this.BinaryWrite.Execute();
+
+        Data data;
+        data = this.BinaryWrite.Data;
+
+        this.BinaryWrite.Data = null;
+        this.BinaryWrite.Binary = null;
+
+        
+
+
+        return true;
+    }
+
+
     protected virtual bool GenModuleSource(String genModuleFoldPath)
     {
         this.ModuleGen.Gen = this.ClassGen;
