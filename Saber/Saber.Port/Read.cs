@@ -574,52 +574,20 @@ public class Read : ClassBase
 
     protected virtual long ImportCount(long row, long lineCount)
     {
-        TextInfra textInfra;
-        textInfra = this.TextInfra;
-
-        this.TextGet(this.Space);
-
-        Text textA;
-        textA = this.Text;
-        Range rangeA;
-        rangeA = textA.Range;
-        Less less;
-        less = this.TextLess;
-
-        long ka;
-        ka = rangeA.Count;
-
         long k;
         k = 0;
 
         long count;
         count = lineCount;
+
         long i;
         i = 0;
         while (i < count)
         {
             Text text;
             text = this.LineText(row + i);
-            Range range;
-            range = text.Range;
-            long kk;
-            kk = range.Count;
-
-            bool b;
-            b = false;
-            if (kk < ka)
-            {
-                b = true;
-            }
-            if (!b)
-            {
-                if (!textInfra.Start(text, textA, less))
-                {
-                    b = true;
-                }
-            }
-
-            if (b)
+            
+            if (!this.TextStart(text, this.TA(this.SSpace)))
             {
                 k = k + 1;
             }
@@ -627,7 +595,9 @@ public class Read : ClassBase
             i = i + 1;
         }
 
-        return k;
+        long a;
+        a = k;
+        return a;
     }
 
     protected virtual Import ExecuteImport(long row, long subsectionLineCount)
