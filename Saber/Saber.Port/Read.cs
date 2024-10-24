@@ -19,11 +19,6 @@ public class Read : ClassBase
         this.Range = new Range();
         this.Range.Init();
 
-        this.Text = new Text();
-        this.Text.Init();
-        this.Text.Range = new Range();
-        this.Text.Range.Init();
-
         this.IntParse = new IntParse();
         this.IntParse.Init();
 
@@ -50,7 +45,6 @@ public class Read : ClassBase
     protected virtual StringReadOperate StringOperate { get; set; }
     protected virtual SetReadOperate SetOperate { get; set; }
     protected virtual Range Range { get; set; }
-    protected virtual Text Text { get; set; }
     protected virtual IntParse IntParse { get; set; }
     protected virtual String SColon { get; set; }
     protected virtual String SDot { get; set; }
@@ -121,6 +115,8 @@ public class Read : ClassBase
 
         this.Arg = null;
         this.LineList = null;
+
+        this.ClearData();
         return true;
     }
 
@@ -149,7 +145,7 @@ public class Read : ClassBase
         ReadArg arg;
         arg = this.Arg;
         Text text;
-        text = this.Text;
+        text = this.TextA;
         Range range;
         range = text.Range;
         Data textData;
