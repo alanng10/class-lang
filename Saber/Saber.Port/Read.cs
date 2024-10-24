@@ -619,17 +619,20 @@ public class Read : ClassBase
 
         Array array;
         array = this.Operate.ExecuteArray(count);
+        
         long i;
         i = 0;
         while (i < count)
         {
-            ImportClass aa;
-            aa = this.ExecuteImportClass(row + i);
-            if (aa == null)
+            ImportClass ka;
+            ka = this.ExecuteImportClass(row + i);
+            
+            if (ka == null)
             {
                 return null;
             }
-            array.SetAt(i, aa);
+
+            array.SetAt(i, ka);
 
             i = i + 1;
         }
