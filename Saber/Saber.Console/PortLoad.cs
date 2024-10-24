@@ -33,6 +33,7 @@ public class PortLoad : ClassBase
     protected virtual Array ImportModuleRefArray { get; set; }
     protected virtual Table ImportDependTable { get; set; }
     protected virtual Table BinaryDependTable { get; set; }
+    protected virtual ModuleRef ModuleRef { get; set; }
     protected virtual String SystemModuleSingle { get; set; }
     protected virtual String SystemModulePre { get; set; }
     protected virtual String ClassModuleSingle { get; set; }
@@ -49,7 +50,7 @@ public class PortLoad : ClassBase
         this.BinaryDependTable = null;
         this.ModuleLoad.BinaryTable = null;
         this.ModuleLoad.ModuleTable = null;
-
+        this.ModuleRef = null;
         return b;
     }
 
@@ -69,6 +70,12 @@ public class PortLoad : ClassBase
         }
 
         b = this.CheckImportArrayModuleRef(port.Import);
+        if (!b)
+        {
+            return false;
+        }
+
+        b = this.SetModuleRef();
         if (!b)
         {
             return false;
@@ -134,6 +141,23 @@ public class PortLoad : ClassBase
             return false;
         }
 
+        return true;
+    }
+
+    protected virtual bool SetModuleRef()
+    {
+        ModuleRef ka;
+        ka = this.Port.Module;
+
+        ModuleRef a;
+        a = this.ClassInfra.ModuleRefCreate(ka.Name, ka.Ver);
+
+        if (this.SystemModule)
+        {
+            a.Ver = 0;
+        }
+
+        this.ModuleRef = a;
         return true;
     }
 
@@ -470,11 +494,13 @@ public class PortLoad : ClassBase
                 }
             }
 
+            listInfra.TableAdd(table, o, o);
+
             i = i + 1;
         }
 
         ModuleRef oa;
-        oa = this.Port.Module;
+        oa = this.ModuleRef;
 
         if (table.Valid(oa))
         {
@@ -550,6 +576,8 @@ public class PortLoad : ClassBase
                 }
             }
 
+            listInfra.TableAdd(table, e, e);
+
             i = i + 1;
         }
 
@@ -588,12 +616,15 @@ public class PortLoad : ClassBase
             moduleRef = (ModuleRef)iter.Index;
 
             moduleLoad.ModuleRef = moduleRef;
-            moduleLoad.Execute();
+            
+            bool b;
+            b = moduleLoad.Execute();
 
-            long o;
-            o = moduleLoad.Status;
-            if (!(o == 0))
+            if (!b)
             {
+                long o;
+                o = moduleLoad.Status;
+
                 this.Status = 100 + o;
                 return false;
             }
@@ -615,22 +646,14 @@ public class PortLoad : ClassBase
         ClassInfra classInfra;
         classInfra = this.ClassInfra;
 
-        ModuleRef moduleRef;
-        moduleRef = this.Port.Module;
-
         ClassModule module;
         module = new ClassModule();
         module.Init();
-        module.Ref = classInfra.ModuleRefCreate(moduleRef.Name, moduleRef.Ver);
+        module.Ref = this.ModuleRef;
         module.Class = classInfra.TableCreateStringLess();
         module.Import = classInfra.TableCreateModuleRefLess();
         module.Export = classInfra.TableCreateStringLess();
         module.Storage = classInfra.TableCreateStringLess();
-
-        if (this.SystemModule)
-        {
-            module.Ref.Ver = 0;
-        }
 
         this.Module = module;
         return true;
