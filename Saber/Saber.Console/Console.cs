@@ -14,9 +14,13 @@ public class Console : ClassBase
         this.NameCheck = this.CreateNameCheck();
 
         this.BinaryRead = this.CreateBinaryRead();
+        this.BinaryWrite = this.CreateBinaryWrite();
+
         this.ModuleLoad = this.CreateModuleLoad();
 
         this.PortLoad = this.CreatePortLoad();
+
+        this.BinaryGen = this.CreateBinaryGen();
 
         this.ClassGen = this.CreateClassGen();
 
@@ -140,6 +144,14 @@ public class Console : ClassBase
         return a;
     }
 
+    protected virtual BinaryWrite CreateBinaryWrite()
+    {
+        BinaryWrite a;
+        a = new BinaryWrite();
+        a.Init();
+        return a;
+    }
+
     protected virtual ModuleLoad CreateModuleLoad()
     {
         ModuleLoad a;
@@ -154,6 +166,15 @@ public class Console : ClassBase
         a = new PortLoad();
         a.Init();
         a.NameCheck = this.NameCheck;
+        return a;
+    }
+
+
+    protected virtual BinaryGen CreateBinaryGen()
+    {
+        BinaryGen a;
+        a = new BinaryGen();
+        a.Init();
         return a;
     }
 
