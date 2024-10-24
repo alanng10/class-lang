@@ -45,8 +45,8 @@ public class Read : ClassBase
     protected virtual StringReadOperate StringOperate { get; set; }
     protected virtual SetReadOperate SetOperate { get; set; }
     protected virtual Range Range { get; set; }
-    protected virtual IntParse IntParse { get; set; }
     protected virtual Text Text { get; set; }
+    protected virtual IntParse IntParse { get; set; }
     protected virtual String SColon { get; set; }
     protected virtual String SDot { get; set; }
     protected virtual String SBraceSquareLite { get; set; }
