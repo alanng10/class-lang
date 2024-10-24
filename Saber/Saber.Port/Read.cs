@@ -768,24 +768,20 @@ public class Read : ClassBase
         Text text;
         text = this.LineText(row);
 
-        Text textA;
-        textA = this.Text;
-        Less less;
-        less = this.TextLess;
-
-        this.TextGet(this.Colon);
-
         long u;
-        u = textInfra.Index(text, textA, less);
+        u = this.TextIndex(text, this.TA(this.SColon));
         if (u == -1)
         {
             return null;
         }
 
+        long ka;
+        ka = text.Range.Index;
+
         Range range;
-        range = textA.Range;
+        range = this.Range;
         
-        range.Index = 0;
+        range.Index = ka;
         range.Count = u;
         
         String path;
@@ -793,7 +789,7 @@ public class Read : ClassBase
 
         long k;
         k = u + 1;
-        range.Index = k;
+        range.Index = ka + k;
         range.Count = text.Range.Count - k;
 
         String sourcePath;
