@@ -973,20 +973,35 @@ public class Create : InfraCreate
             return true;
         }
 
-        ClassModule h;
-        h = this.ModuleGet(this.S("System.Entry"));
-        ClassClass entryClass;
-        entryClass = this.ModuleClassGet(h, this.S("Entry"));
 
         bool b;
         b = false;
+
+        ClassModule h;
+        h = null;
+        ClassClass entryClass;
+        entryClass = null;
+
         if (!b)
         {
+            h = this.ModuleGet(this.S("System.Entry"));
+
+            if (h == null)
+            {
+                b = true;
+            }            
+        }
+
+        if (!b)
+        {
+            entryClass = this.ModuleClassGet(h, this.S("Entry"));
+
             if (!(this.ClassInfra.ValidClass(varClass, entryClass, this.SystemClass.Any, this.NullClass)))
             {
                 b = true;
             }
         }
+
         if (b)
         {
             NodeClass aa;
