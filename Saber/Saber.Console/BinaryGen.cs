@@ -30,6 +30,7 @@ public class BinaryGen : Any
         binary.Export = this.ExecuteExportArray();
         binary.Base = this.ExecuteBaseArray();
         binary.Part = this.ExecutePartArray();
+        binary.Entry = this.ExecuteEntry();
 
         this.Result = binary;
 
@@ -490,6 +491,24 @@ public class BinaryGen : Any
         a.Init();
         a.Class = varClass;
         a.Name = name;
+        return a;
+    }
+
+    public virtual long ExecuteEntry()
+    {
+        String entry;
+        entry = this.Module.Entry;
+
+        if (entry == null)
+        {
+            return -1;
+        }
+
+        ClassClass varClass;
+        varClass = (ClassClass)this.Module.Class.Get(entry);
+
+        long a;
+        a = varClass.Index;
         return a;
     }
 
