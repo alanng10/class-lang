@@ -52,6 +52,7 @@ public class Console : ClassBase
         this.SSystemDotInfra = this.S("System.Infra");
         this.SIntern = this.S("Intern");
         this.SExtern = this.S("Extern");
+        this.SRef = this.S("ref");
         this.SC = this.S("c");
         this.SPro = this.S("pro");
         this.SModule = this.S("Module");
@@ -101,6 +102,7 @@ public class Console : ClassBase
     protected virtual String SSystemDotInfra { get; set; }
     protected virtual String SIntern { get; set; }
     protected virtual String SExtern { get; set; }
+    protected virtual String SRef { get; set; }
     protected virtual String SC { get; set; }
     protected virtual String SPro { get; set; }
     protected virtual String SModule { get; set; }
@@ -742,7 +744,10 @@ public class Console : ClassBase
         this.BinaryWrite.Data = null;
         this.BinaryWrite.Binary = null;
 
-        
+
+        String filePath;
+        filePath = this.AddClear().Add(moduleRefString).Add(this.ClassInfra.Dot).Add(this.SC).AddResult();
+
 
 
         return true;
