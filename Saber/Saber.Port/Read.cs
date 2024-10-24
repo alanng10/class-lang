@@ -21,8 +21,8 @@ public class Read : ClassBase
 
         this.SColon = this.S(":");
         this.SDot = this.S(".");
-        this.SSquareLeft = this.S("[");
-        this.SSquareRight = this.S("]");
+        this.SBraceSquareLite = this.S("[");
+        this.SBraceSquareRite = this.S("]");
         this.SSpace = this.S(" ");
         this.SIndent = this.S("    ");
         this.HeadModule = this.S("Module");
@@ -47,8 +47,8 @@ public class Read : ClassBase
     protected virtual Text TextNewLine { get; set; }
     protected virtual String SColon { get; set; }
     protected virtual String SDot { get; set; }
-    protected virtual String SSquareLeft { get; set; }
-    protected virtual String SSquareRight { get; set; }
+    protected virtual String SBraceSquareLite { get; set; }
+    protected virtual String SBraceSquareRite { get; set; }
     protected virtual String SSpace { get; set; }
     protected virtual String SIndent { get; set; }
     protected virtual String HeadModule { get; set; }
@@ -972,14 +972,14 @@ public class Read : ClassBase
 
         range.Count = 1;
 
-        if (!this.TextSame(line, this.TA(this.SSquareLeft)))
+        if (!this.TextSame(line, this.TA(this.SBraceSquareLite)))
         {
             return false;
         }
 
         range.Index = index + count - 1;
 
-        if (!this.TextSame(line, this.TA(this.SSquareRight)))
+        if (!this.TextSame(line, this.TA(this.SBraceSquareRite)))
         {
             return false;
         }
