@@ -1086,10 +1086,6 @@ public class Read : ClassBase
 
         IntParse intParse;
         intParse = this.IntParse;
-        Text textA;
-        textA = this.Text;
-        Less less;
-        less = this.TextLess;
 
         Range range;
         range = text.Range;
@@ -1099,10 +1095,8 @@ public class Read : ClassBase
         index = range.Index;
         count = range.Count;
 
-        this.TextGet(this.Dot);
-
         long u;
-        u = textInfra.Index(text, textA, less);
+        u = this.TextIndex(text, this.TA(this.SDot));
         if (u == -1)
         {
             return -1;
@@ -1115,7 +1109,7 @@ public class Read : ClassBase
         ka = kka + 1;
         range.Index = index + ka;
         range.Count = count - ka;
-        u = textInfra.Index(text, textA, less);
+        u = this.TextIndex(text, this.TA(this.SDot));
         if (!(u == 2))
         {
             return -1;
