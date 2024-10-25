@@ -42,15 +42,15 @@ class Tree : Any
             return false;
         }
 
-        TreeNodeResult t;
-        t = this.Node(index);
-        if (!t.HasNode)
+        TreeNodeResult k;
+        k = this.Node(index);
+        if (!k.HasNode)
         {
             return false;
         }
 
         TreeNode node;
-        node = t.Node;
+        node = k.Node;
 
         this.TreeRem(node);
 
