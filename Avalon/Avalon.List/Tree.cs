@@ -54,7 +54,7 @@ class Tree : Any
 
         this.TreeRem(node);
 
-        this.RemoveRetrace(node);
+        this.RemRetrace(node);
         return true;
     }
 
@@ -168,7 +168,7 @@ class Tree : Any
         return true;
     }
 
-    private bool RemoveRetrace(TreeNode n)
+    private bool RemRetrace(TreeNode n)
     {
         TreeNode x;
         TreeNode g;
