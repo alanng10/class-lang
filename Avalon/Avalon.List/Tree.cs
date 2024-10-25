@@ -85,13 +85,13 @@ class Tree : Any
             bool ba;
             ba = false;
 
-            bool baa;
-            baa = (Z == X.ChildRite);
-            if (baa)
+            bool bb;
+            bb = (Z == X.ChildRite);
+            if (bb)
             {
                 direction = -this.DirectionValue;
             }
-            if (!baa)
+            if (!bb)
             {
                 direction = this.DirectionValue;
             }
