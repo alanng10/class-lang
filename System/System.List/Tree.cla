@@ -32,4 +32,27 @@ class Tree : Any
         this.InsRetrace(node);
         return true;
     }
+
+    maide prusate Bool Rem(var Any index)
+    {
+        inf (index = null)
+        {
+            return false;
+        }
+
+        var TreeNodeResult k;
+        k : this.Node(index);
+        inf (~k.HasNode)
+        {
+            return false;
+        }
+
+        var TreeNode node;
+        node : k.Node;
+
+        this.TreeRem(node);
+
+        this.RemRetrace(node);
+        return true;
+    }
 }
