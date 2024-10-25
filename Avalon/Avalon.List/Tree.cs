@@ -438,10 +438,10 @@ class Tree : Any
         return a;
     }
 
-    private bool RotateTreeSingle(TreeNode x, TreeNode z, long direction)
+    private bool RotateTreeSingle(TreeNode x, TreeNode z, long direct)
     {
         bool b;
-        b = (direction == -this.DirectValue);
+        b = (direct == -this.DirectValue);
 
         if (b)
         {
