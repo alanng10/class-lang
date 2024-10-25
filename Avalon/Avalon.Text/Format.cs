@@ -47,7 +47,7 @@ public class Format : Any
         this.Array = this.ResultState;
         this.ArrayIndex = 0;
 
-        this.ResultStateAdd(new BoolWriteResultState());
+        this.ResultStateAdd(new BoolFormatResultState());
         this.ResultStateAdd(new IntWriteResultState());
         this.ResultStateAdd(new TextWriteResultState());
         return true;
