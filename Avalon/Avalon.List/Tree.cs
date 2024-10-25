@@ -236,14 +236,16 @@ class Tree : Any
             }
             if (!bc)
             {
-                if (x.Balance == 0)
+                bool bam;
+                bam = (x.Balance == 0);
+                if (bam)
                 {
                     x.Balance = - direct;
 
                     b = true;
                 }
 
-                if (!b)
+                if (!bam)
                 {
                     n = x;
 
