@@ -66,10 +66,10 @@ class Tree : Any
 
     private bool InsertRetrace(TreeNode z)
     {
-        TreeNode X;
+        TreeNode x;
         TreeNode G;
         TreeNode N;
-        X = null;
+        x = null;
         G = null;
         N = null;
 
@@ -79,14 +79,14 @@ class Tree : Any
         bool b;
         b = false;
 
-        X = z.Parent;
-        while (!b & !(X == null))
+        x = z.Parent;
+        while (!b & !(x == null))
         {
             bool ba;
             ba = false;
 
             bool bb;
-            bb = (z == X.ChildRite);
+            bb = (z == x.ChildRite);
             if (bb)
             {
                 direction = -this.DirectionValue;
@@ -97,38 +97,38 @@ class Tree : Any
             }
 
             bool bc;
-            bc = (this.Sign(X.Balance) == -direction);
+            bc = (this.Sign(x.Balance) == -direction);
             if (bc)
             {
-                G = X.Parent;
+                G = x.Parent;
 
                 bool baa;
                 baa = (this.Sign(z.Balance) == direction);
                 if (baa)
                 {
-                    N = this.RotateDouble(X, z, direction);
+                    N = this.RotateDouble(x, z, direction);
                 }
                 if (!baa)
                 {
-                    N = this.RotateSingle(X, z, direction);
+                    N = this.RotateSingle(x, z, direction);
                 }
             }
             if (!bc)
             {
-                if (this.Sign(X.Balance) == direction)
+                if (this.Sign(x.Balance) == direction)
                 {
-                    X.Balance = 0;
+                    x.Balance = 0;
 
                     b = true;
                 }
 
                 if (!b)
                 {
-                    X.Balance = - direction;
+                    x.Balance = - direction;
 
-                    z = X;
+                    z = x;
                     
-                    X = z.Parent;
+                    x = z.Parent;
 
                     ba = true;
                 }
@@ -142,7 +142,7 @@ class Tree : Any
 
                     if (G != null)
                     {
-                        if (X == G.ChildLite)
+                        if (x == G.ChildLite)
                         {
                             G.ChildLite = N;
                         }
