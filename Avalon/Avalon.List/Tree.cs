@@ -141,8 +141,8 @@ class Tree : Any
                     N.Parent = g;
 
                     bool bab;
-                    bab = !(g == null);
-                    if (bab)
+                    bab = (g == null);
+                    if (!bab)
                     {
                         if (x == g.ChildLite)
                         {
@@ -153,7 +153,7 @@ class Tree : Any
                             g.ChildRite = N;
                         }
                     }
-                    if (!bab)
+                    if (bab)
                     {
                         this.Root = N;
                     }
