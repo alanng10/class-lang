@@ -64,7 +64,7 @@ class Tree : Any
         return true;
     }
 
-    private bool InsertRetrace(TreeNode Z)
+    private bool InsertRetrace(TreeNode z)
     {
         TreeNode X;
         TreeNode G;
@@ -79,14 +79,14 @@ class Tree : Any
         bool b;
         b = false;
 
-        X = Z.Parent;
+        X = z.Parent;
         while (!b & !(X == null))
         {
             bool ba;
             ba = false;
 
             bool bb;
-            bb = (Z == X.ChildRite);
+            bb = (z == X.ChildRite);
             if (bb)
             {
                 direction = -this.DirectionValue;
@@ -103,14 +103,14 @@ class Tree : Any
                 G = X.Parent;
 
                 bool baa;
-                baa = (this.Sign(Z.Balance) == direction);
+                baa = (this.Sign(z.Balance) == direction);
                 if (baa)
                 {
-                    N = this.RotateDouble(X, Z, direction);
+                    N = this.RotateDouble(X, z, direction);
                 }
                 if (!baa)
                 {
-                    N = this.RotateSingle(X, Z, direction);
+                    N = this.RotateSingle(X, z, direction);
                 }
             }
             if (!bc)
@@ -126,9 +126,9 @@ class Tree : Any
                 {
                     X.Balance = - direction;
 
-                    Z = X;
+                    z = X;
                     
-                    X = Z.Parent;
+                    X = z.Parent;
 
                     ba = true;
                 }
