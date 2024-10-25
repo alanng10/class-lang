@@ -223,25 +223,23 @@ public class List : Any
 
     private ListNode Node(object index)
     {
+        ListNode node;
+        node = index as ListNode;
+
+        if (node == null)
+        {
+            return null;
+        }
+
         bool b;
-        b = (index is ListNode);
+        b = (node.Ref == this.NodeRef);
         if (!b)
         {
             return null;
         }
 
-        ListNode node;
-        node = (ListNode)index;
-
-        bool bb;
-        bb = (node.Ref == this.NodeRef);
-        if (!bb)
-        {
-            return null;
-        }
-
-        ListNode ret;
-        ret = node;
-        return ret;
+        ListNode a;
+        a = node;
+        return a;
     }
 }
