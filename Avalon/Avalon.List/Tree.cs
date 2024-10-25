@@ -174,6 +174,7 @@ class Tree : Any
         TreeNode G;
         TreeNode Z;
         long direction;
+        direction = 0;
         long bal;
         bal = 0;
 
@@ -188,11 +189,13 @@ class Tree : Any
 
             G = X.Parent;
 
-            if (N == X.ChildLite)
+            bool bb;
+            bb = (N == X.ChildLite);
+            if (bb)
             {
                 direction = - DirectionValue;
             }
-            else
+            if (!bb)
             {
                 direction = + DirectionValue;
             }
