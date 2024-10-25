@@ -73,9 +73,6 @@ class Tree : Any
         g = null;
         n = null;
 
-        long direct;
-        direct = 0;
-
         bool b;
         b = false;
 
@@ -84,6 +81,9 @@ class Tree : Any
         {
             bool ba;
             ba = false;
+
+            long direct;
+            direct = 0;
 
             bool bb;
             bb = (z == x.ChildRite);
