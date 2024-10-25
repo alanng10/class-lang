@@ -12,8 +12,8 @@ class Array : List
         return true;
     }
 
-    field prusate Any FirstIndex { get { } set { } }
-    field prusate Any LastIndex { get { } set { } }
+    field prusate Any Start { get { } set { } }
+    field prusate Any End { get { } set { } }
     field private Intern InternIntern { get { return data; } set { data : value; } }
     field precate InfraInfra InfraInfra { get { return data; } set { data : value; } }
     field private Any Value { get { return data; } set { data : value; } }
@@ -23,12 +23,12 @@ class Array : List
         return null;
     }
 
-    maide prusate Any Insert(var Any index, var Any item)
+    maide prusate Any Ins(var Any index, var Any item)
     {
         return null;
     }
 
-    maide prusate Bool Remove(var Any index)
+    maide prusate Bool Rem(var Any index)
     {
         return false;
     }
