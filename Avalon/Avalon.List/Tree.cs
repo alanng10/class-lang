@@ -177,9 +177,7 @@ class Tree : Any
         x = null;
         g = null;
         z = null;
-        
-        long direct;
-        direct = 0;
+
         long bal;
         bal = 0;
 
@@ -191,6 +189,9 @@ class Tree : Any
         {
             bool ba;
             ba = false;
+
+            long direct;
+            direct = 0;
 
             g = x.Parent;
 
