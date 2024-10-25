@@ -225,9 +225,6 @@ class Tree : Any
                 N.Balance = 0;
                 continue;
             }
-
-            // After a rotation adapt parent link:
-            // N is the new root of the rotated subtree
             
             N.Parent = G;
 
