@@ -101,9 +101,9 @@ public class List : Any
 
         this.Count = this.Count + 1;
 
-        object ret;
-        ret = node;
-        return ret;
+        object a;
+        a = node;
+        return a;
     }
 
     public virtual bool Rem(object index)

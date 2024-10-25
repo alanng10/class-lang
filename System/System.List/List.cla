@@ -97,9 +97,9 @@ class List : Any
 
         this.Count : this.Count + 1;
 
-        var Any ret;
-        ret : node;
-        return ret;
+        var Any a;
+        a : node;
+        return a;
     }
 
     maide prusate Bool Rem(var Any index)
