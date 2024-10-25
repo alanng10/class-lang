@@ -23,7 +23,7 @@ class Demo : Any
     public virtual MathMath Math { get; set; }
     protected virtual MathComp MathComp { get; set; }
     private StringAdd StringAdd { get; set; }
-    private Format TextWrite { get; set; }
+    private Format Format { get; set; }
     private FormatArg TextWriteArg { get; set; }
 
     public bool Execute()
@@ -394,7 +394,7 @@ class Demo : Any
         write = new Format();
         write.Init();
 
-        this.TextWrite = write;
+        this.Format = write;
 
         FormatArg arg;
         arg = new FormatArg();
@@ -450,12 +450,12 @@ class Demo : Any
     {
         this.TextWriteArg.Value.Int = o;
 
-        this.TextWrite.ExecuteArgCount(this.TextWriteArg);
+        this.Format.ExecuteArgCount(this.TextWriteArg);
 
         Text text;
         text = this.TextInfra.TextCreate(this.TextWriteArg.Count);
 
-        this.TextWrite.ExecuteArgResult(this.TextWriteArg, text);
+        this.Format.ExecuteArgResult(this.TextWriteArg, text);
 
         String a;
         a = this.TextInfra.StringCreate(text);
