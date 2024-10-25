@@ -258,7 +258,9 @@ class Tree : Any
                 {
                     N.Parent = G;
 
-                    if (G != null)
+                    bool bac;
+                    bac = (G == null);
+                    if (!bac)
                     {
                         if (X == G.ChildLite)
                         {
@@ -269,7 +271,7 @@ class Tree : Any
                             G.ChildRite = N;
                         }
                     }
-                    else
+                    if (bac)
                     {
                         this.Root = N;
                     }
