@@ -61,4 +61,105 @@ class Tree : Any
         this.Root : null;
         return true;
     }
+
+    maide private bool InsRetrace(var TreeNode z)
+    {
+        var TreeNode x;
+        var TreeNode g;
+        var TreeNode n;
+
+        var Bool b;
+        b : false;
+
+        x : z.Parent;
+        while (~b & ~(x = null))
+        {
+            var Bool ba;
+            ba : false;
+
+            var Int direct;
+
+            var Bool bb;
+            bb : (z = x.ChildRite);
+            inf (bb)
+            {
+                direct : sign*(0sn1, this.DirectValue);
+            }
+            inf (~bb)
+            {
+                direct : this.DirectValue;
+            }
+
+            bool bc;
+            bc = (this.Sign(x.Balance) == -direct);
+            if (bc)
+            {
+                g = x.Parent;
+
+                bool baa;
+                baa = (this.Sign(z.Balance) == direct);
+                if (baa)
+                {
+                    n = this.RotateDouble(x, z, direct);
+                }
+                if (!baa)
+                {
+                    n = this.RotateSingle(x, z, direct);
+                }
+            }
+            if (!bc)
+            {
+                bool bak;
+                bak = (this.Sign(x.Balance) == direct);
+                if (bak)
+                {
+                    x.Balance = 0;
+
+                    b = true;
+                }
+                if (!bak)
+                {
+                    x.Balance = - direct;
+
+                    z = x;
+                    
+                    x = z.Parent;
+
+                    ba = true;
+                }
+            }
+
+            if (!ba)
+            {
+                if (!b)
+                {
+                    n.Parent = g;
+
+                    bool bab;
+                    bab = (g == null);
+                    if (!bab)
+                    {
+                        bool bac;
+                        bac = (x == g.ChildLite);
+                        if (bac)
+                        {
+                            g.ChildLite = n;
+                        }
+                        if (!bac)
+                        {
+                            g.ChildRite = n;
+                        }
+                    }
+                    if (bab)
+                    {
+                        this.Root = n;
+                    }
+                }
+
+                b = true;
+            }
+        }
+
+        return true;
+    }
 }
