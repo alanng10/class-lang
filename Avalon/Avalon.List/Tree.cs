@@ -246,6 +246,7 @@ class Tree : Any
                     N.Balance = 0;
 
                     X = G;
+
                     ba = true;
                 }
 
