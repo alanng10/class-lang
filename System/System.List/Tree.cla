@@ -129,34 +129,34 @@ class Tree : Any
                 }
             }
 
-            if (!ba)
+            inf (~ba)
             {
-                if (!b)
+                inf (~b)
                 {
-                    n.Parent = g;
+                    n.Parent : g;
 
-                    bool bab;
-                    bab = (g == null);
-                    if (!bab)
+                    var Bool bab;
+                    bab : (g = null);
+                    inf (~bab)
                     {
-                        bool bac;
-                        bac = (x == g.ChildLite);
-                        if (bac)
+                        var Bool bac;
+                        bac : (x = g.ChildLite);
+                        inf (bac)
                         {
-                            g.ChildLite = n;
+                            g.ChildLite : n;
                         }
-                        if (!bac)
+                        inf (~bac)
                         {
-                            g.ChildRite = n;
+                            g.ChildRite : n;
                         }
                     }
-                    if (bab)
+                    inf (bab)
                     {
-                        this.Root = n;
+                        this.Root : n;
                     }
                 }
 
-                b = true;
+                b : true;
             }
         }
 
