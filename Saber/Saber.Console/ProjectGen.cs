@@ -2,9 +2,19 @@ namespace Saber.Console;
 
 public class ProjectGen : ClassBase
 {
+    public override bool Init()
+    {
+        base.Init();
+        this.LibraryFlag = this.S("-l");
+        this.BackSlash = this.S("\\");
+        return true;
+    }
+
     public virtual ClassGen Gen { get; set; }
-    public virtual Table ModuleTable { get; set; }
+    public virtual Array ModuleRefString { get; set; }
     public virtual String Result { get; set; }
+    public virtual String LibraryFlag { get; set; }
+    public virtual String BackSlash { get; set; }
 
     public virtual bool Execute()
     {
@@ -45,16 +55,36 @@ public class ProjectGen : ClassBase
 
     public virtual bool ExecuteStage()
     {
+        long count;
+        count = this.ModuleRefString.Count;
+
+        long i;
+        i = 0;
+        while (i < count)
+        {
+            String a;
+            a = (String)this.ModuleRefString.GetAt(i);
+
+            this.ModuleImport(a);
+
+            i = i + 1;
+        }
+
         return true;
     }
 
-    public virtual bool ModuleImportString(ClassModule module)
+    public virtual bool ModuleImport(String moduleRefString)
     {
         ClassGen gen;
         gen = this.Gen;
 
-        gen.Text(module.Ref.Name);
-        gen.Text(this.ClassInfra.Hyphen);
+        gen.Text(gen.Space);
+        gen.Text(this.BackSlash);
+        gen.Text(gen.NewLine);
+
+        gen.TextIndent();
+        gen.Text(this.LibraryFlag);
+        gen.Text(moduleRefString);
         return true;
     }
 }
