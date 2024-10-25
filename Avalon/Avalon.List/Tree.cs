@@ -285,9 +285,9 @@ class Tree : Any
             node.Parent = t.ParentNode;
         }
 
-        TreeNode ret;
-        ret = node;
-        return ret;
+        TreeNode a;
+        a = node;
+        return a;
     }
 
     private TreeNode RotateSingle(TreeNode x, TreeNode z, long direction)
