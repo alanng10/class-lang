@@ -321,19 +321,26 @@ class Tree : Any
         TreeNode y;
         y = this.RotateTreeDouble(x, z, direction);
 
-        if (y.BalanceFactor == 0)
+        bool b;
+        b = (y.BalanceFactor == 0);
+        
+        if (b)
         {
             x.BalanceFactor = 0;
             z.BalanceFactor = 0;
         }
-        else
+
+        if (!b)
         {
-            if (this.Sign(y.BalanceFactor) == -direction)
+            bool ba;
+            ba = (this.Sign(y.BalanceFactor) == -direction);
+
+            if (ba)
             {
                 x.BalanceFactor = direction;
                 z.BalanceFactor = 0;
             }
-            else
+            if (!ba)
             {
                 x.BalanceFactor = 0;
                 z.BalanceFactor = - direction;
