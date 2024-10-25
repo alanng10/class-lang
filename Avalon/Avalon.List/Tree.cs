@@ -402,7 +402,7 @@ class Tree : Any
 
         if (b)
         {
-            this.RotateTreeLeft(X, Z);
+            this.RotateTreeLite(X, Z);
         }
 
         if (! b)
@@ -415,7 +415,7 @@ class Tree : Any
         return true;
     }
 
-    private bool RotateTreeLeft(TreeNode x, TreeNode z)
+    private bool RotateTreeLite(TreeNode x, TreeNode z)
     {
         TreeNode t23;
 
