@@ -175,10 +175,17 @@ class Tree : Any
         TreeNode Z;
         long direction;
         long bal;
+        bal = 0;
+
+        bool b;
+        b = false;
 
         X = N.Parent;
-        for (; !(X == null); )
-        { 
+        while (!b & !(X == null))
+        {
+            bool ba;
+            ba = false;
+
             G = X.Parent;
 
             if (N == X.ChildLite)
@@ -218,38 +225,49 @@ class Tree : Any
                 if (X.Balance == 0)
                 {
                     X.Balance = - direction;
-                    break;
+
+                    b = true;
                 }
 
-                N = X;
+                if (!b)
+                {
+                    N = X;
 
-                N.Balance = 0;
+                    N.Balance = 0;
 
-                X = G;
-                continue;
+                    X = G;
+                    ba = true;
+                }
+
             }
             
-            N.Parent = G;
-
-            if (G != null)
+            if (!ba)
             {
-                if (X == G.ChildLite)
+                if (!b)
                 {
-                    G.ChildLite = N;
-                }
-                else
-                {
-                    G.ChildRite = N;
-                }
-            }
-            else
-            {
-                this.Root = N;
-            }
+                    N.Parent = G;
 
-            if (bal == 0)
-            {
-                break;
+                    if (G != null)
+                    {
+                        if (X == G.ChildLite)
+                        {
+                            G.ChildLite = N;
+                        }
+                        else
+                        {
+                            G.ChildRite = N;
+                        }
+                    }
+                    else
+                    {
+                        this.Root = N;
+                    }
+
+                    if (bal == 0)
+                    {
+                        b = true;
+                    }
+                }
             }
         }
 
