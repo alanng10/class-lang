@@ -173,6 +173,7 @@ class Tree : Any
         TreeNode X;
         TreeNode G;
         TreeNode Z;
+        Z = null;
         long direction;
         direction = 0;
         long bal;
@@ -204,12 +205,14 @@ class Tree : Any
             bc = (this.Sign(X.Balance) == -direction);
             if (bc)
             {
-                if (direction == -this.DirectionValue)
+                bool baa;
+                baa = (direction == -this.DirectionValue);
+                if (baa)
                 {
 
                     Z = X.ChildRite;
                 }
-                else
+                if (!baa)
                 {
                     Z = X.ChildLite;
                 }
