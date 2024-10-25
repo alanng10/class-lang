@@ -193,16 +193,16 @@ class Tree : Any
             bb = (N == X.ChildLite);
             if (bb)
             {
-                direction = - DirectionValue;
+                direction = - this.DirectionValue;
             }
             if (!bb)
             {
-                direction = + DirectionValue;
+                direction = this.DirectionValue;
             }
 
             if (this.Sign(X.Balance) == -direction)
             {
-                if (direction == -DirectionValue)
+                if (direction == -this.DirectionValue)
                 {
 
                     Z = X.ChildRite;
