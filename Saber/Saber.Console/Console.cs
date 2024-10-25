@@ -26,6 +26,8 @@ public class Console : ClassBase
 
         this.ModuleGen = this.CreateModuleGen();
 
+        this.ProjectGen = this.CreateProjectGen();
+
         this.ErrorString = new ErrorString();
         this.ErrorString.Init();
 
@@ -84,6 +86,7 @@ public class Console : ClassBase
     protected virtual BinaryGen BinaryGen { get; set; }
     protected virtual ClassGen ClassGen { get; set; }
     protected virtual ModuleGen ModuleGen { get; set; }
+    protected virtual ProjectGen ProjectGen { get; set; }
     protected virtual NameCheck NameCheck { get; set; }
     protected virtual Out Out { get; set; }
     protected virtual Out Err { get; set; }
@@ -192,6 +195,14 @@ public class Console : ClassBase
     {
         ModuleGen a;
         a = new ModuleGen();
+        a.Init();
+        return a;
+    }
+
+    protected virtual ProjectGen CreateProjectGen()
+    {
+        ProjectGen a;
+        a = new ProjectGen();
         a.Init();
         return a;
     }
