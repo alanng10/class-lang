@@ -14,4 +14,22 @@ class Tree : Any
     field private TreeNode Root { get { return data; } set { data : value; } }
     field private TreeNodeResult NodeResult { get { return data; } set { data : value; } }
     field private Int DirectValue { get { return data; } set { data : value; } }
+
+    maide prusate Bool Ins(var Any index, var Any value)
+    {
+        inf (index = null)
+        {
+            return false;
+        }
+
+        var TreeNode node;
+        node : this.TreeIns(index, value);
+        inf (node = null)
+        {
+            return false;
+        }
+
+        this.InsRetrace(node);
+        return true;
+    }
 }
