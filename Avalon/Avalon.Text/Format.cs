@@ -49,7 +49,7 @@ public class Format : Any
 
         this.ResultStateAdd(new BoolFormatResultState());
         this.ResultStateAdd(new IntFormatResultState());
-        this.ResultStateAdd(new TextWriteResultState());
+        this.ResultStateAdd(new TextFormatResultState());
         return true;
     }
 
