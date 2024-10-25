@@ -55,7 +55,7 @@ public class Format : Any
 
     protected virtual bool CountStateAdd(FormatCountState state)
     {
-        state.Write = this;
+        state.Format = this;
         state.Init();
         this.ArrayAdd(state);
         return true;

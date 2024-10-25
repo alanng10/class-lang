@@ -27,7 +27,7 @@ public class IntFormatCountState : FormatCountState
         o = (ulong)value;
 
         long count;
-        count = this.Write.IntDigitCount(o, arg.Base);
+        count = this.Format.IntDigitCount(o, arg.Base);
         
         long a;
         a = count;
