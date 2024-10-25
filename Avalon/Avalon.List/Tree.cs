@@ -96,7 +96,9 @@ class Tree : Any
                 direction = this.DirectionValue;
             }
 
-            if (this.Sign(X.Balance) == - direction)
+            bool bc;
+            bc = (this.Sign(X.Balance) == -direction);
+            if (bc)
             {
                 G = X.Parent;
 
@@ -109,7 +111,7 @@ class Tree : Any
                     N = this.RotateSingle(X, Z, direction);
                 }
             }
-            else
+            if (!bc)
             {
                 if (this.Sign(X.Balance) == direction)
                 {
