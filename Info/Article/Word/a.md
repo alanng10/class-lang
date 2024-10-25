@@ -224,6 +224,8 @@ Word "alpha" has meaning that is alphabet character.
 
 Word "digit" has meaning that is number character. 
 
+Word "format" has meaning that is interpreted in. 
+
 Word "fill" has meaning that is set value in entire range.
 
 Word "join" has meaning that is combine.
