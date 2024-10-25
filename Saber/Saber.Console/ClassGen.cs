@@ -615,23 +615,13 @@ public class ClassGen : ClassBase
             bool export;
             export = (varClass.Module == this.Class.Module);
 
-            String kka;
-            kka = null;
-
-            if (!export)
-            {
-                kka = this.TextInfra.Zero;
-            }
-
             if (export)
             {
-                kka = this.ExportWord;
+                this.Text(this.ExportWord);
+                this.Text(this.ApiWord);
+
+                this.Text(this.Space);
             }
-
-            this.Text(kka);
-            this.Text(this.ApiWord);
-
-            this.Text(this.Space);
 
             this.Text(this.IndexExtern);
 
