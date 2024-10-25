@@ -265,12 +265,15 @@ class Tree : Any
         node.Value = value;
         node.Balance = 0;
 
-        if (t.ParentNode == null)
+        bool b;
+        b = (t.ParentNode == null);
+
+        if (b)
         {
             this.Root = node;
         }
-        
-        if (!(t.ParentNode == null))
+
+        if (!b)
         {
             if (t.ParentLite)
             {
