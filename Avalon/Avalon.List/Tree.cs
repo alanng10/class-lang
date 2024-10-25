@@ -68,10 +68,10 @@ class Tree : Any
     {
         TreeNode x;
         TreeNode g;
-        TreeNode N;
+        TreeNode n;
         x = null;
         g = null;
-        N = null;
+        n = null;
 
         long direction;
         direction = 0;
@@ -106,11 +106,11 @@ class Tree : Any
                 baa = (this.Sign(z.Balance) == direction);
                 if (baa)
                 {
-                    N = this.RotateDouble(x, z, direction);
+                    n = this.RotateDouble(x, z, direction);
                 }
                 if (!baa)
                 {
-                    N = this.RotateSingle(x, z, direction);
+                    n = this.RotateSingle(x, z, direction);
                 }
             }
             if (!bc)
@@ -138,7 +138,7 @@ class Tree : Any
             {
                 if (!b)
                 {
-                    N.Parent = g;
+                    n.Parent = g;
 
                     bool bab;
                     bab = (g == null);
@@ -148,16 +148,16 @@ class Tree : Any
                         bac = (x == g.ChildLite);
                         if (bac)
                         {
-                            g.ChildLite = N;
+                            g.ChildLite = n;
                         }
                         if (!bac)
                         {
-                            g.ChildRite = N;
+                            g.ChildRite = n;
                         }
                     }
                     if (bab)
                     {
-                        this.Root = N;
+                        this.Root = n;
                     }
                 }
 
