@@ -170,10 +170,11 @@ class Tree : Any
 
     private bool RemoveRetrace(TreeNode n)
     {
-        TreeNode X;
+        TreeNode x;
         TreeNode G;
         TreeNode Z;
         Z = null;
+        
         long direction;
         direction = 0;
         long bal;
@@ -182,16 +183,16 @@ class Tree : Any
         bool b;
         b = false;
 
-        X = n.Parent;
-        while (!b & !(X == null))
+        x = n.Parent;
+        while (!b & !(x == null))
         {
             bool ba;
             ba = false;
 
-            G = X.Parent;
+            G = x.Parent;
 
             bool bb;
-            bb = (n == X.ChildLite);
+            bb = (n == x.ChildLite);
             if (bb)
             {
                 direction = - this.DirectionValue;
@@ -202,7 +203,7 @@ class Tree : Any
             }
 
             bool bc;
-            bc = (this.Sign(X.Balance) == -direction);
+            bc = (this.Sign(x.Balance) == -direction);
             if (bc)
             {
                 bool baa;
@@ -210,11 +211,11 @@ class Tree : Any
                 if (baa)
                 {
 
-                    Z = X.ChildRite;
+                    Z = x.ChildRite;
                 }
                 if (!baa)
                 {
-                    Z = X.ChildLite;
+                    Z = x.ChildLite;
                 }
 
                 bal = Z.Balance;
@@ -223,29 +224,29 @@ class Tree : Any
                 bab = (this.Sign(bal) == direction);
                 if (bab)
                 {
-                    n = this.RotateDouble(X, Z, direction);
+                    n = this.RotateDouble(x, Z, direction);
                 }
                 if (!bab)
                 {
-                    n = this.RotateSingle(X, Z, direction);
+                    n = this.RotateSingle(x, Z, direction);
                 }
             }
             if (!bc)
             {
-                if (X.Balance == 0)
+                if (x.Balance == 0)
                 {
-                    X.Balance = - direction;
+                    x.Balance = - direction;
 
                     b = true;
                 }
 
                 if (!b)
                 {
-                    n = X;
+                    n = x;
 
                     n.Balance = 0;
 
-                    X = G;
+                    x = G;
 
                     ba = true;
                 }
@@ -263,7 +264,7 @@ class Tree : Any
                     if (!bac)
                     {
                         bool bak;
-                        bak = (X == G.ChildLite);
+                        bak = (x == G.ChildLite);
                         if (bak)
                         {
                             G.ChildLite = n;
