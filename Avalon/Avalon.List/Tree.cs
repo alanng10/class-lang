@@ -290,21 +290,21 @@ class Tree : Any
         return ret;
     }
 
-    private TreeNode RotateSingle(TreeNode X, TreeNode Z, long direction)
+    private TreeNode RotateSingle(TreeNode x, TreeNode Z, long direction)
     {
-        this.RotateTreeSingle(X, Z, direction);
+        this.RotateTreeSingle(x, Z, direction);
 
         bool b;
         b = (Z.Balance == 0);
         if (b)
         {
-            X.Balance = - direction;
+            x.Balance = - direction;
 
             Z.Balance = direction;
         }
         if (!b)
         { 
-            X.Balance = 0;
+            x.Balance = 0;
 
             Z.Balance = 0;
         }
