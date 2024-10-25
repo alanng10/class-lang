@@ -171,7 +171,7 @@ class Tree : Any
     private bool RemoveRetrace(TreeNode n)
     {
         TreeNode x;
-        TreeNode G;
+        TreeNode g;
         TreeNode Z;
         x = null;
         Z = null;
@@ -190,7 +190,7 @@ class Tree : Any
             bool ba;
             ba = false;
 
-            G = x.Parent;
+            g = x.Parent;
 
             bool bb;
             bb = (n == x.ChildLite);
@@ -247,7 +247,7 @@ class Tree : Any
 
                     n.Balance = 0;
 
-                    x = G;
+                    x = g;
 
                     ba = true;
                 }
@@ -258,21 +258,21 @@ class Tree : Any
             {
                 if (!b)
                 {
-                    n.Parent = G;
+                    n.Parent = g;
 
                     bool bac;
-                    bac = (G == null);
+                    bac = (g == null);
                     if (!bac)
                     {
                         bool bak;
-                        bak = (x == G.ChildLite);
+                        bak = (x == g.ChildLite);
                         if (bak)
                         {
-                            G.ChildLite = n;
+                            g.ChildLite = n;
                         }
                         if (!bak)
                         {
-                            G.ChildRite = n;
+                            g.ChildRite = n;
                         }
                     }
                     if (bac)
