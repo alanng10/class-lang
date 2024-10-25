@@ -8,14 +8,14 @@ class Tree : Any
         this.NodeResult = new TreeNodeResult();
         this.NodeResult.Init();
 
-        this.DirectionValue = 1;
+        this.DirectValue = 1;
         return true;
     }
 
     public virtual Less Less { get; set; }
     private TreeNode Root { get; set; }
     private TreeNodeResult NodeResult { get; set; }
-    private long DirectionValue { get; set; }
+    private long DirectValue { get; set; }
 
     public virtual bool Ins(object index, object value)
     {
@@ -89,11 +89,11 @@ class Tree : Any
             bb = (z == x.ChildRite);
             if (bb)
             {
-                direction = -this.DirectionValue;
+                direction = -this.DirectValue;
             }
             if (!bb)
             {
-                direction = this.DirectionValue;
+                direction = this.DirectValue;
             }
 
             bool bc;
@@ -197,11 +197,11 @@ class Tree : Any
             bb = (n == x.ChildLite);
             if (bb)
             {
-                direction = - this.DirectionValue;
+                direction = - this.DirectValue;
             }
             if (!bb)
             {
-                direction = this.DirectionValue;
+                direction = this.DirectValue;
             }
 
             bool bc;
@@ -209,7 +209,7 @@ class Tree : Any
             if (bc)
             {
                 bool baa;
-                baa = (direction == -this.DirectionValue);
+                baa = (direction == -this.DirectValue);
                 if (baa)
                 {
 
@@ -400,12 +400,12 @@ class Tree : Any
     {
         if (u < 0)
         {
-            return -this.DirectionValue;
+            return -this.DirectValue;
         }
 
         if (0 < u)
         {
-            return this.DirectionValue;
+            return this.DirectValue;
         }
 
         return 0;
@@ -417,7 +417,7 @@ class Tree : Any
         y = null;
 
         bool b;
-        b = (direction == -this.DirectionValue);
+        b = (direction == -this.DirectValue);
 
         if (b)
         {
@@ -441,7 +441,7 @@ class Tree : Any
     private bool RotateTreeSingle(TreeNode x, TreeNode z, long direction)
     {
         bool b;
-        b = (direction == -this.DirectionValue);
+        b = (direction == -this.DirectValue);
 
         if (b)
         {
