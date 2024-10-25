@@ -90,11 +90,11 @@ class Tree : Any
                 direct : this.DirectValue;
             }
 
-            bool bc;
-            bc = (this.Sign(x.Balance) == -direct);
-            if (bc)
+            var Bool bc;
+            bc : (this.Sign(x.Balance) = sign*(0sn1, direct));
+            inf (bc)
             {
-                g = x.Parent;
+                g : x.Parent;
 
                 bool baa;
                 baa = (this.Sign(z.Balance) == direct);
