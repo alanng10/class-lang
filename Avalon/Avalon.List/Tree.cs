@@ -172,10 +172,10 @@ class Tree : Any
     {
         TreeNode x;
         TreeNode g;
-        TreeNode Z;
+        TreeNode z;
         x = null;
         g = null;
-        Z = null;
+        z = null;
         
         long direction;
         direction = 0;
@@ -213,24 +213,24 @@ class Tree : Any
                 if (baa)
                 {
 
-                    Z = x.ChildRite;
+                    z = x.ChildRite;
                 }
                 if (!baa)
                 {
-                    Z = x.ChildLite;
+                    z = x.ChildLite;
                 }
 
-                bal = Z.Balance;
+                bal = z.Balance;
 
                 bool bab;
                 bab = (this.Sign(bal) == direction);
                 if (bab)
                 {
-                    n = this.RotateDouble(x, Z, direction);
+                    n = this.RotateDouble(x, z, direction);
                 }
                 if (!bab)
                 {
-                    n = this.RotateSingle(x, Z, direction);
+                    n = this.RotateSingle(x, z, direction);
                 }
             }
             if (!bc)
