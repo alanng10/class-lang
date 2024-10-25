@@ -7,3 +7,5 @@ Source in Class lang has exactly 1 interpretation.
 Source in Class lang after being read, always is known its effect.
 
 Source in Class lang is easy to read, as every lang element has clear syntax.
+
+Develop in Class lang is easy, as source in Class lang is easy to read.
