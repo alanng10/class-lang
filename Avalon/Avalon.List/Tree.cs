@@ -31,7 +31,7 @@ class Tree : Any
             return false;
         }
 
-        this.InsertRetrace(node);
+        this.InsRetrace(node);
         return true;
     }
 
@@ -64,7 +64,7 @@ class Tree : Any
         return true;
     }
 
-    private bool InsertRetrace(TreeNode z)
+    private bool InsRetrace(TreeNode z)
     {
         TreeNode x;
         TreeNode g;
