@@ -71,7 +71,11 @@ class Tree : Any
         TreeNode N;
         long direction;
 
-        for (X = Z.Parent; X != null; X = Z.Parent)
+        bool b;
+        b = false;
+
+        X = Z.Parent;
+        while (!b & X != null)
         {
             // Loop (possibly up to the root)
             // BF(X) has to be updated:
@@ -108,39 +112,41 @@ class Tree : Any
                 {
                     X.Balance = 0; // Z’s height increase is absorbed at X.
 
-                    break; // Leave the loop
+                    b = true;
                 }
 
-                X.Balance = - direction;
+                if (!b)
+                {
+                    X.Balance = - direction;
 
-                Z = X; // Height(Z) increases by 1
-                continue;
+                    Z = X; // Height(Z) increases by 1
+                    continue;
+                    X = Z.Parent
+                }
             }
 
-            // After a rotation adapt parent link:
-            // N is the new root of the rotated subtree
-            // Height does not change: Height(N) == old Height(X)
-
-            N.Parent = G;
-
-            if (G != null)
+            if (!b)
             {
-                if (X == G.ChildLite)
+                N.Parent = G;
+
+                if (G != null)
                 {
-                    G.ChildLite = N;
+                    if (X == G.ChildLite)
+                    {
+                        G.ChildLite = N;
+                    }
+                    else
+                    {
+                        G.ChildRite = N;
+                    }
                 }
                 else
                 {
-                    G.ChildRite = N;
+                    this.Root = N; // N is the new root of the total tree
                 }
             }
-            else
-            {
-                this.Root = N; // N is the new root of the total tree
-            }
 
-            break;
-            // There is no fall thru, only break; or continue;
+            b = true;
         }
 
         // Unless loop is left via break, the height of the total tree increases by 1.
