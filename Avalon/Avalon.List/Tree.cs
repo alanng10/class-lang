@@ -75,44 +75,38 @@ class Tree : Any
         b = false;
 
         X = Z.Parent;
-        while (!b & X != null)
+        while (!b & !(X == null))
         {
             bool ba;
             ba = false;
-            // Loop (possibly up to the root)
-            // BF(X) has to be updated:
+
             if (Z == X.ChildRite)
             {
-                // The right subtree increases
-                direction = -DirectionValue;
+                direction = -this.DirectionValue;
             }
             else
             {
-                direction = +DirectionValue;
+                direction = this.DirectionValue;
             }
 
             if (this.Sign(X.Balance) == - direction)
             {
-                // X is right-heavy
-                // ==> the temporary BF(X) == +2
-                // ==> rebalancing is required.
-                G = X.Parent; // Save parent of X around rotations
+                G = X.Parent;
 
-                if (this.Sign(Z.Balance) == direction)    // Right Left Case  (see figure 3)
+                if (this.Sign(Z.Balance) == direction)
                 {
-                    N = this.RotateDouble(X, Z, direction);     // Double rotation: Right(Z) then Left(X)
+                    N = this.RotateDouble(X, Z, direction);
                 }
                 else
-                {                                               // Right Right Case (see figure 2)
-                    N = this.RotateSingle(X, Z, direction);     // Single rotation Left(X)
+                {
+                    N = this.RotateSingle(X, Z, direction);
                 }
-                // After rotation adapt parent link
             }
             else
             {
                 if (this.Sign(X.Balance) == direction)
                 {
-                    X.Balance = 0; // Z’s height increase is absorbed at X.
+                    X.Balance = 0;
 
                     b = true;
                 }
@@ -121,7 +115,7 @@ class Tree : Any
                 {
                     X.Balance = - direction;
 
-                    Z = X; // Height(Z) increases by 1
+                    Z = X;
                     
                     X = Z.Parent;
 
@@ -148,7 +142,7 @@ class Tree : Any
                     }
                     else
                     {
-                        this.Root = N; // N is the new root of the total tree
+                        this.Root = N;
                     }
                 }
 
@@ -156,7 +150,6 @@ class Tree : Any
             }
         }
 
-        // Unless loop is left via break, the height of the total tree increases by 1.
         return true;
     }
 
