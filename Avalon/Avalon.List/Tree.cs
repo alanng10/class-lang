@@ -407,7 +407,7 @@ class Tree : Any
 
         if (! b)
         {
-            this.RotateTreeRight(X, Z);
+            this.RotateTreeRite(X, Z);
         }
 
 
@@ -434,7 +434,7 @@ class Tree : Any
         return true;
     }
 
-    private bool RotateTreeRight(TreeNode x, TreeNode z)
+    private bool RotateTreeRite(TreeNode x, TreeNode z)
     {
         TreeNode t23;
 
