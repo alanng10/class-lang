@@ -398,19 +398,17 @@ class Tree : Any
     private bool RotateTreeSingle(TreeNode X, TreeNode Z, long direction)
     {
         bool b;
-        b = (direction ==  - DirectionValue);
+        b = (direction == -this.DirectionValue);
 
         if (b)
         {
             this.RotateTreeLite(X, Z);
         }
 
-        if (! b)
+        if (!b)
         {
             this.RotateTreeRite(X, Z);
         }
-
-
 
         return true;
     }
