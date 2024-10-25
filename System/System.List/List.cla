@@ -9,28 +9,28 @@ class List : Any
     }
 
     field prusate Int Count { get { return data; } set { data : value; } }
-    field prusate Any FirstIndex
+    field prusate Any Start
     {
         get
         {
-            return this.First;
+            return this.FirstNode;
         }
         set
         {
         }
     }
-    field prusate Any LastIndex
+    field prusate Any End
     {
         get
         {
-            return this.Last;
+            return this.LastNode;
         }
         set
         {
         }
     }
-    field private ListNode First { get { return data; } set { data : value; } }
-    field private ListNode Last { get { return data; } set { data : value; } }
+    field private ListNode FirstNode { get { return data; } set { data : value; } }
+    field private ListNode LastNode { get { return data; } set { data : value; } }
     field private ListNodeRef NodeRef { get { return data; } set { data : value; } }
 
     maide prusate Any Add(var Any item)
@@ -41,18 +41,18 @@ class List : Any
         node.Ref : this.NodeRef;
         node.Value : item;
 
-        inf (~(this.Last = null))
+        inf (~(this.LastNode = null))
         {
-            node.Previous : this.Last;
-            this.Last.Next : node;
+            node.Previous : this.LastNode;
+            this.LastNode.Next : node;
         }
 
-        inf (this.First = null)
+        inf (this.FirstNode = null)
         {
-            this.First : node;
+            this.FirstNode : node;
         }
         
-        this.Last : node;
+        this.LastNode : node;
 
         this.Count : this.Count + 1;
 
@@ -81,9 +81,9 @@ class List : Any
         node.Ref : this.NodeRef;
         node.Value : item;
 
-        inf (this.First = t)
+        inf (this.FirstNode = t)
         {
-            this.First : node;
+            this.FirstNode : node;
         }
 
         inf (~(t.Previous = null))
