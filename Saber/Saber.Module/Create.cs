@@ -893,11 +893,14 @@ public class Create : InfraCreate
         {
             Field field;
             field = (Field)iter.Value;
-            if (!this.CheckIsExport(field.Class))
+            if (this.CountExport(field.Count))
             {
-                NodeField ab;
-                ab = (NodeField)field.Any;
-                this.Error(this.ErrorKind.FieldUnexportable, ab, source);
+                if (!this.CheckIsExport(field.Class))
+                {
+                    NodeField ab;
+                    ab = (NodeField)field.Any;
+                    this.Error(this.ErrorKind.FieldUnexportable, ab, source);
+                }
             }
         }
 
@@ -907,35 +910,47 @@ public class Create : InfraCreate
         {
             Maide maide;
             maide = (Maide)iter.Value;
-            bool b;
-            b = false;
-            if (!this.CheckIsExport(maide.Class))
+            if (this.CountExport(maide.Count))
             {
-                b = true;
-            }
-            if (!b)
-            {
-                Iter iterA;
-                iterA = maide.Param.IterCreate();
-                maide.Param.IterSet(iterA);
-                while (!b & iterA.Next())
+                bool b;
+                b = false;
+                if (!this.CheckIsExport(maide.Class))
                 {
-                    Var varVar;
-                    varVar = (Var)iterA.Value;
-                    if (!this.CheckIsExport(varVar.Class))
+                    b = true;
+                }
+                if (!b)
+                {
+                    Iter iterA;
+                    iterA = maide.Param.IterCreate();
+                    maide.Param.IterSet(iterA);
+                    while (!b & iterA.Next())
                     {
-                        b = true;
+                        Var varVar;
+                        varVar = (Var)iterA.Value;
+                        if (!this.CheckIsExport(varVar.Class))
+                        {
+                            b = true;
+                        }
                     }
                 }
-            }
-            if (b)
-            {
-                NodeMaide ac;
-                ac = (NodeMaide)maide.Any;
-                this.Error(this.ErrorKind.MaideUnexportable, ac, source);
+                if (b)
+                {
+                    NodeMaide ac;
+                    ac = (NodeMaide)maide.Any;
+                    this.Error(this.ErrorKind.MaideUnexportable, ac, source);
+                }
             }
         }
         return true;
+    }
+
+    protected virtual bool CountExport(Count count)
+    {
+        if (count == this.Count.Prusate | count == this.Count.Precate)
+        {
+            return true;
+        }
+        return false;
     }
 
     protected virtual bool CheckIsExport(ClassClass varClass)
