@@ -363,7 +363,7 @@ class Tree : Any
         return 0;
     }
 
-    private TreeNode RotateTreeDouble(TreeNode X, TreeNode Z, long direction)
+    private TreeNode RotateTreeDouble(TreeNode x, TreeNode z, long direction)
     {
         TreeNode Y;
         Y = null;
@@ -373,17 +373,17 @@ class Tree : Any
 
         if (b)
         {
-            Y = Z.ChildLite;
+            Y = z.ChildLite;
         }
 
         if (! b)
         {
-            Y = Z.ChildRite;
+            Y = z.ChildRite;
         }
 
-        this.RotateTreeSingle(Z, Y, -direction);
+        this.RotateTreeSingle(z, Y, -direction);
 
-        this.RotateTreeSingle(X, Y, direction);
+        this.RotateTreeSingle(x, Y, direction);
 
         TreeNode a;
         a = Y;
