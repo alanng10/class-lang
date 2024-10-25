@@ -115,14 +115,15 @@ class Tree : Any
             }
             if (!bc)
             {
-                if (this.Sign(x.Balance) == direct)
+                bool bak;
+                bak = (this.Sign(x.Balance) == direct);
+                if (bak)
                 {
                     x.Balance = 0;
 
                     b = true;
                 }
-
-                if (!b)
+                if (!bak)
                 {
                     x.Balance = - direct;
 
