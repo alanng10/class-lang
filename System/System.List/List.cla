@@ -213,7 +213,7 @@ class List : Any
     maide prusate Bool IterSet(var Iter iter)
     {
         iter.CurrentNode : null;
-        iter.Node : this.First;
+        iter.Node : this.FirstNode;
         return true;
     }
 
