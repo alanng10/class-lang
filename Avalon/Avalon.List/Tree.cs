@@ -241,7 +241,7 @@ class Tree : Any
             }
             else
             {
-                this.Root = N; // N is the new root of the total tree
+                this.Root = N;
             }
 
             if (b == 0)
