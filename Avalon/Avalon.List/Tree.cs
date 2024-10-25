@@ -365,28 +365,28 @@ class Tree : Any
 
     private TreeNode RotateTreeDouble(TreeNode x, TreeNode z, long direction)
     {
-        TreeNode Y;
-        Y = null;
+        TreeNode y;
+        y = null;
 
         bool b;
         b = (direction == -this.DirectionValue);
 
         if (b)
         {
-            Y = z.ChildLite;
+            y = z.ChildLite;
         }
 
         if (! b)
         {
-            Y = z.ChildRite;
+            y = z.ChildRite;
         }
 
-        this.RotateTreeSingle(z, Y, -direction);
+        this.RotateTreeSingle(z, y, -direction);
 
-        this.RotateTreeSingle(x, Y, direction);
+        this.RotateTreeSingle(x, y, direction);
 
         TreeNode a;
-        a = Y;
+        a = y;
         return a;
     }
 
