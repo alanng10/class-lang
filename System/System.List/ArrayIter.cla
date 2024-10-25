@@ -62,7 +62,7 @@ class ArrayIter : Iter
     maide prusate Bool Clear()
     {
         this.Array : null;
-        this.IntIndex : 0;
+        this.IntIndex : null;
         this.CurrentIndex : null;
         return true;
     }
