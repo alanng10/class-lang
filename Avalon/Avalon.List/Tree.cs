@@ -77,6 +77,8 @@ class Tree : Any
         X = Z.Parent;
         while (!b & X != null)
         {
+            bool ba;
+            ba = false;
             // Loop (possibly up to the root)
             // BF(X) has to be updated:
             if (Z == X.ChildRite)
@@ -120,33 +122,38 @@ class Tree : Any
                     X.Balance = - direction;
 
                     Z = X; // Height(Z) increases by 1
-                    continue;
-                    X = Z.Parent
+                    
+                    X = Z.Parent;
+
+                    ba = true;
                 }
             }
 
-            if (!b)
+            if (!ba)
             {
-                N.Parent = G;
-
-                if (G != null)
+                if (!b)
                 {
-                    if (X == G.ChildLite)
+                    N.Parent = G;
+
+                    if (G != null)
                     {
-                        G.ChildLite = N;
+                        if (X == G.ChildLite)
+                        {
+                            G.ChildLite = N;
+                        }
+                        else
+                        {
+                            G.ChildRite = N;
+                        }
                     }
                     else
                     {
-                        G.ChildRite = N;
+                        this.Root = N; // N is the new root of the total tree
                     }
                 }
-                else
-                {
-                    this.Root = N; // N is the new root of the total tree
-                }
-            }
 
-            b = true;
+                b = true;
+            }
         }
 
         // Unless loop is left via break, the height of the total tree increases by 1.
