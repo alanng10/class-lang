@@ -620,7 +620,7 @@ public class ClassGen : ClassBase
 
             if (!export)
             {
-                kka = this.ImportWord;
+                kka = this.TextInfra.Zero;
             }
 
             if (export)
