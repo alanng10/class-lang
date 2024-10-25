@@ -189,8 +189,6 @@ class Tree : Any
                 direction = + DirectionValue;
             }
 
-            // the left subtree decreases
-
             if (this.Sign(X.Balance) == -direction)
             {
                 // X is right-heavy
