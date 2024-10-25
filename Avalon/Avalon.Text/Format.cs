@@ -32,7 +32,7 @@ public class Format : Any
         this.Array = this.CountState;
         this.ArrayIndex = 0;
 
-        this.CountStateAdd(new BoolWriteCountState());
+        this.CountStateAdd(new BoolFormatCountState());
         this.CountStateAdd(new IntWriteCountState());
         this.CountStateAdd(new TextWriteCountState());
         return true;
