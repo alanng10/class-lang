@@ -53,7 +53,7 @@ public class Format : Any
         return true;
     }
 
-    protected virtual bool CountStateAdd(WriteCountState state)
+    protected virtual bool CountStateAdd(FormatCountState state)
     {
         state.Write = this;
         state.Init();
@@ -218,8 +218,8 @@ public class Format : Any
 
         long kind;
         kind = arg.Kind;
-        WriteCountState state;
-        state = (WriteCountState)this.CountState.GetAt(kind);
+        FormatCountState state;
+        state = (FormatCountState)this.CountState.GetAt(kind);
 
         state.Arg = arg;
         state.Execute();
