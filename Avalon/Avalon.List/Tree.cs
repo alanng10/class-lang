@@ -361,10 +361,10 @@ class Tree : Any
         return z;
     }
 
-    private TreeNode RotateDouble(TreeNode x, TreeNode z, long direction)
+    private TreeNode RotateDouble(TreeNode x, TreeNode z, long direct)
     {
         TreeNode y;
-        y = this.RotateTreeDouble(x, z, direction);
+        y = this.RotateTreeDouble(x, z, direct);
 
         bool b;
         b = (y.Balance == 0);
@@ -378,17 +378,17 @@ class Tree : Any
         if (!b)
         {
             bool ba;
-            ba = (this.Sign(y.Balance) == -direction);
+            ba = (this.Sign(y.Balance) == -direct);
 
             if (ba)
             {
-                x.Balance = direction;
+                x.Balance = direct;
                 z.Balance = 0;
             }
             if (!ba)
             {
                 x.Balance = 0;
-                z.Balance = - direction;
+                z.Balance = - direct;
             }
         }
 
