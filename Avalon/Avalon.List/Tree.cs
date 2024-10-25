@@ -191,10 +191,6 @@ class Tree : Any
 
             if (this.Sign(X.Balance) == -direction)
             {
-                // X is right-heavy
-                // ==> the temporary BF(X) == +2
-                // ==> rebalancing is required.
-
                 if (direction == -DirectionValue)
                 {
 
