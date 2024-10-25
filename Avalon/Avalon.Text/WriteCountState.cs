@@ -12,5 +12,5 @@ public class WriteCountState : State
         return true;
     }
 
-    public virtual Write Write { get; set; }
+    public virtual Format Write { get; set; }
 }

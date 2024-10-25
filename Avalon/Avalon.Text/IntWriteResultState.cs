@@ -19,7 +19,7 @@ public class IntWriteResultState : WriteResultState
         arg = kke.Arg;
         Text result;
         result = kke.Result;
-        Write format;
+        Format format;
         format = this.Format;
 
         long valueCount;

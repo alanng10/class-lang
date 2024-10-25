@@ -12,5 +12,5 @@ public class WriteResultState : State
         return true;
     }
 
-    public virtual Write Format { get; set; }
+    public virtual Format Format { get; set; }
 }
