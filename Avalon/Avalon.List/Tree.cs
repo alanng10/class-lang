@@ -434,24 +434,24 @@ class Tree : Any
         return true;
     }
 
-    private bool RotateTreeRight(TreeNode X, TreeNode Z)
+    private bool RotateTreeRight(TreeNode x, TreeNode z)
     {
         TreeNode t23;
 
         // Z is by 2 higher than its sibling
 
-        t23 = Z.ChildRite; // Inner child of Z
+        t23 = z.ChildRite; // Inner child of Z
 
-        X.ChildLite = t23;
+        x.ChildLite = t23;
 
         if (t23 != null)
         {
-            t23.Parent = X;
+            t23.Parent = x;
         }
         
-        Z.ChildRite = X;
+        z.ChildRite = x;
 
-        X.Parent = Z;
+        x.Parent = z;
         return true;
     }
 
