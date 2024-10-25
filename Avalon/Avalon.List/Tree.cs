@@ -216,13 +216,13 @@ class Tree : Any
             {
                 if (X.Balance == 0)
                 {
-                    X.Balance = - direction; // N’s height decrease is absorbed at X.
-                    break; // Leave the loop
+                    X.Balance = - direction;
+                    break;
                 }
 
                 N = X;
 
-                N.Balance = 0; // Height(N) decreases by 1
+                N.Balance = 0;
                 continue;
             }
 
