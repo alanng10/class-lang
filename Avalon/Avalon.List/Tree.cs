@@ -381,7 +381,7 @@ class Tree : Any
             Y = Z.ChildRite;
         }
 
-        this.RotateTreeSingle(Z, Y, - direction);
+        this.RotateTreeSingle(Z, Y, -direction);
 
         this.RotateTreeSingle(X, Y, direction);
 
