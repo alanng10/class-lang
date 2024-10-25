@@ -24,7 +24,7 @@ class Demo : Any
     protected virtual MathComp MathComp { get; set; }
     private StringAdd StringAdd { get; set; }
     private Format Format { get; set; }
-    private FormatArg TextWriteArg { get; set; }
+    private FormatArg FormatArg { get; set; }
 
     public bool Execute()
     {
@@ -403,7 +403,7 @@ class Demo : Any
         arg.Base = 10;
         arg.MaxWidth = -1;
         arg.FieldWidth = 1;
-        this.TextWriteArg = arg;
+        this.FormatArg = arg;
 
         Time time;
         time = new Time();
@@ -448,14 +448,14 @@ class Demo : Any
 
     private String IntString(long o)
     {
-        this.TextWriteArg.Value.Int = o;
+        this.FormatArg.Value.Int = o;
 
-        this.Format.ExecuteArgCount(this.TextWriteArg);
+        this.Format.ExecuteArgCount(this.FormatArg);
 
         Text text;
-        text = this.TextInfra.TextCreate(this.TextWriteArg.Count);
+        text = this.TextInfra.TextCreate(this.FormatArg.Count);
 
-        this.Format.ExecuteArgResult(this.TextWriteArg, text);
+        this.Format.ExecuteArgResult(this.FormatArg, text);
 
         String a;
         a = this.TextInfra.StringCreate(text);
