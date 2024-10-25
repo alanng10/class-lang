@@ -561,8 +561,8 @@ class Tree : Any
         TreeNode parentNode;
         parentNode = null;
 
-        bool parentLeft;
-        parentLeft = false;
+        bool parentLite;
+        parentLite = false;
 
         bool b;
         b = false;
@@ -592,7 +592,7 @@ class Tree : Any
             {
                 parentNode = currentNode;
 
-                parentLeft = true;
+                parentLite = true;
 
                 currentNode = currentNode.ChildLite;
             }
@@ -601,7 +601,7 @@ class Tree : Any
             {
                 parentNode = currentNode;
 
-                parentLeft = false;
+                parentLite = false;
 
                 currentNode = currentNode.ChildRite;
             }
@@ -617,10 +617,10 @@ class Tree : Any
 
         u.ParentNode = parentNode;
 
-        u.ParentLite = parentLeft;
+        u.ParentLite = parentLite;
 
-        TreeNodeResult ret;
-        ret = u;
-        return ret;
+        TreeNodeResult a;
+        a = u;
+        return a;
     }
 }
