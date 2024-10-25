@@ -55,4 +55,10 @@ class Tree : Any
         this.RemRetrace(node);
         return true;
     }
+
+    maide prusate Bool Clear()
+    {
+        this.Root : null;
+        return true;
+    }
 }
