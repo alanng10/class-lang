@@ -15,7 +15,7 @@ class Tree : Any
     public virtual Less Less { get; set; }
     private TreeNode Root { get; set; }
     private TreeNodeResult NodeResult { get; set; }
-    private int DirectionValue { get; set; }
+    private long DirectionValue { get; set; }
 
     public virtual bool Insert(object index, object value)
     {
@@ -69,7 +69,7 @@ class Tree : Any
         TreeNode X;
         TreeNode G;
         TreeNode N;
-        int direction;
+        long direction;
 
         for (X = Z.Parent; X != null; X = Z.Parent)
         {
@@ -152,8 +152,8 @@ class Tree : Any
         TreeNode X;
         TreeNode G;
         TreeNode Z;
-        int direction;
-        int b;
+        long direction;
+        long b;
 
         for (X = N.Parent; X != null; X = G)
         { 
@@ -290,7 +290,7 @@ class Tree : Any
         return ret;
     }
 
-    private TreeNode RotateSingle(TreeNode X, TreeNode Z, int direction)
+    private TreeNode RotateSingle(TreeNode X, TreeNode Z, long direction)
     {
         this.RotateTreeSingle(X, Z, direction);
 
@@ -316,7 +316,7 @@ class Tree : Any
         return Z; // return new root of rotated subtree
     }
 
-    private TreeNode RotateDouble(TreeNode X, TreeNode Z, int direction)
+    private TreeNode RotateDouble(TreeNode X, TreeNode Z, long direction)
     {
         TreeNode Y;
         Y = this.RotateTreeDouble(X, Z, direction);
@@ -348,22 +348,22 @@ class Tree : Any
         return Y; // return new root of rotated subtree
     }
 
-    private int Sign(int u)
+    private long Sign(long u)
     {
         if (u < 0)
         {
-            return -DirectionValue;
+            return -this.DirectionValue;
         }
 
         if (0 < u)
         {
-            return +DirectionValue;
+            return this.DirectionValue;
         }
 
         return 0;
     }
 
-    private TreeNode RotateTreeDouble(TreeNode X, TreeNode Z, int direction)
+    private TreeNode RotateTreeDouble(TreeNode X, TreeNode Z, long direction)
     {
         TreeNode Y;
         Y = null;
@@ -395,7 +395,7 @@ class Tree : Any
         return ret;
     }
 
-    private bool RotateTreeSingle(TreeNode X, TreeNode Z, int direction)
+    private bool RotateTreeSingle(TreeNode X, TreeNode Z, long direction)
     {
         bool b;
         b = (direction ==  - DirectionValue);
@@ -550,7 +550,7 @@ class Tree : Any
         return t;
     }
 
-    public TreeNodeResult Node(object index)
+    public virtual TreeNodeResult Node(object index)
     {
         Less less;
         less = this.Less;
