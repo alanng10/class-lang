@@ -200,7 +200,9 @@ class Tree : Any
                 direction = this.DirectionValue;
             }
 
-            if (this.Sign(X.Balance) == -direction)
+            bool bc;
+            bc = (this.Sign(X.Balance) == -direction);
+            if (bc)
             {
                 if (direction == -this.DirectionValue)
                 {
@@ -223,7 +225,7 @@ class Tree : Any
                     N = this.RotateSingle(X, Z, direction);
                 }
             }
-            else
+            if (!bc)
             {
                 if (X.Balance == 0)
                 {
