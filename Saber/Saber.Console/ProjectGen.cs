@@ -55,6 +55,11 @@ public class ProjectGen : ClassBase
 
     public virtual bool ExecuteStage()
     {
+        ClassGen gen;
+        gen = this.Gen;
+
+        gen.IndentCount = gen.IndentCount + 1;
+        
         long count;
         count = this.ModuleRefString.Count;
 
@@ -70,6 +75,7 @@ public class ProjectGen : ClassBase
             i = i + 1;
         }
 
+        gen.IndentCount = gen.IndentCount - 1;
         return true;
     }
 
