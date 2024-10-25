@@ -144,11 +144,13 @@ class Tree : Any
                     bab = (g == null);
                     if (!bab)
                     {
-                        if (x == g.ChildLite)
+                        bool bac;
+                        bac = (x == g.ChildLite);
+                        if (bac)
                         {
                             g.ChildLite = N;
                         }
-                        else
+                        if (!bac)
                         {
                             g.ChildRite = N;
                         }
