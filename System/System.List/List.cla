@@ -115,14 +115,14 @@ class List : Any
             return false;
         }
 
-        inf (this.First = node)
+        inf (this.FirstNode = node)
         {
-            this.First : node.Next;
+            this.FirstNode : node.Next;
         }
 
-        inf (this.Last = node)
+        inf (this.LastNode = node)
         {
-            this.Last : node.Previous;
+            this.LastNode : node.Previous;
         }
 
         inf (~(node.Next = null))
@@ -143,8 +143,8 @@ class List : Any
 
     maide prusate Bool Clear()
     {
-        this.First : null;
-        this.Last : null;
+        this.FirstNode : null;
+        this.LastNode : null;
 
         this.Count : 0;
 
