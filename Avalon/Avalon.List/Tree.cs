@@ -246,7 +246,7 @@ class Tree : Any
 
             if (b == 0)
             {
-                break; // Height does not change: Leave the loop
+                break;
             }
 
             // Height(N) decreases by 1 (== old Height(X)-1)
