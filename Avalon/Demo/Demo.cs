@@ -956,8 +956,6 @@ class Demo : Any
 
     private bool ExecuteDemoThread()
     {
-        this.ExecuteDemoThisThread();
-
         ThreadPhore phore;
         phore = new ThreadPhore();
         phore.InitCount = 1;
@@ -989,22 +987,6 @@ class Demo : Any
         thread.Final();
 
         phore.Final();
-        return true;
-    }
-
-    internal bool ExecuteDemoThisThread()
-    {
-        ThreadThis varThis;
-        varThis = new ThreadThis();
-        varThis.Init();
-
-        ThreadThread thread;
-        thread = varThis.Thread;
-
-        bool isMainThread;
-        isMainThread = thread.Main;
-
-        this.Console.Out.Write(this.S("This Thread is Main Thread: " + isMainThread.ToString() + "\n"));
         return true;
     }
 
