@@ -85,14 +85,14 @@ class Tree : Any
                 direction = +DirectionValue;
             }
 
-            if (this.Sign(X.BalanceFactor) == - direction)
+            if (this.Sign(X.Balance) == - direction)
             {
                 // X is right-heavy
                 // ==> the temporary BF(X) == +2
                 // ==> rebalancing is required.
                 G = X.Parent; // Save parent of X around rotations
 
-                if (this.Sign(Z.BalanceFactor) == direction)    // Right Left Case  (see figure 3)
+                if (this.Sign(Z.Balance) == direction)    // Right Left Case  (see figure 3)
                 {
                     N = this.RotateDouble(X, Z, direction);     // Double rotation: Right(Z) then Left(X)
                 }
@@ -104,14 +104,14 @@ class Tree : Any
             }
             else
             {
-                if (this.Sign(X.BalanceFactor) == direction)
+                if (this.Sign(X.Balance) == direction)
                 {
-                    X.BalanceFactor = 0; // Z’s height increase is absorbed at X.
+                    X.Balance = 0; // Z’s height increase is absorbed at X.
 
                     break; // Leave the loop
                 }
 
-                X.BalanceFactor = - direction;
+                X.Balance = - direction;
 
                 Z = X; // Height(Z) increases by 1
                 continue;
@@ -171,7 +171,7 @@ class Tree : Any
 
             // the left subtree decreases
 
-            if (this.Sign(X.BalanceFactor) == -direction)
+            if (this.Sign(X.Balance) == -direction)
             {
                 // X is right-heavy
                 // ==> the temporary BF(X) == +2
@@ -187,7 +187,7 @@ class Tree : Any
                     Z = X.ChildLite; // Sibling of N (higher by 2)
                 }
 
-                b = Z.BalanceFactor;
+                b = Z.Balance;
 
                 if (this.Sign(b) == direction)                  // Right Left Case  (see figure 3)
                 {
@@ -204,15 +204,15 @@ class Tree : Any
             }
             else
             {
-                if (X.BalanceFactor == 0)
+                if (X.Balance == 0)
                 {
-                    X.BalanceFactor = - direction; // N’s height decrease is absorbed at X.
+                    X.Balance = - direction; // N’s height decrease is absorbed at X.
                     break; // Leave the loop
                 }
 
                 N = X;
 
-                N.BalanceFactor = 0; // Height(N) decreases by 1
+                N.Balance = 0; // Height(N) decreases by 1
                 continue;
             }
 
@@ -263,7 +263,7 @@ class Tree : Any
         node.Init();
         node.Index = index;
         node.Value = value;
-        node.BalanceFactor = 0;
+        node.Balance = 0;
 
         if (t.ParentNode == null)
         {
@@ -296,21 +296,21 @@ class Tree : Any
 
         // 1st case, BF(Z) == 0,
         //   only happens with deletion, not insertion:
-        if (Z.BalanceFactor == 0)
+        if (Z.Balance == 0)
         { 
             // t23 has been of same height as t4
             
-            X.BalanceFactor = - direction;   // t23 now higher
+            X.Balance = - direction;   // t23 now higher
 
-            Z.BalanceFactor = direction;   // t4 now lower than X
+            Z.Balance = direction;   // t4 now lower than X
         }
         else
         { 
             // 2nd case happens with insertion or deletion:
             
-            X.BalanceFactor = 0;
+            X.Balance = 0;
 
-            Z.BalanceFactor = 0;
+            Z.Balance = 0;
         }
 
         return Z; // return new root of rotated subtree
@@ -322,32 +322,32 @@ class Tree : Any
         y = this.RotateTreeDouble(x, z, direction);
 
         bool b;
-        b = (y.BalanceFactor == 0);
+        b = (y.Balance == 0);
 
         if (b)
         {
-            x.BalanceFactor = 0;
-            z.BalanceFactor = 0;
+            x.Balance = 0;
+            z.Balance = 0;
         }
 
         if (!b)
         {
             bool ba;
-            ba = (this.Sign(y.BalanceFactor) == -direction);
+            ba = (this.Sign(y.Balance) == -direction);
 
             if (ba)
             {
-                x.BalanceFactor = direction;
-                z.BalanceFactor = 0;
+                x.Balance = direction;
+                z.Balance = 0;
             }
             if (!ba)
             {
-                x.BalanceFactor = 0;
-                z.BalanceFactor = - direction;
+                x.Balance = 0;
+                z.Balance = - direction;
             }
         }
 
-        y.BalanceFactor = 0;
+        y.Balance = 0;
         return y;
     }
 
