@@ -368,31 +368,26 @@ class Tree : Any
         TreeNode Y;
         Y = null;
 
-        // Z is by 2 higher than its sibling
-
         bool b;
-        b = (direction == - DirectionValue);
+        b = (direction == -this.DirectionValue);
 
         if (b)
         {
-            Y = Z.ChildLite; // Inner child of Z
+            Y = Z.ChildLite;
         }
 
         if (! b)
         {
             Y = Z.ChildRite;
         }
-        
-        // Y is by 1 higher than sibling
 
         this.RotateTreeSingle(Z, Y, - direction);
 
         this.RotateTreeSingle(X, Y, direction);
 
-        TreeNode ret;
-        ret = Y;
-
-        return ret;
+        TreeNode a;
+        a = Y;
+        return a;
     }
 
     private bool RotateTreeSingle(TreeNode x, TreeNode z, long direction)
