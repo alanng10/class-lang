@@ -262,11 +262,13 @@ class Tree : Any
                     bac = (G == null);
                     if (!bac)
                     {
-                        if (X == G.ChildLite)
+                        bool bak;
+                        bak = (X == G.ChildLite);
+                        if (bak)
                         {
                             G.ChildLite = N;
                         }
-                        else
+                        if (!bak)
                         {
                             G.ChildRite = N;
                         }
