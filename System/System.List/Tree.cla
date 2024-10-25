@@ -96,15 +96,15 @@ class Tree : Any
             {
                 g : x.Parent;
 
-                bool baa;
-                baa = (this.Sign(z.Balance) == direct);
-                if (baa)
+                var Bool baa;
+                baa : (this.Sign(z.Balance) = direct);
+                inf (baa)
                 {
-                    n = this.RotateDouble(x, z, direct);
+                    n : this.RotateDouble(x, z, direct);
                 }
-                if (!baa)
+                inf (~baa)
                 {
-                    n = this.RotateSingle(x, z, direct);
+                    n : this.RotateSingle(x, z, direct);
                 }
             }
             if (!bc)
