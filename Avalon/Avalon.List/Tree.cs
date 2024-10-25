@@ -67,10 +67,10 @@ class Tree : Any
     private bool InsertRetrace(TreeNode z)
     {
         TreeNode x;
-        TreeNode G;
+        TreeNode g;
         TreeNode N;
         x = null;
-        G = null;
+        g = null;
         N = null;
 
         long direction;
@@ -100,7 +100,7 @@ class Tree : Any
             bc = (this.Sign(x.Balance) == -direction);
             if (bc)
             {
-                G = x.Parent;
+                g = x.Parent;
 
                 bool baa;
                 baa = (this.Sign(z.Balance) == direction);
@@ -138,17 +138,17 @@ class Tree : Any
             {
                 if (!b)
                 {
-                    N.Parent = G;
+                    N.Parent = g;
 
-                    if (G != null)
+                    if (g != null)
                     {
-                        if (x == G.ChildLite)
+                        if (x == g.ChildLite)
                         {
-                            G.ChildLite = N;
+                            g.ChildLite = N;
                         }
                         else
                         {
-                            G.ChildRite = N;
+                            g.ChildRite = N;
                         }
                     }
                     else
