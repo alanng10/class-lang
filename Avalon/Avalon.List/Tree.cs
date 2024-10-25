@@ -174,6 +174,7 @@ class Tree : Any
         TreeNode g;
         TreeNode Z;
         x = null;
+        g = null;
         Z = null;
         
         long direction;
