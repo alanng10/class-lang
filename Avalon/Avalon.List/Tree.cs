@@ -7,14 +7,17 @@ class Tree : Any
         base.Init();
         this.NodeResult = new TreeNodeResult();
         this.NodeResult.Init();
+
+        this.DirectionValue = 1;
         return true;
     }
 
     public virtual Less Less { get; set; }
     private TreeNode Root { get; set; }
     private TreeNodeResult NodeResult { get; set; }
+    private int DirectionValue { get; set; }
 
-    public bool Insert(object index, object value)
+    public virtual bool Insert(object index, object value)
     {
         if (index == null)
         {
@@ -32,7 +35,7 @@ class Tree : Any
         return true;
     }
 
-    public bool Remove(object index)
+    public virtual bool Remove(object index)
     {
         if (index == null)
         {
@@ -55,7 +58,7 @@ class Tree : Any
         return true;
     }
 
-    public bool Clear()
+    public virtual bool Clear()
     {
         this.Root = null;
         return true;
@@ -344,8 +347,6 @@ class Tree : Any
         Y.BalanceFactor = 0;
         return Y; // return new root of rotated subtree
     }
-
-    private int DirectionValue = 1;
 
     private int Sign(int u)
     {
