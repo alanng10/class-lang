@@ -52,7 +52,7 @@ class Tree : Any
         TreeNode node;
         node = t.Node;
 
-        this.TreeRemove(node);
+        this.TreeRem(node);
 
         this.RemoveRetrace(node);
         return true;
@@ -451,7 +451,7 @@ class Tree : Any
         return true;
     }
 
-    private bool TreeRemove(TreeNode z)
+    private bool TreeRem(TreeNode z)
     {
         if (z.ChildLite == null)
         {
