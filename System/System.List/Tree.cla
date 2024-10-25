@@ -107,25 +107,25 @@ class Tree : Any
                     n : this.RotateSingle(x, z, direct);
                 }
             }
-            if (!bc)
+            inf (!bc)
             {
-                bool bak;
-                bak = (this.Sign(x.Balance) == direct);
-                if (bak)
+                var Bool bak;
+                bak : (this.Sign(x.Balance) = direct);
+                inf (bak)
                 {
-                    x.Balance = 0;
+                    x.Balance : 0;
 
-                    b = true;
+                    b : true;
                 }
-                if (!bak)
+                inf (~bak)
                 {
-                    x.Balance = - direct;
+                    x.Balance : sign*(0sn1, direct);
 
-                    z = x;
+                    z : x;
                     
-                    x = z.Parent;
+                    x : z.Parent;
 
-                    ba = true;
+                    ba : true;
                 }
             }
 
