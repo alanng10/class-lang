@@ -494,20 +494,33 @@ class Tree : Any
 
     private bool SubtreeShift(TreeNode u, TreeNode v)
     {
-        if (u.Parent == null)
+        bool b;
+        b = false;
+        
+        if (!b)
         {
-            this.Root = v;
+            if (u.Parent == null)
+            {
+                this.Root = v;
+
+                b = true;
+            }
         }
-        else if (u == u.Parent.ChildLite)
+        if (!b)
         {
-            u.Parent.ChildLite = v;
+            if (u == u.Parent.ChildLite)
+            {
+                u.Parent.ChildLite = v;
+            
+                b = true;
+            }
         }
-        else
+        if (!b)
         {
             u.Parent.ChildRite = v;
         }
 
-        if (v != null)
+        if (!(v == null))
         {
             v.Parent = u.Parent;
         }
