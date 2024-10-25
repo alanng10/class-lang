@@ -69,7 +69,12 @@ class Tree : Any
         TreeNode X;
         TreeNode G;
         TreeNode N;
+        X = null;
+        G = null;
+        N = null;
+
         long direction;
+        direction = 0;
 
         bool b;
         b = false;
