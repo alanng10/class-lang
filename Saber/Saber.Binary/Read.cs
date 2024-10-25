@@ -857,25 +857,11 @@ public class Read : Any
 
     protected virtual long ExecuteEntry()
     {
-        if (!this.CheckCount(1))
-        {
-            return -1;
-        }
-
         long u;
         u = this.ExecuteInt();
-        if (u == -1)
-        {
-            return -1;
-        }
-
-        ulong d;
-        d = (ulong)u;
-        d = d << 4;
-        d = d >> 4;
 
         long a;
-        a = (long)d;
+        a = u;
         return a;
     }
 
