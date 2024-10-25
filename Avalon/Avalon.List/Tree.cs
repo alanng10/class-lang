@@ -102,11 +102,13 @@ class Tree : Any
             {
                 G = X.Parent;
 
-                if (this.Sign(Z.Balance) == direction)
+                bool baa;
+                baa = (this.Sign(Z.Balance) == direction);
+                if (baa)
                 {
                     N = this.RotateDouble(X, Z, direction);
                 }
-                else
+                if (!baa)
                 {
                     N = this.RotateSingle(X, Z, direction);
                 }
