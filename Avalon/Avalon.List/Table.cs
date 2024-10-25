@@ -138,7 +138,7 @@ public class Table : List
 
         this.List.Rem(node);
 
-        this.Tree.Remove(index);
+        this.Tree.Rem(index);
 
         this.Count = this.List.Count;
         return true;
