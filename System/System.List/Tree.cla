@@ -1,0 +1,17 @@
+class Tree : Any
+{
+    maide prusate Bool Init()
+    {
+        base.Init();
+        this.NodeResult : new TreeNodeResult;
+        this.NodeResult.Init();
+
+        this.DirectValue : 1;
+        return true;
+    }
+
+    field prusate Less Less { get { return data; } set { data : value; } }
+    field private TreeNode Root { get { return data; } set { data : value; } }
+    field private TreeNodeResult NodeResult { get { return data; } set { data : value; } }
+    field private Int DirectValue { get { return data; } set { data : value; } }
+}
