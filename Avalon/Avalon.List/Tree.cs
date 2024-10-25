@@ -248,11 +248,8 @@ class Tree : Any
             {
                 break;
             }
-
-            // Height(N) decreases by 1 (== old Height(X)-1)
         }
 
-        // If (b != 0) the height of the total tree decreases by 1.
         return true;
     }
 
