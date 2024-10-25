@@ -203,9 +203,9 @@ class Tree : Any
 
                 b = Z.Balance;
 
-                if (this.Sign(b) == direction)                  // Right Left Case  (see figure 3)
+                if (this.Sign(b) == direction)
                 {
-                    N = this.RotateDouble(X, Z, direction);     // Double rotation: Right(Z) then Left(X)
+                    N = this.RotateDouble(X, Z, direction);
                 }
                 else
                 {
