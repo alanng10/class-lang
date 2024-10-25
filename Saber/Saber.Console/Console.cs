@@ -722,7 +722,7 @@ public class Console : ClassBase
         }
 
         bool bc;
-        bc = this.GenProjectFile(moduleRefString, genModuleFoldPath);
+        bc = this.ExecuteGenProject(moduleRefString, genModuleFoldPath);
         if (!bc)
         {
             return false;
@@ -810,12 +810,27 @@ public class Console : ClassBase
         return true;
     }
 
-    protected virtual bool GenProjectFile(String moduleRefString, String genModuleFoldPath)
+    protected virtual bool ExecuteGenProject(String moduleRefString, String genModuleFoldPath)
     {
+        Array moduleRefStringArray;
+        moduleRefStringArray = this.ModuleRefStringArray();
+
+        this.ProjectGen.Gen = this.ClassGen;
+        this.ProjectGen.ModuleRefString = moduleRefStringArray;
+
+        this.ProjectGen.Execute();
+
+        String import;
+        import = this.ProjectGen.Result;
+
+        this.ProjectGen.Result = null;
+        this.ProjectGen.ModuleRefString = null;
+        this.ProjectGen.Gen = null;
+
         Text k;
         k = this.TA(this.ModuleProjectText);
         k = this.Place(k, "#Name#", moduleRefString);
-        k = this.Place(k, "#Import#", this.TextInfra.Zero);
+        k = this.Place(k, "#Import#", import);
 
         String ka;
         ka = this.StringCreate(k);
@@ -836,6 +851,41 @@ public class Console : ClassBase
         }
 
         return true;
+    }
+
+    protected virtual Array ModuleRefStringArray()
+    {
+        long count;
+        count = this.ModuleTable.Count;
+
+        Array array;
+        array = this.ListInfra.ArrayCreate(count);
+
+        Iter iter;
+        iter = this.ModuleTable.IterCreate();
+        this.ModuleTable.IterSet(iter);
+
+        long i;
+        i = 0;
+        while (i < count)
+        {
+            iter.Next();
+
+            ModuleRef k;
+            k = (ModuleRef)iter.Index;
+
+            String verString;
+            verString = this.ClassInfra.VerString(k.Ver);
+
+            String a;
+            a = this.ClassInfra.ModuleRefString(k.Name, verString);
+
+            array.SetAt(i, a);
+
+            i = i + 1;
+        }
+
+        return array;
     }
 
     protected virtual bool ExecuteGenMake(String moduleRefString)
