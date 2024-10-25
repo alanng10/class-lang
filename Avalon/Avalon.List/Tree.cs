@@ -318,17 +318,17 @@ class Tree : Any
 
     private TreeNode RotateDouble(TreeNode x, TreeNode z, long direction)
     {
-        TreeNode Y;
-        Y = this.RotateTreeDouble(x, z, direction);
+        TreeNode y;
+        y = this.RotateTreeDouble(x, z, direction);
 
-        if (Y.BalanceFactor == 0)
+        if (y.BalanceFactor == 0)
         {
             x.BalanceFactor = 0;
             z.BalanceFactor = 0;
         }
         else
         {
-            if (this.Sign(Y.BalanceFactor) == -direction)
+            if (this.Sign(y.BalanceFactor) == -direction)
             {
                 x.BalanceFactor = direction;
                 z.BalanceFactor = 0;
@@ -340,8 +340,8 @@ class Tree : Any
             }
         }
 
-        Y.BalanceFactor = 0;
-        return Y;
+        y.BalanceFactor = 0;
+        return y;
     }
 
     private long Sign(long u)
