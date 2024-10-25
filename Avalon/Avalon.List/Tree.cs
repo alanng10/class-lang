@@ -321,8 +321,6 @@ class Tree : Any
         TreeNode Y;
         Y = this.RotateTreeDouble(X, Z, direction);
 
-        // 1st case, BF(Y) == 0,
-        //   only happens with deletion, not insertion:
         if (Y.BalanceFactor == 0)
         {
             X.BalanceFactor = 0;
@@ -330,22 +328,20 @@ class Tree : Any
         }
         else
         {
-            // other cases happen with insertion or deletion:
             if (this.Sign(Y.BalanceFactor) == -direction)
-            { // t3 was higher
-                X.BalanceFactor = direction;  // t1 now higher
+            {
+                X.BalanceFactor = direction;
                 Z.BalanceFactor = 0;
             }
             else
             {
-                // t2 was higher
                 X.BalanceFactor = 0;
-                Z.BalanceFactor = - direction;  // t4 now higher
+                Z.BalanceFactor = - direction;
             }
         }
 
         Y.BalanceFactor = 0;
-        return Y; // return new root of rotated subtree
+        return Y;
     }
 
     private long Sign(long u)
