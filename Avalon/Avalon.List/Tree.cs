@@ -178,9 +178,8 @@ class Tree : Any
 
         for (X = N.Parent; X != null; X = G)
         { 
-            // Loop (possibly up to the root)
-            G = X.Parent; // Save parent of X around rotations
-                           // BF(X) has not yet been updated!
+            G = X.Parent;
+
             if (N == X.ChildLite)
             {
                 direction = - DirectionValue;
