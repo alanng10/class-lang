@@ -269,12 +269,12 @@ class Tree : Any
         
         if (!(t.ParentNode == null))
         {
-            if (t.ParentLeft)
+            if (t.ParentLite)
             {
                 t.ParentNode.ChildLite = node;
             }
 
-            if (! t.ParentLeft)
+            if (! t.ParentLite)
             {
                 t.ParentNode.ChildRite = node;
             }
@@ -616,7 +616,7 @@ class Tree : Any
 
         u.ParentNode = parentNode;
 
-        u.ParentLeft = parentLeft;
+        u.ParentLite = parentLeft;
 
         TreeNodeResult ret;
         ret = u;
