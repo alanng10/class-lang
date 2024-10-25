@@ -174,7 +174,7 @@ class Tree : Any
         TreeNode G;
         TreeNode Z;
         long direction;
-        long b;
+        long bal;
 
         X = N.Parent;
         for (; X != null; )
@@ -202,9 +202,9 @@ class Tree : Any
                     Z = X.ChildLite;
                 }
 
-                b = Z.Balance;
+                bal = Z.Balance;
 
-                if (this.Sign(b) == direction)
+                if (this.Sign(bal) == direction)
                 {
                     N = this.RotateDouble(X, Z, direction);
                 }
@@ -247,7 +247,7 @@ class Tree : Any
                 this.Root = N;
             }
 
-            if (b == 0)
+            if (bal == 0)
             {
                 break;
             }
