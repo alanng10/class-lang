@@ -135,21 +135,6 @@ public class Thread : Any
         return true;
     }
 
-    public virtual bool Main
-    {
-        get
-        {
-            ulong u;
-            u = Extern.Thread_IsMain(this.Intern);
-            bool a;
-            a = (!(u == 0));
-            return a;
-        }
-        set
-        {
-        }
-    }
-
     public virtual long Status
     {
         get
