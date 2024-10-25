@@ -316,27 +316,27 @@ class Tree : Any
         return Z; // return new root of rotated subtree
     }
 
-    private TreeNode RotateDouble(TreeNode x, TreeNode Z, long direction)
+    private TreeNode RotateDouble(TreeNode x, TreeNode z, long direction)
     {
         TreeNode Y;
-        Y = this.RotateTreeDouble(x, Z, direction);
+        Y = this.RotateTreeDouble(x, z, direction);
 
         if (Y.BalanceFactor == 0)
         {
             x.BalanceFactor = 0;
-            Z.BalanceFactor = 0;
+            z.BalanceFactor = 0;
         }
         else
         {
             if (this.Sign(Y.BalanceFactor) == -direction)
             {
                 x.BalanceFactor = direction;
-                Z.BalanceFactor = 0;
+                z.BalanceFactor = 0;
             }
             else
             {
                 x.BalanceFactor = 0;
-                Z.BalanceFactor = - direction;
+                z.BalanceFactor = - direction;
             }
         }
 
