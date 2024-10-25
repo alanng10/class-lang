@@ -73,8 +73,8 @@ class Tree : Any
         g = null;
         n = null;
 
-        long direction;
-        direction = 0;
+        long direct;
+        direct = 0;
 
         bool b;
         b = false;
@@ -89,33 +89,33 @@ class Tree : Any
             bb = (z == x.ChildRite);
             if (bb)
             {
-                direction = -this.DirectValue;
+                direct = -this.DirectValue;
             }
             if (!bb)
             {
-                direction = this.DirectValue;
+                direct = this.DirectValue;
             }
 
             bool bc;
-            bc = (this.Sign(x.Balance) == -direction);
+            bc = (this.Sign(x.Balance) == -direct);
             if (bc)
             {
                 g = x.Parent;
 
                 bool baa;
-                baa = (this.Sign(z.Balance) == direction);
+                baa = (this.Sign(z.Balance) == direct);
                 if (baa)
                 {
-                    n = this.RotateDouble(x, z, direction);
+                    n = this.RotateDouble(x, z, direct);
                 }
                 if (!baa)
                 {
-                    n = this.RotateSingle(x, z, direction);
+                    n = this.RotateSingle(x, z, direct);
                 }
             }
             if (!bc)
             {
-                if (this.Sign(x.Balance) == direction)
+                if (this.Sign(x.Balance) == direct)
                 {
                     x.Balance = 0;
 
@@ -124,7 +124,7 @@ class Tree : Any
 
                 if (!b)
                 {
-                    x.Balance = - direction;
+                    x.Balance = - direct;
 
                     z = x;
                     
