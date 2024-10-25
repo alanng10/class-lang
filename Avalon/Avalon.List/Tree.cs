@@ -194,11 +194,11 @@ class Tree : Any
                 if (direction == -DirectionValue)
                 {
 
-                    Z = X.ChildRite; // Sibling of N (higher by 2)
+                    Z = X.ChildRite;
                 }
                 else
                 {
-                    Z = X.ChildLite; // Sibling of N (higher by 2)
+                    Z = X.ChildLite;
                 }
 
                 b = Z.Balance;
