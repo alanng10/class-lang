@@ -294,26 +294,19 @@ class Tree : Any
     {
         this.RotateTreeSingle(X, Z, direction);
 
-        // 1st case, BF(Z) == 0,
-        //   only happens with deletion, not insertion:
         if (Z.Balance == 0)
-        { 
-            // t23 has been of same height as t4
-            
-            X.Balance = - direction;   // t23 now higher
+        {
+            X.Balance = - direction;
 
-            Z.Balance = direction;   // t4 now lower than X
+            Z.Balance = direction;
         }
         else
         { 
-            // 2nd case happens with insertion or deletion:
-            
             X.Balance = 0;
 
             Z.Balance = 0;
         }
-
-        return Z; // return new root of rotated subtree
+        return Z;
     }
 
     private TreeNode RotateDouble(TreeNode x, TreeNode z, long direction)
