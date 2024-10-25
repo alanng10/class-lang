@@ -209,12 +209,8 @@ class Tree : Any
                 }
                 else
                 {
-                    // Right Right Case (see figure 2)
-
-                    N = this.RotateSingle(X, Z, direction);     // Single rotation Left(X)
+                    N = this.RotateSingle(X, Z, direction);
                 }
-
-                // After rotation adapt parent link
             }
             else
             {
