@@ -173,6 +173,7 @@ class Tree : Any
         TreeNode x;
         TreeNode G;
         TreeNode Z;
+        x = null;
         Z = null;
         
         long direction;
