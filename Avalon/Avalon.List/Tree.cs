@@ -419,13 +419,11 @@ class Tree : Any
     {
         TreeNode t23;
 
-        // Z is by 2 higher than its sibling
-
-        t23 = z.ChildLite; // Inner child of Z
+        t23 = z.ChildLite;
 
         x.ChildRite = t23;
 
-        if (t23 != null)
+        if (!(t23 == null))
         {
             t23.Parent = x;
         }
