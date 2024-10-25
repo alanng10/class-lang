@@ -294,13 +294,15 @@ class Tree : Any
     {
         this.RotateTreeSingle(X, Z, direction);
 
-        if (Z.Balance == 0)
+        bool b;
+        b = (Z.Balance == 0);
+        if (b)
         {
             X.Balance = - direction;
 
             Z.Balance = direction;
         }
-        else
+        if (!b)
         { 
             X.Balance = 0;
 
