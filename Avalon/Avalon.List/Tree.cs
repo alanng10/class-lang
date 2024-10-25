@@ -25,7 +25,7 @@ class Tree : Any
         }
 
         TreeNode node;
-        node = this.TreeInsert(index, value);
+        node = this.TreeIns(index, value);
         if (node == null)
         {
             return false;
@@ -249,7 +249,7 @@ class Tree : Any
         return true;
     }
 
-    private TreeNode TreeInsert(object index, object value)
+    private TreeNode TreeIns(object index, object value)
     {
         TreeNodeResult k;
         k = this.Node(index);
