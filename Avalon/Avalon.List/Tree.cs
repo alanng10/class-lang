@@ -340,17 +340,17 @@ class Tree : Any
         return a;
     }
 
-    private TreeNode RotateSingle(TreeNode x, TreeNode z, long direction)
+    private TreeNode RotateSingle(TreeNode x, TreeNode z, long direct)
     {
-        this.RotateTreeSingle(x, z, direction);
+        this.RotateTreeSingle(x, z, direct);
 
         bool b;
         b = (z.Balance == 0);
         if (b)
         {
-            x.Balance = - direction;
+            x.Balance = - direct;
 
-            z.Balance = direction;
+            z.Balance = direct;
         }
         if (!b)
         { 
