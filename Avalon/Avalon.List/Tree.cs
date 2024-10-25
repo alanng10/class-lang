@@ -168,7 +168,7 @@ class Tree : Any
         return true;
     }
 
-    private bool RemoveRetrace(TreeNode N)
+    private bool RemoveRetrace(TreeNode n)
     {
         TreeNode X;
         TreeNode G;
@@ -182,7 +182,7 @@ class Tree : Any
         bool b;
         b = false;
 
-        X = N.Parent;
+        X = n.Parent;
         while (!b & !(X == null))
         {
             bool ba;
@@ -191,7 +191,7 @@ class Tree : Any
             G = X.Parent;
 
             bool bb;
-            bb = (N == X.ChildLite);
+            bb = (n == X.ChildLite);
             if (bb)
             {
                 direction = - this.DirectionValue;
@@ -223,11 +223,11 @@ class Tree : Any
                 bab = (this.Sign(bal) == direction);
                 if (bab)
                 {
-                    N = this.RotateDouble(X, Z, direction);
+                    n = this.RotateDouble(X, Z, direction);
                 }
                 if (!bab)
                 {
-                    N = this.RotateSingle(X, Z, direction);
+                    n = this.RotateSingle(X, Z, direction);
                 }
             }
             if (!bc)
@@ -241,9 +241,9 @@ class Tree : Any
 
                 if (!b)
                 {
-                    N = X;
+                    n = X;
 
-                    N.Balance = 0;
+                    n.Balance = 0;
 
                     X = G;
 
@@ -256,7 +256,7 @@ class Tree : Any
             {
                 if (!b)
                 {
-                    N.Parent = G;
+                    n.Parent = G;
 
                     bool bac;
                     bac = (G == null);
@@ -266,16 +266,16 @@ class Tree : Any
                         bak = (X == G.ChildLite);
                         if (bak)
                         {
-                            G.ChildLite = N;
+                            G.ChildLite = n;
                         }
                         if (!bak)
                         {
-                            G.ChildRite = N;
+                            G.ChildRite = n;
                         }
                     }
                     if (bac)
                     {
-                        this.Root = N;
+                        this.Root = n;
                     }
 
                     if (bal == 0)
