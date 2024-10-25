@@ -185,11 +185,9 @@ public class List : Any
             return null;
         }
 
-        object t;
-        t = node.Value;
-        object ret;
-        ret = t;
-        return ret;
+        object a;
+        a = node.Value;
+        return a;
     }
 
     public virtual bool Set(object index, object value)
