@@ -76,7 +76,7 @@ public class Table : List
         ListNode node;
         node = (ListNode)o;
 
-        this.Tree.Insert(entry.Index, node);
+        this.Tree.Ins(entry.Index, node);
 
         this.Count = this.List.Count;
 
@@ -118,7 +118,7 @@ public class Table : List
         ListNode oo;
         oo = (ListNode)o;
 
-        this.Tree.Insert(entry.Index, oo);
+        this.Tree.Ins(entry.Index, oo);
 
         this.Count = this.List.Count;
 

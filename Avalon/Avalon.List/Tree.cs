@@ -17,7 +17,7 @@ class Tree : Any
     private TreeNodeResult NodeResult { get; set; }
     private long DirectionValue { get; set; }
 
-    public virtual bool Insert(object index, object value)
+    public virtual bool Ins(object index, object value)
     {
         if (index == null)
         {
