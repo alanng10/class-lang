@@ -1,38 +1,38 @@
 class ArrayIter : Iter
 {
-    field pronate Array Array { get; set; }
-    field pronate Int IntIndex { get; set; }
-    field pronate Int CurrentIndex { get; set; }
+    field pronate Array Array { get { return data; } set { data : value; } }
+    field pronate Int IntIndex { get { return data; } set { data : value; } }
+    field pronate Int CurrentIndex { get { return data; } set { data : value; } }
 
-    public override bool Next()
+    maide prusate Bool Next()
     {
-        long k;
-        k = this.IntIndex;
+        var Int k;
+        k : this.IntIndex;
 
-        bool b;
-        b = this.Array.ValidAt(k);
+        var Bool b;
+        b : this.Array.Valid(k);
 
-        if (b)
+        inf (b)
         {
-            this.CurrentIndex = k;
-            this.IntIndex = k + 1;
+            this.CurrentIndex : k;
+            this.IntIndex : k + 1;
         }
         return b;
     }
 
-    public override object Index
+    field prusate Any Index
     {
         get
         {
-            long k;
-            k = this.CurrentIndex;
-            if (k < 0)
+            var Int k;
+            k : this.CurrentIndex;
+            inf (k = null)
             {
                 return null;
             }
 
-            object a;
-            a = k;
+            var Any a;
+            a : k;
             return a;
         }
         set
@@ -40,41 +40,30 @@ class ArrayIter : Iter
         }
     }
 
-    public override object Value
+    field prusate Any Value
     {
         get
         {
-            long k;
-            k = this.CurrentIndex;
+            var Int k;
+            k : this.CurrentIndex;
 
-            if (k < 0)
+            inf (k = null)
             {
                 return null;
             }
 
-            return this.Array.GetAt(k);
+            return this.Array.Get(k);
         }
         set
         {
         }
     }
 
-    public virtual long ArrayIndex
+    maide prusate Bool Clear()
     {
-        get
-        {
-            return this.CurrentIndex;
-        }
-        set
-        {
-        }
-    }
-
-    public override bool Clear()
-    {
-        this.Array = null;
-        this.IntIndex = 0;
-        this.CurrentIndex = -1;
+        this.Array : null;
+        this.IntIndex : 0;
+        this.CurrentIndex : null;
         return true;
     }
 }
