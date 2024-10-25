@@ -411,13 +411,13 @@ class Tree : Any
         return 0;
     }
 
-    private TreeNode RotateTreeDouble(TreeNode x, TreeNode z, long direction)
+    private TreeNode RotateTreeDouble(TreeNode x, TreeNode z, long direct)
     {
         TreeNode y;
         y = null;
 
         bool b;
-        b = (direction == -this.DirectValue);
+        b = (direct == -this.DirectValue);
 
         if (b)
         {
@@ -429,9 +429,9 @@ class Tree : Any
             y = z.ChildRite;
         }
 
-        this.RotateTreeSingle(z, y, -direction);
+        this.RotateTreeSingle(z, y, -direct);
 
-        this.RotateTreeSingle(x, y, direction);
+        this.RotateTreeSingle(x, y, direct);
 
         TreeNode a;
         a = y;
