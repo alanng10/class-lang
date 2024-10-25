@@ -1,6 +1,6 @@
 namespace Avalon.Text;
 
-public class WriteArg : Any
+public class FormatArg : Any
 {
     public override bool Init()
     {

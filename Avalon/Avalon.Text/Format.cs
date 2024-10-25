@@ -89,8 +89,8 @@ public class Format : Any
         i = 0;
         while (i < count)
         {
-            WriteArg arg;
-            arg = (WriteArg)argList.GetAt(i);
+            FormatArg arg;
+            arg = (FormatArg)argList.GetAt(i);
 
             this.ExecuteArgCount(arg);
 
@@ -161,8 +161,8 @@ public class Format : Any
 
             while ((!b) & (argIndex < argCount))
             {
-                WriteArg arg;
-                arg = (WriteArg)argList.GetAt(argIndex);
+                FormatArg arg;
+                arg = (FormatArg)argList.GetAt(argIndex);
 
                 long k;
                 k = arg.Pos;
@@ -209,7 +209,7 @@ public class Format : Any
         return true;
     }
 
-    public virtual bool ExecuteArgCount(WriteArg arg)
+    public virtual bool ExecuteArgCount(FormatArg arg)
     {
         if (!this.ValidArg(arg))
         {
@@ -262,7 +262,7 @@ public class Format : Any
         return true;
     }
 
-    public virtual bool ExecuteArgResult(WriteArg arg, Text result)
+    public virtual bool ExecuteArgResult(FormatArg arg, Text result)
     {
         if (!this.ValidArg(arg))
         {
@@ -528,7 +528,7 @@ public class Format : Any
         return a;
     }
 
-    public virtual bool ValidArg(WriteArg arg)
+    public virtual bool ValidArg(FormatArg arg)
     {
         long kind;
         kind = arg.Kind;

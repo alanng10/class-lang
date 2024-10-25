@@ -4,8 +4,8 @@ public class TextWriteCountState : WriteCountState
 {
     public override bool Execute()
     {
-        WriteArg arg;
-        arg = (WriteArg)this.Arg;
+        FormatArg arg;
+        arg = (FormatArg)this.Arg;
 
         Text text;
         text = (Text)arg.Value.Any;

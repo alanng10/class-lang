@@ -6,7 +6,7 @@ public class BoolWriteResultState : WriteResultState
     {
         WriteResultArg kke;
         kke = (WriteResultArg)this.Arg;
-        WriteArg arg;
+        FormatArg arg;
         arg = kke.Arg;
         Text result;
         result = kke.Result;

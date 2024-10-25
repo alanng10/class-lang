@@ -18,8 +18,8 @@ public class BoolWriteCountState : WriteCountState
         StringComp stringComp;
         stringComp = this.StringComp;
 
-        WriteArg arg;
-        arg = (WriteArg)this.Arg;
+        FormatArg arg;
+        arg = (FormatArg)this.Arg;
 
         Infra textInfra;
         textInfra = this.TextInfra;

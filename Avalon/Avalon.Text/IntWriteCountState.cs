@@ -13,8 +13,8 @@ public class IntWriteCountState : WriteCountState
 
     public override bool Execute()
     {
-        WriteArg arg;
-        arg = (WriteArg)this.Arg;
+        FormatArg arg;
+        arg = (FormatArg)this.Arg;
 
         long value;
         value = arg.Value.Int;
