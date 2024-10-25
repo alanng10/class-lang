@@ -177,7 +177,7 @@ class Tree : Any
         long bal;
 
         X = N.Parent;
-        for (; X != null; )
+        for (; !(X == null); )
         { 
             G = X.Parent;
 
