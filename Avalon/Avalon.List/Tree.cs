@@ -176,7 +176,8 @@ class Tree : Any
         long direction;
         long b;
 
-        for (X = N.Parent; X != null; X = G)
+        X = N.Parent;
+        for (; X != null; )
         { 
             G = X.Parent;
 
@@ -223,6 +224,8 @@ class Tree : Any
                 N = X;
 
                 N.Balance = 0;
+
+                X = G;
                 continue;
             }
             
