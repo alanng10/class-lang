@@ -323,7 +323,7 @@ class Tree : Any
 
         bool b;
         b = (y.BalanceFactor == 0);
-        
+
         if (b)
         {
             x.BalanceFactor = 0;
