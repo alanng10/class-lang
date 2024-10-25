@@ -251,9 +251,10 @@ class Tree : Any
 
     private TreeNode TreeInsert(object index, object value)
     {
-        TreeNodeResult t;
-        t = this.Node(index);
-        if (t.HasNode)
+        TreeNodeResult k;
+        k = this.Node(index);
+
+        if (k.HasNode)
         {
             return null;
         }
@@ -266,7 +267,7 @@ class Tree : Any
         node.Balance = 0;
 
         bool b;
-        b = (t.ParentNode == null);
+        b = (k.ParentNode == null);
 
         if (b)
         {
@@ -276,19 +277,19 @@ class Tree : Any
         if (!b)
         {
             bool ba;
-            ba = t.ParentLite;
+            ba = k.ParentLite;
 
             if (ba)
             {
-                t.ParentNode.ChildLite = node;
+                k.ParentNode.ChildLite = node;
             }
 
             if (!ba)
             {
-                t.ParentNode.ChildRite = node;
+                k.ParentNode.ChildRite = node;
             }
 
-            node.Parent = t.ParentNode;
+            node.Parent = k.ParentNode;
         }
 
         TreeNode a;
