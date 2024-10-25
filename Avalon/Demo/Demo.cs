@@ -23,8 +23,8 @@ class Demo : Any
     public virtual MathMath Math { get; set; }
     protected virtual MathComp MathComp { get; set; }
     private StringAdd StringAdd { get; set; }
-    private TextWrite TextWrite { get; set; }
-    private TextWriteArg TextWriteArg { get; set; }
+    private Format TextWrite { get; set; }
+    private FormatArg TextWriteArg { get; set; }
 
     public bool Execute()
     {
@@ -218,8 +218,8 @@ class Demo : Any
 
     private bool ExecuteFormat()
     {
-        TextWriteArg argA;
-        argA = new TextWriteArg();
+        FormatArg argA;
+        argA = new FormatArg();
         argA.Init();
         argA.Pos = 3;
         argA.Kind = 0;
@@ -229,8 +229,8 @@ class Demo : Any
         argA.FillChar = ' ';
         argA.Form = this.TextInfra.AlphaNiteForm;
 
-        TextWriteArg argB;
-        argB = new TextWriteArg();
+        FormatArg argB;
+        argB = new FormatArg();
         argB.Init();
         argB.Pos = 3;
         argB.Kind = 1;
@@ -241,8 +241,8 @@ class Demo : Any
         argB.Base = 10;
         argB.FillChar = ' ';
 
-        TextWriteArg argC;
-        argC = new TextWriteArg();
+        FormatArg argC;
+        argC = new FormatArg();
         argC.Init();
         argC.Pos = 6;
         argC.Kind = 1;
@@ -253,8 +253,8 @@ class Demo : Any
         argC.Base = 10;
         argC.FillChar = ' ';
 
-        TextWriteArg argD;
-        argD = new TextWriteArg();
+        FormatArg argD;
+        argD = new FormatArg();
         argD.Init();
         argD.Pos = 7;
         argD.Kind = 1;
@@ -266,8 +266,8 @@ class Demo : Any
         argD.FillChar = ' ';
         argD.Form = this.TextInfra.AlphaNiteForm;
 
-        TextWriteArg argDA;
-        argDA = new TextWriteArg();
+        FormatArg argDA;
+        argDA = new FormatArg();
         argDA.Init();
         argDA.Pos = 7;
         argDA.Kind = 1;
@@ -277,8 +277,8 @@ class Demo : Any
         argDA.MaxWidth = -1;
         argDA.Base = 10;
 
-        TextWriteArg argDB;
-        argDB = new TextWriteArg();
+        FormatArg argDB;
+        argDB = new FormatArg();
         argDB.Init();
         argDB.Pos = 8;
         argDB.Kind = 1;
@@ -289,8 +289,8 @@ class Demo : Any
         argDB.Base = 10;
         argDB.FillChar = ':';
 
-        TextWriteArg argE;
-        argE = new TextWriteArg();
+        FormatArg argE;
+        argE = new FormatArg();
         argE.Init();
         argE.Pos = 10;
         argE.Kind = 2;
@@ -301,8 +301,8 @@ class Demo : Any
         argE.FillChar = '=';
         argE.Form = this.TextInfra.AlphaNiteForm;
 
-        TextWriteArg argF;
-        argF = new TextWriteArg();
+        FormatArg argF;
+        argF = new FormatArg();
         argF.Init();
         argF.Pos = 10;
         argF.Kind = 2;
@@ -326,8 +326,8 @@ class Demo : Any
         Text varBase;
         varBase = this.TextInfra.TextCreateStringData(this.S("G H , j h\n\n"), null);
 
-        TextWrite write;
-        write = new TextWrite();
+        Format write;
+        write = new Format();
         write.Init();
 
         long count;
@@ -390,14 +390,14 @@ class Demo : Any
 
     private bool ExecuteTime()
     {
-        TextWrite write;
-        write = new TextWrite();
+        Format write;
+        write = new Format();
         write.Init();
 
         this.TextWrite = write;
 
-        TextWriteArg arg;
-        arg = new TextWriteArg();
+        FormatArg arg;
+        arg = new FormatArg();
         arg.Init();
         arg.Kind = 1;
         arg.Base = 10;
