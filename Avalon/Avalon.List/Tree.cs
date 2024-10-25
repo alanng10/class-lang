@@ -219,11 +219,13 @@ class Tree : Any
 
                 bal = Z.Balance;
 
-                if (this.Sign(bal) == direction)
+                bool bab;
+                bab = (this.Sign(bal) == direction);
+                if (bab)
                 {
                     N = this.RotateDouble(X, Z, direction);
                 }
-                else
+                if (!bab)
                 {
                     N = this.RotateSingle(X, Z, direction);
                 }
