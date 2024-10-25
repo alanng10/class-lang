@@ -275,12 +275,15 @@ class Tree : Any
 
         if (!b)
         {
-            if (t.ParentLite)
+            bool ba;
+            ba = t.ParentLite;
+
+            if (ba)
             {
                 t.ParentNode.ChildLite = node;
             }
 
-            if (! t.ParentLite)
+            if (!ba)
             {
                 t.ParentNode.ChildRite = node;
             }
