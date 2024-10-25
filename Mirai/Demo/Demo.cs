@@ -358,22 +358,6 @@ class Demo : Any
         return true;
     }
 
-    internal bool ExecuteDemoThisThread()
-    {
-        ThreadThis varThis;
-        varThis = new ThreadThis();
-        varThis.Init();
-
-        ThreadThread thread;
-        thread = varThis.Thread;
-
-        bool isMainThread;
-        isMainThread = thread.Main;
-
-        this.Console.Out.Write(this.S("This Thread is Main Thread: " + isMainThread.ToString() + "\n"));
-        return true;
-    }
-
     private DrawBrush EllipseBrushCreate()
     {
         DrawBrush a;
