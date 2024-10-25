@@ -13,8 +13,8 @@ public class IntWriteResultState : FormatResultState
 
     public override bool Execute()
     {
-        WriteResultArg kke;
-        kke = (WriteResultArg)this.Arg;
+        FormatResultArg kke;
+        kke = (FormatResultArg)this.Arg;
         FormatArg arg;
         arg = kke.Arg;
         Text result;

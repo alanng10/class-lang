@@ -282,8 +282,8 @@ public class Format : Any
         FormatResultState state;
         state = (FormatResultState)this.ResultState.GetAt(kind);
 
-        WriteResultArg ke;
-        ke = (WriteResultArg)state.Arg;
+        FormatResultArg ke;
+        ke = (FormatResultArg)state.Arg;
         ke.Arg = arg;
         ke.Result = result;
         state.Execute();

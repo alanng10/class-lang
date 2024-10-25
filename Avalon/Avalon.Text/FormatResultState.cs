@@ -5,8 +5,8 @@ public class FormatResultState : State
     public override bool Init()
     {
         base.Init();
-        WriteResultArg k;
-        k = new WriteResultArg();
+        FormatResultArg k;
+        k = new FormatResultArg();
         k.Init();
         this.Arg = k;
         return true;
