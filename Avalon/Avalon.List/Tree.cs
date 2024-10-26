@@ -173,9 +173,6 @@ class Tree : Any
         x = n.Parent;
         while (!b & !(x == null))
         {
-            bool ba;
-            ba = false;
-
             long direct;
             direct = 0;
 
@@ -223,6 +220,33 @@ class Tree : Any
                 {
                     n = this.RotateSingle(x, z, direct);
                 }
+
+                n.Parent = g;
+
+                bool bac;
+                bac = (g == null);
+                if (!bac)
+                {
+                    bool bak;
+                    bak = (x == g.ChildLite);
+                    if (bak)
+                    {
+                        g.ChildLite = n;
+                    }
+                    if (!bak)
+                    {
+                        g.ChildRite = n;
+                    }
+                }
+                if (bac)
+                {
+                    this.Root = n;
+                }
+
+                if (bal == 0)
+                {
+                    b = true;
+                }
             }
             if (!bc)
             {
@@ -242,42 +266,6 @@ class Tree : Any
                     n.Balance = 0;
 
                     x = g;
-
-                    ba = true;
-                }
-
-            }
-            
-            if (!ba)
-            {
-                if (!b)
-                {
-                    n.Parent = g;
-
-                    bool bac;
-                    bac = (g == null);
-                    if (!bac)
-                    {
-                        bool bak;
-                        bak = (x == g.ChildLite);
-                        if (bak)
-                        {
-                            g.ChildLite = n;
-                        }
-                        if (!bak)
-                        {
-                            g.ChildRite = n;
-                        }
-                    }
-                    if (bac)
-                    {
-                        this.Root = n;
-                    }
-
-                    if (bal == 0)
-                    {
-                        b = true;
-                    }
                 }
             }
         }
