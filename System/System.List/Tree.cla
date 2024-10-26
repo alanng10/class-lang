@@ -414,20 +414,20 @@ class Tree : Any
 
         inf (b)
         {
-            y = z.ChildLite;
+            y : z.ChildLite;
         }
 
-        if (! b)
+        inf (~b)
         {
-            y = z.ChildRite;
+            y : z.ChildRite;
         }
 
-        this.RotateTreeSingle(z, y, -direct);
+        this.RotateTreeSingle(z, y, 0 - direct);
 
         this.RotateTreeSingle(x, y, direct);
 
-        TreeNode a;
-        a = y;
+        var TreeNode a;
+        a : y;
         return a;
     }
 }
