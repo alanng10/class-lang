@@ -207,7 +207,7 @@ class Tree : Any
 
                     z : x.ChildRite;
                 }
-                inf (!baa)
+                inf (~baa)
                 {
                     z : x.ChildLite;
                 }
