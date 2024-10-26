@@ -649,14 +649,14 @@ class Tree : Any
 
         long t;
 
-        object o;
-
         TreeNode currentNode;
 
         currentNode = this.Root;
 
         while (!b & !(currentNode == null))
         {
+            object o;
+
             o = currentNode.Index;
 
             t = less.Execute(index, o);
