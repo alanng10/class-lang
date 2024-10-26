@@ -101,9 +101,9 @@ class Table : List
             return null;
         }
         
-        ListNode u;
-        u = this.ListNode(entry.Index);
-        if (!(u == null))
+        var ListNode u;
+        u : this.ListNode(entry.Index);
+        inf (~(u = null))
         {
             return null;
         }
