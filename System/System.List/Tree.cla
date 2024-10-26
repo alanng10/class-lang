@@ -225,26 +225,26 @@ class Tree : Any
                     n : this.RotateSingle(x, z, direct);
                 }
             }
-            if (!bc)
+            inf (~bc)
             {
-                bool bam;
-                bam = (x.Balance == 0);
-                if (bam)
+                var Bool bam;
+                bam : (x.Balance = 0);
+                inf (bam)
                 {
-                    x.Balance = - direct;
+                    x.Balance : 0 - direct;
 
-                    b = true;
+                    b : true;
                 }
 
-                if (!bam)
+                if (~bam)
                 {
-                    n = x;
+                    n : x;
 
-                    n.Balance = 0;
+                    n.Balance : 0;
 
-                    x = g;
+                    x : g;
 
-                    ba = true;
+                    ba : true;
                 }
 
             }
