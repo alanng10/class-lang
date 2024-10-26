@@ -10,5 +10,9 @@ class Table : List
         return true;
     }
 
-    
+    field prusate Less Less { get { return data; } set { data : value; } }
+    field prusate Any Start { get { } set { } }
+    field prusate Any End { get { } set { } }
+    field private Tree Tree { get { return data; } set { data : value; } }
+    field private List List { get { return data; } set { data : value; } }
 }
