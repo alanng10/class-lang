@@ -457,7 +457,7 @@ class Tree : Any
 
         x.ChildRite : t23;
 
-        inf (!(t23 = null))
+        inf (~(t23 = null))
         {
             t23.Parent : x;
         }
@@ -465,6 +465,25 @@ class Tree : Any
         z.ChildLite : x;
 
         x.Parent : z;
+        return true;
+    }
+
+    maide private bool RotateTreeRite(var TreeNode x, var TreeNode z)
+    {
+        var TreeNode t23;
+
+        t23 : z.ChildRite;
+
+        x.ChildLite : t23;
+
+        inf (!(t23 == null))
+        {
+            t23.Parent = x;
+        }
+        
+        z.ChildRite = x;
+
+        x.Parent = z;
         return true;
     }
 }
