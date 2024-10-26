@@ -285,4 +285,52 @@ class Tree : Any
 
         return true;
     }
+
+    maide private TreeNode TreeIns(var Any index, var Any value)
+    {
+        var TreeNodeResult k;
+        k : this.Node(index);
+
+        inf (k.HasNode)
+        {
+            return null;
+        }
+
+        var TreeNode node;
+        node : new TreeNode;
+        node.Init();
+        node.Index : index;
+        node.Value : value;
+        node.Balance : 0;
+
+        var Bool b;
+        b : (k.ParentNode = null);
+
+        inf (b)
+        {
+            this.Root : node;
+        }
+
+        if (!b)
+        {
+            bool ba;
+            ba = k.ParentLite;
+
+            if (ba)
+            {
+                k.ParentNode.ChildLite = node;
+            }
+
+            if (!ba)
+            {
+                k.ParentNode.ChildRite = node;
+            }
+
+            node.Parent = k.ParentNode;
+        }
+
+        TreeNode a;
+        a = node;
+        return a;
+    }
 }
