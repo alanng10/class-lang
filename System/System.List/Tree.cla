@@ -540,7 +540,7 @@ class Tree : Any
             u.Parent.ChildRite : v;
         }
 
-        inf (!(v = null))
+        inf (~(v = null))
         {
             v.Parent : u.Parent;
         }
