@@ -40,7 +40,13 @@ class TableIter : Iter
     maide private Entry Entry()
     {
         var Entry a;
-        a = cast Entry(this.ListIter.Value);
+        a : cast Entry(this.ListIter.Value);
         return a;
+    }
+
+    maide prusate Bool Clear()
+    {
+        this.ListIter.Clear();
+        return true;
     }
 }
