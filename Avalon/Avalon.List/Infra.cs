@@ -55,9 +55,9 @@ public class Infra : Any
         i = 0;
         while (i < count)
         {
-            object o;
-            o = source.GetAt(sourceIndex + i);
-            dest.SetAt(destIndex + i, o);
+            object k;
+            k = source.GetAt(sourceIndex + i);
+            dest.SetAt(destIndex + i, k);
 
             i = i + 1;
         }
