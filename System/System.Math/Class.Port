@@ -1,0 +1,21 @@
+[Module]
+System.Math
+
+[Import]
+System.Infra
+    Any Any
+    Bool Bool
+    Int Int
+    Intern Intern
+    Extern Extern
+    InfraInfra Infra
+
+[Export]
+Math
+Comp
+Rand
+Infra
+
+[Storage]
+
+[Entry]
