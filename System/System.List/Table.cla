@@ -41,7 +41,7 @@ class Table : List
             return false;
         }
 
-        Entry entry;
+        var Entry entry;
         entry : cast Entry(node.Value);
         entry.Value : value;
         return true;
