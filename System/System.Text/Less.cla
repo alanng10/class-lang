@@ -8,8 +8,8 @@ class Less : InfraLess
     }
 
     field prusate IntLess CharLess { get { return data; } set { data : value; } }
-    field prusate CharForm LeftCharForm { get { return data; } set { data : value; } }
-    field prusate CharForm RightCharForm { get { return data; } set { data : value; } }
+    field prusate Form LeftCharForm { get { return data; } set { data : value; } }
+    field prusate Form RightCharForm { get { return data; } set { data : value; } }
     field precate Infra TextInfra { get { return data; } set { data : value; } }
 
     maide prusate Int Execute(var Any left, var Any right)
@@ -54,8 +54,8 @@ class Less : InfraLess
         var IntLess charLess;
         charLess : this.CharLess;
 
-        var CharForm leftCharForm;
-        var CharForm rightCharForm;
+        var Form leftCharForm;
+        var Form rightCharForm;
         leftCharForm : this.LeftCharForm;
         rightCharForm : this.RightCharForm;
 
