@@ -511,4 +511,40 @@ class Tree : Any
 
         return true;
     }
+
+    maide private bool SubtreeShift(var TreeNode u, var TreeNode v)
+    {
+        var Bool b;
+        b : false;
+        
+        inf (~b)
+        {
+            inf (u.Parent = null)
+            {
+                this.Root : v;
+
+                b : true;
+            }
+        }
+        inf (~b)
+        {
+            inf (u = u.Parent.ChildLite)
+            {
+                u.Parent.ChildLite : v;
+            
+                b : true;
+            }
+        }
+        inf (~b)
+        {
+            u.Parent.ChildRite : v;
+        }
+
+        inf (!(v = null))
+        {
+            v.Parent : u.Parent;
+        }
+
+        return true;
+    }
 }
