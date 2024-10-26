@@ -595,11 +595,22 @@ class Tree : Any
 
         y = x.Parent;
 
-        while ((!(y == null)) && x == y.ChildRite)
-        {
-            x = y;
+        bool b;
+        b = false;
 
-            y = y.Parent;
+        while (!b & !(y == null))
+        {
+            if (!(x == y.ChildRite))
+            {
+                b = true;
+            }
+
+            if (!b)
+            {
+                x = y;
+
+                y = y.Parent;
+            }
         }
 
         return y;
