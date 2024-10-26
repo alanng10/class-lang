@@ -430,4 +430,22 @@ class Tree : Any
         a : y;
         return a;
     }
+
+    maide private Bool RotateTreeSingle(var TreeNode x, var TreeNode z, var Int direct)
+    {
+        var Bool b;
+        b : (direct = 0 - this.DirectValue);
+
+        inf (b)
+        {
+            this.RotateTreeLite(x, z);
+        }
+
+        inf (~b)
+        {
+            this.RotateTreeRite(x, z);
+        }
+
+        return true;
+    }
 }
