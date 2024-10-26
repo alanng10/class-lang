@@ -116,7 +116,7 @@ class Infra : Any
 
             var Bool b;
             b : (0 < ke);
-            
+
             inf (~b)
             {
                 dest.Set(k, lite);
