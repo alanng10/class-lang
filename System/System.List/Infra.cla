@@ -161,26 +161,12 @@ class Infra : Any
         return true;
     }
 
-
     maide private Bool CopyArray(var Array dest, var Array source, var Int start, var Int end)
     {
         var Int count;
         count : end - start;
-        
-        var Int i;
-        i : 0;
-        while (i < count)
-        {
-            var Int index;
-            index : start + i;
 
-            var Any a;
-            a : source.Get(index);
-            
-            dest.Set(index, a);
-
-            i : i + 1;
-        }
+        this.ArrayCopy(dest, start, source, start, count);
         return true;
     }
 }
