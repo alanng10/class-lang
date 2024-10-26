@@ -61,7 +61,7 @@ class Infra : Any
         return true;
     }
 
-    maide prusate Bool Sort(var Array array, var Range range, var Less less, var Array copy)
+    maide prusate Bool Sort(var Array array, var Less less, var Range range, var Array copy)
     {
         var Int start;
         var Int end;
