@@ -176,4 +176,25 @@ class Table : List
         this.List.IterSet(a.ListIter);
         return true;
     }
+
+    maide private ListNode ListNode(var Any index)
+    {
+        inf (index = null)
+        {
+            return null;
+        }
+
+        var TreeNodeResult k;
+        k : this.Tree.Node(index);
+        inf (~k.HasNode)
+        {
+            return null;
+        }
+
+        var ListNode listNode;
+        listNode : cast ListNode(k.Node.Value);
+        var ListNode a;
+        a : listNode;
+        return a;
+    }
 }
