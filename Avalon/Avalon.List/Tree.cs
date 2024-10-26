@@ -647,8 +647,6 @@ class Tree : Any
         bool b;
         b = false;
 
-        long t;
-
         TreeNode currentNode;
 
         currentNode = this.Root;
@@ -659,16 +657,18 @@ class Tree : Any
 
             o = currentNode.Index;
 
-            t = less.Execute(index, o);
+            long k;
 
-            if (t == 0)
+            k = less.Execute(index, o);
+
+            if (k == 0)
             {
                 node = currentNode;
 
                 b = true;
             }
 
-            if (t < 0)
+            if (k < 0)
             {
                 parentNode = currentNode;
 
@@ -677,7 +677,7 @@ class Tree : Any
                 currentNode = currentNode.ChildLite;
             }
 
-            if (0 < t)
+            if (0 < k)
             {
                 parentNode = currentNode;
 
