@@ -31,4 +31,19 @@ class Table : List
         a : entry.Value;
         return a;
     }
+
+    maide prusate Bool Set(var Any index, var Any value)
+    {
+        var ListNode node;
+        node : this.ListNode(index);
+        inf (node = null)
+        {
+            return false;
+        }
+
+        Entry entry;
+        entry : cast Entry(node.Value);
+        entry.Value : value;
+        return true;
+    }
 }
