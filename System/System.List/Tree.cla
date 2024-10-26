@@ -512,7 +512,7 @@ class Tree : Any
         return true;
     }
 
-    maide private bool SubtreeShift(var TreeNode u, var TreeNode v)
+    maide private Bool SubtreeShift(var TreeNode u, var TreeNode v)
     {
         var Bool b;
         b : false;
