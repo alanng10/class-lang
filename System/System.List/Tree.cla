@@ -236,7 +236,7 @@ class Tree : Any
                     b : true;
                 }
 
-                if (~bam)
+                inf (~bam)
                 {
                     n : x;
 
