@@ -84,7 +84,7 @@ public class Table : List
 
     public override object Ins(object index, object item)
     {
-        ListNode node;        
+        ListNode node;
         node = this.ListNode(index);
         if (node == null)
         {
