@@ -168,11 +168,11 @@ public class Table : List
 
     public override Iter IterCreate()
     {
-        TableIter aa;
-        aa = new TableIter();
-        aa.Init();
+        TableIter k;
+        k = new TableIter();
+        k.Init();
         Iter a;
-        a = aa;
+        a = k;
         return a;
     }
 
