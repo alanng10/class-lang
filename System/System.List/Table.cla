@@ -73,10 +73,10 @@ class Table : List
 
         this.Tree.Ins(entry.Index, k);
 
-        this.Count = this.List.Count;
+        this.Count : this.List.Count;
 
-        object a;
-        a = entry.Index;
+        var Any a;
+        a : entry.Index;
         return a;
     }
 }
