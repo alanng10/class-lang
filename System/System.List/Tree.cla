@@ -404,4 +404,30 @@ class Tree : Any
 
         return 0;
     }
+
+    maide private TreeNode RotateTreeDouble(var TreeNode x, var TreeNode z, var Int direct)
+    {
+        var TreeNode y;
+
+        var Bool b;
+        b : (direct = 0 - this.DirectValue);
+
+        inf (b)
+        {
+            y = z.ChildLite;
+        }
+
+        if (! b)
+        {
+            y = z.ChildRite;
+        }
+
+        this.RotateTreeSingle(z, y, -direct);
+
+        this.RotateTreeSingle(x, y, direct);
+
+        TreeNode a;
+        a = y;
+        return a;
+    }
 }
