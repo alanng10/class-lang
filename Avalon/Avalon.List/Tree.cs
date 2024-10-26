@@ -500,21 +500,36 @@ class Tree : Any
 
     private bool TreeRem(TreeNode z)
     {
-        if (z.ChildLite == null)
+        bool b;
+        b = false;
+
+        if (!b)
         {
-            this.SubtreeShift(z, z.ChildRite);
+            if (z.ChildLite == null)
+            {
+                this.SubtreeShift(z, z.ChildRite);
+
+                b = true;
+            }
         }
-        else if (z.ChildRite == null)
+        
+        if (!b)
         {
-            this.SubtreeShift(z, z.ChildLite);
+            if (z.ChildRite == null)
+            {
+                this.SubtreeShift(z, z.ChildLite);
+
+                b = true;
+            }
         }
-        else
+        
+        if (!b)
         {
             TreeNode y;
 
             y = this.Successor(z);
 
-            if (y.Parent != z)
+            if (!(y.Parent == z))
             {
                 this.SubtreeShift(y, y.ChildRite);
 
