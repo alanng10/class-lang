@@ -211,16 +211,9 @@ public class Table : List
         {
             return null;
         }
-        
-        bool b;
-        b = item is Entry;
-        if (!b)
-        {
-            return null;
-        }
 
         Entry entry;
-        entry = (Entry)item;
+        entry = item as Entry;
 
         Entry a;
         a = entry;
