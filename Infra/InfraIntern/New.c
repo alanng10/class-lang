@@ -128,7 +128,7 @@ Bool Intern_New_AutoDelete()
 
     Intern_New_Traverse();
 
-    Intern_New_DeleteUnused();
+    m->TotalAllocCount = Intern_New_DeleteUnused();
 
     Int capCount;
     capCount = 2 * (m->TotalAllocCount);
@@ -311,7 +311,7 @@ Bool Intern_New_Traverse()
     return true;
 }
 
-Bool Intern_New_DeleteUnused()
+Int Intern_New_DeleteUnused()
 {
     InternNewData* m;
     m = CastPointer(NewData);
@@ -373,9 +373,7 @@ Bool Intern_New_DeleteUnused()
         node = nextNode;
     }
 
-    m->TotalAllocCount = totalDataCount;
-
-    return true;
+    return totalDataCount;
 }
 
 Bool Intern_New_QueueAllRoot()

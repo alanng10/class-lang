@@ -77,7 +77,7 @@ flagU = 0;\
 
 Bool Intern_New_AutoDelete();
 
-Bool Intern_New_DeleteUnused();
+Int Intern_New_DeleteUnused();
 
 Bool Intern_New_PauseOtherThread(Int thisThreadIdent);
 
