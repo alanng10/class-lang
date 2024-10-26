@@ -50,6 +50,17 @@ class Infra : Any
         return true;
     }
 
+    maide prusate Bool TableAdd(var Table table, var Any index, var Any value)
+    {
+        var Entry entry;
+        entry : new Entry;
+        entry.Init();
+        entry.Index : index;
+        entry.Value : value;
+        table.Add(entry);
+        return true;
+    }
+
     maide prusate Bool Sort(var Array array, var Range range, var Less less, var Array copy)
     {
         var Int start;
