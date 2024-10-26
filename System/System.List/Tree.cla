@@ -83,7 +83,7 @@ class Tree : Any
             bb : (z = x.ChildRite);
             inf (bb)
             {
-                direct : sign*(0sn1, this.DirectValue);
+                direct : 0 - this.DirectValue;
             }
             inf (~bb)
             {
@@ -91,7 +91,7 @@ class Tree : Any
             }
 
             var Bool bc;
-            bc : (this.Sign(x.Balance) = sign*(0sn1, direct));
+            bc : (this.Sign(x.Balance) = 0 - direct);
             inf (bc)
             {
                 g : x.Parent;
@@ -119,7 +119,7 @@ class Tree : Any
                 }
                 inf (~bak)
                 {
-                    x.Balance : sign*(0sn1, direct);
+                    x.Balance : 0 - direct;
 
                     z : x;
                     
