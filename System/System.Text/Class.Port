@@ -11,7 +11,7 @@ System.Infra
     Data Data
     StringData StringData
     StringComp StringComp
-    Less Less
+    InfraLess Less
     IntLess IntLess
     State State
     Intern Intern
@@ -22,7 +22,6 @@ System.List
 
 [Export]
 Text
-Less
 StringLess
 Form
 Code
