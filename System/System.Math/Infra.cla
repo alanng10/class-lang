@@ -8,4 +8,14 @@ class Infra : Any
     }
 
     field precate Math MathMath { get { return data; } set { data : value; } }
+
+    maide prusate Int Int(var Comp comp, var Int value)
+    {
+        comp.Cand : value;
+        comp.Expo : 0;
+
+        var Int a;
+        a : this.MathMath.Value(comp);
+        return a;
+    }
 }
