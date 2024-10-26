@@ -579,4 +579,18 @@ class Tree : Any
 
         return y;
     }
+
+    maide private TreeNode Minimum(var TreeNode x)
+    {
+        var TreeNode k;
+
+        k : x;
+
+        while (~(k.ChildLite = null))
+        {
+            k : k.ChildLite;
+        }
+
+        return k;
+    }
 }
