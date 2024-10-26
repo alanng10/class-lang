@@ -182,31 +182,31 @@ class Infra : Any
 
     maide private Int BinaryFind(var Array array, var Any any, var Less less, var Int start, var Int end)
     {
-        long count;
-        count = end - start;
-        if (count < 1)
+        var Int count;
+        count : end - start;
+        inf (count < 1)
         {
-            return -1;
+            return null;
         }
 
-        if (count == 1)
+        inf (count = 1)
         {
-            object ka;
-            ka = array.GetAt(start);
+            var Any ka;
+            ka : array.Get(start);
 
-            long kea;
-            kea = less.Execute(any, ka);
+            var Int kea;
+            kea : less.Execute(any, ka);
 
-            bool baa;
-            baa = (kea == 0);
+            var Bool baa;
+            baa : (kea = 0);
 
-            if (baa)
+            inf (baa)
             {
                 return start;
             }
-            if (!baa)
+            inf (~baa)
             {
-                return -1;
+                return null;
             }
         }
 
