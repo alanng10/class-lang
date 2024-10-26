@@ -476,14 +476,14 @@ class Tree : Any
 
         x.ChildLite : t23;
 
-        inf (!(t23 == null))
+        inf (~(t23 = null))
         {
-            t23.Parent = x;
+            t23.Parent : x;
         }
         
-        z.ChildRite = x;
+        z.ChildRite : x;
 
-        x.Parent = z;
+        x.Parent : z;
         return true;
     }
 }
