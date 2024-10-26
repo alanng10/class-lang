@@ -79,4 +79,46 @@ class Table : List
         a : entry.Index;
         return a;
     }
+
+    maide prusate Any Ins(var Any index, var Any item)
+    {
+        ListNode node;
+        node = this.ListNode(index);
+        if (node == null)
+        {
+            return null;
+        }
+
+        Entry entry;
+        entry = this.Entry(item);
+        if (entry == null)
+        {
+            return null;
+        }
+
+        if (entry.Index == null)
+        {
+            return null;
+        }
+        
+        ListNode u;
+        u = this.ListNode(entry.Index);
+        if (!(u == null))
+        {
+            return null;
+        }
+
+        object o;
+        o = this.List.Ins(node, entry);
+        ListNode oo;
+        oo = (ListNode)o;
+
+        this.Tree.Ins(entry.Index, oo);
+
+        this.Count = this.List.Count;
+
+        object a;
+        a = entry.Index;
+        return a;
+    }
 }
