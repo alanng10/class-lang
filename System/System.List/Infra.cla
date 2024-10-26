@@ -106,27 +106,27 @@ class Infra : Any
 
         while (i < mid & j < end)
         {
-            var Any left;
-            var Any right;
-            left : source.Get(i);
-            right : source.Get(j);
+            var Any lite;
+            var Any rite;
+            lite : source.Get(i);
+            rite : source.Get(j);
 
             var Int ke;
-            ke : less.Execute(left, right);
+            ke : less.Execute(lite, rite);
 
             var Bool b;
             b : (0 < ke);
             
             inf (~b)
             {
-                dest.Set(k, left);
+                dest.Set(k, lite);
 
                 i : i + 1;
             }
 
             inf (b)
             {
-                dest.Set(k, right);
+                dest.Set(k, rite);
 
                 j : j + 1;
             }
