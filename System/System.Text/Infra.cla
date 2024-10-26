@@ -5,7 +5,7 @@ class Infra : Any
         base.Init();
         this.InfraInfra : share InfraInfra;
         this.StringComp : share StringComp;
-        this.Code : share Code;
+        this.TextCode : share Code;
 
         this.NewLine : "\n";
         this.PathCombine : "/";     
@@ -23,7 +23,7 @@ class Infra : Any
     field prusate String BoolTrueString { get { return data; } set { data : value; } }
     field precate InfraInfra InfraInfra { get { return data; } set { data : value; } }
     field precate StringComp StringComp { get { return data; } set { data : value; } }
-    field precate Code Code { get { return data; } set { data : value; } }
+    field precate Code TextCode { get { return data; } set { data : value; } }
 
     maide prusate Bool Digit(var Int o)
     {
@@ -544,7 +544,7 @@ class Infra : Any
     maide prusate Data Code(var CodeKind innKind, var CodeKind outKind, var Data data, var Range range)
     {
         var Code code;
-        code : this.Code;
+        code : this.TextCode;
 
         inf (~code.ValidKind(innKind, outKind))
         {
