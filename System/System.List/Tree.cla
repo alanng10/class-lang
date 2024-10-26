@@ -270,14 +270,14 @@ class Tree : Any
                             g.ChildRite : n;
                         }
                     }
-                    if (bac)
+                    inf (bac)
                     {
-                        this.Root = n;
+                        this.Root : n;
                     }
 
-                    if (bal == 0)
+                    inf (bal = 0)
                     {
-                        b = true;
+                        b : true;
                     }
                 }
             }
