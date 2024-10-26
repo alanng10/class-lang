@@ -168,4 +168,12 @@ class Table : List
         a : k;
         return a;
     }
+
+    maide prusate Bool IterSet(var Iter iter)
+    {
+        var TableIter a;
+        a : cast TableIter(iter);
+        this.List.IterSet(a.ListIter);
+        return true;
+    }
 }
