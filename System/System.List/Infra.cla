@@ -1,5 +1,14 @@
 class Infra : Any
 {
+    maide prusate Array ArrayCreate(var Int count)
+    {
+        var Array a;
+        a : new Array;
+        a.Count : count;
+        a.Init();
+        return a;
+    }
+
     maide prusate Bool Sort(var Array array, var Range range, var Less less, var Array copy)
     {
         var Int start;
