@@ -36,4 +36,13 @@ class Rand : Any
             this.Extern.Rand_SeedSet(this.Intern, u);
         }
     }
+
+    maide prusate Int Execute()
+    {
+        var Int u;
+        u : this.Extern.Rand_Execute(this.Intern);
+        var Int a;
+        a : u;
+        return a;
+    }
 }
