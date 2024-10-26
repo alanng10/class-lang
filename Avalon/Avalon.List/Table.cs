@@ -110,12 +110,10 @@ public class Table : List
             return null;
         }
 
-        object o;
-        o = this.List.Ins(node, entry);
-        ListNode oo;
-        oo = (ListNode)o;
+        object k;
+        k = this.List.Ins(node, entry);
 
-        this.Tree.Ins(entry.Index, oo);
+        this.Tree.Ins(entry.Index, k);
 
         this.Count = this.List.Count;
 
