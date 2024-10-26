@@ -1,0 +1,26 @@
+[Module]
+System.Text
+
+[Import]
+System.Infra
+    Any Any
+    Bool Bool
+    Int Int
+    String String
+    Intern Intern
+    Extern Extern
+    InfraInfra Infra
+
+[Export]
+Text
+Less
+StringLess
+Form
+Code
+CodeKind
+CodeKindList
+Infra
+
+[Storage]
+
+[Entry]
