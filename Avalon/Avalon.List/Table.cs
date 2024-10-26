@@ -30,9 +30,9 @@ public class Table : List
 
         Entry entry;
         entry = (Entry)node.Value;
-        object ret;
-        ret = entry.Value;
-        return ret;
+        object a;
+        a = entry.Value;
+        return a;
     }
 
     public override bool Set(object index, object value)
