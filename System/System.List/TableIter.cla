@@ -7,4 +7,6 @@ class TableIter : Iter
         this.ListIter.Init();
         return true;
     }
+
+    field pronate Iter ListIter { get { return data; } set { data : value; } }
 }
