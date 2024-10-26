@@ -35,6 +35,21 @@ class Infra : Any
         return array;
     }
 
+    maide prusate Bool ArrayCopy(var Array dest, var Int destIndex, var Array source, var Int sourceIndex, var Int count)
+    {
+        var Int i;
+        i : 0;
+        while (i < count)
+        {
+            var Any k;
+            k : source.Get(sourceIndex + i);
+            dest.Set(destIndex + i, k);
+
+            i : i + 1;
+        }
+        return true;
+    }
+
     maide prusate Bool Sort(var Array array, var Range range, var Less less, var Array copy)
     {
         var Int start;
