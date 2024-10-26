@@ -428,7 +428,7 @@ class Tree : Any
             y = z.ChildLite;
         }
 
-        if (! b)
+        if (!b)
         {
             y = z.ChildRite;
         }
