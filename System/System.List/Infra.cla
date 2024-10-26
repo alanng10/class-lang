@@ -210,25 +210,24 @@ class Infra : Any
             }
         }
 
-        long mid;
-        mid = (start + end) / 2;
+        var Int mid;
+        mid : (start + end) / 2;
 
-        object k;
-        k = array.GetAt(mid);
+        var Any k;
+        k : array.Get(mid);
 
-        long ke;
-        ke = less.Execute(any, k);
+        var Int ke;
+        ke : less.Execute(any, k);
 
-        bool b;
-        b = (ke < 0);
-        if (b)
+        var Bool b;
+        b : (ke < 0);
+        inf (b)
         {
             return this.BinaryFind(array, any, less, start, mid);
         }
-        if (!b)
+        inf (~b)
         {
             return this.BinaryFind(array, any, less, mid, end);
         }
-        return -1;
     }
 }
