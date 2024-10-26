@@ -36,6 +36,12 @@ class Gen : Any
             return 601;
         }
 
+        b = this.ExecutePartGen(new SystemGen());
+        if (!b)
+        {
+            return 602;
+        }
+
         return 0;
     }
 
