@@ -196,33 +196,33 @@ class Tree : Any
                 direct : this.DirectValue;
             }
 
-            bool bc;
-            bc = (this.Sign(x.Balance) == -direct);
-            if (bc)
+            var Bool bc;
+            bc : (this.Sign(x.Balance) = 0 - direct);
+            inf (bc)
             {
-                bool baa;
-                baa = (direct == -this.DirectValue);
-                if (baa)
+                var Bool baa;
+                baa : (direct = 0 - this.DirectValue);
+                inf (baa)
                 {
 
-                    z = x.ChildRite;
+                    z : x.ChildRite;
                 }
-                if (!baa)
+                inf (!baa)
                 {
-                    z = x.ChildLite;
+                    z : x.ChildLite;
                 }
 
-                bal = z.Balance;
+                bal : z.Balance;
 
-                bool bab;
-                bab = (this.Sign(bal) == direct);
-                if (bab)
+                var Bool bab;
+                bab : (this.Sign(bal) = direct);
+                inf (bab)
                 {
-                    n = this.RotateDouble(x, z, direct);
+                    n : this.RotateDouble(x, z, direct);
                 }
-                if (!bab)
+                inf (~bab)
                 {
-                    n = this.RotateSingle(x, z, direct);
+                    n : this.RotateSingle(x, z, direct);
                 }
             }
             if (!bc)
