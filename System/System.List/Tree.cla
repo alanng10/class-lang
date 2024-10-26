@@ -62,7 +62,7 @@ class Tree : Any
         return true;
     }
 
-    maide private bool InsRetrace(var TreeNode z)
+    maide private Bool InsRetrace(var TreeNode z)
     {
         var TreeNode x;
         var TreeNode g;
@@ -74,9 +74,6 @@ class Tree : Any
         x : z.Parent;
         while (~b & ~(x = null))
         {
-            var Bool ba;
-            ba : false;
-
             var Int direct;
 
             var Bool bb;
@@ -106,8 +103,32 @@ class Tree : Any
                 {
                     n : this.RotateSingle(x, z, direct);
                 }
+
+                n.Parent : g;
+
+                var Bool bab;
+                bab : (g = null);
+                inf (~bab)
+                {
+                    var Bool bac;
+                    bac : (x = g.ChildLite);
+                    inf (bac)
+                    {
+                        g.ChildLite : n;
+                    }
+                    inf (~bac)
+                    {
+                        g.ChildRite : n;
+                    }
+                }
+                inf (bab)
+                {
+                    this.Root : n;
+                }
+
+                b : true;
             }
-            inf (!bc)
+            inf (~bc)
             {
                 var Bool bak;
                 bak : (this.Sign(x.Balance) = direct);
@@ -124,39 +145,7 @@ class Tree : Any
                     z : x;
                     
                     x : z.Parent;
-
-                    ba : true;
                 }
-            }
-
-            inf (~ba)
-            {
-                inf (~b)
-                {
-                    n.Parent : g;
-
-                    var Bool bab;
-                    bab : (g = null);
-                    inf (~bab)
-                    {
-                        var Bool bac;
-                        bac : (x = g.ChildLite);
-                        inf (bac)
-                        {
-                            g.ChildLite : n;
-                        }
-                        inf (~bac)
-                        {
-                            g.ChildRite : n;
-                        }
-                    }
-                    inf (bab)
-                    {
-                        this.Root : n;
-                    }
-                }
-
-                b : true;
             }
         }
 
