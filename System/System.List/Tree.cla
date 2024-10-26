@@ -461,4 +461,54 @@ class Tree : Any
         x.Parent : z;
         return true;
     }
+
+    maide private Bool TreeRem(var TreeNode z)
+    {
+        var Bool b;
+        b : false;
+
+        inf (~b)
+        {
+            inf (z.ChildLite = null)
+            {
+                this.SubtreeShift(z, z.ChildRite);
+
+                b : true;
+            }
+        }
+        
+        inf (~b)
+        {
+            inf (z.ChildRite = null)
+            {
+                this.SubtreeShift(z, z.ChildLite);
+
+                b : true;
+            }
+        }
+        
+        inf (~b)
+        {
+            var TreeNode y;
+
+            y : this.Successor(z);
+
+            inf (~(y.Parent = z))
+            {
+                this.SubtreeShift(y, y.ChildRite);
+
+                y.ChildRite : z.ChildRite;
+
+                y.ChildRite.Parent : y;
+            }
+
+            this.SubtreeShift(z, y);
+
+            y.ChildLite : z.ChildLite;
+
+            y.ChildLite.Parent : y;
+        }
+
+        return true;
+    }
 }
