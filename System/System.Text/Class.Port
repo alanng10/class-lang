@@ -10,6 +10,8 @@ System.Infra
     Intern Intern
     Extern Extern
     InfraInfra Infra
+System.List
+    Array Array
 
 [Export]
 Text
