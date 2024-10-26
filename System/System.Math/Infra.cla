@@ -1,4 +1,11 @@
 class Infra : Any
 {
-    
+    maide prusate Bool Init()
+    {
+        base.Init();
+        this.MathMath : share Math;
+        return true;
+    }
+
+    field precate Math MathMath { get { return data; } set { data : value; } }
 }
