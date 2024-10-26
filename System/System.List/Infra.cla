@@ -179,4 +179,56 @@ class Infra : Any
 
         return this.BinaryFind(array, any, less, start, end);
     }
+
+    maide private Int BinaryFind(var Array array, var Any any, var Less less, var Int start, var Int end)
+    {
+        long count;
+        count = end - start;
+        if (count < 1)
+        {
+            return -1;
+        }
+
+        if (count == 1)
+        {
+            object ka;
+            ka = array.GetAt(start);
+
+            long kea;
+            kea = less.Execute(any, ka);
+
+            bool baa;
+            baa = (kea == 0);
+
+            if (baa)
+            {
+                return start;
+            }
+            if (!baa)
+            {
+                return -1;
+            }
+        }
+
+        long mid;
+        mid = (start + end) / 2;
+
+        object k;
+        k = array.GetAt(mid);
+
+        long ke;
+        ke = less.Execute(any, k);
+
+        bool b;
+        b = (ke < 0);
+        if (b)
+        {
+            return this.BinaryFind(array, any, less, start, mid);
+        }
+        if (!b)
+        {
+            return this.BinaryFind(array, any, less, mid, end);
+        }
+        return -1;
+    }
 }
