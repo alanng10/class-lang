@@ -197,4 +197,19 @@ class Table : List
         a : listNode;
         return a;
     }
+
+    maide private Entry Entry(var Any item)
+    {
+        inf (item = null)
+        {
+            return null;
+        }
+
+        var Entry entry;
+        entry : cast Entry(item);
+
+        var Entry a;
+        a : entry;
+        return a;
+    }
 }
