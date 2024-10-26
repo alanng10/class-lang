@@ -7,8 +7,8 @@ class StringLess : Less
     }
     
     field prusate IntLess CharLess { get { return data; } set { data : value; } }
-    field prusate CharForm LiteCharForm { get { return data; } set { data : value; } }
-    field prusate CharForm RiteCharForm { get { return data; } set { data : value; } }
+    field prusate Form LiteCharForm { get { return data; } set { data : value; } }
+    field prusate Form RiteCharForm { get { return data; } set { data : value; } }
     field precate StringComp StringComp { get { return data; } set { data : value; } }
 
     maide prusate Int Execute(var Any lite, var Any rite)
@@ -29,8 +29,8 @@ class StringLess : Less
         var IntLess charLess;
         charLess : this.CharLess;
 
-        var CharForm liteCharForm;
-        var CharForm riteCharForm;
+        var Form liteCharForm;
+        var Form riteCharForm;
         liteCharForm : this.LiteCharForm;
         riteCharForm : this.RiteCharForm;
 
