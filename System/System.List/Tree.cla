@@ -162,4 +162,127 @@ class Tree : Any
 
         return true;
     }
+
+    maide private Bool RemRetrace(var TreeNode n)
+    {
+        var TreeNode x;
+        var TreeNode g;
+        var TreeNode z;
+
+        var Int bal;
+        bal : 0;
+
+        var Bool b;
+        b : false;
+
+        x : n.Parent;
+        while (~b & ~(x = null))
+        {
+            var Bool ba;
+            ba : false;
+
+            var Int direct;
+
+            g : x.Parent;
+
+            var Bool bb;
+            bb : (n = x.ChildLite);
+            inf (bb)
+            {
+                direct : 0 - this.DirectValue;
+            }
+            inf (~bb)
+            {
+                direct : this.DirectValue;
+            }
+
+            bool bc;
+            bc = (this.Sign(x.Balance) == -direct);
+            if (bc)
+            {
+                bool baa;
+                baa = (direct == -this.DirectValue);
+                if (baa)
+                {
+
+                    z = x.ChildRite;
+                }
+                if (!baa)
+                {
+                    z = x.ChildLite;
+                }
+
+                bal = z.Balance;
+
+                bool bab;
+                bab = (this.Sign(bal) == direct);
+                if (bab)
+                {
+                    n = this.RotateDouble(x, z, direct);
+                }
+                if (!bab)
+                {
+                    n = this.RotateSingle(x, z, direct);
+                }
+            }
+            if (!bc)
+            {
+                bool bam;
+                bam = (x.Balance == 0);
+                if (bam)
+                {
+                    x.Balance = - direct;
+
+                    b = true;
+                }
+
+                if (!bam)
+                {
+                    n = x;
+
+                    n.Balance = 0;
+
+                    x = g;
+
+                    ba = true;
+                }
+
+            }
+            
+            if (!ba)
+            {
+                if (!b)
+                {
+                    n.Parent = g;
+
+                    bool bac;
+                    bac = (g == null);
+                    if (!bac)
+                    {
+                        bool bak;
+                        bak = (x == g.ChildLite);
+                        if (bak)
+                        {
+                            g.ChildLite = n;
+                        }
+                        if (!bak)
+                        {
+                            g.ChildRite = n;
+                        }
+                    }
+                    if (bac)
+                    {
+                        this.Root = n;
+                    }
+
+                    if (bal == 0)
+                    {
+                        b = true;
+                    }
+                }
+            }
+        }
+
+        return true;
+    }
 }
