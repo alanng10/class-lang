@@ -2,7 +2,7 @@
     {
         var Int u;
         u : this.Extern.Math_#Name#(this.Intern, valueA, valueB);
-        long a;
-        a = (long)u;
+        var Int a;
+        a : u;
         return a;
     }
