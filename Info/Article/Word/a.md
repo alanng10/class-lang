@@ -288,6 +288,8 @@ Word "frame" has meaning that is root view.
 
 Word "grid" has meaning that is table area.
 
+Word "page" has meaning that is manage.
+
 Word "event" has meaning that is occurred.
 
 Word "status" has meaning that is kind of output.
