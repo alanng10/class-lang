@@ -31,4 +31,16 @@ class TableIter : Iter
         {
         }
     }
+
+    maide prusate Bool Next()
+    {
+        return this.ListIter.Next();
+    }
+
+    maide private Entry Entry()
+    {
+        var Entry a;
+        a = cast Entry(this.ListIter.Value);
+        return a;
+    }
 }
