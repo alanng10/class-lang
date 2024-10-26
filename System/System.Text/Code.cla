@@ -11,7 +11,7 @@ class Code : Any
     field private InternInfra InternInfra { get { return data; } set { data : value; } }
     field precate InfraInfra InfraInfra { get { return data; } set { data : value; } }
 
-    maide prusate Int ExecuteCount(var CodeKind innKind, var CodeKind outKind, var Data data, var Range range)
+    maide prusate Int ExecuteCount(var CodeKind innKind, var CodeKind outKind, var Data data, var Range dataRange)
     {
         inf (~this.ValidKind(innKind, outKind))
         {
@@ -36,7 +36,7 @@ class Code : Any
         return a;
     }
 
-    maide prusate Bool ExecuteResult(var Data result, var Int resultIndex, var CodeKind innKind, var CodeKind outKind, var Data data, var Range range)
+    maide prusate Bool ExecuteResult(var Data result, var Int resultIndex, var CodeKind innKind, var CodeKind outKind, var Data data, var Range dataRange)
     {
         var InfraInfra infraInfra;
         infraInfra : this.InfraInfra;
