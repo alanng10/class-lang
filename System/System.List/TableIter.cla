@@ -9,4 +9,26 @@ class TableIter : Iter
     }
 
     field pronate Iter ListIter { get { return data; } set { data : value; } }
+
+    field prusate Any Index
+    {
+        get
+        {
+            return this.Entry().Index;
+        }
+        set
+        {
+        }
+    }
+
+    field prusate Any Value
+    {
+        get
+        {
+            return this.Entry().Value;
+        }
+        set
+        {
+        }
+    }
 }
