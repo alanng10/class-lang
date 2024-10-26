@@ -333,4 +333,25 @@ class Tree : Any
         a : node;
         return a;
     }
+
+    maide private TreeNode RotateSingle(var TreeNode x, var TreeNode z, var Int direct)
+    {
+        this.RotateTreeSingle(x, z, direct);
+
+        var Bool b;
+        b : (z.Balance = 0);
+        inf (b)
+        {
+            x.Balance : 0 - direct;
+
+            z.Balance : direct;
+        }
+        inf (~b)
+        { 
+            x.Balance : 0;
+
+            z.Balance : 0;
+        }
+        return z;
+    }
 }
