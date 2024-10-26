@@ -1,4 +1,14 @@
 class Table : List
 {
+    maide prusate Bool Init()
+    {
+        this.Tree : new Tree;
+        this.Tree.Less : this.Less;
+        this.Tree.Init();
+        this.List : new List;
+        this.List.Init();
+        return true;
+    }
+
     
 }
