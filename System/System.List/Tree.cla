@@ -367,12 +367,12 @@ class Tree : Any
 
     maide private Int Sign(var Int u)
     {
-        inf (u < 0)
+        inf (sign<(u, 0))
         {
             return 0 - this.DirectValue;
         }
 
-        inf (0 < u)
+        inf (sign<(0, u))
         {
             return this.DirectValue;
         }
