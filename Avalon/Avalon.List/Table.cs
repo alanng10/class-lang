@@ -191,15 +191,15 @@ public class Table : List
             return null;
         }
 
-        TreeNodeResult t;
-        t = this.Tree.Node(index);
-        if (!t.HasNode)
+        TreeNodeResult k;
+        k = this.Tree.Node(index);
+        if (!k.HasNode)
         {
             return null;
         }
 
         ListNode listNode;
-        listNode = (ListNode)t.Node.Value;
+        listNode = (ListNode)k.Node.Value;
         ListNode a;
         a = listNode;
         return a;
