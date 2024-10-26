@@ -158,18 +158,12 @@ class Tree : Any
         var TreeNode g;
         var TreeNode z;
 
-        var Int bal;
-        bal : 0;
-
         var Bool b;
         b : false;
 
         x : n.Parent;
         while (~b & ~(x = null))
         {
-            var Bool ba;
-            ba : false;
-
             var Int direct;
 
             g : x.Parent;
@@ -201,6 +195,7 @@ class Tree : Any
                     z : x.ChildLite;
                 }
 
+                var Int bal;
                 bal : z.Balance;
 
                 var Bool bab;
@@ -212,6 +207,33 @@ class Tree : Any
                 inf (~bab)
                 {
                     n : this.RotateSingle(x, z, direct);
+                }
+
+                n.Parent : g;
+
+                var Bool bac;
+                bac : (g = null);
+                inf (~bac)
+                {
+                    var Bool bak;
+                    bak : (x = g.ChildLite);
+                    inf (bak)
+                    {
+                        g.ChildLite : n;
+                    }
+                    inf (~bak)
+                    {
+                        g.ChildRite : n;
+                    }
+                }
+                inf (bac)
+                {
+                    this.Root : n;
+                }
+
+                inf (bal = 0)
+                {
+                    b : true;
                 }
             }
             inf (~bc)
@@ -232,43 +254,8 @@ class Tree : Any
                     n.Balance : 0;
 
                     x : g;
-
-                    ba : true;
                 }
 
-            }
-            
-            inf (~ba)
-            {
-                inf (~b)
-                {
-                    n.Parent : g;
-
-                    var Bool bac;
-                    bac : (g = null);
-                    inf (~bac)
-                    {
-                        var Bool bak;
-                        bak : (x = g.ChildLite);
-                        inf (bak)
-                        {
-                            g.ChildLite : n;
-                        }
-                        inf (~bak)
-                        {
-                            g.ChildRite : n;
-                        }
-                    }
-                    inf (bac)
-                    {
-                        this.Root : n;
-                    }
-
-                    inf (bal = 0)
-                    {
-                        b : true;
-                    }
-                }
             }
         }
 
