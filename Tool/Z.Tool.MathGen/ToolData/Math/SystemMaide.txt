@@ -1,8 +1,8 @@
     maide prusate Int #Name#(var Int value)
     {
         var Int u;
-        u = this.Extern.Math_#Name#(this.Intern, value);
-        long a;
-        a = (long)u;
+        u : this.Extern.Math_#Name#(this.Intern, value);
+        var Int a;
+        a : u;
         return a;
     }
