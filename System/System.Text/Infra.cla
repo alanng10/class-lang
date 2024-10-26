@@ -274,7 +274,7 @@ class Infra : Any
         return this.StringComp.CreateData(text.Data, text.Range);
     }
 
-    maide prusate bool Same(var Text lite, var Text rite, var InfraLess less)
+    maide prusate Bool Same(var Text lite, var Text rite, var InfraLess less)
     {
         var Int o;
         o : less.Execute(lite, rite);
