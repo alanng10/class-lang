@@ -593,4 +593,76 @@ class Tree : Any
 
         return k;
     }
+
+    maide prusate TreeNodeResult Node(var Any index)
+    {
+        var Less less;
+        less : this.Less;
+
+        var TreeNode node;
+
+        var TreeNode parentNode;
+
+        var Bool parentLite;
+        parentLite : false;
+
+        var Bool b;
+        b : false;
+
+        var TreeNode currentNode;
+
+        currentNode : this.Root;
+
+        while (~b & ~(currentNode = null))
+        {
+            var Any o;
+
+            o : currentNode.Index;
+
+            var Int k;
+
+            k : less.Execute(index, o);
+
+            inf (k = 0)
+            {
+                node : currentNode;
+
+                b : true;
+            }
+
+            inf (k < 0)
+            {
+                parentNode : currentNode;
+
+                parentLite : true;
+
+                currentNode : currentNode.ChildLite;
+            }
+
+            inf (0 < k)
+            {
+                parentNode : currentNode;
+
+                parentLite : false;
+
+                currentNode : currentNode.ChildRite;
+            }
+        }
+
+        TreeNodeResult u;
+
+        u = this.NodeResult;
+
+        u.HasNode = b;
+
+        u.Node = node;
+
+        u.ParentNode = parentNode;
+
+        u.ParentLite = parentLite;
+
+        TreeNodeResult a;
+        a = u;
+        return a;
+    }
 }
