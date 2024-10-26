@@ -161,9 +161,9 @@ public class Table : List
         bool b;
         b = !(node == null);
 
-        bool ret;
-        ret = b;
-        return ret;
+        bool a;
+        a = b;
+        return a;
     }
 
     public override Iter IterCreate()
