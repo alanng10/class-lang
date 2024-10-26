@@ -80,9 +80,9 @@ public class Table : List
 
         this.Count = this.List.Count;
 
-        object ret;
-        ret = entry.Index;
-        return ret;
+        object a;
+        a = entry.Index;
+        return a;
     }
 
     public override object Ins(object index, object item)
