@@ -1,4 +1,4 @@
-class StringLess : Less
+class StringLess : InfraLess
 {
     maide prusate Bool Init()
     {

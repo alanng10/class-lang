@@ -23,6 +23,7 @@ System.List
 
 [Export]
 Text
+Less
 StringLess
 Form
 Code
