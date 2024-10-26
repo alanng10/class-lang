@@ -311,26 +311,26 @@ class Tree : Any
             this.Root : node;
         }
 
-        if (!b)
+        inf (~b)
         {
-            bool ba;
-            ba = k.ParentLite;
+            var Bool ba;
+            ba : k.ParentLite;
 
-            if (ba)
+            inf (ba)
             {
-                k.ParentNode.ChildLite = node;
+                k.ParentNode.ChildLite : node;
             }
 
-            if (!ba)
+            inf (~ba)
             {
-                k.ParentNode.ChildRite = node;
+                k.ParentNode.ChildRite : node;
             }
 
-            node.Parent = k.ParentNode;
+            node.Parent : k.ParentNode;
         }
 
-        TreeNode a;
-        a = node;
+        var TreeNode a;
+        a : node;
         return a;
     }
 }
