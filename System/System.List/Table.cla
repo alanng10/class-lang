@@ -146,4 +146,16 @@ class Table : List
         this.Count : this.List.Count;
         return true;
     }
+
+    maide prusate Bool Valid(var Any index)
+    {
+        var ListNode node;
+        node : this.ListNode(index);
+        var Bool b;
+        b : ~(node = null);
+
+        var Bool a;
+        a : b;
+        return a;
+    }
 }
