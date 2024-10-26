@@ -448,4 +448,23 @@ class Tree : Any
 
         return true;
     }
+
+    maide private Bool RotateTreeLite(var TreeNode x, var TreeNode z)
+    {
+        var TreeNode t23;
+
+        t23 : z.ChildLite;
+
+        x.ChildRite : t23;
+
+        inf (!(t23 = null))
+        {
+            t23.Parent : x;
+        }
+        
+        z.ChildLite : x;
+
+        x.Parent : z;
+        return true;
+    }
 }
