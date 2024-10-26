@@ -618,16 +618,16 @@ class Tree : Any
 
     private TreeNode Minimum(TreeNode x)
     {
-        TreeNode t;
+        TreeNode k;
 
-        t = x;
+        k = x;
 
-        while (!(t.ChildLite == null))
+        while (!(k.ChildLite == null))
         {
-            t = t.ChildLite;
+            k = k.ChildLite;
         }
 
-        return t;
+        return k;
     }
 
     public virtual TreeNodeResult Node(object index)
