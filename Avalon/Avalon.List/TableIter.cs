@@ -41,7 +41,7 @@ public class TableIter : Iter
 
     private Entry Entry()
     {
-        Entry a;            
+        Entry a;
         a = (Entry)this.ListIter.Value;
         return a;
     }
