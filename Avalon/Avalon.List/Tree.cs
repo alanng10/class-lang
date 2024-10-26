@@ -189,9 +189,6 @@ class Tree : Any
                 direct = this.DirectValue;
             }
 
-            long bal;
-            bal = 0;
-
             bool bc;
             bc = (this.Sign(x.Balance) == -direct);
             if (bc)
@@ -208,6 +205,7 @@ class Tree : Any
                     z = x.ChildLite;
                 }
 
+                long bal;
                 bal = z.Balance;
 
                 bool bab;
