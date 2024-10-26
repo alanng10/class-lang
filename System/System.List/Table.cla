@@ -46,4 +46,37 @@ class Table : List
         entry.Value : value;
         return true;
     }
+
+    maide prusate Any Add(var Any item)
+    {
+        var Entry entry;
+        entry : this.Entry(item);
+        inf (entry = null)
+        {
+            return null;
+        }
+
+        inf (entry.Index = null)
+        {
+            return null;
+        }
+
+        var ListNode u;
+        u : this.ListNode(entry.Index);
+        inf (~(u = null))
+        {
+            return null;
+        }
+
+        var Any k;
+        k : this.List.Add(entry);
+
+        this.Tree.Ins(entry.Index, k);
+
+        this.Count = this.List.Count;
+
+        object a;
+        a = entry.Index;
+        return a;
+    }
 }
