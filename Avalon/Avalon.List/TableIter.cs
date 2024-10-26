@@ -12,11 +12,6 @@ public class TableIter : Iter
 
     internal virtual Iter ListIter { get; set; }
 
-    public override bool Next()
-    {
-        return this.ListIter.Next();
-    }
-
     public override object Index
     {
         get
@@ -37,6 +32,11 @@ public class TableIter : Iter
         set
         {
         }
+    }
+
+    public override bool Next()
+    {
+        return this.ListIter.Next();
     }
 
     private Entry Entry()
