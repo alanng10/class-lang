@@ -354,4 +354,39 @@ class Tree : Any
         }
         return z;
     }
+
+    maide private TreeNode RotateDouble(var TreeNode x, var TreeNode z, var Int direct)
+    {
+        var TreeNode y;
+        y : this.RotateTreeDouble(x, z, direct);
+
+        var Bool b;
+        b : (y.Balance = 0);
+
+        inf (b)
+        {
+            x.Balance : 0;
+            z.Balance : 0;
+        }
+
+        if (!b)
+        {
+            bool ba;
+            ba = (this.Sign(y.Balance) == -direct);
+
+            if (ba)
+            {
+                x.Balance = direct;
+                z.Balance = 0;
+            }
+            if (!ba)
+            {
+                x.Balance = 0;
+                z.Balance = - direct;
+            }
+        }
+
+        y.Balance = 0;
+        return y;
+    }
 }
