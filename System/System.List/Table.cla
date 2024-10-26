@@ -15,4 +15,20 @@ class Table : List
     field prusate Any End { get { } set { } }
     field private Tree Tree { get { return data; } set { data : value; } }
     field private List List { get { return data; } set { data : value; } }
+
+    maide prusate Any Get(var Any index)
+    {
+        var ListNode node;
+        node : this.ListNode(index);
+        inf (node = null)
+        {
+            return null;
+        }
+
+        var Entry entry;
+        entry : cast Entry(node.Value);
+        var Any a;
+        a : entry.Value;
+        return a;
+    }
 }
