@@ -547,4 +547,36 @@ class Tree : Any
 
         return true;
     }
+
+    maide private TreeNode Successor(var TreeNode x)
+    {
+        inf (~(x.ChildRite = null))
+        {
+            return this.Minimum(x.ChildRite);
+        }
+
+        var TreeNode y;
+
+        y : x.Parent;
+
+        var Bool b;
+        b : false;
+
+        while (~b & ~(y = null))
+        {
+            inf (~(x = y.ChildRite))
+            {
+                b : true;
+            }
+
+            inf (~b)
+            {
+                x : y;
+
+                y : y.Parent;
+            }
+        }
+
+        return y;
+    }
 }
