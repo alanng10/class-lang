@@ -249,25 +249,25 @@ class Tree : Any
 
             }
             
-            if (!ba)
+            inf (~ba)
             {
-                if (!b)
+                inf (~b)
                 {
-                    n.Parent = g;
+                    n.Parent : g;
 
-                    bool bac;
-                    bac = (g == null);
-                    if (!bac)
+                    var Bool bac;
+                    bac : (g = null);
+                    inf (~bac)
                     {
-                        bool bak;
-                        bak = (x == g.ChildLite);
-                        if (bak)
+                        var Bool bak;
+                        bak : (x = g.ChildLite);
+                        inf (bak)
                         {
-                            g.ChildLite = n;
+                            g.ChildLite : n;
                         }
-                        if (!bak)
+                        inf (~bak)
                         {
-                            g.ChildRite = n;
+                            g.ChildRite : n;
                         }
                     }
                     if (bac)
