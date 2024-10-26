@@ -169,4 +169,14 @@ class Infra : Any
         this.ArrayCopy(dest, start, source, start, count);
         return true;
     }
+
+    maide prusate Int Find(var Array array, var Any any, var Less less, var Range range)
+    {
+        var Int start;
+        var Int end;
+        start : range.Index;
+        end : start + range.Count;
+
+        return this.BinaryFind(array, any, less, start, end);
+    }
 }
