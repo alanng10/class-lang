@@ -79,9 +79,6 @@ class Tree : Any
         x = z.Parent;
         while (!b & !(x == null))
         {
-            bool ba;
-            ba = false;
-
             long direct;
             direct = 0;
 
@@ -112,6 +109,30 @@ class Tree : Any
                 {
                     n = this.RotateSingle(x, z, direct);
                 }
+
+                n.Parent = g;
+
+                bool bab;
+                bab = (g == null);
+                if (!bab)
+                {
+                    bool bac;
+                    bac = (x == g.ChildLite);
+                    if (bac)
+                    {
+                        g.ChildLite = n;
+                    }
+                    if (!bac)
+                    {
+                        g.ChildRite = n;
+                    }
+                }
+                if (bab)
+                {
+                    this.Root = n;
+                }
+
+                b = true;
             }
             if (!bc)
             {
@@ -130,39 +151,7 @@ class Tree : Any
                     z = x;
                     
                     x = z.Parent;
-
-                    ba = true;
                 }
-            }
-
-            if (!ba)
-            {
-                if (!b)
-                {
-                    n.Parent = g;
-
-                    bool bab;
-                    bab = (g == null);
-                    if (!bab)
-                    {
-                        bool bac;
-                        bac = (x == g.ChildLite);
-                        if (bac)
-                        {
-                            g.ChildLite = n;
-                        }
-                        if (!bac)
-                        {
-                            g.ChildRite = n;
-                        }
-                    }
-                    if (bab)
-                    {
-                        this.Root = n;
-                    }
-                }
-
-                b = true;
             }
         }
 
