@@ -443,7 +443,7 @@ class Tree : Any
         return true;
     }
 
-    maide private bool RotateTreeRite(var TreeNode x, var TreeNode z)
+    maide private Bool RotateTreeRite(var TreeNode x, var TreeNode z)
     {
         var TreeNode t23;
 
