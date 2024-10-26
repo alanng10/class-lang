@@ -369,24 +369,24 @@ class Tree : Any
             z.Balance : 0;
         }
 
-        if (!b)
+        inf (~b)
         {
-            bool ba;
-            ba = (this.Sign(y.Balance) == -direct);
+            var Bool ba;
+            ba : (this.Sign(y.Balance) = 0 - direct);
 
-            if (ba)
+            inf (ba)
             {
-                x.Balance = direct;
-                z.Balance = 0;
+                x.Balance : direct;
+                z.Balance : 0;
             }
-            if (!ba)
+            inf (~ba)
             {
-                x.Balance = 0;
-                z.Balance = - direct;
+                x.Balance : 0;
+                z.Balance : 0 - direct;
             }
         }
 
-        y.Balance = 0;
+        y.Balance : 0;
         return y;
     }
 }
