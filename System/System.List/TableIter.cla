@@ -1,4 +1,10 @@
 class TableIter : Iter
 {
-    
+    maide prusate Bool Init()
+    {
+        base.Init();
+        this.ListIter : new Iter;
+        this.ListIter.Init();
+        return true;
+    }
 }
