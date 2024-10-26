@@ -649,20 +649,20 @@ class Tree : Any
             }
         }
 
-        TreeNodeResult u;
+        var TreeNodeResult u;
 
-        u = this.NodeResult;
+        u : this.NodeResult;
 
-        u.HasNode = b;
+        u.HasNode : b;
 
-        u.Node = node;
+        u.Node : node;
 
-        u.ParentNode = parentNode;
+        u.ParentNode : parentNode;
 
-        u.ParentLite = parentLite;
+        u.ParentLite : parentLite;
 
-        TreeNodeResult a;
-        a = u;
+        var TreeNodeResult a;
+        a : u;
         return a;
     }
 }
