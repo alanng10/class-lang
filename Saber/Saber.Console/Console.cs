@@ -511,11 +511,11 @@ public class Console : ClassBase
         if (!b)
         {
             this.Status = 3000 + portLoad.Status;
+            this.PortError = portLoad.Error;
             return false;
         }
 
         this.PortModule = portLoad.Module;
-        this.PortError = portLoad.Error;
 
         portLoad.Error = null;
         portLoad.Module = null;
