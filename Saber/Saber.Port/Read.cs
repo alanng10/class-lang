@@ -988,7 +988,7 @@ public class Read : ClassBase
         }
         if (!b)
         {
-            nameCount = n - range.Index;
+            nameCount = n;
 
             long aa;
             long ab;
