@@ -22,6 +22,7 @@ public class PortLoad : ClassBase
     public virtual bool SystemModule { get; set; }
     public virtual ClassModule Module { get; set; }
     public virtual long Status { get; set; }
+    public virtual Error Error { get; set; }
     public virtual ModuleLoad ModuleLoad { get; set; }
     public virtual BinaryRead BinaryRead { get; set; }
     public virtual Table ModuleTable { get; set; }
