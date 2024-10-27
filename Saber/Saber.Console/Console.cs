@@ -50,7 +50,7 @@ public class Console : ClassBase
         this.SFlagD = this.S("-d");
         this.SFlagM = this.S("-m");
         this.SClassDotPort = this.S("Class.Port");
-        this.SDotCla = this.S(".cla");
+        this.SDotCl = this.S(".cl");
         this.SSystemDotInfra = this.S("System.Infra");
         this.SIntern = this.S("Intern");
         this.SExtern = this.S("Extern");
@@ -101,7 +101,7 @@ public class Console : ClassBase
     protected virtual String SFlagD { get; set; }
     protected virtual String SFlagM { get; set; }
     protected virtual String SClassDotPort { get; set; }
-    protected virtual String SDotCla { get; set; }
+    protected virtual String SDotCl { get; set; }
     protected virtual String SSystemDotInfra { get; set; }
     protected virtual String SIntern { get; set; }
     protected virtual String SExtern { get; set; }
@@ -1097,7 +1097,7 @@ public class Console : ClassBase
         list.Init();
 
         String ka;
-        ka = this.SDotCla;
+        ka = this.SDotCl;
 
         long count;
         count = fileArray.Count;
@@ -1185,7 +1185,7 @@ public class Console : ClassBase
             k = textInfra.Zero;
             if (hasFileExtension)
             {
-                k = this.SDotCla;
+                k = this.SDotCl;
             }
 
             String filePath;
