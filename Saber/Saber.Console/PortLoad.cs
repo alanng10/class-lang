@@ -7,6 +7,8 @@ public class PortLoad : ClassBase
         base.Init();
         this.StorageInfra = StorageInfra.This;
 
+        this.ErrorKind = ErrorKindList.This;
+
         this.StoragePathCheck = new StoragePathCheck();
         this.StoragePathCheck.Init();
 
@@ -30,6 +32,7 @@ public class PortLoad : ClassBase
     public virtual Table ImportClass { get; set; }
     public virtual NameCheck NameCheck { get; set; }
     protected virtual StorageInfra StorageInfra { get; set; }
+    protected virtual ErrorKindList ErrorKind { get; set; }
     protected virtual StoragePathCheck StoragePathCheck { get; set; }
     protected virtual Array ImportModuleRefArray { get; set; }
     protected virtual Table ImportDependTable { get; set; }
