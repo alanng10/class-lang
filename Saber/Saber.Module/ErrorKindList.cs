@@ -48,7 +48,7 @@ public class ErrorKindList : Any
         this.EntryUndefined = this.AddItem("EntryUndefined");
         this.EntryUnachievable = this.AddItem("EntryUnachievable");
         this.ModuleInvalid = this.AddItem("ModuleInvalid");
-        this.ImportModuleUndefined = this.AddItem("ImportModuleUndefined");
+        this.ModuleUndefined = this.AddItem("ModuleUndefined");
         this.ImportNameUnavailable = this.AddItem("ImportNameUnavailable");
         this.ImportClassUndefined = this.AddItem("ImportClassUndefined");
         this.ExportUnachievable = this.AddItem("ExportUnachievable");
@@ -81,7 +81,7 @@ public class ErrorKindList : Any
     public virtual ErrorKind EntryUndefined { get; set; }
     public virtual ErrorKind EntryUnachievable { get; set; }
     public virtual ErrorKind ModuleInvalid { get; set; }
-    public virtual ErrorKind ImportModuleUndefined { get; set; }
+    public virtual ErrorKind ModuleUndefined { get; set; }
     public virtual ErrorKind ImportNameUnavailable { get; set; }
     public virtual ErrorKind ImportClassUndefined { get; set; }
     public virtual ErrorKind ExportUnachievable { get; set; }
