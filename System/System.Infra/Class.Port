@@ -18,9 +18,6 @@ IntLess
 Range
 RefLess
 State
-StringComp
-StringData
-StringAdd
 Infra
 
 [Storage]
