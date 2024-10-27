@@ -356,7 +356,7 @@ public class PortLoad : ClassBase
                 String k;
                 k = this.ModuleRefString(a);
 
-                this.ErrorAdd(this.ErrorKind.ImportModuleUndefined, k);
+                this.ErrorAdd(this.ErrorKind.ModuleInvalid, k);
 
                 this.Status = 50;
                 return false;
