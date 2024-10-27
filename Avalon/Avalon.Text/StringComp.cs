@@ -168,8 +168,11 @@ public class StringComp : Any
             return -1;
         }
 
+        long ka;
+        ka = index * sizeof(uint);
+
         uint a;
-        a = this.InternInfra.DataCharGet(o.Value, index * sizeof(uint));
+        a = this.InternInfra.DataCharGet(o.Value, ka);
         return a;
     }
 }
