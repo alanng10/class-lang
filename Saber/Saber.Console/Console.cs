@@ -399,6 +399,7 @@ public class Console : ClassBase
             baa = this.PortModuleLoad();
             if (!baa)
             {
+                this.WriteErrorList(this.PortError);
                 return false;
             }
 
