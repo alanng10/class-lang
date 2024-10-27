@@ -23,6 +23,7 @@ FieldUnexportable
 MaideUnexportable
 EntryUndefined
 EntryUnachievable
+ModuleInvalid
 ImportModuleUndefined
 ImportNameUnavailable
 ImportClassUndefined
