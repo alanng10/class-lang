@@ -1,14 +1,5 @@
 class Infra : Any
 {
-    maide prusate Bool Init()
-    {
-        base.Init();
-        this.StringComp : share StringComp;
-        return true;
-    }
-
-    field precate StringComp StringComp { get { return data; } set { data : value; } }
-
     maide prusate Bool ValidIndex(var Int count, var Int index)
     {
         return this.ValidRange(count, index, 1);
@@ -142,27 +133,6 @@ class Infra : Any
             n : source.Get(sourceIndex + i);
 
             dest.Set(destIndex + i, n);
-
-            i : i + 1;
-        }
-        return true;
-    }
-
-    maide prusate Bool AddString(var StringAdd h, var String a)
-    {
-        var StringComp stringComp;
-        stringComp : this.StringComp;
-
-        var Int count;
-        count : stringComp.Count(a);
-        var Int i;
-        i : 0;
-        while (i < count)
-        {
-            var Int oc;
-            oc : stringComp.Char(a, i);
-
-            h.Execute(oc);
 
             i : i + 1;
         }
