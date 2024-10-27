@@ -1,0 +1,26 @@
+class FormInfra : Any
+{
+    maide prusate Bool Init()
+    {
+        base.Init();
+        this.StringComp : share StringComp;
+        return true;
+    }
+
+    field prusate StringComp StringComp { get { return data; } set { data : value; } }
+
+    maide prusate Bool Digit(var Int n)
+    {
+        var Int ka;
+        var Int kb;
+        ka : this.Char("0");
+        ka : this.Char("9");
+
+        return this.Range(ka, kb, n);
+    }
+
+    maide private Int Char(var String k)
+    {
+        return this.StringComp.Char(k, 0);
+    }
+}
