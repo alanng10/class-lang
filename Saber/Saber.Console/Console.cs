@@ -579,6 +579,12 @@ public class Console : ClassBase
             return false;
         }
 
+        this.LibraryGen.Module = module;
+        this.LibraryGen.ModuleRefString = moduleRefString;
+        this.LibraryGen.ModuleTable = this.ModuleTable;
+        this.LibraryGen.ImportClass = this.ImportClass;
+        this.LibraryGen.SystemClass = this.Create.Module.SystemClass;
+
         return true;
     }
 
