@@ -84,7 +84,7 @@ class StateGen : ToolBase
         a = this.StringCreate(k);
 
         String outputPath;
-        outputPath = this.S("../../System/System.Infra/Intern.cla");
+        outputPath = this.S("../../System/System.Infra/Intern.cl");
 
         toolInfra.StorageTextWrite(outputPath, a);
         return true;
