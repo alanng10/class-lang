@@ -75,7 +75,7 @@ class StringComp : Any
         count : count * 4;
 
         return this.CreateDataValue(k, count, range);
-    }    
+    }
     
     maide private String CreateDataValue(var Any data, var Int dataCount, var Range range)
     {
@@ -83,7 +83,7 @@ class StringComp : Any
         internIntern : this.InternIntern;
         var InternInfra internInfra;
         internInfra : this.InternInfra;
-        
+
         var Int kka;
         kka : 4;
 
