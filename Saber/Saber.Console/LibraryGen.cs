@@ -25,6 +25,7 @@ public class LibraryGen : ClassBase
     public virtual long Status { get; set; }
     protected virtual StorageInfra StorageInfra { get; set; }
     protected virtual StorageComp StorageComp { get; set; }
+    protected virtual ClassGen ClassGen { get; set; }
     protected virtual String GenModuleFoldPath { get; set; }
     protected virtual ModuleRef ModuleRef { get; set; }
     protected virtual String SSystemDotInfra { get; set; }
