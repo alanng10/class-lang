@@ -353,6 +353,15 @@ public class PortLoad : ClassBase
             b = this.BinaryLoadRecursive(a);
             if (!b)
             {
+                String verString;
+                verString = this.ClassInfra.VerString(a.Ver);
+
+                String k;
+                k = this.ClassInfra.ModuleRefString(a.Name, verString);
+
+                this.ErrorAdd(this.ErrorKind.ImportModuleUndefined, k);
+
+                this.Status = 55;
                 return false;
             }
 
