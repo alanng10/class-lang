@@ -55,6 +55,15 @@ class FormInfra : Any
         return this.Range(start, end, n);
     }
 
+    maide prusate Bool Range(var Int start, var Int end, var Int n)
+    {
+        inf (end < start)
+        {
+            return false;
+        }
+        return !((n < start) | (end < n));
+    }
+
     maide prusate Int Char(var String k)
     {
         return this.StringComp.Char(k, 0);
