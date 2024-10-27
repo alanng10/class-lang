@@ -8,7 +8,7 @@ class SystemExternGen : ExternGen
 
         this.PrusateFileName = this.S("ToolData/Prusate/SystemExtern.txt");
 
-        this.OutputFilePath = this.S("../../System/System.Infra/Extern.cla");
+        this.OutputFilePath = this.S("../../System/System.Infra/Extern.cl");
 
         this.IntTypeName = this.S("Int");
         return true;
