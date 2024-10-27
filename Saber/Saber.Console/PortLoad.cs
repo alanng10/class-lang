@@ -410,16 +410,8 @@ public class PortLoad : ClassBase
 
     protected virtual bool BinaryLoad(ModuleRef moduleRef)
     {
-        String moduleName;
-        moduleName = moduleRef.Name;
-        long version;
-        version = moduleRef.Ver;
-
-        String versionString;
-        versionString = this.ClassInfra.VerString(version);
-    
         String moduleRefString;
-        moduleRefString = this.ClassInfra.ModuleRefString(moduleName, versionString);
+        moduleRefString = this.ModuleRefString(moduleRef);
 
         String filePath;
         filePath = this.AddClear().Add(moduleRefString).Add(this.SDotRef).AddResult();
