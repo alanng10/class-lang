@@ -32,7 +32,7 @@ class StringData : Data
                 ka : this.InternIntern.StringValueGet(data);
 
                 count : this.StringComp.Count(data);
-                count : count * 4;                
+                count : count * 4;
             }
             
             this.Value : ka;
