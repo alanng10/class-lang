@@ -785,7 +785,7 @@ public class PortLoad : ClassBase
                     b = true;
                 }
 
-                if (!bb)
+                if (!ba & !bb)
                 {
                     listInfra.TableAdd(this.ImportClass, name, varClass);
                 }
