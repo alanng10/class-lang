@@ -26,9 +26,10 @@ public class LibraryGen : ClassBase
     }
 
     public virtual ClassModule Module { get; set; }
-    public virtual Table ModuleTable { get; set; }
-    public virtual SystemClass SystemClass { get; set; }
     public virtual String ModuleRefString { get; set; }
+    public virtual Table ModuleTable { get; set; }
+    public virtual Table ImportClass { get; set; }
+    public virtual SystemClass SystemClass { get; set; }
     public virtual long Status { get; set; }
     protected virtual StorageInfra StorageInfra { get; set; }
     protected virtual StorageComp StorageComp { get; set; }
