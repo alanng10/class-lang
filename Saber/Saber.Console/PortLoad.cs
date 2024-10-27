@@ -537,12 +537,6 @@ public class PortLoad : ClassBase
 
         table = this.ClassInfra.TableCreateModuleRefLess();
 
-        // if (this.IsBuiltinModuleRef(moduleRef))
-        // {
-        //     listInfra.TableAdd(binaryDependTable, moduleRef, table);
-        //     return table;
-        // }
-
         BinaryBinary binary;
         binary = (BinaryBinary)this.BinaryTable.Get(moduleRef);
 
