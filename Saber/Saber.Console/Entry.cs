@@ -10,6 +10,12 @@ public class Entry : EntryEntry
         
         bool b;
         b = console.Load();
+
+        if (!b)
+        {
+            return 600;
+        }
+
         if (b)
         {
             bool ba;
