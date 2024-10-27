@@ -110,6 +110,12 @@ public class PortLoad : ClassBase
             return false;
         }
 
+        b = this.ImportDepend();
+        if (!b)
+        {
+            return false;
+        }
+
         b = this.ImportModuleLoad();
         if (!b)
         {
@@ -216,7 +222,7 @@ public class PortLoad : ClassBase
     {
         ListInfra listInfra;
         listInfra = this.ListInfra;
-        
+
         Table table;
         table = this.ClassInfra.TableCreateModuleRefLess();
 
@@ -448,6 +454,150 @@ public class PortLoad : ClassBase
         return true;
     }
 
+    protected virtual bool ImportDepend()
+    {
+        ListInfra listInfra;
+        listInfra = this.ListInfra;
+
+        ClassInfra classInfra;
+        classInfra = this.ClassInfra;
+
+        this.BinaryDependTable = classInfra.TableCreateModuleRefLess();
+
+        Array array;
+        array = this.ImportModuleRefArray;
+
+        Table table;
+        table = classInfra.TableCreateModuleRefLess();
+
+        long count;
+        count = array.Count;
+        long i;
+        i = 0;
+        while (i < count)
+        {
+            ModuleRef o;
+            o = (ModuleRef)array.GetAt(i);
+
+            Table aa;
+            aa = this.BinaryDepend(o);
+            if (aa == null)
+            {
+                return false;
+            }
+
+            Iter iter;
+            iter = aa.IterCreate();
+            aa.IterSet(iter);
+
+            while (iter.Next())
+            {
+                ModuleRef oo;
+                oo = (ModuleRef)iter.Index;
+
+                if (!table.Valid(oo))
+                {
+                    listInfra.TableAdd(table, oo, oo);
+                }
+            }
+
+            listInfra.TableAdd(table, o, o);
+
+            i = i + 1;
+        }
+
+        ModuleRef oa;
+        oa = this.ModuleRef;
+
+        if (table.Valid(oa))
+        {
+            String k;
+            k = this.ModuleRefString(oa);
+
+            this.ErrorAdd(this.ErrorKind.ModuleUndefined, k);
+
+            this.Status = 61;
+            return false;
+        }
+
+        this.ImportDependTable = table;
+        return true;
+    }
+
+    protected virtual Table BinaryDepend(ModuleRef moduleRef)
+    {
+        ListInfra listInfra;
+        listInfra = this.ListInfra;
+
+        Table binaryDependTable;
+        binaryDependTable = this.BinaryDependTable;
+
+        Table table;
+        if (binaryDependTable.Valid(moduleRef))
+        {
+            table = (Table)binaryDependTable.Get(moduleRef);
+            return table;
+        }
+
+        table = this.ClassInfra.TableCreateModuleRefLess();
+
+        BinaryBinary binary;
+        binary = (BinaryBinary)this.BinaryTable.Get(moduleRef);
+
+        Array array;
+        array = binary.Import;
+
+        long count;
+        count = array.Count;
+        long i;
+        i = 0;
+        while (i < count)
+        {
+            BinaryImport import;
+            import = (BinaryImport)array.GetAt(i);
+
+            ModuleRef e;
+            e = import.Module;
+
+            Table aa;
+            aa = this.BinaryDepend(e);
+            if (aa == null)
+            {
+                listInfra.TableAdd(binaryDependTable, moduleRef, null);
+                return null;
+            }
+
+            Iter iter;
+            iter = aa.IterCreate();
+            aa.IterSet(iter);
+
+            while (iter.Next())
+            {
+                ModuleRef oo;
+                oo = (ModuleRef)iter.Index;
+
+                if (!table.Valid(oo))
+                {
+                    listInfra.TableAdd(table, oo, oo);
+                }
+            }
+
+            listInfra.TableAdd(table, e, e);
+
+            i = i + 1;
+        }
+
+        if (table.Valid(moduleRef))
+        {
+            this.Status = 60;
+            listInfra.TableAdd(binaryDependTable, moduleRef, null);
+            return null;
+        }
+
+        listInfra.TableAdd(binaryDependTable, moduleRef, table);
+        return table;
+    }
+
     protected virtual bool ImportModuleLoad()
     {
         ListInfra listInfra;
@@ -472,7 +622,7 @@ public class PortLoad : ClassBase
             moduleRef = (ModuleRef)iter.Index;
 
             moduleLoad.ModuleRef = moduleRef;
-            
+
             bool b;
             b = moduleLoad.Execute();
 
@@ -498,7 +648,7 @@ public class PortLoad : ClassBase
 
             listInfra.TableAdd(table, a.Ref, a);
         }
-        
+
         return true;
     }
 
@@ -557,7 +707,7 @@ public class PortLoad : ClassBase
 
             Table a;
             a = classInfra.TableCreateRefLess();
-            
+
             listInfra.TableAdd(this.Module.Import, kk, a);
 
             PortImport kkk;
@@ -615,7 +765,7 @@ public class PortLoad : ClassBase
 
                 String name;
                 name = importClass.Name;
-                
+
                 bool bb;
                 bb = false;
 
@@ -626,7 +776,7 @@ public class PortLoad : ClassBase
                         bb = true;
                     }
                 }
-                
+
                 if (!bb)
                 {
                     if (this.ImportClass.Valid(name))
@@ -645,7 +795,7 @@ public class PortLoad : ClassBase
                 {
                     listInfra.TableAdd(this.ImportClass, name, varClass);
                 }
-                
+
 
                 iA = iA + 1;
             }
