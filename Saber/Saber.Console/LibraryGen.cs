@@ -146,6 +146,9 @@ public class LibraryGen : ClassBase
             String ka;
             ka = this.StringIntHex(i);
 
+            String combine;
+            combine = this.TextInfra.PathCombine;
+
             String fileName;
             fileName = this.AddClear().AddChar('C').Add(ka).Add(this.ClassInfra.Dot).Add(this.SC).AddResult();
 
