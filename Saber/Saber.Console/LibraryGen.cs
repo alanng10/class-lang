@@ -2,9 +2,21 @@ namespace Saber.Console;
 
 public class LibraryGen : ClassBase
 {
-    public virtual String ModuleRefString { get; set; }
+    public override bool Init()
+    {
+        base.Init();
+        this.SIntern = this.S("Intern");
+        this.SExtern = this.S("Extern");
+        return true;
+    }
 
+    public virtual ClassModule Module { get; set; }
+    public virtual Table ModuleTable { get; set; }
+    public virtual String ModuleRefString { get; set; }
     public virtual long Status { get; set; }
+    protected virtual String GenModuleFoldPath { get; set; }
+    protected virtual String SIntern { get; set; }
+    protected virtual String SExtern { get; set; }
 
     public virtual bool Execute()
     {
@@ -14,8 +26,7 @@ public class LibraryGen : ClassBase
         String combine;
         combine = this.TextInfra.PathCombine;
 
-        String genModuleFoldPath;
-        genModuleFoldPath = this.AddClear().Add(genFoldPath).Add(combine).Add(this.ModuleRefString).AddResult();
+        this.GenModuleFoldPath = this.AddClear().Add(genFoldPath).Add(combine).Add(this.ModuleRefString).AddResult();
 
         bool bb;
         bb = this.ExecuteGenClassSource();
@@ -25,14 +36,14 @@ public class LibraryGen : ClassBase
         }
 
         bool bc;
-        bc = this.ExecuteGenModuleSource(genModuleFoldPath);
+        bc = this.ExecuteGenModuleSource();
         if (!bc)
         {
             return false;
         }
 
         bool bd;
-        bd = this.ExecuteGenProject(genModuleFoldPath);
+        bd = this.ExecuteGenProject();
         if (!bd)
         {
             return false;

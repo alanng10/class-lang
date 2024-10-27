@@ -52,8 +52,6 @@ public class Console : ClassBase
         this.SClassDotPort = this.S("Class.Port");
         this.SDotCl = this.S(".cl");
         this.SSystemDotInfra = this.S("System.Infra");
-        this.SIntern = this.S("Intern");
-        this.SExtern = this.S("Extern");
         this.SRef = this.S("ref");
         this.SC = this.S("c");
         this.SPro = this.S("pro");
@@ -103,8 +101,6 @@ public class Console : ClassBase
     protected virtual String SClassDotPort { get; set; }
     protected virtual String SDotCl { get; set; }
     protected virtual String SSystemDotInfra { get; set; }
-    protected virtual String SIntern { get; set; }
-    protected virtual String SExtern { get; set; }
     protected virtual String SRef { get; set; }
     protected virtual String SC { get; set; }
     protected virtual String SPro { get; set; }
