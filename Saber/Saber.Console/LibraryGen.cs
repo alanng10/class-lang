@@ -50,7 +50,7 @@ public class LibraryGen : ClassBase
         }
 
         bool be;
-        be = this.ExecuteGenMake(this.ModuleRefString);
+        be = this.ExecuteGenMake();
         if (!be)
         {
             return false;
