@@ -37,6 +37,24 @@ class FormInfra : Any
         return this.Range(start, end, n);
     }
 
+    maide prusate Bool Alpha(var Int n, var Bool nite)
+    {
+        var Int start;
+        var Int end;
+
+        inf (nite)
+        {
+            start : this.Char("A");
+            end : this.Char("Z");
+        }
+        inf (~nite)
+        {
+            start : this.Char("a");
+            end : this.Char("z");
+        }
+        return this.Range(start, end, n);
+    }
+
     maide prusate Int Char(var String k)
     {
         return this.StringComp.Char(k, 0);
