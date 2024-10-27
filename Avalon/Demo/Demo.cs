@@ -1068,7 +1068,7 @@ class Demo : Any
 
     public virtual Demo Add(String a)
     {
-        this.InfraInfra.AddString(this.StringAdd, a);
+        this.TextInfra.AddString(this.StringAdd, a);
         return this;
     }
 
