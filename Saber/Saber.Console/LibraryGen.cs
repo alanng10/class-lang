@@ -5,6 +5,7 @@ public class LibraryGen : ClassBase
     public override bool Init()
     {
         base.Init();
+        this.StorageInfra = StorageInfra.This;
         this.SIntern = this.S("Intern");
         this.SExtern = this.S("Extern");
         return true;
@@ -14,6 +15,7 @@ public class LibraryGen : ClassBase
     public virtual Table ModuleTable { get; set; }
     public virtual String ModuleRefString { get; set; }
     public virtual long Status { get; set; }
+    protected virtual StorageInfra StorageInfra { get; set; }
     protected virtual String GenModuleFoldPath { get; set; }
     protected virtual String SIntern { get; set; }
     protected virtual String SExtern { get; set; }
