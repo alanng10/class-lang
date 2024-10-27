@@ -1,11 +1,11 @@
 global using Any = Avalon.Infra.Any;
 global using String = Avalon.Infra.String;
-global using StringJoin = Avalon.Infra.StringAdd;
 global using Array = Avalon.List.Array;
 global using Table = Avalon.List.Table;
 global using Iter = Avalon.List.Iter;
 global using ListInfra = Avalon.List.Infra;
 global using Text = Avalon.Text.Text;
+global using StringJoin = Avalon.Text.StringAdd;
 global using EntryEntry = Avalon.Entry.Entry;
 global using ToolBase = Z.Infra.Infra.Base;
 global using ToolInfra = Z.Infra.Infra.Infra;

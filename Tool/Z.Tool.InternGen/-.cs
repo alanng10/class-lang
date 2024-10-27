@@ -1,15 +1,13 @@
 global using Any = Avalon.Infra.Any;
 global using String = Avalon.Infra.String;
 global using Range = Avalon.Infra.Range;
-global using StringData = Avalon.Infra.StringData;
-global using StringJoin = Avalon.Infra.StringAdd;
-global using InfraInfra = Avalon.Infra.Infra;
 global using Array = Avalon.List.Array;
 global using Table = Avalon.List.Table;
 global using Iter = Avalon.List.Iter;
 global using ListInfra = Avalon.List.Infra;
 global using Text = Avalon.Text.Text;
 global using TextForm = Avalon.Text.Form;
+global using StringData = Avalon.Text.StringData;
 global using EntryEntry = Avalon.Entry.Entry;
 global using NameCheck = Saber.Infra.NameCheck;
 global using ClassInfra = Saber.Infra.Infra;
