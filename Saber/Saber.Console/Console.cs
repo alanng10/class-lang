@@ -383,7 +383,7 @@ public class Console : ClassBase
 
             if (this.SourceFold == null)
             {
-                this.Status = 1001;
+                this.Status = 1010;
                 return false;;
             }
 
@@ -391,7 +391,7 @@ public class Console : ClassBase
             baa = this.ReadPort();
             if (!baa)
             {
-                this.Status = 1002;
+                this.Status = 1100;
                 return false;
             }
 
