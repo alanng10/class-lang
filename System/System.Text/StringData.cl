@@ -22,7 +22,7 @@ class StringData : Data
         set
         {
             data : value;
-            
+
             var Any ka;
             var Int count;
             count : 0;
@@ -34,7 +34,7 @@ class StringData : Data
                 count : this.StringComp.Count(data);
                 count : count * 4;
             }
-            
+
             this.Value : ka;
             this.Count : count;
         }
