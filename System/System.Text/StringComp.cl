@@ -10,6 +10,7 @@ class StringComp : Any
     
     field private Intern InternIntern { get { return data; } set { data : value; } }
     field private InternInfra InternInfra { get { return data; } set { data : value; } }
+    field precate InfraInfra InfraInfra { get { return data; } set { data : value; } }
     
     maide prusate String CreateChar(var Int char, var Int count)
     {
