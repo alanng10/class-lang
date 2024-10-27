@@ -21,6 +21,7 @@ public class LibraryGen : ClassBase
 
     public virtual ClassModule Module { get; set; }
     public virtual Table ModuleTable { get; set; }
+    public virtual SystemClass SystemClass { get; set; }
     public virtual String ModuleRefString { get; set; }
     public virtual long Status { get; set; }
     protected virtual StorageInfra StorageInfra { get; set; }
@@ -114,7 +115,7 @@ public class LibraryGen : ClassBase
 
         this.ClassGen.InternClass = internClass;
         this.ClassGen.ExternClass = externClass;
-        this.ClassGen.System = this.Create.Module.SystemClass;
+        this.ClassGen.System = this.SystemClass;
         this.ClassGen.ImportClass = this.ImportClass;
 
         this.StorageComp.FoldDelete(this.GenModuleFoldPath);
