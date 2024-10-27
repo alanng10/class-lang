@@ -506,7 +506,7 @@ public class Infra : Any
 
     public virtual Infra Add(String a)
     {
-        this.InfraInfra.AddString(this.StringAdd, a);
+        this.TextInfra.AddString(this.StringAdd, a);
         return this;
     }
 
