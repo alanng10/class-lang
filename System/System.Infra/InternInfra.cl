@@ -11,32 +11,6 @@ class InternInfra : Any
     field precate Intern InternIntern { get { return data; } set { data : value; } }
     field precate Extern Extern { get { return data; } set { data : value; } }
 
-    maide prusate Bool ValidIndex(var Int count, var Int index)
-    {
-        return this.ValidRange(count, index, 1);
-    }
-
-    maide prusate Bool ValidRange(var Int totalCount, var Int index, var Int count)
-    {
-        inf (totalCount = null)
-        {
-            return false;
-        }
-        inf (index = null)
-        {
-            return false;
-        }
-        inf (count = null)
-        {
-            return false;
-        }
-        inf (totalCount < index + count)
-        {
-            return false;
-        }
-        return true;
-    }
-
     maide prusate Int DataByteListGet(var Any data, var Int index, var Int count)
     {
         var Intern internIntern;
