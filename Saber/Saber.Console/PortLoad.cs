@@ -476,13 +476,19 @@ public class PortLoad : ClassBase
         i = 0;
         while (i < count)
         {
-            ModuleRef o;
-            o = (ModuleRef)array.GetAt(i);
+            ModuleRef k;
+            k = (ModuleRef)array.GetAt(i);
 
             Table aa;
-            aa = this.BinaryDepend(o);
+            aa = this.BinaryDepend(k);
             if (aa == null)
             {
+                String ka;
+                ka = this.ModuleRefString(k);
+
+                this.ErrorAdd(this.ErrorKind.ModuleUndefined, ka);
+
+                this.Status = 60;
                 return false;
             }
 
@@ -501,7 +507,7 @@ public class PortLoad : ClassBase
                 }
             }
 
-            listInfra.TableAdd(table, o, o);
+            listInfra.TableAdd(table, k, k);
 
             i = i + 1;
         }
@@ -511,10 +517,10 @@ public class PortLoad : ClassBase
 
         if (table.Valid(oa))
         {
-            String k;
-            k = this.ModuleRefString(oa);
+            String kn;
+            kn = this.ModuleRefString(oa);
 
-            this.ErrorAdd(this.ErrorKind.ModuleUndefined, k);
+            this.ErrorAdd(this.ErrorKind.ModuleUndefined, kn);
 
             this.Status = 61;
             return false;
