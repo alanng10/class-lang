@@ -90,20 +90,6 @@ public class Less : InfraLess
             i = i + 1;
         }
 
-        long k;
-        k = liteCount - riteCount;
-        
-        long a;
-        a = 0;
-        if (k < 0)
-        {
-            a = -1;
-        }
-
-        if (0 < k)
-        {
-            a = 1;
-        }
-        return a;
+        return liteCount - riteCount;
     }
 }
