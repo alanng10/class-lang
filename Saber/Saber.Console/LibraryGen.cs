@@ -6,6 +6,7 @@ public class LibraryGen : ClassBase
     {
         base.Init();
         this.StorageInfra = StorageInfra.This;
+        this.StorageComp = StorageComp.This;
         this.SIntern = this.S("Intern");
         this.SExtern = this.S("Extern");
         return true;
@@ -16,6 +17,7 @@ public class LibraryGen : ClassBase
     public virtual String ModuleRefString { get; set; }
     public virtual long Status { get; set; }
     protected virtual StorageInfra StorageInfra { get; set; }
+    protected virtual StorageComp StorageComp { get; set; }
     protected virtual String GenModuleFoldPath { get; set; }
     protected virtual String SIntern { get; set; }
     protected virtual String SExtern { get; set; }
@@ -73,10 +75,10 @@ public class LibraryGen : ClassBase
         this.ClassGen.System = this.Create.Module.SystemClass;
         this.ClassGen.ImportClass = this.ImportClass;
 
-        this.StorageComp.FoldDelete(genModuleFoldPath);
+        this.StorageComp.FoldDelete(this.GenModuleFoldPath);
 
         bool baa;
-        baa = this.StorageComp.FoldCreate(genModuleFoldPath);
+        baa = this.StorageComp.FoldCreate(this.GenModuleFoldPath);
 
         if (!baa)
         {
