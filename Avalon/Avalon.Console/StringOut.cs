@@ -5,18 +5,18 @@ public class StringOut : Out
     public override bool Init()
     {
         base.Init();
-        this.InfraInfra = InfraInfra.This;
+        this.TextInfra = TextInfra.This;
         this.StringAdd = new StringAdd();
         this.StringAdd.Init();
         return true;
     }
 
-    protected virtual InfraInfra InfraInfra { get; set; }
+    protected virtual TextInfra TextInfra { get; set; }
     private StringAdd StringAdd { get; set; }
 
-    public override bool Write(String o)
+    public override bool Write(String value)
     {
-        this.InfraInfra.AddString(this.StringAdd, o);
+        this.TextInfra.AddString(this.StringAdd, value);
         return true;
     }
 
