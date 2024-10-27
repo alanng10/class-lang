@@ -294,7 +294,7 @@ public class LibraryGen : ClassBase
 
         if (!b)
         {
-            this.Status = 5000 + 40;
+            this.Status = 40;
             return false;
         }
 
