@@ -14,9 +14,9 @@ class FormInfra : Any
         return share;
     }
 
-    public virtual bool Digit(long o)
+    public virtual bool Digit(long n)
     {
-        return this.Range('0', '9', o);
+        return this.Range('0', '9', n);
     }
 
     public virtual bool HexAlpha(long o, bool upperCase)
