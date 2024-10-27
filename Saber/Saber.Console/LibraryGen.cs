@@ -131,7 +131,7 @@ public class LibraryGen : ClassBase
         return true;
     }
 
-    protected virtual bool ExecuteGenModuleSource(String genModuleFoldPath)
+    protected virtual bool ExecuteGenModuleSource()
     {
         this.ModuleGen.Gen = this.ClassGen;
         this.ModuleGen.Module = this.Result.Module.Module;
@@ -148,7 +148,7 @@ public class LibraryGen : ClassBase
         fileName = this.AddClear().Add(this.SModule).Add(this.ClassInfra.Dot).Add(this.SC).AddResult();
 
         String filePath;
-        filePath = this.AddClear().Add(genModuleFoldPath).Add(this.TextInfra.PathCombine).Add(fileName).AddResult();
+        filePath = this.AddClear().Add(this.GenModuleFoldPath).Add(this.TextInfra.PathCombine).Add(fileName).AddResult();
 
         bool b;
         b = this.StorageInfra.TextWrite(filePath, k);
@@ -162,7 +162,7 @@ public class LibraryGen : ClassBase
         return true;
     }
 
-    protected virtual bool ExecuteGenProject(String genModuleFoldPath)
+    protected virtual bool ExecuteGenProject()
     {
         Array moduleRefStringArray;
         moduleRefStringArray = this.ModuleRefStringArray();
@@ -190,7 +190,7 @@ public class LibraryGen : ClassBase
         fileName = this.AddClear().Add(this.SModule).Add(this.ClassInfra.Dot).Add(this.SPro).AddResult();
 
         String filePath;
-        filePath = this.AddClear().Add(genModuleFoldPath).Add(this.TextInfra.PathCombine).Add(fileName).AddResult();
+        filePath = this.AddClear().Add(this.GenModuleFoldPath).Add(this.TextInfra.PathCombine).Add(fileName).AddResult();
 
         bool b;
         b = this.StorageInfra.TextWrite(filePath, ka);
@@ -239,13 +239,13 @@ public class LibraryGen : ClassBase
         return array;
     }
 
-    protected virtual bool ExecuteGenMake(String moduleRefString)
+    protected virtual bool ExecuteGenMake()
     {
         List list;
         list = new List();
         list.Init();
         list.Add(this.S("/c"));
-        list.Add(this.AddClear().AddS("Make.cmd ").Add(moduleRefString).AddResult());
+        list.Add(this.AddClear().AddS("Make.cmd ").Add(this.ModuleRefString).AddResult());
 
         Program program;
         program = new Program();
