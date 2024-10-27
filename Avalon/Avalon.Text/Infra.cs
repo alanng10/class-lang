@@ -272,6 +272,27 @@ public class Infra : Any
         return this.StringComp.CreateData(text.Data, text.Range);
     }
 
+    public virtual bool AddString(StringAdd h, String a)
+    {
+        StringComp stringComp;
+        stringComp = this.StringComp;
+
+        long count;
+        count = stringComp.Count(a);
+        long i;
+        i = 0;
+        while (i < count)
+        {
+            long oc;
+            oc = stringComp.Char(a, i);
+
+            h.Execute(oc);
+
+            i = i + 1;
+        }
+        return true;
+    }
+
     public virtual bool Same(Text lite, Text rite, InfraLess less)
     {
         long o;
