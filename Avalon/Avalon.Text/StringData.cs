@@ -17,18 +17,18 @@ public class StringData : Data
         {
             this.ValueStringData = value;
 
-            byte[] array;
-            array = null;
+            byte[] ka;
+            ka = null;
             long count;
             count = 0;
 
             if (!(value == null))
             {
-                array = value.Value;
+                ka = value.Value;
                 count = value.Count * sizeof(uint);
             }
 
-            this.Value = array;
+            this.Value = ka;
             this.Count = count;
         }
     }
