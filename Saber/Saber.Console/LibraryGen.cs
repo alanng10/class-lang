@@ -95,6 +95,8 @@ public class LibraryGen : ClassBase
 
     protected virtual bool ExecuteAll()
     {
+        this.Status = 0;
+
         String genFoldPath;
         genFoldPath = this.S("Saber.Console.Data/Gen");
 
