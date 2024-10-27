@@ -377,7 +377,7 @@ public class Infra : Any
 
     private Infra Add(StringAdd h, String o)
     {
-        this.InfraInfra.AddString(h, o);
+        this.TextInfra.AddString(h, o);
 
         return this;
     }
