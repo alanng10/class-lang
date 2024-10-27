@@ -11,4 +11,3 @@ call Script\Infra\MakeDemoProject
 call Script\Infra\MakeDemo
 call Script\Infra\MakeInternProject
 call Script\Infra\MakeIntern
-call Script\Infra\UpdateDeployIntern
