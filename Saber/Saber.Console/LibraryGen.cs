@@ -88,6 +88,7 @@ public class LibraryGen : ClassBase
         b = this.ExecuteAll();
 
         this.GenModuleFoldPath = null;
+        this.ModuleRef.Name = null;
 
         return b;
     }
