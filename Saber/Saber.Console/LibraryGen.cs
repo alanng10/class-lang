@@ -8,6 +8,8 @@ public class LibraryGen : ClassBase
         this.StorageInfra = StorageInfra.This;
         this.StorageComp = StorageComp.This;
 
+        this.ModuleGen = this.CreateModuleGen();
+
         this.ModuleRef = this.ClassInfra.ModuleRefCreate(null, 0);
 
         this.SSystemDotInfra = this.S("System.Infra");
@@ -27,6 +29,7 @@ public class LibraryGen : ClassBase
     protected virtual StorageInfra StorageInfra { get; set; }
     protected virtual StorageComp StorageComp { get; set; }
     protected virtual ClassGen ClassGen { get; set; }
+    protected virtual ModuleGen ModuleGen { get; set; }
     protected virtual String GenModuleFoldPath { get; set; }
     protected virtual ModuleRef ModuleRef { get; set; }
     protected virtual String SSystemDotInfra { get; set; }
@@ -35,6 +38,14 @@ public class LibraryGen : ClassBase
     protected virtual String SC { get; set; }
     protected virtual String SPro { get; set; }
     protected virtual String SModule { get; set; }
+
+    protected virtual ModuleGen CreateModuleGen()
+    {
+        ModuleGen a;
+        a = new ModuleGen();
+        a.Init();
+        return a;
+    }
 
     public virtual bool Execute()
     {
