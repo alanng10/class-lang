@@ -19,7 +19,25 @@ class FormInfra : Any
         return this.Range(ka, kb, n);
     }
 
-    maide private Int Char(var String k)
+    maide prusate Bool HexAlpha(var Int n, var Bool nite)
+    {
+        var Int start;
+        var Int end;
+
+        inf (nite)
+        {
+            start : this.Char("A");
+            end : this.Char("F");
+        }
+        inf (~nite)
+        {
+            start : this.Char("a");
+            end : this.Char("f");
+        }
+        return this.Range(start, end, n);
+    }
+
+    maide prusate Int Char(var String k)
     {
         return this.StringComp.Char(k, 0);
     }
