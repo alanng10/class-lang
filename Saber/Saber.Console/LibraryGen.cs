@@ -173,7 +173,7 @@ public class LibraryGen : ClassBase
     protected virtual bool ExecuteGenModuleSource()
     {
         this.ModuleGen.Gen = this.ClassGen;
-        this.ModuleGen.Module = this.Result.Module.Module;
+        this.ModuleGen.Module = this.Module;
 
         this.ModuleGen.Execute();
         String k;
