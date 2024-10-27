@@ -103,17 +103,17 @@ public class LibraryGen : ClassBase
 
         this.GenModuleFoldPath = this.AddClear().Add(genFoldPath).Add(combine).Add(this.ModuleRefString).AddResult();
 
-        bool bb;
-        bb = this.ExecuteGenClassSource();
-        if (!bb)
+        bool ba;
+        ba = this.ExecuteGenClassSource();
+        if (!ba)
         {
             this.Status = 10;
             return false;
         }
 
-        bool bc;
-        bc = this.ExecuteGenModuleSource();
-        if (!bc)
+        bool bb;
+        bb = this.ExecuteGenModuleSource();
+        if (!bb)
         {
             this.Status = 20;
             return false;
