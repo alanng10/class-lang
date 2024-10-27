@@ -715,7 +715,7 @@ public class Console : ClassBase
         }
 
         bool bb;
-        bb = this.GenModuleSource(genModuleFoldPath);
+        bb = this.ExecuteGenModuleSource(genModuleFoldPath);
         if (!bb)
         {
             return false;
@@ -779,7 +779,7 @@ public class Console : ClassBase
     }
 
 
-    protected virtual bool GenModuleSource(String genModuleFoldPath)
+    protected virtual bool ExecuteGenModuleSource(String genModuleFoldPath)
     {
         this.ModuleGen.Gen = this.ClassGen;
         this.ModuleGen.Module = this.Result.Module.Module;
