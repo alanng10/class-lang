@@ -9,6 +9,9 @@ public class LibraryGen : ClassBase
         this.StorageComp = StorageComp.This;
         this.SIntern = this.S("Intern");
         this.SExtern = this.S("Extern");
+        this.SC = this.S("c");
+        this.SPro = this.S("pro");
+        this.SModule = this.S("Module");
         return true;
     }
 
@@ -21,6 +24,9 @@ public class LibraryGen : ClassBase
     protected virtual String GenModuleFoldPath { get; set; }
     protected virtual String SIntern { get; set; }
     protected virtual String SExtern { get; set; }
+    protected virtual String SC { get; set; }
+    protected virtual String SPro { get; set; }
+    protected virtual String SModule { get; set; }
 
     public virtual bool Execute()
     {
