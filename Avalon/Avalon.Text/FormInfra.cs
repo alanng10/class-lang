@@ -19,7 +19,7 @@ class FormInfra : Any
         return this.Range('0', '9', n);
     }
 
-    public virtual bool HexAlpha(long o, bool nite)
+    public virtual bool HexAlpha(long n, bool nite)
     {
         uint start;
         uint end;
@@ -35,10 +35,10 @@ class FormInfra : Any
             start = 'a';
             end = 'f';
         }
-        return this.Range(start, end, o);
+        return this.Range(start, end, n);
     }
 
-    public virtual bool Alpha(long o, bool nite)
+    public virtual bool Alpha(long n, bool nite)
     {
         uint start;
         uint end;
@@ -54,15 +54,15 @@ class FormInfra : Any
             start = 'a';
             end = 'z';
         }
-        return this.Range(start, end, o);
+        return this.Range(start, end, n);
     }
 
-    public virtual bool Range(long start, long end, long o)
+    public virtual bool Range(long start, long end, long n)
     {
         if (end < start)
         {
             return false;
         }
-        return !((o < start) | (end < o));
+        return !((n < start) | (end < n));
     }
 }
