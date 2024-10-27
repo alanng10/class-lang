@@ -70,16 +70,16 @@ class Less : InfraLess
         i : 0;
         while (i < count)
         {
-            var Int oca;
-            var Int ocb;
-            oca : textInfra.DataCharGet(liteData, liteIndex + i);
-            ocb : textInfra.DataCharGet(riteData, riteIndex + i);
+            var Int na;
+            var Int nb;
+            na : textInfra.DataCharGet(liteData, liteIndex + i);
+            nb : textInfra.DataCharGet(riteData, riteIndex + i);
 
-            oca : liteForm.Execute(oca);
-            ocb : riteForm.Execute(ocb);
+            na : liteForm.Execute(na);
+            nb : riteForm.Execute(nb);
 
             var Int oo;
-            oo : charLess.Execute(oca, ocb);
+            oo : charLess.Execute(na, nb);
             inf (~(oo = 0))
             {
                 return oo;
