@@ -595,25 +595,6 @@ public class Console : ClassBase
         ClassModule module;
         module = this.Result.Module.Module;
 
-        ClassModule systemInfraModule;
-        systemInfraModule = null;
-
-        bool b;
-        b = this.TextSame(this.TA(module.Ref.Name), this.TB(this.SSystemDotInfra));
-
-        if (b)
-        {
-            systemInfraModule = module;
-        }
-
-        if (!b)
-        {
-            this.ModuleRef.Name = this.SSystemDotInfra;
-            this.ModuleRef.Ver = 0;
-
-            systemInfraModule = (ClassModule)this.ModuleTable.Get(this.ModuleRef);
-        }
-
         String verString;
         verString = this.ClassInfra.VerString(module.Ref.Ver);
 
