@@ -19,18 +19,23 @@ class FormInfra : Any
         return this.Range('0', '9', n);
     }
 
-    public virtual bool HexAlpha(long o, bool upperCase)
+    public virtual bool HexAlpha(long o, bool nite)
     {
-        uint first;
-        first = 'a';
-        uint last;
-        last = 'f';
-        if (upperCase)
+        uint start;
+        uint end;
+        start = 0;
+        end = 0;
+        if (nite)
         {
-            first = 'A';
-            last = 'F';
+            start = 'A';
+            end = 'F';
         }
-        return this.Range(first, last, o);
+        if (!nite)
+        {
+            start = 'a';
+            end = 'f';
+        }
+        return this.Range(start, end, o);
     }
 
     public virtual bool Alpha(long o, bool upperCase)
@@ -47,12 +52,12 @@ class FormInfra : Any
         return this.Range(first, last, o);
     }
 
-    public virtual bool Range(long first, long last, long o)
+    public virtual bool Range(long start, long end, long o)
     {
-        if (last < first)
+        if (end < start)
         {
             return false;
         }
-        return !((o < first) | (last < o));
+        return !((o < start) | (end < o));
     }
 }
