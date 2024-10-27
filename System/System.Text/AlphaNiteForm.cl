@@ -18,7 +18,7 @@ class AlphaNiteForm : Form
             ka : this.FormInfra.Char("a");
             kb : this.FormInfra.Char("A");
 
-            n = n - ka + kb;
+            n : n - ka + kb;
         }
 
         return n;
