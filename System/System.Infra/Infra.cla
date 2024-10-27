@@ -37,7 +37,7 @@ class Infra : Any
 
     maide prusate Bool IndexRange(var Range range, var Int index)
     {
-        range.Index : index;        
+        range.Index : index;
         range.Count : 1;
         return true;
     }
