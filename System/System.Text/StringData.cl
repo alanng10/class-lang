@@ -23,19 +23,19 @@ class StringData : Data
         {
             data : value;
             
-            var Any aa;
+            var Any ka;
             var Int count;
             count : 0;
 
             inf (~(data = null))
             {
-                aa : this.InternIntern.StringValueGet(data);
+                ka : this.InternIntern.StringValueGet(data);
 
                 count : this.StringComp.Count(data);
                 count : count * 4;                
             }
             
-            this.Value : aa;
+            this.Value : ka;
             this.Count : count;
         }
     }
