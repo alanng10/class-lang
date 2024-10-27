@@ -22,8 +22,6 @@ public class Console : ClassBase
 
         this.BinaryGen = this.CreateBinaryGen();
 
-        this.ClassGen = this.CreateClassGen();
-
         this.ErrorString = new ErrorString();
         this.ErrorString.Init();
 
@@ -145,19 +143,10 @@ public class Console : ClassBase
         return a;
     }
 
-
     protected virtual BinaryGen CreateBinaryGen()
     {
         BinaryGen a;
         a = new BinaryGen();
-        a.Init();
-        return a;
-    }
-
-    protected virtual ClassGen CreateClassGen()
-    {
-        ClassGen a;
-        a = new ClassGen();
         a.Init();
         return a;
     }

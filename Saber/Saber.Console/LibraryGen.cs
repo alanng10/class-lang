@@ -8,6 +8,8 @@ public class LibraryGen : ClassBase
         this.StorageInfra = StorageInfra.This;
         this.StorageComp = StorageComp.This;
 
+        this.ClassGen = this.CreateClassGen();
+
         this.ModuleGen = this.CreateModuleGen();
 
         this.ProjectGen = this.CreateProjectGen();
@@ -42,6 +44,14 @@ public class LibraryGen : ClassBase
     protected virtual String SC { get; set; }
     protected virtual String SPro { get; set; }
     protected virtual String SModule { get; set; }
+
+    protected virtual ClassGen CreateClassGen()
+    {
+        ClassGen a;
+        a = new ClassGen();
+        a.Init();
+        return a;
+    }
 
     protected virtual ModuleGen CreateModuleGen()
     {
