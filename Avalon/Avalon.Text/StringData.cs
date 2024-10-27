@@ -1,4 +1,4 @@
-namespace Avalon.Infra;
+namespace Avalon.Text;
 
 public class StringData : Data
 {
