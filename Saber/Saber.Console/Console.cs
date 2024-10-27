@@ -39,8 +39,6 @@ public class Console : ClassBase
         this.PortRead = new PortRead();
         this.PortRead.Init();
 
-        this.ModuleRef = this.ClassInfra.ModuleRefCreate(null, 0);
-
         this.ModuleRefLess = new ModuleRefLess();
         this.ModuleRefLess.Init();
 
@@ -87,7 +85,6 @@ public class Console : ClassBase
     protected virtual PortPort Port { get; set; }
     protected virtual bool MakeSystemModule { get; set; }
     protected virtual String ModuleProjectText { get; set; }
-    protected virtual ModuleRef ModuleRef { get; set; }
     protected virtual ModuleRefLess ModuleRefLess { get; set; }
     protected virtual String SClass { get; set; }
     protected virtual String SInfo { get; set; }
