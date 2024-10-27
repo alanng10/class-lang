@@ -11,7 +11,7 @@ class AlphaSiteForm : Form
 
     maide prusate Int Execute(var Int n)
     {
-        inf (this.FormInfra.Alpha(n, false))
+        inf (this.FormInfra.Alpha(n, true))
         {
             var Int ka;
             var Int kb;
