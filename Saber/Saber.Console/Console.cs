@@ -77,6 +77,7 @@ public class Console : ClassBase
     protected virtual Out Out { get; set; }
     protected virtual Out Err { get; set; }
     protected virtual PortPort Port { get; set; }
+    protected virtual Array PortError { get; set; }
     protected virtual bool MakeSystemModule { get; set; }
     protected virtual ModuleRefLess ModuleRefLess { get; set; }
     protected virtual String SClass { get; set; }
@@ -513,7 +514,9 @@ public class Console : ClassBase
         }
 
         this.PortModule = portLoad.Module;
+        this.PortError = portLoad.Error;
 
+        portLoad.Error = null;
         portLoad.Module = null;
         portLoad.SystemModule = false;
         portLoad.ImportClass = null;
