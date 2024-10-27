@@ -57,7 +57,7 @@ public class PortLoad : ClassBase
     protected virtual bool ExecuteAll()
     {
         this.Status = 0;
-        
+
         PortPort port;
         port = this.Port;
 
