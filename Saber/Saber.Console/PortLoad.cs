@@ -368,12 +368,6 @@ public class PortLoad : ClassBase
             return true;
         }
 
-        if (this.TextSame(this.TA(moduleRef.Name), this.TB(this.ModuleRef.Name)) & 
-            moduleRef.Ver == this.ModuleRef.Ver)
-        {
-            return false;
-        }
-
         bool b;
         b = this.BinaryLoad(moduleRef);
         if (!b)
