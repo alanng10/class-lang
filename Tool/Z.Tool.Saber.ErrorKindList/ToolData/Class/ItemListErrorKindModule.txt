@@ -24,7 +24,7 @@ MaideUnexportable
 EntryUndefined
 EntryUnachievable
 ModuleInvalid
-ImportModuleUndefined
+ModuleUndefined
 ImportNameUnavailable
 ImportClassUndefined
 ExportUnachievable
