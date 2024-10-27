@@ -38,18 +38,23 @@ class FormInfra : Any
         return this.Range(start, end, o);
     }
 
-    public virtual bool Alpha(long o, bool upperCase)
+    public virtual bool Alpha(long o, bool nite)
     {
-        uint first;
-        first = 'a';
-        uint last;
-        last = 'z';
-        if (upperCase)
+        uint start;
+        uint end;
+        start = 0;
+        end = 0;
+        if (nite)
         {
-            first = 'A';
-            last = 'Z';
+            start = 'A';
+            end = 'Z';
         }
-        return this.Range(first, last, o);
+        if (!nite)
+        {
+            start = 'a';
+            end = 'z';
+        }
+        return this.Range(start, end, o);
     }
 
     public virtual bool Range(long start, long end, long o)
