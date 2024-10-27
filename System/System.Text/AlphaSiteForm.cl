@@ -18,7 +18,7 @@ class AlphaSiteForm : Form
             ka : this.FormInfra.Char("A");
             kb : this.FormInfra.Char("a");
 
-            n = n - ka + kb;
+            n : n - ka + kb;
         }
 
         return n;
