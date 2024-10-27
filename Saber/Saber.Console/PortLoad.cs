@@ -626,6 +626,11 @@ public class PortLoad : ClassBase
                 long o;
                 o = moduleLoad.Status;
 
+                String k;
+                k = this.ModuleRefString(moduleRef);
+
+                this.ErrorAdd(this.ErrorKind.ModuleUndefined, k);
+
                 this.Status = 200 + o;
                 return false;
             }
