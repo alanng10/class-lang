@@ -1,11 +1,11 @@
-namespace Avalon.Infra;
+namespace Avalon.Text;
 
 public class StringAdd : Any
 {
     public override bool Init()
     {
         base.Init();
-        this.InfraInfra = Infra.This;
+        this.InfraInfra = InfraInfra.This;
         this.StringComp = StringComp.This;
 
         this.Range = new Range();
@@ -24,7 +24,7 @@ public class StringAdd : Any
         return true;
     }
 
-    protected virtual Infra InfraInfra { get; set; }
+    protected virtual InfraInfra InfraInfra { get; set; }
     protected virtual StringComp StringComp { get; set; }
     protected virtual Range Range { get; set; }
     private Data Data { get; set; }
@@ -49,7 +49,7 @@ public class StringAdd : Any
 
     public virtual bool Execute(long n)
     {
-        Infra infraInfra;
+        InfraInfra infraInfra;
         infraInfra = this.InfraInfra;
 
         long count;
