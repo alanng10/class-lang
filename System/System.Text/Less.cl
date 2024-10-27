@@ -54,10 +54,10 @@ class Less : InfraLess
         var IntLess charLess;
         charLess : this.CharLess;
 
-        var Form liteCharForm;
-        var Form riteCharForm;
-        liteCharForm : this.liteCharForm;
-        riteCharForm : this.riteCharForm;
+        var Form liteForm;
+        var Form riteForm;
+        liteForm : this.liteForm;
+        riteForm : this.riteForm;
 
         var Int count;
         count : liteCount;
@@ -75,8 +75,8 @@ class Less : InfraLess
             oca : textInfra.DataCharGet(liteData, liteIndex + i);
             ocb : textInfra.DataCharGet(riteData, riteIndex + i);
 
-            oca : liteCharForm.Execute(oca);
-            ocb : riteCharForm.Execute(ocb);
+            oca : liteForm.Execute(oca);
+            ocb : riteForm.Execute(ocb);
 
             var Int oo;
             oo : charLess.Execute(oca, ocb);
