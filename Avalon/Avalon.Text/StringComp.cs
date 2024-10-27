@@ -64,15 +64,6 @@ public class StringComp : Any
         return a;
     }
 
-    public virtual String CreateString(String s, Range range)
-    {
-        if (s == null)
-        {
-            return null;
-        }
-        return this.CreateDataValue(s.Value, range);
-    }
-
     public virtual String CreateData(Data data, Range range)
     {
         if (data == null)
@@ -80,6 +71,15 @@ public class StringComp : Any
             return null;
         }
         return this.CreateDataValue(data.Value, range);
+    }
+
+    public virtual String CreateString(String s, Range range)
+    {
+        if (s == null)
+        {
+            return null;
+        }
+        return this.CreateDataValue(s.Value, range);
     }
 
     private String CreateDataValue(byte[] data, Range range)
