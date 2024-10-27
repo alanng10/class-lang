@@ -585,6 +585,21 @@ public class Console : ClassBase
         this.LibraryGen.ImportClass = this.ImportClass;
         this.LibraryGen.SystemClass = this.Create.Module.SystemClass;
 
+        bool bb;
+        bb = this.LibraryGen.Execute();
+
+        this.LibraryGen.SystemClass = null;
+        this.LibraryGen.ImportClass = null;
+        this.LibraryGen.ModuleTable = null;
+        this.LibraryGen.ModuleRefString = null;
+        this.LibraryGen.Module = null;
+
+        if (!bb)
+        {
+            this.Status = 5200 + this.LibraryGen.Status;
+            return false;
+        }
+
         return true;
     }
 
