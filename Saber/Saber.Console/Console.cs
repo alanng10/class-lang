@@ -22,6 +22,8 @@ public class Console : ClassBase
 
         this.BinaryGen = this.CreateBinaryGen();
 
+        this.LibraryGen = this.CreateLibraryGen();
+
         this.ErrorString = new ErrorString();
         this.ErrorString.Init();
 
@@ -70,7 +72,7 @@ public class Console : ClassBase
     protected virtual PortRead PortRead { get; set; }
     protected virtual PortLoad PortLoad { get; set; }
     protected virtual BinaryGen BinaryGen { get; set; }
-    protected virtual ClassGen ClassGen { get; set; }
+    protected virtual LibraryGen LibraryGen { get; set; }
     protected virtual NameCheck NameCheck { get; set; }
     protected virtual Out Out { get; set; }
     protected virtual Out Err { get; set; }
@@ -147,6 +149,14 @@ public class Console : ClassBase
     {
         BinaryGen a;
         a = new BinaryGen();
+        a.Init();
+        return a;
+    }
+
+    protected virtual LibraryGen CreateLibraryGen()
+    {
+        LibraryGen a;
+        a = new LibraryGen();
         a.Init();
         return a;
     }
