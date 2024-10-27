@@ -87,11 +87,11 @@ public class LibraryGen : ClassBase
         }
 
         Iter iter;
-        iter = module.Class.IterCreate();
-        module.Class.IterSet(iter);
+        iter = this.Module.Class.IterCreate();
+        this.Module.Class.IterSet(iter);
 
         long count;
-        count = module.Class.Count;
+        count = this.Module.Class.Count;
         long i;
         i = 0;
         while (i < count)
@@ -118,7 +118,7 @@ public class LibraryGen : ClassBase
             fileName = this.AddClear().AddChar('C').Add(ka).Add(this.ClassInfra.Dot).Add(this.SC).AddResult();
 
             String filePath;
-            filePath = this.AddClear().Add(genModuleFoldPath).Add(combine).Add(fileName).AddResult();
+            filePath = this.AddClear().Add(this.GenModuleFoldPath).Add(combine).Add(fileName).AddResult();
 
             bool bab;
             bab = this.StorageInfra.TextWrite(filePath, k);
