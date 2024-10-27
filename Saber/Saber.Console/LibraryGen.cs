@@ -32,25 +32,6 @@ public class LibraryGen : ClassBase
 
     public virtual bool Execute()
     {
-        ClassModule systemInfraModule;
-        systemInfraModule = null;
-
-        bool b;
-        b = this.TextSame(this.TA(this.Module.Ref.Name), this.TB(this.SSystemDotInfra));
-
-        if (b)
-        {
-            systemInfraModule = this.Module;
-        }
-
-        if (!b)
-        {
-            this.ModuleRef.Name = this.SSystemDotInfra;
-            this.ModuleRef.Ver = 0;
-
-            systemInfraModule = (ClassModule)this.ModuleTable.Get(this.ModuleRef);
-        }
-
         String genFoldPath;
         genFoldPath = this.S("Saber.Console.Data/Gen");
 
@@ -92,6 +73,25 @@ public class LibraryGen : ClassBase
 
     protected virtual bool ExecuteGenClassSource()
     {
+        ClassModule systemInfraModule;
+        systemInfraModule = null;
+
+        bool b;
+        b = this.TextSame(this.TA(this.Module.Ref.Name), this.TB(this.SSystemDotInfra));
+
+        if (b)
+        {
+            systemInfraModule = this.Module;
+        }
+
+        if (!b)
+        {
+            this.ModuleRef.Name = this.SSystemDotInfra;
+            this.ModuleRef.Ver = 0;
+
+            systemInfraModule = (ClassModule)this.ModuleTable.Get(this.ModuleRef);
+        }
+
         ClassClass internClass;
         ClassClass externClass;
         internClass = (ClassClass)systemInfraModule.Class.Get(this.SIntern);
