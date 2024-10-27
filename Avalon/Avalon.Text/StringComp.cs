@@ -1,4 +1,4 @@
-namespace Avalon.Infra;
+namespace Avalon.Text;
 
 public class StringComp : Any
 {
@@ -18,10 +18,12 @@ public class StringComp : Any
     {
         base.Init();
         this.InternInfra = InternInfra.This;
+        this.InfraInfra = InfraInfra.This;
         return true;
     }
 
     private InternInfra InternInfra { get; set; }
+    protected virtual InfraInfra InfraInfra { get; set; }
 
     public virtual String CreateChar(uint c, long count)
     {
@@ -108,7 +110,7 @@ public class StringComp : Any
         {
             index = range.Index;
             count = range.Count;
-            if (!internInfra.ValidRange(totalCount, index, count))
+            if (!this.InfraInfra.ValidRange(totalCount, index, count))
             {
                 return null;
             }
@@ -157,19 +159,16 @@ public class StringComp : Any
 
     public virtual long Char(String o, long index)
     {
-        InternInfra internInfra;
-        internInfra = this.InternInfra;
-
         long count;
         count = this.Count(o);
 
-        if (!internInfra.ValidIndex(count, index))
+        if (!this.InfraInfra.ValidIndex(count, index))
         {
             return -1;
         }
 
         uint a;
-        a = internInfra.DataCharGet(o.Value, index * sizeof(uint));
+        a = this.InternInfra.DataCharGet(o.Value, index * sizeof(uint));
         return a;
     }
 }
