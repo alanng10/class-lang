@@ -106,7 +106,7 @@ class StringComp : Any
             index : range.Index;
             count : range.Count;
     
-            inf (~internInfra.ValidRange(totalCount, index, count))
+            inf (~this.InfraInfra.ValidRange(totalCount, index, count))
             {
                 return null;
             }
@@ -155,25 +155,22 @@ class StringComp : Any
     
     maide prusate Int Char(var String string, var Int index)
     {
-        var InternInfra internInfra;
-        internInfra : this.InternInfra;
-
         var Int count;
         count = this.Count(string);
 
-        inf (~internInfra.ValidIndex(count, index))
+        inf (~this.InfraInfra.ValidIndex(count, index))
         {
             return null;
         }
-        
+
         var Any k;
         k : this.InternIntern.StringValueGet(string);
-        
+
         var Int ka;
         ka : index * 4;
-        
+
         var Int a;
-        a : internInfra.DataCharGet(k, ka);
+        a : this.InternInfra.DataCharGet(k, ka);
         return a;
     }
 }
