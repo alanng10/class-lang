@@ -1,8 +1,6 @@
 global using Any = Avalon.Infra.Any;
 global using String = Avalon.Infra.String;
 global using Range = Avalon.Infra.Range;
-global using StringData = Avalon.Infra.StringData;
-global using StringJoin = Avalon.Infra.StringAdd;
 global using LessInt = Avalon.Infra.LessInt;
 global using Array = Avalon.List.Array;
 global using Table = Avalon.List.Table;
@@ -12,6 +10,8 @@ global using ListInfra = Avalon.List.Infra;
 global using Text = Avalon.Text.Text;
 global using TextForm = Avalon.Text.Form;
 global using TextLess = Avalon.Text.Less;
+global using StringData = Avalon.Text.StringData;
+global using StringJoin = Avalon.Text.StringAdd;
 global using EntryEntry = Avalon.Entry.Entry;
 global using NameCheck = Saber.Infra.NameCheck;
 global using ClassInfra = Saber.Infra.Infra;
