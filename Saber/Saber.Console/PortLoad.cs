@@ -511,6 +511,11 @@ public class PortLoad : ClassBase
 
         if (table.Valid(oa))
         {
+            String k;
+            k = this.ModuleRefString(oa);
+
+            this.ErrorAdd(this.ErrorKind.ModuleUndefined, k);
+
             this.Status = 61;
             return false;
         }
