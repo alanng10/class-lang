@@ -363,7 +363,7 @@ public class LibraryGen : ClassBase
 
         if (!(k == 0))
         {
-            this.Status = 5000 + 50;
+            this.Status = 50;
             return false;
         }
 
