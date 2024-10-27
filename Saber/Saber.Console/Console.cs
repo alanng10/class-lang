@@ -103,6 +103,12 @@ public class Console : ClassBase
     {
         bool b;
 
+        b = this.LibraryGen.Load();
+        if (!b)
+        {
+            return false;
+        }
+
         b = this.InfoGen.Load();
         if (!b)
         {
