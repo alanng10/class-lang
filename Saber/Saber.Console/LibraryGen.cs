@@ -172,7 +172,7 @@ public class LibraryGen : ClassBase
 
         if (!baa)
         {
-            this.Status = 5000 + 15;
+            this.Status = 10;
             return false;
         }
 
@@ -218,7 +218,7 @@ public class LibraryGen : ClassBase
 
             if (!bab)
             {
-                this.Status = 5000 + 20;
+                this.Status = 20;
                 return false;
             }
 
