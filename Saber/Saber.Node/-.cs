@@ -1,9 +1,7 @@
 global using Any = Avalon.Infra.Any;
 global using String = Avalon.Infra.String;
-global using StringComp = Avalon.Infra.StringComp;
 global using InfraRange = Avalon.Infra.Range;
 global using Data = Avalon.Infra.Data;
-global using StringData = Avalon.Infra.StringData;
 global using InfraState = Avalon.Infra.State;
 global using LessInt = Avalon.Infra.LessInt;
 global using InfraInfra = Avalon.Infra.Infra;
@@ -16,6 +14,7 @@ global using Text = Avalon.Text.Text;
 global using TextForm = Avalon.Text.Form;
 global using TextLess = Avalon.Text.Less;
 global using TextIntParse = Avalon.Text.IntParse;
+global using StringComp = Avalon.Text.StringComp;
 global using TextStringValue = Avalon.Text.StringValue;
 global using TextInfra = Avalon.Text.Infra;
 global using InfraCreate = Saber.Infra.Create;
