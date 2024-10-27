@@ -107,6 +107,7 @@ public class LibraryGen : ClassBase
         bb = this.ExecuteGenClassSource();
         if (!bb)
         {
+            this.Status = 10;
             return false;
         }
 
@@ -114,6 +115,7 @@ public class LibraryGen : ClassBase
         bc = this.ExecuteGenModuleSource();
         if (!bc)
         {
+            this.Status = 20;
             return false;
         }
 
@@ -121,6 +123,7 @@ public class LibraryGen : ClassBase
         bd = this.ExecuteGenProject();
         if (!bd)
         {
+            this.Status = 30;
             return false;
         }
 
@@ -128,6 +131,7 @@ public class LibraryGen : ClassBase
         be = this.ExecuteGenMake();
         if (!be)
         {
+            this.Status = 40;
             return false;
         }
 
