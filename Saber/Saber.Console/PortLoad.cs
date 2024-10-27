@@ -47,11 +47,14 @@ public class PortLoad : ClassBase
         bool b;
         b = this.ExecuteAll();
 
+        this.Error = this.ListInfra.ArrayCreateList(this.ErrorList);
+
         this.ImportModuleRefArray = null;
         this.ImportDependTable = null;
         this.BinaryDependTable = null;
         this.ModuleLoad.BinaryTable = null;
         this.ModuleLoad.ModuleTable = null;
+        this.ErrorList = null;
         this.ModuleRef = null;
         return b;
     }
@@ -62,6 +65,9 @@ public class PortLoad : ClassBase
 
         PortPort port;
         port = this.Port;
+
+        this.ErrorList = new List();
+        this.ErrorList.Init();
 
         bool b;
 
