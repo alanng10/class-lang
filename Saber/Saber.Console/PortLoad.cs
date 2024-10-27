@@ -361,7 +361,7 @@ public class PortLoad : ClassBase
 
                 this.ErrorAdd(this.ErrorKind.ImportModuleUndefined, k);
 
-                this.Status = 55;
+                this.Status = 50;
                 return false;
             }
 
@@ -432,7 +432,6 @@ public class PortLoad : ClassBase
 
         if (data == null)
         {
-            this.Status = 50;
             return false;
         }
 
@@ -457,7 +456,6 @@ public class PortLoad : ClassBase
 
         if (binary == null)
         {
-            this.Status = 51;
             return false;
         }
 
