@@ -24,8 +24,6 @@ public class Console : ClassBase
 
         this.ClassGen = this.CreateClassGen();
 
-        this.ProjectGen = this.CreateProjectGen();
-
         this.ErrorString = new ErrorString();
         this.ErrorString.Init();
 
@@ -75,7 +73,6 @@ public class Console : ClassBase
     protected virtual PortLoad PortLoad { get; set; }
     protected virtual BinaryGen BinaryGen { get; set; }
     protected virtual ClassGen ClassGen { get; set; }
-    protected virtual ProjectGen ProjectGen { get; set; }
     protected virtual NameCheck NameCheck { get; set; }
     protected virtual Out Out { get; set; }
     protected virtual Out Err { get; set; }
@@ -169,14 +166,6 @@ public class Console : ClassBase
     {
         ClassGen a;
         a = new ClassGen();
-        a.Init();
-        return a;
-    }
-
-    protected virtual ProjectGen CreateProjectGen()
-    {
-        ProjectGen a;
-        a = new ProjectGen();
         a.Init();
         return a;
     }
