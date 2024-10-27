@@ -47,6 +47,7 @@ public class ErrorKindList : Any
         this.MaideUnexportable = this.AddItem("MaideUnexportable");
         this.EntryUndefined = this.AddItem("EntryUndefined");
         this.EntryUnachievable = this.AddItem("EntryUnachievable");
+        this.ModuleInvalid = this.AddItem("ModuleInvalid");
         this.ImportModuleUndefined = this.AddItem("ImportModuleUndefined");
         this.ImportNameUnavailable = this.AddItem("ImportNameUnavailable");
         this.ImportClassUndefined = this.AddItem("ImportClassUndefined");
@@ -79,6 +80,7 @@ public class ErrorKindList : Any
     public virtual ErrorKind MaideUnexportable { get; set; }
     public virtual ErrorKind EntryUndefined { get; set; }
     public virtual ErrorKind EntryUnachievable { get; set; }
+    public virtual ErrorKind ModuleInvalid { get; set; }
     public virtual ErrorKind ImportModuleUndefined { get; set; }
     public virtual ErrorKind ImportNameUnavailable { get; set; }
     public virtual ErrorKind ImportClassUndefined { get; set; }
@@ -111,7 +113,7 @@ public class ErrorKindList : Any
 
     protected virtual Array Array { get; set; }
 
-    protected virtual long ArrayCount { get { return 29; } set { } }
+    protected virtual long ArrayCount { get { return 30; } set { } }
 
     public virtual long Count { get; set; }
     
