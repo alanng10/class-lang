@@ -684,6 +684,9 @@ public class PortLoad : ClassBase
         Array array;
         array = this.Port.Import;
 
+        bool b;
+        b = false;
+
         long count;
         count = array.Count;
         long i;
@@ -719,45 +722,87 @@ public class PortLoad : ClassBase
                 String className;
                 className = importClass.Class;
 
-                if (!nameCheck.IsName(this.TA(className)))
-                {
-                    this.Status = 80;
-                    return false;
-                }
-
                 ClassClass varClass;
-                varClass = (ClassClass)k.Class.Get(className);
+                varClass = null;
 
-                if (varClass == null)
+                bool ba;
+                ba = false;
+
+                if (!ba)
                 {
-                    this.Status = 81;
-                    return false;
+                    if (!nameCheck.IsName(this.TA(className)))
+                    {
+                        ba = true;
+                    }
                 }
 
-                listInfra.TableAdd(a, varClass, varClass);
+                if (!ba)
+                {
+                    varClass = (ClassClass)k.Class.Get(className);
+
+                    if (varClass == null)
+                    {
+                        ba = true;
+                    }
+                }
+
+                if (ba)
+                {
+                    this.ErrorAdd(this.ErrorKind.ImportClassUndefined, className);
+                    b = true;
+                }
+
+                if (!ba)
+                {
+                    listInfra.TableAdd(a, varClass, varClass);
+                }
 
                 String name;
                 name = importClass.Name;
                 
-                if (!nameCheck.IsName(this.TA(name)))
+                bool bb;
+                bb = false;
+
+                if (!bb)
                 {
-                    this.Status = 82;
-                    return false;
+                    if (!nameCheck.IsName(this.TA(name)))
+                    {
+                        bb = true;
+                    }
                 }
                 
-                if (this.ImportClass.Valid(name))
+                if (!bb)
                 {
-                    this.Status = 83;
-                    return false;
+                    if (this.ImportClass.Valid(name))
+                    {
+                        bb = true;
+                    }
                 }
 
-                listInfra.TableAdd(this.ImportClass, name, varClass);
+                if (bb)
+                {
+                    this.ErrorAdd(this.ErrorKind.ImportNameUnavailable, name);
+                    b = true;
+                }
+
+                if (!bb)
+                {
+                    listInfra.TableAdd(this.ImportClass, name, varClass);
+                }
+                
 
                 iA = iA + 1;
             }
 
             i = i + 1;
         }
+
+        if (b)
+        {
+            this.Status = 80;
+            return false;
+        }
+
         return true;
     }
 
