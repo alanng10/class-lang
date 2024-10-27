@@ -37,6 +37,16 @@ public class LibraryGen : ClassBase
 
     public virtual bool Execute()
     {
+        bool b;
+        b = this.ExecuteAll();
+
+        this.GenModuleFoldPath = null;
+
+        return b;
+    }
+
+    protected virtual bool ExecuteAll()
+    {
         String genFoldPath;
         genFoldPath = this.S("Saber.Console.Data/Gen");
 
