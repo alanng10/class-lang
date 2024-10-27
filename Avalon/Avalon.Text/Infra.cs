@@ -283,10 +283,10 @@ public class Infra : Any
         i = 0;
         while (i < count)
         {
-            long oc;
-            oc = stringComp.Char(a, i);
+            long n;
+            n = stringComp.Char(a, i);
 
-            h.Execute(oc);
+            h.Execute(n);
 
             i = i + 1;
         }
