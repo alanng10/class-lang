@@ -433,7 +433,7 @@ public class Base : Any
 
     public virtual Base Add(String a)
     {
-        this.InfraInfra.AddString(this.StringAdd, a);
+        this.TextInfra.AddString(this.StringAdd, a);
         return this;
     }
 
