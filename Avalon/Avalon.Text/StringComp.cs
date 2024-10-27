@@ -110,6 +110,7 @@ public class StringComp : Any
         {
             index = range.Index;
             count = range.Count;
+
             if (!this.InfraInfra.ValidRange(totalCount, index, count))
             {
                 return null;
