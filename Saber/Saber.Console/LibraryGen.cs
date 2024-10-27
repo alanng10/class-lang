@@ -33,6 +33,7 @@ public class LibraryGen : ClassBase
     protected virtual ClassGen ClassGen { get; set; }
     protected virtual ModuleGen ModuleGen { get; set; }
     protected virtual ProjectGen ProjectGen { get; set; }
+    protected virtual String ModuleProjectText { get; set; }
     protected virtual String GenModuleFoldPath { get; set; }
     protected virtual ModuleRef ModuleRef { get; set; }
     protected virtual String SSystemDotInfra { get; set; }
@@ -56,6 +57,18 @@ public class LibraryGen : ClassBase
         a = new ProjectGen();
         a.Init();
         return a;
+    }
+
+    public virtual bool Load()
+    {
+        this.ModuleProjectText = this.StorageInfra.TextRead(this.S("Saber.Console.data/ModuleProject.txt"));
+
+        if (this.ModuleProjectText == null)
+        {
+            return false;
+        }
+
+        return true;
     }
 
     public virtual bool Execute()

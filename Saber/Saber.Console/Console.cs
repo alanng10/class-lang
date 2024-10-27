@@ -78,7 +78,6 @@ public class Console : ClassBase
     protected virtual Out Err { get; set; }
     protected virtual PortPort Port { get; set; }
     protected virtual bool MakeSystemModule { get; set; }
-    protected virtual String ModuleProjectText { get; set; }
     protected virtual ModuleRefLess ModuleRefLess { get; set; }
     protected virtual String SClass { get; set; }
     protected virtual String SInfo { get; set; }
@@ -103,13 +102,6 @@ public class Console : ClassBase
     public virtual bool Load()
     {
         bool b;
-
-        this.ModuleProjectText = this.StorageInfra.TextRead(this.S("Saber.Console.data/ModuleProject.txt"));
-
-        if (this.ModuleProjectText == null)
-        {
-            return false;
-        }
 
         b = this.InfoGen.Load();
         if (!b)
