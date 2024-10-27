@@ -8,62 +8,62 @@ class Less : InfraLess
     }
 
     field prusate IntLess CharLess { get { return data; } set { data : value; } }
-    field prusate Form LeftCharForm { get { return data; } set { data : value; } }
-    field prusate Form RightCharForm { get { return data; } set { data : value; } }
+    field prusate Form LiteForm { get { return data; } set { data : value; } }
+    field prusate Form RiteForm { get { return data; } set { data : value; } }
     field precate Infra TextInfra { get { return data; } set { data : value; } }
 
-    maide prusate Int Execute(var Any left, var Any right)
+    maide prusate Int Execute(var Any lite, var Any rite)
     {
         var Infra textInfra;
         textInfra : this.TextInfra;
 
-        var Text leftText;
-        var Text rightText;
-        leftText : cast Text(left);
-        rightText : cast Text(right);
+        var Text liteText;
+        var Text riteText;
+        liteText : cast Text(lite);
+        riteText : cast Text(rite);
 
-        inf (~textInfra.ValidRange(leftText))
+        inf (~textInfra.ValidRange(liteText))
         {
             return null;
         }
-        inf (~textInfra.ValidRange(rightText))
+        inf (~textInfra.ValidRange(riteText))
         {
             return null;
         }
 
-        var Data leftData;
-        var Data rightData;
-        leftData : leftText.Data;
-        rightData : rightText.Data;
+        var Data liteData;
+        var Data riteData;
+        liteData : liteText.Data;
+        riteData : riteText.Data;
 
-        var Range leftRange;
-        var Range rightRange;
-        leftRange : leftText.Range;
-        rightRange : rightText.Range;
+        var Range liteRange;
+        var Range riteRange;
+        liteRange : liteText.Range;
+        riteRange : riteText.Range;
 
-        var Int leftIndex;
-        var Int leftCount;
-        leftIndex : leftRange.Index;
-        leftCount : leftRange.Count;
+        var Int liteIndex;
+        var Int liteCount;
+        liteIndex : liteRange.Index;
+        liteCount : liteRange.Count;
 
-        var Int rightIndex;
-        var Int rightCount;
-        rightIndex : rightRange.Index;
-        rightCount : rightRange.Count;
+        var Int riteIndex;
+        var Int riteCount;
+        riteIndex : riteRange.Index;
+        riteCount : riteRange.Count;
         
         var IntLess charLess;
         charLess : this.CharLess;
 
-        var Form leftCharForm;
-        var Form rightCharForm;
-        leftCharForm : this.LeftCharForm;
-        rightCharForm : this.RightCharForm;
+        var Form liteCharForm;
+        var Form riteCharForm;
+        liteCharForm : this.liteCharForm;
+        riteCharForm : this.riteCharForm;
 
         var Int count;
-        count : leftCount;
-        inf (rightCount < count)
+        count : liteCount;
+        inf (riteCount < count)
         {
-            count : rightCount;
+            count : riteCount;
         }
 
         var Int i;
@@ -72,11 +72,11 @@ class Less : InfraLess
         {
             var Int oca;
             var Int ocb;
-            oca : textInfra.DataCharGet(leftData, leftIndex + i);
-            ocb : textInfra.DataCharGet(rightData, rightIndex + i);
+            oca : textInfra.DataCharGet(liteData, liteIndex + i);
+            ocb : textInfra.DataCharGet(riteData, riteIndex + i);
 
-            oca : leftCharForm.Execute(oca);
-            ocb : rightCharForm.Execute(ocb);
+            oca : liteCharForm.Execute(oca);
+            ocb : riteCharForm.Execute(ocb);
 
             var Int oo;
             oo : charLess.Execute(oca, ocb);
@@ -88,6 +88,6 @@ class Less : InfraLess
             i : i + 1;
         }
 
-        return leftCount - rightCount;
+        return liteCount - riteCount;
     }
 }
