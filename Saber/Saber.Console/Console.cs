@@ -51,7 +51,6 @@ public class Console : ClassBase
         this.SFlagM = this.S("-m");
         this.SClassDotPort = this.S("Class.Port");
         this.SDotCl = this.S(".cl");
-        this.SSystemDotInfra = this.S("System.Infra");
         this.SRef = this.S("ref");
         return true;
     }
@@ -97,7 +96,6 @@ public class Console : ClassBase
     protected virtual String SFlagM { get; set; }
     protected virtual String SClassDotPort { get; set; }
     protected virtual String SDotCl { get; set; }
-    protected virtual String SSystemDotInfra { get; set; }
     protected virtual String SRef { get; set; }
 
     protected virtual NameCheck CreateNameCheck()
