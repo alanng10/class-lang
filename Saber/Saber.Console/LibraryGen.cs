@@ -117,9 +117,9 @@ public class LibraryGen : ClassBase
             return false;
         }
 
-        bool bd;
-        bd = this.ExecuteGenProject();
-        if (!bd)
+        bool bc;
+        bc = this.ExecuteGenProject();
+        if (!bc)
         {
             return false;
         }
