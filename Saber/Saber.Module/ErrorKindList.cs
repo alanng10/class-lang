@@ -51,6 +51,7 @@ public class ErrorKindList : Any
         this.ModuleUndefined = this.AddItem("ModuleUndefined");
         this.ImportNameUnavailable = this.AddItem("ImportNameUnavailable");
         this.ImportClassUndefined = this.AddItem("ImportClassUndefined");
+        this.ExportInvalid = this.AddItem("ExportInvalid");
         this.ExportUnachievable = this.AddItem("ExportUnachievable");
         return true;
     }
@@ -84,6 +85,7 @@ public class ErrorKindList : Any
     public virtual ErrorKind ModuleUndefined { get; set; }
     public virtual ErrorKind ImportNameUnavailable { get; set; }
     public virtual ErrorKind ImportClassUndefined { get; set; }
+    public virtual ErrorKind ExportInvalid { get; set; }
     public virtual ErrorKind ExportUnachievable { get; set; }
 
     protected virtual TextStringValue StringValue { get; set; }
@@ -113,7 +115,7 @@ public class ErrorKindList : Any
 
     protected virtual Array Array { get; set; }
 
-    protected virtual long ArrayCount { get { return 30; } set { } }
+    protected virtual long ArrayCount { get { return 31; } set { } }
 
     public virtual long Count { get; set; }
     
