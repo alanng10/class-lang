@@ -224,6 +224,8 @@ public class Format : Any
         state.Arg = arg;
         state.Execute();
 
+        state.Arg = null;
+
         Value aa;
         aa = (Value)state.Result;
 

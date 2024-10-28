@@ -222,6 +222,8 @@ class Format : Any
         state.Arg : arg;
         state.Execute();
 
+        state.Arg : null;
+
         var Int aa;
         aa : cast Int(state.Result);
 
