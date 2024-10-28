@@ -275,8 +275,10 @@ class Format : Any
         var FormatResultState state;
         state : cast FormatResultState(this.ResultState.Get(kind));
 
-        state.Arg : arg;
-        state.ArgResult : result;
+        var FormatResultArg ke;
+        ke : cast FormatResultArg(state.Arg);
+        ke.Arg : arg;
+        ke.Result : result;
         state.Execute();
         return true;
     }
