@@ -311,48 +311,30 @@ class Format : Any
         {
             source : textInfra.BoolTrueString;
         }
+        
+        var Bool baa;
+        baa : (form = null);
 
         var Int destIndex;
         destIndex : destStart + valueStart;
-        var Int ouc;
-        ouc : 0;
-        var Int oc;
-        oc : 0;
-        var Int aa;
-        aa : 0;
-        var Int index;
-        index : 0;
-        var Int lowerLetterA;
-        lowerLetterA : textInfra.LetterLowerA;
-        var Int upperLetterA;
-        upperLetterA : textInfra.LetterUpperA;
         var Int count;
         count : valueWriteCount;
         var Int i;
         i : 0;
         while (i < count)
         {
+            var Int index;
             index : i + valueIndex;
 
-            ouc : source.Char(index);
-            aa : ouc;
+            var Int n;
+            n : stringComp.Char(source, index);
 
-            inf (varCase = 1)
+            inf (~baa)
             {
-                inf (index = 0)
-                {
-                    aa : ouc - lowerLetterA + upperLetterA;
-                }
+                n : form.Execute(n);    
             }
-            inf (varCase = 2)
-            {
-                aa : ouc - lowerLetterA + upperLetterA;
-            }
-            oc : aa;
-
-            oc : charForm.Execute(oc);
-
-            textInfra.DataCharSet(destData, destIndex + i, oc);
+            
+            textInfra.DataCharSet(destData, destIndex + i, n);
 
             i : i + 1;
         }
