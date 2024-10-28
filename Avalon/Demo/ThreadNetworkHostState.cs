@@ -27,21 +27,7 @@ class ThreadNetworkHostState : State
 
         host.Port = port;
 
-        TimeEvent varEvent;
-        varEvent = new TimeEvent();
-        varEvent.Init();
-        varEvent.Time = 0;
-
-        this.TimeEvent = varEvent;
-
-        NetworkHostOpenState openState;
-        openState = new NetworkHostOpenState();
-        openState.ThreadNetworkHostState = this;
-        openState.Init();
-
-        varEvent.Elapse.State.AddState(openState);
-
-        varEvent.Start();
+        this.Demo.Host.Open();
 
         ThreadThis varThis;
         varThis = new ThreadThis();
@@ -52,8 +38,6 @@ class ThreadNetworkHostState : State
 
         long o;
         o = thread.ExecuteMain();
-
-        varEvent.Final();
 
         string k;
         k = null;
