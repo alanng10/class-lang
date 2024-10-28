@@ -1,4 +1,4 @@
-namespace Avalon.Intern;
+namespace Avalon.Infra;
 
 public class Intern : object
 {
