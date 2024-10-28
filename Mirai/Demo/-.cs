@@ -39,7 +39,6 @@ global using EntryEntry = Avalon.Entry.Entry;
 global using Type = Mirai.Type.Type;
 global using Button = Mirai.Type.Index;
 global using ButtonList = Mirai.Type.IndexList;
-global using ChangeArg = Mirai.Type.ModArg;
 global using Play = Mirai.Media.Play;
 global using DrawDraw = Mirai.Draw.Draw;
 global using DrawImage = Mirai.Draw.Image;

@@ -1,6 +1,6 @@
 namespace Demo;
 
-class TypeState : State
+class TypeA : Type
 {
     public override bool Init()
     {
@@ -15,18 +15,16 @@ class TypeState : State
     protected virtual Console Console { get; set; }
     public long TitleIndex { get; set; }
 
-    public override bool Execute()
+    public override bool Event(Button index, bool field)
     {
-        ChangeArg aa;
-        aa = (ChangeArg)this.Arg;
+        Button a;
+        a = index;
+
         bool o;
-        o = aa.Field;
+        o = field;
 
         ButtonList d;
         d = this.Demo.Frame.Type.Index;
-
-        Button a;
-        a = aa.Button;
 
         if (a == d.AlphaB & o)
         {
