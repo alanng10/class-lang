@@ -2,11 +2,15 @@
 
     <PropertyGroup>
         <TargetFramework>net8.0</TargetFramework>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
         <OutputPath>../../Out</OutputPath>
     </PropertyGroup>
 
     <ItemGroup>
-        <ProjectReference Include="../Avalon.Intern/Avalon.Intern.csproj" />
+        <None Include="../../Out/InfraDeploy/**/*">
+            <Link>%(RecursiveDir)/%(FileName)%(Extension)</Link>
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
     </ItemGroup>
 
 </Project>
