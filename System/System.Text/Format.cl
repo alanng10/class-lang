@@ -341,13 +341,10 @@ class Format : Any
         return true;
     }
 
-    maide prusate Bool ResultInt(var Text result, var Int value, var Int varBase, var Int varCase, var Int valueCount, var Int valueWriteCount, var Int valueStart, var Int valueIndex)
+    maide prusate Bool ResultInt(var Text result, var Form form, var Int value, var Int varBase, var Int valueCount, var Int valueWriteCount, var Int valueStart, var Int valueIndex)
     {
         var Infra textInfra;
         textInfra : this.TextInfra;
-
-        var CharForm charForm;
-        charForm : this.CharForm;
 
         var Data destData;
         destData : result.Data;
@@ -357,16 +354,22 @@ class Format : Any
         var Int destIndex;
         destIndex : destStart + valueStart;
 
+        var Bool baa;
+        baa : (form = null);
+
         inf (value = 0)
         {
             inf (~(valueWriteCount = 0))
             {
-                var Int occ;
-                occ : "0".Char(0);
+                var Int na;
+                na : textInfra.Char("0");
 
-                occ : charForm.Execute(occ);
+                inf (~baa)
+                {
+                    na : form.Execute(na);
+                }
 
-                textInfra.DataCharSet(destData, destIndex, occ);
+                textInfra.DataCharSet(destData, destIndex, na);
             }
             return true;
         }
