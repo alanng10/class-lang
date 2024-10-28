@@ -71,7 +71,7 @@ class Format : Any
     {
         var Int index;
         index : this.ArrayIndex;
-        this.Array.SetAt(index, item);
+        this.Array.Set(index, item);
         index : index + 1;
         this.ArrayIndex : index;
         return true;
