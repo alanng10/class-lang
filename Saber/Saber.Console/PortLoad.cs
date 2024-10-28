@@ -377,7 +377,11 @@ public class PortLoad : ClassBase
         }
 
         BinaryBinary binary;
-        binary = (BinaryBinary)this.BinaryTable.Get(moduleRef);
+        binary = this.BinaryLoad(moduleRef);
+        if (binary == null)
+        {
+            return false;
+        }
 
         Array array;
         array = binary.Import;
@@ -400,17 +404,12 @@ public class PortLoad : ClassBase
             i = i + 1;
         }
 
-        bool b;
-        b = this.BinaryLoad(moduleRef);
-        if (!b)
-        {
-            return false;
-        }
+        this.ListInfra.TableAdd(this.BinaryTable, binary.Ref, binary);
 
         return true;
     }
 
-    protected virtual bool BinaryLoad(ModuleRef moduleRef)
+    protected virtual BinaryBinary BinaryLoad(ModuleRef moduleRef)
     {
         String moduleRefString;
         moduleRefString = this.ModuleRefString(moduleRef);
@@ -423,7 +422,7 @@ public class PortLoad : ClassBase
 
         if (data == null)
         {
-            return false;
+            return null;
         }
 
         long kk;
@@ -445,15 +444,12 @@ public class PortLoad : ClassBase
         BinaryBinary binary;
         binary = read.Binary;
 
-        if (binary == null)
-        {
-            return false;
-        }
-
         read.Binary = null;
 
-        this.ListInfra.TableAdd(this.BinaryTable, binary.Ref, binary);
-        return true;
+        BinaryBinary a;
+        a = binary;
+
+        return a;
     }
 
     protected virtual bool ImportDepend()
