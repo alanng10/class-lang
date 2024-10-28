@@ -49,7 +49,7 @@ public class Type : Any
     {
         Index k;
         k = this.Index.Get(index);
-        
+
         if (k == null)
         {
             return true;
