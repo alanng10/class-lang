@@ -8,3 +8,6 @@ Class system modules layer at the bottom of the architecture.
 This layer is System.
 
 Modules written in Class lang layer on top of System in platform architecture.
+
+Class compiler modules layer on top of System in platform architecture.
+
