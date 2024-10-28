@@ -294,8 +294,8 @@ class Format : Any
         var Infra textInfra;
         textInfra : this.TextInfra;
 
-        var CharForm charForm;
-        charForm : this.CharForm;
+        var StringComp stringComp;
+        stringComp : this.StringComp;
 
         var Data destData;
         destData : result.Data;
