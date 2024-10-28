@@ -194,10 +194,10 @@ class Format : Any
 
             inf (~(i = baseCount))
             {
-                var Int oc;
-                oc : textInfra.DataCharGet(baseData, baseStart + i);
+                var Int n;
+                n : textInfra.DataCharGet(baseData, baseStart + i);
 
-                textInfra.DataCharSet(resultData, resultStart + resultIndex, oc);
+                textInfra.DataCharSet(resultData, resultStart + resultIndex, n);
                 
                 resultIndex : resultIndex + 1;
             }

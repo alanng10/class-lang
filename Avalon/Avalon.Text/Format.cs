@@ -196,10 +196,10 @@ public class Format : Any
 
             if (!(i == baseCount))
             {
-                uint oc;
-                oc = textInfra.DataCharGet(baseData, baseStart + i);
+                uint n;
+                n = textInfra.DataCharGet(baseData, baseStart + i);
 
-                textInfra.DataCharSet(resultData, resultStart + resultIndex, oc);
+                textInfra.DataCharSet(resultData, resultStart + resultIndex, n);
                 
                 resultIndex = resultIndex + 1;
             }
