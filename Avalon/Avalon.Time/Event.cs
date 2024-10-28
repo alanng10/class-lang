@@ -9,12 +9,6 @@ public class Event : Any
         this.InternInfra = InternInfra.This;
         this.TimeInfra = Infra.This;
 
-        this.ElapseArg = new ElapseArg();
-        this.ElapseArg.Init();
-        this.ElapseArg.Event = this;
-        this.Elapse = new EventEvent();
-        this.Elapse.Init();
-
         this.InternHandle = new Handle();
         this.InternHandle.Any = this;
         this.InternHandle.Init();
@@ -41,9 +35,6 @@ public class Event : Any
         this.InternHandle.Final();
         return true;
     }
-
-    public virtual EventEvent Elapse { get; set; }
-    protected virtual ElapseArg ElapseArg { get; set; }
 
     private InternIntern InternIntern { get; set; }
     private InternInfra InternInfra { get; set; }
@@ -82,9 +73,14 @@ public class Event : Any
         return true;
     }
 
-    protected virtual bool ExecuteElapse()
+    public virtual bool Elapse()
     {
-        this.Elapse.Execute(this.ElapseArg);
+        return false;
+    }
+
+    private bool PrivateExecuteElapse()
+    {
+        this.Elapse();
         return true;
     }
 
@@ -98,7 +94,7 @@ public class Event : Any
 
         Event a;
         a = (Event)ao;
-        a.ExecuteElapse();
+        a.PrivateExecuteElapse();
 
         return 1;
     }
