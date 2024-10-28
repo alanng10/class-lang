@@ -1,9 +1,10 @@
 namespace Avalon.Infra;
 
-public class Stream : object
+public class Stream : Any
 {
-    public virtual bool Init()
+    public override bool Init()
     {
+        base.Init();
         this.InternIntern = global::Avalon.Infra.Intern.This;
 
         this.InternData = Extern.Data_New();
