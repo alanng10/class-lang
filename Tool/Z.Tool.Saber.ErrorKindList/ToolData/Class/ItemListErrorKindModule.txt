@@ -27,4 +27,5 @@ ModuleInvalid
 ModuleUndefined
 ImportNameUnavailable
 ImportClassUndefined
+ExportInvalid;
 ExportUnachievable
