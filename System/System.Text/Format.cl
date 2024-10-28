@@ -250,7 +250,6 @@ class Format : Any
             }
         }
 
-        arg.HasCount : true;
         arg.ValueCount : valueCount;
         arg.Count : count;
         return true;
