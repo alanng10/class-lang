@@ -110,6 +110,12 @@ public class PortLoad : ClassBase
             return false;
         }
 
+        b = this.ImportDepend();
+        if (!b)
+        {
+            return false;
+        }
+
         b = this.ImportModuleLoad();
         if (!b)
         {
