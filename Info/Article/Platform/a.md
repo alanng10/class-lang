@@ -11,8 +11,8 @@ Modules written in Class lang layer above System in platform architecture.
 
 Class compiler modules layer on top of System in the architecture.
 
-Store modules layer on top of Class compiler modules in the architecture.
+Store modules layer on top of System in the architecture.
+
+View modules layer on top of System in the architecture.
 
 Page modules layer on top of Store modules in the architecture.
-
-View modules layer on top of Page modules in the architecture.
