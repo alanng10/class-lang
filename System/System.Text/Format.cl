@@ -89,11 +89,8 @@ class Format : Any
         {
             var FormatArg arg;
             arg : cast FormatArg(argList.Get(i));
-            
-            inf (~arg.HasCount)
-            {
-                this.ExecuteArgCount(arg);
-            }
+
+            this.ExecuteArgCount(arg);
 
             var Int ka;
             ka : arg.Count;
