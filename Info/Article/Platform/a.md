@@ -9,5 +9,6 @@ This layer is System.
 
 Modules written in Class lang layer above System in platform architecture.
 
-Class compiler modules layer on top of System in platform architecture.
+Class compiler modules layer on top of System in the architecture.
 
+Page modules layer on the of Class compiler in the architecture.
