@@ -1,9 +1,10 @@
 namespace Avalon.Infra;
 
-public class MaideAddress : object
+public class MaideAddress : Any
 {
-    public virtual bool Init()
+    public override bool Init()
     {
+        base.Init();
         this.InternIntern = Intern.This;
 
         this.Value = this.InternIntern.MaidePointer(this.Delegate);
