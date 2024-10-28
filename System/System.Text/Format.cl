@@ -87,8 +87,8 @@ class Format : Any
         i : 0;
         while (i < count)
         {
-            var WriteArg arg;
-            arg : cast WriteArg(argList.Get(i));
+            var FormatArg arg;
+            arg : cast FormatArg(argList.Get(i));
             
             inf (~arg.HasCount)
             {
@@ -162,8 +162,8 @@ class Format : Any
 
             while ((~b) & (argIndex < argCount))
             {
-                var WriteArg arg;
-                arg : cast WriteArg(argList.Get(argIndex));
+                var FormatArg arg;
+                arg : cast FormatArg(argList.Get(argIndex));
 
                 var Int k;
                 k : arg.Pos;
@@ -210,7 +210,7 @@ class Format : Any
         return true;
     }
 
-    maide prusate Bool ExecuteArgCount(var WriteArg arg)
+    maide prusate Bool ExecuteArgCount(var FormatArg arg)
     {
         inf (~this.ValidArg(arg))
         {
@@ -259,7 +259,7 @@ class Format : Any
         return true;
     }
 
-    maide prusate Bool ExecuteArgResult(var WriteArg arg, var Text result)
+    maide prusate Bool ExecuteArgResult(var FormatArg arg, var Text result)
     {
         inf (~this.ValidArg(arg))
         {
@@ -558,7 +558,7 @@ class Format : Any
         return a;
     }
 
-    maide prusate Bool ValidArg(var WriteArg arg)
+    maide prusate Bool ValidArg(var FormatArg arg)
     {
         var Int kind;
         kind : arg.Kind;
