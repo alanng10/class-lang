@@ -1,9 +1,10 @@
 namespace Avalon.Infra;
 
-public class Handle : object
+public class Handle : Any
 {
-    public virtual bool Init()
+    public override bool Init()
     {
+        base.Init();
         this.InternIntern = Intern.This;
                 
         this.GCHandle = SystemGCHandle.Alloc(this.Any);
