@@ -394,9 +394,9 @@ public class PortLoad : ClassBase
             BinaryImport import;
             import = (BinaryImport)array.GetAt(i);
 
-            bool ba;
-            ba = this.BinaryLoadRecursive(import.Module);
-            if (!ba)
+            bool b;
+            b = this.BinaryLoadRecursive(import.Module);
+            if (!b)
             {
                 return false;
             }
