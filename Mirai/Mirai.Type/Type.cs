@@ -20,32 +20,11 @@ public class Type : Any
         this.Index = IndexList.This;
 
         this.InitFieldList();
-
-        this.Mod = this.CreateModEvent();
-        this.ModArg = this.CreateModArg();
         return true;
     }
 
     public virtual IndexList Index { get; set; }
-    public virtual EventEvent Mod { get; set; }
-    protected virtual ModArg ModArg { get; set; }
     protected virtual Data FieldData { get; set; }
-    
-    protected virtual EventEvent CreateModEvent()
-    {
-        EventEvent a;
-        a = new EventEvent();
-        a.Init();
-        return a;
-    }
-
-    protected virtual ModArg CreateModArg()
-    {
-        ModArg a;
-        a = new ModArg();
-        a.Init();
-        return a;
-    }
 
     protected virtual bool InitFieldList()
     {
@@ -93,9 +72,12 @@ public class Type : Any
 
         this.FieldData.Set(index, ke);
 
-        this.ModArg.Button = k;
-        this.ModArg.Field = value;
-        this.Mod.Execute(this.ModArg);
+        this.Event(k, value);
         return true;
+    }
+
+    public virtual bool Event(Index index, bool field)
+    {
+        return false;
     }
 }
