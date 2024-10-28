@@ -5,15 +5,16 @@ class Format : Any
         base.Init();
         this.InfraInfra : share InfraInfra;
         this.TextInfra : share Infra;
+        this.StringComp : share StringComp;
 
         this.InitCountState();
         this.InitResultState();
         return true;
     }
 
-    field prusate CharForm CharForm { get { return data; } set { data : value; } }
     field precate InfraInfra InfraInfra { get { return data; } set { data : value; } }
     field precate Infra TextInfra { get { return data; } set { data : value; } }
+    field precate StringComp StringComp { get { return data; } set { data : value; } }
     field precate Int KindCount { get { return 4; } set { } }
     field precate Array CountState { get { return data; } set { data : value; } }
     field precate Array ResultState { get { return data; } set { data : value; } }
