@@ -13,24 +13,18 @@ class ThreadIntervalState : State
         varThis = new ThreadThis();
         varThis.Init();
 
-        TimeEvent varEvent;
-        varEvent = new TimeEvent();
-        varEvent.Init();
-
         ThreadThread thread;
         thread = varThis.Thread;
 
-        ElapseState state;
-        state = new ElapseState();
-        state.Init();
-        state.Demo = this.Demo;
-        state.TimeEvent = varEvent;
-        state.Thread = thread;
-        state.ElapseCount = this.ElapseCount;
-        state.ExitCode = this.ExitCode;
+        TimeEventA varEvent;
+        varEvent = new TimeEventA();
+        varEvent.Init();
+        varEvent.Demo = this.Demo;
+        varEvent.Thread = thread;
+        varEvent.ElapseCount = this.ElapseCount;
+        varEvent.ExitCode = this.ExitCode;
 
         varEvent.Time = this.Time;
-        varEvent.Elapse.State.AddState(state);
 
         varEvent.Start();
 

@@ -3,7 +3,6 @@ namespace Demo;
 class TimeEventA : TimeEvent
 {
     public virtual Demo Demo { get; set; }
-    public TimeEvent TimeEvent { get; set; }
     public ThreadThread Thread { get; set; }
     public long ElapseCount { get; set; }
     public long ExitCode { get; set; }
@@ -22,7 +21,7 @@ class TimeEventA : TimeEvent
          
         if (!(this.Count < this.ElapseCount))
         {
-            this.TimeEvent.Stop();
+            this.Stop();
 
             console.Out.Write(this.S("ElapseState.Execute Time Event Stop\n"));
 
