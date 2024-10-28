@@ -79,13 +79,10 @@ class Demo : Any
         this.UpdateRect.Size.Wed = this.Frame.Size.Wed;
         this.UpdateRect.Size.Het = this.Frame.Size.Het;
 
-        Type type;
-        type = Type.This;
-        TypeState state;
-        state = new TypeState();
-        state.Init();
-        state.Demo = this;
-        type.Mod.State.AddState(state);
+        TypeA type;
+        type = new TypeA();
+        type.Init();
+        type.Demo = this;
         this.Frame.Type = type;
 
         DrawBrush brush;

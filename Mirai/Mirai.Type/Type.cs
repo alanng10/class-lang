@@ -2,18 +2,6 @@ namespace Mirai.Type;
 
 public class Type : Any
 {
-    public static Type This { get; } = ShareCreate();
-
-    private static Type ShareCreate()
-    {
-        Type share;
-        share = new Type();
-        Any a;
-        a = share;
-        a.Init();
-        return share;
-    }
-
     public override bool Init()
     {
         base.Init();
