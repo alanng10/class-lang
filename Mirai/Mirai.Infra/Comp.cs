@@ -16,16 +16,16 @@ public class Comp : Any
     }
 
     public virtual Mod ModArg { get; set; }
-    public virtual EventEvent ModEvent { get; set; }
+    public virtual Event ModEvent { get; set; }
     protected virtual MathInfra MathInfra { get; set; }
     protected virtual Infra ViewInfra { get; set; }
     protected virtual MathMath Math { get; set; }
     protected virtual MathComp MathComp { get; set; }
 
-    protected virtual EventEvent CreateModEvent()
+    protected virtual Event CreateModEvent()
     {
-        EventEvent a;
-        a = new EventEvent();
+        Event a;
+        a = new Event();
         a.Init();
         return a;
     }
