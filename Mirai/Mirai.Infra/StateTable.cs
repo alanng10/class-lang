@@ -1,4 +1,4 @@
-namespace Avalon.Event;
+namespace Mirai.Infra;
 
 public class StateTable : Table
 {
