@@ -1,6 +1,6 @@
 namespace Avalon.Infra;
 
-public class Intern : object
+public class Intern : Any
 {
     public static Intern This { get; } = ShareCreate();
 
@@ -8,13 +8,10 @@ public class Intern : object
     {
         Intern share;
         share = new Intern();
-        share.Init();
+        Any a;
+        a = share;
+        a.Init();
         return share;
-    }
-
-    public virtual bool Init()
-    {
-        return true;
     }
 
     [SystemThreadStatic]
