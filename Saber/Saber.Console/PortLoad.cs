@@ -669,7 +669,6 @@ public class PortLoad : ClassBase
                     listInfra.TableAdd(this.ImportClass, name, varClass);
                 }
 
-
                 iA = iA + 1;
             }
 
@@ -699,6 +698,9 @@ public class PortLoad : ClassBase
         Array array;
         array = this.Port.Export;
 
+        bool b;
+        b = false;
+
         long count;
         count = array.Count;
         long i;
@@ -711,28 +713,53 @@ public class PortLoad : ClassBase
             String name;
             name = a.Class;
 
-            if (!nameCheck.IsName(this.TA(name)))
+            bool ba;
+            ba = false;
+
+            if (!ba)
             {
-                this.Status = 85;
-                return false;
+                if (!nameCheck.IsName(this.TA(name)))
+                {
+                    ba = true;
+                }
+            }
+            
+            if (!ba)
+            {
+                if (this.ImportClass.Valid(name))
+                {
+                    ba = true;
+                }
+            }
+            
+            if (!ba)
+            {
+                if (exportTable.Valid(name))
+                {
+                    ba = true;
+                }
+            }
+            
+            if (ba)
+            {
+                this.ErrorAdd(this.ErrorKind.ExportInvalid, name);
+                b = true;
             }
 
-            if (this.ImportClass.Valid(name))
+            if (!ba)
             {
-                this.Status = 86;
-                return false;
+                listInfra.TableAdd(exportTable, name, null);
             }
-
-            if (exportTable.Valid(name))
-            {
-                this.Status = 87;
-                return false;
-            }
-
-            listInfra.TableAdd(exportTable, name, null);
 
             i = i + 1;
         }
+
+        if (b)
+        {
+            this.Status = 90;
+            return false;
+        }
+
         return true;
     }
 
@@ -766,19 +793,19 @@ public class PortLoad : ClassBase
 
             if (!pathCheck.IsValidSourcePath(this.TA(sourcePath)))
             {
-                this.Status = 90;
+                this.Status = 100;
                 return false;
             }
 
             if (!pathCheck.IsValidDestPath(this.TA(destPath)))
             {
-                this.Status = 91;
+                this.Status = 100;
                 return false;
             }
 
             if (table.Valid(destPath))
             {
-                this.Status = 92;
+                this.Status = 100;
                 return false;
             }
 
