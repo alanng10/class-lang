@@ -1,6 +1,6 @@
 namespace Demo;
 
-class ElapseState : State
+class TimeEventA : TimeEvent
 {
     public virtual Demo Demo { get; set; }
     public TimeEvent TimeEvent { get; set; }
@@ -10,7 +10,7 @@ class ElapseState : State
 
     private long Count { get; set; }
     
-    public override bool Execute()
+    public override bool Elapse()
     {
         Console console;
         console = Console.This;
