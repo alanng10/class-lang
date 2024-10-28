@@ -281,7 +281,11 @@ class Format : Any
         ke : cast FormatResultArg(state.Arg);
         ke.Arg : arg;
         ke.Result : result;
+
         state.Execute();
+
+        ke.Result: null;
+        ke.Arg : null;
         return true;
     }
 
