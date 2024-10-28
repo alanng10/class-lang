@@ -32,7 +32,6 @@ class Format : Any
 
         this.CountStateAdd(new BoolFormatCountState);
         this.CountStateAdd(new IntFormatCountState);
-        this.CountStateAdd(new SIntFormatCountState);
         this.CountStateAdd(new TextFormatCountState);
         return true;
     }
@@ -48,7 +47,6 @@ class Format : Any
 
         this.ResultStateAdd(new BoolFormatResultState);
         this.ResultStateAdd(new IntFormatResultState);
-        this.ResultStateAdd(new SIntFormatResultState);
         this.ResultStateAdd(new TextFormatResultState);
         return true;
     }
