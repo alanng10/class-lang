@@ -1,6 +1,6 @@
 namespace Avalon.Infra;
 
-public class InternInfra : object
+public class InternInfra : Any
 {
     public static InternInfra This { get; } = ShareCreate();
 
@@ -8,12 +8,15 @@ public class InternInfra : object
     {
         InternInfra share;
         share = new InternInfra();
-        share.Init();
+        Any a;
+        a = share;
+        a.Init();
         return share;
     }
 
-    public virtual bool Init()
+    public override bool Init()
     {
+        base.Init();
         this.InternIntern = Intern.This;
 
         long o;
