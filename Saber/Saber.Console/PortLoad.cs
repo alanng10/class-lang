@@ -28,13 +28,13 @@ public class PortLoad : ClassBase
     public virtual ModuleLoad ModuleLoad { get; set; }
     public virtual BinaryRead BinaryRead { get; set; }
     public virtual Table ModuleTable { get; set; }
-    public virtual Table BinaryTable { get; set; }
     public virtual Table ImportClass { get; set; }
     public virtual NameCheck NameCheck { get; set; }
     protected virtual StorageInfra StorageInfra { get; set; }
     protected virtual ErrorKindList ErrorKind { get; set; }
     protected virtual StoragePathCheck StoragePathCheck { get; set; }
     protected virtual Array ImportModuleRefArray { get; set; }
+    protected virtual Table BinaryTable { get; set; }
     protected virtual Table ImportDependTable { get; set; }
     protected virtual Table BinaryDependTable { get; set; }
     protected virtual List ErrorList { get; set; }
@@ -337,6 +337,8 @@ public class PortLoad : ClassBase
 
     protected virtual bool ImportBinaryLoad()
     {
+        this.BinaryTable = this.ClassInfra.TableCreateModuleRefLess();
+
         Array array;
         array = this.ImportModuleRefArray;
 

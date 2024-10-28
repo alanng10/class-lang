@@ -491,7 +491,6 @@ public class Console : ClassBase
 
     protected virtual bool PortModuleLoad()
     {
-        this.BinaryTable = this.ClassInfra.TableCreateModuleRefLess();
         this.ModuleTable = this.ClassInfra.TableCreateModuleRefLess();
         this.ImportClass = this.ClassInfra.TableCreateStringLess();
         PortLoad portLoad;
@@ -500,7 +499,6 @@ public class Console : ClassBase
         portLoad.Port = this.Port;
         portLoad.BinaryRead = this.BinaryRead;
         portLoad.ModuleLoad = this.ModuleLoad;
-        portLoad.BinaryTable = this.BinaryTable;
         portLoad.ModuleTable = this.ModuleTable;
         portLoad.ImportClass = this.ImportClass;
         portLoad.SystemModule = this.MakeSystemModule;
@@ -522,7 +520,6 @@ public class Console : ClassBase
         portLoad.SystemModule = false;
         portLoad.ImportClass = null;
         portLoad.ModuleTable = null;
-        portLoad.BinaryTable = null;
         portLoad.ModuleLoad = null;
         portLoad.BinaryRead = null;
         portLoad.Port = null;
