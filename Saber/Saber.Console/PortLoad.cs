@@ -110,12 +110,6 @@ public class PortLoad : ClassBase
             return false;
         }
 
-        b = this.ImportDepend();
-        if (!b)
-        {
-            return false;
-        }
-
         b = this.ImportModuleLoad();
         if (!b)
         {
@@ -621,8 +615,8 @@ public class PortLoad : ClassBase
         table = this.ModuleTable;
 
         Iter iter;
-        iter = this.ImportDependTable.IterCreate();
-        this.ImportDependTable.IterSet(iter);
+        iter = this.BinaryTable.IterCreate();
+        this.BinaryTable.IterSet(iter);
 
         while (iter.Next())
         {
