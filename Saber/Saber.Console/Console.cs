@@ -61,7 +61,6 @@ public class Console : ClassBase
     public virtual ErrorString ErrorString { get; set; }
     public virtual TaskKindList TaskKind { get; set; }
     public virtual Table ModuleTable { get; set; }
-    public virtual Table BinaryTable { get; set; }
     public virtual Table ImportClass { get; set; }
     public virtual bool ErrorWrite { get; set; }
     protected virtual StorageInfra StorageInfra { get; set; }
