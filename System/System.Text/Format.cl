@@ -1,4 +1,4 @@
-class Write : Any
+class Format : Any
 {
     maide prusate Bool Init()
     {
