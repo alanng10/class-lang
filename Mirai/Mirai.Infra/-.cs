@@ -15,7 +15,6 @@ global using MathComp = Avalon.Math.Comp;
 global using MathInfra = Avalon.Math.Infra;
 global using TextText = Avalon.Text.Text;
 global using TextInfra = Avalon.Text.Infra;
-global using EventEvent = Avalon.Event.Event;
 global using TypeType = Mirai.Type.Type;
 global using DrawSize = Mirai.Draw.Size;
 global using DrawPos = Mirai.Draw.Pos;
