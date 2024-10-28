@@ -4,7 +4,7 @@ public class Stream : object
 {
     public virtual bool Init()
     {
-        this.InternIntern = Avalon.Intern.Intern.This;
+        this.InternIntern = global::Avalon.Infra.Intern.This;
 
         this.InternData = Extern.Data_New();
         Extern.Data_Init(this.InternData);

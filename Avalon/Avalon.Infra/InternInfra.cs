@@ -1,13 +1,13 @@
 namespace Avalon.Infra;
 
-public class Infra : object
+public class InternInfra : object
 {
-    public static Infra This { get; } = ShareCreate();
+    public static InternInfra This { get; } = ShareCreate();
 
-    private static Infra ShareCreate()
+    private static InternInfra ShareCreate()
     {
-        Infra share;
-        share = new Infra();
+        InternInfra share;
+        share = new InternInfra();
         share.Init();
         return share;
     }
