@@ -376,13 +376,6 @@ public class PortLoad : ClassBase
             return true;
         }
 
-        bool b;
-        b = this.BinaryLoad(moduleRef);
-        if (!b)
-        {
-            return false;
-        }
-
         BinaryBinary binary;
         binary = (BinaryBinary)this.BinaryTable.Get(moduleRef);
 
@@ -405,6 +398,13 @@ public class PortLoad : ClassBase
             }
 
             i = i + 1;
+        }
+
+        bool b;
+        b = this.BinaryLoad(moduleRef);
+        if (!b)
+        {
+            return false;
         }
 
         return true;
