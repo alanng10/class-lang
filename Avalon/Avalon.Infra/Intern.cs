@@ -242,11 +242,14 @@ public class Intern : Any
         return true;
     }
 
-    public virtual bool CopyToByteArray(ulong source, byte[] dest, ulong index, ulong count)
+    public virtual bool CopyToByteArray(ulong source, object dest, ulong index, ulong count)
     {
+        byte[] k;
+        k = dest as byte[];
+
         unsafe
         {
-            fixed (byte* uu = dest)
+            fixed (byte* uu = k)
             {
                 byte* destP;
                 destP = uu + index;
