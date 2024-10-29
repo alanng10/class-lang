@@ -1,5 +1,5 @@
 global using InternIntern = Avalon.Intern.Intern;
-global using InternInfra = Avalon.Intern.Infra;
+global using InternInfra = Avalon.Infra.InternInfra;
 global using Extern = Avalon.Intern.Extern;
 global using FrameTypeMaide = Avalon.Intern.Extern.Frame_Type_Maide;
 global using FrameDrawMaide = Avalon.Intern.Extern.Frame_Draw_Maide;
