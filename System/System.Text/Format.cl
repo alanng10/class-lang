@@ -478,14 +478,13 @@ class Format : Any
         destStart : dest.Range.Index;
         var Int destIndex;
         destIndex : destStart + fillIndex;
-        var Int index;
-        index : 0;
         var Int count;
         count : fillCount;
         var Int i;
         i : 0;
         while (i < count)
         {
+            var Int index;
             index : destIndex + i;
             textInfra.DataCharSet(destData, index, fillChar);
             i : i + 1;
