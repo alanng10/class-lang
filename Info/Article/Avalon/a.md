@@ -8,7 +8,7 @@ Int signed values use lower 60 bits with higher 4 bits sign extend. Int null val
 
 Avalon classes member variables are not in abstract.
 
-Avalon Infra module String class Value and Count fields are not in abstract. Data class Value field is not in abstract.
+Avalon Infra module String class Value and Count fields are not in abstract.
 
 Avalon String class is not to be derived.
 
