@@ -30,26 +30,30 @@ public class InternInfra : Any
     protected virtual long IntCapValue { get; set; }
     protected virtual Intern InternIntern { get; set; }
 
-    public virtual ulong StringCreate(byte[] value)
+    public virtual ulong StringCreate(String value)
     {
-        long k;
-        k = value.LongLength;
-        ulong ka;
-        ka = (ulong)k;
+        byte[] array;
+        array = value.Value;
 
-        ulong count;
-        count = ka / sizeof(uint);
+        long count;
+        count = value.Count;
+
+        ulong countA;
+        countA = (ulong)count;
+
+        ulong ka;
+        ka = countA * sizeof(uint);
 
         ulong data;
         data = Extern.New(ka);
 
-        this.InternIntern.CopyFromByteArray(data, value, 0, ka);
+        this.InternIntern.CopyFromByteArray(data, array, 0, ka);
 
         ulong a;
         a = Extern.String_New();
         Extern.String_Init(a);
         Extern.String_DataSet(a, data);
-        Extern.String_CountSet(a, count);
+        Extern.String_CountSet(a, countA);
         return a;
     }
 
