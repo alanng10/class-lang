@@ -13,7 +13,7 @@ public class Data : Any
     public virtual long Count { get; set; }
     protected virtual Infra InfraInfra { get; set; }
     
-    public virtual byte[] Value { get; set; }
+    public virtual object Value { get; set; }
 
     protected virtual bool InitValue()
     {
@@ -27,7 +27,11 @@ public class Data : Any
         {
             return -1;
         }
-        return this.Value[index];
+
+        byte[] k;
+        k = (byte[])this.Value;
+
+        return k[index];
     }
 
     public virtual bool Set(long index, long value)
@@ -36,7 +40,11 @@ public class Data : Any
         {
             return false;
         }
-        this.Value[index] = (byte)value;
+
+        byte[] k;
+        k = (byte[])this.Value;
+
+        k[index] = (byte)value;
         return true;
     }
 
