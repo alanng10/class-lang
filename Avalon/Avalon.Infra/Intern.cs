@@ -217,11 +217,14 @@ public class Intern : Any
         return true;
     }
 
-    public virtual bool StreamWrite(ulong stream, byte[] dataArray, ulong data, ulong range)
+    public virtual bool StreamWrite(ulong stream, object dataArray, ulong data, ulong range)
     {
+        byte[] k;
+        k = dataArray as byte[];
+
         unsafe
         {
-            fixed (byte* p = dataArray)
+            fixed (byte* p = k)
             {
                 ulong u;
                 u = (ulong)p;
