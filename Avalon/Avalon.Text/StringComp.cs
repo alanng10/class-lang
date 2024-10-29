@@ -82,16 +82,19 @@ public class StringComp : Any
         return this.CreateDataValue(s.Value, range);
     }
 
-    private String CreateDataValue(byte[] data, Range range)
+    private String CreateDataValue(object data, Range range)
     {
         InternInfra internInfra;
         internInfra = this.InternInfra;
+
+        byte[] k;
+        k = data as byte[];
 
         long kka;
         kka = sizeof(uint);
 
         long dataCount;
-        dataCount = data.LongLength;
+        dataCount = k.LongLength;
         long totalCount;
         totalCount = dataCount / kka;
 
@@ -133,7 +136,7 @@ public class StringComp : Any
             kb = i * kka;
 
             uint n;
-            n = internInfra.DataCharGet(data, ka);
+            n = internInfra.DataCharGet(k, ka);
 
             internInfra.DataCharSet(value, kb, n);
 
