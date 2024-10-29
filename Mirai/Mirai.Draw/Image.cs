@@ -56,7 +56,7 @@ public class Image : Any
     internal virtual ulong Intern { get; set; }
     private ulong InternData { get; set; }
     private ulong InternSize { get; set; }
-    
+
     public virtual bool DataCreate()
     {
         long wed;
