@@ -42,9 +42,9 @@ public class Comp : Any
     public virtual bool Rename(String path, String destPath)
     {
         ulong pathU;
-        pathU = this.InternInfra.StringCreate(path.Value);
+        pathU = this.InternInfra.StringCreate(path);
         ulong destPathU;
-        destPathU = this.InternInfra.StringCreate(destPath.Value);
+        destPathU = this.InternInfra.StringCreate(destPath);
 
         ulong o;
         o = Extern.StorageComp_Rename(this.Intern, pathU, destPathU);
@@ -60,9 +60,9 @@ public class Comp : Any
     public virtual bool FileCopy(String path, String destPath)
     {
         ulong pathU;
-        pathU = this.InternInfra.StringCreate(path.Value);
+        pathU = this.InternInfra.StringCreate(path);
         ulong destPathU;
-        destPathU = this.InternInfra.StringCreate(destPath.Value);
+        destPathU = this.InternInfra.StringCreate(destPath);
 
         ulong o;
         o = Extern.StorageComp_FileCopy(this.Intern, pathU, destPathU);
@@ -78,7 +78,7 @@ public class Comp : Any
     public virtual bool FileDelete(String path)
     {
         ulong pathU;
-        pathU = this.InternInfra.StringCreate(path.Value);
+        pathU = this.InternInfra.StringCreate(path);
 
         ulong o;
         o = Extern.StorageComp_FileRemove(this.Intern, pathU);
@@ -93,7 +93,7 @@ public class Comp : Any
     public virtual bool FoldCreate(String path)
     {
         ulong pathU;
-        pathU = this.InternInfra.StringCreate(path.Value);
+        pathU = this.InternInfra.StringCreate(path);
 
         ulong o;
         o = Extern.StorageComp_FoldCreate(this.Intern, pathU);
@@ -108,9 +108,9 @@ public class Comp : Any
     public virtual bool FoldCopy(String path, String destPath)
     {
         ulong pathU;
-        pathU = this.InternInfra.StringCreate(path.Value);
+        pathU = this.InternInfra.StringCreate(path);
         ulong destPathU;
-        destPathU = this.InternInfra.StringCreate(destPath.Value);
+        destPathU = this.InternInfra.StringCreate(destPath);
 
         ulong o;
         o = Extern.StorageComp_FoldCopy(this.Intern, pathU, destPathU);
@@ -126,7 +126,7 @@ public class Comp : Any
     public virtual bool FoldDelete(String path)
     {
         ulong pathU;
-        pathU = this.InternInfra.StringCreate(path.Value);
+        pathU = this.InternInfra.StringCreate(path);
 
         ulong o;
         o = Extern.StorageComp_FoldRemove(this.Intern, pathU);
@@ -141,7 +141,7 @@ public class Comp : Any
     public virtual bool Exist(String path)
     {
         ulong pathU;
-        pathU = this.InternInfra.StringCreate(path.Value);
+        pathU = this.InternInfra.StringCreate(path);
 
         ulong o;
         o = Extern.StorageComp_Exist(this.Intern, pathU);
@@ -179,7 +179,7 @@ public class Comp : Any
     public virtual bool WorkFoldSet(String path)
     {
         ulong pathU;
-        pathU = this.InternInfra.StringCreate(path.Value);
+        pathU = this.InternInfra.StringCreate(path);
 
         ulong o;
         o = Extern.StorageComp_CurrentFoldSet(this.Intern, pathU);
@@ -194,7 +194,7 @@ public class Comp : Any
     protected virtual Array EntryList(String path, bool fold)
     {
         ulong pathU;
-        pathU = this.InternInfra.StringCreate(path.Value);
+        pathU = this.InternInfra.StringCreate(path);
 
         ulong o;
         o = 0;
