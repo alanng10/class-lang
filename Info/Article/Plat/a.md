@@ -15,4 +15,4 @@ Store modules layer on top of System in the arch.
 
 View modules layer on top of System in the arch.
 
-Page modules layer on top of Store modules in the arch.
+Page modules layer on top of Store modules and Class compiler modules in the arch.
