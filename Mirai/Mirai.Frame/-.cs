@@ -1,10 +1,10 @@
-global using InternIntern = Avalon.Intern.Intern;
+global using InternIntern = Avalon.Infra.Intern;
 global using InternInfra = Avalon.Infra.InternInfra;
-global using Extern = Avalon.Intern.Extern;
-global using FrameTypeMaide = Avalon.Intern.Extern.Frame_Type_Maide;
-global using FrameDrawMaide = Avalon.Intern.Extern.Frame_Draw_Maide;
-global using MaideAddress = Avalon.Intern.MaideAddress;
-global using Handle = Avalon.Intern.Handle;
+global using Extern = Avalon.Infra.Extern;
+global using FrameTypeMaide = Avalon.Infra.Extern.Frame_Type_Maide;
+global using FrameDrawMaide = Avalon.Infra.Extern.Frame_Draw_Maide;
+global using MaideAddress = Avalon.Infra.MaideAddress;
+global using Handle = Avalon.Infra.Handle;
 global using Any = Avalon.Infra.Any;
 global using String = Avalon.Infra.String;
 global using Data = Avalon.Infra.Data;
