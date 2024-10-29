@@ -93,7 +93,7 @@ public class Intern : Any
         a = 0;
 
         byte[] k;
-        k = (byte[])data;
+        k = data as byte[];
 
         unsafe
         {
@@ -126,11 +126,14 @@ public class Intern : Any
         return a;
     }
 
-    public virtual bool TextCodeResultArray(ulong result, ulong resultIndex, ulong innKind, ulong outKind, byte[] data, ulong dataIndex, ulong dataCount)
+    public virtual bool TextCodeResultArray(ulong result, ulong resultIndex, ulong innKind, ulong outKind, object data, ulong dataIndex, ulong dataCount)
     {
+        byte[] k;
+        k = data as byte[];
+
         unsafe
         {
-            fixed (byte* p = data)
+            fixed (byte* p = k)
             {
                 ulong dataU;
                 dataU = (ulong)p;
