@@ -87,14 +87,17 @@ public class Intern : Any
         return true;
     }
 
-    public virtual ulong TextCodeCountArray(ulong innKind, ulong outKind, byte[] data, ulong dataIndex, ulong dataCount)
+    public virtual ulong TextCodeCountArray(ulong innKind, ulong outKind, object data, ulong dataIndex, ulong dataCount)
     {
         ulong a;
         a = 0;
 
+        byte[] k;
+        k = (byte[])data;
+
         unsafe
         {
-            fixed (byte* p = data)
+            fixed (byte* p = k)
             {
                 ulong dataU;
                 dataU = (ulong)p;
