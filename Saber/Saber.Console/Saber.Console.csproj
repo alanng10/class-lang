@@ -6,6 +6,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <ProjectReference Include="../../Avalon/Avalon.Entry/Avalon.Entry.csproj" />
         <ProjectReference Include="../Saber.Infra/Saber.Infra.csproj" />
         <ProjectReference Include="../Saber.Port/Saber.Port.csproj" />
         <ProjectReference Include="../Saber.Binary/Saber.Binary.csproj" />
