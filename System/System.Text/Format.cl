@@ -424,7 +424,7 @@ class Format : Any
         return true;
     }
 
-    maide prusate Bool ResultText(var Text result, var Text value, var Int varCase, var Int valueWriteCount, var Int valueStart, var Int valueIndex)
+    maide prusate Bool ResultText(var Text result, var Form form, var Text value, var Int valueWriteCount, var Int valueStart, var Int valueIndex)
     {
         var Infra textInfra;
         textInfra : this.TextInfra;
