@@ -168,7 +168,7 @@ public class Program : Any
     public virtual bool Execute()
     {
         ulong nameU;
-        nameU = this.InternInfra.StringCreate(this.Name.Value);
+        nameU = this.InternInfra.StringCreate(this.Name);
         ulong argueU;
         argueU = this.InternStringListCreate(this.Argue);
 
@@ -178,7 +178,7 @@ public class Program : Any
         ba = !(this.WorkFold == null);
         if (ba)
         {
-            workFoldU = this.InternInfra.StringCreate(this.WorkFold.Value);
+            workFoldU = this.InternInfra.StringCreate(this.WorkFold);
         }
 
         ulong environmentU;
@@ -242,7 +242,7 @@ public class Program : Any
             o = (String)iter.Value;
 
             ulong u;
-            u = this.InternInfra.StringCreate(o.Value);
+            u = this.InternInfra.StringCreate(o);
 
             ulong oa;
             oa = (ulong)i;
@@ -310,9 +310,9 @@ public class Program : Any
             index = (String)(iter.Index);
             value = (String)(iter.Value);
             ulong indexU;
-            indexU = this.InternInfra.StringCreate(index.Value);
+            indexU = this.InternInfra.StringCreate(index);
             ulong valueU;
-            valueU = this.InternInfra.StringCreate(value.Value);
+            valueU = this.InternInfra.StringCreate(value);
 
             ulong entryU;
             entryU = Extern.Entry_New();
