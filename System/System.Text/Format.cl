@@ -382,16 +382,6 @@ class Format : Any
 
         var Int k;
         k : value;
-        var Int j;
-        j : 0;
-        var Int ka;
-        ka : 0;
-        var Int digit;
-        digit : 0;
-        var Int oa;
-        oa : 0;
-        var Int c;
-        c : 0;
 
         var Int index;
         index : 0;
@@ -401,23 +391,30 @@ class Format : Any
         i : 0;
         while (i < count)
         {
+            var Int j;
             j : k / varBase;
 
             index : (count - 1) - i;
 
             inf ((~(index < valueIndex)) & index < end)
             {
+                var Int ka;
                 ka : k - j * varBase;
 
                 digit : ka;
 
-                c : textInfra.DigitChar(digit, letterDigitStart);
+                var Int n;
+                n : textInfra.DigitChar(digit, letterDigitStart);
 
-                c : charForm.Execute(c);
-
+                var Int oa;
                 oa : index - valueIndex;
 
-                textInfra.DataCharSet(destData, destIndex + oa, c);
+                inf (~baa)
+                {
+                    n : form.Execute(n);
+                }
+
+                textInfra.DataCharSet(destData, destIndex + oa, n);
             }
 
             k : j;
