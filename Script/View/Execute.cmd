@@ -1,6 +1,6 @@
 @echo off
 
 pushd Out\net8.0
-dotnet MiraiDemo.dll
+dotnet ViewDemo.dll
 echo Status: %errorlevel%
 popd
