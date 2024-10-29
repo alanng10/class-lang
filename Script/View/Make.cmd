@@ -1,9 +1,9 @@
 @echo off
 
-call Script\Mirai\CleanModule
+call Script\View\CleanModule
 echo:
-call Script\Mirai\CleanDemo
+call Script\View\CleanDemo
 echo:
-call Script\Mirai\MakeModule
+call Script\View\MakeModule
 echo:
-call Script\Mirai\MakeDemo
+call Script\View\MakeDemo

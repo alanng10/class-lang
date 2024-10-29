@@ -1,6 +1,6 @@
 @echo off
 
 echo Make Module
-pushd Mirai\Mirai.Infra
+pushd View\View.Infra
 dotnet build -v quiet
 popd
