@@ -8,4 +8,4 @@ global using Any = Avalon.Infra.Any;
 global using String = Avalon.Infra.String;
 global using State = Avalon.Infra.State;
 global using Stream = Avalon.Stream.Stream;
-global using VideoVideo = Mirai.Draw.Image;
+global using VideoVideo = View.Draw.Image;
