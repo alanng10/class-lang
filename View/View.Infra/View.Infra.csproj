@@ -10,10 +10,10 @@
         <ProjectReference Include="../../Avalon/Avalon.List/Avalon.List.csproj" />
         <ProjectReference Include="../../Avalon/Avalon.Math/Avalon.Math.csproj" />
         <ProjectReference Include="../../Avalon/Avalon.Text/Avalon.Text.csproj" />
-        <ProjectReference Include="../Mirai.Type/Mirai.Type.csproj" />
-        <ProjectReference Include="../Mirai.Draw/Mirai.Draw.csproj" />
-        <ProjectReference Include="../Mirai.Media/Mirai.Media.csproj" />
-        <ProjectReference Include="../Mirai.Frame/Mirai.Frame.csproj" />
+        <ProjectReference Include="../View.Type/View.Type.csproj" />
+        <ProjectReference Include="../View.Draw/View.Draw.csproj" />
+        <ProjectReference Include="../View.Media/View.Media.csproj" />
+        <ProjectReference Include="../View.Frame/View.Frame.csproj" />
     </ItemGroup>
 
 </Project>
