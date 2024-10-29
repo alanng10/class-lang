@@ -168,7 +168,7 @@ public class Stream : Any
         }
     }
 
-    public virtual bool Read(byte[] data, long dataCount, long index, long count)
+    public virtual bool Read(object data, long dataCount, long index, long count)
     {
         if (!this.CanRead)
         {
