@@ -1,4 +1,4 @@
-namespace Mirai.Frame;
+namespace View.Frame;
 
 public class Frame : Any
 {

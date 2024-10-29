@@ -1,4 +1,4 @@
-namespace Mirai.Draw;
+namespace View.Draw;
 
 public class SlashLineList : Any
 {

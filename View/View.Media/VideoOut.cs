@@ -1,4 +1,4 @@
-namespace Mirai.Media;
+namespace View.Media;
 
 public class VideoOut : Any
 {

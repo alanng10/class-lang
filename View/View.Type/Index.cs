@@ -1,4 +1,4 @@
-namespace Mirai.Type;
+namespace View.Type;
 
 public class Index : Any
 {
