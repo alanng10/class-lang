@@ -1,6 +1,6 @@
 namespace Demo;
 
-class ViewA : View
+class ViewA : ViewView
 {
     public virtual DrawSlash DrawPen { get; set; }
     public virtual Demo Demo { get; set; }

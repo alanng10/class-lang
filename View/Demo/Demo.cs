@@ -3,7 +3,7 @@ namespace Demo;
 class Demo : Any
 {
     public Frame Frame { get; set; }
-    public View View { get; set; }
+    public ViewView View { get; set; }
     public ViewA ViewA { get; set; }
     public ViewC ViewC { get; set; }
     public DrawRect UpdateRect { get; set; }
@@ -91,8 +91,8 @@ class Demo : Any
         brush.Color = this.DrawInfra.ColorCreate(0xff, 0, 0xff, 0);
         brush.Init();
 
-        View view;
-        view = new View();
+        ViewView view;
+        view = new ViewView();
         view.Init();
         view.Pos.Col = 100;
         view.Pos.Row = 100;

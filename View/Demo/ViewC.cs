@@ -1,6 +1,6 @@
 namespace Demo;
 
-class ViewC : View
+class ViewC : ViewView
 {
     public override bool Init()
     {
