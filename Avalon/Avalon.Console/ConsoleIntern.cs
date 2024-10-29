@@ -33,7 +33,7 @@ class ConsoleIntern : Any
     public virtual bool OutWrite(String a)
     {
         ulong uo;
-        uo = this.InternInfra.StringCreate(a.Value);
+        uo = this.InternInfra.StringCreate(a);
         
         Extern.Console_OutWrite(this.Intern, uo);
 
@@ -44,7 +44,7 @@ class ConsoleIntern : Any
     public virtual bool ErrWrite(String a)
     {
         ulong uo;
-        uo = this.InternInfra.StringCreate(a.Value);
+        uo = this.InternInfra.StringCreate(a);
         
         Extern.Console_ErrWrite(this.Intern, uo);
 
