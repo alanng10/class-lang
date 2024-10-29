@@ -377,14 +377,9 @@ class Format : Any
         var Int end;
         end : valueIndex + valueWriteCount;
 
-        var Bool upperCase;
-        upperCase : ~(varCase = 0);
         var Int letterDigitStart;
-        letterDigitStart : "a".Char(0);
-        inf (upperCase)
-        {
-            letterDigitStart : "A".Char(0);
-        }
+        letterDigitStart : textInfra.Char("a");
+
         var Int k;
         k : value;
         var Int j;
