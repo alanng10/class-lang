@@ -163,7 +163,7 @@ public class Frame : Any
 
     public virtual bool TitleSet()
     {
-        this.InternTitle = this.InternInfra.StringCreate(this.Title.Value);
+        this.InternTitle = this.InternInfra.StringCreate(this.Title);
 
         Extern.Frame_TitleSet(this.Intern, this.InternTitle);
         Extern.Frame_TitleThisSet(this.Intern);
