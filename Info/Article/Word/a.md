@@ -32,6 +32,8 @@ Word "node" has meaning that is entity.
 
 Word "plat" has meaning that is platform.
 
+Word "arch" has meaning that is architecture.
+
 Word "comp" has meaning that is compose unit.
 
 Word "name" has meaning that is call word.
