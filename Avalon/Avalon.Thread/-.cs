@@ -1,9 +1,9 @@
-global using InternIntern = Avalon.Intern.Intern;
-global using Extern = Avalon.Intern.Extern;
-global using ThreadExecuteMaide = Avalon.Intern.Extern.Thread_Execute_Maide;
-global using PostExecuteMaide = Avalon.Intern.Extern.Post_Execute_Maide;
-global using MaideAddress = Avalon.Intern.MaideAddress;
-global using Handle = Avalon.Intern.Handle;
+global using InternIntern = Avalon.Infra.Intern;
+global using Extern = Avalon.Infra.Extern;
+global using ThreadExecuteMaide = Avalon.Infra.Extern.Thread_Execute_Maide;
+global using PostExecuteMaide = Avalon.Infra.Extern.Post_Execute_Maide;
+global using MaideAddress = Avalon.Infra.MaideAddress;
+global using Handle = Avalon.Infra.Handle;
 global using InternInfra = Avalon.Infra.InternInfra;
 global using Any = Avalon.Infra.Any;
 global using State = Avalon.Infra.State;
