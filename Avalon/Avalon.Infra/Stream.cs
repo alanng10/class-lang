@@ -182,7 +182,7 @@ public class Stream : Any
         return true;
     }
 
-    public virtual bool Write(byte[] data, long dataCount, long index, long count)
+    public virtual bool Write(object data, long dataCount, long index, long count)
     {
         if (!this.CanWrite)
         {
