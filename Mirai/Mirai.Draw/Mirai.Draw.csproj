@@ -6,7 +6,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <ProjectReference Include="../../Avalon/Avalon.Intern/Avalon.Intern.csproj" />
         <ProjectReference Include="../../Avalon/Avalon.Infra/Avalon.Infra.csproj" />
         <ProjectReference Include="../../Avalon/Avalon.List/Avalon.List.csproj" />
         <ProjectReference Include="../../Avalon/Avalon.Math/Avalon.Math.csproj" />
