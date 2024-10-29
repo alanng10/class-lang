@@ -188,7 +188,7 @@ class TypeA : Type
         if (a == d.AlphaN & o)
         {
             String frameTitle;
-            frameTitle = this.S("Mirai Demo " + this.TitleIndex.ToString("x4"));
+            frameTitle = this.S("View Demo " + this.TitleIndex.ToString("x4"));
 
             this.Demo.Frame.Title = frameTitle;
             this.Demo.Frame.TitleSet();

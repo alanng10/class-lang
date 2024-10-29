@@ -67,7 +67,7 @@ class Demo : Any
 
         this.Frame = new Frame();
         this.Frame.Init();
-        this.Frame.Title = this.S("Mirai Demo");
+        this.Frame.Title = this.S("View Demo");
         this.Frame.TitleSet();
 
         this.UpdateRect = new DrawRect();
@@ -240,7 +240,7 @@ class Demo : Any
         Storage mediaStorage;
         mediaStorage = new Storage();
         mediaStorage.Init();
-        mediaStorage.Path = this.S("MiraiDemoData/Video.mp4");
+        mediaStorage.Path = this.S("ViewDemoData/Video.mp4");
         mediaStorage.Mode = mediaStorageMode;
         mediaStorage.Open();
 
@@ -295,7 +295,7 @@ class Demo : Any
     private DrawImage ImageCreate()
     {
         DrawImage image;
-        image = this.DrawInfra.ImageCreateStorage(this.S("MiraiDemoData/image.jpg"));
+        image = this.DrawInfra.ImageCreateStorage(this.S("ViewDemoData/image.jpg"));
         return image;
     }
 
