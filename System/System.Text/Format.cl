@@ -429,9 +429,6 @@ class Format : Any
         var Infra textInfra;
         textInfra : this.TextInfra;
 
-        var CharForm charForm;
-        charForm : this.CharForm;
-
         var Data sourceData;
         sourceData : value.Data;
         var Int sourceStart;
@@ -446,45 +443,25 @@ class Format : Any
         sourceIndex : sourceStart + valueIndex;
         var Int destIndex;
         destIndex : destStart + valueStart;
-        var Int lowerLetterA;
-        lowerLetterA : "a".Char(0);
-        var Int upperLetterA;
-        upperLetterA : "A".Char(0);
-        var Int ouc;
-        ouc : 0;
-        var Int oc;
-        oc : 0;
-        var Int aa;
-        aa : 0;
+
+        var Bool baa;
+        baa : (form = null);
+
         var Int count;
         count : valueWriteCount;
         var Int i;
         i : 0;
         while (i < count)
         {
-            ouc : textInfra.DataCharGet(sourceData, sourceIndex + i);
+            var Int n;
+            n : textInfra.DataCharGet(sourceData, sourceIndex + i);
 
-            aa : ouc;
-
-            inf (varCase = 1)
+            inf (~baa)
             {
-                inf (textInfra.IsLetter(ouc, true))
-                {
-                    aa : ouc - upperLetterA + lowerLetterA;
-                }
+                n : form.Execute(n);
             }
-            inf (varCase = 2)
-            {
-                inf (textInfra.IsLetter(ouc, false))
-                {
-                    aa : ouc - lowerLetterA + upperLetterA;
-                }
-            }
-            oc : aa;
 
-            oc : charForm.Execute(oc);
-
-            textInfra.DataCharSet(destData, destIndex + i, oc);
+            textInfra.DataCharSet(destData, destIndex + i, n);
 
             i : i + 1;
         }
