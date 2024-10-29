@@ -529,44 +529,25 @@ class Format : Any
         {
             return false;
         }
-        
-        inf (kind = 0)
-        {
-            var Bool aaa;
-            aaa : cast Bool(arg.Value);
-            inf (aaa = null)
-            {
-                return false;   
-            }
-        }
 
-        inf (kind = 1 | kind = 2 | kind = 4)
+        inf (kind = 1)
         {
-            var Int aab;
-            aab : cast Int(arg.Value);
-            inf (aab = null)
+            inf (~this.ValidIntBase(arg.Base))
             {
-                return false;   
-            }
-
-            inf (kind = 1 | kind = 2)
-            {
-                inf (~this.ValidIntBase(arg.Base))
-                {
-                    return false;
-                }
+                return false;
             }
         }
         inf (kind = 3)
         {
-            var Text aac;
-            aac : cast Text(arg.Value);
-            inf (aac = null)
+            var Text text;
+            text : cast Text(arg.Value);
+
+            inf (text = null)
             {
                 return false;   
             }
             
-            inf (~this.TextInfra.ValidRange(aac))
+            inf (~this.TextInfra.ValidRange(text))
             {
                 return false;
             }

@@ -555,17 +555,15 @@ public class Format : Any
         {
             object aa;
             aa = arg.Value.Any;
-            if (aa == null)
-            {
-                return false;
-            }
-            if (!(aa is Text))
+            
+            Text text;
+            text = aa as Text;
+            
+            if (text == null)
             {
                 return false;
             }
 
-            Text text;
-            text = (Text)aa;
             if (!this.TextInfra.ValidRange(text))
             {
                 return false;
