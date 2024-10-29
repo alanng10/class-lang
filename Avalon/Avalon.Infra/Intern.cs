@@ -159,11 +159,14 @@ public class Intern : Any
         return true;
     }
 
-    public virtual bool TextCodeResultArrayArray(byte[] result, ulong resultIndex, ulong innKind, ulong outKind, byte[] data, ulong dataIndex, ulong dataCount)
+    public virtual bool TextCodeResultArrayArray(object result, ulong resultIndex, ulong innKind, ulong outKind, object data, ulong dataIndex, ulong dataCount)
     {
+        byte[] k;
+        k = result as byte[];
+
         unsafe
         {
-            fixed (byte* p = result)
+            fixed (byte* p = k)
             {
                 ulong resultU;
                 resultU = (ulong)p;
