@@ -12,7 +12,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <Content Include="MiraiDemoData/**/*" CopyToOutputDirectory="PreserveNewest" />
+        <Content Include="ViewDemoData/**/*" CopyToOutputDirectory="PreserveNewest" />
     </ItemGroup>
 
 </Project>
