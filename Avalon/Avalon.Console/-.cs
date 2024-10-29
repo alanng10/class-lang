@@ -1,5 +1,5 @@
 global using InternIntern = Avalon.Intern.Intern;
-global using InternInfra = Avalon.Intern.Infra;
+global using InternInfra = Avalon.Infra.InternInfra;
 global using Extern = Avalon.Intern.Extern;
 global using ProgramStartMaide = Avalon.Intern.Extern.Program_Start_Maide;
 global using ProgramFinishMaide = Avalon.Intern.Extern.Program_Finish_Maide;

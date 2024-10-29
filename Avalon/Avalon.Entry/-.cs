@@ -1,4 +1,4 @@
-global using InternInfra = Avalon.Intern.Infra;
+global using InternInfra = Avalon.Infra.InternInfra;
 global using Extern = Avalon.Intern.Extern;
 global using Any = Avalon.Infra.Any;
 global using String = Avalon.Infra.String;
