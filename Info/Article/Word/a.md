@@ -30,6 +30,8 @@ Word "tool" has meaning that is be used.
 
 Word "node" has meaning that is entity.
 
+Word "plat" has meaning that is platform.
+
 Word "comp" has meaning that is compose unit.
 
 Word "name" has meaning that is call word.
