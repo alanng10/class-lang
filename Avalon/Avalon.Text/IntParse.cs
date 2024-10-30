@@ -48,11 +48,6 @@ public class IntParse : Any
         i = 0;
         while (i < count)
         {
-            if (!(h < capValue))
-            {
-                return -1;
-            }
-
             long index;
             index = start + count - 1 - i;
 
@@ -84,6 +79,11 @@ public class IntParse : Any
             }
 
             h = h * oe;
+
+            if (!(h < capValue))
+            {
+                return -1;
+            }
 
             i = i + 1;
         }
