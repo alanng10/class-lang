@@ -22,7 +22,7 @@ class IntFormatResultState : FormatResultState
         alignLeft : arg.AlignLeft;
         
         var Int fillCount;
-        fillCount : 0
+        fillCount : 0;
         var Int clampCount;
         clampCount : 0;
         
