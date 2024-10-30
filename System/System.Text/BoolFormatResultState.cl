@@ -20,6 +20,22 @@ class BoolFormatResultState : FormatResultState
         var Bool alignLeft;
         alignLeft : arg.AlignLeft;
         
+        var Int fillCount;
+        fillCount : 0;
+        var Int clampCount;
+        clampCount : 0;
         
+        inf (valueCount < count)
+        {
+            fillCount : count - valueCount;
+        }
+        
+        inf (count < valueCount)
+        {
+            clampCount : valueCount - count;
+        }
+        
+        var Int fillChar;
+        fillChar : arg.FillChar;
     }
 }
