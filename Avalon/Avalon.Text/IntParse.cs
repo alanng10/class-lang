@@ -13,7 +13,7 @@ public class IntParse : Any
     protected virtual InfraInfra InfraInfra { get; set; }
     protected virtual Infra TextInfra { get; set; }
 
-    public virtual long Execute(Text text, long varBase, bool upperCase, Form form)
+    public virtual long Execute(Text text, long varBase, Form form)
     {
         Infra textInfra;
         textInfra = this.TextInfra;
@@ -65,7 +65,7 @@ public class IntParse : Any
             }
 
             long digitValue;
-            digitValue = textInfra.DigitValue(oc, varBase, upperCase);
+            digitValue = textInfra.DigitValue(oc, varBase);
             if (digitValue == -1)
             {
                 return -1;
