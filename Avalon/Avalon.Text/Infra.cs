@@ -192,13 +192,8 @@ public class Infra : Any
         return true;
     }
 
-    public virtual long DigitValue(long oc, long varBase, Form form)
+    public virtual long DigitValue(long oc, long varBase)
     {
-        if (!(form == null))
-        {
-            oc = form.Execute(oc);
-        }
-
         long oa;
         oa = 0;
         bool b;
