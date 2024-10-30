@@ -51,16 +51,16 @@ public class IntParse : Any
             long index;
             index = start + count - 1 - i;
 
-            long oc;
-            oc = textInfra.DataCharGet(data, index);
+            long n;
+            n = textInfra.DataCharGet(data, index);
             
             if (!baa)
             {
-                oc = form.Execute(oc);
+                n = form.Execute(n);
             }
 
             long digitValue;
-            digitValue = textInfra.DigitValue(oc, varBase);
+            digitValue = textInfra.DigitValue(n, varBase);
             if (digitValue == -1)
             {
                 return -1;
