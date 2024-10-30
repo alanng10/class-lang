@@ -70,12 +70,15 @@ public class IntParse : Any
             ulong oo;
             oo = h * d;
             
-            m = m + oo;
+            ulong mm;
+            mm = m + oo;
 
-            if (!(m < capValue))
+            if (mm < m)
             {
                 return -1;
             }
+
+            m = mm;
 
             ulong hh;
             hh = h * oe;
