@@ -192,7 +192,7 @@ public class Infra : Any
         return true;
     }
 
-    public virtual long DigitValue(long oc, long varBase, bool upperCase)
+    public virtual long DigitValue(long oc, long varBase, Form form)
     {
         long oa;
         oa = 0;
@@ -214,10 +214,6 @@ public class Infra : Any
         }
         uint oca;
         oca = 'a';
-        if (upperCase)
-        {
-            oca = 'A';
-        }
 
         if (this.Digit(oc))
         {
@@ -231,7 +227,7 @@ public class Infra : Any
             return ooa;
         }
 
-        if (!this.Alpha(oc, upperCase))
+        if (!this.Alpha(oc, false))
         {
             return -1;
         }
