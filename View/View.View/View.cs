@@ -6,6 +6,7 @@ public class View : Comp
     {
         base.Init();
         this.DrawInfra = DrawInfra.This;
+        this.ViewInfra = Infra.This;
 
         this.PosField = this.CreatePosField();
         this.SizeField = this.CreateSizeField();
@@ -35,6 +36,7 @@ public class View : Comp
     public virtual DrawRect Area { get; set; }
 
     protected virtual DrawInfra DrawInfra { get; set; }
+    protected virtual Infra ViewInfra { get; set; }
     protected virtual DrawRect DrawRectA { get; set; }
     protected virtual DrawRect DrawRectB { get; set; }
     protected virtual DrawRect DrawRectC { get; set; }

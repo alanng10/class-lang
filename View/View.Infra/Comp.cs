@@ -6,7 +6,6 @@ public class Comp : Any
     {
         base.Init();
         this.MathInfra = MathInfra.This;
-        this.ViewInfra = Infra.This;
         this.Math = MathMath.This;
 
         this.ModEvent = this.CreateModEvent();
@@ -18,7 +17,6 @@ public class Comp : Any
     public virtual Mod ModArg { get; set; }
     public virtual Event ModEvent { get; set; }
     protected virtual MathInfra MathInfra { get; set; }
-    protected virtual Infra ViewInfra { get; set; }
     protected virtual MathMath Math { get; set; }
     protected virtual MathComp MathComp { get; set; }
 

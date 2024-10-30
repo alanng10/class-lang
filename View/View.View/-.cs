@@ -1,3 +1,4 @@
+global using Any = Avalon.Infra.Any;
 global using Data = Avalon.Infra.Data;
 global using InfraRange = Avalon.Infra.Range;
 global using InfraInfra = Avalon.Infra.Infra;
@@ -6,7 +7,6 @@ global using Comp = View.Infra.Comp;
 global using Field = View.Infra.Field;
 global using Mod = View.Infra.Mod;
 global using List = View.Infra.List;
-global using ViewInfra = View.Infra.Infra;
 global using TypeType = View.Type.Type;
 global using DrawSize = View.Draw.Size;
 global using DrawPos = View.Draw.Pos;
