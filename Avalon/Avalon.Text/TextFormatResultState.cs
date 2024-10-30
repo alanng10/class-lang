@@ -5,7 +5,7 @@ public class TextFormatResultState : FormatResultState
     public override bool Execute()
     {
         FormatResultArg kke;
-        kke = (FormatResultArg)this.Arg;
+        kke = this.Arg as FormatResultArg;
         FormatArg arg;
         arg = kke.Arg;
         Text result;
