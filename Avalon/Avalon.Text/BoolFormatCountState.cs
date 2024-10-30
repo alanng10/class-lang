@@ -15,31 +15,31 @@ public class BoolFormatCountState : FormatCountState
 
     public override bool Execute()
     {
+        Infra textInfra;
+        textInfra = this.TextInfra;
+
         StringComp stringComp;
         stringComp = this.StringComp;
 
         FormatArg arg;
         arg = this.Arg as FormatArg;
-
-        Infra textInfra;
-        textInfra = this.TextInfra;
         
         bool b;
         b = arg.Value.Bool;
-        long a;
-        a = 0;
+        long k;
+        k = 0;
         if (!b)
         {
-            a = stringComp.Count(textInfra.BoolFalseString);
+            k = stringComp.Count(textInfra.BoolFalseString);
         }
         if (b)
         {
-            a = stringComp.Count(textInfra.BoolTrueString);
+            k = stringComp.Count(textInfra.BoolTrueString);
         }
 
-        Value aa;
-        aa = (Value)this.Result;
-        aa.Int = a;
+        Value a;
+        a = (Value)this.Result;
+        a.Int = k;
         return true;
     }
 }
