@@ -31,6 +31,8 @@ public class IntParse : Any
         h = 1;
         ulong oe;
         oe = (ulong)varBase;
+        ulong d;
+        d = 0;
 
         bool baa;
         baa = (form == null);
@@ -51,7 +53,7 @@ public class IntParse : Any
 
             long n;
             n = textInfra.DataCharGet(data, index);
-            
+
             if (!baa)
             {
                 n = form.Execute(n);
@@ -64,31 +66,24 @@ public class IntParse : Any
                 return -1;
             }
 
-            ulong d;
             d = (ulong)digitValue;
 
             ulong oo;
             oo = h * d;
-            
-            ulong mm;
-            mm = m + oo;
 
-            if (mm < m)
+            m = m + oo;
+
+            if (!(m < capValue))
             {
                 return -1;
             }
 
-            m = mm;
+            h = h * oe;
 
-            ulong hh;
-            hh = h * oe;
-            
-            if (hh < h)
+            if (!(h < capValue))
             {
                 return -1;
             }
-
-            h = hh;
 
             i = i + 1;
         }
