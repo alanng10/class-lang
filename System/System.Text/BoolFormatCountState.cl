@@ -34,5 +34,8 @@ class BoolFormatCountState : FormatCountState
         {
             k : stringComp.Count(textInfra.BoolTrueString);
         }
+        
+        this.Result : k;
+        return true;
     }
 }
