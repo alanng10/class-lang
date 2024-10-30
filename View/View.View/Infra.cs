@@ -30,11 +30,6 @@ public class Infra : Any
         a = new Field();
         a.Init();
         a.Comp = comp;
-        a.State = new FieldState();
-        a.State.Init();
-        a.State.Field = a;
-        a.SetModArg = new Mod();
-        a.SetModArg.Init();
         return a;
     }
 
