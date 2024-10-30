@@ -1,0 +1,3 @@
+class IntParse : Any
+{
+}
