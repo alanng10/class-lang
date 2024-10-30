@@ -5,10 +5,10 @@ public class TextFormatCountState : FormatCountState
     public override bool Execute()
     {
         FormatArg arg;
-        arg = (FormatArg)this.Arg;
+        arg = this.Arg as FormatArg;
 
         Text text;
-        text = (Text)arg.Value.Any;
+        text = arg.Value.Any as Text;
 
         long a;
         a = text.Range.Count;
