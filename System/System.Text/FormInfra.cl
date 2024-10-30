@@ -61,7 +61,7 @@ class FormInfra : Any
         {
             return false;
         }
-        return !((n < start) | (end < n));
+        return ~((n < start) | (end < n));
     }
 
     maide prusate Int Char(var String k)
