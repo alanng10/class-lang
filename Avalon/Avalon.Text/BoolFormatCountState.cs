@@ -19,7 +19,7 @@ public class BoolFormatCountState : FormatCountState
         stringComp = this.StringComp;
 
         FormatArg arg;
-        arg = (FormatArg)this.Arg;
+        arg = this.Arg as FormatArg;
 
         Infra textInfra;
         textInfra = this.TextInfra;
