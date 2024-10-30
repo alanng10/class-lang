@@ -5,6 +5,12 @@ public class Field : Any
     public override bool Init()
     {
         base.Init();
+        this.State = new FieldState();
+        this.State.Init();
+        this.State.Field = this;
+        this.SetModArg = new Mod();
+        this.SetModArg.Init();
+
         this.ValueAny = new InfraValue();
         this.ValueAny.Init();
         return true;
