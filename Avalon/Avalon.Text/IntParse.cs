@@ -31,8 +31,6 @@ public class IntParse : Any
         h = 1;
         ulong oe;
         oe = (ulong)varBase;
-        ulong d;
-        d = 0;
 
         bool baa;
         baa = (form == null);
@@ -66,6 +64,7 @@ public class IntParse : Any
                 return -1;
             }
 
+            ulong d;
             d = (ulong)digitValue;
 
             ulong oo;
