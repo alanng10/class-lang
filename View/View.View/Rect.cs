@@ -1,4 +1,4 @@
-namespace View.Infra;
+namespace View.View;
 
 public class Rect : Comp
 {
