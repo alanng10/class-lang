@@ -37,5 +37,17 @@ class BoolFormatResultState : FormatResultState
         
         var Int fillChar;
         fillChar : arg.FillChar;
+        
+        var Int fillStart;
+        fillStart : 0;
+        var Int valueStart;
+        valueStart : 0;
+        var Int valueIndex;
+        valueIndex : 0;
+
+        var Int valueWriteCount;
+        valueWriteCount : valueCount - clampCount;
+        
+        
     }
 }
