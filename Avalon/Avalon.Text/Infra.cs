@@ -194,6 +194,11 @@ public class Infra : Any
 
     public virtual long DigitValue(long oc, long varBase, Form form)
     {
+        if (!(form == null))
+        {
+            oc = form.Execute(oc);
+        }
+
         long oa;
         oa = 0;
         bool b;
@@ -239,7 +244,9 @@ public class Infra : Any
             return -1;
         }
 
-        return oob + 10;
+        long a;
+        a = oob + 10;
+        return a;
     }
 
     public virtual uint DigitChar(long digit, long letterStart)
