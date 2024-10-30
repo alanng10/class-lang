@@ -1,0 +1,3 @@
+class IntFormatResultState : FormatResultState
+{
+}
