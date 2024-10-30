@@ -6,6 +6,12 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <ProjectReference Include="../../Avalon/Avalon.Infra/Avalon.Infra.csproj" />
+        <ProjectReference Include="../../Avalon/Avalon.List/Avalon.List.csproj" />
+        <ProjectReference Include="../View.Type/View.Type.csproj" />
+        <ProjectReference Include="../View.Draw/View.Draw.csproj" />
+        <ProjectReference Include="../View.Media/View.Media.csproj" />
+        <ProjectReference Include="../View.Frame/View.Frame.csproj" />
         <ProjectReference Include="../View.Infra/View.Infra.csproj" />
     </ItemGroup>
 
