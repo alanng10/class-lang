@@ -58,5 +58,10 @@ class BoolFormatResultState : FormatResultState
             valueStart : fillCount;
             valueIndex : clampCount;
         }
+        
+        format.ResultBool(result, arg.Form, value, valueWriteCount, valueStart, valueIndex);
+        
+        format.ResultFill(result, fillStart, fillCount, fillChar);
+        return true;
     }
 }
