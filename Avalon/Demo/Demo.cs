@@ -66,7 +66,6 @@ class Demo : Any
 
         this.ExecuteDemoThread();
         this.ExecuteTimeEvent();
-        this.ExecutePost();
 
         this.ExecuteNetwork();
         this.ExecuteNetworkProcess();
@@ -1023,46 +1022,6 @@ class Demo : Any
         thread.Final();
 
         this.Console.Out.Write(this.S("Demo.ExecuteTimeEventOne Thread Status: 0h" + o.ToString("x8") + "\n"));
-        return true;
-    }
-
-    private bool ExecutePost()
-    {
-        PostState postState;
-        postState = new PostState();
-        postState.Init();
-        postState.Demo = this;
-
-        ThreadPhore phore;
-        phore = new ThreadPhore();
-        phore.Init();
-
-        ThreadPostState state;
-        state = new ThreadPostState();
-        state.Init();
-        state.PostState = postState;
-        state.Phore = phore;
-
-        ThreadThread thread;
-        thread = new ThreadThread();
-        thread.Init();
-        thread.ExecuteState = state;
-        thread.Execute();
-
-        phore.Open();
-
-        state.Post.Execute();
-
-        thread.Wait();
-
-        long o;
-        o = thread.Status;
-
-        thread.Final();
-
-        phore.Final();
-
-        this.Console.Out.Write(this.S("Demo.ExecuteDemoPost Thread Status: 0h" + o.ToString("x8") + "\n"));
         return true;
     }
 
