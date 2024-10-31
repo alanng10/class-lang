@@ -286,7 +286,7 @@ public class Base : Any
         return a;
     }
 
-    public virtual long IntString(Text text, long varBase)
+    public virtual long IntText(Text text, long varBase)
     {
         return this.IntParse.Execute(text, varBase, null);
     }
