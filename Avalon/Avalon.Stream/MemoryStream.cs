@@ -18,7 +18,7 @@ public class MemoryStream : Stream
 
     private InternStream Intern { get; set; }
 
-    public override ulong Ident
+    public override long Ident
     { 
         get
         {
