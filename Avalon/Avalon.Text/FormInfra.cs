@@ -14,6 +14,20 @@ class FormInfra : Any
         return share;
     }
 
+    public override bool Init()
+    {
+        base.Init();
+        this.StringComp = StringComp.This;
+        return true;
+    }
+
+    protected virtual StringComp StringComp { get; set; }
+
+    public virtual long Char(String k)
+    {
+        return this.StringComp.Char(k, 0);
+    }
+
     public virtual bool Digit(long n)
     {
         return this.Range('0', '9', n);

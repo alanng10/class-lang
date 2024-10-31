@@ -55,6 +55,11 @@ public class Infra : Any
     protected virtual Code TextCode { get; set; }
     protected virtual StringValue StringValue { get; set; }
 
+    public virtual long Char(String k)
+    {
+        return this.FormInfra.Char(k);
+    }
+
     public virtual bool Digit(long o)
     {
         return this.FormInfra.Digit(o);
