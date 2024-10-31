@@ -9,6 +9,7 @@
     <ItemGroup>
         <ProjectReference Include="../../Avalon/MakeProject/MakeProject.csproj" />
         <ProjectReference Include="../View.Infra/View.Infra.csproj" />
+        <ProjectReference Include="../View.View/View.View.csproj" />
     </ItemGroup>
 
     <ItemGroup>
