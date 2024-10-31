@@ -7,7 +7,7 @@ public class Stream : Any
         return false;
     }
 
-    public virtual ulong Ident
+    public virtual long Ident
     {
         get
         {
