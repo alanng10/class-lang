@@ -17,9 +17,9 @@ public class Stream : StreamStream
         return true;
     }
 
-    public virtual ulong InitIdent { get; set; }
+    public virtual long InitIdent { get; set; }
 
-    public override ulong Ident
+    public override long Ident
     { 
         get
         {
