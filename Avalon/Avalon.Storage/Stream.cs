@@ -1,6 +1,6 @@
 namespace Avalon.Storage;
 
-class Stream : StreamStream
+public class Stream : StreamStream
 {
     public override bool Init()
     {
