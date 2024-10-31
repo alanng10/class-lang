@@ -244,7 +244,7 @@ public class Infra : Any
         return a;
     }
 
-    public virtual uint DigitChar(long digit)
+    public virtual uint DigitChar(long digit, long letterStart)
     {
         long n;
         n = 0;
@@ -258,7 +258,7 @@ public class Infra : Any
         {
             long m;
             m = digit - 10;
-            n = 'a' + m;
+            n = letterStart + m;
         }
         uint a;
         a = (uint)n;
