@@ -18,7 +18,6 @@ public class Create : InfraCreate
 
         this.NameCheck = this.CreateNameCheck();
         this.StringValueWrite = this.CreateStringValueWrite();
-        this.TextIntParse = this.CreateTextIntParse();
 
         this.RangeA = this.CreateRange();
         this.RangeB = this.CreateRange();
@@ -81,8 +80,6 @@ public class Create : InfraCreate
     protected virtual Token TokenG { get; set; }
     protected virtual Token TokenH { get; set; }
     protected virtual Token TokenI { get; set; }
-
-    protected virtual TextIntParse TextIntParse { get; set; }
 
     protected virtual CountCreateOperate CountOperate { get; set; }
     protected virtual KindCreateOperate KindOperate { get; set; }
