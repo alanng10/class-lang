@@ -13,6 +13,7 @@ global using ListInfra = Avalon.List.Infra;
 global using Text = Avalon.Text.Text;
 global using TextForm = Avalon.Text.Form;
 global using TextLess = Avalon.Text.Less;
+global using IntParse = Avalon.Text.IntParse;
 global using StringComp = Avalon.Text.StringComp;
 global using StringData = Avalon.Text.StringData;
 global using StringAdd = Avalon.Text.StringAdd;

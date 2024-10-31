@@ -16,6 +16,8 @@ public class Base : Any
         this.Write = this.CreateWrite();
         this.WriteArg = this.CreateWriteArg();
 
+        this.IntParse = this.CreateIntParse();
+
         this.CharLess = this.CreateCharLess();
         this.TForm = this.CreateTextForm();
         this.TLess = this.CreateTextLess();
@@ -46,6 +48,7 @@ public class Base : Any
     protected virtual Infra ClassInfra { get; set; }
     protected virtual StringComp StringComp { get; set; }
     protected virtual StringAdd StringAdd { get; set; }
+    protected virtual IntParse IntParse { get; set; }
     protected virtual TextLess TLess { get; set; }
     protected virtual LessInt CharLess { get; set; }
     protected virtual TextForm TForm { get; set; }
@@ -86,6 +89,14 @@ public class Base : Any
     {
         WriteArg a;
         a = new WriteArg();
+        a.Init();
+        return a;
+    }
+
+    protected virtual IntParse CreateIntParse()
+    {
+        IntParse a;
+        a = new IntParse();
         a.Init();
         return a;
     }
@@ -273,6 +284,11 @@ public class Base : Any
         a = this.StringCreate(aa);
 
         return a;
+    }
+
+    public virtual long IntString(Text text, long varBase)
+    {
+        return this.IntParse.Execute(text, varBase, null);
     }
 
     public virtual Text Place(Text text, string limit, String join)
