@@ -39,7 +39,7 @@ public class Network : Any
 
             ulong streamU;
             streamU = Extern.Network_StreamGet(this.Intern);
-            this.DataStream = this.StreamCreateIntern(streamU);
+            this.DataStream = this.StreamCreateSet(streamU);
             this.Stream = this.DataStream;
         }
 
@@ -193,7 +193,7 @@ public class Network : Any
         return true;
     }
 
-    private StreamStream StreamCreateIntern(ulong u)
+    protected virtual StreamStream StreamCreateSet(ulong u)
     {
         Stream a;
         a = new Stream();
