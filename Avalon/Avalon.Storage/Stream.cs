@@ -16,7 +16,7 @@ public class Stream : StreamStream
         return true;
     }
 
-    public override ulong Ident
+    public override long Ident
     { 
         get
         {
