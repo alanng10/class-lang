@@ -18,7 +18,7 @@ public class Stream : StreamStream
     }
 
     public virtual ulong InitIdent { get; set; }
-    
+
     public override ulong Ident
     { 
         get
