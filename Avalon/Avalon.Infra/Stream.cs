@@ -23,10 +23,10 @@ public class Stream : Any
         }
         if (!b)
         {
-            this.Intern = this.SetIntern;
+            this.Intern = (ulong)this.SetIntern;
         }
 
-        this.Ident = this.Intern;
+        this.Ident = (long)this.Intern;
         return true;
     }
 
@@ -46,9 +46,9 @@ public class Stream : Any
         return true;
     }
 
-    public virtual ulong SetIntern { get; set; }
+    public virtual long SetIntern { get; set; }
 
-    public virtual ulong Ident { get; set; }
+    public virtual long Ident { get; set; }
 
     private Intern InternIntern { get; set; }
     private ulong Intern { get; set; }
