@@ -1,6 +1,6 @@
 namespace Avalon.Network;
 
-class Stream : StreamStream
+public class Stream : StreamStream
 {
     public override bool Init()
     {
@@ -17,7 +17,7 @@ class Stream : StreamStream
         return true;
     }
 
-    internal virtual ulong SetIntern { get; set; }
+    public virtual ulong SetIntern { get; set; }
     
     public override ulong Ident
     { 
