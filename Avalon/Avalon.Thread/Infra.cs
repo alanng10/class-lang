@@ -17,19 +17,13 @@ class Infra : Any
     public override bool Init()
     {
         base.Init();
-        ThreadExecuteMaide maideA;
-        maideA = new ThreadExecuteMaide(Thread.InternExecute);
+        ThreadExecuteMaide maide;
+        maide = new ThreadExecuteMaide(Thread.InternExecute);
         this.ThreadExecuteMaideAddress = new MaideAddress();
-        this.ThreadExecuteMaideAddress.Delegate = maideA;
+        this.ThreadExecuteMaideAddress.Delegate = maide;
         this.ThreadExecuteMaideAddress.Init();
-        PostExecuteMaide maideB;
-        maideB = new PostExecuteMaide(Post.InternExecute);
-        this.PostExecuteMaideAddress = new MaideAddress();
-        this.PostExecuteMaideAddress.Delegate = maideB;
-        this.PostExecuteMaideAddress.Init();
         return true;
     }
 
     public virtual MaideAddress ThreadExecuteMaideAddress { get; set; }
-    public virtual MaideAddress PostExecuteMaideAddress { get; set; }
 }
