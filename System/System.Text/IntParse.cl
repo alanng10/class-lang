@@ -25,6 +25,8 @@ class IntParse : Any
         m : 0;
         var Int h;
         h : 1;
+        var Int hh;
+        hh : 1;
         
         var Bool baa;
         baa : (form = null);
@@ -40,6 +42,13 @@ class IntParse : Any
         i : 0;
         while (i < count)
         {
+            inf (hh < h)
+            {
+                return null;
+            }
+            
+            h : hh;
+            
             var Int index;
             index : start + (count - 1) - i;
             
@@ -71,15 +80,7 @@ class IntParse : Any
             
             m : mm;
             
-            var Int hh;
             hh : h * varBase;
-            
-            inf (hh < h)
-            {
-                return null;
-            }
-            
-            h : hh;
             
             i : i + 1;
         }
