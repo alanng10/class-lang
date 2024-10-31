@@ -237,7 +237,7 @@ public partial class ClassPathTraverse : Traverse
         rangeA.Count = count;
 
         long n;
-        n = this.IntParse.Execute(textA, 10, false, null);
+        n = this.IntParse.Execute(textA, 10, null);
 
         if (n == -1)
         {
