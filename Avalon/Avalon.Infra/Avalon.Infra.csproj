@@ -6,11 +6,4 @@
         <OutputPath>../../Out</OutputPath>
     </PropertyGroup>
 
-    <ItemGroup>
-        <None Include="../../Out/InfraDeploy/**/*">
-            <Link>%(RecursiveDir)/%(FileName)%(Extension)</Link>
-            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-        </None>
-    </ItemGroup>
-
 </Project>
