@@ -197,7 +197,7 @@ public class Network : Any
     {
         Stream a;
         a = new Stream();
-        a.SetIntern = u;
+        a.InitIdent = u;
         a.Init();
         StreamStream o;
         o = a;

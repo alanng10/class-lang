@@ -6,7 +6,7 @@ public class Stream : StreamStream
     {
         base.Init();
         this.Intern = new InternStream();
-        this.Intern.SetIntern = this.SetIntern;
+        this.Intern.SetIntern = this.InitIdent;
         this.Intern.Init();
         return true;
     }
@@ -17,7 +17,7 @@ public class Stream : StreamStream
         return true;
     }
 
-    public virtual ulong SetIntern { get; set; }
+    public virtual ulong InitIdent { get; set; }
     
     public override ulong Ident
     { 
