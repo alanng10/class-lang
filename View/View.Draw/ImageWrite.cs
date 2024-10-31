@@ -25,7 +25,10 @@ public class ImageWrite : Any
 
     public virtual bool Execute()
     {
-        Extern.ImageWrite_StreamSet(this.Intern, this.Stream.Ident);
+        ulong k;
+        k = (ulong)this.Stream.Ident;
+
+        Extern.ImageWrite_StreamSet(this.Intern, k);
         Extern.ImageWrite_BinarySet(this.Intern, this.Binary.Intern);
         Extern.ImageWrite_ImageSet(this.Intern, this.Image.Ident);
 

@@ -26,7 +26,10 @@ public class ImageRead : Any
 
     public virtual bool Execute()
     {
-        Extern.ImageRead_StreamSet(this.Intern, this.Stream.Ident);
+        ulong k;
+        k = (ulong)this.Stream.Ident;
+
+        Extern.ImageRead_StreamSet(this.Intern, k);
         Extern.ImageRead_ImageSet(this.Intern, this.Image.Ident);
 
         ulong u;
