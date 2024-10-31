@@ -39,7 +39,10 @@ public class Network : Any
 
             ulong streamU;
             streamU = Extern.Network_StreamGet(this.Intern);
-            this.DataStream = this.StreamCreateSet(streamU);
+
+            long ident;
+            ident = (long)streamU;
+            this.DataStream = this.StreamCreateSet(ident);
             this.Stream = this.DataStream;
         }
 
