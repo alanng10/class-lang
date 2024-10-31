@@ -171,9 +171,12 @@ public class Network : Any
         hostPortU = (ulong)this.HostPort;
         this.DataStream = this.StreamCreate();
 
+        ulong k;
+        k = (ulong)this.DataStream.Ident;
+
         Extern.Network_HostNameSet(this.Intern, this.InternHostName);
         Extern.Network_HostPortSet(this.Intern, hostPortU);
-        Extern.Network_StreamSet(this.Intern, this.DataStream.Ident);
+        Extern.Network_StreamSet(this.Intern, k);
         Extern.Network_Open(this.Intern);
         return true;
     }
