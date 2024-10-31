@@ -45,6 +45,47 @@ class IntParse : Any
             
             var Int n;
             n : textInfra.DataCharGet(data, index);
+            
+            inf (~baa)
+            {
+                n : form.Execute(n);
+            }
+            
+            var Int digitValue;
+            digitValue : textInfra.DigitValue(n, varBase);
+            inf (digitValue = null)
+            {
+                return null;
+            }
+            
+            var Int oo;
+            oo : h * digitValue;
+            
+            var Int mm;
+            mm : m + oo;
+            
+            inf (mm < m)
+            {
+                return null;
+            }
+            
+            m : mm;
+            
+            var Int hh;
+            hh : h * varBase;
+            
+            inf (hh < h)
+            {
+                return null;
+            }
+            
+            h : hh;
+            
+            i : i + 1;
         }
+        
+        var Int a;
+        a : m;
+        return a;
     }
 }
