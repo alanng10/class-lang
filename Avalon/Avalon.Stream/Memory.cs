@@ -31,7 +31,10 @@ public class Memory : Any
         Stream stream;
         stream = this.CreateStream();
 
-        Extern.Memory_StreamSet(this.Intern, stream.Ident);
+        ulong k;
+        k = (ulong)stream.Ident;
+
+        Extern.Memory_StreamSet(this.Intern, k);
         Extern.Memory_Open(this.Intern);
 
         this.Stream = stream;
