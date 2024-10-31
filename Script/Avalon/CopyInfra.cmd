@@ -1,5 +1,7 @@
 @echo off
 
+echo Copy Infra
+
 set DotNetModuleOutFold=.\Out\net8.0
 set InfraDeployFold=.\Out\InfraDeploy
 
