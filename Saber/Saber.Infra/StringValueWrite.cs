@@ -292,7 +292,7 @@ public class StringValueWrite : Any
                             ua = textInfra.DataCharGet(data, oa);
 
                             long od;
-                            od = textInfra.DigitValue(ua, 16, false);
+                            od = textInfra.DigitValue(ua, 16);
 
                             long na;
                             na = countA - 1 - iA;
