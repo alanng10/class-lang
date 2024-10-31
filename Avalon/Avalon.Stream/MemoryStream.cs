@@ -1,6 +1,6 @@
 namespace Avalon.Stream;
 
-class MemoryStream : Stream
+public class MemoryStream : Stream
 {
     public override bool Init()
     {
