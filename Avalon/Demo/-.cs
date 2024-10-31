@@ -24,7 +24,6 @@ global using TextCodeKind = Avalon.Text.CodeKind;
 global using TextCodeKindList = Avalon.Text.CodeKindList;
 global using TextInfra = Avalon.Text.Infra;
 global using ThreadThread = Avalon.Thread.Thread;
-global using ThreadPost = Avalon.Thread.Post;
 global using ThreadThis = Avalon.Thread.This;
 global using ThreadPhore = Avalon.Thread.Phore;
 global using Stream = Avalon.Stream.Stream;
