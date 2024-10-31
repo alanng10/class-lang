@@ -19,9 +19,6 @@ public class Read : ClassBase
         this.Range = new Range();
         this.Range.Init();
 
-        this.IntParse = new IntParse();
-        this.IntParse.Init();
-
         this.SColon = this.S(":");
         this.SDot = this.S(".");
         this.SBraceSquareLite = this.S("[");
@@ -45,7 +42,6 @@ public class Read : ClassBase
     protected virtual StringReadOperate StringOperate { get; set; }
     protected virtual SetReadOperate SetOperate { get; set; }
     protected virtual Range Range { get; set; }
-    protected virtual IntParse IntParse { get; set; }
     protected virtual String SColon { get; set; }
     protected virtual String SDot { get; set; }
     protected virtual String SBraceSquareLite { get; set; }
@@ -1047,9 +1043,6 @@ public class Read : ClassBase
         TextInfra textInfra;
         textInfra = this.TextInfra;
 
-        IntParse intParse;
-        intParse = this.IntParse;
-
         Range range;
         range = text.Range;
 
@@ -1094,7 +1087,7 @@ public class Read : ClassBase
         range.Count = kka;
 
         long major;
-        major = intParse.Execute(text, 10, false, null);
+        major = this.IntText(text, 10);
         if (major == -1)
         {
             return -1;
@@ -1112,7 +1105,7 @@ public class Read : ClassBase
         range.Count = kkb;
 
         long minor;
-        minor = intParse.Execute(text, 10, false, null);
+        minor = this.IntText(text, 10);
         if (minor == -1)
         {
             return -1;
@@ -1122,7 +1115,7 @@ public class Read : ClassBase
         range.Count = 2;
 
         long vise;
-        vise = intParse.Execute(text, 10, false, null);
+        vise = this.IntText(text, 10);
         if (vise == -1)
         {
             return -1;
