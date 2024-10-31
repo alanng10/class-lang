@@ -27,10 +27,10 @@ public class Play : Any
 
     public virtual bool SourceSet()
     {
-        ulong u;
-        u = this.Source.Ident;
+        ulong k;
+        k = (ulong)this.Source.Ident;
 
-        Extern.Play_SourceSet(this.Intern, u);
+        Extern.Play_SourceSet(this.Intern, k);
         Extern.Play_SourceThisSet(this.Intern);
         Extern.Play_SourceSet(this.Intern, 0);
         return true;
