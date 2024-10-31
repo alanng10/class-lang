@@ -1382,7 +1382,7 @@ public class Create : InfraCreate
         text = this.TAToken(token);
 
         long value;
-        value = this.TextIntParse.Execute(text, 10, false, null);
+        value = this.IntText(text, 10);
         if (value == -1)
         {
             return null;
@@ -1426,7 +1426,7 @@ public class Create : InfraCreate
         text.Range.Count = aa.Range.Count - 2;
 
         long value;
-        value = this.TextIntParse.Execute(text, 16, false, null);
+        value = this.IntText(text, 16);
         if (value == -1)
         {
             return null;
@@ -1472,7 +1472,7 @@ public class Create : InfraCreate
         text.Range.Count = aa.Range.Count - 3;
 
         long o;
-        o = this.TextIntParse.Execute(text, 10, false, null);
+        o = this.IntText(text, 10);
 
         if (o == -1)
         {
@@ -1546,7 +1546,7 @@ public class Create : InfraCreate
         text.Range.Count = aa.Range.Count - 4;
 
         long o;
-        o = this.TextIntParse.Execute(text, 16, false, null);
+        o = this.IntText(text, 16);
         if (o == -1)
         {
             return null;
