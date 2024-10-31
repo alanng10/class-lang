@@ -193,11 +193,11 @@ public class Network : Any
         return true;
     }
 
-    protected virtual StreamStream StreamCreateSet(ulong u)
+    protected virtual StreamStream StreamCreateSet(long ident)
     {
         Stream a;
         a = new Stream();
-        a.InitIdent = u;
+        a.InitIdent = ident;
         a.Init();
         StreamStream o;
         o = a;
