@@ -65,9 +65,12 @@ public class Storage : Any
         modeU = this.GetInternMode(this.Mode);
         this.DataStream = this.CreateStream();
 
+        ulong k;
+        k = (ulong)this.DataStream.Ident;
+
         Extern.Storage_PathSet(this.Intern, this.InternPath);
         Extern.Storage_ModeSet(this.Intern, modeU);
-        Extern.Storage_StreamSet(this.Intern, this.DataStream.Ident);
+        Extern.Storage_StreamSet(this.Intern, k);
         Extern.Storage_Open(this.Intern);
         if (this.Status == this.StorageStatusList.NoError)
         {
