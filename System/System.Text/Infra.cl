@@ -4,24 +4,38 @@ class Infra : Any
     {
         base.Init();
         this.InfraInfra : share InfraInfra;
+        this.FormInfra : share FormInfra;
         this.StringComp : share StringComp;
         this.TextCode : share Code;
 
         this.NewLine : "\n";
-        this.PathCombine : "/";     
+        this.PathCombine : "/";
+        this.Zero : "";
+
+        this.PosAddSign : "+";
+        this.PosSubSign : "-";
+
         this.BoolFalseString : "false";
         this.BoolTrueString : "true";
         
-        var StringComp stringComp;
-        stringComp : this.StringComp;
+        this.AlphaNiteForm : new AlphaNiteForm;
+        this.AlphaNiteForm.Init();
+        this.AlphaSiteForm : new AlphaSiteForm;
+        this.AlphaSiteForm.Init();        
         return true;
     }
 
-    field prusate String NewLine { get { return data; } set { data : value; } }
-    field prusate String PathCombine { get { return data; } set { data : value; } }
     field prusate String BoolFalseString { get { return data; } set { data : value; } }
     field prusate String BoolTrueString { get { return data; } set { data : value; } }
+    field prusate String NewLine { get { return data; } set { data : value; } }
+    field prusate String PathCombine { get { return data; } set { data : value; } }
+    field prusate String Zero { get { return data; } set { data : value; } }
+    field prusate String PosAddSign { get { return data; } set { data : value; } }
+    field prusate String PosSubSign { get { return data; } set { data : value; } }
+    field prusate Form AlphaNiteForm { get { return data; } set { data : value; } }
+    field prusate Form AlphaSiteForm { get { return data; } set { data : value; } }
     field precate InfraInfra InfraInfra { get { return data; } set { data : value; } }
+    field private FormInfra FormInfra { get { return data; } set { data : value; } }
     field precate StringComp StringComp { get { return data; } set { data : value; } }
     field precate Code TextCode { get { return data; } set { data : value; } }
 
