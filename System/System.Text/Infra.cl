@@ -670,6 +670,25 @@ class Infra : Any
         
         return true;
     }
+    
+    maide prusate StringLess StringLessCreate()
+    {
+        var IntLess charLess;
+        charLess : new IntLess;
+        charLess.Init();
+        
+        var Form form;
+        form : new Form;
+        form.Init();
+        
+        var StringLess a;
+        a : new StringLess;
+        a.CharLess : charLess;
+        a.LiteForm : form;
+        a.RiteForm : form;
+        a.Init();
+        return a;
+    }
 
     maide prusate Data Code(var CodeKind innKind, var CodeKind outKind, var Data data, var Range range)
     {
