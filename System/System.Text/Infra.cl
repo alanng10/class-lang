@@ -636,6 +636,39 @@ class Infra : Any
     
     maide prusate Bool Form(var Text dest, var Text source, var Form form)
     {
+        var Int count;
+        count : dest.Range.Count;
+        
+        inf (~(count = source.Range.Count))
+        {
+            return false;
+        }
+        
+        var Data sourceData;
+        var Data destData;
+        sourceData : source.Data;
+        destData : dest.Data;
+        
+        var Int sourceIndex;
+        var Int destIndex;
+        sourceIndex : source.Range.Index;
+        destIndex : dest.Range.Index;
+        
+        var Int i;
+        i : 0;
+        while (i < count)
+        {
+            var Int n;
+            n : this.DataCharGet(sourceData, sourceIndex + i);
+            
+            n : form.Execute(n);
+            
+            this.DataCharSet(destData, destIndex + i, n);
+            
+            i : i + 1;
+        }
+        
+        return true;
     }
 
     maide prusate Data Code(var CodeKind innKind, var CodeKind outKind, var Data data, var Range range)
