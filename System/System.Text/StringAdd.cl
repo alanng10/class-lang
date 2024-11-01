@@ -3,7 +3,7 @@ class StringAdd : Any
     maide prusate Bool Init()
     {
         base.Init();
-        this.InfraInfra : share Infra;
+        this.InfraInfra : share InfraInfra;
         this.StringComp : share StringComp;
 
         this.Range : new Range;
@@ -22,7 +22,7 @@ class StringAdd : Any
         return true;
     }
 
-    field precate Infra InfraInfra { get { return data; } set { data : value; } }
+    field precate InfraInfra InfraInfra { get { return data; } set { data : value; } }
     field precate StringComp StringComp { get { return data; } set { data : value; } }
     field precate Range Range { get { return data; } set { data : value; } }
     field private Data Data { get { return data; } set { data : value; } }
