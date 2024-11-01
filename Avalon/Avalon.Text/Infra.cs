@@ -585,10 +585,10 @@ public class Infra : Any
                 k = k + joinCount;
             }
 
-            Text ka;
-            ka = (Text)array.GetAt(i);
+            Text kk;
+            kk = (Text)array.GetAt(i);
 
-            k = k + ka.Range.Count;
+            k = k + kk.Range.Count;
 
             i = i + 1;
         }
