@@ -568,10 +568,10 @@ class Infra : Any
                 k : k + joinCount;
             }
             
-            var Text ka;
-            ka : cast Text(array.Get(i));
+            var Text kk;
+            kk : cast Text(array.Get(i));
             
-            k : k + ka.Range.Count;
+            k : k + kk.Range.Count;
             
             i : i + 1;
         }
