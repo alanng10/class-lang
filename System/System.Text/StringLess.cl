@@ -47,11 +47,11 @@ class StringLess : InfraLess
         {
             var Int na;
             var Int nb;
-            na : comp.Char(liteString, i);
-            nb : comp.Char(riteString, i);
+            na : stringComp.Char(liteString, i);
+            nb : stringComp.Char(riteString, i);
 
-            na : liteCharForm.Execute(na);
-            nb : riteCharForm.Execute(nb);
+            na : liteForm.Execute(na);
+            nb : riteForm.Execute(nb);
 
             var Int oo;
             oo : charLess.Execute(na, nb);
