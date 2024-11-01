@@ -177,7 +177,7 @@ class Infra : Any
         return true;
     }
 
-    maide prusate Int DigitValue(var Int oc, var Int varBase, var Bool upperCase)
+    maide prusate Int DigitValue(var Int oc, var Int varBase)
     {
         var Int oa;
         oa : 0;
@@ -198,19 +198,12 @@ class Infra : Any
             oaa : varBase - 10;
         }
         var Int oca;
-        inf (~upperCase)
-        {
-            oca : this.StringComp.Char("a", 0);
-        }
-        inf (upperCase)
-        {
-            oca : this.StringComp.Char("A", 0);
-        }
+        oca : this.Char("a");
 
         inf (this.IsDigit(oc))
         {
             var Int ooa;
-            ooa : oc - this.StringComp.Char("0", 0);
+            ooa : oc - this.Char("0");
             inf (~(ooa < oa))
             {
                 return null;
@@ -219,7 +212,7 @@ class Infra : Any
             return ooa;
         }
 
-        inf (~this.IsLetter(oc, upperCase))
+        inf (~this.Alpha(oc, false))
         {
             return null;
         }
@@ -231,7 +224,9 @@ class Infra : Any
             return null;
         }
 
-        return oob + 10;
+        var Int a;
+        a : oob + 10;
+        return a;
     }
 
     maide prusate Int DigitChar(var Int digit, var Int letterStart)
