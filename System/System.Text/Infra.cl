@@ -237,7 +237,7 @@ class Infra : Any
         b : (digit < 10);
         inf (b)
         {
-            n : this.StringComp.Char("0", 0) + digit;
+            n : this.Char("0") + digit;
         }
         inf (~b)
         {
