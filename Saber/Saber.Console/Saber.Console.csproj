@@ -48,11 +48,4 @@
         </None>
     </ItemGroup>
 
-    <ItemGroup>
-        <None Include="../../Out/InfraIntern-Windows-Release/release/InfraIntern.dll">
-            <Link>InfraIntern.dll</Link>
-            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-        </None>
-    </ItemGroup>
-
 </Project>
