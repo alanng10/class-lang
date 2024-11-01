@@ -689,6 +689,14 @@ class Infra : Any
         a.Init();
         return a;
     }
+    
+    maide prusate Bool Copy(var Data dest, var Int destIndex, var Data source, var Int sourceIndex, var Int count)
+    {
+        var Int ka;
+        ka : 4;
+        
+        return this.InfraInfra.DataCopy(dest, destIndex * ka, source, sourceIndex * ka, count * ka);
+    }
 
     maide prusate Data Code(var CodeKind innKind, var CodeKind outKind, var Data data, var Range range)
     {
