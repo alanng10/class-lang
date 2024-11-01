@@ -436,7 +436,7 @@ class Infra : Any
         while (k = null & i < count)
         {
             var Int index;
-            index : textIndex + count - 1 - i;
+            index : textIndex + (count - 1) - i;
 
             textRange.Index : index;
             textRange.Count : otherCount;
@@ -506,6 +506,8 @@ class Infra : Any
         textRange.Index : kka;
         textRange.Count : kkb;
 
+        var Text kk;
+
         var Int i;
         i : 0;
         while (i < count)
@@ -515,10 +517,9 @@ class Infra : Any
             rangeA.Index : textRange.Index;
             rangeA.Count : oo;
 
-            var Text line;
-            line : this.TextCreateDataRange(data, rangeA);
+            kk : this.TextCreateDataRange(data, rangeA);
 
-            array.Set(i, line);
+            array.Set(i, kk);
 
             var Int kab;
             kab : oo + limitCount;
@@ -538,10 +539,9 @@ class Infra : Any
         textRange.Index : kka;
         textRange.Count : kkb;
 
-        var Text lastLine;
-        lastLine : this.TextCreateDataRange(data, rangeA);
+        kk : this.TextCreateDataRange(data, rangeA);
 
-        array.Set(count, lastLine);
+        array.Set(count, kk);
 
         return array;
     }
