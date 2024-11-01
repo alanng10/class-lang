@@ -653,15 +653,6 @@ public class Infra : Any
 
     public virtual bool Form(Text dest, Text source, Form form)
     {
-        if (!this.ValidRange(dest))
-        {
-            return false;
-        }
-        if (!this.ValidRange(source))
-        {
-            return false;
-        }
-
         long count;
         count = dest.Range.Count;
 

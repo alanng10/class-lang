@@ -633,6 +633,10 @@ class Infra : Any
         a : k;
         return a;
     }
+    
+    maide prusate Bool Form(var Text dest, var Text source, var Form form)
+    {
+    }
 
     maide prusate Data Code(var CodeKind innKind, var CodeKind outKind, var Data data, var Range range)
     {
