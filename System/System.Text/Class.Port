@@ -9,8 +9,6 @@ System.Infra
     String String
     Range Range
     Data Data
-    StringData StringData
-    StringComp StringComp
     InfraLess Less
     IntLess IntLess
     State State
