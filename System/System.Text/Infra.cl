@@ -159,9 +159,6 @@ class Infra : Any
 
     maide prusate Bool ValidRange(var Text text)
     {
-        var InfraInfra infraInfra;
-        infraInfra : this.InfraInfra;
-
         var Data data;
         data : text.Data;
 
@@ -173,7 +170,7 @@ class Infra : Any
         var Int totalCount;
         totalCount : dataCount / 4;
         
-        inf (~infraInfra.ValidRange(totalCount, range.Index, range.Count))
+        inf (~this.InfraInfra.ValidRange(totalCount, range.Index, range.Count))
         {
             return false;
         }

@@ -176,9 +176,6 @@ public class Infra : Any
 
     public virtual bool ValidRange(Text text)
     {
-        InfraInfra infraInfra;
-        infraInfra = this.InfraInfra;
-
         Data data;
         data = text.Data;
 
@@ -190,7 +187,7 @@ public class Infra : Any
         long totalCount;
         totalCount = dataCount / sizeof(uint);
         
-        if (!infraInfra.ValidRange(totalCount, range.Index, range.Count))
+        if (!this.InfraInfra.ValidRange(totalCount, range.Index, range.Count))
         {
             return false;
         }
