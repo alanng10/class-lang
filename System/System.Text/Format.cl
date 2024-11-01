@@ -401,6 +401,7 @@ class Format : Any
                 var Int ka;
                 ka : k - j * varBase;
 
+                var Int digit;
                 digit : ka;
 
                 var Int n;
