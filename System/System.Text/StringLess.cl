@@ -7,14 +7,14 @@ class StringLess : InfraLess
     }
     
     field prusate IntLess CharLess { get { return data; } set { data : value; } }
-    field prusate Form LiteCharForm { get { return data; } set { data : value; } }
-    field prusate Form RiteCharForm { get { return data; } set { data : value; } }
+    field prusate Form LiteForm { get { return data; } set { data : value; } }
+    field prusate Form RiteForm { get { return data; } set { data : value; } }
     field precate StringComp StringComp { get { return data; } set { data : value; } }
 
     maide prusate Int Execute(var Any lite, var Any rite)
     {
-        var StringComp comp;
-        comp : this.StringComp;
+        var StringComp stringComp;
+        stringComp : this.StringComp;
         
         var String liteString;
         var String riteString;
@@ -23,16 +23,16 @@ class StringLess : InfraLess
 
         var Int liteCount;
         var Int riteCount;
-        liteCount : comp.Count(liteString);
-        riteCount : comp.Count(riteString);
+        liteCount : stringComp.Count(liteString);
+        riteCount : stringComp.Count(riteString);
 
         var IntLess charLess;
         charLess : this.CharLess;
 
-        var Form liteCharForm;
-        var Form riteCharForm;
-        liteCharForm : this.LiteCharForm;
-        riteCharForm : this.RiteCharForm;
+        var Form liteForm;
+        var Form riteForm;
+        liteForm : this.LiteForm;
+        riteForm : this.RiteForm;
 
         var Int count;
         count : liteCount;
