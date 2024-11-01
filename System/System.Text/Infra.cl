@@ -123,8 +123,6 @@ class Infra : Any
 
         var Int index;
         var Int count;
-        index : 0;
-        count : 0;
         var Bool b;
         b : (range = null);
         inf (b)
