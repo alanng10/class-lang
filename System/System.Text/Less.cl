@@ -56,8 +56,8 @@ class Less : InfraLess
 
         var Form liteForm;
         var Form riteForm;
-        liteForm : this.liteForm;
-        riteForm : this.riteForm;
+        liteForm : this.LiteForm;
+        riteForm : this.RiteForm;
 
         var Int count;
         count : liteCount;
