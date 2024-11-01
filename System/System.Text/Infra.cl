@@ -39,54 +39,29 @@ class Infra : Any
     field precate StringComp StringComp { get { return data; } set { data : value; } }
     field precate Code TextCode { get { return data; } set { data : value; } }
 
+    maide prusate Int Char(var String k)
+    {
+        return this.FormInfra.Char(k);
+    }
+
     maide prusate Bool Digit(var Int o)
     {
-        return this.Range(this.StringComp.Char("0", 0), this.StringComp.Char("9", 0), o);
+        return this.FormInfra.Digit(o);
     }
 
     maide prusate Bool HexAlpha(var Int o, var Bool upperCase)
     {
-        var Int first;
-        var Int last;
-
-        inf (~upperCase)
-        {
-            first : this.StringComp.Char("a", 0);
-            last : this.StringComp.Char("f", 0);
-        }
-        inf (upperCase)
-        {
-            first : this.StringComp.Char("A", 0);
-            last : this.StringComp.Char("F", 0);
-        }
-        return this.Range(first, last, o);
+        return this.FormInfra.HexAlpha(o, upperCase);
     }
 
     maide prusate Bool Alpha(var Int o, var Bool upperCase)
     {
-        var Int first;
-        var Int last;
-
-        inf (~upperCase)
-        {
-            first : this.StringComp.Char("a", 0);
-            last : this.StringComp.Char("z", 0);
-        }
-        inf (upperCase)
-        {
-            first : this.StringComp.Char("A", 0);
-            last : this.StringComp.Char("Z", 0);
-        }
-        return this.Range(first, last, o);
+        return this.FormInfra.Alpha(o, upperCase);
     }
 
     maide prusate Bool Range(var Int first, var Int last, var Int o)
     {
-        inf (last < first)
-        {
-            return false;
-        }
-        return ~((o < first) | (last < o));
+        return this.FormInfra.Range(first, last, o);
     }
 
     maide prusate Int DataCharGet(var Data data, var Int index)
