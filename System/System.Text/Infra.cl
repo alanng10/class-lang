@@ -620,6 +620,19 @@ class Infra : Any
         
         return text;
     }
+    
+    maide prusate Text Place(var Text text, var Text limit, var Text join, var InfraLess less)
+    {
+        var Array array;
+        array : this.Limit(text, limit, less);
+        
+        var Text k;
+        k : this.Join(array, join);
+        
+        var Text a;
+        a : k;
+        return a;
+    }
 
     maide prusate Data Code(var CodeKind innKind, var CodeKind outKind, var Data data, var Range range)
     {
