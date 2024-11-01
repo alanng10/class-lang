@@ -47,7 +47,7 @@ class StringAdd : Any
 
     maide prusate Bool Execute(var Int n)
     {
-        var Infra infraInfra;
+        var InfraInfra infraInfra;
         infraInfra : this.InfraInfra;
 
         var Int count;
