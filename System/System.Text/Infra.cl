@@ -576,7 +576,49 @@ class Infra : Any
             i : i + 1;
         }
         
-
+        var Text text;
+        text : this.TextCreate(k);
+        
+        var Data dest;
+        dest : text.Data;
+        
+        var Data joinData;
+        joinData : join.Data;
+        
+        var Int joinIndex;
+        joinIndex : joinRange.Index;
+        
+        k : 0;
+        i : 0;
+        while (i < count)
+        {
+            inf (0 < i)
+            {
+                this.Copy(dest, k, joinData, joinIndex, joinCount);
+                
+                k : k + joinCount;
+            }
+            
+            var Text ka;
+            ka : cast Text(array.Get(i));
+            
+            var Data kaData;
+            kaData : ka.Data;
+            
+            var Range kaRange;
+            kaRange : ka.Range;
+            
+            var Int kaCount;
+            kaCount : kaRange.Count;
+            
+            this.Copy(dest, k, kaData, kaRange.Index, kaCount);
+            
+            k : k + kaCount;
+            
+            i : i + 1;
+        }
+        
+        return text;
     }
 
     maide prusate Data Code(var CodeKind innKind, var CodeKind outKind, var Data data, var Range range)
